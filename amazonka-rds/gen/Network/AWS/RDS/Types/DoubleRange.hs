@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DoubleRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of double values.
 --
 -- /See:/ 'newDoubleRange' smart constructor.
 data DoubleRange = DoubleRange'
   { -- | The maximum value in the range.
-    to :: Prelude.Maybe Prelude.Double,
+    to :: Core.Maybe Core.Double,
     -- | The minimum value in the range.
-    from :: Prelude.Maybe Prelude.Double
+    from :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DoubleRange' with all optional fields omitted.
@@ -49,24 +48,23 @@ newDoubleRange ::
   DoubleRange
 newDoubleRange =
   DoubleRange'
-    { to = Prelude.Nothing,
-      from = Prelude.Nothing
+    { to = Core.Nothing,
+      from = Core.Nothing
     }
 
 -- | The maximum value in the range.
-doubleRange_to :: Lens.Lens' DoubleRange (Prelude.Maybe Prelude.Double)
+doubleRange_to :: Lens.Lens' DoubleRange (Core.Maybe Core.Double)
 doubleRange_to = Lens.lens (\DoubleRange' {to} -> to) (\s@DoubleRange' {} a -> s {to = a} :: DoubleRange)
 
 -- | The minimum value in the range.
-doubleRange_from :: Lens.Lens' DoubleRange (Prelude.Maybe Prelude.Double)
+doubleRange_from :: Lens.Lens' DoubleRange (Core.Maybe Core.Double)
 doubleRange_from = Lens.lens (\DoubleRange' {from} -> from) (\s@DoubleRange' {} a -> s {from = a} :: DoubleRange)
 
-instance Prelude.FromXML DoubleRange where
+instance Core.FromXML DoubleRange where
   parseXML x =
     DoubleRange'
-      Prelude.<$> (x Prelude..@? "To")
-      Prelude.<*> (x Prelude..@? "From")
+      Core.<$> (x Core..@? "To") Core.<*> (x Core..@? "From")
 
-instance Prelude.Hashable DoubleRange
+instance Core.Hashable DoubleRange
 
-instance Prelude.NFData DoubleRange
+instance Core.NFData DoubleRange

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.LocalSecondaryIndexInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a local secondary index for the table when
 -- the backup was created.
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLocalSecondaryIndexInfo' smart constructor.
 data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
   { -- | Represents the name of the local secondary index.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | The complete key schema for a local secondary index, which consists of
     -- one or more pairs of attribute names and key types:
     --
@@ -48,13 +47,13 @@ data LocalSecondaryIndexInfo = LocalSecondaryIndexInfo'
     -- \"range attribute\" derives from the way DynamoDB stores items with the
     -- same partition key physically close together, in sorted order by the
     -- sort key value.
-    keySchema :: Prelude.Maybe (Prelude.NonEmpty KeySchemaElement),
+    keySchema :: Core.Maybe (Core.NonEmpty KeySchemaElement),
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
-    projection :: Prelude.Maybe Projection
+    projection :: Core.Maybe Projection
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LocalSecondaryIndexInfo' with all optional fields omitted.
@@ -90,14 +89,13 @@ newLocalSecondaryIndexInfo ::
   LocalSecondaryIndexInfo
 newLocalSecondaryIndexInfo =
   LocalSecondaryIndexInfo'
-    { indexName =
-        Prelude.Nothing,
-      keySchema = Prelude.Nothing,
-      projection = Prelude.Nothing
+    { indexName = Core.Nothing,
+      keySchema = Core.Nothing,
+      projection = Core.Nothing
     }
 
 -- | Represents the name of the local secondary index.
-localSecondaryIndexInfo_indexName :: Lens.Lens' LocalSecondaryIndexInfo (Prelude.Maybe Prelude.Text)
+localSecondaryIndexInfo_indexName :: Lens.Lens' LocalSecondaryIndexInfo (Core.Maybe Core.Text)
 localSecondaryIndexInfo_indexName = Lens.lens (\LocalSecondaryIndexInfo' {indexName} -> indexName) (\s@LocalSecondaryIndexInfo' {} a -> s {indexName = a} :: LocalSecondaryIndexInfo)
 
 -- | The complete key schema for a local secondary index, which consists of
@@ -116,26 +114,26 @@ localSecondaryIndexInfo_indexName = Lens.lens (\LocalSecondaryIndexInfo' {indexN
 -- \"range attribute\" derives from the way DynamoDB stores items with the
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
-localSecondaryIndexInfo_keySchema :: Lens.Lens' LocalSecondaryIndexInfo (Prelude.Maybe (Prelude.NonEmpty KeySchemaElement))
-localSecondaryIndexInfo_keySchema = Lens.lens (\LocalSecondaryIndexInfo' {keySchema} -> keySchema) (\s@LocalSecondaryIndexInfo' {} a -> s {keySchema = a} :: LocalSecondaryIndexInfo) Prelude.. Lens.mapping Prelude._Coerce
+localSecondaryIndexInfo_keySchema :: Lens.Lens' LocalSecondaryIndexInfo (Core.Maybe (Core.NonEmpty KeySchemaElement))
+localSecondaryIndexInfo_keySchema = Lens.lens (\LocalSecondaryIndexInfo' {keySchema} -> keySchema) (\s@LocalSecondaryIndexInfo' {} a -> s {keySchema = a} :: LocalSecondaryIndexInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
 -- attributes and index key attributes, which are automatically projected.
-localSecondaryIndexInfo_projection :: Lens.Lens' LocalSecondaryIndexInfo (Prelude.Maybe Projection)
+localSecondaryIndexInfo_projection :: Lens.Lens' LocalSecondaryIndexInfo (Core.Maybe Projection)
 localSecondaryIndexInfo_projection = Lens.lens (\LocalSecondaryIndexInfo' {projection} -> projection) (\s@LocalSecondaryIndexInfo' {} a -> s {projection = a} :: LocalSecondaryIndexInfo)
 
-instance Prelude.FromJSON LocalSecondaryIndexInfo where
+instance Core.FromJSON LocalSecondaryIndexInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LocalSecondaryIndexInfo"
       ( \x ->
           LocalSecondaryIndexInfo'
-            Prelude.<$> (x Prelude..:? "IndexName")
-            Prelude.<*> (x Prelude..:? "KeySchema")
-            Prelude.<*> (x Prelude..:? "Projection")
+            Core.<$> (x Core..:? "IndexName")
+            Core.<*> (x Core..:? "KeySchema")
+            Core.<*> (x Core..:? "Projection")
       )
 
-instance Prelude.Hashable LocalSecondaryIndexInfo
+instance Core.Hashable LocalSecondaryIndexInfo
 
-instance Prelude.NFData LocalSecondaryIndexInfo
+instance Core.NFData LocalSecondaryIndexInfo

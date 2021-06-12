@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AssetPropertyValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AssetPropertyTimestamp
 import Network.AWS.IoT.Types.AssetPropertyVariant
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An asset property value entry containing the following information.
 --
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data AssetPropertyValue = AssetPropertyValue'
   { -- | Optional. A string that describes the quality of the value. Accepts
     -- substitution templates. Must be @GOOD@, @BAD@, or @UNCERTAIN@.
-    quality :: Prelude.Maybe Prelude.Text,
+    quality :: Core.Maybe Core.Text,
     -- | The value of the asset property.
     value :: AssetPropertyVariant,
     -- | The asset property value timestamp.
     timestamp :: AssetPropertyTimestamp
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssetPropertyValue' with all optional fields omitted.
@@ -61,14 +60,14 @@ newAssetPropertyValue ::
   AssetPropertyValue
 newAssetPropertyValue pValue_ pTimestamp_ =
   AssetPropertyValue'
-    { quality = Prelude.Nothing,
+    { quality = Core.Nothing,
       value = pValue_,
       timestamp = pTimestamp_
     }
 
 -- | Optional. A string that describes the quality of the value. Accepts
 -- substitution templates. Must be @GOOD@, @BAD@, or @UNCERTAIN@.
-assetPropertyValue_quality :: Lens.Lens' AssetPropertyValue (Prelude.Maybe Prelude.Text)
+assetPropertyValue_quality :: Lens.Lens' AssetPropertyValue (Core.Maybe Core.Text)
 assetPropertyValue_quality = Lens.lens (\AssetPropertyValue' {quality} -> quality) (\s@AssetPropertyValue' {} a -> s {quality = a} :: AssetPropertyValue)
 
 -- | The value of the asset property.
@@ -79,27 +78,27 @@ assetPropertyValue_value = Lens.lens (\AssetPropertyValue' {value} -> value) (\s
 assetPropertyValue_timestamp :: Lens.Lens' AssetPropertyValue AssetPropertyTimestamp
 assetPropertyValue_timestamp = Lens.lens (\AssetPropertyValue' {timestamp} -> timestamp) (\s@AssetPropertyValue' {} a -> s {timestamp = a} :: AssetPropertyValue)
 
-instance Prelude.FromJSON AssetPropertyValue where
+instance Core.FromJSON AssetPropertyValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssetPropertyValue"
       ( \x ->
           AssetPropertyValue'
-            Prelude.<$> (x Prelude..:? "quality")
-            Prelude.<*> (x Prelude..: "value")
-            Prelude.<*> (x Prelude..: "timestamp")
+            Core.<$> (x Core..:? "quality")
+            Core.<*> (x Core..: "value")
+            Core.<*> (x Core..: "timestamp")
       )
 
-instance Prelude.Hashable AssetPropertyValue
+instance Core.Hashable AssetPropertyValue
 
-instance Prelude.NFData AssetPropertyValue
+instance Core.NFData AssetPropertyValue
 
-instance Prelude.ToJSON AssetPropertyValue where
+instance Core.ToJSON AssetPropertyValue where
   toJSON AssetPropertyValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("quality" Prelude..=) Prelude.<$> quality,
-            Prelude.Just ("value" Prelude..= value),
-            Prelude.Just ("timestamp" Prelude..= timestamp)
+    Core.object
+      ( Core.catMaybes
+          [ ("quality" Core..=) Core.<$> quality,
+            Core.Just ("value" Core..= value),
+            Core.Just ("timestamp" Core..= timestamp)
           ]
       )

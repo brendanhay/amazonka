@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Shield.CreateProtectionGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -58,15 +57,15 @@ data CreateProtectionGroup = CreateProtectionGroup'
     -- protected resources of this type are automatically added to the group.
     -- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you
     -- must not set it for any other @Pattern@ setting.
-    resourceType :: Prelude.Maybe ProtectedResourceType,
+    resourceType :: Core.Maybe ProtectedResourceType,
     -- | The Amazon Resource Names (ARNs) of the resources to include in the
     -- protection group. You must set this when you set @Pattern@ to
     -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-    members :: Prelude.Maybe [Prelude.Text],
+    members :: Core.Maybe [Core.Text],
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
-    protectionGroupId :: Prelude.Text,
+    protectionGroupId :: Core.Text,
     -- | Defines how AWS Shield combines resource data for the group in order to
     -- detect, mitigate, and report events.
     --
@@ -89,7 +88,7 @@ data CreateProtectionGroup = CreateProtectionGroup'
     -- resources of a specified resource type.
     pattern' :: ProtectionGroupPattern
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProtectionGroup' with all optional fields omitted.
@@ -135,7 +134,7 @@ data CreateProtectionGroup = CreateProtectionGroup'
 -- resources of a specified resource type.
 newCreateProtectionGroup ::
   -- | 'protectionGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'aggregation'
   ProtectionGroupAggregation ->
   -- | 'pattern''
@@ -146,9 +145,8 @@ newCreateProtectionGroup
   pAggregation_
   pPattern_ =
     CreateProtectionGroup'
-      { resourceType =
-          Prelude.Nothing,
-        members = Prelude.Nothing,
+      { resourceType = Core.Nothing,
+        members = Core.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
         pattern' = pPattern_
@@ -159,19 +157,19 @@ newCreateProtectionGroup
 -- protected resources of this type are automatically added to the group.
 -- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you
 -- must not set it for any other @Pattern@ setting.
-createProtectionGroup_resourceType :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe ProtectedResourceType)
+createProtectionGroup_resourceType :: Lens.Lens' CreateProtectionGroup (Core.Maybe ProtectedResourceType)
 createProtectionGroup_resourceType = Lens.lens (\CreateProtectionGroup' {resourceType} -> resourceType) (\s@CreateProtectionGroup' {} a -> s {resourceType = a} :: CreateProtectionGroup)
 
 -- | The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-createProtectionGroup_members :: Lens.Lens' CreateProtectionGroup (Prelude.Maybe [Prelude.Text])
-createProtectionGroup_members = Lens.lens (\CreateProtectionGroup' {members} -> members) (\s@CreateProtectionGroup' {} a -> s {members = a} :: CreateProtectionGroup) Prelude.. Lens.mapping Prelude._Coerce
+createProtectionGroup_members :: Lens.Lens' CreateProtectionGroup (Core.Maybe [Core.Text])
+createProtectionGroup_members = Lens.lens (\CreateProtectionGroup' {members} -> members) (\s@CreateProtectionGroup' {} a -> s {members = a} :: CreateProtectionGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
-createProtectionGroup_protectionGroupId :: Lens.Lens' CreateProtectionGroup Prelude.Text
+createProtectionGroup_protectionGroupId :: Lens.Lens' CreateProtectionGroup Core.Text
 createProtectionGroup_protectionGroupId = Lens.lens (\CreateProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@CreateProtectionGroup' {} a -> s {protectionGroupId = a} :: CreateProtectionGroup)
 
 -- | Defines how AWS Shield combines resource data for the group in order to
@@ -199,63 +197,60 @@ createProtectionGroup_aggregation = Lens.lens (\CreateProtectionGroup' {aggregat
 createProtectionGroup_pattern :: Lens.Lens' CreateProtectionGroup ProtectionGroupPattern
 createProtectionGroup_pattern = Lens.lens (\CreateProtectionGroup' {pattern'} -> pattern') (\s@CreateProtectionGroup' {} a -> s {pattern' = a} :: CreateProtectionGroup)
 
-instance Prelude.AWSRequest CreateProtectionGroup where
+instance Core.AWSRequest CreateProtectionGroup where
   type
-    Rs CreateProtectionGroup =
+    AWSResponse CreateProtectionGroup =
       CreateProtectionGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateProtectionGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProtectionGroup
+instance Core.Hashable CreateProtectionGroup
 
-instance Prelude.NFData CreateProtectionGroup
+instance Core.NFData CreateProtectionGroup
 
-instance Prelude.ToHeaders CreateProtectionGroup where
+instance Core.ToHeaders CreateProtectionGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.CreateProtectionGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.CreateProtectionGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateProtectionGroup where
+instance Core.ToJSON CreateProtectionGroup where
   toJSON CreateProtectionGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceType" Prelude..=)
-              Prelude.<$> resourceType,
-            ("Members" Prelude..=) Prelude.<$> members,
-            Prelude.Just
-              ("ProtectionGroupId" Prelude..= protectionGroupId),
-            Prelude.Just ("Aggregation" Prelude..= aggregation),
-            Prelude.Just ("Pattern" Prelude..= pattern')
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceType" Core..=) Core.<$> resourceType,
+            ("Members" Core..=) Core.<$> members,
+            Core.Just
+              ("ProtectionGroupId" Core..= protectionGroupId),
+            Core.Just ("Aggregation" Core..= aggregation),
+            Core.Just ("Pattern" Core..= pattern')
           ]
       )
 
-instance Prelude.ToPath CreateProtectionGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateProtectionGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateProtectionGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateProtectionGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateProtectionGroupResponse' smart constructor.
 data CreateProtectionGroupResponse = CreateProtectionGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProtectionGroupResponse' with all optional fields omitted.
@@ -268,7 +263,7 @@ data CreateProtectionGroupResponse = CreateProtectionGroupResponse'
 -- 'httpStatus', 'createProtectionGroupResponse_httpStatus' - The response's http status code.
 newCreateProtectionGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateProtectionGroupResponse
 newCreateProtectionGroupResponse pHttpStatus_ =
   CreateProtectionGroupResponse'
@@ -277,7 +272,7 @@ newCreateProtectionGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createProtectionGroupResponse_httpStatus :: Lens.Lens' CreateProtectionGroupResponse Prelude.Int
+createProtectionGroupResponse_httpStatus :: Lens.Lens' CreateProtectionGroupResponse Core.Int
 createProtectionGroupResponse_httpStatus = Lens.lens (\CreateProtectionGroupResponse' {httpStatus} -> httpStatus) (\s@CreateProtectionGroupResponse' {} a -> s {httpStatus = a} :: CreateProtectionGroupResponse)
 
-instance Prelude.NFData CreateProtectionGroupResponse
+instance Core.NFData CreateProtectionGroupResponse

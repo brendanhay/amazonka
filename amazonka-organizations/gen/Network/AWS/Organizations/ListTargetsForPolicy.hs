@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,10 +55,9 @@ module Network.AWS.Organizations.ListTargetsForPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,7 +68,7 @@ data ListTargetsForPolicy = ListTargetsForPolicy'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -81,16 +79,16 @@ data ListTargetsForPolicy = ListTargetsForPolicy'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The unique identifier (ID) of the policy whose attachments you want to
     -- know.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
     -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
     -- letters, digits, or the underscore character (_).
-    policyId :: Prelude.Text
+    policyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTargetsForPolicy' with all optional fields omitted.
@@ -125,12 +123,12 @@ data ListTargetsForPolicy = ListTargetsForPolicy'
 -- letters, digits, or the underscore character (_).
 newListTargetsForPolicy ::
   -- | 'policyId'
-  Prelude.Text ->
+  Core.Text ->
   ListTargetsForPolicy
 newListTargetsForPolicy pPolicyId_ =
   ListTargetsForPolicy'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       policyId = pPolicyId_
     }
 
@@ -139,7 +137,7 @@ newListTargetsForPolicy pPolicyId_ =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listTargetsForPolicy_nextToken :: Lens.Lens' ListTargetsForPolicy (Prelude.Maybe Prelude.Text)
+listTargetsForPolicy_nextToken :: Lens.Lens' ListTargetsForPolicy (Core.Maybe Core.Text)
 listTargetsForPolicy_nextToken = Lens.lens (\ListTargetsForPolicy' {nextToken} -> nextToken) (\s@ListTargetsForPolicy' {} a -> s {nextToken = a} :: ListTargetsForPolicy)
 
 -- | The total number of results that you want included on each page of the
@@ -152,7 +150,7 @@ listTargetsForPolicy_nextToken = Lens.lens (\ListTargetsForPolicy' {nextToken} -
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listTargetsForPolicy_maxResults :: Lens.Lens' ListTargetsForPolicy (Prelude.Maybe Prelude.Natural)
+listTargetsForPolicy_maxResults :: Lens.Lens' ListTargetsForPolicy (Core.Maybe Core.Natural)
 listTargetsForPolicy_maxResults = Lens.lens (\ListTargetsForPolicy' {maxResults} -> maxResults) (\s@ListTargetsForPolicy' {} a -> s {maxResults = a} :: ListTargetsForPolicy)
 
 -- | The unique identifier (ID) of the policy whose attachments you want to
@@ -161,79 +159,77 @@ listTargetsForPolicy_maxResults = Lens.lens (\ListTargetsForPolicy' {maxResults}
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
 -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
 -- letters, digits, or the underscore character (_).
-listTargetsForPolicy_policyId :: Lens.Lens' ListTargetsForPolicy Prelude.Text
+listTargetsForPolicy_policyId :: Lens.Lens' ListTargetsForPolicy Core.Text
 listTargetsForPolicy_policyId = Lens.lens (\ListTargetsForPolicy' {policyId} -> policyId) (\s@ListTargetsForPolicy' {} a -> s {policyId = a} :: ListTargetsForPolicy)
 
-instance Pager.AWSPager ListTargetsForPolicy where
+instance Core.AWSPager ListTargetsForPolicy where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTargetsForPolicyResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTargetsForPolicyResponse_targets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTargetsForPolicy_nextToken
           Lens..~ rs
           Lens.^? listTargetsForPolicyResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTargetsForPolicy where
+instance Core.AWSRequest ListTargetsForPolicy where
   type
-    Rs ListTargetsForPolicy =
+    AWSResponse ListTargetsForPolicy =
       ListTargetsForPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTargetsForPolicyResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Targets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Targets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTargetsForPolicy
+instance Core.Hashable ListTargetsForPolicy
 
-instance Prelude.NFData ListTargetsForPolicy
+instance Core.NFData ListTargetsForPolicy
 
-instance Prelude.ToHeaders ListTargetsForPolicy where
+instance Core.ToHeaders ListTargetsForPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.ListTargetsForPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.ListTargetsForPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTargetsForPolicy where
+instance Core.ToJSON ListTargetsForPolicy where
   toJSON ListTargetsForPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("PolicyId" Prelude..= policyId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("PolicyId" Core..= policyId)
           ]
       )
 
-instance Prelude.ToPath ListTargetsForPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTargetsForPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTargetsForPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTargetsForPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTargetsForPolicyResponse' smart constructor.
 data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
@@ -242,14 +238,14 @@ data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of structures, each of which contains details about one of the
     -- entities to which the specified policy is attached.
-    targets :: Prelude.Maybe [PolicyTargetSummary],
+    targets :: Core.Maybe [PolicyTargetSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTargetsForPolicyResponse' with all optional fields omitted.
@@ -271,13 +267,13 @@ data ListTargetsForPolicyResponse = ListTargetsForPolicyResponse'
 -- 'httpStatus', 'listTargetsForPolicyResponse_httpStatus' - The response's http status code.
 newListTargetsForPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTargetsForPolicyResponse
 newListTargetsForPolicyResponse pHttpStatus_ =
   ListTargetsForPolicyResponse'
     { nextToken =
-        Prelude.Nothing,
-      targets = Prelude.Nothing,
+        Core.Nothing,
+      targets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -286,16 +282,16 @@ newListTargetsForPolicyResponse pHttpStatus_ =
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listTargetsForPolicyResponse_nextToken :: Lens.Lens' ListTargetsForPolicyResponse (Prelude.Maybe Prelude.Text)
+listTargetsForPolicyResponse_nextToken :: Lens.Lens' ListTargetsForPolicyResponse (Core.Maybe Core.Text)
 listTargetsForPolicyResponse_nextToken = Lens.lens (\ListTargetsForPolicyResponse' {nextToken} -> nextToken) (\s@ListTargetsForPolicyResponse' {} a -> s {nextToken = a} :: ListTargetsForPolicyResponse)
 
 -- | A list of structures, each of which contains details about one of the
 -- entities to which the specified policy is attached.
-listTargetsForPolicyResponse_targets :: Lens.Lens' ListTargetsForPolicyResponse (Prelude.Maybe [PolicyTargetSummary])
-listTargetsForPolicyResponse_targets = Lens.lens (\ListTargetsForPolicyResponse' {targets} -> targets) (\s@ListTargetsForPolicyResponse' {} a -> s {targets = a} :: ListTargetsForPolicyResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTargetsForPolicyResponse_targets :: Lens.Lens' ListTargetsForPolicyResponse (Core.Maybe [PolicyTargetSummary])
+listTargetsForPolicyResponse_targets = Lens.lens (\ListTargetsForPolicyResponse' {targets} -> targets) (\s@ListTargetsForPolicyResponse' {} a -> s {targets = a} :: ListTargetsForPolicyResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTargetsForPolicyResponse_httpStatus :: Lens.Lens' ListTargetsForPolicyResponse Prelude.Int
+listTargetsForPolicyResponse_httpStatus :: Lens.Lens' ListTargetsForPolicyResponse Core.Int
 listTargetsForPolicyResponse_httpStatus = Lens.lens (\ListTargetsForPolicyResponse' {httpStatus} -> httpStatus) (\s@ListTargetsForPolicyResponse' {} a -> s {httpStatus = a} :: ListTargetsForPolicyResponse)
 
-instance Prelude.NFData ListTargetsForPolicyResponse
+instance Core.NFData ListTargetsForPolicyResponse

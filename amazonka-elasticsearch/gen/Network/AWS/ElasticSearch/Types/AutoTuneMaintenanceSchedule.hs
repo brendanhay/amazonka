@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.Duration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies Auto-Tune maitenance schedule. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
@@ -34,15 +33,15 @@ data AutoTuneMaintenanceSchedule = AutoTuneMaintenanceSchedule'
     -- unit. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    duration :: Prelude.Maybe Duration,
+    duration :: Core.Maybe Duration,
     -- | Specifies timestamp at which Auto-Tune maintenance schedule start.
-    startAt :: Prelude.Maybe Prelude.POSIX,
+    startAt :: Core.Maybe Core.POSIX,
     -- | Specifies cron expression for a recurring maintenance schedule. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    cronExpressionForRecurrence :: Prelude.Maybe Prelude.Text
+    cronExpressionForRecurrence :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoTuneMaintenanceSchedule' with all optional fields omitted.
@@ -67,50 +66,50 @@ newAutoTuneMaintenanceSchedule ::
 newAutoTuneMaintenanceSchedule =
   AutoTuneMaintenanceSchedule'
     { duration =
-        Prelude.Nothing,
-      startAt = Prelude.Nothing,
-      cronExpressionForRecurrence = Prelude.Nothing
+        Core.Nothing,
+      startAt = Core.Nothing,
+      cronExpressionForRecurrence = Core.Nothing
     }
 
 -- | Specifies maintenance schedule duration: duration value and duration
 -- unit. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-autoTuneMaintenanceSchedule_duration :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Duration)
+autoTuneMaintenanceSchedule_duration :: Lens.Lens' AutoTuneMaintenanceSchedule (Core.Maybe Duration)
 autoTuneMaintenanceSchedule_duration = Lens.lens (\AutoTuneMaintenanceSchedule' {duration} -> duration) (\s@AutoTuneMaintenanceSchedule' {} a -> s {duration = a} :: AutoTuneMaintenanceSchedule)
 
 -- | Specifies timestamp at which Auto-Tune maintenance schedule start.
-autoTuneMaintenanceSchedule_startAt :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.UTCTime)
-autoTuneMaintenanceSchedule_startAt = Lens.lens (\AutoTuneMaintenanceSchedule' {startAt} -> startAt) (\s@AutoTuneMaintenanceSchedule' {} a -> s {startAt = a} :: AutoTuneMaintenanceSchedule) Prelude.. Lens.mapping Prelude._Time
+autoTuneMaintenanceSchedule_startAt :: Lens.Lens' AutoTuneMaintenanceSchedule (Core.Maybe Core.UTCTime)
+autoTuneMaintenanceSchedule_startAt = Lens.lens (\AutoTuneMaintenanceSchedule' {startAt} -> startAt) (\s@AutoTuneMaintenanceSchedule' {} a -> s {startAt = a} :: AutoTuneMaintenanceSchedule) Core.. Lens.mapping Core._Time
 
 -- | Specifies cron expression for a recurring maintenance schedule. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-autoTuneMaintenanceSchedule_cronExpressionForRecurrence :: Lens.Lens' AutoTuneMaintenanceSchedule (Prelude.Maybe Prelude.Text)
+autoTuneMaintenanceSchedule_cronExpressionForRecurrence :: Lens.Lens' AutoTuneMaintenanceSchedule (Core.Maybe Core.Text)
 autoTuneMaintenanceSchedule_cronExpressionForRecurrence = Lens.lens (\AutoTuneMaintenanceSchedule' {cronExpressionForRecurrence} -> cronExpressionForRecurrence) (\s@AutoTuneMaintenanceSchedule' {} a -> s {cronExpressionForRecurrence = a} :: AutoTuneMaintenanceSchedule)
 
-instance Prelude.FromJSON AutoTuneMaintenanceSchedule where
+instance Core.FromJSON AutoTuneMaintenanceSchedule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoTuneMaintenanceSchedule"
       ( \x ->
           AutoTuneMaintenanceSchedule'
-            Prelude.<$> (x Prelude..:? "Duration")
-            Prelude.<*> (x Prelude..:? "StartAt")
-            Prelude.<*> (x Prelude..:? "CronExpressionForRecurrence")
+            Core.<$> (x Core..:? "Duration")
+            Core.<*> (x Core..:? "StartAt")
+            Core.<*> (x Core..:? "CronExpressionForRecurrence")
       )
 
-instance Prelude.Hashable AutoTuneMaintenanceSchedule
+instance Core.Hashable AutoTuneMaintenanceSchedule
 
-instance Prelude.NFData AutoTuneMaintenanceSchedule
+instance Core.NFData AutoTuneMaintenanceSchedule
 
-instance Prelude.ToJSON AutoTuneMaintenanceSchedule where
+instance Core.ToJSON AutoTuneMaintenanceSchedule where
   toJSON AutoTuneMaintenanceSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Duration" Prelude..=) Prelude.<$> duration,
-            ("StartAt" Prelude..=) Prelude.<$> startAt,
-            ("CronExpressionForRecurrence" Prelude..=)
-              Prelude.<$> cronExpressionForRecurrence
+    Core.object
+      ( Core.catMaybes
+          [ ("Duration" Core..=) Core.<$> duration,
+            ("StartAt" Core..=) Core.<$> startAt,
+            ("CronExpressionForRecurrence" Core..=)
+              Core.<$> cronExpressionForRecurrence
           ]
       )

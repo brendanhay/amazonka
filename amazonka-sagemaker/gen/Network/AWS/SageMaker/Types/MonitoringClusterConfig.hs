@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringClusterConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingInstanceType
 
 -- | Configuration for the cluster used to run model monitoring jobs.
@@ -31,18 +30,18 @@ data MonitoringClusterConfig = MonitoringClusterConfig'
   { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that run the model monitoring job.
-    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    volumeKmsKeyId :: Core.Maybe Core.Text,
     -- | The number of ML compute instances to use in the model monitoring job.
     -- For distributed processing jobs, specify a value greater than 1. The
     -- default value is 1.
-    instanceCount :: Prelude.Natural,
+    instanceCount :: Core.Natural,
     -- | The ML compute instance type for the processing job.
     instanceType :: ProcessingInstanceType,
     -- | The size of the ML storage volume, in gigabytes, that you want to
     -- provision. You must specify sufficient ML storage for your scenario.
-    volumeSizeInGB :: Prelude.Natural
+    volumeSizeInGB :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringClusterConfig' with all optional fields omitted.
@@ -66,11 +65,11 @@ data MonitoringClusterConfig = MonitoringClusterConfig'
 -- provision. You must specify sufficient ML storage for your scenario.
 newMonitoringClusterConfig ::
   -- | 'instanceCount'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'instanceType'
   ProcessingInstanceType ->
   -- | 'volumeSizeInGB'
-  Prelude.Natural ->
+  Core.Natural ->
   MonitoringClusterConfig
 newMonitoringClusterConfig
   pInstanceCount_
@@ -78,7 +77,7 @@ newMonitoringClusterConfig
   pVolumeSizeInGB_ =
     MonitoringClusterConfig'
       { volumeKmsKeyId =
-          Prelude.Nothing,
+          Core.Nothing,
         instanceCount = pInstanceCount_,
         instanceType = pInstanceType_,
         volumeSizeInGB = pVolumeSizeInGB_
@@ -87,13 +86,13 @@ newMonitoringClusterConfig
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that run the model monitoring job.
-monitoringClusterConfig_volumeKmsKeyId :: Lens.Lens' MonitoringClusterConfig (Prelude.Maybe Prelude.Text)
+monitoringClusterConfig_volumeKmsKeyId :: Lens.Lens' MonitoringClusterConfig (Core.Maybe Core.Text)
 monitoringClusterConfig_volumeKmsKeyId = Lens.lens (\MonitoringClusterConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@MonitoringClusterConfig' {} a -> s {volumeKmsKeyId = a} :: MonitoringClusterConfig)
 
 -- | The number of ML compute instances to use in the model monitoring job.
 -- For distributed processing jobs, specify a value greater than 1. The
 -- default value is 1.
-monitoringClusterConfig_instanceCount :: Lens.Lens' MonitoringClusterConfig Prelude.Natural
+monitoringClusterConfig_instanceCount :: Lens.Lens' MonitoringClusterConfig Core.Natural
 monitoringClusterConfig_instanceCount = Lens.lens (\MonitoringClusterConfig' {instanceCount} -> instanceCount) (\s@MonitoringClusterConfig' {} a -> s {instanceCount = a} :: MonitoringClusterConfig)
 
 -- | The ML compute instance type for the processing job.
@@ -102,36 +101,32 @@ monitoringClusterConfig_instanceType = Lens.lens (\MonitoringClusterConfig' {ins
 
 -- | The size of the ML storage volume, in gigabytes, that you want to
 -- provision. You must specify sufficient ML storage for your scenario.
-monitoringClusterConfig_volumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Prelude.Natural
+monitoringClusterConfig_volumeSizeInGB :: Lens.Lens' MonitoringClusterConfig Core.Natural
 monitoringClusterConfig_volumeSizeInGB = Lens.lens (\MonitoringClusterConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@MonitoringClusterConfig' {} a -> s {volumeSizeInGB = a} :: MonitoringClusterConfig)
 
-instance Prelude.FromJSON MonitoringClusterConfig where
+instance Core.FromJSON MonitoringClusterConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringClusterConfig"
       ( \x ->
           MonitoringClusterConfig'
-            Prelude.<$> (x Prelude..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Prelude..: "InstanceCount")
-            Prelude.<*> (x Prelude..: "InstanceType")
-            Prelude.<*> (x Prelude..: "VolumeSizeInGB")
+            Core.<$> (x Core..:? "VolumeKmsKeyId")
+            Core.<*> (x Core..: "InstanceCount")
+            Core.<*> (x Core..: "InstanceType")
+            Core.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Prelude.Hashable MonitoringClusterConfig
+instance Core.Hashable MonitoringClusterConfig
 
-instance Prelude.NFData MonitoringClusterConfig
+instance Core.NFData MonitoringClusterConfig
 
-instance Prelude.ToJSON MonitoringClusterConfig where
+instance Core.ToJSON MonitoringClusterConfig where
   toJSON MonitoringClusterConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Prelude..=)
-              Prelude.<$> volumeKmsKeyId,
-            Prelude.Just
-              ("InstanceCount" Prelude..= instanceCount),
-            Prelude.Just
-              ("InstanceType" Prelude..= instanceType),
-            Prelude.Just
-              ("VolumeSizeInGB" Prelude..= volumeSizeInGB)
+    Core.object
+      ( Core.catMaybes
+          [ ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            Core.Just ("InstanceCount" Core..= instanceCount),
+            Core.Just ("InstanceType" Core..= instanceType),
+            Core.Just ("VolumeSizeInGB" Core..= volumeSizeInGB)
           ]
       )

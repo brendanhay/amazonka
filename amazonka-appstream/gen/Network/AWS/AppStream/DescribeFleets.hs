@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,21 +46,20 @@ module Network.AWS.AppStream.DescribeFleets
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFleets' smart constructor.
 data DescribeFleets = DescribeFleets'
   { -- | The names of the fleets to describe.
-    names :: Prelude.Maybe [Prelude.Text],
+    names :: Core.Maybe [Core.Text],
     -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFleets' with all optional fields omitted.
@@ -79,96 +77,95 @@ newDescribeFleets ::
   DescribeFleets
 newDescribeFleets =
   DescribeFleets'
-    { names = Prelude.Nothing,
-      nextToken = Prelude.Nothing
+    { names = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The names of the fleets to describe.
-describeFleets_names :: Lens.Lens' DescribeFleets (Prelude.Maybe [Prelude.Text])
-describeFleets_names = Lens.lens (\DescribeFleets' {names} -> names) (\s@DescribeFleets' {} a -> s {names = a} :: DescribeFleets) Prelude.. Lens.mapping Prelude._Coerce
+describeFleets_names :: Lens.Lens' DescribeFleets (Core.Maybe [Core.Text])
+describeFleets_names = Lens.lens (\DescribeFleets' {names} -> names) (\s@DescribeFleets' {} a -> s {names = a} :: DescribeFleets) Core.. Lens.mapping Lens._Coerce
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
-describeFleets_nextToken :: Lens.Lens' DescribeFleets (Prelude.Maybe Prelude.Text)
+describeFleets_nextToken :: Lens.Lens' DescribeFleets (Core.Maybe Core.Text)
 describeFleets_nextToken = Lens.lens (\DescribeFleets' {nextToken} -> nextToken) (\s@DescribeFleets' {} a -> s {nextToken = a} :: DescribeFleets)
 
-instance Pager.AWSPager DescribeFleets where
+instance Core.AWSPager DescribeFleets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeFleetsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeFleetsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeFleetsResponse_fleets Prelude.. Lens._Just
+            Lens.^? describeFleetsResponse_fleets Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeFleets_nextToken
           Lens..~ rs
-          Lens.^? describeFleetsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeFleetsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeFleets where
-  type Rs DescribeFleets = DescribeFleetsResponse
+instance Core.AWSRequest DescribeFleets where
+  type
+    AWSResponse DescribeFleets =
+      DescribeFleetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeFleetsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Fleets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Fleets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFleets
+instance Core.Hashable DescribeFleets
 
-instance Prelude.NFData DescribeFleets
+instance Core.NFData DescribeFleets
 
-instance Prelude.ToHeaders DescribeFleets where
+instance Core.ToHeaders DescribeFleets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DescribeFleets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DescribeFleets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeFleets where
+instance Core.ToJSON DescribeFleets where
   toJSON DescribeFleets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Names" Prelude..=) Prelude.<$> names,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken
+    Core.object
+      ( Core.catMaybes
+          [ ("Names" Core..=) Core.<$> names,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )
 
-instance Prelude.ToPath DescribeFleets where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeFleets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeFleets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeFleets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeFleetsResponse' smart constructor.
 data DescribeFleetsResponse = DescribeFleetsResponse'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the fleets.
-    fleets :: Prelude.Maybe [Fleet],
+    fleets :: Core.Maybe [Fleet],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFleetsResponse' with all optional fields omitted.
@@ -186,27 +183,26 @@ data DescribeFleetsResponse = DescribeFleetsResponse'
 -- 'httpStatus', 'describeFleetsResponse_httpStatus' - The response's http status code.
 newDescribeFleetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeFleetsResponse
 newDescribeFleetsResponse pHttpStatus_ =
   DescribeFleetsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      fleets = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      fleets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
-describeFleetsResponse_nextToken :: Lens.Lens' DescribeFleetsResponse (Prelude.Maybe Prelude.Text)
+describeFleetsResponse_nextToken :: Lens.Lens' DescribeFleetsResponse (Core.Maybe Core.Text)
 describeFleetsResponse_nextToken = Lens.lens (\DescribeFleetsResponse' {nextToken} -> nextToken) (\s@DescribeFleetsResponse' {} a -> s {nextToken = a} :: DescribeFleetsResponse)
 
 -- | Information about the fleets.
-describeFleetsResponse_fleets :: Lens.Lens' DescribeFleetsResponse (Prelude.Maybe [Fleet])
-describeFleetsResponse_fleets = Lens.lens (\DescribeFleetsResponse' {fleets} -> fleets) (\s@DescribeFleetsResponse' {} a -> s {fleets = a} :: DescribeFleetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeFleetsResponse_fleets :: Lens.Lens' DescribeFleetsResponse (Core.Maybe [Fleet])
+describeFleetsResponse_fleets = Lens.lens (\DescribeFleetsResponse' {fleets} -> fleets) (\s@DescribeFleetsResponse' {} a -> s {fleets = a} :: DescribeFleetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeFleetsResponse_httpStatus :: Lens.Lens' DescribeFleetsResponse Prelude.Int
+describeFleetsResponse_httpStatus :: Lens.Lens' DescribeFleetsResponse Core.Int
 describeFleetsResponse_httpStatus = Lens.lens (\DescribeFleetsResponse' {httpStatus} -> httpStatus) (\s@DescribeFleetsResponse' {} a -> s {httpStatus = a} :: DescribeFleetsResponse)
 
-instance Prelude.NFData DescribeFleetsResponse
+instance Core.NFData DescribeFleetsResponse

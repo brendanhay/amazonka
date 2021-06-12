@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.HealthCheck where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a health check.
 --
@@ -46,23 +45,23 @@ data HealthCheck = HealthCheck'
     --
     -- The total length of the HTTP ping target must be 1024 16-bit Unicode
     -- characters or less.
-    target :: Prelude.Text,
+    target :: Core.Text,
     -- | The approximate interval, in seconds, between health checks of an
     -- individual instance.
-    interval :: Prelude.Natural,
+    interval :: Core.Natural,
     -- | The amount of time, in seconds, during which no response means a failed
     -- health check.
     --
     -- This value must be less than the @Interval@ value.
-    timeout :: Prelude.Natural,
+    timeout :: Core.Natural,
     -- | The number of consecutive health check failures required before moving
     -- the instance to the @Unhealthy@ state.
-    unhealthyThreshold :: Prelude.Natural,
+    unhealthyThreshold :: Core.Natural,
     -- | The number of consecutive health checks successes required before moving
     -- the instance to the @Healthy@ state.
-    healthyThreshold :: Prelude.Natural
+    healthyThreshold :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HealthCheck' with all optional fields omitted.
@@ -106,15 +105,15 @@ data HealthCheck = HealthCheck'
 -- the instance to the @Healthy@ state.
 newHealthCheck ::
   -- | 'target'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'interval'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'timeout'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'unhealthyThreshold'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'healthyThreshold'
-  Prelude.Natural ->
+  Core.Natural ->
   HealthCheck
 newHealthCheck
   pTarget_
@@ -148,50 +147,50 @@ newHealthCheck
 --
 -- The total length of the HTTP ping target must be 1024 16-bit Unicode
 -- characters or less.
-healthCheck_target :: Lens.Lens' HealthCheck Prelude.Text
+healthCheck_target :: Lens.Lens' HealthCheck Core.Text
 healthCheck_target = Lens.lens (\HealthCheck' {target} -> target) (\s@HealthCheck' {} a -> s {target = a} :: HealthCheck)
 
 -- | The approximate interval, in seconds, between health checks of an
 -- individual instance.
-healthCheck_interval :: Lens.Lens' HealthCheck Prelude.Natural
+healthCheck_interval :: Lens.Lens' HealthCheck Core.Natural
 healthCheck_interval = Lens.lens (\HealthCheck' {interval} -> interval) (\s@HealthCheck' {} a -> s {interval = a} :: HealthCheck)
 
 -- | The amount of time, in seconds, during which no response means a failed
 -- health check.
 --
 -- This value must be less than the @Interval@ value.
-healthCheck_timeout :: Lens.Lens' HealthCheck Prelude.Natural
+healthCheck_timeout :: Lens.Lens' HealthCheck Core.Natural
 healthCheck_timeout = Lens.lens (\HealthCheck' {timeout} -> timeout) (\s@HealthCheck' {} a -> s {timeout = a} :: HealthCheck)
 
 -- | The number of consecutive health check failures required before moving
 -- the instance to the @Unhealthy@ state.
-healthCheck_unhealthyThreshold :: Lens.Lens' HealthCheck Prelude.Natural
+healthCheck_unhealthyThreshold :: Lens.Lens' HealthCheck Core.Natural
 healthCheck_unhealthyThreshold = Lens.lens (\HealthCheck' {unhealthyThreshold} -> unhealthyThreshold) (\s@HealthCheck' {} a -> s {unhealthyThreshold = a} :: HealthCheck)
 
 -- | The number of consecutive health checks successes required before moving
 -- the instance to the @Healthy@ state.
-healthCheck_healthyThreshold :: Lens.Lens' HealthCheck Prelude.Natural
+healthCheck_healthyThreshold :: Lens.Lens' HealthCheck Core.Natural
 healthCheck_healthyThreshold = Lens.lens (\HealthCheck' {healthyThreshold} -> healthyThreshold) (\s@HealthCheck' {} a -> s {healthyThreshold = a} :: HealthCheck)
 
-instance Prelude.FromXML HealthCheck where
+instance Core.FromXML HealthCheck where
   parseXML x =
     HealthCheck'
-      Prelude.<$> (x Prelude..@ "Target")
-      Prelude.<*> (x Prelude..@ "Interval")
-      Prelude.<*> (x Prelude..@ "Timeout")
-      Prelude.<*> (x Prelude..@ "UnhealthyThreshold")
-      Prelude.<*> (x Prelude..@ "HealthyThreshold")
+      Core.<$> (x Core..@ "Target")
+      Core.<*> (x Core..@ "Interval")
+      Core.<*> (x Core..@ "Timeout")
+      Core.<*> (x Core..@ "UnhealthyThreshold")
+      Core.<*> (x Core..@ "HealthyThreshold")
 
-instance Prelude.Hashable HealthCheck
+instance Core.Hashable HealthCheck
 
-instance Prelude.NFData HealthCheck
+instance Core.NFData HealthCheck
 
-instance Prelude.ToQuery HealthCheck where
+instance Core.ToQuery HealthCheck where
   toQuery HealthCheck' {..} =
-    Prelude.mconcat
-      [ "Target" Prelude.=: target,
-        "Interval" Prelude.=: interval,
-        "Timeout" Prelude.=: timeout,
-        "UnhealthyThreshold" Prelude.=: unhealthyThreshold,
-        "HealthyThreshold" Prelude.=: healthyThreshold
+    Core.mconcat
+      [ "Target" Core.=: target,
+        "Interval" Core.=: interval,
+        "Timeout" Core.=: timeout,
+        "UnhealthyThreshold" Core.=: unhealthyThreshold,
+        "HealthyThreshold" Core.=: healthyThreshold
       ]

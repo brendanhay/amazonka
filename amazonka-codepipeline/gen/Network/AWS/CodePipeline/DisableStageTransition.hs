@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CodePipeline.DisableStageTransition
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data DisableStageTransition = DisableStageTransition'
   { -- | The name of the pipeline in which you want to disable the flow of
     -- artifacts from one stage to another.
-    pipelineName :: Prelude.Text,
+    pipelineName :: Core.Text,
     -- | The name of the stage where you want to disable the inbound or outbound
     -- transition of artifacts.
-    stageName :: Prelude.Text,
+    stageName :: Core.Text,
     -- | Specifies whether artifacts are prevented from transitioning into the
     -- stage and being processed by the actions in that stage (inbound), or
     -- prevented from transitioning from the stage after they have been
@@ -64,9 +63,9 @@ data DisableStageTransition = DisableStageTransition'
     -- | The reason given to the user that a stage is disabled, such as waiting
     -- for manual approval or manual tests. This message is displayed in the
     -- pipeline console UI.
-    reason :: Prelude.Text
+    reason :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableStageTransition' with all optional fields omitted.
@@ -92,13 +91,13 @@ data DisableStageTransition = DisableStageTransition'
 -- pipeline console UI.
 newDisableStageTransition ::
   -- | 'pipelineName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transitionType'
   StageTransitionType ->
   -- | 'reason'
-  Prelude.Text ->
+  Core.Text ->
   DisableStageTransition
 newDisableStageTransition
   pPipelineName_
@@ -115,12 +114,12 @@ newDisableStageTransition
 
 -- | The name of the pipeline in which you want to disable the flow of
 -- artifacts from one stage to another.
-disableStageTransition_pipelineName :: Lens.Lens' DisableStageTransition Prelude.Text
+disableStageTransition_pipelineName :: Lens.Lens' DisableStageTransition Core.Text
 disableStageTransition_pipelineName = Lens.lens (\DisableStageTransition' {pipelineName} -> pipelineName) (\s@DisableStageTransition' {} a -> s {pipelineName = a} :: DisableStageTransition)
 
 -- | The name of the stage where you want to disable the inbound or outbound
 -- transition of artifacts.
-disableStageTransition_stageName :: Lens.Lens' DisableStageTransition Prelude.Text
+disableStageTransition_stageName :: Lens.Lens' DisableStageTransition Core.Text
 disableStageTransition_stageName = Lens.lens (\DisableStageTransition' {stageName} -> stageName) (\s@DisableStageTransition' {} a -> s {stageName = a} :: DisableStageTransition)
 
 -- | Specifies whether artifacts are prevented from transitioning into the
@@ -133,61 +132,57 @@ disableStageTransition_transitionType = Lens.lens (\DisableStageTransition' {tra
 -- | The reason given to the user that a stage is disabled, such as waiting
 -- for manual approval or manual tests. This message is displayed in the
 -- pipeline console UI.
-disableStageTransition_reason :: Lens.Lens' DisableStageTransition Prelude.Text
+disableStageTransition_reason :: Lens.Lens' DisableStageTransition Core.Text
 disableStageTransition_reason = Lens.lens (\DisableStageTransition' {reason} -> reason) (\s@DisableStageTransition' {} a -> s {reason = a} :: DisableStageTransition)
 
-instance Prelude.AWSRequest DisableStageTransition where
+instance Core.AWSRequest DisableStageTransition where
   type
-    Rs DisableStageTransition =
+    AWSResponse DisableStageTransition =
       DisableStageTransitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DisableStageTransitionResponse'
 
-instance Prelude.Hashable DisableStageTransition
+instance Core.Hashable DisableStageTransition
 
-instance Prelude.NFData DisableStageTransition
+instance Core.NFData DisableStageTransition
 
-instance Prelude.ToHeaders DisableStageTransition where
+instance Core.ToHeaders DisableStageTransition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.DisableStageTransition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.DisableStageTransition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableStageTransition where
+instance Core.ToJSON DisableStageTransition where
   toJSON DisableStageTransition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("pipelineName" Prelude..= pipelineName),
-            Prelude.Just ("stageName" Prelude..= stageName),
-            Prelude.Just
-              ("transitionType" Prelude..= transitionType),
-            Prelude.Just ("reason" Prelude..= reason)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pipelineName" Core..= pipelineName),
+            Core.Just ("stageName" Core..= stageName),
+            Core.Just ("transitionType" Core..= transitionType),
+            Core.Just ("reason" Core..= reason)
           ]
       )
 
-instance Prelude.ToPath DisableStageTransition where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableStageTransition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableStageTransition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableStageTransition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableStageTransitionResponse' smart constructor.
 data DisableStageTransitionResponse = DisableStageTransitionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableStageTransitionResponse' with all optional fields omitted.
@@ -198,6 +193,4 @@ newDisableStageTransitionResponse ::
 newDisableStageTransitionResponse =
   DisableStageTransitionResponse'
 
-instance
-  Prelude.NFData
-    DisableStageTransitionResponse
+instance Core.NFData DisableStageTransitionResponse

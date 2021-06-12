@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.EC2.DescribeCustomerGateways
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +59,11 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more customer gateway IDs.
     --
     -- Default: Describes all your customer gateways.
-    customerGatewayIds :: Prelude.Maybe [Prelude.Text],
+    customerGatewayIds :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @bgp-asn@ - The customer gateway\'s Border Gateway Protocol (BGP)
@@ -90,9 +89,9 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCustomerGateways' with all optional fields omitted.
@@ -140,23 +139,23 @@ newDescribeCustomerGateways ::
   DescribeCustomerGateways
 newDescribeCustomerGateways =
   DescribeCustomerGateways'
-    { dryRun = Prelude.Nothing,
-      customerGatewayIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      customerGatewayIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeCustomerGateways_dryRun :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe Prelude.Bool)
+describeCustomerGateways_dryRun :: Lens.Lens' DescribeCustomerGateways (Core.Maybe Core.Bool)
 describeCustomerGateways_dryRun = Lens.lens (\DescribeCustomerGateways' {dryRun} -> dryRun) (\s@DescribeCustomerGateways' {} a -> s {dryRun = a} :: DescribeCustomerGateways)
 
 -- | One or more customer gateway IDs.
 --
 -- Default: Describes all your customer gateways.
-describeCustomerGateways_customerGatewayIds :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe [Prelude.Text])
-describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGateways' {customerGatewayIds} -> customerGatewayIds) (\s@DescribeCustomerGateways' {} a -> s {customerGatewayIds = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Prelude._Coerce
+describeCustomerGateways_customerGatewayIds :: Lens.Lens' DescribeCustomerGateways (Core.Maybe [Core.Text])
+describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGateways' {customerGatewayIds} -> customerGatewayIds) (\s@DescribeCustomerGateways' {} a -> s {customerGatewayIds = a} :: DescribeCustomerGateways) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -183,49 +182,47 @@ describeCustomerGateways_customerGatewayIds = Lens.lens (\DescribeCustomerGatewa
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeCustomerGateways_filters :: Lens.Lens' DescribeCustomerGateways (Prelude.Maybe [Filter])
-describeCustomerGateways_filters = Lens.lens (\DescribeCustomerGateways' {filters} -> filters) (\s@DescribeCustomerGateways' {} a -> s {filters = a} :: DescribeCustomerGateways) Prelude.. Lens.mapping Prelude._Coerce
+describeCustomerGateways_filters :: Lens.Lens' DescribeCustomerGateways (Core.Maybe [Filter])
+describeCustomerGateways_filters = Lens.lens (\DescribeCustomerGateways' {filters} -> filters) (\s@DescribeCustomerGateways' {} a -> s {filters = a} :: DescribeCustomerGateways) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeCustomerGateways where
+instance Core.AWSRequest DescribeCustomerGateways where
   type
-    Rs DescribeCustomerGateways =
+    AWSResponse DescribeCustomerGateways =
       DescribeCustomerGatewaysResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeCustomerGatewaysResponse'
-            Prelude.<$> ( x Prelude..@? "customerGatewaySet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "customerGatewaySet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCustomerGateways
+instance Core.Hashable DescribeCustomerGateways
 
-instance Prelude.NFData DescribeCustomerGateways
+instance Core.NFData DescribeCustomerGateways
 
-instance Prelude.ToHeaders DescribeCustomerGateways where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeCustomerGateways where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeCustomerGateways where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCustomerGateways where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCustomerGateways where
+instance Core.ToQuery DescribeCustomerGateways where
   toQuery DescribeCustomerGateways' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeCustomerGateways" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "CustomerGatewayId"
-              Prelude.<$> customerGatewayIds
+          Core.=: ("DescribeCustomerGateways" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "CustomerGatewayId"
+              Core.<$> customerGatewayIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | Contains the output of DescribeCustomerGateways.
@@ -233,11 +230,11 @@ instance Prelude.ToQuery DescribeCustomerGateways where
 -- /See:/ 'newDescribeCustomerGatewaysResponse' smart constructor.
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
   { -- | Information about one or more customer gateways.
-    customerGateways :: Prelude.Maybe [CustomerGateway],
+    customerGateways :: Core.Maybe [CustomerGateway],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCustomerGatewaysResponse' with all optional fields omitted.
@@ -252,23 +249,21 @@ data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
 -- 'httpStatus', 'describeCustomerGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeCustomerGatewaysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCustomerGatewaysResponse
 newDescribeCustomerGatewaysResponse pHttpStatus_ =
   DescribeCustomerGatewaysResponse'
     { customerGateways =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about one or more customer gateways.
-describeCustomerGatewaysResponse_customerGateways :: Lens.Lens' DescribeCustomerGatewaysResponse (Prelude.Maybe [CustomerGateway])
-describeCustomerGatewaysResponse_customerGateways = Lens.lens (\DescribeCustomerGatewaysResponse' {customerGateways} -> customerGateways) (\s@DescribeCustomerGatewaysResponse' {} a -> s {customerGateways = a} :: DescribeCustomerGatewaysResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeCustomerGatewaysResponse_customerGateways :: Lens.Lens' DescribeCustomerGatewaysResponse (Core.Maybe [CustomerGateway])
+describeCustomerGatewaysResponse_customerGateways = Lens.lens (\DescribeCustomerGatewaysResponse' {customerGateways} -> customerGateways) (\s@DescribeCustomerGatewaysResponse' {} a -> s {customerGateways = a} :: DescribeCustomerGatewaysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeCustomerGatewaysResponse_httpStatus :: Lens.Lens' DescribeCustomerGatewaysResponse Prelude.Int
+describeCustomerGatewaysResponse_httpStatus :: Lens.Lens' DescribeCustomerGatewaysResponse Core.Int
 describeCustomerGatewaysResponse_httpStatus = Lens.lens (\DescribeCustomerGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeCustomerGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeCustomerGatewaysResponse)
 
-instance
-  Prelude.NFData
-    DescribeCustomerGatewaysResponse
+instance Core.NFData DescribeCustomerGatewaysResponse

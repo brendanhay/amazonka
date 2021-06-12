@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.Anomaly where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.AnomalyFeedbackType
 import Network.AWS.CostExplorer.Types.AnomalyScore
 import Network.AWS.CostExplorer.Types.Impact
 import Network.AWS.CostExplorer.Types.RootCause
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An unusual cost pattern. This consists of the detailed metadata and the
 -- current status of the anomaly object.
@@ -34,26 +33,26 @@ import qualified Network.AWS.Prelude as Prelude
 data Anomaly = Anomaly'
   { -- | The dimension for the anomaly. For example, an AWS service in a service
     -- monitor.
-    dimensionValue :: Prelude.Maybe Prelude.Text,
+    dimensionValue :: Core.Maybe Core.Text,
     -- | The list of identified root causes for the anomaly.
-    rootCauses :: Prelude.Maybe [RootCause],
+    rootCauses :: Core.Maybe [RootCause],
     -- | The feedback value.
-    feedback :: Prelude.Maybe AnomalyFeedbackType,
+    feedback :: Core.Maybe AnomalyFeedbackType,
     -- | The first day the anomaly is detected.
-    anomalyStartDate :: Prelude.Maybe Prelude.Text,
+    anomalyStartDate :: Core.Maybe Core.Text,
     -- | The last day the anomaly is detected.
-    anomalyEndDate :: Prelude.Maybe Prelude.Text,
+    anomalyEndDate :: Core.Maybe Core.Text,
     -- | The unique identifier for the anomaly.
-    anomalyId :: Prelude.Text,
+    anomalyId :: Core.Text,
     -- | The latest and maximum score for the anomaly.
     anomalyScore :: AnomalyScore,
     -- | The dollar impact for the anomaly.
     impact :: Impact,
     -- | The Amazon Resource Name (ARN) for the cost monitor that generated this
     -- anomaly.
-    monitorArn :: Prelude.Text
+    monitorArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Anomaly' with all optional fields omitted.
@@ -84,13 +83,13 @@ data Anomaly = Anomaly'
 -- anomaly.
 newAnomaly ::
   -- | 'anomalyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'anomalyScore'
   AnomalyScore ->
   -- | 'impact'
   Impact ->
   -- | 'monitorArn'
-  Prelude.Text ->
+  Core.Text ->
   Anomaly
 newAnomaly
   pAnomalyId_
@@ -98,11 +97,11 @@ newAnomaly
   pImpact_
   pMonitorArn_ =
     Anomaly'
-      { dimensionValue = Prelude.Nothing,
-        rootCauses = Prelude.Nothing,
-        feedback = Prelude.Nothing,
-        anomalyStartDate = Prelude.Nothing,
-        anomalyEndDate = Prelude.Nothing,
+      { dimensionValue = Core.Nothing,
+        rootCauses = Core.Nothing,
+        feedback = Core.Nothing,
+        anomalyStartDate = Core.Nothing,
+        anomalyEndDate = Core.Nothing,
         anomalyId = pAnomalyId_,
         anomalyScore = pAnomalyScore_,
         impact = pImpact_,
@@ -111,27 +110,27 @@ newAnomaly
 
 -- | The dimension for the anomaly. For example, an AWS service in a service
 -- monitor.
-anomaly_dimensionValue :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
+anomaly_dimensionValue :: Lens.Lens' Anomaly (Core.Maybe Core.Text)
 anomaly_dimensionValue = Lens.lens (\Anomaly' {dimensionValue} -> dimensionValue) (\s@Anomaly' {} a -> s {dimensionValue = a} :: Anomaly)
 
 -- | The list of identified root causes for the anomaly.
-anomaly_rootCauses :: Lens.Lens' Anomaly (Prelude.Maybe [RootCause])
-anomaly_rootCauses = Lens.lens (\Anomaly' {rootCauses} -> rootCauses) (\s@Anomaly' {} a -> s {rootCauses = a} :: Anomaly) Prelude.. Lens.mapping Prelude._Coerce
+anomaly_rootCauses :: Lens.Lens' Anomaly (Core.Maybe [RootCause])
+anomaly_rootCauses = Lens.lens (\Anomaly' {rootCauses} -> rootCauses) (\s@Anomaly' {} a -> s {rootCauses = a} :: Anomaly) Core.. Lens.mapping Lens._Coerce
 
 -- | The feedback value.
-anomaly_feedback :: Lens.Lens' Anomaly (Prelude.Maybe AnomalyFeedbackType)
+anomaly_feedback :: Lens.Lens' Anomaly (Core.Maybe AnomalyFeedbackType)
 anomaly_feedback = Lens.lens (\Anomaly' {feedback} -> feedback) (\s@Anomaly' {} a -> s {feedback = a} :: Anomaly)
 
 -- | The first day the anomaly is detected.
-anomaly_anomalyStartDate :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
+anomaly_anomalyStartDate :: Lens.Lens' Anomaly (Core.Maybe Core.Text)
 anomaly_anomalyStartDate = Lens.lens (\Anomaly' {anomalyStartDate} -> anomalyStartDate) (\s@Anomaly' {} a -> s {anomalyStartDate = a} :: Anomaly)
 
 -- | The last day the anomaly is detected.
-anomaly_anomalyEndDate :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
+anomaly_anomalyEndDate :: Lens.Lens' Anomaly (Core.Maybe Core.Text)
 anomaly_anomalyEndDate = Lens.lens (\Anomaly' {anomalyEndDate} -> anomalyEndDate) (\s@Anomaly' {} a -> s {anomalyEndDate = a} :: Anomaly)
 
 -- | The unique identifier for the anomaly.
-anomaly_anomalyId :: Lens.Lens' Anomaly Prelude.Text
+anomaly_anomalyId :: Lens.Lens' Anomaly Core.Text
 anomaly_anomalyId = Lens.lens (\Anomaly' {anomalyId} -> anomalyId) (\s@Anomaly' {} a -> s {anomalyId = a} :: Anomaly)
 
 -- | The latest and maximum score for the anomaly.
@@ -144,28 +143,26 @@ anomaly_impact = Lens.lens (\Anomaly' {impact} -> impact) (\s@Anomaly' {} a -> s
 
 -- | The Amazon Resource Name (ARN) for the cost monitor that generated this
 -- anomaly.
-anomaly_monitorArn :: Lens.Lens' Anomaly Prelude.Text
+anomaly_monitorArn :: Lens.Lens' Anomaly Core.Text
 anomaly_monitorArn = Lens.lens (\Anomaly' {monitorArn} -> monitorArn) (\s@Anomaly' {} a -> s {monitorArn = a} :: Anomaly)
 
-instance Prelude.FromJSON Anomaly where
+instance Core.FromJSON Anomaly where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Anomaly"
       ( \x ->
           Anomaly'
-            Prelude.<$> (x Prelude..:? "DimensionValue")
-            Prelude.<*> ( x Prelude..:? "RootCauses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Feedback")
-            Prelude.<*> (x Prelude..:? "AnomalyStartDate")
-            Prelude.<*> (x Prelude..:? "AnomalyEndDate")
-            Prelude.<*> (x Prelude..: "AnomalyId")
-            Prelude.<*> (x Prelude..: "AnomalyScore")
-            Prelude.<*> (x Prelude..: "Impact")
-            Prelude.<*> (x Prelude..: "MonitorArn")
+            Core.<$> (x Core..:? "DimensionValue")
+            Core.<*> (x Core..:? "RootCauses" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Feedback")
+            Core.<*> (x Core..:? "AnomalyStartDate")
+            Core.<*> (x Core..:? "AnomalyEndDate")
+            Core.<*> (x Core..: "AnomalyId")
+            Core.<*> (x Core..: "AnomalyScore")
+            Core.<*> (x Core..: "Impact")
+            Core.<*> (x Core..: "MonitorArn")
       )
 
-instance Prelude.Hashable Anomaly
+instance Core.Hashable Anomaly
 
-instance Prelude.NFData Anomaly
+instance Core.NFData Anomaly

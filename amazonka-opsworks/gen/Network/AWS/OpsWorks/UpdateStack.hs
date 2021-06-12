@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.OpsWorks.UpdateStack
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -97,7 +96,7 @@ data UpdateStack = UpdateStack'
     -- The default option is the stack\'s current operating system. For more
     -- information about supported operating systems, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems>.
-    defaultOs :: Prelude.Maybe Prelude.Text,
+    defaultOs :: Core.Maybe Core.Text,
     -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
     -- with the stack\'s layers.
     --
@@ -121,21 +120,21 @@ data UpdateStack = UpdateStack'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
+    useOpsworksSecurityGroups :: Core.Maybe Core.Bool,
     -- | Contains the information required to retrieve an app or cookbook from a
     -- repository. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
     -- or
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-    customCookbooksSource :: Prelude.Maybe Source,
+    customCookbooksSource :: Core.Maybe Source,
     -- | Do not use this parameter. You cannot update a stack\'s service role.
-    serviceRoleArn :: Prelude.Maybe Prelude.Text,
+    serviceRoleArn :: Core.Maybe Core.Text,
     -- | The stack\'s default Availability Zone, which must be in the stack\'s
     -- region. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
     -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
     -- the same zone. For more information, see CreateStack.
-    defaultAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    defaultAvailabilityZone :: Core.Maybe Core.Text,
     -- | The default AWS OpsWorks Stacks agent version. You have the following
     -- options:
     --
@@ -155,7 +154,7 @@ data UpdateStack = UpdateStack'
     --
     -- You can also specify an agent version when you create or update an
     -- instance, which overrides the stack\'s default setting.
-    agentVersion :: Prelude.Maybe Prelude.Text,
+    agentVersion :: Core.Maybe Core.Text,
     -- | A string that contains user-defined, custom JSON. It can be used to
     -- override the corresponding default stack configuration JSON values or to
     -- pass data to recipes. The string should be in the following format:
@@ -164,21 +163,21 @@ data UpdateStack = UpdateStack'
     --
     -- For more information about custom JSON, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-    customJson :: Prelude.Maybe Prelude.Text,
+    customJson :: Core.Maybe Core.Text,
     -- | The default root device type. This value is used by default for all
     -- instances in the stack, but you can override it when you create an
     -- instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-    defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
+    defaultRootDeviceType :: Core.Maybe RootDeviceType,
     -- | One or more user-defined key-value pairs to be added to the stack
     -- attributes.
-    attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
+    attributes :: Core.Maybe (Core.HashMap StackAttributesKeys (Core.Maybe Core.Text)),
     -- | The stack\'s new name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ARN of an IAM profile that is the default profile for all of the
     -- stack\'s EC2 instances. For more information about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    defaultInstanceProfileArn :: Prelude.Maybe Prelude.Text,
+    defaultInstanceProfileArn :: Core.Maybe Core.Text,
     -- | The stack\'s new host name theme, with spaces replaced by underscores.
     -- The theme is used to generate host names for the stack\'s instances. By
     -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
@@ -209,7 +208,7 @@ data UpdateStack = UpdateStack'
     --
     -- To obtain a generated host name, call @GetHostNameSuggestion@, which
     -- returns a host name based on the current theme.
-    hostnameTheme :: Prelude.Maybe Prelude.Text,
+    hostnameTheme :: Core.Maybe Core.Text,
     -- | A default Amazon EC2 key-pair name. The default value is @none@. If you
     -- specify a key-pair name, AWS OpsWorks Stacks installs the public key on
     -- the instance and you can use the private key with an SSH client to log
@@ -220,30 +219,30 @@ data UpdateStack = UpdateStack'
     -- You can override this setting by specifying a different key pair, or no
     -- key pair, when you
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-    defaultSshKeyName :: Prelude.Maybe Prelude.Text,
+    defaultSshKeyName :: Core.Maybe Core.Text,
     -- | The configuration manager. When you update a stack, we recommend that
     -- you use the configuration manager to specify the Chef version: 12,
     -- 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default
     -- value for Linux stacks is currently 12.
-    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    configurationManager :: Core.Maybe StackConfigurationManager,
     -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
     -- and the Berkshelf version on Chef 11.10 stacks. For more information,
     -- see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    chefConfiguration :: Prelude.Maybe ChefConfiguration,
+    chefConfiguration :: Core.Maybe ChefConfiguration,
     -- | The stack\'s default VPC subnet ID. This parameter is required if you
     -- specify a value for the @VpcId@ parameter. All instances are launched
     -- into this subnet unless you specify otherwise when you create the
     -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
     -- subnet must be in that zone. For information on default values and when
     -- this parameter is required, see the @VpcId@ parameter description.
-    defaultSubnetId :: Prelude.Maybe Prelude.Text,
+    defaultSubnetId :: Core.Maybe Core.Text,
     -- | Whether the stack uses custom cookbooks.
-    useCustomCookbooks :: Prelude.Maybe Prelude.Bool,
+    useCustomCookbooks :: Core.Maybe Core.Bool,
     -- | The stack ID.
-    stackId :: Prelude.Text
+    stackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStack' with all optional fields omitted.
@@ -429,27 +428,27 @@ data UpdateStack = UpdateStack'
 -- 'stackId', 'updateStack_stackId' - The stack ID.
 newUpdateStack ::
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateStack
 newUpdateStack pStackId_ =
   UpdateStack'
-    { defaultOs = Prelude.Nothing,
-      useOpsworksSecurityGroups = Prelude.Nothing,
-      customCookbooksSource = Prelude.Nothing,
-      serviceRoleArn = Prelude.Nothing,
-      defaultAvailabilityZone = Prelude.Nothing,
-      agentVersion = Prelude.Nothing,
-      customJson = Prelude.Nothing,
-      defaultRootDeviceType = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      name = Prelude.Nothing,
-      defaultInstanceProfileArn = Prelude.Nothing,
-      hostnameTheme = Prelude.Nothing,
-      defaultSshKeyName = Prelude.Nothing,
-      configurationManager = Prelude.Nothing,
-      chefConfiguration = Prelude.Nothing,
-      defaultSubnetId = Prelude.Nothing,
-      useCustomCookbooks = Prelude.Nothing,
+    { defaultOs = Core.Nothing,
+      useOpsworksSecurityGroups = Core.Nothing,
+      customCookbooksSource = Core.Nothing,
+      serviceRoleArn = Core.Nothing,
+      defaultAvailabilityZone = Core.Nothing,
+      agentVersion = Core.Nothing,
+      customJson = Core.Nothing,
+      defaultRootDeviceType = Core.Nothing,
+      attributes = Core.Nothing,
+      name = Core.Nothing,
+      defaultInstanceProfileArn = Core.Nothing,
+      hostnameTheme = Core.Nothing,
+      defaultSshKeyName = Core.Nothing,
+      configurationManager = Core.Nothing,
+      chefConfiguration = Core.Nothing,
+      defaultSubnetId = Core.Nothing,
+      useCustomCookbooks = Core.Nothing,
       stackId = pStackId_
     }
 
@@ -483,7 +482,7 @@ newUpdateStack pStackId_ =
 -- The default option is the stack\'s current operating system. For more
 -- information about supported operating systems, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems>.
-updateStack_defaultOs :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_defaultOs :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_defaultOs = Lens.lens (\UpdateStack' {defaultOs} -> defaultOs) (\s@UpdateStack' {} a -> s {defaultOs = a} :: UpdateStack)
 
 -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
@@ -509,7 +508,7 @@ updateStack_defaultOs = Lens.lens (\UpdateStack' {defaultOs} -> defaultOs) (\s@U
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-updateStack_useOpsworksSecurityGroups :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
+updateStack_useOpsworksSecurityGroups :: Lens.Lens' UpdateStack (Core.Maybe Core.Bool)
 updateStack_useOpsworksSecurityGroups = Lens.lens (\UpdateStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@UpdateStack' {} a -> s {useOpsworksSecurityGroups = a} :: UpdateStack)
 
 -- | Contains the information required to retrieve an app or cookbook from a
@@ -517,11 +516,11 @@ updateStack_useOpsworksSecurityGroups = Lens.lens (\UpdateStack' {useOpsworksSec
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
 -- or
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-updateStack_customCookbooksSource :: Lens.Lens' UpdateStack (Prelude.Maybe Source)
+updateStack_customCookbooksSource :: Lens.Lens' UpdateStack (Core.Maybe Source)
 updateStack_customCookbooksSource = Lens.lens (\UpdateStack' {customCookbooksSource} -> customCookbooksSource) (\s@UpdateStack' {} a -> s {customCookbooksSource = a} :: UpdateStack)
 
 -- | Do not use this parameter. You cannot update a stack\'s service role.
-updateStack_serviceRoleArn :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_serviceRoleArn :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_serviceRoleArn = Lens.lens (\UpdateStack' {serviceRoleArn} -> serviceRoleArn) (\s@UpdateStack' {} a -> s {serviceRoleArn = a} :: UpdateStack)
 
 -- | The stack\'s default Availability Zone, which must be in the stack\'s
@@ -529,7 +528,7 @@ updateStack_serviceRoleArn = Lens.lens (\UpdateStack' {serviceRoleArn} -> servic
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see CreateStack.
-updateStack_defaultAvailabilityZone :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_defaultAvailabilityZone :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_defaultAvailabilityZone = Lens.lens (\UpdateStack' {defaultAvailabilityZone} -> defaultAvailabilityZone) (\s@UpdateStack' {} a -> s {defaultAvailabilityZone = a} :: UpdateStack)
 
 -- | The default AWS OpsWorks Stacks agent version. You have the following
@@ -551,7 +550,7 @@ updateStack_defaultAvailabilityZone = Lens.lens (\UpdateStack' {defaultAvailabil
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
-updateStack_agentVersion :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_agentVersion :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_agentVersion = Lens.lens (\UpdateStack' {agentVersion} -> agentVersion) (\s@UpdateStack' {} a -> s {agentVersion = a} :: UpdateStack)
 
 -- | A string that contains user-defined, custom JSON. It can be used to
@@ -562,29 +561,29 @@ updateStack_agentVersion = Lens.lens (\UpdateStack' {agentVersion} -> agentVersi
 --
 -- For more information about custom JSON, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-updateStack_customJson :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_customJson :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_customJson = Lens.lens (\UpdateStack' {customJson} -> customJson) (\s@UpdateStack' {} a -> s {customJson = a} :: UpdateStack)
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-updateStack_defaultRootDeviceType :: Lens.Lens' UpdateStack (Prelude.Maybe RootDeviceType)
+updateStack_defaultRootDeviceType :: Lens.Lens' UpdateStack (Core.Maybe RootDeviceType)
 updateStack_defaultRootDeviceType = Lens.lens (\UpdateStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@UpdateStack' {} a -> s {defaultRootDeviceType = a} :: UpdateStack)
 
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
-updateStack_attributes :: Lens.Lens' UpdateStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-updateStack_attributes = Lens.lens (\UpdateStack' {attributes} -> attributes) (\s@UpdateStack' {} a -> s {attributes = a} :: UpdateStack) Prelude.. Lens.mapping Prelude._Coerce
+updateStack_attributes :: Lens.Lens' UpdateStack (Core.Maybe (Core.HashMap StackAttributesKeys (Core.Maybe Core.Text)))
+updateStack_attributes = Lens.lens (\UpdateStack' {attributes} -> attributes) (\s@UpdateStack' {} a -> s {attributes = a} :: UpdateStack) Core.. Lens.mapping Lens._Coerce
 
 -- | The stack\'s new name.
-updateStack_name :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_name :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_name = Lens.lens (\UpdateStack' {name} -> name) (\s@UpdateStack' {} a -> s {name = a} :: UpdateStack)
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack\'s EC2 instances. For more information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-updateStack_defaultInstanceProfileArn :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_defaultInstanceProfileArn :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_defaultInstanceProfileArn = Lens.lens (\UpdateStack' {defaultInstanceProfileArn} -> defaultInstanceProfileArn) (\s@UpdateStack' {} a -> s {defaultInstanceProfileArn = a} :: UpdateStack)
 
 -- | The stack\'s new host name theme, with spaces replaced by underscores.
@@ -617,7 +616,7 @@ updateStack_defaultInstanceProfileArn = Lens.lens (\UpdateStack' {defaultInstanc
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
-updateStack_hostnameTheme :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_hostnameTheme :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_hostnameTheme = Lens.lens (\UpdateStack' {hostnameTheme} -> hostnameTheme) (\s@UpdateStack' {} a -> s {hostnameTheme = a} :: UpdateStack)
 
 -- | A default Amazon EC2 key-pair name. The default value is @none@. If you
@@ -630,21 +629,21 @@ updateStack_hostnameTheme = Lens.lens (\UpdateStack' {hostnameTheme} -> hostname
 -- You can override this setting by specifying a different key pair, or no
 -- key pair, when you
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-updateStack_defaultSshKeyName :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_defaultSshKeyName :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_defaultSshKeyName = Lens.lens (\UpdateStack' {defaultSshKeyName} -> defaultSshKeyName) (\s@UpdateStack' {} a -> s {defaultSshKeyName = a} :: UpdateStack)
 
 -- | The configuration manager. When you update a stack, we recommend that
 -- you use the configuration manager to specify the Chef version: 12,
 -- 11.10, or 11.4 for Linux stacks, or 12.2 for Windows stacks. The default
 -- value for Linux stacks is currently 12.
-updateStack_configurationManager :: Lens.Lens' UpdateStack (Prelude.Maybe StackConfigurationManager)
+updateStack_configurationManager :: Lens.Lens' UpdateStack (Core.Maybe StackConfigurationManager)
 updateStack_configurationManager = Lens.lens (\UpdateStack' {configurationManager} -> configurationManager) (\s@UpdateStack' {} a -> s {configurationManager = a} :: UpdateStack)
 
 -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-updateStack_chefConfiguration :: Lens.Lens' UpdateStack (Prelude.Maybe ChefConfiguration)
+updateStack_chefConfiguration :: Lens.Lens' UpdateStack (Core.Maybe ChefConfiguration)
 updateStack_chefConfiguration = Lens.lens (\UpdateStack' {chefConfiguration} -> chefConfiguration) (\s@UpdateStack' {} a -> s {chefConfiguration = a} :: UpdateStack)
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
@@ -653,89 +652,82 @@ updateStack_chefConfiguration = Lens.lens (\UpdateStack' {chefConfiguration} -> 
 -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
 -- subnet must be in that zone. For information on default values and when
 -- this parameter is required, see the @VpcId@ parameter description.
-updateStack_defaultSubnetId :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
+updateStack_defaultSubnetId :: Lens.Lens' UpdateStack (Core.Maybe Core.Text)
 updateStack_defaultSubnetId = Lens.lens (\UpdateStack' {defaultSubnetId} -> defaultSubnetId) (\s@UpdateStack' {} a -> s {defaultSubnetId = a} :: UpdateStack)
 
 -- | Whether the stack uses custom cookbooks.
-updateStack_useCustomCookbooks :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
+updateStack_useCustomCookbooks :: Lens.Lens' UpdateStack (Core.Maybe Core.Bool)
 updateStack_useCustomCookbooks = Lens.lens (\UpdateStack' {useCustomCookbooks} -> useCustomCookbooks) (\s@UpdateStack' {} a -> s {useCustomCookbooks = a} :: UpdateStack)
 
 -- | The stack ID.
-updateStack_stackId :: Lens.Lens' UpdateStack Prelude.Text
+updateStack_stackId :: Lens.Lens' UpdateStack Core.Text
 updateStack_stackId = Lens.lens (\UpdateStack' {stackId} -> stackId) (\s@UpdateStack' {} a -> s {stackId = a} :: UpdateStack)
 
-instance Prelude.AWSRequest UpdateStack where
-  type Rs UpdateStack = UpdateStackResponse
+instance Core.AWSRequest UpdateStack where
+  type AWSResponse UpdateStack = UpdateStackResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateStackResponse'
 
-instance Prelude.Hashable UpdateStack
+instance Core.Hashable UpdateStack
 
-instance Prelude.NFData UpdateStack
+instance Core.NFData UpdateStack
 
-instance Prelude.ToHeaders UpdateStack where
+instance Core.ToHeaders UpdateStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.UpdateStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OpsWorks_20130218.UpdateStack" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateStack where
+instance Core.ToJSON UpdateStack where
   toJSON UpdateStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultOs" Prelude..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Prelude..=)
-              Prelude.<$> useOpsworksSecurityGroups,
-            ("CustomCookbooksSource" Prelude..=)
-              Prelude.<$> customCookbooksSource,
-            ("ServiceRoleArn" Prelude..=)
-              Prelude.<$> serviceRoleArn,
-            ("DefaultAvailabilityZone" Prelude..=)
-              Prelude.<$> defaultAvailabilityZone,
-            ("AgentVersion" Prelude..=) Prelude.<$> agentVersion,
-            ("CustomJson" Prelude..=) Prelude.<$> customJson,
-            ("DefaultRootDeviceType" Prelude..=)
-              Prelude.<$> defaultRootDeviceType,
-            ("Attributes" Prelude..=) Prelude.<$> attributes,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("DefaultInstanceProfileArn" Prelude..=)
-              Prelude.<$> defaultInstanceProfileArn,
-            ("HostnameTheme" Prelude..=)
-              Prelude.<$> hostnameTheme,
-            ("DefaultSshKeyName" Prelude..=)
-              Prelude.<$> defaultSshKeyName,
-            ("ConfigurationManager" Prelude..=)
-              Prelude.<$> configurationManager,
-            ("ChefConfiguration" Prelude..=)
-              Prelude.<$> chefConfiguration,
-            ("DefaultSubnetId" Prelude..=)
-              Prelude.<$> defaultSubnetId,
-            ("UseCustomCookbooks" Prelude..=)
-              Prelude.<$> useCustomCookbooks,
-            Prelude.Just ("StackId" Prelude..= stackId)
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultOs" Core..=) Core.<$> defaultOs,
+            ("UseOpsworksSecurityGroups" Core..=)
+              Core.<$> useOpsworksSecurityGroups,
+            ("CustomCookbooksSource" Core..=)
+              Core.<$> customCookbooksSource,
+            ("ServiceRoleArn" Core..=) Core.<$> serviceRoleArn,
+            ("DefaultAvailabilityZone" Core..=)
+              Core.<$> defaultAvailabilityZone,
+            ("AgentVersion" Core..=) Core.<$> agentVersion,
+            ("CustomJson" Core..=) Core.<$> customJson,
+            ("DefaultRootDeviceType" Core..=)
+              Core.<$> defaultRootDeviceType,
+            ("Attributes" Core..=) Core.<$> attributes,
+            ("Name" Core..=) Core.<$> name,
+            ("DefaultInstanceProfileArn" Core..=)
+              Core.<$> defaultInstanceProfileArn,
+            ("HostnameTheme" Core..=) Core.<$> hostnameTheme,
+            ("DefaultSshKeyName" Core..=)
+              Core.<$> defaultSshKeyName,
+            ("ConfigurationManager" Core..=)
+              Core.<$> configurationManager,
+            ("ChefConfiguration" Core..=)
+              Core.<$> chefConfiguration,
+            ("DefaultSubnetId" Core..=) Core.<$> defaultSubnetId,
+            ("UseCustomCookbooks" Core..=)
+              Core.<$> useCustomCookbooks,
+            Core.Just ("StackId" Core..= stackId)
           ]
       )
 
-instance Prelude.ToPath UpdateStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateStack where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStackResponse' with all optional fields omitted.
@@ -745,4 +737,4 @@ newUpdateStackResponse ::
   UpdateStackResponse
 newUpdateStackResponse = UpdateStackResponse'
 
-instance Prelude.NFData UpdateStackResponse
+instance Core.NFData UpdateStackResponse

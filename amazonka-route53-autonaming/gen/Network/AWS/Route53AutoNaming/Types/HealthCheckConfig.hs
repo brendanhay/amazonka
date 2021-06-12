@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Types.HealthCheckConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.HealthCheckType
 
 -- | /Public DNS and HTTP namespaces only./ A complex type that contains
@@ -96,7 +95,7 @@ data HealthCheckConfig = HealthCheckConfig'
     -- unhealthy to healthy or vice versa. For more information, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy>
     -- in the /Route 53 Developer Guide/.
-    failureThreshold :: Prelude.Maybe Prelude.Natural,
+    failureThreshold :: Core.Maybe Core.Natural,
     -- | The path that you want Route 53 to request when performing health
     -- checks. The path can be any value for which your endpoint will return an
     -- HTTP status code of 2xx or 3xx when the endpoint is healthy, such as the
@@ -106,7 +105,7 @@ data HealthCheckConfig = HealthCheckConfig'
     --
     -- If you specify @TCP@ for @Type@, you must /not/ specify a value for
     -- @ResourcePath@.
-    resourcePath :: Prelude.Maybe Prelude.Text,
+    resourcePath :: Core.Maybe Core.Text,
     -- | The type of health check that you want to create, which indicates how
     -- Route 53 determines whether an endpoint is healthy.
     --
@@ -135,7 +134,7 @@ data HealthCheckConfig = HealthCheckConfig'
     -- in the /Route 53 Developer Guide/.
     type' :: HealthCheckType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HealthCheckConfig' with all optional fields omitted.
@@ -193,9 +192,8 @@ newHealthCheckConfig ::
   HealthCheckConfig
 newHealthCheckConfig pType_ =
   HealthCheckConfig'
-    { failureThreshold =
-        Prelude.Nothing,
-      resourcePath = Prelude.Nothing,
+    { failureThreshold = Core.Nothing,
+      resourcePath = Core.Nothing,
       type' = pType_
     }
 
@@ -204,7 +202,7 @@ newHealthCheckConfig pType_ =
 -- unhealthy to healthy or vice versa. For more information, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html How Route 53 Determines Whether an Endpoint Is Healthy>
 -- in the /Route 53 Developer Guide/.
-healthCheckConfig_failureThreshold :: Lens.Lens' HealthCheckConfig (Prelude.Maybe Prelude.Natural)
+healthCheckConfig_failureThreshold :: Lens.Lens' HealthCheckConfig (Core.Maybe Core.Natural)
 healthCheckConfig_failureThreshold = Lens.lens (\HealthCheckConfig' {failureThreshold} -> failureThreshold) (\s@HealthCheckConfig' {} a -> s {failureThreshold = a} :: HealthCheckConfig)
 
 -- | The path that you want Route 53 to request when performing health
@@ -216,7 +214,7 @@ healthCheckConfig_failureThreshold = Lens.lens (\HealthCheckConfig' {failureThre
 --
 -- If you specify @TCP@ for @Type@, you must /not/ specify a value for
 -- @ResourcePath@.
-healthCheckConfig_resourcePath :: Lens.Lens' HealthCheckConfig (Prelude.Maybe Prelude.Text)
+healthCheckConfig_resourcePath :: Lens.Lens' HealthCheckConfig (Core.Maybe Core.Text)
 healthCheckConfig_resourcePath = Lens.lens (\HealthCheckConfig' {resourcePath} -> resourcePath) (\s@HealthCheckConfig' {} a -> s {resourcePath = a} :: HealthCheckConfig)
 
 -- | The type of health check that you want to create, which indicates how
@@ -248,28 +246,28 @@ healthCheckConfig_resourcePath = Lens.lens (\HealthCheckConfig' {resourcePath} -
 healthCheckConfig_type :: Lens.Lens' HealthCheckConfig HealthCheckType
 healthCheckConfig_type = Lens.lens (\HealthCheckConfig' {type'} -> type') (\s@HealthCheckConfig' {} a -> s {type' = a} :: HealthCheckConfig)
 
-instance Prelude.FromJSON HealthCheckConfig where
+instance Core.FromJSON HealthCheckConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HealthCheckConfig"
       ( \x ->
           HealthCheckConfig'
-            Prelude.<$> (x Prelude..:? "FailureThreshold")
-            Prelude.<*> (x Prelude..:? "ResourcePath")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..:? "FailureThreshold")
+            Core.<*> (x Core..:? "ResourcePath")
+            Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable HealthCheckConfig
+instance Core.Hashable HealthCheckConfig
 
-instance Prelude.NFData HealthCheckConfig
+instance Core.NFData HealthCheckConfig
 
-instance Prelude.ToJSON HealthCheckConfig where
+instance Core.ToJSON HealthCheckConfig where
   toJSON HealthCheckConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FailureThreshold" Prelude..=)
-              Prelude.<$> failureThreshold,
-            ("ResourcePath" Prelude..=) Prelude.<$> resourcePath,
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("FailureThreshold" Core..=)
+              Core.<$> failureThreshold,
+            ("ResourcePath" Core..=) Core.<$> resourcePath,
+            Core.Just ("Type" Core..= type')
           ]
       )

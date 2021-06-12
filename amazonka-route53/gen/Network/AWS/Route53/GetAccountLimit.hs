@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.Route53.GetAccountLimit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -84,7 +83,7 @@ data GetAccountLimit = GetAccountLimit'
     --     policy records in the Amazon Route 53 console.)
     type' :: AccountLimitType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountLimit' with all optional fields omitted.
@@ -142,39 +141,41 @@ newGetAccountLimit pType_ =
 getAccountLimit_type :: Lens.Lens' GetAccountLimit AccountLimitType
 getAccountLimit_type = Lens.lens (\GetAccountLimit' {type'} -> type') (\s@GetAccountLimit' {} a -> s {type' = a} :: GetAccountLimit)
 
-instance Prelude.AWSRequest GetAccountLimit where
-  type Rs GetAccountLimit = GetAccountLimitResponse
+instance Core.AWSRequest GetAccountLimit where
+  type
+    AWSResponse GetAccountLimit =
+      GetAccountLimitResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetAccountLimitResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "Limit")
-            Prelude.<*> (x Prelude..@ "Count")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "Limit")
+            Core.<*> (x Core..@ "Count")
       )
 
-instance Prelude.Hashable GetAccountLimit
+instance Core.Hashable GetAccountLimit
 
-instance Prelude.NFData GetAccountLimit
+instance Core.NFData GetAccountLimit
 
-instance Prelude.ToHeaders GetAccountLimit where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetAccountLimit where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetAccountLimit where
+instance Core.ToPath GetAccountLimit where
   toPath GetAccountLimit' {..} =
-    Prelude.mconcat
-      ["/2013-04-01/accountlimit/", Prelude.toBS type']
+    Core.mconcat
+      ["/2013-04-01/accountlimit/", Core.toBS type']
 
-instance Prelude.ToQuery GetAccountLimit where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAccountLimit where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains the requested limit.
 --
 -- /See:/ 'newGetAccountLimitResponse' smart constructor.
 data GetAccountLimitResponse = GetAccountLimitResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The current setting for the specified limit. For example, if you
     -- specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the value of @Type@ in the
     -- request, the value of @Limit@ is the maximum number of health checks
@@ -184,9 +185,9 @@ data GetAccountLimitResponse = GetAccountLimitResponse'
     -- type. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the
     -- value of @Type@ in the request, the value of @Count@ is the current
     -- number of health checks that you have created using the current account.
-    count :: Prelude.Natural
+    count :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountLimitResponse' with all optional fields omitted.
@@ -209,11 +210,11 @@ data GetAccountLimitResponse = GetAccountLimitResponse'
 -- number of health checks that you have created using the current account.
 newGetAccountLimitResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'limit'
   AccountLimit ->
   -- | 'count'
-  Prelude.Natural ->
+  Core.Natural ->
   GetAccountLimitResponse
 newGetAccountLimitResponse
   pHttpStatus_
@@ -226,7 +227,7 @@ newGetAccountLimitResponse
       }
 
 -- | The response's http status code.
-getAccountLimitResponse_httpStatus :: Lens.Lens' GetAccountLimitResponse Prelude.Int
+getAccountLimitResponse_httpStatus :: Lens.Lens' GetAccountLimitResponse Core.Int
 getAccountLimitResponse_httpStatus = Lens.lens (\GetAccountLimitResponse' {httpStatus} -> httpStatus) (\s@GetAccountLimitResponse' {} a -> s {httpStatus = a} :: GetAccountLimitResponse)
 
 -- | The current setting for the specified limit. For example, if you
@@ -240,7 +241,7 @@ getAccountLimitResponse_limit = Lens.lens (\GetAccountLimitResponse' {limit} -> 
 -- type. For example, if you specified @MAX_HEALTH_CHECKS_BY_OWNER@ for the
 -- value of @Type@ in the request, the value of @Count@ is the current
 -- number of health checks that you have created using the current account.
-getAccountLimitResponse_count :: Lens.Lens' GetAccountLimitResponse Prelude.Natural
+getAccountLimitResponse_count :: Lens.Lens' GetAccountLimitResponse Core.Natural
 getAccountLimitResponse_count = Lens.lens (\GetAccountLimitResponse' {count} -> count) (\s@GetAccountLimitResponse' {} a -> s {count = a} :: GetAccountLimitResponse)
 
-instance Prelude.NFData GetAccountLimitResponse
+instance Core.NFData GetAccountLimitResponse

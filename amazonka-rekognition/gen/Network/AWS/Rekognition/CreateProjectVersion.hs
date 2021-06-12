@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.Rekognition.CreateProjectVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -70,9 +69,9 @@ import qualified Network.AWS.Response as Response
 data CreateProjectVersion = CreateProjectVersion'
   { -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
     -- model that you want to train.
-    projectArn :: Prelude.Text,
+    projectArn :: Core.Text,
     -- | A name for the version of the model. This value must be unique.
-    versionName :: Prelude.Text,
+    versionName :: Core.Text,
     -- | The Amazon S3 location to store the results of training.
     outputConfig :: OutputConfig,
     -- | The dataset to use for training.
@@ -80,7 +79,7 @@ data CreateProjectVersion = CreateProjectVersion'
     -- | The dataset to use for testing.
     testingData :: TestingData
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProjectVersion' with all optional fields omitted.
@@ -102,9 +101,9 @@ data CreateProjectVersion = CreateProjectVersion'
 -- 'testingData', 'createProjectVersion_testingData' - The dataset to use for testing.
 newCreateProjectVersion ::
   -- | 'projectArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'outputConfig'
   OutputConfig ->
   -- | 'trainingData'
@@ -128,11 +127,11 @@ newCreateProjectVersion
 
 -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
 -- model that you want to train.
-createProjectVersion_projectArn :: Lens.Lens' CreateProjectVersion Prelude.Text
+createProjectVersion_projectArn :: Lens.Lens' CreateProjectVersion Core.Text
 createProjectVersion_projectArn = Lens.lens (\CreateProjectVersion' {projectArn} -> projectArn) (\s@CreateProjectVersion' {} a -> s {projectArn = a} :: CreateProjectVersion)
 
 -- | A name for the version of the model. This value must be unique.
-createProjectVersion_versionName :: Lens.Lens' CreateProjectVersion Prelude.Text
+createProjectVersion_versionName :: Lens.Lens' CreateProjectVersion Core.Text
 createProjectVersion_versionName = Lens.lens (\CreateProjectVersion' {versionName} -> versionName) (\s@CreateProjectVersion' {} a -> s {versionName = a} :: CreateProjectVersion)
 
 -- | The Amazon S3 location to store the results of training.
@@ -147,68 +146,64 @@ createProjectVersion_trainingData = Lens.lens (\CreateProjectVersion' {trainingD
 createProjectVersion_testingData :: Lens.Lens' CreateProjectVersion TestingData
 createProjectVersion_testingData = Lens.lens (\CreateProjectVersion' {testingData} -> testingData) (\s@CreateProjectVersion' {} a -> s {testingData = a} :: CreateProjectVersion)
 
-instance Prelude.AWSRequest CreateProjectVersion where
+instance Core.AWSRequest CreateProjectVersion where
   type
-    Rs CreateProjectVersion =
+    AWSResponse CreateProjectVersion =
       CreateProjectVersionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateProjectVersionResponse'
-            Prelude.<$> (x Prelude..?> "ProjectVersionArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ProjectVersionArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProjectVersion
+instance Core.Hashable CreateProjectVersion
 
-instance Prelude.NFData CreateProjectVersion
+instance Core.NFData CreateProjectVersion
 
-instance Prelude.ToHeaders CreateProjectVersion where
+instance Core.ToHeaders CreateProjectVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.CreateProjectVersion" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.CreateProjectVersion" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateProjectVersion where
+instance Core.ToJSON CreateProjectVersion where
   toJSON CreateProjectVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ProjectArn" Prelude..= projectArn),
-            Prelude.Just ("VersionName" Prelude..= versionName),
-            Prelude.Just
-              ("OutputConfig" Prelude..= outputConfig),
-            Prelude.Just
-              ("TrainingData" Prelude..= trainingData),
-            Prelude.Just ("TestingData" Prelude..= testingData)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProjectArn" Core..= projectArn),
+            Core.Just ("VersionName" Core..= versionName),
+            Core.Just ("OutputConfig" Core..= outputConfig),
+            Core.Just ("TrainingData" Core..= trainingData),
+            Core.Just ("TestingData" Core..= testingData)
           ]
       )
 
-instance Prelude.ToPath CreateProjectVersion where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateProjectVersion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateProjectVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateProjectVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateProjectVersionResponse' smart constructor.
 data CreateProjectVersionResponse = CreateProjectVersionResponse'
   { -- | The ARN of the model version that was created. Use
     -- @DescribeProjectVersion@ to get the current status of the training
     -- operation.
-    projectVersionArn :: Prelude.Maybe Prelude.Text,
+    projectVersionArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProjectVersionResponse' with all optional fields omitted.
@@ -225,23 +220,23 @@ data CreateProjectVersionResponse = CreateProjectVersionResponse'
 -- 'httpStatus', 'createProjectVersionResponse_httpStatus' - The response's http status code.
 newCreateProjectVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateProjectVersionResponse
 newCreateProjectVersionResponse pHttpStatus_ =
   CreateProjectVersionResponse'
     { projectVersionArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the model version that was created. Use
 -- @DescribeProjectVersion@ to get the current status of the training
 -- operation.
-createProjectVersionResponse_projectVersionArn :: Lens.Lens' CreateProjectVersionResponse (Prelude.Maybe Prelude.Text)
+createProjectVersionResponse_projectVersionArn :: Lens.Lens' CreateProjectVersionResponse (Core.Maybe Core.Text)
 createProjectVersionResponse_projectVersionArn = Lens.lens (\CreateProjectVersionResponse' {projectVersionArn} -> projectVersionArn) (\s@CreateProjectVersionResponse' {} a -> s {projectVersionArn = a} :: CreateProjectVersionResponse)
 
 -- | The response's http status code.
-createProjectVersionResponse_httpStatus :: Lens.Lens' CreateProjectVersionResponse Prelude.Int
+createProjectVersionResponse_httpStatus :: Lens.Lens' CreateProjectVersionResponse Core.Int
 createProjectVersionResponse_httpStatus = Lens.lens (\CreateProjectVersionResponse' {httpStatus} -> httpStatus) (\s@CreateProjectVersionResponse' {} a -> s {httpStatus = a} :: CreateProjectVersionResponse)
 
-instance Prelude.NFData CreateProjectVersionResponse
+instance Core.NFData CreateProjectVersionResponse

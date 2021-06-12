@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the advanced security configuration: whether advanced security
 -- is enabled, whether the internal database option is enabled.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAdvancedSecurityOptions' smart constructor.
 data AdvancedSecurityOptions = AdvancedSecurityOptions'
   { -- | True if the internal user database is enabled.
-    internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
+    internalUserDatabaseEnabled :: Core.Maybe Core.Bool,
     -- | Describes the SAML application configured for a domain.
-    sAMLOptions :: Prelude.Maybe SAMLOptionsOutput,
+    sAMLOptions :: Core.Maybe SAMLOptionsOutput,
     -- | True if advanced security is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdvancedSecurityOptions' with all optional fields omitted.
@@ -56,34 +55,34 @@ newAdvancedSecurityOptions ::
 newAdvancedSecurityOptions =
   AdvancedSecurityOptions'
     { internalUserDatabaseEnabled =
-        Prelude.Nothing,
-      sAMLOptions = Prelude.Nothing,
-      enabled = Prelude.Nothing
+        Core.Nothing,
+      sAMLOptions = Core.Nothing,
+      enabled = Core.Nothing
     }
 
 -- | True if the internal user database is enabled.
-advancedSecurityOptions_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
+advancedSecurityOptions_internalUserDatabaseEnabled :: Lens.Lens' AdvancedSecurityOptions (Core.Maybe Core.Bool)
 advancedSecurityOptions_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecurityOptions' {internalUserDatabaseEnabled} -> internalUserDatabaseEnabled) (\s@AdvancedSecurityOptions' {} a -> s {internalUserDatabaseEnabled = a} :: AdvancedSecurityOptions)
 
 -- | Describes the SAML application configured for a domain.
-advancedSecurityOptions_sAMLOptions :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe SAMLOptionsOutput)
+advancedSecurityOptions_sAMLOptions :: Lens.Lens' AdvancedSecurityOptions (Core.Maybe SAMLOptionsOutput)
 advancedSecurityOptions_sAMLOptions = Lens.lens (\AdvancedSecurityOptions' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptions' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptions)
 
 -- | True if advanced security is enabled.
-advancedSecurityOptions_enabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
+advancedSecurityOptions_enabled :: Lens.Lens' AdvancedSecurityOptions (Core.Maybe Core.Bool)
 advancedSecurityOptions_enabled = Lens.lens (\AdvancedSecurityOptions' {enabled} -> enabled) (\s@AdvancedSecurityOptions' {} a -> s {enabled = a} :: AdvancedSecurityOptions)
 
-instance Prelude.FromJSON AdvancedSecurityOptions where
+instance Core.FromJSON AdvancedSecurityOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AdvancedSecurityOptions"
       ( \x ->
           AdvancedSecurityOptions'
-            Prelude.<$> (x Prelude..:? "InternalUserDatabaseEnabled")
-            Prelude.<*> (x Prelude..:? "SAMLOptions")
-            Prelude.<*> (x Prelude..:? "Enabled")
+            Core.<$> (x Core..:? "InternalUserDatabaseEnabled")
+            Core.<*> (x Core..:? "SAMLOptions")
+            Core.<*> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable AdvancedSecurityOptions
+instance Core.Hashable AdvancedSecurityOptions
 
-instance Prelude.NFData AdvancedSecurityOptions
+instance Core.NFData AdvancedSecurityOptions

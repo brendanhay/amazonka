@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +55,15 @@ data DisassociateTransitGatewayMulticastDomain = DisassociateTransitGatewayMulti
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
+    transitGatewayMulticastDomainId :: Core.Maybe Core.Text,
     -- | The IDs of the subnets;
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
+    transitGatewayAttachmentId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTransitGatewayMulticastDomain' with all optional fields omitted.
@@ -89,101 +88,99 @@ newDisassociateTransitGatewayMulticastDomain ::
 newDisassociateTransitGatewayMulticastDomain =
   DisassociateTransitGatewayMulticastDomain'
     { dryRun =
-        Prelude.Nothing,
+        Core.Nothing,
       transitGatewayMulticastDomainId =
-        Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
+        Core.Nothing,
+      subnetIds = Core.Nothing,
       transitGatewayAttachmentId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateTransitGatewayMulticastDomain_dryRun :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Prelude.Maybe Prelude.Bool)
+disassociateTransitGatewayMulticastDomain_dryRun :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Core.Maybe Core.Bool)
 disassociateTransitGatewayMulticastDomain_dryRun = Lens.lens (\DisassociateTransitGatewayMulticastDomain' {dryRun} -> dryRun) (\s@DisassociateTransitGatewayMulticastDomain' {} a -> s {dryRun = a} :: DisassociateTransitGatewayMulticastDomain)
 
 -- | The ID of the transit gateway multicast domain.
-disassociateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
+disassociateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Core.Maybe Core.Text)
 disassociateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId = Lens.lens (\DisassociateTransitGatewayMulticastDomain' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@DisassociateTransitGatewayMulticastDomain' {} a -> s {transitGatewayMulticastDomainId = a} :: DisassociateTransitGatewayMulticastDomain)
 
 -- | The IDs of the subnets;
-disassociateTransitGatewayMulticastDomain_subnetIds :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Prelude.Maybe [Prelude.Text])
-disassociateTransitGatewayMulticastDomain_subnetIds = Lens.lens (\DisassociateTransitGatewayMulticastDomain' {subnetIds} -> subnetIds) (\s@DisassociateTransitGatewayMulticastDomain' {} a -> s {subnetIds = a} :: DisassociateTransitGatewayMulticastDomain) Prelude.. Lens.mapping Prelude._Coerce
+disassociateTransitGatewayMulticastDomain_subnetIds :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Core.Maybe [Core.Text])
+disassociateTransitGatewayMulticastDomain_subnetIds = Lens.lens (\DisassociateTransitGatewayMulticastDomain' {subnetIds} -> subnetIds) (\s@DisassociateTransitGatewayMulticastDomain' {} a -> s {subnetIds = a} :: DisassociateTransitGatewayMulticastDomain) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the attachment.
-disassociateTransitGatewayMulticastDomain_transitGatewayAttachmentId :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Prelude.Maybe Prelude.Text)
+disassociateTransitGatewayMulticastDomain_transitGatewayAttachmentId :: Lens.Lens' DisassociateTransitGatewayMulticastDomain (Core.Maybe Core.Text)
 disassociateTransitGatewayMulticastDomain_transitGatewayAttachmentId = Lens.lens (\DisassociateTransitGatewayMulticastDomain' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@DisassociateTransitGatewayMulticastDomain' {} a -> s {transitGatewayAttachmentId = a} :: DisassociateTransitGatewayMulticastDomain)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateTransitGatewayMulticastDomain
   where
   type
-    Rs DisassociateTransitGatewayMulticastDomain =
+    AWSResponse
+      DisassociateTransitGatewayMulticastDomain =
       DisassociateTransitGatewayMulticastDomainResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DisassociateTransitGatewayMulticastDomainResponse'
-            Prelude.<$> (x Prelude..@? "associations")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "associations")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateTransitGatewayMulticastDomain
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateTransitGatewayMulticastDomain
 
 instance
-  Prelude.ToHeaders
-    DisassociateTransitGatewayMulticastDomain
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DisassociateTransitGatewayMulticastDomain
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DisassociateTransitGatewayMulticastDomain
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DisassociateTransitGatewayMulticastDomain
   where
   toQuery
     DisassociateTransitGatewayMulticastDomain' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "DisassociateTransitGatewayMulticastDomain" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
+            Core.=: ( "DisassociateTransitGatewayMulticastDomain" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
           "TransitGatewayMulticastDomainId"
-            Prelude.=: transitGatewayMulticastDomainId,
-          Prelude.toQuery
-            ( Prelude.toQueryList "SubnetIds"
-                Prelude.<$> subnetIds
-            ),
+            Core.=: transitGatewayMulticastDomainId,
+          Core.toQuery
+            (Core.toQueryList "SubnetIds" Core.<$> subnetIds),
           "TransitGatewayAttachmentId"
-            Prelude.=: transitGatewayAttachmentId
+            Core.=: transitGatewayAttachmentId
         ]
 
 -- | /See:/ 'newDisassociateTransitGatewayMulticastDomainResponse' smart constructor.
 data DisassociateTransitGatewayMulticastDomainResponse = DisassociateTransitGatewayMulticastDomainResponse'
   { -- | Information about the association.
-    associations :: Prelude.Maybe TransitGatewayMulticastDomainAssociations,
+    associations :: Core.Maybe TransitGatewayMulticastDomainAssociations,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTransitGatewayMulticastDomainResponse' with all optional fields omitted.
@@ -198,25 +195,25 @@ data DisassociateTransitGatewayMulticastDomainResponse = DisassociateTransitGate
 -- 'httpStatus', 'disassociateTransitGatewayMulticastDomainResponse_httpStatus' - The response's http status code.
 newDisassociateTransitGatewayMulticastDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateTransitGatewayMulticastDomainResponse
 newDisassociateTransitGatewayMulticastDomainResponse
   pHttpStatus_ =
     DisassociateTransitGatewayMulticastDomainResponse'
       { associations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Information about the association.
-disassociateTransitGatewayMulticastDomainResponse_associations :: Lens.Lens' DisassociateTransitGatewayMulticastDomainResponse (Prelude.Maybe TransitGatewayMulticastDomainAssociations)
+disassociateTransitGatewayMulticastDomainResponse_associations :: Lens.Lens' DisassociateTransitGatewayMulticastDomainResponse (Core.Maybe TransitGatewayMulticastDomainAssociations)
 disassociateTransitGatewayMulticastDomainResponse_associations = Lens.lens (\DisassociateTransitGatewayMulticastDomainResponse' {associations} -> associations) (\s@DisassociateTransitGatewayMulticastDomainResponse' {} a -> s {associations = a} :: DisassociateTransitGatewayMulticastDomainResponse)
 
 -- | The response's http status code.
-disassociateTransitGatewayMulticastDomainResponse_httpStatus :: Lens.Lens' DisassociateTransitGatewayMulticastDomainResponse Prelude.Int
+disassociateTransitGatewayMulticastDomainResponse_httpStatus :: Lens.Lens' DisassociateTransitGatewayMulticastDomainResponse Core.Int
 disassociateTransitGatewayMulticastDomainResponse_httpStatus = Lens.lens (\DisassociateTransitGatewayMulticastDomainResponse' {httpStatus} -> httpStatus) (\s@DisassociateTransitGatewayMulticastDomainResponse' {} a -> s {httpStatus = a} :: DisassociateTransitGatewayMulticastDomainResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateTransitGatewayMulticastDomainResponse

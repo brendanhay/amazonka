@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.GatewayGroupSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The summary of a gateway group.
 --
 -- /See:/ 'newGatewayGroupSummary' smart constructor.
 data GatewayGroupSummary = GatewayGroupSummary'
   { -- | The ARN of the gateway group.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The name of the gateway group.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description of the gateway group.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GatewayGroupSummary' with all optional fields omitted.
@@ -53,34 +52,34 @@ newGatewayGroupSummary ::
   GatewayGroupSummary
 newGatewayGroupSummary =
   GatewayGroupSummary'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The ARN of the gateway group.
-gatewayGroupSummary_arn :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
+gatewayGroupSummary_arn :: Lens.Lens' GatewayGroupSummary (Core.Maybe Core.Text)
 gatewayGroupSummary_arn = Lens.lens (\GatewayGroupSummary' {arn} -> arn) (\s@GatewayGroupSummary' {} a -> s {arn = a} :: GatewayGroupSummary)
 
 -- | The name of the gateway group.
-gatewayGroupSummary_name :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
+gatewayGroupSummary_name :: Lens.Lens' GatewayGroupSummary (Core.Maybe Core.Text)
 gatewayGroupSummary_name = Lens.lens (\GatewayGroupSummary' {name} -> name) (\s@GatewayGroupSummary' {} a -> s {name = a} :: GatewayGroupSummary)
 
 -- | The description of the gateway group.
-gatewayGroupSummary_description :: Lens.Lens' GatewayGroupSummary (Prelude.Maybe Prelude.Text)
+gatewayGroupSummary_description :: Lens.Lens' GatewayGroupSummary (Core.Maybe Core.Text)
 gatewayGroupSummary_description = Lens.lens (\GatewayGroupSummary' {description} -> description) (\s@GatewayGroupSummary' {} a -> s {description = a} :: GatewayGroupSummary)
 
-instance Prelude.FromJSON GatewayGroupSummary where
+instance Core.FromJSON GatewayGroupSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GatewayGroupSummary"
       ( \x ->
           GatewayGroupSummary'
-            Prelude.<$> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Description")
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable GatewayGroupSummary
+instance Core.Hashable GatewayGroupSummary
 
-instance Prelude.NFData GatewayGroupSummary
+instance Core.NFData GatewayGroupSummary

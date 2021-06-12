@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaStore.Types.MetricPolicyRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A setting that enables metrics at the object level. Each rule contains
 -- an object group and an object group name. If the policy includes the
@@ -34,11 +33,11 @@ import qualified Network.AWS.Prelude as Prelude
 data MetricPolicyRule = MetricPolicyRule'
   { -- | A path or file name that defines which objects to include in the group.
     -- Wildcards (*) are acceptable.
-    objectGroup :: Prelude.Text,
+    objectGroup :: Core.Text,
     -- | A name that allows you to refer to the object group.
-    objectGroupName :: Prelude.Text
+    objectGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricPolicyRule' with all optional fields omitted.
@@ -54,9 +53,9 @@ data MetricPolicyRule = MetricPolicyRule'
 -- 'objectGroupName', 'metricPolicyRule_objectGroupName' - A name that allows you to refer to the object group.
 newMetricPolicyRule ::
   -- | 'objectGroup'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'objectGroupName'
-  Prelude.Text ->
+  Core.Text ->
   MetricPolicyRule
 newMetricPolicyRule pObjectGroup_ pObjectGroupName_ =
   MetricPolicyRule'
@@ -66,33 +65,33 @@ newMetricPolicyRule pObjectGroup_ pObjectGroupName_ =
 
 -- | A path or file name that defines which objects to include in the group.
 -- Wildcards (*) are acceptable.
-metricPolicyRule_objectGroup :: Lens.Lens' MetricPolicyRule Prelude.Text
+metricPolicyRule_objectGroup :: Lens.Lens' MetricPolicyRule Core.Text
 metricPolicyRule_objectGroup = Lens.lens (\MetricPolicyRule' {objectGroup} -> objectGroup) (\s@MetricPolicyRule' {} a -> s {objectGroup = a} :: MetricPolicyRule)
 
 -- | A name that allows you to refer to the object group.
-metricPolicyRule_objectGroupName :: Lens.Lens' MetricPolicyRule Prelude.Text
+metricPolicyRule_objectGroupName :: Lens.Lens' MetricPolicyRule Core.Text
 metricPolicyRule_objectGroupName = Lens.lens (\MetricPolicyRule' {objectGroupName} -> objectGroupName) (\s@MetricPolicyRule' {} a -> s {objectGroupName = a} :: MetricPolicyRule)
 
-instance Prelude.FromJSON MetricPolicyRule where
+instance Core.FromJSON MetricPolicyRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetricPolicyRule"
       ( \x ->
           MetricPolicyRule'
-            Prelude.<$> (x Prelude..: "ObjectGroup")
-            Prelude.<*> (x Prelude..: "ObjectGroupName")
+            Core.<$> (x Core..: "ObjectGroup")
+            Core.<*> (x Core..: "ObjectGroupName")
       )
 
-instance Prelude.Hashable MetricPolicyRule
+instance Core.Hashable MetricPolicyRule
 
-instance Prelude.NFData MetricPolicyRule
+instance Core.NFData MetricPolicyRule
 
-instance Prelude.ToJSON MetricPolicyRule where
+instance Core.ToJSON MetricPolicyRule where
   toJSON MetricPolicyRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ObjectGroup" Prelude..= objectGroup),
-            Prelude.Just
-              ("ObjectGroupName" Prelude..= objectGroupName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ObjectGroup" Core..= objectGroup),
+            Core.Just
+              ("ObjectGroupName" Core..= objectGroupName)
           ]
       )

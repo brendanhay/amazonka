@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +59,9 @@ data GetCertificateAuthorityCsr = GetCertificateAuthorityCsr'
     -- action. This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-    certificateAuthorityArn :: Prelude.Text
+    certificateAuthorityArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCertificateAuthorityCsr' with all optional fields omitted.
@@ -79,7 +78,7 @@ data GetCertificateAuthorityCsr = GetCertificateAuthorityCsr'
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
 newGetCertificateAuthorityCsr ::
   -- | 'certificateAuthorityArn'
-  Prelude.Text ->
+  Core.Text ->
   GetCertificateAuthorityCsr
 newGetCertificateAuthorityCsr
   pCertificateAuthorityArn_ =
@@ -93,70 +92,65 @@ newGetCertificateAuthorityCsr
 -- action. This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-getCertificateAuthorityCsr_certificateAuthorityArn :: Lens.Lens' GetCertificateAuthorityCsr Prelude.Text
+getCertificateAuthorityCsr_certificateAuthorityArn :: Lens.Lens' GetCertificateAuthorityCsr Core.Text
 getCertificateAuthorityCsr_certificateAuthorityArn = Lens.lens (\GetCertificateAuthorityCsr' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@GetCertificateAuthorityCsr' {} a -> s {certificateAuthorityArn = a} :: GetCertificateAuthorityCsr)
 
-instance
-  Prelude.AWSRequest
-    GetCertificateAuthorityCsr
-  where
+instance Core.AWSRequest GetCertificateAuthorityCsr where
   type
-    Rs GetCertificateAuthorityCsr =
+    AWSResponse GetCertificateAuthorityCsr =
       GetCertificateAuthorityCsrResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCertificateAuthorityCsrResponse'
-            Prelude.<$> (x Prelude..?> "Csr")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Csr")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCertificateAuthorityCsr
+instance Core.Hashable GetCertificateAuthorityCsr
 
-instance Prelude.NFData GetCertificateAuthorityCsr
+instance Core.NFData GetCertificateAuthorityCsr
 
-instance Prelude.ToHeaders GetCertificateAuthorityCsr where
+instance Core.ToHeaders GetCertificateAuthorityCsr where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ACMPrivateCA.GetCertificateAuthorityCsr" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ACMPrivateCA.GetCertificateAuthorityCsr" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetCertificateAuthorityCsr where
+instance Core.ToJSON GetCertificateAuthorityCsr where
   toJSON GetCertificateAuthorityCsr' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "CertificateAuthorityArn"
-                  Prelude..= certificateAuthorityArn
+                  Core..= certificateAuthorityArn
               )
           ]
       )
 
-instance Prelude.ToPath GetCertificateAuthorityCsr where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCertificateAuthorityCsr where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCertificateAuthorityCsr where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCertificateAuthorityCsr where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCertificateAuthorityCsrResponse' smart constructor.
 data GetCertificateAuthorityCsrResponse = GetCertificateAuthorityCsrResponse'
   { -- | The base64 PEM-encoded certificate signing request (CSR) for your
     -- private CA certificate.
-    csr :: Prelude.Maybe Prelude.Text,
+    csr :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCertificateAuthorityCsrResponse' with all optional fields omitted.
@@ -172,24 +166,24 @@ data GetCertificateAuthorityCsrResponse = GetCertificateAuthorityCsrResponse'
 -- 'httpStatus', 'getCertificateAuthorityCsrResponse_httpStatus' - The response's http status code.
 newGetCertificateAuthorityCsrResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCertificateAuthorityCsrResponse
 newGetCertificateAuthorityCsrResponse pHttpStatus_ =
   GetCertificateAuthorityCsrResponse'
     { csr =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The base64 PEM-encoded certificate signing request (CSR) for your
 -- private CA certificate.
-getCertificateAuthorityCsrResponse_csr :: Lens.Lens' GetCertificateAuthorityCsrResponse (Prelude.Maybe Prelude.Text)
+getCertificateAuthorityCsrResponse_csr :: Lens.Lens' GetCertificateAuthorityCsrResponse (Core.Maybe Core.Text)
 getCertificateAuthorityCsrResponse_csr = Lens.lens (\GetCertificateAuthorityCsrResponse' {csr} -> csr) (\s@GetCertificateAuthorityCsrResponse' {} a -> s {csr = a} :: GetCertificateAuthorityCsrResponse)
 
 -- | The response's http status code.
-getCertificateAuthorityCsrResponse_httpStatus :: Lens.Lens' GetCertificateAuthorityCsrResponse Prelude.Int
+getCertificateAuthorityCsrResponse_httpStatus :: Lens.Lens' GetCertificateAuthorityCsrResponse Core.Int
 getCertificateAuthorityCsrResponse_httpStatus = Lens.lens (\GetCertificateAuthorityCsrResponse' {httpStatus} -> httpStatus) (\s@GetCertificateAuthorityCsrResponse' {} a -> s {httpStatus = a} :: GetCertificateAuthorityCsrResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetCertificateAuthorityCsrResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.MediaLive.CreateChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,35 +61,35 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateChannel'' smart constructor.
 data CreateChannel' = CreateChannel''
-  { encoderSettings :: Prelude.Maybe EncoderSettings,
+  { encoderSettings :: Core.Maybe EncoderSettings,
     -- | An optional Amazon Resource Name (ARN) of the role to assume when
     -- running the Channel.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | Specification of network and file inputs for this channel
-    inputSpecification :: Prelude.Maybe InputSpecification,
+    inputSpecification :: Core.Maybe InputSpecification,
     -- | The class for this channel. STANDARD for a channel with two pipelines or
     -- SINGLE_PIPELINE for a channel with one pipeline.
-    channelClass :: Prelude.Maybe ChannelClass,
+    channelClass :: Core.Maybe ChannelClass,
     -- | The log level to write to CloudWatch Logs.
-    logLevel :: Prelude.Maybe LogLevel,
-    destinations :: Prelude.Maybe [OutputDestination],
+    logLevel :: Core.Maybe LogLevel,
+    destinations :: Core.Maybe [OutputDestination],
     -- | Name of channel.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Deprecated field that\'s only usable by whitelisted customers.
-    reserved :: Prelude.Maybe Prelude.Text,
+    reserved :: Core.Maybe Core.Text,
     -- | Unique request ID to be specified. This is needed to prevent retries
     -- from creating multiple resources.
-    requestId :: Prelude.Maybe Prelude.Text,
+    requestId :: Core.Maybe Core.Text,
     -- | List of input attachments for channel.
-    inputAttachments :: Prelude.Maybe [InputAttachment],
+    inputAttachments :: Core.Maybe [InputAttachment],
     -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Settings for VPC output
-    vpc :: Prelude.Maybe VpcOutputSettings,
+    vpc :: Core.Maybe VpcOutputSettings,
     -- | Specification of CDI inputs for this channel
-    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification
+    cdiInputSpecification :: Core.Maybe CdiInputSpecification
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateChannel'' with all optional fields omitted.
@@ -132,141 +131,141 @@ newCreateChannel' ::
   CreateChannel'
 newCreateChannel' =
   CreateChannel''
-    { encoderSettings = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      inputSpecification = Prelude.Nothing,
-      channelClass = Prelude.Nothing,
-      logLevel = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      name = Prelude.Nothing,
-      reserved = Prelude.Nothing,
-      requestId = Prelude.Nothing,
-      inputAttachments = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      vpc = Prelude.Nothing,
-      cdiInputSpecification = Prelude.Nothing
+    { encoderSettings = Core.Nothing,
+      roleArn = Core.Nothing,
+      inputSpecification = Core.Nothing,
+      channelClass = Core.Nothing,
+      logLevel = Core.Nothing,
+      destinations = Core.Nothing,
+      name = Core.Nothing,
+      reserved = Core.Nothing,
+      requestId = Core.Nothing,
+      inputAttachments = Core.Nothing,
+      tags = Core.Nothing,
+      vpc = Core.Nothing,
+      cdiInputSpecification = Core.Nothing
     }
 
 -- | Undocumented member.
-createChannel'_encoderSettings :: Lens.Lens' CreateChannel' (Prelude.Maybe EncoderSettings)
+createChannel'_encoderSettings :: Lens.Lens' CreateChannel' (Core.Maybe EncoderSettings)
 createChannel'_encoderSettings = Lens.lens (\CreateChannel'' {encoderSettings} -> encoderSettings) (\s@CreateChannel'' {} a -> s {encoderSettings = a} :: CreateChannel')
 
 -- | An optional Amazon Resource Name (ARN) of the role to assume when
 -- running the Channel.
-createChannel'_roleArn :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
+createChannel'_roleArn :: Lens.Lens' CreateChannel' (Core.Maybe Core.Text)
 createChannel'_roleArn = Lens.lens (\CreateChannel'' {roleArn} -> roleArn) (\s@CreateChannel'' {} a -> s {roleArn = a} :: CreateChannel')
 
 -- | Specification of network and file inputs for this channel
-createChannel'_inputSpecification :: Lens.Lens' CreateChannel' (Prelude.Maybe InputSpecification)
+createChannel'_inputSpecification :: Lens.Lens' CreateChannel' (Core.Maybe InputSpecification)
 createChannel'_inputSpecification = Lens.lens (\CreateChannel'' {inputSpecification} -> inputSpecification) (\s@CreateChannel'' {} a -> s {inputSpecification = a} :: CreateChannel')
 
 -- | The class for this channel. STANDARD for a channel with two pipelines or
 -- SINGLE_PIPELINE for a channel with one pipeline.
-createChannel'_channelClass :: Lens.Lens' CreateChannel' (Prelude.Maybe ChannelClass)
+createChannel'_channelClass :: Lens.Lens' CreateChannel' (Core.Maybe ChannelClass)
 createChannel'_channelClass = Lens.lens (\CreateChannel'' {channelClass} -> channelClass) (\s@CreateChannel'' {} a -> s {channelClass = a} :: CreateChannel')
 
 -- | The log level to write to CloudWatch Logs.
-createChannel'_logLevel :: Lens.Lens' CreateChannel' (Prelude.Maybe LogLevel)
+createChannel'_logLevel :: Lens.Lens' CreateChannel' (Core.Maybe LogLevel)
 createChannel'_logLevel = Lens.lens (\CreateChannel'' {logLevel} -> logLevel) (\s@CreateChannel'' {} a -> s {logLevel = a} :: CreateChannel')
 
 -- | Undocumented member.
-createChannel'_destinations :: Lens.Lens' CreateChannel' (Prelude.Maybe [OutputDestination])
-createChannel'_destinations = Lens.lens (\CreateChannel'' {destinations} -> destinations) (\s@CreateChannel'' {} a -> s {destinations = a} :: CreateChannel') Prelude.. Lens.mapping Prelude._Coerce
+createChannel'_destinations :: Lens.Lens' CreateChannel' (Core.Maybe [OutputDestination])
+createChannel'_destinations = Lens.lens (\CreateChannel'' {destinations} -> destinations) (\s@CreateChannel'' {} a -> s {destinations = a} :: CreateChannel') Core.. Lens.mapping Lens._Coerce
 
 -- | Name of channel.
-createChannel'_name :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
+createChannel'_name :: Lens.Lens' CreateChannel' (Core.Maybe Core.Text)
 createChannel'_name = Lens.lens (\CreateChannel'' {name} -> name) (\s@CreateChannel'' {} a -> s {name = a} :: CreateChannel')
 
 -- | Deprecated field that\'s only usable by whitelisted customers.
-createChannel'_reserved :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
+createChannel'_reserved :: Lens.Lens' CreateChannel' (Core.Maybe Core.Text)
 createChannel'_reserved = Lens.lens (\CreateChannel'' {reserved} -> reserved) (\s@CreateChannel'' {} a -> s {reserved = a} :: CreateChannel')
 
 -- | Unique request ID to be specified. This is needed to prevent retries
 -- from creating multiple resources.
-createChannel'_requestId :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
+createChannel'_requestId :: Lens.Lens' CreateChannel' (Core.Maybe Core.Text)
 createChannel'_requestId = Lens.lens (\CreateChannel'' {requestId} -> requestId) (\s@CreateChannel'' {} a -> s {requestId = a} :: CreateChannel')
 
 -- | List of input attachments for channel.
-createChannel'_inputAttachments :: Lens.Lens' CreateChannel' (Prelude.Maybe [InputAttachment])
-createChannel'_inputAttachments = Lens.lens (\CreateChannel'' {inputAttachments} -> inputAttachments) (\s@CreateChannel'' {} a -> s {inputAttachments = a} :: CreateChannel') Prelude.. Lens.mapping Prelude._Coerce
+createChannel'_inputAttachments :: Lens.Lens' CreateChannel' (Core.Maybe [InputAttachment])
+createChannel'_inputAttachments = Lens.lens (\CreateChannel'' {inputAttachments} -> inputAttachments) (\s@CreateChannel'' {} a -> s {inputAttachments = a} :: CreateChannel') Core.. Lens.mapping Lens._Coerce
 
 -- | A collection of key-value pairs.
-createChannel'_tags :: Lens.Lens' CreateChannel' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createChannel'_tags = Lens.lens (\CreateChannel'' {tags} -> tags) (\s@CreateChannel'' {} a -> s {tags = a} :: CreateChannel') Prelude.. Lens.mapping Prelude._Coerce
+createChannel'_tags :: Lens.Lens' CreateChannel' (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createChannel'_tags = Lens.lens (\CreateChannel'' {tags} -> tags) (\s@CreateChannel'' {} a -> s {tags = a} :: CreateChannel') Core.. Lens.mapping Lens._Coerce
 
 -- | Settings for VPC output
-createChannel'_vpc :: Lens.Lens' CreateChannel' (Prelude.Maybe VpcOutputSettings)
+createChannel'_vpc :: Lens.Lens' CreateChannel' (Core.Maybe VpcOutputSettings)
 createChannel'_vpc = Lens.lens (\CreateChannel'' {vpc} -> vpc) (\s@CreateChannel'' {} a -> s {vpc = a} :: CreateChannel')
 
 -- | Specification of CDI inputs for this channel
-createChannel'_cdiInputSpecification :: Lens.Lens' CreateChannel' (Prelude.Maybe CdiInputSpecification)
+createChannel'_cdiInputSpecification :: Lens.Lens' CreateChannel' (Core.Maybe CdiInputSpecification)
 createChannel'_cdiInputSpecification = Lens.lens (\CreateChannel'' {cdiInputSpecification} -> cdiInputSpecification) (\s@CreateChannel'' {} a -> s {cdiInputSpecification = a} :: CreateChannel')
 
-instance Prelude.AWSRequest CreateChannel' where
-  type Rs CreateChannel' = CreateChannelResponse
+instance Core.AWSRequest CreateChannel' where
+  type
+    AWSResponse CreateChannel' =
+      CreateChannelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateChannelResponse'
-            Prelude.<$> (x Prelude..?> "channel")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "channel")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateChannel'
+instance Core.Hashable CreateChannel'
 
-instance Prelude.NFData CreateChannel'
+instance Core.NFData CreateChannel'
 
-instance Prelude.ToHeaders CreateChannel' where
+instance Core.ToHeaders CreateChannel' where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateChannel' where
+instance Core.ToJSON CreateChannel' where
   toJSON CreateChannel'' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("encoderSettings" Prelude..=)
-              Prelude.<$> encoderSettings,
-            ("roleArn" Prelude..=) Prelude.<$> roleArn,
-            ("inputSpecification" Prelude..=)
-              Prelude.<$> inputSpecification,
-            ("channelClass" Prelude..=) Prelude.<$> channelClass,
-            ("logLevel" Prelude..=) Prelude.<$> logLevel,
-            ("destinations" Prelude..=) Prelude.<$> destinations,
-            ("name" Prelude..=) Prelude.<$> name,
-            ("reserved" Prelude..=) Prelude.<$> reserved,
-            ("requestId" Prelude..=) Prelude.<$> requestId,
-            ("inputAttachments" Prelude..=)
-              Prelude.<$> inputAttachments,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("vpc" Prelude..=) Prelude.<$> vpc,
-            ("cdiInputSpecification" Prelude..=)
-              Prelude.<$> cdiInputSpecification
+    Core.object
+      ( Core.catMaybes
+          [ ("encoderSettings" Core..=)
+              Core.<$> encoderSettings,
+            ("roleArn" Core..=) Core.<$> roleArn,
+            ("inputSpecification" Core..=)
+              Core.<$> inputSpecification,
+            ("channelClass" Core..=) Core.<$> channelClass,
+            ("logLevel" Core..=) Core.<$> logLevel,
+            ("destinations" Core..=) Core.<$> destinations,
+            ("name" Core..=) Core.<$> name,
+            ("reserved" Core..=) Core.<$> reserved,
+            ("requestId" Core..=) Core.<$> requestId,
+            ("inputAttachments" Core..=)
+              Core.<$> inputAttachments,
+            ("tags" Core..=) Core.<$> tags,
+            ("vpc" Core..=) Core.<$> vpc,
+            ("cdiInputSpecification" Core..=)
+              Core.<$> cdiInputSpecification
           ]
       )
 
-instance Prelude.ToPath CreateChannel' where
-  toPath = Prelude.const "/prod/channels"
+instance Core.ToPath CreateChannel' where
+  toPath = Core.const "/prod/channels"
 
-instance Prelude.ToQuery CreateChannel' where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateChannel' where
+  toQuery = Core.const Core.mempty
 
 -- | Placeholder documentation for CreateChannelResponse
 --
 -- /See:/ 'newCreateChannelResponse' smart constructor.
 data CreateChannelResponse = CreateChannelResponse'
-  { channel :: Prelude.Maybe Channel,
+  { channel :: Core.Maybe Channel,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateChannelResponse' with all optional fields omitted.
@@ -281,20 +280,20 @@ data CreateChannelResponse = CreateChannelResponse'
 -- 'httpStatus', 'createChannelResponse_httpStatus' - The response's http status code.
 newCreateChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateChannelResponse
 newCreateChannelResponse pHttpStatus_ =
   CreateChannelResponse'
-    { channel = Prelude.Nothing,
+    { channel = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createChannelResponse_channel :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Channel)
+createChannelResponse_channel :: Lens.Lens' CreateChannelResponse (Core.Maybe Channel)
 createChannelResponse_channel = Lens.lens (\CreateChannelResponse' {channel} -> channel) (\s@CreateChannelResponse' {} a -> s {channel = a} :: CreateChannelResponse)
 
 -- | The response's http status code.
-createChannelResponse_httpStatus :: Lens.Lens' CreateChannelResponse Prelude.Int
+createChannelResponse_httpStatus :: Lens.Lens' CreateChannelResponse Core.Int
 createChannelResponse_httpStatus = Lens.lens (\CreateChannelResponse' {httpStatus} -> httpStatus) (\s@CreateChannelResponse' {} a -> s {httpStatus = a} :: CreateChannelResponse)
 
-instance Prelude.NFData CreateChannelResponse
+instance Core.NFData CreateChannelResponse

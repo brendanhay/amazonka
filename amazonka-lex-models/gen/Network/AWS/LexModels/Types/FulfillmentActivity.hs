@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.FulfillmentActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.CodeHook
 import Network.AWS.LexModels.Types.FulfillmentActivityType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes how the intent is fulfilled after the user provides all of the
 -- information required for the intent. You can provide a Lambda function
@@ -48,12 +47,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newFulfillmentActivity' smart constructor.
 data FulfillmentActivity = FulfillmentActivity'
   { -- | A description of the Lambda function that is run to fulfill the intent.
-    codeHook :: Prelude.Maybe CodeHook,
+    codeHook :: Core.Maybe CodeHook,
     -- | How the intent should be fulfilled, either by running a Lambda function
     -- or by returning the slot data to the client application.
     type' :: FulfillmentActivityType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FulfillmentActivity' with all optional fields omitted.
@@ -73,12 +72,12 @@ newFulfillmentActivity ::
   FulfillmentActivity
 newFulfillmentActivity pType_ =
   FulfillmentActivity'
-    { codeHook = Prelude.Nothing,
+    { codeHook = Core.Nothing,
       type' = pType_
     }
 
 -- | A description of the Lambda function that is run to fulfill the intent.
-fulfillmentActivity_codeHook :: Lens.Lens' FulfillmentActivity (Prelude.Maybe CodeHook)
+fulfillmentActivity_codeHook :: Lens.Lens' FulfillmentActivity (Core.Maybe CodeHook)
 fulfillmentActivity_codeHook = Lens.lens (\FulfillmentActivity' {codeHook} -> codeHook) (\s@FulfillmentActivity' {} a -> s {codeHook = a} :: FulfillmentActivity)
 
 -- | How the intent should be fulfilled, either by running a Lambda function
@@ -86,25 +85,24 @@ fulfillmentActivity_codeHook = Lens.lens (\FulfillmentActivity' {codeHook} -> co
 fulfillmentActivity_type :: Lens.Lens' FulfillmentActivity FulfillmentActivityType
 fulfillmentActivity_type = Lens.lens (\FulfillmentActivity' {type'} -> type') (\s@FulfillmentActivity' {} a -> s {type' = a} :: FulfillmentActivity)
 
-instance Prelude.FromJSON FulfillmentActivity where
+instance Core.FromJSON FulfillmentActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FulfillmentActivity"
       ( \x ->
           FulfillmentActivity'
-            Prelude.<$> (x Prelude..:? "codeHook")
-            Prelude.<*> (x Prelude..: "type")
+            Core.<$> (x Core..:? "codeHook") Core.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable FulfillmentActivity
+instance Core.Hashable FulfillmentActivity
 
-instance Prelude.NFData FulfillmentActivity
+instance Core.NFData FulfillmentActivity
 
-instance Prelude.ToJSON FulfillmentActivity where
+instance Core.ToJSON FulfillmentActivity where
   toJSON FulfillmentActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("codeHook" Prelude..=) Prelude.<$> codeHook,
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("codeHook" Core..=) Core.<$> codeHook,
+            Core.Just ("type" Core..= type')
           ]
       )

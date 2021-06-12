@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.CreateConnectionBasicAuthRequestParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the Basic authorization parameters to use for the connection.
 --
 -- /See:/ 'newCreateConnectionBasicAuthRequestParameters' smart constructor.
 data CreateConnectionBasicAuthRequestParameters = CreateConnectionBasicAuthRequestParameters'
   { -- | The user name to use for Basic authorization.
-    username :: Prelude.Text,
+    username :: Core.Text,
     -- | The password associated with the user name to use for Basic
     -- authorization.
-    password :: Prelude.Text
+    password :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateConnectionBasicAuthRequestParameters' with all optional fields omitted.
@@ -49,9 +48,9 @@ data CreateConnectionBasicAuthRequestParameters = CreateConnectionBasicAuthReque
 -- authorization.
 newCreateConnectionBasicAuthRequestParameters ::
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'password'
-  Prelude.Text ->
+  Core.Text ->
   CreateConnectionBasicAuthRequestParameters
 newCreateConnectionBasicAuthRequestParameters
   pUsername_
@@ -63,31 +62,31 @@ newCreateConnectionBasicAuthRequestParameters
       }
 
 -- | The user name to use for Basic authorization.
-createConnectionBasicAuthRequestParameters_username :: Lens.Lens' CreateConnectionBasicAuthRequestParameters Prelude.Text
+createConnectionBasicAuthRequestParameters_username :: Lens.Lens' CreateConnectionBasicAuthRequestParameters Core.Text
 createConnectionBasicAuthRequestParameters_username = Lens.lens (\CreateConnectionBasicAuthRequestParameters' {username} -> username) (\s@CreateConnectionBasicAuthRequestParameters' {} a -> s {username = a} :: CreateConnectionBasicAuthRequestParameters)
 
 -- | The password associated with the user name to use for Basic
 -- authorization.
-createConnectionBasicAuthRequestParameters_password :: Lens.Lens' CreateConnectionBasicAuthRequestParameters Prelude.Text
+createConnectionBasicAuthRequestParameters_password :: Lens.Lens' CreateConnectionBasicAuthRequestParameters Core.Text
 createConnectionBasicAuthRequestParameters_password = Lens.lens (\CreateConnectionBasicAuthRequestParameters' {password} -> password) (\s@CreateConnectionBasicAuthRequestParameters' {} a -> s {password = a} :: CreateConnectionBasicAuthRequestParameters)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateConnectionBasicAuthRequestParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateConnectionBasicAuthRequestParameters
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CreateConnectionBasicAuthRequestParameters
   where
   toJSON
     CreateConnectionBasicAuthRequestParameters' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just ("Username" Prelude..= username),
-              Prelude.Just ("Password" Prelude..= password)
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just ("Username" Core..= username),
+              Core.Just ("Password" Core..= password)
             ]
         )

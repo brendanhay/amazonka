@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.ResourceGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.ResourceGroupTag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a resource group. The resource group defines
 -- a set of tags that, when queried, identify the AWS resources that make
@@ -32,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceGroup' smart constructor.
 data ResourceGroup = ResourceGroup'
   { -- | The ARN of the resource group.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The tags (key and value pairs) of the resource group. This data type
     -- property is used in the CreateResourceGroup action.
-    tags :: Prelude.NonEmpty ResourceGroupTag,
+    tags :: Core.NonEmpty ResourceGroupTag,
     -- | The time at which resource group is created.
-    createdAt :: Prelude.POSIX
+    createdAt :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceGroup' with all optional fields omitted.
@@ -57,43 +56,43 @@ data ResourceGroup = ResourceGroup'
 -- 'createdAt', 'resourceGroup_createdAt' - The time at which resource group is created.
 newResourceGroup ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tags'
-  Prelude.NonEmpty ResourceGroupTag ->
+  Core.NonEmpty ResourceGroupTag ->
   -- | 'createdAt'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ResourceGroup
 newResourceGroup pArn_ pTags_ pCreatedAt_ =
   ResourceGroup'
     { arn = pArn_,
-      tags = Prelude._Coerce Lens.# pTags_,
-      createdAt = Prelude._Time Lens.# pCreatedAt_
+      tags = Lens._Coerce Lens.# pTags_,
+      createdAt = Core._Time Lens.# pCreatedAt_
     }
 
 -- | The ARN of the resource group.
-resourceGroup_arn :: Lens.Lens' ResourceGroup Prelude.Text
+resourceGroup_arn :: Lens.Lens' ResourceGroup Core.Text
 resourceGroup_arn = Lens.lens (\ResourceGroup' {arn} -> arn) (\s@ResourceGroup' {} a -> s {arn = a} :: ResourceGroup)
 
 -- | The tags (key and value pairs) of the resource group. This data type
 -- property is used in the CreateResourceGroup action.
-resourceGroup_tags :: Lens.Lens' ResourceGroup (Prelude.NonEmpty ResourceGroupTag)
-resourceGroup_tags = Lens.lens (\ResourceGroup' {tags} -> tags) (\s@ResourceGroup' {} a -> s {tags = a} :: ResourceGroup) Prelude.. Prelude._Coerce
+resourceGroup_tags :: Lens.Lens' ResourceGroup (Core.NonEmpty ResourceGroupTag)
+resourceGroup_tags = Lens.lens (\ResourceGroup' {tags} -> tags) (\s@ResourceGroup' {} a -> s {tags = a} :: ResourceGroup) Core.. Lens._Coerce
 
 -- | The time at which resource group is created.
-resourceGroup_createdAt :: Lens.Lens' ResourceGroup Prelude.UTCTime
-resourceGroup_createdAt = Lens.lens (\ResourceGroup' {createdAt} -> createdAt) (\s@ResourceGroup' {} a -> s {createdAt = a} :: ResourceGroup) Prelude.. Prelude._Time
+resourceGroup_createdAt :: Lens.Lens' ResourceGroup Core.UTCTime
+resourceGroup_createdAt = Lens.lens (\ResourceGroup' {createdAt} -> createdAt) (\s@ResourceGroup' {} a -> s {createdAt = a} :: ResourceGroup) Core.. Core._Time
 
-instance Prelude.FromJSON ResourceGroup where
+instance Core.FromJSON ResourceGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceGroup"
       ( \x ->
           ResourceGroup'
-            Prelude.<$> (x Prelude..: "arn")
-            Prelude.<*> (x Prelude..: "tags")
-            Prelude.<*> (x Prelude..: "createdAt")
+            Core.<$> (x Core..: "arn")
+            Core.<*> (x Core..: "tags")
+            Core.<*> (x Core..: "createdAt")
       )
 
-instance Prelude.Hashable ResourceGroup
+instance Core.Hashable ResourceGroup
 
-instance Prelude.NFData ResourceGroup
+instance Core.NFData ResourceGroup

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ParameterInlinePolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | One or more policies assigned to a parameter.
 --
@@ -29,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 data ParameterInlinePolicy = ParameterInlinePolicy'
   { -- | The type of policy. Parameter Store supports the following policy types:
     -- Expiration, ExpirationNotification, and NoChangeNotification.
-    policyType :: Prelude.Maybe Prelude.Text,
+    policyType :: Core.Maybe Core.Text,
     -- | The JSON text of the policy.
-    policyText :: Prelude.Maybe Prelude.Text,
+    policyText :: Core.Maybe Core.Text,
     -- | The status of the policy. Policies report the following statuses:
     -- Pending (the policy has not been enforced or applied yet), Finished (the
     -- policy was applied), Failed (the policy was not applied), or InProgress
     -- (the policy is being applied now).
-    policyStatus :: Prelude.Maybe Prelude.Text
+    policyStatus :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterInlinePolicy' with all optional fields omitted.
@@ -61,39 +60,38 @@ newParameterInlinePolicy ::
   ParameterInlinePolicy
 newParameterInlinePolicy =
   ParameterInlinePolicy'
-    { policyType =
-        Prelude.Nothing,
-      policyText = Prelude.Nothing,
-      policyStatus = Prelude.Nothing
+    { policyType = Core.Nothing,
+      policyText = Core.Nothing,
+      policyStatus = Core.Nothing
     }
 
 -- | The type of policy. Parameter Store supports the following policy types:
 -- Expiration, ExpirationNotification, and NoChangeNotification.
-parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
+parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Core.Text)
 parameterInlinePolicy_policyType = Lens.lens (\ParameterInlinePolicy' {policyType} -> policyType) (\s@ParameterInlinePolicy' {} a -> s {policyType = a} :: ParameterInlinePolicy)
 
 -- | The JSON text of the policy.
-parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
+parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Core.Text)
 parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyText} -> policyText) (\s@ParameterInlinePolicy' {} a -> s {policyText = a} :: ParameterInlinePolicy)
 
 -- | The status of the policy. Policies report the following statuses:
 -- Pending (the policy has not been enforced or applied yet), Finished (the
 -- policy was applied), Failed (the policy was not applied), or InProgress
 -- (the policy is being applied now).
-parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
+parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Core.Maybe Core.Text)
 parameterInlinePolicy_policyStatus = Lens.lens (\ParameterInlinePolicy' {policyStatus} -> policyStatus) (\s@ParameterInlinePolicy' {} a -> s {policyStatus = a} :: ParameterInlinePolicy)
 
-instance Prelude.FromJSON ParameterInlinePolicy where
+instance Core.FromJSON ParameterInlinePolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterInlinePolicy"
       ( \x ->
           ParameterInlinePolicy'
-            Prelude.<$> (x Prelude..:? "PolicyType")
-            Prelude.<*> (x Prelude..:? "PolicyText")
-            Prelude.<*> (x Prelude..:? "PolicyStatus")
+            Core.<$> (x Core..:? "PolicyType")
+            Core.<*> (x Core..:? "PolicyText")
+            Core.<*> (x Core..:? "PolicyStatus")
       )
 
-instance Prelude.Hashable ParameterInlinePolicy
+instance Core.Hashable ParameterInlinePolicy
 
-instance Prelude.NFData ParameterInlinePolicy
+instance Core.NFData ParameterInlinePolicy

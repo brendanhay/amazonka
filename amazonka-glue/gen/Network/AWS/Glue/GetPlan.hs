@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Glue.GetPlan
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,19 +63,19 @@ data GetPlan = GetPlan'
     --     pair:
     --
     --     @--additional-plan-options-map \'{\"inferSchema\":\"true\"}\'@
-    additionalPlanOptionsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    additionalPlanOptionsMap :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The target tables.
-    sinks :: Prelude.Maybe [CatalogEntry],
+    sinks :: Core.Maybe [CatalogEntry],
     -- | The parameters for the mapping.
-    location :: Prelude.Maybe Location,
+    location :: Core.Maybe Location,
     -- | The programming language of the code to perform the mapping.
-    language :: Prelude.Maybe Language,
+    language :: Core.Maybe Language,
     -- | The list of mappings from a source table to target tables.
     mapping :: [MappingEntry],
     -- | The source table.
     source :: CatalogEntry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPlan' with all optional fields omitted.
@@ -112,12 +111,11 @@ newGetPlan ::
   GetPlan
 newGetPlan pSource_ =
   GetPlan'
-    { additionalPlanOptionsMap =
-        Prelude.Nothing,
-      sinks = Prelude.Nothing,
-      location = Prelude.Nothing,
-      language = Prelude.Nothing,
-      mapping = Prelude.mempty,
+    { additionalPlanOptionsMap = Core.Nothing,
+      sinks = Core.Nothing,
+      location = Core.Nothing,
+      language = Core.Nothing,
+      mapping = Core.mempty,
       source = pSource_
     }
 
@@ -131,88 +129,86 @@ newGetPlan pSource_ =
 --     pair:
 --
 --     @--additional-plan-options-map \'{\"inferSchema\":\"true\"}\'@
-getPlan_additionalPlanOptionsMap :: Lens.Lens' GetPlan (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getPlan_additionalPlanOptionsMap = Lens.lens (\GetPlan' {additionalPlanOptionsMap} -> additionalPlanOptionsMap) (\s@GetPlan' {} a -> s {additionalPlanOptionsMap = a} :: GetPlan) Prelude.. Lens.mapping Prelude._Coerce
+getPlan_additionalPlanOptionsMap :: Lens.Lens' GetPlan (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getPlan_additionalPlanOptionsMap = Lens.lens (\GetPlan' {additionalPlanOptionsMap} -> additionalPlanOptionsMap) (\s@GetPlan' {} a -> s {additionalPlanOptionsMap = a} :: GetPlan) Core.. Lens.mapping Lens._Coerce
 
 -- | The target tables.
-getPlan_sinks :: Lens.Lens' GetPlan (Prelude.Maybe [CatalogEntry])
-getPlan_sinks = Lens.lens (\GetPlan' {sinks} -> sinks) (\s@GetPlan' {} a -> s {sinks = a} :: GetPlan) Prelude.. Lens.mapping Prelude._Coerce
+getPlan_sinks :: Lens.Lens' GetPlan (Core.Maybe [CatalogEntry])
+getPlan_sinks = Lens.lens (\GetPlan' {sinks} -> sinks) (\s@GetPlan' {} a -> s {sinks = a} :: GetPlan) Core.. Lens.mapping Lens._Coerce
 
 -- | The parameters for the mapping.
-getPlan_location :: Lens.Lens' GetPlan (Prelude.Maybe Location)
+getPlan_location :: Lens.Lens' GetPlan (Core.Maybe Location)
 getPlan_location = Lens.lens (\GetPlan' {location} -> location) (\s@GetPlan' {} a -> s {location = a} :: GetPlan)
 
 -- | The programming language of the code to perform the mapping.
-getPlan_language :: Lens.Lens' GetPlan (Prelude.Maybe Language)
+getPlan_language :: Lens.Lens' GetPlan (Core.Maybe Language)
 getPlan_language = Lens.lens (\GetPlan' {language} -> language) (\s@GetPlan' {} a -> s {language = a} :: GetPlan)
 
 -- | The list of mappings from a source table to target tables.
 getPlan_mapping :: Lens.Lens' GetPlan [MappingEntry]
-getPlan_mapping = Lens.lens (\GetPlan' {mapping} -> mapping) (\s@GetPlan' {} a -> s {mapping = a} :: GetPlan) Prelude.. Prelude._Coerce
+getPlan_mapping = Lens.lens (\GetPlan' {mapping} -> mapping) (\s@GetPlan' {} a -> s {mapping = a} :: GetPlan) Core.. Lens._Coerce
 
 -- | The source table.
 getPlan_source :: Lens.Lens' GetPlan CatalogEntry
 getPlan_source = Lens.lens (\GetPlan' {source} -> source) (\s@GetPlan' {} a -> s {source = a} :: GetPlan)
 
-instance Prelude.AWSRequest GetPlan where
-  type Rs GetPlan = GetPlanResponse
+instance Core.AWSRequest GetPlan where
+  type AWSResponse GetPlan = GetPlanResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPlanResponse'
-            Prelude.<$> (x Prelude..?> "PythonScript")
-            Prelude.<*> (x Prelude..?> "ScalaCode")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PythonScript")
+            Core.<*> (x Core..?> "ScalaCode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPlan
+instance Core.Hashable GetPlan
 
-instance Prelude.NFData GetPlan
+instance Core.NFData GetPlan
 
-instance Prelude.ToHeaders GetPlan where
+instance Core.ToHeaders GetPlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetPlan" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetPlan" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetPlan where
+instance Core.ToJSON GetPlan where
   toJSON GetPlan' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AdditionalPlanOptionsMap" Prelude..=)
-              Prelude.<$> additionalPlanOptionsMap,
-            ("Sinks" Prelude..=) Prelude.<$> sinks,
-            ("Location" Prelude..=) Prelude.<$> location,
-            ("Language" Prelude..=) Prelude.<$> language,
-            Prelude.Just ("Mapping" Prelude..= mapping),
-            Prelude.Just ("Source" Prelude..= source)
+    Core.object
+      ( Core.catMaybes
+          [ ("AdditionalPlanOptionsMap" Core..=)
+              Core.<$> additionalPlanOptionsMap,
+            ("Sinks" Core..=) Core.<$> sinks,
+            ("Location" Core..=) Core.<$> location,
+            ("Language" Core..=) Core.<$> language,
+            Core.Just ("Mapping" Core..= mapping),
+            Core.Just ("Source" Core..= source)
           ]
       )
 
-instance Prelude.ToPath GetPlan where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPlan where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPlan where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPlan where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetPlanResponse' smart constructor.
 data GetPlanResponse = GetPlanResponse'
   { -- | A Python script to perform the mapping.
-    pythonScript :: Prelude.Maybe Prelude.Text,
+    pythonScript :: Core.Maybe Core.Text,
     -- | The Scala code to perform the mapping.
-    scalaCode :: Prelude.Maybe Prelude.Text,
+    scalaCode :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPlanResponse' with all optional fields omitted.
@@ -229,25 +225,25 @@ data GetPlanResponse = GetPlanResponse'
 -- 'httpStatus', 'getPlanResponse_httpStatus' - The response's http status code.
 newGetPlanResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPlanResponse
 newGetPlanResponse pHttpStatus_ =
   GetPlanResponse'
-    { pythonScript = Prelude.Nothing,
-      scalaCode = Prelude.Nothing,
+    { pythonScript = Core.Nothing,
+      scalaCode = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A Python script to perform the mapping.
-getPlanResponse_pythonScript :: Lens.Lens' GetPlanResponse (Prelude.Maybe Prelude.Text)
+getPlanResponse_pythonScript :: Lens.Lens' GetPlanResponse (Core.Maybe Core.Text)
 getPlanResponse_pythonScript = Lens.lens (\GetPlanResponse' {pythonScript} -> pythonScript) (\s@GetPlanResponse' {} a -> s {pythonScript = a} :: GetPlanResponse)
 
 -- | The Scala code to perform the mapping.
-getPlanResponse_scalaCode :: Lens.Lens' GetPlanResponse (Prelude.Maybe Prelude.Text)
+getPlanResponse_scalaCode :: Lens.Lens' GetPlanResponse (Core.Maybe Core.Text)
 getPlanResponse_scalaCode = Lens.lens (\GetPlanResponse' {scalaCode} -> scalaCode) (\s@GetPlanResponse' {} a -> s {scalaCode = a} :: GetPlanResponse)
 
 -- | The response's http status code.
-getPlanResponse_httpStatus :: Lens.Lens' GetPlanResponse Prelude.Int
+getPlanResponse_httpStatus :: Lens.Lens' GetPlanResponse Core.Int
 getPlanResponse_httpStatus = Lens.lens (\GetPlanResponse' {httpStatus} -> httpStatus) (\s@GetPlanResponse' {} a -> s {httpStatus = a} :: GetPlanResponse)
 
-instance Prelude.NFData GetPlanResponse
+instance Core.NFData GetPlanResponse

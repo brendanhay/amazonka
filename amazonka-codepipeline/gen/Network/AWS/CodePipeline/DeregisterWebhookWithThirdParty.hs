@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.CodePipeline.DeregisterWebhookWithThirdParty
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterWebhookWithThirdParty' smart constructor.
 data DeregisterWebhookWithThirdParty = DeregisterWebhookWithThirdParty'
   { -- | The name of the webhook you want to deregister.
-    webhookName :: Prelude.Maybe Prelude.Text
+    webhookName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterWebhookWithThirdParty' with all optional fields omitted.
@@ -68,82 +67,69 @@ newDeregisterWebhookWithThirdParty ::
 newDeregisterWebhookWithThirdParty =
   DeregisterWebhookWithThirdParty'
     { webhookName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the webhook you want to deregister.
-deregisterWebhookWithThirdParty_webhookName :: Lens.Lens' DeregisterWebhookWithThirdParty (Prelude.Maybe Prelude.Text)
+deregisterWebhookWithThirdParty_webhookName :: Lens.Lens' DeregisterWebhookWithThirdParty (Core.Maybe Core.Text)
 deregisterWebhookWithThirdParty_webhookName = Lens.lens (\DeregisterWebhookWithThirdParty' {webhookName} -> webhookName) (\s@DeregisterWebhookWithThirdParty' {} a -> s {webhookName = a} :: DeregisterWebhookWithThirdParty)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeregisterWebhookWithThirdParty
   where
   type
-    Rs DeregisterWebhookWithThirdParty =
+    AWSResponse DeregisterWebhookWithThirdParty =
       DeregisterWebhookWithThirdPartyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterWebhookWithThirdPartyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeregisterWebhookWithThirdParty
 
-instance
-  Prelude.NFData
-    DeregisterWebhookWithThirdParty
+instance Core.NFData DeregisterWebhookWithThirdParty
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeregisterWebhookWithThirdParty
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.DeregisterWebhookWithThirdParty" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.DeregisterWebhookWithThirdParty" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DeregisterWebhookWithThirdParty
-  where
+instance Core.ToJSON DeregisterWebhookWithThirdParty where
   toJSON DeregisterWebhookWithThirdParty' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("webhookName" Prelude..=) Prelude.<$> webhookName]
+    Core.object
+      ( Core.catMaybes
+          [("webhookName" Core..=) Core.<$> webhookName]
       )
 
-instance
-  Prelude.ToPath
-    DeregisterWebhookWithThirdParty
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterWebhookWithThirdParty where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeregisterWebhookWithThirdParty
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterWebhookWithThirdParty where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterWebhookWithThirdPartyResponse' smart constructor.
 data DeregisterWebhookWithThirdPartyResponse = DeregisterWebhookWithThirdPartyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterWebhookWithThirdPartyResponse' with all optional fields omitted.
@@ -156,7 +142,7 @@ data DeregisterWebhookWithThirdPartyResponse = DeregisterWebhookWithThirdPartyRe
 -- 'httpStatus', 'deregisterWebhookWithThirdPartyResponse_httpStatus' - The response's http status code.
 newDeregisterWebhookWithThirdPartyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterWebhookWithThirdPartyResponse
 newDeregisterWebhookWithThirdPartyResponse
   pHttpStatus_ =
@@ -166,9 +152,9 @@ newDeregisterWebhookWithThirdPartyResponse
       }
 
 -- | The response's http status code.
-deregisterWebhookWithThirdPartyResponse_httpStatus :: Lens.Lens' DeregisterWebhookWithThirdPartyResponse Prelude.Int
+deregisterWebhookWithThirdPartyResponse_httpStatus :: Lens.Lens' DeregisterWebhookWithThirdPartyResponse Core.Int
 deregisterWebhookWithThirdPartyResponse_httpStatus = Lens.lens (\DeregisterWebhookWithThirdPartyResponse' {httpStatus} -> httpStatus) (\s@DeregisterWebhookWithThirdPartyResponse' {} a -> s {httpStatus = a} :: DeregisterWebhookWithThirdPartyResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterWebhookWithThirdPartyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.Snapshot where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a snapshot.
 --
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
   { -- | The time when the snapshot was created.
-    snapshotTime :: Prelude.Maybe Prelude.POSIX
+    snapshotTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Snapshot' with all optional fields omitted.
@@ -43,21 +42,20 @@ data Snapshot = Snapshot'
 -- 'snapshotTime', 'snapshot_snapshotTime' - The time when the snapshot was created.
 newSnapshot ::
   Snapshot
-newSnapshot =
-  Snapshot' {snapshotTime = Prelude.Nothing}
+newSnapshot = Snapshot' {snapshotTime = Core.Nothing}
 
 -- | The time when the snapshot was created.
-snapshot_snapshotTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_snapshotTime = Lens.lens (\Snapshot' {snapshotTime} -> snapshotTime) (\s@Snapshot' {} a -> s {snapshotTime = a} :: Snapshot) Prelude.. Lens.mapping Prelude._Time
+snapshot_snapshotTime :: Lens.Lens' Snapshot (Core.Maybe Core.UTCTime)
+snapshot_snapshotTime = Lens.lens (\Snapshot' {snapshotTime} -> snapshotTime) (\s@Snapshot' {} a -> s {snapshotTime = a} :: Snapshot) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON Snapshot where
+instance Core.FromJSON Snapshot where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Snapshot"
       ( \x ->
-          Snapshot' Prelude.<$> (x Prelude..:? "SnapshotTime")
+          Snapshot' Core.<$> (x Core..:? "SnapshotTime")
       )
 
-instance Prelude.Hashable Snapshot
+instance Core.Hashable Snapshot
 
-instance Prelude.NFData Snapshot
+instance Core.NFData Snapshot

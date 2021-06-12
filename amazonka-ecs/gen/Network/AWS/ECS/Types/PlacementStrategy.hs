@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.PlacementStrategy where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.PlacementStrategyType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The task placement strategy for a task or service. For more information,
 -- see
@@ -39,16 +38,16 @@ data PlacementStrategy = PlacementStrategy'
     -- specified with the @field@ parameter. For example, if you binpack on
     -- memory, a task is placed on the instance with the least amount of
     -- remaining memory (but still enough to run the task).
-    type' :: Prelude.Maybe PlacementStrategyType,
+    type' :: Core.Maybe PlacementStrategyType,
     -- | The field to apply the placement strategy against. For the @spread@
     -- placement strategy, valid values are @instanceId@ (or @host@, which has
     -- the same effect), or any platform or custom attribute that is applied to
     -- a container instance, such as @attribute:ecs.availability-zone@. For the
     -- @binpack@ placement strategy, valid values are @cpu@ and @memory@. For
     -- the @random@ placement strategy, this field is not used.
-    field :: Prelude.Maybe Prelude.Text
+    field :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlacementStrategy' with all optional fields omitted.
@@ -77,8 +76,8 @@ newPlacementStrategy ::
   PlacementStrategy
 newPlacementStrategy =
   PlacementStrategy'
-    { type' = Prelude.Nothing,
-      field = Prelude.Nothing
+    { type' = Core.Nothing,
+      field = Core.Nothing
     }
 
 -- | The type of placement strategy. The @random@ placement strategy randomly
@@ -89,7 +88,7 @@ newPlacementStrategy =
 -- specified with the @field@ parameter. For example, if you binpack on
 -- memory, a task is placed on the instance with the least amount of
 -- remaining memory (but still enough to run the task).
-placementStrategy_type :: Lens.Lens' PlacementStrategy (Prelude.Maybe PlacementStrategyType)
+placementStrategy_type :: Lens.Lens' PlacementStrategy (Core.Maybe PlacementStrategyType)
 placementStrategy_type = Lens.lens (\PlacementStrategy' {type'} -> type') (\s@PlacementStrategy' {} a -> s {type' = a} :: PlacementStrategy)
 
 -- | The field to apply the placement strategy against. For the @spread@
@@ -98,28 +97,27 @@ placementStrategy_type = Lens.lens (\PlacementStrategy' {type'} -> type') (\s@Pl
 -- a container instance, such as @attribute:ecs.availability-zone@. For the
 -- @binpack@ placement strategy, valid values are @cpu@ and @memory@. For
 -- the @random@ placement strategy, this field is not used.
-placementStrategy_field :: Lens.Lens' PlacementStrategy (Prelude.Maybe Prelude.Text)
+placementStrategy_field :: Lens.Lens' PlacementStrategy (Core.Maybe Core.Text)
 placementStrategy_field = Lens.lens (\PlacementStrategy' {field} -> field) (\s@PlacementStrategy' {} a -> s {field = a} :: PlacementStrategy)
 
-instance Prelude.FromJSON PlacementStrategy where
+instance Core.FromJSON PlacementStrategy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PlacementStrategy"
       ( \x ->
           PlacementStrategy'
-            Prelude.<$> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "field")
+            Core.<$> (x Core..:? "type") Core.<*> (x Core..:? "field")
       )
 
-instance Prelude.Hashable PlacementStrategy
+instance Core.Hashable PlacementStrategy
 
-instance Prelude.NFData PlacementStrategy
+instance Core.NFData PlacementStrategy
 
-instance Prelude.ToJSON PlacementStrategy where
+instance Core.ToJSON PlacementStrategy where
   toJSON PlacementStrategy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("type" Prelude..=) Prelude.<$> type',
-            ("field" Prelude..=) Prelude.<$> field
+    Core.object
+      ( Core.catMaybes
+          [ ("type" Core..=) Core.<$> type',
+            ("field" Core..=) Core.<$> field
           ]
       )

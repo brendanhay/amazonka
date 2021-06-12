@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AutoMLDataSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLS3DataSource
 
 -- | The data source for the Autopilot job.
@@ -33,7 +32,7 @@ data AutoMLDataSource = AutoMLDataSource'
     -- The input data must be in CSV format and contain at least 500 rows.
     s3DataSource :: AutoMLS3DataSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoMLDataSource' with all optional fields omitted.
@@ -59,24 +58,22 @@ newAutoMLDataSource pS3DataSource_ =
 autoMLDataSource_s3DataSource :: Lens.Lens' AutoMLDataSource AutoMLS3DataSource
 autoMLDataSource_s3DataSource = Lens.lens (\AutoMLDataSource' {s3DataSource} -> s3DataSource) (\s@AutoMLDataSource' {} a -> s {s3DataSource = a} :: AutoMLDataSource)
 
-instance Prelude.FromJSON AutoMLDataSource where
+instance Core.FromJSON AutoMLDataSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoMLDataSource"
       ( \x ->
           AutoMLDataSource'
-            Prelude.<$> (x Prelude..: "S3DataSource")
+            Core.<$> (x Core..: "S3DataSource")
       )
 
-instance Prelude.Hashable AutoMLDataSource
+instance Core.Hashable AutoMLDataSource
 
-instance Prelude.NFData AutoMLDataSource
+instance Core.NFData AutoMLDataSource
 
-instance Prelude.ToJSON AutoMLDataSource where
+instance Core.ToJSON AutoMLDataSource where
   toJSON AutoMLDataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("S3DataSource" Prelude..= s3DataSource)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("S3DataSource" Core..= s3DataSource)]
       )

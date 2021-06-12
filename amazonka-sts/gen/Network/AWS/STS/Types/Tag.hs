@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.STS.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | You can pass custom key-value pair attributes when you assume a role or
 -- federate a user. These are called session tags. You can then use the
@@ -37,16 +36,16 @@ data Tag = Tag'
     -- can’t exceed 128 characters. For these and additional limits, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
     -- in the /IAM User Guide/.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The value for a session tag.
     --
     -- You can pass up to 50 session tags. The plain text session tag values
     -- can’t exceed 256 characters. For these and additional limits, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
     -- in the /IAM User Guide/.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -71,9 +70,9 @@ data Tag = Tag'
 -- in the /IAM User Guide/.
 newTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
@@ -84,7 +83,7 @@ newTag pKey_ pValue_ =
 -- can’t exceed 128 characters. For these and additional limits, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
 -- in the /IAM User Guide/.
-tag_key :: Lens.Lens' Tag Prelude.Text
+tag_key :: Lens.Lens' Tag Core.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value for a session tag.
@@ -93,14 +92,14 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 -- can’t exceed 256 characters. For these and additional limits, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
 -- in the /IAM User Guide/.
-tag_value :: Lens.Lens' Tag Prelude.Text
+tag_value :: Lens.Lens' Tag Core.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToQuery Tag where
+instance Core.ToQuery Tag where
   toQuery Tag' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Key" Core.=: key, "Value" Core.=: value]

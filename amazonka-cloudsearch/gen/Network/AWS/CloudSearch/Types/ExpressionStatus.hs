@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudSearch.Types.ExpressionStatus where
 
 import Network.AWS.CloudSearch.Types.Expression
 import Network.AWS.CloudSearch.Types.OptionStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of an @Expression@ and its current status.
 --
@@ -34,7 +33,7 @@ data ExpressionStatus = ExpressionStatus'
     options :: Expression,
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExpressionStatus' with all optional fields omitted.
@@ -69,12 +68,11 @@ expressionStatus_options = Lens.lens (\ExpressionStatus' {options} -> options) (
 expressionStatus_status :: Lens.Lens' ExpressionStatus OptionStatus
 expressionStatus_status = Lens.lens (\ExpressionStatus' {status} -> status) (\s@ExpressionStatus' {} a -> s {status = a} :: ExpressionStatus)
 
-instance Prelude.FromXML ExpressionStatus where
+instance Core.FromXML ExpressionStatus where
   parseXML x =
     ExpressionStatus'
-      Prelude.<$> (x Prelude..@ "Options")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable ExpressionStatus
+instance Core.Hashable ExpressionStatus
 
-instance Prelude.NFData ExpressionStatus
+instance Core.NFData ExpressionStatus

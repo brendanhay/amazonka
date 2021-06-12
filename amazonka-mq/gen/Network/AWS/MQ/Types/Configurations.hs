@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types.Configurations where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.ConfigurationId
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Broker configuration information
 --
 -- /See:/ 'newConfigurations' smart constructor.
 data Configurations = Configurations'
   { -- | The pending configuration of the broker.
-    pending :: Prelude.Maybe ConfigurationId,
+    pending :: Core.Maybe ConfigurationId,
     -- | The current configuration of the broker.
-    current :: Prelude.Maybe ConfigurationId,
+    current :: Core.Maybe ConfigurationId,
     -- | The history of configurations applied to the broker.
-    history :: Prelude.Maybe [ConfigurationId]
+    history :: Core.Maybe [ConfigurationId]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Configurations' with all optional fields omitted.
@@ -54,34 +53,34 @@ newConfigurations ::
   Configurations
 newConfigurations =
   Configurations'
-    { pending = Prelude.Nothing,
-      current = Prelude.Nothing,
-      history = Prelude.Nothing
+    { pending = Core.Nothing,
+      current = Core.Nothing,
+      history = Core.Nothing
     }
 
 -- | The pending configuration of the broker.
-configurations_pending :: Lens.Lens' Configurations (Prelude.Maybe ConfigurationId)
+configurations_pending :: Lens.Lens' Configurations (Core.Maybe ConfigurationId)
 configurations_pending = Lens.lens (\Configurations' {pending} -> pending) (\s@Configurations' {} a -> s {pending = a} :: Configurations)
 
 -- | The current configuration of the broker.
-configurations_current :: Lens.Lens' Configurations (Prelude.Maybe ConfigurationId)
+configurations_current :: Lens.Lens' Configurations (Core.Maybe ConfigurationId)
 configurations_current = Lens.lens (\Configurations' {current} -> current) (\s@Configurations' {} a -> s {current = a} :: Configurations)
 
 -- | The history of configurations applied to the broker.
-configurations_history :: Lens.Lens' Configurations (Prelude.Maybe [ConfigurationId])
-configurations_history = Lens.lens (\Configurations' {history} -> history) (\s@Configurations' {} a -> s {history = a} :: Configurations) Prelude.. Lens.mapping Prelude._Coerce
+configurations_history :: Lens.Lens' Configurations (Core.Maybe [ConfigurationId])
+configurations_history = Lens.lens (\Configurations' {history} -> history) (\s@Configurations' {} a -> s {history = a} :: Configurations) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Configurations where
+instance Core.FromJSON Configurations where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Configurations"
       ( \x ->
           Configurations'
-            Prelude.<$> (x Prelude..:? "pending")
-            Prelude.<*> (x Prelude..:? "current")
-            Prelude.<*> (x Prelude..:? "history" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "pending")
+            Core.<*> (x Core..:? "current")
+            Core.<*> (x Core..:? "history" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Configurations
+instance Core.Hashable Configurations
 
-instance Prelude.NFData Configurations
+instance Core.NFData Configurations

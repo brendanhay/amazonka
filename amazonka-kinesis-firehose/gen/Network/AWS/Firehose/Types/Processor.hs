@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.Processor where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.ProcessorParameter
 import Network.AWS.Firehose.Types.ProcessorType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a data processor.
 --
 -- /See:/ 'newProcessor' smart constructor.
 data Processor = Processor'
   { -- | The processor parameters.
-    parameters :: Prelude.Maybe [ProcessorParameter],
+    parameters :: Core.Maybe [ProcessorParameter],
     -- | The type of processor.
     type' :: ProcessorType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Processor' with all optional fields omitted.
@@ -53,39 +52,37 @@ newProcessor ::
   Processor
 newProcessor pType_ =
   Processor'
-    { parameters = Prelude.Nothing,
+    { parameters = Core.Nothing,
       type' = pType_
     }
 
 -- | The processor parameters.
-processor_parameters :: Lens.Lens' Processor (Prelude.Maybe [ProcessorParameter])
-processor_parameters = Lens.lens (\Processor' {parameters} -> parameters) (\s@Processor' {} a -> s {parameters = a} :: Processor) Prelude.. Lens.mapping Prelude._Coerce
+processor_parameters :: Lens.Lens' Processor (Core.Maybe [ProcessorParameter])
+processor_parameters = Lens.lens (\Processor' {parameters} -> parameters) (\s@Processor' {} a -> s {parameters = a} :: Processor) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of processor.
 processor_type :: Lens.Lens' Processor ProcessorType
 processor_type = Lens.lens (\Processor' {type'} -> type') (\s@Processor' {} a -> s {type' = a} :: Processor)
 
-instance Prelude.FromJSON Processor where
+instance Core.FromJSON Processor where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Processor"
       ( \x ->
           Processor'
-            Prelude.<$> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Processor
+instance Core.Hashable Processor
 
-instance Prelude.NFData Processor
+instance Core.NFData Processor
 
-instance Prelude.ToJSON Processor where
+instance Core.ToJSON Processor where
   toJSON Processor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Parameters" Prelude..=) Prelude.<$> parameters,
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("Parameters" Core..=) Core.<$> parameters,
+            Core.Just ("Type" Core..= type')
           ]
       )

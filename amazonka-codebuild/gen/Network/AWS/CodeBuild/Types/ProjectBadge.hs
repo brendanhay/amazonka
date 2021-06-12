@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.ProjectBadge where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the build badge for the build project.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ProjectBadge = ProjectBadge'
   { -- | The publicly-accessible URL through which you can access the build badge
     -- for your project.
-    badgeRequestUrl :: Prelude.Maybe Prelude.Text,
+    badgeRequestUrl :: Core.Maybe Core.Text,
     -- | Set this to true to generate a publicly accessible URL for your
     -- project\'s build badge.
-    badgeEnabled :: Prelude.Maybe Prelude.Bool
+    badgeEnabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectBadge' with all optional fields omitted.
@@ -53,30 +52,30 @@ newProjectBadge ::
   ProjectBadge
 newProjectBadge =
   ProjectBadge'
-    { badgeRequestUrl = Prelude.Nothing,
-      badgeEnabled = Prelude.Nothing
+    { badgeRequestUrl = Core.Nothing,
+      badgeEnabled = Core.Nothing
     }
 
 -- | The publicly-accessible URL through which you can access the build badge
 -- for your project.
-projectBadge_badgeRequestUrl :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Text)
+projectBadge_badgeRequestUrl :: Lens.Lens' ProjectBadge (Core.Maybe Core.Text)
 projectBadge_badgeRequestUrl = Lens.lens (\ProjectBadge' {badgeRequestUrl} -> badgeRequestUrl) (\s@ProjectBadge' {} a -> s {badgeRequestUrl = a} :: ProjectBadge)
 
 -- | Set this to true to generate a publicly accessible URL for your
 -- project\'s build badge.
-projectBadge_badgeEnabled :: Lens.Lens' ProjectBadge (Prelude.Maybe Prelude.Bool)
+projectBadge_badgeEnabled :: Lens.Lens' ProjectBadge (Core.Maybe Core.Bool)
 projectBadge_badgeEnabled = Lens.lens (\ProjectBadge' {badgeEnabled} -> badgeEnabled) (\s@ProjectBadge' {} a -> s {badgeEnabled = a} :: ProjectBadge)
 
-instance Prelude.FromJSON ProjectBadge where
+instance Core.FromJSON ProjectBadge where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectBadge"
       ( \x ->
           ProjectBadge'
-            Prelude.<$> (x Prelude..:? "badgeRequestUrl")
-            Prelude.<*> (x Prelude..:? "badgeEnabled")
+            Core.<$> (x Core..:? "badgeRequestUrl")
+            Core.<*> (x Core..:? "badgeEnabled")
       )
 
-instance Prelude.Hashable ProjectBadge
+instance Core.Hashable ProjectBadge
 
-instance Prelude.NFData ProjectBadge
+instance Core.NFData ProjectBadge

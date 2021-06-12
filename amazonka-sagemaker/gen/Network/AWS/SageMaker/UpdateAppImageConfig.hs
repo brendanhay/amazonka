@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.UpdateAppImageConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,11 +49,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateAppImageConfig' smart constructor.
 data UpdateAppImageConfig = UpdateAppImageConfig'
   { -- | The new KernelGateway app to run on the image.
-    kernelGatewayImageConfig :: Prelude.Maybe KernelGatewayImageConfig,
+    kernelGatewayImageConfig :: Core.Maybe KernelGatewayImageConfig,
     -- | The name of the AppImageConfig to update.
-    appImageConfigName :: Prelude.Text
+    appImageConfigName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAppImageConfig' with all optional fields omitted.
@@ -69,82 +68,78 @@ data UpdateAppImageConfig = UpdateAppImageConfig'
 -- 'appImageConfigName', 'updateAppImageConfig_appImageConfigName' - The name of the AppImageConfig to update.
 newUpdateAppImageConfig ::
   -- | 'appImageConfigName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAppImageConfig
 newUpdateAppImageConfig pAppImageConfigName_ =
   UpdateAppImageConfig'
     { kernelGatewayImageConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       appImageConfigName = pAppImageConfigName_
     }
 
 -- | The new KernelGateway app to run on the image.
-updateAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' UpdateAppImageConfig (Prelude.Maybe KernelGatewayImageConfig)
+updateAppImageConfig_kernelGatewayImageConfig :: Lens.Lens' UpdateAppImageConfig (Core.Maybe KernelGatewayImageConfig)
 updateAppImageConfig_kernelGatewayImageConfig = Lens.lens (\UpdateAppImageConfig' {kernelGatewayImageConfig} -> kernelGatewayImageConfig) (\s@UpdateAppImageConfig' {} a -> s {kernelGatewayImageConfig = a} :: UpdateAppImageConfig)
 
 -- | The name of the AppImageConfig to update.
-updateAppImageConfig_appImageConfigName :: Lens.Lens' UpdateAppImageConfig Prelude.Text
+updateAppImageConfig_appImageConfigName :: Lens.Lens' UpdateAppImageConfig Core.Text
 updateAppImageConfig_appImageConfigName = Lens.lens (\UpdateAppImageConfig' {appImageConfigName} -> appImageConfigName) (\s@UpdateAppImageConfig' {} a -> s {appImageConfigName = a} :: UpdateAppImageConfig)
 
-instance Prelude.AWSRequest UpdateAppImageConfig where
+instance Core.AWSRequest UpdateAppImageConfig where
   type
-    Rs UpdateAppImageConfig =
+    AWSResponse UpdateAppImageConfig =
       UpdateAppImageConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateAppImageConfigResponse'
-            Prelude.<$> (x Prelude..?> "AppImageConfigArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AppImageConfigArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAppImageConfig
+instance Core.Hashable UpdateAppImageConfig
 
-instance Prelude.NFData UpdateAppImageConfig
+instance Core.NFData UpdateAppImageConfig
 
-instance Prelude.ToHeaders UpdateAppImageConfig where
+instance Core.ToHeaders UpdateAppImageConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.UpdateAppImageConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.UpdateAppImageConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateAppImageConfig where
+instance Core.ToJSON UpdateAppImageConfig where
   toJSON UpdateAppImageConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KernelGatewayImageConfig" Prelude..=)
-              Prelude.<$> kernelGatewayImageConfig,
-            Prelude.Just
-              ( "AppImageConfigName"
-                  Prelude..= appImageConfigName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("KernelGatewayImageConfig" Core..=)
+              Core.<$> kernelGatewayImageConfig,
+            Core.Just
+              ("AppImageConfigName" Core..= appImageConfigName)
           ]
       )
 
-instance Prelude.ToPath UpdateAppImageConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAppImageConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAppImageConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAppImageConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateAppImageConfigResponse' smart constructor.
 data UpdateAppImageConfigResponse = UpdateAppImageConfigResponse'
   { -- | The Amazon Resource Name (ARN) for the AppImageConfig.
-    appImageConfigArn :: Prelude.Maybe Prelude.Text,
+    appImageConfigArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAppImageConfigResponse' with all optional fields omitted.
@@ -159,21 +154,21 @@ data UpdateAppImageConfigResponse = UpdateAppImageConfigResponse'
 -- 'httpStatus', 'updateAppImageConfigResponse_httpStatus' - The response's http status code.
 newUpdateAppImageConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateAppImageConfigResponse
 newUpdateAppImageConfigResponse pHttpStatus_ =
   UpdateAppImageConfigResponse'
     { appImageConfigArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) for the AppImageConfig.
-updateAppImageConfigResponse_appImageConfigArn :: Lens.Lens' UpdateAppImageConfigResponse (Prelude.Maybe Prelude.Text)
+updateAppImageConfigResponse_appImageConfigArn :: Lens.Lens' UpdateAppImageConfigResponse (Core.Maybe Core.Text)
 updateAppImageConfigResponse_appImageConfigArn = Lens.lens (\UpdateAppImageConfigResponse' {appImageConfigArn} -> appImageConfigArn) (\s@UpdateAppImageConfigResponse' {} a -> s {appImageConfigArn = a} :: UpdateAppImageConfigResponse)
 
 -- | The response's http status code.
-updateAppImageConfigResponse_httpStatus :: Lens.Lens' UpdateAppImageConfigResponse Prelude.Int
+updateAppImageConfigResponse_httpStatus :: Lens.Lens' UpdateAppImageConfigResponse Core.Int
 updateAppImageConfigResponse_httpStatus = Lens.lens (\UpdateAppImageConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateAppImageConfigResponse' {} a -> s {httpStatus = a} :: UpdateAppImageConfigResponse)
 
-instance Prelude.NFData UpdateAppImageConfigResponse
+instance Core.NFData UpdateAppImageConfigResponse

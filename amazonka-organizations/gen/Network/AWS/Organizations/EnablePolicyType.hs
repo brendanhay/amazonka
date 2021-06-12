@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.Organizations.EnablePolicyType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,7 +67,7 @@ data EnablePolicyType = EnablePolicyType'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string
     -- requires \"r-\" followed by from 4 to 32 lowercase letters or digits.
-    rootId :: Prelude.Text,
+    rootId :: Core.Text,
     -- | The policy type that you want to enable. You can specify one of the
     -- following values:
     --
@@ -81,7 +80,7 @@ data EnablePolicyType = EnablePolicyType'
     -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
     policyType :: PolicyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnablePolicyType' with all optional fields omitted.
@@ -109,7 +108,7 @@ data EnablePolicyType = EnablePolicyType'
 -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
 newEnablePolicyType ::
   -- | 'rootId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyType'
   PolicyType ->
   EnablePolicyType
@@ -124,7 +123,7 @@ newEnablePolicyType pRootId_ pPolicyType_ =
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string
 -- requires \"r-\" followed by from 4 to 32 lowercase letters or digits.
-enablePolicyType_rootId :: Lens.Lens' EnablePolicyType Prelude.Text
+enablePolicyType_rootId :: Lens.Lens' EnablePolicyType Core.Text
 enablePolicyType_rootId = Lens.lens (\EnablePolicyType' {rootId} -> rootId) (\s@EnablePolicyType' {} a -> s {rootId = a} :: EnablePolicyType)
 
 -- | The policy type that you want to enable. You can specify one of the
@@ -140,60 +139,60 @@ enablePolicyType_rootId = Lens.lens (\EnablePolicyType' {rootId} -> rootId) (\s@
 enablePolicyType_policyType :: Lens.Lens' EnablePolicyType PolicyType
 enablePolicyType_policyType = Lens.lens (\EnablePolicyType' {policyType} -> policyType) (\s@EnablePolicyType' {} a -> s {policyType = a} :: EnablePolicyType)
 
-instance Prelude.AWSRequest EnablePolicyType where
-  type Rs EnablePolicyType = EnablePolicyTypeResponse
+instance Core.AWSRequest EnablePolicyType where
+  type
+    AWSResponse EnablePolicyType =
+      EnablePolicyTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           EnablePolicyTypeResponse'
-            Prelude.<$> (x Prelude..?> "Root")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Root")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable EnablePolicyType
+instance Core.Hashable EnablePolicyType
 
-instance Prelude.NFData EnablePolicyType
+instance Core.NFData EnablePolicyType
 
-instance Prelude.ToHeaders EnablePolicyType where
+instance Core.ToHeaders EnablePolicyType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.EnablePolicyType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.EnablePolicyType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnablePolicyType where
+instance Core.ToJSON EnablePolicyType where
   toJSON EnablePolicyType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("RootId" Prelude..= rootId),
-            Prelude.Just ("PolicyType" Prelude..= policyType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RootId" Core..= rootId),
+            Core.Just ("PolicyType" Core..= policyType)
           ]
       )
 
-instance Prelude.ToPath EnablePolicyType where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnablePolicyType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnablePolicyType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnablePolicyType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnablePolicyTypeResponse' smart constructor.
 data EnablePolicyTypeResponse = EnablePolicyTypeResponse'
   { -- | A structure that shows the root with the updated list of enabled policy
     -- types.
-    root :: Prelude.Maybe Root,
+    root :: Core.Maybe Root,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnablePolicyTypeResponse' with all optional fields omitted.
@@ -209,21 +208,21 @@ data EnablePolicyTypeResponse = EnablePolicyTypeResponse'
 -- 'httpStatus', 'enablePolicyTypeResponse_httpStatus' - The response's http status code.
 newEnablePolicyTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnablePolicyTypeResponse
 newEnablePolicyTypeResponse pHttpStatus_ =
   EnablePolicyTypeResponse'
-    { root = Prelude.Nothing,
+    { root = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that shows the root with the updated list of enabled policy
 -- types.
-enablePolicyTypeResponse_root :: Lens.Lens' EnablePolicyTypeResponse (Prelude.Maybe Root)
+enablePolicyTypeResponse_root :: Lens.Lens' EnablePolicyTypeResponse (Core.Maybe Root)
 enablePolicyTypeResponse_root = Lens.lens (\EnablePolicyTypeResponse' {root} -> root) (\s@EnablePolicyTypeResponse' {} a -> s {root = a} :: EnablePolicyTypeResponse)
 
 -- | The response's http status code.
-enablePolicyTypeResponse_httpStatus :: Lens.Lens' EnablePolicyTypeResponse Prelude.Int
+enablePolicyTypeResponse_httpStatus :: Lens.Lens' EnablePolicyTypeResponse Core.Int
 enablePolicyTypeResponse_httpStatus = Lens.lens (\EnablePolicyTypeResponse' {httpStatus} -> httpStatus) (\s@EnablePolicyTypeResponse' {} a -> s {httpStatus = a} :: EnablePolicyTypeResponse)
 
-instance Prelude.NFData EnablePolicyTypeResponse
+instance Core.NFData EnablePolicyTypeResponse

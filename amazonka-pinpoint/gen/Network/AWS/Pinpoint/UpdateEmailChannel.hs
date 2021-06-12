@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.UpdateEmailChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data UpdateEmailChannel = UpdateEmailChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     emailChannelRequest :: EmailChannelRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEmailChannel' with all optional fields omitted.
@@ -71,7 +70,7 @@ data UpdateEmailChannel = UpdateEmailChannel'
 -- 'emailChannelRequest', 'updateEmailChannel_emailChannelRequest' - Undocumented member.
 newUpdateEmailChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'emailChannelRequest'
   EmailChannelRequest ->
   UpdateEmailChannel
@@ -86,70 +85,66 @@ newUpdateEmailChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateEmailChannel_applicationId :: Lens.Lens' UpdateEmailChannel Prelude.Text
+updateEmailChannel_applicationId :: Lens.Lens' UpdateEmailChannel Core.Text
 updateEmailChannel_applicationId = Lens.lens (\UpdateEmailChannel' {applicationId} -> applicationId) (\s@UpdateEmailChannel' {} a -> s {applicationId = a} :: UpdateEmailChannel)
 
 -- | Undocumented member.
 updateEmailChannel_emailChannelRequest :: Lens.Lens' UpdateEmailChannel EmailChannelRequest
 updateEmailChannel_emailChannelRequest = Lens.lens (\UpdateEmailChannel' {emailChannelRequest} -> emailChannelRequest) (\s@UpdateEmailChannel' {} a -> s {emailChannelRequest = a} :: UpdateEmailChannel)
 
-instance Prelude.AWSRequest UpdateEmailChannel where
+instance Core.AWSRequest UpdateEmailChannel where
   type
-    Rs UpdateEmailChannel =
+    AWSResponse UpdateEmailChannel =
       UpdateEmailChannelResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateEmailChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateEmailChannel
+instance Core.Hashable UpdateEmailChannel
 
-instance Prelude.NFData UpdateEmailChannel
+instance Core.NFData UpdateEmailChannel
 
-instance Prelude.ToHeaders UpdateEmailChannel where
+instance Core.ToHeaders UpdateEmailChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateEmailChannel where
+instance Core.ToJSON UpdateEmailChannel where
   toJSON UpdateEmailChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "EmailChannelRequest"
-                  Prelude..= emailChannelRequest
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("EmailChannelRequest" Core..= emailChannelRequest)
           ]
       )
 
-instance Prelude.ToPath UpdateEmailChannel where
+instance Core.ToPath UpdateEmailChannel where
   toPath UpdateEmailChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/email"
       ]
 
-instance Prelude.ToQuery UpdateEmailChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateEmailChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateEmailChannelResponse' smart constructor.
 data UpdateEmailChannelResponse = UpdateEmailChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     emailChannelResponse :: EmailChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEmailChannelResponse' with all optional fields omitted.
@@ -164,7 +159,7 @@ data UpdateEmailChannelResponse = UpdateEmailChannelResponse'
 -- 'emailChannelResponse', 'updateEmailChannelResponse_emailChannelResponse' - Undocumented member.
 newUpdateEmailChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'emailChannelResponse'
   EmailChannelResponse ->
   UpdateEmailChannelResponse
@@ -178,11 +173,11 @@ newUpdateEmailChannelResponse
       }
 
 -- | The response's http status code.
-updateEmailChannelResponse_httpStatus :: Lens.Lens' UpdateEmailChannelResponse Prelude.Int
+updateEmailChannelResponse_httpStatus :: Lens.Lens' UpdateEmailChannelResponse Core.Int
 updateEmailChannelResponse_httpStatus = Lens.lens (\UpdateEmailChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateEmailChannelResponse' {} a -> s {httpStatus = a} :: UpdateEmailChannelResponse)
 
 -- | Undocumented member.
 updateEmailChannelResponse_emailChannelResponse :: Lens.Lens' UpdateEmailChannelResponse EmailChannelResponse
 updateEmailChannelResponse_emailChannelResponse = Lens.lens (\UpdateEmailChannelResponse' {emailChannelResponse} -> emailChannelResponse) (\s@UpdateEmailChannelResponse' {} a -> s {emailChannelResponse = a} :: UpdateEmailChannelResponse)
 
-instance Prelude.NFData UpdateEmailChannelResponse
+instance Core.NFData UpdateEmailChannelResponse

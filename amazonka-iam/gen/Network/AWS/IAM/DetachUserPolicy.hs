@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IAM.DetachUserPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +56,15 @@ data DetachUserPolicy = DetachUserPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Prelude.Text
+    policyArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachUserPolicy' with all optional fields omitted.
@@ -90,9 +89,9 @@ data DetachUserPolicy = DetachUserPolicy'
 -- in the /AWS General Reference/.
 newDetachUserPolicy ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   DetachUserPolicy
 newDetachUserPolicy pUserName_ pPolicyArn_ =
   DetachUserPolicy'
@@ -107,7 +106,7 @@ newDetachUserPolicy pUserName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-detachUserPolicy_userName :: Lens.Lens' DetachUserPolicy Prelude.Text
+detachUserPolicy_userName :: Lens.Lens' DetachUserPolicy Core.Text
 detachUserPolicy_userName = Lens.lens (\DetachUserPolicy' {userName} -> userName) (\s@DetachUserPolicy' {} a -> s {userName = a} :: DetachUserPolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
@@ -115,41 +114,42 @@ detachUserPolicy_userName = Lens.lens (\DetachUserPolicy' {userName} -> userName
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-detachUserPolicy_policyArn :: Lens.Lens' DetachUserPolicy Prelude.Text
+detachUserPolicy_policyArn :: Lens.Lens' DetachUserPolicy Core.Text
 detachUserPolicy_policyArn = Lens.lens (\DetachUserPolicy' {policyArn} -> policyArn) (\s@DetachUserPolicy' {} a -> s {policyArn = a} :: DetachUserPolicy)
 
-instance Prelude.AWSRequest DetachUserPolicy where
-  type Rs DetachUserPolicy = DetachUserPolicyResponse
+instance Core.AWSRequest DetachUserPolicy where
+  type
+    AWSResponse DetachUserPolicy =
+      DetachUserPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DetachUserPolicyResponse'
 
-instance Prelude.Hashable DetachUserPolicy
+instance Core.Hashable DetachUserPolicy
 
-instance Prelude.NFData DetachUserPolicy
+instance Core.NFData DetachUserPolicy
 
-instance Prelude.ToHeaders DetachUserPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DetachUserPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DetachUserPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetachUserPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetachUserPolicy where
+instance Core.ToQuery DetachUserPolicy where
   toQuery DetachUserPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DetachUserPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "PolicyArn" Prelude.=: policyArn
+          Core.=: ("DetachUserPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "PolicyArn" Core.=: policyArn
       ]
 
 -- | /See:/ 'newDetachUserPolicyResponse' smart constructor.
 data DetachUserPolicyResponse = DetachUserPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachUserPolicyResponse' with all optional fields omitted.
@@ -160,4 +160,4 @@ newDetachUserPolicyResponse ::
 newDetachUserPolicyResponse =
   DetachUserPolicyResponse'
 
-instance Prelude.NFData DetachUserPolicyResponse
+instance Core.NFData DetachUserPolicyResponse

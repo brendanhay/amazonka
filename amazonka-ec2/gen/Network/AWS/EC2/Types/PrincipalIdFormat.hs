@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PrincipalIdFormat where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.IdFormat
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | PrincipalIdFormat description
 --
 -- /See:/ 'newPrincipalIdFormat' smart constructor.
 data PrincipalIdFormat = PrincipalIdFormat'
   { -- | PrincipalIdFormatARN description
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | PrincipalIdFormatStatuses description
-    statuses :: Prelude.Maybe [IdFormat]
+    statuses :: Core.Maybe [IdFormat]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PrincipalIdFormat' with all optional fields omitted.
@@ -51,26 +50,26 @@ newPrincipalIdFormat ::
   PrincipalIdFormat
 newPrincipalIdFormat =
   PrincipalIdFormat'
-    { arn = Prelude.Nothing,
-      statuses = Prelude.Nothing
+    { arn = Core.Nothing,
+      statuses = Core.Nothing
     }
 
 -- | PrincipalIdFormatARN description
-principalIdFormat_arn :: Lens.Lens' PrincipalIdFormat (Prelude.Maybe Prelude.Text)
+principalIdFormat_arn :: Lens.Lens' PrincipalIdFormat (Core.Maybe Core.Text)
 principalIdFormat_arn = Lens.lens (\PrincipalIdFormat' {arn} -> arn) (\s@PrincipalIdFormat' {} a -> s {arn = a} :: PrincipalIdFormat)
 
 -- | PrincipalIdFormatStatuses description
-principalIdFormat_statuses :: Lens.Lens' PrincipalIdFormat (Prelude.Maybe [IdFormat])
-principalIdFormat_statuses = Lens.lens (\PrincipalIdFormat' {statuses} -> statuses) (\s@PrincipalIdFormat' {} a -> s {statuses = a} :: PrincipalIdFormat) Prelude.. Lens.mapping Prelude._Coerce
+principalIdFormat_statuses :: Lens.Lens' PrincipalIdFormat (Core.Maybe [IdFormat])
+principalIdFormat_statuses = Lens.lens (\PrincipalIdFormat' {statuses} -> statuses) (\s@PrincipalIdFormat' {} a -> s {statuses = a} :: PrincipalIdFormat) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML PrincipalIdFormat where
+instance Core.FromXML PrincipalIdFormat where
   parseXML x =
     PrincipalIdFormat'
-      Prelude.<$> (x Prelude..@? "arn")
-      Prelude.<*> ( x Prelude..@? "statusSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "arn")
+      Core.<*> ( x Core..@? "statusSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable PrincipalIdFormat
+instance Core.Hashable PrincipalIdFormat
 
-instance Prelude.NFData PrincipalIdFormat
+instance Core.NFData PrincipalIdFormat

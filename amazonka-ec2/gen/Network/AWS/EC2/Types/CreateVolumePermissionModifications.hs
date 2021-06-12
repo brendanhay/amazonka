@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CreateVolumePermissionModifications where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CreateVolumePermission
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes modifications to the list of create volume permissions for a
 -- volume.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCreateVolumePermissionModifications' smart constructor.
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
   { -- | Adds the specified AWS account ID or group to the list.
-    add :: Prelude.Maybe [CreateVolumePermission],
+    add :: Core.Maybe [CreateVolumePermission],
     -- | Removes the specified AWS account ID or group from the list.
-    remove :: Prelude.Maybe [CreateVolumePermission]
+    remove :: Core.Maybe [CreateVolumePermission]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVolumePermissionModifications' with all optional fields omitted.
@@ -53,34 +52,33 @@ newCreateVolumePermissionModifications ::
 newCreateVolumePermissionModifications =
   CreateVolumePermissionModifications'
     { add =
-        Prelude.Nothing,
-      remove = Prelude.Nothing
+        Core.Nothing,
+      remove = Core.Nothing
     }
 
 -- | Adds the specified AWS account ID or group to the list.
-createVolumePermissionModifications_add :: Lens.Lens' CreateVolumePermissionModifications (Prelude.Maybe [CreateVolumePermission])
-createVolumePermissionModifications_add = Lens.lens (\CreateVolumePermissionModifications' {add} -> add) (\s@CreateVolumePermissionModifications' {} a -> s {add = a} :: CreateVolumePermissionModifications) Prelude.. Lens.mapping Prelude._Coerce
+createVolumePermissionModifications_add :: Lens.Lens' CreateVolumePermissionModifications (Core.Maybe [CreateVolumePermission])
+createVolumePermissionModifications_add = Lens.lens (\CreateVolumePermissionModifications' {add} -> add) (\s@CreateVolumePermissionModifications' {} a -> s {add = a} :: CreateVolumePermissionModifications) Core.. Lens.mapping Lens._Coerce
 
 -- | Removes the specified AWS account ID or group from the list.
-createVolumePermissionModifications_remove :: Lens.Lens' CreateVolumePermissionModifications (Prelude.Maybe [CreateVolumePermission])
-createVolumePermissionModifications_remove = Lens.lens (\CreateVolumePermissionModifications' {remove} -> remove) (\s@CreateVolumePermissionModifications' {} a -> s {remove = a} :: CreateVolumePermissionModifications) Prelude.. Lens.mapping Prelude._Coerce
+createVolumePermissionModifications_remove :: Lens.Lens' CreateVolumePermissionModifications (Core.Maybe [CreateVolumePermission])
+createVolumePermissionModifications_remove = Lens.lens (\CreateVolumePermissionModifications' {remove} -> remove) (\s@CreateVolumePermissionModifications' {} a -> s {remove = a} :: CreateVolumePermissionModifications) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateVolumePermissionModifications
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateVolumePermissionModifications
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateVolumePermissionModifications
   where
   toQuery CreateVolumePermissionModifications' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          (Prelude.toQueryList "Add" Prelude.<$> add),
-        Prelude.toQuery
-          (Prelude.toQueryList "Remove" Prelude.<$> remove)
+    Core.mconcat
+      [ Core.toQuery (Core.toQueryList "Add" Core.<$> add),
+        Core.toQuery
+          (Core.toQueryList "Remove" Core.<$> remove)
       ]

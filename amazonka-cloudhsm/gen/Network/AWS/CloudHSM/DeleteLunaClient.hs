@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,17 +54,17 @@ module Network.AWS.CloudHSM.DeleteLunaClient
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLunaClient' smart constructor.
 data DeleteLunaClient = DeleteLunaClient'
   { -- | The ARN of the client to delete.
-    clientArn :: Prelude.Text
+    clientArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLunaClient' with all optional fields omitted.
@@ -78,66 +77,66 @@ data DeleteLunaClient = DeleteLunaClient'
 -- 'clientArn', 'deleteLunaClient_clientArn' - The ARN of the client to delete.
 newDeleteLunaClient ::
   -- | 'clientArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLunaClient
 newDeleteLunaClient pClientArn_ =
   DeleteLunaClient' {clientArn = pClientArn_}
 
 -- | The ARN of the client to delete.
-deleteLunaClient_clientArn :: Lens.Lens' DeleteLunaClient Prelude.Text
+deleteLunaClient_clientArn :: Lens.Lens' DeleteLunaClient Core.Text
 deleteLunaClient_clientArn = Lens.lens (\DeleteLunaClient' {clientArn} -> clientArn) (\s@DeleteLunaClient' {} a -> s {clientArn = a} :: DeleteLunaClient)
 
-instance Prelude.AWSRequest DeleteLunaClient where
-  type Rs DeleteLunaClient = DeleteLunaClientResponse
+instance Core.AWSRequest DeleteLunaClient where
+  type
+    AWSResponse DeleteLunaClient =
+      DeleteLunaClientResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteLunaClientResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Status")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Status")
       )
 
-instance Prelude.Hashable DeleteLunaClient
+instance Core.Hashable DeleteLunaClient
 
-instance Prelude.NFData DeleteLunaClient
+instance Core.NFData DeleteLunaClient
 
-instance Prelude.ToHeaders DeleteLunaClient where
+instance Core.ToHeaders DeleteLunaClient where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.DeleteLunaClient" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.DeleteLunaClient" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteLunaClient where
+instance Core.ToJSON DeleteLunaClient where
   toJSON DeleteLunaClient' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ClientArn" Prelude..= clientArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ClientArn" Core..= clientArn)]
       )
 
-instance Prelude.ToPath DeleteLunaClient where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLunaClient where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLunaClient where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLunaClient where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLunaClientResponse' smart constructor.
 data DeleteLunaClientResponse = DeleteLunaClientResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The status of the action.
-    status :: Prelude.Text
+    status :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLunaClientResponse' with all optional fields omitted.
@@ -152,9 +151,9 @@ data DeleteLunaClientResponse = DeleteLunaClientResponse'
 -- 'status', 'deleteLunaClientResponse_status' - The status of the action.
 newDeleteLunaClientResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'status'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLunaClientResponse
 newDeleteLunaClientResponse pHttpStatus_ pStatus_ =
   DeleteLunaClientResponse'
@@ -164,11 +163,11 @@ newDeleteLunaClientResponse pHttpStatus_ pStatus_ =
     }
 
 -- | The response's http status code.
-deleteLunaClientResponse_httpStatus :: Lens.Lens' DeleteLunaClientResponse Prelude.Int
+deleteLunaClientResponse_httpStatus :: Lens.Lens' DeleteLunaClientResponse Core.Int
 deleteLunaClientResponse_httpStatus = Lens.lens (\DeleteLunaClientResponse' {httpStatus} -> httpStatus) (\s@DeleteLunaClientResponse' {} a -> s {httpStatus = a} :: DeleteLunaClientResponse)
 
 -- | The status of the action.
-deleteLunaClientResponse_status :: Lens.Lens' DeleteLunaClientResponse Prelude.Text
+deleteLunaClientResponse_status :: Lens.Lens' DeleteLunaClientResponse Core.Text
 deleteLunaClientResponse_status = Lens.lens (\DeleteLunaClientResponse' {status} -> status) (\s@DeleteLunaClientResponse' {} a -> s {status = a} :: DeleteLunaClientResponse)
 
-instance Prelude.NFData DeleteLunaClientResponse
+instance Core.NFData DeleteLunaClientResponse

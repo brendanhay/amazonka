@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.GetResource
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,13 +61,13 @@ data GetResource = GetResource'
     -- query parameter value must be a single-valued list and contain the
     -- @\"methods\"@ string. For example,
     -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
-    embed :: Prelude.Maybe [Prelude.Text],
+    embed :: Core.Maybe [Core.Text],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The identifier for the Resource resource.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetResource' with all optional fields omitted.
@@ -91,13 +90,13 @@ data GetResource = GetResource'
 -- 'resourceId', 'getResource_resourceId' - [Required] The identifier for the Resource resource.
 newGetResource ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   GetResource
 newGetResource pRestApiId_ pResourceId_ =
   GetResource'
-    { embed = Prelude.Nothing,
+    { embed = Core.Nothing,
       restApiId = pRestApiId_,
       resourceId = pResourceId_
     }
@@ -109,50 +108,50 @@ newGetResource pRestApiId_ pResourceId_ =
 -- query parameter value must be a single-valued list and contain the
 -- @\"methods\"@ string. For example,
 -- @GET \/restapis\/{restapi_id}\/resources\/{resource_id}?embed=methods@.
-getResource_embed :: Lens.Lens' GetResource (Prelude.Maybe [Prelude.Text])
-getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Prelude.. Lens.mapping Prelude._Coerce
+getResource_embed :: Lens.Lens' GetResource (Core.Maybe [Core.Text])
+getResource_embed = Lens.lens (\GetResource' {embed} -> embed) (\s@GetResource' {} a -> s {embed = a} :: GetResource) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-getResource_restApiId :: Lens.Lens' GetResource Prelude.Text
+getResource_restApiId :: Lens.Lens' GetResource Core.Text
 getResource_restApiId = Lens.lens (\GetResource' {restApiId} -> restApiId) (\s@GetResource' {} a -> s {restApiId = a} :: GetResource)
 
 -- | [Required] The identifier for the Resource resource.
-getResource_resourceId :: Lens.Lens' GetResource Prelude.Text
+getResource_resourceId :: Lens.Lens' GetResource Core.Text
 getResource_resourceId = Lens.lens (\GetResource' {resourceId} -> resourceId) (\s@GetResource' {} a -> s {resourceId = a} :: GetResource)
 
-instance Prelude.AWSRequest GetResource where
-  type Rs GetResource = Resource
+instance Core.AWSRequest GetResource where
+  type AWSResponse GetResource = Resource
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetResource
+instance Core.Hashable GetResource
 
-instance Prelude.NFData GetResource
+instance Core.NFData GetResource
 
-instance Prelude.ToHeaders GetResource where
+instance Core.ToHeaders GetResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetResource where
+instance Core.ToPath GetResource where
   toPath GetResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId
+        Core.toBS resourceId
       ]
 
-instance Prelude.ToQuery GetResource where
+instance Core.ToQuery GetResource where
   toQuery GetResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "embed"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> embed)
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> embed)
       ]

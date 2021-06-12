@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeStar.Types.ToolchainSource where
 
 import Network.AWS.CodeStar.Types.S3Location
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon S3 location where the toolchain template file provided with
 -- the project request is stored. AWS CodeStar retrieves the file during
@@ -34,7 +33,7 @@ data ToolchainSource = ToolchainSource'
     -- project request is stored.
     s3 :: S3Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ToolchainSource' with all optional fields omitted.
@@ -57,13 +56,11 @@ newToolchainSource pS3_ = ToolchainSource' {s3 = pS3_}
 toolchainSource_s3 :: Lens.Lens' ToolchainSource S3Location
 toolchainSource_s3 = Lens.lens (\ToolchainSource' {s3} -> s3) (\s@ToolchainSource' {} a -> s {s3 = a} :: ToolchainSource)
 
-instance Prelude.Hashable ToolchainSource
+instance Core.Hashable ToolchainSource
 
-instance Prelude.NFData ToolchainSource
+instance Core.NFData ToolchainSource
 
-instance Prelude.ToJSON ToolchainSource where
+instance Core.ToJSON ToolchainSource where
   toJSON ToolchainSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("s3" Prelude..= s3)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("s3" Core..= s3)])

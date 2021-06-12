@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.INDTaxDocuments where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The tax documents required in AWS Regions in India.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data INDTaxDocuments = INDTaxDocuments'
   { -- | The Goods and Services Tax (GST) documents required in AWS Regions in
     -- India.
-    gstin :: Prelude.Maybe Prelude.Text
+    gstin :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'INDTaxDocuments' with all optional fields omitted.
@@ -46,28 +45,26 @@ data INDTaxDocuments = INDTaxDocuments'
 newINDTaxDocuments ::
   INDTaxDocuments
 newINDTaxDocuments =
-  INDTaxDocuments' {gstin = Prelude.Nothing}
+  INDTaxDocuments' {gstin = Core.Nothing}
 
 -- | The Goods and Services Tax (GST) documents required in AWS Regions in
 -- India.
-iNDTaxDocuments_gstin :: Lens.Lens' INDTaxDocuments (Prelude.Maybe Prelude.Text)
+iNDTaxDocuments_gstin :: Lens.Lens' INDTaxDocuments (Core.Maybe Core.Text)
 iNDTaxDocuments_gstin = Lens.lens (\INDTaxDocuments' {gstin} -> gstin) (\s@INDTaxDocuments' {} a -> s {gstin = a} :: INDTaxDocuments)
 
-instance Prelude.FromJSON INDTaxDocuments where
+instance Core.FromJSON INDTaxDocuments where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "INDTaxDocuments"
       ( \x ->
-          INDTaxDocuments' Prelude.<$> (x Prelude..:? "GSTIN")
+          INDTaxDocuments' Core.<$> (x Core..:? "GSTIN")
       )
 
-instance Prelude.Hashable INDTaxDocuments
+instance Core.Hashable INDTaxDocuments
 
-instance Prelude.NFData INDTaxDocuments
+instance Core.NFData INDTaxDocuments
 
-instance Prelude.ToJSON INDTaxDocuments where
+instance Core.ToJSON INDTaxDocuments where
   toJSON INDTaxDocuments' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("GSTIN" Prelude..=) Prelude.<$> gstin]
-      )
+    Core.object
+      (Core.catMaybes [("GSTIN" Core..=) Core.<$> gstin])

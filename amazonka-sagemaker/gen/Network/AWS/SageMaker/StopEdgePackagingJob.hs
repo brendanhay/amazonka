@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.StopEdgePackagingJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopEdgePackagingJob' smart constructor.
 data StopEdgePackagingJob = StopEdgePackagingJob'
   { -- | The name of the edge packaging job.
-    edgePackagingJobName :: Prelude.Text
+    edgePackagingJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopEdgePackagingJob' with all optional fields omitted.
@@ -60,7 +59,7 @@ data StopEdgePackagingJob = StopEdgePackagingJob'
 -- 'edgePackagingJobName', 'stopEdgePackagingJob_edgePackagingJobName' - The name of the edge packaging job.
 newStopEdgePackagingJob ::
   -- | 'edgePackagingJobName'
-  Prelude.Text ->
+  Core.Text ->
   StopEdgePackagingJob
 newStopEdgePackagingJob pEdgePackagingJobName_ =
   StopEdgePackagingJob'
@@ -69,58 +68,56 @@ newStopEdgePackagingJob pEdgePackagingJobName_ =
     }
 
 -- | The name of the edge packaging job.
-stopEdgePackagingJob_edgePackagingJobName :: Lens.Lens' StopEdgePackagingJob Prelude.Text
+stopEdgePackagingJob_edgePackagingJobName :: Lens.Lens' StopEdgePackagingJob Core.Text
 stopEdgePackagingJob_edgePackagingJobName = Lens.lens (\StopEdgePackagingJob' {edgePackagingJobName} -> edgePackagingJobName) (\s@StopEdgePackagingJob' {} a -> s {edgePackagingJobName = a} :: StopEdgePackagingJob)
 
-instance Prelude.AWSRequest StopEdgePackagingJob where
+instance Core.AWSRequest StopEdgePackagingJob where
   type
-    Rs StopEdgePackagingJob =
+    AWSResponse StopEdgePackagingJob =
       StopEdgePackagingJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopEdgePackagingJobResponse'
 
-instance Prelude.Hashable StopEdgePackagingJob
+instance Core.Hashable StopEdgePackagingJob
 
-instance Prelude.NFData StopEdgePackagingJob
+instance Core.NFData StopEdgePackagingJob
 
-instance Prelude.ToHeaders StopEdgePackagingJob where
+instance Core.ToHeaders StopEdgePackagingJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StopEdgePackagingJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.StopEdgePackagingJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopEdgePackagingJob where
+instance Core.ToJSON StopEdgePackagingJob where
   toJSON StopEdgePackagingJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "EdgePackagingJobName"
-                  Prelude..= edgePackagingJobName
+                  Core..= edgePackagingJobName
               )
           ]
       )
 
-instance Prelude.ToPath StopEdgePackagingJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopEdgePackagingJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopEdgePackagingJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopEdgePackagingJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopEdgePackagingJobResponse' smart constructor.
 data StopEdgePackagingJobResponse = StopEdgePackagingJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopEdgePackagingJobResponse' with all optional fields omitted.
@@ -131,4 +128,4 @@ newStopEdgePackagingJobResponse ::
 newStopEdgePackagingJobResponse =
   StopEdgePackagingJobResponse'
 
-instance Prelude.NFData StopEdgePackagingJobResponse
+instance Core.NFData StopEdgePackagingJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse where
 
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a GetLinkAttributes response operation.
 --
 -- /See:/ 'newBatchGetLinkAttributesResponse' smart constructor.
 data BatchGetLinkAttributesResponse = BatchGetLinkAttributesResponse'
   { -- | The attributes that are associated with the typed link.
-    attributes :: Prelude.Maybe [AttributeKeyAndValue]
+    attributes :: Core.Maybe [AttributeKeyAndValue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetLinkAttributesResponse' with all optional fields omitted.
@@ -47,31 +46,22 @@ newBatchGetLinkAttributesResponse ::
 newBatchGetLinkAttributesResponse =
   BatchGetLinkAttributesResponse'
     { attributes =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The attributes that are associated with the typed link.
-batchGetLinkAttributesResponse_attributes :: Lens.Lens' BatchGetLinkAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-batchGetLinkAttributesResponse_attributes = Lens.lens (\BatchGetLinkAttributesResponse' {attributes} -> attributes) (\s@BatchGetLinkAttributesResponse' {} a -> s {attributes = a} :: BatchGetLinkAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetLinkAttributesResponse_attributes :: Lens.Lens' BatchGetLinkAttributesResponse (Core.Maybe [AttributeKeyAndValue])
+batchGetLinkAttributesResponse_attributes = Lens.lens (\BatchGetLinkAttributesResponse' {attributes} -> attributes) (\s@BatchGetLinkAttributesResponse' {} a -> s {attributes = a} :: BatchGetLinkAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromJSON
-    BatchGetLinkAttributesResponse
-  where
+instance Core.FromJSON BatchGetLinkAttributesResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchGetLinkAttributesResponse"
       ( \x ->
           BatchGetLinkAttributesResponse'
-            Prelude.<$> ( x Prelude..:? "Attributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Attributes" Core..!= Core.mempty)
       )
 
-instance
-  Prelude.Hashable
-    BatchGetLinkAttributesResponse
+instance Core.Hashable BatchGetLinkAttributesResponse
 
-instance
-  Prelude.NFData
-    BatchGetLinkAttributesResponse
+instance Core.NFData BatchGetLinkAttributesResponse

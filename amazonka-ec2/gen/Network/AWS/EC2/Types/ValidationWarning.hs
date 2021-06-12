@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ValidationWarning where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ValidationError
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The error codes and error messages that are returned for the parameters
 -- or parameter combinations that are not valid when a new launch template
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newValidationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
   { -- | The error codes and error messages.
-    errors :: Prelude.Maybe [ValidationError]
+    errors :: Core.Maybe [ValidationError]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidationWarning' with all optional fields omitted.
@@ -48,19 +47,19 @@ data ValidationWarning = ValidationWarning'
 newValidationWarning ::
   ValidationWarning
 newValidationWarning =
-  ValidationWarning' {errors = Prelude.Nothing}
+  ValidationWarning' {errors = Core.Nothing}
 
 -- | The error codes and error messages.
-validationWarning_errors :: Lens.Lens' ValidationWarning (Prelude.Maybe [ValidationError])
-validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\s@ValidationWarning' {} a -> s {errors = a} :: ValidationWarning) Prelude.. Lens.mapping Prelude._Coerce
+validationWarning_errors :: Lens.Lens' ValidationWarning (Core.Maybe [ValidationError])
+validationWarning_errors = Lens.lens (\ValidationWarning' {errors} -> errors) (\s@ValidationWarning' {} a -> s {errors = a} :: ValidationWarning) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML ValidationWarning where
+instance Core.FromXML ValidationWarning where
   parseXML x =
     ValidationWarning'
-      Prelude.<$> ( x Prelude..@? "errorSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> ( x Core..@? "errorSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable ValidationWarning
+instance Core.Hashable ValidationWarning
 
-instance Prelude.NFData ValidationWarning
+instance Core.NFData ValidationWarning

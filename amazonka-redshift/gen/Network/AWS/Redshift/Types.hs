@@ -815,8 +815,8 @@ module Network.AWS.Redshift.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.AccountAttribute
 import Network.AWS.Redshift.Types.AccountWithRestoreAccess
@@ -907,1015 +907,1013 @@ import Network.AWS.Redshift.Types.VpcSecurityGroupMembership
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-12-01@ of the Amazon Redshift SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Redshift",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "redshift",
-      Prelude._svcSigningName = "redshift",
-      Prelude._svcVersion = "2012-12-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseXMLError "Redshift",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Redshift",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "redshift",
+      Core._serviceSigningName = "redshift",
+      Core._serviceVersion = "2012-12-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseXMLError "Redshift",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | A cluster security group with the same name already exists.
-_ClusterSecurityGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSecurityGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSecurityGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSecurityGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The snapshot identifier does not refer to an existing cluster snapshot.
-_ClusterSnapshotNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSnapshotNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSnapshotNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSnapshotNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The definition you submitted is not supported.
-_ScheduleDefinitionTypeUnsupportedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ScheduleDefinitionTypeUnsupportedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ScheduleDefinitionTypeUnsupportedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ScheduleDefinitionTypeUnsupported"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster subnet group name does not refer to an existing cluster
 -- subnet group.
-_ClusterSubnetGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSubnetGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSubnetGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSubnetGroupNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster subnet group does not cover all Availability Zones.
-_InvalidVPCNetworkStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidVPCNetworkStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidVPCNetworkStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidVPCNetworkStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The subscription request is invalid because it is a duplicate request.
 -- This subscription request is already in progress.
-_InvalidSubscriptionStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubscriptionStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSubscriptionStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSubscriptionStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Could not find the specified S3 bucket.
-_BucketNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BucketNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _BucketNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "BucketNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The encryption key has exceeded its grant limit in AWS KMS.
-_LimitExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | There is already an existing event notification subscription with the
 -- specified name.
-_SubscriptionAlreadyExistFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubscriptionAlreadyExistFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubscriptionAlreadyExistFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubscriptionAlreadyExist"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster security groups. For information about increasing your quota, go
 -- to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSecurityGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSecurityGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSecurityGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "QuotaExceeded.ClusterSecurityGroup"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The scheduled action is not valid.
-_InvalidScheduledActionFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidScheduledActionFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidScheduledActionFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidScheduledAction"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The value specified for the event severity was not one of the allowed
 -- values, or it specified a severity that does not apply to the specified
 -- source type. The allowed values are ERROR and INFO.
-_SubscriptionSeverityNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubscriptionSeverityNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubscriptionSeverityNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubscriptionSeverityNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Your account is not authorized to perform the requested operation.
-_UnauthorizedOperation :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnauthorizedOperation :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnauthorizedOperation =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnauthorizedOperation"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster does not have read bucket or put object permissions on the
 -- S3 bucket specified when enabling logging.
-_InsufficientS3BucketPolicyFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientS3BucketPolicyFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientS3BucketPolicyFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientS3BucketPolicyFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The number of nodes specified exceeds the allotted capacity of the
 -- cluster.
-_InsufficientClusterCapacityFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientClusterCapacityFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientClusterCapacityFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientClusterCapacity"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The quota for HSM configurations has been reached. For information about
 -- increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_HsmConfigurationQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HsmConfigurationQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HsmConfigurationQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HsmConfigurationQuotaExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The usage limit identifier can\'t be found.
-_UsageLimitNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UsageLimitNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UsageLimitNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UsageLimitNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The tag is invalid.
-_InvalidTagFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTagFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTagFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTagFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You have exceeded the quota of snapshot schedules.
-_SnapshotScheduleQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotScheduleQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotScheduleQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotScheduleQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You do not have permission to publish to the specified Amazon SNS topic.
-_SNSNoAuthorizationFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SNSNoAuthorizationFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SNSNoAuthorizationFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SNSNoAuthorization"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The scheduled action cannot be found.
-_ScheduledActionNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ScheduledActionNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ScheduledActionNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ScheduledActionNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | There is already an existing Amazon Redshift HSM client certificate with
 -- the specified identifier.
-_HsmClientCertificateAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HsmClientCertificateAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HsmClientCertificateAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HsmClientCertificateAlreadyExistsFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The resource could not be found.
-_ResourceNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundFault"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | An Amazon SNS topic with the specified Amazon Resource Name (ARN) does
 -- not exist.
-_SNSTopicArnNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SNSTopicArnNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SNSTopicArnNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SNSTopicArnNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The restore is invalid.
-_InvalidRestoreFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRestoreFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRestoreFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRestore"
-    Prelude.. Prelude.hasStatus 406
+    Core.. Core.hasStatus 406
 
 -- | The scheduled action already exists.
-_ScheduledActionAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ScheduledActionAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ScheduledActionAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ScheduledActionAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The @ClusterIdentifier@ parameter does not refer to an existing cluster.
-_ClusterNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The quota for scheduled actions exceeded.
-_ScheduledActionQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ScheduledActionQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ScheduledActionQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ScheduledActionQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The action type specified for a scheduled action is not supported.
-_ScheduledActionTypeUnsupportedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ScheduledActionTypeUnsupportedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ScheduledActionTypeUnsupportedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ScheduledActionTypeUnsupported"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request would exceed the allowed number of event subscriptions for
 -- this account. For information about increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_EventSubscriptionQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EventSubscriptionQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EventSubscriptionQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EventSubscriptionQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | We could not find the specified snapshot schedule.
-_SnapshotScheduleNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotScheduleNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotScheduleNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotScheduleNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates that the Reserved Node being exchanged is not in an active
 -- state.
-_InvalidReservedNodeStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidReservedNodeStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidReservedNodeStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidReservedNodeState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified snapshot schedule is already being updated.
-_SnapshotScheduleUpdateInProgressFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotScheduleUpdateInProgressFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotScheduleUpdateInProgressFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotScheduleUpdateInProgress"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The maximum number for snapshot identifiers has been reached. The limit
 -- is 100.
-_BatchModifyClusterSnapshotsLimitExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BatchModifyClusterSnapshotsLimitExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _BatchModifyClusterSnapshotsLimitExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "BatchModifyClusterSnapshotsLimitExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates that the reserved node has already been exchanged.
-_ReservedNodeAlreadyMigratedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedNodeAlreadyMigratedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedNodeAlreadyMigratedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedNodeAlreadyMigrated"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified options are incompatible.
-_IncompatibleOrderableOptions :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IncompatibleOrderableOptions :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IncompatibleOrderableOptions =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IncompatibleOrderableOptions"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The state of the subnet is invalid.
-_InvalidClusterSubnetStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterSubnetStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterSubnetStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterSubnetStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request would exceed the allowed number of cluster instances for
 -- this account. For information about increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The S3 bucket name is invalid. For more information about naming rules,
 -- go to
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
 -- in the Amazon Simple Storage Service (S3) Developer Guide.
-_InvalidS3BucketNameFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidS3BucketNameFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidS3BucketNameFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidS3BucketNameFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster subnet group cannot be deleted because it is in use.
-_InvalidClusterSubnetGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterSubnetGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterSubnetGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterSubnetGroupStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | There is already an existing Amazon Redshift HSM configuration with the
 -- specified identifier.
-_HsmConfigurationAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HsmConfigurationAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HsmConfigurationAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HsmConfigurationAlreadyExistsFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster security group name does not refer to an existing cluster
 -- security group.
-_ClusterSecurityGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSecurityGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSecurityGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSecurityGroupNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The requested operation isn\'t supported.
-_UnsupportedOperationFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedOperationFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedOperationFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedOperation"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The Elastic IP (EIP) is invalid or cannot be found.
-_InvalidElasticIpFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidElasticIpFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidElasticIpFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidElasticIpFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster snapshot schedule state is not valid.
-_InvalidClusterSnapshotScheduleStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterSnapshotScheduleStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterSnapshotScheduleStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterSnapshotScheduleState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified @TableRestoreRequestId@ value was not found.
-_TableRestoreNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TableRestoreNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TableRestoreNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TableRestoreNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | There is no Amazon Redshift HSM configuration with the specified
 -- identifier.
-_HsmConfigurationNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HsmConfigurationNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HsmConfigurationNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HsmConfigurationNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified CIDR block or EC2 security group is already authorized for
 -- the specified cluster security group.
-_AuthorizationAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AuthorizationAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AuthorizationAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AuthorizationAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The state of the cluster security group is not @available@.
-_InvalidClusterSecurityGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterSecurityGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterSecurityGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterSecurityGroupState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The usage limit already exists.
-_UsageLimitAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UsageLimitAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UsageLimitAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UsageLimitAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Amazon SNS has responded that there is a problem with the specified
 -- Amazon SNS topic.
-_SNSInvalidTopicFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SNSInvalidTopicFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SNSInvalidTopicFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SNSInvalidTopic"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified Amazon Redshift event source could not be found.
-_SourceNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SourceNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SourceNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SourceNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The string specified for the logging S3 key prefix does not comply with
 -- the documented constraints.
-_InvalidS3KeyPrefixFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidS3KeyPrefixFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidS3KeyPrefixFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidS3KeyPrefixFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A request option was specified that is not supported.
-_UnsupportedOptionFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedOptionFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedOptionFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedOptionFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The authorization quota for the cluster security group has been reached.
-_AuthorizationQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AuthorizationQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AuthorizationQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AuthorizationQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Your request cannot be completed because a dependent internal service is
 -- temporarily unavailable. Wait 30 to 60 seconds and try again.
-_DependentServiceUnavailableFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DependentServiceUnavailableFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DependentServiceUnavailableFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DependentServiceUnavailableFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request
 -- again.
-_CopyToRegionDisabledFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CopyToRegionDisabledFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CopyToRegionDisabledFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CopyToRegionDisabledFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Cluster is already on the latest database revision.
-_ClusterOnLatestRevisionFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterOnLatestRevisionFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterOnLatestRevisionFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterOnLatestRevision"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A specified subnet is already in use by another cluster.
-_SubnetAlreadyInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetAlreadyInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetAlreadyInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetAlreadyInUse"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request would result in user exceeding the allowed number of cluster
 -- subnet groups. For information about increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSubnetGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSubnetGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSubnetGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSubnetGroupQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster snapshots.
-_ClusterSnapshotQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSnapshotQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSnapshotQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSnapshotQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The schedule you submitted isn\'t valid.
-_InvalidScheduleFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidScheduleFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidScheduleFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSchedule"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request would result in user exceeding the allowed number of subnets
 -- in a cluster subnet groups. For information about increasing your quota,
 -- go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterSubnetQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSubnetQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSubnetQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSubnetQuotaExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The owner of the specified snapshot has not authorized your account to
 -- access the snapshot.
-_AccessToSnapshotDeniedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessToSnapshotDeniedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessToSnapshotDeniedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessToSnapshotDenied"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The operation would exceed the number of nodes allotted to the account.
 -- For information about increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_NumberOfNodesQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NumberOfNodesQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NumberOfNodesQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NumberOfNodesQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The value specified for the @sourceDatabaseName@, @sourceSchemaName@, or
 -- @sourceTableName@ parameter, or a combination of these, doesn\'t exist
 -- in the snapshot.
-_InvalidTableRestoreArgumentFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTableRestoreArgumentFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTableRestoreArgumentFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTableRestoreArgument"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The provided cluster track name is not valid.
-_InvalidClusterTrackFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterTrackFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterTrackFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterTrack"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified HSM client certificate is not in the @available@ state, or
 -- it is still in use by one or more Amazon Redshift clusters.
-_InvalidHsmClientCertificateStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidHsmClientCertificateStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidHsmClientCertificateStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidHsmClientCertificateStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You have exceeded the number of tags allowed.
-_TagLimitExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagLimitExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagLimitExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagLimitExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified snapshot copy grant can\'t be found. Make sure that the
 -- name is typed correctly and that the grant exists in the destination
 -- region.
-_SnapshotCopyGrantNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotCopyGrantNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotCopyGrantNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotCopyGrantNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The account already has a cluster with the given identifier.
-_ClusterAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified cluster is not in the @available@ state.
-_InvalidClusterStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request would result in the user exceeding the allowed number of
 -- cluster parameter groups. For information about increasing your quota,
 -- go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ClusterParameterGroupQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterParameterGroupQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterParameterGroupQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterParameterGroupQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified region is incorrect or does not exist.
-_UnknownSnapshotCopyRegionFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnknownSnapshotCopyRegionFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnknownSnapshotCopyRegionFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnknownSnapshotCopyRegionFault"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Cross-region snapshot copy was temporarily disabled. Try your request
 -- again.
-_SnapshotCopyDisabledFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotCopyDisabledFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotCopyDisabledFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotCopyDisabledFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The usage limit is not valid.
-_InvalidUsageLimitFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidUsageLimitFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidUsageLimitFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidUsageLimit"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You have exceeded the allowed number of table restore requests. Wait for
 -- your current table restore requests to complete before making a new
 -- request.
-_InProgressTableRestoreQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InProgressTableRestoreQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InProgressTableRestoreQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InProgressTableRestoreQuotaExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Request would exceed the user\'s compute node quota. For information
 -- about increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_ReservedNodeQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedNodeQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedNodeQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedNodeQuotaExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | There is no Amazon Redshift HSM client certificate with the specified
 -- identifier.
-_HsmClientCertificateNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HsmClientCertificateNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HsmClientCertificateNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HsmClientCertificateNotFoundFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | An Amazon Redshift event with the specified event ID does not exist.
-_SubscriptionEventIdNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubscriptionEventIdNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubscriptionEventIdNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubscriptionEventIdNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The snapshot copy grant can\'t be deleted because it is used by one or
 -- more clusters.
-_InvalidSnapshotCopyGrantStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSnapshotCopyGrantStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSnapshotCopyGrantStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSnapshotCopyGrantStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The snapshot copy grant can\'t be created because a grant with the same
 -- name already exists.
-_SnapshotCopyGrantAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotCopyGrantAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotCopyGrantAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotCopyGrantAlreadyExistsFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A resize operation for the specified cluster is not found.
-_ResizeNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResizeNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResizeNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResizeNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The cluster already has cross-region snapshot copy enabled.
-_SnapshotCopyAlreadyEnabledFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotCopyAlreadyEnabledFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotCopyAlreadyEnabledFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotCopyAlreadyEnabledFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The maximum number for a batch delete of snapshots has been reached. The
 -- limit is 100.
-_BatchDeleteRequestSizeExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BatchDeleteRequestSizeExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _BatchDeleteRequestSizeExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "BatchDeleteRequestSizeExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The operation would exceed the number of nodes allowed for a cluster.
-_NumberOfNodesPerClusterLimitExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NumberOfNodesPerClusterLimitExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NumberOfNodesPerClusterLimitExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NumberOfNodesPerClusterLimitExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | User already has a reservation with the given identifier.
-_ReservedNodeAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedNodeAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedNodeAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedNodeAlreadyExists"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | A cluster parameter group with the same name already exists.
-_ClusterParameterGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterParameterGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterParameterGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterParameterGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The AWS account has exceeded the maximum number of snapshot copy grants
 -- in this region.
-_SnapshotCopyGrantQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotCopyGrantQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotCopyGrantQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotCopyGrantQuotaExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster parameter group action can not be completed because another
 -- task is in progress that involves the parameter group. Wait a few
 -- moments and try the operation again.
-_InvalidClusterParameterGroupStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterParameterGroupStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterParameterGroupStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterParameterGroupState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The cluster already has cross-region snapshot copy disabled.
-_SnapshotCopyAlreadyDisabledFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotCopyAlreadyDisabledFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotCopyAlreadyDisabledFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotCopyAlreadyDisabledFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified snapshot schedule already exists.
-_SnapshotScheduleAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotScheduleAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotScheduleAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotScheduleAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Specified offering does not exist.
-_ReservedNodeOfferingNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedNodeOfferingNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedNodeOfferingNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedNodeOfferingNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The specified reserved compute node not found.
-_ReservedNodeNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReservedNodeNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReservedNodeNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReservedNodeNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The quota for HSM client certificates has been reached. For information
 -- about increasing your quota, go to
 -- <https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html Limits in Amazon Redshift>
 -- in the /Amazon Redshift Cluster Management Guide/.
-_HsmClientCertificateQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HsmClientCertificateQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HsmClientCertificateQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HsmClientCertificateQuotaExceededFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The parameter group name does not refer to an existing parameter group.
-_ClusterParameterGroupNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterParameterGroupNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterParameterGroupNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterParameterGroupNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The value specified for the event category was not one of the allowed
 -- values, or it specified a category that does not apply to the specified
 -- source type. The allowed values are Configuration, Management,
 -- Monitoring, and Security.
-_SubscriptionCategoryNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubscriptionCategoryNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubscriptionCategoryNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubscriptionCategoryNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The specified CIDR IP range or EC2 security group is not authorized for
 -- the specified cluster security group.
-_AuthorizationNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AuthorizationNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AuthorizationNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AuthorizationNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The number of tables in the cluster exceeds the limit for the requested
 -- new cluster node type.
-_TableLimitExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TableLimitExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TableLimitExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TableLimitExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified cluster snapshot is not in the @available@ state, or other
 -- accounts are authorized to access the snapshot.
-_InvalidClusterSnapshotStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClusterSnapshotStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClusterSnapshotStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClusterSnapshotState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The retention period specified is either in the past or is not a valid
 -- value.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
-_InvalidRetentionPeriodFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRetentionPeriodFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRetentionPeriodFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRetentionPeriodFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A /ClusterSubnetGroupName/ is already used by an existing cluster subnet
 -- group.
-_ClusterSubnetGroupAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSubnetGroupAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSubnetGroupAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSubnetGroupAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested subnet is not valid, or not all of the subnets are in the
 -- same VPC.
-_InvalidSubnet :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSubnet =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSubnet"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | An Amazon Redshift event notification subscription with the specified
 -- name does not exist.
-_SubscriptionNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubscriptionNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubscriptionNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubscriptionNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The value specified as a snapshot identifier is already used by an
 -- existing snapshot.
-_ClusterSnapshotAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterSnapshotAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterSnapshotAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterSnapshotAlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified HSM configuration is not in the @available@ state, or it
 -- is still in use by one or more Amazon Redshift clusters.
-_InvalidHsmConfigurationStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidHsmConfigurationStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidHsmConfigurationStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidHsmConfigurationStateFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request cannot be completed because a dependent service is
 -- throttling requests made by Amazon Redshift on your behalf. Wait and
 -- retry the request.
-_DependentServiceRequestThrottlingFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DependentServiceRequestThrottlingFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DependentServiceRequestThrottlingFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DependentServiceRequestThrottlingFault"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

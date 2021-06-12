@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom key-value pair associated with a resource within your
 -- organization.
@@ -39,13 +38,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The key identifier, or name, of the tag.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The string value that\'s associated with the key of the tag. You can set
     -- the value of a tag to an empty string, but you can\'t set the value of a
     -- tag to null.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -62,42 +61,41 @@ data Tag = Tag'
 -- tag to null.
 newTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
 -- | The key identifier, or name, of the tag.
-tag_key :: Lens.Lens' Tag Prelude.Text
+tag_key :: Lens.Lens' Tag Core.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The string value that\'s associated with the key of the tag. You can set
 -- the value of a tag to an empty string, but you can\'t set the value of a
 -- tag to null.
-tag_value :: Lens.Lens' Tag Prelude.Text
+tag_value :: Lens.Lens' Tag Core.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.FromJSON Tag where
+instance Core.FromJSON Tag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Prelude..: "Key")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToJSON Tag where
+instance Core.ToJSON Tag where
   toJSON Tag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Value" Core..= value)
           ]
       )

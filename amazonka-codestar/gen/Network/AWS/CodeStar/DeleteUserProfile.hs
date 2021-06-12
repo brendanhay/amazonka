@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,17 +43,17 @@ module Network.AWS.CodeStar.DeleteUserProfile
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUserProfile' smart constructor.
 data DeleteUserProfile = DeleteUserProfile'
   { -- | The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
-    userArn :: Prelude.Text
+    userArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfile' with all optional fields omitted.
@@ -67,66 +66,66 @@ data DeleteUserProfile = DeleteUserProfile'
 -- 'userArn', 'deleteUserProfile_userArn' - The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
 newDeleteUserProfile ::
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUserProfile
 newDeleteUserProfile pUserArn_ =
   DeleteUserProfile' {userArn = pUserArn_}
 
 -- | The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
-deleteUserProfile_userArn :: Lens.Lens' DeleteUserProfile Prelude.Text
+deleteUserProfile_userArn :: Lens.Lens' DeleteUserProfile Core.Text
 deleteUserProfile_userArn = Lens.lens (\DeleteUserProfile' {userArn} -> userArn) (\s@DeleteUserProfile' {} a -> s {userArn = a} :: DeleteUserProfile)
 
-instance Prelude.AWSRequest DeleteUserProfile where
-  type Rs DeleteUserProfile = DeleteUserProfileResponse
+instance Core.AWSRequest DeleteUserProfile where
+  type
+    AWSResponse DeleteUserProfile =
+      DeleteUserProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteUserProfileResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "userArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "userArn")
       )
 
-instance Prelude.Hashable DeleteUserProfile
+instance Core.Hashable DeleteUserProfile
 
-instance Prelude.NFData DeleteUserProfile
+instance Core.NFData DeleteUserProfile
 
-instance Prelude.ToHeaders DeleteUserProfile where
+instance Core.ToHeaders DeleteUserProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.DeleteUserProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.DeleteUserProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteUserProfile where
+instance Core.ToJSON DeleteUserProfile where
   toJSON DeleteUserProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("userArn" Prelude..= userArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("userArn" Core..= userArn)]
       )
 
-instance Prelude.ToPath DeleteUserProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUserProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUserProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUserProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
-    userArn :: Prelude.Text
+    userArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserProfileResponse' with all optional fields omitted.
@@ -141,9 +140,9 @@ data DeleteUserProfileResponse = DeleteUserProfileResponse'
 -- 'userArn', 'deleteUserProfileResponse_userArn' - The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
 newDeleteUserProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUserProfileResponse
 newDeleteUserProfileResponse pHttpStatus_ pUserArn_ =
   DeleteUserProfileResponse'
@@ -153,11 +152,11 @@ newDeleteUserProfileResponse pHttpStatus_ pUserArn_ =
     }
 
 -- | The response's http status code.
-deleteUserProfileResponse_httpStatus :: Lens.Lens' DeleteUserProfileResponse Prelude.Int
+deleteUserProfileResponse_httpStatus :: Lens.Lens' DeleteUserProfileResponse Core.Int
 deleteUserProfileResponse_httpStatus = Lens.lens (\DeleteUserProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteUserProfileResponse' {} a -> s {httpStatus = a} :: DeleteUserProfileResponse)
 
 -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
-deleteUserProfileResponse_userArn :: Lens.Lens' DeleteUserProfileResponse Prelude.Text
+deleteUserProfileResponse_userArn :: Lens.Lens' DeleteUserProfileResponse Core.Text
 deleteUserProfileResponse_userArn = Lens.lens (\DeleteUserProfileResponse' {userArn} -> userArn) (\s@DeleteUserProfileResponse' {} a -> s {userArn = a} :: DeleteUserProfileResponse)
 
-instance Prelude.NFData DeleteUserProfileResponse
+instance Core.NFData DeleteUserProfileResponse

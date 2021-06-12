@@ -712,6 +712,7 @@ module Network.AWS.DMS.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.AccountQuota
 import Network.AWS.DMS.Types.AuthMechanismValue
 import Network.AWS.DMS.Types.AuthTypeValue
@@ -780,243 +781,238 @@ import Network.AWS.DMS.Types.Tag
 import Network.AWS.DMS.Types.TargetDbType
 import Network.AWS.DMS.Types.VpcSecurityGroupMembership
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-01-01@ of the Amazon Database Migration Service SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "DMS",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "dms",
-      Prelude._svcSigningName = "dms",
-      Prelude._svcVersion = "2016-01-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "DMS",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "DMS",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "dms",
+      Core._serviceSigningName = "dms",
+      Core._serviceVersion = "2016-01-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "DMS",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The specified master key (CMK) isn\'t enabled.
-_KMSDisabledFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSDisabledFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSDisabledFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSDisabledFault"
 
 -- | An AWS Key Management Service (AWS KMS) error is preventing access to
 -- AWS KMS.
-_KMSFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSFault =
-  Prelude._MatchServiceError
-    defaultService
-    "KMSFault"
+  Core._MatchServiceError defaultService "KMSFault"
 
 -- | The ciphertext references a key that doesn\'t exist or that the DMS
 -- account doesn\'t have access to.
-_KMSAccessDeniedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSAccessDeniedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSAccessDeniedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSAccessDeniedFault"
 
 -- | AWS DMS was denied access to the endpoint. Check that the role is
 -- correctly configured.
-_AccessDeniedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedFault"
 
 -- | The certificate was not valid.
-_InvalidCertificateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCertificateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCertificateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCertificateFault"
 
 -- | You are not authorized for the SNS subscription.
-_SNSNoAuthorizationFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SNSNoAuthorizationFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SNSNoAuthorizationFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SNSNoAuthorizationFault"
 
 -- | The resource is in a state that prevents it from being used for database
 -- migration.
-_InvalidResourceStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidResourceStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidResourceStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidResourceStateFault"
 
 -- | The resource could not be found.
-_ResourceNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundFault"
 
 -- | AWS DMS cannot access the AWS KMS key.
-_KMSKeyNotAccessibleFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSKeyNotAccessibleFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSKeyNotAccessibleFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSKeyNotAccessibleFault"
 
 -- | The quota for this resource quota has been exceeded.
-_ResourceQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceQuotaExceededFault"
 
 -- | The SNS topic is invalid.
-_SNSInvalidTopicFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SNSInvalidTopicFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SNSInvalidTopicFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SNSInvalidTopicFault"
 
 -- | The specified AWS KMS entity or resource can\'t be found.
-_KMSNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSNotFoundFault"
 
 -- | The state of the specified AWS KMS resource isn\'t valid for this
 -- request.
-_KMSInvalidStateFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSInvalidStateFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidStateFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSInvalidStateFault"
 
 -- | The specified subnet is already in use.
-_SubnetAlreadyInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetAlreadyInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetAlreadyInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetAlreadyInUse"
 
 -- | There are not enough resources allocated to the database migration.
-_InsufficientResourceCapacityFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientResourceCapacityFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientResourceCapacityFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientResourceCapacityFault"
 
 -- | Insufficient privileges are preventing access to an Amazon S3 object.
-_S3AccessDeniedFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_S3AccessDeniedFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _S3AccessDeniedFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "S3AccessDeniedFault"
 
 -- | The storage quota has been exceeded.
-_StorageQuotaExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StorageQuotaExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StorageQuotaExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "StorageQuotaExceededFault"
 
 -- | The resource you are attempting to create already exists.
-_ResourceAlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceAlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsFault"
 
 -- | The replication subnet group does not cover enough Availability Zones
 -- (AZs). Edit the replication subnet group and add more AZs.
-_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReplicationSubnetGroupDoesNotCoverEnoughAZs :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
 
 -- | A specified Amazon S3 bucket, bucket folder, or other object can\'t be
 -- found.
-_S3ResourceNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_S3ResourceNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _S3ResourceNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "S3ResourceNotFoundFault"
 
 -- | An upgrade dependency is preventing the database migration.
-_UpgradeDependencyFailureFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UpgradeDependencyFailureFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UpgradeDependencyFailureFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UpgradeDependencyFailureFault"
 
 -- | This request triggered AWS KMS request throttling.
-_KMSThrottlingFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSThrottlingFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSThrottlingFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSThrottlingFault"
 
 -- | The subnet provided is invalid.
-_InvalidSubnet :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubnet :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSubnet =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSubnet"

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange where
 
 import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the range of attributes that are used by a specified filter.
 --
 -- /See:/ 'newTypedLinkAttributeRange' smart constructor.
 data TypedLinkAttributeRange = TypedLinkAttributeRange'
   { -- | The unique name of the typed link attribute.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    attributeName :: Core.Maybe Core.Text,
     -- | The range of attribute values that are being selected.
     range :: TypedAttributeValueRange
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TypedLinkAttributeRange' with all optional fields omitted.
@@ -53,28 +52,27 @@ newTypedLinkAttributeRange ::
 newTypedLinkAttributeRange pRange_ =
   TypedLinkAttributeRange'
     { attributeName =
-        Prelude.Nothing,
+        Core.Nothing,
       range = pRange_
     }
 
 -- | The unique name of the typed link attribute.
-typedLinkAttributeRange_attributeName :: Lens.Lens' TypedLinkAttributeRange (Prelude.Maybe Prelude.Text)
+typedLinkAttributeRange_attributeName :: Lens.Lens' TypedLinkAttributeRange (Core.Maybe Core.Text)
 typedLinkAttributeRange_attributeName = Lens.lens (\TypedLinkAttributeRange' {attributeName} -> attributeName) (\s@TypedLinkAttributeRange' {} a -> s {attributeName = a} :: TypedLinkAttributeRange)
 
 -- | The range of attribute values that are being selected.
 typedLinkAttributeRange_range :: Lens.Lens' TypedLinkAttributeRange TypedAttributeValueRange
 typedLinkAttributeRange_range = Lens.lens (\TypedLinkAttributeRange' {range} -> range) (\s@TypedLinkAttributeRange' {} a -> s {range = a} :: TypedLinkAttributeRange)
 
-instance Prelude.Hashable TypedLinkAttributeRange
+instance Core.Hashable TypedLinkAttributeRange
 
-instance Prelude.NFData TypedLinkAttributeRange
+instance Core.NFData TypedLinkAttributeRange
 
-instance Prelude.ToJSON TypedLinkAttributeRange where
+instance Core.ToJSON TypedLinkAttributeRange where
   toJSON TypedLinkAttributeRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AttributeName" Prelude..=)
-              Prelude.<$> attributeName,
-            Prelude.Just ("Range" Prelude..= range)
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeName" Core..=) Core.<$> attributeName,
+            Core.Just ("Range" Core..= range)
           ]
       )

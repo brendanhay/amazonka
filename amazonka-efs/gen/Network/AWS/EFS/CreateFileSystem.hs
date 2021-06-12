@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -109,9 +108,9 @@ module Network.AWS.EFS.CreateFileSystem
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -126,14 +125,14 @@ data CreateFileSystem = CreateFileSystem'
     -- since the last decrease or throughput mode change. For more, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying Throughput with Provisioned Mode>
     -- in the /Amazon EFS User Guide./
-    throughputMode :: Prelude.Maybe ThroughputMode,
+    throughputMode :: Core.Maybe ThroughputMode,
     -- | A Boolean value that, if true, creates an encrypted file system. When
     -- creating an encrypted file system, you have the option of specifying
     -- CreateFileSystemRequest$KmsKeyId for an existing AWS Key Management
     -- Service (AWS KMS) customer master key (CMK). If you don\'t specify a
     -- CMK, then the default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is
     -- used to protect the encrypted file system.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | The throughput, measured in MiB\/s, that you want to provision for a
     -- file system that you\'re creating. Valid values are 1-1024. Required if
     -- @ThroughputMode@ is set to @provisioned@. The upper limit for throughput
@@ -141,7 +140,7 @@ data CreateFileSystem = CreateFileSystem'
     -- Support. For more information, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase>
     -- in the /Amazon EFS User Guide./
-    provisionedThroughputInMibps :: Prelude.Maybe Prelude.Double,
+    provisionedThroughputInMibps :: Core.Maybe Core.Double,
     -- | The ID of the AWS KMS CMK to be used to protect the encrypted file
     -- system. This parameter is only required if you want to use a nondefault
     -- CMK. If this parameter is not specified, the default CMK for Amazon EFS
@@ -164,24 +163,24 @@ data CreateFileSystem = CreateFileSystem'
     --
     -- EFS accepts only symmetric CMKs. You cannot use asymmetric CMKs with EFS
     -- file systems.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | A value that specifies to create one or more tags associated with the
     -- file system. Each tag is a user-defined key-value pair. Name your file
     -- system on creation by including a
     -- @\"Key\":\"Name\",\"Value\":\"{value}\"@ key-value pair.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The performance mode of the file system. We recommend @generalPurpose@
     -- performance mode for most file systems. File systems using the @maxIO@
     -- performance mode can scale to higher levels of aggregate throughput and
     -- operations per second with a tradeoff of slightly higher latencies for
     -- most file operations. The performance mode can\'t be changed after the
     -- file system has been created.
-    performanceMode :: Prelude.Maybe PerformanceMode,
+    performanceMode :: Core.Maybe PerformanceMode,
     -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
     -- idempotent creation.
-    creationToken :: Prelude.Text
+    creationToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateFileSystem' with all optional fields omitted.
@@ -255,16 +254,16 @@ data CreateFileSystem = CreateFileSystem'
 -- idempotent creation.
 newCreateFileSystem ::
   -- | 'creationToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateFileSystem
 newCreateFileSystem pCreationToken_ =
   CreateFileSystem'
-    { throughputMode = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      provisionedThroughputInMibps = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      performanceMode = Prelude.Nothing,
+    { throughputMode = Core.Nothing,
+      encrypted = Core.Nothing,
+      provisionedThroughputInMibps = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      tags = Core.Nothing,
+      performanceMode = Core.Nothing,
       creationToken = pCreationToken_
     }
 
@@ -277,7 +276,7 @@ newCreateFileSystem pCreationToken_ =
 -- since the last decrease or throughput mode change. For more, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput Specifying Throughput with Provisioned Mode>
 -- in the /Amazon EFS User Guide./
-createFileSystem_throughputMode :: Lens.Lens' CreateFileSystem (Prelude.Maybe ThroughputMode)
+createFileSystem_throughputMode :: Lens.Lens' CreateFileSystem (Core.Maybe ThroughputMode)
 createFileSystem_throughputMode = Lens.lens (\CreateFileSystem' {throughputMode} -> throughputMode) (\s@CreateFileSystem' {} a -> s {throughputMode = a} :: CreateFileSystem)
 
 -- | A Boolean value that, if true, creates an encrypted file system. When
@@ -286,7 +285,7 @@ createFileSystem_throughputMode = Lens.lens (\CreateFileSystem' {throughputMode}
 -- Service (AWS KMS) customer master key (CMK). If you don\'t specify a
 -- CMK, then the default CMK for Amazon EFS, @\/aws\/elasticfilesystem@, is
 -- used to protect the encrypted file system.
-createFileSystem_encrypted :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Bool)
+createFileSystem_encrypted :: Lens.Lens' CreateFileSystem (Core.Maybe Core.Bool)
 createFileSystem_encrypted = Lens.lens (\CreateFileSystem' {encrypted} -> encrypted) (\s@CreateFileSystem' {} a -> s {encrypted = a} :: CreateFileSystem)
 
 -- | The throughput, measured in MiB\/s, that you want to provision for a
@@ -296,7 +295,7 @@ createFileSystem_encrypted = Lens.lens (\CreateFileSystem' {encrypted} -> encryp
 -- Support. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase>
 -- in the /Amazon EFS User Guide./
-createFileSystem_provisionedThroughputInMibps :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Double)
+createFileSystem_provisionedThroughputInMibps :: Lens.Lens' CreateFileSystem (Core.Maybe Core.Double)
 createFileSystem_provisionedThroughputInMibps = Lens.lens (\CreateFileSystem' {provisionedThroughputInMibps} -> provisionedThroughputInMibps) (\s@CreateFileSystem' {} a -> s {provisionedThroughputInMibps = a} :: CreateFileSystem)
 
 -- | The ID of the AWS KMS CMK to be used to protect the encrypted file
@@ -321,15 +320,15 @@ createFileSystem_provisionedThroughputInMibps = Lens.lens (\CreateFileSystem' {p
 --
 -- EFS accepts only symmetric CMKs. You cannot use asymmetric CMKs with EFS
 -- file systems.
-createFileSystem_kmsKeyId :: Lens.Lens' CreateFileSystem (Prelude.Maybe Prelude.Text)
+createFileSystem_kmsKeyId :: Lens.Lens' CreateFileSystem (Core.Maybe Core.Text)
 createFileSystem_kmsKeyId = Lens.lens (\CreateFileSystem' {kmsKeyId} -> kmsKeyId) (\s@CreateFileSystem' {} a -> s {kmsKeyId = a} :: CreateFileSystem)
 
 -- | A value that specifies to create one or more tags associated with the
 -- file system. Each tag is a user-defined key-value pair. Name your file
 -- system on creation by including a
 -- @\"Key\":\"Name\",\"Value\":\"{value}\"@ key-value pair.
-createFileSystem_tags :: Lens.Lens' CreateFileSystem (Prelude.Maybe [Tag])
-createFileSystem_tags = Lens.lens (\CreateFileSystem' {tags} -> tags) (\s@CreateFileSystem' {} a -> s {tags = a} :: CreateFileSystem) Prelude.. Lens.mapping Prelude._Coerce
+createFileSystem_tags :: Lens.Lens' CreateFileSystem (Core.Maybe [Tag])
+createFileSystem_tags = Lens.lens (\CreateFileSystem' {tags} -> tags) (\s@CreateFileSystem' {} a -> s {tags = a} :: CreateFileSystem) Core.. Lens.mapping Lens._Coerce
 
 -- | The performance mode of the file system. We recommend @generalPurpose@
 -- performance mode for most file systems. File systems using the @maxIO@
@@ -337,48 +336,47 @@ createFileSystem_tags = Lens.lens (\CreateFileSystem' {tags} -> tags) (\s@Create
 -- operations per second with a tradeoff of slightly higher latencies for
 -- most file operations. The performance mode can\'t be changed after the
 -- file system has been created.
-createFileSystem_performanceMode :: Lens.Lens' CreateFileSystem (Prelude.Maybe PerformanceMode)
+createFileSystem_performanceMode :: Lens.Lens' CreateFileSystem (Core.Maybe PerformanceMode)
 createFileSystem_performanceMode = Lens.lens (\CreateFileSystem' {performanceMode} -> performanceMode) (\s@CreateFileSystem' {} a -> s {performanceMode = a} :: CreateFileSystem)
 
 -- | A string of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.
-createFileSystem_creationToken :: Lens.Lens' CreateFileSystem Prelude.Text
+createFileSystem_creationToken :: Lens.Lens' CreateFileSystem Core.Text
 createFileSystem_creationToken = Lens.lens (\CreateFileSystem' {creationToken} -> creationToken) (\s@CreateFileSystem' {} a -> s {creationToken = a} :: CreateFileSystem)
 
-instance Prelude.AWSRequest CreateFileSystem where
-  type Rs CreateFileSystem = FileSystemDescription
+instance Core.AWSRequest CreateFileSystem where
+  type
+    AWSResponse CreateFileSystem =
+      FileSystemDescription
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateFileSystem
+instance Core.Hashable CreateFileSystem
 
-instance Prelude.NFData CreateFileSystem
+instance Core.NFData CreateFileSystem
 
-instance Prelude.ToHeaders CreateFileSystem where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateFileSystem where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateFileSystem where
+instance Core.ToJSON CreateFileSystem where
   toJSON CreateFileSystem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ThroughputMode" Prelude..=)
-              Prelude.<$> throughputMode,
-            ("Encrypted" Prelude..=) Prelude.<$> encrypted,
-            ("ProvisionedThroughputInMibps" Prelude..=)
-              Prelude.<$> provisionedThroughputInMibps,
-            ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("PerformanceMode" Prelude..=)
-              Prelude.<$> performanceMode,
-            Prelude.Just
-              ("CreationToken" Prelude..= creationToken)
+    Core.object
+      ( Core.catMaybes
+          [ ("ThroughputMode" Core..=) Core.<$> throughputMode,
+            ("Encrypted" Core..=) Core.<$> encrypted,
+            ("ProvisionedThroughputInMibps" Core..=)
+              Core.<$> provisionedThroughputInMibps,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("Tags" Core..=) Core.<$> tags,
+            ("PerformanceMode" Core..=) Core.<$> performanceMode,
+            Core.Just ("CreationToken" Core..= creationToken)
           ]
       )
 
-instance Prelude.ToPath CreateFileSystem where
-  toPath = Prelude.const "/2015-02-01/file-systems"
+instance Core.ToPath CreateFileSystem where
+  toPath = Core.const "/2015-02-01/file-systems"
 
-instance Prelude.ToQuery CreateFileSystem where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateFileSystem where
+  toQuery = Core.const Core.mempty

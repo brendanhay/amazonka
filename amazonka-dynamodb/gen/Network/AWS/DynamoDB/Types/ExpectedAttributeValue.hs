@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ExpectedAttributeValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import Network.AWS.DynamoDB.Types.ComparisonOperator
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a condition to be compared with an attribute value. This
 -- condition can be used with @DeleteItem@, @PutItem@, or @UpdateItem@
@@ -197,7 +196,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     --     not match. For example, @{\"S\":\"6\"}@ does not compare to
     --     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
     --     @{\"NS\":[\"6\", \"2\", \"1\"]}@
-    comparisonOperator :: Prelude.Maybe ComparisonOperator,
+    comparisonOperator :: Core.Maybe ComparisonOperator,
     -- | Causes DynamoDB to evaluate the value before attempting a conditional
     -- operation:
     --
@@ -224,7 +223,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     -- -   @Exists@ is @false@ but you also provide a @Value@. (You cannot
     --     expect an attribute to have a value, while also expecting it not to
     --     exist.)
-    exists :: Prelude.Maybe Prelude.Bool,
+    exists :: Core.Maybe Core.Bool,
     -- | Represents the data for the expected attribute.
     --
     -- Each attribute value is described as a name-value pair. The name is the
@@ -233,7 +232,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     -- For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
     -- in the /Amazon DynamoDB Developer Guide/.
-    value :: Prelude.Maybe AttributeValue,
+    value :: Core.Maybe AttributeValue,
     -- | One or more values to evaluate against the supplied attribute. The
     -- number of values in the list depends on the @ComparisonOperator@ being
     -- used.
@@ -251,9 +250,9 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     -- For information on specifying data types in JSON, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
     -- in the /Amazon DynamoDB Developer Guide/.
-    attributeValueList :: Prelude.Maybe [AttributeValue]
+    attributeValueList :: Core.Maybe [AttributeValue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExpectedAttributeValue' with all optional fields omitted.
@@ -469,10 +468,10 @@ newExpectedAttributeValue ::
 newExpectedAttributeValue =
   ExpectedAttributeValue'
     { comparisonOperator =
-        Prelude.Nothing,
-      exists = Prelude.Nothing,
-      value = Prelude.Nothing,
-      attributeValueList = Prelude.Nothing
+        Core.Nothing,
+      exists = Core.Nothing,
+      value = Core.Nothing,
+      attributeValueList = Core.Nothing
     }
 
 -- | A comparator for evaluating attributes in the @AttributeValueList@. For
@@ -622,7 +621,7 @@ newExpectedAttributeValue =
 --     not match. For example, @{\"S\":\"6\"}@ does not compare to
 --     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
 --     @{\"NS\":[\"6\", \"2\", \"1\"]}@
-expectedAttributeValue_comparisonOperator :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe ComparisonOperator)
+expectedAttributeValue_comparisonOperator :: Lens.Lens' ExpectedAttributeValue (Core.Maybe ComparisonOperator)
 expectedAttributeValue_comparisonOperator = Lens.lens (\ExpectedAttributeValue' {comparisonOperator} -> comparisonOperator) (\s@ExpectedAttributeValue' {} a -> s {comparisonOperator = a} :: ExpectedAttributeValue)
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
@@ -651,7 +650,7 @@ expectedAttributeValue_comparisonOperator = Lens.lens (\ExpectedAttributeValue' 
 -- -   @Exists@ is @false@ but you also provide a @Value@. (You cannot
 --     expect an attribute to have a value, while also expecting it not to
 --     exist.)
-expectedAttributeValue_exists :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe Prelude.Bool)
+expectedAttributeValue_exists :: Lens.Lens' ExpectedAttributeValue (Core.Maybe Core.Bool)
 expectedAttributeValue_exists = Lens.lens (\ExpectedAttributeValue' {exists} -> exists) (\s@ExpectedAttributeValue' {} a -> s {exists = a} :: ExpectedAttributeValue)
 
 -- | Represents the data for the expected attribute.
@@ -662,7 +661,7 @@ expectedAttributeValue_exists = Lens.lens (\ExpectedAttributeValue' {exists} -> 
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes Data Types>
 -- in the /Amazon DynamoDB Developer Guide/.
-expectedAttributeValue_value :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe AttributeValue)
+expectedAttributeValue_value :: Lens.Lens' ExpectedAttributeValue (Core.Maybe AttributeValue)
 expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> value) (\s@ExpectedAttributeValue' {} a -> s {value = a} :: ExpectedAttributeValue)
 
 -- | One or more values to evaluate against the supplied attribute. The
@@ -682,22 +681,22 @@ expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> va
 -- For information on specifying data types in JSON, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
 -- in the /Amazon DynamoDB Developer Guide/.
-expectedAttributeValue_attributeValueList :: Lens.Lens' ExpectedAttributeValue (Prelude.Maybe [AttributeValue])
-expectedAttributeValue_attributeValueList = Lens.lens (\ExpectedAttributeValue' {attributeValueList} -> attributeValueList) (\s@ExpectedAttributeValue' {} a -> s {attributeValueList = a} :: ExpectedAttributeValue) Prelude.. Lens.mapping Prelude._Coerce
+expectedAttributeValue_attributeValueList :: Lens.Lens' ExpectedAttributeValue (Core.Maybe [AttributeValue])
+expectedAttributeValue_attributeValueList = Lens.lens (\ExpectedAttributeValue' {attributeValueList} -> attributeValueList) (\s@ExpectedAttributeValue' {} a -> s {attributeValueList = a} :: ExpectedAttributeValue) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable ExpectedAttributeValue
+instance Core.Hashable ExpectedAttributeValue
 
-instance Prelude.NFData ExpectedAttributeValue
+instance Core.NFData ExpectedAttributeValue
 
-instance Prelude.ToJSON ExpectedAttributeValue where
+instance Core.ToJSON ExpectedAttributeValue where
   toJSON ExpectedAttributeValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ComparisonOperator" Prelude..=)
-              Prelude.<$> comparisonOperator,
-            ("Exists" Prelude..=) Prelude.<$> exists,
-            ("Value" Prelude..=) Prelude.<$> value,
-            ("AttributeValueList" Prelude..=)
-              Prelude.<$> attributeValueList
+    Core.object
+      ( Core.catMaybes
+          [ ("ComparisonOperator" Core..=)
+              Core.<$> comparisonOperator,
+            ("Exists" Core..=) Core.<$> exists,
+            ("Value" Core..=) Core.<$> value,
+            ("AttributeValueList" Core..=)
+              Core.<$> attributeValueList
           ]
       )

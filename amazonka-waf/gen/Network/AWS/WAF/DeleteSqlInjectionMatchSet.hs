@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,8 +65,8 @@ module Network.AWS.WAF.DeleteSqlInjectionMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -79,11 +78,11 @@ data DeleteSqlInjectionMatchSet = DeleteSqlInjectionMatchSet'
   { -- | The @SqlInjectionMatchSetId@ of the SqlInjectionMatchSet that you want
     -- to delete. @SqlInjectionMatchSetId@ is returned by
     -- CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
-    sqlInjectionMatchSetId :: Prelude.Text,
+    sqlInjectionMatchSetId :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text
+    changeToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSqlInjectionMatchSet' with all optional fields omitted.
@@ -100,9 +99,9 @@ data DeleteSqlInjectionMatchSet = DeleteSqlInjectionMatchSet'
 -- 'changeToken', 'deleteSqlInjectionMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newDeleteSqlInjectionMatchSet ::
   -- | 'sqlInjectionMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSqlInjectionMatchSet
 newDeleteSqlInjectionMatchSet
   pSqlInjectionMatchSetId_
@@ -116,65 +115,60 @@ newDeleteSqlInjectionMatchSet
 -- | The @SqlInjectionMatchSetId@ of the SqlInjectionMatchSet that you want
 -- to delete. @SqlInjectionMatchSetId@ is returned by
 -- CreateSqlInjectionMatchSet and by ListSqlInjectionMatchSets.
-deleteSqlInjectionMatchSet_sqlInjectionMatchSetId :: Lens.Lens' DeleteSqlInjectionMatchSet Prelude.Text
+deleteSqlInjectionMatchSet_sqlInjectionMatchSetId :: Lens.Lens' DeleteSqlInjectionMatchSet Core.Text
 deleteSqlInjectionMatchSet_sqlInjectionMatchSetId = Lens.lens (\DeleteSqlInjectionMatchSet' {sqlInjectionMatchSetId} -> sqlInjectionMatchSetId) (\s@DeleteSqlInjectionMatchSet' {} a -> s {sqlInjectionMatchSetId = a} :: DeleteSqlInjectionMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-deleteSqlInjectionMatchSet_changeToken :: Lens.Lens' DeleteSqlInjectionMatchSet Prelude.Text
+deleteSqlInjectionMatchSet_changeToken :: Lens.Lens' DeleteSqlInjectionMatchSet Core.Text
 deleteSqlInjectionMatchSet_changeToken = Lens.lens (\DeleteSqlInjectionMatchSet' {changeToken} -> changeToken) (\s@DeleteSqlInjectionMatchSet' {} a -> s {changeToken = a} :: DeleteSqlInjectionMatchSet)
 
-instance
-  Prelude.AWSRequest
-    DeleteSqlInjectionMatchSet
-  where
+instance Core.AWSRequest DeleteSqlInjectionMatchSet where
   type
-    Rs DeleteSqlInjectionMatchSet =
+    AWSResponse DeleteSqlInjectionMatchSet =
       DeleteSqlInjectionMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSqlInjectionMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSqlInjectionMatchSet
+instance Core.Hashable DeleteSqlInjectionMatchSet
 
-instance Prelude.NFData DeleteSqlInjectionMatchSet
+instance Core.NFData DeleteSqlInjectionMatchSet
 
-instance Prelude.ToHeaders DeleteSqlInjectionMatchSet where
+instance Core.ToHeaders DeleteSqlInjectionMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.DeleteSqlInjectionMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.DeleteSqlInjectionMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteSqlInjectionMatchSet where
+instance Core.ToJSON DeleteSqlInjectionMatchSet where
   toJSON DeleteSqlInjectionMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "SqlInjectionMatchSetId"
-                  Prelude..= sqlInjectionMatchSetId
+                  Core..= sqlInjectionMatchSetId
               ),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken)
+            Core.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
-instance Prelude.ToPath DeleteSqlInjectionMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSqlInjectionMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSqlInjectionMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSqlInjectionMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | The response to a request to delete a SqlInjectionMatchSet from AWS WAF.
 --
@@ -184,11 +178,11 @@ data DeleteSqlInjectionMatchSetResponse = DeleteSqlInjectionMatchSetResponse'
     -- @DeleteSqlInjectionMatchSet@ request. You can also use this value to
     -- query the status of the request. For more information, see
     -- GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSqlInjectionMatchSetResponse' with all optional fields omitted.
@@ -206,12 +200,12 @@ data DeleteSqlInjectionMatchSetResponse = DeleteSqlInjectionMatchSetResponse'
 -- 'httpStatus', 'deleteSqlInjectionMatchSetResponse_httpStatus' - The response's http status code.
 newDeleteSqlInjectionMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSqlInjectionMatchSetResponse
 newDeleteSqlInjectionMatchSetResponse pHttpStatus_ =
   DeleteSqlInjectionMatchSetResponse'
     { changeToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -219,13 +213,13 @@ newDeleteSqlInjectionMatchSetResponse pHttpStatus_ =
 -- @DeleteSqlInjectionMatchSet@ request. You can also use this value to
 -- query the status of the request. For more information, see
 -- GetChangeTokenStatus.
-deleteSqlInjectionMatchSetResponse_changeToken :: Lens.Lens' DeleteSqlInjectionMatchSetResponse (Prelude.Maybe Prelude.Text)
+deleteSqlInjectionMatchSetResponse_changeToken :: Lens.Lens' DeleteSqlInjectionMatchSetResponse (Core.Maybe Core.Text)
 deleteSqlInjectionMatchSetResponse_changeToken = Lens.lens (\DeleteSqlInjectionMatchSetResponse' {changeToken} -> changeToken) (\s@DeleteSqlInjectionMatchSetResponse' {} a -> s {changeToken = a} :: DeleteSqlInjectionMatchSetResponse)
 
 -- | The response's http status code.
-deleteSqlInjectionMatchSetResponse_httpStatus :: Lens.Lens' DeleteSqlInjectionMatchSetResponse Prelude.Int
+deleteSqlInjectionMatchSetResponse_httpStatus :: Lens.Lens' DeleteSqlInjectionMatchSetResponse Core.Int
 deleteSqlInjectionMatchSetResponse_httpStatus = Lens.lens (\DeleteSqlInjectionMatchSetResponse' {httpStatus} -> httpStatus) (\s@DeleteSqlInjectionMatchSetResponse' {} a -> s {httpStatus = a} :: DeleteSqlInjectionMatchSetResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteSqlInjectionMatchSetResponse

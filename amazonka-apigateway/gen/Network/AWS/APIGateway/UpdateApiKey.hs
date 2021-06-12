@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.APIGateway.UpdateApiKey
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +60,11 @@ import qualified Network.AWS.Response as Response
 data UpdateApiKey = UpdateApiKey'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The identifier of the ApiKey resource to be updated.
-    apiKey :: Prelude.Text
+    apiKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApiKey' with all optional fields omitted.
@@ -81,55 +80,55 @@ data UpdateApiKey = UpdateApiKey'
 -- 'apiKey', 'updateApiKey_apiKey' - [Required] The identifier of the ApiKey resource to be updated.
 newUpdateApiKey ::
   -- | 'apiKey'
-  Prelude.Text ->
+  Core.Text ->
   UpdateApiKey
 newUpdateApiKey pApiKey_ =
   UpdateApiKey'
-    { patchOperations = Prelude.Nothing,
+    { patchOperations = Core.Nothing,
       apiKey = pApiKey_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateApiKey_patchOperations :: Lens.Lens' UpdateApiKey (Prelude.Maybe [PatchOperation])
-updateApiKey_patchOperations = Lens.lens (\UpdateApiKey' {patchOperations} -> patchOperations) (\s@UpdateApiKey' {} a -> s {patchOperations = a} :: UpdateApiKey) Prelude.. Lens.mapping Prelude._Coerce
+updateApiKey_patchOperations :: Lens.Lens' UpdateApiKey (Core.Maybe [PatchOperation])
+updateApiKey_patchOperations = Lens.lens (\UpdateApiKey' {patchOperations} -> patchOperations) (\s@UpdateApiKey' {} a -> s {patchOperations = a} :: UpdateApiKey) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The identifier of the ApiKey resource to be updated.
-updateApiKey_apiKey :: Lens.Lens' UpdateApiKey Prelude.Text
+updateApiKey_apiKey :: Lens.Lens' UpdateApiKey Core.Text
 updateApiKey_apiKey = Lens.lens (\UpdateApiKey' {apiKey} -> apiKey) (\s@UpdateApiKey' {} a -> s {apiKey = a} :: UpdateApiKey)
 
-instance Prelude.AWSRequest UpdateApiKey where
-  type Rs UpdateApiKey = ApiKey
+instance Core.AWSRequest UpdateApiKey where
+  type AWSResponse UpdateApiKey = ApiKey
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateApiKey
+instance Core.Hashable UpdateApiKey
 
-instance Prelude.NFData UpdateApiKey
+instance Core.NFData UpdateApiKey
 
-instance Prelude.ToHeaders UpdateApiKey where
+instance Core.ToHeaders UpdateApiKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateApiKey where
+instance Core.ToJSON UpdateApiKey where
   toJSON UpdateApiKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateApiKey where
+instance Core.ToPath UpdateApiKey where
   toPath UpdateApiKey' {..} =
-    Prelude.mconcat ["/apikeys/", Prelude.toBS apiKey]
+    Core.mconcat ["/apikeys/", Core.toBS apiKey]
 
-instance Prelude.ToQuery UpdateApiKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateApiKey where
+  toQuery = Core.const Core.mempty

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachObject response operation.
 --
 -- /See:/ 'newBatchDetachObjectResponse' smart constructor.
 data BatchDetachObjectResponse = BatchDetachObjectResponse'
   { -- | The @ObjectIdentifier@ of the detached object.
-    detachedObjectIdentifier :: Prelude.Maybe Prelude.Text
+    detachedObjectIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetachObjectResponse' with all optional fields omitted.
@@ -46,22 +45,22 @@ newBatchDetachObjectResponse ::
 newBatchDetachObjectResponse =
   BatchDetachObjectResponse'
     { detachedObjectIdentifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the detached object.
-batchDetachObjectResponse_detachedObjectIdentifier :: Lens.Lens' BatchDetachObjectResponse (Prelude.Maybe Prelude.Text)
+batchDetachObjectResponse_detachedObjectIdentifier :: Lens.Lens' BatchDetachObjectResponse (Core.Maybe Core.Text)
 batchDetachObjectResponse_detachedObjectIdentifier = Lens.lens (\BatchDetachObjectResponse' {detachedObjectIdentifier} -> detachedObjectIdentifier) (\s@BatchDetachObjectResponse' {} a -> s {detachedObjectIdentifier = a} :: BatchDetachObjectResponse)
 
-instance Prelude.FromJSON BatchDetachObjectResponse where
+instance Core.FromJSON BatchDetachObjectResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDetachObjectResponse"
       ( \x ->
           BatchDetachObjectResponse'
-            Prelude.<$> (x Prelude..:? "detachedObjectIdentifier")
+            Core.<$> (x Core..:? "detachedObjectIdentifier")
       )
 
-instance Prelude.Hashable BatchDetachObjectResponse
+instance Core.Hashable BatchDetachObjectResponse
 
-instance Prelude.NFData BatchDetachObjectResponse
+instance Core.NFData BatchDetachObjectResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,23 +45,22 @@ module Network.AWS.IoT.ListTargetsForSecurityProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTargetsForSecurityProfile' smart constructor.
 data ListTargetsForSecurityProfile = ListTargetsForSecurityProfile'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The security profile.
-    securityProfileName :: Prelude.Text
+    securityProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTargetsForSecurityProfile' with all optional fields omitted.
@@ -79,111 +77,103 @@ data ListTargetsForSecurityProfile = ListTargetsForSecurityProfile'
 -- 'securityProfileName', 'listTargetsForSecurityProfile_securityProfileName' - The security profile.
 newListTargetsForSecurityProfile ::
   -- | 'securityProfileName'
-  Prelude.Text ->
+  Core.Text ->
   ListTargetsForSecurityProfile
 newListTargetsForSecurityProfile
   pSecurityProfileName_ =
     ListTargetsForSecurityProfile'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
         securityProfileName = pSecurityProfileName_
       }
 
 -- | The token for the next set of results.
-listTargetsForSecurityProfile_nextToken :: Lens.Lens' ListTargetsForSecurityProfile (Prelude.Maybe Prelude.Text)
+listTargetsForSecurityProfile_nextToken :: Lens.Lens' ListTargetsForSecurityProfile (Core.Maybe Core.Text)
 listTargetsForSecurityProfile_nextToken = Lens.lens (\ListTargetsForSecurityProfile' {nextToken} -> nextToken) (\s@ListTargetsForSecurityProfile' {} a -> s {nextToken = a} :: ListTargetsForSecurityProfile)
 
 -- | The maximum number of results to return at one time.
-listTargetsForSecurityProfile_maxResults :: Lens.Lens' ListTargetsForSecurityProfile (Prelude.Maybe Prelude.Natural)
+listTargetsForSecurityProfile_maxResults :: Lens.Lens' ListTargetsForSecurityProfile (Core.Maybe Core.Natural)
 listTargetsForSecurityProfile_maxResults = Lens.lens (\ListTargetsForSecurityProfile' {maxResults} -> maxResults) (\s@ListTargetsForSecurityProfile' {} a -> s {maxResults = a} :: ListTargetsForSecurityProfile)
 
 -- | The security profile.
-listTargetsForSecurityProfile_securityProfileName :: Lens.Lens' ListTargetsForSecurityProfile Prelude.Text
+listTargetsForSecurityProfile_securityProfileName :: Lens.Lens' ListTargetsForSecurityProfile Core.Text
 listTargetsForSecurityProfile_securityProfileName = Lens.lens (\ListTargetsForSecurityProfile' {securityProfileName} -> securityProfileName) (\s@ListTargetsForSecurityProfile' {} a -> s {securityProfileName = a} :: ListTargetsForSecurityProfile)
 
-instance Pager.AWSPager ListTargetsForSecurityProfile where
+instance Core.AWSPager ListTargetsForSecurityProfile where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTargetsForSecurityProfileResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTargetsForSecurityProfileResponse_securityProfileTargets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTargetsForSecurityProfile_nextToken
           Lens..~ rs
           Lens.^? listTargetsForSecurityProfileResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListTargetsForSecurityProfile
   where
   type
-    Rs ListTargetsForSecurityProfile =
+    AWSResponse ListTargetsForSecurityProfile =
       ListTargetsForSecurityProfileResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTargetsForSecurityProfileResponse'
-            Prelude.<$> ( x Prelude..?> "securityProfileTargets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "securityProfileTargets"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListTargetsForSecurityProfile
+instance Core.Hashable ListTargetsForSecurityProfile
 
-instance Prelude.NFData ListTargetsForSecurityProfile
+instance Core.NFData ListTargetsForSecurityProfile
 
-instance
-  Prelude.ToHeaders
-    ListTargetsForSecurityProfile
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTargetsForSecurityProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTargetsForSecurityProfile where
+instance Core.ToPath ListTargetsForSecurityProfile where
   toPath ListTargetsForSecurityProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/security-profiles/",
-        Prelude.toBS securityProfileName,
+        Core.toBS securityProfileName,
         "/targets"
       ]
 
-instance
-  Prelude.ToQuery
-    ListTargetsForSecurityProfile
-  where
+instance Core.ToQuery ListTargetsForSecurityProfile where
   toQuery ListTargetsForSecurityProfile' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListTargetsForSecurityProfileResponse' smart constructor.
 data ListTargetsForSecurityProfileResponse = ListTargetsForSecurityProfileResponse'
   { -- | The thing groups to which the security profile is attached.
-    securityProfileTargets :: Prelude.Maybe [SecurityProfileTarget],
+    securityProfileTargets :: Core.Maybe [SecurityProfileTarget],
     -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTargetsForSecurityProfileResponse' with all optional fields omitted.
@@ -201,29 +191,29 @@ data ListTargetsForSecurityProfileResponse = ListTargetsForSecurityProfileRespon
 -- 'httpStatus', 'listTargetsForSecurityProfileResponse_httpStatus' - The response's http status code.
 newListTargetsForSecurityProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTargetsForSecurityProfileResponse
 newListTargetsForSecurityProfileResponse pHttpStatus_ =
   ListTargetsForSecurityProfileResponse'
     { securityProfileTargets =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The thing groups to which the security profile is attached.
-listTargetsForSecurityProfileResponse_securityProfileTargets :: Lens.Lens' ListTargetsForSecurityProfileResponse (Prelude.Maybe [SecurityProfileTarget])
-listTargetsForSecurityProfileResponse_securityProfileTargets = Lens.lens (\ListTargetsForSecurityProfileResponse' {securityProfileTargets} -> securityProfileTargets) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {securityProfileTargets = a} :: ListTargetsForSecurityProfileResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTargetsForSecurityProfileResponse_securityProfileTargets :: Lens.Lens' ListTargetsForSecurityProfileResponse (Core.Maybe [SecurityProfileTarget])
+listTargetsForSecurityProfileResponse_securityProfileTargets = Lens.lens (\ListTargetsForSecurityProfileResponse' {securityProfileTargets} -> securityProfileTargets) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {securityProfileTargets = a} :: ListTargetsForSecurityProfileResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
-listTargetsForSecurityProfileResponse_nextToken :: Lens.Lens' ListTargetsForSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+listTargetsForSecurityProfileResponse_nextToken :: Lens.Lens' ListTargetsForSecurityProfileResponse (Core.Maybe Core.Text)
 listTargetsForSecurityProfileResponse_nextToken = Lens.lens (\ListTargetsForSecurityProfileResponse' {nextToken} -> nextToken) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {nextToken = a} :: ListTargetsForSecurityProfileResponse)
 
 -- | The response's http status code.
-listTargetsForSecurityProfileResponse_httpStatus :: Lens.Lens' ListTargetsForSecurityProfileResponse Prelude.Int
+listTargetsForSecurityProfileResponse_httpStatus :: Lens.Lens' ListTargetsForSecurityProfileResponse Core.Int
 listTargetsForSecurityProfileResponse_httpStatus = Lens.lens (\ListTargetsForSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@ListTargetsForSecurityProfileResponse' {} a -> s {httpStatus = a} :: ListTargetsForSecurityProfileResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListTargetsForSecurityProfileResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +56,16 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newValidatePipelineDefinition' smart constructor.
 data ValidatePipelineDefinition = ValidatePipelineDefinition'
   { -- | The parameter values used with the pipeline.
-    parameterValues :: Prelude.Maybe [ParameterValue],
+    parameterValues :: Core.Maybe [ParameterValue],
     -- | The parameter objects used with the pipeline.
-    parameterObjects :: Prelude.Maybe [ParameterObject],
+    parameterObjects :: Core.Maybe [ParameterObject],
     -- | The ID of the pipeline.
-    pipelineId :: Prelude.Text,
+    pipelineId :: Core.Text,
     -- | The objects that define the pipeline changes to validate against the
     -- pipeline.
     pipelineObjects :: [PipelineObject]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidatePipelineDefinition' with all optional fields omitted.
@@ -86,109 +85,102 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition'
 -- pipeline.
 newValidatePipelineDefinition ::
   -- | 'pipelineId'
-  Prelude.Text ->
+  Core.Text ->
   ValidatePipelineDefinition
 newValidatePipelineDefinition pPipelineId_ =
   ValidatePipelineDefinition'
     { parameterValues =
-        Prelude.Nothing,
-      parameterObjects = Prelude.Nothing,
+        Core.Nothing,
+      parameterObjects = Core.Nothing,
       pipelineId = pPipelineId_,
-      pipelineObjects = Prelude.mempty
+      pipelineObjects = Core.mempty
     }
 
 -- | The parameter values used with the pipeline.
-validatePipelineDefinition_parameterValues :: Lens.Lens' ValidatePipelineDefinition (Prelude.Maybe [ParameterValue])
-validatePipelineDefinition_parameterValues = Lens.lens (\ValidatePipelineDefinition' {parameterValues} -> parameterValues) (\s@ValidatePipelineDefinition' {} a -> s {parameterValues = a} :: ValidatePipelineDefinition) Prelude.. Lens.mapping Prelude._Coerce
+validatePipelineDefinition_parameterValues :: Lens.Lens' ValidatePipelineDefinition (Core.Maybe [ParameterValue])
+validatePipelineDefinition_parameterValues = Lens.lens (\ValidatePipelineDefinition' {parameterValues} -> parameterValues) (\s@ValidatePipelineDefinition' {} a -> s {parameterValues = a} :: ValidatePipelineDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The parameter objects used with the pipeline.
-validatePipelineDefinition_parameterObjects :: Lens.Lens' ValidatePipelineDefinition (Prelude.Maybe [ParameterObject])
-validatePipelineDefinition_parameterObjects = Lens.lens (\ValidatePipelineDefinition' {parameterObjects} -> parameterObjects) (\s@ValidatePipelineDefinition' {} a -> s {parameterObjects = a} :: ValidatePipelineDefinition) Prelude.. Lens.mapping Prelude._Coerce
+validatePipelineDefinition_parameterObjects :: Lens.Lens' ValidatePipelineDefinition (Core.Maybe [ParameterObject])
+validatePipelineDefinition_parameterObjects = Lens.lens (\ValidatePipelineDefinition' {parameterObjects} -> parameterObjects) (\s@ValidatePipelineDefinition' {} a -> s {parameterObjects = a} :: ValidatePipelineDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the pipeline.
-validatePipelineDefinition_pipelineId :: Lens.Lens' ValidatePipelineDefinition Prelude.Text
+validatePipelineDefinition_pipelineId :: Lens.Lens' ValidatePipelineDefinition Core.Text
 validatePipelineDefinition_pipelineId = Lens.lens (\ValidatePipelineDefinition' {pipelineId} -> pipelineId) (\s@ValidatePipelineDefinition' {} a -> s {pipelineId = a} :: ValidatePipelineDefinition)
 
 -- | The objects that define the pipeline changes to validate against the
 -- pipeline.
 validatePipelineDefinition_pipelineObjects :: Lens.Lens' ValidatePipelineDefinition [PipelineObject]
-validatePipelineDefinition_pipelineObjects = Lens.lens (\ValidatePipelineDefinition' {pipelineObjects} -> pipelineObjects) (\s@ValidatePipelineDefinition' {} a -> s {pipelineObjects = a} :: ValidatePipelineDefinition) Prelude.. Prelude._Coerce
+validatePipelineDefinition_pipelineObjects = Lens.lens (\ValidatePipelineDefinition' {pipelineObjects} -> pipelineObjects) (\s@ValidatePipelineDefinition' {} a -> s {pipelineObjects = a} :: ValidatePipelineDefinition) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    ValidatePipelineDefinition
-  where
+instance Core.AWSRequest ValidatePipelineDefinition where
   type
-    Rs ValidatePipelineDefinition =
+    AWSResponse ValidatePipelineDefinition =
       ValidatePipelineDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ValidatePipelineDefinitionResponse'
-            Prelude.<$> ( x Prelude..?> "validationErrors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "validationWarnings"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "errored")
+            Core.<$> (x Core..?> "validationErrors" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "validationWarnings"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "errored")
       )
 
-instance Prelude.Hashable ValidatePipelineDefinition
+instance Core.Hashable ValidatePipelineDefinition
 
-instance Prelude.NFData ValidatePipelineDefinition
+instance Core.NFData ValidatePipelineDefinition
 
-instance Prelude.ToHeaders ValidatePipelineDefinition where
+instance Core.ToHeaders ValidatePipelineDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DataPipeline.ValidatePipelineDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DataPipeline.ValidatePipelineDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ValidatePipelineDefinition where
+instance Core.ToJSON ValidatePipelineDefinition where
   toJSON ValidatePipelineDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("parameterValues" Prelude..=)
-              Prelude.<$> parameterValues,
-            ("parameterObjects" Prelude..=)
-              Prelude.<$> parameterObjects,
-            Prelude.Just ("pipelineId" Prelude..= pipelineId),
-            Prelude.Just
-              ("pipelineObjects" Prelude..= pipelineObjects)
+    Core.object
+      ( Core.catMaybes
+          [ ("parameterValues" Core..=)
+              Core.<$> parameterValues,
+            ("parameterObjects" Core..=)
+              Core.<$> parameterObjects,
+            Core.Just ("pipelineId" Core..= pipelineId),
+            Core.Just
+              ("pipelineObjects" Core..= pipelineObjects)
           ]
       )
 
-instance Prelude.ToPath ValidatePipelineDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath ValidatePipelineDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ValidatePipelineDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ValidatePipelineDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of ValidatePipelineDefinition.
 --
 -- /See:/ 'newValidatePipelineDefinitionResponse' smart constructor.
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
   { -- | Any validation errors that were found.
-    validationErrors :: Prelude.Maybe [ValidationError],
+    validationErrors :: Core.Maybe [ValidationError],
     -- | Any validation warnings that were found.
-    validationWarnings :: Prelude.Maybe [ValidationWarning],
+    validationWarnings :: Core.Maybe [ValidationWarning],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Indicates whether there were validation errors.
-    errored :: Prelude.Bool
+    errored :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidatePipelineDefinitionResponse' with all optional fields omitted.
@@ -207,37 +199,37 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
 -- 'errored', 'validatePipelineDefinitionResponse_errored' - Indicates whether there were validation errors.
 newValidatePipelineDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'errored'
-  Prelude.Bool ->
+  Core.Bool ->
   ValidatePipelineDefinitionResponse
 newValidatePipelineDefinitionResponse
   pHttpStatus_
   pErrored_ =
     ValidatePipelineDefinitionResponse'
       { validationErrors =
-          Prelude.Nothing,
-        validationWarnings = Prelude.Nothing,
+          Core.Nothing,
+        validationWarnings = Core.Nothing,
         httpStatus = pHttpStatus_,
         errored = pErrored_
       }
 
 -- | Any validation errors that were found.
-validatePipelineDefinitionResponse_validationErrors :: Lens.Lens' ValidatePipelineDefinitionResponse (Prelude.Maybe [ValidationError])
-validatePipelineDefinitionResponse_validationErrors = Lens.lens (\ValidatePipelineDefinitionResponse' {validationErrors} -> validationErrors) (\s@ValidatePipelineDefinitionResponse' {} a -> s {validationErrors = a} :: ValidatePipelineDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+validatePipelineDefinitionResponse_validationErrors :: Lens.Lens' ValidatePipelineDefinitionResponse (Core.Maybe [ValidationError])
+validatePipelineDefinitionResponse_validationErrors = Lens.lens (\ValidatePipelineDefinitionResponse' {validationErrors} -> validationErrors) (\s@ValidatePipelineDefinitionResponse' {} a -> s {validationErrors = a} :: ValidatePipelineDefinitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Any validation warnings that were found.
-validatePipelineDefinitionResponse_validationWarnings :: Lens.Lens' ValidatePipelineDefinitionResponse (Prelude.Maybe [ValidationWarning])
-validatePipelineDefinitionResponse_validationWarnings = Lens.lens (\ValidatePipelineDefinitionResponse' {validationWarnings} -> validationWarnings) (\s@ValidatePipelineDefinitionResponse' {} a -> s {validationWarnings = a} :: ValidatePipelineDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+validatePipelineDefinitionResponse_validationWarnings :: Lens.Lens' ValidatePipelineDefinitionResponse (Core.Maybe [ValidationWarning])
+validatePipelineDefinitionResponse_validationWarnings = Lens.lens (\ValidatePipelineDefinitionResponse' {validationWarnings} -> validationWarnings) (\s@ValidatePipelineDefinitionResponse' {} a -> s {validationWarnings = a} :: ValidatePipelineDefinitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-validatePipelineDefinitionResponse_httpStatus :: Lens.Lens' ValidatePipelineDefinitionResponse Prelude.Int
+validatePipelineDefinitionResponse_httpStatus :: Lens.Lens' ValidatePipelineDefinitionResponse Core.Int
 validatePipelineDefinitionResponse_httpStatus = Lens.lens (\ValidatePipelineDefinitionResponse' {httpStatus} -> httpStatus) (\s@ValidatePipelineDefinitionResponse' {} a -> s {httpStatus = a} :: ValidatePipelineDefinitionResponse)
 
 -- | Indicates whether there were validation errors.
-validatePipelineDefinitionResponse_errored :: Lens.Lens' ValidatePipelineDefinitionResponse Prelude.Bool
+validatePipelineDefinitionResponse_errored :: Lens.Lens' ValidatePipelineDefinitionResponse Core.Bool
 validatePipelineDefinitionResponse_errored = Lens.lens (\ValidatePipelineDefinitionResponse' {errored} -> errored) (\s@ValidatePipelineDefinitionResponse' {} a -> s {errored = a} :: ValidatePipelineDefinitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ValidatePipelineDefinitionResponse

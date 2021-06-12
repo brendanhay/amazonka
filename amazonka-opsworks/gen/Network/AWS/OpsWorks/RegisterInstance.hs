@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,31 +67,31 @@ module Network.AWS.OpsWorks.RegisterInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterInstance' smart constructor.
 data RegisterInstance = RegisterInstance'
   { -- | The instance\'s hostname.
-    hostname :: Prelude.Maybe Prelude.Text,
+    hostname :: Core.Maybe Core.Text,
     -- | The instances public RSA key. This key is used to encrypt communication
     -- between the instance and the service.
-    rsaPublicKey :: Prelude.Maybe Prelude.Text,
+    rsaPublicKey :: Core.Maybe Core.Text,
     -- | An InstanceIdentity object that contains the instance\'s identity.
-    instanceIdentity :: Prelude.Maybe InstanceIdentity,
+    instanceIdentity :: Core.Maybe InstanceIdentity,
     -- | The instance\'s private IP address.
-    privateIp :: Prelude.Maybe Prelude.Text,
+    privateIp :: Core.Maybe Core.Text,
     -- | The instances public RSA key fingerprint.
-    rsaPublicKeyFingerprint :: Prelude.Maybe Prelude.Text,
+    rsaPublicKeyFingerprint :: Core.Maybe Core.Text,
     -- | The instance\'s public IP address.
-    publicIp :: Prelude.Maybe Prelude.Text,
+    publicIp :: Core.Maybe Core.Text,
     -- | The ID of the stack that the instance is to be registered with.
-    stackId :: Prelude.Text
+    stackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterInstance' with all optional fields omitted.
@@ -118,110 +117,110 @@ data RegisterInstance = RegisterInstance'
 -- 'stackId', 'registerInstance_stackId' - The ID of the stack that the instance is to be registered with.
 newRegisterInstance ::
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   RegisterInstance
 newRegisterInstance pStackId_ =
   RegisterInstance'
-    { hostname = Prelude.Nothing,
-      rsaPublicKey = Prelude.Nothing,
-      instanceIdentity = Prelude.Nothing,
-      privateIp = Prelude.Nothing,
-      rsaPublicKeyFingerprint = Prelude.Nothing,
-      publicIp = Prelude.Nothing,
+    { hostname = Core.Nothing,
+      rsaPublicKey = Core.Nothing,
+      instanceIdentity = Core.Nothing,
+      privateIp = Core.Nothing,
+      rsaPublicKeyFingerprint = Core.Nothing,
+      publicIp = Core.Nothing,
       stackId = pStackId_
     }
 
 -- | The instance\'s hostname.
-registerInstance_hostname :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_hostname :: Lens.Lens' RegisterInstance (Core.Maybe Core.Text)
 registerInstance_hostname = Lens.lens (\RegisterInstance' {hostname} -> hostname) (\s@RegisterInstance' {} a -> s {hostname = a} :: RegisterInstance)
 
 -- | The instances public RSA key. This key is used to encrypt communication
 -- between the instance and the service.
-registerInstance_rsaPublicKey :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_rsaPublicKey :: Lens.Lens' RegisterInstance (Core.Maybe Core.Text)
 registerInstance_rsaPublicKey = Lens.lens (\RegisterInstance' {rsaPublicKey} -> rsaPublicKey) (\s@RegisterInstance' {} a -> s {rsaPublicKey = a} :: RegisterInstance)
 
 -- | An InstanceIdentity object that contains the instance\'s identity.
-registerInstance_instanceIdentity :: Lens.Lens' RegisterInstance (Prelude.Maybe InstanceIdentity)
+registerInstance_instanceIdentity :: Lens.Lens' RegisterInstance (Core.Maybe InstanceIdentity)
 registerInstance_instanceIdentity = Lens.lens (\RegisterInstance' {instanceIdentity} -> instanceIdentity) (\s@RegisterInstance' {} a -> s {instanceIdentity = a} :: RegisterInstance)
 
 -- | The instance\'s private IP address.
-registerInstance_privateIp :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_privateIp :: Lens.Lens' RegisterInstance (Core.Maybe Core.Text)
 registerInstance_privateIp = Lens.lens (\RegisterInstance' {privateIp} -> privateIp) (\s@RegisterInstance' {} a -> s {privateIp = a} :: RegisterInstance)
 
 -- | The instances public RSA key fingerprint.
-registerInstance_rsaPublicKeyFingerprint :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_rsaPublicKeyFingerprint :: Lens.Lens' RegisterInstance (Core.Maybe Core.Text)
 registerInstance_rsaPublicKeyFingerprint = Lens.lens (\RegisterInstance' {rsaPublicKeyFingerprint} -> rsaPublicKeyFingerprint) (\s@RegisterInstance' {} a -> s {rsaPublicKeyFingerprint = a} :: RegisterInstance)
 
 -- | The instance\'s public IP address.
-registerInstance_publicIp :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_publicIp :: Lens.Lens' RegisterInstance (Core.Maybe Core.Text)
 registerInstance_publicIp = Lens.lens (\RegisterInstance' {publicIp} -> publicIp) (\s@RegisterInstance' {} a -> s {publicIp = a} :: RegisterInstance)
 
 -- | The ID of the stack that the instance is to be registered with.
-registerInstance_stackId :: Lens.Lens' RegisterInstance Prelude.Text
+registerInstance_stackId :: Lens.Lens' RegisterInstance Core.Text
 registerInstance_stackId = Lens.lens (\RegisterInstance' {stackId} -> stackId) (\s@RegisterInstance' {} a -> s {stackId = a} :: RegisterInstance)
 
-instance Prelude.AWSRequest RegisterInstance where
-  type Rs RegisterInstance = RegisterInstanceResponse
+instance Core.AWSRequest RegisterInstance where
+  type
+    AWSResponse RegisterInstance =
+      RegisterInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterInstanceResponse'
-            Prelude.<$> (x Prelude..?> "InstanceId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "InstanceId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterInstance
+instance Core.Hashable RegisterInstance
 
-instance Prelude.NFData RegisterInstance
+instance Core.NFData RegisterInstance
 
-instance Prelude.ToHeaders RegisterInstance where
+instance Core.ToHeaders RegisterInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.RegisterInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.RegisterInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterInstance where
+instance Core.ToJSON RegisterInstance where
   toJSON RegisterInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Hostname" Prelude..=) Prelude.<$> hostname,
-            ("RsaPublicKey" Prelude..=) Prelude.<$> rsaPublicKey,
-            ("InstanceIdentity" Prelude..=)
-              Prelude.<$> instanceIdentity,
-            ("PrivateIp" Prelude..=) Prelude.<$> privateIp,
-            ("RsaPublicKeyFingerprint" Prelude..=)
-              Prelude.<$> rsaPublicKeyFingerprint,
-            ("PublicIp" Prelude..=) Prelude.<$> publicIp,
-            Prelude.Just ("StackId" Prelude..= stackId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Hostname" Core..=) Core.<$> hostname,
+            ("RsaPublicKey" Core..=) Core.<$> rsaPublicKey,
+            ("InstanceIdentity" Core..=)
+              Core.<$> instanceIdentity,
+            ("PrivateIp" Core..=) Core.<$> privateIp,
+            ("RsaPublicKeyFingerprint" Core..=)
+              Core.<$> rsaPublicKeyFingerprint,
+            ("PublicIp" Core..=) Core.<$> publicIp,
+            Core.Just ("StackId" Core..= stackId)
           ]
       )
 
-instance Prelude.ToPath RegisterInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterInstance where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @RegisterInstanceResult@ request.
 --
 -- /See:/ 'newRegisterInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
   { -- | The registered instance\'s AWS OpsWorks Stacks ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterInstanceResponse' with all optional fields omitted.
@@ -236,21 +235,21 @@ data RegisterInstanceResponse = RegisterInstanceResponse'
 -- 'httpStatus', 'registerInstanceResponse_httpStatus' - The response's http status code.
 newRegisterInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterInstanceResponse
 newRegisterInstanceResponse pHttpStatus_ =
   RegisterInstanceResponse'
     { instanceId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The registered instance\'s AWS OpsWorks Stacks ID.
-registerInstanceResponse_instanceId :: Lens.Lens' RegisterInstanceResponse (Prelude.Maybe Prelude.Text)
+registerInstanceResponse_instanceId :: Lens.Lens' RegisterInstanceResponse (Core.Maybe Core.Text)
 registerInstanceResponse_instanceId = Lens.lens (\RegisterInstanceResponse' {instanceId} -> instanceId) (\s@RegisterInstanceResponse' {} a -> s {instanceId = a} :: RegisterInstanceResponse)
 
 -- | The response's http status code.
-registerInstanceResponse_httpStatus :: Lens.Lens' RegisterInstanceResponse Prelude.Int
+registerInstanceResponse_httpStatus :: Lens.Lens' RegisterInstanceResponse Core.Int
 registerInstanceResponse_httpStatus = Lens.lens (\RegisterInstanceResponse' {httpStatus} -> httpStatus) (\s@RegisterInstanceResponse' {} a -> s {httpStatus = a} :: RegisterInstanceResponse)
 
-instance Prelude.NFData RegisterInstanceResponse
+instance Core.NFData RegisterInstanceResponse

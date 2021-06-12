@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.InventoryDeletionSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryDeletionSummaryItem
 
 -- | Information about the delete operation.
@@ -29,14 +28,14 @@ import Network.AWS.SSM.Types.InventoryDeletionSummaryItem
 -- /See:/ 'newInventoryDeletionSummary' smart constructor.
 data InventoryDeletionSummary = InventoryDeletionSummary'
   { -- | Remaining number of items to delete.
-    remainingCount :: Prelude.Maybe Prelude.Int,
+    remainingCount :: Core.Maybe Core.Int,
     -- | The total number of items to delete. This count does not change during
     -- the delete operation.
-    totalCount :: Prelude.Maybe Prelude.Int,
+    totalCount :: Core.Maybe Core.Int,
     -- | A list of counts and versions for deleted items.
-    summaryItems :: Prelude.Maybe [InventoryDeletionSummaryItem]
+    summaryItems :: Core.Maybe [InventoryDeletionSummaryItem]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InventoryDeletionSummary' with all optional fields omitted.
@@ -57,37 +56,35 @@ newInventoryDeletionSummary ::
 newInventoryDeletionSummary =
   InventoryDeletionSummary'
     { remainingCount =
-        Prelude.Nothing,
-      totalCount = Prelude.Nothing,
-      summaryItems = Prelude.Nothing
+        Core.Nothing,
+      totalCount = Core.Nothing,
+      summaryItems = Core.Nothing
     }
 
 -- | Remaining number of items to delete.
-inventoryDeletionSummary_remainingCount :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe Prelude.Int)
+inventoryDeletionSummary_remainingCount :: Lens.Lens' InventoryDeletionSummary (Core.Maybe Core.Int)
 inventoryDeletionSummary_remainingCount = Lens.lens (\InventoryDeletionSummary' {remainingCount} -> remainingCount) (\s@InventoryDeletionSummary' {} a -> s {remainingCount = a} :: InventoryDeletionSummary)
 
 -- | The total number of items to delete. This count does not change during
 -- the delete operation.
-inventoryDeletionSummary_totalCount :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe Prelude.Int)
+inventoryDeletionSummary_totalCount :: Lens.Lens' InventoryDeletionSummary (Core.Maybe Core.Int)
 inventoryDeletionSummary_totalCount = Lens.lens (\InventoryDeletionSummary' {totalCount} -> totalCount) (\s@InventoryDeletionSummary' {} a -> s {totalCount = a} :: InventoryDeletionSummary)
 
 -- | A list of counts and versions for deleted items.
-inventoryDeletionSummary_summaryItems :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe [InventoryDeletionSummaryItem])
-inventoryDeletionSummary_summaryItems = Lens.lens (\InventoryDeletionSummary' {summaryItems} -> summaryItems) (\s@InventoryDeletionSummary' {} a -> s {summaryItems = a} :: InventoryDeletionSummary) Prelude.. Lens.mapping Prelude._Coerce
+inventoryDeletionSummary_summaryItems :: Lens.Lens' InventoryDeletionSummary (Core.Maybe [InventoryDeletionSummaryItem])
+inventoryDeletionSummary_summaryItems = Lens.lens (\InventoryDeletionSummary' {summaryItems} -> summaryItems) (\s@InventoryDeletionSummary' {} a -> s {summaryItems = a} :: InventoryDeletionSummary) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON InventoryDeletionSummary where
+instance Core.FromJSON InventoryDeletionSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InventoryDeletionSummary"
       ( \x ->
           InventoryDeletionSummary'
-            Prelude.<$> (x Prelude..:? "RemainingCount")
-            Prelude.<*> (x Prelude..:? "TotalCount")
-            Prelude.<*> ( x Prelude..:? "SummaryItems"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "RemainingCount")
+            Core.<*> (x Core..:? "TotalCount")
+            Core.<*> (x Core..:? "SummaryItems" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable InventoryDeletionSummary
+instance Core.Hashable InventoryDeletionSummary
 
-instance Prelude.NFData InventoryDeletionSummary
+instance Core.NFData InventoryDeletionSummary

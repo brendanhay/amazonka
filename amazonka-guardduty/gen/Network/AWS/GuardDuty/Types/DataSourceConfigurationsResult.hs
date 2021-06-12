@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult
 import Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult
 import Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
 import Network.AWS.GuardDuty.Types.S3LogsConfigurationResult
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of data sources for the detector.
 --
@@ -44,7 +43,7 @@ data DataSourceConfigurationsResult = DataSourceConfigurationsResult'
     -- as a data source.
     s3Logs :: S3LogsConfigurationResult
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataSourceConfigurationsResult' with all optional fields omitted.
@@ -108,25 +107,18 @@ dataSourceConfigurationsResult_flowLogs = Lens.lens (\DataSourceConfigurationsRe
 dataSourceConfigurationsResult_s3Logs :: Lens.Lens' DataSourceConfigurationsResult S3LogsConfigurationResult
 dataSourceConfigurationsResult_s3Logs = Lens.lens (\DataSourceConfigurationsResult' {s3Logs} -> s3Logs) (\s@DataSourceConfigurationsResult' {} a -> s {s3Logs = a} :: DataSourceConfigurationsResult)
 
-instance
-  Prelude.FromJSON
-    DataSourceConfigurationsResult
-  where
+instance Core.FromJSON DataSourceConfigurationsResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DataSourceConfigurationsResult"
       ( \x ->
           DataSourceConfigurationsResult'
-            Prelude.<$> (x Prelude..: "cloudTrail")
-            Prelude.<*> (x Prelude..: "dnsLogs")
-            Prelude.<*> (x Prelude..: "flowLogs")
-            Prelude.<*> (x Prelude..: "s3Logs")
+            Core.<$> (x Core..: "cloudTrail")
+            Core.<*> (x Core..: "dnsLogs")
+            Core.<*> (x Core..: "flowLogs")
+            Core.<*> (x Core..: "s3Logs")
       )
 
-instance
-  Prelude.Hashable
-    DataSourceConfigurationsResult
+instance Core.Hashable DataSourceConfigurationsResult
 
-instance
-  Prelude.NFData
-    DataSourceConfigurationsResult
+instance Core.NFData DataSourceConfigurationsResult

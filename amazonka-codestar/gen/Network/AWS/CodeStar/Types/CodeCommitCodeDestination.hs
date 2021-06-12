@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeStar.Types.CodeCommitCodeDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the AWS CodeCommit repository to be created in AWS
 -- CodeStar. This is where the source code files provided with the project
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCodeCommitCodeDestination' smart constructor.
 data CodeCommitCodeDestination = CodeCommitCodeDestination'
   { -- | The name of the AWS CodeCommit repository to be created in AWS CodeStar.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CodeCommitCodeDestination' with all optional fields omitted.
@@ -45,22 +44,20 @@ data CodeCommitCodeDestination = CodeCommitCodeDestination'
 -- 'name', 'codeCommitCodeDestination_name' - The name of the AWS CodeCommit repository to be created in AWS CodeStar.
 newCodeCommitCodeDestination ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CodeCommitCodeDestination
 newCodeCommitCodeDestination pName_ =
   CodeCommitCodeDestination' {name = pName_}
 
 -- | The name of the AWS CodeCommit repository to be created in AWS CodeStar.
-codeCommitCodeDestination_name :: Lens.Lens' CodeCommitCodeDestination Prelude.Text
+codeCommitCodeDestination_name :: Lens.Lens' CodeCommitCodeDestination Core.Text
 codeCommitCodeDestination_name = Lens.lens (\CodeCommitCodeDestination' {name} -> name) (\s@CodeCommitCodeDestination' {} a -> s {name = a} :: CodeCommitCodeDestination)
 
-instance Prelude.Hashable CodeCommitCodeDestination
+instance Core.Hashable CodeCommitCodeDestination
 
-instance Prelude.NFData CodeCommitCodeDestination
+instance Core.NFData CodeCommitCodeDestination
 
-instance Prelude.ToJSON CodeCommitCodeDestination where
+instance Core.ToJSON CodeCommitCodeDestination where
   toJSON CodeCommitCodeDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.IndexStatus
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a global secondary index.
 --
 -- /See:/ 'newGlobalSecondaryIndexDescription' smart constructor.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
   { -- | The name of the global secondary index.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | The complete key schema for a global secondary index, which consists of
     -- one or more pairs of attribute names and key types:
     --
@@ -49,17 +48,17 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     -- \"range attribute\" derives from the way DynamoDB stores items with the
     -- same partition key physically close together, in sorted order by the
     -- sort key value.
-    keySchema :: Prelude.Maybe (Prelude.NonEmpty KeySchemaElement),
+    keySchema :: Core.Maybe (Core.NonEmpty KeySchemaElement),
     -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-    indexArn :: Prelude.Maybe Prelude.Text,
+    indexArn :: Core.Maybe Core.Text,
     -- | Represents attributes that are copied (projected) from the table into
     -- the global secondary index. These are in addition to the primary key
     -- attributes and index key attributes, which are automatically projected.
-    projection :: Prelude.Maybe Projection,
+    projection :: Core.Maybe Projection,
     -- | The total size of the specified index, in bytes. DynamoDB updates this
     -- value approximately every six hours. Recent changes might not be
     -- reflected in this value.
-    indexSizeBytes :: Prelude.Maybe Prelude.Integer,
+    indexSizeBytes :: Core.Maybe Core.Integer,
     -- | Indicates whether the index is currently backfilling. /Backfilling/ is
     -- the process of reading items from the table and determining whether they
     -- can be added to the index. (Not all items will qualify: For example, a
@@ -74,18 +73,18 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     --
     -- For indexes that were created during a @CreateTable@ operation, the
     -- @Backfilling@ attribute does not appear in the @DescribeTable@ output.
-    backfilling :: Prelude.Maybe Prelude.Bool,
+    backfilling :: Core.Maybe Core.Bool,
     -- | The number of items in the specified index. DynamoDB updates this value
     -- approximately every six hours. Recent changes might not be reflected in
     -- this value.
-    itemCount :: Prelude.Maybe Prelude.Integer,
+    itemCount :: Core.Maybe Core.Integer,
     -- | Represents the provisioned throughput settings for the specified global
     -- secondary index.
     --
     -- For current minimum and maximum provisioned throughput values, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
     -- in the /Amazon DynamoDB Developer Guide/.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughputDescription,
+    provisionedThroughput :: Core.Maybe ProvisionedThroughputDescription,
     -- | The current state of the global secondary index:
     --
     -- -   @CREATING@ - The index is being created.
@@ -95,9 +94,9 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     -- -   @DELETING@ - The index is being deleted.
     --
     -- -   @ACTIVE@ - The index is ready for use.
-    indexStatus :: Prelude.Maybe IndexStatus
+    indexStatus :: Core.Maybe IndexStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalSecondaryIndexDescription' with all optional fields omitted.
@@ -176,19 +175,19 @@ newGlobalSecondaryIndexDescription ::
 newGlobalSecondaryIndexDescription =
   GlobalSecondaryIndexDescription'
     { indexName =
-        Prelude.Nothing,
-      keySchema = Prelude.Nothing,
-      indexArn = Prelude.Nothing,
-      projection = Prelude.Nothing,
-      indexSizeBytes = Prelude.Nothing,
-      backfilling = Prelude.Nothing,
-      itemCount = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
-      indexStatus = Prelude.Nothing
+        Core.Nothing,
+      keySchema = Core.Nothing,
+      indexArn = Core.Nothing,
+      projection = Core.Nothing,
+      indexSizeBytes = Core.Nothing,
+      backfilling = Core.Nothing,
+      itemCount = Core.Nothing,
+      provisionedThroughput = Core.Nothing,
+      indexStatus = Core.Nothing
     }
 
 -- | The name of the global secondary index.
-globalSecondaryIndexDescription_indexName :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
+globalSecondaryIndexDescription_indexName :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Text)
 globalSecondaryIndexDescription_indexName = Lens.lens (\GlobalSecondaryIndexDescription' {indexName} -> indexName) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexName = a} :: GlobalSecondaryIndexDescription)
 
 -- | The complete key schema for a global secondary index, which consists of
@@ -207,23 +206,23 @@ globalSecondaryIndexDescription_indexName = Lens.lens (\GlobalSecondaryIndexDesc
 -- \"range attribute\" derives from the way DynamoDB stores items with the
 -- same partition key physically close together, in sorted order by the
 -- sort key value.
-globalSecondaryIndexDescription_keySchema :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe (Prelude.NonEmpty KeySchemaElement))
-globalSecondaryIndexDescription_keySchema = Lens.lens (\GlobalSecondaryIndexDescription' {keySchema} -> keySchema) (\s@GlobalSecondaryIndexDescription' {} a -> s {keySchema = a} :: GlobalSecondaryIndexDescription) Prelude.. Lens.mapping Prelude._Coerce
+globalSecondaryIndexDescription_keySchema :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe (Core.NonEmpty KeySchemaElement))
+globalSecondaryIndexDescription_keySchema = Lens.lens (\GlobalSecondaryIndexDescription' {keySchema} -> keySchema) (\s@GlobalSecondaryIndexDescription' {} a -> s {keySchema = a} :: GlobalSecondaryIndexDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-globalSecondaryIndexDescription_indexArn :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Text)
+globalSecondaryIndexDescription_indexArn :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Text)
 globalSecondaryIndexDescription_indexArn = Lens.lens (\GlobalSecondaryIndexDescription' {indexArn} -> indexArn) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexArn = a} :: GlobalSecondaryIndexDescription)
 
 -- | Represents attributes that are copied (projected) from the table into
 -- the global secondary index. These are in addition to the primary key
 -- attributes and index key attributes, which are automatically projected.
-globalSecondaryIndexDescription_projection :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Projection)
+globalSecondaryIndexDescription_projection :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Projection)
 globalSecondaryIndexDescription_projection = Lens.lens (\GlobalSecondaryIndexDescription' {projection} -> projection) (\s@GlobalSecondaryIndexDescription' {} a -> s {projection = a} :: GlobalSecondaryIndexDescription)
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
 -- reflected in this value.
-globalSecondaryIndexDescription_indexSizeBytes :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
+globalSecondaryIndexDescription_indexSizeBytes :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Integer)
 globalSecondaryIndexDescription_indexSizeBytes = Lens.lens (\GlobalSecondaryIndexDescription' {indexSizeBytes} -> indexSizeBytes) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexSizeBytes = a} :: GlobalSecondaryIndexDescription)
 
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is
@@ -240,13 +239,13 @@ globalSecondaryIndexDescription_indexSizeBytes = Lens.lens (\GlobalSecondaryInde
 --
 -- For indexes that were created during a @CreateTable@ operation, the
 -- @Backfilling@ attribute does not appear in the @DescribeTable@ output.
-globalSecondaryIndexDescription_backfilling :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Bool)
+globalSecondaryIndexDescription_backfilling :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Bool)
 globalSecondaryIndexDescription_backfilling = Lens.lens (\GlobalSecondaryIndexDescription' {backfilling} -> backfilling) (\s@GlobalSecondaryIndexDescription' {} a -> s {backfilling = a} :: GlobalSecondaryIndexDescription)
 
 -- | The number of items in the specified index. DynamoDB updates this value
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
-globalSecondaryIndexDescription_itemCount :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
+globalSecondaryIndexDescription_itemCount :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Integer)
 globalSecondaryIndexDescription_itemCount = Lens.lens (\GlobalSecondaryIndexDescription' {itemCount} -> itemCount) (\s@GlobalSecondaryIndexDescription' {} a -> s {itemCount = a} :: GlobalSecondaryIndexDescription)
 
 -- | Represents the provisioned throughput settings for the specified global
@@ -255,7 +254,7 @@ globalSecondaryIndexDescription_itemCount = Lens.lens (\GlobalSecondaryIndexDesc
 -- For current minimum and maximum provisioned throughput values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
 -- in the /Amazon DynamoDB Developer Guide/.
-globalSecondaryIndexDescription_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe ProvisionedThroughputDescription)
+globalSecondaryIndexDescription_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe ProvisionedThroughputDescription)
 globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexDescription' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexDescription' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexDescription)
 
 -- | The current state of the global secondary index:
@@ -267,33 +266,31 @@ globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecond
 -- -   @DELETING@ - The index is being deleted.
 --
 -- -   @ACTIVE@ - The index is ready for use.
-globalSecondaryIndexDescription_indexStatus :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe IndexStatus)
+globalSecondaryIndexDescription_indexStatus :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe IndexStatus)
 globalSecondaryIndexDescription_indexStatus = Lens.lens (\GlobalSecondaryIndexDescription' {indexStatus} -> indexStatus) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexStatus = a} :: GlobalSecondaryIndexDescription)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     GlobalSecondaryIndexDescription
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GlobalSecondaryIndexDescription"
       ( \x ->
           GlobalSecondaryIndexDescription'
-            Prelude.<$> (x Prelude..:? "IndexName")
-            Prelude.<*> (x Prelude..:? "KeySchema")
-            Prelude.<*> (x Prelude..:? "IndexArn")
-            Prelude.<*> (x Prelude..:? "Projection")
-            Prelude.<*> (x Prelude..:? "IndexSizeBytes")
-            Prelude.<*> (x Prelude..:? "Backfilling")
-            Prelude.<*> (x Prelude..:? "ItemCount")
-            Prelude.<*> (x Prelude..:? "ProvisionedThroughput")
-            Prelude.<*> (x Prelude..:? "IndexStatus")
+            Core.<$> (x Core..:? "IndexName")
+            Core.<*> (x Core..:? "KeySchema")
+            Core.<*> (x Core..:? "IndexArn")
+            Core.<*> (x Core..:? "Projection")
+            Core.<*> (x Core..:? "IndexSizeBytes")
+            Core.<*> (x Core..:? "Backfilling")
+            Core.<*> (x Core..:? "ItemCount")
+            Core.<*> (x Core..:? "ProvisionedThroughput")
+            Core.<*> (x Core..:? "IndexStatus")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GlobalSecondaryIndexDescription
 
-instance
-  Prelude.NFData
-    GlobalSecondaryIndexDescription
+instance Core.NFData GlobalSecondaryIndexDescription

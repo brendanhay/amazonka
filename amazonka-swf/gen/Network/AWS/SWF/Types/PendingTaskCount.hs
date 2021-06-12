@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.PendingTaskCount where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the count of tasks in a task list.
 --
@@ -30,11 +29,11 @@ data PendingTaskCount = PendingTaskCount'
   { -- | If set to true, indicates that the actual count was more than the
     -- maximum supported by this API and the count returned is the truncated
     -- value.
-    truncated :: Prelude.Maybe Prelude.Bool,
+    truncated :: Core.Maybe Core.Bool,
     -- | The number of tasks in the task list.
-    count :: Prelude.Natural
+    count :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PendingTaskCount' with all optional fields omitted.
@@ -51,34 +50,34 @@ data PendingTaskCount = PendingTaskCount'
 -- 'count', 'pendingTaskCount_count' - The number of tasks in the task list.
 newPendingTaskCount ::
   -- | 'count'
-  Prelude.Natural ->
+  Core.Natural ->
   PendingTaskCount
 newPendingTaskCount pCount_ =
   PendingTaskCount'
-    { truncated = Prelude.Nothing,
+    { truncated = Core.Nothing,
       count = pCount_
     }
 
 -- | If set to true, indicates that the actual count was more than the
 -- maximum supported by this API and the count returned is the truncated
 -- value.
-pendingTaskCount_truncated :: Lens.Lens' PendingTaskCount (Prelude.Maybe Prelude.Bool)
+pendingTaskCount_truncated :: Lens.Lens' PendingTaskCount (Core.Maybe Core.Bool)
 pendingTaskCount_truncated = Lens.lens (\PendingTaskCount' {truncated} -> truncated) (\s@PendingTaskCount' {} a -> s {truncated = a} :: PendingTaskCount)
 
 -- | The number of tasks in the task list.
-pendingTaskCount_count :: Lens.Lens' PendingTaskCount Prelude.Natural
+pendingTaskCount_count :: Lens.Lens' PendingTaskCount Core.Natural
 pendingTaskCount_count = Lens.lens (\PendingTaskCount' {count} -> count) (\s@PendingTaskCount' {} a -> s {count = a} :: PendingTaskCount)
 
-instance Prelude.FromJSON PendingTaskCount where
+instance Core.FromJSON PendingTaskCount where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PendingTaskCount"
       ( \x ->
           PendingTaskCount'
-            Prelude.<$> (x Prelude..:? "truncated")
-            Prelude.<*> (x Prelude..: "count")
+            Core.<$> (x Core..:? "truncated")
+            Core.<*> (x Core..: "count")
       )
 
-instance Prelude.Hashable PendingTaskCount
+instance Core.Hashable PendingTaskCount
 
-instance Prelude.NFData PendingTaskCount
+instance Core.NFData PendingTaskCount

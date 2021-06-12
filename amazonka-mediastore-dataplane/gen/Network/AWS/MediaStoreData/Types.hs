@@ -43,113 +43,111 @@ module Network.AWS.MediaStoreData.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types.Item
 import Network.AWS.MediaStoreData.Types.ItemType
 import Network.AWS.MediaStoreData.Types.StorageClass
 import Network.AWS.MediaStoreData.Types.UploadAvailability
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-01@ of the Amazon Elemental MediaStore Data Plane SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
+  Core.Service
+    { Core._serviceAbbrev =
         "MediaStoreData",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "data.mediastore",
-      Prelude._svcSigningName = "mediastore",
-      Prelude._svcVersion = "2017-09-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "MediaStoreData",
-      Prelude._svcRetry = retry
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "data.mediastore",
+      Core._serviceSigningName = "mediastore",
+      Core._serviceVersion = "2017-09-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "MediaStoreData",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The requested content range is not valid.
-_RequestedRangeNotSatisfiableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RequestedRangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RequestedRangeNotSatisfiableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RequestedRangeNotSatisfiableException"
-    Prelude.. Prelude.hasStatus 416
+    Core.. Core.hasStatus 416
 
 -- | Could not perform an operation on an object that does not exist.
-_ObjectNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ObjectNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ObjectNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The service is temporarily unavailable.
-_InternalServerError :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServerError"
 
 -- | The specified container was not found for the specified account.
-_ContainerNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ContainerNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ContainerNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404

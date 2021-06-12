@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.RDS.FailoverDBCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -72,16 +71,16 @@ data FailoverDBCluster = FailoverDBCluster'
     --
     -- You must specify the instance identifier for an Aurora Replica in the DB
     -- cluster. For example, @mydbcluster-replica1@.
-    targetDBInstanceIdentifier :: Prelude.Maybe Prelude.Text,
+    targetDBInstanceIdentifier :: Core.Maybe Core.Text,
     -- | A DB cluster identifier to force a failover for. This parameter isn\'t
     -- case-sensitive.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing DBCluster.
-    dbClusterIdentifier :: Prelude.Text
+    dbClusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailoverDBCluster' with all optional fields omitted.
@@ -104,12 +103,12 @@ data FailoverDBCluster = FailoverDBCluster'
 -- -   Must match the identifier of an existing DBCluster.
 newFailoverDBCluster ::
   -- | 'dbClusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   FailoverDBCluster
 newFailoverDBCluster pDBClusterIdentifier_ =
   FailoverDBCluster'
     { targetDBInstanceIdentifier =
-        Prelude.Nothing,
+        Core.Nothing,
       dbClusterIdentifier = pDBClusterIdentifier_
     }
 
@@ -117,7 +116,7 @@ newFailoverDBCluster pDBClusterIdentifier_ =
 --
 -- You must specify the instance identifier for an Aurora Replica in the DB
 -- cluster. For example, @mydbcluster-replica1@.
-failoverDBCluster_targetDBInstanceIdentifier :: Lens.Lens' FailoverDBCluster (Prelude.Maybe Prelude.Text)
+failoverDBCluster_targetDBInstanceIdentifier :: Lens.Lens' FailoverDBCluster (Core.Maybe Core.Text)
 failoverDBCluster_targetDBInstanceIdentifier = Lens.lens (\FailoverDBCluster' {targetDBInstanceIdentifier} -> targetDBInstanceIdentifier) (\s@FailoverDBCluster' {} a -> s {targetDBInstanceIdentifier = a} :: FailoverDBCluster)
 
 -- | A DB cluster identifier to force a failover for. This parameter isn\'t
@@ -126,50 +125,51 @@ failoverDBCluster_targetDBInstanceIdentifier = Lens.lens (\FailoverDBCluster' {t
 -- Constraints:
 --
 -- -   Must match the identifier of an existing DBCluster.
-failoverDBCluster_dbClusterIdentifier :: Lens.Lens' FailoverDBCluster Prelude.Text
+failoverDBCluster_dbClusterIdentifier :: Lens.Lens' FailoverDBCluster Core.Text
 failoverDBCluster_dbClusterIdentifier = Lens.lens (\FailoverDBCluster' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@FailoverDBCluster' {} a -> s {dbClusterIdentifier = a} :: FailoverDBCluster)
 
-instance Prelude.AWSRequest FailoverDBCluster where
-  type Rs FailoverDBCluster = FailoverDBClusterResponse
+instance Core.AWSRequest FailoverDBCluster where
+  type
+    AWSResponse FailoverDBCluster =
+      FailoverDBClusterResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "FailoverDBClusterResult"
       ( \s h x ->
           FailoverDBClusterResponse'
-            Prelude.<$> (x Prelude..@? "DBCluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBCluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable FailoverDBCluster
+instance Core.Hashable FailoverDBCluster
 
-instance Prelude.NFData FailoverDBCluster
+instance Core.NFData FailoverDBCluster
 
-instance Prelude.ToHeaders FailoverDBCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders FailoverDBCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath FailoverDBCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath FailoverDBCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery FailoverDBCluster where
+instance Core.ToQuery FailoverDBCluster where
   toQuery FailoverDBCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("FailoverDBCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("FailoverDBCluster" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "TargetDBInstanceIdentifier"
-          Prelude.=: targetDBInstanceIdentifier,
-        "DBClusterIdentifier" Prelude.=: dbClusterIdentifier
+          Core.=: targetDBInstanceIdentifier,
+        "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newFailoverDBClusterResponse' smart constructor.
 data FailoverDBClusterResponse = FailoverDBClusterResponse'
-  { dbCluster :: Prelude.Maybe DBCluster,
+  { dbCluster :: Core.Maybe DBCluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailoverDBClusterResponse' with all optional fields omitted.
@@ -184,21 +184,21 @@ data FailoverDBClusterResponse = FailoverDBClusterResponse'
 -- 'httpStatus', 'failoverDBClusterResponse_httpStatus' - The response's http status code.
 newFailoverDBClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   FailoverDBClusterResponse
 newFailoverDBClusterResponse pHttpStatus_ =
   FailoverDBClusterResponse'
     { dbCluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-failoverDBClusterResponse_dbCluster :: Lens.Lens' FailoverDBClusterResponse (Prelude.Maybe DBCluster)
+failoverDBClusterResponse_dbCluster :: Lens.Lens' FailoverDBClusterResponse (Core.Maybe DBCluster)
 failoverDBClusterResponse_dbCluster = Lens.lens (\FailoverDBClusterResponse' {dbCluster} -> dbCluster) (\s@FailoverDBClusterResponse' {} a -> s {dbCluster = a} :: FailoverDBClusterResponse)
 
 -- | The response's http status code.
-failoverDBClusterResponse_httpStatus :: Lens.Lens' FailoverDBClusterResponse Prelude.Int
+failoverDBClusterResponse_httpStatus :: Lens.Lens' FailoverDBClusterResponse Core.Int
 failoverDBClusterResponse_httpStatus = Lens.lens (\FailoverDBClusterResponse' {httpStatus} -> httpStatus) (\s@FailoverDBClusterResponse' {} a -> s {httpStatus = a} :: FailoverDBClusterResponse)
 
-instance Prelude.NFData FailoverDBClusterResponse
+instance Core.NFData FailoverDBClusterResponse

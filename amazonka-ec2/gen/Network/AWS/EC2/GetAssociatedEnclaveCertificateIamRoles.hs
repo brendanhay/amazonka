@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +57,12 @@ data GetAssociatedEnclaveCertificateIamRoles = GetAssociatedEnclaveCertificateIa
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ARN of the ACM certificate for which to view the associated IAM
     -- roles, encryption keys, and Amazon S3 object information.
-    certificateArn :: Prelude.Maybe Prelude.Text
+    certificateArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAssociatedEnclaveCertificateIamRoles' with all optional fields omitted.
@@ -85,85 +84,84 @@ newGetAssociatedEnclaveCertificateIamRoles ::
 newGetAssociatedEnclaveCertificateIamRoles =
   GetAssociatedEnclaveCertificateIamRoles'
     { dryRun =
-        Prelude.Nothing,
-      certificateArn = Prelude.Nothing
+        Core.Nothing,
+      certificateArn = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getAssociatedEnclaveCertificateIamRoles_dryRun :: Lens.Lens' GetAssociatedEnclaveCertificateIamRoles (Prelude.Maybe Prelude.Bool)
+getAssociatedEnclaveCertificateIamRoles_dryRun :: Lens.Lens' GetAssociatedEnclaveCertificateIamRoles (Core.Maybe Core.Bool)
 getAssociatedEnclaveCertificateIamRoles_dryRun = Lens.lens (\GetAssociatedEnclaveCertificateIamRoles' {dryRun} -> dryRun) (\s@GetAssociatedEnclaveCertificateIamRoles' {} a -> s {dryRun = a} :: GetAssociatedEnclaveCertificateIamRoles)
 
 -- | The ARN of the ACM certificate for which to view the associated IAM
 -- roles, encryption keys, and Amazon S3 object information.
-getAssociatedEnclaveCertificateIamRoles_certificateArn :: Lens.Lens' GetAssociatedEnclaveCertificateIamRoles (Prelude.Maybe Prelude.Text)
+getAssociatedEnclaveCertificateIamRoles_certificateArn :: Lens.Lens' GetAssociatedEnclaveCertificateIamRoles (Core.Maybe Core.Text)
 getAssociatedEnclaveCertificateIamRoles_certificateArn = Lens.lens (\GetAssociatedEnclaveCertificateIamRoles' {certificateArn} -> certificateArn) (\s@GetAssociatedEnclaveCertificateIamRoles' {} a -> s {certificateArn = a} :: GetAssociatedEnclaveCertificateIamRoles)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetAssociatedEnclaveCertificateIamRoles
   where
   type
-    Rs GetAssociatedEnclaveCertificateIamRoles =
+    AWSResponse
+      GetAssociatedEnclaveCertificateIamRoles =
       GetAssociatedEnclaveCertificateIamRolesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetAssociatedEnclaveCertificateIamRolesResponse'
-            Prelude.<$> ( x Prelude..@? "associatedRoleSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "associatedRoleSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetAssociatedEnclaveCertificateIamRoles
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetAssociatedEnclaveCertificateIamRoles
 
 instance
-  Prelude.ToHeaders
-    GetAssociatedEnclaveCertificateIamRoles
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     GetAssociatedEnclaveCertificateIamRoles
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    GetAssociatedEnclaveCertificateIamRoles
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     GetAssociatedEnclaveCertificateIamRoles
   where
   toQuery GetAssociatedEnclaveCertificateIamRoles' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetAssociatedEnclaveCertificateIamRoles" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "CertificateArn" Prelude.=: certificateArn
+          Core.=: ( "GetAssociatedEnclaveCertificateIamRoles" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "CertificateArn" Core.=: certificateArn
       ]
 
 -- | /See:/ 'newGetAssociatedEnclaveCertificateIamRolesResponse' smart constructor.
 data GetAssociatedEnclaveCertificateIamRolesResponse = GetAssociatedEnclaveCertificateIamRolesResponse'
   { -- | Information about the associated IAM roles.
-    associatedRoles :: Prelude.Maybe [AssociatedRole],
+    associatedRoles :: Core.Maybe [AssociatedRole],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAssociatedEnclaveCertificateIamRolesResponse' with all optional fields omitted.
@@ -178,24 +176,24 @@ data GetAssociatedEnclaveCertificateIamRolesResponse = GetAssociatedEnclaveCerti
 -- 'httpStatus', 'getAssociatedEnclaveCertificateIamRolesResponse_httpStatus' - The response's http status code.
 newGetAssociatedEnclaveCertificateIamRolesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAssociatedEnclaveCertificateIamRolesResponse
 newGetAssociatedEnclaveCertificateIamRolesResponse
   pHttpStatus_ =
     GetAssociatedEnclaveCertificateIamRolesResponse'
       { associatedRoles =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the associated IAM roles.
-getAssociatedEnclaveCertificateIamRolesResponse_associatedRoles :: Lens.Lens' GetAssociatedEnclaveCertificateIamRolesResponse (Prelude.Maybe [AssociatedRole])
-getAssociatedEnclaveCertificateIamRolesResponse_associatedRoles = Lens.lens (\GetAssociatedEnclaveCertificateIamRolesResponse' {associatedRoles} -> associatedRoles) (\s@GetAssociatedEnclaveCertificateIamRolesResponse' {} a -> s {associatedRoles = a} :: GetAssociatedEnclaveCertificateIamRolesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAssociatedEnclaveCertificateIamRolesResponse_associatedRoles :: Lens.Lens' GetAssociatedEnclaveCertificateIamRolesResponse (Core.Maybe [AssociatedRole])
+getAssociatedEnclaveCertificateIamRolesResponse_associatedRoles = Lens.lens (\GetAssociatedEnclaveCertificateIamRolesResponse' {associatedRoles} -> associatedRoles) (\s@GetAssociatedEnclaveCertificateIamRolesResponse' {} a -> s {associatedRoles = a} :: GetAssociatedEnclaveCertificateIamRolesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAssociatedEnclaveCertificateIamRolesResponse_httpStatus :: Lens.Lens' GetAssociatedEnclaveCertificateIamRolesResponse Prelude.Int
+getAssociatedEnclaveCertificateIamRolesResponse_httpStatus :: Lens.Lens' GetAssociatedEnclaveCertificateIamRolesResponse Core.Int
 getAssociatedEnclaveCertificateIamRolesResponse_httpStatus = Lens.lens (\GetAssociatedEnclaveCertificateIamRolesResponse' {httpStatus} -> httpStatus) (\s@GetAssociatedEnclaveCertificateIamRolesResponse' {} a -> s {httpStatus = a} :: GetAssociatedEnclaveCertificateIamRolesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetAssociatedEnclaveCertificateIamRolesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatch.Types.DimensionFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents filters for a dimension.
 --
 -- /See:/ 'newDimensionFilter' smart constructor.
 data DimensionFilter = DimensionFilter'
   { -- | The value of the dimension to be matched.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The dimension name to be matched.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DimensionFilter' with all optional fields omitted.
@@ -47,27 +46,27 @@ data DimensionFilter = DimensionFilter'
 -- 'name', 'dimensionFilter_name' - The dimension name to be matched.
 newDimensionFilter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DimensionFilter
 newDimensionFilter pName_ =
   DimensionFilter'
-    { value = Prelude.Nothing,
+    { value = Core.Nothing,
       name = pName_
     }
 
 -- | The value of the dimension to be matched.
-dimensionFilter_value :: Lens.Lens' DimensionFilter (Prelude.Maybe Prelude.Text)
+dimensionFilter_value :: Lens.Lens' DimensionFilter (Core.Maybe Core.Text)
 dimensionFilter_value = Lens.lens (\DimensionFilter' {value} -> value) (\s@DimensionFilter' {} a -> s {value = a} :: DimensionFilter)
 
 -- | The dimension name to be matched.
-dimensionFilter_name :: Lens.Lens' DimensionFilter Prelude.Text
+dimensionFilter_name :: Lens.Lens' DimensionFilter Core.Text
 dimensionFilter_name = Lens.lens (\DimensionFilter' {name} -> name) (\s@DimensionFilter' {} a -> s {name = a} :: DimensionFilter)
 
-instance Prelude.Hashable DimensionFilter
+instance Core.Hashable DimensionFilter
 
-instance Prelude.NFData DimensionFilter
+instance Core.NFData DimensionFilter
 
-instance Prelude.ToQuery DimensionFilter where
+instance Core.ToQuery DimensionFilter where
   toQuery DimensionFilter' {..} =
-    Prelude.mconcat
-      ["Value" Prelude.=: value, "Name" Prelude.=: name]
+    Core.mconcat
+      ["Value" Core.=: value, "Name" Core.=: name]

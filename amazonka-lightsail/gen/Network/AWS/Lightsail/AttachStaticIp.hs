@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.Lightsail.AttachStaticIp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAttachStaticIp' smart constructor.
 data AttachStaticIp = AttachStaticIp'
   { -- | The name of the static IP.
-    staticIpName :: Prelude.Text,
+    staticIpName :: Core.Text,
     -- | The instance name to which you want to attach the static IP address.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachStaticIp' with all optional fields omitted.
@@ -69,9 +68,9 @@ data AttachStaticIp = AttachStaticIp'
 -- 'instanceName', 'attachStaticIp_instanceName' - The instance name to which you want to attach the static IP address.
 newAttachStaticIp ::
   -- | 'staticIpName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   AttachStaticIp
 newAttachStaticIp pStaticIpName_ pInstanceName_ =
   AttachStaticIp'
@@ -80,72 +79,68 @@ newAttachStaticIp pStaticIpName_ pInstanceName_ =
     }
 
 -- | The name of the static IP.
-attachStaticIp_staticIpName :: Lens.Lens' AttachStaticIp Prelude.Text
+attachStaticIp_staticIpName :: Lens.Lens' AttachStaticIp Core.Text
 attachStaticIp_staticIpName = Lens.lens (\AttachStaticIp' {staticIpName} -> staticIpName) (\s@AttachStaticIp' {} a -> s {staticIpName = a} :: AttachStaticIp)
 
 -- | The instance name to which you want to attach the static IP address.
-attachStaticIp_instanceName :: Lens.Lens' AttachStaticIp Prelude.Text
+attachStaticIp_instanceName :: Lens.Lens' AttachStaticIp Core.Text
 attachStaticIp_instanceName = Lens.lens (\AttachStaticIp' {instanceName} -> instanceName) (\s@AttachStaticIp' {} a -> s {instanceName = a} :: AttachStaticIp)
 
-instance Prelude.AWSRequest AttachStaticIp where
-  type Rs AttachStaticIp = AttachStaticIpResponse
+instance Core.AWSRequest AttachStaticIp where
+  type
+    AWSResponse AttachStaticIp =
+      AttachStaticIpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AttachStaticIpResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AttachStaticIp
+instance Core.Hashable AttachStaticIp
 
-instance Prelude.NFData AttachStaticIp
+instance Core.NFData AttachStaticIp
 
-instance Prelude.ToHeaders AttachStaticIp where
+instance Core.ToHeaders AttachStaticIp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.AttachStaticIp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.AttachStaticIp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AttachStaticIp where
+instance Core.ToJSON AttachStaticIp where
   toJSON AttachStaticIp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("staticIpName" Prelude..= staticIpName),
-            Prelude.Just
-              ("instanceName" Prelude..= instanceName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("staticIpName" Core..= staticIpName),
+            Core.Just ("instanceName" Core..= instanceName)
           ]
       )
 
-instance Prelude.ToPath AttachStaticIp where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachStaticIp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachStaticIp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AttachStaticIp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAttachStaticIpResponse' smart constructor.
 data AttachStaticIpResponse = AttachStaticIpResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachStaticIpResponse' with all optional fields omitted.
@@ -162,23 +157,22 @@ data AttachStaticIpResponse = AttachStaticIpResponse'
 -- 'httpStatus', 'attachStaticIpResponse_httpStatus' - The response's http status code.
 newAttachStaticIpResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachStaticIpResponse
 newAttachStaticIpResponse pHttpStatus_ =
   AttachStaticIpResponse'
-    { operations =
-        Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-attachStaticIpResponse_operations :: Lens.Lens' AttachStaticIpResponse (Prelude.Maybe [Operation])
-attachStaticIpResponse_operations = Lens.lens (\AttachStaticIpResponse' {operations} -> operations) (\s@AttachStaticIpResponse' {} a -> s {operations = a} :: AttachStaticIpResponse) Prelude.. Lens.mapping Prelude._Coerce
+attachStaticIpResponse_operations :: Lens.Lens' AttachStaticIpResponse (Core.Maybe [Operation])
+attachStaticIpResponse_operations = Lens.lens (\AttachStaticIpResponse' {operations} -> operations) (\s@AttachStaticIpResponse' {} a -> s {operations = a} :: AttachStaticIpResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-attachStaticIpResponse_httpStatus :: Lens.Lens' AttachStaticIpResponse Prelude.Int
+attachStaticIpResponse_httpStatus :: Lens.Lens' AttachStaticIpResponse Core.Int
 attachStaticIpResponse_httpStatus = Lens.lens (\AttachStaticIpResponse' {httpStatus} -> httpStatus) (\s@AttachStaticIpResponse' {} a -> s {httpStatus = a} :: AttachStaticIpResponse)
 
-instance Prelude.NFData AttachStaticIpResponse
+instance Core.NFData AttachStaticIpResponse

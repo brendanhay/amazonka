@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.CloudWatchDimensionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.DimensionValueSource
 
 -- | Contains the dimension configuration to use when you publish email
@@ -40,7 +39,7 @@ data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
     --     underscores (_), or dashes (-).
     --
     -- -   Contain less than 256 characters.
-    dimensionName :: Prelude.Text,
+    dimensionName :: Core.Text,
     -- | The place where Amazon SES finds the value of a dimension to publish to
     -- Amazon CloudWatch. If you want Amazon SES to use the message tags that
     -- you specify using an @X-SES-MESSAGE-TAGS@ header or a parameter to the
@@ -55,9 +54,9 @@ data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
     --     underscores (_), or dashes (-).
     --
     -- -   Contain less than 256 characters.
-    defaultDimensionValue :: Prelude.Text
+    defaultDimensionValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudWatchDimensionConfiguration' with all optional fields omitted.
@@ -91,11 +90,11 @@ data CloudWatchDimensionConfiguration = CloudWatchDimensionConfiguration'
 -- -   Contain less than 256 characters.
 newCloudWatchDimensionConfiguration ::
   -- | 'dimensionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dimensionValueSource'
   DimensionValueSource ->
   -- | 'defaultDimensionValue'
-  Prelude.Text ->
+  Core.Text ->
   CloudWatchDimensionConfiguration
 newCloudWatchDimensionConfiguration
   pDimensionName_
@@ -117,7 +116,7 @@ newCloudWatchDimensionConfiguration
 --     underscores (_), or dashes (-).
 --
 -- -   Contain less than 256 characters.
-cloudWatchDimensionConfiguration_dimensionName :: Lens.Lens' CloudWatchDimensionConfiguration Prelude.Text
+cloudWatchDimensionConfiguration_dimensionName :: Lens.Lens' CloudWatchDimensionConfiguration Core.Text
 cloudWatchDimensionConfiguration_dimensionName = Lens.lens (\CloudWatchDimensionConfiguration' {dimensionName} -> dimensionName) (\s@CloudWatchDimensionConfiguration' {} a -> s {dimensionName = a} :: CloudWatchDimensionConfiguration)
 
 -- | The place where Amazon SES finds the value of a dimension to publish to
@@ -136,36 +135,33 @@ cloudWatchDimensionConfiguration_dimensionValueSource = Lens.lens (\CloudWatchDi
 --     underscores (_), or dashes (-).
 --
 -- -   Contain less than 256 characters.
-cloudWatchDimensionConfiguration_defaultDimensionValue :: Lens.Lens' CloudWatchDimensionConfiguration Prelude.Text
+cloudWatchDimensionConfiguration_defaultDimensionValue :: Lens.Lens' CloudWatchDimensionConfiguration Core.Text
 cloudWatchDimensionConfiguration_defaultDimensionValue = Lens.lens (\CloudWatchDimensionConfiguration' {defaultDimensionValue} -> defaultDimensionValue) (\s@CloudWatchDimensionConfiguration' {} a -> s {defaultDimensionValue = a} :: CloudWatchDimensionConfiguration)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     CloudWatchDimensionConfiguration
   where
   parseXML x =
     CloudWatchDimensionConfiguration'
-      Prelude.<$> (x Prelude..@ "DimensionName")
-      Prelude.<*> (x Prelude..@ "DimensionValueSource")
-      Prelude.<*> (x Prelude..@ "DefaultDimensionValue")
+      Core.<$> (x Core..@ "DimensionName")
+      Core.<*> (x Core..@ "DimensionValueSource")
+      Core.<*> (x Core..@ "DefaultDimensionValue")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CloudWatchDimensionConfiguration
 
-instance
-  Prelude.NFData
-    CloudWatchDimensionConfiguration
+instance Core.NFData CloudWatchDimensionConfiguration
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CloudWatchDimensionConfiguration
   where
   toQuery CloudWatchDimensionConfiguration' {..} =
-    Prelude.mconcat
-      [ "DimensionName" Prelude.=: dimensionName,
-        "DimensionValueSource"
-          Prelude.=: dimensionValueSource,
+    Core.mconcat
+      [ "DimensionName" Core.=: dimensionName,
+        "DimensionValueSource" Core.=: dimensionValueSource,
         "DefaultDimensionValue"
-          Prelude.=: defaultDimensionValue
+          Core.=: defaultDimensionValue
       ]

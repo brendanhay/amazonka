@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.CampaignsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.CampaignResponse
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the configuration and other settings for all
 -- the campaigns that are associated with an application.
@@ -32,12 +31,12 @@ data CampaignsResponse = CampaignsResponse'
   { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of responses, one for each campaign that\'s associated with the
     -- application.
     item :: [CampaignResponse]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CampaignsResponse' with all optional fields omitted.
@@ -57,31 +56,31 @@ newCampaignsResponse ::
   CampaignsResponse
 newCampaignsResponse =
   CampaignsResponse'
-    { nextToken = Prelude.Nothing,
-      item = Prelude.mempty
+    { nextToken = Core.Nothing,
+      item = Core.mempty
     }
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
-campaignsResponse_nextToken :: Lens.Lens' CampaignsResponse (Prelude.Maybe Prelude.Text)
+campaignsResponse_nextToken :: Lens.Lens' CampaignsResponse (Core.Maybe Core.Text)
 campaignsResponse_nextToken = Lens.lens (\CampaignsResponse' {nextToken} -> nextToken) (\s@CampaignsResponse' {} a -> s {nextToken = a} :: CampaignsResponse)
 
 -- | An array of responses, one for each campaign that\'s associated with the
 -- application.
 campaignsResponse_item :: Lens.Lens' CampaignsResponse [CampaignResponse]
-campaignsResponse_item = Lens.lens (\CampaignsResponse' {item} -> item) (\s@CampaignsResponse' {} a -> s {item = a} :: CampaignsResponse) Prelude.. Prelude._Coerce
+campaignsResponse_item = Lens.lens (\CampaignsResponse' {item} -> item) (\s@CampaignsResponse' {} a -> s {item = a} :: CampaignsResponse) Core.. Lens._Coerce
 
-instance Prelude.FromJSON CampaignsResponse where
+instance Core.FromJSON CampaignsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CampaignsResponse"
       ( \x ->
           CampaignsResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> (x Prelude..:? "Item" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Item" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable CampaignsResponse
+instance Core.Hashable CampaignsResponse
 
-instance Prelude.NFData CampaignsResponse
+instance Core.NFData CampaignsResponse

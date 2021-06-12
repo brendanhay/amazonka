@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.MethodResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a method response of a given HTTP status code returned to the
 -- client. The method response is passed from the back end through the
@@ -52,9 +51,9 @@ data MethodResponse = MethodResponse'
   { -- | Specifies the Model resources used for the response\'s content-type.
     -- Response models are represented as a key\/value map, with a content-type
     -- as the key and a Model name as the value.
-    responseModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseModels :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The method response\'s status code.
-    statusCode :: Prelude.Maybe Prelude.Text,
+    statusCode :: Core.Maybe Core.Text,
     -- | A key-value map specifying required or optional response parameters that
     -- API Gateway can send back to the caller. A key defines a method response
     -- header and the value specifies whether the associated method response
@@ -69,9 +68,9 @@ data MethodResponse = MethodResponse'
     -- or a JSON expression from the back-end response payload in the form of
     -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
     -- is a valid JSON expression without the @$@ prefix.)
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool)
+    responseParameters :: Core.Maybe (Core.HashMap Core.Text Core.Bool)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MethodResponse' with all optional fields omitted.
@@ -105,19 +104,19 @@ newMethodResponse ::
   MethodResponse
 newMethodResponse =
   MethodResponse'
-    { responseModels = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
-      responseParameters = Prelude.Nothing
+    { responseModels = Core.Nothing,
+      statusCode = Core.Nothing,
+      responseParameters = Core.Nothing
     }
 
 -- | Specifies the Model resources used for the response\'s content-type.
 -- Response models are represented as a key\/value map, with a content-type
 -- as the key and a Model name as the value.
-methodResponse_responseModels :: Lens.Lens' MethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-methodResponse_responseModels = Lens.lens (\MethodResponse' {responseModels} -> responseModels) (\s@MethodResponse' {} a -> s {responseModels = a} :: MethodResponse) Prelude.. Lens.mapping Prelude._Coerce
+methodResponse_responseModels :: Lens.Lens' MethodResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+methodResponse_responseModels = Lens.lens (\MethodResponse' {responseModels} -> responseModels) (\s@MethodResponse' {} a -> s {responseModels = a} :: MethodResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The method response\'s status code.
-methodResponse_statusCode :: Lens.Lens' MethodResponse (Prelude.Maybe Prelude.Text)
+methodResponse_statusCode :: Lens.Lens' MethodResponse (Core.Maybe Core.Text)
 methodResponse_statusCode = Lens.lens (\MethodResponse' {statusCode} -> statusCode) (\s@MethodResponse' {} a -> s {statusCode = a} :: MethodResponse)
 
 -- | A key-value map specifying required or optional response parameters that
@@ -134,24 +133,22 @@ methodResponse_statusCode = Lens.lens (\MethodResponse' {statusCode} -> statusCo
 -- or a JSON expression from the back-end response payload in the form of
 -- @integration.response.body.{JSON-expression}@, where @JSON-expression@
 -- is a valid JSON expression without the @$@ prefix.)
-methodResponse_responseParameters :: Lens.Lens' MethodResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
-methodResponse_responseParameters = Lens.lens (\MethodResponse' {responseParameters} -> responseParameters) (\s@MethodResponse' {} a -> s {responseParameters = a} :: MethodResponse) Prelude.. Lens.mapping Prelude._Coerce
+methodResponse_responseParameters :: Lens.Lens' MethodResponse (Core.Maybe (Core.HashMap Core.Text Core.Bool))
+methodResponse_responseParameters = Lens.lens (\MethodResponse' {responseParameters} -> responseParameters) (\s@MethodResponse' {} a -> s {responseParameters = a} :: MethodResponse) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON MethodResponse where
+instance Core.FromJSON MethodResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MethodResponse"
       ( \x ->
           MethodResponse'
-            Prelude.<$> ( x Prelude..:? "responseModels"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "statusCode")
-            Prelude.<*> ( x Prelude..:? "responseParameters"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "responseModels" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "statusCode")
+            Core.<*> ( x Core..:? "responseParameters"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable MethodResponse
+instance Core.Hashable MethodResponse
 
-instance Prelude.NFData MethodResponse
+instance Core.NFData MethodResponse

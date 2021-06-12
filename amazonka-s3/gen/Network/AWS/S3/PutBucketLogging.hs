@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -93,8 +92,8 @@ module Network.AWS.S3.PutBucketLogging
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -104,18 +103,18 @@ data PutBucketLogging = PutBucketLogging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The MD5 hash of the @PutBucketLogging@ request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | The name of the bucket for which to set the logging parameters.
     bucket :: BucketName,
     -- | Container for logging status information.
     bucketLoggingStatus :: BucketLoggingStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketLogging' with all optional fields omitted.
@@ -146,8 +145,8 @@ newPutBucketLogging ::
 newPutBucketLogging pBucket_ pBucketLoggingStatus_ =
   PutBucketLogging'
     { expectedBucketOwner =
-        Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
+        Core.Nothing,
+      contentMD5 = Core.Nothing,
       bucket = pBucket_,
       bucketLoggingStatus = pBucketLoggingStatus_
     }
@@ -155,14 +154,14 @@ newPutBucketLogging pBucket_ pBucketLoggingStatus_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketLogging_expectedBucketOwner :: Lens.Lens' PutBucketLogging (Prelude.Maybe Prelude.Text)
+putBucketLogging_expectedBucketOwner :: Lens.Lens' PutBucketLogging (Core.Maybe Core.Text)
 putBucketLogging_expectedBucketOwner = Lens.lens (\PutBucketLogging' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketLogging' {} a -> s {expectedBucketOwner = a} :: PutBucketLogging)
 
 -- | The MD5 hash of the @PutBucketLogging@ request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketLogging_contentMD5 :: Lens.Lens' PutBucketLogging (Prelude.Maybe Prelude.Text)
+putBucketLogging_contentMD5 :: Lens.Lens' PutBucketLogging (Core.Maybe Core.Text)
 putBucketLogging_contentMD5 = Lens.lens (\PutBucketLogging' {contentMD5} -> contentMD5) (\s@PutBucketLogging' {} a -> s {contentMD5 = a} :: PutBucketLogging)
 
 -- | The name of the bucket for which to set the logging parameters.
@@ -173,42 +172,44 @@ putBucketLogging_bucket = Lens.lens (\PutBucketLogging' {bucket} -> bucket) (\s@
 putBucketLogging_bucketLoggingStatus :: Lens.Lens' PutBucketLogging BucketLoggingStatus
 putBucketLogging_bucketLoggingStatus = Lens.lens (\PutBucketLogging' {bucketLoggingStatus} -> bucketLoggingStatus) (\s@PutBucketLogging' {} a -> s {bucketLoggingStatus = a} :: PutBucketLogging)
 
-instance Prelude.AWSRequest PutBucketLogging where
-  type Rs PutBucketLogging = PutBucketLoggingResponse
+instance Core.AWSRequest PutBucketLogging where
+  type
+    AWSResponse PutBucketLogging =
+      PutBucketLoggingResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull PutBucketLoggingResponse'
 
-instance Prelude.Hashable PutBucketLogging
+instance Core.Hashable PutBucketLogging
 
-instance Prelude.NFData PutBucketLogging
+instance Core.NFData PutBucketLogging
 
-instance Prelude.ToElement PutBucketLogging where
+instance Core.ToElement PutBucketLogging where
   toElement PutBucketLogging' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}BucketLoggingStatus"
       bucketLoggingStatus
 
-instance Prelude.ToHeaders PutBucketLogging where
+instance Core.ToHeaders PutBucketLogging where
   toHeaders PutBucketLogging' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5
       ]
 
-instance Prelude.ToPath PutBucketLogging where
+instance Core.ToPath PutBucketLogging where
   toPath PutBucketLogging' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutBucketLogging where
-  toQuery = Prelude.const (Prelude.mconcat ["logging"])
+instance Core.ToQuery PutBucketLogging where
+  toQuery = Core.const (Core.mconcat ["logging"])
 
 -- | /See:/ 'newPutBucketLoggingResponse' smart constructor.
 data PutBucketLoggingResponse = PutBucketLoggingResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketLoggingResponse' with all optional fields omitted.
@@ -219,4 +220,4 @@ newPutBucketLoggingResponse ::
 newPutBucketLoggingResponse =
   PutBucketLoggingResponse'
 
-instance Prelude.NFData PutBucketLoggingResponse
+instance Core.NFData PutBucketLoggingResponse

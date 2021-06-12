@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Greengrass.UpdateDeviceDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDeviceDefinition' smart constructor.
 data UpdateDeviceDefinition = UpdateDeviceDefinition'
   { -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID of the device definition.
-    deviceDefinitionId :: Prelude.Text
+    deviceDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceDefinition' with all optional fields omitted.
@@ -68,72 +67,68 @@ data UpdateDeviceDefinition = UpdateDeviceDefinition'
 -- 'deviceDefinitionId', 'updateDeviceDefinition_deviceDefinitionId' - The ID of the device definition.
 newUpdateDeviceDefinition ::
   -- | 'deviceDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDeviceDefinition
 newUpdateDeviceDefinition pDeviceDefinitionId_ =
   UpdateDeviceDefinition'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       deviceDefinitionId = pDeviceDefinitionId_
     }
 
 -- | The name of the definition.
-updateDeviceDefinition_name :: Lens.Lens' UpdateDeviceDefinition (Prelude.Maybe Prelude.Text)
+updateDeviceDefinition_name :: Lens.Lens' UpdateDeviceDefinition (Core.Maybe Core.Text)
 updateDeviceDefinition_name = Lens.lens (\UpdateDeviceDefinition' {name} -> name) (\s@UpdateDeviceDefinition' {} a -> s {name = a} :: UpdateDeviceDefinition)
 
 -- | The ID of the device definition.
-updateDeviceDefinition_deviceDefinitionId :: Lens.Lens' UpdateDeviceDefinition Prelude.Text
+updateDeviceDefinition_deviceDefinitionId :: Lens.Lens' UpdateDeviceDefinition Core.Text
 updateDeviceDefinition_deviceDefinitionId = Lens.lens (\UpdateDeviceDefinition' {deviceDefinitionId} -> deviceDefinitionId) (\s@UpdateDeviceDefinition' {} a -> s {deviceDefinitionId = a} :: UpdateDeviceDefinition)
 
-instance Prelude.AWSRequest UpdateDeviceDefinition where
+instance Core.AWSRequest UpdateDeviceDefinition where
   type
-    Rs UpdateDeviceDefinition =
+    AWSResponse UpdateDeviceDefinition =
       UpdateDeviceDefinitionResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDeviceDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDeviceDefinition
+instance Core.Hashable UpdateDeviceDefinition
 
-instance Prelude.NFData UpdateDeviceDefinition
+instance Core.NFData UpdateDeviceDefinition
 
-instance Prelude.ToHeaders UpdateDeviceDefinition where
+instance Core.ToHeaders UpdateDeviceDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDeviceDefinition where
+instance Core.ToJSON UpdateDeviceDefinition where
   toJSON UpdateDeviceDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Name" Prelude..=) Prelude.<$> name]
-      )
+    Core.object
+      (Core.catMaybes [("Name" Core..=) Core.<$> name])
 
-instance Prelude.ToPath UpdateDeviceDefinition where
+instance Core.ToPath UpdateDeviceDefinition where
   toPath UpdateDeviceDefinition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/devices/",
-        Prelude.toBS deviceDefinitionId
+        Core.toBS deviceDefinitionId
       ]
 
-instance Prelude.ToQuery UpdateDeviceDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDeviceDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDeviceDefinitionResponse' smart constructor.
 data UpdateDeviceDefinitionResponse = UpdateDeviceDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceDefinitionResponse' with all optional fields omitted.
@@ -146,7 +141,7 @@ data UpdateDeviceDefinitionResponse = UpdateDeviceDefinitionResponse'
 -- 'httpStatus', 'updateDeviceDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateDeviceDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDeviceDefinitionResponse
 newUpdateDeviceDefinitionResponse pHttpStatus_ =
   UpdateDeviceDefinitionResponse'
@@ -155,9 +150,7 @@ newUpdateDeviceDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateDeviceDefinitionResponse_httpStatus :: Lens.Lens' UpdateDeviceDefinitionResponse Prelude.Int
+updateDeviceDefinitionResponse_httpStatus :: Lens.Lens' UpdateDeviceDefinitionResponse Core.Int
 updateDeviceDefinitionResponse_httpStatus = Lens.lens (\UpdateDeviceDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateDeviceDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateDeviceDefinitionResponse)
 
-instance
-  Prelude.NFData
-    UpdateDeviceDefinitionResponse
+instance Core.NFData UpdateDeviceDefinitionResponse

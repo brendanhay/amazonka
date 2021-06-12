@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.Cluster where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.Certificate
 import Network.AWS.EKS.Types.ClusterStatus
 import Network.AWS.EKS.Types.EncryptionConfig
@@ -28,18 +28,17 @@ import Network.AWS.EKS.Types.KubernetesNetworkConfigResponse
 import Network.AWS.EKS.Types.Logging
 import Network.AWS.EKS.Types.VpcConfigResponse
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an Amazon EKS cluster.
 --
 -- /See:/ 'newCluster' smart constructor.
 data Cluster = Cluster'
   { -- | The current status of the cluster.
-    status :: Prelude.Maybe ClusterStatus,
+    status :: Core.Maybe ClusterStatus,
     -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
     -- for the Kubernetes control plane to make calls to AWS API operations on
     -- your behalf.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The VPC configuration used by the cluster control plane. Amazon EKS VPC
     -- resources have specific requirements to work properly with Kubernetes.
     -- For more information, see
@@ -47,42 +46,42 @@ data Cluster = Cluster'
     -- and
     -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Cluster Security Group Considerations>
     -- in the /Amazon EKS User Guide/.
-    resourcesVpcConfig :: Prelude.Maybe VpcConfigResponse,
+    resourcesVpcConfig :: Core.Maybe VpcConfigResponse,
     -- | The Kubernetes network configuration for the cluster.
-    kubernetesNetworkConfig :: Prelude.Maybe KubernetesNetworkConfigResponse,
+    kubernetesNetworkConfig :: Core.Maybe KubernetesNetworkConfigResponse,
     -- | The identity provider information for the cluster.
-    identity :: Prelude.Maybe Identity,
+    identity :: Core.Maybe Identity,
     -- | The logging configuration for your cluster.
-    logging :: Prelude.Maybe Logging,
+    logging :: Core.Maybe Logging,
     -- | The Unix epoch timestamp in seconds for when the cluster was created.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The platform version of your Amazon EKS cluster. For more information,
     -- see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html Platform Versions>
     -- in the //Amazon EKS User Guide// .
-    platformVersion :: Prelude.Maybe Prelude.Text,
+    platformVersion :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the cluster.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The encryption configuration for the cluster.
-    encryptionConfig :: Prelude.Maybe [EncryptionConfig],
+    encryptionConfig :: Core.Maybe [EncryptionConfig],
     -- | The Kubernetes server version for the cluster.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the cluster.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The @certificate-authority-data@ for your cluster.
-    certificateAuthority :: Prelude.Maybe Certificate,
+    certificateAuthority :: Core.Maybe Certificate,
     -- | The metadata that you apply to the cluster to assist with categorization
     -- and organization. Each tag consists of a key and an optional value, both
     -- of which you define. Cluster tags do not propagate to any other
     -- resources associated with the cluster.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The endpoint for your Kubernetes API server.
-    endpoint :: Prelude.Maybe Prelude.Text,
+    endpoint :: Core.Maybe Core.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text
+    clientRequestToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Cluster' with all optional fields omitted.
@@ -142,32 +141,32 @@ newCluster ::
   Cluster
 newCluster =
   Cluster'
-    { status = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      resourcesVpcConfig = Prelude.Nothing,
-      kubernetesNetworkConfig = Prelude.Nothing,
-      identity = Prelude.Nothing,
-      logging = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      encryptionConfig = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      certificateAuthority = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      endpoint = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing
+    { status = Core.Nothing,
+      roleArn = Core.Nothing,
+      resourcesVpcConfig = Core.Nothing,
+      kubernetesNetworkConfig = Core.Nothing,
+      identity = Core.Nothing,
+      logging = Core.Nothing,
+      createdAt = Core.Nothing,
+      platformVersion = Core.Nothing,
+      arn = Core.Nothing,
+      encryptionConfig = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing,
+      certificateAuthority = Core.Nothing,
+      tags = Core.Nothing,
+      endpoint = Core.Nothing,
+      clientRequestToken = Core.Nothing
     }
 
 -- | The current status of the cluster.
-cluster_status :: Lens.Lens' Cluster (Prelude.Maybe ClusterStatus)
+cluster_status :: Lens.Lens' Cluster (Core.Maybe ClusterStatus)
 cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that provides permissions
 -- for the Kubernetes control plane to make calls to AWS API operations on
 -- your behalf.
-cluster_roleArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_roleArn :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_roleArn = Lens.lens (\Cluster' {roleArn} -> roleArn) (\s@Cluster' {} a -> s {roleArn = a} :: Cluster)
 
 -- | The VPC configuration used by the cluster control plane. Amazon EKS VPC
@@ -177,94 +176,92 @@ cluster_roleArn = Lens.lens (\Cluster' {roleArn} -> roleArn) (\s@Cluster' {} a -
 -- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Cluster Security Group Considerations>
 -- in the /Amazon EKS User Guide/.
-cluster_resourcesVpcConfig :: Lens.Lens' Cluster (Prelude.Maybe VpcConfigResponse)
+cluster_resourcesVpcConfig :: Lens.Lens' Cluster (Core.Maybe VpcConfigResponse)
 cluster_resourcesVpcConfig = Lens.lens (\Cluster' {resourcesVpcConfig} -> resourcesVpcConfig) (\s@Cluster' {} a -> s {resourcesVpcConfig = a} :: Cluster)
 
 -- | The Kubernetes network configuration for the cluster.
-cluster_kubernetesNetworkConfig :: Lens.Lens' Cluster (Prelude.Maybe KubernetesNetworkConfigResponse)
+cluster_kubernetesNetworkConfig :: Lens.Lens' Cluster (Core.Maybe KubernetesNetworkConfigResponse)
 cluster_kubernetesNetworkConfig = Lens.lens (\Cluster' {kubernetesNetworkConfig} -> kubernetesNetworkConfig) (\s@Cluster' {} a -> s {kubernetesNetworkConfig = a} :: Cluster)
 
 -- | The identity provider information for the cluster.
-cluster_identity :: Lens.Lens' Cluster (Prelude.Maybe Identity)
+cluster_identity :: Lens.Lens' Cluster (Core.Maybe Identity)
 cluster_identity = Lens.lens (\Cluster' {identity} -> identity) (\s@Cluster' {} a -> s {identity = a} :: Cluster)
 
 -- | The logging configuration for your cluster.
-cluster_logging :: Lens.Lens' Cluster (Prelude.Maybe Logging)
+cluster_logging :: Lens.Lens' Cluster (Core.Maybe Logging)
 cluster_logging = Lens.lens (\Cluster' {logging} -> logging) (\s@Cluster' {} a -> s {logging = a} :: Cluster)
 
 -- | The Unix epoch timestamp in seconds for when the cluster was created.
-cluster_createdAt :: Lens.Lens' Cluster (Prelude.Maybe Prelude.UTCTime)
-cluster_createdAt = Lens.lens (\Cluster' {createdAt} -> createdAt) (\s@Cluster' {} a -> s {createdAt = a} :: Cluster) Prelude.. Lens.mapping Prelude._Time
+cluster_createdAt :: Lens.Lens' Cluster (Core.Maybe Core.UTCTime)
+cluster_createdAt = Lens.lens (\Cluster' {createdAt} -> createdAt) (\s@Cluster' {} a -> s {createdAt = a} :: Cluster) Core.. Lens.mapping Core._Time
 
 -- | The platform version of your Amazon EKS cluster. For more information,
 -- see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/platform-versions.html Platform Versions>
 -- in the //Amazon EKS User Guide// .
-cluster_platformVersion :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_platformVersion :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_platformVersion = Lens.lens (\Cluster' {platformVersion} -> platformVersion) (\s@Cluster' {} a -> s {platformVersion = a} :: Cluster)
 
 -- | The Amazon Resource Name (ARN) of the cluster.
-cluster_arn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_arn :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_arn = Lens.lens (\Cluster' {arn} -> arn) (\s@Cluster' {} a -> s {arn = a} :: Cluster)
 
 -- | The encryption configuration for the cluster.
-cluster_encryptionConfig :: Lens.Lens' Cluster (Prelude.Maybe [EncryptionConfig])
-cluster_encryptionConfig = Lens.lens (\Cluster' {encryptionConfig} -> encryptionConfig) (\s@Cluster' {} a -> s {encryptionConfig = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_encryptionConfig :: Lens.Lens' Cluster (Core.Maybe [EncryptionConfig])
+cluster_encryptionConfig = Lens.lens (\Cluster' {encryptionConfig} -> encryptionConfig) (\s@Cluster' {} a -> s {encryptionConfig = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The Kubernetes server version for the cluster.
-cluster_version :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_version :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_version = Lens.lens (\Cluster' {version} -> version) (\s@Cluster' {} a -> s {version = a} :: Cluster)
 
 -- | The name of the cluster.
-cluster_name :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_name :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_name = Lens.lens (\Cluster' {name} -> name) (\s@Cluster' {} a -> s {name = a} :: Cluster)
 
 -- | The @certificate-authority-data@ for your cluster.
-cluster_certificateAuthority :: Lens.Lens' Cluster (Prelude.Maybe Certificate)
+cluster_certificateAuthority :: Lens.Lens' Cluster (Core.Maybe Certificate)
 cluster_certificateAuthority = Lens.lens (\Cluster' {certificateAuthority} -> certificateAuthority) (\s@Cluster' {} a -> s {certificateAuthority = a} :: Cluster)
 
 -- | The metadata that you apply to the cluster to assist with categorization
 -- and organization. Each tag consists of a key and an optional value, both
 -- of which you define. Cluster tags do not propagate to any other
 -- resources associated with the cluster.
-cluster_tags :: Lens.Lens' Cluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_tags :: Lens.Lens' Cluster (Core.Maybe (Core.HashMap Core.Text Core.Text))
+cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The endpoint for your Kubernetes API server.
-cluster_endpoint :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_endpoint :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_endpoint = Lens.lens (\Cluster' {endpoint} -> endpoint) (\s@Cluster' {} a -> s {endpoint = a} :: Cluster)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-cluster_clientRequestToken :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_clientRequestToken :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_clientRequestToken = Lens.lens (\Cluster' {clientRequestToken} -> clientRequestToken) (\s@Cluster' {} a -> s {clientRequestToken = a} :: Cluster)
 
-instance Prelude.FromJSON Cluster where
+instance Core.FromJSON Cluster where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "roleArn")
-            Prelude.<*> (x Prelude..:? "resourcesVpcConfig")
-            Prelude.<*> (x Prelude..:? "kubernetesNetworkConfig")
-            Prelude.<*> (x Prelude..:? "identity")
-            Prelude.<*> (x Prelude..:? "logging")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "platformVersion")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> ( x Prelude..:? "encryptionConfig"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "version")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "certificateAuthority")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "endpoint")
-            Prelude.<*> (x Prelude..:? "clientRequestToken")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "resourcesVpcConfig")
+            Core.<*> (x Core..:? "kubernetesNetworkConfig")
+            Core.<*> (x Core..:? "identity")
+            Core.<*> (x Core..:? "logging")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "platformVersion")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "encryptionConfig" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "version")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "certificateAuthority")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "endpoint")
+            Core.<*> (x Core..:? "clientRequestToken")
       )
 
-instance Prelude.Hashable Cluster
+instance Core.Hashable Cluster
 
-instance Prelude.NFData Cluster
+instance Core.NFData Cluster

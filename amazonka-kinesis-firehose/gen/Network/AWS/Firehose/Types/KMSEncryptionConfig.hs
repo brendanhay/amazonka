@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.KMSEncryptionConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an encryption key for a destination in Amazon S3.
 --
@@ -31,9 +30,9 @@ data KMSEncryptionConfig = KMSEncryptionConfig'
     -- same AWS Region as the destination Amazon S3 bucket. For more
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    aWSKMSKeyARN :: Prelude.Text
+    aWSKMSKeyARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KMSEncryptionConfig' with all optional fields omitted.
@@ -49,7 +48,7 @@ data KMSEncryptionConfig = KMSEncryptionConfig'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 newKMSEncryptionConfig ::
   -- | 'aWSKMSKeyARN'
-  Prelude.Text ->
+  Core.Text ->
   KMSEncryptionConfig
 newKMSEncryptionConfig pAWSKMSKeyARN_ =
   KMSEncryptionConfig' {aWSKMSKeyARN = pAWSKMSKeyARN_}
@@ -58,27 +57,25 @@ newKMSEncryptionConfig pAWSKMSKeyARN_ =
 -- same AWS Region as the destination Amazon S3 bucket. For more
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-kmsEncryptionConfig_aWSKMSKeyARN :: Lens.Lens' KMSEncryptionConfig Prelude.Text
+kmsEncryptionConfig_aWSKMSKeyARN :: Lens.Lens' KMSEncryptionConfig Core.Text
 kmsEncryptionConfig_aWSKMSKeyARN = Lens.lens (\KMSEncryptionConfig' {aWSKMSKeyARN} -> aWSKMSKeyARN) (\s@KMSEncryptionConfig' {} a -> s {aWSKMSKeyARN = a} :: KMSEncryptionConfig)
 
-instance Prelude.FromJSON KMSEncryptionConfig where
+instance Core.FromJSON KMSEncryptionConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KMSEncryptionConfig"
       ( \x ->
           KMSEncryptionConfig'
-            Prelude.<$> (x Prelude..: "AWSKMSKeyARN")
+            Core.<$> (x Core..: "AWSKMSKeyARN")
       )
 
-instance Prelude.Hashable KMSEncryptionConfig
+instance Core.Hashable KMSEncryptionConfig
 
-instance Prelude.NFData KMSEncryptionConfig
+instance Core.NFData KMSEncryptionConfig
 
-instance Prelude.ToJSON KMSEncryptionConfig where
+instance Core.ToJSON KMSEncryptionConfig where
   toJSON KMSEncryptionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AWSKMSKeyARN" Prelude..= aWSKMSKeyARN)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AWSKMSKeyARN" Core..= aWSKMSKeyARN)]
       )

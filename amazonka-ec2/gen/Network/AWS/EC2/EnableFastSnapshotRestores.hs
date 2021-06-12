@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.EC2.EnableFastSnapshotRestores
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,15 +64,15 @@ data EnableFastSnapshotRestores = EnableFastSnapshotRestores'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more Availability Zones. For example, @us-east-2a@.
-    availabilityZones :: [Prelude.Text],
+    availabilityZones :: [Core.Text],
     -- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.
     -- You can specify a snapshot that was shared with you from another AWS
     -- account.
-    sourceSnapshotIds :: [Prelude.Text]
+    sourceSnapshotIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableFastSnapshotRestores' with all optional fields omitted.
@@ -97,74 +96,67 @@ newEnableFastSnapshotRestores ::
   EnableFastSnapshotRestores
 newEnableFastSnapshotRestores =
   EnableFastSnapshotRestores'
-    { dryRun =
-        Prelude.Nothing,
-      availabilityZones = Prelude.mempty,
-      sourceSnapshotIds = Prelude.mempty
+    { dryRun = Core.Nothing,
+      availabilityZones = Core.mempty,
+      sourceSnapshotIds = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-enableFastSnapshotRestores_dryRun :: Lens.Lens' EnableFastSnapshotRestores (Prelude.Maybe Prelude.Bool)
+enableFastSnapshotRestores_dryRun :: Lens.Lens' EnableFastSnapshotRestores (Core.Maybe Core.Bool)
 enableFastSnapshotRestores_dryRun = Lens.lens (\EnableFastSnapshotRestores' {dryRun} -> dryRun) (\s@EnableFastSnapshotRestores' {} a -> s {dryRun = a} :: EnableFastSnapshotRestores)
 
 -- | One or more Availability Zones. For example, @us-east-2a@.
-enableFastSnapshotRestores_availabilityZones :: Lens.Lens' EnableFastSnapshotRestores [Prelude.Text]
-enableFastSnapshotRestores_availabilityZones = Lens.lens (\EnableFastSnapshotRestores' {availabilityZones} -> availabilityZones) (\s@EnableFastSnapshotRestores' {} a -> s {availabilityZones = a} :: EnableFastSnapshotRestores) Prelude.. Prelude._Coerce
+enableFastSnapshotRestores_availabilityZones :: Lens.Lens' EnableFastSnapshotRestores [Core.Text]
+enableFastSnapshotRestores_availabilityZones = Lens.lens (\EnableFastSnapshotRestores' {availabilityZones} -> availabilityZones) (\s@EnableFastSnapshotRestores' {} a -> s {availabilityZones = a} :: EnableFastSnapshotRestores) Core.. Lens._Coerce
 
 -- | The IDs of one or more snapshots. For example, @snap-1234567890abcdef0@.
 -- You can specify a snapshot that was shared with you from another AWS
 -- account.
-enableFastSnapshotRestores_sourceSnapshotIds :: Lens.Lens' EnableFastSnapshotRestores [Prelude.Text]
-enableFastSnapshotRestores_sourceSnapshotIds = Lens.lens (\EnableFastSnapshotRestores' {sourceSnapshotIds} -> sourceSnapshotIds) (\s@EnableFastSnapshotRestores' {} a -> s {sourceSnapshotIds = a} :: EnableFastSnapshotRestores) Prelude.. Prelude._Coerce
+enableFastSnapshotRestores_sourceSnapshotIds :: Lens.Lens' EnableFastSnapshotRestores [Core.Text]
+enableFastSnapshotRestores_sourceSnapshotIds = Lens.lens (\EnableFastSnapshotRestores' {sourceSnapshotIds} -> sourceSnapshotIds) (\s@EnableFastSnapshotRestores' {} a -> s {sourceSnapshotIds = a} :: EnableFastSnapshotRestores) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    EnableFastSnapshotRestores
-  where
+instance Core.AWSRequest EnableFastSnapshotRestores where
   type
-    Rs EnableFastSnapshotRestores =
+    AWSResponse EnableFastSnapshotRestores =
       EnableFastSnapshotRestoresResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           EnableFastSnapshotRestoresResponse'
-            Prelude.<$> ( x Prelude..@? "unsuccessful"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> ( x Prelude..@? "successful"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "unsuccessful" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> ( x Core..@? "successful" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable EnableFastSnapshotRestores
+instance Core.Hashable EnableFastSnapshotRestores
 
-instance Prelude.NFData EnableFastSnapshotRestores
+instance Core.NFData EnableFastSnapshotRestores
 
-instance Prelude.ToHeaders EnableFastSnapshotRestores where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders EnableFastSnapshotRestores where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath EnableFastSnapshotRestores where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableFastSnapshotRestores where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableFastSnapshotRestores where
+instance Core.ToQuery EnableFastSnapshotRestores where
   toQuery EnableFastSnapshotRestores' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("EnableFastSnapshotRestores" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQueryList
+          Core.=: ("EnableFastSnapshotRestores" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList
           "AvailabilityZone"
           availabilityZones,
-        Prelude.toQueryList
+        Core.toQueryList
           "SourceSnapshotId"
           sourceSnapshotIds
       ]
@@ -173,14 +165,14 @@ instance Prelude.ToQuery EnableFastSnapshotRestores where
 data EnableFastSnapshotRestoresResponse = EnableFastSnapshotRestoresResponse'
   { -- | Information about the snapshots for which fast snapshot restores could
     -- not be enabled.
-    unsuccessful :: Prelude.Maybe [EnableFastSnapshotRestoreErrorItem],
+    unsuccessful :: Core.Maybe [EnableFastSnapshotRestoreErrorItem],
     -- | Information about the snapshots for which fast snapshot restores were
     -- successfully enabled.
-    successful :: Prelude.Maybe [EnableFastSnapshotRestoreSuccessItem],
+    successful :: Core.Maybe [EnableFastSnapshotRestoreSuccessItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableFastSnapshotRestoresResponse' with all optional fields omitted.
@@ -199,30 +191,30 @@ data EnableFastSnapshotRestoresResponse = EnableFastSnapshotRestoresResponse'
 -- 'httpStatus', 'enableFastSnapshotRestoresResponse_httpStatus' - The response's http status code.
 newEnableFastSnapshotRestoresResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableFastSnapshotRestoresResponse
 newEnableFastSnapshotRestoresResponse pHttpStatus_ =
   EnableFastSnapshotRestoresResponse'
     { unsuccessful =
-        Prelude.Nothing,
-      successful = Prelude.Nothing,
+        Core.Nothing,
+      successful = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the snapshots for which fast snapshot restores could
 -- not be enabled.
-enableFastSnapshotRestoresResponse_unsuccessful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Prelude.Maybe [EnableFastSnapshotRestoreErrorItem])
-enableFastSnapshotRestoresResponse_unsuccessful = Lens.lens (\EnableFastSnapshotRestoresResponse' {unsuccessful} -> unsuccessful) (\s@EnableFastSnapshotRestoresResponse' {} a -> s {unsuccessful = a} :: EnableFastSnapshotRestoresResponse) Prelude.. Lens.mapping Prelude._Coerce
+enableFastSnapshotRestoresResponse_unsuccessful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Core.Maybe [EnableFastSnapshotRestoreErrorItem])
+enableFastSnapshotRestoresResponse_unsuccessful = Lens.lens (\EnableFastSnapshotRestoresResponse' {unsuccessful} -> unsuccessful) (\s@EnableFastSnapshotRestoresResponse' {} a -> s {unsuccessful = a} :: EnableFastSnapshotRestoresResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the snapshots for which fast snapshot restores were
 -- successfully enabled.
-enableFastSnapshotRestoresResponse_successful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Prelude.Maybe [EnableFastSnapshotRestoreSuccessItem])
-enableFastSnapshotRestoresResponse_successful = Lens.lens (\EnableFastSnapshotRestoresResponse' {successful} -> successful) (\s@EnableFastSnapshotRestoresResponse' {} a -> s {successful = a} :: EnableFastSnapshotRestoresResponse) Prelude.. Lens.mapping Prelude._Coerce
+enableFastSnapshotRestoresResponse_successful :: Lens.Lens' EnableFastSnapshotRestoresResponse (Core.Maybe [EnableFastSnapshotRestoreSuccessItem])
+enableFastSnapshotRestoresResponse_successful = Lens.lens (\EnableFastSnapshotRestoresResponse' {successful} -> successful) (\s@EnableFastSnapshotRestoresResponse' {} a -> s {successful = a} :: EnableFastSnapshotRestoresResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-enableFastSnapshotRestoresResponse_httpStatus :: Lens.Lens' EnableFastSnapshotRestoresResponse Prelude.Int
+enableFastSnapshotRestoresResponse_httpStatus :: Lens.Lens' EnableFastSnapshotRestoresResponse Core.Int
 enableFastSnapshotRestoresResponse_httpStatus = Lens.lens (\EnableFastSnapshotRestoresResponse' {httpStatus} -> httpStatus) (\s@EnableFastSnapshotRestoresResponse' {} a -> s {httpStatus = a} :: EnableFastSnapshotRestoresResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableFastSnapshotRestoresResponse

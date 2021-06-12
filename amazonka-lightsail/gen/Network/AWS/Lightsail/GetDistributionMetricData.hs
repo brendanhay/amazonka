@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.Lightsail.GetDistributionMetricData
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +63,7 @@ data GetDistributionMetricData = GetDistributionMetricData'
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
     -- that you can specify.
-    distributionName :: Prelude.Text,
+    distributionName :: Core.Text,
     -- | The metric for which you want to return information.
     --
     -- Valid distribution metric names are listed below, along with the most
@@ -133,7 +132,7 @@ data GetDistributionMetricData = GetDistributionMetricData'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    startTime :: Prelude.POSIX,
+    startTime :: Core.POSIX,
     -- | The end of the time interval for which to get metric data.
     --
     -- Constraints:
@@ -147,10 +146,10 @@ data GetDistributionMetricData = GetDistributionMetricData'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    endTime :: Prelude.POSIX,
+    endTime :: Core.POSIX,
     -- | The granularity, in seconds, for the metric data points that will be
     -- returned.
-    period :: Prelude.Natural,
+    period :: Core.Natural,
     -- | The unit for the metric data request.
     --
     -- Valid units depend on the metric data being requested. For the valid
@@ -183,7 +182,7 @@ data GetDistributionMetricData = GetDistributionMetricData'
     --     statistical calculation.
     statistics :: [MetricStatistic]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionMetricData' with all optional fields omitted.
@@ -316,15 +315,15 @@ data GetDistributionMetricData = GetDistributionMetricData'
 --     statistical calculation.
 newGetDistributionMetricData ::
   -- | 'distributionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'metricName'
   DistributionMetricName ->
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'endTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'period'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'unit'
   MetricUnit ->
   GetDistributionMetricData
@@ -339,18 +338,18 @@ newGetDistributionMetricData
       { distributionName =
           pDistributionName_,
         metricName = pMetricName_,
-        startTime = Prelude._Time Lens.# pStartTime_,
-        endTime = Prelude._Time Lens.# pEndTime_,
+        startTime = Core._Time Lens.# pStartTime_,
+        endTime = Core._Time Lens.# pEndTime_,
         period = pPeriod_,
         unit = pUnit_,
-        statistics = Prelude.mempty
+        statistics = Core.mempty
       }
 
 -- | The name of the distribution for which to get metric data.
 --
 -- Use the @GetDistributions@ action to get a list of distribution names
 -- that you can specify.
-getDistributionMetricData_distributionName :: Lens.Lens' GetDistributionMetricData Prelude.Text
+getDistributionMetricData_distributionName :: Lens.Lens' GetDistributionMetricData Core.Text
 getDistributionMetricData_distributionName = Lens.lens (\GetDistributionMetricData' {distributionName} -> distributionName) (\s@GetDistributionMetricData' {} a -> s {distributionName = a} :: GetDistributionMetricData)
 
 -- | The metric for which you want to return information.
@@ -423,8 +422,8 @@ getDistributionMetricData_metricName = Lens.lens (\GetDistributionMetricData' {m
 --
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
-getDistributionMetricData_startTime :: Lens.Lens' GetDistributionMetricData Prelude.UTCTime
-getDistributionMetricData_startTime = Lens.lens (\GetDistributionMetricData' {startTime} -> startTime) (\s@GetDistributionMetricData' {} a -> s {startTime = a} :: GetDistributionMetricData) Prelude.. Prelude._Time
+getDistributionMetricData_startTime :: Lens.Lens' GetDistributionMetricData Core.UTCTime
+getDistributionMetricData_startTime = Lens.lens (\GetDistributionMetricData' {startTime} -> startTime) (\s@GetDistributionMetricData' {} a -> s {startTime = a} :: GetDistributionMetricData) Core.. Core._Time
 
 -- | The end of the time interval for which to get metric data.
 --
@@ -439,12 +438,12 @@ getDistributionMetricData_startTime = Lens.lens (\GetDistributionMetricData' {st
 --
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
-getDistributionMetricData_endTime :: Lens.Lens' GetDistributionMetricData Prelude.UTCTime
-getDistributionMetricData_endTime = Lens.lens (\GetDistributionMetricData' {endTime} -> endTime) (\s@GetDistributionMetricData' {} a -> s {endTime = a} :: GetDistributionMetricData) Prelude.. Prelude._Time
+getDistributionMetricData_endTime :: Lens.Lens' GetDistributionMetricData Core.UTCTime
+getDistributionMetricData_endTime = Lens.lens (\GetDistributionMetricData' {endTime} -> endTime) (\s@GetDistributionMetricData' {} a -> s {endTime = a} :: GetDistributionMetricData) Core.. Core._Time
 
 -- | The granularity, in seconds, for the metric data points that will be
 -- returned.
-getDistributionMetricData_period :: Lens.Lens' GetDistributionMetricData Prelude.Natural
+getDistributionMetricData_period :: Lens.Lens' GetDistributionMetricData Core.Natural
 getDistributionMetricData_period = Lens.lens (\GetDistributionMetricData' {period} -> period) (\s@GetDistributionMetricData' {} a -> s {period = a} :: GetDistributionMetricData)
 
 -- | The unit for the metric data request.
@@ -480,74 +479,70 @@ getDistributionMetricData_unit = Lens.lens (\GetDistributionMetricData' {unit} -
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getDistributionMetricData_statistics :: Lens.Lens' GetDistributionMetricData [MetricStatistic]
-getDistributionMetricData_statistics = Lens.lens (\GetDistributionMetricData' {statistics} -> statistics) (\s@GetDistributionMetricData' {} a -> s {statistics = a} :: GetDistributionMetricData) Prelude.. Prelude._Coerce
+getDistributionMetricData_statistics = Lens.lens (\GetDistributionMetricData' {statistics} -> statistics) (\s@GetDistributionMetricData' {} a -> s {statistics = a} :: GetDistributionMetricData) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest GetDistributionMetricData where
+instance Core.AWSRequest GetDistributionMetricData where
   type
-    Rs GetDistributionMetricData =
+    AWSResponse GetDistributionMetricData =
       GetDistributionMetricDataResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDistributionMetricDataResponse'
-            Prelude.<$> (x Prelude..?> "metricName")
-            Prelude.<*> ( x Prelude..?> "metricData"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "metricName")
+            Core.<*> (x Core..?> "metricData" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistributionMetricData
+instance Core.Hashable GetDistributionMetricData
 
-instance Prelude.NFData GetDistributionMetricData
+instance Core.NFData GetDistributionMetricData
 
-instance Prelude.ToHeaders GetDistributionMetricData where
+instance Core.ToHeaders GetDistributionMetricData where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetDistributionMetricData" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetDistributionMetricData" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDistributionMetricData where
+instance Core.ToJSON GetDistributionMetricData where
   toJSON GetDistributionMetricData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("distributionName" Prelude..= distributionName),
-            Prelude.Just ("metricName" Prelude..= metricName),
-            Prelude.Just ("startTime" Prelude..= startTime),
-            Prelude.Just ("endTime" Prelude..= endTime),
-            Prelude.Just ("period" Prelude..= period),
-            Prelude.Just ("unit" Prelude..= unit),
-            Prelude.Just ("statistics" Prelude..= statistics)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("distributionName" Core..= distributionName),
+            Core.Just ("metricName" Core..= metricName),
+            Core.Just ("startTime" Core..= startTime),
+            Core.Just ("endTime" Core..= endTime),
+            Core.Just ("period" Core..= period),
+            Core.Just ("unit" Core..= unit),
+            Core.Just ("statistics" Core..= statistics)
           ]
       )
 
-instance Prelude.ToPath GetDistributionMetricData where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDistributionMetricData where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDistributionMetricData where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDistributionMetricData where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDistributionMetricDataResponse' smart constructor.
 data GetDistributionMetricDataResponse = GetDistributionMetricDataResponse'
   { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe DistributionMetricName,
+    metricName :: Core.Maybe DistributionMetricName,
     -- | An array of objects that describe the metric data returned.
-    metricData :: Prelude.Maybe [MetricDatapoint],
+    metricData :: Core.Maybe [MetricDatapoint],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionMetricDataResponse' with all optional fields omitted.
@@ -564,28 +559,28 @@ data GetDistributionMetricDataResponse = GetDistributionMetricDataResponse'
 -- 'httpStatus', 'getDistributionMetricDataResponse_httpStatus' - The response's http status code.
 newGetDistributionMetricDataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDistributionMetricDataResponse
 newGetDistributionMetricDataResponse pHttpStatus_ =
   GetDistributionMetricDataResponse'
     { metricName =
-        Prelude.Nothing,
-      metricData = Prelude.Nothing,
+        Core.Nothing,
+      metricData = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the metric returned.
-getDistributionMetricDataResponse_metricName :: Lens.Lens' GetDistributionMetricDataResponse (Prelude.Maybe DistributionMetricName)
+getDistributionMetricDataResponse_metricName :: Lens.Lens' GetDistributionMetricDataResponse (Core.Maybe DistributionMetricName)
 getDistributionMetricDataResponse_metricName = Lens.lens (\GetDistributionMetricDataResponse' {metricName} -> metricName) (\s@GetDistributionMetricDataResponse' {} a -> s {metricName = a} :: GetDistributionMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
-getDistributionMetricDataResponse_metricData :: Lens.Lens' GetDistributionMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getDistributionMetricDataResponse_metricData = Lens.lens (\GetDistributionMetricDataResponse' {metricData} -> metricData) (\s@GetDistributionMetricDataResponse' {} a -> s {metricData = a} :: GetDistributionMetricDataResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDistributionMetricDataResponse_metricData :: Lens.Lens' GetDistributionMetricDataResponse (Core.Maybe [MetricDatapoint])
+getDistributionMetricDataResponse_metricData = Lens.lens (\GetDistributionMetricDataResponse' {metricData} -> metricData) (\s@GetDistributionMetricDataResponse' {} a -> s {metricData = a} :: GetDistributionMetricDataResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getDistributionMetricDataResponse_httpStatus :: Lens.Lens' GetDistributionMetricDataResponse Prelude.Int
+getDistributionMetricDataResponse_httpStatus :: Lens.Lens' GetDistributionMetricDataResponse Core.Int
 getDistributionMetricDataResponse_httpStatus = Lens.lens (\GetDistributionMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetDistributionMetricDataResponse' {} a -> s {httpStatus = a} :: GetDistributionMetricDataResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetDistributionMetricDataResponse

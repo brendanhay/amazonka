@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.ECS.DescribeTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,17 +53,17 @@ data DescribeTasks = DescribeTasks'
   { -- | Specifies whether you want to see the resource tags for the task. If
     -- @TAGS@ is specified, the tags are included in the response. If this
     -- field is omitted, tags are not included in the response.
-    include :: Prelude.Maybe [TaskField],
+    include :: Core.Maybe [TaskField],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the task or tasks to describe. If you do not specify a cluster,
     -- the default cluster is assumed. This parameter is required if the task
     -- or tasks you are describing were launched in any cluster other than the
     -- default cluster.
-    cluster :: Prelude.Maybe Prelude.Text,
+    cluster :: Core.Maybe Core.Text,
     -- | A list of up to 100 task IDs or full ARN entries.
-    tasks :: [Prelude.Text]
+    tasks :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTasks' with all optional fields omitted.
@@ -89,86 +88,86 @@ newDescribeTasks ::
   DescribeTasks
 newDescribeTasks =
   DescribeTasks'
-    { include = Prelude.Nothing,
-      cluster = Prelude.Nothing,
-      tasks = Prelude.mempty
+    { include = Core.Nothing,
+      cluster = Core.Nothing,
+      tasks = Core.mempty
     }
 
 -- | Specifies whether you want to see the resource tags for the task. If
 -- @TAGS@ is specified, the tags are included in the response. If this
 -- field is omitted, tags are not included in the response.
-describeTasks_include :: Lens.Lens' DescribeTasks (Prelude.Maybe [TaskField])
-describeTasks_include = Lens.lens (\DescribeTasks' {include} -> include) (\s@DescribeTasks' {} a -> s {include = a} :: DescribeTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeTasks_include :: Lens.Lens' DescribeTasks (Core.Maybe [TaskField])
+describeTasks_include = Lens.lens (\DescribeTasks' {include} -> include) (\s@DescribeTasks' {} a -> s {include = a} :: DescribeTasks) Core.. Lens.mapping Lens._Coerce
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task or tasks to describe. If you do not specify a cluster,
 -- the default cluster is assumed. This parameter is required if the task
 -- or tasks you are describing were launched in any cluster other than the
 -- default cluster.
-describeTasks_cluster :: Lens.Lens' DescribeTasks (Prelude.Maybe Prelude.Text)
+describeTasks_cluster :: Lens.Lens' DescribeTasks (Core.Maybe Core.Text)
 describeTasks_cluster = Lens.lens (\DescribeTasks' {cluster} -> cluster) (\s@DescribeTasks' {} a -> s {cluster = a} :: DescribeTasks)
 
 -- | A list of up to 100 task IDs or full ARN entries.
-describeTasks_tasks :: Lens.Lens' DescribeTasks [Prelude.Text]
-describeTasks_tasks = Lens.lens (\DescribeTasks' {tasks} -> tasks) (\s@DescribeTasks' {} a -> s {tasks = a} :: DescribeTasks) Prelude.. Prelude._Coerce
+describeTasks_tasks :: Lens.Lens' DescribeTasks [Core.Text]
+describeTasks_tasks = Lens.lens (\DescribeTasks' {tasks} -> tasks) (\s@DescribeTasks' {} a -> s {tasks = a} :: DescribeTasks) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DescribeTasks where
-  type Rs DescribeTasks = DescribeTasksResponse
+instance Core.AWSRequest DescribeTasks where
+  type
+    AWSResponse DescribeTasks =
+      DescribeTasksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTasksResponse'
-            Prelude.<$> (x Prelude..?> "tasks" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "failures" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "tasks" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "failures" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTasks
+instance Core.Hashable DescribeTasks
 
-instance Prelude.NFData DescribeTasks
+instance Core.NFData DescribeTasks
 
-instance Prelude.ToHeaders DescribeTasks where
+instance Core.ToHeaders DescribeTasks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTasks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTasks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTasks where
+instance Core.ToJSON DescribeTasks where
   toJSON DescribeTasks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("include" Prelude..=) Prelude.<$> include,
-            ("cluster" Prelude..=) Prelude.<$> cluster,
-            Prelude.Just ("tasks" Prelude..= tasks)
+    Core.object
+      ( Core.catMaybes
+          [ ("include" Core..=) Core.<$> include,
+            ("cluster" Core..=) Core.<$> cluster,
+            Core.Just ("tasks" Core..= tasks)
           ]
       )
 
-instance Prelude.ToPath DescribeTasks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTasks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTasks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTasks where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTasksResponse' smart constructor.
 data DescribeTasksResponse = DescribeTasksResponse'
   { -- | The list of tasks.
-    tasks :: Prelude.Maybe [Task],
+    tasks :: Core.Maybe [Task],
     -- | Any failures associated with the call.
-    failures :: Prelude.Maybe [Failure],
+    failures :: Core.Maybe [Failure],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTasksResponse' with all optional fields omitted.
@@ -185,25 +184,25 @@ data DescribeTasksResponse = DescribeTasksResponse'
 -- 'httpStatus', 'describeTasksResponse_httpStatus' - The response's http status code.
 newDescribeTasksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTasksResponse
 newDescribeTasksResponse pHttpStatus_ =
   DescribeTasksResponse'
-    { tasks = Prelude.Nothing,
-      failures = Prelude.Nothing,
+    { tasks = Core.Nothing,
+      failures = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of tasks.
-describeTasksResponse_tasks :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Task])
-describeTasksResponse_tasks = Lens.lens (\DescribeTasksResponse' {tasks} -> tasks) (\s@DescribeTasksResponse' {} a -> s {tasks = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTasksResponse_tasks :: Lens.Lens' DescribeTasksResponse (Core.Maybe [Task])
+describeTasksResponse_tasks = Lens.lens (\DescribeTasksResponse' {tasks} -> tasks) (\s@DescribeTasksResponse' {} a -> s {tasks = a} :: DescribeTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Any failures associated with the call.
-describeTasksResponse_failures :: Lens.Lens' DescribeTasksResponse (Prelude.Maybe [Failure])
-describeTasksResponse_failures = Lens.lens (\DescribeTasksResponse' {failures} -> failures) (\s@DescribeTasksResponse' {} a -> s {failures = a} :: DescribeTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTasksResponse_failures :: Lens.Lens' DescribeTasksResponse (Core.Maybe [Failure])
+describeTasksResponse_failures = Lens.lens (\DescribeTasksResponse' {failures} -> failures) (\s@DescribeTasksResponse' {} a -> s {failures = a} :: DescribeTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTasksResponse_httpStatus :: Lens.Lens' DescribeTasksResponse Prelude.Int
+describeTasksResponse_httpStatus :: Lens.Lens' DescribeTasksResponse Core.Int
 describeTasksResponse_httpStatus = Lens.lens (\DescribeTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeTasksResponse' {} a -> s {httpStatus = a} :: DescribeTasksResponse)
 
-instance Prelude.NFData DescribeTasksResponse
+instance Core.NFData DescribeTasksResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,32 +50,32 @@ module Network.AWS.EC2.CreateTransitGatewayPeeringAttachment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayPeeringAttachment' smart constructor.
 data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachment'
   { -- | The tags to apply to the transit gateway peering attachment.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Prelude.Text,
+    transitGatewayId :: Core.Text,
     -- | The ID of the peer transit gateway with which to create the peering
     -- attachment.
-    peerTransitGatewayId :: Prelude.Text,
+    peerTransitGatewayId :: Core.Text,
     -- | The AWS account ID of the owner of the peer transit gateway.
-    peerAccountId :: Prelude.Text,
+    peerAccountId :: Core.Text,
     -- | The Region where the peer transit gateway is located.
-    peerRegion :: Prelude.Text
+    peerRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayPeeringAttachment' with all optional fields omitted.
@@ -103,13 +102,13 @@ data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachme
 -- 'peerRegion', 'createTransitGatewayPeeringAttachment_peerRegion' - The Region where the peer transit gateway is located.
 newCreateTransitGatewayPeeringAttachment ::
   -- | 'transitGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'peerTransitGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'peerAccountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'peerRegion'
-  Prelude.Text ->
+  Core.Text ->
   CreateTransitGatewayPeeringAttachment
 newCreateTransitGatewayPeeringAttachment
   pTransitGatewayId_
@@ -118,8 +117,8 @@ newCreateTransitGatewayPeeringAttachment
   pPeerRegion_ =
     CreateTransitGatewayPeeringAttachment'
       { tagSpecifications =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
         transitGatewayId =
           pTransitGatewayId_,
         peerTransitGatewayId =
@@ -129,101 +128,100 @@ newCreateTransitGatewayPeeringAttachment
       }
 
 -- | The tags to apply to the transit gateway peering attachment.
-createTransitGatewayPeeringAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe [TagSpecification])
-createTransitGatewayPeeringAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayPeeringAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayPeeringAttachment) Prelude.. Lens.mapping Prelude._Coerce
+createTransitGatewayPeeringAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Core.Maybe [TagSpecification])
+createTransitGatewayPeeringAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayPeeringAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayPeeringAttachment) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Bool)
+createTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Core.Maybe Core.Bool)
 createTransitGatewayPeeringAttachment_dryRun = Lens.lens (\CreateTransitGatewayPeeringAttachment' {dryRun} -> dryRun) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {dryRun = a} :: CreateTransitGatewayPeeringAttachment)
 
 -- | The ID of the transit gateway.
-createTransitGatewayPeeringAttachment_transitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Prelude.Text
+createTransitGatewayPeeringAttachment_transitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Core.Text
 createTransitGatewayPeeringAttachment_transitGatewayId = Lens.lens (\CreateTransitGatewayPeeringAttachment' {transitGatewayId} -> transitGatewayId) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {transitGatewayId = a} :: CreateTransitGatewayPeeringAttachment)
 
 -- | The ID of the peer transit gateway with which to create the peering
 -- attachment.
-createTransitGatewayPeeringAttachment_peerTransitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Prelude.Text
+createTransitGatewayPeeringAttachment_peerTransitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Core.Text
 createTransitGatewayPeeringAttachment_peerTransitGatewayId = Lens.lens (\CreateTransitGatewayPeeringAttachment' {peerTransitGatewayId} -> peerTransitGatewayId) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {peerTransitGatewayId = a} :: CreateTransitGatewayPeeringAttachment)
 
 -- | The AWS account ID of the owner of the peer transit gateway.
-createTransitGatewayPeeringAttachment_peerAccountId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Prelude.Text
+createTransitGatewayPeeringAttachment_peerAccountId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Core.Text
 createTransitGatewayPeeringAttachment_peerAccountId = Lens.lens (\CreateTransitGatewayPeeringAttachment' {peerAccountId} -> peerAccountId) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {peerAccountId = a} :: CreateTransitGatewayPeeringAttachment)
 
 -- | The Region where the peer transit gateway is located.
-createTransitGatewayPeeringAttachment_peerRegion :: Lens.Lens' CreateTransitGatewayPeeringAttachment Prelude.Text
+createTransitGatewayPeeringAttachment_peerRegion :: Lens.Lens' CreateTransitGatewayPeeringAttachment Core.Text
 createTransitGatewayPeeringAttachment_peerRegion = Lens.lens (\CreateTransitGatewayPeeringAttachment' {peerRegion} -> peerRegion) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {peerRegion = a} :: CreateTransitGatewayPeeringAttachment)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateTransitGatewayPeeringAttachment
   where
   type
-    Rs CreateTransitGatewayPeeringAttachment =
+    AWSResponse
+      CreateTransitGatewayPeeringAttachment =
       CreateTransitGatewayPeeringAttachmentResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayPeeringAttachmentResponse'
-            Prelude.<$> (x Prelude..@? "transitGatewayPeeringAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayPeeringAttachment")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateTransitGatewayPeeringAttachment
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTransitGatewayPeeringAttachment
 
 instance
-  Prelude.ToHeaders
-    CreateTransitGatewayPeeringAttachment
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     CreateTransitGatewayPeeringAttachment
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    CreateTransitGatewayPeeringAttachment
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     CreateTransitGatewayPeeringAttachment
   where
   toQuery CreateTransitGatewayPeeringAttachment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateTransitGatewayPeeringAttachment" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ( "CreateTransitGatewayPeeringAttachment" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "TransitGatewayId" Prelude.=: transitGatewayId,
-        "PeerTransitGatewayId"
-          Prelude.=: peerTransitGatewayId,
-        "PeerAccountId" Prelude.=: peerAccountId,
-        "PeerRegion" Prelude.=: peerRegion
+        "DryRun" Core.=: dryRun,
+        "TransitGatewayId" Core.=: transitGatewayId,
+        "PeerTransitGatewayId" Core.=: peerTransitGatewayId,
+        "PeerAccountId" Core.=: peerAccountId,
+        "PeerRegion" Core.=: peerRegion
       ]
 
 -- | /See:/ 'newCreateTransitGatewayPeeringAttachmentResponse' smart constructor.
 data CreateTransitGatewayPeeringAttachmentResponse = CreateTransitGatewayPeeringAttachmentResponse'
   { -- | The transit gateway peering attachment.
-    transitGatewayPeeringAttachment :: Prelude.Maybe TransitGatewayPeeringAttachment,
+    transitGatewayPeeringAttachment :: Core.Maybe TransitGatewayPeeringAttachment,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayPeeringAttachmentResponse' with all optional fields omitted.
@@ -238,24 +236,24 @@ data CreateTransitGatewayPeeringAttachmentResponse = CreateTransitGatewayPeering
 -- 'httpStatus', 'createTransitGatewayPeeringAttachmentResponse_httpStatus' - The response's http status code.
 newCreateTransitGatewayPeeringAttachmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTransitGatewayPeeringAttachmentResponse
 newCreateTransitGatewayPeeringAttachmentResponse
   pHttpStatus_ =
     CreateTransitGatewayPeeringAttachmentResponse'
       { transitGatewayPeeringAttachment =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The transit gateway peering attachment.
-createTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse (Prelude.Maybe TransitGatewayPeeringAttachment)
+createTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse (Core.Maybe TransitGatewayPeeringAttachment)
 createTransitGatewayPeeringAttachmentResponse_transitGatewayPeeringAttachment = Lens.lens (\CreateTransitGatewayPeeringAttachmentResponse' {transitGatewayPeeringAttachment} -> transitGatewayPeeringAttachment) (\s@CreateTransitGatewayPeeringAttachmentResponse' {} a -> s {transitGatewayPeeringAttachment = a} :: CreateTransitGatewayPeeringAttachmentResponse)
 
 -- | The response's http status code.
-createTransitGatewayPeeringAttachmentResponse_httpStatus :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse Prelude.Int
+createTransitGatewayPeeringAttachmentResponse_httpStatus :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse Core.Int
 createTransitGatewayPeeringAttachmentResponse_httpStatus = Lens.lens (\CreateTransitGatewayPeeringAttachmentResponse' {httpStatus} -> httpStatus) (\s@CreateTransitGatewayPeeringAttachmentResponse' {} a -> s {httpStatus = a} :: CreateTransitGatewayPeeringAttachmentResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTransitGatewayPeeringAttachmentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.IAM.DeleteSAMLProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSAMLProvider' smart constructor.
 data DeleteSAMLProvider = DeleteSAMLProvider'
   { -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-    sAMLProviderArn :: Prelude.Text
+    sAMLProviderArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSAMLProvider' with all optional fields omitted.
@@ -68,7 +67,7 @@ data DeleteSAMLProvider = DeleteSAMLProvider'
 -- 'sAMLProviderArn', 'deleteSAMLProvider_sAMLProviderArn' - The Amazon Resource Name (ARN) of the SAML provider to delete.
 newDeleteSAMLProvider ::
   -- | 'sAMLProviderArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSAMLProvider
 newDeleteSAMLProvider pSAMLProviderArn_ =
   DeleteSAMLProvider'
@@ -77,42 +76,41 @@ newDeleteSAMLProvider pSAMLProviderArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-deleteSAMLProvider_sAMLProviderArn :: Lens.Lens' DeleteSAMLProvider Prelude.Text
+deleteSAMLProvider_sAMLProviderArn :: Lens.Lens' DeleteSAMLProvider Core.Text
 deleteSAMLProvider_sAMLProviderArn = Lens.lens (\DeleteSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@DeleteSAMLProvider' {} a -> s {sAMLProviderArn = a} :: DeleteSAMLProvider)
 
-instance Prelude.AWSRequest DeleteSAMLProvider where
+instance Core.AWSRequest DeleteSAMLProvider where
   type
-    Rs DeleteSAMLProvider =
+    AWSResponse DeleteSAMLProvider =
       DeleteSAMLProviderResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteSAMLProviderResponse'
 
-instance Prelude.Hashable DeleteSAMLProvider
+instance Core.Hashable DeleteSAMLProvider
 
-instance Prelude.NFData DeleteSAMLProvider
+instance Core.NFData DeleteSAMLProvider
 
-instance Prelude.ToHeaders DeleteSAMLProvider where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteSAMLProvider where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteSAMLProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSAMLProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSAMLProvider where
+instance Core.ToQuery DeleteSAMLProvider where
   toQuery DeleteSAMLProvider' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteSAMLProvider" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "SAMLProviderArn" Prelude.=: sAMLProviderArn
+          Core.=: ("DeleteSAMLProvider" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "SAMLProviderArn" Core.=: sAMLProviderArn
       ]
 
 -- | /See:/ 'newDeleteSAMLProviderResponse' smart constructor.
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSAMLProviderResponse' with all optional fields omitted.
@@ -123,4 +121,4 @@ newDeleteSAMLProviderResponse ::
 newDeleteSAMLProviderResponse =
   DeleteSAMLProviderResponse'
 
-instance Prelude.NFData DeleteSAMLProviderResponse
+instance Core.NFData DeleteSAMLProviderResponse

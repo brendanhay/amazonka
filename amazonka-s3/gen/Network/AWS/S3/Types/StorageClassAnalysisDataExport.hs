@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.StorageClassAnalysisDataExport where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsExportDestination
 import Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion
@@ -37,7 +36,7 @@ data StorageClassAnalysisDataExport = StorageClassAnalysisDataExport'
     -- | The place to store the data for an analysis.
     destination :: AnalyticsExportDestination
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StorageClassAnalysisDataExport' with all optional fields omitted.
@@ -75,27 +74,19 @@ storageClassAnalysisDataExport_outputSchemaVersion = Lens.lens (\StorageClassAna
 storageClassAnalysisDataExport_destination :: Lens.Lens' StorageClassAnalysisDataExport AnalyticsExportDestination
 storageClassAnalysisDataExport_destination = Lens.lens (\StorageClassAnalysisDataExport' {destination} -> destination) (\s@StorageClassAnalysisDataExport' {} a -> s {destination = a} :: StorageClassAnalysisDataExport)
 
-instance
-  Prelude.FromXML
-    StorageClassAnalysisDataExport
-  where
+instance Core.FromXML StorageClassAnalysisDataExport where
   parseXML x =
     StorageClassAnalysisDataExport'
-      Prelude.<$> (x Prelude..@ "OutputSchemaVersion")
-      Prelude.<*> (x Prelude..@ "Destination")
+      Core.<$> (x Core..@ "OutputSchemaVersion")
+      Core.<*> (x Core..@ "Destination")
 
-instance
-  Prelude.Hashable
-    StorageClassAnalysisDataExport
+instance Core.Hashable StorageClassAnalysisDataExport
 
-instance
-  Prelude.NFData
-    StorageClassAnalysisDataExport
+instance Core.NFData StorageClassAnalysisDataExport
 
-instance Prelude.ToXML StorageClassAnalysisDataExport where
+instance Core.ToXML StorageClassAnalysisDataExport where
   toXML StorageClassAnalysisDataExport' {..} =
-    Prelude.mconcat
-      [ "OutputSchemaVersion"
-          Prelude.@= outputSchemaVersion,
-        "Destination" Prelude.@= destination
+    Core.mconcat
+      [ "OutputSchemaVersion" Core.@= outputSchemaVersion,
+        "Destination" Core.@= destination
       ]

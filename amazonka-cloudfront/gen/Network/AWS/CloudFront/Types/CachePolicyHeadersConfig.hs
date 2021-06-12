@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.CachePolicyHeadersConfig where
 
 import Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior
 import Network.AWS.CloudFront.Types.Headers
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any HTTP headers (and if so, which
 -- headers) are included in the cache key and automatically included in
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCachePolicyHeadersConfig' smart constructor.
 data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
-  { headers :: Prelude.Maybe Headers,
+  { headers :: Core.Maybe Headers,
     -- | Determines whether any HTTP headers are included in the cache key and
     -- automatically included in requests that CloudFront sends to the origin.
     -- Valid values are:
@@ -47,7 +46,7 @@ data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
     --     requests that CloudFront sends to the origin.
     headerBehavior :: CachePolicyHeaderBehavior
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CachePolicyHeadersConfig' with all optional fields omitted.
@@ -78,13 +77,12 @@ newCachePolicyHeadersConfig ::
   CachePolicyHeadersConfig
 newCachePolicyHeadersConfig pHeaderBehavior_ =
   CachePolicyHeadersConfig'
-    { headers =
-        Prelude.Nothing,
+    { headers = Core.Nothing,
       headerBehavior = pHeaderBehavior_
     }
 
 -- | Undocumented member.
-cachePolicyHeadersConfig_headers :: Lens.Lens' CachePolicyHeadersConfig (Prelude.Maybe Headers)
+cachePolicyHeadersConfig_headers :: Lens.Lens' CachePolicyHeadersConfig (Core.Maybe Headers)
 cachePolicyHeadersConfig_headers = Lens.lens (\CachePolicyHeadersConfig' {headers} -> headers) (\s@CachePolicyHeadersConfig' {} a -> s {headers = a} :: CachePolicyHeadersConfig)
 
 -- | Determines whether any HTTP headers are included in the cache key and
@@ -103,19 +101,19 @@ cachePolicyHeadersConfig_headers = Lens.lens (\CachePolicyHeadersConfig' {header
 cachePolicyHeadersConfig_headerBehavior :: Lens.Lens' CachePolicyHeadersConfig CachePolicyHeaderBehavior
 cachePolicyHeadersConfig_headerBehavior = Lens.lens (\CachePolicyHeadersConfig' {headerBehavior} -> headerBehavior) (\s@CachePolicyHeadersConfig' {} a -> s {headerBehavior = a} :: CachePolicyHeadersConfig)
 
-instance Prelude.FromXML CachePolicyHeadersConfig where
+instance Core.FromXML CachePolicyHeadersConfig where
   parseXML x =
     CachePolicyHeadersConfig'
-      Prelude.<$> (x Prelude..@? "Headers")
-      Prelude.<*> (x Prelude..@ "HeaderBehavior")
+      Core.<$> (x Core..@? "Headers")
+      Core.<*> (x Core..@ "HeaderBehavior")
 
-instance Prelude.Hashable CachePolicyHeadersConfig
+instance Core.Hashable CachePolicyHeadersConfig
 
-instance Prelude.NFData CachePolicyHeadersConfig
+instance Core.NFData CachePolicyHeadersConfig
 
-instance Prelude.ToXML CachePolicyHeadersConfig where
+instance Core.ToXML CachePolicyHeadersConfig where
   toXML CachePolicyHeadersConfig' {..} =
-    Prelude.mconcat
-      [ "Headers" Prelude.@= headers,
-        "HeaderBehavior" Prelude.@= headerBehavior
+    Core.mconcat
+      [ "Headers" Core.@= headers,
+        "HeaderBehavior" Core.@= headerBehavior
       ]

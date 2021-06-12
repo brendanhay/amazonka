@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudSearch.Types.ScalingParametersStatus where
 
 import Network.AWS.CloudSearch.Types.OptionStatus
 import Network.AWS.CloudSearch.Types.ScalingParameters
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status and configuration of a search domain\'s scaling parameters.
 --
@@ -32,7 +31,7 @@ data ScalingParametersStatus = ScalingParametersStatus'
   { options :: ScalingParameters,
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingParametersStatus' with all optional fields omitted.
@@ -65,12 +64,11 @@ scalingParametersStatus_options = Lens.lens (\ScalingParametersStatus' {options}
 scalingParametersStatus_status :: Lens.Lens' ScalingParametersStatus OptionStatus
 scalingParametersStatus_status = Lens.lens (\ScalingParametersStatus' {status} -> status) (\s@ScalingParametersStatus' {} a -> s {status = a} :: ScalingParametersStatus)
 
-instance Prelude.FromXML ScalingParametersStatus where
+instance Core.FromXML ScalingParametersStatus where
   parseXML x =
     ScalingParametersStatus'
-      Prelude.<$> (x Prelude..@ "Options")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable ScalingParametersStatus
+instance Core.Hashable ScalingParametersStatus
 
-instance Prelude.NFData ScalingParametersStatus
+instance Core.NFData ScalingParametersStatus

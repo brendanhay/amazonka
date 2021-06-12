@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,10 +60,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateScalingParameters' smart constructor.
 data UpdateScalingParameters = UpdateScalingParameters'
-  { domainName :: Prelude.Text,
+  { domainName :: Core.Text,
     scalingParameters :: ScalingParameters
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingParameters' with all optional fields omitted.
@@ -79,7 +78,7 @@ data UpdateScalingParameters = UpdateScalingParameters'
 -- 'scalingParameters', 'updateScalingParameters_scalingParameters' - Undocumented member.
 newUpdateScalingParameters ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalingParameters'
   ScalingParameters ->
   UpdateScalingParameters
@@ -92,16 +91,16 @@ newUpdateScalingParameters
       }
 
 -- | Undocumented member.
-updateScalingParameters_domainName :: Lens.Lens' UpdateScalingParameters Prelude.Text
+updateScalingParameters_domainName :: Lens.Lens' UpdateScalingParameters Core.Text
 updateScalingParameters_domainName = Lens.lens (\UpdateScalingParameters' {domainName} -> domainName) (\s@UpdateScalingParameters' {} a -> s {domainName = a} :: UpdateScalingParameters)
 
 -- | Undocumented member.
 updateScalingParameters_scalingParameters :: Lens.Lens' UpdateScalingParameters ScalingParameters
 updateScalingParameters_scalingParameters = Lens.lens (\UpdateScalingParameters' {scalingParameters} -> scalingParameters) (\s@UpdateScalingParameters' {} a -> s {scalingParameters = a} :: UpdateScalingParameters)
 
-instance Prelude.AWSRequest UpdateScalingParameters where
+instance Core.AWSRequest UpdateScalingParameters where
   type
-    Rs UpdateScalingParameters =
+    AWSResponse UpdateScalingParameters =
       UpdateScalingParametersResponse
   request = Request.postQuery defaultService
   response =
@@ -109,29 +108,28 @@ instance Prelude.AWSRequest UpdateScalingParameters where
       "UpdateScalingParametersResult"
       ( \s h x ->
           UpdateScalingParametersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ScalingParameters")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ScalingParameters")
       )
 
-instance Prelude.Hashable UpdateScalingParameters
+instance Core.Hashable UpdateScalingParameters
 
-instance Prelude.NFData UpdateScalingParameters
+instance Core.NFData UpdateScalingParameters
 
-instance Prelude.ToHeaders UpdateScalingParameters where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateScalingParameters where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateScalingParameters where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateScalingParameters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateScalingParameters where
+instance Core.ToQuery UpdateScalingParameters where
   toQuery UpdateScalingParameters' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateScalingParameters" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName,
-        "ScalingParameters" Prelude.=: scalingParameters
+          Core.=: ("UpdateScalingParameters" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName,
+        "ScalingParameters" Core.=: scalingParameters
       ]
 
 -- | The result of a @UpdateScalingParameters@ request. Contains the status
@@ -140,10 +138,10 @@ instance Prelude.ToQuery UpdateScalingParameters where
 -- /See:/ 'newUpdateScalingParametersResponse' smart constructor.
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     scalingParameters :: ScalingParametersStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingParametersResponse' with all optional fields omitted.
@@ -158,7 +156,7 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
 -- 'scalingParameters', 'updateScalingParametersResponse_scalingParameters' - Undocumented member.
 newUpdateScalingParametersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'scalingParameters'
   ScalingParametersStatus ->
   UpdateScalingParametersResponse
@@ -172,13 +170,11 @@ newUpdateScalingParametersResponse
       }
 
 -- | The response's http status code.
-updateScalingParametersResponse_httpStatus :: Lens.Lens' UpdateScalingParametersResponse Prelude.Int
+updateScalingParametersResponse_httpStatus :: Lens.Lens' UpdateScalingParametersResponse Core.Int
 updateScalingParametersResponse_httpStatus = Lens.lens (\UpdateScalingParametersResponse' {httpStatus} -> httpStatus) (\s@UpdateScalingParametersResponse' {} a -> s {httpStatus = a} :: UpdateScalingParametersResponse)
 
 -- | Undocumented member.
 updateScalingParametersResponse_scalingParameters :: Lens.Lens' UpdateScalingParametersResponse ScalingParametersStatus
 updateScalingParametersResponse_scalingParameters = Lens.lens (\UpdateScalingParametersResponse' {scalingParameters} -> scalingParameters) (\s@UpdateScalingParametersResponse' {} a -> s {scalingParameters = a} :: UpdateScalingParametersResponse)
 
-instance
-  Prelude.NFData
-    UpdateScalingParametersResponse
+instance Core.NFData UpdateScalingParametersResponse

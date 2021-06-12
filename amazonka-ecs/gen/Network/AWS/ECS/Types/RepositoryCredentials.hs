@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.RepositoryCredentials where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The repository credentials for private registry authentication.
 --
@@ -35,9 +34,9 @@ data RepositoryCredentials = RepositoryCredentials'
     -- you can use either the full ARN or the name of the secret. When you are
     -- using the AWS Management Console, you must specify the full ARN of the
     -- secret.
-    credentialsParameter :: Prelude.Text
+    credentialsParameter :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RepositoryCredentials' with all optional fields omitted.
@@ -57,7 +56,7 @@ data RepositoryCredentials = RepositoryCredentials'
 -- secret.
 newRepositoryCredentials ::
   -- | 'credentialsParameter'
-  Prelude.Text ->
+  Core.Text ->
   RepositoryCredentials
 newRepositoryCredentials pCredentialsParameter_ =
   RepositoryCredentials'
@@ -73,29 +72,29 @@ newRepositoryCredentials pCredentialsParameter_ =
 -- you can use either the full ARN or the name of the secret. When you are
 -- using the AWS Management Console, you must specify the full ARN of the
 -- secret.
-repositoryCredentials_credentialsParameter :: Lens.Lens' RepositoryCredentials Prelude.Text
+repositoryCredentials_credentialsParameter :: Lens.Lens' RepositoryCredentials Core.Text
 repositoryCredentials_credentialsParameter = Lens.lens (\RepositoryCredentials' {credentialsParameter} -> credentialsParameter) (\s@RepositoryCredentials' {} a -> s {credentialsParameter = a} :: RepositoryCredentials)
 
-instance Prelude.FromJSON RepositoryCredentials where
+instance Core.FromJSON RepositoryCredentials where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RepositoryCredentials"
       ( \x ->
           RepositoryCredentials'
-            Prelude.<$> (x Prelude..: "credentialsParameter")
+            Core.<$> (x Core..: "credentialsParameter")
       )
 
-instance Prelude.Hashable RepositoryCredentials
+instance Core.Hashable RepositoryCredentials
 
-instance Prelude.NFData RepositoryCredentials
+instance Core.NFData RepositoryCredentials
 
-instance Prelude.ToJSON RepositoryCredentials where
+instance Core.ToJSON RepositoryCredentials where
   toJSON RepositoryCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "credentialsParameter"
-                  Prelude..= credentialsParameter
+                  Core..= credentialsParameter
               )
           ]
       )

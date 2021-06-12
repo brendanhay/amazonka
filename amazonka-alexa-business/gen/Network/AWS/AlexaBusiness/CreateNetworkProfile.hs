@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.AlexaBusiness.CreateNetworkProfile
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,35 +60,35 @@ data CreateNetworkProfile = CreateNetworkProfile'
   { -- | The ARN of the Private Certificate Authority (PCA) created in AWS
     -- Certificate Manager (ACM). This is used to issue certificates to the
     -- devices.
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    certificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The root certificates of your authentication server that is installed on
     -- your devices and used to trust your authentication server during EAP
     -- negotiation.
-    trustAnchors :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    trustAnchors :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The current password of the Wi-Fi network.
-    currentPassword :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    currentPassword :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The authentication standard that is used in the EAP framework.
     -- Currently, EAP_TLS is supported.
-    eapMethod :: Prelude.Maybe NetworkEapMethod,
+    eapMethod :: Core.Maybe NetworkEapMethod,
     -- | The tags to be added to the specified resource. Do not provide system
     -- tags.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Detailed information about a device\'s network profile.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The next, or subsequent, password of the Wi-Fi network. This password is
     -- asynchronously transmitted to the device and is used when the password
     -- of the network changes to NextPassword.
-    nextPassword :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    nextPassword :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The name of the network profile associated with a device.
-    networkProfileName :: Prelude.Text,
+    networkProfileName :: Core.Text,
     -- | The SSID of the Wi-Fi network.
-    ssid :: Prelude.Text,
+    ssid :: Core.Text,
     -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
     -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
     securityType :: NetworkSecurityType,
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkProfile' with all optional fields omitted.
@@ -131,13 +130,13 @@ data CreateNetworkProfile = CreateNetworkProfile'
 -- 'clientRequestToken', 'createNetworkProfile_clientRequestToken' - Undocumented member.
 newCreateNetworkProfile ::
   -- | 'networkProfileName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ssid'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'securityType'
   NetworkSecurityType ->
   -- | 'clientRequestToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateNetworkProfile
 newCreateNetworkProfile
   pNetworkProfileName_
@@ -146,13 +145,13 @@ newCreateNetworkProfile
   pClientRequestToken_ =
     CreateNetworkProfile'
       { certificateAuthorityArn =
-          Prelude.Nothing,
-        trustAnchors = Prelude.Nothing,
-        currentPassword = Prelude.Nothing,
-        eapMethod = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        description = Prelude.Nothing,
-        nextPassword = Prelude.Nothing,
+          Core.Nothing,
+        trustAnchors = Core.Nothing,
+        currentPassword = Core.Nothing,
+        eapMethod = Core.Nothing,
+        tags = Core.Nothing,
+        description = Core.Nothing,
+        nextPassword = Core.Nothing,
         networkProfileName = pNetworkProfileName_,
         ssid = pSsid_,
         securityType = pSecurityType_,
@@ -162,45 +161,45 @@ newCreateNetworkProfile
 -- | The ARN of the Private Certificate Authority (PCA) created in AWS
 -- Certificate Manager (ACM). This is used to issue certificates to the
 -- devices.
-createNetworkProfile_certificateAuthorityArn :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
+createNetworkProfile_certificateAuthorityArn :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Text)
 createNetworkProfile_certificateAuthorityArn = Lens.lens (\CreateNetworkProfile' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreateNetworkProfile' {} a -> s {certificateAuthorityArn = a} :: CreateNetworkProfile)
 
 -- | The root certificates of your authentication server that is installed on
 -- your devices and used to trust your authentication server during EAP
 -- negotiation.
-createNetworkProfile_trustAnchors :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createNetworkProfile_trustAnchors = Lens.lens (\CreateNetworkProfile' {trustAnchors} -> trustAnchors) (\s@CreateNetworkProfile' {} a -> s {trustAnchors = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Prelude._Coerce
+createNetworkProfile_trustAnchors :: Lens.Lens' CreateNetworkProfile (Core.Maybe (Core.NonEmpty Core.Text))
+createNetworkProfile_trustAnchors = Lens.lens (\CreateNetworkProfile' {trustAnchors} -> trustAnchors) (\s@CreateNetworkProfile' {} a -> s {trustAnchors = a} :: CreateNetworkProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The current password of the Wi-Fi network.
-createNetworkProfile_currentPassword :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
-createNetworkProfile_currentPassword = Lens.lens (\CreateNetworkProfile' {currentPassword} -> currentPassword) (\s@CreateNetworkProfile' {} a -> s {currentPassword = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Prelude._Sensitive
+createNetworkProfile_currentPassword :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Text)
+createNetworkProfile_currentPassword = Lens.lens (\CreateNetworkProfile' {currentPassword} -> currentPassword) (\s@CreateNetworkProfile' {} a -> s {currentPassword = a} :: CreateNetworkProfile) Core.. Lens.mapping Core._Sensitive
 
 -- | The authentication standard that is used in the EAP framework.
 -- Currently, EAP_TLS is supported.
-createNetworkProfile_eapMethod :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe NetworkEapMethod)
+createNetworkProfile_eapMethod :: Lens.Lens' CreateNetworkProfile (Core.Maybe NetworkEapMethod)
 createNetworkProfile_eapMethod = Lens.lens (\CreateNetworkProfile' {eapMethod} -> eapMethod) (\s@CreateNetworkProfile' {} a -> s {eapMethod = a} :: CreateNetworkProfile)
 
 -- | The tags to be added to the specified resource. Do not provide system
 -- tags.
-createNetworkProfile_tags :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe [Tag])
-createNetworkProfile_tags = Lens.lens (\CreateNetworkProfile' {tags} -> tags) (\s@CreateNetworkProfile' {} a -> s {tags = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Prelude._Coerce
+createNetworkProfile_tags :: Lens.Lens' CreateNetworkProfile (Core.Maybe [Tag])
+createNetworkProfile_tags = Lens.lens (\CreateNetworkProfile' {tags} -> tags) (\s@CreateNetworkProfile' {} a -> s {tags = a} :: CreateNetworkProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | Detailed information about a device\'s network profile.
-createNetworkProfile_description :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
+createNetworkProfile_description :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Text)
 createNetworkProfile_description = Lens.lens (\CreateNetworkProfile' {description} -> description) (\s@CreateNetworkProfile' {} a -> s {description = a} :: CreateNetworkProfile)
 
 -- | The next, or subsequent, password of the Wi-Fi network. This password is
 -- asynchronously transmitted to the device and is used when the password
 -- of the network changes to NextPassword.
-createNetworkProfile_nextPassword :: Lens.Lens' CreateNetworkProfile (Prelude.Maybe Prelude.Text)
-createNetworkProfile_nextPassword = Lens.lens (\CreateNetworkProfile' {nextPassword} -> nextPassword) (\s@CreateNetworkProfile' {} a -> s {nextPassword = a} :: CreateNetworkProfile) Prelude.. Lens.mapping Prelude._Sensitive
+createNetworkProfile_nextPassword :: Lens.Lens' CreateNetworkProfile (Core.Maybe Core.Text)
+createNetworkProfile_nextPassword = Lens.lens (\CreateNetworkProfile' {nextPassword} -> nextPassword) (\s@CreateNetworkProfile' {} a -> s {nextPassword = a} :: CreateNetworkProfile) Core.. Lens.mapping Core._Sensitive
 
 -- | The name of the network profile associated with a device.
-createNetworkProfile_networkProfileName :: Lens.Lens' CreateNetworkProfile Prelude.Text
+createNetworkProfile_networkProfileName :: Lens.Lens' CreateNetworkProfile Core.Text
 createNetworkProfile_networkProfileName = Lens.lens (\CreateNetworkProfile' {networkProfileName} -> networkProfileName) (\s@CreateNetworkProfile' {} a -> s {networkProfileName = a} :: CreateNetworkProfile)
 
 -- | The SSID of the Wi-Fi network.
-createNetworkProfile_ssid :: Lens.Lens' CreateNetworkProfile Prelude.Text
+createNetworkProfile_ssid :: Lens.Lens' CreateNetworkProfile Core.Text
 createNetworkProfile_ssid = Lens.lens (\CreateNetworkProfile' {ssid} -> ssid) (\s@CreateNetworkProfile' {} a -> s {ssid = a} :: CreateNetworkProfile)
 
 -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
@@ -209,80 +208,74 @@ createNetworkProfile_securityType :: Lens.Lens' CreateNetworkProfile NetworkSecu
 createNetworkProfile_securityType = Lens.lens (\CreateNetworkProfile' {securityType} -> securityType) (\s@CreateNetworkProfile' {} a -> s {securityType = a} :: CreateNetworkProfile)
 
 -- | Undocumented member.
-createNetworkProfile_clientRequestToken :: Lens.Lens' CreateNetworkProfile Prelude.Text
+createNetworkProfile_clientRequestToken :: Lens.Lens' CreateNetworkProfile Core.Text
 createNetworkProfile_clientRequestToken = Lens.lens (\CreateNetworkProfile' {clientRequestToken} -> clientRequestToken) (\s@CreateNetworkProfile' {} a -> s {clientRequestToken = a} :: CreateNetworkProfile)
 
-instance Prelude.AWSRequest CreateNetworkProfile where
+instance Core.AWSRequest CreateNetworkProfile where
   type
-    Rs CreateNetworkProfile =
+    AWSResponse CreateNetworkProfile =
       CreateNetworkProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateNetworkProfileResponse'
-            Prelude.<$> (x Prelude..?> "NetworkProfileArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NetworkProfileArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkProfile
+instance Core.Hashable CreateNetworkProfile
 
-instance Prelude.NFData CreateNetworkProfile
+instance Core.NFData CreateNetworkProfile
 
-instance Prelude.ToHeaders CreateNetworkProfile where
+instance Core.ToHeaders CreateNetworkProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.CreateNetworkProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.CreateNetworkProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateNetworkProfile where
+instance Core.ToJSON CreateNetworkProfile where
   toJSON CreateNetworkProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CertificateAuthorityArn" Prelude..=)
-              Prelude.<$> certificateAuthorityArn,
-            ("TrustAnchors" Prelude..=) Prelude.<$> trustAnchors,
-            ("CurrentPassword" Prelude..=)
-              Prelude.<$> currentPassword,
-            ("EapMethod" Prelude..=) Prelude.<$> eapMethod,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("NextPassword" Prelude..=) Prelude.<$> nextPassword,
-            Prelude.Just
-              ("NetworkProfileName" Prelude..= networkProfileName),
-            Prelude.Just ("Ssid" Prelude..= ssid),
-            Prelude.Just
-              ("SecurityType" Prelude..= securityType),
-            Prelude.Just
-              ( "ClientRequestToken"
-                  Prelude..= clientRequestToken
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("CertificateAuthorityArn" Core..=)
+              Core.<$> certificateAuthorityArn,
+            ("TrustAnchors" Core..=) Core.<$> trustAnchors,
+            ("CurrentPassword" Core..=) Core.<$> currentPassword,
+            ("EapMethod" Core..=) Core.<$> eapMethod,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            ("NextPassword" Core..=) Core.<$> nextPassword,
+            Core.Just
+              ("NetworkProfileName" Core..= networkProfileName),
+            Core.Just ("Ssid" Core..= ssid),
+            Core.Just ("SecurityType" Core..= securityType),
+            Core.Just
+              ("ClientRequestToken" Core..= clientRequestToken)
           ]
       )
 
-instance Prelude.ToPath CreateNetworkProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateNetworkProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateNetworkProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateNetworkProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateNetworkProfileResponse' smart constructor.
 data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
   { -- | The ARN of the network profile associated with a device.
-    networkProfileArn :: Prelude.Maybe Prelude.Text,
+    networkProfileArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkProfileResponse' with all optional fields omitted.
@@ -297,21 +290,21 @@ data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
 -- 'httpStatus', 'createNetworkProfileResponse_httpStatus' - The response's http status code.
 newCreateNetworkProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateNetworkProfileResponse
 newCreateNetworkProfileResponse pHttpStatus_ =
   CreateNetworkProfileResponse'
     { networkProfileArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the network profile associated with a device.
-createNetworkProfileResponse_networkProfileArn :: Lens.Lens' CreateNetworkProfileResponse (Prelude.Maybe Prelude.Text)
+createNetworkProfileResponse_networkProfileArn :: Lens.Lens' CreateNetworkProfileResponse (Core.Maybe Core.Text)
 createNetworkProfileResponse_networkProfileArn = Lens.lens (\CreateNetworkProfileResponse' {networkProfileArn} -> networkProfileArn) (\s@CreateNetworkProfileResponse' {} a -> s {networkProfileArn = a} :: CreateNetworkProfileResponse)
 
 -- | The response's http status code.
-createNetworkProfileResponse_httpStatus :: Lens.Lens' CreateNetworkProfileResponse Prelude.Int
+createNetworkProfileResponse_httpStatus :: Lens.Lens' CreateNetworkProfileResponse Core.Int
 createNetworkProfileResponse_httpStatus = Lens.lens (\CreateNetworkProfileResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkProfileResponse' {} a -> s {httpStatus = a} :: CreateNetworkProfileResponse)
 
-instance Prelude.NFData CreateNetworkProfileResponse
+instance Core.NFData CreateNetworkProfileResponse

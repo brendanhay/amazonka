@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.IAM.DeleteServiceSpecificCredential
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,16 +52,16 @@ data DeleteServiceSpecificCredential = DeleteServiceSpecificCredential'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | The unique identifier of the service-specific credential. You can get
     -- this value by calling ListServiceSpecificCredentials.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    serviceSpecificCredentialId :: Prelude.Text
+    serviceSpecificCredentialId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceSpecificCredential' with all optional fields omitted.
@@ -89,13 +88,13 @@ data DeleteServiceSpecificCredential = DeleteServiceSpecificCredential'
 -- that can consist of any upper or lowercased letter or digit.
 newDeleteServiceSpecificCredential ::
   -- | 'serviceSpecificCredentialId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteServiceSpecificCredential
 newDeleteServiceSpecificCredential
   pServiceSpecificCredentialId_ =
     DeleteServiceSpecificCredential'
       { userName =
-          Prelude.Nothing,
+          Core.Nothing,
         serviceSpecificCredentialId =
           pServiceSpecificCredentialId_
       }
@@ -108,7 +107,7 @@ newDeleteServiceSpecificCredential
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteServiceSpecificCredential_userName :: Lens.Lens' DeleteServiceSpecificCredential (Prelude.Maybe Prelude.Text)
+deleteServiceSpecificCredential_userName :: Lens.Lens' DeleteServiceSpecificCredential (Core.Maybe Core.Text)
 deleteServiceSpecificCredential_userName = Lens.lens (\DeleteServiceSpecificCredential' {userName} -> userName) (\s@DeleteServiceSpecificCredential' {} a -> s {userName = a} :: DeleteServiceSpecificCredential)
 
 -- | The unique identifier of the service-specific credential. You can get
@@ -117,15 +116,15 @@ deleteServiceSpecificCredential_userName = Lens.lens (\DeleteServiceSpecificCred
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-deleteServiceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' DeleteServiceSpecificCredential Prelude.Text
+deleteServiceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' DeleteServiceSpecificCredential Core.Text
 deleteServiceSpecificCredential_serviceSpecificCredentialId = Lens.lens (\DeleteServiceSpecificCredential' {serviceSpecificCredentialId} -> serviceSpecificCredentialId) (\s@DeleteServiceSpecificCredential' {} a -> s {serviceSpecificCredentialId = a} :: DeleteServiceSpecificCredential)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteServiceSpecificCredential
   where
   type
-    Rs DeleteServiceSpecificCredential =
+    AWSResponse DeleteServiceSpecificCredential =
       DeleteServiceSpecificCredentialResponse
   request = Request.postQuery defaultService
   response =
@@ -133,47 +132,38 @@ instance
       DeleteServiceSpecificCredentialResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteServiceSpecificCredential
 
-instance
-  Prelude.NFData
-    DeleteServiceSpecificCredential
+instance Core.NFData DeleteServiceSpecificCredential
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteServiceSpecificCredential
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteServiceSpecificCredential
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteServiceSpecificCredential where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteServiceSpecificCredential
-  where
+instance Core.ToQuery DeleteServiceSpecificCredential where
   toQuery DeleteServiceSpecificCredential' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteServiceSpecificCredential" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
+          Core.=: ( "DeleteServiceSpecificCredential" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
         "ServiceSpecificCredentialId"
-          Prelude.=: serviceSpecificCredentialId
+          Core.=: serviceSpecificCredentialId
       ]
 
 -- | /See:/ 'newDeleteServiceSpecificCredentialResponse' smart constructor.
 data DeleteServiceSpecificCredentialResponse = DeleteServiceSpecificCredentialResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceSpecificCredentialResponse' with all optional fields omitted.
@@ -185,5 +175,5 @@ newDeleteServiceSpecificCredentialResponse =
   DeleteServiceSpecificCredentialResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteServiceSpecificCredentialResponse

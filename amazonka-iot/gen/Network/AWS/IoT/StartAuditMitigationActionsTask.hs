@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IoT.StartAuditMitigationActionsTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,21 +53,21 @@ import qualified Network.AWS.Response as Response
 data StartAuditMitigationActionsTask = StartAuditMitigationActionsTask'
   { -- | A unique identifier for the task. You can use this identifier to check
     -- the status of the task or to cancel it.
-    taskId :: Prelude.Text,
+    taskId :: Core.Text,
     -- | Specifies the audit findings to which the mitigation actions are
     -- applied. You can apply them to a type of audit check, to all findings
     -- from an audit, or to a specific set of findings.
     target :: AuditMitigationActionsTaskTarget,
     -- | For an audit check, specifies which mitigation actions to apply. Those
     -- actions must be defined in your AWS account.
-    auditCheckToActionsMapping :: Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text),
+    auditCheckToActionsMapping :: Core.HashMap Core.Text (Core.NonEmpty Core.Text),
     -- | Each audit mitigation task must have a unique client request token. If
     -- you try to start a new task with the same token as a task that already
     -- exists, an exception occurs. If you omit this value, a unique client
     -- request token is generated automatically.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAuditMitigationActionsTask' with all optional fields omitted.
@@ -94,11 +93,11 @@ data StartAuditMitigationActionsTask = StartAuditMitigationActionsTask'
 -- request token is generated automatically.
 newStartAuditMitigationActionsTask ::
   -- | 'taskId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'target'
   AuditMitigationActionsTaskTarget ->
   -- | 'clientRequestToken'
-  Prelude.Text ->
+  Core.Text ->
   StartAuditMitigationActionsTask
 newStartAuditMitigationActionsTask
   pTaskId_
@@ -107,14 +106,13 @@ newStartAuditMitigationActionsTask
     StartAuditMitigationActionsTask'
       { taskId = pTaskId_,
         target = pTarget_,
-        auditCheckToActionsMapping =
-          Prelude.mempty,
+        auditCheckToActionsMapping = Core.mempty,
         clientRequestToken = pClientRequestToken_
       }
 
 -- | A unique identifier for the task. You can use this identifier to check
 -- the status of the task or to cancel it.
-startAuditMitigationActionsTask_taskId :: Lens.Lens' StartAuditMitigationActionsTask Prelude.Text
+startAuditMitigationActionsTask_taskId :: Lens.Lens' StartAuditMitigationActionsTask Core.Text
 startAuditMitigationActionsTask_taskId = Lens.lens (\StartAuditMitigationActionsTask' {taskId} -> taskId) (\s@StartAuditMitigationActionsTask' {} a -> s {taskId = a} :: StartAuditMitigationActionsTask)
 
 -- | Specifies the audit findings to which the mitigation actions are
@@ -125,90 +123,75 @@ startAuditMitigationActionsTask_target = Lens.lens (\StartAuditMitigationActions
 
 -- | For an audit check, specifies which mitigation actions to apply. Those
 -- actions must be defined in your AWS account.
-startAuditMitigationActionsTask_auditCheckToActionsMapping :: Lens.Lens' StartAuditMitigationActionsTask (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text))
-startAuditMitigationActionsTask_auditCheckToActionsMapping = Lens.lens (\StartAuditMitigationActionsTask' {auditCheckToActionsMapping} -> auditCheckToActionsMapping) (\s@StartAuditMitigationActionsTask' {} a -> s {auditCheckToActionsMapping = a} :: StartAuditMitigationActionsTask) Prelude.. Prelude._Coerce
+startAuditMitigationActionsTask_auditCheckToActionsMapping :: Lens.Lens' StartAuditMitigationActionsTask (Core.HashMap Core.Text (Core.NonEmpty Core.Text))
+startAuditMitigationActionsTask_auditCheckToActionsMapping = Lens.lens (\StartAuditMitigationActionsTask' {auditCheckToActionsMapping} -> auditCheckToActionsMapping) (\s@StartAuditMitigationActionsTask' {} a -> s {auditCheckToActionsMapping = a} :: StartAuditMitigationActionsTask) Core.. Lens._Coerce
 
 -- | Each audit mitigation task must have a unique client request token. If
 -- you try to start a new task with the same token as a task that already
 -- exists, an exception occurs. If you omit this value, a unique client
 -- request token is generated automatically.
-startAuditMitigationActionsTask_clientRequestToken :: Lens.Lens' StartAuditMitigationActionsTask Prelude.Text
+startAuditMitigationActionsTask_clientRequestToken :: Lens.Lens' StartAuditMitigationActionsTask Core.Text
 startAuditMitigationActionsTask_clientRequestToken = Lens.lens (\StartAuditMitigationActionsTask' {clientRequestToken} -> clientRequestToken) (\s@StartAuditMitigationActionsTask' {} a -> s {clientRequestToken = a} :: StartAuditMitigationActionsTask)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StartAuditMitigationActionsTask
   where
   type
-    Rs StartAuditMitigationActionsTask =
+    AWSResponse StartAuditMitigationActionsTask =
       StartAuditMitigationActionsTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartAuditMitigationActionsTaskResponse'
-            Prelude.<$> (x Prelude..?> "taskId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "taskId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     StartAuditMitigationActionsTask
 
-instance
-  Prelude.NFData
-    StartAuditMitigationActionsTask
+instance Core.NFData StartAuditMitigationActionsTask
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     StartAuditMitigationActionsTask
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToJSON
-    StartAuditMitigationActionsTask
-  where
+instance Core.ToJSON StartAuditMitigationActionsTask where
   toJSON StartAuditMitigationActionsTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("target" Prelude..= target),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("target" Core..= target),
+            Core.Just
               ( "auditCheckToActionsMapping"
-                  Prelude..= auditCheckToActionsMapping
+                  Core..= auditCheckToActionsMapping
               ),
-            Prelude.Just
-              ( "clientRequestToken"
-                  Prelude..= clientRequestToken
-              )
+            Core.Just
+              ("clientRequestToken" Core..= clientRequestToken)
           ]
       )
 
-instance
-  Prelude.ToPath
-    StartAuditMitigationActionsTask
-  where
+instance Core.ToPath StartAuditMitigationActionsTask where
   toPath StartAuditMitigationActionsTask' {..} =
-    Prelude.mconcat
-      [ "/audit/mitigationactions/tasks/",
-        Prelude.toBS taskId
-      ]
+    Core.mconcat
+      ["/audit/mitigationactions/tasks/", Core.toBS taskId]
 
-instance
-  Prelude.ToQuery
-    StartAuditMitigationActionsTask
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartAuditMitigationActionsTask where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartAuditMitigationActionsTaskResponse' smart constructor.
 data StartAuditMitigationActionsTaskResponse = StartAuditMitigationActionsTaskResponse'
   { -- | The unique identifier for the audit mitigation task. This matches the
     -- @taskId@ that you specified in the request.
-    taskId :: Prelude.Maybe Prelude.Text,
+    taskId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAuditMitigationActionsTaskResponse' with all optional fields omitted.
@@ -224,25 +207,25 @@ data StartAuditMitigationActionsTaskResponse = StartAuditMitigationActionsTaskRe
 -- 'httpStatus', 'startAuditMitigationActionsTaskResponse_httpStatus' - The response's http status code.
 newStartAuditMitigationActionsTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartAuditMitigationActionsTaskResponse
 newStartAuditMitigationActionsTaskResponse
   pHttpStatus_ =
     StartAuditMitigationActionsTaskResponse'
       { taskId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The unique identifier for the audit mitigation task. This matches the
 -- @taskId@ that you specified in the request.
-startAuditMitigationActionsTaskResponse_taskId :: Lens.Lens' StartAuditMitigationActionsTaskResponse (Prelude.Maybe Prelude.Text)
+startAuditMitigationActionsTaskResponse_taskId :: Lens.Lens' StartAuditMitigationActionsTaskResponse (Core.Maybe Core.Text)
 startAuditMitigationActionsTaskResponse_taskId = Lens.lens (\StartAuditMitigationActionsTaskResponse' {taskId} -> taskId) (\s@StartAuditMitigationActionsTaskResponse' {} a -> s {taskId = a} :: StartAuditMitigationActionsTaskResponse)
 
 -- | The response's http status code.
-startAuditMitigationActionsTaskResponse_httpStatus :: Lens.Lens' StartAuditMitigationActionsTaskResponse Prelude.Int
+startAuditMitigationActionsTaskResponse_httpStatus :: Lens.Lens' StartAuditMitigationActionsTaskResponse Core.Int
 startAuditMitigationActionsTaskResponse_httpStatus = Lens.lens (\StartAuditMitigationActionsTaskResponse' {httpStatus} -> httpStatus) (\s@StartAuditMitigationActionsTaskResponse' {} a -> s {httpStatus = a} :: StartAuditMitigationActionsTaskResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartAuditMitigationActionsTaskResponse

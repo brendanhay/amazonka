@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.SQS.UntagQueue
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -54,11 +53,11 @@ import Network.AWS.SQS.Types
 -- | /See:/ 'newUntagQueue' smart constructor.
 data UntagQueue = UntagQueue'
   { -- | The URL of the queue.
-    queueUrl :: Prelude.Text,
+    queueUrl :: Core.Text,
     -- | The list of tags to be removed from the specified queue.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagQueue' with all optional fields omitted.
@@ -73,53 +72,51 @@ data UntagQueue = UntagQueue'
 -- 'tagKeys', 'untagQueue_tagKeys' - The list of tags to be removed from the specified queue.
 newUntagQueue ::
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   UntagQueue
 newUntagQueue pQueueUrl_ =
   UntagQueue'
     { queueUrl = pQueueUrl_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The URL of the queue.
-untagQueue_queueUrl :: Lens.Lens' UntagQueue Prelude.Text
+untagQueue_queueUrl :: Lens.Lens' UntagQueue Core.Text
 untagQueue_queueUrl = Lens.lens (\UntagQueue' {queueUrl} -> queueUrl) (\s@UntagQueue' {} a -> s {queueUrl = a} :: UntagQueue)
 
 -- | The list of tags to be removed from the specified queue.
-untagQueue_tagKeys :: Lens.Lens' UntagQueue [Prelude.Text]
-untagQueue_tagKeys = Lens.lens (\UntagQueue' {tagKeys} -> tagKeys) (\s@UntagQueue' {} a -> s {tagKeys = a} :: UntagQueue) Prelude.. Prelude._Coerce
+untagQueue_tagKeys :: Lens.Lens' UntagQueue [Core.Text]
+untagQueue_tagKeys = Lens.lens (\UntagQueue' {tagKeys} -> tagKeys) (\s@UntagQueue' {} a -> s {tagKeys = a} :: UntagQueue) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagQueue where
-  type Rs UntagQueue = UntagQueueResponse
+instance Core.AWSRequest UntagQueue where
+  type AWSResponse UntagQueue = UntagQueueResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagQueueResponse'
 
-instance Prelude.Hashable UntagQueue
+instance Core.Hashable UntagQueue
 
-instance Prelude.NFData UntagQueue
+instance Core.NFData UntagQueue
 
-instance Prelude.ToHeaders UntagQueue where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UntagQueue where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UntagQueue where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagQueue where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagQueue where
+instance Core.ToQuery UntagQueue where
   toQuery UntagQueue' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("UntagQueue" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Prelude.=: queueUrl,
-        Prelude.toQueryList "TagKey" tagKeys
+    Core.mconcat
+      [ "Action" Core.=: ("UntagQueue" :: Core.ByteString),
+        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+        "QueueUrl" Core.=: queueUrl,
+        Core.toQueryList "TagKey" tagKeys
       ]
 
 -- | /See:/ 'newUntagQueueResponse' smart constructor.
 data UntagQueueResponse = UntagQueueResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagQueueResponse' with all optional fields omitted.
@@ -129,4 +126,4 @@ newUntagQueueResponse ::
   UntagQueueResponse
 newUntagQueueResponse = UntagQueueResponse'
 
-instance Prelude.NFData UntagQueueResponse
+instance Core.NFData UntagQueueResponse

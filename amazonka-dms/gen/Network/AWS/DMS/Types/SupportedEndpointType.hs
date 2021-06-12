@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.SupportedEndpointType where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.ReplicationEndpointTypeValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about types of supported endpoints in response to a
 -- request by the @DescribeEndpointTypes@ operation. This information
@@ -34,23 +33,23 @@ data SupportedEndpointType = SupportedEndpointType'
   { -- | The earliest AWS DMS engine version that supports this endpoint engine.
     -- Note that endpoint engines released with AWS DMS versions earlier than
     -- 3.1.1 do not return a value for this parameter.
-    replicationInstanceEngineMinimumVersion :: Prelude.Maybe Prelude.Text,
+    replicationInstanceEngineMinimumVersion :: Core.Maybe Core.Text,
     -- | The database engine name. Valid values, depending on the EndpointType,
     -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
     -- @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@, @\"s3\"@,
     -- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
     -- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
     -- @\"sqlserver\"@, and @\"neptune\"@.
-    engineName :: Prelude.Maybe Prelude.Text,
+    engineName :: Core.Maybe Core.Text,
     -- | The type of endpoint. Valid values are @source@ and @target@.
-    endpointType :: Prelude.Maybe ReplicationEndpointTypeValue,
+    endpointType :: Core.Maybe ReplicationEndpointTypeValue,
     -- | Indicates if Change Data Capture (CDC) is supported.
-    supportsCDC :: Prelude.Maybe Prelude.Bool,
+    supportsCDC :: Core.Maybe Core.Bool,
     -- | The expanded name for the engine name. For example, if the @EngineName@
     -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
-    engineDisplayName :: Prelude.Maybe Prelude.Text
+    engineDisplayName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SupportedEndpointType' with all optional fields omitted.
@@ -82,17 +81,17 @@ newSupportedEndpointType ::
 newSupportedEndpointType =
   SupportedEndpointType'
     { replicationInstanceEngineMinimumVersion =
-        Prelude.Nothing,
-      engineName = Prelude.Nothing,
-      endpointType = Prelude.Nothing,
-      supportsCDC = Prelude.Nothing,
-      engineDisplayName = Prelude.Nothing
+        Core.Nothing,
+      engineName = Core.Nothing,
+      endpointType = Core.Nothing,
+      supportsCDC = Core.Nothing,
+      engineDisplayName = Core.Nothing
     }
 
 -- | The earliest AWS DMS engine version that supports this endpoint engine.
 -- Note that endpoint engines released with AWS DMS versions earlier than
 -- 3.1.1 do not return a value for this parameter.
-supportedEndpointType_replicationInstanceEngineMinimumVersion :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Text)
+supportedEndpointType_replicationInstanceEngineMinimumVersion :: Lens.Lens' SupportedEndpointType (Core.Maybe Core.Text)
 supportedEndpointType_replicationInstanceEngineMinimumVersion = Lens.lens (\SupportedEndpointType' {replicationInstanceEngineMinimumVersion} -> replicationInstanceEngineMinimumVersion) (\s@SupportedEndpointType' {} a -> s {replicationInstanceEngineMinimumVersion = a} :: SupportedEndpointType)
 
 -- | The database engine name. Valid values, depending on the EndpointType,
@@ -101,37 +100,37 @@ supportedEndpointType_replicationInstanceEngineMinimumVersion = Lens.lens (\Supp
 -- @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@, @\"mongodb\"@,
 -- @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@, @\"documentdb\"@,
 -- @\"sqlserver\"@, and @\"neptune\"@.
-supportedEndpointType_engineName :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Text)
+supportedEndpointType_engineName :: Lens.Lens' SupportedEndpointType (Core.Maybe Core.Text)
 supportedEndpointType_engineName = Lens.lens (\SupportedEndpointType' {engineName} -> engineName) (\s@SupportedEndpointType' {} a -> s {engineName = a} :: SupportedEndpointType)
 
 -- | The type of endpoint. Valid values are @source@ and @target@.
-supportedEndpointType_endpointType :: Lens.Lens' SupportedEndpointType (Prelude.Maybe ReplicationEndpointTypeValue)
+supportedEndpointType_endpointType :: Lens.Lens' SupportedEndpointType (Core.Maybe ReplicationEndpointTypeValue)
 supportedEndpointType_endpointType = Lens.lens (\SupportedEndpointType' {endpointType} -> endpointType) (\s@SupportedEndpointType' {} a -> s {endpointType = a} :: SupportedEndpointType)
 
 -- | Indicates if Change Data Capture (CDC) is supported.
-supportedEndpointType_supportsCDC :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Bool)
+supportedEndpointType_supportsCDC :: Lens.Lens' SupportedEndpointType (Core.Maybe Core.Bool)
 supportedEndpointType_supportsCDC = Lens.lens (\SupportedEndpointType' {supportsCDC} -> supportsCDC) (\s@SupportedEndpointType' {} a -> s {supportsCDC = a} :: SupportedEndpointType)
 
 -- | The expanded name for the engine name. For example, if the @EngineName@
 -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
-supportedEndpointType_engineDisplayName :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Text)
+supportedEndpointType_engineDisplayName :: Lens.Lens' SupportedEndpointType (Core.Maybe Core.Text)
 supportedEndpointType_engineDisplayName = Lens.lens (\SupportedEndpointType' {engineDisplayName} -> engineDisplayName) (\s@SupportedEndpointType' {} a -> s {engineDisplayName = a} :: SupportedEndpointType)
 
-instance Prelude.FromJSON SupportedEndpointType where
+instance Core.FromJSON SupportedEndpointType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SupportedEndpointType"
       ( \x ->
           SupportedEndpointType'
-            Prelude.<$> ( x
-                            Prelude..:? "ReplicationInstanceEngineMinimumVersion"
-                        )
-            Prelude.<*> (x Prelude..:? "EngineName")
-            Prelude.<*> (x Prelude..:? "EndpointType")
-            Prelude.<*> (x Prelude..:? "SupportsCDC")
-            Prelude.<*> (x Prelude..:? "EngineDisplayName")
+            Core.<$> ( x
+                         Core..:? "ReplicationInstanceEngineMinimumVersion"
+                     )
+            Core.<*> (x Core..:? "EngineName")
+            Core.<*> (x Core..:? "EndpointType")
+            Core.<*> (x Core..:? "SupportsCDC")
+            Core.<*> (x Core..:? "EngineDisplayName")
       )
 
-instance Prelude.Hashable SupportedEndpointType
+instance Core.Hashable SupportedEndpointType
 
-instance Prelude.NFData SupportedEndpointType
+instance Core.NFData SupportedEndpointType

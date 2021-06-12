@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.Snapshot where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.SnapshotStatus
 import Network.AWS.DirectoryService.Types.SnapshotType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a directory snapshot.
 --
 -- /See:/ 'newSnapshot' smart constructor.
 data Snapshot = Snapshot'
   { -- | The snapshot status.
-    status :: Prelude.Maybe SnapshotStatus,
+    status :: Core.Maybe SnapshotStatus,
     -- | The date and time that the snapshot was taken.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The descriptive name of the snapshot.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The directory identifier.
-    directoryId :: Prelude.Maybe Prelude.Text,
+    directoryId :: Core.Maybe Core.Text,
     -- | The snapshot identifier.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    snapshotId :: Core.Maybe Core.Text,
     -- | The snapshot type.
-    type' :: Prelude.Maybe SnapshotType
+    type' :: Core.Maybe SnapshotType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Snapshot' with all optional fields omitted.
@@ -67,52 +66,52 @@ newSnapshot ::
   Snapshot
 newSnapshot =
   Snapshot'
-    { status = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      name = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { status = Core.Nothing,
+      startTime = Core.Nothing,
+      name = Core.Nothing,
+      directoryId = Core.Nothing,
+      snapshotId = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The snapshot status.
-snapshot_status :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotStatus)
+snapshot_status :: Lens.Lens' Snapshot (Core.Maybe SnapshotStatus)
 snapshot_status = Lens.lens (\Snapshot' {status} -> status) (\s@Snapshot' {} a -> s {status = a} :: Snapshot)
 
 -- | The date and time that the snapshot was taken.
-snapshot_startTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
-snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Prelude.. Lens.mapping Prelude._Time
+snapshot_startTime :: Lens.Lens' Snapshot (Core.Maybe Core.UTCTime)
+snapshot_startTime = Lens.lens (\Snapshot' {startTime} -> startTime) (\s@Snapshot' {} a -> s {startTime = a} :: Snapshot) Core.. Lens.mapping Core._Time
 
 -- | The descriptive name of the snapshot.
-snapshot_name :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_name :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
 snapshot_name = Lens.lens (\Snapshot' {name} -> name) (\s@Snapshot' {} a -> s {name = a} :: Snapshot)
 
 -- | The directory identifier.
-snapshot_directoryId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_directoryId :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
 snapshot_directoryId = Lens.lens (\Snapshot' {directoryId} -> directoryId) (\s@Snapshot' {} a -> s {directoryId = a} :: Snapshot)
 
 -- | The snapshot identifier.
-snapshot_snapshotId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
+snapshot_snapshotId :: Lens.Lens' Snapshot (Core.Maybe Core.Text)
 snapshot_snapshotId = Lens.lens (\Snapshot' {snapshotId} -> snapshotId) (\s@Snapshot' {} a -> s {snapshotId = a} :: Snapshot)
 
 -- | The snapshot type.
-snapshot_type :: Lens.Lens' Snapshot (Prelude.Maybe SnapshotType)
+snapshot_type :: Lens.Lens' Snapshot (Core.Maybe SnapshotType)
 snapshot_type = Lens.lens (\Snapshot' {type'} -> type') (\s@Snapshot' {} a -> s {type' = a} :: Snapshot)
 
-instance Prelude.FromJSON Snapshot where
+instance Core.FromJSON Snapshot where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "DirectoryId")
-            Prelude.<*> (x Prelude..:? "SnapshotId")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "DirectoryId")
+            Core.<*> (x Core..:? "SnapshotId")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Snapshot
+instance Core.Hashable Snapshot
 
-instance Prelude.NFData Snapshot
+instance Core.NFData Snapshot

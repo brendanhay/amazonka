@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SSM.UpdateDocumentMetadata
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,13 +50,13 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newUpdateDocumentMetadata' smart constructor.
 data UpdateDocumentMetadata = UpdateDocumentMetadata'
   { -- | The version of a document to update.
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    documentVersion :: Core.Maybe Core.Text,
     -- | The name of the document for which a version is to be updated.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The document review details to update.
     documentReviews :: DocumentReviews
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentMetadata' with all optional fields omitted.
@@ -74,85 +73,83 @@ data UpdateDocumentMetadata = UpdateDocumentMetadata'
 -- 'documentReviews', 'updateDocumentMetadata_documentReviews' - The document review details to update.
 newUpdateDocumentMetadata ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'documentReviews'
   DocumentReviews ->
   UpdateDocumentMetadata
 newUpdateDocumentMetadata pName_ pDocumentReviews_ =
   UpdateDocumentMetadata'
     { documentVersion =
-        Prelude.Nothing,
+        Core.Nothing,
       name = pName_,
       documentReviews = pDocumentReviews_
     }
 
 -- | The version of a document to update.
-updateDocumentMetadata_documentVersion :: Lens.Lens' UpdateDocumentMetadata (Prelude.Maybe Prelude.Text)
+updateDocumentMetadata_documentVersion :: Lens.Lens' UpdateDocumentMetadata (Core.Maybe Core.Text)
 updateDocumentMetadata_documentVersion = Lens.lens (\UpdateDocumentMetadata' {documentVersion} -> documentVersion) (\s@UpdateDocumentMetadata' {} a -> s {documentVersion = a} :: UpdateDocumentMetadata)
 
 -- | The name of the document for which a version is to be updated.
-updateDocumentMetadata_name :: Lens.Lens' UpdateDocumentMetadata Prelude.Text
+updateDocumentMetadata_name :: Lens.Lens' UpdateDocumentMetadata Core.Text
 updateDocumentMetadata_name = Lens.lens (\UpdateDocumentMetadata' {name} -> name) (\s@UpdateDocumentMetadata' {} a -> s {name = a} :: UpdateDocumentMetadata)
 
 -- | The document review details to update.
 updateDocumentMetadata_documentReviews :: Lens.Lens' UpdateDocumentMetadata DocumentReviews
 updateDocumentMetadata_documentReviews = Lens.lens (\UpdateDocumentMetadata' {documentReviews} -> documentReviews) (\s@UpdateDocumentMetadata' {} a -> s {documentReviews = a} :: UpdateDocumentMetadata)
 
-instance Prelude.AWSRequest UpdateDocumentMetadata where
+instance Core.AWSRequest UpdateDocumentMetadata where
   type
-    Rs UpdateDocumentMetadata =
+    AWSResponse UpdateDocumentMetadata =
       UpdateDocumentMetadataResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDocumentMetadataResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDocumentMetadata
+instance Core.Hashable UpdateDocumentMetadata
 
-instance Prelude.NFData UpdateDocumentMetadata
+instance Core.NFData UpdateDocumentMetadata
 
-instance Prelude.ToHeaders UpdateDocumentMetadata where
+instance Core.ToHeaders UpdateDocumentMetadata where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.UpdateDocumentMetadata" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.UpdateDocumentMetadata" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDocumentMetadata where
+instance Core.ToJSON UpdateDocumentMetadata where
   toJSON UpdateDocumentMetadata' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DocumentVersion" Prelude..=)
-              Prelude.<$> documentVersion,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("DocumentReviews" Prelude..= documentReviews)
+    Core.object
+      ( Core.catMaybes
+          [ ("DocumentVersion" Core..=)
+              Core.<$> documentVersion,
+            Core.Just ("Name" Core..= name),
+            Core.Just
+              ("DocumentReviews" Core..= documentReviews)
           ]
       )
 
-instance Prelude.ToPath UpdateDocumentMetadata where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateDocumentMetadata where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateDocumentMetadata where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDocumentMetadata where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDocumentMetadataResponse' smart constructor.
 data UpdateDocumentMetadataResponse = UpdateDocumentMetadataResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentMetadataResponse' with all optional fields omitted.
@@ -165,7 +162,7 @@ data UpdateDocumentMetadataResponse = UpdateDocumentMetadataResponse'
 -- 'httpStatus', 'updateDocumentMetadataResponse_httpStatus' - The response's http status code.
 newUpdateDocumentMetadataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDocumentMetadataResponse
 newUpdateDocumentMetadataResponse pHttpStatus_ =
   UpdateDocumentMetadataResponse'
@@ -174,9 +171,7 @@ newUpdateDocumentMetadataResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateDocumentMetadataResponse_httpStatus :: Lens.Lens' UpdateDocumentMetadataResponse Prelude.Int
+updateDocumentMetadataResponse_httpStatus :: Lens.Lens' UpdateDocumentMetadataResponse Core.Int
 updateDocumentMetadataResponse_httpStatus = Lens.lens (\UpdateDocumentMetadataResponse' {httpStatus} -> httpStatus) (\s@UpdateDocumentMetadataResponse' {} a -> s {httpStatus = a} :: UpdateDocumentMetadataResponse)
 
-instance
-  Prelude.NFData
-    UpdateDocumentMetadataResponse
+instance Core.NFData UpdateDocumentMetadataResponse

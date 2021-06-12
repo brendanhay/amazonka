@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.EC2.DeleteSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,11 +64,11 @@ data DeleteSnapshot = DeleteSnapshot'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the EBS snapshot.
-    snapshotId :: Prelude.Text
+    snapshotId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshot' with all optional fields omitted.
@@ -87,11 +86,11 @@ data DeleteSnapshot = DeleteSnapshot'
 -- 'snapshotId', 'deleteSnapshot_snapshotId' - The ID of the EBS snapshot.
 newDeleteSnapshot ::
   -- | 'snapshotId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSnapshot
 newDeleteSnapshot pSnapshotId_ =
   DeleteSnapshot'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       snapshotId = pSnapshotId_
     }
 
@@ -99,45 +98,46 @@ newDeleteSnapshot pSnapshotId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteSnapshot_dryRun :: Lens.Lens' DeleteSnapshot (Prelude.Maybe Prelude.Bool)
+deleteSnapshot_dryRun :: Lens.Lens' DeleteSnapshot (Core.Maybe Core.Bool)
 deleteSnapshot_dryRun = Lens.lens (\DeleteSnapshot' {dryRun} -> dryRun) (\s@DeleteSnapshot' {} a -> s {dryRun = a} :: DeleteSnapshot)
 
 -- | The ID of the EBS snapshot.
-deleteSnapshot_snapshotId :: Lens.Lens' DeleteSnapshot Prelude.Text
+deleteSnapshot_snapshotId :: Lens.Lens' DeleteSnapshot Core.Text
 deleteSnapshot_snapshotId = Lens.lens (\DeleteSnapshot' {snapshotId} -> snapshotId) (\s@DeleteSnapshot' {} a -> s {snapshotId = a} :: DeleteSnapshot)
 
-instance Prelude.AWSRequest DeleteSnapshot where
-  type Rs DeleteSnapshot = DeleteSnapshotResponse
+instance Core.AWSRequest DeleteSnapshot where
+  type
+    AWSResponse DeleteSnapshot =
+      DeleteSnapshotResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteSnapshotResponse'
 
-instance Prelude.Hashable DeleteSnapshot
+instance Core.Hashable DeleteSnapshot
 
-instance Prelude.NFData DeleteSnapshot
+instance Core.NFData DeleteSnapshot
 
-instance Prelude.ToHeaders DeleteSnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteSnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSnapshot where
+instance Core.ToQuery DeleteSnapshot where
   toQuery DeleteSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteSnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "SnapshotId" Prelude.=: snapshotId
+          Core.=: ("DeleteSnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "SnapshotId" Core.=: snapshotId
       ]
 
 -- | /See:/ 'newDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotResponse' with all optional fields omitted.
@@ -147,4 +147,4 @@ newDeleteSnapshotResponse ::
   DeleteSnapshotResponse
 newDeleteSnapshotResponse = DeleteSnapshotResponse'
 
-instance Prelude.NFData DeleteSnapshotResponse
+instance Core.NFData DeleteSnapshotResponse

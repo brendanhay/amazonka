@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -62,13 +61,13 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The product identifier.
-    productId :: Prelude.Text,
+    productId :: Core.Text,
     -- | The identifier of the provisioning artifact.
-    provisioningArtifactId :: Prelude.Text
+    provisioningArtifactId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningArtifact' with all optional fields omitted.
@@ -91,16 +90,16 @@ data DeleteProvisioningArtifact = DeleteProvisioningArtifact'
 -- 'provisioningArtifactId', 'deleteProvisioningArtifact_provisioningArtifactId' - The identifier of the provisioning artifact.
 newDeleteProvisioningArtifact ::
   -- | 'productId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'provisioningArtifactId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteProvisioningArtifact
 newDeleteProvisioningArtifact
   pProductId_
   pProvisioningArtifactId_ =
     DeleteProvisioningArtifact'
       { acceptLanguage =
-          Prelude.Nothing,
+          Core.Nothing,
         productId = pProductId_,
         provisioningArtifactId =
           pProvisioningArtifactId_
@@ -113,77 +112,71 @@ newDeleteProvisioningArtifact
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deleteProvisioningArtifact_acceptLanguage :: Lens.Lens' DeleteProvisioningArtifact (Prelude.Maybe Prelude.Text)
+deleteProvisioningArtifact_acceptLanguage :: Lens.Lens' DeleteProvisioningArtifact (Core.Maybe Core.Text)
 deleteProvisioningArtifact_acceptLanguage = Lens.lens (\DeleteProvisioningArtifact' {acceptLanguage} -> acceptLanguage) (\s@DeleteProvisioningArtifact' {} a -> s {acceptLanguage = a} :: DeleteProvisioningArtifact)
 
 -- | The product identifier.
-deleteProvisioningArtifact_productId :: Lens.Lens' DeleteProvisioningArtifact Prelude.Text
+deleteProvisioningArtifact_productId :: Lens.Lens' DeleteProvisioningArtifact Core.Text
 deleteProvisioningArtifact_productId = Lens.lens (\DeleteProvisioningArtifact' {productId} -> productId) (\s@DeleteProvisioningArtifact' {} a -> s {productId = a} :: DeleteProvisioningArtifact)
 
 -- | The identifier of the provisioning artifact.
-deleteProvisioningArtifact_provisioningArtifactId :: Lens.Lens' DeleteProvisioningArtifact Prelude.Text
+deleteProvisioningArtifact_provisioningArtifactId :: Lens.Lens' DeleteProvisioningArtifact Core.Text
 deleteProvisioningArtifact_provisioningArtifactId = Lens.lens (\DeleteProvisioningArtifact' {provisioningArtifactId} -> provisioningArtifactId) (\s@DeleteProvisioningArtifact' {} a -> s {provisioningArtifactId = a} :: DeleteProvisioningArtifact)
 
-instance
-  Prelude.AWSRequest
-    DeleteProvisioningArtifact
-  where
+instance Core.AWSRequest DeleteProvisioningArtifact where
   type
-    Rs DeleteProvisioningArtifact =
+    AWSResponse DeleteProvisioningArtifact =
       DeleteProvisioningArtifactResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisioningArtifactResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProvisioningArtifact
+instance Core.Hashable DeleteProvisioningArtifact
 
-instance Prelude.NFData DeleteProvisioningArtifact
+instance Core.NFData DeleteProvisioningArtifact
 
-instance Prelude.ToHeaders DeleteProvisioningArtifact where
+instance Core.ToHeaders DeleteProvisioningArtifact where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DeleteProvisioningArtifact" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DeleteProvisioningArtifact" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteProvisioningArtifact where
+instance Core.ToJSON DeleteProvisioningArtifact where
   toJSON DeleteProvisioningArtifact' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Prelude..= productId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("ProductId" Core..= productId),
+            Core.Just
               ( "ProvisioningArtifactId"
-                  Prelude..= provisioningArtifactId
+                  Core..= provisioningArtifactId
               )
           ]
       )
 
-instance Prelude.ToPath DeleteProvisioningArtifact where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteProvisioningArtifact where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteProvisioningArtifact where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteProvisioningArtifact where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteProvisioningArtifactResponse' smart constructor.
 data DeleteProvisioningArtifactResponse = DeleteProvisioningArtifactResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningArtifactResponse' with all optional fields omitted.
@@ -196,7 +189,7 @@ data DeleteProvisioningArtifactResponse = DeleteProvisioningArtifactResponse'
 -- 'httpStatus', 'deleteProvisioningArtifactResponse_httpStatus' - The response's http status code.
 newDeleteProvisioningArtifactResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProvisioningArtifactResponse
 newDeleteProvisioningArtifactResponse pHttpStatus_ =
   DeleteProvisioningArtifactResponse'
@@ -205,9 +198,9 @@ newDeleteProvisioningArtifactResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteProvisioningArtifactResponse_httpStatus :: Lens.Lens' DeleteProvisioningArtifactResponse Prelude.Int
+deleteProvisioningArtifactResponse_httpStatus :: Lens.Lens' DeleteProvisioningArtifactResponse Core.Int
 deleteProvisioningArtifactResponse_httpStatus = Lens.lens (\DeleteProvisioningArtifactResponse' {httpStatus} -> httpStatus) (\s@DeleteProvisioningArtifactResponse' {} a -> s {httpStatus = a} :: DeleteProvisioningArtifactResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteProvisioningArtifactResponse

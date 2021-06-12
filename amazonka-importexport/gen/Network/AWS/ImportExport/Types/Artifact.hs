@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ImportExport.Types.Artifact where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A discrete item that contains the description and URL of an artifact
 -- (such as a PDF).
 --
 -- /See:/ 'newArtifact' smart constructor.
 data Artifact = Artifact'
-  { description :: Prelude.Maybe Prelude.Text,
-    url :: Prelude.Maybe Prelude.Text
+  { description :: Core.Maybe Core.Text,
+    url :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Artifact' with all optional fields omitted.
@@ -48,24 +47,24 @@ newArtifact ::
   Artifact
 newArtifact =
   Artifact'
-    { description = Prelude.Nothing,
-      url = Prelude.Nothing
+    { description = Core.Nothing,
+      url = Core.Nothing
     }
 
 -- | Undocumented member.
-artifact_description :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_description :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_description = Lens.lens (\Artifact' {description} -> description) (\s@Artifact' {} a -> s {description = a} :: Artifact)
 
 -- | Undocumented member.
-artifact_url :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_url :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url = a} :: Artifact)
 
-instance Prelude.FromXML Artifact where
+instance Core.FromXML Artifact where
   parseXML x =
     Artifact'
-      Prelude.<$> (x Prelude..@? "Description")
-      Prelude.<*> (x Prelude..@? "URL")
+      Core.<$> (x Core..@? "Description")
+      Core.<*> (x Core..@? "URL")
 
-instance Prelude.Hashable Artifact
+instance Core.Hashable Artifact
 
-instance Prelude.NFData Artifact
+instance Core.NFData Artifact

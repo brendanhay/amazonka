@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.DeleteTrafficMirrorFilter
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ data DeleteTrafficMirrorFilter = DeleteTrafficMirrorFilter'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the Traffic Mirror filter.
-    trafficMirrorFilterId :: Prelude.Text
+    trafficMirrorFilterId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTrafficMirrorFilter' with all optional fields omitted.
@@ -78,12 +77,11 @@ data DeleteTrafficMirrorFilter = DeleteTrafficMirrorFilter'
 -- 'trafficMirrorFilterId', 'deleteTrafficMirrorFilter_trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
 newDeleteTrafficMirrorFilter ::
   -- | 'trafficMirrorFilterId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTrafficMirrorFilter
 newDeleteTrafficMirrorFilter pTrafficMirrorFilterId_ =
   DeleteTrafficMirrorFilter'
-    { dryRun =
-        Prelude.Nothing,
+    { dryRun = Core.Nothing,
       trafficMirrorFilterId = pTrafficMirrorFilterId_
     }
 
@@ -91,56 +89,55 @@ newDeleteTrafficMirrorFilter pTrafficMirrorFilterId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteTrafficMirrorFilter_dryRun :: Lens.Lens' DeleteTrafficMirrorFilter (Prelude.Maybe Prelude.Bool)
+deleteTrafficMirrorFilter_dryRun :: Lens.Lens' DeleteTrafficMirrorFilter (Core.Maybe Core.Bool)
 deleteTrafficMirrorFilter_dryRun = Lens.lens (\DeleteTrafficMirrorFilter' {dryRun} -> dryRun) (\s@DeleteTrafficMirrorFilter' {} a -> s {dryRun = a} :: DeleteTrafficMirrorFilter)
 
 -- | The ID of the Traffic Mirror filter.
-deleteTrafficMirrorFilter_trafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilter Prelude.Text
+deleteTrafficMirrorFilter_trafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilter Core.Text
 deleteTrafficMirrorFilter_trafficMirrorFilterId = Lens.lens (\DeleteTrafficMirrorFilter' {trafficMirrorFilterId} -> trafficMirrorFilterId) (\s@DeleteTrafficMirrorFilter' {} a -> s {trafficMirrorFilterId = a} :: DeleteTrafficMirrorFilter)
 
-instance Prelude.AWSRequest DeleteTrafficMirrorFilter where
+instance Core.AWSRequest DeleteTrafficMirrorFilter where
   type
-    Rs DeleteTrafficMirrorFilter =
+    AWSResponse DeleteTrafficMirrorFilter =
       DeleteTrafficMirrorFilterResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteTrafficMirrorFilterResponse'
-            Prelude.<$> (x Prelude..@? "trafficMirrorFilterId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "trafficMirrorFilterId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTrafficMirrorFilter
+instance Core.Hashable DeleteTrafficMirrorFilter
 
-instance Prelude.NFData DeleteTrafficMirrorFilter
+instance Core.NFData DeleteTrafficMirrorFilter
 
-instance Prelude.ToHeaders DeleteTrafficMirrorFilter where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTrafficMirrorFilter where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTrafficMirrorFilter where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTrafficMirrorFilter where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTrafficMirrorFilter where
+instance Core.ToQuery DeleteTrafficMirrorFilter where
   toQuery DeleteTrafficMirrorFilter' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteTrafficMirrorFilter" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
+          Core.=: ("DeleteTrafficMirrorFilter" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
         "TrafficMirrorFilterId"
-          Prelude.=: trafficMirrorFilterId
+          Core.=: trafficMirrorFilterId
       ]
 
 -- | /See:/ 'newDeleteTrafficMirrorFilterResponse' smart constructor.
 data DeleteTrafficMirrorFilterResponse = DeleteTrafficMirrorFilterResponse'
   { -- | The ID of the Traffic Mirror filter.
-    trafficMirrorFilterId :: Prelude.Maybe Prelude.Text,
+    trafficMirrorFilterId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTrafficMirrorFilterResponse' with all optional fields omitted.
@@ -155,23 +152,23 @@ data DeleteTrafficMirrorFilterResponse = DeleteTrafficMirrorFilterResponse'
 -- 'httpStatus', 'deleteTrafficMirrorFilterResponse_httpStatus' - The response's http status code.
 newDeleteTrafficMirrorFilterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTrafficMirrorFilterResponse
 newDeleteTrafficMirrorFilterResponse pHttpStatus_ =
   DeleteTrafficMirrorFilterResponse'
     { trafficMirrorFilterId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the Traffic Mirror filter.
-deleteTrafficMirrorFilterResponse_trafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilterResponse (Prelude.Maybe Prelude.Text)
+deleteTrafficMirrorFilterResponse_trafficMirrorFilterId :: Lens.Lens' DeleteTrafficMirrorFilterResponse (Core.Maybe Core.Text)
 deleteTrafficMirrorFilterResponse_trafficMirrorFilterId = Lens.lens (\DeleteTrafficMirrorFilterResponse' {trafficMirrorFilterId} -> trafficMirrorFilterId) (\s@DeleteTrafficMirrorFilterResponse' {} a -> s {trafficMirrorFilterId = a} :: DeleteTrafficMirrorFilterResponse)
 
 -- | The response's http status code.
-deleteTrafficMirrorFilterResponse_httpStatus :: Lens.Lens' DeleteTrafficMirrorFilterResponse Prelude.Int
+deleteTrafficMirrorFilterResponse_httpStatus :: Lens.Lens' DeleteTrafficMirrorFilterResponse Core.Int
 deleteTrafficMirrorFilterResponse_httpStatus = Lens.lens (\DeleteTrafficMirrorFilterResponse' {httpStatus} -> httpStatus) (\s@DeleteTrafficMirrorFilterResponse' {} a -> s {httpStatus = a} :: DeleteTrafficMirrorFilterResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteTrafficMirrorFilterResponse

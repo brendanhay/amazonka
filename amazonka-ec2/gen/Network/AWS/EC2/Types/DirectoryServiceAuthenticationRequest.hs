@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Active Directory to be used for client authentication.
 --
 -- /See:/ 'newDirectoryServiceAuthenticationRequest' smart constructor.
 data DirectoryServiceAuthenticationRequest = DirectoryServiceAuthenticationRequest'
   { -- | The ID of the Active Directory to be used for authentication.
-    directoryId :: Prelude.Maybe Prelude.Text
+    directoryId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DirectoryServiceAuthenticationRequest' with all optional fields omitted.
@@ -47,25 +46,24 @@ newDirectoryServiceAuthenticationRequest ::
 newDirectoryServiceAuthenticationRequest =
   DirectoryServiceAuthenticationRequest'
     { directoryId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the Active Directory to be used for authentication.
-directoryServiceAuthenticationRequest_directoryId :: Lens.Lens' DirectoryServiceAuthenticationRequest (Prelude.Maybe Prelude.Text)
+directoryServiceAuthenticationRequest_directoryId :: Lens.Lens' DirectoryServiceAuthenticationRequest (Core.Maybe Core.Text)
 directoryServiceAuthenticationRequest_directoryId = Lens.lens (\DirectoryServiceAuthenticationRequest' {directoryId} -> directoryId) (\s@DirectoryServiceAuthenticationRequest' {} a -> s {directoryId = a} :: DirectoryServiceAuthenticationRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DirectoryServiceAuthenticationRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     DirectoryServiceAuthenticationRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DirectoryServiceAuthenticationRequest
   where
   toQuery DirectoryServiceAuthenticationRequest' {..} =
-    Prelude.mconcat
-      ["DirectoryId" Prelude.=: directoryId]
+    Core.mconcat ["DirectoryId" Core.=: directoryId]

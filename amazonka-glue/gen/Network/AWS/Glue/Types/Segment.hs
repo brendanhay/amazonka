@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Segment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a non-overlapping region of a table\'s partitions, allowing
 -- multiple requests to be executed in parallel.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data Segment = Segment'
   { -- | The zero-based index number of the segment. For example, if the total
     -- number of segments is 4, @SegmentNumber@ values range from 0 through 3.
-    segmentNumber :: Prelude.Natural,
+    segmentNumber :: Core.Natural,
     -- | The total number of segments.
-    totalSegments :: Prelude.Natural
+    totalSegments :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Segment' with all optional fields omitted.
@@ -50,9 +49,9 @@ data Segment = Segment'
 -- 'totalSegments', 'segment_totalSegments' - The total number of segments.
 newSegment ::
   -- | 'segmentNumber'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'totalSegments'
-  Prelude.Natural ->
+  Core.Natural ->
   Segment
 newSegment pSegmentNumber_ pTotalSegments_ =
   Segment'
@@ -62,24 +61,22 @@ newSegment pSegmentNumber_ pTotalSegments_ =
 
 -- | The zero-based index number of the segment. For example, if the total
 -- number of segments is 4, @SegmentNumber@ values range from 0 through 3.
-segment_segmentNumber :: Lens.Lens' Segment Prelude.Natural
+segment_segmentNumber :: Lens.Lens' Segment Core.Natural
 segment_segmentNumber = Lens.lens (\Segment' {segmentNumber} -> segmentNumber) (\s@Segment' {} a -> s {segmentNumber = a} :: Segment)
 
 -- | The total number of segments.
-segment_totalSegments :: Lens.Lens' Segment Prelude.Natural
+segment_totalSegments :: Lens.Lens' Segment Core.Natural
 segment_totalSegments = Lens.lens (\Segment' {totalSegments} -> totalSegments) (\s@Segment' {} a -> s {totalSegments = a} :: Segment)
 
-instance Prelude.Hashable Segment
+instance Core.Hashable Segment
 
-instance Prelude.NFData Segment
+instance Core.NFData Segment
 
-instance Prelude.ToJSON Segment where
+instance Core.ToJSON Segment where
   toJSON Segment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("SegmentNumber" Prelude..= segmentNumber),
-            Prelude.Just
-              ("TotalSegments" Prelude..= totalSegments)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SegmentNumber" Core..= segmentNumber),
+            Core.Just ("TotalSegments" Core..= totalSegments)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.AutoScaling.StartInstanceRefresh
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,7 +70,7 @@ data StartInstanceRefresh = StartInstanceRefresh'
     -- standby or are protected from scale in. If the rolling update process
     -- fails, any instances that were already replaced are not rolled back to
     -- their previous configuration.
-    strategy :: Prelude.Maybe RefreshStrategy,
+    strategy :: Core.Maybe RefreshStrategy,
     -- | Set of preferences associated with the instance refresh request.
     --
     -- If not provided, the default values are used. For
@@ -82,11 +81,11 @@ data StartInstanceRefresh = StartInstanceRefresh'
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences>
     -- in the /Amazon EC2 Auto Scaling API Reference/.
-    preferences :: Prelude.Maybe RefreshPreferences,
+    preferences :: Core.Maybe RefreshPreferences,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartInstanceRefresh' with all optional fields omitted.
@@ -120,12 +119,12 @@ data StartInstanceRefresh = StartInstanceRefresh'
 -- 'autoScalingGroupName', 'startInstanceRefresh_autoScalingGroupName' - The name of the Auto Scaling group.
 newStartInstanceRefresh ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   StartInstanceRefresh
 newStartInstanceRefresh pAutoScalingGroupName_ =
   StartInstanceRefresh'
-    { strategy = Prelude.Nothing,
-      preferences = Prelude.Nothing,
+    { strategy = Core.Nothing,
+      preferences = Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -138,7 +137,7 @@ newStartInstanceRefresh pAutoScalingGroupName_ =
 -- standby or are protected from scale in. If the rolling update process
 -- fails, any instances that were already replaced are not rolled back to
 -- their previous configuration.
-startInstanceRefresh_strategy :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshStrategy)
+startInstanceRefresh_strategy :: Lens.Lens' StartInstanceRefresh (Core.Maybe RefreshStrategy)
 startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> strategy) (\s@StartInstanceRefresh' {} a -> s {strategy = a} :: StartInstanceRefresh)
 
 -- | Set of preferences associated with the instance refresh request.
@@ -151,16 +150,16 @@ startInstanceRefresh_strategy = Lens.lens (\StartInstanceRefresh' {strategy} -> 
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RefreshPreferences.html RefreshPreferences>
 -- in the /Amazon EC2 Auto Scaling API Reference/.
-startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Prelude.Maybe RefreshPreferences)
+startInstanceRefresh_preferences :: Lens.Lens' StartInstanceRefresh (Core.Maybe RefreshPreferences)
 startInstanceRefresh_preferences = Lens.lens (\StartInstanceRefresh' {preferences} -> preferences) (\s@StartInstanceRefresh' {} a -> s {preferences = a} :: StartInstanceRefresh)
 
 -- | The name of the Auto Scaling group.
-startInstanceRefresh_autoScalingGroupName :: Lens.Lens' StartInstanceRefresh Prelude.Text
+startInstanceRefresh_autoScalingGroupName :: Lens.Lens' StartInstanceRefresh Core.Text
 startInstanceRefresh_autoScalingGroupName = Lens.lens (\StartInstanceRefresh' {autoScalingGroupName} -> autoScalingGroupName) (\s@StartInstanceRefresh' {} a -> s {autoScalingGroupName = a} :: StartInstanceRefresh)
 
-instance Prelude.AWSRequest StartInstanceRefresh where
+instance Core.AWSRequest StartInstanceRefresh where
   type
-    Rs StartInstanceRefresh =
+    AWSResponse StartInstanceRefresh =
       StartInstanceRefreshResponse
   request = Request.postQuery defaultService
   response =
@@ -168,41 +167,39 @@ instance Prelude.AWSRequest StartInstanceRefresh where
       "StartInstanceRefreshResult"
       ( \s h x ->
           StartInstanceRefreshResponse'
-            Prelude.<$> (x Prelude..@? "InstanceRefreshId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "InstanceRefreshId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartInstanceRefresh
+instance Core.Hashable StartInstanceRefresh
 
-instance Prelude.NFData StartInstanceRefresh
+instance Core.NFData StartInstanceRefresh
 
-instance Prelude.ToHeaders StartInstanceRefresh where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders StartInstanceRefresh where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath StartInstanceRefresh where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartInstanceRefresh where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartInstanceRefresh where
+instance Core.ToQuery StartInstanceRefresh where
   toQuery StartInstanceRefresh' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("StartInstanceRefresh" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "Strategy" Prelude.=: strategy,
-        "Preferences" Prelude.=: preferences,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: ("StartInstanceRefresh" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "Strategy" Core.=: strategy,
+        "Preferences" Core.=: preferences,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newStartInstanceRefreshResponse' smart constructor.
 data StartInstanceRefreshResponse = StartInstanceRefreshResponse'
   { -- | A unique ID for tracking the progress of the request.
-    instanceRefreshId :: Prelude.Maybe Prelude.Text,
+    instanceRefreshId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartInstanceRefreshResponse' with all optional fields omitted.
@@ -217,21 +214,21 @@ data StartInstanceRefreshResponse = StartInstanceRefreshResponse'
 -- 'httpStatus', 'startInstanceRefreshResponse_httpStatus' - The response's http status code.
 newStartInstanceRefreshResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartInstanceRefreshResponse
 newStartInstanceRefreshResponse pHttpStatus_ =
   StartInstanceRefreshResponse'
     { instanceRefreshId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique ID for tracking the progress of the request.
-startInstanceRefreshResponse_instanceRefreshId :: Lens.Lens' StartInstanceRefreshResponse (Prelude.Maybe Prelude.Text)
+startInstanceRefreshResponse_instanceRefreshId :: Lens.Lens' StartInstanceRefreshResponse (Core.Maybe Core.Text)
 startInstanceRefreshResponse_instanceRefreshId = Lens.lens (\StartInstanceRefreshResponse' {instanceRefreshId} -> instanceRefreshId) (\s@StartInstanceRefreshResponse' {} a -> s {instanceRefreshId = a} :: StartInstanceRefreshResponse)
 
 -- | The response's http status code.
-startInstanceRefreshResponse_httpStatus :: Lens.Lens' StartInstanceRefreshResponse Prelude.Int
+startInstanceRefreshResponse_httpStatus :: Lens.Lens' StartInstanceRefreshResponse Core.Int
 startInstanceRefreshResponse_httpStatus = Lens.lens (\StartInstanceRefreshResponse' {httpStatus} -> httpStatus) (\s@StartInstanceRefreshResponse' {} a -> s {httpStatus = a} :: StartInstanceRefreshResponse)
 
-instance Prelude.NFData StartInstanceRefreshResponse
+instance Core.NFData StartInstanceRefreshResponse

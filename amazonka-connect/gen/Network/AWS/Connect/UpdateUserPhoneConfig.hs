@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.Connect.UpdateUserPhoneConfig
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +48,11 @@ data UpdateUserPhoneConfig = UpdateUserPhoneConfig'
   { -- | Information about phone configuration settings for the user.
     phoneConfig :: UserPhoneConfig,
     -- | The identifier of the user account.
-    userId :: Prelude.Text,
+    userId :: Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserPhoneConfig' with all optional fields omitted.
@@ -72,9 +71,9 @@ newUpdateUserPhoneConfig ::
   -- | 'phoneConfig'
   UserPhoneConfig ->
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateUserPhoneConfig
 newUpdateUserPhoneConfig
   pPhoneConfig_
@@ -91,63 +90,59 @@ updateUserPhoneConfig_phoneConfig :: Lens.Lens' UpdateUserPhoneConfig UserPhoneC
 updateUserPhoneConfig_phoneConfig = Lens.lens (\UpdateUserPhoneConfig' {phoneConfig} -> phoneConfig) (\s@UpdateUserPhoneConfig' {} a -> s {phoneConfig = a} :: UpdateUserPhoneConfig)
 
 -- | The identifier of the user account.
-updateUserPhoneConfig_userId :: Lens.Lens' UpdateUserPhoneConfig Prelude.Text
+updateUserPhoneConfig_userId :: Lens.Lens' UpdateUserPhoneConfig Core.Text
 updateUserPhoneConfig_userId = Lens.lens (\UpdateUserPhoneConfig' {userId} -> userId) (\s@UpdateUserPhoneConfig' {} a -> s {userId = a} :: UpdateUserPhoneConfig)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserPhoneConfig_instanceId :: Lens.Lens' UpdateUserPhoneConfig Prelude.Text
+updateUserPhoneConfig_instanceId :: Lens.Lens' UpdateUserPhoneConfig Core.Text
 updateUserPhoneConfig_instanceId = Lens.lens (\UpdateUserPhoneConfig' {instanceId} -> instanceId) (\s@UpdateUserPhoneConfig' {} a -> s {instanceId = a} :: UpdateUserPhoneConfig)
 
-instance Prelude.AWSRequest UpdateUserPhoneConfig where
+instance Core.AWSRequest UpdateUserPhoneConfig where
   type
-    Rs UpdateUserPhoneConfig =
+    AWSResponse UpdateUserPhoneConfig =
       UpdateUserPhoneConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateUserPhoneConfigResponse'
 
-instance Prelude.Hashable UpdateUserPhoneConfig
+instance Core.Hashable UpdateUserPhoneConfig
 
-instance Prelude.NFData UpdateUserPhoneConfig
+instance Core.NFData UpdateUserPhoneConfig
 
-instance Prelude.ToHeaders UpdateUserPhoneConfig where
+instance Core.ToHeaders UpdateUserPhoneConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUserPhoneConfig where
+instance Core.ToJSON UpdateUserPhoneConfig where
   toJSON UpdateUserPhoneConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PhoneConfig" Prelude..= phoneConfig)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("PhoneConfig" Core..= phoneConfig)]
       )
 
-instance Prelude.ToPath UpdateUserPhoneConfig where
+instance Core.ToPath UpdateUserPhoneConfig where
   toPath UpdateUserPhoneConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/users/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS userId,
+        Core.toBS userId,
         "/phone-config"
       ]
 
-instance Prelude.ToQuery UpdateUserPhoneConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUserPhoneConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateUserPhoneConfigResponse' smart constructor.
 data UpdateUserPhoneConfigResponse = UpdateUserPhoneConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserPhoneConfigResponse' with all optional fields omitted.
@@ -158,4 +153,4 @@ newUpdateUserPhoneConfigResponse ::
 newUpdateUserPhoneConfigResponse =
   UpdateUserPhoneConfigResponse'
 
-instance Prelude.NFData UpdateUserPhoneConfigResponse
+instance Core.NFData UpdateUserPhoneConfigResponse

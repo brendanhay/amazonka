@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceTagNotificationAttribute where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the registered tag keys for the current Region.
 --
 -- /See:/ 'newInstanceTagNotificationAttribute' smart constructor.
 data InstanceTagNotificationAttribute = InstanceTagNotificationAttribute'
   { -- | The registered tag keys.
-    instanceTagKeys :: Prelude.Maybe [Prelude.Text],
+    instanceTagKeys :: Core.Maybe [Core.Text],
     -- | Indicates wheter all tag keys in the current Region are registered to
     -- appear in scheduled event notifications. @true@ indicates that all tag
     -- keys in the current Region are registered.
-    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool
+    includeAllTagsOfInstance :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceTagNotificationAttribute' with all optional fields omitted.
@@ -55,37 +54,33 @@ newInstanceTagNotificationAttribute ::
 newInstanceTagNotificationAttribute =
   InstanceTagNotificationAttribute'
     { instanceTagKeys =
-        Prelude.Nothing,
-      includeAllTagsOfInstance =
-        Prelude.Nothing
+        Core.Nothing,
+      includeAllTagsOfInstance = Core.Nothing
     }
 
 -- | The registered tag keys.
-instanceTagNotificationAttribute_instanceTagKeys :: Lens.Lens' InstanceTagNotificationAttribute (Prelude.Maybe [Prelude.Text])
-instanceTagNotificationAttribute_instanceTagKeys = Lens.lens (\InstanceTagNotificationAttribute' {instanceTagKeys} -> instanceTagKeys) (\s@InstanceTagNotificationAttribute' {} a -> s {instanceTagKeys = a} :: InstanceTagNotificationAttribute) Prelude.. Lens.mapping Prelude._Coerce
+instanceTagNotificationAttribute_instanceTagKeys :: Lens.Lens' InstanceTagNotificationAttribute (Core.Maybe [Core.Text])
+instanceTagNotificationAttribute_instanceTagKeys = Lens.lens (\InstanceTagNotificationAttribute' {instanceTagKeys} -> instanceTagKeys) (\s@InstanceTagNotificationAttribute' {} a -> s {instanceTagKeys = a} :: InstanceTagNotificationAttribute) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates wheter all tag keys in the current Region are registered to
 -- appear in scheduled event notifications. @true@ indicates that all tag
 -- keys in the current Region are registered.
-instanceTagNotificationAttribute_includeAllTagsOfInstance :: Lens.Lens' InstanceTagNotificationAttribute (Prelude.Maybe Prelude.Bool)
+instanceTagNotificationAttribute_includeAllTagsOfInstance :: Lens.Lens' InstanceTagNotificationAttribute (Core.Maybe Core.Bool)
 instanceTagNotificationAttribute_includeAllTagsOfInstance = Lens.lens (\InstanceTagNotificationAttribute' {includeAllTagsOfInstance} -> includeAllTagsOfInstance) (\s@InstanceTagNotificationAttribute' {} a -> s {includeAllTagsOfInstance = a} :: InstanceTagNotificationAttribute)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     InstanceTagNotificationAttribute
   where
   parseXML x =
     InstanceTagNotificationAttribute'
-      Prelude.<$> ( x Prelude..@? "instanceTagKeySet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "includeAllTagsOfInstance")
+      Core.<$> ( x Core..@? "instanceTagKeySet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "includeAllTagsOfInstance")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InstanceTagNotificationAttribute
 
-instance
-  Prelude.NFData
-    InstanceTagNotificationAttribute
+instance Core.NFData InstanceTagNotificationAttribute

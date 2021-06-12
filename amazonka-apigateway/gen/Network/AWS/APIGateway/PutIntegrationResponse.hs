@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.APIGateway.PutIntegrationResponse
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,9 +72,9 @@ data PutIntegrationResponse = PutIntegrationResponse'
     -- If this property is not defined, the response payload will be passed
     -- through from the integration response to the method response without
     -- modification.
-    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
+    contentHandling :: Core.Maybe ContentHandlingStrategy,
     -- | Specifies a put integration response\'s templates.
-    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseTemplates :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A key-value map specifying response parameters that are passed to the
     -- method response from the back end. The key is a method response header
     -- parameter name and the mapped value is an integration response header
@@ -87,21 +86,21 @@ data PutIntegrationResponse = PutIntegrationResponse'
     -- @integration.response.body.{JSON-expression}@, where @name@ must be a
     -- valid and unique response header name and @JSON-expression@ a valid JSON
     -- expression without the @$@ prefix.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies the selection pattern of a put integration response.
-    selectionPattern :: Prelude.Maybe Prelude.Text,
+    selectionPattern :: Core.Maybe Core.Text,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] Specifies a put integration response request\'s resource
     -- identifier.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] Specifies a put integration response request\'s HTTP method.
-    httpMethod :: Prelude.Text,
+    httpMethod :: Core.Text,
     -- | [Required] Specifies the status code that is used to map the integration
     -- response to an existing MethodResponse.
-    statusCode :: Prelude.Text
+    statusCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutIntegrationResponse' with all optional fields omitted.
@@ -152,13 +151,13 @@ data PutIntegrationResponse = PutIntegrationResponse'
 -- response to an existing MethodResponse.
 newPutIntegrationResponse ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'statusCode'
-  Prelude.Text ->
+  Core.Text ->
   PutIntegrationResponse
 newPutIntegrationResponse
   pRestApiId_
@@ -167,10 +166,10 @@ newPutIntegrationResponse
   pStatusCode_ =
     PutIntegrationResponse'
       { contentHandling =
-          Prelude.Nothing,
-        responseTemplates = Prelude.Nothing,
-        responseParameters = Prelude.Nothing,
-        selectionPattern = Prelude.Nothing,
+          Core.Nothing,
+        responseTemplates = Core.Nothing,
+        responseParameters = Core.Nothing,
+        selectionPattern = Core.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
@@ -190,12 +189,12 @@ newPutIntegrationResponse
 -- If this property is not defined, the response payload will be passed
 -- through from the integration response to the method response without
 -- modification.
-putIntegrationResponse_contentHandling :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
+putIntegrationResponse_contentHandling :: Lens.Lens' PutIntegrationResponse (Core.Maybe ContentHandlingStrategy)
 putIntegrationResponse_contentHandling = Lens.lens (\PutIntegrationResponse' {contentHandling} -> contentHandling) (\s@PutIntegrationResponse' {} a -> s {contentHandling = a} :: PutIntegrationResponse)
 
 -- | Specifies a put integration response\'s templates.
-putIntegrationResponse_responseTemplates :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {responseTemplates} -> responseTemplates) (\s@PutIntegrationResponse' {} a -> s {responseTemplates = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Prelude._Coerce
+putIntegrationResponse_responseTemplates :: Lens.Lens' PutIntegrationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {responseTemplates} -> responseTemplates) (\s@PutIntegrationResponse' {} a -> s {responseTemplates = a} :: PutIntegrationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A key-value map specifying response parameters that are passed to the
 -- method response from the back end. The key is a method response header
@@ -208,78 +207,80 @@ putIntegrationResponse_responseTemplates = Lens.lens (\PutIntegrationResponse' {
 -- @integration.response.body.{JSON-expression}@, where @name@ must be a
 -- valid and unique response header name and @JSON-expression@ a valid JSON
 -- expression without the @$@ prefix.
-putIntegrationResponse_responseParameters :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putIntegrationResponse_responseParameters = Lens.lens (\PutIntegrationResponse' {responseParameters} -> responseParameters) (\s@PutIntegrationResponse' {} a -> s {responseParameters = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Prelude._Coerce
+putIntegrationResponse_responseParameters :: Lens.Lens' PutIntegrationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+putIntegrationResponse_responseParameters = Lens.lens (\PutIntegrationResponse' {responseParameters} -> responseParameters) (\s@PutIntegrationResponse' {} a -> s {responseParameters = a} :: PutIntegrationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the selection pattern of a put integration response.
-putIntegrationResponse_selectionPattern :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
+putIntegrationResponse_selectionPattern :: Lens.Lens' PutIntegrationResponse (Core.Maybe Core.Text)
 putIntegrationResponse_selectionPattern = Lens.lens (\PutIntegrationResponse' {selectionPattern} -> selectionPattern) (\s@PutIntegrationResponse' {} a -> s {selectionPattern = a} :: PutIntegrationResponse)
 
 -- | [Required] The string identifier of the associated RestApi.
-putIntegrationResponse_restApiId :: Lens.Lens' PutIntegrationResponse Prelude.Text
+putIntegrationResponse_restApiId :: Lens.Lens' PutIntegrationResponse Core.Text
 putIntegrationResponse_restApiId = Lens.lens (\PutIntegrationResponse' {restApiId} -> restApiId) (\s@PutIntegrationResponse' {} a -> s {restApiId = a} :: PutIntegrationResponse)
 
 -- | [Required] Specifies a put integration response request\'s resource
 -- identifier.
-putIntegrationResponse_resourceId :: Lens.Lens' PutIntegrationResponse Prelude.Text
+putIntegrationResponse_resourceId :: Lens.Lens' PutIntegrationResponse Core.Text
 putIntegrationResponse_resourceId = Lens.lens (\PutIntegrationResponse' {resourceId} -> resourceId) (\s@PutIntegrationResponse' {} a -> s {resourceId = a} :: PutIntegrationResponse)
 
 -- | [Required] Specifies a put integration response request\'s HTTP method.
-putIntegrationResponse_httpMethod :: Lens.Lens' PutIntegrationResponse Prelude.Text
+putIntegrationResponse_httpMethod :: Lens.Lens' PutIntegrationResponse Core.Text
 putIntegrationResponse_httpMethod = Lens.lens (\PutIntegrationResponse' {httpMethod} -> httpMethod) (\s@PutIntegrationResponse' {} a -> s {httpMethod = a} :: PutIntegrationResponse)
 
 -- | [Required] Specifies the status code that is used to map the integration
 -- response to an existing MethodResponse.
-putIntegrationResponse_statusCode :: Lens.Lens' PutIntegrationResponse Prelude.Text
+putIntegrationResponse_statusCode :: Lens.Lens' PutIntegrationResponse Core.Text
 putIntegrationResponse_statusCode = Lens.lens (\PutIntegrationResponse' {statusCode} -> statusCode) (\s@PutIntegrationResponse' {} a -> s {statusCode = a} :: PutIntegrationResponse)
 
-instance Prelude.AWSRequest PutIntegrationResponse where
-  type Rs PutIntegrationResponse = IntegrationResponse
+instance Core.AWSRequest PutIntegrationResponse where
+  type
+    AWSResponse PutIntegrationResponse =
+      IntegrationResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutIntegrationResponse
+instance Core.Hashable PutIntegrationResponse
 
-instance Prelude.NFData PutIntegrationResponse
+instance Core.NFData PutIntegrationResponse
 
-instance Prelude.ToHeaders PutIntegrationResponse where
+instance Core.ToHeaders PutIntegrationResponse where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutIntegrationResponse where
+instance Core.ToJSON PutIntegrationResponse where
   toJSON PutIntegrationResponse' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("contentHandling" Prelude..=)
-              Prelude.<$> contentHandling,
-            ("responseTemplates" Prelude..=)
-              Prelude.<$> responseTemplates,
-            ("responseParameters" Prelude..=)
-              Prelude.<$> responseParameters,
-            ("selectionPattern" Prelude..=)
-              Prelude.<$> selectionPattern
+    Core.object
+      ( Core.catMaybes
+          [ ("contentHandling" Core..=)
+              Core.<$> contentHandling,
+            ("responseTemplates" Core..=)
+              Core.<$> responseTemplates,
+            ("responseParameters" Core..=)
+              Core.<$> responseParameters,
+            ("selectionPattern" Core..=)
+              Core.<$> selectionPattern
           ]
       )
 
-instance Prelude.ToPath PutIntegrationResponse where
+instance Core.ToPath PutIntegrationResponse where
   toPath PutIntegrationResponse' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod,
+        Core.toBS httpMethod,
         "/integration/responses/",
-        Prelude.toBS statusCode
+        Core.toBS statusCode
       ]
 
-instance Prelude.ToQuery PutIntegrationResponse where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutIntegrationResponse where
+  toQuery = Core.const Core.mempty

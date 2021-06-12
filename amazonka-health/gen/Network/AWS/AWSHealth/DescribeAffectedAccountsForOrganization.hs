@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,8 @@ module Network.AWS.AWSHealth.DescribeAffectedAccountsForOrganization
 where
 
 import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,17 +69,17 @@ data DescribeAffectedAccountsForOrganization = DescribeAffectedAccountsForOrgani
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return in one batch, between 10 and 100,
     -- inclusive.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The unique identifier for the event. Format:
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
     -- Example:
     -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Prelude.Text
+    eventArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAffectedAccountsForOrganization' with all optional fields omitted.
@@ -106,13 +104,13 @@ data DescribeAffectedAccountsForOrganization = DescribeAffectedAccountsForOrgani
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 newDescribeAffectedAccountsForOrganization ::
   -- | 'eventArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAffectedAccountsForOrganization
 newDescribeAffectedAccountsForOrganization pEventArn_ =
   DescribeAffectedAccountsForOrganization'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       eventArn = pEventArn_
     }
 
@@ -121,116 +119,113 @@ newDescribeAffectedAccountsForOrganization pEventArn_ =
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeAffectedAccountsForOrganization_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganization (Prelude.Maybe Prelude.Text)
+describeAffectedAccountsForOrganization_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganization (Core.Maybe Core.Text)
 describeAffectedAccountsForOrganization_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganization' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganization' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganization)
 
 -- | The maximum number of items to return in one batch, between 10 and 100,
 -- inclusive.
-describeAffectedAccountsForOrganization_maxResults :: Lens.Lens' DescribeAffectedAccountsForOrganization (Prelude.Maybe Prelude.Natural)
+describeAffectedAccountsForOrganization_maxResults :: Lens.Lens' DescribeAffectedAccountsForOrganization (Core.Maybe Core.Natural)
 describeAffectedAccountsForOrganization_maxResults = Lens.lens (\DescribeAffectedAccountsForOrganization' {maxResults} -> maxResults) (\s@DescribeAffectedAccountsForOrganization' {} a -> s {maxResults = a} :: DescribeAffectedAccountsForOrganization)
 
 -- | The unique identifier for the event. Format:
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
 -- Example:
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-describeAffectedAccountsForOrganization_eventArn :: Lens.Lens' DescribeAffectedAccountsForOrganization Prelude.Text
+describeAffectedAccountsForOrganization_eventArn :: Lens.Lens' DescribeAffectedAccountsForOrganization Core.Text
 describeAffectedAccountsForOrganization_eventArn = Lens.lens (\DescribeAffectedAccountsForOrganization' {eventArn} -> eventArn) (\s@DescribeAffectedAccountsForOrganization' {} a -> s {eventArn = a} :: DescribeAffectedAccountsForOrganization)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeAffectedAccountsForOrganization
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAffectedAccountsForOrganizationResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAffectedAccountsForOrganizationResponse_affectedAccounts
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAffectedAccountsForOrganization_nextToken
           Lens..~ rs
             Lens.^? describeAffectedAccountsForOrganizationResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeAffectedAccountsForOrganization
   where
   type
-    Rs DescribeAffectedAccountsForOrganization =
+    AWSResponse
+      DescribeAffectedAccountsForOrganization =
       DescribeAffectedAccountsForOrganizationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAffectedAccountsForOrganizationResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-              Prelude.<*> (x Prelude..?> "eventScopeCode")
-              Prelude.<*> ( x Prelude..?> "affectedAccounts"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+              Core.<*> (x Core..?> "eventScopeCode")
+              Core.<*> (x Core..?> "affectedAccounts" Core..!@ Core.mempty)
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeAffectedAccountsForOrganization
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAffectedAccountsForOrganization
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeAffectedAccountsForOrganization
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSHealth_20160804.DescribeAffectedAccountsForOrganization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSHealth_20160804.DescribeAffectedAccountsForOrganization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeAffectedAccountsForOrganization
   where
   toJSON DescribeAffectedAccountsForOrganization' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("eventArn" Prelude..= eventArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("eventArn" Core..= eventArn)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeAffectedAccountsForOrganization
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeAffectedAccountsForOrganization
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAffectedAccountsForOrganizationResponse' smart constructor.
 data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsForOrganizationResponse'
@@ -239,7 +234,7 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
     -- response. To retrieve the next batch of results, reissue the search
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | This parameter specifies if the AWS Health event is a public AWS service
     -- event or an account-specific event.
     --
@@ -254,13 +249,13 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
     --
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
-    eventScopeCode :: Prelude.Maybe EventScopeCode,
+    eventScopeCode :: Core.Maybe EventScopeCode,
     -- | A JSON set of elements of the affected accounts.
-    affectedAccounts :: Prelude.Maybe [Prelude.Text],
+    affectedAccounts :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAffectedAccountsForOrganizationResponse' with all optional fields omitted.
@@ -296,17 +291,17 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
 -- 'httpStatus', 'describeAffectedAccountsForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeAffectedAccountsForOrganizationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAffectedAccountsForOrganizationResponse
 newDescribeAffectedAccountsForOrganizationResponse
   pHttpStatus_ =
     DescribeAffectedAccountsForOrganizationResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         eventScopeCode =
-          Prelude.Nothing,
+          Core.Nothing,
         affectedAccounts =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -315,7 +310,7 @@ newDescribeAffectedAccountsForOrganizationResponse
 -- response. To retrieve the next batch of results, reissue the search
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
-describeAffectedAccountsForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeAffectedAccountsForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Core.Maybe Core.Text)
 describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
 -- | This parameter specifies if the AWS Health event is a public AWS service
@@ -332,17 +327,17 @@ describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\Describe
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
-describeAffectedAccountsForOrganizationResponse_eventScopeCode :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe EventScopeCode)
+describeAffectedAccountsForOrganizationResponse_eventScopeCode :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Core.Maybe EventScopeCode)
 describeAffectedAccountsForOrganizationResponse_eventScopeCode = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {eventScopeCode} -> eventScopeCode) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {eventScopeCode = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
 -- | A JSON set of elements of the affected accounts.
-describeAffectedAccountsForOrganizationResponse_affectedAccounts :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe [Prelude.Text])
-describeAffectedAccountsForOrganizationResponse_affectedAccounts = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {affectedAccounts} -> affectedAccounts) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {affectedAccounts = a} :: DescribeAffectedAccountsForOrganizationResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAffectedAccountsForOrganizationResponse_affectedAccounts :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Core.Maybe [Core.Text])
+describeAffectedAccountsForOrganizationResponse_affectedAccounts = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {affectedAccounts} -> affectedAccounts) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {affectedAccounts = a} :: DescribeAffectedAccountsForOrganizationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAffectedAccountsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse Prelude.Int
+describeAffectedAccountsForOrganizationResponse_httpStatus :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse Core.Int
 describeAffectedAccountsForOrganizationResponse_httpStatus = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAffectedAccountsForOrganizationResponse

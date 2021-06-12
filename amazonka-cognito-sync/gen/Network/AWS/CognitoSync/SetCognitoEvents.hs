@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CognitoSync.SetCognitoEvents
 where
 
 import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetCognitoEvents' smart constructor.
 data SetCognitoEvents = SetCognitoEvents'
   { -- | The Cognito Identity Pool to use when configuring Cognito Events
-    identityPoolId :: Prelude.Text,
+    identityPoolId :: Core.Text,
     -- | The events to configure
-    events :: Prelude.HashMap Prelude.Text Prelude.Text
+    events :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetCognitoEvents' with all optional fields omitted.
@@ -76,67 +75,67 @@ data SetCognitoEvents = SetCognitoEvents'
 -- 'events', 'setCognitoEvents_events' - The events to configure
 newSetCognitoEvents ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   SetCognitoEvents
 newSetCognitoEvents pIdentityPoolId_ =
   SetCognitoEvents'
     { identityPoolId =
         pIdentityPoolId_,
-      events = Prelude.mempty
+      events = Core.mempty
     }
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
-setCognitoEvents_identityPoolId :: Lens.Lens' SetCognitoEvents Prelude.Text
+setCognitoEvents_identityPoolId :: Lens.Lens' SetCognitoEvents Core.Text
 setCognitoEvents_identityPoolId = Lens.lens (\SetCognitoEvents' {identityPoolId} -> identityPoolId) (\s@SetCognitoEvents' {} a -> s {identityPoolId = a} :: SetCognitoEvents)
 
 -- | The events to configure
-setCognitoEvents_events :: Lens.Lens' SetCognitoEvents (Prelude.HashMap Prelude.Text Prelude.Text)
-setCognitoEvents_events = Lens.lens (\SetCognitoEvents' {events} -> events) (\s@SetCognitoEvents' {} a -> s {events = a} :: SetCognitoEvents) Prelude.. Prelude._Coerce
+setCognitoEvents_events :: Lens.Lens' SetCognitoEvents (Core.HashMap Core.Text Core.Text)
+setCognitoEvents_events = Lens.lens (\SetCognitoEvents' {events} -> events) (\s@SetCognitoEvents' {} a -> s {events = a} :: SetCognitoEvents) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest SetCognitoEvents where
-  type Rs SetCognitoEvents = SetCognitoEventsResponse
+instance Core.AWSRequest SetCognitoEvents where
+  type
+    AWSResponse SetCognitoEvents =
+      SetCognitoEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull SetCognitoEventsResponse'
 
-instance Prelude.Hashable SetCognitoEvents
+instance Core.Hashable SetCognitoEvents
 
-instance Prelude.NFData SetCognitoEvents
+instance Core.NFData SetCognitoEvents
 
-instance Prelude.ToHeaders SetCognitoEvents where
+instance Core.ToHeaders SetCognitoEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SetCognitoEvents where
+instance Core.ToJSON SetCognitoEvents where
   toJSON SetCognitoEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Events" Prelude..= events)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Events" Core..= events)]
       )
 
-instance Prelude.ToPath SetCognitoEvents where
+instance Core.ToPath SetCognitoEvents where
   toPath SetCognitoEvents' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/identitypools/",
-        Prelude.toBS identityPoolId,
+        Core.toBS identityPoolId,
         "/events"
       ]
 
-instance Prelude.ToQuery SetCognitoEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SetCognitoEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSetCognitoEventsResponse' smart constructor.
 data SetCognitoEventsResponse = SetCognitoEventsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetCognitoEventsResponse' with all optional fields omitted.
@@ -147,4 +146,4 @@ newSetCognitoEventsResponse ::
 newSetCognitoEventsResponse =
   SetCognitoEventsResponse'
 
-instance Prelude.NFData SetCognitoEventsResponse
+instance Core.NFData SetCognitoEventsResponse

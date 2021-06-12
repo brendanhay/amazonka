@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.InstanceState where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the virtual private server (or /instance/) status.
 --
 -- /See:/ 'newInstanceState' smart constructor.
 data InstanceState = InstanceState'
   { -- | The status code for the instance.
-    code :: Prelude.Maybe Prelude.Int,
+    code :: Core.Maybe Core.Int,
     -- | The state of the instance (e.g., @running@ or @pending@).
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceState' with all optional fields omitted.
@@ -49,28 +48,27 @@ newInstanceState ::
   InstanceState
 newInstanceState =
   InstanceState'
-    { code = Prelude.Nothing,
-      name = Prelude.Nothing
+    { code = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The status code for the instance.
-instanceState_code :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Int)
+instanceState_code :: Lens.Lens' InstanceState (Core.Maybe Core.Int)
 instanceState_code = Lens.lens (\InstanceState' {code} -> code) (\s@InstanceState' {} a -> s {code = a} :: InstanceState)
 
 -- | The state of the instance (e.g., @running@ or @pending@).
-instanceState_name :: Lens.Lens' InstanceState (Prelude.Maybe Prelude.Text)
+instanceState_name :: Lens.Lens' InstanceState (Core.Maybe Core.Text)
 instanceState_name = Lens.lens (\InstanceState' {name} -> name) (\s@InstanceState' {} a -> s {name = a} :: InstanceState)
 
-instance Prelude.FromJSON InstanceState where
+instance Core.FromJSON InstanceState where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceState"
       ( \x ->
           InstanceState'
-            Prelude.<$> (x Prelude..:? "code")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable InstanceState
+instance Core.Hashable InstanceState
 
-instance Prelude.NFData InstanceState
+instance Core.NFData InstanceState

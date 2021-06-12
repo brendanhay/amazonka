@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.LabelCountersForWorkteam where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides counts for human-labeled tasks in the labeling job.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data LabelCountersForWorkteam = LabelCountersForWorkteam'
   { -- | The total number of data objects that need to be labeled by a human
     -- worker.
-    pendingHuman :: Prelude.Maybe Prelude.Natural,
+    pendingHuman :: Core.Maybe Core.Natural,
     -- | The total number of tasks in the labeling job.
-    total :: Prelude.Maybe Prelude.Natural,
+    total :: Core.Maybe Core.Natural,
     -- | The total number of data objects labeled by a human worker.
-    humanLabeled :: Prelude.Maybe Prelude.Natural
+    humanLabeled :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelCountersForWorkteam' with all optional fields omitted.
@@ -56,35 +55,35 @@ newLabelCountersForWorkteam ::
 newLabelCountersForWorkteam =
   LabelCountersForWorkteam'
     { pendingHuman =
-        Prelude.Nothing,
-      total = Prelude.Nothing,
-      humanLabeled = Prelude.Nothing
+        Core.Nothing,
+      total = Core.Nothing,
+      humanLabeled = Core.Nothing
     }
 
 -- | The total number of data objects that need to be labeled by a human
 -- worker.
-labelCountersForWorkteam_pendingHuman :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
+labelCountersForWorkteam_pendingHuman :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
 labelCountersForWorkteam_pendingHuman = Lens.lens (\LabelCountersForWorkteam' {pendingHuman} -> pendingHuman) (\s@LabelCountersForWorkteam' {} a -> s {pendingHuman = a} :: LabelCountersForWorkteam)
 
 -- | The total number of tasks in the labeling job.
-labelCountersForWorkteam_total :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
+labelCountersForWorkteam_total :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
 labelCountersForWorkteam_total = Lens.lens (\LabelCountersForWorkteam' {total} -> total) (\s@LabelCountersForWorkteam' {} a -> s {total = a} :: LabelCountersForWorkteam)
 
 -- | The total number of data objects labeled by a human worker.
-labelCountersForWorkteam_humanLabeled :: Lens.Lens' LabelCountersForWorkteam (Prelude.Maybe Prelude.Natural)
+labelCountersForWorkteam_humanLabeled :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
 labelCountersForWorkteam_humanLabeled = Lens.lens (\LabelCountersForWorkteam' {humanLabeled} -> humanLabeled) (\s@LabelCountersForWorkteam' {} a -> s {humanLabeled = a} :: LabelCountersForWorkteam)
 
-instance Prelude.FromJSON LabelCountersForWorkteam where
+instance Core.FromJSON LabelCountersForWorkteam where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LabelCountersForWorkteam"
       ( \x ->
           LabelCountersForWorkteam'
-            Prelude.<$> (x Prelude..:? "PendingHuman")
-            Prelude.<*> (x Prelude..:? "Total")
-            Prelude.<*> (x Prelude..:? "HumanLabeled")
+            Core.<$> (x Core..:? "PendingHuman")
+            Core.<*> (x Core..:? "Total")
+            Core.<*> (x Core..:? "HumanLabeled")
       )
 
-instance Prelude.Hashable LabelCountersForWorkteam
+instance Core.Hashable LabelCountersForWorkteam
 
-instance Prelude.NFData LabelCountersForWorkteam
+instance Core.NFData LabelCountersForWorkteam

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.RestoreWindow where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Earliest and latest time an instance can be restored to:
 --
 -- /See:/ 'newRestoreWindow' smart constructor.
 data RestoreWindow = RestoreWindow'
   { -- | The earliest time you can restore an instance to.
-    earliestTime :: Prelude.Maybe Prelude.ISO8601,
+    earliestTime :: Core.Maybe Core.ISO8601,
     -- | The latest time you can restore an instance to.
-    latestTime :: Prelude.Maybe Prelude.ISO8601
+    latestTime :: Core.Maybe Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreWindow' with all optional fields omitted.
@@ -49,24 +48,24 @@ newRestoreWindow ::
   RestoreWindow
 newRestoreWindow =
   RestoreWindow'
-    { earliestTime = Prelude.Nothing,
-      latestTime = Prelude.Nothing
+    { earliestTime = Core.Nothing,
+      latestTime = Core.Nothing
     }
 
 -- | The earliest time you can restore an instance to.
-restoreWindow_earliestTime :: Lens.Lens' RestoreWindow (Prelude.Maybe Prelude.UTCTime)
-restoreWindow_earliestTime = Lens.lens (\RestoreWindow' {earliestTime} -> earliestTime) (\s@RestoreWindow' {} a -> s {earliestTime = a} :: RestoreWindow) Prelude.. Lens.mapping Prelude._Time
+restoreWindow_earliestTime :: Lens.Lens' RestoreWindow (Core.Maybe Core.UTCTime)
+restoreWindow_earliestTime = Lens.lens (\RestoreWindow' {earliestTime} -> earliestTime) (\s@RestoreWindow' {} a -> s {earliestTime = a} :: RestoreWindow) Core.. Lens.mapping Core._Time
 
 -- | The latest time you can restore an instance to.
-restoreWindow_latestTime :: Lens.Lens' RestoreWindow (Prelude.Maybe Prelude.UTCTime)
-restoreWindow_latestTime = Lens.lens (\RestoreWindow' {latestTime} -> latestTime) (\s@RestoreWindow' {} a -> s {latestTime = a} :: RestoreWindow) Prelude.. Lens.mapping Prelude._Time
+restoreWindow_latestTime :: Lens.Lens' RestoreWindow (Core.Maybe Core.UTCTime)
+restoreWindow_latestTime = Lens.lens (\RestoreWindow' {latestTime} -> latestTime) (\s@RestoreWindow' {} a -> s {latestTime = a} :: RestoreWindow) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromXML RestoreWindow where
+instance Core.FromXML RestoreWindow where
   parseXML x =
     RestoreWindow'
-      Prelude.<$> (x Prelude..@? "EarliestTime")
-      Prelude.<*> (x Prelude..@? "LatestTime")
+      Core.<$> (x Core..@? "EarliestTime")
+      Core.<*> (x Core..@? "LatestTime")
 
-instance Prelude.Hashable RestoreWindow
+instance Core.Hashable RestoreWindow
 
-instance Prelude.NFData RestoreWindow
+instance Core.NFData RestoreWindow

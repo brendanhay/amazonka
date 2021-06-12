@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.StopAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.StopScope
 
 -- | When included in a receipt rule, this action terminates the evaluation
@@ -38,11 +37,11 @@ data StopAction = StopAction'
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicArn :: Prelude.Maybe Prelude.Text,
+    topicArn :: Core.Maybe Core.Text,
     -- | The scope of the StopAction. The only acceptable value is @RuleSet@.
     scope :: StopScope
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopAction' with all optional fields omitted.
@@ -65,7 +64,7 @@ newStopAction ::
   StopAction
 newStopAction pScope_ =
   StopAction'
-    { topicArn = Prelude.Nothing,
+    { topicArn = Core.Nothing,
       scope = pScope_
     }
 
@@ -74,26 +73,23 @@ newStopAction pScope_ =
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-stopAction_topicArn :: Lens.Lens' StopAction (Prelude.Maybe Prelude.Text)
+stopAction_topicArn :: Lens.Lens' StopAction (Core.Maybe Core.Text)
 stopAction_topicArn = Lens.lens (\StopAction' {topicArn} -> topicArn) (\s@StopAction' {} a -> s {topicArn = a} :: StopAction)
 
 -- | The scope of the StopAction. The only acceptable value is @RuleSet@.
 stopAction_scope :: Lens.Lens' StopAction StopScope
 stopAction_scope = Lens.lens (\StopAction' {scope} -> scope) (\s@StopAction' {} a -> s {scope = a} :: StopAction)
 
-instance Prelude.FromXML StopAction where
+instance Core.FromXML StopAction where
   parseXML x =
     StopAction'
-      Prelude.<$> (x Prelude..@? "TopicArn")
-      Prelude.<*> (x Prelude..@ "Scope")
+      Core.<$> (x Core..@? "TopicArn") Core.<*> (x Core..@ "Scope")
 
-instance Prelude.Hashable StopAction
+instance Core.Hashable StopAction
 
-instance Prelude.NFData StopAction
+instance Core.NFData StopAction
 
-instance Prelude.ToQuery StopAction where
+instance Core.ToQuery StopAction where
   toQuery StopAction' {..} =
-    Prelude.mconcat
-      [ "TopicArn" Prelude.=: topicArn,
-        "Scope" Prelude.=: scope
-      ]
+    Core.mconcat
+      ["TopicArn" Core.=: topicArn, "Scope" Core.=: scope]

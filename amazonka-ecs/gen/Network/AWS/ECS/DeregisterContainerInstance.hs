@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.ECS.DeregisterContainerInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,20 +78,20 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
     -- Classic Load Balancer or an Application Load Balancer target group are
     -- deregistered. They begin connection draining according to the settings
     -- on the load balancer or target group.
-    force :: Prelude.Maybe Prelude.Bool,
+    force :: Core.Maybe Core.Bool,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the container instance to deregister. If you do not specify a
     -- cluster, the default cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
+    cluster :: Core.Maybe Core.Text,
     -- | The container instance ID or full ARN of the container instance to
     -- deregister. The ARN contains the @arn:aws:ecs@ namespace, followed by
     -- the Region of the container instance, the AWS account ID of the
     -- container instance owner, the @container-instance@ namespace, and then
     -- the container instance ID. For example,
     -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
-    containerInstance :: Prelude.Text
+    containerInstance :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterContainerInstance' with all optional fields omitted.
@@ -128,13 +127,12 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
 newDeregisterContainerInstance ::
   -- | 'containerInstance'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterContainerInstance
 newDeregisterContainerInstance pContainerInstance_ =
   DeregisterContainerInstance'
-    { force =
-        Prelude.Nothing,
-      cluster = Prelude.Nothing,
+    { force = Core.Nothing,
+      cluster = Core.Nothing,
       containerInstance = pContainerInstance_
     }
 
@@ -151,13 +149,13 @@ newDeregisterContainerInstance pContainerInstance_ =
 -- Classic Load Balancer or an Application Load Balancer target group are
 -- deregistered. They begin connection draining according to the settings
 -- on the load balancer or target group.
-deregisterContainerInstance_force :: Lens.Lens' DeregisterContainerInstance (Prelude.Maybe Prelude.Bool)
+deregisterContainerInstance_force :: Lens.Lens' DeregisterContainerInstance (Core.Maybe Core.Bool)
 deregisterContainerInstance_force = Lens.lens (\DeregisterContainerInstance' {force} -> force) (\s@DeregisterContainerInstance' {} a -> s {force = a} :: DeregisterContainerInstance)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instance to deregister. If you do not specify a
 -- cluster, the default cluster is assumed.
-deregisterContainerInstance_cluster :: Lens.Lens' DeregisterContainerInstance (Prelude.Maybe Prelude.Text)
+deregisterContainerInstance_cluster :: Lens.Lens' DeregisterContainerInstance (Core.Maybe Core.Text)
 deregisterContainerInstance_cluster = Lens.lens (\DeregisterContainerInstance' {cluster} -> cluster) (\s@DeregisterContainerInstance' {} a -> s {cluster = a} :: DeregisterContainerInstance)
 
 -- | The container instance ID or full ARN of the container instance to
@@ -166,72 +164,64 @@ deregisterContainerInstance_cluster = Lens.lens (\DeregisterContainerInstance' {
 -- container instance owner, the @container-instance@ namespace, and then
 -- the container instance ID. For example,
 -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
-deregisterContainerInstance_containerInstance :: Lens.Lens' DeregisterContainerInstance Prelude.Text
+deregisterContainerInstance_containerInstance :: Lens.Lens' DeregisterContainerInstance Core.Text
 deregisterContainerInstance_containerInstance = Lens.lens (\DeregisterContainerInstance' {containerInstance} -> containerInstance) (\s@DeregisterContainerInstance' {} a -> s {containerInstance = a} :: DeregisterContainerInstance)
 
-instance
-  Prelude.AWSRequest
-    DeregisterContainerInstance
-  where
+instance Core.AWSRequest DeregisterContainerInstance where
   type
-    Rs DeregisterContainerInstance =
+    AWSResponse DeregisterContainerInstance =
       DeregisterContainerInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeregisterContainerInstanceResponse'
-            Prelude.<$> (x Prelude..?> "containerInstance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "containerInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterContainerInstance
+instance Core.Hashable DeregisterContainerInstance
 
-instance Prelude.NFData DeregisterContainerInstance
+instance Core.NFData DeregisterContainerInstance
 
-instance
-  Prelude.ToHeaders
-    DeregisterContainerInstance
-  where
+instance Core.ToHeaders DeregisterContainerInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeregisterContainerInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterContainerInstance where
+instance Core.ToJSON DeregisterContainerInstance where
   toJSON DeregisterContainerInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("force" Prelude..=) Prelude.<$> force,
-            ("cluster" Prelude..=) Prelude.<$> cluster,
-            Prelude.Just
-              ("containerInstance" Prelude..= containerInstance)
+    Core.object
+      ( Core.catMaybes
+          [ ("force" Core..=) Core.<$> force,
+            ("cluster" Core..=) Core.<$> cluster,
+            Core.Just
+              ("containerInstance" Core..= containerInstance)
           ]
       )
 
-instance Prelude.ToPath DeregisterContainerInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterContainerInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterContainerInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterContainerInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterContainerInstanceResponse' smart constructor.
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
   { -- | The container instance that was deregistered.
-    containerInstance :: Prelude.Maybe ContainerInstance,
+    containerInstance :: Core.Maybe ContainerInstance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterContainerInstanceResponse' with all optional fields omitted.
@@ -246,23 +236,23 @@ data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
 -- 'httpStatus', 'deregisterContainerInstanceResponse_httpStatus' - The response's http status code.
 newDeregisterContainerInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterContainerInstanceResponse
 newDeregisterContainerInstanceResponse pHttpStatus_ =
   DeregisterContainerInstanceResponse'
     { containerInstance =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The container instance that was deregistered.
-deregisterContainerInstanceResponse_containerInstance :: Lens.Lens' DeregisterContainerInstanceResponse (Prelude.Maybe ContainerInstance)
+deregisterContainerInstanceResponse_containerInstance :: Lens.Lens' DeregisterContainerInstanceResponse (Core.Maybe ContainerInstance)
 deregisterContainerInstanceResponse_containerInstance = Lens.lens (\DeregisterContainerInstanceResponse' {containerInstance} -> containerInstance) (\s@DeregisterContainerInstanceResponse' {} a -> s {containerInstance = a} :: DeregisterContainerInstanceResponse)
 
 -- | The response's http status code.
-deregisterContainerInstanceResponse_httpStatus :: Lens.Lens' DeregisterContainerInstanceResponse Prelude.Int
+deregisterContainerInstanceResponse_httpStatus :: Lens.Lens' DeregisterContainerInstanceResponse Core.Int
 deregisterContainerInstanceResponse_httpStatus = Lens.lens (\DeregisterContainerInstanceResponse' {httpStatus} -> httpStatus) (\s@DeregisterContainerInstanceResponse' {} a -> s {httpStatus = a} :: DeregisterContainerInstanceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterContainerInstanceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.DeveloperInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details about the developer that published the skill.
 --
 -- /See:/ 'newDeveloperInfo' smart constructor.
 data DeveloperInfo = DeveloperInfo'
   { -- | The name of the developer.
-    developerName :: Prelude.Maybe Prelude.Text,
+    developerName :: Core.Maybe Core.Text,
     -- | The email of the developer.
-    email :: Prelude.Maybe Prelude.Text,
+    email :: Core.Maybe Core.Text,
     -- | The URL of the privacy policy.
-    privacyPolicy :: Prelude.Maybe Prelude.Text,
+    privacyPolicy :: Core.Maybe Core.Text,
     -- | The website of the developer.
-    url :: Prelude.Maybe Prelude.Text
+    url :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeveloperInfo' with all optional fields omitted.
@@ -57,40 +56,40 @@ newDeveloperInfo ::
   DeveloperInfo
 newDeveloperInfo =
   DeveloperInfo'
-    { developerName = Prelude.Nothing,
-      email = Prelude.Nothing,
-      privacyPolicy = Prelude.Nothing,
-      url = Prelude.Nothing
+    { developerName = Core.Nothing,
+      email = Core.Nothing,
+      privacyPolicy = Core.Nothing,
+      url = Core.Nothing
     }
 
 -- | The name of the developer.
-developerInfo_developerName :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
+developerInfo_developerName :: Lens.Lens' DeveloperInfo (Core.Maybe Core.Text)
 developerInfo_developerName = Lens.lens (\DeveloperInfo' {developerName} -> developerName) (\s@DeveloperInfo' {} a -> s {developerName = a} :: DeveloperInfo)
 
 -- | The email of the developer.
-developerInfo_email :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
+developerInfo_email :: Lens.Lens' DeveloperInfo (Core.Maybe Core.Text)
 developerInfo_email = Lens.lens (\DeveloperInfo' {email} -> email) (\s@DeveloperInfo' {} a -> s {email = a} :: DeveloperInfo)
 
 -- | The URL of the privacy policy.
-developerInfo_privacyPolicy :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
+developerInfo_privacyPolicy :: Lens.Lens' DeveloperInfo (Core.Maybe Core.Text)
 developerInfo_privacyPolicy = Lens.lens (\DeveloperInfo' {privacyPolicy} -> privacyPolicy) (\s@DeveloperInfo' {} a -> s {privacyPolicy = a} :: DeveloperInfo)
 
 -- | The website of the developer.
-developerInfo_url :: Lens.Lens' DeveloperInfo (Prelude.Maybe Prelude.Text)
+developerInfo_url :: Lens.Lens' DeveloperInfo (Core.Maybe Core.Text)
 developerInfo_url = Lens.lens (\DeveloperInfo' {url} -> url) (\s@DeveloperInfo' {} a -> s {url = a} :: DeveloperInfo)
 
-instance Prelude.FromJSON DeveloperInfo where
+instance Core.FromJSON DeveloperInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeveloperInfo"
       ( \x ->
           DeveloperInfo'
-            Prelude.<$> (x Prelude..:? "DeveloperName")
-            Prelude.<*> (x Prelude..:? "Email")
-            Prelude.<*> (x Prelude..:? "PrivacyPolicy")
-            Prelude.<*> (x Prelude..:? "Url")
+            Core.<$> (x Core..:? "DeveloperName")
+            Core.<*> (x Core..:? "Email")
+            Core.<*> (x Core..:? "PrivacyPolicy")
+            Core.<*> (x Core..:? "Url")
       )
 
-instance Prelude.Hashable DeveloperInfo
+instance Core.Hashable DeveloperInfo
 
-instance Prelude.NFData DeveloperInfo
+instance Core.NFData DeveloperInfo

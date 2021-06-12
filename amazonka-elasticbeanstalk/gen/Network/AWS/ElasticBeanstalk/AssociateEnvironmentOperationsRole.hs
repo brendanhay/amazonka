@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAssociateEnvironmentOperationsRole' smart constructor.
 data AssociateEnvironmentOperationsRole = AssociateEnvironmentOperationsRole'
   { -- | The name of the environment to which to set the operations role.
-    environmentName :: Prelude.Text,
+    environmentName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the
     -- environment\'s operations role.
-    operationsRole :: Prelude.Text
+    operationsRole :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateEnvironmentOperationsRole' with all optional fields omitted.
@@ -74,9 +73,9 @@ data AssociateEnvironmentOperationsRole = AssociateEnvironmentOperationsRole'
 -- environment\'s operations role.
 newAssociateEnvironmentOperationsRole ::
   -- | 'environmentName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'operationsRole'
-  Prelude.Text ->
+  Core.Text ->
   AssociateEnvironmentOperationsRole
 newAssociateEnvironmentOperationsRole
   pEnvironmentName_
@@ -88,20 +87,20 @@ newAssociateEnvironmentOperationsRole
       }
 
 -- | The name of the environment to which to set the operations role.
-associateEnvironmentOperationsRole_environmentName :: Lens.Lens' AssociateEnvironmentOperationsRole Prelude.Text
+associateEnvironmentOperationsRole_environmentName :: Lens.Lens' AssociateEnvironmentOperationsRole Core.Text
 associateEnvironmentOperationsRole_environmentName = Lens.lens (\AssociateEnvironmentOperationsRole' {environmentName} -> environmentName) (\s@AssociateEnvironmentOperationsRole' {} a -> s {environmentName = a} :: AssociateEnvironmentOperationsRole)
 
 -- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the
 -- environment\'s operations role.
-associateEnvironmentOperationsRole_operationsRole :: Lens.Lens' AssociateEnvironmentOperationsRole Prelude.Text
+associateEnvironmentOperationsRole_operationsRole :: Lens.Lens' AssociateEnvironmentOperationsRole Core.Text
 associateEnvironmentOperationsRole_operationsRole = Lens.lens (\AssociateEnvironmentOperationsRole' {operationsRole} -> operationsRole) (\s@AssociateEnvironmentOperationsRole' {} a -> s {operationsRole = a} :: AssociateEnvironmentOperationsRole)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AssociateEnvironmentOperationsRole
   where
   type
-    Rs AssociateEnvironmentOperationsRole =
+    AWSResponse AssociateEnvironmentOperationsRole =
       AssociateEnvironmentOperationsRoleResponse
   request = Request.postQuery defaultService
   response =
@@ -109,46 +108,45 @@ instance
       AssociateEnvironmentOperationsRoleResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AssociateEnvironmentOperationsRole
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateEnvironmentOperationsRole
 
 instance
-  Prelude.ToHeaders
-    AssociateEnvironmentOperationsRole
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     AssociateEnvironmentOperationsRole
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    AssociateEnvironmentOperationsRole
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     AssociateEnvironmentOperationsRole
   where
   toQuery AssociateEnvironmentOperationsRole' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "AssociateEnvironmentOperationsRole" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Prelude.=: environmentName,
-        "OperationsRole" Prelude.=: operationsRole
+          Core.=: ( "AssociateEnvironmentOperationsRole" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EnvironmentName" Core.=: environmentName,
+        "OperationsRole" Core.=: operationsRole
       ]
 
 -- | /See:/ 'newAssociateEnvironmentOperationsRoleResponse' smart constructor.
 data AssociateEnvironmentOperationsRoleResponse = AssociateEnvironmentOperationsRoleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateEnvironmentOperationsRoleResponse' with all optional fields omitted.
@@ -160,5 +158,5 @@ newAssociateEnvironmentOperationsRoleResponse =
   AssociateEnvironmentOperationsRoleResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateEnvironmentOperationsRoleResponse

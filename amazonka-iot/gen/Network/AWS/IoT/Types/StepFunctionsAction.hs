@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.StepFunctionsAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Starts execution of a Step Functions state machine.
 --
@@ -31,15 +30,15 @@ data StepFunctionsAction = StepFunctionsAction'
     -- consisting of this prefix followed by a UUID. Step Functions
     -- automatically creates a unique name for each state machine execution if
     -- one is not provided.
-    executionNamePrefix :: Prelude.Maybe Prelude.Text,
+    executionNamePrefix :: Core.Maybe Core.Text,
     -- | The name of the Step Functions state machine whose execution will be
     -- started.
-    stateMachineName :: Prelude.Text,
+    stateMachineName :: Core.Text,
     -- | The ARN of the role that grants IoT permission to start execution of a
     -- state machine (\"Action\":\"states:StartExecution\").
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StepFunctionsAction' with all optional fields omitted.
@@ -61,14 +60,14 @@ data StepFunctionsAction = StepFunctionsAction'
 -- state machine (\"Action\":\"states:StartExecution\").
 newStepFunctionsAction ::
   -- | 'stateMachineName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   StepFunctionsAction
 newStepFunctionsAction pStateMachineName_ pRoleArn_ =
   StepFunctionsAction'
     { executionNamePrefix =
-        Prelude.Nothing,
+        Core.Nothing,
       stateMachineName = pStateMachineName_,
       roleArn = pRoleArn_
     }
@@ -77,42 +76,42 @@ newStepFunctionsAction pStateMachineName_ pRoleArn_ =
 -- consisting of this prefix followed by a UUID. Step Functions
 -- automatically creates a unique name for each state machine execution if
 -- one is not provided.
-stepFunctionsAction_executionNamePrefix :: Lens.Lens' StepFunctionsAction (Prelude.Maybe Prelude.Text)
+stepFunctionsAction_executionNamePrefix :: Lens.Lens' StepFunctionsAction (Core.Maybe Core.Text)
 stepFunctionsAction_executionNamePrefix = Lens.lens (\StepFunctionsAction' {executionNamePrefix} -> executionNamePrefix) (\s@StepFunctionsAction' {} a -> s {executionNamePrefix = a} :: StepFunctionsAction)
 
 -- | The name of the Step Functions state machine whose execution will be
 -- started.
-stepFunctionsAction_stateMachineName :: Lens.Lens' StepFunctionsAction Prelude.Text
+stepFunctionsAction_stateMachineName :: Lens.Lens' StepFunctionsAction Core.Text
 stepFunctionsAction_stateMachineName = Lens.lens (\StepFunctionsAction' {stateMachineName} -> stateMachineName) (\s@StepFunctionsAction' {} a -> s {stateMachineName = a} :: StepFunctionsAction)
 
 -- | The ARN of the role that grants IoT permission to start execution of a
 -- state machine (\"Action\":\"states:StartExecution\").
-stepFunctionsAction_roleArn :: Lens.Lens' StepFunctionsAction Prelude.Text
+stepFunctionsAction_roleArn :: Lens.Lens' StepFunctionsAction Core.Text
 stepFunctionsAction_roleArn = Lens.lens (\StepFunctionsAction' {roleArn} -> roleArn) (\s@StepFunctionsAction' {} a -> s {roleArn = a} :: StepFunctionsAction)
 
-instance Prelude.FromJSON StepFunctionsAction where
+instance Core.FromJSON StepFunctionsAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StepFunctionsAction"
       ( \x ->
           StepFunctionsAction'
-            Prelude.<$> (x Prelude..:? "executionNamePrefix")
-            Prelude.<*> (x Prelude..: "stateMachineName")
-            Prelude.<*> (x Prelude..: "roleArn")
+            Core.<$> (x Core..:? "executionNamePrefix")
+            Core.<*> (x Core..: "stateMachineName")
+            Core.<*> (x Core..: "roleArn")
       )
 
-instance Prelude.Hashable StepFunctionsAction
+instance Core.Hashable StepFunctionsAction
 
-instance Prelude.NFData StepFunctionsAction
+instance Core.NFData StepFunctionsAction
 
-instance Prelude.ToJSON StepFunctionsAction where
+instance Core.ToJSON StepFunctionsAction where
   toJSON StepFunctionsAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("executionNamePrefix" Prelude..=)
-              Prelude.<$> executionNamePrefix,
-            Prelude.Just
-              ("stateMachineName" Prelude..= stateMachineName),
-            Prelude.Just ("roleArn" Prelude..= roleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("executionNamePrefix" Core..=)
+              Core.<$> executionNamePrefix,
+            Core.Just
+              ("stateMachineName" Core..= stateMachineName),
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )

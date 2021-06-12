@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata where
 
 import Network.AWS.CodeCommit.Types.PullRequestStatusEnum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a change to the status of a pull request.
 --
 -- /See:/ 'newPullRequestStatusChangedEventMetadata' smart constructor.
 data PullRequestStatusChangedEventMetadata = PullRequestStatusChangedEventMetadata'
   { -- | The changed status of the pull request.
-    pullRequestStatus :: Prelude.Maybe PullRequestStatusEnum
+    pullRequestStatus :: Core.Maybe PullRequestStatusEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PullRequestStatusChangedEventMetadata' with all optional fields omitted.
@@ -47,29 +46,29 @@ newPullRequestStatusChangedEventMetadata ::
 newPullRequestStatusChangedEventMetadata =
   PullRequestStatusChangedEventMetadata'
     { pullRequestStatus =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The changed status of the pull request.
-pullRequestStatusChangedEventMetadata_pullRequestStatus :: Lens.Lens' PullRequestStatusChangedEventMetadata (Prelude.Maybe PullRequestStatusEnum)
+pullRequestStatusChangedEventMetadata_pullRequestStatus :: Lens.Lens' PullRequestStatusChangedEventMetadata (Core.Maybe PullRequestStatusEnum)
 pullRequestStatusChangedEventMetadata_pullRequestStatus = Lens.lens (\PullRequestStatusChangedEventMetadata' {pullRequestStatus} -> pullRequestStatus) (\s@PullRequestStatusChangedEventMetadata' {} a -> s {pullRequestStatus = a} :: PullRequestStatusChangedEventMetadata)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     PullRequestStatusChangedEventMetadata
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PullRequestStatusChangedEventMetadata"
       ( \x ->
           PullRequestStatusChangedEventMetadata'
-            Prelude.<$> (x Prelude..:? "pullRequestStatus")
+            Core.<$> (x Core..:? "pullRequestStatus")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PullRequestStatusChangedEventMetadata
 
 instance
-  Prelude.NFData
+  Core.NFData
     PullRequestStatusChangedEventMetadata

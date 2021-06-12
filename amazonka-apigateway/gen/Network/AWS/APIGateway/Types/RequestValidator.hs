@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.RequestValidator where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of validation rules for incoming Method requests.
 --
@@ -37,16 +36,16 @@ import qualified Network.AWS.Prelude as Prelude
 data RequestValidator = RequestValidator'
   { -- | A Boolean flag to indicate whether to validate a request body according
     -- to the configured Model schema.
-    validateRequestBody :: Prelude.Maybe Prelude.Bool,
+    validateRequestBody :: Core.Maybe Core.Bool,
     -- | The identifier of this RequestValidator.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | A Boolean flag to indicate whether to validate request parameters
     -- (@true@) or not (@false@).
-    validateRequestParameters :: Prelude.Maybe Prelude.Bool,
+    validateRequestParameters :: Core.Maybe Core.Bool,
     -- | The name of this RequestValidator
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestValidator' with all optional fields omitted.
@@ -70,42 +69,42 @@ newRequestValidator ::
 newRequestValidator =
   RequestValidator'
     { validateRequestBody =
-        Prelude.Nothing,
-      id = Prelude.Nothing,
-      validateRequestParameters = Prelude.Nothing,
-      name = Prelude.Nothing
+        Core.Nothing,
+      id = Core.Nothing,
+      validateRequestParameters = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | A Boolean flag to indicate whether to validate a request body according
 -- to the configured Model schema.
-requestValidator_validateRequestBody :: Lens.Lens' RequestValidator (Prelude.Maybe Prelude.Bool)
+requestValidator_validateRequestBody :: Lens.Lens' RequestValidator (Core.Maybe Core.Bool)
 requestValidator_validateRequestBody = Lens.lens (\RequestValidator' {validateRequestBody} -> validateRequestBody) (\s@RequestValidator' {} a -> s {validateRequestBody = a} :: RequestValidator)
 
 -- | The identifier of this RequestValidator.
-requestValidator_id :: Lens.Lens' RequestValidator (Prelude.Maybe Prelude.Text)
+requestValidator_id :: Lens.Lens' RequestValidator (Core.Maybe Core.Text)
 requestValidator_id = Lens.lens (\RequestValidator' {id} -> id) (\s@RequestValidator' {} a -> s {id = a} :: RequestValidator)
 
 -- | A Boolean flag to indicate whether to validate request parameters
 -- (@true@) or not (@false@).
-requestValidator_validateRequestParameters :: Lens.Lens' RequestValidator (Prelude.Maybe Prelude.Bool)
+requestValidator_validateRequestParameters :: Lens.Lens' RequestValidator (Core.Maybe Core.Bool)
 requestValidator_validateRequestParameters = Lens.lens (\RequestValidator' {validateRequestParameters} -> validateRequestParameters) (\s@RequestValidator' {} a -> s {validateRequestParameters = a} :: RequestValidator)
 
 -- | The name of this RequestValidator
-requestValidator_name :: Lens.Lens' RequestValidator (Prelude.Maybe Prelude.Text)
+requestValidator_name :: Lens.Lens' RequestValidator (Core.Maybe Core.Text)
 requestValidator_name = Lens.lens (\RequestValidator' {name} -> name) (\s@RequestValidator' {} a -> s {name = a} :: RequestValidator)
 
-instance Prelude.FromJSON RequestValidator where
+instance Core.FromJSON RequestValidator where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RequestValidator"
       ( \x ->
           RequestValidator'
-            Prelude.<$> (x Prelude..:? "validateRequestBody")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "validateRequestParameters")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "validateRequestBody")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "validateRequestParameters")
+            Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable RequestValidator
+instance Core.Hashable RequestValidator
 
-instance Prelude.NFData RequestValidator
+instance Core.NFData RequestValidator

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.ModerationLabel where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a single type of unsafe content found in an
 -- image or video. Each type of moderated content has a label within a
@@ -31,19 +30,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newModerationLabel' smart constructor.
 data ModerationLabel = ModerationLabel'
   { -- | The label name for the type of unsafe content detected in the image.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Specifies the confidence that Amazon Rekognition has that the label has
     -- been correctly identified.
     --
     -- If you don\'t specify the @MinConfidence@ parameter in the call to
     -- @DetectModerationLabels@, the operation returns labels with a confidence
     -- value greater than or equal to 50 percent.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | The name for the parent label. Labels at the top level of the hierarchy
     -- have the parent label @\"\"@.
-    parentName :: Prelude.Maybe Prelude.Text
+    parentName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModerationLabel' with all optional fields omitted.
@@ -68,13 +67,13 @@ newModerationLabel ::
   ModerationLabel
 newModerationLabel =
   ModerationLabel'
-    { name = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      parentName = Prelude.Nothing
+    { name = Core.Nothing,
+      confidence = Core.Nothing,
+      parentName = Core.Nothing
     }
 
 -- | The label name for the type of unsafe content detected in the image.
-moderationLabel_name :: Lens.Lens' ModerationLabel (Prelude.Maybe Prelude.Text)
+moderationLabel_name :: Lens.Lens' ModerationLabel (Core.Maybe Core.Text)
 moderationLabel_name = Lens.lens (\ModerationLabel' {name} -> name) (\s@ModerationLabel' {} a -> s {name = a} :: ModerationLabel)
 
 -- | Specifies the confidence that Amazon Rekognition has that the label has
@@ -83,25 +82,25 @@ moderationLabel_name = Lens.lens (\ModerationLabel' {name} -> name) (\s@Moderati
 -- If you don\'t specify the @MinConfidence@ parameter in the call to
 -- @DetectModerationLabels@, the operation returns labels with a confidence
 -- value greater than or equal to 50 percent.
-moderationLabel_confidence :: Lens.Lens' ModerationLabel (Prelude.Maybe Prelude.Double)
+moderationLabel_confidence :: Lens.Lens' ModerationLabel (Core.Maybe Core.Double)
 moderationLabel_confidence = Lens.lens (\ModerationLabel' {confidence} -> confidence) (\s@ModerationLabel' {} a -> s {confidence = a} :: ModerationLabel)
 
 -- | The name for the parent label. Labels at the top level of the hierarchy
 -- have the parent label @\"\"@.
-moderationLabel_parentName :: Lens.Lens' ModerationLabel (Prelude.Maybe Prelude.Text)
+moderationLabel_parentName :: Lens.Lens' ModerationLabel (Core.Maybe Core.Text)
 moderationLabel_parentName = Lens.lens (\ModerationLabel' {parentName} -> parentName) (\s@ModerationLabel' {} a -> s {parentName = a} :: ModerationLabel)
 
-instance Prelude.FromJSON ModerationLabel where
+instance Core.FromJSON ModerationLabel where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModerationLabel"
       ( \x ->
           ModerationLabel'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "ParentName")
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "ParentName")
       )
 
-instance Prelude.Hashable ModerationLabel
+instance Core.Hashable ModerationLabel
 
-instance Prelude.NFData ModerationLabel
+instance Core.NFData ModerationLabel

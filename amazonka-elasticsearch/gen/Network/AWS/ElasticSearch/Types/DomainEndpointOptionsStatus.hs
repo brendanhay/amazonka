@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.DomainEndpointOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configured endpoint options for the domain and their current status.
 --
@@ -35,7 +34,7 @@ data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
     -- @OptionStatus@ for the status information that\'s included.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DomainEndpointOptionsStatus' with all optional fields omitted.
@@ -70,16 +69,15 @@ domainEndpointOptionsStatus_options = Lens.lens (\DomainEndpointOptionsStatus' {
 domainEndpointOptionsStatus_status :: Lens.Lens' DomainEndpointOptionsStatus OptionStatus
 domainEndpointOptionsStatus_status = Lens.lens (\DomainEndpointOptionsStatus' {status} -> status) (\s@DomainEndpointOptionsStatus' {} a -> s {status = a} :: DomainEndpointOptionsStatus)
 
-instance Prelude.FromJSON DomainEndpointOptionsStatus where
+instance Core.FromJSON DomainEndpointOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DomainEndpointOptionsStatus"
       ( \x ->
           DomainEndpointOptionsStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable DomainEndpointOptionsStatus
+instance Core.Hashable DomainEndpointOptionsStatus
 
-instance Prelude.NFData DomainEndpointOptionsStatus
+instance Core.NFData DomainEndpointOptionsStatus

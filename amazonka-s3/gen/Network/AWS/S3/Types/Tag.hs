@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | A container of a key value name pair.
@@ -31,9 +30,9 @@ data Tag = Tag'
   { -- | Name of the object key.
     key :: ObjectKey,
     -- | Value of the tag.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -50,7 +49,7 @@ newTag ::
   -- | 'key'
   ObjectKey ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
@@ -60,20 +59,19 @@ tag_key :: Lens.Lens' Tag ObjectKey
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | Value of the tag.
-tag_value :: Lens.Lens' Tag Prelude.Text
+tag_value :: Lens.Lens' Tag Core.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.FromXML Tag where
+instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Prelude..@ "Key")
-      Prelude.<*> (x Prelude..@ "Value")
+      Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToXML Tag where
+instance Core.ToXML Tag where
   toXML Tag' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.@= key, "Value" Prelude.@= value]
+    Core.mconcat
+      ["Key" Core.@= key, "Value" Core.@= value]

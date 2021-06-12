@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelExplainabilityJobInput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 
 -- | Inputs for the model explainability job.
@@ -30,7 +29,7 @@ import Network.AWS.SageMaker.Types.EndpointInput
 data ModelExplainabilityJobInput = ModelExplainabilityJobInput'
   { endpointInput :: EndpointInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelExplainabilityJobInput' with all optional fields omitted.
@@ -55,24 +54,22 @@ newModelExplainabilityJobInput pEndpointInput_ =
 modelExplainabilityJobInput_endpointInput :: Lens.Lens' ModelExplainabilityJobInput EndpointInput
 modelExplainabilityJobInput_endpointInput = Lens.lens (\ModelExplainabilityJobInput' {endpointInput} -> endpointInput) (\s@ModelExplainabilityJobInput' {} a -> s {endpointInput = a} :: ModelExplainabilityJobInput)
 
-instance Prelude.FromJSON ModelExplainabilityJobInput where
+instance Core.FromJSON ModelExplainabilityJobInput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelExplainabilityJobInput"
       ( \x ->
           ModelExplainabilityJobInput'
-            Prelude.<$> (x Prelude..: "EndpointInput")
+            Core.<$> (x Core..: "EndpointInput")
       )
 
-instance Prelude.Hashable ModelExplainabilityJobInput
+instance Core.Hashable ModelExplainabilityJobInput
 
-instance Prelude.NFData ModelExplainabilityJobInput
+instance Core.NFData ModelExplainabilityJobInput
 
-instance Prelude.ToJSON ModelExplainabilityJobInput where
+instance Core.ToJSON ModelExplainabilityJobInput where
   toJSON ModelExplainabilityJobInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Prelude..= endpointInput)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointInput" Core..= endpointInput)]
       )

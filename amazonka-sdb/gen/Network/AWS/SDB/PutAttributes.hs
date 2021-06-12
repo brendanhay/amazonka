@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -74,8 +73,8 @@ module Network.AWS.SDB.PutAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -86,15 +85,15 @@ data PutAttributes = PutAttributes'
     -- specified attributes will be updated or not. The update condition must
     -- be satisfied in order for this request to be processed and the
     -- attributes to be updated.
-    expected :: Prelude.Maybe UpdateCondition,
+    expected :: Core.Maybe UpdateCondition,
     -- | The name of the domain in which to perform the operation.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | The name of the item.
-    itemName :: Prelude.Text,
+    itemName :: Core.Text,
     -- | The list of attributes.
     attributes :: [ReplaceableAttribute]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAttributes' with all optional fields omitted.
@@ -116,71 +115,72 @@ data PutAttributes = PutAttributes'
 -- 'attributes', 'putAttributes_attributes' - The list of attributes.
 newPutAttributes ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'itemName'
-  Prelude.Text ->
+  Core.Text ->
   PutAttributes
 newPutAttributes pDomainName_ pItemName_ =
   PutAttributes'
-    { expected = Prelude.Nothing,
+    { expected = Core.Nothing,
       domainName = pDomainName_,
       itemName = pItemName_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- | The update condition which, if specified, determines whether the
 -- specified attributes will be updated or not. The update condition must
 -- be satisfied in order for this request to be processed and the
 -- attributes to be updated.
-putAttributes_expected :: Lens.Lens' PutAttributes (Prelude.Maybe UpdateCondition)
+putAttributes_expected :: Lens.Lens' PutAttributes (Core.Maybe UpdateCondition)
 putAttributes_expected = Lens.lens (\PutAttributes' {expected} -> expected) (\s@PutAttributes' {} a -> s {expected = a} :: PutAttributes)
 
 -- | The name of the domain in which to perform the operation.
-putAttributes_domainName :: Lens.Lens' PutAttributes Prelude.Text
+putAttributes_domainName :: Lens.Lens' PutAttributes Core.Text
 putAttributes_domainName = Lens.lens (\PutAttributes' {domainName} -> domainName) (\s@PutAttributes' {} a -> s {domainName = a} :: PutAttributes)
 
 -- | The name of the item.
-putAttributes_itemName :: Lens.Lens' PutAttributes Prelude.Text
+putAttributes_itemName :: Lens.Lens' PutAttributes Core.Text
 putAttributes_itemName = Lens.lens (\PutAttributes' {itemName} -> itemName) (\s@PutAttributes' {} a -> s {itemName = a} :: PutAttributes)
 
 -- | The list of attributes.
 putAttributes_attributes :: Lens.Lens' PutAttributes [ReplaceableAttribute]
-putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Prelude.. Prelude._Coerce
+putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutAttributes where
-  type Rs PutAttributes = PutAttributesResponse
+instance Core.AWSRequest PutAttributes where
+  type
+    AWSResponse PutAttributes =
+      PutAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull PutAttributesResponse'
 
-instance Prelude.Hashable PutAttributes
+instance Core.Hashable PutAttributes
 
-instance Prelude.NFData PutAttributes
+instance Core.NFData PutAttributes
 
-instance Prelude.ToHeaders PutAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutAttributes where
+instance Core.ToQuery PutAttributes where
   toQuery PutAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2009-04-15" :: Prelude.ByteString),
-        "Expected" Prelude.=: expected,
-        "DomainName" Prelude.=: domainName,
-        "ItemName" Prelude.=: itemName,
-        Prelude.toQueryList "Attribute" attributes
+          Core.=: ("PutAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+        "Expected" Core.=: expected,
+        "DomainName" Core.=: domainName,
+        "ItemName" Core.=: itemName,
+        Core.toQueryList "Attribute" attributes
       ]
 
 -- | /See:/ 'newPutAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAttributesResponse' with all optional fields omitted.
@@ -190,4 +190,4 @@ newPutAttributesResponse ::
   PutAttributesResponse
 newPutAttributesResponse = PutAttributesResponse'
 
-instance Prelude.NFData PutAttributesResponse
+instance Core.NFData PutAttributesResponse

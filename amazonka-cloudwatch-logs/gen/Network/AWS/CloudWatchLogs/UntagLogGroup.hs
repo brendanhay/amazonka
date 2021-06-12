@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,19 +42,19 @@ module Network.AWS.CloudWatchLogs.UntagLogGroup
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagLogGroup' smart constructor.
 data UntagLogGroup = UntagLogGroup'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text,
+    logGroupName :: Core.Text,
     -- | The tag keys. The corresponding tags are removed from the log group.
-    tags :: Prelude.NonEmpty Prelude.Text
+    tags :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagLogGroup' with all optional fields omitted.
@@ -70,70 +69,67 @@ data UntagLogGroup = UntagLogGroup'
 -- 'tags', 'untagLogGroup_tags' - The tag keys. The corresponding tags are removed from the log group.
 newUntagLogGroup ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tags'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   UntagLogGroup
 newUntagLogGroup pLogGroupName_ pTags_ =
   UntagLogGroup'
     { logGroupName = pLogGroupName_,
-      tags = Prelude._Coerce Lens.# pTags_
+      tags = Lens._Coerce Lens.# pTags_
     }
 
 -- | The name of the log group.
-untagLogGroup_logGroupName :: Lens.Lens' UntagLogGroup Prelude.Text
+untagLogGroup_logGroupName :: Lens.Lens' UntagLogGroup Core.Text
 untagLogGroup_logGroupName = Lens.lens (\UntagLogGroup' {logGroupName} -> logGroupName) (\s@UntagLogGroup' {} a -> s {logGroupName = a} :: UntagLogGroup)
 
 -- | The tag keys. The corresponding tags are removed from the log group.
-untagLogGroup_tags :: Lens.Lens' UntagLogGroup (Prelude.NonEmpty Prelude.Text)
-untagLogGroup_tags = Lens.lens (\UntagLogGroup' {tags} -> tags) (\s@UntagLogGroup' {} a -> s {tags = a} :: UntagLogGroup) Prelude.. Prelude._Coerce
+untagLogGroup_tags :: Lens.Lens' UntagLogGroup (Core.NonEmpty Core.Text)
+untagLogGroup_tags = Lens.lens (\UntagLogGroup' {tags} -> tags) (\s@UntagLogGroup' {} a -> s {tags = a} :: UntagLogGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagLogGroup where
-  type Rs UntagLogGroup = UntagLogGroupResponse
+instance Core.AWSRequest UntagLogGroup where
+  type
+    AWSResponse UntagLogGroup =
+      UntagLogGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UntagLogGroupResponse'
 
-instance Prelude.Hashable UntagLogGroup
+instance Core.Hashable UntagLogGroup
 
-instance Prelude.NFData UntagLogGroup
+instance Core.NFData UntagLogGroup
 
-instance Prelude.ToHeaders UntagLogGroup where
+instance Core.ToHeaders UntagLogGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.UntagLogGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.UntagLogGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UntagLogGroup where
+instance Core.ToJSON UntagLogGroup where
   toJSON UntagLogGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName),
-            Prelude.Just ("tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath UntagLogGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagLogGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagLogGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UntagLogGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUntagLogGroupResponse' smart constructor.
 data UntagLogGroupResponse = UntagLogGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagLogGroupResponse' with all optional fields omitted.
@@ -143,4 +139,4 @@ newUntagLogGroupResponse ::
   UntagLogGroupResponse
 newUntagLogGroupResponse = UntagLogGroupResponse'
 
-instance Prelude.NFData UntagLogGroupResponse
+instance Core.NFData UntagLogGroupResponse

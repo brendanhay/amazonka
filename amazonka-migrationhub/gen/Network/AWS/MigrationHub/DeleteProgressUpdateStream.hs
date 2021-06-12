@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,9 +61,9 @@ module Network.AWS.MigrationHub.DeleteProgressUpdateStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,12 +71,12 @@ import qualified Network.AWS.Response as Response
 data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The name of the ProgressUpdateStream. /Do not store personal data in
     -- this field./
-    progressUpdateStreamName :: Prelude.Text
+    progressUpdateStreamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProgressUpdateStream' with all optional fields omitted.
@@ -94,85 +93,79 @@ data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
 -- this field./
 newDeleteProgressUpdateStream ::
   -- | 'progressUpdateStreamName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteProgressUpdateStream
 newDeleteProgressUpdateStream
   pProgressUpdateStreamName_ =
     DeleteProgressUpdateStream'
-      { dryRun =
-          Prelude.Nothing,
+      { dryRun = Core.Nothing,
         progressUpdateStreamName =
           pProgressUpdateStreamName_
       }
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-deleteProgressUpdateStream_dryRun :: Lens.Lens' DeleteProgressUpdateStream (Prelude.Maybe Prelude.Bool)
+deleteProgressUpdateStream_dryRun :: Lens.Lens' DeleteProgressUpdateStream (Core.Maybe Core.Bool)
 deleteProgressUpdateStream_dryRun = Lens.lens (\DeleteProgressUpdateStream' {dryRun} -> dryRun) (\s@DeleteProgressUpdateStream' {} a -> s {dryRun = a} :: DeleteProgressUpdateStream)
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 -- this field./
-deleteProgressUpdateStream_progressUpdateStreamName :: Lens.Lens' DeleteProgressUpdateStream Prelude.Text
+deleteProgressUpdateStream_progressUpdateStreamName :: Lens.Lens' DeleteProgressUpdateStream Core.Text
 deleteProgressUpdateStream_progressUpdateStreamName = Lens.lens (\DeleteProgressUpdateStream' {progressUpdateStreamName} -> progressUpdateStreamName) (\s@DeleteProgressUpdateStream' {} a -> s {progressUpdateStreamName = a} :: DeleteProgressUpdateStream)
 
-instance
-  Prelude.AWSRequest
-    DeleteProgressUpdateStream
-  where
+instance Core.AWSRequest DeleteProgressUpdateStream where
   type
-    Rs DeleteProgressUpdateStream =
+    AWSResponse DeleteProgressUpdateStream =
       DeleteProgressUpdateStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProgressUpdateStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProgressUpdateStream
+instance Core.Hashable DeleteProgressUpdateStream
 
-instance Prelude.NFData DeleteProgressUpdateStream
+instance Core.NFData DeleteProgressUpdateStream
 
-instance Prelude.ToHeaders DeleteProgressUpdateStream where
+instance Core.ToHeaders DeleteProgressUpdateStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMigrationHub.DeleteProgressUpdateStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMigrationHub.DeleteProgressUpdateStream" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteProgressUpdateStream where
+instance Core.ToJSON DeleteProgressUpdateStream where
   toJSON DeleteProgressUpdateStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DryRun" Core..=) Core.<$> dryRun,
+            Core.Just
               ( "ProgressUpdateStreamName"
-                  Prelude..= progressUpdateStreamName
+                  Core..= progressUpdateStreamName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteProgressUpdateStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteProgressUpdateStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteProgressUpdateStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteProgressUpdateStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteProgressUpdateStreamResponse' smart constructor.
 data DeleteProgressUpdateStreamResponse = DeleteProgressUpdateStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProgressUpdateStreamResponse' with all optional fields omitted.
@@ -185,7 +178,7 @@ data DeleteProgressUpdateStreamResponse = DeleteProgressUpdateStreamResponse'
 -- 'httpStatus', 'deleteProgressUpdateStreamResponse_httpStatus' - The response's http status code.
 newDeleteProgressUpdateStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProgressUpdateStreamResponse
 newDeleteProgressUpdateStreamResponse pHttpStatus_ =
   DeleteProgressUpdateStreamResponse'
@@ -194,9 +187,9 @@ newDeleteProgressUpdateStreamResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteProgressUpdateStreamResponse_httpStatus :: Lens.Lens' DeleteProgressUpdateStreamResponse Prelude.Int
+deleteProgressUpdateStreamResponse_httpStatus :: Lens.Lens' DeleteProgressUpdateStreamResponse Core.Int
 deleteProgressUpdateStreamResponse_httpStatus = Lens.lens (\DeleteProgressUpdateStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteProgressUpdateStreamResponse' {} a -> s {httpStatus = a} :: DeleteProgressUpdateStreamResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteProgressUpdateStreamResponse

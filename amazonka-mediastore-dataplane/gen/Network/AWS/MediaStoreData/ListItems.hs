@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.MediaStoreData.ListItems
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +60,7 @@ data ListItems = ListItems'
     -- @ListItems@ request a second time and specify the @NextToken@ value.
     --
     -- Tokens expire after 15 minutes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return per API request. For example,
     -- you submit a @ListItems@ request with @MaxResults@ set at 500. Although
     -- 2,000 items match your request, the service returns no more than the
@@ -72,12 +70,12 @@ data ListItems = ListItems'
     --
     -- If @MaxResults@ is not included in the request, the service defaults to
     -- pagination with a maximum of 1,000 results per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The path in the container from which to retrieve items. Format: \<folder
     -- name>\/\<folder name>\/\<file name>
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListItems' with all optional fields omitted.
@@ -111,9 +109,9 @@ newListItems ::
   ListItems
 newListItems =
   ListItems'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      path = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | The token that identifies which batch of results that you want to see.
@@ -123,7 +121,7 @@ newListItems =
 -- @ListItems@ request a second time and specify the @NextToken@ value.
 --
 -- Tokens expire after 15 minutes.
-listItems_nextToken :: Lens.Lens' ListItems (Prelude.Maybe Prelude.Text)
+listItems_nextToken :: Lens.Lens' ListItems (Core.Maybe Core.Text)
 listItems_nextToken = Lens.lens (\ListItems' {nextToken} -> nextToken) (\s@ListItems' {} a -> s {nextToken = a} :: ListItems)
 
 -- | The maximum number of results to return per API request. For example,
@@ -135,61 +133,61 @@ listItems_nextToken = Lens.lens (\ListItems' {nextToken} -> nextToken) (\s@ListI
 --
 -- If @MaxResults@ is not included in the request, the service defaults to
 -- pagination with a maximum of 1,000 results per page.
-listItems_maxResults :: Lens.Lens' ListItems (Prelude.Maybe Prelude.Natural)
+listItems_maxResults :: Lens.Lens' ListItems (Core.Maybe Core.Natural)
 listItems_maxResults = Lens.lens (\ListItems' {maxResults} -> maxResults) (\s@ListItems' {} a -> s {maxResults = a} :: ListItems)
 
 -- | The path in the container from which to retrieve items. Format: \<folder
 -- name>\/\<folder name>\/\<file name>
-listItems_path :: Lens.Lens' ListItems (Prelude.Maybe Prelude.Text)
+listItems_path :: Lens.Lens' ListItems (Core.Maybe Core.Text)
 listItems_path = Lens.lens (\ListItems' {path} -> path) (\s@ListItems' {} a -> s {path = a} :: ListItems)
 
-instance Pager.AWSPager ListItems where
+instance Core.AWSPager ListItems where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listItemsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listItemsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listItemsResponse_items Prelude.. Lens._Just
+            Lens.^? listItemsResponse_items Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listItems_nextToken
           Lens..~ rs
-          Lens.^? listItemsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listItemsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListItems where
-  type Rs ListItems = ListItemsResponse
+instance Core.AWSRequest ListItems where
+  type AWSResponse ListItems = ListItemsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListItemsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Items" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Items" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListItems
+instance Core.Hashable ListItems
 
-instance Prelude.NFData ListItems
+instance Core.NFData ListItems
 
-instance Prelude.ToHeaders ListItems where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListItems where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListItems where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListItems where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListItems where
+instance Core.ToQuery ListItems where
   toQuery ListItems' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults,
-        "Path" Prelude.=: path
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
+        "Path" Core.=: path
       ]
 
 -- | /See:/ 'newListItemsResponse' smart constructor.
@@ -199,13 +197,13 @@ data ListItemsResponse = ListItemsResponse'
     -- with @MaxResults@ set at 500. The service returns the first batch of
     -- results (up to 500) and a @NextToken@ value that can be used to fetch
     -- the next batch of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The metadata entries for the folders and objects at the requested path.
-    items :: Prelude.Maybe [Item],
+    items :: Core.Maybe [Item],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListItemsResponse' with all optional fields omitted.
@@ -226,12 +224,12 @@ data ListItemsResponse = ListItemsResponse'
 -- 'httpStatus', 'listItemsResponse_httpStatus' - The response's http status code.
 newListItemsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListItemsResponse
 newListItemsResponse pHttpStatus_ =
   ListItemsResponse'
-    { nextToken = Prelude.Nothing,
-      items = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      items = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -240,15 +238,15 @@ newListItemsResponse pHttpStatus_ =
 -- with @MaxResults@ set at 500. The service returns the first batch of
 -- results (up to 500) and a @NextToken@ value that can be used to fetch
 -- the next batch of results.
-listItemsResponse_nextToken :: Lens.Lens' ListItemsResponse (Prelude.Maybe Prelude.Text)
+listItemsResponse_nextToken :: Lens.Lens' ListItemsResponse (Core.Maybe Core.Text)
 listItemsResponse_nextToken = Lens.lens (\ListItemsResponse' {nextToken} -> nextToken) (\s@ListItemsResponse' {} a -> s {nextToken = a} :: ListItemsResponse)
 
 -- | The metadata entries for the folders and objects at the requested path.
-listItemsResponse_items :: Lens.Lens' ListItemsResponse (Prelude.Maybe [Item])
-listItemsResponse_items = Lens.lens (\ListItemsResponse' {items} -> items) (\s@ListItemsResponse' {} a -> s {items = a} :: ListItemsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listItemsResponse_items :: Lens.Lens' ListItemsResponse (Core.Maybe [Item])
+listItemsResponse_items = Lens.lens (\ListItemsResponse' {items} -> items) (\s@ListItemsResponse' {} a -> s {items = a} :: ListItemsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listItemsResponse_httpStatus :: Lens.Lens' ListItemsResponse Prelude.Int
+listItemsResponse_httpStatus :: Lens.Lens' ListItemsResponse Core.Int
 listItemsResponse_httpStatus = Lens.lens (\ListItemsResponse' {httpStatus} -> httpStatus) (\s@ListItemsResponse' {} a -> s {httpStatus = a} :: ListItemsResponse)
 
-instance Prelude.NFData ListItemsResponse
+instance Core.NFData ListItemsResponse

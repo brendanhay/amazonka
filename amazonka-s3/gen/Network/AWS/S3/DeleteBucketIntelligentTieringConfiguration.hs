@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,8 +62,8 @@ module Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -75,9 +74,9 @@ data DeleteBucketIntelligentTieringConfiguration = DeleteBucketIntelligentTierin
     -- or retrieve.
     bucket :: BucketName,
     -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketIntelligentTieringConfiguration' with all optional fields omitted.
@@ -95,7 +94,7 @@ newDeleteBucketIntelligentTieringConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBucketIntelligentTieringConfiguration
 newDeleteBucketIntelligentTieringConfiguration
   pBucket_
@@ -112,15 +111,16 @@ deleteBucketIntelligentTieringConfiguration_bucket :: Lens.Lens' DeleteBucketInt
 deleteBucketIntelligentTieringConfiguration_bucket = Lens.lens (\DeleteBucketIntelligentTieringConfiguration' {bucket} -> bucket) (\s@DeleteBucketIntelligentTieringConfiguration' {} a -> s {bucket = a} :: DeleteBucketIntelligentTieringConfiguration)
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-deleteBucketIntelligentTieringConfiguration_id :: Lens.Lens' DeleteBucketIntelligentTieringConfiguration Prelude.Text
+deleteBucketIntelligentTieringConfiguration_id :: Lens.Lens' DeleteBucketIntelligentTieringConfiguration Core.Text
 deleteBucketIntelligentTieringConfiguration_id = Lens.lens (\DeleteBucketIntelligentTieringConfiguration' {id} -> id) (\s@DeleteBucketIntelligentTieringConfiguration' {} a -> s {id = a} :: DeleteBucketIntelligentTieringConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteBucketIntelligentTieringConfiguration
   where
   type
-    Rs DeleteBucketIntelligentTieringConfiguration =
+    AWSResponse
+      DeleteBucketIntelligentTieringConfiguration =
       DeleteBucketIntelligentTieringConfigurationResponse
   request = Request.delete defaultService
   response =
@@ -128,41 +128,41 @@ instance
       DeleteBucketIntelligentTieringConfigurationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteBucketIntelligentTieringConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteBucketIntelligentTieringConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteBucketIntelligentTieringConfiguration
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteBucketIntelligentTieringConfiguration
   where
   toPath
     DeleteBucketIntelligentTieringConfiguration' {..} =
-      Prelude.mconcat ["/", Prelude.toBS bucket]
+      Core.mconcat ["/", Core.toBS bucket]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteBucketIntelligentTieringConfiguration
   where
   toQuery
     DeleteBucketIntelligentTieringConfiguration' {..} =
-      Prelude.mconcat
-        ["id" Prelude.=: id, "intelligent-tiering"]
+      Core.mconcat
+        ["id" Core.=: id, "intelligent-tiering"]
 
 -- | /See:/ 'newDeleteBucketIntelligentTieringConfigurationResponse' smart constructor.
 data DeleteBucketIntelligentTieringConfigurationResponse = DeleteBucketIntelligentTieringConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketIntelligentTieringConfigurationResponse' with all optional fields omitted.
@@ -174,5 +174,5 @@ newDeleteBucketIntelligentTieringConfigurationResponse =
   DeleteBucketIntelligentTieringConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteBucketIntelligentTieringConfigurationResponse

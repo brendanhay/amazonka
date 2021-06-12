@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.CognitoIdentityProvider.ListUsersInGroup
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,15 +58,15 @@ data ListUsersInGroup = ListUsersInGroup'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The limit of the request to list users.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The user pool ID for the user pool.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The name of the group.
-    groupName :: Prelude.Text
+    groupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUsersInGroup' with all optional fields omitted.
@@ -89,14 +87,14 @@ data ListUsersInGroup = ListUsersInGroup'
 -- 'groupName', 'listUsersInGroup_groupName' - The name of the group.
 newListUsersInGroup ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   ListUsersInGroup
 newListUsersInGroup pUserPoolId_ pGroupName_ =
   ListUsersInGroup'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      limit = Core.Nothing,
       userPoolId = pUserPoolId_,
       groupName = pGroupName_
     }
@@ -104,102 +102,100 @@ newListUsersInGroup pUserPoolId_ pGroupName_ =
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listUsersInGroup_nextToken :: Lens.Lens' ListUsersInGroup (Prelude.Maybe Prelude.Text)
+listUsersInGroup_nextToken :: Lens.Lens' ListUsersInGroup (Core.Maybe Core.Text)
 listUsersInGroup_nextToken = Lens.lens (\ListUsersInGroup' {nextToken} -> nextToken) (\s@ListUsersInGroup' {} a -> s {nextToken = a} :: ListUsersInGroup)
 
 -- | The limit of the request to list users.
-listUsersInGroup_limit :: Lens.Lens' ListUsersInGroup (Prelude.Maybe Prelude.Natural)
+listUsersInGroup_limit :: Lens.Lens' ListUsersInGroup (Core.Maybe Core.Natural)
 listUsersInGroup_limit = Lens.lens (\ListUsersInGroup' {limit} -> limit) (\s@ListUsersInGroup' {} a -> s {limit = a} :: ListUsersInGroup)
 
 -- | The user pool ID for the user pool.
-listUsersInGroup_userPoolId :: Lens.Lens' ListUsersInGroup Prelude.Text
+listUsersInGroup_userPoolId :: Lens.Lens' ListUsersInGroup Core.Text
 listUsersInGroup_userPoolId = Lens.lens (\ListUsersInGroup' {userPoolId} -> userPoolId) (\s@ListUsersInGroup' {} a -> s {userPoolId = a} :: ListUsersInGroup)
 
 -- | The name of the group.
-listUsersInGroup_groupName :: Lens.Lens' ListUsersInGroup Prelude.Text
+listUsersInGroup_groupName :: Lens.Lens' ListUsersInGroup Core.Text
 listUsersInGroup_groupName = Lens.lens (\ListUsersInGroup' {groupName} -> groupName) (\s@ListUsersInGroup' {} a -> s {groupName = a} :: ListUsersInGroup)
 
-instance Pager.AWSPager ListUsersInGroup where
+instance Core.AWSPager ListUsersInGroup where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listUsersInGroupResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listUsersInGroupResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listUsersInGroupResponse_users Prelude.. Lens._Just
+            Lens.^? listUsersInGroupResponse_users Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listUsersInGroup_nextToken
           Lens..~ rs
-          Lens.^? listUsersInGroupResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listUsersInGroupResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListUsersInGroup where
-  type Rs ListUsersInGroup = ListUsersInGroupResponse
+instance Core.AWSRequest ListUsersInGroup where
+  type
+    AWSResponse ListUsersInGroup =
+      ListUsersInGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListUsersInGroupResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Users" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Users" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListUsersInGroup
+instance Core.Hashable ListUsersInGroup
 
-instance Prelude.NFData ListUsersInGroup
+instance Core.NFData ListUsersInGroup
 
-instance Prelude.ToHeaders ListUsersInGroup where
+instance Core.ToHeaders ListUsersInGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.ListUsersInGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.ListUsersInGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListUsersInGroup where
+instance Core.ToJSON ListUsersInGroup where
   toJSON ListUsersInGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("GroupName" Prelude..= groupName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("GroupName" Core..= groupName)
           ]
       )
 
-instance Prelude.ToPath ListUsersInGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListUsersInGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListUsersInGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListUsersInGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListUsersInGroupResponse' smart constructor.
 data ListUsersInGroupResponse = ListUsersInGroupResponse'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The users returned in the request to list users.
-    users :: Prelude.Maybe [UserType],
+    users :: Core.Maybe [UserType],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUsersInGroupResponse' with all optional fields omitted.
@@ -218,28 +214,27 @@ data ListUsersInGroupResponse = ListUsersInGroupResponse'
 -- 'httpStatus', 'listUsersInGroupResponse_httpStatus' - The response's http status code.
 newListUsersInGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListUsersInGroupResponse
 newListUsersInGroupResponse pHttpStatus_ =
   ListUsersInGroupResponse'
-    { nextToken =
-        Prelude.Nothing,
-      users = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      users = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listUsersInGroupResponse_nextToken :: Lens.Lens' ListUsersInGroupResponse (Prelude.Maybe Prelude.Text)
+listUsersInGroupResponse_nextToken :: Lens.Lens' ListUsersInGroupResponse (Core.Maybe Core.Text)
 listUsersInGroupResponse_nextToken = Lens.lens (\ListUsersInGroupResponse' {nextToken} -> nextToken) (\s@ListUsersInGroupResponse' {} a -> s {nextToken = a} :: ListUsersInGroupResponse)
 
 -- | The users returned in the request to list users.
-listUsersInGroupResponse_users :: Lens.Lens' ListUsersInGroupResponse (Prelude.Maybe [UserType])
-listUsersInGroupResponse_users = Lens.lens (\ListUsersInGroupResponse' {users} -> users) (\s@ListUsersInGroupResponse' {} a -> s {users = a} :: ListUsersInGroupResponse) Prelude.. Lens.mapping Prelude._Coerce
+listUsersInGroupResponse_users :: Lens.Lens' ListUsersInGroupResponse (Core.Maybe [UserType])
+listUsersInGroupResponse_users = Lens.lens (\ListUsersInGroupResponse' {users} -> users) (\s@ListUsersInGroupResponse' {} a -> s {users = a} :: ListUsersInGroupResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listUsersInGroupResponse_httpStatus :: Lens.Lens' ListUsersInGroupResponse Prelude.Int
+listUsersInGroupResponse_httpStatus :: Lens.Lens' ListUsersInGroupResponse Core.Int
 listUsersInGroupResponse_httpStatus = Lens.lens (\ListUsersInGroupResponse' {httpStatus} -> httpStatus) (\s@ListUsersInGroupResponse' {} a -> s {httpStatus = a} :: ListUsersInGroupResponse)
 
-instance Prelude.NFData ListUsersInGroupResponse
+instance Core.NFData ListUsersInGroupResponse

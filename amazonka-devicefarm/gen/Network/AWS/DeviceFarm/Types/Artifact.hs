@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Artifact where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.ArtifactType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a test. Examples of artifacts include logs and
 -- screenshots.
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newArtifact' smart constructor.
 data Artifact = Artifact'
   { -- | The artifact\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The artifact\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The artifact\'s file extension.
-    extension :: Prelude.Maybe Prelude.Text,
+    extension :: Core.Maybe Core.Text,
     -- | The presigned Amazon S3 URL that can be used with a GET request to
     -- download the artifact\'s file.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | The artifact\'s type.
     --
     -- Allowed values include the following:
@@ -98,9 +97,9 @@ data Artifact = Artifact'
     -- -   CUSTOMER_ARTIFACT_LOG
     --
     -- -   TESTSPEC_OUTPUT
-    type' :: Prelude.Maybe ArtifactType
+    type' :: Core.Maybe ArtifactType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Artifact' with all optional fields omitted.
@@ -183,28 +182,28 @@ newArtifact ::
   Artifact
 newArtifact =
   Artifact'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      extension = Prelude.Nothing,
-      url = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      extension = Core.Nothing,
+      url = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The artifact\'s ARN.
-artifact_arn :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_arn :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_arn = Lens.lens (\Artifact' {arn} -> arn) (\s@Artifact' {} a -> s {arn = a} :: Artifact)
 
 -- | The artifact\'s name.
-artifact_name :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_name :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_name = Lens.lens (\Artifact' {name} -> name) (\s@Artifact' {} a -> s {name = a} :: Artifact)
 
 -- | The artifact\'s file extension.
-artifact_extension :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_extension :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_extension = Lens.lens (\Artifact' {extension} -> extension) (\s@Artifact' {} a -> s {extension = a} :: Artifact)
 
 -- | The presigned Amazon S3 URL that can be used with a GET request to
 -- download the artifact\'s file.
-artifact_url :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_url :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url = a} :: Artifact)
 
 -- | The artifact\'s type.
@@ -267,22 +266,22 @@ artifact_url = Lens.lens (\Artifact' {url} -> url) (\s@Artifact' {} a -> s {url 
 -- -   CUSTOMER_ARTIFACT_LOG
 --
 -- -   TESTSPEC_OUTPUT
-artifact_type :: Lens.Lens' Artifact (Prelude.Maybe ArtifactType)
+artifact_type :: Lens.Lens' Artifact (Core.Maybe ArtifactType)
 artifact_type = Lens.lens (\Artifact' {type'} -> type') (\s@Artifact' {} a -> s {type' = a} :: Artifact)
 
-instance Prelude.FromJSON Artifact where
+instance Core.FromJSON Artifact where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Artifact"
       ( \x ->
           Artifact'
-            Prelude.<$> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "extension")
-            Prelude.<*> (x Prelude..:? "url")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "extension")
+            Core.<*> (x Core..:? "url")
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Artifact
+instance Core.Hashable Artifact
 
-instance Prelude.NFData Artifact
+instance Core.NFData Artifact

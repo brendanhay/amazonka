@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.StorageGateway.ListLocalDisks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -60,9 +59,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newListLocalDisks' smart constructor.
 data ListLocalDisks = ListLocalDisks'
-  { gatewayARN :: Prelude.Text
+  { gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListLocalDisks' with all optional fields omitted.
@@ -75,70 +74,70 @@ data ListLocalDisks = ListLocalDisks'
 -- 'gatewayARN', 'listLocalDisks_gatewayARN' - Undocumented member.
 newListLocalDisks ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   ListLocalDisks
 newListLocalDisks pGatewayARN_ =
   ListLocalDisks' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-listLocalDisks_gatewayARN :: Lens.Lens' ListLocalDisks Prelude.Text
+listLocalDisks_gatewayARN :: Lens.Lens' ListLocalDisks Core.Text
 listLocalDisks_gatewayARN = Lens.lens (\ListLocalDisks' {gatewayARN} -> gatewayARN) (\s@ListLocalDisks' {} a -> s {gatewayARN = a} :: ListLocalDisks)
 
-instance Prelude.AWSRequest ListLocalDisks where
-  type Rs ListLocalDisks = ListLocalDisksResponse
+instance Core.AWSRequest ListLocalDisks where
+  type
+    AWSResponse ListLocalDisks =
+      ListLocalDisksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListLocalDisksResponse'
-            Prelude.<$> (x Prelude..?> "Disks" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Disks" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListLocalDisks
+instance Core.Hashable ListLocalDisks
 
-instance Prelude.NFData ListLocalDisks
+instance Core.NFData ListLocalDisks
 
-instance Prelude.ToHeaders ListLocalDisks where
+instance Core.ToHeaders ListLocalDisks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.ListLocalDisks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.ListLocalDisks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListLocalDisks where
+instance Core.ToJSON ListLocalDisks where
   toJSON ListLocalDisks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Prelude..= gatewayARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
-instance Prelude.ToPath ListLocalDisks where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListLocalDisks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListLocalDisks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListLocalDisks where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListLocalDisksResponse' smart constructor.
 data ListLocalDisksResponse = ListLocalDisksResponse'
   { -- | A JSON object containing the following fields:
     --
     -- -   ListLocalDisksOutput$Disks
-    disks :: Prelude.Maybe [Disk],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    disks :: Core.Maybe [Disk],
+    gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListLocalDisksResponse' with all optional fields omitted.
@@ -157,27 +156,27 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
 -- 'httpStatus', 'listLocalDisksResponse_httpStatus' - The response's http status code.
 newListLocalDisksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListLocalDisksResponse
 newListLocalDisksResponse pHttpStatus_ =
   ListLocalDisksResponse'
-    { disks = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+    { disks = Core.Nothing,
+      gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A JSON object containing the following fields:
 --
 -- -   ListLocalDisksOutput$Disks
-listLocalDisksResponse_disks :: Lens.Lens' ListLocalDisksResponse (Prelude.Maybe [Disk])
-listLocalDisksResponse_disks = Lens.lens (\ListLocalDisksResponse' {disks} -> disks) (\s@ListLocalDisksResponse' {} a -> s {disks = a} :: ListLocalDisksResponse) Prelude.. Lens.mapping Prelude._Coerce
+listLocalDisksResponse_disks :: Lens.Lens' ListLocalDisksResponse (Core.Maybe [Disk])
+listLocalDisksResponse_disks = Lens.lens (\ListLocalDisksResponse' {disks} -> disks) (\s@ListLocalDisksResponse' {} a -> s {disks = a} :: ListLocalDisksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-listLocalDisksResponse_gatewayARN :: Lens.Lens' ListLocalDisksResponse (Prelude.Maybe Prelude.Text)
+listLocalDisksResponse_gatewayARN :: Lens.Lens' ListLocalDisksResponse (Core.Maybe Core.Text)
 listLocalDisksResponse_gatewayARN = Lens.lens (\ListLocalDisksResponse' {gatewayARN} -> gatewayARN) (\s@ListLocalDisksResponse' {} a -> s {gatewayARN = a} :: ListLocalDisksResponse)
 
 -- | The response's http status code.
-listLocalDisksResponse_httpStatus :: Lens.Lens' ListLocalDisksResponse Prelude.Int
+listLocalDisksResponse_httpStatus :: Lens.Lens' ListLocalDisksResponse Core.Int
 listLocalDisksResponse_httpStatus = Lens.lens (\ListLocalDisksResponse' {httpStatus} -> httpStatus) (\s@ListLocalDisksResponse' {} a -> s {httpStatus = a} :: ListLocalDisksResponse)
 
-instance Prelude.NFData ListLocalDisksResponse
+instance Core.NFData ListLocalDisksResponse

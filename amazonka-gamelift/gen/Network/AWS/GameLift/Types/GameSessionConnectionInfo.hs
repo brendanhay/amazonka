@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.GameSessionConnectionInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.MatchedPlayerSession
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Connection information for a new game session that is created in
 -- response to a StartMatchmaking request. Once a match is made, the
@@ -36,17 +35,17 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
   { -- | Amazon Resource Name
     -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
     -- that is assigned to a game session and uniquely identifies it.
-    gameSessionArn :: Prelude.Maybe Prelude.Text,
+    gameSessionArn :: Core.Maybe Core.Text,
     -- | IP address of the instance that is running the game session. When
     -- connecting to a Amazon GameLift game server, a client needs to reference
     -- an IP address (or DNS name) and port number.
-    ipAddress :: Prelude.Maybe Prelude.Text,
+    ipAddress :: Core.Maybe Core.Text,
     -- | A collection of player session IDs, one for each player ID that was
     -- included in the original matchmaking request.
-    matchedPlayerSessions :: Prelude.Maybe [MatchedPlayerSession],
+    matchedPlayerSessions :: Core.Maybe [MatchedPlayerSession],
     -- | Port number for the game session. To connect to a Amazon GameLift game
     -- server, an app needs both the IP address and port number.
-    port :: Prelude.Maybe Prelude.Natural,
+    port :: Core.Maybe Core.Natural,
     -- | DNS identifier assigned to the instance that is running the game
     -- session. Values have the following format:
     --
@@ -59,9 +58,9 @@ data GameSessionConnectionInfo = GameSessionConnectionInfo'
     --
     -- When connecting to a game session that is running on a TLS-enabled
     -- fleet, you must use the DNS name, not the IP address.
-    dnsName :: Prelude.Maybe Prelude.Text
+    dnsName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GameSessionConnectionInfo' with all optional fields omitted.
@@ -102,33 +101,33 @@ newGameSessionConnectionInfo ::
 newGameSessionConnectionInfo =
   GameSessionConnectionInfo'
     { gameSessionArn =
-        Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
-      matchedPlayerSessions = Prelude.Nothing,
-      port = Prelude.Nothing,
-      dnsName = Prelude.Nothing
+        Core.Nothing,
+      ipAddress = Core.Nothing,
+      matchedPlayerSessions = Core.Nothing,
+      port = Core.Nothing,
+      dnsName = Core.Nothing
     }
 
 -- | Amazon Resource Name
 -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
 -- that is assigned to a game session and uniquely identifies it.
-gameSessionConnectionInfo_gameSessionArn :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
+gameSessionConnectionInfo_gameSessionArn :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Core.Text)
 gameSessionConnectionInfo_gameSessionArn = Lens.lens (\GameSessionConnectionInfo' {gameSessionArn} -> gameSessionArn) (\s@GameSessionConnectionInfo' {} a -> s {gameSessionArn = a} :: GameSessionConnectionInfo)
 
 -- | IP address of the instance that is running the game session. When
 -- connecting to a Amazon GameLift game server, a client needs to reference
 -- an IP address (or DNS name) and port number.
-gameSessionConnectionInfo_ipAddress :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
+gameSessionConnectionInfo_ipAddress :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Core.Text)
 gameSessionConnectionInfo_ipAddress = Lens.lens (\GameSessionConnectionInfo' {ipAddress} -> ipAddress) (\s@GameSessionConnectionInfo' {} a -> s {ipAddress = a} :: GameSessionConnectionInfo)
 
 -- | A collection of player session IDs, one for each player ID that was
 -- included in the original matchmaking request.
-gameSessionConnectionInfo_matchedPlayerSessions :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe [MatchedPlayerSession])
-gameSessionConnectionInfo_matchedPlayerSessions = Lens.lens (\GameSessionConnectionInfo' {matchedPlayerSessions} -> matchedPlayerSessions) (\s@GameSessionConnectionInfo' {} a -> s {matchedPlayerSessions = a} :: GameSessionConnectionInfo) Prelude.. Lens.mapping Prelude._Coerce
+gameSessionConnectionInfo_matchedPlayerSessions :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe [MatchedPlayerSession])
+gameSessionConnectionInfo_matchedPlayerSessions = Lens.lens (\GameSessionConnectionInfo' {matchedPlayerSessions} -> matchedPlayerSessions) (\s@GameSessionConnectionInfo' {} a -> s {matchedPlayerSessions = a} :: GameSessionConnectionInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | Port number for the game session. To connect to a Amazon GameLift game
 -- server, an app needs both the IP address and port number.
-gameSessionConnectionInfo_port :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Natural)
+gameSessionConnectionInfo_port :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Core.Natural)
 gameSessionConnectionInfo_port = Lens.lens (\GameSessionConnectionInfo' {port} -> port) (\s@GameSessionConnectionInfo' {} a -> s {port = a} :: GameSessionConnectionInfo)
 
 -- | DNS identifier assigned to the instance that is running the game
@@ -143,24 +142,24 @@ gameSessionConnectionInfo_port = Lens.lens (\GameSessionConnectionInfo' {port} -
 --
 -- When connecting to a game session that is running on a TLS-enabled
 -- fleet, you must use the DNS name, not the IP address.
-gameSessionConnectionInfo_dnsName :: Lens.Lens' GameSessionConnectionInfo (Prelude.Maybe Prelude.Text)
+gameSessionConnectionInfo_dnsName :: Lens.Lens' GameSessionConnectionInfo (Core.Maybe Core.Text)
 gameSessionConnectionInfo_dnsName = Lens.lens (\GameSessionConnectionInfo' {dnsName} -> dnsName) (\s@GameSessionConnectionInfo' {} a -> s {dnsName = a} :: GameSessionConnectionInfo)
 
-instance Prelude.FromJSON GameSessionConnectionInfo where
+instance Core.FromJSON GameSessionConnectionInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GameSessionConnectionInfo"
       ( \x ->
           GameSessionConnectionInfo'
-            Prelude.<$> (x Prelude..:? "GameSessionArn")
-            Prelude.<*> (x Prelude..:? "IpAddress")
-            Prelude.<*> ( x Prelude..:? "MatchedPlayerSessions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Port")
-            Prelude.<*> (x Prelude..:? "DnsName")
+            Core.<$> (x Core..:? "GameSessionArn")
+            Core.<*> (x Core..:? "IpAddress")
+            Core.<*> ( x Core..:? "MatchedPlayerSessions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "Port")
+            Core.<*> (x Core..:? "DnsName")
       )
 
-instance Prelude.Hashable GameSessionConnectionInfo
+instance Core.Hashable GameSessionConnectionInfo
 
-instance Prelude.NFData GameSessionConnectionInfo
+instance Core.NFData GameSessionConnectionInfo

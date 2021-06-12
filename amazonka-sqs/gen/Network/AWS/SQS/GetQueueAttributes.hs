@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.SQS.GetQueueAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -204,14 +203,14 @@ data GetQueueAttributes = GetQueueAttributes'
     -- For more information about high throughput for FIFO queues, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
     -- in the /Amazon Simple Queue Service Developer Guide/.
-    attributeNames :: Prelude.Maybe [QueueAttributeName],
+    attributeNames :: Core.Maybe [QueueAttributeName],
     -- | The URL of the Amazon SQS queue whose attribute information is
     -- retrieved.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Prelude.Text
+    queueUrl :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQueueAttributes' with all optional fields omitted.
@@ -377,12 +376,11 @@ data GetQueueAttributes = GetQueueAttributes'
 -- Queue URLs and names are case-sensitive.
 newGetQueueAttributes ::
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   GetQueueAttributes
 newGetQueueAttributes pQueueUrl_ =
   GetQueueAttributes'
-    { attributeNames =
-        Prelude.Nothing,
+    { attributeNames = Core.Nothing,
       queueUrl = pQueueUrl_
     }
 
@@ -535,19 +533,19 @@ newGetQueueAttributes pQueueUrl_ =
 -- For more information about high throughput for FIFO queues, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html Preview: High throughput for FIFO queues>
 -- in the /Amazon Simple Queue Service Developer Guide/.
-getQueueAttributes_attributeNames :: Lens.Lens' GetQueueAttributes (Prelude.Maybe [QueueAttributeName])
-getQueueAttributes_attributeNames = Lens.lens (\GetQueueAttributes' {attributeNames} -> attributeNames) (\s@GetQueueAttributes' {} a -> s {attributeNames = a} :: GetQueueAttributes) Prelude.. Lens.mapping Prelude._Coerce
+getQueueAttributes_attributeNames :: Lens.Lens' GetQueueAttributes (Core.Maybe [QueueAttributeName])
+getQueueAttributes_attributeNames = Lens.lens (\GetQueueAttributes' {attributeNames} -> attributeNames) (\s@GetQueueAttributes' {} a -> s {attributeNames = a} :: GetQueueAttributes) Core.. Lens.mapping Lens._Coerce
 
 -- | The URL of the Amazon SQS queue whose attribute information is
 -- retrieved.
 --
 -- Queue URLs and names are case-sensitive.
-getQueueAttributes_queueUrl :: Lens.Lens' GetQueueAttributes Prelude.Text
+getQueueAttributes_queueUrl :: Lens.Lens' GetQueueAttributes Core.Text
 getQueueAttributes_queueUrl = Lens.lens (\GetQueueAttributes' {queueUrl} -> queueUrl) (\s@GetQueueAttributes' {} a -> s {queueUrl = a} :: GetQueueAttributes)
 
-instance Prelude.AWSRequest GetQueueAttributes where
+instance Core.AWSRequest GetQueueAttributes where
   type
-    Rs GetQueueAttributes =
+    AWSResponse GetQueueAttributes =
       GetQueueAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -555,35 +553,34 @@ instance Prelude.AWSRequest GetQueueAttributes where
       "GetQueueAttributesResult"
       ( \s h x ->
           GetQueueAttributesResponse'
-            Prelude.<$> ( Prelude.may
-                            (Prelude.parseXMLMap "Attribute" "Name" "Value")
-                            x
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( Core.may
+                         (Core.parseXMLMap "Attribute" "Name" "Value")
+                         x
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetQueueAttributes
+instance Core.Hashable GetQueueAttributes
 
-instance Prelude.NFData GetQueueAttributes
+instance Core.NFData GetQueueAttributes
 
-instance Prelude.ToHeaders GetQueueAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetQueueAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetQueueAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetQueueAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetQueueAttributes where
+instance Core.ToQuery GetQueueAttributes where
   toQuery GetQueueAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetQueueAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-11-05" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "AttributeName"
-              Prelude.<$> attributeNames
+          Core.=: ("GetQueueAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "AttributeName"
+              Core.<$> attributeNames
           ),
-        "QueueUrl" Prelude.=: queueUrl
+        "QueueUrl" Core.=: queueUrl
       ]
 
 -- | A list of returned queue attributes.
@@ -591,11 +588,11 @@ instance Prelude.ToQuery GetQueueAttributes where
 -- /See:/ 'newGetQueueAttributesResponse' smart constructor.
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
   { -- | A map of attributes to their respective values.
-    attributes :: Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap QueueAttributeName Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetQueueAttributesResponse' with all optional fields omitted.
@@ -610,21 +607,21 @@ data GetQueueAttributesResponse = GetQueueAttributesResponse'
 -- 'httpStatus', 'getQueueAttributesResponse_httpStatus' - The response's http status code.
 newGetQueueAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetQueueAttributesResponse
 newGetQueueAttributesResponse pHttpStatus_ =
   GetQueueAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A map of attributes to their respective values.
-getQueueAttributesResponse_attributes :: Lens.Lens' GetQueueAttributesResponse (Prelude.Maybe (Prelude.HashMap QueueAttributeName Prelude.Text))
-getQueueAttributesResponse_attributes = Lens.lens (\GetQueueAttributesResponse' {attributes} -> attributes) (\s@GetQueueAttributesResponse' {} a -> s {attributes = a} :: GetQueueAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getQueueAttributesResponse_attributes :: Lens.Lens' GetQueueAttributesResponse (Core.Maybe (Core.HashMap QueueAttributeName Core.Text))
+getQueueAttributesResponse_attributes = Lens.lens (\GetQueueAttributesResponse' {attributes} -> attributes) (\s@GetQueueAttributesResponse' {} a -> s {attributes = a} :: GetQueueAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getQueueAttributesResponse_httpStatus :: Lens.Lens' GetQueueAttributesResponse Prelude.Int
+getQueueAttributesResponse_httpStatus :: Lens.Lens' GetQueueAttributesResponse Core.Int
 getQueueAttributesResponse_httpStatus = Lens.lens (\GetQueueAttributesResponse' {httpStatus} -> httpStatus) (\s@GetQueueAttributesResponse' {} a -> s {httpStatus = a} :: GetQueueAttributesResponse)
 
-instance Prelude.NFData GetQueueAttributesResponse
+instance Core.NFData GetQueueAttributesResponse

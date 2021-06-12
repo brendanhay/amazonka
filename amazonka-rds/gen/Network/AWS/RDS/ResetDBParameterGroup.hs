@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.RDS.ResetDBParameterGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,7 +60,7 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
   { -- | A value that indicates whether to reset all parameters in the DB
     -- parameter group to default values. By default, all parameters in the DB
     -- parameter group are reset to default values.
-    resetAllParameters :: Prelude.Maybe Prelude.Bool,
+    resetAllParameters :: Core.Maybe Core.Bool,
     -- | To reset the entire DB parameter group, specify the @DBParameterGroup@
     -- name and @ResetAllParameters@ parameters. To reset specific parameters,
     -- provide a list of the following: @ParameterName@ and @ApplyMethod@. A
@@ -86,15 +85,15 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
     -- __Oracle__
     --
     -- Valid Values (for Apply method): @pending-reboot@
-    parameters :: Prelude.Maybe [Parameter],
+    parameters :: Core.Maybe [Parameter],
     -- | The name of the DB parameter group.
     --
     -- Constraints:
     --
     -- -   Must match the name of an existing @DBParameterGroup@.
-    dbParameterGroupName :: Prelude.Text
+    dbParameterGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetDBParameterGroup' with all optional fields omitted.
@@ -140,20 +139,20 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
 -- -   Must match the name of an existing @DBParameterGroup@.
 newResetDBParameterGroup ::
   -- | 'dbParameterGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ResetDBParameterGroup
 newResetDBParameterGroup pDBParameterGroupName_ =
   ResetDBParameterGroup'
     { resetAllParameters =
-        Prelude.Nothing,
-      parameters = Prelude.Nothing,
+        Core.Nothing,
+      parameters = Core.Nothing,
       dbParameterGroupName = pDBParameterGroupName_
     }
 
 -- | A value that indicates whether to reset all parameters in the DB
 -- parameter group to default values. By default, all parameters in the DB
 -- parameter group are reset to default values.
-resetDBParameterGroup_resetAllParameters :: Lens.Lens' ResetDBParameterGroup (Prelude.Maybe Prelude.Bool)
+resetDBParameterGroup_resetAllParameters :: Lens.Lens' ResetDBParameterGroup (Core.Maybe Core.Bool)
 resetDBParameterGroup_resetAllParameters = Lens.lens (\ResetDBParameterGroup' {resetAllParameters} -> resetAllParameters) (\s@ResetDBParameterGroup' {} a -> s {resetAllParameters = a} :: ResetDBParameterGroup)
 
 -- | To reset the entire DB parameter group, specify the @DBParameterGroup@
@@ -180,50 +179,46 @@ resetDBParameterGroup_resetAllParameters = Lens.lens (\ResetDBParameterGroup' {r
 -- __Oracle__
 --
 -- Valid Values (for Apply method): @pending-reboot@
-resetDBParameterGroup_parameters :: Lens.Lens' ResetDBParameterGroup (Prelude.Maybe [Parameter])
-resetDBParameterGroup_parameters = Lens.lens (\ResetDBParameterGroup' {parameters} -> parameters) (\s@ResetDBParameterGroup' {} a -> s {parameters = a} :: ResetDBParameterGroup) Prelude.. Lens.mapping Prelude._Coerce
+resetDBParameterGroup_parameters :: Lens.Lens' ResetDBParameterGroup (Core.Maybe [Parameter])
+resetDBParameterGroup_parameters = Lens.lens (\ResetDBParameterGroup' {parameters} -> parameters) (\s@ResetDBParameterGroup' {} a -> s {parameters = a} :: ResetDBParameterGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the DB parameter group.
 --
 -- Constraints:
 --
 -- -   Must match the name of an existing @DBParameterGroup@.
-resetDBParameterGroup_dbParameterGroupName :: Lens.Lens' ResetDBParameterGroup Prelude.Text
+resetDBParameterGroup_dbParameterGroupName :: Lens.Lens' ResetDBParameterGroup Core.Text
 resetDBParameterGroup_dbParameterGroupName = Lens.lens (\ResetDBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@ResetDBParameterGroup' {} a -> s {dbParameterGroupName = a} :: ResetDBParameterGroup)
 
-instance Prelude.AWSRequest ResetDBParameterGroup where
+instance Core.AWSRequest ResetDBParameterGroup where
   type
-    Rs ResetDBParameterGroup =
+    AWSResponse ResetDBParameterGroup =
       DBParameterGroupNameMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ResetDBParameterGroupResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ResetDBParameterGroup
+instance Core.Hashable ResetDBParameterGroup
 
-instance Prelude.NFData ResetDBParameterGroup
+instance Core.NFData ResetDBParameterGroup
 
-instance Prelude.ToHeaders ResetDBParameterGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ResetDBParameterGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ResetDBParameterGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResetDBParameterGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResetDBParameterGroup where
+instance Core.ToQuery ResetDBParameterGroup where
   toQuery ResetDBParameterGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ResetDBParameterGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "ResetAllParameters" Prelude.=: resetAllParameters,
+          Core.=: ("ResetDBParameterGroup" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "ResetAllParameters" Core.=: resetAllParameters,
         "Parameters"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "Parameter"
-                Prelude.<$> parameters
-            ),
-        "DBParameterGroupName"
-          Prelude.=: dbParameterGroupName
+          Core.=: Core.toQuery
+            (Core.toQueryList "Parameter" Core.<$> parameters),
+        "DBParameterGroupName" Core.=: dbParameterGroupName
       ]

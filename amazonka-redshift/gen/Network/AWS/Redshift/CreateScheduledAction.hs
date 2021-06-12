@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.Redshift.CreateScheduledAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -67,32 +66,32 @@ data CreateScheduledAction = CreateScheduledAction'
   { -- | If true, the schedule is enabled. If false, the scheduled action does
     -- not trigger. For more information about @state@ of the scheduled action,
     -- see ScheduledAction.
-    enable :: Prelude.Maybe Prelude.Bool,
+    enable :: Core.Maybe Core.Bool,
     -- | The description of the scheduled action.
-    scheduledActionDescription :: Prelude.Maybe Prelude.Text,
+    scheduledActionDescription :: Core.Maybe Core.Text,
     -- | The start time in UTC of the scheduled action. Before this time, the
     -- scheduled action does not trigger. For more information about this
     -- parameter, see ScheduledAction.
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | The end time in UTC of the scheduled action. After this time, the
     -- scheduled action does not trigger. For more information about this
     -- parameter, see ScheduledAction.
-    endTime :: Prelude.Maybe Prelude.ISO8601,
+    endTime :: Core.Maybe Core.ISO8601,
     -- | The name of the scheduled action. The name must be unique within an
     -- account. For more information about this parameter, see ScheduledAction.
-    scheduledActionName :: Prelude.Text,
+    scheduledActionName :: Core.Text,
     -- | A JSON format string of the Amazon Redshift API operation with input
     -- parameters. For more information about this parameter, see
     -- ScheduledAction.
     targetAction :: ScheduledActionType,
     -- | The schedule in @at( )@ or @cron( )@ format. For more information about
     -- this parameter, see ScheduledAction.
-    schedule :: Prelude.Text,
+    schedule :: Core.Text,
     -- | The IAM role to assume to run the target action. For more information
     -- about this parameter, see ScheduledAction.
-    iamRole :: Prelude.Text
+    iamRole :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateScheduledAction' with all optional fields omitted.
@@ -130,13 +129,13 @@ data CreateScheduledAction = CreateScheduledAction'
 -- about this parameter, see ScheduledAction.
 newCreateScheduledAction ::
   -- | 'scheduledActionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetAction'
   ScheduledActionType ->
   -- | 'schedule'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'iamRole'
-  Prelude.Text ->
+  Core.Text ->
   CreateScheduledAction
 newCreateScheduledAction
   pScheduledActionName_
@@ -144,10 +143,10 @@ newCreateScheduledAction
   pSchedule_
   pIamRole_ =
     CreateScheduledAction'
-      { enable = Prelude.Nothing,
-        scheduledActionDescription = Prelude.Nothing,
-        startTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
+      { enable = Core.Nothing,
+        scheduledActionDescription = Core.Nothing,
+        startTime = Core.Nothing,
+        endTime = Core.Nothing,
         scheduledActionName = pScheduledActionName_,
         targetAction = pTargetAction_,
         schedule = pSchedule_,
@@ -157,28 +156,28 @@ newCreateScheduledAction
 -- | If true, the schedule is enabled. If false, the scheduled action does
 -- not trigger. For more information about @state@ of the scheduled action,
 -- see ScheduledAction.
-createScheduledAction_enable :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Bool)
+createScheduledAction_enable :: Lens.Lens' CreateScheduledAction (Core.Maybe Core.Bool)
 createScheduledAction_enable = Lens.lens (\CreateScheduledAction' {enable} -> enable) (\s@CreateScheduledAction' {} a -> s {enable = a} :: CreateScheduledAction)
 
 -- | The description of the scheduled action.
-createScheduledAction_scheduledActionDescription :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.Text)
+createScheduledAction_scheduledActionDescription :: Lens.Lens' CreateScheduledAction (Core.Maybe Core.Text)
 createScheduledAction_scheduledActionDescription = Lens.lens (\CreateScheduledAction' {scheduledActionDescription} -> scheduledActionDescription) (\s@CreateScheduledAction' {} a -> s {scheduledActionDescription = a} :: CreateScheduledAction)
 
 -- | The start time in UTC of the scheduled action. Before this time, the
 -- scheduled action does not trigger. For more information about this
 -- parameter, see ScheduledAction.
-createScheduledAction_startTime :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.UTCTime)
-createScheduledAction_startTime = Lens.lens (\CreateScheduledAction' {startTime} -> startTime) (\s@CreateScheduledAction' {} a -> s {startTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Prelude._Time
+createScheduledAction_startTime :: Lens.Lens' CreateScheduledAction (Core.Maybe Core.UTCTime)
+createScheduledAction_startTime = Lens.lens (\CreateScheduledAction' {startTime} -> startTime) (\s@CreateScheduledAction' {} a -> s {startTime = a} :: CreateScheduledAction) Core.. Lens.mapping Core._Time
 
 -- | The end time in UTC of the scheduled action. After this time, the
 -- scheduled action does not trigger. For more information about this
 -- parameter, see ScheduledAction.
-createScheduledAction_endTime :: Lens.Lens' CreateScheduledAction (Prelude.Maybe Prelude.UTCTime)
-createScheduledAction_endTime = Lens.lens (\CreateScheduledAction' {endTime} -> endTime) (\s@CreateScheduledAction' {} a -> s {endTime = a} :: CreateScheduledAction) Prelude.. Lens.mapping Prelude._Time
+createScheduledAction_endTime :: Lens.Lens' CreateScheduledAction (Core.Maybe Core.UTCTime)
+createScheduledAction_endTime = Lens.lens (\CreateScheduledAction' {endTime} -> endTime) (\s@CreateScheduledAction' {} a -> s {endTime = a} :: CreateScheduledAction) Core.. Lens.mapping Core._Time
 
 -- | The name of the scheduled action. The name must be unique within an
 -- account. For more information about this parameter, see ScheduledAction.
-createScheduledAction_scheduledActionName :: Lens.Lens' CreateScheduledAction Prelude.Text
+createScheduledAction_scheduledActionName :: Lens.Lens' CreateScheduledAction Core.Text
 createScheduledAction_scheduledActionName = Lens.lens (\CreateScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@CreateScheduledAction' {} a -> s {scheduledActionName = a} :: CreateScheduledAction)
 
 -- | A JSON format string of the Amazon Redshift API operation with input
@@ -189,46 +188,47 @@ createScheduledAction_targetAction = Lens.lens (\CreateScheduledAction' {targetA
 
 -- | The schedule in @at( )@ or @cron( )@ format. For more information about
 -- this parameter, see ScheduledAction.
-createScheduledAction_schedule :: Lens.Lens' CreateScheduledAction Prelude.Text
+createScheduledAction_schedule :: Lens.Lens' CreateScheduledAction Core.Text
 createScheduledAction_schedule = Lens.lens (\CreateScheduledAction' {schedule} -> schedule) (\s@CreateScheduledAction' {} a -> s {schedule = a} :: CreateScheduledAction)
 
 -- | The IAM role to assume to run the target action. For more information
 -- about this parameter, see ScheduledAction.
-createScheduledAction_iamRole :: Lens.Lens' CreateScheduledAction Prelude.Text
+createScheduledAction_iamRole :: Lens.Lens' CreateScheduledAction Core.Text
 createScheduledAction_iamRole = Lens.lens (\CreateScheduledAction' {iamRole} -> iamRole) (\s@CreateScheduledAction' {} a -> s {iamRole = a} :: CreateScheduledAction)
 
-instance Prelude.AWSRequest CreateScheduledAction where
-  type Rs CreateScheduledAction = ScheduledAction
+instance Core.AWSRequest CreateScheduledAction where
+  type
+    AWSResponse CreateScheduledAction =
+      ScheduledAction
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateScheduledActionResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateScheduledAction
+instance Core.Hashable CreateScheduledAction
 
-instance Prelude.NFData CreateScheduledAction
+instance Core.NFData CreateScheduledAction
 
-instance Prelude.ToHeaders CreateScheduledAction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateScheduledAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateScheduledAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateScheduledAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateScheduledAction where
+instance Core.ToQuery CreateScheduledAction where
   toQuery CreateScheduledAction' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateScheduledAction" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "Enable" Prelude.=: enable,
+          Core.=: ("CreateScheduledAction" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Enable" Core.=: enable,
         "ScheduledActionDescription"
-          Prelude.=: scheduledActionDescription,
-        "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime,
-        "ScheduledActionName" Prelude.=: scheduledActionName,
-        "TargetAction" Prelude.=: targetAction,
-        "Schedule" Prelude.=: schedule,
-        "IamRole" Prelude.=: iamRole
+          Core.=: scheduledActionDescription,
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "ScheduledActionName" Core.=: scheduledActionName,
+        "TargetAction" Core.=: targetAction,
+        "Schedule" Core.=: schedule,
+        "IamRole" Core.=: iamRole
       ]

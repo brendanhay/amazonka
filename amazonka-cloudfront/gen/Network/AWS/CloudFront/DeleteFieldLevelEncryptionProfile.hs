@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,11 +46,11 @@ import qualified Network.AWS.Response as Response
 data DeleteFieldLevelEncryptionProfile = DeleteFieldLevelEncryptionProfile'
   { -- | The value of the @ETag@ header that you received when retrieving the
     -- profile to delete. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | Request the ID of the profile you want to delete from CloudFront.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFieldLevelEncryptionProfile' with all optional fields omitted.
@@ -67,30 +66,30 @@ data DeleteFieldLevelEncryptionProfile = DeleteFieldLevelEncryptionProfile'
 -- 'id', 'deleteFieldLevelEncryptionProfile_id' - Request the ID of the profile you want to delete from CloudFront.
 newDeleteFieldLevelEncryptionProfile ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFieldLevelEncryptionProfile
 newDeleteFieldLevelEncryptionProfile pId_ =
   DeleteFieldLevelEncryptionProfile'
     { ifMatch =
-        Prelude.Nothing,
+        Core.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when retrieving the
 -- profile to delete. For example: @E2QWRUHAPOMQZL@.
-deleteFieldLevelEncryptionProfile_ifMatch :: Lens.Lens' DeleteFieldLevelEncryptionProfile (Prelude.Maybe Prelude.Text)
+deleteFieldLevelEncryptionProfile_ifMatch :: Lens.Lens' DeleteFieldLevelEncryptionProfile (Core.Maybe Core.Text)
 deleteFieldLevelEncryptionProfile_ifMatch = Lens.lens (\DeleteFieldLevelEncryptionProfile' {ifMatch} -> ifMatch) (\s@DeleteFieldLevelEncryptionProfile' {} a -> s {ifMatch = a} :: DeleteFieldLevelEncryptionProfile)
 
 -- | Request the ID of the profile you want to delete from CloudFront.
-deleteFieldLevelEncryptionProfile_id :: Lens.Lens' DeleteFieldLevelEncryptionProfile Prelude.Text
+deleteFieldLevelEncryptionProfile_id :: Lens.Lens' DeleteFieldLevelEncryptionProfile Core.Text
 deleteFieldLevelEncryptionProfile_id = Lens.lens (\DeleteFieldLevelEncryptionProfile' {id} -> id) (\s@DeleteFieldLevelEncryptionProfile' {} a -> s {id = a} :: DeleteFieldLevelEncryptionProfile)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteFieldLevelEncryptionProfile
   where
   type
-    Rs DeleteFieldLevelEncryptionProfile =
+    AWSResponse DeleteFieldLevelEncryptionProfile =
       DeleteFieldLevelEncryptionProfileResponse
   request = Request.delete defaultService
   response =
@@ -98,41 +97,41 @@ instance
       DeleteFieldLevelEncryptionProfileResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteFieldLevelEncryptionProfile
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteFieldLevelEncryptionProfile
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteFieldLevelEncryptionProfile
   where
   toHeaders DeleteFieldLevelEncryptionProfile' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteFieldLevelEncryptionProfile
   where
   toPath DeleteFieldLevelEncryptionProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/field-level-encryption-profile/",
-        Prelude.toBS id
+        Core.toBS id
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteFieldLevelEncryptionProfile
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFieldLevelEncryptionProfileResponse' smart constructor.
 data DeleteFieldLevelEncryptionProfileResponse = DeleteFieldLevelEncryptionProfileResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFieldLevelEncryptionProfileResponse' with all optional fields omitted.
@@ -144,5 +143,5 @@ newDeleteFieldLevelEncryptionProfileResponse =
   DeleteFieldLevelEncryptionProfileResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteFieldLevelEncryptionProfileResponse

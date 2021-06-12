@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ViolationEventAdditionalInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ConfidenceLevel
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a violation event.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ViolationEventAdditionalInfo = ViolationEventAdditionalInfo'
   { -- | The sensitivity of anomalous behavior evaluation. Can be @Low@,
     -- @Medium@, or @High@.
-    confidenceLevel :: Prelude.Maybe ConfidenceLevel
+    confidenceLevel :: Core.Maybe ConfidenceLevel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ViolationEventAdditionalInfo' with all optional fields omitted.
@@ -49,28 +48,23 @@ newViolationEventAdditionalInfo ::
 newViolationEventAdditionalInfo =
   ViolationEventAdditionalInfo'
     { confidenceLevel =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The sensitivity of anomalous behavior evaluation. Can be @Low@,
 -- @Medium@, or @High@.
-violationEventAdditionalInfo_confidenceLevel :: Lens.Lens' ViolationEventAdditionalInfo (Prelude.Maybe ConfidenceLevel)
+violationEventAdditionalInfo_confidenceLevel :: Lens.Lens' ViolationEventAdditionalInfo (Core.Maybe ConfidenceLevel)
 violationEventAdditionalInfo_confidenceLevel = Lens.lens (\ViolationEventAdditionalInfo' {confidenceLevel} -> confidenceLevel) (\s@ViolationEventAdditionalInfo' {} a -> s {confidenceLevel = a} :: ViolationEventAdditionalInfo)
 
-instance
-  Prelude.FromJSON
-    ViolationEventAdditionalInfo
-  where
+instance Core.FromJSON ViolationEventAdditionalInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ViolationEventAdditionalInfo"
       ( \x ->
           ViolationEventAdditionalInfo'
-            Prelude.<$> (x Prelude..:? "confidenceLevel")
+            Core.<$> (x Core..:? "confidenceLevel")
       )
 
-instance
-  Prelude.Hashable
-    ViolationEventAdditionalInfo
+instance Core.Hashable ViolationEventAdditionalInfo
 
-instance Prelude.NFData ViolationEventAdditionalInfo
+instance Core.NFData ViolationEventAdditionalInfo

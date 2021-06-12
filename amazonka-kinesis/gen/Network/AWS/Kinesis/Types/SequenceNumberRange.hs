@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Kinesis.Types.SequenceNumberRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The range of possible sequence numbers for the shard.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data SequenceNumberRange = SequenceNumberRange'
   { -- | The ending sequence number for the range. Shards that are in the OPEN
     -- state have an ending sequence number of @null@.
-    endingSequenceNumber :: Prelude.Maybe Prelude.Text,
+    endingSequenceNumber :: Core.Maybe Core.Text,
     -- | The starting sequence number for the range.
-    startingSequenceNumber :: Prelude.Text
+    startingSequenceNumber :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SequenceNumberRange' with all optional fields omitted.
@@ -49,34 +48,34 @@ data SequenceNumberRange = SequenceNumberRange'
 -- 'startingSequenceNumber', 'sequenceNumberRange_startingSequenceNumber' - The starting sequence number for the range.
 newSequenceNumberRange ::
   -- | 'startingSequenceNumber'
-  Prelude.Text ->
+  Core.Text ->
   SequenceNumberRange
 newSequenceNumberRange pStartingSequenceNumber_ =
   SequenceNumberRange'
     { endingSequenceNumber =
-        Prelude.Nothing,
+        Core.Nothing,
       startingSequenceNumber = pStartingSequenceNumber_
     }
 
 -- | The ending sequence number for the range. Shards that are in the OPEN
 -- state have an ending sequence number of @null@.
-sequenceNumberRange_endingSequenceNumber :: Lens.Lens' SequenceNumberRange (Prelude.Maybe Prelude.Text)
+sequenceNumberRange_endingSequenceNumber :: Lens.Lens' SequenceNumberRange (Core.Maybe Core.Text)
 sequenceNumberRange_endingSequenceNumber = Lens.lens (\SequenceNumberRange' {endingSequenceNumber} -> endingSequenceNumber) (\s@SequenceNumberRange' {} a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
 
 -- | The starting sequence number for the range.
-sequenceNumberRange_startingSequenceNumber :: Lens.Lens' SequenceNumberRange Prelude.Text
+sequenceNumberRange_startingSequenceNumber :: Lens.Lens' SequenceNumberRange Core.Text
 sequenceNumberRange_startingSequenceNumber = Lens.lens (\SequenceNumberRange' {startingSequenceNumber} -> startingSequenceNumber) (\s@SequenceNumberRange' {} a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
 
-instance Prelude.FromJSON SequenceNumberRange where
+instance Core.FromJSON SequenceNumberRange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SequenceNumberRange"
       ( \x ->
           SequenceNumberRange'
-            Prelude.<$> (x Prelude..:? "EndingSequenceNumber")
-            Prelude.<*> (x Prelude..: "StartingSequenceNumber")
+            Core.<$> (x Core..:? "EndingSequenceNumber")
+            Core.<*> (x Core..: "StartingSequenceNumber")
       )
 
-instance Prelude.Hashable SequenceNumberRange
+instance Core.Hashable SequenceNumberRange
 
-instance Prelude.NFData SequenceNumberRange
+instance Core.NFData SequenceNumberRange

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,10 +60,9 @@ module Network.AWS.GameLift.ListScripts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,12 +71,12 @@ data ListScripts = ListScripts'
   { -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListScripts' with all optional fields omitted.
@@ -98,96 +96,94 @@ newListScripts ::
   ListScripts
 newListScripts =
   ListScripts'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-listScripts_nextToken :: Lens.Lens' ListScripts (Prelude.Maybe Prelude.Text)
+listScripts_nextToken :: Lens.Lens' ListScripts (Core.Maybe Core.Text)
 listScripts_nextToken = Lens.lens (\ListScripts' {nextToken} -> nextToken) (\s@ListScripts' {} a -> s {nextToken = a} :: ListScripts)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
-listScripts_limit :: Lens.Lens' ListScripts (Prelude.Maybe Prelude.Natural)
+listScripts_limit :: Lens.Lens' ListScripts (Core.Maybe Core.Natural)
 listScripts_limit = Lens.lens (\ListScripts' {limit} -> limit) (\s@ListScripts' {} a -> s {limit = a} :: ListScripts)
 
-instance Pager.AWSPager ListScripts where
+instance Core.AWSPager ListScripts where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listScriptsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listScriptsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listScriptsResponse_scripts Prelude.. Lens._Just
+            Lens.^? listScriptsResponse_scripts Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listScripts_nextToken
           Lens..~ rs
-          Lens.^? listScriptsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listScriptsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListScripts where
-  type Rs ListScripts = ListScriptsResponse
+instance Core.AWSRequest ListScripts where
+  type AWSResponse ListScripts = ListScriptsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListScriptsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Scripts" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Scripts" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListScripts
+instance Core.Hashable ListScripts
 
-instance Prelude.NFData ListScripts
+instance Core.NFData ListScripts
 
-instance Prelude.ToHeaders ListScripts where
+instance Core.ToHeaders ListScripts where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.ListScripts" :: Prelude.ByteString),
+              Core.=# ("GameLift.ListScripts" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListScripts where
+instance Core.ToJSON ListScripts where
   toJSON ListScripts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListScripts where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListScripts where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListScripts where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListScripts where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListScriptsResponse' smart constructor.
 data ListScriptsResponse = ListScriptsResponse'
   { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A set of properties describing the requested script.
-    scripts :: Prelude.Maybe [Script],
+    scripts :: Core.Maybe [Script],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListScriptsResponse' with all optional fields omitted.
@@ -206,27 +202,27 @@ data ListScriptsResponse = ListScriptsResponse'
 -- 'httpStatus', 'listScriptsResponse_httpStatus' - The response's http status code.
 newListScriptsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListScriptsResponse
 newListScriptsResponse pHttpStatus_ =
   ListScriptsResponse'
-    { nextToken = Prelude.Nothing,
-      scripts = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      scripts = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
-listScriptsResponse_nextToken :: Lens.Lens' ListScriptsResponse (Prelude.Maybe Prelude.Text)
+listScriptsResponse_nextToken :: Lens.Lens' ListScriptsResponse (Core.Maybe Core.Text)
 listScriptsResponse_nextToken = Lens.lens (\ListScriptsResponse' {nextToken} -> nextToken) (\s@ListScriptsResponse' {} a -> s {nextToken = a} :: ListScriptsResponse)
 
 -- | A set of properties describing the requested script.
-listScriptsResponse_scripts :: Lens.Lens' ListScriptsResponse (Prelude.Maybe [Script])
-listScriptsResponse_scripts = Lens.lens (\ListScriptsResponse' {scripts} -> scripts) (\s@ListScriptsResponse' {} a -> s {scripts = a} :: ListScriptsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listScriptsResponse_scripts :: Lens.Lens' ListScriptsResponse (Core.Maybe [Script])
+listScriptsResponse_scripts = Lens.lens (\ListScriptsResponse' {scripts} -> scripts) (\s@ListScriptsResponse' {} a -> s {scripts = a} :: ListScriptsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listScriptsResponse_httpStatus :: Lens.Lens' ListScriptsResponse Prelude.Int
+listScriptsResponse_httpStatus :: Lens.Lens' ListScriptsResponse Core.Int
 listScriptsResponse_httpStatus = Lens.lens (\ListScriptsResponse' {httpStatus} -> httpStatus) (\s@ListScriptsResponse' {} a -> s {httpStatus = a} :: ListScriptsResponse)
 
-instance Prelude.NFData ListScriptsResponse
+instance Core.NFData ListScriptsResponse

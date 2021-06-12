@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.EC2.UnassignIpv6Addresses
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUnassignIpv6Addresses' smart constructor.
 data UnassignIpv6Addresses = UnassignIpv6Addresses'
   { -- | The IPv6 addresses to unassign from the network interface.
-    ipv6Addresses :: [Prelude.Text],
+    ipv6Addresses :: [Core.Text],
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Text
+    networkInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignIpv6Addresses' with all optional fields omitted.
@@ -70,71 +69,69 @@ data UnassignIpv6Addresses = UnassignIpv6Addresses'
 -- 'networkInterfaceId', 'unassignIpv6Addresses_networkInterfaceId' - The ID of the network interface.
 newUnassignIpv6Addresses ::
   -- | 'networkInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   UnassignIpv6Addresses
 newUnassignIpv6Addresses pNetworkInterfaceId_ =
   UnassignIpv6Addresses'
-    { ipv6Addresses =
-        Prelude.mempty,
+    { ipv6Addresses = Core.mempty,
       networkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | The IPv6 addresses to unassign from the network interface.
-unassignIpv6Addresses_ipv6Addresses :: Lens.Lens' UnassignIpv6Addresses [Prelude.Text]
-unassignIpv6Addresses_ipv6Addresses = Lens.lens (\UnassignIpv6Addresses' {ipv6Addresses} -> ipv6Addresses) (\s@UnassignIpv6Addresses' {} a -> s {ipv6Addresses = a} :: UnassignIpv6Addresses) Prelude.. Prelude._Coerce
+unassignIpv6Addresses_ipv6Addresses :: Lens.Lens' UnassignIpv6Addresses [Core.Text]
+unassignIpv6Addresses_ipv6Addresses = Lens.lens (\UnassignIpv6Addresses' {ipv6Addresses} -> ipv6Addresses) (\s@UnassignIpv6Addresses' {} a -> s {ipv6Addresses = a} :: UnassignIpv6Addresses) Core.. Lens._Coerce
 
 -- | The ID of the network interface.
-unassignIpv6Addresses_networkInterfaceId :: Lens.Lens' UnassignIpv6Addresses Prelude.Text
+unassignIpv6Addresses_networkInterfaceId :: Lens.Lens' UnassignIpv6Addresses Core.Text
 unassignIpv6Addresses_networkInterfaceId = Lens.lens (\UnassignIpv6Addresses' {networkInterfaceId} -> networkInterfaceId) (\s@UnassignIpv6Addresses' {} a -> s {networkInterfaceId = a} :: UnassignIpv6Addresses)
 
-instance Prelude.AWSRequest UnassignIpv6Addresses where
+instance Core.AWSRequest UnassignIpv6Addresses where
   type
-    Rs UnassignIpv6Addresses =
+    AWSResponse UnassignIpv6Addresses =
       UnassignIpv6AddressesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           UnassignIpv6AddressesResponse'
-            Prelude.<$> ( x Prelude..@? "unassignedIpv6Addresses"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (x Prelude..@? "networkInterfaceId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "unassignedIpv6Addresses"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "networkInterfaceId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UnassignIpv6Addresses
+instance Core.Hashable UnassignIpv6Addresses
 
-instance Prelude.NFData UnassignIpv6Addresses
+instance Core.NFData UnassignIpv6Addresses
 
-instance Prelude.ToHeaders UnassignIpv6Addresses where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UnassignIpv6Addresses where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UnassignIpv6Addresses where
-  toPath = Prelude.const "/"
+instance Core.ToPath UnassignIpv6Addresses where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UnassignIpv6Addresses where
+instance Core.ToQuery UnassignIpv6Addresses where
   toQuery UnassignIpv6Addresses' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UnassignIpv6Addresses" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQueryList "Ipv6Addresses" ipv6Addresses,
-        "NetworkInterfaceId" Prelude.=: networkInterfaceId
+          Core.=: ("UnassignIpv6Addresses" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQueryList "Ipv6Addresses" ipv6Addresses,
+        "NetworkInterfaceId" Core.=: networkInterfaceId
       ]
 
 -- | /See:/ 'newUnassignIpv6AddressesResponse' smart constructor.
 data UnassignIpv6AddressesResponse = UnassignIpv6AddressesResponse'
   { -- | The IPv6 addresses that have been unassigned from the network interface.
-    unassignedIpv6Addresses :: Prelude.Maybe [Prelude.Text],
+    unassignedIpv6Addresses :: Core.Maybe [Core.Text],
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    networkInterfaceId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignIpv6AddressesResponse' with all optional fields omitted.
@@ -151,26 +148,26 @@ data UnassignIpv6AddressesResponse = UnassignIpv6AddressesResponse'
 -- 'httpStatus', 'unassignIpv6AddressesResponse_httpStatus' - The response's http status code.
 newUnassignIpv6AddressesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UnassignIpv6AddressesResponse
 newUnassignIpv6AddressesResponse pHttpStatus_ =
   UnassignIpv6AddressesResponse'
     { unassignedIpv6Addresses =
-        Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
+        Core.Nothing,
+      networkInterfaceId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IPv6 addresses that have been unassigned from the network interface.
-unassignIpv6AddressesResponse_unassignedIpv6Addresses :: Lens.Lens' UnassignIpv6AddressesResponse (Prelude.Maybe [Prelude.Text])
-unassignIpv6AddressesResponse_unassignedIpv6Addresses = Lens.lens (\UnassignIpv6AddressesResponse' {unassignedIpv6Addresses} -> unassignedIpv6Addresses) (\s@UnassignIpv6AddressesResponse' {} a -> s {unassignedIpv6Addresses = a} :: UnassignIpv6AddressesResponse) Prelude.. Lens.mapping Prelude._Coerce
+unassignIpv6AddressesResponse_unassignedIpv6Addresses :: Lens.Lens' UnassignIpv6AddressesResponse (Core.Maybe [Core.Text])
+unassignIpv6AddressesResponse_unassignedIpv6Addresses = Lens.lens (\UnassignIpv6AddressesResponse' {unassignedIpv6Addresses} -> unassignedIpv6Addresses) (\s@UnassignIpv6AddressesResponse' {} a -> s {unassignedIpv6Addresses = a} :: UnassignIpv6AddressesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the network interface.
-unassignIpv6AddressesResponse_networkInterfaceId :: Lens.Lens' UnassignIpv6AddressesResponse (Prelude.Maybe Prelude.Text)
+unassignIpv6AddressesResponse_networkInterfaceId :: Lens.Lens' UnassignIpv6AddressesResponse (Core.Maybe Core.Text)
 unassignIpv6AddressesResponse_networkInterfaceId = Lens.lens (\UnassignIpv6AddressesResponse' {networkInterfaceId} -> networkInterfaceId) (\s@UnassignIpv6AddressesResponse' {} a -> s {networkInterfaceId = a} :: UnassignIpv6AddressesResponse)
 
 -- | The response's http status code.
-unassignIpv6AddressesResponse_httpStatus :: Lens.Lens' UnassignIpv6AddressesResponse Prelude.Int
+unassignIpv6AddressesResponse_httpStatus :: Lens.Lens' UnassignIpv6AddressesResponse Core.Int
 unassignIpv6AddressesResponse_httpStatus = Lens.lens (\UnassignIpv6AddressesResponse' {httpStatus} -> httpStatus) (\s@UnassignIpv6AddressesResponse' {} a -> s {httpStatus = a} :: UnassignIpv6AddressesResponse)
 
-instance Prelude.NFData UnassignIpv6AddressesResponse
+instance Core.NFData UnassignIpv6AddressesResponse

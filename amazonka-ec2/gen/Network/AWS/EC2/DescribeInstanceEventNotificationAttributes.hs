@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EC2.DescribeInstanceEventNotificationAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ data DescribeInstanceEventNotificationAttributes = DescribeInstanceEventNotifica
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceEventNotificationAttributes' with all optional fields omitted.
@@ -74,76 +73,76 @@ newDescribeInstanceEventNotificationAttributes ::
 newDescribeInstanceEventNotificationAttributes =
   DescribeInstanceEventNotificationAttributes'
     { dryRun =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeInstanceEventNotificationAttributes_dryRun :: Lens.Lens' DescribeInstanceEventNotificationAttributes (Prelude.Maybe Prelude.Bool)
+describeInstanceEventNotificationAttributes_dryRun :: Lens.Lens' DescribeInstanceEventNotificationAttributes (Core.Maybe Core.Bool)
 describeInstanceEventNotificationAttributes_dryRun = Lens.lens (\DescribeInstanceEventNotificationAttributes' {dryRun} -> dryRun) (\s@DescribeInstanceEventNotificationAttributes' {} a -> s {dryRun = a} :: DescribeInstanceEventNotificationAttributes)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeInstanceEventNotificationAttributes
   where
   type
-    Rs DescribeInstanceEventNotificationAttributes =
+    AWSResponse
+      DescribeInstanceEventNotificationAttributes =
       DescribeInstanceEventNotificationAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceEventNotificationAttributesResponse'
-            Prelude.<$> (x Prelude..@? "instanceTagAttribute")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "instanceTagAttribute")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeInstanceEventNotificationAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeInstanceEventNotificationAttributes
 
 instance
-  Prelude.ToHeaders
-    DescribeInstanceEventNotificationAttributes
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeInstanceEventNotificationAttributes
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeInstanceEventNotificationAttributes
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeInstanceEventNotificationAttributes
   where
   toQuery
     DescribeInstanceEventNotificationAttributes' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "DescribeInstanceEventNotificationAttributes" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun
+            Core.=: ( "DescribeInstanceEventNotificationAttributes" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun
         ]
 
 -- | /See:/ 'newDescribeInstanceEventNotificationAttributesResponse' smart constructor.
 data DescribeInstanceEventNotificationAttributesResponse = DescribeInstanceEventNotificationAttributesResponse'
   { -- | Information about the registered tag keys.
-    instanceTagAttribute :: Prelude.Maybe InstanceTagNotificationAttribute,
+    instanceTagAttribute :: Core.Maybe InstanceTagNotificationAttribute,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceEventNotificationAttributesResponse' with all optional fields omitted.
@@ -158,25 +157,25 @@ data DescribeInstanceEventNotificationAttributesResponse = DescribeInstanceEvent
 -- 'httpStatus', 'describeInstanceEventNotificationAttributesResponse_httpStatus' - The response's http status code.
 newDescribeInstanceEventNotificationAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeInstanceEventNotificationAttributesResponse
 newDescribeInstanceEventNotificationAttributesResponse
   pHttpStatus_ =
     DescribeInstanceEventNotificationAttributesResponse'
       { instanceTagAttribute =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Information about the registered tag keys.
-describeInstanceEventNotificationAttributesResponse_instanceTagAttribute :: Lens.Lens' DescribeInstanceEventNotificationAttributesResponse (Prelude.Maybe InstanceTagNotificationAttribute)
+describeInstanceEventNotificationAttributesResponse_instanceTagAttribute :: Lens.Lens' DescribeInstanceEventNotificationAttributesResponse (Core.Maybe InstanceTagNotificationAttribute)
 describeInstanceEventNotificationAttributesResponse_instanceTagAttribute = Lens.lens (\DescribeInstanceEventNotificationAttributesResponse' {instanceTagAttribute} -> instanceTagAttribute) (\s@DescribeInstanceEventNotificationAttributesResponse' {} a -> s {instanceTagAttribute = a} :: DescribeInstanceEventNotificationAttributesResponse)
 
 -- | The response's http status code.
-describeInstanceEventNotificationAttributesResponse_httpStatus :: Lens.Lens' DescribeInstanceEventNotificationAttributesResponse Prelude.Int
+describeInstanceEventNotificationAttributesResponse_httpStatus :: Lens.Lens' DescribeInstanceEventNotificationAttributesResponse Core.Int
 describeInstanceEventNotificationAttributesResponse_httpStatus = Lens.lens (\DescribeInstanceEventNotificationAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceEventNotificationAttributesResponse' {} a -> s {httpStatus = a} :: DescribeInstanceEventNotificationAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeInstanceEventNotificationAttributesResponse

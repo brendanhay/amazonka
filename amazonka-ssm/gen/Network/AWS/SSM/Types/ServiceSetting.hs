@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ServiceSetting where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The service setting data structure.
 --
@@ -44,7 +43,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newServiceSetting' smart constructor.
 data ServiceSetting = ServiceSetting'
   { -- | The last time the service setting was modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The status of the service setting. The value can be Default, Customized
     -- or PendingUpdate.
     --
@@ -56,18 +55,18 @@ data ServiceSetting = ServiceSetting'
     --
     -- -   PendingUpdate: The current setting uses a default or custom value,
     --     but a setting change request is pending approval.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The ARN of the service setting.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The value of the service setting.
-    settingValue :: Prelude.Maybe Prelude.Text,
+    settingValue :: Core.Maybe Core.Text,
     -- | The ID of the service setting.
-    settingId :: Prelude.Maybe Prelude.Text,
+    settingId :: Core.Maybe Core.Text,
     -- | The ARN of the last modified user. This field is populated only if the
     -- setting value was overwritten.
-    lastModifiedUser :: Prelude.Maybe Prelude.Text
+    lastModifiedUser :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceSetting' with all optional fields omitted.
@@ -103,17 +102,17 @@ newServiceSetting ::
   ServiceSetting
 newServiceSetting =
   ServiceSetting'
-    { lastModifiedDate = Prelude.Nothing,
-      status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      settingValue = Prelude.Nothing,
-      settingId = Prelude.Nothing,
-      lastModifiedUser = Prelude.Nothing
+    { lastModifiedDate = Core.Nothing,
+      status = Core.Nothing,
+      arn = Core.Nothing,
+      settingValue = Core.Nothing,
+      settingId = Core.Nothing,
+      lastModifiedUser = Core.Nothing
     }
 
 -- | The last time the service setting was modified.
-serviceSetting_lastModifiedDate :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.UTCTime)
-serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate} -> lastModifiedDate) (\s@ServiceSetting' {} a -> s {lastModifiedDate = a} :: ServiceSetting) Prelude.. Lens.mapping Prelude._Time
+serviceSetting_lastModifiedDate :: Lens.Lens' ServiceSetting (Core.Maybe Core.UTCTime)
+serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate} -> lastModifiedDate) (\s@ServiceSetting' {} a -> s {lastModifiedDate = a} :: ServiceSetting) Core.. Lens.mapping Core._Time
 
 -- | The status of the service setting. The value can be Default, Customized
 -- or PendingUpdate.
@@ -126,40 +125,40 @@ serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate}
 --
 -- -   PendingUpdate: The current setting uses a default or custom value,
 --     but a setting change request is pending approval.
-serviceSetting_status :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_status :: Lens.Lens' ServiceSetting (Core.Maybe Core.Text)
 serviceSetting_status = Lens.lens (\ServiceSetting' {status} -> status) (\s@ServiceSetting' {} a -> s {status = a} :: ServiceSetting)
 
 -- | The ARN of the service setting.
-serviceSetting_arn :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_arn :: Lens.Lens' ServiceSetting (Core.Maybe Core.Text)
 serviceSetting_arn = Lens.lens (\ServiceSetting' {arn} -> arn) (\s@ServiceSetting' {} a -> s {arn = a} :: ServiceSetting)
 
 -- | The value of the service setting.
-serviceSetting_settingValue :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_settingValue :: Lens.Lens' ServiceSetting (Core.Maybe Core.Text)
 serviceSetting_settingValue = Lens.lens (\ServiceSetting' {settingValue} -> settingValue) (\s@ServiceSetting' {} a -> s {settingValue = a} :: ServiceSetting)
 
 -- | The ID of the service setting.
-serviceSetting_settingId :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_settingId :: Lens.Lens' ServiceSetting (Core.Maybe Core.Text)
 serviceSetting_settingId = Lens.lens (\ServiceSetting' {settingId} -> settingId) (\s@ServiceSetting' {} a -> s {settingId = a} :: ServiceSetting)
 
 -- | The ARN of the last modified user. This field is populated only if the
 -- setting value was overwritten.
-serviceSetting_lastModifiedUser :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_lastModifiedUser :: Lens.Lens' ServiceSetting (Core.Maybe Core.Text)
 serviceSetting_lastModifiedUser = Lens.lens (\ServiceSetting' {lastModifiedUser} -> lastModifiedUser) (\s@ServiceSetting' {} a -> s {lastModifiedUser = a} :: ServiceSetting)
 
-instance Prelude.FromJSON ServiceSetting where
+instance Core.FromJSON ServiceSetting where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceSetting"
       ( \x ->
           ServiceSetting'
-            Prelude.<$> (x Prelude..:? "LastModifiedDate")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "ARN")
-            Prelude.<*> (x Prelude..:? "SettingValue")
-            Prelude.<*> (x Prelude..:? "SettingId")
-            Prelude.<*> (x Prelude..:? "LastModifiedUser")
+            Core.<$> (x Core..:? "LastModifiedDate")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "ARN")
+            Core.<*> (x Core..:? "SettingValue")
+            Core.<*> (x Core..:? "SettingId")
+            Core.<*> (x Core..:? "LastModifiedUser")
       )
 
-instance Prelude.Hashable ServiceSetting
+instance Core.Hashable ServiceSetting
 
-instance Prelude.NFData ServiceSetting
+instance Core.NFData ServiceSetting

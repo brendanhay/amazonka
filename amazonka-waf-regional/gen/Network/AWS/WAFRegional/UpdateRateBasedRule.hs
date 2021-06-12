@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -92,8 +91,8 @@ module Network.AWS.WAFRegional.UpdateRateBasedRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -102,9 +101,9 @@ import Network.AWS.WAFRegional.Types
 data UpdateRateBasedRule = UpdateRateBasedRule'
   { -- | The @RuleId@ of the @RateBasedRule@ that you want to update. @RuleId@ is
     -- returned by @CreateRateBasedRule@ and by ListRateBasedRules.
-    ruleId :: Prelude.Text,
+    ruleId :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text,
+    changeToken :: Core.Text,
     -- | An array of @RuleUpdate@ objects that you want to insert into or delete
     -- from a RateBasedRule.
     updates :: [RuleUpdate],
@@ -113,9 +112,9 @@ data UpdateRateBasedRule = UpdateRateBasedRule'
     -- the number of requests exceeds the @RateLimit@ and the other predicates
     -- specified in the rule are also met, AWS WAF triggers the action that is
     -- specified for this rule.
-    rateLimit :: Prelude.Natural
+    rateLimit :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRateBasedRule' with all optional fields omitted.
@@ -140,11 +139,11 @@ data UpdateRateBasedRule = UpdateRateBasedRule'
 -- specified for this rule.
 newUpdateRateBasedRule ::
   -- | 'ruleId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'rateLimit'
-  Prelude.Natural ->
+  Core.Natural ->
   UpdateRateBasedRule
 newUpdateRateBasedRule
   pRuleId_
@@ -153,91 +152,89 @@ newUpdateRateBasedRule
     UpdateRateBasedRule'
       { ruleId = pRuleId_,
         changeToken = pChangeToken_,
-        updates = Prelude.mempty,
+        updates = Core.mempty,
         rateLimit = pRateLimit_
       }
 
 -- | The @RuleId@ of the @RateBasedRule@ that you want to update. @RuleId@ is
 -- returned by @CreateRateBasedRule@ and by ListRateBasedRules.
-updateRateBasedRule_ruleId :: Lens.Lens' UpdateRateBasedRule Prelude.Text
+updateRateBasedRule_ruleId :: Lens.Lens' UpdateRateBasedRule Core.Text
 updateRateBasedRule_ruleId = Lens.lens (\UpdateRateBasedRule' {ruleId} -> ruleId) (\s@UpdateRateBasedRule' {} a -> s {ruleId = a} :: UpdateRateBasedRule)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateRateBasedRule_changeToken :: Lens.Lens' UpdateRateBasedRule Prelude.Text
+updateRateBasedRule_changeToken :: Lens.Lens' UpdateRateBasedRule Core.Text
 updateRateBasedRule_changeToken = Lens.lens (\UpdateRateBasedRule' {changeToken} -> changeToken) (\s@UpdateRateBasedRule' {} a -> s {changeToken = a} :: UpdateRateBasedRule)
 
 -- | An array of @RuleUpdate@ objects that you want to insert into or delete
 -- from a RateBasedRule.
 updateRateBasedRule_updates :: Lens.Lens' UpdateRateBasedRule [RuleUpdate]
-updateRateBasedRule_updates = Lens.lens (\UpdateRateBasedRule' {updates} -> updates) (\s@UpdateRateBasedRule' {} a -> s {updates = a} :: UpdateRateBasedRule) Prelude.. Prelude._Coerce
+updateRateBasedRule_updates = Lens.lens (\UpdateRateBasedRule' {updates} -> updates) (\s@UpdateRateBasedRule' {} a -> s {updates = a} :: UpdateRateBasedRule) Core.. Lens._Coerce
 
 -- | The maximum number of requests, which have an identical value in the
 -- field specified by the @RateKey@, allowed in a five-minute period. If
 -- the number of requests exceeds the @RateLimit@ and the other predicates
 -- specified in the rule are also met, AWS WAF triggers the action that is
 -- specified for this rule.
-updateRateBasedRule_rateLimit :: Lens.Lens' UpdateRateBasedRule Prelude.Natural
+updateRateBasedRule_rateLimit :: Lens.Lens' UpdateRateBasedRule Core.Natural
 updateRateBasedRule_rateLimit = Lens.lens (\UpdateRateBasedRule' {rateLimit} -> rateLimit) (\s@UpdateRateBasedRule' {} a -> s {rateLimit = a} :: UpdateRateBasedRule)
 
-instance Prelude.AWSRequest UpdateRateBasedRule where
+instance Core.AWSRequest UpdateRateBasedRule where
   type
-    Rs UpdateRateBasedRule =
+    AWSResponse UpdateRateBasedRule =
       UpdateRateBasedRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRateBasedRuleResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRateBasedRule
+instance Core.Hashable UpdateRateBasedRule
 
-instance Prelude.NFData UpdateRateBasedRule
+instance Core.NFData UpdateRateBasedRule
 
-instance Prelude.ToHeaders UpdateRateBasedRule where
+instance Core.ToHeaders UpdateRateBasedRule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.UpdateRateBasedRule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.UpdateRateBasedRule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateRateBasedRule where
+instance Core.ToJSON UpdateRateBasedRule where
   toJSON UpdateRateBasedRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("RuleId" Prelude..= ruleId),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken),
-            Prelude.Just ("Updates" Prelude..= updates),
-            Prelude.Just ("RateLimit" Prelude..= rateLimit)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RuleId" Core..= ruleId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates),
+            Core.Just ("RateLimit" Core..= rateLimit)
           ]
       )
 
-instance Prelude.ToPath UpdateRateBasedRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateRateBasedRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateRateBasedRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRateBasedRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateRateBasedRuleResponse' smart constructor.
 data UpdateRateBasedRuleResponse = UpdateRateBasedRuleResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateRateBasedRule@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRateBasedRuleResponse' with all optional fields omitted.
@@ -254,23 +251,23 @@ data UpdateRateBasedRuleResponse = UpdateRateBasedRuleResponse'
 -- 'httpStatus', 'updateRateBasedRuleResponse_httpStatus' - The response's http status code.
 newUpdateRateBasedRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateRateBasedRuleResponse
 newUpdateRateBasedRuleResponse pHttpStatus_ =
   UpdateRateBasedRuleResponse'
     { changeToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRateBasedRule@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-updateRateBasedRuleResponse_changeToken :: Lens.Lens' UpdateRateBasedRuleResponse (Prelude.Maybe Prelude.Text)
+updateRateBasedRuleResponse_changeToken :: Lens.Lens' UpdateRateBasedRuleResponse (Core.Maybe Core.Text)
 updateRateBasedRuleResponse_changeToken = Lens.lens (\UpdateRateBasedRuleResponse' {changeToken} -> changeToken) (\s@UpdateRateBasedRuleResponse' {} a -> s {changeToken = a} :: UpdateRateBasedRuleResponse)
 
 -- | The response's http status code.
-updateRateBasedRuleResponse_httpStatus :: Lens.Lens' UpdateRateBasedRuleResponse Prelude.Int
+updateRateBasedRuleResponse_httpStatus :: Lens.Lens' UpdateRateBasedRuleResponse Core.Int
 updateRateBasedRuleResponse_httpStatus = Lens.lens (\UpdateRateBasedRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateRateBasedRuleResponse' {} a -> s {httpStatus = a} :: UpdateRateBasedRuleResponse)
 
-instance Prelude.NFData UpdateRateBasedRuleResponse
+instance Core.NFData UpdateRateBasedRuleResponse

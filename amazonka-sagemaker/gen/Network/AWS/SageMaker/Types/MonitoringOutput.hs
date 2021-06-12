@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringS3Output
 
 -- | The output object for a monitoring job.
@@ -32,7 +31,7 @@ data MonitoringOutput = MonitoringOutput'
     -- saved.
     s3Output :: MonitoringS3Output
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringOutput' with all optional fields omitted.
@@ -56,22 +55,21 @@ newMonitoringOutput pS3Output_ =
 monitoringOutput_s3Output :: Lens.Lens' MonitoringOutput MonitoringS3Output
 monitoringOutput_s3Output = Lens.lens (\MonitoringOutput' {s3Output} -> s3Output) (\s@MonitoringOutput' {} a -> s {s3Output = a} :: MonitoringOutput)
 
-instance Prelude.FromJSON MonitoringOutput where
+instance Core.FromJSON MonitoringOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringOutput"
       ( \x ->
-          MonitoringOutput'
-            Prelude.<$> (x Prelude..: "S3Output")
+          MonitoringOutput' Core.<$> (x Core..: "S3Output")
       )
 
-instance Prelude.Hashable MonitoringOutput
+instance Core.Hashable MonitoringOutput
 
-instance Prelude.NFData MonitoringOutput
+instance Core.NFData MonitoringOutput
 
-instance Prelude.ToJSON MonitoringOutput where
+instance Core.ToJSON MonitoringOutput where
   toJSON MonitoringOutput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("S3Output" Prelude..= s3Output)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("S3Output" Core..= s3Output)]
       )

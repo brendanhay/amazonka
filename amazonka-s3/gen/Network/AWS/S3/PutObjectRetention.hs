@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.S3.PutObjectRetention
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -64,21 +63,21 @@ data PutObjectRetention = PutObjectRetention'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | Indicates whether this operation should bypass Governance-mode
     -- restrictions.
-    bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
+    bypassGovernanceRetention :: Core.Maybe Core.Bool,
     -- | The MD5 hash for the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | The version ID for the object that you want to apply this Object
     -- Retention configuration to.
-    versionId :: Prelude.Maybe ObjectVersionId,
+    versionId :: Core.Maybe ObjectVersionId,
     -- | The container element for the Object Retention configuration.
-    retention :: Prelude.Maybe ObjectLockRetention,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    retention :: Core.Maybe ObjectLockRetention,
+    requestPayer :: Core.Maybe RequestPayer,
     -- | The bucket name that contains the object you want to apply this Object
     -- Retention configuration to.
     --
@@ -95,7 +94,7 @@ data PutObjectRetention = PutObjectRetention'
     -- configuration to.
     key :: ObjectKey
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutObjectRetention' with all optional fields omitted.
@@ -147,12 +146,12 @@ newPutObjectRetention ::
 newPutObjectRetention pBucket_ pKey_ =
   PutObjectRetention'
     { expectedBucketOwner =
-        Prelude.Nothing,
-      bypassGovernanceRetention = Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      retention = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
+        Core.Nothing,
+      bypassGovernanceRetention = Core.Nothing,
+      contentMD5 = Core.Nothing,
+      versionId = Core.Nothing,
+      retention = Core.Nothing,
+      requestPayer = Core.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -160,32 +159,32 @@ newPutObjectRetention pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putObjectRetention_expectedBucketOwner :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Text)
+putObjectRetention_expectedBucketOwner :: Lens.Lens' PutObjectRetention (Core.Maybe Core.Text)
 putObjectRetention_expectedBucketOwner = Lens.lens (\PutObjectRetention' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectRetention' {} a -> s {expectedBucketOwner = a} :: PutObjectRetention)
 
 -- | Indicates whether this operation should bypass Governance-mode
 -- restrictions.
-putObjectRetention_bypassGovernanceRetention :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Bool)
+putObjectRetention_bypassGovernanceRetention :: Lens.Lens' PutObjectRetention (Core.Maybe Core.Bool)
 putObjectRetention_bypassGovernanceRetention = Lens.lens (\PutObjectRetention' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@PutObjectRetention' {} a -> s {bypassGovernanceRetention = a} :: PutObjectRetention)
 
 -- | The MD5 hash for the request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putObjectRetention_contentMD5 :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Text)
+putObjectRetention_contentMD5 :: Lens.Lens' PutObjectRetention (Core.Maybe Core.Text)
 putObjectRetention_contentMD5 = Lens.lens (\PutObjectRetention' {contentMD5} -> contentMD5) (\s@PutObjectRetention' {} a -> s {contentMD5 = a} :: PutObjectRetention)
 
 -- | The version ID for the object that you want to apply this Object
 -- Retention configuration to.
-putObjectRetention_versionId :: Lens.Lens' PutObjectRetention (Prelude.Maybe ObjectVersionId)
+putObjectRetention_versionId :: Lens.Lens' PutObjectRetention (Core.Maybe ObjectVersionId)
 putObjectRetention_versionId = Lens.lens (\PutObjectRetention' {versionId} -> versionId) (\s@PutObjectRetention' {} a -> s {versionId = a} :: PutObjectRetention)
 
 -- | The container element for the Object Retention configuration.
-putObjectRetention_retention :: Lens.Lens' PutObjectRetention (Prelude.Maybe ObjectLockRetention)
+putObjectRetention_retention :: Lens.Lens' PutObjectRetention (Core.Maybe ObjectLockRetention)
 putObjectRetention_retention = Lens.lens (\PutObjectRetention' {retention} -> retention) (\s@PutObjectRetention' {} a -> s {retention = a} :: PutObjectRetention)
 
 -- | Undocumented member.
-putObjectRetention_requestPayer :: Lens.Lens' PutObjectRetention (Prelude.Maybe RequestPayer)
+putObjectRetention_requestPayer :: Lens.Lens' PutObjectRetention (Core.Maybe RequestPayer)
 putObjectRetention_requestPayer = Lens.lens (\PutObjectRetention' {requestPayer} -> requestPayer) (\s@PutObjectRetention' {} a -> s {requestPayer = a} :: PutObjectRetention)
 
 -- | The bucket name that contains the object you want to apply this Object
@@ -207,57 +206,57 @@ putObjectRetention_bucket = Lens.lens (\PutObjectRetention' {bucket} -> bucket) 
 putObjectRetention_key :: Lens.Lens' PutObjectRetention ObjectKey
 putObjectRetention_key = Lens.lens (\PutObjectRetention' {key} -> key) (\s@PutObjectRetention' {} a -> s {key = a} :: PutObjectRetention)
 
-instance Prelude.AWSRequest PutObjectRetention where
+instance Core.AWSRequest PutObjectRetention where
   type
-    Rs PutObjectRetention =
+    AWSResponse PutObjectRetention =
       PutObjectRetentionResponse
   request = Request.putXML defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutObjectRetentionResponse'
-            Prelude.<$> (h Prelude..#? "x-amz-request-charged")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "x-amz-request-charged")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutObjectRetention
+instance Core.Hashable PutObjectRetention
 
-instance Prelude.NFData PutObjectRetention
+instance Core.NFData PutObjectRetention
 
-instance Prelude.ToElement PutObjectRetention where
+instance Core.ToElement PutObjectRetention where
   toElement PutObjectRetention' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}Retention"
       retention
 
-instance Prelude.ToHeaders PutObjectRetention where
+instance Core.ToHeaders PutObjectRetention where
   toHeaders PutObjectRetention' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
+          Core.=# expectedBucketOwner,
         "x-amz-bypass-governance-retention"
-          Prelude.=# bypassGovernanceRetention,
-        "Content-MD5" Prelude.=# contentMD5,
-        "x-amz-request-payer" Prelude.=# requestPayer
+          Core.=# bypassGovernanceRetention,
+        "Content-MD5" Core.=# contentMD5,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
-instance Prelude.ToPath PutObjectRetention where
+instance Core.ToPath PutObjectRetention where
   toPath PutObjectRetention' {..} =
-    Prelude.mconcat
-      ["/", Prelude.toBS bucket, "/", Prelude.toBS key]
+    Core.mconcat
+      ["/", Core.toBS bucket, "/", Core.toBS key]
 
-instance Prelude.ToQuery PutObjectRetention where
+instance Core.ToQuery PutObjectRetention where
   toQuery PutObjectRetention' {..} =
-    Prelude.mconcat
-      ["versionId" Prelude.=: versionId, "retention"]
+    Core.mconcat
+      ["versionId" Core.=: versionId, "retention"]
 
 -- | /See:/ 'newPutObjectRetentionResponse' smart constructor.
 data PutObjectRetentionResponse = PutObjectRetentionResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
+  { requestCharged :: Core.Maybe RequestCharged,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutObjectRetentionResponse' with all optional fields omitted.
@@ -272,21 +271,21 @@ data PutObjectRetentionResponse = PutObjectRetentionResponse'
 -- 'httpStatus', 'putObjectRetentionResponse_httpStatus' - The response's http status code.
 newPutObjectRetentionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutObjectRetentionResponse
 newPutObjectRetentionResponse pHttpStatus_ =
   PutObjectRetentionResponse'
     { requestCharged =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-putObjectRetentionResponse_requestCharged :: Lens.Lens' PutObjectRetentionResponse (Prelude.Maybe RequestCharged)
+putObjectRetentionResponse_requestCharged :: Lens.Lens' PutObjectRetentionResponse (Core.Maybe RequestCharged)
 putObjectRetentionResponse_requestCharged = Lens.lens (\PutObjectRetentionResponse' {requestCharged} -> requestCharged) (\s@PutObjectRetentionResponse' {} a -> s {requestCharged = a} :: PutObjectRetentionResponse)
 
 -- | The response's http status code.
-putObjectRetentionResponse_httpStatus :: Lens.Lens' PutObjectRetentionResponse Prelude.Int
+putObjectRetentionResponse_httpStatus :: Lens.Lens' PutObjectRetentionResponse Core.Int
 putObjectRetentionResponse_httpStatus = Lens.lens (\PutObjectRetentionResponse' {httpStatus} -> httpStatus) (\s@PutObjectRetentionResponse' {} a -> s {httpStatus = a} :: PutObjectRetentionResponse)
 
-instance Prelude.NFData PutObjectRetentionResponse
+instance Core.NFData PutObjectRetentionResponse

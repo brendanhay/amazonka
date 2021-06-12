@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -94,14 +93,14 @@ data AdminResetUserPassword = AdminResetUserPassword'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The user pool ID for the user pool where you want to reset the user\'s
     -- password.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user name of the user whose password you wish to reset.
-    username :: Prelude.Sensitive Prelude.Text
+    username :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminResetUserPassword' with all optional fields omitted.
@@ -148,16 +147,16 @@ data AdminResetUserPassword = AdminResetUserPassword'
 -- 'username', 'adminResetUserPassword_username' - The user name of the user whose password you wish to reset.
 newAdminResetUserPassword ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminResetUserPassword
 newAdminResetUserPassword pUserPoolId_ pUsername_ =
   AdminResetUserPassword'
     { clientMetadata =
-        Prelude.Nothing,
+        Core.Nothing,
       userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_
+      username = Core._Sensitive Lens.# pUsername_
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -190,65 +189,62 @@ newAdminResetUserPassword pUserPoolId_ pUsername_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-adminResetUserPassword_clientMetadata :: Lens.Lens' AdminResetUserPassword (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminResetUserPassword_clientMetadata = Lens.lens (\AdminResetUserPassword' {clientMetadata} -> clientMetadata) (\s@AdminResetUserPassword' {} a -> s {clientMetadata = a} :: AdminResetUserPassword) Prelude.. Lens.mapping Prelude._Coerce
+adminResetUserPassword_clientMetadata :: Lens.Lens' AdminResetUserPassword (Core.Maybe (Core.HashMap Core.Text Core.Text))
+adminResetUserPassword_clientMetadata = Lens.lens (\AdminResetUserPassword' {clientMetadata} -> clientMetadata) (\s@AdminResetUserPassword' {} a -> s {clientMetadata = a} :: AdminResetUserPassword) Core.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID for the user pool where you want to reset the user\'s
 -- password.
-adminResetUserPassword_userPoolId :: Lens.Lens' AdminResetUserPassword Prelude.Text
+adminResetUserPassword_userPoolId :: Lens.Lens' AdminResetUserPassword Core.Text
 adminResetUserPassword_userPoolId = Lens.lens (\AdminResetUserPassword' {userPoolId} -> userPoolId) (\s@AdminResetUserPassword' {} a -> s {userPoolId = a} :: AdminResetUserPassword)
 
 -- | The user name of the user whose password you wish to reset.
-adminResetUserPassword_username :: Lens.Lens' AdminResetUserPassword Prelude.Text
-adminResetUserPassword_username = Lens.lens (\AdminResetUserPassword' {username} -> username) (\s@AdminResetUserPassword' {} a -> s {username = a} :: AdminResetUserPassword) Prelude.. Prelude._Sensitive
+adminResetUserPassword_username :: Lens.Lens' AdminResetUserPassword Core.Text
+adminResetUserPassword_username = Lens.lens (\AdminResetUserPassword' {username} -> username) (\s@AdminResetUserPassword' {} a -> s {username = a} :: AdminResetUserPassword) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest AdminResetUserPassword where
+instance Core.AWSRequest AdminResetUserPassword where
   type
-    Rs AdminResetUserPassword =
+    AWSResponse AdminResetUserPassword =
       AdminResetUserPasswordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminResetUserPasswordResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminResetUserPassword
+instance Core.Hashable AdminResetUserPassword
 
-instance Prelude.NFData AdminResetUserPassword
+instance Core.NFData AdminResetUserPassword
 
-instance Prelude.ToHeaders AdminResetUserPassword where
+instance Core.ToHeaders AdminResetUserPassword where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminResetUserPassword" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminResetUserPassword" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminResetUserPassword where
+instance Core.ToJSON AdminResetUserPassword where
   toJSON AdminResetUserPassword' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientMetadata" Prelude..=)
-              Prelude.<$> clientMetadata,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
           ]
       )
 
-instance Prelude.ToPath AdminResetUserPassword where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminResetUserPassword where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminResetUserPassword where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminResetUserPassword where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server to reset a user password as an
 -- administrator.
@@ -256,9 +252,9 @@ instance Prelude.ToQuery AdminResetUserPassword where
 -- /See:/ 'newAdminResetUserPasswordResponse' smart constructor.
 data AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminResetUserPasswordResponse' with all optional fields omitted.
@@ -271,7 +267,7 @@ data AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'
 -- 'httpStatus', 'adminResetUserPasswordResponse_httpStatus' - The response's http status code.
 newAdminResetUserPasswordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminResetUserPasswordResponse
 newAdminResetUserPasswordResponse pHttpStatus_ =
   AdminResetUserPasswordResponse'
@@ -280,9 +276,7 @@ newAdminResetUserPasswordResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminResetUserPasswordResponse_httpStatus :: Lens.Lens' AdminResetUserPasswordResponse Prelude.Int
+adminResetUserPasswordResponse_httpStatus :: Lens.Lens' AdminResetUserPasswordResponse Core.Int
 adminResetUserPasswordResponse_httpStatus = Lens.lens (\AdminResetUserPasswordResponse' {httpStatus} -> httpStatus) (\s@AdminResetUserPasswordResponse' {} a -> s {httpStatus = a} :: AdminResetUserPasswordResponse)
 
-instance
-  Prelude.NFData
-    AdminResetUserPasswordResponse
+instance Core.NFData AdminResetUserPasswordResponse

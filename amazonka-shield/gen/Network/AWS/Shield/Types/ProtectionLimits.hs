@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.ProtectionLimits where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.Limit
 
 -- | Limits settings on protections for your subscription.
@@ -32,7 +31,7 @@ data ProtectionLimits = ProtectionLimits'
     -- protection.
     protectedResourceTypeLimits :: [Limit]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProtectionLimits' with all optional fields omitted.
@@ -49,25 +48,25 @@ newProtectionLimits ::
 newProtectionLimits =
   ProtectionLimits'
     { protectedResourceTypeLimits =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | The maximum number of resource types that you can specify in a
 -- protection.
 protectionLimits_protectedResourceTypeLimits :: Lens.Lens' ProtectionLimits [Limit]
-protectionLimits_protectedResourceTypeLimits = Lens.lens (\ProtectionLimits' {protectedResourceTypeLimits} -> protectedResourceTypeLimits) (\s@ProtectionLimits' {} a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits) Prelude.. Prelude._Coerce
+protectionLimits_protectedResourceTypeLimits = Lens.lens (\ProtectionLimits' {protectedResourceTypeLimits} -> protectedResourceTypeLimits) (\s@ProtectionLimits' {} a -> s {protectedResourceTypeLimits = a} :: ProtectionLimits) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ProtectionLimits where
+instance Core.FromJSON ProtectionLimits where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProtectionLimits"
       ( \x ->
           ProtectionLimits'
-            Prelude.<$> ( x Prelude..:? "ProtectedResourceTypeLimits"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "ProtectedResourceTypeLimits"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ProtectionLimits
+instance Core.Hashable ProtectionLimits
 
-instance Prelude.NFData ProtectionLimits
+instance Core.NFData ProtectionLimits

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodePipeline.Types.ListWebhookItem where
 
 import Network.AWS.CodePipeline.Types.Tag
 import Network.AWS.CodePipeline.Types.WebhookDefinition
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The detail returned for each webhook after listing webhooks, such as the
 -- webhook URL, the webhook name, and the webhook ARN.
@@ -32,15 +31,15 @@ import qualified Network.AWS.Prelude as Prelude
 data ListWebhookItem = ListWebhookItem'
   { -- | The date and time a webhook was last successfully triggered, in
     -- timestamp format.
-    lastTriggered :: Prelude.Maybe Prelude.POSIX,
+    lastTriggered :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the webhook.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | Specifies the tags applied to the webhook.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The text of the error message about the webhook.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The number code of the error.
-    errorCode :: Prelude.Maybe Prelude.Text,
+    errorCode :: Core.Maybe Core.Text,
     -- | The detail returned for each webhook, such as the webhook authentication
     -- type and filter rules.
     definition :: WebhookDefinition,
@@ -49,9 +48,9 @@ data ListWebhookItem = ListWebhookItem'
     -- post request satisfies the defined authentication and filtering
     -- conditions. Deleting and re-creating a webhook makes the old URL invalid
     -- and generates a new one.
-    url :: Prelude.Text
+    url :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListWebhookItem' with all optional fields omitted.
@@ -84,38 +83,38 @@ newListWebhookItem ::
   -- | 'definition'
   WebhookDefinition ->
   -- | 'url'
-  Prelude.Text ->
+  Core.Text ->
   ListWebhookItem
 newListWebhookItem pDefinition_ pUrl_ =
   ListWebhookItem'
-    { lastTriggered = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
+    { lastTriggered = Core.Nothing,
+      arn = Core.Nothing,
+      tags = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing,
       definition = pDefinition_,
       url = pUrl_
     }
 
 -- | The date and time a webhook was last successfully triggered, in
 -- timestamp format.
-listWebhookItem_lastTriggered :: Lens.Lens' ListWebhookItem (Prelude.Maybe Prelude.UTCTime)
-listWebhookItem_lastTriggered = Lens.lens (\ListWebhookItem' {lastTriggered} -> lastTriggered) (\s@ListWebhookItem' {} a -> s {lastTriggered = a} :: ListWebhookItem) Prelude.. Lens.mapping Prelude._Time
+listWebhookItem_lastTriggered :: Lens.Lens' ListWebhookItem (Core.Maybe Core.UTCTime)
+listWebhookItem_lastTriggered = Lens.lens (\ListWebhookItem' {lastTriggered} -> lastTriggered) (\s@ListWebhookItem' {} a -> s {lastTriggered = a} :: ListWebhookItem) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the webhook.
-listWebhookItem_arn :: Lens.Lens' ListWebhookItem (Prelude.Maybe Prelude.Text)
+listWebhookItem_arn :: Lens.Lens' ListWebhookItem (Core.Maybe Core.Text)
 listWebhookItem_arn = Lens.lens (\ListWebhookItem' {arn} -> arn) (\s@ListWebhookItem' {} a -> s {arn = a} :: ListWebhookItem)
 
 -- | Specifies the tags applied to the webhook.
-listWebhookItem_tags :: Lens.Lens' ListWebhookItem (Prelude.Maybe [Tag])
-listWebhookItem_tags = Lens.lens (\ListWebhookItem' {tags} -> tags) (\s@ListWebhookItem' {} a -> s {tags = a} :: ListWebhookItem) Prelude.. Lens.mapping Prelude._Coerce
+listWebhookItem_tags :: Lens.Lens' ListWebhookItem (Core.Maybe [Tag])
+listWebhookItem_tags = Lens.lens (\ListWebhookItem' {tags} -> tags) (\s@ListWebhookItem' {} a -> s {tags = a} :: ListWebhookItem) Core.. Lens.mapping Lens._Coerce
 
 -- | The text of the error message about the webhook.
-listWebhookItem_errorMessage :: Lens.Lens' ListWebhookItem (Prelude.Maybe Prelude.Text)
+listWebhookItem_errorMessage :: Lens.Lens' ListWebhookItem (Core.Maybe Core.Text)
 listWebhookItem_errorMessage = Lens.lens (\ListWebhookItem' {errorMessage} -> errorMessage) (\s@ListWebhookItem' {} a -> s {errorMessage = a} :: ListWebhookItem)
 
 -- | The number code of the error.
-listWebhookItem_errorCode :: Lens.Lens' ListWebhookItem (Prelude.Maybe Prelude.Text)
+listWebhookItem_errorCode :: Lens.Lens' ListWebhookItem (Core.Maybe Core.Text)
 listWebhookItem_errorCode = Lens.lens (\ListWebhookItem' {errorCode} -> errorCode) (\s@ListWebhookItem' {} a -> s {errorCode = a} :: ListWebhookItem)
 
 -- | The detail returned for each webhook, such as the webhook authentication
@@ -128,24 +127,24 @@ listWebhookItem_definition = Lens.lens (\ListWebhookItem' {definition} -> defini
 -- post request satisfies the defined authentication and filtering
 -- conditions. Deleting and re-creating a webhook makes the old URL invalid
 -- and generates a new one.
-listWebhookItem_url :: Lens.Lens' ListWebhookItem Prelude.Text
+listWebhookItem_url :: Lens.Lens' ListWebhookItem Core.Text
 listWebhookItem_url = Lens.lens (\ListWebhookItem' {url} -> url) (\s@ListWebhookItem' {} a -> s {url = a} :: ListWebhookItem)
 
-instance Prelude.FromJSON ListWebhookItem where
+instance Core.FromJSON ListWebhookItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ListWebhookItem"
       ( \x ->
           ListWebhookItem'
-            Prelude.<$> (x Prelude..:? "lastTriggered")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "errorMessage")
-            Prelude.<*> (x Prelude..:? "errorCode")
-            Prelude.<*> (x Prelude..: "definition")
-            Prelude.<*> (x Prelude..: "url")
+            Core.<$> (x Core..:? "lastTriggered")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "errorMessage")
+            Core.<*> (x Core..:? "errorCode")
+            Core.<*> (x Core..: "definition")
+            Core.<*> (x Core..: "url")
       )
 
-instance Prelude.Hashable ListWebhookItem
+instance Core.Hashable ListWebhookItem
 
-instance Prelude.NFData ListWebhookItem
+instance Core.NFData ListWebhookItem

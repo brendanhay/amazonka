@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,24 +41,24 @@ module Network.AWS.GuardDuty.AcceptInvitation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAcceptInvitation' smart constructor.
 data AcceptInvitation = AcceptInvitation'
   { -- | The unique ID of the detector of the GuardDuty member account.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The account ID of the GuardDuty administrator account whose invitation
     -- you\'re accepting.
-    masterId :: Prelude.Text,
+    masterId :: Core.Text,
     -- | The value that is used to validate the administrator account to the
     -- member account.
-    invitationId :: Prelude.Text
+    invitationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptInvitation' with all optional fields omitted.
@@ -78,11 +77,11 @@ data AcceptInvitation = AcceptInvitation'
 -- member account.
 newAcceptInvitation ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'masterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'invitationId'
-  Prelude.Text ->
+  Core.Text ->
   AcceptInvitation
 newAcceptInvitation
   pDetectorId_
@@ -95,68 +94,67 @@ newAcceptInvitation
       }
 
 -- | The unique ID of the detector of the GuardDuty member account.
-acceptInvitation_detectorId :: Lens.Lens' AcceptInvitation Prelude.Text
+acceptInvitation_detectorId :: Lens.Lens' AcceptInvitation Core.Text
 acceptInvitation_detectorId = Lens.lens (\AcceptInvitation' {detectorId} -> detectorId) (\s@AcceptInvitation' {} a -> s {detectorId = a} :: AcceptInvitation)
 
 -- | The account ID of the GuardDuty administrator account whose invitation
 -- you\'re accepting.
-acceptInvitation_masterId :: Lens.Lens' AcceptInvitation Prelude.Text
+acceptInvitation_masterId :: Lens.Lens' AcceptInvitation Core.Text
 acceptInvitation_masterId = Lens.lens (\AcceptInvitation' {masterId} -> masterId) (\s@AcceptInvitation' {} a -> s {masterId = a} :: AcceptInvitation)
 
 -- | The value that is used to validate the administrator account to the
 -- member account.
-acceptInvitation_invitationId :: Lens.Lens' AcceptInvitation Prelude.Text
+acceptInvitation_invitationId :: Lens.Lens' AcceptInvitation Core.Text
 acceptInvitation_invitationId = Lens.lens (\AcceptInvitation' {invitationId} -> invitationId) (\s@AcceptInvitation' {} a -> s {invitationId = a} :: AcceptInvitation)
 
-instance Prelude.AWSRequest AcceptInvitation where
-  type Rs AcceptInvitation = AcceptInvitationResponse
+instance Core.AWSRequest AcceptInvitation where
+  type
+    AWSResponse AcceptInvitation =
+      AcceptInvitationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AcceptInvitationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptInvitation
+instance Core.Hashable AcceptInvitation
 
-instance Prelude.NFData AcceptInvitation
+instance Core.NFData AcceptInvitation
 
-instance Prelude.ToHeaders AcceptInvitation where
+instance Core.ToHeaders AcceptInvitation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AcceptInvitation where
+instance Core.ToJSON AcceptInvitation where
   toJSON AcceptInvitation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("masterId" Prelude..= masterId),
-            Prelude.Just
-              ("invitationId" Prelude..= invitationId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("masterId" Core..= masterId),
+            Core.Just ("invitationId" Core..= invitationId)
           ]
       )
 
-instance Prelude.ToPath AcceptInvitation where
+instance Core.ToPath AcceptInvitation where
   toPath AcceptInvitation' {..} =
-    Prelude.mconcat
-      ["/detector/", Prelude.toBS detectorId, "/master"]
+    Core.mconcat
+      ["/detector/", Core.toBS detectorId, "/master"]
 
-instance Prelude.ToQuery AcceptInvitation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AcceptInvitation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAcceptInvitationResponse' smart constructor.
 data AcceptInvitationResponse = AcceptInvitationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptInvitationResponse' with all optional fields omitted.
@@ -169,7 +167,7 @@ data AcceptInvitationResponse = AcceptInvitationResponse'
 -- 'httpStatus', 'acceptInvitationResponse_httpStatus' - The response's http status code.
 newAcceptInvitationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AcceptInvitationResponse
 newAcceptInvitationResponse pHttpStatus_ =
   AcceptInvitationResponse'
@@ -178,7 +176,7 @@ newAcceptInvitationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-acceptInvitationResponse_httpStatus :: Lens.Lens' AcceptInvitationResponse Prelude.Int
+acceptInvitationResponse_httpStatus :: Lens.Lens' AcceptInvitationResponse Core.Int
 acceptInvitationResponse_httpStatus = Lens.lens (\AcceptInvitationResponse' {httpStatus} -> httpStatus) (\s@AcceptInvitationResponse' {} a -> s {httpStatus = a} :: AcceptInvitationResponse)
 
-instance Prelude.NFData AcceptInvitationResponse
+instance Core.NFData AcceptInvitationResponse

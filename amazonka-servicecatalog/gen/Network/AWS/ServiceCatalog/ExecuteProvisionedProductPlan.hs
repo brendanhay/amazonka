@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -58,15 +57,15 @@ data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The plan identifier.
-    planId :: Prelude.Text,
+    planId :: Core.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecuteProvisionedProductPlan' with all optional fields omitted.
@@ -91,16 +90,16 @@ data ExecuteProvisionedProductPlan = ExecuteProvisionedProductPlan'
 -- returned for each repeated request.
 newExecuteProvisionedProductPlan ::
   -- | 'planId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'idempotencyToken'
-  Prelude.Text ->
+  Core.Text ->
   ExecuteProvisionedProductPlan
 newExecuteProvisionedProductPlan
   pPlanId_
   pIdempotencyToken_ =
     ExecuteProvisionedProductPlan'
       { acceptLanguage =
-          Prelude.Nothing,
+          Core.Nothing,
         planId = pPlanId_,
         idempotencyToken = pIdempotencyToken_
       }
@@ -112,88 +111,77 @@ newExecuteProvisionedProductPlan
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-executeProvisionedProductPlan_acceptLanguage :: Lens.Lens' ExecuteProvisionedProductPlan (Prelude.Maybe Prelude.Text)
+executeProvisionedProductPlan_acceptLanguage :: Lens.Lens' ExecuteProvisionedProductPlan (Core.Maybe Core.Text)
 executeProvisionedProductPlan_acceptLanguage = Lens.lens (\ExecuteProvisionedProductPlan' {acceptLanguage} -> acceptLanguage) (\s@ExecuteProvisionedProductPlan' {} a -> s {acceptLanguage = a} :: ExecuteProvisionedProductPlan)
 
 -- | The plan identifier.
-executeProvisionedProductPlan_planId :: Lens.Lens' ExecuteProvisionedProductPlan Prelude.Text
+executeProvisionedProductPlan_planId :: Lens.Lens' ExecuteProvisionedProductPlan Core.Text
 executeProvisionedProductPlan_planId = Lens.lens (\ExecuteProvisionedProductPlan' {planId} -> planId) (\s@ExecuteProvisionedProductPlan' {} a -> s {planId = a} :: ExecuteProvisionedProductPlan)
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-executeProvisionedProductPlan_idempotencyToken :: Lens.Lens' ExecuteProvisionedProductPlan Prelude.Text
+executeProvisionedProductPlan_idempotencyToken :: Lens.Lens' ExecuteProvisionedProductPlan Core.Text
 executeProvisionedProductPlan_idempotencyToken = Lens.lens (\ExecuteProvisionedProductPlan' {idempotencyToken} -> idempotencyToken) (\s@ExecuteProvisionedProductPlan' {} a -> s {idempotencyToken = a} :: ExecuteProvisionedProductPlan)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ExecuteProvisionedProductPlan
   where
   type
-    Rs ExecuteProvisionedProductPlan =
+    AWSResponse ExecuteProvisionedProductPlan =
       ExecuteProvisionedProductPlanResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ExecuteProvisionedProductPlanResponse'
-            Prelude.<$> (x Prelude..?> "RecordDetail")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RecordDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ExecuteProvisionedProductPlan
+instance Core.Hashable ExecuteProvisionedProductPlan
 
-instance Prelude.NFData ExecuteProvisionedProductPlan
+instance Core.NFData ExecuteProvisionedProductPlan
 
-instance
-  Prelude.ToHeaders
-    ExecuteProvisionedProductPlan
-  where
+instance Core.ToHeaders ExecuteProvisionedProductPlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ExecuteProvisionedProductPlan where
+instance Core.ToJSON ExecuteProvisionedProductPlan where
   toJSON ExecuteProvisionedProductPlan' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("PlanId" Prelude..= planId),
-            Prelude.Just
-              ("IdempotencyToken" Prelude..= idempotencyToken)
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("PlanId" Core..= planId),
+            Core.Just
+              ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
-instance Prelude.ToPath ExecuteProvisionedProductPlan where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExecuteProvisionedProductPlan where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ExecuteProvisionedProductPlan
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ExecuteProvisionedProductPlan where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newExecuteProvisionedProductPlanResponse' smart constructor.
 data ExecuteProvisionedProductPlanResponse = ExecuteProvisionedProductPlanResponse'
   { -- | Information about the result of provisioning the product.
-    recordDetail :: Prelude.Maybe RecordDetail,
+    recordDetail :: Core.Maybe RecordDetail,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecuteProvisionedProductPlanResponse' with all optional fields omitted.
@@ -208,23 +196,23 @@ data ExecuteProvisionedProductPlanResponse = ExecuteProvisionedProductPlanRespon
 -- 'httpStatus', 'executeProvisionedProductPlanResponse_httpStatus' - The response's http status code.
 newExecuteProvisionedProductPlanResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExecuteProvisionedProductPlanResponse
 newExecuteProvisionedProductPlanResponse pHttpStatus_ =
   ExecuteProvisionedProductPlanResponse'
     { recordDetail =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the result of provisioning the product.
-executeProvisionedProductPlanResponse_recordDetail :: Lens.Lens' ExecuteProvisionedProductPlanResponse (Prelude.Maybe RecordDetail)
+executeProvisionedProductPlanResponse_recordDetail :: Lens.Lens' ExecuteProvisionedProductPlanResponse (Core.Maybe RecordDetail)
 executeProvisionedProductPlanResponse_recordDetail = Lens.lens (\ExecuteProvisionedProductPlanResponse' {recordDetail} -> recordDetail) (\s@ExecuteProvisionedProductPlanResponse' {} a -> s {recordDetail = a} :: ExecuteProvisionedProductPlanResponse)
 
 -- | The response's http status code.
-executeProvisionedProductPlanResponse_httpStatus :: Lens.Lens' ExecuteProvisionedProductPlanResponse Prelude.Int
+executeProvisionedProductPlanResponse_httpStatus :: Lens.Lens' ExecuteProvisionedProductPlanResponse Core.Int
 executeProvisionedProductPlanResponse_httpStatus = Lens.lens (\ExecuteProvisionedProductPlanResponse' {httpStatus} -> httpStatus) (\s@ExecuteProvisionedProductPlanResponse' {} a -> s {httpStatus = a} :: ExecuteProvisionedProductPlanResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ExecuteProvisionedProductPlanResponse

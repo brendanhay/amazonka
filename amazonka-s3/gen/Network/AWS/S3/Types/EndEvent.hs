@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.EndEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | A message that indicates the request is complete and no more messages
@@ -32,7 +31,7 @@ import Network.AWS.S3.Internal
 data EndEvent = EndEvent'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndEvent' with all optional fields omitted.
@@ -42,9 +41,9 @@ newEndEvent ::
   EndEvent
 newEndEvent = EndEvent'
 
-instance Prelude.FromXML EndEvent where
-  parseXML = Prelude.const (Prelude.pure EndEvent')
+instance Core.FromXML EndEvent where
+  parseXML = Core.const (Core.pure EndEvent')
 
-instance Prelude.Hashable EndEvent
+instance Core.Hashable EndEvent
 
-instance Prelude.NFData EndEvent
+instance Core.NFData EndEvent

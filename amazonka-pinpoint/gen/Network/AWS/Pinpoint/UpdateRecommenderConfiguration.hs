@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.UpdateRecommenderConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ data UpdateRecommenderConfiguration' = UpdateRecommenderConfiguration''
   { -- | The unique identifier for the recommender model configuration. This
     -- identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint
     -- console.
-    recommenderId :: Prelude.Text,
+    recommenderId :: Core.Text,
     updateRecommenderConfiguration :: UpdateRecommenderConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRecommenderConfiguration'' with all optional fields omitted.
@@ -72,7 +71,7 @@ data UpdateRecommenderConfiguration' = UpdateRecommenderConfiguration''
 -- 'updateRecommenderConfiguration', 'updateRecommenderConfiguration'_updateRecommenderConfiguration' - Undocumented member.
 newUpdateRecommenderConfiguration' ::
   -- | 'recommenderId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updateRecommenderConfiguration'
   UpdateRecommenderConfiguration ->
   UpdateRecommenderConfiguration'
@@ -89,7 +88,7 @@ newUpdateRecommenderConfiguration'
 -- | The unique identifier for the recommender model configuration. This
 -- identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint
 -- console.
-updateRecommenderConfiguration'_recommenderId :: Lens.Lens' UpdateRecommenderConfiguration' Prelude.Text
+updateRecommenderConfiguration'_recommenderId :: Lens.Lens' UpdateRecommenderConfiguration' Core.Text
 updateRecommenderConfiguration'_recommenderId = Lens.lens (\UpdateRecommenderConfiguration'' {recommenderId} -> recommenderId) (\s@UpdateRecommenderConfiguration'' {} a -> s {recommenderId = a} :: UpdateRecommenderConfiguration')
 
 -- | Undocumented member.
@@ -97,78 +96,65 @@ updateRecommenderConfiguration'_updateRecommenderConfiguration :: Lens.Lens' Upd
 updateRecommenderConfiguration'_updateRecommenderConfiguration = Lens.lens (\UpdateRecommenderConfiguration'' {updateRecommenderConfiguration} -> updateRecommenderConfiguration) (\s@UpdateRecommenderConfiguration'' {} a -> s {updateRecommenderConfiguration = a} :: UpdateRecommenderConfiguration')
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateRecommenderConfiguration'
   where
   type
-    Rs UpdateRecommenderConfiguration' =
+    AWSResponse UpdateRecommenderConfiguration' =
       UpdateRecommenderConfigurationResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRecommenderConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateRecommenderConfiguration'
 
-instance
-  Prelude.NFData
-    UpdateRecommenderConfiguration'
+instance Core.NFData UpdateRecommenderConfiguration'
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateRecommenderConfiguration'
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateRecommenderConfiguration'
-  where
+instance Core.ToJSON UpdateRecommenderConfiguration' where
   toJSON UpdateRecommenderConfiguration'' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "UpdateRecommenderConfiguration"
-                  Prelude..= updateRecommenderConfiguration
+                  Core..= updateRecommenderConfiguration
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateRecommenderConfiguration'
-  where
+instance Core.ToPath UpdateRecommenderConfiguration' where
   toPath UpdateRecommenderConfiguration'' {..} =
-    Prelude.mconcat
-      ["/v1/recommenders/", Prelude.toBS recommenderId]
+    Core.mconcat
+      ["/v1/recommenders/", Core.toBS recommenderId]
 
-instance
-  Prelude.ToQuery
-    UpdateRecommenderConfiguration'
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRecommenderConfiguration' where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateRecommenderConfigurationResponse' smart constructor.
 data UpdateRecommenderConfigurationResponse = UpdateRecommenderConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     recommenderConfigurationResponse :: RecommenderConfigurationResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRecommenderConfigurationResponse' with all optional fields omitted.
@@ -183,7 +169,7 @@ data UpdateRecommenderConfigurationResponse = UpdateRecommenderConfigurationResp
 -- 'recommenderConfigurationResponse', 'updateRecommenderConfigurationResponse_recommenderConfigurationResponse' - Undocumented member.
 newUpdateRecommenderConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'recommenderConfigurationResponse'
   RecommenderConfigurationResponse ->
   UpdateRecommenderConfigurationResponse
@@ -198,7 +184,7 @@ newUpdateRecommenderConfigurationResponse
       }
 
 -- | The response's http status code.
-updateRecommenderConfigurationResponse_httpStatus :: Lens.Lens' UpdateRecommenderConfigurationResponse Prelude.Int
+updateRecommenderConfigurationResponse_httpStatus :: Lens.Lens' UpdateRecommenderConfigurationResponse Core.Int
 updateRecommenderConfigurationResponse_httpStatus = Lens.lens (\UpdateRecommenderConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateRecommenderConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateRecommenderConfigurationResponse)
 
 -- | Undocumented member.
@@ -206,5 +192,5 @@ updateRecommenderConfigurationResponse_recommenderConfigurationResponse :: Lens.
 updateRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.lens (\UpdateRecommenderConfigurationResponse' {recommenderConfigurationResponse} -> recommenderConfigurationResponse) (\s@UpdateRecommenderConfigurationResponse' {} a -> s {recommenderConfigurationResponse = a} :: UpdateRecommenderConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateRecommenderConfigurationResponse

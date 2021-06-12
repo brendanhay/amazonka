@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.TargetGrant where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.BucketLogsPermission
 import Network.AWS.S3.Types.Grantee
@@ -31,11 +30,11 @@ import Network.AWS.S3.Types.Grantee
 -- /See:/ 'newTargetGrant' smart constructor.
 data TargetGrant = TargetGrant'
   { -- | Container for the person being granted permissions.
-    grantee :: Prelude.Maybe Grantee,
+    grantee :: Core.Maybe Grantee,
     -- | Logging permissions assigned to the grantee for the bucket.
-    permission :: Prelude.Maybe BucketLogsPermission
+    permission :: Core.Maybe BucketLogsPermission
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetGrant' with all optional fields omitted.
@@ -52,31 +51,31 @@ newTargetGrant ::
   TargetGrant
 newTargetGrant =
   TargetGrant'
-    { grantee = Prelude.Nothing,
-      permission = Prelude.Nothing
+    { grantee = Core.Nothing,
+      permission = Core.Nothing
     }
 
 -- | Container for the person being granted permissions.
-targetGrant_grantee :: Lens.Lens' TargetGrant (Prelude.Maybe Grantee)
+targetGrant_grantee :: Lens.Lens' TargetGrant (Core.Maybe Grantee)
 targetGrant_grantee = Lens.lens (\TargetGrant' {grantee} -> grantee) (\s@TargetGrant' {} a -> s {grantee = a} :: TargetGrant)
 
 -- | Logging permissions assigned to the grantee for the bucket.
-targetGrant_permission :: Lens.Lens' TargetGrant (Prelude.Maybe BucketLogsPermission)
+targetGrant_permission :: Lens.Lens' TargetGrant (Core.Maybe BucketLogsPermission)
 targetGrant_permission = Lens.lens (\TargetGrant' {permission} -> permission) (\s@TargetGrant' {} a -> s {permission = a} :: TargetGrant)
 
-instance Prelude.FromXML TargetGrant where
+instance Core.FromXML TargetGrant where
   parseXML x =
     TargetGrant'
-      Prelude.<$> (x Prelude..@? "Grantee")
-      Prelude.<*> (x Prelude..@? "Permission")
+      Core.<$> (x Core..@? "Grantee")
+      Core.<*> (x Core..@? "Permission")
 
-instance Prelude.Hashable TargetGrant
+instance Core.Hashable TargetGrant
 
-instance Prelude.NFData TargetGrant
+instance Core.NFData TargetGrant
 
-instance Prelude.ToXML TargetGrant where
+instance Core.ToXML TargetGrant where
   toXML TargetGrant' {..} =
-    Prelude.mconcat
-      [ "Grantee" Prelude.@= grantee,
-        "Permission" Prelude.@= permission
+    Core.mconcat
+      [ "Grantee" Core.@= grantee,
+        "Permission" Core.@= permission
       ]

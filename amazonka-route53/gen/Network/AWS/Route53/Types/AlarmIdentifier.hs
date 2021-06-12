@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.AlarmIdentifier where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.CloudWatchRegion
 
@@ -51,9 +50,9 @@ data AlarmIdentifier = AlarmIdentifier'
     --
     -- -   Statistics: Average, Minimum, Maximum, Sum, and SampleCount.
     --     Extended statistics aren\'t supported.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AlarmIdentifier' with all optional fields omitted.
@@ -87,7 +86,7 @@ newAlarmIdentifier ::
   -- | 'region'
   CloudWatchRegion ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   AlarmIdentifier
 newAlarmIdentifier pRegion_ pName_ =
   AlarmIdentifier' {region = pRegion_, name = pName_}
@@ -114,20 +113,19 @@ alarmIdentifier_region = Lens.lens (\AlarmIdentifier' {region} -> region) (\s@Al
 --
 -- -   Statistics: Average, Minimum, Maximum, Sum, and SampleCount.
 --     Extended statistics aren\'t supported.
-alarmIdentifier_name :: Lens.Lens' AlarmIdentifier Prelude.Text
+alarmIdentifier_name :: Lens.Lens' AlarmIdentifier Core.Text
 alarmIdentifier_name = Lens.lens (\AlarmIdentifier' {name} -> name) (\s@AlarmIdentifier' {} a -> s {name = a} :: AlarmIdentifier)
 
-instance Prelude.FromXML AlarmIdentifier where
+instance Core.FromXML AlarmIdentifier where
   parseXML x =
     AlarmIdentifier'
-      Prelude.<$> (x Prelude..@ "Region")
-      Prelude.<*> (x Prelude..@ "Name")
+      Core.<$> (x Core..@ "Region") Core.<*> (x Core..@ "Name")
 
-instance Prelude.Hashable AlarmIdentifier
+instance Core.Hashable AlarmIdentifier
 
-instance Prelude.NFData AlarmIdentifier
+instance Core.NFData AlarmIdentifier
 
-instance Prelude.ToXML AlarmIdentifier where
+instance Core.ToXML AlarmIdentifier where
   toXML AlarmIdentifier' {..} =
-    Prelude.mconcat
-      ["Region" Prelude.@= region, "Name" Prelude.@= name]
+    Core.mconcat
+      ["Region" Core.@= region, "Name" Core.@= name]

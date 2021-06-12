@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ScriptBootstrapActionConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of the script to run during a bootstrap action.
 --
 -- /See:/ 'newScriptBootstrapActionConfig' smart constructor.
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
   { -- | A list of command line arguments to pass to the bootstrap action script.
-    args :: Prelude.Maybe [Prelude.Text],
+    args :: Core.Maybe [Core.Text],
     -- | Location of the script to run during a bootstrap action. Can be either a
     -- location in Amazon S3 or on a local file system.
-    path :: Prelude.Text
+    path :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScriptBootstrapActionConfig' with all optional fields omitted.
@@ -49,33 +48,32 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
 -- location in Amazon S3 or on a local file system.
 newScriptBootstrapActionConfig ::
   -- | 'path'
-  Prelude.Text ->
+  Core.Text ->
   ScriptBootstrapActionConfig
 newScriptBootstrapActionConfig pPath_ =
   ScriptBootstrapActionConfig'
-    { args =
-        Prelude.Nothing,
+    { args = Core.Nothing,
       path = pPath_
     }
 
 -- | A list of command line arguments to pass to the bootstrap action script.
-scriptBootstrapActionConfig_args :: Lens.Lens' ScriptBootstrapActionConfig (Prelude.Maybe [Prelude.Text])
-scriptBootstrapActionConfig_args = Lens.lens (\ScriptBootstrapActionConfig' {args} -> args) (\s@ScriptBootstrapActionConfig' {} a -> s {args = a} :: ScriptBootstrapActionConfig) Prelude.. Lens.mapping Prelude._Coerce
+scriptBootstrapActionConfig_args :: Lens.Lens' ScriptBootstrapActionConfig (Core.Maybe [Core.Text])
+scriptBootstrapActionConfig_args = Lens.lens (\ScriptBootstrapActionConfig' {args} -> args) (\s@ScriptBootstrapActionConfig' {} a -> s {args = a} :: ScriptBootstrapActionConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | Location of the script to run during a bootstrap action. Can be either a
 -- location in Amazon S3 or on a local file system.
-scriptBootstrapActionConfig_path :: Lens.Lens' ScriptBootstrapActionConfig Prelude.Text
+scriptBootstrapActionConfig_path :: Lens.Lens' ScriptBootstrapActionConfig Core.Text
 scriptBootstrapActionConfig_path = Lens.lens (\ScriptBootstrapActionConfig' {path} -> path) (\s@ScriptBootstrapActionConfig' {} a -> s {path = a} :: ScriptBootstrapActionConfig)
 
-instance Prelude.Hashable ScriptBootstrapActionConfig
+instance Core.Hashable ScriptBootstrapActionConfig
 
-instance Prelude.NFData ScriptBootstrapActionConfig
+instance Core.NFData ScriptBootstrapActionConfig
 
-instance Prelude.ToJSON ScriptBootstrapActionConfig where
+instance Core.ToJSON ScriptBootstrapActionConfig where
   toJSON ScriptBootstrapActionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Args" Prelude..=) Prelude.<$> args,
-            Prelude.Just ("Path" Prelude..= path)
+    Core.object
+      ( Core.catMaybes
+          [ ("Args" Core..=) Core.<$> args,
+            Core.Just ("Path" Core..= path)
           ]
       )

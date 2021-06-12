@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.ServiceCatalog.DescribeProductAsAdmin
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -57,9 +56,9 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDescribeProductAsAdmin' smart constructor.
 data DescribeProductAsAdmin = DescribeProductAsAdmin'
   { -- | The product identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The product name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The unique identifier of the shared portfolio that the specified product
     -- is associated with.
     --
@@ -68,7 +67,7 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
     -- TagOptions sharing is enabled in the portfolio share, the API returns
     -- both local and shared TagOptions associated with the product. Otherwise
     -- only local TagOptions will be returned.
-    sourcePortfolioId :: Prelude.Maybe Prelude.Text,
+    sourcePortfolioId :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -76,9 +75,9 @@ data DescribeProductAsAdmin = DescribeProductAsAdmin'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text
+    acceptLanguage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeProductAsAdmin' with all optional fields omitted.
@@ -112,18 +111,18 @@ newDescribeProductAsAdmin ::
   DescribeProductAsAdmin
 newDescribeProductAsAdmin =
   DescribeProductAsAdmin'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      sourcePortfolioId = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing
+    { id = Core.Nothing,
+      name = Core.Nothing,
+      sourcePortfolioId = Core.Nothing,
+      acceptLanguage = Core.Nothing
     }
 
 -- | The product identifier.
-describeProductAsAdmin_id :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
+describeProductAsAdmin_id :: Lens.Lens' DescribeProductAsAdmin (Core.Maybe Core.Text)
 describeProductAsAdmin_id = Lens.lens (\DescribeProductAsAdmin' {id} -> id) (\s@DescribeProductAsAdmin' {} a -> s {id = a} :: DescribeProductAsAdmin)
 
 -- | The product name.
-describeProductAsAdmin_name :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
+describeProductAsAdmin_name :: Lens.Lens' DescribeProductAsAdmin (Core.Maybe Core.Text)
 describeProductAsAdmin_name = Lens.lens (\DescribeProductAsAdmin' {name} -> name) (\s@DescribeProductAsAdmin' {} a -> s {name = a} :: DescribeProductAsAdmin)
 
 -- | The unique identifier of the shared portfolio that the specified product
@@ -134,7 +133,7 @@ describeProductAsAdmin_name = Lens.lens (\DescribeProductAsAdmin' {name} -> name
 -- TagOptions sharing is enabled in the portfolio share, the API returns
 -- both local and shared TagOptions associated with the product. Otherwise
 -- only local TagOptions will be returned.
-describeProductAsAdmin_sourcePortfolioId :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
+describeProductAsAdmin_sourcePortfolioId :: Lens.Lens' DescribeProductAsAdmin (Core.Maybe Core.Text)
 describeProductAsAdmin_sourcePortfolioId = Lens.lens (\DescribeProductAsAdmin' {sourcePortfolioId} -> sourcePortfolioId) (\s@DescribeProductAsAdmin' {} a -> s {sourcePortfolioId = a} :: DescribeProductAsAdmin)
 
 -- | The language code.
@@ -144,85 +143,80 @@ describeProductAsAdmin_sourcePortfolioId = Lens.lens (\DescribeProductAsAdmin' {
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describeProductAsAdmin_acceptLanguage :: Lens.Lens' DescribeProductAsAdmin (Prelude.Maybe Prelude.Text)
+describeProductAsAdmin_acceptLanguage :: Lens.Lens' DescribeProductAsAdmin (Core.Maybe Core.Text)
 describeProductAsAdmin_acceptLanguage = Lens.lens (\DescribeProductAsAdmin' {acceptLanguage} -> acceptLanguage) (\s@DescribeProductAsAdmin' {} a -> s {acceptLanguage = a} :: DescribeProductAsAdmin)
 
-instance Prelude.AWSRequest DescribeProductAsAdmin where
+instance Core.AWSRequest DescribeProductAsAdmin where
   type
-    Rs DescribeProductAsAdmin =
+    AWSResponse DescribeProductAsAdmin =
       DescribeProductAsAdminResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeProductAsAdminResponse'
-            Prelude.<$> (x Prelude..?> "ProductViewDetail")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Budgets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> ( x Prelude..?> "ProvisioningArtifactSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "TagOptions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ProductViewDetail")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Budgets" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "ProvisioningArtifactSummaries"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "TagOptions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeProductAsAdmin
+instance Core.Hashable DescribeProductAsAdmin
 
-instance Prelude.NFData DescribeProductAsAdmin
+instance Core.NFData DescribeProductAsAdmin
 
-instance Prelude.ToHeaders DescribeProductAsAdmin where
+instance Core.ToHeaders DescribeProductAsAdmin where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DescribeProductAsAdmin" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DescribeProductAsAdmin" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeProductAsAdmin where
+instance Core.ToJSON DescribeProductAsAdmin where
   toJSON DescribeProductAsAdmin' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Id" Prelude..=) Prelude.<$> id,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("SourcePortfolioId" Prelude..=)
-              Prelude.<$> sourcePortfolioId,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage
+    Core.object
+      ( Core.catMaybes
+          [ ("Id" Core..=) Core.<$> id,
+            ("Name" Core..=) Core.<$> name,
+            ("SourcePortfolioId" Core..=)
+              Core.<$> sourcePortfolioId,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
           ]
       )
 
-instance Prelude.ToPath DescribeProductAsAdmin where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeProductAsAdmin where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeProductAsAdmin where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeProductAsAdmin where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeProductAsAdminResponse' smart constructor.
 data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
   { -- | Information about the product view.
-    productViewDetail :: Prelude.Maybe ProductViewDetail,
+    productViewDetail :: Core.Maybe ProductViewDetail,
     -- | Information about the tags associated with the product.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Information about the associated budgets.
-    budgets :: Prelude.Maybe [BudgetDetail],
+    budgets :: Core.Maybe [BudgetDetail],
     -- | Information about the provisioning artifacts (also known as versions)
     -- for the specified product.
-    provisioningArtifactSummaries :: Prelude.Maybe [ProvisioningArtifactSummary],
+    provisioningArtifactSummaries :: Core.Maybe [ProvisioningArtifactSummary],
     -- | Information about the TagOptions associated with the product.
-    tagOptions :: Prelude.Maybe [TagOptionDetail],
+    tagOptions :: Core.Maybe [TagOptionDetail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeProductAsAdminResponse' with all optional fields omitted.
@@ -246,45 +240,43 @@ data DescribeProductAsAdminResponse = DescribeProductAsAdminResponse'
 -- 'httpStatus', 'describeProductAsAdminResponse_httpStatus' - The response's http status code.
 newDescribeProductAsAdminResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeProductAsAdminResponse
 newDescribeProductAsAdminResponse pHttpStatus_ =
   DescribeProductAsAdminResponse'
     { productViewDetail =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      budgets = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
+      budgets = Core.Nothing,
       provisioningArtifactSummaries =
-        Prelude.Nothing,
-      tagOptions = Prelude.Nothing,
+        Core.Nothing,
+      tagOptions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the product view.
-describeProductAsAdminResponse_productViewDetail :: Lens.Lens' DescribeProductAsAdminResponse (Prelude.Maybe ProductViewDetail)
+describeProductAsAdminResponse_productViewDetail :: Lens.Lens' DescribeProductAsAdminResponse (Core.Maybe ProductViewDetail)
 describeProductAsAdminResponse_productViewDetail = Lens.lens (\DescribeProductAsAdminResponse' {productViewDetail} -> productViewDetail) (\s@DescribeProductAsAdminResponse' {} a -> s {productViewDetail = a} :: DescribeProductAsAdminResponse)
 
 -- | Information about the tags associated with the product.
-describeProductAsAdminResponse_tags :: Lens.Lens' DescribeProductAsAdminResponse (Prelude.Maybe [Tag])
-describeProductAsAdminResponse_tags = Lens.lens (\DescribeProductAsAdminResponse' {tags} -> tags) (\s@DescribeProductAsAdminResponse' {} a -> s {tags = a} :: DescribeProductAsAdminResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeProductAsAdminResponse_tags :: Lens.Lens' DescribeProductAsAdminResponse (Core.Maybe [Tag])
+describeProductAsAdminResponse_tags = Lens.lens (\DescribeProductAsAdminResponse' {tags} -> tags) (\s@DescribeProductAsAdminResponse' {} a -> s {tags = a} :: DescribeProductAsAdminResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the associated budgets.
-describeProductAsAdminResponse_budgets :: Lens.Lens' DescribeProductAsAdminResponse (Prelude.Maybe [BudgetDetail])
-describeProductAsAdminResponse_budgets = Lens.lens (\DescribeProductAsAdminResponse' {budgets} -> budgets) (\s@DescribeProductAsAdminResponse' {} a -> s {budgets = a} :: DescribeProductAsAdminResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeProductAsAdminResponse_budgets :: Lens.Lens' DescribeProductAsAdminResponse (Core.Maybe [BudgetDetail])
+describeProductAsAdminResponse_budgets = Lens.lens (\DescribeProductAsAdminResponse' {budgets} -> budgets) (\s@DescribeProductAsAdminResponse' {} a -> s {budgets = a} :: DescribeProductAsAdminResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the provisioning artifacts (also known as versions)
 -- for the specified product.
-describeProductAsAdminResponse_provisioningArtifactSummaries :: Lens.Lens' DescribeProductAsAdminResponse (Prelude.Maybe [ProvisioningArtifactSummary])
-describeProductAsAdminResponse_provisioningArtifactSummaries = Lens.lens (\DescribeProductAsAdminResponse' {provisioningArtifactSummaries} -> provisioningArtifactSummaries) (\s@DescribeProductAsAdminResponse' {} a -> s {provisioningArtifactSummaries = a} :: DescribeProductAsAdminResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeProductAsAdminResponse_provisioningArtifactSummaries :: Lens.Lens' DescribeProductAsAdminResponse (Core.Maybe [ProvisioningArtifactSummary])
+describeProductAsAdminResponse_provisioningArtifactSummaries = Lens.lens (\DescribeProductAsAdminResponse' {provisioningArtifactSummaries} -> provisioningArtifactSummaries) (\s@DescribeProductAsAdminResponse' {} a -> s {provisioningArtifactSummaries = a} :: DescribeProductAsAdminResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the TagOptions associated with the product.
-describeProductAsAdminResponse_tagOptions :: Lens.Lens' DescribeProductAsAdminResponse (Prelude.Maybe [TagOptionDetail])
-describeProductAsAdminResponse_tagOptions = Lens.lens (\DescribeProductAsAdminResponse' {tagOptions} -> tagOptions) (\s@DescribeProductAsAdminResponse' {} a -> s {tagOptions = a} :: DescribeProductAsAdminResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeProductAsAdminResponse_tagOptions :: Lens.Lens' DescribeProductAsAdminResponse (Core.Maybe [TagOptionDetail])
+describeProductAsAdminResponse_tagOptions = Lens.lens (\DescribeProductAsAdminResponse' {tagOptions} -> tagOptions) (\s@DescribeProductAsAdminResponse' {} a -> s {tagOptions = a} :: DescribeProductAsAdminResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeProductAsAdminResponse_httpStatus :: Lens.Lens' DescribeProductAsAdminResponse Prelude.Int
+describeProductAsAdminResponse_httpStatus :: Lens.Lens' DescribeProductAsAdminResponse Core.Int
 describeProductAsAdminResponse_httpStatus = Lens.lens (\DescribeProductAsAdminResponse' {httpStatus} -> httpStatus) (\s@DescribeProductAsAdminResponse' {} a -> s {httpStatus = a} :: DescribeProductAsAdminResponse)
 
-instance
-  Prelude.NFData
-    DescribeProductAsAdminResponse
+instance Core.NFData DescribeProductAsAdminResponse

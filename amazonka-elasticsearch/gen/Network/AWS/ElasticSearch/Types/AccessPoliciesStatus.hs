@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AccessPoliciesStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configured access rules for the domain\'s document and search
 -- endpoints, and the current status of those rules.
@@ -33,12 +32,12 @@ data AccessPoliciesStatus = AccessPoliciesStatus'
     -- policies may be resource-based, IP-based, or IAM-based. See
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies Configuring Access Policies>for
     -- more information.
-    options :: Prelude.Text,
+    options :: Core.Text,
     -- | The status of the access policy for the Elasticsearch domain. See
     -- @OptionStatus@ for the status information that\'s included.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccessPoliciesStatus' with all optional fields omitted.
@@ -57,7 +56,7 @@ data AccessPoliciesStatus = AccessPoliciesStatus'
 -- @OptionStatus@ for the status information that\'s included.
 newAccessPoliciesStatus ::
   -- | 'options'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   OptionStatus ->
   AccessPoliciesStatus
@@ -71,7 +70,7 @@ newAccessPoliciesStatus pOptions_ pStatus_ =
 -- policies may be resource-based, IP-based, or IAM-based. See
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-access-policies Configuring Access Policies>for
 -- more information.
-accessPoliciesStatus_options :: Lens.Lens' AccessPoliciesStatus Prelude.Text
+accessPoliciesStatus_options :: Lens.Lens' AccessPoliciesStatus Core.Text
 accessPoliciesStatus_options = Lens.lens (\AccessPoliciesStatus' {options} -> options) (\s@AccessPoliciesStatus' {} a -> s {options = a} :: AccessPoliciesStatus)
 
 -- | The status of the access policy for the Elasticsearch domain. See
@@ -79,16 +78,15 @@ accessPoliciesStatus_options = Lens.lens (\AccessPoliciesStatus' {options} -> op
 accessPoliciesStatus_status :: Lens.Lens' AccessPoliciesStatus OptionStatus
 accessPoliciesStatus_status = Lens.lens (\AccessPoliciesStatus' {status} -> status) (\s@AccessPoliciesStatus' {} a -> s {status = a} :: AccessPoliciesStatus)
 
-instance Prelude.FromJSON AccessPoliciesStatus where
+instance Core.FromJSON AccessPoliciesStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccessPoliciesStatus"
       ( \x ->
           AccessPoliciesStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable AccessPoliciesStatus
+instance Core.Hashable AccessPoliciesStatus
 
-instance Prelude.NFData AccessPoliciesStatus
+instance Core.NFData AccessPoliciesStatus

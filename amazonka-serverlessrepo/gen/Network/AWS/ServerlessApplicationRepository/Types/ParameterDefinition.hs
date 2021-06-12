@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters supported by the application.
 --
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 data ParameterDefinition = ParameterDefinition'
   { -- | A numeric value that determines the largest numeric value that you want
     -- to allow for Number types.
-    maxValue :: Prelude.Maybe Prelude.Int,
+    maxValue :: Core.Maybe Core.Int,
     -- | An integer value that determines the smallest number of characters that
     -- you want to allow for String types.
-    minLength :: Prelude.Maybe Prelude.Int,
+    minLength :: Core.Maybe Core.Int,
     -- | An array containing the list of values allowed for the parameter.
-    allowedValues :: Prelude.Maybe [Prelude.Text],
+    allowedValues :: Core.Maybe [Core.Text],
     -- | A numeric value that determines the smallest numeric value that you want
     -- to allow for Number types.
-    minValue :: Prelude.Maybe Prelude.Int,
+    minValue :: Core.Maybe Core.Int,
     -- | A string of up to 4,000 characters that describes the parameter.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | A string that explains a constraint when the constraint is violated. For
     -- example, without a constraint description, a parameter that has an
     -- allowed pattern of [A-Za-z0-9]+ displays the following error message
@@ -53,7 +52,7 @@ data ParameterDefinition = ParameterDefinition'
     --
     -- Malformed input-Parameter MyParameter must contain only uppercase and
     -- lowercase letters and numbers.
-    constraintDescription :: Prelude.Maybe Prelude.Text,
+    constraintDescription :: Core.Maybe Core.Text,
     -- | The type of the parameter.
     --
     -- Valid values: String | Number | List\<Number> | CommaDelimitedList
@@ -84,27 +83,27 @@ data ParameterDefinition = ParameterDefinition'
     --
     -- For example, users might specify \"test,dev,prod\", and then Ref results
     -- in [\"test\",\"dev\",\"prod\"].
-    type' :: Prelude.Maybe Prelude.Text,
+    type' :: Core.Maybe Core.Text,
     -- | Whether to mask the parameter value whenever anyone makes a call that
     -- describes the stack. If you set the value to true, the parameter value
     -- is masked with asterisks (*****).
-    noEcho :: Prelude.Maybe Prelude.Bool,
+    noEcho :: Core.Maybe Core.Bool,
     -- | An integer value that determines the largest number of characters that
     -- you want to allow for String types.
-    maxLength :: Prelude.Maybe Prelude.Int,
+    maxLength :: Core.Maybe Core.Int,
     -- | A regular expression that represents the patterns to allow for String
     -- types.
-    allowedPattern :: Prelude.Maybe Prelude.Text,
+    allowedPattern :: Core.Maybe Core.Text,
     -- | A value of the appropriate type for the template to use if no value is
     -- specified when a stack is created. If you define constraints for the
     -- parameter, you must specify a value that adheres to those constraints.
-    defaultValue :: Prelude.Maybe Prelude.Text,
+    defaultValue :: Core.Maybe Core.Text,
     -- | A list of AWS SAM resources that use this parameter.
-    referencedByResources :: [Prelude.Text],
+    referencedByResources :: [Core.Text],
     -- | The name of the parameter.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterDefinition' with all optional fields omitted.
@@ -191,46 +190,46 @@ data ParameterDefinition = ParameterDefinition'
 -- 'name', 'parameterDefinition_name' - The name of the parameter.
 newParameterDefinition ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   ParameterDefinition
 newParameterDefinition pName_ =
   ParameterDefinition'
-    { maxValue = Prelude.Nothing,
-      minLength = Prelude.Nothing,
-      allowedValues = Prelude.Nothing,
-      minValue = Prelude.Nothing,
-      description = Prelude.Nothing,
-      constraintDescription = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      noEcho = Prelude.Nothing,
-      maxLength = Prelude.Nothing,
-      allowedPattern = Prelude.Nothing,
-      defaultValue = Prelude.Nothing,
-      referencedByResources = Prelude.mempty,
+    { maxValue = Core.Nothing,
+      minLength = Core.Nothing,
+      allowedValues = Core.Nothing,
+      minValue = Core.Nothing,
+      description = Core.Nothing,
+      constraintDescription = Core.Nothing,
+      type' = Core.Nothing,
+      noEcho = Core.Nothing,
+      maxLength = Core.Nothing,
+      allowedPattern = Core.Nothing,
+      defaultValue = Core.Nothing,
+      referencedByResources = Core.mempty,
       name = pName_
     }
 
 -- | A numeric value that determines the largest numeric value that you want
 -- to allow for Number types.
-parameterDefinition_maxValue :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Int)
+parameterDefinition_maxValue :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Int)
 parameterDefinition_maxValue = Lens.lens (\ParameterDefinition' {maxValue} -> maxValue) (\s@ParameterDefinition' {} a -> s {maxValue = a} :: ParameterDefinition)
 
 -- | An integer value that determines the smallest number of characters that
 -- you want to allow for String types.
-parameterDefinition_minLength :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Int)
+parameterDefinition_minLength :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Int)
 parameterDefinition_minLength = Lens.lens (\ParameterDefinition' {minLength} -> minLength) (\s@ParameterDefinition' {} a -> s {minLength = a} :: ParameterDefinition)
 
 -- | An array containing the list of values allowed for the parameter.
-parameterDefinition_allowedValues :: Lens.Lens' ParameterDefinition (Prelude.Maybe [Prelude.Text])
-parameterDefinition_allowedValues = Lens.lens (\ParameterDefinition' {allowedValues} -> allowedValues) (\s@ParameterDefinition' {} a -> s {allowedValues = a} :: ParameterDefinition) Prelude.. Lens.mapping Prelude._Coerce
+parameterDefinition_allowedValues :: Lens.Lens' ParameterDefinition (Core.Maybe [Core.Text])
+parameterDefinition_allowedValues = Lens.lens (\ParameterDefinition' {allowedValues} -> allowedValues) (\s@ParameterDefinition' {} a -> s {allowedValues = a} :: ParameterDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | A numeric value that determines the smallest numeric value that you want
 -- to allow for Number types.
-parameterDefinition_minValue :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Int)
+parameterDefinition_minValue :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Int)
 parameterDefinition_minValue = Lens.lens (\ParameterDefinition' {minValue} -> minValue) (\s@ParameterDefinition' {} a -> s {minValue = a} :: ParameterDefinition)
 
 -- | A string of up to 4,000 characters that describes the parameter.
-parameterDefinition_description :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
+parameterDefinition_description :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Text)
 parameterDefinition_description = Lens.lens (\ParameterDefinition' {description} -> description) (\s@ParameterDefinition' {} a -> s {description = a} :: ParameterDefinition)
 
 -- | A string that explains a constraint when the constraint is violated. For
@@ -246,7 +245,7 @@ parameterDefinition_description = Lens.lens (\ParameterDefinition' {description}
 --
 -- Malformed input-Parameter MyParameter must contain only uppercase and
 -- lowercase letters and numbers.
-parameterDefinition_constraintDescription :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
+parameterDefinition_constraintDescription :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Text)
 parameterDefinition_constraintDescription = Lens.lens (\ParameterDefinition' {constraintDescription} -> constraintDescription) (\s@ParameterDefinition' {} a -> s {constraintDescription = a} :: ParameterDefinition)
 
 -- | The type of the parameter.
@@ -279,64 +278,62 @@ parameterDefinition_constraintDescription = Lens.lens (\ParameterDefinition' {co
 --
 -- For example, users might specify \"test,dev,prod\", and then Ref results
 -- in [\"test\",\"dev\",\"prod\"].
-parameterDefinition_type :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
+parameterDefinition_type :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Text)
 parameterDefinition_type = Lens.lens (\ParameterDefinition' {type'} -> type') (\s@ParameterDefinition' {} a -> s {type' = a} :: ParameterDefinition)
 
 -- | Whether to mask the parameter value whenever anyone makes a call that
 -- describes the stack. If you set the value to true, the parameter value
 -- is masked with asterisks (*****).
-parameterDefinition_noEcho :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Bool)
+parameterDefinition_noEcho :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Bool)
 parameterDefinition_noEcho = Lens.lens (\ParameterDefinition' {noEcho} -> noEcho) (\s@ParameterDefinition' {} a -> s {noEcho = a} :: ParameterDefinition)
 
 -- | An integer value that determines the largest number of characters that
 -- you want to allow for String types.
-parameterDefinition_maxLength :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Int)
+parameterDefinition_maxLength :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Int)
 parameterDefinition_maxLength = Lens.lens (\ParameterDefinition' {maxLength} -> maxLength) (\s@ParameterDefinition' {} a -> s {maxLength = a} :: ParameterDefinition)
 
 -- | A regular expression that represents the patterns to allow for String
 -- types.
-parameterDefinition_allowedPattern :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
+parameterDefinition_allowedPattern :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Text)
 parameterDefinition_allowedPattern = Lens.lens (\ParameterDefinition' {allowedPattern} -> allowedPattern) (\s@ParameterDefinition' {} a -> s {allowedPattern = a} :: ParameterDefinition)
 
 -- | A value of the appropriate type for the template to use if no value is
 -- specified when a stack is created. If you define constraints for the
 -- parameter, you must specify a value that adheres to those constraints.
-parameterDefinition_defaultValue :: Lens.Lens' ParameterDefinition (Prelude.Maybe Prelude.Text)
+parameterDefinition_defaultValue :: Lens.Lens' ParameterDefinition (Core.Maybe Core.Text)
 parameterDefinition_defaultValue = Lens.lens (\ParameterDefinition' {defaultValue} -> defaultValue) (\s@ParameterDefinition' {} a -> s {defaultValue = a} :: ParameterDefinition)
 
 -- | A list of AWS SAM resources that use this parameter.
-parameterDefinition_referencedByResources :: Lens.Lens' ParameterDefinition [Prelude.Text]
-parameterDefinition_referencedByResources = Lens.lens (\ParameterDefinition' {referencedByResources} -> referencedByResources) (\s@ParameterDefinition' {} a -> s {referencedByResources = a} :: ParameterDefinition) Prelude.. Prelude._Coerce
+parameterDefinition_referencedByResources :: Lens.Lens' ParameterDefinition [Core.Text]
+parameterDefinition_referencedByResources = Lens.lens (\ParameterDefinition' {referencedByResources} -> referencedByResources) (\s@ParameterDefinition' {} a -> s {referencedByResources = a} :: ParameterDefinition) Core.. Lens._Coerce
 
 -- | The name of the parameter.
-parameterDefinition_name :: Lens.Lens' ParameterDefinition Prelude.Text
+parameterDefinition_name :: Lens.Lens' ParameterDefinition Core.Text
 parameterDefinition_name = Lens.lens (\ParameterDefinition' {name} -> name) (\s@ParameterDefinition' {} a -> s {name = a} :: ParameterDefinition)
 
-instance Prelude.FromJSON ParameterDefinition where
+instance Core.FromJSON ParameterDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterDefinition"
       ( \x ->
           ParameterDefinition'
-            Prelude.<$> (x Prelude..:? "maxValue")
-            Prelude.<*> (x Prelude..:? "minLength")
-            Prelude.<*> ( x Prelude..:? "allowedValues"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "minValue")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "constraintDescription")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "noEcho")
-            Prelude.<*> (x Prelude..:? "maxLength")
-            Prelude.<*> (x Prelude..:? "allowedPattern")
-            Prelude.<*> (x Prelude..:? "defaultValue")
-            Prelude.<*> ( x Prelude..:? "referencedByResources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..:? "maxValue")
+            Core.<*> (x Core..:? "minLength")
+            Core.<*> (x Core..:? "allowedValues" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "minValue")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "constraintDescription")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "noEcho")
+            Core.<*> (x Core..:? "maxLength")
+            Core.<*> (x Core..:? "allowedPattern")
+            Core.<*> (x Core..:? "defaultValue")
+            Core.<*> ( x Core..:? "referencedByResources"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable ParameterDefinition
+instance Core.Hashable ParameterDefinition
 
-instance Prelude.NFData ParameterDefinition
+instance Core.NFData ParameterDefinition

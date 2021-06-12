@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,17 +58,17 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimitSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newDescribeBandwidthRateLimitSchedule' smart constructor.
 data DescribeBandwidthRateLimitSchedule = DescribeBandwidthRateLimitSchedule'
-  { gatewayARN :: Prelude.Text
+  { gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBandwidthRateLimitSchedule' with all optional fields omitted.
@@ -82,7 +81,7 @@ data DescribeBandwidthRateLimitSchedule = DescribeBandwidthRateLimitSchedule'
 -- 'gatewayARN', 'describeBandwidthRateLimitSchedule_gatewayARN' - Undocumented member.
 newDescribeBandwidthRateLimitSchedule ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   DescribeBandwidthRateLimitSchedule
 newDescribeBandwidthRateLimitSchedule pGatewayARN_ =
   DescribeBandwidthRateLimitSchedule'
@@ -91,86 +90,84 @@ newDescribeBandwidthRateLimitSchedule pGatewayARN_ =
     }
 
 -- | Undocumented member.
-describeBandwidthRateLimitSchedule_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitSchedule Prelude.Text
+describeBandwidthRateLimitSchedule_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitSchedule Core.Text
 describeBandwidthRateLimitSchedule_gatewayARN = Lens.lens (\DescribeBandwidthRateLimitSchedule' {gatewayARN} -> gatewayARN) (\s@DescribeBandwidthRateLimitSchedule' {} a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitSchedule)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeBandwidthRateLimitSchedule
   where
   type
-    Rs DescribeBandwidthRateLimitSchedule =
+    AWSResponse DescribeBandwidthRateLimitSchedule =
       DescribeBandwidthRateLimitScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitScheduleResponse'
-            Prelude.<$> ( x Prelude..?> "BandwidthRateLimitIntervals"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Prelude..?> "GatewayARN")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "BandwidthRateLimitIntervals"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeBandwidthRateLimitSchedule
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeBandwidthRateLimitSchedule
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeBandwidthRateLimitSchedule
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeBandwidthRateLimitSchedule
   where
   toJSON DescribeBandwidthRateLimitSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Prelude..= gatewayARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeBandwidthRateLimitSchedule
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeBandwidthRateLimitSchedule
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeBandwidthRateLimitScheduleResponse' smart constructor.
 data DescribeBandwidthRateLimitScheduleResponse = DescribeBandwidthRateLimitScheduleResponse'
   { -- | An array that contains the bandwidth rate limit intervals for a tape or
     -- volume gateway.
-    bandwidthRateLimitIntervals :: Prelude.Maybe [BandwidthRateLimitInterval],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    bandwidthRateLimitIntervals :: Core.Maybe [BandwidthRateLimitInterval],
+    gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBandwidthRateLimitScheduleResponse' with all optional fields omitted.
@@ -188,30 +185,30 @@ data DescribeBandwidthRateLimitScheduleResponse = DescribeBandwidthRateLimitSche
 -- 'httpStatus', 'describeBandwidthRateLimitScheduleResponse_httpStatus' - The response's http status code.
 newDescribeBandwidthRateLimitScheduleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeBandwidthRateLimitScheduleResponse
 newDescribeBandwidthRateLimitScheduleResponse
   pHttpStatus_ =
     DescribeBandwidthRateLimitScheduleResponse'
       { bandwidthRateLimitIntervals =
-          Prelude.Nothing,
-        gatewayARN = Prelude.Nothing,
+          Core.Nothing,
+        gatewayARN = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array that contains the bandwidth rate limit intervals for a tape or
 -- volume gateway.
-describeBandwidthRateLimitScheduleResponse_bandwidthRateLimitIntervals :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Prelude.Maybe [BandwidthRateLimitInterval])
-describeBandwidthRateLimitScheduleResponse_bandwidthRateLimitIntervals = Lens.lens (\DescribeBandwidthRateLimitScheduleResponse' {bandwidthRateLimitIntervals} -> bandwidthRateLimitIntervals) (\s@DescribeBandwidthRateLimitScheduleResponse' {} a -> s {bandwidthRateLimitIntervals = a} :: DescribeBandwidthRateLimitScheduleResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeBandwidthRateLimitScheduleResponse_bandwidthRateLimitIntervals :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Core.Maybe [BandwidthRateLimitInterval])
+describeBandwidthRateLimitScheduleResponse_bandwidthRateLimitIntervals = Lens.lens (\DescribeBandwidthRateLimitScheduleResponse' {bandwidthRateLimitIntervals} -> bandwidthRateLimitIntervals) (\s@DescribeBandwidthRateLimitScheduleResponse' {} a -> s {bandwidthRateLimitIntervals = a} :: DescribeBandwidthRateLimitScheduleResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-describeBandwidthRateLimitScheduleResponse_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Prelude.Maybe Prelude.Text)
+describeBandwidthRateLimitScheduleResponse_gatewayARN :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Core.Maybe Core.Text)
 describeBandwidthRateLimitScheduleResponse_gatewayARN = Lens.lens (\DescribeBandwidthRateLimitScheduleResponse' {gatewayARN} -> gatewayARN) (\s@DescribeBandwidthRateLimitScheduleResponse' {} a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitScheduleResponse)
 
 -- | The response's http status code.
-describeBandwidthRateLimitScheduleResponse_httpStatus :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse Prelude.Int
+describeBandwidthRateLimitScheduleResponse_httpStatus :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse Core.Int
 describeBandwidthRateLimitScheduleResponse_httpStatus = Lens.lens (\DescribeBandwidthRateLimitScheduleResponse' {httpStatus} -> httpStatus) (\s@DescribeBandwidthRateLimitScheduleResponse' {} a -> s {httpStatus = a} :: DescribeBandwidthRateLimitScheduleResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeBandwidthRateLimitScheduleResponse

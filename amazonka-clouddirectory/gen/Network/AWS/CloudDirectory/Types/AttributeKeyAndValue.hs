@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudDirectory.Types.AttributeKeyAndValue where
 
 import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The combination of an attribute key and an attribute value.
 --
@@ -34,7 +33,7 @@ data AttributeKeyAndValue = AttributeKeyAndValue'
     -- | The value of the attribute.
     value :: TypedAttributeValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeKeyAndValue' with all optional fields omitted.
@@ -64,25 +63,24 @@ attributeKeyAndValue_key = Lens.lens (\AttributeKeyAndValue' {key} -> key) (\s@A
 attributeKeyAndValue_value :: Lens.Lens' AttributeKeyAndValue TypedAttributeValue
 attributeKeyAndValue_value = Lens.lens (\AttributeKeyAndValue' {value} -> value) (\s@AttributeKeyAndValue' {} a -> s {value = a} :: AttributeKeyAndValue)
 
-instance Prelude.FromJSON AttributeKeyAndValue where
+instance Core.FromJSON AttributeKeyAndValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributeKeyAndValue"
       ( \x ->
           AttributeKeyAndValue'
-            Prelude.<$> (x Prelude..: "Key")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable AttributeKeyAndValue
+instance Core.Hashable AttributeKeyAndValue
 
-instance Prelude.NFData AttributeKeyAndValue
+instance Core.NFData AttributeKeyAndValue
 
-instance Prelude.ToJSON AttributeKeyAndValue where
+instance Core.ToJSON AttributeKeyAndValue where
   toJSON AttributeKeyAndValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Value" Core..= value)
           ]
       )

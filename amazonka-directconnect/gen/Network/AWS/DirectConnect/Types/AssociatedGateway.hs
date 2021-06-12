@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.AssociatedGateway where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.GatewayType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the associated gateway.
 --
 -- /See:/ 'newAssociatedGateway' smart constructor.
 data AssociatedGateway = AssociatedGateway'
   { -- | The ID of the associated gateway.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The type of associated gateway.
-    type' :: Prelude.Maybe GatewayType,
+    type' :: Core.Maybe GatewayType,
     -- | The ID of the AWS account that owns the associated virtual private
     -- gateway or transit gateway.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
+    ownerAccount :: Core.Maybe Core.Text,
     -- | The Region where the associated gateway is located.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociatedGateway' with all optional fields omitted.
@@ -60,41 +59,41 @@ newAssociatedGateway ::
   AssociatedGateway
 newAssociatedGateway =
   AssociatedGateway'
-    { id = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing,
-      region = Prelude.Nothing
+    { id = Core.Nothing,
+      type' = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | The ID of the associated gateway.
-associatedGateway_id :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
+associatedGateway_id :: Lens.Lens' AssociatedGateway (Core.Maybe Core.Text)
 associatedGateway_id = Lens.lens (\AssociatedGateway' {id} -> id) (\s@AssociatedGateway' {} a -> s {id = a} :: AssociatedGateway)
 
 -- | The type of associated gateway.
-associatedGateway_type :: Lens.Lens' AssociatedGateway (Prelude.Maybe GatewayType)
+associatedGateway_type :: Lens.Lens' AssociatedGateway (Core.Maybe GatewayType)
 associatedGateway_type = Lens.lens (\AssociatedGateway' {type'} -> type') (\s@AssociatedGateway' {} a -> s {type' = a} :: AssociatedGateway)
 
 -- | The ID of the AWS account that owns the associated virtual private
 -- gateway or transit gateway.
-associatedGateway_ownerAccount :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
+associatedGateway_ownerAccount :: Lens.Lens' AssociatedGateway (Core.Maybe Core.Text)
 associatedGateway_ownerAccount = Lens.lens (\AssociatedGateway' {ownerAccount} -> ownerAccount) (\s@AssociatedGateway' {} a -> s {ownerAccount = a} :: AssociatedGateway)
 
 -- | The Region where the associated gateway is located.
-associatedGateway_region :: Lens.Lens' AssociatedGateway (Prelude.Maybe Prelude.Text)
+associatedGateway_region :: Lens.Lens' AssociatedGateway (Core.Maybe Core.Text)
 associatedGateway_region = Lens.lens (\AssociatedGateway' {region} -> region) (\s@AssociatedGateway' {} a -> s {region = a} :: AssociatedGateway)
 
-instance Prelude.FromJSON AssociatedGateway where
+instance Core.FromJSON AssociatedGateway where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssociatedGateway"
       ( \x ->
           AssociatedGateway'
-            Prelude.<$> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "ownerAccount")
-            Prelude.<*> (x Prelude..:? "region")
+            Core.<$> (x Core..:? "id")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "ownerAccount")
+            Core.<*> (x Core..:? "region")
       )
 
-instance Prelude.Hashable AssociatedGateway
+instance Core.Hashable AssociatedGateway
 
-instance Prelude.NFData AssociatedGateway
+instance Core.NFData AssociatedGateway

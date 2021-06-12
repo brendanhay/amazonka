@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MechanicalTurk.Types.ReviewReport where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.ReviewActionDetail
 import Network.AWS.MechanicalTurk.Types.ReviewResultDetail
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains both ReviewResult and ReviewAction elements for a particular
 -- HIT.
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ReviewReport = ReviewReport'
   { -- | A list of ReviewAction objects for each action specified in the Review
     -- Policy.
-    reviewActions :: Prelude.Maybe [ReviewActionDetail],
+    reviewActions :: Core.Maybe [ReviewActionDetail],
     -- | A list of ReviewResults objects for each action specified in the Review
     -- Policy.
-    reviewResults :: Prelude.Maybe [ReviewResultDetail]
+    reviewResults :: Core.Maybe [ReviewResultDetail]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReviewReport' with all optional fields omitted.
@@ -56,34 +55,30 @@ newReviewReport ::
   ReviewReport
 newReviewReport =
   ReviewReport'
-    { reviewActions = Prelude.Nothing,
-      reviewResults = Prelude.Nothing
+    { reviewActions = Core.Nothing,
+      reviewResults = Core.Nothing
     }
 
 -- | A list of ReviewAction objects for each action specified in the Review
 -- Policy.
-reviewReport_reviewActions :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewActionDetail])
-reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Prelude.. Lens.mapping Prelude._Coerce
+reviewReport_reviewActions :: Lens.Lens' ReviewReport (Core.Maybe [ReviewActionDetail])
+reviewReport_reviewActions = Lens.lens (\ReviewReport' {reviewActions} -> reviewActions) (\s@ReviewReport' {} a -> s {reviewActions = a} :: ReviewReport) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of ReviewResults objects for each action specified in the Review
 -- Policy.
-reviewReport_reviewResults :: Lens.Lens' ReviewReport (Prelude.Maybe [ReviewResultDetail])
-reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Prelude.. Lens.mapping Prelude._Coerce
+reviewReport_reviewResults :: Lens.Lens' ReviewReport (Core.Maybe [ReviewResultDetail])
+reviewReport_reviewResults = Lens.lens (\ReviewReport' {reviewResults} -> reviewResults) (\s@ReviewReport' {} a -> s {reviewResults = a} :: ReviewReport) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ReviewReport where
+instance Core.FromJSON ReviewReport where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReviewReport"
       ( \x ->
           ReviewReport'
-            Prelude.<$> ( x Prelude..:? "ReviewActions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "ReviewResults"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ReviewActions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ReviewResults" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ReviewReport
+instance Core.Hashable ReviewReport
 
-instance Prelude.NFData ReviewReport
+instance Core.NFData ReviewReport

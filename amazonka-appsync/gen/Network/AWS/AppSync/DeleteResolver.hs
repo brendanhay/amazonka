@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.AppSync.DeleteResolver
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResolver' smart constructor.
 data DeleteResolver = DeleteResolver'
   { -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The name of the resolver type.
-    typeName :: Prelude.Text,
+    typeName :: Core.Text,
     -- | The resolver field name.
-    fieldName :: Prelude.Text
+    fieldName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResolver' with all optional fields omitted.
@@ -73,11 +72,11 @@ data DeleteResolver = DeleteResolver'
 -- 'fieldName', 'deleteResolver_fieldName' - The resolver field name.
 newDeleteResolver ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'typeName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fieldName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteResolver
 newDeleteResolver pApiId_ pTypeName_ pFieldName_ =
   DeleteResolver'
@@ -87,62 +86,62 @@ newDeleteResolver pApiId_ pTypeName_ pFieldName_ =
     }
 
 -- | The API ID.
-deleteResolver_apiId :: Lens.Lens' DeleteResolver Prelude.Text
+deleteResolver_apiId :: Lens.Lens' DeleteResolver Core.Text
 deleteResolver_apiId = Lens.lens (\DeleteResolver' {apiId} -> apiId) (\s@DeleteResolver' {} a -> s {apiId = a} :: DeleteResolver)
 
 -- | The name of the resolver type.
-deleteResolver_typeName :: Lens.Lens' DeleteResolver Prelude.Text
+deleteResolver_typeName :: Lens.Lens' DeleteResolver Core.Text
 deleteResolver_typeName = Lens.lens (\DeleteResolver' {typeName} -> typeName) (\s@DeleteResolver' {} a -> s {typeName = a} :: DeleteResolver)
 
 -- | The resolver field name.
-deleteResolver_fieldName :: Lens.Lens' DeleteResolver Prelude.Text
+deleteResolver_fieldName :: Lens.Lens' DeleteResolver Core.Text
 deleteResolver_fieldName = Lens.lens (\DeleteResolver' {fieldName} -> fieldName) (\s@DeleteResolver' {} a -> s {fieldName = a} :: DeleteResolver)
 
-instance Prelude.AWSRequest DeleteResolver where
-  type Rs DeleteResolver = DeleteResolverResponse
+instance Core.AWSRequest DeleteResolver where
+  type
+    AWSResponse DeleteResolver =
+      DeleteResolverResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResolverResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResolver
+instance Core.Hashable DeleteResolver
 
-instance Prelude.NFData DeleteResolver
+instance Core.NFData DeleteResolver
 
-instance Prelude.ToHeaders DeleteResolver where
+instance Core.ToHeaders DeleteResolver where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteResolver where
+instance Core.ToPath DeleteResolver where
   toPath DeleteResolver' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apis/",
-        Prelude.toBS apiId,
+        Core.toBS apiId,
         "/types/",
-        Prelude.toBS typeName,
+        Core.toBS typeName,
         "/resolvers/",
-        Prelude.toBS fieldName
+        Core.toBS fieldName
       ]
 
-instance Prelude.ToQuery DeleteResolver where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResolver where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResolverResponse' smart constructor.
 data DeleteResolverResponse = DeleteResolverResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResolverResponse' with all optional fields omitted.
@@ -155,13 +154,13 @@ data DeleteResolverResponse = DeleteResolverResponse'
 -- 'httpStatus', 'deleteResolverResponse_httpStatus' - The response's http status code.
 newDeleteResolverResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteResolverResponse
 newDeleteResolverResponse pHttpStatus_ =
   DeleteResolverResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteResolverResponse_httpStatus :: Lens.Lens' DeleteResolverResponse Prelude.Int
+deleteResolverResponse_httpStatus :: Lens.Lens' DeleteResolverResponse Core.Int
 deleteResolverResponse_httpStatus = Lens.lens (\DeleteResolverResponse' {httpStatus} -> httpStatus) (\s@DeleteResolverResponse' {} a -> s {httpStatus = a} :: DeleteResolverResponse)
 
-instance Prelude.NFData DeleteResolverResponse
+instance Core.NFData DeleteResolverResponse

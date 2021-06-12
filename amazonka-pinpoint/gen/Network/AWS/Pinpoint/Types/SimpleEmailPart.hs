@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.SimpleEmailPart where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the subject or body of an email message, represented as
 -- textual email data and the applicable character set.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSimpleEmailPart' smart constructor.
 data SimpleEmailPart = SimpleEmailPart'
   { -- | The textual data of the message content.
-    data' :: Prelude.Maybe Prelude.Text,
+    data' :: Core.Maybe Core.Text,
     -- | The applicable character set for the message content.
-    charset :: Prelude.Maybe Prelude.Text
+    charset :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SimpleEmailPart' with all optional fields omitted.
@@ -50,27 +49,27 @@ newSimpleEmailPart ::
   SimpleEmailPart
 newSimpleEmailPart =
   SimpleEmailPart'
-    { data' = Prelude.Nothing,
-      charset = Prelude.Nothing
+    { data' = Core.Nothing,
+      charset = Core.Nothing
     }
 
 -- | The textual data of the message content.
-simpleEmailPart_data :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
+simpleEmailPart_data :: Lens.Lens' SimpleEmailPart (Core.Maybe Core.Text)
 simpleEmailPart_data = Lens.lens (\SimpleEmailPart' {data'} -> data') (\s@SimpleEmailPart' {} a -> s {data' = a} :: SimpleEmailPart)
 
 -- | The applicable character set for the message content.
-simpleEmailPart_charset :: Lens.Lens' SimpleEmailPart (Prelude.Maybe Prelude.Text)
+simpleEmailPart_charset :: Lens.Lens' SimpleEmailPart (Core.Maybe Core.Text)
 simpleEmailPart_charset = Lens.lens (\SimpleEmailPart' {charset} -> charset) (\s@SimpleEmailPart' {} a -> s {charset = a} :: SimpleEmailPart)
 
-instance Prelude.Hashable SimpleEmailPart
+instance Core.Hashable SimpleEmailPart
 
-instance Prelude.NFData SimpleEmailPart
+instance Core.NFData SimpleEmailPart
 
-instance Prelude.ToJSON SimpleEmailPart where
+instance Core.ToJSON SimpleEmailPart where
   toJSON SimpleEmailPart' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Data" Prelude..=) Prelude.<$> data',
-            ("Charset" Prelude..=) Prelude.<$> charset
+    Core.object
+      ( Core.catMaybes
+          [ ("Data" Core..=) Core.<$> data',
+            ("Charset" Core..=) Core.<$> charset
           ]
       )

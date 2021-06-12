@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EventCondition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventDimensions
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the conditions to evaluate for an event that applies to an
 -- activity in a journey.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data EventCondition = EventCondition'
   { -- | The message identifier (message_id) for the message to use when
     -- determining whether message events meet the condition.
-    messageActivity :: Prelude.Maybe Prelude.Text,
+    messageActivity :: Core.Maybe Core.Text,
     -- | The dimensions for the event filter to use for the activity.
-    dimensions :: Prelude.Maybe EventDimensions
+    dimensions :: Core.Maybe EventDimensions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventCondition' with all optional fields omitted.
@@ -53,39 +52,39 @@ newEventCondition ::
   EventCondition
 newEventCondition =
   EventCondition'
-    { messageActivity = Prelude.Nothing,
-      dimensions = Prelude.Nothing
+    { messageActivity = Core.Nothing,
+      dimensions = Core.Nothing
     }
 
 -- | The message identifier (message_id) for the message to use when
 -- determining whether message events meet the condition.
-eventCondition_messageActivity :: Lens.Lens' EventCondition (Prelude.Maybe Prelude.Text)
+eventCondition_messageActivity :: Lens.Lens' EventCondition (Core.Maybe Core.Text)
 eventCondition_messageActivity = Lens.lens (\EventCondition' {messageActivity} -> messageActivity) (\s@EventCondition' {} a -> s {messageActivity = a} :: EventCondition)
 
 -- | The dimensions for the event filter to use for the activity.
-eventCondition_dimensions :: Lens.Lens' EventCondition (Prelude.Maybe EventDimensions)
+eventCondition_dimensions :: Lens.Lens' EventCondition (Core.Maybe EventDimensions)
 eventCondition_dimensions = Lens.lens (\EventCondition' {dimensions} -> dimensions) (\s@EventCondition' {} a -> s {dimensions = a} :: EventCondition)
 
-instance Prelude.FromJSON EventCondition where
+instance Core.FromJSON EventCondition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventCondition"
       ( \x ->
           EventCondition'
-            Prelude.<$> (x Prelude..:? "MessageActivity")
-            Prelude.<*> (x Prelude..:? "Dimensions")
+            Core.<$> (x Core..:? "MessageActivity")
+            Core.<*> (x Core..:? "Dimensions")
       )
 
-instance Prelude.Hashable EventCondition
+instance Core.Hashable EventCondition
 
-instance Prelude.NFData EventCondition
+instance Core.NFData EventCondition
 
-instance Prelude.ToJSON EventCondition where
+instance Core.ToJSON EventCondition where
   toJSON EventCondition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MessageActivity" Prelude..=)
-              Prelude.<$> messageActivity,
-            ("Dimensions" Prelude..=) Prelude.<$> dimensions
+    Core.object
+      ( Core.catMaybes
+          [ ("MessageActivity" Core..=)
+              Core.<$> messageActivity,
+            ("Dimensions" Core..=) Core.<$> dimensions
           ]
       )

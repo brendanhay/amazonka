@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -74,8 +73,8 @@ module Network.AWS.WAF.CreateByteMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -84,11 +83,11 @@ import Network.AWS.WAF.Types
 data CreateByteMatchSet = CreateByteMatchSet'
   { -- | A friendly name or description of the ByteMatchSet. You can\'t change
     -- @Name@ after you create a @ByteMatchSet@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text
+    changeToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateByteMatchSet' with all optional fields omitted.
@@ -104,9 +103,9 @@ data CreateByteMatchSet = CreateByteMatchSet'
 -- 'changeToken', 'createByteMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateByteMatchSet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateByteMatchSet
 newCreateByteMatchSet pName_ pChangeToken_ =
   CreateByteMatchSet'
@@ -116,73 +115,71 @@ newCreateByteMatchSet pName_ pChangeToken_ =
 
 -- | A friendly name or description of the ByteMatchSet. You can\'t change
 -- @Name@ after you create a @ByteMatchSet@.
-createByteMatchSet_name :: Lens.Lens' CreateByteMatchSet Prelude.Text
+createByteMatchSet_name :: Lens.Lens' CreateByteMatchSet Core.Text
 createByteMatchSet_name = Lens.lens (\CreateByteMatchSet' {name} -> name) (\s@CreateByteMatchSet' {} a -> s {name = a} :: CreateByteMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createByteMatchSet_changeToken :: Lens.Lens' CreateByteMatchSet Prelude.Text
+createByteMatchSet_changeToken :: Lens.Lens' CreateByteMatchSet Core.Text
 createByteMatchSet_changeToken = Lens.lens (\CreateByteMatchSet' {changeToken} -> changeToken) (\s@CreateByteMatchSet' {} a -> s {changeToken = a} :: CreateByteMatchSet)
 
-instance Prelude.AWSRequest CreateByteMatchSet where
+instance Core.AWSRequest CreateByteMatchSet where
   type
-    Rs CreateByteMatchSet =
+    AWSResponse CreateByteMatchSet =
       CreateByteMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateByteMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "ByteMatchSet")
-            Prelude.<*> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ByteMatchSet")
+            Core.<*> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateByteMatchSet
+instance Core.Hashable CreateByteMatchSet
 
-instance Prelude.NFData CreateByteMatchSet
+instance Core.NFData CreateByteMatchSet
 
-instance Prelude.ToHeaders CreateByteMatchSet where
+instance Core.ToHeaders CreateByteMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.CreateByteMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.CreateByteMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateByteMatchSet where
+instance Core.ToJSON CreateByteMatchSet where
   toJSON CreateByteMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
-instance Prelude.ToPath CreateByteMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateByteMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateByteMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateByteMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateByteMatchSetResponse' smart constructor.
 data CreateByteMatchSetResponse = CreateByteMatchSetResponse'
   { -- | A ByteMatchSet that contains no @ByteMatchTuple@ objects.
-    byteMatchSet :: Prelude.Maybe ByteMatchSet,
+    byteMatchSet :: Core.Maybe ByteMatchSet,
     -- | The @ChangeToken@ that you used to submit the @CreateByteMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateByteMatchSetResponse' with all optional fields omitted.
@@ -201,28 +198,28 @@ data CreateByteMatchSetResponse = CreateByteMatchSetResponse'
 -- 'httpStatus', 'createByteMatchSetResponse_httpStatus' - The response's http status code.
 newCreateByteMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateByteMatchSetResponse
 newCreateByteMatchSetResponse pHttpStatus_ =
   CreateByteMatchSetResponse'
     { byteMatchSet =
-        Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+        Core.Nothing,
+      changeToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A ByteMatchSet that contains no @ByteMatchTuple@ objects.
-createByteMatchSetResponse_byteMatchSet :: Lens.Lens' CreateByteMatchSetResponse (Prelude.Maybe ByteMatchSet)
+createByteMatchSetResponse_byteMatchSet :: Lens.Lens' CreateByteMatchSetResponse (Core.Maybe ByteMatchSet)
 createByteMatchSetResponse_byteMatchSet = Lens.lens (\CreateByteMatchSetResponse' {byteMatchSet} -> byteMatchSet) (\s@CreateByteMatchSetResponse' {} a -> s {byteMatchSet = a} :: CreateByteMatchSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the @CreateByteMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-createByteMatchSetResponse_changeToken :: Lens.Lens' CreateByteMatchSetResponse (Prelude.Maybe Prelude.Text)
+createByteMatchSetResponse_changeToken :: Lens.Lens' CreateByteMatchSetResponse (Core.Maybe Core.Text)
 createByteMatchSetResponse_changeToken = Lens.lens (\CreateByteMatchSetResponse' {changeToken} -> changeToken) (\s@CreateByteMatchSetResponse' {} a -> s {changeToken = a} :: CreateByteMatchSetResponse)
 
 -- | The response's http status code.
-createByteMatchSetResponse_httpStatus :: Lens.Lens' CreateByteMatchSetResponse Prelude.Int
+createByteMatchSetResponse_httpStatus :: Lens.Lens' CreateByteMatchSetResponse Core.Int
 createByteMatchSetResponse_httpStatus = Lens.lens (\CreateByteMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateByteMatchSetResponse' {} a -> s {httpStatus = a} :: CreateByteMatchSetResponse)
 
-instance Prelude.NFData CreateByteMatchSetResponse
+instance Core.NFData CreateByteMatchSetResponse

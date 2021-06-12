@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeDeploy.Types.LifecycleEvent where
 
 import Network.AWS.CodeDeploy.Types.Diagnostics
 import Network.AWS.CodeDeploy.Types.LifecycleEventStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a deployment lifecycle event.
 --
@@ -42,19 +41,19 @@ data LifecycleEvent = LifecycleEvent'
     -- -   Skipped: The deployment lifecycle event has been skipped.
     --
     -- -   Unknown: The deployment lifecycle event is unknown.
-    status :: Prelude.Maybe LifecycleEventStatus,
+    status :: Core.Maybe LifecycleEventStatus,
     -- | Diagnostic information about the deployment lifecycle event.
-    diagnostics :: Prelude.Maybe Diagnostics,
+    diagnostics :: Core.Maybe Diagnostics,
     -- | A timestamp that indicates when the deployment lifecycle event started.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | A timestamp that indicates when the deployment lifecycle event ended.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The deployment lifecycle event name, such as @ApplicationStop@,
     -- @BeforeInstall@, @AfterInstall@, @ApplicationStart@, or
     -- @ValidateService@.
-    lifecycleEventName :: Prelude.Maybe Prelude.Text
+    lifecycleEventName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecycleEvent' with all optional fields omitted.
@@ -91,11 +90,11 @@ newLifecycleEvent ::
   LifecycleEvent
 newLifecycleEvent =
   LifecycleEvent'
-    { status = Prelude.Nothing,
-      diagnostics = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      lifecycleEventName = Prelude.Nothing
+    { status = Core.Nothing,
+      diagnostics = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      lifecycleEventName = Core.Nothing
     }
 
 -- | The deployment lifecycle event status:
@@ -111,40 +110,40 @@ newLifecycleEvent =
 -- -   Skipped: The deployment lifecycle event has been skipped.
 --
 -- -   Unknown: The deployment lifecycle event is unknown.
-lifecycleEvent_status :: Lens.Lens' LifecycleEvent (Prelude.Maybe LifecycleEventStatus)
+lifecycleEvent_status :: Lens.Lens' LifecycleEvent (Core.Maybe LifecycleEventStatus)
 lifecycleEvent_status = Lens.lens (\LifecycleEvent' {status} -> status) (\s@LifecycleEvent' {} a -> s {status = a} :: LifecycleEvent)
 
 -- | Diagnostic information about the deployment lifecycle event.
-lifecycleEvent_diagnostics :: Lens.Lens' LifecycleEvent (Prelude.Maybe Diagnostics)
+lifecycleEvent_diagnostics :: Lens.Lens' LifecycleEvent (Core.Maybe Diagnostics)
 lifecycleEvent_diagnostics = Lens.lens (\LifecycleEvent' {diagnostics} -> diagnostics) (\s@LifecycleEvent' {} a -> s {diagnostics = a} :: LifecycleEvent)
 
 -- | A timestamp that indicates when the deployment lifecycle event started.
-lifecycleEvent_startTime :: Lens.Lens' LifecycleEvent (Prelude.Maybe Prelude.UTCTime)
-lifecycleEvent_startTime = Lens.lens (\LifecycleEvent' {startTime} -> startTime) (\s@LifecycleEvent' {} a -> s {startTime = a} :: LifecycleEvent) Prelude.. Lens.mapping Prelude._Time
+lifecycleEvent_startTime :: Lens.Lens' LifecycleEvent (Core.Maybe Core.UTCTime)
+lifecycleEvent_startTime = Lens.lens (\LifecycleEvent' {startTime} -> startTime) (\s@LifecycleEvent' {} a -> s {startTime = a} :: LifecycleEvent) Core.. Lens.mapping Core._Time
 
 -- | A timestamp that indicates when the deployment lifecycle event ended.
-lifecycleEvent_endTime :: Lens.Lens' LifecycleEvent (Prelude.Maybe Prelude.UTCTime)
-lifecycleEvent_endTime = Lens.lens (\LifecycleEvent' {endTime} -> endTime) (\s@LifecycleEvent' {} a -> s {endTime = a} :: LifecycleEvent) Prelude.. Lens.mapping Prelude._Time
+lifecycleEvent_endTime :: Lens.Lens' LifecycleEvent (Core.Maybe Core.UTCTime)
+lifecycleEvent_endTime = Lens.lens (\LifecycleEvent' {endTime} -> endTime) (\s@LifecycleEvent' {} a -> s {endTime = a} :: LifecycleEvent) Core.. Lens.mapping Core._Time
 
 -- | The deployment lifecycle event name, such as @ApplicationStop@,
 -- @BeforeInstall@, @AfterInstall@, @ApplicationStart@, or
 -- @ValidateService@.
-lifecycleEvent_lifecycleEventName :: Lens.Lens' LifecycleEvent (Prelude.Maybe Prelude.Text)
+lifecycleEvent_lifecycleEventName :: Lens.Lens' LifecycleEvent (Core.Maybe Core.Text)
 lifecycleEvent_lifecycleEventName = Lens.lens (\LifecycleEvent' {lifecycleEventName} -> lifecycleEventName) (\s@LifecycleEvent' {} a -> s {lifecycleEventName = a} :: LifecycleEvent)
 
-instance Prelude.FromJSON LifecycleEvent where
+instance Core.FromJSON LifecycleEvent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LifecycleEvent"
       ( \x ->
           LifecycleEvent'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "diagnostics")
-            Prelude.<*> (x Prelude..:? "startTime")
-            Prelude.<*> (x Prelude..:? "endTime")
-            Prelude.<*> (x Prelude..:? "lifecycleEventName")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "diagnostics")
+            Core.<*> (x Core..:? "startTime")
+            Core.<*> (x Core..:? "endTime")
+            Core.<*> (x Core..:? "lifecycleEventName")
       )
 
-instance Prelude.Hashable LifecycleEvent
+instance Core.Hashable LifecycleEvent
 
-instance Prelude.NFData LifecycleEvent
+instance Core.NFData LifecycleEvent

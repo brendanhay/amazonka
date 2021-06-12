@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DataPipeline.Types.Operator where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.OperatorType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a logical operation for comparing the value of a field with a
 -- specified value.
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOperator' smart constructor.
 data Operator = Operator'
   { -- | The value that the actual field value will be compared with.
-    values :: Prelude.Maybe [Prelude.Text],
+    values :: Core.Maybe [Core.Text],
     -- | The logical operation to be performed: equal (@EQ@), equal reference
     -- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or
     -- between (@BETWEEN@). Equal reference (@REF_EQ@) can be used only with
@@ -64,9 +63,9 @@ data Operator = Operator'
     -- containing only alpha-numeric values, as symbols may be reserved by AWS
     -- Data Pipeline. User-defined fields that you add to a pipeline should
     -- prefix their name with the string \"my\".
-    type' :: Prelude.Maybe OperatorType
+    type' :: Core.Maybe OperatorType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Operator' with all optional fields omitted.
@@ -115,13 +114,13 @@ newOperator ::
   Operator
 newOperator =
   Operator'
-    { values = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { values = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The value that the actual field value will be compared with.
-operator_values :: Lens.Lens' Operator (Prelude.Maybe [Prelude.Text])
-operator_values = Lens.lens (\Operator' {values} -> values) (\s@Operator' {} a -> s {values = a} :: Operator) Prelude.. Lens.mapping Prelude._Coerce
+operator_values :: Lens.Lens' Operator (Core.Maybe [Core.Text])
+operator_values = Lens.lens (\Operator' {values} -> values) (\s@Operator' {} a -> s {values = a} :: Operator) Core.. Lens.mapping Lens._Coerce
 
 -- | The logical operation to be performed: equal (@EQ@), equal reference
 -- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or
@@ -156,18 +155,18 @@ operator_values = Lens.lens (\Operator' {values} -> values) (\s@Operator' {} a -
 -- containing only alpha-numeric values, as symbols may be reserved by AWS
 -- Data Pipeline. User-defined fields that you add to a pipeline should
 -- prefix their name with the string \"my\".
-operator_type :: Lens.Lens' Operator (Prelude.Maybe OperatorType)
+operator_type :: Lens.Lens' Operator (Core.Maybe OperatorType)
 operator_type = Lens.lens (\Operator' {type'} -> type') (\s@Operator' {} a -> s {type' = a} :: Operator)
 
-instance Prelude.Hashable Operator
+instance Core.Hashable Operator
 
-instance Prelude.NFData Operator
+instance Core.NFData Operator
 
-instance Prelude.ToJSON Operator where
+instance Core.ToJSON Operator where
   toJSON Operator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("values" Prelude..=) Prelude.<$> values,
-            ("type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("values" Core..=) Core.<$> values,
+            ("type" Core..=) Core.<$> type'
           ]
       )

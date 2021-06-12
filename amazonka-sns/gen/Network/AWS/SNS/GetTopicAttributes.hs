@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SNS.GetTopicAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -52,9 +51,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newGetTopicAttributes' smart constructor.
 data GetTopicAttributes = GetTopicAttributes'
   { -- | The ARN of the topic whose properties you want to get.
-    topicArn :: Prelude.Text
+    topicArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTopicAttributes' with all optional fields omitted.
@@ -67,18 +66,18 @@ data GetTopicAttributes = GetTopicAttributes'
 -- 'topicArn', 'getTopicAttributes_topicArn' - The ARN of the topic whose properties you want to get.
 newGetTopicAttributes ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   GetTopicAttributes
 newGetTopicAttributes pTopicArn_ =
   GetTopicAttributes' {topicArn = pTopicArn_}
 
 -- | The ARN of the topic whose properties you want to get.
-getTopicAttributes_topicArn :: Lens.Lens' GetTopicAttributes Prelude.Text
+getTopicAttributes_topicArn :: Lens.Lens' GetTopicAttributes Core.Text
 getTopicAttributes_topicArn = Lens.lens (\GetTopicAttributes' {topicArn} -> topicArn) (\s@GetTopicAttributes' {} a -> s {topicArn = a} :: GetTopicAttributes)
 
-instance Prelude.AWSRequest GetTopicAttributes where
+instance Core.AWSRequest GetTopicAttributes where
   type
-    Rs GetTopicAttributes =
+    AWSResponse GetTopicAttributes =
       GetTopicAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -86,32 +85,29 @@ instance Prelude.AWSRequest GetTopicAttributes where
       "GetTopicAttributesResult"
       ( \s h x ->
           GetTopicAttributesResponse'
-            Prelude.<$> ( x Prelude..@? "Attributes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLMap "entry" "key" "value")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTopicAttributes
+instance Core.Hashable GetTopicAttributes
 
-instance Prelude.NFData GetTopicAttributes
+instance Core.NFData GetTopicAttributes
 
-instance Prelude.ToHeaders GetTopicAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetTopicAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetTopicAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetTopicAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetTopicAttributes where
+instance Core.ToQuery GetTopicAttributes where
   toQuery GetTopicAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetTopicAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "TopicArn" Prelude.=: topicArn
+          Core.=: ("GetTopicAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "TopicArn" Core.=: topicArn
       ]
 
 -- | Response for GetTopicAttributes action.
@@ -179,11 +175,11 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     --         (Optional) To override the generated value, you can specify a
     --         value for the the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTopicAttributesResponse' with all optional fields omitted.
@@ -258,12 +254,12 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 -- 'httpStatus', 'getTopicAttributesResponse_httpStatus' - The response's http status code.
 newGetTopicAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTopicAttributesResponse
 newGetTopicAttributesResponse pHttpStatus_ =
   GetTopicAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -328,11 +324,11 @@ newGetTopicAttributesResponse pHttpStatus_ =
 --         (Optional) To override the generated value, you can specify a
 --         value for the the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
-getTopicAttributesResponse_attributes :: Lens.Lens' GetTopicAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTopicAttributesResponse_attributes = Lens.lens (\GetTopicAttributesResponse' {attributes} -> attributes) (\s@GetTopicAttributesResponse' {} a -> s {attributes = a} :: GetTopicAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getTopicAttributesResponse_attributes :: Lens.Lens' GetTopicAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getTopicAttributesResponse_attributes = Lens.lens (\GetTopicAttributesResponse' {attributes} -> attributes) (\s@GetTopicAttributesResponse' {} a -> s {attributes = a} :: GetTopicAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTopicAttributesResponse_httpStatus :: Lens.Lens' GetTopicAttributesResponse Prelude.Int
+getTopicAttributesResponse_httpStatus :: Lens.Lens' GetTopicAttributesResponse Core.Int
 getTopicAttributesResponse_httpStatus = Lens.lens (\GetTopicAttributesResponse' {httpStatus} -> httpStatus) (\s@GetTopicAttributesResponse' {} a -> s {httpStatus = a} :: GetTopicAttributesResponse)
 
-instance Prelude.NFData GetTopicAttributesResponse
+instance Core.NFData GetTopicAttributesResponse

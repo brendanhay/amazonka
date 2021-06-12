@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,32 +44,32 @@ module Network.AWS.EC2.StartNetworkInsightsAnalysis
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartNetworkInsightsAnalysis' smart constructor.
 data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
   { -- | The tags to apply.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | The Amazon Resource Names (ARN) of the resources that the path must
     -- traverse.
-    filterInArns :: Prelude.Maybe [Prelude.Text],
+    filterInArns :: Core.Maybe [Core.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the path.
-    networkInsightsPathId :: Prelude.Text,
+    networkInsightsPathId :: Core.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Text
+    clientToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartNetworkInsightsAnalysis' with all optional fields omitted.
@@ -97,111 +96,100 @@ data StartNetworkInsightsAnalysis = StartNetworkInsightsAnalysis'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 newStartNetworkInsightsAnalysis ::
   -- | 'networkInsightsPathId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   StartNetworkInsightsAnalysis
 newStartNetworkInsightsAnalysis
   pNetworkInsightsPathId_
   pClientToken_ =
     StartNetworkInsightsAnalysis'
       { tagSpecifications =
-          Prelude.Nothing,
-        filterInArns = Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+          Core.Nothing,
+        filterInArns = Core.Nothing,
+        dryRun = Core.Nothing,
         networkInsightsPathId =
           pNetworkInsightsPathId_,
         clientToken = pClientToken_
       }
 
 -- | The tags to apply.
-startNetworkInsightsAnalysis_tagSpecifications :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [TagSpecification])
-startNetworkInsightsAnalysis_tagSpecifications = Lens.lens (\StartNetworkInsightsAnalysis' {tagSpecifications} -> tagSpecifications) (\s@StartNetworkInsightsAnalysis' {} a -> s {tagSpecifications = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Prelude._Coerce
+startNetworkInsightsAnalysis_tagSpecifications :: Lens.Lens' StartNetworkInsightsAnalysis (Core.Maybe [TagSpecification])
+startNetworkInsightsAnalysis_tagSpecifications = Lens.lens (\StartNetworkInsightsAnalysis' {tagSpecifications} -> tagSpecifications) (\s@StartNetworkInsightsAnalysis' {} a -> s {tagSpecifications = a} :: StartNetworkInsightsAnalysis) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Names (ARN) of the resources that the path must
 -- traverse.
-startNetworkInsightsAnalysis_filterInArns :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe [Prelude.Text])
-startNetworkInsightsAnalysis_filterInArns = Lens.lens (\StartNetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@StartNetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: StartNetworkInsightsAnalysis) Prelude.. Lens.mapping Prelude._Coerce
+startNetworkInsightsAnalysis_filterInArns :: Lens.Lens' StartNetworkInsightsAnalysis (Core.Maybe [Core.Text])
+startNetworkInsightsAnalysis_filterInArns = Lens.lens (\StartNetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@StartNetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: StartNetworkInsightsAnalysis) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-startNetworkInsightsAnalysis_dryRun :: Lens.Lens' StartNetworkInsightsAnalysis (Prelude.Maybe Prelude.Bool)
+startNetworkInsightsAnalysis_dryRun :: Lens.Lens' StartNetworkInsightsAnalysis (Core.Maybe Core.Bool)
 startNetworkInsightsAnalysis_dryRun = Lens.lens (\StartNetworkInsightsAnalysis' {dryRun} -> dryRun) (\s@StartNetworkInsightsAnalysis' {} a -> s {dryRun = a} :: StartNetworkInsightsAnalysis)
 
 -- | The ID of the path.
-startNetworkInsightsAnalysis_networkInsightsPathId :: Lens.Lens' StartNetworkInsightsAnalysis Prelude.Text
+startNetworkInsightsAnalysis_networkInsightsPathId :: Lens.Lens' StartNetworkInsightsAnalysis Core.Text
 startNetworkInsightsAnalysis_networkInsightsPathId = Lens.lens (\StartNetworkInsightsAnalysis' {networkInsightsPathId} -> networkInsightsPathId) (\s@StartNetworkInsightsAnalysis' {} a -> s {networkInsightsPathId = a} :: StartNetworkInsightsAnalysis)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-startNetworkInsightsAnalysis_clientToken :: Lens.Lens' StartNetworkInsightsAnalysis Prelude.Text
+startNetworkInsightsAnalysis_clientToken :: Lens.Lens' StartNetworkInsightsAnalysis Core.Text
 startNetworkInsightsAnalysis_clientToken = Lens.lens (\StartNetworkInsightsAnalysis' {clientToken} -> clientToken) (\s@StartNetworkInsightsAnalysis' {} a -> s {clientToken = a} :: StartNetworkInsightsAnalysis)
 
-instance
-  Prelude.AWSRequest
-    StartNetworkInsightsAnalysis
-  where
+instance Core.AWSRequest StartNetworkInsightsAnalysis where
   type
-    Rs StartNetworkInsightsAnalysis =
+    AWSResponse StartNetworkInsightsAnalysis =
       StartNetworkInsightsAnalysisResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           StartNetworkInsightsAnalysisResponse'
-            Prelude.<$> (x Prelude..@? "networkInsightsAnalysis")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "networkInsightsAnalysis")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StartNetworkInsightsAnalysis
+instance Core.Hashable StartNetworkInsightsAnalysis
 
-instance Prelude.NFData StartNetworkInsightsAnalysis
+instance Core.NFData StartNetworkInsightsAnalysis
 
-instance
-  Prelude.ToHeaders
-    StartNetworkInsightsAnalysis
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders StartNetworkInsightsAnalysis where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath StartNetworkInsightsAnalysis where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartNetworkInsightsAnalysis where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartNetworkInsightsAnalysis where
+instance Core.ToQuery StartNetworkInsightsAnalysis where
   toQuery StartNetworkInsightsAnalysis' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "StartNetworkInsightsAnalysis" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("StartNetworkInsightsAnalysis" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        Prelude.toQuery
-          ( Prelude.toQueryList "FilterInArn"
-              Prelude.<$> filterInArns
+        Core.toQuery
+          ( Core.toQueryList "FilterInArn"
+              Core.<$> filterInArns
           ),
-        "DryRun" Prelude.=: dryRun,
+        "DryRun" Core.=: dryRun,
         "NetworkInsightsPathId"
-          Prelude.=: networkInsightsPathId,
-        "ClientToken" Prelude.=: clientToken
+          Core.=: networkInsightsPathId,
+        "ClientToken" Core.=: clientToken
       ]
 
 -- | /See:/ 'newStartNetworkInsightsAnalysisResponse' smart constructor.
 data StartNetworkInsightsAnalysisResponse = StartNetworkInsightsAnalysisResponse'
   { -- | Information about the network insights analysis.
-    networkInsightsAnalysis :: Prelude.Maybe NetworkInsightsAnalysis,
+    networkInsightsAnalysis :: Core.Maybe NetworkInsightsAnalysis,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartNetworkInsightsAnalysisResponse' with all optional fields omitted.
@@ -216,23 +204,23 @@ data StartNetworkInsightsAnalysisResponse = StartNetworkInsightsAnalysisResponse
 -- 'httpStatus', 'startNetworkInsightsAnalysisResponse_httpStatus' - The response's http status code.
 newStartNetworkInsightsAnalysisResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartNetworkInsightsAnalysisResponse
 newStartNetworkInsightsAnalysisResponse pHttpStatus_ =
   StartNetworkInsightsAnalysisResponse'
     { networkInsightsAnalysis =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the network insights analysis.
-startNetworkInsightsAnalysisResponse_networkInsightsAnalysis :: Lens.Lens' StartNetworkInsightsAnalysisResponse (Prelude.Maybe NetworkInsightsAnalysis)
+startNetworkInsightsAnalysisResponse_networkInsightsAnalysis :: Lens.Lens' StartNetworkInsightsAnalysisResponse (Core.Maybe NetworkInsightsAnalysis)
 startNetworkInsightsAnalysisResponse_networkInsightsAnalysis = Lens.lens (\StartNetworkInsightsAnalysisResponse' {networkInsightsAnalysis} -> networkInsightsAnalysis) (\s@StartNetworkInsightsAnalysisResponse' {} a -> s {networkInsightsAnalysis = a} :: StartNetworkInsightsAnalysisResponse)
 
 -- | The response's http status code.
-startNetworkInsightsAnalysisResponse_httpStatus :: Lens.Lens' StartNetworkInsightsAnalysisResponse Prelude.Int
+startNetworkInsightsAnalysisResponse_httpStatus :: Lens.Lens' StartNetworkInsightsAnalysisResponse Core.Int
 startNetworkInsightsAnalysisResponse_httpStatus = Lens.lens (\StartNetworkInsightsAnalysisResponse' {httpStatus} -> httpStatus) (\s@StartNetworkInsightsAnalysisResponse' {} a -> s {httpStatus = a} :: StartNetworkInsightsAnalysisResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartNetworkInsightsAnalysisResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EMR.TerminateJobFlows
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTerminateJobFlows' smart constructor.
 data TerminateJobFlows = TerminateJobFlows'
   { -- | A list of job flows to be shut down.
-    jobFlowIds :: [Prelude.Text]
+    jobFlowIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateJobFlows' with all optional fields omitted.
@@ -72,55 +71,55 @@ data TerminateJobFlows = TerminateJobFlows'
 newTerminateJobFlows ::
   TerminateJobFlows
 newTerminateJobFlows =
-  TerminateJobFlows' {jobFlowIds = Prelude.mempty}
+  TerminateJobFlows' {jobFlowIds = Core.mempty}
 
 -- | A list of job flows to be shut down.
-terminateJobFlows_jobFlowIds :: Lens.Lens' TerminateJobFlows [Prelude.Text]
-terminateJobFlows_jobFlowIds = Lens.lens (\TerminateJobFlows' {jobFlowIds} -> jobFlowIds) (\s@TerminateJobFlows' {} a -> s {jobFlowIds = a} :: TerminateJobFlows) Prelude.. Prelude._Coerce
+terminateJobFlows_jobFlowIds :: Lens.Lens' TerminateJobFlows [Core.Text]
+terminateJobFlows_jobFlowIds = Lens.lens (\TerminateJobFlows' {jobFlowIds} -> jobFlowIds) (\s@TerminateJobFlows' {} a -> s {jobFlowIds = a} :: TerminateJobFlows) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TerminateJobFlows where
-  type Rs TerminateJobFlows = TerminateJobFlowsResponse
+instance Core.AWSRequest TerminateJobFlows where
+  type
+    AWSResponse TerminateJobFlows =
+      TerminateJobFlowsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull TerminateJobFlowsResponse'
 
-instance Prelude.Hashable TerminateJobFlows
+instance Core.Hashable TerminateJobFlows
 
-instance Prelude.NFData TerminateJobFlows
+instance Core.NFData TerminateJobFlows
 
-instance Prelude.ToHeaders TerminateJobFlows where
+instance Core.ToHeaders TerminateJobFlows where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.TerminateJobFlows" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.TerminateJobFlows" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TerminateJobFlows where
+instance Core.ToJSON TerminateJobFlows where
   toJSON TerminateJobFlows' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobFlowIds" Prelude..= jobFlowIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("JobFlowIds" Core..= jobFlowIds)]
       )
 
-instance Prelude.ToPath TerminateJobFlows where
-  toPath = Prelude.const "/"
+instance Core.ToPath TerminateJobFlows where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TerminateJobFlows where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TerminateJobFlows where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTerminateJobFlowsResponse' smart constructor.
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateJobFlowsResponse' with all optional fields omitted.
@@ -131,4 +130,4 @@ newTerminateJobFlowsResponse ::
 newTerminateJobFlowsResponse =
   TerminateJobFlowsResponse'
 
-instance Prelude.NFData TerminateJobFlowsResponse
+instance Core.NFData TerminateJobFlowsResponse

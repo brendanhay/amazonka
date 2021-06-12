@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CognitoIdentityProvider.AdminSetUserSettings
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +57,14 @@ import qualified Network.AWS.Response as Response
 data AdminSetUserSettings = AdminSetUserSettings'
   { -- | The ID of the user pool that contains the user that you are setting
     -- options for.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user name of the user that you are setting options for.
-    username :: Prelude.Sensitive Prelude.Text,
+    username :: Core.Sensitive Core.Text,
     -- | You can use this parameter only to set an SMS configuration that uses
     -- SMS for delivery.
     mfaOptions :: [MFAOptionType]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminSetUserSettings' with all optional fields omitted.
@@ -84,77 +83,75 @@ data AdminSetUserSettings = AdminSetUserSettings'
 -- SMS for delivery.
 newAdminSetUserSettings ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminSetUserSettings
 newAdminSetUserSettings pUserPoolId_ pUsername_ =
   AdminSetUserSettings'
     { userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_,
-      mfaOptions = Prelude.mempty
+      username = Core._Sensitive Lens.# pUsername_,
+      mfaOptions = Core.mempty
     }
 
 -- | The ID of the user pool that contains the user that you are setting
 -- options for.
-adminSetUserSettings_userPoolId :: Lens.Lens' AdminSetUserSettings Prelude.Text
+adminSetUserSettings_userPoolId :: Lens.Lens' AdminSetUserSettings Core.Text
 adminSetUserSettings_userPoolId = Lens.lens (\AdminSetUserSettings' {userPoolId} -> userPoolId) (\s@AdminSetUserSettings' {} a -> s {userPoolId = a} :: AdminSetUserSettings)
 
 -- | The user name of the user that you are setting options for.
-adminSetUserSettings_username :: Lens.Lens' AdminSetUserSettings Prelude.Text
-adminSetUserSettings_username = Lens.lens (\AdminSetUserSettings' {username} -> username) (\s@AdminSetUserSettings' {} a -> s {username = a} :: AdminSetUserSettings) Prelude.. Prelude._Sensitive
+adminSetUserSettings_username :: Lens.Lens' AdminSetUserSettings Core.Text
+adminSetUserSettings_username = Lens.lens (\AdminSetUserSettings' {username} -> username) (\s@AdminSetUserSettings' {} a -> s {username = a} :: AdminSetUserSettings) Core.. Core._Sensitive
 
 -- | You can use this parameter only to set an SMS configuration that uses
 -- SMS for delivery.
 adminSetUserSettings_mfaOptions :: Lens.Lens' AdminSetUserSettings [MFAOptionType]
-adminSetUserSettings_mfaOptions = Lens.lens (\AdminSetUserSettings' {mfaOptions} -> mfaOptions) (\s@AdminSetUserSettings' {} a -> s {mfaOptions = a} :: AdminSetUserSettings) Prelude.. Prelude._Coerce
+adminSetUserSettings_mfaOptions = Lens.lens (\AdminSetUserSettings' {mfaOptions} -> mfaOptions) (\s@AdminSetUserSettings' {} a -> s {mfaOptions = a} :: AdminSetUserSettings) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AdminSetUserSettings where
+instance Core.AWSRequest AdminSetUserSettings where
   type
-    Rs AdminSetUserSettings =
+    AWSResponse AdminSetUserSettings =
       AdminSetUserSettingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminSetUserSettingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminSetUserSettings
+instance Core.Hashable AdminSetUserSettings
 
-instance Prelude.NFData AdminSetUserSettings
+instance Core.NFData AdminSetUserSettings
 
-instance Prelude.ToHeaders AdminSetUserSettings where
+instance Core.ToHeaders AdminSetUserSettings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminSetUserSettings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminSetUserSettings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminSetUserSettings where
+instance Core.ToJSON AdminSetUserSettings where
   toJSON AdminSetUserSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username),
-            Prelude.Just ("MFAOptions" Prelude..= mfaOptions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            Core.Just ("MFAOptions" Core..= mfaOptions)
           ]
       )
 
-instance Prelude.ToPath AdminSetUserSettings where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminSetUserSettings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminSetUserSettings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminSetUserSettings where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server to set user settings as an
 -- administrator.
@@ -162,9 +159,9 @@ instance Prelude.ToQuery AdminSetUserSettings where
 -- /See:/ 'newAdminSetUserSettingsResponse' smart constructor.
 data AdminSetUserSettingsResponse = AdminSetUserSettingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminSetUserSettingsResponse' with all optional fields omitted.
@@ -177,7 +174,7 @@ data AdminSetUserSettingsResponse = AdminSetUserSettingsResponse'
 -- 'httpStatus', 'adminSetUserSettingsResponse_httpStatus' - The response's http status code.
 newAdminSetUserSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminSetUserSettingsResponse
 newAdminSetUserSettingsResponse pHttpStatus_ =
   AdminSetUserSettingsResponse'
@@ -186,7 +183,7 @@ newAdminSetUserSettingsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminSetUserSettingsResponse_httpStatus :: Lens.Lens' AdminSetUserSettingsResponse Prelude.Int
+adminSetUserSettingsResponse_httpStatus :: Lens.Lens' AdminSetUserSettingsResponse Core.Int
 adminSetUserSettingsResponse_httpStatus = Lens.lens (\AdminSetUserSettingsResponse' {httpStatus} -> httpStatus) (\s@AdminSetUserSettingsResponse' {} a -> s {httpStatus = a} :: AdminSetUserSettingsResponse)
 
-instance Prelude.NFData AdminSetUserSettingsResponse
+instance Core.NFData AdminSetUserSettingsResponse

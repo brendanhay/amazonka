@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SMS.PutAppValidationConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -51,13 +50,13 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newPutAppValidationConfiguration' smart constructor.
 data PutAppValidationConfiguration = PutAppValidationConfiguration'
   { -- | The configuration for application validation.
-    appValidationConfigurations :: Prelude.Maybe [AppValidationConfiguration],
+    appValidationConfigurations :: Core.Maybe [AppValidationConfiguration],
     -- | The configuration for instance validation.
-    serverGroupValidationConfigurations :: Prelude.Maybe [ServerGroupValidationConfiguration],
+    serverGroupValidationConfigurations :: Core.Maybe [ServerGroupValidationConfiguration],
     -- | The ID of the application.
-    appId :: Prelude.Text
+    appId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAppValidationConfiguration' with all optional fields omitted.
@@ -74,95 +73,85 @@ data PutAppValidationConfiguration = PutAppValidationConfiguration'
 -- 'appId', 'putAppValidationConfiguration_appId' - The ID of the application.
 newPutAppValidationConfiguration ::
   -- | 'appId'
-  Prelude.Text ->
+  Core.Text ->
   PutAppValidationConfiguration
 newPutAppValidationConfiguration pAppId_ =
   PutAppValidationConfiguration'
     { appValidationConfigurations =
-        Prelude.Nothing,
+        Core.Nothing,
       serverGroupValidationConfigurations =
-        Prelude.Nothing,
+        Core.Nothing,
       appId = pAppId_
     }
 
 -- | The configuration for application validation.
-putAppValidationConfiguration_appValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Prelude.Maybe [AppValidationConfiguration])
-putAppValidationConfiguration_appValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {appValidationConfigurations} -> appValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {appValidationConfigurations = a} :: PutAppValidationConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+putAppValidationConfiguration_appValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Core.Maybe [AppValidationConfiguration])
+putAppValidationConfiguration_appValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {appValidationConfigurations} -> appValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {appValidationConfigurations = a} :: PutAppValidationConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The configuration for instance validation.
-putAppValidationConfiguration_serverGroupValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Prelude.Maybe [ServerGroupValidationConfiguration])
-putAppValidationConfiguration_serverGroupValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {serverGroupValidationConfigurations} -> serverGroupValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {serverGroupValidationConfigurations = a} :: PutAppValidationConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+putAppValidationConfiguration_serverGroupValidationConfigurations :: Lens.Lens' PutAppValidationConfiguration (Core.Maybe [ServerGroupValidationConfiguration])
+putAppValidationConfiguration_serverGroupValidationConfigurations = Lens.lens (\PutAppValidationConfiguration' {serverGroupValidationConfigurations} -> serverGroupValidationConfigurations) (\s@PutAppValidationConfiguration' {} a -> s {serverGroupValidationConfigurations = a} :: PutAppValidationConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the application.
-putAppValidationConfiguration_appId :: Lens.Lens' PutAppValidationConfiguration Prelude.Text
+putAppValidationConfiguration_appId :: Lens.Lens' PutAppValidationConfiguration Core.Text
 putAppValidationConfiguration_appId = Lens.lens (\PutAppValidationConfiguration' {appId} -> appId) (\s@PutAppValidationConfiguration' {} a -> s {appId = a} :: PutAppValidationConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutAppValidationConfiguration
   where
   type
-    Rs PutAppValidationConfiguration =
+    AWSResponse PutAppValidationConfiguration =
       PutAppValidationConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAppValidationConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    PutAppValidationConfiguration
+instance Core.Hashable PutAppValidationConfiguration
 
-instance Prelude.NFData PutAppValidationConfiguration
+instance Core.NFData PutAppValidationConfiguration
 
-instance
-  Prelude.ToHeaders
-    PutAppValidationConfiguration
-  where
+instance Core.ToHeaders PutAppValidationConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutAppValidationConfiguration where
+instance Core.ToJSON PutAppValidationConfiguration where
   toJSON PutAppValidationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("appValidationConfigurations" Prelude..=)
-              Prelude.<$> appValidationConfigurations,
-            ("serverGroupValidationConfigurations" Prelude..=)
-              Prelude.<$> serverGroupValidationConfigurations,
-            Prelude.Just ("appId" Prelude..= appId)
+    Core.object
+      ( Core.catMaybes
+          [ ("appValidationConfigurations" Core..=)
+              Core.<$> appValidationConfigurations,
+            ("serverGroupValidationConfigurations" Core..=)
+              Core.<$> serverGroupValidationConfigurations,
+            Core.Just ("appId" Core..= appId)
           ]
       )
 
-instance Prelude.ToPath PutAppValidationConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutAppValidationConfiguration where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    PutAppValidationConfiguration
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutAppValidationConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutAppValidationConfigurationResponse' smart constructor.
 data PutAppValidationConfigurationResponse = PutAppValidationConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAppValidationConfigurationResponse' with all optional fields omitted.
@@ -175,7 +164,7 @@ data PutAppValidationConfigurationResponse = PutAppValidationConfigurationRespon
 -- 'httpStatus', 'putAppValidationConfigurationResponse_httpStatus' - The response's http status code.
 newPutAppValidationConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutAppValidationConfigurationResponse
 newPutAppValidationConfigurationResponse pHttpStatus_ =
   PutAppValidationConfigurationResponse'
@@ -184,9 +173,9 @@ newPutAppValidationConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putAppValidationConfigurationResponse_httpStatus :: Lens.Lens' PutAppValidationConfigurationResponse Prelude.Int
+putAppValidationConfigurationResponse_httpStatus :: Lens.Lens' PutAppValidationConfigurationResponse Core.Int
 putAppValidationConfigurationResponse_httpStatus = Lens.lens (\PutAppValidationConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutAppValidationConfigurationResponse' {} a -> s {httpStatus = a} :: PutAppValidationConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutAppValidationConfigurationResponse

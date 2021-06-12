@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.NetworkConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.AwsVpcConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the network configuration for a task or service.
 --
@@ -31,9 +30,9 @@ data NetworkConfiguration = NetworkConfiguration'
   { -- | The VPC subnets and security groups associated with a task.
     --
     -- All specified subnets and security groups must be from the same VPC.
-    awsvpcConfiguration :: Prelude.Maybe AwsVpcConfiguration
+    awsvpcConfiguration :: Core.Maybe AwsVpcConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkConfiguration' with all optional fields omitted.
@@ -51,33 +50,33 @@ newNetworkConfiguration ::
 newNetworkConfiguration =
   NetworkConfiguration'
     { awsvpcConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The VPC subnets and security groups associated with a task.
 --
 -- All specified subnets and security groups must be from the same VPC.
-networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AwsVpcConfiguration)
+networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Core.Maybe AwsVpcConfiguration)
 networkConfiguration_awsvpcConfiguration = Lens.lens (\NetworkConfiguration' {awsvpcConfiguration} -> awsvpcConfiguration) (\s@NetworkConfiguration' {} a -> s {awsvpcConfiguration = a} :: NetworkConfiguration)
 
-instance Prelude.FromJSON NetworkConfiguration where
+instance Core.FromJSON NetworkConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Prelude..:? "awsvpcConfiguration")
+            Core.<$> (x Core..:? "awsvpcConfiguration")
       )
 
-instance Prelude.Hashable NetworkConfiguration
+instance Core.Hashable NetworkConfiguration
 
-instance Prelude.NFData NetworkConfiguration
+instance Core.NFData NetworkConfiguration
 
-instance Prelude.ToJSON NetworkConfiguration where
+instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("awsvpcConfiguration" Prelude..=)
-              Prelude.<$> awsvpcConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("awsvpcConfiguration" Core..=)
+              Core.<$> awsvpcConfiguration
           ]
       )

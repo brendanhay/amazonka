@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.EFS.ModifyMountTargetSecurityGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,11 +63,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyMountTargetSecurityGroups' smart constructor.
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
   { -- | An array of up to five VPC security group IDs.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | The ID of the mount target whose security groups you want to modify.
-    mountTargetId :: Prelude.Text
+    mountTargetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyMountTargetSecurityGroups' with all optional fields omitted.
@@ -83,29 +82,29 @@ data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
 -- 'mountTargetId', 'modifyMountTargetSecurityGroups_mountTargetId' - The ID of the mount target whose security groups you want to modify.
 newModifyMountTargetSecurityGroups ::
   -- | 'mountTargetId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyMountTargetSecurityGroups
 newModifyMountTargetSecurityGroups pMountTargetId_ =
   ModifyMountTargetSecurityGroups'
     { securityGroups =
-        Prelude.Nothing,
+        Core.Nothing,
       mountTargetId = pMountTargetId_
     }
 
 -- | An array of up to five VPC security group IDs.
-modifyMountTargetSecurityGroups_securityGroups :: Lens.Lens' ModifyMountTargetSecurityGroups (Prelude.Maybe [Prelude.Text])
-modifyMountTargetSecurityGroups_securityGroups = Lens.lens (\ModifyMountTargetSecurityGroups' {securityGroups} -> securityGroups) (\s@ModifyMountTargetSecurityGroups' {} a -> s {securityGroups = a} :: ModifyMountTargetSecurityGroups) Prelude.. Lens.mapping Prelude._Coerce
+modifyMountTargetSecurityGroups_securityGroups :: Lens.Lens' ModifyMountTargetSecurityGroups (Core.Maybe [Core.Text])
+modifyMountTargetSecurityGroups_securityGroups = Lens.lens (\ModifyMountTargetSecurityGroups' {securityGroups} -> securityGroups) (\s@ModifyMountTargetSecurityGroups' {} a -> s {securityGroups = a} :: ModifyMountTargetSecurityGroups) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the mount target whose security groups you want to modify.
-modifyMountTargetSecurityGroups_mountTargetId :: Lens.Lens' ModifyMountTargetSecurityGroups Prelude.Text
+modifyMountTargetSecurityGroups_mountTargetId :: Lens.Lens' ModifyMountTargetSecurityGroups Core.Text
 modifyMountTargetSecurityGroups_mountTargetId = Lens.lens (\ModifyMountTargetSecurityGroups' {mountTargetId} -> mountTargetId) (\s@ModifyMountTargetSecurityGroups' {} a -> s {mountTargetId = a} :: ModifyMountTargetSecurityGroups)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyMountTargetSecurityGroups
   where
   type
-    Rs ModifyMountTargetSecurityGroups =
+    AWSResponse ModifyMountTargetSecurityGroups =
       ModifyMountTargetSecurityGroupsResponse
   request = Request.putJSON defaultService
   response =
@@ -113,53 +112,40 @@ instance
       ModifyMountTargetSecurityGroupsResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyMountTargetSecurityGroups
 
-instance
-  Prelude.NFData
-    ModifyMountTargetSecurityGroups
+instance Core.NFData ModifyMountTargetSecurityGroups
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ModifyMountTargetSecurityGroups
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToJSON
-    ModifyMountTargetSecurityGroups
-  where
+instance Core.ToJSON ModifyMountTargetSecurityGroups where
   toJSON ModifyMountTargetSecurityGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SecurityGroups" Prelude..=)
-              Prelude.<$> securityGroups
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("SecurityGroups" Core..=) Core.<$> securityGroups]
       )
 
-instance
-  Prelude.ToPath
-    ModifyMountTargetSecurityGroups
-  where
+instance Core.ToPath ModifyMountTargetSecurityGroups where
   toPath ModifyMountTargetSecurityGroups' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/mount-targets/",
-        Prelude.toBS mountTargetId,
+        Core.toBS mountTargetId,
         "/security-groups"
       ]
 
-instance
-  Prelude.ToQuery
-    ModifyMountTargetSecurityGroups
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ModifyMountTargetSecurityGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newModifyMountTargetSecurityGroupsResponse' smart constructor.
 data ModifyMountTargetSecurityGroupsResponse = ModifyMountTargetSecurityGroupsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyMountTargetSecurityGroupsResponse' with all optional fields omitted.
@@ -171,5 +157,5 @@ newModifyMountTargetSecurityGroupsResponse =
   ModifyMountTargetSecurityGroupsResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyMountTargetSecurityGroupsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AppStream.ExpireSession
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newExpireSession' smart constructor.
 data ExpireSession = ExpireSession'
   { -- | The identifier of the streaming session.
-    sessionId :: Prelude.Text
+    sessionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExpireSession' with all optional fields omitted.
@@ -63,63 +62,63 @@ data ExpireSession = ExpireSession'
 -- 'sessionId', 'expireSession_sessionId' - The identifier of the streaming session.
 newExpireSession ::
   -- | 'sessionId'
-  Prelude.Text ->
+  Core.Text ->
   ExpireSession
 newExpireSession pSessionId_ =
   ExpireSession' {sessionId = pSessionId_}
 
 -- | The identifier of the streaming session.
-expireSession_sessionId :: Lens.Lens' ExpireSession Prelude.Text
+expireSession_sessionId :: Lens.Lens' ExpireSession Core.Text
 expireSession_sessionId = Lens.lens (\ExpireSession' {sessionId} -> sessionId) (\s@ExpireSession' {} a -> s {sessionId = a} :: ExpireSession)
 
-instance Prelude.AWSRequest ExpireSession where
-  type Rs ExpireSession = ExpireSessionResponse
+instance Core.AWSRequest ExpireSession where
+  type
+    AWSResponse ExpireSession =
+      ExpireSessionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ExpireSessionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ExpireSession
+instance Core.Hashable ExpireSession
 
-instance Prelude.NFData ExpireSession
+instance Core.NFData ExpireSession
 
-instance Prelude.ToHeaders ExpireSession where
+instance Core.ToHeaders ExpireSession where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.ExpireSession" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.ExpireSession" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ExpireSession where
+instance Core.ToJSON ExpireSession where
   toJSON ExpireSession' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SessionId" Prelude..= sessionId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SessionId" Core..= sessionId)]
       )
 
-instance Prelude.ToPath ExpireSession where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExpireSession where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ExpireSession where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ExpireSession where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newExpireSessionResponse' smart constructor.
 data ExpireSessionResponse = ExpireSessionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExpireSessionResponse' with all optional fields omitted.
@@ -132,13 +131,13 @@ data ExpireSessionResponse = ExpireSessionResponse'
 -- 'httpStatus', 'expireSessionResponse_httpStatus' - The response's http status code.
 newExpireSessionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExpireSessionResponse
 newExpireSessionResponse pHttpStatus_ =
   ExpireSessionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-expireSessionResponse_httpStatus :: Lens.Lens' ExpireSessionResponse Prelude.Int
+expireSessionResponse_httpStatus :: Lens.Lens' ExpireSessionResponse Core.Int
 expireSessionResponse_httpStatus = Lens.lens (\ExpireSessionResponse' {httpStatus} -> httpStatus) (\s@ExpireSessionResponse' {} a -> s {httpStatus = a} :: ExpireSessionResponse)
 
-instance Prelude.NFData ExpireSessionResponse
+instance Core.NFData ExpireSessionResponse

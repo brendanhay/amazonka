@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration where
 
 import Network.AWS.CodeDeploy.Types.AutoRollbackEvent
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a configuration for automatically rolling back to a
 -- previous version of an application revision when a deployment is not
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 data AutoRollbackConfiguration = AutoRollbackConfiguration'
   { -- | Indicates whether a defined automatic rollback configuration is
     -- currently enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The event type or types that trigger a rollback.
-    events :: Prelude.Maybe [AutoRollbackEvent]
+    events :: Core.Maybe [AutoRollbackEvent]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoRollbackConfiguration' with all optional fields omitted.
@@ -54,39 +53,38 @@ newAutoRollbackConfiguration ::
   AutoRollbackConfiguration
 newAutoRollbackConfiguration =
   AutoRollbackConfiguration'
-    { enabled =
-        Prelude.Nothing,
-      events = Prelude.Nothing
+    { enabled = Core.Nothing,
+      events = Core.Nothing
     }
 
 -- | Indicates whether a defined automatic rollback configuration is
 -- currently enabled.
-autoRollbackConfiguration_enabled :: Lens.Lens' AutoRollbackConfiguration (Prelude.Maybe Prelude.Bool)
+autoRollbackConfiguration_enabled :: Lens.Lens' AutoRollbackConfiguration (Core.Maybe Core.Bool)
 autoRollbackConfiguration_enabled = Lens.lens (\AutoRollbackConfiguration' {enabled} -> enabled) (\s@AutoRollbackConfiguration' {} a -> s {enabled = a} :: AutoRollbackConfiguration)
 
 -- | The event type or types that trigger a rollback.
-autoRollbackConfiguration_events :: Lens.Lens' AutoRollbackConfiguration (Prelude.Maybe [AutoRollbackEvent])
-autoRollbackConfiguration_events = Lens.lens (\AutoRollbackConfiguration' {events} -> events) (\s@AutoRollbackConfiguration' {} a -> s {events = a} :: AutoRollbackConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+autoRollbackConfiguration_events :: Lens.Lens' AutoRollbackConfiguration (Core.Maybe [AutoRollbackEvent])
+autoRollbackConfiguration_events = Lens.lens (\AutoRollbackConfiguration' {events} -> events) (\s@AutoRollbackConfiguration' {} a -> s {events = a} :: AutoRollbackConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AutoRollbackConfiguration where
+instance Core.FromJSON AutoRollbackConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoRollbackConfiguration"
       ( \x ->
           AutoRollbackConfiguration'
-            Prelude.<$> (x Prelude..:? "enabled")
-            Prelude.<*> (x Prelude..:? "events" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "enabled")
+            Core.<*> (x Core..:? "events" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AutoRollbackConfiguration
+instance Core.Hashable AutoRollbackConfiguration
 
-instance Prelude.NFData AutoRollbackConfiguration
+instance Core.NFData AutoRollbackConfiguration
 
-instance Prelude.ToJSON AutoRollbackConfiguration where
+instance Core.ToJSON AutoRollbackConfiguration where
   toJSON AutoRollbackConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("enabled" Prelude..=) Prelude.<$> enabled,
-            ("events" Prelude..=) Prelude.<$> events
+    Core.object
+      ( Core.catMaybes
+          [ ("enabled" Core..=) Core.<$> enabled,
+            ("events" Core..=) Core.<$> events
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,33 +56,33 @@ module Network.AWS.EC2.CreatePlacementGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
   { -- | The tags to apply to the new placement group.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The placement strategy.
-    strategy :: Prelude.Maybe PlacementStrategy,
+    strategy :: Core.Maybe PlacementStrategy,
     -- | A name for the placement group. Must be unique within the scope of your
     -- account for the Region.
     --
     -- Constraints: Up to 255 ASCII characters
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The number of partitions. Valid only when __Strategy__ is set to
     -- @partition@.
-    partitionCount :: Prelude.Maybe Prelude.Int
+    partitionCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePlacementGroup' with all optional fields omitted.
@@ -114,87 +113,86 @@ newCreatePlacementGroup ::
 newCreatePlacementGroup =
   CreatePlacementGroup'
     { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      strategy = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      partitionCount = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      strategy = Core.Nothing,
+      groupName = Core.Nothing,
+      partitionCount = Core.Nothing
     }
 
 -- | The tags to apply to the new placement group.
-createPlacementGroup_tagSpecifications :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe [TagSpecification])
-createPlacementGroup_tagSpecifications = Lens.lens (\CreatePlacementGroup' {tagSpecifications} -> tagSpecifications) (\s@CreatePlacementGroup' {} a -> s {tagSpecifications = a} :: CreatePlacementGroup) Prelude.. Lens.mapping Prelude._Coerce
+createPlacementGroup_tagSpecifications :: Lens.Lens' CreatePlacementGroup (Core.Maybe [TagSpecification])
+createPlacementGroup_tagSpecifications = Lens.lens (\CreatePlacementGroup' {tagSpecifications} -> tagSpecifications) (\s@CreatePlacementGroup' {} a -> s {tagSpecifications = a} :: CreatePlacementGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createPlacementGroup_dryRun :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Bool)
+createPlacementGroup_dryRun :: Lens.Lens' CreatePlacementGroup (Core.Maybe Core.Bool)
 createPlacementGroup_dryRun = Lens.lens (\CreatePlacementGroup' {dryRun} -> dryRun) (\s@CreatePlacementGroup' {} a -> s {dryRun = a} :: CreatePlacementGroup)
 
 -- | The placement strategy.
-createPlacementGroup_strategy :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe PlacementStrategy)
+createPlacementGroup_strategy :: Lens.Lens' CreatePlacementGroup (Core.Maybe PlacementStrategy)
 createPlacementGroup_strategy = Lens.lens (\CreatePlacementGroup' {strategy} -> strategy) (\s@CreatePlacementGroup' {} a -> s {strategy = a} :: CreatePlacementGroup)
 
 -- | A name for the placement group. Must be unique within the scope of your
 -- account for the Region.
 --
 -- Constraints: Up to 255 ASCII characters
-createPlacementGroup_groupName :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Text)
+createPlacementGroup_groupName :: Lens.Lens' CreatePlacementGroup (Core.Maybe Core.Text)
 createPlacementGroup_groupName = Lens.lens (\CreatePlacementGroup' {groupName} -> groupName) (\s@CreatePlacementGroup' {} a -> s {groupName = a} :: CreatePlacementGroup)
 
 -- | The number of partitions. Valid only when __Strategy__ is set to
 -- @partition@.
-createPlacementGroup_partitionCount :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Int)
+createPlacementGroup_partitionCount :: Lens.Lens' CreatePlacementGroup (Core.Maybe Core.Int)
 createPlacementGroup_partitionCount = Lens.lens (\CreatePlacementGroup' {partitionCount} -> partitionCount) (\s@CreatePlacementGroup' {} a -> s {partitionCount = a} :: CreatePlacementGroup)
 
-instance Prelude.AWSRequest CreatePlacementGroup where
+instance Core.AWSRequest CreatePlacementGroup where
   type
-    Rs CreatePlacementGroup =
+    AWSResponse CreatePlacementGroup =
       CreatePlacementGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreatePlacementGroupResponse'
-            Prelude.<$> (x Prelude..@? "placementGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "placementGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePlacementGroup
+instance Core.Hashable CreatePlacementGroup
 
-instance Prelude.NFData CreatePlacementGroup
+instance Core.NFData CreatePlacementGroup
 
-instance Prelude.ToHeaders CreatePlacementGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreatePlacementGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreatePlacementGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePlacementGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePlacementGroup where
+instance Core.ToQuery CreatePlacementGroup where
   toQuery CreatePlacementGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreatePlacementGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreatePlacementGroup" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "Strategy" Prelude.=: strategy,
-        "GroupName" Prelude.=: groupName,
-        "PartitionCount" Prelude.=: partitionCount
+        "DryRun" Core.=: dryRun,
+        "Strategy" Core.=: strategy,
+        "GroupName" Core.=: groupName,
+        "PartitionCount" Core.=: partitionCount
       ]
 
 -- | /See:/ 'newCreatePlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse'
-  { placementGroup :: Prelude.Maybe PlacementGroup,
+  { placementGroup :: Core.Maybe PlacementGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePlacementGroupResponse' with all optional fields omitted.
@@ -209,21 +207,21 @@ data CreatePlacementGroupResponse = CreatePlacementGroupResponse'
 -- 'httpStatus', 'createPlacementGroupResponse_httpStatus' - The response's http status code.
 newCreatePlacementGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePlacementGroupResponse
 newCreatePlacementGroupResponse pHttpStatus_ =
   CreatePlacementGroupResponse'
     { placementGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createPlacementGroupResponse_placementGroup :: Lens.Lens' CreatePlacementGroupResponse (Prelude.Maybe PlacementGroup)
+createPlacementGroupResponse_placementGroup :: Lens.Lens' CreatePlacementGroupResponse (Core.Maybe PlacementGroup)
 createPlacementGroupResponse_placementGroup = Lens.lens (\CreatePlacementGroupResponse' {placementGroup} -> placementGroup) (\s@CreatePlacementGroupResponse' {} a -> s {placementGroup = a} :: CreatePlacementGroupResponse)
 
 -- | The response's http status code.
-createPlacementGroupResponse_httpStatus :: Lens.Lens' CreatePlacementGroupResponse Prelude.Int
+createPlacementGroupResponse_httpStatus :: Lens.Lens' CreatePlacementGroupResponse Core.Int
 createPlacementGroupResponse_httpStatus = Lens.lens (\CreatePlacementGroupResponse' {httpStatus} -> httpStatus) (\s@CreatePlacementGroupResponse' {} a -> s {httpStatus = a} :: CreatePlacementGroupResponse)
 
-instance Prelude.NFData CreatePlacementGroupResponse
+instance Core.NFData CreatePlacementGroupResponse

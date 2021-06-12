@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudTrail.Types.Event where
 
 import Network.AWS.CloudTrail.Types.Resource
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an event that was returned by a lookup
 -- request. The result includes a representation of a CloudTrail event.
@@ -30,28 +29,28 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | A JSON string that contains a representation of the event returned.
-    cloudTrailEvent :: Prelude.Maybe Prelude.Text,
+    cloudTrailEvent :: Core.Maybe Core.Text,
     -- | The CloudTrail ID of the event returned.
-    eventId :: Prelude.Maybe Prelude.Text,
+    eventId :: Core.Maybe Core.Text,
     -- | The AWS service that the request was made to.
-    eventSource :: Prelude.Maybe Prelude.Text,
+    eventSource :: Core.Maybe Core.Text,
     -- | Information about whether the event is a write event or a read event.
-    readOnly :: Prelude.Maybe Prelude.Text,
+    readOnly :: Core.Maybe Core.Text,
     -- | The name of the event returned.
-    eventName :: Prelude.Maybe Prelude.Text,
+    eventName :: Core.Maybe Core.Text,
     -- | A list of resources referenced by the event returned.
-    resources :: Prelude.Maybe [Resource],
+    resources :: Core.Maybe [Resource],
     -- | The date and time of the event returned.
-    eventTime :: Prelude.Maybe Prelude.POSIX,
+    eventTime :: Core.Maybe Core.POSIX,
     -- | The AWS access key ID that was used to sign the request. If the request
     -- was made with temporary security credentials, this is the access key ID
     -- of the temporary credentials.
-    accessKeyId :: Prelude.Maybe Prelude.Text,
+    accessKeyId :: Core.Maybe Core.Text,
     -- | A user name or role name of the requester that called the API in the
     -- event returned.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Event' with all optional fields omitted.
@@ -85,75 +84,73 @@ newEvent ::
   Event
 newEvent =
   Event'
-    { cloudTrailEvent = Prelude.Nothing,
-      eventId = Prelude.Nothing,
-      eventSource = Prelude.Nothing,
-      readOnly = Prelude.Nothing,
-      eventName = Prelude.Nothing,
-      resources = Prelude.Nothing,
-      eventTime = Prelude.Nothing,
-      accessKeyId = Prelude.Nothing,
-      username = Prelude.Nothing
+    { cloudTrailEvent = Core.Nothing,
+      eventId = Core.Nothing,
+      eventSource = Core.Nothing,
+      readOnly = Core.Nothing,
+      eventName = Core.Nothing,
+      resources = Core.Nothing,
+      eventTime = Core.Nothing,
+      accessKeyId = Core.Nothing,
+      username = Core.Nothing
     }
 
 -- | A JSON string that contains a representation of the event returned.
-event_cloudTrailEvent :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_cloudTrailEvent :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_cloudTrailEvent = Lens.lens (\Event' {cloudTrailEvent} -> cloudTrailEvent) (\s@Event' {} a -> s {cloudTrailEvent = a} :: Event)
 
 -- | The CloudTrail ID of the event returned.
-event_eventId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_eventId :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {eventId = a} :: Event)
 
 -- | The AWS service that the request was made to.
-event_eventSource :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_eventSource :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_eventSource = Lens.lens (\Event' {eventSource} -> eventSource) (\s@Event' {} a -> s {eventSource = a} :: Event)
 
 -- | Information about whether the event is a write event or a read event.
-event_readOnly :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_readOnly :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_readOnly = Lens.lens (\Event' {readOnly} -> readOnly) (\s@Event' {} a -> s {readOnly = a} :: Event)
 
 -- | The name of the event returned.
-event_eventName :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_eventName :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_eventName = Lens.lens (\Event' {eventName} -> eventName) (\s@Event' {} a -> s {eventName = a} :: Event)
 
 -- | A list of resources referenced by the event returned.
-event_resources :: Lens.Lens' Event (Prelude.Maybe [Resource])
-event_resources = Lens.lens (\Event' {resources} -> resources) (\s@Event' {} a -> s {resources = a} :: Event) Prelude.. Lens.mapping Prelude._Coerce
+event_resources :: Lens.Lens' Event (Core.Maybe [Resource])
+event_resources = Lens.lens (\Event' {resources} -> resources) (\s@Event' {} a -> s {resources = a} :: Event) Core.. Lens.mapping Lens._Coerce
 
 -- | The date and time of the event returned.
-event_eventTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Prelude._Time
+event_eventTime :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
+event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Core.. Lens.mapping Core._Time
 
 -- | The AWS access key ID that was used to sign the request. If the request
 -- was made with temporary security credentials, this is the access key ID
 -- of the temporary credentials.
-event_accessKeyId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_accessKeyId :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_accessKeyId = Lens.lens (\Event' {accessKeyId} -> accessKeyId) (\s@Event' {} a -> s {accessKeyId = a} :: Event)
 
 -- | A user name or role name of the requester that called the API in the
 -- event returned.
-event_username :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_username :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_username = Lens.lens (\Event' {username} -> username) (\s@Event' {} a -> s {username = a} :: Event)
 
-instance Prelude.FromJSON Event where
+instance Core.FromJSON Event where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Prelude..:? "CloudTrailEvent")
-            Prelude.<*> (x Prelude..:? "EventId")
-            Prelude.<*> (x Prelude..:? "EventSource")
-            Prelude.<*> (x Prelude..:? "ReadOnly")
-            Prelude.<*> (x Prelude..:? "EventName")
-            Prelude.<*> ( x Prelude..:? "Resources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "EventTime")
-            Prelude.<*> (x Prelude..:? "AccessKeyId")
-            Prelude.<*> (x Prelude..:? "Username")
+            Core.<$> (x Core..:? "CloudTrailEvent")
+            Core.<*> (x Core..:? "EventId")
+            Core.<*> (x Core..:? "EventSource")
+            Core.<*> (x Core..:? "ReadOnly")
+            Core.<*> (x Core..:? "EventName")
+            Core.<*> (x Core..:? "Resources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "EventTime")
+            Core.<*> (x Core..:? "AccessKeyId")
+            Core.<*> (x Core..:? "Username")
       )
 
-instance Prelude.Hashable Event
+instance Core.Hashable Event
 
-instance Prelude.NFData Event
+instance Core.NFData Event

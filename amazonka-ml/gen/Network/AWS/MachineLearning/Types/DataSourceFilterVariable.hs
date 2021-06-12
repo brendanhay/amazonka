@@ -1,5 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -30,7 +30,7 @@ module Network.AWS.MachineLearning.Types.DataSourceFilterVariable
   )
 where
 
-import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Core as Core
 
 -- | A list of the variables to use in searching or filtering @DataSource@.
 --
@@ -50,30 +50,30 @@ import qualified Network.AWS.Prelude as Prelude
 -- The variable names should match the variable names in the @DataSource@.
 newtype DataSourceFilterVariable = DataSourceFilterVariable'
   { fromDataSourceFilterVariable ::
-      Prelude.Text
+      Core.Text
   }
-  deriving
-    ( Prelude.Show,
-      Prelude.Read,
-      Prelude.Eq,
-      Prelude.Ord,
-      Prelude.Data,
-      Prelude.Typeable,
-      Prelude.Generic,
-      Prelude.Hashable,
-      Prelude.NFData,
-      Prelude.FromText,
-      Prelude.ToText,
-      Prelude.ToByteString,
-      Prelude.ToLog,
-      Prelude.ToHeader,
-      Prelude.ToQuery,
-      Prelude.FromJSON,
-      Prelude.FromJSONKey,
-      Prelude.ToJSON,
-      Prelude.ToJSONKey,
-      Prelude.FromXML,
-      Prelude.ToXML
+  deriving stock
+    ( Core.Show,
+      Core.Read,
+      Core.Eq,
+      Core.Ord,
+      Core.Generic
+    )
+  deriving newtype
+    ( Core.Hashable,
+      Core.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
     )
 
 pattern DataSourceFilterVariable_CreatedAt :: DataSourceFilterVariable

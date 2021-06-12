@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KMS.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair. A tag consists of a tag key and a tag value. Tag keys
 -- and tag values are both required, but tag values can be empty (null)
@@ -35,11 +34,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The key of the tag.
-    tagKey :: Prelude.Text,
+    tagKey :: Core.Text,
     -- | The value of the tag.
-    tagValue :: Prelude.Text
+    tagValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -54,40 +53,39 @@ data Tag = Tag'
 -- 'tagValue', 'tag_tagValue' - The value of the tag.
 newTag ::
   -- | 'tagKey'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tagValue'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pTagKey_ pTagValue_ =
   Tag' {tagKey = pTagKey_, tagValue = pTagValue_}
 
 -- | The key of the tag.
-tag_tagKey :: Lens.Lens' Tag Prelude.Text
+tag_tagKey :: Lens.Lens' Tag Core.Text
 tag_tagKey = Lens.lens (\Tag' {tagKey} -> tagKey) (\s@Tag' {} a -> s {tagKey = a} :: Tag)
 
 -- | The value of the tag.
-tag_tagValue :: Lens.Lens' Tag Prelude.Text
+tag_tagValue :: Lens.Lens' Tag Core.Text
 tag_tagValue = Lens.lens (\Tag' {tagValue} -> tagValue) (\s@Tag' {} a -> s {tagValue = a} :: Tag)
 
-instance Prelude.FromJSON Tag where
+instance Core.FromJSON Tag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Prelude..: "TagKey")
-            Prelude.<*> (x Prelude..: "TagValue")
+            Core.<$> (x Core..: "TagKey") Core.<*> (x Core..: "TagValue")
       )
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToJSON Tag where
+instance Core.ToJSON Tag where
   toJSON Tag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TagKey" Prelude..= tagKey),
-            Prelude.Just ("TagValue" Prelude..= tagValue)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TagKey" Core..= tagKey),
+            Core.Just ("TagValue" Core..= tagValue)
           ]
       )

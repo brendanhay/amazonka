@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.SubscriptionLimits where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.ProtectionGroupLimits
 import Network.AWS.Shield.Types.ProtectionLimits
 
@@ -34,7 +33,7 @@ data SubscriptionLimits = SubscriptionLimits'
     -- | Limits settings on protection groups for your subscription.
     protectionGroupLimits :: ProtectionGroupLimits
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubscriptionLimits' with all optional fields omitted.
@@ -70,16 +69,16 @@ subscriptionLimits_protectionLimits = Lens.lens (\SubscriptionLimits' {protectio
 subscriptionLimits_protectionGroupLimits :: Lens.Lens' SubscriptionLimits ProtectionGroupLimits
 subscriptionLimits_protectionGroupLimits = Lens.lens (\SubscriptionLimits' {protectionGroupLimits} -> protectionGroupLimits) (\s@SubscriptionLimits' {} a -> s {protectionGroupLimits = a} :: SubscriptionLimits)
 
-instance Prelude.FromJSON SubscriptionLimits where
+instance Core.FromJSON SubscriptionLimits where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SubscriptionLimits"
       ( \x ->
           SubscriptionLimits'
-            Prelude.<$> (x Prelude..: "ProtectionLimits")
-            Prelude.<*> (x Prelude..: "ProtectionGroupLimits")
+            Core.<$> (x Core..: "ProtectionLimits")
+            Core.<*> (x Core..: "ProtectionGroupLimits")
       )
 
-instance Prelude.Hashable SubscriptionLimits
+instance Core.Hashable SubscriptionLimits
 
-instance Prelude.NFData SubscriptionLimits
+instance Core.NFData SubscriptionLimits

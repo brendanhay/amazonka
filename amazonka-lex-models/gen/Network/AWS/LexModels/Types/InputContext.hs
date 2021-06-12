@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.InputContext where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The name of a context that must be active for an intent to be selected
 -- by Amazon Lex.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInputContext' smart constructor.
 data InputContext = InputContext'
   { -- | The name of the context.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputContext' with all optional fields omitted.
@@ -44,29 +43,25 @@ data InputContext = InputContext'
 -- 'name', 'inputContext_name' - The name of the context.
 newInputContext ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   InputContext
 newInputContext pName_ = InputContext' {name = pName_}
 
 -- | The name of the context.
-inputContext_name :: Lens.Lens' InputContext Prelude.Text
+inputContext_name :: Lens.Lens' InputContext Core.Text
 inputContext_name = Lens.lens (\InputContext' {name} -> name) (\s@InputContext' {} a -> s {name = a} :: InputContext)
 
-instance Prelude.FromJSON InputContext where
+instance Core.FromJSON InputContext where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputContext"
-      ( \x ->
-          InputContext' Prelude.<$> (x Prelude..: "name")
-      )
+      (\x -> InputContext' Core.<$> (x Core..: "name"))
 
-instance Prelude.Hashable InputContext
+instance Core.Hashable InputContext
 
-instance Prelude.NFData InputContext
+instance Core.NFData InputContext
 
-instance Prelude.ToJSON InputContext where
+instance Core.ToJSON InputContext where
   toJSON InputContext' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])

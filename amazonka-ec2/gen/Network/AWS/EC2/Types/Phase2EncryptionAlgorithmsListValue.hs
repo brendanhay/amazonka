@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption algorithm for phase 2 IKE negotiations.
 --
 -- /See:/ 'newPhase2EncryptionAlgorithmsListValue' smart constructor.
 data Phase2EncryptionAlgorithmsListValue = Phase2EncryptionAlgorithmsListValue'
   { -- | The encryption algorithm.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Phase2EncryptionAlgorithmsListValue' with all optional fields omitted.
@@ -47,25 +46,25 @@ newPhase2EncryptionAlgorithmsListValue ::
 newPhase2EncryptionAlgorithmsListValue =
   Phase2EncryptionAlgorithmsListValue'
     { value =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The encryption algorithm.
-phase2EncryptionAlgorithmsListValue_value :: Lens.Lens' Phase2EncryptionAlgorithmsListValue (Prelude.Maybe Prelude.Text)
+phase2EncryptionAlgorithmsListValue_value :: Lens.Lens' Phase2EncryptionAlgorithmsListValue (Core.Maybe Core.Text)
 phase2EncryptionAlgorithmsListValue_value = Lens.lens (\Phase2EncryptionAlgorithmsListValue' {value} -> value) (\s@Phase2EncryptionAlgorithmsListValue' {} a -> s {value = a} :: Phase2EncryptionAlgorithmsListValue)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     Phase2EncryptionAlgorithmsListValue
   where
   parseXML x =
     Phase2EncryptionAlgorithmsListValue'
-      Prelude.<$> (x Prelude..@? "value")
+      Core.<$> (x Core..@? "value")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Phase2EncryptionAlgorithmsListValue
 
 instance
-  Prelude.NFData
+  Core.NFData
     Phase2EncryptionAlgorithmsListValue

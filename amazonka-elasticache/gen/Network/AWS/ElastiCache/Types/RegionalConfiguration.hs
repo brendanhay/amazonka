@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.RegionalConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.ReshardingConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of the replication groups
 --
 -- /See:/ 'newRegionalConfiguration' smart constructor.
 data RegionalConfiguration = RegionalConfiguration'
   { -- | The name of the secondary cluster
-    replicationGroupId :: Prelude.Text,
+    replicationGroupId :: Core.Text,
     -- | The AWS region where the cluster is stored
-    replicationGroupRegion :: Prelude.Text,
+    replicationGroupRegion :: Core.Text,
     -- | A list of @PreferredAvailabilityZones@ objects that specifies the
     -- configuration of a node group in the resharded cluster.
     reshardingConfiguration :: [ReshardingConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegionalConfiguration' with all optional fields omitted.
@@ -54,9 +53,9 @@ data RegionalConfiguration = RegionalConfiguration'
 -- configuration of a node group in the resharded cluster.
 newRegionalConfiguration ::
   -- | 'replicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'replicationGroupRegion'
-  Prelude.Text ->
+  Core.Text ->
   RegionalConfiguration
 newRegionalConfiguration
   pReplicationGroupId_
@@ -65,34 +64,34 @@ newRegionalConfiguration
       { replicationGroupId =
           pReplicationGroupId_,
         replicationGroupRegion = pReplicationGroupRegion_,
-        reshardingConfiguration = Prelude.mempty
+        reshardingConfiguration = Core.mempty
       }
 
 -- | The name of the secondary cluster
-regionalConfiguration_replicationGroupId :: Lens.Lens' RegionalConfiguration Prelude.Text
+regionalConfiguration_replicationGroupId :: Lens.Lens' RegionalConfiguration Core.Text
 regionalConfiguration_replicationGroupId = Lens.lens (\RegionalConfiguration' {replicationGroupId} -> replicationGroupId) (\s@RegionalConfiguration' {} a -> s {replicationGroupId = a} :: RegionalConfiguration)
 
 -- | The AWS region where the cluster is stored
-regionalConfiguration_replicationGroupRegion :: Lens.Lens' RegionalConfiguration Prelude.Text
+regionalConfiguration_replicationGroupRegion :: Lens.Lens' RegionalConfiguration Core.Text
 regionalConfiguration_replicationGroupRegion = Lens.lens (\RegionalConfiguration' {replicationGroupRegion} -> replicationGroupRegion) (\s@RegionalConfiguration' {} a -> s {replicationGroupRegion = a} :: RegionalConfiguration)
 
 -- | A list of @PreferredAvailabilityZones@ objects that specifies the
 -- configuration of a node group in the resharded cluster.
 regionalConfiguration_reshardingConfiguration :: Lens.Lens' RegionalConfiguration [ReshardingConfiguration]
-regionalConfiguration_reshardingConfiguration = Lens.lens (\RegionalConfiguration' {reshardingConfiguration} -> reshardingConfiguration) (\s@RegionalConfiguration' {} a -> s {reshardingConfiguration = a} :: RegionalConfiguration) Prelude.. Prelude._Coerce
+regionalConfiguration_reshardingConfiguration = Lens.lens (\RegionalConfiguration' {reshardingConfiguration} -> reshardingConfiguration) (\s@RegionalConfiguration' {} a -> s {reshardingConfiguration = a} :: RegionalConfiguration) Core.. Lens._Coerce
 
-instance Prelude.Hashable RegionalConfiguration
+instance Core.Hashable RegionalConfiguration
 
-instance Prelude.NFData RegionalConfiguration
+instance Core.NFData RegionalConfiguration
 
-instance Prelude.ToQuery RegionalConfiguration where
+instance Core.ToQuery RegionalConfiguration where
   toQuery RegionalConfiguration' {..} =
-    Prelude.mconcat
-      [ "ReplicationGroupId" Prelude.=: replicationGroupId,
+    Core.mconcat
+      [ "ReplicationGroupId" Core.=: replicationGroupId,
         "ReplicationGroupRegion"
-          Prelude.=: replicationGroupRegion,
+          Core.=: replicationGroupRegion,
         "ReshardingConfiguration"
-          Prelude.=: Prelude.toQueryList
+          Core.=: Core.toQueryList
             "ReshardingConfiguration"
             reshardingConfiguration
       ]

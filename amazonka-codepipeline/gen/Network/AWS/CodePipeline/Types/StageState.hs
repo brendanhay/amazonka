@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,26 +22,26 @@ module Network.AWS.CodePipeline.Types.StageState where
 import Network.AWS.CodePipeline.Types.ActionState
 import Network.AWS.CodePipeline.Types.StageExecution
 import Network.AWS.CodePipeline.Types.TransitionState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the state of the stage.
 --
 -- /See:/ 'newStageState' smart constructor.
 data StageState = StageState'
-  { inboundExecution :: Prelude.Maybe StageExecution,
+  { inboundExecution :: Core.Maybe StageExecution,
     -- | Information about the latest execution in the stage, including its ID
     -- and status.
-    latestExecution :: Prelude.Maybe StageExecution,
+    latestExecution :: Core.Maybe StageExecution,
     -- | The name of the stage.
-    stageName :: Prelude.Maybe Prelude.Text,
+    stageName :: Core.Maybe Core.Text,
     -- | The state of the inbound transition, which is either enabled or
     -- disabled.
-    inboundTransitionState :: Prelude.Maybe TransitionState,
+    inboundTransitionState :: Core.Maybe TransitionState,
     -- | The state of the stage.
-    actionStates :: Prelude.Maybe [ActionState]
+    actionStates :: Core.Maybe [ActionState]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StageState' with all optional fields omitted.
@@ -67,50 +66,48 @@ newStageState ::
   StageState
 newStageState =
   StageState'
-    { inboundExecution = Prelude.Nothing,
-      latestExecution = Prelude.Nothing,
-      stageName = Prelude.Nothing,
-      inboundTransitionState = Prelude.Nothing,
-      actionStates = Prelude.Nothing
+    { inboundExecution = Core.Nothing,
+      latestExecution = Core.Nothing,
+      stageName = Core.Nothing,
+      inboundTransitionState = Core.Nothing,
+      actionStates = Core.Nothing
     }
 
 -- | Undocumented member.
-stageState_inboundExecution :: Lens.Lens' StageState (Prelude.Maybe StageExecution)
+stageState_inboundExecution :: Lens.Lens' StageState (Core.Maybe StageExecution)
 stageState_inboundExecution = Lens.lens (\StageState' {inboundExecution} -> inboundExecution) (\s@StageState' {} a -> s {inboundExecution = a} :: StageState)
 
 -- | Information about the latest execution in the stage, including its ID
 -- and status.
-stageState_latestExecution :: Lens.Lens' StageState (Prelude.Maybe StageExecution)
+stageState_latestExecution :: Lens.Lens' StageState (Core.Maybe StageExecution)
 stageState_latestExecution = Lens.lens (\StageState' {latestExecution} -> latestExecution) (\s@StageState' {} a -> s {latestExecution = a} :: StageState)
 
 -- | The name of the stage.
-stageState_stageName :: Lens.Lens' StageState (Prelude.Maybe Prelude.Text)
+stageState_stageName :: Lens.Lens' StageState (Core.Maybe Core.Text)
 stageState_stageName = Lens.lens (\StageState' {stageName} -> stageName) (\s@StageState' {} a -> s {stageName = a} :: StageState)
 
 -- | The state of the inbound transition, which is either enabled or
 -- disabled.
-stageState_inboundTransitionState :: Lens.Lens' StageState (Prelude.Maybe TransitionState)
+stageState_inboundTransitionState :: Lens.Lens' StageState (Core.Maybe TransitionState)
 stageState_inboundTransitionState = Lens.lens (\StageState' {inboundTransitionState} -> inboundTransitionState) (\s@StageState' {} a -> s {inboundTransitionState = a} :: StageState)
 
 -- | The state of the stage.
-stageState_actionStates :: Lens.Lens' StageState (Prelude.Maybe [ActionState])
-stageState_actionStates = Lens.lens (\StageState' {actionStates} -> actionStates) (\s@StageState' {} a -> s {actionStates = a} :: StageState) Prelude.. Lens.mapping Prelude._Coerce
+stageState_actionStates :: Lens.Lens' StageState (Core.Maybe [ActionState])
+stageState_actionStates = Lens.lens (\StageState' {actionStates} -> actionStates) (\s@StageState' {} a -> s {actionStates = a} :: StageState) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON StageState where
+instance Core.FromJSON StageState where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StageState"
       ( \x ->
           StageState'
-            Prelude.<$> (x Prelude..:? "inboundExecution")
-            Prelude.<*> (x Prelude..:? "latestExecution")
-            Prelude.<*> (x Prelude..:? "stageName")
-            Prelude.<*> (x Prelude..:? "inboundTransitionState")
-            Prelude.<*> ( x Prelude..:? "actionStates"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "inboundExecution")
+            Core.<*> (x Core..:? "latestExecution")
+            Core.<*> (x Core..:? "stageName")
+            Core.<*> (x Core..:? "inboundTransitionState")
+            Core.<*> (x Core..:? "actionStates" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable StageState
+instance Core.Hashable StageState
 
-instance Prelude.NFData StageState
+instance Core.NFData StageState

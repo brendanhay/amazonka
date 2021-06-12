@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.MovingAddressStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.MoveStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of a moving Elastic IP address.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data MovingAddressStatus = MovingAddressStatus'
   { -- | The status of the Elastic IP address that\'s being moved to the EC2-VPC
     -- platform, or restored to the EC2-Classic platform.
-    moveStatus :: Prelude.Maybe MoveStatus,
+    moveStatus :: Core.Maybe MoveStatus,
     -- | The Elastic IP address.
-    publicIp :: Prelude.Maybe Prelude.Text
+    publicIp :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MovingAddressStatus' with all optional fields omitted.
@@ -53,25 +52,25 @@ newMovingAddressStatus ::
   MovingAddressStatus
 newMovingAddressStatus =
   MovingAddressStatus'
-    { moveStatus = Prelude.Nothing,
-      publicIp = Prelude.Nothing
+    { moveStatus = Core.Nothing,
+      publicIp = Core.Nothing
     }
 
 -- | The status of the Elastic IP address that\'s being moved to the EC2-VPC
 -- platform, or restored to the EC2-Classic platform.
-movingAddressStatus_moveStatus :: Lens.Lens' MovingAddressStatus (Prelude.Maybe MoveStatus)
+movingAddressStatus_moveStatus :: Lens.Lens' MovingAddressStatus (Core.Maybe MoveStatus)
 movingAddressStatus_moveStatus = Lens.lens (\MovingAddressStatus' {moveStatus} -> moveStatus) (\s@MovingAddressStatus' {} a -> s {moveStatus = a} :: MovingAddressStatus)
 
 -- | The Elastic IP address.
-movingAddressStatus_publicIp :: Lens.Lens' MovingAddressStatus (Prelude.Maybe Prelude.Text)
+movingAddressStatus_publicIp :: Lens.Lens' MovingAddressStatus (Core.Maybe Core.Text)
 movingAddressStatus_publicIp = Lens.lens (\MovingAddressStatus' {publicIp} -> publicIp) (\s@MovingAddressStatus' {} a -> s {publicIp = a} :: MovingAddressStatus)
 
-instance Prelude.FromXML MovingAddressStatus where
+instance Core.FromXML MovingAddressStatus where
   parseXML x =
     MovingAddressStatus'
-      Prelude.<$> (x Prelude..@? "moveStatus")
-      Prelude.<*> (x Prelude..@? "publicIp")
+      Core.<$> (x Core..@? "moveStatus")
+      Core.<*> (x Core..@? "publicIp")
 
-instance Prelude.Hashable MovingAddressStatus
+instance Core.Hashable MovingAddressStatus
 
-instance Prelude.NFData MovingAddressStatus
+instance Core.NFData MovingAddressStatus

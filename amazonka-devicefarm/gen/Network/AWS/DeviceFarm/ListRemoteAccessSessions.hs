@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.DeviceFarm.ListRemoteAccessSessions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +57,12 @@ data ListRemoteAccessSessions = ListRemoteAccessSessions'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the project about which you are
     -- requesting information.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRemoteAccessSessions' with all optional fields omitted.
@@ -82,97 +80,94 @@ data ListRemoteAccessSessions = ListRemoteAccessSessions'
 -- requesting information.
 newListRemoteAccessSessions ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   ListRemoteAccessSessions
 newListRemoteAccessSessions pArn_ =
   ListRemoteAccessSessions'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       arn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listRemoteAccessSessions_nextToken :: Lens.Lens' ListRemoteAccessSessions (Prelude.Maybe Prelude.Text)
+listRemoteAccessSessions_nextToken :: Lens.Lens' ListRemoteAccessSessions (Core.Maybe Core.Text)
 listRemoteAccessSessions_nextToken = Lens.lens (\ListRemoteAccessSessions' {nextToken} -> nextToken) (\s@ListRemoteAccessSessions' {} a -> s {nextToken = a} :: ListRemoteAccessSessions)
 
 -- | The Amazon Resource Name (ARN) of the project about which you are
 -- requesting information.
-listRemoteAccessSessions_arn :: Lens.Lens' ListRemoteAccessSessions Prelude.Text
+listRemoteAccessSessions_arn :: Lens.Lens' ListRemoteAccessSessions Core.Text
 listRemoteAccessSessions_arn = Lens.lens (\ListRemoteAccessSessions' {arn} -> arn) (\s@ListRemoteAccessSessions' {} a -> s {arn = a} :: ListRemoteAccessSessions)
 
-instance Pager.AWSPager ListRemoteAccessSessions where
+instance Core.AWSPager ListRemoteAccessSessions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listRemoteAccessSessionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listRemoteAccessSessionsResponse_remoteAccessSessions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listRemoteAccessSessions_nextToken
           Lens..~ rs
           Lens.^? listRemoteAccessSessionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListRemoteAccessSessions where
+instance Core.AWSRequest ListRemoteAccessSessions where
   type
-    Rs ListRemoteAccessSessions =
+    AWSResponse ListRemoteAccessSessions =
       ListRemoteAccessSessionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListRemoteAccessSessionsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "remoteAccessSessions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> ( x Core..?> "remoteAccessSessions"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListRemoteAccessSessions
+instance Core.Hashable ListRemoteAccessSessions
 
-instance Prelude.NFData ListRemoteAccessSessions
+instance Core.NFData ListRemoteAccessSessions
 
-instance Prelude.ToHeaders ListRemoteAccessSessions where
+instance Core.ToHeaders ListRemoteAccessSessions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListRemoteAccessSessions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.ListRemoteAccessSessions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListRemoteAccessSessions where
+instance Core.ToJSON ListRemoteAccessSessions where
   toJSON ListRemoteAccessSessions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath ListRemoteAccessSessions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListRemoteAccessSessions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListRemoteAccessSessions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListRemoteAccessSessions where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server after AWS Device Farm makes a
 -- request to return information about the remote access session.
@@ -182,14 +177,14 @@ data ListRemoteAccessSessionsResponse = ListRemoteAccessSessionsResponse'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A container that represents the metadata from the service about each
     -- remote access session you are requesting.
-    remoteAccessSessions :: Prelude.Maybe [RemoteAccessSession],
+    remoteAccessSessions :: Core.Maybe [RemoteAccessSession],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRemoteAccessSessionsResponse' with all optional fields omitted.
@@ -209,31 +204,29 @@ data ListRemoteAccessSessionsResponse = ListRemoteAccessSessionsResponse'
 -- 'httpStatus', 'listRemoteAccessSessionsResponse_httpStatus' - The response's http status code.
 newListRemoteAccessSessionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListRemoteAccessSessionsResponse
 newListRemoteAccessSessionsResponse pHttpStatus_ =
   ListRemoteAccessSessionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      remoteAccessSessions = Prelude.Nothing,
+        Core.Nothing,
+      remoteAccessSessions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listRemoteAccessSessionsResponse_nextToken :: Lens.Lens' ListRemoteAccessSessionsResponse (Prelude.Maybe Prelude.Text)
+listRemoteAccessSessionsResponse_nextToken :: Lens.Lens' ListRemoteAccessSessionsResponse (Core.Maybe Core.Text)
 listRemoteAccessSessionsResponse_nextToken = Lens.lens (\ListRemoteAccessSessionsResponse' {nextToken} -> nextToken) (\s@ListRemoteAccessSessionsResponse' {} a -> s {nextToken = a} :: ListRemoteAccessSessionsResponse)
 
 -- | A container that represents the metadata from the service about each
 -- remote access session you are requesting.
-listRemoteAccessSessionsResponse_remoteAccessSessions :: Lens.Lens' ListRemoteAccessSessionsResponse (Prelude.Maybe [RemoteAccessSession])
-listRemoteAccessSessionsResponse_remoteAccessSessions = Lens.lens (\ListRemoteAccessSessionsResponse' {remoteAccessSessions} -> remoteAccessSessions) (\s@ListRemoteAccessSessionsResponse' {} a -> s {remoteAccessSessions = a} :: ListRemoteAccessSessionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listRemoteAccessSessionsResponse_remoteAccessSessions :: Lens.Lens' ListRemoteAccessSessionsResponse (Core.Maybe [RemoteAccessSession])
+listRemoteAccessSessionsResponse_remoteAccessSessions = Lens.lens (\ListRemoteAccessSessionsResponse' {remoteAccessSessions} -> remoteAccessSessions) (\s@ListRemoteAccessSessionsResponse' {} a -> s {remoteAccessSessions = a} :: ListRemoteAccessSessionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRemoteAccessSessionsResponse_httpStatus :: Lens.Lens' ListRemoteAccessSessionsResponse Prelude.Int
+listRemoteAccessSessionsResponse_httpStatus :: Lens.Lens' ListRemoteAccessSessionsResponse Core.Int
 listRemoteAccessSessionsResponse_httpStatus = Lens.lens (\ListRemoteAccessSessionsResponse' {httpStatus} -> httpStatus) (\s@ListRemoteAccessSessionsResponse' {} a -> s {httpStatus = a} :: ListRemoteAccessSessionsResponse)
 
-instance
-  Prelude.NFData
-    ListRemoteAccessSessionsResponse
+instance Core.NFData ListRemoteAccessSessionsResponse

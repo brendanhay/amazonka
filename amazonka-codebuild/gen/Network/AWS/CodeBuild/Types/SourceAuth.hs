@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeBuild.Types.SourceAuth where
 
 import Network.AWS.CodeBuild.Types.SourceAuthType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the authorization settings for AWS CodeBuild to access
 -- the source code to be built.
@@ -33,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSourceAuth' smart constructor.
 data SourceAuth = SourceAuth'
   { -- | The resource value that applies to the specified authorization type.
-    resource :: Prelude.Maybe Prelude.Text,
+    resource :: Core.Maybe Core.Text,
     -- | This data type is deprecated and is no longer accurate or used.
     --
     -- The authorization type to use. The only valid value is @OAUTH@, which
     -- represents the OAuth authorization type.
     type' :: SourceAuthType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SourceAuth' with all optional fields omitted.
@@ -62,12 +61,12 @@ newSourceAuth ::
   SourceAuth
 newSourceAuth pType_ =
   SourceAuth'
-    { resource = Prelude.Nothing,
+    { resource = Core.Nothing,
       type' = pType_
     }
 
 -- | The resource value that applies to the specified authorization type.
-sourceAuth_resource :: Lens.Lens' SourceAuth (Prelude.Maybe Prelude.Text)
+sourceAuth_resource :: Lens.Lens' SourceAuth (Core.Maybe Core.Text)
 sourceAuth_resource = Lens.lens (\SourceAuth' {resource} -> resource) (\s@SourceAuth' {} a -> s {resource = a} :: SourceAuth)
 
 -- | This data type is deprecated and is no longer accurate or used.
@@ -77,25 +76,24 @@ sourceAuth_resource = Lens.lens (\SourceAuth' {resource} -> resource) (\s@Source
 sourceAuth_type :: Lens.Lens' SourceAuth SourceAuthType
 sourceAuth_type = Lens.lens (\SourceAuth' {type'} -> type') (\s@SourceAuth' {} a -> s {type' = a} :: SourceAuth)
 
-instance Prelude.FromJSON SourceAuth where
+instance Core.FromJSON SourceAuth where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SourceAuth"
       ( \x ->
           SourceAuth'
-            Prelude.<$> (x Prelude..:? "resource")
-            Prelude.<*> (x Prelude..: "type")
+            Core.<$> (x Core..:? "resource") Core.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable SourceAuth
+instance Core.Hashable SourceAuth
 
-instance Prelude.NFData SourceAuth
+instance Core.NFData SourceAuth
 
-instance Prelude.ToJSON SourceAuth where
+instance Core.ToJSON SourceAuth where
   toJSON SourceAuth' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resource" Prelude..=) Prelude.<$> resource,
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("resource" Core..=) Core.<$> resource,
+            Core.Just ("type" Core..= type')
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.AdjustmentType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a policy adjustment type.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data AdjustmentType = AdjustmentType'
   { -- | The policy adjustment type. The valid values are @ChangeInCapacity@,
     -- @ExactCapacity@, and @PercentChangeInCapacity@.
-    adjustmentType :: Prelude.Maybe Prelude.Text
+    adjustmentType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdjustmentType' with all optional fields omitted.
@@ -46,18 +45,18 @@ data AdjustmentType = AdjustmentType'
 newAdjustmentType ::
   AdjustmentType
 newAdjustmentType =
-  AdjustmentType' {adjustmentType = Prelude.Nothing}
+  AdjustmentType' {adjustmentType = Core.Nothing}
 
 -- | The policy adjustment type. The valid values are @ChangeInCapacity@,
 -- @ExactCapacity@, and @PercentChangeInCapacity@.
-adjustmentType_adjustmentType :: Lens.Lens' AdjustmentType (Prelude.Maybe Prelude.Text)
+adjustmentType_adjustmentType :: Lens.Lens' AdjustmentType (Core.Maybe Core.Text)
 adjustmentType_adjustmentType = Lens.lens (\AdjustmentType' {adjustmentType} -> adjustmentType) (\s@AdjustmentType' {} a -> s {adjustmentType = a} :: AdjustmentType)
 
-instance Prelude.FromXML AdjustmentType where
+instance Core.FromXML AdjustmentType where
   parseXML x =
     AdjustmentType'
-      Prelude.<$> (x Prelude..@? "AdjustmentType")
+      Core.<$> (x Core..@? "AdjustmentType")
 
-instance Prelude.Hashable AdjustmentType
+instance Core.Hashable AdjustmentType
 
-instance Prelude.NFData AdjustmentType
+instance Core.NFData AdjustmentType

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.BgpStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The BGP configuration information.
 --
 -- /See:/ 'newTransitGatewayAttachmentBgpConfiguration' smart constructor.
 data TransitGatewayAttachmentBgpConfiguration = TransitGatewayAttachmentBgpConfiguration'
   { -- | The interior BGP peer IP address for the appliance.
-    peerAddress :: Prelude.Maybe Prelude.Text,
+    peerAddress :: Core.Maybe Core.Text,
     -- | The peer Autonomous System Number (ASN).
-    peerAsn :: Prelude.Maybe Prelude.Integer,
+    peerAsn :: Core.Maybe Core.Integer,
     -- | The BGP status.
-    bgpStatus :: Prelude.Maybe BgpStatus,
+    bgpStatus :: Core.Maybe BgpStatus,
     -- | The interior BGP peer IP address for the transit gateway.
-    transitGatewayAddress :: Prelude.Maybe Prelude.Text,
+    transitGatewayAddress :: Core.Maybe Core.Text,
     -- | The transit gateway Autonomous System Number (ASN).
-    transitGatewayAsn :: Prelude.Maybe Prelude.Integer
+    transitGatewayAsn :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayAttachmentBgpConfiguration' with all optional fields omitted.
@@ -64,51 +63,50 @@ newTransitGatewayAttachmentBgpConfiguration ::
 newTransitGatewayAttachmentBgpConfiguration =
   TransitGatewayAttachmentBgpConfiguration'
     { peerAddress =
-        Prelude.Nothing,
-      peerAsn = Prelude.Nothing,
-      bgpStatus = Prelude.Nothing,
+        Core.Nothing,
+      peerAsn = Core.Nothing,
+      bgpStatus = Core.Nothing,
       transitGatewayAddress =
-        Prelude.Nothing,
-      transitGatewayAsn =
-        Prelude.Nothing
+        Core.Nothing,
+      transitGatewayAsn = Core.Nothing
     }
 
 -- | The interior BGP peer IP address for the appliance.
-transitGatewayAttachmentBgpConfiguration_peerAddress :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe Prelude.Text)
+transitGatewayAttachmentBgpConfiguration_peerAddress :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Core.Maybe Core.Text)
 transitGatewayAttachmentBgpConfiguration_peerAddress = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {peerAddress} -> peerAddress) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {peerAddress = a} :: TransitGatewayAttachmentBgpConfiguration)
 
 -- | The peer Autonomous System Number (ASN).
-transitGatewayAttachmentBgpConfiguration_peerAsn :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe Prelude.Integer)
+transitGatewayAttachmentBgpConfiguration_peerAsn :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Core.Maybe Core.Integer)
 transitGatewayAttachmentBgpConfiguration_peerAsn = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {peerAsn} -> peerAsn) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {peerAsn = a} :: TransitGatewayAttachmentBgpConfiguration)
 
 -- | The BGP status.
-transitGatewayAttachmentBgpConfiguration_bgpStatus :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe BgpStatus)
+transitGatewayAttachmentBgpConfiguration_bgpStatus :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Core.Maybe BgpStatus)
 transitGatewayAttachmentBgpConfiguration_bgpStatus = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {bgpStatus} -> bgpStatus) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {bgpStatus = a} :: TransitGatewayAttachmentBgpConfiguration)
 
 -- | The interior BGP peer IP address for the transit gateway.
-transitGatewayAttachmentBgpConfiguration_transitGatewayAddress :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe Prelude.Text)
+transitGatewayAttachmentBgpConfiguration_transitGatewayAddress :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Core.Maybe Core.Text)
 transitGatewayAttachmentBgpConfiguration_transitGatewayAddress = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {transitGatewayAddress} -> transitGatewayAddress) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {transitGatewayAddress = a} :: TransitGatewayAttachmentBgpConfiguration)
 
 -- | The transit gateway Autonomous System Number (ASN).
-transitGatewayAttachmentBgpConfiguration_transitGatewayAsn :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Prelude.Maybe Prelude.Integer)
+transitGatewayAttachmentBgpConfiguration_transitGatewayAsn :: Lens.Lens' TransitGatewayAttachmentBgpConfiguration (Core.Maybe Core.Integer)
 transitGatewayAttachmentBgpConfiguration_transitGatewayAsn = Lens.lens (\TransitGatewayAttachmentBgpConfiguration' {transitGatewayAsn} -> transitGatewayAsn) (\s@TransitGatewayAttachmentBgpConfiguration' {} a -> s {transitGatewayAsn = a} :: TransitGatewayAttachmentBgpConfiguration)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     TransitGatewayAttachmentBgpConfiguration
   where
   parseXML x =
     TransitGatewayAttachmentBgpConfiguration'
-      Prelude.<$> (x Prelude..@? "peerAddress")
-        Prelude.<*> (x Prelude..@? "peerAsn")
-        Prelude.<*> (x Prelude..@? "bgpStatus")
-        Prelude.<*> (x Prelude..@? "transitGatewayAddress")
-        Prelude.<*> (x Prelude..@? "transitGatewayAsn")
+      Core.<$> (x Core..@? "peerAddress")
+      Core.<*> (x Core..@? "peerAsn")
+      Core.<*> (x Core..@? "bgpStatus")
+      Core.<*> (x Core..@? "transitGatewayAddress")
+      Core.<*> (x Core..@? "transitGatewayAsn")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TransitGatewayAttachmentBgpConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     TransitGatewayAttachmentBgpConfiguration

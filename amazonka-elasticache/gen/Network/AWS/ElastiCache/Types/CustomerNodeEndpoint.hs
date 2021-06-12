@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.CustomerNodeEndpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The endpoint from which data should be migrated.
 --
 -- /See:/ 'newCustomerNodeEndpoint' smart constructor.
 data CustomerNodeEndpoint = CustomerNodeEndpoint'
   { -- | The address of the node endpoint
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | The port of the node endpoint
-    port :: Prelude.Maybe Prelude.Int
+    port :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CustomerNodeEndpoint' with all optional fields omitted.
@@ -49,25 +48,23 @@ newCustomerNodeEndpoint ::
   CustomerNodeEndpoint
 newCustomerNodeEndpoint =
   CustomerNodeEndpoint'
-    { address = Prelude.Nothing,
-      port = Prelude.Nothing
+    { address = Core.Nothing,
+      port = Core.Nothing
     }
 
 -- | The address of the node endpoint
-customerNodeEndpoint_address :: Lens.Lens' CustomerNodeEndpoint (Prelude.Maybe Prelude.Text)
+customerNodeEndpoint_address :: Lens.Lens' CustomerNodeEndpoint (Core.Maybe Core.Text)
 customerNodeEndpoint_address = Lens.lens (\CustomerNodeEndpoint' {address} -> address) (\s@CustomerNodeEndpoint' {} a -> s {address = a} :: CustomerNodeEndpoint)
 
 -- | The port of the node endpoint
-customerNodeEndpoint_port :: Lens.Lens' CustomerNodeEndpoint (Prelude.Maybe Prelude.Int)
+customerNodeEndpoint_port :: Lens.Lens' CustomerNodeEndpoint (Core.Maybe Core.Int)
 customerNodeEndpoint_port = Lens.lens (\CustomerNodeEndpoint' {port} -> port) (\s@CustomerNodeEndpoint' {} a -> s {port = a} :: CustomerNodeEndpoint)
 
-instance Prelude.Hashable CustomerNodeEndpoint
+instance Core.Hashable CustomerNodeEndpoint
 
-instance Prelude.NFData CustomerNodeEndpoint
+instance Core.NFData CustomerNodeEndpoint
 
-instance Prelude.ToQuery CustomerNodeEndpoint where
+instance Core.ToQuery CustomerNodeEndpoint where
   toQuery CustomerNodeEndpoint' {..} =
-    Prelude.mconcat
-      [ "Address" Prelude.=: address,
-        "Port" Prelude.=: port
-      ]
+    Core.mconcat
+      ["Address" Core.=: address, "Port" Core.=: port]

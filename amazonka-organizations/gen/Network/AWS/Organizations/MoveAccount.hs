@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Organizations.MoveAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ data MoveAccount = MoveAccount'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The unique identifier (ID) of the root or organizational unit that you
     -- want to move the account from.
     --
@@ -68,7 +67,7 @@ data MoveAccount = MoveAccount'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    sourceParentId :: Prelude.Text,
+    sourceParentId :: Core.Text,
     -- | The unique identifier (ID) of the root or organizational unit that you
     -- want to move the account to.
     --
@@ -82,9 +81,9 @@ data MoveAccount = MoveAccount'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    destinationParentId :: Prelude.Text
+    destinationParentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MoveAccount' with all optional fields omitted.
@@ -128,11 +127,11 @@ data MoveAccount = MoveAccount'
 --     dash and from 8 to 32 additional lowercase letters or digits.
 newMoveAccount ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceParentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationParentId'
-  Prelude.Text ->
+  Core.Text ->
   MoveAccount
 newMoveAccount
   pAccountId_
@@ -148,7 +147,7 @@ newMoveAccount
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-moveAccount_accountId :: Lens.Lens' MoveAccount Prelude.Text
+moveAccount_accountId :: Lens.Lens' MoveAccount Core.Text
 moveAccount_accountId = Lens.lens (\MoveAccount' {accountId} -> accountId) (\s@MoveAccount' {} a -> s {accountId = a} :: MoveAccount)
 
 -- | The unique identifier (ID) of the root or organizational unit that you
@@ -164,7 +163,7 @@ moveAccount_accountId = Lens.lens (\MoveAccount' {accountId} -> accountId) (\s@M
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-moveAccount_sourceParentId :: Lens.Lens' MoveAccount Prelude.Text
+moveAccount_sourceParentId :: Lens.Lens' MoveAccount Core.Text
 moveAccount_sourceParentId = Lens.lens (\MoveAccount' {sourceParentId} -> sourceParentId) (\s@MoveAccount' {} a -> s {sourceParentId = a} :: MoveAccount)
 
 -- | The unique identifier (ID) of the root or organizational unit that you
@@ -180,58 +179,53 @@ moveAccount_sourceParentId = Lens.lens (\MoveAccount' {sourceParentId} -> source
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-moveAccount_destinationParentId :: Lens.Lens' MoveAccount Prelude.Text
+moveAccount_destinationParentId :: Lens.Lens' MoveAccount Core.Text
 moveAccount_destinationParentId = Lens.lens (\MoveAccount' {destinationParentId} -> destinationParentId) (\s@MoveAccount' {} a -> s {destinationParentId = a} :: MoveAccount)
 
-instance Prelude.AWSRequest MoveAccount where
-  type Rs MoveAccount = MoveAccountResponse
+instance Core.AWSRequest MoveAccount where
+  type AWSResponse MoveAccount = MoveAccountResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull MoveAccountResponse'
 
-instance Prelude.Hashable MoveAccount
+instance Core.Hashable MoveAccount
 
-instance Prelude.NFData MoveAccount
+instance Core.NFData MoveAccount
 
-instance Prelude.ToHeaders MoveAccount where
+instance Core.ToHeaders MoveAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.MoveAccount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.MoveAccount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON MoveAccount where
+instance Core.ToJSON MoveAccount where
   toJSON MoveAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just
-              ("SourceParentId" Prelude..= sourceParentId),
-            Prelude.Just
-              ( "DestinationParentId"
-                  Prelude..= destinationParentId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("SourceParentId" Core..= sourceParentId),
+            Core.Just
+              ("DestinationParentId" Core..= destinationParentId)
           ]
       )
 
-instance Prelude.ToPath MoveAccount where
-  toPath = Prelude.const "/"
+instance Core.ToPath MoveAccount where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery MoveAccount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery MoveAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newMoveAccountResponse' smart constructor.
 data MoveAccountResponse = MoveAccountResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MoveAccountResponse' with all optional fields omitted.
@@ -241,4 +235,4 @@ newMoveAccountResponse ::
   MoveAccountResponse
 newMoveAccountResponse = MoveAccountResponse'
 
-instance Prelude.NFData MoveAccountResponse
+instance Core.NFData MoveAccountResponse

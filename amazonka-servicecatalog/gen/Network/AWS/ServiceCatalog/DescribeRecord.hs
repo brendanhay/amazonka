@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.ServiceCatalog.DescribeRecord
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -65,10 +64,10 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDescribeRecord' smart constructor.
 data DescribeRecord = DescribeRecord'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -76,12 +75,12 @@ data DescribeRecord = DescribeRecord'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The record identifier of the provisioned product. This identifier is
     -- returned by the request operation.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRecord' with all optional fields omitted.
@@ -108,23 +107,23 @@ data DescribeRecord = DescribeRecord'
 -- returned by the request operation.
 newDescribeRecord ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DescribeRecord
 newDescribeRecord pId_ =
   DescribeRecord'
-    { pageSize = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+    { pageSize = Core.Nothing,
+      pageToken = Core.Nothing,
+      acceptLanguage = Core.Nothing,
       id = pId_
     }
 
 -- | The maximum number of items to return with this call.
-describeRecord_pageSize :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Natural)
+describeRecord_pageSize :: Lens.Lens' DescribeRecord (Core.Maybe Core.Natural)
 describeRecord_pageSize = Lens.lens (\DescribeRecord' {pageSize} -> pageSize) (\s@DescribeRecord' {} a -> s {pageSize = a} :: DescribeRecord)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-describeRecord_pageToken :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Text)
+describeRecord_pageToken :: Lens.Lens' DescribeRecord (Core.Maybe Core.Text)
 describeRecord_pageToken = Lens.lens (\DescribeRecord' {pageToken} -> pageToken) (\s@DescribeRecord' {} a -> s {pageToken = a} :: DescribeRecord)
 
 -- | The language code.
@@ -134,81 +133,78 @@ describeRecord_pageToken = Lens.lens (\DescribeRecord' {pageToken} -> pageToken)
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describeRecord_acceptLanguage :: Lens.Lens' DescribeRecord (Prelude.Maybe Prelude.Text)
+describeRecord_acceptLanguage :: Lens.Lens' DescribeRecord (Core.Maybe Core.Text)
 describeRecord_acceptLanguage = Lens.lens (\DescribeRecord' {acceptLanguage} -> acceptLanguage) (\s@DescribeRecord' {} a -> s {acceptLanguage = a} :: DescribeRecord)
 
 -- | The record identifier of the provisioned product. This identifier is
 -- returned by the request operation.
-describeRecord_id :: Lens.Lens' DescribeRecord Prelude.Text
+describeRecord_id :: Lens.Lens' DescribeRecord Core.Text
 describeRecord_id = Lens.lens (\DescribeRecord' {id} -> id) (\s@DescribeRecord' {} a -> s {id = a} :: DescribeRecord)
 
-instance Prelude.AWSRequest DescribeRecord where
-  type Rs DescribeRecord = DescribeRecordResponse
+instance Core.AWSRequest DescribeRecord where
+  type
+    AWSResponse DescribeRecord =
+      DescribeRecordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeRecordResponse'
-            Prelude.<$> (x Prelude..?> "RecordDetail")
-            Prelude.<*> ( x Prelude..?> "RecordOutputs"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RecordDetail")
+            Core.<*> (x Core..?> "RecordOutputs" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRecord
+instance Core.Hashable DescribeRecord
 
-instance Prelude.NFData DescribeRecord
+instance Core.NFData DescribeRecord
 
-instance Prelude.ToHeaders DescribeRecord where
+instance Core.ToHeaders DescribeRecord where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DescribeRecord" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DescribeRecord" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeRecord where
+instance Core.ToJSON DescribeRecord where
   toJSON DescribeRecord' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
-            ("PageToken" Prelude..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("Id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath DescribeRecord where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeRecord where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeRecord where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeRecord where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeRecordResponse' smart constructor.
 data DescribeRecordResponse = DescribeRecordResponse'
   { -- | Information about the product.
-    recordDetail :: Prelude.Maybe RecordDetail,
+    recordDetail :: Core.Maybe RecordDetail,
     -- | Information about the product created as the result of a request. For
     -- example, the output for a CloudFormation-backed product that creates an
     -- S3 bucket would include the S3 bucket URL.
-    recordOutputs :: Prelude.Maybe [RecordOutput],
+    recordOutputs :: Core.Maybe [RecordOutput],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRecordResponse' with all optional fields omitted.
@@ -230,34 +226,34 @@ data DescribeRecordResponse = DescribeRecordResponse'
 -- 'httpStatus', 'describeRecordResponse_httpStatus' - The response's http status code.
 newDescribeRecordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeRecordResponse
 newDescribeRecordResponse pHttpStatus_ =
   DescribeRecordResponse'
     { recordDetail =
-        Prelude.Nothing,
-      recordOutputs = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+        Core.Nothing,
+      recordOutputs = Core.Nothing,
+      nextPageToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the product.
-describeRecordResponse_recordDetail :: Lens.Lens' DescribeRecordResponse (Prelude.Maybe RecordDetail)
+describeRecordResponse_recordDetail :: Lens.Lens' DescribeRecordResponse (Core.Maybe RecordDetail)
 describeRecordResponse_recordDetail = Lens.lens (\DescribeRecordResponse' {recordDetail} -> recordDetail) (\s@DescribeRecordResponse' {} a -> s {recordDetail = a} :: DescribeRecordResponse)
 
 -- | Information about the product created as the result of a request. For
 -- example, the output for a CloudFormation-backed product that creates an
 -- S3 bucket would include the S3 bucket URL.
-describeRecordResponse_recordOutputs :: Lens.Lens' DescribeRecordResponse (Prelude.Maybe [RecordOutput])
-describeRecordResponse_recordOutputs = Lens.lens (\DescribeRecordResponse' {recordOutputs} -> recordOutputs) (\s@DescribeRecordResponse' {} a -> s {recordOutputs = a} :: DescribeRecordResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeRecordResponse_recordOutputs :: Lens.Lens' DescribeRecordResponse (Core.Maybe [RecordOutput])
+describeRecordResponse_recordOutputs = Lens.lens (\DescribeRecordResponse' {recordOutputs} -> recordOutputs) (\s@DescribeRecordResponse' {} a -> s {recordOutputs = a} :: DescribeRecordResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-describeRecordResponse_nextPageToken :: Lens.Lens' DescribeRecordResponse (Prelude.Maybe Prelude.Text)
+describeRecordResponse_nextPageToken :: Lens.Lens' DescribeRecordResponse (Core.Maybe Core.Text)
 describeRecordResponse_nextPageToken = Lens.lens (\DescribeRecordResponse' {nextPageToken} -> nextPageToken) (\s@DescribeRecordResponse' {} a -> s {nextPageToken = a} :: DescribeRecordResponse)
 
 -- | The response's http status code.
-describeRecordResponse_httpStatus :: Lens.Lens' DescribeRecordResponse Prelude.Int
+describeRecordResponse_httpStatus :: Lens.Lens' DescribeRecordResponse Core.Int
 describeRecordResponse_httpStatus = Lens.lens (\DescribeRecordResponse' {httpStatus} -> httpStatus) (\s@DescribeRecordResponse' {} a -> s {httpStatus = a} :: DescribeRecordResponse)
 
-instance Prelude.NFData DescribeRecordResponse
+instance Core.NFData DescribeRecordResponse

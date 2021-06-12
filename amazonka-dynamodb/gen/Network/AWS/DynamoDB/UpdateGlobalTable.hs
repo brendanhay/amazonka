@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,20 +59,20 @@ module Network.AWS.DynamoDB.UpdateGlobalTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGlobalTable' smart constructor.
 data UpdateGlobalTable = UpdateGlobalTable'
   { -- | The global table name.
-    globalTableName :: Prelude.Text,
+    globalTableName :: Core.Text,
     -- | A list of Regions that should be added or removed from the global table.
     replicaUpdates :: [ReplicaUpdate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGlobalTable' with all optional fields omitted.
@@ -88,78 +87,77 @@ data UpdateGlobalTable = UpdateGlobalTable'
 -- 'replicaUpdates', 'updateGlobalTable_replicaUpdates' - A list of Regions that should be added or removed from the global table.
 newUpdateGlobalTable ::
   -- | 'globalTableName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateGlobalTable
 newUpdateGlobalTable pGlobalTableName_ =
   UpdateGlobalTable'
     { globalTableName =
         pGlobalTableName_,
-      replicaUpdates = Prelude.mempty
+      replicaUpdates = Core.mempty
     }
 
 -- | The global table name.
-updateGlobalTable_globalTableName :: Lens.Lens' UpdateGlobalTable Prelude.Text
+updateGlobalTable_globalTableName :: Lens.Lens' UpdateGlobalTable Core.Text
 updateGlobalTable_globalTableName = Lens.lens (\UpdateGlobalTable' {globalTableName} -> globalTableName) (\s@UpdateGlobalTable' {} a -> s {globalTableName = a} :: UpdateGlobalTable)
 
 -- | A list of Regions that should be added or removed from the global table.
 updateGlobalTable_replicaUpdates :: Lens.Lens' UpdateGlobalTable [ReplicaUpdate]
-updateGlobalTable_replicaUpdates = Lens.lens (\UpdateGlobalTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateGlobalTable' {} a -> s {replicaUpdates = a} :: UpdateGlobalTable) Prelude.. Prelude._Coerce
+updateGlobalTable_replicaUpdates = Lens.lens (\UpdateGlobalTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateGlobalTable' {} a -> s {replicaUpdates = a} :: UpdateGlobalTable) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UpdateGlobalTable where
-  type Rs UpdateGlobalTable = UpdateGlobalTableResponse
+instance Core.AWSRequest UpdateGlobalTable where
+  type
+    AWSResponse UpdateGlobalTable =
+      UpdateGlobalTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateGlobalTableResponse'
-            Prelude.<$> (x Prelude..?> "GlobalTableDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GlobalTableDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGlobalTable
+instance Core.Hashable UpdateGlobalTable
 
-instance Prelude.NFData UpdateGlobalTable
+instance Core.NFData UpdateGlobalTable
 
-instance Prelude.ToHeaders UpdateGlobalTable where
+instance Core.ToHeaders UpdateGlobalTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.UpdateGlobalTable" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.UpdateGlobalTable" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateGlobalTable where
+instance Core.ToJSON UpdateGlobalTable where
   toJSON UpdateGlobalTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("GlobalTableName" Prelude..= globalTableName),
-            Prelude.Just
-              ("ReplicaUpdates" Prelude..= replicaUpdates)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("GlobalTableName" Core..= globalTableName),
+            Core.Just ("ReplicaUpdates" Core..= replicaUpdates)
           ]
       )
 
-instance Prelude.ToPath UpdateGlobalTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateGlobalTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateGlobalTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateGlobalTable where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateGlobalTableResponse' smart constructor.
 data UpdateGlobalTableResponse = UpdateGlobalTableResponse'
   { -- | Contains the details of the global table.
-    globalTableDescription :: Prelude.Maybe GlobalTableDescription,
+    globalTableDescription :: Core.Maybe GlobalTableDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGlobalTableResponse' with all optional fields omitted.
@@ -174,21 +172,21 @@ data UpdateGlobalTableResponse = UpdateGlobalTableResponse'
 -- 'httpStatus', 'updateGlobalTableResponse_httpStatus' - The response's http status code.
 newUpdateGlobalTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateGlobalTableResponse
 newUpdateGlobalTableResponse pHttpStatus_ =
   UpdateGlobalTableResponse'
     { globalTableDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the details of the global table.
-updateGlobalTableResponse_globalTableDescription :: Lens.Lens' UpdateGlobalTableResponse (Prelude.Maybe GlobalTableDescription)
+updateGlobalTableResponse_globalTableDescription :: Lens.Lens' UpdateGlobalTableResponse (Core.Maybe GlobalTableDescription)
 updateGlobalTableResponse_globalTableDescription = Lens.lens (\UpdateGlobalTableResponse' {globalTableDescription} -> globalTableDescription) (\s@UpdateGlobalTableResponse' {} a -> s {globalTableDescription = a} :: UpdateGlobalTableResponse)
 
 -- | The response's http status code.
-updateGlobalTableResponse_httpStatus :: Lens.Lens' UpdateGlobalTableResponse Prelude.Int
+updateGlobalTableResponse_httpStatus :: Lens.Lens' UpdateGlobalTableResponse Core.Int
 updateGlobalTableResponse_httpStatus = Lens.lens (\UpdateGlobalTableResponse' {httpStatus} -> httpStatus) (\s@UpdateGlobalTableResponse' {} a -> s {httpStatus = a} :: UpdateGlobalTableResponse)
 
-instance Prelude.NFData UpdateGlobalTableResponse
+instance Core.NFData UpdateGlobalTableResponse

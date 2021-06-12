@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.FargatePlatformConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The platform configuration for jobs running on Fargate resources. Jobs
 -- running on EC2 resources must not specify this parameter.
@@ -35,9 +34,9 @@ data FargatePlatformConfiguration = FargatePlatformConfiguration'
     -- Fargate platform for compute resources. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate platform versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    platformVersion :: Prelude.Maybe Prelude.Text
+    platformVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FargatePlatformConfiguration' with all optional fields omitted.
@@ -59,7 +58,7 @@ newFargatePlatformConfiguration ::
 newFargatePlatformConfiguration =
   FargatePlatformConfiguration'
     { platformVersion =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The AWS Fargate platform version on which the jobs are running. A
@@ -69,32 +68,27 @@ newFargatePlatformConfiguration =
 -- Fargate platform for compute resources. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate platform versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-fargatePlatformConfiguration_platformVersion :: Lens.Lens' FargatePlatformConfiguration (Prelude.Maybe Prelude.Text)
+fargatePlatformConfiguration_platformVersion :: Lens.Lens' FargatePlatformConfiguration (Core.Maybe Core.Text)
 fargatePlatformConfiguration_platformVersion = Lens.lens (\FargatePlatformConfiguration' {platformVersion} -> platformVersion) (\s@FargatePlatformConfiguration' {} a -> s {platformVersion = a} :: FargatePlatformConfiguration)
 
-instance
-  Prelude.FromJSON
-    FargatePlatformConfiguration
-  where
+instance Core.FromJSON FargatePlatformConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FargatePlatformConfiguration"
       ( \x ->
           FargatePlatformConfiguration'
-            Prelude.<$> (x Prelude..:? "platformVersion")
+            Core.<$> (x Core..:? "platformVersion")
       )
 
-instance
-  Prelude.Hashable
-    FargatePlatformConfiguration
+instance Core.Hashable FargatePlatformConfiguration
 
-instance Prelude.NFData FargatePlatformConfiguration
+instance Core.NFData FargatePlatformConfiguration
 
-instance Prelude.ToJSON FargatePlatformConfiguration where
+instance Core.ToJSON FargatePlatformConfiguration where
   toJSON FargatePlatformConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("platformVersion" Prelude..=)
-              Prelude.<$> platformVersion
+    Core.object
+      ( Core.catMaybes
+          [ ("platformVersion" Core..=)
+              Core.<$> platformVersion
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.Organizations.CancelHandshake
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +62,9 @@ data CancelHandshake = CancelHandshake'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    handshakeId :: Prelude.Text
+    handshakeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelHandshake' with all optional fields omitted.
@@ -83,7 +82,7 @@ data CancelHandshake = CancelHandshake'
 -- digits.
 newCancelHandshake ::
   -- | 'handshakeId'
-  Prelude.Text ->
+  Core.Text ->
   CancelHandshake
 newCancelHandshake pHandshakeId_ =
   CancelHandshake' {handshakeId = pHandshakeId_}
@@ -94,62 +93,60 @@ newCancelHandshake pHandshakeId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-cancelHandshake_handshakeId :: Lens.Lens' CancelHandshake Prelude.Text
+cancelHandshake_handshakeId :: Lens.Lens' CancelHandshake Core.Text
 cancelHandshake_handshakeId = Lens.lens (\CancelHandshake' {handshakeId} -> handshakeId) (\s@CancelHandshake' {} a -> s {handshakeId = a} :: CancelHandshake)
 
-instance Prelude.AWSRequest CancelHandshake where
-  type Rs CancelHandshake = CancelHandshakeResponse
+instance Core.AWSRequest CancelHandshake where
+  type
+    AWSResponse CancelHandshake =
+      CancelHandshakeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelHandshakeResponse'
-            Prelude.<$> (x Prelude..?> "Handshake")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Handshake")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelHandshake
+instance Core.Hashable CancelHandshake
 
-instance Prelude.NFData CancelHandshake
+instance Core.NFData CancelHandshake
 
-instance Prelude.ToHeaders CancelHandshake where
+instance Core.ToHeaders CancelHandshake where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.CancelHandshake" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.CancelHandshake" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CancelHandshake where
+instance Core.ToJSON CancelHandshake where
   toJSON CancelHandshake' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("HandshakeId" Prelude..= handshakeId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("HandshakeId" Core..= handshakeId)]
       )
 
-instance Prelude.ToPath CancelHandshake where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelHandshake where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelHandshake where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelHandshake where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelHandshakeResponse' smart constructor.
 data CancelHandshakeResponse = CancelHandshakeResponse'
   { -- | A structure that contains details about the handshake that you canceled.
-    handshake :: Prelude.Maybe Handshake,
+    handshake :: Core.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelHandshakeResponse' with all optional fields omitted.
@@ -164,21 +161,20 @@ data CancelHandshakeResponse = CancelHandshakeResponse'
 -- 'httpStatus', 'cancelHandshakeResponse_httpStatus' - The response's http status code.
 newCancelHandshakeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelHandshakeResponse
 newCancelHandshakeResponse pHttpStatus_ =
   CancelHandshakeResponse'
-    { handshake =
-        Prelude.Nothing,
+    { handshake = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the handshake that you canceled.
-cancelHandshakeResponse_handshake :: Lens.Lens' CancelHandshakeResponse (Prelude.Maybe Handshake)
+cancelHandshakeResponse_handshake :: Lens.Lens' CancelHandshakeResponse (Core.Maybe Handshake)
 cancelHandshakeResponse_handshake = Lens.lens (\CancelHandshakeResponse' {handshake} -> handshake) (\s@CancelHandshakeResponse' {} a -> s {handshake = a} :: CancelHandshakeResponse)
 
 -- | The response's http status code.
-cancelHandshakeResponse_httpStatus :: Lens.Lens' CancelHandshakeResponse Prelude.Int
+cancelHandshakeResponse_httpStatus :: Lens.Lens' CancelHandshakeResponse Core.Int
 cancelHandshakeResponse_httpStatus = Lens.lens (\CancelHandshakeResponse' {httpStatus} -> httpStatus) (\s@CancelHandshakeResponse' {} a -> s {httpStatus = a} :: CancelHandshakeResponse)
 
-instance Prelude.NFData CancelHandshakeResponse
+instance Core.NFData CancelHandshakeResponse

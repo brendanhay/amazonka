@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +61,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeIdentityPool' smart constructor.
 data DescribeIdentityPool = DescribeIdentityPool'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text
+    identityPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityPool' with all optional fields omitted.
@@ -77,7 +76,7 @@ data DescribeIdentityPool = DescribeIdentityPool'
 -- 'identityPoolId', 'describeIdentityPool_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newDescribeIdentityPool ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeIdentityPool
 newDescribeIdentityPool pIdentityPoolId_ =
   DescribeIdentityPool'
@@ -86,46 +85,44 @@ newDescribeIdentityPool pIdentityPoolId_ =
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-describeIdentityPool_identityPoolId :: Lens.Lens' DescribeIdentityPool Prelude.Text
+describeIdentityPool_identityPoolId :: Lens.Lens' DescribeIdentityPool Core.Text
 describeIdentityPool_identityPoolId = Lens.lens (\DescribeIdentityPool' {identityPoolId} -> identityPoolId) (\s@DescribeIdentityPool' {} a -> s {identityPoolId = a} :: DescribeIdentityPool)
 
-instance Prelude.AWSRequest DescribeIdentityPool where
-  type Rs DescribeIdentityPool = IdentityPool
+instance Core.AWSRequest DescribeIdentityPool where
+  type AWSResponse DescribeIdentityPool = IdentityPool
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeIdentityPool
+instance Core.Hashable DescribeIdentityPool
 
-instance Prelude.NFData DescribeIdentityPool
+instance Core.NFData DescribeIdentityPool
 
-instance Prelude.ToHeaders DescribeIdentityPool where
+instance Core.ToHeaders DescribeIdentityPool where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.DescribeIdentityPool" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.DescribeIdentityPool" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeIdentityPool where
+instance Core.ToJSON DescribeIdentityPool where
   toJSON DescribeIdentityPool' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("IdentityPoolId" Core..= identityPoolId)
           ]
       )
 
-instance Prelude.ToPath DescribeIdentityPool where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeIdentityPool where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeIdentityPool where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeIdentityPool where
+  toQuery = Core.const Core.mempty

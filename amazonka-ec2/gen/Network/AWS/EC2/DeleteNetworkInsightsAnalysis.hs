@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EC2.DeleteNetworkInsightsAnalysis
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ data DeleteNetworkInsightsAnalysis = DeleteNetworkInsightsAnalysis'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the network insights analysis.
-    networkInsightsAnalysisId :: Prelude.Text
+    networkInsightsAnalysisId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkInsightsAnalysis' with all optional fields omitted.
@@ -75,13 +74,13 @@ data DeleteNetworkInsightsAnalysis = DeleteNetworkInsightsAnalysis'
 -- 'networkInsightsAnalysisId', 'deleteNetworkInsightsAnalysis_networkInsightsAnalysisId' - The ID of the network insights analysis.
 newDeleteNetworkInsightsAnalysis ::
   -- | 'networkInsightsAnalysisId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNetworkInsightsAnalysis
 newDeleteNetworkInsightsAnalysis
   pNetworkInsightsAnalysisId_ =
     DeleteNetworkInsightsAnalysis'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         networkInsightsAnalysisId =
           pNetworkInsightsAnalysisId_
       }
@@ -90,69 +89,58 @@ newDeleteNetworkInsightsAnalysis
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteNetworkInsightsAnalysis_dryRun :: Lens.Lens' DeleteNetworkInsightsAnalysis (Prelude.Maybe Prelude.Bool)
+deleteNetworkInsightsAnalysis_dryRun :: Lens.Lens' DeleteNetworkInsightsAnalysis (Core.Maybe Core.Bool)
 deleteNetworkInsightsAnalysis_dryRun = Lens.lens (\DeleteNetworkInsightsAnalysis' {dryRun} -> dryRun) (\s@DeleteNetworkInsightsAnalysis' {} a -> s {dryRun = a} :: DeleteNetworkInsightsAnalysis)
 
 -- | The ID of the network insights analysis.
-deleteNetworkInsightsAnalysis_networkInsightsAnalysisId :: Lens.Lens' DeleteNetworkInsightsAnalysis Prelude.Text
+deleteNetworkInsightsAnalysis_networkInsightsAnalysisId :: Lens.Lens' DeleteNetworkInsightsAnalysis Core.Text
 deleteNetworkInsightsAnalysis_networkInsightsAnalysisId = Lens.lens (\DeleteNetworkInsightsAnalysis' {networkInsightsAnalysisId} -> networkInsightsAnalysisId) (\s@DeleteNetworkInsightsAnalysis' {} a -> s {networkInsightsAnalysisId = a} :: DeleteNetworkInsightsAnalysis)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteNetworkInsightsAnalysis
   where
   type
-    Rs DeleteNetworkInsightsAnalysis =
+    AWSResponse DeleteNetworkInsightsAnalysis =
       DeleteNetworkInsightsAnalysisResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteNetworkInsightsAnalysisResponse'
-            Prelude.<$> (x Prelude..@? "networkInsightsAnalysisId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "networkInsightsAnalysisId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DeleteNetworkInsightsAnalysis
+instance Core.Hashable DeleteNetworkInsightsAnalysis
 
-instance Prelude.NFData DeleteNetworkInsightsAnalysis
+instance Core.NFData DeleteNetworkInsightsAnalysis
 
-instance
-  Prelude.ToHeaders
-    DeleteNetworkInsightsAnalysis
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteNetworkInsightsAnalysis where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteNetworkInsightsAnalysis where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNetworkInsightsAnalysis where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteNetworkInsightsAnalysis
-  where
+instance Core.ToQuery DeleteNetworkInsightsAnalysis where
   toQuery DeleteNetworkInsightsAnalysis' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteNetworkInsightsAnalysis" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
+          Core.=: ("DeleteNetworkInsightsAnalysis" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
         "NetworkInsightsAnalysisId"
-          Prelude.=: networkInsightsAnalysisId
+          Core.=: networkInsightsAnalysisId
       ]
 
 -- | /See:/ 'newDeleteNetworkInsightsAnalysisResponse' smart constructor.
 data DeleteNetworkInsightsAnalysisResponse = DeleteNetworkInsightsAnalysisResponse'
   { -- | The ID of the network insights analysis.
-    networkInsightsAnalysisId :: Prelude.Maybe Prelude.Text,
+    networkInsightsAnalysisId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkInsightsAnalysisResponse' with all optional fields omitted.
@@ -167,23 +155,23 @@ data DeleteNetworkInsightsAnalysisResponse = DeleteNetworkInsightsAnalysisRespon
 -- 'httpStatus', 'deleteNetworkInsightsAnalysisResponse_httpStatus' - The response's http status code.
 newDeleteNetworkInsightsAnalysisResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteNetworkInsightsAnalysisResponse
 newDeleteNetworkInsightsAnalysisResponse pHttpStatus_ =
   DeleteNetworkInsightsAnalysisResponse'
     { networkInsightsAnalysisId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the network insights analysis.
-deleteNetworkInsightsAnalysisResponse_networkInsightsAnalysisId :: Lens.Lens' DeleteNetworkInsightsAnalysisResponse (Prelude.Maybe Prelude.Text)
+deleteNetworkInsightsAnalysisResponse_networkInsightsAnalysisId :: Lens.Lens' DeleteNetworkInsightsAnalysisResponse (Core.Maybe Core.Text)
 deleteNetworkInsightsAnalysisResponse_networkInsightsAnalysisId = Lens.lens (\DeleteNetworkInsightsAnalysisResponse' {networkInsightsAnalysisId} -> networkInsightsAnalysisId) (\s@DeleteNetworkInsightsAnalysisResponse' {} a -> s {networkInsightsAnalysisId = a} :: DeleteNetworkInsightsAnalysisResponse)
 
 -- | The response's http status code.
-deleteNetworkInsightsAnalysisResponse_httpStatus :: Lens.Lens' DeleteNetworkInsightsAnalysisResponse Prelude.Int
+deleteNetworkInsightsAnalysisResponse_httpStatus :: Lens.Lens' DeleteNetworkInsightsAnalysisResponse Core.Int
 deleteNetworkInsightsAnalysisResponse_httpStatus = Lens.lens (\DeleteNetworkInsightsAnalysisResponse' {httpStatus} -> httpStatus) (\s@DeleteNetworkInsightsAnalysisResponse' {} a -> s {httpStatus = a} :: DeleteNetworkInsightsAnalysisResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteNetworkInsightsAnalysisResponse

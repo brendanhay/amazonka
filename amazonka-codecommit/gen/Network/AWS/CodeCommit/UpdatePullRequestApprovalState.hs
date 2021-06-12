@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,21 +39,21 @@ module Network.AWS.CodeCommit.UpdatePullRequestApprovalState
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdatePullRequestApprovalState' smart constructor.
 data UpdatePullRequestApprovalState = UpdatePullRequestApprovalState'
   { -- | The system-generated ID of the pull request.
-    pullRequestId :: Prelude.Text,
+    pullRequestId :: Core.Text,
     -- | The system-generated ID of the revision.
-    revisionId :: Prelude.Text,
+    revisionId :: Core.Text,
     -- | The approval state to associate with the user on the pull request.
     approvalState :: ApprovalState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestApprovalState' with all optional fields omitted.
@@ -71,9 +70,9 @@ data UpdatePullRequestApprovalState = UpdatePullRequestApprovalState'
 -- 'approvalState', 'updatePullRequestApprovalState_approvalState' - The approval state to associate with the user on the pull request.
 newUpdatePullRequestApprovalState ::
   -- | 'pullRequestId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'revisionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'approvalState'
   ApprovalState ->
   UpdatePullRequestApprovalState
@@ -89,11 +88,11 @@ newUpdatePullRequestApprovalState
       }
 
 -- | The system-generated ID of the pull request.
-updatePullRequestApprovalState_pullRequestId :: Lens.Lens' UpdatePullRequestApprovalState Prelude.Text
+updatePullRequestApprovalState_pullRequestId :: Lens.Lens' UpdatePullRequestApprovalState Core.Text
 updatePullRequestApprovalState_pullRequestId = Lens.lens (\UpdatePullRequestApprovalState' {pullRequestId} -> pullRequestId) (\s@UpdatePullRequestApprovalState' {} a -> s {pullRequestId = a} :: UpdatePullRequestApprovalState)
 
 -- | The system-generated ID of the revision.
-updatePullRequestApprovalState_revisionId :: Lens.Lens' UpdatePullRequestApprovalState Prelude.Text
+updatePullRequestApprovalState_revisionId :: Lens.Lens' UpdatePullRequestApprovalState Core.Text
 updatePullRequestApprovalState_revisionId = Lens.lens (\UpdatePullRequestApprovalState' {revisionId} -> revisionId) (\s@UpdatePullRequestApprovalState' {} a -> s {revisionId = a} :: UpdatePullRequestApprovalState)
 
 -- | The approval state to associate with the user on the pull request.
@@ -101,75 +100,58 @@ updatePullRequestApprovalState_approvalState :: Lens.Lens' UpdatePullRequestAppr
 updatePullRequestApprovalState_approvalState = Lens.lens (\UpdatePullRequestApprovalState' {approvalState} -> approvalState) (\s@UpdatePullRequestApprovalState' {} a -> s {approvalState = a} :: UpdatePullRequestApprovalState)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdatePullRequestApprovalState
   where
   type
-    Rs UpdatePullRequestApprovalState =
+    AWSResponse UpdatePullRequestApprovalState =
       UpdatePullRequestApprovalStateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdatePullRequestApprovalStateResponse'
 
-instance
-  Prelude.Hashable
-    UpdatePullRequestApprovalState
+instance Core.Hashable UpdatePullRequestApprovalState
+
+instance Core.NFData UpdatePullRequestApprovalState
 
 instance
-  Prelude.NFData
-    UpdatePullRequestApprovalState
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdatePullRequestApprovalState
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.UpdatePullRequestApprovalState" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.UpdatePullRequestApprovalState" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdatePullRequestApprovalState
-  where
+instance Core.ToJSON UpdatePullRequestApprovalState where
   toJSON UpdatePullRequestApprovalState' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("pullRequestId" Prelude..= pullRequestId),
-            Prelude.Just ("revisionId" Prelude..= revisionId),
-            Prelude.Just
-              ("approvalState" Prelude..= approvalState)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("pullRequestId" Core..= pullRequestId),
+            Core.Just ("revisionId" Core..= revisionId),
+            Core.Just ("approvalState" Core..= approvalState)
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdatePullRequestApprovalState
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdatePullRequestApprovalState where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    UpdatePullRequestApprovalState
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdatePullRequestApprovalState where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdatePullRequestApprovalStateResponse' smart constructor.
 data UpdatePullRequestApprovalStateResponse = UpdatePullRequestApprovalStateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePullRequestApprovalStateResponse' with all optional fields omitted.
@@ -181,5 +163,5 @@ newUpdatePullRequestApprovalStateResponse =
   UpdatePullRequestApprovalStateResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdatePullRequestApprovalStateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Comprehend.DescribeSentimentDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DescribeSentimentDetectionJob = DescribeSentimentDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
     -- operation returns this identifier in its response.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSentimentDetectionJob' with all optional fields omitted.
@@ -67,81 +66,69 @@ data DescribeSentimentDetectionJob = DescribeSentimentDetectionJob'
 -- operation returns this identifier in its response.
 newDescribeSentimentDetectionJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeSentimentDetectionJob
 newDescribeSentimentDetectionJob pJobId_ =
   DescribeSentimentDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
 -- operation returns this identifier in its response.
-describeSentimentDetectionJob_jobId :: Lens.Lens' DescribeSentimentDetectionJob Prelude.Text
+describeSentimentDetectionJob_jobId :: Lens.Lens' DescribeSentimentDetectionJob Core.Text
 describeSentimentDetectionJob_jobId = Lens.lens (\DescribeSentimentDetectionJob' {jobId} -> jobId) (\s@DescribeSentimentDetectionJob' {} a -> s {jobId = a} :: DescribeSentimentDetectionJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeSentimentDetectionJob
   where
   type
-    Rs DescribeSentimentDetectionJob =
+    AWSResponse DescribeSentimentDetectionJob =
       DescribeSentimentDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeSentimentDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "SentimentDetectionJobProperties")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SentimentDetectionJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeSentimentDetectionJob
+instance Core.Hashable DescribeSentimentDetectionJob
 
-instance Prelude.NFData DescribeSentimentDetectionJob
+instance Core.NFData DescribeSentimentDetectionJob
 
-instance
-  Prelude.ToHeaders
-    DescribeSentimentDetectionJob
-  where
+instance Core.ToHeaders DescribeSentimentDetectionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DescribeSentimentDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DescribeSentimentDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeSentimentDetectionJob where
+instance Core.ToJSON DescribeSentimentDetectionJob where
   toJSON DescribeSentimentDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance Prelude.ToPath DescribeSentimentDetectionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSentimentDetectionJob where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeSentimentDetectionJob
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeSentimentDetectionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeSentimentDetectionJobResponse' smart constructor.
 data DescribeSentimentDetectionJobResponse = DescribeSentimentDetectionJobResponse'
   { -- | An object that contains the properties associated with a sentiment
     -- detection job.
-    sentimentDetectionJobProperties :: Prelude.Maybe SentimentDetectionJobProperties,
+    sentimentDetectionJobProperties :: Core.Maybe SentimentDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSentimentDetectionJobResponse' with all optional fields omitted.
@@ -157,24 +144,24 @@ data DescribeSentimentDetectionJobResponse = DescribeSentimentDetectionJobRespon
 -- 'httpStatus', 'describeSentimentDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribeSentimentDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSentimentDetectionJobResponse
 newDescribeSentimentDetectionJobResponse pHttpStatus_ =
   DescribeSentimentDetectionJobResponse'
     { sentimentDetectionJobProperties =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the properties associated with a sentiment
 -- detection job.
-describeSentimentDetectionJobResponse_sentimentDetectionJobProperties :: Lens.Lens' DescribeSentimentDetectionJobResponse (Prelude.Maybe SentimentDetectionJobProperties)
+describeSentimentDetectionJobResponse_sentimentDetectionJobProperties :: Lens.Lens' DescribeSentimentDetectionJobResponse (Core.Maybe SentimentDetectionJobProperties)
 describeSentimentDetectionJobResponse_sentimentDetectionJobProperties = Lens.lens (\DescribeSentimentDetectionJobResponse' {sentimentDetectionJobProperties} -> sentimentDetectionJobProperties) (\s@DescribeSentimentDetectionJobResponse' {} a -> s {sentimentDetectionJobProperties = a} :: DescribeSentimentDetectionJobResponse)
 
 -- | The response's http status code.
-describeSentimentDetectionJobResponse_httpStatus :: Lens.Lens' DescribeSentimentDetectionJobResponse Prelude.Int
+describeSentimentDetectionJobResponse_httpStatus :: Lens.Lens' DescribeSentimentDetectionJobResponse Core.Int
 describeSentimentDetectionJobResponse_httpStatus = Lens.lens (\DescribeSentimentDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribeSentimentDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribeSentimentDetectionJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeSentimentDetectionJobResponse

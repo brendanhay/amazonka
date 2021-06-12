@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteModelPackageGroupPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteModelPackageGroupPolicy' smart constructor.
 data DeleteModelPackageGroupPolicy = DeleteModelPackageGroupPolicy'
   { -- | The name of the model group for which to delete the policy.
-    modelPackageGroupName :: Prelude.Text
+    modelPackageGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelPackageGroupPolicy' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteModelPackageGroupPolicy = DeleteModelPackageGroupPolicy'
 -- 'modelPackageGroupName', 'deleteModelPackageGroupPolicy_modelPackageGroupName' - The name of the model group for which to delete the policy.
 newDeleteModelPackageGroupPolicy ::
   -- | 'modelPackageGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteModelPackageGroupPolicy
 newDeleteModelPackageGroupPolicy
   pModelPackageGroupName_ =
@@ -70,70 +69,60 @@ newDeleteModelPackageGroupPolicy
       }
 
 -- | The name of the model group for which to delete the policy.
-deleteModelPackageGroupPolicy_modelPackageGroupName :: Lens.Lens' DeleteModelPackageGroupPolicy Prelude.Text
+deleteModelPackageGroupPolicy_modelPackageGroupName :: Lens.Lens' DeleteModelPackageGroupPolicy Core.Text
 deleteModelPackageGroupPolicy_modelPackageGroupName = Lens.lens (\DeleteModelPackageGroupPolicy' {modelPackageGroupName} -> modelPackageGroupName) (\s@DeleteModelPackageGroupPolicy' {} a -> s {modelPackageGroupName = a} :: DeleteModelPackageGroupPolicy)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteModelPackageGroupPolicy
   where
   type
-    Rs DeleteModelPackageGroupPolicy =
+    AWSResponse DeleteModelPackageGroupPolicy =
       DeleteModelPackageGroupPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteModelPackageGroupPolicyResponse'
 
-instance
-  Prelude.Hashable
-    DeleteModelPackageGroupPolicy
+instance Core.Hashable DeleteModelPackageGroupPolicy
 
-instance Prelude.NFData DeleteModelPackageGroupPolicy
+instance Core.NFData DeleteModelPackageGroupPolicy
 
-instance
-  Prelude.ToHeaders
-    DeleteModelPackageGroupPolicy
-  where
+instance Core.ToHeaders DeleteModelPackageGroupPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteModelPackageGroupPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteModelPackageGroupPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteModelPackageGroupPolicy where
+instance Core.ToJSON DeleteModelPackageGroupPolicy where
   toJSON DeleteModelPackageGroupPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ModelPackageGroupName"
-                  Prelude..= modelPackageGroupName
+                  Core..= modelPackageGroupName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteModelPackageGroupPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteModelPackageGroupPolicy where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteModelPackageGroupPolicy
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteModelPackageGroupPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteModelPackageGroupPolicyResponse' smart constructor.
 data DeleteModelPackageGroupPolicyResponse = DeleteModelPackageGroupPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelPackageGroupPolicyResponse' with all optional fields omitted.
@@ -145,5 +134,5 @@ newDeleteModelPackageGroupPolicyResponse =
   DeleteModelPackageGroupPolicyResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteModelPackageGroupPolicyResponse

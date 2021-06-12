@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceStorageInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DiskInfo
 import Network.AWS.EC2.Types.EphemeralNvmeSupport
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the disks that are available for the instance type.
 --
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceStorageInfo = InstanceStorageInfo'
   { -- | Indicates whether non-volatile memory express (NVMe) is supported for
     -- instance store.
-    nvmeSupport :: Prelude.Maybe EphemeralNvmeSupport,
+    nvmeSupport :: Core.Maybe EphemeralNvmeSupport,
     -- | The total size of the disks, in GB.
-    totalSizeInGB :: Prelude.Maybe Prelude.Integer,
+    totalSizeInGB :: Core.Maybe Core.Integer,
     -- | Describes the disks that are available for the instance type.
-    disks :: Prelude.Maybe [DiskInfo]
+    disks :: Core.Maybe [DiskInfo]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceStorageInfo' with all optional fields omitted.
@@ -58,33 +57,33 @@ newInstanceStorageInfo ::
   InstanceStorageInfo
 newInstanceStorageInfo =
   InstanceStorageInfo'
-    { nvmeSupport = Prelude.Nothing,
-      totalSizeInGB = Prelude.Nothing,
-      disks = Prelude.Nothing
+    { nvmeSupport = Core.Nothing,
+      totalSizeInGB = Core.Nothing,
+      disks = Core.Nothing
     }
 
 -- | Indicates whether non-volatile memory express (NVMe) is supported for
 -- instance store.
-instanceStorageInfo_nvmeSupport :: Lens.Lens' InstanceStorageInfo (Prelude.Maybe EphemeralNvmeSupport)
+instanceStorageInfo_nvmeSupport :: Lens.Lens' InstanceStorageInfo (Core.Maybe EphemeralNvmeSupport)
 instanceStorageInfo_nvmeSupport = Lens.lens (\InstanceStorageInfo' {nvmeSupport} -> nvmeSupport) (\s@InstanceStorageInfo' {} a -> s {nvmeSupport = a} :: InstanceStorageInfo)
 
 -- | The total size of the disks, in GB.
-instanceStorageInfo_totalSizeInGB :: Lens.Lens' InstanceStorageInfo (Prelude.Maybe Prelude.Integer)
+instanceStorageInfo_totalSizeInGB :: Lens.Lens' InstanceStorageInfo (Core.Maybe Core.Integer)
 instanceStorageInfo_totalSizeInGB = Lens.lens (\InstanceStorageInfo' {totalSizeInGB} -> totalSizeInGB) (\s@InstanceStorageInfo' {} a -> s {totalSizeInGB = a} :: InstanceStorageInfo)
 
 -- | Describes the disks that are available for the instance type.
-instanceStorageInfo_disks :: Lens.Lens' InstanceStorageInfo (Prelude.Maybe [DiskInfo])
-instanceStorageInfo_disks = Lens.lens (\InstanceStorageInfo' {disks} -> disks) (\s@InstanceStorageInfo' {} a -> s {disks = a} :: InstanceStorageInfo) Prelude.. Lens.mapping Prelude._Coerce
+instanceStorageInfo_disks :: Lens.Lens' InstanceStorageInfo (Core.Maybe [DiskInfo])
+instanceStorageInfo_disks = Lens.lens (\InstanceStorageInfo' {disks} -> disks) (\s@InstanceStorageInfo' {} a -> s {disks = a} :: InstanceStorageInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML InstanceStorageInfo where
+instance Core.FromXML InstanceStorageInfo where
   parseXML x =
     InstanceStorageInfo'
-      Prelude.<$> (x Prelude..@? "nvmeSupport")
-      Prelude.<*> (x Prelude..@? "totalSizeInGB")
-      Prelude.<*> ( x Prelude..@? "disks" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "nvmeSupport")
+      Core.<*> (x Core..@? "totalSizeInGB")
+      Core.<*> ( x Core..@? "disks" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable InstanceStorageInfo
+instance Core.Hashable InstanceStorageInfo
 
-instance Prelude.NFData InstanceStorageInfo
+instance Core.NFData InstanceStorageInfo

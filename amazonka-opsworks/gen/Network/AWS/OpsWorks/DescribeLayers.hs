@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,22 +48,22 @@ module Network.AWS.OpsWorks.DescribeLayers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLayers' smart constructor.
 data DescribeLayers = DescribeLayers'
   { -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | An array of layer IDs that specify the layers to be described. If you
     -- omit this parameter, @DescribeLayers@ returns a description of every
     -- layer in the specified stack.
-    layerIds :: Prelude.Maybe [Prelude.Text]
+    layerIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLayers' with all optional fields omitted.
@@ -83,75 +82,75 @@ newDescribeLayers ::
   DescribeLayers
 newDescribeLayers =
   DescribeLayers'
-    { stackId = Prelude.Nothing,
-      layerIds = Prelude.Nothing
+    { stackId = Core.Nothing,
+      layerIds = Core.Nothing
     }
 
 -- | The stack ID.
-describeLayers_stackId :: Lens.Lens' DescribeLayers (Prelude.Maybe Prelude.Text)
+describeLayers_stackId :: Lens.Lens' DescribeLayers (Core.Maybe Core.Text)
 describeLayers_stackId = Lens.lens (\DescribeLayers' {stackId} -> stackId) (\s@DescribeLayers' {} a -> s {stackId = a} :: DescribeLayers)
 
 -- | An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
-describeLayers_layerIds :: Lens.Lens' DescribeLayers (Prelude.Maybe [Prelude.Text])
-describeLayers_layerIds = Lens.lens (\DescribeLayers' {layerIds} -> layerIds) (\s@DescribeLayers' {} a -> s {layerIds = a} :: DescribeLayers) Prelude.. Lens.mapping Prelude._Coerce
+describeLayers_layerIds :: Lens.Lens' DescribeLayers (Core.Maybe [Core.Text])
+describeLayers_layerIds = Lens.lens (\DescribeLayers' {layerIds} -> layerIds) (\s@DescribeLayers' {} a -> s {layerIds = a} :: DescribeLayers) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeLayers where
-  type Rs DescribeLayers = DescribeLayersResponse
+instance Core.AWSRequest DescribeLayers where
+  type
+    AWSResponse DescribeLayers =
+      DescribeLayersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLayersResponse'
-            Prelude.<$> (x Prelude..?> "Layers" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Layers" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLayers
+instance Core.Hashable DescribeLayers
 
-instance Prelude.NFData DescribeLayers
+instance Core.NFData DescribeLayers
 
-instance Prelude.ToHeaders DescribeLayers where
+instance Core.ToHeaders DescribeLayers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeLayers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeLayers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeLayers where
+instance Core.ToJSON DescribeLayers where
   toJSON DescribeLayers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StackId" Prelude..=) Prelude.<$> stackId,
-            ("LayerIds" Prelude..=) Prelude.<$> layerIds
+    Core.object
+      ( Core.catMaybes
+          [ ("StackId" Core..=) Core.<$> stackId,
+            ("LayerIds" Core..=) Core.<$> layerIds
           ]
       )
 
-instance Prelude.ToPath DescribeLayers where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLayers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLayers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLayers where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeLayers@ request.
 --
 -- /See:/ 'newDescribeLayersResponse' smart constructor.
 data DescribeLayersResponse = DescribeLayersResponse'
   { -- | An array of @Layer@ objects that describe the layers.
-    layers :: Prelude.Maybe [Layer],
+    layers :: Core.Maybe [Layer],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLayersResponse' with all optional fields omitted.
@@ -166,20 +165,20 @@ data DescribeLayersResponse = DescribeLayersResponse'
 -- 'httpStatus', 'describeLayersResponse_httpStatus' - The response's http status code.
 newDescribeLayersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLayersResponse
 newDescribeLayersResponse pHttpStatus_ =
   DescribeLayersResponse'
-    { layers = Prelude.Nothing,
+    { layers = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @Layer@ objects that describe the layers.
-describeLayersResponse_layers :: Lens.Lens' DescribeLayersResponse (Prelude.Maybe [Layer])
-describeLayersResponse_layers = Lens.lens (\DescribeLayersResponse' {layers} -> layers) (\s@DescribeLayersResponse' {} a -> s {layers = a} :: DescribeLayersResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLayersResponse_layers :: Lens.Lens' DescribeLayersResponse (Core.Maybe [Layer])
+describeLayersResponse_layers = Lens.lens (\DescribeLayersResponse' {layers} -> layers) (\s@DescribeLayersResponse' {} a -> s {layers = a} :: DescribeLayersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLayersResponse_httpStatus :: Lens.Lens' DescribeLayersResponse Prelude.Int
+describeLayersResponse_httpStatus :: Lens.Lens' DescribeLayersResponse Core.Int
 describeLayersResponse_httpStatus = Lens.lens (\DescribeLayersResponse' {httpStatus} -> httpStatus) (\s@DescribeLayersResponse' {} a -> s {httpStatus = a} :: DescribeLayersResponse)
 
-instance Prelude.NFData DescribeLayersResponse
+instance Core.NFData DescribeLayersResponse

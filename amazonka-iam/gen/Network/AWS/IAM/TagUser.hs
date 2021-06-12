@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,9 +72,9 @@ module Network.AWS.IAM.TagUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,12 +86,12 @@ data TagUser = TagUser'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The list of tags that you want to attach to the IAM user. Each tag
     -- consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagUser' with all optional fields omitted.
@@ -113,13 +112,10 @@ data TagUser = TagUser'
 -- consists of a key name and an associated value.
 newTagUser ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   TagUser
 newTagUser pUserName_ =
-  TagUser'
-    { userName = pUserName_,
-      tags = Prelude.mempty
-    }
+  TagUser' {userName = pUserName_, tags = Core.mempty}
 
 -- | The name of the IAM user to which you want to add tags.
 --
@@ -127,45 +123,43 @@ newTagUser pUserName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagUser_userName :: Lens.Lens' TagUser Prelude.Text
+tagUser_userName :: Lens.Lens' TagUser Core.Text
 tagUser_userName = Lens.lens (\TagUser' {userName} -> userName) (\s@TagUser' {} a -> s {userName = a} :: TagUser)
 
 -- | The list of tags that you want to attach to the IAM user. Each tag
 -- consists of a key name and an associated value.
 tagUser_tags :: Lens.Lens' TagUser [Tag]
-tagUser_tags = Lens.lens (\TagUser' {tags} -> tags) (\s@TagUser' {} a -> s {tags = a} :: TagUser) Prelude.. Prelude._Coerce
+tagUser_tags = Lens.lens (\TagUser' {tags} -> tags) (\s@TagUser' {} a -> s {tags = a} :: TagUser) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagUser where
-  type Rs TagUser = TagUserResponse
+instance Core.AWSRequest TagUser where
+  type AWSResponse TagUser = TagUserResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull TagUserResponse'
 
-instance Prelude.Hashable TagUser
+instance Core.Hashable TagUser
 
-instance Prelude.NFData TagUser
+instance Core.NFData TagUser
 
-instance Prelude.ToHeaders TagUser where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagUser where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TagUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagUser where
+instance Core.ToQuery TagUser where
   toQuery TagUser' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("TagUser" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+    Core.mconcat
+      [ "Action" Core.=: ("TagUser" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagUserResponse' smart constructor.
 data TagUserResponse = TagUserResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagUserResponse' with all optional fields omitted.
@@ -175,4 +169,4 @@ newTagUserResponse ::
   TagUserResponse
 newTagUserResponse = TagUserResponse'
 
-instance Prelude.NFData TagUserResponse
+instance Core.NFData TagUserResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,21 +43,20 @@ module Network.AWS.Glue.GetClassifiers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetClassifiers' smart constructor.
 data GetClassifiers = GetClassifiers'
   { -- | An optional continuation token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The size of the list to return (optional).
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetClassifiers' with all optional fields omitted.
@@ -75,95 +73,91 @@ newGetClassifiers ::
   GetClassifiers
 newGetClassifiers =
   GetClassifiers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | An optional continuation token.
-getClassifiers_nextToken :: Lens.Lens' GetClassifiers (Prelude.Maybe Prelude.Text)
+getClassifiers_nextToken :: Lens.Lens' GetClassifiers (Core.Maybe Core.Text)
 getClassifiers_nextToken = Lens.lens (\GetClassifiers' {nextToken} -> nextToken) (\s@GetClassifiers' {} a -> s {nextToken = a} :: GetClassifiers)
 
 -- | The size of the list to return (optional).
-getClassifiers_maxResults :: Lens.Lens' GetClassifiers (Prelude.Maybe Prelude.Natural)
+getClassifiers_maxResults :: Lens.Lens' GetClassifiers (Core.Maybe Core.Natural)
 getClassifiers_maxResults = Lens.lens (\GetClassifiers' {maxResults} -> maxResults) (\s@GetClassifiers' {} a -> s {maxResults = a} :: GetClassifiers)
 
-instance Pager.AWSPager GetClassifiers where
+instance Core.AWSPager GetClassifiers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getClassifiersResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? getClassifiersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getClassifiersResponse_classifiers
-              Prelude.. Lens._Just
+            Lens.^? getClassifiersResponse_classifiers Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getClassifiers_nextToken
           Lens..~ rs
-          Lens.^? getClassifiersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getClassifiersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest GetClassifiers where
-  type Rs GetClassifiers = GetClassifiersResponse
+instance Core.AWSRequest GetClassifiers where
+  type
+    AWSResponse GetClassifiers =
+      GetClassifiersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetClassifiersResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Classifiers"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Classifiers" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetClassifiers
+instance Core.Hashable GetClassifiers
 
-instance Prelude.NFData GetClassifiers
+instance Core.NFData GetClassifiers
 
-instance Prelude.ToHeaders GetClassifiers where
+instance Core.ToHeaders GetClassifiers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetClassifiers" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetClassifiers" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetClassifiers where
+instance Core.ToJSON GetClassifiers where
   toJSON GetClassifiers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath GetClassifiers where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetClassifiers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetClassifiers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetClassifiers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetClassifiersResponse' smart constructor.
 data GetClassifiersResponse = GetClassifiersResponse'
   { -- | A continuation token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The requested list of classifier objects.
-    classifiers :: Prelude.Maybe [Classifier],
+    classifiers :: Core.Maybe [Classifier],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetClassifiersResponse' with all optional fields omitted.
@@ -180,26 +174,25 @@ data GetClassifiersResponse = GetClassifiersResponse'
 -- 'httpStatus', 'getClassifiersResponse_httpStatus' - The response's http status code.
 newGetClassifiersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetClassifiersResponse
 newGetClassifiersResponse pHttpStatus_ =
   GetClassifiersResponse'
-    { nextToken =
-        Prelude.Nothing,
-      classifiers = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      classifiers = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token.
-getClassifiersResponse_nextToken :: Lens.Lens' GetClassifiersResponse (Prelude.Maybe Prelude.Text)
+getClassifiersResponse_nextToken :: Lens.Lens' GetClassifiersResponse (Core.Maybe Core.Text)
 getClassifiersResponse_nextToken = Lens.lens (\GetClassifiersResponse' {nextToken} -> nextToken) (\s@GetClassifiersResponse' {} a -> s {nextToken = a} :: GetClassifiersResponse)
 
 -- | The requested list of classifier objects.
-getClassifiersResponse_classifiers :: Lens.Lens' GetClassifiersResponse (Prelude.Maybe [Classifier])
-getClassifiersResponse_classifiers = Lens.lens (\GetClassifiersResponse' {classifiers} -> classifiers) (\s@GetClassifiersResponse' {} a -> s {classifiers = a} :: GetClassifiersResponse) Prelude.. Lens.mapping Prelude._Coerce
+getClassifiersResponse_classifiers :: Lens.Lens' GetClassifiersResponse (Core.Maybe [Classifier])
+getClassifiersResponse_classifiers = Lens.lens (\GetClassifiersResponse' {classifiers} -> classifiers) (\s@GetClassifiersResponse' {} a -> s {classifiers = a} :: GetClassifiersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getClassifiersResponse_httpStatus :: Lens.Lens' GetClassifiersResponse Prelude.Int
+getClassifiersResponse_httpStatus :: Lens.Lens' GetClassifiersResponse Core.Int
 getClassifiersResponse_httpStatus = Lens.lens (\GetClassifiersResponse' {httpStatus} -> httpStatus) (\s@GetClassifiersResponse' {} a -> s {httpStatus = a} :: GetClassifiersResponse)
 
-instance Prelude.NFData GetClassifiersResponse
+instance Core.NFData GetClassifiersResponse

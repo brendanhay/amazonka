@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,10 +70,9 @@ module Network.AWS.GameLift.DescribeMatchmakingRuleSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,16 +84,16 @@ data DescribeMatchmakingRuleSets = DescribeMatchmakingRuleSets'
     -- for. (Note: The rule set name is different from the optional \"name\"
     -- field in the rule set body.) You can use either the rule set name or ARN
     -- value.
-    names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    names :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMatchmakingRuleSets' with all optional fields omitted.
@@ -120,107 +118,96 @@ newDescribeMatchmakingRuleSets ::
   DescribeMatchmakingRuleSets
 newDescribeMatchmakingRuleSets =
   DescribeMatchmakingRuleSets'
-    { names =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { names = Core.Nothing,
+      nextToken = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | A list of one or more matchmaking rule set names to retrieve details
 -- for. (Note: The rule set name is different from the optional \"name\"
 -- field in the rule set body.) You can use either the rule set name or ARN
 -- value.
-describeMatchmakingRuleSets_names :: Lens.Lens' DescribeMatchmakingRuleSets (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeMatchmakingRuleSets_names = Lens.lens (\DescribeMatchmakingRuleSets' {names} -> names) (\s@DescribeMatchmakingRuleSets' {} a -> s {names = a} :: DescribeMatchmakingRuleSets) Prelude.. Lens.mapping Prelude._Coerce
+describeMatchmakingRuleSets_names :: Lens.Lens' DescribeMatchmakingRuleSets (Core.Maybe (Core.NonEmpty Core.Text))
+describeMatchmakingRuleSets_names = Lens.lens (\DescribeMatchmakingRuleSets' {names} -> names) (\s@DescribeMatchmakingRuleSets' {} a -> s {names = a} :: DescribeMatchmakingRuleSets) Core.. Lens.mapping Lens._Coerce
 
 -- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-describeMatchmakingRuleSets_nextToken :: Lens.Lens' DescribeMatchmakingRuleSets (Prelude.Maybe Prelude.Text)
+describeMatchmakingRuleSets_nextToken :: Lens.Lens' DescribeMatchmakingRuleSets (Core.Maybe Core.Text)
 describeMatchmakingRuleSets_nextToken = Lens.lens (\DescribeMatchmakingRuleSets' {nextToken} -> nextToken) (\s@DescribeMatchmakingRuleSets' {} a -> s {nextToken = a} :: DescribeMatchmakingRuleSets)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
-describeMatchmakingRuleSets_limit :: Lens.Lens' DescribeMatchmakingRuleSets (Prelude.Maybe Prelude.Natural)
+describeMatchmakingRuleSets_limit :: Lens.Lens' DescribeMatchmakingRuleSets (Core.Maybe Core.Natural)
 describeMatchmakingRuleSets_limit = Lens.lens (\DescribeMatchmakingRuleSets' {limit} -> limit) (\s@DescribeMatchmakingRuleSets' {} a -> s {limit = a} :: DescribeMatchmakingRuleSets)
 
-instance Pager.AWSPager DescribeMatchmakingRuleSets where
+instance Core.AWSPager DescribeMatchmakingRuleSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeMatchmakingRuleSetsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. describeMatchmakingRuleSetsResponse_ruleSets
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeMatchmakingRuleSets_nextToken
           Lens..~ rs
           Lens.^? describeMatchmakingRuleSetsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeMatchmakingRuleSets
-  where
+instance Core.AWSRequest DescribeMatchmakingRuleSets where
   type
-    Rs DescribeMatchmakingRuleSets =
+    AWSResponse DescribeMatchmakingRuleSets =
       DescribeMatchmakingRuleSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeMatchmakingRuleSetsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "RuleSets"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "RuleSets" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable DescribeMatchmakingRuleSets
+instance Core.Hashable DescribeMatchmakingRuleSets
 
-instance Prelude.NFData DescribeMatchmakingRuleSets
+instance Core.NFData DescribeMatchmakingRuleSets
 
-instance
-  Prelude.ToHeaders
-    DescribeMatchmakingRuleSets
-  where
+instance Core.ToHeaders DescribeMatchmakingRuleSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DescribeMatchmakingRuleSets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DescribeMatchmakingRuleSets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeMatchmakingRuleSets where
+instance Core.ToJSON DescribeMatchmakingRuleSets where
   toJSON DescribeMatchmakingRuleSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Names" Prelude..=) Prelude.<$> names,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("Names" Core..=) Core.<$> names,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeMatchmakingRuleSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMatchmakingRuleSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeMatchmakingRuleSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeMatchmakingRuleSets where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -229,13 +216,13 @@ data DescribeMatchmakingRuleSetsResponse = DescribeMatchmakingRuleSetsResponse'
   { -- | A token that indicates where to resume retrieving results on the next
     -- call to this operation. If no token is returned, these results represent
     -- the end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A collection of requested matchmaking rule set objects.
     ruleSets :: [MatchmakingRuleSet]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMatchmakingRuleSetsResponse' with all optional fields omitted.
@@ -254,30 +241,30 @@ data DescribeMatchmakingRuleSetsResponse = DescribeMatchmakingRuleSetsResponse'
 -- 'ruleSets', 'describeMatchmakingRuleSetsResponse_ruleSets' - A collection of requested matchmaking rule set objects.
 newDescribeMatchmakingRuleSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMatchmakingRuleSetsResponse
 newDescribeMatchmakingRuleSetsResponse pHttpStatus_ =
   DescribeMatchmakingRuleSetsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      ruleSets = Prelude.mempty
+      ruleSets = Core.mempty
     }
 
 -- | A token that indicates where to resume retrieving results on the next
 -- call to this operation. If no token is returned, these results represent
 -- the end of the list.
-describeMatchmakingRuleSetsResponse_nextToken :: Lens.Lens' DescribeMatchmakingRuleSetsResponse (Prelude.Maybe Prelude.Text)
+describeMatchmakingRuleSetsResponse_nextToken :: Lens.Lens' DescribeMatchmakingRuleSetsResponse (Core.Maybe Core.Text)
 describeMatchmakingRuleSetsResponse_nextToken = Lens.lens (\DescribeMatchmakingRuleSetsResponse' {nextToken} -> nextToken) (\s@DescribeMatchmakingRuleSetsResponse' {} a -> s {nextToken = a} :: DescribeMatchmakingRuleSetsResponse)
 
 -- | The response's http status code.
-describeMatchmakingRuleSetsResponse_httpStatus :: Lens.Lens' DescribeMatchmakingRuleSetsResponse Prelude.Int
+describeMatchmakingRuleSetsResponse_httpStatus :: Lens.Lens' DescribeMatchmakingRuleSetsResponse Core.Int
 describeMatchmakingRuleSetsResponse_httpStatus = Lens.lens (\DescribeMatchmakingRuleSetsResponse' {httpStatus} -> httpStatus) (\s@DescribeMatchmakingRuleSetsResponse' {} a -> s {httpStatus = a} :: DescribeMatchmakingRuleSetsResponse)
 
 -- | A collection of requested matchmaking rule set objects.
 describeMatchmakingRuleSetsResponse_ruleSets :: Lens.Lens' DescribeMatchmakingRuleSetsResponse [MatchmakingRuleSet]
-describeMatchmakingRuleSetsResponse_ruleSets = Lens.lens (\DescribeMatchmakingRuleSetsResponse' {ruleSets} -> ruleSets) (\s@DescribeMatchmakingRuleSetsResponse' {} a -> s {ruleSets = a} :: DescribeMatchmakingRuleSetsResponse) Prelude.. Prelude._Coerce
+describeMatchmakingRuleSetsResponse_ruleSets = Lens.lens (\DescribeMatchmakingRuleSetsResponse' {ruleSets} -> ruleSets) (\s@DescribeMatchmakingRuleSetsResponse' {} a -> s {ruleSets = a} :: DescribeMatchmakingRuleSetsResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeMatchmakingRuleSetsResponse

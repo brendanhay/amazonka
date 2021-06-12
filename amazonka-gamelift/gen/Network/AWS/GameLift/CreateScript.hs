@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -86,9 +85,9 @@ module Network.AWS.GameLift.CreateScript
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -102,15 +101,15 @@ data CreateScript = CreateScript'
     -- the zip file name. It must be prepended with the string \"fileb:\/\/\"
     -- to indicate that the file data is a binary object. For example:
     -- @--zip-file fileb:\/\/myRealtimeScript.zip@.
-    zipFile :: Prelude.Maybe Prelude.Base64,
+    zipFile :: Core.Maybe Core.Base64,
     -- | The version that is associated with a build or script. Version strings
     -- do not need to be unique. You can use UpdateScript to change this value
     -- later.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | A descriptive label that is associated with a script. Script names do
     -- not need to be unique. You can use UpdateScript to change this value
     -- later.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The Amazon S3 location of your Realtime scripts. The storage location
     -- must specify the S3 bucket name, the zip file name (the \"key\"), and an
     -- IAM role ARN that allows Amazon GameLift to access the S3 storage
@@ -121,7 +120,7 @@ data CreateScript = CreateScript'
     -- call this operation with a storage location, you must have IAM PassRole
     -- permission. For more details on IAM roles and PassRole permissions, see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
-    storageLocation :: Prelude.Maybe S3Location,
+    storageLocation :: Core.Maybe S3Location,
     -- | A list of labels to assign to the new script resource. Tags are
     -- developer-defined key-value pairs. Tagging AWS resources are useful for
     -- resource management, access management and cost allocation. For more
@@ -131,9 +130,9 @@ data CreateScript = CreateScript'
     -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
     -- and view tags. The maximum tag limit may be lower than stated. See the
     -- AWS General Reference for actual tagging limits.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateScript' with all optional fields omitted.
@@ -188,11 +187,11 @@ newCreateScript ::
   CreateScript
 newCreateScript =
   CreateScript'
-    { zipFile = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      storageLocation = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { zipFile = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing,
+      storageLocation = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | A data object containing your Realtime scripts and dependencies as a zip
@@ -207,19 +206,19 @@ newCreateScript =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-createScript_zipFile :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.ByteString)
-createScript_zipFile = Lens.lens (\CreateScript' {zipFile} -> zipFile) (\s@CreateScript' {} a -> s {zipFile = a} :: CreateScript) Prelude.. Lens.mapping Prelude._Base64
+createScript_zipFile :: Lens.Lens' CreateScript (Core.Maybe Core.ByteString)
+createScript_zipFile = Lens.lens (\CreateScript' {zipFile} -> zipFile) (\s@CreateScript' {} a -> s {zipFile = a} :: CreateScript) Core.. Lens.mapping Core._Base64
 
 -- | The version that is associated with a build or script. Version strings
 -- do not need to be unique. You can use UpdateScript to change this value
 -- later.
-createScript_version :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
+createScript_version :: Lens.Lens' CreateScript (Core.Maybe Core.Text)
 createScript_version = Lens.lens (\CreateScript' {version} -> version) (\s@CreateScript' {} a -> s {version = a} :: CreateScript)
 
 -- | A descriptive label that is associated with a script. Script names do
 -- not need to be unique. You can use UpdateScript to change this value
 -- later.
-createScript_name :: Lens.Lens' CreateScript (Prelude.Maybe Prelude.Text)
+createScript_name :: Lens.Lens' CreateScript (Core.Maybe Core.Text)
 createScript_name = Lens.lens (\CreateScript' {name} -> name) (\s@CreateScript' {} a -> s {name = a} :: CreateScript)
 
 -- | The Amazon S3 location of your Realtime scripts. The storage location
@@ -232,7 +231,7 @@ createScript_name = Lens.lens (\CreateScript' {name} -> name) (\s@CreateScript' 
 -- call this operation with a storage location, you must have IAM PassRole
 -- permission. For more details on IAM roles and PassRole permissions, see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
-createScript_storageLocation :: Lens.Lens' CreateScript (Prelude.Maybe S3Location)
+createScript_storageLocation :: Lens.Lens' CreateScript (Core.Maybe S3Location)
 createScript_storageLocation = Lens.lens (\CreateScript' {storageLocation} -> storageLocation) (\s@CreateScript' {} a -> s {storageLocation = a} :: CreateScript)
 
 -- | A list of labels to assign to the new script resource. Tags are
@@ -244,55 +243,52 @@ createScript_storageLocation = Lens.lens (\CreateScript' {storageLocation} -> st
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags. The maximum tag limit may be lower than stated. See the
 -- AWS General Reference for actual tagging limits.
-createScript_tags :: Lens.Lens' CreateScript (Prelude.Maybe [Tag])
-createScript_tags = Lens.lens (\CreateScript' {tags} -> tags) (\s@CreateScript' {} a -> s {tags = a} :: CreateScript) Prelude.. Lens.mapping Prelude._Coerce
+createScript_tags :: Lens.Lens' CreateScript (Core.Maybe [Tag])
+createScript_tags = Lens.lens (\CreateScript' {tags} -> tags) (\s@CreateScript' {} a -> s {tags = a} :: CreateScript) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest CreateScript where
-  type Rs CreateScript = CreateScriptResponse
+instance Core.AWSRequest CreateScript where
+  type AWSResponse CreateScript = CreateScriptResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateScriptResponse'
-            Prelude.<$> (x Prelude..?> "Script")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Script")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateScript
+instance Core.Hashable CreateScript
 
-instance Prelude.NFData CreateScript
+instance Core.NFData CreateScript
 
-instance Prelude.ToHeaders CreateScript where
+instance Core.ToHeaders CreateScript where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.CreateScript" :: Prelude.ByteString),
+              Core.=# ("GameLift.CreateScript" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateScript where
+instance Core.ToJSON CreateScript where
   toJSON CreateScript' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ZipFile" Prelude..=) Prelude.<$> zipFile,
-            ("Version" Prelude..=) Prelude.<$> version,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("StorageLocation" Prelude..=)
-              Prelude.<$> storageLocation,
-            ("Tags" Prelude..=) Prelude.<$> tags
+    Core.object
+      ( Core.catMaybes
+          [ ("ZipFile" Core..=) Core.<$> zipFile,
+            ("Version" Core..=) Core.<$> version,
+            ("Name" Core..=) Core.<$> name,
+            ("StorageLocation" Core..=) Core.<$> storageLocation,
+            ("Tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Prelude.ToPath CreateScript where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateScript where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateScript where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateScript where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateScriptResponse' smart constructor.
 data CreateScriptResponse = CreateScriptResponse'
@@ -303,11 +299,11 @@ data CreateScriptResponse = CreateScriptResponse'
     -- /CreateScript/ request; (2) If the script file was uploaded from a local
     -- zip file, the storage location reflects an S3 location controls by the
     -- Amazon GameLift service.
-    script :: Prelude.Maybe Script,
+    script :: Core.Maybe Script,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateScriptResponse' with all optional fields omitted.
@@ -328,11 +324,11 @@ data CreateScriptResponse = CreateScriptResponse'
 -- 'httpStatus', 'createScriptResponse_httpStatus' - The response's http status code.
 newCreateScriptResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateScriptResponse
 newCreateScriptResponse pHttpStatus_ =
   CreateScriptResponse'
-    { script = Prelude.Nothing,
+    { script = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -343,11 +339,11 @@ newCreateScriptResponse pHttpStatus_ =
 -- /CreateScript/ request; (2) If the script file was uploaded from a local
 -- zip file, the storage location reflects an S3 location controls by the
 -- Amazon GameLift service.
-createScriptResponse_script :: Lens.Lens' CreateScriptResponse (Prelude.Maybe Script)
+createScriptResponse_script :: Lens.Lens' CreateScriptResponse (Core.Maybe Script)
 createScriptResponse_script = Lens.lens (\CreateScriptResponse' {script} -> script) (\s@CreateScriptResponse' {} a -> s {script = a} :: CreateScriptResponse)
 
 -- | The response's http status code.
-createScriptResponse_httpStatus :: Lens.Lens' CreateScriptResponse Prelude.Int
+createScriptResponse_httpStatus :: Lens.Lens' CreateScriptResponse Core.Int
 createScriptResponse_httpStatus = Lens.lens (\CreateScriptResponse' {httpStatus} -> httpStatus) (\s@CreateScriptResponse' {} a -> s {httpStatus = a} :: CreateScriptResponse)
 
-instance Prelude.NFData CreateScriptResponse
+instance Core.NFData CreateScriptResponse

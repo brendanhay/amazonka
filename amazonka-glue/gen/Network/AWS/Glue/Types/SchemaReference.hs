@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SchemaReference where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.SchemaId
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that references a schema stored in the AWS Glue Schema
 -- Registry.
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 data SchemaReference = SchemaReference'
   { -- | The unique ID assigned to a version of the schema. Either this or the
     -- @SchemaId@ has to be provided.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
+    schemaVersionId :: Core.Maybe Core.Text,
     -- | The version number of the schema.
-    schemaVersionNumber :: Prelude.Maybe Prelude.Natural,
+    schemaVersionNumber :: Core.Maybe Core.Natural,
     -- | A structure that contains schema identity fields. Either this or the
     -- @SchemaVersionId@ has to be provided.
-    schemaId :: Prelude.Maybe SchemaId
+    schemaId :: Core.Maybe SchemaId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SchemaReference' with all optional fields omitted.
@@ -59,48 +58,48 @@ newSchemaReference ::
   SchemaReference
 newSchemaReference =
   SchemaReference'
-    { schemaVersionId = Prelude.Nothing,
-      schemaVersionNumber = Prelude.Nothing,
-      schemaId = Prelude.Nothing
+    { schemaVersionId = Core.Nothing,
+      schemaVersionNumber = Core.Nothing,
+      schemaId = Core.Nothing
     }
 
 -- | The unique ID assigned to a version of the schema. Either this or the
 -- @SchemaId@ has to be provided.
-schemaReference_schemaVersionId :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Text)
+schemaReference_schemaVersionId :: Lens.Lens' SchemaReference (Core.Maybe Core.Text)
 schemaReference_schemaVersionId = Lens.lens (\SchemaReference' {schemaVersionId} -> schemaVersionId) (\s@SchemaReference' {} a -> s {schemaVersionId = a} :: SchemaReference)
 
 -- | The version number of the schema.
-schemaReference_schemaVersionNumber :: Lens.Lens' SchemaReference (Prelude.Maybe Prelude.Natural)
+schemaReference_schemaVersionNumber :: Lens.Lens' SchemaReference (Core.Maybe Core.Natural)
 schemaReference_schemaVersionNumber = Lens.lens (\SchemaReference' {schemaVersionNumber} -> schemaVersionNumber) (\s@SchemaReference' {} a -> s {schemaVersionNumber = a} :: SchemaReference)
 
 -- | A structure that contains schema identity fields. Either this or the
 -- @SchemaVersionId@ has to be provided.
-schemaReference_schemaId :: Lens.Lens' SchemaReference (Prelude.Maybe SchemaId)
+schemaReference_schemaId :: Lens.Lens' SchemaReference (Core.Maybe SchemaId)
 schemaReference_schemaId = Lens.lens (\SchemaReference' {schemaId} -> schemaId) (\s@SchemaReference' {} a -> s {schemaId = a} :: SchemaReference)
 
-instance Prelude.FromJSON SchemaReference where
+instance Core.FromJSON SchemaReference where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SchemaReference"
       ( \x ->
           SchemaReference'
-            Prelude.<$> (x Prelude..:? "SchemaVersionId")
-            Prelude.<*> (x Prelude..:? "SchemaVersionNumber")
-            Prelude.<*> (x Prelude..:? "SchemaId")
+            Core.<$> (x Core..:? "SchemaVersionId")
+            Core.<*> (x Core..:? "SchemaVersionNumber")
+            Core.<*> (x Core..:? "SchemaId")
       )
 
-instance Prelude.Hashable SchemaReference
+instance Core.Hashable SchemaReference
 
-instance Prelude.NFData SchemaReference
+instance Core.NFData SchemaReference
 
-instance Prelude.ToJSON SchemaReference where
+instance Core.ToJSON SchemaReference where
   toJSON SchemaReference' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SchemaVersionId" Prelude..=)
-              Prelude.<$> schemaVersionId,
-            ("SchemaVersionNumber" Prelude..=)
-              Prelude.<$> schemaVersionNumber,
-            ("SchemaId" Prelude..=) Prelude.<$> schemaId
+    Core.object
+      ( Core.catMaybes
+          [ ("SchemaVersionId" Core..=)
+              Core.<$> schemaVersionId,
+            ("SchemaVersionNumber" Core..=)
+              Core.<$> schemaVersionNumber,
+            ("SchemaId" Core..=) Core.<$> schemaId
           ]
       )

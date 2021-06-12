@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputDeviceConfigurableSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputDeviceConfiguredInput
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configurable settings for the input device.
 --
@@ -33,12 +32,12 @@ data InputDeviceConfigurableSettings = InputDeviceConfigurableSettings'
     -- source the device sends, specify Auto. If the device has sources
     -- connected to both its input ports, and you want to use a specific
     -- source, specify the source.
-    configuredInput :: Prelude.Maybe InputDeviceConfiguredInput,
+    configuredInput :: Core.Maybe InputDeviceConfiguredInput,
     -- | The maximum bitrate in bits per second. Set a value here to throttle the
     -- bitrate of the source video.
-    maxBitrate :: Prelude.Maybe Prelude.Int
+    maxBitrate :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputDeviceConfigurableSettings' with all optional fields omitted.
@@ -61,8 +60,8 @@ newInputDeviceConfigurableSettings ::
 newInputDeviceConfigurableSettings =
   InputDeviceConfigurableSettings'
     { configuredInput =
-        Prelude.Nothing,
-      maxBitrate = Prelude.Nothing
+        Core.Nothing,
+      maxBitrate = Core.Nothing
     }
 
 -- | The input source that you want to use. If the device has a source
@@ -70,31 +69,26 @@ newInputDeviceConfigurableSettings =
 -- source the device sends, specify Auto. If the device has sources
 -- connected to both its input ports, and you want to use a specific
 -- source, specify the source.
-inputDeviceConfigurableSettings_configuredInput :: Lens.Lens' InputDeviceConfigurableSettings (Prelude.Maybe InputDeviceConfiguredInput)
+inputDeviceConfigurableSettings_configuredInput :: Lens.Lens' InputDeviceConfigurableSettings (Core.Maybe InputDeviceConfiguredInput)
 inputDeviceConfigurableSettings_configuredInput = Lens.lens (\InputDeviceConfigurableSettings' {configuredInput} -> configuredInput) (\s@InputDeviceConfigurableSettings' {} a -> s {configuredInput = a} :: InputDeviceConfigurableSettings)
 
 -- | The maximum bitrate in bits per second. Set a value here to throttle the
 -- bitrate of the source video.
-inputDeviceConfigurableSettings_maxBitrate :: Lens.Lens' InputDeviceConfigurableSettings (Prelude.Maybe Prelude.Int)
+inputDeviceConfigurableSettings_maxBitrate :: Lens.Lens' InputDeviceConfigurableSettings (Core.Maybe Core.Int)
 inputDeviceConfigurableSettings_maxBitrate = Lens.lens (\InputDeviceConfigurableSettings' {maxBitrate} -> maxBitrate) (\s@InputDeviceConfigurableSettings' {} a -> s {maxBitrate = a} :: InputDeviceConfigurableSettings)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InputDeviceConfigurableSettings
 
-instance
-  Prelude.NFData
-    InputDeviceConfigurableSettings
+instance Core.NFData InputDeviceConfigurableSettings
 
-instance
-  Prelude.ToJSON
-    InputDeviceConfigurableSettings
-  where
+instance Core.ToJSON InputDeviceConfigurableSettings where
   toJSON InputDeviceConfigurableSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("configuredInput" Prelude..=)
-              Prelude.<$> configuredInput,
-            ("maxBitrate" Prelude..=) Prelude.<$> maxBitrate
+    Core.object
+      ( Core.catMaybes
+          [ ("configuredInput" Core..=)
+              Core.<$> configuredInput,
+            ("maxBitrate" Core..=) Core.<$> maxBitrate
           ]
       )

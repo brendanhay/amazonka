@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,8 +64,8 @@ module Network.AWS.S3.GetPublicAccessBlock
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -76,12 +75,12 @@ data GetPublicAccessBlock = GetPublicAccessBlock'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
     -- you want to retrieve.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPublicAccessBlock' with all optional fields omitted.
@@ -104,14 +103,14 @@ newGetPublicAccessBlock ::
 newGetPublicAccessBlock pBucket_ =
   GetPublicAccessBlock'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getPublicAccessBlock_expectedBucketOwner :: Lens.Lens' GetPublicAccessBlock (Prelude.Maybe Prelude.Text)
+getPublicAccessBlock_expectedBucketOwner :: Lens.Lens' GetPublicAccessBlock (Core.Maybe Core.Text)
 getPublicAccessBlock_expectedBucketOwner = Lens.lens (\GetPublicAccessBlock' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetPublicAccessBlock' {} a -> s {expectedBucketOwner = a} :: GetPublicAccessBlock)
 
 -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
@@ -119,48 +118,47 @@ getPublicAccessBlock_expectedBucketOwner = Lens.lens (\GetPublicAccessBlock' {ex
 getPublicAccessBlock_bucket :: Lens.Lens' GetPublicAccessBlock BucketName
 getPublicAccessBlock_bucket = Lens.lens (\GetPublicAccessBlock' {bucket} -> bucket) (\s@GetPublicAccessBlock' {} a -> s {bucket = a} :: GetPublicAccessBlock)
 
-instance Prelude.AWSRequest GetPublicAccessBlock where
+instance Core.AWSRequest GetPublicAccessBlock where
   type
-    Rs GetPublicAccessBlock =
+    AWSResponse GetPublicAccessBlock =
       GetPublicAccessBlockResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetPublicAccessBlockResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPublicAccessBlock
+instance Core.Hashable GetPublicAccessBlock
 
-instance Prelude.NFData GetPublicAccessBlock
+instance Core.NFData GetPublicAccessBlock
 
-instance Prelude.ToHeaders GetPublicAccessBlock where
+instance Core.ToHeaders GetPublicAccessBlock where
   toHeaders GetPublicAccessBlock' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetPublicAccessBlock where
+instance Core.ToPath GetPublicAccessBlock where
   toPath GetPublicAccessBlock' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetPublicAccessBlock where
+instance Core.ToQuery GetPublicAccessBlock where
   toQuery =
-    Prelude.const
-      (Prelude.mconcat ["publicAccessBlock"])
+    Core.const (Core.mconcat ["publicAccessBlock"])
 
 -- | /See:/ 'newGetPublicAccessBlockResponse' smart constructor.
 data GetPublicAccessBlockResponse = GetPublicAccessBlockResponse'
   { -- | The @PublicAccessBlock@ configuration currently in effect for this
     -- Amazon S3 bucket.
-    publicAccessBlockConfiguration :: Prelude.Maybe PublicAccessBlockConfiguration,
+    publicAccessBlockConfiguration :: Core.Maybe PublicAccessBlockConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPublicAccessBlockResponse' with all optional fields omitted.
@@ -176,22 +174,22 @@ data GetPublicAccessBlockResponse = GetPublicAccessBlockResponse'
 -- 'httpStatus', 'getPublicAccessBlockResponse_httpStatus' - The response's http status code.
 newGetPublicAccessBlockResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPublicAccessBlockResponse
 newGetPublicAccessBlockResponse pHttpStatus_ =
   GetPublicAccessBlockResponse'
     { publicAccessBlockConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @PublicAccessBlock@ configuration currently in effect for this
 -- Amazon S3 bucket.
-getPublicAccessBlockResponse_publicAccessBlockConfiguration :: Lens.Lens' GetPublicAccessBlockResponse (Prelude.Maybe PublicAccessBlockConfiguration)
+getPublicAccessBlockResponse_publicAccessBlockConfiguration :: Lens.Lens' GetPublicAccessBlockResponse (Core.Maybe PublicAccessBlockConfiguration)
 getPublicAccessBlockResponse_publicAccessBlockConfiguration = Lens.lens (\GetPublicAccessBlockResponse' {publicAccessBlockConfiguration} -> publicAccessBlockConfiguration) (\s@GetPublicAccessBlockResponse' {} a -> s {publicAccessBlockConfiguration = a} :: GetPublicAccessBlockResponse)
 
 -- | The response's http status code.
-getPublicAccessBlockResponse_httpStatus :: Lens.Lens' GetPublicAccessBlockResponse Prelude.Int
+getPublicAccessBlockResponse_httpStatus :: Lens.Lens' GetPublicAccessBlockResponse Core.Int
 getPublicAccessBlockResponse_httpStatus = Lens.lens (\GetPublicAccessBlockResponse' {httpStatus} -> httpStatus) (\s@GetPublicAccessBlockResponse' {} a -> s {httpStatus = a} :: GetPublicAccessBlockResponse)
 
-instance Prelude.NFData GetPublicAccessBlockResponse
+instance Core.NFData GetPublicAccessBlockResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.AcceptTransitGatewayMulticastDomainAssociations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +55,16 @@ data AcceptTransitGatewayMulticastDomainAssociations = AcceptTransitGatewayMulti
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text,
+    transitGatewayMulticastDomainId :: Core.Maybe Core.Text,
     -- | The IDs of the subnets to associate with the transit gateway multicast
     -- domain.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | The ID of the transit gateway attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
+    transitGatewayAttachmentId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptTransitGatewayMulticastDomainAssociations' with all optional fields omitted.
@@ -91,41 +90,40 @@ newAcceptTransitGatewayMulticastDomainAssociations ::
 newAcceptTransitGatewayMulticastDomainAssociations =
   AcceptTransitGatewayMulticastDomainAssociations'
     { dryRun =
-        Prelude.Nothing,
+        Core.Nothing,
       transitGatewayMulticastDomainId =
-        Prelude.Nothing,
-      subnetIds =
-        Prelude.Nothing,
+        Core.Nothing,
+      subnetIds = Core.Nothing,
       transitGatewayAttachmentId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-acceptTransitGatewayMulticastDomainAssociations_dryRun :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Bool)
+acceptTransitGatewayMulticastDomainAssociations_dryRun :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Core.Maybe Core.Bool)
 acceptTransitGatewayMulticastDomainAssociations_dryRun = Lens.lens (\AcceptTransitGatewayMulticastDomainAssociations' {dryRun} -> dryRun) (\s@AcceptTransitGatewayMulticastDomainAssociations' {} a -> s {dryRun = a} :: AcceptTransitGatewayMulticastDomainAssociations)
 
 -- | The ID of the transit gateway multicast domain.
-acceptTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Text)
+acceptTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Core.Maybe Core.Text)
 acceptTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId = Lens.lens (\AcceptTransitGatewayMulticastDomainAssociations' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@AcceptTransitGatewayMulticastDomainAssociations' {} a -> s {transitGatewayMulticastDomainId = a} :: AcceptTransitGatewayMulticastDomainAssociations)
 
 -- | The IDs of the subnets to associate with the transit gateway multicast
 -- domain.
-acceptTransitGatewayMulticastDomainAssociations_subnetIds :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Prelude.Maybe [Prelude.Text])
-acceptTransitGatewayMulticastDomainAssociations_subnetIds = Lens.lens (\AcceptTransitGatewayMulticastDomainAssociations' {subnetIds} -> subnetIds) (\s@AcceptTransitGatewayMulticastDomainAssociations' {} a -> s {subnetIds = a} :: AcceptTransitGatewayMulticastDomainAssociations) Prelude.. Lens.mapping Prelude._Coerce
+acceptTransitGatewayMulticastDomainAssociations_subnetIds :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Core.Maybe [Core.Text])
+acceptTransitGatewayMulticastDomainAssociations_subnetIds = Lens.lens (\AcceptTransitGatewayMulticastDomainAssociations' {subnetIds} -> subnetIds) (\s@AcceptTransitGatewayMulticastDomainAssociations' {} a -> s {subnetIds = a} :: AcceptTransitGatewayMulticastDomainAssociations) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the transit gateway attachment.
-acceptTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Text)
+acceptTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociations (Core.Maybe Core.Text)
 acceptTransitGatewayMulticastDomainAssociations_transitGatewayAttachmentId = Lens.lens (\AcceptTransitGatewayMulticastDomainAssociations' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@AcceptTransitGatewayMulticastDomainAssociations' {} a -> s {transitGatewayAttachmentId = a} :: AcceptTransitGatewayMulticastDomainAssociations)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AcceptTransitGatewayMulticastDomainAssociations
   where
   type
-    Rs
+    AWSResponse
       AcceptTransitGatewayMulticastDomainAssociations =
       AcceptTransitGatewayMulticastDomainAssociationsResponse
   request = Request.postQuery defaultService
@@ -133,61 +131,58 @@ instance
     Response.receiveXML
       ( \s h x ->
           AcceptTransitGatewayMulticastDomainAssociationsResponse'
-            Prelude.<$> (x Prelude..@? "associations")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "associations")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AcceptTransitGatewayMulticastDomainAssociations
 
 instance
-  Prelude.NFData
+  Core.NFData
     AcceptTransitGatewayMulticastDomainAssociations
 
 instance
-  Prelude.ToHeaders
-    AcceptTransitGatewayMulticastDomainAssociations
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     AcceptTransitGatewayMulticastDomainAssociations
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    AcceptTransitGatewayMulticastDomainAssociations
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     AcceptTransitGatewayMulticastDomainAssociations
   where
   toQuery
     AcceptTransitGatewayMulticastDomainAssociations' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "AcceptTransitGatewayMulticastDomainAssociations" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
+            Core.=: ( "AcceptTransitGatewayMulticastDomainAssociations" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
           "TransitGatewayMulticastDomainId"
-            Prelude.=: transitGatewayMulticastDomainId,
-          Prelude.toQuery
-            ( Prelude.toQueryList "SubnetIds"
-                Prelude.<$> subnetIds
-            ),
+            Core.=: transitGatewayMulticastDomainId,
+          Core.toQuery
+            (Core.toQueryList "SubnetIds" Core.<$> subnetIds),
           "TransitGatewayAttachmentId"
-            Prelude.=: transitGatewayAttachmentId
+            Core.=: transitGatewayAttachmentId
         ]
 
 -- | /See:/ 'newAcceptTransitGatewayMulticastDomainAssociationsResponse' smart constructor.
 data AcceptTransitGatewayMulticastDomainAssociationsResponse = AcceptTransitGatewayMulticastDomainAssociationsResponse'
-  { associations :: Prelude.Maybe TransitGatewayMulticastDomainAssociations,
+  { associations :: Core.Maybe TransitGatewayMulticastDomainAssociations,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptTransitGatewayMulticastDomainAssociationsResponse' with all optional fields omitted.
@@ -202,25 +197,25 @@ data AcceptTransitGatewayMulticastDomainAssociationsResponse = AcceptTransitGate
 -- 'httpStatus', 'acceptTransitGatewayMulticastDomainAssociationsResponse_httpStatus' - The response's http status code.
 newAcceptTransitGatewayMulticastDomainAssociationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AcceptTransitGatewayMulticastDomainAssociationsResponse
 newAcceptTransitGatewayMulticastDomainAssociationsResponse
   pHttpStatus_ =
     AcceptTransitGatewayMulticastDomainAssociationsResponse'
       { associations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Undocumented member.
-acceptTransitGatewayMulticastDomainAssociationsResponse_associations :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociationsResponse (Prelude.Maybe TransitGatewayMulticastDomainAssociations)
+acceptTransitGatewayMulticastDomainAssociationsResponse_associations :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociationsResponse (Core.Maybe TransitGatewayMulticastDomainAssociations)
 acceptTransitGatewayMulticastDomainAssociationsResponse_associations = Lens.lens (\AcceptTransitGatewayMulticastDomainAssociationsResponse' {associations} -> associations) (\s@AcceptTransitGatewayMulticastDomainAssociationsResponse' {} a -> s {associations = a} :: AcceptTransitGatewayMulticastDomainAssociationsResponse)
 
 -- | The response's http status code.
-acceptTransitGatewayMulticastDomainAssociationsResponse_httpStatus :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociationsResponse Prelude.Int
+acceptTransitGatewayMulticastDomainAssociationsResponse_httpStatus :: Lens.Lens' AcceptTransitGatewayMulticastDomainAssociationsResponse Core.Int
 acceptTransitGatewayMulticastDomainAssociationsResponse_httpStatus = Lens.lens (\AcceptTransitGatewayMulticastDomainAssociationsResponse' {httpStatus} -> httpStatus) (\s@AcceptTransitGatewayMulticastDomainAssociationsResponse' {} a -> s {httpStatus = a} :: AcceptTransitGatewayMulticastDomainAssociationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AcceptTransitGatewayMulticastDomainAssociationsResponse

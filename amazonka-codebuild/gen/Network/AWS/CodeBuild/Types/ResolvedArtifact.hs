@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeBuild.Types.ResolvedArtifact where
 
 import Network.AWS.CodeBuild.Types.ArtifactsType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a resolved build artifact. A resolve artifact is an artifact
 -- that is built and deployed to the destination, such as Amazon S3.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResolvedArtifact' smart constructor.
 data ResolvedArtifact = ResolvedArtifact'
   { -- | The identifier of the artifact.
-    identifier :: Prelude.Maybe Prelude.Text,
+    identifier :: Core.Maybe Core.Text,
     -- | Specifies the type of artifact.
-    type' :: Prelude.Maybe ArtifactsType,
+    type' :: Core.Maybe ArtifactsType,
     -- | The location of the artifact.
-    location :: Prelude.Maybe Prelude.Text
+    location :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResolvedArtifact' with all optional fields omitted.
@@ -55,34 +54,34 @@ newResolvedArtifact ::
   ResolvedArtifact
 newResolvedArtifact =
   ResolvedArtifact'
-    { identifier = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      location = Prelude.Nothing
+    { identifier = Core.Nothing,
+      type' = Core.Nothing,
+      location = Core.Nothing
     }
 
 -- | The identifier of the artifact.
-resolvedArtifact_identifier :: Lens.Lens' ResolvedArtifact (Prelude.Maybe Prelude.Text)
+resolvedArtifact_identifier :: Lens.Lens' ResolvedArtifact (Core.Maybe Core.Text)
 resolvedArtifact_identifier = Lens.lens (\ResolvedArtifact' {identifier} -> identifier) (\s@ResolvedArtifact' {} a -> s {identifier = a} :: ResolvedArtifact)
 
 -- | Specifies the type of artifact.
-resolvedArtifact_type :: Lens.Lens' ResolvedArtifact (Prelude.Maybe ArtifactsType)
+resolvedArtifact_type :: Lens.Lens' ResolvedArtifact (Core.Maybe ArtifactsType)
 resolvedArtifact_type = Lens.lens (\ResolvedArtifact' {type'} -> type') (\s@ResolvedArtifact' {} a -> s {type' = a} :: ResolvedArtifact)
 
 -- | The location of the artifact.
-resolvedArtifact_location :: Lens.Lens' ResolvedArtifact (Prelude.Maybe Prelude.Text)
+resolvedArtifact_location :: Lens.Lens' ResolvedArtifact (Core.Maybe Core.Text)
 resolvedArtifact_location = Lens.lens (\ResolvedArtifact' {location} -> location) (\s@ResolvedArtifact' {} a -> s {location = a} :: ResolvedArtifact)
 
-instance Prelude.FromJSON ResolvedArtifact where
+instance Core.FromJSON ResolvedArtifact where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResolvedArtifact"
       ( \x ->
           ResolvedArtifact'
-            Prelude.<$> (x Prelude..:? "identifier")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "location")
+            Core.<$> (x Core..:? "identifier")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "location")
       )
 
-instance Prelude.Hashable ResolvedArtifact
+instance Core.Hashable ResolvedArtifact
 
-instance Prelude.NFData ResolvedArtifact
+instance Core.NFData ResolvedArtifact

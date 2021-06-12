@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration properties for a labeling set generation task
 -- run.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data LabelingSetGenerationTaskRunProperties = LabelingSetGenerationTaskRunProperties'
   { -- | The Amazon Simple Storage Service (Amazon S3) path where you will
     -- generate the labeling set.
-    outputS3Path :: Prelude.Maybe Prelude.Text
+    outputS3Path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelingSetGenerationTaskRunProperties' with all optional fields omitted.
@@ -49,30 +48,30 @@ newLabelingSetGenerationTaskRunProperties ::
 newLabelingSetGenerationTaskRunProperties =
   LabelingSetGenerationTaskRunProperties'
     { outputS3Path =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where you will
 -- generate the labeling set.
-labelingSetGenerationTaskRunProperties_outputS3Path :: Lens.Lens' LabelingSetGenerationTaskRunProperties (Prelude.Maybe Prelude.Text)
+labelingSetGenerationTaskRunProperties_outputS3Path :: Lens.Lens' LabelingSetGenerationTaskRunProperties (Core.Maybe Core.Text)
 labelingSetGenerationTaskRunProperties_outputS3Path = Lens.lens (\LabelingSetGenerationTaskRunProperties' {outputS3Path} -> outputS3Path) (\s@LabelingSetGenerationTaskRunProperties' {} a -> s {outputS3Path = a} :: LabelingSetGenerationTaskRunProperties)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     LabelingSetGenerationTaskRunProperties
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LabelingSetGenerationTaskRunProperties"
       ( \x ->
           LabelingSetGenerationTaskRunProperties'
-            Prelude.<$> (x Prelude..:? "OutputS3Path")
+            Core.<$> (x Core..:? "OutputS3Path")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LabelingSetGenerationTaskRunProperties
 
 instance
-  Prelude.NFData
+  Core.NFData
     LabelingSetGenerationTaskRunProperties

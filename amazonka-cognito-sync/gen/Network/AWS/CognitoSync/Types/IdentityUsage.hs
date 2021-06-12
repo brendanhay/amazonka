@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoSync.Types.IdentityUsage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Usage information for the identity.
 --
 -- /See:/ 'newIdentityUsage' smart constructor.
 data IdentityUsage = IdentityUsage'
   { -- | Date on which the identity was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
+    identityPoolId :: Core.Maybe Core.Text,
     -- | Number of datasets for the identity.
-    datasetCount :: Prelude.Maybe Prelude.Int,
+    datasetCount :: Core.Maybe Core.Int,
     -- | Total data storage for this identity.
-    dataStorage :: Prelude.Maybe Prelude.Integer,
+    dataStorage :: Core.Maybe Core.Integer,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Prelude.Maybe Prelude.Text
+    identityId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityUsage' with all optional fields omitted.
@@ -69,50 +68,50 @@ newIdentityUsage ::
   IdentityUsage
 newIdentityUsage =
   IdentityUsage'
-    { lastModifiedDate = Prelude.Nothing,
-      identityPoolId = Prelude.Nothing,
-      datasetCount = Prelude.Nothing,
-      dataStorage = Prelude.Nothing,
-      identityId = Prelude.Nothing
+    { lastModifiedDate = Core.Nothing,
+      identityPoolId = Core.Nothing,
+      datasetCount = Core.Nothing,
+      dataStorage = Core.Nothing,
+      identityId = Core.Nothing
     }
 
 -- | Date on which the identity was last modified.
-identityUsage_lastModifiedDate :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.UTCTime)
-identityUsage_lastModifiedDate = Lens.lens (\IdentityUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityUsage' {} a -> s {lastModifiedDate = a} :: IdentityUsage) Prelude.. Lens.mapping Prelude._Time
+identityUsage_lastModifiedDate :: Lens.Lens' IdentityUsage (Core.Maybe Core.UTCTime)
+identityUsage_lastModifiedDate = Lens.lens (\IdentityUsage' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityUsage' {} a -> s {lastModifiedDate = a} :: IdentityUsage) Core.. Lens.mapping Core._Time
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-identityUsage_identityPoolId :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.Text)
+identityUsage_identityPoolId :: Lens.Lens' IdentityUsage (Core.Maybe Core.Text)
 identityUsage_identityPoolId = Lens.lens (\IdentityUsage' {identityPoolId} -> identityPoolId) (\s@IdentityUsage' {} a -> s {identityPoolId = a} :: IdentityUsage)
 
 -- | Number of datasets for the identity.
-identityUsage_datasetCount :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.Int)
+identityUsage_datasetCount :: Lens.Lens' IdentityUsage (Core.Maybe Core.Int)
 identityUsage_datasetCount = Lens.lens (\IdentityUsage' {datasetCount} -> datasetCount) (\s@IdentityUsage' {} a -> s {datasetCount = a} :: IdentityUsage)
 
 -- | Total data storage for this identity.
-identityUsage_dataStorage :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.Integer)
+identityUsage_dataStorage :: Lens.Lens' IdentityUsage (Core.Maybe Core.Integer)
 identityUsage_dataStorage = Lens.lens (\IdentityUsage' {dataStorage} -> dataStorage) (\s@IdentityUsage' {} a -> s {dataStorage = a} :: IdentityUsage)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-identityUsage_identityId :: Lens.Lens' IdentityUsage (Prelude.Maybe Prelude.Text)
+identityUsage_identityId :: Lens.Lens' IdentityUsage (Core.Maybe Core.Text)
 identityUsage_identityId = Lens.lens (\IdentityUsage' {identityId} -> identityId) (\s@IdentityUsage' {} a -> s {identityId = a} :: IdentityUsage)
 
-instance Prelude.FromJSON IdentityUsage where
+instance Core.FromJSON IdentityUsage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IdentityUsage"
       ( \x ->
           IdentityUsage'
-            Prelude.<$> (x Prelude..:? "LastModifiedDate")
-            Prelude.<*> (x Prelude..:? "IdentityPoolId")
-            Prelude.<*> (x Prelude..:? "DatasetCount")
-            Prelude.<*> (x Prelude..:? "DataStorage")
-            Prelude.<*> (x Prelude..:? "IdentityId")
+            Core.<$> (x Core..:? "LastModifiedDate")
+            Core.<*> (x Core..:? "IdentityPoolId")
+            Core.<*> (x Core..:? "DatasetCount")
+            Core.<*> (x Core..:? "DataStorage")
+            Core.<*> (x Core..:? "IdentityId")
       )
 
-instance Prelude.Hashable IdentityUsage
+instance Core.Hashable IdentityUsage
 
-instance Prelude.NFData IdentityUsage
+instance Core.NFData IdentityUsage

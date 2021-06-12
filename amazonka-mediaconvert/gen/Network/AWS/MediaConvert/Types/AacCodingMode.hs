@@ -1,5 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -29,7 +29,7 @@ module Network.AWS.MediaConvert.Types.AacCodingMode
   )
 where
 
-import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Core as Core
 
 -- | Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid
 -- values depend on rate control mode and profile. \"1.0 - Audio
@@ -38,30 +38,30 @@ import qualified Network.AWS.Prelude as Prelude
 -- control data emitted in the PES header as per ETSI TS 101 154 Annex E.
 newtype AacCodingMode = AacCodingMode'
   { fromAacCodingMode ::
-      Prelude.Text
+      Core.Text
   }
-  deriving
-    ( Prelude.Show,
-      Prelude.Read,
-      Prelude.Eq,
-      Prelude.Ord,
-      Prelude.Data,
-      Prelude.Typeable,
-      Prelude.Generic,
-      Prelude.Hashable,
-      Prelude.NFData,
-      Prelude.FromText,
-      Prelude.ToText,
-      Prelude.ToByteString,
-      Prelude.ToLog,
-      Prelude.ToHeader,
-      Prelude.ToQuery,
-      Prelude.FromJSON,
-      Prelude.FromJSONKey,
-      Prelude.ToJSON,
-      Prelude.ToJSONKey,
-      Prelude.FromXML,
-      Prelude.ToXML
+  deriving stock
+    ( Core.Show,
+      Core.Read,
+      Core.Eq,
+      Core.Ord,
+      Core.Generic
+    )
+  deriving newtype
+    ( Core.Hashable,
+      Core.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
     )
 
 pattern AacCodingMode_AD_RECEIVER_MIX :: AacCodingMode

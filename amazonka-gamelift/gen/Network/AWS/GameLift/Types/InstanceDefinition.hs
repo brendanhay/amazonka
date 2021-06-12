@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.InstanceDefinition where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.GameServerGroupInstanceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game
 -- server groups.__
@@ -41,11 +40,11 @@ data InstanceDefinition = InstanceDefinition'
     -- For detailed information on weighting instance capacity, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
     -- in the /Amazon EC2 Auto Scaling User Guide/. Default value is \"1\".
-    weightedCapacity :: Prelude.Maybe Prelude.Text,
+    weightedCapacity :: Core.Maybe Core.Text,
     -- | An EC2 instance type designation.
     instanceType :: GameServerGroupInstanceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceDefinition' with all optional fields omitted.
@@ -71,7 +70,7 @@ newInstanceDefinition ::
 newInstanceDefinition pInstanceType_ =
   InstanceDefinition'
     { weightedCapacity =
-        Prelude.Nothing,
+        Core.Nothing,
       instanceType = pInstanceType_
     }
 
@@ -82,34 +81,33 @@ newInstanceDefinition pInstanceType_ =
 -- For detailed information on weighting instance capacity, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
 -- in the /Amazon EC2 Auto Scaling User Guide/. Default value is \"1\".
-instanceDefinition_weightedCapacity :: Lens.Lens' InstanceDefinition (Prelude.Maybe Prelude.Text)
+instanceDefinition_weightedCapacity :: Lens.Lens' InstanceDefinition (Core.Maybe Core.Text)
 instanceDefinition_weightedCapacity = Lens.lens (\InstanceDefinition' {weightedCapacity} -> weightedCapacity) (\s@InstanceDefinition' {} a -> s {weightedCapacity = a} :: InstanceDefinition)
 
 -- | An EC2 instance type designation.
 instanceDefinition_instanceType :: Lens.Lens' InstanceDefinition GameServerGroupInstanceType
 instanceDefinition_instanceType = Lens.lens (\InstanceDefinition' {instanceType} -> instanceType) (\s@InstanceDefinition' {} a -> s {instanceType = a} :: InstanceDefinition)
 
-instance Prelude.FromJSON InstanceDefinition where
+instance Core.FromJSON InstanceDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceDefinition"
       ( \x ->
           InstanceDefinition'
-            Prelude.<$> (x Prelude..:? "WeightedCapacity")
-            Prelude.<*> (x Prelude..: "InstanceType")
+            Core.<$> (x Core..:? "WeightedCapacity")
+            Core.<*> (x Core..: "InstanceType")
       )
 
-instance Prelude.Hashable InstanceDefinition
+instance Core.Hashable InstanceDefinition
 
-instance Prelude.NFData InstanceDefinition
+instance Core.NFData InstanceDefinition
 
-instance Prelude.ToJSON InstanceDefinition where
+instance Core.ToJSON InstanceDefinition where
   toJSON InstanceDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("WeightedCapacity" Prelude..=)
-              Prelude.<$> weightedCapacity,
-            Prelude.Just
-              ("InstanceType" Prelude..= instanceType)
+    Core.object
+      ( Core.catMaybes
+          [ ("WeightedCapacity" Core..=)
+              Core.<$> weightedCapacity,
+            Core.Just ("InstanceType" Core..= instanceType)
           ]
       )

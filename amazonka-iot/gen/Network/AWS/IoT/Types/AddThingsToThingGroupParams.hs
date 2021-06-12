@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AddThingsToThingGroupParams where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters used when defining a mitigation action that move a set of
 -- things to a thing group.
@@ -31,13 +30,13 @@ data AddThingsToThingGroupParams = AddThingsToThingGroupParams'
   { -- | Specifies if this mitigation action can move the things that triggered
     -- the mitigation action even if they are part of one or more dynamic thing
     -- groups.
-    overrideDynamicGroups :: Prelude.Maybe Prelude.Bool,
+    overrideDynamicGroups :: Core.Maybe Core.Bool,
     -- | The list of groups to which you want to add the things that triggered
     -- the mitigation action. You can add a thing to a maximum of 10 groups,
     -- but you can\'t add a thing to more than one group in the same hierarchy.
-    thingGroupNames :: Prelude.NonEmpty Prelude.Text
+    thingGroupNames :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddThingsToThingGroupParams' with all optional fields omitted.
@@ -56,49 +55,49 @@ data AddThingsToThingGroupParams = AddThingsToThingGroupParams'
 -- but you can\'t add a thing to more than one group in the same hierarchy.
 newAddThingsToThingGroupParams ::
   -- | 'thingGroupNames'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   AddThingsToThingGroupParams
 newAddThingsToThingGroupParams pThingGroupNames_ =
   AddThingsToThingGroupParams'
     { overrideDynamicGroups =
-        Prelude.Nothing,
+        Core.Nothing,
       thingGroupNames =
-        Prelude._Coerce Lens.# pThingGroupNames_
+        Lens._Coerce Lens.# pThingGroupNames_
     }
 
 -- | Specifies if this mitigation action can move the things that triggered
 -- the mitigation action even if they are part of one or more dynamic thing
 -- groups.
-addThingsToThingGroupParams_overrideDynamicGroups :: Lens.Lens' AddThingsToThingGroupParams (Prelude.Maybe Prelude.Bool)
+addThingsToThingGroupParams_overrideDynamicGroups :: Lens.Lens' AddThingsToThingGroupParams (Core.Maybe Core.Bool)
 addThingsToThingGroupParams_overrideDynamicGroups = Lens.lens (\AddThingsToThingGroupParams' {overrideDynamicGroups} -> overrideDynamicGroups) (\s@AddThingsToThingGroupParams' {} a -> s {overrideDynamicGroups = a} :: AddThingsToThingGroupParams)
 
 -- | The list of groups to which you want to add the things that triggered
 -- the mitigation action. You can add a thing to a maximum of 10 groups,
 -- but you can\'t add a thing to more than one group in the same hierarchy.
-addThingsToThingGroupParams_thingGroupNames :: Lens.Lens' AddThingsToThingGroupParams (Prelude.NonEmpty Prelude.Text)
-addThingsToThingGroupParams_thingGroupNames = Lens.lens (\AddThingsToThingGroupParams' {thingGroupNames} -> thingGroupNames) (\s@AddThingsToThingGroupParams' {} a -> s {thingGroupNames = a} :: AddThingsToThingGroupParams) Prelude.. Prelude._Coerce
+addThingsToThingGroupParams_thingGroupNames :: Lens.Lens' AddThingsToThingGroupParams (Core.NonEmpty Core.Text)
+addThingsToThingGroupParams_thingGroupNames = Lens.lens (\AddThingsToThingGroupParams' {thingGroupNames} -> thingGroupNames) (\s@AddThingsToThingGroupParams' {} a -> s {thingGroupNames = a} :: AddThingsToThingGroupParams) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AddThingsToThingGroupParams where
+instance Core.FromJSON AddThingsToThingGroupParams where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AddThingsToThingGroupParams"
       ( \x ->
           AddThingsToThingGroupParams'
-            Prelude.<$> (x Prelude..:? "overrideDynamicGroups")
-            Prelude.<*> (x Prelude..: "thingGroupNames")
+            Core.<$> (x Core..:? "overrideDynamicGroups")
+            Core.<*> (x Core..: "thingGroupNames")
       )
 
-instance Prelude.Hashable AddThingsToThingGroupParams
+instance Core.Hashable AddThingsToThingGroupParams
 
-instance Prelude.NFData AddThingsToThingGroupParams
+instance Core.NFData AddThingsToThingGroupParams
 
-instance Prelude.ToJSON AddThingsToThingGroupParams where
+instance Core.ToJSON AddThingsToThingGroupParams where
   toJSON AddThingsToThingGroupParams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("overrideDynamicGroups" Prelude..=)
-              Prelude.<$> overrideDynamicGroups,
-            Prelude.Just
-              ("thingGroupNames" Prelude..= thingGroupNames)
+    Core.object
+      ( Core.catMaybes
+          [ ("overrideDynamicGroups" Core..=)
+              Core.<$> overrideDynamicGroups,
+            Core.Just
+              ("thingGroupNames" Core..= thingGroupNames)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.ResumeClusterMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a resume cluster operation. For example, a scheduled action to
@@ -30,9 +29,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newResumeClusterMessage' smart constructor.
 data ResumeClusterMessage = ResumeClusterMessage'
   { -- | The identifier of the cluster to be resumed.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResumeClusterMessage' with all optional fields omitted.
@@ -45,7 +44,7 @@ data ResumeClusterMessage = ResumeClusterMessage'
 -- 'clusterIdentifier', 'resumeClusterMessage_clusterIdentifier' - The identifier of the cluster to be resumed.
 newResumeClusterMessage ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ResumeClusterMessage
 newResumeClusterMessage pClusterIdentifier_ =
   ResumeClusterMessage'
@@ -54,19 +53,19 @@ newResumeClusterMessage pClusterIdentifier_ =
     }
 
 -- | The identifier of the cluster to be resumed.
-resumeClusterMessage_clusterIdentifier :: Lens.Lens' ResumeClusterMessage Prelude.Text
+resumeClusterMessage_clusterIdentifier :: Lens.Lens' ResumeClusterMessage Core.Text
 resumeClusterMessage_clusterIdentifier = Lens.lens (\ResumeClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@ResumeClusterMessage' {} a -> s {clusterIdentifier = a} :: ResumeClusterMessage)
 
-instance Prelude.FromXML ResumeClusterMessage where
+instance Core.FromXML ResumeClusterMessage where
   parseXML x =
     ResumeClusterMessage'
-      Prelude.<$> (x Prelude..@ "ClusterIdentifier")
+      Core.<$> (x Core..@ "ClusterIdentifier")
 
-instance Prelude.Hashable ResumeClusterMessage
+instance Core.Hashable ResumeClusterMessage
 
-instance Prelude.NFData ResumeClusterMessage
+instance Core.NFData ResumeClusterMessage
 
-instance Prelude.ToQuery ResumeClusterMessage where
+instance Core.ToQuery ResumeClusterMessage where
   toQuery ResumeClusterMessage' {..} =
-    Prelude.mconcat
-      ["ClusterIdentifier" Prelude.=: clusterIdentifier]
+    Core.mconcat
+      ["ClusterIdentifier" Core.=: clusterIdentifier]

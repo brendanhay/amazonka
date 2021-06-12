@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.APIGateway.GetTags
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +53,14 @@ import qualified Network.AWS.Response as Response
 data GetTags = GetTags'
   { -- | (Not currently supported) The current pagination position in the paged
     -- result set.
-    position :: Prelude.Maybe Prelude.Text,
+    position :: Core.Maybe Core.Text,
     -- | (Not currently supported) The maximum number of returned results per
     -- page. The default value is 25 and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
+    limit :: Core.Maybe Core.Int,
     -- | [Required] The ARN of a resource that can be tagged.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTags' with all optional fields omitted.
@@ -80,64 +79,61 @@ data GetTags = GetTags'
 -- 'resourceArn', 'getTags_resourceArn' - [Required] The ARN of a resource that can be tagged.
 newGetTags ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   GetTags
 newGetTags pResourceArn_ =
   GetTags'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { position = Core.Nothing,
+      limit = Core.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | (Not currently supported) The current pagination position in the paged
 -- result set.
-getTags_position :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
+getTags_position :: Lens.Lens' GetTags (Core.Maybe Core.Text)
 getTags_position = Lens.lens (\GetTags' {position} -> position) (\s@GetTags' {} a -> s {position = a} :: GetTags)
 
 -- | (Not currently supported) The maximum number of returned results per
 -- page. The default value is 25 and the maximum value is 500.
-getTags_limit :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Int)
+getTags_limit :: Lens.Lens' GetTags (Core.Maybe Core.Int)
 getTags_limit = Lens.lens (\GetTags' {limit} -> limit) (\s@GetTags' {} a -> s {limit = a} :: GetTags)
 
 -- | [Required] The ARN of a resource that can be tagged.
-getTags_resourceArn :: Lens.Lens' GetTags Prelude.Text
+getTags_resourceArn :: Lens.Lens' GetTags Core.Text
 getTags_resourceArn = Lens.lens (\GetTags' {resourceArn} -> resourceArn) (\s@GetTags' {} a -> s {resourceArn = a} :: GetTags)
 
-instance Prelude.AWSRequest GetTags where
-  type Rs GetTags = GetTagsResponse
+instance Core.AWSRequest GetTags where
+  type AWSResponse GetTags = GetTagsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTags
+instance Core.Hashable GetTags
 
-instance Prelude.NFData GetTags
+instance Core.NFData GetTags
 
-instance Prelude.ToHeaders GetTags where
+instance Core.ToHeaders GetTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetTags where
+instance Core.ToPath GetTags where
   toPath GetTags' {..} =
-    Prelude.mconcat
-      ["/tags/", Prelude.toBS resourceArn]
+    Core.mconcat ["/tags/", Core.toBS resourceArn]
 
-instance Prelude.ToQuery GetTags where
+instance Core.ToQuery GetTags where
   toQuery GetTags' {..} =
-    Prelude.mconcat
-      [ "position" Prelude.=: position,
-        "limit" Prelude.=: limit
-      ]
+    Core.mconcat
+      ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
@@ -146,11 +142,11 @@ instance Prelude.ToQuery GetTags where
 data GetTagsResponse = GetTagsResponse'
   { -- | The collection of tags. Each tag element is associated with a given
     -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTagsResponse' with all optional fields omitted.
@@ -166,21 +162,21 @@ data GetTagsResponse = GetTagsResponse'
 -- 'httpStatus', 'getTagsResponse_httpStatus' - The response's http status code.
 newGetTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTagsResponse
 newGetTagsResponse pHttpStatus_ =
   GetTagsResponse'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
-getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getTagsResponse_tags :: Lens.Lens' GetTagsResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int
+getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Core.Int
 getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpStatus) (\s@GetTagsResponse' {} a -> s {httpStatus = a} :: GetTagsResponse)
 
-instance Prelude.NFData GetTagsResponse
+instance Core.NFData GetTagsResponse

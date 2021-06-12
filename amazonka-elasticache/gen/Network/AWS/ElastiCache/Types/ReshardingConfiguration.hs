@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.ReshardingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of @PreferredAvailabilityZones@ objects that specifies the
 -- configuration of a node group in the resharded cluster.
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReshardingConfiguration' smart constructor.
 data ReshardingConfiguration = ReshardingConfiguration'
   { -- | A list of preferred availability zones for the nodes in this cluster.
-    preferredAvailabilityZones :: Prelude.Maybe [Prelude.Text],
+    preferredAvailabilityZones :: Core.Maybe [Core.Text],
     -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied
     -- id for the node group these configuration values apply to.
-    nodeGroupId :: Prelude.Maybe Prelude.Text
+    nodeGroupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReshardingConfiguration' with all optional fields omitted.
@@ -53,30 +52,30 @@ newReshardingConfiguration ::
 newReshardingConfiguration =
   ReshardingConfiguration'
     { preferredAvailabilityZones =
-        Prelude.Nothing,
-      nodeGroupId = Prelude.Nothing
+        Core.Nothing,
+      nodeGroupId = Core.Nothing
     }
 
 -- | A list of preferred availability zones for the nodes in this cluster.
-reshardingConfiguration_preferredAvailabilityZones :: Lens.Lens' ReshardingConfiguration (Prelude.Maybe [Prelude.Text])
-reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfiguration' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ReshardingConfiguration' {} a -> s {preferredAvailabilityZones = a} :: ReshardingConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+reshardingConfiguration_preferredAvailabilityZones :: Lens.Lens' ReshardingConfiguration (Core.Maybe [Core.Text])
+reshardingConfiguration_preferredAvailabilityZones = Lens.lens (\ReshardingConfiguration' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@ReshardingConfiguration' {} a -> s {preferredAvailabilityZones = a} :: ReshardingConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Either the ElastiCache for Redis supplied 4-digit id or a user supplied
 -- id for the node group these configuration values apply to.
-reshardingConfiguration_nodeGroupId :: Lens.Lens' ReshardingConfiguration (Prelude.Maybe Prelude.Text)
+reshardingConfiguration_nodeGroupId :: Lens.Lens' ReshardingConfiguration (Core.Maybe Core.Text)
 reshardingConfiguration_nodeGroupId = Lens.lens (\ReshardingConfiguration' {nodeGroupId} -> nodeGroupId) (\s@ReshardingConfiguration' {} a -> s {nodeGroupId = a} :: ReshardingConfiguration)
 
-instance Prelude.Hashable ReshardingConfiguration
+instance Core.Hashable ReshardingConfiguration
 
-instance Prelude.NFData ReshardingConfiguration
+instance Core.NFData ReshardingConfiguration
 
-instance Prelude.ToQuery ReshardingConfiguration where
+instance Core.ToQuery ReshardingConfiguration where
   toQuery ReshardingConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "PreferredAvailabilityZones"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "AvailabilityZone"
-                Prelude.<$> preferredAvailabilityZones
+          Core.=: Core.toQuery
+            ( Core.toQueryList "AvailabilityZone"
+                Core.<$> preferredAvailabilityZones
             ),
-        "NodeGroupId" Prelude.=: nodeGroupId
+        "NodeGroupId" Core.=: nodeGroupId
       ]

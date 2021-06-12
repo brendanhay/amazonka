@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.CertificateManager.RequestCertificate
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,14 +74,14 @@ data RequestCertificate = RequestCertificate'
     -- requesting only one certificate and will issue only one. If you change
     -- the idempotency token for each call, ACM recognizes that you are
     -- requesting multiple certificates.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    idempotencyToken :: Core.Maybe Core.Text,
     -- | The method you want to use if you are requesting a public certificate to
     -- validate that you own or control domain. You can
     -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html validate with DNS>
     -- or
     -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html validate with email>.
     -- We recommend that you use DNS validation.
-    validationMethod :: Prelude.Maybe ValidationMethod,
+    validationMethod :: Core.Maybe ValidationMethod,
     -- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
     -- that will be used to issue the certificate. If you do not provide an ARN
     -- and you are trying to request a private certificate, ACM will attempt to
@@ -92,10 +91,10 @@ data RequestCertificate = RequestCertificate'
     -- user guide. The ARN must have the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    certificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The domain name that you want ACM to use to send you emails so that you
     -- can validate domain ownership.
-    domainValidationOptions :: Prelude.Maybe (Prelude.NonEmpty DomainValidationOption),
+    domainValidationOptions :: Core.Maybe (Core.NonEmpty DomainValidationOption),
     -- | Currently, you can use this parameter to specify whether to add the
     -- certificate to a certificate transparency log. Certificate transparency
     -- makes it possible to detect SSL\/TLS certificates that have been
@@ -103,7 +102,7 @@ data RequestCertificate = RequestCertificate'
     -- typically produce an error message in a browser. For more information,
     -- see
     -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
-    options :: Prelude.Maybe CertificateOptions,
+    options :: Core.Maybe CertificateOptions,
     -- | Additional FQDNs to be included in the Subject Alternative Name
     -- extension of the ACM certificate. For example, add the name
     -- www.example.net to a certificate for which the @DomainName@ field is
@@ -129,9 +128,9 @@ data RequestCertificate = RequestCertificate'
     -- -   @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal
     --     because the total length of the DNS name (63+1+63+1+63+1+62) exceeds
     --     253 octets.
-    subjectAlternativeNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    subjectAlternativeNames :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | One or more resource tags to associate with the certificate.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | Fully qualified domain name (FQDN), such as www.example.com, that you
     -- want to secure with an ACM certificate. Use an asterisk (*) to create a
     -- wildcard certificate that protects several sites in the same domain. For
@@ -141,9 +140,9 @@ data RequestCertificate = RequestCertificate'
     -- The first domain name you enter cannot exceed 64 octets, including
     -- periods. Each subsequent Subject Alternative Name (SAN), however, can be
     -- up to 253 octets in length.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestCertificate' with all optional fields omitted.
@@ -228,18 +227,18 @@ data RequestCertificate = RequestCertificate'
 -- up to 253 octets in length.
 newRequestCertificate ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   RequestCertificate
 newRequestCertificate pDomainName_ =
   RequestCertificate'
     { idempotencyToken =
-        Prelude.Nothing,
-      validationMethod = Prelude.Nothing,
-      certificateAuthorityArn = Prelude.Nothing,
-      domainValidationOptions = Prelude.Nothing,
-      options = Prelude.Nothing,
-      subjectAlternativeNames = Prelude.Nothing,
-      tags = Prelude.Nothing,
+        Core.Nothing,
+      validationMethod = Core.Nothing,
+      certificateAuthorityArn = Core.Nothing,
+      domainValidationOptions = Core.Nothing,
+      options = Core.Nothing,
+      subjectAlternativeNames = Core.Nothing,
+      tags = Core.Nothing,
       domainName = pDomainName_
     }
 
@@ -250,7 +249,7 @@ newRequestCertificate pDomainName_ =
 -- requesting only one certificate and will issue only one. If you change
 -- the idempotency token for each call, ACM recognizes that you are
 -- requesting multiple certificates.
-requestCertificate_idempotencyToken :: Lens.Lens' RequestCertificate (Prelude.Maybe Prelude.Text)
+requestCertificate_idempotencyToken :: Lens.Lens' RequestCertificate (Core.Maybe Core.Text)
 requestCertificate_idempotencyToken = Lens.lens (\RequestCertificate' {idempotencyToken} -> idempotencyToken) (\s@RequestCertificate' {} a -> s {idempotencyToken = a} :: RequestCertificate)
 
 -- | The method you want to use if you are requesting a public certificate to
@@ -259,7 +258,7 @@ requestCertificate_idempotencyToken = Lens.lens (\RequestCertificate' {idempoten
 -- or
 -- <https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html validate with email>.
 -- We recommend that you use DNS validation.
-requestCertificate_validationMethod :: Lens.Lens' RequestCertificate (Prelude.Maybe ValidationMethod)
+requestCertificate_validationMethod :: Lens.Lens' RequestCertificate (Core.Maybe ValidationMethod)
 requestCertificate_validationMethod = Lens.lens (\RequestCertificate' {validationMethod} -> validationMethod) (\s@RequestCertificate' {} a -> s {validationMethod = a} :: RequestCertificate)
 
 -- | The Amazon Resource Name (ARN) of the private certificate authority (CA)
@@ -271,13 +270,13 @@ requestCertificate_validationMethod = Lens.lens (\RequestCertificate' {validatio
 -- user guide. The ARN must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012@
-requestCertificate_certificateAuthorityArn :: Lens.Lens' RequestCertificate (Prelude.Maybe Prelude.Text)
+requestCertificate_certificateAuthorityArn :: Lens.Lens' RequestCertificate (Core.Maybe Core.Text)
 requestCertificate_certificateAuthorityArn = Lens.lens (\RequestCertificate' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@RequestCertificate' {} a -> s {certificateAuthorityArn = a} :: RequestCertificate)
 
 -- | The domain name that you want ACM to use to send you emails so that you
 -- can validate domain ownership.
-requestCertificate_domainValidationOptions :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty DomainValidationOption))
-requestCertificate_domainValidationOptions = Lens.lens (\RequestCertificate' {domainValidationOptions} -> domainValidationOptions) (\s@RequestCertificate' {} a -> s {domainValidationOptions = a} :: RequestCertificate) Prelude.. Lens.mapping Prelude._Coerce
+requestCertificate_domainValidationOptions :: Lens.Lens' RequestCertificate (Core.Maybe (Core.NonEmpty DomainValidationOption))
+requestCertificate_domainValidationOptions = Lens.lens (\RequestCertificate' {domainValidationOptions} -> domainValidationOptions) (\s@RequestCertificate' {} a -> s {domainValidationOptions = a} :: RequestCertificate) Core.. Lens.mapping Lens._Coerce
 
 -- | Currently, you can use this parameter to specify whether to add the
 -- certificate to a certificate transparency log. Certificate transparency
@@ -286,7 +285,7 @@ requestCertificate_domainValidationOptions = Lens.lens (\RequestCertificate' {do
 -- typically produce an error message in a browser. For more information,
 -- see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency Opting Out of Certificate Transparency Logging>.
-requestCertificate_options :: Lens.Lens' RequestCertificate (Prelude.Maybe CertificateOptions)
+requestCertificate_options :: Lens.Lens' RequestCertificate (Core.Maybe CertificateOptions)
 requestCertificate_options = Lens.lens (\RequestCertificate' {options} -> options) (\s@RequestCertificate' {} a -> s {options = a} :: RequestCertificate)
 
 -- | Additional FQDNs to be included in the Subject Alternative Name
@@ -314,12 +313,12 @@ requestCertificate_options = Lens.lens (\RequestCertificate' {options} -> option
 -- -   @(63 octets).(63 octets).(63 octets).(62 octets)@ is not legal
 --     because the total length of the DNS name (63+1+63+1+63+1+62) exceeds
 --     253 octets.
-requestCertificate_subjectAlternativeNames :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-requestCertificate_subjectAlternativeNames = Lens.lens (\RequestCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@RequestCertificate' {} a -> s {subjectAlternativeNames = a} :: RequestCertificate) Prelude.. Lens.mapping Prelude._Coerce
+requestCertificate_subjectAlternativeNames :: Lens.Lens' RequestCertificate (Core.Maybe (Core.NonEmpty Core.Text))
+requestCertificate_subjectAlternativeNames = Lens.lens (\RequestCertificate' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@RequestCertificate' {} a -> s {subjectAlternativeNames = a} :: RequestCertificate) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more resource tags to associate with the certificate.
-requestCertificate_tags :: Lens.Lens' RequestCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
-requestCertificate_tags = Lens.lens (\RequestCertificate' {tags} -> tags) (\s@RequestCertificate' {} a -> s {tags = a} :: RequestCertificate) Prelude.. Lens.mapping Prelude._Coerce
+requestCertificate_tags :: Lens.Lens' RequestCertificate (Core.Maybe (Core.NonEmpty Tag))
+requestCertificate_tags = Lens.lens (\RequestCertificate' {tags} -> tags) (\s@RequestCertificate' {} a -> s {tags = a} :: RequestCertificate) Core.. Lens.mapping Lens._Coerce
 
 -- | Fully qualified domain name (FQDN), such as www.example.com, that you
 -- want to secure with an ACM certificate. Use an asterisk (*) to create a
@@ -330,66 +329,64 @@ requestCertificate_tags = Lens.lens (\RequestCertificate' {tags} -> tags) (\s@Re
 -- The first domain name you enter cannot exceed 64 octets, including
 -- periods. Each subsequent Subject Alternative Name (SAN), however, can be
 -- up to 253 octets in length.
-requestCertificate_domainName :: Lens.Lens' RequestCertificate Prelude.Text
+requestCertificate_domainName :: Lens.Lens' RequestCertificate Core.Text
 requestCertificate_domainName = Lens.lens (\RequestCertificate' {domainName} -> domainName) (\s@RequestCertificate' {} a -> s {domainName = a} :: RequestCertificate)
 
-instance Prelude.AWSRequest RequestCertificate where
+instance Core.AWSRequest RequestCertificate where
   type
-    Rs RequestCertificate =
+    AWSResponse RequestCertificate =
       RequestCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RequestCertificateResponse'
-            Prelude.<$> (x Prelude..?> "CertificateArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CertificateArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RequestCertificate
+instance Core.Hashable RequestCertificate
 
-instance Prelude.NFData RequestCertificate
+instance Core.NFData RequestCertificate
 
-instance Prelude.ToHeaders RequestCertificate where
+instance Core.ToHeaders RequestCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.RequestCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.RequestCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RequestCertificate where
+instance Core.ToJSON RequestCertificate where
   toJSON RequestCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IdempotencyToken" Prelude..=)
-              Prelude.<$> idempotencyToken,
-            ("ValidationMethod" Prelude..=)
-              Prelude.<$> validationMethod,
-            ("CertificateAuthorityArn" Prelude..=)
-              Prelude.<$> certificateAuthorityArn,
-            ("DomainValidationOptions" Prelude..=)
-              Prelude.<$> domainValidationOptions,
-            ("Options" Prelude..=) Prelude.<$> options,
-            ("SubjectAlternativeNames" Prelude..=)
-              Prelude.<$> subjectAlternativeNames,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("DomainName" Prelude..= domainName)
+    Core.object
+      ( Core.catMaybes
+          [ ("IdempotencyToken" Core..=)
+              Core.<$> idempotencyToken,
+            ("ValidationMethod" Core..=)
+              Core.<$> validationMethod,
+            ("CertificateAuthorityArn" Core..=)
+              Core.<$> certificateAuthorityArn,
+            ("DomainValidationOptions" Core..=)
+              Core.<$> domainValidationOptions,
+            ("Options" Core..=) Core.<$> options,
+            ("SubjectAlternativeNames" Core..=)
+              Core.<$> subjectAlternativeNames,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("DomainName" Core..= domainName)
           ]
       )
 
-instance Prelude.ToPath RequestCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath RequestCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RequestCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RequestCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRequestCertificateResponse' smart constructor.
 data RequestCertificateResponse = RequestCertificateResponse'
@@ -397,11 +394,11 @@ data RequestCertificateResponse = RequestCertificateResponse'
     -- the form:
     --
     -- @arn:aws:acm:us-east-1:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RequestCertificateResponse' with all optional fields omitted.
@@ -419,12 +416,12 @@ data RequestCertificateResponse = RequestCertificateResponse'
 -- 'httpStatus', 'requestCertificateResponse_httpStatus' - The response's http status code.
 newRequestCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RequestCertificateResponse
 newRequestCertificateResponse pHttpStatus_ =
   RequestCertificateResponse'
     { certificateArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -432,11 +429,11 @@ newRequestCertificateResponse pHttpStatus_ =
 -- the form:
 --
 -- @arn:aws:acm:us-east-1:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
-requestCertificateResponse_certificateArn :: Lens.Lens' RequestCertificateResponse (Prelude.Maybe Prelude.Text)
+requestCertificateResponse_certificateArn :: Lens.Lens' RequestCertificateResponse (Core.Maybe Core.Text)
 requestCertificateResponse_certificateArn = Lens.lens (\RequestCertificateResponse' {certificateArn} -> certificateArn) (\s@RequestCertificateResponse' {} a -> s {certificateArn = a} :: RequestCertificateResponse)
 
 -- | The response's http status code.
-requestCertificateResponse_httpStatus :: Lens.Lens' RequestCertificateResponse Prelude.Int
+requestCertificateResponse_httpStatus :: Lens.Lens' RequestCertificateResponse Core.Int
 requestCertificateResponse_httpStatus = Lens.lens (\RequestCertificateResponse' {httpStatus} -> httpStatus) (\s@RequestCertificateResponse' {} a -> s {httpStatus = a} :: RequestCertificateResponse)
 
-instance Prelude.NFData RequestCertificateResponse
+instance Core.NFData RequestCertificateResponse

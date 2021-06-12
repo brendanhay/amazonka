@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.EndpointConfigSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides summary information for an endpoint configuration.
 --
 -- /See:/ 'newEndpointConfigSummary' smart constructor.
 data EndpointConfigSummary = EndpointConfigSummary'
   { -- | The name of the endpoint configuration.
-    endpointConfigName :: Prelude.Text,
+    endpointConfigName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-    endpointConfigArn :: Prelude.Text,
+    endpointConfigArn :: Core.Text,
     -- | A timestamp that shows when the endpoint configuration was created.
-    creationTime :: Prelude.POSIX
+    creationTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndpointConfigSummary' with all optional fields omitted.
@@ -51,11 +50,11 @@ data EndpointConfigSummary = EndpointConfigSummary'
 -- 'creationTime', 'endpointConfigSummary_creationTime' - A timestamp that shows when the endpoint configuration was created.
 newEndpointConfigSummary ::
   -- | 'endpointConfigName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endpointConfigArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   EndpointConfigSummary
 newEndpointConfigSummary
   pEndpointConfigName_
@@ -65,32 +64,32 @@ newEndpointConfigSummary
       { endpointConfigName =
           pEndpointConfigName_,
         endpointConfigArn = pEndpointConfigArn_,
-        creationTime = Prelude._Time Lens.# pCreationTime_
+        creationTime = Core._Time Lens.# pCreationTime_
       }
 
 -- | The name of the endpoint configuration.
-endpointConfigSummary_endpointConfigName :: Lens.Lens' EndpointConfigSummary Prelude.Text
+endpointConfigSummary_endpointConfigName :: Lens.Lens' EndpointConfigSummary Core.Text
 endpointConfigSummary_endpointConfigName = Lens.lens (\EndpointConfigSummary' {endpointConfigName} -> endpointConfigName) (\s@EndpointConfigSummary' {} a -> s {endpointConfigName = a} :: EndpointConfigSummary)
 
 -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-endpointConfigSummary_endpointConfigArn :: Lens.Lens' EndpointConfigSummary Prelude.Text
+endpointConfigSummary_endpointConfigArn :: Lens.Lens' EndpointConfigSummary Core.Text
 endpointConfigSummary_endpointConfigArn = Lens.lens (\EndpointConfigSummary' {endpointConfigArn} -> endpointConfigArn) (\s@EndpointConfigSummary' {} a -> s {endpointConfigArn = a} :: EndpointConfigSummary)
 
 -- | A timestamp that shows when the endpoint configuration was created.
-endpointConfigSummary_creationTime :: Lens.Lens' EndpointConfigSummary Prelude.UTCTime
-endpointConfigSummary_creationTime = Lens.lens (\EndpointConfigSummary' {creationTime} -> creationTime) (\s@EndpointConfigSummary' {} a -> s {creationTime = a} :: EndpointConfigSummary) Prelude.. Prelude._Time
+endpointConfigSummary_creationTime :: Lens.Lens' EndpointConfigSummary Core.UTCTime
+endpointConfigSummary_creationTime = Lens.lens (\EndpointConfigSummary' {creationTime} -> creationTime) (\s@EndpointConfigSummary' {} a -> s {creationTime = a} :: EndpointConfigSummary) Core.. Core._Time
 
-instance Prelude.FromJSON EndpointConfigSummary where
+instance Core.FromJSON EndpointConfigSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EndpointConfigSummary"
       ( \x ->
           EndpointConfigSummary'
-            Prelude.<$> (x Prelude..: "EndpointConfigName")
-            Prelude.<*> (x Prelude..: "EndpointConfigArn")
-            Prelude.<*> (x Prelude..: "CreationTime")
+            Core.<$> (x Core..: "EndpointConfigName")
+            Core.<*> (x Core..: "EndpointConfigArn")
+            Core.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable EndpointConfigSummary
+instance Core.Hashable EndpointConfigSummary
 
-instance Prelude.NFData EndpointConfigSummary
+instance Core.NFData EndpointConfigSummary

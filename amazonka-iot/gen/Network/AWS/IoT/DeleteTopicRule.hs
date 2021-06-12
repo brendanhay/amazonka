@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.IoT.DeleteTopicRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteTopicRule' smart constructor.
 data DeleteTopicRule = DeleteTopicRule'
   { -- | The name of the rule.
-    ruleName :: Prelude.Text
+    ruleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicRule' with all optional fields omitted.
@@ -62,40 +61,42 @@ data DeleteTopicRule = DeleteTopicRule'
 -- 'ruleName', 'deleteTopicRule_ruleName' - The name of the rule.
 newDeleteTopicRule ::
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTopicRule
 newDeleteTopicRule pRuleName_ =
   DeleteTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the rule.
-deleteTopicRule_ruleName :: Lens.Lens' DeleteTopicRule Prelude.Text
+deleteTopicRule_ruleName :: Lens.Lens' DeleteTopicRule Core.Text
 deleteTopicRule_ruleName = Lens.lens (\DeleteTopicRule' {ruleName} -> ruleName) (\s@DeleteTopicRule' {} a -> s {ruleName = a} :: DeleteTopicRule)
 
-instance Prelude.AWSRequest DeleteTopicRule where
-  type Rs DeleteTopicRule = DeleteTopicRuleResponse
+instance Core.AWSRequest DeleteTopicRule where
+  type
+    AWSResponse DeleteTopicRule =
+      DeleteTopicRuleResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteTopicRuleResponse'
 
-instance Prelude.Hashable DeleteTopicRule
+instance Core.Hashable DeleteTopicRule
 
-instance Prelude.NFData DeleteTopicRule
+instance Core.NFData DeleteTopicRule
 
-instance Prelude.ToHeaders DeleteTopicRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTopicRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTopicRule where
+instance Core.ToPath DeleteTopicRule where
   toPath DeleteTopicRule' {..} =
-    Prelude.mconcat ["/rules/", Prelude.toBS ruleName]
+    Core.mconcat ["/rules/", Core.toBS ruleName]
 
-instance Prelude.ToQuery DeleteTopicRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTopicRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTopicRuleResponse' smart constructor.
 data DeleteTopicRuleResponse = DeleteTopicRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicRuleResponse' with all optional fields omitted.
@@ -105,4 +106,4 @@ newDeleteTopicRuleResponse ::
   DeleteTopicRuleResponse
 newDeleteTopicRuleResponse = DeleteTopicRuleResponse'
 
-instance Prelude.NFData DeleteTopicRuleResponse
+instance Core.NFData DeleteTopicRuleResponse

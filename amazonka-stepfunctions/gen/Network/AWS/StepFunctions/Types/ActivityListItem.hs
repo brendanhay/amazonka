@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,15 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.ActivityListItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an activity.
 --
 -- /See:/ 'newActivityListItem' smart constructor.
 data ActivityListItem = ActivityListItem'
   { -- | The Amazon Resource Name (ARN) that identifies the activity.
-    activityArn :: Prelude.Text,
+    activityArn :: Core.Text,
     -- | The name of the activity.
     --
     -- A name must /not/ contain:
@@ -45,11 +44,11 @@ data ActivityListItem = ActivityListItem'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The date the activity is created.
-    creationDate :: Prelude.POSIX
+    creationDate :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivityListItem' with all optional fields omitted.
@@ -81,11 +80,11 @@ data ActivityListItem = ActivityListItem'
 -- 'creationDate', 'activityListItem_creationDate' - The date the activity is created.
 newActivityListItem ::
   -- | 'activityArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ActivityListItem
 newActivityListItem
   pActivityArn_
@@ -94,11 +93,11 @@ newActivityListItem
     ActivityListItem'
       { activityArn = pActivityArn_,
         name = pName_,
-        creationDate = Prelude._Time Lens.# pCreationDate_
+        creationDate = Core._Time Lens.# pCreationDate_
       }
 
 -- | The Amazon Resource Name (ARN) that identifies the activity.
-activityListItem_activityArn :: Lens.Lens' ActivityListItem Prelude.Text
+activityListItem_activityArn :: Lens.Lens' ActivityListItem Core.Text
 activityListItem_activityArn = Lens.lens (\ActivityListItem' {activityArn} -> activityArn) (\s@ActivityListItem' {} a -> s {activityArn = a} :: ActivityListItem)
 
 -- | The name of the activity.
@@ -117,24 +116,24 @@ activityListItem_activityArn = Lens.lens (\ActivityListItem' {activityArn} -> ac
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-activityListItem_name :: Lens.Lens' ActivityListItem Prelude.Text
+activityListItem_name :: Lens.Lens' ActivityListItem Core.Text
 activityListItem_name = Lens.lens (\ActivityListItem' {name} -> name) (\s@ActivityListItem' {} a -> s {name = a} :: ActivityListItem)
 
 -- | The date the activity is created.
-activityListItem_creationDate :: Lens.Lens' ActivityListItem Prelude.UTCTime
-activityListItem_creationDate = Lens.lens (\ActivityListItem' {creationDate} -> creationDate) (\s@ActivityListItem' {} a -> s {creationDate = a} :: ActivityListItem) Prelude.. Prelude._Time
+activityListItem_creationDate :: Lens.Lens' ActivityListItem Core.UTCTime
+activityListItem_creationDate = Lens.lens (\ActivityListItem' {creationDate} -> creationDate) (\s@ActivityListItem' {} a -> s {creationDate = a} :: ActivityListItem) Core.. Core._Time
 
-instance Prelude.FromJSON ActivityListItem where
+instance Core.FromJSON ActivityListItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActivityListItem"
       ( \x ->
           ActivityListItem'
-            Prelude.<$> (x Prelude..: "activityArn")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "creationDate")
+            Core.<$> (x Core..: "activityArn")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "creationDate")
       )
 
-instance Prelude.Hashable ActivityListItem
+instance Core.Hashable ActivityListItem
 
-instance Prelude.NFData ActivityListItem
+instance Core.NFData ActivityListItem

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SSM.DeregisterManagedInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -52,9 +51,9 @@ import Network.AWS.SSM.Types
 data DeregisterManagedInstance = DeregisterManagedInstance'
   { -- | The ID assigned to the managed instance when you registered it using the
     -- activation process.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterManagedInstance' with all optional fields omitted.
@@ -68,7 +67,7 @@ data DeregisterManagedInstance = DeregisterManagedInstance'
 -- activation process.
 newDeregisterManagedInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterManagedInstance
 newDeregisterManagedInstance pInstanceId_ =
   DeregisterManagedInstance'
@@ -78,59 +77,57 @@ newDeregisterManagedInstance pInstanceId_ =
 
 -- | The ID assigned to the managed instance when you registered it using the
 -- activation process.
-deregisterManagedInstance_instanceId :: Lens.Lens' DeregisterManagedInstance Prelude.Text
+deregisterManagedInstance_instanceId :: Lens.Lens' DeregisterManagedInstance Core.Text
 deregisterManagedInstance_instanceId = Lens.lens (\DeregisterManagedInstance' {instanceId} -> instanceId) (\s@DeregisterManagedInstance' {} a -> s {instanceId = a} :: DeregisterManagedInstance)
 
-instance Prelude.AWSRequest DeregisterManagedInstance where
+instance Core.AWSRequest DeregisterManagedInstance where
   type
-    Rs DeregisterManagedInstance =
+    AWSResponse DeregisterManagedInstance =
       DeregisterManagedInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterManagedInstanceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterManagedInstance
+instance Core.Hashable DeregisterManagedInstance
 
-instance Prelude.NFData DeregisterManagedInstance
+instance Core.NFData DeregisterManagedInstance
 
-instance Prelude.ToHeaders DeregisterManagedInstance where
+instance Core.ToHeaders DeregisterManagedInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DeregisterManagedInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DeregisterManagedInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterManagedInstance where
+instance Core.ToJSON DeregisterManagedInstance where
   toJSON DeregisterManagedInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("InstanceId" Prelude..= instanceId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("InstanceId" Core..= instanceId)]
       )
 
-instance Prelude.ToPath DeregisterManagedInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterManagedInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterManagedInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterManagedInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterManagedInstanceResponse' smart constructor.
 data DeregisterManagedInstanceResponse = DeregisterManagedInstanceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterManagedInstanceResponse' with all optional fields omitted.
@@ -143,7 +140,7 @@ data DeregisterManagedInstanceResponse = DeregisterManagedInstanceResponse'
 -- 'httpStatus', 'deregisterManagedInstanceResponse_httpStatus' - The response's http status code.
 newDeregisterManagedInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterManagedInstanceResponse
 newDeregisterManagedInstanceResponse pHttpStatus_ =
   DeregisterManagedInstanceResponse'
@@ -152,9 +149,9 @@ newDeregisterManagedInstanceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterManagedInstanceResponse_httpStatus :: Lens.Lens' DeregisterManagedInstanceResponse Prelude.Int
+deregisterManagedInstanceResponse_httpStatus :: Lens.Lens' DeregisterManagedInstanceResponse Core.Int
 deregisterManagedInstanceResponse_httpStatus = Lens.lens (\DeregisterManagedInstanceResponse' {httpStatus} -> httpStatus) (\s@DeregisterManagedInstanceResponse' {} a -> s {httpStatus = a} :: DeregisterManagedInstanceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterManagedInstanceResponse

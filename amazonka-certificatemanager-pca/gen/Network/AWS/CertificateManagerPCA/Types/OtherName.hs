@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CertificateManagerPCA.Types.OtherName where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines a custom ASN.1 X.400 @GeneralName@ using an object identifier
 -- (OID) and value. The OID must satisfy the regular expression shown
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOtherName' smart constructor.
 data OtherName = OtherName'
   { -- | Specifies an OID.
-    typeId :: Prelude.Text,
+    typeId :: Core.Text,
     -- | Specifies an OID value.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OtherName' with all optional fields omitted.
@@ -50,40 +49,39 @@ data OtherName = OtherName'
 -- 'value', 'otherName_value' - Specifies an OID value.
 newOtherName ::
   -- | 'typeId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   OtherName
 newOtherName pTypeId_ pValue_ =
   OtherName' {typeId = pTypeId_, value = pValue_}
 
 -- | Specifies an OID.
-otherName_typeId :: Lens.Lens' OtherName Prelude.Text
+otherName_typeId :: Lens.Lens' OtherName Core.Text
 otherName_typeId = Lens.lens (\OtherName' {typeId} -> typeId) (\s@OtherName' {} a -> s {typeId = a} :: OtherName)
 
 -- | Specifies an OID value.
-otherName_value :: Lens.Lens' OtherName Prelude.Text
+otherName_value :: Lens.Lens' OtherName Core.Text
 otherName_value = Lens.lens (\OtherName' {value} -> value) (\s@OtherName' {} a -> s {value = a} :: OtherName)
 
-instance Prelude.FromJSON OtherName where
+instance Core.FromJSON OtherName where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OtherName"
       ( \x ->
           OtherName'
-            Prelude.<$> (x Prelude..: "TypeId")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "TypeId") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable OtherName
+instance Core.Hashable OtherName
 
-instance Prelude.NFData OtherName
+instance Core.NFData OtherName
 
-instance Prelude.ToJSON OtherName where
+instance Core.ToJSON OtherName where
   toJSON OtherName' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TypeId" Prelude..= typeId),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TypeId" Core..= typeId),
+            Core.Just ("Value" Core..= value)
           ]
       )

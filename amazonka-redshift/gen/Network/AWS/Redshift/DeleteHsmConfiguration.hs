@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Redshift.DeleteHsmConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteHsmConfiguration' smart constructor.
 data DeleteHsmConfiguration = DeleteHsmConfiguration'
   { -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
-    hsmConfigurationIdentifier :: Prelude.Text
+    hsmConfigurationIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmConfiguration' with all optional fields omitted.
@@ -62,7 +61,7 @@ data DeleteHsmConfiguration = DeleteHsmConfiguration'
 -- 'hsmConfigurationIdentifier', 'deleteHsmConfiguration_hsmConfigurationIdentifier' - The identifier of the Amazon Redshift HSM configuration to be deleted.
 newDeleteHsmConfiguration ::
   -- | 'hsmConfigurationIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteHsmConfiguration
 newDeleteHsmConfiguration
   pHsmConfigurationIdentifier_ =
@@ -72,44 +71,43 @@ newDeleteHsmConfiguration
       }
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
-deleteHsmConfiguration_hsmConfigurationIdentifier :: Lens.Lens' DeleteHsmConfiguration Prelude.Text
+deleteHsmConfiguration_hsmConfigurationIdentifier :: Lens.Lens' DeleteHsmConfiguration Core.Text
 deleteHsmConfiguration_hsmConfigurationIdentifier = Lens.lens (\DeleteHsmConfiguration' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@DeleteHsmConfiguration' {} a -> s {hsmConfigurationIdentifier = a} :: DeleteHsmConfiguration)
 
-instance Prelude.AWSRequest DeleteHsmConfiguration where
+instance Core.AWSRequest DeleteHsmConfiguration where
   type
-    Rs DeleteHsmConfiguration =
+    AWSResponse DeleteHsmConfiguration =
       DeleteHsmConfigurationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteHsmConfigurationResponse'
 
-instance Prelude.Hashable DeleteHsmConfiguration
+instance Core.Hashable DeleteHsmConfiguration
 
-instance Prelude.NFData DeleteHsmConfiguration
+instance Core.NFData DeleteHsmConfiguration
 
-instance Prelude.ToHeaders DeleteHsmConfiguration where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteHsmConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteHsmConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteHsmConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteHsmConfiguration where
+instance Core.ToQuery DeleteHsmConfiguration where
   toQuery DeleteHsmConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteHsmConfiguration" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DeleteHsmConfiguration" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "HsmConfigurationIdentifier"
-          Prelude.=: hsmConfigurationIdentifier
+          Core.=: hsmConfigurationIdentifier
       ]
 
 -- | /See:/ 'newDeleteHsmConfigurationResponse' smart constructor.
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmConfigurationResponse' with all optional fields omitted.
@@ -120,6 +118,4 @@ newDeleteHsmConfigurationResponse ::
 newDeleteHsmConfigurationResponse =
   DeleteHsmConfigurationResponse'
 
-instance
-  Prelude.NFData
-    DeleteHsmConfigurationResponse
+instance Core.NFData DeleteHsmConfigurationResponse

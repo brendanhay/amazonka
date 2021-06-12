@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.CodeDeploy.UpdateApplication
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +47,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
   { -- | The new name to give the application.
-    newApplicationName' :: Prelude.Maybe Prelude.Text,
+    newApplicationName' :: Core.Maybe Core.Text,
     -- | The current name of the application you want to change.
-    applicationName :: Prelude.Maybe Prelude.Text
+    applicationName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApplication' with all optional fields omitted.
@@ -70,65 +69,65 @@ newUpdateApplication ::
 newUpdateApplication =
   UpdateApplication'
     { newApplicationName' =
-        Prelude.Nothing,
-      applicationName = Prelude.Nothing
+        Core.Nothing,
+      applicationName = Core.Nothing
     }
 
 -- | The new name to give the application.
-updateApplication_newApplicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_newApplicationName :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
 updateApplication_newApplicationName = Lens.lens (\UpdateApplication' {newApplicationName'} -> newApplicationName') (\s@UpdateApplication' {} a -> s {newApplicationName' = a} :: UpdateApplication)
 
 -- | The current name of the application you want to change.
-updateApplication_applicationName :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_applicationName :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
 updateApplication_applicationName = Lens.lens (\UpdateApplication' {applicationName} -> applicationName) (\s@UpdateApplication' {} a -> s {applicationName = a} :: UpdateApplication)
 
-instance Prelude.AWSRequest UpdateApplication where
-  type Rs UpdateApplication = UpdateApplicationResponse
+instance Core.AWSRequest UpdateApplication where
+  type
+    AWSResponse UpdateApplication =
+      UpdateApplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateApplicationResponse'
 
-instance Prelude.Hashable UpdateApplication
+instance Core.Hashable UpdateApplication
 
-instance Prelude.NFData UpdateApplication
+instance Core.NFData UpdateApplication
 
-instance Prelude.ToHeaders UpdateApplication where
+instance Core.ToHeaders UpdateApplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.UpdateApplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.UpdateApplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateApplication where
+instance Core.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("newApplicationName" Prelude..=)
-              Prelude.<$> newApplicationName',
-            ("applicationName" Prelude..=)
-              Prelude.<$> applicationName
+    Core.object
+      ( Core.catMaybes
+          [ ("newApplicationName" Core..=)
+              Core.<$> newApplicationName',
+            ("applicationName" Core..=)
+              Core.<$> applicationName
           ]
       )
 
-instance Prelude.ToPath UpdateApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateApplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateApplication where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateApplicationResponse' smart constructor.
 data UpdateApplicationResponse = UpdateApplicationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApplicationResponse' with all optional fields omitted.
@@ -139,4 +138,4 @@ newUpdateApplicationResponse ::
 newUpdateApplicationResponse =
   UpdateApplicationResponse'
 
-instance Prelude.NFData UpdateApplicationResponse
+instance Core.NFData UpdateApplicationResponse

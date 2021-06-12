@@ -1,5 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -26,7 +26,7 @@ module Network.AWS.MediaConvert.Types.AacAudioDescriptionBroadcasterMix
   )
 where
 
-import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Core as Core
 
 -- | Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio
 -- + audio description (AD) as a stereo pair. The value for AudioType will
@@ -40,30 +40,30 @@ import qualified Network.AWS.Prelude as Prelude
 -- AudioType and FollowInputAudioType.
 newtype AacAudioDescriptionBroadcasterMix = AacAudioDescriptionBroadcasterMix'
   { fromAacAudioDescriptionBroadcasterMix ::
-      Prelude.Text
+      Core.Text
   }
-  deriving
-    ( Prelude.Show,
-      Prelude.Read,
-      Prelude.Eq,
-      Prelude.Ord,
-      Prelude.Data,
-      Prelude.Typeable,
-      Prelude.Generic,
-      Prelude.Hashable,
-      Prelude.NFData,
-      Prelude.FromText,
-      Prelude.ToText,
-      Prelude.ToByteString,
-      Prelude.ToLog,
-      Prelude.ToHeader,
-      Prelude.ToQuery,
-      Prelude.FromJSON,
-      Prelude.FromJSONKey,
-      Prelude.ToJSON,
-      Prelude.ToJSONKey,
-      Prelude.FromXML,
-      Prelude.ToXML
+  deriving stock
+    ( Core.Show,
+      Core.Read,
+      Core.Eq,
+      Core.Ord,
+      Core.Generic
+    )
+  deriving newtype
+    ( Core.Hashable,
+      Core.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
     )
 
 pattern AacAudioDescriptionBroadcasterMix_BROADCASTER_MIXED_AD :: AacAudioDescriptionBroadcasterMix

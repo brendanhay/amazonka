@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,9 +68,9 @@ module Network.AWS.EC2.ModifyVpcPeeringConnectionOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,15 +80,15 @@ data ModifyVpcPeeringConnectionOptions = ModifyVpcPeeringConnectionOptions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The VPC peering connection options for the accepter VPC.
-    accepterPeeringConnectionOptions :: Prelude.Maybe PeeringConnectionOptionsRequest,
+    accepterPeeringConnectionOptions :: Core.Maybe PeeringConnectionOptionsRequest,
     -- | The VPC peering connection options for the requester VPC.
-    requesterPeeringConnectionOptions :: Prelude.Maybe PeeringConnectionOptionsRequest,
+    requesterPeeringConnectionOptions :: Core.Maybe PeeringConnectionOptionsRequest,
     -- | The ID of the VPC peering connection.
-    vpcPeeringConnectionId :: Prelude.Text
+    vpcPeeringConnectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcPeeringConnectionOptions' with all optional fields omitted.
@@ -111,17 +110,17 @@ data ModifyVpcPeeringConnectionOptions = ModifyVpcPeeringConnectionOptions'
 -- 'vpcPeeringConnectionId', 'modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId' - The ID of the VPC peering connection.
 newModifyVpcPeeringConnectionOptions ::
   -- | 'vpcPeeringConnectionId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyVpcPeeringConnectionOptions
 newModifyVpcPeeringConnectionOptions
   pVpcPeeringConnectionId_ =
     ModifyVpcPeeringConnectionOptions'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         accepterPeeringConnectionOptions =
-          Prelude.Nothing,
+          Core.Nothing,
         requesterPeeringConnectionOptions =
-          Prelude.Nothing,
+          Core.Nothing,
         vpcPeeringConnectionId =
           pVpcPeeringConnectionId_
       }
@@ -130,91 +129,90 @@ newModifyVpcPeeringConnectionOptions
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpcPeeringConnectionOptions_dryRun :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Prelude.Maybe Prelude.Bool)
+modifyVpcPeeringConnectionOptions_dryRun :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Core.Maybe Core.Bool)
 modifyVpcPeeringConnectionOptions_dryRun = Lens.lens (\ModifyVpcPeeringConnectionOptions' {dryRun} -> dryRun) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {dryRun = a} :: ModifyVpcPeeringConnectionOptions)
 
 -- | The VPC peering connection options for the accepter VPC.
-modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Prelude.Maybe PeeringConnectionOptionsRequest)
+modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Core.Maybe PeeringConnectionOptionsRequest)
 modifyVpcPeeringConnectionOptions_accepterPeeringConnectionOptions = Lens.lens (\ModifyVpcPeeringConnectionOptions' {accepterPeeringConnectionOptions} -> accepterPeeringConnectionOptions) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {accepterPeeringConnectionOptions = a} :: ModifyVpcPeeringConnectionOptions)
 
 -- | The VPC peering connection options for the requester VPC.
-modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Prelude.Maybe PeeringConnectionOptionsRequest)
+modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptions (Core.Maybe PeeringConnectionOptionsRequest)
 modifyVpcPeeringConnectionOptions_requesterPeeringConnectionOptions = Lens.lens (\ModifyVpcPeeringConnectionOptions' {requesterPeeringConnectionOptions} -> requesterPeeringConnectionOptions) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {requesterPeeringConnectionOptions = a} :: ModifyVpcPeeringConnectionOptions)
 
 -- | The ID of the VPC peering connection.
-modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId :: Lens.Lens' ModifyVpcPeeringConnectionOptions Prelude.Text
+modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId :: Lens.Lens' ModifyVpcPeeringConnectionOptions Core.Text
 modifyVpcPeeringConnectionOptions_vpcPeeringConnectionId = Lens.lens (\ModifyVpcPeeringConnectionOptions' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@ModifyVpcPeeringConnectionOptions' {} a -> s {vpcPeeringConnectionId = a} :: ModifyVpcPeeringConnectionOptions)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyVpcPeeringConnectionOptions
   where
   type
-    Rs ModifyVpcPeeringConnectionOptions =
+    AWSResponse ModifyVpcPeeringConnectionOptions =
       ModifyVpcPeeringConnectionOptionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyVpcPeeringConnectionOptionsResponse'
-            Prelude.<$> (x Prelude..@? "accepterPeeringConnectionOptions")
-              Prelude.<*> (x Prelude..@? "requesterPeeringConnectionOptions")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "accepterPeeringConnectionOptions")
+            Core.<*> (x Core..@? "requesterPeeringConnectionOptions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyVpcPeeringConnectionOptions
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyVpcPeeringConnectionOptions
 
 instance
-  Prelude.ToHeaders
-    ModifyVpcPeeringConnectionOptions
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ModifyVpcPeeringConnectionOptions
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ModifyVpcPeeringConnectionOptions
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ModifyVpcPeeringConnectionOptions
   where
   toQuery ModifyVpcPeeringConnectionOptions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyVpcPeeringConnectionOptions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
+          Core.=: ( "ModifyVpcPeeringConnectionOptions" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
         "AccepterPeeringConnectionOptions"
-          Prelude.=: accepterPeeringConnectionOptions,
+          Core.=: accepterPeeringConnectionOptions,
         "RequesterPeeringConnectionOptions"
-          Prelude.=: requesterPeeringConnectionOptions,
+          Core.=: requesterPeeringConnectionOptions,
         "VpcPeeringConnectionId"
-          Prelude.=: vpcPeeringConnectionId
+          Core.=: vpcPeeringConnectionId
       ]
 
 -- | /See:/ 'newModifyVpcPeeringConnectionOptionsResponse' smart constructor.
 data ModifyVpcPeeringConnectionOptionsResponse = ModifyVpcPeeringConnectionOptionsResponse'
   { -- | Information about the VPC peering connection options for the accepter
     -- VPC.
-    accepterPeeringConnectionOptions :: Prelude.Maybe PeeringConnectionOptions,
+    accepterPeeringConnectionOptions :: Core.Maybe PeeringConnectionOptions,
     -- | Information about the VPC peering connection options for the requester
     -- VPC.
-    requesterPeeringConnectionOptions :: Prelude.Maybe PeeringConnectionOptions,
+    requesterPeeringConnectionOptions :: Core.Maybe PeeringConnectionOptions,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcPeeringConnectionOptionsResponse' with all optional fields omitted.
@@ -233,32 +231,32 @@ data ModifyVpcPeeringConnectionOptionsResponse = ModifyVpcPeeringConnectionOptio
 -- 'httpStatus', 'modifyVpcPeeringConnectionOptionsResponse_httpStatus' - The response's http status code.
 newModifyVpcPeeringConnectionOptionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyVpcPeeringConnectionOptionsResponse
 newModifyVpcPeeringConnectionOptionsResponse
   pHttpStatus_ =
     ModifyVpcPeeringConnectionOptionsResponse'
       { accepterPeeringConnectionOptions =
-          Prelude.Nothing,
+          Core.Nothing,
         requesterPeeringConnectionOptions =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the VPC peering connection options for the accepter
 -- VPC.
-modifyVpcPeeringConnectionOptionsResponse_accepterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptionsResponse (Prelude.Maybe PeeringConnectionOptions)
+modifyVpcPeeringConnectionOptionsResponse_accepterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptionsResponse (Core.Maybe PeeringConnectionOptions)
 modifyVpcPeeringConnectionOptionsResponse_accepterPeeringConnectionOptions = Lens.lens (\ModifyVpcPeeringConnectionOptionsResponse' {accepterPeeringConnectionOptions} -> accepterPeeringConnectionOptions) (\s@ModifyVpcPeeringConnectionOptionsResponse' {} a -> s {accepterPeeringConnectionOptions = a} :: ModifyVpcPeeringConnectionOptionsResponse)
 
 -- | Information about the VPC peering connection options for the requester
 -- VPC.
-modifyVpcPeeringConnectionOptionsResponse_requesterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptionsResponse (Prelude.Maybe PeeringConnectionOptions)
+modifyVpcPeeringConnectionOptionsResponse_requesterPeeringConnectionOptions :: Lens.Lens' ModifyVpcPeeringConnectionOptionsResponse (Core.Maybe PeeringConnectionOptions)
 modifyVpcPeeringConnectionOptionsResponse_requesterPeeringConnectionOptions = Lens.lens (\ModifyVpcPeeringConnectionOptionsResponse' {requesterPeeringConnectionOptions} -> requesterPeeringConnectionOptions) (\s@ModifyVpcPeeringConnectionOptionsResponse' {} a -> s {requesterPeeringConnectionOptions = a} :: ModifyVpcPeeringConnectionOptionsResponse)
 
 -- | The response's http status code.
-modifyVpcPeeringConnectionOptionsResponse_httpStatus :: Lens.Lens' ModifyVpcPeeringConnectionOptionsResponse Prelude.Int
+modifyVpcPeeringConnectionOptionsResponse_httpStatus :: Lens.Lens' ModifyVpcPeeringConnectionOptionsResponse Core.Int
 modifyVpcPeeringConnectionOptionsResponse_httpStatus = Lens.lens (\ModifyVpcPeeringConnectionOptionsResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcPeeringConnectionOptionsResponse' {} a -> s {httpStatus = a} :: ModifyVpcPeeringConnectionOptionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyVpcPeeringConnectionOptionsResponse

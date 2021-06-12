@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.ServiceSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.EC2Specification
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Hardware specifications for the service that you want recommendations
 -- for.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ServiceSpecification = ServiceSpecification'
   { -- | The Amazon EC2 hardware specifications that you want AWS to provide
     -- recommendations for.
-    eC2Specification :: Prelude.Maybe EC2Specification
+    eC2Specification :: Core.Maybe EC2Specification
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceSpecification' with all optional fields omitted.
@@ -50,32 +49,32 @@ newServiceSpecification ::
 newServiceSpecification =
   ServiceSpecification'
     { eC2Specification =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon EC2 hardware specifications that you want AWS to provide
 -- recommendations for.
-serviceSpecification_eC2Specification :: Lens.Lens' ServiceSpecification (Prelude.Maybe EC2Specification)
+serviceSpecification_eC2Specification :: Lens.Lens' ServiceSpecification (Core.Maybe EC2Specification)
 serviceSpecification_eC2Specification = Lens.lens (\ServiceSpecification' {eC2Specification} -> eC2Specification) (\s@ServiceSpecification' {} a -> s {eC2Specification = a} :: ServiceSpecification)
 
-instance Prelude.FromJSON ServiceSpecification where
+instance Core.FromJSON ServiceSpecification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceSpecification"
       ( \x ->
           ServiceSpecification'
-            Prelude.<$> (x Prelude..:? "EC2Specification")
+            Core.<$> (x Core..:? "EC2Specification")
       )
 
-instance Prelude.Hashable ServiceSpecification
+instance Core.Hashable ServiceSpecification
 
-instance Prelude.NFData ServiceSpecification
+instance Core.NFData ServiceSpecification
 
-instance Prelude.ToJSON ServiceSpecification where
+instance Core.ToJSON ServiceSpecification where
   toJSON ServiceSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EC2Specification" Prelude..=)
-              Prelude.<$> eC2Specification
+    Core.object
+      ( Core.catMaybes
+          [ ("EC2Specification" Core..=)
+              Core.<$> eC2Specification
           ]
       )

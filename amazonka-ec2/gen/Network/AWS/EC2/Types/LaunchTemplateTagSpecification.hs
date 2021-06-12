@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateTagSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ResourceType
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The tag specification for the launch template.
 --
 -- /See:/ 'newLaunchTemplateTagSpecification' smart constructor.
 data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
   { -- | The type of resource.
-    resourceType :: Prelude.Maybe ResourceType,
+    resourceType :: Core.Maybe ResourceType,
     -- | The tags for the resource.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateTagSpecification' with all optional fields omitted.
@@ -53,33 +52,26 @@ newLaunchTemplateTagSpecification ::
 newLaunchTemplateTagSpecification =
   LaunchTemplateTagSpecification'
     { resourceType =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
+        Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The type of resource.
-launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe ResourceType)
+launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Core.Maybe ResourceType)
 launchTemplateTagSpecification_resourceType = Lens.lens (\LaunchTemplateTagSpecification' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecification' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecification)
 
 -- | The tags for the resource.
-launchTemplateTagSpecification_tags :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe [Tag])
-launchTemplateTagSpecification_tags = Lens.lens (\LaunchTemplateTagSpecification' {tags} -> tags) (\s@LaunchTemplateTagSpecification' {} a -> s {tags = a} :: LaunchTemplateTagSpecification) Prelude.. Lens.mapping Prelude._Coerce
+launchTemplateTagSpecification_tags :: Lens.Lens' LaunchTemplateTagSpecification (Core.Maybe [Tag])
+launchTemplateTagSpecification_tags = Lens.lens (\LaunchTemplateTagSpecification' {tags} -> tags) (\s@LaunchTemplateTagSpecification' {} a -> s {tags = a} :: LaunchTemplateTagSpecification) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromXML
-    LaunchTemplateTagSpecification
-  where
+instance Core.FromXML LaunchTemplateTagSpecification where
   parseXML x =
     LaunchTemplateTagSpecification'
-      Prelude.<$> (x Prelude..@? "resourceType")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "resourceType")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance
-  Prelude.Hashable
-    LaunchTemplateTagSpecification
+instance Core.Hashable LaunchTemplateTagSpecification
 
-instance
-  Prelude.NFData
-    LaunchTemplateTagSpecification
+instance Core.NFData LaunchTemplateTagSpecification

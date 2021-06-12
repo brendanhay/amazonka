@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,20 +66,20 @@ module Network.AWS.FMS.PutPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutPolicy' smart constructor.
 data PutPolicy = PutPolicy'
   { -- | The tags to add to the AWS resource.
-    tagList :: Prelude.Maybe [Tag],
+    tagList :: Core.Maybe [Tag],
     -- | The details of the AWS Firewall Manager policy to be created.
     policy :: Policy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutPolicy' with all optional fields omitted.
@@ -99,72 +98,70 @@ newPutPolicy ::
   PutPolicy
 newPutPolicy pPolicy_ =
   PutPolicy'
-    { tagList = Prelude.Nothing,
+    { tagList = Core.Nothing,
       policy = pPolicy_
     }
 
 -- | The tags to add to the AWS resource.
-putPolicy_tagList :: Lens.Lens' PutPolicy (Prelude.Maybe [Tag])
-putPolicy_tagList = Lens.lens (\PutPolicy' {tagList} -> tagList) (\s@PutPolicy' {} a -> s {tagList = a} :: PutPolicy) Prelude.. Lens.mapping Prelude._Coerce
+putPolicy_tagList :: Lens.Lens' PutPolicy (Core.Maybe [Tag])
+putPolicy_tagList = Lens.lens (\PutPolicy' {tagList} -> tagList) (\s@PutPolicy' {} a -> s {tagList = a} :: PutPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | The details of the AWS Firewall Manager policy to be created.
 putPolicy_policy :: Lens.Lens' PutPolicy Policy
 putPolicy_policy = Lens.lens (\PutPolicy' {policy} -> policy) (\s@PutPolicy' {} a -> s {policy = a} :: PutPolicy)
 
-instance Prelude.AWSRequest PutPolicy where
-  type Rs PutPolicy = PutPolicyResponse
+instance Core.AWSRequest PutPolicy where
+  type AWSResponse PutPolicy = PutPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutPolicyResponse'
-            Prelude.<$> (x Prelude..?> "Policy")
-            Prelude.<*> (x Prelude..?> "PolicyArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Policy")
+            Core.<*> (x Core..?> "PolicyArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutPolicy
+instance Core.Hashable PutPolicy
 
-instance Prelude.NFData PutPolicy
+instance Core.NFData PutPolicy
 
-instance Prelude.ToHeaders PutPolicy where
+instance Core.ToHeaders PutPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSFMS_20180101.PutPolicy" :: Prelude.ByteString),
+              Core.=# ("AWSFMS_20180101.PutPolicy" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutPolicy where
+instance Core.ToJSON PutPolicy where
   toJSON PutPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TagList" Prelude..=) Prelude.<$> tagList,
-            Prelude.Just ("Policy" Prelude..= policy)
+    Core.object
+      ( Core.catMaybes
+          [ ("TagList" Core..=) Core.<$> tagList,
+            Core.Just ("Policy" Core..= policy)
           ]
       )
 
-instance Prelude.ToPath PutPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
   { -- | The details of the AWS Firewall Manager policy.
-    policy :: Prelude.Maybe Policy,
+    policy :: Core.Maybe Policy,
     -- | The Amazon Resource Name (ARN) of the policy.
-    policyArn :: Prelude.Maybe Prelude.Text,
+    policyArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutPolicyResponse' with all optional fields omitted.
@@ -181,25 +178,25 @@ data PutPolicyResponse = PutPolicyResponse'
 -- 'httpStatus', 'putPolicyResponse_httpStatus' - The response's http status code.
 newPutPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutPolicyResponse
 newPutPolicyResponse pHttpStatus_ =
   PutPolicyResponse'
-    { policy = Prelude.Nothing,
-      policyArn = Prelude.Nothing,
+    { policy = Core.Nothing,
+      policyArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the AWS Firewall Manager policy.
-putPolicyResponse_policy :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Policy)
+putPolicyResponse_policy :: Lens.Lens' PutPolicyResponse (Core.Maybe Policy)
 putPolicyResponse_policy = Lens.lens (\PutPolicyResponse' {policy} -> policy) (\s@PutPolicyResponse' {} a -> s {policy = a} :: PutPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the policy.
-putPolicyResponse_policyArn :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Prelude.Text)
+putPolicyResponse_policyArn :: Lens.Lens' PutPolicyResponse (Core.Maybe Core.Text)
 putPolicyResponse_policyArn = Lens.lens (\PutPolicyResponse' {policyArn} -> policyArn) (\s@PutPolicyResponse' {} a -> s {policyArn = a} :: PutPolicyResponse)
 
 -- | The response's http status code.
-putPolicyResponse_httpStatus :: Lens.Lens' PutPolicyResponse Prelude.Int
+putPolicyResponse_httpStatus :: Lens.Lens' PutPolicyResponse Core.Int
 putPolicyResponse_httpStatus = Lens.lens (\PutPolicyResponse' {httpStatus} -> httpStatus) (\s@PutPolicyResponse' {} a -> s {httpStatus = a} :: PutPolicyResponse)
 
-instance Prelude.NFData PutPolicyResponse
+instance Core.NFData PutPolicyResponse

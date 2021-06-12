@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Shield.ListProtectionGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -52,7 +51,7 @@ import Network.AWS.Shield.Types
 data ListProtectionGroups = ListProtectionGroups'
   { -- | The next token value from a previous call to @ListProtectionGroups@.
     -- Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of ProtectionGroup objects to return. If you leave
     -- this blank, Shield Advanced returns the first 20 results.
     --
@@ -62,9 +61,9 @@ data ListProtectionGroups = ListProtectionGroups'
     -- If there are more objects to return, Shield Advanced returns a value in
     -- @NextToken@ that you can use in your next request, to get the next batch
     -- of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProtectionGroups' with all optional fields omitted.
@@ -90,13 +89,13 @@ newListProtectionGroups ::
   ListProtectionGroups
 newListProtectionGroups =
   ListProtectionGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The next token value from a previous call to @ListProtectionGroups@.
 -- Pass null if this is the first call.
-listProtectionGroups_nextToken :: Lens.Lens' ListProtectionGroups (Prelude.Maybe Prelude.Text)
+listProtectionGroups_nextToken :: Lens.Lens' ListProtectionGroups (Core.Maybe Core.Text)
 listProtectionGroups_nextToken = Lens.lens (\ListProtectionGroups' {nextToken} -> nextToken) (\s@ListProtectionGroups' {} a -> s {nextToken = a} :: ListProtectionGroups)
 
 -- | The maximum number of ProtectionGroup objects to return. If you leave
@@ -108,58 +107,54 @@ listProtectionGroups_nextToken = Lens.lens (\ListProtectionGroups' {nextToken} -
 -- If there are more objects to return, Shield Advanced returns a value in
 -- @NextToken@ that you can use in your next request, to get the next batch
 -- of objects.
-listProtectionGroups_maxResults :: Lens.Lens' ListProtectionGroups (Prelude.Maybe Prelude.Natural)
+listProtectionGroups_maxResults :: Lens.Lens' ListProtectionGroups (Core.Maybe Core.Natural)
 listProtectionGroups_maxResults = Lens.lens (\ListProtectionGroups' {maxResults} -> maxResults) (\s@ListProtectionGroups' {} a -> s {maxResults = a} :: ListProtectionGroups)
 
-instance Prelude.AWSRequest ListProtectionGroups where
+instance Core.AWSRequest ListProtectionGroups where
   type
-    Rs ListProtectionGroups =
+    AWSResponse ListProtectionGroups =
       ListProtectionGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListProtectionGroupsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "ProtectionGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "ProtectionGroups" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListProtectionGroups
+instance Core.Hashable ListProtectionGroups
 
-instance Prelude.NFData ListProtectionGroups
+instance Core.NFData ListProtectionGroups
 
-instance Prelude.ToHeaders ListProtectionGroups where
+instance Core.ToHeaders ListProtectionGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.ListProtectionGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.ListProtectionGroups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListProtectionGroups where
+instance Core.ToJSON ListProtectionGroups where
   toJSON ListProtectionGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListProtectionGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListProtectionGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListProtectionGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListProtectionGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListProtectionGroupsResponse' smart constructor.
 data ListProtectionGroupsResponse = ListProtectionGroupsResponse'
@@ -167,12 +162,12 @@ data ListProtectionGroupsResponse = ListProtectionGroupsResponse'
     -- groups than the value of MaxResults, AWS Shield Advanced returns this
     -- token that you can use in your next request, to get the next batch of
     -- objects.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     protectionGroups :: [ProtectionGroup]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProtectionGroupsResponse' with all optional fields omitted.
@@ -192,29 +187,29 @@ data ListProtectionGroupsResponse = ListProtectionGroupsResponse'
 -- 'protectionGroups', 'listProtectionGroupsResponse_protectionGroups' -
 newListProtectionGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListProtectionGroupsResponse
 newListProtectionGroupsResponse pHttpStatus_ =
   ListProtectionGroupsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      protectionGroups = Prelude.mempty
+      protectionGroups = Core.mempty
     }
 
 -- | If you specify a value for @MaxResults@ and you have more protection
 -- groups than the value of MaxResults, AWS Shield Advanced returns this
 -- token that you can use in your next request, to get the next batch of
 -- objects.
-listProtectionGroupsResponse_nextToken :: Lens.Lens' ListProtectionGroupsResponse (Prelude.Maybe Prelude.Text)
+listProtectionGroupsResponse_nextToken :: Lens.Lens' ListProtectionGroupsResponse (Core.Maybe Core.Text)
 listProtectionGroupsResponse_nextToken = Lens.lens (\ListProtectionGroupsResponse' {nextToken} -> nextToken) (\s@ListProtectionGroupsResponse' {} a -> s {nextToken = a} :: ListProtectionGroupsResponse)
 
 -- | The response's http status code.
-listProtectionGroupsResponse_httpStatus :: Lens.Lens' ListProtectionGroupsResponse Prelude.Int
+listProtectionGroupsResponse_httpStatus :: Lens.Lens' ListProtectionGroupsResponse Core.Int
 listProtectionGroupsResponse_httpStatus = Lens.lens (\ListProtectionGroupsResponse' {httpStatus} -> httpStatus) (\s@ListProtectionGroupsResponse' {} a -> s {httpStatus = a} :: ListProtectionGroupsResponse)
 
 -- |
 listProtectionGroupsResponse_protectionGroups :: Lens.Lens' ListProtectionGroupsResponse [ProtectionGroup]
-listProtectionGroupsResponse_protectionGroups = Lens.lens (\ListProtectionGroupsResponse' {protectionGroups} -> protectionGroups) (\s@ListProtectionGroupsResponse' {} a -> s {protectionGroups = a} :: ListProtectionGroupsResponse) Prelude.. Prelude._Coerce
+listProtectionGroupsResponse_protectionGroups = Lens.lens (\ListProtectionGroupsResponse' {protectionGroups} -> protectionGroups) (\s@ListProtectionGroupsResponse' {} a -> s {protectionGroups = a} :: ListProtectionGroupsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListProtectionGroupsResponse
+instance Core.NFData ListProtectionGroupsResponse

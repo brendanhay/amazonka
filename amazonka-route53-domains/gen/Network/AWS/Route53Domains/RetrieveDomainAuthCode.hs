@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -54,9 +53,9 @@ import Network.AWS.Route53Domains.Types
 -- /See:/ 'newRetrieveDomainAuthCode' smart constructor.
 data RetrieveDomainAuthCode = RetrieveDomainAuthCode'
   { -- | The name of the domain that you want to get an authorization code for.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetrieveDomainAuthCode' with all optional fields omitted.
@@ -69,70 +68,68 @@ data RetrieveDomainAuthCode = RetrieveDomainAuthCode'
 -- 'domainName', 'retrieveDomainAuthCode_domainName' - The name of the domain that you want to get an authorization code for.
 newRetrieveDomainAuthCode ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   RetrieveDomainAuthCode
 newRetrieveDomainAuthCode pDomainName_ =
   RetrieveDomainAuthCode' {domainName = pDomainName_}
 
 -- | The name of the domain that you want to get an authorization code for.
-retrieveDomainAuthCode_domainName :: Lens.Lens' RetrieveDomainAuthCode Prelude.Text
+retrieveDomainAuthCode_domainName :: Lens.Lens' RetrieveDomainAuthCode Core.Text
 retrieveDomainAuthCode_domainName = Lens.lens (\RetrieveDomainAuthCode' {domainName} -> domainName) (\s@RetrieveDomainAuthCode' {} a -> s {domainName = a} :: RetrieveDomainAuthCode)
 
-instance Prelude.AWSRequest RetrieveDomainAuthCode where
+instance Core.AWSRequest RetrieveDomainAuthCode where
   type
-    Rs RetrieveDomainAuthCode =
+    AWSResponse RetrieveDomainAuthCode =
       RetrieveDomainAuthCodeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RetrieveDomainAuthCodeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "AuthCode")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "AuthCode")
       )
 
-instance Prelude.Hashable RetrieveDomainAuthCode
+instance Core.Hashable RetrieveDomainAuthCode
 
-instance Prelude.NFData RetrieveDomainAuthCode
+instance Core.NFData RetrieveDomainAuthCode
 
-instance Prelude.ToHeaders RetrieveDomainAuthCode where
+instance Core.ToHeaders RetrieveDomainAuthCode where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.RetrieveDomainAuthCode" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.RetrieveDomainAuthCode" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RetrieveDomainAuthCode where
+instance Core.ToJSON RetrieveDomainAuthCode where
   toJSON RetrieveDomainAuthCode' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Prelude..= domainName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DomainName" Core..= domainName)]
       )
 
-instance Prelude.ToPath RetrieveDomainAuthCode where
-  toPath = Prelude.const "/"
+instance Core.ToPath RetrieveDomainAuthCode where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RetrieveDomainAuthCode where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RetrieveDomainAuthCode where
+  toQuery = Core.const Core.mempty
 
 -- | The RetrieveDomainAuthCode response includes the following element.
 --
 -- /See:/ 'newRetrieveDomainAuthCodeResponse' smart constructor.
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The authorization code for the domain.
-    authCode :: Prelude.Sensitive Prelude.Text
+    authCode :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetrieveDomainAuthCodeResponse' with all optional fields omitted.
@@ -147,9 +144,9 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
 -- 'authCode', 'retrieveDomainAuthCodeResponse_authCode' - The authorization code for the domain.
 newRetrieveDomainAuthCodeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'authCode'
-  Prelude.Text ->
+  Core.Text ->
   RetrieveDomainAuthCodeResponse
 newRetrieveDomainAuthCodeResponse
   pHttpStatus_
@@ -158,17 +155,15 @@ newRetrieveDomainAuthCodeResponse
       { httpStatus =
           pHttpStatus_,
         authCode =
-          Prelude._Sensitive Lens.# pAuthCode_
+          Core._Sensitive Lens.# pAuthCode_
       }
 
 -- | The response's http status code.
-retrieveDomainAuthCodeResponse_httpStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Prelude.Int
+retrieveDomainAuthCodeResponse_httpStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Core.Int
 retrieveDomainAuthCodeResponse_httpStatus = Lens.lens (\RetrieveDomainAuthCodeResponse' {httpStatus} -> httpStatus) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {httpStatus = a} :: RetrieveDomainAuthCodeResponse)
 
 -- | The authorization code for the domain.
-retrieveDomainAuthCodeResponse_authCode :: Lens.Lens' RetrieveDomainAuthCodeResponse Prelude.Text
-retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResponse' {authCode} -> authCode) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse) Prelude.. Prelude._Sensitive
+retrieveDomainAuthCodeResponse_authCode :: Lens.Lens' RetrieveDomainAuthCodeResponse Core.Text
+retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResponse' {authCode} -> authCode) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse) Core.. Core._Sensitive
 
-instance
-  Prelude.NFData
-    RetrieveDomainAuthCodeResponse
+instance Core.NFData RetrieveDomainAuthCodeResponse

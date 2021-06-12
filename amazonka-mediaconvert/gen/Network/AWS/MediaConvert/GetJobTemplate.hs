@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.MediaConvert.GetJobTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetJobTemplate' smart constructor.
 data GetJobTemplate = GetJobTemplate'
   { -- | The name of the job template.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobTemplate' with all optional fields omitted.
@@ -64,58 +63,58 @@ data GetJobTemplate = GetJobTemplate'
 -- 'name', 'getJobTemplate_name' - The name of the job template.
 newGetJobTemplate ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetJobTemplate
 newGetJobTemplate pName_ =
   GetJobTemplate' {name = pName_}
 
 -- | The name of the job template.
-getJobTemplate_name :: Lens.Lens' GetJobTemplate Prelude.Text
+getJobTemplate_name :: Lens.Lens' GetJobTemplate Core.Text
 getJobTemplate_name = Lens.lens (\GetJobTemplate' {name} -> name) (\s@GetJobTemplate' {} a -> s {name = a} :: GetJobTemplate)
 
-instance Prelude.AWSRequest GetJobTemplate where
-  type Rs GetJobTemplate = GetJobTemplateResponse
+instance Core.AWSRequest GetJobTemplate where
+  type
+    AWSResponse GetJobTemplate =
+      GetJobTemplateResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetJobTemplateResponse'
-            Prelude.<$> (x Prelude..?> "jobTemplate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "jobTemplate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobTemplate
+instance Core.Hashable GetJobTemplate
 
-instance Prelude.NFData GetJobTemplate
+instance Core.NFData GetJobTemplate
 
-instance Prelude.ToHeaders GetJobTemplate where
+instance Core.ToHeaders GetJobTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetJobTemplate where
+instance Core.ToPath GetJobTemplate where
   toPath GetJobTemplate' {..} =
-    Prelude.mconcat
-      ["/2017-08-29/jobTemplates/", Prelude.toBS name]
+    Core.mconcat
+      ["/2017-08-29/jobTemplates/", Core.toBS name]
 
-instance Prelude.ToQuery GetJobTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJobTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetJobTemplateResponse' smart constructor.
 data GetJobTemplateResponse = GetJobTemplateResponse'
   { -- | A job template is a pre-made set of encoding instructions that you can
     -- use to quickly create a job.
-    jobTemplate :: Prelude.Maybe JobTemplate,
+    jobTemplate :: Core.Maybe JobTemplate,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobTemplateResponse' with all optional fields omitted.
@@ -131,22 +130,21 @@ data GetJobTemplateResponse = GetJobTemplateResponse'
 -- 'httpStatus', 'getJobTemplateResponse_httpStatus' - The response's http status code.
 newGetJobTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetJobTemplateResponse
 newGetJobTemplateResponse pHttpStatus_ =
   GetJobTemplateResponse'
-    { jobTemplate =
-        Prelude.Nothing,
+    { jobTemplate = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A job template is a pre-made set of encoding instructions that you can
 -- use to quickly create a job.
-getJobTemplateResponse_jobTemplate :: Lens.Lens' GetJobTemplateResponse (Prelude.Maybe JobTemplate)
+getJobTemplateResponse_jobTemplate :: Lens.Lens' GetJobTemplateResponse (Core.Maybe JobTemplate)
 getJobTemplateResponse_jobTemplate = Lens.lens (\GetJobTemplateResponse' {jobTemplate} -> jobTemplate) (\s@GetJobTemplateResponse' {} a -> s {jobTemplate = a} :: GetJobTemplateResponse)
 
 -- | The response's http status code.
-getJobTemplateResponse_httpStatus :: Lens.Lens' GetJobTemplateResponse Prelude.Int
+getJobTemplateResponse_httpStatus :: Lens.Lens' GetJobTemplateResponse Core.Int
 getJobTemplateResponse_httpStatus = Lens.lens (\GetJobTemplateResponse' {httpStatus} -> httpStatus) (\s@GetJobTemplateResponse' {} a -> s {httpStatus = a} :: GetJobTemplateResponse)
 
-instance Prelude.NFData GetJobTemplateResponse
+instance Core.NFData GetJobTemplateResponse

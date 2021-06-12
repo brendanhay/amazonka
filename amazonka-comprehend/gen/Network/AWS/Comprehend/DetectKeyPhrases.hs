@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Comprehend.DetectKeyPhrases
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,13 +50,13 @@ import qualified Network.AWS.Response as Response
 data DetectKeyPhrases = DetectKeyPhrases'
   { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
     -- UTF-8 encoded characters.
-    text :: Prelude.Sensitive Prelude.Text,
+    text :: Core.Sensitive Core.Text,
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
     languageCode :: LanguageCode
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectKeyPhrases' with all optional fields omitted.
@@ -75,21 +74,21 @@ data DetectKeyPhrases = DetectKeyPhrases'
 -- same language.
 newDetectKeyPhrases ::
   -- | 'text'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'languageCode'
   LanguageCode ->
   DetectKeyPhrases
 newDetectKeyPhrases pText_ pLanguageCode_ =
   DetectKeyPhrases'
     { text =
-        Prelude._Sensitive Lens.# pText_,
+        Core._Sensitive Lens.# pText_,
       languageCode = pLanguageCode_
     }
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
 -- UTF-8 encoded characters.
-detectKeyPhrases_text :: Lens.Lens' DetectKeyPhrases Prelude.Text
-detectKeyPhrases_text = Lens.lens (\DetectKeyPhrases' {text} -> text) (\s@DetectKeyPhrases' {} a -> s {text = a} :: DetectKeyPhrases) Prelude.. Prelude._Sensitive
+detectKeyPhrases_text :: Lens.Lens' DetectKeyPhrases Core.Text
+detectKeyPhrases_text = Lens.lens (\DetectKeyPhrases' {text} -> text) (\s@DetectKeyPhrases' {} a -> s {text = a} :: DetectKeyPhrases) Core.. Core._Sensitive
 
 -- | The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
@@ -97,53 +96,50 @@ detectKeyPhrases_text = Lens.lens (\DetectKeyPhrases' {text} -> text) (\s@Detect
 detectKeyPhrases_languageCode :: Lens.Lens' DetectKeyPhrases LanguageCode
 detectKeyPhrases_languageCode = Lens.lens (\DetectKeyPhrases' {languageCode} -> languageCode) (\s@DetectKeyPhrases' {} a -> s {languageCode = a} :: DetectKeyPhrases)
 
-instance Prelude.AWSRequest DetectKeyPhrases where
-  type Rs DetectKeyPhrases = DetectKeyPhrasesResponse
+instance Core.AWSRequest DetectKeyPhrases where
+  type
+    AWSResponse DetectKeyPhrases =
+      DetectKeyPhrasesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DetectKeyPhrasesResponse'
-            Prelude.<$> ( x Prelude..?> "KeyPhrases"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "KeyPhrases" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetectKeyPhrases
+instance Core.Hashable DetectKeyPhrases
 
-instance Prelude.NFData DetectKeyPhrases
+instance Core.NFData DetectKeyPhrases
 
-instance Prelude.ToHeaders DetectKeyPhrases where
+instance Core.ToHeaders DetectKeyPhrases where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DetectKeyPhrases" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DetectKeyPhrases" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DetectKeyPhrases where
+instance Core.ToJSON DetectKeyPhrases where
   toJSON DetectKeyPhrases' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Text" Prelude..= text),
-            Prelude.Just
-              ("LanguageCode" Prelude..= languageCode)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Text" Core..= text),
+            Core.Just ("LanguageCode" Core..= languageCode)
           ]
       )
 
-instance Prelude.ToPath DetectKeyPhrases where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetectKeyPhrases where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetectKeyPhrases where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetectKeyPhrases where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDetectKeyPhrasesResponse' smart constructor.
 data DetectKeyPhrasesResponse = DetectKeyPhrasesResponse'
@@ -151,11 +147,11 @@ data DetectKeyPhrasesResponse = DetectKeyPhrasesResponse'
     -- input text. For each key phrase, the response provides the text of the
     -- key phrase, where the key phrase begins and ends, and the level of
     -- confidence that Amazon Comprehend has in the accuracy of the detection.
-    keyPhrases :: Prelude.Maybe [KeyPhrase],
+    keyPhrases :: Core.Maybe [KeyPhrase],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectKeyPhrasesResponse' with all optional fields omitted.
@@ -173,12 +169,12 @@ data DetectKeyPhrasesResponse = DetectKeyPhrasesResponse'
 -- 'httpStatus', 'detectKeyPhrasesResponse_httpStatus' - The response's http status code.
 newDetectKeyPhrasesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetectKeyPhrasesResponse
 newDetectKeyPhrasesResponse pHttpStatus_ =
   DetectKeyPhrasesResponse'
     { keyPhrases =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -186,11 +182,11 @@ newDetectKeyPhrasesResponse pHttpStatus_ =
 -- input text. For each key phrase, the response provides the text of the
 -- key phrase, where the key phrase begins and ends, and the level of
 -- confidence that Amazon Comprehend has in the accuracy of the detection.
-detectKeyPhrasesResponse_keyPhrases :: Lens.Lens' DetectKeyPhrasesResponse (Prelude.Maybe [KeyPhrase])
-detectKeyPhrasesResponse_keyPhrases = Lens.lens (\DetectKeyPhrasesResponse' {keyPhrases} -> keyPhrases) (\s@DetectKeyPhrasesResponse' {} a -> s {keyPhrases = a} :: DetectKeyPhrasesResponse) Prelude.. Lens.mapping Prelude._Coerce
+detectKeyPhrasesResponse_keyPhrases :: Lens.Lens' DetectKeyPhrasesResponse (Core.Maybe [KeyPhrase])
+detectKeyPhrasesResponse_keyPhrases = Lens.lens (\DetectKeyPhrasesResponse' {keyPhrases} -> keyPhrases) (\s@DetectKeyPhrasesResponse' {} a -> s {keyPhrases = a} :: DetectKeyPhrasesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detectKeyPhrasesResponse_httpStatus :: Lens.Lens' DetectKeyPhrasesResponse Prelude.Int
+detectKeyPhrasesResponse_httpStatus :: Lens.Lens' DetectKeyPhrasesResponse Core.Int
 detectKeyPhrasesResponse_httpStatus = Lens.lens (\DetectKeyPhrasesResponse' {httpStatus} -> httpStatus) (\s@DetectKeyPhrasesResponse' {} a -> s {httpStatus = a} :: DetectKeyPhrasesResponse)
 
-instance Prelude.NFData DetectKeyPhrasesResponse
+instance Core.NFData DetectKeyPhrasesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CodeDeploy.BatchGetApplicationRevisions
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ import qualified Network.AWS.Response as Response
 data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
   { -- | The name of an AWS CodeDeploy application about which to get revision
     -- information.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | An array of @RevisionLocation@ objects that specify information to get
     -- about the application revisions, including type and location. The
     -- maximum number of @RevisionLocation@ objects you can specify is 25.
     revisions :: [RevisionLocation]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetApplicationRevisions' with all optional fields omitted.
@@ -80,85 +79,73 @@ data BatchGetApplicationRevisions = BatchGetApplicationRevisions'
 -- maximum number of @RevisionLocation@ objects you can specify is 25.
 newBatchGetApplicationRevisions ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   BatchGetApplicationRevisions
 newBatchGetApplicationRevisions pApplicationName_ =
   BatchGetApplicationRevisions'
     { applicationName =
         pApplicationName_,
-      revisions = Prelude.mempty
+      revisions = Core.mempty
     }
 
 -- | The name of an AWS CodeDeploy application about which to get revision
 -- information.
-batchGetApplicationRevisions_applicationName :: Lens.Lens' BatchGetApplicationRevisions Prelude.Text
+batchGetApplicationRevisions_applicationName :: Lens.Lens' BatchGetApplicationRevisions Core.Text
 batchGetApplicationRevisions_applicationName = Lens.lens (\BatchGetApplicationRevisions' {applicationName} -> applicationName) (\s@BatchGetApplicationRevisions' {} a -> s {applicationName = a} :: BatchGetApplicationRevisions)
 
 -- | An array of @RevisionLocation@ objects that specify information to get
 -- about the application revisions, including type and location. The
 -- maximum number of @RevisionLocation@ objects you can specify is 25.
 batchGetApplicationRevisions_revisions :: Lens.Lens' BatchGetApplicationRevisions [RevisionLocation]
-batchGetApplicationRevisions_revisions = Lens.lens (\BatchGetApplicationRevisions' {revisions} -> revisions) (\s@BatchGetApplicationRevisions' {} a -> s {revisions = a} :: BatchGetApplicationRevisions) Prelude.. Prelude._Coerce
+batchGetApplicationRevisions_revisions = Lens.lens (\BatchGetApplicationRevisions' {revisions} -> revisions) (\s@BatchGetApplicationRevisions' {} a -> s {revisions = a} :: BatchGetApplicationRevisions) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    BatchGetApplicationRevisions
-  where
+instance Core.AWSRequest BatchGetApplicationRevisions where
   type
-    Rs BatchGetApplicationRevisions =
+    AWSResponse BatchGetApplicationRevisions =
       BatchGetApplicationRevisionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchGetApplicationRevisionsResponse'
-            Prelude.<$> ( x Prelude..?> "revisions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "errorMessage")
-            Prelude.<*> (x Prelude..?> "applicationName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "revisions" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "errorMessage")
+            Core.<*> (x Core..?> "applicationName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    BatchGetApplicationRevisions
+instance Core.Hashable BatchGetApplicationRevisions
 
-instance Prelude.NFData BatchGetApplicationRevisions
+instance Core.NFData BatchGetApplicationRevisions
 
-instance
-  Prelude.ToHeaders
-    BatchGetApplicationRevisions
-  where
+instance Core.ToHeaders BatchGetApplicationRevisions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.BatchGetApplicationRevisions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.BatchGetApplicationRevisions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchGetApplicationRevisions where
+instance Core.ToJSON BatchGetApplicationRevisions where
   toJSON BatchGetApplicationRevisions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("applicationName" Prelude..= applicationName),
-            Prelude.Just ("revisions" Prelude..= revisions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("applicationName" Core..= applicationName),
+            Core.Just ("revisions" Core..= revisions)
           ]
       )
 
-instance Prelude.ToPath BatchGetApplicationRevisions where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchGetApplicationRevisions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchGetApplicationRevisions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchGetApplicationRevisions where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @BatchGetApplicationRevisions@ operation.
 --
@@ -166,15 +153,15 @@ instance Prelude.ToQuery BatchGetApplicationRevisions where
 data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse'
   { -- | Additional information about the revisions, including the type and
     -- location.
-    revisions :: Prelude.Maybe [RevisionInfo],
+    revisions :: Core.Maybe [RevisionInfo],
     -- | Information about errors that might have occurred during the API call.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The name of the application that corresponds to the revisions.
-    applicationName :: Prelude.Maybe Prelude.Text,
+    applicationName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetApplicationRevisionsResponse' with all optional fields omitted.
@@ -194,34 +181,34 @@ data BatchGetApplicationRevisionsResponse = BatchGetApplicationRevisionsResponse
 -- 'httpStatus', 'batchGetApplicationRevisionsResponse_httpStatus' - The response's http status code.
 newBatchGetApplicationRevisionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchGetApplicationRevisionsResponse
 newBatchGetApplicationRevisionsResponse pHttpStatus_ =
   BatchGetApplicationRevisionsResponse'
     { revisions =
-        Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      applicationName = Prelude.Nothing,
+        Core.Nothing,
+      errorMessage = Core.Nothing,
+      applicationName = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Additional information about the revisions, including the type and
 -- location.
-batchGetApplicationRevisionsResponse_revisions :: Lens.Lens' BatchGetApplicationRevisionsResponse (Prelude.Maybe [RevisionInfo])
-batchGetApplicationRevisionsResponse_revisions = Lens.lens (\BatchGetApplicationRevisionsResponse' {revisions} -> revisions) (\s@BatchGetApplicationRevisionsResponse' {} a -> s {revisions = a} :: BatchGetApplicationRevisionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetApplicationRevisionsResponse_revisions :: Lens.Lens' BatchGetApplicationRevisionsResponse (Core.Maybe [RevisionInfo])
+batchGetApplicationRevisionsResponse_revisions = Lens.lens (\BatchGetApplicationRevisionsResponse' {revisions} -> revisions) (\s@BatchGetApplicationRevisionsResponse' {} a -> s {revisions = a} :: BatchGetApplicationRevisionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about errors that might have occurred during the API call.
-batchGetApplicationRevisionsResponse_errorMessage :: Lens.Lens' BatchGetApplicationRevisionsResponse (Prelude.Maybe Prelude.Text)
+batchGetApplicationRevisionsResponse_errorMessage :: Lens.Lens' BatchGetApplicationRevisionsResponse (Core.Maybe Core.Text)
 batchGetApplicationRevisionsResponse_errorMessage = Lens.lens (\BatchGetApplicationRevisionsResponse' {errorMessage} -> errorMessage) (\s@BatchGetApplicationRevisionsResponse' {} a -> s {errorMessage = a} :: BatchGetApplicationRevisionsResponse)
 
 -- | The name of the application that corresponds to the revisions.
-batchGetApplicationRevisionsResponse_applicationName :: Lens.Lens' BatchGetApplicationRevisionsResponse (Prelude.Maybe Prelude.Text)
+batchGetApplicationRevisionsResponse_applicationName :: Lens.Lens' BatchGetApplicationRevisionsResponse (Core.Maybe Core.Text)
 batchGetApplicationRevisionsResponse_applicationName = Lens.lens (\BatchGetApplicationRevisionsResponse' {applicationName} -> applicationName) (\s@BatchGetApplicationRevisionsResponse' {} a -> s {applicationName = a} :: BatchGetApplicationRevisionsResponse)
 
 -- | The response's http status code.
-batchGetApplicationRevisionsResponse_httpStatus :: Lens.Lens' BatchGetApplicationRevisionsResponse Prelude.Int
+batchGetApplicationRevisionsResponse_httpStatus :: Lens.Lens' BatchGetApplicationRevisionsResponse Core.Int
 batchGetApplicationRevisionsResponse_httpStatus = Lens.lens (\BatchGetApplicationRevisionsResponse' {httpStatus} -> httpStatus) (\s@BatchGetApplicationRevisionsResponse' {} a -> s {httpStatus = a} :: BatchGetApplicationRevisionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchGetApplicationRevisionsResponse

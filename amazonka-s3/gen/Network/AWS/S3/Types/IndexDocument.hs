@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.IndexDocument where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for the @Suffix@ element.
@@ -38,9 +37,9 @@ data IndexDocument = IndexDocument'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    suffix :: Prelude.Text
+    suffix :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IndexDocument' with all optional fields omitted.
@@ -62,7 +61,7 @@ data IndexDocument = IndexDocument'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
 newIndexDocument ::
   -- | 'suffix'
-  Prelude.Text ->
+  Core.Text ->
   IndexDocument
 newIndexDocument pSuffix_ =
   IndexDocument' {suffix = pSuffix_}
@@ -77,17 +76,17 @@ newIndexDocument pSuffix_ =
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-indexDocument_suffix :: Lens.Lens' IndexDocument Prelude.Text
+indexDocument_suffix :: Lens.Lens' IndexDocument Core.Text
 indexDocument_suffix = Lens.lens (\IndexDocument' {suffix} -> suffix) (\s@IndexDocument' {} a -> s {suffix = a} :: IndexDocument)
 
-instance Prelude.FromXML IndexDocument where
+instance Core.FromXML IndexDocument where
   parseXML x =
-    IndexDocument' Prelude.<$> (x Prelude..@ "Suffix")
+    IndexDocument' Core.<$> (x Core..@ "Suffix")
 
-instance Prelude.Hashable IndexDocument
+instance Core.Hashable IndexDocument
 
-instance Prelude.NFData IndexDocument
+instance Core.NFData IndexDocument
 
-instance Prelude.ToXML IndexDocument where
+instance Core.ToXML IndexDocument where
   toXML IndexDocument' {..} =
-    Prelude.mconcat ["Suffix" Prelude.@= suffix]
+    Core.mconcat ["Suffix" Core.@= suffix]

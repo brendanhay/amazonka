@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.LambdaFunctionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Event
 import Network.AWS.S3.Types.NotificationConfigurationFilter
@@ -31,18 +30,18 @@ import Network.AWS.S3.Types.NotificationConfigurationFilter
 --
 -- /See:/ 'newLambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
-  { id :: Prelude.Maybe Prelude.Text,
-    filter' :: Prelude.Maybe NotificationConfigurationFilter,
+  { id :: Core.Maybe Core.Text,
+    filter' :: Core.Maybe NotificationConfigurationFilter,
     -- | The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3
     -- invokes when the specified event type occurs.
-    lambdaFunctionArn :: Prelude.Text,
+    lambdaFunctionArn :: Core.Text,
     -- | The Amazon S3 bucket event for which to invoke the AWS Lambda function.
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
     -- in the /Amazon Simple Storage Service Developer Guide/.
     events :: [Event]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionConfiguration' with all optional fields omitted.
@@ -65,27 +64,27 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
 -- in the /Amazon Simple Storage Service Developer Guide/.
 newLambdaFunctionConfiguration ::
   -- | 'lambdaFunctionArn'
-  Prelude.Text ->
+  Core.Text ->
   LambdaFunctionConfiguration
 newLambdaFunctionConfiguration pLambdaFunctionArn_ =
   LambdaFunctionConfiguration'
-    { id = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { id = Core.Nothing,
+      filter' = Core.Nothing,
       lambdaFunctionArn = pLambdaFunctionArn_,
-      events = Prelude.mempty
+      events = Core.mempty
     }
 
 -- | Undocumented member.
-lambdaFunctionConfiguration_id :: Lens.Lens' LambdaFunctionConfiguration (Prelude.Maybe Prelude.Text)
+lambdaFunctionConfiguration_id :: Lens.Lens' LambdaFunctionConfiguration (Core.Maybe Core.Text)
 lambdaFunctionConfiguration_id = Lens.lens (\LambdaFunctionConfiguration' {id} -> id) (\s@LambdaFunctionConfiguration' {} a -> s {id = a} :: LambdaFunctionConfiguration)
 
 -- | Undocumented member.
-lambdaFunctionConfiguration_filter :: Lens.Lens' LambdaFunctionConfiguration (Prelude.Maybe NotificationConfigurationFilter)
+lambdaFunctionConfiguration_filter :: Lens.Lens' LambdaFunctionConfiguration (Core.Maybe NotificationConfigurationFilter)
 lambdaFunctionConfiguration_filter = Lens.lens (\LambdaFunctionConfiguration' {filter'} -> filter') (\s@LambdaFunctionConfiguration' {} a -> s {filter' = a} :: LambdaFunctionConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3
 -- invokes when the specified event type occurs.
-lambdaFunctionConfiguration_lambdaFunctionArn :: Lens.Lens' LambdaFunctionConfiguration Prelude.Text
+lambdaFunctionConfiguration_lambdaFunctionArn :: Lens.Lens' LambdaFunctionConfiguration Core.Text
 lambdaFunctionConfiguration_lambdaFunctionArn = Lens.lens (\LambdaFunctionConfiguration' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@LambdaFunctionConfiguration' {} a -> s {lambdaFunctionArn = a} :: LambdaFunctionConfiguration)
 
 -- | The Amazon S3 bucket event for which to invoke the AWS Lambda function.
@@ -93,25 +92,25 @@ lambdaFunctionConfiguration_lambdaFunctionArn = Lens.lens (\LambdaFunctionConfig
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Supported Event Types>
 -- in the /Amazon Simple Storage Service Developer Guide/.
 lambdaFunctionConfiguration_events :: Lens.Lens' LambdaFunctionConfiguration [Event]
-lambdaFunctionConfiguration_events = Lens.lens (\LambdaFunctionConfiguration' {events} -> events) (\s@LambdaFunctionConfiguration' {} a -> s {events = a} :: LambdaFunctionConfiguration) Prelude.. Prelude._Coerce
+lambdaFunctionConfiguration_events = Lens.lens (\LambdaFunctionConfiguration' {events} -> events) (\s@LambdaFunctionConfiguration' {} a -> s {events = a} :: LambdaFunctionConfiguration) Core.. Lens._Coerce
 
-instance Prelude.FromXML LambdaFunctionConfiguration where
+instance Core.FromXML LambdaFunctionConfiguration where
   parseXML x =
     LambdaFunctionConfiguration'
-      Prelude.<$> (x Prelude..@? "Id")
-      Prelude.<*> (x Prelude..@? "Filter")
-      Prelude.<*> (x Prelude..@ "CloudFunction")
-      Prelude.<*> (Prelude.parseXMLList "Event" x)
+      Core.<$> (x Core..@? "Id")
+      Core.<*> (x Core..@? "Filter")
+      Core.<*> (x Core..@ "CloudFunction")
+      Core.<*> (Core.parseXMLList "Event" x)
 
-instance Prelude.Hashable LambdaFunctionConfiguration
+instance Core.Hashable LambdaFunctionConfiguration
 
-instance Prelude.NFData LambdaFunctionConfiguration
+instance Core.NFData LambdaFunctionConfiguration
 
-instance Prelude.ToXML LambdaFunctionConfiguration where
+instance Core.ToXML LambdaFunctionConfiguration where
   toXML LambdaFunctionConfiguration' {..} =
-    Prelude.mconcat
-      [ "Id" Prelude.@= id,
-        "Filter" Prelude.@= filter',
-        "CloudFunction" Prelude.@= lambdaFunctionArn,
-        Prelude.toXMLList "Event" events
+    Core.mconcat
+      [ "Id" Core.@= id,
+        "Filter" Core.@= filter',
+        "CloudFunction" Core.@= lambdaFunctionArn,
+        Core.toXMLList "Event" events
       ]

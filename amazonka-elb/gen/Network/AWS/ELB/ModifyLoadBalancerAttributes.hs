@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,11 +69,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
   { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The attributes for the load balancer.
     loadBalancerAttributes :: LoadBalancerAttributes
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyLoadBalancerAttributes' with all optional fields omitted.
@@ -89,7 +88,7 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
 -- 'loadBalancerAttributes', 'modifyLoadBalancerAttributes_loadBalancerAttributes' - The attributes for the load balancer.
 newModifyLoadBalancerAttributes ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'loadBalancerAttributes'
   LoadBalancerAttributes ->
   ModifyLoadBalancerAttributes
@@ -104,19 +103,16 @@ newModifyLoadBalancerAttributes
       }
 
 -- | The name of the load balancer.
-modifyLoadBalancerAttributes_loadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributes Prelude.Text
+modifyLoadBalancerAttributes_loadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributes Core.Text
 modifyLoadBalancerAttributes_loadBalancerName = Lens.lens (\ModifyLoadBalancerAttributes' {loadBalancerName} -> loadBalancerName) (\s@ModifyLoadBalancerAttributes' {} a -> s {loadBalancerName = a} :: ModifyLoadBalancerAttributes)
 
 -- | The attributes for the load balancer.
 modifyLoadBalancerAttributes_loadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
 modifyLoadBalancerAttributes_loadBalancerAttributes = Lens.lens (\ModifyLoadBalancerAttributes' {loadBalancerAttributes} -> loadBalancerAttributes) (\s@ModifyLoadBalancerAttributes' {} a -> s {loadBalancerAttributes = a} :: ModifyLoadBalancerAttributes)
 
-instance
-  Prelude.AWSRequest
-    ModifyLoadBalancerAttributes
-  where
+instance Core.AWSRequest ModifyLoadBalancerAttributes where
   type
-    Rs ModifyLoadBalancerAttributes =
+    AWSResponse ModifyLoadBalancerAttributes =
       ModifyLoadBalancerAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -124,38 +120,30 @@ instance
       "ModifyLoadBalancerAttributesResult"
       ( \s h x ->
           ModifyLoadBalancerAttributesResponse'
-            Prelude.<$> (x Prelude..@? "LoadBalancerAttributes")
-            Prelude.<*> (x Prelude..@? "LoadBalancerName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "LoadBalancerAttributes")
+            Core.<*> (x Core..@? "LoadBalancerName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ModifyLoadBalancerAttributes
+instance Core.Hashable ModifyLoadBalancerAttributes
 
-instance Prelude.NFData ModifyLoadBalancerAttributes
+instance Core.NFData ModifyLoadBalancerAttributes
 
-instance
-  Prelude.ToHeaders
-    ModifyLoadBalancerAttributes
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyLoadBalancerAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyLoadBalancerAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyLoadBalancerAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyLoadBalancerAttributes where
+instance Core.ToQuery ModifyLoadBalancerAttributes where
   toQuery ModifyLoadBalancerAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyLoadBalancerAttributes" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
+          Core.=: ("ModifyLoadBalancerAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
         "LoadBalancerAttributes"
-          Prelude.=: loadBalancerAttributes
+          Core.=: loadBalancerAttributes
       ]
 
 -- | Contains the output of ModifyLoadBalancerAttributes.
@@ -163,13 +151,13 @@ instance Prelude.ToQuery ModifyLoadBalancerAttributes where
 -- /See:/ 'newModifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
   { -- | Information about the load balancer attributes.
-    loadBalancerAttributes :: Prelude.Maybe LoadBalancerAttributes,
+    loadBalancerAttributes :: Core.Maybe LoadBalancerAttributes,
     -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Maybe Prelude.Text,
+    loadBalancerName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyLoadBalancerAttributesResponse' with all optional fields omitted.
@@ -186,28 +174,28 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 -- 'httpStatus', 'modifyLoadBalancerAttributesResponse_httpStatus' - The response's http status code.
 newModifyLoadBalancerAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyLoadBalancerAttributesResponse
 newModifyLoadBalancerAttributesResponse pHttpStatus_ =
   ModifyLoadBalancerAttributesResponse'
     { loadBalancerAttributes =
-        Prelude.Nothing,
-      loadBalancerName = Prelude.Nothing,
+        Core.Nothing,
+      loadBalancerName = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the load balancer attributes.
-modifyLoadBalancerAttributesResponse_loadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Prelude.Maybe LoadBalancerAttributes)
+modifyLoadBalancerAttributesResponse_loadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Core.Maybe LoadBalancerAttributes)
 modifyLoadBalancerAttributesResponse_loadBalancerAttributes = Lens.lens (\ModifyLoadBalancerAttributesResponse' {loadBalancerAttributes} -> loadBalancerAttributes) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {loadBalancerAttributes = a} :: ModifyLoadBalancerAttributesResponse)
 
 -- | The name of the load balancer.
-modifyLoadBalancerAttributesResponse_loadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Prelude.Maybe Prelude.Text)
+modifyLoadBalancerAttributesResponse_loadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Core.Maybe Core.Text)
 modifyLoadBalancerAttributesResponse_loadBalancerName = Lens.lens (\ModifyLoadBalancerAttributesResponse' {loadBalancerName} -> loadBalancerName) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {loadBalancerName = a} :: ModifyLoadBalancerAttributesResponse)
 
 -- | The response's http status code.
-modifyLoadBalancerAttributesResponse_httpStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Prelude.Int
+modifyLoadBalancerAttributesResponse_httpStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Core.Int
 modifyLoadBalancerAttributesResponse_httpStatus = Lens.lens (\ModifyLoadBalancerAttributesResponse' {httpStatus} -> httpStatus) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {httpStatus = a} :: ModifyLoadBalancerAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyLoadBalancerAttributesResponse

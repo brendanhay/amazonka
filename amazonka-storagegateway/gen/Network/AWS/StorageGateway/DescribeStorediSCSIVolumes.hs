@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -59,9 +58,9 @@ data DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
     -- Name (ARN) of a stored volume. All of the specified stored volumes must
     -- be from the same gateway. Use ListVolumes to get volume ARNs for a
     -- gateway.
-    volumeARNs :: [Prelude.Text]
+    volumeARNs :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStorediSCSIVolumes' with all optional fields omitted.
@@ -80,65 +79,60 @@ newDescribeStorediSCSIVolumes ::
 newDescribeStorediSCSIVolumes =
   DescribeStorediSCSIVolumes'
     { volumeARNs =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | An array of strings where each string represents the Amazon Resource
 -- Name (ARN) of a stored volume. All of the specified stored volumes must
 -- be from the same gateway. Use ListVolumes to get volume ARNs for a
 -- gateway.
-describeStorediSCSIVolumes_volumeARNs :: Lens.Lens' DescribeStorediSCSIVolumes [Prelude.Text]
-describeStorediSCSIVolumes_volumeARNs = Lens.lens (\DescribeStorediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeStorediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeStorediSCSIVolumes) Prelude.. Prelude._Coerce
+describeStorediSCSIVolumes_volumeARNs :: Lens.Lens' DescribeStorediSCSIVolumes [Core.Text]
+describeStorediSCSIVolumes_volumeARNs = Lens.lens (\DescribeStorediSCSIVolumes' {volumeARNs} -> volumeARNs) (\s@DescribeStorediSCSIVolumes' {} a -> s {volumeARNs = a} :: DescribeStorediSCSIVolumes) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    DescribeStorediSCSIVolumes
-  where
+instance Core.AWSRequest DescribeStorediSCSIVolumes where
   type
-    Rs DescribeStorediSCSIVolumes =
+    AWSResponse DescribeStorediSCSIVolumes =
       DescribeStorediSCSIVolumesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeStorediSCSIVolumesResponse'
-            Prelude.<$> ( x Prelude..?> "StorediSCSIVolumes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "StorediSCSIVolumes"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStorediSCSIVolumes
+instance Core.Hashable DescribeStorediSCSIVolumes
 
-instance Prelude.NFData DescribeStorediSCSIVolumes
+instance Core.NFData DescribeStorediSCSIVolumes
 
-instance Prelude.ToHeaders DescribeStorediSCSIVolumes where
+instance Core.ToHeaders DescribeStorediSCSIVolumes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DescribeStorediSCSIVolumes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DescribeStorediSCSIVolumes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeStorediSCSIVolumes where
+instance Core.ToJSON DescribeStorediSCSIVolumes where
   toJSON DescribeStorediSCSIVolumes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARNs" Prelude..= volumeARNs)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("VolumeARNs" Core..= volumeARNs)]
       )
 
-instance Prelude.ToPath DescribeStorediSCSIVolumes where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStorediSCSIVolumes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStorediSCSIVolumes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeStorediSCSIVolumes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeStorediSCSIVolumesResponse' smart constructor.
 data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
@@ -191,11 +185,11 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
     --
     -- -   @VolumeType@: One of the enumeration values describing the type of
     --     the volume. Currently, only @STORED@ volumes are supported.
-    storediSCSIVolumes :: Prelude.Maybe [StorediSCSIVolume],
+    storediSCSIVolumes :: Core.Maybe [StorediSCSIVolume],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStorediSCSIVolumesResponse' with all optional fields omitted.
@@ -258,12 +252,12 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
 -- 'httpStatus', 'describeStorediSCSIVolumesResponse_httpStatus' - The response's http status code.
 newDescribeStorediSCSIVolumesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStorediSCSIVolumesResponse
 newDescribeStorediSCSIVolumesResponse pHttpStatus_ =
   DescribeStorediSCSIVolumesResponse'
     { storediSCSIVolumes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -316,13 +310,13 @@ newDescribeStorediSCSIVolumesResponse pHttpStatus_ =
 --
 -- -   @VolumeType@: One of the enumeration values describing the type of
 --     the volume. Currently, only @STORED@ volumes are supported.
-describeStorediSCSIVolumesResponse_storediSCSIVolumes :: Lens.Lens' DescribeStorediSCSIVolumesResponse (Prelude.Maybe [StorediSCSIVolume])
-describeStorediSCSIVolumesResponse_storediSCSIVolumes = Lens.lens (\DescribeStorediSCSIVolumesResponse' {storediSCSIVolumes} -> storediSCSIVolumes) (\s@DescribeStorediSCSIVolumesResponse' {} a -> s {storediSCSIVolumes = a} :: DescribeStorediSCSIVolumesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeStorediSCSIVolumesResponse_storediSCSIVolumes :: Lens.Lens' DescribeStorediSCSIVolumesResponse (Core.Maybe [StorediSCSIVolume])
+describeStorediSCSIVolumesResponse_storediSCSIVolumes = Lens.lens (\DescribeStorediSCSIVolumesResponse' {storediSCSIVolumes} -> storediSCSIVolumes) (\s@DescribeStorediSCSIVolumesResponse' {} a -> s {storediSCSIVolumes = a} :: DescribeStorediSCSIVolumesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeStorediSCSIVolumesResponse_httpStatus :: Lens.Lens' DescribeStorediSCSIVolumesResponse Prelude.Int
+describeStorediSCSIVolumesResponse_httpStatus :: Lens.Lens' DescribeStorediSCSIVolumesResponse Core.Int
 describeStorediSCSIVolumesResponse_httpStatus = Lens.lens (\DescribeStorediSCSIVolumesResponse' {httpStatus} -> httpStatus) (\s@DescribeStorediSCSIVolumesResponse' {} a -> s {httpStatus = a} :: DescribeStorediSCSIVolumesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeStorediSCSIVolumesResponse

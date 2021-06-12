@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.PermissionsBoundaryDecisionDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the effect that a permissions boundary has on
 -- a policy simulation when the boundary is applied to an IAM entity.
@@ -37,9 +36,9 @@ data PermissionsBoundaryDecisionDetail = PermissionsBoundaryDecisionDetail'
     -- not allowed (implicitly denied) or that the action is explicitly denied
     -- by the permissions boundary. In both of these cases, the action is not
     -- allowed, regardless of the identity-based policy.
-    allowedByPermissionsBoundary :: Prelude.Maybe Prelude.Bool
+    allowedByPermissionsBoundary :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PermissionsBoundaryDecisionDetail' with all optional fields omitted.
@@ -63,7 +62,7 @@ newPermissionsBoundaryDecisionDetail ::
 newPermissionsBoundaryDecisionDetail =
   PermissionsBoundaryDecisionDetail'
     { allowedByPermissionsBoundary =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies whether an action is allowed by a permissions boundary that is
@@ -75,21 +74,21 @@ newPermissionsBoundaryDecisionDetail =
 -- not allowed (implicitly denied) or that the action is explicitly denied
 -- by the permissions boundary. In both of these cases, the action is not
 -- allowed, regardless of the identity-based policy.
-permissionsBoundaryDecisionDetail_allowedByPermissionsBoundary :: Lens.Lens' PermissionsBoundaryDecisionDetail (Prelude.Maybe Prelude.Bool)
+permissionsBoundaryDecisionDetail_allowedByPermissionsBoundary :: Lens.Lens' PermissionsBoundaryDecisionDetail (Core.Maybe Core.Bool)
 permissionsBoundaryDecisionDetail_allowedByPermissionsBoundary = Lens.lens (\PermissionsBoundaryDecisionDetail' {allowedByPermissionsBoundary} -> allowedByPermissionsBoundary) (\s@PermissionsBoundaryDecisionDetail' {} a -> s {allowedByPermissionsBoundary = a} :: PermissionsBoundaryDecisionDetail)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     PermissionsBoundaryDecisionDetail
   where
   parseXML x =
     PermissionsBoundaryDecisionDetail'
-      Prelude.<$> (x Prelude..@? "AllowedByPermissionsBoundary")
+      Core.<$> (x Core..@? "AllowedByPermissionsBoundary")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PermissionsBoundaryDecisionDetail
 
 instance
-  Prelude.NFData
+  Core.NFData
     PermissionsBoundaryDecisionDetail

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -93,8 +92,8 @@ module Network.AWS.Rekognition.GetCelebrityRecognition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -105,20 +104,20 @@ data GetCelebrityRecognition = GetCelebrityRecognition'
     -- recognized celebrities to retrieve), Amazon Rekognition Video returns a
     -- pagination token in the response. You can use this pagination token to
     -- retrieve the next set of celebrities.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Maximum number of results to return per paginated call. The largest
     -- value you can specify is 1000. If you specify a value greater than 1000,
     -- a maximum of 1000 results is returned. The default value is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Sort to use for celebrities returned in @Celebrities@ field. Specify
     -- @ID@ to sort by the celebrity identifier, specify @TIMESTAMP@ to sort by
     -- the time the celebrity was recognized.
-    sortBy :: Prelude.Maybe CelebrityRecognitionSortBy,
+    sortBy :: Core.Maybe CelebrityRecognitionSortBy,
     -- | Job identifier for the required celebrity recognition analysis. You can
     -- get the job identifer from a call to @StartCelebrityRecognition@.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCelebrityRecognition' with all optional fields omitted.
@@ -145,14 +144,13 @@ data GetCelebrityRecognition = GetCelebrityRecognition'
 -- get the job identifer from a call to @StartCelebrityRecognition@.
 newGetCelebrityRecognition ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   GetCelebrityRecognition
 newGetCelebrityRecognition pJobId_ =
   GetCelebrityRecognition'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      sortBy = Core.Nothing,
       jobId = pJobId_
     }
 
@@ -160,101 +158,97 @@ newGetCelebrityRecognition pJobId_ =
 -- recognized celebrities to retrieve), Amazon Rekognition Video returns a
 -- pagination token in the response. You can use this pagination token to
 -- retrieve the next set of celebrities.
-getCelebrityRecognition_nextToken :: Lens.Lens' GetCelebrityRecognition (Prelude.Maybe Prelude.Text)
+getCelebrityRecognition_nextToken :: Lens.Lens' GetCelebrityRecognition (Core.Maybe Core.Text)
 getCelebrityRecognition_nextToken = Lens.lens (\GetCelebrityRecognition' {nextToken} -> nextToken) (\s@GetCelebrityRecognition' {} a -> s {nextToken = a} :: GetCelebrityRecognition)
 
 -- | Maximum number of results to return per paginated call. The largest
 -- value you can specify is 1000. If you specify a value greater than 1000,
 -- a maximum of 1000 results is returned. The default value is 1000.
-getCelebrityRecognition_maxResults :: Lens.Lens' GetCelebrityRecognition (Prelude.Maybe Prelude.Natural)
+getCelebrityRecognition_maxResults :: Lens.Lens' GetCelebrityRecognition (Core.Maybe Core.Natural)
 getCelebrityRecognition_maxResults = Lens.lens (\GetCelebrityRecognition' {maxResults} -> maxResults) (\s@GetCelebrityRecognition' {} a -> s {maxResults = a} :: GetCelebrityRecognition)
 
 -- | Sort to use for celebrities returned in @Celebrities@ field. Specify
 -- @ID@ to sort by the celebrity identifier, specify @TIMESTAMP@ to sort by
 -- the time the celebrity was recognized.
-getCelebrityRecognition_sortBy :: Lens.Lens' GetCelebrityRecognition (Prelude.Maybe CelebrityRecognitionSortBy)
+getCelebrityRecognition_sortBy :: Lens.Lens' GetCelebrityRecognition (Core.Maybe CelebrityRecognitionSortBy)
 getCelebrityRecognition_sortBy = Lens.lens (\GetCelebrityRecognition' {sortBy} -> sortBy) (\s@GetCelebrityRecognition' {} a -> s {sortBy = a} :: GetCelebrityRecognition)
 
 -- | Job identifier for the required celebrity recognition analysis. You can
 -- get the job identifer from a call to @StartCelebrityRecognition@.
-getCelebrityRecognition_jobId :: Lens.Lens' GetCelebrityRecognition Prelude.Text
+getCelebrityRecognition_jobId :: Lens.Lens' GetCelebrityRecognition Core.Text
 getCelebrityRecognition_jobId = Lens.lens (\GetCelebrityRecognition' {jobId} -> jobId) (\s@GetCelebrityRecognition' {} a -> s {jobId = a} :: GetCelebrityRecognition)
 
-instance Prelude.AWSRequest GetCelebrityRecognition where
+instance Core.AWSRequest GetCelebrityRecognition where
   type
-    Rs GetCelebrityRecognition =
+    AWSResponse GetCelebrityRecognition =
       GetCelebrityRecognitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCelebrityRecognitionResponse'
-            Prelude.<$> (x Prelude..?> "StatusMessage")
-            Prelude.<*> (x Prelude..?> "VideoMetadata")
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "JobStatus")
-            Prelude.<*> ( x Prelude..?> "Celebrities"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StatusMessage")
+            Core.<*> (x Core..?> "VideoMetadata")
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "Celebrities" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCelebrityRecognition
+instance Core.Hashable GetCelebrityRecognition
 
-instance Prelude.NFData GetCelebrityRecognition
+instance Core.NFData GetCelebrityRecognition
 
-instance Prelude.ToHeaders GetCelebrityRecognition where
+instance Core.ToHeaders GetCelebrityRecognition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.GetCelebrityRecognition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.GetCelebrityRecognition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetCelebrityRecognition where
+instance Core.ToJSON GetCelebrityRecognition where
   toJSON GetCelebrityRecognition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            Prelude.Just ("JobId" Prelude..= jobId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            Core.Just ("JobId" Core..= jobId)
           ]
       )
 
-instance Prelude.ToPath GetCelebrityRecognition where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCelebrityRecognition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCelebrityRecognition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCelebrityRecognition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCelebrityRecognitionResponse' smart constructor.
 data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
   { -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    statusMessage :: Core.Maybe Core.Text,
     -- | Information about a video that Amazon Rekognition Video analyzed.
     -- @Videometadata@ is returned in every page of paginated responses from a
     -- Amazon Rekognition Video operation.
-    videoMetadata :: Prelude.Maybe VideoMetadata,
+    videoMetadata :: Core.Maybe VideoMetadata,
     -- | If the response is truncated, Amazon Rekognition Video returns this
     -- token that you can use in the subsequent request to retrieve the next
     -- set of celebrities.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The current status of the celebrity recognition job.
-    jobStatus :: Prelude.Maybe VideoJobStatus,
+    jobStatus :: Core.Maybe VideoJobStatus,
     -- | Array of celebrities recognized in the video.
-    celebrities :: Prelude.Maybe [CelebrityRecognition],
+    celebrities :: Core.Maybe [CelebrityRecognition],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCelebrityRecognitionResponse' with all optional fields omitted.
@@ -281,47 +275,45 @@ data GetCelebrityRecognitionResponse = GetCelebrityRecognitionResponse'
 -- 'httpStatus', 'getCelebrityRecognitionResponse_httpStatus' - The response's http status code.
 newGetCelebrityRecognitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCelebrityRecognitionResponse
 newGetCelebrityRecognitionResponse pHttpStatus_ =
   GetCelebrityRecognitionResponse'
     { statusMessage =
-        Prelude.Nothing,
-      videoMetadata = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      jobStatus = Prelude.Nothing,
-      celebrities = Prelude.Nothing,
+        Core.Nothing,
+      videoMetadata = Core.Nothing,
+      nextToken = Core.Nothing,
+      jobStatus = Core.Nothing,
+      celebrities = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-getCelebrityRecognitionResponse_statusMessage :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
+getCelebrityRecognitionResponse_statusMessage :: Lens.Lens' GetCelebrityRecognitionResponse (Core.Maybe Core.Text)
 getCelebrityRecognitionResponse_statusMessage = Lens.lens (\GetCelebrityRecognitionResponse' {statusMessage} -> statusMessage) (\s@GetCelebrityRecognitionResponse' {} a -> s {statusMessage = a} :: GetCelebrityRecognitionResponse)
 
 -- | Information about a video that Amazon Rekognition Video analyzed.
 -- @Videometadata@ is returned in every page of paginated responses from a
 -- Amazon Rekognition Video operation.
-getCelebrityRecognitionResponse_videoMetadata :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe VideoMetadata)
+getCelebrityRecognitionResponse_videoMetadata :: Lens.Lens' GetCelebrityRecognitionResponse (Core.Maybe VideoMetadata)
 getCelebrityRecognitionResponse_videoMetadata = Lens.lens (\GetCelebrityRecognitionResponse' {videoMetadata} -> videoMetadata) (\s@GetCelebrityRecognitionResponse' {} a -> s {videoMetadata = a} :: GetCelebrityRecognitionResponse)
 
 -- | If the response is truncated, Amazon Rekognition Video returns this
 -- token that you can use in the subsequent request to retrieve the next
 -- set of celebrities.
-getCelebrityRecognitionResponse_nextToken :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
+getCelebrityRecognitionResponse_nextToken :: Lens.Lens' GetCelebrityRecognitionResponse (Core.Maybe Core.Text)
 getCelebrityRecognitionResponse_nextToken = Lens.lens (\GetCelebrityRecognitionResponse' {nextToken} -> nextToken) (\s@GetCelebrityRecognitionResponse' {} a -> s {nextToken = a} :: GetCelebrityRecognitionResponse)
 
 -- | The current status of the celebrity recognition job.
-getCelebrityRecognitionResponse_jobStatus :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe VideoJobStatus)
+getCelebrityRecognitionResponse_jobStatus :: Lens.Lens' GetCelebrityRecognitionResponse (Core.Maybe VideoJobStatus)
 getCelebrityRecognitionResponse_jobStatus = Lens.lens (\GetCelebrityRecognitionResponse' {jobStatus} -> jobStatus) (\s@GetCelebrityRecognitionResponse' {} a -> s {jobStatus = a} :: GetCelebrityRecognitionResponse)
 
 -- | Array of celebrities recognized in the video.
-getCelebrityRecognitionResponse_celebrities :: Lens.Lens' GetCelebrityRecognitionResponse (Prelude.Maybe [CelebrityRecognition])
-getCelebrityRecognitionResponse_celebrities = Lens.lens (\GetCelebrityRecognitionResponse' {celebrities} -> celebrities) (\s@GetCelebrityRecognitionResponse' {} a -> s {celebrities = a} :: GetCelebrityRecognitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getCelebrityRecognitionResponse_celebrities :: Lens.Lens' GetCelebrityRecognitionResponse (Core.Maybe [CelebrityRecognition])
+getCelebrityRecognitionResponse_celebrities = Lens.lens (\GetCelebrityRecognitionResponse' {celebrities} -> celebrities) (\s@GetCelebrityRecognitionResponse' {} a -> s {celebrities = a} :: GetCelebrityRecognitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getCelebrityRecognitionResponse_httpStatus :: Lens.Lens' GetCelebrityRecognitionResponse Prelude.Int
+getCelebrityRecognitionResponse_httpStatus :: Lens.Lens' GetCelebrityRecognitionResponse Core.Int
 getCelebrityRecognitionResponse_httpStatus = Lens.lens (\GetCelebrityRecognitionResponse' {httpStatus} -> httpStatus) (\s@GetCelebrityRecognitionResponse' {} a -> s {httpStatus = a} :: GetCelebrityRecognitionResponse)
 
-instance
-  Prelude.NFData
-    GetCelebrityRecognitionResponse
+instance Core.NFData GetCelebrityRecognitionResponse

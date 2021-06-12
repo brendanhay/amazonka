@@ -124,6 +124,7 @@ module Network.AWS.OpsWorksCM.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types.AccountAttribute
 import Network.AWS.OpsWorksCM.Types.Backup
@@ -136,119 +137,116 @@ import Network.AWS.OpsWorksCM.Types.Server
 import Network.AWS.OpsWorksCM.Types.ServerEvent
 import Network.AWS.OpsWorksCM.Types.ServerStatus
 import Network.AWS.OpsWorksCM.Types.Tag
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-11-01@ of the Amazon OpsWorks CM SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "OpsWorksCM",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "opsworks-cm",
-      Prelude._svcSigningName = "opsworks-cm",
-      Prelude._svcVersion = "2016-11-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "OpsWorksCM",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "OpsWorksCM",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "opsworks-cm",
+      Core._serviceSigningName = "opsworks-cm",
+      Core._serviceVersion = "2016-11-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "OpsWorksCM",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The resource is in a state that does not allow you to perform a
 -- specified action.
-_InvalidStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidStateException"
 
 -- | The requested resource cannot be created because it already exists.
-_ResourceAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | This occurs when the provided nextToken is not valid.
-_InvalidNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | One or more of the provided request parameters are not valid.
-_ValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | The limit of servers or backups has been reached.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The requested resource does not exist, or access was denied.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"

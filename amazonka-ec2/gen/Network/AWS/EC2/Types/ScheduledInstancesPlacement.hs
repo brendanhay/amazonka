@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ScheduledInstancesPlacement where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the placement for a Scheduled Instance.
 --
 -- /See:/ 'newScheduledInstancesPlacement' smart constructor.
 data ScheduledInstancesPlacement = ScheduledInstancesPlacement'
   { -- | The name of the placement group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The Availability Zone.
-    availabilityZone :: Prelude.Maybe Prelude.Text
+    availabilityZone :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesPlacement' with all optional fields omitted.
@@ -51,25 +50,25 @@ newScheduledInstancesPlacement ::
 newScheduledInstancesPlacement =
   ScheduledInstancesPlacement'
     { groupName =
-        Prelude.Nothing,
-      availabilityZone = Prelude.Nothing
+        Core.Nothing,
+      availabilityZone = Core.Nothing
     }
 
 -- | The name of the placement group.
-scheduledInstancesPlacement_groupName :: Lens.Lens' ScheduledInstancesPlacement (Prelude.Maybe Prelude.Text)
+scheduledInstancesPlacement_groupName :: Lens.Lens' ScheduledInstancesPlacement (Core.Maybe Core.Text)
 scheduledInstancesPlacement_groupName = Lens.lens (\ScheduledInstancesPlacement' {groupName} -> groupName) (\s@ScheduledInstancesPlacement' {} a -> s {groupName = a} :: ScheduledInstancesPlacement)
 
 -- | The Availability Zone.
-scheduledInstancesPlacement_availabilityZone :: Lens.Lens' ScheduledInstancesPlacement (Prelude.Maybe Prelude.Text)
+scheduledInstancesPlacement_availabilityZone :: Lens.Lens' ScheduledInstancesPlacement (Core.Maybe Core.Text)
 scheduledInstancesPlacement_availabilityZone = Lens.lens (\ScheduledInstancesPlacement' {availabilityZone} -> availabilityZone) (\s@ScheduledInstancesPlacement' {} a -> s {availabilityZone = a} :: ScheduledInstancesPlacement)
 
-instance Prelude.Hashable ScheduledInstancesPlacement
+instance Core.Hashable ScheduledInstancesPlacement
 
-instance Prelude.NFData ScheduledInstancesPlacement
+instance Core.NFData ScheduledInstancesPlacement
 
-instance Prelude.ToQuery ScheduledInstancesPlacement where
+instance Core.ToQuery ScheduledInstancesPlacement where
   toQuery ScheduledInstancesPlacement' {..} =
-    Prelude.mconcat
-      [ "GroupName" Prelude.=: groupName,
-        "AvailabilityZone" Prelude.=: availabilityZone
+    Core.mconcat
+      [ "GroupName" Core.=: groupName,
+        "AvailabilityZone" Core.=: availabilityZone
       ]

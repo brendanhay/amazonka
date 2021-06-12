@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.Capacity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the amount of provisioned throughput capacity consumed on a
 -- table or an index.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Capacity = Capacity'
   { -- | The total number of write capacity units consumed on a table or an
     -- index.
-    writeCapacityUnits :: Prelude.Maybe Prelude.Double,
+    writeCapacityUnits :: Core.Maybe Core.Double,
     -- | The total number of capacity units consumed on a table or an index.
-    capacityUnits :: Prelude.Maybe Prelude.Double,
+    capacityUnits :: Core.Maybe Core.Double,
     -- | The total number of read capacity units consumed on a table or an index.
-    readCapacityUnits :: Prelude.Maybe Prelude.Double
+    readCapacityUnits :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Capacity' with all optional fields omitted.
@@ -56,35 +55,35 @@ newCapacity ::
   Capacity
 newCapacity =
   Capacity'
-    { writeCapacityUnits = Prelude.Nothing,
-      capacityUnits = Prelude.Nothing,
-      readCapacityUnits = Prelude.Nothing
+    { writeCapacityUnits = Core.Nothing,
+      capacityUnits = Core.Nothing,
+      readCapacityUnits = Core.Nothing
     }
 
 -- | The total number of write capacity units consumed on a table or an
 -- index.
-capacity_writeCapacityUnits :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Double)
+capacity_writeCapacityUnits :: Lens.Lens' Capacity (Core.Maybe Core.Double)
 capacity_writeCapacityUnits = Lens.lens (\Capacity' {writeCapacityUnits} -> writeCapacityUnits) (\s@Capacity' {} a -> s {writeCapacityUnits = a} :: Capacity)
 
 -- | The total number of capacity units consumed on a table or an index.
-capacity_capacityUnits :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Double)
+capacity_capacityUnits :: Lens.Lens' Capacity (Core.Maybe Core.Double)
 capacity_capacityUnits = Lens.lens (\Capacity' {capacityUnits} -> capacityUnits) (\s@Capacity' {} a -> s {capacityUnits = a} :: Capacity)
 
 -- | The total number of read capacity units consumed on a table or an index.
-capacity_readCapacityUnits :: Lens.Lens' Capacity (Prelude.Maybe Prelude.Double)
+capacity_readCapacityUnits :: Lens.Lens' Capacity (Core.Maybe Core.Double)
 capacity_readCapacityUnits = Lens.lens (\Capacity' {readCapacityUnits} -> readCapacityUnits) (\s@Capacity' {} a -> s {readCapacityUnits = a} :: Capacity)
 
-instance Prelude.FromJSON Capacity where
+instance Core.FromJSON Capacity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Capacity"
       ( \x ->
           Capacity'
-            Prelude.<$> (x Prelude..:? "WriteCapacityUnits")
-            Prelude.<*> (x Prelude..:? "CapacityUnits")
-            Prelude.<*> (x Prelude..:? "ReadCapacityUnits")
+            Core.<$> (x Core..:? "WriteCapacityUnits")
+            Core.<*> (x Core..:? "CapacityUnits")
+            Core.<*> (x Core..:? "ReadCapacityUnits")
       )
 
-instance Prelude.Hashable Capacity
+instance Core.Hashable Capacity
 
-instance Prelude.NFData Capacity
+instance Core.NFData Capacity

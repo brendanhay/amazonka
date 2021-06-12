@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.WorkMail.CancelMailboxExportJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -53,13 +52,13 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newCancelMailboxExportJob' smart constructor.
 data CancelMailboxExportJob = CancelMailboxExportJob'
   { -- | The idempotency token for the client request.
-    clientToken :: Prelude.Text,
+    clientToken :: Core.Text,
     -- | The job ID.
-    jobId :: Prelude.Text,
+    jobId :: Core.Text,
     -- | The organization ID.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelMailboxExportJob' with all optional fields omitted.
@@ -76,11 +75,11 @@ data CancelMailboxExportJob = CancelMailboxExportJob'
 -- 'organizationId', 'cancelMailboxExportJob_organizationId' - The organization ID.
 newCancelMailboxExportJob ::
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   CancelMailboxExportJob
 newCancelMailboxExportJob
   pClientToken_
@@ -94,71 +93,68 @@ newCancelMailboxExportJob
       }
 
 -- | The idempotency token for the client request.
-cancelMailboxExportJob_clientToken :: Lens.Lens' CancelMailboxExportJob Prelude.Text
+cancelMailboxExportJob_clientToken :: Lens.Lens' CancelMailboxExportJob Core.Text
 cancelMailboxExportJob_clientToken = Lens.lens (\CancelMailboxExportJob' {clientToken} -> clientToken) (\s@CancelMailboxExportJob' {} a -> s {clientToken = a} :: CancelMailboxExportJob)
 
 -- | The job ID.
-cancelMailboxExportJob_jobId :: Lens.Lens' CancelMailboxExportJob Prelude.Text
+cancelMailboxExportJob_jobId :: Lens.Lens' CancelMailboxExportJob Core.Text
 cancelMailboxExportJob_jobId = Lens.lens (\CancelMailboxExportJob' {jobId} -> jobId) (\s@CancelMailboxExportJob' {} a -> s {jobId = a} :: CancelMailboxExportJob)
 
 -- | The organization ID.
-cancelMailboxExportJob_organizationId :: Lens.Lens' CancelMailboxExportJob Prelude.Text
+cancelMailboxExportJob_organizationId :: Lens.Lens' CancelMailboxExportJob Core.Text
 cancelMailboxExportJob_organizationId = Lens.lens (\CancelMailboxExportJob' {organizationId} -> organizationId) (\s@CancelMailboxExportJob' {} a -> s {organizationId = a} :: CancelMailboxExportJob)
 
-instance Prelude.AWSRequest CancelMailboxExportJob where
+instance Core.AWSRequest CancelMailboxExportJob where
   type
-    Rs CancelMailboxExportJob =
+    AWSResponse CancelMailboxExportJob =
       CancelMailboxExportJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelMailboxExportJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelMailboxExportJob
+instance Core.Hashable CancelMailboxExportJob
 
-instance Prelude.NFData CancelMailboxExportJob
+instance Core.NFData CancelMailboxExportJob
 
-instance Prelude.ToHeaders CancelMailboxExportJob where
+instance Core.ToHeaders CancelMailboxExportJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.CancelMailboxExportJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.CancelMailboxExportJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CancelMailboxExportJob where
+instance Core.ToJSON CancelMailboxExportJob where
   toJSON CancelMailboxExportJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ClientToken" Prelude..= clientToken),
-            Prelude.Just ("JobId" Prelude..= jobId),
-            Prelude.Just
-              ("OrganizationId" Prelude..= organizationId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClientToken" Core..= clientToken),
+            Core.Just ("JobId" Core..= jobId),
+            Core.Just ("OrganizationId" Core..= organizationId)
           ]
       )
 
-instance Prelude.ToPath CancelMailboxExportJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelMailboxExportJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelMailboxExportJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelMailboxExportJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelMailboxExportJobResponse' smart constructor.
 data CancelMailboxExportJobResponse = CancelMailboxExportJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelMailboxExportJobResponse' with all optional fields omitted.
@@ -171,7 +167,7 @@ data CancelMailboxExportJobResponse = CancelMailboxExportJobResponse'
 -- 'httpStatus', 'cancelMailboxExportJobResponse_httpStatus' - The response's http status code.
 newCancelMailboxExportJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelMailboxExportJobResponse
 newCancelMailboxExportJobResponse pHttpStatus_ =
   CancelMailboxExportJobResponse'
@@ -180,9 +176,7 @@ newCancelMailboxExportJobResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-cancelMailboxExportJobResponse_httpStatus :: Lens.Lens' CancelMailboxExportJobResponse Prelude.Int
+cancelMailboxExportJobResponse_httpStatus :: Lens.Lens' CancelMailboxExportJobResponse Core.Int
 cancelMailboxExportJobResponse_httpStatus = Lens.lens (\CancelMailboxExportJobResponse' {httpStatus} -> httpStatus) (\s@CancelMailboxExportJobResponse' {} a -> s {httpStatus = a} :: CancelMailboxExportJobResponse)
 
-instance
-  Prelude.NFData
-    CancelMailboxExportJobResponse
+instance Core.NFData CancelMailboxExportJobResponse

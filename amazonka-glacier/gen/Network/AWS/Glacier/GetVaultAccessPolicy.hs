@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,11 +61,11 @@ data GetVaultAccessPolicy = GetVaultAccessPolicy'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetVaultAccessPolicy' with all optional fields omitted.
@@ -85,9 +84,9 @@ data GetVaultAccessPolicy = GetVaultAccessPolicy'
 -- 'vaultName', 'getVaultAccessPolicy_vaultName' - The name of the vault.
 newGetVaultAccessPolicy ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   GetVaultAccessPolicy
 newGetVaultAccessPolicy pAccountId_ pVaultName_ =
   GetVaultAccessPolicy'
@@ -100,58 +99,58 @@ newGetVaultAccessPolicy pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-getVaultAccessPolicy_accountId :: Lens.Lens' GetVaultAccessPolicy Prelude.Text
+getVaultAccessPolicy_accountId :: Lens.Lens' GetVaultAccessPolicy Core.Text
 getVaultAccessPolicy_accountId = Lens.lens (\GetVaultAccessPolicy' {accountId} -> accountId) (\s@GetVaultAccessPolicy' {} a -> s {accountId = a} :: GetVaultAccessPolicy)
 
 -- | The name of the vault.
-getVaultAccessPolicy_vaultName :: Lens.Lens' GetVaultAccessPolicy Prelude.Text
+getVaultAccessPolicy_vaultName :: Lens.Lens' GetVaultAccessPolicy Core.Text
 getVaultAccessPolicy_vaultName = Lens.lens (\GetVaultAccessPolicy' {vaultName} -> vaultName) (\s@GetVaultAccessPolicy' {} a -> s {vaultName = a} :: GetVaultAccessPolicy)
 
-instance Prelude.AWSRequest GetVaultAccessPolicy where
+instance Core.AWSRequest GetVaultAccessPolicy where
   type
-    Rs GetVaultAccessPolicy =
+    AWSResponse GetVaultAccessPolicy =
       GetVaultAccessPolicyResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetVaultAccessPolicyResponse'
-            Prelude.<$> (Prelude.eitherParseJSON x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetVaultAccessPolicy
+instance Core.Hashable GetVaultAccessPolicy
 
-instance Prelude.NFData GetVaultAccessPolicy
+instance Core.NFData GetVaultAccessPolicy
 
-instance Prelude.ToHeaders GetVaultAccessPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetVaultAccessPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetVaultAccessPolicy where
+instance Core.ToPath GetVaultAccessPolicy where
   toPath GetVaultAccessPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/access-policy"
       ]
 
-instance Prelude.ToQuery GetVaultAccessPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetVaultAccessPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | Output for GetVaultAccessPolicy.
 --
 -- /See:/ 'newGetVaultAccessPolicyResponse' smart constructor.
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
   { -- | Contains the returned vault access policy as a JSON string.
-    policy :: Prelude.Maybe VaultAccessPolicy,
+    policy :: Core.Maybe VaultAccessPolicy,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetVaultAccessPolicyResponse' with all optional fields omitted.
@@ -166,21 +165,21 @@ data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
 -- 'httpStatus', 'getVaultAccessPolicyResponse_httpStatus' - The response's http status code.
 newGetVaultAccessPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetVaultAccessPolicyResponse
 newGetVaultAccessPolicyResponse pHttpStatus_ =
   GetVaultAccessPolicyResponse'
     { policy =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the returned vault access policy as a JSON string.
-getVaultAccessPolicyResponse_policy :: Lens.Lens' GetVaultAccessPolicyResponse (Prelude.Maybe VaultAccessPolicy)
+getVaultAccessPolicyResponse_policy :: Lens.Lens' GetVaultAccessPolicyResponse (Core.Maybe VaultAccessPolicy)
 getVaultAccessPolicyResponse_policy = Lens.lens (\GetVaultAccessPolicyResponse' {policy} -> policy) (\s@GetVaultAccessPolicyResponse' {} a -> s {policy = a} :: GetVaultAccessPolicyResponse)
 
 -- | The response's http status code.
-getVaultAccessPolicyResponse_httpStatus :: Lens.Lens' GetVaultAccessPolicyResponse Prelude.Int
+getVaultAccessPolicyResponse_httpStatus :: Lens.Lens' GetVaultAccessPolicyResponse Core.Int
 getVaultAccessPolicyResponse_httpStatus = Lens.lens (\GetVaultAccessPolicyResponse' {httpStatus} -> httpStatus) (\s@GetVaultAccessPolicyResponse' {} a -> s {httpStatus = a} :: GetVaultAccessPolicyResponse)
 
-instance Prelude.NFData GetVaultAccessPolicyResponse
+instance Core.NFData GetVaultAccessPolicyResponse

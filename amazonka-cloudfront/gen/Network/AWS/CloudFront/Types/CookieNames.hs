@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.CookieNames where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a list of cookie names.
 --
 -- /See:/ 'newCookieNames' smart constructor.
 data CookieNames = CookieNames'
   { -- | A list of cookie names.
-    items :: Prelude.Maybe [Prelude.Text],
+    items :: Core.Maybe [Core.Text],
     -- | The number of cookie names in the @Items@ list.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CookieNames' with all optional fields omitted.
@@ -47,39 +46,38 @@ data CookieNames = CookieNames'
 -- 'quantity', 'cookieNames_quantity' - The number of cookie names in the @Items@ list.
 newCookieNames ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   CookieNames
 newCookieNames pQuantity_ =
   CookieNames'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | A list of cookie names.
-cookieNames_items :: Lens.Lens' CookieNames (Prelude.Maybe [Prelude.Text])
-cookieNames_items = Lens.lens (\CookieNames' {items} -> items) (\s@CookieNames' {} a -> s {items = a} :: CookieNames) Prelude.. Lens.mapping Prelude._Coerce
+cookieNames_items :: Lens.Lens' CookieNames (Core.Maybe [Core.Text])
+cookieNames_items = Lens.lens (\CookieNames' {items} -> items) (\s@CookieNames' {} a -> s {items = a} :: CookieNames) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of cookie names in the @Items@ list.
-cookieNames_quantity :: Lens.Lens' CookieNames Prelude.Int
+cookieNames_quantity :: Lens.Lens' CookieNames Core.Int
 cookieNames_quantity = Lens.lens (\CookieNames' {quantity} -> quantity) (\s@CookieNames' {} a -> s {quantity = a} :: CookieNames)
 
-instance Prelude.FromXML CookieNames where
+instance Core.FromXML CookieNames where
   parseXML x =
     CookieNames'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Name")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Name")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable CookieNames
+instance Core.Hashable CookieNames
 
-instance Prelude.NFData CookieNames
+instance Core.NFData CookieNames
 
-instance Prelude.ToXML CookieNames where
+instance Core.ToXML CookieNames where
   toXML CookieNames' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Name" Prelude.<$> items),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML (Core.toXMLList "Name" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

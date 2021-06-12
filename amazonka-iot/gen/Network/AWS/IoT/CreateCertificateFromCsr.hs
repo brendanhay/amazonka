@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -89,9 +88,9 @@ module Network.AWS.IoT.CreateCertificateFromCsr
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -100,11 +99,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateCertificateFromCsr' smart constructor.
 data CreateCertificateFromCsr = CreateCertificateFromCsr'
   { -- | Specifies whether the certificate is active.
-    setAsActive :: Prelude.Maybe Prelude.Bool,
+    setAsActive :: Core.Maybe Core.Bool,
     -- | The certificate signing request (CSR).
-    certificateSigningRequest :: Prelude.Text
+    certificateSigningRequest :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCertificateFromCsr' with all optional fields omitted.
@@ -119,65 +118,64 @@ data CreateCertificateFromCsr = CreateCertificateFromCsr'
 -- 'certificateSigningRequest', 'createCertificateFromCsr_certificateSigningRequest' - The certificate signing request (CSR).
 newCreateCertificateFromCsr ::
   -- | 'certificateSigningRequest'
-  Prelude.Text ->
+  Core.Text ->
   CreateCertificateFromCsr
 newCreateCertificateFromCsr
   pCertificateSigningRequest_ =
     CreateCertificateFromCsr'
       { setAsActive =
-          Prelude.Nothing,
+          Core.Nothing,
         certificateSigningRequest =
           pCertificateSigningRequest_
       }
 
 -- | Specifies whether the certificate is active.
-createCertificateFromCsr_setAsActive :: Lens.Lens' CreateCertificateFromCsr (Prelude.Maybe Prelude.Bool)
+createCertificateFromCsr_setAsActive :: Lens.Lens' CreateCertificateFromCsr (Core.Maybe Core.Bool)
 createCertificateFromCsr_setAsActive = Lens.lens (\CreateCertificateFromCsr' {setAsActive} -> setAsActive) (\s@CreateCertificateFromCsr' {} a -> s {setAsActive = a} :: CreateCertificateFromCsr)
 
 -- | The certificate signing request (CSR).
-createCertificateFromCsr_certificateSigningRequest :: Lens.Lens' CreateCertificateFromCsr Prelude.Text
+createCertificateFromCsr_certificateSigningRequest :: Lens.Lens' CreateCertificateFromCsr Core.Text
 createCertificateFromCsr_certificateSigningRequest = Lens.lens (\CreateCertificateFromCsr' {certificateSigningRequest} -> certificateSigningRequest) (\s@CreateCertificateFromCsr' {} a -> s {certificateSigningRequest = a} :: CreateCertificateFromCsr)
 
-instance Prelude.AWSRequest CreateCertificateFromCsr where
+instance Core.AWSRequest CreateCertificateFromCsr where
   type
-    Rs CreateCertificateFromCsr =
+    AWSResponse CreateCertificateFromCsr =
       CreateCertificateFromCsrResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateFromCsrResponse'
-            Prelude.<$> (x Prelude..?> "certificateArn")
-            Prelude.<*> (x Prelude..?> "certificateId")
-            Prelude.<*> (x Prelude..?> "certificatePem")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "certificateArn")
+            Core.<*> (x Core..?> "certificateId")
+            Core.<*> (x Core..?> "certificatePem")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCertificateFromCsr
+instance Core.Hashable CreateCertificateFromCsr
 
-instance Prelude.NFData CreateCertificateFromCsr
+instance Core.NFData CreateCertificateFromCsr
 
-instance Prelude.ToHeaders CreateCertificateFromCsr where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateCertificateFromCsr where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateCertificateFromCsr where
+instance Core.ToJSON CreateCertificateFromCsr where
   toJSON CreateCertificateFromCsr' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "certificateSigningRequest"
-                  Prelude..= certificateSigningRequest
+                  Core..= certificateSigningRequest
               )
           ]
       )
 
-instance Prelude.ToPath CreateCertificateFromCsr where
-  toPath = Prelude.const "/certificates"
+instance Core.ToPath CreateCertificateFromCsr where
+  toPath = Core.const "/certificates"
 
-instance Prelude.ToQuery CreateCertificateFromCsr where
+instance Core.ToQuery CreateCertificateFromCsr where
   toQuery CreateCertificateFromCsr' {..} =
-    Prelude.mconcat
-      ["setAsActive" Prelude.=: setAsActive]
+    Core.mconcat ["setAsActive" Core.=: setAsActive]
 
 -- | The output from the CreateCertificateFromCsr operation.
 --
@@ -185,16 +183,16 @@ instance Prelude.ToQuery CreateCertificateFromCsr where
 data CreateCertificateFromCsrResponse = CreateCertificateFromCsrResponse'
   { -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN
     -- as a principal for policy operations.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | The ID of the certificate. Certificate management operations only take a
     -- certificateId.
-    certificateId :: Prelude.Maybe Prelude.Text,
+    certificateId :: Core.Maybe Core.Text,
     -- | The certificate data, in PEM format.
-    certificatePem :: Prelude.Maybe Prelude.Text,
+    certificatePem :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCertificateFromCsrResponse' with all optional fields omitted.
@@ -215,35 +213,33 @@ data CreateCertificateFromCsrResponse = CreateCertificateFromCsrResponse'
 -- 'httpStatus', 'createCertificateFromCsrResponse_httpStatus' - The response's http status code.
 newCreateCertificateFromCsrResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCertificateFromCsrResponse
 newCreateCertificateFromCsrResponse pHttpStatus_ =
   CreateCertificateFromCsrResponse'
     { certificateArn =
-        Prelude.Nothing,
-      certificateId = Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
+        Core.Nothing,
+      certificateId = Core.Nothing,
+      certificatePem = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the certificate. You can use the ARN
 -- as a principal for policy operations.
-createCertificateFromCsrResponse_certificateArn :: Lens.Lens' CreateCertificateFromCsrResponse (Prelude.Maybe Prelude.Text)
+createCertificateFromCsrResponse_certificateArn :: Lens.Lens' CreateCertificateFromCsrResponse (Core.Maybe Core.Text)
 createCertificateFromCsrResponse_certificateArn = Lens.lens (\CreateCertificateFromCsrResponse' {certificateArn} -> certificateArn) (\s@CreateCertificateFromCsrResponse' {} a -> s {certificateArn = a} :: CreateCertificateFromCsrResponse)
 
 -- | The ID of the certificate. Certificate management operations only take a
 -- certificateId.
-createCertificateFromCsrResponse_certificateId :: Lens.Lens' CreateCertificateFromCsrResponse (Prelude.Maybe Prelude.Text)
+createCertificateFromCsrResponse_certificateId :: Lens.Lens' CreateCertificateFromCsrResponse (Core.Maybe Core.Text)
 createCertificateFromCsrResponse_certificateId = Lens.lens (\CreateCertificateFromCsrResponse' {certificateId} -> certificateId) (\s@CreateCertificateFromCsrResponse' {} a -> s {certificateId = a} :: CreateCertificateFromCsrResponse)
 
 -- | The certificate data, in PEM format.
-createCertificateFromCsrResponse_certificatePem :: Lens.Lens' CreateCertificateFromCsrResponse (Prelude.Maybe Prelude.Text)
+createCertificateFromCsrResponse_certificatePem :: Lens.Lens' CreateCertificateFromCsrResponse (Core.Maybe Core.Text)
 createCertificateFromCsrResponse_certificatePem = Lens.lens (\CreateCertificateFromCsrResponse' {certificatePem} -> certificatePem) (\s@CreateCertificateFromCsrResponse' {} a -> s {certificatePem = a} :: CreateCertificateFromCsrResponse)
 
 -- | The response's http status code.
-createCertificateFromCsrResponse_httpStatus :: Lens.Lens' CreateCertificateFromCsrResponse Prelude.Int
+createCertificateFromCsrResponse_httpStatus :: Lens.Lens' CreateCertificateFromCsrResponse Core.Int
 createCertificateFromCsrResponse_httpStatus = Lens.lens (\CreateCertificateFromCsrResponse' {httpStatus} -> httpStatus) (\s@CreateCertificateFromCsrResponse' {} a -> s {httpStatus = a} :: CreateCertificateFromCsrResponse)
 
-instance
-  Prelude.NFData
-    CreateCertificateFromCsrResponse
+instance Core.NFData CreateCertificateFromCsrResponse

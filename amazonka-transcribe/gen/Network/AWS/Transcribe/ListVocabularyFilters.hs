@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Transcribe.ListVocabularyFilters
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -53,16 +52,16 @@ import Network.AWS.Transcribe.Types
 data ListVocabularyFilters = ListVocabularyFilters'
   { -- | If the result of the previous request to @ListVocabularyFilters@ was
     -- truncated, include the @NextToken@ to fetch the next set of collections.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Filters the response so that it only contains vocabulary filters whose
     -- name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of filters to return in the response. If there are
     -- fewer results in the list, this response contains only the actual
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListVocabularyFilters' with all optional fields omitted.
@@ -85,77 +84,73 @@ newListVocabularyFilters ::
   ListVocabularyFilters
 newListVocabularyFilters =
   ListVocabularyFilters'
-    { nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | If the result of the previous request to @ListVocabularyFilters@ was
 -- truncated, include the @NextToken@ to fetch the next set of collections.
-listVocabularyFilters_nextToken :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
+listVocabularyFilters_nextToken :: Lens.Lens' ListVocabularyFilters (Core.Maybe Core.Text)
 listVocabularyFilters_nextToken = Lens.lens (\ListVocabularyFilters' {nextToken} -> nextToken) (\s@ListVocabularyFilters' {} a -> s {nextToken = a} :: ListVocabularyFilters)
 
 -- | Filters the response so that it only contains vocabulary filters whose
 -- name contains the specified string.
-listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
+listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Core.Maybe Core.Text)
 listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
 
 -- | The maximum number of filters to return in the response. If there are
 -- fewer results in the list, this response contains only the actual
 -- results.
-listVocabularyFilters_maxResults :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Natural)
+listVocabularyFilters_maxResults :: Lens.Lens' ListVocabularyFilters (Core.Maybe Core.Natural)
 listVocabularyFilters_maxResults = Lens.lens (\ListVocabularyFilters' {maxResults} -> maxResults) (\s@ListVocabularyFilters' {} a -> s {maxResults = a} :: ListVocabularyFilters)
 
-instance Prelude.AWSRequest ListVocabularyFilters where
+instance Core.AWSRequest ListVocabularyFilters where
   type
-    Rs ListVocabularyFilters =
+    AWSResponse ListVocabularyFilters =
       ListVocabularyFiltersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListVocabularyFiltersResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "VocabularyFilters"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "VocabularyFilters" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListVocabularyFilters
+instance Core.Hashable ListVocabularyFilters
 
-instance Prelude.NFData ListVocabularyFilters
+instance Core.NFData ListVocabularyFilters
 
-instance Prelude.ToHeaders ListVocabularyFilters where
+instance Core.ToHeaders ListVocabularyFilters where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.ListVocabularyFilters" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.ListVocabularyFilters" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListVocabularyFilters where
+instance Core.ToJSON ListVocabularyFilters where
   toJSON ListVocabularyFilters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NameContains" Prelude..=) Prelude.<$> nameContains,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListVocabularyFilters where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListVocabularyFilters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListVocabularyFilters where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListVocabularyFilters where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListVocabularyFiltersResponse' smart constructor.
 data ListVocabularyFiltersResponse = ListVocabularyFiltersResponse'
@@ -165,16 +160,16 @@ data ListVocabularyFiltersResponse = ListVocabularyFiltersResponse'
     -- returns the @NextPage@ token. Include the token in the next request to
     -- the @ListVocabularyFilters@ operation to return in the next page of
     -- jobs.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of vocabulary filters. It contains at most @MaxResults@ number
     -- of filters. If there are more filters, call the @ListVocabularyFilters@
     -- operation again with the @NextToken@ parameter in the request set to the
     -- value of the @NextToken@ field in the response.
-    vocabularyFilters :: Prelude.Maybe [VocabularyFilterInfo],
+    vocabularyFilters :: Core.Maybe [VocabularyFilterInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListVocabularyFiltersResponse' with all optional fields omitted.
@@ -199,13 +194,13 @@ data ListVocabularyFiltersResponse = ListVocabularyFiltersResponse'
 -- 'httpStatus', 'listVocabularyFiltersResponse_httpStatus' - The response's http status code.
 newListVocabularyFiltersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListVocabularyFiltersResponse
 newListVocabularyFiltersResponse pHttpStatus_ =
   ListVocabularyFiltersResponse'
     { nextToken =
-        Prelude.Nothing,
-      vocabularyFilters = Prelude.Nothing,
+        Core.Nothing,
+      vocabularyFilters = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -215,18 +210,18 @@ newListVocabularyFiltersResponse pHttpStatus_ =
 -- returns the @NextPage@ token. Include the token in the next request to
 -- the @ListVocabularyFilters@ operation to return in the next page of
 -- jobs.
-listVocabularyFiltersResponse_nextToken :: Lens.Lens' ListVocabularyFiltersResponse (Prelude.Maybe Prelude.Text)
+listVocabularyFiltersResponse_nextToken :: Lens.Lens' ListVocabularyFiltersResponse (Core.Maybe Core.Text)
 listVocabularyFiltersResponse_nextToken = Lens.lens (\ListVocabularyFiltersResponse' {nextToken} -> nextToken) (\s@ListVocabularyFiltersResponse' {} a -> s {nextToken = a} :: ListVocabularyFiltersResponse)
 
 -- | The list of vocabulary filters. It contains at most @MaxResults@ number
 -- of filters. If there are more filters, call the @ListVocabularyFilters@
 -- operation again with the @NextToken@ parameter in the request set to the
 -- value of the @NextToken@ field in the response.
-listVocabularyFiltersResponse_vocabularyFilters :: Lens.Lens' ListVocabularyFiltersResponse (Prelude.Maybe [VocabularyFilterInfo])
-listVocabularyFiltersResponse_vocabularyFilters = Lens.lens (\ListVocabularyFiltersResponse' {vocabularyFilters} -> vocabularyFilters) (\s@ListVocabularyFiltersResponse' {} a -> s {vocabularyFilters = a} :: ListVocabularyFiltersResponse) Prelude.. Lens.mapping Prelude._Coerce
+listVocabularyFiltersResponse_vocabularyFilters :: Lens.Lens' ListVocabularyFiltersResponse (Core.Maybe [VocabularyFilterInfo])
+listVocabularyFiltersResponse_vocabularyFilters = Lens.lens (\ListVocabularyFiltersResponse' {vocabularyFilters} -> vocabularyFilters) (\s@ListVocabularyFiltersResponse' {} a -> s {vocabularyFilters = a} :: ListVocabularyFiltersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listVocabularyFiltersResponse_httpStatus :: Lens.Lens' ListVocabularyFiltersResponse Prelude.Int
+listVocabularyFiltersResponse_httpStatus :: Lens.Lens' ListVocabularyFiltersResponse Core.Int
 listVocabularyFiltersResponse_httpStatus = Lens.lens (\ListVocabularyFiltersResponse' {httpStatus} -> httpStatus) (\s@ListVocabularyFiltersResponse' {} a -> s {httpStatus = a} :: ListVocabularyFiltersResponse)
 
-instance Prelude.NFData ListVocabularyFiltersResponse
+instance Core.NFData ListVocabularyFiltersResponse

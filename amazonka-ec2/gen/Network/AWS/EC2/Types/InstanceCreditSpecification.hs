@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceCreditSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the credit option for CPU usage of a burstable performance
 -- instance.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstanceCreditSpecification' smart constructor.
 data InstanceCreditSpecification = InstanceCreditSpecification'
   { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The credit option for CPU usage of the instance. Valid values are
     -- @standard@ and @unlimited@.
-    cpuCredits :: Prelude.Maybe Prelude.Text
+    cpuCredits :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceCreditSpecification' with all optional fields omitted.
@@ -54,25 +53,25 @@ newInstanceCreditSpecification ::
 newInstanceCreditSpecification =
   InstanceCreditSpecification'
     { instanceId =
-        Prelude.Nothing,
-      cpuCredits = Prelude.Nothing
+        Core.Nothing,
+      cpuCredits = Core.Nothing
     }
 
 -- | The ID of the instance.
-instanceCreditSpecification_instanceId :: Lens.Lens' InstanceCreditSpecification (Prelude.Maybe Prelude.Text)
+instanceCreditSpecification_instanceId :: Lens.Lens' InstanceCreditSpecification (Core.Maybe Core.Text)
 instanceCreditSpecification_instanceId = Lens.lens (\InstanceCreditSpecification' {instanceId} -> instanceId) (\s@InstanceCreditSpecification' {} a -> s {instanceId = a} :: InstanceCreditSpecification)
 
 -- | The credit option for CPU usage of the instance. Valid values are
 -- @standard@ and @unlimited@.
-instanceCreditSpecification_cpuCredits :: Lens.Lens' InstanceCreditSpecification (Prelude.Maybe Prelude.Text)
+instanceCreditSpecification_cpuCredits :: Lens.Lens' InstanceCreditSpecification (Core.Maybe Core.Text)
 instanceCreditSpecification_cpuCredits = Lens.lens (\InstanceCreditSpecification' {cpuCredits} -> cpuCredits) (\s@InstanceCreditSpecification' {} a -> s {cpuCredits = a} :: InstanceCreditSpecification)
 
-instance Prelude.FromXML InstanceCreditSpecification where
+instance Core.FromXML InstanceCreditSpecification where
   parseXML x =
     InstanceCreditSpecification'
-      Prelude.<$> (x Prelude..@? "instanceId")
-      Prelude.<*> (x Prelude..@? "cpuCredits")
+      Core.<$> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "cpuCredits")
 
-instance Prelude.Hashable InstanceCreditSpecification
+instance Core.Hashable InstanceCreditSpecification
 
-instance Prelude.NFData InstanceCreditSpecification
+instance Core.NFData InstanceCreditSpecification

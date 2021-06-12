@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Glue.CreateRegistry
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +55,16 @@ import qualified Network.AWS.Response as Response
 data CreateRegistry = CreateRegistry'
   { -- | AWS tags that contain a key value pair and may be searched by console,
     -- command line, or API.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A description of the registry. If description is not provided, there
     -- will not be any default value for this.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Name of the registry to be created of max length of 255, and may only
     -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
     -- No whitespace.
-    registryName :: Prelude.Text
+    registryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRegistry' with all optional fields omitted.
@@ -86,93 +85,92 @@ data CreateRegistry = CreateRegistry'
 -- No whitespace.
 newCreateRegistry ::
   -- | 'registryName'
-  Prelude.Text ->
+  Core.Text ->
   CreateRegistry
 newCreateRegistry pRegistryName_ =
   CreateRegistry'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tags = Core.Nothing,
+      description = Core.Nothing,
       registryName = pRegistryName_
     }
 
 -- | AWS tags that contain a key value pair and may be searched by console,
 -- command line, or API.
-createRegistry_tags :: Lens.Lens' CreateRegistry (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRegistry_tags = Lens.lens (\CreateRegistry' {tags} -> tags) (\s@CreateRegistry' {} a -> s {tags = a} :: CreateRegistry) Prelude.. Lens.mapping Prelude._Coerce
+createRegistry_tags :: Lens.Lens' CreateRegistry (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createRegistry_tags = Lens.lens (\CreateRegistry' {tags} -> tags) (\s@CreateRegistry' {} a -> s {tags = a} :: CreateRegistry) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the registry. If description is not provided, there
 -- will not be any default value for this.
-createRegistry_description :: Lens.Lens' CreateRegistry (Prelude.Maybe Prelude.Text)
+createRegistry_description :: Lens.Lens' CreateRegistry (Core.Maybe Core.Text)
 createRegistry_description = Lens.lens (\CreateRegistry' {description} -> description) (\s@CreateRegistry' {} a -> s {description = a} :: CreateRegistry)
 
 -- | Name of the registry to be created of max length of 255, and may only
 -- contain letters, numbers, hyphen, underscore, dollar sign, or hash mark.
 -- No whitespace.
-createRegistry_registryName :: Lens.Lens' CreateRegistry Prelude.Text
+createRegistry_registryName :: Lens.Lens' CreateRegistry Core.Text
 createRegistry_registryName = Lens.lens (\CreateRegistry' {registryName} -> registryName) (\s@CreateRegistry' {} a -> s {registryName = a} :: CreateRegistry)
 
-instance Prelude.AWSRequest CreateRegistry where
-  type Rs CreateRegistry = CreateRegistryResponse
+instance Core.AWSRequest CreateRegistry where
+  type
+    AWSResponse CreateRegistry =
+      CreateRegistryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateRegistryResponse'
-            Prelude.<$> (x Prelude..?> "RegistryName")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Description")
-            Prelude.<*> (x Prelude..?> "RegistryArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RegistryName")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Description")
+            Core.<*> (x Core..?> "RegistryArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateRegistry
+instance Core.Hashable CreateRegistry
 
-instance Prelude.NFData CreateRegistry
+instance Core.NFData CreateRegistry
 
-instance Prelude.ToHeaders CreateRegistry where
+instance Core.ToHeaders CreateRegistry where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.CreateRegistry" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.CreateRegistry" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateRegistry where
+instance Core.ToJSON CreateRegistry where
   toJSON CreateRegistry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just
-              ("RegistryName" Prelude..= registryName)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("RegistryName" Core..= registryName)
           ]
       )
 
-instance Prelude.ToPath CreateRegistry where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateRegistry where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateRegistry where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateRegistry where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateRegistryResponse' smart constructor.
 data CreateRegistryResponse = CreateRegistryResponse'
   { -- | The name of the registry.
-    registryName :: Prelude.Maybe Prelude.Text,
+    registryName :: Core.Maybe Core.Text,
     -- | The tags for the registry.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A description of the registry.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the newly created registry.
-    registryArn :: Prelude.Maybe Prelude.Text,
+    registryArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRegistryResponse' with all optional fields omitted.
@@ -193,36 +191,36 @@ data CreateRegistryResponse = CreateRegistryResponse'
 -- 'httpStatus', 'createRegistryResponse_httpStatus' - The response's http status code.
 newCreateRegistryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateRegistryResponse
 newCreateRegistryResponse pHttpStatus_ =
   CreateRegistryResponse'
     { registryName =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      registryArn = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
+      registryArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the registry.
-createRegistryResponse_registryName :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe Prelude.Text)
+createRegistryResponse_registryName :: Lens.Lens' CreateRegistryResponse (Core.Maybe Core.Text)
 createRegistryResponse_registryName = Lens.lens (\CreateRegistryResponse' {registryName} -> registryName) (\s@CreateRegistryResponse' {} a -> s {registryName = a} :: CreateRegistryResponse)
 
 -- | The tags for the registry.
-createRegistryResponse_tags :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createRegistryResponse_tags = Lens.lens (\CreateRegistryResponse' {tags} -> tags) (\s@CreateRegistryResponse' {} a -> s {tags = a} :: CreateRegistryResponse) Prelude.. Lens.mapping Prelude._Coerce
+createRegistryResponse_tags :: Lens.Lens' CreateRegistryResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createRegistryResponse_tags = Lens.lens (\CreateRegistryResponse' {tags} -> tags) (\s@CreateRegistryResponse' {} a -> s {tags = a} :: CreateRegistryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the registry.
-createRegistryResponse_description :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe Prelude.Text)
+createRegistryResponse_description :: Lens.Lens' CreateRegistryResponse (Core.Maybe Core.Text)
 createRegistryResponse_description = Lens.lens (\CreateRegistryResponse' {description} -> description) (\s@CreateRegistryResponse' {} a -> s {description = a} :: CreateRegistryResponse)
 
 -- | The Amazon Resource Name (ARN) of the newly created registry.
-createRegistryResponse_registryArn :: Lens.Lens' CreateRegistryResponse (Prelude.Maybe Prelude.Text)
+createRegistryResponse_registryArn :: Lens.Lens' CreateRegistryResponse (Core.Maybe Core.Text)
 createRegistryResponse_registryArn = Lens.lens (\CreateRegistryResponse' {registryArn} -> registryArn) (\s@CreateRegistryResponse' {} a -> s {registryArn = a} :: CreateRegistryResponse)
 
 -- | The response's http status code.
-createRegistryResponse_httpStatus :: Lens.Lens' CreateRegistryResponse Prelude.Int
+createRegistryResponse_httpStatus :: Lens.Lens' CreateRegistryResponse Core.Int
 createRegistryResponse_httpStatus = Lens.lens (\CreateRegistryResponse' {httpStatus} -> httpStatus) (\s@CreateRegistryResponse' {} a -> s {httpStatus = a} :: CreateRegistryResponse)
 
-instance Prelude.NFData CreateRegistryResponse
+instance Core.NFData CreateRegistryResponse

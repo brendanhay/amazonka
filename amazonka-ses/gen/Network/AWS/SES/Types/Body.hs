@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.Body where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.Content
 
 -- | Represents the body of the message. You can specify text, HTML, or both.
@@ -33,13 +32,13 @@ data Body = Body'
   { -- | The content of the message, in HTML format. Use this for email clients
     -- that can process HTML. You can include clickable links, formatted text,
     -- and much more in an HTML message.
-    html :: Prelude.Maybe Content,
+    html :: Core.Maybe Content,
     -- | The content of the message, in text format. Use this for text-based
     -- email clients, or clients on high-latency networks (such as mobile
     -- devices).
-    text :: Prelude.Maybe Content
+    text :: Core.Maybe Content
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Body' with all optional fields omitted.
@@ -59,28 +58,25 @@ data Body = Body'
 newBody ::
   Body
 newBody =
-  Body'
-    { html = Prelude.Nothing,
-      text = Prelude.Nothing
-    }
+  Body' {html = Core.Nothing, text = Core.Nothing}
 
 -- | The content of the message, in HTML format. Use this for email clients
 -- that can process HTML. You can include clickable links, formatted text,
 -- and much more in an HTML message.
-body_html :: Lens.Lens' Body (Prelude.Maybe Content)
+body_html :: Lens.Lens' Body (Core.Maybe Content)
 body_html = Lens.lens (\Body' {html} -> html) (\s@Body' {} a -> s {html = a} :: Body)
 
 -- | The content of the message, in text format. Use this for text-based
 -- email clients, or clients on high-latency networks (such as mobile
 -- devices).
-body_text :: Lens.Lens' Body (Prelude.Maybe Content)
+body_text :: Lens.Lens' Body (Core.Maybe Content)
 body_text = Lens.lens (\Body' {text} -> text) (\s@Body' {} a -> s {text = a} :: Body)
 
-instance Prelude.Hashable Body
+instance Core.Hashable Body
 
-instance Prelude.NFData Body
+instance Core.NFData Body
 
-instance Prelude.ToQuery Body where
+instance Core.ToQuery Body where
   toQuery Body' {..} =
-    Prelude.mconcat
-      ["Html" Prelude.=: html, "Text" Prelude.=: text]
+    Core.mconcat
+      ["Html" Core.=: html, "Text" Core.=: text]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MigrationHub.Types.ApplicationState where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types.ApplicationStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The state of an application discovered through Migration Hub import, the
 -- AWS Agentless Discovery Connector, or the AWS Application Discovery
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 data ApplicationState = ApplicationState'
   { -- | The configurationId from the Application Discovery Service that uniquely
     -- identifies an application.
-    applicationId :: Prelude.Maybe Prelude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | The current status of an application.
-    applicationStatus :: Prelude.Maybe ApplicationStatus,
+    applicationStatus :: Core.Maybe ApplicationStatus,
     -- | The timestamp when the application status was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.POSIX
+    lastUpdatedTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationState' with all optional fields omitted.
@@ -58,35 +57,35 @@ newApplicationState ::
   ApplicationState
 newApplicationState =
   ApplicationState'
-    { applicationId = Prelude.Nothing,
-      applicationStatus = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+    { applicationId = Core.Nothing,
+      applicationStatus = Core.Nothing,
+      lastUpdatedTime = Core.Nothing
     }
 
 -- | The configurationId from the Application Discovery Service that uniquely
 -- identifies an application.
-applicationState_applicationId :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.Text)
+applicationState_applicationId :: Lens.Lens' ApplicationState (Core.Maybe Core.Text)
 applicationState_applicationId = Lens.lens (\ApplicationState' {applicationId} -> applicationId) (\s@ApplicationState' {} a -> s {applicationId = a} :: ApplicationState)
 
 -- | The current status of an application.
-applicationState_applicationStatus :: Lens.Lens' ApplicationState (Prelude.Maybe ApplicationStatus)
+applicationState_applicationStatus :: Lens.Lens' ApplicationState (Core.Maybe ApplicationStatus)
 applicationState_applicationStatus = Lens.lens (\ApplicationState' {applicationStatus} -> applicationStatus) (\s@ApplicationState' {} a -> s {applicationStatus = a} :: ApplicationState)
 
 -- | The timestamp when the application status was last updated.
-applicationState_lastUpdatedTime :: Lens.Lens' ApplicationState (Prelude.Maybe Prelude.UTCTime)
-applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Prelude.. Lens.mapping Prelude._Time
+applicationState_lastUpdatedTime :: Lens.Lens' ApplicationState (Core.Maybe Core.UTCTime)
+applicationState_lastUpdatedTime = Lens.lens (\ApplicationState' {lastUpdatedTime} -> lastUpdatedTime) (\s@ApplicationState' {} a -> s {lastUpdatedTime = a} :: ApplicationState) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON ApplicationState where
+instance Core.FromJSON ApplicationState where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ApplicationState"
       ( \x ->
           ApplicationState'
-            Prelude.<$> (x Prelude..:? "ApplicationId")
-            Prelude.<*> (x Prelude..:? "ApplicationStatus")
-            Prelude.<*> (x Prelude..:? "LastUpdatedTime")
+            Core.<$> (x Core..:? "ApplicationId")
+            Core.<*> (x Core..:? "ApplicationStatus")
+            Core.<*> (x Core..:? "LastUpdatedTime")
       )
 
-instance Prelude.Hashable ApplicationState
+instance Core.Hashable ApplicationState
 
-instance Prelude.NFData ApplicationState
+instance Core.NFData ApplicationState

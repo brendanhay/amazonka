@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DeviceFarm.GetTest
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetTest' smart constructor.
 data GetTest = GetTest'
   { -- | The test\'s ARN.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTest' with all optional fields omitted.
@@ -66,67 +65,61 @@ data GetTest = GetTest'
 -- 'arn', 'getTest_arn' - The test\'s ARN.
 newGetTest ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetTest
 newGetTest pArn_ = GetTest' {arn = pArn_}
 
 -- | The test\'s ARN.
-getTest_arn :: Lens.Lens' GetTest Prelude.Text
+getTest_arn :: Lens.Lens' GetTest Core.Text
 getTest_arn = Lens.lens (\GetTest' {arn} -> arn) (\s@GetTest' {} a -> s {arn = a} :: GetTest)
 
-instance Prelude.AWSRequest GetTest where
-  type Rs GetTest = GetTestResponse
+instance Core.AWSRequest GetTest where
+  type AWSResponse GetTest = GetTestResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTestResponse'
-            Prelude.<$> (x Prelude..?> "test")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "test")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTest
+instance Core.Hashable GetTest
 
-instance Prelude.NFData GetTest
+instance Core.NFData GetTest
 
-instance Prelude.ToHeaders GetTest where
+instance Core.ToHeaders GetTest where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetTest" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DeviceFarm_20150623.GetTest" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetTest where
+instance Core.ToJSON GetTest where
   toJSON GetTest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetTest where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetTest where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetTest where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTest where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a get test request.
 --
 -- /See:/ 'newGetTestResponse' smart constructor.
 data GetTestResponse = GetTestResponse'
   { -- | A test condition that is evaluated.
-    test :: Prelude.Maybe Test,
+    test :: Core.Maybe Test,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTestResponse' with all optional fields omitted.
@@ -141,20 +134,20 @@ data GetTestResponse = GetTestResponse'
 -- 'httpStatus', 'getTestResponse_httpStatus' - The response's http status code.
 newGetTestResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTestResponse
 newGetTestResponse pHttpStatus_ =
   GetTestResponse'
-    { test = Prelude.Nothing,
+    { test = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A test condition that is evaluated.
-getTestResponse_test :: Lens.Lens' GetTestResponse (Prelude.Maybe Test)
+getTestResponse_test :: Lens.Lens' GetTestResponse (Core.Maybe Test)
 getTestResponse_test = Lens.lens (\GetTestResponse' {test} -> test) (\s@GetTestResponse' {} a -> s {test = a} :: GetTestResponse)
 
 -- | The response's http status code.
-getTestResponse_httpStatus :: Lens.Lens' GetTestResponse Prelude.Int
+getTestResponse_httpStatus :: Lens.Lens' GetTestResponse Core.Int
 getTestResponse_httpStatus = Lens.lens (\GetTestResponse' {httpStatus} -> httpStatus) (\s@GetTestResponse' {} a -> s {httpStatus = a} :: GetTestResponse)
 
-instance Prelude.NFData GetTestResponse
+instance Core.NFData GetTestResponse

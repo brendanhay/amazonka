@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,44 +19,44 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ScheduledInstanceAvailability where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ScheduledInstanceRecurrence
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a schedule that is available for your Scheduled Instances.
 --
 -- /See:/ 'newScheduledInstanceAvailability' smart constructor.
 data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
   { -- | The platform (@Linux\/UNIX@ or @Windows@).
-    platform :: Prelude.Maybe Prelude.Text,
+    platform :: Core.Maybe Core.Text,
     -- | The instance type. You can specify one of the C3, C4, M4, or R3 instance
     -- types.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | The network platform (@EC2-Classic@ or @EC2-VPC@).
-    networkPlatform :: Prelude.Maybe Prelude.Text,
+    networkPlatform :: Core.Maybe Core.Text,
     -- | The number of hours in the schedule.
-    slotDurationInHours :: Prelude.Maybe Prelude.Int,
+    slotDurationInHours :: Core.Maybe Core.Int,
     -- | The number of available instances.
-    availableInstanceCount :: Prelude.Maybe Prelude.Int,
+    availableInstanceCount :: Core.Maybe Core.Int,
     -- | The minimum term. The only possible value is 365 days.
-    minTermDurationInDays :: Prelude.Maybe Prelude.Int,
+    minTermDurationInDays :: Core.Maybe Core.Int,
     -- | The Availability Zone.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The schedule recurrence.
-    recurrence :: Prelude.Maybe ScheduledInstanceRecurrence,
+    recurrence :: Core.Maybe ScheduledInstanceRecurrence,
     -- | The maximum term. The only possible value is 365 days.
-    maxTermDurationInDays :: Prelude.Maybe Prelude.Int,
+    maxTermDurationInDays :: Core.Maybe Core.Int,
     -- | The total number of hours for a single instance for the entire term.
-    totalScheduledInstanceHours :: Prelude.Maybe Prelude.Int,
+    totalScheduledInstanceHours :: Core.Maybe Core.Int,
     -- | The time period for the first schedule to start.
-    firstSlotStartTime :: Prelude.Maybe Prelude.ISO8601,
+    firstSlotStartTime :: Core.Maybe Core.ISO8601,
     -- | The hourly price for a single instance.
-    hourlyPrice :: Prelude.Maybe Prelude.Text,
+    hourlyPrice :: Core.Maybe Core.Text,
     -- | The purchase token. This token expires in two hours.
-    purchaseToken :: Prelude.Maybe Prelude.Text
+    purchaseToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstanceAvailability' with all optional fields omitted.
@@ -98,97 +97,91 @@ newScheduledInstanceAvailability ::
 newScheduledInstanceAvailability =
   ScheduledInstanceAvailability'
     { platform =
-        Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      networkPlatform = Prelude.Nothing,
-      slotDurationInHours = Prelude.Nothing,
-      availableInstanceCount = Prelude.Nothing,
-      minTermDurationInDays = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      recurrence = Prelude.Nothing,
-      maxTermDurationInDays = Prelude.Nothing,
-      totalScheduledInstanceHours =
-        Prelude.Nothing,
-      firstSlotStartTime = Prelude.Nothing,
-      hourlyPrice = Prelude.Nothing,
-      purchaseToken = Prelude.Nothing
+        Core.Nothing,
+      instanceType = Core.Nothing,
+      networkPlatform = Core.Nothing,
+      slotDurationInHours = Core.Nothing,
+      availableInstanceCount = Core.Nothing,
+      minTermDurationInDays = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      recurrence = Core.Nothing,
+      maxTermDurationInDays = Core.Nothing,
+      totalScheduledInstanceHours = Core.Nothing,
+      firstSlotStartTime = Core.Nothing,
+      hourlyPrice = Core.Nothing,
+      purchaseToken = Core.Nothing
     }
 
 -- | The platform (@Linux\/UNIX@ or @Windows@).
-scheduledInstanceAvailability_platform :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+scheduledInstanceAvailability_platform :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Text)
 scheduledInstanceAvailability_platform = Lens.lens (\ScheduledInstanceAvailability' {platform} -> platform) (\s@ScheduledInstanceAvailability' {} a -> s {platform = a} :: ScheduledInstanceAvailability)
 
 -- | The instance type. You can specify one of the C3, C4, M4, or R3 instance
 -- types.
-scheduledInstanceAvailability_instanceType :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+scheduledInstanceAvailability_instanceType :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Text)
 scheduledInstanceAvailability_instanceType = Lens.lens (\ScheduledInstanceAvailability' {instanceType} -> instanceType) (\s@ScheduledInstanceAvailability' {} a -> s {instanceType = a} :: ScheduledInstanceAvailability)
 
 -- | The network platform (@EC2-Classic@ or @EC2-VPC@).
-scheduledInstanceAvailability_networkPlatform :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+scheduledInstanceAvailability_networkPlatform :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Text)
 scheduledInstanceAvailability_networkPlatform = Lens.lens (\ScheduledInstanceAvailability' {networkPlatform} -> networkPlatform) (\s@ScheduledInstanceAvailability' {} a -> s {networkPlatform = a} :: ScheduledInstanceAvailability)
 
 -- | The number of hours in the schedule.
-scheduledInstanceAvailability_slotDurationInHours :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
+scheduledInstanceAvailability_slotDurationInHours :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Int)
 scheduledInstanceAvailability_slotDurationInHours = Lens.lens (\ScheduledInstanceAvailability' {slotDurationInHours} -> slotDurationInHours) (\s@ScheduledInstanceAvailability' {} a -> s {slotDurationInHours = a} :: ScheduledInstanceAvailability)
 
 -- | The number of available instances.
-scheduledInstanceAvailability_availableInstanceCount :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
+scheduledInstanceAvailability_availableInstanceCount :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Int)
 scheduledInstanceAvailability_availableInstanceCount = Lens.lens (\ScheduledInstanceAvailability' {availableInstanceCount} -> availableInstanceCount) (\s@ScheduledInstanceAvailability' {} a -> s {availableInstanceCount = a} :: ScheduledInstanceAvailability)
 
 -- | The minimum term. The only possible value is 365 days.
-scheduledInstanceAvailability_minTermDurationInDays :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
+scheduledInstanceAvailability_minTermDurationInDays :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Int)
 scheduledInstanceAvailability_minTermDurationInDays = Lens.lens (\ScheduledInstanceAvailability' {minTermDurationInDays} -> minTermDurationInDays) (\s@ScheduledInstanceAvailability' {} a -> s {minTermDurationInDays = a} :: ScheduledInstanceAvailability)
 
 -- | The Availability Zone.
-scheduledInstanceAvailability_availabilityZone :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+scheduledInstanceAvailability_availabilityZone :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Text)
 scheduledInstanceAvailability_availabilityZone = Lens.lens (\ScheduledInstanceAvailability' {availabilityZone} -> availabilityZone) (\s@ScheduledInstanceAvailability' {} a -> s {availabilityZone = a} :: ScheduledInstanceAvailability)
 
 -- | The schedule recurrence.
-scheduledInstanceAvailability_recurrence :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe ScheduledInstanceRecurrence)
+scheduledInstanceAvailability_recurrence :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe ScheduledInstanceRecurrence)
 scheduledInstanceAvailability_recurrence = Lens.lens (\ScheduledInstanceAvailability' {recurrence} -> recurrence) (\s@ScheduledInstanceAvailability' {} a -> s {recurrence = a} :: ScheduledInstanceAvailability)
 
 -- | The maximum term. The only possible value is 365 days.
-scheduledInstanceAvailability_maxTermDurationInDays :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
+scheduledInstanceAvailability_maxTermDurationInDays :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Int)
 scheduledInstanceAvailability_maxTermDurationInDays = Lens.lens (\ScheduledInstanceAvailability' {maxTermDurationInDays} -> maxTermDurationInDays) (\s@ScheduledInstanceAvailability' {} a -> s {maxTermDurationInDays = a} :: ScheduledInstanceAvailability)
 
 -- | The total number of hours for a single instance for the entire term.
-scheduledInstanceAvailability_totalScheduledInstanceHours :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
+scheduledInstanceAvailability_totalScheduledInstanceHours :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Int)
 scheduledInstanceAvailability_totalScheduledInstanceHours = Lens.lens (\ScheduledInstanceAvailability' {totalScheduledInstanceHours} -> totalScheduledInstanceHours) (\s@ScheduledInstanceAvailability' {} a -> s {totalScheduledInstanceHours = a} :: ScheduledInstanceAvailability)
 
 -- | The time period for the first schedule to start.
-scheduledInstanceAvailability_firstSlotStartTime :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.UTCTime)
-scheduledInstanceAvailability_firstSlotStartTime = Lens.lens (\ScheduledInstanceAvailability' {firstSlotStartTime} -> firstSlotStartTime) (\s@ScheduledInstanceAvailability' {} a -> s {firstSlotStartTime = a} :: ScheduledInstanceAvailability) Prelude.. Lens.mapping Prelude._Time
+scheduledInstanceAvailability_firstSlotStartTime :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.UTCTime)
+scheduledInstanceAvailability_firstSlotStartTime = Lens.lens (\ScheduledInstanceAvailability' {firstSlotStartTime} -> firstSlotStartTime) (\s@ScheduledInstanceAvailability' {} a -> s {firstSlotStartTime = a} :: ScheduledInstanceAvailability) Core.. Lens.mapping Core._Time
 
 -- | The hourly price for a single instance.
-scheduledInstanceAvailability_hourlyPrice :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+scheduledInstanceAvailability_hourlyPrice :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Text)
 scheduledInstanceAvailability_hourlyPrice = Lens.lens (\ScheduledInstanceAvailability' {hourlyPrice} -> hourlyPrice) (\s@ScheduledInstanceAvailability' {} a -> s {hourlyPrice = a} :: ScheduledInstanceAvailability)
 
 -- | The purchase token. This token expires in two hours.
-scheduledInstanceAvailability_purchaseToken :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
+scheduledInstanceAvailability_purchaseToken :: Lens.Lens' ScheduledInstanceAvailability (Core.Maybe Core.Text)
 scheduledInstanceAvailability_purchaseToken = Lens.lens (\ScheduledInstanceAvailability' {purchaseToken} -> purchaseToken) (\s@ScheduledInstanceAvailability' {} a -> s {purchaseToken = a} :: ScheduledInstanceAvailability)
 
-instance
-  Prelude.FromXML
-    ScheduledInstanceAvailability
-  where
+instance Core.FromXML ScheduledInstanceAvailability where
   parseXML x =
     ScheduledInstanceAvailability'
-      Prelude.<$> (x Prelude..@? "platform")
-      Prelude.<*> (x Prelude..@? "instanceType")
-      Prelude.<*> (x Prelude..@? "networkPlatform")
-      Prelude.<*> (x Prelude..@? "slotDurationInHours")
-      Prelude.<*> (x Prelude..@? "availableInstanceCount")
-      Prelude.<*> (x Prelude..@? "minTermDurationInDays")
-      Prelude.<*> (x Prelude..@? "availabilityZone")
-      Prelude.<*> (x Prelude..@? "recurrence")
-      Prelude.<*> (x Prelude..@? "maxTermDurationInDays")
-      Prelude.<*> (x Prelude..@? "totalScheduledInstanceHours")
-      Prelude.<*> (x Prelude..@? "firstSlotStartTime")
-      Prelude.<*> (x Prelude..@? "hourlyPrice")
-      Prelude.<*> (x Prelude..@? "purchaseToken")
+      Core.<$> (x Core..@? "platform")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "networkPlatform")
+      Core.<*> (x Core..@? "slotDurationInHours")
+      Core.<*> (x Core..@? "availableInstanceCount")
+      Core.<*> (x Core..@? "minTermDurationInDays")
+      Core.<*> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "recurrence")
+      Core.<*> (x Core..@? "maxTermDurationInDays")
+      Core.<*> (x Core..@? "totalScheduledInstanceHours")
+      Core.<*> (x Core..@? "firstSlotStartTime")
+      Core.<*> (x Core..@? "hourlyPrice")
+      Core.<*> (x Core..@? "purchaseToken")
 
-instance
-  Prelude.Hashable
-    ScheduledInstanceAvailability
+instance Core.Hashable ScheduledInstanceAvailability
 
-instance Prelude.NFData ScheduledInstanceAvailability
+instance Core.NFData ScheduledInstanceAvailability

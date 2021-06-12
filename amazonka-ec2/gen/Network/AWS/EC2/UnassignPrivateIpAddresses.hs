@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.EC2.UnassignPrivateIpAddresses
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,13 +48,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUnassignPrivateIpAddresses' smart constructor.
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses'
   { -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Text,
+    networkInterfaceId :: Core.Text,
     -- | The secondary private IP addresses to unassign from the network
     -- interface. You can specify this option multiple times to unassign more
     -- than one IP address.
-    privateIpAddresses :: [Prelude.Text]
+    privateIpAddresses :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignPrivateIpAddresses' with all optional fields omitted.
@@ -72,56 +71,52 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses'
 -- than one IP address.
 newUnassignPrivateIpAddresses ::
   -- | 'networkInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   UnassignPrivateIpAddresses
 newUnassignPrivateIpAddresses pNetworkInterfaceId_ =
   UnassignPrivateIpAddresses'
     { networkInterfaceId =
         pNetworkInterfaceId_,
-      privateIpAddresses = Prelude.mempty
+      privateIpAddresses = Core.mempty
     }
 
 -- | The ID of the network interface.
-unassignPrivateIpAddresses_networkInterfaceId :: Lens.Lens' UnassignPrivateIpAddresses Prelude.Text
+unassignPrivateIpAddresses_networkInterfaceId :: Lens.Lens' UnassignPrivateIpAddresses Core.Text
 unassignPrivateIpAddresses_networkInterfaceId = Lens.lens (\UnassignPrivateIpAddresses' {networkInterfaceId} -> networkInterfaceId) (\s@UnassignPrivateIpAddresses' {} a -> s {networkInterfaceId = a} :: UnassignPrivateIpAddresses)
 
 -- | The secondary private IP addresses to unassign from the network
 -- interface. You can specify this option multiple times to unassign more
 -- than one IP address.
-unassignPrivateIpAddresses_privateIpAddresses :: Lens.Lens' UnassignPrivateIpAddresses [Prelude.Text]
-unassignPrivateIpAddresses_privateIpAddresses = Lens.lens (\UnassignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@UnassignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: UnassignPrivateIpAddresses) Prelude.. Prelude._Coerce
+unassignPrivateIpAddresses_privateIpAddresses :: Lens.Lens' UnassignPrivateIpAddresses [Core.Text]
+unassignPrivateIpAddresses_privateIpAddresses = Lens.lens (\UnassignPrivateIpAddresses' {privateIpAddresses} -> privateIpAddresses) (\s@UnassignPrivateIpAddresses' {} a -> s {privateIpAddresses = a} :: UnassignPrivateIpAddresses) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    UnassignPrivateIpAddresses
-  where
+instance Core.AWSRequest UnassignPrivateIpAddresses where
   type
-    Rs UnassignPrivateIpAddresses =
+    AWSResponse UnassignPrivateIpAddresses =
       UnassignPrivateIpAddressesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       UnassignPrivateIpAddressesResponse'
 
-instance Prelude.Hashable UnassignPrivateIpAddresses
+instance Core.Hashable UnassignPrivateIpAddresses
 
-instance Prelude.NFData UnassignPrivateIpAddresses
+instance Core.NFData UnassignPrivateIpAddresses
 
-instance Prelude.ToHeaders UnassignPrivateIpAddresses where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UnassignPrivateIpAddresses where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UnassignPrivateIpAddresses where
-  toPath = Prelude.const "/"
+instance Core.ToPath UnassignPrivateIpAddresses where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UnassignPrivateIpAddresses where
+instance Core.ToQuery UnassignPrivateIpAddresses where
   toQuery UnassignPrivateIpAddresses' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UnassignPrivateIpAddresses" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NetworkInterfaceId" Prelude.=: networkInterfaceId,
-        Prelude.toQueryList
+          Core.=: ("UnassignPrivateIpAddresses" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NetworkInterfaceId" Core.=: networkInterfaceId,
+        Core.toQueryList
           "PrivateIpAddress"
           privateIpAddresses
       ]
@@ -130,7 +125,7 @@ instance Prelude.ToQuery UnassignPrivateIpAddresses where
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignPrivateIpAddressesResponse' with all optional fields omitted.
@@ -142,5 +137,5 @@ newUnassignPrivateIpAddressesResponse =
   UnassignPrivateIpAddressesResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UnassignPrivateIpAddressesResponse

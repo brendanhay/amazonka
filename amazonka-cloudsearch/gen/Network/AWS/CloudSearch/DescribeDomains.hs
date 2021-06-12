@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CloudSearch.DescribeDomains
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +60,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeDomains' smart constructor.
 data DescribeDomains = DescribeDomains'
   { -- | The names of the domains you want to include in the response.
-    domainNames :: Prelude.Maybe [Prelude.Text]
+    domainNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDomains' with all optional fields omitted.
@@ -77,49 +76,47 @@ data DescribeDomains = DescribeDomains'
 newDescribeDomains ::
   DescribeDomains
 newDescribeDomains =
-  DescribeDomains' {domainNames = Prelude.Nothing}
+  DescribeDomains' {domainNames = Core.Nothing}
 
 -- | The names of the domains you want to include in the response.
-describeDomains_domainNames :: Lens.Lens' DescribeDomains (Prelude.Maybe [Prelude.Text])
-describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Prelude.. Lens.mapping Prelude._Coerce
+describeDomains_domainNames :: Lens.Lens' DescribeDomains (Core.Maybe [Core.Text])
+describeDomains_domainNames = Lens.lens (\DescribeDomains' {domainNames} -> domainNames) (\s@DescribeDomains' {} a -> s {domainNames = a} :: DescribeDomains) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeDomains where
-  type Rs DescribeDomains = DescribeDomainsResponse
+instance Core.AWSRequest DescribeDomains where
+  type
+    AWSResponse DescribeDomains =
+      DescribeDomainsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DescribeDomainsResult"
       ( \s h x ->
           DescribeDomainsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "DomainStatusList"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "DomainStatusList" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable DescribeDomains
+instance Core.Hashable DescribeDomains
 
-instance Prelude.NFData DescribeDomains
+instance Core.NFData DescribeDomains
 
-instance Prelude.ToHeaders DescribeDomains where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeDomains where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeDomains where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeDomains where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeDomains where
+instance Core.ToQuery DescribeDomains where
   toQuery DescribeDomains' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeDomains" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
+          Core.=: ("DescribeDomains" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
         "DomainNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> domainNames
-            )
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> domainNames)
       ]
 
 -- | The result of a @DescribeDomains@ request. Contains the status of the
@@ -128,10 +125,10 @@ instance Prelude.ToQuery DescribeDomains where
 -- /See:/ 'newDescribeDomainsResponse' smart constructor.
 data DescribeDomainsResponse = DescribeDomainsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     domainStatusList :: [DomainStatus]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDomainsResponse' with all optional fields omitted.
@@ -146,20 +143,20 @@ data DescribeDomainsResponse = DescribeDomainsResponse'
 -- 'domainStatusList', 'describeDomainsResponse_domainStatusList' - Undocumented member.
 newDescribeDomainsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDomainsResponse
 newDescribeDomainsResponse pHttpStatus_ =
   DescribeDomainsResponse'
     { httpStatus = pHttpStatus_,
-      domainStatusList = Prelude.mempty
+      domainStatusList = Core.mempty
     }
 
 -- | The response's http status code.
-describeDomainsResponse_httpStatus :: Lens.Lens' DescribeDomainsResponse Prelude.Int
+describeDomainsResponse_httpStatus :: Lens.Lens' DescribeDomainsResponse Core.Int
 describeDomainsResponse_httpStatus = Lens.lens (\DescribeDomainsResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainsResponse' {} a -> s {httpStatus = a} :: DescribeDomainsResponse)
 
 -- | Undocumented member.
 describeDomainsResponse_domainStatusList :: Lens.Lens' DescribeDomainsResponse [DomainStatus]
-describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Prelude.. Prelude._Coerce
+describeDomainsResponse_domainStatusList = Lens.lens (\DescribeDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeDomainsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData DescribeDomainsResponse
+instance Core.NFData DescribeDomainsResponse

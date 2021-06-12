@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CognitoIdentityProvider.CreateResourceServer
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,17 +52,17 @@ import qualified Network.AWS.Response as Response
 data CreateResourceServer = CreateResourceServer'
   { -- | A list of scopes. Each scope is map, where the keys are @name@ and
     -- @description@.
-    scopes :: Prelude.Maybe [ResourceServerScopeType],
+    scopes :: Core.Maybe [ResourceServerScopeType],
     -- | The user pool ID for the user pool.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | A unique resource server identifier for the resource server. This could
     -- be an HTTPS endpoint where the resource server is located. For example,
     -- @https:\/\/my-weather-api.example.com@.
-    identifier :: Prelude.Text,
+    identifier :: Core.Text,
     -- | A friendly name for the resource server.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateResourceServer' with all optional fields omitted.
@@ -85,18 +84,18 @@ data CreateResourceServer = CreateResourceServer'
 -- 'name', 'createResourceServer_name' - A friendly name for the resource server.
 newCreateResourceServer ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateResourceServer
 newCreateResourceServer
   pUserPoolId_
   pIdentifier_
   pName_ =
     CreateResourceServer'
-      { scopes = Prelude.Nothing,
+      { scopes = Core.Nothing,
         userPoolId = pUserPoolId_,
         identifier = pIdentifier_,
         name = pName_
@@ -104,80 +103,78 @@ newCreateResourceServer
 
 -- | A list of scopes. Each scope is map, where the keys are @name@ and
 -- @description@.
-createResourceServer_scopes :: Lens.Lens' CreateResourceServer (Prelude.Maybe [ResourceServerScopeType])
-createResourceServer_scopes = Lens.lens (\CreateResourceServer' {scopes} -> scopes) (\s@CreateResourceServer' {} a -> s {scopes = a} :: CreateResourceServer) Prelude.. Lens.mapping Prelude._Coerce
+createResourceServer_scopes :: Lens.Lens' CreateResourceServer (Core.Maybe [ResourceServerScopeType])
+createResourceServer_scopes = Lens.lens (\CreateResourceServer' {scopes} -> scopes) (\s@CreateResourceServer' {} a -> s {scopes = a} :: CreateResourceServer) Core.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID for the user pool.
-createResourceServer_userPoolId :: Lens.Lens' CreateResourceServer Prelude.Text
+createResourceServer_userPoolId :: Lens.Lens' CreateResourceServer Core.Text
 createResourceServer_userPoolId = Lens.lens (\CreateResourceServer' {userPoolId} -> userPoolId) (\s@CreateResourceServer' {} a -> s {userPoolId = a} :: CreateResourceServer)
 
 -- | A unique resource server identifier for the resource server. This could
 -- be an HTTPS endpoint where the resource server is located. For example,
 -- @https:\/\/my-weather-api.example.com@.
-createResourceServer_identifier :: Lens.Lens' CreateResourceServer Prelude.Text
+createResourceServer_identifier :: Lens.Lens' CreateResourceServer Core.Text
 createResourceServer_identifier = Lens.lens (\CreateResourceServer' {identifier} -> identifier) (\s@CreateResourceServer' {} a -> s {identifier = a} :: CreateResourceServer)
 
 -- | A friendly name for the resource server.
-createResourceServer_name :: Lens.Lens' CreateResourceServer Prelude.Text
+createResourceServer_name :: Lens.Lens' CreateResourceServer Core.Text
 createResourceServer_name = Lens.lens (\CreateResourceServer' {name} -> name) (\s@CreateResourceServer' {} a -> s {name = a} :: CreateResourceServer)
 
-instance Prelude.AWSRequest CreateResourceServer where
+instance Core.AWSRequest CreateResourceServer where
   type
-    Rs CreateResourceServer =
+    AWSResponse CreateResourceServer =
       CreateResourceServerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateResourceServerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "ResourceServer")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "ResourceServer")
       )
 
-instance Prelude.Hashable CreateResourceServer
+instance Core.Hashable CreateResourceServer
 
-instance Prelude.NFData CreateResourceServer
+instance Core.NFData CreateResourceServer
 
-instance Prelude.ToHeaders CreateResourceServer where
+instance Core.ToHeaders CreateResourceServer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.CreateResourceServer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.CreateResourceServer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateResourceServer where
+instance Core.ToJSON CreateResourceServer where
   toJSON CreateResourceServer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Scopes" Prelude..=) Prelude.<$> scopes,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Identifier" Prelude..= identifier),
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("Scopes" Core..=) Core.<$> scopes,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Identifier" Core..= identifier),
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath CreateResourceServer where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateResourceServer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateResourceServer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateResourceServer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateResourceServerResponse' smart constructor.
 data CreateResourceServerResponse = CreateResourceServerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The newly created resource server.
     resourceServer :: ResourceServerType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateResourceServerResponse' with all optional fields omitted.
@@ -192,7 +189,7 @@ data CreateResourceServerResponse = CreateResourceServerResponse'
 -- 'resourceServer', 'createResourceServerResponse_resourceServer' - The newly created resource server.
 newCreateResourceServerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'resourceServer'
   ResourceServerType ->
   CreateResourceServerResponse
@@ -206,11 +203,11 @@ newCreateResourceServerResponse
       }
 
 -- | The response's http status code.
-createResourceServerResponse_httpStatus :: Lens.Lens' CreateResourceServerResponse Prelude.Int
+createResourceServerResponse_httpStatus :: Lens.Lens' CreateResourceServerResponse Core.Int
 createResourceServerResponse_httpStatus = Lens.lens (\CreateResourceServerResponse' {httpStatus} -> httpStatus) (\s@CreateResourceServerResponse' {} a -> s {httpStatus = a} :: CreateResourceServerResponse)
 
 -- | The newly created resource server.
 createResourceServerResponse_resourceServer :: Lens.Lens' CreateResourceServerResponse ResourceServerType
 createResourceServerResponse_resourceServer = Lens.lens (\CreateResourceServerResponse' {resourceServer} -> resourceServer) (\s@CreateResourceServerResponse' {} a -> s {resourceServer = a} :: CreateResourceServerResponse)
 
-instance Prelude.NFData CreateResourceServerResponse
+instance Core.NFData CreateResourceServerResponse

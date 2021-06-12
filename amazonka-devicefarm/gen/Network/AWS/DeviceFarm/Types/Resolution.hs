@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Resolution where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the screen resolution of a device in height and width,
 -- expressed in pixels.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResolution' smart constructor.
 data Resolution = Resolution'
   { -- | The screen resolution\'s height, expressed in pixels.
-    height :: Prelude.Maybe Prelude.Int,
+    height :: Core.Maybe Core.Int,
     -- | The screen resolution\'s width, expressed in pixels.
-    width :: Prelude.Maybe Prelude.Int
+    width :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Resolution' with all optional fields omitted.
@@ -50,28 +49,27 @@ newResolution ::
   Resolution
 newResolution =
   Resolution'
-    { height = Prelude.Nothing,
-      width = Prelude.Nothing
+    { height = Core.Nothing,
+      width = Core.Nothing
     }
 
 -- | The screen resolution\'s height, expressed in pixels.
-resolution_height :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
+resolution_height :: Lens.Lens' Resolution (Core.Maybe Core.Int)
 resolution_height = Lens.lens (\Resolution' {height} -> height) (\s@Resolution' {} a -> s {height = a} :: Resolution)
 
 -- | The screen resolution\'s width, expressed in pixels.
-resolution_width :: Lens.Lens' Resolution (Prelude.Maybe Prelude.Int)
+resolution_width :: Lens.Lens' Resolution (Core.Maybe Core.Int)
 resolution_width = Lens.lens (\Resolution' {width} -> width) (\s@Resolution' {} a -> s {width = a} :: Resolution)
 
-instance Prelude.FromJSON Resolution where
+instance Core.FromJSON Resolution where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Resolution"
       ( \x ->
           Resolution'
-            Prelude.<$> (x Prelude..:? "height")
-            Prelude.<*> (x Prelude..:? "width")
+            Core.<$> (x Core..:? "height") Core.<*> (x Core..:? "width")
       )
 
-instance Prelude.Hashable Resolution
+instance Core.Hashable Resolution
 
-instance Prelude.NFData Resolution
+instance Core.NFData Resolution

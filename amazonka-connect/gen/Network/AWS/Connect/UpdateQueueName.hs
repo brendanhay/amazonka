@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,23 +43,23 @@ module Network.AWS.Connect.UpdateQueueName
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQueueName' smart constructor.
 data UpdateQueueName = UpdateQueueName'
   { -- | The name of the queue.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description of the queue.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the queue.
-    queueId :: Prelude.Text
+    queueId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueName' with all optional fields omitted.
@@ -79,82 +78,82 @@ data UpdateQueueName = UpdateQueueName'
 -- 'queueId', 'updateQueueName_queueId' - The identifier for the queue.
 newUpdateQueueName ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateQueueName
 newUpdateQueueName pInstanceId_ pQueueId_ =
   UpdateQueueName'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { name = Core.Nothing,
+      description = Core.Nothing,
       instanceId = pInstanceId_,
       queueId = pQueueId_
     }
 
 -- | The name of the queue.
-updateQueueName_name :: Lens.Lens' UpdateQueueName (Prelude.Maybe Prelude.Text)
+updateQueueName_name :: Lens.Lens' UpdateQueueName (Core.Maybe Core.Text)
 updateQueueName_name = Lens.lens (\UpdateQueueName' {name} -> name) (\s@UpdateQueueName' {} a -> s {name = a} :: UpdateQueueName)
 
 -- | The description of the queue.
-updateQueueName_description :: Lens.Lens' UpdateQueueName (Prelude.Maybe Prelude.Text)
+updateQueueName_description :: Lens.Lens' UpdateQueueName (Core.Maybe Core.Text)
 updateQueueName_description = Lens.lens (\UpdateQueueName' {description} -> description) (\s@UpdateQueueName' {} a -> s {description = a} :: UpdateQueueName)
 
 -- | The identifier of the Amazon Connect instance.
-updateQueueName_instanceId :: Lens.Lens' UpdateQueueName Prelude.Text
+updateQueueName_instanceId :: Lens.Lens' UpdateQueueName Core.Text
 updateQueueName_instanceId = Lens.lens (\UpdateQueueName' {instanceId} -> instanceId) (\s@UpdateQueueName' {} a -> s {instanceId = a} :: UpdateQueueName)
 
 -- | The identifier for the queue.
-updateQueueName_queueId :: Lens.Lens' UpdateQueueName Prelude.Text
+updateQueueName_queueId :: Lens.Lens' UpdateQueueName Core.Text
 updateQueueName_queueId = Lens.lens (\UpdateQueueName' {queueId} -> queueId) (\s@UpdateQueueName' {} a -> s {queueId = a} :: UpdateQueueName)
 
-instance Prelude.AWSRequest UpdateQueueName where
-  type Rs UpdateQueueName = UpdateQueueNameResponse
+instance Core.AWSRequest UpdateQueueName where
+  type
+    AWSResponse UpdateQueueName =
+      UpdateQueueNameResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateQueueNameResponse'
 
-instance Prelude.Hashable UpdateQueueName
+instance Core.Hashable UpdateQueueName
 
-instance Prelude.NFData UpdateQueueName
+instance Core.NFData UpdateQueueName
 
-instance Prelude.ToHeaders UpdateQueueName where
+instance Core.ToHeaders UpdateQueueName where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateQueueName where
+instance Core.ToJSON UpdateQueueName where
   toJSON UpdateQueueName' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("Description" Prelude..=) Prelude.<$> description
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("Description" Core..=) Core.<$> description
           ]
       )
 
-instance Prelude.ToPath UpdateQueueName where
+instance Core.ToPath UpdateQueueName where
   toPath UpdateQueueName' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/queues/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS queueId,
+        Core.toBS queueId,
         "/name"
       ]
 
-instance Prelude.ToQuery UpdateQueueName where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateQueueName where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateQueueNameResponse' smart constructor.
 data UpdateQueueNameResponse = UpdateQueueNameResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueNameResponse' with all optional fields omitted.
@@ -164,4 +163,4 @@ newUpdateQueueNameResponse ::
   UpdateQueueNameResponse
 newUpdateQueueNameResponse = UpdateQueueNameResponse'
 
-instance Prelude.NFData UpdateQueueNameResponse
+instance Core.NFData UpdateQueueNameResponse

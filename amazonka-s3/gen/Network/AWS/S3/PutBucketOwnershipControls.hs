@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.S3.PutBucketOwnershipControls
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -62,12 +61,12 @@ data PutBucketOwnershipControls = PutBucketOwnershipControls'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The MD5 hash of the @OwnershipControls@ request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
     -- set.
     bucket :: BucketName,
@@ -75,7 +74,7 @@ data PutBucketOwnershipControls = PutBucketOwnershipControls'
     -- want to apply to this Amazon S3 bucket.
     ownershipControls :: OwnershipControls
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketOwnershipControls' with all optional fields omitted.
@@ -110,8 +109,8 @@ newPutBucketOwnershipControls
   pOwnershipControls_ =
     PutBucketOwnershipControls'
       { expectedBucketOwner =
-          Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+          Core.Nothing,
+        contentMD5 = Core.Nothing,
         bucket = pBucket_,
         ownershipControls = pOwnershipControls_
       }
@@ -119,14 +118,14 @@ newPutBucketOwnershipControls
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' PutBucketOwnershipControls (Prelude.Maybe Prelude.Text)
+putBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' PutBucketOwnershipControls (Core.Maybe Core.Text)
 putBucketOwnershipControls_expectedBucketOwner = Lens.lens (\PutBucketOwnershipControls' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketOwnershipControls' {} a -> s {expectedBucketOwner = a} :: PutBucketOwnershipControls)
 
 -- | The MD5 hash of the @OwnershipControls@ request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketOwnershipControls_contentMD5 :: Lens.Lens' PutBucketOwnershipControls (Prelude.Maybe Prelude.Text)
+putBucketOwnershipControls_contentMD5 :: Lens.Lens' PutBucketOwnershipControls (Core.Maybe Core.Text)
 putBucketOwnershipControls_contentMD5 = Lens.lens (\PutBucketOwnershipControls' {contentMD5} -> contentMD5) (\s@PutBucketOwnershipControls' {} a -> s {contentMD5 = a} :: PutBucketOwnershipControls)
 
 -- | The name of the Amazon S3 bucket whose @OwnershipControls@ you want to
@@ -139,50 +138,46 @@ putBucketOwnershipControls_bucket = Lens.lens (\PutBucketOwnershipControls' {buc
 putBucketOwnershipControls_ownershipControls :: Lens.Lens' PutBucketOwnershipControls OwnershipControls
 putBucketOwnershipControls_ownershipControls = Lens.lens (\PutBucketOwnershipControls' {ownershipControls} -> ownershipControls) (\s@PutBucketOwnershipControls' {} a -> s {ownershipControls = a} :: PutBucketOwnershipControls)
 
-instance
-  Prelude.AWSRequest
-    PutBucketOwnershipControls
-  where
+instance Core.AWSRequest PutBucketOwnershipControls where
   type
-    Rs PutBucketOwnershipControls =
+    AWSResponse PutBucketOwnershipControls =
       PutBucketOwnershipControlsResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull
       PutBucketOwnershipControlsResponse'
 
-instance Prelude.Hashable PutBucketOwnershipControls
+instance Core.Hashable PutBucketOwnershipControls
 
-instance Prelude.NFData PutBucketOwnershipControls
+instance Core.NFData PutBucketOwnershipControls
 
-instance Prelude.ToElement PutBucketOwnershipControls where
+instance Core.ToElement PutBucketOwnershipControls where
   toElement PutBucketOwnershipControls' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}OwnershipControls"
       ownershipControls
 
-instance Prelude.ToHeaders PutBucketOwnershipControls where
+instance Core.ToHeaders PutBucketOwnershipControls where
   toHeaders PutBucketOwnershipControls' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5
       ]
 
-instance Prelude.ToPath PutBucketOwnershipControls where
+instance Core.ToPath PutBucketOwnershipControls where
   toPath PutBucketOwnershipControls' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutBucketOwnershipControls where
+instance Core.ToQuery PutBucketOwnershipControls where
   toQuery =
-    Prelude.const
-      (Prelude.mconcat ["ownershipControls"])
+    Core.const (Core.mconcat ["ownershipControls"])
 
 -- | /See:/ 'newPutBucketOwnershipControlsResponse' smart constructor.
 data PutBucketOwnershipControlsResponse = PutBucketOwnershipControlsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketOwnershipControlsResponse' with all optional fields omitted.
@@ -194,5 +189,5 @@ newPutBucketOwnershipControlsResponse =
   PutBucketOwnershipControlsResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBucketOwnershipControlsResponse

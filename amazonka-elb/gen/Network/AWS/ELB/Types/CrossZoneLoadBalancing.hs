@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.CrossZoneLoadBalancing where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the @CrossZoneLoadBalancing@ attribute.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data CrossZoneLoadBalancing = CrossZoneLoadBalancing'
   { -- | Specifies whether cross-zone load balancing is enabled for the load
     -- balancer.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CrossZoneLoadBalancing' with all optional fields omitted.
@@ -46,25 +45,25 @@ data CrossZoneLoadBalancing = CrossZoneLoadBalancing'
 -- balancer.
 newCrossZoneLoadBalancing ::
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   CrossZoneLoadBalancing
 newCrossZoneLoadBalancing pEnabled_ =
   CrossZoneLoadBalancing' {enabled = pEnabled_}
 
 -- | Specifies whether cross-zone load balancing is enabled for the load
 -- balancer.
-crossZoneLoadBalancing_enabled :: Lens.Lens' CrossZoneLoadBalancing Prelude.Bool
+crossZoneLoadBalancing_enabled :: Lens.Lens' CrossZoneLoadBalancing Core.Bool
 crossZoneLoadBalancing_enabled = Lens.lens (\CrossZoneLoadBalancing' {enabled} -> enabled) (\s@CrossZoneLoadBalancing' {} a -> s {enabled = a} :: CrossZoneLoadBalancing)
 
-instance Prelude.FromXML CrossZoneLoadBalancing where
+instance Core.FromXML CrossZoneLoadBalancing where
   parseXML x =
     CrossZoneLoadBalancing'
-      Prelude.<$> (x Prelude..@ "Enabled")
+      Core.<$> (x Core..@ "Enabled")
 
-instance Prelude.Hashable CrossZoneLoadBalancing
+instance Core.Hashable CrossZoneLoadBalancing
 
-instance Prelude.NFData CrossZoneLoadBalancing
+instance Core.NFData CrossZoneLoadBalancing
 
-instance Prelude.ToQuery CrossZoneLoadBalancing where
+instance Core.ToQuery CrossZoneLoadBalancing where
   toQuery CrossZoneLoadBalancing' {..} =
-    Prelude.mconcat ["Enabled" Prelude.=: enabled]
+    Core.mconcat ["Enabled" Core.=: enabled]

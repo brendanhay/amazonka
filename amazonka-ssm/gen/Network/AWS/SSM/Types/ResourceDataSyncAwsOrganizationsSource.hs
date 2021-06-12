@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit
 
 -- | Information about the AwsOrganizationsSource resource data sync source.
@@ -31,14 +30,14 @@ import Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit
 -- /See:/ 'newResourceDataSyncAwsOrganizationsSource' smart constructor.
 data ResourceDataSyncAwsOrganizationsSource = ResourceDataSyncAwsOrganizationsSource'
   { -- | The AWS Organizations organization units included in the sync.
-    organizationalUnits :: Prelude.Maybe (Prelude.NonEmpty ResourceDataSyncOrganizationalUnit),
+    organizationalUnits :: Core.Maybe (Core.NonEmpty ResourceDataSyncOrganizationalUnit),
     -- | If an AWS Organization is present, this is either @OrganizationalUnits@
     -- or @EntireOrganization@. For @OrganizationalUnits@, the data is
     -- aggregated from a set of organization units. For @EntireOrganization@,
     -- the data is aggregated from the entire AWS Organization.
-    organizationSourceType :: Prelude.Text
+    organizationSourceType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceDataSyncAwsOrganizationsSource' with all optional fields omitted.
@@ -56,61 +55,61 @@ data ResourceDataSyncAwsOrganizationsSource = ResourceDataSyncAwsOrganizationsSo
 -- the data is aggregated from the entire AWS Organization.
 newResourceDataSyncAwsOrganizationsSource ::
   -- | 'organizationSourceType'
-  Prelude.Text ->
+  Core.Text ->
   ResourceDataSyncAwsOrganizationsSource
 newResourceDataSyncAwsOrganizationsSource
   pOrganizationSourceType_ =
     ResourceDataSyncAwsOrganizationsSource'
       { organizationalUnits =
-          Prelude.Nothing,
+          Core.Nothing,
         organizationSourceType =
           pOrganizationSourceType_
       }
 
 -- | The AWS Organizations organization units included in the sync.
-resourceDataSyncAwsOrganizationsSource_organizationalUnits :: Lens.Lens' ResourceDataSyncAwsOrganizationsSource (Prelude.Maybe (Prelude.NonEmpty ResourceDataSyncOrganizationalUnit))
-resourceDataSyncAwsOrganizationsSource_organizationalUnits = Lens.lens (\ResourceDataSyncAwsOrganizationsSource' {organizationalUnits} -> organizationalUnits) (\s@ResourceDataSyncAwsOrganizationsSource' {} a -> s {organizationalUnits = a} :: ResourceDataSyncAwsOrganizationsSource) Prelude.. Lens.mapping Prelude._Coerce
+resourceDataSyncAwsOrganizationsSource_organizationalUnits :: Lens.Lens' ResourceDataSyncAwsOrganizationsSource (Core.Maybe (Core.NonEmpty ResourceDataSyncOrganizationalUnit))
+resourceDataSyncAwsOrganizationsSource_organizationalUnits = Lens.lens (\ResourceDataSyncAwsOrganizationsSource' {organizationalUnits} -> organizationalUnits) (\s@ResourceDataSyncAwsOrganizationsSource' {} a -> s {organizationalUnits = a} :: ResourceDataSyncAwsOrganizationsSource) Core.. Lens.mapping Lens._Coerce
 
 -- | If an AWS Organization is present, this is either @OrganizationalUnits@
 -- or @EntireOrganization@. For @OrganizationalUnits@, the data is
 -- aggregated from a set of organization units. For @EntireOrganization@,
 -- the data is aggregated from the entire AWS Organization.
-resourceDataSyncAwsOrganizationsSource_organizationSourceType :: Lens.Lens' ResourceDataSyncAwsOrganizationsSource Prelude.Text
+resourceDataSyncAwsOrganizationsSource_organizationSourceType :: Lens.Lens' ResourceDataSyncAwsOrganizationsSource Core.Text
 resourceDataSyncAwsOrganizationsSource_organizationSourceType = Lens.lens (\ResourceDataSyncAwsOrganizationsSource' {organizationSourceType} -> organizationSourceType) (\s@ResourceDataSyncAwsOrganizationsSource' {} a -> s {organizationSourceType = a} :: ResourceDataSyncAwsOrganizationsSource)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ResourceDataSyncAwsOrganizationsSource
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceDataSyncAwsOrganizationsSource"
       ( \x ->
           ResourceDataSyncAwsOrganizationsSource'
-            Prelude.<$> (x Prelude..:? "OrganizationalUnits")
-            Prelude.<*> (x Prelude..: "OrganizationSourceType")
+            Core.<$> (x Core..:? "OrganizationalUnits")
+            Core.<*> (x Core..: "OrganizationSourceType")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ResourceDataSyncAwsOrganizationsSource
 
 instance
-  Prelude.NFData
+  Core.NFData
     ResourceDataSyncAwsOrganizationsSource
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ResourceDataSyncAwsOrganizationsSource
   where
   toJSON ResourceDataSyncAwsOrganizationsSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("OrganizationalUnits" Prelude..=)
-              Prelude.<$> organizationalUnits,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("OrganizationalUnits" Core..=)
+              Core.<$> organizationalUnits,
+            Core.Just
               ( "OrganizationSourceType"
-                  Prelude..= organizationSourceType
+                  Core..= organizationSourceType
               )
           ]
       )

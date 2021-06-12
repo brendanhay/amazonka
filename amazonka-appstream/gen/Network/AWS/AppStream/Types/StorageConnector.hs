@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,21 +20,21 @@
 module Network.AWS.AppStream.Types.StorageConnector where
 
 import Network.AWS.AppStream.Types.StorageConnectorType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a connector that enables persistent storage for users.
 --
 -- /See:/ 'newStorageConnector' smart constructor.
 data StorageConnector = StorageConnector'
   { -- | The names of the domains for the account.
-    domains :: Prelude.Maybe [Prelude.Text],
+    domains :: Core.Maybe [Core.Text],
     -- | The ARN of the storage connector.
-    resourceIdentifier :: Prelude.Maybe Prelude.Text,
+    resourceIdentifier :: Core.Maybe Core.Text,
     -- | The type of storage connector.
     connectorType :: StorageConnectorType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StorageConnector' with all optional fields omitted.
@@ -56,46 +55,45 @@ newStorageConnector ::
   StorageConnector
 newStorageConnector pConnectorType_ =
   StorageConnector'
-    { domains = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing,
+    { domains = Core.Nothing,
+      resourceIdentifier = Core.Nothing,
       connectorType = pConnectorType_
     }
 
 -- | The names of the domains for the account.
-storageConnector_domains :: Lens.Lens' StorageConnector (Prelude.Maybe [Prelude.Text])
-storageConnector_domains = Lens.lens (\StorageConnector' {domains} -> domains) (\s@StorageConnector' {} a -> s {domains = a} :: StorageConnector) Prelude.. Lens.mapping Prelude._Coerce
+storageConnector_domains :: Lens.Lens' StorageConnector (Core.Maybe [Core.Text])
+storageConnector_domains = Lens.lens (\StorageConnector' {domains} -> domains) (\s@StorageConnector' {} a -> s {domains = a} :: StorageConnector) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the storage connector.
-storageConnector_resourceIdentifier :: Lens.Lens' StorageConnector (Prelude.Maybe Prelude.Text)
+storageConnector_resourceIdentifier :: Lens.Lens' StorageConnector (Core.Maybe Core.Text)
 storageConnector_resourceIdentifier = Lens.lens (\StorageConnector' {resourceIdentifier} -> resourceIdentifier) (\s@StorageConnector' {} a -> s {resourceIdentifier = a} :: StorageConnector)
 
 -- | The type of storage connector.
 storageConnector_connectorType :: Lens.Lens' StorageConnector StorageConnectorType
 storageConnector_connectorType = Lens.lens (\StorageConnector' {connectorType} -> connectorType) (\s@StorageConnector' {} a -> s {connectorType = a} :: StorageConnector)
 
-instance Prelude.FromJSON StorageConnector where
+instance Core.FromJSON StorageConnector where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StorageConnector"
       ( \x ->
           StorageConnector'
-            Prelude.<$> (x Prelude..:? "Domains" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "ResourceIdentifier")
-            Prelude.<*> (x Prelude..: "ConnectorType")
+            Core.<$> (x Core..:? "Domains" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ResourceIdentifier")
+            Core.<*> (x Core..: "ConnectorType")
       )
 
-instance Prelude.Hashable StorageConnector
+instance Core.Hashable StorageConnector
 
-instance Prelude.NFData StorageConnector
+instance Core.NFData StorageConnector
 
-instance Prelude.ToJSON StorageConnector where
+instance Core.ToJSON StorageConnector where
   toJSON StorageConnector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Domains" Prelude..=) Prelude.<$> domains,
-            ("ResourceIdentifier" Prelude..=)
-              Prelude.<$> resourceIdentifier,
-            Prelude.Just
-              ("ConnectorType" Prelude..= connectorType)
+    Core.object
+      ( Core.catMaybes
+          [ ("Domains" Core..=) Core.<$> domains,
+            ("ResourceIdentifier" Core..=)
+              Core.<$> resourceIdentifier,
+            Core.Just ("ConnectorType" Core..= connectorType)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.ExportClientVpnClientConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ data ExportClientVpnClientConfiguration = ExportClientVpnClientConfiguration'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointId :: Prelude.Text
+    clientVpnEndpointId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportClientVpnClientConfiguration' with all optional fields omitted.
@@ -78,13 +77,13 @@ data ExportClientVpnClientConfiguration = ExportClientVpnClientConfiguration'
 -- 'clientVpnEndpointId', 'exportClientVpnClientConfiguration_clientVpnEndpointId' - The ID of the Client VPN endpoint.
 newExportClientVpnClientConfiguration ::
   -- | 'clientVpnEndpointId'
-  Prelude.Text ->
+  Core.Text ->
   ExportClientVpnClientConfiguration
 newExportClientVpnClientConfiguration
   pClientVpnEndpointId_ =
     ExportClientVpnClientConfiguration'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         clientVpnEndpointId =
           pClientVpnEndpointId_
       }
@@ -93,73 +92,72 @@ newExportClientVpnClientConfiguration
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-exportClientVpnClientConfiguration_dryRun :: Lens.Lens' ExportClientVpnClientConfiguration (Prelude.Maybe Prelude.Bool)
+exportClientVpnClientConfiguration_dryRun :: Lens.Lens' ExportClientVpnClientConfiguration (Core.Maybe Core.Bool)
 exportClientVpnClientConfiguration_dryRun = Lens.lens (\ExportClientVpnClientConfiguration' {dryRun} -> dryRun) (\s@ExportClientVpnClientConfiguration' {} a -> s {dryRun = a} :: ExportClientVpnClientConfiguration)
 
 -- | The ID of the Client VPN endpoint.
-exportClientVpnClientConfiguration_clientVpnEndpointId :: Lens.Lens' ExportClientVpnClientConfiguration Prelude.Text
+exportClientVpnClientConfiguration_clientVpnEndpointId :: Lens.Lens' ExportClientVpnClientConfiguration Core.Text
 exportClientVpnClientConfiguration_clientVpnEndpointId = Lens.lens (\ExportClientVpnClientConfiguration' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@ExportClientVpnClientConfiguration' {} a -> s {clientVpnEndpointId = a} :: ExportClientVpnClientConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ExportClientVpnClientConfiguration
   where
   type
-    Rs ExportClientVpnClientConfiguration =
+    AWSResponse ExportClientVpnClientConfiguration =
       ExportClientVpnClientConfigurationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ExportClientVpnClientConfigurationResponse'
-            Prelude.<$> (x Prelude..@? "clientConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "clientConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ExportClientVpnClientConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     ExportClientVpnClientConfiguration
 
 instance
-  Prelude.ToHeaders
-    ExportClientVpnClientConfiguration
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ExportClientVpnClientConfiguration
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ExportClientVpnClientConfiguration
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ExportClientVpnClientConfiguration
   where
   toQuery ExportClientVpnClientConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ExportClientVpnClientConfiguration" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "ClientVpnEndpointId" Prelude.=: clientVpnEndpointId
+          Core.=: ( "ExportClientVpnClientConfiguration" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "ClientVpnEndpointId" Core.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newExportClientVpnClientConfigurationResponse' smart constructor.
 data ExportClientVpnClientConfigurationResponse = ExportClientVpnClientConfigurationResponse'
   { -- | The contents of the Client VPN endpoint configuration file.
-    clientConfiguration :: Prelude.Maybe Prelude.Text,
+    clientConfiguration :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportClientVpnClientConfigurationResponse' with all optional fields omitted.
@@ -174,24 +172,24 @@ data ExportClientVpnClientConfigurationResponse = ExportClientVpnClientConfigura
 -- 'httpStatus', 'exportClientVpnClientConfigurationResponse_httpStatus' - The response's http status code.
 newExportClientVpnClientConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExportClientVpnClientConfigurationResponse
 newExportClientVpnClientConfigurationResponse
   pHttpStatus_ =
     ExportClientVpnClientConfigurationResponse'
       { clientConfiguration =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The contents of the Client VPN endpoint configuration file.
-exportClientVpnClientConfigurationResponse_clientConfiguration :: Lens.Lens' ExportClientVpnClientConfigurationResponse (Prelude.Maybe Prelude.Text)
+exportClientVpnClientConfigurationResponse_clientConfiguration :: Lens.Lens' ExportClientVpnClientConfigurationResponse (Core.Maybe Core.Text)
 exportClientVpnClientConfigurationResponse_clientConfiguration = Lens.lens (\ExportClientVpnClientConfigurationResponse' {clientConfiguration} -> clientConfiguration) (\s@ExportClientVpnClientConfigurationResponse' {} a -> s {clientConfiguration = a} :: ExportClientVpnClientConfigurationResponse)
 
 -- | The response's http status code.
-exportClientVpnClientConfigurationResponse_httpStatus :: Lens.Lens' ExportClientVpnClientConfigurationResponse Prelude.Int
+exportClientVpnClientConfigurationResponse_httpStatus :: Lens.Lens' ExportClientVpnClientConfigurationResponse Core.Int
 exportClientVpnClientConfigurationResponse_httpStatus = Lens.lens (\ExportClientVpnClientConfigurationResponse' {httpStatus} -> httpStatus) (\s@ExportClientVpnClientConfigurationResponse' {} a -> s {httpStatus = a} :: ExportClientVpnClientConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ExportClientVpnClientConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.EC2.DescribeReservedInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +61,9 @@ data DescribeReservedInstances = DescribeReservedInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Describes whether the Reserved Instance is Standard or Convertible.
-    offeringClass :: Prelude.Maybe OfferingClassType,
+    offeringClass :: Core.Maybe OfferingClassType,
     -- | One or more filters.
     --
     -- -   @availability-zone@ - The Availability Zone where the Reserved
@@ -119,18 +118,18 @@ data DescribeReservedInstances = DescribeReservedInstances'
     --
     -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
     --     (for example, 0.84).
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The Reserved Instance offering type. If you are using tools that predate
     -- the 2011-11-01 API version, you only have access to the
     -- @Medium Utilization@ Reserved Instance offering type.
-    offeringType :: Prelude.Maybe OfferingTypeValues,
+    offeringType :: Core.Maybe OfferingTypeValues,
     -- | One or more Reserved Instance IDs.
     --
     -- Default: Describes all your Reserved Instances, or only those otherwise
     -- specified.
-    reservedInstancesIds :: Prelude.Maybe [Prelude.Text]
+    reservedInstancesIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstances' with all optional fields omitted.
@@ -214,23 +213,22 @@ newDescribeReservedInstances ::
   DescribeReservedInstances
 newDescribeReservedInstances =
   DescribeReservedInstances'
-    { dryRun =
-        Prelude.Nothing,
-      offeringClass = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      offeringType = Prelude.Nothing,
-      reservedInstancesIds = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      offeringClass = Core.Nothing,
+      filters = Core.Nothing,
+      offeringType = Core.Nothing,
+      reservedInstancesIds = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeReservedInstances_dryRun :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe Prelude.Bool)
+describeReservedInstances_dryRun :: Lens.Lens' DescribeReservedInstances (Core.Maybe Core.Bool)
 describeReservedInstances_dryRun = Lens.lens (\DescribeReservedInstances' {dryRun} -> dryRun) (\s@DescribeReservedInstances' {} a -> s {dryRun = a} :: DescribeReservedInstances)
 
 -- | Describes whether the Reserved Instance is Standard or Convertible.
-describeReservedInstances_offeringClass :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe OfferingClassType)
+describeReservedInstances_offeringClass :: Lens.Lens' DescribeReservedInstances (Core.Maybe OfferingClassType)
 describeReservedInstances_offeringClass = Lens.lens (\DescribeReservedInstances' {offeringClass} -> offeringClass) (\s@DescribeReservedInstances' {} a -> s {offeringClass = a} :: DescribeReservedInstances)
 
 -- | One or more filters.
@@ -287,63 +285,62 @@ describeReservedInstances_offeringClass = Lens.lens (\DescribeReservedInstances'
 --
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
-describeReservedInstances_filters :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe [Filter])
-describeReservedInstances_filters = Lens.lens (\DescribeReservedInstances' {filters} -> filters) (\s@DescribeReservedInstances' {} a -> s {filters = a} :: DescribeReservedInstances) Prelude.. Lens.mapping Prelude._Coerce
+describeReservedInstances_filters :: Lens.Lens' DescribeReservedInstances (Core.Maybe [Filter])
+describeReservedInstances_filters = Lens.lens (\DescribeReservedInstances' {filters} -> filters) (\s@DescribeReservedInstances' {} a -> s {filters = a} :: DescribeReservedInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
 -- @Medium Utilization@ Reserved Instance offering type.
-describeReservedInstances_offeringType :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe OfferingTypeValues)
+describeReservedInstances_offeringType :: Lens.Lens' DescribeReservedInstances (Core.Maybe OfferingTypeValues)
 describeReservedInstances_offeringType = Lens.lens (\DescribeReservedInstances' {offeringType} -> offeringType) (\s@DescribeReservedInstances' {} a -> s {offeringType = a} :: DescribeReservedInstances)
 
 -- | One or more Reserved Instance IDs.
 --
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
-describeReservedInstances_reservedInstancesIds :: Lens.Lens' DescribeReservedInstances (Prelude.Maybe [Prelude.Text])
-describeReservedInstances_reservedInstancesIds = Lens.lens (\DescribeReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@DescribeReservedInstances' {} a -> s {reservedInstancesIds = a} :: DescribeReservedInstances) Prelude.. Lens.mapping Prelude._Coerce
+describeReservedInstances_reservedInstancesIds :: Lens.Lens' DescribeReservedInstances (Core.Maybe [Core.Text])
+describeReservedInstances_reservedInstancesIds = Lens.lens (\DescribeReservedInstances' {reservedInstancesIds} -> reservedInstancesIds) (\s@DescribeReservedInstances' {} a -> s {reservedInstancesIds = a} :: DescribeReservedInstances) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeReservedInstances where
+instance Core.AWSRequest DescribeReservedInstances where
   type
-    Rs DescribeReservedInstances =
+    AWSResponse DescribeReservedInstances =
       DescribeReservedInstancesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesResponse'
-            Prelude.<$> ( x Prelude..@? "reservedInstancesSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "reservedInstancesSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservedInstances
+instance Core.Hashable DescribeReservedInstances
 
-instance Prelude.NFData DescribeReservedInstances
+instance Core.NFData DescribeReservedInstances
 
-instance Prelude.ToHeaders DescribeReservedInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeReservedInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeReservedInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeReservedInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeReservedInstances where
+instance Core.ToQuery DescribeReservedInstances where
   toQuery DescribeReservedInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeReservedInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "OfferingClass" Prelude.=: offeringClass,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        "OfferingType" Prelude.=: offeringType,
-        Prelude.toQuery
-          ( Prelude.toQueryList "ReservedInstancesId"
-              Prelude.<$> reservedInstancesIds
+          Core.=: ("DescribeReservedInstances" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "OfferingClass" Core.=: offeringClass,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        "OfferingType" Core.=: offeringType,
+        Core.toQuery
+          ( Core.toQueryList "ReservedInstancesId"
+              Core.<$> reservedInstancesIds
           )
       ]
 
@@ -352,11 +349,11 @@ instance Prelude.ToQuery DescribeReservedInstances where
 -- /See:/ 'newDescribeReservedInstancesResponse' smart constructor.
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
   { -- | A list of Reserved Instances.
-    reservedInstances :: Prelude.Maybe [ReservedInstances],
+    reservedInstances :: Core.Maybe [ReservedInstances],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstancesResponse' with all optional fields omitted.
@@ -371,23 +368,23 @@ data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
 -- 'httpStatus', 'describeReservedInstancesResponse_httpStatus' - The response's http status code.
 newDescribeReservedInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReservedInstancesResponse
 newDescribeReservedInstancesResponse pHttpStatus_ =
   DescribeReservedInstancesResponse'
     { reservedInstances =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of Reserved Instances.
-describeReservedInstancesResponse_reservedInstances :: Lens.Lens' DescribeReservedInstancesResponse (Prelude.Maybe [ReservedInstances])
-describeReservedInstancesResponse_reservedInstances = Lens.lens (\DescribeReservedInstancesResponse' {reservedInstances} -> reservedInstances) (\s@DescribeReservedInstancesResponse' {} a -> s {reservedInstances = a} :: DescribeReservedInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeReservedInstancesResponse_reservedInstances :: Lens.Lens' DescribeReservedInstancesResponse (Core.Maybe [ReservedInstances])
+describeReservedInstancesResponse_reservedInstances = Lens.lens (\DescribeReservedInstancesResponse' {reservedInstances} -> reservedInstances) (\s@DescribeReservedInstancesResponse' {} a -> s {reservedInstances = a} :: DescribeReservedInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeReservedInstancesResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesResponse Prelude.Int
+describeReservedInstancesResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesResponse Core.Int
 describeReservedInstancesResponse_httpStatus = Lens.lens (\DescribeReservedInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeReservedInstancesResponse' {} a -> s {httpStatus = a} :: DescribeReservedInstancesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReservedInstancesResponse

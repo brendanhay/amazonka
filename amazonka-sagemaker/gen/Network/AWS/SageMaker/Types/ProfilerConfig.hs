@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProfilerConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for Debugger system monitoring, framework
 -- profiling, and storage paths.
@@ -35,15 +34,15 @@ data ProfilerConfig = ProfilerConfig'
     -- parameter. To learn more about how to configure the
     -- @ProfilingParameters@ parameter, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
-    profilingParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    profilingParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A time interval for capturing system metrics in milliseconds. Available
     -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
     -- (1 minute) milliseconds. The default value is 500 milliseconds.
-    profilingIntervalInMilliseconds :: Prelude.Maybe Prelude.Integer,
+    profilingIntervalInMilliseconds :: Core.Maybe Core.Integer,
     -- | Path to Amazon S3 storage location for system and framework metrics.
-    s3OutputPath :: Prelude.Text
+    s3OutputPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProfilerConfig' with all optional fields omitted.
@@ -68,13 +67,12 @@ data ProfilerConfig = ProfilerConfig'
 -- 's3OutputPath', 'profilerConfig_s3OutputPath' - Path to Amazon S3 storage location for system and framework metrics.
 newProfilerConfig ::
   -- | 's3OutputPath'
-  Prelude.Text ->
+  Core.Text ->
   ProfilerConfig
 newProfilerConfig pS3OutputPath_ =
   ProfilerConfig'
-    { profilingParameters =
-        Prelude.Nothing,
-      profilingIntervalInMilliseconds = Prelude.Nothing,
+    { profilingParameters = Core.Nothing,
+      profilingIntervalInMilliseconds = Core.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
@@ -85,45 +83,44 @@ newProfilerConfig pS3OutputPath_ =
 -- parameter. To learn more about how to configure the
 -- @ProfilingParameters@ parameter, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job>.
-profilerConfig_profilingParameters :: Lens.Lens' ProfilerConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-profilerConfig_profilingParameters = Lens.lens (\ProfilerConfig' {profilingParameters} -> profilingParameters) (\s@ProfilerConfig' {} a -> s {profilingParameters = a} :: ProfilerConfig) Prelude.. Lens.mapping Prelude._Coerce
+profilerConfig_profilingParameters :: Lens.Lens' ProfilerConfig (Core.Maybe (Core.HashMap Core.Text Core.Text))
+profilerConfig_profilingParameters = Lens.lens (\ProfilerConfig' {profilingParameters} -> profilingParameters) (\s@ProfilerConfig' {} a -> s {profilingParameters = a} :: ProfilerConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | A time interval for capturing system metrics in milliseconds. Available
 -- values are 100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000
 -- (1 minute) milliseconds. The default value is 500 milliseconds.
-profilerConfig_profilingIntervalInMilliseconds :: Lens.Lens' ProfilerConfig (Prelude.Maybe Prelude.Integer)
+profilerConfig_profilingIntervalInMilliseconds :: Lens.Lens' ProfilerConfig (Core.Maybe Core.Integer)
 profilerConfig_profilingIntervalInMilliseconds = Lens.lens (\ProfilerConfig' {profilingIntervalInMilliseconds} -> profilingIntervalInMilliseconds) (\s@ProfilerConfig' {} a -> s {profilingIntervalInMilliseconds = a} :: ProfilerConfig)
 
 -- | Path to Amazon S3 storage location for system and framework metrics.
-profilerConfig_s3OutputPath :: Lens.Lens' ProfilerConfig Prelude.Text
+profilerConfig_s3OutputPath :: Lens.Lens' ProfilerConfig Core.Text
 profilerConfig_s3OutputPath = Lens.lens (\ProfilerConfig' {s3OutputPath} -> s3OutputPath) (\s@ProfilerConfig' {} a -> s {s3OutputPath = a} :: ProfilerConfig)
 
-instance Prelude.FromJSON ProfilerConfig where
+instance Core.FromJSON ProfilerConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProfilerConfig"
       ( \x ->
           ProfilerConfig'
-            Prelude.<$> ( x Prelude..:? "ProfilingParameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ProfilingIntervalInMilliseconds")
-            Prelude.<*> (x Prelude..: "S3OutputPath")
+            Core.<$> ( x Core..:? "ProfilingParameters"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "ProfilingIntervalInMilliseconds")
+            Core.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable ProfilerConfig
+instance Core.Hashable ProfilerConfig
 
-instance Prelude.NFData ProfilerConfig
+instance Core.NFData ProfilerConfig
 
-instance Prelude.ToJSON ProfilerConfig where
+instance Core.ToJSON ProfilerConfig where
   toJSON ProfilerConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ProfilingParameters" Prelude..=)
-              Prelude.<$> profilingParameters,
-            ("ProfilingIntervalInMilliseconds" Prelude..=)
-              Prelude.<$> profilingIntervalInMilliseconds,
-            Prelude.Just
-              ("S3OutputPath" Prelude..= s3OutputPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("ProfilingParameters" Core..=)
+              Core.<$> profilingParameters,
+            ("ProfilingIntervalInMilliseconds" Core..=)
+              Core.<$> profilingIntervalInMilliseconds,
+            Core.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.ContainerSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.CmfcSettings
 import Network.AWS.MediaConvert.Types.ContainerType
@@ -30,7 +30,6 @@ import Network.AWS.MediaConvert.Types.MovSettings
 import Network.AWS.MediaConvert.Types.Mp4Settings
 import Network.AWS.MediaConvert.Types.MpdSettings
 import Network.AWS.MediaConvert.Types.MxfSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Container specific settings.
 --
@@ -38,22 +37,22 @@ import qualified Network.AWS.Prelude as Prelude
 data ContainerSettings = ContainerSettings'
   { -- | Container for this output. Some containers require a container settings
     -- object. If not specified, the default object will be created.
-    container :: Prelude.Maybe ContainerType,
+    container :: Core.Maybe ContainerType,
     -- | Settings for MP4 segments in DASH
-    mpdSettings :: Prelude.Maybe MpdSettings,
+    mpdSettings :: Core.Maybe MpdSettings,
     -- | Settings for MP4 container. You can create audio-only AAC outputs with
     -- this container.
-    mp4Settings :: Prelude.Maybe Mp4Settings,
+    mp4Settings :: Core.Maybe Mp4Settings,
     -- | Settings for F4v container
-    f4vSettings :: Prelude.Maybe F4vSettings,
+    f4vSettings :: Core.Maybe F4vSettings,
     -- | MXF settings
-    mxfSettings :: Prelude.Maybe MxfSettings,
+    mxfSettings :: Core.Maybe MxfSettings,
     -- | Settings for MOV Container.
-    movSettings :: Prelude.Maybe MovSettings,
+    movSettings :: Core.Maybe MovSettings,
     -- | Settings for MP4 segments in CMAF
-    cmfcSettings :: Prelude.Maybe CmfcSettings,
+    cmfcSettings :: Core.Maybe CmfcSettings,
     -- | Settings for TS segments in HLS
-    m3u8Settings :: Prelude.Maybe M3u8Settings,
+    m3u8Settings :: Core.Maybe M3u8Settings,
     -- | MPEG-2 TS container settings. These apply to outputs in a File output
     -- group when the output\'s container (ContainerType) is MPEG-2 Transport
     -- Stream (M2TS). In these assets, data is organized by the program map
@@ -65,9 +64,9 @@ data ContainerSettings = ContainerSettings'
     -- players use the program map table to look up the PID for each type of
     -- data it accesses and then uses the PIDs to locate specific data within
     -- the asset.
-    m2tsSettings :: Prelude.Maybe M2tsSettings
+    m2tsSettings :: Core.Maybe M2tsSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContainerSettings' with all optional fields omitted.
@@ -110,49 +109,49 @@ newContainerSettings ::
   ContainerSettings
 newContainerSettings =
   ContainerSettings'
-    { container = Prelude.Nothing,
-      mpdSettings = Prelude.Nothing,
-      mp4Settings = Prelude.Nothing,
-      f4vSettings = Prelude.Nothing,
-      mxfSettings = Prelude.Nothing,
-      movSettings = Prelude.Nothing,
-      cmfcSettings = Prelude.Nothing,
-      m3u8Settings = Prelude.Nothing,
-      m2tsSettings = Prelude.Nothing
+    { container = Core.Nothing,
+      mpdSettings = Core.Nothing,
+      mp4Settings = Core.Nothing,
+      f4vSettings = Core.Nothing,
+      mxfSettings = Core.Nothing,
+      movSettings = Core.Nothing,
+      cmfcSettings = Core.Nothing,
+      m3u8Settings = Core.Nothing,
+      m2tsSettings = Core.Nothing
     }
 
 -- | Container for this output. Some containers require a container settings
 -- object. If not specified, the default object will be created.
-containerSettings_container :: Lens.Lens' ContainerSettings (Prelude.Maybe ContainerType)
+containerSettings_container :: Lens.Lens' ContainerSettings (Core.Maybe ContainerType)
 containerSettings_container = Lens.lens (\ContainerSettings' {container} -> container) (\s@ContainerSettings' {} a -> s {container = a} :: ContainerSettings)
 
 -- | Settings for MP4 segments in DASH
-containerSettings_mpdSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe MpdSettings)
+containerSettings_mpdSettings :: Lens.Lens' ContainerSettings (Core.Maybe MpdSettings)
 containerSettings_mpdSettings = Lens.lens (\ContainerSettings' {mpdSettings} -> mpdSettings) (\s@ContainerSettings' {} a -> s {mpdSettings = a} :: ContainerSettings)
 
 -- | Settings for MP4 container. You can create audio-only AAC outputs with
 -- this container.
-containerSettings_mp4Settings :: Lens.Lens' ContainerSettings (Prelude.Maybe Mp4Settings)
+containerSettings_mp4Settings :: Lens.Lens' ContainerSettings (Core.Maybe Mp4Settings)
 containerSettings_mp4Settings = Lens.lens (\ContainerSettings' {mp4Settings} -> mp4Settings) (\s@ContainerSettings' {} a -> s {mp4Settings = a} :: ContainerSettings)
 
 -- | Settings for F4v container
-containerSettings_f4vSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe F4vSettings)
+containerSettings_f4vSettings :: Lens.Lens' ContainerSettings (Core.Maybe F4vSettings)
 containerSettings_f4vSettings = Lens.lens (\ContainerSettings' {f4vSettings} -> f4vSettings) (\s@ContainerSettings' {} a -> s {f4vSettings = a} :: ContainerSettings)
 
 -- | MXF settings
-containerSettings_mxfSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe MxfSettings)
+containerSettings_mxfSettings :: Lens.Lens' ContainerSettings (Core.Maybe MxfSettings)
 containerSettings_mxfSettings = Lens.lens (\ContainerSettings' {mxfSettings} -> mxfSettings) (\s@ContainerSettings' {} a -> s {mxfSettings = a} :: ContainerSettings)
 
 -- | Settings for MOV Container.
-containerSettings_movSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe MovSettings)
+containerSettings_movSettings :: Lens.Lens' ContainerSettings (Core.Maybe MovSettings)
 containerSettings_movSettings = Lens.lens (\ContainerSettings' {movSettings} -> movSettings) (\s@ContainerSettings' {} a -> s {movSettings = a} :: ContainerSettings)
 
 -- | Settings for MP4 segments in CMAF
-containerSettings_cmfcSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe CmfcSettings)
+containerSettings_cmfcSettings :: Lens.Lens' ContainerSettings (Core.Maybe CmfcSettings)
 containerSettings_cmfcSettings = Lens.lens (\ContainerSettings' {cmfcSettings} -> cmfcSettings) (\s@ContainerSettings' {} a -> s {cmfcSettings = a} :: ContainerSettings)
 
 -- | Settings for TS segments in HLS
-containerSettings_m3u8Settings :: Lens.Lens' ContainerSettings (Prelude.Maybe M3u8Settings)
+containerSettings_m3u8Settings :: Lens.Lens' ContainerSettings (Core.Maybe M3u8Settings)
 containerSettings_m3u8Settings = Lens.lens (\ContainerSettings' {m3u8Settings} -> m3u8Settings) (\s@ContainerSettings' {} a -> s {m3u8Settings = a} :: ContainerSettings)
 
 -- | MPEG-2 TS container settings. These apply to outputs in a File output
@@ -166,43 +165,42 @@ containerSettings_m3u8Settings = Lens.lens (\ContainerSettings' {m3u8Settings} -
 -- players use the program map table to look up the PID for each type of
 -- data it accesses and then uses the PIDs to locate specific data within
 -- the asset.
-containerSettings_m2tsSettings :: Lens.Lens' ContainerSettings (Prelude.Maybe M2tsSettings)
+containerSettings_m2tsSettings :: Lens.Lens' ContainerSettings (Core.Maybe M2tsSettings)
 containerSettings_m2tsSettings = Lens.lens (\ContainerSettings' {m2tsSettings} -> m2tsSettings) (\s@ContainerSettings' {} a -> s {m2tsSettings = a} :: ContainerSettings)
 
-instance Prelude.FromJSON ContainerSettings where
+instance Core.FromJSON ContainerSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContainerSettings"
       ( \x ->
           ContainerSettings'
-            Prelude.<$> (x Prelude..:? "container")
-            Prelude.<*> (x Prelude..:? "mpdSettings")
-            Prelude.<*> (x Prelude..:? "mp4Settings")
-            Prelude.<*> (x Prelude..:? "f4vSettings")
-            Prelude.<*> (x Prelude..:? "mxfSettings")
-            Prelude.<*> (x Prelude..:? "movSettings")
-            Prelude.<*> (x Prelude..:? "cmfcSettings")
-            Prelude.<*> (x Prelude..:? "m3u8Settings")
-            Prelude.<*> (x Prelude..:? "m2tsSettings")
+            Core.<$> (x Core..:? "container")
+            Core.<*> (x Core..:? "mpdSettings")
+            Core.<*> (x Core..:? "mp4Settings")
+            Core.<*> (x Core..:? "f4vSettings")
+            Core.<*> (x Core..:? "mxfSettings")
+            Core.<*> (x Core..:? "movSettings")
+            Core.<*> (x Core..:? "cmfcSettings")
+            Core.<*> (x Core..:? "m3u8Settings")
+            Core.<*> (x Core..:? "m2tsSettings")
       )
 
-instance Prelude.Hashable ContainerSettings
+instance Core.Hashable ContainerSettings
 
-instance Prelude.NFData ContainerSettings
+instance Core.NFData ContainerSettings
 
-instance Prelude.ToJSON ContainerSettings where
+instance Core.ToJSON ContainerSettings where
   toJSON ContainerSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("container" Prelude..=) Prelude.<$> container,
-            ("mpdSettings" Prelude..=) Prelude.<$> mpdSettings,
-            ("mp4Settings" Prelude..=) Prelude.<$> mp4Settings,
-            ("f4vSettings" Prelude..=) Prelude.<$> f4vSettings,
-            ("mxfSettings" Prelude..=) Prelude.<$> mxfSettings,
-            ("movSettings" Prelude..=) Prelude.<$> movSettings,
-            ("cmfcSettings" Prelude..=) Prelude.<$> cmfcSettings,
-            ("m3u8Settings" Prelude..=) Prelude.<$> m3u8Settings,
-            ("m2tsSettings" Prelude..=)
-              Prelude.<$> m2tsSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("container" Core..=) Core.<$> container,
+            ("mpdSettings" Core..=) Core.<$> mpdSettings,
+            ("mp4Settings" Core..=) Core.<$> mp4Settings,
+            ("f4vSettings" Core..=) Core.<$> f4vSettings,
+            ("mxfSettings" Core..=) Core.<$> mxfSettings,
+            ("movSettings" Core..=) Core.<$> movSettings,
+            ("cmfcSettings" Core..=) Core.<$> cmfcSettings,
+            ("m3u8Settings" Core..=) Core.<$> m3u8Settings,
+            ("m2tsSettings" Core..=) Core.<$> m2tsSettings
           ]
       )

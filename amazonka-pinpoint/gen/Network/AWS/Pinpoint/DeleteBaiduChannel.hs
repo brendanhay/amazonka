@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.DeleteBaiduChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteBaiduChannel = DeleteBaiduChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBaiduChannel' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteBaiduChannel = DeleteBaiduChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteBaiduChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBaiduChannel
 newDeleteBaiduChannel pApplicationId_ =
   DeleteBaiduChannel'
@@ -77,55 +76,53 @@ newDeleteBaiduChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteBaiduChannel_applicationId :: Lens.Lens' DeleteBaiduChannel Prelude.Text
+deleteBaiduChannel_applicationId :: Lens.Lens' DeleteBaiduChannel Core.Text
 deleteBaiduChannel_applicationId = Lens.lens (\DeleteBaiduChannel' {applicationId} -> applicationId) (\s@DeleteBaiduChannel' {} a -> s {applicationId = a} :: DeleteBaiduChannel)
 
-instance Prelude.AWSRequest DeleteBaiduChannel where
+instance Core.AWSRequest DeleteBaiduChannel where
   type
-    Rs DeleteBaiduChannel =
+    AWSResponse DeleteBaiduChannel =
       DeleteBaiduChannelResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteBaiduChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteBaiduChannel
+instance Core.Hashable DeleteBaiduChannel
 
-instance Prelude.NFData DeleteBaiduChannel
+instance Core.NFData DeleteBaiduChannel
 
-instance Prelude.ToHeaders DeleteBaiduChannel where
+instance Core.ToHeaders DeleteBaiduChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteBaiduChannel where
+instance Core.ToPath DeleteBaiduChannel where
   toPath DeleteBaiduChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/baidu"
       ]
 
-instance Prelude.ToQuery DeleteBaiduChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBaiduChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteBaiduChannelResponse' smart constructor.
 data DeleteBaiduChannelResponse = DeleteBaiduChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     baiduChannelResponse :: BaiduChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBaiduChannelResponse' with all optional fields omitted.
@@ -140,7 +137,7 @@ data DeleteBaiduChannelResponse = DeleteBaiduChannelResponse'
 -- 'baiduChannelResponse', 'deleteBaiduChannelResponse_baiduChannelResponse' - Undocumented member.
 newDeleteBaiduChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'baiduChannelResponse'
   BaiduChannelResponse ->
   DeleteBaiduChannelResponse
@@ -154,11 +151,11 @@ newDeleteBaiduChannelResponse
       }
 
 -- | The response's http status code.
-deleteBaiduChannelResponse_httpStatus :: Lens.Lens' DeleteBaiduChannelResponse Prelude.Int
+deleteBaiduChannelResponse_httpStatus :: Lens.Lens' DeleteBaiduChannelResponse Core.Int
 deleteBaiduChannelResponse_httpStatus = Lens.lens (\DeleteBaiduChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteBaiduChannelResponse' {} a -> s {httpStatus = a} :: DeleteBaiduChannelResponse)
 
 -- | Undocumented member.
 deleteBaiduChannelResponse_baiduChannelResponse :: Lens.Lens' DeleteBaiduChannelResponse BaiduChannelResponse
 deleteBaiduChannelResponse_baiduChannelResponse = Lens.lens (\DeleteBaiduChannelResponse' {baiduChannelResponse} -> baiduChannelResponse) (\s@DeleteBaiduChannelResponse' {} a -> s {baiduChannelResponse = a} :: DeleteBaiduChannelResponse)
 
-instance Prelude.NFData DeleteBaiduChannelResponse
+instance Core.NFData DeleteBaiduChannelResponse

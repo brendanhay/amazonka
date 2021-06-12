@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.OpsWorks.DeregisterElasticIp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterElasticIp' smart constructor.
 data DeregisterElasticIp = DeregisterElasticIp'
   { -- | The Elastic IP address.
-    elasticIp :: Prelude.Text
+    elasticIp :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterElasticIp' with all optional fields omitted.
@@ -68,60 +67,58 @@ data DeregisterElasticIp = DeregisterElasticIp'
 -- 'elasticIp', 'deregisterElasticIp_elasticIp' - The Elastic IP address.
 newDeregisterElasticIp ::
   -- | 'elasticIp'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterElasticIp
 newDeregisterElasticIp pElasticIp_ =
   DeregisterElasticIp' {elasticIp = pElasticIp_}
 
 -- | The Elastic IP address.
-deregisterElasticIp_elasticIp :: Lens.Lens' DeregisterElasticIp Prelude.Text
+deregisterElasticIp_elasticIp :: Lens.Lens' DeregisterElasticIp Core.Text
 deregisterElasticIp_elasticIp = Lens.lens (\DeregisterElasticIp' {elasticIp} -> elasticIp) (\s@DeregisterElasticIp' {} a -> s {elasticIp = a} :: DeregisterElasticIp)
 
-instance Prelude.AWSRequest DeregisterElasticIp where
+instance Core.AWSRequest DeregisterElasticIp where
   type
-    Rs DeregisterElasticIp =
+    AWSResponse DeregisterElasticIp =
       DeregisterElasticIpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeregisterElasticIpResponse'
 
-instance Prelude.Hashable DeregisterElasticIp
+instance Core.Hashable DeregisterElasticIp
 
-instance Prelude.NFData DeregisterElasticIp
+instance Core.NFData DeregisterElasticIp
 
-instance Prelude.ToHeaders DeregisterElasticIp where
+instance Core.ToHeaders DeregisterElasticIp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DeregisterElasticIp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DeregisterElasticIp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterElasticIp where
+instance Core.ToJSON DeregisterElasticIp where
   toJSON DeregisterElasticIp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ElasticIp" Prelude..= elasticIp)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ElasticIp" Core..= elasticIp)]
       )
 
-instance Prelude.ToPath DeregisterElasticIp where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterElasticIp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterElasticIp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterElasticIp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterElasticIpResponse' smart constructor.
 data DeregisterElasticIpResponse = DeregisterElasticIpResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterElasticIpResponse' with all optional fields omitted.
@@ -132,4 +129,4 @@ newDeregisterElasticIpResponse ::
 newDeregisterElasticIpResponse =
   DeregisterElasticIpResponse'
 
-instance Prelude.NFData DeregisterElasticIpResponse
+instance Core.NFData DeregisterElasticIpResponse

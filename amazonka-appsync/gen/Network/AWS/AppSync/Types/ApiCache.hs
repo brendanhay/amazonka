@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.AppSync.Types.ApiCache where
 import Network.AWS.AppSync.Types.ApiCacheStatus
 import Network.AWS.AppSync.Types.ApiCacheType
 import Network.AWS.AppSync.Types.ApiCachingBehavior
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @ApiCache@ object.
 --
@@ -41,14 +40,14 @@ data ApiCache = ApiCache'
     -- -   __MODIFYING__: The instance is currently modifying.
     --
     -- -   __FAILED__: The instance has failed creation.
-    status :: Prelude.Maybe ApiCacheStatus,
+    status :: Core.Maybe ApiCacheStatus,
     -- | At rest encryption flag for cache. This setting cannot be updated after
     -- creation.
-    atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    atRestEncryptionEnabled :: Core.Maybe Core.Bool,
     -- | TTL in seconds for cache entries.
     --
     -- Valid values are between 1 and 3600 seconds.
-    ttl :: Prelude.Maybe Prelude.Integer,
+    ttl :: Core.Maybe Core.Integer,
     -- | The cache instance type. Valid values are
     --
     -- -   @SMALL@
@@ -87,19 +86,19 @@ data ApiCache = ApiCache'
     -- -   __R4_4XLARGE__: A r4.4xlarge instance type.
     --
     -- -   __R4_8XLARGE__: A r4.8xlarge instance type.
-    type' :: Prelude.Maybe ApiCacheType,
+    type' :: Core.Maybe ApiCacheType,
     -- | Transit encryption flag when connecting to cache. This setting cannot be
     -- updated after creation.
-    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    transitEncryptionEnabled :: Core.Maybe Core.Bool,
     -- | Caching behavior.
     --
     -- -   __FULL_REQUEST_CACHING__: All requests are fully cached.
     --
     -- -   __PER_RESOLVER_CACHING__: Individual resolvers that you specify are
     --     cached.
-    apiCachingBehavior :: Prelude.Maybe ApiCachingBehavior
+    apiCachingBehavior :: Core.Maybe ApiCachingBehavior
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApiCache' with all optional fields omitted.
@@ -180,12 +179,12 @@ newApiCache ::
   ApiCache
 newApiCache =
   ApiCache'
-    { status = Prelude.Nothing,
-      atRestEncryptionEnabled = Prelude.Nothing,
-      ttl = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      transitEncryptionEnabled = Prelude.Nothing,
-      apiCachingBehavior = Prelude.Nothing
+    { status = Core.Nothing,
+      atRestEncryptionEnabled = Core.Nothing,
+      ttl = Core.Nothing,
+      type' = Core.Nothing,
+      transitEncryptionEnabled = Core.Nothing,
+      apiCachingBehavior = Core.Nothing
     }
 
 -- | The cache instance status.
@@ -199,18 +198,18 @@ newApiCache =
 -- -   __MODIFYING__: The instance is currently modifying.
 --
 -- -   __FAILED__: The instance has failed creation.
-apiCache_status :: Lens.Lens' ApiCache (Prelude.Maybe ApiCacheStatus)
+apiCache_status :: Lens.Lens' ApiCache (Core.Maybe ApiCacheStatus)
 apiCache_status = Lens.lens (\ApiCache' {status} -> status) (\s@ApiCache' {} a -> s {status = a} :: ApiCache)
 
 -- | At rest encryption flag for cache. This setting cannot be updated after
 -- creation.
-apiCache_atRestEncryptionEnabled :: Lens.Lens' ApiCache (Prelude.Maybe Prelude.Bool)
+apiCache_atRestEncryptionEnabled :: Lens.Lens' ApiCache (Core.Maybe Core.Bool)
 apiCache_atRestEncryptionEnabled = Lens.lens (\ApiCache' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@ApiCache' {} a -> s {atRestEncryptionEnabled = a} :: ApiCache)
 
 -- | TTL in seconds for cache entries.
 --
 -- Valid values are between 1 and 3600 seconds.
-apiCache_ttl :: Lens.Lens' ApiCache (Prelude.Maybe Prelude.Integer)
+apiCache_ttl :: Lens.Lens' ApiCache (Core.Maybe Core.Integer)
 apiCache_ttl = Lens.lens (\ApiCache' {ttl} -> ttl) (\s@ApiCache' {} a -> s {ttl = a} :: ApiCache)
 
 -- | The cache instance type. Valid values are
@@ -251,12 +250,12 @@ apiCache_ttl = Lens.lens (\ApiCache' {ttl} -> ttl) (\s@ApiCache' {} a -> s {ttl 
 -- -   __R4_4XLARGE__: A r4.4xlarge instance type.
 --
 -- -   __R4_8XLARGE__: A r4.8xlarge instance type.
-apiCache_type :: Lens.Lens' ApiCache (Prelude.Maybe ApiCacheType)
+apiCache_type :: Lens.Lens' ApiCache (Core.Maybe ApiCacheType)
 apiCache_type = Lens.lens (\ApiCache' {type'} -> type') (\s@ApiCache' {} a -> s {type' = a} :: ApiCache)
 
 -- | Transit encryption flag when connecting to cache. This setting cannot be
 -- updated after creation.
-apiCache_transitEncryptionEnabled :: Lens.Lens' ApiCache (Prelude.Maybe Prelude.Bool)
+apiCache_transitEncryptionEnabled :: Lens.Lens' ApiCache (Core.Maybe Core.Bool)
 apiCache_transitEncryptionEnabled = Lens.lens (\ApiCache' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@ApiCache' {} a -> s {transitEncryptionEnabled = a} :: ApiCache)
 
 -- | Caching behavior.
@@ -265,23 +264,23 @@ apiCache_transitEncryptionEnabled = Lens.lens (\ApiCache' {transitEncryptionEnab
 --
 -- -   __PER_RESOLVER_CACHING__: Individual resolvers that you specify are
 --     cached.
-apiCache_apiCachingBehavior :: Lens.Lens' ApiCache (Prelude.Maybe ApiCachingBehavior)
+apiCache_apiCachingBehavior :: Lens.Lens' ApiCache (Core.Maybe ApiCachingBehavior)
 apiCache_apiCachingBehavior = Lens.lens (\ApiCache' {apiCachingBehavior} -> apiCachingBehavior) (\s@ApiCache' {} a -> s {apiCachingBehavior = a} :: ApiCache)
 
-instance Prelude.FromJSON ApiCache where
+instance Core.FromJSON ApiCache where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ApiCache"
       ( \x ->
           ApiCache'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "atRestEncryptionEnabled")
-            Prelude.<*> (x Prelude..:? "ttl")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "transitEncryptionEnabled")
-            Prelude.<*> (x Prelude..:? "apiCachingBehavior")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "atRestEncryptionEnabled")
+            Core.<*> (x Core..:? "ttl")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "transitEncryptionEnabled")
+            Core.<*> (x Core..:? "apiCachingBehavior")
       )
 
-instance Prelude.Hashable ApiCache
+instance Core.Hashable ApiCache
 
-instance Prelude.NFData ApiCache
+instance Core.NFData ApiCache

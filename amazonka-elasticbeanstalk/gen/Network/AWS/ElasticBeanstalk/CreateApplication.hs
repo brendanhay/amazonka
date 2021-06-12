@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +56,16 @@ data CreateApplication = CreateApplication'
     --
     -- Elastic Beanstalk applies these tags only to the application.
     -- Environments that you create in the application don\'t inherit the tags.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Specifies an application resource lifecycle configuration to prevent
     -- your application from accumulating too many versions.
-    resourceLifecycleConfig :: Prelude.Maybe ApplicationResourceLifecycleConfig,
+    resourceLifecycleConfig :: Core.Maybe ApplicationResourceLifecycleConfig,
     -- | Your description of the application.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the application. Must be unique within your account.
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApplication' with all optional fields omitted.
@@ -89,13 +88,13 @@ data CreateApplication = CreateApplication'
 -- 'applicationName', 'createApplication_applicationName' - The name of the application. Must be unique within your account.
 newCreateApplication ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   CreateApplication
 newCreateApplication pApplicationName_ =
   CreateApplication'
-    { tags = Prelude.Nothing,
-      resourceLifecycleConfig = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tags = Core.Nothing,
+      resourceLifecycleConfig = Core.Nothing,
+      description = Core.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -103,54 +102,53 @@ newCreateApplication pApplicationName_ =
 --
 -- Elastic Beanstalk applies these tags only to the application.
 -- Environments that you create in the application don\'t inherit the tags.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Prelude._Coerce
+createApplication_tags :: Lens.Lens' CreateApplication (Core.Maybe [Tag])
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies an application resource lifecycle configuration to prevent
 -- your application from accumulating too many versions.
-createApplication_resourceLifecycleConfig :: Lens.Lens' CreateApplication (Prelude.Maybe ApplicationResourceLifecycleConfig)
+createApplication_resourceLifecycleConfig :: Lens.Lens' CreateApplication (Core.Maybe ApplicationResourceLifecycleConfig)
 createApplication_resourceLifecycleConfig = Lens.lens (\CreateApplication' {resourceLifecycleConfig} -> resourceLifecycleConfig) (\s@CreateApplication' {} a -> s {resourceLifecycleConfig = a} :: CreateApplication)
 
 -- | Your description of the application.
-createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_description :: Lens.Lens' CreateApplication (Core.Maybe Core.Text)
 createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
 
 -- | The name of the application. Must be unique within your account.
-createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_applicationName :: Lens.Lens' CreateApplication Core.Text
 createApplication_applicationName = Lens.lens (\CreateApplication' {applicationName} -> applicationName) (\s@CreateApplication' {} a -> s {applicationName = a} :: CreateApplication)
 
-instance Prelude.AWSRequest CreateApplication where
+instance Core.AWSRequest CreateApplication where
   type
-    Rs CreateApplication =
+    AWSResponse CreateApplication =
       ApplicationDescriptionMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateApplicationResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateApplication
+instance Core.Hashable CreateApplication
 
-instance Prelude.NFData CreateApplication
+instance Core.NFData CreateApplication
 
-instance Prelude.ToHeaders CreateApplication where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateApplication where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateApplication where
+instance Core.ToQuery CreateApplication where
   toQuery CreateApplication' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateApplication" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+          Core.=: ("CreateApplication" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
         "ResourceLifecycleConfig"
-          Prelude.=: resourceLifecycleConfig,
-        "Description" Prelude.=: description,
-        "ApplicationName" Prelude.=: applicationName
+          Core.=: resourceLifecycleConfig,
+        "Description" Core.=: description,
+        "ApplicationName" Core.=: applicationName
       ]

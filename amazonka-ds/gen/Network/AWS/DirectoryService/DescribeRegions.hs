@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,23 +43,23 @@ module Network.AWS.DirectoryService.DescribeRegions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
   { -- | The name of the Region. For example, @us-east-1@.
-    regionName :: Prelude.Maybe Prelude.Text,
+    regionName :: Core.Maybe Core.Text,
     -- | The @DescribeRegionsResult.NextToken@ value from a previous call to
     -- DescribeRegions. Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The identifier of the directory.
-    directoryId :: Prelude.Text
+    directoryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRegions' with all optional fields omitted.
@@ -78,90 +77,90 @@ data DescribeRegions = DescribeRegions'
 -- 'directoryId', 'describeRegions_directoryId' - The identifier of the directory.
 newDescribeRegions ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeRegions
 newDescribeRegions pDirectoryId_ =
   DescribeRegions'
-    { regionName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { regionName = Core.Nothing,
+      nextToken = Core.Nothing,
       directoryId = pDirectoryId_
     }
 
 -- | The name of the Region. For example, @us-east-1@.
-describeRegions_regionName :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Text)
+describeRegions_regionName :: Lens.Lens' DescribeRegions (Core.Maybe Core.Text)
 describeRegions_regionName = Lens.lens (\DescribeRegions' {regionName} -> regionName) (\s@DescribeRegions' {} a -> s {regionName = a} :: DescribeRegions)
 
 -- | The @DescribeRegionsResult.NextToken@ value from a previous call to
 -- DescribeRegions. Pass null if this is the first call.
-describeRegions_nextToken :: Lens.Lens' DescribeRegions (Prelude.Maybe Prelude.Text)
+describeRegions_nextToken :: Lens.Lens' DescribeRegions (Core.Maybe Core.Text)
 describeRegions_nextToken = Lens.lens (\DescribeRegions' {nextToken} -> nextToken) (\s@DescribeRegions' {} a -> s {nextToken = a} :: DescribeRegions)
 
 -- | The identifier of the directory.
-describeRegions_directoryId :: Lens.Lens' DescribeRegions Prelude.Text
+describeRegions_directoryId :: Lens.Lens' DescribeRegions Core.Text
 describeRegions_directoryId = Lens.lens (\DescribeRegions' {directoryId} -> directoryId) (\s@DescribeRegions' {} a -> s {directoryId = a} :: DescribeRegions)
 
-instance Prelude.AWSRequest DescribeRegions where
-  type Rs DescribeRegions = DescribeRegionsResponse
+instance Core.AWSRequest DescribeRegions where
+  type
+    AWSResponse DescribeRegions =
+      DescribeRegionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeRegionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "RegionsDescription"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "RegionsDescription"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRegions
+instance Core.Hashable DescribeRegions
 
-instance Prelude.NFData DescribeRegions
+instance Core.NFData DescribeRegions
 
-instance Prelude.ToHeaders DescribeRegions where
+instance Core.ToHeaders DescribeRegions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DescribeRegions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DescribeRegions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeRegions where
+instance Core.ToJSON DescribeRegions where
   toJSON DescribeRegions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RegionName" Prelude..=) Prelude.<$> regionName,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            Prelude.Just ("DirectoryId" Prelude..= directoryId)
+    Core.object
+      ( Core.catMaybes
+          [ ("RegionName" Core..=) Core.<$> regionName,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            Core.Just ("DirectoryId" Core..= directoryId)
           ]
       )
 
-instance Prelude.ToPath DescribeRegions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeRegions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeRegions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeRegions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
   { -- | If not null, more results are available. Pass this value for the
     -- @NextToken@ parameter in a subsequent call to DescribeRegions to
     -- retrieve the next set of items.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | List of Region information related to the directory for each replicated
     -- Region.
-    regionsDescription :: Prelude.Maybe [RegionDescription],
+    regionsDescription :: Core.Maybe [RegionDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRegionsResponse' with all optional fields omitted.
@@ -181,29 +180,28 @@ data DescribeRegionsResponse = DescribeRegionsResponse'
 -- 'httpStatus', 'describeRegionsResponse_httpStatus' - The response's http status code.
 newDescribeRegionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeRegionsResponse
 newDescribeRegionsResponse pHttpStatus_ =
   DescribeRegionsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      regionsDescription = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      regionsDescription = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to DescribeRegions to
 -- retrieve the next set of items.
-describeRegionsResponse_nextToken :: Lens.Lens' DescribeRegionsResponse (Prelude.Maybe Prelude.Text)
+describeRegionsResponse_nextToken :: Lens.Lens' DescribeRegionsResponse (Core.Maybe Core.Text)
 describeRegionsResponse_nextToken = Lens.lens (\DescribeRegionsResponse' {nextToken} -> nextToken) (\s@DescribeRegionsResponse' {} a -> s {nextToken = a} :: DescribeRegionsResponse)
 
 -- | List of Region information related to the directory for each replicated
 -- Region.
-describeRegionsResponse_regionsDescription :: Lens.Lens' DescribeRegionsResponse (Prelude.Maybe [RegionDescription])
-describeRegionsResponse_regionsDescription = Lens.lens (\DescribeRegionsResponse' {regionsDescription} -> regionsDescription) (\s@DescribeRegionsResponse' {} a -> s {regionsDescription = a} :: DescribeRegionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeRegionsResponse_regionsDescription :: Lens.Lens' DescribeRegionsResponse (Core.Maybe [RegionDescription])
+describeRegionsResponse_regionsDescription = Lens.lens (\DescribeRegionsResponse' {regionsDescription} -> regionsDescription) (\s@DescribeRegionsResponse' {} a -> s {regionsDescription = a} :: DescribeRegionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Prelude.Int
+describeRegionsResponse_httpStatus :: Lens.Lens' DescribeRegionsResponse Core.Int
 describeRegionsResponse_httpStatus = Lens.lens (\DescribeRegionsResponse' {httpStatus} -> httpStatus) (\s@DescribeRegionsResponse' {} a -> s {httpStatus = a} :: DescribeRegionsResponse)
 
-instance Prelude.NFData DescribeRegionsResponse
+instance Core.NFData DescribeRegionsResponse

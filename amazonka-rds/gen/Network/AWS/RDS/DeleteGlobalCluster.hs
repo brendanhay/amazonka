@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.RDS.DeleteGlobalCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteGlobalCluster' smart constructor.
 data DeleteGlobalCluster = DeleteGlobalCluster'
   { -- | The cluster identifier of the global database cluster being deleted.
-    globalClusterIdentifier :: Prelude.Text
+    globalClusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGlobalCluster' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteGlobalCluster = DeleteGlobalCluster'
 -- 'globalClusterIdentifier', 'deleteGlobalCluster_globalClusterIdentifier' - The cluster identifier of the global database cluster being deleted.
 newDeleteGlobalCluster ::
   -- | 'globalClusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteGlobalCluster
 newDeleteGlobalCluster pGlobalClusterIdentifier_ =
   DeleteGlobalCluster'
@@ -76,12 +75,12 @@ newDeleteGlobalCluster pGlobalClusterIdentifier_ =
     }
 
 -- | The cluster identifier of the global database cluster being deleted.
-deleteGlobalCluster_globalClusterIdentifier :: Lens.Lens' DeleteGlobalCluster Prelude.Text
+deleteGlobalCluster_globalClusterIdentifier :: Lens.Lens' DeleteGlobalCluster Core.Text
 deleteGlobalCluster_globalClusterIdentifier = Lens.lens (\DeleteGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@DeleteGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: DeleteGlobalCluster)
 
-instance Prelude.AWSRequest DeleteGlobalCluster where
+instance Core.AWSRequest DeleteGlobalCluster where
   type
-    Rs DeleteGlobalCluster =
+    AWSResponse DeleteGlobalCluster =
       DeleteGlobalClusterResponse
   request = Request.postQuery defaultService
   response =
@@ -89,38 +88,37 @@ instance Prelude.AWSRequest DeleteGlobalCluster where
       "DeleteGlobalClusterResult"
       ( \s h x ->
           DeleteGlobalClusterResponse'
-            Prelude.<$> (x Prelude..@? "GlobalCluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalCluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGlobalCluster
+instance Core.Hashable DeleteGlobalCluster
 
-instance Prelude.NFData DeleteGlobalCluster
+instance Core.NFData DeleteGlobalCluster
 
-instance Prelude.ToHeaders DeleteGlobalCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteGlobalCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteGlobalCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteGlobalCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteGlobalCluster where
+instance Core.ToQuery DeleteGlobalCluster where
   toQuery DeleteGlobalCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteGlobalCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("DeleteGlobalCluster" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "GlobalClusterIdentifier"
-          Prelude.=: globalClusterIdentifier
+          Core.=: globalClusterIdentifier
       ]
 
 -- | /See:/ 'newDeleteGlobalClusterResponse' smart constructor.
 data DeleteGlobalClusterResponse = DeleteGlobalClusterResponse'
-  { globalCluster :: Prelude.Maybe GlobalCluster,
+  { globalCluster :: Core.Maybe GlobalCluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGlobalClusterResponse' with all optional fields omitted.
@@ -135,21 +133,21 @@ data DeleteGlobalClusterResponse = DeleteGlobalClusterResponse'
 -- 'httpStatus', 'deleteGlobalClusterResponse_httpStatus' - The response's http status code.
 newDeleteGlobalClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteGlobalClusterResponse
 newDeleteGlobalClusterResponse pHttpStatus_ =
   DeleteGlobalClusterResponse'
     { globalCluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteGlobalClusterResponse_globalCluster :: Lens.Lens' DeleteGlobalClusterResponse (Prelude.Maybe GlobalCluster)
+deleteGlobalClusterResponse_globalCluster :: Lens.Lens' DeleteGlobalClusterResponse (Core.Maybe GlobalCluster)
 deleteGlobalClusterResponse_globalCluster = Lens.lens (\DeleteGlobalClusterResponse' {globalCluster} -> globalCluster) (\s@DeleteGlobalClusterResponse' {} a -> s {globalCluster = a} :: DeleteGlobalClusterResponse)
 
 -- | The response's http status code.
-deleteGlobalClusterResponse_httpStatus :: Lens.Lens' DeleteGlobalClusterResponse Prelude.Int
+deleteGlobalClusterResponse_httpStatus :: Lens.Lens' DeleteGlobalClusterResponse Core.Int
 deleteGlobalClusterResponse_httpStatus = Lens.lens (\DeleteGlobalClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteGlobalClusterResponse' {} a -> s {httpStatus = a} :: DeleteGlobalClusterResponse)
 
-instance Prelude.NFData DeleteGlobalClusterResponse
+instance Core.NFData DeleteGlobalClusterResponse

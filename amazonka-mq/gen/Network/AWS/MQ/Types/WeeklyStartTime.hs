@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types.WeeklyStartTime where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.DayOfWeek
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The scheduled time period relative to UTC during which Amazon MQ begins
 -- to apply pending updates or patches to the broker.
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newWeeklyStartTime' smart constructor.
 data WeeklyStartTime = WeeklyStartTime'
   { -- | Required. The day of the week.
-    dayOfWeek :: Prelude.Maybe DayOfWeek,
+    dayOfWeek :: Core.Maybe DayOfWeek,
     -- | Required. The time, in 24-hour format.
-    timeOfDay :: Prelude.Maybe Prelude.Text,
+    timeOfDay :: Core.Maybe Core.Text,
     -- | The time zone, UTC by default, in either the Country\/City format, or
     -- the UTC offset format.
-    timeZone :: Prelude.Maybe Prelude.Text
+    timeZone :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WeeklyStartTime' with all optional fields omitted.
@@ -57,45 +56,45 @@ newWeeklyStartTime ::
   WeeklyStartTime
 newWeeklyStartTime =
   WeeklyStartTime'
-    { dayOfWeek = Prelude.Nothing,
-      timeOfDay = Prelude.Nothing,
-      timeZone = Prelude.Nothing
+    { dayOfWeek = Core.Nothing,
+      timeOfDay = Core.Nothing,
+      timeZone = Core.Nothing
     }
 
 -- | Required. The day of the week.
-weeklyStartTime_dayOfWeek :: Lens.Lens' WeeklyStartTime (Prelude.Maybe DayOfWeek)
+weeklyStartTime_dayOfWeek :: Lens.Lens' WeeklyStartTime (Core.Maybe DayOfWeek)
 weeklyStartTime_dayOfWeek = Lens.lens (\WeeklyStartTime' {dayOfWeek} -> dayOfWeek) (\s@WeeklyStartTime' {} a -> s {dayOfWeek = a} :: WeeklyStartTime)
 
 -- | Required. The time, in 24-hour format.
-weeklyStartTime_timeOfDay :: Lens.Lens' WeeklyStartTime (Prelude.Maybe Prelude.Text)
+weeklyStartTime_timeOfDay :: Lens.Lens' WeeklyStartTime (Core.Maybe Core.Text)
 weeklyStartTime_timeOfDay = Lens.lens (\WeeklyStartTime' {timeOfDay} -> timeOfDay) (\s@WeeklyStartTime' {} a -> s {timeOfDay = a} :: WeeklyStartTime)
 
 -- | The time zone, UTC by default, in either the Country\/City format, or
 -- the UTC offset format.
-weeklyStartTime_timeZone :: Lens.Lens' WeeklyStartTime (Prelude.Maybe Prelude.Text)
+weeklyStartTime_timeZone :: Lens.Lens' WeeklyStartTime (Core.Maybe Core.Text)
 weeklyStartTime_timeZone = Lens.lens (\WeeklyStartTime' {timeZone} -> timeZone) (\s@WeeklyStartTime' {} a -> s {timeZone = a} :: WeeklyStartTime)
 
-instance Prelude.FromJSON WeeklyStartTime where
+instance Core.FromJSON WeeklyStartTime where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WeeklyStartTime"
       ( \x ->
           WeeklyStartTime'
-            Prelude.<$> (x Prelude..:? "dayOfWeek")
-            Prelude.<*> (x Prelude..:? "timeOfDay")
-            Prelude.<*> (x Prelude..:? "timeZone")
+            Core.<$> (x Core..:? "dayOfWeek")
+            Core.<*> (x Core..:? "timeOfDay")
+            Core.<*> (x Core..:? "timeZone")
       )
 
-instance Prelude.Hashable WeeklyStartTime
+instance Core.Hashable WeeklyStartTime
 
-instance Prelude.NFData WeeklyStartTime
+instance Core.NFData WeeklyStartTime
 
-instance Prelude.ToJSON WeeklyStartTime where
+instance Core.ToJSON WeeklyStartTime where
   toJSON WeeklyStartTime' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("dayOfWeek" Prelude..=) Prelude.<$> dayOfWeek,
-            ("timeOfDay" Prelude..=) Prelude.<$> timeOfDay,
-            ("timeZone" Prelude..=) Prelude.<$> timeZone
+    Core.object
+      ( Core.catMaybes
+          [ ("dayOfWeek" Core..=) Core.<$> dayOfWeek,
+            ("timeOfDay" Core..=) Core.<$> timeOfDay,
+            ("timeZone" Core..=) Core.<$> timeZone
           ]
       )

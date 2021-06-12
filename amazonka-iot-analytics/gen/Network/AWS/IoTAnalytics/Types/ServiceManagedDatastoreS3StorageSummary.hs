@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to store data store data in an S3 bucket managed by AWS IoT
 -- Analytics.
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ServiceManagedDatastoreS3StorageSummary = ServiceManagedDatastoreS3StorageSummary'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceManagedDatastoreS3StorageSummary' with all optional fields omitted.
@@ -42,21 +41,20 @@ newServiceManagedDatastoreS3StorageSummary =
   ServiceManagedDatastoreS3StorageSummary'
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ServiceManagedDatastoreS3StorageSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceManagedDatastoreS3StorageSummary"
       ( \x ->
-          Prelude.pure
-            ServiceManagedDatastoreS3StorageSummary'
+          Core.pure ServiceManagedDatastoreS3StorageSummary'
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ServiceManagedDatastoreS3StorageSummary
 
 instance
-  Prelude.NFData
+  Core.NFData
     ServiceManagedDatastoreS3StorageSummary

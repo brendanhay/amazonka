@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.RecordMarkerDecisionAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @RecordMarker@ decision.
 --
@@ -48,11 +47,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRecordMarkerDecisionAttributes' smart constructor.
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
   { -- | The details of the marker.
-    details :: Prelude.Maybe Prelude.Text,
+    details :: Core.Maybe Core.Text,
     -- | The name of the marker.
-    markerName :: Prelude.Text
+    markerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordMarkerDecisionAttributes' with all optional fields omitted.
@@ -67,39 +66,32 @@ data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
 -- 'markerName', 'recordMarkerDecisionAttributes_markerName' - The name of the marker.
 newRecordMarkerDecisionAttributes ::
   -- | 'markerName'
-  Prelude.Text ->
+  Core.Text ->
   RecordMarkerDecisionAttributes
 newRecordMarkerDecisionAttributes pMarkerName_ =
   RecordMarkerDecisionAttributes'
     { details =
-        Prelude.Nothing,
+        Core.Nothing,
       markerName = pMarkerName_
     }
 
 -- | The details of the marker.
-recordMarkerDecisionAttributes_details :: Lens.Lens' RecordMarkerDecisionAttributes (Prelude.Maybe Prelude.Text)
+recordMarkerDecisionAttributes_details :: Lens.Lens' RecordMarkerDecisionAttributes (Core.Maybe Core.Text)
 recordMarkerDecisionAttributes_details = Lens.lens (\RecordMarkerDecisionAttributes' {details} -> details) (\s@RecordMarkerDecisionAttributes' {} a -> s {details = a} :: RecordMarkerDecisionAttributes)
 
 -- | The name of the marker.
-recordMarkerDecisionAttributes_markerName :: Lens.Lens' RecordMarkerDecisionAttributes Prelude.Text
+recordMarkerDecisionAttributes_markerName :: Lens.Lens' RecordMarkerDecisionAttributes Core.Text
 recordMarkerDecisionAttributes_markerName = Lens.lens (\RecordMarkerDecisionAttributes' {markerName} -> markerName) (\s@RecordMarkerDecisionAttributes' {} a -> s {markerName = a} :: RecordMarkerDecisionAttributes)
 
-instance
-  Prelude.Hashable
-    RecordMarkerDecisionAttributes
+instance Core.Hashable RecordMarkerDecisionAttributes
 
-instance
-  Prelude.NFData
-    RecordMarkerDecisionAttributes
+instance Core.NFData RecordMarkerDecisionAttributes
 
-instance
-  Prelude.ToJSON
-    RecordMarkerDecisionAttributes
-  where
+instance Core.ToJSON RecordMarkerDecisionAttributes where
   toJSON RecordMarkerDecisionAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("details" Prelude..=) Prelude.<$> details,
-            Prelude.Just ("markerName" Prelude..= markerName)
+    Core.object
+      ( Core.catMaybes
+          [ ("details" Core..=) Core.<$> details,
+            Core.Just ("markerName" Core..= markerName)
           ]
       )

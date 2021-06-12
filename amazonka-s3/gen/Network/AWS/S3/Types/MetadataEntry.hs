@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.MetadataEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | A metadata key-value pair to store with an object.
@@ -29,11 +28,11 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newMetadataEntry' smart constructor.
 data MetadataEntry = MetadataEntry'
   { -- | Name of the Object.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Value of the Object.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetadataEntry' with all optional fields omitted.
@@ -50,23 +49,23 @@ newMetadataEntry ::
   MetadataEntry
 newMetadataEntry =
   MetadataEntry'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Name of the Object.
-metadataEntry_name :: Lens.Lens' MetadataEntry (Prelude.Maybe Prelude.Text)
+metadataEntry_name :: Lens.Lens' MetadataEntry (Core.Maybe Core.Text)
 metadataEntry_name = Lens.lens (\MetadataEntry' {name} -> name) (\s@MetadataEntry' {} a -> s {name = a} :: MetadataEntry)
 
 -- | Value of the Object.
-metadataEntry_value :: Lens.Lens' MetadataEntry (Prelude.Maybe Prelude.Text)
+metadataEntry_value :: Lens.Lens' MetadataEntry (Core.Maybe Core.Text)
 metadataEntry_value = Lens.lens (\MetadataEntry' {value} -> value) (\s@MetadataEntry' {} a -> s {value = a} :: MetadataEntry)
 
-instance Prelude.Hashable MetadataEntry
+instance Core.Hashable MetadataEntry
 
-instance Prelude.NFData MetadataEntry
+instance Core.NFData MetadataEntry
 
-instance Prelude.ToXML MetadataEntry where
+instance Core.ToXML MetadataEntry where
   toXML MetadataEntry' {..} =
-    Prelude.mconcat
-      ["Name" Prelude.@= name, "Value" Prelude.@= value]
+    Core.mconcat
+      ["Name" Core.@= name, "Value" Core.@= value]

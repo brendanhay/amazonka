@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,8 +65,8 @@ module Network.AWS.CertificateManagerPCA.DescribeCertificateAuthority
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,9 +77,9 @@ data DescribeCertificateAuthority = DescribeCertificateAuthority'
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-    certificateAuthorityArn :: Prelude.Text
+    certificateAuthorityArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificateAuthority' with all optional fields omitted.
@@ -97,7 +96,7 @@ data DescribeCertificateAuthority = DescribeCertificateAuthority'
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
 newDescribeCertificateAuthority ::
   -- | 'certificateAuthorityArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeCertificateAuthority
 newDescribeCertificateAuthority
   pCertificateAuthorityArn_ =
@@ -111,76 +110,66 @@ newDescribeCertificateAuthority
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-describeCertificateAuthority_certificateAuthorityArn :: Lens.Lens' DescribeCertificateAuthority Prelude.Text
+describeCertificateAuthority_certificateAuthorityArn :: Lens.Lens' DescribeCertificateAuthority Core.Text
 describeCertificateAuthority_certificateAuthorityArn = Lens.lens (\DescribeCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@DescribeCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: DescribeCertificateAuthority)
 
-instance
-  Prelude.AWSRequest
-    DescribeCertificateAuthority
-  where
+instance Core.AWSRequest DescribeCertificateAuthority where
   type
-    Rs DescribeCertificateAuthority =
+    AWSResponse DescribeCertificateAuthority =
       DescribeCertificateAuthorityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeCertificateAuthorityResponse'
-            Prelude.<$> (x Prelude..?> "CertificateAuthority")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CertificateAuthority")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeCertificateAuthority
+instance Core.Hashable DescribeCertificateAuthority
 
-instance Prelude.NFData DescribeCertificateAuthority
+instance Core.NFData DescribeCertificateAuthority
 
-instance
-  Prelude.ToHeaders
-    DescribeCertificateAuthority
-  where
+instance Core.ToHeaders DescribeCertificateAuthority where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ACMPrivateCA.DescribeCertificateAuthority" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ACMPrivateCA.DescribeCertificateAuthority" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeCertificateAuthority where
+instance Core.ToJSON DescribeCertificateAuthority where
   toJSON DescribeCertificateAuthority' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "CertificateAuthorityArn"
-                  Prelude..= certificateAuthorityArn
+                  Core..= certificateAuthorityArn
               )
           ]
       )
 
-instance Prelude.ToPath DescribeCertificateAuthority where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCertificateAuthority where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCertificateAuthority where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeCertificateAuthority where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeCertificateAuthorityResponse' smart constructor.
 data DescribeCertificateAuthorityResponse = DescribeCertificateAuthorityResponse'
   { -- | A
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
     -- structure that contains information about your private CA.
-    certificateAuthority :: Prelude.Maybe CertificateAuthority,
+    certificateAuthority :: Core.Maybe CertificateAuthority,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificateAuthorityResponse' with all optional fields omitted.
@@ -197,25 +186,25 @@ data DescribeCertificateAuthorityResponse = DescribeCertificateAuthorityResponse
 -- 'httpStatus', 'describeCertificateAuthorityResponse_httpStatus' - The response's http status code.
 newDescribeCertificateAuthorityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCertificateAuthorityResponse
 newDescribeCertificateAuthorityResponse pHttpStatus_ =
   DescribeCertificateAuthorityResponse'
     { certificateAuthority =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html CertificateAuthority>
 -- structure that contains information about your private CA.
-describeCertificateAuthorityResponse_certificateAuthority :: Lens.Lens' DescribeCertificateAuthorityResponse (Prelude.Maybe CertificateAuthority)
+describeCertificateAuthorityResponse_certificateAuthority :: Lens.Lens' DescribeCertificateAuthorityResponse (Core.Maybe CertificateAuthority)
 describeCertificateAuthorityResponse_certificateAuthority = Lens.lens (\DescribeCertificateAuthorityResponse' {certificateAuthority} -> certificateAuthority) (\s@DescribeCertificateAuthorityResponse' {} a -> s {certificateAuthority = a} :: DescribeCertificateAuthorityResponse)
 
 -- | The response's http status code.
-describeCertificateAuthorityResponse_httpStatus :: Lens.Lens' DescribeCertificateAuthorityResponse Prelude.Int
+describeCertificateAuthorityResponse_httpStatus :: Lens.Lens' DescribeCertificateAuthorityResponse Core.Int
 describeCertificateAuthorityResponse_httpStatus = Lens.lens (\DescribeCertificateAuthorityResponse' {httpStatus} -> httpStatus) (\s@DescribeCertificateAuthorityResponse' {} a -> s {httpStatus = a} :: DescribeCertificateAuthorityResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeCertificateAuthorityResponse

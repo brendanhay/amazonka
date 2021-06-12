@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TransformJobStepMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for a transform job step.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data TransformJobStepMetadata = TransformJobStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the transform job that was run by this
     -- step execution.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformJobStepMetadata' with all optional fields omitted.
@@ -46,22 +45,22 @@ data TransformJobStepMetadata = TransformJobStepMetadata'
 newTransformJobStepMetadata ::
   TransformJobStepMetadata
 newTransformJobStepMetadata =
-  TransformJobStepMetadata' {arn = Prelude.Nothing}
+  TransformJobStepMetadata' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the transform job that was run by this
 -- step execution.
-transformJobStepMetadata_arn :: Lens.Lens' TransformJobStepMetadata (Prelude.Maybe Prelude.Text)
+transformJobStepMetadata_arn :: Lens.Lens' TransformJobStepMetadata (Core.Maybe Core.Text)
 transformJobStepMetadata_arn = Lens.lens (\TransformJobStepMetadata' {arn} -> arn) (\s@TransformJobStepMetadata' {} a -> s {arn = a} :: TransformJobStepMetadata)
 
-instance Prelude.FromJSON TransformJobStepMetadata where
+instance Core.FromJSON TransformJobStepMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TransformJobStepMetadata"
       ( \x ->
           TransformJobStepMetadata'
-            Prelude.<$> (x Prelude..:? "Arn")
+            Core.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable TransformJobStepMetadata
+instance Core.Hashable TransformJobStepMetadata
 
-instance Prelude.NFData TransformJobStepMetadata
+instance Core.NFData TransformJobStepMetadata

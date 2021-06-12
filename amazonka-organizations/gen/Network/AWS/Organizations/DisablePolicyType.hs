@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,9 @@ module Network.AWS.Organizations.DisablePolicyType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,7 +72,7 @@ data DisablePolicyType = DisablePolicyType'
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string
     -- requires \"r-\" followed by from 4 to 32 lowercase letters or digits.
-    rootId :: Prelude.Text,
+    rootId :: Core.Text,
     -- | The policy type that you want to disable in this root. You can specify
     -- one of the following values:
     --
@@ -86,7 +85,7 @@ data DisablePolicyType = DisablePolicyType'
     -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
     policyType :: PolicyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisablePolicyType' with all optional fields omitted.
@@ -114,7 +113,7 @@ data DisablePolicyType = DisablePolicyType'
 -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
 newDisablePolicyType ::
   -- | 'rootId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyType'
   PolicyType ->
   DisablePolicyType
@@ -129,7 +128,7 @@ newDisablePolicyType pRootId_ pPolicyType_ =
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string
 -- requires \"r-\" followed by from 4 to 32 lowercase letters or digits.
-disablePolicyType_rootId :: Lens.Lens' DisablePolicyType Prelude.Text
+disablePolicyType_rootId :: Lens.Lens' DisablePolicyType Core.Text
 disablePolicyType_rootId = Lens.lens (\DisablePolicyType' {rootId} -> rootId) (\s@DisablePolicyType' {} a -> s {rootId = a} :: DisablePolicyType)
 
 -- | The policy type that you want to disable in this root. You can specify
@@ -145,60 +144,60 @@ disablePolicyType_rootId = Lens.lens (\DisablePolicyType' {rootId} -> rootId) (\
 disablePolicyType_policyType :: Lens.Lens' DisablePolicyType PolicyType
 disablePolicyType_policyType = Lens.lens (\DisablePolicyType' {policyType} -> policyType) (\s@DisablePolicyType' {} a -> s {policyType = a} :: DisablePolicyType)
 
-instance Prelude.AWSRequest DisablePolicyType where
-  type Rs DisablePolicyType = DisablePolicyTypeResponse
+instance Core.AWSRequest DisablePolicyType where
+  type
+    AWSResponse DisablePolicyType =
+      DisablePolicyTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DisablePolicyTypeResponse'
-            Prelude.<$> (x Prelude..?> "Root")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Root")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisablePolicyType
+instance Core.Hashable DisablePolicyType
 
-instance Prelude.NFData DisablePolicyType
+instance Core.NFData DisablePolicyType
 
-instance Prelude.ToHeaders DisablePolicyType where
+instance Core.ToHeaders DisablePolicyType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DisablePolicyType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DisablePolicyType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisablePolicyType where
+instance Core.ToJSON DisablePolicyType where
   toJSON DisablePolicyType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("RootId" Prelude..= rootId),
-            Prelude.Just ("PolicyType" Prelude..= policyType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RootId" Core..= rootId),
+            Core.Just ("PolicyType" Core..= policyType)
           ]
       )
 
-instance Prelude.ToPath DisablePolicyType where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisablePolicyType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisablePolicyType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisablePolicyType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisablePolicyTypeResponse' smart constructor.
 data DisablePolicyTypeResponse = DisablePolicyTypeResponse'
   { -- | A structure that shows the root with the updated list of enabled policy
     -- types.
-    root :: Prelude.Maybe Root,
+    root :: Core.Maybe Root,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisablePolicyTypeResponse' with all optional fields omitted.
@@ -214,21 +213,21 @@ data DisablePolicyTypeResponse = DisablePolicyTypeResponse'
 -- 'httpStatus', 'disablePolicyTypeResponse_httpStatus' - The response's http status code.
 newDisablePolicyTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisablePolicyTypeResponse
 newDisablePolicyTypeResponse pHttpStatus_ =
   DisablePolicyTypeResponse'
-    { root = Prelude.Nothing,
+    { root = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that shows the root with the updated list of enabled policy
 -- types.
-disablePolicyTypeResponse_root :: Lens.Lens' DisablePolicyTypeResponse (Prelude.Maybe Root)
+disablePolicyTypeResponse_root :: Lens.Lens' DisablePolicyTypeResponse (Core.Maybe Root)
 disablePolicyTypeResponse_root = Lens.lens (\DisablePolicyTypeResponse' {root} -> root) (\s@DisablePolicyTypeResponse' {} a -> s {root = a} :: DisablePolicyTypeResponse)
 
 -- | The response's http status code.
-disablePolicyTypeResponse_httpStatus :: Lens.Lens' DisablePolicyTypeResponse Prelude.Int
+disablePolicyTypeResponse_httpStatus :: Lens.Lens' DisablePolicyTypeResponse Core.Int
 disablePolicyTypeResponse_httpStatus = Lens.lens (\DisablePolicyTypeResponse' {httpStatus} -> httpStatus) (\s@DisablePolicyTypeResponse' {} a -> s {httpStatus = a} :: DisablePolicyTypeResponse)
 
-instance Prelude.NFData DisablePolicyTypeResponse
+instance Core.NFData DisablePolicyTypeResponse

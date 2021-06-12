@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.AvailabilityZone where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Availability Zone.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data AvailabilityZone = AvailabilityZone'
   { -- | The name of the Availability Zone. The format is @us-east-2a@
     -- (case-sensitive).
-    zoneName :: Prelude.Maybe Prelude.Text,
+    zoneName :: Core.Maybe Core.Text,
     -- | The state of the Availability Zone.
-    state :: Prelude.Maybe Prelude.Text
+    state :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailabilityZone' with all optional fields omitted.
@@ -51,29 +50,29 @@ newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
   AvailabilityZone'
-    { zoneName = Prelude.Nothing,
-      state = Prelude.Nothing
+    { zoneName = Core.Nothing,
+      state = Core.Nothing
     }
 
 -- | The name of the Availability Zone. The format is @us-east-2a@
 -- (case-sensitive).
-availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
 availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName) (\s@AvailabilityZone' {} a -> s {zoneName = a} :: AvailabilityZone)
 
 -- | The state of the Availability Zone.
-availabilityZone_state :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_state :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
 availabilityZone_state = Lens.lens (\AvailabilityZone' {state} -> state) (\s@AvailabilityZone' {} a -> s {state = a} :: AvailabilityZone)
 
-instance Prelude.FromJSON AvailabilityZone where
+instance Core.FromJSON AvailabilityZone where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AvailabilityZone"
       ( \x ->
           AvailabilityZone'
-            Prelude.<$> (x Prelude..:? "zoneName")
-            Prelude.<*> (x Prelude..:? "state")
+            Core.<$> (x Core..:? "zoneName")
+            Core.<*> (x Core..:? "state")
       )
 
-instance Prelude.Hashable AvailabilityZone
+instance Core.Hashable AvailabilityZone
 
-instance Prelude.NFData AvailabilityZone
+instance Core.NFData AvailabilityZone

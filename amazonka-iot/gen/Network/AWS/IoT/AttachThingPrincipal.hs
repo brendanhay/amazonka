@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IoT.AttachThingPrincipal
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAttachThingPrincipal' smart constructor.
 data AttachThingPrincipal = AttachThingPrincipal'
   { -- | The name of the thing.
-    thingName :: Prelude.Text,
+    thingName :: Core.Text,
     -- | The principal, which can be a certificate ARN (as returned from the
     -- CreateCertificate operation) or an Amazon Cognito ID.
-    principal :: Prelude.Text
+    principal :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachThingPrincipal' with all optional fields omitted.
@@ -74,9 +73,9 @@ data AttachThingPrincipal = AttachThingPrincipal'
 -- CreateCertificate operation) or an Amazon Cognito ID.
 newAttachThingPrincipal ::
   -- | 'thingName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'principal'
-  Prelude.Text ->
+  Core.Text ->
   AttachThingPrincipal
 newAttachThingPrincipal pThingName_ pPrincipal_ =
   AttachThingPrincipal'
@@ -85,55 +84,53 @@ newAttachThingPrincipal pThingName_ pPrincipal_ =
     }
 
 -- | The name of the thing.
-attachThingPrincipal_thingName :: Lens.Lens' AttachThingPrincipal Prelude.Text
+attachThingPrincipal_thingName :: Lens.Lens' AttachThingPrincipal Core.Text
 attachThingPrincipal_thingName = Lens.lens (\AttachThingPrincipal' {thingName} -> thingName) (\s@AttachThingPrincipal' {} a -> s {thingName = a} :: AttachThingPrincipal)
 
 -- | The principal, which can be a certificate ARN (as returned from the
 -- CreateCertificate operation) or an Amazon Cognito ID.
-attachThingPrincipal_principal :: Lens.Lens' AttachThingPrincipal Prelude.Text
+attachThingPrincipal_principal :: Lens.Lens' AttachThingPrincipal Core.Text
 attachThingPrincipal_principal = Lens.lens (\AttachThingPrincipal' {principal} -> principal) (\s@AttachThingPrincipal' {} a -> s {principal = a} :: AttachThingPrincipal)
 
-instance Prelude.AWSRequest AttachThingPrincipal where
+instance Core.AWSRequest AttachThingPrincipal where
   type
-    Rs AttachThingPrincipal =
+    AWSResponse AttachThingPrincipal =
       AttachThingPrincipalResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AttachThingPrincipalResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AttachThingPrincipal
+instance Core.Hashable AttachThingPrincipal
 
-instance Prelude.NFData AttachThingPrincipal
+instance Core.NFData AttachThingPrincipal
 
-instance Prelude.ToHeaders AttachThingPrincipal where
+instance Core.ToHeaders AttachThingPrincipal where
   toHeaders AttachThingPrincipal' {..} =
-    Prelude.mconcat
-      ["x-amzn-principal" Prelude.=# principal]
+    Core.mconcat ["x-amzn-principal" Core.=# principal]
 
-instance Prelude.ToJSON AttachThingPrincipal where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON AttachThingPrincipal where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath AttachThingPrincipal where
+instance Core.ToPath AttachThingPrincipal where
   toPath AttachThingPrincipal' {..} =
-    Prelude.mconcat
-      ["/things/", Prelude.toBS thingName, "/principals"]
+    Core.mconcat
+      ["/things/", Core.toBS thingName, "/principals"]
 
-instance Prelude.ToQuery AttachThingPrincipal where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AttachThingPrincipal where
+  toQuery = Core.const Core.mempty
 
 -- | The output from the AttachThingPrincipal operation.
 --
 -- /See:/ 'newAttachThingPrincipalResponse' smart constructor.
 data AttachThingPrincipalResponse = AttachThingPrincipalResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachThingPrincipalResponse' with all optional fields omitted.
@@ -146,7 +143,7 @@ data AttachThingPrincipalResponse = AttachThingPrincipalResponse'
 -- 'httpStatus', 'attachThingPrincipalResponse_httpStatus' - The response's http status code.
 newAttachThingPrincipalResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachThingPrincipalResponse
 newAttachThingPrincipalResponse pHttpStatus_ =
   AttachThingPrincipalResponse'
@@ -155,7 +152,7 @@ newAttachThingPrincipalResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-attachThingPrincipalResponse_httpStatus :: Lens.Lens' AttachThingPrincipalResponse Prelude.Int
+attachThingPrincipalResponse_httpStatus :: Lens.Lens' AttachThingPrincipalResponse Core.Int
 attachThingPrincipalResponse_httpStatus = Lens.lens (\AttachThingPrincipalResponse' {httpStatus} -> httpStatus) (\s@AttachThingPrincipalResponse' {} a -> s {httpStatus = a} :: AttachThingPrincipalResponse)
 
-instance Prelude.NFData AttachThingPrincipalResponse
+instance Core.NFData AttachThingPrincipalResponse

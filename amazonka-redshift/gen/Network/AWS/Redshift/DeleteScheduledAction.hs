@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Redshift.DeleteScheduledAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -45,9 +44,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteScheduledAction' smart constructor.
 data DeleteScheduledAction = DeleteScheduledAction'
   { -- | The name of the scheduled action to delete.
-    scheduledActionName :: Prelude.Text
+    scheduledActionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledAction' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteScheduledAction = DeleteScheduledAction'
 -- 'scheduledActionName', 'deleteScheduledAction_scheduledActionName' - The name of the scheduled action to delete.
 newDeleteScheduledAction ::
   -- | 'scheduledActionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteScheduledAction
 newDeleteScheduledAction pScheduledActionName_ =
   DeleteScheduledAction'
@@ -69,42 +68,41 @@ newDeleteScheduledAction pScheduledActionName_ =
     }
 
 -- | The name of the scheduled action to delete.
-deleteScheduledAction_scheduledActionName :: Lens.Lens' DeleteScheduledAction Prelude.Text
+deleteScheduledAction_scheduledActionName :: Lens.Lens' DeleteScheduledAction Core.Text
 deleteScheduledAction_scheduledActionName = Lens.lens (\DeleteScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@DeleteScheduledAction' {} a -> s {scheduledActionName = a} :: DeleteScheduledAction)
 
-instance Prelude.AWSRequest DeleteScheduledAction where
+instance Core.AWSRequest DeleteScheduledAction where
   type
-    Rs DeleteScheduledAction =
+    AWSResponse DeleteScheduledAction =
       DeleteScheduledActionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteScheduledActionResponse'
 
-instance Prelude.Hashable DeleteScheduledAction
+instance Core.Hashable DeleteScheduledAction
 
-instance Prelude.NFData DeleteScheduledAction
+instance Core.NFData DeleteScheduledAction
 
-instance Prelude.ToHeaders DeleteScheduledAction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteScheduledAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteScheduledAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteScheduledAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteScheduledAction where
+instance Core.ToQuery DeleteScheduledAction where
   toQuery DeleteScheduledAction' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteScheduledAction" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ScheduledActionName" Prelude.=: scheduledActionName
+          Core.=: ("DeleteScheduledAction" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ScheduledActionName" Core.=: scheduledActionName
       ]
 
 -- | /See:/ 'newDeleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledActionResponse' with all optional fields omitted.
@@ -115,4 +113,4 @@ newDeleteScheduledActionResponse ::
 newDeleteScheduledActionResponse =
   DeleteScheduledActionResponse'
 
-instance Prelude.NFData DeleteScheduledActionResponse
+instance Core.NFData DeleteScheduledActionResponse

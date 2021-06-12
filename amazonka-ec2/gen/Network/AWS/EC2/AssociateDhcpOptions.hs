@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.EC2.AssociateDhcpOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,14 +61,14 @@ data AssociateDhcpOptions = AssociateDhcpOptions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the DHCP options set, or @default@ to associate no DHCP
     -- options with the VPC.
-    dhcpOptionsId :: Prelude.Text,
+    dhcpOptionsId :: Core.Text,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text
+    vpcId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDhcpOptions' with all optional fields omitted.
@@ -90,13 +89,13 @@ data AssociateDhcpOptions = AssociateDhcpOptions'
 -- 'vpcId', 'associateDhcpOptions_vpcId' - The ID of the VPC.
 newAssociateDhcpOptions ::
   -- | 'dhcpOptionsId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   AssociateDhcpOptions
 newAssociateDhcpOptions pDhcpOptionsId_ pVpcId_ =
   AssociateDhcpOptions'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       dhcpOptionsId = pDhcpOptionsId_,
       vpcId = pVpcId_
     }
@@ -105,53 +104,52 @@ newAssociateDhcpOptions pDhcpOptionsId_ pVpcId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-associateDhcpOptions_dryRun :: Lens.Lens' AssociateDhcpOptions (Prelude.Maybe Prelude.Bool)
+associateDhcpOptions_dryRun :: Lens.Lens' AssociateDhcpOptions (Core.Maybe Core.Bool)
 associateDhcpOptions_dryRun = Lens.lens (\AssociateDhcpOptions' {dryRun} -> dryRun) (\s@AssociateDhcpOptions' {} a -> s {dryRun = a} :: AssociateDhcpOptions)
 
 -- | The ID of the DHCP options set, or @default@ to associate no DHCP
 -- options with the VPC.
-associateDhcpOptions_dhcpOptionsId :: Lens.Lens' AssociateDhcpOptions Prelude.Text
+associateDhcpOptions_dhcpOptionsId :: Lens.Lens' AssociateDhcpOptions Core.Text
 associateDhcpOptions_dhcpOptionsId = Lens.lens (\AssociateDhcpOptions' {dhcpOptionsId} -> dhcpOptionsId) (\s@AssociateDhcpOptions' {} a -> s {dhcpOptionsId = a} :: AssociateDhcpOptions)
 
 -- | The ID of the VPC.
-associateDhcpOptions_vpcId :: Lens.Lens' AssociateDhcpOptions Prelude.Text
+associateDhcpOptions_vpcId :: Lens.Lens' AssociateDhcpOptions Core.Text
 associateDhcpOptions_vpcId = Lens.lens (\AssociateDhcpOptions' {vpcId} -> vpcId) (\s@AssociateDhcpOptions' {} a -> s {vpcId = a} :: AssociateDhcpOptions)
 
-instance Prelude.AWSRequest AssociateDhcpOptions where
+instance Core.AWSRequest AssociateDhcpOptions where
   type
-    Rs AssociateDhcpOptions =
+    AWSResponse AssociateDhcpOptions =
       AssociateDhcpOptionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AssociateDhcpOptionsResponse'
 
-instance Prelude.Hashable AssociateDhcpOptions
+instance Core.Hashable AssociateDhcpOptions
 
-instance Prelude.NFData AssociateDhcpOptions
+instance Core.NFData AssociateDhcpOptions
 
-instance Prelude.ToHeaders AssociateDhcpOptions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AssociateDhcpOptions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AssociateDhcpOptions where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateDhcpOptions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateDhcpOptions where
+instance Core.ToQuery AssociateDhcpOptions where
   toQuery AssociateDhcpOptions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AssociateDhcpOptions" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "DhcpOptionsId" Prelude.=: dhcpOptionsId,
-        "VpcId" Prelude.=: vpcId
+          Core.=: ("AssociateDhcpOptions" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "DhcpOptionsId" Core.=: dhcpOptionsId,
+        "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newAssociateDhcpOptionsResponse' smart constructor.
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDhcpOptionsResponse' with all optional fields omitted.
@@ -162,4 +160,4 @@ newAssociateDhcpOptionsResponse ::
 newAssociateDhcpOptionsResponse =
   AssociateDhcpOptionsResponse'
 
-instance Prelude.NFData AssociateDhcpOptionsResponse
+instance Core.NFData AssociateDhcpOptionsResponse

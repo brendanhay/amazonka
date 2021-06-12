@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,9 +56,9 @@ module Network.AWS.EC2.CreateImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,34 +78,34 @@ data CreateImage = CreateImage'
     --
     -- To tag an AMI or snapshot after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The block device mappings. This parameter cannot be used to modify the
     -- encryption status of existing volumes or snapshots. To create an AMI
     -- with encrypted snapshots, use the CopyImage action.
-    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Core.Maybe [BlockDeviceMapping],
     -- | A description for the new image.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | By default, Amazon EC2 attempts to shut down and reboot the instance
     -- before creating the image. If the @No Reboot@ option is set, Amazon EC2
     -- doesn\'t shut down the instance before creating the image. When this
     -- option is used, file system integrity on the created image can\'t be
     -- guaranteed.
-    noReboot :: Prelude.Maybe Prelude.Bool,
+    noReboot :: Core.Maybe Core.Bool,
     -- | The ID of the instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | A name for the new image.
     --
     -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
     -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
     -- quotes (\'), at-signs (\@), or underscores(_)
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateImage' with all optional fields omitted.
@@ -157,17 +156,17 @@ data CreateImage = CreateImage'
 -- quotes (\'), at-signs (\@), or underscores(_)
 newCreateImage ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateImage
 newCreateImage pInstanceId_ pName_ =
   CreateImage'
-    { tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      blockDeviceMappings = Prelude.Nothing,
-      description = Prelude.Nothing,
-      noReboot = Prelude.Nothing,
+    { tagSpecifications = Core.Nothing,
+      dryRun = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      description = Core.Nothing,
+      noReboot = Core.Nothing,
       instanceId = pInstanceId_,
       name = pName_
     }
@@ -186,24 +185,24 @@ newCreateImage pInstanceId_ pName_ =
 --
 -- To tag an AMI or snapshot after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-createImage_tagSpecifications :: Lens.Lens' CreateImage (Prelude.Maybe [TagSpecification])
-createImage_tagSpecifications = Lens.lens (\CreateImage' {tagSpecifications} -> tagSpecifications) (\s@CreateImage' {} a -> s {tagSpecifications = a} :: CreateImage) Prelude.. Lens.mapping Prelude._Coerce
+createImage_tagSpecifications :: Lens.Lens' CreateImage (Core.Maybe [TagSpecification])
+createImage_tagSpecifications = Lens.lens (\CreateImage' {tagSpecifications} -> tagSpecifications) (\s@CreateImage' {} a -> s {tagSpecifications = a} :: CreateImage) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createImage_dryRun :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
+createImage_dryRun :: Lens.Lens' CreateImage (Core.Maybe Core.Bool)
 createImage_dryRun = Lens.lens (\CreateImage' {dryRun} -> dryRun) (\s@CreateImage' {} a -> s {dryRun = a} :: CreateImage)
 
 -- | The block device mappings. This parameter cannot be used to modify the
 -- encryption status of existing volumes or snapshots. To create an AMI
 -- with encrypted snapshots, use the CopyImage action.
-createImage_blockDeviceMappings :: Lens.Lens' CreateImage (Prelude.Maybe [BlockDeviceMapping])
-createImage_blockDeviceMappings = Lens.lens (\CreateImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateImage' {} a -> s {blockDeviceMappings = a} :: CreateImage) Prelude.. Lens.mapping Prelude._Coerce
+createImage_blockDeviceMappings :: Lens.Lens' CreateImage (Core.Maybe [BlockDeviceMapping])
+createImage_blockDeviceMappings = Lens.lens (\CreateImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@CreateImage' {} a -> s {blockDeviceMappings = a} :: CreateImage) Core.. Lens.mapping Lens._Coerce
 
 -- | A description for the new image.
-createImage_description :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
+createImage_description :: Lens.Lens' CreateImage (Core.Maybe Core.Text)
 createImage_description = Lens.lens (\CreateImage' {description} -> description) (\s@CreateImage' {} a -> s {description = a} :: CreateImage)
 
 -- | By default, Amazon EC2 attempts to shut down and reboot the instance
@@ -211,11 +210,11 @@ createImage_description = Lens.lens (\CreateImage' {description} -> description)
 -- doesn\'t shut down the instance before creating the image. When this
 -- option is used, file system integrity on the created image can\'t be
 -- guaranteed.
-createImage_noReboot :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Bool)
+createImage_noReboot :: Lens.Lens' CreateImage (Core.Maybe Core.Bool)
 createImage_noReboot = Lens.lens (\CreateImage' {noReboot} -> noReboot) (\s@CreateImage' {} a -> s {noReboot = a} :: CreateImage)
 
 -- | The ID of the instance.
-createImage_instanceId :: Lens.Lens' CreateImage Prelude.Text
+createImage_instanceId :: Lens.Lens' CreateImage Core.Text
 createImage_instanceId = Lens.lens (\CreateImage' {instanceId} -> instanceId) (\s@CreateImage' {} a -> s {instanceId = a} :: CreateImage)
 
 -- | A name for the new image.
@@ -223,60 +222,58 @@ createImage_instanceId = Lens.lens (\CreateImage' {instanceId} -> instanceId) (\
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
 -- quotes (\'), at-signs (\@), or underscores(_)
-createImage_name :: Lens.Lens' CreateImage Prelude.Text
+createImage_name :: Lens.Lens' CreateImage Core.Text
 createImage_name = Lens.lens (\CreateImage' {name} -> name) (\s@CreateImage' {} a -> s {name = a} :: CreateImage)
 
-instance Prelude.AWSRequest CreateImage where
-  type Rs CreateImage = CreateImageResponse
+instance Core.AWSRequest CreateImage where
+  type AWSResponse CreateImage = CreateImageResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateImageResponse'
-            Prelude.<$> (x Prelude..@? "imageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "imageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImage
+instance Core.Hashable CreateImage
 
-instance Prelude.NFData CreateImage
+instance Core.NFData CreateImage
 
-instance Prelude.ToHeaders CreateImage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateImage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateImage where
+instance Core.ToQuery CreateImage where
   toQuery CreateImage' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("CreateImage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+    Core.mconcat
+      [ "Action" Core.=: ("CreateImage" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "BlockDeviceMapping"
-              Prelude.<$> blockDeviceMappings
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "BlockDeviceMapping"
+              Core.<$> blockDeviceMappings
           ),
-        "Description" Prelude.=: description,
-        "NoReboot" Prelude.=: noReboot,
-        "InstanceId" Prelude.=: instanceId,
-        "Name" Prelude.=: name
+        "Description" Core.=: description,
+        "NoReboot" Core.=: noReboot,
+        "InstanceId" Core.=: instanceId,
+        "Name" Core.=: name
       ]
 
 -- | /See:/ 'newCreateImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
   { -- | The ID of the new AMI.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateImageResponse' with all optional fields omitted.
@@ -291,20 +288,20 @@ data CreateImageResponse = CreateImageResponse'
 -- 'httpStatus', 'createImageResponse_httpStatus' - The response's http status code.
 newCreateImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateImageResponse
 newCreateImageResponse pHttpStatus_ =
   CreateImageResponse'
-    { imageId = Prelude.Nothing,
+    { imageId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the new AMI.
-createImageResponse_imageId :: Lens.Lens' CreateImageResponse (Prelude.Maybe Prelude.Text)
+createImageResponse_imageId :: Lens.Lens' CreateImageResponse (Core.Maybe Core.Text)
 createImageResponse_imageId = Lens.lens (\CreateImageResponse' {imageId} -> imageId) (\s@CreateImageResponse' {} a -> s {imageId = a} :: CreateImageResponse)
 
 -- | The response's http status code.
-createImageResponse_httpStatus :: Lens.Lens' CreateImageResponse Prelude.Int
+createImageResponse_httpStatus :: Lens.Lens' CreateImageResponse Core.Int
 createImageResponse_httpStatus = Lens.lens (\CreateImageResponse' {httpStatus} -> httpStatus) (\s@CreateImageResponse' {} a -> s {httpStatus = a} :: CreateImageResponse)
 
-instance Prelude.NFData CreateImageResponse
+instance Core.NFData CreateImageResponse

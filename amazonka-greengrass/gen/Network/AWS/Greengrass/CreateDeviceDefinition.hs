@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,24 +50,24 @@ module Network.AWS.Greengrass.CreateDeviceDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDeviceDefinition' smart constructor.
 data CreateDeviceDefinition = CreateDeviceDefinition'
   { -- | The name of the device definition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Information about the initial version of the device definition.
-    initialVersion :: Prelude.Maybe DeviceDefinitionVersion,
+    initialVersion :: Core.Maybe DeviceDefinitionVersion,
     -- | Tag(s) to add to the new resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A client token used to correlate requests and responses.
-    amznClientToken :: Prelude.Maybe Prelude.Text
+    amznClientToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDeviceDefinition' with all optional fields omitted.
@@ -89,99 +88,97 @@ newCreateDeviceDefinition ::
   CreateDeviceDefinition
 newCreateDeviceDefinition =
   CreateDeviceDefinition'
-    { name = Prelude.Nothing,
-      initialVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      amznClientToken = Prelude.Nothing
+    { name = Core.Nothing,
+      initialVersion = Core.Nothing,
+      tags = Core.Nothing,
+      amznClientToken = Core.Nothing
     }
 
 -- | The name of the device definition.
-createDeviceDefinition_name :: Lens.Lens' CreateDeviceDefinition (Prelude.Maybe Prelude.Text)
+createDeviceDefinition_name :: Lens.Lens' CreateDeviceDefinition (Core.Maybe Core.Text)
 createDeviceDefinition_name = Lens.lens (\CreateDeviceDefinition' {name} -> name) (\s@CreateDeviceDefinition' {} a -> s {name = a} :: CreateDeviceDefinition)
 
 -- | Information about the initial version of the device definition.
-createDeviceDefinition_initialVersion :: Lens.Lens' CreateDeviceDefinition (Prelude.Maybe DeviceDefinitionVersion)
+createDeviceDefinition_initialVersion :: Lens.Lens' CreateDeviceDefinition (Core.Maybe DeviceDefinitionVersion)
 createDeviceDefinition_initialVersion = Lens.lens (\CreateDeviceDefinition' {initialVersion} -> initialVersion) (\s@CreateDeviceDefinition' {} a -> s {initialVersion = a} :: CreateDeviceDefinition)
 
 -- | Tag(s) to add to the new resource.
-createDeviceDefinition_tags :: Lens.Lens' CreateDeviceDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createDeviceDefinition_tags = Lens.lens (\CreateDeviceDefinition' {tags} -> tags) (\s@CreateDeviceDefinition' {} a -> s {tags = a} :: CreateDeviceDefinition) Prelude.. Lens.mapping Prelude._Coerce
+createDeviceDefinition_tags :: Lens.Lens' CreateDeviceDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createDeviceDefinition_tags = Lens.lens (\CreateDeviceDefinition' {tags} -> tags) (\s@CreateDeviceDefinition' {} a -> s {tags = a} :: CreateDeviceDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | A client token used to correlate requests and responses.
-createDeviceDefinition_amznClientToken :: Lens.Lens' CreateDeviceDefinition (Prelude.Maybe Prelude.Text)
+createDeviceDefinition_amznClientToken :: Lens.Lens' CreateDeviceDefinition (Core.Maybe Core.Text)
 createDeviceDefinition_amznClientToken = Lens.lens (\CreateDeviceDefinition' {amznClientToken} -> amznClientToken) (\s@CreateDeviceDefinition' {} a -> s {amznClientToken = a} :: CreateDeviceDefinition)
 
-instance Prelude.AWSRequest CreateDeviceDefinition where
+instance Core.AWSRequest CreateDeviceDefinition where
   type
-    Rs CreateDeviceDefinition =
+    AWSResponse CreateDeviceDefinition =
       CreateDeviceDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDeviceDefinitionResponse'
-            Prelude.<$> (x Prelude..?> "CreationTimestamp")
-            Prelude.<*> (x Prelude..?> "LatestVersionArn")
-            Prelude.<*> (x Prelude..?> "LatestVersion")
-            Prelude.<*> (x Prelude..?> "Arn")
-            Prelude.<*> (x Prelude..?> "Id")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "LastUpdatedTimestamp")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreationTimestamp")
+            Core.<*> (x Core..?> "LatestVersionArn")
+            Core.<*> (x Core..?> "LatestVersion")
+            Core.<*> (x Core..?> "Arn")
+            Core.<*> (x Core..?> "Id")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "LastUpdatedTimestamp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeviceDefinition
+instance Core.Hashable CreateDeviceDefinition
 
-instance Prelude.NFData CreateDeviceDefinition
+instance Core.NFData CreateDeviceDefinition
 
-instance Prelude.ToHeaders CreateDeviceDefinition where
+instance Core.ToHeaders CreateDeviceDefinition where
   toHeaders CreateDeviceDefinition' {..} =
-    Prelude.mconcat
-      [ "X-Amzn-Client-Token" Prelude.=# amznClientToken,
+    Core.mconcat
+      [ "X-Amzn-Client-Token" Core.=# amznClientToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToJSON CreateDeviceDefinition where
+instance Core.ToJSON CreateDeviceDefinition where
   toJSON CreateDeviceDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("InitialVersion" Prelude..=)
-              Prelude.<$> initialVersion,
-            ("tags" Prelude..=) Prelude.<$> tags
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("InitialVersion" Core..=) Core.<$> initialVersion,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Prelude.ToPath CreateDeviceDefinition where
-  toPath =
-    Prelude.const "/greengrass/definition/devices"
+instance Core.ToPath CreateDeviceDefinition where
+  toPath = Core.const "/greengrass/definition/devices"
 
-instance Prelude.ToQuery CreateDeviceDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDeviceDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateDeviceDefinitionResponse' smart constructor.
 data CreateDeviceDefinitionResponse = CreateDeviceDefinitionResponse'
   { -- | The time, in milliseconds since the epoch, when the definition was
     -- created.
-    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ARN of the latest version associated with the definition.
-    latestVersionArn :: Prelude.Maybe Prelude.Text,
+    latestVersionArn :: Core.Maybe Core.Text,
     -- | The ID of the latest version associated with the definition.
-    latestVersion :: Prelude.Maybe Prelude.Text,
+    latestVersion :: Core.Maybe Core.Text,
     -- | The ARN of the definition.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID of the definition.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
-    lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
+    lastUpdatedTimestamp :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDeviceDefinitionResponse' with all optional fields omitted.
@@ -210,55 +207,53 @@ data CreateDeviceDefinitionResponse = CreateDeviceDefinitionResponse'
 -- 'httpStatus', 'createDeviceDefinitionResponse_httpStatus' - The response's http status code.
 newCreateDeviceDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDeviceDefinitionResponse
 newCreateDeviceDefinitionResponse pHttpStatus_ =
   CreateDeviceDefinitionResponse'
     { creationTimestamp =
-        Prelude.Nothing,
-      latestVersionArn = Prelude.Nothing,
-      latestVersion = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
+        Core.Nothing,
+      latestVersionArn = Core.Nothing,
+      latestVersion = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      lastUpdatedTimestamp = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time, in milliseconds since the epoch, when the definition was
 -- created.
-createDeviceDefinitionResponse_creationTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createDeviceDefinitionResponse_creationTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
 createDeviceDefinitionResponse_creationTimestamp = Lens.lens (\CreateDeviceDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateDeviceDefinitionResponse' {} a -> s {creationTimestamp = a} :: CreateDeviceDefinitionResponse)
 
 -- | The ARN of the latest version associated with the definition.
-createDeviceDefinitionResponse_latestVersionArn :: Lens.Lens' CreateDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createDeviceDefinitionResponse_latestVersionArn :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
 createDeviceDefinitionResponse_latestVersionArn = Lens.lens (\CreateDeviceDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateDeviceDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateDeviceDefinitionResponse)
 
 -- | The ID of the latest version associated with the definition.
-createDeviceDefinitionResponse_latestVersion :: Lens.Lens' CreateDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createDeviceDefinitionResponse_latestVersion :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
 createDeviceDefinitionResponse_latestVersion = Lens.lens (\CreateDeviceDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateDeviceDefinitionResponse' {} a -> s {latestVersion = a} :: CreateDeviceDefinitionResponse)
 
 -- | The ARN of the definition.
-createDeviceDefinitionResponse_arn :: Lens.Lens' CreateDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createDeviceDefinitionResponse_arn :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
 createDeviceDefinitionResponse_arn = Lens.lens (\CreateDeviceDefinitionResponse' {arn} -> arn) (\s@CreateDeviceDefinitionResponse' {} a -> s {arn = a} :: CreateDeviceDefinitionResponse)
 
 -- | The ID of the definition.
-createDeviceDefinitionResponse_id :: Lens.Lens' CreateDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createDeviceDefinitionResponse_id :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
 createDeviceDefinitionResponse_id = Lens.lens (\CreateDeviceDefinitionResponse' {id} -> id) (\s@CreateDeviceDefinitionResponse' {} a -> s {id = a} :: CreateDeviceDefinitionResponse)
 
 -- | The name of the definition.
-createDeviceDefinitionResponse_name :: Lens.Lens' CreateDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createDeviceDefinitionResponse_name :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
 createDeviceDefinitionResponse_name = Lens.lens (\CreateDeviceDefinitionResponse' {name} -> name) (\s@CreateDeviceDefinitionResponse' {} a -> s {name = a} :: CreateDeviceDefinitionResponse)
 
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
-createDeviceDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
+createDeviceDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' CreateDeviceDefinitionResponse (Core.Maybe Core.Text)
 createDeviceDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\CreateDeviceDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@CreateDeviceDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: CreateDeviceDefinitionResponse)
 
 -- | The response's http status code.
-createDeviceDefinitionResponse_httpStatus :: Lens.Lens' CreateDeviceDefinitionResponse Prelude.Int
+createDeviceDefinitionResponse_httpStatus :: Lens.Lens' CreateDeviceDefinitionResponse Core.Int
 createDeviceDefinitionResponse_httpStatus = Lens.lens (\CreateDeviceDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateDeviceDefinitionResponse' {} a -> s {httpStatus = a} :: CreateDeviceDefinitionResponse)
 
-instance
-  Prelude.NFData
-    CreateDeviceDefinitionResponse
+instance Core.NFData CreateDeviceDefinitionResponse

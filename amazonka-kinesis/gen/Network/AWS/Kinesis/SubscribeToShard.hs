@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,9 +69,9 @@ module Network.AWS.Kinesis.SubscribeToShard
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,13 +79,13 @@ import qualified Network.AWS.Response as Response
 data SubscribeToShard = SubscribeToShard'
   { -- | For this parameter, use the value you obtained when you called
     -- RegisterStreamConsumer.
-    consumerARN :: Prelude.Text,
+    consumerARN :: Core.Text,
     -- | The ID of the shard you want to subscribe to. To see a list of all the
     -- shards for a given stream, use ListShards.
-    shardId :: Prelude.Text,
+    shardId :: Core.Text,
     startingPosition :: StartingPosition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubscribeToShard' with all optional fields omitted.
@@ -105,9 +104,9 @@ data SubscribeToShard = SubscribeToShard'
 -- 'startingPosition', 'subscribeToShard_startingPosition' -
 newSubscribeToShard ::
   -- | 'consumerARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shardId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'startingPosition'
   StartingPosition ->
   SubscribeToShard
@@ -123,74 +122,74 @@ newSubscribeToShard
 
 -- | For this parameter, use the value you obtained when you called
 -- RegisterStreamConsumer.
-subscribeToShard_consumerARN :: Lens.Lens' SubscribeToShard Prelude.Text
+subscribeToShard_consumerARN :: Lens.Lens' SubscribeToShard Core.Text
 subscribeToShard_consumerARN = Lens.lens (\SubscribeToShard' {consumerARN} -> consumerARN) (\s@SubscribeToShard' {} a -> s {consumerARN = a} :: SubscribeToShard)
 
 -- | The ID of the shard you want to subscribe to. To see a list of all the
 -- shards for a given stream, use ListShards.
-subscribeToShard_shardId :: Lens.Lens' SubscribeToShard Prelude.Text
+subscribeToShard_shardId :: Lens.Lens' SubscribeToShard Core.Text
 subscribeToShard_shardId = Lens.lens (\SubscribeToShard' {shardId} -> shardId) (\s@SubscribeToShard' {} a -> s {shardId = a} :: SubscribeToShard)
 
 -- |
 subscribeToShard_startingPosition :: Lens.Lens' SubscribeToShard StartingPosition
 subscribeToShard_startingPosition = Lens.lens (\SubscribeToShard' {startingPosition} -> startingPosition) (\s@SubscribeToShard' {} a -> s {startingPosition = a} :: SubscribeToShard)
 
-instance Prelude.AWSRequest SubscribeToShard where
-  type Rs SubscribeToShard = SubscribeToShardResponse
+instance Core.AWSRequest SubscribeToShard where
+  type
+    AWSResponse SubscribeToShard =
+      SubscribeToShardResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SubscribeToShardResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "EventStream")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "EventStream")
       )
 
-instance Prelude.Hashable SubscribeToShard
+instance Core.Hashable SubscribeToShard
 
-instance Prelude.NFData SubscribeToShard
+instance Core.NFData SubscribeToShard
 
-instance Prelude.ToHeaders SubscribeToShard where
+instance Core.ToHeaders SubscribeToShard where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.SubscribeToShard" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.SubscribeToShard" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SubscribeToShard where
+instance Core.ToJSON SubscribeToShard where
   toJSON SubscribeToShard' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ConsumerARN" Prelude..= consumerARN),
-            Prelude.Just ("ShardId" Prelude..= shardId),
-            Prelude.Just
-              ("StartingPosition" Prelude..= startingPosition)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConsumerARN" Core..= consumerARN),
+            Core.Just ("ShardId" Core..= shardId),
+            Core.Just
+              ("StartingPosition" Core..= startingPosition)
           ]
       )
 
-instance Prelude.ToPath SubscribeToShard where
-  toPath = Prelude.const "/"
+instance Core.ToPath SubscribeToShard where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SubscribeToShard where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SubscribeToShard where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSubscribeToShardResponse' smart constructor.
 data SubscribeToShardResponse = SubscribeToShardResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The event stream that your consumer can use to read records from the
     -- shard.
-    eventStream :: Prelude.Value
+    eventStream :: Core.Value
   }
-  deriving (Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Generic)
 
 -- |
 -- Create a value of 'SubscribeToShardResponse' with all optional fields omitted.
@@ -206,9 +205,9 @@ data SubscribeToShardResponse = SubscribeToShardResponse'
 -- shard.
 newSubscribeToShardResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'eventStream'
-  Prelude.Value ->
+  Core.Value ->
   SubscribeToShardResponse
 newSubscribeToShardResponse
   pHttpStatus_
@@ -220,12 +219,12 @@ newSubscribeToShardResponse
       }
 
 -- | The response's http status code.
-subscribeToShardResponse_httpStatus :: Lens.Lens' SubscribeToShardResponse Prelude.Int
+subscribeToShardResponse_httpStatus :: Lens.Lens' SubscribeToShardResponse Core.Int
 subscribeToShardResponse_httpStatus = Lens.lens (\SubscribeToShardResponse' {httpStatus} -> httpStatus) (\s@SubscribeToShardResponse' {} a -> s {httpStatus = a} :: SubscribeToShardResponse)
 
 -- | The event stream that your consumer can use to read records from the
 -- shard.
-subscribeToShardResponse_eventStream :: Lens.Lens' SubscribeToShardResponse Prelude.Value
+subscribeToShardResponse_eventStream :: Lens.Lens' SubscribeToShardResponse Core.Value
 subscribeToShardResponse_eventStream = Lens.lens (\SubscribeToShardResponse' {eventStream} -> eventStream) (\s@SubscribeToShardResponse' {} a -> s {eventStream = a} :: SubscribeToShardResponse)
 
-instance Prelude.NFData SubscribeToShardResponse
+instance Core.NFData SubscribeToShardResponse

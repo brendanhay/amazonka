@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MechanicalTurk.Types.ReviewPolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.PolicyParameter
-import qualified Network.AWS.Prelude as Prelude
 
 -- | HIT Review Policy data structures represent HIT review policies, which
 -- you specify when you create a HIT.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReviewPolicy' smart constructor.
 data ReviewPolicy = ReviewPolicy'
   { -- | Name of the parameter from the Review policy.
-    parameters :: Prelude.Maybe [PolicyParameter],
+    parameters :: Core.Maybe [PolicyParameter],
     -- | Name of a Review Policy: SimplePlurality\/2011-09-01 or
     -- ScoreMyKnownAnswers\/2011-09-01
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReviewPolicy' with all optional fields omitted.
@@ -51,44 +50,42 @@ data ReviewPolicy = ReviewPolicy'
 -- ScoreMyKnownAnswers\/2011-09-01
 newReviewPolicy ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   ReviewPolicy
 newReviewPolicy pPolicyName_ =
   ReviewPolicy'
-    { parameters = Prelude.Nothing,
+    { parameters = Core.Nothing,
       policyName = pPolicyName_
     }
 
 -- | Name of the parameter from the Review policy.
-reviewPolicy_parameters :: Lens.Lens' ReviewPolicy (Prelude.Maybe [PolicyParameter])
-reviewPolicy_parameters = Lens.lens (\ReviewPolicy' {parameters} -> parameters) (\s@ReviewPolicy' {} a -> s {parameters = a} :: ReviewPolicy) Prelude.. Lens.mapping Prelude._Coerce
+reviewPolicy_parameters :: Lens.Lens' ReviewPolicy (Core.Maybe [PolicyParameter])
+reviewPolicy_parameters = Lens.lens (\ReviewPolicy' {parameters} -> parameters) (\s@ReviewPolicy' {} a -> s {parameters = a} :: ReviewPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | Name of a Review Policy: SimplePlurality\/2011-09-01 or
 -- ScoreMyKnownAnswers\/2011-09-01
-reviewPolicy_policyName :: Lens.Lens' ReviewPolicy Prelude.Text
+reviewPolicy_policyName :: Lens.Lens' ReviewPolicy Core.Text
 reviewPolicy_policyName = Lens.lens (\ReviewPolicy' {policyName} -> policyName) (\s@ReviewPolicy' {} a -> s {policyName = a} :: ReviewPolicy)
 
-instance Prelude.FromJSON ReviewPolicy where
+instance Core.FromJSON ReviewPolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReviewPolicy"
       ( \x ->
           ReviewPolicy'
-            Prelude.<$> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "PolicyName")
+            Core.<$> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "PolicyName")
       )
 
-instance Prelude.Hashable ReviewPolicy
+instance Core.Hashable ReviewPolicy
 
-instance Prelude.NFData ReviewPolicy
+instance Core.NFData ReviewPolicy
 
-instance Prelude.ToJSON ReviewPolicy where
+instance Core.ToJSON ReviewPolicy where
   toJSON ReviewPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Parameters" Prelude..=) Prelude.<$> parameters,
-            Prelude.Just ("PolicyName" Prelude..= policyName)
+    Core.object
+      ( Core.catMaybes
+          [ ("Parameters" Core..=) Core.<$> parameters,
+            Core.Just ("PolicyName" Core..= policyName)
           ]
       )

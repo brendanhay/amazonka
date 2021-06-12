@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.StepFunctions.SendTaskHeartbeat
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -70,9 +69,9 @@ data SendTaskHeartbeat = SendTaskHeartbeat'
     -- <https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html context object>
     -- when a workflow enters a task state. See
     -- GetActivityTaskOutput$taskToken.
-    taskToken :: Prelude.Text
+    taskToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendTaskHeartbeat' with all optional fields omitted.
@@ -89,7 +88,7 @@ data SendTaskHeartbeat = SendTaskHeartbeat'
 -- GetActivityTaskOutput$taskToken.
 newSendTaskHeartbeat ::
   -- | 'taskToken'
-  Prelude.Text ->
+  Core.Text ->
   SendTaskHeartbeat
 newSendTaskHeartbeat pTaskToken_ =
   SendTaskHeartbeat' {taskToken = pTaskToken_}
@@ -99,57 +98,57 @@ newSendTaskHeartbeat pTaskToken_ =
 -- <https://docs.aws.amazon.com/step-functions/latest/dg/input-output-contextobject.html context object>
 -- when a workflow enters a task state. See
 -- GetActivityTaskOutput$taskToken.
-sendTaskHeartbeat_taskToken :: Lens.Lens' SendTaskHeartbeat Prelude.Text
+sendTaskHeartbeat_taskToken :: Lens.Lens' SendTaskHeartbeat Core.Text
 sendTaskHeartbeat_taskToken = Lens.lens (\SendTaskHeartbeat' {taskToken} -> taskToken) (\s@SendTaskHeartbeat' {} a -> s {taskToken = a} :: SendTaskHeartbeat)
 
-instance Prelude.AWSRequest SendTaskHeartbeat where
-  type Rs SendTaskHeartbeat = SendTaskHeartbeatResponse
+instance Core.AWSRequest SendTaskHeartbeat where
+  type
+    AWSResponse SendTaskHeartbeat =
+      SendTaskHeartbeatResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendTaskHeartbeatResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SendTaskHeartbeat
+instance Core.Hashable SendTaskHeartbeat
 
-instance Prelude.NFData SendTaskHeartbeat
+instance Core.NFData SendTaskHeartbeat
 
-instance Prelude.ToHeaders SendTaskHeartbeat where
+instance Core.ToHeaders SendTaskHeartbeat where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSStepFunctions.SendTaskHeartbeat" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSStepFunctions.SendTaskHeartbeat" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SendTaskHeartbeat where
+instance Core.ToJSON SendTaskHeartbeat where
   toJSON SendTaskHeartbeat' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("taskToken" Prelude..= taskToken)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("taskToken" Core..= taskToken)]
       )
 
-instance Prelude.ToPath SendTaskHeartbeat where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendTaskHeartbeat where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendTaskHeartbeat where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SendTaskHeartbeat where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSendTaskHeartbeatResponse' smart constructor.
 data SendTaskHeartbeatResponse = SendTaskHeartbeatResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendTaskHeartbeatResponse' with all optional fields omitted.
@@ -162,7 +161,7 @@ data SendTaskHeartbeatResponse = SendTaskHeartbeatResponse'
 -- 'httpStatus', 'sendTaskHeartbeatResponse_httpStatus' - The response's http status code.
 newSendTaskHeartbeatResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SendTaskHeartbeatResponse
 newSendTaskHeartbeatResponse pHttpStatus_ =
   SendTaskHeartbeatResponse'
@@ -171,7 +170,7 @@ newSendTaskHeartbeatResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-sendTaskHeartbeatResponse_httpStatus :: Lens.Lens' SendTaskHeartbeatResponse Prelude.Int
+sendTaskHeartbeatResponse_httpStatus :: Lens.Lens' SendTaskHeartbeatResponse Core.Int
 sendTaskHeartbeatResponse_httpStatus = Lens.lens (\SendTaskHeartbeatResponse' {httpStatus} -> httpStatus) (\s@SendTaskHeartbeatResponse' {} a -> s {httpStatus = a} :: SendTaskHeartbeatResponse)
 
-instance Prelude.NFData SendTaskHeartbeatResponse
+instance Core.NFData SendTaskHeartbeatResponse

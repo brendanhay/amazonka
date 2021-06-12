@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.LambdaFunctionAssociations where
 
 import Network.AWS.CloudFront.Types.LambdaFunctionAssociation
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that specifies a list of Lambda functions associations
 -- for a cache behavior.
@@ -42,11 +41,11 @@ data LambdaFunctionAssociations = LambdaFunctionAssociations'
   { -- | __Optional__: A complex type that contains @LambdaFunctionAssociation@
     -- items for this cache behavior. If @Quantity@ is @0@, you can omit
     -- @Items@.
-    items :: Prelude.Maybe [LambdaFunctionAssociation],
+    items :: Core.Maybe [LambdaFunctionAssociation],
     -- | The number of Lambda function associations for this cache behavior.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionAssociations' with all optional fields omitted.
@@ -63,45 +62,44 @@ data LambdaFunctionAssociations = LambdaFunctionAssociations'
 -- 'quantity', 'lambdaFunctionAssociations_quantity' - The number of Lambda function associations for this cache behavior.
 newLambdaFunctionAssociations ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   LambdaFunctionAssociations
 newLambdaFunctionAssociations pQuantity_ =
   LambdaFunctionAssociations'
-    { items =
-        Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | __Optional__: A complex type that contains @LambdaFunctionAssociation@
 -- items for this cache behavior. If @Quantity@ is @0@, you can omit
 -- @Items@.
-lambdaFunctionAssociations_items :: Lens.Lens' LambdaFunctionAssociations (Prelude.Maybe [LambdaFunctionAssociation])
-lambdaFunctionAssociations_items = Lens.lens (\LambdaFunctionAssociations' {items} -> items) (\s@LambdaFunctionAssociations' {} a -> s {items = a} :: LambdaFunctionAssociations) Prelude.. Lens.mapping Prelude._Coerce
+lambdaFunctionAssociations_items :: Lens.Lens' LambdaFunctionAssociations (Core.Maybe [LambdaFunctionAssociation])
+lambdaFunctionAssociations_items = Lens.lens (\LambdaFunctionAssociations' {items} -> items) (\s@LambdaFunctionAssociations' {} a -> s {items = a} :: LambdaFunctionAssociations) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of Lambda function associations for this cache behavior.
-lambdaFunctionAssociations_quantity :: Lens.Lens' LambdaFunctionAssociations Prelude.Int
+lambdaFunctionAssociations_quantity :: Lens.Lens' LambdaFunctionAssociations Core.Int
 lambdaFunctionAssociations_quantity = Lens.lens (\LambdaFunctionAssociations' {quantity} -> quantity) (\s@LambdaFunctionAssociations' {} a -> s {quantity = a} :: LambdaFunctionAssociations)
 
-instance Prelude.FromXML LambdaFunctionAssociations where
+instance Core.FromXML LambdaFunctionAssociations where
   parseXML x =
     LambdaFunctionAssociations'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "LambdaFunctionAssociation")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may
+                     (Core.parseXMLList "LambdaFunctionAssociation")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable LambdaFunctionAssociations
+instance Core.Hashable LambdaFunctionAssociations
 
-instance Prelude.NFData LambdaFunctionAssociations
+instance Core.NFData LambdaFunctionAssociations
 
-instance Prelude.ToXML LambdaFunctionAssociations where
+instance Core.ToXML LambdaFunctionAssociations where
   toXML LambdaFunctionAssociations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            ( Prelude.toXMLList "LambdaFunctionAssociation"
-                Prelude.<$> items
+          Core.@= Core.toXML
+            ( Core.toXMLList "LambdaFunctionAssociation"
+                Core.<$> items
             ),
-        "Quantity" Prelude.@= quantity
+        "Quantity" Core.@= quantity
       ]

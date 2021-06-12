@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsEntity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsEntityItem
 
 -- | The result of the query.
@@ -29,11 +28,11 @@ import Network.AWS.SSM.Types.OpsEntityItem
 -- /See:/ 'newOpsEntity' smart constructor.
 data OpsEntity = OpsEntity'
   { -- | The data returned by the query.
-    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem),
+    data' :: Core.Maybe (Core.HashMap Core.Text OpsEntityItem),
     -- | The query ID.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsEntity' with all optional fields omitted.
@@ -49,29 +48,26 @@ data OpsEntity = OpsEntity'
 newOpsEntity ::
   OpsEntity
 newOpsEntity =
-  OpsEntity'
-    { data' = Prelude.Nothing,
-      id = Prelude.Nothing
-    }
+  OpsEntity' {data' = Core.Nothing, id = Core.Nothing}
 
 -- | The data returned by the query.
-opsEntity_data :: Lens.Lens' OpsEntity (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsEntityItem))
-opsEntity_data = Lens.lens (\OpsEntity' {data'} -> data') (\s@OpsEntity' {} a -> s {data' = a} :: OpsEntity) Prelude.. Lens.mapping Prelude._Coerce
+opsEntity_data :: Lens.Lens' OpsEntity (Core.Maybe (Core.HashMap Core.Text OpsEntityItem))
+opsEntity_data = Lens.lens (\OpsEntity' {data'} -> data') (\s@OpsEntity' {} a -> s {data' = a} :: OpsEntity) Core.. Lens.mapping Lens._Coerce
 
 -- | The query ID.
-opsEntity_id :: Lens.Lens' OpsEntity (Prelude.Maybe Prelude.Text)
+opsEntity_id :: Lens.Lens' OpsEntity (Core.Maybe Core.Text)
 opsEntity_id = Lens.lens (\OpsEntity' {id} -> id) (\s@OpsEntity' {} a -> s {id = a} :: OpsEntity)
 
-instance Prelude.FromJSON OpsEntity where
+instance Core.FromJSON OpsEntity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OpsEntity"
       ( \x ->
           OpsEntity'
-            Prelude.<$> (x Prelude..:? "Data" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Id")
+            Core.<$> (x Core..:? "Data" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable OpsEntity
+instance Core.Hashable OpsEntity
 
-instance Prelude.NFData OpsEntity
+instance Core.NFData OpsEntity

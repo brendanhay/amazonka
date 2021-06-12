@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.NetworkInterface where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network interface.
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
   { -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text
+    networkInterfaceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkInterface' with all optional fields omitted.
@@ -49,28 +48,28 @@ newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { subnetId = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing
+    { subnetId = Core.Nothing,
+      networkInterfaceId = Core.Nothing
     }
 
 -- | The ID of the subnet.
-networkInterface_subnetId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_subnetId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_subnetId = Lens.lens (\NetworkInterface' {subnetId} -> subnetId) (\s@NetworkInterface' {} a -> s {subnetId = a} :: NetworkInterface)
 
 -- | The ID of the network interface.
-networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_networkInterfaceId :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_networkInterfaceId = Lens.lens (\NetworkInterface' {networkInterfaceId} -> networkInterfaceId) (\s@NetworkInterface' {} a -> s {networkInterfaceId = a} :: NetworkInterface)
 
-instance Prelude.FromJSON NetworkInterface where
+instance Core.FromJSON NetworkInterface where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Prelude..:? "subnetId")
-            Prelude.<*> (x Prelude..:? "networkInterfaceId")
+            Core.<$> (x Core..:? "subnetId")
+            Core.<*> (x Core..:? "networkInterfaceId")
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Core.Hashable NetworkInterface
 
-instance Prelude.NFData NetworkInterface
+instance Core.NFData NetworkInterface

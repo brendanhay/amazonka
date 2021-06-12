@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.ElasticIp where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Elastic IP address.
 --
 -- /See:/ 'newElasticIp' smart constructor.
 data ElasticIp = ElasticIp'
   { -- | The ID of the instance that the address is attached to.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The IP address.
-    ip :: Prelude.Maybe Prelude.Text,
+    ip :: Core.Maybe Core.Text,
     -- | The domain.
-    domain :: Prelude.Maybe Prelude.Text,
+    domain :: Core.Maybe Core.Text,
     -- | The name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The AWS region. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticIp' with all optional fields omitted.
@@ -63,47 +62,47 @@ newElasticIp ::
   ElasticIp
 newElasticIp =
   ElasticIp'
-    { instanceId = Prelude.Nothing,
-      ip = Prelude.Nothing,
-      domain = Prelude.Nothing,
-      name = Prelude.Nothing,
-      region = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      ip = Core.Nothing,
+      domain = Core.Nothing,
+      name = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | The ID of the instance that the address is attached to.
-elasticIp_instanceId :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_instanceId :: Lens.Lens' ElasticIp (Core.Maybe Core.Text)
 elasticIp_instanceId = Lens.lens (\ElasticIp' {instanceId} -> instanceId) (\s@ElasticIp' {} a -> s {instanceId = a} :: ElasticIp)
 
 -- | The IP address.
-elasticIp_ip :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_ip :: Lens.Lens' ElasticIp (Core.Maybe Core.Text)
 elasticIp_ip = Lens.lens (\ElasticIp' {ip} -> ip) (\s@ElasticIp' {} a -> s {ip = a} :: ElasticIp)
 
 -- | The domain.
-elasticIp_domain :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_domain :: Lens.Lens' ElasticIp (Core.Maybe Core.Text)
 elasticIp_domain = Lens.lens (\ElasticIp' {domain} -> domain) (\s@ElasticIp' {} a -> s {domain = a} :: ElasticIp)
 
 -- | The name.
-elasticIp_name :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_name :: Lens.Lens' ElasticIp (Core.Maybe Core.Text)
 elasticIp_name = Lens.lens (\ElasticIp' {name} -> name) (\s@ElasticIp' {} a -> s {name = a} :: ElasticIp)
 
 -- | The AWS region. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-elasticIp_region :: Lens.Lens' ElasticIp (Prelude.Maybe Prelude.Text)
+elasticIp_region :: Lens.Lens' ElasticIp (Core.Maybe Core.Text)
 elasticIp_region = Lens.lens (\ElasticIp' {region} -> region) (\s@ElasticIp' {} a -> s {region = a} :: ElasticIp)
 
-instance Prelude.FromJSON ElasticIp where
+instance Core.FromJSON ElasticIp where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ElasticIp"
       ( \x ->
           ElasticIp'
-            Prelude.<$> (x Prelude..:? "InstanceId")
-            Prelude.<*> (x Prelude..:? "Ip")
-            Prelude.<*> (x Prelude..:? "Domain")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Region")
+            Core.<$> (x Core..:? "InstanceId")
+            Core.<*> (x Core..:? "Ip")
+            Core.<*> (x Core..:? "Domain")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable ElasticIp
+instance Core.Hashable ElasticIp
 
-instance Prelude.NFData ElasticIp
+instance Core.NFData ElasticIp

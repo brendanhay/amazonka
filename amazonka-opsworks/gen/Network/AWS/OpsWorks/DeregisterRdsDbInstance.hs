@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.OpsWorks.DeregisterRdsDbInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterRdsDbInstance' smart constructor.
 data DeregisterRdsDbInstance = DeregisterRdsDbInstance'
   { -- | The Amazon RDS instance\'s ARN.
-    rdsDbInstanceArn :: Prelude.Text
+    rdsDbInstanceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterRdsDbInstance' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeregisterRdsDbInstance = DeregisterRdsDbInstance'
 -- 'rdsDbInstanceArn', 'deregisterRdsDbInstance_rdsDbInstanceArn' - The Amazon RDS instance\'s ARN.
 newDeregisterRdsDbInstance ::
   -- | 'rdsDbInstanceArn'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterRdsDbInstance
 newDeregisterRdsDbInstance pRdsDbInstanceArn_ =
   DeregisterRdsDbInstance'
@@ -75,57 +74,55 @@ newDeregisterRdsDbInstance pRdsDbInstanceArn_ =
     }
 
 -- | The Amazon RDS instance\'s ARN.
-deregisterRdsDbInstance_rdsDbInstanceArn :: Lens.Lens' DeregisterRdsDbInstance Prelude.Text
+deregisterRdsDbInstance_rdsDbInstanceArn :: Lens.Lens' DeregisterRdsDbInstance Core.Text
 deregisterRdsDbInstance_rdsDbInstanceArn = Lens.lens (\DeregisterRdsDbInstance' {rdsDbInstanceArn} -> rdsDbInstanceArn) (\s@DeregisterRdsDbInstance' {} a -> s {rdsDbInstanceArn = a} :: DeregisterRdsDbInstance)
 
-instance Prelude.AWSRequest DeregisterRdsDbInstance where
+instance Core.AWSRequest DeregisterRdsDbInstance where
   type
-    Rs DeregisterRdsDbInstance =
+    AWSResponse DeregisterRdsDbInstance =
       DeregisterRdsDbInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeregisterRdsDbInstanceResponse'
 
-instance Prelude.Hashable DeregisterRdsDbInstance
+instance Core.Hashable DeregisterRdsDbInstance
 
-instance Prelude.NFData DeregisterRdsDbInstance
+instance Core.NFData DeregisterRdsDbInstance
 
-instance Prelude.ToHeaders DeregisterRdsDbInstance where
+instance Core.ToHeaders DeregisterRdsDbInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DeregisterRdsDbInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DeregisterRdsDbInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterRdsDbInstance where
+instance Core.ToJSON DeregisterRdsDbInstance where
   toJSON DeregisterRdsDbInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("RdsDbInstanceArn" Prelude..= rdsDbInstanceArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RdsDbInstanceArn" Core..= rdsDbInstanceArn)
           ]
       )
 
-instance Prelude.ToPath DeregisterRdsDbInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterRdsDbInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterRdsDbInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterRdsDbInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterRdsDbInstanceResponse' smart constructor.
 data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterRdsDbInstanceResponse' with all optional fields omitted.
@@ -136,6 +133,4 @@ newDeregisterRdsDbInstanceResponse ::
 newDeregisterRdsDbInstanceResponse =
   DeregisterRdsDbInstanceResponse'
 
-instance
-  Prelude.NFData
-    DeregisterRdsDbInstanceResponse
+instance Core.NFData DeregisterRdsDbInstanceResponse

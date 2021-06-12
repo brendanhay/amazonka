@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.Config.Types.ConformancePackEvaluationResult where
 
 import Network.AWS.Config.Types.ConformancePackComplianceType
 import Network.AWS.Config.Types.EvaluationResultIdentifier
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of a conformance pack evaluation. Provides AWS Config rule
 -- and AWS resource type that was evaluated, the compliance of the
@@ -33,17 +32,17 @@ import qualified Network.AWS.Prelude as Prelude
 data ConformancePackEvaluationResult = ConformancePackEvaluationResult'
   { -- | Supplementary information about how the evaluation determined the
     -- compliance.
-    annotation :: Prelude.Maybe Prelude.Text,
+    annotation :: Core.Maybe Core.Text,
     -- | The compliance type. The allowed values are @COMPLIANT@ and
     -- @NON_COMPLIANT@.
     complianceType :: ConformancePackComplianceType,
     evaluationResultIdentifier :: EvaluationResultIdentifier,
     -- | The time when AWS Config rule evaluated AWS resource.
-    configRuleInvokedTime :: Prelude.POSIX,
+    configRuleInvokedTime :: Core.POSIX,
     -- | The time when AWS Config recorded the evaluation result.
-    resultRecordedTime :: Prelude.POSIX
+    resultRecordedTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConformancePackEvaluationResult' with all optional fields omitted.
@@ -70,9 +69,9 @@ newConformancePackEvaluationResult ::
   -- | 'evaluationResultIdentifier'
   EvaluationResultIdentifier ->
   -- | 'configRuleInvokedTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'resultRecordedTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ConformancePackEvaluationResult
 newConformancePackEvaluationResult
   pComplianceType_
@@ -81,21 +80,20 @@ newConformancePackEvaluationResult
   pResultRecordedTime_ =
     ConformancePackEvaluationResult'
       { annotation =
-          Prelude.Nothing,
+          Core.Nothing,
         complianceType = pComplianceType_,
         evaluationResultIdentifier =
           pEvaluationResultIdentifier_,
         configRuleInvokedTime =
-          Prelude._Time
+          Core._Time
             Lens.# pConfigRuleInvokedTime_,
         resultRecordedTime =
-          Prelude._Time
-            Lens.# pResultRecordedTime_
+          Core._Time Lens.# pResultRecordedTime_
       }
 
 -- | Supplementary information about how the evaluation determined the
 -- compliance.
-conformancePackEvaluationResult_annotation :: Lens.Lens' ConformancePackEvaluationResult (Prelude.Maybe Prelude.Text)
+conformancePackEvaluationResult_annotation :: Lens.Lens' ConformancePackEvaluationResult (Core.Maybe Core.Text)
 conformancePackEvaluationResult_annotation = Lens.lens (\ConformancePackEvaluationResult' {annotation} -> annotation) (\s@ConformancePackEvaluationResult' {} a -> s {annotation = a} :: ConformancePackEvaluationResult)
 
 -- | The compliance type. The allowed values are @COMPLIANT@ and
@@ -108,33 +106,31 @@ conformancePackEvaluationResult_evaluationResultIdentifier :: Lens.Lens' Conform
 conformancePackEvaluationResult_evaluationResultIdentifier = Lens.lens (\ConformancePackEvaluationResult' {evaluationResultIdentifier} -> evaluationResultIdentifier) (\s@ConformancePackEvaluationResult' {} a -> s {evaluationResultIdentifier = a} :: ConformancePackEvaluationResult)
 
 -- | The time when AWS Config rule evaluated AWS resource.
-conformancePackEvaluationResult_configRuleInvokedTime :: Lens.Lens' ConformancePackEvaluationResult Prelude.UTCTime
-conformancePackEvaluationResult_configRuleInvokedTime = Lens.lens (\ConformancePackEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@ConformancePackEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: ConformancePackEvaluationResult) Prelude.. Prelude._Time
+conformancePackEvaluationResult_configRuleInvokedTime :: Lens.Lens' ConformancePackEvaluationResult Core.UTCTime
+conformancePackEvaluationResult_configRuleInvokedTime = Lens.lens (\ConformancePackEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@ConformancePackEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: ConformancePackEvaluationResult) Core.. Core._Time
 
 -- | The time when AWS Config recorded the evaluation result.
-conformancePackEvaluationResult_resultRecordedTime :: Lens.Lens' ConformancePackEvaluationResult Prelude.UTCTime
-conformancePackEvaluationResult_resultRecordedTime = Lens.lens (\ConformancePackEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@ConformancePackEvaluationResult' {} a -> s {resultRecordedTime = a} :: ConformancePackEvaluationResult) Prelude.. Prelude._Time
+conformancePackEvaluationResult_resultRecordedTime :: Lens.Lens' ConformancePackEvaluationResult Core.UTCTime
+conformancePackEvaluationResult_resultRecordedTime = Lens.lens (\ConformancePackEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@ConformancePackEvaluationResult' {} a -> s {resultRecordedTime = a} :: ConformancePackEvaluationResult) Core.. Core._Time
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ConformancePackEvaluationResult
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConformancePackEvaluationResult"
       ( \x ->
           ConformancePackEvaluationResult'
-            Prelude.<$> (x Prelude..:? "Annotation")
-            Prelude.<*> (x Prelude..: "ComplianceType")
-            Prelude.<*> (x Prelude..: "EvaluationResultIdentifier")
-            Prelude.<*> (x Prelude..: "ConfigRuleInvokedTime")
-            Prelude.<*> (x Prelude..: "ResultRecordedTime")
+            Core.<$> (x Core..:? "Annotation")
+            Core.<*> (x Core..: "ComplianceType")
+            Core.<*> (x Core..: "EvaluationResultIdentifier")
+            Core.<*> (x Core..: "ConfigRuleInvokedTime")
+            Core.<*> (x Core..: "ResultRecordedTime")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ConformancePackEvaluationResult
 
-instance
-  Prelude.NFData
-    ConformancePackEvaluationResult
+instance Core.NFData ConformancePackEvaluationResult

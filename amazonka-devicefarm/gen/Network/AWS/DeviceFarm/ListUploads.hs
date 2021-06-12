@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.DeviceFarm.ListUploads
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +57,7 @@ data ListUploads = ListUploads'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The type of upload.
     --
     -- Must be one of the following values:
@@ -127,12 +125,12 @@ data ListUploads = ListUploads'
     -- -   INSTRUMENTATION_TEST_SPEC
     --
     -- -   XCTEST_UI_TEST_SPEC
-    type' :: Prelude.Maybe UploadType,
+    type' :: Core.Maybe UploadType,
     -- | The Amazon Resource Name (ARN) of the project for which you want to list
     -- uploads.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUploads' with all optional fields omitted.
@@ -218,19 +216,19 @@ data ListUploads = ListUploads'
 -- uploads.
 newListUploads ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   ListUploads
 newListUploads pArn_ =
   ListUploads'
-    { nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      type' = Core.Nothing,
       arn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listUploads_nextToken :: Lens.Lens' ListUploads (Prelude.Maybe Prelude.Text)
+listUploads_nextToken :: Lens.Lens' ListUploads (Core.Maybe Core.Text)
 listUploads_nextToken = Lens.lens (\ListUploads' {nextToken} -> nextToken) (\s@ListUploads' {} a -> s {nextToken = a} :: ListUploads)
 
 -- | The type of upload.
@@ -300,79 +298,77 @@ listUploads_nextToken = Lens.lens (\ListUploads' {nextToken} -> nextToken) (\s@L
 -- -   INSTRUMENTATION_TEST_SPEC
 --
 -- -   XCTEST_UI_TEST_SPEC
-listUploads_type :: Lens.Lens' ListUploads (Prelude.Maybe UploadType)
+listUploads_type :: Lens.Lens' ListUploads (Core.Maybe UploadType)
 listUploads_type = Lens.lens (\ListUploads' {type'} -> type') (\s@ListUploads' {} a -> s {type' = a} :: ListUploads)
 
 -- | The Amazon Resource Name (ARN) of the project for which you want to list
 -- uploads.
-listUploads_arn :: Lens.Lens' ListUploads Prelude.Text
+listUploads_arn :: Lens.Lens' ListUploads Core.Text
 listUploads_arn = Lens.lens (\ListUploads' {arn} -> arn) (\s@ListUploads' {} a -> s {arn = a} :: ListUploads)
 
-instance Pager.AWSPager ListUploads where
+instance Core.AWSPager ListUploads where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listUploadsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listUploadsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listUploadsResponse_uploads Prelude.. Lens._Just
+            Lens.^? listUploadsResponse_uploads Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listUploads_nextToken
           Lens..~ rs
-          Lens.^? listUploadsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listUploadsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListUploads where
-  type Rs ListUploads = ListUploadsResponse
+instance Core.AWSRequest ListUploads where
+  type AWSResponse ListUploads = ListUploadsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListUploadsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "uploads" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "uploads" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListUploads
+instance Core.Hashable ListUploads
 
-instance Prelude.NFData ListUploads
+instance Core.NFData ListUploads
 
-instance Prelude.ToHeaders ListUploads where
+instance Core.ToHeaders ListUploads where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListUploads" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.ListUploads" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListUploads where
+instance Core.ToJSON ListUploads where
   toJSON ListUploads' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("type" Core..=) Core.<$> type',
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath ListUploads where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListUploads where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListUploads where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListUploads where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a list uploads request.
 --
@@ -381,13 +377,13 @@ data ListUploadsResponse = ListUploadsResponse'
   { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the uploads.
-    uploads :: Prelude.Maybe [Upload],
+    uploads :: Core.Maybe [Upload],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUploadsResponse' with all optional fields omitted.
@@ -406,27 +402,27 @@ data ListUploadsResponse = ListUploadsResponse'
 -- 'httpStatus', 'listUploadsResponse_httpStatus' - The response's http status code.
 newListUploadsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListUploadsResponse
 newListUploadsResponse pHttpStatus_ =
   ListUploadsResponse'
-    { nextToken = Prelude.Nothing,
-      uploads = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      uploads = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
-listUploadsResponse_nextToken :: Lens.Lens' ListUploadsResponse (Prelude.Maybe Prelude.Text)
+listUploadsResponse_nextToken :: Lens.Lens' ListUploadsResponse (Core.Maybe Core.Text)
 listUploadsResponse_nextToken = Lens.lens (\ListUploadsResponse' {nextToken} -> nextToken) (\s@ListUploadsResponse' {} a -> s {nextToken = a} :: ListUploadsResponse)
 
 -- | Information about the uploads.
-listUploadsResponse_uploads :: Lens.Lens' ListUploadsResponse (Prelude.Maybe [Upload])
-listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uploads) (\s@ListUploadsResponse' {} a -> s {uploads = a} :: ListUploadsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listUploadsResponse_uploads :: Lens.Lens' ListUploadsResponse (Core.Maybe [Upload])
+listUploadsResponse_uploads = Lens.lens (\ListUploadsResponse' {uploads} -> uploads) (\s@ListUploadsResponse' {} a -> s {uploads = a} :: ListUploadsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listUploadsResponse_httpStatus :: Lens.Lens' ListUploadsResponse Prelude.Int
+listUploadsResponse_httpStatus :: Lens.Lens' ListUploadsResponse Core.Int
 listUploadsResponse_httpStatus = Lens.lens (\ListUploadsResponse' {httpStatus} -> httpStatus) (\s@ListUploadsResponse' {} a -> s {httpStatus = a} :: ListUploadsResponse)
 
-instance Prelude.NFData ListUploadsResponse
+instance Core.NFData ListUploadsResponse

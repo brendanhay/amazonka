@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.PortProbeAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.PortProbeDetail
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the PORT_PROBE action described in the
 -- finding.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPortProbeAction' smart constructor.
 data PortProbeAction = PortProbeAction'
   { -- | A list of objects related to port probe details.
-    portProbeDetails :: Prelude.Maybe [PortProbeDetail],
+    portProbeDetails :: Core.Maybe [PortProbeDetail],
     -- | Indicates whether EC2 blocked the port probe to the instance, such as
     -- with an ACL.
-    blocked :: Prelude.Maybe Prelude.Bool
+    blocked :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PortProbeAction' with all optional fields omitted.
@@ -53,32 +52,29 @@ newPortProbeAction ::
   PortProbeAction
 newPortProbeAction =
   PortProbeAction'
-    { portProbeDetails =
-        Prelude.Nothing,
-      blocked = Prelude.Nothing
+    { portProbeDetails = Core.Nothing,
+      blocked = Core.Nothing
     }
 
 -- | A list of objects related to port probe details.
-portProbeAction_portProbeDetails :: Lens.Lens' PortProbeAction (Prelude.Maybe [PortProbeDetail])
-portProbeAction_portProbeDetails = Lens.lens (\PortProbeAction' {portProbeDetails} -> portProbeDetails) (\s@PortProbeAction' {} a -> s {portProbeDetails = a} :: PortProbeAction) Prelude.. Lens.mapping Prelude._Coerce
+portProbeAction_portProbeDetails :: Lens.Lens' PortProbeAction (Core.Maybe [PortProbeDetail])
+portProbeAction_portProbeDetails = Lens.lens (\PortProbeAction' {portProbeDetails} -> portProbeDetails) (\s@PortProbeAction' {} a -> s {portProbeDetails = a} :: PortProbeAction) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether EC2 blocked the port probe to the instance, such as
 -- with an ACL.
-portProbeAction_blocked :: Lens.Lens' PortProbeAction (Prelude.Maybe Prelude.Bool)
+portProbeAction_blocked :: Lens.Lens' PortProbeAction (Core.Maybe Core.Bool)
 portProbeAction_blocked = Lens.lens (\PortProbeAction' {blocked} -> blocked) (\s@PortProbeAction' {} a -> s {blocked = a} :: PortProbeAction)
 
-instance Prelude.FromJSON PortProbeAction where
+instance Core.FromJSON PortProbeAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PortProbeAction"
       ( \x ->
           PortProbeAction'
-            Prelude.<$> ( x Prelude..:? "portProbeDetails"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "blocked")
+            Core.<$> (x Core..:? "portProbeDetails" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "blocked")
       )
 
-instance Prelude.Hashable PortProbeAction
+instance Core.Hashable PortProbeAction
 
-instance Prelude.NFData PortProbeAction
+instance Core.NFData PortProbeAction

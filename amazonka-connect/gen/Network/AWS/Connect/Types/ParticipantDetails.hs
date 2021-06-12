@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.ParticipantDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The customer\'s details.
 --
 -- /See:/ 'newParticipantDetails' smart constructor.
 data ParticipantDetails = ParticipantDetails'
   { -- | Display name of the participant.
-    displayName :: Prelude.Text
+    displayName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParticipantDetails' with all optional fields omitted.
@@ -43,24 +42,22 @@ data ParticipantDetails = ParticipantDetails'
 -- 'displayName', 'participantDetails_displayName' - Display name of the participant.
 newParticipantDetails ::
   -- | 'displayName'
-  Prelude.Text ->
+  Core.Text ->
   ParticipantDetails
 newParticipantDetails pDisplayName_ =
   ParticipantDetails' {displayName = pDisplayName_}
 
 -- | Display name of the participant.
-participantDetails_displayName :: Lens.Lens' ParticipantDetails Prelude.Text
+participantDetails_displayName :: Lens.Lens' ParticipantDetails Core.Text
 participantDetails_displayName = Lens.lens (\ParticipantDetails' {displayName} -> displayName) (\s@ParticipantDetails' {} a -> s {displayName = a} :: ParticipantDetails)
 
-instance Prelude.Hashable ParticipantDetails
+instance Core.Hashable ParticipantDetails
 
-instance Prelude.NFData ParticipantDetails
+instance Core.NFData ParticipantDetails
 
-instance Prelude.ToJSON ParticipantDetails where
+instance Core.ToJSON ParticipantDetails where
   toJSON ParticipantDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DisplayName" Prelude..= displayName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DisplayName" Core..= displayName)]
       )

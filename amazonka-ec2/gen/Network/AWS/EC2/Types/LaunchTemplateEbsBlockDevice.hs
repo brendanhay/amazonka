@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,35 +19,35 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateEbsBlockDevice where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.VolumeType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device for an EBS volume.
 --
 -- /See:/ 'newLaunchTemplateEbsBlockDevice' smart constructor.
 data LaunchTemplateEbsBlockDevice = LaunchTemplateEbsBlockDevice'
   { -- | Indicates whether the EBS volume is encrypted.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | The throughput that the volume supports, in MiB\/s.
-    throughput :: Prelude.Maybe Prelude.Int,
+    throughput :: Core.Maybe Core.Int,
     -- | The ARN of the AWS Key Management Service (AWS KMS) CMK used for
     -- encryption.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | Indicates whether the EBS volume is deleted on instance termination.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
+    deleteOnTermination :: Core.Maybe Core.Bool,
     -- | The ID of the snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    snapshotId :: Core.Maybe Core.Text,
     -- | The volume type.
-    volumeType :: Prelude.Maybe VolumeType,
+    volumeType :: Core.Maybe VolumeType,
     -- | The size of the volume, in GiB.
-    volumeSize :: Prelude.Maybe Prelude.Int,
+    volumeSize :: Core.Maybe Core.Int,
     -- | The number of I\/O operations per second (IOPS) that the volume
     -- supports.
-    iops :: Prelude.Maybe Prelude.Int
+    iops :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateEbsBlockDevice' with all optional fields omitted.
@@ -80,64 +79,62 @@ newLaunchTemplateEbsBlockDevice ::
 newLaunchTemplateEbsBlockDevice =
   LaunchTemplateEbsBlockDevice'
     { encrypted =
-        Prelude.Nothing,
-      throughput = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      deleteOnTermination = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      volumeType = Prelude.Nothing,
-      volumeSize = Prelude.Nothing,
-      iops = Prelude.Nothing
+        Core.Nothing,
+      throughput = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      deleteOnTermination = Core.Nothing,
+      snapshotId = Core.Nothing,
+      volumeType = Core.Nothing,
+      volumeSize = Core.Nothing,
+      iops = Core.Nothing
     }
 
 -- | Indicates whether the EBS volume is encrypted.
-launchTemplateEbsBlockDevice_encrypted :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Bool)
+launchTemplateEbsBlockDevice_encrypted :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe Core.Bool)
 launchTemplateEbsBlockDevice_encrypted = Lens.lens (\LaunchTemplateEbsBlockDevice' {encrypted} -> encrypted) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {encrypted = a} :: LaunchTemplateEbsBlockDevice)
 
 -- | The throughput that the volume supports, in MiB\/s.
-launchTemplateEbsBlockDevice_throughput :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Int)
+launchTemplateEbsBlockDevice_throughput :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe Core.Int)
 launchTemplateEbsBlockDevice_throughput = Lens.lens (\LaunchTemplateEbsBlockDevice' {throughput} -> throughput) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {throughput = a} :: LaunchTemplateEbsBlockDevice)
 
 -- | The ARN of the AWS Key Management Service (AWS KMS) CMK used for
 -- encryption.
-launchTemplateEbsBlockDevice_kmsKeyId :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Text)
+launchTemplateEbsBlockDevice_kmsKeyId :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe Core.Text)
 launchTemplateEbsBlockDevice_kmsKeyId = Lens.lens (\LaunchTemplateEbsBlockDevice' {kmsKeyId} -> kmsKeyId) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {kmsKeyId = a} :: LaunchTemplateEbsBlockDevice)
 
 -- | Indicates whether the EBS volume is deleted on instance termination.
-launchTemplateEbsBlockDevice_deleteOnTermination :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Bool)
+launchTemplateEbsBlockDevice_deleteOnTermination :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe Core.Bool)
 launchTemplateEbsBlockDevice_deleteOnTermination = Lens.lens (\LaunchTemplateEbsBlockDevice' {deleteOnTermination} -> deleteOnTermination) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {deleteOnTermination = a} :: LaunchTemplateEbsBlockDevice)
 
 -- | The ID of the snapshot.
-launchTemplateEbsBlockDevice_snapshotId :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Text)
+launchTemplateEbsBlockDevice_snapshotId :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe Core.Text)
 launchTemplateEbsBlockDevice_snapshotId = Lens.lens (\LaunchTemplateEbsBlockDevice' {snapshotId} -> snapshotId) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {snapshotId = a} :: LaunchTemplateEbsBlockDevice)
 
 -- | The volume type.
-launchTemplateEbsBlockDevice_volumeType :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe VolumeType)
+launchTemplateEbsBlockDevice_volumeType :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe VolumeType)
 launchTemplateEbsBlockDevice_volumeType = Lens.lens (\LaunchTemplateEbsBlockDevice' {volumeType} -> volumeType) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {volumeType = a} :: LaunchTemplateEbsBlockDevice)
 
 -- | The size of the volume, in GiB.
-launchTemplateEbsBlockDevice_volumeSize :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Int)
+launchTemplateEbsBlockDevice_volumeSize :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe Core.Int)
 launchTemplateEbsBlockDevice_volumeSize = Lens.lens (\LaunchTemplateEbsBlockDevice' {volumeSize} -> volumeSize) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {volumeSize = a} :: LaunchTemplateEbsBlockDevice)
 
 -- | The number of I\/O operations per second (IOPS) that the volume
 -- supports.
-launchTemplateEbsBlockDevice_iops :: Lens.Lens' LaunchTemplateEbsBlockDevice (Prelude.Maybe Prelude.Int)
+launchTemplateEbsBlockDevice_iops :: Lens.Lens' LaunchTemplateEbsBlockDevice (Core.Maybe Core.Int)
 launchTemplateEbsBlockDevice_iops = Lens.lens (\LaunchTemplateEbsBlockDevice' {iops} -> iops) (\s@LaunchTemplateEbsBlockDevice' {} a -> s {iops = a} :: LaunchTemplateEbsBlockDevice)
 
-instance Prelude.FromXML LaunchTemplateEbsBlockDevice where
+instance Core.FromXML LaunchTemplateEbsBlockDevice where
   parseXML x =
     LaunchTemplateEbsBlockDevice'
-      Prelude.<$> (x Prelude..@? "encrypted")
-      Prelude.<*> (x Prelude..@? "throughput")
-      Prelude.<*> (x Prelude..@? "kmsKeyId")
-      Prelude.<*> (x Prelude..@? "deleteOnTermination")
-      Prelude.<*> (x Prelude..@? "snapshotId")
-      Prelude.<*> (x Prelude..@? "volumeType")
-      Prelude.<*> (x Prelude..@? "volumeSize")
-      Prelude.<*> (x Prelude..@? "iops")
+      Core.<$> (x Core..@? "encrypted")
+      Core.<*> (x Core..@? "throughput")
+      Core.<*> (x Core..@? "kmsKeyId")
+      Core.<*> (x Core..@? "deleteOnTermination")
+      Core.<*> (x Core..@? "snapshotId")
+      Core.<*> (x Core..@? "volumeType")
+      Core.<*> (x Core..@? "volumeSize")
+      Core.<*> (x Core..@? "iops")
 
-instance
-  Prelude.Hashable
-    LaunchTemplateEbsBlockDevice
+instance Core.Hashable LaunchTemplateEbsBlockDevice
 
-instance Prelude.NFData LaunchTemplateEbsBlockDevice
+instance Core.NFData LaunchTemplateEbsBlockDevice

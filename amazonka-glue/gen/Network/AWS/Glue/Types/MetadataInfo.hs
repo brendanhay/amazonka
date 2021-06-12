@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.MetadataInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure containing metadata information for a schema version.
 --
 -- /See:/ 'newMetadataInfo' smart constructor.
 data MetadataInfo = MetadataInfo'
   { -- | The time at which the entry was created.
-    createdTime :: Prelude.Maybe Prelude.Text,
+    createdTime :: Core.Maybe Core.Text,
     -- | The metadata key’s corresponding value.
-    metadataValue :: Prelude.Maybe Prelude.Text
+    metadataValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetadataInfo' with all optional fields omitted.
@@ -49,28 +48,28 @@ newMetadataInfo ::
   MetadataInfo
 newMetadataInfo =
   MetadataInfo'
-    { createdTime = Prelude.Nothing,
-      metadataValue = Prelude.Nothing
+    { createdTime = Core.Nothing,
+      metadataValue = Core.Nothing
     }
 
 -- | The time at which the entry was created.
-metadataInfo_createdTime :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
+metadataInfo_createdTime :: Lens.Lens' MetadataInfo (Core.Maybe Core.Text)
 metadataInfo_createdTime = Lens.lens (\MetadataInfo' {createdTime} -> createdTime) (\s@MetadataInfo' {} a -> s {createdTime = a} :: MetadataInfo)
 
 -- | The metadata key’s corresponding value.
-metadataInfo_metadataValue :: Lens.Lens' MetadataInfo (Prelude.Maybe Prelude.Text)
+metadataInfo_metadataValue :: Lens.Lens' MetadataInfo (Core.Maybe Core.Text)
 metadataInfo_metadataValue = Lens.lens (\MetadataInfo' {metadataValue} -> metadataValue) (\s@MetadataInfo' {} a -> s {metadataValue = a} :: MetadataInfo)
 
-instance Prelude.FromJSON MetadataInfo where
+instance Core.FromJSON MetadataInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetadataInfo"
       ( \x ->
           MetadataInfo'
-            Prelude.<$> (x Prelude..:? "CreatedTime")
-            Prelude.<*> (x Prelude..:? "MetadataValue")
+            Core.<$> (x Core..:? "CreatedTime")
+            Core.<*> (x Core..:? "MetadataValue")
       )
 
-instance Prelude.Hashable MetadataInfo
+instance Core.Hashable MetadataInfo
 
-instance Prelude.NFData MetadataInfo
+instance Core.NFData MetadataInfo

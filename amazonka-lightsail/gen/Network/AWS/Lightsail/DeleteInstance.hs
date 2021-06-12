@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Lightsail.DeleteInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data DeleteInstance = DeleteInstance'
   { -- | A Boolean value to indicate whether to delete the enabled add-ons for
     -- the disk.
-    forceDeleteAddOns :: Prelude.Maybe Prelude.Bool,
+    forceDeleteAddOns :: Core.Maybe Core.Bool,
     -- | The name of the instance to delete.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInstance' with all optional fields omitted.
@@ -76,83 +75,79 @@ data DeleteInstance = DeleteInstance'
 -- 'instanceName', 'deleteInstance_instanceName' - The name of the instance to delete.
 newDeleteInstance ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteInstance
 newDeleteInstance pInstanceName_ =
   DeleteInstance'
-    { forceDeleteAddOns =
-        Prelude.Nothing,
+    { forceDeleteAddOns = Core.Nothing,
       instanceName = pInstanceName_
     }
 
 -- | A Boolean value to indicate whether to delete the enabled add-ons for
 -- the disk.
-deleteInstance_forceDeleteAddOns :: Lens.Lens' DeleteInstance (Prelude.Maybe Prelude.Bool)
+deleteInstance_forceDeleteAddOns :: Lens.Lens' DeleteInstance (Core.Maybe Core.Bool)
 deleteInstance_forceDeleteAddOns = Lens.lens (\DeleteInstance' {forceDeleteAddOns} -> forceDeleteAddOns) (\s@DeleteInstance' {} a -> s {forceDeleteAddOns = a} :: DeleteInstance)
 
 -- | The name of the instance to delete.
-deleteInstance_instanceName :: Lens.Lens' DeleteInstance Prelude.Text
+deleteInstance_instanceName :: Lens.Lens' DeleteInstance Core.Text
 deleteInstance_instanceName = Lens.lens (\DeleteInstance' {instanceName} -> instanceName) (\s@DeleteInstance' {} a -> s {instanceName = a} :: DeleteInstance)
 
-instance Prelude.AWSRequest DeleteInstance where
-  type Rs DeleteInstance = DeleteInstanceResponse
+instance Core.AWSRequest DeleteInstance where
+  type
+    AWSResponse DeleteInstance =
+      DeleteInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteInstanceResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInstance
+instance Core.Hashable DeleteInstance
 
-instance Prelude.NFData DeleteInstance
+instance Core.NFData DeleteInstance
 
-instance Prelude.ToHeaders DeleteInstance where
+instance Core.ToHeaders DeleteInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteInstance where
+instance Core.ToJSON DeleteInstance where
   toJSON DeleteInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("forceDeleteAddOns" Prelude..=)
-              Prelude.<$> forceDeleteAddOns,
-            Prelude.Just
-              ("instanceName" Prelude..= instanceName)
+    Core.object
+      ( Core.catMaybes
+          [ ("forceDeleteAddOns" Core..=)
+              Core.<$> forceDeleteAddOns,
+            Core.Just ("instanceName" Core..= instanceName)
           ]
       )
 
-instance Prelude.ToPath DeleteInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInstanceResponse' with all optional fields omitted.
@@ -169,23 +164,22 @@ data DeleteInstanceResponse = DeleteInstanceResponse'
 -- 'httpStatus', 'deleteInstanceResponse_httpStatus' - The response's http status code.
 newDeleteInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteInstanceResponse
 newDeleteInstanceResponse pHttpStatus_ =
   DeleteInstanceResponse'
-    { operations =
-        Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteInstanceResponse_operations :: Lens.Lens' DeleteInstanceResponse (Prelude.Maybe [Operation])
-deleteInstanceResponse_operations = Lens.lens (\DeleteInstanceResponse' {operations} -> operations) (\s@DeleteInstanceResponse' {} a -> s {operations = a} :: DeleteInstanceResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteInstanceResponse_operations :: Lens.Lens' DeleteInstanceResponse (Core.Maybe [Operation])
+deleteInstanceResponse_operations = Lens.lens (\DeleteInstanceResponse' {operations} -> operations) (\s@DeleteInstanceResponse' {} a -> s {operations = a} :: DeleteInstanceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteInstanceResponse_httpStatus :: Lens.Lens' DeleteInstanceResponse Prelude.Int
+deleteInstanceResponse_httpStatus :: Lens.Lens' DeleteInstanceResponse Core.Int
 deleteInstanceResponse_httpStatus = Lens.lens (\DeleteInstanceResponse' {httpStatus} -> httpStatus) (\s@DeleteInstanceResponse' {} a -> s {httpStatus = a} :: DeleteInstanceResponse)
 
-instance Prelude.NFData DeleteInstanceResponse
+instance Core.NFData DeleteInstanceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Translate.Types.ParallelDataConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Translate.Types.ParallelDataFormat
 
 -- | Specifies the format and S3 location of the parallel data input file.
@@ -31,11 +30,11 @@ data ParallelDataConfig = ParallelDataConfig'
   { -- | The URI of the Amazon S3 folder that contains the parallel data input
     -- file. The folder must be in the same Region as the API endpoint you are
     -- calling.
-    s3Uri :: Prelude.Text,
+    s3Uri :: Core.Text,
     -- | The format of the parallel data input file.
     format :: ParallelDataFormat
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParallelDataConfig' with all optional fields omitted.
@@ -52,7 +51,7 @@ data ParallelDataConfig = ParallelDataConfig'
 -- 'format', 'parallelDataConfig_format' - The format of the parallel data input file.
 newParallelDataConfig ::
   -- | 's3Uri'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'format'
   ParallelDataFormat ->
   ParallelDataConfig
@@ -65,32 +64,31 @@ newParallelDataConfig pS3Uri_ pFormat_ =
 -- | The URI of the Amazon S3 folder that contains the parallel data input
 -- file. The folder must be in the same Region as the API endpoint you are
 -- calling.
-parallelDataConfig_s3Uri :: Lens.Lens' ParallelDataConfig Prelude.Text
+parallelDataConfig_s3Uri :: Lens.Lens' ParallelDataConfig Core.Text
 parallelDataConfig_s3Uri = Lens.lens (\ParallelDataConfig' {s3Uri} -> s3Uri) (\s@ParallelDataConfig' {} a -> s {s3Uri = a} :: ParallelDataConfig)
 
 -- | The format of the parallel data input file.
 parallelDataConfig_format :: Lens.Lens' ParallelDataConfig ParallelDataFormat
 parallelDataConfig_format = Lens.lens (\ParallelDataConfig' {format} -> format) (\s@ParallelDataConfig' {} a -> s {format = a} :: ParallelDataConfig)
 
-instance Prelude.FromJSON ParallelDataConfig where
+instance Core.FromJSON ParallelDataConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParallelDataConfig"
       ( \x ->
           ParallelDataConfig'
-            Prelude.<$> (x Prelude..: "S3Uri")
-            Prelude.<*> (x Prelude..: "Format")
+            Core.<$> (x Core..: "S3Uri") Core.<*> (x Core..: "Format")
       )
 
-instance Prelude.Hashable ParallelDataConfig
+instance Core.Hashable ParallelDataConfig
 
-instance Prelude.NFData ParallelDataConfig
+instance Core.NFData ParallelDataConfig
 
-instance Prelude.ToJSON ParallelDataConfig where
+instance Core.ToJSON ParallelDataConfig where
   toJSON ParallelDataConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("S3Uri" Prelude..= s3Uri),
-            Prelude.Just ("Format" Prelude..= format)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3Uri" Core..= s3Uri),
+            Core.Just ("Format" Core..= format)
           ]
       )

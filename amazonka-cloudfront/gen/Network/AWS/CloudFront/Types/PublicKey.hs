@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.PublicKey where
 
 import Network.AWS.CloudFront.Types.PublicKeyConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A public key that you can use with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
@@ -32,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPublicKey' smart constructor.
 data PublicKey = PublicKey'
   { -- | The identifier of the public key.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The date and time when the public key was uploaded.
-    createdTime :: Prelude.ISO8601,
+    createdTime :: Core.ISO8601,
     -- | Configuration information about a public key that you can use with
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
     -- or with
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
     publicKeyConfig :: PublicKeyConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PublicKey' with all optional fields omitted.
@@ -61,26 +60,26 @@ data PublicKey = PublicKey'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
 newPublicKey ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'createdTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'publicKeyConfig'
   PublicKeyConfig ->
   PublicKey
 newPublicKey pId_ pCreatedTime_ pPublicKeyConfig_ =
   PublicKey'
     { id = pId_,
-      createdTime = Prelude._Time Lens.# pCreatedTime_,
+      createdTime = Core._Time Lens.# pCreatedTime_,
       publicKeyConfig = pPublicKeyConfig_
     }
 
 -- | The identifier of the public key.
-publicKey_id :: Lens.Lens' PublicKey Prelude.Text
+publicKey_id :: Lens.Lens' PublicKey Core.Text
 publicKey_id = Lens.lens (\PublicKey' {id} -> id) (\s@PublicKey' {} a -> s {id = a} :: PublicKey)
 
 -- | The date and time when the public key was uploaded.
-publicKey_createdTime :: Lens.Lens' PublicKey Prelude.UTCTime
-publicKey_createdTime = Lens.lens (\PublicKey' {createdTime} -> createdTime) (\s@PublicKey' {} a -> s {createdTime = a} :: PublicKey) Prelude.. Prelude._Time
+publicKey_createdTime :: Lens.Lens' PublicKey Core.UTCTime
+publicKey_createdTime = Lens.lens (\PublicKey' {createdTime} -> createdTime) (\s@PublicKey' {} a -> s {createdTime = a} :: PublicKey) Core.. Core._Time
 
 -- | Configuration information about a public key that you can use with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
@@ -89,13 +88,13 @@ publicKey_createdTime = Lens.lens (\PublicKey' {createdTime} -> createdTime) (\s
 publicKey_publicKeyConfig :: Lens.Lens' PublicKey PublicKeyConfig
 publicKey_publicKeyConfig = Lens.lens (\PublicKey' {publicKeyConfig} -> publicKeyConfig) (\s@PublicKey' {} a -> s {publicKeyConfig = a} :: PublicKey)
 
-instance Prelude.FromXML PublicKey where
+instance Core.FromXML PublicKey where
   parseXML x =
     PublicKey'
-      Prelude.<$> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "CreatedTime")
-      Prelude.<*> (x Prelude..@ "PublicKeyConfig")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "CreatedTime")
+      Core.<*> (x Core..@ "PublicKeyConfig")
 
-instance Prelude.Hashable PublicKey
+instance Core.Hashable PublicKey
 
-instance Prelude.NFData PublicKey
+instance Core.NFData PublicKey

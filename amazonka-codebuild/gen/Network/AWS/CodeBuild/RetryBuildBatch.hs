@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CodeBuild.RetryBuildBatch
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ data RetryBuildBatch = RetryBuildBatch'
     -- the @RetryBuildBatch@ request and is valid for five minutes. If you
     -- repeat the @RetryBuildBatch@ request with the same token, but change a
     -- parameter, AWS CodeBuild returns a parameter mismatch error.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    idempotencyToken :: Core.Maybe Core.Text,
     -- | Specifies the type of retry to perform.
-    retryType :: Prelude.Maybe RetryBuildBatchType,
+    retryType :: Core.Maybe RetryBuildBatchType,
     -- | Specifies the identifier of the batch build to restart.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetryBuildBatch' with all optional fields omitted.
@@ -85,10 +84,9 @@ newRetryBuildBatch ::
   RetryBuildBatch
 newRetryBuildBatch =
   RetryBuildBatch'
-    { idempotencyToken =
-        Prelude.Nothing,
-      retryType = Prelude.Nothing,
-      id = Prelude.Nothing
+    { idempotencyToken = Core.Nothing,
+      retryType = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | A unique, case sensitive identifier you provide to ensure the
@@ -96,71 +94,71 @@ newRetryBuildBatch =
 -- the @RetryBuildBatch@ request and is valid for five minutes. If you
 -- repeat the @RetryBuildBatch@ request with the same token, but change a
 -- parameter, AWS CodeBuild returns a parameter mismatch error.
-retryBuildBatch_idempotencyToken :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
+retryBuildBatch_idempotencyToken :: Lens.Lens' RetryBuildBatch (Core.Maybe Core.Text)
 retryBuildBatch_idempotencyToken = Lens.lens (\RetryBuildBatch' {idempotencyToken} -> idempotencyToken) (\s@RetryBuildBatch' {} a -> s {idempotencyToken = a} :: RetryBuildBatch)
 
 -- | Specifies the type of retry to perform.
-retryBuildBatch_retryType :: Lens.Lens' RetryBuildBatch (Prelude.Maybe RetryBuildBatchType)
+retryBuildBatch_retryType :: Lens.Lens' RetryBuildBatch (Core.Maybe RetryBuildBatchType)
 retryBuildBatch_retryType = Lens.lens (\RetryBuildBatch' {retryType} -> retryType) (\s@RetryBuildBatch' {} a -> s {retryType = a} :: RetryBuildBatch)
 
 -- | Specifies the identifier of the batch build to restart.
-retryBuildBatch_id :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
+retryBuildBatch_id :: Lens.Lens' RetryBuildBatch (Core.Maybe Core.Text)
 retryBuildBatch_id = Lens.lens (\RetryBuildBatch' {id} -> id) (\s@RetryBuildBatch' {} a -> s {id = a} :: RetryBuildBatch)
 
-instance Prelude.AWSRequest RetryBuildBatch where
-  type Rs RetryBuildBatch = RetryBuildBatchResponse
+instance Core.AWSRequest RetryBuildBatch where
+  type
+    AWSResponse RetryBuildBatch =
+      RetryBuildBatchResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RetryBuildBatchResponse'
-            Prelude.<$> (x Prelude..?> "buildBatch")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "buildBatch")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RetryBuildBatch
+instance Core.Hashable RetryBuildBatch
 
-instance Prelude.NFData RetryBuildBatch
+instance Core.NFData RetryBuildBatch
 
-instance Prelude.ToHeaders RetryBuildBatch where
+instance Core.ToHeaders RetryBuildBatch where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.RetryBuildBatch" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeBuild_20161006.RetryBuildBatch" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RetryBuildBatch where
+instance Core.ToJSON RetryBuildBatch where
   toJSON RetryBuildBatch' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("idempotencyToken" Prelude..=)
-              Prelude.<$> idempotencyToken,
-            ("retryType" Prelude..=) Prelude.<$> retryType,
-            ("id" Prelude..=) Prelude.<$> id
+    Core.object
+      ( Core.catMaybes
+          [ ("idempotencyToken" Core..=)
+              Core.<$> idempotencyToken,
+            ("retryType" Core..=) Core.<$> retryType,
+            ("id" Core..=) Core.<$> id
           ]
       )
 
-instance Prelude.ToPath RetryBuildBatch where
-  toPath = Prelude.const "/"
+instance Core.ToPath RetryBuildBatch where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RetryBuildBatch where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RetryBuildBatch where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRetryBuildBatchResponse' smart constructor.
 data RetryBuildBatchResponse = RetryBuildBatchResponse'
-  { buildBatch :: Prelude.Maybe BuildBatch,
+  { buildBatch :: Core.Maybe BuildBatch,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetryBuildBatchResponse' with all optional fields omitted.
@@ -175,21 +173,20 @@ data RetryBuildBatchResponse = RetryBuildBatchResponse'
 -- 'httpStatus', 'retryBuildBatchResponse_httpStatus' - The response's http status code.
 newRetryBuildBatchResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RetryBuildBatchResponse
 newRetryBuildBatchResponse pHttpStatus_ =
   RetryBuildBatchResponse'
-    { buildBatch =
-        Prelude.Nothing,
+    { buildBatch = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-retryBuildBatchResponse_buildBatch :: Lens.Lens' RetryBuildBatchResponse (Prelude.Maybe BuildBatch)
+retryBuildBatchResponse_buildBatch :: Lens.Lens' RetryBuildBatchResponse (Core.Maybe BuildBatch)
 retryBuildBatchResponse_buildBatch = Lens.lens (\RetryBuildBatchResponse' {buildBatch} -> buildBatch) (\s@RetryBuildBatchResponse' {} a -> s {buildBatch = a} :: RetryBuildBatchResponse)
 
 -- | The response's http status code.
-retryBuildBatchResponse_httpStatus :: Lens.Lens' RetryBuildBatchResponse Prelude.Int
+retryBuildBatchResponse_httpStatus :: Lens.Lens' RetryBuildBatchResponse Core.Int
 retryBuildBatchResponse_httpStatus = Lens.lens (\RetryBuildBatchResponse' {httpStatus} -> httpStatus) (\s@RetryBuildBatchResponse' {} a -> s {httpStatus = a} :: RetryBuildBatchResponse)
 
-instance Prelude.NFData RetryBuildBatchResponse
+instance Core.NFData RetryBuildBatchResponse

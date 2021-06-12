@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFormation.Types.Export where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @Export@ structure describes the exported output values for a stack.
 --
 -- /See:/ 'newExport' smart constructor.
 data Export = Export'
   { -- | The stack that contains the exported output name and value.
-    exportingStackId :: Prelude.Maybe Prelude.Text,
+    exportingStackId :: Core.Maybe Core.Text,
     -- | The name of exported output value. Use this name and the
     -- @Fn::ImportValue@ function to import the associated value into other
     -- stacks. The name is defined in the @Export@ field in the associated
     -- stack\'s @Outputs@ section.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The value of the exported output, such as a resource physical ID. This
     -- value is defined in the @Export@ field in the associated stack\'s
     -- @Outputs@ section.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Export' with all optional fields omitted.
@@ -63,35 +62,35 @@ newExport ::
   Export
 newExport =
   Export'
-    { exportingStackId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { exportingStackId = Core.Nothing,
+      name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The stack that contains the exported output name and value.
-export_exportingStackId :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
+export_exportingStackId :: Lens.Lens' Export (Core.Maybe Core.Text)
 export_exportingStackId = Lens.lens (\Export' {exportingStackId} -> exportingStackId) (\s@Export' {} a -> s {exportingStackId = a} :: Export)
 
 -- | The name of exported output value. Use this name and the
 -- @Fn::ImportValue@ function to import the associated value into other
 -- stacks. The name is defined in the @Export@ field in the associated
 -- stack\'s @Outputs@ section.
-export_name :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
+export_name :: Lens.Lens' Export (Core.Maybe Core.Text)
 export_name = Lens.lens (\Export' {name} -> name) (\s@Export' {} a -> s {name = a} :: Export)
 
 -- | The value of the exported output, such as a resource physical ID. This
 -- value is defined in the @Export@ field in the associated stack\'s
 -- @Outputs@ section.
-export_value :: Lens.Lens' Export (Prelude.Maybe Prelude.Text)
+export_value :: Lens.Lens' Export (Core.Maybe Core.Text)
 export_value = Lens.lens (\Export' {value} -> value) (\s@Export' {} a -> s {value = a} :: Export)
 
-instance Prelude.FromXML Export where
+instance Core.FromXML Export where
   parseXML x =
     Export'
-      Prelude.<$> (x Prelude..@? "ExportingStackId")
-      Prelude.<*> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "ExportingStackId")
+      Core.<*> (x Core..@? "Name")
+      Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable Export
+instance Core.Hashable Export
 
-instance Prelude.NFData Export
+instance Core.NFData Export

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBProxyTargetGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo
 
 -- | Represents a set of RDS DB instances, Aurora DB clusters, or both that a
@@ -37,27 +36,27 @@ data DBProxyTargetGroup = DBProxyTargetGroup'
     -- the target group is correctly associated with a database. Other values
     -- indicate that you must wait for the target group to be ready, or take
     -- some action to resolve an issue.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The date and time when the target group was first created.
-    createdDate :: Prelude.Maybe Prelude.ISO8601,
+    createdDate :: Core.Maybe Core.ISO8601,
     -- | Whether this target group is the first one used for connection requests
     -- by the associated proxy. Because each proxy is currently associated with
     -- a single target group, currently this setting is always @true@.
-    isDefault :: Prelude.Maybe Prelude.Bool,
+    isDefault :: Core.Maybe Core.Bool,
     -- | The identifier for the target group. This name must be unique for all
     -- target groups owned by your AWS account in the specified AWS Region.
-    targetGroupName :: Prelude.Maybe Prelude.Text,
+    targetGroupName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) representing the target group.
-    targetGroupArn :: Prelude.Maybe Prelude.Text,
+    targetGroupArn :: Core.Maybe Core.Text,
     -- | The settings that determine the size and behavior of the connection pool
     -- for the target group.
-    connectionPoolConfig :: Prelude.Maybe ConnectionPoolConfigurationInfo,
+    connectionPoolConfig :: Core.Maybe ConnectionPoolConfigurationInfo,
     -- | The date and time when the target group was last updated.
-    updatedDate :: Prelude.Maybe Prelude.ISO8601,
+    updatedDate :: Core.Maybe Core.ISO8601,
     -- | The identifier for the RDS proxy associated with this target group.
-    dbProxyName :: Prelude.Maybe Prelude.Text
+    dbProxyName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBProxyTargetGroup' with all optional fields omitted.
@@ -93,67 +92,67 @@ newDBProxyTargetGroup ::
   DBProxyTargetGroup
 newDBProxyTargetGroup =
   DBProxyTargetGroup'
-    { status = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      isDefault = Prelude.Nothing,
-      targetGroupName = Prelude.Nothing,
-      targetGroupArn = Prelude.Nothing,
-      connectionPoolConfig = Prelude.Nothing,
-      updatedDate = Prelude.Nothing,
-      dbProxyName = Prelude.Nothing
+    { status = Core.Nothing,
+      createdDate = Core.Nothing,
+      isDefault = Core.Nothing,
+      targetGroupName = Core.Nothing,
+      targetGroupArn = Core.Nothing,
+      connectionPoolConfig = Core.Nothing,
+      updatedDate = Core.Nothing,
+      dbProxyName = Core.Nothing
     }
 
 -- | The current status of this target group. A status of @available@ means
 -- the target group is correctly associated with a database. Other values
 -- indicate that you must wait for the target group to be ready, or take
 -- some action to resolve an issue.
-dbProxyTargetGroup_status :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Text)
+dbProxyTargetGroup_status :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.Text)
 dbProxyTargetGroup_status = Lens.lens (\DBProxyTargetGroup' {status} -> status) (\s@DBProxyTargetGroup' {} a -> s {status = a} :: DBProxyTargetGroup)
 
 -- | The date and time when the target group was first created.
-dbProxyTargetGroup_createdDate :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.UTCTime)
-dbProxyTargetGroup_createdDate = Lens.lens (\DBProxyTargetGroup' {createdDate} -> createdDate) (\s@DBProxyTargetGroup' {} a -> s {createdDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Prelude._Time
+dbProxyTargetGroup_createdDate :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.UTCTime)
+dbProxyTargetGroup_createdDate = Lens.lens (\DBProxyTargetGroup' {createdDate} -> createdDate) (\s@DBProxyTargetGroup' {} a -> s {createdDate = a} :: DBProxyTargetGroup) Core.. Lens.mapping Core._Time
 
 -- | Whether this target group is the first one used for connection requests
 -- by the associated proxy. Because each proxy is currently associated with
 -- a single target group, currently this setting is always @true@.
-dbProxyTargetGroup_isDefault :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Bool)
+dbProxyTargetGroup_isDefault :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.Bool)
 dbProxyTargetGroup_isDefault = Lens.lens (\DBProxyTargetGroup' {isDefault} -> isDefault) (\s@DBProxyTargetGroup' {} a -> s {isDefault = a} :: DBProxyTargetGroup)
 
 -- | The identifier for the target group. This name must be unique for all
 -- target groups owned by your AWS account in the specified AWS Region.
-dbProxyTargetGroup_targetGroupName :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Text)
+dbProxyTargetGroup_targetGroupName :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.Text)
 dbProxyTargetGroup_targetGroupName = Lens.lens (\DBProxyTargetGroup' {targetGroupName} -> targetGroupName) (\s@DBProxyTargetGroup' {} a -> s {targetGroupName = a} :: DBProxyTargetGroup)
 
 -- | The Amazon Resource Name (ARN) representing the target group.
-dbProxyTargetGroup_targetGroupArn :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Text)
+dbProxyTargetGroup_targetGroupArn :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.Text)
 dbProxyTargetGroup_targetGroupArn = Lens.lens (\DBProxyTargetGroup' {targetGroupArn} -> targetGroupArn) (\s@DBProxyTargetGroup' {} a -> s {targetGroupArn = a} :: DBProxyTargetGroup)
 
 -- | The settings that determine the size and behavior of the connection pool
 -- for the target group.
-dbProxyTargetGroup_connectionPoolConfig :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe ConnectionPoolConfigurationInfo)
+dbProxyTargetGroup_connectionPoolConfig :: Lens.Lens' DBProxyTargetGroup (Core.Maybe ConnectionPoolConfigurationInfo)
 dbProxyTargetGroup_connectionPoolConfig = Lens.lens (\DBProxyTargetGroup' {connectionPoolConfig} -> connectionPoolConfig) (\s@DBProxyTargetGroup' {} a -> s {connectionPoolConfig = a} :: DBProxyTargetGroup)
 
 -- | The date and time when the target group was last updated.
-dbProxyTargetGroup_updatedDate :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.UTCTime)
-dbProxyTargetGroup_updatedDate = Lens.lens (\DBProxyTargetGroup' {updatedDate} -> updatedDate) (\s@DBProxyTargetGroup' {} a -> s {updatedDate = a} :: DBProxyTargetGroup) Prelude.. Lens.mapping Prelude._Time
+dbProxyTargetGroup_updatedDate :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.UTCTime)
+dbProxyTargetGroup_updatedDate = Lens.lens (\DBProxyTargetGroup' {updatedDate} -> updatedDate) (\s@DBProxyTargetGroup' {} a -> s {updatedDate = a} :: DBProxyTargetGroup) Core.. Lens.mapping Core._Time
 
 -- | The identifier for the RDS proxy associated with this target group.
-dbProxyTargetGroup_dbProxyName :: Lens.Lens' DBProxyTargetGroup (Prelude.Maybe Prelude.Text)
+dbProxyTargetGroup_dbProxyName :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.Text)
 dbProxyTargetGroup_dbProxyName = Lens.lens (\DBProxyTargetGroup' {dbProxyName} -> dbProxyName) (\s@DBProxyTargetGroup' {} a -> s {dbProxyName = a} :: DBProxyTargetGroup)
 
-instance Prelude.FromXML DBProxyTargetGroup where
+instance Core.FromXML DBProxyTargetGroup where
   parseXML x =
     DBProxyTargetGroup'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "CreatedDate")
-      Prelude.<*> (x Prelude..@? "IsDefault")
-      Prelude.<*> (x Prelude..@? "TargetGroupName")
-      Prelude.<*> (x Prelude..@? "TargetGroupArn")
-      Prelude.<*> (x Prelude..@? "ConnectionPoolConfig")
-      Prelude.<*> (x Prelude..@? "UpdatedDate")
-      Prelude.<*> (x Prelude..@? "DBProxyName")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "CreatedDate")
+      Core.<*> (x Core..@? "IsDefault")
+      Core.<*> (x Core..@? "TargetGroupName")
+      Core.<*> (x Core..@? "TargetGroupArn")
+      Core.<*> (x Core..@? "ConnectionPoolConfig")
+      Core.<*> (x Core..@? "UpdatedDate")
+      Core.<*> (x Core..@? "DBProxyName")
 
-instance Prelude.Hashable DBProxyTargetGroup
+instance Core.Hashable DBProxyTargetGroup
 
-instance Prelude.NFData DBProxyTargetGroup
+instance Core.NFData DBProxyTargetGroup

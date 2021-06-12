@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.AnalyticsConfigurationType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon Pinpoint analytics configuration for collecting metrics for a
 -- user pool.
@@ -37,19 +36,19 @@ data AnalyticsConfigurationType = AnalyticsConfigurationType'
     -- use the Amazon Pinpoint project for Pinpoint integration with the chosen
     -- User Pool Client. Amazon Cognito publishes events to the pinpoint
     -- project declared by the app ARN.
-    applicationArn :: Prelude.Maybe Prelude.Text,
+    applicationArn :: Core.Maybe Core.Text,
     -- | The application ID for an Amazon Pinpoint application.
-    applicationId :: Prelude.Maybe Prelude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | The ARN of an IAM role that authorizes Amazon Cognito to publish events
     -- to Amazon Pinpoint analytics.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | If @UserDataShared@ is @true@, Amazon Cognito will include user data in
     -- the events it publishes to Amazon Pinpoint analytics.
-    userDataShared :: Prelude.Maybe Prelude.Bool,
+    userDataShared :: Core.Maybe Core.Bool,
     -- | The external ID.
-    externalId :: Prelude.Maybe Prelude.Text
+    externalId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalyticsConfigurationType' with all optional fields omitted.
@@ -78,66 +77,63 @@ newAnalyticsConfigurationType ::
 newAnalyticsConfigurationType =
   AnalyticsConfigurationType'
     { applicationArn =
-        Prelude.Nothing,
-      applicationId = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      userDataShared = Prelude.Nothing,
-      externalId = Prelude.Nothing
+        Core.Nothing,
+      applicationId = Core.Nothing,
+      roleArn = Core.Nothing,
+      userDataShared = Core.Nothing,
+      externalId = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can
 -- use the Amazon Pinpoint project for Pinpoint integration with the chosen
 -- User Pool Client. Amazon Cognito publishes events to the pinpoint
 -- project declared by the app ARN.
-analyticsConfigurationType_applicationArn :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
+analyticsConfigurationType_applicationArn :: Lens.Lens' AnalyticsConfigurationType (Core.Maybe Core.Text)
 analyticsConfigurationType_applicationArn = Lens.lens (\AnalyticsConfigurationType' {applicationArn} -> applicationArn) (\s@AnalyticsConfigurationType' {} a -> s {applicationArn = a} :: AnalyticsConfigurationType)
 
 -- | The application ID for an Amazon Pinpoint application.
-analyticsConfigurationType_applicationId :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
+analyticsConfigurationType_applicationId :: Lens.Lens' AnalyticsConfigurationType (Core.Maybe Core.Text)
 analyticsConfigurationType_applicationId = Lens.lens (\AnalyticsConfigurationType' {applicationId} -> applicationId) (\s@AnalyticsConfigurationType' {} a -> s {applicationId = a} :: AnalyticsConfigurationType)
 
 -- | The ARN of an IAM role that authorizes Amazon Cognito to publish events
 -- to Amazon Pinpoint analytics.
-analyticsConfigurationType_roleArn :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
+analyticsConfigurationType_roleArn :: Lens.Lens' AnalyticsConfigurationType (Core.Maybe Core.Text)
 analyticsConfigurationType_roleArn = Lens.lens (\AnalyticsConfigurationType' {roleArn} -> roleArn) (\s@AnalyticsConfigurationType' {} a -> s {roleArn = a} :: AnalyticsConfigurationType)
 
 -- | If @UserDataShared@ is @true@, Amazon Cognito will include user data in
 -- the events it publishes to Amazon Pinpoint analytics.
-analyticsConfigurationType_userDataShared :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Bool)
+analyticsConfigurationType_userDataShared :: Lens.Lens' AnalyticsConfigurationType (Core.Maybe Core.Bool)
 analyticsConfigurationType_userDataShared = Lens.lens (\AnalyticsConfigurationType' {userDataShared} -> userDataShared) (\s@AnalyticsConfigurationType' {} a -> s {userDataShared = a} :: AnalyticsConfigurationType)
 
 -- | The external ID.
-analyticsConfigurationType_externalId :: Lens.Lens' AnalyticsConfigurationType (Prelude.Maybe Prelude.Text)
+analyticsConfigurationType_externalId :: Lens.Lens' AnalyticsConfigurationType (Core.Maybe Core.Text)
 analyticsConfigurationType_externalId = Lens.lens (\AnalyticsConfigurationType' {externalId} -> externalId) (\s@AnalyticsConfigurationType' {} a -> s {externalId = a} :: AnalyticsConfigurationType)
 
-instance Prelude.FromJSON AnalyticsConfigurationType where
+instance Core.FromJSON AnalyticsConfigurationType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AnalyticsConfigurationType"
       ( \x ->
           AnalyticsConfigurationType'
-            Prelude.<$> (x Prelude..:? "ApplicationArn")
-            Prelude.<*> (x Prelude..:? "ApplicationId")
-            Prelude.<*> (x Prelude..:? "RoleArn")
-            Prelude.<*> (x Prelude..:? "UserDataShared")
-            Prelude.<*> (x Prelude..:? "ExternalId")
+            Core.<$> (x Core..:? "ApplicationArn")
+            Core.<*> (x Core..:? "ApplicationId")
+            Core.<*> (x Core..:? "RoleArn")
+            Core.<*> (x Core..:? "UserDataShared")
+            Core.<*> (x Core..:? "ExternalId")
       )
 
-instance Prelude.Hashable AnalyticsConfigurationType
+instance Core.Hashable AnalyticsConfigurationType
 
-instance Prelude.NFData AnalyticsConfigurationType
+instance Core.NFData AnalyticsConfigurationType
 
-instance Prelude.ToJSON AnalyticsConfigurationType where
+instance Core.ToJSON AnalyticsConfigurationType where
   toJSON AnalyticsConfigurationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ApplicationArn" Prelude..=)
-              Prelude.<$> applicationArn,
-            ("ApplicationId" Prelude..=)
-              Prelude.<$> applicationId,
-            ("RoleArn" Prelude..=) Prelude.<$> roleArn,
-            ("UserDataShared" Prelude..=)
-              Prelude.<$> userDataShared,
-            ("ExternalId" Prelude..=) Prelude.<$> externalId
+    Core.object
+      ( Core.catMaybes
+          [ ("ApplicationArn" Core..=) Core.<$> applicationArn,
+            ("ApplicationId" Core..=) Core.<$> applicationId,
+            ("RoleArn" Core..=) Core.<$> roleArn,
+            ("UserDataShared" Core..=) Core.<$> userDataShared,
+            ("ExternalId" Core..=) Core.<$> externalId
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.QueryStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the number of log events scanned by the query, the number of
 -- log events that matched the query criteria, and the total number of
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newQueryStatistics' smart constructor.
 data QueryStatistics = QueryStatistics'
   { -- | The total number of bytes in the log events scanned during the query.
-    bytesScanned :: Prelude.Maybe Prelude.Double,
+    bytesScanned :: Core.Maybe Core.Double,
     -- | The number of log events that matched the query string.
-    recordsMatched :: Prelude.Maybe Prelude.Double,
+    recordsMatched :: Core.Maybe Core.Double,
     -- | The total number of log events scanned during the query.
-    recordsScanned :: Prelude.Maybe Prelude.Double
+    recordsScanned :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryStatistics' with all optional fields omitted.
@@ -55,34 +54,34 @@ newQueryStatistics ::
   QueryStatistics
 newQueryStatistics =
   QueryStatistics'
-    { bytesScanned = Prelude.Nothing,
-      recordsMatched = Prelude.Nothing,
-      recordsScanned = Prelude.Nothing
+    { bytesScanned = Core.Nothing,
+      recordsMatched = Core.Nothing,
+      recordsScanned = Core.Nothing
     }
 
 -- | The total number of bytes in the log events scanned during the query.
-queryStatistics_bytesScanned :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
+queryStatistics_bytesScanned :: Lens.Lens' QueryStatistics (Core.Maybe Core.Double)
 queryStatistics_bytesScanned = Lens.lens (\QueryStatistics' {bytesScanned} -> bytesScanned) (\s@QueryStatistics' {} a -> s {bytesScanned = a} :: QueryStatistics)
 
 -- | The number of log events that matched the query string.
-queryStatistics_recordsMatched :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
+queryStatistics_recordsMatched :: Lens.Lens' QueryStatistics (Core.Maybe Core.Double)
 queryStatistics_recordsMatched = Lens.lens (\QueryStatistics' {recordsMatched} -> recordsMatched) (\s@QueryStatistics' {} a -> s {recordsMatched = a} :: QueryStatistics)
 
 -- | The total number of log events scanned during the query.
-queryStatistics_recordsScanned :: Lens.Lens' QueryStatistics (Prelude.Maybe Prelude.Double)
+queryStatistics_recordsScanned :: Lens.Lens' QueryStatistics (Core.Maybe Core.Double)
 queryStatistics_recordsScanned = Lens.lens (\QueryStatistics' {recordsScanned} -> recordsScanned) (\s@QueryStatistics' {} a -> s {recordsScanned = a} :: QueryStatistics)
 
-instance Prelude.FromJSON QueryStatistics where
+instance Core.FromJSON QueryStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QueryStatistics"
       ( \x ->
           QueryStatistics'
-            Prelude.<$> (x Prelude..:? "bytesScanned")
-            Prelude.<*> (x Prelude..:? "recordsMatched")
-            Prelude.<*> (x Prelude..:? "recordsScanned")
+            Core.<$> (x Core..:? "bytesScanned")
+            Core.<*> (x Core..:? "recordsMatched")
+            Core.<*> (x Core..:? "recordsScanned")
       )
 
-instance Prelude.Hashable QueryStatistics
+instance Core.Hashable QueryStatistics
 
-instance Prelude.NFData QueryStatistics
+instance Core.NFData QueryStatistics

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,8 +70,8 @@ module Network.AWS.SWF.DeprecateWorkflowType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -80,11 +79,11 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newDeprecateWorkflowType' smart constructor.
 data DeprecateWorkflowType = DeprecateWorkflowType'
   { -- | The name of the domain in which the workflow type is registered.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The workflow type to deprecate.
     workflowType :: WorkflowType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeprecateWorkflowType' with all optional fields omitted.
@@ -99,7 +98,7 @@ data DeprecateWorkflowType = DeprecateWorkflowType'
 -- 'workflowType', 'deprecateWorkflowType_workflowType' - The workflow type to deprecate.
 newDeprecateWorkflowType ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workflowType'
   WorkflowType ->
   DeprecateWorkflowType
@@ -110,61 +109,58 @@ newDeprecateWorkflowType pDomain_ pWorkflowType_ =
     }
 
 -- | The name of the domain in which the workflow type is registered.
-deprecateWorkflowType_domain :: Lens.Lens' DeprecateWorkflowType Prelude.Text
+deprecateWorkflowType_domain :: Lens.Lens' DeprecateWorkflowType Core.Text
 deprecateWorkflowType_domain = Lens.lens (\DeprecateWorkflowType' {domain} -> domain) (\s@DeprecateWorkflowType' {} a -> s {domain = a} :: DeprecateWorkflowType)
 
 -- | The workflow type to deprecate.
 deprecateWorkflowType_workflowType :: Lens.Lens' DeprecateWorkflowType WorkflowType
 deprecateWorkflowType_workflowType = Lens.lens (\DeprecateWorkflowType' {workflowType} -> workflowType) (\s@DeprecateWorkflowType' {} a -> s {workflowType = a} :: DeprecateWorkflowType)
 
-instance Prelude.AWSRequest DeprecateWorkflowType where
+instance Core.AWSRequest DeprecateWorkflowType where
   type
-    Rs DeprecateWorkflowType =
+    AWSResponse DeprecateWorkflowType =
       DeprecateWorkflowTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeprecateWorkflowTypeResponse'
 
-instance Prelude.Hashable DeprecateWorkflowType
+instance Core.Hashable DeprecateWorkflowType
 
-instance Prelude.NFData DeprecateWorkflowType
+instance Core.NFData DeprecateWorkflowType
 
-instance Prelude.ToHeaders DeprecateWorkflowType where
+instance Core.ToHeaders DeprecateWorkflowType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.DeprecateWorkflowType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.DeprecateWorkflowType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeprecateWorkflowType where
+instance Core.ToJSON DeprecateWorkflowType where
   toJSON DeprecateWorkflowType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just
-              ("workflowType" Prelude..= workflowType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowType" Core..= workflowType)
           ]
       )
 
-instance Prelude.ToPath DeprecateWorkflowType where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeprecateWorkflowType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeprecateWorkflowType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeprecateWorkflowType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeprecateWorkflowTypeResponse' smart constructor.
 data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeprecateWorkflowTypeResponse' with all optional fields omitted.
@@ -175,4 +171,4 @@ newDeprecateWorkflowTypeResponse ::
 newDeprecateWorkflowTypeResponse =
   DeprecateWorkflowTypeResponse'
 
-instance Prelude.NFData DeprecateWorkflowTypeResponse
+instance Core.NFData DeprecateWorkflowTypeResponse

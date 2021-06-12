@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.ElasticBeanstalk.ComposeEnvironments
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,18 +63,18 @@ data ComposeEnvironments = ComposeEnvironments'
     -- environment\'s manifest ends with a + (plus) character. See
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
     -- for details.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | A list of version labels, specifying one or more application source
     -- bundles that belong to the target application. Each source bundle must
     -- include an environment manifest that specifies the name of the
     -- environment and the name of the solution stack to use, and optionally
     -- can specify environment links to create.
-    versionLabels :: Prelude.Maybe [Prelude.Text],
+    versionLabels :: Core.Maybe [Core.Text],
     -- | The name of the application to which the specified source bundles
     -- belong.
-    applicationName :: Prelude.Maybe Prelude.Text
+    applicationName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComposeEnvironments' with all optional fields omitted.
@@ -103,9 +102,9 @@ newComposeEnvironments ::
   ComposeEnvironments
 newComposeEnvironments =
   ComposeEnvironments'
-    { groupName = Prelude.Nothing,
-      versionLabels = Prelude.Nothing,
-      applicationName = Prelude.Nothing
+    { groupName = Core.Nothing,
+      versionLabels = Core.Nothing,
+      applicationName = Core.Nothing
     }
 
 -- | The name of the group to which the target environments belong. Specify a
@@ -113,7 +112,7 @@ newComposeEnvironments =
 -- environment\'s manifest ends with a + (plus) character. See
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
 -- for details.
-composeEnvironments_groupName :: Lens.Lens' ComposeEnvironments (Prelude.Maybe Prelude.Text)
+composeEnvironments_groupName :: Lens.Lens' ComposeEnvironments (Core.Maybe Core.Text)
 composeEnvironments_groupName = Lens.lens (\ComposeEnvironments' {groupName} -> groupName) (\s@ComposeEnvironments' {} a -> s {groupName = a} :: ComposeEnvironments)
 
 -- | A list of version labels, specifying one or more application source
@@ -121,46 +120,43 @@ composeEnvironments_groupName = Lens.lens (\ComposeEnvironments' {groupName} -> 
 -- include an environment manifest that specifies the name of the
 -- environment and the name of the solution stack to use, and optionally
 -- can specify environment links to create.
-composeEnvironments_versionLabels :: Lens.Lens' ComposeEnvironments (Prelude.Maybe [Prelude.Text])
-composeEnvironments_versionLabels = Lens.lens (\ComposeEnvironments' {versionLabels} -> versionLabels) (\s@ComposeEnvironments' {} a -> s {versionLabels = a} :: ComposeEnvironments) Prelude.. Lens.mapping Prelude._Coerce
+composeEnvironments_versionLabels :: Lens.Lens' ComposeEnvironments (Core.Maybe [Core.Text])
+composeEnvironments_versionLabels = Lens.lens (\ComposeEnvironments' {versionLabels} -> versionLabels) (\s@ComposeEnvironments' {} a -> s {versionLabels = a} :: ComposeEnvironments) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the application to which the specified source bundles
 -- belong.
-composeEnvironments_applicationName :: Lens.Lens' ComposeEnvironments (Prelude.Maybe Prelude.Text)
+composeEnvironments_applicationName :: Lens.Lens' ComposeEnvironments (Core.Maybe Core.Text)
 composeEnvironments_applicationName = Lens.lens (\ComposeEnvironments' {applicationName} -> applicationName) (\s@ComposeEnvironments' {} a -> s {applicationName = a} :: ComposeEnvironments)
 
-instance Prelude.AWSRequest ComposeEnvironments where
+instance Core.AWSRequest ComposeEnvironments where
   type
-    Rs ComposeEnvironments =
+    AWSResponse ComposeEnvironments =
       EnvironmentDescriptionsMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ComposeEnvironmentsResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ComposeEnvironments
+instance Core.Hashable ComposeEnvironments
 
-instance Prelude.NFData ComposeEnvironments
+instance Core.NFData ComposeEnvironments
 
-instance Prelude.ToHeaders ComposeEnvironments where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ComposeEnvironments where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ComposeEnvironments where
-  toPath = Prelude.const "/"
+instance Core.ToPath ComposeEnvironments where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ComposeEnvironments where
+instance Core.ToQuery ComposeEnvironments where
   toQuery ComposeEnvironments' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ComposeEnvironments" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "GroupName" Prelude.=: groupName,
+          Core.=: ("ComposeEnvironments" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "GroupName" Core.=: groupName,
         "VersionLabels"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> versionLabels
-            ),
-        "ApplicationName" Prelude.=: applicationName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> versionLabels),
+        "ApplicationName" Core.=: applicationName
       ]

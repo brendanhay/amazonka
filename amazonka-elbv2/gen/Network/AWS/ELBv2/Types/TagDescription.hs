@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.TagDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The tags associated with a resource.
 --
 -- /See:/ 'newTagDescription' smart constructor.
 data TagDescription = TagDescription'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+    resourceArn :: Core.Maybe Core.Text,
     -- | Information about the tags.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Tag)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagDescription' with all optional fields omitted.
@@ -50,26 +49,26 @@ newTagDescription ::
   TagDescription
 newTagDescription =
   TagDescription'
-    { resourceArn = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { resourceArn = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
-tagDescription_resourceArn :: Lens.Lens' TagDescription (Prelude.Maybe Prelude.Text)
+tagDescription_resourceArn :: Lens.Lens' TagDescription (Core.Maybe Core.Text)
 tagDescription_resourceArn = Lens.lens (\TagDescription' {resourceArn} -> resourceArn) (\s@TagDescription' {} a -> s {resourceArn = a} :: TagDescription)
 
 -- | Information about the tags.
-tagDescription_tags :: Lens.Lens' TagDescription (Prelude.Maybe (Prelude.NonEmpty Tag))
-tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Prelude.. Lens.mapping Prelude._Coerce
+tagDescription_tags :: Lens.Lens' TagDescription (Core.Maybe (Core.NonEmpty Tag))
+tagDescription_tags = Lens.lens (\TagDescription' {tags} -> tags) (\s@TagDescription' {} a -> s {tags = a} :: TagDescription) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML TagDescription where
+instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Prelude.<$> (x Prelude..@? "ResourceArn")
-      Prelude.<*> ( x Prelude..@? "Tags" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList1 "member")
-                  )
+      Core.<$> (x Core..@? "ResourceArn")
+      Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList1 "member")
+               )
 
-instance Prelude.Hashable TagDescription
+instance Core.Hashable TagDescription
 
-instance Prelude.NFData TagDescription
+instance Core.NFData TagDescription

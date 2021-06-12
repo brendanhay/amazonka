@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.SelectParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ExpressionType
 import Network.AWS.S3.Types.InputSerialization
@@ -36,11 +35,11 @@ data SelectParameters = SelectParameters'
     -- | The type of the provided expression (for example, SQL).
     expressionType :: ExpressionType,
     -- | The expression that is used to query the object.
-    expression :: Prelude.Text,
+    expression :: Core.Text,
     -- | Describes how the results of the Select job are serialized.
     outputSerialization :: OutputSerialization
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SelectParameters' with all optional fields omitted.
@@ -63,7 +62,7 @@ newSelectParameters ::
   -- | 'expressionType'
   ExpressionType ->
   -- | 'expression'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'outputSerialization'
   OutputSerialization ->
   SelectParameters
@@ -89,22 +88,22 @@ selectParameters_expressionType :: Lens.Lens' SelectParameters ExpressionType
 selectParameters_expressionType = Lens.lens (\SelectParameters' {expressionType} -> expressionType) (\s@SelectParameters' {} a -> s {expressionType = a} :: SelectParameters)
 
 -- | The expression that is used to query the object.
-selectParameters_expression :: Lens.Lens' SelectParameters Prelude.Text
+selectParameters_expression :: Lens.Lens' SelectParameters Core.Text
 selectParameters_expression = Lens.lens (\SelectParameters' {expression} -> expression) (\s@SelectParameters' {} a -> s {expression = a} :: SelectParameters)
 
 -- | Describes how the results of the Select job are serialized.
 selectParameters_outputSerialization :: Lens.Lens' SelectParameters OutputSerialization
 selectParameters_outputSerialization = Lens.lens (\SelectParameters' {outputSerialization} -> outputSerialization) (\s@SelectParameters' {} a -> s {outputSerialization = a} :: SelectParameters)
 
-instance Prelude.Hashable SelectParameters
+instance Core.Hashable SelectParameters
 
-instance Prelude.NFData SelectParameters
+instance Core.NFData SelectParameters
 
-instance Prelude.ToXML SelectParameters where
+instance Core.ToXML SelectParameters where
   toXML SelectParameters' {..} =
-    Prelude.mconcat
-      [ "InputSerialization" Prelude.@= inputSerialization,
-        "ExpressionType" Prelude.@= expressionType,
-        "Expression" Prelude.@= expression,
-        "OutputSerialization" Prelude.@= outputSerialization
+    Core.mconcat
+      [ "InputSerialization" Core.@= inputSerialization,
+        "ExpressionType" Core.@= expressionType,
+        "Expression" Core.@= expression,
+        "OutputSerialization" Core.@= outputSerialization
       ]

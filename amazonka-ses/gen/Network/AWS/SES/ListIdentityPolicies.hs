@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.SES.ListIdentityPolicies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -74,9 +73,9 @@ data ListIdentityPolicies = ListIdentityPolicies'
     -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
     --
     -- To successfully call this API, you must own the identity.
-    identity :: Prelude.Text
+    identity :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIdentityPolicies' with all optional fields omitted.
@@ -95,7 +94,7 @@ data ListIdentityPolicies = ListIdentityPolicies'
 -- To successfully call this API, you must own the identity.
 newListIdentityPolicies ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   ListIdentityPolicies
 newListIdentityPolicies pIdentity_ =
   ListIdentityPolicies' {identity = pIdentity_}
@@ -107,12 +106,12 @@ newListIdentityPolicies pIdentity_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-listIdentityPolicies_identity :: Lens.Lens' ListIdentityPolicies Prelude.Text
+listIdentityPolicies_identity :: Lens.Lens' ListIdentityPolicies Core.Text
 listIdentityPolicies_identity = Lens.lens (\ListIdentityPolicies' {identity} -> identity) (\s@ListIdentityPolicies' {} a -> s {identity = a} :: ListIdentityPolicies)
 
-instance Prelude.AWSRequest ListIdentityPolicies where
+instance Core.AWSRequest ListIdentityPolicies where
   type
-    Rs ListIdentityPolicies =
+    AWSResponse ListIdentityPolicies =
       ListIdentityPoliciesResponse
   request = Request.postQuery defaultService
   response =
@@ -120,31 +119,29 @@ instance Prelude.AWSRequest ListIdentityPolicies where
       "ListIdentityPoliciesResult"
       ( \s h x ->
           ListIdentityPoliciesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "PolicyNames"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "PolicyNames" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListIdentityPolicies
+instance Core.Hashable ListIdentityPolicies
 
-instance Prelude.NFData ListIdentityPolicies
+instance Core.NFData ListIdentityPolicies
 
-instance Prelude.ToHeaders ListIdentityPolicies where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListIdentityPolicies where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListIdentityPolicies where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListIdentityPolicies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListIdentityPolicies where
+instance Core.ToQuery ListIdentityPolicies where
   toQuery ListIdentityPolicies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListIdentityPolicies" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Prelude.=: identity
+          Core.=: ("ListIdentityPolicies" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Identity" Core.=: identity
       ]
 
 -- | A list of names of sending authorization policies that apply to an
@@ -153,11 +150,11 @@ instance Prelude.ToQuery ListIdentityPolicies where
 -- /See:/ 'newListIdentityPoliciesResponse' smart constructor.
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of names of policies that apply to the specified identity.
-    policyNames :: [Prelude.Text]
+    policyNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIdentityPoliciesResponse' with all optional fields omitted.
@@ -172,21 +169,21 @@ data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
 -- 'policyNames', 'listIdentityPoliciesResponse_policyNames' - A list of names of policies that apply to the specified identity.
 newListIdentityPoliciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListIdentityPoliciesResponse
 newListIdentityPoliciesResponse pHttpStatus_ =
   ListIdentityPoliciesResponse'
     { httpStatus =
         pHttpStatus_,
-      policyNames = Prelude.mempty
+      policyNames = Core.mempty
     }
 
 -- | The response's http status code.
-listIdentityPoliciesResponse_httpStatus :: Lens.Lens' ListIdentityPoliciesResponse Prelude.Int
+listIdentityPoliciesResponse_httpStatus :: Lens.Lens' ListIdentityPoliciesResponse Core.Int
 listIdentityPoliciesResponse_httpStatus = Lens.lens (\ListIdentityPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListIdentityPoliciesResponse' {} a -> s {httpStatus = a} :: ListIdentityPoliciesResponse)
 
 -- | A list of names of policies that apply to the specified identity.
-listIdentityPoliciesResponse_policyNames :: Lens.Lens' ListIdentityPoliciesResponse [Prelude.Text]
-listIdentityPoliciesResponse_policyNames = Lens.lens (\ListIdentityPoliciesResponse' {policyNames} -> policyNames) (\s@ListIdentityPoliciesResponse' {} a -> s {policyNames = a} :: ListIdentityPoliciesResponse) Prelude.. Prelude._Coerce
+listIdentityPoliciesResponse_policyNames :: Lens.Lens' ListIdentityPoliciesResponse [Core.Text]
+listIdentityPoliciesResponse_policyNames = Lens.lens (\ListIdentityPoliciesResponse' {policyNames} -> policyNames) (\s@ListIdentityPoliciesResponse' {} a -> s {policyNames = a} :: ListIdentityPoliciesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListIdentityPoliciesResponse
+instance Core.NFData ListIdentityPoliciesResponse

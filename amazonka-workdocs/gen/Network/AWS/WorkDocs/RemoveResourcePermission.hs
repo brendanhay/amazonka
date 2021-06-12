@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.WorkDocs.RemoveResourcePermission
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -50,15 +49,15 @@ import Network.AWS.WorkDocs.Types
 data RemoveResourcePermission = RemoveResourcePermission'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The principal type of the resource.
-    principalType :: Prelude.Maybe PrincipalType,
+    principalType :: Core.Maybe PrincipalType,
     -- | The ID of the resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The principal ID of the resource.
-    principalId :: Prelude.Text
+    principalId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveResourcePermission' with all optional fields omitted.
@@ -78,77 +77,77 @@ data RemoveResourcePermission = RemoveResourcePermission'
 -- 'principalId', 'removeResourcePermission_principalId' - The principal ID of the resource.
 newRemoveResourcePermission ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'principalId'
-  Prelude.Text ->
+  Core.Text ->
   RemoveResourcePermission
 newRemoveResourcePermission
   pResourceId_
   pPrincipalId_ =
     RemoveResourcePermission'
       { authenticationToken =
-          Prelude.Nothing,
-        principalType = Prelude.Nothing,
+          Core.Nothing,
+        principalType = Core.Nothing,
         resourceId = pResourceId_,
         principalId = pPrincipalId_
       }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-removeResourcePermission_authenticationToken :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe Prelude.Text)
-removeResourcePermission_authenticationToken = Lens.lens (\RemoveResourcePermission' {authenticationToken} -> authenticationToken) (\s@RemoveResourcePermission' {} a -> s {authenticationToken = a} :: RemoveResourcePermission) Prelude.. Lens.mapping Prelude._Sensitive
+removeResourcePermission_authenticationToken :: Lens.Lens' RemoveResourcePermission (Core.Maybe Core.Text)
+removeResourcePermission_authenticationToken = Lens.lens (\RemoveResourcePermission' {authenticationToken} -> authenticationToken) (\s@RemoveResourcePermission' {} a -> s {authenticationToken = a} :: RemoveResourcePermission) Core.. Lens.mapping Core._Sensitive
 
 -- | The principal type of the resource.
-removeResourcePermission_principalType :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe PrincipalType)
+removeResourcePermission_principalType :: Lens.Lens' RemoveResourcePermission (Core.Maybe PrincipalType)
 removeResourcePermission_principalType = Lens.lens (\RemoveResourcePermission' {principalType} -> principalType) (\s@RemoveResourcePermission' {} a -> s {principalType = a} :: RemoveResourcePermission)
 
 -- | The ID of the resource.
-removeResourcePermission_resourceId :: Lens.Lens' RemoveResourcePermission Prelude.Text
+removeResourcePermission_resourceId :: Lens.Lens' RemoveResourcePermission Core.Text
 removeResourcePermission_resourceId = Lens.lens (\RemoveResourcePermission' {resourceId} -> resourceId) (\s@RemoveResourcePermission' {} a -> s {resourceId = a} :: RemoveResourcePermission)
 
 -- | The principal ID of the resource.
-removeResourcePermission_principalId :: Lens.Lens' RemoveResourcePermission Prelude.Text
+removeResourcePermission_principalId :: Lens.Lens' RemoveResourcePermission Core.Text
 removeResourcePermission_principalId = Lens.lens (\RemoveResourcePermission' {principalId} -> principalId) (\s@RemoveResourcePermission' {} a -> s {principalId = a} :: RemoveResourcePermission)
 
-instance Prelude.AWSRequest RemoveResourcePermission where
+instance Core.AWSRequest RemoveResourcePermission where
   type
-    Rs RemoveResourcePermission =
+    AWSResponse RemoveResourcePermission =
       RemoveResourcePermissionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       RemoveResourcePermissionResponse'
 
-instance Prelude.Hashable RemoveResourcePermission
+instance Core.Hashable RemoveResourcePermission
 
-instance Prelude.NFData RemoveResourcePermission
+instance Core.NFData RemoveResourcePermission
 
-instance Prelude.ToHeaders RemoveResourcePermission where
+instance Core.ToHeaders RemoveResourcePermission where
   toHeaders RemoveResourcePermission' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToPath RemoveResourcePermission where
+instance Core.ToPath RemoveResourcePermission where
   toPath RemoveResourcePermission' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/api/v1/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/permissions/",
-        Prelude.toBS principalId
+        Core.toBS principalId
       ]
 
-instance Prelude.ToQuery RemoveResourcePermission where
+instance Core.ToQuery RemoveResourcePermission where
   toQuery RemoveResourcePermission' {..} =
-    Prelude.mconcat ["type" Prelude.=: principalType]
+    Core.mconcat ["type" Core.=: principalType]
 
 -- | /See:/ 'newRemoveResourcePermissionResponse' smart constructor.
 data RemoveResourcePermissionResponse = RemoveResourcePermissionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveResourcePermissionResponse' with all optional fields omitted.
@@ -159,6 +158,4 @@ newRemoveResourcePermissionResponse ::
 newRemoveResourcePermissionResponse =
   RemoveResourcePermissionResponse'
 
-instance
-  Prelude.NFData
-    RemoveResourcePermissionResponse
+instance Core.NFData RemoveResourcePermissionResponse

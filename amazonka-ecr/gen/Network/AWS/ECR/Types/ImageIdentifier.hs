@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ImageIdentifier where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object with identifying information for an Amazon ECR image.
 --
 -- /See:/ 'newImageIdentifier' smart constructor.
 data ImageIdentifier = ImageIdentifier'
   { -- | The @sha256@ digest of the image manifest.
-    imageDigest :: Prelude.Maybe Prelude.Text,
+    imageDigest :: Core.Maybe Core.Text,
     -- | The tag used for the image.
-    imageTag :: Prelude.Maybe Prelude.Text
+    imageTag :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageIdentifier' with all optional fields omitted.
@@ -49,37 +48,37 @@ newImageIdentifier ::
   ImageIdentifier
 newImageIdentifier =
   ImageIdentifier'
-    { imageDigest = Prelude.Nothing,
-      imageTag = Prelude.Nothing
+    { imageDigest = Core.Nothing,
+      imageTag = Core.Nothing
     }
 
 -- | The @sha256@ digest of the image manifest.
-imageIdentifier_imageDigest :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
+imageIdentifier_imageDigest :: Lens.Lens' ImageIdentifier (Core.Maybe Core.Text)
 imageIdentifier_imageDigest = Lens.lens (\ImageIdentifier' {imageDigest} -> imageDigest) (\s@ImageIdentifier' {} a -> s {imageDigest = a} :: ImageIdentifier)
 
 -- | The tag used for the image.
-imageIdentifier_imageTag :: Lens.Lens' ImageIdentifier (Prelude.Maybe Prelude.Text)
+imageIdentifier_imageTag :: Lens.Lens' ImageIdentifier (Core.Maybe Core.Text)
 imageIdentifier_imageTag = Lens.lens (\ImageIdentifier' {imageTag} -> imageTag) (\s@ImageIdentifier' {} a -> s {imageTag = a} :: ImageIdentifier)
 
-instance Prelude.FromJSON ImageIdentifier where
+instance Core.FromJSON ImageIdentifier where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageIdentifier"
       ( \x ->
           ImageIdentifier'
-            Prelude.<$> (x Prelude..:? "imageDigest")
-            Prelude.<*> (x Prelude..:? "imageTag")
+            Core.<$> (x Core..:? "imageDigest")
+            Core.<*> (x Core..:? "imageTag")
       )
 
-instance Prelude.Hashable ImageIdentifier
+instance Core.Hashable ImageIdentifier
 
-instance Prelude.NFData ImageIdentifier
+instance Core.NFData ImageIdentifier
 
-instance Prelude.ToJSON ImageIdentifier where
+instance Core.ToJSON ImageIdentifier where
   toJSON ImageIdentifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("imageDigest" Prelude..=) Prelude.<$> imageDigest,
-            ("imageTag" Prelude..=) Prelude.<$> imageTag
+    Core.object
+      ( Core.catMaybes
+          [ ("imageDigest" Core..=) Core.<$> imageDigest,
+            ("imageTag" Core..=) Core.<$> imageTag
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -59,9 +58,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newRebuildWorkspaces' smart constructor.
 data RebuildWorkspaces = RebuildWorkspaces'
   { -- | The WorkSpace to rebuild. You can specify a single WorkSpace.
-    rebuildWorkspaceRequests :: Prelude.NonEmpty RebuildRequest
+    rebuildWorkspaceRequests :: Core.NonEmpty RebuildRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebuildWorkspaces' with all optional fields omitted.
@@ -74,75 +73,73 @@ data RebuildWorkspaces = RebuildWorkspaces'
 -- 'rebuildWorkspaceRequests', 'rebuildWorkspaces_rebuildWorkspaceRequests' - The WorkSpace to rebuild. You can specify a single WorkSpace.
 newRebuildWorkspaces ::
   -- | 'rebuildWorkspaceRequests'
-  Prelude.NonEmpty RebuildRequest ->
+  Core.NonEmpty RebuildRequest ->
   RebuildWorkspaces
 newRebuildWorkspaces pRebuildWorkspaceRequests_ =
   RebuildWorkspaces'
     { rebuildWorkspaceRequests =
-        Prelude._Coerce Lens.# pRebuildWorkspaceRequests_
+        Lens._Coerce Lens.# pRebuildWorkspaceRequests_
     }
 
 -- | The WorkSpace to rebuild. You can specify a single WorkSpace.
-rebuildWorkspaces_rebuildWorkspaceRequests :: Lens.Lens' RebuildWorkspaces (Prelude.NonEmpty RebuildRequest)
-rebuildWorkspaces_rebuildWorkspaceRequests = Lens.lens (\RebuildWorkspaces' {rebuildWorkspaceRequests} -> rebuildWorkspaceRequests) (\s@RebuildWorkspaces' {} a -> s {rebuildWorkspaceRequests = a} :: RebuildWorkspaces) Prelude.. Prelude._Coerce
+rebuildWorkspaces_rebuildWorkspaceRequests :: Lens.Lens' RebuildWorkspaces (Core.NonEmpty RebuildRequest)
+rebuildWorkspaces_rebuildWorkspaceRequests = Lens.lens (\RebuildWorkspaces' {rebuildWorkspaceRequests} -> rebuildWorkspaceRequests) (\s@RebuildWorkspaces' {} a -> s {rebuildWorkspaceRequests = a} :: RebuildWorkspaces) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RebuildWorkspaces where
-  type Rs RebuildWorkspaces = RebuildWorkspacesResponse
+instance Core.AWSRequest RebuildWorkspaces where
+  type
+    AWSResponse RebuildWorkspaces =
+      RebuildWorkspacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RebuildWorkspacesResponse'
-            Prelude.<$> ( x Prelude..?> "FailedRequests"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FailedRequests" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RebuildWorkspaces
+instance Core.Hashable RebuildWorkspaces
 
-instance Prelude.NFData RebuildWorkspaces
+instance Core.NFData RebuildWorkspaces
 
-instance Prelude.ToHeaders RebuildWorkspaces where
+instance Core.ToHeaders RebuildWorkspaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.RebuildWorkspaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.RebuildWorkspaces" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RebuildWorkspaces where
+instance Core.ToJSON RebuildWorkspaces where
   toJSON RebuildWorkspaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "RebuildWorkspaceRequests"
-                  Prelude..= rebuildWorkspaceRequests
+                  Core..= rebuildWorkspaceRequests
               )
           ]
       )
 
-instance Prelude.ToPath RebuildWorkspaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebuildWorkspaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebuildWorkspaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RebuildWorkspaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRebuildWorkspacesResponse' smart constructor.
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
   { -- | Information about the WorkSpace that could not be rebuilt.
-    failedRequests :: Prelude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [FailedWorkspaceChangeRequest],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebuildWorkspacesResponse' with all optional fields omitted.
@@ -157,21 +154,21 @@ data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
 -- 'httpStatus', 'rebuildWorkspacesResponse_httpStatus' - The response's http status code.
 newRebuildWorkspacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RebuildWorkspacesResponse
 newRebuildWorkspacesResponse pHttpStatus_ =
   RebuildWorkspacesResponse'
     { failedRequests =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the WorkSpace that could not be rebuilt.
-rebuildWorkspacesResponse_failedRequests :: Lens.Lens' RebuildWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-rebuildWorkspacesResponse_failedRequests = Lens.lens (\RebuildWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebuildWorkspacesResponse' {} a -> s {failedRequests = a} :: RebuildWorkspacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+rebuildWorkspacesResponse_failedRequests :: Lens.Lens' RebuildWorkspacesResponse (Core.Maybe [FailedWorkspaceChangeRequest])
+rebuildWorkspacesResponse_failedRequests = Lens.lens (\RebuildWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebuildWorkspacesResponse' {} a -> s {failedRequests = a} :: RebuildWorkspacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-rebuildWorkspacesResponse_httpStatus :: Lens.Lens' RebuildWorkspacesResponse Prelude.Int
+rebuildWorkspacesResponse_httpStatus :: Lens.Lens' RebuildWorkspacesResponse Core.Int
 rebuildWorkspacesResponse_httpStatus = Lens.lens (\RebuildWorkspacesResponse' {httpStatus} -> httpStatus) (\s@RebuildWorkspacesResponse' {} a -> s {httpStatus = a} :: RebuildWorkspacesResponse)
 
-instance Prelude.NFData RebuildWorkspacesResponse
+instance Core.NFData RebuildWorkspacesResponse

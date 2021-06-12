@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,8 +61,8 @@ module Network.AWS.CloudFormation.DescribeStackResources
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,7 +82,7 @@ data DescribeStackResources = DescribeStackResources'
     --
     -- Required: Conditional. If you do not specify @StackName@, you must
     -- specify @PhysicalResourceId@.
-    stackName :: Prelude.Maybe Prelude.Text,
+    stackName :: Core.Maybe Core.Text,
     -- | The name or unique identifier that corresponds to a physical instance ID
     -- of a resource supported by AWS CloudFormation.
     --
@@ -96,13 +95,13 @@ data DescribeStackResources = DescribeStackResources'
     -- must specify @StackName@.
     --
     -- Default: There is no default value.
-    physicalResourceId :: Prelude.Maybe Prelude.Text,
+    physicalResourceId :: Core.Maybe Core.Text,
     -- | The logical name of the resource as specified in the template.
     --
     -- Default: There is no default value.
-    logicalResourceId :: Prelude.Maybe Prelude.Text
+    logicalResourceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackResources' with all optional fields omitted.
@@ -145,10 +144,9 @@ newDescribeStackResources ::
   DescribeStackResources
 newDescribeStackResources =
   DescribeStackResources'
-    { stackName =
-        Prelude.Nothing,
-      physicalResourceId = Prelude.Nothing,
-      logicalResourceId = Prelude.Nothing
+    { stackName = Core.Nothing,
+      physicalResourceId = Core.Nothing,
+      logicalResourceId = Core.Nothing
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -163,7 +161,7 @@ newDescribeStackResources =
 --
 -- Required: Conditional. If you do not specify @StackName@, you must
 -- specify @PhysicalResourceId@.
-describeStackResources_stackName :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_stackName :: Lens.Lens' DescribeStackResources (Core.Maybe Core.Text)
 describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackName} -> stackName) (\s@DescribeStackResources' {} a -> s {stackName = a} :: DescribeStackResources)
 
 -- | The name or unique identifier that corresponds to a physical instance ID
@@ -178,18 +176,18 @@ describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackNam
 -- must specify @StackName@.
 --
 -- Default: There is no default value.
-describeStackResources_physicalResourceId :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_physicalResourceId :: Lens.Lens' DescribeStackResources (Core.Maybe Core.Text)
 describeStackResources_physicalResourceId = Lens.lens (\DescribeStackResources' {physicalResourceId} -> physicalResourceId) (\s@DescribeStackResources' {} a -> s {physicalResourceId = a} :: DescribeStackResources)
 
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
-describeStackResources_logicalResourceId :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
+describeStackResources_logicalResourceId :: Lens.Lens' DescribeStackResources (Core.Maybe Core.Text)
 describeStackResources_logicalResourceId = Lens.lens (\DescribeStackResources' {logicalResourceId} -> logicalResourceId) (\s@DescribeStackResources' {} a -> s {logicalResourceId = a} :: DescribeStackResources)
 
-instance Prelude.AWSRequest DescribeStackResources where
+instance Core.AWSRequest DescribeStackResources where
   type
-    Rs DescribeStackResources =
+    AWSResponse DescribeStackResources =
       DescribeStackResourcesResponse
   request = Request.postQuery defaultService
   response =
@@ -197,33 +195,31 @@ instance Prelude.AWSRequest DescribeStackResources where
       "DescribeStackResourcesResult"
       ( \s h x ->
           DescribeStackResourcesResponse'
-            Prelude.<$> ( x Prelude..@? "StackResources"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "StackResources" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackResources
+instance Core.Hashable DescribeStackResources
 
-instance Prelude.NFData DescribeStackResources
+instance Core.NFData DescribeStackResources
 
-instance Prelude.ToHeaders DescribeStackResources where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeStackResources where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeStackResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStackResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStackResources where
+instance Core.ToQuery DescribeStackResources where
   toQuery DescribeStackResources' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeStackResources" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "StackName" Prelude.=: stackName,
-        "PhysicalResourceId" Prelude.=: physicalResourceId,
-        "LogicalResourceId" Prelude.=: logicalResourceId
+          Core.=: ("DescribeStackResources" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "StackName" Core.=: stackName,
+        "PhysicalResourceId" Core.=: physicalResourceId,
+        "LogicalResourceId" Core.=: logicalResourceId
       ]
 
 -- | The output for a DescribeStackResources action.
@@ -231,11 +227,11 @@ instance Prelude.ToQuery DescribeStackResources where
 -- /See:/ 'newDescribeStackResourcesResponse' smart constructor.
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
   { -- | A list of @StackResource@ structures.
-    stackResources :: Prelude.Maybe [StackResource],
+    stackResources :: Core.Maybe [StackResource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackResourcesResponse' with all optional fields omitted.
@@ -250,23 +246,21 @@ data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
 -- 'httpStatus', 'describeStackResourcesResponse_httpStatus' - The response's http status code.
 newDescribeStackResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStackResourcesResponse
 newDescribeStackResourcesResponse pHttpStatus_ =
   DescribeStackResourcesResponse'
     { stackResources =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @StackResource@ structures.
-describeStackResourcesResponse_stackResources :: Lens.Lens' DescribeStackResourcesResponse (Prelude.Maybe [StackResource])
-describeStackResourcesResponse_stackResources = Lens.lens (\DescribeStackResourcesResponse' {stackResources} -> stackResources) (\s@DescribeStackResourcesResponse' {} a -> s {stackResources = a} :: DescribeStackResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeStackResourcesResponse_stackResources :: Lens.Lens' DescribeStackResourcesResponse (Core.Maybe [StackResource])
+describeStackResourcesResponse_stackResources = Lens.lens (\DescribeStackResourcesResponse' {stackResources} -> stackResources) (\s@DescribeStackResourcesResponse' {} a -> s {stackResources = a} :: DescribeStackResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeStackResourcesResponse_httpStatus :: Lens.Lens' DescribeStackResourcesResponse Prelude.Int
+describeStackResourcesResponse_httpStatus :: Lens.Lens' DescribeStackResourcesResponse Core.Int
 describeStackResourcesResponse_httpStatus = Lens.lens (\DescribeStackResourcesResponse' {httpStatus} -> httpStatus) (\s@DescribeStackResourcesResponse' {} a -> s {httpStatus = a} :: DescribeStackResourcesResponse)
 
-instance
-  Prelude.NFData
-    DescribeStackResourcesResponse
+instance Core.NFData DescribeStackResourcesResponse

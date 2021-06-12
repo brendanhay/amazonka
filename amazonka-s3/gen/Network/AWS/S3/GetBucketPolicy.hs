@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.S3.GetBucketPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -72,11 +71,11 @@ data GetBucketPolicy = GetBucketPolicy'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name for which to get the bucket policy.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketPolicy' with all optional fields omitted.
@@ -98,57 +97,58 @@ newGetBucketPolicy ::
 newGetBucketPolicy pBucket_ =
   GetBucketPolicy'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketPolicy_expectedBucketOwner :: Lens.Lens' GetBucketPolicy (Prelude.Maybe Prelude.Text)
+getBucketPolicy_expectedBucketOwner :: Lens.Lens' GetBucketPolicy (Core.Maybe Core.Text)
 getBucketPolicy_expectedBucketOwner = Lens.lens (\GetBucketPolicy' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketPolicy' {} a -> s {expectedBucketOwner = a} :: GetBucketPolicy)
 
 -- | The bucket name for which to get the bucket policy.
 getBucketPolicy_bucket :: Lens.Lens' GetBucketPolicy BucketName
 getBucketPolicy_bucket = Lens.lens (\GetBucketPolicy' {bucket} -> bucket) (\s@GetBucketPolicy' {} a -> s {bucket = a} :: GetBucketPolicy)
 
-instance Prelude.AWSRequest GetBucketPolicy where
-  type Rs GetBucketPolicy = GetBucketPolicyResponse
+instance Core.AWSRequest GetBucketPolicy where
+  type
+    AWSResponse GetBucketPolicy =
+      GetBucketPolicyResponse
   request = Request.get defaultService
   response =
     Response.receiveBytes
       ( \s h x ->
           GetBucketPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.pure x)
+            Core.<$> (Core.pure (Core.fromEnum s)) Core.<*> (Core.pure x)
       )
 
-instance Prelude.Hashable GetBucketPolicy
+instance Core.Hashable GetBucketPolicy
 
-instance Prelude.NFData GetBucketPolicy
+instance Core.NFData GetBucketPolicy
 
-instance Prelude.ToHeaders GetBucketPolicy where
+instance Core.ToHeaders GetBucketPolicy where
   toHeaders GetBucketPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetBucketPolicy where
+instance Core.ToPath GetBucketPolicy where
   toPath GetBucketPolicy' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetBucketPolicy where
-  toQuery = Prelude.const (Prelude.mconcat ["policy"])
+instance Core.ToQuery GetBucketPolicy where
+  toQuery = Core.const (Core.mconcat ["policy"])
 
 -- | /See:/ 'newGetBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The bucket policy as a JSON document.
-    policy :: Prelude.ByteString
+    policy :: Core.ByteString
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketPolicyResponse' with all optional fields omitted.
@@ -163,9 +163,9 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse'
 -- 'policy', 'getBucketPolicyResponse_policy' - The bucket policy as a JSON document.
 newGetBucketPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'policy'
-  Prelude.ByteString ->
+  Core.ByteString ->
   GetBucketPolicyResponse
 newGetBucketPolicyResponse pHttpStatus_ pPolicy_ =
   GetBucketPolicyResponse'
@@ -174,11 +174,11 @@ newGetBucketPolicyResponse pHttpStatus_ pPolicy_ =
     }
 
 -- | The response's http status code.
-getBucketPolicyResponse_httpStatus :: Lens.Lens' GetBucketPolicyResponse Prelude.Int
+getBucketPolicyResponse_httpStatus :: Lens.Lens' GetBucketPolicyResponse Core.Int
 getBucketPolicyResponse_httpStatus = Lens.lens (\GetBucketPolicyResponse' {httpStatus} -> httpStatus) (\s@GetBucketPolicyResponse' {} a -> s {httpStatus = a} :: GetBucketPolicyResponse)
 
 -- | The bucket policy as a JSON document.
-getBucketPolicyResponse_policy :: Lens.Lens' GetBucketPolicyResponse Prelude.ByteString
+getBucketPolicyResponse_policy :: Lens.Lens' GetBucketPolicyResponse Core.ByteString
 getBucketPolicyResponse_policy = Lens.lens (\GetBucketPolicyResponse' {policy} -> policy) (\s@GetBucketPolicyResponse' {} a -> s {policy = a} :: GetBucketPolicyResponse)
 
-instance Prelude.NFData GetBucketPolicyResponse
+instance Core.NFData GetBucketPolicyResponse

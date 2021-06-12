@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.TimeRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a time range.
 --
@@ -30,13 +29,13 @@ data TimeRange = TimeRange'
   { -- | The end time of the time range.
     --
     -- Specify null to leave the end time open-ended.
-    end :: Prelude.Maybe Prelude.POSIX,
+    end :: Core.Maybe Core.POSIX,
     -- | The start time of the time range.
     --
     -- Specify null to leave the start time open-ended.
-    start :: Prelude.Maybe Prelude.POSIX
+    start :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimeRange' with all optional fields omitted.
@@ -57,31 +56,31 @@ newTimeRange ::
   TimeRange
 newTimeRange =
   TimeRange'
-    { end = Prelude.Nothing,
-      start = Prelude.Nothing
+    { end = Core.Nothing,
+      start = Core.Nothing
     }
 
 -- | The end time of the time range.
 --
 -- Specify null to leave the end time open-ended.
-timeRange_end :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_end = Lens.lens (\TimeRange' {end} -> end) (\s@TimeRange' {} a -> s {end = a} :: TimeRange) Prelude.. Lens.mapping Prelude._Time
+timeRange_end :: Lens.Lens' TimeRange (Core.Maybe Core.UTCTime)
+timeRange_end = Lens.lens (\TimeRange' {end} -> end) (\s@TimeRange' {} a -> s {end = a} :: TimeRange) Core.. Lens.mapping Core._Time
 
 -- | The start time of the time range.
 --
 -- Specify null to leave the start time open-ended.
-timeRange_start :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
-timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Prelude.. Lens.mapping Prelude._Time
+timeRange_start :: Lens.Lens' TimeRange (Core.Maybe Core.UTCTime)
+timeRange_start = Lens.lens (\TimeRange' {start} -> start) (\s@TimeRange' {} a -> s {start = a} :: TimeRange) Core.. Lens.mapping Core._Time
 
-instance Prelude.Hashable TimeRange
+instance Core.Hashable TimeRange
 
-instance Prelude.NFData TimeRange
+instance Core.NFData TimeRange
 
-instance Prelude.ToJSON TimeRange where
+instance Core.ToJSON TimeRange where
   toJSON TimeRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("end" Prelude..=) Prelude.<$> end,
-            ("start" Prelude..=) Prelude.<$> start
+    Core.object
+      ( Core.catMaybes
+          [ ("end" Core..=) Core.<$> end,
+            ("start" Core..=) Core.<$> start
           ]
       )

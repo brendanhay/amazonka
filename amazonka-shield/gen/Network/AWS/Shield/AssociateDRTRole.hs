@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,8 +70,8 @@ module Network.AWS.Shield.AssociateDRTRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -86,9 +85,9 @@ data AssociateDRTRole = AssociateDRTRole'
     -- <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy>
     -- managed policy to this role. For more information see
     -- <%20https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Attaching and Detaching IAM Policies>.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDRTRole' with all optional fields omitted.
@@ -107,7 +106,7 @@ data AssociateDRTRole = AssociateDRTRole'
 -- <%20https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Attaching and Detaching IAM Policies>.
 newAssociateDRTRole ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   AssociateDRTRole
 newAssociateDRTRole pRoleArn_ =
   AssociateDRTRole' {roleArn = pRoleArn_}
@@ -119,57 +118,57 @@ newAssociateDRTRole pRoleArn_ =
 -- <https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy AWSShieldDRTAccessPolicy>
 -- managed policy to this role. For more information see
 -- <%20https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html Attaching and Detaching IAM Policies>.
-associateDRTRole_roleArn :: Lens.Lens' AssociateDRTRole Prelude.Text
+associateDRTRole_roleArn :: Lens.Lens' AssociateDRTRole Core.Text
 associateDRTRole_roleArn = Lens.lens (\AssociateDRTRole' {roleArn} -> roleArn) (\s@AssociateDRTRole' {} a -> s {roleArn = a} :: AssociateDRTRole)
 
-instance Prelude.AWSRequest AssociateDRTRole where
-  type Rs AssociateDRTRole = AssociateDRTRoleResponse
+instance Core.AWSRequest AssociateDRTRole where
+  type
+    AWSResponse AssociateDRTRole =
+      AssociateDRTRoleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDRTRoleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDRTRole
+instance Core.Hashable AssociateDRTRole
 
-instance Prelude.NFData AssociateDRTRole
+instance Core.NFData AssociateDRTRole
 
-instance Prelude.ToHeaders AssociateDRTRole where
+instance Core.ToHeaders AssociateDRTRole where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.AssociateDRTRole" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.AssociateDRTRole" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateDRTRole where
+instance Core.ToJSON AssociateDRTRole where
   toJSON AssociateDRTRole' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("RoleArn" Prelude..= roleArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RoleArn" Core..= roleArn)]
       )
 
-instance Prelude.ToPath AssociateDRTRole where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateDRTRole where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateDRTRole where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateDRTRole where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateDRTRoleResponse' smart constructor.
 data AssociateDRTRoleResponse = AssociateDRTRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDRTRoleResponse' with all optional fields omitted.
@@ -182,7 +181,7 @@ data AssociateDRTRoleResponse = AssociateDRTRoleResponse'
 -- 'httpStatus', 'associateDRTRoleResponse_httpStatus' - The response's http status code.
 newAssociateDRTRoleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateDRTRoleResponse
 newAssociateDRTRoleResponse pHttpStatus_ =
   AssociateDRTRoleResponse'
@@ -191,7 +190,7 @@ newAssociateDRTRoleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateDRTRoleResponse_httpStatus :: Lens.Lens' AssociateDRTRoleResponse Prelude.Int
+associateDRTRoleResponse_httpStatus :: Lens.Lens' AssociateDRTRoleResponse Core.Int
 associateDRTRoleResponse_httpStatus = Lens.lens (\AssociateDRTRoleResponse' {httpStatus} -> httpStatus) (\s@AssociateDRTRoleResponse' {} a -> s {httpStatus = a} :: AssociateDRTRoleResponse)
 
-instance Prelude.NFData AssociateDRTRoleResponse
+instance Core.NFData AssociateDRTRoleResponse

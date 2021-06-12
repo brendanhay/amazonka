@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ThingConnectivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The connectivity status of the thing.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data ThingConnectivity = ThingConnectivity'
   { -- | True if the thing is connected to the AWS IoT service; false if it is
     -- not connected.
-    connected :: Prelude.Maybe Prelude.Bool,
+    connected :: Core.Maybe Core.Bool,
     -- | The epoch time (in milliseconds) when the thing last connected or
     -- disconnected. If the thing has been disconnected for more than a few
     -- weeks, the time value might be missing.
-    timestamp :: Prelude.Maybe Prelude.Integer
+    timestamp :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ThingConnectivity' with all optional fields omitted.
@@ -55,31 +54,31 @@ newThingConnectivity ::
   ThingConnectivity
 newThingConnectivity =
   ThingConnectivity'
-    { connected = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { connected = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | True if the thing is connected to the AWS IoT service; false if it is
 -- not connected.
-thingConnectivity_connected :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Bool)
+thingConnectivity_connected :: Lens.Lens' ThingConnectivity (Core.Maybe Core.Bool)
 thingConnectivity_connected = Lens.lens (\ThingConnectivity' {connected} -> connected) (\s@ThingConnectivity' {} a -> s {connected = a} :: ThingConnectivity)
 
 -- | The epoch time (in milliseconds) when the thing last connected or
 -- disconnected. If the thing has been disconnected for more than a few
 -- weeks, the time value might be missing.
-thingConnectivity_timestamp :: Lens.Lens' ThingConnectivity (Prelude.Maybe Prelude.Integer)
+thingConnectivity_timestamp :: Lens.Lens' ThingConnectivity (Core.Maybe Core.Integer)
 thingConnectivity_timestamp = Lens.lens (\ThingConnectivity' {timestamp} -> timestamp) (\s@ThingConnectivity' {} a -> s {timestamp = a} :: ThingConnectivity)
 
-instance Prelude.FromJSON ThingConnectivity where
+instance Core.FromJSON ThingConnectivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ThingConnectivity"
       ( \x ->
           ThingConnectivity'
-            Prelude.<$> (x Prelude..:? "connected")
-            Prelude.<*> (x Prelude..:? "timestamp")
+            Core.<$> (x Core..:? "connected")
+            Core.<*> (x Core..:? "timestamp")
       )
 
-instance Prelude.Hashable ThingConnectivity
+instance Core.Hashable ThingConnectivity
 
-instance Prelude.NFData ThingConnectivity
+instance Core.NFData ThingConnectivity

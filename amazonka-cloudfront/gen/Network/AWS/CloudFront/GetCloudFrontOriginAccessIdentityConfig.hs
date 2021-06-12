@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetCloudFrontOriginAccessIdentityConfig' smart constructor.
 data GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig'
   { -- | The identity\'s ID.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCloudFrontOriginAccessIdentityConfig' with all optional fields omitted.
@@ -69,75 +68,75 @@ data GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentity
 -- 'id', 'getCloudFrontOriginAccessIdentityConfig_id' - The identity\'s ID.
 newGetCloudFrontOriginAccessIdentityConfig ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetCloudFrontOriginAccessIdentityConfig
 newGetCloudFrontOriginAccessIdentityConfig pId_ =
   GetCloudFrontOriginAccessIdentityConfig' {id = pId_}
 
 -- | The identity\'s ID.
-getCloudFrontOriginAccessIdentityConfig_id :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfig Prelude.Text
+getCloudFrontOriginAccessIdentityConfig_id :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfig Core.Text
 getCloudFrontOriginAccessIdentityConfig_id = Lens.lens (\GetCloudFrontOriginAccessIdentityConfig' {id} -> id) (\s@GetCloudFrontOriginAccessIdentityConfig' {} a -> s {id = a} :: GetCloudFrontOriginAccessIdentityConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetCloudFrontOriginAccessIdentityConfig
   where
   type
-    Rs GetCloudFrontOriginAccessIdentityConfig =
+    AWSResponse
+      GetCloudFrontOriginAccessIdentityConfig =
       GetCloudFrontOriginAccessIdentityConfigResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetCloudFrontOriginAccessIdentityConfigResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-              Prelude.<*> (Prelude.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag") Core.<*> (Core.parseXML x)
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetCloudFrontOriginAccessIdentityConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetCloudFrontOriginAccessIdentityConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetCloudFrontOriginAccessIdentityConfig
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     GetCloudFrontOriginAccessIdentityConfig
   where
   toPath GetCloudFrontOriginAccessIdentityConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/origin-access-identity/cloudfront/",
-        Prelude.toBS id,
+        Core.toBS id,
         "/config"
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetCloudFrontOriginAccessIdentityConfig
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newGetCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse'
   { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The origin access identity\'s configuration information.
-    cloudFrontOriginAccessIdentityConfig :: Prelude.Maybe CloudFrontOriginAccessIdentityConfig,
+    cloudFrontOriginAccessIdentityConfig :: Core.Maybe CloudFrontOriginAccessIdentityConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCloudFrontOriginAccessIdentityConfigResponse' with all optional fields omitted.
@@ -154,30 +153,30 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
 -- 'httpStatus', 'getCloudFrontOriginAccessIdentityConfigResponse_httpStatus' - The response's http status code.
 newGetCloudFrontOriginAccessIdentityConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCloudFrontOriginAccessIdentityConfigResponse
 newGetCloudFrontOriginAccessIdentityConfigResponse
   pHttpStatus_ =
     GetCloudFrontOriginAccessIdentityConfigResponse'
       { eTag =
-          Prelude.Nothing,
+          Core.Nothing,
         cloudFrontOriginAccessIdentityConfig =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@.
-getCloudFrontOriginAccessIdentityConfigResponse_eTag :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Prelude.Maybe Prelude.Text)
+getCloudFrontOriginAccessIdentityConfigResponse_eTag :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Core.Maybe Core.Text)
 getCloudFrontOriginAccessIdentityConfigResponse_eTag = Lens.lens (\GetCloudFrontOriginAccessIdentityConfigResponse' {eTag} -> eTag) (\s@GetCloudFrontOriginAccessIdentityConfigResponse' {} a -> s {eTag = a} :: GetCloudFrontOriginAccessIdentityConfigResponse)
 
 -- | The origin access identity\'s configuration information.
-getCloudFrontOriginAccessIdentityConfigResponse_cloudFrontOriginAccessIdentityConfig :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Prelude.Maybe CloudFrontOriginAccessIdentityConfig)
+getCloudFrontOriginAccessIdentityConfigResponse_cloudFrontOriginAccessIdentityConfig :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfigResponse (Core.Maybe CloudFrontOriginAccessIdentityConfig)
 getCloudFrontOriginAccessIdentityConfigResponse_cloudFrontOriginAccessIdentityConfig = Lens.lens (\GetCloudFrontOriginAccessIdentityConfigResponse' {cloudFrontOriginAccessIdentityConfig} -> cloudFrontOriginAccessIdentityConfig) (\s@GetCloudFrontOriginAccessIdentityConfigResponse' {} a -> s {cloudFrontOriginAccessIdentityConfig = a} :: GetCloudFrontOriginAccessIdentityConfigResponse)
 
 -- | The response's http status code.
-getCloudFrontOriginAccessIdentityConfigResponse_httpStatus :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfigResponse Prelude.Int
+getCloudFrontOriginAccessIdentityConfigResponse_httpStatus :: Lens.Lens' GetCloudFrontOriginAccessIdentityConfigResponse Core.Int
 getCloudFrontOriginAccessIdentityConfigResponse_httpStatus = Lens.lens (\GetCloudFrontOriginAccessIdentityConfigResponse' {httpStatus} -> httpStatus) (\s@GetCloudFrontOriginAccessIdentityConfigResponse' {} a -> s {httpStatus = a} :: GetCloudFrontOriginAccessIdentityConfigResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetCloudFrontOriginAccessIdentityConfigResponse

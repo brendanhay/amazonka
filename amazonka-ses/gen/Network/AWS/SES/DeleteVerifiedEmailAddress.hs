@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.SES.DeleteVerifiedEmailAddress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -49,9 +48,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newDeleteVerifiedEmailAddress' smart constructor.
 data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
   { -- | An email address to be removed from the list of verified addresses.
-    emailAddress :: Prelude.Text
+    emailAddress :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVerifiedEmailAddress' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
 -- 'emailAddress', 'deleteVerifiedEmailAddress_emailAddress' - An email address to be removed from the list of verified addresses.
 newDeleteVerifiedEmailAddress ::
   -- | 'emailAddress'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVerifiedEmailAddress
 newDeleteVerifiedEmailAddress pEmailAddress_ =
   DeleteVerifiedEmailAddress'
@@ -73,46 +72,42 @@ newDeleteVerifiedEmailAddress pEmailAddress_ =
     }
 
 -- | An email address to be removed from the list of verified addresses.
-deleteVerifiedEmailAddress_emailAddress :: Lens.Lens' DeleteVerifiedEmailAddress Prelude.Text
+deleteVerifiedEmailAddress_emailAddress :: Lens.Lens' DeleteVerifiedEmailAddress Core.Text
 deleteVerifiedEmailAddress_emailAddress = Lens.lens (\DeleteVerifiedEmailAddress' {emailAddress} -> emailAddress) (\s@DeleteVerifiedEmailAddress' {} a -> s {emailAddress = a} :: DeleteVerifiedEmailAddress)
 
-instance
-  Prelude.AWSRequest
-    DeleteVerifiedEmailAddress
-  where
+instance Core.AWSRequest DeleteVerifiedEmailAddress where
   type
-    Rs DeleteVerifiedEmailAddress =
+    AWSResponse DeleteVerifiedEmailAddress =
       DeleteVerifiedEmailAddressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteVerifiedEmailAddressResponse'
 
-instance Prelude.Hashable DeleteVerifiedEmailAddress
+instance Core.Hashable DeleteVerifiedEmailAddress
 
-instance Prelude.NFData DeleteVerifiedEmailAddress
+instance Core.NFData DeleteVerifiedEmailAddress
 
-instance Prelude.ToHeaders DeleteVerifiedEmailAddress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVerifiedEmailAddress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVerifiedEmailAddress where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVerifiedEmailAddress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVerifiedEmailAddress where
+instance Core.ToQuery DeleteVerifiedEmailAddress where
   toQuery DeleteVerifiedEmailAddress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteVerifiedEmailAddress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EmailAddress" Prelude.=: emailAddress
+          Core.=: ("DeleteVerifiedEmailAddress" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EmailAddress" Core.=: emailAddress
       ]
 
 -- | /See:/ 'newDeleteVerifiedEmailAddressResponse' smart constructor.
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVerifiedEmailAddressResponse' with all optional fields omitted.
@@ -124,5 +119,5 @@ newDeleteVerifiedEmailAddressResponse =
   DeleteVerifiedEmailAddressResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteVerifiedEmailAddressResponse

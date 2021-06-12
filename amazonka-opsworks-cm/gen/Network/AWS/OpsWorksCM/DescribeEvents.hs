@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,10 +51,9 @@ module Network.AWS.OpsWorksCM.DescribeEvents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,17 +67,17 @@ data DescribeEvents = DescribeEvents'
     -- no more results, the response object\'s @nextToken@ parameter value is
     -- @null@. Setting a @nextToken@ value that was not returned in your
     -- previous results causes an @InvalidNextTokenException@ to occur.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | To receive a paginated response, use this parameter to specify the
     -- maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The name of the server for which you want to view events.
-    serverName :: Prelude.Text
+    serverName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEvents' with all optional fields omitted.
@@ -107,12 +105,12 @@ data DescribeEvents = DescribeEvents'
 -- 'serverName', 'describeEvents_serverName' - The name of the server for which you want to view events.
 newDescribeEvents ::
   -- | 'serverName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeEvents
 newDescribeEvents pServerName_ =
   DescribeEvents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       serverName = pServerName_
     }
 
@@ -124,7 +122,7 @@ newDescribeEvents pServerName_ =
 -- no more results, the response object\'s @nextToken@ parameter value is
 -- @null@. Setting a @nextToken@ value that was not returned in your
 -- previous results causes an @InvalidNextTokenException@ to occur.
-describeEvents_nextToken :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_nextToken :: Lens.Lens' DescribeEvents (Core.Maybe Core.Text)
 describeEvents_nextToken = Lens.lens (\DescribeEvents' {nextToken} -> nextToken) (\s@DescribeEvents' {} a -> s {nextToken = a} :: DescribeEvents)
 
 -- | To receive a paginated response, use this parameter to specify the
@@ -132,82 +130,79 @@ describeEvents_nextToken = Lens.lens (\DescribeEvents' {nextToken} -> nextToken)
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
-describeEvents_maxResults :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Natural)
+describeEvents_maxResults :: Lens.Lens' DescribeEvents (Core.Maybe Core.Natural)
 describeEvents_maxResults = Lens.lens (\DescribeEvents' {maxResults} -> maxResults) (\s@DescribeEvents' {} a -> s {maxResults = a} :: DescribeEvents)
 
 -- | The name of the server for which you want to view events.
-describeEvents_serverName :: Lens.Lens' DescribeEvents Prelude.Text
+describeEvents_serverName :: Lens.Lens' DescribeEvents Core.Text
 describeEvents_serverName = Lens.lens (\DescribeEvents' {serverName} -> serverName) (\s@DescribeEvents' {} a -> s {serverName = a} :: DescribeEvents)
 
-instance Pager.AWSPager DescribeEvents where
+instance Core.AWSPager DescribeEvents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeEventsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeEventsResponse_serverEvents
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeEvents_nextToken
           Lens..~ rs
-          Lens.^? describeEventsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeEventsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeEvents where
-  type Rs DescribeEvents = DescribeEventsResponse
+instance Core.AWSRequest DescribeEvents where
+  type
+    AWSResponse DescribeEvents =
+      DescribeEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ServerEvents"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "ServerEvents" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEvents
+instance Core.Hashable DescribeEvents
 
-instance Prelude.NFData DescribeEvents
+instance Core.NFData DescribeEvents
 
-instance Prelude.ToHeaders DescribeEvents where
+instance Core.ToHeaders DescribeEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.DescribeEvents" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.DescribeEvents" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEvents where
+instance Core.ToJSON DescribeEvents where
   toJSON DescribeEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("ServerName" Prelude..= serverName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("ServerName" Core..= serverName)
           ]
       )
 
-instance Prelude.ToPath DescribeEvents where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEvents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
@@ -219,13 +214,13 @@ data DescribeEventsResponse = DescribeEventsResponse'
     -- no more results, the response object\'s @nextToken@ parameter value is
     -- @null@. Setting a @nextToken@ value that was not returned in your
     -- previous results causes an @InvalidNextTokenException@ to occur.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Contains the response to a @DescribeEvents@ request.
-    serverEvents :: Prelude.Maybe [ServerEvent],
+    serverEvents :: Core.Maybe [ServerEvent],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventsResponse' with all optional fields omitted.
@@ -249,13 +244,12 @@ data DescribeEventsResponse = DescribeEventsResponse'
 -- 'httpStatus', 'describeEventsResponse_httpStatus' - The response's http status code.
 newDescribeEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventsResponse
 newDescribeEventsResponse pHttpStatus_ =
   DescribeEventsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      serverEvents = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      serverEvents = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -267,15 +261,15 @@ newDescribeEventsResponse pHttpStatus_ =
 -- no more results, the response object\'s @nextToken@ parameter value is
 -- @null@. Setting a @nextToken@ value that was not returned in your
 -- previous results causes an @InvalidNextTokenException@ to occur.
-describeEventsResponse_nextToken :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe Prelude.Text)
+describeEventsResponse_nextToken :: Lens.Lens' DescribeEventsResponse (Core.Maybe Core.Text)
 describeEventsResponse_nextToken = Lens.lens (\DescribeEventsResponse' {nextToken} -> nextToken) (\s@DescribeEventsResponse' {} a -> s {nextToken = a} :: DescribeEventsResponse)
 
 -- | Contains the response to a @DescribeEvents@ request.
-describeEventsResponse_serverEvents :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [ServerEvent])
-describeEventsResponse_serverEvents = Lens.lens (\DescribeEventsResponse' {serverEvents} -> serverEvents) (\s@DescribeEventsResponse' {} a -> s {serverEvents = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventsResponse_serverEvents :: Lens.Lens' DescribeEventsResponse (Core.Maybe [ServerEvent])
+describeEventsResponse_serverEvents = Lens.lens (\DescribeEventsResponse' {serverEvents} -> serverEvents) (\s@DescribeEventsResponse' {} a -> s {serverEvents = a} :: DescribeEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int
+describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Core.Int
 describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsResponse' {} a -> s {httpStatus = a} :: DescribeEventsResponse)
 
-instance Prelude.NFData DescribeEventsResponse
+instance Core.NFData DescribeEventsResponse

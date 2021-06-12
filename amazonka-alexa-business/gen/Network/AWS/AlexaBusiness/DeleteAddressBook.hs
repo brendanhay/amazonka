@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AlexaBusiness.DeleteAddressBook
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAddressBook' smart constructor.
 data DeleteAddressBook = DeleteAddressBook'
   { -- | The ARN of the address book to delete.
-    addressBookArn :: Prelude.Text
+    addressBookArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAddressBook' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteAddressBook = DeleteAddressBook'
 -- 'addressBookArn', 'deleteAddressBook_addressBookArn' - The ARN of the address book to delete.
 newDeleteAddressBook ::
   -- | 'addressBookArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAddressBook
 newDeleteAddressBook pAddressBookArn_ =
   DeleteAddressBook'
@@ -72,59 +71,59 @@ newDeleteAddressBook pAddressBookArn_ =
     }
 
 -- | The ARN of the address book to delete.
-deleteAddressBook_addressBookArn :: Lens.Lens' DeleteAddressBook Prelude.Text
+deleteAddressBook_addressBookArn :: Lens.Lens' DeleteAddressBook Core.Text
 deleteAddressBook_addressBookArn = Lens.lens (\DeleteAddressBook' {addressBookArn} -> addressBookArn) (\s@DeleteAddressBook' {} a -> s {addressBookArn = a} :: DeleteAddressBook)
 
-instance Prelude.AWSRequest DeleteAddressBook where
-  type Rs DeleteAddressBook = DeleteAddressBookResponse
+instance Core.AWSRequest DeleteAddressBook where
+  type
+    AWSResponse DeleteAddressBook =
+      DeleteAddressBookResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAddressBookResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAddressBook
+instance Core.Hashable DeleteAddressBook
 
-instance Prelude.NFData DeleteAddressBook
+instance Core.NFData DeleteAddressBook
 
-instance Prelude.ToHeaders DeleteAddressBook where
+instance Core.ToHeaders DeleteAddressBook where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DeleteAddressBook" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.DeleteAddressBook" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAddressBook where
+instance Core.ToJSON DeleteAddressBook where
   toJSON DeleteAddressBook' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AddressBookArn" Prelude..= addressBookArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("AddressBookArn" Core..= addressBookArn)
           ]
       )
 
-instance Prelude.ToPath DeleteAddressBook where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAddressBook where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAddressBook where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAddressBook where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAddressBookResponse' smart constructor.
 data DeleteAddressBookResponse = DeleteAddressBookResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAddressBookResponse' with all optional fields omitted.
@@ -137,7 +136,7 @@ data DeleteAddressBookResponse = DeleteAddressBookResponse'
 -- 'httpStatus', 'deleteAddressBookResponse_httpStatus' - The response's http status code.
 newDeleteAddressBookResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteAddressBookResponse
 newDeleteAddressBookResponse pHttpStatus_ =
   DeleteAddressBookResponse'
@@ -146,7 +145,7 @@ newDeleteAddressBookResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteAddressBookResponse_httpStatus :: Lens.Lens' DeleteAddressBookResponse Prelude.Int
+deleteAddressBookResponse_httpStatus :: Lens.Lens' DeleteAddressBookResponse Core.Int
 deleteAddressBookResponse_httpStatus = Lens.lens (\DeleteAddressBookResponse' {httpStatus} -> httpStatus) (\s@DeleteAddressBookResponse' {} a -> s {httpStatus = a} :: DeleteAddressBookResponse)
 
-instance Prelude.NFData DeleteAddressBookResponse
+instance Core.NFData DeleteAddressBookResponse

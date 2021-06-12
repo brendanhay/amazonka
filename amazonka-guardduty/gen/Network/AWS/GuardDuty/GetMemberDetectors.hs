@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,20 +42,20 @@ module Network.AWS.GuardDuty.GetMemberDetectors
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMemberDetectors' smart constructor.
 data GetMemberDetectors = GetMemberDetectors'
   { -- | The detector ID for the administrator account.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The account ID of the member account.
-    accountIds :: Prelude.NonEmpty Prelude.Text
+    accountIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMemberDetectors' with all optional fields omitted.
@@ -71,85 +70,83 @@ data GetMemberDetectors = GetMemberDetectors'
 -- 'accountIds', 'getMemberDetectors_accountIds' - The account ID of the member account.
 newGetMemberDetectors ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accountIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   GetMemberDetectors
 newGetMemberDetectors pDetectorId_ pAccountIds_ =
   GetMemberDetectors'
     { detectorId = pDetectorId_,
-      accountIds = Prelude._Coerce Lens.# pAccountIds_
+      accountIds = Lens._Coerce Lens.# pAccountIds_
     }
 
 -- | The detector ID for the administrator account.
-getMemberDetectors_detectorId :: Lens.Lens' GetMemberDetectors Prelude.Text
+getMemberDetectors_detectorId :: Lens.Lens' GetMemberDetectors Core.Text
 getMemberDetectors_detectorId = Lens.lens (\GetMemberDetectors' {detectorId} -> detectorId) (\s@GetMemberDetectors' {} a -> s {detectorId = a} :: GetMemberDetectors)
 
 -- | The account ID of the member account.
-getMemberDetectors_accountIds :: Lens.Lens' GetMemberDetectors (Prelude.NonEmpty Prelude.Text)
-getMemberDetectors_accountIds = Lens.lens (\GetMemberDetectors' {accountIds} -> accountIds) (\s@GetMemberDetectors' {} a -> s {accountIds = a} :: GetMemberDetectors) Prelude.. Prelude._Coerce
+getMemberDetectors_accountIds :: Lens.Lens' GetMemberDetectors (Core.NonEmpty Core.Text)
+getMemberDetectors_accountIds = Lens.lens (\GetMemberDetectors' {accountIds} -> accountIds) (\s@GetMemberDetectors' {} a -> s {accountIds = a} :: GetMemberDetectors) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest GetMemberDetectors where
+instance Core.AWSRequest GetMemberDetectors where
   type
-    Rs GetMemberDetectors =
+    AWSResponse GetMemberDetectors =
       GetMemberDetectorsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetMemberDetectorsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "members")
-            Prelude.<*> ( x Prelude..?> "unprocessedAccounts"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "members")
+            Core.<*> ( x Core..?> "unprocessedAccounts"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable GetMemberDetectors
+instance Core.Hashable GetMemberDetectors
 
-instance Prelude.NFData GetMemberDetectors
+instance Core.NFData GetMemberDetectors
 
-instance Prelude.ToHeaders GetMemberDetectors where
+instance Core.ToHeaders GetMemberDetectors where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetMemberDetectors where
+instance Core.ToJSON GetMemberDetectors where
   toJSON GetMemberDetectors' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("accountIds" Prelude..= accountIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("accountIds" Core..= accountIds)]
       )
 
-instance Prelude.ToPath GetMemberDetectors where
+instance Core.ToPath GetMemberDetectors where
   toPath GetMemberDetectors' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/member/detector/get"
       ]
 
-instance Prelude.ToQuery GetMemberDetectors where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMemberDetectors where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetMemberDetectorsResponse' smart constructor.
 data GetMemberDetectorsResponse = GetMemberDetectorsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | An object that describes which data sources are enabled for a member
     -- account.
-    memberDataSourceConfigurations :: Prelude.NonEmpty MemberDataSourceConfiguration,
+    memberDataSourceConfigurations :: Core.NonEmpty MemberDataSourceConfiguration,
     -- | A list of member account IDs that were unable to be processed along with
     -- an explanation for why they were not processed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMemberDetectorsResponse' with all optional fields omitted.
@@ -168,9 +165,9 @@ data GetMemberDetectorsResponse = GetMemberDetectorsResponse'
 -- an explanation for why they were not processed.
 newGetMemberDetectorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'memberDataSourceConfigurations'
-  Prelude.NonEmpty MemberDataSourceConfiguration ->
+  Core.NonEmpty MemberDataSourceConfiguration ->
   GetMemberDetectorsResponse
 newGetMemberDetectorsResponse
   pHttpStatus_
@@ -179,23 +176,23 @@ newGetMemberDetectorsResponse
       { httpStatus =
           pHttpStatus_,
         memberDataSourceConfigurations =
-          Prelude._Coerce
+          Lens._Coerce
             Lens.# pMemberDataSourceConfigurations_,
-        unprocessedAccounts = Prelude.mempty
+        unprocessedAccounts = Core.mempty
       }
 
 -- | The response's http status code.
-getMemberDetectorsResponse_httpStatus :: Lens.Lens' GetMemberDetectorsResponse Prelude.Int
+getMemberDetectorsResponse_httpStatus :: Lens.Lens' GetMemberDetectorsResponse Core.Int
 getMemberDetectorsResponse_httpStatus = Lens.lens (\GetMemberDetectorsResponse' {httpStatus} -> httpStatus) (\s@GetMemberDetectorsResponse' {} a -> s {httpStatus = a} :: GetMemberDetectorsResponse)
 
 -- | An object that describes which data sources are enabled for a member
 -- account.
-getMemberDetectorsResponse_memberDataSourceConfigurations :: Lens.Lens' GetMemberDetectorsResponse (Prelude.NonEmpty MemberDataSourceConfiguration)
-getMemberDetectorsResponse_memberDataSourceConfigurations = Lens.lens (\GetMemberDetectorsResponse' {memberDataSourceConfigurations} -> memberDataSourceConfigurations) (\s@GetMemberDetectorsResponse' {} a -> s {memberDataSourceConfigurations = a} :: GetMemberDetectorsResponse) Prelude.. Prelude._Coerce
+getMemberDetectorsResponse_memberDataSourceConfigurations :: Lens.Lens' GetMemberDetectorsResponse (Core.NonEmpty MemberDataSourceConfiguration)
+getMemberDetectorsResponse_memberDataSourceConfigurations = Lens.lens (\GetMemberDetectorsResponse' {memberDataSourceConfigurations} -> memberDataSourceConfigurations) (\s@GetMemberDetectorsResponse' {} a -> s {memberDataSourceConfigurations = a} :: GetMemberDetectorsResponse) Core.. Lens._Coerce
 
 -- | A list of member account IDs that were unable to be processed along with
 -- an explanation for why they were not processed.
 getMemberDetectorsResponse_unprocessedAccounts :: Lens.Lens' GetMemberDetectorsResponse [UnprocessedAccount]
-getMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\GetMemberDetectorsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMemberDetectorsResponse' {} a -> s {unprocessedAccounts = a} :: GetMemberDetectorsResponse) Prelude.. Prelude._Coerce
+getMemberDetectorsResponse_unprocessedAccounts = Lens.lens (\GetMemberDetectorsResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@GetMemberDetectorsResponse' {} a -> s {unprocessedAccounts = a} :: GetMemberDetectorsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetMemberDetectorsResponse
+instance Core.NFData GetMemberDetectorsResponse

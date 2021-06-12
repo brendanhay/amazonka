@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.AppStream.DisableUser
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ data DisableUser = DisableUser'
   { -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Prelude.Sensitive Prelude.Text,
+    userName :: Core.Sensitive Core.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableUser' with all optional fields omitted.
@@ -74,80 +73,76 @@ data DisableUser = DisableUser'
 -- 'authenticationType', 'disableUser_authenticationType' - The authentication type for the user. You must specify USERPOOL.
 newDisableUser ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authenticationType'
   AuthenticationType ->
   DisableUser
 newDisableUser pUserName_ pAuthenticationType_ =
   DisableUser'
     { userName =
-        Prelude._Sensitive Lens.# pUserName_,
+        Core._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
 
 -- | The email address of the user.
 --
 -- Users\' email addresses are case-sensitive.
-disableUser_userName :: Lens.Lens' DisableUser Prelude.Text
-disableUser_userName = Lens.lens (\DisableUser' {userName} -> userName) (\s@DisableUser' {} a -> s {userName = a} :: DisableUser) Prelude.. Prelude._Sensitive
+disableUser_userName :: Lens.Lens' DisableUser Core.Text
+disableUser_userName = Lens.lens (\DisableUser' {userName} -> userName) (\s@DisableUser' {} a -> s {userName = a} :: DisableUser) Core.. Core._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 disableUser_authenticationType :: Lens.Lens' DisableUser AuthenticationType
 disableUser_authenticationType = Lens.lens (\DisableUser' {authenticationType} -> authenticationType) (\s@DisableUser' {} a -> s {authenticationType = a} :: DisableUser)
 
-instance Prelude.AWSRequest DisableUser where
-  type Rs DisableUser = DisableUserResponse
+instance Core.AWSRequest DisableUser where
+  type AWSResponse DisableUser = DisableUserResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableUserResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisableUser
+instance Core.Hashable DisableUser
 
-instance Prelude.NFData DisableUser
+instance Core.NFData DisableUser
 
-instance Prelude.ToHeaders DisableUser where
+instance Core.ToHeaders DisableUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DisableUser" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DisableUser" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableUser where
+instance Core.ToJSON DisableUser where
   toJSON DisableUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserName" Prelude..= userName),
-            Prelude.Just
-              ( "AuthenticationType"
-                  Prelude..= authenticationType
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserName" Core..= userName),
+            Core.Just
+              ("AuthenticationType" Core..= authenticationType)
           ]
       )
 
-instance Prelude.ToPath DisableUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableUserResponse' smart constructor.
 data DisableUserResponse = DisableUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableUserResponse' with all optional fields omitted.
@@ -160,13 +155,13 @@ data DisableUserResponse = DisableUserResponse'
 -- 'httpStatus', 'disableUserResponse_httpStatus' - The response's http status code.
 newDisableUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableUserResponse
 newDisableUserResponse pHttpStatus_ =
   DisableUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-disableUserResponse_httpStatus :: Lens.Lens' DisableUserResponse Prelude.Int
+disableUserResponse_httpStatus :: Lens.Lens' DisableUserResponse Core.Int
 disableUserResponse_httpStatus = Lens.lens (\DisableUserResponse' {httpStatus} -> httpStatus) (\s@DisableUserResponse' {} a -> s {httpStatus = a} :: DisableUserResponse)
 
-instance Prelude.NFData DisableUserResponse
+instance Core.NFData DisableUserResponse

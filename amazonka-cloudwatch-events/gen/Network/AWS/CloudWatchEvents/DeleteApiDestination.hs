@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.CloudWatchEvents.DeleteApiDestination
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApiDestination' smart constructor.
 data DeleteApiDestination = DeleteApiDestination'
   { -- | The name of the destination to delete.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiDestination' with all optional fields omitted.
@@ -63,65 +62,61 @@ data DeleteApiDestination = DeleteApiDestination'
 -- 'name', 'deleteApiDestination_name' - The name of the destination to delete.
 newDeleteApiDestination ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApiDestination
 newDeleteApiDestination pName_ =
   DeleteApiDestination' {name = pName_}
 
 -- | The name of the destination to delete.
-deleteApiDestination_name :: Lens.Lens' DeleteApiDestination Prelude.Text
+deleteApiDestination_name :: Lens.Lens' DeleteApiDestination Core.Text
 deleteApiDestination_name = Lens.lens (\DeleteApiDestination' {name} -> name) (\s@DeleteApiDestination' {} a -> s {name = a} :: DeleteApiDestination)
 
-instance Prelude.AWSRequest DeleteApiDestination where
+instance Core.AWSRequest DeleteApiDestination where
   type
-    Rs DeleteApiDestination =
+    AWSResponse DeleteApiDestination =
       DeleteApiDestinationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApiDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApiDestination
+instance Core.Hashable DeleteApiDestination
 
-instance Prelude.NFData DeleteApiDestination
+instance Core.NFData DeleteApiDestination
 
-instance Prelude.ToHeaders DeleteApiDestination where
+instance Core.ToHeaders DeleteApiDestination where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.DeleteApiDestination" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSEvents.DeleteApiDestination" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteApiDestination where
+instance Core.ToJSON DeleteApiDestination where
   toJSON DeleteApiDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteApiDestination where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteApiDestination where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteApiDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApiDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApiDestinationResponse' smart constructor.
 data DeleteApiDestinationResponse = DeleteApiDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiDestinationResponse' with all optional fields omitted.
@@ -134,7 +129,7 @@ data DeleteApiDestinationResponse = DeleteApiDestinationResponse'
 -- 'httpStatus', 'deleteApiDestinationResponse_httpStatus' - The response's http status code.
 newDeleteApiDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteApiDestinationResponse
 newDeleteApiDestinationResponse pHttpStatus_ =
   DeleteApiDestinationResponse'
@@ -143,7 +138,7 @@ newDeleteApiDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteApiDestinationResponse_httpStatus :: Lens.Lens' DeleteApiDestinationResponse Prelude.Int
+deleteApiDestinationResponse_httpStatus :: Lens.Lens' DeleteApiDestinationResponse Core.Int
 deleteApiDestinationResponse_httpStatus = Lens.lens (\DeleteApiDestinationResponse' {httpStatus} -> httpStatus) (\s@DeleteApiDestinationResponse' {} a -> s {httpStatus = a} :: DeleteApiDestinationResponse)
 
-instance Prelude.NFData DeleteApiDestinationResponse
+instance Core.NFData DeleteApiDestinationResponse

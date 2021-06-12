@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.BuiltinIntentSlot where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a slot used in a built-in intent.
 --
 -- /See:/ 'newBuiltinIntentSlot' smart constructor.
 data BuiltinIntentSlot = BuiltinIntentSlot'
   { -- | A list of the slots defined for the intent.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BuiltinIntentSlot' with all optional fields omitted.
@@ -44,21 +43,20 @@ data BuiltinIntentSlot = BuiltinIntentSlot'
 newBuiltinIntentSlot ::
   BuiltinIntentSlot
 newBuiltinIntentSlot =
-  BuiltinIntentSlot' {name = Prelude.Nothing}
+  BuiltinIntentSlot' {name = Core.Nothing}
 
 -- | A list of the slots defined for the intent.
-builtinIntentSlot_name :: Lens.Lens' BuiltinIntentSlot (Prelude.Maybe Prelude.Text)
+builtinIntentSlot_name :: Lens.Lens' BuiltinIntentSlot (Core.Maybe Core.Text)
 builtinIntentSlot_name = Lens.lens (\BuiltinIntentSlot' {name} -> name) (\s@BuiltinIntentSlot' {} a -> s {name = a} :: BuiltinIntentSlot)
 
-instance Prelude.FromJSON BuiltinIntentSlot where
+instance Core.FromJSON BuiltinIntentSlot where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BuiltinIntentSlot"
       ( \x ->
-          BuiltinIntentSlot'
-            Prelude.<$> (x Prelude..:? "name")
+          BuiltinIntentSlot' Core.<$> (x Core..:? "name")
       )
 
-instance Prelude.Hashable BuiltinIntentSlot
+instance Core.Hashable BuiltinIntentSlot
 
-instance Prelude.NFData BuiltinIntentSlot
+instance Core.NFData BuiltinIntentSlot

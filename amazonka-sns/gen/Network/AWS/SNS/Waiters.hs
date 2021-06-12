@@ -15,8 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SNS.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SNS.Lens
 import Network.AWS.SNS.Types
-import qualified Network.AWS.Waiter as Waiter

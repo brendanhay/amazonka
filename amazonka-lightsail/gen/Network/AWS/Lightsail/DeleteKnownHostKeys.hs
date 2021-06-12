@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Lightsail.DeleteKnownHostKeys
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data DeleteKnownHostKeys = DeleteKnownHostKeys'
   { -- | The name of the instance for which you want to reset the host key or
     -- certificate.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKnownHostKeys' with all optional fields omitted.
@@ -74,75 +73,69 @@ data DeleteKnownHostKeys = DeleteKnownHostKeys'
 -- certificate.
 newDeleteKnownHostKeys ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteKnownHostKeys
 newDeleteKnownHostKeys pInstanceName_ =
   DeleteKnownHostKeys' {instanceName = pInstanceName_}
 
 -- | The name of the instance for which you want to reset the host key or
 -- certificate.
-deleteKnownHostKeys_instanceName :: Lens.Lens' DeleteKnownHostKeys Prelude.Text
+deleteKnownHostKeys_instanceName :: Lens.Lens' DeleteKnownHostKeys Core.Text
 deleteKnownHostKeys_instanceName = Lens.lens (\DeleteKnownHostKeys' {instanceName} -> instanceName) (\s@DeleteKnownHostKeys' {} a -> s {instanceName = a} :: DeleteKnownHostKeys)
 
-instance Prelude.AWSRequest DeleteKnownHostKeys where
+instance Core.AWSRequest DeleteKnownHostKeys where
   type
-    Rs DeleteKnownHostKeys =
+    AWSResponse DeleteKnownHostKeys =
       DeleteKnownHostKeysResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteKnownHostKeysResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteKnownHostKeys
+instance Core.Hashable DeleteKnownHostKeys
 
-instance Prelude.NFData DeleteKnownHostKeys
+instance Core.NFData DeleteKnownHostKeys
 
-instance Prelude.ToHeaders DeleteKnownHostKeys where
+instance Core.ToHeaders DeleteKnownHostKeys where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteKnownHostKeys" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteKnownHostKeys" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteKnownHostKeys where
+instance Core.ToJSON DeleteKnownHostKeys where
   toJSON DeleteKnownHostKeys' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("instanceName" Prelude..= instanceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceName" Core..= instanceName)]
       )
 
-instance Prelude.ToPath DeleteKnownHostKeys where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteKnownHostKeys where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteKnownHostKeys where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteKnownHostKeys where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteKnownHostKeysResponse' smart constructor.
 data DeleteKnownHostKeysResponse = DeleteKnownHostKeysResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKnownHostKeysResponse' with all optional fields omitted.
@@ -159,23 +152,23 @@ data DeleteKnownHostKeysResponse = DeleteKnownHostKeysResponse'
 -- 'httpStatus', 'deleteKnownHostKeysResponse_httpStatus' - The response's http status code.
 newDeleteKnownHostKeysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteKnownHostKeysResponse
 newDeleteKnownHostKeysResponse pHttpStatus_ =
   DeleteKnownHostKeysResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteKnownHostKeysResponse_operations :: Lens.Lens' DeleteKnownHostKeysResponse (Prelude.Maybe [Operation])
-deleteKnownHostKeysResponse_operations = Lens.lens (\DeleteKnownHostKeysResponse' {operations} -> operations) (\s@DeleteKnownHostKeysResponse' {} a -> s {operations = a} :: DeleteKnownHostKeysResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteKnownHostKeysResponse_operations :: Lens.Lens' DeleteKnownHostKeysResponse (Core.Maybe [Operation])
+deleteKnownHostKeysResponse_operations = Lens.lens (\DeleteKnownHostKeysResponse' {operations} -> operations) (\s@DeleteKnownHostKeysResponse' {} a -> s {operations = a} :: DeleteKnownHostKeysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteKnownHostKeysResponse_httpStatus :: Lens.Lens' DeleteKnownHostKeysResponse Prelude.Int
+deleteKnownHostKeysResponse_httpStatus :: Lens.Lens' DeleteKnownHostKeysResponse Core.Int
 deleteKnownHostKeysResponse_httpStatus = Lens.lens (\DeleteKnownHostKeysResponse' {httpStatus} -> httpStatus) (\s@DeleteKnownHostKeysResponse' {} a -> s {httpStatus = a} :: DeleteKnownHostKeysResponse)
 
-instance Prelude.NFData DeleteKnownHostKeysResponse
+instance Core.NFData DeleteKnownHostKeysResponse

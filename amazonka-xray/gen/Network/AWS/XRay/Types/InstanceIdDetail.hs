@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.InstanceIdDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of EC2 instance IDs corresponding to the segments in a trace.
 --
 -- /See:/ 'newInstanceIdDetail' smart constructor.
 data InstanceIdDetail = InstanceIdDetail'
   { -- | The ID of a corresponding EC2 instance.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceIdDetail' with all optional fields omitted.
@@ -44,20 +43,18 @@ data InstanceIdDetail = InstanceIdDetail'
 newInstanceIdDetail ::
   InstanceIdDetail
 newInstanceIdDetail =
-  InstanceIdDetail' {id = Prelude.Nothing}
+  InstanceIdDetail' {id = Core.Nothing}
 
 -- | The ID of a corresponding EC2 instance.
-instanceIdDetail_id :: Lens.Lens' InstanceIdDetail (Prelude.Maybe Prelude.Text)
+instanceIdDetail_id :: Lens.Lens' InstanceIdDetail (Core.Maybe Core.Text)
 instanceIdDetail_id = Lens.lens (\InstanceIdDetail' {id} -> id) (\s@InstanceIdDetail' {} a -> s {id = a} :: InstanceIdDetail)
 
-instance Prelude.FromJSON InstanceIdDetail where
+instance Core.FromJSON InstanceIdDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceIdDetail"
-      ( \x ->
-          InstanceIdDetail' Prelude.<$> (x Prelude..:? "Id")
-      )
+      (\x -> InstanceIdDetail' Core.<$> (x Core..:? "Id"))
 
-instance Prelude.Hashable InstanceIdDetail
+instance Core.Hashable InstanceIdDetail
 
-instance Prelude.NFData InstanceIdDetail
+instance Core.NFData InstanceIdDetail

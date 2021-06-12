@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,21 +43,21 @@ module Network.AWS.CodeStar.ListTagsForProject
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTagsForProject' smart constructor.
 data ListTagsForProject = ListTagsForProject'
   { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Reserved for future use.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the project to get tags for.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForProject' with all optional fields omitted.
@@ -75,86 +74,84 @@ data ListTagsForProject = ListTagsForProject'
 -- 'id', 'listTagsForProject_id' - The ID of the project to get tags for.
 newListTagsForProject ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   ListTagsForProject
 newListTagsForProject pId_ =
   ListTagsForProject'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       id = pId_
     }
 
 -- | Reserved for future use.
-listTagsForProject_nextToken :: Lens.Lens' ListTagsForProject (Prelude.Maybe Prelude.Text)
+listTagsForProject_nextToken :: Lens.Lens' ListTagsForProject (Core.Maybe Core.Text)
 listTagsForProject_nextToken = Lens.lens (\ListTagsForProject' {nextToken} -> nextToken) (\s@ListTagsForProject' {} a -> s {nextToken = a} :: ListTagsForProject)
 
 -- | Reserved for future use.
-listTagsForProject_maxResults :: Lens.Lens' ListTagsForProject (Prelude.Maybe Prelude.Natural)
+listTagsForProject_maxResults :: Lens.Lens' ListTagsForProject (Core.Maybe Core.Natural)
 listTagsForProject_maxResults = Lens.lens (\ListTagsForProject' {maxResults} -> maxResults) (\s@ListTagsForProject' {} a -> s {maxResults = a} :: ListTagsForProject)
 
 -- | The ID of the project to get tags for.
-listTagsForProject_id :: Lens.Lens' ListTagsForProject Prelude.Text
+listTagsForProject_id :: Lens.Lens' ListTagsForProject Core.Text
 listTagsForProject_id = Lens.lens (\ListTagsForProject' {id} -> id) (\s@ListTagsForProject' {} a -> s {id = a} :: ListTagsForProject)
 
-instance Prelude.AWSRequest ListTagsForProject where
+instance Core.AWSRequest ListTagsForProject where
   type
-    Rs ListTagsForProject =
+    AWSResponse ListTagsForProject =
       ListTagsForProjectResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsForProjectResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForProject
+instance Core.Hashable ListTagsForProject
 
-instance Prelude.NFData ListTagsForProject
+instance Core.NFData ListTagsForProject
 
-instance Prelude.ToHeaders ListTagsForProject where
+instance Core.ToHeaders ListTagsForProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.ListTagsForProject" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.ListTagsForProject" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTagsForProject where
+instance Core.ToJSON ListTagsForProject where
   toJSON ListTagsForProject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath ListTagsForProject where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTagsForProject where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTagsForProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTagsForProject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTagsForProjectResponse' smart constructor.
 data ListTagsForProjectResponse = ListTagsForProjectResponse'
   { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The tags for the project.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForProjectResponse' with all optional fields omitted.
@@ -171,26 +168,26 @@ data ListTagsForProjectResponse = ListTagsForProjectResponse'
 -- 'httpStatus', 'listTagsForProjectResponse_httpStatus' - The response's http status code.
 newListTagsForProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsForProjectResponse
 newListTagsForProjectResponse pHttpStatus_ =
   ListTagsForProjectResponse'
     { nextToken =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Reserved for future use.
-listTagsForProjectResponse_nextToken :: Lens.Lens' ListTagsForProjectResponse (Prelude.Maybe Prelude.Text)
+listTagsForProjectResponse_nextToken :: Lens.Lens' ListTagsForProjectResponse (Core.Maybe Core.Text)
 listTagsForProjectResponse_nextToken = Lens.lens (\ListTagsForProjectResponse' {nextToken} -> nextToken) (\s@ListTagsForProjectResponse' {} a -> s {nextToken = a} :: ListTagsForProjectResponse)
 
 -- | The tags for the project.
-listTagsForProjectResponse_tags :: Lens.Lens' ListTagsForProjectResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsForProjectResponse_tags = Lens.lens (\ListTagsForProjectResponse' {tags} -> tags) (\s@ListTagsForProjectResponse' {} a -> s {tags = a} :: ListTagsForProjectResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsForProjectResponse_tags :: Lens.Lens' ListTagsForProjectResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+listTagsForProjectResponse_tags = Lens.lens (\ListTagsForProjectResponse' {tags} -> tags) (\s@ListTagsForProjectResponse' {} a -> s {tags = a} :: ListTagsForProjectResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForProjectResponse_httpStatus :: Lens.Lens' ListTagsForProjectResponse Prelude.Int
+listTagsForProjectResponse_httpStatus :: Lens.Lens' ListTagsForProjectResponse Core.Int
 listTagsForProjectResponse_httpStatus = Lens.lens (\ListTagsForProjectResponse' {httpStatus} -> httpStatus) (\s@ListTagsForProjectResponse' {} a -> s {httpStatus = a} :: ListTagsForProjectResponse)
 
-instance Prelude.NFData ListTagsForProjectResponse
+instance Core.NFData ListTagsForProjectResponse

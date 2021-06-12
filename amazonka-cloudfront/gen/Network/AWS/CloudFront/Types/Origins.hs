@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CloudFront.Types.Origins where
 
 import Network.AWS.CloudFront.Types.Origin
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the origins for this distribution.
 --
 -- /See:/ 'newOrigins' smart constructor.
 data Origins = Origins'
   { -- | The number of origins for this distribution.
-    quantity :: Prelude.Int,
+    quantity :: Core.Int,
     -- | A list of origins.
-    items :: Prelude.NonEmpty Origin
+    items :: Core.NonEmpty Origin
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Origins' with all optional fields omitted.
@@ -48,39 +47,39 @@ data Origins = Origins'
 -- 'items', 'origins_items' - A list of origins.
 newOrigins ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'items'
-  Prelude.NonEmpty Origin ->
+  Core.NonEmpty Origin ->
   Origins
 newOrigins pQuantity_ pItems_ =
   Origins'
     { quantity = pQuantity_,
-      items = Prelude._Coerce Lens.# pItems_
+      items = Lens._Coerce Lens.# pItems_
     }
 
 -- | The number of origins for this distribution.
-origins_quantity :: Lens.Lens' Origins Prelude.Int
+origins_quantity :: Lens.Lens' Origins Core.Int
 origins_quantity = Lens.lens (\Origins' {quantity} -> quantity) (\s@Origins' {} a -> s {quantity = a} :: Origins)
 
 -- | A list of origins.
-origins_items :: Lens.Lens' Origins (Prelude.NonEmpty Origin)
-origins_items = Lens.lens (\Origins' {items} -> items) (\s@Origins' {} a -> s {items = a} :: Origins) Prelude.. Prelude._Coerce
+origins_items :: Lens.Lens' Origins (Core.NonEmpty Origin)
+origins_items = Lens.lens (\Origins' {items} -> items) (\s@Origins' {} a -> s {items = a} :: Origins) Core.. Lens._Coerce
 
-instance Prelude.FromXML Origins where
+instance Core.FromXML Origins where
   parseXML x =
     Origins'
-      Prelude.<$> (x Prelude..@ "Quantity")
-      Prelude.<*> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList1 "Origin"
-                  )
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList1 "Origin"
+               )
 
-instance Prelude.Hashable Origins
+instance Core.Hashable Origins
 
-instance Prelude.NFData Origins
+instance Core.NFData Origins
 
-instance Prelude.ToXML Origins where
+instance Core.ToXML Origins where
   toXML Origins' {..} =
-    Prelude.mconcat
-      [ "Quantity" Prelude.@= quantity,
-        "Items" Prelude.@= Prelude.toXMLList "Origin" items
+    Core.mconcat
+      [ "Quantity" Core.@= quantity,
+        "Items" Core.@= Core.toXMLList "Origin" items
       ]

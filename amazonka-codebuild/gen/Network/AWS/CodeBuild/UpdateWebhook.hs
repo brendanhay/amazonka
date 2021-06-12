@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CodeBuild.UpdateWebhook
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,24 +56,24 @@ data UpdateWebhook = UpdateWebhook'
   { -- | A boolean value that specifies whether the associated GitHub
     -- repository\'s secret token should be updated. If you use Bitbucket for
     -- your repository, @rotateSecret@ is ignored.
-    rotateSecret :: Prelude.Maybe Prelude.Bool,
+    rotateSecret :: Core.Maybe Core.Bool,
     -- | A regular expression used to determine which repository branches are
     -- built when a webhook is triggered. If the name of a branch matches the
     -- regular expression, then it is built. If @branchFilter@ is empty, then
     -- all branches are built.
     --
     -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
-    branchFilter :: Prelude.Maybe Prelude.Text,
+    branchFilter :: Core.Maybe Core.Text,
     -- | An array of arrays of @WebhookFilter@ objects used to determine if a
     -- webhook event can trigger a build. A filter group must contain at least
     -- one @EVENT@ @WebhookFilter@.
-    filterGroups :: Prelude.Maybe [[WebhookFilter]],
+    filterGroups :: Core.Maybe [[WebhookFilter]],
     -- | Specifies the type of build this webhook will trigger.
-    buildType :: Prelude.Maybe WebhookBuildType,
+    buildType :: Core.Maybe WebhookBuildType,
     -- | The name of the AWS CodeBuild project.
-    projectName :: Prelude.Text
+    projectName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateWebhook' with all optional fields omitted.
@@ -104,21 +103,21 @@ data UpdateWebhook = UpdateWebhook'
 -- 'projectName', 'updateWebhook_projectName' - The name of the AWS CodeBuild project.
 newUpdateWebhook ::
   -- | 'projectName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateWebhook
 newUpdateWebhook pProjectName_ =
   UpdateWebhook'
-    { rotateSecret = Prelude.Nothing,
-      branchFilter = Prelude.Nothing,
-      filterGroups = Prelude.Nothing,
-      buildType = Prelude.Nothing,
+    { rotateSecret = Core.Nothing,
+      branchFilter = Core.Nothing,
+      filterGroups = Core.Nothing,
+      buildType = Core.Nothing,
       projectName = pProjectName_
     }
 
 -- | A boolean value that specifies whether the associated GitHub
 -- repository\'s secret token should be updated. If you use Bitbucket for
 -- your repository, @rotateSecret@ is ignored.
-updateWebhook_rotateSecret :: Lens.Lens' UpdateWebhook (Prelude.Maybe Prelude.Bool)
+updateWebhook_rotateSecret :: Lens.Lens' UpdateWebhook (Core.Maybe Core.Bool)
 updateWebhook_rotateSecret = Lens.lens (\UpdateWebhook' {rotateSecret} -> rotateSecret) (\s@UpdateWebhook' {} a -> s {rotateSecret = a} :: UpdateWebhook)
 
 -- | A regular expression used to determine which repository branches are
@@ -127,81 +126,80 @@ updateWebhook_rotateSecret = Lens.lens (\UpdateWebhook' {rotateSecret} -> rotate
 -- all branches are built.
 --
 -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
-updateWebhook_branchFilter :: Lens.Lens' UpdateWebhook (Prelude.Maybe Prelude.Text)
+updateWebhook_branchFilter :: Lens.Lens' UpdateWebhook (Core.Maybe Core.Text)
 updateWebhook_branchFilter = Lens.lens (\UpdateWebhook' {branchFilter} -> branchFilter) (\s@UpdateWebhook' {} a -> s {branchFilter = a} :: UpdateWebhook)
 
 -- | An array of arrays of @WebhookFilter@ objects used to determine if a
 -- webhook event can trigger a build. A filter group must contain at least
 -- one @EVENT@ @WebhookFilter@.
-updateWebhook_filterGroups :: Lens.Lens' UpdateWebhook (Prelude.Maybe [[WebhookFilter]])
-updateWebhook_filterGroups = Lens.lens (\UpdateWebhook' {filterGroups} -> filterGroups) (\s@UpdateWebhook' {} a -> s {filterGroups = a} :: UpdateWebhook) Prelude.. Lens.mapping Prelude._Coerce
+updateWebhook_filterGroups :: Lens.Lens' UpdateWebhook (Core.Maybe [[WebhookFilter]])
+updateWebhook_filterGroups = Lens.lens (\UpdateWebhook' {filterGroups} -> filterGroups) (\s@UpdateWebhook' {} a -> s {filterGroups = a} :: UpdateWebhook) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the type of build this webhook will trigger.
-updateWebhook_buildType :: Lens.Lens' UpdateWebhook (Prelude.Maybe WebhookBuildType)
+updateWebhook_buildType :: Lens.Lens' UpdateWebhook (Core.Maybe WebhookBuildType)
 updateWebhook_buildType = Lens.lens (\UpdateWebhook' {buildType} -> buildType) (\s@UpdateWebhook' {} a -> s {buildType = a} :: UpdateWebhook)
 
 -- | The name of the AWS CodeBuild project.
-updateWebhook_projectName :: Lens.Lens' UpdateWebhook Prelude.Text
+updateWebhook_projectName :: Lens.Lens' UpdateWebhook Core.Text
 updateWebhook_projectName = Lens.lens (\UpdateWebhook' {projectName} -> projectName) (\s@UpdateWebhook' {} a -> s {projectName = a} :: UpdateWebhook)
 
-instance Prelude.AWSRequest UpdateWebhook where
-  type Rs UpdateWebhook = UpdateWebhookResponse
+instance Core.AWSRequest UpdateWebhook where
+  type
+    AWSResponse UpdateWebhook =
+      UpdateWebhookResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateWebhookResponse'
-            Prelude.<$> (x Prelude..?> "webhook")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "webhook")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateWebhook
+instance Core.Hashable UpdateWebhook
 
-instance Prelude.NFData UpdateWebhook
+instance Core.NFData UpdateWebhook
 
-instance Prelude.ToHeaders UpdateWebhook where
+instance Core.ToHeaders UpdateWebhook where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.UpdateWebhook" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeBuild_20161006.UpdateWebhook" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateWebhook where
+instance Core.ToJSON UpdateWebhook where
   toJSON UpdateWebhook' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("rotateSecret" Prelude..=)
-              Prelude.<$> rotateSecret,
-            ("branchFilter" Prelude..=) Prelude.<$> branchFilter,
-            ("filterGroups" Prelude..=) Prelude.<$> filterGroups,
-            ("buildType" Prelude..=) Prelude.<$> buildType,
-            Prelude.Just ("projectName" Prelude..= projectName)
+    Core.object
+      ( Core.catMaybes
+          [ ("rotateSecret" Core..=) Core.<$> rotateSecret,
+            ("branchFilter" Core..=) Core.<$> branchFilter,
+            ("filterGroups" Core..=) Core.<$> filterGroups,
+            ("buildType" Core..=) Core.<$> buildType,
+            Core.Just ("projectName" Core..= projectName)
           ]
       )
 
-instance Prelude.ToPath UpdateWebhook where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateWebhook where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateWebhook where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateWebhook where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateWebhookResponse' smart constructor.
 data UpdateWebhookResponse = UpdateWebhookResponse'
   { -- | Information about a repository\'s webhook that is associated with a
     -- project in AWS CodeBuild.
-    webhook :: Prelude.Maybe Webhook,
+    webhook :: Core.Maybe Webhook,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateWebhookResponse' with all optional fields omitted.
@@ -217,21 +215,21 @@ data UpdateWebhookResponse = UpdateWebhookResponse'
 -- 'httpStatus', 'updateWebhookResponse_httpStatus' - The response's http status code.
 newUpdateWebhookResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateWebhookResponse
 newUpdateWebhookResponse pHttpStatus_ =
   UpdateWebhookResponse'
-    { webhook = Prelude.Nothing,
+    { webhook = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about a repository\'s webhook that is associated with a
 -- project in AWS CodeBuild.
-updateWebhookResponse_webhook :: Lens.Lens' UpdateWebhookResponse (Prelude.Maybe Webhook)
+updateWebhookResponse_webhook :: Lens.Lens' UpdateWebhookResponse (Core.Maybe Webhook)
 updateWebhookResponse_webhook = Lens.lens (\UpdateWebhookResponse' {webhook} -> webhook) (\s@UpdateWebhookResponse' {} a -> s {webhook = a} :: UpdateWebhookResponse)
 
 -- | The response's http status code.
-updateWebhookResponse_httpStatus :: Lens.Lens' UpdateWebhookResponse Prelude.Int
+updateWebhookResponse_httpStatus :: Lens.Lens' UpdateWebhookResponse Core.Int
 updateWebhookResponse_httpStatus = Lens.lens (\UpdateWebhookResponse' {httpStatus} -> httpStatus) (\s@UpdateWebhookResponse' {} a -> s {httpStatus = a} :: UpdateWebhookResponse)
 
-instance Prelude.NFData UpdateWebhookResponse
+instance Core.NFData UpdateWebhookResponse

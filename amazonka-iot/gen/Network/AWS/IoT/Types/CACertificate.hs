@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.CACertificate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CACertificateStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A CA certificate.
 --
@@ -31,15 +30,15 @@ data CACertificate = CACertificate'
   { -- | The status of the CA certificate.
     --
     -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-    status :: Prelude.Maybe CACertificateStatus,
+    status :: Core.Maybe CACertificateStatus,
     -- | The ARN of the CA certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | The date the CA certificate was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The ID of the CA certificate.
-    certificateId :: Prelude.Maybe Prelude.Text
+    certificateId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CACertificate' with all optional fields omitted.
@@ -62,42 +61,42 @@ newCACertificate ::
   CACertificate
 newCACertificate =
   CACertificate'
-    { status = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      certificateId = Prelude.Nothing
+    { status = Core.Nothing,
+      certificateArn = Core.Nothing,
+      creationDate = Core.Nothing,
+      certificateId = Core.Nothing
     }
 
 -- | The status of the CA certificate.
 --
 -- The status value REGISTER_INACTIVE is deprecated and should not be used.
-cACertificate_status :: Lens.Lens' CACertificate (Prelude.Maybe CACertificateStatus)
+cACertificate_status :: Lens.Lens' CACertificate (Core.Maybe CACertificateStatus)
 cACertificate_status = Lens.lens (\CACertificate' {status} -> status) (\s@CACertificate' {} a -> s {status = a} :: CACertificate)
 
 -- | The ARN of the CA certificate.
-cACertificate_certificateArn :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
+cACertificate_certificateArn :: Lens.Lens' CACertificate (Core.Maybe Core.Text)
 cACertificate_certificateArn = Lens.lens (\CACertificate' {certificateArn} -> certificateArn) (\s@CACertificate' {} a -> s {certificateArn = a} :: CACertificate)
 
 -- | The date the CA certificate was created.
-cACertificate_creationDate :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.UTCTime)
-cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Prelude.. Lens.mapping Prelude._Time
+cACertificate_creationDate :: Lens.Lens' CACertificate (Core.Maybe Core.UTCTime)
+cACertificate_creationDate = Lens.lens (\CACertificate' {creationDate} -> creationDate) (\s@CACertificate' {} a -> s {creationDate = a} :: CACertificate) Core.. Lens.mapping Core._Time
 
 -- | The ID of the CA certificate.
-cACertificate_certificateId :: Lens.Lens' CACertificate (Prelude.Maybe Prelude.Text)
+cACertificate_certificateId :: Lens.Lens' CACertificate (Core.Maybe Core.Text)
 cACertificate_certificateId = Lens.lens (\CACertificate' {certificateId} -> certificateId) (\s@CACertificate' {} a -> s {certificateId = a} :: CACertificate)
 
-instance Prelude.FromJSON CACertificate where
+instance Core.FromJSON CACertificate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CACertificate"
       ( \x ->
           CACertificate'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "certificateArn")
-            Prelude.<*> (x Prelude..:? "creationDate")
-            Prelude.<*> (x Prelude..:? "certificateId")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "certificateArn")
+            Core.<*> (x Core..:? "creationDate")
+            Core.<*> (x Core..:? "certificateId")
       )
 
-instance Prelude.Hashable CACertificate
+instance Core.Hashable CACertificate
 
-instance Prelude.NFData CACertificate
+instance Core.NFData CACertificate

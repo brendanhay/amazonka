@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.OnlineStoreConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.OnlineStoreSecurityConfig
 
 -- | Use this to specify the AWS Key Management Service (KMS) Key ID, or
@@ -33,15 +32,15 @@ import Network.AWS.SageMaker.Types.OnlineStoreSecurityConfig
 data OnlineStoreConfig = OnlineStoreConfig'
   { -- | Use to specify KMS Key ID (@KMSKeyId@) for at-rest encryption of your
     -- @OnlineStore@.
-    securityConfig :: Prelude.Maybe OnlineStoreSecurityConfig,
+    securityConfig :: Core.Maybe OnlineStoreSecurityConfig,
     -- | Turn @OnlineStore@ off by specifying @False@ for the @EnableOnlineStore@
     -- flag. Turn @OnlineStore@ on by specifying @True@ for the
     -- @EnableOnlineStore@ flag.
     --
     -- The default value is @False@.
-    enableOnlineStore :: Prelude.Maybe Prelude.Bool
+    enableOnlineStore :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OnlineStoreConfig' with all optional fields omitted.
@@ -63,14 +62,13 @@ newOnlineStoreConfig ::
   OnlineStoreConfig
 newOnlineStoreConfig =
   OnlineStoreConfig'
-    { securityConfig =
-        Prelude.Nothing,
-      enableOnlineStore = Prelude.Nothing
+    { securityConfig = Core.Nothing,
+      enableOnlineStore = Core.Nothing
     }
 
 -- | Use to specify KMS Key ID (@KMSKeyId@) for at-rest encryption of your
 -- @OnlineStore@.
-onlineStoreConfig_securityConfig :: Lens.Lens' OnlineStoreConfig (Prelude.Maybe OnlineStoreSecurityConfig)
+onlineStoreConfig_securityConfig :: Lens.Lens' OnlineStoreConfig (Core.Maybe OnlineStoreSecurityConfig)
 onlineStoreConfig_securityConfig = Lens.lens (\OnlineStoreConfig' {securityConfig} -> securityConfig) (\s@OnlineStoreConfig' {} a -> s {securityConfig = a} :: OnlineStoreConfig)
 
 -- | Turn @OnlineStore@ off by specifying @False@ for the @EnableOnlineStore@
@@ -78,30 +76,29 @@ onlineStoreConfig_securityConfig = Lens.lens (\OnlineStoreConfig' {securityConfi
 -- @EnableOnlineStore@ flag.
 --
 -- The default value is @False@.
-onlineStoreConfig_enableOnlineStore :: Lens.Lens' OnlineStoreConfig (Prelude.Maybe Prelude.Bool)
+onlineStoreConfig_enableOnlineStore :: Lens.Lens' OnlineStoreConfig (Core.Maybe Core.Bool)
 onlineStoreConfig_enableOnlineStore = Lens.lens (\OnlineStoreConfig' {enableOnlineStore} -> enableOnlineStore) (\s@OnlineStoreConfig' {} a -> s {enableOnlineStore = a} :: OnlineStoreConfig)
 
-instance Prelude.FromJSON OnlineStoreConfig where
+instance Core.FromJSON OnlineStoreConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OnlineStoreConfig"
       ( \x ->
           OnlineStoreConfig'
-            Prelude.<$> (x Prelude..:? "SecurityConfig")
-            Prelude.<*> (x Prelude..:? "EnableOnlineStore")
+            Core.<$> (x Core..:? "SecurityConfig")
+            Core.<*> (x Core..:? "EnableOnlineStore")
       )
 
-instance Prelude.Hashable OnlineStoreConfig
+instance Core.Hashable OnlineStoreConfig
 
-instance Prelude.NFData OnlineStoreConfig
+instance Core.NFData OnlineStoreConfig
 
-instance Prelude.ToJSON OnlineStoreConfig where
+instance Core.ToJSON OnlineStoreConfig where
   toJSON OnlineStoreConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SecurityConfig" Prelude..=)
-              Prelude.<$> securityConfig,
-            ("EnableOnlineStore" Prelude..=)
-              Prelude.<$> enableOnlineStore
+    Core.object
+      ( Core.catMaybes
+          [ ("SecurityConfig" Core..=) Core.<$> securityConfig,
+            ("EnableOnlineStore" Core..=)
+              Core.<$> enableOnlineStore
           ]
       )

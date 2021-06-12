@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,8 +61,8 @@ module Network.AWS.StorageGateway.ShutdownGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -73,9 +72,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newShutdownGateway' smart constructor.
 data ShutdownGateway = ShutdownGateway'
-  { gatewayARN :: Prelude.Text
+  { gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShutdownGateway' with all optional fields omitted.
@@ -88,68 +87,68 @@ data ShutdownGateway = ShutdownGateway'
 -- 'gatewayARN', 'shutdownGateway_gatewayARN' - Undocumented member.
 newShutdownGateway ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   ShutdownGateway
 newShutdownGateway pGatewayARN_ =
   ShutdownGateway' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-shutdownGateway_gatewayARN :: Lens.Lens' ShutdownGateway Prelude.Text
+shutdownGateway_gatewayARN :: Lens.Lens' ShutdownGateway Core.Text
 shutdownGateway_gatewayARN = Lens.lens (\ShutdownGateway' {gatewayARN} -> gatewayARN) (\s@ShutdownGateway' {} a -> s {gatewayARN = a} :: ShutdownGateway)
 
-instance Prelude.AWSRequest ShutdownGateway where
-  type Rs ShutdownGateway = ShutdownGatewayResponse
+instance Core.AWSRequest ShutdownGateway where
+  type
+    AWSResponse ShutdownGateway =
+      ShutdownGatewayResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ShutdownGatewayResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ShutdownGateway
+instance Core.Hashable ShutdownGateway
 
-instance Prelude.NFData ShutdownGateway
+instance Core.NFData ShutdownGateway
 
-instance Prelude.ToHeaders ShutdownGateway where
+instance Core.ToHeaders ShutdownGateway where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.ShutdownGateway" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.ShutdownGateway" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ShutdownGateway where
+instance Core.ToJSON ShutdownGateway where
   toJSON ShutdownGateway' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Prelude..= gatewayARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
-instance Prelude.ToPath ShutdownGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath ShutdownGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ShutdownGateway where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ShutdownGateway where
+  toQuery = Core.const Core.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
 -- that was shut down.
 --
 -- /See:/ 'newShutdownGatewayResponse' smart constructor.
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShutdownGatewayResponse' with all optional fields omitted.
@@ -164,21 +163,20 @@ data ShutdownGatewayResponse = ShutdownGatewayResponse'
 -- 'httpStatus', 'shutdownGatewayResponse_httpStatus' - The response's http status code.
 newShutdownGatewayResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ShutdownGatewayResponse
 newShutdownGatewayResponse pHttpStatus_ =
   ShutdownGatewayResponse'
-    { gatewayARN =
-        Prelude.Nothing,
+    { gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-shutdownGatewayResponse_gatewayARN :: Lens.Lens' ShutdownGatewayResponse (Prelude.Maybe Prelude.Text)
+shutdownGatewayResponse_gatewayARN :: Lens.Lens' ShutdownGatewayResponse (Core.Maybe Core.Text)
 shutdownGatewayResponse_gatewayARN = Lens.lens (\ShutdownGatewayResponse' {gatewayARN} -> gatewayARN) (\s@ShutdownGatewayResponse' {} a -> s {gatewayARN = a} :: ShutdownGatewayResponse)
 
 -- | The response's http status code.
-shutdownGatewayResponse_httpStatus :: Lens.Lens' ShutdownGatewayResponse Prelude.Int
+shutdownGatewayResponse_httpStatus :: Lens.Lens' ShutdownGatewayResponse Core.Int
 shutdownGatewayResponse_httpStatus = Lens.lens (\ShutdownGatewayResponse' {httpStatus} -> httpStatus) (\s@ShutdownGatewayResponse' {} a -> s {httpStatus = a} :: ShutdownGatewayResponse)
 
-instance Prelude.NFData ShutdownGatewayResponse
+instance Core.NFData ShutdownGatewayResponse

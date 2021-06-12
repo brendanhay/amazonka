@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.AwsEc2InstanceViolation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Violations for an EC2 instance resource.
 --
 -- /See:/ 'newAwsEc2InstanceViolation' smart constructor.
 data AwsEc2InstanceViolation = AwsEc2InstanceViolation'
   { -- | The resource ID of the EC2 instance.
-    violationTarget :: Prelude.Maybe Prelude.Text,
+    violationTarget :: Core.Maybe Core.Text,
     -- | Violations for network interfaces associated with the EC2 instance.
-    awsEc2NetworkInterfaceViolations :: Prelude.Maybe [AwsEc2NetworkInterfaceViolation]
+    awsEc2NetworkInterfaceViolations :: Core.Maybe [AwsEc2NetworkInterfaceViolation]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AwsEc2InstanceViolation' with all optional fields omitted.
@@ -51,30 +50,30 @@ newAwsEc2InstanceViolation ::
 newAwsEc2InstanceViolation =
   AwsEc2InstanceViolation'
     { violationTarget =
-        Prelude.Nothing,
-      awsEc2NetworkInterfaceViolations = Prelude.Nothing
+        Core.Nothing,
+      awsEc2NetworkInterfaceViolations = Core.Nothing
     }
 
 -- | The resource ID of the EC2 instance.
-awsEc2InstanceViolation_violationTarget :: Lens.Lens' AwsEc2InstanceViolation (Prelude.Maybe Prelude.Text)
+awsEc2InstanceViolation_violationTarget :: Lens.Lens' AwsEc2InstanceViolation (Core.Maybe Core.Text)
 awsEc2InstanceViolation_violationTarget = Lens.lens (\AwsEc2InstanceViolation' {violationTarget} -> violationTarget) (\s@AwsEc2InstanceViolation' {} a -> s {violationTarget = a} :: AwsEc2InstanceViolation)
 
 -- | Violations for network interfaces associated with the EC2 instance.
-awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations :: Lens.Lens' AwsEc2InstanceViolation (Prelude.Maybe [AwsEc2NetworkInterfaceViolation])
-awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations = Lens.lens (\AwsEc2InstanceViolation' {awsEc2NetworkInterfaceViolations} -> awsEc2NetworkInterfaceViolations) (\s@AwsEc2InstanceViolation' {} a -> s {awsEc2NetworkInterfaceViolations = a} :: AwsEc2InstanceViolation) Prelude.. Lens.mapping Prelude._Coerce
+awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations :: Lens.Lens' AwsEc2InstanceViolation (Core.Maybe [AwsEc2NetworkInterfaceViolation])
+awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations = Lens.lens (\AwsEc2InstanceViolation' {awsEc2NetworkInterfaceViolations} -> awsEc2NetworkInterfaceViolations) (\s@AwsEc2InstanceViolation' {} a -> s {awsEc2NetworkInterfaceViolations = a} :: AwsEc2InstanceViolation) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AwsEc2InstanceViolation where
+instance Core.FromJSON AwsEc2InstanceViolation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AwsEc2InstanceViolation"
       ( \x ->
           AwsEc2InstanceViolation'
-            Prelude.<$> (x Prelude..:? "ViolationTarget")
-            Prelude.<*> ( x Prelude..:? "AwsEc2NetworkInterfaceViolations"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ViolationTarget")
+            Core.<*> ( x Core..:? "AwsEc2NetworkInterfaceViolations"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable AwsEc2InstanceViolation
+instance Core.Hashable AwsEc2InstanceViolation
 
-instance Prelude.NFData AwsEc2InstanceViolation
+instance Core.NFData AwsEc2InstanceViolation

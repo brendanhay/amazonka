@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.ComplianceSummaryByResourceType where
 
 import Network.AWS.Config.Types.ComplianceSummary
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of AWS resources of a specific type that are compliant or
 -- noncompliant, up to a maximum of 100 for each.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ComplianceSummaryByResourceType = ComplianceSummaryByResourceType'
   { -- | The number of AWS resources that are compliant or noncompliant, up to a
     -- maximum of 100 for each.
-    complianceSummary :: Prelude.Maybe ComplianceSummary,
+    complianceSummary :: Core.Maybe ComplianceSummary,
     -- | The type of AWS resource.
-    resourceType :: Prelude.Maybe Prelude.Text
+    resourceType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComplianceSummaryByResourceType' with all optional fields omitted.
@@ -54,36 +53,34 @@ newComplianceSummaryByResourceType ::
 newComplianceSummaryByResourceType =
   ComplianceSummaryByResourceType'
     { complianceSummary =
-        Prelude.Nothing,
-      resourceType = Prelude.Nothing
+        Core.Nothing,
+      resourceType = Core.Nothing
     }
 
 -- | The number of AWS resources that are compliant or noncompliant, up to a
 -- maximum of 100 for each.
-complianceSummaryByResourceType_complianceSummary :: Lens.Lens' ComplianceSummaryByResourceType (Prelude.Maybe ComplianceSummary)
+complianceSummaryByResourceType_complianceSummary :: Lens.Lens' ComplianceSummaryByResourceType (Core.Maybe ComplianceSummary)
 complianceSummaryByResourceType_complianceSummary = Lens.lens (\ComplianceSummaryByResourceType' {complianceSummary} -> complianceSummary) (\s@ComplianceSummaryByResourceType' {} a -> s {complianceSummary = a} :: ComplianceSummaryByResourceType)
 
 -- | The type of AWS resource.
-complianceSummaryByResourceType_resourceType :: Lens.Lens' ComplianceSummaryByResourceType (Prelude.Maybe Prelude.Text)
+complianceSummaryByResourceType_resourceType :: Lens.Lens' ComplianceSummaryByResourceType (Core.Maybe Core.Text)
 complianceSummaryByResourceType_resourceType = Lens.lens (\ComplianceSummaryByResourceType' {resourceType} -> resourceType) (\s@ComplianceSummaryByResourceType' {} a -> s {resourceType = a} :: ComplianceSummaryByResourceType)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ComplianceSummaryByResourceType
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComplianceSummaryByResourceType"
       ( \x ->
           ComplianceSummaryByResourceType'
-            Prelude.<$> (x Prelude..:? "ComplianceSummary")
-            Prelude.<*> (x Prelude..:? "ResourceType")
+            Core.<$> (x Core..:? "ComplianceSummary")
+            Core.<*> (x Core..:? "ResourceType")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ComplianceSummaryByResourceType
 
-instance
-  Prelude.NFData
-    ComplianceSummaryByResourceType
+instance Core.NFData ComplianceSummaryByResourceType

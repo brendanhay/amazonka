@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AssociationVersionInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationComplianceSeverity
 import Network.AWS.SSM.Types.AssociationSyncCompliance
 import Network.AWS.SSM.Types.InstanceAssociationOutputLocation
@@ -47,24 +46,24 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- as well. If you need to ensure that there won\'t be more than max-errors
     -- failed executions, set MaxConcurrency to 1 so that executions proceed
     -- one at a time.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+    maxErrors :: Core.Maybe Core.Text,
     -- | The date the association version was created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | The severity level that is assigned to the association.
-    complianceSeverity :: Prelude.Maybe AssociationComplianceSeverity,
+    complianceSeverity :: Core.Maybe AssociationComplianceSeverity,
     -- | The targets specified for the association when the association version
     -- was created.
-    targets :: Prelude.Maybe [Target],
+    targets :: Core.Maybe [Target],
     -- | The combination of AWS Regions and AWS accounts where you wanted to run
     -- the association when this association version was created.
-    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
+    targetLocations :: Core.Maybe (Core.NonEmpty TargetLocation),
     -- | The cron or rate schedule specified for the association when the
     -- association version was created.
-    scheduleExpression :: Prelude.Maybe Prelude.Text,
+    scheduleExpression :: Core.Maybe Core.Text,
     -- | The name specified when the association was created.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID created by the system when the association was created.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
@@ -75,26 +74,26 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- is allowed to run. During the next association interval, the new
     -- instance will process its association within the limit specified for
     -- MaxConcurrency.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    maxConcurrency :: Core.Maybe Core.Text,
     -- | The name specified for the association version when the association
     -- version was created.
-    associationName :: Prelude.Maybe Prelude.Text,
+    associationName :: Core.Maybe Core.Text,
     -- | The association version.
-    associationVersion :: Prelude.Maybe Prelude.Text,
+    associationVersion :: Core.Maybe Core.Text,
     -- | The version of a Systems Manager document used when the association
     -- version was created.
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    documentVersion :: Core.Maybe Core.Text,
     -- | Parameters specified when the association version was created.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The location in Amazon S3 specified for the association when the
     -- association version was created.
-    outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
+    outputLocation :: Core.Maybe InstanceAssociationOutputLocation,
     -- | By default, when you create a new associations, the system runs it
     -- immediately after it is created and then according to the schedule you
     -- specified. Specify this option if you don\'t want an association to run
     -- immediately after you create it. This parameter is not supported for
     -- rate expressions.
-    applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
+    applyOnlyAtCronInterval :: Core.Maybe Core.Bool,
     -- | The mode for generating association compliance. You can specify @AUTO@
     -- or @MANUAL@. In @AUTO@ mode, the system uses the status of the
     -- association execution to determine the compliance status. If the
@@ -108,9 +107,9 @@ data AssociationVersionInfo = AssociationVersionInfo'
     -- PutComplianceItems API action.
     --
     -- By default, all associations use @AUTO@ mode.
-    syncCompliance :: Prelude.Maybe AssociationSyncCompliance
+    syncCompliance :: Core.Maybe AssociationSyncCompliance
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociationVersionInfo' with all optional fields omitted.
@@ -200,23 +199,22 @@ newAssociationVersionInfo ::
   AssociationVersionInfo
 newAssociationVersionInfo =
   AssociationVersionInfo'
-    { maxErrors =
-        Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      complianceSeverity = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      targetLocations = Prelude.Nothing,
-      scheduleExpression = Prelude.Nothing,
-      name = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      associationName = Prelude.Nothing,
-      associationVersion = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      outputLocation = Prelude.Nothing,
-      applyOnlyAtCronInterval = Prelude.Nothing,
-      syncCompliance = Prelude.Nothing
+    { maxErrors = Core.Nothing,
+      createdDate = Core.Nothing,
+      complianceSeverity = Core.Nothing,
+      targets = Core.Nothing,
+      targetLocations = Core.Nothing,
+      scheduleExpression = Core.Nothing,
+      name = Core.Nothing,
+      associationId = Core.Nothing,
+      maxConcurrency = Core.Nothing,
+      associationName = Core.Nothing,
+      associationVersion = Core.Nothing,
+      documentVersion = Core.Nothing,
+      parameters = Core.Nothing,
+      outputLocation = Core.Nothing,
+      applyOnlyAtCronInterval = Core.Nothing,
+      syncCompliance = Core.Nothing
     }
 
 -- | The number of errors that are allowed before the system stops sending
@@ -234,38 +232,38 @@ newAssociationVersionInfo =
 -- as well. If you need to ensure that there won\'t be more than max-errors
 -- failed executions, set MaxConcurrency to 1 so that executions proceed
 -- one at a time.
-associationVersionInfo_maxErrors :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_maxErrors :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_maxErrors = Lens.lens (\AssociationVersionInfo' {maxErrors} -> maxErrors) (\s@AssociationVersionInfo' {} a -> s {maxErrors = a} :: AssociationVersionInfo)
 
 -- | The date the association version was created.
-associationVersionInfo_createdDate :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.UTCTime)
-associationVersionInfo_createdDate = Lens.lens (\AssociationVersionInfo' {createdDate} -> createdDate) (\s@AssociationVersionInfo' {} a -> s {createdDate = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Prelude._Time
+associationVersionInfo_createdDate :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.UTCTime)
+associationVersionInfo_createdDate = Lens.lens (\AssociationVersionInfo' {createdDate} -> createdDate) (\s@AssociationVersionInfo' {} a -> s {createdDate = a} :: AssociationVersionInfo) Core.. Lens.mapping Core._Time
 
 -- | The severity level that is assigned to the association.
-associationVersionInfo_complianceSeverity :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe AssociationComplianceSeverity)
+associationVersionInfo_complianceSeverity :: Lens.Lens' AssociationVersionInfo (Core.Maybe AssociationComplianceSeverity)
 associationVersionInfo_complianceSeverity = Lens.lens (\AssociationVersionInfo' {complianceSeverity} -> complianceSeverity) (\s@AssociationVersionInfo' {} a -> s {complianceSeverity = a} :: AssociationVersionInfo)
 
 -- | The targets specified for the association when the association version
 -- was created.
-associationVersionInfo_targets :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe [Target])
-associationVersionInfo_targets = Lens.lens (\AssociationVersionInfo' {targets} -> targets) (\s@AssociationVersionInfo' {} a -> s {targets = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Prelude._Coerce
+associationVersionInfo_targets :: Lens.Lens' AssociationVersionInfo (Core.Maybe [Target])
+associationVersionInfo_targets = Lens.lens (\AssociationVersionInfo' {targets} -> targets) (\s@AssociationVersionInfo' {} a -> s {targets = a} :: AssociationVersionInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The combination of AWS Regions and AWS accounts where you wanted to run
 -- the association when this association version was created.
-associationVersionInfo_targetLocations :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
-associationVersionInfo_targetLocations = Lens.lens (\AssociationVersionInfo' {targetLocations} -> targetLocations) (\s@AssociationVersionInfo' {} a -> s {targetLocations = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Prelude._Coerce
+associationVersionInfo_targetLocations :: Lens.Lens' AssociationVersionInfo (Core.Maybe (Core.NonEmpty TargetLocation))
+associationVersionInfo_targetLocations = Lens.lens (\AssociationVersionInfo' {targetLocations} -> targetLocations) (\s@AssociationVersionInfo' {} a -> s {targetLocations = a} :: AssociationVersionInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The cron or rate schedule specified for the association when the
 -- association version was created.
-associationVersionInfo_scheduleExpression :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_scheduleExpression :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_scheduleExpression = Lens.lens (\AssociationVersionInfo' {scheduleExpression} -> scheduleExpression) (\s@AssociationVersionInfo' {} a -> s {scheduleExpression = a} :: AssociationVersionInfo)
 
 -- | The name specified when the association was created.
-associationVersionInfo_name :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_name :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_name = Lens.lens (\AssociationVersionInfo' {name} -> name) (\s@AssociationVersionInfo' {} a -> s {name = a} :: AssociationVersionInfo)
 
 -- | The ID created by the system when the association was created.
-associationVersionInfo_associationId :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_associationId :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_associationId = Lens.lens (\AssociationVersionInfo' {associationId} -> associationId) (\s@AssociationVersionInfo' {} a -> s {associationId = a} :: AssociationVersionInfo)
 
 -- | The maximum number of targets allowed to run the association at the same
@@ -278,30 +276,30 @@ associationVersionInfo_associationId = Lens.lens (\AssociationVersionInfo' {asso
 -- is allowed to run. During the next association interval, the new
 -- instance will process its association within the limit specified for
 -- MaxConcurrency.
-associationVersionInfo_maxConcurrency :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_maxConcurrency :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_maxConcurrency = Lens.lens (\AssociationVersionInfo' {maxConcurrency} -> maxConcurrency) (\s@AssociationVersionInfo' {} a -> s {maxConcurrency = a} :: AssociationVersionInfo)
 
 -- | The name specified for the association version when the association
 -- version was created.
-associationVersionInfo_associationName :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_associationName :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_associationName = Lens.lens (\AssociationVersionInfo' {associationName} -> associationName) (\s@AssociationVersionInfo' {} a -> s {associationName = a} :: AssociationVersionInfo)
 
 -- | The association version.
-associationVersionInfo_associationVersion :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_associationVersion :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_associationVersion = Lens.lens (\AssociationVersionInfo' {associationVersion} -> associationVersion) (\s@AssociationVersionInfo' {} a -> s {associationVersion = a} :: AssociationVersionInfo)
 
 -- | The version of a Systems Manager document used when the association
 -- version was created.
-associationVersionInfo_documentVersion :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Text)
+associationVersionInfo_documentVersion :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Text)
 associationVersionInfo_documentVersion = Lens.lens (\AssociationVersionInfo' {documentVersion} -> documentVersion) (\s@AssociationVersionInfo' {} a -> s {documentVersion = a} :: AssociationVersionInfo)
 
 -- | Parameters specified when the association version was created.
-associationVersionInfo_parameters :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-associationVersionInfo_parameters = Lens.lens (\AssociationVersionInfo' {parameters} -> parameters) (\s@AssociationVersionInfo' {} a -> s {parameters = a} :: AssociationVersionInfo) Prelude.. Lens.mapping Prelude._Coerce
+associationVersionInfo_parameters :: Lens.Lens' AssociationVersionInfo (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+associationVersionInfo_parameters = Lens.lens (\AssociationVersionInfo' {parameters} -> parameters) (\s@AssociationVersionInfo' {} a -> s {parameters = a} :: AssociationVersionInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The location in Amazon S3 specified for the association when the
 -- association version was created.
-associationVersionInfo_outputLocation :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe InstanceAssociationOutputLocation)
+associationVersionInfo_outputLocation :: Lens.Lens' AssociationVersionInfo (Core.Maybe InstanceAssociationOutputLocation)
 associationVersionInfo_outputLocation = Lens.lens (\AssociationVersionInfo' {outputLocation} -> outputLocation) (\s@AssociationVersionInfo' {} a -> s {outputLocation = a} :: AssociationVersionInfo)
 
 -- | By default, when you create a new associations, the system runs it
@@ -309,7 +307,7 @@ associationVersionInfo_outputLocation = Lens.lens (\AssociationVersionInfo' {out
 -- specified. Specify this option if you don\'t want an association to run
 -- immediately after you create it. This parameter is not supported for
 -- rate expressions.
-associationVersionInfo_applyOnlyAtCronInterval :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe Prelude.Bool)
+associationVersionInfo_applyOnlyAtCronInterval :: Lens.Lens' AssociationVersionInfo (Core.Maybe Core.Bool)
 associationVersionInfo_applyOnlyAtCronInterval = Lens.lens (\AssociationVersionInfo' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@AssociationVersionInfo' {} a -> s {applyOnlyAtCronInterval = a} :: AssociationVersionInfo)
 
 -- | The mode for generating association compliance. You can specify @AUTO@
@@ -325,35 +323,33 @@ associationVersionInfo_applyOnlyAtCronInterval = Lens.lens (\AssociationVersionI
 -- PutComplianceItems API action.
 --
 -- By default, all associations use @AUTO@ mode.
-associationVersionInfo_syncCompliance :: Lens.Lens' AssociationVersionInfo (Prelude.Maybe AssociationSyncCompliance)
+associationVersionInfo_syncCompliance :: Lens.Lens' AssociationVersionInfo (Core.Maybe AssociationSyncCompliance)
 associationVersionInfo_syncCompliance = Lens.lens (\AssociationVersionInfo' {syncCompliance} -> syncCompliance) (\s@AssociationVersionInfo' {} a -> s {syncCompliance = a} :: AssociationVersionInfo)
 
-instance Prelude.FromJSON AssociationVersionInfo where
+instance Core.FromJSON AssociationVersionInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssociationVersionInfo"
       ( \x ->
           AssociationVersionInfo'
-            Prelude.<$> (x Prelude..:? "MaxErrors")
-            Prelude.<*> (x Prelude..:? "CreatedDate")
-            Prelude.<*> (x Prelude..:? "ComplianceSeverity")
-            Prelude.<*> (x Prelude..:? "Targets" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "TargetLocations")
-            Prelude.<*> (x Prelude..:? "ScheduleExpression")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "AssociationId")
-            Prelude.<*> (x Prelude..:? "MaxConcurrency")
-            Prelude.<*> (x Prelude..:? "AssociationName")
-            Prelude.<*> (x Prelude..:? "AssociationVersion")
-            Prelude.<*> (x Prelude..:? "DocumentVersion")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "OutputLocation")
-            Prelude.<*> (x Prelude..:? "ApplyOnlyAtCronInterval")
-            Prelude.<*> (x Prelude..:? "SyncCompliance")
+            Core.<$> (x Core..:? "MaxErrors")
+            Core.<*> (x Core..:? "CreatedDate")
+            Core.<*> (x Core..:? "ComplianceSeverity")
+            Core.<*> (x Core..:? "Targets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "TargetLocations")
+            Core.<*> (x Core..:? "ScheduleExpression")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "AssociationId")
+            Core.<*> (x Core..:? "MaxConcurrency")
+            Core.<*> (x Core..:? "AssociationName")
+            Core.<*> (x Core..:? "AssociationVersion")
+            Core.<*> (x Core..:? "DocumentVersion")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "OutputLocation")
+            Core.<*> (x Core..:? "ApplyOnlyAtCronInterval")
+            Core.<*> (x Core..:? "SyncCompliance")
       )
 
-instance Prelude.Hashable AssociationVersionInfo
+instance Core.Hashable AssociationVersionInfo
 
-instance Prelude.NFData AssociationVersionInfo
+instance Core.NFData AssociationVersionInfo

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.RDS.CreateDBProxy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,9 +59,9 @@ data CreateDBProxy = CreateDBProxy'
   { -- | The number of seconds that a connection to the proxy can be inactive
     -- before the proxy disconnects it. You can set this value higher or lower
     -- than the connection timeout limit for the associated database.
-    idleClientTimeout :: Prelude.Maybe Prelude.Int,
+    idleClientTimeout :: Core.Maybe Core.Int,
     -- | One or more VPC security group IDs to associate with the new proxy.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
     -- | Whether the proxy includes detailed information about SQL statements in
     -- its logs. This information helps you to debug issues involving SQL
     -- behavior or the performance and scalability of the proxy connections.
@@ -70,20 +69,20 @@ data CreateDBProxy = CreateDBProxy'
     -- submit through the proxy. Thus, only enable this setting when needed for
     -- debugging, and only when you have security measures in place to
     -- safeguard any sensitive information that appears in the logs.
-    debugLogging :: Prelude.Maybe Prelude.Bool,
+    debugLogging :: Core.Maybe Core.Bool,
     -- | An optional set of key-value pairs to associate arbitrary data of your
     -- choosing with the proxy.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A Boolean parameter that specifies whether Transport Layer Security
     -- (TLS) encryption is required for connections to the proxy. By enabling
     -- this setting, you can enforce encrypted TLS connections to the proxy.
-    requireTLS :: Prelude.Maybe Prelude.Bool,
+    requireTLS :: Core.Maybe Core.Bool,
     -- | The identifier for the proxy. This name must be unique for all proxies
     -- owned by your AWS account in the specified AWS Region. An identifier
     -- must begin with a letter and must contain only ASCII letters, digits,
     -- and hyphens; it can\'t end with a hyphen or contain two consecutive
     -- hyphens.
-    dbProxyName :: Prelude.Text,
+    dbProxyName :: Core.Text,
     -- | The kinds of databases that the proxy can connect to. This value
     -- determines which database network protocol the proxy recognizes when it
     -- interprets network traffic to and from the database. The engine family
@@ -93,11 +92,11 @@ data CreateDBProxy = CreateDBProxy'
     auth :: [UserAuthConfig],
     -- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
     -- access secrets in AWS Secrets Manager.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | One or more VPC subnet IDs to associate with the new proxy.
-    vpcSubnetIds :: [Prelude.Text]
+    vpcSubnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBProxy' with all optional fields omitted.
@@ -147,38 +146,38 @@ data CreateDBProxy = CreateDBProxy'
 -- 'vpcSubnetIds', 'createDBProxy_vpcSubnetIds' - One or more VPC subnet IDs to associate with the new proxy.
 newCreateDBProxy ::
   -- | 'dbProxyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'engineFamily'
   EngineFamily ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateDBProxy
 newCreateDBProxy
   pDBProxyName_
   pEngineFamily_
   pRoleArn_ =
     CreateDBProxy'
-      { idleClientTimeout = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
-        debugLogging = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        requireTLS = Prelude.Nothing,
+      { idleClientTimeout = Core.Nothing,
+        vpcSecurityGroupIds = Core.Nothing,
+        debugLogging = Core.Nothing,
+        tags = Core.Nothing,
+        requireTLS = Core.Nothing,
         dbProxyName = pDBProxyName_,
         engineFamily = pEngineFamily_,
-        auth = Prelude.mempty,
+        auth = Core.mempty,
         roleArn = pRoleArn_,
-        vpcSubnetIds = Prelude.mempty
+        vpcSubnetIds = Core.mempty
       }
 
 -- | The number of seconds that a connection to the proxy can be inactive
 -- before the proxy disconnects it. You can set this value higher or lower
 -- than the connection timeout limit for the associated database.
-createDBProxy_idleClientTimeout :: Lens.Lens' CreateDBProxy (Prelude.Maybe Prelude.Int)
+createDBProxy_idleClientTimeout :: Lens.Lens' CreateDBProxy (Core.Maybe Core.Int)
 createDBProxy_idleClientTimeout = Lens.lens (\CreateDBProxy' {idleClientTimeout} -> idleClientTimeout) (\s@CreateDBProxy' {} a -> s {idleClientTimeout = a} :: CreateDBProxy)
 
 -- | One or more VPC security group IDs to associate with the new proxy.
-createDBProxy_vpcSecurityGroupIds :: Lens.Lens' CreateDBProxy (Prelude.Maybe [Prelude.Text])
-createDBProxy_vpcSecurityGroupIds = Lens.lens (\CreateDBProxy' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBProxy' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBProxy) Prelude.. Lens.mapping Prelude._Coerce
+createDBProxy_vpcSecurityGroupIds :: Lens.Lens' CreateDBProxy (Core.Maybe [Core.Text])
+createDBProxy_vpcSecurityGroupIds = Lens.lens (\CreateDBProxy' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBProxy' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBProxy) Core.. Lens.mapping Lens._Coerce
 
 -- | Whether the proxy includes detailed information about SQL statements in
 -- its logs. This information helps you to debug issues involving SQL
@@ -187,18 +186,18 @@ createDBProxy_vpcSecurityGroupIds = Lens.lens (\CreateDBProxy' {vpcSecurityGroup
 -- submit through the proxy. Thus, only enable this setting when needed for
 -- debugging, and only when you have security measures in place to
 -- safeguard any sensitive information that appears in the logs.
-createDBProxy_debugLogging :: Lens.Lens' CreateDBProxy (Prelude.Maybe Prelude.Bool)
+createDBProxy_debugLogging :: Lens.Lens' CreateDBProxy (Core.Maybe Core.Bool)
 createDBProxy_debugLogging = Lens.lens (\CreateDBProxy' {debugLogging} -> debugLogging) (\s@CreateDBProxy' {} a -> s {debugLogging = a} :: CreateDBProxy)
 
 -- | An optional set of key-value pairs to associate arbitrary data of your
 -- choosing with the proxy.
-createDBProxy_tags :: Lens.Lens' CreateDBProxy (Prelude.Maybe [Tag])
-createDBProxy_tags = Lens.lens (\CreateDBProxy' {tags} -> tags) (\s@CreateDBProxy' {} a -> s {tags = a} :: CreateDBProxy) Prelude.. Lens.mapping Prelude._Coerce
+createDBProxy_tags :: Lens.Lens' CreateDBProxy (Core.Maybe [Tag])
+createDBProxy_tags = Lens.lens (\CreateDBProxy' {tags} -> tags) (\s@CreateDBProxy' {} a -> s {tags = a} :: CreateDBProxy) Core.. Lens.mapping Lens._Coerce
 
 -- | A Boolean parameter that specifies whether Transport Layer Security
 -- (TLS) encryption is required for connections to the proxy. By enabling
 -- this setting, you can enforce encrypted TLS connections to the proxy.
-createDBProxy_requireTLS :: Lens.Lens' CreateDBProxy (Prelude.Maybe Prelude.Bool)
+createDBProxy_requireTLS :: Lens.Lens' CreateDBProxy (Core.Maybe Core.Bool)
 createDBProxy_requireTLS = Lens.lens (\CreateDBProxy' {requireTLS} -> requireTLS) (\s@CreateDBProxy' {} a -> s {requireTLS = a} :: CreateDBProxy)
 
 -- | The identifier for the proxy. This name must be unique for all proxies
@@ -206,7 +205,7 @@ createDBProxy_requireTLS = Lens.lens (\CreateDBProxy' {requireTLS} -> requireTLS
 -- must begin with a letter and must contain only ASCII letters, digits,
 -- and hyphens; it can\'t end with a hyphen or contain two consecutive
 -- hyphens.
-createDBProxy_dbProxyName :: Lens.Lens' CreateDBProxy Prelude.Text
+createDBProxy_dbProxyName :: Lens.Lens' CreateDBProxy Core.Text
 createDBProxy_dbProxyName = Lens.lens (\CreateDBProxy' {dbProxyName} -> dbProxyName) (\s@CreateDBProxy' {} a -> s {dbProxyName = a} :: CreateDBProxy)
 
 -- | The kinds of databases that the proxy can connect to. This value
@@ -218,73 +217,73 @@ createDBProxy_engineFamily = Lens.lens (\CreateDBProxy' {engineFamily} -> engine
 
 -- | The authorization mechanism that the proxy uses.
 createDBProxy_auth :: Lens.Lens' CreateDBProxy [UserAuthConfig]
-createDBProxy_auth = Lens.lens (\CreateDBProxy' {auth} -> auth) (\s@CreateDBProxy' {} a -> s {auth = a} :: CreateDBProxy) Prelude.. Prelude._Coerce
+createDBProxy_auth = Lens.lens (\CreateDBProxy' {auth} -> auth) (\s@CreateDBProxy' {} a -> s {auth = a} :: CreateDBProxy) Core.. Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the IAM role that the proxy uses to
 -- access secrets in AWS Secrets Manager.
-createDBProxy_roleArn :: Lens.Lens' CreateDBProxy Prelude.Text
+createDBProxy_roleArn :: Lens.Lens' CreateDBProxy Core.Text
 createDBProxy_roleArn = Lens.lens (\CreateDBProxy' {roleArn} -> roleArn) (\s@CreateDBProxy' {} a -> s {roleArn = a} :: CreateDBProxy)
 
 -- | One or more VPC subnet IDs to associate with the new proxy.
-createDBProxy_vpcSubnetIds :: Lens.Lens' CreateDBProxy [Prelude.Text]
-createDBProxy_vpcSubnetIds = Lens.lens (\CreateDBProxy' {vpcSubnetIds} -> vpcSubnetIds) (\s@CreateDBProxy' {} a -> s {vpcSubnetIds = a} :: CreateDBProxy) Prelude.. Prelude._Coerce
+createDBProxy_vpcSubnetIds :: Lens.Lens' CreateDBProxy [Core.Text]
+createDBProxy_vpcSubnetIds = Lens.lens (\CreateDBProxy' {vpcSubnetIds} -> vpcSubnetIds) (\s@CreateDBProxy' {} a -> s {vpcSubnetIds = a} :: CreateDBProxy) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateDBProxy where
-  type Rs CreateDBProxy = CreateDBProxyResponse
+instance Core.AWSRequest CreateDBProxy where
+  type
+    AWSResponse CreateDBProxy =
+      CreateDBProxyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateDBProxyResult"
       ( \s h x ->
           CreateDBProxyResponse'
-            Prelude.<$> (x Prelude..@? "DBProxy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBProxy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBProxy
+instance Core.Hashable CreateDBProxy
 
-instance Prelude.NFData CreateDBProxy
+instance Core.NFData CreateDBProxy
 
-instance Prelude.ToHeaders CreateDBProxy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDBProxy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDBProxy where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDBProxy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDBProxy where
+instance Core.ToQuery CreateDBProxy where
   toQuery CreateDBProxy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateDBProxy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "IdleClientTimeout" Prelude.=: idleClientTimeout,
+          Core.=: ("CreateDBProxy" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "IdleClientTimeout" Core.=: idleClientTimeout,
         "VpcSecurityGroupIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> vpcSecurityGroupIds
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> vpcSecurityGroupIds
             ),
-        "DebugLogging" Prelude.=: debugLogging,
+        "DebugLogging" Core.=: debugLogging,
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
-        "RequireTLS" Prelude.=: requireTLS,
-        "DBProxyName" Prelude.=: dbProxyName,
-        "EngineFamily" Prelude.=: engineFamily,
-        "Auth" Prelude.=: Prelude.toQueryList "member" auth,
-        "RoleArn" Prelude.=: roleArn,
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+        "RequireTLS" Core.=: requireTLS,
+        "DBProxyName" Core.=: dbProxyName,
+        "EngineFamily" Core.=: engineFamily,
+        "Auth" Core.=: Core.toQueryList "member" auth,
+        "RoleArn" Core.=: roleArn,
         "VpcSubnetIds"
-          Prelude.=: Prelude.toQueryList "member" vpcSubnetIds
+          Core.=: Core.toQueryList "member" vpcSubnetIds
       ]
 
 -- | /See:/ 'newCreateDBProxyResponse' smart constructor.
 data CreateDBProxyResponse = CreateDBProxyResponse'
   { -- | The @DBProxy@ structure corresponding to the new proxy.
-    dbProxy :: Prelude.Maybe DBProxy,
+    dbProxy :: Core.Maybe DBProxy,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBProxyResponse' with all optional fields omitted.
@@ -299,20 +298,20 @@ data CreateDBProxyResponse = CreateDBProxyResponse'
 -- 'httpStatus', 'createDBProxyResponse_httpStatus' - The response's http status code.
 newCreateDBProxyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDBProxyResponse
 newCreateDBProxyResponse pHttpStatus_ =
   CreateDBProxyResponse'
-    { dbProxy = Prelude.Nothing,
+    { dbProxy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @DBProxy@ structure corresponding to the new proxy.
-createDBProxyResponse_dbProxy :: Lens.Lens' CreateDBProxyResponse (Prelude.Maybe DBProxy)
+createDBProxyResponse_dbProxy :: Lens.Lens' CreateDBProxyResponse (Core.Maybe DBProxy)
 createDBProxyResponse_dbProxy = Lens.lens (\CreateDBProxyResponse' {dbProxy} -> dbProxy) (\s@CreateDBProxyResponse' {} a -> s {dbProxy = a} :: CreateDBProxyResponse)
 
 -- | The response's http status code.
-createDBProxyResponse_httpStatus :: Lens.Lens' CreateDBProxyResponse Prelude.Int
+createDBProxyResponse_httpStatus :: Lens.Lens' CreateDBProxyResponse Core.Int
 createDBProxyResponse_httpStatus = Lens.lens (\CreateDBProxyResponse' {httpStatus} -> httpStatus) (\s@CreateDBProxyResponse' {} a -> s {httpStatus = a} :: CreateDBProxyResponse)
 
-instance Prelude.NFData CreateDBProxyResponse
+instance Core.NFData CreateDBProxyResponse

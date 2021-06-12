@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.APIGateway.CreateAuthorizer
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,17 +76,17 @@ data CreateAuthorizer = CreateAuthorizer'
     -- is a match. Otherwise, it will return a 401 Unauthorized response
     -- without calling the Lambda function. The validation expression does not
     -- apply to the @REQUEST@ authorizer.
-    identityValidationExpression :: Prelude.Maybe Prelude.Text,
+    identityValidationExpression :: Core.Maybe Core.Text,
     -- | Specifies the required credentials as an IAM role for API Gateway to
     -- invoke the authorizer. To specify an IAM role for API Gateway to assume,
     -- use the role\'s Amazon Resource Name (ARN). To use resource-based
     -- permissions on the Lambda function, specify null.
-    authorizerCredentials :: Prelude.Maybe Prelude.Text,
+    authorizerCredentials :: Core.Maybe Core.Text,
     -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
     -- authorizer. Each element is of this format:
     -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
     -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
-    providerARNs :: Prelude.Maybe [Prelude.Text],
+    providerARNs :: Core.Maybe [Core.Text],
     -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
     -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
     -- function URI, for example,
@@ -99,7 +98,7 @@ data CreateAuthorizer = CreateAuthorizer'
     -- the path to the resource, including the initial @\/@. For Lambda
     -- functions, this is usually of the form
     -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
-    authorizerUri :: Prelude.Maybe Prelude.Text,
+    authorizerUri :: Core.Maybe Core.Text,
     -- | The identity source for which authorization is requested.
     --
     -- -   For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required
@@ -122,19 +121,19 @@ data CreateAuthorizer = CreateAuthorizer'
     --     function. The valid value is a string of comma-separated mapping
     --     expressions of the specified request parameters. When the
     --     authorization caching is not enabled, this property is optional.
-    identitySource :: Prelude.Maybe Prelude.Text,
+    identitySource :: Core.Maybe Core.Text,
     -- | Optional customer-defined field, used in OpenAPI imports and exports
     -- without functional impact.
-    authType :: Prelude.Maybe Prelude.Text,
+    authType :: Core.Maybe Core.Text,
     -- | The TTL in seconds of cached authorizer results. If it equals 0,
     -- authorization caching is disabled. If it is greater than 0, API Gateway
     -- will cache authorizer responses. If this field is not set, the default
     -- value is 300. The maximum value is 3600, or 1 hour.
-    authorizerResultTtlInSeconds :: Prelude.Maybe Prelude.Int,
+    authorizerResultTtlInSeconds :: Core.Maybe Core.Int,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The name of the authorizer.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda
     -- function using a single authorization token submitted in a custom
     -- header, @REQUEST@ for a Lambda function using incoming request
@@ -142,7 +141,7 @@ data CreateAuthorizer = CreateAuthorizer'
     -- pool.
     type' :: AuthorizerType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAuthorizer' with all optional fields omitted.
@@ -225,22 +224,22 @@ data CreateAuthorizer = CreateAuthorizer'
 -- pool.
 newCreateAuthorizer ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   AuthorizerType ->
   CreateAuthorizer
 newCreateAuthorizer pRestApiId_ pName_ pType_ =
   CreateAuthorizer'
     { identityValidationExpression =
-        Prelude.Nothing,
-      authorizerCredentials = Prelude.Nothing,
-      providerARNs = Prelude.Nothing,
-      authorizerUri = Prelude.Nothing,
-      identitySource = Prelude.Nothing,
-      authType = Prelude.Nothing,
-      authorizerResultTtlInSeconds = Prelude.Nothing,
+        Core.Nothing,
+      authorizerCredentials = Core.Nothing,
+      providerARNs = Core.Nothing,
+      authorizerUri = Core.Nothing,
+      identitySource = Core.Nothing,
+      authType = Core.Nothing,
+      authorizerResultTtlInSeconds = Core.Nothing,
       restApiId = pRestApiId_,
       name = pName_,
       type' = pType_
@@ -254,22 +253,22 @@ newCreateAuthorizer pRestApiId_ pName_ pType_ =
 -- is a match. Otherwise, it will return a 401 Unauthorized response
 -- without calling the Lambda function. The validation expression does not
 -- apply to the @REQUEST@ authorizer.
-createAuthorizer_identityValidationExpression :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_identityValidationExpression :: Lens.Lens' CreateAuthorizer (Core.Maybe Core.Text)
 createAuthorizer_identityValidationExpression = Lens.lens (\CreateAuthorizer' {identityValidationExpression} -> identityValidationExpression) (\s@CreateAuthorizer' {} a -> s {identityValidationExpression = a} :: CreateAuthorizer)
 
 -- | Specifies the required credentials as an IAM role for API Gateway to
 -- invoke the authorizer. To specify an IAM role for API Gateway to assume,
 -- use the role\'s Amazon Resource Name (ARN). To use resource-based
 -- permissions on the Lambda function, specify null.
-createAuthorizer_authorizerCredentials :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_authorizerCredentials :: Lens.Lens' CreateAuthorizer (Core.Maybe Core.Text)
 createAuthorizer_authorizerCredentials = Lens.lens (\CreateAuthorizer' {authorizerCredentials} -> authorizerCredentials) (\s@CreateAuthorizer' {} a -> s {authorizerCredentials = a} :: CreateAuthorizer)
 
 -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
 -- authorizer. Each element is of this format:
 -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
 -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
-createAuthorizer_providerARNs :: Lens.Lens' CreateAuthorizer (Prelude.Maybe [Prelude.Text])
-createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> providerARNs) (\s@CreateAuthorizer' {} a -> s {providerARNs = a} :: CreateAuthorizer) Prelude.. Lens.mapping Prelude._Coerce
+createAuthorizer_providerARNs :: Lens.Lens' CreateAuthorizer (Core.Maybe [Core.Text])
+createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> providerARNs) (\s@CreateAuthorizer' {} a -> s {providerARNs = a} :: CreateAuthorizer) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
 -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
@@ -282,7 +281,7 @@ createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> 
 -- the path to the resource, including the initial @\/@. For Lambda
 -- functions, this is usually of the form
 -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
-createAuthorizer_authorizerUri :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_authorizerUri :: Lens.Lens' CreateAuthorizer (Core.Maybe Core.Text)
 createAuthorizer_authorizerUri = Lens.lens (\CreateAuthorizer' {authorizerUri} -> authorizerUri) (\s@CreateAuthorizer' {} a -> s {authorizerUri = a} :: CreateAuthorizer)
 
 -- | The identity source for which authorization is requested.
@@ -307,27 +306,27 @@ createAuthorizer_authorizerUri = Lens.lens (\CreateAuthorizer' {authorizerUri} -
 --     function. The valid value is a string of comma-separated mapping
 --     expressions of the specified request parameters. When the
 --     authorization caching is not enabled, this property is optional.
-createAuthorizer_identitySource :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_identitySource :: Lens.Lens' CreateAuthorizer (Core.Maybe Core.Text)
 createAuthorizer_identitySource = Lens.lens (\CreateAuthorizer' {identitySource} -> identitySource) (\s@CreateAuthorizer' {} a -> s {identitySource = a} :: CreateAuthorizer)
 
 -- | Optional customer-defined field, used in OpenAPI imports and exports
 -- without functional impact.
-createAuthorizer_authType :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_authType :: Lens.Lens' CreateAuthorizer (Core.Maybe Core.Text)
 createAuthorizer_authType = Lens.lens (\CreateAuthorizer' {authType} -> authType) (\s@CreateAuthorizer' {} a -> s {authType = a} :: CreateAuthorizer)
 
 -- | The TTL in seconds of cached authorizer results. If it equals 0,
 -- authorization caching is disabled. If it is greater than 0, API Gateway
 -- will cache authorizer responses. If this field is not set, the default
 -- value is 300. The maximum value is 3600, or 1 hour.
-createAuthorizer_authorizerResultTtlInSeconds :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Int)
+createAuthorizer_authorizerResultTtlInSeconds :: Lens.Lens' CreateAuthorizer (Core.Maybe Core.Int)
 createAuthorizer_authorizerResultTtlInSeconds = Lens.lens (\CreateAuthorizer' {authorizerResultTtlInSeconds} -> authorizerResultTtlInSeconds) (\s@CreateAuthorizer' {} a -> s {authorizerResultTtlInSeconds = a} :: CreateAuthorizer)
 
 -- | [Required] The string identifier of the associated RestApi.
-createAuthorizer_restApiId :: Lens.Lens' CreateAuthorizer Prelude.Text
+createAuthorizer_restApiId :: Lens.Lens' CreateAuthorizer Core.Text
 createAuthorizer_restApiId = Lens.lens (\CreateAuthorizer' {restApiId} -> restApiId) (\s@CreateAuthorizer' {} a -> s {restApiId = a} :: CreateAuthorizer)
 
 -- | [Required] The name of the authorizer.
-createAuthorizer_name :: Lens.Lens' CreateAuthorizer Prelude.Text
+createAuthorizer_name :: Lens.Lens' CreateAuthorizer Core.Text
 createAuthorizer_name = Lens.lens (\CreateAuthorizer' {name} -> name) (\s@CreateAuthorizer' {} a -> s {name = a} :: CreateAuthorizer)
 
 -- | [Required] The authorizer type. Valid values are @TOKEN@ for a Lambda
@@ -338,54 +337,49 @@ createAuthorizer_name = Lens.lens (\CreateAuthorizer' {name} -> name) (\s@Create
 createAuthorizer_type :: Lens.Lens' CreateAuthorizer AuthorizerType
 createAuthorizer_type = Lens.lens (\CreateAuthorizer' {type'} -> type') (\s@CreateAuthorizer' {} a -> s {type' = a} :: CreateAuthorizer)
 
-instance Prelude.AWSRequest CreateAuthorizer where
-  type Rs CreateAuthorizer = Authorizer
+instance Core.AWSRequest CreateAuthorizer where
+  type AWSResponse CreateAuthorizer = Authorizer
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateAuthorizer
+instance Core.Hashable CreateAuthorizer
 
-instance Prelude.NFData CreateAuthorizer
+instance Core.NFData CreateAuthorizer
 
-instance Prelude.ToHeaders CreateAuthorizer where
+instance Core.ToHeaders CreateAuthorizer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAuthorizer where
+instance Core.ToJSON CreateAuthorizer where
   toJSON CreateAuthorizer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("identityValidationExpression" Prelude..=)
-              Prelude.<$> identityValidationExpression,
-            ("authorizerCredentials" Prelude..=)
-              Prelude.<$> authorizerCredentials,
-            ("providerARNs" Prelude..=) Prelude.<$> providerARNs,
-            ("authorizerUri" Prelude..=)
-              Prelude.<$> authorizerUri,
-            ("identitySource" Prelude..=)
-              Prelude.<$> identitySource,
-            ("authType" Prelude..=) Prelude.<$> authType,
-            ("authorizerResultTtlInSeconds" Prelude..=)
-              Prelude.<$> authorizerResultTtlInSeconds,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("identityValidationExpression" Core..=)
+              Core.<$> identityValidationExpression,
+            ("authorizerCredentials" Core..=)
+              Core.<$> authorizerCredentials,
+            ("providerARNs" Core..=) Core.<$> providerARNs,
+            ("authorizerUri" Core..=) Core.<$> authorizerUri,
+            ("identitySource" Core..=) Core.<$> identitySource,
+            ("authType" Core..=) Core.<$> authType,
+            ("authorizerResultTtlInSeconds" Core..=)
+              Core.<$> authorizerResultTtlInSeconds,
+            Core.Just ("name" Core..= name),
+            Core.Just ("type" Core..= type')
           ]
       )
 
-instance Prelude.ToPath CreateAuthorizer where
+instance Core.ToPath CreateAuthorizer where
   toPath CreateAuthorizer' {..} =
-    Prelude.mconcat
-      [ "/restapis/",
-        Prelude.toBS restApiId,
-        "/authorizers"
-      ]
+    Core.mconcat
+      ["/restapis/", Core.toBS restApiId, "/authorizers"]
 
-instance Prelude.ToQuery CreateAuthorizer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAuthorizer where
+  toQuery = Core.const Core.mempty

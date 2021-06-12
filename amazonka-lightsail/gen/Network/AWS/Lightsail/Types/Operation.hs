@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,44 +19,44 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.Operation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.OperationStatus
 import Network.AWS.Lightsail.Types.OperationType
 import Network.AWS.Lightsail.Types.ResourceLocation
 import Network.AWS.Lightsail.Types.ResourceType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the API operation.
 --
 -- /See:/ 'newOperation' smart constructor.
 data Operation = Operation'
   { -- | Details about the operation (e.g., @Debian-1GB-Ohio-1@).
-    operationDetails :: Prelude.Maybe Prelude.Text,
+    operationDetails :: Core.Maybe Core.Text,
     -- | The status of the operation.
-    status :: Prelude.Maybe OperationStatus,
+    status :: Core.Maybe OperationStatus,
     -- | A Boolean value indicating whether the operation is terminal.
-    isTerminal :: Prelude.Maybe Prelude.Bool,
+    isTerminal :: Core.Maybe Core.Bool,
     -- | The timestamp when the operation was initialized (e.g.,
     -- @1479816991.349@).
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The ID of the operation.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The resource type.
-    resourceType :: Prelude.Maybe ResourceType,
+    resourceType :: Core.Maybe ResourceType,
     -- | The timestamp when the status was changed (e.g., @1479816991.349@).
-    statusChangedAt :: Prelude.Maybe Prelude.POSIX,
+    statusChangedAt :: Core.Maybe Core.POSIX,
     -- | The AWS Region and Availability Zone.
-    location :: Prelude.Maybe ResourceLocation,
+    location :: Core.Maybe ResourceLocation,
     -- | The resource name.
-    resourceName :: Prelude.Maybe Prelude.Text,
+    resourceName :: Core.Maybe Core.Text,
     -- | The type of operation.
-    operationType :: Prelude.Maybe OperationType,
+    operationType :: Core.Maybe OperationType,
     -- | The error code.
-    errorCode :: Prelude.Maybe Prelude.Text,
+    errorCode :: Core.Maybe Core.Text,
     -- | The error details.
-    errorDetails :: Prelude.Maybe Prelude.Text
+    errorDetails :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Operation' with all optional fields omitted.
@@ -95,89 +94,89 @@ newOperation ::
   Operation
 newOperation =
   Operation'
-    { operationDetails = Prelude.Nothing,
-      status = Prelude.Nothing,
-      isTerminal = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      id = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      statusChangedAt = Prelude.Nothing,
-      location = Prelude.Nothing,
-      resourceName = Prelude.Nothing,
-      operationType = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      errorDetails = Prelude.Nothing
+    { operationDetails = Core.Nothing,
+      status = Core.Nothing,
+      isTerminal = Core.Nothing,
+      createdAt = Core.Nothing,
+      id = Core.Nothing,
+      resourceType = Core.Nothing,
+      statusChangedAt = Core.Nothing,
+      location = Core.Nothing,
+      resourceName = Core.Nothing,
+      operationType = Core.Nothing,
+      errorCode = Core.Nothing,
+      errorDetails = Core.Nothing
     }
 
 -- | Details about the operation (e.g., @Debian-1GB-Ohio-1@).
-operation_operationDetails :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_operationDetails :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_operationDetails = Lens.lens (\Operation' {operationDetails} -> operationDetails) (\s@Operation' {} a -> s {operationDetails = a} :: Operation)
 
 -- | The status of the operation.
-operation_status :: Lens.Lens' Operation (Prelude.Maybe OperationStatus)
+operation_status :: Lens.Lens' Operation (Core.Maybe OperationStatus)
 operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} a -> s {status = a} :: Operation)
 
 -- | A Boolean value indicating whether the operation is terminal.
-operation_isTerminal :: Lens.Lens' Operation (Prelude.Maybe Prelude.Bool)
+operation_isTerminal :: Lens.Lens' Operation (Core.Maybe Core.Bool)
 operation_isTerminal = Lens.lens (\Operation' {isTerminal} -> isTerminal) (\s@Operation' {} a -> s {isTerminal = a} :: Operation)
 
 -- | The timestamp when the operation was initialized (e.g.,
 -- @1479816991.349@).
-operation_createdAt :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_createdAt = Lens.lens (\Operation' {createdAt} -> createdAt) (\s@Operation' {} a -> s {createdAt = a} :: Operation) Prelude.. Lens.mapping Prelude._Time
+operation_createdAt :: Lens.Lens' Operation (Core.Maybe Core.UTCTime)
+operation_createdAt = Lens.lens (\Operation' {createdAt} -> createdAt) (\s@Operation' {} a -> s {createdAt = a} :: Operation) Core.. Lens.mapping Core._Time
 
 -- | The ID of the operation.
-operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_id :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
 
 -- | The resource type.
-operation_resourceType :: Lens.Lens' Operation (Prelude.Maybe ResourceType)
+operation_resourceType :: Lens.Lens' Operation (Core.Maybe ResourceType)
 operation_resourceType = Lens.lens (\Operation' {resourceType} -> resourceType) (\s@Operation' {} a -> s {resourceType = a} :: Operation)
 
 -- | The timestamp when the status was changed (e.g., @1479816991.349@).
-operation_statusChangedAt :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_statusChangedAt = Lens.lens (\Operation' {statusChangedAt} -> statusChangedAt) (\s@Operation' {} a -> s {statusChangedAt = a} :: Operation) Prelude.. Lens.mapping Prelude._Time
+operation_statusChangedAt :: Lens.Lens' Operation (Core.Maybe Core.UTCTime)
+operation_statusChangedAt = Lens.lens (\Operation' {statusChangedAt} -> statusChangedAt) (\s@Operation' {} a -> s {statusChangedAt = a} :: Operation) Core.. Lens.mapping Core._Time
 
 -- | The AWS Region and Availability Zone.
-operation_location :: Lens.Lens' Operation (Prelude.Maybe ResourceLocation)
+operation_location :: Lens.Lens' Operation (Core.Maybe ResourceLocation)
 operation_location = Lens.lens (\Operation' {location} -> location) (\s@Operation' {} a -> s {location = a} :: Operation)
 
 -- | The resource name.
-operation_resourceName :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_resourceName :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_resourceName = Lens.lens (\Operation' {resourceName} -> resourceName) (\s@Operation' {} a -> s {resourceName = a} :: Operation)
 
 -- | The type of operation.
-operation_operationType :: Lens.Lens' Operation (Prelude.Maybe OperationType)
+operation_operationType :: Lens.Lens' Operation (Core.Maybe OperationType)
 operation_operationType = Lens.lens (\Operation' {operationType} -> operationType) (\s@Operation' {} a -> s {operationType = a} :: Operation)
 
 -- | The error code.
-operation_errorCode :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_errorCode :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_errorCode = Lens.lens (\Operation' {errorCode} -> errorCode) (\s@Operation' {} a -> s {errorCode = a} :: Operation)
 
 -- | The error details.
-operation_errorDetails :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_errorDetails :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_errorDetails = Lens.lens (\Operation' {errorDetails} -> errorDetails) (\s@Operation' {} a -> s {errorDetails = a} :: Operation)
 
-instance Prelude.FromJSON Operation where
+instance Core.FromJSON Operation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Operation"
       ( \x ->
           Operation'
-            Prelude.<$> (x Prelude..:? "operationDetails")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "isTerminal")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "resourceType")
-            Prelude.<*> (x Prelude..:? "statusChangedAt")
-            Prelude.<*> (x Prelude..:? "location")
-            Prelude.<*> (x Prelude..:? "resourceName")
-            Prelude.<*> (x Prelude..:? "operationType")
-            Prelude.<*> (x Prelude..:? "errorCode")
-            Prelude.<*> (x Prelude..:? "errorDetails")
+            Core.<$> (x Core..:? "operationDetails")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "isTerminal")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "resourceType")
+            Core.<*> (x Core..:? "statusChangedAt")
+            Core.<*> (x Core..:? "location")
+            Core.<*> (x Core..:? "resourceName")
+            Core.<*> (x Core..:? "operationType")
+            Core.<*> (x Core..:? "errorCode")
+            Core.<*> (x Core..:? "errorDetails")
       )
 
-instance Prelude.Hashable Operation
+instance Core.Hashable Operation
 
-instance Prelude.NFData Operation
+instance Core.NFData Operation

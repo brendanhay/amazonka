@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.GetSdk
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,17 +60,17 @@ data GetSdk = GetSdk'
     -- parameters named @groupId@, @artifactId@, @artifactVersion@, and
     -- @invokerPackage@ are required. For @sdkType@ of @java@, parameters named
     -- @serviceName@ and @javaPackageName@ are required.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The name of the Stage that the SDK will use.
-    stageName :: Prelude.Text,
+    stageName :: Core.Text,
     -- | [Required] The language for the generated SDK. Currently @java@,
     -- @javascript@, @android@, @objectivec@ (for iOS), @swift@ (for iOS), and
     -- @ruby@ are supported.
-    sdkType :: Prelude.Text
+    sdkType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSdk' with all optional fields omitted.
@@ -97,15 +96,15 @@ data GetSdk = GetSdk'
 -- @ruby@ are supported.
 newGetSdk ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sdkType'
-  Prelude.Text ->
+  Core.Text ->
   GetSdk
 newGetSdk pRestApiId_ pStageName_ pSdkType_ =
   GetSdk'
-    { parameters = Prelude.Nothing,
+    { parameters = Core.Nothing,
       restApiId = pRestApiId_,
       stageName = pStageName_,
       sdkType = pSdkType_
@@ -117,67 +116,67 @@ newGetSdk pRestApiId_ pStageName_ pSdkType_ =
 -- parameters named @groupId@, @artifactId@, @artifactVersion@, and
 -- @invokerPackage@ are required. For @sdkType@ of @java@, parameters named
 -- @serviceName@ and @javaPackageName@ are required.
-getSdk_parameters :: Lens.Lens' GetSdk (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSdk_parameters = Lens.lens (\GetSdk' {parameters} -> parameters) (\s@GetSdk' {} a -> s {parameters = a} :: GetSdk) Prelude.. Lens.mapping Prelude._Coerce
+getSdk_parameters :: Lens.Lens' GetSdk (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getSdk_parameters = Lens.lens (\GetSdk' {parameters} -> parameters) (\s@GetSdk' {} a -> s {parameters = a} :: GetSdk) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-getSdk_restApiId :: Lens.Lens' GetSdk Prelude.Text
+getSdk_restApiId :: Lens.Lens' GetSdk Core.Text
 getSdk_restApiId = Lens.lens (\GetSdk' {restApiId} -> restApiId) (\s@GetSdk' {} a -> s {restApiId = a} :: GetSdk)
 
 -- | [Required] The name of the Stage that the SDK will use.
-getSdk_stageName :: Lens.Lens' GetSdk Prelude.Text
+getSdk_stageName :: Lens.Lens' GetSdk Core.Text
 getSdk_stageName = Lens.lens (\GetSdk' {stageName} -> stageName) (\s@GetSdk' {} a -> s {stageName = a} :: GetSdk)
 
 -- | [Required] The language for the generated SDK. Currently @java@,
 -- @javascript@, @android@, @objectivec@ (for iOS), @swift@ (for iOS), and
 -- @ruby@ are supported.
-getSdk_sdkType :: Lens.Lens' GetSdk Prelude.Text
+getSdk_sdkType :: Lens.Lens' GetSdk Core.Text
 getSdk_sdkType = Lens.lens (\GetSdk' {sdkType} -> sdkType) (\s@GetSdk' {} a -> s {sdkType = a} :: GetSdk)
 
-instance Prelude.AWSRequest GetSdk where
-  type Rs GetSdk = GetSdkResponse
+instance Core.AWSRequest GetSdk where
+  type AWSResponse GetSdk = GetSdkResponse
   request = Request.get defaultService
   response =
     Response.receiveBytes
       ( \s h x ->
           GetSdkResponse'
-            Prelude.<$> (h Prelude..#? "Content-Type")
-            Prelude.<*> (h Prelude..#? "Content-Disposition")
-            Prelude.<*> (Prelude.pure (Prelude.Just x))
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "Content-Type")
+            Core.<*> (h Core..#? "Content-Disposition")
+            Core.<*> (Core.pure (Core.Just x))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSdk
+instance Core.Hashable GetSdk
 
-instance Prelude.NFData GetSdk
+instance Core.NFData GetSdk
 
-instance Prelude.ToHeaders GetSdk where
+instance Core.ToHeaders GetSdk where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetSdk where
+instance Core.ToPath GetSdk where
   toPath GetSdk' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/stages/",
-        Prelude.toBS stageName,
+        Core.toBS stageName,
         "/sdks/",
-        Prelude.toBS sdkType
+        Core.toBS sdkType
       ]
 
-instance Prelude.ToQuery GetSdk where
+instance Core.ToQuery GetSdk where
   toQuery GetSdk' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "parameters"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryMap "entry" "key" "value"
-                Prelude.<$> parameters
+          Core.=: Core.toQuery
+            ( Core.toQueryMap "entry" "key" "value"
+                Core.<$> parameters
             )
       ]
 
@@ -186,15 +185,15 @@ instance Prelude.ToQuery GetSdk where
 -- /See:/ 'newGetSdkResponse' smart constructor.
 data GetSdkResponse = GetSdkResponse'
   { -- | The content-type header value in the HTTP response.
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | The content-disposition header value in the HTTP response.
-    contentDisposition :: Prelude.Maybe Prelude.Text,
+    contentDisposition :: Core.Maybe Core.Text,
     -- | The binary blob response to GetSdk, which contains the generated SDK.
-    body :: Prelude.Maybe Prelude.ByteString,
+    body :: Core.Maybe Core.ByteString,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSdkResponse' with all optional fields omitted.
@@ -213,30 +212,30 @@ data GetSdkResponse = GetSdkResponse'
 -- 'httpStatus', 'getSdkResponse_httpStatus' - The response's http status code.
 newGetSdkResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSdkResponse
 newGetSdkResponse pHttpStatus_ =
   GetSdkResponse'
-    { contentType = Prelude.Nothing,
-      contentDisposition = Prelude.Nothing,
-      body = Prelude.Nothing,
+    { contentType = Core.Nothing,
+      contentDisposition = Core.Nothing,
+      body = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The content-type header value in the HTTP response.
-getSdkResponse_contentType :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.Text)
+getSdkResponse_contentType :: Lens.Lens' GetSdkResponse (Core.Maybe Core.Text)
 getSdkResponse_contentType = Lens.lens (\GetSdkResponse' {contentType} -> contentType) (\s@GetSdkResponse' {} a -> s {contentType = a} :: GetSdkResponse)
 
 -- | The content-disposition header value in the HTTP response.
-getSdkResponse_contentDisposition :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.Text)
+getSdkResponse_contentDisposition :: Lens.Lens' GetSdkResponse (Core.Maybe Core.Text)
 getSdkResponse_contentDisposition = Lens.lens (\GetSdkResponse' {contentDisposition} -> contentDisposition) (\s@GetSdkResponse' {} a -> s {contentDisposition = a} :: GetSdkResponse)
 
 -- | The binary blob response to GetSdk, which contains the generated SDK.
-getSdkResponse_body :: Lens.Lens' GetSdkResponse (Prelude.Maybe Prelude.ByteString)
+getSdkResponse_body :: Lens.Lens' GetSdkResponse (Core.Maybe Core.ByteString)
 getSdkResponse_body = Lens.lens (\GetSdkResponse' {body} -> body) (\s@GetSdkResponse' {} a -> s {body = a} :: GetSdkResponse)
 
 -- | The response's http status code.
-getSdkResponse_httpStatus :: Lens.Lens' GetSdkResponse Prelude.Int
+getSdkResponse_httpStatus :: Lens.Lens' GetSdkResponse Core.Int
 getSdkResponse_httpStatus = Lens.lens (\GetSdkResponse' {httpStatus} -> httpStatus) (\s@GetSdkResponse' {} a -> s {httpStatus = a} :: GetSdkResponse)
 
-instance Prelude.NFData GetSdkResponse
+instance Core.NFData GetSdkResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.ChannelMapping where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.OutputChannelMapping
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Channel mapping (ChannelMapping) contains the group of fields that hold
 -- the remixing value for each channel, in dB. Specify remix values to
@@ -42,9 +41,9 @@ data ChannelMapping = ChannelMapping'
   { -- | In your JSON job specification, include one child of OutputChannels for
     -- each audio channel that you want in your output. Each child should
     -- contain one instance of InputChannels or InputChannelsFineTune.
-    outputChannels :: Prelude.Maybe [OutputChannelMapping]
+    outputChannels :: Core.Maybe [OutputChannelMapping]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChannelMapping' with all optional fields omitted.
@@ -60,34 +59,30 @@ data ChannelMapping = ChannelMapping'
 newChannelMapping ::
   ChannelMapping
 newChannelMapping =
-  ChannelMapping' {outputChannels = Prelude.Nothing}
+  ChannelMapping' {outputChannels = Core.Nothing}
 
 -- | In your JSON job specification, include one child of OutputChannels for
 -- each audio channel that you want in your output. Each child should
 -- contain one instance of InputChannels or InputChannelsFineTune.
-channelMapping_outputChannels :: Lens.Lens' ChannelMapping (Prelude.Maybe [OutputChannelMapping])
-channelMapping_outputChannels = Lens.lens (\ChannelMapping' {outputChannels} -> outputChannels) (\s@ChannelMapping' {} a -> s {outputChannels = a} :: ChannelMapping) Prelude.. Lens.mapping Prelude._Coerce
+channelMapping_outputChannels :: Lens.Lens' ChannelMapping (Core.Maybe [OutputChannelMapping])
+channelMapping_outputChannels = Lens.lens (\ChannelMapping' {outputChannels} -> outputChannels) (\s@ChannelMapping' {} a -> s {outputChannels = a} :: ChannelMapping) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ChannelMapping where
+instance Core.FromJSON ChannelMapping where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ChannelMapping"
       ( \x ->
           ChannelMapping'
-            Prelude.<$> ( x Prelude..:? "outputChannels"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "outputChannels" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ChannelMapping
+instance Core.Hashable ChannelMapping
 
-instance Prelude.NFData ChannelMapping
+instance Core.NFData ChannelMapping
 
-instance Prelude.ToJSON ChannelMapping where
+instance Core.ToJSON ChannelMapping where
   toJSON ChannelMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("outputChannels" Prelude..=)
-              Prelude.<$> outputChannels
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("outputChannels" Core..=) Core.<$> outputChannels]
       )

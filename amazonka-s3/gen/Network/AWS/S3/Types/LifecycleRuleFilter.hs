@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.LifecycleRuleFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.LifecycleRuleAndOperator
 import Network.AWS.S3.Types.Tag
@@ -38,13 +37,13 @@ data LifecycleRuleFilter = LifecycleRuleFilter'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    prefix :: Prelude.Maybe Prelude.Text,
-    and :: Prelude.Maybe LifecycleRuleAndOperator,
+    prefix :: Core.Maybe Core.Text,
+    and :: Core.Maybe LifecycleRuleAndOperator,
     -- | This tag must exist in the object\'s tag set in order for the rule to
     -- apply.
-    tag :: Prelude.Maybe Tag
+    tag :: Core.Maybe Tag
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecycleRuleFilter' with all optional fields omitted.
@@ -69,9 +68,9 @@ newLifecycleRuleFilter ::
   LifecycleRuleFilter
 newLifecycleRuleFilter =
   LifecycleRuleFilter'
-    { prefix = Prelude.Nothing,
-      and = Prelude.Nothing,
-      tag = Prelude.Nothing
+    { prefix = Core.Nothing,
+      and = Core.Nothing,
+      tag = Core.Nothing
     }
 
 -- | Prefix identifying one or more objects to which the rule applies.
@@ -80,33 +79,33 @@ newLifecycleRuleFilter =
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-lifecycleRuleFilter_prefix :: Lens.Lens' LifecycleRuleFilter (Prelude.Maybe Prelude.Text)
+lifecycleRuleFilter_prefix :: Lens.Lens' LifecycleRuleFilter (Core.Maybe Core.Text)
 lifecycleRuleFilter_prefix = Lens.lens (\LifecycleRuleFilter' {prefix} -> prefix) (\s@LifecycleRuleFilter' {} a -> s {prefix = a} :: LifecycleRuleFilter)
 
 -- | Undocumented member.
-lifecycleRuleFilter_and :: Lens.Lens' LifecycleRuleFilter (Prelude.Maybe LifecycleRuleAndOperator)
+lifecycleRuleFilter_and :: Lens.Lens' LifecycleRuleFilter (Core.Maybe LifecycleRuleAndOperator)
 lifecycleRuleFilter_and = Lens.lens (\LifecycleRuleFilter' {and} -> and) (\s@LifecycleRuleFilter' {} a -> s {and = a} :: LifecycleRuleFilter)
 
 -- | This tag must exist in the object\'s tag set in order for the rule to
 -- apply.
-lifecycleRuleFilter_tag :: Lens.Lens' LifecycleRuleFilter (Prelude.Maybe Tag)
+lifecycleRuleFilter_tag :: Lens.Lens' LifecycleRuleFilter (Core.Maybe Tag)
 lifecycleRuleFilter_tag = Lens.lens (\LifecycleRuleFilter' {tag} -> tag) (\s@LifecycleRuleFilter' {} a -> s {tag = a} :: LifecycleRuleFilter)
 
-instance Prelude.FromXML LifecycleRuleFilter where
+instance Core.FromXML LifecycleRuleFilter where
   parseXML x =
     LifecycleRuleFilter'
-      Prelude.<$> (x Prelude..@? "Prefix")
-      Prelude.<*> (x Prelude..@? "And")
-      Prelude.<*> (x Prelude..@? "Tag")
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "And")
+      Core.<*> (x Core..@? "Tag")
 
-instance Prelude.Hashable LifecycleRuleFilter
+instance Core.Hashable LifecycleRuleFilter
 
-instance Prelude.NFData LifecycleRuleFilter
+instance Core.NFData LifecycleRuleFilter
 
-instance Prelude.ToXML LifecycleRuleFilter where
+instance Core.ToXML LifecycleRuleFilter where
   toXML LifecycleRuleFilter' {..} =
-    Prelude.mconcat
-      [ "Prefix" Prelude.@= prefix,
-        "And" Prelude.@= and,
-        "Tag" Prelude.@= tag
+    Core.mconcat
+      [ "Prefix" Core.@= prefix,
+        "And" Core.@= and,
+        "Tag" Core.@= tag
       ]

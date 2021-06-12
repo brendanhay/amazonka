@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.IoT.DeleteDomainConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDomainConfiguration' smart constructor.
 data DeleteDomainConfiguration = DeleteDomainConfiguration'
   { -- | The name of the domain configuration to be deleted.
-    domainConfigurationName :: Prelude.Text
+    domainConfigurationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainConfiguration' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeleteDomainConfiguration = DeleteDomainConfiguration'
 -- 'domainConfigurationName', 'deleteDomainConfiguration_domainConfigurationName' - The name of the domain configuration to be deleted.
 newDeleteDomainConfiguration ::
   -- | 'domainConfigurationName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDomainConfiguration
 newDeleteDomainConfiguration
   pDomainConfigurationName_ =
@@ -76,44 +75,44 @@ newDeleteDomainConfiguration
       }
 
 -- | The name of the domain configuration to be deleted.
-deleteDomainConfiguration_domainConfigurationName :: Lens.Lens' DeleteDomainConfiguration Prelude.Text
+deleteDomainConfiguration_domainConfigurationName :: Lens.Lens' DeleteDomainConfiguration Core.Text
 deleteDomainConfiguration_domainConfigurationName = Lens.lens (\DeleteDomainConfiguration' {domainConfigurationName} -> domainConfigurationName) (\s@DeleteDomainConfiguration' {} a -> s {domainConfigurationName = a} :: DeleteDomainConfiguration)
 
-instance Prelude.AWSRequest DeleteDomainConfiguration where
+instance Core.AWSRequest DeleteDomainConfiguration where
   type
-    Rs DeleteDomainConfiguration =
+    AWSResponse DeleteDomainConfiguration =
       DeleteDomainConfigurationResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDomainConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDomainConfiguration
+instance Core.Hashable DeleteDomainConfiguration
 
-instance Prelude.NFData DeleteDomainConfiguration
+instance Core.NFData DeleteDomainConfiguration
 
-instance Prelude.ToHeaders DeleteDomainConfiguration where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDomainConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDomainConfiguration where
+instance Core.ToPath DeleteDomainConfiguration where
   toPath DeleteDomainConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/domainConfigurations/",
-        Prelude.toBS domainConfigurationName
+        Core.toBS domainConfigurationName
       ]
 
-instance Prelude.ToQuery DeleteDomainConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDomainConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDomainConfigurationResponse' smart constructor.
 data DeleteDomainConfigurationResponse = DeleteDomainConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainConfigurationResponse' with all optional fields omitted.
@@ -126,7 +125,7 @@ data DeleteDomainConfigurationResponse = DeleteDomainConfigurationResponse'
 -- 'httpStatus', 'deleteDomainConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteDomainConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDomainConfigurationResponse
 newDeleteDomainConfigurationResponse pHttpStatus_ =
   DeleteDomainConfigurationResponse'
@@ -135,9 +134,9 @@ newDeleteDomainConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDomainConfigurationResponse_httpStatus :: Lens.Lens' DeleteDomainConfigurationResponse Prelude.Int
+deleteDomainConfigurationResponse_httpStatus :: Lens.Lens' DeleteDomainConfigurationResponse Core.Int
 deleteDomainConfigurationResponse_httpStatus = Lens.lens (\DeleteDomainConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteDomainConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteDomainConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteDomainConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ECR.DescribeRegistry
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data DescribeRegistry = DescribeRegistry'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRegistry' with all optional fields omitted.
@@ -60,57 +59,56 @@ newDescribeRegistry ::
   DescribeRegistry
 newDescribeRegistry = DescribeRegistry'
 
-instance Prelude.AWSRequest DescribeRegistry where
-  type Rs DescribeRegistry = DescribeRegistryResponse
+instance Core.AWSRequest DescribeRegistry where
+  type
+    AWSResponse DescribeRegistry =
+      DescribeRegistryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeRegistryResponse'
-            Prelude.<$> (x Prelude..?> "replicationConfiguration")
-            Prelude.<*> (x Prelude..?> "registryId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "replicationConfiguration")
+            Core.<*> (x Core..?> "registryId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeRegistry
+instance Core.Hashable DescribeRegistry
 
-instance Prelude.NFData DescribeRegistry
+instance Core.NFData DescribeRegistry
 
-instance Prelude.ToHeaders DescribeRegistry where
+instance Core.ToHeaders DescribeRegistry where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeRegistry" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeRegistry" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeRegistry where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeRegistry where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DescribeRegistry where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeRegistry where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeRegistry where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeRegistry where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeRegistryResponse' smart constructor.
 data DescribeRegistryResponse = DescribeRegistryResponse'
   { -- | The replication configuration for the registry.
-    replicationConfiguration :: Prelude.Maybe ReplicationConfiguration,
+    replicationConfiguration :: Core.Maybe ReplicationConfiguration,
     -- | The ID of the registry.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRegistryResponse' with all optional fields omitted.
@@ -127,26 +125,26 @@ data DescribeRegistryResponse = DescribeRegistryResponse'
 -- 'httpStatus', 'describeRegistryResponse_httpStatus' - The response's http status code.
 newDescribeRegistryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeRegistryResponse
 newDescribeRegistryResponse pHttpStatus_ =
   DescribeRegistryResponse'
     { replicationConfiguration =
-        Prelude.Nothing,
-      registryId = Prelude.Nothing,
+        Core.Nothing,
+      registryId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The replication configuration for the registry.
-describeRegistryResponse_replicationConfiguration :: Lens.Lens' DescribeRegistryResponse (Prelude.Maybe ReplicationConfiguration)
+describeRegistryResponse_replicationConfiguration :: Lens.Lens' DescribeRegistryResponse (Core.Maybe ReplicationConfiguration)
 describeRegistryResponse_replicationConfiguration = Lens.lens (\DescribeRegistryResponse' {replicationConfiguration} -> replicationConfiguration) (\s@DescribeRegistryResponse' {} a -> s {replicationConfiguration = a} :: DescribeRegistryResponse)
 
 -- | The ID of the registry.
-describeRegistryResponse_registryId :: Lens.Lens' DescribeRegistryResponse (Prelude.Maybe Prelude.Text)
+describeRegistryResponse_registryId :: Lens.Lens' DescribeRegistryResponse (Core.Maybe Core.Text)
 describeRegistryResponse_registryId = Lens.lens (\DescribeRegistryResponse' {registryId} -> registryId) (\s@DescribeRegistryResponse' {} a -> s {registryId = a} :: DescribeRegistryResponse)
 
 -- | The response's http status code.
-describeRegistryResponse_httpStatus :: Lens.Lens' DescribeRegistryResponse Prelude.Int
+describeRegistryResponse_httpStatus :: Lens.Lens' DescribeRegistryResponse Core.Int
 describeRegistryResponse_httpStatus = Lens.lens (\DescribeRegistryResponse' {httpStatus} -> httpStatus) (\s@DescribeRegistryResponse' {} a -> s {httpStatus = a} :: DescribeRegistryResponse)
 
-instance Prelude.NFData DescribeRegistryResponse
+instance Core.NFData DescribeRegistryResponse

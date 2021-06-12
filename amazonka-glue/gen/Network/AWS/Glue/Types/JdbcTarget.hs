@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.JdbcTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a JDBC data store to crawl.
 --
 -- /See:/ 'newJdbcTarget' smart constructor.
 data JdbcTarget = JdbcTarget'
   { -- | The name of the connection to use to connect to the JDBC target.
-    connectionName :: Prelude.Maybe Prelude.Text,
+    connectionName :: Core.Maybe Core.Text,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-    exclusions :: Prelude.Maybe [Prelude.Text],
+    exclusions :: Core.Maybe [Core.Text],
     -- | The path of the JDBC target.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JdbcTarget' with all optional fields omitted.
@@ -57,49 +56,46 @@ newJdbcTarget ::
   JdbcTarget
 newJdbcTarget =
   JdbcTarget'
-    { connectionName = Prelude.Nothing,
-      exclusions = Prelude.Nothing,
-      path = Prelude.Nothing
+    { connectionName = Core.Nothing,
+      exclusions = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | The name of the connection to use to connect to the JDBC target.
-jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
+jdbcTarget_connectionName :: Lens.Lens' JdbcTarget (Core.Maybe Core.Text)
 jdbcTarget_connectionName = Lens.lens (\JdbcTarget' {connectionName} -> connectionName) (\s@JdbcTarget' {} a -> s {connectionName = a} :: JdbcTarget)
 
 -- | A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-jdbcTarget_exclusions :: Lens.Lens' JdbcTarget (Prelude.Maybe [Prelude.Text])
-jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@JdbcTarget' {} a -> s {exclusions = a} :: JdbcTarget) Prelude.. Lens.mapping Prelude._Coerce
+jdbcTarget_exclusions :: Lens.Lens' JdbcTarget (Core.Maybe [Core.Text])
+jdbcTarget_exclusions = Lens.lens (\JdbcTarget' {exclusions} -> exclusions) (\s@JdbcTarget' {} a -> s {exclusions = a} :: JdbcTarget) Core.. Lens.mapping Lens._Coerce
 
 -- | The path of the JDBC target.
-jdbcTarget_path :: Lens.Lens' JdbcTarget (Prelude.Maybe Prelude.Text)
+jdbcTarget_path :: Lens.Lens' JdbcTarget (Core.Maybe Core.Text)
 jdbcTarget_path = Lens.lens (\JdbcTarget' {path} -> path) (\s@JdbcTarget' {} a -> s {path = a} :: JdbcTarget)
 
-instance Prelude.FromJSON JdbcTarget where
+instance Core.FromJSON JdbcTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JdbcTarget"
       ( \x ->
           JdbcTarget'
-            Prelude.<$> (x Prelude..:? "ConnectionName")
-            Prelude.<*> ( x Prelude..:? "Exclusions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Path")
+            Core.<$> (x Core..:? "ConnectionName")
+            Core.<*> (x Core..:? "Exclusions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable JdbcTarget
+instance Core.Hashable JdbcTarget
 
-instance Prelude.NFData JdbcTarget
+instance Core.NFData JdbcTarget
 
-instance Prelude.ToJSON JdbcTarget where
+instance Core.ToJSON JdbcTarget where
   toJSON JdbcTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConnectionName" Prelude..=)
-              Prelude.<$> connectionName,
-            ("Exclusions" Prelude..=) Prelude.<$> exclusions,
-            ("Path" Prelude..=) Prelude.<$> path
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionName" Core..=) Core.<$> connectionName,
+            ("Exclusions" Core..=) Core.<$> exclusions,
+            ("Path" Core..=) Core.<$> path
           ]
       )

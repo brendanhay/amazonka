@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Kinesis.Types.ShardFilter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.ShardFilterType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newShardFilter' smart constructor.
 data ShardFilter = ShardFilter'
-  { shardId :: Prelude.Maybe Prelude.Text,
-    timestamp :: Prelude.Maybe Prelude.POSIX,
+  { shardId :: Core.Maybe Core.Text,
+    timestamp :: Core.Maybe Core.POSIX,
     type' :: ShardFilterType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShardFilter' with all optional fields omitted.
@@ -51,33 +50,33 @@ newShardFilter ::
   ShardFilter
 newShardFilter pType_ =
   ShardFilter'
-    { shardId = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
+    { shardId = Core.Nothing,
+      timestamp = Core.Nothing,
       type' = pType_
     }
 
 -- | Undocumented member.
-shardFilter_shardId :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.Text)
+shardFilter_shardId :: Lens.Lens' ShardFilter (Core.Maybe Core.Text)
 shardFilter_shardId = Lens.lens (\ShardFilter' {shardId} -> shardId) (\s@ShardFilter' {} a -> s {shardId = a} :: ShardFilter)
 
 -- | Undocumented member.
-shardFilter_timestamp :: Lens.Lens' ShardFilter (Prelude.Maybe Prelude.UTCTime)
-shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Prelude.. Lens.mapping Prelude._Time
+shardFilter_timestamp :: Lens.Lens' ShardFilter (Core.Maybe Core.UTCTime)
+shardFilter_timestamp = Lens.lens (\ShardFilter' {timestamp} -> timestamp) (\s@ShardFilter' {} a -> s {timestamp = a} :: ShardFilter) Core.. Lens.mapping Core._Time
 
 -- | Undocumented member.
 shardFilter_type :: Lens.Lens' ShardFilter ShardFilterType
 shardFilter_type = Lens.lens (\ShardFilter' {type'} -> type') (\s@ShardFilter' {} a -> s {type' = a} :: ShardFilter)
 
-instance Prelude.Hashable ShardFilter
+instance Core.Hashable ShardFilter
 
-instance Prelude.NFData ShardFilter
+instance Core.NFData ShardFilter
 
-instance Prelude.ToJSON ShardFilter where
+instance Core.ToJSON ShardFilter where
   toJSON ShardFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ShardId" Prelude..=) Prelude.<$> shardId,
-            ("Timestamp" Prelude..=) Prelude.<$> timestamp,
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("ShardId" Core..=) Core.<$> shardId,
+            ("Timestamp" Core..=) Core.<$> timestamp,
+            Core.Just ("Type" Core..= type')
           ]
       )

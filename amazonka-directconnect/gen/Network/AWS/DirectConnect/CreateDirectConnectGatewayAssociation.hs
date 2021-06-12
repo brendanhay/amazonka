@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,16 +44,16 @@ module Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateDirectConnectGatewayAssociation' smart constructor.
 data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociation'
   { -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Prelude.Maybe Prelude.Text,
+    virtualGatewayId :: Core.Maybe Core.Text,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway
     --
     -- This parameter is required when you create an association to a transit
@@ -63,13 +62,13 @@ data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociati
     -- For information about how to set the prefixes, see
     -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
     -- in the /AWS Direct Connect User Guide/.
-    addAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
+    addAllowedPrefixesToDirectConnectGateway :: Core.Maybe [RouteFilterPrefix],
     -- | The ID of the virtual private gateway or transit gateway.
-    gatewayId :: Prelude.Maybe Prelude.Text,
+    gatewayId :: Core.Maybe Core.Text,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Text
+    directConnectGatewayId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDirectConnectGatewayAssociation' with all optional fields omitted.
@@ -95,22 +94,22 @@ data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociati
 -- 'directConnectGatewayId', 'createDirectConnectGatewayAssociation_directConnectGatewayId' - The ID of the Direct Connect gateway.
 newCreateDirectConnectGatewayAssociation ::
   -- | 'directConnectGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   CreateDirectConnectGatewayAssociation
 newCreateDirectConnectGatewayAssociation
   pDirectConnectGatewayId_ =
     CreateDirectConnectGatewayAssociation'
       { virtualGatewayId =
-          Prelude.Nothing,
+          Core.Nothing,
         addAllowedPrefixesToDirectConnectGateway =
-          Prelude.Nothing,
-        gatewayId = Prelude.Nothing,
+          Core.Nothing,
+        gatewayId = Core.Nothing,
         directConnectGatewayId =
           pDirectConnectGatewayId_
       }
 
 -- | The ID of the virtual private gateway.
-createDirectConnectGatewayAssociation_virtualGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
+createDirectConnectGatewayAssociation_virtualGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Core.Maybe Core.Text)
 createDirectConnectGatewayAssociation_virtualGatewayId = Lens.lens (\CreateDirectConnectGatewayAssociation' {virtualGatewayId} -> virtualGatewayId) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {virtualGatewayId = a} :: CreateDirectConnectGatewayAssociation)
 
 -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway
@@ -121,100 +120,97 @@ createDirectConnectGatewayAssociation_virtualGatewayId = Lens.lens (\CreateDirec
 -- For information about how to set the prefixes, see
 -- <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes>
 -- in the /AWS Direct Connect User Guide/.
-createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway :: Lens.Lens' CreateDirectConnectGatewayAssociation (Prelude.Maybe [RouteFilterPrefix])
-createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway = Lens.lens (\CreateDirectConnectGatewayAssociation' {addAllowedPrefixesToDirectConnectGateway} -> addAllowedPrefixesToDirectConnectGateway) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {addAllowedPrefixesToDirectConnectGateway = a} :: CreateDirectConnectGatewayAssociation) Prelude.. Lens.mapping Prelude._Coerce
+createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway :: Lens.Lens' CreateDirectConnectGatewayAssociation (Core.Maybe [RouteFilterPrefix])
+createDirectConnectGatewayAssociation_addAllowedPrefixesToDirectConnectGateway = Lens.lens (\CreateDirectConnectGatewayAssociation' {addAllowedPrefixesToDirectConnectGateway} -> addAllowedPrefixesToDirectConnectGateway) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {addAllowedPrefixesToDirectConnectGateway = a} :: CreateDirectConnectGatewayAssociation) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the virtual private gateway or transit gateway.
-createDirectConnectGatewayAssociation_gatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
+createDirectConnectGatewayAssociation_gatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Core.Maybe Core.Text)
 createDirectConnectGatewayAssociation_gatewayId = Lens.lens (\CreateDirectConnectGatewayAssociation' {gatewayId} -> gatewayId) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {gatewayId = a} :: CreateDirectConnectGatewayAssociation)
 
 -- | The ID of the Direct Connect gateway.
-createDirectConnectGatewayAssociation_directConnectGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation Prelude.Text
+createDirectConnectGatewayAssociation_directConnectGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation Core.Text
 createDirectConnectGatewayAssociation_directConnectGatewayId = Lens.lens (\CreateDirectConnectGatewayAssociation' {directConnectGatewayId} -> directConnectGatewayId) (\s@CreateDirectConnectGatewayAssociation' {} a -> s {directConnectGatewayId = a} :: CreateDirectConnectGatewayAssociation)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateDirectConnectGatewayAssociation
   where
   type
-    Rs CreateDirectConnectGatewayAssociation =
+    AWSResponse
+      CreateDirectConnectGatewayAssociation =
       CreateDirectConnectGatewayAssociationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDirectConnectGatewayAssociationResponse'
-            Prelude.<$> (x Prelude..?> "directConnectGatewayAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "directConnectGatewayAssociation")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateDirectConnectGatewayAssociation
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateDirectConnectGatewayAssociation
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreateDirectConnectGatewayAssociation
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.CreateDirectConnectGatewayAssociation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.CreateDirectConnectGatewayAssociation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CreateDirectConnectGatewayAssociation
   where
   toJSON CreateDirectConnectGatewayAssociation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("virtualGatewayId" Prelude..=)
-              Prelude.<$> virtualGatewayId,
-            ( "addAllowedPrefixesToDirectConnectGateway"
-                Prelude..=
-            )
-              Prelude.<$> addAllowedPrefixesToDirectConnectGateway,
-            ("gatewayId" Prelude..=) Prelude.<$> gatewayId,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("virtualGatewayId" Core..=)
+              Core.<$> virtualGatewayId,
+            ("addAllowedPrefixesToDirectConnectGateway" Core..=)
+              Core.<$> addAllowedPrefixesToDirectConnectGateway,
+            ("gatewayId" Core..=) Core.<$> gatewayId,
+            Core.Just
               ( "directConnectGatewayId"
-                  Prelude..= directConnectGatewayId
+                  Core..= directConnectGatewayId
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     CreateDirectConnectGatewayAssociation
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateDirectConnectGatewayAssociation
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateDirectConnectGatewayAssociationResponse' smart constructor.
 data CreateDirectConnectGatewayAssociationResponse = CreateDirectConnectGatewayAssociationResponse'
   { -- | The association to be created.
-    directConnectGatewayAssociation :: Prelude.Maybe DirectConnectGatewayAssociation,
+    directConnectGatewayAssociation :: Core.Maybe DirectConnectGatewayAssociation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDirectConnectGatewayAssociationResponse' with all optional fields omitted.
@@ -229,24 +225,24 @@ data CreateDirectConnectGatewayAssociationResponse = CreateDirectConnectGatewayA
 -- 'httpStatus', 'createDirectConnectGatewayAssociationResponse_httpStatus' - The response's http status code.
 newCreateDirectConnectGatewayAssociationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDirectConnectGatewayAssociationResponse
 newCreateDirectConnectGatewayAssociationResponse
   pHttpStatus_ =
     CreateDirectConnectGatewayAssociationResponse'
       { directConnectGatewayAssociation =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The association to be created.
-createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse (Prelude.Maybe DirectConnectGatewayAssociation)
+createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse (Core.Maybe DirectConnectGatewayAssociation)
 createDirectConnectGatewayAssociationResponse_directConnectGatewayAssociation = Lens.lens (\CreateDirectConnectGatewayAssociationResponse' {directConnectGatewayAssociation} -> directConnectGatewayAssociation) (\s@CreateDirectConnectGatewayAssociationResponse' {} a -> s {directConnectGatewayAssociation = a} :: CreateDirectConnectGatewayAssociationResponse)
 
 -- | The response's http status code.
-createDirectConnectGatewayAssociationResponse_httpStatus :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse Prelude.Int
+createDirectConnectGatewayAssociationResponse_httpStatus :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse Core.Int
 createDirectConnectGatewayAssociationResponse_httpStatus = Lens.lens (\CreateDirectConnectGatewayAssociationResponse' {httpStatus} -> httpStatus) (\s@CreateDirectConnectGatewayAssociationResponse' {} a -> s {httpStatus = a} :: CreateDirectConnectGatewayAssociationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateDirectConnectGatewayAssociationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.Lightsail.GetContainerLog
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,7 +68,7 @@ data GetContainerLog = GetContainerLog'
     -- To get a page token, perform an initial @GetContainerLog@ request. If
     -- your results are paginated, the response will return a next page token
     -- that you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The pattern to use to filter the returned log events to a specific term.
     --
     -- The following are a few examples of filter patterns that you can
@@ -88,7 +87,7 @@ data GetContainerLog = GetContainerLog'
     --
     -- -   To return log events that contain the @ERROR@ /or/ the @Exception@
     --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
-    filterPattern :: Prelude.Maybe Prelude.Text,
+    filterPattern :: Core.Maybe Core.Text,
     -- | The start of the time interval for which to get log data.
     --
     -- Constraints:
@@ -102,7 +101,7 @@ data GetContainerLog = GetContainerLog'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The end of the time interval for which to get log data.
     --
     -- Constraints:
@@ -116,14 +115,14 @@ data GetContainerLog = GetContainerLog'
     --
     -- You can convert a human-friendly time to Unix time format using a
     -- converter like <https://www.epochconverter.com/ Epoch converter>.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The name of the container service for which to get a container log.
-    serviceName :: Prelude.Text,
+    serviceName :: Core.Text,
     -- | The name of the container that is either running or previously ran on
     -- the container service for which to return a log.
-    containerName :: Prelude.Text
+    containerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerLog' with all optional fields omitted.
@@ -192,16 +191,16 @@ data GetContainerLog = GetContainerLog'
 -- the container service for which to return a log.
 newGetContainerLog ::
   -- | 'serviceName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   GetContainerLog
 newGetContainerLog pServiceName_ pContainerName_ =
   GetContainerLog'
-    { pageToken = Prelude.Nothing,
-      filterPattern = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
+    { pageToken = Core.Nothing,
+      filterPattern = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
       serviceName = pServiceName_,
       containerName = pContainerName_
     }
@@ -211,7 +210,7 @@ newGetContainerLog pServiceName_ pContainerName_ =
 -- To get a page token, perform an initial @GetContainerLog@ request. If
 -- your results are paginated, the response will return a next page token
 -- that you can specify as the page token in a subsequent request.
-getContainerLog_pageToken :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
+getContainerLog_pageToken :: Lens.Lens' GetContainerLog (Core.Maybe Core.Text)
 getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToken) (\s@GetContainerLog' {} a -> s {pageToken = a} :: GetContainerLog)
 
 -- | The pattern to use to filter the returned log events to a specific term.
@@ -232,7 +231,7 @@ getContainerLog_pageToken = Lens.lens (\GetContainerLog' {pageToken} -> pageToke
 --
 -- -   To return log events that contain the @ERROR@ /or/ the @Exception@
 --     term, specify a filter pattern of @\"?ERROR ?Exception\"@.
-getContainerLog_filterPattern :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.Text)
+getContainerLog_filterPattern :: Lens.Lens' GetContainerLog (Core.Maybe Core.Text)
 getContainerLog_filterPattern = Lens.lens (\GetContainerLog' {filterPattern} -> filterPattern) (\s@GetContainerLog' {} a -> s {filterPattern = a} :: GetContainerLog)
 
 -- | The start of the time interval for which to get log data.
@@ -248,8 +247,8 @@ getContainerLog_filterPattern = Lens.lens (\GetContainerLog' {filterPattern} -> 
 --
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
-getContainerLog_startTime :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.UTCTime)
-getContainerLog_startTime = Lens.lens (\GetContainerLog' {startTime} -> startTime) (\s@GetContainerLog' {} a -> s {startTime = a} :: GetContainerLog) Prelude.. Lens.mapping Prelude._Time
+getContainerLog_startTime :: Lens.Lens' GetContainerLog (Core.Maybe Core.UTCTime)
+getContainerLog_startTime = Lens.lens (\GetContainerLog' {startTime} -> startTime) (\s@GetContainerLog' {} a -> s {startTime = a} :: GetContainerLog) Core.. Lens.mapping Core._Time
 
 -- | The end of the time interval for which to get log data.
 --
@@ -264,76 +263,72 @@ getContainerLog_startTime = Lens.lens (\GetContainerLog' {startTime} -> startTim
 --
 -- You can convert a human-friendly time to Unix time format using a
 -- converter like <https://www.epochconverter.com/ Epoch converter>.
-getContainerLog_endTime :: Lens.Lens' GetContainerLog (Prelude.Maybe Prelude.UTCTime)
-getContainerLog_endTime = Lens.lens (\GetContainerLog' {endTime} -> endTime) (\s@GetContainerLog' {} a -> s {endTime = a} :: GetContainerLog) Prelude.. Lens.mapping Prelude._Time
+getContainerLog_endTime :: Lens.Lens' GetContainerLog (Core.Maybe Core.UTCTime)
+getContainerLog_endTime = Lens.lens (\GetContainerLog' {endTime} -> endTime) (\s@GetContainerLog' {} a -> s {endTime = a} :: GetContainerLog) Core.. Lens.mapping Core._Time
 
 -- | The name of the container service for which to get a container log.
-getContainerLog_serviceName :: Lens.Lens' GetContainerLog Prelude.Text
+getContainerLog_serviceName :: Lens.Lens' GetContainerLog Core.Text
 getContainerLog_serviceName = Lens.lens (\GetContainerLog' {serviceName} -> serviceName) (\s@GetContainerLog' {} a -> s {serviceName = a} :: GetContainerLog)
 
 -- | The name of the container that is either running or previously ran on
 -- the container service for which to return a log.
-getContainerLog_containerName :: Lens.Lens' GetContainerLog Prelude.Text
+getContainerLog_containerName :: Lens.Lens' GetContainerLog Core.Text
 getContainerLog_containerName = Lens.lens (\GetContainerLog' {containerName} -> containerName) (\s@GetContainerLog' {} a -> s {containerName = a} :: GetContainerLog)
 
-instance Prelude.AWSRequest GetContainerLog where
-  type Rs GetContainerLog = GetContainerLogResponse
+instance Core.AWSRequest GetContainerLog where
+  type
+    AWSResponse GetContainerLog =
+      GetContainerLogResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetContainerLogResponse'
-            Prelude.<$> ( x Prelude..?> "logEvents"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "logEvents" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerLog
+instance Core.Hashable GetContainerLog
 
-instance Prelude.NFData GetContainerLog
+instance Core.NFData GetContainerLog
 
-instance Prelude.ToHeaders GetContainerLog where
+instance Core.ToHeaders GetContainerLog where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetContainerLog" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetContainerLog" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetContainerLog where
+instance Core.ToJSON GetContainerLog where
   toJSON GetContainerLog' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("pageToken" Prelude..=) Prelude.<$> pageToken,
-            ("filterPattern" Prelude..=)
-              Prelude.<$> filterPattern,
-            ("startTime" Prelude..=) Prelude.<$> startTime,
-            ("endTime" Prelude..=) Prelude.<$> endTime,
-            Prelude.Just ("serviceName" Prelude..= serviceName),
-            Prelude.Just
-              ("containerName" Prelude..= containerName)
+    Core.object
+      ( Core.catMaybes
+          [ ("pageToken" Core..=) Core.<$> pageToken,
+            ("filterPattern" Core..=) Core.<$> filterPattern,
+            ("startTime" Core..=) Core.<$> startTime,
+            ("endTime" Core..=) Core.<$> endTime,
+            Core.Just ("serviceName" Core..= serviceName),
+            Core.Just ("containerName" Core..= containerName)
           ]
       )
 
-instance Prelude.ToPath GetContainerLog where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetContainerLog where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetContainerLog where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetContainerLog where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetContainerLogResponse' smart constructor.
 data GetContainerLogResponse = GetContainerLogResponse'
   { -- | An array of objects that describe the log events of a container.
-    logEvents :: Prelude.Maybe [ContainerServiceLogEvent],
+    logEvents :: Core.Maybe [ContainerServiceLogEvent],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -341,11 +336,11 @@ data GetContainerLogResponse = GetContainerLogResponse'
     --
     -- To get the next page of results, perform another @GetContainerLog@
     -- request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerLogResponse' with all optional fields omitted.
@@ -368,19 +363,18 @@ data GetContainerLogResponse = GetContainerLogResponse'
 -- 'httpStatus', 'getContainerLogResponse_httpStatus' - The response's http status code.
 newGetContainerLogResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetContainerLogResponse
 newGetContainerLogResponse pHttpStatus_ =
   GetContainerLogResponse'
-    { logEvents =
-        Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { logEvents = Core.Nothing,
+      nextPageToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the log events of a container.
-getContainerLogResponse_logEvents :: Lens.Lens' GetContainerLogResponse (Prelude.Maybe [ContainerServiceLogEvent])
-getContainerLogResponse_logEvents = Lens.lens (\GetContainerLogResponse' {logEvents} -> logEvents) (\s@GetContainerLogResponse' {} a -> s {logEvents = a} :: GetContainerLogResponse) Prelude.. Lens.mapping Prelude._Coerce
+getContainerLogResponse_logEvents :: Lens.Lens' GetContainerLogResponse (Core.Maybe [ContainerServiceLogEvent])
+getContainerLogResponse_logEvents = Lens.lens (\GetContainerLogResponse' {logEvents} -> logEvents) (\s@GetContainerLogResponse' {} a -> s {logEvents = a} :: GetContainerLogResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -389,11 +383,11 @@ getContainerLogResponse_logEvents = Lens.lens (\GetContainerLogResponse' {logEve
 --
 -- To get the next page of results, perform another @GetContainerLog@
 -- request and specify the next page token using the @pageToken@ parameter.
-getContainerLogResponse_nextPageToken :: Lens.Lens' GetContainerLogResponse (Prelude.Maybe Prelude.Text)
+getContainerLogResponse_nextPageToken :: Lens.Lens' GetContainerLogResponse (Core.Maybe Core.Text)
 getContainerLogResponse_nextPageToken = Lens.lens (\GetContainerLogResponse' {nextPageToken} -> nextPageToken) (\s@GetContainerLogResponse' {} a -> s {nextPageToken = a} :: GetContainerLogResponse)
 
 -- | The response's http status code.
-getContainerLogResponse_httpStatus :: Lens.Lens' GetContainerLogResponse Prelude.Int
+getContainerLogResponse_httpStatus :: Lens.Lens' GetContainerLogResponse Core.Int
 getContainerLogResponse_httpStatus = Lens.lens (\GetContainerLogResponse' {httpStatus} -> httpStatus) (\s@GetContainerLogResponse' {} a -> s {httpStatus = a} :: GetContainerLogResponse)
 
-instance Prelude.NFData GetContainerLogResponse
+instance Core.NFData GetContainerLogResponse

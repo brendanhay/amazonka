@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.InstanceGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.AutoScalingPolicyDescription
 import Network.AWS.EMR.Types.Configuration
 import Network.AWS.EMR.Types.EbsBlockDevice
@@ -28,7 +28,6 @@ import Network.AWS.EMR.Types.InstanceGroupType
 import Network.AWS.EMR.Types.MarketType
 import Network.AWS.EMR.Types.ShrinkPolicy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This entity represents an instance group, which is a group of instances
 -- that have common purpose. For example, CORE instance group is used for
@@ -38,56 +37,56 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceGroup = InstanceGroup'
   { -- | The version number of a configuration specification that was
     -- successfully applied for an instance group last time.
-    lastSuccessfullyAppliedConfigurationsVersion :: Prelude.Maybe Prelude.Integer,
+    lastSuccessfullyAppliedConfigurationsVersion :: Core.Maybe Core.Integer,
     -- | The current status of the instance group.
-    status :: Prelude.Maybe InstanceGroupStatus,
+    status :: Core.Maybe InstanceGroupStatus,
     -- | The EC2 instance type for all instances in the instance group.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | If the instance group is EBS-optimized. An Amazon EBS-optimized instance
     -- uses an optimized configuration stack and provides additional, dedicated
     -- capacity for Amazon EBS I\/O.
-    ebsOptimized :: Prelude.Maybe Prelude.Bool,
+    ebsOptimized :: Core.Maybe Core.Bool,
     -- | The EBS block devices that are mapped to this instance group.
-    ebsBlockDevices :: Prelude.Maybe [EbsBlockDevice],
+    ebsBlockDevices :: Core.Maybe [EbsBlockDevice],
     -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
-    instanceGroupType :: Prelude.Maybe InstanceGroupType,
+    instanceGroupType :: Core.Maybe InstanceGroupType,
     -- | Amazon EMR releases 4.x or later.
     --
     -- The list of configurations supplied for an EMR cluster instance group.
     -- You can specify a separate configuration for each instance group
     -- (master, core, and task).
-    configurations :: Prelude.Maybe [Configuration],
+    configurations :: Core.Maybe [Configuration],
     -- | Policy for customizing shrink operations.
-    shrinkPolicy :: Prelude.Maybe ShrinkPolicy,
+    shrinkPolicy :: Core.Maybe ShrinkPolicy,
     -- | The identifier of the instance group.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | A list of configurations that were successfully applied for an instance
     -- group last time.
-    lastSuccessfullyAppliedConfigurations :: Prelude.Maybe [Configuration],
+    lastSuccessfullyAppliedConfigurations :: Core.Maybe [Configuration],
     -- | The target number of instances for the instance group.
-    requestedInstanceCount :: Prelude.Maybe Prelude.Int,
+    requestedInstanceCount :: Core.Maybe Core.Int,
     -- | An automatic scaling policy for a core instance group or task instance
     -- group in an Amazon EMR cluster. The automatic scaling policy defines how
     -- an instance group dynamically adds and terminates EC2 instances in
     -- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
-    autoScalingPolicy :: Prelude.Maybe AutoScalingPolicyDescription,
+    autoScalingPolicy :: Core.Maybe AutoScalingPolicyDescription,
     -- | The bid price for each EC2 Spot Instance type as defined by
     -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
     -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
     -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-    bidPrice :: Prelude.Maybe Prelude.Text,
+    bidPrice :: Core.Maybe Core.Text,
     -- | The name of the instance group.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The marketplace to provision instances for this group. Valid values are
     -- ON_DEMAND or SPOT.
-    market :: Prelude.Maybe MarketType,
+    market :: Core.Maybe MarketType,
     -- | The version number of the requested configuration specification for this
     -- instance group.
-    configurationsVersion :: Prelude.Maybe Prelude.Integer,
+    configurationsVersion :: Core.Maybe Core.Integer,
     -- | The number of instances currently running in this instance group.
-    runningInstanceCount :: Prelude.Maybe Prelude.Int
+    runningInstanceCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceGroup' with all optional fields omitted.
@@ -151,51 +150,50 @@ newInstanceGroup ::
 newInstanceGroup =
   InstanceGroup'
     { lastSuccessfullyAppliedConfigurationsVersion =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      ebsOptimized = Prelude.Nothing,
-      ebsBlockDevices = Prelude.Nothing,
-      instanceGroupType = Prelude.Nothing,
-      configurations = Prelude.Nothing,
-      shrinkPolicy = Prelude.Nothing,
-      id = Prelude.Nothing,
-      lastSuccessfullyAppliedConfigurations =
-        Prelude.Nothing,
-      requestedInstanceCount = Prelude.Nothing,
-      autoScalingPolicy = Prelude.Nothing,
-      bidPrice = Prelude.Nothing,
-      name = Prelude.Nothing,
-      market = Prelude.Nothing,
-      configurationsVersion = Prelude.Nothing,
-      runningInstanceCount = Prelude.Nothing
+        Core.Nothing,
+      status = Core.Nothing,
+      instanceType = Core.Nothing,
+      ebsOptimized = Core.Nothing,
+      ebsBlockDevices = Core.Nothing,
+      instanceGroupType = Core.Nothing,
+      configurations = Core.Nothing,
+      shrinkPolicy = Core.Nothing,
+      id = Core.Nothing,
+      lastSuccessfullyAppliedConfigurations = Core.Nothing,
+      requestedInstanceCount = Core.Nothing,
+      autoScalingPolicy = Core.Nothing,
+      bidPrice = Core.Nothing,
+      name = Core.Nothing,
+      market = Core.Nothing,
+      configurationsVersion = Core.Nothing,
+      runningInstanceCount = Core.Nothing
     }
 
 -- | The version number of a configuration specification that was
 -- successfully applied for an instance group last time.
-instanceGroup_lastSuccessfullyAppliedConfigurationsVersion :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Integer)
+instanceGroup_lastSuccessfullyAppliedConfigurationsVersion :: Lens.Lens' InstanceGroup (Core.Maybe Core.Integer)
 instanceGroup_lastSuccessfullyAppliedConfigurationsVersion = Lens.lens (\InstanceGroup' {lastSuccessfullyAppliedConfigurationsVersion} -> lastSuccessfullyAppliedConfigurationsVersion) (\s@InstanceGroup' {} a -> s {lastSuccessfullyAppliedConfigurationsVersion = a} :: InstanceGroup)
 
 -- | The current status of the instance group.
-instanceGroup_status :: Lens.Lens' InstanceGroup (Prelude.Maybe InstanceGroupStatus)
+instanceGroup_status :: Lens.Lens' InstanceGroup (Core.Maybe InstanceGroupStatus)
 instanceGroup_status = Lens.lens (\InstanceGroup' {status} -> status) (\s@InstanceGroup' {} a -> s {status = a} :: InstanceGroup)
 
 -- | The EC2 instance type for all instances in the instance group.
-instanceGroup_instanceType :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Text)
+instanceGroup_instanceType :: Lens.Lens' InstanceGroup (Core.Maybe Core.Text)
 instanceGroup_instanceType = Lens.lens (\InstanceGroup' {instanceType} -> instanceType) (\s@InstanceGroup' {} a -> s {instanceType = a} :: InstanceGroup)
 
 -- | If the instance group is EBS-optimized. An Amazon EBS-optimized instance
 -- uses an optimized configuration stack and provides additional, dedicated
 -- capacity for Amazon EBS I\/O.
-instanceGroup_ebsOptimized :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Bool)
+instanceGroup_ebsOptimized :: Lens.Lens' InstanceGroup (Core.Maybe Core.Bool)
 instanceGroup_ebsOptimized = Lens.lens (\InstanceGroup' {ebsOptimized} -> ebsOptimized) (\s@InstanceGroup' {} a -> s {ebsOptimized = a} :: InstanceGroup)
 
 -- | The EBS block devices that are mapped to this instance group.
-instanceGroup_ebsBlockDevices :: Lens.Lens' InstanceGroup (Prelude.Maybe [EbsBlockDevice])
-instanceGroup_ebsBlockDevices = Lens.lens (\InstanceGroup' {ebsBlockDevices} -> ebsBlockDevices) (\s@InstanceGroup' {} a -> s {ebsBlockDevices = a} :: InstanceGroup) Prelude.. Lens.mapping Prelude._Coerce
+instanceGroup_ebsBlockDevices :: Lens.Lens' InstanceGroup (Core.Maybe [EbsBlockDevice])
+instanceGroup_ebsBlockDevices = Lens.lens (\InstanceGroup' {ebsBlockDevices} -> ebsBlockDevices) (\s@InstanceGroup' {} a -> s {ebsBlockDevices = a} :: InstanceGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
-instanceGroup_instanceGroupType :: Lens.Lens' InstanceGroup (Prelude.Maybe InstanceGroupType)
+instanceGroup_instanceGroupType :: Lens.Lens' InstanceGroup (Core.Maybe InstanceGroupType)
 instanceGroup_instanceGroupType = Lens.lens (\InstanceGroup' {instanceGroupType} -> instanceGroupType) (\s@InstanceGroup' {} a -> s {instanceGroupType = a} :: InstanceGroup)
 
 -- | Amazon EMR releases 4.x or later.
@@ -203,92 +201,87 @@ instanceGroup_instanceGroupType = Lens.lens (\InstanceGroup' {instanceGroupType}
 -- The list of configurations supplied for an EMR cluster instance group.
 -- You can specify a separate configuration for each instance group
 -- (master, core, and task).
-instanceGroup_configurations :: Lens.Lens' InstanceGroup (Prelude.Maybe [Configuration])
-instanceGroup_configurations = Lens.lens (\InstanceGroup' {configurations} -> configurations) (\s@InstanceGroup' {} a -> s {configurations = a} :: InstanceGroup) Prelude.. Lens.mapping Prelude._Coerce
+instanceGroup_configurations :: Lens.Lens' InstanceGroup (Core.Maybe [Configuration])
+instanceGroup_configurations = Lens.lens (\InstanceGroup' {configurations} -> configurations) (\s@InstanceGroup' {} a -> s {configurations = a} :: InstanceGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | Policy for customizing shrink operations.
-instanceGroup_shrinkPolicy :: Lens.Lens' InstanceGroup (Prelude.Maybe ShrinkPolicy)
+instanceGroup_shrinkPolicy :: Lens.Lens' InstanceGroup (Core.Maybe ShrinkPolicy)
 instanceGroup_shrinkPolicy = Lens.lens (\InstanceGroup' {shrinkPolicy} -> shrinkPolicy) (\s@InstanceGroup' {} a -> s {shrinkPolicy = a} :: InstanceGroup)
 
 -- | The identifier of the instance group.
-instanceGroup_id :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Text)
+instanceGroup_id :: Lens.Lens' InstanceGroup (Core.Maybe Core.Text)
 instanceGroup_id = Lens.lens (\InstanceGroup' {id} -> id) (\s@InstanceGroup' {} a -> s {id = a} :: InstanceGroup)
 
 -- | A list of configurations that were successfully applied for an instance
 -- group last time.
-instanceGroup_lastSuccessfullyAppliedConfigurations :: Lens.Lens' InstanceGroup (Prelude.Maybe [Configuration])
-instanceGroup_lastSuccessfullyAppliedConfigurations = Lens.lens (\InstanceGroup' {lastSuccessfullyAppliedConfigurations} -> lastSuccessfullyAppliedConfigurations) (\s@InstanceGroup' {} a -> s {lastSuccessfullyAppliedConfigurations = a} :: InstanceGroup) Prelude.. Lens.mapping Prelude._Coerce
+instanceGroup_lastSuccessfullyAppliedConfigurations :: Lens.Lens' InstanceGroup (Core.Maybe [Configuration])
+instanceGroup_lastSuccessfullyAppliedConfigurations = Lens.lens (\InstanceGroup' {lastSuccessfullyAppliedConfigurations} -> lastSuccessfullyAppliedConfigurations) (\s@InstanceGroup' {} a -> s {lastSuccessfullyAppliedConfigurations = a} :: InstanceGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The target number of instances for the instance group.
-instanceGroup_requestedInstanceCount :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Int)
+instanceGroup_requestedInstanceCount :: Lens.Lens' InstanceGroup (Core.Maybe Core.Int)
 instanceGroup_requestedInstanceCount = Lens.lens (\InstanceGroup' {requestedInstanceCount} -> requestedInstanceCount) (\s@InstanceGroup' {} a -> s {requestedInstanceCount = a} :: InstanceGroup)
 
 -- | An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. The automatic scaling policy defines how
 -- an instance group dynamically adds and terminates EC2 instances in
 -- response to the value of a CloudWatch metric. See PutAutoScalingPolicy.
-instanceGroup_autoScalingPolicy :: Lens.Lens' InstanceGroup (Prelude.Maybe AutoScalingPolicyDescription)
+instanceGroup_autoScalingPolicy :: Lens.Lens' InstanceGroup (Core.Maybe AutoScalingPolicyDescription)
 instanceGroup_autoScalingPolicy = Lens.lens (\InstanceGroup' {autoScalingPolicy} -> autoScalingPolicy) (\s@InstanceGroup' {} a -> s {autoScalingPolicy = a} :: InstanceGroup)
 
 -- | The bid price for each EC2 Spot Instance type as defined by
 -- @InstanceType@. Expressed in USD. If neither @BidPrice@ nor
 -- @BidPriceAsPercentageOfOnDemandPrice@ is provided,
 -- @BidPriceAsPercentageOfOnDemandPrice@ defaults to 100%.
-instanceGroup_bidPrice :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Text)
+instanceGroup_bidPrice :: Lens.Lens' InstanceGroup (Core.Maybe Core.Text)
 instanceGroup_bidPrice = Lens.lens (\InstanceGroup' {bidPrice} -> bidPrice) (\s@InstanceGroup' {} a -> s {bidPrice = a} :: InstanceGroup)
 
 -- | The name of the instance group.
-instanceGroup_name :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Text)
+instanceGroup_name :: Lens.Lens' InstanceGroup (Core.Maybe Core.Text)
 instanceGroup_name = Lens.lens (\InstanceGroup' {name} -> name) (\s@InstanceGroup' {} a -> s {name = a} :: InstanceGroup)
 
 -- | The marketplace to provision instances for this group. Valid values are
 -- ON_DEMAND or SPOT.
-instanceGroup_market :: Lens.Lens' InstanceGroup (Prelude.Maybe MarketType)
+instanceGroup_market :: Lens.Lens' InstanceGroup (Core.Maybe MarketType)
 instanceGroup_market = Lens.lens (\InstanceGroup' {market} -> market) (\s@InstanceGroup' {} a -> s {market = a} :: InstanceGroup)
 
 -- | The version number of the requested configuration specification for this
 -- instance group.
-instanceGroup_configurationsVersion :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Integer)
+instanceGroup_configurationsVersion :: Lens.Lens' InstanceGroup (Core.Maybe Core.Integer)
 instanceGroup_configurationsVersion = Lens.lens (\InstanceGroup' {configurationsVersion} -> configurationsVersion) (\s@InstanceGroup' {} a -> s {configurationsVersion = a} :: InstanceGroup)
 
 -- | The number of instances currently running in this instance group.
-instanceGroup_runningInstanceCount :: Lens.Lens' InstanceGroup (Prelude.Maybe Prelude.Int)
+instanceGroup_runningInstanceCount :: Lens.Lens' InstanceGroup (Core.Maybe Core.Int)
 instanceGroup_runningInstanceCount = Lens.lens (\InstanceGroup' {runningInstanceCount} -> runningInstanceCount) (\s@InstanceGroup' {} a -> s {runningInstanceCount = a} :: InstanceGroup)
 
-instance Prelude.FromJSON InstanceGroup where
+instance Core.FromJSON InstanceGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceGroup"
       ( \x ->
           InstanceGroup'
-            Prelude.<$> ( x
-                            Prelude..:? "LastSuccessfullyAppliedConfigurationsVersion"
-                        )
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "InstanceType")
-            Prelude.<*> (x Prelude..:? "EbsOptimized")
-            Prelude.<*> ( x Prelude..:? "EbsBlockDevices"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "InstanceGroupType")
-            Prelude.<*> ( x Prelude..:? "Configurations"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ShrinkPolicy")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> ( x
-                            Prelude..:? "LastSuccessfullyAppliedConfigurations"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "RequestedInstanceCount")
-            Prelude.<*> (x Prelude..:? "AutoScalingPolicy")
-            Prelude.<*> (x Prelude..:? "BidPrice")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Market")
-            Prelude.<*> (x Prelude..:? "ConfigurationsVersion")
-            Prelude.<*> (x Prelude..:? "RunningInstanceCount")
+            Core.<$> ( x
+                         Core..:? "LastSuccessfullyAppliedConfigurationsVersion"
+                     )
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "InstanceType")
+            Core.<*> (x Core..:? "EbsOptimized")
+            Core.<*> (x Core..:? "EbsBlockDevices" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "InstanceGroupType")
+            Core.<*> (x Core..:? "Configurations" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ShrinkPolicy")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> ( x Core..:? "LastSuccessfullyAppliedConfigurations"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "RequestedInstanceCount")
+            Core.<*> (x Core..:? "AutoScalingPolicy")
+            Core.<*> (x Core..:? "BidPrice")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Market")
+            Core.<*> (x Core..:? "ConfigurationsVersion")
+            Core.<*> (x Core..:? "RunningInstanceCount")
       )
 
-instance Prelude.Hashable InstanceGroup
+instance Core.Hashable InstanceGroup
 
-instance Prelude.NFData InstanceGroup
+instance Core.NFData InstanceGroup

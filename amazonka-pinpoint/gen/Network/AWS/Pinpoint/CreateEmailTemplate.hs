@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.CreateEmailTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,10 +53,10 @@ data CreateEmailTemplate = CreateEmailTemplate'
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     emailTemplateRequest :: EmailTemplateRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEmailTemplate' with all optional fields omitted.
@@ -75,7 +74,7 @@ data CreateEmailTemplate = CreateEmailTemplate'
 -- 'emailTemplateRequest', 'createEmailTemplate_emailTemplateRequest' - Undocumented member.
 newCreateEmailTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'emailTemplateRequest'
   EmailTemplateRequest ->
   CreateEmailTemplate
@@ -91,70 +90,65 @@ newCreateEmailTemplate
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-createEmailTemplate_templateName :: Lens.Lens' CreateEmailTemplate Prelude.Text
+createEmailTemplate_templateName :: Lens.Lens' CreateEmailTemplate Core.Text
 createEmailTemplate_templateName = Lens.lens (\CreateEmailTemplate' {templateName} -> templateName) (\s@CreateEmailTemplate' {} a -> s {templateName = a} :: CreateEmailTemplate)
 
 -- | Undocumented member.
 createEmailTemplate_emailTemplateRequest :: Lens.Lens' CreateEmailTemplate EmailTemplateRequest
 createEmailTemplate_emailTemplateRequest = Lens.lens (\CreateEmailTemplate' {emailTemplateRequest} -> emailTemplateRequest) (\s@CreateEmailTemplate' {} a -> s {emailTemplateRequest = a} :: CreateEmailTemplate)
 
-instance Prelude.AWSRequest CreateEmailTemplate where
+instance Core.AWSRequest CreateEmailTemplate where
   type
-    Rs CreateEmailTemplate =
+    AWSResponse CreateEmailTemplate =
       CreateEmailTemplateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateEmailTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateEmailTemplate
+instance Core.Hashable CreateEmailTemplate
 
-instance Prelude.NFData CreateEmailTemplate
+instance Core.NFData CreateEmailTemplate
 
-instance Prelude.ToHeaders CreateEmailTemplate where
+instance Core.ToHeaders CreateEmailTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateEmailTemplate where
+instance Core.ToJSON CreateEmailTemplate where
   toJSON CreateEmailTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "EmailTemplateRequest"
-                  Prelude..= emailTemplateRequest
+                  Core..= emailTemplateRequest
               )
           ]
       )
 
-instance Prelude.ToPath CreateEmailTemplate where
+instance Core.ToPath CreateEmailTemplate where
   toPath CreateEmailTemplate' {..} =
-    Prelude.mconcat
-      [ "/v1/templates/",
-        Prelude.toBS templateName,
-        "/email"
-      ]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/email"]
 
-instance Prelude.ToQuery CreateEmailTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateEmailTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateEmailTemplateResponse' smart constructor.
 data CreateEmailTemplateResponse = CreateEmailTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     createTemplateMessageBody :: CreateTemplateMessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEmailTemplateResponse' with all optional fields omitted.
@@ -169,7 +163,7 @@ data CreateEmailTemplateResponse = CreateEmailTemplateResponse'
 -- 'createTemplateMessageBody', 'createEmailTemplateResponse_createTemplateMessageBody' - Undocumented member.
 newCreateEmailTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'createTemplateMessageBody'
   CreateTemplateMessageBody ->
   CreateEmailTemplateResponse
@@ -184,11 +178,11 @@ newCreateEmailTemplateResponse
       }
 
 -- | The response's http status code.
-createEmailTemplateResponse_httpStatus :: Lens.Lens' CreateEmailTemplateResponse Prelude.Int
+createEmailTemplateResponse_httpStatus :: Lens.Lens' CreateEmailTemplateResponse Core.Int
 createEmailTemplateResponse_httpStatus = Lens.lens (\CreateEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateEmailTemplateResponse' {} a -> s {httpStatus = a} :: CreateEmailTemplateResponse)
 
 -- | Undocumented member.
 createEmailTemplateResponse_createTemplateMessageBody :: Lens.Lens' CreateEmailTemplateResponse CreateTemplateMessageBody
 createEmailTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateEmailTemplateResponse' {createTemplateMessageBody} -> createTemplateMessageBody) (\s@CreateEmailTemplateResponse' {} a -> s {createTemplateMessageBody = a} :: CreateEmailTemplateResponse)
 
-instance Prelude.NFData CreateEmailTemplateResponse
+instance Core.NFData CreateEmailTemplateResponse

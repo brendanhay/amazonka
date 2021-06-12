@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudTrail.Types.Resource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the type and name of a resource referenced by an event.
 --
@@ -34,14 +33,14 @@ data Resource = Resource'
     -- how to look up and filter events by the resource types supported for a
     -- service, see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events>.
-    resourceType :: Prelude.Maybe Prelude.Text,
+    resourceType :: Core.Maybe Core.Text,
     -- | The name of the resource referenced by the event returned. These are
     -- user-created names whose values will depend on the environment. For
     -- example, the resource name might be \"auto-scaling-test-group\" for an
     -- Auto Scaling Group or \"i-1234567\" for an EC2 Instance.
-    resourceName :: Prelude.Maybe Prelude.Text
+    resourceName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Resource' with all optional fields omitted.
@@ -67,8 +66,8 @@ newResource ::
   Resource
 newResource =
   Resource'
-    { resourceType = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+    { resourceType = Core.Nothing,
+      resourceName = Core.Nothing
     }
 
 -- | The type of a resource referenced by the event returned. When the
@@ -78,26 +77,26 @@ newResource =
 -- how to look up and filter events by the resource types supported for a
 -- service, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events Filtering CloudTrail Events>.
-resource_resourceType :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_resourceType :: Lens.Lens' Resource (Core.Maybe Core.Text)
 resource_resourceType = Lens.lens (\Resource' {resourceType} -> resourceType) (\s@Resource' {} a -> s {resourceType = a} :: Resource)
 
 -- | The name of the resource referenced by the event returned. These are
 -- user-created names whose values will depend on the environment. For
 -- example, the resource name might be \"auto-scaling-test-group\" for an
 -- Auto Scaling Group or \"i-1234567\" for an EC2 Instance.
-resource_resourceName :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_resourceName :: Lens.Lens' Resource (Core.Maybe Core.Text)
 resource_resourceName = Lens.lens (\Resource' {resourceName} -> resourceName) (\s@Resource' {} a -> s {resourceName = a} :: Resource)
 
-instance Prelude.FromJSON Resource where
+instance Core.FromJSON Resource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Prelude..:? "ResourceType")
-            Prelude.<*> (x Prelude..:? "ResourceName")
+            Core.<$> (x Core..:? "ResourceType")
+            Core.<*> (x Core..:? "ResourceName")
       )
 
-instance Prelude.Hashable Resource
+instance Core.Hashable Resource
 
-instance Prelude.NFData Resource
+instance Core.NFData Resource

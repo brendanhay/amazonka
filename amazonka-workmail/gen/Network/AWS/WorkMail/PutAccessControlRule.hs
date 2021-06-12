@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.WorkMail.PutAccessControlRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -60,31 +59,31 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newPutAccessControlRule' smart constructor.
 data PutAccessControlRule = PutAccessControlRule'
   { -- | IPv4 CIDR ranges to exclude from the rule.
-    notIpRanges :: Prelude.Maybe [Prelude.Text],
+    notIpRanges :: Core.Maybe [Core.Text],
     -- | IPv4 CIDR ranges to include in the rule.
-    ipRanges :: Prelude.Maybe [Prelude.Text],
+    ipRanges :: Core.Maybe [Core.Text],
     -- | Access protocol actions to include in the rule. Valid values include
     -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
     -- and @WebMail@.
-    actions :: Prelude.Maybe [Prelude.Text],
+    actions :: Core.Maybe [Core.Text],
     -- | User IDs to include in the rule.
-    userIds :: Prelude.Maybe [Prelude.Text],
+    userIds :: Core.Maybe [Core.Text],
     -- | Access protocol actions to exclude from the rule. Valid values include
     -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
     -- and @WebMail@.
-    notActions :: Prelude.Maybe [Prelude.Text],
+    notActions :: Core.Maybe [Core.Text],
     -- | User IDs to exclude from the rule.
-    notUserIds :: Prelude.Maybe [Prelude.Text],
+    notUserIds :: Core.Maybe [Core.Text],
     -- | The rule name.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The rule effect.
     effect :: AccessControlRuleEffect,
     -- | The rule description.
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | The identifier of the organization.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAccessControlRule' with all optional fields omitted.
@@ -119,13 +118,13 @@ data PutAccessControlRule = PutAccessControlRule'
 -- 'organizationId', 'putAccessControlRule_organizationId' - The identifier of the organization.
 newPutAccessControlRule ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'effect'
   AccessControlRuleEffect ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   PutAccessControlRule
 newPutAccessControlRule
   pName_
@@ -133,13 +132,12 @@ newPutAccessControlRule
   pDescription_
   pOrganizationId_ =
     PutAccessControlRule'
-      { notIpRanges =
-          Prelude.Nothing,
-        ipRanges = Prelude.Nothing,
-        actions = Prelude.Nothing,
-        userIds = Prelude.Nothing,
-        notActions = Prelude.Nothing,
-        notUserIds = Prelude.Nothing,
+      { notIpRanges = Core.Nothing,
+        ipRanges = Core.Nothing,
+        actions = Core.Nothing,
+        userIds = Core.Nothing,
+        notActions = Core.Nothing,
+        notUserIds = Core.Nothing,
         name = pName_,
         effect = pEffect_,
         description = pDescription_,
@@ -147,35 +145,35 @@ newPutAccessControlRule
       }
 
 -- | IPv4 CIDR ranges to exclude from the rule.
-putAccessControlRule_notIpRanges :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_notIpRanges = Lens.lens (\PutAccessControlRule' {notIpRanges} -> notIpRanges) (\s@PutAccessControlRule' {} a -> s {notIpRanges = a} :: PutAccessControlRule) Prelude.. Lens.mapping Prelude._Coerce
+putAccessControlRule_notIpRanges :: Lens.Lens' PutAccessControlRule (Core.Maybe [Core.Text])
+putAccessControlRule_notIpRanges = Lens.lens (\PutAccessControlRule' {notIpRanges} -> notIpRanges) (\s@PutAccessControlRule' {} a -> s {notIpRanges = a} :: PutAccessControlRule) Core.. Lens.mapping Lens._Coerce
 
 -- | IPv4 CIDR ranges to include in the rule.
-putAccessControlRule_ipRanges :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_ipRanges = Lens.lens (\PutAccessControlRule' {ipRanges} -> ipRanges) (\s@PutAccessControlRule' {} a -> s {ipRanges = a} :: PutAccessControlRule) Prelude.. Lens.mapping Prelude._Coerce
+putAccessControlRule_ipRanges :: Lens.Lens' PutAccessControlRule (Core.Maybe [Core.Text])
+putAccessControlRule_ipRanges = Lens.lens (\PutAccessControlRule' {ipRanges} -> ipRanges) (\s@PutAccessControlRule' {} a -> s {ipRanges = a} :: PutAccessControlRule) Core.. Lens.mapping Lens._Coerce
 
 -- | Access protocol actions to include in the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
 -- and @WebMail@.
-putAccessControlRule_actions :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_actions = Lens.lens (\PutAccessControlRule' {actions} -> actions) (\s@PutAccessControlRule' {} a -> s {actions = a} :: PutAccessControlRule) Prelude.. Lens.mapping Prelude._Coerce
+putAccessControlRule_actions :: Lens.Lens' PutAccessControlRule (Core.Maybe [Core.Text])
+putAccessControlRule_actions = Lens.lens (\PutAccessControlRule' {actions} -> actions) (\s@PutAccessControlRule' {} a -> s {actions = a} :: PutAccessControlRule) Core.. Lens.mapping Lens._Coerce
 
 -- | User IDs to include in the rule.
-putAccessControlRule_userIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_userIds = Lens.lens (\PutAccessControlRule' {userIds} -> userIds) (\s@PutAccessControlRule' {} a -> s {userIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Prelude._Coerce
+putAccessControlRule_userIds :: Lens.Lens' PutAccessControlRule (Core.Maybe [Core.Text])
+putAccessControlRule_userIds = Lens.lens (\PutAccessControlRule' {userIds} -> userIds) (\s@PutAccessControlRule' {} a -> s {userIds = a} :: PutAccessControlRule) Core.. Lens.mapping Lens._Coerce
 
 -- | Access protocol actions to exclude from the rule. Valid values include
 -- @ActiveSync@, @AutoDiscover@, @EWS@, @IMAP@, @SMTP@, @WindowsOutlook@,
 -- and @WebMail@.
-putAccessControlRule_notActions :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_notActions = Lens.lens (\PutAccessControlRule' {notActions} -> notActions) (\s@PutAccessControlRule' {} a -> s {notActions = a} :: PutAccessControlRule) Prelude.. Lens.mapping Prelude._Coerce
+putAccessControlRule_notActions :: Lens.Lens' PutAccessControlRule (Core.Maybe [Core.Text])
+putAccessControlRule_notActions = Lens.lens (\PutAccessControlRule' {notActions} -> notActions) (\s@PutAccessControlRule' {} a -> s {notActions = a} :: PutAccessControlRule) Core.. Lens.mapping Lens._Coerce
 
 -- | User IDs to exclude from the rule.
-putAccessControlRule_notUserIds :: Lens.Lens' PutAccessControlRule (Prelude.Maybe [Prelude.Text])
-putAccessControlRule_notUserIds = Lens.lens (\PutAccessControlRule' {notUserIds} -> notUserIds) (\s@PutAccessControlRule' {} a -> s {notUserIds = a} :: PutAccessControlRule) Prelude.. Lens.mapping Prelude._Coerce
+putAccessControlRule_notUserIds :: Lens.Lens' PutAccessControlRule (Core.Maybe [Core.Text])
+putAccessControlRule_notUserIds = Lens.lens (\PutAccessControlRule' {notUserIds} -> notUserIds) (\s@PutAccessControlRule' {} a -> s {notUserIds = a} :: PutAccessControlRule) Core.. Lens.mapping Lens._Coerce
 
 -- | The rule name.
-putAccessControlRule_name :: Lens.Lens' PutAccessControlRule Prelude.Text
+putAccessControlRule_name :: Lens.Lens' PutAccessControlRule Core.Text
 putAccessControlRule_name = Lens.lens (\PutAccessControlRule' {name} -> name) (\s@PutAccessControlRule' {} a -> s {name = a} :: PutAccessControlRule)
 
 -- | The rule effect.
@@ -183,74 +181,71 @@ putAccessControlRule_effect :: Lens.Lens' PutAccessControlRule AccessControlRule
 putAccessControlRule_effect = Lens.lens (\PutAccessControlRule' {effect} -> effect) (\s@PutAccessControlRule' {} a -> s {effect = a} :: PutAccessControlRule)
 
 -- | The rule description.
-putAccessControlRule_description :: Lens.Lens' PutAccessControlRule Prelude.Text
+putAccessControlRule_description :: Lens.Lens' PutAccessControlRule Core.Text
 putAccessControlRule_description = Lens.lens (\PutAccessControlRule' {description} -> description) (\s@PutAccessControlRule' {} a -> s {description = a} :: PutAccessControlRule)
 
 -- | The identifier of the organization.
-putAccessControlRule_organizationId :: Lens.Lens' PutAccessControlRule Prelude.Text
+putAccessControlRule_organizationId :: Lens.Lens' PutAccessControlRule Core.Text
 putAccessControlRule_organizationId = Lens.lens (\PutAccessControlRule' {organizationId} -> organizationId) (\s@PutAccessControlRule' {} a -> s {organizationId = a} :: PutAccessControlRule)
 
-instance Prelude.AWSRequest PutAccessControlRule where
+instance Core.AWSRequest PutAccessControlRule where
   type
-    Rs PutAccessControlRule =
+    AWSResponse PutAccessControlRule =
       PutAccessControlRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAccessControlRuleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutAccessControlRule
+instance Core.Hashable PutAccessControlRule
 
-instance Prelude.NFData PutAccessControlRule
+instance Core.NFData PutAccessControlRule
 
-instance Prelude.ToHeaders PutAccessControlRule where
+instance Core.ToHeaders PutAccessControlRule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.PutAccessControlRule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.PutAccessControlRule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutAccessControlRule where
+instance Core.ToJSON PutAccessControlRule where
   toJSON PutAccessControlRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NotIpRanges" Prelude..=) Prelude.<$> notIpRanges,
-            ("IpRanges" Prelude..=) Prelude.<$> ipRanges,
-            ("Actions" Prelude..=) Prelude.<$> actions,
-            ("UserIds" Prelude..=) Prelude.<$> userIds,
-            ("NotActions" Prelude..=) Prelude.<$> notActions,
-            ("NotUserIds" Prelude..=) Prelude.<$> notUserIds,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Effect" Prelude..= effect),
-            Prelude.Just ("Description" Prelude..= description),
-            Prelude.Just
-              ("OrganizationId" Prelude..= organizationId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NotIpRanges" Core..=) Core.<$> notIpRanges,
+            ("IpRanges" Core..=) Core.<$> ipRanges,
+            ("Actions" Core..=) Core.<$> actions,
+            ("UserIds" Core..=) Core.<$> userIds,
+            ("NotActions" Core..=) Core.<$> notActions,
+            ("NotUserIds" Core..=) Core.<$> notUserIds,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Effect" Core..= effect),
+            Core.Just ("Description" Core..= description),
+            Core.Just ("OrganizationId" Core..= organizationId)
           ]
       )
 
-instance Prelude.ToPath PutAccessControlRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutAccessControlRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutAccessControlRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutAccessControlRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutAccessControlRuleResponse' smart constructor.
 data PutAccessControlRuleResponse = PutAccessControlRuleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAccessControlRuleResponse' with all optional fields omitted.
@@ -263,7 +258,7 @@ data PutAccessControlRuleResponse = PutAccessControlRuleResponse'
 -- 'httpStatus', 'putAccessControlRuleResponse_httpStatus' - The response's http status code.
 newPutAccessControlRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutAccessControlRuleResponse
 newPutAccessControlRuleResponse pHttpStatus_ =
   PutAccessControlRuleResponse'
@@ -272,7 +267,7 @@ newPutAccessControlRuleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putAccessControlRuleResponse_httpStatus :: Lens.Lens' PutAccessControlRuleResponse Prelude.Int
+putAccessControlRuleResponse_httpStatus :: Lens.Lens' PutAccessControlRuleResponse Core.Int
 putAccessControlRuleResponse_httpStatus = Lens.lens (\PutAccessControlRuleResponse' {httpStatus} -> httpStatus) (\s@PutAccessControlRuleResponse' {} a -> s {httpStatus = a} :: PutAccessControlRuleResponse)
 
-instance Prelude.NFData PutAccessControlRuleResponse
+instance Core.NFData PutAccessControlRuleResponse

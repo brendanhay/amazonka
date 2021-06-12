@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -76,8 +75,8 @@ module Network.AWS.WAFRegional.UpdateRuleGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -86,7 +85,7 @@ import Network.AWS.WAFRegional.Types
 data UpdateRuleGroup = UpdateRuleGroup'
   { -- | The @RuleGroupId@ of the RuleGroup that you want to update.
     -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-    ruleGroupId :: Prelude.Text,
+    ruleGroupId :: Core.Text,
     -- | An array of @RuleGroupUpdate@ objects that you want to insert into or
     -- delete from a RuleGroup.
     --
@@ -97,11 +96,11 @@ data UpdateRuleGroup = UpdateRuleGroup'
     -- @ActivatedRule|Action@. For all other update requests,
     -- @ActivatedRule|Action@ is used instead of
     -- @ActivatedRule|OverrideAction@.
-    updates :: Prelude.NonEmpty RuleGroupUpdate,
+    updates :: Core.NonEmpty RuleGroupUpdate,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text
+    changeToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRuleGroup' with all optional fields omitted.
@@ -128,11 +127,11 @@ data UpdateRuleGroup = UpdateRuleGroup'
 -- 'changeToken', 'updateRuleGroup_changeToken' - The value returned by the most recent call to GetChangeToken.
 newUpdateRuleGroup ::
   -- | 'ruleGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updates'
-  Prelude.NonEmpty RuleGroupUpdate ->
+  Core.NonEmpty RuleGroupUpdate ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   UpdateRuleGroup
 newUpdateRuleGroup
   pRuleGroupId_
@@ -140,13 +139,13 @@ newUpdateRuleGroup
   pChangeToken_ =
     UpdateRuleGroup'
       { ruleGroupId = pRuleGroupId_,
-        updates = Prelude._Coerce Lens.# pUpdates_,
+        updates = Lens._Coerce Lens.# pUpdates_,
         changeToken = pChangeToken_
       }
 
 -- | The @RuleGroupId@ of the RuleGroup that you want to update.
 -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-updateRuleGroup_ruleGroupId :: Lens.Lens' UpdateRuleGroup Prelude.Text
+updateRuleGroup_ruleGroupId :: Lens.Lens' UpdateRuleGroup Core.Text
 updateRuleGroup_ruleGroupId = Lens.lens (\UpdateRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@UpdateRuleGroup' {} a -> s {ruleGroupId = a} :: UpdateRuleGroup)
 
 -- | An array of @RuleGroupUpdate@ objects that you want to insert into or
@@ -159,69 +158,69 @@ updateRuleGroup_ruleGroupId = Lens.lens (\UpdateRuleGroup' {ruleGroupId} -> rule
 -- @ActivatedRule|Action@. For all other update requests,
 -- @ActivatedRule|Action@ is used instead of
 -- @ActivatedRule|OverrideAction@.
-updateRuleGroup_updates :: Lens.Lens' UpdateRuleGroup (Prelude.NonEmpty RuleGroupUpdate)
-updateRuleGroup_updates = Lens.lens (\UpdateRuleGroup' {updates} -> updates) (\s@UpdateRuleGroup' {} a -> s {updates = a} :: UpdateRuleGroup) Prelude.. Prelude._Coerce
+updateRuleGroup_updates :: Lens.Lens' UpdateRuleGroup (Core.NonEmpty RuleGroupUpdate)
+updateRuleGroup_updates = Lens.lens (\UpdateRuleGroup' {updates} -> updates) (\s@UpdateRuleGroup' {} a -> s {updates = a} :: UpdateRuleGroup) Core.. Lens._Coerce
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateRuleGroup_changeToken :: Lens.Lens' UpdateRuleGroup Prelude.Text
+updateRuleGroup_changeToken :: Lens.Lens' UpdateRuleGroup Core.Text
 updateRuleGroup_changeToken = Lens.lens (\UpdateRuleGroup' {changeToken} -> changeToken) (\s@UpdateRuleGroup' {} a -> s {changeToken = a} :: UpdateRuleGroup)
 
-instance Prelude.AWSRequest UpdateRuleGroup where
-  type Rs UpdateRuleGroup = UpdateRuleGroupResponse
+instance Core.AWSRequest UpdateRuleGroup where
+  type
+    AWSResponse UpdateRuleGroup =
+      UpdateRuleGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRuleGroupResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRuleGroup
+instance Core.Hashable UpdateRuleGroup
 
-instance Prelude.NFData UpdateRuleGroup
+instance Core.NFData UpdateRuleGroup
 
-instance Prelude.ToHeaders UpdateRuleGroup where
+instance Core.ToHeaders UpdateRuleGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.UpdateRuleGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.UpdateRuleGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateRuleGroup where
+instance Core.ToJSON UpdateRuleGroup where
   toJSON UpdateRuleGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("RuleGroupId" Prelude..= ruleGroupId),
-            Prelude.Just ("Updates" Prelude..= updates),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RuleGroupId" Core..= ruleGroupId),
+            Core.Just ("Updates" Core..= updates),
+            Core.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
-instance Prelude.ToPath UpdateRuleGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateRuleGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateRuleGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRuleGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateRuleGroupResponse' smart constructor.
 data UpdateRuleGroupResponse = UpdateRuleGroupResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateRuleGroup@ request.
     -- You can also use this value to query the status of the request. For more
     -- information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRuleGroupResponse' with all optional fields omitted.
@@ -238,23 +237,23 @@ data UpdateRuleGroupResponse = UpdateRuleGroupResponse'
 -- 'httpStatus', 'updateRuleGroupResponse_httpStatus' - The response's http status code.
 newUpdateRuleGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateRuleGroupResponse
 newUpdateRuleGroupResponse pHttpStatus_ =
   UpdateRuleGroupResponse'
     { changeToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateRuleGroup@ request.
 -- You can also use this value to query the status of the request. For more
 -- information, see GetChangeTokenStatus.
-updateRuleGroupResponse_changeToken :: Lens.Lens' UpdateRuleGroupResponse (Prelude.Maybe Prelude.Text)
+updateRuleGroupResponse_changeToken :: Lens.Lens' UpdateRuleGroupResponse (Core.Maybe Core.Text)
 updateRuleGroupResponse_changeToken = Lens.lens (\UpdateRuleGroupResponse' {changeToken} -> changeToken) (\s@UpdateRuleGroupResponse' {} a -> s {changeToken = a} :: UpdateRuleGroupResponse)
 
 -- | The response's http status code.
-updateRuleGroupResponse_httpStatus :: Lens.Lens' UpdateRuleGroupResponse Prelude.Int
+updateRuleGroupResponse_httpStatus :: Lens.Lens' UpdateRuleGroupResponse Core.Int
 updateRuleGroupResponse_httpStatus = Lens.lens (\UpdateRuleGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateRuleGroupResponse' {} a -> s {httpStatus = a} :: UpdateRuleGroupResponse)
 
-instance Prelude.NFData UpdateRuleGroupResponse
+instance Core.NFData UpdateRuleGroupResponse

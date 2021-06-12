@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.KinesisFirehoseDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the delivery stream ARN and the IAM role ARN associated with an
 -- Amazon Kinesis Firehose event destination.
@@ -35,12 +34,12 @@ import qualified Network.AWS.Prelude as Prelude
 data KinesisFirehoseDestination = KinesisFirehoseDestination'
   { -- | The ARN of the IAM role under which Amazon SES publishes email sending
     -- events to the Amazon Kinesis Firehose stream.
-    iAMRoleARN :: Prelude.Text,
+    iAMRoleARN :: Core.Text,
     -- | The ARN of the Amazon Kinesis Firehose stream that email sending events
     -- should be published to.
-    deliveryStreamARN :: Prelude.Text
+    deliveryStreamARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisFirehoseDestination' with all optional fields omitted.
@@ -57,9 +56,9 @@ data KinesisFirehoseDestination = KinesisFirehoseDestination'
 -- should be published to.
 newKinesisFirehoseDestination ::
   -- | 'iAMRoleARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deliveryStreamARN'
-  Prelude.Text ->
+  Core.Text ->
   KinesisFirehoseDestination
 newKinesisFirehoseDestination
   pIAMRoleARN_
@@ -72,27 +71,27 @@ newKinesisFirehoseDestination
 
 -- | The ARN of the IAM role under which Amazon SES publishes email sending
 -- events to the Amazon Kinesis Firehose stream.
-kinesisFirehoseDestination_iAMRoleARN :: Lens.Lens' KinesisFirehoseDestination Prelude.Text
+kinesisFirehoseDestination_iAMRoleARN :: Lens.Lens' KinesisFirehoseDestination Core.Text
 kinesisFirehoseDestination_iAMRoleARN = Lens.lens (\KinesisFirehoseDestination' {iAMRoleARN} -> iAMRoleARN) (\s@KinesisFirehoseDestination' {} a -> s {iAMRoleARN = a} :: KinesisFirehoseDestination)
 
 -- | The ARN of the Amazon Kinesis Firehose stream that email sending events
 -- should be published to.
-kinesisFirehoseDestination_deliveryStreamARN :: Lens.Lens' KinesisFirehoseDestination Prelude.Text
+kinesisFirehoseDestination_deliveryStreamARN :: Lens.Lens' KinesisFirehoseDestination Core.Text
 kinesisFirehoseDestination_deliveryStreamARN = Lens.lens (\KinesisFirehoseDestination' {deliveryStreamARN} -> deliveryStreamARN) (\s@KinesisFirehoseDestination' {} a -> s {deliveryStreamARN = a} :: KinesisFirehoseDestination)
 
-instance Prelude.FromXML KinesisFirehoseDestination where
+instance Core.FromXML KinesisFirehoseDestination where
   parseXML x =
     KinesisFirehoseDestination'
-      Prelude.<$> (x Prelude..@ "IAMRoleARN")
-      Prelude.<*> (x Prelude..@ "DeliveryStreamARN")
+      Core.<$> (x Core..@ "IAMRoleARN")
+      Core.<*> (x Core..@ "DeliveryStreamARN")
 
-instance Prelude.Hashable KinesisFirehoseDestination
+instance Core.Hashable KinesisFirehoseDestination
 
-instance Prelude.NFData KinesisFirehoseDestination
+instance Core.NFData KinesisFirehoseDestination
 
-instance Prelude.ToQuery KinesisFirehoseDestination where
+instance Core.ToQuery KinesisFirehoseDestination where
   toQuery KinesisFirehoseDestination' {..} =
-    Prelude.mconcat
-      [ "IAMRoleARN" Prelude.=: iAMRoleARN,
-        "DeliveryStreamARN" Prelude.=: deliveryStreamARN
+    Core.mconcat
+      [ "IAMRoleARN" Core.=: iAMRoleARN,
+        "DeliveryStreamARN" Core.=: deliveryStreamARN
       ]

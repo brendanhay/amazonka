@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SDB.Types.DeletableItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SDB.Types.Attribute
 
 -- | /See:/ 'newDeletableItem' smart constructor.
 data DeletableItem = DeletableItem'
-  { attributes :: Prelude.Maybe [Attribute],
-    name :: Prelude.Text
+  { attributes :: Core.Maybe [Attribute],
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletableItem' with all optional fields omitted.
@@ -44,32 +43,30 @@ data DeletableItem = DeletableItem'
 -- 'name', 'deletableItem_name' - Undocumented member.
 newDeletableItem ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeletableItem
 newDeletableItem pName_ =
   DeletableItem'
-    { attributes = Prelude.Nothing,
+    { attributes = Core.Nothing,
       name = pName_
     }
 
 -- | Undocumented member.
-deletableItem_attributes :: Lens.Lens' DeletableItem (Prelude.Maybe [Attribute])
-deletableItem_attributes = Lens.lens (\DeletableItem' {attributes} -> attributes) (\s@DeletableItem' {} a -> s {attributes = a} :: DeletableItem) Prelude.. Lens.mapping Prelude._Coerce
+deletableItem_attributes :: Lens.Lens' DeletableItem (Core.Maybe [Attribute])
+deletableItem_attributes = Lens.lens (\DeletableItem' {attributes} -> attributes) (\s@DeletableItem' {} a -> s {attributes = a} :: DeletableItem) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-deletableItem_name :: Lens.Lens' DeletableItem Prelude.Text
+deletableItem_name :: Lens.Lens' DeletableItem Core.Text
 deletableItem_name = Lens.lens (\DeletableItem' {name} -> name) (\s@DeletableItem' {} a -> s {name = a} :: DeletableItem)
 
-instance Prelude.Hashable DeletableItem
+instance Core.Hashable DeletableItem
 
-instance Prelude.NFData DeletableItem
+instance Core.NFData DeletableItem
 
-instance Prelude.ToQuery DeletableItem where
+instance Core.ToQuery DeletableItem where
   toQuery DeletableItem' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          ( Prelude.toQueryList "Attribute"
-              Prelude.<$> attributes
-          ),
-        "ItemName" Prelude.=: name
+    Core.mconcat
+      [ Core.toQuery
+          (Core.toQueryList "Attribute" Core.<$> attributes),
+        "ItemName" Core.=: name
       ]

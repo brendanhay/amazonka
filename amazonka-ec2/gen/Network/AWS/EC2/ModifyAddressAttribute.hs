@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.ModifyAddressAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ data ModifyAddressAttribute = ModifyAddressAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The domain name to modify for the IP address.
-    domainName :: Prelude.Maybe Prelude.Text,
+    domainName :: Core.Maybe Core.Text,
     -- | [EC2-VPC] The allocation ID.
-    allocationId :: Prelude.Text
+    allocationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyAddressAttribute' with all optional fields omitted.
@@ -82,12 +81,12 @@ data ModifyAddressAttribute = ModifyAddressAttribute'
 -- 'allocationId', 'modifyAddressAttribute_allocationId' - [EC2-VPC] The allocation ID.
 newModifyAddressAttribute ::
   -- | 'allocationId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyAddressAttribute
 newModifyAddressAttribute pAllocationId_ =
   ModifyAddressAttribute'
-    { dryRun = Prelude.Nothing,
-      domainName = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      domainName = Core.Nothing,
       allocationId = pAllocationId_
     }
 
@@ -95,60 +94,59 @@ newModifyAddressAttribute pAllocationId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyAddressAttribute_dryRun :: Lens.Lens' ModifyAddressAttribute (Prelude.Maybe Prelude.Bool)
+modifyAddressAttribute_dryRun :: Lens.Lens' ModifyAddressAttribute (Core.Maybe Core.Bool)
 modifyAddressAttribute_dryRun = Lens.lens (\ModifyAddressAttribute' {dryRun} -> dryRun) (\s@ModifyAddressAttribute' {} a -> s {dryRun = a} :: ModifyAddressAttribute)
 
 -- | The domain name to modify for the IP address.
-modifyAddressAttribute_domainName :: Lens.Lens' ModifyAddressAttribute (Prelude.Maybe Prelude.Text)
+modifyAddressAttribute_domainName :: Lens.Lens' ModifyAddressAttribute (Core.Maybe Core.Text)
 modifyAddressAttribute_domainName = Lens.lens (\ModifyAddressAttribute' {domainName} -> domainName) (\s@ModifyAddressAttribute' {} a -> s {domainName = a} :: ModifyAddressAttribute)
 
 -- | [EC2-VPC] The allocation ID.
-modifyAddressAttribute_allocationId :: Lens.Lens' ModifyAddressAttribute Prelude.Text
+modifyAddressAttribute_allocationId :: Lens.Lens' ModifyAddressAttribute Core.Text
 modifyAddressAttribute_allocationId = Lens.lens (\ModifyAddressAttribute' {allocationId} -> allocationId) (\s@ModifyAddressAttribute' {} a -> s {allocationId = a} :: ModifyAddressAttribute)
 
-instance Prelude.AWSRequest ModifyAddressAttribute where
+instance Core.AWSRequest ModifyAddressAttribute where
   type
-    Rs ModifyAddressAttribute =
+    AWSResponse ModifyAddressAttribute =
       ModifyAddressAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyAddressAttributeResponse'
-            Prelude.<$> (x Prelude..@? "address")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "address")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyAddressAttribute
+instance Core.Hashable ModifyAddressAttribute
 
-instance Prelude.NFData ModifyAddressAttribute
+instance Core.NFData ModifyAddressAttribute
 
-instance Prelude.ToHeaders ModifyAddressAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyAddressAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyAddressAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyAddressAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyAddressAttribute where
+instance Core.ToQuery ModifyAddressAttribute where
   toQuery ModifyAddressAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyAddressAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "DomainName" Prelude.=: domainName,
-        "AllocationId" Prelude.=: allocationId
+          Core.=: ("ModifyAddressAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "DomainName" Core.=: domainName,
+        "AllocationId" Core.=: allocationId
       ]
 
 -- | /See:/ 'newModifyAddressAttributeResponse' smart constructor.
 data ModifyAddressAttributeResponse = ModifyAddressAttributeResponse'
   { -- | Information about the Elastic IP address.
-    address :: Prelude.Maybe AddressAttribute,
+    address :: Core.Maybe AddressAttribute,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyAddressAttributeResponse' with all optional fields omitted.
@@ -163,23 +161,21 @@ data ModifyAddressAttributeResponse = ModifyAddressAttributeResponse'
 -- 'httpStatus', 'modifyAddressAttributeResponse_httpStatus' - The response's http status code.
 newModifyAddressAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyAddressAttributeResponse
 newModifyAddressAttributeResponse pHttpStatus_ =
   ModifyAddressAttributeResponse'
     { address =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Elastic IP address.
-modifyAddressAttributeResponse_address :: Lens.Lens' ModifyAddressAttributeResponse (Prelude.Maybe AddressAttribute)
+modifyAddressAttributeResponse_address :: Lens.Lens' ModifyAddressAttributeResponse (Core.Maybe AddressAttribute)
 modifyAddressAttributeResponse_address = Lens.lens (\ModifyAddressAttributeResponse' {address} -> address) (\s@ModifyAddressAttributeResponse' {} a -> s {address = a} :: ModifyAddressAttributeResponse)
 
 -- | The response's http status code.
-modifyAddressAttributeResponse_httpStatus :: Lens.Lens' ModifyAddressAttributeResponse Prelude.Int
+modifyAddressAttributeResponse_httpStatus :: Lens.Lens' ModifyAddressAttributeResponse Core.Int
 modifyAddressAttributeResponse_httpStatus = Lens.lens (\ModifyAddressAttributeResponse' {httpStatus} -> httpStatus) (\s@ModifyAddressAttributeResponse' {} a -> s {httpStatus = a} :: ModifyAddressAttributeResponse)
 
-instance
-  Prelude.NFData
-    ModifyAddressAttributeResponse
+instance Core.NFData ModifyAddressAttributeResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SageMaker.DeleteModelPackage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,9 +49,9 @@ import Network.AWS.SageMaker.Types
 data DeleteModelPackage = DeleteModelPackage'
   { -- | The name of the model package. The name must have 1 to 63 characters.
     -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-    modelPackageName :: Prelude.Text
+    modelPackageName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelPackage' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeleteModelPackage = DeleteModelPackage'
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
 newDeleteModelPackage ::
   -- | 'modelPackageName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteModelPackage
 newDeleteModelPackage pModelPackageName_ =
   DeleteModelPackage'
@@ -76,56 +75,52 @@ newDeleteModelPackage pModelPackageName_ =
 
 -- | The name of the model package. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
-deleteModelPackage_modelPackageName :: Lens.Lens' DeleteModelPackage Prelude.Text
+deleteModelPackage_modelPackageName :: Lens.Lens' DeleteModelPackage Core.Text
 deleteModelPackage_modelPackageName = Lens.lens (\DeleteModelPackage' {modelPackageName} -> modelPackageName) (\s@DeleteModelPackage' {} a -> s {modelPackageName = a} :: DeleteModelPackage)
 
-instance Prelude.AWSRequest DeleteModelPackage where
+instance Core.AWSRequest DeleteModelPackage where
   type
-    Rs DeleteModelPackage =
+    AWSResponse DeleteModelPackage =
       DeleteModelPackageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteModelPackageResponse'
 
-instance Prelude.Hashable DeleteModelPackage
+instance Core.Hashable DeleteModelPackage
 
-instance Prelude.NFData DeleteModelPackage
+instance Core.NFData DeleteModelPackage
 
-instance Prelude.ToHeaders DeleteModelPackage where
+instance Core.ToHeaders DeleteModelPackage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteModelPackage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DeleteModelPackage" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteModelPackage where
+instance Core.ToJSON DeleteModelPackage where
   toJSON DeleteModelPackage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ModelPackageName" Prelude..= modelPackageName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ModelPackageName" Core..= modelPackageName)
           ]
       )
 
-instance Prelude.ToPath DeleteModelPackage where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteModelPackage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteModelPackage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteModelPackage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteModelPackageResponse' smart constructor.
 data DeleteModelPackageResponse = DeleteModelPackageResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteModelPackageResponse' with all optional fields omitted.
@@ -136,4 +131,4 @@ newDeleteModelPackageResponse ::
 newDeleteModelPackageResponse =
   DeleteModelPackageResponse'
 
-instance Prelude.NFData DeleteModelPackageResponse
+instance Core.NFData DeleteModelPackageResponse

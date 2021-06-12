@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.DataCaptureConfigSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CaptureStatus
 
 -- |
 --
 -- /See:/ 'newDataCaptureConfigSummary' smart constructor.
 data DataCaptureConfigSummary = DataCaptureConfigSummary'
-  { enableCapture :: Prelude.Bool,
+  { enableCapture :: Core.Bool,
     captureStatus :: CaptureStatus,
-    currentSamplingPercentage :: Prelude.Natural,
-    destinationS3Uri :: Prelude.Text,
-    kmsKeyId :: Prelude.Text
+    currentSamplingPercentage :: Core.Natural,
+    destinationS3Uri :: Core.Text,
+    kmsKeyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataCaptureConfigSummary' with all optional fields omitted.
@@ -55,15 +54,15 @@ data DataCaptureConfigSummary = DataCaptureConfigSummary'
 -- 'kmsKeyId', 'dataCaptureConfigSummary_kmsKeyId' -
 newDataCaptureConfigSummary ::
   -- | 'enableCapture'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'captureStatus'
   CaptureStatus ->
   -- | 'currentSamplingPercentage'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'destinationS3Uri'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'kmsKeyId'
-  Prelude.Text ->
+  Core.Text ->
   DataCaptureConfigSummary
 newDataCaptureConfigSummary
   pEnableCapture_
@@ -82,7 +81,7 @@ newDataCaptureConfigSummary
       }
 
 -- |
-dataCaptureConfigSummary_enableCapture :: Lens.Lens' DataCaptureConfigSummary Prelude.Bool
+dataCaptureConfigSummary_enableCapture :: Lens.Lens' DataCaptureConfigSummary Core.Bool
 dataCaptureConfigSummary_enableCapture = Lens.lens (\DataCaptureConfigSummary' {enableCapture} -> enableCapture) (\s@DataCaptureConfigSummary' {} a -> s {enableCapture = a} :: DataCaptureConfigSummary)
 
 -- |
@@ -90,30 +89,30 @@ dataCaptureConfigSummary_captureStatus :: Lens.Lens' DataCaptureConfigSummary Ca
 dataCaptureConfigSummary_captureStatus = Lens.lens (\DataCaptureConfigSummary' {captureStatus} -> captureStatus) (\s@DataCaptureConfigSummary' {} a -> s {captureStatus = a} :: DataCaptureConfigSummary)
 
 -- |
-dataCaptureConfigSummary_currentSamplingPercentage :: Lens.Lens' DataCaptureConfigSummary Prelude.Natural
+dataCaptureConfigSummary_currentSamplingPercentage :: Lens.Lens' DataCaptureConfigSummary Core.Natural
 dataCaptureConfigSummary_currentSamplingPercentage = Lens.lens (\DataCaptureConfigSummary' {currentSamplingPercentage} -> currentSamplingPercentage) (\s@DataCaptureConfigSummary' {} a -> s {currentSamplingPercentage = a} :: DataCaptureConfigSummary)
 
 -- |
-dataCaptureConfigSummary_destinationS3Uri :: Lens.Lens' DataCaptureConfigSummary Prelude.Text
+dataCaptureConfigSummary_destinationS3Uri :: Lens.Lens' DataCaptureConfigSummary Core.Text
 dataCaptureConfigSummary_destinationS3Uri = Lens.lens (\DataCaptureConfigSummary' {destinationS3Uri} -> destinationS3Uri) (\s@DataCaptureConfigSummary' {} a -> s {destinationS3Uri = a} :: DataCaptureConfigSummary)
 
 -- |
-dataCaptureConfigSummary_kmsKeyId :: Lens.Lens' DataCaptureConfigSummary Prelude.Text
+dataCaptureConfigSummary_kmsKeyId :: Lens.Lens' DataCaptureConfigSummary Core.Text
 dataCaptureConfigSummary_kmsKeyId = Lens.lens (\DataCaptureConfigSummary' {kmsKeyId} -> kmsKeyId) (\s@DataCaptureConfigSummary' {} a -> s {kmsKeyId = a} :: DataCaptureConfigSummary)
 
-instance Prelude.FromJSON DataCaptureConfigSummary where
+instance Core.FromJSON DataCaptureConfigSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DataCaptureConfigSummary"
       ( \x ->
           DataCaptureConfigSummary'
-            Prelude.<$> (x Prelude..: "EnableCapture")
-            Prelude.<*> (x Prelude..: "CaptureStatus")
-            Prelude.<*> (x Prelude..: "CurrentSamplingPercentage")
-            Prelude.<*> (x Prelude..: "DestinationS3Uri")
-            Prelude.<*> (x Prelude..: "KmsKeyId")
+            Core.<$> (x Core..: "EnableCapture")
+            Core.<*> (x Core..: "CaptureStatus")
+            Core.<*> (x Core..: "CurrentSamplingPercentage")
+            Core.<*> (x Core..: "DestinationS3Uri")
+            Core.<*> (x Core..: "KmsKeyId")
       )
 
-instance Prelude.Hashable DataCaptureConfigSummary
+instance Core.Hashable DataCaptureConfigSummary
 
-instance Prelude.NFData DataCaptureConfigSummary
+instance Core.NFData DataCaptureConfigSummary

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,20 +53,20 @@ module Network.AWS.ELBv2.RegisterTargets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Prelude.Text,
+    targetGroupArn :: Core.Text,
     -- | The targets.
     targets :: [TargetDescription]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterTargets' with all optional fields omitted.
@@ -82,61 +81,61 @@ data RegisterTargets = RegisterTargets'
 -- 'targets', 'registerTargets_targets' - The targets.
 newRegisterTargets ::
   -- | 'targetGroupArn'
-  Prelude.Text ->
+  Core.Text ->
   RegisterTargets
 newRegisterTargets pTargetGroupArn_ =
   RegisterTargets'
     { targetGroupArn = pTargetGroupArn_,
-      targets = Prelude.mempty
+      targets = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-registerTargets_targetGroupArn :: Lens.Lens' RegisterTargets Prelude.Text
+registerTargets_targetGroupArn :: Lens.Lens' RegisterTargets Core.Text
 registerTargets_targetGroupArn = Lens.lens (\RegisterTargets' {targetGroupArn} -> targetGroupArn) (\s@RegisterTargets' {} a -> s {targetGroupArn = a} :: RegisterTargets)
 
 -- | The targets.
 registerTargets_targets :: Lens.Lens' RegisterTargets [TargetDescription]
-registerTargets_targets = Lens.lens (\RegisterTargets' {targets} -> targets) (\s@RegisterTargets' {} a -> s {targets = a} :: RegisterTargets) Prelude.. Prelude._Coerce
+registerTargets_targets = Lens.lens (\RegisterTargets' {targets} -> targets) (\s@RegisterTargets' {} a -> s {targets = a} :: RegisterTargets) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RegisterTargets where
-  type Rs RegisterTargets = RegisterTargetsResponse
+instance Core.AWSRequest RegisterTargets where
+  type
+    AWSResponse RegisterTargets =
+      RegisterTargetsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "RegisterTargetsResult"
       ( \s h x ->
           RegisterTargetsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterTargets
+instance Core.Hashable RegisterTargets
 
-instance Prelude.NFData RegisterTargets
+instance Core.NFData RegisterTargets
 
-instance Prelude.ToHeaders RegisterTargets where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RegisterTargets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RegisterTargets where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterTargets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterTargets where
+instance Core.ToQuery RegisterTargets where
   toQuery RegisterTargets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RegisterTargets" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "TargetGroupArn" Prelude.=: targetGroupArn,
-        "Targets"
-          Prelude.=: Prelude.toQueryList "member" targets
+          Core.=: ("RegisterTargets" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "TargetGroupArn" Core.=: targetGroupArn,
+        "Targets" Core.=: Core.toQueryList "member" targets
       ]
 
 -- | /See:/ 'newRegisterTargetsResponse' smart constructor.
 data RegisterTargetsResponse = RegisterTargetsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterTargetsResponse' with all optional fields omitted.
@@ -149,13 +148,13 @@ data RegisterTargetsResponse = RegisterTargetsResponse'
 -- 'httpStatus', 'registerTargetsResponse_httpStatus' - The response's http status code.
 newRegisterTargetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterTargetsResponse
 newRegisterTargetsResponse pHttpStatus_ =
   RegisterTargetsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-registerTargetsResponse_httpStatus :: Lens.Lens' RegisterTargetsResponse Prelude.Int
+registerTargetsResponse_httpStatus :: Lens.Lens' RegisterTargetsResponse Core.Int
 registerTargetsResponse_httpStatus = Lens.lens (\RegisterTargetsResponse' {httpStatus} -> httpStatus) (\s@RegisterTargetsResponse' {} a -> s {httpStatus = a} :: RegisterTargetsResponse)
 
-instance Prelude.NFData RegisterTargetsResponse
+instance Core.NFData RegisterTargetsResponse

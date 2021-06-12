@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.RemixSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioChannelMapping
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Remix Settings
 --
 -- /See:/ 'newRemixSettings' smart constructor.
 data RemixSettings = RemixSettings'
   { -- | Number of input channels to be used.
-    channelsIn :: Prelude.Maybe Prelude.Natural,
+    channelsIn :: Core.Maybe Core.Natural,
     -- | Number of output channels to be produced. Valid values: 1, 2, 4, 6, 8
-    channelsOut :: Prelude.Maybe Prelude.Natural,
+    channelsOut :: Core.Maybe Core.Natural,
     -- | Mapping of input channels to output channels, with appropriate gain
     -- adjustments.
     channelMappings :: [AudioChannelMapping]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemixSettings' with all optional fields omitted.
@@ -56,48 +55,46 @@ newRemixSettings ::
   RemixSettings
 newRemixSettings =
   RemixSettings'
-    { channelsIn = Prelude.Nothing,
-      channelsOut = Prelude.Nothing,
-      channelMappings = Prelude.mempty
+    { channelsIn = Core.Nothing,
+      channelsOut = Core.Nothing,
+      channelMappings = Core.mempty
     }
 
 -- | Number of input channels to be used.
-remixSettings_channelsIn :: Lens.Lens' RemixSettings (Prelude.Maybe Prelude.Natural)
+remixSettings_channelsIn :: Lens.Lens' RemixSettings (Core.Maybe Core.Natural)
 remixSettings_channelsIn = Lens.lens (\RemixSettings' {channelsIn} -> channelsIn) (\s@RemixSettings' {} a -> s {channelsIn = a} :: RemixSettings)
 
 -- | Number of output channels to be produced. Valid values: 1, 2, 4, 6, 8
-remixSettings_channelsOut :: Lens.Lens' RemixSettings (Prelude.Maybe Prelude.Natural)
+remixSettings_channelsOut :: Lens.Lens' RemixSettings (Core.Maybe Core.Natural)
 remixSettings_channelsOut = Lens.lens (\RemixSettings' {channelsOut} -> channelsOut) (\s@RemixSettings' {} a -> s {channelsOut = a} :: RemixSettings)
 
 -- | Mapping of input channels to output channels, with appropriate gain
 -- adjustments.
 remixSettings_channelMappings :: Lens.Lens' RemixSettings [AudioChannelMapping]
-remixSettings_channelMappings = Lens.lens (\RemixSettings' {channelMappings} -> channelMappings) (\s@RemixSettings' {} a -> s {channelMappings = a} :: RemixSettings) Prelude.. Prelude._Coerce
+remixSettings_channelMappings = Lens.lens (\RemixSettings' {channelMappings} -> channelMappings) (\s@RemixSettings' {} a -> s {channelMappings = a} :: RemixSettings) Core.. Lens._Coerce
 
-instance Prelude.FromJSON RemixSettings where
+instance Core.FromJSON RemixSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RemixSettings"
       ( \x ->
           RemixSettings'
-            Prelude.<$> (x Prelude..:? "channelsIn")
-            Prelude.<*> (x Prelude..:? "channelsOut")
-            Prelude.<*> ( x Prelude..:? "channelMappings"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "channelsIn")
+            Core.<*> (x Core..:? "channelsOut")
+            Core.<*> (x Core..:? "channelMappings" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable RemixSettings
+instance Core.Hashable RemixSettings
 
-instance Prelude.NFData RemixSettings
+instance Core.NFData RemixSettings
 
-instance Prelude.ToJSON RemixSettings where
+instance Core.ToJSON RemixSettings where
   toJSON RemixSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("channelsIn" Prelude..=) Prelude.<$> channelsIn,
-            ("channelsOut" Prelude..=) Prelude.<$> channelsOut,
-            Prelude.Just
-              ("channelMappings" Prelude..= channelMappings)
+    Core.object
+      ( Core.catMaybes
+          [ ("channelsIn" Core..=) Core.<$> channelsIn,
+            ("channelsOut" Core..=) Core.<$> channelsOut,
+            Core.Just
+              ("channelMappings" Core..= channelMappings)
           ]
       )

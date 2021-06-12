@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Policy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an AWS IoT policy.
 --
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
   { -- | The policy name.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | The policy ARN.
-    policyArn :: Prelude.Maybe Prelude.Text
+    policyArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Policy' with all optional fields omitted.
@@ -49,28 +48,28 @@ newPolicy ::
   Policy
 newPolicy =
   Policy'
-    { policyName = Prelude.Nothing,
-      policyArn = Prelude.Nothing
+    { policyName = Core.Nothing,
+      policyArn = Core.Nothing
     }
 
 -- | The policy name.
-policy_policyName :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_policyName :: Lens.Lens' Policy (Core.Maybe Core.Text)
 policy_policyName = Lens.lens (\Policy' {policyName} -> policyName) (\s@Policy' {} a -> s {policyName = a} :: Policy)
 
 -- | The policy ARN.
-policy_policyArn :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
+policy_policyArn :: Lens.Lens' Policy (Core.Maybe Core.Text)
 policy_policyArn = Lens.lens (\Policy' {policyArn} -> policyArn) (\s@Policy' {} a -> s {policyArn = a} :: Policy)
 
-instance Prelude.FromJSON Policy where
+instance Core.FromJSON Policy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Policy"
       ( \x ->
           Policy'
-            Prelude.<$> (x Prelude..:? "policyName")
-            Prelude.<*> (x Prelude..:? "policyArn")
+            Core.<$> (x Core..:? "policyName")
+            Core.<*> (x Core..:? "policyArn")
       )
 
-instance Prelude.Hashable Policy
+instance Core.Hashable Policy
 
-instance Prelude.NFData Policy
+instance Core.NFData Policy

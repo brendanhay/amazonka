@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MetricData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The name, value, and date and time of a metric that was emitted to
 -- Amazon CloudWatch.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMetricData' smart constructor.
 data MetricData = MetricData'
   { -- | The name of the metric.
-    metricName :: Prelude.Maybe Prelude.Text,
+    metricName :: Core.Maybe Core.Text,
     -- | The date and time that the algorithm emitted the metric.
-    timestamp :: Prelude.Maybe Prelude.POSIX,
+    timestamp :: Core.Maybe Core.POSIX,
     -- | The value of the metric.
-    value :: Prelude.Maybe Prelude.Double
+    value :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricData' with all optional fields omitted.
@@ -54,34 +53,34 @@ newMetricData ::
   MetricData
 newMetricData =
   MetricData'
-    { metricName = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      value = Prelude.Nothing
+    { metricName = Core.Nothing,
+      timestamp = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the metric.
-metricData_metricName :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Text)
+metricData_metricName :: Lens.Lens' MetricData (Core.Maybe Core.Text)
 metricData_metricName = Lens.lens (\MetricData' {metricName} -> metricName) (\s@MetricData' {} a -> s {metricName = a} :: MetricData)
 
 -- | The date and time that the algorithm emitted the metric.
-metricData_timestamp :: Lens.Lens' MetricData (Prelude.Maybe Prelude.UTCTime)
-metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Prelude.. Lens.mapping Prelude._Time
+metricData_timestamp :: Lens.Lens' MetricData (Core.Maybe Core.UTCTime)
+metricData_timestamp = Lens.lens (\MetricData' {timestamp} -> timestamp) (\s@MetricData' {} a -> s {timestamp = a} :: MetricData) Core.. Lens.mapping Core._Time
 
 -- | The value of the metric.
-metricData_value :: Lens.Lens' MetricData (Prelude.Maybe Prelude.Double)
+metricData_value :: Lens.Lens' MetricData (Core.Maybe Core.Double)
 metricData_value = Lens.lens (\MetricData' {value} -> value) (\s@MetricData' {} a -> s {value = a} :: MetricData)
 
-instance Prelude.FromJSON MetricData where
+instance Core.FromJSON MetricData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetricData"
       ( \x ->
           MetricData'
-            Prelude.<$> (x Prelude..:? "MetricName")
-            Prelude.<*> (x Prelude..:? "Timestamp")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "MetricName")
+            Core.<*> (x Core..:? "Timestamp")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable MetricData
+instance Core.Hashable MetricData
 
-instance Prelude.NFData MetricData
+instance Core.NFData MetricData

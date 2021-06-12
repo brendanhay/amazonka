@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SMS.ImportServerCatalog
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -50,7 +49,7 @@ import Network.AWS.SMS.Types
 data ImportServerCatalog = ImportServerCatalog'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportServerCatalog' with all optional fields omitted.
@@ -60,53 +59,50 @@ newImportServerCatalog ::
   ImportServerCatalog
 newImportServerCatalog = ImportServerCatalog'
 
-instance Prelude.AWSRequest ImportServerCatalog where
+instance Core.AWSRequest ImportServerCatalog where
   type
-    Rs ImportServerCatalog =
+    AWSResponse ImportServerCatalog =
       ImportServerCatalogResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ImportServerCatalogResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportServerCatalog
+instance Core.Hashable ImportServerCatalog
 
-instance Prelude.NFData ImportServerCatalog
+instance Core.NFData ImportServerCatalog
 
-instance Prelude.ToHeaders ImportServerCatalog where
+instance Core.ToHeaders ImportServerCatalog where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.ImportServerCatalog" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.ImportServerCatalog" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ImportServerCatalog where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON ImportServerCatalog where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath ImportServerCatalog where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportServerCatalog where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportServerCatalog where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ImportServerCatalog where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newImportServerCatalogResponse' smart constructor.
 data ImportServerCatalogResponse = ImportServerCatalogResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportServerCatalogResponse' with all optional fields omitted.
@@ -119,7 +115,7 @@ data ImportServerCatalogResponse = ImportServerCatalogResponse'
 -- 'httpStatus', 'importServerCatalogResponse_httpStatus' - The response's http status code.
 newImportServerCatalogResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportServerCatalogResponse
 newImportServerCatalogResponse pHttpStatus_ =
   ImportServerCatalogResponse'
@@ -128,7 +124,7 @@ newImportServerCatalogResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-importServerCatalogResponse_httpStatus :: Lens.Lens' ImportServerCatalogResponse Prelude.Int
+importServerCatalogResponse_httpStatus :: Lens.Lens' ImportServerCatalogResponse Core.Int
 importServerCatalogResponse_httpStatus = Lens.lens (\ImportServerCatalogResponse' {httpStatus} -> httpStatus) (\s@ImportServerCatalogResponse' {} a -> s {httpStatus = a} :: ImportServerCatalogResponse)
 
-instance Prelude.NFData ImportServerCatalogResponse
+instance Core.NFData ImportServerCatalogResponse

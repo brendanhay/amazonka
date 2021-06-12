@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Lightsail.GetRegions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +53,13 @@ data GetRegions = GetRegions'
   { -- | A Boolean value indicating whether to also include Availability Zones
     -- for databases in your get regions request. Availability Zones are
     -- indicated with a letter (e.g., @us-east-2a@).
-    includeRelationalDatabaseAvailabilityZones :: Prelude.Maybe Prelude.Bool,
+    includeRelationalDatabaseAvailabilityZones :: Core.Maybe Core.Bool,
     -- | A Boolean value indicating whether to also include Availability Zones in
     -- your get regions request. Availability Zones are indicated with a
     -- letter: e.g., @us-east-2a@.
-    includeAvailabilityZones :: Prelude.Maybe Prelude.Bool
+    includeAvailabilityZones :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRegions' with all optional fields omitted.
@@ -82,80 +81,76 @@ newGetRegions ::
 newGetRegions =
   GetRegions'
     { includeRelationalDatabaseAvailabilityZones =
-        Prelude.Nothing,
-      includeAvailabilityZones = Prelude.Nothing
+        Core.Nothing,
+      includeAvailabilityZones = Core.Nothing
     }
 
 -- | A Boolean value indicating whether to also include Availability Zones
 -- for databases in your get regions request. Availability Zones are
 -- indicated with a letter (e.g., @us-east-2a@).
-getRegions_includeRelationalDatabaseAvailabilityZones :: Lens.Lens' GetRegions (Prelude.Maybe Prelude.Bool)
+getRegions_includeRelationalDatabaseAvailabilityZones :: Lens.Lens' GetRegions (Core.Maybe Core.Bool)
 getRegions_includeRelationalDatabaseAvailabilityZones = Lens.lens (\GetRegions' {includeRelationalDatabaseAvailabilityZones} -> includeRelationalDatabaseAvailabilityZones) (\s@GetRegions' {} a -> s {includeRelationalDatabaseAvailabilityZones = a} :: GetRegions)
 
 -- | A Boolean value indicating whether to also include Availability Zones in
 -- your get regions request. Availability Zones are indicated with a
 -- letter: e.g., @us-east-2a@.
-getRegions_includeAvailabilityZones :: Lens.Lens' GetRegions (Prelude.Maybe Prelude.Bool)
+getRegions_includeAvailabilityZones :: Lens.Lens' GetRegions (Core.Maybe Core.Bool)
 getRegions_includeAvailabilityZones = Lens.lens (\GetRegions' {includeAvailabilityZones} -> includeAvailabilityZones) (\s@GetRegions' {} a -> s {includeAvailabilityZones = a} :: GetRegions)
 
-instance Prelude.AWSRequest GetRegions where
-  type Rs GetRegions = GetRegionsResponse
+instance Core.AWSRequest GetRegions where
+  type AWSResponse GetRegions = GetRegionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRegionsResponse'
-            Prelude.<$> (x Prelude..?> "regions" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "regions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegions
+instance Core.Hashable GetRegions
 
-instance Prelude.NFData GetRegions
+instance Core.NFData GetRegions
 
-instance Prelude.ToHeaders GetRegions where
+instance Core.ToHeaders GetRegions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetRegions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.GetRegions" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRegions where
+instance Core.ToJSON GetRegions where
   toJSON GetRegions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
+    Core.object
+      ( Core.catMaybes
           [ ( "includeRelationalDatabaseAvailabilityZones"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> includeRelationalDatabaseAvailabilityZones,
-            ("includeAvailabilityZones" Prelude..=)
-              Prelude.<$> includeAvailabilityZones
+              Core.<$> includeRelationalDatabaseAvailabilityZones,
+            ("includeAvailabilityZones" Core..=)
+              Core.<$> includeAvailabilityZones
           ]
       )
 
-instance Prelude.ToPath GetRegions where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRegions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRegions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRegions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRegionsResponse' smart constructor.
 data GetRegionsResponse = GetRegionsResponse'
   { -- | An array of key-value pairs containing information about your get
     -- regions request.
-    regions :: Prelude.Maybe [RegionInfo],
+    regions :: Core.Maybe [RegionInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRegionsResponse' with all optional fields omitted.
@@ -171,21 +166,21 @@ data GetRegionsResponse = GetRegionsResponse'
 -- 'httpStatus', 'getRegionsResponse_httpStatus' - The response's http status code.
 newGetRegionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRegionsResponse
 newGetRegionsResponse pHttpStatus_ =
   GetRegionsResponse'
-    { regions = Prelude.Nothing,
+    { regions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about your get
 -- regions request.
-getRegionsResponse_regions :: Lens.Lens' GetRegionsResponse (Prelude.Maybe [RegionInfo])
-getRegionsResponse_regions = Lens.lens (\GetRegionsResponse' {regions} -> regions) (\s@GetRegionsResponse' {} a -> s {regions = a} :: GetRegionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRegionsResponse_regions :: Lens.Lens' GetRegionsResponse (Core.Maybe [RegionInfo])
+getRegionsResponse_regions = Lens.lens (\GetRegionsResponse' {regions} -> regions) (\s@GetRegionsResponse' {} a -> s {regions = a} :: GetRegionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getRegionsResponse_httpStatus :: Lens.Lens' GetRegionsResponse Prelude.Int
+getRegionsResponse_httpStatus :: Lens.Lens' GetRegionsResponse Core.Int
 getRegionsResponse_httpStatus = Lens.lens (\GetRegionsResponse' {httpStatus} -> httpStatus) (\s@GetRegionsResponse' {} a -> s {httpStatus = a} :: GetRegionsResponse)
 
-instance Prelude.NFData GetRegionsResponse
+instance Core.NFData GetRegionsResponse

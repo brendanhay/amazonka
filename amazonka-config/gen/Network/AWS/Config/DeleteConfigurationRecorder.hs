@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.Config.DeleteConfigurationRecorder
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data DeleteConfigurationRecorder = DeleteConfigurationRecorder'
   { -- | The name of the configuration recorder to be deleted. You can retrieve
     -- the name of your configuration recorder by using the
     -- @DescribeConfigurationRecorders@ action.
-    configurationRecorderName :: Prelude.Text
+    configurationRecorderName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationRecorder' with all optional fields omitted.
@@ -76,7 +75,7 @@ data DeleteConfigurationRecorder = DeleteConfigurationRecorder'
 -- @DescribeConfigurationRecorders@ action.
 newDeleteConfigurationRecorder ::
   -- | 'configurationRecorderName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteConfigurationRecorder
 newDeleteConfigurationRecorder
   pConfigurationRecorderName_ =
@@ -88,65 +87,57 @@ newDeleteConfigurationRecorder
 -- | The name of the configuration recorder to be deleted. You can retrieve
 -- the name of your configuration recorder by using the
 -- @DescribeConfigurationRecorders@ action.
-deleteConfigurationRecorder_configurationRecorderName :: Lens.Lens' DeleteConfigurationRecorder Prelude.Text
+deleteConfigurationRecorder_configurationRecorderName :: Lens.Lens' DeleteConfigurationRecorder Core.Text
 deleteConfigurationRecorder_configurationRecorderName = Lens.lens (\DeleteConfigurationRecorder' {configurationRecorderName} -> configurationRecorderName) (\s@DeleteConfigurationRecorder' {} a -> s {configurationRecorderName = a} :: DeleteConfigurationRecorder)
 
-instance
-  Prelude.AWSRequest
-    DeleteConfigurationRecorder
-  where
+instance Core.AWSRequest DeleteConfigurationRecorder where
   type
-    Rs DeleteConfigurationRecorder =
+    AWSResponse DeleteConfigurationRecorder =
       DeleteConfigurationRecorderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteConfigurationRecorderResponse'
 
-instance Prelude.Hashable DeleteConfigurationRecorder
+instance Core.Hashable DeleteConfigurationRecorder
 
-instance Prelude.NFData DeleteConfigurationRecorder
+instance Core.NFData DeleteConfigurationRecorder
 
-instance
-  Prelude.ToHeaders
-    DeleteConfigurationRecorder
-  where
+instance Core.ToHeaders DeleteConfigurationRecorder where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeleteConfigurationRecorder" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeleteConfigurationRecorder" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteConfigurationRecorder where
+instance Core.ToJSON DeleteConfigurationRecorder where
   toJSON DeleteConfigurationRecorder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ConfigurationRecorderName"
-                  Prelude..= configurationRecorderName
+                  Core..= configurationRecorderName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteConfigurationRecorder where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteConfigurationRecorder where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteConfigurationRecorder where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteConfigurationRecorder where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteConfigurationRecorderResponse' smart constructor.
 data DeleteConfigurationRecorderResponse = DeleteConfigurationRecorderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationRecorderResponse' with all optional fields omitted.
@@ -158,5 +149,5 @@ newDeleteConfigurationRecorderResponse =
   DeleteConfigurationRecorderResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteConfigurationRecorderResponse

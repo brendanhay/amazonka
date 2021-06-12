@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SES.DeleteReceiptFilter
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -58,9 +57,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newDeleteReceiptFilter' smart constructor.
 data DeleteReceiptFilter = DeleteReceiptFilter'
   { -- | The name of the IP address filter to delete.
-    filterName :: Prelude.Text
+    filterName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReceiptFilter' with all optional fields omitted.
@@ -73,18 +72,18 @@ data DeleteReceiptFilter = DeleteReceiptFilter'
 -- 'filterName', 'deleteReceiptFilter_filterName' - The name of the IP address filter to delete.
 newDeleteReceiptFilter ::
   -- | 'filterName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReceiptFilter
 newDeleteReceiptFilter pFilterName_ =
   DeleteReceiptFilter' {filterName = pFilterName_}
 
 -- | The name of the IP address filter to delete.
-deleteReceiptFilter_filterName :: Lens.Lens' DeleteReceiptFilter Prelude.Text
+deleteReceiptFilter_filterName :: Lens.Lens' DeleteReceiptFilter Core.Text
 deleteReceiptFilter_filterName = Lens.lens (\DeleteReceiptFilter' {filterName} -> filterName) (\s@DeleteReceiptFilter' {} a -> s {filterName = a} :: DeleteReceiptFilter)
 
-instance Prelude.AWSRequest DeleteReceiptFilter where
+instance Core.AWSRequest DeleteReceiptFilter where
   type
-    Rs DeleteReceiptFilter =
+    AWSResponse DeleteReceiptFilter =
       DeleteReceiptFilterResponse
   request = Request.postQuery defaultService
   response =
@@ -92,27 +91,26 @@ instance Prelude.AWSRequest DeleteReceiptFilter where
       "DeleteReceiptFilterResult"
       ( \s h x ->
           DeleteReceiptFilterResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReceiptFilter
+instance Core.Hashable DeleteReceiptFilter
 
-instance Prelude.NFData DeleteReceiptFilter
+instance Core.NFData DeleteReceiptFilter
 
-instance Prelude.ToHeaders DeleteReceiptFilter where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteReceiptFilter where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteReceiptFilter where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteReceiptFilter where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteReceiptFilter where
+instance Core.ToQuery DeleteReceiptFilter where
   toQuery DeleteReceiptFilter' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteReceiptFilter" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "FilterName" Prelude.=: filterName
+          Core.=: ("DeleteReceiptFilter" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "FilterName" Core.=: filterName
       ]
 
 -- | An empty element returned on a successful request.
@@ -120,9 +118,9 @@ instance Prelude.ToQuery DeleteReceiptFilter where
 -- /See:/ 'newDeleteReceiptFilterResponse' smart constructor.
 data DeleteReceiptFilterResponse = DeleteReceiptFilterResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReceiptFilterResponse' with all optional fields omitted.
@@ -135,7 +133,7 @@ data DeleteReceiptFilterResponse = DeleteReceiptFilterResponse'
 -- 'httpStatus', 'deleteReceiptFilterResponse_httpStatus' - The response's http status code.
 newDeleteReceiptFilterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteReceiptFilterResponse
 newDeleteReceiptFilterResponse pHttpStatus_ =
   DeleteReceiptFilterResponse'
@@ -144,7 +142,7 @@ newDeleteReceiptFilterResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteReceiptFilterResponse_httpStatus :: Lens.Lens' DeleteReceiptFilterResponse Prelude.Int
+deleteReceiptFilterResponse_httpStatus :: Lens.Lens' DeleteReceiptFilterResponse Core.Int
 deleteReceiptFilterResponse_httpStatus = Lens.lens (\DeleteReceiptFilterResponse' {httpStatus} -> httpStatus) (\s@DeleteReceiptFilterResponse' {} a -> s {httpStatus = a} :: DeleteReceiptFilterResponse)
 
-instance Prelude.NFData DeleteReceiptFilterResponse
+instance Core.NFData DeleteReceiptFilterResponse

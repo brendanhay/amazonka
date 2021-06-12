@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ImageFailure where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ImageFailureCode
 import Network.AWS.ECR.Types.ImageIdentifier
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image failure.
 --
 -- /See:/ 'newImageFailure' smart constructor.
 data ImageFailure = ImageFailure'
   { -- | The code associated with the failure.
-    failureCode :: Prelude.Maybe ImageFailureCode,
+    failureCode :: Core.Maybe ImageFailureCode,
     -- | The image ID associated with the failure.
-    imageId :: Prelude.Maybe ImageIdentifier,
+    imageId :: Core.Maybe ImageIdentifier,
     -- | The reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text
+    failureReason :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageFailure' with all optional fields omitted.
@@ -55,34 +54,34 @@ newImageFailure ::
   ImageFailure
 newImageFailure =
   ImageFailure'
-    { failureCode = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+    { failureCode = Core.Nothing,
+      imageId = Core.Nothing,
+      failureReason = Core.Nothing
     }
 
 -- | The code associated with the failure.
-imageFailure_failureCode :: Lens.Lens' ImageFailure (Prelude.Maybe ImageFailureCode)
+imageFailure_failureCode :: Lens.Lens' ImageFailure (Core.Maybe ImageFailureCode)
 imageFailure_failureCode = Lens.lens (\ImageFailure' {failureCode} -> failureCode) (\s@ImageFailure' {} a -> s {failureCode = a} :: ImageFailure)
 
 -- | The image ID associated with the failure.
-imageFailure_imageId :: Lens.Lens' ImageFailure (Prelude.Maybe ImageIdentifier)
+imageFailure_imageId :: Lens.Lens' ImageFailure (Core.Maybe ImageIdentifier)
 imageFailure_imageId = Lens.lens (\ImageFailure' {imageId} -> imageId) (\s@ImageFailure' {} a -> s {imageId = a} :: ImageFailure)
 
 -- | The reason for the failure.
-imageFailure_failureReason :: Lens.Lens' ImageFailure (Prelude.Maybe Prelude.Text)
+imageFailure_failureReason :: Lens.Lens' ImageFailure (Core.Maybe Core.Text)
 imageFailure_failureReason = Lens.lens (\ImageFailure' {failureReason} -> failureReason) (\s@ImageFailure' {} a -> s {failureReason = a} :: ImageFailure)
 
-instance Prelude.FromJSON ImageFailure where
+instance Core.FromJSON ImageFailure where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageFailure"
       ( \x ->
           ImageFailure'
-            Prelude.<$> (x Prelude..:? "failureCode")
-            Prelude.<*> (x Prelude..:? "imageId")
-            Prelude.<*> (x Prelude..:? "failureReason")
+            Core.<$> (x Core..:? "failureCode")
+            Core.<*> (x Core..:? "imageId")
+            Core.<*> (x Core..:? "failureReason")
       )
 
-instance Prelude.Hashable ImageFailure
+instance Core.Hashable ImageFailure
 
-instance Prelude.NFData ImageFailure
+instance Core.NFData ImageFailure

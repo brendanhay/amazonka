@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,22 +42,22 @@ module Network.AWS.CostExplorer.CreateCostCategoryDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateCostCategoryDefinition' smart constructor.
 data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
-  { name :: Prelude.Text,
+  { name :: Core.Text,
     ruleVersion :: CostCategoryRuleVersion,
     -- | The Cost Category rules used to categorize costs. For more information,
     -- see
     -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>.
-    rules :: Prelude.NonEmpty CostCategoryRule
+    rules :: Core.NonEmpty CostCategoryRule
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCostCategoryDefinition' with all optional fields omitted.
@@ -77,11 +76,11 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>.
 newCreateCostCategoryDefinition ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ruleVersion'
   CostCategoryRuleVersion ->
   -- | 'rules'
-  Prelude.NonEmpty CostCategoryRule ->
+  Core.NonEmpty CostCategoryRule ->
   CreateCostCategoryDefinition
 newCreateCostCategoryDefinition
   pName_
@@ -90,11 +89,11 @@ newCreateCostCategoryDefinition
     CreateCostCategoryDefinition'
       { name = pName_,
         ruleVersion = pRuleVersion_,
-        rules = Prelude._Coerce Lens.# pRules_
+        rules = Lens._Coerce Lens.# pRules_
       }
 
 -- | Undocumented member.
-createCostCategoryDefinition_name :: Lens.Lens' CreateCostCategoryDefinition Prelude.Text
+createCostCategoryDefinition_name :: Lens.Lens' CreateCostCategoryDefinition Core.Text
 createCostCategoryDefinition_name = Lens.lens (\CreateCostCategoryDefinition' {name} -> name) (\s@CreateCostCategoryDefinition' {} a -> s {name = a} :: CreateCostCategoryDefinition)
 
 -- | Undocumented member.
@@ -104,76 +103,66 @@ createCostCategoryDefinition_ruleVersion = Lens.lens (\CreateCostCategoryDefinit
 -- | The Cost Category rules used to categorize costs. For more information,
 -- see
 -- <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html CostCategoryRule>.
-createCostCategoryDefinition_rules :: Lens.Lens' CreateCostCategoryDefinition (Prelude.NonEmpty CostCategoryRule)
-createCostCategoryDefinition_rules = Lens.lens (\CreateCostCategoryDefinition' {rules} -> rules) (\s@CreateCostCategoryDefinition' {} a -> s {rules = a} :: CreateCostCategoryDefinition) Prelude.. Prelude._Coerce
+createCostCategoryDefinition_rules :: Lens.Lens' CreateCostCategoryDefinition (Core.NonEmpty CostCategoryRule)
+createCostCategoryDefinition_rules = Lens.lens (\CreateCostCategoryDefinition' {rules} -> rules) (\s@CreateCostCategoryDefinition' {} a -> s {rules = a} :: CreateCostCategoryDefinition) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    CreateCostCategoryDefinition
-  where
+instance Core.AWSRequest CreateCostCategoryDefinition where
   type
-    Rs CreateCostCategoryDefinition =
+    AWSResponse CreateCostCategoryDefinition =
       CreateCostCategoryDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCostCategoryDefinitionResponse'
-            Prelude.<$> (x Prelude..?> "CostCategoryArn")
-            Prelude.<*> (x Prelude..?> "EffectiveStart")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CostCategoryArn")
+            Core.<*> (x Core..?> "EffectiveStart")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateCostCategoryDefinition
+instance Core.Hashable CreateCostCategoryDefinition
 
-instance Prelude.NFData CreateCostCategoryDefinition
+instance Core.NFData CreateCostCategoryDefinition
 
-instance
-  Prelude.ToHeaders
-    CreateCostCategoryDefinition
-  where
+instance Core.ToHeaders CreateCostCategoryDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.CreateCostCategoryDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.CreateCostCategoryDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCostCategoryDefinition where
+instance Core.ToJSON CreateCostCategoryDefinition where
   toJSON CreateCostCategoryDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("RuleVersion" Prelude..= ruleVersion),
-            Prelude.Just ("Rules" Prelude..= rules)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("RuleVersion" Core..= ruleVersion),
+            Core.Just ("Rules" Core..= rules)
           ]
       )
 
-instance Prelude.ToPath CreateCostCategoryDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCostCategoryDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCostCategoryDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCostCategoryDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCostCategoryDefinitionResponse' smart constructor.
 data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse'
   { -- | The unique identifier for your newly created Cost Category.
-    costCategoryArn :: Prelude.Maybe Prelude.Text,
+    costCategoryArn :: Core.Maybe Core.Text,
     -- | The Cost Category\'s effective start date.
-    effectiveStart :: Prelude.Maybe Prelude.Text,
+    effectiveStart :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCostCategoryDefinitionResponse' with all optional fields omitted.
@@ -190,28 +179,28 @@ data CreateCostCategoryDefinitionResponse = CreateCostCategoryDefinitionResponse
 -- 'httpStatus', 'createCostCategoryDefinitionResponse_httpStatus' - The response's http status code.
 newCreateCostCategoryDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCostCategoryDefinitionResponse
 newCreateCostCategoryDefinitionResponse pHttpStatus_ =
   CreateCostCategoryDefinitionResponse'
     { costCategoryArn =
-        Prelude.Nothing,
-      effectiveStart = Prelude.Nothing,
+        Core.Nothing,
+      effectiveStart = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier for your newly created Cost Category.
-createCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCostCategoryDefinitionResponse_costCategoryArn :: Lens.Lens' CreateCostCategoryDefinitionResponse (Core.Maybe Core.Text)
 createCostCategoryDefinitionResponse_costCategoryArn = Lens.lens (\CreateCostCategoryDefinitionResponse' {costCategoryArn} -> costCategoryArn) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {costCategoryArn = a} :: CreateCostCategoryDefinitionResponse)
 
 -- | The Cost Category\'s effective start date.
-createCostCategoryDefinitionResponse_effectiveStart :: Lens.Lens' CreateCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCostCategoryDefinitionResponse_effectiveStart :: Lens.Lens' CreateCostCategoryDefinitionResponse (Core.Maybe Core.Text)
 createCostCategoryDefinitionResponse_effectiveStart = Lens.lens (\CreateCostCategoryDefinitionResponse' {effectiveStart} -> effectiveStart) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {effectiveStart = a} :: CreateCostCategoryDefinitionResponse)
 
 -- | The response's http status code.
-createCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' CreateCostCategoryDefinitionResponse Prelude.Int
+createCostCategoryDefinitionResponse_httpStatus :: Lens.Lens' CreateCostCategoryDefinitionResponse Core.Int
 createCostCategoryDefinitionResponse_httpStatus = Lens.lens (\CreateCostCategoryDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateCostCategoryDefinitionResponse' {} a -> s {httpStatus = a} :: CreateCostCategoryDefinitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateCostCategoryDefinitionResponse

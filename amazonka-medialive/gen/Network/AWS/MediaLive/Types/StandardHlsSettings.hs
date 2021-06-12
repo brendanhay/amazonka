@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.StandardHlsSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.M3u8Settings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Standard Hls Settings
 --
@@ -31,10 +30,10 @@ data StandardHlsSettings = StandardHlsSettings'
   { -- | List all the audio groups that are used with the video output stream.
     -- Input all the audio GROUP-IDs that are associated to the video, separate
     -- by \',\'.
-    audioRenditionSets :: Prelude.Maybe Prelude.Text,
+    audioRenditionSets :: Core.Maybe Core.Text,
     m3u8Settings :: M3u8Settings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StandardHlsSettings' with all optional fields omitted.
@@ -56,41 +55,40 @@ newStandardHlsSettings ::
 newStandardHlsSettings pM3u8Settings_ =
   StandardHlsSettings'
     { audioRenditionSets =
-        Prelude.Nothing,
+        Core.Nothing,
       m3u8Settings = pM3u8Settings_
     }
 
 -- | List all the audio groups that are used with the video output stream.
 -- Input all the audio GROUP-IDs that are associated to the video, separate
 -- by \',\'.
-standardHlsSettings_audioRenditionSets :: Lens.Lens' StandardHlsSettings (Prelude.Maybe Prelude.Text)
+standardHlsSettings_audioRenditionSets :: Lens.Lens' StandardHlsSettings (Core.Maybe Core.Text)
 standardHlsSettings_audioRenditionSets = Lens.lens (\StandardHlsSettings' {audioRenditionSets} -> audioRenditionSets) (\s@StandardHlsSettings' {} a -> s {audioRenditionSets = a} :: StandardHlsSettings)
 
 -- | Undocumented member.
 standardHlsSettings_m3u8Settings :: Lens.Lens' StandardHlsSettings M3u8Settings
 standardHlsSettings_m3u8Settings = Lens.lens (\StandardHlsSettings' {m3u8Settings} -> m3u8Settings) (\s@StandardHlsSettings' {} a -> s {m3u8Settings = a} :: StandardHlsSettings)
 
-instance Prelude.FromJSON StandardHlsSettings where
+instance Core.FromJSON StandardHlsSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StandardHlsSettings"
       ( \x ->
           StandardHlsSettings'
-            Prelude.<$> (x Prelude..:? "audioRenditionSets")
-            Prelude.<*> (x Prelude..: "m3u8Settings")
+            Core.<$> (x Core..:? "audioRenditionSets")
+            Core.<*> (x Core..: "m3u8Settings")
       )
 
-instance Prelude.Hashable StandardHlsSettings
+instance Core.Hashable StandardHlsSettings
 
-instance Prelude.NFData StandardHlsSettings
+instance Core.NFData StandardHlsSettings
 
-instance Prelude.ToJSON StandardHlsSettings where
+instance Core.ToJSON StandardHlsSettings where
   toJSON StandardHlsSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("audioRenditionSets" Prelude..=)
-              Prelude.<$> audioRenditionSets,
-            Prelude.Just
-              ("m3u8Settings" Prelude..= m3u8Settings)
+    Core.object
+      ( Core.catMaybes
+          [ ("audioRenditionSets" Core..=)
+              Core.<$> audioRenditionSets,
+            Core.Just ("m3u8Settings" Core..= m3u8Settings)
           ]
       )

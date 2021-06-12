@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,8 +64,8 @@ module Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,7 +79,7 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- you are requesting only certificate authority and will issue only one.
     -- If you change the idempotency token for each call, PCA recognizes that
     -- you are requesting multiple certificate authorities.
-    idempotencyToken :: Prelude.Maybe Prelude.Text,
+    idempotencyToken :: Core.Maybe Core.Text,
     -- | Contains a Boolean value that you can use to enable a certification
     -- revocation list (CRL) for the CA, the name of the S3 bucket to which ACM
     -- Private CA will write the CRL, and an optional CNAME alias that you can
@@ -88,19 +87,19 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- extension of your CA certificate. For more information, see the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
     -- structure.
-    revocationConfiguration :: Prelude.Maybe RevocationConfiguration,
+    revocationConfiguration :: Core.Maybe RevocationConfiguration,
     -- | Key-value pairs that will be attached to the new private CA. You can
     -- associate up to 50 tags with a private CA. For information using tags
     -- with IAM to manage permissions, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | Name and bit size of the private key algorithm, the name of the signing
     -- algorithm, and X.500 certificate subject information.
     certificateAuthorityConfiguration :: CertificateAuthorityConfiguration,
     -- | The type of the certificate authority.
     certificateAuthorityType :: CertificateAuthorityType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCertificateAuthority' with all optional fields omitted.
@@ -147,9 +146,9 @@ newCreateCertificateAuthority
   pCertificateAuthorityType_ =
     CreateCertificateAuthority'
       { idempotencyToken =
-          Prelude.Nothing,
-        revocationConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
+          Core.Nothing,
+        revocationConfiguration = Core.Nothing,
+        tags = Core.Nothing,
         certificateAuthorityConfiguration =
           pCertificateAuthorityConfiguration_,
         certificateAuthorityType =
@@ -164,7 +163,7 @@ newCreateCertificateAuthority
 -- you are requesting only certificate authority and will issue only one.
 -- If you change the idempotency token for each call, PCA recognizes that
 -- you are requesting multiple certificate authorities.
-createCertificateAuthority_idempotencyToken :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe Prelude.Text)
+createCertificateAuthority_idempotencyToken :: Lens.Lens' CreateCertificateAuthority (Core.Maybe Core.Text)
 createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAuthority' {idempotencyToken} -> idempotencyToken) (\s@CreateCertificateAuthority' {} a -> s {idempotencyToken = a} :: CreateCertificateAuthority)
 
 -- | Contains a Boolean value that you can use to enable a certification
@@ -174,15 +173,15 @@ createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAutho
 -- extension of your CA certificate. For more information, see the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
 -- structure.
-createCertificateAuthority_revocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe RevocationConfiguration)
+createCertificateAuthority_revocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Core.Maybe RevocationConfiguration)
 createCertificateAuthority_revocationConfiguration = Lens.lens (\CreateCertificateAuthority' {revocationConfiguration} -> revocationConfiguration) (\s@CreateCertificateAuthority' {} a -> s {revocationConfiguration = a} :: CreateCertificateAuthority)
 
 -- | Key-value pairs that will be attached to the new private CA. You can
 -- associate up to 50 tags with a private CA. For information using tags
 -- with IAM to manage permissions, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html Controlling Access Using IAM Tags>.
-createCertificateAuthority_tags :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe (Prelude.NonEmpty Tag))
-createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags} -> tags) (\s@CreateCertificateAuthority' {} a -> s {tags = a} :: CreateCertificateAuthority) Prelude.. Lens.mapping Prelude._Coerce
+createCertificateAuthority_tags :: Lens.Lens' CreateCertificateAuthority (Core.Maybe (Core.NonEmpty Tag))
+createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags} -> tags) (\s@CreateCertificateAuthority' {} a -> s {tags = a} :: CreateCertificateAuthority) Core.. Lens.mapping Lens._Coerce
 
 -- | Name and bit size of the private key algorithm, the name of the signing
 -- algorithm, and X.500 certificate subject information.
@@ -193,66 +192,61 @@ createCertificateAuthority_certificateAuthorityConfiguration = Lens.lens (\Creat
 createCertificateAuthority_certificateAuthorityType :: Lens.Lens' CreateCertificateAuthority CertificateAuthorityType
 createCertificateAuthority_certificateAuthorityType = Lens.lens (\CreateCertificateAuthority' {certificateAuthorityType} -> certificateAuthorityType) (\s@CreateCertificateAuthority' {} a -> s {certificateAuthorityType = a} :: CreateCertificateAuthority)
 
-instance
-  Prelude.AWSRequest
-    CreateCertificateAuthority
-  where
+instance Core.AWSRequest CreateCertificateAuthority where
   type
-    Rs CreateCertificateAuthority =
+    AWSResponse CreateCertificateAuthority =
       CreateCertificateAuthorityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCertificateAuthorityResponse'
-            Prelude.<$> (x Prelude..?> "CertificateAuthorityArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CertificateAuthorityArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCertificateAuthority
+instance Core.Hashable CreateCertificateAuthority
 
-instance Prelude.NFData CreateCertificateAuthority
+instance Core.NFData CreateCertificateAuthority
 
-instance Prelude.ToHeaders CreateCertificateAuthority where
+instance Core.ToHeaders CreateCertificateAuthority where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ACMPrivateCA.CreateCertificateAuthority" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ACMPrivateCA.CreateCertificateAuthority" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCertificateAuthority where
+instance Core.ToJSON CreateCertificateAuthority where
   toJSON CreateCertificateAuthority' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IdempotencyToken" Prelude..=)
-              Prelude.<$> idempotencyToken,
-            ("RevocationConfiguration" Prelude..=)
-              Prelude.<$> revocationConfiguration,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("IdempotencyToken" Core..=)
+              Core.<$> idempotencyToken,
+            ("RevocationConfiguration" Core..=)
+              Core.<$> revocationConfiguration,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just
               ( "CertificateAuthorityConfiguration"
-                  Prelude..= certificateAuthorityConfiguration
+                  Core..= certificateAuthorityConfiguration
               ),
-            Prelude.Just
+            Core.Just
               ( "CertificateAuthorityType"
-                  Prelude..= certificateAuthorityType
+                  Core..= certificateAuthorityType
               )
           ]
       )
 
-instance Prelude.ToPath CreateCertificateAuthority where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCertificateAuthority where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCertificateAuthority where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCertificateAuthority where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCertificateAuthorityResponse' smart constructor.
 data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
@@ -260,11 +254,11 @@ data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
     -- authority (CA). This is of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    certificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCertificateAuthorityResponse' with all optional fields omitted.
@@ -282,12 +276,12 @@ data CreateCertificateAuthorityResponse = CreateCertificateAuthorityResponse'
 -- 'httpStatus', 'createCertificateAuthorityResponse_httpStatus' - The response's http status code.
 newCreateCertificateAuthorityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCertificateAuthorityResponse
 newCreateCertificateAuthorityResponse pHttpStatus_ =
   CreateCertificateAuthorityResponse'
     { certificateAuthorityArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -295,13 +289,13 @@ newCreateCertificateAuthorityResponse pHttpStatus_ =
 -- authority (CA). This is of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-createCertificateAuthorityResponse_certificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
+createCertificateAuthorityResponse_certificateAuthorityArn :: Lens.Lens' CreateCertificateAuthorityResponse (Core.Maybe Core.Text)
 createCertificateAuthorityResponse_certificateAuthorityArn = Lens.lens (\CreateCertificateAuthorityResponse' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreateCertificateAuthorityResponse' {} a -> s {certificateAuthorityArn = a} :: CreateCertificateAuthorityResponse)
 
 -- | The response's http status code.
-createCertificateAuthorityResponse_httpStatus :: Lens.Lens' CreateCertificateAuthorityResponse Prelude.Int
+createCertificateAuthorityResponse_httpStatus :: Lens.Lens' CreateCertificateAuthorityResponse Core.Int
 createCertificateAuthorityResponse_httpStatus = Lens.lens (\CreateCertificateAuthorityResponse' {httpStatus} -> httpStatus) (\s@CreateCertificateAuthorityResponse' {} a -> s {httpStatus = a} :: CreateCertificateAuthorityResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateCertificateAuthorityResponse

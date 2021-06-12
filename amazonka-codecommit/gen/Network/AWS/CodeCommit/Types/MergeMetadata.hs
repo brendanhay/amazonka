@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeCommit.Types.MergeMetadata where
 
 import Network.AWS.CodeCommit.Types.MergeOptionTypeEnum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a merge or potential merge between a source
 -- reference and a destination reference in a pull request.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMergeMetadata' smart constructor.
 data MergeMetadata = MergeMetadata'
   { -- | The Amazon Resource Name (ARN) of the user who merged the branches.
-    mergedBy :: Prelude.Maybe Prelude.Text,
+    mergedBy :: Core.Maybe Core.Text,
     -- | The commit ID for the merge commit, if any.
-    mergeCommitId :: Prelude.Maybe Prelude.Text,
+    mergeCommitId :: Core.Maybe Core.Text,
     -- | A Boolean value indicating whether the merge has been made.
-    isMerged :: Prelude.Maybe Prelude.Bool,
+    isMerged :: Core.Maybe Core.Bool,
     -- | The merge strategy used in the merge.
-    mergeOption :: Prelude.Maybe MergeOptionTypeEnum
+    mergeOption :: Core.Maybe MergeOptionTypeEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MergeMetadata' with all optional fields omitted.
@@ -59,40 +58,40 @@ newMergeMetadata ::
   MergeMetadata
 newMergeMetadata =
   MergeMetadata'
-    { mergedBy = Prelude.Nothing,
-      mergeCommitId = Prelude.Nothing,
-      isMerged = Prelude.Nothing,
-      mergeOption = Prelude.Nothing
+    { mergedBy = Core.Nothing,
+      mergeCommitId = Core.Nothing,
+      isMerged = Core.Nothing,
+      mergeOption = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user who merged the branches.
-mergeMetadata_mergedBy :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Text)
+mergeMetadata_mergedBy :: Lens.Lens' MergeMetadata (Core.Maybe Core.Text)
 mergeMetadata_mergedBy = Lens.lens (\MergeMetadata' {mergedBy} -> mergedBy) (\s@MergeMetadata' {} a -> s {mergedBy = a} :: MergeMetadata)
 
 -- | The commit ID for the merge commit, if any.
-mergeMetadata_mergeCommitId :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Text)
+mergeMetadata_mergeCommitId :: Lens.Lens' MergeMetadata (Core.Maybe Core.Text)
 mergeMetadata_mergeCommitId = Lens.lens (\MergeMetadata' {mergeCommitId} -> mergeCommitId) (\s@MergeMetadata' {} a -> s {mergeCommitId = a} :: MergeMetadata)
 
 -- | A Boolean value indicating whether the merge has been made.
-mergeMetadata_isMerged :: Lens.Lens' MergeMetadata (Prelude.Maybe Prelude.Bool)
+mergeMetadata_isMerged :: Lens.Lens' MergeMetadata (Core.Maybe Core.Bool)
 mergeMetadata_isMerged = Lens.lens (\MergeMetadata' {isMerged} -> isMerged) (\s@MergeMetadata' {} a -> s {isMerged = a} :: MergeMetadata)
 
 -- | The merge strategy used in the merge.
-mergeMetadata_mergeOption :: Lens.Lens' MergeMetadata (Prelude.Maybe MergeOptionTypeEnum)
+mergeMetadata_mergeOption :: Lens.Lens' MergeMetadata (Core.Maybe MergeOptionTypeEnum)
 mergeMetadata_mergeOption = Lens.lens (\MergeMetadata' {mergeOption} -> mergeOption) (\s@MergeMetadata' {} a -> s {mergeOption = a} :: MergeMetadata)
 
-instance Prelude.FromJSON MergeMetadata where
+instance Core.FromJSON MergeMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MergeMetadata"
       ( \x ->
           MergeMetadata'
-            Prelude.<$> (x Prelude..:? "mergedBy")
-            Prelude.<*> (x Prelude..:? "mergeCommitId")
-            Prelude.<*> (x Prelude..:? "isMerged")
-            Prelude.<*> (x Prelude..:? "mergeOption")
+            Core.<$> (x Core..:? "mergedBy")
+            Core.<*> (x Core..:? "mergeCommitId")
+            Core.<*> (x Core..:? "isMerged")
+            Core.<*> (x Core..:? "mergeOption")
       )
 
-instance Prelude.Hashable MergeMetadata
+instance Core.Hashable MergeMetadata
 
-instance Prelude.NFData MergeMetadata
+instance Core.NFData MergeMetadata

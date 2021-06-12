@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,26 +47,26 @@ module Network.AWS.EKS.DescribeUpdate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeUpdate' smart constructor.
 data DescribeUpdate = DescribeUpdate'
   { -- | The name of the Amazon EKS node group associated with the update.
-    nodegroupName :: Prelude.Maybe Prelude.Text,
+    nodegroupName :: Core.Maybe Core.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
     -- .
-    addonName :: Prelude.Maybe Prelude.Text,
+    addonName :: Core.Maybe Core.Text,
     -- | The name of the Amazon EKS cluster associated with the update.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ID of the update to describe.
-    updateId :: Prelude.Text
+    updateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUpdate' with all optional fields omitted.
@@ -88,86 +87,86 @@ data DescribeUpdate = DescribeUpdate'
 -- 'updateId', 'describeUpdate_updateId' - The ID of the update to describe.
 newDescribeUpdate ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updateId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeUpdate
 newDescribeUpdate pName_ pUpdateId_ =
   DescribeUpdate'
-    { nodegroupName = Prelude.Nothing,
-      addonName = Prelude.Nothing,
+    { nodegroupName = Core.Nothing,
+      addonName = Core.Nothing,
       name = pName_,
       updateId = pUpdateId_
     }
 
 -- | The name of the Amazon EKS node group associated with the update.
-describeUpdate_nodegroupName :: Lens.Lens' DescribeUpdate (Prelude.Maybe Prelude.Text)
+describeUpdate_nodegroupName :: Lens.Lens' DescribeUpdate (Core.Maybe Core.Text)
 describeUpdate_nodegroupName = Lens.lens (\DescribeUpdate' {nodegroupName} -> nodegroupName) (\s@DescribeUpdate' {} a -> s {nodegroupName = a} :: DescribeUpdate)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
-describeUpdate_addonName :: Lens.Lens' DescribeUpdate (Prelude.Maybe Prelude.Text)
+describeUpdate_addonName :: Lens.Lens' DescribeUpdate (Core.Maybe Core.Text)
 describeUpdate_addonName = Lens.lens (\DescribeUpdate' {addonName} -> addonName) (\s@DescribeUpdate' {} a -> s {addonName = a} :: DescribeUpdate)
 
 -- | The name of the Amazon EKS cluster associated with the update.
-describeUpdate_name :: Lens.Lens' DescribeUpdate Prelude.Text
+describeUpdate_name :: Lens.Lens' DescribeUpdate Core.Text
 describeUpdate_name = Lens.lens (\DescribeUpdate' {name} -> name) (\s@DescribeUpdate' {} a -> s {name = a} :: DescribeUpdate)
 
 -- | The ID of the update to describe.
-describeUpdate_updateId :: Lens.Lens' DescribeUpdate Prelude.Text
+describeUpdate_updateId :: Lens.Lens' DescribeUpdate Core.Text
 describeUpdate_updateId = Lens.lens (\DescribeUpdate' {updateId} -> updateId) (\s@DescribeUpdate' {} a -> s {updateId = a} :: DescribeUpdate)
 
-instance Prelude.AWSRequest DescribeUpdate where
-  type Rs DescribeUpdate = DescribeUpdateResponse
+instance Core.AWSRequest DescribeUpdate where
+  type
+    AWSResponse DescribeUpdate =
+      DescribeUpdateResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeUpdateResponse'
-            Prelude.<$> (x Prelude..?> "update")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "update")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUpdate
+instance Core.Hashable DescribeUpdate
 
-instance Prelude.NFData DescribeUpdate
+instance Core.NFData DescribeUpdate
 
-instance Prelude.ToHeaders DescribeUpdate where
+instance Core.ToHeaders DescribeUpdate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeUpdate where
+instance Core.ToPath DescribeUpdate where
   toPath DescribeUpdate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS name,
+        Core.toBS name,
         "/updates/",
-        Prelude.toBS updateId
+        Core.toBS updateId
       ]
 
-instance Prelude.ToQuery DescribeUpdate where
+instance Core.ToQuery DescribeUpdate where
   toQuery DescribeUpdate' {..} =
-    Prelude.mconcat
-      [ "nodegroupName" Prelude.=: nodegroupName,
-        "addonName" Prelude.=: addonName
+    Core.mconcat
+      [ "nodegroupName" Core.=: nodegroupName,
+        "addonName" Core.=: addonName
       ]
 
 -- | /See:/ 'newDescribeUpdateResponse' smart constructor.
 data DescribeUpdateResponse = DescribeUpdateResponse'
   { -- | The full description of the specified update.
-    update :: Prelude.Maybe Update,
+    update :: Core.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUpdateResponse' with all optional fields omitted.
@@ -182,20 +181,20 @@ data DescribeUpdateResponse = DescribeUpdateResponse'
 -- 'httpStatus', 'describeUpdateResponse_httpStatus' - The response's http status code.
 newDescribeUpdateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeUpdateResponse
 newDescribeUpdateResponse pHttpStatus_ =
   DescribeUpdateResponse'
-    { update = Prelude.Nothing,
+    { update = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of the specified update.
-describeUpdateResponse_update :: Lens.Lens' DescribeUpdateResponse (Prelude.Maybe Update)
+describeUpdateResponse_update :: Lens.Lens' DescribeUpdateResponse (Core.Maybe Update)
 describeUpdateResponse_update = Lens.lens (\DescribeUpdateResponse' {update} -> update) (\s@DescribeUpdateResponse' {} a -> s {update = a} :: DescribeUpdateResponse)
 
 -- | The response's http status code.
-describeUpdateResponse_httpStatus :: Lens.Lens' DescribeUpdateResponse Prelude.Int
+describeUpdateResponse_httpStatus :: Lens.Lens' DescribeUpdateResponse Core.Int
 describeUpdateResponse_httpStatus = Lens.lens (\DescribeUpdateResponse' {httpStatus} -> httpStatus) (\s@DescribeUpdateResponse' {} a -> s {httpStatus = a} :: DescribeUpdateResponse)
 
-instance Prelude.NFData DescribeUpdateResponse
+instance Core.NFData DescribeUpdateResponse

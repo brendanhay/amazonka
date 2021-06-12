@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,19 +45,19 @@ module Network.AWS.AutoScaling.DeletePolicy
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
+    autoScalingGroupName :: Core.Maybe Core.Text,
     -- | The name or Amazon Resource Name (ARN) of the policy.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicy' with all optional fields omitted.
@@ -73,55 +72,52 @@ data DeletePolicy = DeletePolicy'
 -- 'policyName', 'deletePolicy_policyName' - The name or Amazon Resource Name (ARN) of the policy.
 newDeletePolicy ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   DeletePolicy
 newDeletePolicy pPolicyName_ =
   DeletePolicy'
-    { autoScalingGroupName =
-        Prelude.Nothing,
+    { autoScalingGroupName = Core.Nothing,
       policyName = pPolicyName_
     }
 
 -- | The name of the Auto Scaling group.
-deletePolicy_autoScalingGroupName :: Lens.Lens' DeletePolicy (Prelude.Maybe Prelude.Text)
+deletePolicy_autoScalingGroupName :: Lens.Lens' DeletePolicy (Core.Maybe Core.Text)
 deletePolicy_autoScalingGroupName = Lens.lens (\DeletePolicy' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeletePolicy' {} a -> s {autoScalingGroupName = a} :: DeletePolicy)
 
 -- | The name or Amazon Resource Name (ARN) of the policy.
-deletePolicy_policyName :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_policyName :: Lens.Lens' DeletePolicy Core.Text
 deletePolicy_policyName = Lens.lens (\DeletePolicy' {policyName} -> policyName) (\s@DeletePolicy' {} a -> s {policyName = a} :: DeletePolicy)
 
-instance Prelude.AWSRequest DeletePolicy where
-  type Rs DeletePolicy = DeletePolicyResponse
+instance Core.AWSRequest DeletePolicy where
+  type AWSResponse DeletePolicy = DeletePolicyResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeletePolicyResponse'
 
-instance Prelude.Hashable DeletePolicy
+instance Core.Hashable DeletePolicy
 
-instance Prelude.NFData DeletePolicy
+instance Core.NFData DeletePolicy
 
-instance Prelude.ToHeaders DeletePolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeletePolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeletePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePolicy where
+instance Core.ToQuery DeletePolicy where
   toQuery DeletePolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeletePolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
-        "PolicyName" Prelude.=: policyName
+          Core.=: ("DeletePolicy" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "PolicyName" Core.=: policyName
       ]
 
 -- | /See:/ 'newDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
@@ -131,4 +127,4 @@ newDeletePolicyResponse ::
   DeletePolicyResponse
 newDeletePolicyResponse = DeletePolicyResponse'
 
-instance Prelude.NFData DeletePolicyResponse
+instance Core.NFData DeletePolicyResponse

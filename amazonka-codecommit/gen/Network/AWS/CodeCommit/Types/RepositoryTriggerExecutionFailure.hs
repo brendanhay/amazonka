@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A trigger failed to run.
 --
 -- /See:/ 'newRepositoryTriggerExecutionFailure' smart constructor.
 data RepositoryTriggerExecutionFailure = RepositoryTriggerExecutionFailure'
   { -- | Message information about the trigger that did not run.
-    failureMessage :: Prelude.Maybe Prelude.Text,
+    failureMessage :: Core.Maybe Core.Text,
     -- | The name of the trigger that did not run.
-    trigger :: Prelude.Maybe Prelude.Text
+    trigger :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RepositoryTriggerExecutionFailure' with all optional fields omitted.
@@ -50,35 +49,35 @@ newRepositoryTriggerExecutionFailure ::
 newRepositoryTriggerExecutionFailure =
   RepositoryTriggerExecutionFailure'
     { failureMessage =
-        Prelude.Nothing,
-      trigger = Prelude.Nothing
+        Core.Nothing,
+      trigger = Core.Nothing
     }
 
 -- | Message information about the trigger that did not run.
-repositoryTriggerExecutionFailure_failureMessage :: Lens.Lens' RepositoryTriggerExecutionFailure (Prelude.Maybe Prelude.Text)
+repositoryTriggerExecutionFailure_failureMessage :: Lens.Lens' RepositoryTriggerExecutionFailure (Core.Maybe Core.Text)
 repositoryTriggerExecutionFailure_failureMessage = Lens.lens (\RepositoryTriggerExecutionFailure' {failureMessage} -> failureMessage) (\s@RepositoryTriggerExecutionFailure' {} a -> s {failureMessage = a} :: RepositoryTriggerExecutionFailure)
 
 -- | The name of the trigger that did not run.
-repositoryTriggerExecutionFailure_trigger :: Lens.Lens' RepositoryTriggerExecutionFailure (Prelude.Maybe Prelude.Text)
+repositoryTriggerExecutionFailure_trigger :: Lens.Lens' RepositoryTriggerExecutionFailure (Core.Maybe Core.Text)
 repositoryTriggerExecutionFailure_trigger = Lens.lens (\RepositoryTriggerExecutionFailure' {trigger} -> trigger) (\s@RepositoryTriggerExecutionFailure' {} a -> s {trigger = a} :: RepositoryTriggerExecutionFailure)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     RepositoryTriggerExecutionFailure
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RepositoryTriggerExecutionFailure"
       ( \x ->
           RepositoryTriggerExecutionFailure'
-            Prelude.<$> (x Prelude..:? "failureMessage")
-            Prelude.<*> (x Prelude..:? "trigger")
+            Core.<$> (x Core..:? "failureMessage")
+            Core.<*> (x Core..:? "trigger")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RepositoryTriggerExecutionFailure
 
 instance
-  Prelude.NFData
+  Core.NFData
     RepositoryTriggerExecutionFailure

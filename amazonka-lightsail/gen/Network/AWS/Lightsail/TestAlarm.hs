@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,16 +49,16 @@ module Network.AWS.Lightsail.TestAlarm
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTestAlarm' smart constructor.
 data TestAlarm = TestAlarm'
   { -- | The name of the alarm to test.
-    alarmName :: Prelude.Text,
+    alarmName :: Core.Text,
     -- | The alarm state to test.
     --
     -- An alarm has the following possible states that can be tested:
@@ -73,7 +72,7 @@ data TestAlarm = TestAlarm'
     -- -   @OK@ - The metric is within the defined threshold.
     state :: AlarmState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestAlarm' with all optional fields omitted.
@@ -98,7 +97,7 @@ data TestAlarm = TestAlarm'
 -- -   @OK@ - The metric is within the defined threshold.
 newTestAlarm ::
   -- | 'alarmName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'state'
   AlarmState ->
   TestAlarm
@@ -109,7 +108,7 @@ newTestAlarm pAlarmName_ pState_ =
     }
 
 -- | The name of the alarm to test.
-testAlarm_alarmName :: Lens.Lens' TestAlarm Prelude.Text
+testAlarm_alarmName :: Lens.Lens' TestAlarm Core.Text
 testAlarm_alarmName = Lens.lens (\TestAlarm' {alarmName} -> alarmName) (\s@TestAlarm' {} a -> s {alarmName = a} :: TestAlarm)
 
 -- | The alarm state to test.
@@ -126,63 +125,57 @@ testAlarm_alarmName = Lens.lens (\TestAlarm' {alarmName} -> alarmName) (\s@TestA
 testAlarm_state :: Lens.Lens' TestAlarm AlarmState
 testAlarm_state = Lens.lens (\TestAlarm' {state} -> state) (\s@TestAlarm' {} a -> s {state = a} :: TestAlarm)
 
-instance Prelude.AWSRequest TestAlarm where
-  type Rs TestAlarm = TestAlarmResponse
+instance Core.AWSRequest TestAlarm where
+  type AWSResponse TestAlarm = TestAlarmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           TestAlarmResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TestAlarm
+instance Core.Hashable TestAlarm
 
-instance Prelude.NFData TestAlarm
+instance Core.NFData TestAlarm
 
-instance Prelude.ToHeaders TestAlarm where
+instance Core.ToHeaders TestAlarm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.TestAlarm" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.TestAlarm" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TestAlarm where
+instance Core.ToJSON TestAlarm where
   toJSON TestAlarm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("alarmName" Prelude..= alarmName),
-            Prelude.Just ("state" Prelude..= state)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("alarmName" Core..= alarmName),
+            Core.Just ("state" Core..= state)
           ]
       )
 
-instance Prelude.ToPath TestAlarm where
-  toPath = Prelude.const "/"
+instance Core.ToPath TestAlarm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TestAlarm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TestAlarm where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTestAlarmResponse' smart constructor.
 data TestAlarmResponse = TestAlarmResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestAlarmResponse' with all optional fields omitted.
@@ -199,22 +192,22 @@ data TestAlarmResponse = TestAlarmResponse'
 -- 'httpStatus', 'testAlarmResponse_httpStatus' - The response's http status code.
 newTestAlarmResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TestAlarmResponse
 newTestAlarmResponse pHttpStatus_ =
   TestAlarmResponse'
-    { operations = Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-testAlarmResponse_operations :: Lens.Lens' TestAlarmResponse (Prelude.Maybe [Operation])
-testAlarmResponse_operations = Lens.lens (\TestAlarmResponse' {operations} -> operations) (\s@TestAlarmResponse' {} a -> s {operations = a} :: TestAlarmResponse) Prelude.. Lens.mapping Prelude._Coerce
+testAlarmResponse_operations :: Lens.Lens' TestAlarmResponse (Core.Maybe [Operation])
+testAlarmResponse_operations = Lens.lens (\TestAlarmResponse' {operations} -> operations) (\s@TestAlarmResponse' {} a -> s {operations = a} :: TestAlarmResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-testAlarmResponse_httpStatus :: Lens.Lens' TestAlarmResponse Prelude.Int
+testAlarmResponse_httpStatus :: Lens.Lens' TestAlarmResponse Core.Int
 testAlarmResponse_httpStatus = Lens.lens (\TestAlarmResponse' {httpStatus} -> httpStatus) (\s@TestAlarmResponse' {} a -> s {httpStatus = a} :: TestAlarmResponse)
 
-instance Prelude.NFData TestAlarmResponse
+instance Core.NFData TestAlarmResponse

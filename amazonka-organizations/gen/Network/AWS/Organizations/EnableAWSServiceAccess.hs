@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.Organizations.EnableAWSServiceAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,9 +68,9 @@ data EnableAWSServiceAccess = EnableAWSServiceAccess'
   { -- | The service principal name of the AWS service for which you want to
     -- enable integration with your organization. This is typically in the form
     -- of a URL, such as @ service-abbreviation.amazonaws.com@.
-    servicePrincipal :: Prelude.Text
+    servicePrincipal :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAWSServiceAccess' with all optional fields omitted.
@@ -86,7 +85,7 @@ data EnableAWSServiceAccess = EnableAWSServiceAccess'
 -- of a URL, such as @ service-abbreviation.amazonaws.com@.
 newEnableAWSServiceAccess ::
   -- | 'servicePrincipal'
-  Prelude.Text ->
+  Core.Text ->
   EnableAWSServiceAccess
 newEnableAWSServiceAccess pServicePrincipal_ =
   EnableAWSServiceAccess'
@@ -97,57 +96,55 @@ newEnableAWSServiceAccess pServicePrincipal_ =
 -- | The service principal name of the AWS service for which you want to
 -- enable integration with your organization. This is typically in the form
 -- of a URL, such as @ service-abbreviation.amazonaws.com@.
-enableAWSServiceAccess_servicePrincipal :: Lens.Lens' EnableAWSServiceAccess Prelude.Text
+enableAWSServiceAccess_servicePrincipal :: Lens.Lens' EnableAWSServiceAccess Core.Text
 enableAWSServiceAccess_servicePrincipal = Lens.lens (\EnableAWSServiceAccess' {servicePrincipal} -> servicePrincipal) (\s@EnableAWSServiceAccess' {} a -> s {servicePrincipal = a} :: EnableAWSServiceAccess)
 
-instance Prelude.AWSRequest EnableAWSServiceAccess where
+instance Core.AWSRequest EnableAWSServiceAccess where
   type
-    Rs EnableAWSServiceAccess =
+    AWSResponse EnableAWSServiceAccess =
       EnableAWSServiceAccessResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       EnableAWSServiceAccessResponse'
 
-instance Prelude.Hashable EnableAWSServiceAccess
+instance Core.Hashable EnableAWSServiceAccess
 
-instance Prelude.NFData EnableAWSServiceAccess
+instance Core.NFData EnableAWSServiceAccess
 
-instance Prelude.ToHeaders EnableAWSServiceAccess where
+instance Core.ToHeaders EnableAWSServiceAccess where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.EnableAWSServiceAccess" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.EnableAWSServiceAccess" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableAWSServiceAccess where
+instance Core.ToJSON EnableAWSServiceAccess where
   toJSON EnableAWSServiceAccess' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ServicePrincipal" Prelude..= servicePrincipal)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ServicePrincipal" Core..= servicePrincipal)
           ]
       )
 
-instance Prelude.ToPath EnableAWSServiceAccess where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableAWSServiceAccess where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableAWSServiceAccess where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableAWSServiceAccess where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableAWSServiceAccessResponse' smart constructor.
 data EnableAWSServiceAccessResponse = EnableAWSServiceAccessResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAWSServiceAccessResponse' with all optional fields omitted.
@@ -158,6 +155,4 @@ newEnableAWSServiceAccessResponse ::
 newEnableAWSServiceAccessResponse =
   EnableAWSServiceAccessResponse'
 
-instance
-  Prelude.NFData
-    EnableAWSServiceAccessResponse
+instance Core.NFData EnableAWSServiceAccessResponse

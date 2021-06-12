@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.SageMaker.CreateWorkteam
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -58,10 +57,10 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateWorkteam' smart constructor.
 data CreateWorkteam = CreateWorkteam'
   { -- | The name of the workforce.
-    workforceName :: Prelude.Maybe Prelude.Text,
+    workforceName :: Core.Maybe Core.Text,
     -- | Configures notification of workers regarding available or expiring work
     -- items.
-    notificationConfiguration :: Prelude.Maybe NotificationConfiguration,
+    notificationConfiguration :: Core.Maybe NotificationConfiguration,
     -- | An array of key-value pairs.
     --
     -- For more information, see
@@ -69,9 +68,9 @@ data CreateWorkteam = CreateWorkteam'
     -- and
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
     -- in the /AWS Billing and Cost Management User Guide/.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the work team. Use this name to identify the work team.
-    workteamName :: Prelude.Text,
+    workteamName :: Core.Text,
     -- | A list of @MemberDefinition@ objects that contains objects that identify
     -- the workers that make up the work team.
     --
@@ -93,11 +92,11 @@ data CreateWorkteam = CreateWorkteam'
     -- For workforces created using your own OIDC IdP, specify the user groups
     -- that you want to include in your private work team in
     -- @OidcMemberDefinition@ by listing those groups in @Groups@.
-    memberDefinitions :: Prelude.NonEmpty MemberDefinition,
+    memberDefinitions :: Core.NonEmpty MemberDefinition,
     -- | A description of the work team.
-    description :: Prelude.Text
+    description :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateWorkteam' with all optional fields omitted.
@@ -147,33 +146,33 @@ data CreateWorkteam = CreateWorkteam'
 -- 'description', 'createWorkteam_description' - A description of the work team.
 newCreateWorkteam ::
   -- | 'workteamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'memberDefinitions'
-  Prelude.NonEmpty MemberDefinition ->
+  Core.NonEmpty MemberDefinition ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   CreateWorkteam
 newCreateWorkteam
   pWorkteamName_
   pMemberDefinitions_
   pDescription_ =
     CreateWorkteam'
-      { workforceName = Prelude.Nothing,
-        notificationConfiguration = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { workforceName = Core.Nothing,
+        notificationConfiguration = Core.Nothing,
+        tags = Core.Nothing,
         workteamName = pWorkteamName_,
         memberDefinitions =
-          Prelude._Coerce Lens.# pMemberDefinitions_,
+          Lens._Coerce Lens.# pMemberDefinitions_,
         description = pDescription_
       }
 
 -- | The name of the workforce.
-createWorkteam_workforceName :: Lens.Lens' CreateWorkteam (Prelude.Maybe Prelude.Text)
+createWorkteam_workforceName :: Lens.Lens' CreateWorkteam (Core.Maybe Core.Text)
 createWorkteam_workforceName = Lens.lens (\CreateWorkteam' {workforceName} -> workforceName) (\s@CreateWorkteam' {} a -> s {workforceName = a} :: CreateWorkteam)
 
 -- | Configures notification of workers regarding available or expiring work
 -- items.
-createWorkteam_notificationConfiguration :: Lens.Lens' CreateWorkteam (Prelude.Maybe NotificationConfiguration)
+createWorkteam_notificationConfiguration :: Lens.Lens' CreateWorkteam (Core.Maybe NotificationConfiguration)
 createWorkteam_notificationConfiguration = Lens.lens (\CreateWorkteam' {notificationConfiguration} -> notificationConfiguration) (\s@CreateWorkteam' {} a -> s {notificationConfiguration = a} :: CreateWorkteam)
 
 -- | An array of key-value pairs.
@@ -183,11 +182,11 @@ createWorkteam_notificationConfiguration = Lens.lens (\CreateWorkteam' {notifica
 -- and
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
 -- in the /AWS Billing and Cost Management User Guide/.
-createWorkteam_tags :: Lens.Lens' CreateWorkteam (Prelude.Maybe [Tag])
-createWorkteam_tags = Lens.lens (\CreateWorkteam' {tags} -> tags) (\s@CreateWorkteam' {} a -> s {tags = a} :: CreateWorkteam) Prelude.. Lens.mapping Prelude._Coerce
+createWorkteam_tags :: Lens.Lens' CreateWorkteam (Core.Maybe [Tag])
+createWorkteam_tags = Lens.lens (\CreateWorkteam' {tags} -> tags) (\s@CreateWorkteam' {} a -> s {tags = a} :: CreateWorkteam) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the work team. Use this name to identify the work team.
-createWorkteam_workteamName :: Lens.Lens' CreateWorkteam Prelude.Text
+createWorkteam_workteamName :: Lens.Lens' CreateWorkteam Core.Text
 createWorkteam_workteamName = Lens.lens (\CreateWorkteam' {workteamName} -> workteamName) (\s@CreateWorkteam' {} a -> s {workteamName = a} :: CreateWorkteam)
 
 -- | A list of @MemberDefinition@ objects that contains objects that identify
@@ -211,73 +210,71 @@ createWorkteam_workteamName = Lens.lens (\CreateWorkteam' {workteamName} -> work
 -- For workforces created using your own OIDC IdP, specify the user groups
 -- that you want to include in your private work team in
 -- @OidcMemberDefinition@ by listing those groups in @Groups@.
-createWorkteam_memberDefinitions :: Lens.Lens' CreateWorkteam (Prelude.NonEmpty MemberDefinition)
-createWorkteam_memberDefinitions = Lens.lens (\CreateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@CreateWorkteam' {} a -> s {memberDefinitions = a} :: CreateWorkteam) Prelude.. Prelude._Coerce
+createWorkteam_memberDefinitions :: Lens.Lens' CreateWorkteam (Core.NonEmpty MemberDefinition)
+createWorkteam_memberDefinitions = Lens.lens (\CreateWorkteam' {memberDefinitions} -> memberDefinitions) (\s@CreateWorkteam' {} a -> s {memberDefinitions = a} :: CreateWorkteam) Core.. Lens._Coerce
 
 -- | A description of the work team.
-createWorkteam_description :: Lens.Lens' CreateWorkteam Prelude.Text
+createWorkteam_description :: Lens.Lens' CreateWorkteam Core.Text
 createWorkteam_description = Lens.lens (\CreateWorkteam' {description} -> description) (\s@CreateWorkteam' {} a -> s {description = a} :: CreateWorkteam)
 
-instance Prelude.AWSRequest CreateWorkteam where
-  type Rs CreateWorkteam = CreateWorkteamResponse
+instance Core.AWSRequest CreateWorkteam where
+  type
+    AWSResponse CreateWorkteam =
+      CreateWorkteamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateWorkteamResponse'
-            Prelude.<$> (x Prelude..?> "WorkteamArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "WorkteamArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkteam
+instance Core.Hashable CreateWorkteam
 
-instance Prelude.NFData CreateWorkteam
+instance Core.NFData CreateWorkteam
 
-instance Prelude.ToHeaders CreateWorkteam where
+instance Core.ToHeaders CreateWorkteam where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.CreateWorkteam" :: Prelude.ByteString),
+              Core.=# ("SageMaker.CreateWorkteam" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateWorkteam where
+instance Core.ToJSON CreateWorkteam where
   toJSON CreateWorkteam' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("WorkforceName" Prelude..=)
-              Prelude.<$> workforceName,
-            ("NotificationConfiguration" Prelude..=)
-              Prelude.<$> notificationConfiguration,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("WorkteamName" Prelude..= workteamName),
-            Prelude.Just
-              ("MemberDefinitions" Prelude..= memberDefinitions),
-            Prelude.Just ("Description" Prelude..= description)
+    Core.object
+      ( Core.catMaybes
+          [ ("WorkforceName" Core..=) Core.<$> workforceName,
+            ("NotificationConfiguration" Core..=)
+              Core.<$> notificationConfiguration,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("WorkteamName" Core..= workteamName),
+            Core.Just
+              ("MemberDefinitions" Core..= memberDefinitions),
+            Core.Just ("Description" Core..= description)
           ]
       )
 
-instance Prelude.ToPath CreateWorkteam where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateWorkteam where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateWorkteam where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateWorkteam where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateWorkteamResponse' smart constructor.
 data CreateWorkteamResponse = CreateWorkteamResponse'
   { -- | The Amazon Resource Name (ARN) of the work team. You can use this ARN to
     -- identify the work team.
-    workteamArn :: Prelude.Maybe Prelude.Text,
+    workteamArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateWorkteamResponse' with all optional fields omitted.
@@ -293,22 +290,21 @@ data CreateWorkteamResponse = CreateWorkteamResponse'
 -- 'httpStatus', 'createWorkteamResponse_httpStatus' - The response's http status code.
 newCreateWorkteamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateWorkteamResponse
 newCreateWorkteamResponse pHttpStatus_ =
   CreateWorkteamResponse'
-    { workteamArn =
-        Prelude.Nothing,
+    { workteamArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the work team. You can use this ARN to
 -- identify the work team.
-createWorkteamResponse_workteamArn :: Lens.Lens' CreateWorkteamResponse (Prelude.Maybe Prelude.Text)
+createWorkteamResponse_workteamArn :: Lens.Lens' CreateWorkteamResponse (Core.Maybe Core.Text)
 createWorkteamResponse_workteamArn = Lens.lens (\CreateWorkteamResponse' {workteamArn} -> workteamArn) (\s@CreateWorkteamResponse' {} a -> s {workteamArn = a} :: CreateWorkteamResponse)
 
 -- | The response's http status code.
-createWorkteamResponse_httpStatus :: Lens.Lens' CreateWorkteamResponse Prelude.Int
+createWorkteamResponse_httpStatus :: Lens.Lens' CreateWorkteamResponse Core.Int
 createWorkteamResponse_httpStatus = Lens.lens (\CreateWorkteamResponse' {httpStatus} -> httpStatus) (\s@CreateWorkteamResponse' {} a -> s {httpStatus = a} :: CreateWorkteamResponse)
 
-instance Prelude.NFData CreateWorkteamResponse
+instance Core.NFData CreateWorkteamResponse

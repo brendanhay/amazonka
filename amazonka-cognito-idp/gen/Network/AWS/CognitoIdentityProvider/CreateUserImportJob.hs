@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CognitoIdentityProvider.CreateUserImportJob
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +52,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateUserImportJob' smart constructor.
 data CreateUserImportJob = CreateUserImportJob'
   { -- | The job name for the user import job.
-    jobName :: Prelude.Text,
+    jobName :: Core.Text,
     -- | The user pool ID for the user pool that the users are being imported
     -- into.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The role ARN for the Amazon CloudWatch Logging role for the user import
     -- job.
-    cloudWatchLogsRoleArn :: Prelude.Text
+    cloudWatchLogsRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserImportJob' with all optional fields omitted.
@@ -80,11 +79,11 @@ data CreateUserImportJob = CreateUserImportJob'
 -- job.
 newCreateUserImportJob ::
   -- | 'jobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'cloudWatchLogsRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateUserImportJob
 newCreateUserImportJob
   pJobName_
@@ -97,69 +96,67 @@ newCreateUserImportJob
       }
 
 -- | The job name for the user import job.
-createUserImportJob_jobName :: Lens.Lens' CreateUserImportJob Prelude.Text
+createUserImportJob_jobName :: Lens.Lens' CreateUserImportJob Core.Text
 createUserImportJob_jobName = Lens.lens (\CreateUserImportJob' {jobName} -> jobName) (\s@CreateUserImportJob' {} a -> s {jobName = a} :: CreateUserImportJob)
 
 -- | The user pool ID for the user pool that the users are being imported
 -- into.
-createUserImportJob_userPoolId :: Lens.Lens' CreateUserImportJob Prelude.Text
+createUserImportJob_userPoolId :: Lens.Lens' CreateUserImportJob Core.Text
 createUserImportJob_userPoolId = Lens.lens (\CreateUserImportJob' {userPoolId} -> userPoolId) (\s@CreateUserImportJob' {} a -> s {userPoolId = a} :: CreateUserImportJob)
 
 -- | The role ARN for the Amazon CloudWatch Logging role for the user import
 -- job.
-createUserImportJob_cloudWatchLogsRoleArn :: Lens.Lens' CreateUserImportJob Prelude.Text
+createUserImportJob_cloudWatchLogsRoleArn :: Lens.Lens' CreateUserImportJob Core.Text
 createUserImportJob_cloudWatchLogsRoleArn = Lens.lens (\CreateUserImportJob' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@CreateUserImportJob' {} a -> s {cloudWatchLogsRoleArn = a} :: CreateUserImportJob)
 
-instance Prelude.AWSRequest CreateUserImportJob where
+instance Core.AWSRequest CreateUserImportJob where
   type
-    Rs CreateUserImportJob =
+    AWSResponse CreateUserImportJob =
       CreateUserImportJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateUserImportJobResponse'
-            Prelude.<$> (x Prelude..?> "UserImportJob")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserImportJob")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserImportJob
+instance Core.Hashable CreateUserImportJob
 
-instance Prelude.NFData CreateUserImportJob
+instance Core.NFData CreateUserImportJob
 
-instance Prelude.ToHeaders CreateUserImportJob where
+instance Core.ToHeaders CreateUserImportJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.CreateUserImportJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.CreateUserImportJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateUserImportJob where
+instance Core.ToJSON CreateUserImportJob where
   toJSON CreateUserImportJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("JobName" Prelude..= jobName),
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobName" Core..= jobName),
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just
               ( "CloudWatchLogsRoleArn"
-                  Prelude..= cloudWatchLogsRoleArn
+                  Core..= cloudWatchLogsRoleArn
               )
           ]
       )
 
-instance Prelude.ToPath CreateUserImportJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateUserImportJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateUserImportJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateUserImportJob where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server to the request to create the
 -- user import job.
@@ -167,11 +164,11 @@ instance Prelude.ToQuery CreateUserImportJob where
 -- /See:/ 'newCreateUserImportJobResponse' smart constructor.
 data CreateUserImportJobResponse = CreateUserImportJobResponse'
   { -- | The job object that represents the user import job.
-    userImportJob :: Prelude.Maybe UserImportJobType,
+    userImportJob :: Core.Maybe UserImportJobType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserImportJobResponse' with all optional fields omitted.
@@ -186,21 +183,21 @@ data CreateUserImportJobResponse = CreateUserImportJobResponse'
 -- 'httpStatus', 'createUserImportJobResponse_httpStatus' - The response's http status code.
 newCreateUserImportJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateUserImportJobResponse
 newCreateUserImportJobResponse pHttpStatus_ =
   CreateUserImportJobResponse'
     { userImportJob =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The job object that represents the user import job.
-createUserImportJobResponse_userImportJob :: Lens.Lens' CreateUserImportJobResponse (Prelude.Maybe UserImportJobType)
+createUserImportJobResponse_userImportJob :: Lens.Lens' CreateUserImportJobResponse (Core.Maybe UserImportJobType)
 createUserImportJobResponse_userImportJob = Lens.lens (\CreateUserImportJobResponse' {userImportJob} -> userImportJob) (\s@CreateUserImportJobResponse' {} a -> s {userImportJob = a} :: CreateUserImportJobResponse)
 
 -- | The response's http status code.
-createUserImportJobResponse_httpStatus :: Lens.Lens' CreateUserImportJobResponse Prelude.Int
+createUserImportJobResponse_httpStatus :: Lens.Lens' CreateUserImportJobResponse Core.Int
 createUserImportJobResponse_httpStatus = Lens.lens (\CreateUserImportJobResponse' {httpStatus} -> httpStatus) (\s@CreateUserImportJobResponse' {} a -> s {httpStatus = a} :: CreateUserImportJobResponse)
 
-instance Prelude.NFData CreateUserImportJobResponse
+instance Core.NFData CreateUserImportJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachPolicy response operation.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchDetachPolicyResponse = BatchDetachPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetachPolicyResponse' with all optional fields omitted.
@@ -40,12 +39,12 @@ newBatchDetachPolicyResponse ::
 newBatchDetachPolicyResponse =
   BatchDetachPolicyResponse'
 
-instance Prelude.FromJSON BatchDetachPolicyResponse where
+instance Core.FromJSON BatchDetachPolicyResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDetachPolicyResponse"
-      (\x -> Prelude.pure BatchDetachPolicyResponse')
+      (\x -> Core.pure BatchDetachPolicyResponse')
 
-instance Prelude.Hashable BatchDetachPolicyResponse
+instance Core.Hashable BatchDetachPolicyResponse
 
-instance Prelude.NFData BatchDetachPolicyResponse
+instance Core.NFData BatchDetachPolicyResponse

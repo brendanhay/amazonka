@@ -1,5 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -26,37 +26,37 @@ module Network.AWS.MediaLive.Types.InputDeviceTransferType
   )
 where
 
-import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Core as Core
 
 -- | The type of device transfer. INCOMING for an input device that is being
 -- transferred to you, OUTGOING for an input device that you are
 -- transferring to another AWS account.
 newtype InputDeviceTransferType = InputDeviceTransferType'
   { fromInputDeviceTransferType ::
-      Prelude.Text
+      Core.Text
   }
-  deriving
-    ( Prelude.Show,
-      Prelude.Read,
-      Prelude.Eq,
-      Prelude.Ord,
-      Prelude.Data,
-      Prelude.Typeable,
-      Prelude.Generic,
-      Prelude.Hashable,
-      Prelude.NFData,
-      Prelude.FromText,
-      Prelude.ToText,
-      Prelude.ToByteString,
-      Prelude.ToLog,
-      Prelude.ToHeader,
-      Prelude.ToQuery,
-      Prelude.FromJSON,
-      Prelude.FromJSONKey,
-      Prelude.ToJSON,
-      Prelude.ToJSONKey,
-      Prelude.FromXML,
-      Prelude.ToXML
+  deriving stock
+    ( Core.Show,
+      Core.Read,
+      Core.Eq,
+      Core.Ord,
+      Core.Generic
+    )
+  deriving newtype
+    ( Core.Hashable,
+      Core.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
     )
 
 pattern InputDeviceTransferType_INCOMING :: InputDeviceTransferType

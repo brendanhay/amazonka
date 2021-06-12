@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudTrail.Types.AdvancedEventSelector where
 
 import Network.AWS.CloudTrail.Types.AdvancedFieldSelector
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Advanced event selectors let you create fine-grained selectors for the
 -- following AWS CloudTrail event record ﬁelds. They help you control costs
@@ -50,11 +49,11 @@ import qualified Network.AWS.Prelude as Prelude
 data AdvancedEventSelector = AdvancedEventSelector'
   { -- | An optional, descriptive name for an advanced event selector, such as
     -- \"Log data events for only two S3 buckets\".
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Contains all selector statements in an advanced event selector.
-    fieldSelectors :: Prelude.NonEmpty AdvancedFieldSelector
+    fieldSelectors :: Core.NonEmpty AdvancedFieldSelector
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdvancedEventSelector' with all optional fields omitted.
@@ -70,44 +69,43 @@ data AdvancedEventSelector = AdvancedEventSelector'
 -- 'fieldSelectors', 'advancedEventSelector_fieldSelectors' - Contains all selector statements in an advanced event selector.
 newAdvancedEventSelector ::
   -- | 'fieldSelectors'
-  Prelude.NonEmpty AdvancedFieldSelector ->
+  Core.NonEmpty AdvancedFieldSelector ->
   AdvancedEventSelector
 newAdvancedEventSelector pFieldSelectors_ =
   AdvancedEventSelector'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       fieldSelectors =
-        Prelude._Coerce Lens.# pFieldSelectors_
+        Lens._Coerce Lens.# pFieldSelectors_
     }
 
 -- | An optional, descriptive name for an advanced event selector, such as
 -- \"Log data events for only two S3 buckets\".
-advancedEventSelector_name :: Lens.Lens' AdvancedEventSelector (Prelude.Maybe Prelude.Text)
+advancedEventSelector_name :: Lens.Lens' AdvancedEventSelector (Core.Maybe Core.Text)
 advancedEventSelector_name = Lens.lens (\AdvancedEventSelector' {name} -> name) (\s@AdvancedEventSelector' {} a -> s {name = a} :: AdvancedEventSelector)
 
 -- | Contains all selector statements in an advanced event selector.
-advancedEventSelector_fieldSelectors :: Lens.Lens' AdvancedEventSelector (Prelude.NonEmpty AdvancedFieldSelector)
-advancedEventSelector_fieldSelectors = Lens.lens (\AdvancedEventSelector' {fieldSelectors} -> fieldSelectors) (\s@AdvancedEventSelector' {} a -> s {fieldSelectors = a} :: AdvancedEventSelector) Prelude.. Prelude._Coerce
+advancedEventSelector_fieldSelectors :: Lens.Lens' AdvancedEventSelector (Core.NonEmpty AdvancedFieldSelector)
+advancedEventSelector_fieldSelectors = Lens.lens (\AdvancedEventSelector' {fieldSelectors} -> fieldSelectors) (\s@AdvancedEventSelector' {} a -> s {fieldSelectors = a} :: AdvancedEventSelector) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AdvancedEventSelector where
+instance Core.FromJSON AdvancedEventSelector where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AdvancedEventSelector"
       ( \x ->
           AdvancedEventSelector'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..: "FieldSelectors")
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..: "FieldSelectors")
       )
 
-instance Prelude.Hashable AdvancedEventSelector
+instance Core.Hashable AdvancedEventSelector
 
-instance Prelude.NFData AdvancedEventSelector
+instance Core.NFData AdvancedEventSelector
 
-instance Prelude.ToJSON AdvancedEventSelector where
+instance Core.ToJSON AdvancedEventSelector where
   toJSON AdvancedEventSelector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            Prelude.Just
-              ("FieldSelectors" Prelude..= fieldSelectors)
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            Core.Just ("FieldSelectors" Core..= fieldSelectors)
           ]
       )

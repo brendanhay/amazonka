@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Route53AutoNaming.DeregisterInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -51,13 +50,13 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newDeregisterInstance' smart constructor.
 data DeregisterInstance = DeregisterInstance'
   { -- | The ID of the service that the instance is associated with.
-    serviceId :: Prelude.Text,
+    serviceId :: Core.Text,
     -- | The value that you specified for @Id@ in the
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
     -- request.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstance' with all optional fields omitted.
@@ -74,9 +73,9 @@ data DeregisterInstance = DeregisterInstance'
 -- request.
 newDeregisterInstance ::
   -- | 'serviceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterInstance
 newDeregisterInstance pServiceId_ pInstanceId_ =
   DeregisterInstance'
@@ -85,72 +84,70 @@ newDeregisterInstance pServiceId_ pInstanceId_ =
     }
 
 -- | The ID of the service that the instance is associated with.
-deregisterInstance_serviceId :: Lens.Lens' DeregisterInstance Prelude.Text
+deregisterInstance_serviceId :: Lens.Lens' DeregisterInstance Core.Text
 deregisterInstance_serviceId = Lens.lens (\DeregisterInstance' {serviceId} -> serviceId) (\s@DeregisterInstance' {} a -> s {serviceId = a} :: DeregisterInstance)
 
 -- | The value that you specified for @Id@ in the
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
 -- request.
-deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Prelude.Text
+deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Core.Text
 deregisterInstance_instanceId = Lens.lens (\DeregisterInstance' {instanceId} -> instanceId) (\s@DeregisterInstance' {} a -> s {instanceId = a} :: DeregisterInstance)
 
-instance Prelude.AWSRequest DeregisterInstance where
+instance Core.AWSRequest DeregisterInstance where
   type
-    Rs DeregisterInstance =
+    AWSResponse DeregisterInstance =
       DeregisterInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeregisterInstanceResponse'
-            Prelude.<$> (x Prelude..?> "OperationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OperationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterInstance
+instance Core.Hashable DeregisterInstance
 
-instance Prelude.NFData DeregisterInstance
+instance Core.NFData DeregisterInstance
 
-instance Prelude.ToHeaders DeregisterInstance where
+instance Core.ToHeaders DeregisterInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.DeregisterInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.DeregisterInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterInstance where
+instance Core.ToJSON DeregisterInstance where
   toJSON DeregisterInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ServiceId" Prelude..= serviceId),
-            Prelude.Just ("InstanceId" Prelude..= instanceId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServiceId" Core..= serviceId),
+            Core.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
-instance Prelude.ToPath DeregisterInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. For more information, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstanceResponse' with all optional fields omitted.
@@ -167,23 +164,23 @@ data DeregisterInstanceResponse = DeregisterInstanceResponse'
 -- 'httpStatus', 'deregisterInstanceResponse_httpStatus' - The response's http status code.
 newDeregisterInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterInstanceResponse
 newDeregisterInstanceResponse pHttpStatus_ =
   DeregisterInstanceResponse'
     { operationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. For more information, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-deregisterInstanceResponse_operationId :: Lens.Lens' DeregisterInstanceResponse (Prelude.Maybe Prelude.Text)
+deregisterInstanceResponse_operationId :: Lens.Lens' DeregisterInstanceResponse (Core.Maybe Core.Text)
 deregisterInstanceResponse_operationId = Lens.lens (\DeregisterInstanceResponse' {operationId} -> operationId) (\s@DeregisterInstanceResponse' {} a -> s {operationId = a} :: DeregisterInstanceResponse)
 
 -- | The response's http status code.
-deregisterInstanceResponse_httpStatus :: Lens.Lens' DeregisterInstanceResponse Prelude.Int
+deregisterInstanceResponse_httpStatus :: Lens.Lens' DeregisterInstanceResponse Core.Int
 deregisterInstanceResponse_httpStatus = Lens.lens (\DeregisterInstanceResponse' {httpStatus} -> httpStatus) (\s@DeregisterInstanceResponse' {} a -> s {httpStatus = a} :: DeregisterInstanceResponse)
 
-instance Prelude.NFData DeregisterInstanceResponse
+instance Core.NFData DeregisterInstanceResponse

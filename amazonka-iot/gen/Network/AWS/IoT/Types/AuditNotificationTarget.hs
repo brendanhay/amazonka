@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AuditNotificationTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the targets to which audit notifications are sent.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data AuditNotificationTarget = AuditNotificationTarget'
   { -- | The ARN of the role that grants permission to send notifications to the
     -- target.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | True if notifications to the target are enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The ARN of the target (SNS topic) to which audit notifications are sent.
-    targetArn :: Prelude.Maybe Prelude.Text
+    targetArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuditNotificationTarget' with all optional fields omitted.
@@ -55,45 +54,45 @@ newAuditNotificationTarget ::
   AuditNotificationTarget
 newAuditNotificationTarget =
   AuditNotificationTarget'
-    { roleArn = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      targetArn = Prelude.Nothing
+    { roleArn = Core.Nothing,
+      enabled = Core.Nothing,
+      targetArn = Core.Nothing
     }
 
 -- | The ARN of the role that grants permission to send notifications to the
 -- target.
-auditNotificationTarget_roleArn :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Text)
+auditNotificationTarget_roleArn :: Lens.Lens' AuditNotificationTarget (Core.Maybe Core.Text)
 auditNotificationTarget_roleArn = Lens.lens (\AuditNotificationTarget' {roleArn} -> roleArn) (\s@AuditNotificationTarget' {} a -> s {roleArn = a} :: AuditNotificationTarget)
 
 -- | True if notifications to the target are enabled.
-auditNotificationTarget_enabled :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Bool)
+auditNotificationTarget_enabled :: Lens.Lens' AuditNotificationTarget (Core.Maybe Core.Bool)
 auditNotificationTarget_enabled = Lens.lens (\AuditNotificationTarget' {enabled} -> enabled) (\s@AuditNotificationTarget' {} a -> s {enabled = a} :: AuditNotificationTarget)
 
 -- | The ARN of the target (SNS topic) to which audit notifications are sent.
-auditNotificationTarget_targetArn :: Lens.Lens' AuditNotificationTarget (Prelude.Maybe Prelude.Text)
+auditNotificationTarget_targetArn :: Lens.Lens' AuditNotificationTarget (Core.Maybe Core.Text)
 auditNotificationTarget_targetArn = Lens.lens (\AuditNotificationTarget' {targetArn} -> targetArn) (\s@AuditNotificationTarget' {} a -> s {targetArn = a} :: AuditNotificationTarget)
 
-instance Prelude.FromJSON AuditNotificationTarget where
+instance Core.FromJSON AuditNotificationTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AuditNotificationTarget"
       ( \x ->
           AuditNotificationTarget'
-            Prelude.<$> (x Prelude..:? "roleArn")
-            Prelude.<*> (x Prelude..:? "enabled")
-            Prelude.<*> (x Prelude..:? "targetArn")
+            Core.<$> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "enabled")
+            Core.<*> (x Core..:? "targetArn")
       )
 
-instance Prelude.Hashable AuditNotificationTarget
+instance Core.Hashable AuditNotificationTarget
 
-instance Prelude.NFData AuditNotificationTarget
+instance Core.NFData AuditNotificationTarget
 
-instance Prelude.ToJSON AuditNotificationTarget where
+instance Core.ToJSON AuditNotificationTarget where
   toJSON AuditNotificationTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("roleArn" Prelude..=) Prelude.<$> roleArn,
-            ("enabled" Prelude..=) Prelude.<$> enabled,
-            ("targetArn" Prelude..=) Prelude.<$> targetArn
+    Core.object
+      ( Core.catMaybes
+          [ ("roleArn" Core..=) Core.<$> roleArn,
+            ("enabled" Core..=) Core.<$> enabled,
+            ("targetArn" Core..=) Core.<$> targetArn
           ]
       )

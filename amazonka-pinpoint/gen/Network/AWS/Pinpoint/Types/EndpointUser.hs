@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EndpointUser where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies data for one or more attributes that describe the user who\'s
 -- associated with an endpoint.
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEndpointUser' smart constructor.
 data EndpointUser = EndpointUser'
   { -- | The unique identifier for the user.
-    userId :: Prelude.Maybe Prelude.Text,
+    userId :: Core.Maybe Core.Text,
     -- | One or more custom attributes that describe the user by associating a
     -- name with an array of values. For example, the value of an attribute
     -- named Interests might be: [\"Science\", \"Music\", \"Travel\"]. You can
@@ -42,9 +41,9 @@ data EndpointUser = EndpointUser'
     -- (:), question mark (?), backslash (\\), and slash (\/). The Amazon
     -- Pinpoint console can\'t display attribute names that contain these
     -- characters. This restriction doesn\'t apply to attribute values.
-    userAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    userAttributes :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndpointUser' with all optional fields omitted.
@@ -72,12 +71,12 @@ newEndpointUser ::
   EndpointUser
 newEndpointUser =
   EndpointUser'
-    { userId = Prelude.Nothing,
-      userAttributes = Prelude.Nothing
+    { userId = Core.Nothing,
+      userAttributes = Core.Nothing
     }
 
 -- | The unique identifier for the user.
-endpointUser_userId :: Lens.Lens' EndpointUser (Prelude.Maybe Prelude.Text)
+endpointUser_userId :: Lens.Lens' EndpointUser (Core.Maybe Core.Text)
 endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@EndpointUser' {} a -> s {userId = a} :: EndpointUser)
 
 -- | One or more custom attributes that describe the user by associating a
@@ -92,31 +91,28 @@ endpointUser_userId = Lens.lens (\EndpointUser' {userId} -> userId) (\s@Endpoint
 -- (:), question mark (?), backslash (\\), and slash (\/). The Amazon
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
-endpointUser_userAttributes :: Lens.Lens' EndpointUser (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-endpointUser_userAttributes = Lens.lens (\EndpointUser' {userAttributes} -> userAttributes) (\s@EndpointUser' {} a -> s {userAttributes = a} :: EndpointUser) Prelude.. Lens.mapping Prelude._Coerce
+endpointUser_userAttributes :: Lens.Lens' EndpointUser (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+endpointUser_userAttributes = Lens.lens (\EndpointUser' {userAttributes} -> userAttributes) (\s@EndpointUser' {} a -> s {userAttributes = a} :: EndpointUser) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON EndpointUser where
+instance Core.FromJSON EndpointUser where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EndpointUser"
       ( \x ->
           EndpointUser'
-            Prelude.<$> (x Prelude..:? "UserId")
-            Prelude.<*> ( x Prelude..:? "UserAttributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "UserId")
+            Core.<*> (x Core..:? "UserAttributes" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable EndpointUser
+instance Core.Hashable EndpointUser
 
-instance Prelude.NFData EndpointUser
+instance Core.NFData EndpointUser
 
-instance Prelude.ToJSON EndpointUser where
+instance Core.ToJSON EndpointUser where
   toJSON EndpointUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("UserId" Prelude..=) Prelude.<$> userId,
-            ("UserAttributes" Prelude..=)
-              Prelude.<$> userAttributes
+    Core.object
+      ( Core.catMaybes
+          [ ("UserId" Core..=) Core.<$> userId,
+            ("UserAttributes" Core..=) Core.<$> userAttributes
           ]
       )

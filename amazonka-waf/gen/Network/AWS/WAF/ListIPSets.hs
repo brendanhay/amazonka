@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.WAF.ListIPSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -66,14 +64,14 @@ data ListIPSets = ListIPSets'
     -- list another group of @IPSets@. For the second and subsequent
     -- @ListIPSets@ requests, specify the value of @NextMarker@ from the
     -- previous response to get information about another batch of @IPSets@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return
     -- for this request. If you have more @IPSet@ objects than the number you
     -- specify for @Limit@, the response includes a @NextMarker@ value that you
     -- can use to get another batch of @IPSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIPSets' with all optional fields omitted.
@@ -96,99 +94,97 @@ newListIPSets ::
   ListIPSets
 newListIPSets =
   ListIPSets'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | AWS WAF returns a @NextMarker@ value in the response that allows you to
 -- list another group of @IPSets@. For the second and subsequent
 -- @ListIPSets@ requests, specify the value of @NextMarker@ from the
 -- previous response to get information about another batch of @IPSets@.
-listIPSets_nextMarker :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Text)
+listIPSets_nextMarker :: Lens.Lens' ListIPSets (Core.Maybe Core.Text)
 listIPSets_nextMarker = Lens.lens (\ListIPSets' {nextMarker} -> nextMarker) (\s@ListIPSets' {} a -> s {nextMarker = a} :: ListIPSets)
 
 -- | Specifies the number of @IPSet@ objects that you want AWS WAF to return
 -- for this request. If you have more @IPSet@ objects than the number you
 -- specify for @Limit@, the response includes a @NextMarker@ value that you
 -- can use to get another batch of @IPSet@ objects.
-listIPSets_limit :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Natural)
+listIPSets_limit :: Lens.Lens' ListIPSets (Core.Maybe Core.Natural)
 listIPSets_limit = Lens.lens (\ListIPSets' {limit} -> limit) (\s@ListIPSets' {} a -> s {limit = a} :: ListIPSets)
 
-instance Pager.AWSPager ListIPSets where
+instance Core.AWSPager ListIPSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listIPSetsResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listIPSetsResponse_nextMarker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listIPSetsResponse_iPSets Prelude.. Lens._Just
+            Lens.^? listIPSetsResponse_iPSets Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listIPSets_nextMarker
           Lens..~ rs
-          Lens.^? listIPSetsResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listIPSetsResponse_nextMarker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListIPSets where
-  type Rs ListIPSets = ListIPSetsResponse
+instance Core.AWSRequest ListIPSets where
+  type AWSResponse ListIPSets = ListIPSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListIPSetsResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> (x Prelude..?> "IPSets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "IPSets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListIPSets
+instance Core.Hashable ListIPSets
 
-instance Prelude.NFData ListIPSets
+instance Core.NFData ListIPSets
 
-instance Prelude.ToHeaders ListIPSets where
+instance Core.ToHeaders ListIPSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSWAF_20150824.ListIPSets" :: Prelude.ByteString),
+              Core.=# ("AWSWAF_20150824.ListIPSets" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListIPSets where
+instance Core.ToJSON ListIPSets where
   toJSON ListIPSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListIPSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListIPSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListIPSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListIPSets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListIPSetsResponse' smart constructor.
 data ListIPSetsResponse = ListIPSetsResponse'
   { -- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and
     -- in the next request use the @NextMarker@ response value as the
     -- @NextMarker@ value.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | An array of IPSetSummary objects.
-    iPSets :: Prelude.Maybe [IPSetSummary],
+    iPSets :: Core.Maybe [IPSetSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIPSetsResponse' with all optional fields omitted.
@@ -207,27 +203,27 @@ data ListIPSetsResponse = ListIPSetsResponse'
 -- 'httpStatus', 'listIPSetsResponse_httpStatus' - The response's http status code.
 newListIPSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListIPSetsResponse
 newListIPSetsResponse pHttpStatus_ =
   ListIPSetsResponse'
-    { nextMarker = Prelude.Nothing,
-      iPSets = Prelude.Nothing,
+    { nextMarker = Core.Nothing,
+      iPSets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | To list more @IPSet@ objects, submit another @ListIPSets@ request, and
 -- in the next request use the @NextMarker@ response value as the
 -- @NextMarker@ value.
-listIPSetsResponse_nextMarker :: Lens.Lens' ListIPSetsResponse (Prelude.Maybe Prelude.Text)
+listIPSetsResponse_nextMarker :: Lens.Lens' ListIPSetsResponse (Core.Maybe Core.Text)
 listIPSetsResponse_nextMarker = Lens.lens (\ListIPSetsResponse' {nextMarker} -> nextMarker) (\s@ListIPSetsResponse' {} a -> s {nextMarker = a} :: ListIPSetsResponse)
 
 -- | An array of IPSetSummary objects.
-listIPSetsResponse_iPSets :: Lens.Lens' ListIPSetsResponse (Prelude.Maybe [IPSetSummary])
-listIPSetsResponse_iPSets = Lens.lens (\ListIPSetsResponse' {iPSets} -> iPSets) (\s@ListIPSetsResponse' {} a -> s {iPSets = a} :: ListIPSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listIPSetsResponse_iPSets :: Lens.Lens' ListIPSetsResponse (Core.Maybe [IPSetSummary])
+listIPSetsResponse_iPSets = Lens.lens (\ListIPSetsResponse' {iPSets} -> iPSets) (\s@ListIPSetsResponse' {} a -> s {iPSets = a} :: ListIPSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listIPSetsResponse_httpStatus :: Lens.Lens' ListIPSetsResponse Prelude.Int
+listIPSetsResponse_httpStatus :: Lens.Lens' ListIPSetsResponse Core.Int
 listIPSetsResponse_httpStatus = Lens.lens (\ListIPSetsResponse' {httpStatus} -> httpStatus) (\s@ListIPSetsResponse' {} a -> s {httpStatus = a} :: ListIPSetsResponse)
 
-instance Prelude.NFData ListIPSetsResponse
+instance Core.NFData ListIPSetsResponse

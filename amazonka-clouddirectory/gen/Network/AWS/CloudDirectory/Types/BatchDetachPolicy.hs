@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.BatchDetachPolicy where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Detaches the specified policy from the specified directory inside a
 -- BatchWrite operation. For more information, see DetachPolicy and
@@ -36,7 +35,7 @@ data BatchDetachPolicy = BatchDetachPolicy'
     -- detached.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetachPolicy' with all optional fields omitted.
@@ -74,17 +73,17 @@ batchDetachPolicy_policyReference = Lens.lens (\BatchDetachPolicy' {policyRefere
 batchDetachPolicy_objectReference :: Lens.Lens' BatchDetachPolicy ObjectReference
 batchDetachPolicy_objectReference = Lens.lens (\BatchDetachPolicy' {objectReference} -> objectReference) (\s@BatchDetachPolicy' {} a -> s {objectReference = a} :: BatchDetachPolicy)
 
-instance Prelude.Hashable BatchDetachPolicy
+instance Core.Hashable BatchDetachPolicy
 
-instance Prelude.NFData BatchDetachPolicy
+instance Core.NFData BatchDetachPolicy
 
-instance Prelude.ToJSON BatchDetachPolicy where
+instance Core.ToJSON BatchDetachPolicy where
   toJSON BatchDetachPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PolicyReference" Prelude..= policyReference),
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("PolicyReference" Core..= policyReference),
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )

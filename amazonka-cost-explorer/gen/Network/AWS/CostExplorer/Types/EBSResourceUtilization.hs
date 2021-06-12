@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.EBSResourceUtilization where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The EBS field that contains a list of EBS metrics associated with the
 -- current instance.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEBSResourceUtilization' smart constructor.
 data EBSResourceUtilization = EBSResourceUtilization'
   { -- | The maximum size of write operations per second.
-    ebsWriteBytesPerSecond :: Prelude.Maybe Prelude.Text,
+    ebsWriteBytesPerSecond :: Core.Maybe Core.Text,
     -- | The maximum number of read operations per second.
-    ebsReadOpsPerSecond :: Prelude.Maybe Prelude.Text,
+    ebsReadOpsPerSecond :: Core.Maybe Core.Text,
     -- | The maximum number of write operations per second.
-    ebsWriteOpsPerSecond :: Prelude.Maybe Prelude.Text,
+    ebsWriteOpsPerSecond :: Core.Maybe Core.Text,
     -- | The maximum size of read operations per second
-    ebsReadBytesPerSecond :: Prelude.Maybe Prelude.Text
+    ebsReadBytesPerSecond :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EBSResourceUtilization' with all optional fields omitted.
@@ -59,40 +58,40 @@ newEBSResourceUtilization ::
 newEBSResourceUtilization =
   EBSResourceUtilization'
     { ebsWriteBytesPerSecond =
-        Prelude.Nothing,
-      ebsReadOpsPerSecond = Prelude.Nothing,
-      ebsWriteOpsPerSecond = Prelude.Nothing,
-      ebsReadBytesPerSecond = Prelude.Nothing
+        Core.Nothing,
+      ebsReadOpsPerSecond = Core.Nothing,
+      ebsWriteOpsPerSecond = Core.Nothing,
+      ebsReadBytesPerSecond = Core.Nothing
     }
 
 -- | The maximum size of write operations per second.
-eBSResourceUtilization_ebsWriteBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
+eBSResourceUtilization_ebsWriteBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Core.Text)
 eBSResourceUtilization_ebsWriteBytesPerSecond = Lens.lens (\EBSResourceUtilization' {ebsWriteBytesPerSecond} -> ebsWriteBytesPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsWriteBytesPerSecond = a} :: EBSResourceUtilization)
 
 -- | The maximum number of read operations per second.
-eBSResourceUtilization_ebsReadOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
+eBSResourceUtilization_ebsReadOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Core.Text)
 eBSResourceUtilization_ebsReadOpsPerSecond = Lens.lens (\EBSResourceUtilization' {ebsReadOpsPerSecond} -> ebsReadOpsPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsReadOpsPerSecond = a} :: EBSResourceUtilization)
 
 -- | The maximum number of write operations per second.
-eBSResourceUtilization_ebsWriteOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
+eBSResourceUtilization_ebsWriteOpsPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Core.Text)
 eBSResourceUtilization_ebsWriteOpsPerSecond = Lens.lens (\EBSResourceUtilization' {ebsWriteOpsPerSecond} -> ebsWriteOpsPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsWriteOpsPerSecond = a} :: EBSResourceUtilization)
 
 -- | The maximum size of read operations per second
-eBSResourceUtilization_ebsReadBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Prelude.Maybe Prelude.Text)
+eBSResourceUtilization_ebsReadBytesPerSecond :: Lens.Lens' EBSResourceUtilization (Core.Maybe Core.Text)
 eBSResourceUtilization_ebsReadBytesPerSecond = Lens.lens (\EBSResourceUtilization' {ebsReadBytesPerSecond} -> ebsReadBytesPerSecond) (\s@EBSResourceUtilization' {} a -> s {ebsReadBytesPerSecond = a} :: EBSResourceUtilization)
 
-instance Prelude.FromJSON EBSResourceUtilization where
+instance Core.FromJSON EBSResourceUtilization where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EBSResourceUtilization"
       ( \x ->
           EBSResourceUtilization'
-            Prelude.<$> (x Prelude..:? "EbsWriteBytesPerSecond")
-            Prelude.<*> (x Prelude..:? "EbsReadOpsPerSecond")
-            Prelude.<*> (x Prelude..:? "EbsWriteOpsPerSecond")
-            Prelude.<*> (x Prelude..:? "EbsReadBytesPerSecond")
+            Core.<$> (x Core..:? "EbsWriteBytesPerSecond")
+            Core.<*> (x Core..:? "EbsReadOpsPerSecond")
+            Core.<*> (x Core..:? "EbsWriteOpsPerSecond")
+            Core.<*> (x Core..:? "EbsReadBytesPerSecond")
       )
 
-instance Prelude.Hashable EBSResourceUtilization
+instance Core.Hashable EBSResourceUtilization
 
-instance Prelude.NFData EBSResourceUtilization
+instance Core.NFData EBSResourceUtilization

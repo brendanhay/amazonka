@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.DestinationSchema where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.RecordFormatType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the data format when records are written to the destination.
 -- For more information, see
@@ -33,7 +32,7 @@ data DestinationSchema = DestinationSchema'
   { -- | Specifies the format of the records on the output stream.
     recordFormatType :: RecordFormatType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DestinationSchema' with all optional fields omitted.
@@ -58,24 +57,24 @@ newDestinationSchema pRecordFormatType_ =
 destinationSchema_recordFormatType :: Lens.Lens' DestinationSchema RecordFormatType
 destinationSchema_recordFormatType = Lens.lens (\DestinationSchema' {recordFormatType} -> recordFormatType) (\s@DestinationSchema' {} a -> s {recordFormatType = a} :: DestinationSchema)
 
-instance Prelude.FromJSON DestinationSchema where
+instance Core.FromJSON DestinationSchema where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DestinationSchema"
       ( \x ->
           DestinationSchema'
-            Prelude.<$> (x Prelude..: "RecordFormatType")
+            Core.<$> (x Core..: "RecordFormatType")
       )
 
-instance Prelude.Hashable DestinationSchema
+instance Core.Hashable DestinationSchema
 
-instance Prelude.NFData DestinationSchema
+instance Core.NFData DestinationSchema
 
-instance Prelude.ToJSON DestinationSchema where
+instance Core.ToJSON DestinationSchema where
   toJSON DestinationSchema' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("RecordFormatType" Prelude..= recordFormatType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RecordFormatType" Core..= recordFormatType)
           ]
       )

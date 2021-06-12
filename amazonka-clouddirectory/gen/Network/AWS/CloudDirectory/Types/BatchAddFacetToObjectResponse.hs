@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The result of a batch add facet to object operation.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchAddFacetToObjectResponse = BatchAddFacetToObjectResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAddFacetToObjectResponse' with all optional fields omitted.
@@ -40,17 +39,12 @@ newBatchAddFacetToObjectResponse ::
 newBatchAddFacetToObjectResponse =
   BatchAddFacetToObjectResponse'
 
-instance
-  Prelude.FromJSON
-    BatchAddFacetToObjectResponse
-  where
+instance Core.FromJSON BatchAddFacetToObjectResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchAddFacetToObjectResponse"
-      (\x -> Prelude.pure BatchAddFacetToObjectResponse')
+      (\x -> Core.pure BatchAddFacetToObjectResponse')
 
-instance
-  Prelude.Hashable
-    BatchAddFacetToObjectResponse
+instance Core.Hashable BatchAddFacetToObjectResponse
 
-instance Prelude.NFData BatchAddFacetToObjectResponse
+instance Core.NFData BatchAddFacetToObjectResponse

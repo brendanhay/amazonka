@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.GroupOwnerSetting where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Group owner related settings for local resources.
 --
@@ -29,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 data GroupOwnerSetting = GroupOwnerSetting'
   { -- | The name of the Linux OS group whose privileges will be added to the
     -- Lambda process. This field is optional.
-    groupOwner :: Prelude.Maybe Prelude.Text,
+    groupOwner :: Core.Maybe Core.Text,
     -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS
     -- group owner of the resource to the Lambda process privileges. Thus the
     -- Lambda process will have the file access permissions of the added Linux
     -- group.
-    autoAddGroupOwner :: Prelude.Maybe Prelude.Bool
+    autoAddGroupOwner :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupOwnerSetting' with all optional fields omitted.
@@ -57,42 +56,42 @@ newGroupOwnerSetting ::
   GroupOwnerSetting
 newGroupOwnerSetting =
   GroupOwnerSetting'
-    { groupOwner = Prelude.Nothing,
-      autoAddGroupOwner = Prelude.Nothing
+    { groupOwner = Core.Nothing,
+      autoAddGroupOwner = Core.Nothing
     }
 
 -- | The name of the Linux OS group whose privileges will be added to the
 -- Lambda process. This field is optional.
-groupOwnerSetting_groupOwner :: Lens.Lens' GroupOwnerSetting (Prelude.Maybe Prelude.Text)
+groupOwnerSetting_groupOwner :: Lens.Lens' GroupOwnerSetting (Core.Maybe Core.Text)
 groupOwnerSetting_groupOwner = Lens.lens (\GroupOwnerSetting' {groupOwner} -> groupOwner) (\s@GroupOwnerSetting' {} a -> s {groupOwner = a} :: GroupOwnerSetting)
 
 -- | If true, AWS IoT Greengrass automatically adds the specified Linux OS
 -- group owner of the resource to the Lambda process privileges. Thus the
 -- Lambda process will have the file access permissions of the added Linux
 -- group.
-groupOwnerSetting_autoAddGroupOwner :: Lens.Lens' GroupOwnerSetting (Prelude.Maybe Prelude.Bool)
+groupOwnerSetting_autoAddGroupOwner :: Lens.Lens' GroupOwnerSetting (Core.Maybe Core.Bool)
 groupOwnerSetting_autoAddGroupOwner = Lens.lens (\GroupOwnerSetting' {autoAddGroupOwner} -> autoAddGroupOwner) (\s@GroupOwnerSetting' {} a -> s {autoAddGroupOwner = a} :: GroupOwnerSetting)
 
-instance Prelude.FromJSON GroupOwnerSetting where
+instance Core.FromJSON GroupOwnerSetting where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupOwnerSetting"
       ( \x ->
           GroupOwnerSetting'
-            Prelude.<$> (x Prelude..:? "GroupOwner")
-            Prelude.<*> (x Prelude..:? "AutoAddGroupOwner")
+            Core.<$> (x Core..:? "GroupOwner")
+            Core.<*> (x Core..:? "AutoAddGroupOwner")
       )
 
-instance Prelude.Hashable GroupOwnerSetting
+instance Core.Hashable GroupOwnerSetting
 
-instance Prelude.NFData GroupOwnerSetting
+instance Core.NFData GroupOwnerSetting
 
-instance Prelude.ToJSON GroupOwnerSetting where
+instance Core.ToJSON GroupOwnerSetting where
   toJSON GroupOwnerSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GroupOwner" Prelude..=) Prelude.<$> groupOwner,
-            ("AutoAddGroupOwner" Prelude..=)
-              Prelude.<$> autoAddGroupOwner
+    Core.object
+      ( Core.catMaybes
+          [ ("GroupOwner" Core..=) Core.<$> groupOwner,
+            ("AutoAddGroupOwner" Core..=)
+              Core.<$> autoAddGroupOwner
           ]
       )

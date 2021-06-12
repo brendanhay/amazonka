@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.BuiltinIntentMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Locale
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides metadata for a built-in intent.
 --
@@ -32,11 +31,11 @@ data BuiltinIntentMetadata = BuiltinIntentMetadata'
     -- an intent, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
     -- in the /Alexa Skills Kit/.
-    signature :: Prelude.Maybe Prelude.Text,
+    signature :: Core.Maybe Core.Text,
     -- | A list of identifiers for the locales that the intent supports.
-    supportedLocales :: Prelude.Maybe [Locale]
+    supportedLocales :: Core.Maybe [Locale]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BuiltinIntentMetadata' with all optional fields omitted.
@@ -56,33 +55,31 @@ newBuiltinIntentMetadata ::
   BuiltinIntentMetadata
 newBuiltinIntentMetadata =
   BuiltinIntentMetadata'
-    { signature = Prelude.Nothing,
-      supportedLocales = Prelude.Nothing
+    { signature = Core.Nothing,
+      supportedLocales = Core.Nothing
     }
 
 -- | A unique identifier for the built-in intent. To find the signature for
 -- an intent, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
 -- in the /Alexa Skills Kit/.
-builtinIntentMetadata_signature :: Lens.Lens' BuiltinIntentMetadata (Prelude.Maybe Prelude.Text)
+builtinIntentMetadata_signature :: Lens.Lens' BuiltinIntentMetadata (Core.Maybe Core.Text)
 builtinIntentMetadata_signature = Lens.lens (\BuiltinIntentMetadata' {signature} -> signature) (\s@BuiltinIntentMetadata' {} a -> s {signature = a} :: BuiltinIntentMetadata)
 
 -- | A list of identifiers for the locales that the intent supports.
-builtinIntentMetadata_supportedLocales :: Lens.Lens' BuiltinIntentMetadata (Prelude.Maybe [Locale])
-builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinIntentMetadata' {} a -> s {supportedLocales = a} :: BuiltinIntentMetadata) Prelude.. Lens.mapping Prelude._Coerce
+builtinIntentMetadata_supportedLocales :: Lens.Lens' BuiltinIntentMetadata (Core.Maybe [Locale])
+builtinIntentMetadata_supportedLocales = Lens.lens (\BuiltinIntentMetadata' {supportedLocales} -> supportedLocales) (\s@BuiltinIntentMetadata' {} a -> s {supportedLocales = a} :: BuiltinIntentMetadata) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON BuiltinIntentMetadata where
+instance Core.FromJSON BuiltinIntentMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BuiltinIntentMetadata"
       ( \x ->
           BuiltinIntentMetadata'
-            Prelude.<$> (x Prelude..:? "signature")
-            Prelude.<*> ( x Prelude..:? "supportedLocales"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "signature")
+            Core.<*> (x Core..:? "supportedLocales" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable BuiltinIntentMetadata
+instance Core.Hashable BuiltinIntentMetadata
 
-instance Prelude.NFData BuiltinIntentMetadata
+instance Core.NFData BuiltinIntentMetadata

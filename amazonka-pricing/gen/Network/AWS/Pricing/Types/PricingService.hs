@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pricing.Types.PricingService where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata for a service, such as the service code and available
 -- attribute names.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPricingService' smart constructor.
 data PricingService = PricingService'
   { -- | The code for the AWS service.
-    serviceCode :: Prelude.Maybe Prelude.Text,
+    serviceCode :: Core.Maybe Core.Text,
     -- | The attributes that are available for this service.
-    attributeNames :: Prelude.Maybe [Prelude.Text]
+    attributeNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PricingService' with all optional fields omitted.
@@ -50,30 +49,28 @@ newPricingService ::
   PricingService
 newPricingService =
   PricingService'
-    { serviceCode = Prelude.Nothing,
-      attributeNames = Prelude.Nothing
+    { serviceCode = Core.Nothing,
+      attributeNames = Core.Nothing
     }
 
 -- | The code for the AWS service.
-pricingService_serviceCode :: Lens.Lens' PricingService (Prelude.Maybe Prelude.Text)
+pricingService_serviceCode :: Lens.Lens' PricingService (Core.Maybe Core.Text)
 pricingService_serviceCode = Lens.lens (\PricingService' {serviceCode} -> serviceCode) (\s@PricingService' {} a -> s {serviceCode = a} :: PricingService)
 
 -- | The attributes that are available for this service.
-pricingService_attributeNames :: Lens.Lens' PricingService (Prelude.Maybe [Prelude.Text])
-pricingService_attributeNames = Lens.lens (\PricingService' {attributeNames} -> attributeNames) (\s@PricingService' {} a -> s {attributeNames = a} :: PricingService) Prelude.. Lens.mapping Prelude._Coerce
+pricingService_attributeNames :: Lens.Lens' PricingService (Core.Maybe [Core.Text])
+pricingService_attributeNames = Lens.lens (\PricingService' {attributeNames} -> attributeNames) (\s@PricingService' {} a -> s {attributeNames = a} :: PricingService) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON PricingService where
+instance Core.FromJSON PricingService where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PricingService"
       ( \x ->
           PricingService'
-            Prelude.<$> (x Prelude..:? "ServiceCode")
-            Prelude.<*> ( x Prelude..:? "AttributeNames"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ServiceCode")
+            Core.<*> (x Core..:? "AttributeNames" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PricingService
+instance Core.Hashable PricingService
 
-instance Prelude.NFData PricingService
+instance Core.NFData PricingService

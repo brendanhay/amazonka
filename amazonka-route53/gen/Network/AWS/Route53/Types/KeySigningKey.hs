@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.KeySigningKey where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A key-signing key (KSK) is a complex type that represents a
@@ -35,14 +34,14 @@ data KeySigningKey = KeySigningKey'
   { -- | An integer used to represent the delegation signer digest algorithm.
     -- This value must follow the guidelines provided by
     -- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
-    digestAlgorithmType :: Prelude.Maybe Prelude.Int,
+    digestAlgorithmType :: Core.Maybe Core.Int,
     -- | The last time that the key-signing key (KSK) was changed.
-    lastModifiedDate :: Prelude.Maybe Prelude.ISO8601,
+    lastModifiedDate :: Core.Maybe Core.ISO8601,
     -- | The status message provided for the following key-signing key (KSK)
     -- statuses: @ACTION_NEEDED@ or @INTERNAL_FAILURE@. The status message
     -- includes information about what the problem might be and steps that you
     -- can take to correct the issue.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    statusMessage :: Core.Maybe Core.Text,
     -- | A string that represents the current key-signing key (KSK) status.
     --
     -- Status can have one of the following values:
@@ -67,38 +66,38 @@ data KeySigningKey = KeySigningKey'
     --     with DNSSEC signing, including actions that involve this KSK, you
     --     must correct the problem. For example, you may need to activate or
     --     deactivate the KSK.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The date when the key-signing key (KSK) was created.
-    createdDate :: Prelude.Maybe Prelude.ISO8601,
+    createdDate :: Core.Maybe Core.ISO8601,
     -- | A string used to represent the signing algorithm. This value must follow
     -- the guidelines provided by
     -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
-    signingAlgorithmMnemonic :: Prelude.Maybe Prelude.Text,
+    signingAlgorithmMnemonic :: Core.Maybe Core.Text,
     -- | The public key, represented as a Base64 encoding, as required by
     -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Page 5>.
-    publicKey :: Prelude.Maybe Prelude.Text,
+    publicKey :: Core.Maybe Core.Text,
     -- | A string that represents a DNSKEY record.
-    dNSKEYRecord :: Prelude.Maybe Prelude.Text,
+    dNSKEYRecord :: Core.Maybe Core.Text,
     -- | A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records
     -- are used to publish the public key that resolvers can use to verify
     -- DNSSEC signatures that are used to secure certain kinds of information
     -- provided by the DNS system.
-    digestValue :: Prelude.Maybe Prelude.Text,
+    digestValue :: Core.Maybe Core.Text,
     -- | A string used to represent the delegation signer digest algorithm. This
     -- value must follow the guidelines provided by
     -- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
-    digestAlgorithmMnemonic :: Prelude.Maybe Prelude.Text,
+    digestAlgorithmMnemonic :: Core.Maybe Core.Text,
     -- | A string used to identify a key-signing key (KSK). @Name@ can include
     -- numbers, letters, and underscores (_). @Name@ must be unique for each
     -- key-signing key in the same hosted zone.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | An integer used to represent the signing algorithm. This value must
     -- follow the guidelines provided by
     -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
-    signingAlgorithmType :: Prelude.Maybe Prelude.Int,
+    signingAlgorithmType :: Core.Maybe Core.Int,
     -- | An integer that specifies how the key is used. For key-signing key
     -- (KSK), this value is always 257.
-    flag :: Prelude.Maybe Prelude.Int,
+    flag :: Core.Maybe Core.Int,
     -- | The Amazon resource name (ARN) used to identify the customer managed
     -- customer master key (CMK) in AWS Key Management Service (AWS KMS). The
     -- @KmsArn@ must be unique for each key-signing key (KSK) in a single
@@ -132,15 +131,15 @@ data KeySigningKey = KeySigningKey'
     -- For more information about working with the customer managed CMK in AWS
     -- KMS, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
-    kmsArn :: Prelude.Maybe Prelude.Text,
+    kmsArn :: Core.Maybe Core.Text,
     -- | An integer used to identify the DNSSEC record for the domain name. The
     -- process used to calculate the value is described in
     -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Appendix B>.
-    keyTag :: Prelude.Maybe Prelude.Natural,
+    keyTag :: Core.Maybe Core.Natural,
     -- | A string that represents a delegation signer (DS) record.
-    dSRecord :: Prelude.Maybe Prelude.Text
+    dSRecord :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeySigningKey' with all optional fields omitted.
@@ -260,40 +259,39 @@ newKeySigningKey ::
   KeySigningKey
 newKeySigningKey =
   KeySigningKey'
-    { digestAlgorithmType =
-        Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      statusMessage = Prelude.Nothing,
-      status = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      signingAlgorithmMnemonic = Prelude.Nothing,
-      publicKey = Prelude.Nothing,
-      dNSKEYRecord = Prelude.Nothing,
-      digestValue = Prelude.Nothing,
-      digestAlgorithmMnemonic = Prelude.Nothing,
-      name = Prelude.Nothing,
-      signingAlgorithmType = Prelude.Nothing,
-      flag = Prelude.Nothing,
-      kmsArn = Prelude.Nothing,
-      keyTag = Prelude.Nothing,
-      dSRecord = Prelude.Nothing
+    { digestAlgorithmType = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      statusMessage = Core.Nothing,
+      status = Core.Nothing,
+      createdDate = Core.Nothing,
+      signingAlgorithmMnemonic = Core.Nothing,
+      publicKey = Core.Nothing,
+      dNSKEYRecord = Core.Nothing,
+      digestValue = Core.Nothing,
+      digestAlgorithmMnemonic = Core.Nothing,
+      name = Core.Nothing,
+      signingAlgorithmType = Core.Nothing,
+      flag = Core.Nothing,
+      kmsArn = Core.Nothing,
+      keyTag = Core.Nothing,
+      dSRecord = Core.Nothing
     }
 
 -- | An integer used to represent the delegation signer digest algorithm.
 -- This value must follow the guidelines provided by
 -- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
-keySigningKey_digestAlgorithmType :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Int)
+keySigningKey_digestAlgorithmType :: Lens.Lens' KeySigningKey (Core.Maybe Core.Int)
 keySigningKey_digestAlgorithmType = Lens.lens (\KeySigningKey' {digestAlgorithmType} -> digestAlgorithmType) (\s@KeySigningKey' {} a -> s {digestAlgorithmType = a} :: KeySigningKey)
 
 -- | The last time that the key-signing key (KSK) was changed.
-keySigningKey_lastModifiedDate :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.UTCTime)
-keySigningKey_lastModifiedDate = Lens.lens (\KeySigningKey' {lastModifiedDate} -> lastModifiedDate) (\s@KeySigningKey' {} a -> s {lastModifiedDate = a} :: KeySigningKey) Prelude.. Lens.mapping Prelude._Time
+keySigningKey_lastModifiedDate :: Lens.Lens' KeySigningKey (Core.Maybe Core.UTCTime)
+keySigningKey_lastModifiedDate = Lens.lens (\KeySigningKey' {lastModifiedDate} -> lastModifiedDate) (\s@KeySigningKey' {} a -> s {lastModifiedDate = a} :: KeySigningKey) Core.. Lens.mapping Core._Time
 
 -- | The status message provided for the following key-signing key (KSK)
 -- statuses: @ACTION_NEEDED@ or @INTERNAL_FAILURE@. The status message
 -- includes information about what the problem might be and steps that you
 -- can take to correct the issue.
-keySigningKey_statusMessage :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_statusMessage :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_statusMessage = Lens.lens (\KeySigningKey' {statusMessage} -> statusMessage) (\s@KeySigningKey' {} a -> s {statusMessage = a} :: KeySigningKey)
 
 -- | A string that represents the current key-signing key (KSK) status.
@@ -320,56 +318,56 @@ keySigningKey_statusMessage = Lens.lens (\KeySigningKey' {statusMessage} -> stat
 --     with DNSSEC signing, including actions that involve this KSK, you
 --     must correct the problem. For example, you may need to activate or
 --     deactivate the KSK.
-keySigningKey_status :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_status :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_status = Lens.lens (\KeySigningKey' {status} -> status) (\s@KeySigningKey' {} a -> s {status = a} :: KeySigningKey)
 
 -- | The date when the key-signing key (KSK) was created.
-keySigningKey_createdDate :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.UTCTime)
-keySigningKey_createdDate = Lens.lens (\KeySigningKey' {createdDate} -> createdDate) (\s@KeySigningKey' {} a -> s {createdDate = a} :: KeySigningKey) Prelude.. Lens.mapping Prelude._Time
+keySigningKey_createdDate :: Lens.Lens' KeySigningKey (Core.Maybe Core.UTCTime)
+keySigningKey_createdDate = Lens.lens (\KeySigningKey' {createdDate} -> createdDate) (\s@KeySigningKey' {} a -> s {createdDate = a} :: KeySigningKey) Core.. Lens.mapping Core._Time
 
 -- | A string used to represent the signing algorithm. This value must follow
 -- the guidelines provided by
 -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
-keySigningKey_signingAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_signingAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_signingAlgorithmMnemonic = Lens.lens (\KeySigningKey' {signingAlgorithmMnemonic} -> signingAlgorithmMnemonic) (\s@KeySigningKey' {} a -> s {signingAlgorithmMnemonic = a} :: KeySigningKey)
 
 -- | The public key, represented as a Base64 encoding, as required by
 -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Page 5>.
-keySigningKey_publicKey :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_publicKey :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_publicKey = Lens.lens (\KeySigningKey' {publicKey} -> publicKey) (\s@KeySigningKey' {} a -> s {publicKey = a} :: KeySigningKey)
 
 -- | A string that represents a DNSKEY record.
-keySigningKey_dNSKEYRecord :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_dNSKEYRecord :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_dNSKEYRecord = Lens.lens (\KeySigningKey' {dNSKEYRecord} -> dNSKEYRecord) (\s@KeySigningKey' {} a -> s {dNSKEYRecord = a} :: KeySigningKey)
 
 -- | A cryptographic digest of a DNSKEY resource record (RR). DNSKEY records
 -- are used to publish the public key that resolvers can use to verify
 -- DNSSEC signatures that are used to secure certain kinds of information
 -- provided by the DNS system.
-keySigningKey_digestValue :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_digestValue :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_digestValue = Lens.lens (\KeySigningKey' {digestValue} -> digestValue) (\s@KeySigningKey' {} a -> s {digestValue = a} :: KeySigningKey)
 
 -- | A string used to represent the delegation signer digest algorithm. This
 -- value must follow the guidelines provided by
 -- <https://tools.ietf.org/html/rfc8624#section-3.3 RFC-8624 Section 3.3>.
-keySigningKey_digestAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_digestAlgorithmMnemonic :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_digestAlgorithmMnemonic = Lens.lens (\KeySigningKey' {digestAlgorithmMnemonic} -> digestAlgorithmMnemonic) (\s@KeySigningKey' {} a -> s {digestAlgorithmMnemonic = a} :: KeySigningKey)
 
 -- | A string used to identify a key-signing key (KSK). @Name@ can include
 -- numbers, letters, and underscores (_). @Name@ must be unique for each
 -- key-signing key in the same hosted zone.
-keySigningKey_name :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_name :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_name = Lens.lens (\KeySigningKey' {name} -> name) (\s@KeySigningKey' {} a -> s {name = a} :: KeySigningKey)
 
 -- | An integer used to represent the signing algorithm. This value must
 -- follow the guidelines provided by
 -- <https://tools.ietf.org/html/rfc8624#section-3.1 RFC-8624 Section 3.1>.
-keySigningKey_signingAlgorithmType :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Int)
+keySigningKey_signingAlgorithmType :: Lens.Lens' KeySigningKey (Core.Maybe Core.Int)
 keySigningKey_signingAlgorithmType = Lens.lens (\KeySigningKey' {signingAlgorithmType} -> signingAlgorithmType) (\s@KeySigningKey' {} a -> s {signingAlgorithmType = a} :: KeySigningKey)
 
 -- | An integer that specifies how the key is used. For key-signing key
 -- (KSK), this value is always 257.
-keySigningKey_flag :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Int)
+keySigningKey_flag :: Lens.Lens' KeySigningKey (Core.Maybe Core.Int)
 keySigningKey_flag = Lens.lens (\KeySigningKey' {flag} -> flag) (\s@KeySigningKey' {} a -> s {flag = a} :: KeySigningKey)
 
 -- | The Amazon resource name (ARN) used to identify the customer managed
@@ -405,39 +403,39 @@ keySigningKey_flag = Lens.lens (\KeySigningKey' {flag} -> flag) (\s@KeySigningKe
 -- For more information about working with the customer managed CMK in AWS
 -- KMS, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html AWS Key Management Service concepts>.
-keySigningKey_kmsArn :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_kmsArn :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_kmsArn = Lens.lens (\KeySigningKey' {kmsArn} -> kmsArn) (\s@KeySigningKey' {} a -> s {kmsArn = a} :: KeySigningKey)
 
 -- | An integer used to identify the DNSSEC record for the domain name. The
 -- process used to calculate the value is described in
 -- <https://tools.ietf.org/rfc/rfc4034.txt RFC-4034 Appendix B>.
-keySigningKey_keyTag :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Natural)
+keySigningKey_keyTag :: Lens.Lens' KeySigningKey (Core.Maybe Core.Natural)
 keySigningKey_keyTag = Lens.lens (\KeySigningKey' {keyTag} -> keyTag) (\s@KeySigningKey' {} a -> s {keyTag = a} :: KeySigningKey)
 
 -- | A string that represents a delegation signer (DS) record.
-keySigningKey_dSRecord :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
+keySigningKey_dSRecord :: Lens.Lens' KeySigningKey (Core.Maybe Core.Text)
 keySigningKey_dSRecord = Lens.lens (\KeySigningKey' {dSRecord} -> dSRecord) (\s@KeySigningKey' {} a -> s {dSRecord = a} :: KeySigningKey)
 
-instance Prelude.FromXML KeySigningKey where
+instance Core.FromXML KeySigningKey where
   parseXML x =
     KeySigningKey'
-      Prelude.<$> (x Prelude..@? "DigestAlgorithmType")
-      Prelude.<*> (x Prelude..@? "LastModifiedDate")
-      Prelude.<*> (x Prelude..@? "StatusMessage")
-      Prelude.<*> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "CreatedDate")
-      Prelude.<*> (x Prelude..@? "SigningAlgorithmMnemonic")
-      Prelude.<*> (x Prelude..@? "PublicKey")
-      Prelude.<*> (x Prelude..@? "DNSKEYRecord")
-      Prelude.<*> (x Prelude..@? "DigestValue")
-      Prelude.<*> (x Prelude..@? "DigestAlgorithmMnemonic")
-      Prelude.<*> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "SigningAlgorithmType")
-      Prelude.<*> (x Prelude..@? "Flag")
-      Prelude.<*> (x Prelude..@? "KmsArn")
-      Prelude.<*> (x Prelude..@? "KeyTag")
-      Prelude.<*> (x Prelude..@? "DSRecord")
+      Core.<$> (x Core..@? "DigestAlgorithmType")
+      Core.<*> (x Core..@? "LastModifiedDate")
+      Core.<*> (x Core..@? "StatusMessage")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "CreatedDate")
+      Core.<*> (x Core..@? "SigningAlgorithmMnemonic")
+      Core.<*> (x Core..@? "PublicKey")
+      Core.<*> (x Core..@? "DNSKEYRecord")
+      Core.<*> (x Core..@? "DigestValue")
+      Core.<*> (x Core..@? "DigestAlgorithmMnemonic")
+      Core.<*> (x Core..@? "Name")
+      Core.<*> (x Core..@? "SigningAlgorithmType")
+      Core.<*> (x Core..@? "Flag")
+      Core.<*> (x Core..@? "KmsArn")
+      Core.<*> (x Core..@? "KeyTag")
+      Core.<*> (x Core..@? "DSRecord")
 
-instance Prelude.Hashable KeySigningKey
+instance Core.Hashable KeySigningKey
 
-instance Prelude.NFData KeySigningKey
+instance Core.NFData KeySigningKey

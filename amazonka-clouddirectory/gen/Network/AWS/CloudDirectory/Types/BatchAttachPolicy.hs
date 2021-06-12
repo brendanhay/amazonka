@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.BatchAttachPolicy where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Attaches a policy object to a regular object inside a BatchRead
 -- operation. For more information, see AttachPolicy and
@@ -36,7 +35,7 @@ data BatchAttachPolicy = BatchAttachPolicy'
     -- attached.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAttachPolicy' with all optional fields omitted.
@@ -74,17 +73,17 @@ batchAttachPolicy_policyReference = Lens.lens (\BatchAttachPolicy' {policyRefere
 batchAttachPolicy_objectReference :: Lens.Lens' BatchAttachPolicy ObjectReference
 batchAttachPolicy_objectReference = Lens.lens (\BatchAttachPolicy' {objectReference} -> objectReference) (\s@BatchAttachPolicy' {} a -> s {objectReference = a} :: BatchAttachPolicy)
 
-instance Prelude.Hashable BatchAttachPolicy
+instance Core.Hashable BatchAttachPolicy
 
-instance Prelude.NFData BatchAttachPolicy
+instance Core.NFData BatchAttachPolicy
 
-instance Prelude.ToJSON BatchAttachPolicy where
+instance Core.ToJSON BatchAttachPolicy where
   toJSON BatchAttachPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PolicyReference" Prelude..= policyReference),
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("PolicyReference" Core..= policyReference),
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )

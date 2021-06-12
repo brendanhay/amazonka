@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -62,10 +61,10 @@ import Network.AWS.StorageGateway.Types
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
   { -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
     -- retrieve the recovery point.
-    tapeARN :: Prelude.Text,
-    gatewayARN :: Prelude.Text
+    tapeARN :: Core.Text,
+    gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetrieveTapeRecoveryPoint' with all optional fields omitted.
@@ -81,9 +80,9 @@ data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
 -- 'gatewayARN', 'retrieveTapeRecoveryPoint_gatewayARN' - Undocumented member.
 newRetrieveTapeRecoveryPoint ::
   -- | 'tapeARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   RetrieveTapeRecoveryPoint
 newRetrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
   RetrieveTapeRecoveryPoint'
@@ -93,59 +92,57 @@ newRetrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
 -- retrieve the recovery point.
-retrieveTapeRecoveryPoint_tapeARN :: Lens.Lens' RetrieveTapeRecoveryPoint Prelude.Text
+retrieveTapeRecoveryPoint_tapeARN :: Lens.Lens' RetrieveTapeRecoveryPoint Core.Text
 retrieveTapeRecoveryPoint_tapeARN = Lens.lens (\RetrieveTapeRecoveryPoint' {tapeARN} -> tapeARN) (\s@RetrieveTapeRecoveryPoint' {} a -> s {tapeARN = a} :: RetrieveTapeRecoveryPoint)
 
 -- | Undocumented member.
-retrieveTapeRecoveryPoint_gatewayARN :: Lens.Lens' RetrieveTapeRecoveryPoint Prelude.Text
+retrieveTapeRecoveryPoint_gatewayARN :: Lens.Lens' RetrieveTapeRecoveryPoint Core.Text
 retrieveTapeRecoveryPoint_gatewayARN = Lens.lens (\RetrieveTapeRecoveryPoint' {gatewayARN} -> gatewayARN) (\s@RetrieveTapeRecoveryPoint' {} a -> s {gatewayARN = a} :: RetrieveTapeRecoveryPoint)
 
-instance Prelude.AWSRequest RetrieveTapeRecoveryPoint where
+instance Core.AWSRequest RetrieveTapeRecoveryPoint where
   type
-    Rs RetrieveTapeRecoveryPoint =
+    AWSResponse RetrieveTapeRecoveryPoint =
       RetrieveTapeRecoveryPointResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RetrieveTapeRecoveryPointResponse'
-            Prelude.<$> (x Prelude..?> "TapeARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TapeARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RetrieveTapeRecoveryPoint
+instance Core.Hashable RetrieveTapeRecoveryPoint
 
-instance Prelude.NFData RetrieveTapeRecoveryPoint
+instance Core.NFData RetrieveTapeRecoveryPoint
 
-instance Prelude.ToHeaders RetrieveTapeRecoveryPoint where
+instance Core.ToHeaders RetrieveTapeRecoveryPoint where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.RetrieveTapeRecoveryPoint" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.RetrieveTapeRecoveryPoint" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RetrieveTapeRecoveryPoint where
+instance Core.ToJSON RetrieveTapeRecoveryPoint where
   toJSON RetrieveTapeRecoveryPoint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TapeARN" Prelude..= tapeARN),
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TapeARN" Core..= tapeARN),
+            Core.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )
 
-instance Prelude.ToPath RetrieveTapeRecoveryPoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath RetrieveTapeRecoveryPoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RetrieveTapeRecoveryPoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RetrieveTapeRecoveryPoint where
+  toQuery = Core.const Core.mempty
 
 -- | RetrieveTapeRecoveryPointOutput
 --
@@ -153,11 +150,11 @@ instance Prelude.ToQuery RetrieveTapeRecoveryPoint where
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
   { -- | The Amazon Resource Name (ARN) of the virtual tape for which the
     -- recovery point was retrieved.
-    tapeARN :: Prelude.Maybe Prelude.Text,
+    tapeARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetrieveTapeRecoveryPointResponse' with all optional fields omitted.
@@ -173,24 +170,24 @@ data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
 -- 'httpStatus', 'retrieveTapeRecoveryPointResponse_httpStatus' - The response's http status code.
 newRetrieveTapeRecoveryPointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RetrieveTapeRecoveryPointResponse
 newRetrieveTapeRecoveryPointResponse pHttpStatus_ =
   RetrieveTapeRecoveryPointResponse'
     { tapeARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the
 -- recovery point was retrieved.
-retrieveTapeRecoveryPointResponse_tapeARN :: Lens.Lens' RetrieveTapeRecoveryPointResponse (Prelude.Maybe Prelude.Text)
+retrieveTapeRecoveryPointResponse_tapeARN :: Lens.Lens' RetrieveTapeRecoveryPointResponse (Core.Maybe Core.Text)
 retrieveTapeRecoveryPointResponse_tapeARN = Lens.lens (\RetrieveTapeRecoveryPointResponse' {tapeARN} -> tapeARN) (\s@RetrieveTapeRecoveryPointResponse' {} a -> s {tapeARN = a} :: RetrieveTapeRecoveryPointResponse)
 
 -- | The response's http status code.
-retrieveTapeRecoveryPointResponse_httpStatus :: Lens.Lens' RetrieveTapeRecoveryPointResponse Prelude.Int
+retrieveTapeRecoveryPointResponse_httpStatus :: Lens.Lens' RetrieveTapeRecoveryPointResponse Core.Int
 retrieveTapeRecoveryPointResponse_httpStatus = Lens.lens (\RetrieveTapeRecoveryPointResponse' {httpStatus} -> httpStatus) (\s@RetrieveTapeRecoveryPointResponse' {} a -> s {httpStatus = a} :: RetrieveTapeRecoveryPointResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RetrieveTapeRecoveryPointResponse

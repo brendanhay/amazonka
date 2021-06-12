@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AssignedPrivateIpAddress where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the private IP addresses assigned to a network interface.
 --
 -- /See:/ 'newAssignedPrivateIpAddress' smart constructor.
 data AssignedPrivateIpAddress = AssignedPrivateIpAddress'
   { -- | The private IP address assigned to the network interface.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssignedPrivateIpAddress' with all optional fields omitted.
@@ -47,18 +46,18 @@ newAssignedPrivateIpAddress ::
 newAssignedPrivateIpAddress =
   AssignedPrivateIpAddress'
     { privateIpAddress =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The private IP address assigned to the network interface.
-assignedPrivateIpAddress_privateIpAddress :: Lens.Lens' AssignedPrivateIpAddress (Prelude.Maybe Prelude.Text)
+assignedPrivateIpAddress_privateIpAddress :: Lens.Lens' AssignedPrivateIpAddress (Core.Maybe Core.Text)
 assignedPrivateIpAddress_privateIpAddress = Lens.lens (\AssignedPrivateIpAddress' {privateIpAddress} -> privateIpAddress) (\s@AssignedPrivateIpAddress' {} a -> s {privateIpAddress = a} :: AssignedPrivateIpAddress)
 
-instance Prelude.FromXML AssignedPrivateIpAddress where
+instance Core.FromXML AssignedPrivateIpAddress where
   parseXML x =
     AssignedPrivateIpAddress'
-      Prelude.<$> (x Prelude..@? "privateIpAddress")
+      Core.<$> (x Core..@? "privateIpAddress")
 
-instance Prelude.Hashable AssignedPrivateIpAddress
+instance Core.Hashable AssignedPrivateIpAddress
 
-instance Prelude.NFData AssignedPrivateIpAddress
+instance Core.NFData AssignedPrivateIpAddress

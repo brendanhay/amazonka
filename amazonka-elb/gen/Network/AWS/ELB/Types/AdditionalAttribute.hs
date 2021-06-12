@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.AdditionalAttribute where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about additional load balancer attributes.
 --
@@ -36,11 +35,11 @@ data AdditionalAttribute = AdditionalAttribute'
     --     handles requests that might pose a security risk to your
     --     application. The possible values are @monitor@, @defensive@, and
     --     @strictest@. The default is @defensive@.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | This value of the attribute.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdditionalAttribute' with all optional fields omitted.
@@ -64,8 +63,8 @@ newAdditionalAttribute ::
   AdditionalAttribute
 newAdditionalAttribute =
   AdditionalAttribute'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the attribute.
@@ -76,24 +75,23 @@ newAdditionalAttribute =
 --     handles requests that might pose a security risk to your
 --     application. The possible values are @monitor@, @defensive@, and
 --     @strictest@. The default is @defensive@.
-additionalAttribute_key :: Lens.Lens' AdditionalAttribute (Prelude.Maybe Prelude.Text)
+additionalAttribute_key :: Lens.Lens' AdditionalAttribute (Core.Maybe Core.Text)
 additionalAttribute_key = Lens.lens (\AdditionalAttribute' {key} -> key) (\s@AdditionalAttribute' {} a -> s {key = a} :: AdditionalAttribute)
 
 -- | This value of the attribute.
-additionalAttribute_value :: Lens.Lens' AdditionalAttribute (Prelude.Maybe Prelude.Text)
+additionalAttribute_value :: Lens.Lens' AdditionalAttribute (Core.Maybe Core.Text)
 additionalAttribute_value = Lens.lens (\AdditionalAttribute' {value} -> value) (\s@AdditionalAttribute' {} a -> s {value = a} :: AdditionalAttribute)
 
-instance Prelude.FromXML AdditionalAttribute where
+instance Core.FromXML AdditionalAttribute where
   parseXML x =
     AdditionalAttribute'
-      Prelude.<$> (x Prelude..@? "Key")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable AdditionalAttribute
+instance Core.Hashable AdditionalAttribute
 
-instance Prelude.NFData AdditionalAttribute
+instance Core.NFData AdditionalAttribute
 
-instance Prelude.ToQuery AdditionalAttribute where
+instance Core.ToQuery AdditionalAttribute where
   toQuery AdditionalAttribute' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Key" Core.=: key, "Value" Core.=: value]

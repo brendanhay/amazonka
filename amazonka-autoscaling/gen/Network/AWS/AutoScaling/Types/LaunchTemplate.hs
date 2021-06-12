@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AutoScaling.Types.LaunchTemplate where
 
 import Network.AWS.AutoScaling.Types.LaunchTemplateOverrides
 import Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a launch template and overrides.
 --
@@ -38,14 +37,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
   { -- | The launch template to use.
-    launchTemplateSpecification :: Prelude.Maybe LaunchTemplateSpecification,
+    launchTemplateSpecification :: Core.Maybe LaunchTemplateSpecification,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
     -- instance type specified in the launch template when it launches an
     -- instance.
-    overrides :: Prelude.Maybe [LaunchTemplateOverrides]
+    overrides :: Core.Maybe [LaunchTemplateOverrides]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplate' with all optional fields omitted.
@@ -66,39 +65,39 @@ newLaunchTemplate ::
 newLaunchTemplate =
   LaunchTemplate'
     { launchTemplateSpecification =
-        Prelude.Nothing,
-      overrides = Prelude.Nothing
+        Core.Nothing,
+      overrides = Core.Nothing
     }
 
 -- | The launch template to use.
-launchTemplate_launchTemplateSpecification :: Lens.Lens' LaunchTemplate (Prelude.Maybe LaunchTemplateSpecification)
+launchTemplate_launchTemplateSpecification :: Lens.Lens' LaunchTemplate (Core.Maybe LaunchTemplateSpecification)
 launchTemplate_launchTemplateSpecification = Lens.lens (\LaunchTemplate' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplate' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplate)
 
 -- | Any parameters that you specify override the same parameters in the
 -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
 -- instance type specified in the launch template when it launches an
 -- instance.
-launchTemplate_overrides :: Lens.Lens' LaunchTemplate (Prelude.Maybe [LaunchTemplateOverrides])
-launchTemplate_overrides = Lens.lens (\LaunchTemplate' {overrides} -> overrides) (\s@LaunchTemplate' {} a -> s {overrides = a} :: LaunchTemplate) Prelude.. Lens.mapping Prelude._Coerce
+launchTemplate_overrides :: Lens.Lens' LaunchTemplate (Core.Maybe [LaunchTemplateOverrides])
+launchTemplate_overrides = Lens.lens (\LaunchTemplate' {overrides} -> overrides) (\s@LaunchTemplate' {} a -> s {overrides = a} :: LaunchTemplate) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML LaunchTemplate where
+instance Core.FromXML LaunchTemplate where
   parseXML x =
     LaunchTemplate'
-      Prelude.<$> (x Prelude..@? "LaunchTemplateSpecification")
-      Prelude.<*> ( x Prelude..@? "Overrides" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "LaunchTemplateSpecification")
+      Core.<*> ( x Core..@? "Overrides" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable LaunchTemplate
+instance Core.Hashable LaunchTemplate
 
-instance Prelude.NFData LaunchTemplate
+instance Core.NFData LaunchTemplate
 
-instance Prelude.ToQuery LaunchTemplate where
+instance Core.ToQuery LaunchTemplate where
   toQuery LaunchTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "LaunchTemplateSpecification"
-          Prelude.=: launchTemplateSpecification,
+          Core.=: launchTemplateSpecification,
         "Overrides"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> overrides)
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> overrides)
       ]

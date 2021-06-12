@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,21 +38,21 @@ module Network.AWS.Connect.UpdateUserSecurityProfiles
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUserSecurityProfiles' smart constructor.
 data UpdateUserSecurityProfiles = UpdateUserSecurityProfiles'
   { -- | The identifiers of the security profiles for the user.
-    securityProfileIds :: Prelude.NonEmpty Prelude.Text,
+    securityProfileIds :: Core.NonEmpty Core.Text,
     -- | The identifier of the user account.
-    userId :: Prelude.Text,
+    userId :: Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserSecurityProfiles' with all optional fields omitted.
@@ -70,11 +69,11 @@ data UpdateUserSecurityProfiles = UpdateUserSecurityProfiles'
 -- 'instanceId', 'updateUserSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance.
 newUpdateUserSecurityProfiles ::
   -- | 'securityProfileIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateUserSecurityProfiles
 newUpdateUserSecurityProfiles
   pSecurityProfileIds_
@@ -82,79 +81,72 @@ newUpdateUserSecurityProfiles
   pInstanceId_ =
     UpdateUserSecurityProfiles'
       { securityProfileIds =
-          Prelude._Coerce Lens.# pSecurityProfileIds_,
+          Lens._Coerce Lens.# pSecurityProfileIds_,
         userId = pUserId_,
         instanceId = pInstanceId_
       }
 
 -- | The identifiers of the security profiles for the user.
-updateUserSecurityProfiles_securityProfileIds :: Lens.Lens' UpdateUserSecurityProfiles (Prelude.NonEmpty Prelude.Text)
-updateUserSecurityProfiles_securityProfileIds = Lens.lens (\UpdateUserSecurityProfiles' {securityProfileIds} -> securityProfileIds) (\s@UpdateUserSecurityProfiles' {} a -> s {securityProfileIds = a} :: UpdateUserSecurityProfiles) Prelude.. Prelude._Coerce
+updateUserSecurityProfiles_securityProfileIds :: Lens.Lens' UpdateUserSecurityProfiles (Core.NonEmpty Core.Text)
+updateUserSecurityProfiles_securityProfileIds = Lens.lens (\UpdateUserSecurityProfiles' {securityProfileIds} -> securityProfileIds) (\s@UpdateUserSecurityProfiles' {} a -> s {securityProfileIds = a} :: UpdateUserSecurityProfiles) Core.. Lens._Coerce
 
 -- | The identifier of the user account.
-updateUserSecurityProfiles_userId :: Lens.Lens' UpdateUserSecurityProfiles Prelude.Text
+updateUserSecurityProfiles_userId :: Lens.Lens' UpdateUserSecurityProfiles Core.Text
 updateUserSecurityProfiles_userId = Lens.lens (\UpdateUserSecurityProfiles' {userId} -> userId) (\s@UpdateUserSecurityProfiles' {} a -> s {userId = a} :: UpdateUserSecurityProfiles)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserSecurityProfiles_instanceId :: Lens.Lens' UpdateUserSecurityProfiles Prelude.Text
+updateUserSecurityProfiles_instanceId :: Lens.Lens' UpdateUserSecurityProfiles Core.Text
 updateUserSecurityProfiles_instanceId = Lens.lens (\UpdateUserSecurityProfiles' {instanceId} -> instanceId) (\s@UpdateUserSecurityProfiles' {} a -> s {instanceId = a} :: UpdateUserSecurityProfiles)
 
-instance
-  Prelude.AWSRequest
-    UpdateUserSecurityProfiles
-  where
+instance Core.AWSRequest UpdateUserSecurityProfiles where
   type
-    Rs UpdateUserSecurityProfiles =
+    AWSResponse UpdateUserSecurityProfiles =
       UpdateUserSecurityProfilesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateUserSecurityProfilesResponse'
 
-instance Prelude.Hashable UpdateUserSecurityProfiles
+instance Core.Hashable UpdateUserSecurityProfiles
 
-instance Prelude.NFData UpdateUserSecurityProfiles
+instance Core.NFData UpdateUserSecurityProfiles
 
-instance Prelude.ToHeaders UpdateUserSecurityProfiles where
+instance Core.ToHeaders UpdateUserSecurityProfiles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUserSecurityProfiles where
+instance Core.ToJSON UpdateUserSecurityProfiles where
   toJSON UpdateUserSecurityProfiles' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "SecurityProfileIds"
-                  Prelude..= securityProfileIds
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SecurityProfileIds" Core..= securityProfileIds)
           ]
       )
 
-instance Prelude.ToPath UpdateUserSecurityProfiles where
+instance Core.ToPath UpdateUserSecurityProfiles where
   toPath UpdateUserSecurityProfiles' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/users/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS userId,
+        Core.toBS userId,
         "/security-profiles"
       ]
 
-instance Prelude.ToQuery UpdateUserSecurityProfiles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUserSecurityProfiles where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateUserSecurityProfilesResponse' smart constructor.
 data UpdateUserSecurityProfilesResponse = UpdateUserSecurityProfilesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserSecurityProfilesResponse' with all optional fields omitted.
@@ -166,5 +158,5 @@ newUpdateUserSecurityProfilesResponse =
   UpdateUserSecurityProfilesResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateUserSecurityProfilesResponse

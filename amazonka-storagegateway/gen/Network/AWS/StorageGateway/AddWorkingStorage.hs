@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.StorageGateway.AddWorkingStorage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -64,13 +63,13 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newAddWorkingStorage' smart constructor.
 data AddWorkingStorage = AddWorkingStorage'
-  { gatewayARN :: Prelude.Text,
+  { gatewayARN :: Core.Text,
     -- | An array of strings that identify disks that are to be configured as
     -- working storage. Each string has a minimum length of 1 and maximum
     -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-    diskIds :: [Prelude.Text]
+    diskIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddWorkingStorage' with all optional fields omitted.
@@ -87,79 +86,79 @@ data AddWorkingStorage = AddWorkingStorage'
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 newAddWorkingStorage ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   AddWorkingStorage
 newAddWorkingStorage pGatewayARN_ =
   AddWorkingStorage'
     { gatewayARN = pGatewayARN_,
-      diskIds = Prelude.mempty
+      diskIds = Core.mempty
     }
 
 -- | Undocumented member.
-addWorkingStorage_gatewayARN :: Lens.Lens' AddWorkingStorage Prelude.Text
+addWorkingStorage_gatewayARN :: Lens.Lens' AddWorkingStorage Core.Text
 addWorkingStorage_gatewayARN = Lens.lens (\AddWorkingStorage' {gatewayARN} -> gatewayARN) (\s@AddWorkingStorage' {} a -> s {gatewayARN = a} :: AddWorkingStorage)
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string has a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-addWorkingStorage_diskIds :: Lens.Lens' AddWorkingStorage [Prelude.Text]
-addWorkingStorage_diskIds = Lens.lens (\AddWorkingStorage' {diskIds} -> diskIds) (\s@AddWorkingStorage' {} a -> s {diskIds = a} :: AddWorkingStorage) Prelude.. Prelude._Coerce
+addWorkingStorage_diskIds :: Lens.Lens' AddWorkingStorage [Core.Text]
+addWorkingStorage_diskIds = Lens.lens (\AddWorkingStorage' {diskIds} -> diskIds) (\s@AddWorkingStorage' {} a -> s {diskIds = a} :: AddWorkingStorage) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddWorkingStorage where
-  type Rs AddWorkingStorage = AddWorkingStorageResponse
+instance Core.AWSRequest AddWorkingStorage where
+  type
+    AWSResponse AddWorkingStorage =
+      AddWorkingStorageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AddWorkingStorageResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddWorkingStorage
+instance Core.Hashable AddWorkingStorage
 
-instance Prelude.NFData AddWorkingStorage
+instance Core.NFData AddWorkingStorage
 
-instance Prelude.ToHeaders AddWorkingStorage where
+instance Core.ToHeaders AddWorkingStorage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.AddWorkingStorage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.AddWorkingStorage" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddWorkingStorage where
+instance Core.ToJSON AddWorkingStorage where
   toJSON AddWorkingStorage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
-            Prelude.Just ("DiskIds" Prelude..= diskIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("DiskIds" Core..= diskIds)
           ]
       )
 
-instance Prelude.ToPath AddWorkingStorage where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddWorkingStorage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddWorkingStorage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddWorkingStorage where
+  toQuery = Core.const Core.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
 -- for which working storage was configured.
 --
 -- /See:/ 'newAddWorkingStorageResponse' smart constructor.
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddWorkingStorageResponse' with all optional fields omitted.
@@ -174,21 +173,21 @@ data AddWorkingStorageResponse = AddWorkingStorageResponse'
 -- 'httpStatus', 'addWorkingStorageResponse_httpStatus' - The response's http status code.
 newAddWorkingStorageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddWorkingStorageResponse
 newAddWorkingStorageResponse pHttpStatus_ =
   AddWorkingStorageResponse'
     { gatewayARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-addWorkingStorageResponse_gatewayARN :: Lens.Lens' AddWorkingStorageResponse (Prelude.Maybe Prelude.Text)
+addWorkingStorageResponse_gatewayARN :: Lens.Lens' AddWorkingStorageResponse (Core.Maybe Core.Text)
 addWorkingStorageResponse_gatewayARN = Lens.lens (\AddWorkingStorageResponse' {gatewayARN} -> gatewayARN) (\s@AddWorkingStorageResponse' {} a -> s {gatewayARN = a} :: AddWorkingStorageResponse)
 
 -- | The response's http status code.
-addWorkingStorageResponse_httpStatus :: Lens.Lens' AddWorkingStorageResponse Prelude.Int
+addWorkingStorageResponse_httpStatus :: Lens.Lens' AddWorkingStorageResponse Core.Int
 addWorkingStorageResponse_httpStatus = Lens.lens (\AddWorkingStorageResponse' {httpStatus} -> httpStatus) (\s@AddWorkingStorageResponse' {} a -> s {httpStatus = a} :: AddWorkingStorageResponse)
 
-instance Prelude.NFData AddWorkingStorageResponse
+instance Core.NFData AddWorkingStorageResponse

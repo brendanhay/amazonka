@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.Comprehend.Types.EntityRecognizerMetadata where
 
 import Network.AWS.Comprehend.Types.EntityRecognizerEvaluationMetrics
 import Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Detailed information about an entity recognizer.
 --
@@ -32,17 +31,17 @@ data EntityRecognizerMetadata = EntityRecognizerMetadata'
   { -- | The number of documents in the input data that were used to test the
     -- entity recognizer. Typically this is 10 to 20 percent of the input
     -- documents.
-    numberOfTestDocuments :: Prelude.Maybe Prelude.Int,
+    numberOfTestDocuments :: Core.Maybe Core.Int,
     -- | The number of documents in the input data that were used to train the
     -- entity recognizer. Typically this is 80 to 90 percent of the input
     -- documents.
-    numberOfTrainedDocuments :: Prelude.Maybe Prelude.Int,
+    numberOfTrainedDocuments :: Core.Maybe Core.Int,
     -- | Detailed information about the accuracy of an entity recognizer.
-    evaluationMetrics :: Prelude.Maybe EntityRecognizerEvaluationMetrics,
+    evaluationMetrics :: Core.Maybe EntityRecognizerEvaluationMetrics,
     -- | Entity types from the metadata of an entity recognizer.
-    entityTypes :: Prelude.Maybe [EntityRecognizerMetadataEntityTypesListItem]
+    entityTypes :: Core.Maybe [EntityRecognizerMetadataEntityTypesListItem]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EntityRecognizerMetadata' with all optional fields omitted.
@@ -68,46 +67,44 @@ newEntityRecognizerMetadata ::
 newEntityRecognizerMetadata =
   EntityRecognizerMetadata'
     { numberOfTestDocuments =
-        Prelude.Nothing,
-      numberOfTrainedDocuments = Prelude.Nothing,
-      evaluationMetrics = Prelude.Nothing,
-      entityTypes = Prelude.Nothing
+        Core.Nothing,
+      numberOfTrainedDocuments = Core.Nothing,
+      evaluationMetrics = Core.Nothing,
+      entityTypes = Core.Nothing
     }
 
 -- | The number of documents in the input data that were used to test the
 -- entity recognizer. Typically this is 10 to 20 percent of the input
 -- documents.
-entityRecognizerMetadata_numberOfTestDocuments :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe Prelude.Int)
+entityRecognizerMetadata_numberOfTestDocuments :: Lens.Lens' EntityRecognizerMetadata (Core.Maybe Core.Int)
 entityRecognizerMetadata_numberOfTestDocuments = Lens.lens (\EntityRecognizerMetadata' {numberOfTestDocuments} -> numberOfTestDocuments) (\s@EntityRecognizerMetadata' {} a -> s {numberOfTestDocuments = a} :: EntityRecognizerMetadata)
 
 -- | The number of documents in the input data that were used to train the
 -- entity recognizer. Typically this is 80 to 90 percent of the input
 -- documents.
-entityRecognizerMetadata_numberOfTrainedDocuments :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe Prelude.Int)
+entityRecognizerMetadata_numberOfTrainedDocuments :: Lens.Lens' EntityRecognizerMetadata (Core.Maybe Core.Int)
 entityRecognizerMetadata_numberOfTrainedDocuments = Lens.lens (\EntityRecognizerMetadata' {numberOfTrainedDocuments} -> numberOfTrainedDocuments) (\s@EntityRecognizerMetadata' {} a -> s {numberOfTrainedDocuments = a} :: EntityRecognizerMetadata)
 
 -- | Detailed information about the accuracy of an entity recognizer.
-entityRecognizerMetadata_evaluationMetrics :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe EntityRecognizerEvaluationMetrics)
+entityRecognizerMetadata_evaluationMetrics :: Lens.Lens' EntityRecognizerMetadata (Core.Maybe EntityRecognizerEvaluationMetrics)
 entityRecognizerMetadata_evaluationMetrics = Lens.lens (\EntityRecognizerMetadata' {evaluationMetrics} -> evaluationMetrics) (\s@EntityRecognizerMetadata' {} a -> s {evaluationMetrics = a} :: EntityRecognizerMetadata)
 
 -- | Entity types from the metadata of an entity recognizer.
-entityRecognizerMetadata_entityTypes :: Lens.Lens' EntityRecognizerMetadata (Prelude.Maybe [EntityRecognizerMetadataEntityTypesListItem])
-entityRecognizerMetadata_entityTypes = Lens.lens (\EntityRecognizerMetadata' {entityTypes} -> entityTypes) (\s@EntityRecognizerMetadata' {} a -> s {entityTypes = a} :: EntityRecognizerMetadata) Prelude.. Lens.mapping Prelude._Coerce
+entityRecognizerMetadata_entityTypes :: Lens.Lens' EntityRecognizerMetadata (Core.Maybe [EntityRecognizerMetadataEntityTypesListItem])
+entityRecognizerMetadata_entityTypes = Lens.lens (\EntityRecognizerMetadata' {entityTypes} -> entityTypes) (\s@EntityRecognizerMetadata' {} a -> s {entityTypes = a} :: EntityRecognizerMetadata) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON EntityRecognizerMetadata where
+instance Core.FromJSON EntityRecognizerMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EntityRecognizerMetadata"
       ( \x ->
           EntityRecognizerMetadata'
-            Prelude.<$> (x Prelude..:? "NumberOfTestDocuments")
-            Prelude.<*> (x Prelude..:? "NumberOfTrainedDocuments")
-            Prelude.<*> (x Prelude..:? "EvaluationMetrics")
-            Prelude.<*> ( x Prelude..:? "EntityTypes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "NumberOfTestDocuments")
+            Core.<*> (x Core..:? "NumberOfTrainedDocuments")
+            Core.<*> (x Core..:? "EvaluationMetrics")
+            Core.<*> (x Core..:? "EntityTypes" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable EntityRecognizerMetadata
+instance Core.Hashable EntityRecognizerMetadata
 
-instance Prelude.NFData EntityRecognizerMetadata
+instance Core.NFData EntityRecognizerMetadata

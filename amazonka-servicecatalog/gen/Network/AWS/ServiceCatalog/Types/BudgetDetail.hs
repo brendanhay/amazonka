@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.BudgetDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a budget.
 --
 -- /See:/ 'newBudgetDetail' smart constructor.
 data BudgetDetail = BudgetDetail'
   { -- | Name of the associated budget.
-    budgetName :: Prelude.Maybe Prelude.Text
+    budgetName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BudgetDetail' with all optional fields omitted.
@@ -44,21 +43,20 @@ data BudgetDetail = BudgetDetail'
 newBudgetDetail ::
   BudgetDetail
 newBudgetDetail =
-  BudgetDetail' {budgetName = Prelude.Nothing}
+  BudgetDetail' {budgetName = Core.Nothing}
 
 -- | Name of the associated budget.
-budgetDetail_budgetName :: Lens.Lens' BudgetDetail (Prelude.Maybe Prelude.Text)
+budgetDetail_budgetName :: Lens.Lens' BudgetDetail (Core.Maybe Core.Text)
 budgetDetail_budgetName = Lens.lens (\BudgetDetail' {budgetName} -> budgetName) (\s@BudgetDetail' {} a -> s {budgetName = a} :: BudgetDetail)
 
-instance Prelude.FromJSON BudgetDetail where
+instance Core.FromJSON BudgetDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BudgetDetail"
       ( \x ->
-          BudgetDetail'
-            Prelude.<$> (x Prelude..:? "BudgetName")
+          BudgetDetail' Core.<$> (x Core..:? "BudgetName")
       )
 
-instance Prelude.Hashable BudgetDetail
+instance Core.Hashable BudgetDetail
 
-instance Prelude.NFData BudgetDetail
+instance Core.NFData BudgetDetail

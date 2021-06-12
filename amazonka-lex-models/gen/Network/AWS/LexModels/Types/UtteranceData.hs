@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.UtteranceData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a single utterance that was made to your bot.
 --
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 data UtteranceData = UtteranceData'
   { -- | The text that was entered by the user or the text representation of an
     -- audio clip.
-    utteranceString :: Prelude.Maybe Prelude.Text,
+    utteranceString :: Core.Maybe Core.Text,
     -- | The total number of individuals that used the utterance.
-    distinctUsers :: Prelude.Maybe Prelude.Int,
+    distinctUsers :: Core.Maybe Core.Int,
     -- | The number of times that the utterance was processed.
-    count :: Prelude.Maybe Prelude.Int,
+    count :: Core.Maybe Core.Int,
     -- | The date that the utterance was first recorded.
-    firstUtteredDate :: Prelude.Maybe Prelude.POSIX,
+    firstUtteredDate :: Core.Maybe Core.POSIX,
     -- | The date that the utterance was last recorded.
-    lastUtteredDate :: Prelude.Maybe Prelude.POSIX
+    lastUtteredDate :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UtteranceData' with all optional fields omitted.
@@ -63,47 +62,47 @@ newUtteranceData ::
   UtteranceData
 newUtteranceData =
   UtteranceData'
-    { utteranceString = Prelude.Nothing,
-      distinctUsers = Prelude.Nothing,
-      count = Prelude.Nothing,
-      firstUtteredDate = Prelude.Nothing,
-      lastUtteredDate = Prelude.Nothing
+    { utteranceString = Core.Nothing,
+      distinctUsers = Core.Nothing,
+      count = Core.Nothing,
+      firstUtteredDate = Core.Nothing,
+      lastUtteredDate = Core.Nothing
     }
 
 -- | The text that was entered by the user or the text representation of an
 -- audio clip.
-utteranceData_utteranceString :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.Text)
+utteranceData_utteranceString :: Lens.Lens' UtteranceData (Core.Maybe Core.Text)
 utteranceData_utteranceString = Lens.lens (\UtteranceData' {utteranceString} -> utteranceString) (\s@UtteranceData' {} a -> s {utteranceString = a} :: UtteranceData)
 
 -- | The total number of individuals that used the utterance.
-utteranceData_distinctUsers :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.Int)
+utteranceData_distinctUsers :: Lens.Lens' UtteranceData (Core.Maybe Core.Int)
 utteranceData_distinctUsers = Lens.lens (\UtteranceData' {distinctUsers} -> distinctUsers) (\s@UtteranceData' {} a -> s {distinctUsers = a} :: UtteranceData)
 
 -- | The number of times that the utterance was processed.
-utteranceData_count :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.Int)
+utteranceData_count :: Lens.Lens' UtteranceData (Core.Maybe Core.Int)
 utteranceData_count = Lens.lens (\UtteranceData' {count} -> count) (\s@UtteranceData' {} a -> s {count = a} :: UtteranceData)
 
 -- | The date that the utterance was first recorded.
-utteranceData_firstUtteredDate :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.UTCTime)
-utteranceData_firstUtteredDate = Lens.lens (\UtteranceData' {firstUtteredDate} -> firstUtteredDate) (\s@UtteranceData' {} a -> s {firstUtteredDate = a} :: UtteranceData) Prelude.. Lens.mapping Prelude._Time
+utteranceData_firstUtteredDate :: Lens.Lens' UtteranceData (Core.Maybe Core.UTCTime)
+utteranceData_firstUtteredDate = Lens.lens (\UtteranceData' {firstUtteredDate} -> firstUtteredDate) (\s@UtteranceData' {} a -> s {firstUtteredDate = a} :: UtteranceData) Core.. Lens.mapping Core._Time
 
 -- | The date that the utterance was last recorded.
-utteranceData_lastUtteredDate :: Lens.Lens' UtteranceData (Prelude.Maybe Prelude.UTCTime)
-utteranceData_lastUtteredDate = Lens.lens (\UtteranceData' {lastUtteredDate} -> lastUtteredDate) (\s@UtteranceData' {} a -> s {lastUtteredDate = a} :: UtteranceData) Prelude.. Lens.mapping Prelude._Time
+utteranceData_lastUtteredDate :: Lens.Lens' UtteranceData (Core.Maybe Core.UTCTime)
+utteranceData_lastUtteredDate = Lens.lens (\UtteranceData' {lastUtteredDate} -> lastUtteredDate) (\s@UtteranceData' {} a -> s {lastUtteredDate = a} :: UtteranceData) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON UtteranceData where
+instance Core.FromJSON UtteranceData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UtteranceData"
       ( \x ->
           UtteranceData'
-            Prelude.<$> (x Prelude..:? "utteranceString")
-            Prelude.<*> (x Prelude..:? "distinctUsers")
-            Prelude.<*> (x Prelude..:? "count")
-            Prelude.<*> (x Prelude..:? "firstUtteredDate")
-            Prelude.<*> (x Prelude..:? "lastUtteredDate")
+            Core.<$> (x Core..:? "utteranceString")
+            Core.<*> (x Core..:? "distinctUsers")
+            Core.<*> (x Core..:? "count")
+            Core.<*> (x Core..:? "firstUtteredDate")
+            Core.<*> (x Core..:? "lastUtteredDate")
       )
 
-instance Prelude.Hashable UtteranceData
+instance Core.Hashable UtteranceData
 
-instance Prelude.NFData UtteranceData
+instance Core.NFData UtteranceData

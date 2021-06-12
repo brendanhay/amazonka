@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CognitoIdentityProvider.DescribeUserPool
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeUserPool' smart constructor.
 data DescribeUserPool = DescribeUserPool'
   { -- | The user pool ID for the user pool you want to describe.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUserPool' with all optional fields omitted.
@@ -67,68 +66,68 @@ data DescribeUserPool = DescribeUserPool'
 -- 'userPoolId', 'describeUserPool_userPoolId' - The user pool ID for the user pool you want to describe.
 newDescribeUserPool ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeUserPool
 newDescribeUserPool pUserPoolId_ =
   DescribeUserPool' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID for the user pool you want to describe.
-describeUserPool_userPoolId :: Lens.Lens' DescribeUserPool Prelude.Text
+describeUserPool_userPoolId :: Lens.Lens' DescribeUserPool Core.Text
 describeUserPool_userPoolId = Lens.lens (\DescribeUserPool' {userPoolId} -> userPoolId) (\s@DescribeUserPool' {} a -> s {userPoolId = a} :: DescribeUserPool)
 
-instance Prelude.AWSRequest DescribeUserPool where
-  type Rs DescribeUserPool = DescribeUserPoolResponse
+instance Core.AWSRequest DescribeUserPool where
+  type
+    AWSResponse DescribeUserPool =
+      DescribeUserPoolResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeUserPoolResponse'
-            Prelude.<$> (x Prelude..?> "UserPool")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserPool")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUserPool
+instance Core.Hashable DescribeUserPool
 
-instance Prelude.NFData DescribeUserPool
+instance Core.NFData DescribeUserPool
 
-instance Prelude.ToHeaders DescribeUserPool where
+instance Core.ToHeaders DescribeUserPool where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.DescribeUserPool" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.DescribeUserPool" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeUserPool where
+instance Core.ToJSON DescribeUserPool where
   toJSON DescribeUserPool' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("UserPoolId" Prelude..= userPoolId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("UserPoolId" Core..= userPoolId)]
       )
 
-instance Prelude.ToPath DescribeUserPool where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeUserPool where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeUserPool where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeUserPool where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response to describe the user pool.
 --
 -- /See:/ 'newDescribeUserPoolResponse' smart constructor.
 data DescribeUserPoolResponse = DescribeUserPoolResponse'
   { -- | The container of metadata returned by the server to describe the pool.
-    userPool :: Prelude.Maybe UserPoolType,
+    userPool :: Core.Maybe UserPoolType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUserPoolResponse' with all optional fields omitted.
@@ -143,21 +142,20 @@ data DescribeUserPoolResponse = DescribeUserPoolResponse'
 -- 'httpStatus', 'describeUserPoolResponse_httpStatus' - The response's http status code.
 newDescribeUserPoolResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeUserPoolResponse
 newDescribeUserPoolResponse pHttpStatus_ =
   DescribeUserPoolResponse'
-    { userPool =
-        Prelude.Nothing,
+    { userPool = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The container of metadata returned by the server to describe the pool.
-describeUserPoolResponse_userPool :: Lens.Lens' DescribeUserPoolResponse (Prelude.Maybe UserPoolType)
+describeUserPoolResponse_userPool :: Lens.Lens' DescribeUserPoolResponse (Core.Maybe UserPoolType)
 describeUserPoolResponse_userPool = Lens.lens (\DescribeUserPoolResponse' {userPool} -> userPool) (\s@DescribeUserPoolResponse' {} a -> s {userPool = a} :: DescribeUserPoolResponse)
 
 -- | The response's http status code.
-describeUserPoolResponse_httpStatus :: Lens.Lens' DescribeUserPoolResponse Prelude.Int
+describeUserPoolResponse_httpStatus :: Lens.Lens' DescribeUserPoolResponse Core.Int
 describeUserPoolResponse_httpStatus = Lens.lens (\DescribeUserPoolResponse' {httpStatus} -> httpStatus) (\s@DescribeUserPoolResponse' {} a -> s {httpStatus = a} :: DescribeUserPoolResponse)
 
-instance Prelude.NFData DescribeUserPoolResponse
+instance Core.NFData DescribeUserPoolResponse

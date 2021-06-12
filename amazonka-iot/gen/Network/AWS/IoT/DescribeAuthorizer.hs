@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.IoT.DescribeAuthorizer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAuthorizer' smart constructor.
 data DescribeAuthorizer = DescribeAuthorizer'
   { -- | The name of the authorizer to describe.
-    authorizerName :: Prelude.Text
+    authorizerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAuthorizer' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DescribeAuthorizer = DescribeAuthorizer'
 -- 'authorizerName', 'describeAuthorizer_authorizerName' - The name of the authorizer to describe.
 newDescribeAuthorizer ::
   -- | 'authorizerName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAuthorizer
 newDescribeAuthorizer pAuthorizerName_ =
   DescribeAuthorizer'
@@ -73,45 +72,45 @@ newDescribeAuthorizer pAuthorizerName_ =
     }
 
 -- | The name of the authorizer to describe.
-describeAuthorizer_authorizerName :: Lens.Lens' DescribeAuthorizer Prelude.Text
+describeAuthorizer_authorizerName :: Lens.Lens' DescribeAuthorizer Core.Text
 describeAuthorizer_authorizerName = Lens.lens (\DescribeAuthorizer' {authorizerName} -> authorizerName) (\s@DescribeAuthorizer' {} a -> s {authorizerName = a} :: DescribeAuthorizer)
 
-instance Prelude.AWSRequest DescribeAuthorizer where
+instance Core.AWSRequest DescribeAuthorizer where
   type
-    Rs DescribeAuthorizer =
+    AWSResponse DescribeAuthorizer =
       DescribeAuthorizerResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAuthorizerResponse'
-            Prelude.<$> (x Prelude..?> "authorizerDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "authorizerDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAuthorizer
+instance Core.Hashable DescribeAuthorizer
 
-instance Prelude.NFData DescribeAuthorizer
+instance Core.NFData DescribeAuthorizer
 
-instance Prelude.ToHeaders DescribeAuthorizer where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAuthorizer where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAuthorizer where
+instance Core.ToPath DescribeAuthorizer where
   toPath DescribeAuthorizer' {..} =
-    Prelude.mconcat
-      ["/authorizer/", Prelude.toBS authorizerName]
+    Core.mconcat
+      ["/authorizer/", Core.toBS authorizerName]
 
-instance Prelude.ToQuery DescribeAuthorizer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAuthorizer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAuthorizerResponse' smart constructor.
 data DescribeAuthorizerResponse = DescribeAuthorizerResponse'
   { -- | The authorizer description.
-    authorizerDescription :: Prelude.Maybe AuthorizerDescription,
+    authorizerDescription :: Core.Maybe AuthorizerDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAuthorizerResponse' with all optional fields omitted.
@@ -126,21 +125,21 @@ data DescribeAuthorizerResponse = DescribeAuthorizerResponse'
 -- 'httpStatus', 'describeAuthorizerResponse_httpStatus' - The response's http status code.
 newDescribeAuthorizerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAuthorizerResponse
 newDescribeAuthorizerResponse pHttpStatus_ =
   DescribeAuthorizerResponse'
     { authorizerDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The authorizer description.
-describeAuthorizerResponse_authorizerDescription :: Lens.Lens' DescribeAuthorizerResponse (Prelude.Maybe AuthorizerDescription)
+describeAuthorizerResponse_authorizerDescription :: Lens.Lens' DescribeAuthorizerResponse (Core.Maybe AuthorizerDescription)
 describeAuthorizerResponse_authorizerDescription = Lens.lens (\DescribeAuthorizerResponse' {authorizerDescription} -> authorizerDescription) (\s@DescribeAuthorizerResponse' {} a -> s {authorizerDescription = a} :: DescribeAuthorizerResponse)
 
 -- | The response's http status code.
-describeAuthorizerResponse_httpStatus :: Lens.Lens' DescribeAuthorizerResponse Prelude.Int
+describeAuthorizerResponse_httpStatus :: Lens.Lens' DescribeAuthorizerResponse Core.Int
 describeAuthorizerResponse_httpStatus = Lens.lens (\DescribeAuthorizerResponse' {httpStatus} -> httpStatus) (\s@DescribeAuthorizerResponse' {} a -> s {httpStatus = a} :: DescribeAuthorizerResponse)
 
-instance Prelude.NFData DescribeAuthorizerResponse
+instance Core.NFData DescribeAuthorizerResponse

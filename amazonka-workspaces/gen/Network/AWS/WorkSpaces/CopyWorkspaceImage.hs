@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.WorkSpaces.CopyWorkspaceImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -69,17 +68,17 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newCopyWorkspaceImage' smart constructor.
 data CopyWorkspaceImage = CopyWorkspaceImage'
   { -- | The tags for the image.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A description of the image.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the image.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The identifier of the source image.
-    sourceImageId :: Prelude.Text,
+    sourceImageId :: Core.Text,
     -- | The identifier of the source Region.
-    sourceRegion :: Prelude.Text
+    sourceRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyWorkspaceImage' with all optional fields omitted.
@@ -100,104 +99,100 @@ data CopyWorkspaceImage = CopyWorkspaceImage'
 -- 'sourceRegion', 'copyWorkspaceImage_sourceRegion' - The identifier of the source Region.
 newCopyWorkspaceImage ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceImageId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceRegion'
-  Prelude.Text ->
+  Core.Text ->
   CopyWorkspaceImage
 newCopyWorkspaceImage
   pName_
   pSourceImageId_
   pSourceRegion_ =
     CopyWorkspaceImage'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { tags = Core.Nothing,
+        description = Core.Nothing,
         name = pName_,
         sourceImageId = pSourceImageId_,
         sourceRegion = pSourceRegion_
       }
 
 -- | The tags for the image.
-copyWorkspaceImage_tags :: Lens.Lens' CopyWorkspaceImage (Prelude.Maybe [Tag])
-copyWorkspaceImage_tags = Lens.lens (\CopyWorkspaceImage' {tags} -> tags) (\s@CopyWorkspaceImage' {} a -> s {tags = a} :: CopyWorkspaceImage) Prelude.. Lens.mapping Prelude._Coerce
+copyWorkspaceImage_tags :: Lens.Lens' CopyWorkspaceImage (Core.Maybe [Tag])
+copyWorkspaceImage_tags = Lens.lens (\CopyWorkspaceImage' {tags} -> tags) (\s@CopyWorkspaceImage' {} a -> s {tags = a} :: CopyWorkspaceImage) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the image.
-copyWorkspaceImage_description :: Lens.Lens' CopyWorkspaceImage (Prelude.Maybe Prelude.Text)
+copyWorkspaceImage_description :: Lens.Lens' CopyWorkspaceImage (Core.Maybe Core.Text)
 copyWorkspaceImage_description = Lens.lens (\CopyWorkspaceImage' {description} -> description) (\s@CopyWorkspaceImage' {} a -> s {description = a} :: CopyWorkspaceImage)
 
 -- | The name of the image.
-copyWorkspaceImage_name :: Lens.Lens' CopyWorkspaceImage Prelude.Text
+copyWorkspaceImage_name :: Lens.Lens' CopyWorkspaceImage Core.Text
 copyWorkspaceImage_name = Lens.lens (\CopyWorkspaceImage' {name} -> name) (\s@CopyWorkspaceImage' {} a -> s {name = a} :: CopyWorkspaceImage)
 
 -- | The identifier of the source image.
-copyWorkspaceImage_sourceImageId :: Lens.Lens' CopyWorkspaceImage Prelude.Text
+copyWorkspaceImage_sourceImageId :: Lens.Lens' CopyWorkspaceImage Core.Text
 copyWorkspaceImage_sourceImageId = Lens.lens (\CopyWorkspaceImage' {sourceImageId} -> sourceImageId) (\s@CopyWorkspaceImage' {} a -> s {sourceImageId = a} :: CopyWorkspaceImage)
 
 -- | The identifier of the source Region.
-copyWorkspaceImage_sourceRegion :: Lens.Lens' CopyWorkspaceImage Prelude.Text
+copyWorkspaceImage_sourceRegion :: Lens.Lens' CopyWorkspaceImage Core.Text
 copyWorkspaceImage_sourceRegion = Lens.lens (\CopyWorkspaceImage' {sourceRegion} -> sourceRegion) (\s@CopyWorkspaceImage' {} a -> s {sourceRegion = a} :: CopyWorkspaceImage)
 
-instance Prelude.AWSRequest CopyWorkspaceImage where
+instance Core.AWSRequest CopyWorkspaceImage where
   type
-    Rs CopyWorkspaceImage =
+    AWSResponse CopyWorkspaceImage =
       CopyWorkspaceImageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CopyWorkspaceImageResponse'
-            Prelude.<$> (x Prelude..?> "ImageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ImageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CopyWorkspaceImage
+instance Core.Hashable CopyWorkspaceImage
 
-instance Prelude.NFData CopyWorkspaceImage
+instance Core.NFData CopyWorkspaceImage
 
-instance Prelude.ToHeaders CopyWorkspaceImage where
+instance Core.ToHeaders CopyWorkspaceImage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.CopyWorkspaceImage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.CopyWorkspaceImage" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CopyWorkspaceImage where
+instance Core.ToJSON CopyWorkspaceImage where
   toJSON CopyWorkspaceImage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("SourceImageId" Prelude..= sourceImageId),
-            Prelude.Just
-              ("SourceRegion" Prelude..= sourceRegion)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("SourceImageId" Core..= sourceImageId),
+            Core.Just ("SourceRegion" Core..= sourceRegion)
           ]
       )
 
-instance Prelude.ToPath CopyWorkspaceImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath CopyWorkspaceImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CopyWorkspaceImage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CopyWorkspaceImage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCopyWorkspaceImageResponse' smart constructor.
 data CopyWorkspaceImageResponse = CopyWorkspaceImageResponse'
   { -- | The identifier of the image.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyWorkspaceImageResponse' with all optional fields omitted.
@@ -212,21 +207,20 @@ data CopyWorkspaceImageResponse = CopyWorkspaceImageResponse'
 -- 'httpStatus', 'copyWorkspaceImageResponse_httpStatus' - The response's http status code.
 newCopyWorkspaceImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CopyWorkspaceImageResponse
 newCopyWorkspaceImageResponse pHttpStatus_ =
   CopyWorkspaceImageResponse'
-    { imageId =
-        Prelude.Nothing,
+    { imageId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the image.
-copyWorkspaceImageResponse_imageId :: Lens.Lens' CopyWorkspaceImageResponse (Prelude.Maybe Prelude.Text)
+copyWorkspaceImageResponse_imageId :: Lens.Lens' CopyWorkspaceImageResponse (Core.Maybe Core.Text)
 copyWorkspaceImageResponse_imageId = Lens.lens (\CopyWorkspaceImageResponse' {imageId} -> imageId) (\s@CopyWorkspaceImageResponse' {} a -> s {imageId = a} :: CopyWorkspaceImageResponse)
 
 -- | The response's http status code.
-copyWorkspaceImageResponse_httpStatus :: Lens.Lens' CopyWorkspaceImageResponse Prelude.Int
+copyWorkspaceImageResponse_httpStatus :: Lens.Lens' CopyWorkspaceImageResponse Core.Int
 copyWorkspaceImageResponse_httpStatus = Lens.lens (\CopyWorkspaceImageResponse' {httpStatus} -> httpStatus) (\s@CopyWorkspaceImageResponse' {} a -> s {httpStatus = a} :: CopyWorkspaceImageResponse)
 
-instance Prelude.NFData CopyWorkspaceImageResponse
+instance Core.NFData CopyWorkspaceImageResponse

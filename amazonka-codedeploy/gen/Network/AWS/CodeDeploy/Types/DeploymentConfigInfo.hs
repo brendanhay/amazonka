@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,29 +22,29 @@ module Network.AWS.CodeDeploy.Types.DeploymentConfigInfo where
 import Network.AWS.CodeDeploy.Types.ComputePlatform
 import Network.AWS.CodeDeploy.Types.MinimumHealthyHosts
 import Network.AWS.CodeDeploy.Types.TrafficRoutingConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a deployment configuration.
 --
 -- /See:/ 'newDeploymentConfigInfo' smart constructor.
 data DeploymentConfigInfo = DeploymentConfigInfo'
   { -- | The deployment configuration name.
-    deploymentConfigName :: Prelude.Maybe Prelude.Text,
+    deploymentConfigName :: Core.Maybe Core.Text,
     -- | The deployment configuration ID.
-    deploymentConfigId :: Prelude.Maybe Prelude.Text,
+    deploymentConfigId :: Core.Maybe Core.Text,
     -- | The time at which the deployment configuration was created.
-    createTime :: Prelude.Maybe Prelude.POSIX,
+    createTime :: Core.Maybe Core.POSIX,
     -- | The configuration that specifies how the deployment traffic is routed.
     -- Used for deployments with a Lambda or ECS compute platform only.
-    trafficRoutingConfig :: Prelude.Maybe TrafficRoutingConfig,
+    trafficRoutingConfig :: Core.Maybe TrafficRoutingConfig,
     -- | Information about the number or percentage of minimum healthy instance.
-    minimumHealthyHosts :: Prelude.Maybe MinimumHealthyHosts,
+    minimumHealthyHosts :: Core.Maybe MinimumHealthyHosts,
     -- | The destination platform type for the deployment (@Lambda@, @Server@, or
     -- @ECS@).
-    computePlatform :: Prelude.Maybe ComputePlatform
+    computePlatform :: Core.Maybe ComputePlatform
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeploymentConfigInfo' with all optional fields omitted.
@@ -73,54 +72,54 @@ newDeploymentConfigInfo ::
 newDeploymentConfigInfo =
   DeploymentConfigInfo'
     { deploymentConfigName =
-        Prelude.Nothing,
-      deploymentConfigId = Prelude.Nothing,
-      createTime = Prelude.Nothing,
-      trafficRoutingConfig = Prelude.Nothing,
-      minimumHealthyHosts = Prelude.Nothing,
-      computePlatform = Prelude.Nothing
+        Core.Nothing,
+      deploymentConfigId = Core.Nothing,
+      createTime = Core.Nothing,
+      trafficRoutingConfig = Core.Nothing,
+      minimumHealthyHosts = Core.Nothing,
+      computePlatform = Core.Nothing
     }
 
 -- | The deployment configuration name.
-deploymentConfigInfo_deploymentConfigName :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.Text)
+deploymentConfigInfo_deploymentConfigName :: Lens.Lens' DeploymentConfigInfo (Core.Maybe Core.Text)
 deploymentConfigInfo_deploymentConfigName = Lens.lens (\DeploymentConfigInfo' {deploymentConfigName} -> deploymentConfigName) (\s@DeploymentConfigInfo' {} a -> s {deploymentConfigName = a} :: DeploymentConfigInfo)
 
 -- | The deployment configuration ID.
-deploymentConfigInfo_deploymentConfigId :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.Text)
+deploymentConfigInfo_deploymentConfigId :: Lens.Lens' DeploymentConfigInfo (Core.Maybe Core.Text)
 deploymentConfigInfo_deploymentConfigId = Lens.lens (\DeploymentConfigInfo' {deploymentConfigId} -> deploymentConfigId) (\s@DeploymentConfigInfo' {} a -> s {deploymentConfigId = a} :: DeploymentConfigInfo)
 
 -- | The time at which the deployment configuration was created.
-deploymentConfigInfo_createTime :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe Prelude.UTCTime)
-deploymentConfigInfo_createTime = Lens.lens (\DeploymentConfigInfo' {createTime} -> createTime) (\s@DeploymentConfigInfo' {} a -> s {createTime = a} :: DeploymentConfigInfo) Prelude.. Lens.mapping Prelude._Time
+deploymentConfigInfo_createTime :: Lens.Lens' DeploymentConfigInfo (Core.Maybe Core.UTCTime)
+deploymentConfigInfo_createTime = Lens.lens (\DeploymentConfigInfo' {createTime} -> createTime) (\s@DeploymentConfigInfo' {} a -> s {createTime = a} :: DeploymentConfigInfo) Core.. Lens.mapping Core._Time
 
 -- | The configuration that specifies how the deployment traffic is routed.
 -- Used for deployments with a Lambda or ECS compute platform only.
-deploymentConfigInfo_trafficRoutingConfig :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe TrafficRoutingConfig)
+deploymentConfigInfo_trafficRoutingConfig :: Lens.Lens' DeploymentConfigInfo (Core.Maybe TrafficRoutingConfig)
 deploymentConfigInfo_trafficRoutingConfig = Lens.lens (\DeploymentConfigInfo' {trafficRoutingConfig} -> trafficRoutingConfig) (\s@DeploymentConfigInfo' {} a -> s {trafficRoutingConfig = a} :: DeploymentConfigInfo)
 
 -- | Information about the number or percentage of minimum healthy instance.
-deploymentConfigInfo_minimumHealthyHosts :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe MinimumHealthyHosts)
+deploymentConfigInfo_minimumHealthyHosts :: Lens.Lens' DeploymentConfigInfo (Core.Maybe MinimumHealthyHosts)
 deploymentConfigInfo_minimumHealthyHosts = Lens.lens (\DeploymentConfigInfo' {minimumHealthyHosts} -> minimumHealthyHosts) (\s@DeploymentConfigInfo' {} a -> s {minimumHealthyHosts = a} :: DeploymentConfigInfo)
 
 -- | The destination platform type for the deployment (@Lambda@, @Server@, or
 -- @ECS@).
-deploymentConfigInfo_computePlatform :: Lens.Lens' DeploymentConfigInfo (Prelude.Maybe ComputePlatform)
+deploymentConfigInfo_computePlatform :: Lens.Lens' DeploymentConfigInfo (Core.Maybe ComputePlatform)
 deploymentConfigInfo_computePlatform = Lens.lens (\DeploymentConfigInfo' {computePlatform} -> computePlatform) (\s@DeploymentConfigInfo' {} a -> s {computePlatform = a} :: DeploymentConfigInfo)
 
-instance Prelude.FromJSON DeploymentConfigInfo where
+instance Core.FromJSON DeploymentConfigInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeploymentConfigInfo"
       ( \x ->
           DeploymentConfigInfo'
-            Prelude.<$> (x Prelude..:? "deploymentConfigName")
-            Prelude.<*> (x Prelude..:? "deploymentConfigId")
-            Prelude.<*> (x Prelude..:? "createTime")
-            Prelude.<*> (x Prelude..:? "trafficRoutingConfig")
-            Prelude.<*> (x Prelude..:? "minimumHealthyHosts")
-            Prelude.<*> (x Prelude..:? "computePlatform")
+            Core.<$> (x Core..:? "deploymentConfigName")
+            Core.<*> (x Core..:? "deploymentConfigId")
+            Core.<*> (x Core..:? "createTime")
+            Core.<*> (x Core..:? "trafficRoutingConfig")
+            Core.<*> (x Core..:? "minimumHealthyHosts")
+            Core.<*> (x Core..:? "computePlatform")
       )
 
-instance Prelude.Hashable DeploymentConfigInfo
+instance Core.Hashable DeploymentConfigInfo
 
-instance Prelude.NFData DeploymentConfigInfo
+instance Core.NFData DeploymentConfigInfo

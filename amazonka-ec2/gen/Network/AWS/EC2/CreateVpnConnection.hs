@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,9 +65,9 @@ module Network.AWS.EC2.CreateVpnConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,26 +76,26 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateVpnConnection' smart constructor.
 data CreateVpnConnection = CreateVpnConnection'
   { -- | The tags to apply to the VPN connection.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The options for the VPN connection.
-    options :: Prelude.Maybe VpnConnectionOptionsSpecification,
+    options :: Core.Maybe VpnConnectionOptionsSpecification,
     -- | The ID of the virtual private gateway. If you specify a virtual private
     -- gateway, you cannot specify a transit gateway.
-    vpnGatewayId :: Prelude.Maybe Prelude.Text,
+    vpnGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the transit gateway. If you specify a transit gateway, you
     -- cannot specify a virtual private gateway.
-    transitGatewayId :: Prelude.Maybe Prelude.Text,
+    transitGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the customer gateway.
-    customerGatewayId :: Prelude.Text,
+    customerGatewayId :: Core.Text,
     -- | The type of VPN connection (@ipsec.1@).
-    type' :: Prelude.Text
+    type' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpnConnection' with all optional fields omitted.
@@ -126,95 +125,94 @@ data CreateVpnConnection = CreateVpnConnection'
 -- 'type'', 'createVpnConnection_type' - The type of VPN connection (@ipsec.1@).
 newCreateVpnConnection ::
   -- | 'customerGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   CreateVpnConnection
 newCreateVpnConnection pCustomerGatewayId_ pType_ =
   CreateVpnConnection'
     { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      options = Prelude.Nothing,
-      vpnGatewayId = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing,
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      options = Core.Nothing,
+      vpnGatewayId = Core.Nothing,
+      transitGatewayId = Core.Nothing,
       customerGatewayId = pCustomerGatewayId_,
       type' = pType_
     }
 
 -- | The tags to apply to the VPN connection.
-createVpnConnection_tagSpecifications :: Lens.Lens' CreateVpnConnection (Prelude.Maybe [TagSpecification])
-createVpnConnection_tagSpecifications = Lens.lens (\CreateVpnConnection' {tagSpecifications} -> tagSpecifications) (\s@CreateVpnConnection' {} a -> s {tagSpecifications = a} :: CreateVpnConnection) Prelude.. Lens.mapping Prelude._Coerce
+createVpnConnection_tagSpecifications :: Lens.Lens' CreateVpnConnection (Core.Maybe [TagSpecification])
+createVpnConnection_tagSpecifications = Lens.lens (\CreateVpnConnection' {tagSpecifications} -> tagSpecifications) (\s@CreateVpnConnection' {} a -> s {tagSpecifications = a} :: CreateVpnConnection) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createVpnConnection_dryRun :: Lens.Lens' CreateVpnConnection (Prelude.Maybe Prelude.Bool)
+createVpnConnection_dryRun :: Lens.Lens' CreateVpnConnection (Core.Maybe Core.Bool)
 createVpnConnection_dryRun = Lens.lens (\CreateVpnConnection' {dryRun} -> dryRun) (\s@CreateVpnConnection' {} a -> s {dryRun = a} :: CreateVpnConnection)
 
 -- | The options for the VPN connection.
-createVpnConnection_options :: Lens.Lens' CreateVpnConnection (Prelude.Maybe VpnConnectionOptionsSpecification)
+createVpnConnection_options :: Lens.Lens' CreateVpnConnection (Core.Maybe VpnConnectionOptionsSpecification)
 createVpnConnection_options = Lens.lens (\CreateVpnConnection' {options} -> options) (\s@CreateVpnConnection' {} a -> s {options = a} :: CreateVpnConnection)
 
 -- | The ID of the virtual private gateway. If you specify a virtual private
 -- gateway, you cannot specify a transit gateway.
-createVpnConnection_vpnGatewayId :: Lens.Lens' CreateVpnConnection (Prelude.Maybe Prelude.Text)
+createVpnConnection_vpnGatewayId :: Lens.Lens' CreateVpnConnection (Core.Maybe Core.Text)
 createVpnConnection_vpnGatewayId = Lens.lens (\CreateVpnConnection' {vpnGatewayId} -> vpnGatewayId) (\s@CreateVpnConnection' {} a -> s {vpnGatewayId = a} :: CreateVpnConnection)
 
 -- | The ID of the transit gateway. If you specify a transit gateway, you
 -- cannot specify a virtual private gateway.
-createVpnConnection_transitGatewayId :: Lens.Lens' CreateVpnConnection (Prelude.Maybe Prelude.Text)
+createVpnConnection_transitGatewayId :: Lens.Lens' CreateVpnConnection (Core.Maybe Core.Text)
 createVpnConnection_transitGatewayId = Lens.lens (\CreateVpnConnection' {transitGatewayId} -> transitGatewayId) (\s@CreateVpnConnection' {} a -> s {transitGatewayId = a} :: CreateVpnConnection)
 
 -- | The ID of the customer gateway.
-createVpnConnection_customerGatewayId :: Lens.Lens' CreateVpnConnection Prelude.Text
+createVpnConnection_customerGatewayId :: Lens.Lens' CreateVpnConnection Core.Text
 createVpnConnection_customerGatewayId = Lens.lens (\CreateVpnConnection' {customerGatewayId} -> customerGatewayId) (\s@CreateVpnConnection' {} a -> s {customerGatewayId = a} :: CreateVpnConnection)
 
 -- | The type of VPN connection (@ipsec.1@).
-createVpnConnection_type :: Lens.Lens' CreateVpnConnection Prelude.Text
+createVpnConnection_type :: Lens.Lens' CreateVpnConnection Core.Text
 createVpnConnection_type = Lens.lens (\CreateVpnConnection' {type'} -> type') (\s@CreateVpnConnection' {} a -> s {type' = a} :: CreateVpnConnection)
 
-instance Prelude.AWSRequest CreateVpnConnection where
+instance Core.AWSRequest CreateVpnConnection where
   type
-    Rs CreateVpnConnection =
+    AWSResponse CreateVpnConnection =
       CreateVpnConnectionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateVpnConnectionResponse'
-            Prelude.<$> (x Prelude..@? "vpnConnection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "vpnConnection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVpnConnection
+instance Core.Hashable CreateVpnConnection
 
-instance Prelude.NFData CreateVpnConnection
+instance Core.NFData CreateVpnConnection
 
-instance Prelude.ToHeaders CreateVpnConnection where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateVpnConnection where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateVpnConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateVpnConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateVpnConnection where
+instance Core.ToQuery CreateVpnConnection where
   toQuery CreateVpnConnection' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateVpnConnection" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateVpnConnection" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "Options" Prelude.=: options,
-        "VpnGatewayId" Prelude.=: vpnGatewayId,
-        "TransitGatewayId" Prelude.=: transitGatewayId,
-        "CustomerGatewayId" Prelude.=: customerGatewayId,
-        "Type" Prelude.=: type'
+        "DryRun" Core.=: dryRun,
+        "Options" Core.=: options,
+        "VpnGatewayId" Core.=: vpnGatewayId,
+        "TransitGatewayId" Core.=: transitGatewayId,
+        "CustomerGatewayId" Core.=: customerGatewayId,
+        "Type" Core.=: type'
       ]
 
 -- | Contains the output of CreateVpnConnection.
@@ -222,11 +220,11 @@ instance Prelude.ToQuery CreateVpnConnection where
 -- /See:/ 'newCreateVpnConnectionResponse' smart constructor.
 data CreateVpnConnectionResponse = CreateVpnConnectionResponse'
   { -- | Information about the VPN connection.
-    vpnConnection :: Prelude.Maybe VpnConnection,
+    vpnConnection :: Core.Maybe VpnConnection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpnConnectionResponse' with all optional fields omitted.
@@ -241,21 +239,21 @@ data CreateVpnConnectionResponse = CreateVpnConnectionResponse'
 -- 'httpStatus', 'createVpnConnectionResponse_httpStatus' - The response's http status code.
 newCreateVpnConnectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateVpnConnectionResponse
 newCreateVpnConnectionResponse pHttpStatus_ =
   CreateVpnConnectionResponse'
     { vpnConnection =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the VPN connection.
-createVpnConnectionResponse_vpnConnection :: Lens.Lens' CreateVpnConnectionResponse (Prelude.Maybe VpnConnection)
+createVpnConnectionResponse_vpnConnection :: Lens.Lens' CreateVpnConnectionResponse (Core.Maybe VpnConnection)
 createVpnConnectionResponse_vpnConnection = Lens.lens (\CreateVpnConnectionResponse' {vpnConnection} -> vpnConnection) (\s@CreateVpnConnectionResponse' {} a -> s {vpnConnection = a} :: CreateVpnConnectionResponse)
 
 -- | The response's http status code.
-createVpnConnectionResponse_httpStatus :: Lens.Lens' CreateVpnConnectionResponse Prelude.Int
+createVpnConnectionResponse_httpStatus :: Lens.Lens' CreateVpnConnectionResponse Core.Int
 createVpnConnectionResponse_httpStatus = Lens.lens (\CreateVpnConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateVpnConnectionResponse' {} a -> s {httpStatus = a} :: CreateVpnConnectionResponse)
 
-instance Prelude.NFData CreateVpnConnectionResponse
+instance Core.NFData CreateVpnConnectionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,22 +46,22 @@ module Network.AWS.ELBv2.ModifyRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyRule' smart constructor.
 data ModifyRule = ModifyRule'
   { -- | The actions.
-    actions :: Prelude.Maybe [Action],
+    actions :: Core.Maybe [Action],
     -- | The conditions.
-    conditions :: Prelude.Maybe [RuleCondition],
+    conditions :: Core.Maybe [RuleCondition],
     -- | The Amazon Resource Name (ARN) of the rule.
-    ruleArn :: Prelude.Text
+    ruleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyRule' with all optional fields omitted.
@@ -79,77 +78,73 @@ data ModifyRule = ModifyRule'
 -- 'ruleArn', 'modifyRule_ruleArn' - The Amazon Resource Name (ARN) of the rule.
 newModifyRule ::
   -- | 'ruleArn'
-  Prelude.Text ->
+  Core.Text ->
   ModifyRule
 newModifyRule pRuleArn_ =
   ModifyRule'
-    { actions = Prelude.Nothing,
-      conditions = Prelude.Nothing,
+    { actions = Core.Nothing,
+      conditions = Core.Nothing,
       ruleArn = pRuleArn_
     }
 
 -- | The actions.
-modifyRule_actions :: Lens.Lens' ModifyRule (Prelude.Maybe [Action])
-modifyRule_actions = Lens.lens (\ModifyRule' {actions} -> actions) (\s@ModifyRule' {} a -> s {actions = a} :: ModifyRule) Prelude.. Lens.mapping Prelude._Coerce
+modifyRule_actions :: Lens.Lens' ModifyRule (Core.Maybe [Action])
+modifyRule_actions = Lens.lens (\ModifyRule' {actions} -> actions) (\s@ModifyRule' {} a -> s {actions = a} :: ModifyRule) Core.. Lens.mapping Lens._Coerce
 
 -- | The conditions.
-modifyRule_conditions :: Lens.Lens' ModifyRule (Prelude.Maybe [RuleCondition])
-modifyRule_conditions = Lens.lens (\ModifyRule' {conditions} -> conditions) (\s@ModifyRule' {} a -> s {conditions = a} :: ModifyRule) Prelude.. Lens.mapping Prelude._Coerce
+modifyRule_conditions :: Lens.Lens' ModifyRule (Core.Maybe [RuleCondition])
+modifyRule_conditions = Lens.lens (\ModifyRule' {conditions} -> conditions) (\s@ModifyRule' {} a -> s {conditions = a} :: ModifyRule) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the rule.
-modifyRule_ruleArn :: Lens.Lens' ModifyRule Prelude.Text
+modifyRule_ruleArn :: Lens.Lens' ModifyRule Core.Text
 modifyRule_ruleArn = Lens.lens (\ModifyRule' {ruleArn} -> ruleArn) (\s@ModifyRule' {} a -> s {ruleArn = a} :: ModifyRule)
 
-instance Prelude.AWSRequest ModifyRule where
-  type Rs ModifyRule = ModifyRuleResponse
+instance Core.AWSRequest ModifyRule where
+  type AWSResponse ModifyRule = ModifyRuleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ModifyRuleResult"
       ( \s h x ->
           ModifyRuleResponse'
-            Prelude.<$> ( x Prelude..@? "Rules" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Rules" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyRule
+instance Core.Hashable ModifyRule
 
-instance Prelude.NFData ModifyRule
+instance Core.NFData ModifyRule
 
-instance Prelude.ToHeaders ModifyRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyRule where
+instance Core.ToQuery ModifyRule where
   toQuery ModifyRule' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("ModifyRule" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+    Core.mconcat
+      [ "Action" Core.=: ("ModifyRule" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
         "Actions"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> actions),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> actions),
         "Conditions"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> conditions
-            ),
-        "RuleArn" Prelude.=: ruleArn
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> conditions),
+        "RuleArn" Core.=: ruleArn
       ]
 
 -- | /See:/ 'newModifyRuleResponse' smart constructor.
 data ModifyRuleResponse = ModifyRuleResponse'
   { -- | Information about the modified rule.
-    rules :: Prelude.Maybe [Rule],
+    rules :: Core.Maybe [Rule],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyRuleResponse' with all optional fields omitted.
@@ -164,20 +159,20 @@ data ModifyRuleResponse = ModifyRuleResponse'
 -- 'httpStatus', 'modifyRuleResponse_httpStatus' - The response's http status code.
 newModifyRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyRuleResponse
 newModifyRuleResponse pHttpStatus_ =
   ModifyRuleResponse'
-    { rules = Prelude.Nothing,
+    { rules = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the modified rule.
-modifyRuleResponse_rules :: Lens.Lens' ModifyRuleResponse (Prelude.Maybe [Rule])
-modifyRuleResponse_rules = Lens.lens (\ModifyRuleResponse' {rules} -> rules) (\s@ModifyRuleResponse' {} a -> s {rules = a} :: ModifyRuleResponse) Prelude.. Lens.mapping Prelude._Coerce
+modifyRuleResponse_rules :: Lens.Lens' ModifyRuleResponse (Core.Maybe [Rule])
+modifyRuleResponse_rules = Lens.lens (\ModifyRuleResponse' {rules} -> rules) (\s@ModifyRuleResponse' {} a -> s {rules = a} :: ModifyRuleResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-modifyRuleResponse_httpStatus :: Lens.Lens' ModifyRuleResponse Prelude.Int
+modifyRuleResponse_httpStatus :: Lens.Lens' ModifyRuleResponse Core.Int
 modifyRuleResponse_httpStatus = Lens.lens (\ModifyRuleResponse' {httpStatus} -> httpStatus) (\s@ModifyRuleResponse' {} a -> s {httpStatus = a} :: ModifyRuleResponse)
 
-instance Prelude.NFData ModifyRuleResponse
+instance Core.NFData ModifyRuleResponse

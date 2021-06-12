@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.SNS.SetSMSAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -137,9 +136,9 @@ data SetSMSAttributes = SetSMSAttributes'
     -- For an example bucket policy and usage report, see
     -- <https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html Monitoring SMS Activity>
     -- in the /Amazon SNS Developer Guide/.
-    attributes :: Prelude.HashMap Prelude.Text Prelude.Text
+    attributes :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetSMSAttributes' with all optional fields omitted.
@@ -230,7 +229,7 @@ data SetSMSAttributes = SetSMSAttributes'
 newSetSMSAttributes ::
   SetSMSAttributes
 newSetSMSAttributes =
-  SetSMSAttributes' {attributes = Prelude.mempty}
+  SetSMSAttributes' {attributes = Core.mempty}
 
 -- | The default settings for sending SMS messages from your account. You can
 -- set values for the following attribute names:
@@ -310,39 +309,40 @@ newSetSMSAttributes =
 -- For an example bucket policy and usage report, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/sms_stats.html Monitoring SMS Activity>
 -- in the /Amazon SNS Developer Guide/.
-setSMSAttributes_attributes :: Lens.Lens' SetSMSAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-setSMSAttributes_attributes = Lens.lens (\SetSMSAttributes' {attributes} -> attributes) (\s@SetSMSAttributes' {} a -> s {attributes = a} :: SetSMSAttributes) Prelude.. Prelude._Coerce
+setSMSAttributes_attributes :: Lens.Lens' SetSMSAttributes (Core.HashMap Core.Text Core.Text)
+setSMSAttributes_attributes = Lens.lens (\SetSMSAttributes' {attributes} -> attributes) (\s@SetSMSAttributes' {} a -> s {attributes = a} :: SetSMSAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest SetSMSAttributes where
-  type Rs SetSMSAttributes = SetSMSAttributesResponse
+instance Core.AWSRequest SetSMSAttributes where
+  type
+    AWSResponse SetSMSAttributes =
+      SetSMSAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "SetSMSAttributesResult"
       ( \s h x ->
           SetSMSAttributesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SetSMSAttributes
+instance Core.Hashable SetSMSAttributes
 
-instance Prelude.NFData SetSMSAttributes
+instance Core.NFData SetSMSAttributes
 
-instance Prelude.ToHeaders SetSMSAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetSMSAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetSMSAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetSMSAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetSMSAttributes where
+instance Core.ToQuery SetSMSAttributes where
   toQuery SetSMSAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetSMSAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
+          Core.=: ("SetSMSAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
         "attributes"
-          Prelude.=: Prelude.toQueryMap "entry" "key" "value" attributes
+          Core.=: Core.toQueryMap "entry" "key" "value" attributes
       ]
 
 -- | The response for the SetSMSAttributes action.
@@ -350,9 +350,9 @@ instance Prelude.ToQuery SetSMSAttributes where
 -- /See:/ 'newSetSMSAttributesResponse' smart constructor.
 data SetSMSAttributesResponse = SetSMSAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetSMSAttributesResponse' with all optional fields omitted.
@@ -365,7 +365,7 @@ data SetSMSAttributesResponse = SetSMSAttributesResponse'
 -- 'httpStatus', 'setSMSAttributesResponse_httpStatus' - The response's http status code.
 newSetSMSAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetSMSAttributesResponse
 newSetSMSAttributesResponse pHttpStatus_ =
   SetSMSAttributesResponse'
@@ -374,7 +374,7 @@ newSetSMSAttributesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setSMSAttributesResponse_httpStatus :: Lens.Lens' SetSMSAttributesResponse Prelude.Int
+setSMSAttributesResponse_httpStatus :: Lens.Lens' SetSMSAttributesResponse Core.Int
 setSMSAttributesResponse_httpStatus = Lens.lens (\SetSMSAttributesResponse' {httpStatus} -> httpStatus) (\s@SetSMSAttributesResponse' {} a -> s {httpStatus = a} :: SetSMSAttributesResponse)
 
-instance Prelude.NFData SetSMSAttributesResponse
+instance Core.NFData SetSMSAttributesResponse

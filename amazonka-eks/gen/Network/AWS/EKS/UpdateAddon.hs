@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EKS.UpdateAddon
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data UpdateAddon = UpdateAddon'
   { -- | How to resolve parameter value conflicts when applying the new version
     -- of the add-on to the cluster.
-    resolveConflicts :: Prelude.Maybe ResolveConflicts,
+    resolveConflicts :: Core.Maybe ResolveConflicts,
     -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
     -- add-on\'s service account. The role must be assigned the IAM permissions
     -- required by the add-on. If you don\'t specify an existing IAM role, then
@@ -68,23 +67,23 @@ data UpdateAddon = UpdateAddon'
     -- (OIDC) provider created for your cluster. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
     -- in the /Amazon EKS User Guide/.
-    serviceAccountRoleArn :: Prelude.Maybe Prelude.Text,
+    serviceAccountRoleArn :: Core.Maybe Core.Text,
     -- | The version of the add-on. The version must match one of the versions
     -- returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
     -- .
-    addonVersion :: Prelude.Maybe Prelude.Text,
+    addonVersion :: Core.Maybe Core.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name of the cluster.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
     -- .
-    addonName :: Prelude.Text
+    addonName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAddon' with all optional fields omitted.
@@ -125,23 +124,23 @@ data UpdateAddon = UpdateAddon'
 -- .
 newUpdateAddon ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'addonName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAddon
 newUpdateAddon pClusterName_ pAddonName_ =
   UpdateAddon'
-    { resolveConflicts = Prelude.Nothing,
-      serviceAccountRoleArn = Prelude.Nothing,
-      addonVersion = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { resolveConflicts = Core.Nothing,
+      serviceAccountRoleArn = Core.Nothing,
+      addonVersion = Core.Nothing,
+      clientRequestToken = Core.Nothing,
       clusterName = pClusterName_,
       addonName = pAddonName_
     }
 
 -- | How to resolve parameter value conflicts when applying the new version
 -- of the add-on to the cluster.
-updateAddon_resolveConflicts :: Lens.Lens' UpdateAddon (Prelude.Maybe ResolveConflicts)
+updateAddon_resolveConflicts :: Lens.Lens' UpdateAddon (Core.Maybe ResolveConflicts)
 updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> resolveConflicts) (\s@UpdateAddon' {} a -> s {resolveConflicts = a} :: UpdateAddon)
 
 -- | The Amazon Resource Name (ARN) of an existing IAM role to bind to the
@@ -156,91 +155,89 @@ updateAddon_resolveConflicts = Lens.lens (\UpdateAddon' {resolveConflicts} -> re
 -- (OIDC) provider created for your cluster. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html Enabling IAM roles for service accounts on your cluster>
 -- in the /Amazon EKS User Guide/.
-updateAddon_serviceAccountRoleArn :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_serviceAccountRoleArn :: Lens.Lens' UpdateAddon (Core.Maybe Core.Text)
 updateAddon_serviceAccountRoleArn = Lens.lens (\UpdateAddon' {serviceAccountRoleArn} -> serviceAccountRoleArn) (\s@UpdateAddon' {} a -> s {serviceAccountRoleArn = a} :: UpdateAddon)
 
 -- | The version of the add-on. The version must match one of the versions
 -- returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html DescribeAddonVersions>
 -- .
-updateAddon_addonVersion :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_addonVersion :: Lens.Lens' UpdateAddon (Core.Maybe Core.Text)
 updateAddon_addonVersion = Lens.lens (\UpdateAddon' {addonVersion} -> addonVersion) (\s@UpdateAddon' {} a -> s {addonVersion = a} :: UpdateAddon)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-updateAddon_clientRequestToken :: Lens.Lens' UpdateAddon (Prelude.Maybe Prelude.Text)
+updateAddon_clientRequestToken :: Lens.Lens' UpdateAddon (Core.Maybe Core.Text)
 updateAddon_clientRequestToken = Lens.lens (\UpdateAddon' {clientRequestToken} -> clientRequestToken) (\s@UpdateAddon' {} a -> s {clientRequestToken = a} :: UpdateAddon)
 
 -- | The name of the cluster.
-updateAddon_clusterName :: Lens.Lens' UpdateAddon Prelude.Text
+updateAddon_clusterName :: Lens.Lens' UpdateAddon Core.Text
 updateAddon_clusterName = Lens.lens (\UpdateAddon' {clusterName} -> clusterName) (\s@UpdateAddon' {} a -> s {clusterName = a} :: UpdateAddon)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
-updateAddon_addonName :: Lens.Lens' UpdateAddon Prelude.Text
+updateAddon_addonName :: Lens.Lens' UpdateAddon Core.Text
 updateAddon_addonName = Lens.lens (\UpdateAddon' {addonName} -> addonName) (\s@UpdateAddon' {} a -> s {addonName = a} :: UpdateAddon)
 
-instance Prelude.AWSRequest UpdateAddon where
-  type Rs UpdateAddon = UpdateAddonResponse
+instance Core.AWSRequest UpdateAddon where
+  type AWSResponse UpdateAddon = UpdateAddonResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateAddonResponse'
-            Prelude.<$> (x Prelude..?> "update")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "update")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateAddon
+instance Core.Hashable UpdateAddon
 
-instance Prelude.NFData UpdateAddon
+instance Core.NFData UpdateAddon
 
-instance Prelude.ToHeaders UpdateAddon where
+instance Core.ToHeaders UpdateAddon where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateAddon where
+instance Core.ToJSON UpdateAddon where
   toJSON UpdateAddon' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resolveConflicts" Prelude..=)
-              Prelude.<$> resolveConflicts,
-            ("serviceAccountRoleArn" Prelude..=)
-              Prelude.<$> serviceAccountRoleArn,
-            ("addonVersion" Prelude..=) Prelude.<$> addonVersion,
-            ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken
+    Core.object
+      ( Core.catMaybes
+          [ ("resolveConflicts" Core..=)
+              Core.<$> resolveConflicts,
+            ("serviceAccountRoleArn" Core..=)
+              Core.<$> serviceAccountRoleArn,
+            ("addonVersion" Core..=) Core.<$> addonVersion,
+            ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken
           ]
       )
 
-instance Prelude.ToPath UpdateAddon where
+instance Core.ToPath UpdateAddon where
   toPath UpdateAddon' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/addons/",
-        Prelude.toBS addonName,
+        Core.toBS addonName,
         "/update"
       ]
 
-instance Prelude.ToQuery UpdateAddon where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAddon where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateAddonResponse' smart constructor.
 data UpdateAddonResponse = UpdateAddonResponse'
-  { update :: Prelude.Maybe Update,
+  { update :: Core.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAddonResponse' with all optional fields omitted.
@@ -255,20 +252,20 @@ data UpdateAddonResponse = UpdateAddonResponse'
 -- 'httpStatus', 'updateAddonResponse_httpStatus' - The response's http status code.
 newUpdateAddonResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateAddonResponse
 newUpdateAddonResponse pHttpStatus_ =
   UpdateAddonResponse'
-    { update = Prelude.Nothing,
+    { update = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateAddonResponse_update :: Lens.Lens' UpdateAddonResponse (Prelude.Maybe Update)
+updateAddonResponse_update :: Lens.Lens' UpdateAddonResponse (Core.Maybe Update)
 updateAddonResponse_update = Lens.lens (\UpdateAddonResponse' {update} -> update) (\s@UpdateAddonResponse' {} a -> s {update = a} :: UpdateAddonResponse)
 
 -- | The response's http status code.
-updateAddonResponse_httpStatus :: Lens.Lens' UpdateAddonResponse Prelude.Int
+updateAddonResponse_httpStatus :: Lens.Lens' UpdateAddonResponse Core.Int
 updateAddonResponse_httpStatus = Lens.lens (\UpdateAddonResponse' {httpStatus} -> httpStatus) (\s@UpdateAddonResponse' {} a -> s {httpStatus = a} :: UpdateAddonResponse)
 
-instance Prelude.NFData UpdateAddonResponse
+instance Core.NFData UpdateAddonResponse

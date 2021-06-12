@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.Shipment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @Status@ and @TrackingNumber@ information for an inbound or outbound
 -- shipment.
@@ -34,11 +33,11 @@ data Shipment = Shipment'
     --
     -- For India, the carrier is Amazon Logistics. For all other regions, UPS
     -- is the carrier.
-    trackingNumber :: Prelude.Maybe Prelude.Text,
+    trackingNumber :: Core.Maybe Core.Text,
     -- | Status information for a shipment.
-    status :: Prelude.Maybe Prelude.Text
+    status :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Shipment' with all optional fields omitted.
@@ -60,8 +59,8 @@ newShipment ::
   Shipment
 newShipment =
   Shipment'
-    { trackingNumber = Prelude.Nothing,
-      status = Prelude.Nothing
+    { trackingNumber = Core.Nothing,
+      status = Core.Nothing
     }
 
 -- | The tracking number for this job. Using this tracking number with your
@@ -70,23 +69,23 @@ newShipment =
 --
 -- For India, the carrier is Amazon Logistics. For all other regions, UPS
 -- is the carrier.
-shipment_trackingNumber :: Lens.Lens' Shipment (Prelude.Maybe Prelude.Text)
+shipment_trackingNumber :: Lens.Lens' Shipment (Core.Maybe Core.Text)
 shipment_trackingNumber = Lens.lens (\Shipment' {trackingNumber} -> trackingNumber) (\s@Shipment' {} a -> s {trackingNumber = a} :: Shipment)
 
 -- | Status information for a shipment.
-shipment_status :: Lens.Lens' Shipment (Prelude.Maybe Prelude.Text)
+shipment_status :: Lens.Lens' Shipment (Core.Maybe Core.Text)
 shipment_status = Lens.lens (\Shipment' {status} -> status) (\s@Shipment' {} a -> s {status = a} :: Shipment)
 
-instance Prelude.FromJSON Shipment where
+instance Core.FromJSON Shipment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Shipment"
       ( \x ->
           Shipment'
-            Prelude.<$> (x Prelude..:? "TrackingNumber")
-            Prelude.<*> (x Prelude..:? "Status")
+            Core.<$> (x Core..:? "TrackingNumber")
+            Core.<*> (x Core..:? "Status")
       )
 
-instance Prelude.Hashable Shipment
+instance Core.Hashable Shipment
 
-instance Prelude.NFData Shipment
+instance Core.NFData Shipment

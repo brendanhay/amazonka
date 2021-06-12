@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Greengrass.UpdateSubscriptionDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateSubscriptionDefinition' smart constructor.
 data UpdateSubscriptionDefinition = UpdateSubscriptionDefinition'
   { -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID of the subscription definition.
-    subscriptionDefinitionId :: Prelude.Text
+    subscriptionDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscriptionDefinition' with all optional fields omitted.
@@ -68,83 +67,70 @@ data UpdateSubscriptionDefinition = UpdateSubscriptionDefinition'
 -- 'subscriptionDefinitionId', 'updateSubscriptionDefinition_subscriptionDefinitionId' - The ID of the subscription definition.
 newUpdateSubscriptionDefinition ::
   -- | 'subscriptionDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateSubscriptionDefinition
 newUpdateSubscriptionDefinition
   pSubscriptionDefinitionId_ =
     UpdateSubscriptionDefinition'
-      { name =
-          Prelude.Nothing,
+      { name = Core.Nothing,
         subscriptionDefinitionId =
           pSubscriptionDefinitionId_
       }
 
 -- | The name of the definition.
-updateSubscriptionDefinition_name :: Lens.Lens' UpdateSubscriptionDefinition (Prelude.Maybe Prelude.Text)
+updateSubscriptionDefinition_name :: Lens.Lens' UpdateSubscriptionDefinition (Core.Maybe Core.Text)
 updateSubscriptionDefinition_name = Lens.lens (\UpdateSubscriptionDefinition' {name} -> name) (\s@UpdateSubscriptionDefinition' {} a -> s {name = a} :: UpdateSubscriptionDefinition)
 
 -- | The ID of the subscription definition.
-updateSubscriptionDefinition_subscriptionDefinitionId :: Lens.Lens' UpdateSubscriptionDefinition Prelude.Text
+updateSubscriptionDefinition_subscriptionDefinitionId :: Lens.Lens' UpdateSubscriptionDefinition Core.Text
 updateSubscriptionDefinition_subscriptionDefinitionId = Lens.lens (\UpdateSubscriptionDefinition' {subscriptionDefinitionId} -> subscriptionDefinitionId) (\s@UpdateSubscriptionDefinition' {} a -> s {subscriptionDefinitionId = a} :: UpdateSubscriptionDefinition)
 
-instance
-  Prelude.AWSRequest
-    UpdateSubscriptionDefinition
-  where
+instance Core.AWSRequest UpdateSubscriptionDefinition where
   type
-    Rs UpdateSubscriptionDefinition =
+    AWSResponse UpdateSubscriptionDefinition =
       UpdateSubscriptionDefinitionResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSubscriptionDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    UpdateSubscriptionDefinition
+instance Core.Hashable UpdateSubscriptionDefinition
 
-instance Prelude.NFData UpdateSubscriptionDefinition
+instance Core.NFData UpdateSubscriptionDefinition
 
-instance
-  Prelude.ToHeaders
-    UpdateSubscriptionDefinition
-  where
+instance Core.ToHeaders UpdateSubscriptionDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSubscriptionDefinition where
+instance Core.ToJSON UpdateSubscriptionDefinition where
   toJSON UpdateSubscriptionDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Name" Prelude..=) Prelude.<$> name]
-      )
+    Core.object
+      (Core.catMaybes [("Name" Core..=) Core.<$> name])
 
-instance Prelude.ToPath UpdateSubscriptionDefinition where
+instance Core.ToPath UpdateSubscriptionDefinition where
   toPath UpdateSubscriptionDefinition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/subscriptions/",
-        Prelude.toBS subscriptionDefinitionId
+        Core.toBS subscriptionDefinitionId
       ]
 
-instance Prelude.ToQuery UpdateSubscriptionDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSubscriptionDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSubscriptionDefinitionResponse' smart constructor.
 data UpdateSubscriptionDefinitionResponse = UpdateSubscriptionDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscriptionDefinitionResponse' with all optional fields omitted.
@@ -157,7 +143,7 @@ data UpdateSubscriptionDefinitionResponse = UpdateSubscriptionDefinitionResponse
 -- 'httpStatus', 'updateSubscriptionDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateSubscriptionDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSubscriptionDefinitionResponse
 newUpdateSubscriptionDefinitionResponse pHttpStatus_ =
   UpdateSubscriptionDefinitionResponse'
@@ -166,9 +152,9 @@ newUpdateSubscriptionDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateSubscriptionDefinitionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionDefinitionResponse Prelude.Int
+updateSubscriptionDefinitionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionDefinitionResponse Core.Int
 updateSubscriptionDefinitionResponse_httpStatus = Lens.lens (\UpdateSubscriptionDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateSubscriptionDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateSubscriptionDefinitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateSubscriptionDefinitionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,19 +44,19 @@ module Network.AWS.Connect.DescribeInstanceAttribute
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeInstanceAttribute' smart constructor.
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The type of attribute.
     attributeType :: InstanceAttributeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceAttribute' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute'
 -- 'attributeType', 'describeInstanceAttribute_attributeType' - The type of attribute.
 newDescribeInstanceAttribute ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributeType'
   InstanceAttributeType ->
   DescribeInstanceAttribute
@@ -86,61 +85,59 @@ newDescribeInstanceAttribute
       }
 
 -- | The identifier of the Amazon Connect instance.
-describeInstanceAttribute_instanceId :: Lens.Lens' DescribeInstanceAttribute Prelude.Text
+describeInstanceAttribute_instanceId :: Lens.Lens' DescribeInstanceAttribute Core.Text
 describeInstanceAttribute_instanceId = Lens.lens (\DescribeInstanceAttribute' {instanceId} -> instanceId) (\s@DescribeInstanceAttribute' {} a -> s {instanceId = a} :: DescribeInstanceAttribute)
 
 -- | The type of attribute.
 describeInstanceAttribute_attributeType :: Lens.Lens' DescribeInstanceAttribute InstanceAttributeType
 describeInstanceAttribute_attributeType = Lens.lens (\DescribeInstanceAttribute' {attributeType} -> attributeType) (\s@DescribeInstanceAttribute' {} a -> s {attributeType = a} :: DescribeInstanceAttribute)
 
-instance Prelude.AWSRequest DescribeInstanceAttribute where
+instance Core.AWSRequest DescribeInstanceAttribute where
   type
-    Rs DescribeInstanceAttribute =
+    AWSResponse DescribeInstanceAttribute =
       DescribeInstanceAttributeResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeInstanceAttributeResponse'
-            Prelude.<$> (x Prelude..?> "Attribute")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Attribute")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstanceAttribute
+instance Core.Hashable DescribeInstanceAttribute
 
-instance Prelude.NFData DescribeInstanceAttribute
+instance Core.NFData DescribeInstanceAttribute
 
-instance Prelude.ToHeaders DescribeInstanceAttribute where
+instance Core.ToHeaders DescribeInstanceAttribute where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeInstanceAttribute where
+instance Core.ToPath DescribeInstanceAttribute where
   toPath DescribeInstanceAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/attribute/",
-        Prelude.toBS attributeType
+        Core.toBS attributeType
       ]
 
-instance Prelude.ToQuery DescribeInstanceAttribute where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeInstanceAttribute where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeInstanceAttributeResponse' smart constructor.
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
   { -- | The type of attribute.
-    attribute :: Prelude.Maybe Attribute,
+    attribute :: Core.Maybe Attribute,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstanceAttributeResponse' with all optional fields omitted.
@@ -155,23 +152,23 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 -- 'httpStatus', 'describeInstanceAttributeResponse_httpStatus' - The response's http status code.
 newDescribeInstanceAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeInstanceAttributeResponse
 newDescribeInstanceAttributeResponse pHttpStatus_ =
   DescribeInstanceAttributeResponse'
     { attribute =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The type of attribute.
-describeInstanceAttributeResponse_attribute :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe Attribute)
+describeInstanceAttributeResponse_attribute :: Lens.Lens' DescribeInstanceAttributeResponse (Core.Maybe Attribute)
 describeInstanceAttributeResponse_attribute = Lens.lens (\DescribeInstanceAttributeResponse' {attribute} -> attribute) (\s@DescribeInstanceAttributeResponse' {} a -> s {attribute = a} :: DescribeInstanceAttributeResponse)
 
 -- | The response's http status code.
-describeInstanceAttributeResponse_httpStatus :: Lens.Lens' DescribeInstanceAttributeResponse Prelude.Int
+describeInstanceAttributeResponse_httpStatus :: Lens.Lens' DescribeInstanceAttributeResponse Core.Int
 describeInstanceAttributeResponse_httpStatus = Lens.lens (\DescribeInstanceAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceAttributeResponse' {} a -> s {httpStatus = a} :: DescribeInstanceAttributeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeInstanceAttributeResponse

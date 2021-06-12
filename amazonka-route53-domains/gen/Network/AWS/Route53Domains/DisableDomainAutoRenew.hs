@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -49,9 +48,9 @@ import Network.AWS.Route53Domains.Types
 -- | /See:/ 'newDisableDomainAutoRenew' smart constructor.
 data DisableDomainAutoRenew = DisableDomainAutoRenew'
   { -- | The name of the domain that you want to disable automatic renewal for.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableDomainAutoRenew' with all optional fields omitted.
@@ -64,65 +63,63 @@ data DisableDomainAutoRenew = DisableDomainAutoRenew'
 -- 'domainName', 'disableDomainAutoRenew_domainName' - The name of the domain that you want to disable automatic renewal for.
 newDisableDomainAutoRenew ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DisableDomainAutoRenew
 newDisableDomainAutoRenew pDomainName_ =
   DisableDomainAutoRenew' {domainName = pDomainName_}
 
 -- | The name of the domain that you want to disable automatic renewal for.
-disableDomainAutoRenew_domainName :: Lens.Lens' DisableDomainAutoRenew Prelude.Text
+disableDomainAutoRenew_domainName :: Lens.Lens' DisableDomainAutoRenew Core.Text
 disableDomainAutoRenew_domainName = Lens.lens (\DisableDomainAutoRenew' {domainName} -> domainName) (\s@DisableDomainAutoRenew' {} a -> s {domainName = a} :: DisableDomainAutoRenew)
 
-instance Prelude.AWSRequest DisableDomainAutoRenew where
+instance Core.AWSRequest DisableDomainAutoRenew where
   type
-    Rs DisableDomainAutoRenew =
+    AWSResponse DisableDomainAutoRenew =
       DisableDomainAutoRenewResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableDomainAutoRenewResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisableDomainAutoRenew
+instance Core.Hashable DisableDomainAutoRenew
 
-instance Prelude.NFData DisableDomainAutoRenew
+instance Core.NFData DisableDomainAutoRenew
 
-instance Prelude.ToHeaders DisableDomainAutoRenew where
+instance Core.ToHeaders DisableDomainAutoRenew where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.DisableDomainAutoRenew" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.DisableDomainAutoRenew" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableDomainAutoRenew where
+instance Core.ToJSON DisableDomainAutoRenew where
   toJSON DisableDomainAutoRenew' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Prelude..= domainName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DomainName" Core..= domainName)]
       )
 
-instance Prelude.ToPath DisableDomainAutoRenew where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableDomainAutoRenew where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableDomainAutoRenew where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableDomainAutoRenew where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableDomainAutoRenewResponse' smart constructor.
 data DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableDomainAutoRenewResponse' with all optional fields omitted.
@@ -135,7 +132,7 @@ data DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
 -- 'httpStatus', 'disableDomainAutoRenewResponse_httpStatus' - The response's http status code.
 newDisableDomainAutoRenewResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableDomainAutoRenewResponse
 newDisableDomainAutoRenewResponse pHttpStatus_ =
   DisableDomainAutoRenewResponse'
@@ -144,9 +141,7 @@ newDisableDomainAutoRenewResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disableDomainAutoRenewResponse_httpStatus :: Lens.Lens' DisableDomainAutoRenewResponse Prelude.Int
+disableDomainAutoRenewResponse_httpStatus :: Lens.Lens' DisableDomainAutoRenewResponse Core.Int
 disableDomainAutoRenewResponse_httpStatus = Lens.lens (\DisableDomainAutoRenewResponse' {httpStatus} -> httpStatus) (\s@DisableDomainAutoRenewResponse' {} a -> s {httpStatus = a} :: DisableDomainAutoRenewResponse)
 
-instance
-  Prelude.NFData
-    DisableDomainAutoRenewResponse
+instance Core.NFData DisableDomainAutoRenewResponse

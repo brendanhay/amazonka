@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the node-to-node encryption options for the specified
 -- Elasticsearch domain.
@@ -37,7 +36,7 @@ data NodeToNodeEncryptionOptionsStatus = NodeToNodeEncryptionOptionsStatus'
     -- specified Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NodeToNodeEncryptionOptionsStatus' with all optional fields omitted.
@@ -78,22 +77,21 @@ nodeToNodeEncryptionOptionsStatus_status :: Lens.Lens' NodeToNodeEncryptionOptio
 nodeToNodeEncryptionOptionsStatus_status = Lens.lens (\NodeToNodeEncryptionOptionsStatus' {status} -> status) (\s@NodeToNodeEncryptionOptionsStatus' {} a -> s {status = a} :: NodeToNodeEncryptionOptionsStatus)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     NodeToNodeEncryptionOptionsStatus
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NodeToNodeEncryptionOptionsStatus"
       ( \x ->
           NodeToNodeEncryptionOptionsStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     NodeToNodeEncryptionOptionsStatus
 
 instance
-  Prelude.NFData
+  Core.NFData
     NodeToNodeEncryptionOptionsStatus

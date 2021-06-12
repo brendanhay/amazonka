@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.Child where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.ChildType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a list of child entities, either OUs or accounts.
 --
@@ -39,11 +38,11 @@ data Child = Child'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that contains the OU). This string is followed by a second
     --     \"-\" dash and from 8 to 32 additional lowercase letters or digits.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The type of this child entity.
-    type' :: Prelude.Maybe ChildType
+    type' :: Core.Maybe ChildType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Child' with all optional fields omitted.
@@ -69,10 +68,7 @@ data Child = Child'
 newChild ::
   Child
 newChild =
-  Child'
-    { id = Prelude.Nothing,
-      type' = Prelude.Nothing
-    }
+  Child' {id = Core.Nothing, type' = Core.Nothing}
 
 -- | The unique identifier (ID) of this child entity.
 --
@@ -85,23 +81,22 @@ newChild =
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that contains the OU). This string is followed by a second
 --     \"-\" dash and from 8 to 32 additional lowercase letters or digits.
-child_id :: Lens.Lens' Child (Prelude.Maybe Prelude.Text)
+child_id :: Lens.Lens' Child (Core.Maybe Core.Text)
 child_id = Lens.lens (\Child' {id} -> id) (\s@Child' {} a -> s {id = a} :: Child)
 
 -- | The type of this child entity.
-child_type :: Lens.Lens' Child (Prelude.Maybe ChildType)
+child_type :: Lens.Lens' Child (Core.Maybe ChildType)
 child_type = Lens.lens (\Child' {type'} -> type') (\s@Child' {} a -> s {type' = a} :: Child)
 
-instance Prelude.FromJSON Child where
+instance Core.FromJSON Child where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Child"
       ( \x ->
           Child'
-            Prelude.<$> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Child
+instance Core.Hashable Child
 
-instance Prelude.NFData Child
+instance Core.NFData Child

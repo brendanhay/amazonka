@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.APIGateway.DeleteDeployment
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +48,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDeployment' smart constructor.
 data DeleteDeployment = DeleteDeployment'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The identifier of the Deployment resource to delete.
-    deploymentId :: Prelude.Text
+    deploymentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeployment' with all optional fields omitted.
@@ -68,9 +67,9 @@ data DeleteDeployment = DeleteDeployment'
 -- 'deploymentId', 'deleteDeployment_deploymentId' - [Required] The identifier of the Deployment resource to delete.
 newDeleteDeployment ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deploymentId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDeployment
 newDeleteDeployment pRestApiId_ pDeploymentId_ =
   DeleteDeployment'
@@ -79,49 +78,51 @@ newDeleteDeployment pRestApiId_ pDeploymentId_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteDeployment_restApiId :: Lens.Lens' DeleteDeployment Prelude.Text
+deleteDeployment_restApiId :: Lens.Lens' DeleteDeployment Core.Text
 deleteDeployment_restApiId = Lens.lens (\DeleteDeployment' {restApiId} -> restApiId) (\s@DeleteDeployment' {} a -> s {restApiId = a} :: DeleteDeployment)
 
 -- | [Required] The identifier of the Deployment resource to delete.
-deleteDeployment_deploymentId :: Lens.Lens' DeleteDeployment Prelude.Text
+deleteDeployment_deploymentId :: Lens.Lens' DeleteDeployment Core.Text
 deleteDeployment_deploymentId = Lens.lens (\DeleteDeployment' {deploymentId} -> deploymentId) (\s@DeleteDeployment' {} a -> s {deploymentId = a} :: DeleteDeployment)
 
-instance Prelude.AWSRequest DeleteDeployment where
-  type Rs DeleteDeployment = DeleteDeploymentResponse
+instance Core.AWSRequest DeleteDeployment where
+  type
+    AWSResponse DeleteDeployment =
+      DeleteDeploymentResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteDeploymentResponse'
 
-instance Prelude.Hashable DeleteDeployment
+instance Core.Hashable DeleteDeployment
 
-instance Prelude.NFData DeleteDeployment
+instance Core.NFData DeleteDeployment
 
-instance Prelude.ToHeaders DeleteDeployment where
+instance Core.ToHeaders DeleteDeployment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteDeployment where
+instance Core.ToPath DeleteDeployment where
   toPath DeleteDeployment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/deployments/",
-        Prelude.toBS deploymentId
+        Core.toBS deploymentId
       ]
 
-instance Prelude.ToQuery DeleteDeployment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDeployment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDeploymentResponse' smart constructor.
 data DeleteDeploymentResponse = DeleteDeploymentResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentResponse' with all optional fields omitted.
@@ -132,4 +133,4 @@ newDeleteDeploymentResponse ::
 newDeleteDeploymentResponse =
   DeleteDeploymentResponse'
 
-instance Prelude.NFData DeleteDeploymentResponse
+instance Core.NFData DeleteDeploymentResponse

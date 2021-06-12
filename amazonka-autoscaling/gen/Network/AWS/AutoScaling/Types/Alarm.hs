@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.Alarm where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an alarm.
 --
 -- /See:/ 'newAlarm' smart constructor.
 data Alarm = Alarm'
   { -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmARN :: Prelude.Maybe Prelude.Text,
+    alarmARN :: Core.Maybe Core.Text,
     -- | The name of the alarm.
-    alarmName :: Prelude.Maybe Prelude.Text
+    alarmName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Alarm' with all optional fields omitted.
@@ -49,24 +48,24 @@ newAlarm ::
   Alarm
 newAlarm =
   Alarm'
-    { alarmARN = Prelude.Nothing,
-      alarmName = Prelude.Nothing
+    { alarmARN = Core.Nothing,
+      alarmName = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-alarm_alarmARN :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
+alarm_alarmARN :: Lens.Lens' Alarm (Core.Maybe Core.Text)
 alarm_alarmARN = Lens.lens (\Alarm' {alarmARN} -> alarmARN) (\s@Alarm' {} a -> s {alarmARN = a} :: Alarm)
 
 -- | The name of the alarm.
-alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
+alarm_alarmName :: Lens.Lens' Alarm (Core.Maybe Core.Text)
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
-instance Prelude.FromXML Alarm where
+instance Core.FromXML Alarm where
   parseXML x =
     Alarm'
-      Prelude.<$> (x Prelude..@? "AlarmARN")
-      Prelude.<*> (x Prelude..@? "AlarmName")
+      Core.<$> (x Core..@? "AlarmARN")
+      Core.<*> (x Core..@? "AlarmName")
 
-instance Prelude.Hashable Alarm
+instance Core.Hashable Alarm
 
-instance Prelude.NFData Alarm
+instance Core.NFData Alarm

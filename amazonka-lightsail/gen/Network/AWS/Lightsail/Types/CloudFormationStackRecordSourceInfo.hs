@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the source of a CloudFormation stack record (i.e., the export
 -- snapshot record).
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCloudFormationStackRecordSourceInfo' smart constructor.
 data CloudFormationStackRecordSourceInfo = CloudFormationStackRecordSourceInfo'
   { -- | The Amazon Resource Name (ARN) of the export snapshot record.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
-    resourceType :: Prelude.Maybe CloudFormationStackRecordSourceType,
+    resourceType :: Core.Maybe CloudFormationStackRecordSourceType,
     -- | The name of the record.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudFormationStackRecordSourceInfo' with all optional fields omitted.
@@ -56,41 +55,41 @@ newCloudFormationStackRecordSourceInfo ::
 newCloudFormationStackRecordSourceInfo =
   CloudFormationStackRecordSourceInfo'
     { arn =
-        Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      name = Prelude.Nothing
+        Core.Nothing,
+      resourceType = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the export snapshot record.
-cloudFormationStackRecordSourceInfo_arn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe Prelude.Text)
+cloudFormationStackRecordSourceInfo_arn :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe Core.Text)
 cloudFormationStackRecordSourceInfo_arn = Lens.lens (\CloudFormationStackRecordSourceInfo' {arn} -> arn) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {arn = a} :: CloudFormationStackRecordSourceInfo)
 
 -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@).
-cloudFormationStackRecordSourceInfo_resourceType :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe CloudFormationStackRecordSourceType)
+cloudFormationStackRecordSourceInfo_resourceType :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe CloudFormationStackRecordSourceType)
 cloudFormationStackRecordSourceInfo_resourceType = Lens.lens (\CloudFormationStackRecordSourceInfo' {resourceType} -> resourceType) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {resourceType = a} :: CloudFormationStackRecordSourceInfo)
 
 -- | The name of the record.
-cloudFormationStackRecordSourceInfo_name :: Lens.Lens' CloudFormationStackRecordSourceInfo (Prelude.Maybe Prelude.Text)
+cloudFormationStackRecordSourceInfo_name :: Lens.Lens' CloudFormationStackRecordSourceInfo (Core.Maybe Core.Text)
 cloudFormationStackRecordSourceInfo_name = Lens.lens (\CloudFormationStackRecordSourceInfo' {name} -> name) (\s@CloudFormationStackRecordSourceInfo' {} a -> s {name = a} :: CloudFormationStackRecordSourceInfo)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     CloudFormationStackRecordSourceInfo
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CloudFormationStackRecordSourceInfo"
       ( \x ->
           CloudFormationStackRecordSourceInfo'
-            Prelude.<$> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "resourceType")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "resourceType")
+            Core.<*> (x Core..:? "name")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CloudFormationStackRecordSourceInfo
 
 instance
-  Prelude.NFData
+  Core.NFData
     CloudFormationStackRecordSourceInfo

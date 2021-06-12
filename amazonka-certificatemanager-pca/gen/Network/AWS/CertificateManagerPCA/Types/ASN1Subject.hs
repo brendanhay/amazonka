@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CertificateManagerPCA.Types.ASN1Subject where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the certificate subject. The @Subject@ field
 -- in the certificate identifies the entity that owns or controls the
@@ -34,50 +33,50 @@ import qualified Network.AWS.Prelude as Prelude
 data ASN1Subject = ASN1Subject'
   { -- | The locality (such as a city or town) in which the certificate subject
     -- is located.
-    locality :: Prelude.Maybe Prelude.Text,
+    locality :: Core.Maybe Core.Text,
     -- | Typically a qualifier appended to the name of an individual. Examples
     -- include Jr. for junior, Sr. for senior, and III for third.
-    generationQualifier :: Prelude.Maybe Prelude.Text,
+    generationQualifier :: Core.Maybe Core.Text,
     -- | Family name. In the US and the UK, for example, the surname of an
     -- individual is ordered last. In Asian cultures the surname is typically
     -- ordered first.
-    surname :: Prelude.Maybe Prelude.Text,
+    surname :: Core.Maybe Core.Text,
     -- | A title such as Mr. or Ms., which is pre-pended to the name to refer
     -- formally to the certificate subject.
-    title :: Prelude.Maybe Prelude.Text,
+    title :: Core.Maybe Core.Text,
     -- | A subdivision or unit of the organization (such as sales or finance)
     -- with which the certificate subject is affiliated.
-    organizationalUnit :: Prelude.Maybe Prelude.Text,
+    organizationalUnit :: Core.Maybe Core.Text,
     -- | Concatenation that typically contains the first letter of the
     -- __GivenName__, the first letter of the middle name if one exists, and
     -- the first letter of the __Surname__.
-    initials :: Prelude.Maybe Prelude.Text,
+    initials :: Core.Maybe Core.Text,
     -- | Typically a shortened version of a longer __GivenName__. For example,
     -- Jonathan is often shortened to John. Elizabeth is often shortened to
     -- Beth, Liz, or Eliza.
-    pseudonym :: Prelude.Maybe Prelude.Text,
+    pseudonym :: Core.Maybe Core.Text,
     -- | For CA and end-entity certificates in a private PKI, the common name
     -- (CN) can be any string within the length limit.
     --
     -- Note: In publicly trusted certificates, the common name must be a fully
     -- qualified domain name (FQDN) associated with the certificate subject.
-    commonName :: Prelude.Maybe Prelude.Text,
+    commonName :: Core.Maybe Core.Text,
     -- | State in which the subject of the certificate is located.
-    state :: Prelude.Maybe Prelude.Text,
+    state :: Core.Maybe Core.Text,
     -- | First name.
-    givenName :: Prelude.Maybe Prelude.Text,
+    givenName :: Core.Maybe Core.Text,
     -- | Legal name of the organization with which the certificate subject is
     -- affiliated.
-    organization :: Prelude.Maybe Prelude.Text,
+    organization :: Core.Maybe Core.Text,
     -- | Disambiguating information for the certificate subject.
-    distinguishedNameQualifier :: Prelude.Maybe Prelude.Text,
+    distinguishedNameQualifier :: Core.Maybe Core.Text,
     -- | The certificate serial number.
-    serialNumber :: Prelude.Maybe Prelude.Text,
+    serialNumber :: Core.Maybe Core.Text,
     -- | Two-digit code that specifies the country in which the certificate
     -- subject located.
-    country :: Prelude.Maybe Prelude.Text
+    country :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ASN1Subject' with all optional fields omitted.
@@ -134,58 +133,58 @@ newASN1Subject ::
   ASN1Subject
 newASN1Subject =
   ASN1Subject'
-    { locality = Prelude.Nothing,
-      generationQualifier = Prelude.Nothing,
-      surname = Prelude.Nothing,
-      title = Prelude.Nothing,
-      organizationalUnit = Prelude.Nothing,
-      initials = Prelude.Nothing,
-      pseudonym = Prelude.Nothing,
-      commonName = Prelude.Nothing,
-      state = Prelude.Nothing,
-      givenName = Prelude.Nothing,
-      organization = Prelude.Nothing,
-      distinguishedNameQualifier = Prelude.Nothing,
-      serialNumber = Prelude.Nothing,
-      country = Prelude.Nothing
+    { locality = Core.Nothing,
+      generationQualifier = Core.Nothing,
+      surname = Core.Nothing,
+      title = Core.Nothing,
+      organizationalUnit = Core.Nothing,
+      initials = Core.Nothing,
+      pseudonym = Core.Nothing,
+      commonName = Core.Nothing,
+      state = Core.Nothing,
+      givenName = Core.Nothing,
+      organization = Core.Nothing,
+      distinguishedNameQualifier = Core.Nothing,
+      serialNumber = Core.Nothing,
+      country = Core.Nothing
     }
 
 -- | The locality (such as a city or town) in which the certificate subject
 -- is located.
-aSN1Subject_locality :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_locality :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_locality = Lens.lens (\ASN1Subject' {locality} -> locality) (\s@ASN1Subject' {} a -> s {locality = a} :: ASN1Subject)
 
 -- | Typically a qualifier appended to the name of an individual. Examples
 -- include Jr. for junior, Sr. for senior, and III for third.
-aSN1Subject_generationQualifier :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_generationQualifier :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_generationQualifier = Lens.lens (\ASN1Subject' {generationQualifier} -> generationQualifier) (\s@ASN1Subject' {} a -> s {generationQualifier = a} :: ASN1Subject)
 
 -- | Family name. In the US and the UK, for example, the surname of an
 -- individual is ordered last. In Asian cultures the surname is typically
 -- ordered first.
-aSN1Subject_surname :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_surname :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_surname = Lens.lens (\ASN1Subject' {surname} -> surname) (\s@ASN1Subject' {} a -> s {surname = a} :: ASN1Subject)
 
 -- | A title such as Mr. or Ms., which is pre-pended to the name to refer
 -- formally to the certificate subject.
-aSN1Subject_title :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_title :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_title = Lens.lens (\ASN1Subject' {title} -> title) (\s@ASN1Subject' {} a -> s {title = a} :: ASN1Subject)
 
 -- | A subdivision or unit of the organization (such as sales or finance)
 -- with which the certificate subject is affiliated.
-aSN1Subject_organizationalUnit :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_organizationalUnit :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_organizationalUnit = Lens.lens (\ASN1Subject' {organizationalUnit} -> organizationalUnit) (\s@ASN1Subject' {} a -> s {organizationalUnit = a} :: ASN1Subject)
 
 -- | Concatenation that typically contains the first letter of the
 -- __GivenName__, the first letter of the middle name if one exists, and
 -- the first letter of the __Surname__.
-aSN1Subject_initials :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_initials :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_initials = Lens.lens (\ASN1Subject' {initials} -> initials) (\s@ASN1Subject' {} a -> s {initials = a} :: ASN1Subject)
 
 -- | Typically a shortened version of a longer __GivenName__. For example,
 -- Jonathan is often shortened to John. Elizabeth is often shortened to
 -- Beth, Liz, or Eliza.
-aSN1Subject_pseudonym :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_pseudonym :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_pseudonym = Lens.lens (\ASN1Subject' {pseudonym} -> pseudonym) (\s@ASN1Subject' {} a -> s {pseudonym = a} :: ASN1Subject)
 
 -- | For CA and end-entity certificates in a private PKI, the common name
@@ -193,81 +192,81 @@ aSN1Subject_pseudonym = Lens.lens (\ASN1Subject' {pseudonym} -> pseudonym) (\s@A
 --
 -- Note: In publicly trusted certificates, the common name must be a fully
 -- qualified domain name (FQDN) associated with the certificate subject.
-aSN1Subject_commonName :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_commonName :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_commonName = Lens.lens (\ASN1Subject' {commonName} -> commonName) (\s@ASN1Subject' {} a -> s {commonName = a} :: ASN1Subject)
 
 -- | State in which the subject of the certificate is located.
-aSN1Subject_state :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_state :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_state = Lens.lens (\ASN1Subject' {state} -> state) (\s@ASN1Subject' {} a -> s {state = a} :: ASN1Subject)
 
 -- | First name.
-aSN1Subject_givenName :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_givenName :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_givenName = Lens.lens (\ASN1Subject' {givenName} -> givenName) (\s@ASN1Subject' {} a -> s {givenName = a} :: ASN1Subject)
 
 -- | Legal name of the organization with which the certificate subject is
 -- affiliated.
-aSN1Subject_organization :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_organization :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_organization = Lens.lens (\ASN1Subject' {organization} -> organization) (\s@ASN1Subject' {} a -> s {organization = a} :: ASN1Subject)
 
 -- | Disambiguating information for the certificate subject.
-aSN1Subject_distinguishedNameQualifier :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_distinguishedNameQualifier :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_distinguishedNameQualifier = Lens.lens (\ASN1Subject' {distinguishedNameQualifier} -> distinguishedNameQualifier) (\s@ASN1Subject' {} a -> s {distinguishedNameQualifier = a} :: ASN1Subject)
 
 -- | The certificate serial number.
-aSN1Subject_serialNumber :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_serialNumber :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_serialNumber = Lens.lens (\ASN1Subject' {serialNumber} -> serialNumber) (\s@ASN1Subject' {} a -> s {serialNumber = a} :: ASN1Subject)
 
 -- | Two-digit code that specifies the country in which the certificate
 -- subject located.
-aSN1Subject_country :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
+aSN1Subject_country :: Lens.Lens' ASN1Subject (Core.Maybe Core.Text)
 aSN1Subject_country = Lens.lens (\ASN1Subject' {country} -> country) (\s@ASN1Subject' {} a -> s {country = a} :: ASN1Subject)
 
-instance Prelude.FromJSON ASN1Subject where
+instance Core.FromJSON ASN1Subject where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ASN1Subject"
       ( \x ->
           ASN1Subject'
-            Prelude.<$> (x Prelude..:? "Locality")
-            Prelude.<*> (x Prelude..:? "GenerationQualifier")
-            Prelude.<*> (x Prelude..:? "Surname")
-            Prelude.<*> (x Prelude..:? "Title")
-            Prelude.<*> (x Prelude..:? "OrganizationalUnit")
-            Prelude.<*> (x Prelude..:? "Initials")
-            Prelude.<*> (x Prelude..:? "Pseudonym")
-            Prelude.<*> (x Prelude..:? "CommonName")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "GivenName")
-            Prelude.<*> (x Prelude..:? "Organization")
-            Prelude.<*> (x Prelude..:? "DistinguishedNameQualifier")
-            Prelude.<*> (x Prelude..:? "SerialNumber")
-            Prelude.<*> (x Prelude..:? "Country")
+            Core.<$> (x Core..:? "Locality")
+            Core.<*> (x Core..:? "GenerationQualifier")
+            Core.<*> (x Core..:? "Surname")
+            Core.<*> (x Core..:? "Title")
+            Core.<*> (x Core..:? "OrganizationalUnit")
+            Core.<*> (x Core..:? "Initials")
+            Core.<*> (x Core..:? "Pseudonym")
+            Core.<*> (x Core..:? "CommonName")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "GivenName")
+            Core.<*> (x Core..:? "Organization")
+            Core.<*> (x Core..:? "DistinguishedNameQualifier")
+            Core.<*> (x Core..:? "SerialNumber")
+            Core.<*> (x Core..:? "Country")
       )
 
-instance Prelude.Hashable ASN1Subject
+instance Core.Hashable ASN1Subject
 
-instance Prelude.NFData ASN1Subject
+instance Core.NFData ASN1Subject
 
-instance Prelude.ToJSON ASN1Subject where
+instance Core.ToJSON ASN1Subject where
   toJSON ASN1Subject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Locality" Prelude..=) Prelude.<$> locality,
-            ("GenerationQualifier" Prelude..=)
-              Prelude.<$> generationQualifier,
-            ("Surname" Prelude..=) Prelude.<$> surname,
-            ("Title" Prelude..=) Prelude.<$> title,
-            ("OrganizationalUnit" Prelude..=)
-              Prelude.<$> organizationalUnit,
-            ("Initials" Prelude..=) Prelude.<$> initials,
-            ("Pseudonym" Prelude..=) Prelude.<$> pseudonym,
-            ("CommonName" Prelude..=) Prelude.<$> commonName,
-            ("State" Prelude..=) Prelude.<$> state,
-            ("GivenName" Prelude..=) Prelude.<$> givenName,
-            ("Organization" Prelude..=) Prelude.<$> organization,
-            ("DistinguishedNameQualifier" Prelude..=)
-              Prelude.<$> distinguishedNameQualifier,
-            ("SerialNumber" Prelude..=) Prelude.<$> serialNumber,
-            ("Country" Prelude..=) Prelude.<$> country
+    Core.object
+      ( Core.catMaybes
+          [ ("Locality" Core..=) Core.<$> locality,
+            ("GenerationQualifier" Core..=)
+              Core.<$> generationQualifier,
+            ("Surname" Core..=) Core.<$> surname,
+            ("Title" Core..=) Core.<$> title,
+            ("OrganizationalUnit" Core..=)
+              Core.<$> organizationalUnit,
+            ("Initials" Core..=) Core.<$> initials,
+            ("Pseudonym" Core..=) Core.<$> pseudonym,
+            ("CommonName" Core..=) Core.<$> commonName,
+            ("State" Core..=) Core.<$> state,
+            ("GivenName" Core..=) Core.<$> givenName,
+            ("Organization" Core..=) Core.<$> organization,
+            ("DistinguishedNameQualifier" Core..=)
+              Core.<$> distinguishedNameQualifier,
+            ("SerialNumber" Core..=) Core.<$> serialNumber,
+            ("Country" Core..=) Core.<$> country
           ]
       )

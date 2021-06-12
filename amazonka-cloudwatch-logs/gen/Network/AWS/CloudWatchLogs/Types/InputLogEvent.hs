@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.InputLogEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a log event, which is a record of activity that was recorded
 -- by the application or resource being monitored.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data InputLogEvent = InputLogEvent'
   { -- | The time the event occurred, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Prelude.Natural,
+    timestamp :: Core.Natural,
     -- | The raw event message.
-    message :: Prelude.Text
+    message :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputLogEvent' with all optional fields omitted.
@@ -50,9 +49,9 @@ data InputLogEvent = InputLogEvent'
 -- 'message', 'inputLogEvent_message' - The raw event message.
 newInputLogEvent ::
   -- | 'timestamp'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'message'
-  Prelude.Text ->
+  Core.Text ->
   InputLogEvent
 newInputLogEvent pTimestamp_ pMessage_ =
   InputLogEvent'
@@ -62,22 +61,22 @@ newInputLogEvent pTimestamp_ pMessage_ =
 
 -- | The time the event occurred, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
-inputLogEvent_timestamp :: Lens.Lens' InputLogEvent Prelude.Natural
+inputLogEvent_timestamp :: Lens.Lens' InputLogEvent Core.Natural
 inputLogEvent_timestamp = Lens.lens (\InputLogEvent' {timestamp} -> timestamp) (\s@InputLogEvent' {} a -> s {timestamp = a} :: InputLogEvent)
 
 -- | The raw event message.
-inputLogEvent_message :: Lens.Lens' InputLogEvent Prelude.Text
+inputLogEvent_message :: Lens.Lens' InputLogEvent Core.Text
 inputLogEvent_message = Lens.lens (\InputLogEvent' {message} -> message) (\s@InputLogEvent' {} a -> s {message = a} :: InputLogEvent)
 
-instance Prelude.Hashable InputLogEvent
+instance Core.Hashable InputLogEvent
 
-instance Prelude.NFData InputLogEvent
+instance Core.NFData InputLogEvent
 
-instance Prelude.ToJSON InputLogEvent where
+instance Core.ToJSON InputLogEvent where
   toJSON InputLogEvent' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("timestamp" Prelude..= timestamp),
-            Prelude.Just ("message" Prelude..= message)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("timestamp" Core..= timestamp),
+            Core.Just ("message" Core..= message)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.S3.GetBucketCors
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -65,11 +64,11 @@ data GetBucketCors = GetBucketCors'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name for which to get the cors configuration.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketCors' with all optional fields omitted.
@@ -90,59 +89,60 @@ newGetBucketCors ::
   GetBucketCors
 newGetBucketCors pBucket_ =
   GetBucketCors'
-    { expectedBucketOwner =
-        Prelude.Nothing,
+    { expectedBucketOwner = Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketCors_expectedBucketOwner :: Lens.Lens' GetBucketCors (Prelude.Maybe Prelude.Text)
+getBucketCors_expectedBucketOwner :: Lens.Lens' GetBucketCors (Core.Maybe Core.Text)
 getBucketCors_expectedBucketOwner = Lens.lens (\GetBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketCors' {} a -> s {expectedBucketOwner = a} :: GetBucketCors)
 
 -- | The bucket name for which to get the cors configuration.
 getBucketCors_bucket :: Lens.Lens' GetBucketCors BucketName
 getBucketCors_bucket = Lens.lens (\GetBucketCors' {bucket} -> bucket) (\s@GetBucketCors' {} a -> s {bucket = a} :: GetBucketCors)
 
-instance Prelude.AWSRequest GetBucketCors where
-  type Rs GetBucketCors = GetBucketCorsResponse
+instance Core.AWSRequest GetBucketCors where
+  type
+    AWSResponse GetBucketCors =
+      GetBucketCorsResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketCorsResponse'
-            Prelude.<$> (Prelude.may (Prelude.parseXMLList "CORSRule") x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.may (Core.parseXMLList "CORSRule") x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketCors
+instance Core.Hashable GetBucketCors
 
-instance Prelude.NFData GetBucketCors
+instance Core.NFData GetBucketCors
 
-instance Prelude.ToHeaders GetBucketCors where
+instance Core.ToHeaders GetBucketCors where
   toHeaders GetBucketCors' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetBucketCors where
+instance Core.ToPath GetBucketCors where
   toPath GetBucketCors' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetBucketCors where
-  toQuery = Prelude.const (Prelude.mconcat ["cors"])
+instance Core.ToQuery GetBucketCors where
+  toQuery = Core.const (Core.mconcat ["cors"])
 
 -- | /See:/ 'newGetBucketCorsResponse' smart constructor.
 data GetBucketCorsResponse = GetBucketCorsResponse'
   { -- | A set of origins and methods (cross-origin access that you want to
     -- allow). You can add up to 100 rules to the configuration.
-    cORSRules :: Prelude.Maybe [CORSRule],
+    cORSRules :: Core.Maybe [CORSRule],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketCorsResponse' with all optional fields omitted.
@@ -158,21 +158,21 @@ data GetBucketCorsResponse = GetBucketCorsResponse'
 -- 'httpStatus', 'getBucketCorsResponse_httpStatus' - The response's http status code.
 newGetBucketCorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBucketCorsResponse
 newGetBucketCorsResponse pHttpStatus_ =
   GetBucketCorsResponse'
-    { cORSRules = Prelude.Nothing,
+    { cORSRules = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A set of origins and methods (cross-origin access that you want to
 -- allow). You can add up to 100 rules to the configuration.
-getBucketCorsResponse_cORSRules :: Lens.Lens' GetBucketCorsResponse (Prelude.Maybe [CORSRule])
-getBucketCorsResponse_cORSRules = Lens.lens (\GetBucketCorsResponse' {cORSRules} -> cORSRules) (\s@GetBucketCorsResponse' {} a -> s {cORSRules = a} :: GetBucketCorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getBucketCorsResponse_cORSRules :: Lens.Lens' GetBucketCorsResponse (Core.Maybe [CORSRule])
+getBucketCorsResponse_cORSRules = Lens.lens (\GetBucketCorsResponse' {cORSRules} -> cORSRules) (\s@GetBucketCorsResponse' {} a -> s {cORSRules = a} :: GetBucketCorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBucketCorsResponse_httpStatus :: Lens.Lens' GetBucketCorsResponse Prelude.Int
+getBucketCorsResponse_httpStatus :: Lens.Lens' GetBucketCorsResponse Core.Int
 getBucketCorsResponse_httpStatus = Lens.lens (\GetBucketCorsResponse' {httpStatus} -> httpStatus) (\s@GetBucketCorsResponse' {} a -> s {httpStatus = a} :: GetBucketCorsResponse)
 
-instance Prelude.NFData GetBucketCorsResponse
+instance Core.NFData GetBucketCorsResponse

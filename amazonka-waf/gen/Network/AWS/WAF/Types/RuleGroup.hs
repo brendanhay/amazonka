@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.RuleGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -51,10 +50,10 @@ data RuleGroup = RuleGroup'
     -- or metric names reserved for AWS WAF, including \"All\" and
     -- \"Default_Action.\" You can\'t change the name of the metric after you
     -- create the @RuleGroup@.
-    metricName :: Prelude.Maybe Prelude.Text,
+    metricName :: Core.Maybe Core.Text,
     -- | The friendly name or description for the @RuleGroup@. You can\'t change
     -- the name of a @RuleGroup@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A unique identifier for a @RuleGroup@. You use @RuleGroupId@ to get more
     -- information about a @RuleGroup@ (see GetRuleGroup), update a @RuleGroup@
     -- (see UpdateRuleGroup), insert a @RuleGroup@ into a @WebACL@ or delete a
@@ -62,9 +61,9 @@ data RuleGroup = RuleGroup'
     -- WAF (see DeleteRuleGroup).
     --
     -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-    ruleGroupId :: Prelude.Text
+    ruleGroupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RuleGroup' with all optional fields omitted.
@@ -93,12 +92,12 @@ data RuleGroup = RuleGroup'
 -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
 newRuleGroup ::
   -- | 'ruleGroupId'
-  Prelude.Text ->
+  Core.Text ->
   RuleGroup
 newRuleGroup pRuleGroupId_ =
   RuleGroup'
-    { metricName = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { metricName = Core.Nothing,
+      name = Core.Nothing,
       ruleGroupId = pRuleGroupId_
     }
 
@@ -108,12 +107,12 @@ newRuleGroup pRuleGroupId_ =
 -- or metric names reserved for AWS WAF, including \"All\" and
 -- \"Default_Action.\" You can\'t change the name of the metric after you
 -- create the @RuleGroup@.
-ruleGroup_metricName :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
+ruleGroup_metricName :: Lens.Lens' RuleGroup (Core.Maybe Core.Text)
 ruleGroup_metricName = Lens.lens (\RuleGroup' {metricName} -> metricName) (\s@RuleGroup' {} a -> s {metricName = a} :: RuleGroup)
 
 -- | The friendly name or description for the @RuleGroup@. You can\'t change
 -- the name of a @RuleGroup@ after you create it.
-ruleGroup_name :: Lens.Lens' RuleGroup (Prelude.Maybe Prelude.Text)
+ruleGroup_name :: Lens.Lens' RuleGroup (Core.Maybe Core.Text)
 ruleGroup_name = Lens.lens (\RuleGroup' {name} -> name) (\s@RuleGroup' {} a -> s {name = a} :: RuleGroup)
 
 -- | A unique identifier for a @RuleGroup@. You use @RuleGroupId@ to get more
@@ -123,20 +122,20 @@ ruleGroup_name = Lens.lens (\RuleGroup' {name} -> name) (\s@RuleGroup' {} a -> s
 -- WAF (see DeleteRuleGroup).
 --
 -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
-ruleGroup_ruleGroupId :: Lens.Lens' RuleGroup Prelude.Text
+ruleGroup_ruleGroupId :: Lens.Lens' RuleGroup Core.Text
 ruleGroup_ruleGroupId = Lens.lens (\RuleGroup' {ruleGroupId} -> ruleGroupId) (\s@RuleGroup' {} a -> s {ruleGroupId = a} :: RuleGroup)
 
-instance Prelude.FromJSON RuleGroup where
+instance Core.FromJSON RuleGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RuleGroup"
       ( \x ->
           RuleGroup'
-            Prelude.<$> (x Prelude..:? "MetricName")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..: "RuleGroupId")
+            Core.<$> (x Core..:? "MetricName")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..: "RuleGroupId")
       )
 
-instance Prelude.Hashable RuleGroup
+instance Core.Hashable RuleGroup
 
-instance Prelude.NFData RuleGroup
+instance Core.NFData RuleGroup

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,9 +64,9 @@ module Network.AWS.Glue.CreateMLTransform
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,12 +75,12 @@ data CreateMLTransform = CreateMLTransform'
   { -- | The encryption-at-rest settings of the transform that apply to accessing
     -- user data. Machine learning transforms can access user data encrypted in
     -- Amazon S3 using KMS.
-    transformEncryption :: Prelude.Maybe TransformEncryption,
+    transformEncryption :: Core.Maybe TransformEncryption,
     -- | The timeout of the task run for this transform in minutes. This is the
     -- maximum time that a task run for this transform can consume resources
     -- before it is terminated and enters @TIMEOUT@ status. The default is
     -- 2,880 minutes (48 hours).
-    timeout :: Prelude.Maybe Prelude.Natural,
+    timeout :: Core.Maybe Core.Natural,
     -- | The number of AWS Glue data processing units (DPUs) that are allocated
     -- to task runs for this transform. You can allocate from 2 to 100 DPUs;
     -- the default is 10. A DPU is a relative measure of processing power that
@@ -108,26 +107,26 @@ data CreateMLTransform = CreateMLTransform'
     --
     -- When the @WorkerType@ field is set to a value other than @Standard@, the
     -- @MaxCapacity@ field is set automatically and becomes read-only.
-    maxCapacity :: Prelude.Maybe Prelude.Double,
+    maxCapacity :: Core.Maybe Core.Double,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- this task runs.
     --
     -- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
     -- versa).
-    numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    numberOfWorkers :: Core.Maybe Core.Int,
     -- | This value determines which version of AWS Glue this machine learning
     -- transform is compatible with. Glue 1.0 is recommended for most
     -- customers. If the value is not set, the Glue compatibility defaults to
     -- Glue 0.9. For more information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
     -- in the developer guide.
-    glueVersion :: Prelude.Maybe Prelude.Text,
+    glueVersion :: Core.Maybe Core.Text,
     -- | The tags to use with this machine learning transform. You may use tags
     -- to limit access to the machine learning transform. For more information
     -- about tags in AWS Glue, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
     -- in the developer guide.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The type of predefined worker that is allocated when this task runs.
     -- Accepts a value of Standard, G.1X, or G.2X.
     --
@@ -153,15 +152,15 @@ data CreateMLTransform = CreateMLTransform'
     --     versa).
     --
     -- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
-    workerType :: Prelude.Maybe WorkerType,
+    workerType :: Core.Maybe WorkerType,
     -- | A description of the machine learning transform that is being defined.
     -- The default is an empty string.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The maximum number of times to retry a task for this transform after a
     -- task run fails.
-    maxRetries :: Prelude.Maybe Prelude.Int,
+    maxRetries :: Core.Maybe Core.Int,
     -- | The unique name that you give the transform when you create it.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A list of AWS Glue table definitions used by the transform.
     inputRecordTables :: [GlueTable],
     -- | The algorithmic parameters that are specific to the transform type used.
@@ -179,9 +178,9 @@ data CreateMLTransform = CreateMLTransform'
     -- -   This role needs permission to your Amazon Simple Storage Service
     --     (Amazon S3) sources, targets, temporary directory, scripts, and any
     --     libraries used by the task run for this transform.
-    role' :: Prelude.Text
+    role' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateMLTransform' with all optional fields omitted.
@@ -299,26 +298,26 @@ data CreateMLTransform = CreateMLTransform'
 --     libraries used by the task run for this transform.
 newCreateMLTransform ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'parameters'
   TransformParameters ->
   -- | 'role''
-  Prelude.Text ->
+  Core.Text ->
   CreateMLTransform
 newCreateMLTransform pName_ pParameters_ pRole_ =
   CreateMLTransform'
     { transformEncryption =
-        Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      maxCapacity = Prelude.Nothing,
-      numberOfWorkers = Prelude.Nothing,
-      glueVersion = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      workerType = Prelude.Nothing,
-      description = Prelude.Nothing,
-      maxRetries = Prelude.Nothing,
+        Core.Nothing,
+      timeout = Core.Nothing,
+      maxCapacity = Core.Nothing,
+      numberOfWorkers = Core.Nothing,
+      glueVersion = Core.Nothing,
+      tags = Core.Nothing,
+      workerType = Core.Nothing,
+      description = Core.Nothing,
+      maxRetries = Core.Nothing,
       name = pName_,
-      inputRecordTables = Prelude.mempty,
+      inputRecordTables = Core.mempty,
       parameters = pParameters_,
       role' = pRole_
     }
@@ -326,14 +325,14 @@ newCreateMLTransform pName_ pParameters_ pRole_ =
 -- | The encryption-at-rest settings of the transform that apply to accessing
 -- user data. Machine learning transforms can access user data encrypted in
 -- Amazon S3 using KMS.
-createMLTransform_transformEncryption :: Lens.Lens' CreateMLTransform (Prelude.Maybe TransformEncryption)
+createMLTransform_transformEncryption :: Lens.Lens' CreateMLTransform (Core.Maybe TransformEncryption)
 createMLTransform_transformEncryption = Lens.lens (\CreateMLTransform' {transformEncryption} -> transformEncryption) (\s@CreateMLTransform' {} a -> s {transformEncryption = a} :: CreateMLTransform)
 
 -- | The timeout of the task run for this transform in minutes. This is the
 -- maximum time that a task run for this transform can consume resources
 -- before it is terminated and enters @TIMEOUT@ status. The default is
 -- 2,880 minutes (48 hours).
-createMLTransform_timeout :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Natural)
+createMLTransform_timeout :: Lens.Lens' CreateMLTransform (Core.Maybe Core.Natural)
 createMLTransform_timeout = Lens.lens (\CreateMLTransform' {timeout} -> timeout) (\s@CreateMLTransform' {} a -> s {timeout = a} :: CreateMLTransform)
 
 -- | The number of AWS Glue data processing units (DPUs) that are allocated
@@ -362,7 +361,7 @@ createMLTransform_timeout = Lens.lens (\CreateMLTransform' {timeout} -> timeout)
 --
 -- When the @WorkerType@ field is set to a value other than @Standard@, the
 -- @MaxCapacity@ field is set automatically and becomes read-only.
-createMLTransform_maxCapacity :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Double)
+createMLTransform_maxCapacity :: Lens.Lens' CreateMLTransform (Core.Maybe Core.Double)
 createMLTransform_maxCapacity = Lens.lens (\CreateMLTransform' {maxCapacity} -> maxCapacity) (\s@CreateMLTransform' {} a -> s {maxCapacity = a} :: CreateMLTransform)
 
 -- | The number of workers of a defined @workerType@ that are allocated when
@@ -370,7 +369,7 @@ createMLTransform_maxCapacity = Lens.lens (\CreateMLTransform' {maxCapacity} -> 
 --
 -- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
 -- versa).
-createMLTransform_numberOfWorkers :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Int)
+createMLTransform_numberOfWorkers :: Lens.Lens' CreateMLTransform (Core.Maybe Core.Int)
 createMLTransform_numberOfWorkers = Lens.lens (\CreateMLTransform' {numberOfWorkers} -> numberOfWorkers) (\s@CreateMLTransform' {} a -> s {numberOfWorkers = a} :: CreateMLTransform)
 
 -- | This value determines which version of AWS Glue this machine learning
@@ -379,7 +378,7 @@ createMLTransform_numberOfWorkers = Lens.lens (\CreateMLTransform' {numberOfWork
 -- Glue 0.9. For more information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
 -- in the developer guide.
-createMLTransform_glueVersion :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Text)
+createMLTransform_glueVersion :: Lens.Lens' CreateMLTransform (Core.Maybe Core.Text)
 createMLTransform_glueVersion = Lens.lens (\CreateMLTransform' {glueVersion} -> glueVersion) (\s@CreateMLTransform' {} a -> s {glueVersion = a} :: CreateMLTransform)
 
 -- | The tags to use with this machine learning transform. You may use tags
@@ -387,8 +386,8 @@ createMLTransform_glueVersion = Lens.lens (\CreateMLTransform' {glueVersion} -> 
 -- about tags in AWS Glue, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
 -- in the developer guide.
-createMLTransform_tags :: Lens.Lens' CreateMLTransform (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createMLTransform_tags = Lens.lens (\CreateMLTransform' {tags} -> tags) (\s@CreateMLTransform' {} a -> s {tags = a} :: CreateMLTransform) Prelude.. Lens.mapping Prelude._Coerce
+createMLTransform_tags :: Lens.Lens' CreateMLTransform (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createMLTransform_tags = Lens.lens (\CreateMLTransform' {tags} -> tags) (\s@CreateMLTransform' {} a -> s {tags = a} :: CreateMLTransform) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of predefined worker that is allocated when this task runs.
 -- Accepts a value of Standard, G.1X, or G.2X.
@@ -415,26 +414,26 @@ createMLTransform_tags = Lens.lens (\CreateMLTransform' {tags} -> tags) (\s@Crea
 --     versa).
 --
 -- -   @MaxCapacity@ and @NumberOfWorkers@ must both be at least 1.
-createMLTransform_workerType :: Lens.Lens' CreateMLTransform (Prelude.Maybe WorkerType)
+createMLTransform_workerType :: Lens.Lens' CreateMLTransform (Core.Maybe WorkerType)
 createMLTransform_workerType = Lens.lens (\CreateMLTransform' {workerType} -> workerType) (\s@CreateMLTransform' {} a -> s {workerType = a} :: CreateMLTransform)
 
 -- | A description of the machine learning transform that is being defined.
 -- The default is an empty string.
-createMLTransform_description :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Text)
+createMLTransform_description :: Lens.Lens' CreateMLTransform (Core.Maybe Core.Text)
 createMLTransform_description = Lens.lens (\CreateMLTransform' {description} -> description) (\s@CreateMLTransform' {} a -> s {description = a} :: CreateMLTransform)
 
 -- | The maximum number of times to retry a task for this transform after a
 -- task run fails.
-createMLTransform_maxRetries :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Int)
+createMLTransform_maxRetries :: Lens.Lens' CreateMLTransform (Core.Maybe Core.Int)
 createMLTransform_maxRetries = Lens.lens (\CreateMLTransform' {maxRetries} -> maxRetries) (\s@CreateMLTransform' {} a -> s {maxRetries = a} :: CreateMLTransform)
 
 -- | The unique name that you give the transform when you create it.
-createMLTransform_name :: Lens.Lens' CreateMLTransform Prelude.Text
+createMLTransform_name :: Lens.Lens' CreateMLTransform Core.Text
 createMLTransform_name = Lens.lens (\CreateMLTransform' {name} -> name) (\s@CreateMLTransform' {} a -> s {name = a} :: CreateMLTransform)
 
 -- | A list of AWS Glue table definitions used by the transform.
 createMLTransform_inputRecordTables :: Lens.Lens' CreateMLTransform [GlueTable]
-createMLTransform_inputRecordTables = Lens.lens (\CreateMLTransform' {inputRecordTables} -> inputRecordTables) (\s@CreateMLTransform' {} a -> s {inputRecordTables = a} :: CreateMLTransform) Prelude.. Prelude._Coerce
+createMLTransform_inputRecordTables = Lens.lens (\CreateMLTransform' {inputRecordTables} -> inputRecordTables) (\s@CreateMLTransform' {} a -> s {inputRecordTables = a} :: CreateMLTransform) Core.. Lens._Coerce
 
 -- | The algorithmic parameters that are specific to the transform type used.
 -- Conditionally dependent on the transform type.
@@ -453,74 +452,73 @@ createMLTransform_parameters = Lens.lens (\CreateMLTransform' {parameters} -> pa
 -- -   This role needs permission to your Amazon Simple Storage Service
 --     (Amazon S3) sources, targets, temporary directory, scripts, and any
 --     libraries used by the task run for this transform.
-createMLTransform_role :: Lens.Lens' CreateMLTransform Prelude.Text
+createMLTransform_role :: Lens.Lens' CreateMLTransform Core.Text
 createMLTransform_role = Lens.lens (\CreateMLTransform' {role'} -> role') (\s@CreateMLTransform' {} a -> s {role' = a} :: CreateMLTransform)
 
-instance Prelude.AWSRequest CreateMLTransform where
-  type Rs CreateMLTransform = CreateMLTransformResponse
+instance Core.AWSRequest CreateMLTransform where
+  type
+    AWSResponse CreateMLTransform =
+      CreateMLTransformResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateMLTransformResponse'
-            Prelude.<$> (x Prelude..?> "TransformId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TransformId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMLTransform
+instance Core.Hashable CreateMLTransform
 
-instance Prelude.NFData CreateMLTransform
+instance Core.NFData CreateMLTransform
 
-instance Prelude.ToHeaders CreateMLTransform where
+instance Core.ToHeaders CreateMLTransform where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.CreateMLTransform" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.CreateMLTransform" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateMLTransform where
+instance Core.ToJSON CreateMLTransform where
   toJSON CreateMLTransform' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TransformEncryption" Prelude..=)
-              Prelude.<$> transformEncryption,
-            ("Timeout" Prelude..=) Prelude.<$> timeout,
-            ("MaxCapacity" Prelude..=) Prelude.<$> maxCapacity,
-            ("NumberOfWorkers" Prelude..=)
-              Prelude.<$> numberOfWorkers,
-            ("GlueVersion" Prelude..=) Prelude.<$> glueVersion,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("WorkerType" Prelude..=) Prelude.<$> workerType,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("MaxRetries" Prelude..=) Prelude.<$> maxRetries,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("InputRecordTables" Prelude..= inputRecordTables),
-            Prelude.Just ("Parameters" Prelude..= parameters),
-            Prelude.Just ("Role" Prelude..= role')
+    Core.object
+      ( Core.catMaybes
+          [ ("TransformEncryption" Core..=)
+              Core.<$> transformEncryption,
+            ("Timeout" Core..=) Core.<$> timeout,
+            ("MaxCapacity" Core..=) Core.<$> maxCapacity,
+            ("NumberOfWorkers" Core..=) Core.<$> numberOfWorkers,
+            ("GlueVersion" Core..=) Core.<$> glueVersion,
+            ("Tags" Core..=) Core.<$> tags,
+            ("WorkerType" Core..=) Core.<$> workerType,
+            ("Description" Core..=) Core.<$> description,
+            ("MaxRetries" Core..=) Core.<$> maxRetries,
+            Core.Just ("Name" Core..= name),
+            Core.Just
+              ("InputRecordTables" Core..= inputRecordTables),
+            Core.Just ("Parameters" Core..= parameters),
+            Core.Just ("Role" Core..= role')
           ]
       )
 
-instance Prelude.ToPath CreateMLTransform where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateMLTransform where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateMLTransform where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateMLTransform where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateMLTransformResponse' smart constructor.
 data CreateMLTransformResponse = CreateMLTransformResponse'
   { -- | A unique identifier that is generated for the transform.
-    transformId :: Prelude.Maybe Prelude.Text,
+    transformId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateMLTransformResponse' with all optional fields omitted.
@@ -535,21 +533,21 @@ data CreateMLTransformResponse = CreateMLTransformResponse'
 -- 'httpStatus', 'createMLTransformResponse_httpStatus' - The response's http status code.
 newCreateMLTransformResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateMLTransformResponse
 newCreateMLTransformResponse pHttpStatus_ =
   CreateMLTransformResponse'
     { transformId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier that is generated for the transform.
-createMLTransformResponse_transformId :: Lens.Lens' CreateMLTransformResponse (Prelude.Maybe Prelude.Text)
+createMLTransformResponse_transformId :: Lens.Lens' CreateMLTransformResponse (Core.Maybe Core.Text)
 createMLTransformResponse_transformId = Lens.lens (\CreateMLTransformResponse' {transformId} -> transformId) (\s@CreateMLTransformResponse' {} a -> s {transformId = a} :: CreateMLTransformResponse)
 
 -- | The response's http status code.
-createMLTransformResponse_httpStatus :: Lens.Lens' CreateMLTransformResponse Prelude.Int
+createMLTransformResponse_httpStatus :: Lens.Lens' CreateMLTransformResponse Core.Int
 createMLTransformResponse_httpStatus = Lens.lens (\CreateMLTransformResponse' {httpStatus} -> httpStatus) (\s@CreateMLTransformResponse' {} a -> s {httpStatus = a} :: CreateMLTransformResponse)
 
-instance Prelude.NFData CreateMLTransformResponse
+instance Core.NFData CreateMLTransformResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.KMS.GetKeyPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,12 +69,12 @@ data GetKeyPolicy = GetKeyPolicy'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Text,
+    keyId :: Core.Text,
     -- | Specifies the name of the key policy. The only valid name is @default@.
     -- To get the names of key policies, use ListKeyPolicies.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetKeyPolicy' with all optional fields omitted.
@@ -102,9 +101,9 @@ data GetKeyPolicy = GetKeyPolicy'
 -- To get the names of key policies, use ListKeyPolicies.
 newGetKeyPolicy ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   GetKeyPolicy
 newGetKeyPolicy pKeyId_ pPolicyName_ =
   GetKeyPolicy'
@@ -124,65 +123,63 @@ newGetKeyPolicy pKeyId_ pPolicyName_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-getKeyPolicy_keyId :: Lens.Lens' GetKeyPolicy Prelude.Text
+getKeyPolicy_keyId :: Lens.Lens' GetKeyPolicy Core.Text
 getKeyPolicy_keyId = Lens.lens (\GetKeyPolicy' {keyId} -> keyId) (\s@GetKeyPolicy' {} a -> s {keyId = a} :: GetKeyPolicy)
 
 -- | Specifies the name of the key policy. The only valid name is @default@.
 -- To get the names of key policies, use ListKeyPolicies.
-getKeyPolicy_policyName :: Lens.Lens' GetKeyPolicy Prelude.Text
+getKeyPolicy_policyName :: Lens.Lens' GetKeyPolicy Core.Text
 getKeyPolicy_policyName = Lens.lens (\GetKeyPolicy' {policyName} -> policyName) (\s@GetKeyPolicy' {} a -> s {policyName = a} :: GetKeyPolicy)
 
-instance Prelude.AWSRequest GetKeyPolicy where
-  type Rs GetKeyPolicy = GetKeyPolicyResponse
+instance Core.AWSRequest GetKeyPolicy where
+  type AWSResponse GetKeyPolicy = GetKeyPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetKeyPolicyResponse'
-            Prelude.<$> (x Prelude..?> "Policy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Policy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetKeyPolicy
+instance Core.Hashable GetKeyPolicy
 
-instance Prelude.NFData GetKeyPolicy
+instance Core.NFData GetKeyPolicy
 
-instance Prelude.ToHeaders GetKeyPolicy where
+instance Core.ToHeaders GetKeyPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.GetKeyPolicy" :: Prelude.ByteString),
+              Core.=# ("TrentService.GetKeyPolicy" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetKeyPolicy where
+instance Core.ToJSON GetKeyPolicy where
   toJSON GetKeyPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("KeyId" Prelude..= keyId),
-            Prelude.Just ("PolicyName" Prelude..= policyName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("PolicyName" Core..= policyName)
           ]
       )
 
-instance Prelude.ToPath GetKeyPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetKeyPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetKeyPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetKeyPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetKeyPolicyResponse' smart constructor.
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
   { -- | A key policy document in JSON format.
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetKeyPolicyResponse' with all optional fields omitted.
@@ -197,20 +194,20 @@ data GetKeyPolicyResponse = GetKeyPolicyResponse'
 -- 'httpStatus', 'getKeyPolicyResponse_httpStatus' - The response's http status code.
 newGetKeyPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetKeyPolicyResponse
 newGetKeyPolicyResponse pHttpStatus_ =
   GetKeyPolicyResponse'
-    { policy = Prelude.Nothing,
+    { policy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A key policy document in JSON format.
-getKeyPolicyResponse_policy :: Lens.Lens' GetKeyPolicyResponse (Prelude.Maybe Prelude.Text)
+getKeyPolicyResponse_policy :: Lens.Lens' GetKeyPolicyResponse (Core.Maybe Core.Text)
 getKeyPolicyResponse_policy = Lens.lens (\GetKeyPolicyResponse' {policy} -> policy) (\s@GetKeyPolicyResponse' {} a -> s {policy = a} :: GetKeyPolicyResponse)
 
 -- | The response's http status code.
-getKeyPolicyResponse_httpStatus :: Lens.Lens' GetKeyPolicyResponse Prelude.Int
+getKeyPolicyResponse_httpStatus :: Lens.Lens' GetKeyPolicyResponse Core.Int
 getKeyPolicyResponse_httpStatus = Lens.lens (\GetKeyPolicyResponse' {httpStatus} -> httpStatus) (\s@GetKeyPolicyResponse' {} a -> s {httpStatus = a} :: GetKeyPolicyResponse)
 
-instance Prelude.NFData GetKeyPolicyResponse
+instance Core.NFData GetKeyPolicyResponse

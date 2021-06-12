@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.ProtectiveEquipmentSummarizationAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.ProtectiveEquipmentType
 
 -- | Specifies summary attributes to return from a call to
@@ -47,7 +46,7 @@ data ProtectiveEquipmentSummarizationAttributes = ProtectiveEquipmentSummarizati
     -- @DetectProtectiveEquipment@ returns predictions only where the detection
     -- confidence is between 50% - 100%. If you specify a value that is less
     -- than 50%, the results are the same specifying a value of 50%.
-    minConfidence :: Prelude.Double,
+    minConfidence :: Core.Double,
     -- | An array of personal protective equipment types for which you want
     -- summary information. If a person is detected wearing a required
     -- requipment type, the person\'s ID is added to the
@@ -55,7 +54,7 @@ data ProtectiveEquipmentSummarizationAttributes = ProtectiveEquipmentSummarizati
     -- ProtectiveEquipmentSummary by @DetectProtectiveEquipment@.
     requiredEquipmentTypes :: [ProtectiveEquipmentType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProtectiveEquipmentSummarizationAttributes' with all optional fields omitted.
@@ -83,7 +82,7 @@ data ProtectiveEquipmentSummarizationAttributes = ProtectiveEquipmentSummarizati
 -- ProtectiveEquipmentSummary by @DetectProtectiveEquipment@.
 newProtectiveEquipmentSummarizationAttributes ::
   -- | 'minConfidence'
-  Prelude.Double ->
+  Core.Double ->
   ProtectiveEquipmentSummarizationAttributes
 newProtectiveEquipmentSummarizationAttributes
   pMinConfidence_ =
@@ -91,7 +90,7 @@ newProtectiveEquipmentSummarizationAttributes
       { minConfidence =
           pMinConfidence_,
         requiredEquipmentTypes =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | The minimum confidence level for which you want summary information. The
@@ -104,7 +103,7 @@ newProtectiveEquipmentSummarizationAttributes
 -- @DetectProtectiveEquipment@ returns predictions only where the detection
 -- confidence is between 50% - 100%. If you specify a value that is less
 -- than 50%, the results are the same specifying a value of 50%.
-protectiveEquipmentSummarizationAttributes_minConfidence :: Lens.Lens' ProtectiveEquipmentSummarizationAttributes Prelude.Double
+protectiveEquipmentSummarizationAttributes_minConfidence :: Lens.Lens' ProtectiveEquipmentSummarizationAttributes Core.Double
 protectiveEquipmentSummarizationAttributes_minConfidence = Lens.lens (\ProtectiveEquipmentSummarizationAttributes' {minConfidence} -> minConfidence) (\s@ProtectiveEquipmentSummarizationAttributes' {} a -> s {minConfidence = a} :: ProtectiveEquipmentSummarizationAttributes)
 
 -- | An array of personal protective equipment types for which you want
@@ -113,29 +112,28 @@ protectiveEquipmentSummarizationAttributes_minConfidence = Lens.lens (\Protectiv
 -- @PersonsWithRequiredEquipment@ array field returned in
 -- ProtectiveEquipmentSummary by @DetectProtectiveEquipment@.
 protectiveEquipmentSummarizationAttributes_requiredEquipmentTypes :: Lens.Lens' ProtectiveEquipmentSummarizationAttributes [ProtectiveEquipmentType]
-protectiveEquipmentSummarizationAttributes_requiredEquipmentTypes = Lens.lens (\ProtectiveEquipmentSummarizationAttributes' {requiredEquipmentTypes} -> requiredEquipmentTypes) (\s@ProtectiveEquipmentSummarizationAttributes' {} a -> s {requiredEquipmentTypes = a} :: ProtectiveEquipmentSummarizationAttributes) Prelude.. Prelude._Coerce
+protectiveEquipmentSummarizationAttributes_requiredEquipmentTypes = Lens.lens (\ProtectiveEquipmentSummarizationAttributes' {requiredEquipmentTypes} -> requiredEquipmentTypes) (\s@ProtectiveEquipmentSummarizationAttributes' {} a -> s {requiredEquipmentTypes = a} :: ProtectiveEquipmentSummarizationAttributes) Core.. Lens._Coerce
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ProtectiveEquipmentSummarizationAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     ProtectiveEquipmentSummarizationAttributes
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ProtectiveEquipmentSummarizationAttributes
   where
   toJSON
     ProtectiveEquipmentSummarizationAttributes' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just
-                ("MinConfidence" Prelude..= minConfidence),
-              Prelude.Just
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just ("MinConfidence" Core..= minConfidence),
+              Core.Just
                 ( "RequiredEquipmentTypes"
-                    Prelude..= requiredEquipmentTypes
+                    Core..= requiredEquipmentTypes
                 )
             ]
         )

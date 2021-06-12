@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.SchemaFacet
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A batch operation to remove a facet from an object.
 --
@@ -34,7 +33,7 @@ data BatchRemoveFacetFromObject = BatchRemoveFacetFromObject'
     -- | A reference to the object whose facet will be removed.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchRemoveFacetFromObject' with all optional fields omitted.
@@ -70,16 +69,16 @@ batchRemoveFacetFromObject_schemaFacet = Lens.lens (\BatchRemoveFacetFromObject'
 batchRemoveFacetFromObject_objectReference :: Lens.Lens' BatchRemoveFacetFromObject ObjectReference
 batchRemoveFacetFromObject_objectReference = Lens.lens (\BatchRemoveFacetFromObject' {objectReference} -> objectReference) (\s@BatchRemoveFacetFromObject' {} a -> s {objectReference = a} :: BatchRemoveFacetFromObject)
 
-instance Prelude.Hashable BatchRemoveFacetFromObject
+instance Core.Hashable BatchRemoveFacetFromObject
 
-instance Prelude.NFData BatchRemoveFacetFromObject
+instance Core.NFData BatchRemoveFacetFromObject
 
-instance Prelude.ToJSON BatchRemoveFacetFromObject where
+instance Core.ToJSON BatchRemoveFacetFromObject where
   toJSON BatchRemoveFacetFromObject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaFacet" Prelude..= schemaFacet),
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaFacet" Core..= schemaFacet),
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )

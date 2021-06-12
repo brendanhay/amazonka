@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.ServerGroupLaunchConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.ServerLaunchConfiguration
 
 -- | Launch configuration for a server group.
@@ -30,13 +29,13 @@ import Network.AWS.SMS.Types.ServerLaunchConfiguration
 data ServerGroupLaunchConfiguration = ServerGroupLaunchConfiguration'
   { -- | The ID of the server group with which the launch configuration is
     -- associated.
-    serverGroupId :: Prelude.Maybe Prelude.Text,
+    serverGroupId :: Core.Maybe Core.Text,
     -- | The launch order of servers in the server group.
-    launchOrder :: Prelude.Maybe Prelude.Int,
+    launchOrder :: Core.Maybe Core.Int,
     -- | The launch configuration for servers in the server group.
-    serverLaunchConfigurations :: Prelude.Maybe [ServerLaunchConfiguration]
+    serverLaunchConfigurations :: Core.Maybe [ServerLaunchConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerGroupLaunchConfiguration' with all optional fields omitted.
@@ -57,60 +56,48 @@ newServerGroupLaunchConfiguration ::
 newServerGroupLaunchConfiguration =
   ServerGroupLaunchConfiguration'
     { serverGroupId =
-        Prelude.Nothing,
-      launchOrder = Prelude.Nothing,
-      serverLaunchConfigurations =
-        Prelude.Nothing
+        Core.Nothing,
+      launchOrder = Core.Nothing,
+      serverLaunchConfigurations = Core.Nothing
     }
 
 -- | The ID of the server group with which the launch configuration is
 -- associated.
-serverGroupLaunchConfiguration_serverGroupId :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe Prelude.Text)
+serverGroupLaunchConfiguration_serverGroupId :: Lens.Lens' ServerGroupLaunchConfiguration (Core.Maybe Core.Text)
 serverGroupLaunchConfiguration_serverGroupId = Lens.lens (\ServerGroupLaunchConfiguration' {serverGroupId} -> serverGroupId) (\s@ServerGroupLaunchConfiguration' {} a -> s {serverGroupId = a} :: ServerGroupLaunchConfiguration)
 
 -- | The launch order of servers in the server group.
-serverGroupLaunchConfiguration_launchOrder :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe Prelude.Int)
+serverGroupLaunchConfiguration_launchOrder :: Lens.Lens' ServerGroupLaunchConfiguration (Core.Maybe Core.Int)
 serverGroupLaunchConfiguration_launchOrder = Lens.lens (\ServerGroupLaunchConfiguration' {launchOrder} -> launchOrder) (\s@ServerGroupLaunchConfiguration' {} a -> s {launchOrder = a} :: ServerGroupLaunchConfiguration)
 
 -- | The launch configuration for servers in the server group.
-serverGroupLaunchConfiguration_serverLaunchConfigurations :: Lens.Lens' ServerGroupLaunchConfiguration (Prelude.Maybe [ServerLaunchConfiguration])
-serverGroupLaunchConfiguration_serverLaunchConfigurations = Lens.lens (\ServerGroupLaunchConfiguration' {serverLaunchConfigurations} -> serverLaunchConfigurations) (\s@ServerGroupLaunchConfiguration' {} a -> s {serverLaunchConfigurations = a} :: ServerGroupLaunchConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serverGroupLaunchConfiguration_serverLaunchConfigurations :: Lens.Lens' ServerGroupLaunchConfiguration (Core.Maybe [ServerLaunchConfiguration])
+serverGroupLaunchConfiguration_serverLaunchConfigurations = Lens.lens (\ServerGroupLaunchConfiguration' {serverLaunchConfigurations} -> serverLaunchConfigurations) (\s@ServerGroupLaunchConfiguration' {} a -> s {serverLaunchConfigurations = a} :: ServerGroupLaunchConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromJSON
-    ServerGroupLaunchConfiguration
-  where
+instance Core.FromJSON ServerGroupLaunchConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServerGroupLaunchConfiguration"
       ( \x ->
           ServerGroupLaunchConfiguration'
-            Prelude.<$> (x Prelude..:? "serverGroupId")
-            Prelude.<*> (x Prelude..:? "launchOrder")
-            Prelude.<*> ( x Prelude..:? "serverLaunchConfigurations"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "serverGroupId")
+            Core.<*> (x Core..:? "launchOrder")
+            Core.<*> ( x Core..:? "serverLaunchConfigurations"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance
-  Prelude.Hashable
-    ServerGroupLaunchConfiguration
+instance Core.Hashable ServerGroupLaunchConfiguration
 
-instance
-  Prelude.NFData
-    ServerGroupLaunchConfiguration
+instance Core.NFData ServerGroupLaunchConfiguration
 
-instance
-  Prelude.ToJSON
-    ServerGroupLaunchConfiguration
-  where
+instance Core.ToJSON ServerGroupLaunchConfiguration where
   toJSON ServerGroupLaunchConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("serverGroupId" Prelude..=)
-              Prelude.<$> serverGroupId,
-            ("launchOrder" Prelude..=) Prelude.<$> launchOrder,
-            ("serverLaunchConfigurations" Prelude..=)
-              Prelude.<$> serverLaunchConfigurations
+    Core.object
+      ( Core.catMaybes
+          [ ("serverGroupId" Core..=) Core.<$> serverGroupId,
+            ("launchOrder" Core..=) Core.<$> launchOrder,
+            ("serverLaunchConfigurations" Core..=)
+              Core.<$> serverLaunchConfigurations
           ]
       )

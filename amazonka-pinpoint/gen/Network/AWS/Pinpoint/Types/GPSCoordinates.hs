@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.GPSCoordinates where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the GPS coordinates of a location.
 --
 -- /See:/ 'newGPSCoordinates' smart constructor.
 data GPSCoordinates = GPSCoordinates'
   { -- | The latitude coordinate of the location.
-    latitude :: Prelude.Double,
+    latitude :: Core.Double,
     -- | The longitude coordinate of the location.
-    longitude :: Prelude.Double
+    longitude :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GPSCoordinates' with all optional fields omitted.
@@ -47,9 +46,9 @@ data GPSCoordinates = GPSCoordinates'
 -- 'longitude', 'gPSCoordinates_longitude' - The longitude coordinate of the location.
 newGPSCoordinates ::
   -- | 'latitude'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'longitude'
-  Prelude.Double ->
+  Core.Double ->
   GPSCoordinates
 newGPSCoordinates pLatitude_ pLongitude_ =
   GPSCoordinates'
@@ -58,32 +57,32 @@ newGPSCoordinates pLatitude_ pLongitude_ =
     }
 
 -- | The latitude coordinate of the location.
-gPSCoordinates_latitude :: Lens.Lens' GPSCoordinates Prelude.Double
+gPSCoordinates_latitude :: Lens.Lens' GPSCoordinates Core.Double
 gPSCoordinates_latitude = Lens.lens (\GPSCoordinates' {latitude} -> latitude) (\s@GPSCoordinates' {} a -> s {latitude = a} :: GPSCoordinates)
 
 -- | The longitude coordinate of the location.
-gPSCoordinates_longitude :: Lens.Lens' GPSCoordinates Prelude.Double
+gPSCoordinates_longitude :: Lens.Lens' GPSCoordinates Core.Double
 gPSCoordinates_longitude = Lens.lens (\GPSCoordinates' {longitude} -> longitude) (\s@GPSCoordinates' {} a -> s {longitude = a} :: GPSCoordinates)
 
-instance Prelude.FromJSON GPSCoordinates where
+instance Core.FromJSON GPSCoordinates where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GPSCoordinates"
       ( \x ->
           GPSCoordinates'
-            Prelude.<$> (x Prelude..: "Latitude")
-            Prelude.<*> (x Prelude..: "Longitude")
+            Core.<$> (x Core..: "Latitude")
+            Core.<*> (x Core..: "Longitude")
       )
 
-instance Prelude.Hashable GPSCoordinates
+instance Core.Hashable GPSCoordinates
 
-instance Prelude.NFData GPSCoordinates
+instance Core.NFData GPSCoordinates
 
-instance Prelude.ToJSON GPSCoordinates where
+instance Core.ToJSON GPSCoordinates where
   toJSON GPSCoordinates' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Latitude" Prelude..= latitude),
-            Prelude.Just ("Longitude" Prelude..= longitude)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Latitude" Core..= latitude),
+            Core.Just ("Longitude" Core..= longitude)
           ]
       )

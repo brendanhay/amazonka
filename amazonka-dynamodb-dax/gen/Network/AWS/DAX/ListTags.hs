@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.DAX.ListTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +55,11 @@ data ListTags = ListTags'
   { -- | An optional token returned from a prior request. Use this token for
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name of the DAX resource to which the tags belong.
-    resourceName :: Prelude.Text
+    resourceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTags' with all optional fields omitted.
@@ -78,100 +76,95 @@ data ListTags = ListTags'
 -- 'resourceName', 'listTags_resourceName' - The name of the DAX resource to which the tags belong.
 newListTags ::
   -- | 'resourceName'
-  Prelude.Text ->
+  Core.Text ->
   ListTags
 newListTags pResourceName_ =
   ListTags'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       resourceName = pResourceName_
     }
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token.
-listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
+listTags_nextToken :: Lens.Lens' ListTags (Core.Maybe Core.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
 -- | The name of the DAX resource to which the tags belong.
-listTags_resourceName :: Lens.Lens' ListTags Prelude.Text
+listTags_resourceName :: Lens.Lens' ListTags Core.Text
 listTags_resourceName = Lens.lens (\ListTags' {resourceName} -> resourceName) (\s@ListTags' {} a -> s {resourceName = a} :: ListTags)
 
-instance Pager.AWSPager ListTags where
+instance Core.AWSPager ListTags where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTagsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
-        ( rs
-            Lens.^? listTagsResponse_tags Prelude.. Lens._Just
-        ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.stop
+        (rs Lens.^? listTagsResponse_tags Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTags_nextToken
           Lens..~ rs
-          Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTagsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTags where
-  type Rs ListTags = ListTagsResponse
+instance Core.AWSRequest ListTags where
+  type AWSResponse ListTags = ListTagsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTags
+instance Core.Hashable ListTags
 
-instance Prelude.NFData ListTags
+instance Core.NFData ListTags
 
-instance Prelude.ToHeaders ListTags where
+instance Core.ToHeaders ListTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonDAXV3.ListTags" :: Prelude.ByteString),
+              Core.=# ("AmazonDAXV3.ListTags" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTags where
+instance Core.ToJSON ListTags where
   toJSON ListTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            Prelude.Just
-              ("ResourceName" Prelude..= resourceName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            Core.Just ("ResourceName" Core..= resourceName)
           ]
       )
 
-instance Prelude.ToPath ListTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
   { -- | If this value is present, there are additional results to be displayed.
     -- To retrieve them, call @ListTags@ again, with @NextToken@ set to this
     -- value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of tags currently associated with the DAX cluster.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsResponse' with all optional fields omitted.
@@ -190,27 +183,27 @@ data ListTagsResponse = ListTagsResponse'
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If this value is present, there are additional results to be displayed.
 -- To retrieve them, call @ListTags@ again, with @NextToken@ set to this
 -- value.
-listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
+listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Core.Maybe Core.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
 -- | A list of tags currently associated with the DAX cluster.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe [Tag])
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Core.Maybe [Tag])
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
+listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Core.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
-instance Prelude.NFData ListTagsResponse
+instance Core.NFData ListTagsResponse

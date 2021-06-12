@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.MarketplaceMetering.MeterUsage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,28 +64,28 @@ data MeterUsage = MeterUsage'
     -- does not make the request. If you have the permissions, the request
     -- returns DryRunOperation; otherwise, it returns UnauthorizedException.
     -- Defaults to @false@ if not specified.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The set of UsageAllocations to submit.
     --
     -- The sum of all UsageAllocation quantities must equal the UsageQuantity
     -- of the MeterUsage request, and each UsageAllocation must have a unique
     -- set of tags (include no tags).
-    usageAllocations :: Prelude.Maybe (Prelude.NonEmpty UsageAllocation),
+    usageAllocations :: Core.Maybe (Core.NonEmpty UsageAllocation),
     -- | Consumption value for the hour. Defaults to @0@ if not specified.
-    usageQuantity :: Prelude.Maybe Prelude.Natural,
+    usageQuantity :: Core.Maybe Core.Natural,
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code should be the same as the one used during the
     -- publishing of a new product.
-    productCode :: Prelude.Text,
+    productCode :: Core.Text,
     -- | Timestamp, in UTC, for which the usage is being reported. Your
     -- application can meter usage for up to one hour in the past. Make sure
     -- the timestamp value is not before the start of the software usage.
-    timestamp :: Prelude.POSIX,
+    timestamp :: Core.POSIX,
     -- | It will be one of the fcp dimension name provided during the publishing
     -- of the product.
-    usageDimension :: Prelude.Text
+    usageDimension :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MeterUsage' with all optional fields omitted.
@@ -121,22 +120,22 @@ data MeterUsage = MeterUsage'
 -- of the product.
 newMeterUsage ::
   -- | 'productCode'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'timestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'usageDimension'
-  Prelude.Text ->
+  Core.Text ->
   MeterUsage
 newMeterUsage
   pProductCode_
   pTimestamp_
   pUsageDimension_ =
     MeterUsage'
-      { dryRun = Prelude.Nothing,
-        usageAllocations = Prelude.Nothing,
-        usageQuantity = Prelude.Nothing,
+      { dryRun = Core.Nothing,
+        usageAllocations = Core.Nothing,
+        usageQuantity = Core.Nothing,
         productCode = pProductCode_,
-        timestamp = Prelude._Time Lens.# pTimestamp_,
+        timestamp = Core._Time Lens.# pTimestamp_,
         usageDimension = pUsageDimension_
       }
 
@@ -144,7 +143,7 @@ newMeterUsage
 -- does not make the request. If you have the permissions, the request
 -- returns DryRunOperation; otherwise, it returns UnauthorizedException.
 -- Defaults to @false@ if not specified.
-meterUsage_dryRun :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Bool)
+meterUsage_dryRun :: Lens.Lens' MeterUsage (Core.Maybe Core.Bool)
 meterUsage_dryRun = Lens.lens (\MeterUsage' {dryRun} -> dryRun) (\s@MeterUsage' {} a -> s {dryRun = a} :: MeterUsage)
 
 -- | The set of UsageAllocations to submit.
@@ -152,90 +151,86 @@ meterUsage_dryRun = Lens.lens (\MeterUsage' {dryRun} -> dryRun) (\s@MeterUsage' 
 -- The sum of all UsageAllocation quantities must equal the UsageQuantity
 -- of the MeterUsage request, and each UsageAllocation must have a unique
 -- set of tags (include no tags).
-meterUsage_usageAllocations :: Lens.Lens' MeterUsage (Prelude.Maybe (Prelude.NonEmpty UsageAllocation))
-meterUsage_usageAllocations = Lens.lens (\MeterUsage' {usageAllocations} -> usageAllocations) (\s@MeterUsage' {} a -> s {usageAllocations = a} :: MeterUsage) Prelude.. Lens.mapping Prelude._Coerce
+meterUsage_usageAllocations :: Lens.Lens' MeterUsage (Core.Maybe (Core.NonEmpty UsageAllocation))
+meterUsage_usageAllocations = Lens.lens (\MeterUsage' {usageAllocations} -> usageAllocations) (\s@MeterUsage' {} a -> s {usageAllocations = a} :: MeterUsage) Core.. Lens.mapping Lens._Coerce
 
 -- | Consumption value for the hour. Defaults to @0@ if not specified.
-meterUsage_usageQuantity :: Lens.Lens' MeterUsage (Prelude.Maybe Prelude.Natural)
+meterUsage_usageQuantity :: Lens.Lens' MeterUsage (Core.Maybe Core.Natural)
 meterUsage_usageQuantity = Lens.lens (\MeterUsage' {usageQuantity} -> usageQuantity) (\s@MeterUsage' {} a -> s {usageQuantity = a} :: MeterUsage)
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
 -- publishing of a new product.
-meterUsage_productCode :: Lens.Lens' MeterUsage Prelude.Text
+meterUsage_productCode :: Lens.Lens' MeterUsage Core.Text
 meterUsage_productCode = Lens.lens (\MeterUsage' {productCode} -> productCode) (\s@MeterUsage' {} a -> s {productCode = a} :: MeterUsage)
 
 -- | Timestamp, in UTC, for which the usage is being reported. Your
 -- application can meter usage for up to one hour in the past. Make sure
 -- the timestamp value is not before the start of the software usage.
-meterUsage_timestamp :: Lens.Lens' MeterUsage Prelude.UTCTime
-meterUsage_timestamp = Lens.lens (\MeterUsage' {timestamp} -> timestamp) (\s@MeterUsage' {} a -> s {timestamp = a} :: MeterUsage) Prelude.. Prelude._Time
+meterUsage_timestamp :: Lens.Lens' MeterUsage Core.UTCTime
+meterUsage_timestamp = Lens.lens (\MeterUsage' {timestamp} -> timestamp) (\s@MeterUsage' {} a -> s {timestamp = a} :: MeterUsage) Core.. Core._Time
 
 -- | It will be one of the fcp dimension name provided during the publishing
 -- of the product.
-meterUsage_usageDimension :: Lens.Lens' MeterUsage Prelude.Text
+meterUsage_usageDimension :: Lens.Lens' MeterUsage Core.Text
 meterUsage_usageDimension = Lens.lens (\MeterUsage' {usageDimension} -> usageDimension) (\s@MeterUsage' {} a -> s {usageDimension = a} :: MeterUsage)
 
-instance Prelude.AWSRequest MeterUsage where
-  type Rs MeterUsage = MeterUsageResponse
+instance Core.AWSRequest MeterUsage where
+  type AWSResponse MeterUsage = MeterUsageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           MeterUsageResponse'
-            Prelude.<$> (x Prelude..?> "MeteringRecordId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "MeteringRecordId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable MeterUsage
+instance Core.Hashable MeterUsage
 
-instance Prelude.NFData MeterUsage
+instance Core.NFData MeterUsage
 
-instance Prelude.ToHeaders MeterUsage where
+instance Core.ToHeaders MeterUsage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMPMeteringService.MeterUsage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMPMeteringService.MeterUsage" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON MeterUsage where
+instance Core.ToJSON MeterUsage where
   toJSON MeterUsage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
-            ("UsageAllocations" Prelude..=)
-              Prelude.<$> usageAllocations,
-            ("UsageQuantity" Prelude..=)
-              Prelude.<$> usageQuantity,
-            Prelude.Just ("ProductCode" Prelude..= productCode),
-            Prelude.Just ("Timestamp" Prelude..= timestamp),
-            Prelude.Just
-              ("UsageDimension" Prelude..= usageDimension)
+    Core.object
+      ( Core.catMaybes
+          [ ("DryRun" Core..=) Core.<$> dryRun,
+            ("UsageAllocations" Core..=)
+              Core.<$> usageAllocations,
+            ("UsageQuantity" Core..=) Core.<$> usageQuantity,
+            Core.Just ("ProductCode" Core..= productCode),
+            Core.Just ("Timestamp" Core..= timestamp),
+            Core.Just ("UsageDimension" Core..= usageDimension)
           ]
       )
 
-instance Prelude.ToPath MeterUsage where
-  toPath = Prelude.const "/"
+instance Core.ToPath MeterUsage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery MeterUsage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery MeterUsage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newMeterUsageResponse' smart constructor.
 data MeterUsageResponse = MeterUsageResponse'
   { -- | Metering record id.
-    meteringRecordId :: Prelude.Maybe Prelude.Text,
+    meteringRecordId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MeterUsageResponse' with all optional fields omitted.
@@ -250,21 +245,21 @@ data MeterUsageResponse = MeterUsageResponse'
 -- 'httpStatus', 'meterUsageResponse_httpStatus' - The response's http status code.
 newMeterUsageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   MeterUsageResponse
 newMeterUsageResponse pHttpStatus_ =
   MeterUsageResponse'
     { meteringRecordId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Metering record id.
-meterUsageResponse_meteringRecordId :: Lens.Lens' MeterUsageResponse (Prelude.Maybe Prelude.Text)
+meterUsageResponse_meteringRecordId :: Lens.Lens' MeterUsageResponse (Core.Maybe Core.Text)
 meterUsageResponse_meteringRecordId = Lens.lens (\MeterUsageResponse' {meteringRecordId} -> meteringRecordId) (\s@MeterUsageResponse' {} a -> s {meteringRecordId = a} :: MeterUsageResponse)
 
 -- | The response's http status code.
-meterUsageResponse_httpStatus :: Lens.Lens' MeterUsageResponse Prelude.Int
+meterUsageResponse_httpStatus :: Lens.Lens' MeterUsageResponse Core.Int
 meterUsageResponse_httpStatus = Lens.lens (\MeterUsageResponse' {httpStatus} -> httpStatus) (\s@MeterUsageResponse' {} a -> s {httpStatus = a} :: MeterUsageResponse)
 
-instance Prelude.NFData MeterUsageResponse
+instance Core.NFData MeterUsageResponse

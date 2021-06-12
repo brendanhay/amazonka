@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EndpointMessageResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.DeliveryStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the delivery status and results of sending a
 -- message directly to an endpoint.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEndpointMessageResult' smart constructor.
 data EndpointMessageResult = EndpointMessageResult'
   { -- | The status message for delivering the message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    statusMessage :: Core.Maybe Core.Text,
     -- | For push notifications that are sent through the GCM channel, specifies
     -- whether the endpoint\'s device registration token was updated as part of
     -- delivering the message.
-    updatedToken :: Prelude.Maybe Prelude.Text,
+    updatedToken :: Core.Maybe Core.Text,
     -- | The endpoint address that the message was delivered to.
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | The unique identifier for the message that was sent.
-    messageId :: Prelude.Maybe Prelude.Text,
+    messageId :: Core.Maybe Core.Text,
     -- | The delivery status of the message. Possible values are:
     --
     -- -   DUPLICATE - The endpoint address is a duplicate of another endpoint
@@ -65,9 +64,9 @@ data EndpointMessageResult = EndpointMessageResult'
     -- -   UNKNOWN_FAILURE - An unknown error occurred.
     deliveryStatus :: DeliveryStatus,
     -- | The downstream service status code for delivering the message.
-    statusCode :: Prelude.Int
+    statusCode :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndpointMessageResult' with all optional fields omitted.
@@ -117,37 +116,37 @@ newEndpointMessageResult ::
   -- | 'deliveryStatus'
   DeliveryStatus ->
   -- | 'statusCode'
-  Prelude.Int ->
+  Core.Int ->
   EndpointMessageResult
 newEndpointMessageResult
   pDeliveryStatus_
   pStatusCode_ =
     EndpointMessageResult'
       { statusMessage =
-          Prelude.Nothing,
-        updatedToken = Prelude.Nothing,
-        address = Prelude.Nothing,
-        messageId = Prelude.Nothing,
+          Core.Nothing,
+        updatedToken = Core.Nothing,
+        address = Core.Nothing,
+        messageId = Core.Nothing,
         deliveryStatus = pDeliveryStatus_,
         statusCode = pStatusCode_
       }
 
 -- | The status message for delivering the message.
-endpointMessageResult_statusMessage :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
+endpointMessageResult_statusMessage :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
 endpointMessageResult_statusMessage = Lens.lens (\EndpointMessageResult' {statusMessage} -> statusMessage) (\s@EndpointMessageResult' {} a -> s {statusMessage = a} :: EndpointMessageResult)
 
 -- | For push notifications that are sent through the GCM channel, specifies
 -- whether the endpoint\'s device registration token was updated as part of
 -- delivering the message.
-endpointMessageResult_updatedToken :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
+endpointMessageResult_updatedToken :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
 endpointMessageResult_updatedToken = Lens.lens (\EndpointMessageResult' {updatedToken} -> updatedToken) (\s@EndpointMessageResult' {} a -> s {updatedToken = a} :: EndpointMessageResult)
 
 -- | The endpoint address that the message was delivered to.
-endpointMessageResult_address :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
+endpointMessageResult_address :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
 endpointMessageResult_address = Lens.lens (\EndpointMessageResult' {address} -> address) (\s@EndpointMessageResult' {} a -> s {address = a} :: EndpointMessageResult)
 
 -- | The unique identifier for the message that was sent.
-endpointMessageResult_messageId :: Lens.Lens' EndpointMessageResult (Prelude.Maybe Prelude.Text)
+endpointMessageResult_messageId :: Lens.Lens' EndpointMessageResult (Core.Maybe Core.Text)
 endpointMessageResult_messageId = Lens.lens (\EndpointMessageResult' {messageId} -> messageId) (\s@EndpointMessageResult' {} a -> s {messageId = a} :: EndpointMessageResult)
 
 -- | The delivery status of the message. Possible values are:
@@ -178,23 +177,23 @@ endpointMessageResult_deliveryStatus :: Lens.Lens' EndpointMessageResult Deliver
 endpointMessageResult_deliveryStatus = Lens.lens (\EndpointMessageResult' {deliveryStatus} -> deliveryStatus) (\s@EndpointMessageResult' {} a -> s {deliveryStatus = a} :: EndpointMessageResult)
 
 -- | The downstream service status code for delivering the message.
-endpointMessageResult_statusCode :: Lens.Lens' EndpointMessageResult Prelude.Int
+endpointMessageResult_statusCode :: Lens.Lens' EndpointMessageResult Core.Int
 endpointMessageResult_statusCode = Lens.lens (\EndpointMessageResult' {statusCode} -> statusCode) (\s@EndpointMessageResult' {} a -> s {statusCode = a} :: EndpointMessageResult)
 
-instance Prelude.FromJSON EndpointMessageResult where
+instance Core.FromJSON EndpointMessageResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EndpointMessageResult"
       ( \x ->
           EndpointMessageResult'
-            Prelude.<$> (x Prelude..:? "StatusMessage")
-            Prelude.<*> (x Prelude..:? "UpdatedToken")
-            Prelude.<*> (x Prelude..:? "Address")
-            Prelude.<*> (x Prelude..:? "MessageId")
-            Prelude.<*> (x Prelude..: "DeliveryStatus")
-            Prelude.<*> (x Prelude..: "StatusCode")
+            Core.<$> (x Core..:? "StatusMessage")
+            Core.<*> (x Core..:? "UpdatedToken")
+            Core.<*> (x Core..:? "Address")
+            Core.<*> (x Core..:? "MessageId")
+            Core.<*> (x Core..: "DeliveryStatus")
+            Core.<*> (x Core..: "StatusCode")
       )
 
-instance Prelude.Hashable EndpointMessageResult
+instance Core.Hashable EndpointMessageResult
 
-instance Prelude.NFData EndpointMessageResult
+instance Core.NFData EndpointMessageResult

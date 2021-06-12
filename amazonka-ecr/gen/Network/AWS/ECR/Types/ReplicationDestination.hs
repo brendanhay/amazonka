@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ReplicationDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An array of objects representing the details of a replication
 -- destination.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReplicationDestination' smart constructor.
 data ReplicationDestination = ReplicationDestination'
   { -- | A Region to replicate to.
-    region :: Prelude.Text,
+    region :: Core.Text,
     -- | The account ID of the destination registry to replicate to.
-    registryId :: Prelude.Text
+    registryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationDestination' with all optional fields omitted.
@@ -48,9 +47,9 @@ data ReplicationDestination = ReplicationDestination'
 -- 'registryId', 'replicationDestination_registryId' - The account ID of the destination registry to replicate to.
 newReplicationDestination ::
   -- | 'region'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'registryId'
-  Prelude.Text ->
+  Core.Text ->
   ReplicationDestination
 newReplicationDestination pRegion_ pRegistryId_ =
   ReplicationDestination'
@@ -59,32 +58,32 @@ newReplicationDestination pRegion_ pRegistryId_ =
     }
 
 -- | A Region to replicate to.
-replicationDestination_region :: Lens.Lens' ReplicationDestination Prelude.Text
+replicationDestination_region :: Lens.Lens' ReplicationDestination Core.Text
 replicationDestination_region = Lens.lens (\ReplicationDestination' {region} -> region) (\s@ReplicationDestination' {} a -> s {region = a} :: ReplicationDestination)
 
 -- | The account ID of the destination registry to replicate to.
-replicationDestination_registryId :: Lens.Lens' ReplicationDestination Prelude.Text
+replicationDestination_registryId :: Lens.Lens' ReplicationDestination Core.Text
 replicationDestination_registryId = Lens.lens (\ReplicationDestination' {registryId} -> registryId) (\s@ReplicationDestination' {} a -> s {registryId = a} :: ReplicationDestination)
 
-instance Prelude.FromJSON ReplicationDestination where
+instance Core.FromJSON ReplicationDestination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReplicationDestination"
       ( \x ->
           ReplicationDestination'
-            Prelude.<$> (x Prelude..: "region")
-            Prelude.<*> (x Prelude..: "registryId")
+            Core.<$> (x Core..: "region")
+            Core.<*> (x Core..: "registryId")
       )
 
-instance Prelude.Hashable ReplicationDestination
+instance Core.Hashable ReplicationDestination
 
-instance Prelude.NFData ReplicationDestination
+instance Core.NFData ReplicationDestination
 
-instance Prelude.ToJSON ReplicationDestination where
+instance Core.ToJSON ReplicationDestination where
   toJSON ReplicationDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("region" Prelude..= region),
-            Prelude.Just ("registryId" Prelude..= registryId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("region" Core..= region),
+            Core.Just ("registryId" Core..= registryId)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.QLDB.DescribeLedger
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeLedger' smart constructor.
 data DescribeLedger = DescribeLedger'
   { -- | The name of the ledger that you want to describe.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLedger' with all optional fields omitted.
@@ -69,51 +68,51 @@ data DescribeLedger = DescribeLedger'
 -- 'name', 'describeLedger_name' - The name of the ledger that you want to describe.
 newDescribeLedger ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DescribeLedger
 newDescribeLedger pName_ =
   DescribeLedger' {name = pName_}
 
 -- | The name of the ledger that you want to describe.
-describeLedger_name :: Lens.Lens' DescribeLedger Prelude.Text
+describeLedger_name :: Lens.Lens' DescribeLedger Core.Text
 describeLedger_name = Lens.lens (\DescribeLedger' {name} -> name) (\s@DescribeLedger' {} a -> s {name = a} :: DescribeLedger)
 
-instance Prelude.AWSRequest DescribeLedger where
-  type Rs DescribeLedger = DescribeLedgerResponse
+instance Core.AWSRequest DescribeLedger where
+  type
+    AWSResponse DescribeLedger =
+      DescribeLedgerResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLedgerResponse'
-            Prelude.<$> (x Prelude..?> "DeletionProtection")
-            Prelude.<*> (x Prelude..?> "Arn")
-            Prelude.<*> (x Prelude..?> "State")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "CreationDateTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DeletionProtection")
+            Core.<*> (x Core..?> "Arn")
+            Core.<*> (x Core..?> "State")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "CreationDateTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLedger
+instance Core.Hashable DescribeLedger
 
-instance Prelude.NFData DescribeLedger
+instance Core.NFData DescribeLedger
 
-instance Prelude.ToHeaders DescribeLedger where
+instance Core.ToHeaders DescribeLedger where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeLedger where
+instance Core.ToPath DescribeLedger where
   toPath DescribeLedger' {..} =
-    Prelude.mconcat ["/ledgers/", Prelude.toBS name]
+    Core.mconcat ["/ledgers/", Core.toBS name]
 
-instance Prelude.ToQuery DescribeLedger where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLedger where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeLedgerResponse' smart constructor.
 data DescribeLedgerResponse = DescribeLedgerResponse'
@@ -126,21 +125,21 @@ data DescribeLedgerResponse = DescribeLedgerResponse'
     -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
     -- operation to set the flag to @false@. The QLDB console disables deletion
     -- protection for you when you use it to delete a ledger.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    deletionProtection :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) for the ledger.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The current status of the ledger.
-    state :: Prelude.Maybe LedgerState,
+    state :: Core.Maybe LedgerState,
     -- | The name of the ledger.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time, in epoch time format, when the ledger was created.
     -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
     -- January 1, 1970 UTC.)
-    creationDateTime :: Prelude.Maybe Prelude.POSIX,
+    creationDateTime :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLedgerResponse' with all optional fields omitted.
@@ -173,16 +172,16 @@ data DescribeLedgerResponse = DescribeLedgerResponse'
 -- 'httpStatus', 'describeLedgerResponse_httpStatus' - The response's http status code.
 newDescribeLedgerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLedgerResponse
 newDescribeLedgerResponse pHttpStatus_ =
   DescribeLedgerResponse'
     { deletionProtection =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+        Core.Nothing,
+      arn = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      creationDateTime = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -195,29 +194,29 @@ newDescribeLedgerResponse pHttpStatus_ =
 -- Interface (AWS CLI). You can disable it by calling the @UpdateLedger@
 -- operation to set the flag to @false@. The QLDB console disables deletion
 -- protection for you when you use it to delete a ledger.
-describeLedgerResponse_deletionProtection :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.Bool)
+describeLedgerResponse_deletionProtection :: Lens.Lens' DescribeLedgerResponse (Core.Maybe Core.Bool)
 describeLedgerResponse_deletionProtection = Lens.lens (\DescribeLedgerResponse' {deletionProtection} -> deletionProtection) (\s@DescribeLedgerResponse' {} a -> s {deletionProtection = a} :: DescribeLedgerResponse)
 
 -- | The Amazon Resource Name (ARN) for the ledger.
-describeLedgerResponse_arn :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.Text)
+describeLedgerResponse_arn :: Lens.Lens' DescribeLedgerResponse (Core.Maybe Core.Text)
 describeLedgerResponse_arn = Lens.lens (\DescribeLedgerResponse' {arn} -> arn) (\s@DescribeLedgerResponse' {} a -> s {arn = a} :: DescribeLedgerResponse)
 
 -- | The current status of the ledger.
-describeLedgerResponse_state :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe LedgerState)
+describeLedgerResponse_state :: Lens.Lens' DescribeLedgerResponse (Core.Maybe LedgerState)
 describeLedgerResponse_state = Lens.lens (\DescribeLedgerResponse' {state} -> state) (\s@DescribeLedgerResponse' {} a -> s {state = a} :: DescribeLedgerResponse)
 
 -- | The name of the ledger.
-describeLedgerResponse_name :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.Text)
+describeLedgerResponse_name :: Lens.Lens' DescribeLedgerResponse (Core.Maybe Core.Text)
 describeLedgerResponse_name = Lens.lens (\DescribeLedgerResponse' {name} -> name) (\s@DescribeLedgerResponse' {} a -> s {name = a} :: DescribeLedgerResponse)
 
 -- | The date and time, in epoch time format, when the ledger was created.
 -- (Epoch time format is the number of seconds elapsed since 12:00:00 AM
 -- January 1, 1970 UTC.)
-describeLedgerResponse_creationDateTime :: Lens.Lens' DescribeLedgerResponse (Prelude.Maybe Prelude.UTCTime)
-describeLedgerResponse_creationDateTime = Lens.lens (\DescribeLedgerResponse' {creationDateTime} -> creationDateTime) (\s@DescribeLedgerResponse' {} a -> s {creationDateTime = a} :: DescribeLedgerResponse) Prelude.. Lens.mapping Prelude._Time
+describeLedgerResponse_creationDateTime :: Lens.Lens' DescribeLedgerResponse (Core.Maybe Core.UTCTime)
+describeLedgerResponse_creationDateTime = Lens.lens (\DescribeLedgerResponse' {creationDateTime} -> creationDateTime) (\s@DescribeLedgerResponse' {} a -> s {creationDateTime = a} :: DescribeLedgerResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeLedgerResponse_httpStatus :: Lens.Lens' DescribeLedgerResponse Prelude.Int
+describeLedgerResponse_httpStatus :: Lens.Lens' DescribeLedgerResponse Core.Int
 describeLedgerResponse_httpStatus = Lens.lens (\DescribeLedgerResponse' {httpStatus} -> httpStatus) (\s@DescribeLedgerResponse' {} a -> s {httpStatus = a} :: DescribeLedgerResponse)
 
-instance Prelude.NFData DescribeLedgerResponse
+instance Core.NFData DescribeLedgerResponse

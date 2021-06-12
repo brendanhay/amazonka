@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.ScheduleAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleActionSettings
 import Network.AWS.MediaLive.Types.ScheduleActionStartSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on a single schedule action.
 --
@@ -35,13 +34,13 @@ data ScheduleAction = ScheduleAction'
     -- schedule is automatically cleaned up to remove actions with a start time
     -- of more than 1 hour ago (approximately) so at that point a name can be
     -- reused.
-    actionName :: Prelude.Text,
+    actionName :: Core.Text,
     -- | The time for the action to start in the channel.
     scheduleActionStartSettings :: ScheduleActionStartSettings,
     -- | Settings for this schedule action.
     scheduleActionSettings :: ScheduleActionSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduleAction' with all optional fields omitted.
@@ -63,7 +62,7 @@ data ScheduleAction = ScheduleAction'
 -- 'scheduleActionSettings', 'scheduleAction_scheduleActionSettings' - Settings for this schedule action.
 newScheduleAction ::
   -- | 'actionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scheduleActionStartSettings'
   ScheduleActionStartSettings ->
   -- | 'scheduleActionSettings'
@@ -86,7 +85,7 @@ newScheduleAction
 -- schedule is automatically cleaned up to remove actions with a start time
 -- of more than 1 hour ago (approximately) so at that point a name can be
 -- reused.
-scheduleAction_actionName :: Lens.Lens' ScheduleAction Prelude.Text
+scheduleAction_actionName :: Lens.Lens' ScheduleAction Core.Text
 scheduleAction_actionName = Lens.lens (\ScheduleAction' {actionName} -> actionName) (\s@ScheduleAction' {} a -> s {actionName = a} :: ScheduleAction)
 
 -- | The time for the action to start in the channel.
@@ -97,33 +96,33 @@ scheduleAction_scheduleActionStartSettings = Lens.lens (\ScheduleAction' {schedu
 scheduleAction_scheduleActionSettings :: Lens.Lens' ScheduleAction ScheduleActionSettings
 scheduleAction_scheduleActionSettings = Lens.lens (\ScheduleAction' {scheduleActionSettings} -> scheduleActionSettings) (\s@ScheduleAction' {} a -> s {scheduleActionSettings = a} :: ScheduleAction)
 
-instance Prelude.FromJSON ScheduleAction where
+instance Core.FromJSON ScheduleAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScheduleAction"
       ( \x ->
           ScheduleAction'
-            Prelude.<$> (x Prelude..: "actionName")
-            Prelude.<*> (x Prelude..: "scheduleActionStartSettings")
-            Prelude.<*> (x Prelude..: "scheduleActionSettings")
+            Core.<$> (x Core..: "actionName")
+            Core.<*> (x Core..: "scheduleActionStartSettings")
+            Core.<*> (x Core..: "scheduleActionSettings")
       )
 
-instance Prelude.Hashable ScheduleAction
+instance Core.Hashable ScheduleAction
 
-instance Prelude.NFData ScheduleAction
+instance Core.NFData ScheduleAction
 
-instance Prelude.ToJSON ScheduleAction where
+instance Core.ToJSON ScheduleAction where
   toJSON ScheduleAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("actionName" Prelude..= actionName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("actionName" Core..= actionName),
+            Core.Just
               ( "scheduleActionStartSettings"
-                  Prelude..= scheduleActionStartSettings
+                  Core..= scheduleActionStartSettings
               ),
-            Prelude.Just
+            Core.Just
               ( "scheduleActionSettings"
-                  Prelude..= scheduleActionSettings
+                  Core..= scheduleActionSettings
               )
           ]
       )

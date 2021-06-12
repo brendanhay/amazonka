@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.RemovePrefixListEntry where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An entry for a prefix list.
 --
 -- /See:/ 'newRemovePrefixListEntry' smart constructor.
 data RemovePrefixListEntry = RemovePrefixListEntry'
   { -- | The CIDR block.
-    cidr :: Prelude.Text
+    cidr :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemovePrefixListEntry' with all optional fields omitted.
@@ -44,19 +43,19 @@ data RemovePrefixListEntry = RemovePrefixListEntry'
 -- 'cidr', 'removePrefixListEntry_cidr' - The CIDR block.
 newRemovePrefixListEntry ::
   -- | 'cidr'
-  Prelude.Text ->
+  Core.Text ->
   RemovePrefixListEntry
 newRemovePrefixListEntry pCidr_ =
   RemovePrefixListEntry' {cidr = pCidr_}
 
 -- | The CIDR block.
-removePrefixListEntry_cidr :: Lens.Lens' RemovePrefixListEntry Prelude.Text
+removePrefixListEntry_cidr :: Lens.Lens' RemovePrefixListEntry Core.Text
 removePrefixListEntry_cidr = Lens.lens (\RemovePrefixListEntry' {cidr} -> cidr) (\s@RemovePrefixListEntry' {} a -> s {cidr = a} :: RemovePrefixListEntry)
 
-instance Prelude.Hashable RemovePrefixListEntry
+instance Core.Hashable RemovePrefixListEntry
 
-instance Prelude.NFData RemovePrefixListEntry
+instance Core.NFData RemovePrefixListEntry
 
-instance Prelude.ToQuery RemovePrefixListEntry where
+instance Core.ToQuery RemovePrefixListEntry where
   toQuery RemovePrefixListEntry' {..} =
-    Prelude.mconcat ["Cidr" Prelude.=: cidr]
+    Core.mconcat ["Cidr" Core.=: cidr]

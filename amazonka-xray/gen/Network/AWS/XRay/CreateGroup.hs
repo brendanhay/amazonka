@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.XRay.CreateGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -59,9 +58,9 @@ data CreateGroup = CreateGroup'
     -- -   The NotifcationsEnabled boolean can be set to true to enable
     --     insights notifications for the new group. Notifications may only be
     --     enabled on a group with InsightsEnabled set to true.
-    insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
+    insightsConfiguration :: Core.Maybe InsightsConfiguration,
     -- | The filter expression defining criteria by which to group traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
+    filterExpression :: Core.Maybe Core.Text,
     -- | A map that contains one or more tag keys and tag values to attach to an
     -- X-Ray group. For more information about ways to use tags, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
@@ -81,12 +80,12 @@ data CreateGroup = CreateGroup'
     -- -   Tag keys and values are case sensitive.
     --
     -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The case-sensitive name of the new group. Default is a reserved name and
     -- names must be unique.
-    groupName :: Prelude.Text
+    groupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGroup' with all optional fields omitted.
@@ -131,14 +130,13 @@ data CreateGroup = CreateGroup'
 -- names must be unique.
 newCreateGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   CreateGroup
 newCreateGroup pGroupName_ =
   CreateGroup'
-    { insightsConfiguration =
-        Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { insightsConfiguration = Core.Nothing,
+      filterExpression = Core.Nothing,
+      tags = Core.Nothing,
       groupName = pGroupName_
     }
 
@@ -150,11 +148,11 @@ newCreateGroup pGroupName_ =
 -- -   The NotifcationsEnabled boolean can be set to true to enable
 --     insights notifications for the new group. Notifications may only be
 --     enabled on a group with InsightsEnabled set to true.
-createGroup_insightsConfiguration :: Lens.Lens' CreateGroup (Prelude.Maybe InsightsConfiguration)
+createGroup_insightsConfiguration :: Lens.Lens' CreateGroup (Core.Maybe InsightsConfiguration)
 createGroup_insightsConfiguration = Lens.lens (\CreateGroup' {insightsConfiguration} -> insightsConfiguration) (\s@CreateGroup' {} a -> s {insightsConfiguration = a} :: CreateGroup)
 
 -- | The filter expression defining criteria by which to group traces.
-createGroup_filterExpression :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_filterExpression :: Lens.Lens' CreateGroup (Core.Maybe Core.Text)
 createGroup_filterExpression = Lens.lens (\CreateGroup' {filterExpression} -> filterExpression) (\s@CreateGroup' {} a -> s {filterExpression = a} :: CreateGroup)
 
 -- | A map that contains one or more tag keys and tag values to attach to an
@@ -176,50 +174,50 @@ createGroup_filterExpression = Lens.lens (\CreateGroup' {filterExpression} -> fi
 -- -   Tag keys and values are case sensitive.
 --
 -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
-createGroup_tags :: Lens.Lens' CreateGroup (Prelude.Maybe [Tag])
-createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} a -> s {tags = a} :: CreateGroup) Prelude.. Lens.mapping Prelude._Coerce
+createGroup_tags :: Lens.Lens' CreateGroup (Core.Maybe [Tag])
+createGroup_tags = Lens.lens (\CreateGroup' {tags} -> tags) (\s@CreateGroup' {} a -> s {tags = a} :: CreateGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The case-sensitive name of the new group. Default is a reserved name and
 -- names must be unique.
-createGroup_groupName :: Lens.Lens' CreateGroup Prelude.Text
+createGroup_groupName :: Lens.Lens' CreateGroup Core.Text
 createGroup_groupName = Lens.lens (\CreateGroup' {groupName} -> groupName) (\s@CreateGroup' {} a -> s {groupName = a} :: CreateGroup)
 
-instance Prelude.AWSRequest CreateGroup where
-  type Rs CreateGroup = CreateGroupResponse
+instance Core.AWSRequest CreateGroup where
+  type AWSResponse CreateGroup = CreateGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Prelude.<$> (x Prelude..?> "Group")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Group")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGroup
+instance Core.Hashable CreateGroup
 
-instance Prelude.NFData CreateGroup
+instance Core.NFData CreateGroup
 
-instance Prelude.ToHeaders CreateGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateGroup where
+instance Core.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InsightsConfiguration" Prelude..=)
-              Prelude.<$> insightsConfiguration,
-            ("FilterExpression" Prelude..=)
-              Prelude.<$> filterExpression,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("GroupName" Prelude..= groupName)
+    Core.object
+      ( Core.catMaybes
+          [ ("InsightsConfiguration" Core..=)
+              Core.<$> insightsConfiguration,
+            ("FilterExpression" Core..=)
+              Core.<$> filterExpression,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("GroupName" Core..= groupName)
           ]
       )
 
-instance Prelude.ToPath CreateGroup where
-  toPath = Prelude.const "/CreateGroup"
+instance Core.ToPath CreateGroup where
+  toPath = Core.const "/CreateGroup"
 
-instance Prelude.ToQuery CreateGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
@@ -227,11 +225,11 @@ data CreateGroupResponse = CreateGroupResponse'
     -- created, the Amazon Resource Name (ARN) of the group that was generated
     -- based on the group name, the filter expression, and the insight
     -- configuration that was assigned to the group.
-    group' :: Prelude.Maybe Group,
+    group' :: Core.Maybe Group,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGroupResponse' with all optional fields omitted.
@@ -249,11 +247,11 @@ data CreateGroupResponse = CreateGroupResponse'
 -- 'httpStatus', 'createGroupResponse_httpStatus' - The response's http status code.
 newCreateGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateGroupResponse
 newCreateGroupResponse pHttpStatus_ =
   CreateGroupResponse'
-    { group' = Prelude.Nothing,
+    { group' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -261,11 +259,11 @@ newCreateGroupResponse pHttpStatus_ =
 -- created, the Amazon Resource Name (ARN) of the group that was generated
 -- based on the group name, the filter expression, and the insight
 -- configuration that was assigned to the group.
-createGroupResponse_group :: Lens.Lens' CreateGroupResponse (Prelude.Maybe Group)
+createGroupResponse_group :: Lens.Lens' CreateGroupResponse (Core.Maybe Group)
 createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group') (\s@CreateGroupResponse' {} a -> s {group' = a} :: CreateGroupResponse)
 
 -- | The response's http status code.
-createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
+createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Core.Int
 createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
 
-instance Prelude.NFData CreateGroupResponse
+instance Core.NFData CreateGroupResponse

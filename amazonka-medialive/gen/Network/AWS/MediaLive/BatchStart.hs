@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.MediaLive.BatchStart
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newBatchStart'' smart constructor.
 data BatchStart' = BatchStart''
   { -- | List of multiplex IDs
-    multiplexIds :: Prelude.Maybe [Prelude.Text],
+    multiplexIds :: Core.Maybe [Core.Text],
     -- | List of channel IDs
-    channelIds :: Prelude.Maybe [Prelude.Text]
+    channelIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchStart'' with all optional fields omitted.
@@ -74,75 +73,70 @@ newBatchStart' ::
   BatchStart'
 newBatchStart' =
   BatchStart''
-    { multiplexIds = Prelude.Nothing,
-      channelIds = Prelude.Nothing
+    { multiplexIds = Core.Nothing,
+      channelIds = Core.Nothing
     }
 
 -- | List of multiplex IDs
-batchStart'_multiplexIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
-batchStart'_multiplexIds = Lens.lens (\BatchStart'' {multiplexIds} -> multiplexIds) (\s@BatchStart'' {} a -> s {multiplexIds = a} :: BatchStart') Prelude.. Lens.mapping Prelude._Coerce
+batchStart'_multiplexIds :: Lens.Lens' BatchStart' (Core.Maybe [Core.Text])
+batchStart'_multiplexIds = Lens.lens (\BatchStart'' {multiplexIds} -> multiplexIds) (\s@BatchStart'' {} a -> s {multiplexIds = a} :: BatchStart') Core.. Lens.mapping Lens._Coerce
 
 -- | List of channel IDs
-batchStart'_channelIds :: Lens.Lens' BatchStart' (Prelude.Maybe [Prelude.Text])
-batchStart'_channelIds = Lens.lens (\BatchStart'' {channelIds} -> channelIds) (\s@BatchStart'' {} a -> s {channelIds = a} :: BatchStart') Prelude.. Lens.mapping Prelude._Coerce
+batchStart'_channelIds :: Lens.Lens' BatchStart' (Core.Maybe [Core.Text])
+batchStart'_channelIds = Lens.lens (\BatchStart'' {channelIds} -> channelIds) (\s@BatchStart'' {} a -> s {channelIds = a} :: BatchStart') Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest BatchStart' where
-  type Rs BatchStart' = BatchStartResponse
+instance Core.AWSRequest BatchStart' where
+  type AWSResponse BatchStart' = BatchStartResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchStartResponse'
-            Prelude.<$> ( x Prelude..?> "successful"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "failed" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "successful" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "failed" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchStart'
+instance Core.Hashable BatchStart'
 
-instance Prelude.NFData BatchStart'
+instance Core.NFData BatchStart'
 
-instance Prelude.ToHeaders BatchStart' where
+instance Core.ToHeaders BatchStart' where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchStart' where
+instance Core.ToJSON BatchStart' where
   toJSON BatchStart'' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("multiplexIds" Prelude..=)
-              Prelude.<$> multiplexIds,
-            ("channelIds" Prelude..=) Prelude.<$> channelIds
+    Core.object
+      ( Core.catMaybes
+          [ ("multiplexIds" Core..=) Core.<$> multiplexIds,
+            ("channelIds" Core..=) Core.<$> channelIds
           ]
       )
 
-instance Prelude.ToPath BatchStart' where
-  toPath = Prelude.const "/prod/batch/start"
+instance Core.ToPath BatchStart' where
+  toPath = Core.const "/prod/batch/start"
 
-instance Prelude.ToQuery BatchStart' where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchStart' where
+  toQuery = Core.const Core.mempty
 
 -- | Placeholder documentation for BatchStartResponse
 --
 -- /See:/ 'newBatchStartResponse' smart constructor.
 data BatchStartResponse = BatchStartResponse'
   { -- | List of successful operations
-    successful :: Prelude.Maybe [BatchSuccessfulResultModel],
+    successful :: Core.Maybe [BatchSuccessfulResultModel],
     -- | List of failed operations
-    failed :: Prelude.Maybe [BatchFailedResultModel],
+    failed :: Core.Maybe [BatchFailedResultModel],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchStartResponse' with all optional fields omitted.
@@ -159,25 +153,25 @@ data BatchStartResponse = BatchStartResponse'
 -- 'httpStatus', 'batchStartResponse_httpStatus' - The response's http status code.
 newBatchStartResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchStartResponse
 newBatchStartResponse pHttpStatus_ =
   BatchStartResponse'
-    { successful = Prelude.Nothing,
-      failed = Prelude.Nothing,
+    { successful = Core.Nothing,
+      failed = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of successful operations
-batchStartResponse_successful :: Lens.Lens' BatchStartResponse (Prelude.Maybe [BatchSuccessfulResultModel])
-batchStartResponse_successful = Lens.lens (\BatchStartResponse' {successful} -> successful) (\s@BatchStartResponse' {} a -> s {successful = a} :: BatchStartResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchStartResponse_successful :: Lens.Lens' BatchStartResponse (Core.Maybe [BatchSuccessfulResultModel])
+batchStartResponse_successful = Lens.lens (\BatchStartResponse' {successful} -> successful) (\s@BatchStartResponse' {} a -> s {successful = a} :: BatchStartResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | List of failed operations
-batchStartResponse_failed :: Lens.Lens' BatchStartResponse (Prelude.Maybe [BatchFailedResultModel])
-batchStartResponse_failed = Lens.lens (\BatchStartResponse' {failed} -> failed) (\s@BatchStartResponse' {} a -> s {failed = a} :: BatchStartResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchStartResponse_failed :: Lens.Lens' BatchStartResponse (Core.Maybe [BatchFailedResultModel])
+batchStartResponse_failed = Lens.lens (\BatchStartResponse' {failed} -> failed) (\s@BatchStartResponse' {} a -> s {failed = a} :: BatchStartResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchStartResponse_httpStatus :: Lens.Lens' BatchStartResponse Prelude.Int
+batchStartResponse_httpStatus :: Lens.Lens' BatchStartResponse Core.Int
 batchStartResponse_httpStatus = Lens.lens (\BatchStartResponse' {httpStatus} -> httpStatus) (\s@BatchStartResponse' {} a -> s {httpStatus = a} :: BatchStartResponse)
 
-instance Prelude.NFData BatchStartResponse
+instance Core.NFData BatchStartResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.WorkDocs.GetDocumentPath
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -60,18 +59,18 @@ import Network.AWS.WorkDocs.Types
 data GetDocumentPath = GetDocumentPath'
   { -- | A comma-separated list of values. Specify @NAME@ to include the names of
     -- the parent folders.
-    fields :: Prelude.Maybe Prelude.Text,
+    fields :: Core.Maybe Core.Text,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The maximum number of levels in the hierarchy to return.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | This value is not supported.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The ID of the document.
-    documentId :: Prelude.Text
+    documentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDocumentPath' with all optional fields omitted.
@@ -94,86 +93,85 @@ data GetDocumentPath = GetDocumentPath'
 -- 'documentId', 'getDocumentPath_documentId' - The ID of the document.
 newGetDocumentPath ::
   -- | 'documentId'
-  Prelude.Text ->
+  Core.Text ->
   GetDocumentPath
 newGetDocumentPath pDocumentId_ =
   GetDocumentPath'
-    { fields = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { fields = Core.Nothing,
+      authenticationToken = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
       documentId = pDocumentId_
     }
 
 -- | A comma-separated list of values. Specify @NAME@ to include the names of
 -- the parent folders.
-getDocumentPath_fields :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Text)
+getDocumentPath_fields :: Lens.Lens' GetDocumentPath (Core.Maybe Core.Text)
 getDocumentPath_fields = Lens.lens (\GetDocumentPath' {fields} -> fields) (\s@GetDocumentPath' {} a -> s {fields = a} :: GetDocumentPath)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-getDocumentPath_authenticationToken :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Text)
-getDocumentPath_authenticationToken = Lens.lens (\GetDocumentPath' {authenticationToken} -> authenticationToken) (\s@GetDocumentPath' {} a -> s {authenticationToken = a} :: GetDocumentPath) Prelude.. Lens.mapping Prelude._Sensitive
+getDocumentPath_authenticationToken :: Lens.Lens' GetDocumentPath (Core.Maybe Core.Text)
+getDocumentPath_authenticationToken = Lens.lens (\GetDocumentPath' {authenticationToken} -> authenticationToken) (\s@GetDocumentPath' {} a -> s {authenticationToken = a} :: GetDocumentPath) Core.. Lens.mapping Core._Sensitive
 
 -- | The maximum number of levels in the hierarchy to return.
-getDocumentPath_limit :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Natural)
+getDocumentPath_limit :: Lens.Lens' GetDocumentPath (Core.Maybe Core.Natural)
 getDocumentPath_limit = Lens.lens (\GetDocumentPath' {limit} -> limit) (\s@GetDocumentPath' {} a -> s {limit = a} :: GetDocumentPath)
 
 -- | This value is not supported.
-getDocumentPath_marker :: Lens.Lens' GetDocumentPath (Prelude.Maybe Prelude.Text)
+getDocumentPath_marker :: Lens.Lens' GetDocumentPath (Core.Maybe Core.Text)
 getDocumentPath_marker = Lens.lens (\GetDocumentPath' {marker} -> marker) (\s@GetDocumentPath' {} a -> s {marker = a} :: GetDocumentPath)
 
 -- | The ID of the document.
-getDocumentPath_documentId :: Lens.Lens' GetDocumentPath Prelude.Text
+getDocumentPath_documentId :: Lens.Lens' GetDocumentPath Core.Text
 getDocumentPath_documentId = Lens.lens (\GetDocumentPath' {documentId} -> documentId) (\s@GetDocumentPath' {} a -> s {documentId = a} :: GetDocumentPath)
 
-instance Prelude.AWSRequest GetDocumentPath where
-  type Rs GetDocumentPath = GetDocumentPathResponse
+instance Core.AWSRequest GetDocumentPath where
+  type
+    AWSResponse GetDocumentPath =
+      GetDocumentPathResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDocumentPathResponse'
-            Prelude.<$> (x Prelude..?> "Path")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Path")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDocumentPath
+instance Core.Hashable GetDocumentPath
 
-instance Prelude.NFData GetDocumentPath
+instance Core.NFData GetDocumentPath
 
-instance Prelude.ToHeaders GetDocumentPath where
+instance Core.ToHeaders GetDocumentPath where
   toHeaders GetDocumentPath' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToPath GetDocumentPath where
+instance Core.ToPath GetDocumentPath where
   toPath GetDocumentPath' {..} =
-    Prelude.mconcat
-      [ "/api/v1/documents/",
-        Prelude.toBS documentId,
-        "/path"
-      ]
+    Core.mconcat
+      ["/api/v1/documents/", Core.toBS documentId, "/path"]
 
-instance Prelude.ToQuery GetDocumentPath where
+instance Core.ToQuery GetDocumentPath where
   toQuery GetDocumentPath' {..} =
-    Prelude.mconcat
-      [ "fields" Prelude.=: fields,
-        "limit" Prelude.=: limit,
-        "marker" Prelude.=: marker
+    Core.mconcat
+      [ "fields" Core.=: fields,
+        "limit" Core.=: limit,
+        "marker" Core.=: marker
       ]
 
 -- | /See:/ 'newGetDocumentPathResponse' smart constructor.
 data GetDocumentPathResponse = GetDocumentPathResponse'
   { -- | The path information.
-    path :: Prelude.Maybe ResourcePath,
+    path :: Core.Maybe ResourcePath,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDocumentPathResponse' with all optional fields omitted.
@@ -188,20 +186,20 @@ data GetDocumentPathResponse = GetDocumentPathResponse'
 -- 'httpStatus', 'getDocumentPathResponse_httpStatus' - The response's http status code.
 newGetDocumentPathResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDocumentPathResponse
 newGetDocumentPathResponse pHttpStatus_ =
   GetDocumentPathResponse'
-    { path = Prelude.Nothing,
+    { path = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The path information.
-getDocumentPathResponse_path :: Lens.Lens' GetDocumentPathResponse (Prelude.Maybe ResourcePath)
+getDocumentPathResponse_path :: Lens.Lens' GetDocumentPathResponse (Core.Maybe ResourcePath)
 getDocumentPathResponse_path = Lens.lens (\GetDocumentPathResponse' {path} -> path) (\s@GetDocumentPathResponse' {} a -> s {path = a} :: GetDocumentPathResponse)
 
 -- | The response's http status code.
-getDocumentPathResponse_httpStatus :: Lens.Lens' GetDocumentPathResponse Prelude.Int
+getDocumentPathResponse_httpStatus :: Lens.Lens' GetDocumentPathResponse Core.Int
 getDocumentPathResponse_httpStatus = Lens.lens (\GetDocumentPathResponse' {httpStatus} -> httpStatus) (\s@GetDocumentPathResponse' {} a -> s {httpStatus = a} :: GetDocumentPathResponse)
 
-instance Prelude.NFData GetDocumentPathResponse
+instance Core.NFData GetDocumentPathResponse

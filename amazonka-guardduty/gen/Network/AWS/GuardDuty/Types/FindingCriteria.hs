@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.FindingCriteria where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.Condition
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the criteria used for querying findings.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data FindingCriteria = FindingCriteria'
   { -- | Represents a map of finding properties that match specified conditions
     -- and values when querying findings.
-    criterion :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition)
+    criterion :: Core.Maybe (Core.HashMap Core.Text Condition)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FindingCriteria' with all optional fields omitted.
@@ -47,31 +46,29 @@ data FindingCriteria = FindingCriteria'
 newFindingCriteria ::
   FindingCriteria
 newFindingCriteria =
-  FindingCriteria' {criterion = Prelude.Nothing}
+  FindingCriteria' {criterion = Core.Nothing}
 
 -- | Represents a map of finding properties that match specified conditions
 -- and values when querying findings.
-findingCriteria_criterion :: Lens.Lens' FindingCriteria (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
-findingCriteria_criterion = Lens.lens (\FindingCriteria' {criterion} -> criterion) (\s@FindingCriteria' {} a -> s {criterion = a} :: FindingCriteria) Prelude.. Lens.mapping Prelude._Coerce
+findingCriteria_criterion :: Lens.Lens' FindingCriteria (Core.Maybe (Core.HashMap Core.Text Condition))
+findingCriteria_criterion = Lens.lens (\FindingCriteria' {criterion} -> criterion) (\s@FindingCriteria' {} a -> s {criterion = a} :: FindingCriteria) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON FindingCriteria where
+instance Core.FromJSON FindingCriteria where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FindingCriteria"
       ( \x ->
           FindingCriteria'
-            Prelude.<$> ( x Prelude..:? "criterion"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "criterion" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable FindingCriteria
+instance Core.Hashable FindingCriteria
 
-instance Prelude.NFData FindingCriteria
+instance Core.NFData FindingCriteria
 
-instance Prelude.ToJSON FindingCriteria where
+instance Core.ToJSON FindingCriteria where
   toJSON FindingCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("criterion" Prelude..=) Prelude.<$> criterion]
+    Core.object
+      ( Core.catMaybes
+          [("criterion" Core..=) Core.<$> criterion]
       )

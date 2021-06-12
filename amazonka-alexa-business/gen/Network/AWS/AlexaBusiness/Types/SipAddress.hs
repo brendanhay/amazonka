@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.AlexaBusiness.Types.SipAddress where
 
 import Network.AWS.AlexaBusiness.Types.SipType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The SIP address for the contact containing the URI and SIP address type.
 --
 -- /See:/ 'newSipAddress' smart constructor.
 data SipAddress = SipAddress'
   { -- | The URI for the SIP address.
-    uri :: Prelude.Sensitive Prelude.Text,
+    uri :: Core.Sensitive Core.Text,
     -- | The type of the SIP address.
-    type' :: Prelude.Sensitive SipType
+    type' :: Core.Sensitive SipType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SipAddress' with all optional fields omitted.
@@ -48,43 +47,42 @@ data SipAddress = SipAddress'
 -- 'type'', 'sipAddress_type' - The type of the SIP address.
 newSipAddress ::
   -- | 'uri'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   SipType ->
   SipAddress
 newSipAddress pUri_ pType_ =
   SipAddress'
-    { uri = Prelude._Sensitive Lens.# pUri_,
-      type' = Prelude._Sensitive Lens.# pType_
+    { uri = Core._Sensitive Lens.# pUri_,
+      type' = Core._Sensitive Lens.# pType_
     }
 
 -- | The URI for the SIP address.
-sipAddress_uri :: Lens.Lens' SipAddress Prelude.Text
-sipAddress_uri = Lens.lens (\SipAddress' {uri} -> uri) (\s@SipAddress' {} a -> s {uri = a} :: SipAddress) Prelude.. Prelude._Sensitive
+sipAddress_uri :: Lens.Lens' SipAddress Core.Text
+sipAddress_uri = Lens.lens (\SipAddress' {uri} -> uri) (\s@SipAddress' {} a -> s {uri = a} :: SipAddress) Core.. Core._Sensitive
 
 -- | The type of the SIP address.
 sipAddress_type :: Lens.Lens' SipAddress SipType
-sipAddress_type = Lens.lens (\SipAddress' {type'} -> type') (\s@SipAddress' {} a -> s {type' = a} :: SipAddress) Prelude.. Prelude._Sensitive
+sipAddress_type = Lens.lens (\SipAddress' {type'} -> type') (\s@SipAddress' {} a -> s {type' = a} :: SipAddress) Core.. Core._Sensitive
 
-instance Prelude.FromJSON SipAddress where
+instance Core.FromJSON SipAddress where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SipAddress"
       ( \x ->
           SipAddress'
-            Prelude.<$> (x Prelude..: "Uri")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..: "Uri") Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable SipAddress
+instance Core.Hashable SipAddress
 
-instance Prelude.NFData SipAddress
+instance Core.NFData SipAddress
 
-instance Prelude.ToJSON SipAddress where
+instance Core.ToJSON SipAddress where
   toJSON SipAddress' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Uri" Prelude..= uri),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Uri" Core..= uri),
+            Core.Just ("Type" Core..= type')
           ]
       )

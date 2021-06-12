@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
   { -- | The number of cache node instances to reserve.
     --
     -- Default: @1@
-    cacheNodeCount :: Prelude.Maybe Prelude.Int,
+    cacheNodeCount :: Core.Maybe Core.Int,
     -- | A customer-specified identifier to track this reservation.
     --
     -- The Reserved Cache Node ID is an unique customer-specified identifier to
@@ -70,13 +69,13 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
     -- automatically generates an identifier for the reservation.
     --
     -- Example: myreservationID
-    reservedCacheNodeId :: Prelude.Maybe Prelude.Text,
+    reservedCacheNodeId :: Core.Maybe Core.Text,
     -- | The ID of the reserved cache node offering to purchase.
     --
     -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
-    reservedCacheNodesOfferingId :: Prelude.Text
+    reservedCacheNodesOfferingId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseReservedCacheNodesOffering' with all optional fields omitted.
@@ -103,14 +102,14 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
 newPurchaseReservedCacheNodesOffering ::
   -- | 'reservedCacheNodesOfferingId'
-  Prelude.Text ->
+  Core.Text ->
   PurchaseReservedCacheNodesOffering
 newPurchaseReservedCacheNodesOffering
   pReservedCacheNodesOfferingId_ =
     PurchaseReservedCacheNodesOffering'
       { cacheNodeCount =
-          Prelude.Nothing,
-        reservedCacheNodeId = Prelude.Nothing,
+          Core.Nothing,
+        reservedCacheNodeId = Core.Nothing,
         reservedCacheNodesOfferingId =
           pReservedCacheNodesOfferingId_
       }
@@ -118,7 +117,7 @@ newPurchaseReservedCacheNodesOffering
 -- | The number of cache node instances to reserve.
 --
 -- Default: @1@
-purchaseReservedCacheNodesOffering_cacheNodeCount :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe Prelude.Int)
+purchaseReservedCacheNodesOffering_cacheNodeCount :: Lens.Lens' PurchaseReservedCacheNodesOffering (Core.Maybe Core.Int)
 purchaseReservedCacheNodesOffering_cacheNodeCount = Lens.lens (\PurchaseReservedCacheNodesOffering' {cacheNodeCount} -> cacheNodeCount) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {cacheNodeCount = a} :: PurchaseReservedCacheNodesOffering)
 
 -- | A customer-specified identifier to track this reservation.
@@ -128,21 +127,21 @@ purchaseReservedCacheNodesOffering_cacheNodeCount = Lens.lens (\PurchaseReserved
 -- automatically generates an identifier for the reservation.
 --
 -- Example: myreservationID
-purchaseReservedCacheNodesOffering_reservedCacheNodeId :: Lens.Lens' PurchaseReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
+purchaseReservedCacheNodesOffering_reservedCacheNodeId :: Lens.Lens' PurchaseReservedCacheNodesOffering (Core.Maybe Core.Text)
 purchaseReservedCacheNodesOffering_reservedCacheNodeId = Lens.lens (\PurchaseReservedCacheNodesOffering' {reservedCacheNodeId} -> reservedCacheNodeId) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {reservedCacheNodeId = a} :: PurchaseReservedCacheNodesOffering)
 
 -- | The ID of the reserved cache node offering to purchase.
 --
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
-purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId :: Lens.Lens' PurchaseReservedCacheNodesOffering Prelude.Text
+purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId :: Lens.Lens' PurchaseReservedCacheNodesOffering Core.Text
 purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId = Lens.lens (\PurchaseReservedCacheNodesOffering' {reservedCacheNodesOfferingId} -> reservedCacheNodesOfferingId) (\s@PurchaseReservedCacheNodesOffering' {} a -> s {reservedCacheNodesOfferingId = a} :: PurchaseReservedCacheNodesOffering)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PurchaseReservedCacheNodesOffering
   where
   type
-    Rs PurchaseReservedCacheNodesOffering =
+    AWSResponse PurchaseReservedCacheNodesOffering =
       PurchaseReservedCacheNodesOfferingResponse
   request = Request.postQuery defaultService
   response =
@@ -150,55 +149,54 @@ instance
       "PurchaseReservedCacheNodesOfferingResult"
       ( \s h x ->
           PurchaseReservedCacheNodesOfferingResponse'
-            Prelude.<$> (x Prelude..@? "ReservedCacheNode")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ReservedCacheNode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PurchaseReservedCacheNodesOffering
 
 instance
-  Prelude.NFData
+  Core.NFData
     PurchaseReservedCacheNodesOffering
 
 instance
-  Prelude.ToHeaders
-    PurchaseReservedCacheNodesOffering
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     PurchaseReservedCacheNodesOffering
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    PurchaseReservedCacheNodesOffering
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     PurchaseReservedCacheNodesOffering
   where
   toQuery PurchaseReservedCacheNodesOffering' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "PurchaseReservedCacheNodesOffering" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "CacheNodeCount" Prelude.=: cacheNodeCount,
-        "ReservedCacheNodeId" Prelude.=: reservedCacheNodeId,
+          Core.=: ( "PurchaseReservedCacheNodesOffering" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "CacheNodeCount" Core.=: cacheNodeCount,
+        "ReservedCacheNodeId" Core.=: reservedCacheNodeId,
         "ReservedCacheNodesOfferingId"
-          Prelude.=: reservedCacheNodesOfferingId
+          Core.=: reservedCacheNodesOfferingId
       ]
 
 -- | /See:/ 'newPurchaseReservedCacheNodesOfferingResponse' smart constructor.
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
-  { reservedCacheNode :: Prelude.Maybe ReservedCacheNode,
+  { reservedCacheNode :: Core.Maybe ReservedCacheNode,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseReservedCacheNodesOfferingResponse' with all optional fields omitted.
@@ -213,24 +211,24 @@ data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOffe
 -- 'httpStatus', 'purchaseReservedCacheNodesOfferingResponse_httpStatus' - The response's http status code.
 newPurchaseReservedCacheNodesOfferingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PurchaseReservedCacheNodesOfferingResponse
 newPurchaseReservedCacheNodesOfferingResponse
   pHttpStatus_ =
     PurchaseReservedCacheNodesOfferingResponse'
       { reservedCacheNode =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-purchaseReservedCacheNodesOfferingResponse_reservedCacheNode :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse (Prelude.Maybe ReservedCacheNode)
+purchaseReservedCacheNodesOfferingResponse_reservedCacheNode :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse (Core.Maybe ReservedCacheNode)
 purchaseReservedCacheNodesOfferingResponse_reservedCacheNode = Lens.lens (\PurchaseReservedCacheNodesOfferingResponse' {reservedCacheNode} -> reservedCacheNode) (\s@PurchaseReservedCacheNodesOfferingResponse' {} a -> s {reservedCacheNode = a} :: PurchaseReservedCacheNodesOfferingResponse)
 
 -- | The response's http status code.
-purchaseReservedCacheNodesOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse Prelude.Int
+purchaseReservedCacheNodesOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse Core.Int
 purchaseReservedCacheNodesOfferingResponse_httpStatus = Lens.lens (\PurchaseReservedCacheNodesOfferingResponse' {httpStatus} -> httpStatus) (\s@PurchaseReservedCacheNodesOfferingResponse' {} a -> s {httpStatus = a} :: PurchaseReservedCacheNodesOfferingResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PurchaseReservedCacheNodesOfferingResponse

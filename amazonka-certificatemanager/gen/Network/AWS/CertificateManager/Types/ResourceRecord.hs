@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CertificateManager.Types.ResourceRecord where
 
 import Network.AWS.CertificateManager.Types.RecordType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a DNS record value that you can use to can use to validate
 -- ownership or control of a domain. This is used by the
@@ -32,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ResourceRecord = ResourceRecord'
   { -- | The name of the DNS record to create in your domain. This is supplied by
     -- ACM.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The type of DNS record. Currently this can be @CNAME@.
     type' :: RecordType,
     -- | The value of the CNAME record to add to your DNS database. This is
     -- supplied by ACM.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceRecord' with all optional fields omitted.
@@ -58,11 +57,11 @@ data ResourceRecord = ResourceRecord'
 -- supplied by ACM.
 newResourceRecord ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   RecordType ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   ResourceRecord
 newResourceRecord pName_ pType_ pValue_ =
   ResourceRecord'
@@ -73,7 +72,7 @@ newResourceRecord pName_ pType_ pValue_ =
 
 -- | The name of the DNS record to create in your domain. This is supplied by
 -- ACM.
-resourceRecord_name :: Lens.Lens' ResourceRecord Prelude.Text
+resourceRecord_name :: Lens.Lens' ResourceRecord Core.Text
 resourceRecord_name = Lens.lens (\ResourceRecord' {name} -> name) (\s@ResourceRecord' {} a -> s {name = a} :: ResourceRecord)
 
 -- | The type of DNS record. Currently this can be @CNAME@.
@@ -82,20 +81,20 @@ resourceRecord_type = Lens.lens (\ResourceRecord' {type'} -> type') (\s@Resource
 
 -- | The value of the CNAME record to add to your DNS database. This is
 -- supplied by ACM.
-resourceRecord_value :: Lens.Lens' ResourceRecord Prelude.Text
+resourceRecord_value :: Lens.Lens' ResourceRecord Core.Text
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
-instance Prelude.FromJSON ResourceRecord where
+instance Core.FromJSON ResourceRecord where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceRecord"
       ( \x ->
           ResourceRecord'
-            Prelude.<$> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Name")
+            Core.<*> (x Core..: "Type")
+            Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ResourceRecord
+instance Core.Hashable ResourceRecord
 
-instance Prelude.NFData ResourceRecord
+instance Core.NFData ResourceRecord

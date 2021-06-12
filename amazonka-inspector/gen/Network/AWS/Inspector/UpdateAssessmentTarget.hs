@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Inspector.UpdateAssessmentTarget
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +51,13 @@ import qualified Network.AWS.Response as Response
 data UpdateAssessmentTarget = UpdateAssessmentTarget'
   { -- | The ARN of the resource group that is used to specify the new resource
     -- group to associate with the assessment target.
-    resourceGroupArn :: Prelude.Maybe Prelude.Text,
+    resourceGroupArn :: Core.Maybe Core.Text,
     -- | The ARN of the assessment target that you want to update.
-    assessmentTargetArn :: Prelude.Text,
+    assessmentTargetArn :: Core.Text,
     -- | The name of the assessment target that you want to update.
-    assessmentTargetName :: Prelude.Text
+    assessmentTargetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAssessmentTarget' with all optional fields omitted.
@@ -76,89 +75,85 @@ data UpdateAssessmentTarget = UpdateAssessmentTarget'
 -- 'assessmentTargetName', 'updateAssessmentTarget_assessmentTargetName' - The name of the assessment target that you want to update.
 newUpdateAssessmentTarget ::
   -- | 'assessmentTargetArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'assessmentTargetName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAssessmentTarget
 newUpdateAssessmentTarget
   pAssessmentTargetArn_
   pAssessmentTargetName_ =
     UpdateAssessmentTarget'
       { resourceGroupArn =
-          Prelude.Nothing,
+          Core.Nothing,
         assessmentTargetArn = pAssessmentTargetArn_,
         assessmentTargetName = pAssessmentTargetName_
       }
 
 -- | The ARN of the resource group that is used to specify the new resource
 -- group to associate with the assessment target.
-updateAssessmentTarget_resourceGroupArn :: Lens.Lens' UpdateAssessmentTarget (Prelude.Maybe Prelude.Text)
+updateAssessmentTarget_resourceGroupArn :: Lens.Lens' UpdateAssessmentTarget (Core.Maybe Core.Text)
 updateAssessmentTarget_resourceGroupArn = Lens.lens (\UpdateAssessmentTarget' {resourceGroupArn} -> resourceGroupArn) (\s@UpdateAssessmentTarget' {} a -> s {resourceGroupArn = a} :: UpdateAssessmentTarget)
 
 -- | The ARN of the assessment target that you want to update.
-updateAssessmentTarget_assessmentTargetArn :: Lens.Lens' UpdateAssessmentTarget Prelude.Text
+updateAssessmentTarget_assessmentTargetArn :: Lens.Lens' UpdateAssessmentTarget Core.Text
 updateAssessmentTarget_assessmentTargetArn = Lens.lens (\UpdateAssessmentTarget' {assessmentTargetArn} -> assessmentTargetArn) (\s@UpdateAssessmentTarget' {} a -> s {assessmentTargetArn = a} :: UpdateAssessmentTarget)
 
 -- | The name of the assessment target that you want to update.
-updateAssessmentTarget_assessmentTargetName :: Lens.Lens' UpdateAssessmentTarget Prelude.Text
+updateAssessmentTarget_assessmentTargetName :: Lens.Lens' UpdateAssessmentTarget Core.Text
 updateAssessmentTarget_assessmentTargetName = Lens.lens (\UpdateAssessmentTarget' {assessmentTargetName} -> assessmentTargetName) (\s@UpdateAssessmentTarget' {} a -> s {assessmentTargetName = a} :: UpdateAssessmentTarget)
 
-instance Prelude.AWSRequest UpdateAssessmentTarget where
+instance Core.AWSRequest UpdateAssessmentTarget where
   type
-    Rs UpdateAssessmentTarget =
+    AWSResponse UpdateAssessmentTarget =
       UpdateAssessmentTargetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateAssessmentTargetResponse'
 
-instance Prelude.Hashable UpdateAssessmentTarget
+instance Core.Hashable UpdateAssessmentTarget
 
-instance Prelude.NFData UpdateAssessmentTarget
+instance Core.NFData UpdateAssessmentTarget
 
-instance Prelude.ToHeaders UpdateAssessmentTarget where
+instance Core.ToHeaders UpdateAssessmentTarget where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.UpdateAssessmentTarget" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.UpdateAssessmentTarget" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateAssessmentTarget where
+instance Core.ToJSON UpdateAssessmentTarget where
   toJSON UpdateAssessmentTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resourceGroupArn" Prelude..=)
-              Prelude.<$> resourceGroupArn,
-            Prelude.Just
-              ( "assessmentTargetArn"
-                  Prelude..= assessmentTargetArn
-              ),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("resourceGroupArn" Core..=)
+              Core.<$> resourceGroupArn,
+            Core.Just
+              ("assessmentTargetArn" Core..= assessmentTargetArn),
+            Core.Just
               ( "assessmentTargetName"
-                  Prelude..= assessmentTargetName
+                  Core..= assessmentTargetName
               )
           ]
       )
 
-instance Prelude.ToPath UpdateAssessmentTarget where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAssessmentTarget where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAssessmentTarget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAssessmentTarget where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateAssessmentTargetResponse' smart constructor.
 data UpdateAssessmentTargetResponse = UpdateAssessmentTargetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAssessmentTargetResponse' with all optional fields omitted.
@@ -169,6 +164,4 @@ newUpdateAssessmentTargetResponse ::
 newUpdateAssessmentTargetResponse =
   UpdateAssessmentTargetResponse'
 
-instance
-  Prelude.NFData
-    UpdateAssessmentTargetResponse
+instance Core.NFData UpdateAssessmentTargetResponse

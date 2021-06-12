@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.CopyCommand where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a @COPY@ command for Amazon Redshift.
 --
@@ -50,14 +49,14 @@ data CopyCommand = CopyCommand'
     --
     -- For more examples, see
     -- <https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples>.
-    copyOptions :: Prelude.Maybe Prelude.Text,
+    copyOptions :: Core.Maybe Core.Text,
     -- | A comma-separated list of column names.
-    dataTableColumns :: Prelude.Maybe Prelude.Text,
+    dataTableColumns :: Core.Maybe Core.Text,
     -- | The name of the target table. The table must already exist in the
     -- database.
-    dataTableName :: Prelude.Text
+    dataTableName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyCommand' with all optional fields omitted.
@@ -97,12 +96,12 @@ data CopyCommand = CopyCommand'
 -- database.
 newCopyCommand ::
   -- | 'dataTableName'
-  Prelude.Text ->
+  Core.Text ->
   CopyCommand
 newCopyCommand pDataTableName_ =
   CopyCommand'
-    { copyOptions = Prelude.Nothing,
-      dataTableColumns = Prelude.Nothing,
+    { copyOptions = Core.Nothing,
+      dataTableColumns = Core.Nothing,
       dataTableName = pDataTableName_
     }
 
@@ -129,41 +128,40 @@ newCopyCommand pDataTableName_ =
 --
 -- For more examples, see
 -- <https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html Amazon Redshift COPY command examples>.
-copyCommand_copyOptions :: Lens.Lens' CopyCommand (Prelude.Maybe Prelude.Text)
+copyCommand_copyOptions :: Lens.Lens' CopyCommand (Core.Maybe Core.Text)
 copyCommand_copyOptions = Lens.lens (\CopyCommand' {copyOptions} -> copyOptions) (\s@CopyCommand' {} a -> s {copyOptions = a} :: CopyCommand)
 
 -- | A comma-separated list of column names.
-copyCommand_dataTableColumns :: Lens.Lens' CopyCommand (Prelude.Maybe Prelude.Text)
+copyCommand_dataTableColumns :: Lens.Lens' CopyCommand (Core.Maybe Core.Text)
 copyCommand_dataTableColumns = Lens.lens (\CopyCommand' {dataTableColumns} -> dataTableColumns) (\s@CopyCommand' {} a -> s {dataTableColumns = a} :: CopyCommand)
 
 -- | The name of the target table. The table must already exist in the
 -- database.
-copyCommand_dataTableName :: Lens.Lens' CopyCommand Prelude.Text
+copyCommand_dataTableName :: Lens.Lens' CopyCommand Core.Text
 copyCommand_dataTableName = Lens.lens (\CopyCommand' {dataTableName} -> dataTableName) (\s@CopyCommand' {} a -> s {dataTableName = a} :: CopyCommand)
 
-instance Prelude.FromJSON CopyCommand where
+instance Core.FromJSON CopyCommand where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CopyCommand"
       ( \x ->
           CopyCommand'
-            Prelude.<$> (x Prelude..:? "CopyOptions")
-            Prelude.<*> (x Prelude..:? "DataTableColumns")
-            Prelude.<*> (x Prelude..: "DataTableName")
+            Core.<$> (x Core..:? "CopyOptions")
+            Core.<*> (x Core..:? "DataTableColumns")
+            Core.<*> (x Core..: "DataTableName")
       )
 
-instance Prelude.Hashable CopyCommand
+instance Core.Hashable CopyCommand
 
-instance Prelude.NFData CopyCommand
+instance Core.NFData CopyCommand
 
-instance Prelude.ToJSON CopyCommand where
+instance Core.ToJSON CopyCommand where
   toJSON CopyCommand' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CopyOptions" Prelude..=) Prelude.<$> copyOptions,
-            ("DataTableColumns" Prelude..=)
-              Prelude.<$> dataTableColumns,
-            Prelude.Just
-              ("DataTableName" Prelude..= dataTableName)
+    Core.object
+      ( Core.catMaybes
+          [ ("CopyOptions" Core..=) Core.<$> copyOptions,
+            ("DataTableColumns" Core..=)
+              Core.<$> dataTableColumns,
+            Core.Just ("DataTableName" Core..= dataTableName)
           ]
       )

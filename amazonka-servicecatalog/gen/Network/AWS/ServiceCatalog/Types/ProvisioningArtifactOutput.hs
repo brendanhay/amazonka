@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provisioning artifact output.
 --
 -- /See:/ 'newProvisioningArtifactOutput' smart constructor.
 data ProvisioningArtifactOutput = ProvisioningArtifactOutput'
   { -- | The provisioning artifact output key.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | Description of the provisioning artifact output key.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvisioningArtifactOutput' with all optional fields omitted.
@@ -49,28 +48,28 @@ newProvisioningArtifactOutput ::
   ProvisioningArtifactOutput
 newProvisioningArtifactOutput =
   ProvisioningArtifactOutput'
-    { key = Prelude.Nothing,
-      description = Prelude.Nothing
+    { key = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The provisioning artifact output key.
-provisioningArtifactOutput_key :: Lens.Lens' ProvisioningArtifactOutput (Prelude.Maybe Prelude.Text)
+provisioningArtifactOutput_key :: Lens.Lens' ProvisioningArtifactOutput (Core.Maybe Core.Text)
 provisioningArtifactOutput_key = Lens.lens (\ProvisioningArtifactOutput' {key} -> key) (\s@ProvisioningArtifactOutput' {} a -> s {key = a} :: ProvisioningArtifactOutput)
 
 -- | Description of the provisioning artifact output key.
-provisioningArtifactOutput_description :: Lens.Lens' ProvisioningArtifactOutput (Prelude.Maybe Prelude.Text)
+provisioningArtifactOutput_description :: Lens.Lens' ProvisioningArtifactOutput (Core.Maybe Core.Text)
 provisioningArtifactOutput_description = Lens.lens (\ProvisioningArtifactOutput' {description} -> description) (\s@ProvisioningArtifactOutput' {} a -> s {description = a} :: ProvisioningArtifactOutput)
 
-instance Prelude.FromJSON ProvisioningArtifactOutput where
+instance Core.FromJSON ProvisioningArtifactOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProvisioningArtifactOutput"
       ( \x ->
           ProvisioningArtifactOutput'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Description")
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "Description")
       )
 
-instance Prelude.Hashable ProvisioningArtifactOutput
+instance Core.Hashable ProvisioningArtifactOutput
 
-instance Prelude.NFData ProvisioningArtifactOutput
+instance Core.NFData ProvisioningArtifactOutput

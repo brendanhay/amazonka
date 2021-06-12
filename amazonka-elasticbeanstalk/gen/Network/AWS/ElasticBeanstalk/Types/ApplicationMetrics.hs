@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.Latency
 import Network.AWS.ElasticBeanstalk.Types.StatusCodes
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Application request metrics for an AWS Elastic Beanstalk environment.
 --
@@ -32,19 +31,19 @@ data ApplicationMetrics = ApplicationMetrics'
   { -- | The amount of time that the metrics cover (usually 10 seconds). For
     -- example, you might have 5 requests (@request_count@) within the most
     -- recent time slice of 10 seconds (@duration@).
-    duration :: Prelude.Maybe Prelude.Int,
+    duration :: Core.Maybe Core.Int,
     -- | Represents the percentage of requests over the last 10 seconds that
     -- resulted in each type of status code response.
-    statusCodes :: Prelude.Maybe StatusCodes,
+    statusCodes :: Core.Maybe StatusCodes,
     -- | Average number of requests handled by the web server per second over the
     -- last 10 seconds.
-    requestCount :: Prelude.Maybe Prelude.Int,
+    requestCount :: Core.Maybe Core.Int,
     -- | Represents the average latency for the slowest X percent of requests
     -- over the last 10 seconds. Latencies are in seconds with one millisecond
     -- resolution.
-    latency :: Prelude.Maybe Latency
+    latency :: Core.Maybe Latency
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationMetrics' with all optional fields omitted.
@@ -71,42 +70,42 @@ newApplicationMetrics ::
   ApplicationMetrics
 newApplicationMetrics =
   ApplicationMetrics'
-    { duration = Prelude.Nothing,
-      statusCodes = Prelude.Nothing,
-      requestCount = Prelude.Nothing,
-      latency = Prelude.Nothing
+    { duration = Core.Nothing,
+      statusCodes = Core.Nothing,
+      requestCount = Core.Nothing,
+      latency = Core.Nothing
     }
 
 -- | The amount of time that the metrics cover (usually 10 seconds). For
 -- example, you might have 5 requests (@request_count@) within the most
 -- recent time slice of 10 seconds (@duration@).
-applicationMetrics_duration :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Prelude.Int)
+applicationMetrics_duration :: Lens.Lens' ApplicationMetrics (Core.Maybe Core.Int)
 applicationMetrics_duration = Lens.lens (\ApplicationMetrics' {duration} -> duration) (\s@ApplicationMetrics' {} a -> s {duration = a} :: ApplicationMetrics)
 
 -- | Represents the percentage of requests over the last 10 seconds that
 -- resulted in each type of status code response.
-applicationMetrics_statusCodes :: Lens.Lens' ApplicationMetrics (Prelude.Maybe StatusCodes)
+applicationMetrics_statusCodes :: Lens.Lens' ApplicationMetrics (Core.Maybe StatusCodes)
 applicationMetrics_statusCodes = Lens.lens (\ApplicationMetrics' {statusCodes} -> statusCodes) (\s@ApplicationMetrics' {} a -> s {statusCodes = a} :: ApplicationMetrics)
 
 -- | Average number of requests handled by the web server per second over the
 -- last 10 seconds.
-applicationMetrics_requestCount :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Prelude.Int)
+applicationMetrics_requestCount :: Lens.Lens' ApplicationMetrics (Core.Maybe Core.Int)
 applicationMetrics_requestCount = Lens.lens (\ApplicationMetrics' {requestCount} -> requestCount) (\s@ApplicationMetrics' {} a -> s {requestCount = a} :: ApplicationMetrics)
 
 -- | Represents the average latency for the slowest X percent of requests
 -- over the last 10 seconds. Latencies are in seconds with one millisecond
 -- resolution.
-applicationMetrics_latency :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Latency)
+applicationMetrics_latency :: Lens.Lens' ApplicationMetrics (Core.Maybe Latency)
 applicationMetrics_latency = Lens.lens (\ApplicationMetrics' {latency} -> latency) (\s@ApplicationMetrics' {} a -> s {latency = a} :: ApplicationMetrics)
 
-instance Prelude.FromXML ApplicationMetrics where
+instance Core.FromXML ApplicationMetrics where
   parseXML x =
     ApplicationMetrics'
-      Prelude.<$> (x Prelude..@? "Duration")
-      Prelude.<*> (x Prelude..@? "StatusCodes")
-      Prelude.<*> (x Prelude..@? "RequestCount")
-      Prelude.<*> (x Prelude..@? "Latency")
+      Core.<$> (x Core..@? "Duration")
+      Core.<*> (x Core..@? "StatusCodes")
+      Core.<*> (x Core..@? "RequestCount")
+      Core.<*> (x Core..@? "Latency")
 
-instance Prelude.Hashable ApplicationMetrics
+instance Core.Hashable ApplicationMetrics
 
-instance Prelude.NFData ApplicationMetrics
+instance Core.NFData ApplicationMetrics

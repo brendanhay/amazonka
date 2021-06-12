@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeCommit.Types.BranchInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a branch.
 --
 -- /See:/ 'newBranchInfo' smart constructor.
 data BranchInfo = BranchInfo'
   { -- | The ID of the last commit made to the branch.
-    commitId :: Prelude.Maybe Prelude.Text,
+    commitId :: Core.Maybe Core.Text,
     -- | The name of the branch.
-    branchName :: Prelude.Maybe Prelude.Text
+    branchName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BranchInfo' with all optional fields omitted.
@@ -49,28 +48,28 @@ newBranchInfo ::
   BranchInfo
 newBranchInfo =
   BranchInfo'
-    { commitId = Prelude.Nothing,
-      branchName = Prelude.Nothing
+    { commitId = Core.Nothing,
+      branchName = Core.Nothing
     }
 
 -- | The ID of the last commit made to the branch.
-branchInfo_commitId :: Lens.Lens' BranchInfo (Prelude.Maybe Prelude.Text)
+branchInfo_commitId :: Lens.Lens' BranchInfo (Core.Maybe Core.Text)
 branchInfo_commitId = Lens.lens (\BranchInfo' {commitId} -> commitId) (\s@BranchInfo' {} a -> s {commitId = a} :: BranchInfo)
 
 -- | The name of the branch.
-branchInfo_branchName :: Lens.Lens' BranchInfo (Prelude.Maybe Prelude.Text)
+branchInfo_branchName :: Lens.Lens' BranchInfo (Core.Maybe Core.Text)
 branchInfo_branchName = Lens.lens (\BranchInfo' {branchName} -> branchName) (\s@BranchInfo' {} a -> s {branchName = a} :: BranchInfo)
 
-instance Prelude.FromJSON BranchInfo where
+instance Core.FromJSON BranchInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BranchInfo"
       ( \x ->
           BranchInfo'
-            Prelude.<$> (x Prelude..:? "commitId")
-            Prelude.<*> (x Prelude..:? "branchName")
+            Core.<$> (x Core..:? "commitId")
+            Core.<*> (x Core..:? "branchName")
       )
 
-instance Prelude.Hashable BranchInfo
+instance Core.Hashable BranchInfo
 
-instance Prelude.NFData BranchInfo
+instance Core.NFData BranchInfo

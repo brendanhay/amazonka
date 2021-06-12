@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Glue.CreateUserDefinedFunction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,14 +50,14 @@ import qualified Network.AWS.Response as Response
 data CreateUserDefinedFunction = CreateUserDefinedFunction'
   { -- | The ID of the Data Catalog in which to create the function. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database in which to create the function.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | A @FunctionInput@ object that defines the function to create in the Data
     -- Catalog.
     functionInput :: UserDefinedFunctionInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserDefinedFunction' with all optional fields omitted.
@@ -77,7 +76,7 @@ data CreateUserDefinedFunction = CreateUserDefinedFunction'
 -- Catalog.
 newCreateUserDefinedFunction ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'functionInput'
   UserDefinedFunctionInput ->
   CreateUserDefinedFunction
@@ -86,18 +85,18 @@ newCreateUserDefinedFunction
   pFunctionInput_ =
     CreateUserDefinedFunction'
       { catalogId =
-          Prelude.Nothing,
+          Core.Nothing,
         databaseName = pDatabaseName_,
         functionInput = pFunctionInput_
       }
 
 -- | The ID of the Data Catalog in which to create the function. If none is
 -- provided, the AWS account ID is used by default.
-createUserDefinedFunction_catalogId :: Lens.Lens' CreateUserDefinedFunction (Prelude.Maybe Prelude.Text)
+createUserDefinedFunction_catalogId :: Lens.Lens' CreateUserDefinedFunction (Core.Maybe Core.Text)
 createUserDefinedFunction_catalogId = Lens.lens (\CreateUserDefinedFunction' {catalogId} -> catalogId) (\s@CreateUserDefinedFunction' {} a -> s {catalogId = a} :: CreateUserDefinedFunction)
 
 -- | The name of the catalog database in which to create the function.
-createUserDefinedFunction_databaseName :: Lens.Lens' CreateUserDefinedFunction Prelude.Text
+createUserDefinedFunction_databaseName :: Lens.Lens' CreateUserDefinedFunction Core.Text
 createUserDefinedFunction_databaseName = Lens.lens (\CreateUserDefinedFunction' {databaseName} -> databaseName) (\s@CreateUserDefinedFunction' {} a -> s {databaseName = a} :: CreateUserDefinedFunction)
 
 -- | A @FunctionInput@ object that defines the function to create in the Data
@@ -105,61 +104,57 @@ createUserDefinedFunction_databaseName = Lens.lens (\CreateUserDefinedFunction' 
 createUserDefinedFunction_functionInput :: Lens.Lens' CreateUserDefinedFunction UserDefinedFunctionInput
 createUserDefinedFunction_functionInput = Lens.lens (\CreateUserDefinedFunction' {functionInput} -> functionInput) (\s@CreateUserDefinedFunction' {} a -> s {functionInput = a} :: CreateUserDefinedFunction)
 
-instance Prelude.AWSRequest CreateUserDefinedFunction where
+instance Core.AWSRequest CreateUserDefinedFunction where
   type
-    Rs CreateUserDefinedFunction =
+    AWSResponse CreateUserDefinedFunction =
       CreateUserDefinedFunctionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateUserDefinedFunctionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserDefinedFunction
+instance Core.Hashable CreateUserDefinedFunction
 
-instance Prelude.NFData CreateUserDefinedFunction
+instance Core.NFData CreateUserDefinedFunction
 
-instance Prelude.ToHeaders CreateUserDefinedFunction where
+instance Core.ToHeaders CreateUserDefinedFunction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.CreateUserDefinedFunction" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.CreateUserDefinedFunction" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateUserDefinedFunction where
+instance Core.ToJSON CreateUserDefinedFunction where
   toJSON CreateUserDefinedFunction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just
-              ("FunctionInput" Prelude..= functionInput)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("FunctionInput" Core..= functionInput)
           ]
       )
 
-instance Prelude.ToPath CreateUserDefinedFunction where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateUserDefinedFunction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateUserDefinedFunction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateUserDefinedFunction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateUserDefinedFunctionResponse' smart constructor.
 data CreateUserDefinedFunctionResponse = CreateUserDefinedFunctionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserDefinedFunctionResponse' with all optional fields omitted.
@@ -172,7 +167,7 @@ data CreateUserDefinedFunctionResponse = CreateUserDefinedFunctionResponse'
 -- 'httpStatus', 'createUserDefinedFunctionResponse_httpStatus' - The response's http status code.
 newCreateUserDefinedFunctionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateUserDefinedFunctionResponse
 newCreateUserDefinedFunctionResponse pHttpStatus_ =
   CreateUserDefinedFunctionResponse'
@@ -181,9 +176,9 @@ newCreateUserDefinedFunctionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createUserDefinedFunctionResponse_httpStatus :: Lens.Lens' CreateUserDefinedFunctionResponse Prelude.Int
+createUserDefinedFunctionResponse_httpStatus :: Lens.Lens' CreateUserDefinedFunctionResponse Core.Int
 createUserDefinedFunctionResponse_httpStatus = Lens.lens (\CreateUserDefinedFunctionResponse' {httpStatus} -> httpStatus) (\s@CreateUserDefinedFunctionResponse' {} a -> s {httpStatus = a} :: CreateUserDefinedFunctionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateUserDefinedFunctionResponse

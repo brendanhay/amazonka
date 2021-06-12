@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.CloudWatch.DeleteDashboards
 where
 
 import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDashboards' smart constructor.
 data DeleteDashboards = DeleteDashboards'
   { -- | The dashboards to be deleted. This parameter is required.
-    dashboardNames :: [Prelude.Text]
+    dashboardNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDashboards' with all optional fields omitted.
@@ -66,50 +65,51 @@ data DeleteDashboards = DeleteDashboards'
 newDeleteDashboards ::
   DeleteDashboards
 newDeleteDashboards =
-  DeleteDashboards' {dashboardNames = Prelude.mempty}
+  DeleteDashboards' {dashboardNames = Core.mempty}
 
 -- | The dashboards to be deleted. This parameter is required.
-deleteDashboards_dashboardNames :: Lens.Lens' DeleteDashboards [Prelude.Text]
-deleteDashboards_dashboardNames = Lens.lens (\DeleteDashboards' {dashboardNames} -> dashboardNames) (\s@DeleteDashboards' {} a -> s {dashboardNames = a} :: DeleteDashboards) Prelude.. Prelude._Coerce
+deleteDashboards_dashboardNames :: Lens.Lens' DeleteDashboards [Core.Text]
+deleteDashboards_dashboardNames = Lens.lens (\DeleteDashboards' {dashboardNames} -> dashboardNames) (\s@DeleteDashboards' {} a -> s {dashboardNames = a} :: DeleteDashboards) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteDashboards where
-  type Rs DeleteDashboards = DeleteDashboardsResponse
+instance Core.AWSRequest DeleteDashboards where
+  type
+    AWSResponse DeleteDashboards =
+      DeleteDashboardsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteDashboardsResult"
       ( \s h x ->
           DeleteDashboardsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDashboards
+instance Core.Hashable DeleteDashboards
 
-instance Prelude.NFData DeleteDashboards
+instance Core.NFData DeleteDashboards
 
-instance Prelude.ToHeaders DeleteDashboards where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDashboards where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDashboards where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDashboards where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDashboards where
+instance Core.ToQuery DeleteDashboards where
   toQuery DeleteDashboards' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteDashboards" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
+          Core.=: ("DeleteDashboards" :: Core.ByteString),
+        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
         "DashboardNames"
-          Prelude.=: Prelude.toQueryList "member" dashboardNames
+          Core.=: Core.toQueryList "member" dashboardNames
       ]
 
 -- | /See:/ 'newDeleteDashboardsResponse' smart constructor.
 data DeleteDashboardsResponse = DeleteDashboardsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDashboardsResponse' with all optional fields omitted.
@@ -122,7 +122,7 @@ data DeleteDashboardsResponse = DeleteDashboardsResponse'
 -- 'httpStatus', 'deleteDashboardsResponse_httpStatus' - The response's http status code.
 newDeleteDashboardsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDashboardsResponse
 newDeleteDashboardsResponse pHttpStatus_ =
   DeleteDashboardsResponse'
@@ -131,7 +131,7 @@ newDeleteDashboardsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDashboardsResponse_httpStatus :: Lens.Lens' DeleteDashboardsResponse Prelude.Int
+deleteDashboardsResponse_httpStatus :: Lens.Lens' DeleteDashboardsResponse Core.Int
 deleteDashboardsResponse_httpStatus = Lens.lens (\DeleteDashboardsResponse' {httpStatus} -> httpStatus) (\s@DeleteDashboardsResponse' {} a -> s {httpStatus = a} :: DeleteDashboardsResponse)
 
-instance Prelude.NFData DeleteDashboardsResponse
+instance Core.NFData DeleteDashboardsResponse

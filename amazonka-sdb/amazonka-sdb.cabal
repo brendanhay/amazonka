@@ -66,10 +66,10 @@ library
     Network.AWS.SDB.Types.UpdateCondition
     Network.AWS.SDB.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-sdb-test
   type:             exitcode-stdio-1.0
@@ -87,7 +87,7 @@ test-suite amazonka-sdb-test
     Test.AWS.SDB.Internal
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-sdb
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudWatch.Types.Datapoint where
 
 import Network.AWS.CloudWatch.Types.StandardUnit
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Encapsulates the statistical data that CloudWatch computes from metric
 -- data.
@@ -30,24 +29,24 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDatapoint' smart constructor.
 data Datapoint = Datapoint'
   { -- | The standard unit for the data point.
-    unit :: Prelude.Maybe StandardUnit,
+    unit :: Core.Maybe StandardUnit,
     -- | The minimum metric value for the data point.
-    minimum :: Prelude.Maybe Prelude.Double,
+    minimum :: Core.Maybe Core.Double,
     -- | The sum of the metric values for the data point.
-    sum :: Prelude.Maybe Prelude.Double,
+    sum :: Core.Maybe Core.Double,
     -- | The number of metric values that contributed to the aggregate value of
     -- this data point.
-    sampleCount :: Prelude.Maybe Prelude.Double,
+    sampleCount :: Core.Maybe Core.Double,
     -- | The time stamp used for the data point.
-    timestamp :: Prelude.Maybe Prelude.ISO8601,
+    timestamp :: Core.Maybe Core.ISO8601,
     -- | The average of the metric values that correspond to the data point.
-    average :: Prelude.Maybe Prelude.Double,
+    average :: Core.Maybe Core.Double,
     -- | The maximum metric value for the data point.
-    maximum :: Prelude.Maybe Prelude.Double,
+    maximum :: Core.Maybe Core.Double,
     -- | The percentile statistic for the data point.
-    extendedStatistics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double)
+    extendedStatistics :: Core.Maybe (Core.HashMap Core.Text Core.Double)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Datapoint' with all optional fields omitted.
@@ -77,65 +76,63 @@ newDatapoint ::
   Datapoint
 newDatapoint =
   Datapoint'
-    { unit = Prelude.Nothing,
-      minimum = Prelude.Nothing,
-      sum = Prelude.Nothing,
-      sampleCount = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      average = Prelude.Nothing,
-      maximum = Prelude.Nothing,
-      extendedStatistics = Prelude.Nothing
+    { unit = Core.Nothing,
+      minimum = Core.Nothing,
+      sum = Core.Nothing,
+      sampleCount = Core.Nothing,
+      timestamp = Core.Nothing,
+      average = Core.Nothing,
+      maximum = Core.Nothing,
+      extendedStatistics = Core.Nothing
     }
 
 -- | The standard unit for the data point.
-datapoint_unit :: Lens.Lens' Datapoint (Prelude.Maybe StandardUnit)
+datapoint_unit :: Lens.Lens' Datapoint (Core.Maybe StandardUnit)
 datapoint_unit = Lens.lens (\Datapoint' {unit} -> unit) (\s@Datapoint' {} a -> s {unit = a} :: Datapoint)
 
 -- | The minimum metric value for the data point.
-datapoint_minimum :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
+datapoint_minimum :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
 datapoint_minimum = Lens.lens (\Datapoint' {minimum} -> minimum) (\s@Datapoint' {} a -> s {minimum = a} :: Datapoint)
 
 -- | The sum of the metric values for the data point.
-datapoint_sum :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
+datapoint_sum :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
 datapoint_sum = Lens.lens (\Datapoint' {sum} -> sum) (\s@Datapoint' {} a -> s {sum = a} :: Datapoint)
 
 -- | The number of metric values that contributed to the aggregate value of
 -- this data point.
-datapoint_sampleCount :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
+datapoint_sampleCount :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
 datapoint_sampleCount = Lens.lens (\Datapoint' {sampleCount} -> sampleCount) (\s@Datapoint' {} a -> s {sampleCount = a} :: Datapoint)
 
 -- | The time stamp used for the data point.
-datapoint_timestamp :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.UTCTime)
-datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Prelude._Time
+datapoint_timestamp :: Lens.Lens' Datapoint (Core.Maybe Core.UTCTime)
+datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Core.. Lens.mapping Core._Time
 
 -- | The average of the metric values that correspond to the data point.
-datapoint_average :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
+datapoint_average :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
 datapoint_average = Lens.lens (\Datapoint' {average} -> average) (\s@Datapoint' {} a -> s {average = a} :: Datapoint)
 
 -- | The maximum metric value for the data point.
-datapoint_maximum :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
+datapoint_maximum :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
 datapoint_maximum = Lens.lens (\Datapoint' {maximum} -> maximum) (\s@Datapoint' {} a -> s {maximum = a} :: Datapoint)
 
 -- | The percentile statistic for the data point.
-datapoint_extendedStatistics :: Lens.Lens' Datapoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-datapoint_extendedStatistics = Lens.lens (\Datapoint' {extendedStatistics} -> extendedStatistics) (\s@Datapoint' {} a -> s {extendedStatistics = a} :: Datapoint) Prelude.. Lens.mapping Prelude._Coerce
+datapoint_extendedStatistics :: Lens.Lens' Datapoint (Core.Maybe (Core.HashMap Core.Text Core.Double))
+datapoint_extendedStatistics = Lens.lens (\Datapoint' {extendedStatistics} -> extendedStatistics) (\s@Datapoint' {} a -> s {extendedStatistics = a} :: Datapoint) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML Datapoint where
+instance Core.FromXML Datapoint where
   parseXML x =
     Datapoint'
-      Prelude.<$> (x Prelude..@? "Unit")
-      Prelude.<*> (x Prelude..@? "Minimum")
-      Prelude.<*> (x Prelude..@? "Sum")
-      Prelude.<*> (x Prelude..@? "SampleCount")
-      Prelude.<*> (x Prelude..@? "Timestamp")
-      Prelude.<*> (x Prelude..@? "Average")
-      Prelude.<*> (x Prelude..@? "Maximum")
-      Prelude.<*> ( x Prelude..@? "ExtendedStatistics"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLMap "entry" "key" "value")
-                  )
+      Core.<$> (x Core..@? "Unit")
+      Core.<*> (x Core..@? "Minimum")
+      Core.<*> (x Core..@? "Sum")
+      Core.<*> (x Core..@? "SampleCount")
+      Core.<*> (x Core..@? "Timestamp")
+      Core.<*> (x Core..@? "Average")
+      Core.<*> (x Core..@? "Maximum")
+      Core.<*> ( x Core..@? "ExtendedStatistics" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+               )
 
-instance Prelude.Hashable Datapoint
+instance Core.Hashable Datapoint
 
-instance Prelude.NFData Datapoint
+instance Core.NFData Datapoint

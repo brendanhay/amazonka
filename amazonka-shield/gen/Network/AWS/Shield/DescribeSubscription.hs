@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.Shield.DescribeSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -48,7 +47,7 @@ import Network.AWS.Shield.Types
 data DescribeSubscription = DescribeSubscription'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscription' with all optional fields omitted.
@@ -58,56 +57,53 @@ newDescribeSubscription ::
   DescribeSubscription
 newDescribeSubscription = DescribeSubscription'
 
-instance Prelude.AWSRequest DescribeSubscription where
+instance Core.AWSRequest DescribeSubscription where
   type
-    Rs DescribeSubscription =
+    AWSResponse DescribeSubscription =
       DescribeSubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeSubscriptionResponse'
-            Prelude.<$> (x Prelude..?> "Subscription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Subscription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSubscription
+instance Core.Hashable DescribeSubscription
 
-instance Prelude.NFData DescribeSubscription
+instance Core.NFData DescribeSubscription
 
-instance Prelude.ToHeaders DescribeSubscription where
+instance Core.ToHeaders DescribeSubscription where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.DescribeSubscription" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.DescribeSubscription" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeSubscription where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeSubscription where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DescribeSubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSubscription where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSubscription where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeSubscriptionResponse' smart constructor.
 data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
   { -- | The AWS Shield Advanced subscription details for an account.
-    subscription :: Prelude.Maybe Subscription,
+    subscription :: Core.Maybe Subscription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscriptionResponse' with all optional fields omitted.
@@ -122,21 +118,21 @@ data DescribeSubscriptionResponse = DescribeSubscriptionResponse'
 -- 'httpStatus', 'describeSubscriptionResponse_httpStatus' - The response's http status code.
 newDescribeSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSubscriptionResponse
 newDescribeSubscriptionResponse pHttpStatus_ =
   DescribeSubscriptionResponse'
     { subscription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The AWS Shield Advanced subscription details for an account.
-describeSubscriptionResponse_subscription :: Lens.Lens' DescribeSubscriptionResponse (Prelude.Maybe Subscription)
+describeSubscriptionResponse_subscription :: Lens.Lens' DescribeSubscriptionResponse (Core.Maybe Subscription)
 describeSubscriptionResponse_subscription = Lens.lens (\DescribeSubscriptionResponse' {subscription} -> subscription) (\s@DescribeSubscriptionResponse' {} a -> s {subscription = a} :: DescribeSubscriptionResponse)
 
 -- | The response's http status code.
-describeSubscriptionResponse_httpStatus :: Lens.Lens' DescribeSubscriptionResponse Prelude.Int
+describeSubscriptionResponse_httpStatus :: Lens.Lens' DescribeSubscriptionResponse Core.Int
 describeSubscriptionResponse_httpStatus = Lens.lens (\DescribeSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DescribeSubscriptionResponse' {} a -> s {httpStatus = a} :: DescribeSubscriptionResponse)
 
-instance Prelude.NFData DescribeSubscriptionResponse
+instance Core.NFData DescribeSubscriptionResponse

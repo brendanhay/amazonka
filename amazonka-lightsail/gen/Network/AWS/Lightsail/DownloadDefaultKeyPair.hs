@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.Lightsail.DownloadDefaultKeyPair
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data DownloadDefaultKeyPair = DownloadDefaultKeyPair'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DownloadDefaultKeyPair' with all optional fields omitted.
@@ -58,59 +57,56 @@ newDownloadDefaultKeyPair ::
   DownloadDefaultKeyPair
 newDownloadDefaultKeyPair = DownloadDefaultKeyPair'
 
-instance Prelude.AWSRequest DownloadDefaultKeyPair where
+instance Core.AWSRequest DownloadDefaultKeyPair where
   type
-    Rs DownloadDefaultKeyPair =
+    AWSResponse DownloadDefaultKeyPair =
       DownloadDefaultKeyPairResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DownloadDefaultKeyPairResponse'
-            Prelude.<$> (x Prelude..?> "privateKeyBase64")
-            Prelude.<*> (x Prelude..?> "publicKeyBase64")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "privateKeyBase64")
+            Core.<*> (x Core..?> "publicKeyBase64")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DownloadDefaultKeyPair
+instance Core.Hashable DownloadDefaultKeyPair
 
-instance Prelude.NFData DownloadDefaultKeyPair
+instance Core.NFData DownloadDefaultKeyPair
 
-instance Prelude.ToHeaders DownloadDefaultKeyPair where
+instance Core.ToHeaders DownloadDefaultKeyPair where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DownloadDefaultKeyPair" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DownloadDefaultKeyPair" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DownloadDefaultKeyPair where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DownloadDefaultKeyPair where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DownloadDefaultKeyPair where
-  toPath = Prelude.const "/"
+instance Core.ToPath DownloadDefaultKeyPair where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DownloadDefaultKeyPair where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DownloadDefaultKeyPair where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDownloadDefaultKeyPairResponse' smart constructor.
 data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
   { -- | A base64-encoded RSA private key.
-    privateKeyBase64 :: Prelude.Maybe Prelude.Text,
+    privateKeyBase64 :: Core.Maybe Core.Text,
     -- | A base64-encoded public key of the @ssh-rsa@ type.
-    publicKeyBase64 :: Prelude.Maybe Prelude.Text,
+    publicKeyBase64 :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DownloadDefaultKeyPairResponse' with all optional fields omitted.
@@ -127,28 +123,26 @@ data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
 -- 'httpStatus', 'downloadDefaultKeyPairResponse_httpStatus' - The response's http status code.
 newDownloadDefaultKeyPairResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DownloadDefaultKeyPairResponse
 newDownloadDefaultKeyPairResponse pHttpStatus_ =
   DownloadDefaultKeyPairResponse'
     { privateKeyBase64 =
-        Prelude.Nothing,
-      publicKeyBase64 = Prelude.Nothing,
+        Core.Nothing,
+      publicKeyBase64 = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A base64-encoded RSA private key.
-downloadDefaultKeyPairResponse_privateKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
+downloadDefaultKeyPairResponse_privateKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Core.Maybe Core.Text)
 downloadDefaultKeyPairResponse_privateKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {privateKeyBase64} -> privateKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {privateKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
 
 -- | A base64-encoded public key of the @ssh-rsa@ type.
-downloadDefaultKeyPairResponse_publicKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Prelude.Maybe Prelude.Text)
+downloadDefaultKeyPairResponse_publicKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Core.Maybe Core.Text)
 downloadDefaultKeyPairResponse_publicKeyBase64 = Lens.lens (\DownloadDefaultKeyPairResponse' {publicKeyBase64} -> publicKeyBase64) (\s@DownloadDefaultKeyPairResponse' {} a -> s {publicKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
 
 -- | The response's http status code.
-downloadDefaultKeyPairResponse_httpStatus :: Lens.Lens' DownloadDefaultKeyPairResponse Prelude.Int
+downloadDefaultKeyPairResponse_httpStatus :: Lens.Lens' DownloadDefaultKeyPairResponse Core.Int
 downloadDefaultKeyPairResponse_httpStatus = Lens.lens (\DownloadDefaultKeyPairResponse' {httpStatus} -> httpStatus) (\s@DownloadDefaultKeyPairResponse' {} a -> s {httpStatus = a} :: DownloadDefaultKeyPairResponse)
 
-instance
-  Prelude.NFData
-    DownloadDefaultKeyPairResponse
+instance Core.NFData DownloadDefaultKeyPairResponse

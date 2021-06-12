@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.TlsConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newTlsConfig' smart constructor.
 data TlsConfig = TlsConfig'
@@ -34,9 +33,9 @@ data TlsConfig = TlsConfig'
     -- validation, which includes checking the certificate\'s expiration date,
     -- hostname, and presence of a root certificate authority. Supported only
     -- for @HTTP@ and @HTTP_PROXY@ integrations.
-    insecureSkipVerification :: Prelude.Maybe Prelude.Bool
+    insecureSkipVerification :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TlsConfig' with all optional fields omitted.
@@ -58,10 +57,7 @@ data TlsConfig = TlsConfig'
 newTlsConfig ::
   TlsConfig
 newTlsConfig =
-  TlsConfig'
-    { insecureSkipVerification =
-        Prelude.Nothing
-    }
+  TlsConfig' {insecureSkipVerification = Core.Nothing}
 
 -- | Specifies whether or not API Gateway skips verification that the
 -- certificate for an integration endpoint is issued by a
@@ -72,27 +68,27 @@ newTlsConfig =
 -- validation, which includes checking the certificate\'s expiration date,
 -- hostname, and presence of a root certificate authority. Supported only
 -- for @HTTP@ and @HTTP_PROXY@ integrations.
-tlsConfig_insecureSkipVerification :: Lens.Lens' TlsConfig (Prelude.Maybe Prelude.Bool)
+tlsConfig_insecureSkipVerification :: Lens.Lens' TlsConfig (Core.Maybe Core.Bool)
 tlsConfig_insecureSkipVerification = Lens.lens (\TlsConfig' {insecureSkipVerification} -> insecureSkipVerification) (\s@TlsConfig' {} a -> s {insecureSkipVerification = a} :: TlsConfig)
 
-instance Prelude.FromJSON TlsConfig where
+instance Core.FromJSON TlsConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TlsConfig"
       ( \x ->
           TlsConfig'
-            Prelude.<$> (x Prelude..:? "insecureSkipVerification")
+            Core.<$> (x Core..:? "insecureSkipVerification")
       )
 
-instance Prelude.Hashable TlsConfig
+instance Core.Hashable TlsConfig
 
-instance Prelude.NFData TlsConfig
+instance Core.NFData TlsConfig
 
-instance Prelude.ToJSON TlsConfig where
+instance Core.ToJSON TlsConfig where
   toJSON TlsConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("insecureSkipVerification" Prelude..=)
-              Prelude.<$> insecureSkipVerification
+    Core.object
+      ( Core.catMaybes
+          [ ("insecureSkipVerification" Core..=)
+              Core.<$> insecureSkipVerification
           ]
       )

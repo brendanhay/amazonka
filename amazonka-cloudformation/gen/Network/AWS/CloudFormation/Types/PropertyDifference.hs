@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFormation.Types.PropertyDifference where
 
 import Network.AWS.CloudFormation.Types.DifferenceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a resource property whose actual value differs from
 -- its expected value, as defined in the stack template and any values
@@ -34,12 +33,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPropertyDifference' smart constructor.
 data PropertyDifference = PropertyDifference'
   { -- | The fully-qualified path to the resource property.
-    propertyPath :: Prelude.Text,
+    propertyPath :: Core.Text,
     -- | The expected property value of the resource property, as defined in the
     -- stack template and any values specified as template parameters.
-    expectedValue :: Prelude.Text,
+    expectedValue :: Core.Text,
     -- | The actual property value of the resource property.
-    actualValue :: Prelude.Text,
+    actualValue :: Core.Text,
     -- | The type of property difference.
     --
     -- -   @ADD@: A value has been added to a resource property that is an
@@ -53,7 +52,7 @@ data PropertyDifference = PropertyDifference'
     --     template parameters).
     differenceType :: DifferenceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PropertyDifference' with all optional fields omitted.
@@ -83,11 +82,11 @@ data PropertyDifference = PropertyDifference'
 --     template parameters).
 newPropertyDifference ::
   -- | 'propertyPath'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'expectedValue'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'actualValue'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'differenceType'
   DifferenceType ->
   PropertyDifference
@@ -104,16 +103,16 @@ newPropertyDifference
       }
 
 -- | The fully-qualified path to the resource property.
-propertyDifference_propertyPath :: Lens.Lens' PropertyDifference Prelude.Text
+propertyDifference_propertyPath :: Lens.Lens' PropertyDifference Core.Text
 propertyDifference_propertyPath = Lens.lens (\PropertyDifference' {propertyPath} -> propertyPath) (\s@PropertyDifference' {} a -> s {propertyPath = a} :: PropertyDifference)
 
 -- | The expected property value of the resource property, as defined in the
 -- stack template and any values specified as template parameters.
-propertyDifference_expectedValue :: Lens.Lens' PropertyDifference Prelude.Text
+propertyDifference_expectedValue :: Lens.Lens' PropertyDifference Core.Text
 propertyDifference_expectedValue = Lens.lens (\PropertyDifference' {expectedValue} -> expectedValue) (\s@PropertyDifference' {} a -> s {expectedValue = a} :: PropertyDifference)
 
 -- | The actual property value of the resource property.
-propertyDifference_actualValue :: Lens.Lens' PropertyDifference Prelude.Text
+propertyDifference_actualValue :: Lens.Lens' PropertyDifference Core.Text
 propertyDifference_actualValue = Lens.lens (\PropertyDifference' {actualValue} -> actualValue) (\s@PropertyDifference' {} a -> s {actualValue = a} :: PropertyDifference)
 
 -- | The type of property difference.
@@ -130,14 +129,14 @@ propertyDifference_actualValue = Lens.lens (\PropertyDifference' {actualValue} -
 propertyDifference_differenceType :: Lens.Lens' PropertyDifference DifferenceType
 propertyDifference_differenceType = Lens.lens (\PropertyDifference' {differenceType} -> differenceType) (\s@PropertyDifference' {} a -> s {differenceType = a} :: PropertyDifference)
 
-instance Prelude.FromXML PropertyDifference where
+instance Core.FromXML PropertyDifference where
   parseXML x =
     PropertyDifference'
-      Prelude.<$> (x Prelude..@ "PropertyPath")
-      Prelude.<*> (x Prelude..@ "ExpectedValue")
-      Prelude.<*> (x Prelude..@ "ActualValue")
-      Prelude.<*> (x Prelude..@ "DifferenceType")
+      Core.<$> (x Core..@ "PropertyPath")
+      Core.<*> (x Core..@ "ExpectedValue")
+      Core.<*> (x Core..@ "ActualValue")
+      Core.<*> (x Core..@ "DifferenceType")
 
-instance Prelude.Hashable PropertyDifference
+instance Core.Hashable PropertyDifference
 
-instance Prelude.NFData PropertyDifference
+instance Core.NFData PropertyDifference

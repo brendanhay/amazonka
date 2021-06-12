@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Config.DescribeRemediationConfigurations
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DescribeRemediationConfigurations = DescribeRemediationConfigurations'
   { -- | A list of AWS Config rule names of remediation configurations for which
     -- you want details.
-    configRuleNames :: [Prelude.Text]
+    configRuleNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRemediationConfigurations' with all optional fields omitted.
@@ -69,90 +68,88 @@ newDescribeRemediationConfigurations ::
 newDescribeRemediationConfigurations =
   DescribeRemediationConfigurations'
     { configRuleNames =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A list of AWS Config rule names of remediation configurations for which
 -- you want details.
-describeRemediationConfigurations_configRuleNames :: Lens.Lens' DescribeRemediationConfigurations [Prelude.Text]
-describeRemediationConfigurations_configRuleNames = Lens.lens (\DescribeRemediationConfigurations' {configRuleNames} -> configRuleNames) (\s@DescribeRemediationConfigurations' {} a -> s {configRuleNames = a} :: DescribeRemediationConfigurations) Prelude.. Prelude._Coerce
+describeRemediationConfigurations_configRuleNames :: Lens.Lens' DescribeRemediationConfigurations [Core.Text]
+describeRemediationConfigurations_configRuleNames = Lens.lens (\DescribeRemediationConfigurations' {configRuleNames} -> configRuleNames) (\s@DescribeRemediationConfigurations' {} a -> s {configRuleNames = a} :: DescribeRemediationConfigurations) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeRemediationConfigurations
   where
   type
-    Rs DescribeRemediationConfigurations =
+    AWSResponse DescribeRemediationConfigurations =
       DescribeRemediationConfigurationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeRemediationConfigurationsResponse'
-            Prelude.<$> ( x Prelude..?> "RemediationConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "RemediationConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeRemediationConfigurations
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeRemediationConfigurations
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeRemediationConfigurations
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DescribeRemediationConfigurations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DescribeRemediationConfigurations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeRemediationConfigurations
   where
   toJSON DescribeRemediationConfigurations' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ConfigRuleNames" Prelude..= configRuleNames)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ConfigRuleNames" Core..= configRuleNames)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeRemediationConfigurations
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeRemediationConfigurations
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeRemediationConfigurationsResponse' smart constructor.
 data DescribeRemediationConfigurationsResponse = DescribeRemediationConfigurationsResponse'
   { -- | Returns a remediation configuration object.
-    remediationConfigurations :: Prelude.Maybe [RemediationConfiguration],
+    remediationConfigurations :: Core.Maybe [RemediationConfiguration],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRemediationConfigurationsResponse' with all optional fields omitted.
@@ -167,24 +164,24 @@ data DescribeRemediationConfigurationsResponse = DescribeRemediationConfiguratio
 -- 'httpStatus', 'describeRemediationConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeRemediationConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeRemediationConfigurationsResponse
 newDescribeRemediationConfigurationsResponse
   pHttpStatus_ =
     DescribeRemediationConfigurationsResponse'
       { remediationConfigurations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns a remediation configuration object.
-describeRemediationConfigurationsResponse_remediationConfigurations :: Lens.Lens' DescribeRemediationConfigurationsResponse (Prelude.Maybe [RemediationConfiguration])
-describeRemediationConfigurationsResponse_remediationConfigurations = Lens.lens (\DescribeRemediationConfigurationsResponse' {remediationConfigurations} -> remediationConfigurations) (\s@DescribeRemediationConfigurationsResponse' {} a -> s {remediationConfigurations = a} :: DescribeRemediationConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeRemediationConfigurationsResponse_remediationConfigurations :: Lens.Lens' DescribeRemediationConfigurationsResponse (Core.Maybe [RemediationConfiguration])
+describeRemediationConfigurationsResponse_remediationConfigurations = Lens.lens (\DescribeRemediationConfigurationsResponse' {remediationConfigurations} -> remediationConfigurations) (\s@DescribeRemediationConfigurationsResponse' {} a -> s {remediationConfigurations = a} :: DescribeRemediationConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeRemediationConfigurationsResponse_httpStatus :: Lens.Lens' DescribeRemediationConfigurationsResponse Prelude.Int
+describeRemediationConfigurationsResponse_httpStatus :: Lens.Lens' DescribeRemediationConfigurationsResponse Core.Int
 describeRemediationConfigurationsResponse_httpStatus = Lens.lens (\DescribeRemediationConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeRemediationConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeRemediationConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeRemediationConfigurationsResponse

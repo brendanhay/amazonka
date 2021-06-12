@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.Snowball.ListCompatibleImages
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -61,12 +59,12 @@ data ListCompatibleImages = ListCompatibleImages'
   { -- | HTTP requests are stateless. To identify what object comes \"next\" in
     -- the list of compatible images, you can specify a value for @NextToken@
     -- as the starting point for your list of returned images.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results for the list of compatible images.
     -- Currently, a Snowball Edge device can store 10 AMIs.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCompatibleImages' with all optional fields omitted.
@@ -86,105 +84,101 @@ newListCompatibleImages ::
   ListCompatibleImages
 newListCompatibleImages =
   ListCompatibleImages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | HTTP requests are stateless. To identify what object comes \"next\" in
 -- the list of compatible images, you can specify a value for @NextToken@
 -- as the starting point for your list of returned images.
-listCompatibleImages_nextToken :: Lens.Lens' ListCompatibleImages (Prelude.Maybe Prelude.Text)
+listCompatibleImages_nextToken :: Lens.Lens' ListCompatibleImages (Core.Maybe Core.Text)
 listCompatibleImages_nextToken = Lens.lens (\ListCompatibleImages' {nextToken} -> nextToken) (\s@ListCompatibleImages' {} a -> s {nextToken = a} :: ListCompatibleImages)
 
 -- | The maximum number of results for the list of compatible images.
 -- Currently, a Snowball Edge device can store 10 AMIs.
-listCompatibleImages_maxResults :: Lens.Lens' ListCompatibleImages (Prelude.Maybe Prelude.Natural)
+listCompatibleImages_maxResults :: Lens.Lens' ListCompatibleImages (Core.Maybe Core.Natural)
 listCompatibleImages_maxResults = Lens.lens (\ListCompatibleImages' {maxResults} -> maxResults) (\s@ListCompatibleImages' {} a -> s {maxResults = a} :: ListCompatibleImages)
 
-instance Pager.AWSPager ListCompatibleImages where
+instance Core.AWSPager ListCompatibleImages where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listCompatibleImagesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listCompatibleImagesResponse_compatibleImages
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listCompatibleImages_nextToken
           Lens..~ rs
           Lens.^? listCompatibleImagesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListCompatibleImages where
+instance Core.AWSRequest ListCompatibleImages where
   type
-    Rs ListCompatibleImages =
+    AWSResponse ListCompatibleImages =
       ListCompatibleImagesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListCompatibleImagesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "CompatibleImages"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "CompatibleImages" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListCompatibleImages
+instance Core.Hashable ListCompatibleImages
 
-instance Prelude.NFData ListCompatibleImages
+instance Core.NFData ListCompatibleImages
 
-instance Prelude.ToHeaders ListCompatibleImages where
+instance Core.ToHeaders ListCompatibleImages where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSIESnowballJobManagementService.ListCompatibleImages" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSIESnowballJobManagementService.ListCompatibleImages" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListCompatibleImages where
+instance Core.ToJSON ListCompatibleImages where
   toJSON ListCompatibleImages' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListCompatibleImages where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListCompatibleImages where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListCompatibleImages where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListCompatibleImages where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListCompatibleImagesResponse' smart constructor.
 data ListCompatibleImagesResponse = ListCompatibleImagesResponse'
   { -- | Because HTTP requests are stateless, this is the starting point for your
     -- next list of returned images.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A JSON-formatted object that describes a compatible AMI, including the
     -- ID and name for a Snow device AMI.
-    compatibleImages :: Prelude.Maybe [CompatibleImage],
+    compatibleImages :: Core.Maybe [CompatibleImage],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCompatibleImagesResponse' with all optional fields omitted.
@@ -203,28 +197,28 @@ data ListCompatibleImagesResponse = ListCompatibleImagesResponse'
 -- 'httpStatus', 'listCompatibleImagesResponse_httpStatus' - The response's http status code.
 newListCompatibleImagesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListCompatibleImagesResponse
 newListCompatibleImagesResponse pHttpStatus_ =
   ListCompatibleImagesResponse'
     { nextToken =
-        Prelude.Nothing,
-      compatibleImages = Prelude.Nothing,
+        Core.Nothing,
+      compatibleImages = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Because HTTP requests are stateless, this is the starting point for your
 -- next list of returned images.
-listCompatibleImagesResponse_nextToken :: Lens.Lens' ListCompatibleImagesResponse (Prelude.Maybe Prelude.Text)
+listCompatibleImagesResponse_nextToken :: Lens.Lens' ListCompatibleImagesResponse (Core.Maybe Core.Text)
 listCompatibleImagesResponse_nextToken = Lens.lens (\ListCompatibleImagesResponse' {nextToken} -> nextToken) (\s@ListCompatibleImagesResponse' {} a -> s {nextToken = a} :: ListCompatibleImagesResponse)
 
 -- | A JSON-formatted object that describes a compatible AMI, including the
 -- ID and name for a Snow device AMI.
-listCompatibleImagesResponse_compatibleImages :: Lens.Lens' ListCompatibleImagesResponse (Prelude.Maybe [CompatibleImage])
-listCompatibleImagesResponse_compatibleImages = Lens.lens (\ListCompatibleImagesResponse' {compatibleImages} -> compatibleImages) (\s@ListCompatibleImagesResponse' {} a -> s {compatibleImages = a} :: ListCompatibleImagesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listCompatibleImagesResponse_compatibleImages :: Lens.Lens' ListCompatibleImagesResponse (Core.Maybe [CompatibleImage])
+listCompatibleImagesResponse_compatibleImages = Lens.lens (\ListCompatibleImagesResponse' {compatibleImages} -> compatibleImages) (\s@ListCompatibleImagesResponse' {} a -> s {compatibleImages = a} :: ListCompatibleImagesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCompatibleImagesResponse_httpStatus :: Lens.Lens' ListCompatibleImagesResponse Prelude.Int
+listCompatibleImagesResponse_httpStatus :: Lens.Lens' ListCompatibleImagesResponse Core.Int
 listCompatibleImagesResponse_httpStatus = Lens.lens (\ListCompatibleImagesResponse' {httpStatus} -> httpStatus) (\s@ListCompatibleImagesResponse' {} a -> s {httpStatus = a} :: ListCompatibleImagesResponse)
 
-instance Prelude.NFData ListCompatibleImagesResponse
+instance Core.NFData ListCompatibleImagesResponse

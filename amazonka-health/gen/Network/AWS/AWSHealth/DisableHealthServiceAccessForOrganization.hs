@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
 where
 
 import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +64,7 @@ import qualified Network.AWS.Response as Response
 data DisableHealthServiceAccessForOrganization = DisableHealthServiceAccessForOrganization'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableHealthServiceAccessForOrganization' with all optional fields omitted.
@@ -77,11 +76,12 @@ newDisableHealthServiceAccessForOrganization =
   DisableHealthServiceAccessForOrganization'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisableHealthServiceAccessForOrganization
   where
   type
-    Rs DisableHealthServiceAccessForOrganization =
+    AWSResponse
+      DisableHealthServiceAccessForOrganization =
       DisableHealthServiceAccessForOrganizationResponse
   request = Request.postJSON defaultService
   response =
@@ -89,55 +89,52 @@ instance
       DisableHealthServiceAccessForOrganizationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisableHealthServiceAccessForOrganization
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableHealthServiceAccessForOrganization
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisableHealthServiceAccessForOrganization
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSHealth_20160804.DisableHealthServiceAccessForOrganization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSHealth_20160804.DisableHealthServiceAccessForOrganization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DisableHealthServiceAccessForOrganization
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DisableHealthServiceAccessForOrganization
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisableHealthServiceAccessForOrganization
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableHealthServiceAccessForOrganizationResponse' smart constructor.
 data DisableHealthServiceAccessForOrganizationResponse = DisableHealthServiceAccessForOrganizationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableHealthServiceAccessForOrganizationResponse' with all optional fields omitted.
@@ -149,5 +146,5 @@ newDisableHealthServiceAccessForOrganizationResponse =
   DisableHealthServiceAccessForOrganizationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableHealthServiceAccessForOrganizationResponse

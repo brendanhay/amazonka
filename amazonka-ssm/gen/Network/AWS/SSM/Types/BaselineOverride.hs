@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.BaselineOverride where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OperatingSystem
 import Network.AWS.SSM.Types.PatchAction
 import Network.AWS.SSM.Types.PatchComplianceLevel
@@ -36,40 +35,40 @@ data BaselineOverride = BaselineOverride'
   { -- | Information about the patches to use to update the instances, including
     -- target operating systems and source repositories. Applies to Linux
     -- instances only.
-    sources :: Prelude.Maybe [PatchSource],
+    sources :: Core.Maybe [PatchSource],
     -- | A list of explicitly rejected patches for the baseline.
     --
     -- For information about accepted formats for lists of approved patches and
     -- rejected patches, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
     -- in the /AWS Systems Manager User Guide/.
-    rejectedPatches :: Prelude.Maybe [Prelude.Text],
+    rejectedPatches :: Core.Maybe [Core.Text],
     -- | Indicates whether the list of approved patches includes non-security
     -- updates that should be applied to the instances. The default value is
     -- \'false\'. Applies to Linux instances only.
-    approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
+    approvedPatchesEnableNonSecurity :: Core.Maybe Core.Bool,
     -- | Defines the compliance level for approved patches. When an approved
     -- patch is reported as missing, this value describes the severity of the
     -- compliance violation.
-    approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
+    approvedPatchesComplianceLevel :: Core.Maybe PatchComplianceLevel,
     -- | A list of explicitly approved patches for the baseline.
     --
     -- For information about accepted formats for lists of approved patches and
     -- rejected patches, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
     -- in the /AWS Systems Manager User Guide/.
-    approvedPatches :: Prelude.Maybe [Prelude.Text],
+    approvedPatches :: Core.Maybe [Core.Text],
     -- | The action for Patch Manager to take on patches included in the
     -- RejectedPackages list. A patch can be allowed only if it is a dependency
     -- of another package, or blocked entirely along with packages that include
     -- it as a dependency.
-    rejectedPatchesAction :: Prelude.Maybe PatchAction,
+    rejectedPatchesAction :: Core.Maybe PatchAction,
     -- | The operating system rule used by the patch baseline override.
-    operatingSystem :: Prelude.Maybe OperatingSystem,
-    globalFilters :: Prelude.Maybe PatchFilterGroup,
-    approvalRules :: Prelude.Maybe PatchRuleGroup
+    operatingSystem :: Core.Maybe OperatingSystem,
+    globalFilters :: Core.Maybe PatchFilterGroup,
+    approvalRules :: Core.Maybe PatchRuleGroup
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BaselineOverride' with all optional fields omitted.
@@ -119,22 +118,22 @@ newBaselineOverride ::
   BaselineOverride
 newBaselineOverride =
   BaselineOverride'
-    { sources = Prelude.Nothing,
-      rejectedPatches = Prelude.Nothing,
-      approvedPatchesEnableNonSecurity = Prelude.Nothing,
-      approvedPatchesComplianceLevel = Prelude.Nothing,
-      approvedPatches = Prelude.Nothing,
-      rejectedPatchesAction = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
-      globalFilters = Prelude.Nothing,
-      approvalRules = Prelude.Nothing
+    { sources = Core.Nothing,
+      rejectedPatches = Core.Nothing,
+      approvedPatchesEnableNonSecurity = Core.Nothing,
+      approvedPatchesComplianceLevel = Core.Nothing,
+      approvedPatches = Core.Nothing,
+      rejectedPatchesAction = Core.Nothing,
+      operatingSystem = Core.Nothing,
+      globalFilters = Core.Nothing,
+      approvalRules = Core.Nothing
     }
 
 -- | Information about the patches to use to update the instances, including
 -- target operating systems and source repositories. Applies to Linux
 -- instances only.
-baselineOverride_sources :: Lens.Lens' BaselineOverride (Prelude.Maybe [PatchSource])
-baselineOverride_sources = Lens.lens (\BaselineOverride' {sources} -> sources) (\s@BaselineOverride' {} a -> s {sources = a} :: BaselineOverride) Prelude.. Lens.mapping Prelude._Coerce
+baselineOverride_sources :: Lens.Lens' BaselineOverride (Core.Maybe [PatchSource])
+baselineOverride_sources = Lens.lens (\BaselineOverride' {sources} -> sources) (\s@BaselineOverride' {} a -> s {sources = a} :: BaselineOverride) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of explicitly rejected patches for the baseline.
 --
@@ -142,19 +141,19 @@ baselineOverride_sources = Lens.lens (\BaselineOverride' {sources} -> sources) (
 -- rejected patches, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
 -- in the /AWS Systems Manager User Guide/.
-baselineOverride_rejectedPatches :: Lens.Lens' BaselineOverride (Prelude.Maybe [Prelude.Text])
-baselineOverride_rejectedPatches = Lens.lens (\BaselineOverride' {rejectedPatches} -> rejectedPatches) (\s@BaselineOverride' {} a -> s {rejectedPatches = a} :: BaselineOverride) Prelude.. Lens.mapping Prelude._Coerce
+baselineOverride_rejectedPatches :: Lens.Lens' BaselineOverride (Core.Maybe [Core.Text])
+baselineOverride_rejectedPatches = Lens.lens (\BaselineOverride' {rejectedPatches} -> rejectedPatches) (\s@BaselineOverride' {} a -> s {rejectedPatches = a} :: BaselineOverride) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the list of approved patches includes non-security
 -- updates that should be applied to the instances. The default value is
 -- \'false\'. Applies to Linux instances only.
-baselineOverride_approvedPatchesEnableNonSecurity :: Lens.Lens' BaselineOverride (Prelude.Maybe Prelude.Bool)
+baselineOverride_approvedPatchesEnableNonSecurity :: Lens.Lens' BaselineOverride (Core.Maybe Core.Bool)
 baselineOverride_approvedPatchesEnableNonSecurity = Lens.lens (\BaselineOverride' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@BaselineOverride' {} a -> s {approvedPatchesEnableNonSecurity = a} :: BaselineOverride)
 
 -- | Defines the compliance level for approved patches. When an approved
 -- patch is reported as missing, this value describes the severity of the
 -- compliance violation.
-baselineOverride_approvedPatchesComplianceLevel :: Lens.Lens' BaselineOverride (Prelude.Maybe PatchComplianceLevel)
+baselineOverride_approvedPatchesComplianceLevel :: Lens.Lens' BaselineOverride (Core.Maybe PatchComplianceLevel)
 baselineOverride_approvedPatchesComplianceLevel = Lens.lens (\BaselineOverride' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@BaselineOverride' {} a -> s {approvedPatchesComplianceLevel = a} :: BaselineOverride)
 
 -- | A list of explicitly approved patches for the baseline.
@@ -163,52 +162,47 @@ baselineOverride_approvedPatchesComplianceLevel = Lens.lens (\BaselineOverride' 
 -- rejected patches, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-approved-rejected-package-name-formats.html About package name formats for approved and rejected patch lists>
 -- in the /AWS Systems Manager User Guide/.
-baselineOverride_approvedPatches :: Lens.Lens' BaselineOverride (Prelude.Maybe [Prelude.Text])
-baselineOverride_approvedPatches = Lens.lens (\BaselineOverride' {approvedPatches} -> approvedPatches) (\s@BaselineOverride' {} a -> s {approvedPatches = a} :: BaselineOverride) Prelude.. Lens.mapping Prelude._Coerce
+baselineOverride_approvedPatches :: Lens.Lens' BaselineOverride (Core.Maybe [Core.Text])
+baselineOverride_approvedPatches = Lens.lens (\BaselineOverride' {approvedPatches} -> approvedPatches) (\s@BaselineOverride' {} a -> s {approvedPatches = a} :: BaselineOverride) Core.. Lens.mapping Lens._Coerce
 
 -- | The action for Patch Manager to take on patches included in the
 -- RejectedPackages list. A patch can be allowed only if it is a dependency
 -- of another package, or blocked entirely along with packages that include
 -- it as a dependency.
-baselineOverride_rejectedPatchesAction :: Lens.Lens' BaselineOverride (Prelude.Maybe PatchAction)
+baselineOverride_rejectedPatchesAction :: Lens.Lens' BaselineOverride (Core.Maybe PatchAction)
 baselineOverride_rejectedPatchesAction = Lens.lens (\BaselineOverride' {rejectedPatchesAction} -> rejectedPatchesAction) (\s@BaselineOverride' {} a -> s {rejectedPatchesAction = a} :: BaselineOverride)
 
 -- | The operating system rule used by the patch baseline override.
-baselineOverride_operatingSystem :: Lens.Lens' BaselineOverride (Prelude.Maybe OperatingSystem)
+baselineOverride_operatingSystem :: Lens.Lens' BaselineOverride (Core.Maybe OperatingSystem)
 baselineOverride_operatingSystem = Lens.lens (\BaselineOverride' {operatingSystem} -> operatingSystem) (\s@BaselineOverride' {} a -> s {operatingSystem = a} :: BaselineOverride)
 
 -- | Undocumented member.
-baselineOverride_globalFilters :: Lens.Lens' BaselineOverride (Prelude.Maybe PatchFilterGroup)
+baselineOverride_globalFilters :: Lens.Lens' BaselineOverride (Core.Maybe PatchFilterGroup)
 baselineOverride_globalFilters = Lens.lens (\BaselineOverride' {globalFilters} -> globalFilters) (\s@BaselineOverride' {} a -> s {globalFilters = a} :: BaselineOverride)
 
 -- | Undocumented member.
-baselineOverride_approvalRules :: Lens.Lens' BaselineOverride (Prelude.Maybe PatchRuleGroup)
+baselineOverride_approvalRules :: Lens.Lens' BaselineOverride (Core.Maybe PatchRuleGroup)
 baselineOverride_approvalRules = Lens.lens (\BaselineOverride' {approvalRules} -> approvalRules) (\s@BaselineOverride' {} a -> s {approvalRules = a} :: BaselineOverride)
 
-instance Prelude.Hashable BaselineOverride
+instance Core.Hashable BaselineOverride
 
-instance Prelude.NFData BaselineOverride
+instance Core.NFData BaselineOverride
 
-instance Prelude.ToJSON BaselineOverride where
+instance Core.ToJSON BaselineOverride where
   toJSON BaselineOverride' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Sources" Prelude..=) Prelude.<$> sources,
-            ("RejectedPatches" Prelude..=)
-              Prelude.<$> rejectedPatches,
-            ("ApprovedPatchesEnableNonSecurity" Prelude..=)
-              Prelude.<$> approvedPatchesEnableNonSecurity,
-            ("ApprovedPatchesComplianceLevel" Prelude..=)
-              Prelude.<$> approvedPatchesComplianceLevel,
-            ("ApprovedPatches" Prelude..=)
-              Prelude.<$> approvedPatches,
-            ("RejectedPatchesAction" Prelude..=)
-              Prelude.<$> rejectedPatchesAction,
-            ("OperatingSystem" Prelude..=)
-              Prelude.<$> operatingSystem,
-            ("GlobalFilters" Prelude..=)
-              Prelude.<$> globalFilters,
-            ("ApprovalRules" Prelude..=)
-              Prelude.<$> approvalRules
+    Core.object
+      ( Core.catMaybes
+          [ ("Sources" Core..=) Core.<$> sources,
+            ("RejectedPatches" Core..=) Core.<$> rejectedPatches,
+            ("ApprovedPatchesEnableNonSecurity" Core..=)
+              Core.<$> approvedPatchesEnableNonSecurity,
+            ("ApprovedPatchesComplianceLevel" Core..=)
+              Core.<$> approvedPatchesComplianceLevel,
+            ("ApprovedPatches" Core..=) Core.<$> approvedPatches,
+            ("RejectedPatchesAction" Core..=)
+              Core.<$> rejectedPatchesAction,
+            ("OperatingSystem" Core..=) Core.<$> operatingSystem,
+            ("GlobalFilters" Core..=) Core.<$> globalFilters,
+            ("ApprovalRules" Core..=) Core.<$> approvalRules
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,27 +46,26 @@ module Network.AWS.IoT.ListAuditSuppressions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListAuditSuppressions' smart constructor.
 data ListAuditSuppressions = ListAuditSuppressions'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time. The default is 25.
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier,
-    checkName :: Prelude.Maybe Prelude.Text,
+    maxResults :: Core.Maybe Core.Natural,
+    resourceIdentifier :: Core.Maybe ResourceIdentifier,
+    checkName :: Core.Maybe Core.Text,
     -- | Determines whether suppressions are listed in ascending order by
     -- expiration date or not. If parameter isn\'t provided,
     -- @ascendingOrder=true@.
-    ascendingOrder :: Prelude.Maybe Prelude.Bool
+    ascendingOrder :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAuditSuppressions' with all optional fields omitted.
@@ -92,111 +90,108 @@ newListAuditSuppressions ::
   ListAuditSuppressions
 newListAuditSuppressions =
   ListAuditSuppressions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing,
-      checkName = Prelude.Nothing,
-      ascendingOrder = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      resourceIdentifier = Core.Nothing,
+      checkName = Core.Nothing,
+      ascendingOrder = Core.Nothing
     }
 
 -- | The token for the next set of results.
-listAuditSuppressions_nextToken :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
+listAuditSuppressions_nextToken :: Lens.Lens' ListAuditSuppressions (Core.Maybe Core.Text)
 listAuditSuppressions_nextToken = Lens.lens (\ListAuditSuppressions' {nextToken} -> nextToken) (\s@ListAuditSuppressions' {} a -> s {nextToken = a} :: ListAuditSuppressions)
 
 -- | The maximum number of results to return at one time. The default is 25.
-listAuditSuppressions_maxResults :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Natural)
+listAuditSuppressions_maxResults :: Lens.Lens' ListAuditSuppressions (Core.Maybe Core.Natural)
 listAuditSuppressions_maxResults = Lens.lens (\ListAuditSuppressions' {maxResults} -> maxResults) (\s@ListAuditSuppressions' {} a -> s {maxResults = a} :: ListAuditSuppressions)
 
 -- | Undocumented member.
-listAuditSuppressions_resourceIdentifier :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe ResourceIdentifier)
+listAuditSuppressions_resourceIdentifier :: Lens.Lens' ListAuditSuppressions (Core.Maybe ResourceIdentifier)
 listAuditSuppressions_resourceIdentifier = Lens.lens (\ListAuditSuppressions' {resourceIdentifier} -> resourceIdentifier) (\s@ListAuditSuppressions' {} a -> s {resourceIdentifier = a} :: ListAuditSuppressions)
 
 -- | Undocumented member.
-listAuditSuppressions_checkName :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Text)
+listAuditSuppressions_checkName :: Lens.Lens' ListAuditSuppressions (Core.Maybe Core.Text)
 listAuditSuppressions_checkName = Lens.lens (\ListAuditSuppressions' {checkName} -> checkName) (\s@ListAuditSuppressions' {} a -> s {checkName = a} :: ListAuditSuppressions)
 
 -- | Determines whether suppressions are listed in ascending order by
 -- expiration date or not. If parameter isn\'t provided,
 -- @ascendingOrder=true@.
-listAuditSuppressions_ascendingOrder :: Lens.Lens' ListAuditSuppressions (Prelude.Maybe Prelude.Bool)
+listAuditSuppressions_ascendingOrder :: Lens.Lens' ListAuditSuppressions (Core.Maybe Core.Bool)
 listAuditSuppressions_ascendingOrder = Lens.lens (\ListAuditSuppressions' {ascendingOrder} -> ascendingOrder) (\s@ListAuditSuppressions' {} a -> s {ascendingOrder = a} :: ListAuditSuppressions)
 
-instance Pager.AWSPager ListAuditSuppressions where
+instance Core.AWSPager ListAuditSuppressions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listAuditSuppressionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listAuditSuppressionsResponse_suppressions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAuditSuppressions_nextToken
           Lens..~ rs
           Lens.^? listAuditSuppressionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAuditSuppressions where
+instance Core.AWSRequest ListAuditSuppressions where
   type
-    Rs ListAuditSuppressions =
+    AWSResponse ListAuditSuppressions =
       ListAuditSuppressionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAuditSuppressionsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "suppressions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "suppressions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAuditSuppressions
+instance Core.Hashable ListAuditSuppressions
 
-instance Prelude.NFData ListAuditSuppressions
+instance Core.NFData ListAuditSuppressions
 
-instance Prelude.ToHeaders ListAuditSuppressions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListAuditSuppressions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON ListAuditSuppressions where
+instance Core.ToJSON ListAuditSuppressions where
   toJSON ListAuditSuppressions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("resourceIdentifier" Prelude..=)
-              Prelude.<$> resourceIdentifier,
-            ("checkName" Prelude..=) Prelude.<$> checkName,
-            ("ascendingOrder" Prelude..=)
-              Prelude.<$> ascendingOrder
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("resourceIdentifier" Core..=)
+              Core.<$> resourceIdentifier,
+            ("checkName" Core..=) Core.<$> checkName,
+            ("ascendingOrder" Core..=) Core.<$> ascendingOrder
           ]
       )
 
-instance Prelude.ToPath ListAuditSuppressions where
-  toPath = Prelude.const "/audit/suppressions/list"
+instance Core.ToPath ListAuditSuppressions where
+  toPath = Core.const "/audit/suppressions/list"
 
-instance Prelude.ToQuery ListAuditSuppressions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAuditSuppressions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAuditSuppressionsResponse' smart constructor.
 data ListAuditSuppressionsResponse = ListAuditSuppressionsResponse'
   { -- | A token that can be used to retrieve the next set of results, or @null@
     -- if there are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | List of audit suppressions.
-    suppressions :: Prelude.Maybe [AuditSuppression],
+    suppressions :: Core.Maybe [AuditSuppression],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAuditSuppressionsResponse' with all optional fields omitted.
@@ -214,27 +209,27 @@ data ListAuditSuppressionsResponse = ListAuditSuppressionsResponse'
 -- 'httpStatus', 'listAuditSuppressionsResponse_httpStatus' - The response's http status code.
 newListAuditSuppressionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAuditSuppressionsResponse
 newListAuditSuppressionsResponse pHttpStatus_ =
   ListAuditSuppressionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      suppressions = Prelude.Nothing,
+        Core.Nothing,
+      suppressions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token that can be used to retrieve the next set of results, or @null@
 -- if there are no additional results.
-listAuditSuppressionsResponse_nextToken :: Lens.Lens' ListAuditSuppressionsResponse (Prelude.Maybe Prelude.Text)
+listAuditSuppressionsResponse_nextToken :: Lens.Lens' ListAuditSuppressionsResponse (Core.Maybe Core.Text)
 listAuditSuppressionsResponse_nextToken = Lens.lens (\ListAuditSuppressionsResponse' {nextToken} -> nextToken) (\s@ListAuditSuppressionsResponse' {} a -> s {nextToken = a} :: ListAuditSuppressionsResponse)
 
 -- | List of audit suppressions.
-listAuditSuppressionsResponse_suppressions :: Lens.Lens' ListAuditSuppressionsResponse (Prelude.Maybe [AuditSuppression])
-listAuditSuppressionsResponse_suppressions = Lens.lens (\ListAuditSuppressionsResponse' {suppressions} -> suppressions) (\s@ListAuditSuppressionsResponse' {} a -> s {suppressions = a} :: ListAuditSuppressionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAuditSuppressionsResponse_suppressions :: Lens.Lens' ListAuditSuppressionsResponse (Core.Maybe [AuditSuppression])
+listAuditSuppressionsResponse_suppressions = Lens.lens (\ListAuditSuppressionsResponse' {suppressions} -> suppressions) (\s@ListAuditSuppressionsResponse' {} a -> s {suppressions = a} :: ListAuditSuppressionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAuditSuppressionsResponse_httpStatus :: Lens.Lens' ListAuditSuppressionsResponse Prelude.Int
+listAuditSuppressionsResponse_httpStatus :: Lens.Lens' ListAuditSuppressionsResponse Core.Int
 listAuditSuppressionsResponse_httpStatus = Lens.lens (\ListAuditSuppressionsResponse' {httpStatus} -> httpStatus) (\s@ListAuditSuppressionsResponse' {} a -> s {httpStatus = a} :: ListAuditSuppressionsResponse)
 
-instance Prelude.NFData ListAuditSuppressionsResponse
+instance Core.NFData ListAuditSuppressionsResponse

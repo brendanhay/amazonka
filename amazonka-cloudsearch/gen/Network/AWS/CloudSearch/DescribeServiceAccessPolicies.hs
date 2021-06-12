@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,11 +61,11 @@ import qualified Network.AWS.Response as Response
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
   { -- | Whether to display the deployed configuration (@true@) or include any
     -- pending changes (@false@). Defaults to @false@.
-    deployed :: Prelude.Maybe Prelude.Bool,
+    deployed :: Core.Maybe Core.Bool,
     -- | The name of the domain you want to describe.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeServiceAccessPolicies' with all optional fields omitted.
@@ -82,30 +81,30 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
 -- 'domainName', 'describeServiceAccessPolicies_domainName' - The name of the domain you want to describe.
 newDescribeServiceAccessPolicies ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeServiceAccessPolicies
 newDescribeServiceAccessPolicies pDomainName_ =
   DescribeServiceAccessPolicies'
     { deployed =
-        Prelude.Nothing,
+        Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-describeServiceAccessPolicies_deployed :: Lens.Lens' DescribeServiceAccessPolicies (Prelude.Maybe Prelude.Bool)
+describeServiceAccessPolicies_deployed :: Lens.Lens' DescribeServiceAccessPolicies (Core.Maybe Core.Bool)
 describeServiceAccessPolicies_deployed = Lens.lens (\DescribeServiceAccessPolicies' {deployed} -> deployed) (\s@DescribeServiceAccessPolicies' {} a -> s {deployed = a} :: DescribeServiceAccessPolicies)
 
 -- | The name of the domain you want to describe.
-describeServiceAccessPolicies_domainName :: Lens.Lens' DescribeServiceAccessPolicies Prelude.Text
+describeServiceAccessPolicies_domainName :: Lens.Lens' DescribeServiceAccessPolicies Core.Text
 describeServiceAccessPolicies_domainName = Lens.lens (\DescribeServiceAccessPolicies' {domainName} -> domainName) (\s@DescribeServiceAccessPolicies' {} a -> s {domainName = a} :: DescribeServiceAccessPolicies)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeServiceAccessPolicies
   where
   type
-    Rs DescribeServiceAccessPolicies =
+    AWSResponse DescribeServiceAccessPolicies =
       DescribeServiceAccessPoliciesResponse
   request = Request.postQuery defaultService
   response =
@@ -113,39 +112,28 @@ instance
       "DescribeServiceAccessPoliciesResult"
       ( \s h x ->
           DescribeServiceAccessPoliciesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "AccessPolicies")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "AccessPolicies")
       )
 
-instance
-  Prelude.Hashable
-    DescribeServiceAccessPolicies
+instance Core.Hashable DescribeServiceAccessPolicies
 
-instance Prelude.NFData DescribeServiceAccessPolicies
+instance Core.NFData DescribeServiceAccessPolicies
 
-instance
-  Prelude.ToHeaders
-    DescribeServiceAccessPolicies
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeServiceAccessPolicies where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeServiceAccessPolicies where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeServiceAccessPolicies where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeServiceAccessPolicies
-  where
+instance Core.ToQuery DescribeServiceAccessPolicies where
   toQuery DescribeServiceAccessPolicies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeServiceAccessPolicies" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "Deployed" Prelude.=: deployed,
-        "DomainName" Prelude.=: domainName
+          Core.=: ("DescribeServiceAccessPolicies" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "Deployed" Core.=: deployed,
+        "DomainName" Core.=: domainName
       ]
 
 -- | The result of a @DescribeServiceAccessPolicies@ request.
@@ -153,11 +141,11 @@ instance
 -- /See:/ 'newDescribeServiceAccessPoliciesResponse' smart constructor.
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The access rules configured for the domain specified in the request.
     accessPolicies :: AccessPoliciesStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeServiceAccessPoliciesResponse' with all optional fields omitted.
@@ -172,7 +160,7 @@ data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRespon
 -- 'accessPolicies', 'describeServiceAccessPoliciesResponse_accessPolicies' - The access rules configured for the domain specified in the request.
 newDescribeServiceAccessPoliciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'accessPolicies'
   AccessPoliciesStatus ->
   DescribeServiceAccessPoliciesResponse
@@ -186,7 +174,7 @@ newDescribeServiceAccessPoliciesResponse
       }
 
 -- | The response's http status code.
-describeServiceAccessPoliciesResponse_httpStatus :: Lens.Lens' DescribeServiceAccessPoliciesResponse Prelude.Int
+describeServiceAccessPoliciesResponse_httpStatus :: Lens.Lens' DescribeServiceAccessPoliciesResponse Core.Int
 describeServiceAccessPoliciesResponse_httpStatus = Lens.lens (\DescribeServiceAccessPoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribeServiceAccessPoliciesResponse' {} a -> s {httpStatus = a} :: DescribeServiceAccessPoliciesResponse)
 
 -- | The access rules configured for the domain specified in the request.
@@ -194,5 +182,5 @@ describeServiceAccessPoliciesResponse_accessPolicies :: Lens.Lens' DescribeServi
 describeServiceAccessPoliciesResponse_accessPolicies = Lens.lens (\DescribeServiceAccessPoliciesResponse' {accessPolicies} -> accessPolicies) (\s@DescribeServiceAccessPoliciesResponse' {} a -> s {accessPolicies = a} :: DescribeServiceAccessPoliciesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeServiceAccessPoliciesResponse

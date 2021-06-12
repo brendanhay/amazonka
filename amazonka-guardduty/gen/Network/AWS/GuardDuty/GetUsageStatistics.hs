@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.GuardDuty.GetUsageStatistics
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,21 +62,21 @@ data GetUsageStatistics = GetUsageStatistics'
     -- Set the value of this parameter to null for the first request to a list
     -- action. For subsequent calls, use the NextToken value returned from the
     -- previous request to continue listing results after the first page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The currency unit you would like to view your usage statistics in.
     -- Current valid values are USD.
-    unit :: Prelude.Maybe Prelude.Text,
+    unit :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the detector that specifies the GuardDuty service whose usage
     -- statistics you want to retrieve.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The type of usage statistics to retrieve.
     usageStatisticType :: UsageStatisticType,
     -- | Represents the criteria used for querying usage.
     usageCriteria :: UsageCriteria
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUsageStatistics' with all optional fields omitted.
@@ -105,7 +104,7 @@ data GetUsageStatistics = GetUsageStatistics'
 -- 'usageCriteria', 'getUsageStatistics_usageCriteria' - Represents the criteria used for querying usage.
 newGetUsageStatistics ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'usageStatisticType'
   UsageStatisticType ->
   -- | 'usageCriteria'
@@ -116,9 +115,9 @@ newGetUsageStatistics
   pUsageStatisticType_
   pUsageCriteria_ =
     GetUsageStatistics'
-      { nextToken = Prelude.Nothing,
-        unit = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { nextToken = Core.Nothing,
+        unit = Core.Nothing,
+        maxResults = Core.Nothing,
         detectorId = pDetectorId_,
         usageStatisticType = pUsageStatisticType_,
         usageCriteria = pUsageCriteria_
@@ -128,21 +127,21 @@ newGetUsageStatistics
 -- Set the value of this parameter to null for the first request to a list
 -- action. For subsequent calls, use the NextToken value returned from the
 -- previous request to continue listing results after the first page.
-getUsageStatistics_nextToken :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Text)
+getUsageStatistics_nextToken :: Lens.Lens' GetUsageStatistics (Core.Maybe Core.Text)
 getUsageStatistics_nextToken = Lens.lens (\GetUsageStatistics' {nextToken} -> nextToken) (\s@GetUsageStatistics' {} a -> s {nextToken = a} :: GetUsageStatistics)
 
 -- | The currency unit you would like to view your usage statistics in.
 -- Current valid values are USD.
-getUsageStatistics_unit :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Text)
+getUsageStatistics_unit :: Lens.Lens' GetUsageStatistics (Core.Maybe Core.Text)
 getUsageStatistics_unit = Lens.lens (\GetUsageStatistics' {unit} -> unit) (\s@GetUsageStatistics' {} a -> s {unit = a} :: GetUsageStatistics)
 
 -- | The maximum number of results to return in the response.
-getUsageStatistics_maxResults :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Natural)
+getUsageStatistics_maxResults :: Lens.Lens' GetUsageStatistics (Core.Maybe Core.Natural)
 getUsageStatistics_maxResults = Lens.lens (\GetUsageStatistics' {maxResults} -> maxResults) (\s@GetUsageStatistics' {} a -> s {maxResults = a} :: GetUsageStatistics)
 
 -- | The ID of the detector that specifies the GuardDuty service whose usage
 -- statistics you want to retrieve.
-getUsageStatistics_detectorId :: Lens.Lens' GetUsageStatistics Prelude.Text
+getUsageStatistics_detectorId :: Lens.Lens' GetUsageStatistics Core.Text
 getUsageStatistics_detectorId = Lens.lens (\GetUsageStatistics' {detectorId} -> detectorId) (\s@GetUsageStatistics' {} a -> s {detectorId = a} :: GetUsageStatistics)
 
 -- | The type of usage statistics to retrieve.
@@ -153,74 +152,69 @@ getUsageStatistics_usageStatisticType = Lens.lens (\GetUsageStatistics' {usageSt
 getUsageStatistics_usageCriteria :: Lens.Lens' GetUsageStatistics UsageCriteria
 getUsageStatistics_usageCriteria = Lens.lens (\GetUsageStatistics' {usageCriteria} -> usageCriteria) (\s@GetUsageStatistics' {} a -> s {usageCriteria = a} :: GetUsageStatistics)
 
-instance Prelude.AWSRequest GetUsageStatistics where
+instance Core.AWSRequest GetUsageStatistics where
   type
-    Rs GetUsageStatistics =
+    AWSResponse GetUsageStatistics =
       GetUsageStatisticsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetUsageStatisticsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "usageStatistics")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "usageStatistics")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetUsageStatistics
+instance Core.Hashable GetUsageStatistics
 
-instance Prelude.NFData GetUsageStatistics
+instance Core.NFData GetUsageStatistics
 
-instance Prelude.ToHeaders GetUsageStatistics where
+instance Core.ToHeaders GetUsageStatistics where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetUsageStatistics where
+instance Core.ToJSON GetUsageStatistics where
   toJSON GetUsageStatistics' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("unit" Prelude..=) Prelude.<$> unit,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ( "usageStatisticsType"
-                  Prelude..= usageStatisticType
-              ),
-            Prelude.Just
-              ("usageCriteria" Prelude..= usageCriteria)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("unit" Core..=) Core.<$> unit,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            Core.Just
+              ("usageStatisticsType" Core..= usageStatisticType),
+            Core.Just ("usageCriteria" Core..= usageCriteria)
           ]
       )
 
-instance Prelude.ToPath GetUsageStatistics where
+instance Core.ToPath GetUsageStatistics where
   toPath GetUsageStatistics' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/usage/statistics"
       ]
 
-instance Prelude.ToQuery GetUsageStatistics where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetUsageStatistics where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetUsageStatisticsResponse' smart constructor.
 data GetUsageStatisticsResponse = GetUsageStatisticsResponse'
   { -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The usage statistics object. If a UsageStatisticType was provided, the
     -- objects representing other types will be null.
-    usageStatistics :: Prelude.Maybe UsageStatistics,
+    usageStatistics :: Core.Maybe UsageStatistics,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUsageStatisticsResponse' with all optional fields omitted.
@@ -239,28 +233,28 @@ data GetUsageStatisticsResponse = GetUsageStatisticsResponse'
 -- 'httpStatus', 'getUsageStatisticsResponse_httpStatus' - The response's http status code.
 newGetUsageStatisticsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetUsageStatisticsResponse
 newGetUsageStatisticsResponse pHttpStatus_ =
   GetUsageStatisticsResponse'
     { nextToken =
-        Prelude.Nothing,
-      usageStatistics = Prelude.Nothing,
+        Core.Nothing,
+      usageStatistics = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
-getUsageStatisticsResponse_nextToken :: Lens.Lens' GetUsageStatisticsResponse (Prelude.Maybe Prelude.Text)
+getUsageStatisticsResponse_nextToken :: Lens.Lens' GetUsageStatisticsResponse (Core.Maybe Core.Text)
 getUsageStatisticsResponse_nextToken = Lens.lens (\GetUsageStatisticsResponse' {nextToken} -> nextToken) (\s@GetUsageStatisticsResponse' {} a -> s {nextToken = a} :: GetUsageStatisticsResponse)
 
 -- | The usage statistics object. If a UsageStatisticType was provided, the
 -- objects representing other types will be null.
-getUsageStatisticsResponse_usageStatistics :: Lens.Lens' GetUsageStatisticsResponse (Prelude.Maybe UsageStatistics)
+getUsageStatisticsResponse_usageStatistics :: Lens.Lens' GetUsageStatisticsResponse (Core.Maybe UsageStatistics)
 getUsageStatisticsResponse_usageStatistics = Lens.lens (\GetUsageStatisticsResponse' {usageStatistics} -> usageStatistics) (\s@GetUsageStatisticsResponse' {} a -> s {usageStatistics = a} :: GetUsageStatisticsResponse)
 
 -- | The response's http status code.
-getUsageStatisticsResponse_httpStatus :: Lens.Lens' GetUsageStatisticsResponse Prelude.Int
+getUsageStatisticsResponse_httpStatus :: Lens.Lens' GetUsageStatisticsResponse Core.Int
 getUsageStatisticsResponse_httpStatus = Lens.lens (\GetUsageStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetUsageStatisticsResponse' {} a -> s {httpStatus = a} :: GetUsageStatisticsResponse)
 
-instance Prelude.NFData GetUsageStatisticsResponse
+instance Core.NFData GetUsageStatisticsResponse

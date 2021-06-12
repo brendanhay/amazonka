@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Glue.UpdateColumnStatisticsForTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +55,15 @@ import qualified Network.AWS.Response as Response
 data UpdateColumnStatisticsForTable = UpdateColumnStatisticsForTable'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is supplied, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database where the partitions reside.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the partitions\' table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A list of the column statistics.
     columnStatisticsList :: [ColumnStatistics]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateColumnStatisticsForTable' with all optional fields omitted.
@@ -84,118 +83,102 @@ data UpdateColumnStatisticsForTable = UpdateColumnStatisticsForTable'
 -- 'columnStatisticsList', 'updateColumnStatisticsForTable_columnStatisticsList' - A list of the column statistics.
 newUpdateColumnStatisticsForTable ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateColumnStatisticsForTable
 newUpdateColumnStatisticsForTable
   pDatabaseName_
   pTableName_ =
     UpdateColumnStatisticsForTable'
       { catalogId =
-          Prelude.Nothing,
+          Core.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        columnStatisticsList = Prelude.mempty
+        columnStatisticsList = Core.mempty
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
 -- none is supplied, the AWS account ID is used by default.
-updateColumnStatisticsForTable_catalogId :: Lens.Lens' UpdateColumnStatisticsForTable (Prelude.Maybe Prelude.Text)
+updateColumnStatisticsForTable_catalogId :: Lens.Lens' UpdateColumnStatisticsForTable (Core.Maybe Core.Text)
 updateColumnStatisticsForTable_catalogId = Lens.lens (\UpdateColumnStatisticsForTable' {catalogId} -> catalogId) (\s@UpdateColumnStatisticsForTable' {} a -> s {catalogId = a} :: UpdateColumnStatisticsForTable)
 
 -- | The name of the catalog database where the partitions reside.
-updateColumnStatisticsForTable_databaseName :: Lens.Lens' UpdateColumnStatisticsForTable Prelude.Text
+updateColumnStatisticsForTable_databaseName :: Lens.Lens' UpdateColumnStatisticsForTable Core.Text
 updateColumnStatisticsForTable_databaseName = Lens.lens (\UpdateColumnStatisticsForTable' {databaseName} -> databaseName) (\s@UpdateColumnStatisticsForTable' {} a -> s {databaseName = a} :: UpdateColumnStatisticsForTable)
 
 -- | The name of the partitions\' table.
-updateColumnStatisticsForTable_tableName :: Lens.Lens' UpdateColumnStatisticsForTable Prelude.Text
+updateColumnStatisticsForTable_tableName :: Lens.Lens' UpdateColumnStatisticsForTable Core.Text
 updateColumnStatisticsForTable_tableName = Lens.lens (\UpdateColumnStatisticsForTable' {tableName} -> tableName) (\s@UpdateColumnStatisticsForTable' {} a -> s {tableName = a} :: UpdateColumnStatisticsForTable)
 
 -- | A list of the column statistics.
 updateColumnStatisticsForTable_columnStatisticsList :: Lens.Lens' UpdateColumnStatisticsForTable [ColumnStatistics]
-updateColumnStatisticsForTable_columnStatisticsList = Lens.lens (\UpdateColumnStatisticsForTable' {columnStatisticsList} -> columnStatisticsList) (\s@UpdateColumnStatisticsForTable' {} a -> s {columnStatisticsList = a} :: UpdateColumnStatisticsForTable) Prelude.. Prelude._Coerce
+updateColumnStatisticsForTable_columnStatisticsList = Lens.lens (\UpdateColumnStatisticsForTable' {columnStatisticsList} -> columnStatisticsList) (\s@UpdateColumnStatisticsForTable' {} a -> s {columnStatisticsList = a} :: UpdateColumnStatisticsForTable) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateColumnStatisticsForTable
   where
   type
-    Rs UpdateColumnStatisticsForTable =
+    AWSResponse UpdateColumnStatisticsForTable =
       UpdateColumnStatisticsForTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateColumnStatisticsForTableResponse'
-            Prelude.<$> (x Prelude..?> "Errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    UpdateColumnStatisticsForTable
+instance Core.Hashable UpdateColumnStatisticsForTable
+
+instance Core.NFData UpdateColumnStatisticsForTable
 
 instance
-  Prelude.NFData
-    UpdateColumnStatisticsForTable
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateColumnStatisticsForTable
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.UpdateColumnStatisticsForTable" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.UpdateColumnStatisticsForTable" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateColumnStatisticsForTable
-  where
+instance Core.ToJSON UpdateColumnStatisticsForTable where
   toJSON UpdateColumnStatisticsForTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
               ( "ColumnStatisticsList"
-                  Prelude..= columnStatisticsList
+                  Core..= columnStatisticsList
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateColumnStatisticsForTable
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateColumnStatisticsForTable where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    UpdateColumnStatisticsForTable
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateColumnStatisticsForTable where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateColumnStatisticsForTableResponse' smart constructor.
 data UpdateColumnStatisticsForTableResponse = UpdateColumnStatisticsForTableResponse'
   { -- | List of ColumnStatisticsErrors.
-    errors :: Prelude.Maybe [ColumnStatisticsError],
+    errors :: Core.Maybe [ColumnStatisticsError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateColumnStatisticsForTableResponse' with all optional fields omitted.
@@ -210,24 +193,24 @@ data UpdateColumnStatisticsForTableResponse = UpdateColumnStatisticsForTableResp
 -- 'httpStatus', 'updateColumnStatisticsForTableResponse_httpStatus' - The response's http status code.
 newUpdateColumnStatisticsForTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateColumnStatisticsForTableResponse
 newUpdateColumnStatisticsForTableResponse
   pHttpStatus_ =
     UpdateColumnStatisticsForTableResponse'
       { errors =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | List of ColumnStatisticsErrors.
-updateColumnStatisticsForTableResponse_errors :: Lens.Lens' UpdateColumnStatisticsForTableResponse (Prelude.Maybe [ColumnStatisticsError])
-updateColumnStatisticsForTableResponse_errors = Lens.lens (\UpdateColumnStatisticsForTableResponse' {errors} -> errors) (\s@UpdateColumnStatisticsForTableResponse' {} a -> s {errors = a} :: UpdateColumnStatisticsForTableResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateColumnStatisticsForTableResponse_errors :: Lens.Lens' UpdateColumnStatisticsForTableResponse (Core.Maybe [ColumnStatisticsError])
+updateColumnStatisticsForTableResponse_errors = Lens.lens (\UpdateColumnStatisticsForTableResponse' {errors} -> errors) (\s@UpdateColumnStatisticsForTableResponse' {} a -> s {errors = a} :: UpdateColumnStatisticsForTableResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateColumnStatisticsForTableResponse_httpStatus :: Lens.Lens' UpdateColumnStatisticsForTableResponse Prelude.Int
+updateColumnStatisticsForTableResponse_httpStatus :: Lens.Lens' UpdateColumnStatisticsForTableResponse Core.Int
 updateColumnStatisticsForTableResponse_httpStatus = Lens.lens (\UpdateColumnStatisticsForTableResponse' {httpStatus} -> httpStatus) (\s@UpdateColumnStatisticsForTableResponse' {} a -> s {httpStatus = a} :: UpdateColumnStatisticsForTableResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateColumnStatisticsForTableResponse

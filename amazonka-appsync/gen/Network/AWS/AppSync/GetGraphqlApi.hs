@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AppSync.GetGraphqlApi
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetGraphqlApi' smart constructor.
 data GetGraphqlApi = GetGraphqlApi'
   { -- | The API ID for the GraphQL API.
-    apiId :: Prelude.Text
+    apiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGraphqlApi' with all optional fields omitted.
@@ -64,56 +63,56 @@ data GetGraphqlApi = GetGraphqlApi'
 -- 'apiId', 'getGraphqlApi_apiId' - The API ID for the GraphQL API.
 newGetGraphqlApi ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   GetGraphqlApi
 newGetGraphqlApi pApiId_ =
   GetGraphqlApi' {apiId = pApiId_}
 
 -- | The API ID for the GraphQL API.
-getGraphqlApi_apiId :: Lens.Lens' GetGraphqlApi Prelude.Text
+getGraphqlApi_apiId :: Lens.Lens' GetGraphqlApi Core.Text
 getGraphqlApi_apiId = Lens.lens (\GetGraphqlApi' {apiId} -> apiId) (\s@GetGraphqlApi' {} a -> s {apiId = a} :: GetGraphqlApi)
 
-instance Prelude.AWSRequest GetGraphqlApi where
-  type Rs GetGraphqlApi = GetGraphqlApiResponse
+instance Core.AWSRequest GetGraphqlApi where
+  type
+    AWSResponse GetGraphqlApi =
+      GetGraphqlApiResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetGraphqlApiResponse'
-            Prelude.<$> (x Prelude..?> "graphqlApi")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "graphqlApi")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetGraphqlApi
+instance Core.Hashable GetGraphqlApi
 
-instance Prelude.NFData GetGraphqlApi
+instance Core.NFData GetGraphqlApi
 
-instance Prelude.ToHeaders GetGraphqlApi where
+instance Core.ToHeaders GetGraphqlApi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetGraphqlApi where
+instance Core.ToPath GetGraphqlApi where
   toPath GetGraphqlApi' {..} =
-    Prelude.mconcat ["/v1/apis/", Prelude.toBS apiId]
+    Core.mconcat ["/v1/apis/", Core.toBS apiId]
 
-instance Prelude.ToQuery GetGraphqlApi where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetGraphqlApi where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetGraphqlApiResponse' smart constructor.
 data GetGraphqlApiResponse = GetGraphqlApiResponse'
   { -- | The @GraphqlApi@ object.
-    graphqlApi :: Prelude.Maybe GraphqlApi,
+    graphqlApi :: Core.Maybe GraphqlApi,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGraphqlApiResponse' with all optional fields omitted.
@@ -128,21 +127,20 @@ data GetGraphqlApiResponse = GetGraphqlApiResponse'
 -- 'httpStatus', 'getGraphqlApiResponse_httpStatus' - The response's http status code.
 newGetGraphqlApiResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetGraphqlApiResponse
 newGetGraphqlApiResponse pHttpStatus_ =
   GetGraphqlApiResponse'
-    { graphqlApi =
-        Prelude.Nothing,
+    { graphqlApi = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @GraphqlApi@ object.
-getGraphqlApiResponse_graphqlApi :: Lens.Lens' GetGraphqlApiResponse (Prelude.Maybe GraphqlApi)
+getGraphqlApiResponse_graphqlApi :: Lens.Lens' GetGraphqlApiResponse (Core.Maybe GraphqlApi)
 getGraphqlApiResponse_graphqlApi = Lens.lens (\GetGraphqlApiResponse' {graphqlApi} -> graphqlApi) (\s@GetGraphqlApiResponse' {} a -> s {graphqlApi = a} :: GetGraphqlApiResponse)
 
 -- | The response's http status code.
-getGraphqlApiResponse_httpStatus :: Lens.Lens' GetGraphqlApiResponse Prelude.Int
+getGraphqlApiResponse_httpStatus :: Lens.Lens' GetGraphqlApiResponse Core.Int
 getGraphqlApiResponse_httpStatus = Lens.lens (\GetGraphqlApiResponse' {httpStatus} -> httpStatus) (\s@GetGraphqlApiResponse' {} a -> s {httpStatus = a} :: GetGraphqlApiResponse)
 
-instance Prelude.NFData GetGraphqlApiResponse
+instance Core.NFData GetGraphqlApiResponse

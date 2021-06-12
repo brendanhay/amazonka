@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.CloudSearch.ListDomainNames
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +46,7 @@ import qualified Network.AWS.Response as Response
 data ListDomainNames = ListDomainNames'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomainNames' with all optional fields omitted.
@@ -57,40 +56,39 @@ newListDomainNames ::
   ListDomainNames
 newListDomainNames = ListDomainNames'
 
-instance Prelude.AWSRequest ListDomainNames where
-  type Rs ListDomainNames = ListDomainNamesResponse
+instance Core.AWSRequest ListDomainNames where
+  type
+    AWSResponse ListDomainNames =
+      ListDomainNamesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListDomainNamesResult"
       ( \s h x ->
           ListDomainNamesResponse'
-            Prelude.<$> ( x Prelude..@? "DomainNames"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLMap "entry" "key" "value")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "DomainNames" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDomainNames
+instance Core.Hashable ListDomainNames
 
-instance Prelude.NFData ListDomainNames
+instance Core.NFData ListDomainNames
 
-instance Prelude.ToHeaders ListDomainNames where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListDomainNames where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListDomainNames where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDomainNames where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListDomainNames where
+instance Core.ToQuery ListDomainNames where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("ListDomainNames" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2013-01-01" :: Prelude.ByteString)
+              Core.=: ("ListDomainNames" :: Core.ByteString),
+            "Version" Core.=: ("2013-01-01" :: Core.ByteString)
           ]
       )
 
@@ -100,11 +98,11 @@ instance Prelude.ToQuery ListDomainNames where
 -- /See:/ 'newListDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
   { -- | The names of the search domains owned by an account.
-    domainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    domainNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomainNamesResponse' with all optional fields omitted.
@@ -119,21 +117,21 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 -- 'httpStatus', 'listDomainNamesResponse_httpStatus' - The response's http status code.
 newListDomainNamesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDomainNamesResponse
 newListDomainNamesResponse pHttpStatus_ =
   ListDomainNamesResponse'
     { domainNames =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The names of the search domains owned by an account.
-listDomainNamesResponse_domainNames :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listDomainNamesResponse_domainNames = Lens.lens (\ListDomainNamesResponse' {domainNames} -> domainNames) (\s@ListDomainNamesResponse' {} a -> s {domainNames = a} :: ListDomainNamesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDomainNamesResponse_domainNames :: Lens.Lens' ListDomainNamesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+listDomainNamesResponse_domainNames = Lens.lens (\ListDomainNamesResponse' {domainNames} -> domainNames) (\s@ListDomainNamesResponse' {} a -> s {domainNames = a} :: ListDomainNamesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDomainNamesResponse_httpStatus :: Lens.Lens' ListDomainNamesResponse Prelude.Int
+listDomainNamesResponse_httpStatus :: Lens.Lens' ListDomainNamesResponse Core.Int
 listDomainNamesResponse_httpStatus = Lens.lens (\ListDomainNamesResponse' {httpStatus} -> httpStatus) (\s@ListDomainNamesResponse' {} a -> s {httpStatus = a} :: ListDomainNamesResponse)
 
-instance Prelude.NFData ListDomainNamesResponse
+instance Core.NFData ListDomainNamesResponse

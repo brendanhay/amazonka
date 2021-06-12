@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceIpv6AddressRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv6 address.
 --
 -- /See:/ 'newInstanceIpv6AddressRequest' smart constructor.
 data InstanceIpv6AddressRequest = InstanceIpv6AddressRequest'
   { -- | The IPv6 address.
-    ipv6Address :: Prelude.Maybe Prelude.Text
+    ipv6Address :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceIpv6AddressRequest' with all optional fields omitted.
@@ -47,18 +46,17 @@ newInstanceIpv6AddressRequest ::
 newInstanceIpv6AddressRequest =
   InstanceIpv6AddressRequest'
     { ipv6Address =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The IPv6 address.
-instanceIpv6AddressRequest_ipv6Address :: Lens.Lens' InstanceIpv6AddressRequest (Prelude.Maybe Prelude.Text)
+instanceIpv6AddressRequest_ipv6Address :: Lens.Lens' InstanceIpv6AddressRequest (Core.Maybe Core.Text)
 instanceIpv6AddressRequest_ipv6Address = Lens.lens (\InstanceIpv6AddressRequest' {ipv6Address} -> ipv6Address) (\s@InstanceIpv6AddressRequest' {} a -> s {ipv6Address = a} :: InstanceIpv6AddressRequest)
 
-instance Prelude.Hashable InstanceIpv6AddressRequest
+instance Core.Hashable InstanceIpv6AddressRequest
 
-instance Prelude.NFData InstanceIpv6AddressRequest
+instance Core.NFData InstanceIpv6AddressRequest
 
-instance Prelude.ToQuery InstanceIpv6AddressRequest where
+instance Core.ToQuery InstanceIpv6AddressRequest where
   toQuery InstanceIpv6AddressRequest' {..} =
-    Prelude.mconcat
-      ["Ipv6Address" Prelude.=: ipv6Address]
+    Core.mconcat ["Ipv6Address" Core.=: ipv6Address]

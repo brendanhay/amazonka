@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SecurityGroupIdentifier where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a security group.
 --
 -- /See:/ 'newSecurityGroupIdentifier' smart constructor.
 data SecurityGroupIdentifier = SecurityGroupIdentifier'
   { -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text
+    groupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityGroupIdentifier' with all optional fields omitted.
@@ -50,25 +49,24 @@ newSecurityGroupIdentifier ::
   SecurityGroupIdentifier
 newSecurityGroupIdentifier =
   SecurityGroupIdentifier'
-    { groupName =
-        Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { groupName = Core.Nothing,
+      groupId = Core.Nothing
     }
 
 -- | The name of the security group.
-securityGroupIdentifier_groupName :: Lens.Lens' SecurityGroupIdentifier (Prelude.Maybe Prelude.Text)
+securityGroupIdentifier_groupName :: Lens.Lens' SecurityGroupIdentifier (Core.Maybe Core.Text)
 securityGroupIdentifier_groupName = Lens.lens (\SecurityGroupIdentifier' {groupName} -> groupName) (\s@SecurityGroupIdentifier' {} a -> s {groupName = a} :: SecurityGroupIdentifier)
 
 -- | The ID of the security group.
-securityGroupIdentifier_groupId :: Lens.Lens' SecurityGroupIdentifier (Prelude.Maybe Prelude.Text)
+securityGroupIdentifier_groupId :: Lens.Lens' SecurityGroupIdentifier (Core.Maybe Core.Text)
 securityGroupIdentifier_groupId = Lens.lens (\SecurityGroupIdentifier' {groupId} -> groupId) (\s@SecurityGroupIdentifier' {} a -> s {groupId = a} :: SecurityGroupIdentifier)
 
-instance Prelude.FromXML SecurityGroupIdentifier where
+instance Core.FromXML SecurityGroupIdentifier where
   parseXML x =
     SecurityGroupIdentifier'
-      Prelude.<$> (x Prelude..@? "groupName")
-      Prelude.<*> (x Prelude..@? "groupId")
+      Core.<$> (x Core..@? "groupName")
+      Core.<*> (x Core..@? "groupId")
 
-instance Prelude.Hashable SecurityGroupIdentifier
+instance Core.Hashable SecurityGroupIdentifier
 
-instance Prelude.NFData SecurityGroupIdentifier
+instance Core.NFData SecurityGroupIdentifier

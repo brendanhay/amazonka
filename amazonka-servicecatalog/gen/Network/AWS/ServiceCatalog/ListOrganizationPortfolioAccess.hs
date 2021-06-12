@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,8 @@ module Network.AWS.ServiceCatalog.ListOrganizationPortfolioAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -62,10 +60,10 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newListOrganizationPortfolioAccess' smart constructor.
 data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -73,9 +71,9 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The portfolio identifier. For example, @port-2abcdext3y5fk@.
-    portfolioId :: Prelude.Text,
+    portfolioId :: Core.Text,
     -- | The organization node type that will be returned in the output.
     --
     -- -   @ORGANIZATION@ - Organization that has access to the portfolio.
@@ -87,7 +85,7 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
     --     organization.
     organizationNodeType :: OrganizationNodeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOrganizationPortfolioAccess' with all optional fields omitted.
@@ -123,7 +121,7 @@ data ListOrganizationPortfolioAccess = ListOrganizationPortfolioAccess'
 --     organization.
 newListOrganizationPortfolioAccess ::
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationNodeType'
   OrganizationNodeType ->
   ListOrganizationPortfolioAccess
@@ -132,21 +130,21 @@ newListOrganizationPortfolioAccess
   pOrganizationNodeType_ =
     ListOrganizationPortfolioAccess'
       { pageSize =
-          Prelude.Nothing,
-        pageToken = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+          Core.Nothing,
+        pageToken = Core.Nothing,
+        acceptLanguage = Core.Nothing,
         portfolioId = pPortfolioId_,
         organizationNodeType =
           pOrganizationNodeType_
       }
 
 -- | The maximum number of items to return with this call.
-listOrganizationPortfolioAccess_pageSize :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Natural)
+listOrganizationPortfolioAccess_pageSize :: Lens.Lens' ListOrganizationPortfolioAccess (Core.Maybe Core.Natural)
 listOrganizationPortfolioAccess_pageSize = Lens.lens (\ListOrganizationPortfolioAccess' {pageSize} -> pageSize) (\s@ListOrganizationPortfolioAccess' {} a -> s {pageSize = a} :: ListOrganizationPortfolioAccess)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-listOrganizationPortfolioAccess_pageToken :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Text)
+listOrganizationPortfolioAccess_pageToken :: Lens.Lens' ListOrganizationPortfolioAccess (Core.Maybe Core.Text)
 listOrganizationPortfolioAccess_pageToken = Lens.lens (\ListOrganizationPortfolioAccess' {pageToken} -> pageToken) (\s@ListOrganizationPortfolioAccess' {} a -> s {pageToken = a} :: ListOrganizationPortfolioAccess)
 
 -- | The language code.
@@ -156,11 +154,11 @@ listOrganizationPortfolioAccess_pageToken = Lens.lens (\ListOrganizationPortfoli
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-listOrganizationPortfolioAccess_acceptLanguage :: Lens.Lens' ListOrganizationPortfolioAccess (Prelude.Maybe Prelude.Text)
+listOrganizationPortfolioAccess_acceptLanguage :: Lens.Lens' ListOrganizationPortfolioAccess (Core.Maybe Core.Text)
 listOrganizationPortfolioAccess_acceptLanguage = Lens.lens (\ListOrganizationPortfolioAccess' {acceptLanguage} -> acceptLanguage) (\s@ListOrganizationPortfolioAccess' {} a -> s {acceptLanguage = a} :: ListOrganizationPortfolioAccess)
 
 -- | The portfolio identifier. For example, @port-2abcdext3y5fk@.
-listOrganizationPortfolioAccess_portfolioId :: Lens.Lens' ListOrganizationPortfolioAccess Prelude.Text
+listOrganizationPortfolioAccess_portfolioId :: Lens.Lens' ListOrganizationPortfolioAccess Core.Text
 listOrganizationPortfolioAccess_portfolioId = Lens.lens (\ListOrganizationPortfolioAccess' {portfolioId} -> portfolioId) (\s@ListOrganizationPortfolioAccess' {} a -> s {portfolioId = a} :: ListOrganizationPortfolioAccess)
 
 -- | The organization node type that will be returned in the output.
@@ -176,117 +174,101 @@ listOrganizationPortfolioAccess_organizationNodeType :: Lens.Lens' ListOrganizat
 listOrganizationPortfolioAccess_organizationNodeType = Lens.lens (\ListOrganizationPortfolioAccess' {organizationNodeType} -> organizationNodeType) (\s@ListOrganizationPortfolioAccess' {} a -> s {organizationNodeType = a} :: ListOrganizationPortfolioAccess)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListOrganizationPortfolioAccess
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listOrganizationPortfolioAccessResponse_nextPageToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listOrganizationPortfolioAccessResponse_organizationNodes
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listOrganizationPortfolioAccess_pageToken
           Lens..~ rs
           Lens.^? listOrganizationPortfolioAccessResponse_nextPageToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListOrganizationPortfolioAccess
   where
   type
-    Rs ListOrganizationPortfolioAccess =
+    AWSResponse ListOrganizationPortfolioAccess =
       ListOrganizationPortfolioAccessResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationPortfolioAccessResponse'
-            Prelude.<$> ( x Prelude..?> "OrganizationNodes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OrganizationNodes" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListOrganizationPortfolioAccess
 
-instance
-  Prelude.NFData
-    ListOrganizationPortfolioAccess
+instance Core.NFData ListOrganizationPortfolioAccess
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListOrganizationPortfolioAccess
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    ListOrganizationPortfolioAccess
-  where
+instance Core.ToJSON ListOrganizationPortfolioAccess where
   toJSON ListOrganizationPortfolioAccess' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
-            ("PageToken" Prelude..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("PortfolioId" Core..= portfolioId),
+            Core.Just
               ( "OrganizationNodeType"
-                  Prelude..= organizationNodeType
+                  Core..= organizationNodeType
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListOrganizationPortfolioAccess
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListOrganizationPortfolioAccess where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ListOrganizationPortfolioAccess
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListOrganizationPortfolioAccess where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListOrganizationPortfolioAccessResponse' smart constructor.
 data ListOrganizationPortfolioAccessResponse = ListOrganizationPortfolioAccessResponse'
   { -- | Displays information about the organization nodes.
-    organizationNodes :: Prelude.Maybe [OrganizationNode],
+    organizationNodes :: Core.Maybe [OrganizationNode],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOrganizationPortfolioAccessResponse' with all optional fields omitted.
@@ -304,30 +286,30 @@ data ListOrganizationPortfolioAccessResponse = ListOrganizationPortfolioAccessRe
 -- 'httpStatus', 'listOrganizationPortfolioAccessResponse_httpStatus' - The response's http status code.
 newListOrganizationPortfolioAccessResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListOrganizationPortfolioAccessResponse
 newListOrganizationPortfolioAccessResponse
   pHttpStatus_ =
     ListOrganizationPortfolioAccessResponse'
       { organizationNodes =
-          Prelude.Nothing,
-        nextPageToken = Prelude.Nothing,
+          Core.Nothing,
+        nextPageToken = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Displays information about the organization nodes.
-listOrganizationPortfolioAccessResponse_organizationNodes :: Lens.Lens' ListOrganizationPortfolioAccessResponse (Prelude.Maybe [OrganizationNode])
-listOrganizationPortfolioAccessResponse_organizationNodes = Lens.lens (\ListOrganizationPortfolioAccessResponse' {organizationNodes} -> organizationNodes) (\s@ListOrganizationPortfolioAccessResponse' {} a -> s {organizationNodes = a} :: ListOrganizationPortfolioAccessResponse) Prelude.. Lens.mapping Prelude._Coerce
+listOrganizationPortfolioAccessResponse_organizationNodes :: Lens.Lens' ListOrganizationPortfolioAccessResponse (Core.Maybe [OrganizationNode])
+listOrganizationPortfolioAccessResponse_organizationNodes = Lens.lens (\ListOrganizationPortfolioAccessResponse' {organizationNodes} -> organizationNodes) (\s@ListOrganizationPortfolioAccessResponse' {} a -> s {organizationNodes = a} :: ListOrganizationPortfolioAccessResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-listOrganizationPortfolioAccessResponse_nextPageToken :: Lens.Lens' ListOrganizationPortfolioAccessResponse (Prelude.Maybe Prelude.Text)
+listOrganizationPortfolioAccessResponse_nextPageToken :: Lens.Lens' ListOrganizationPortfolioAccessResponse (Core.Maybe Core.Text)
 listOrganizationPortfolioAccessResponse_nextPageToken = Lens.lens (\ListOrganizationPortfolioAccessResponse' {nextPageToken} -> nextPageToken) (\s@ListOrganizationPortfolioAccessResponse' {} a -> s {nextPageToken = a} :: ListOrganizationPortfolioAccessResponse)
 
 -- | The response's http status code.
-listOrganizationPortfolioAccessResponse_httpStatus :: Lens.Lens' ListOrganizationPortfolioAccessResponse Prelude.Int
+listOrganizationPortfolioAccessResponse_httpStatus :: Lens.Lens' ListOrganizationPortfolioAccessResponse Core.Int
 listOrganizationPortfolioAccessResponse_httpStatus = Lens.lens (\ListOrganizationPortfolioAccessResponse' {httpStatus} -> httpStatus) (\s@ListOrganizationPortfolioAccessResponse' {} a -> s {httpStatus = a} :: ListOrganizationPortfolioAccessResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListOrganizationPortfolioAccessResponse

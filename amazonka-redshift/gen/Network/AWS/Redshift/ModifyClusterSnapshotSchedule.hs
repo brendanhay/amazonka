@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.Redshift.ModifyClusterSnapshotSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -48,15 +47,15 @@ import qualified Network.AWS.Response as Response
 data ModifyClusterSnapshotSchedule = ModifyClusterSnapshotSchedule'
   { -- | A boolean to indicate whether to remove the assoiciation between the
     -- cluster and the schedule.
-    disassociateSchedule :: Prelude.Maybe Prelude.Bool,
+    disassociateSchedule :: Core.Maybe Core.Bool,
     -- | A unique alphanumeric identifier for the schedule that you want to
     -- associate with the cluster.
-    scheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    scheduleIdentifier :: Core.Maybe Core.Text,
     -- | A unique identifier for the cluster whose snapshot schedule you want to
     -- modify.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterSnapshotSchedule' with all optional fields omitted.
@@ -76,81 +75,69 @@ data ModifyClusterSnapshotSchedule = ModifyClusterSnapshotSchedule'
 -- modify.
 newModifyClusterSnapshotSchedule ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ModifyClusterSnapshotSchedule
 newModifyClusterSnapshotSchedule pClusterIdentifier_ =
   ModifyClusterSnapshotSchedule'
     { disassociateSchedule =
-        Prelude.Nothing,
-      scheduleIdentifier = Prelude.Nothing,
+        Core.Nothing,
+      scheduleIdentifier = Core.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
 
 -- | A boolean to indicate whether to remove the assoiciation between the
 -- cluster and the schedule.
-modifyClusterSnapshotSchedule_disassociateSchedule :: Lens.Lens' ModifyClusterSnapshotSchedule (Prelude.Maybe Prelude.Bool)
+modifyClusterSnapshotSchedule_disassociateSchedule :: Lens.Lens' ModifyClusterSnapshotSchedule (Core.Maybe Core.Bool)
 modifyClusterSnapshotSchedule_disassociateSchedule = Lens.lens (\ModifyClusterSnapshotSchedule' {disassociateSchedule} -> disassociateSchedule) (\s@ModifyClusterSnapshotSchedule' {} a -> s {disassociateSchedule = a} :: ModifyClusterSnapshotSchedule)
 
 -- | A unique alphanumeric identifier for the schedule that you want to
 -- associate with the cluster.
-modifyClusterSnapshotSchedule_scheduleIdentifier :: Lens.Lens' ModifyClusterSnapshotSchedule (Prelude.Maybe Prelude.Text)
+modifyClusterSnapshotSchedule_scheduleIdentifier :: Lens.Lens' ModifyClusterSnapshotSchedule (Core.Maybe Core.Text)
 modifyClusterSnapshotSchedule_scheduleIdentifier = Lens.lens (\ModifyClusterSnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@ModifyClusterSnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: ModifyClusterSnapshotSchedule)
 
 -- | A unique identifier for the cluster whose snapshot schedule you want to
 -- modify.
-modifyClusterSnapshotSchedule_clusterIdentifier :: Lens.Lens' ModifyClusterSnapshotSchedule Prelude.Text
+modifyClusterSnapshotSchedule_clusterIdentifier :: Lens.Lens' ModifyClusterSnapshotSchedule Core.Text
 modifyClusterSnapshotSchedule_clusterIdentifier = Lens.lens (\ModifyClusterSnapshotSchedule' {clusterIdentifier} -> clusterIdentifier) (\s@ModifyClusterSnapshotSchedule' {} a -> s {clusterIdentifier = a} :: ModifyClusterSnapshotSchedule)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyClusterSnapshotSchedule
   where
   type
-    Rs ModifyClusterSnapshotSchedule =
+    AWSResponse ModifyClusterSnapshotSchedule =
       ModifyClusterSnapshotScheduleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       ModifyClusterSnapshotScheduleResponse'
 
-instance
-  Prelude.Hashable
-    ModifyClusterSnapshotSchedule
+instance Core.Hashable ModifyClusterSnapshotSchedule
 
-instance Prelude.NFData ModifyClusterSnapshotSchedule
+instance Core.NFData ModifyClusterSnapshotSchedule
 
-instance
-  Prelude.ToHeaders
-    ModifyClusterSnapshotSchedule
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyClusterSnapshotSchedule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyClusterSnapshotSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyClusterSnapshotSchedule where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ModifyClusterSnapshotSchedule
-  where
+instance Core.ToQuery ModifyClusterSnapshotSchedule where
   toQuery ModifyClusterSnapshotSchedule' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyClusterSnapshotSchedule" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "DisassociateSchedule"
-          Prelude.=: disassociateSchedule,
-        "ScheduleIdentifier" Prelude.=: scheduleIdentifier,
-        "ClusterIdentifier" Prelude.=: clusterIdentifier
+          Core.=: ("ModifyClusterSnapshotSchedule" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "DisassociateSchedule" Core.=: disassociateSchedule,
+        "ScheduleIdentifier" Core.=: scheduleIdentifier,
+        "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newModifyClusterSnapshotScheduleResponse' smart constructor.
 data ModifyClusterSnapshotScheduleResponse = ModifyClusterSnapshotScheduleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterSnapshotScheduleResponse' with all optional fields omitted.
@@ -162,5 +149,5 @@ newModifyClusterSnapshotScheduleResponse =
   ModifyClusterSnapshotScheduleResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyClusterSnapshotScheduleResponse

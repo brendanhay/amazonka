@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.QLDB.Types.S3EncryptionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types.S3ObjectEncryptionType
 
 -- | The encryption settings that are used by a journal export job to write
@@ -38,7 +37,7 @@ data S3EncryptionConfiguration = S3EncryptionConfiguration'
     --
     -- @KmsKeyArn@ is not required if you specify @SSE_S3@ as the
     -- @ObjectEncryptionType@.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    kmsKeyArn :: Core.Maybe Core.Text,
     -- | The Amazon S3 object encryption type.
     --
     -- To learn more about server-side encryption options in Amazon S3, see
@@ -46,7 +45,7 @@ data S3EncryptionConfiguration = S3EncryptionConfiguration'
     -- in the /Amazon S3 Developer Guide/.
     objectEncryptionType :: S3ObjectEncryptionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3EncryptionConfiguration' with all optional fields omitted.
@@ -78,7 +77,7 @@ newS3EncryptionConfiguration ::
 newS3EncryptionConfiguration pObjectEncryptionType_ =
   S3EncryptionConfiguration'
     { kmsKeyArn =
-        Prelude.Nothing,
+        Core.Nothing,
       objectEncryptionType = pObjectEncryptionType_
     }
 
@@ -91,7 +90,7 @@ newS3EncryptionConfiguration pObjectEncryptionType_ =
 --
 -- @KmsKeyArn@ is not required if you specify @SSE_S3@ as the
 -- @ObjectEncryptionType@.
-s3EncryptionConfiguration_kmsKeyArn :: Lens.Lens' S3EncryptionConfiguration (Prelude.Maybe Prelude.Text)
+s3EncryptionConfiguration_kmsKeyArn :: Lens.Lens' S3EncryptionConfiguration (Core.Maybe Core.Text)
 s3EncryptionConfiguration_kmsKeyArn = Lens.lens (\S3EncryptionConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@S3EncryptionConfiguration' {} a -> s {kmsKeyArn = a} :: S3EncryptionConfiguration)
 
 -- | The Amazon S3 object encryption type.
@@ -102,28 +101,28 @@ s3EncryptionConfiguration_kmsKeyArn = Lens.lens (\S3EncryptionConfiguration' {km
 s3EncryptionConfiguration_objectEncryptionType :: Lens.Lens' S3EncryptionConfiguration S3ObjectEncryptionType
 s3EncryptionConfiguration_objectEncryptionType = Lens.lens (\S3EncryptionConfiguration' {objectEncryptionType} -> objectEncryptionType) (\s@S3EncryptionConfiguration' {} a -> s {objectEncryptionType = a} :: S3EncryptionConfiguration)
 
-instance Prelude.FromJSON S3EncryptionConfiguration where
+instance Core.FromJSON S3EncryptionConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3EncryptionConfiguration"
       ( \x ->
           S3EncryptionConfiguration'
-            Prelude.<$> (x Prelude..:? "KmsKeyArn")
-            Prelude.<*> (x Prelude..: "ObjectEncryptionType")
+            Core.<$> (x Core..:? "KmsKeyArn")
+            Core.<*> (x Core..: "ObjectEncryptionType")
       )
 
-instance Prelude.Hashable S3EncryptionConfiguration
+instance Core.Hashable S3EncryptionConfiguration
 
-instance Prelude.NFData S3EncryptionConfiguration
+instance Core.NFData S3EncryptionConfiguration
 
-instance Prelude.ToJSON S3EncryptionConfiguration where
+instance Core.ToJSON S3EncryptionConfiguration where
   toJSON S3EncryptionConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyArn" Prelude..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyArn" Core..=) Core.<$> kmsKeyArn,
+            Core.Just
               ( "ObjectEncryptionType"
-                  Prelude..= objectEncryptionType
+                  Core..= objectEncryptionType
               )
           ]
       )

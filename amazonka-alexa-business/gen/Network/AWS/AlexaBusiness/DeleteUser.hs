@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.AlexaBusiness.DeleteUser
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
   { -- | The ARN of the user to delete in the organization. Required.
-    userArn :: Prelude.Maybe Prelude.Text,
+    userArn :: Core.Maybe Core.Text,
     -- | The ARN of the user\'s enrollment in the organization. Required.
-    enrollmentId :: Prelude.Text
+    enrollmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -68,73 +67,68 @@ data DeleteUser = DeleteUser'
 -- 'enrollmentId', 'deleteUser_enrollmentId' - The ARN of the user\'s enrollment in the organization. Required.
 newDeleteUser ::
   -- | 'enrollmentId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUser
 newDeleteUser pEnrollmentId_ =
   DeleteUser'
-    { userArn = Prelude.Nothing,
+    { userArn = Core.Nothing,
       enrollmentId = pEnrollmentId_
     }
 
 -- | The ARN of the user to delete in the organization. Required.
-deleteUser_userArn :: Lens.Lens' DeleteUser (Prelude.Maybe Prelude.Text)
+deleteUser_userArn :: Lens.Lens' DeleteUser (Core.Maybe Core.Text)
 deleteUser_userArn = Lens.lens (\DeleteUser' {userArn} -> userArn) (\s@DeleteUser' {} a -> s {userArn = a} :: DeleteUser)
 
 -- | The ARN of the user\'s enrollment in the organization. Required.
-deleteUser_enrollmentId :: Lens.Lens' DeleteUser Prelude.Text
+deleteUser_enrollmentId :: Lens.Lens' DeleteUser Core.Text
 deleteUser_enrollmentId = Lens.lens (\DeleteUser' {enrollmentId} -> enrollmentId) (\s@DeleteUser' {} a -> s {enrollmentId = a} :: DeleteUser)
 
-instance Prelude.AWSRequest DeleteUser where
-  type Rs DeleteUser = DeleteUserResponse
+instance Core.AWSRequest DeleteUser where
+  type AWSResponse DeleteUser = DeleteUserResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUser
+instance Core.Hashable DeleteUser
 
-instance Prelude.NFData DeleteUser
+instance Core.NFData DeleteUser
 
-instance Prelude.ToHeaders DeleteUser where
+instance Core.ToHeaders DeleteUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DeleteUser" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AlexaForBusiness.DeleteUser" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteUser where
+instance Core.ToJSON DeleteUser where
   toJSON DeleteUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("UserArn" Prelude..=) Prelude.<$> userArn,
-            Prelude.Just
-              ("EnrollmentId" Prelude..= enrollmentId)
+    Core.object
+      ( Core.catMaybes
+          [ ("UserArn" Core..=) Core.<$> userArn,
+            Core.Just ("EnrollmentId" Core..= enrollmentId)
           ]
       )
 
-instance Prelude.ToPath DeleteUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -147,13 +141,13 @@ data DeleteUserResponse = DeleteUserResponse'
 -- 'httpStatus', 'deleteUserResponse_httpStatus' - The response's http status code.
 newDeleteUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteUserResponse
 newDeleteUserResponse pHttpStatus_ =
   DeleteUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Prelude.Int
+deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Core.Int
 deleteUserResponse_httpStatus = Lens.lens (\DeleteUserResponse' {httpStatus} -> httpStatus) (\s@DeleteUserResponse' {} a -> s {httpStatus = a} :: DeleteUserResponse)
 
-instance Prelude.NFData DeleteUserResponse
+instance Core.NFData DeleteUserResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.CloudWatchEvents.DeleteArchive
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteArchive' smart constructor.
 data DeleteArchive = DeleteArchive'
   { -- | The name of the archive to delete.
-    archiveName :: Prelude.Text
+    archiveName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteArchive' with all optional fields omitted.
@@ -63,63 +62,61 @@ data DeleteArchive = DeleteArchive'
 -- 'archiveName', 'deleteArchive_archiveName' - The name of the archive to delete.
 newDeleteArchive ::
   -- | 'archiveName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteArchive
 newDeleteArchive pArchiveName_ =
   DeleteArchive' {archiveName = pArchiveName_}
 
 -- | The name of the archive to delete.
-deleteArchive_archiveName :: Lens.Lens' DeleteArchive Prelude.Text
+deleteArchive_archiveName :: Lens.Lens' DeleteArchive Core.Text
 deleteArchive_archiveName = Lens.lens (\DeleteArchive' {archiveName} -> archiveName) (\s@DeleteArchive' {} a -> s {archiveName = a} :: DeleteArchive)
 
-instance Prelude.AWSRequest DeleteArchive where
-  type Rs DeleteArchive = DeleteArchiveResponse
+instance Core.AWSRequest DeleteArchive where
+  type
+    AWSResponse DeleteArchive =
+      DeleteArchiveResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteArchiveResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteArchive
+instance Core.Hashable DeleteArchive
 
-instance Prelude.NFData DeleteArchive
+instance Core.NFData DeleteArchive
 
-instance Prelude.ToHeaders DeleteArchive where
+instance Core.ToHeaders DeleteArchive where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSEvents.DeleteArchive" :: Prelude.ByteString),
+              Core.=# ("AWSEvents.DeleteArchive" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteArchive where
+instance Core.ToJSON DeleteArchive where
   toJSON DeleteArchive' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ArchiveName" Prelude..= archiveName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ArchiveName" Core..= archiveName)]
       )
 
-instance Prelude.ToPath DeleteArchive where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteArchive where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteArchive where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteArchive where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteArchiveResponse' smart constructor.
 data DeleteArchiveResponse = DeleteArchiveResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteArchiveResponse' with all optional fields omitted.
@@ -132,13 +129,13 @@ data DeleteArchiveResponse = DeleteArchiveResponse'
 -- 'httpStatus', 'deleteArchiveResponse_httpStatus' - The response's http status code.
 newDeleteArchiveResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteArchiveResponse
 newDeleteArchiveResponse pHttpStatus_ =
   DeleteArchiveResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteArchiveResponse_httpStatus :: Lens.Lens' DeleteArchiveResponse Prelude.Int
+deleteArchiveResponse_httpStatus :: Lens.Lens' DeleteArchiveResponse Core.Int
 deleteArchiveResponse_httpStatus = Lens.lens (\DeleteArchiveResponse' {httpStatus} -> httpStatus) (\s@DeleteArchiveResponse' {} a -> s {httpStatus = a} :: DeleteArchiveResponse)
 
-instance Prelude.NFData DeleteArchiveResponse
+instance Core.NFData DeleteArchiveResponse

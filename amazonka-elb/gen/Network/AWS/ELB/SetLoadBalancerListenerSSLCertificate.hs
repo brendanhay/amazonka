@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSetLoadBalancerListenerSSLCertificate' smart constructor.
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
   { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The port that uses the specified SSL certificate.
-    loadBalancerPort :: Prelude.Int,
+    loadBalancerPort :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the SSL certificate.
-    sSLCertificateId :: Prelude.Text
+    sSLCertificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetLoadBalancerListenerSSLCertificate' with all optional fields omitted.
@@ -81,11 +80,11 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 -- 'sSLCertificateId', 'setLoadBalancerListenerSSLCertificate_sSLCertificateId' - The Amazon Resource Name (ARN) of the SSL certificate.
 newSetLoadBalancerListenerSSLCertificate ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'loadBalancerPort'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'sSLCertificateId'
-  Prelude.Text ->
+  Core.Text ->
   SetLoadBalancerListenerSSLCertificate
 newSetLoadBalancerListenerSSLCertificate
   pLoadBalancerName_
@@ -101,23 +100,24 @@ newSetLoadBalancerListenerSSLCertificate
       }
 
 -- | The name of the load balancer.
-setLoadBalancerListenerSSLCertificate_loadBalancerName :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Prelude.Text
+setLoadBalancerListenerSSLCertificate_loadBalancerName :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Core.Text
 setLoadBalancerListenerSSLCertificate_loadBalancerName = Lens.lens (\SetLoadBalancerListenerSSLCertificate' {loadBalancerName} -> loadBalancerName) (\s@SetLoadBalancerListenerSSLCertificate' {} a -> s {loadBalancerName = a} :: SetLoadBalancerListenerSSLCertificate)
 
 -- | The port that uses the specified SSL certificate.
-setLoadBalancerListenerSSLCertificate_loadBalancerPort :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Prelude.Int
+setLoadBalancerListenerSSLCertificate_loadBalancerPort :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Core.Int
 setLoadBalancerListenerSSLCertificate_loadBalancerPort = Lens.lens (\SetLoadBalancerListenerSSLCertificate' {loadBalancerPort} -> loadBalancerPort) (\s@SetLoadBalancerListenerSSLCertificate' {} a -> s {loadBalancerPort = a} :: SetLoadBalancerListenerSSLCertificate)
 
 -- | The Amazon Resource Name (ARN) of the SSL certificate.
-setLoadBalancerListenerSSLCertificate_sSLCertificateId :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Prelude.Text
+setLoadBalancerListenerSSLCertificate_sSLCertificateId :: Lens.Lens' SetLoadBalancerListenerSSLCertificate Core.Text
 setLoadBalancerListenerSSLCertificate_sSLCertificateId = Lens.lens (\SetLoadBalancerListenerSSLCertificate' {sSLCertificateId} -> sSLCertificateId) (\s@SetLoadBalancerListenerSSLCertificate' {} a -> s {sSLCertificateId = a} :: SetLoadBalancerListenerSSLCertificate)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     SetLoadBalancerListenerSSLCertificate
   where
   type
-    Rs SetLoadBalancerListenerSSLCertificate =
+    AWSResponse
+      SetLoadBalancerListenerSSLCertificate =
       SetLoadBalancerListenerSSLCertificateResponse
   request = Request.postQuery defaultService
   response =
@@ -125,44 +125,43 @@ instance
       "SetLoadBalancerListenerSSLCertificateResult"
       ( \s h x ->
           SetLoadBalancerListenerSSLCertificateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SetLoadBalancerListenerSSLCertificate
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetLoadBalancerListenerSSLCertificate
 
 instance
-  Prelude.ToHeaders
-    SetLoadBalancerListenerSSLCertificate
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     SetLoadBalancerListenerSSLCertificate
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    SetLoadBalancerListenerSSLCertificate
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     SetLoadBalancerListenerSSLCertificate
   where
   toQuery SetLoadBalancerListenerSSLCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "SetLoadBalancerListenerSSLCertificate" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
-        "LoadBalancerPort" Prelude.=: loadBalancerPort,
-        "SSLCertificateId" Prelude.=: sSLCertificateId
+          Core.=: ( "SetLoadBalancerListenerSSLCertificate" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
+        "LoadBalancerPort" Core.=: loadBalancerPort,
+        "SSLCertificateId" Core.=: sSLCertificateId
       ]
 
 -- | Contains the output of SetLoadBalancerListenerSSLCertificate.
@@ -170,9 +169,9 @@ instance
 -- /See:/ 'newSetLoadBalancerListenerSSLCertificateResponse' smart constructor.
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetLoadBalancerListenerSSLCertificateResponse' with all optional fields omitted.
@@ -185,7 +184,7 @@ data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLC
 -- 'httpStatus', 'setLoadBalancerListenerSSLCertificateResponse_httpStatus' - The response's http status code.
 newSetLoadBalancerListenerSSLCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetLoadBalancerListenerSSLCertificateResponse
 newSetLoadBalancerListenerSSLCertificateResponse
   pHttpStatus_ =
@@ -195,9 +194,9 @@ newSetLoadBalancerListenerSSLCertificateResponse
       }
 
 -- | The response's http status code.
-setLoadBalancerListenerSSLCertificateResponse_httpStatus :: Lens.Lens' SetLoadBalancerListenerSSLCertificateResponse Prelude.Int
+setLoadBalancerListenerSSLCertificateResponse_httpStatus :: Lens.Lens' SetLoadBalancerListenerSSLCertificateResponse Core.Int
 setLoadBalancerListenerSSLCertificateResponse_httpStatus = Lens.lens (\SetLoadBalancerListenerSSLCertificateResponse' {httpStatus} -> httpStatus) (\s@SetLoadBalancerListenerSSLCertificateResponse' {} a -> s {httpStatus = a} :: SetLoadBalancerListenerSSLCertificateResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetLoadBalancerListenerSSLCertificateResponse

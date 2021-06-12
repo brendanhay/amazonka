@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,9 +62,9 @@ module Network.AWS.IAM.GetRolePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,16 +76,16 @@ data GetRolePolicy = GetRolePolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Prelude.Text,
+    roleName :: Core.Text,
     -- | The name of the policy document to get.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRolePolicy' with all optional fields omitted.
@@ -111,9 +110,9 @@ data GetRolePolicy = GetRolePolicy'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetRolePolicy ::
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   GetRolePolicy
 newGetRolePolicy pRoleName_ pPolicyName_ =
   GetRolePolicy'
@@ -127,7 +126,7 @@ newGetRolePolicy pRoleName_ pPolicyName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getRolePolicy_roleName :: Lens.Lens' GetRolePolicy Prelude.Text
+getRolePolicy_roleName :: Lens.Lens' GetRolePolicy Core.Text
 getRolePolicy_roleName = Lens.lens (\GetRolePolicy' {roleName} -> roleName) (\s@GetRolePolicy' {} a -> s {roleName = a} :: GetRolePolicy)
 
 -- | The name of the policy document to get.
@@ -136,42 +135,43 @@ getRolePolicy_roleName = Lens.lens (\GetRolePolicy' {roleName} -> roleName) (\s@
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getRolePolicy_policyName :: Lens.Lens' GetRolePolicy Prelude.Text
+getRolePolicy_policyName :: Lens.Lens' GetRolePolicy Core.Text
 getRolePolicy_policyName = Lens.lens (\GetRolePolicy' {policyName} -> policyName) (\s@GetRolePolicy' {} a -> s {policyName = a} :: GetRolePolicy)
 
-instance Prelude.AWSRequest GetRolePolicy where
-  type Rs GetRolePolicy = GetRolePolicyResponse
+instance Core.AWSRequest GetRolePolicy where
+  type
+    AWSResponse GetRolePolicy =
+      GetRolePolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetRolePolicyResult"
       ( \s h x ->
           GetRolePolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "RoleName")
-            Prelude.<*> (x Prelude..@ "PolicyName")
-            Prelude.<*> (x Prelude..@ "PolicyDocument")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "RoleName")
+            Core.<*> (x Core..@ "PolicyName")
+            Core.<*> (x Core..@ "PolicyDocument")
       )
 
-instance Prelude.Hashable GetRolePolicy
+instance Core.Hashable GetRolePolicy
 
-instance Prelude.NFData GetRolePolicy
+instance Core.NFData GetRolePolicy
 
-instance Prelude.ToHeaders GetRolePolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetRolePolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetRolePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRolePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRolePolicy where
+instance Core.ToQuery GetRolePolicy where
   toQuery GetRolePolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetRolePolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Prelude.=: roleName,
-        "PolicyName" Prelude.=: policyName
+          Core.=: ("GetRolePolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "RoleName" Core.=: roleName,
+        "PolicyName" Core.=: policyName
       ]
 
 -- | Contains the response to a successful GetRolePolicy request.
@@ -179,20 +179,20 @@ instance Prelude.ToQuery GetRolePolicy where
 -- /See:/ 'newGetRolePolicyResponse' smart constructor.
 data GetRolePolicyResponse = GetRolePolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The role the policy is associated with.
-    roleName :: Prelude.Text,
+    roleName :: Core.Text,
     -- | The name of the policy.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The policy document.
     --
     -- IAM stores policies in JSON format. However, resources that were created
     -- using AWS CloudFormation templates can be formatted in YAML. AWS
     -- CloudFormation always converts a YAML policy to JSON format before
     -- submitting it to IAM.
-    policyDocument :: Prelude.Text
+    policyDocument :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRolePolicyResponse' with all optional fields omitted.
@@ -216,13 +216,13 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
 -- submitting it to IAM.
 newGetRolePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyDocument'
-  Prelude.Text ->
+  Core.Text ->
   GetRolePolicyResponse
 newGetRolePolicyResponse
   pHttpStatus_
@@ -237,15 +237,15 @@ newGetRolePolicyResponse
       }
 
 -- | The response's http status code.
-getRolePolicyResponse_httpStatus :: Lens.Lens' GetRolePolicyResponse Prelude.Int
+getRolePolicyResponse_httpStatus :: Lens.Lens' GetRolePolicyResponse Core.Int
 getRolePolicyResponse_httpStatus = Lens.lens (\GetRolePolicyResponse' {httpStatus} -> httpStatus) (\s@GetRolePolicyResponse' {} a -> s {httpStatus = a} :: GetRolePolicyResponse)
 
 -- | The role the policy is associated with.
-getRolePolicyResponse_roleName :: Lens.Lens' GetRolePolicyResponse Prelude.Text
+getRolePolicyResponse_roleName :: Lens.Lens' GetRolePolicyResponse Core.Text
 getRolePolicyResponse_roleName = Lens.lens (\GetRolePolicyResponse' {roleName} -> roleName) (\s@GetRolePolicyResponse' {} a -> s {roleName = a} :: GetRolePolicyResponse)
 
 -- | The name of the policy.
-getRolePolicyResponse_policyName :: Lens.Lens' GetRolePolicyResponse Prelude.Text
+getRolePolicyResponse_policyName :: Lens.Lens' GetRolePolicyResponse Core.Text
 getRolePolicyResponse_policyName = Lens.lens (\GetRolePolicyResponse' {policyName} -> policyName) (\s@GetRolePolicyResponse' {} a -> s {policyName = a} :: GetRolePolicyResponse)
 
 -- | The policy document.
@@ -254,7 +254,7 @@ getRolePolicyResponse_policyName = Lens.lens (\GetRolePolicyResponse' {policyNam
 -- using AWS CloudFormation templates can be formatted in YAML. AWS
 -- CloudFormation always converts a YAML policy to JSON format before
 -- submitting it to IAM.
-getRolePolicyResponse_policyDocument :: Lens.Lens' GetRolePolicyResponse Prelude.Text
+getRolePolicyResponse_policyDocument :: Lens.Lens' GetRolePolicyResponse Core.Text
 getRolePolicyResponse_policyDocument = Lens.lens (\GetRolePolicyResponse' {policyDocument} -> policyDocument) (\s@GetRolePolicyResponse' {} a -> s {policyDocument = a} :: GetRolePolicyResponse)
 
-instance Prelude.NFData GetRolePolicyResponse
+instance Core.NFData GetRolePolicyResponse

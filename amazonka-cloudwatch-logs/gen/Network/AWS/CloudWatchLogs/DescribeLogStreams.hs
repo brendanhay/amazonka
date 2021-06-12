@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,8 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,10 +63,10 @@ data DescribeLogStreams = DescribeLogStreams'
   { -- | The prefix to match.
     --
     -- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
-    logStreamNamePrefix :: Prelude.Maybe Prelude.Text,
+    logStreamNamePrefix :: Core.Maybe Core.Text,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | If the value is @LogStreamName@, the results are ordered by log stream
     -- name. If the value is @LastEventTime@, the results are ordered by the
     -- event time. The default value is @LogStreamName@.
@@ -82,18 +80,18 @@ data DescribeLogStreams = DescribeLogStreams'
     -- @lastEventTimeStamp@ updates on an eventual consistency basis. It
     -- typically updates in less than an hour from ingestion, but in rare
     -- situations might take longer.
-    orderBy :: Prelude.Maybe OrderBy,
+    orderBy :: Core.Maybe OrderBy,
     -- | If the value is true, results are returned in descending order. If the
     -- value is to false, results are returned in ascending order. The default
     -- value is false.
-    descending :: Prelude.Maybe Prelude.Bool,
+    descending :: Core.Maybe Core.Bool,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The name of the log group.
-    logGroupName :: Prelude.Text
+    logGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLogStreams' with all optional fields omitted.
@@ -134,28 +132,28 @@ data DescribeLogStreams = DescribeLogStreams'
 -- 'logGroupName', 'describeLogStreams_logGroupName' - The name of the log group.
 newDescribeLogStreams ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeLogStreams
 newDescribeLogStreams pLogGroupName_ =
   DescribeLogStreams'
     { logStreamNamePrefix =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      orderBy = Prelude.Nothing,
-      descending = Prelude.Nothing,
-      limit = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      orderBy = Core.Nothing,
+      descending = Core.Nothing,
+      limit = Core.Nothing,
       logGroupName = pLogGroupName_
     }
 
 -- | The prefix to match.
 --
 -- If @orderBy@ is @LastEventTime@, you cannot specify this parameter.
-describeLogStreams_logStreamNamePrefix :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
+describeLogStreams_logStreamNamePrefix :: Lens.Lens' DescribeLogStreams (Core.Maybe Core.Text)
 describeLogStreams_logStreamNamePrefix = Lens.lens (\DescribeLogStreams' {logStreamNamePrefix} -> logStreamNamePrefix) (\s@DescribeLogStreams' {} a -> s {logStreamNamePrefix = a} :: DescribeLogStreams)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeLogStreams_nextToken :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Text)
+describeLogStreams_nextToken :: Lens.Lens' DescribeLogStreams (Core.Maybe Core.Text)
 describeLogStreams_nextToken = Lens.lens (\DescribeLogStreams' {nextToken} -> nextToken) (\s@DescribeLogStreams' {} a -> s {nextToken = a} :: DescribeLogStreams)
 
 -- | If the value is @LogStreamName@, the results are ordered by log stream
@@ -171,111 +169,106 @@ describeLogStreams_nextToken = Lens.lens (\DescribeLogStreams' {nextToken} -> ne
 -- @lastEventTimeStamp@ updates on an eventual consistency basis. It
 -- typically updates in less than an hour from ingestion, but in rare
 -- situations might take longer.
-describeLogStreams_orderBy :: Lens.Lens' DescribeLogStreams (Prelude.Maybe OrderBy)
+describeLogStreams_orderBy :: Lens.Lens' DescribeLogStreams (Core.Maybe OrderBy)
 describeLogStreams_orderBy = Lens.lens (\DescribeLogStreams' {orderBy} -> orderBy) (\s@DescribeLogStreams' {} a -> s {orderBy = a} :: DescribeLogStreams)
 
 -- | If the value is true, results are returned in descending order. If the
 -- value is to false, results are returned in ascending order. The default
 -- value is false.
-describeLogStreams_descending :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Bool)
+describeLogStreams_descending :: Lens.Lens' DescribeLogStreams (Core.Maybe Core.Bool)
 describeLogStreams_descending = Lens.lens (\DescribeLogStreams' {descending} -> descending) (\s@DescribeLogStreams' {} a -> s {descending = a} :: DescribeLogStreams)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
-describeLogStreams_limit :: Lens.Lens' DescribeLogStreams (Prelude.Maybe Prelude.Natural)
+describeLogStreams_limit :: Lens.Lens' DescribeLogStreams (Core.Maybe Core.Natural)
 describeLogStreams_limit = Lens.lens (\DescribeLogStreams' {limit} -> limit) (\s@DescribeLogStreams' {} a -> s {limit = a} :: DescribeLogStreams)
 
 -- | The name of the log group.
-describeLogStreams_logGroupName :: Lens.Lens' DescribeLogStreams Prelude.Text
+describeLogStreams_logGroupName :: Lens.Lens' DescribeLogStreams Core.Text
 describeLogStreams_logGroupName = Lens.lens (\DescribeLogStreams' {logGroupName} -> logGroupName) (\s@DescribeLogStreams' {} a -> s {logGroupName = a} :: DescribeLogStreams)
 
-instance Pager.AWSPager DescribeLogStreams where
+instance Core.AWSPager DescribeLogStreams where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeLogStreamsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeLogStreamsResponse_logStreams
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeLogStreams_nextToken
           Lens..~ rs
           Lens.^? describeLogStreamsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeLogStreams where
+instance Core.AWSRequest DescribeLogStreams where
   type
-    Rs DescribeLogStreams =
+    AWSResponse DescribeLogStreams =
       DescribeLogStreamsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLogStreamsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "logStreams"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "logStreams" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLogStreams
+instance Core.Hashable DescribeLogStreams
 
-instance Prelude.NFData DescribeLogStreams
+instance Core.NFData DescribeLogStreams
 
-instance Prelude.ToHeaders DescribeLogStreams where
+instance Core.ToHeaders DescribeLogStreams where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DescribeLogStreams" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.DescribeLogStreams" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeLogStreams where
+instance Core.ToJSON DescribeLogStreams where
   toJSON DescribeLogStreams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("logStreamNamePrefix" Prelude..=)
-              Prelude.<$> logStreamNamePrefix,
-            ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("orderBy" Prelude..=) Prelude.<$> orderBy,
-            ("descending" Prelude..=) Prelude.<$> descending,
-            ("limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just
-              ("logGroupName" Prelude..= logGroupName)
+    Core.object
+      ( Core.catMaybes
+          [ ("logStreamNamePrefix" Core..=)
+              Core.<$> logStreamNamePrefix,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("orderBy" Core..=) Core.<$> orderBy,
+            ("descending" Core..=) Core.<$> descending,
+            ("limit" Core..=) Core.<$> limit,
+            Core.Just ("logGroupName" Core..= logGroupName)
           ]
       )
 
-instance Prelude.ToPath DescribeLogStreams where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLogStreams where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLogStreams where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLogStreams where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeLogStreamsResponse' smart constructor.
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The log streams.
-    logStreams :: Prelude.Maybe [LogStream],
+    logStreams :: Core.Maybe [LogStream],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLogStreamsResponse' with all optional fields omitted.
@@ -292,26 +285,26 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
 -- 'httpStatus', 'describeLogStreamsResponse_httpStatus' - The response's http status code.
 newDescribeLogStreamsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLogStreamsResponse
 newDescribeLogStreamsResponse pHttpStatus_ =
   DescribeLogStreamsResponse'
     { nextToken =
-        Prelude.Nothing,
-      logStreams = Prelude.Nothing,
+        Core.Nothing,
+      logStreams = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeLogStreamsResponse_nextToken :: Lens.Lens' DescribeLogStreamsResponse (Prelude.Maybe Prelude.Text)
+describeLogStreamsResponse_nextToken :: Lens.Lens' DescribeLogStreamsResponse (Core.Maybe Core.Text)
 describeLogStreamsResponse_nextToken = Lens.lens (\DescribeLogStreamsResponse' {nextToken} -> nextToken) (\s@DescribeLogStreamsResponse' {} a -> s {nextToken = a} :: DescribeLogStreamsResponse)
 
 -- | The log streams.
-describeLogStreamsResponse_logStreams :: Lens.Lens' DescribeLogStreamsResponse (Prelude.Maybe [LogStream])
-describeLogStreamsResponse_logStreams = Lens.lens (\DescribeLogStreamsResponse' {logStreams} -> logStreams) (\s@DescribeLogStreamsResponse' {} a -> s {logStreams = a} :: DescribeLogStreamsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLogStreamsResponse_logStreams :: Lens.Lens' DescribeLogStreamsResponse (Core.Maybe [LogStream])
+describeLogStreamsResponse_logStreams = Lens.lens (\DescribeLogStreamsResponse' {logStreams} -> logStreams) (\s@DescribeLogStreamsResponse' {} a -> s {logStreams = a} :: DescribeLogStreamsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLogStreamsResponse_httpStatus :: Lens.Lens' DescribeLogStreamsResponse Prelude.Int
+describeLogStreamsResponse_httpStatus :: Lens.Lens' DescribeLogStreamsResponse Core.Int
 describeLogStreamsResponse_httpStatus = Lens.lens (\DescribeLogStreamsResponse' {httpStatus} -> httpStatus) (\s@DescribeLogStreamsResponse' {} a -> s {httpStatus = a} :: DescribeLogStreamsResponse)
 
-instance Prelude.NFData DescribeLogStreamsResponse
+instance Core.NFData DescribeLogStreamsResponse

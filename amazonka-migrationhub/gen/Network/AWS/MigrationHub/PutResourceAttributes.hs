@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.MigrationHub.PutResourceAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,12 +67,12 @@ import qualified Network.AWS.Response as Response
 data PutResourceAttributes = PutResourceAttributes'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Prelude.Text,
+    progressUpdateStream :: Core.Text,
     -- | Unique identifier that references the migration task. /Do not store
     -- personal data in this field./
-    migrationTaskName :: Prelude.Text,
+    migrationTaskName :: Core.Text,
     -- | Information about the resource that is being migrated. This data will be
     -- used to map the task to a resource in the Application Discovery Service
     -- repository.
@@ -95,9 +94,9 @@ data PutResourceAttributes = PutResourceAttributes'
     --     addresses, you should provide as many as you know in separate
     --     type\/value pairs passed to the @ResourceAttributeList@ parameter to
     --     maximize the chances of matching.
-    resourceAttributeList :: Prelude.NonEmpty ResourceAttribute
+    resourceAttributeList :: Core.NonEmpty ResourceAttribute
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutResourceAttributes' with all optional fields omitted.
@@ -138,36 +137,36 @@ data PutResourceAttributes = PutResourceAttributes'
 --     maximize the chances of matching.
 newPutResourceAttributes ::
   -- | 'progressUpdateStream'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'migrationTaskName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceAttributeList'
-  Prelude.NonEmpty ResourceAttribute ->
+  Core.NonEmpty ResourceAttribute ->
   PutResourceAttributes
 newPutResourceAttributes
   pProgressUpdateStream_
   pMigrationTaskName_
   pResourceAttributeList_ =
     PutResourceAttributes'
-      { dryRun = Prelude.Nothing,
+      { dryRun = Core.Nothing,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
         resourceAttributeList =
-          Prelude._Coerce Lens.# pResourceAttributeList_
+          Lens._Coerce Lens.# pResourceAttributeList_
       }
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-putResourceAttributes_dryRun :: Lens.Lens' PutResourceAttributes (Prelude.Maybe Prelude.Bool)
+putResourceAttributes_dryRun :: Lens.Lens' PutResourceAttributes (Core.Maybe Core.Bool)
 putResourceAttributes_dryRun = Lens.lens (\PutResourceAttributes' {dryRun} -> dryRun) (\s@PutResourceAttributes' {} a -> s {dryRun = a} :: PutResourceAttributes)
 
 -- | The name of the ProgressUpdateStream.
-putResourceAttributes_progressUpdateStream :: Lens.Lens' PutResourceAttributes Prelude.Text
+putResourceAttributes_progressUpdateStream :: Lens.Lens' PutResourceAttributes Core.Text
 putResourceAttributes_progressUpdateStream = Lens.lens (\PutResourceAttributes' {progressUpdateStream} -> progressUpdateStream) (\s@PutResourceAttributes' {} a -> s {progressUpdateStream = a} :: PutResourceAttributes)
 
 -- | Unique identifier that references the migration task. /Do not store
 -- personal data in this field./
-putResourceAttributes_migrationTaskName :: Lens.Lens' PutResourceAttributes Prelude.Text
+putResourceAttributes_migrationTaskName :: Lens.Lens' PutResourceAttributes Core.Text
 putResourceAttributes_migrationTaskName = Lens.lens (\PutResourceAttributes' {migrationTaskName} -> migrationTaskName) (\s@PutResourceAttributes' {} a -> s {migrationTaskName = a} :: PutResourceAttributes)
 
 -- | Information about the resource that is being migrated. This data will be
@@ -191,70 +190,68 @@ putResourceAttributes_migrationTaskName = Lens.lens (\PutResourceAttributes' {mi
 --     addresses, you should provide as many as you know in separate
 --     type\/value pairs passed to the @ResourceAttributeList@ parameter to
 --     maximize the chances of matching.
-putResourceAttributes_resourceAttributeList :: Lens.Lens' PutResourceAttributes (Prelude.NonEmpty ResourceAttribute)
-putResourceAttributes_resourceAttributeList = Lens.lens (\PutResourceAttributes' {resourceAttributeList} -> resourceAttributeList) (\s@PutResourceAttributes' {} a -> s {resourceAttributeList = a} :: PutResourceAttributes) Prelude.. Prelude._Coerce
+putResourceAttributes_resourceAttributeList :: Lens.Lens' PutResourceAttributes (Core.NonEmpty ResourceAttribute)
+putResourceAttributes_resourceAttributeList = Lens.lens (\PutResourceAttributes' {resourceAttributeList} -> resourceAttributeList) (\s@PutResourceAttributes' {} a -> s {resourceAttributeList = a} :: PutResourceAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutResourceAttributes where
+instance Core.AWSRequest PutResourceAttributes where
   type
-    Rs PutResourceAttributes =
+    AWSResponse PutResourceAttributes =
       PutResourceAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutResourceAttributesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutResourceAttributes
+instance Core.Hashable PutResourceAttributes
 
-instance Prelude.NFData PutResourceAttributes
+instance Core.NFData PutResourceAttributes
 
-instance Prelude.ToHeaders PutResourceAttributes where
+instance Core.ToHeaders PutResourceAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMigrationHub.PutResourceAttributes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMigrationHub.PutResourceAttributes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutResourceAttributes where
+instance Core.ToJSON PutResourceAttributes where
   toJSON PutResourceAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DryRun" Core..=) Core.<$> dryRun,
+            Core.Just
               ( "ProgressUpdateStream"
-                  Prelude..= progressUpdateStream
+                  Core..= progressUpdateStream
               ),
-            Prelude.Just
-              ("MigrationTaskName" Prelude..= migrationTaskName),
-            Prelude.Just
+            Core.Just
+              ("MigrationTaskName" Core..= migrationTaskName),
+            Core.Just
               ( "ResourceAttributeList"
-                  Prelude..= resourceAttributeList
+                  Core..= resourceAttributeList
               )
           ]
       )
 
-instance Prelude.ToPath PutResourceAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutResourceAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutResourceAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutResourceAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutResourceAttributesResponse' smart constructor.
 data PutResourceAttributesResponse = PutResourceAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutResourceAttributesResponse' with all optional fields omitted.
@@ -267,7 +264,7 @@ data PutResourceAttributesResponse = PutResourceAttributesResponse'
 -- 'httpStatus', 'putResourceAttributesResponse_httpStatus' - The response's http status code.
 newPutResourceAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutResourceAttributesResponse
 newPutResourceAttributesResponse pHttpStatus_ =
   PutResourceAttributesResponse'
@@ -276,7 +273,7 @@ newPutResourceAttributesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putResourceAttributesResponse_httpStatus :: Lens.Lens' PutResourceAttributesResponse Prelude.Int
+putResourceAttributesResponse_httpStatus :: Lens.Lens' PutResourceAttributesResponse Core.Int
 putResourceAttributesResponse_httpStatus = Lens.lens (\PutResourceAttributesResponse' {httpStatus} -> httpStatus) (\s@PutResourceAttributesResponse' {} a -> s {httpStatus = a} :: PutResourceAttributesResponse)
 
-instance Prelude.NFData PutResourceAttributesResponse
+instance Core.NFData PutResourceAttributesResponse

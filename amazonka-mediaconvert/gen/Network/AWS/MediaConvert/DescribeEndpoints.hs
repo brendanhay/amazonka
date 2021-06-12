@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.MediaConvert.DescribeEndpoints
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,17 +57,17 @@ import qualified Network.AWS.Response as Response
 data DescribeEndpoints = DescribeEndpoints'
   { -- | Use this string, provided with the response to a previous request, to
     -- request the next batch of endpoints.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Optional. Max number of endpoints, up to twenty, that will be returned
     -- at one time.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
     -- to return your endpoints if any exist, or to create an endpoint for you
     -- and return it if one doesn\'t already exist. Specify GET_ONLY to return
     -- your endpoints if any exist, or an empty list if none exist.
-    mode :: Prelude.Maybe DescribeEndpointsMode
+    mode :: Core.Maybe DescribeEndpointsMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEndpoints' with all optional fields omitted.
@@ -93,105 +91,102 @@ newDescribeEndpoints ::
   DescribeEndpoints
 newDescribeEndpoints =
   DescribeEndpoints'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      mode = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      mode = Core.Nothing
     }
 
 -- | Use this string, provided with the response to a previous request, to
 -- request the next batch of endpoints.
-describeEndpoints_nextToken :: Lens.Lens' DescribeEndpoints (Prelude.Maybe Prelude.Text)
+describeEndpoints_nextToken :: Lens.Lens' DescribeEndpoints (Core.Maybe Core.Text)
 describeEndpoints_nextToken = Lens.lens (\DescribeEndpoints' {nextToken} -> nextToken) (\s@DescribeEndpoints' {} a -> s {nextToken = a} :: DescribeEndpoints)
 
 -- | Optional. Max number of endpoints, up to twenty, that will be returned
 -- at one time.
-describeEndpoints_maxResults :: Lens.Lens' DescribeEndpoints (Prelude.Maybe Prelude.Int)
+describeEndpoints_maxResults :: Lens.Lens' DescribeEndpoints (Core.Maybe Core.Int)
 describeEndpoints_maxResults = Lens.lens (\DescribeEndpoints' {maxResults} -> maxResults) (\s@DescribeEndpoints' {} a -> s {maxResults = a} :: DescribeEndpoints)
 
 -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation
 -- to return your endpoints if any exist, or to create an endpoint for you
 -- and return it if one doesn\'t already exist. Specify GET_ONLY to return
 -- your endpoints if any exist, or an empty list if none exist.
-describeEndpoints_mode :: Lens.Lens' DescribeEndpoints (Prelude.Maybe DescribeEndpointsMode)
+describeEndpoints_mode :: Lens.Lens' DescribeEndpoints (Core.Maybe DescribeEndpointsMode)
 describeEndpoints_mode = Lens.lens (\DescribeEndpoints' {mode} -> mode) (\s@DescribeEndpoints' {} a -> s {mode = a} :: DescribeEndpoints)
 
-instance Pager.AWSPager DescribeEndpoints where
+instance Core.AWSPager DescribeEndpoints where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeEndpointsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeEndpointsResponse_endpoints
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeEndpoints_nextToken
           Lens..~ rs
-          Lens.^? describeEndpointsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeEndpointsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeEndpoints where
-  type Rs DescribeEndpoints = DescribeEndpointsResponse
+instance Core.AWSRequest DescribeEndpoints where
+  type
+    AWSResponse DescribeEndpoints =
+      DescribeEndpointsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "endpoints"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "endpoints" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEndpoints
+instance Core.Hashable DescribeEndpoints
 
-instance Prelude.NFData DescribeEndpoints
+instance Core.NFData DescribeEndpoints
 
-instance Prelude.ToHeaders DescribeEndpoints where
+instance Core.ToHeaders DescribeEndpoints where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEndpoints where
+instance Core.ToJSON DescribeEndpoints where
   toJSON DescribeEndpoints' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("mode" Prelude..=) Prelude.<$> mode
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("mode" Core..=) Core.<$> mode
           ]
       )
 
-instance Prelude.ToPath DescribeEndpoints where
-  toPath = Prelude.const "/2017-08-29/endpoints"
+instance Core.ToPath DescribeEndpoints where
+  toPath = Core.const "/2017-08-29/endpoints"
 
-instance Prelude.ToQuery DescribeEndpoints where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEndpoints where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
   { -- | Use this string to request the next batch of endpoints.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | List of endpoints
-    endpoints :: Prelude.Maybe [Endpoint],
+    endpoints :: Core.Maybe [Endpoint],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEndpointsResponse' with all optional fields omitted.
@@ -208,26 +203,26 @@ data DescribeEndpointsResponse = DescribeEndpointsResponse'
 -- 'httpStatus', 'describeEndpointsResponse_httpStatus' - The response's http status code.
 newDescribeEndpointsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEndpointsResponse
 newDescribeEndpointsResponse pHttpStatus_ =
   DescribeEndpointsResponse'
     { nextToken =
-        Prelude.Nothing,
-      endpoints = Prelude.Nothing,
+        Core.Nothing,
+      endpoints = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Use this string to request the next batch of endpoints.
-describeEndpointsResponse_nextToken :: Lens.Lens' DescribeEndpointsResponse (Prelude.Maybe Prelude.Text)
+describeEndpointsResponse_nextToken :: Lens.Lens' DescribeEndpointsResponse (Core.Maybe Core.Text)
 describeEndpointsResponse_nextToken = Lens.lens (\DescribeEndpointsResponse' {nextToken} -> nextToken) (\s@DescribeEndpointsResponse' {} a -> s {nextToken = a} :: DescribeEndpointsResponse)
 
 -- | List of endpoints
-describeEndpointsResponse_endpoints :: Lens.Lens' DescribeEndpointsResponse (Prelude.Maybe [Endpoint])
-describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {endpoints} -> endpoints) (\s@DescribeEndpointsResponse' {} a -> s {endpoints = a} :: DescribeEndpointsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEndpointsResponse_endpoints :: Lens.Lens' DescribeEndpointsResponse (Core.Maybe [Endpoint])
+describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {endpoints} -> endpoints) (\s@DescribeEndpointsResponse' {} a -> s {endpoints = a} :: DescribeEndpointsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEndpointsResponse_httpStatus :: Lens.Lens' DescribeEndpointsResponse Prelude.Int
+describeEndpointsResponse_httpStatus :: Lens.Lens' DescribeEndpointsResponse Core.Int
 describeEndpointsResponse_httpStatus = Lens.lens (\DescribeEndpointsResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointsResponse' {} a -> s {httpStatus = a} :: DescribeEndpointsResponse)
 
-instance Prelude.NFData DescribeEndpointsResponse
+instance Core.NFData DescribeEndpointsResponse

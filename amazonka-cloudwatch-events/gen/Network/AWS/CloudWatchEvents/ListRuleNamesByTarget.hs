@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.CloudWatchEvents.ListRuleNamesByTarget
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,16 +56,16 @@ import qualified Network.AWS.Response as Response
 data ListRuleNamesByTarget = ListRuleNamesByTarget'
   { -- | The token returned by a previous call to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name or ARN of the event bus to list rules for. If you omit this,
     -- the default event bus is used.
-    eventBusName :: Prelude.Maybe Prelude.Text,
+    eventBusName :: Core.Maybe Core.Text,
     -- | The maximum number of results to return.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the target resource.
-    targetArn :: Prelude.Text
+    targetArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRuleNamesByTarget' with all optional fields omitted.
@@ -88,119 +86,115 @@ data ListRuleNamesByTarget = ListRuleNamesByTarget'
 -- 'targetArn', 'listRuleNamesByTarget_targetArn' - The Amazon Resource Name (ARN) of the target resource.
 newListRuleNamesByTarget ::
   -- | 'targetArn'
-  Prelude.Text ->
+  Core.Text ->
   ListRuleNamesByTarget
 newListRuleNamesByTarget pTargetArn_ =
   ListRuleNamesByTarget'
-    { nextToken = Prelude.Nothing,
-      eventBusName = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      eventBusName = Core.Nothing,
+      limit = Core.Nothing,
       targetArn = pTargetArn_
     }
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
-listRuleNamesByTarget_nextToken :: Lens.Lens' ListRuleNamesByTarget (Prelude.Maybe Prelude.Text)
+listRuleNamesByTarget_nextToken :: Lens.Lens' ListRuleNamesByTarget (Core.Maybe Core.Text)
 listRuleNamesByTarget_nextToken = Lens.lens (\ListRuleNamesByTarget' {nextToken} -> nextToken) (\s@ListRuleNamesByTarget' {} a -> s {nextToken = a} :: ListRuleNamesByTarget)
 
 -- | The name or ARN of the event bus to list rules for. If you omit this,
 -- the default event bus is used.
-listRuleNamesByTarget_eventBusName :: Lens.Lens' ListRuleNamesByTarget (Prelude.Maybe Prelude.Text)
+listRuleNamesByTarget_eventBusName :: Lens.Lens' ListRuleNamesByTarget (Core.Maybe Core.Text)
 listRuleNamesByTarget_eventBusName = Lens.lens (\ListRuleNamesByTarget' {eventBusName} -> eventBusName) (\s@ListRuleNamesByTarget' {} a -> s {eventBusName = a} :: ListRuleNamesByTarget)
 
 -- | The maximum number of results to return.
-listRuleNamesByTarget_limit :: Lens.Lens' ListRuleNamesByTarget (Prelude.Maybe Prelude.Natural)
+listRuleNamesByTarget_limit :: Lens.Lens' ListRuleNamesByTarget (Core.Maybe Core.Natural)
 listRuleNamesByTarget_limit = Lens.lens (\ListRuleNamesByTarget' {limit} -> limit) (\s@ListRuleNamesByTarget' {} a -> s {limit = a} :: ListRuleNamesByTarget)
 
 -- | The Amazon Resource Name (ARN) of the target resource.
-listRuleNamesByTarget_targetArn :: Lens.Lens' ListRuleNamesByTarget Prelude.Text
+listRuleNamesByTarget_targetArn :: Lens.Lens' ListRuleNamesByTarget Core.Text
 listRuleNamesByTarget_targetArn = Lens.lens (\ListRuleNamesByTarget' {targetArn} -> targetArn) (\s@ListRuleNamesByTarget' {} a -> s {targetArn = a} :: ListRuleNamesByTarget)
 
-instance Pager.AWSPager ListRuleNamesByTarget where
+instance Core.AWSPager ListRuleNamesByTarget where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listRuleNamesByTargetResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listRuleNamesByTargetResponse_ruleNames
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listRuleNamesByTarget_nextToken
           Lens..~ rs
           Lens.^? listRuleNamesByTargetResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListRuleNamesByTarget where
+instance Core.AWSRequest ListRuleNamesByTarget where
   type
-    Rs ListRuleNamesByTarget =
+    AWSResponse ListRuleNamesByTarget =
       ListRuleNamesByTargetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListRuleNamesByTargetResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "RuleNames"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "RuleNames" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListRuleNamesByTarget
+instance Core.Hashable ListRuleNamesByTarget
 
-instance Prelude.NFData ListRuleNamesByTarget
+instance Core.NFData ListRuleNamesByTarget
 
-instance Prelude.ToHeaders ListRuleNamesByTarget where
+instance Core.ToHeaders ListRuleNamesByTarget where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.ListRuleNamesByTarget" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSEvents.ListRuleNamesByTarget" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListRuleNamesByTarget where
+instance Core.ToJSON ListRuleNamesByTarget where
   toJSON ListRuleNamesByTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("EventBusName" Prelude..=) Prelude.<$> eventBusName,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("TargetArn" Prelude..= targetArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("EventBusName" Core..=) Core.<$> eventBusName,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("TargetArn" Core..= targetArn)
           ]
       )
 
-instance Prelude.ToPath ListRuleNamesByTarget where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListRuleNamesByTarget where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListRuleNamesByTarget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListRuleNamesByTarget where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListRuleNamesByTargetResponse' smart constructor.
 data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
   { -- | Indicates whether there are additional results to retrieve. If there are
     -- no more results, the value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The names of the rules that can invoke the given target.
-    ruleNames :: Prelude.Maybe [Prelude.Text],
+    ruleNames :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRuleNamesByTargetResponse' with all optional fields omitted.
@@ -218,27 +212,27 @@ data ListRuleNamesByTargetResponse = ListRuleNamesByTargetResponse'
 -- 'httpStatus', 'listRuleNamesByTargetResponse_httpStatus' - The response's http status code.
 newListRuleNamesByTargetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListRuleNamesByTargetResponse
 newListRuleNamesByTargetResponse pHttpStatus_ =
   ListRuleNamesByTargetResponse'
     { nextToken =
-        Prelude.Nothing,
-      ruleNames = Prelude.Nothing,
+        Core.Nothing,
+      ruleNames = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Indicates whether there are additional results to retrieve. If there are
 -- no more results, the value is null.
-listRuleNamesByTargetResponse_nextToken :: Lens.Lens' ListRuleNamesByTargetResponse (Prelude.Maybe Prelude.Text)
+listRuleNamesByTargetResponse_nextToken :: Lens.Lens' ListRuleNamesByTargetResponse (Core.Maybe Core.Text)
 listRuleNamesByTargetResponse_nextToken = Lens.lens (\ListRuleNamesByTargetResponse' {nextToken} -> nextToken) (\s@ListRuleNamesByTargetResponse' {} a -> s {nextToken = a} :: ListRuleNamesByTargetResponse)
 
 -- | The names of the rules that can invoke the given target.
-listRuleNamesByTargetResponse_ruleNames :: Lens.Lens' ListRuleNamesByTargetResponse (Prelude.Maybe [Prelude.Text])
-listRuleNamesByTargetResponse_ruleNames = Lens.lens (\ListRuleNamesByTargetResponse' {ruleNames} -> ruleNames) (\s@ListRuleNamesByTargetResponse' {} a -> s {ruleNames = a} :: ListRuleNamesByTargetResponse) Prelude.. Lens.mapping Prelude._Coerce
+listRuleNamesByTargetResponse_ruleNames :: Lens.Lens' ListRuleNamesByTargetResponse (Core.Maybe [Core.Text])
+listRuleNamesByTargetResponse_ruleNames = Lens.lens (\ListRuleNamesByTargetResponse' {ruleNames} -> ruleNames) (\s@ListRuleNamesByTargetResponse' {} a -> s {ruleNames = a} :: ListRuleNamesByTargetResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRuleNamesByTargetResponse_httpStatus :: Lens.Lens' ListRuleNamesByTargetResponse Prelude.Int
+listRuleNamesByTargetResponse_httpStatus :: Lens.Lens' ListRuleNamesByTargetResponse Core.Int
 listRuleNamesByTargetResponse_httpStatus = Lens.lens (\ListRuleNamesByTargetResponse' {httpStatus} -> httpStatus) (\s@ListRuleNamesByTargetResponse' {} a -> s {httpStatus = a} :: ListRuleNamesByTargetResponse)
 
-instance Prelude.NFData ListRuleNamesByTargetResponse
+instance Core.NFData ListRuleNamesByTargetResponse

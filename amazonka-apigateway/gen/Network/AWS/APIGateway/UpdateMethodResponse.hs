@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.UpdateMethodResponse
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,17 +56,17 @@ import qualified Network.AWS.Response as Response
 data UpdateMethodResponse = UpdateMethodResponse'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The Resource identifier for the MethodResponse resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] The HTTP verb of the Method resource.
-    httpMethod :: Prelude.Text,
+    httpMethod :: Core.Text,
     -- | [Required] The status code for the MethodResponse resource.
-    statusCode :: Prelude.Text
+    statusCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateMethodResponse' with all optional fields omitted.
@@ -89,13 +88,13 @@ data UpdateMethodResponse = UpdateMethodResponse'
 -- 'statusCode', 'updateMethodResponse_statusCode' - [Required] The status code for the MethodResponse resource.
 newUpdateMethodResponse ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'statusCode'
-  Prelude.Text ->
+  Core.Text ->
   UpdateMethodResponse
 newUpdateMethodResponse
   pRestApiId_
@@ -104,7 +103,7 @@ newUpdateMethodResponse
   pStatusCode_ =
     UpdateMethodResponse'
       { patchOperations =
-          Prelude.Nothing,
+          Core.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
@@ -113,66 +112,68 @@ newUpdateMethodResponse
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateMethodResponse_patchOperations :: Lens.Lens' UpdateMethodResponse (Prelude.Maybe [PatchOperation])
-updateMethodResponse_patchOperations = Lens.lens (\UpdateMethodResponse' {patchOperations} -> patchOperations) (\s@UpdateMethodResponse' {} a -> s {patchOperations = a} :: UpdateMethodResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateMethodResponse_patchOperations :: Lens.Lens' UpdateMethodResponse (Core.Maybe [PatchOperation])
+updateMethodResponse_patchOperations = Lens.lens (\UpdateMethodResponse' {patchOperations} -> patchOperations) (\s@UpdateMethodResponse' {} a -> s {patchOperations = a} :: UpdateMethodResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateMethodResponse_restApiId :: Lens.Lens' UpdateMethodResponse Prelude.Text
+updateMethodResponse_restApiId :: Lens.Lens' UpdateMethodResponse Core.Text
 updateMethodResponse_restApiId = Lens.lens (\UpdateMethodResponse' {restApiId} -> restApiId) (\s@UpdateMethodResponse' {} a -> s {restApiId = a} :: UpdateMethodResponse)
 
 -- | [Required] The Resource identifier for the MethodResponse resource.
-updateMethodResponse_resourceId :: Lens.Lens' UpdateMethodResponse Prelude.Text
+updateMethodResponse_resourceId :: Lens.Lens' UpdateMethodResponse Core.Text
 updateMethodResponse_resourceId = Lens.lens (\UpdateMethodResponse' {resourceId} -> resourceId) (\s@UpdateMethodResponse' {} a -> s {resourceId = a} :: UpdateMethodResponse)
 
 -- | [Required] The HTTP verb of the Method resource.
-updateMethodResponse_httpMethod :: Lens.Lens' UpdateMethodResponse Prelude.Text
+updateMethodResponse_httpMethod :: Lens.Lens' UpdateMethodResponse Core.Text
 updateMethodResponse_httpMethod = Lens.lens (\UpdateMethodResponse' {httpMethod} -> httpMethod) (\s@UpdateMethodResponse' {} a -> s {httpMethod = a} :: UpdateMethodResponse)
 
 -- | [Required] The status code for the MethodResponse resource.
-updateMethodResponse_statusCode :: Lens.Lens' UpdateMethodResponse Prelude.Text
+updateMethodResponse_statusCode :: Lens.Lens' UpdateMethodResponse Core.Text
 updateMethodResponse_statusCode = Lens.lens (\UpdateMethodResponse' {statusCode} -> statusCode) (\s@UpdateMethodResponse' {} a -> s {statusCode = a} :: UpdateMethodResponse)
 
-instance Prelude.AWSRequest UpdateMethodResponse where
-  type Rs UpdateMethodResponse = MethodResponse
+instance Core.AWSRequest UpdateMethodResponse where
+  type
+    AWSResponse UpdateMethodResponse =
+      MethodResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateMethodResponse
+instance Core.Hashable UpdateMethodResponse
 
-instance Prelude.NFData UpdateMethodResponse
+instance Core.NFData UpdateMethodResponse
 
-instance Prelude.ToHeaders UpdateMethodResponse where
+instance Core.ToHeaders UpdateMethodResponse where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateMethodResponse where
+instance Core.ToJSON UpdateMethodResponse where
   toJSON UpdateMethodResponse' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateMethodResponse where
+instance Core.ToPath UpdateMethodResponse where
   toPath UpdateMethodResponse' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod,
+        Core.toBS httpMethod,
         "/responses/",
-        Prelude.toBS statusCode
+        Core.toBS statusCode
       ]
 
-instance Prelude.ToQuery UpdateMethodResponse where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateMethodResponse where
+  toQuery = Core.const Core.mempty

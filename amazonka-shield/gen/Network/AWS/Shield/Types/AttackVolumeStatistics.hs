@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.AttackVolumeStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Statistics objects for the various data types in AttackVolume.
 --
 -- /See:/ 'newAttackVolumeStatistics' smart constructor.
 data AttackVolumeStatistics = AttackVolumeStatistics'
   { -- | The maximum attack volume observed for the given unit.
-    max :: Prelude.Double
+    max :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttackVolumeStatistics' with all optional fields omitted.
@@ -43,24 +42,23 @@ data AttackVolumeStatistics = AttackVolumeStatistics'
 -- 'max', 'attackVolumeStatistics_max' - The maximum attack volume observed for the given unit.
 newAttackVolumeStatistics ::
   -- | 'max'
-  Prelude.Double ->
+  Core.Double ->
   AttackVolumeStatistics
 newAttackVolumeStatistics pMax_ =
   AttackVolumeStatistics' {max = pMax_}
 
 -- | The maximum attack volume observed for the given unit.
-attackVolumeStatistics_max :: Lens.Lens' AttackVolumeStatistics Prelude.Double
+attackVolumeStatistics_max :: Lens.Lens' AttackVolumeStatistics Core.Double
 attackVolumeStatistics_max = Lens.lens (\AttackVolumeStatistics' {max} -> max) (\s@AttackVolumeStatistics' {} a -> s {max = a} :: AttackVolumeStatistics)
 
-instance Prelude.FromJSON AttackVolumeStatistics where
+instance Core.FromJSON AttackVolumeStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttackVolumeStatistics"
       ( \x ->
-          AttackVolumeStatistics'
-            Prelude.<$> (x Prelude..: "Max")
+          AttackVolumeStatistics' Core.<$> (x Core..: "Max")
       )
 
-instance Prelude.Hashable AttackVolumeStatistics
+instance Core.Hashable AttackVolumeStatistics
 
-instance Prelude.NFData AttackVolumeStatistics
+instance Core.NFData AttackVolumeStatistics

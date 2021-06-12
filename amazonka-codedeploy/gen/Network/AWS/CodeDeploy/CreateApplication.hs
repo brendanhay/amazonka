@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CodeDeploy.CreateApplication
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,15 +54,15 @@ data CreateApplication = CreateApplication'
   { -- | The metadata that you apply to CodeDeploy applications to help you
     -- organize and categorize them. Each tag consists of a key and an optional
     -- value, both of which you define.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The destination platform type for the deployment (@Lambda@, @Server@, or
     -- @ECS@).
-    computePlatform :: Prelude.Maybe ComputePlatform,
+    computePlatform :: Core.Maybe ComputePlatform,
     -- | The name of the application. This name must be unique with the
     -- applicable IAM user or AWS account.
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApplication' with all optional fields omitted.
@@ -84,89 +83,88 @@ data CreateApplication = CreateApplication'
 -- applicable IAM user or AWS account.
 newCreateApplication ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   CreateApplication
 newCreateApplication pApplicationName_ =
   CreateApplication'
-    { tags = Prelude.Nothing,
-      computePlatform = Prelude.Nothing,
+    { tags = Core.Nothing,
+      computePlatform = Core.Nothing,
       applicationName = pApplicationName_
     }
 
 -- | The metadata that you apply to CodeDeploy applications to help you
 -- organize and categorize them. Each tag consists of a key and an optional
 -- value, both of which you define.
-createApplication_tags :: Lens.Lens' CreateApplication (Prelude.Maybe [Tag])
-createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Prelude.. Lens.mapping Prelude._Coerce
+createApplication_tags :: Lens.Lens' CreateApplication (Core.Maybe [Tag])
+createApplication_tags = Lens.lens (\CreateApplication' {tags} -> tags) (\s@CreateApplication' {} a -> s {tags = a} :: CreateApplication) Core.. Lens.mapping Lens._Coerce
 
 -- | The destination platform type for the deployment (@Lambda@, @Server@, or
 -- @ECS@).
-createApplication_computePlatform :: Lens.Lens' CreateApplication (Prelude.Maybe ComputePlatform)
+createApplication_computePlatform :: Lens.Lens' CreateApplication (Core.Maybe ComputePlatform)
 createApplication_computePlatform = Lens.lens (\CreateApplication' {computePlatform} -> computePlatform) (\s@CreateApplication' {} a -> s {computePlatform = a} :: CreateApplication)
 
 -- | The name of the application. This name must be unique with the
 -- applicable IAM user or AWS account.
-createApplication_applicationName :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_applicationName :: Lens.Lens' CreateApplication Core.Text
 createApplication_applicationName = Lens.lens (\CreateApplication' {applicationName} -> applicationName) (\s@CreateApplication' {} a -> s {applicationName = a} :: CreateApplication)
 
-instance Prelude.AWSRequest CreateApplication where
-  type Rs CreateApplication = CreateApplicationResponse
+instance Core.AWSRequest CreateApplication where
+  type
+    AWSResponse CreateApplication =
+      CreateApplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateApplicationResponse'
-            Prelude.<$> (x Prelude..?> "applicationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "applicationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateApplication
+instance Core.Hashable CreateApplication
 
-instance Prelude.NFData CreateApplication
+instance Core.NFData CreateApplication
 
-instance Prelude.ToHeaders CreateApplication where
+instance Core.ToHeaders CreateApplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.CreateApplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.CreateApplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateApplication where
+instance Core.ToJSON CreateApplication where
   toJSON CreateApplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            ("computePlatform" Prelude..=)
-              Prelude.<$> computePlatform,
-            Prelude.Just
-              ("applicationName" Prelude..= applicationName)
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            ("computePlatform" Core..=) Core.<$> computePlatform,
+            Core.Just
+              ("applicationName" Core..= applicationName)
           ]
       )
 
-instance Prelude.ToPath CreateApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateApplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateApplication where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @CreateApplication@ operation.
 --
 -- /See:/ 'newCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
   { -- | A unique application ID.
-    applicationId :: Prelude.Maybe Prelude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateApplicationResponse' with all optional fields omitted.
@@ -181,21 +179,21 @@ data CreateApplicationResponse = CreateApplicationResponse'
 -- 'httpStatus', 'createApplicationResponse_httpStatus' - The response's http status code.
 newCreateApplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateApplicationResponse
 newCreateApplicationResponse pHttpStatus_ =
   CreateApplicationResponse'
     { applicationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique application ID.
-createApplicationResponse_applicationId :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_applicationId :: Lens.Lens' CreateApplicationResponse (Core.Maybe Core.Text)
 createApplicationResponse_applicationId = Lens.lens (\CreateApplicationResponse' {applicationId} -> applicationId) (\s@CreateApplicationResponse' {} a -> s {applicationId = a} :: CreateApplicationResponse)
 
 -- | The response's http status code.
-createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Prelude.Int
+createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Core.Int
 createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationResponse' {} a -> s {httpStatus = a} :: CreateApplicationResponse)
 
-instance Prelude.NFData CreateApplicationResponse
+instance Core.NFData CreateApplicationResponse

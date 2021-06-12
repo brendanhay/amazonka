@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,9 +70,9 @@ module Network.AWS.GameLift.GetInstanceAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,12 +85,12 @@ data GetInstanceAccess = GetInstanceAccess'
     -- be in any of the following statuses: @ACTIVATING@, @ACTIVE@, or @ERROR@.
     -- Fleets with an @ERROR@ status may be accessible for a short time before
     -- they are deleted.
-    fleetId :: Prelude.Text,
+    fleetId :: Core.Text,
     -- | A unique identifier for an instance you want to get access to. You can
     -- access an instance in any status.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceAccess' with all optional fields omitted.
@@ -111,9 +110,9 @@ data GetInstanceAccess = GetInstanceAccess'
 -- access an instance in any status.
 newGetInstanceAccess ::
   -- | 'fleetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   GetInstanceAccess
 newGetInstanceAccess pFleetId_ pInstanceId_ =
   GetInstanceAccess'
@@ -126,56 +125,56 @@ newGetInstanceAccess pFleetId_ pInstanceId_ =
 -- be in any of the following statuses: @ACTIVATING@, @ACTIVE@, or @ERROR@.
 -- Fleets with an @ERROR@ status may be accessible for a short time before
 -- they are deleted.
-getInstanceAccess_fleetId :: Lens.Lens' GetInstanceAccess Prelude.Text
+getInstanceAccess_fleetId :: Lens.Lens' GetInstanceAccess Core.Text
 getInstanceAccess_fleetId = Lens.lens (\GetInstanceAccess' {fleetId} -> fleetId) (\s@GetInstanceAccess' {} a -> s {fleetId = a} :: GetInstanceAccess)
 
 -- | A unique identifier for an instance you want to get access to. You can
 -- access an instance in any status.
-getInstanceAccess_instanceId :: Lens.Lens' GetInstanceAccess Prelude.Text
+getInstanceAccess_instanceId :: Lens.Lens' GetInstanceAccess Core.Text
 getInstanceAccess_instanceId = Lens.lens (\GetInstanceAccess' {instanceId} -> instanceId) (\s@GetInstanceAccess' {} a -> s {instanceId = a} :: GetInstanceAccess)
 
-instance Prelude.AWSRequest GetInstanceAccess where
-  type Rs GetInstanceAccess = GetInstanceAccessResponse
+instance Core.AWSRequest GetInstanceAccess where
+  type
+    AWSResponse GetInstanceAccess =
+      GetInstanceAccessResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInstanceAccessResponse'
-            Prelude.<$> (x Prelude..?> "InstanceAccess")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "InstanceAccess")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstanceAccess
+instance Core.Hashable GetInstanceAccess
 
-instance Prelude.NFData GetInstanceAccess
+instance Core.NFData GetInstanceAccess
 
-instance Prelude.ToHeaders GetInstanceAccess where
+instance Core.ToHeaders GetInstanceAccess where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.GetInstanceAccess" :: Prelude.ByteString),
+              Core.=# ("GameLift.GetInstanceAccess" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetInstanceAccess where
+instance Core.ToJSON GetInstanceAccess where
   toJSON GetInstanceAccess' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Prelude..= fleetId),
-            Prelude.Just ("InstanceId" Prelude..= instanceId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            Core.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
-instance Prelude.ToPath GetInstanceAccess where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInstanceAccess where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInstanceAccess where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInstanceAccess where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -183,11 +182,11 @@ instance Prelude.ToQuery GetInstanceAccess where
 data GetInstanceAccessResponse = GetInstanceAccessResponse'
   { -- | The connection information for a fleet instance, including IP address
     -- and access credentials.
-    instanceAccess :: Prelude.Maybe InstanceAccess,
+    instanceAccess :: Core.Maybe InstanceAccess,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceAccessResponse' with all optional fields omitted.
@@ -203,22 +202,22 @@ data GetInstanceAccessResponse = GetInstanceAccessResponse'
 -- 'httpStatus', 'getInstanceAccessResponse_httpStatus' - The response's http status code.
 newGetInstanceAccessResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInstanceAccessResponse
 newGetInstanceAccessResponse pHttpStatus_ =
   GetInstanceAccessResponse'
     { instanceAccess =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The connection information for a fleet instance, including IP address
 -- and access credentials.
-getInstanceAccessResponse_instanceAccess :: Lens.Lens' GetInstanceAccessResponse (Prelude.Maybe InstanceAccess)
+getInstanceAccessResponse_instanceAccess :: Lens.Lens' GetInstanceAccessResponse (Core.Maybe InstanceAccess)
 getInstanceAccessResponse_instanceAccess = Lens.lens (\GetInstanceAccessResponse' {instanceAccess} -> instanceAccess) (\s@GetInstanceAccessResponse' {} a -> s {instanceAccess = a} :: GetInstanceAccessResponse)
 
 -- | The response's http status code.
-getInstanceAccessResponse_httpStatus :: Lens.Lens' GetInstanceAccessResponse Prelude.Int
+getInstanceAccessResponse_httpStatus :: Lens.Lens' GetInstanceAccessResponse Core.Int
 getInstanceAccessResponse_httpStatus = Lens.lens (\GetInstanceAccessResponse' {httpStatus} -> httpStatus) (\s@GetInstanceAccessResponse' {} a -> s {httpStatus = a} :: GetInstanceAccessResponse)
 
-instance Prelude.NFData GetInstanceAccessResponse
+instance Core.NFData GetInstanceAccessResponse

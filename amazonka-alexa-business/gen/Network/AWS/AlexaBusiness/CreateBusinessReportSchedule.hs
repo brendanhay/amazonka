@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,35 +48,35 @@ module Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateBusinessReportSchedule' smart constructor.
 data CreateBusinessReportSchedule = CreateBusinessReportSchedule'
   { -- | The S3 key where the report is delivered.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    s3KeyPrefix :: Core.Maybe Core.Text,
     -- | The recurrence of the reports. If this isn\'t specified, the report will
     -- only be delivered one time when the API is called.
-    recurrence :: Prelude.Maybe BusinessReportRecurrence,
+    recurrence :: Core.Maybe BusinessReportRecurrence,
     -- | The tags for the business report schedule.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The S3 bucket name of the output reports. If this isn\'t specified, the
     -- report can be retrieved from a download link by calling
     -- ListBusinessReportSchedule.
-    s3BucketName :: Prelude.Maybe Prelude.Text,
+    s3BucketName :: Core.Maybe Core.Text,
     -- | The client request token.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name identifier of the schedule.
-    scheduleName :: Prelude.Maybe Prelude.Text,
+    scheduleName :: Core.Maybe Core.Text,
     -- | The format of the generated report (individual CSV files or zipped files
     -- of individual files).
     format :: BusinessReportFormat,
     -- | The content range of the reports.
     contentRange :: BusinessReportContentRange
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBusinessReportSchedule' with all optional fields omitted.
@@ -117,41 +116,41 @@ newCreateBusinessReportSchedule
   pContentRange_ =
     CreateBusinessReportSchedule'
       { s3KeyPrefix =
-          Prelude.Nothing,
-        recurrence = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        s3BucketName = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        scheduleName = Prelude.Nothing,
+          Core.Nothing,
+        recurrence = Core.Nothing,
+        tags = Core.Nothing,
+        s3BucketName = Core.Nothing,
+        clientRequestToken = Core.Nothing,
+        scheduleName = Core.Nothing,
         format = pFormat_,
         contentRange = pContentRange_
       }
 
 -- | The S3 key where the report is delivered.
-createBusinessReportSchedule_s3KeyPrefix :: Lens.Lens' CreateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+createBusinessReportSchedule_s3KeyPrefix :: Lens.Lens' CreateBusinessReportSchedule (Core.Maybe Core.Text)
 createBusinessReportSchedule_s3KeyPrefix = Lens.lens (\CreateBusinessReportSchedule' {s3KeyPrefix} -> s3KeyPrefix) (\s@CreateBusinessReportSchedule' {} a -> s {s3KeyPrefix = a} :: CreateBusinessReportSchedule)
 
 -- | The recurrence of the reports. If this isn\'t specified, the report will
 -- only be delivered one time when the API is called.
-createBusinessReportSchedule_recurrence :: Lens.Lens' CreateBusinessReportSchedule (Prelude.Maybe BusinessReportRecurrence)
+createBusinessReportSchedule_recurrence :: Lens.Lens' CreateBusinessReportSchedule (Core.Maybe BusinessReportRecurrence)
 createBusinessReportSchedule_recurrence = Lens.lens (\CreateBusinessReportSchedule' {recurrence} -> recurrence) (\s@CreateBusinessReportSchedule' {} a -> s {recurrence = a} :: CreateBusinessReportSchedule)
 
 -- | The tags for the business report schedule.
-createBusinessReportSchedule_tags :: Lens.Lens' CreateBusinessReportSchedule (Prelude.Maybe [Tag])
-createBusinessReportSchedule_tags = Lens.lens (\CreateBusinessReportSchedule' {tags} -> tags) (\s@CreateBusinessReportSchedule' {} a -> s {tags = a} :: CreateBusinessReportSchedule) Prelude.. Lens.mapping Prelude._Coerce
+createBusinessReportSchedule_tags :: Lens.Lens' CreateBusinessReportSchedule (Core.Maybe [Tag])
+createBusinessReportSchedule_tags = Lens.lens (\CreateBusinessReportSchedule' {tags} -> tags) (\s@CreateBusinessReportSchedule' {} a -> s {tags = a} :: CreateBusinessReportSchedule) Core.. Lens.mapping Lens._Coerce
 
 -- | The S3 bucket name of the output reports. If this isn\'t specified, the
 -- report can be retrieved from a download link by calling
 -- ListBusinessReportSchedule.
-createBusinessReportSchedule_s3BucketName :: Lens.Lens' CreateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+createBusinessReportSchedule_s3BucketName :: Lens.Lens' CreateBusinessReportSchedule (Core.Maybe Core.Text)
 createBusinessReportSchedule_s3BucketName = Lens.lens (\CreateBusinessReportSchedule' {s3BucketName} -> s3BucketName) (\s@CreateBusinessReportSchedule' {} a -> s {s3BucketName = a} :: CreateBusinessReportSchedule)
 
 -- | The client request token.
-createBusinessReportSchedule_clientRequestToken :: Lens.Lens' CreateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+createBusinessReportSchedule_clientRequestToken :: Lens.Lens' CreateBusinessReportSchedule (Core.Maybe Core.Text)
 createBusinessReportSchedule_clientRequestToken = Lens.lens (\CreateBusinessReportSchedule' {clientRequestToken} -> clientRequestToken) (\s@CreateBusinessReportSchedule' {} a -> s {clientRequestToken = a} :: CreateBusinessReportSchedule)
 
 -- | The name identifier of the schedule.
-createBusinessReportSchedule_scheduleName :: Lens.Lens' CreateBusinessReportSchedule (Prelude.Maybe Prelude.Text)
+createBusinessReportSchedule_scheduleName :: Lens.Lens' CreateBusinessReportSchedule (Core.Maybe Core.Text)
 createBusinessReportSchedule_scheduleName = Lens.lens (\CreateBusinessReportSchedule' {scheduleName} -> scheduleName) (\s@CreateBusinessReportSchedule' {} a -> s {scheduleName = a} :: CreateBusinessReportSchedule)
 
 -- | The format of the generated report (individual CSV files or zipped files
@@ -163,77 +162,66 @@ createBusinessReportSchedule_format = Lens.lens (\CreateBusinessReportSchedule' 
 createBusinessReportSchedule_contentRange :: Lens.Lens' CreateBusinessReportSchedule BusinessReportContentRange
 createBusinessReportSchedule_contentRange = Lens.lens (\CreateBusinessReportSchedule' {contentRange} -> contentRange) (\s@CreateBusinessReportSchedule' {} a -> s {contentRange = a} :: CreateBusinessReportSchedule)
 
-instance
-  Prelude.AWSRequest
-    CreateBusinessReportSchedule
-  where
+instance Core.AWSRequest CreateBusinessReportSchedule where
   type
-    Rs CreateBusinessReportSchedule =
+    AWSResponse CreateBusinessReportSchedule =
       CreateBusinessReportScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateBusinessReportScheduleResponse'
-            Prelude.<$> (x Prelude..?> "ScheduleArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ScheduleArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateBusinessReportSchedule
+instance Core.Hashable CreateBusinessReportSchedule
 
-instance Prelude.NFData CreateBusinessReportSchedule
+instance Core.NFData CreateBusinessReportSchedule
 
-instance
-  Prelude.ToHeaders
-    CreateBusinessReportSchedule
-  where
+instance Core.ToHeaders CreateBusinessReportSchedule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.CreateBusinessReportSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.CreateBusinessReportSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateBusinessReportSchedule where
+instance Core.ToJSON CreateBusinessReportSchedule where
   toJSON CreateBusinessReportSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("S3KeyPrefix" Prelude..=) Prelude.<$> s3KeyPrefix,
-            ("Recurrence" Prelude..=) Prelude.<$> recurrence,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("S3BucketName" Prelude..=) Prelude.<$> s3BucketName,
-            ("ClientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            ("ScheduleName" Prelude..=) Prelude.<$> scheduleName,
-            Prelude.Just ("Format" Prelude..= format),
-            Prelude.Just
-              ("ContentRange" Prelude..= contentRange)
+    Core.object
+      ( Core.catMaybes
+          [ ("S3KeyPrefix" Core..=) Core.<$> s3KeyPrefix,
+            ("Recurrence" Core..=) Core.<$> recurrence,
+            ("Tags" Core..=) Core.<$> tags,
+            ("S3BucketName" Core..=) Core.<$> s3BucketName,
+            ("ClientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            ("ScheduleName" Core..=) Core.<$> scheduleName,
+            Core.Just ("Format" Core..= format),
+            Core.Just ("ContentRange" Core..= contentRange)
           ]
       )
 
-instance Prelude.ToPath CreateBusinessReportSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateBusinessReportSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateBusinessReportSchedule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateBusinessReportSchedule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateBusinessReportScheduleResponse' smart constructor.
 data CreateBusinessReportScheduleResponse = CreateBusinessReportScheduleResponse'
   { -- | The ARN of the business report schedule.
-    scheduleArn :: Prelude.Maybe Prelude.Text,
+    scheduleArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBusinessReportScheduleResponse' with all optional fields omitted.
@@ -248,23 +236,23 @@ data CreateBusinessReportScheduleResponse = CreateBusinessReportScheduleResponse
 -- 'httpStatus', 'createBusinessReportScheduleResponse_httpStatus' - The response's http status code.
 newCreateBusinessReportScheduleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateBusinessReportScheduleResponse
 newCreateBusinessReportScheduleResponse pHttpStatus_ =
   CreateBusinessReportScheduleResponse'
     { scheduleArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the business report schedule.
-createBusinessReportScheduleResponse_scheduleArn :: Lens.Lens' CreateBusinessReportScheduleResponse (Prelude.Maybe Prelude.Text)
+createBusinessReportScheduleResponse_scheduleArn :: Lens.Lens' CreateBusinessReportScheduleResponse (Core.Maybe Core.Text)
 createBusinessReportScheduleResponse_scheduleArn = Lens.lens (\CreateBusinessReportScheduleResponse' {scheduleArn} -> scheduleArn) (\s@CreateBusinessReportScheduleResponse' {} a -> s {scheduleArn = a} :: CreateBusinessReportScheduleResponse)
 
 -- | The response's http status code.
-createBusinessReportScheduleResponse_httpStatus :: Lens.Lens' CreateBusinessReportScheduleResponse Prelude.Int
+createBusinessReportScheduleResponse_httpStatus :: Lens.Lens' CreateBusinessReportScheduleResponse Core.Int
 createBusinessReportScheduleResponse_httpStatus = Lens.lens (\CreateBusinessReportScheduleResponse' {httpStatus} -> httpStatus) (\s@CreateBusinessReportScheduleResponse' {} a -> s {httpStatus = a} :: CreateBusinessReportScheduleResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateBusinessReportScheduleResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,20 +45,19 @@ module Network.AWS.MechanicalTurk.ListWorkerBlocks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListWorkerBlocks' smart constructor.
 data ListWorkerBlocks = ListWorkerBlocks'
   { -- | Pagination token
-    nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+    nextToken :: Core.Maybe Core.Text,
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListWorkerBlocks' with all optional fields omitted.
@@ -76,102 +74,98 @@ newListWorkerBlocks ::
   ListWorkerBlocks
 newListWorkerBlocks =
   ListWorkerBlocks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | Pagination token
-listWorkerBlocks_nextToken :: Lens.Lens' ListWorkerBlocks (Prelude.Maybe Prelude.Text)
+listWorkerBlocks_nextToken :: Lens.Lens' ListWorkerBlocks (Core.Maybe Core.Text)
 listWorkerBlocks_nextToken = Lens.lens (\ListWorkerBlocks' {nextToken} -> nextToken) (\s@ListWorkerBlocks' {} a -> s {nextToken = a} :: ListWorkerBlocks)
 
 -- | Undocumented member.
-listWorkerBlocks_maxResults :: Lens.Lens' ListWorkerBlocks (Prelude.Maybe Prelude.Natural)
+listWorkerBlocks_maxResults :: Lens.Lens' ListWorkerBlocks (Core.Maybe Core.Natural)
 listWorkerBlocks_maxResults = Lens.lens (\ListWorkerBlocks' {maxResults} -> maxResults) (\s@ListWorkerBlocks' {} a -> s {maxResults = a} :: ListWorkerBlocks)
 
-instance Pager.AWSPager ListWorkerBlocks where
+instance Core.AWSPager ListWorkerBlocks where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listWorkerBlocksResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listWorkerBlocksResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listWorkerBlocksResponse_workerBlocks
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listWorkerBlocks_nextToken
           Lens..~ rs
-          Lens.^? listWorkerBlocksResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listWorkerBlocksResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListWorkerBlocks where
-  type Rs ListWorkerBlocks = ListWorkerBlocksResponse
+instance Core.AWSRequest ListWorkerBlocks where
+  type
+    AWSResponse ListWorkerBlocks =
+      ListWorkerBlocksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListWorkerBlocksResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "WorkerBlocks"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NumResults")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "WorkerBlocks" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NumResults")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListWorkerBlocks
+instance Core.Hashable ListWorkerBlocks
 
-instance Prelude.NFData ListWorkerBlocks
+instance Core.NFData ListWorkerBlocks
 
-instance Prelude.ToHeaders ListWorkerBlocks where
+instance Core.ToHeaders ListWorkerBlocks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.ListWorkerBlocks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.ListWorkerBlocks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListWorkerBlocks where
+instance Core.ToJSON ListWorkerBlocks where
   toJSON ListWorkerBlocks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListWorkerBlocks where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListWorkerBlocks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListWorkerBlocks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListWorkerBlocks where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListWorkerBlocksResponse' smart constructor.
 data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The list of WorkerBlocks, containing the collection of Worker IDs and
     -- reasons for blocking.
-    workerBlocks :: Prelude.Maybe [WorkerBlock],
+    workerBlocks :: Core.Maybe [WorkerBlock],
     -- | The number of assignments on the page in the filtered results list,
     -- equivalent to the number of assignments returned by this call.
-    numResults :: Prelude.Maybe Prelude.Int,
+    numResults :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListWorkerBlocksResponse' with all optional fields omitted.
@@ -192,33 +186,32 @@ data ListWorkerBlocksResponse = ListWorkerBlocksResponse'
 -- 'httpStatus', 'listWorkerBlocksResponse_httpStatus' - The response's http status code.
 newListWorkerBlocksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListWorkerBlocksResponse
 newListWorkerBlocksResponse pHttpStatus_ =
   ListWorkerBlocksResponse'
-    { nextToken =
-        Prelude.Nothing,
-      workerBlocks = Prelude.Nothing,
-      numResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      workerBlocks = Core.Nothing,
+      numResults = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listWorkerBlocksResponse_nextToken :: Lens.Lens' ListWorkerBlocksResponse (Prelude.Maybe Prelude.Text)
+listWorkerBlocksResponse_nextToken :: Lens.Lens' ListWorkerBlocksResponse (Core.Maybe Core.Text)
 listWorkerBlocksResponse_nextToken = Lens.lens (\ListWorkerBlocksResponse' {nextToken} -> nextToken) (\s@ListWorkerBlocksResponse' {} a -> s {nextToken = a} :: ListWorkerBlocksResponse)
 
 -- | The list of WorkerBlocks, containing the collection of Worker IDs and
 -- reasons for blocking.
-listWorkerBlocksResponse_workerBlocks :: Lens.Lens' ListWorkerBlocksResponse (Prelude.Maybe [WorkerBlock])
-listWorkerBlocksResponse_workerBlocks = Lens.lens (\ListWorkerBlocksResponse' {workerBlocks} -> workerBlocks) (\s@ListWorkerBlocksResponse' {} a -> s {workerBlocks = a} :: ListWorkerBlocksResponse) Prelude.. Lens.mapping Prelude._Coerce
+listWorkerBlocksResponse_workerBlocks :: Lens.Lens' ListWorkerBlocksResponse (Core.Maybe [WorkerBlock])
+listWorkerBlocksResponse_workerBlocks = Lens.lens (\ListWorkerBlocksResponse' {workerBlocks} -> workerBlocks) (\s@ListWorkerBlocksResponse' {} a -> s {workerBlocks = a} :: ListWorkerBlocksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of assignments on the page in the filtered results list,
 -- equivalent to the number of assignments returned by this call.
-listWorkerBlocksResponse_numResults :: Lens.Lens' ListWorkerBlocksResponse (Prelude.Maybe Prelude.Int)
+listWorkerBlocksResponse_numResults :: Lens.Lens' ListWorkerBlocksResponse (Core.Maybe Core.Int)
 listWorkerBlocksResponse_numResults = Lens.lens (\ListWorkerBlocksResponse' {numResults} -> numResults) (\s@ListWorkerBlocksResponse' {} a -> s {numResults = a} :: ListWorkerBlocksResponse)
 
 -- | The response's http status code.
-listWorkerBlocksResponse_httpStatus :: Lens.Lens' ListWorkerBlocksResponse Prelude.Int
+listWorkerBlocksResponse_httpStatus :: Lens.Lens' ListWorkerBlocksResponse Core.Int
 listWorkerBlocksResponse_httpStatus = Lens.lens (\ListWorkerBlocksResponse' {httpStatus} -> httpStatus) (\s@ListWorkerBlocksResponse' {} a -> s {httpStatus = a} :: ListWorkerBlocksResponse)
 
-instance Prelude.NFData ListWorkerBlocksResponse
+instance Core.NFData ListWorkerBlocksResponse

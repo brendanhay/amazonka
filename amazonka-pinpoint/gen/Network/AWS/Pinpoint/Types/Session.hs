@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.Session where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about a session.
 --
 -- /See:/ 'newSession' smart constructor.
 data Session = Session'
   { -- | The date and time when the session ended.
-    stopTimestamp :: Prelude.Maybe Prelude.Text,
+    stopTimestamp :: Core.Maybe Core.Text,
     -- | The duration of the session, in milliseconds.
-    duration :: Prelude.Maybe Prelude.Int,
+    duration :: Core.Maybe Core.Int,
     -- | The date and time when the session began.
-    startTimestamp :: Prelude.Text,
+    startTimestamp :: Core.Text,
     -- | The unique identifier for the session.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Session' with all optional fields omitted.
@@ -55,47 +54,45 @@ data Session = Session'
 -- 'id', 'session_id' - The unique identifier for the session.
 newSession ::
   -- | 'startTimestamp'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   Session
 newSession pStartTimestamp_ pId_ =
   Session'
-    { stopTimestamp = Prelude.Nothing,
-      duration = Prelude.Nothing,
+    { stopTimestamp = Core.Nothing,
+      duration = Core.Nothing,
       startTimestamp = pStartTimestamp_,
       id = pId_
     }
 
 -- | The date and time when the session ended.
-session_stopTimestamp :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_stopTimestamp :: Lens.Lens' Session (Core.Maybe Core.Text)
 session_stopTimestamp = Lens.lens (\Session' {stopTimestamp} -> stopTimestamp) (\s@Session' {} a -> s {stopTimestamp = a} :: Session)
 
 -- | The duration of the session, in milliseconds.
-session_duration :: Lens.Lens' Session (Prelude.Maybe Prelude.Int)
+session_duration :: Lens.Lens' Session (Core.Maybe Core.Int)
 session_duration = Lens.lens (\Session' {duration} -> duration) (\s@Session' {} a -> s {duration = a} :: Session)
 
 -- | The date and time when the session began.
-session_startTimestamp :: Lens.Lens' Session Prelude.Text
+session_startTimestamp :: Lens.Lens' Session Core.Text
 session_startTimestamp = Lens.lens (\Session' {startTimestamp} -> startTimestamp) (\s@Session' {} a -> s {startTimestamp = a} :: Session)
 
 -- | The unique identifier for the session.
-session_id :: Lens.Lens' Session Prelude.Text
+session_id :: Lens.Lens' Session Core.Text
 session_id = Lens.lens (\Session' {id} -> id) (\s@Session' {} a -> s {id = a} :: Session)
 
-instance Prelude.Hashable Session
+instance Core.Hashable Session
 
-instance Prelude.NFData Session
+instance Core.NFData Session
 
-instance Prelude.ToJSON Session where
+instance Core.ToJSON Session where
   toJSON Session' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StopTimestamp" Prelude..=)
-              Prelude.<$> stopTimestamp,
-            ("Duration" Prelude..=) Prelude.<$> duration,
-            Prelude.Just
-              ("StartTimestamp" Prelude..= startTimestamp),
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("StopTimestamp" Core..=) Core.<$> stopTimestamp,
+            ("Duration" Core..=) Core.<$> duration,
+            Core.Just ("StartTimestamp" Core..= startTimestamp),
+            Core.Just ("Id" Core..= id)
           ]
       )

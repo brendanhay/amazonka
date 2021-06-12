@@ -361,6 +361,7 @@ module Network.AWS.Inspector.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.AgentFilter
 import Network.AWS.Inspector.Types.AgentHealth
 import Network.AWS.Inspector.Types.AgentHealthCode
@@ -409,92 +410,88 @@ import Network.AWS.Inspector.Types.Tag
 import Network.AWS.Inspector.Types.TelemetryMetadata
 import Network.AWS.Inspector.Types.TimestampRange
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-02-16@ of the Amazon Inspector SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Inspector",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "inspector",
-      Prelude._svcSigningName = "inspector",
-      Prelude._svcVersion = "2016-02-16",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "Inspector",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Inspector",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "inspector",
+      Core._serviceSigningName = "inspector",
+      Core._serviceVersion = "2016-02-16",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Inspector",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The request is rejected. The specified assessment template is currently
 -- generating an exclusions preview.
-_PreviewGenerationInProgressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PreviewGenerationInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PreviewGenerationInProgressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PreviewGenerationInProgressException"
 
 -- | The serice is temporary unavailable.
-_ServiceTemporarilyUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceTemporarilyUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceTemporarilyUnavailableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceTemporarilyUnavailableException"
 
@@ -503,71 +500,71 @@ _ServiceTemporarilyUnavailableException =
 -- reporting was supported in Amazon Inspector. You can only generate
 -- reports for assessment runs that took place or will take place after
 -- generating reports in Amazon Inspector became available.
-_UnsupportedFeatureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedFeatureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedFeatureException"
 
 -- | Internal server error.
-_InternalException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalException"
 
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
-_InvalidInputException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidInputException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | Amazon Inspector cannot assume the cross-account role that it needs to
 -- list your EC2 instances during the assessment run.
-_InvalidCrossAccountRoleException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCrossAccountRoleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCrossAccountRoleException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCrossAccountRoleException"
 
 -- | You cannot perform a specified action if an assessment run is currently
 -- in progress.
-_AssessmentRunInProgressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AssessmentRunInProgressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AssessmentRunInProgressException"
 
 -- | You started an assessment run, but one of the instances is already
 -- participating in another assessment run.
-_AgentsAlreadyRunningAssessmentException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AgentsAlreadyRunningAssessmentException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AgentsAlreadyRunningAssessmentException"
 
 -- | You do not have required permissions to access the requested resource.
-_AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | The request was rejected because it attempted to create resources beyond
 -- the current AWS account limits. The error code describes the limit
 -- exceeded.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The request was rejected because it referenced an entity that does not
 -- exist. The error code describes the entity.
-_NoSuchEntityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchEntityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchEntityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchEntityException"

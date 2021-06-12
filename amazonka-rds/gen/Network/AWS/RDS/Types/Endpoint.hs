@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.Endpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type represents the information you need to connect to an
 -- Amazon RDS DB instance. This data type is used as a response element in
@@ -39,14 +38,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | Specifies the DNS address of the DB instance.
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
     -- zone.
-    hostedZoneId :: Prelude.Maybe Prelude.Text,
+    hostedZoneId :: Core.Maybe Core.Text,
     -- | Specifies the port that the database engine is listening on.
-    port :: Prelude.Maybe Prelude.Int
+    port :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Endpoint' with all optional fields omitted.
@@ -66,31 +65,31 @@ newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { address = Prelude.Nothing,
-      hostedZoneId = Prelude.Nothing,
-      port = Prelude.Nothing
+    { address = Core.Nothing,
+      hostedZoneId = Core.Nothing,
+      port = Core.Nothing
     }
 
 -- | Specifies the DNS address of the DB instance.
-endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_address :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
 -- | Specifies the ID that Amazon Route 53 assigns when you create a hosted
 -- zone.
-endpoint_hostedZoneId :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_hostedZoneId :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
 endpoint_hostedZoneId = Lens.lens (\Endpoint' {hostedZoneId} -> hostedZoneId) (\s@Endpoint' {} a -> s {hostedZoneId = a} :: Endpoint)
 
 -- | Specifies the port that the database engine is listening on.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port :: Lens.Lens' Endpoint (Core.Maybe Core.Int)
 endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
-instance Prelude.FromXML Endpoint where
+instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> (x Prelude..@? "Address")
-      Prelude.<*> (x Prelude..@? "HostedZoneId")
-      Prelude.<*> (x Prelude..@? "Port")
+      Core.<$> (x Core..@? "Address")
+      Core.<*> (x Core..@? "HostedZoneId")
+      Core.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable Endpoint
+instance Core.Hashable Endpoint
 
-instance Prelude.NFData Endpoint
+instance Core.NFData Endpoint

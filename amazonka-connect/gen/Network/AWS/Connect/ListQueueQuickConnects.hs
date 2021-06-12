@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.Connect.ListQueueQuickConnects
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,15 +59,15 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the queue.
-    queueId :: Prelude.Text
+    queueId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListQueueQuickConnects' with all optional fields omitted.
@@ -90,15 +88,14 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
 -- 'queueId', 'listQueueQuickConnects_queueId' - The identifier for the queue.
 newListQueueQuickConnects ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueId'
-  Prelude.Text ->
+  Core.Text ->
   ListQueueQuickConnects
 newListQueueQuickConnects pInstanceId_ pQueueId_ =
   ListQueueQuickConnects'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       instanceId = pInstanceId_,
       queueId = pQueueId_
     }
@@ -106,102 +103,100 @@ newListQueueQuickConnects pInstanceId_ pQueueId_ =
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listQueueQuickConnects_nextToken :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Text)
+listQueueQuickConnects_nextToken :: Lens.Lens' ListQueueQuickConnects (Core.Maybe Core.Text)
 listQueueQuickConnects_nextToken = Lens.lens (\ListQueueQuickConnects' {nextToken} -> nextToken) (\s@ListQueueQuickConnects' {} a -> s {nextToken = a} :: ListQueueQuickConnects)
 
 -- | The maximum number of results to return per page.
-listQueueQuickConnects_maxResults :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Natural)
+listQueueQuickConnects_maxResults :: Lens.Lens' ListQueueQuickConnects (Core.Maybe Core.Natural)
 listQueueQuickConnects_maxResults = Lens.lens (\ListQueueQuickConnects' {maxResults} -> maxResults) (\s@ListQueueQuickConnects' {} a -> s {maxResults = a} :: ListQueueQuickConnects)
 
 -- | The identifier of the Amazon Connect instance.
-listQueueQuickConnects_instanceId :: Lens.Lens' ListQueueQuickConnects Prelude.Text
+listQueueQuickConnects_instanceId :: Lens.Lens' ListQueueQuickConnects Core.Text
 listQueueQuickConnects_instanceId = Lens.lens (\ListQueueQuickConnects' {instanceId} -> instanceId) (\s@ListQueueQuickConnects' {} a -> s {instanceId = a} :: ListQueueQuickConnects)
 
 -- | The identifier for the queue.
-listQueueQuickConnects_queueId :: Lens.Lens' ListQueueQuickConnects Prelude.Text
+listQueueQuickConnects_queueId :: Lens.Lens' ListQueueQuickConnects Core.Text
 listQueueQuickConnects_queueId = Lens.lens (\ListQueueQuickConnects' {queueId} -> queueId) (\s@ListQueueQuickConnects' {} a -> s {queueId = a} :: ListQueueQuickConnects)
 
-instance Pager.AWSPager ListQueueQuickConnects where
+instance Core.AWSPager ListQueueQuickConnects where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listQueueQuickConnectsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listQueueQuickConnectsResponse_quickConnectSummaryList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listQueueQuickConnects_nextToken
           Lens..~ rs
           Lens.^? listQueueQuickConnectsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListQueueQuickConnects where
+instance Core.AWSRequest ListQueueQuickConnects where
   type
-    Rs ListQueueQuickConnects =
+    AWSResponse ListQueueQuickConnects =
       ListQueueQuickConnectsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListQueueQuickConnectsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "QuickConnectSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "QuickConnectSummaryList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListQueueQuickConnects
+instance Core.Hashable ListQueueQuickConnects
 
-instance Prelude.NFData ListQueueQuickConnects
+instance Core.NFData ListQueueQuickConnects
 
-instance Prelude.ToHeaders ListQueueQuickConnects where
+instance Core.ToHeaders ListQueueQuickConnects where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListQueueQuickConnects where
+instance Core.ToPath ListQueueQuickConnects where
   toPath ListQueueQuickConnects' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/queues/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS queueId,
+        Core.toBS queueId,
         "/quick-connects"
       ]
 
-instance Prelude.ToQuery ListQueueQuickConnects where
+instance Core.ToQuery ListQueueQuickConnects where
   toQuery ListQueueQuickConnects' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListQueueQuickConnectsResponse' smart constructor.
 data ListQueueQuickConnectsResponse = ListQueueQuickConnectsResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the quick connects.
-    quickConnectSummaryList :: Prelude.Maybe [QuickConnectSummary],
+    quickConnectSummaryList :: Core.Maybe [QuickConnectSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListQueueQuickConnectsResponse' with all optional fields omitted.
@@ -219,29 +214,27 @@ data ListQueueQuickConnectsResponse = ListQueueQuickConnectsResponse'
 -- 'httpStatus', 'listQueueQuickConnectsResponse_httpStatus' - The response's http status code.
 newListQueueQuickConnectsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListQueueQuickConnectsResponse
 newListQueueQuickConnectsResponse pHttpStatus_ =
   ListQueueQuickConnectsResponse'
     { nextToken =
-        Prelude.Nothing,
-      quickConnectSummaryList = Prelude.Nothing,
+        Core.Nothing,
+      quickConnectSummaryList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listQueueQuickConnectsResponse_nextToken :: Lens.Lens' ListQueueQuickConnectsResponse (Prelude.Maybe Prelude.Text)
+listQueueQuickConnectsResponse_nextToken :: Lens.Lens' ListQueueQuickConnectsResponse (Core.Maybe Core.Text)
 listQueueQuickConnectsResponse_nextToken = Lens.lens (\ListQueueQuickConnectsResponse' {nextToken} -> nextToken) (\s@ListQueueQuickConnectsResponse' {} a -> s {nextToken = a} :: ListQueueQuickConnectsResponse)
 
 -- | Information about the quick connects.
-listQueueQuickConnectsResponse_quickConnectSummaryList :: Lens.Lens' ListQueueQuickConnectsResponse (Prelude.Maybe [QuickConnectSummary])
-listQueueQuickConnectsResponse_quickConnectSummaryList = Lens.lens (\ListQueueQuickConnectsResponse' {quickConnectSummaryList} -> quickConnectSummaryList) (\s@ListQueueQuickConnectsResponse' {} a -> s {quickConnectSummaryList = a} :: ListQueueQuickConnectsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listQueueQuickConnectsResponse_quickConnectSummaryList :: Lens.Lens' ListQueueQuickConnectsResponse (Core.Maybe [QuickConnectSummary])
+listQueueQuickConnectsResponse_quickConnectSummaryList = Lens.lens (\ListQueueQuickConnectsResponse' {quickConnectSummaryList} -> quickConnectSummaryList) (\s@ListQueueQuickConnectsResponse' {} a -> s {quickConnectSummaryList = a} :: ListQueueQuickConnectsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listQueueQuickConnectsResponse_httpStatus :: Lens.Lens' ListQueueQuickConnectsResponse Prelude.Int
+listQueueQuickConnectsResponse_httpStatus :: Lens.Lens' ListQueueQuickConnectsResponse Core.Int
 listQueueQuickConnectsResponse_httpStatus = Lens.lens (\ListQueueQuickConnectsResponse' {httpStatus} -> httpStatus) (\s@ListQueueQuickConnectsResponse' {} a -> s {httpStatus = a} :: ListQueueQuickConnectsResponse)
 
-instance
-  Prelude.NFData
-    ListQueueQuickConnectsResponse
+instance Core.NFData ListQueueQuickConnectsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.StorageLocation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a storage location in Amazon S3.
 --
 -- /See:/ 'newStorageLocation' smart constructor.
 data StorageLocation = StorageLocation'
   { -- | The key.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The name of the S3 bucket.
-    bucket :: Prelude.Maybe Prelude.Text
+    bucket :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StorageLocation' with all optional fields omitted.
@@ -50,23 +49,23 @@ newStorageLocation ::
   StorageLocation
 newStorageLocation =
   StorageLocation'
-    { key = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { key = Core.Nothing,
+      bucket = Core.Nothing
     }
 
 -- | The key.
-storageLocation_key :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
+storageLocation_key :: Lens.Lens' StorageLocation (Core.Maybe Core.Text)
 storageLocation_key = Lens.lens (\StorageLocation' {key} -> key) (\s@StorageLocation' {} a -> s {key = a} :: StorageLocation)
 
 -- | The name of the S3 bucket.
-storageLocation_bucket :: Lens.Lens' StorageLocation (Prelude.Maybe Prelude.Text)
+storageLocation_bucket :: Lens.Lens' StorageLocation (Core.Maybe Core.Text)
 storageLocation_bucket = Lens.lens (\StorageLocation' {bucket} -> bucket) (\s@StorageLocation' {} a -> s {bucket = a} :: StorageLocation)
 
-instance Prelude.Hashable StorageLocation
+instance Core.Hashable StorageLocation
 
-instance Prelude.NFData StorageLocation
+instance Core.NFData StorageLocation
 
-instance Prelude.ToQuery StorageLocation where
+instance Core.ToQuery StorageLocation where
   toQuery StorageLocation' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Bucket" Prelude.=: bucket]
+    Core.mconcat
+      ["Key" Core.=: key, "Bucket" Core.=: bucket]

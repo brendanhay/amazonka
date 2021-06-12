@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AnalysisRouteTableRoute where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a route table route.
 --
 -- /See:/ 'newAnalysisRouteTableRoute' smart constructor.
 data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
   { -- | The ID of the instance, such as a NAT instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | Describes how the route was created. The following are possible values:
     --
     -- -   @CreateRouteTable@ - The route was automatically created when the
@@ -39,26 +38,26 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
     --
     -- -   @EnableVgwRoutePropagation@ - The route was propagated by route
     --     propagation.
-    origin :: Prelude.Maybe Prelude.Text,
+    origin :: Core.Maybe Core.Text,
     -- | The ID of a VPC peering connection.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
+    vpcPeeringConnectionId :: Core.Maybe Core.Text,
     -- | The prefix of the AWS service.
-    destinationPrefixListId :: Prelude.Maybe Prelude.Text,
+    destinationPrefixListId :: Core.Maybe Core.Text,
     -- | The destination IPv4 address, in CIDR notation.
-    destinationCidr :: Prelude.Maybe Prelude.Text,
+    destinationCidr :: Core.Maybe Core.Text,
     -- | The ID of an egress-only internet gateway.
-    egressOnlyInternetGatewayId :: Prelude.Maybe Prelude.Text,
+    egressOnlyInternetGatewayId :: Core.Maybe Core.Text,
     -- | The ID of a network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    networkInterfaceId :: Core.Maybe Core.Text,
     -- | The ID of a NAT gateway.
-    natGatewayId :: Prelude.Maybe Prelude.Text,
+    natGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the gateway, such as an internet gateway or virtual private
     -- gateway.
-    gatewayId :: Prelude.Maybe Prelude.Text,
+    gatewayId :: Core.Maybe Core.Text,
     -- | The ID of a transit gateway.
-    transitGatewayId :: Prelude.Maybe Prelude.Text
+    transitGatewayId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalysisRouteTableRoute' with all optional fields omitted.
@@ -100,21 +99,20 @@ newAnalysisRouteTableRoute ::
   AnalysisRouteTableRoute
 newAnalysisRouteTableRoute =
   AnalysisRouteTableRoute'
-    { instanceId =
-        Prelude.Nothing,
-      origin = Prelude.Nothing,
-      vpcPeeringConnectionId = Prelude.Nothing,
-      destinationPrefixListId = Prelude.Nothing,
-      destinationCidr = Prelude.Nothing,
-      egressOnlyInternetGatewayId = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing,
-      natGatewayId = Prelude.Nothing,
-      gatewayId = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      origin = Core.Nothing,
+      vpcPeeringConnectionId = Core.Nothing,
+      destinationPrefixListId = Core.Nothing,
+      destinationCidr = Core.Nothing,
+      egressOnlyInternetGatewayId = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      natGatewayId = Core.Nothing,
+      gatewayId = Core.Nothing,
+      transitGatewayId = Core.Nothing
     }
 
 -- | The ID of the instance, such as a NAT instance.
-analysisRouteTableRoute_instanceId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_instanceId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_instanceId = Lens.lens (\AnalysisRouteTableRoute' {instanceId} -> instanceId) (\s@AnalysisRouteTableRoute' {} a -> s {instanceId = a} :: AnalysisRouteTableRoute)
 
 -- | Describes how the route was created. The following are possible values:
@@ -126,56 +124,56 @@ analysisRouteTableRoute_instanceId = Lens.lens (\AnalysisRouteTableRoute' {insta
 --
 -- -   @EnableVgwRoutePropagation@ - The route was propagated by route
 --     propagation.
-analysisRouteTableRoute_origin :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_origin :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_origin = Lens.lens (\AnalysisRouteTableRoute' {origin} -> origin) (\s@AnalysisRouteTableRoute' {} a -> s {origin = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of a VPC peering connection.
-analysisRouteTableRoute_vpcPeeringConnectionId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_vpcPeeringConnectionId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_vpcPeeringConnectionId = Lens.lens (\AnalysisRouteTableRoute' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AnalysisRouteTableRoute' {} a -> s {vpcPeeringConnectionId = a} :: AnalysisRouteTableRoute)
 
 -- | The prefix of the AWS service.
-analysisRouteTableRoute_destinationPrefixListId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_destinationPrefixListId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_destinationPrefixListId = Lens.lens (\AnalysisRouteTableRoute' {destinationPrefixListId} -> destinationPrefixListId) (\s@AnalysisRouteTableRoute' {} a -> s {destinationPrefixListId = a} :: AnalysisRouteTableRoute)
 
 -- | The destination IPv4 address, in CIDR notation.
-analysisRouteTableRoute_destinationCidr :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_destinationCidr :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_destinationCidr = Lens.lens (\AnalysisRouteTableRoute' {destinationCidr} -> destinationCidr) (\s@AnalysisRouteTableRoute' {} a -> s {destinationCidr = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of an egress-only internet gateway.
-analysisRouteTableRoute_egressOnlyInternetGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_egressOnlyInternetGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_egressOnlyInternetGatewayId = Lens.lens (\AnalysisRouteTableRoute' {egressOnlyInternetGatewayId} -> egressOnlyInternetGatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {egressOnlyInternetGatewayId = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of a network interface.
-analysisRouteTableRoute_networkInterfaceId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_networkInterfaceId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_networkInterfaceId = Lens.lens (\AnalysisRouteTableRoute' {networkInterfaceId} -> networkInterfaceId) (\s@AnalysisRouteTableRoute' {} a -> s {networkInterfaceId = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of a NAT gateway.
-analysisRouteTableRoute_natGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_natGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_natGatewayId = Lens.lens (\AnalysisRouteTableRoute' {natGatewayId} -> natGatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {natGatewayId = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of the gateway, such as an internet gateway or virtual private
 -- gateway.
-analysisRouteTableRoute_gatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_gatewayId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_gatewayId = Lens.lens (\AnalysisRouteTableRoute' {gatewayId} -> gatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {gatewayId = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of a transit gateway.
-analysisRouteTableRoute_transitGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_transitGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Core.Maybe Core.Text)
 analysisRouteTableRoute_transitGatewayId = Lens.lens (\AnalysisRouteTableRoute' {transitGatewayId} -> transitGatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {transitGatewayId = a} :: AnalysisRouteTableRoute)
 
-instance Prelude.FromXML AnalysisRouteTableRoute where
+instance Core.FromXML AnalysisRouteTableRoute where
   parseXML x =
     AnalysisRouteTableRoute'
-      Prelude.<$> (x Prelude..@? "instanceId")
-      Prelude.<*> (x Prelude..@? "origin")
-      Prelude.<*> (x Prelude..@? "vpcPeeringConnectionId")
-      Prelude.<*> (x Prelude..@? "destinationPrefixListId")
-      Prelude.<*> (x Prelude..@? "destinationCidr")
-      Prelude.<*> (x Prelude..@? "egressOnlyInternetGatewayId")
-      Prelude.<*> (x Prelude..@? "networkInterfaceId")
-      Prelude.<*> (x Prelude..@? "natGatewayId")
-      Prelude.<*> (x Prelude..@? "gatewayId")
-      Prelude.<*> (x Prelude..@? "transitGatewayId")
+      Core.<$> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "origin")
+      Core.<*> (x Core..@? "vpcPeeringConnectionId")
+      Core.<*> (x Core..@? "destinationPrefixListId")
+      Core.<*> (x Core..@? "destinationCidr")
+      Core.<*> (x Core..@? "egressOnlyInternetGatewayId")
+      Core.<*> (x Core..@? "networkInterfaceId")
+      Core.<*> (x Core..@? "natGatewayId")
+      Core.<*> (x Core..@? "gatewayId")
+      Core.<*> (x Core..@? "transitGatewayId")
 
-instance Prelude.Hashable AnalysisRouteTableRoute
+instance Core.Hashable AnalysisRouteTableRoute
 
-instance Prelude.NFData AnalysisRouteTableRoute
+instance Core.NFData AnalysisRouteTableRoute

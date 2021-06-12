@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,32 +19,32 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.StreamInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.StreamFile
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a stream.
 --
 -- /See:/ 'newStreamInfo' smart constructor.
 data StreamInfo = StreamInfo'
   { -- | An IAM role AWS IoT assumes to access your S3 files.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The stream version.
-    streamVersion :: Prelude.Maybe Prelude.Natural,
+    streamVersion :: Core.Maybe Core.Natural,
     -- | The date when the stream was created.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
+    streamId :: Core.Maybe Core.Text,
     -- | The stream ARN.
-    streamArn :: Prelude.Maybe Prelude.Text,
+    streamArn :: Core.Maybe Core.Text,
     -- | The description of the stream.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The files to stream.
-    files :: Prelude.Maybe (Prelude.NonEmpty StreamFile),
+    files :: Core.Maybe (Core.NonEmpty StreamFile),
     -- | The date when the stream was last updated.
-    lastUpdatedAt :: Prelude.Maybe Prelude.POSIX
+    lastUpdatedAt :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamInfo' with all optional fields omitted.
@@ -74,64 +73,64 @@ newStreamInfo ::
   StreamInfo
 newStreamInfo =
   StreamInfo'
-    { roleArn = Prelude.Nothing,
-      streamVersion = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      streamId = Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      description = Prelude.Nothing,
-      files = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+    { roleArn = Core.Nothing,
+      streamVersion = Core.Nothing,
+      createdAt = Core.Nothing,
+      streamId = Core.Nothing,
+      streamArn = Core.Nothing,
+      description = Core.Nothing,
+      files = Core.Nothing,
+      lastUpdatedAt = Core.Nothing
     }
 
 -- | An IAM role AWS IoT assumes to access your S3 files.
-streamInfo_roleArn :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
+streamInfo_roleArn :: Lens.Lens' StreamInfo (Core.Maybe Core.Text)
 streamInfo_roleArn = Lens.lens (\StreamInfo' {roleArn} -> roleArn) (\s@StreamInfo' {} a -> s {roleArn = a} :: StreamInfo)
 
 -- | The stream version.
-streamInfo_streamVersion :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Natural)
+streamInfo_streamVersion :: Lens.Lens' StreamInfo (Core.Maybe Core.Natural)
 streamInfo_streamVersion = Lens.lens (\StreamInfo' {streamVersion} -> streamVersion) (\s@StreamInfo' {} a -> s {streamVersion = a} :: StreamInfo)
 
 -- | The date when the stream was created.
-streamInfo_createdAt :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.UTCTime)
-streamInfo_createdAt = Lens.lens (\StreamInfo' {createdAt} -> createdAt) (\s@StreamInfo' {} a -> s {createdAt = a} :: StreamInfo) Prelude.. Lens.mapping Prelude._Time
+streamInfo_createdAt :: Lens.Lens' StreamInfo (Core.Maybe Core.UTCTime)
+streamInfo_createdAt = Lens.lens (\StreamInfo' {createdAt} -> createdAt) (\s@StreamInfo' {} a -> s {createdAt = a} :: StreamInfo) Core.. Lens.mapping Core._Time
 
 -- | The stream ID.
-streamInfo_streamId :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
+streamInfo_streamId :: Lens.Lens' StreamInfo (Core.Maybe Core.Text)
 streamInfo_streamId = Lens.lens (\StreamInfo' {streamId} -> streamId) (\s@StreamInfo' {} a -> s {streamId = a} :: StreamInfo)
 
 -- | The stream ARN.
-streamInfo_streamArn :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
+streamInfo_streamArn :: Lens.Lens' StreamInfo (Core.Maybe Core.Text)
 streamInfo_streamArn = Lens.lens (\StreamInfo' {streamArn} -> streamArn) (\s@StreamInfo' {} a -> s {streamArn = a} :: StreamInfo)
 
 -- | The description of the stream.
-streamInfo_description :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.Text)
+streamInfo_description :: Lens.Lens' StreamInfo (Core.Maybe Core.Text)
 streamInfo_description = Lens.lens (\StreamInfo' {description} -> description) (\s@StreamInfo' {} a -> s {description = a} :: StreamInfo)
 
 -- | The files to stream.
-streamInfo_files :: Lens.Lens' StreamInfo (Prelude.Maybe (Prelude.NonEmpty StreamFile))
-streamInfo_files = Lens.lens (\StreamInfo' {files} -> files) (\s@StreamInfo' {} a -> s {files = a} :: StreamInfo) Prelude.. Lens.mapping Prelude._Coerce
+streamInfo_files :: Lens.Lens' StreamInfo (Core.Maybe (Core.NonEmpty StreamFile))
+streamInfo_files = Lens.lens (\StreamInfo' {files} -> files) (\s@StreamInfo' {} a -> s {files = a} :: StreamInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The date when the stream was last updated.
-streamInfo_lastUpdatedAt :: Lens.Lens' StreamInfo (Prelude.Maybe Prelude.UTCTime)
-streamInfo_lastUpdatedAt = Lens.lens (\StreamInfo' {lastUpdatedAt} -> lastUpdatedAt) (\s@StreamInfo' {} a -> s {lastUpdatedAt = a} :: StreamInfo) Prelude.. Lens.mapping Prelude._Time
+streamInfo_lastUpdatedAt :: Lens.Lens' StreamInfo (Core.Maybe Core.UTCTime)
+streamInfo_lastUpdatedAt = Lens.lens (\StreamInfo' {lastUpdatedAt} -> lastUpdatedAt) (\s@StreamInfo' {} a -> s {lastUpdatedAt = a} :: StreamInfo) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON StreamInfo where
+instance Core.FromJSON StreamInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StreamInfo"
       ( \x ->
           StreamInfo'
-            Prelude.<$> (x Prelude..:? "roleArn")
-            Prelude.<*> (x Prelude..:? "streamVersion")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "streamId")
-            Prelude.<*> (x Prelude..:? "streamArn")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "files")
-            Prelude.<*> (x Prelude..:? "lastUpdatedAt")
+            Core.<$> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "streamVersion")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "streamId")
+            Core.<*> (x Core..:? "streamArn")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "files")
+            Core.<*> (x Core..:? "lastUpdatedAt")
       )
 
-instance Prelude.Hashable StreamInfo
+instance Core.Hashable StreamInfo
 
-instance Prelude.NFData StreamInfo
+instance Core.NFData StreamInfo

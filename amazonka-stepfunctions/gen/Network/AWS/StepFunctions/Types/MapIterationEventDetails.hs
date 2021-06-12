@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.MapIterationEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an iteration of a Map state.
 --
 -- /See:/ 'newMapIterationEventDetails' smart constructor.
 data MapIterationEventDetails = MapIterationEventDetails'
   { -- | The name of the iteration’s parent Map state.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The index of the array belonging to the Map state iteration.
-    index :: Prelude.Maybe Prelude.Natural
+    index :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MapIterationEventDetails' with all optional fields omitted.
@@ -49,28 +48,27 @@ newMapIterationEventDetails ::
   MapIterationEventDetails
 newMapIterationEventDetails =
   MapIterationEventDetails'
-    { name = Prelude.Nothing,
-      index = Prelude.Nothing
+    { name = Core.Nothing,
+      index = Core.Nothing
     }
 
 -- | The name of the iteration’s parent Map state.
-mapIterationEventDetails_name :: Lens.Lens' MapIterationEventDetails (Prelude.Maybe Prelude.Text)
+mapIterationEventDetails_name :: Lens.Lens' MapIterationEventDetails (Core.Maybe Core.Text)
 mapIterationEventDetails_name = Lens.lens (\MapIterationEventDetails' {name} -> name) (\s@MapIterationEventDetails' {} a -> s {name = a} :: MapIterationEventDetails)
 
 -- | The index of the array belonging to the Map state iteration.
-mapIterationEventDetails_index :: Lens.Lens' MapIterationEventDetails (Prelude.Maybe Prelude.Natural)
+mapIterationEventDetails_index :: Lens.Lens' MapIterationEventDetails (Core.Maybe Core.Natural)
 mapIterationEventDetails_index = Lens.lens (\MapIterationEventDetails' {index} -> index) (\s@MapIterationEventDetails' {} a -> s {index = a} :: MapIterationEventDetails)
 
-instance Prelude.FromJSON MapIterationEventDetails where
+instance Core.FromJSON MapIterationEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MapIterationEventDetails"
       ( \x ->
           MapIterationEventDetails'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "index")
+            Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "index")
       )
 
-instance Prelude.Hashable MapIterationEventDetails
+instance Core.Hashable MapIterationEventDetails
 
-instance Prelude.NFData MapIterationEventDetails
+instance Core.NFData MapIterationEventDetails

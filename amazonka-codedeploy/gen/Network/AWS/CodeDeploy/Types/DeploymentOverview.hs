@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.DeploymentOverview where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the deployment status of the instances in the
 -- deployment.
@@ -30,20 +29,20 @@ import qualified Network.AWS.Prelude as Prelude
 data DeploymentOverview = DeploymentOverview'
   { -- | The number of instances in the deployment to which revisions have been
     -- successfully deployed.
-    succeeded :: Prelude.Maybe Prelude.Integer,
+    succeeded :: Core.Maybe Core.Integer,
     -- | The number of instances in a replacement environment ready to receive
     -- traffic in a blue\/green deployment.
-    ready :: Prelude.Maybe Prelude.Integer,
+    ready :: Core.Maybe Core.Integer,
     -- | The number of instances in the deployment in a pending state.
-    pending :: Prelude.Maybe Prelude.Integer,
+    pending :: Core.Maybe Core.Integer,
     -- | The number of instances in the deployment in a failed state.
-    failed :: Prelude.Maybe Prelude.Integer,
+    failed :: Core.Maybe Core.Integer,
     -- | The number of instances in the deployment in a skipped state.
-    skipped :: Prelude.Maybe Prelude.Integer,
+    skipped :: Core.Maybe Core.Integer,
     -- | The number of instances in which the deployment is in progress.
-    inProgress :: Prelude.Maybe Prelude.Integer
+    inProgress :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeploymentOverview' with all optional fields omitted.
@@ -70,54 +69,54 @@ newDeploymentOverview ::
   DeploymentOverview
 newDeploymentOverview =
   DeploymentOverview'
-    { succeeded = Prelude.Nothing,
-      ready = Prelude.Nothing,
-      pending = Prelude.Nothing,
-      failed = Prelude.Nothing,
-      skipped = Prelude.Nothing,
-      inProgress = Prelude.Nothing
+    { succeeded = Core.Nothing,
+      ready = Core.Nothing,
+      pending = Core.Nothing,
+      failed = Core.Nothing,
+      skipped = Core.Nothing,
+      inProgress = Core.Nothing
     }
 
 -- | The number of instances in the deployment to which revisions have been
 -- successfully deployed.
-deploymentOverview_succeeded :: Lens.Lens' DeploymentOverview (Prelude.Maybe Prelude.Integer)
+deploymentOverview_succeeded :: Lens.Lens' DeploymentOverview (Core.Maybe Core.Integer)
 deploymentOverview_succeeded = Lens.lens (\DeploymentOverview' {succeeded} -> succeeded) (\s@DeploymentOverview' {} a -> s {succeeded = a} :: DeploymentOverview)
 
 -- | The number of instances in a replacement environment ready to receive
 -- traffic in a blue\/green deployment.
-deploymentOverview_ready :: Lens.Lens' DeploymentOverview (Prelude.Maybe Prelude.Integer)
+deploymentOverview_ready :: Lens.Lens' DeploymentOverview (Core.Maybe Core.Integer)
 deploymentOverview_ready = Lens.lens (\DeploymentOverview' {ready} -> ready) (\s@DeploymentOverview' {} a -> s {ready = a} :: DeploymentOverview)
 
 -- | The number of instances in the deployment in a pending state.
-deploymentOverview_pending :: Lens.Lens' DeploymentOverview (Prelude.Maybe Prelude.Integer)
+deploymentOverview_pending :: Lens.Lens' DeploymentOverview (Core.Maybe Core.Integer)
 deploymentOverview_pending = Lens.lens (\DeploymentOverview' {pending} -> pending) (\s@DeploymentOverview' {} a -> s {pending = a} :: DeploymentOverview)
 
 -- | The number of instances in the deployment in a failed state.
-deploymentOverview_failed :: Lens.Lens' DeploymentOverview (Prelude.Maybe Prelude.Integer)
+deploymentOverview_failed :: Lens.Lens' DeploymentOverview (Core.Maybe Core.Integer)
 deploymentOverview_failed = Lens.lens (\DeploymentOverview' {failed} -> failed) (\s@DeploymentOverview' {} a -> s {failed = a} :: DeploymentOverview)
 
 -- | The number of instances in the deployment in a skipped state.
-deploymentOverview_skipped :: Lens.Lens' DeploymentOverview (Prelude.Maybe Prelude.Integer)
+deploymentOverview_skipped :: Lens.Lens' DeploymentOverview (Core.Maybe Core.Integer)
 deploymentOverview_skipped = Lens.lens (\DeploymentOverview' {skipped} -> skipped) (\s@DeploymentOverview' {} a -> s {skipped = a} :: DeploymentOverview)
 
 -- | The number of instances in which the deployment is in progress.
-deploymentOverview_inProgress :: Lens.Lens' DeploymentOverview (Prelude.Maybe Prelude.Integer)
+deploymentOverview_inProgress :: Lens.Lens' DeploymentOverview (Core.Maybe Core.Integer)
 deploymentOverview_inProgress = Lens.lens (\DeploymentOverview' {inProgress} -> inProgress) (\s@DeploymentOverview' {} a -> s {inProgress = a} :: DeploymentOverview)
 
-instance Prelude.FromJSON DeploymentOverview where
+instance Core.FromJSON DeploymentOverview where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeploymentOverview"
       ( \x ->
           DeploymentOverview'
-            Prelude.<$> (x Prelude..:? "Succeeded")
-            Prelude.<*> (x Prelude..:? "Ready")
-            Prelude.<*> (x Prelude..:? "Pending")
-            Prelude.<*> (x Prelude..:? "Failed")
-            Prelude.<*> (x Prelude..:? "Skipped")
-            Prelude.<*> (x Prelude..:? "InProgress")
+            Core.<$> (x Core..:? "Succeeded")
+            Core.<*> (x Core..:? "Ready")
+            Core.<*> (x Core..:? "Pending")
+            Core.<*> (x Core..:? "Failed")
+            Core.<*> (x Core..:? "Skipped")
+            Core.<*> (x Core..:? "InProgress")
       )
 
-instance Prelude.Hashable DeploymentOverview
+instance Core.Hashable DeploymentOverview
 
-instance Prelude.NFData DeploymentOverview
+instance Core.NFData DeploymentOverview

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,19 +41,19 @@ module Network.AWS.Connect.AssociateLexBot
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateLexBot' smart constructor.
 data AssociateLexBot = AssociateLexBot'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The Amazon Lex box to associate with the instance.
     lexBot :: LexBot
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateLexBot' with all optional fields omitted.
@@ -69,7 +68,7 @@ data AssociateLexBot = AssociateLexBot'
 -- 'lexBot', 'associateLexBot_lexBot' - The Amazon Lex box to associate with the instance.
 newAssociateLexBot ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lexBot'
   LexBot ->
   AssociateLexBot
@@ -80,54 +79,54 @@ newAssociateLexBot pInstanceId_ pLexBot_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-associateLexBot_instanceId :: Lens.Lens' AssociateLexBot Prelude.Text
+associateLexBot_instanceId :: Lens.Lens' AssociateLexBot Core.Text
 associateLexBot_instanceId = Lens.lens (\AssociateLexBot' {instanceId} -> instanceId) (\s@AssociateLexBot' {} a -> s {instanceId = a} :: AssociateLexBot)
 
 -- | The Amazon Lex box to associate with the instance.
 associateLexBot_lexBot :: Lens.Lens' AssociateLexBot LexBot
 associateLexBot_lexBot = Lens.lens (\AssociateLexBot' {lexBot} -> lexBot) (\s@AssociateLexBot' {} a -> s {lexBot = a} :: AssociateLexBot)
 
-instance Prelude.AWSRequest AssociateLexBot where
-  type Rs AssociateLexBot = AssociateLexBotResponse
+instance Core.AWSRequest AssociateLexBot where
+  type
+    AWSResponse AssociateLexBot =
+      AssociateLexBotResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveNull AssociateLexBotResponse'
 
-instance Prelude.Hashable AssociateLexBot
+instance Core.Hashable AssociateLexBot
 
-instance Prelude.NFData AssociateLexBot
+instance Core.NFData AssociateLexBot
 
-instance Prelude.ToHeaders AssociateLexBot where
+instance Core.ToHeaders AssociateLexBot where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateLexBot where
+instance Core.ToJSON AssociateLexBot where
   toJSON AssociateLexBot' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("LexBot" Prelude..= lexBot)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LexBot" Core..= lexBot)]
       )
 
-instance Prelude.ToPath AssociateLexBot where
+instance Core.ToPath AssociateLexBot where
   toPath AssociateLexBot' {..} =
-    Prelude.mconcat
-      ["/instance/", Prelude.toBS instanceId, "/lex-bot"]
+    Core.mconcat
+      ["/instance/", Core.toBS instanceId, "/lex-bot"]
 
-instance Prelude.ToQuery AssociateLexBot where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateLexBot where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateLexBotResponse' smart constructor.
 data AssociateLexBotResponse = AssociateLexBotResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateLexBotResponse' with all optional fields omitted.
@@ -137,4 +136,4 @@ newAssociateLexBotResponse ::
   AssociateLexBotResponse
 newAssociateLexBotResponse = AssociateLexBotResponse'
 
-instance Prelude.NFData AssociateLexBotResponse
+instance Core.NFData AssociateLexBotResponse

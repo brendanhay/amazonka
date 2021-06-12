@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Glacier.RemoveTagsFromVault
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,17 +52,17 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRemoveTagsFromVault' smart constructor.
 data RemoveTagsFromVault = RemoveTagsFromVault'
   { -- | A list of tag keys. Each corresponding tag is removed from the vault.
-    tagKeys :: Prelude.Maybe [Prelude.Text],
+    tagKeys :: Core.Maybe [Core.Text],
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromVault' with all optional fields omitted.
@@ -84,77 +83,76 @@ data RemoveTagsFromVault = RemoveTagsFromVault'
 -- 'vaultName', 'removeTagsFromVault_vaultName' - The name of the vault.
 newRemoveTagsFromVault ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   RemoveTagsFromVault
 newRemoveTagsFromVault pAccountId_ pVaultName_ =
   RemoveTagsFromVault'
-    { tagKeys = Prelude.Nothing,
+    { tagKeys = Core.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.
-removeTagsFromVault_tagKeys :: Lens.Lens' RemoveTagsFromVault (Prelude.Maybe [Prelude.Text])
-removeTagsFromVault_tagKeys = Lens.lens (\RemoveTagsFromVault' {tagKeys} -> tagKeys) (\s@RemoveTagsFromVault' {} a -> s {tagKeys = a} :: RemoveTagsFromVault) Prelude.. Lens.mapping Prelude._Coerce
+removeTagsFromVault_tagKeys :: Lens.Lens' RemoveTagsFromVault (Core.Maybe [Core.Text])
+removeTagsFromVault_tagKeys = Lens.lens (\RemoveTagsFromVault' {tagKeys} -> tagKeys) (\s@RemoveTagsFromVault' {} a -> s {tagKeys = a} :: RemoveTagsFromVault) Core.. Lens.mapping Lens._Coerce
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-removeTagsFromVault_accountId :: Lens.Lens' RemoveTagsFromVault Prelude.Text
+removeTagsFromVault_accountId :: Lens.Lens' RemoveTagsFromVault Core.Text
 removeTagsFromVault_accountId = Lens.lens (\RemoveTagsFromVault' {accountId} -> accountId) (\s@RemoveTagsFromVault' {} a -> s {accountId = a} :: RemoveTagsFromVault)
 
 -- | The name of the vault.
-removeTagsFromVault_vaultName :: Lens.Lens' RemoveTagsFromVault Prelude.Text
+removeTagsFromVault_vaultName :: Lens.Lens' RemoveTagsFromVault Core.Text
 removeTagsFromVault_vaultName = Lens.lens (\RemoveTagsFromVault' {vaultName} -> vaultName) (\s@RemoveTagsFromVault' {} a -> s {vaultName = a} :: RemoveTagsFromVault)
 
-instance Prelude.AWSRequest RemoveTagsFromVault where
+instance Core.AWSRequest RemoveTagsFromVault where
   type
-    Rs RemoveTagsFromVault =
+    AWSResponse RemoveTagsFromVault =
       RemoveTagsFromVaultResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.postJSON defaultService
   response =
     Response.receiveNull RemoveTagsFromVaultResponse'
 
-instance Prelude.Hashable RemoveTagsFromVault
+instance Core.Hashable RemoveTagsFromVault
 
-instance Prelude.NFData RemoveTagsFromVault
+instance Core.NFData RemoveTagsFromVault
 
-instance Prelude.ToHeaders RemoveTagsFromVault where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RemoveTagsFromVault where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON RemoveTagsFromVault where
+instance Core.ToJSON RemoveTagsFromVault where
   toJSON RemoveTagsFromVault' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("TagKeys" Prelude..=) Prelude.<$> tagKeys]
+    Core.object
+      ( Core.catMaybes
+          [("TagKeys" Core..=) Core.<$> tagKeys]
       )
 
-instance Prelude.ToPath RemoveTagsFromVault where
+instance Core.ToPath RemoveTagsFromVault where
   toPath RemoveTagsFromVault' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/tags"
       ]
 
-instance Prelude.ToQuery RemoveTagsFromVault where
+instance Core.ToQuery RemoveTagsFromVault where
   toQuery =
-    Prelude.const
-      (Prelude.mconcat ["operation=remove"])
+    Core.const (Core.mconcat ["operation=remove"])
 
 -- | /See:/ 'newRemoveTagsFromVaultResponse' smart constructor.
 data RemoveTagsFromVaultResponse = RemoveTagsFromVaultResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromVaultResponse' with all optional fields omitted.
@@ -165,4 +163,4 @@ newRemoveTagsFromVaultResponse ::
 newRemoveTagsFromVaultResponse =
   RemoveTagsFromVaultResponse'
 
-instance Prelude.NFData RemoveTagsFromVaultResponse
+instance Core.NFData RemoveTagsFromVaultResponse

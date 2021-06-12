@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,8 +70,8 @@ module Network.AWS.S3.AbortMultipartUpload
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -82,8 +81,8 @@ data AbortMultipartUpload = AbortMultipartUpload'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    expectedBucketOwner :: Core.Maybe Core.Text,
+    requestPayer :: Core.Maybe RequestPayer,
     -- | The bucket name to which the upload was taking place.
     --
     -- When using this API with an access point, you must direct requests to
@@ -108,9 +107,9 @@ data AbortMultipartUpload = AbortMultipartUpload'
     -- | Key of the object for which the multipart upload was initiated.
     key :: ObjectKey,
     -- | Upload ID that identifies the multipart upload.
-    uploadId :: Prelude.Text
+    uploadId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AbortMultipartUpload' with all optional fields omitted.
@@ -156,13 +155,13 @@ newAbortMultipartUpload ::
   -- | 'key'
   ObjectKey ->
   -- | 'uploadId'
-  Prelude.Text ->
+  Core.Text ->
   AbortMultipartUpload
 newAbortMultipartUpload pBucket_ pKey_ pUploadId_ =
   AbortMultipartUpload'
     { expectedBucketOwner =
-        Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
+        Core.Nothing,
+      requestPayer = Core.Nothing,
       bucket = pBucket_,
       key = pKey_,
       uploadId = pUploadId_
@@ -171,11 +170,11 @@ newAbortMultipartUpload pBucket_ pKey_ pUploadId_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-abortMultipartUpload_expectedBucketOwner :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe Prelude.Text)
+abortMultipartUpload_expectedBucketOwner :: Lens.Lens' AbortMultipartUpload (Core.Maybe Core.Text)
 abortMultipartUpload_expectedBucketOwner = Lens.lens (\AbortMultipartUpload' {expectedBucketOwner} -> expectedBucketOwner) (\s@AbortMultipartUpload' {} a -> s {expectedBucketOwner = a} :: AbortMultipartUpload)
 
 -- | Undocumented member.
-abortMultipartUpload_requestPayer :: Lens.Lens' AbortMultipartUpload (Prelude.Maybe RequestPayer)
+abortMultipartUpload_requestPayer :: Lens.Lens' AbortMultipartUpload (Core.Maybe RequestPayer)
 abortMultipartUpload_requestPayer = Lens.lens (\AbortMultipartUpload' {requestPayer} -> requestPayer) (\s@AbortMultipartUpload' {} a -> s {requestPayer = a} :: AbortMultipartUpload)
 
 -- | The bucket name to which the upload was taking place.
@@ -206,50 +205,50 @@ abortMultipartUpload_key :: Lens.Lens' AbortMultipartUpload ObjectKey
 abortMultipartUpload_key = Lens.lens (\AbortMultipartUpload' {key} -> key) (\s@AbortMultipartUpload' {} a -> s {key = a} :: AbortMultipartUpload)
 
 -- | Upload ID that identifies the multipart upload.
-abortMultipartUpload_uploadId :: Lens.Lens' AbortMultipartUpload Prelude.Text
+abortMultipartUpload_uploadId :: Lens.Lens' AbortMultipartUpload Core.Text
 abortMultipartUpload_uploadId = Lens.lens (\AbortMultipartUpload' {uploadId} -> uploadId) (\s@AbortMultipartUpload' {} a -> s {uploadId = a} :: AbortMultipartUpload)
 
-instance Prelude.AWSRequest AbortMultipartUpload where
+instance Core.AWSRequest AbortMultipartUpload where
   type
-    Rs AbortMultipartUpload =
+    AWSResponse AbortMultipartUpload =
       AbortMultipartUploadResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AbortMultipartUploadResponse'
-            Prelude.<$> (h Prelude..#? "x-amz-request-charged")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "x-amz-request-charged")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AbortMultipartUpload
+instance Core.Hashable AbortMultipartUpload
 
-instance Prelude.NFData AbortMultipartUpload
+instance Core.NFData AbortMultipartUpload
 
-instance Prelude.ToHeaders AbortMultipartUpload where
+instance Core.ToHeaders AbortMultipartUpload where
   toHeaders AbortMultipartUpload' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "x-amz-request-payer" Prelude.=# requestPayer
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
-instance Prelude.ToPath AbortMultipartUpload where
+instance Core.ToPath AbortMultipartUpload where
   toPath AbortMultipartUpload' {..} =
-    Prelude.mconcat
-      ["/", Prelude.toBS bucket, "/", Prelude.toBS key]
+    Core.mconcat
+      ["/", Core.toBS bucket, "/", Core.toBS key]
 
-instance Prelude.ToQuery AbortMultipartUpload where
+instance Core.ToQuery AbortMultipartUpload where
   toQuery AbortMultipartUpload' {..} =
-    Prelude.mconcat ["uploadId" Prelude.=: uploadId]
+    Core.mconcat ["uploadId" Core.=: uploadId]
 
 -- | /See:/ 'newAbortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
+  { requestCharged :: Core.Maybe RequestCharged,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AbortMultipartUploadResponse' with all optional fields omitted.
@@ -264,21 +263,21 @@ data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
 -- 'httpStatus', 'abortMultipartUploadResponse_httpStatus' - The response's http status code.
 newAbortMultipartUploadResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AbortMultipartUploadResponse
 newAbortMultipartUploadResponse pHttpStatus_ =
   AbortMultipartUploadResponse'
     { requestCharged =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-abortMultipartUploadResponse_requestCharged :: Lens.Lens' AbortMultipartUploadResponse (Prelude.Maybe RequestCharged)
+abortMultipartUploadResponse_requestCharged :: Lens.Lens' AbortMultipartUploadResponse (Core.Maybe RequestCharged)
 abortMultipartUploadResponse_requestCharged = Lens.lens (\AbortMultipartUploadResponse' {requestCharged} -> requestCharged) (\s@AbortMultipartUploadResponse' {} a -> s {requestCharged = a} :: AbortMultipartUploadResponse)
 
 -- | The response's http status code.
-abortMultipartUploadResponse_httpStatus :: Lens.Lens' AbortMultipartUploadResponse Prelude.Int
+abortMultipartUploadResponse_httpStatus :: Lens.Lens' AbortMultipartUploadResponse Core.Int
 abortMultipartUploadResponse_httpStatus = Lens.lens (\AbortMultipartUploadResponse' {httpStatus} -> httpStatus) (\s@AbortMultipartUploadResponse' {} a -> s {httpStatus = a} :: AbortMultipartUploadResponse)
 
-instance Prelude.NFData AbortMultipartUploadResponse
+instance Core.NFData AbortMultipartUploadResponse

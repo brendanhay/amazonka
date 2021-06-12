@@ -597,6 +597,7 @@ module Network.AWS.DeviceFarm.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.AccountSettings
 import Network.AWS.DeviceFarm.Types.Artifact
 import Network.AWS.DeviceFarm.Types.ArtifactCategory
@@ -674,166 +675,163 @@ import Network.AWS.DeviceFarm.Types.UploadStatus
 import Network.AWS.DeviceFarm.Types.UploadType
 import Network.AWS.DeviceFarm.Types.VPCEConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-06-23@ of the Amazon Device Farm SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "DeviceFarm",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "devicefarm",
-      Prelude._svcSigningName = "devicefarm",
-      Prelude._svcVersion = "2015-06-23",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "DeviceFarm",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "DeviceFarm",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "devicefarm",
+      Core._serviceSigningName = "devicefarm",
+      Core._serviceVersion = "2015-06-23",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "DeviceFarm",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | Exception gets thrown when a user is not eligible to perform the
 -- specified transaction.
-_NotEligibleException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NotEligibleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NotEligibleException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NotEligibleException"
 
 -- | An invalid argument was specified.
-_ArgumentException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ArgumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ArgumentException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ArgumentException"
 
 -- | The specified entity was not found.
-_NotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NotFoundException"
 
 -- | The list of tags on the repository is over the limit. The maximum number
 -- of tags that can be applied to a repository is 50.
-_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | There was an error with the update request, or you do not have
 -- sufficient permissions to update this VPC endpoint configuration.
-_InvalidOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidOperationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidOperationException"
 
 -- | There was a problem with the service account.
-_ServiceAccountException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceAccountException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceAccountException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceAccountException"
 
 -- | The operation was not successful. Try again.
-_TagOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagOperationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagOperationException"
 
 -- | An entity with the same name already exists.
-_IdempotencyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IdempotencyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IdempotencyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IdempotencyException"
 
 -- | An internal exception was raised in the service. Contact
 -- <mailto:aws-devicefarm-support@amazon.com aws-devicefarm-support\@amazon.com>
 -- if you see this error.
-_InternalServiceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServiceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServiceException"
 
 -- | The request doesn\'t comply with the AWS Identity and Access Management
 -- (IAM) tag policy. Correct your request and then retry it.
-_TagPolicyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagPolicyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagPolicyException"
 
 -- | The requested object could not be deleted.
-_CannotDeleteException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CannotDeleteException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CannotDeleteException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CannotDeleteException"
 
 -- | A limit was exceeded.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"

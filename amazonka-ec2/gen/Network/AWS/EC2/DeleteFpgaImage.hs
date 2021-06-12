@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EC2.DeleteFpgaImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ data DeleteFpgaImage = DeleteFpgaImage'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the AFI.
-    fpgaImageId :: Prelude.Text
+    fpgaImageId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFpgaImage' with all optional fields omitted.
@@ -75,11 +74,11 @@ data DeleteFpgaImage = DeleteFpgaImage'
 -- 'fpgaImageId', 'deleteFpgaImage_fpgaImageId' - The ID of the AFI.
 newDeleteFpgaImage ::
   -- | 'fpgaImageId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFpgaImage
 newDeleteFpgaImage pFpgaImageId_ =
   DeleteFpgaImage'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       fpgaImageId = pFpgaImageId_
     }
 
@@ -87,53 +86,54 @@ newDeleteFpgaImage pFpgaImageId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteFpgaImage_dryRun :: Lens.Lens' DeleteFpgaImage (Prelude.Maybe Prelude.Bool)
+deleteFpgaImage_dryRun :: Lens.Lens' DeleteFpgaImage (Core.Maybe Core.Bool)
 deleteFpgaImage_dryRun = Lens.lens (\DeleteFpgaImage' {dryRun} -> dryRun) (\s@DeleteFpgaImage' {} a -> s {dryRun = a} :: DeleteFpgaImage)
 
 -- | The ID of the AFI.
-deleteFpgaImage_fpgaImageId :: Lens.Lens' DeleteFpgaImage Prelude.Text
+deleteFpgaImage_fpgaImageId :: Lens.Lens' DeleteFpgaImage Core.Text
 deleteFpgaImage_fpgaImageId = Lens.lens (\DeleteFpgaImage' {fpgaImageId} -> fpgaImageId) (\s@DeleteFpgaImage' {} a -> s {fpgaImageId = a} :: DeleteFpgaImage)
 
-instance Prelude.AWSRequest DeleteFpgaImage where
-  type Rs DeleteFpgaImage = DeleteFpgaImageResponse
+instance Core.AWSRequest DeleteFpgaImage where
+  type
+    AWSResponse DeleteFpgaImage =
+      DeleteFpgaImageResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteFpgaImageResponse'
-            Prelude.<$> (x Prelude..@? "return")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFpgaImage
+instance Core.Hashable DeleteFpgaImage
 
-instance Prelude.NFData DeleteFpgaImage
+instance Core.NFData DeleteFpgaImage
 
-instance Prelude.ToHeaders DeleteFpgaImage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteFpgaImage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteFpgaImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteFpgaImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteFpgaImage where
+instance Core.ToQuery DeleteFpgaImage where
   toQuery DeleteFpgaImage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteFpgaImage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "FpgaImageId" Prelude.=: fpgaImageId
+          Core.=: ("DeleteFpgaImage" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "FpgaImageId" Core.=: fpgaImageId
       ]
 
 -- | /See:/ 'newDeleteFpgaImageResponse' smart constructor.
 data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFpgaImageResponse' with all optional fields omitted.
@@ -148,20 +148,20 @@ data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
 -- 'httpStatus', 'deleteFpgaImageResponse_httpStatus' - The response's http status code.
 newDeleteFpgaImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteFpgaImageResponse
 newDeleteFpgaImageResponse pHttpStatus_ =
   DeleteFpgaImageResponse'
-    { return' = Prelude.Nothing,
+    { return' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
-deleteFpgaImageResponse_return :: Lens.Lens' DeleteFpgaImageResponse (Prelude.Maybe Prelude.Bool)
+deleteFpgaImageResponse_return :: Lens.Lens' DeleteFpgaImageResponse (Core.Maybe Core.Bool)
 deleteFpgaImageResponse_return = Lens.lens (\DeleteFpgaImageResponse' {return'} -> return') (\s@DeleteFpgaImageResponse' {} a -> s {return' = a} :: DeleteFpgaImageResponse)
 
 -- | The response's http status code.
-deleteFpgaImageResponse_httpStatus :: Lens.Lens' DeleteFpgaImageResponse Prelude.Int
+deleteFpgaImageResponse_httpStatus :: Lens.Lens' DeleteFpgaImageResponse Core.Int
 deleteFpgaImageResponse_httpStatus = Lens.lens (\DeleteFpgaImageResponse' {httpStatus} -> httpStatus) (\s@DeleteFpgaImageResponse' {} a -> s {httpStatus = a} :: DeleteFpgaImageResponse)
 
-instance Prelude.NFData DeleteFpgaImageResponse
+instance Core.NFData DeleteFpgaImageResponse

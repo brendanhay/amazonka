@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.ComplianceViolator where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.ViolationReason
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the resource that is not protected by the policy.
 --
 -- /See:/ 'newComplianceViolator' smart constructor.
 data ComplianceViolator = ComplianceViolator'
   { -- | The resource ID.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The resource type. This is in the format shown in the
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
     -- For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@,
     -- @AWS::CloudFront::Distribution@, or
     -- @AWS::NetworkFirewall::FirewallPolicy@.
-    resourceType :: Prelude.Maybe Prelude.Text,
+    resourceType :: Core.Maybe Core.Text,
     -- | The reason that the resource is not protected by the policy.
-    violationReason :: Prelude.Maybe ViolationReason
+    violationReason :: Core.Maybe ViolationReason
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComplianceViolator' with all optional fields omitted.
@@ -62,13 +61,13 @@ newComplianceViolator ::
   ComplianceViolator
 newComplianceViolator =
   ComplianceViolator'
-    { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      violationReason = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      violationReason = Core.Nothing
     }
 
 -- | The resource ID.
-complianceViolator_resourceId :: Lens.Lens' ComplianceViolator (Prelude.Maybe Prelude.Text)
+complianceViolator_resourceId :: Lens.Lens' ComplianceViolator (Core.Maybe Core.Text)
 complianceViolator_resourceId = Lens.lens (\ComplianceViolator' {resourceId} -> resourceId) (\s@ComplianceViolator' {} a -> s {resourceId = a} :: ComplianceViolator)
 
 -- | The resource type. This is in the format shown in the
@@ -76,24 +75,24 @@ complianceViolator_resourceId = Lens.lens (\ComplianceViolator' {resourceId} -> 
 -- For example: @AWS::ElasticLoadBalancingV2::LoadBalancer@,
 -- @AWS::CloudFront::Distribution@, or
 -- @AWS::NetworkFirewall::FirewallPolicy@.
-complianceViolator_resourceType :: Lens.Lens' ComplianceViolator (Prelude.Maybe Prelude.Text)
+complianceViolator_resourceType :: Lens.Lens' ComplianceViolator (Core.Maybe Core.Text)
 complianceViolator_resourceType = Lens.lens (\ComplianceViolator' {resourceType} -> resourceType) (\s@ComplianceViolator' {} a -> s {resourceType = a} :: ComplianceViolator)
 
 -- | The reason that the resource is not protected by the policy.
-complianceViolator_violationReason :: Lens.Lens' ComplianceViolator (Prelude.Maybe ViolationReason)
+complianceViolator_violationReason :: Lens.Lens' ComplianceViolator (Core.Maybe ViolationReason)
 complianceViolator_violationReason = Lens.lens (\ComplianceViolator' {violationReason} -> violationReason) (\s@ComplianceViolator' {} a -> s {violationReason = a} :: ComplianceViolator)
 
-instance Prelude.FromJSON ComplianceViolator where
+instance Core.FromJSON ComplianceViolator where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComplianceViolator"
       ( \x ->
           ComplianceViolator'
-            Prelude.<$> (x Prelude..:? "ResourceId")
-            Prelude.<*> (x Prelude..:? "ResourceType")
-            Prelude.<*> (x Prelude..:? "ViolationReason")
+            Core.<$> (x Core..:? "ResourceId")
+            Core.<*> (x Core..:? "ResourceType")
+            Core.<*> (x Core..:? "ViolationReason")
       )
 
-instance Prelude.Hashable ComplianceViolator
+instance Core.Hashable ComplianceViolator
 
-instance Prelude.NFData ComplianceViolator
+instance Core.NFData ComplianceViolator

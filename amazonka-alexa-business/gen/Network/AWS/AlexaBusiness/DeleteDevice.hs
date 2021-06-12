@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AlexaBusiness.DeleteDevice
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDevice' smart constructor.
 data DeleteDevice = DeleteDevice'
   { -- | The ARN of the device for which to request details.
-    deviceArn :: Prelude.Text
+    deviceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDevice' with all optional fields omitted.
@@ -63,63 +62,59 @@ data DeleteDevice = DeleteDevice'
 -- 'deviceArn', 'deleteDevice_deviceArn' - The ARN of the device for which to request details.
 newDeleteDevice ::
   -- | 'deviceArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDevice
 newDeleteDevice pDeviceArn_ =
   DeleteDevice' {deviceArn = pDeviceArn_}
 
 -- | The ARN of the device for which to request details.
-deleteDevice_deviceArn :: Lens.Lens' DeleteDevice Prelude.Text
+deleteDevice_deviceArn :: Lens.Lens' DeleteDevice Core.Text
 deleteDevice_deviceArn = Lens.lens (\DeleteDevice' {deviceArn} -> deviceArn) (\s@DeleteDevice' {} a -> s {deviceArn = a} :: DeleteDevice)
 
-instance Prelude.AWSRequest DeleteDevice where
-  type Rs DeleteDevice = DeleteDeviceResponse
+instance Core.AWSRequest DeleteDevice where
+  type AWSResponse DeleteDevice = DeleteDeviceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDeviceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDevice
+instance Core.Hashable DeleteDevice
 
-instance Prelude.NFData DeleteDevice
+instance Core.NFData DeleteDevice
 
-instance Prelude.ToHeaders DeleteDevice where
+instance Core.ToHeaders DeleteDevice where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DeleteDevice" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AlexaForBusiness.DeleteDevice" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDevice where
+instance Core.ToJSON DeleteDevice where
   toJSON DeleteDevice' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DeviceArn" Prelude..= deviceArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DeviceArn" Core..= deviceArn)]
       )
 
-instance Prelude.ToPath DeleteDevice where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDevice where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDevice where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDevice where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDeviceResponse' smart constructor.
 data DeleteDeviceResponse = DeleteDeviceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeviceResponse' with all optional fields omitted.
@@ -132,13 +127,13 @@ data DeleteDeviceResponse = DeleteDeviceResponse'
 -- 'httpStatus', 'deleteDeviceResponse_httpStatus' - The response's http status code.
 newDeleteDeviceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDeviceResponse
 newDeleteDeviceResponse pHttpStatus_ =
   DeleteDeviceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteDeviceResponse_httpStatus :: Lens.Lens' DeleteDeviceResponse Prelude.Int
+deleteDeviceResponse_httpStatus :: Lens.Lens' DeleteDeviceResponse Core.Int
 deleteDeviceResponse_httpStatus = Lens.lens (\DeleteDeviceResponse' {httpStatus} -> httpStatus) (\s@DeleteDeviceResponse' {} a -> s {httpStatus = a} :: DeleteDeviceResponse)
 
-instance Prelude.NFData DeleteDeviceResponse
+instance Core.NFData DeleteDeviceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,31 +43,31 @@ module Network.AWS.EC2.RevokeClientVpnIngress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRevokeClientVpnIngress' smart constructor.
 data RevokeClientVpnIngress = RevokeClientVpnIngress'
   { -- | The ID of the Active Directory group for which to revoke access.
-    accessGroupId :: Prelude.Maybe Prelude.Text,
+    accessGroupId :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Indicates whether access should be revoked for all clients.
-    revokeAllGroups :: Prelude.Maybe Prelude.Bool,
+    revokeAllGroups :: Core.Maybe Core.Bool,
     -- | The ID of the Client VPN endpoint with which the authorization rule is
     -- associated.
-    clientVpnEndpointId :: Prelude.Text,
+    clientVpnEndpointId :: Core.Text,
     -- | The IPv4 address range, in CIDR notation, of the network for which
     -- access is being removed.
-    targetNetworkCidr :: Prelude.Text
+    targetNetworkCidr :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeClientVpnIngress' with all optional fields omitted.
@@ -94,92 +93,91 @@ data RevokeClientVpnIngress = RevokeClientVpnIngress'
 -- access is being removed.
 newRevokeClientVpnIngress ::
   -- | 'clientVpnEndpointId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetNetworkCidr'
-  Prelude.Text ->
+  Core.Text ->
   RevokeClientVpnIngress
 newRevokeClientVpnIngress
   pClientVpnEndpointId_
   pTargetNetworkCidr_ =
     RevokeClientVpnIngress'
       { accessGroupId =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        revokeAllGroups = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
+        revokeAllGroups = Core.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_,
         targetNetworkCidr = pTargetNetworkCidr_
       }
 
 -- | The ID of the Active Directory group for which to revoke access.
-revokeClientVpnIngress_accessGroupId :: Lens.Lens' RevokeClientVpnIngress (Prelude.Maybe Prelude.Text)
+revokeClientVpnIngress_accessGroupId :: Lens.Lens' RevokeClientVpnIngress (Core.Maybe Core.Text)
 revokeClientVpnIngress_accessGroupId = Lens.lens (\RevokeClientVpnIngress' {accessGroupId} -> accessGroupId) (\s@RevokeClientVpnIngress' {} a -> s {accessGroupId = a} :: RevokeClientVpnIngress)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-revokeClientVpnIngress_dryRun :: Lens.Lens' RevokeClientVpnIngress (Prelude.Maybe Prelude.Bool)
+revokeClientVpnIngress_dryRun :: Lens.Lens' RevokeClientVpnIngress (Core.Maybe Core.Bool)
 revokeClientVpnIngress_dryRun = Lens.lens (\RevokeClientVpnIngress' {dryRun} -> dryRun) (\s@RevokeClientVpnIngress' {} a -> s {dryRun = a} :: RevokeClientVpnIngress)
 
 -- | Indicates whether access should be revoked for all clients.
-revokeClientVpnIngress_revokeAllGroups :: Lens.Lens' RevokeClientVpnIngress (Prelude.Maybe Prelude.Bool)
+revokeClientVpnIngress_revokeAllGroups :: Lens.Lens' RevokeClientVpnIngress (Core.Maybe Core.Bool)
 revokeClientVpnIngress_revokeAllGroups = Lens.lens (\RevokeClientVpnIngress' {revokeAllGroups} -> revokeAllGroups) (\s@RevokeClientVpnIngress' {} a -> s {revokeAllGroups = a} :: RevokeClientVpnIngress)
 
 -- | The ID of the Client VPN endpoint with which the authorization rule is
 -- associated.
-revokeClientVpnIngress_clientVpnEndpointId :: Lens.Lens' RevokeClientVpnIngress Prelude.Text
+revokeClientVpnIngress_clientVpnEndpointId :: Lens.Lens' RevokeClientVpnIngress Core.Text
 revokeClientVpnIngress_clientVpnEndpointId = Lens.lens (\RevokeClientVpnIngress' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@RevokeClientVpnIngress' {} a -> s {clientVpnEndpointId = a} :: RevokeClientVpnIngress)
 
 -- | The IPv4 address range, in CIDR notation, of the network for which
 -- access is being removed.
-revokeClientVpnIngress_targetNetworkCidr :: Lens.Lens' RevokeClientVpnIngress Prelude.Text
+revokeClientVpnIngress_targetNetworkCidr :: Lens.Lens' RevokeClientVpnIngress Core.Text
 revokeClientVpnIngress_targetNetworkCidr = Lens.lens (\RevokeClientVpnIngress' {targetNetworkCidr} -> targetNetworkCidr) (\s@RevokeClientVpnIngress' {} a -> s {targetNetworkCidr = a} :: RevokeClientVpnIngress)
 
-instance Prelude.AWSRequest RevokeClientVpnIngress where
+instance Core.AWSRequest RevokeClientVpnIngress where
   type
-    Rs RevokeClientVpnIngress =
+    AWSResponse RevokeClientVpnIngress =
       RevokeClientVpnIngressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           RevokeClientVpnIngressResponse'
-            Prelude.<$> (x Prelude..@? "status")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeClientVpnIngress
+instance Core.Hashable RevokeClientVpnIngress
 
-instance Prelude.NFData RevokeClientVpnIngress
+instance Core.NFData RevokeClientVpnIngress
 
-instance Prelude.ToHeaders RevokeClientVpnIngress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RevokeClientVpnIngress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RevokeClientVpnIngress where
-  toPath = Prelude.const "/"
+instance Core.ToPath RevokeClientVpnIngress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RevokeClientVpnIngress where
+instance Core.ToQuery RevokeClientVpnIngress where
   toQuery RevokeClientVpnIngress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RevokeClientVpnIngress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "AccessGroupId" Prelude.=: accessGroupId,
-        "DryRun" Prelude.=: dryRun,
-        "RevokeAllGroups" Prelude.=: revokeAllGroups,
-        "ClientVpnEndpointId" Prelude.=: clientVpnEndpointId,
-        "TargetNetworkCidr" Prelude.=: targetNetworkCidr
+          Core.=: ("RevokeClientVpnIngress" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "AccessGroupId" Core.=: accessGroupId,
+        "DryRun" Core.=: dryRun,
+        "RevokeAllGroups" Core.=: revokeAllGroups,
+        "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
+        "TargetNetworkCidr" Core.=: targetNetworkCidr
       ]
 
 -- | /See:/ 'newRevokeClientVpnIngressResponse' smart constructor.
 data RevokeClientVpnIngressResponse = RevokeClientVpnIngressResponse'
   { -- | The current state of the authorization rule.
-    status :: Prelude.Maybe ClientVpnAuthorizationRuleStatus,
+    status :: Core.Maybe ClientVpnAuthorizationRuleStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeClientVpnIngressResponse' with all optional fields omitted.
@@ -194,23 +192,21 @@ data RevokeClientVpnIngressResponse = RevokeClientVpnIngressResponse'
 -- 'httpStatus', 'revokeClientVpnIngressResponse_httpStatus' - The response's http status code.
 newRevokeClientVpnIngressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RevokeClientVpnIngressResponse
 newRevokeClientVpnIngressResponse pHttpStatus_ =
   RevokeClientVpnIngressResponse'
     { status =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current state of the authorization rule.
-revokeClientVpnIngressResponse_status :: Lens.Lens' RevokeClientVpnIngressResponse (Prelude.Maybe ClientVpnAuthorizationRuleStatus)
+revokeClientVpnIngressResponse_status :: Lens.Lens' RevokeClientVpnIngressResponse (Core.Maybe ClientVpnAuthorizationRuleStatus)
 revokeClientVpnIngressResponse_status = Lens.lens (\RevokeClientVpnIngressResponse' {status} -> status) (\s@RevokeClientVpnIngressResponse' {} a -> s {status = a} :: RevokeClientVpnIngressResponse)
 
 -- | The response's http status code.
-revokeClientVpnIngressResponse_httpStatus :: Lens.Lens' RevokeClientVpnIngressResponse Prelude.Int
+revokeClientVpnIngressResponse_httpStatus :: Lens.Lens' RevokeClientVpnIngressResponse Core.Int
 revokeClientVpnIngressResponse_httpStatus = Lens.lens (\RevokeClientVpnIngressResponse' {httpStatus} -> httpStatus) (\s@RevokeClientVpnIngressResponse' {} a -> s {httpStatus = a} :: RevokeClientVpnIngressResponse)
 
-instance
-  Prelude.NFData
-    RevokeClientVpnIngressResponse
+instance Core.NFData RevokeClientVpnIngressResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.H265QvbrSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for quality-defined variable bitrate encoding with the H.265
 -- codec. Required when you set Rate control mode to QVBR. Not valid when
@@ -37,7 +36,7 @@ data H265QvbrSettings = H265QvbrSettings'
     -- level to the nearest third of a whole number. For example, if you set
     -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
     -- actual QVBR quality level is 7.33.
-    qvbrQualityLevelFineTune :: Prelude.Maybe Prelude.Double,
+    qvbrQualityLevelFineTune :: Core.Maybe Core.Double,
     -- | Required when you use QVBR rate control mode. That is, when you specify
     -- qvbrSettings within h265Settings. Specify the general target quality
     -- level for this output, from 1 to 10. Use higher numbers for greater
@@ -47,16 +46,16 @@ data H265QvbrSettings = H265QvbrSettings'
     -- value for the setting qvbrQualityLevelFineTune. For example, if you want
     -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
     -- qvbrQualityLevelFineTune to .33.
-    qvbrQualityLevel :: Prelude.Maybe Prelude.Natural,
+    qvbrQualityLevel :: Core.Maybe Core.Natural,
     -- | Use this setting only when Rate control mode is QVBR and Quality tuning
     -- level is Multi-pass HQ. For Max average bitrate values suited to the
     -- complexity of your input video, the service limits the average bitrate
     -- of the video part of this output to the value that you choose. That is,
     -- the total size of the video element is less than or equal to the value
     -- you set multiplied by the number of seconds of encoded output.
-    maxAverageBitrate :: Prelude.Maybe Prelude.Natural
+    maxAverageBitrate :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'H265QvbrSettings' with all optional fields omitted.
@@ -95,9 +94,9 @@ newH265QvbrSettings ::
 newH265QvbrSettings =
   H265QvbrSettings'
     { qvbrQualityLevelFineTune =
-        Prelude.Nothing,
-      qvbrQualityLevel = Prelude.Nothing,
-      maxAverageBitrate = Prelude.Nothing
+        Core.Nothing,
+      qvbrQualityLevel = Core.Nothing,
+      maxAverageBitrate = Core.Nothing
     }
 
 -- | Optional. Specify a value here to set the QVBR quality to a level that
@@ -107,7 +106,7 @@ newH265QvbrSettings =
 -- level to the nearest third of a whole number. For example, if you set
 -- qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your
 -- actual QVBR quality level is 7.33.
-h265QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' H265QvbrSettings (Prelude.Maybe Prelude.Double)
+h265QvbrSettings_qvbrQualityLevelFineTune :: Lens.Lens' H265QvbrSettings (Core.Maybe Core.Double)
 h265QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\H265QvbrSettings' {qvbrQualityLevelFineTune} -> qvbrQualityLevelFineTune) (\s@H265QvbrSettings' {} a -> s {qvbrQualityLevelFineTune = a} :: H265QvbrSettings)
 
 -- | Required when you use QVBR rate control mode. That is, when you specify
@@ -119,7 +118,7 @@ h265QvbrSettings_qvbrQualityLevelFineTune = Lens.lens (\H265QvbrSettings' {qvbrQ
 -- value for the setting qvbrQualityLevelFineTune. For example, if you want
 -- your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set
 -- qvbrQualityLevelFineTune to .33.
-h265QvbrSettings_qvbrQualityLevel :: Lens.Lens' H265QvbrSettings (Prelude.Maybe Prelude.Natural)
+h265QvbrSettings_qvbrQualityLevel :: Lens.Lens' H265QvbrSettings (Core.Maybe Core.Natural)
 h265QvbrSettings_qvbrQualityLevel = Lens.lens (\H265QvbrSettings' {qvbrQualityLevel} -> qvbrQualityLevel) (\s@H265QvbrSettings' {} a -> s {qvbrQualityLevel = a} :: H265QvbrSettings)
 
 -- | Use this setting only when Rate control mode is QVBR and Quality tuning
@@ -128,33 +127,33 @@ h265QvbrSettings_qvbrQualityLevel = Lens.lens (\H265QvbrSettings' {qvbrQualityLe
 -- of the video part of this output to the value that you choose. That is,
 -- the total size of the video element is less than or equal to the value
 -- you set multiplied by the number of seconds of encoded output.
-h265QvbrSettings_maxAverageBitrate :: Lens.Lens' H265QvbrSettings (Prelude.Maybe Prelude.Natural)
+h265QvbrSettings_maxAverageBitrate :: Lens.Lens' H265QvbrSettings (Core.Maybe Core.Natural)
 h265QvbrSettings_maxAverageBitrate = Lens.lens (\H265QvbrSettings' {maxAverageBitrate} -> maxAverageBitrate) (\s@H265QvbrSettings' {} a -> s {maxAverageBitrate = a} :: H265QvbrSettings)
 
-instance Prelude.FromJSON H265QvbrSettings where
+instance Core.FromJSON H265QvbrSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "H265QvbrSettings"
       ( \x ->
           H265QvbrSettings'
-            Prelude.<$> (x Prelude..:? "qvbrQualityLevelFineTune")
-            Prelude.<*> (x Prelude..:? "qvbrQualityLevel")
-            Prelude.<*> (x Prelude..:? "maxAverageBitrate")
+            Core.<$> (x Core..:? "qvbrQualityLevelFineTune")
+            Core.<*> (x Core..:? "qvbrQualityLevel")
+            Core.<*> (x Core..:? "maxAverageBitrate")
       )
 
-instance Prelude.Hashable H265QvbrSettings
+instance Core.Hashable H265QvbrSettings
 
-instance Prelude.NFData H265QvbrSettings
+instance Core.NFData H265QvbrSettings
 
-instance Prelude.ToJSON H265QvbrSettings where
+instance Core.ToJSON H265QvbrSettings where
   toJSON H265QvbrSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("qvbrQualityLevelFineTune" Prelude..=)
-              Prelude.<$> qvbrQualityLevelFineTune,
-            ("qvbrQualityLevel" Prelude..=)
-              Prelude.<$> qvbrQualityLevel,
-            ("maxAverageBitrate" Prelude..=)
-              Prelude.<$> maxAverageBitrate
+    Core.object
+      ( Core.catMaybes
+          [ ("qvbrQualityLevelFineTune" Core..=)
+              Core.<$> qvbrQualityLevelFineTune,
+            ("qvbrQualityLevel" Core..=)
+              Core.<$> qvbrQualityLevel,
+            ("maxAverageBitrate" Core..=)
+              Core.<$> maxAverageBitrate
           ]
       )

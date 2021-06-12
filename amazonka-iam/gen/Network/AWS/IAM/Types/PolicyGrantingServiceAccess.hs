@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.PolicyGrantingServiceAccess where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.PolicyOwnerEntityType
 import Network.AWS.IAM.Types.PolicyType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the permissions policies that are attached to the
 -- specified identity (user, group, or role).
@@ -40,7 +39,7 @@ data PolicyGrantingServiceAccess = PolicyGrantingServiceAccess'
     -- these policy types, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed policies and inline policies>
     -- in the /IAM User Guide/.
-    entityName :: Prelude.Maybe Prelude.Text,
+    entityName :: Core.Maybe Core.Text,
     -- | The type of entity (user or role) that used the policy to access the
     -- service to which the inline policy is attached.
     --
@@ -48,16 +47,16 @@ data PolicyGrantingServiceAccess = PolicyGrantingServiceAccess'
     -- these policy types, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed policies and inline policies>
     -- in the /IAM User Guide/.
-    entityType :: Prelude.Maybe PolicyOwnerEntityType,
-    policyArn :: Prelude.Maybe Prelude.Text,
+    entityType :: Core.Maybe PolicyOwnerEntityType,
+    policyArn :: Core.Maybe Core.Text,
     -- | The policy name.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The policy type. For more information about these policy types, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed policies and inline policies>
     -- in the /IAM User Guide/.
     policyType :: PolicyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyGrantingServiceAccess' with all optional fields omitted.
@@ -92,7 +91,7 @@ data PolicyGrantingServiceAccess = PolicyGrantingServiceAccess'
 -- in the /IAM User Guide/.
 newPolicyGrantingServiceAccess ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyType'
   PolicyType ->
   PolicyGrantingServiceAccess
@@ -101,9 +100,9 @@ newPolicyGrantingServiceAccess
   pPolicyType_ =
     PolicyGrantingServiceAccess'
       { entityName =
-          Prelude.Nothing,
-        entityType = Prelude.Nothing,
-        policyArn = Prelude.Nothing,
+          Core.Nothing,
+        entityType = Core.Nothing,
+        policyArn = Core.Nothing,
         policyName = pPolicyName_,
         policyType = pPolicyType_
       }
@@ -115,7 +114,7 @@ newPolicyGrantingServiceAccess
 -- these policy types, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
-policyGrantingServiceAccess_entityName :: Lens.Lens' PolicyGrantingServiceAccess (Prelude.Maybe Prelude.Text)
+policyGrantingServiceAccess_entityName :: Lens.Lens' PolicyGrantingServiceAccess (Core.Maybe Core.Text)
 policyGrantingServiceAccess_entityName = Lens.lens (\PolicyGrantingServiceAccess' {entityName} -> entityName) (\s@PolicyGrantingServiceAccess' {} a -> s {entityName = a} :: PolicyGrantingServiceAccess)
 
 -- | The type of entity (user or role) that used the policy to access the
@@ -125,15 +124,15 @@ policyGrantingServiceAccess_entityName = Lens.lens (\PolicyGrantingServiceAccess
 -- these policy types, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
-policyGrantingServiceAccess_entityType :: Lens.Lens' PolicyGrantingServiceAccess (Prelude.Maybe PolicyOwnerEntityType)
+policyGrantingServiceAccess_entityType :: Lens.Lens' PolicyGrantingServiceAccess (Core.Maybe PolicyOwnerEntityType)
 policyGrantingServiceAccess_entityType = Lens.lens (\PolicyGrantingServiceAccess' {entityType} -> entityType) (\s@PolicyGrantingServiceAccess' {} a -> s {entityType = a} :: PolicyGrantingServiceAccess)
 
 -- | Undocumented member.
-policyGrantingServiceAccess_policyArn :: Lens.Lens' PolicyGrantingServiceAccess (Prelude.Maybe Prelude.Text)
+policyGrantingServiceAccess_policyArn :: Lens.Lens' PolicyGrantingServiceAccess (Core.Maybe Core.Text)
 policyGrantingServiceAccess_policyArn = Lens.lens (\PolicyGrantingServiceAccess' {policyArn} -> policyArn) (\s@PolicyGrantingServiceAccess' {} a -> s {policyArn = a} :: PolicyGrantingServiceAccess)
 
 -- | The policy name.
-policyGrantingServiceAccess_policyName :: Lens.Lens' PolicyGrantingServiceAccess Prelude.Text
+policyGrantingServiceAccess_policyName :: Lens.Lens' PolicyGrantingServiceAccess Core.Text
 policyGrantingServiceAccess_policyName = Lens.lens (\PolicyGrantingServiceAccess' {policyName} -> policyName) (\s@PolicyGrantingServiceAccess' {} a -> s {policyName = a} :: PolicyGrantingServiceAccess)
 
 -- | The policy type. For more information about these policy types, see
@@ -142,15 +141,15 @@ policyGrantingServiceAccess_policyName = Lens.lens (\PolicyGrantingServiceAccess
 policyGrantingServiceAccess_policyType :: Lens.Lens' PolicyGrantingServiceAccess PolicyType
 policyGrantingServiceAccess_policyType = Lens.lens (\PolicyGrantingServiceAccess' {policyType} -> policyType) (\s@PolicyGrantingServiceAccess' {} a -> s {policyType = a} :: PolicyGrantingServiceAccess)
 
-instance Prelude.FromXML PolicyGrantingServiceAccess where
+instance Core.FromXML PolicyGrantingServiceAccess where
   parseXML x =
     PolicyGrantingServiceAccess'
-      Prelude.<$> (x Prelude..@? "EntityName")
-      Prelude.<*> (x Prelude..@? "EntityType")
-      Prelude.<*> (x Prelude..@? "PolicyArn")
-      Prelude.<*> (x Prelude..@ "PolicyName")
-      Prelude.<*> (x Prelude..@ "PolicyType")
+      Core.<$> (x Core..@? "EntityName")
+      Core.<*> (x Core..@? "EntityType")
+      Core.<*> (x Core..@? "PolicyArn")
+      Core.<*> (x Core..@ "PolicyName")
+      Core.<*> (x Core..@ "PolicyType")
 
-instance Prelude.Hashable PolicyGrantingServiceAccess
+instance Core.Hashable PolicyGrantingServiceAccess
 
-instance Prelude.NFData PolicyGrantingServiceAccess
+instance Core.NFData PolicyGrantingServiceAccess

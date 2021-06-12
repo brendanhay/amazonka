@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.IoT.DeleteCACertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteCACertificate = DeleteCACertificate'
   { -- | The ID of the certificate to delete. (The last part of the certificate
     -- ARN contains the certificate ID.)
-    certificateId :: Prelude.Text
+    certificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCACertificate' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteCACertificate = DeleteCACertificate'
 -- ARN contains the certificate ID.)
 newDeleteCACertificate ::
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCACertificate
 newDeleteCACertificate pCertificateId_ =
   DeleteCACertificate'
@@ -77,44 +76,44 @@ newDeleteCACertificate pCertificateId_ =
 
 -- | The ID of the certificate to delete. (The last part of the certificate
 -- ARN contains the certificate ID.)
-deleteCACertificate_certificateId :: Lens.Lens' DeleteCACertificate Prelude.Text
+deleteCACertificate_certificateId :: Lens.Lens' DeleteCACertificate Core.Text
 deleteCACertificate_certificateId = Lens.lens (\DeleteCACertificate' {certificateId} -> certificateId) (\s@DeleteCACertificate' {} a -> s {certificateId = a} :: DeleteCACertificate)
 
-instance Prelude.AWSRequest DeleteCACertificate where
+instance Core.AWSRequest DeleteCACertificate where
   type
-    Rs DeleteCACertificate =
+    AWSResponse DeleteCACertificate =
       DeleteCACertificateResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCACertificateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCACertificate
+instance Core.Hashable DeleteCACertificate
 
-instance Prelude.NFData DeleteCACertificate
+instance Core.NFData DeleteCACertificate
 
-instance Prelude.ToHeaders DeleteCACertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteCACertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteCACertificate where
+instance Core.ToPath DeleteCACertificate where
   toPath DeleteCACertificate' {..} =
-    Prelude.mconcat
-      ["/cacertificate/", Prelude.toBS certificateId]
+    Core.mconcat
+      ["/cacertificate/", Core.toBS certificateId]
 
-instance Prelude.ToQuery DeleteCACertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCACertificate where
+  toQuery = Core.const Core.mempty
 
 -- | The output for the DeleteCACertificate operation.
 --
 -- /See:/ 'newDeleteCACertificateResponse' smart constructor.
 data DeleteCACertificateResponse = DeleteCACertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCACertificateResponse' with all optional fields omitted.
@@ -127,7 +126,7 @@ data DeleteCACertificateResponse = DeleteCACertificateResponse'
 -- 'httpStatus', 'deleteCACertificateResponse_httpStatus' - The response's http status code.
 newDeleteCACertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCACertificateResponse
 newDeleteCACertificateResponse pHttpStatus_ =
   DeleteCACertificateResponse'
@@ -136,7 +135,7 @@ newDeleteCACertificateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteCACertificateResponse_httpStatus :: Lens.Lens' DeleteCACertificateResponse Prelude.Int
+deleteCACertificateResponse_httpStatus :: Lens.Lens' DeleteCACertificateResponse Core.Int
 deleteCACertificateResponse_httpStatus = Lens.lens (\DeleteCACertificateResponse' {httpStatus} -> httpStatus) (\s@DeleteCACertificateResponse' {} a -> s {httpStatus = a} :: DeleteCACertificateResponse)
 
-instance Prelude.NFData DeleteCACertificateResponse
+instance Core.NFData DeleteCACertificateResponse

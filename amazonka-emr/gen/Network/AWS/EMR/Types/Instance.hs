@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,43 +19,43 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.Instance where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.EbsVolume
 import Network.AWS.EMR.Types.InstanceStatus
 import Network.AWS.EMR.Types.MarketType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The list of EBS volumes that are attached to this instance.
-    ebsVolumes :: Prelude.Maybe [EbsVolume],
+    ebsVolumes :: Core.Maybe [EbsVolume],
     -- | The current status of the instance.
-    status :: Prelude.Maybe InstanceStatus,
+    status :: Core.Maybe InstanceStatus,
     -- | The EC2 instance type, for example @m3.xlarge@.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | The identifier of the instance group to which this instance belongs.
-    instanceGroupId :: Prelude.Maybe Prelude.Text,
+    instanceGroupId :: Core.Maybe Core.Text,
     -- | The unique identifier for the instance in Amazon EMR.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The unique identifier of the instance fleet to which an EC2 instance
     -- belongs.
-    instanceFleetId :: Prelude.Maybe Prelude.Text,
+    instanceFleetId :: Core.Maybe Core.Text,
     -- | The public DNS name of the instance.
-    publicDnsName :: Prelude.Maybe Prelude.Text,
+    publicDnsName :: Core.Maybe Core.Text,
     -- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@.
-    market :: Prelude.Maybe MarketType,
+    market :: Core.Maybe MarketType,
     -- | The public IP address of the instance.
-    publicIpAddress :: Prelude.Maybe Prelude.Text,
+    publicIpAddress :: Core.Maybe Core.Text,
     -- | The private DNS name of the instance.
-    privateDnsName :: Prelude.Maybe Prelude.Text,
+    privateDnsName :: Core.Maybe Core.Text,
     -- | The unique identifier of the instance in Amazon EC2.
-    ec2InstanceId :: Prelude.Maybe Prelude.Text,
+    ec2InstanceId :: Core.Maybe Core.Text,
     -- | The private IP address of the instance.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -94,91 +93,89 @@ newInstance ::
   Instance
 newInstance =
   Instance'
-    { ebsVolumes = Prelude.Nothing,
-      status = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      instanceGroupId = Prelude.Nothing,
-      id = Prelude.Nothing,
-      instanceFleetId = Prelude.Nothing,
-      publicDnsName = Prelude.Nothing,
-      market = Prelude.Nothing,
-      publicIpAddress = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing,
-      ec2InstanceId = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing
+    { ebsVolumes = Core.Nothing,
+      status = Core.Nothing,
+      instanceType = Core.Nothing,
+      instanceGroupId = Core.Nothing,
+      id = Core.Nothing,
+      instanceFleetId = Core.Nothing,
+      publicDnsName = Core.Nothing,
+      market = Core.Nothing,
+      publicIpAddress = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      ec2InstanceId = Core.Nothing,
+      privateIpAddress = Core.Nothing
     }
 
 -- | The list of EBS volumes that are attached to this instance.
-instance_ebsVolumes :: Lens.Lens' Instance (Prelude.Maybe [EbsVolume])
-instance_ebsVolumes = Lens.lens (\Instance' {ebsVolumes} -> ebsVolumes) (\s@Instance' {} a -> s {ebsVolumes = a} :: Instance) Prelude.. Lens.mapping Prelude._Coerce
+instance_ebsVolumes :: Lens.Lens' Instance (Core.Maybe [EbsVolume])
+instance_ebsVolumes = Lens.lens (\Instance' {ebsVolumes} -> ebsVolumes) (\s@Instance' {} a -> s {ebsVolumes = a} :: Instance) Core.. Lens.mapping Lens._Coerce
 
 -- | The current status of the instance.
-instance_status :: Lens.Lens' Instance (Prelude.Maybe InstanceStatus)
+instance_status :: Lens.Lens' Instance (Core.Maybe InstanceStatus)
 instance_status = Lens.lens (\Instance' {status} -> status) (\s@Instance' {} a -> s {status = a} :: Instance)
 
 -- | The EC2 instance type, for example @m3.xlarge@.
-instance_instanceType :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceType :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_instanceType = Lens.lens (\Instance' {instanceType} -> instanceType) (\s@Instance' {} a -> s {instanceType = a} :: Instance)
 
 -- | The identifier of the instance group to which this instance belongs.
-instance_instanceGroupId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceGroupId :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_instanceGroupId = Lens.lens (\Instance' {instanceGroupId} -> instanceGroupId) (\s@Instance' {} a -> s {instanceGroupId = a} :: Instance)
 
 -- | The unique identifier for the instance in Amazon EMR.
-instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_id :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
 
 -- | The unique identifier of the instance fleet to which an EC2 instance
 -- belongs.
-instance_instanceFleetId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceFleetId :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_instanceFleetId = Lens.lens (\Instance' {instanceFleetId} -> instanceFleetId) (\s@Instance' {} a -> s {instanceFleetId = a} :: Instance)
 
 -- | The public DNS name of the instance.
-instance_publicDnsName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_publicDnsName :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_publicDnsName = Lens.lens (\Instance' {publicDnsName} -> publicDnsName) (\s@Instance' {} a -> s {publicDnsName = a} :: Instance)
 
 -- | The instance purchasing option. Valid values are @ON_DEMAND@ or @SPOT@.
-instance_market :: Lens.Lens' Instance (Prelude.Maybe MarketType)
+instance_market :: Lens.Lens' Instance (Core.Maybe MarketType)
 instance_market = Lens.lens (\Instance' {market} -> market) (\s@Instance' {} a -> s {market = a} :: Instance)
 
 -- | The public IP address of the instance.
-instance_publicIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_publicIpAddress :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_publicIpAddress = Lens.lens (\Instance' {publicIpAddress} -> publicIpAddress) (\s@Instance' {} a -> s {publicIpAddress = a} :: Instance)
 
 -- | The private DNS name of the instance.
-instance_privateDnsName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_privateDnsName :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_privateDnsName = Lens.lens (\Instance' {privateDnsName} -> privateDnsName) (\s@Instance' {} a -> s {privateDnsName = a} :: Instance)
 
 -- | The unique identifier of the instance in Amazon EC2.
-instance_ec2InstanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_ec2InstanceId :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_ec2InstanceId = Lens.lens (\Instance' {ec2InstanceId} -> ec2InstanceId) (\s@Instance' {} a -> s {ec2InstanceId = a} :: Instance)
 
 -- | The private IP address of the instance.
-instance_privateIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_privateIpAddress :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_privateIpAddress = Lens.lens (\Instance' {privateIpAddress} -> privateIpAddress) (\s@Instance' {} a -> s {privateIpAddress = a} :: Instance)
 
-instance Prelude.FromJSON Instance where
+instance Core.FromJSON Instance where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> ( x Prelude..:? "EbsVolumes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "InstanceType")
-            Prelude.<*> (x Prelude..:? "InstanceGroupId")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "InstanceFleetId")
-            Prelude.<*> (x Prelude..:? "PublicDnsName")
-            Prelude.<*> (x Prelude..:? "Market")
-            Prelude.<*> (x Prelude..:? "PublicIpAddress")
-            Prelude.<*> (x Prelude..:? "PrivateDnsName")
-            Prelude.<*> (x Prelude..:? "Ec2InstanceId")
-            Prelude.<*> (x Prelude..:? "PrivateIpAddress")
+            Core.<$> (x Core..:? "EbsVolumes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "InstanceType")
+            Core.<*> (x Core..:? "InstanceGroupId")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "InstanceFleetId")
+            Core.<*> (x Core..:? "PublicDnsName")
+            Core.<*> (x Core..:? "Market")
+            Core.<*> (x Core..:? "PublicIpAddress")
+            Core.<*> (x Core..:? "PrivateDnsName")
+            Core.<*> (x Core..:? "Ec2InstanceId")
+            Core.<*> (x Core..:? "PrivateIpAddress")
       )
 
-instance Prelude.Hashable Instance
+instance Core.Hashable Instance
 
-instance Prelude.NFData Instance
+instance Core.NFData Instance

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.DestinationInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the destination of a record.
 --
 -- /See:/ 'newDestinationInfo' smart constructor.
 data DestinationInfo = DestinationInfo'
   { -- | The ID of the resource created at the destination.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The destination service of the record.
-    service :: Prelude.Maybe Prelude.Text
+    service :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DestinationInfo' with all optional fields omitted.
@@ -49,28 +48,27 @@ newDestinationInfo ::
   DestinationInfo
 newDestinationInfo =
   DestinationInfo'
-    { id = Prelude.Nothing,
-      service = Prelude.Nothing
+    { id = Core.Nothing,
+      service = Core.Nothing
     }
 
 -- | The ID of the resource created at the destination.
-destinationInfo_id :: Lens.Lens' DestinationInfo (Prelude.Maybe Prelude.Text)
+destinationInfo_id :: Lens.Lens' DestinationInfo (Core.Maybe Core.Text)
 destinationInfo_id = Lens.lens (\DestinationInfo' {id} -> id) (\s@DestinationInfo' {} a -> s {id = a} :: DestinationInfo)
 
 -- | The destination service of the record.
-destinationInfo_service :: Lens.Lens' DestinationInfo (Prelude.Maybe Prelude.Text)
+destinationInfo_service :: Lens.Lens' DestinationInfo (Core.Maybe Core.Text)
 destinationInfo_service = Lens.lens (\DestinationInfo' {service} -> service) (\s@DestinationInfo' {} a -> s {service = a} :: DestinationInfo)
 
-instance Prelude.FromJSON DestinationInfo where
+instance Core.FromJSON DestinationInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DestinationInfo"
       ( \x ->
           DestinationInfo'
-            Prelude.<$> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "service")
+            Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "service")
       )
 
-instance Prelude.Hashable DestinationInfo
+instance Core.Hashable DestinationInfo
 
-instance Prelude.NFData DestinationInfo
+instance Core.NFData DestinationInfo

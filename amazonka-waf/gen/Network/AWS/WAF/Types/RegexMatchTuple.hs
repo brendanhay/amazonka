@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.RegexMatchTuple where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.FieldToMatch
 import Network.AWS.WAF.Types.TextTransformation
 
@@ -136,9 +135,9 @@ data RegexMatchTuple = RegexMatchTuple'
     --
     -- @RegexPatternSetId@ is returned by CreateRegexPatternSet and by
     -- ListRegexPatternSets.
-    regexPatternSetId :: Prelude.Text
+    regexPatternSetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegexMatchTuple' with all optional fields omitted.
@@ -240,7 +239,7 @@ newRegexMatchTuple ::
   -- | 'textTransformation'
   TextTransformation ->
   -- | 'regexPatternSetId'
-  Prelude.Text ->
+  Core.Text ->
   RegexMatchTuple
 newRegexMatchTuple
   pFieldToMatch_
@@ -342,33 +341,32 @@ regexMatchTuple_textTransformation = Lens.lens (\RegexMatchTuple' {textTransform
 --
 -- @RegexPatternSetId@ is returned by CreateRegexPatternSet and by
 -- ListRegexPatternSets.
-regexMatchTuple_regexPatternSetId :: Lens.Lens' RegexMatchTuple Prelude.Text
+regexMatchTuple_regexPatternSetId :: Lens.Lens' RegexMatchTuple Core.Text
 regexMatchTuple_regexPatternSetId = Lens.lens (\RegexMatchTuple' {regexPatternSetId} -> regexPatternSetId) (\s@RegexMatchTuple' {} a -> s {regexPatternSetId = a} :: RegexMatchTuple)
 
-instance Prelude.FromJSON RegexMatchTuple where
+instance Core.FromJSON RegexMatchTuple where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RegexMatchTuple"
       ( \x ->
           RegexMatchTuple'
-            Prelude.<$> (x Prelude..: "FieldToMatch")
-            Prelude.<*> (x Prelude..: "TextTransformation")
-            Prelude.<*> (x Prelude..: "RegexPatternSetId")
+            Core.<$> (x Core..: "FieldToMatch")
+            Core.<*> (x Core..: "TextTransformation")
+            Core.<*> (x Core..: "RegexPatternSetId")
       )
 
-instance Prelude.Hashable RegexMatchTuple
+instance Core.Hashable RegexMatchTuple
 
-instance Prelude.NFData RegexMatchTuple
+instance Core.NFData RegexMatchTuple
 
-instance Prelude.ToJSON RegexMatchTuple where
+instance Core.ToJSON RegexMatchTuple where
   toJSON RegexMatchTuple' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("FieldToMatch" Prelude..= fieldToMatch),
-            Prelude.Just
-              ("TextTransformation" Prelude..= textTransformation),
-            Prelude.Just
-              ("RegexPatternSetId" Prelude..= regexPatternSetId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
+            Core.Just
+              ("TextTransformation" Core..= textTransformation),
+            Core.Just
+              ("RegexPatternSetId" Core..= regexPatternSetId)
           ]
       )

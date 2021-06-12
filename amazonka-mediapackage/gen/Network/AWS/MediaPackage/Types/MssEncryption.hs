@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaPackage.Types.MssEncryption where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A Microsoft Smooth Streaming (MSS) encryption configuration.
 --
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 data MssEncryption = MssEncryption'
   { spekeKeyProvider :: SpekeKeyProvider
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MssEncryption' with all optional fields omitted.
@@ -55,24 +54,24 @@ newMssEncryption pSpekeKeyProvider_ =
 mssEncryption_spekeKeyProvider :: Lens.Lens' MssEncryption SpekeKeyProvider
 mssEncryption_spekeKeyProvider = Lens.lens (\MssEncryption' {spekeKeyProvider} -> spekeKeyProvider) (\s@MssEncryption' {} a -> s {spekeKeyProvider = a} :: MssEncryption)
 
-instance Prelude.FromJSON MssEncryption where
+instance Core.FromJSON MssEncryption where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MssEncryption"
       ( \x ->
           MssEncryption'
-            Prelude.<$> (x Prelude..: "spekeKeyProvider")
+            Core.<$> (x Core..: "spekeKeyProvider")
       )
 
-instance Prelude.Hashable MssEncryption
+instance Core.Hashable MssEncryption
 
-instance Prelude.NFData MssEncryption
+instance Core.NFData MssEncryption
 
-instance Prelude.ToJSON MssEncryption where
+instance Core.ToJSON MssEncryption where
   toJSON MssEncryption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("spekeKeyProvider" Prelude..= spekeKeyProvider)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("spekeKeyProvider" Core..= spekeKeyProvider)
           ]
       )

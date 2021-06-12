@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data DescribeAccountLimits = DescribeAccountLimits'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimits' with all optional fields omitted.
@@ -65,9 +64,9 @@ newDescribeAccountLimits ::
   DescribeAccountLimits
 newDescribeAccountLimits = DescribeAccountLimits'
 
-instance Prelude.AWSRequest DescribeAccountLimits where
+instance Core.AWSRequest DescribeAccountLimits where
   type
-    Rs DescribeAccountLimits =
+    AWSResponse DescribeAccountLimits =
       DescribeAccountLimitsResponse
   request = Request.postQuery defaultService
   response =
@@ -75,50 +74,49 @@ instance Prelude.AWSRequest DescribeAccountLimits where
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Prelude.<$> (x Prelude..@? "NumberOfAutoScalingGroups")
-            Prelude.<*> (x Prelude..@? "MaxNumberOfLaunchConfigurations")
-            Prelude.<*> (x Prelude..@? "NumberOfLaunchConfigurations")
-            Prelude.<*> (x Prelude..@? "MaxNumberOfAutoScalingGroups")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NumberOfAutoScalingGroups")
+            Core.<*> (x Core..@? "MaxNumberOfLaunchConfigurations")
+            Core.<*> (x Core..@? "NumberOfLaunchConfigurations")
+            Core.<*> (x Core..@? "MaxNumberOfAutoScalingGroups")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountLimits
+instance Core.Hashable DescribeAccountLimits
 
-instance Prelude.NFData DescribeAccountLimits
+instance Core.NFData DescribeAccountLimits
 
-instance Prelude.ToHeaders DescribeAccountLimits where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAccountLimits where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAccountLimits where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAccountLimits where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAccountLimits where
+instance Core.ToQuery DescribeAccountLimits where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("DescribeAccountLimits" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2011-01-01" :: Prelude.ByteString)
+              Core.=: ("DescribeAccountLimits" :: Core.ByteString),
+            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
           ]
       )
 
 -- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
   { -- | The current number of groups for your AWS account.
-    numberOfAutoScalingGroups :: Prelude.Maybe Prelude.Int,
+    numberOfAutoScalingGroups :: Core.Maybe Core.Int,
     -- | The maximum number of launch configurations allowed for your AWS
     -- account. The default is 200 launch configurations per AWS Region.
-    maxNumberOfLaunchConfigurations :: Prelude.Maybe Prelude.Int,
+    maxNumberOfLaunchConfigurations :: Core.Maybe Core.Int,
     -- | The current number of launch configurations for your AWS account.
-    numberOfLaunchConfigurations :: Prelude.Maybe Prelude.Int,
+    numberOfLaunchConfigurations :: Core.Maybe Core.Int,
     -- | The maximum number of groups allowed for your AWS account. The default
     -- is 200 groups per AWS Region.
-    maxNumberOfAutoScalingGroups :: Prelude.Maybe Prelude.Int,
+    maxNumberOfAutoScalingGroups :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountLimitsResponse' with all optional fields omitted.
@@ -141,41 +139,39 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAccountLimitsResponse
 newDescribeAccountLimitsResponse pHttpStatus_ =
   DescribeAccountLimitsResponse'
     { numberOfAutoScalingGroups =
-        Prelude.Nothing,
+        Core.Nothing,
       maxNumberOfLaunchConfigurations =
-        Prelude.Nothing,
-      numberOfLaunchConfigurations =
-        Prelude.Nothing,
-      maxNumberOfAutoScalingGroups =
-        Prelude.Nothing,
+        Core.Nothing,
+      numberOfLaunchConfigurations = Core.Nothing,
+      maxNumberOfAutoScalingGroups = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current number of groups for your AWS account.
-describeAccountLimitsResponse_numberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
+describeAccountLimitsResponse_numberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Core.Int)
 describeAccountLimitsResponse_numberOfAutoScalingGroups = Lens.lens (\DescribeAccountLimitsResponse' {numberOfAutoScalingGroups} -> numberOfAutoScalingGroups) (\s@DescribeAccountLimitsResponse' {} a -> s {numberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
 
 -- | The maximum number of launch configurations allowed for your AWS
 -- account. The default is 200 launch configurations per AWS Region.
-describeAccountLimitsResponse_maxNumberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
+describeAccountLimitsResponse_maxNumberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Core.Int)
 describeAccountLimitsResponse_maxNumberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {maxNumberOfLaunchConfigurations} -> maxNumberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {maxNumberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
 
 -- | The current number of launch configurations for your AWS account.
-describeAccountLimitsResponse_numberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
+describeAccountLimitsResponse_numberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Core.Int)
 describeAccountLimitsResponse_numberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {numberOfLaunchConfigurations} -> numberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {numberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
 
 -- | The maximum number of groups allowed for your AWS account. The default
 -- is 200 groups per AWS Region.
-describeAccountLimitsResponse_maxNumberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
+describeAccountLimitsResponse_maxNumberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Core.Int)
 describeAccountLimitsResponse_maxNumberOfAutoScalingGroups = Lens.lens (\DescribeAccountLimitsResponse' {maxNumberOfAutoScalingGroups} -> maxNumberOfAutoScalingGroups) (\s@DescribeAccountLimitsResponse' {} a -> s {maxNumberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
 
 -- | The response's http status code.
-describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Prelude.Int
+describeAccountLimitsResponse_httpStatus :: Lens.Lens' DescribeAccountLimitsResponse Core.Int
 describeAccountLimitsResponse_httpStatus = Lens.lens (\DescribeAccountLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountLimitsResponse' {} a -> s {httpStatus = a} :: DescribeAccountLimitsResponse)
 
-instance Prelude.NFData DescribeAccountLimitsResponse
+instance Core.NFData DescribeAccountLimitsResponse

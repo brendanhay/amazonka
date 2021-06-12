@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.DynamoDB.ListExports
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +53,13 @@ data ListExports = ListExports'
   { -- | An optional string that, if supplied, must be copied from the output of
     -- a previous call to @ListExports@. When provided in this manner, the API
     -- fetches the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) associated with the exported table.
-    tableArn :: Prelude.Maybe Prelude.Text
+    tableArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExports' with all optional fields omitted.
@@ -81,86 +80,80 @@ newListExports ::
   ListExports
 newListExports =
   ListExports'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      tableArn = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      tableArn = Core.Nothing
     }
 
 -- | An optional string that, if supplied, must be copied from the output of
 -- a previous call to @ListExports@. When provided in this manner, the API
 -- fetches the next page of results.
-listExports_nextToken :: Lens.Lens' ListExports (Prelude.Maybe Prelude.Text)
+listExports_nextToken :: Lens.Lens' ListExports (Core.Maybe Core.Text)
 listExports_nextToken = Lens.lens (\ListExports' {nextToken} -> nextToken) (\s@ListExports' {} a -> s {nextToken = a} :: ListExports)
 
 -- | Maximum number of results to return per page.
-listExports_maxResults :: Lens.Lens' ListExports (Prelude.Maybe Prelude.Natural)
+listExports_maxResults :: Lens.Lens' ListExports (Core.Maybe Core.Natural)
 listExports_maxResults = Lens.lens (\ListExports' {maxResults} -> maxResults) (\s@ListExports' {} a -> s {maxResults = a} :: ListExports)
 
 -- | The Amazon Resource Name (ARN) associated with the exported table.
-listExports_tableArn :: Lens.Lens' ListExports (Prelude.Maybe Prelude.Text)
+listExports_tableArn :: Lens.Lens' ListExports (Core.Maybe Core.Text)
 listExports_tableArn = Lens.lens (\ListExports' {tableArn} -> tableArn) (\s@ListExports' {} a -> s {tableArn = a} :: ListExports)
 
-instance Prelude.AWSRequest ListExports where
-  type Rs ListExports = ListExportsResponse
+instance Core.AWSRequest ListExports where
+  type AWSResponse ListExports = ListExportsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListExportsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ExportSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "ExportSummaries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListExports
+instance Core.Hashable ListExports
 
-instance Prelude.NFData ListExports
+instance Core.NFData ListExports
 
-instance Prelude.ToHeaders ListExports where
+instance Core.ToHeaders ListExports where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.ListExports" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DynamoDB_20120810.ListExports" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListExports where
+instance Core.ToJSON ListExports where
   toJSON ListExports' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("TableArn" Prelude..=) Prelude.<$> tableArn
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("TableArn" Core..=) Core.<$> tableArn
           ]
       )
 
-instance Prelude.ToPath ListExports where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListExports where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListExports where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListExports where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
   { -- | If this value is returned, there are additional results to be displayed.
     -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
     -- value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @ExportSummary@ objects.
-    exportSummaries :: Prelude.Maybe [ExportSummary],
+    exportSummaries :: Core.Maybe [ExportSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExportsResponse' with all optional fields omitted.
@@ -179,27 +172,27 @@ data ListExportsResponse = ListExportsResponse'
 -- 'httpStatus', 'listExportsResponse_httpStatus' - The response's http status code.
 newListExportsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListExportsResponse
 newListExportsResponse pHttpStatus_ =
   ListExportsResponse'
-    { nextToken = Prelude.Nothing,
-      exportSummaries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      exportSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If this value is returned, there are additional results to be displayed.
 -- To retrieve them, call @ListExports@ again, with @NextToken@ set to this
 -- value.
-listExportsResponse_nextToken :: Lens.Lens' ListExportsResponse (Prelude.Maybe Prelude.Text)
+listExportsResponse_nextToken :: Lens.Lens' ListExportsResponse (Core.Maybe Core.Text)
 listExportsResponse_nextToken = Lens.lens (\ListExportsResponse' {nextToken} -> nextToken) (\s@ListExportsResponse' {} a -> s {nextToken = a} :: ListExportsResponse)
 
 -- | A list of @ExportSummary@ objects.
-listExportsResponse_exportSummaries :: Lens.Lens' ListExportsResponse (Prelude.Maybe [ExportSummary])
-listExportsResponse_exportSummaries = Lens.lens (\ListExportsResponse' {exportSummaries} -> exportSummaries) (\s@ListExportsResponse' {} a -> s {exportSummaries = a} :: ListExportsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listExportsResponse_exportSummaries :: Lens.Lens' ListExportsResponse (Core.Maybe [ExportSummary])
+listExportsResponse_exportSummaries = Lens.lens (\ListExportsResponse' {exportSummaries} -> exportSummaries) (\s@ListExportsResponse' {} a -> s {exportSummaries = a} :: ListExportsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Prelude.Int
+listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Core.Int
 listExportsResponse_httpStatus = Lens.lens (\ListExportsResponse' {httpStatus} -> httpStatus) (\s@ListExportsResponse' {} a -> s {httpStatus = a} :: ListExportsResponse)
 
-instance Prelude.NFData ListExportsResponse
+instance Core.NFData ListExportsResponse

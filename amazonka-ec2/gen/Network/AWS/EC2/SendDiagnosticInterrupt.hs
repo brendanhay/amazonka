@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.EC2.SendDiagnosticInterrupt
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,11 +67,11 @@ data SendDiagnosticInterrupt = SendDiagnosticInterrupt'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendDiagnosticInterrupt' with all optional fields omitted.
@@ -90,11 +89,11 @@ data SendDiagnosticInterrupt = SendDiagnosticInterrupt'
 -- 'instanceId', 'sendDiagnosticInterrupt_instanceId' - The ID of the instance.
 newSendDiagnosticInterrupt ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   SendDiagnosticInterrupt
 newSendDiagnosticInterrupt pInstanceId_ =
   SendDiagnosticInterrupt'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -102,48 +101,47 @@ newSendDiagnosticInterrupt pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-sendDiagnosticInterrupt_dryRun :: Lens.Lens' SendDiagnosticInterrupt (Prelude.Maybe Prelude.Bool)
+sendDiagnosticInterrupt_dryRun :: Lens.Lens' SendDiagnosticInterrupt (Core.Maybe Core.Bool)
 sendDiagnosticInterrupt_dryRun = Lens.lens (\SendDiagnosticInterrupt' {dryRun} -> dryRun) (\s@SendDiagnosticInterrupt' {} a -> s {dryRun = a} :: SendDiagnosticInterrupt)
 
 -- | The ID of the instance.
-sendDiagnosticInterrupt_instanceId :: Lens.Lens' SendDiagnosticInterrupt Prelude.Text
+sendDiagnosticInterrupt_instanceId :: Lens.Lens' SendDiagnosticInterrupt Core.Text
 sendDiagnosticInterrupt_instanceId = Lens.lens (\SendDiagnosticInterrupt' {instanceId} -> instanceId) (\s@SendDiagnosticInterrupt' {} a -> s {instanceId = a} :: SendDiagnosticInterrupt)
 
-instance Prelude.AWSRequest SendDiagnosticInterrupt where
+instance Core.AWSRequest SendDiagnosticInterrupt where
   type
-    Rs SendDiagnosticInterrupt =
+    AWSResponse SendDiagnosticInterrupt =
       SendDiagnosticInterruptResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       SendDiagnosticInterruptResponse'
 
-instance Prelude.Hashable SendDiagnosticInterrupt
+instance Core.Hashable SendDiagnosticInterrupt
 
-instance Prelude.NFData SendDiagnosticInterrupt
+instance Core.NFData SendDiagnosticInterrupt
 
-instance Prelude.ToHeaders SendDiagnosticInterrupt where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SendDiagnosticInterrupt where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SendDiagnosticInterrupt where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendDiagnosticInterrupt where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendDiagnosticInterrupt where
+instance Core.ToQuery SendDiagnosticInterrupt where
   toQuery SendDiagnosticInterrupt' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SendDiagnosticInterrupt" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "InstanceId" Prelude.=: instanceId
+          Core.=: ("SendDiagnosticInterrupt" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InstanceId" Core.=: instanceId
       ]
 
 -- | /See:/ 'newSendDiagnosticInterruptResponse' smart constructor.
 data SendDiagnosticInterruptResponse = SendDiagnosticInterruptResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendDiagnosticInterruptResponse' with all optional fields omitted.
@@ -154,6 +152,4 @@ newSendDiagnosticInterruptResponse ::
 newSendDiagnosticInterruptResponse =
   SendDiagnosticInterruptResponse'
 
-instance
-  Prelude.NFData
-    SendDiagnosticInterruptResponse
+instance Core.NFData SendDiagnosticInterruptResponse

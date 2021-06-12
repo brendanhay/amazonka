@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.CognitoSync.ListDatasets
 where
 
 import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,19 +61,19 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListDatasets' smart constructor.
 data ListDatasets = ListDatasets'
   { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Prelude.Text,
+    identityId :: Core.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Prelude.Text
+    identityPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDatasets' with all optional fields omitted.
@@ -97,81 +96,79 @@ data ListDatasets = ListDatasets'
 -- Cognito. GUID generation is unique within a region.
 newListDatasets ::
   -- | 'identityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   ListDatasets
 newListDatasets pIdentityId_ pIdentityPoolId_ =
   ListDatasets'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       identityId = pIdentityId_,
       identityPoolId = pIdentityPoolId_
     }
 
 -- | A pagination token for obtaining the next page of results.
-listDatasets_nextToken :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Text)
+listDatasets_nextToken :: Lens.Lens' ListDatasets (Core.Maybe Core.Text)
 listDatasets_nextToken = Lens.lens (\ListDatasets' {nextToken} -> nextToken) (\s@ListDatasets' {} a -> s {nextToken = a} :: ListDatasets)
 
 -- | The maximum number of results to be returned.
-listDatasets_maxResults :: Lens.Lens' ListDatasets (Prelude.Maybe Prelude.Int)
+listDatasets_maxResults :: Lens.Lens' ListDatasets (Core.Maybe Core.Int)
 listDatasets_maxResults = Lens.lens (\ListDatasets' {maxResults} -> maxResults) (\s@ListDatasets' {} a -> s {maxResults = a} :: ListDatasets)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-listDatasets_identityId :: Lens.Lens' ListDatasets Prelude.Text
+listDatasets_identityId :: Lens.Lens' ListDatasets Core.Text
 listDatasets_identityId = Lens.lens (\ListDatasets' {identityId} -> identityId) (\s@ListDatasets' {} a -> s {identityId = a} :: ListDatasets)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-listDatasets_identityPoolId :: Lens.Lens' ListDatasets Prelude.Text
+listDatasets_identityPoolId :: Lens.Lens' ListDatasets Core.Text
 listDatasets_identityPoolId = Lens.lens (\ListDatasets' {identityPoolId} -> identityPoolId) (\s@ListDatasets' {} a -> s {identityPoolId = a} :: ListDatasets)
 
-instance Prelude.AWSRequest ListDatasets where
-  type Rs ListDatasets = ListDatasetsResponse
+instance Core.AWSRequest ListDatasets where
+  type AWSResponse ListDatasets = ListDatasetsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDatasetsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Datasets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Count")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Datasets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Count")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDatasets
+instance Core.Hashable ListDatasets
 
-instance Prelude.NFData ListDatasets
+instance Core.NFData ListDatasets
 
-instance Prelude.ToHeaders ListDatasets where
+instance Core.ToHeaders ListDatasets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListDatasets where
+instance Core.ToPath ListDatasets where
   toPath ListDatasets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/identitypools/",
-        Prelude.toBS identityPoolId,
+        Core.toBS identityPoolId,
         "/identities/",
-        Prelude.toBS identityId,
+        Core.toBS identityId,
         "/datasets"
       ]
 
-instance Prelude.ToQuery ListDatasets where
+instance Core.ToQuery ListDatasets where
   toQuery ListDatasets' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | Returned for a successful ListDatasets request.
@@ -179,15 +176,15 @@ instance Prelude.ToQuery ListDatasets where
 -- /See:/ 'newListDatasetsResponse' smart constructor.
 data ListDatasetsResponse = ListDatasetsResponse'
   { -- | A pagination token for obtaining the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A set of datasets.
-    datasets :: Prelude.Maybe [Dataset],
+    datasets :: Core.Maybe [Dataset],
     -- | Number of datasets returned.
-    count :: Prelude.Maybe Prelude.Int,
+    count :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDatasetsResponse' with all optional fields omitted.
@@ -206,30 +203,30 @@ data ListDatasetsResponse = ListDatasetsResponse'
 -- 'httpStatus', 'listDatasetsResponse_httpStatus' - The response's http status code.
 newListDatasetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDatasetsResponse
 newListDatasetsResponse pHttpStatus_ =
   ListDatasetsResponse'
-    { nextToken = Prelude.Nothing,
-      datasets = Prelude.Nothing,
-      count = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      datasets = Core.Nothing,
+      count = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A pagination token for obtaining the next page of results.
-listDatasetsResponse_nextToken :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Text)
+listDatasetsResponse_nextToken :: Lens.Lens' ListDatasetsResponse (Core.Maybe Core.Text)
 listDatasetsResponse_nextToken = Lens.lens (\ListDatasetsResponse' {nextToken} -> nextToken) (\s@ListDatasetsResponse' {} a -> s {nextToken = a} :: ListDatasetsResponse)
 
 -- | A set of datasets.
-listDatasetsResponse_datasets :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe [Dataset])
-listDatasetsResponse_datasets = Lens.lens (\ListDatasetsResponse' {datasets} -> datasets) (\s@ListDatasetsResponse' {} a -> s {datasets = a} :: ListDatasetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDatasetsResponse_datasets :: Lens.Lens' ListDatasetsResponse (Core.Maybe [Dataset])
+listDatasetsResponse_datasets = Lens.lens (\ListDatasetsResponse' {datasets} -> datasets) (\s@ListDatasetsResponse' {} a -> s {datasets = a} :: ListDatasetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Number of datasets returned.
-listDatasetsResponse_count :: Lens.Lens' ListDatasetsResponse (Prelude.Maybe Prelude.Int)
+listDatasetsResponse_count :: Lens.Lens' ListDatasetsResponse (Core.Maybe Core.Int)
 listDatasetsResponse_count = Lens.lens (\ListDatasetsResponse' {count} -> count) (\s@ListDatasetsResponse' {} a -> s {count = a} :: ListDatasetsResponse)
 
 -- | The response's http status code.
-listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Prelude.Int
+listDatasetsResponse_httpStatus :: Lens.Lens' ListDatasetsResponse Core.Int
 listDatasetsResponse_httpStatus = Lens.lens (\ListDatasetsResponse' {httpStatus} -> httpStatus) (\s@ListDatasetsResponse' {} a -> s {httpStatus = a} :: ListDatasetsResponse)
 
-instance Prelude.NFData ListDatasetsResponse
+instance Core.NFData ListDatasetsResponse

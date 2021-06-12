@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.ECS.SubmitAttachmentStateChanges
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data SubmitAttachmentStateChanges = SubmitAttachmentStateChanges'
   { -- | The short name or full ARN of the cluster that hosts the container
     -- instance the attachment belongs to.
-    cluster :: Prelude.Maybe Prelude.Text,
+    cluster :: Core.Maybe Core.Text,
     -- | Any attachments associated with the state change request.
     attachments :: [AttachmentStateChange]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubmitAttachmentStateChanges' with all optional fields omitted.
@@ -77,82 +76,72 @@ newSubmitAttachmentStateChanges ::
 newSubmitAttachmentStateChanges =
   SubmitAttachmentStateChanges'
     { cluster =
-        Prelude.Nothing,
-      attachments = Prelude.mempty
+        Core.Nothing,
+      attachments = Core.mempty
     }
 
 -- | The short name or full ARN of the cluster that hosts the container
 -- instance the attachment belongs to.
-submitAttachmentStateChanges_cluster :: Lens.Lens' SubmitAttachmentStateChanges (Prelude.Maybe Prelude.Text)
+submitAttachmentStateChanges_cluster :: Lens.Lens' SubmitAttachmentStateChanges (Core.Maybe Core.Text)
 submitAttachmentStateChanges_cluster = Lens.lens (\SubmitAttachmentStateChanges' {cluster} -> cluster) (\s@SubmitAttachmentStateChanges' {} a -> s {cluster = a} :: SubmitAttachmentStateChanges)
 
 -- | Any attachments associated with the state change request.
 submitAttachmentStateChanges_attachments :: Lens.Lens' SubmitAttachmentStateChanges [AttachmentStateChange]
-submitAttachmentStateChanges_attachments = Lens.lens (\SubmitAttachmentStateChanges' {attachments} -> attachments) (\s@SubmitAttachmentStateChanges' {} a -> s {attachments = a} :: SubmitAttachmentStateChanges) Prelude.. Prelude._Coerce
+submitAttachmentStateChanges_attachments = Lens.lens (\SubmitAttachmentStateChanges' {attachments} -> attachments) (\s@SubmitAttachmentStateChanges' {} a -> s {attachments = a} :: SubmitAttachmentStateChanges) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    SubmitAttachmentStateChanges
-  where
+instance Core.AWSRequest SubmitAttachmentStateChanges where
   type
-    Rs SubmitAttachmentStateChanges =
+    AWSResponse SubmitAttachmentStateChanges =
       SubmitAttachmentStateChangesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SubmitAttachmentStateChangesResponse'
-            Prelude.<$> (x Prelude..?> "acknowledgment")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "acknowledgment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    SubmitAttachmentStateChanges
+instance Core.Hashable SubmitAttachmentStateChanges
 
-instance Prelude.NFData SubmitAttachmentStateChanges
+instance Core.NFData SubmitAttachmentStateChanges
 
-instance
-  Prelude.ToHeaders
-    SubmitAttachmentStateChanges
-  where
+instance Core.ToHeaders SubmitAttachmentStateChanges where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SubmitAttachmentStateChanges where
+instance Core.ToJSON SubmitAttachmentStateChanges where
   toJSON SubmitAttachmentStateChanges' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("cluster" Prelude..=) Prelude.<$> cluster,
-            Prelude.Just ("attachments" Prelude..= attachments)
+    Core.object
+      ( Core.catMaybes
+          [ ("cluster" Core..=) Core.<$> cluster,
+            Core.Just ("attachments" Core..= attachments)
           ]
       )
 
-instance Prelude.ToPath SubmitAttachmentStateChanges where
-  toPath = Prelude.const "/"
+instance Core.ToPath SubmitAttachmentStateChanges where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SubmitAttachmentStateChanges where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SubmitAttachmentStateChanges where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSubmitAttachmentStateChangesResponse' smart constructor.
 data SubmitAttachmentStateChangesResponse = SubmitAttachmentStateChangesResponse'
   { -- | Acknowledgement of the state change.
-    acknowledgment :: Prelude.Maybe Prelude.Text,
+    acknowledgment :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubmitAttachmentStateChangesResponse' with all optional fields omitted.
@@ -167,23 +156,23 @@ data SubmitAttachmentStateChangesResponse = SubmitAttachmentStateChangesResponse
 -- 'httpStatus', 'submitAttachmentStateChangesResponse_httpStatus' - The response's http status code.
 newSubmitAttachmentStateChangesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SubmitAttachmentStateChangesResponse
 newSubmitAttachmentStateChangesResponse pHttpStatus_ =
   SubmitAttachmentStateChangesResponse'
     { acknowledgment =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Acknowledgement of the state change.
-submitAttachmentStateChangesResponse_acknowledgment :: Lens.Lens' SubmitAttachmentStateChangesResponse (Prelude.Maybe Prelude.Text)
+submitAttachmentStateChangesResponse_acknowledgment :: Lens.Lens' SubmitAttachmentStateChangesResponse (Core.Maybe Core.Text)
 submitAttachmentStateChangesResponse_acknowledgment = Lens.lens (\SubmitAttachmentStateChangesResponse' {acknowledgment} -> acknowledgment) (\s@SubmitAttachmentStateChangesResponse' {} a -> s {acknowledgment = a} :: SubmitAttachmentStateChangesResponse)
 
 -- | The response's http status code.
-submitAttachmentStateChangesResponse_httpStatus :: Lens.Lens' SubmitAttachmentStateChangesResponse Prelude.Int
+submitAttachmentStateChangesResponse_httpStatus :: Lens.Lens' SubmitAttachmentStateChangesResponse Core.Int
 submitAttachmentStateChangesResponse_httpStatus = Lens.lens (\SubmitAttachmentStateChangesResponse' {httpStatus} -> httpStatus) (\s@SubmitAttachmentStateChangesResponse' {} a -> s {httpStatus = a} :: SubmitAttachmentStateChangesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SubmitAttachmentStateChangesResponse

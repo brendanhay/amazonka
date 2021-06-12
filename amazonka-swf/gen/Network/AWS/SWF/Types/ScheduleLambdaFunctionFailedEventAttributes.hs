@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause
 
 -- | Provides the details of the @ScheduleLambdaFunctionFailed@ event. It
@@ -30,9 +29,9 @@ import Network.AWS.SWF.Types.ScheduleLambdaFunctionFailedCause
 -- /See:/ 'newScheduleLambdaFunctionFailedEventAttributes' smart constructor.
 data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedEventAttributes'
   { -- | The ID provided in the @ScheduleLambdaFunction@ decision that failed.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The name of the Lambda function.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The cause of the failure. To help diagnose issues, use this information
     -- to trace back the chain of events leading up to this event.
     --
@@ -46,9 +45,9 @@ data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedE
     -- decision that resulted in scheduling this Lambda task. To help diagnose
     -- issues, use this information to trace back the chain of events leading
     -- up to this event.
-    decisionTaskCompletedEventId :: Prelude.Integer
+    decisionTaskCompletedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduleLambdaFunctionFailedEventAttributes' with all optional fields omitted.
@@ -77,13 +76,13 @@ data ScheduleLambdaFunctionFailedEventAttributes = ScheduleLambdaFunctionFailedE
 -- up to this event.
 newScheduleLambdaFunctionFailedEventAttributes ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'cause'
   ScheduleLambdaFunctionFailedCause ->
   -- | 'decisionTaskCompletedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   ScheduleLambdaFunctionFailedEventAttributes
 newScheduleLambdaFunctionFailedEventAttributes
   pId_
@@ -100,11 +99,11 @@ newScheduleLambdaFunctionFailedEventAttributes
       }
 
 -- | The ID provided in the @ScheduleLambdaFunction@ decision that failed.
-scheduleLambdaFunctionFailedEventAttributes_id :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Prelude.Text
+scheduleLambdaFunctionFailedEventAttributes_id :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Core.Text
 scheduleLambdaFunctionFailedEventAttributes_id = Lens.lens (\ScheduleLambdaFunctionFailedEventAttributes' {id} -> id) (\s@ScheduleLambdaFunctionFailedEventAttributes' {} a -> s {id = a} :: ScheduleLambdaFunctionFailedEventAttributes)
 
 -- | The name of the Lambda function.
-scheduleLambdaFunctionFailedEventAttributes_name :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Prelude.Text
+scheduleLambdaFunctionFailedEventAttributes_name :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Core.Text
 scheduleLambdaFunctionFailedEventAttributes_name = Lens.lens (\ScheduleLambdaFunctionFailedEventAttributes' {name} -> name) (\s@ScheduleLambdaFunctionFailedEventAttributes' {} a -> s {name = a} :: ScheduleLambdaFunctionFailedEventAttributes)
 
 -- | The cause of the failure. To help diagnose issues, use this information
@@ -122,27 +121,28 @@ scheduleLambdaFunctionFailedEventAttributes_cause = Lens.lens (\ScheduleLambdaFu
 -- decision that resulted in scheduling this Lambda task. To help diagnose
 -- issues, use this information to trace back the chain of events leading
 -- up to this event.
-scheduleLambdaFunctionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Prelude.Integer
+scheduleLambdaFunctionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' ScheduleLambdaFunctionFailedEventAttributes Core.Integer
 scheduleLambdaFunctionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\ScheduleLambdaFunctionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@ScheduleLambdaFunctionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: ScheduleLambdaFunctionFailedEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ScheduleLambdaFunctionFailedEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScheduleLambdaFunctionFailedEventAttributes"
       ( \x ->
           ScheduleLambdaFunctionFailedEventAttributes'
-            Prelude.<$> (x Prelude..: "id") Prelude.<*> (x Prelude..: "name")
-              Prelude.<*> (x Prelude..: "cause")
-              Prelude.<*> (x Prelude..: "decisionTaskCompletedEventId")
+            Core.<$> (x Core..: "id")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "cause")
+            Core.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ScheduleLambdaFunctionFailedEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     ScheduleLambdaFunctionFailedEventAttributes

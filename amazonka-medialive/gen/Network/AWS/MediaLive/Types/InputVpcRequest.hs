@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputVpcRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a private VPC Input. When this property is specified, the
 -- input destination addresses will be created in a VPC rather than with
@@ -34,12 +33,12 @@ data InputVpcRequest = InputVpcRequest'
   { -- | A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC
     -- network interfaces. Requires subnetIds. If none are specified then the
     -- VPC default security group will be used.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | A list of 2 VPC subnet IDs from the same VPC. Subnet IDs must be mapped
     -- to two unique availability zones (AZ).
-    subnetIds :: [Prelude.Text]
+    subnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputVpcRequest' with all optional fields omitted.
@@ -59,32 +58,31 @@ newInputVpcRequest ::
   InputVpcRequest
 newInputVpcRequest =
   InputVpcRequest'
-    { securityGroupIds =
-        Prelude.Nothing,
-      subnetIds = Prelude.mempty
+    { securityGroupIds = Core.Nothing,
+      subnetIds = Core.mempty
     }
 
 -- | A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC
 -- network interfaces. Requires subnetIds. If none are specified then the
 -- VPC default security group will be used.
-inputVpcRequest_securityGroupIds :: Lens.Lens' InputVpcRequest (Prelude.Maybe [Prelude.Text])
-inputVpcRequest_securityGroupIds = Lens.lens (\InputVpcRequest' {securityGroupIds} -> securityGroupIds) (\s@InputVpcRequest' {} a -> s {securityGroupIds = a} :: InputVpcRequest) Prelude.. Lens.mapping Prelude._Coerce
+inputVpcRequest_securityGroupIds :: Lens.Lens' InputVpcRequest (Core.Maybe [Core.Text])
+inputVpcRequest_securityGroupIds = Lens.lens (\InputVpcRequest' {securityGroupIds} -> securityGroupIds) (\s@InputVpcRequest' {} a -> s {securityGroupIds = a} :: InputVpcRequest) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of 2 VPC subnet IDs from the same VPC. Subnet IDs must be mapped
 -- to two unique availability zones (AZ).
-inputVpcRequest_subnetIds :: Lens.Lens' InputVpcRequest [Prelude.Text]
-inputVpcRequest_subnetIds = Lens.lens (\InputVpcRequest' {subnetIds} -> subnetIds) (\s@InputVpcRequest' {} a -> s {subnetIds = a} :: InputVpcRequest) Prelude.. Prelude._Coerce
+inputVpcRequest_subnetIds :: Lens.Lens' InputVpcRequest [Core.Text]
+inputVpcRequest_subnetIds = Lens.lens (\InputVpcRequest' {subnetIds} -> subnetIds) (\s@InputVpcRequest' {} a -> s {subnetIds = a} :: InputVpcRequest) Core.. Lens._Coerce
 
-instance Prelude.Hashable InputVpcRequest
+instance Core.Hashable InputVpcRequest
 
-instance Prelude.NFData InputVpcRequest
+instance Core.NFData InputVpcRequest
 
-instance Prelude.ToJSON InputVpcRequest where
+instance Core.ToJSON InputVpcRequest where
   toJSON InputVpcRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("securityGroupIds" Prelude..=)
-              Prelude.<$> securityGroupIds,
-            Prelude.Just ("subnetIds" Prelude..= subnetIds)
+    Core.object
+      ( Core.catMaybes
+          [ ("securityGroupIds" Core..=)
+              Core.<$> securityGroupIds,
+            Core.Just ("subnetIds" Core..= subnetIds)
           ]
       )

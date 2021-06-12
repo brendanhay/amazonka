@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,20 +46,20 @@ module Network.AWS.Glue.CancelMLTaskRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelMLTaskRun' smart constructor.
 data CancelMLTaskRun = CancelMLTaskRun'
   { -- | The unique identifier of the machine learning transform.
-    transformId :: Prelude.Text,
+    transformId :: Core.Text,
     -- | A unique identifier for the task run.
-    taskRunId :: Prelude.Text
+    taskRunId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelMLTaskRun' with all optional fields omitted.
@@ -75,9 +74,9 @@ data CancelMLTaskRun = CancelMLTaskRun'
 -- 'taskRunId', 'cancelMLTaskRun_taskRunId' - A unique identifier for the task run.
 newCancelMLTaskRun ::
   -- | 'transformId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'taskRunId'
-  Prelude.Text ->
+  Core.Text ->
   CancelMLTaskRun
 newCancelMLTaskRun pTransformId_ pTaskRunId_ =
   CancelMLTaskRun'
@@ -86,70 +85,70 @@ newCancelMLTaskRun pTransformId_ pTaskRunId_ =
     }
 
 -- | The unique identifier of the machine learning transform.
-cancelMLTaskRun_transformId :: Lens.Lens' CancelMLTaskRun Prelude.Text
+cancelMLTaskRun_transformId :: Lens.Lens' CancelMLTaskRun Core.Text
 cancelMLTaskRun_transformId = Lens.lens (\CancelMLTaskRun' {transformId} -> transformId) (\s@CancelMLTaskRun' {} a -> s {transformId = a} :: CancelMLTaskRun)
 
 -- | A unique identifier for the task run.
-cancelMLTaskRun_taskRunId :: Lens.Lens' CancelMLTaskRun Prelude.Text
+cancelMLTaskRun_taskRunId :: Lens.Lens' CancelMLTaskRun Core.Text
 cancelMLTaskRun_taskRunId = Lens.lens (\CancelMLTaskRun' {taskRunId} -> taskRunId) (\s@CancelMLTaskRun' {} a -> s {taskRunId = a} :: CancelMLTaskRun)
 
-instance Prelude.AWSRequest CancelMLTaskRun where
-  type Rs CancelMLTaskRun = CancelMLTaskRunResponse
+instance Core.AWSRequest CancelMLTaskRun where
+  type
+    AWSResponse CancelMLTaskRun =
+      CancelMLTaskRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelMLTaskRunResponse'
-            Prelude.<$> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "TransformId")
-            Prelude.<*> (x Prelude..?> "TaskRunId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Status")
+            Core.<*> (x Core..?> "TransformId")
+            Core.<*> (x Core..?> "TaskRunId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelMLTaskRun
+instance Core.Hashable CancelMLTaskRun
 
-instance Prelude.NFData CancelMLTaskRun
+instance Core.NFData CancelMLTaskRun
 
-instance Prelude.ToHeaders CancelMLTaskRun where
+instance Core.ToHeaders CancelMLTaskRun where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.CancelMLTaskRun" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.CancelMLTaskRun" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CancelMLTaskRun where
+instance Core.ToJSON CancelMLTaskRun where
   toJSON CancelMLTaskRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TransformId" Prelude..= transformId),
-            Prelude.Just ("TaskRunId" Prelude..= taskRunId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformId" Core..= transformId),
+            Core.Just ("TaskRunId" Core..= taskRunId)
           ]
       )
 
-instance Prelude.ToPath CancelMLTaskRun where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelMLTaskRun where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelMLTaskRun where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelMLTaskRun where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelMLTaskRunResponse' smart constructor.
 data CancelMLTaskRunResponse = CancelMLTaskRunResponse'
   { -- | The status for this run.
-    status :: Prelude.Maybe TaskStatusType,
+    status :: Core.Maybe TaskStatusType,
     -- | The unique identifier of the machine learning transform.
-    transformId :: Prelude.Maybe Prelude.Text,
+    transformId :: Core.Maybe Core.Text,
     -- | The unique identifier for the task run.
-    taskRunId :: Prelude.Maybe Prelude.Text,
+    taskRunId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelMLTaskRunResponse' with all optional fields omitted.
@@ -168,30 +167,30 @@ data CancelMLTaskRunResponse = CancelMLTaskRunResponse'
 -- 'httpStatus', 'cancelMLTaskRunResponse_httpStatus' - The response's http status code.
 newCancelMLTaskRunResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelMLTaskRunResponse
 newCancelMLTaskRunResponse pHttpStatus_ =
   CancelMLTaskRunResponse'
-    { status = Prelude.Nothing,
-      transformId = Prelude.Nothing,
-      taskRunId = Prelude.Nothing,
+    { status = Core.Nothing,
+      transformId = Core.Nothing,
+      taskRunId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status for this run.
-cancelMLTaskRunResponse_status :: Lens.Lens' CancelMLTaskRunResponse (Prelude.Maybe TaskStatusType)
+cancelMLTaskRunResponse_status :: Lens.Lens' CancelMLTaskRunResponse (Core.Maybe TaskStatusType)
 cancelMLTaskRunResponse_status = Lens.lens (\CancelMLTaskRunResponse' {status} -> status) (\s@CancelMLTaskRunResponse' {} a -> s {status = a} :: CancelMLTaskRunResponse)
 
 -- | The unique identifier of the machine learning transform.
-cancelMLTaskRunResponse_transformId :: Lens.Lens' CancelMLTaskRunResponse (Prelude.Maybe Prelude.Text)
+cancelMLTaskRunResponse_transformId :: Lens.Lens' CancelMLTaskRunResponse (Core.Maybe Core.Text)
 cancelMLTaskRunResponse_transformId = Lens.lens (\CancelMLTaskRunResponse' {transformId} -> transformId) (\s@CancelMLTaskRunResponse' {} a -> s {transformId = a} :: CancelMLTaskRunResponse)
 
 -- | The unique identifier for the task run.
-cancelMLTaskRunResponse_taskRunId :: Lens.Lens' CancelMLTaskRunResponse (Prelude.Maybe Prelude.Text)
+cancelMLTaskRunResponse_taskRunId :: Lens.Lens' CancelMLTaskRunResponse (Core.Maybe Core.Text)
 cancelMLTaskRunResponse_taskRunId = Lens.lens (\CancelMLTaskRunResponse' {taskRunId} -> taskRunId) (\s@CancelMLTaskRunResponse' {} a -> s {taskRunId = a} :: CancelMLTaskRunResponse)
 
 -- | The response's http status code.
-cancelMLTaskRunResponse_httpStatus :: Lens.Lens' CancelMLTaskRunResponse Prelude.Int
+cancelMLTaskRunResponse_httpStatus :: Lens.Lens' CancelMLTaskRunResponse Core.Int
 cancelMLTaskRunResponse_httpStatus = Lens.lens (\CancelMLTaskRunResponse' {httpStatus} -> httpStatus) (\s@CancelMLTaskRunResponse' {} a -> s {httpStatus = a} :: CancelMLTaskRunResponse)
 
-instance Prelude.NFData CancelMLTaskRunResponse
+instance Core.NFData CancelMLTaskRunResponse

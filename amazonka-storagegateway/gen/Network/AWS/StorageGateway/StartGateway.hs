@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.StorageGateway.StartGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -63,9 +62,9 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newStartGateway' smart constructor.
 data StartGateway = StartGateway'
-  { gatewayARN :: Prelude.Text
+  { gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartGateway' with all optional fields omitted.
@@ -78,68 +77,66 @@ data StartGateway = StartGateway'
 -- 'gatewayARN', 'startGateway_gatewayARN' - Undocumented member.
 newStartGateway ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   StartGateway
 newStartGateway pGatewayARN_ =
   StartGateway' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-startGateway_gatewayARN :: Lens.Lens' StartGateway Prelude.Text
+startGateway_gatewayARN :: Lens.Lens' StartGateway Core.Text
 startGateway_gatewayARN = Lens.lens (\StartGateway' {gatewayARN} -> gatewayARN) (\s@StartGateway' {} a -> s {gatewayARN = a} :: StartGateway)
 
-instance Prelude.AWSRequest StartGateway where
-  type Rs StartGateway = StartGatewayResponse
+instance Core.AWSRequest StartGateway where
+  type AWSResponse StartGateway = StartGatewayResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartGatewayResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartGateway
+instance Core.Hashable StartGateway
 
-instance Prelude.NFData StartGateway
+instance Core.NFData StartGateway
 
-instance Prelude.ToHeaders StartGateway where
+instance Core.ToHeaders StartGateway where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.StartGateway" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.StartGateway" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartGateway where
+instance Core.ToJSON StartGateway where
   toJSON StartGateway' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Prelude..= gatewayARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
-instance Prelude.ToPath StartGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartGateway where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartGateway where
+  toQuery = Core.const Core.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
 -- that was restarted.
 --
 -- /See:/ 'newStartGatewayResponse' smart constructor.
 data StartGatewayResponse = StartGatewayResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartGatewayResponse' with all optional fields omitted.
@@ -154,20 +151,20 @@ data StartGatewayResponse = StartGatewayResponse'
 -- 'httpStatus', 'startGatewayResponse_httpStatus' - The response's http status code.
 newStartGatewayResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartGatewayResponse
 newStartGatewayResponse pHttpStatus_ =
   StartGatewayResponse'
-    { gatewayARN = Prelude.Nothing,
+    { gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-startGatewayResponse_gatewayARN :: Lens.Lens' StartGatewayResponse (Prelude.Maybe Prelude.Text)
+startGatewayResponse_gatewayARN :: Lens.Lens' StartGatewayResponse (Core.Maybe Core.Text)
 startGatewayResponse_gatewayARN = Lens.lens (\StartGatewayResponse' {gatewayARN} -> gatewayARN) (\s@StartGatewayResponse' {} a -> s {gatewayARN = a} :: StartGatewayResponse)
 
 -- | The response's http status code.
-startGatewayResponse_httpStatus :: Lens.Lens' StartGatewayResponse Prelude.Int
+startGatewayResponse_httpStatus :: Lens.Lens' StartGatewayResponse Core.Int
 startGatewayResponse_httpStatus = Lens.lens (\StartGatewayResponse' {httpStatus} -> httpStatus) (\s@StartGatewayResponse' {} a -> s {httpStatus = a} :: StartGatewayResponse)
 
-instance Prelude.NFData StartGatewayResponse
+instance Core.NFData StartGatewayResponse

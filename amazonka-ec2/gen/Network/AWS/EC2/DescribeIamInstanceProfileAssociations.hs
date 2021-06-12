@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,32 +45,31 @@ module Network.AWS.EC2.DescribeIamInstanceProfileAssociations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeIamInstanceProfileAssociations' smart constructor.
 data DescribeIamInstanceProfileAssociations = DescribeIamInstanceProfileAssociations'
   { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in a single call. To retrieve
     -- the remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The IAM instance profile associations.
-    associationIds :: Prelude.Maybe [Prelude.Text],
+    associationIds :: Core.Maybe [Core.Text],
     -- | The filters.
     --
     -- -   @instance-id@ - The ID of the instance.
     --
     -- -   @state@ - The state of the association (@associating@ | @associated@
     --     | @disassociating@).
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIamInstanceProfileAssociations' with all optional fields omitted.
@@ -100,25 +98,25 @@ newDescribeIamInstanceProfileAssociations ::
 newDescribeIamInstanceProfileAssociations =
   DescribeIamInstanceProfileAssociations'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      associationIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      associationIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token to request the next page of results.
-describeIamInstanceProfileAssociations_nextToken :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe Prelude.Text)
+describeIamInstanceProfileAssociations_nextToken :: Lens.Lens' DescribeIamInstanceProfileAssociations (Core.Maybe Core.Text)
 describeIamInstanceProfileAssociations_nextToken = Lens.lens (\DescribeIamInstanceProfileAssociations' {nextToken} -> nextToken) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {nextToken = a} :: DescribeIamInstanceProfileAssociations)
 
 -- | The maximum number of results to return in a single call. To retrieve
 -- the remaining results, make another call with the returned @NextToken@
 -- value.
-describeIamInstanceProfileAssociations_maxResults :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe Prelude.Natural)
+describeIamInstanceProfileAssociations_maxResults :: Lens.Lens' DescribeIamInstanceProfileAssociations (Core.Maybe Core.Natural)
 describeIamInstanceProfileAssociations_maxResults = Lens.lens (\DescribeIamInstanceProfileAssociations' {maxResults} -> maxResults) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {maxResults = a} :: DescribeIamInstanceProfileAssociations)
 
 -- | The IAM instance profile associations.
-describeIamInstanceProfileAssociations_associationIds :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe [Prelude.Text])
-describeIamInstanceProfileAssociations_associationIds = Lens.lens (\DescribeIamInstanceProfileAssociations' {associationIds} -> associationIds) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {associationIds = a} :: DescribeIamInstanceProfileAssociations) Prelude.. Lens.mapping Prelude._Coerce
+describeIamInstanceProfileAssociations_associationIds :: Lens.Lens' DescribeIamInstanceProfileAssociations (Core.Maybe [Core.Text])
+describeIamInstanceProfileAssociations_associationIds = Lens.lens (\DescribeIamInstanceProfileAssociations' {associationIds} -> associationIds) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {associationIds = a} :: DescribeIamInstanceProfileAssociations) Core.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -126,107 +124,107 @@ describeIamInstanceProfileAssociations_associationIds = Lens.lens (\DescribeIamI
 --
 -- -   @state@ - The state of the association (@associating@ | @associated@
 --     | @disassociating@).
-describeIamInstanceProfileAssociations_filters :: Lens.Lens' DescribeIamInstanceProfileAssociations (Prelude.Maybe [Filter])
-describeIamInstanceProfileAssociations_filters = Lens.lens (\DescribeIamInstanceProfileAssociations' {filters} -> filters) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {filters = a} :: DescribeIamInstanceProfileAssociations) Prelude.. Lens.mapping Prelude._Coerce
+describeIamInstanceProfileAssociations_filters :: Lens.Lens' DescribeIamInstanceProfileAssociations (Core.Maybe [Filter])
+describeIamInstanceProfileAssociations_filters = Lens.lens (\DescribeIamInstanceProfileAssociations' {filters} -> filters) (\s@DescribeIamInstanceProfileAssociations' {} a -> s {filters = a} :: DescribeIamInstanceProfileAssociations) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeIamInstanceProfileAssociations
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeIamInstanceProfileAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeIamInstanceProfileAssociations_nextToken
           Lens..~ rs
             Lens.^? describeIamInstanceProfileAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeIamInstanceProfileAssociations
   where
   type
-    Rs DescribeIamInstanceProfileAssociations =
+    AWSResponse
+      DescribeIamInstanceProfileAssociations =
       DescribeIamInstanceProfileAssociationsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeIamInstanceProfileAssociationsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-              Prelude.<*> ( x Prelude..@? "iamInstanceProfileAssociationSet"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+              Core.<*> ( x Core..@? "iamInstanceProfileAssociationSet"
+                           Core..!@ Core.mempty
+                           Core.>>= Core.may (Core.parseXMLList "item")
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeIamInstanceProfileAssociations
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeIamInstanceProfileAssociations
 
 instance
-  Prelude.ToHeaders
-    DescribeIamInstanceProfileAssociations
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeIamInstanceProfileAssociations
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeIamInstanceProfileAssociations
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeIamInstanceProfileAssociations
   where
   toQuery DescribeIamInstanceProfileAssociations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeIamInstanceProfileAssociations" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          ( Prelude.toQueryList "AssociationId"
-              Prelude.<$> associationIds
+          Core.=: ( "DescribeIamInstanceProfileAssociations" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          ( Core.toQueryList "AssociationId"
+              Core.<$> associationIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeIamInstanceProfileAssociationsResponse' smart constructor.
 data DescribeIamInstanceProfileAssociationsResponse = DescribeIamInstanceProfileAssociationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the IAM instance profile associations.
-    iamInstanceProfileAssociations :: Prelude.Maybe [IamInstanceProfileAssociation],
+    iamInstanceProfileAssociations :: Core.Maybe [IamInstanceProfileAssociation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIamInstanceProfileAssociationsResponse' with all optional fields omitted.
@@ -244,31 +242,31 @@ data DescribeIamInstanceProfileAssociationsResponse = DescribeIamInstanceProfile
 -- 'httpStatus', 'describeIamInstanceProfileAssociationsResponse_httpStatus' - The response's http status code.
 newDescribeIamInstanceProfileAssociationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeIamInstanceProfileAssociationsResponse
 newDescribeIamInstanceProfileAssociationsResponse
   pHttpStatus_ =
     DescribeIamInstanceProfileAssociationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         iamInstanceProfileAssociations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeIamInstanceProfileAssociationsResponse_nextToken :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse (Prelude.Maybe Prelude.Text)
+describeIamInstanceProfileAssociationsResponse_nextToken :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse (Core.Maybe Core.Text)
 describeIamInstanceProfileAssociationsResponse_nextToken = Lens.lens (\DescribeIamInstanceProfileAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeIamInstanceProfileAssociationsResponse' {} a -> s {nextToken = a} :: DescribeIamInstanceProfileAssociationsResponse)
 
 -- | Information about the IAM instance profile associations.
-describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse (Prelude.Maybe [IamInstanceProfileAssociation])
-describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations = Lens.lens (\DescribeIamInstanceProfileAssociationsResponse' {iamInstanceProfileAssociations} -> iamInstanceProfileAssociations) (\s@DescribeIamInstanceProfileAssociationsResponse' {} a -> s {iamInstanceProfileAssociations = a} :: DescribeIamInstanceProfileAssociationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse (Core.Maybe [IamInstanceProfileAssociation])
+describeIamInstanceProfileAssociationsResponse_iamInstanceProfileAssociations = Lens.lens (\DescribeIamInstanceProfileAssociationsResponse' {iamInstanceProfileAssociations} -> iamInstanceProfileAssociations) (\s@DescribeIamInstanceProfileAssociationsResponse' {} a -> s {iamInstanceProfileAssociations = a} :: DescribeIamInstanceProfileAssociationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeIamInstanceProfileAssociationsResponse_httpStatus :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse Prelude.Int
+describeIamInstanceProfileAssociationsResponse_httpStatus :: Lens.Lens' DescribeIamInstanceProfileAssociationsResponse Core.Int
 describeIamInstanceProfileAssociationsResponse_httpStatus = Lens.lens (\DescribeIamInstanceProfileAssociationsResponse' {httpStatus} -> httpStatus) (\s@DescribeIamInstanceProfileAssociationsResponse' {} a -> s {httpStatus = a} :: DescribeIamInstanceProfileAssociationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeIamInstanceProfileAssociationsResponse

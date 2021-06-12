@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.BootstrapActionConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ScriptBootstrapActionConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of a bootstrap action.
 --
 -- /See:/ 'newBootstrapActionConfig' smart constructor.
 data BootstrapActionConfig = BootstrapActionConfig'
   { -- | The name of the bootstrap action.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The script run by the bootstrap action.
     scriptBootstrapAction :: ScriptBootstrapActionConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BootstrapActionConfig' with all optional fields omitted.
@@ -48,7 +47,7 @@ data BootstrapActionConfig = BootstrapActionConfig'
 -- 'scriptBootstrapAction', 'bootstrapActionConfig_scriptBootstrapAction' - The script run by the bootstrap action.
 newBootstrapActionConfig ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scriptBootstrapAction'
   ScriptBootstrapActionConfig ->
   BootstrapActionConfig
@@ -61,25 +60,25 @@ newBootstrapActionConfig
       }
 
 -- | The name of the bootstrap action.
-bootstrapActionConfig_name :: Lens.Lens' BootstrapActionConfig Prelude.Text
+bootstrapActionConfig_name :: Lens.Lens' BootstrapActionConfig Core.Text
 bootstrapActionConfig_name = Lens.lens (\BootstrapActionConfig' {name} -> name) (\s@BootstrapActionConfig' {} a -> s {name = a} :: BootstrapActionConfig)
 
 -- | The script run by the bootstrap action.
 bootstrapActionConfig_scriptBootstrapAction :: Lens.Lens' BootstrapActionConfig ScriptBootstrapActionConfig
 bootstrapActionConfig_scriptBootstrapAction = Lens.lens (\BootstrapActionConfig' {scriptBootstrapAction} -> scriptBootstrapAction) (\s@BootstrapActionConfig' {} a -> s {scriptBootstrapAction = a} :: BootstrapActionConfig)
 
-instance Prelude.Hashable BootstrapActionConfig
+instance Core.Hashable BootstrapActionConfig
 
-instance Prelude.NFData BootstrapActionConfig
+instance Core.NFData BootstrapActionConfig
 
-instance Prelude.ToJSON BootstrapActionConfig where
+instance Core.ToJSON BootstrapActionConfig where
   toJSON BootstrapActionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just
               ( "ScriptBootstrapAction"
-                  Prelude..= scriptBootstrapAction
+                  Core..= scriptBootstrapAction
               )
           ]
       )

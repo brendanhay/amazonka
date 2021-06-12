@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.Recipes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | AWS OpsWorks Stacks supports five lifecycle events: __setup__,
 -- __configuration__, __deploy__, __undeploy__, and __shutdown__. For each
@@ -40,17 +39,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRecipes' smart constructor.
 data Recipes = Recipes'
   { -- | An array of custom recipe names to be run following a @shutdown@ event.
-    shutdown :: Prelude.Maybe [Prelude.Text],
+    shutdown :: Core.Maybe [Core.Text],
     -- | An array of custom recipe names to be run following a @configure@ event.
-    configure :: Prelude.Maybe [Prelude.Text],
+    configure :: Core.Maybe [Core.Text],
     -- | An array of custom recipe names to be run following a @undeploy@ event.
-    undeploy :: Prelude.Maybe [Prelude.Text],
+    undeploy :: Core.Maybe [Core.Text],
     -- | An array of custom recipe names to be run following a @setup@ event.
-    setup :: Prelude.Maybe [Prelude.Text],
+    setup :: Core.Maybe [Core.Text],
     -- | An array of custom recipe names to be run following a @deploy@ event.
-    deploy :: Prelude.Maybe [Prelude.Text]
+    deploy :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Recipes' with all optional fields omitted.
@@ -73,60 +72,58 @@ newRecipes ::
   Recipes
 newRecipes =
   Recipes'
-    { shutdown = Prelude.Nothing,
-      configure = Prelude.Nothing,
-      undeploy = Prelude.Nothing,
-      setup = Prelude.Nothing,
-      deploy = Prelude.Nothing
+    { shutdown = Core.Nothing,
+      configure = Core.Nothing,
+      undeploy = Core.Nothing,
+      setup = Core.Nothing,
+      deploy = Core.Nothing
     }
 
 -- | An array of custom recipe names to be run following a @shutdown@ event.
-recipes_shutdown :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_shutdown = Lens.lens (\Recipes' {shutdown} -> shutdown) (\s@Recipes' {} a -> s {shutdown = a} :: Recipes) Prelude.. Lens.mapping Prelude._Coerce
+recipes_shutdown :: Lens.Lens' Recipes (Core.Maybe [Core.Text])
+recipes_shutdown = Lens.lens (\Recipes' {shutdown} -> shutdown) (\s@Recipes' {} a -> s {shutdown = a} :: Recipes) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of custom recipe names to be run following a @configure@ event.
-recipes_configure :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_configure = Lens.lens (\Recipes' {configure} -> configure) (\s@Recipes' {} a -> s {configure = a} :: Recipes) Prelude.. Lens.mapping Prelude._Coerce
+recipes_configure :: Lens.Lens' Recipes (Core.Maybe [Core.Text])
+recipes_configure = Lens.lens (\Recipes' {configure} -> configure) (\s@Recipes' {} a -> s {configure = a} :: Recipes) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of custom recipe names to be run following a @undeploy@ event.
-recipes_undeploy :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_undeploy = Lens.lens (\Recipes' {undeploy} -> undeploy) (\s@Recipes' {} a -> s {undeploy = a} :: Recipes) Prelude.. Lens.mapping Prelude._Coerce
+recipes_undeploy :: Lens.Lens' Recipes (Core.Maybe [Core.Text])
+recipes_undeploy = Lens.lens (\Recipes' {undeploy} -> undeploy) (\s@Recipes' {} a -> s {undeploy = a} :: Recipes) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of custom recipe names to be run following a @setup@ event.
-recipes_setup :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_setup = Lens.lens (\Recipes' {setup} -> setup) (\s@Recipes' {} a -> s {setup = a} :: Recipes) Prelude.. Lens.mapping Prelude._Coerce
+recipes_setup :: Lens.Lens' Recipes (Core.Maybe [Core.Text])
+recipes_setup = Lens.lens (\Recipes' {setup} -> setup) (\s@Recipes' {} a -> s {setup = a} :: Recipes) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of custom recipe names to be run following a @deploy@ event.
-recipes_deploy :: Lens.Lens' Recipes (Prelude.Maybe [Prelude.Text])
-recipes_deploy = Lens.lens (\Recipes' {deploy} -> deploy) (\s@Recipes' {} a -> s {deploy = a} :: Recipes) Prelude.. Lens.mapping Prelude._Coerce
+recipes_deploy :: Lens.Lens' Recipes (Core.Maybe [Core.Text])
+recipes_deploy = Lens.lens (\Recipes' {deploy} -> deploy) (\s@Recipes' {} a -> s {deploy = a} :: Recipes) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Recipes where
+instance Core.FromJSON Recipes where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Recipes"
       ( \x ->
           Recipes'
-            Prelude.<$> (x Prelude..:? "Shutdown" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "Configure"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Undeploy" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Setup" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Deploy" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Shutdown" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Configure" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Undeploy" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Setup" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Deploy" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Recipes
+instance Core.Hashable Recipes
 
-instance Prelude.NFData Recipes
+instance Core.NFData Recipes
 
-instance Prelude.ToJSON Recipes where
+instance Core.ToJSON Recipes where
   toJSON Recipes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Shutdown" Prelude..=) Prelude.<$> shutdown,
-            ("Configure" Prelude..=) Prelude.<$> configure,
-            ("Undeploy" Prelude..=) Prelude.<$> undeploy,
-            ("Setup" Prelude..=) Prelude.<$> setup,
-            ("Deploy" Prelude..=) Prelude.<$> deploy
+    Core.object
+      ( Core.catMaybes
+          [ ("Shutdown" Core..=) Core.<$> shutdown,
+            ("Configure" Core..=) Core.<$> configure,
+            ("Undeploy" Core..=) Core.<$> undeploy,
+            ("Setup" Core..=) Core.<$> setup,
+            ("Deploy" Core..=) Core.<$> deploy
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.VaultLockPolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the vault lock policy.
 --
 -- /See:/ 'newVaultLockPolicy' smart constructor.
 data VaultLockPolicy = VaultLockPolicy'
   { -- | The vault lock policy.
-    policy :: Prelude.Maybe Prelude.Text
+    policy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VaultLockPolicy' with all optional fields omitted.
@@ -44,19 +43,17 @@ data VaultLockPolicy = VaultLockPolicy'
 newVaultLockPolicy ::
   VaultLockPolicy
 newVaultLockPolicy =
-  VaultLockPolicy' {policy = Prelude.Nothing}
+  VaultLockPolicy' {policy = Core.Nothing}
 
 -- | The vault lock policy.
-vaultLockPolicy_policy :: Lens.Lens' VaultLockPolicy (Prelude.Maybe Prelude.Text)
+vaultLockPolicy_policy :: Lens.Lens' VaultLockPolicy (Core.Maybe Core.Text)
 vaultLockPolicy_policy = Lens.lens (\VaultLockPolicy' {policy} -> policy) (\s@VaultLockPolicy' {} a -> s {policy = a} :: VaultLockPolicy)
 
-instance Prelude.Hashable VaultLockPolicy
+instance Core.Hashable VaultLockPolicy
 
-instance Prelude.NFData VaultLockPolicy
+instance Core.NFData VaultLockPolicy
 
-instance Prelude.ToJSON VaultLockPolicy where
+instance Core.ToJSON VaultLockPolicy where
   toJSON VaultLockPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Policy" Prelude..=) Prelude.<$> policy]
-      )
+    Core.object
+      (Core.catMaybes [("Policy" Core..=) Core.<$> policy])

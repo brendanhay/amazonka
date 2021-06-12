@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.JobLogs where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains job logs. Whenever a Snow device is used to import data into or
 -- export data out of Amazon S3, you\'ll have the option of downloading a
@@ -50,15 +49,15 @@ import qualified Network.AWS.Prelude as Prelude
 data JobLogs = JobLogs'
   { -- | A link to an Amazon S3 presigned URL where the job completion report is
     -- located.
-    jobCompletionReportURI :: Prelude.Maybe Prelude.Text,
+    jobCompletionReportURI :: Core.Maybe Core.Text,
     -- | A link to an Amazon S3 presigned URL where the job success log is
     -- located.
-    jobSuccessLogURI :: Prelude.Maybe Prelude.Text,
+    jobSuccessLogURI :: Core.Maybe Core.Text,
     -- | A link to an Amazon S3 presigned URL where the job failure log is
     -- located.
-    jobFailureLogURI :: Prelude.Maybe Prelude.Text
+    jobFailureLogURI :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobLogs' with all optional fields omitted.
@@ -80,37 +79,37 @@ newJobLogs ::
   JobLogs
 newJobLogs =
   JobLogs'
-    { jobCompletionReportURI = Prelude.Nothing,
-      jobSuccessLogURI = Prelude.Nothing,
-      jobFailureLogURI = Prelude.Nothing
+    { jobCompletionReportURI = Core.Nothing,
+      jobSuccessLogURI = Core.Nothing,
+      jobFailureLogURI = Core.Nothing
     }
 
 -- | A link to an Amazon S3 presigned URL where the job completion report is
 -- located.
-jobLogs_jobCompletionReportURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
+jobLogs_jobCompletionReportURI :: Lens.Lens' JobLogs (Core.Maybe Core.Text)
 jobLogs_jobCompletionReportURI = Lens.lens (\JobLogs' {jobCompletionReportURI} -> jobCompletionReportURI) (\s@JobLogs' {} a -> s {jobCompletionReportURI = a} :: JobLogs)
 
 -- | A link to an Amazon S3 presigned URL where the job success log is
 -- located.
-jobLogs_jobSuccessLogURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
+jobLogs_jobSuccessLogURI :: Lens.Lens' JobLogs (Core.Maybe Core.Text)
 jobLogs_jobSuccessLogURI = Lens.lens (\JobLogs' {jobSuccessLogURI} -> jobSuccessLogURI) (\s@JobLogs' {} a -> s {jobSuccessLogURI = a} :: JobLogs)
 
 -- | A link to an Amazon S3 presigned URL where the job failure log is
 -- located.
-jobLogs_jobFailureLogURI :: Lens.Lens' JobLogs (Prelude.Maybe Prelude.Text)
+jobLogs_jobFailureLogURI :: Lens.Lens' JobLogs (Core.Maybe Core.Text)
 jobLogs_jobFailureLogURI = Lens.lens (\JobLogs' {jobFailureLogURI} -> jobFailureLogURI) (\s@JobLogs' {} a -> s {jobFailureLogURI = a} :: JobLogs)
 
-instance Prelude.FromJSON JobLogs where
+instance Core.FromJSON JobLogs where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobLogs"
       ( \x ->
           JobLogs'
-            Prelude.<$> (x Prelude..:? "JobCompletionReportURI")
-            Prelude.<*> (x Prelude..:? "JobSuccessLogURI")
-            Prelude.<*> (x Prelude..:? "JobFailureLogURI")
+            Core.<$> (x Core..:? "JobCompletionReportURI")
+            Core.<*> (x Core..:? "JobSuccessLogURI")
+            Core.<*> (x Core..:? "JobFailureLogURI")
       )
 
-instance Prelude.Hashable JobLogs
+instance Core.Hashable JobLogs
 
-instance Prelude.NFData JobLogs
+instance Core.NFData JobLogs

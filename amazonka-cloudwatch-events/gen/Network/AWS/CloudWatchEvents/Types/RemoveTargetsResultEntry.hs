@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.RemoveTargetsResultEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a target that failed to be removed from a rule.
 --
 -- /See:/ 'newRemoveTargetsResultEntry' smart constructor.
 data RemoveTargetsResultEntry = RemoveTargetsResultEntry'
   { -- | The ID of the target.
-    targetId :: Prelude.Maybe Prelude.Text,
+    targetId :: Core.Maybe Core.Text,
     -- | The error message that explains why the target removal failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code that indicates why the target removal failed. If the
     -- value is @ConcurrentModificationException@, too many requests were made
     -- at the same time.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTargetsResultEntry' with all optional fields omitted.
@@ -57,37 +56,36 @@ newRemoveTargetsResultEntry ::
   RemoveTargetsResultEntry
 newRemoveTargetsResultEntry =
   RemoveTargetsResultEntry'
-    { targetId =
-        Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { targetId = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The ID of the target.
-removeTargetsResultEntry_targetId :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
+removeTargetsResultEntry_targetId :: Lens.Lens' RemoveTargetsResultEntry (Core.Maybe Core.Text)
 removeTargetsResultEntry_targetId = Lens.lens (\RemoveTargetsResultEntry' {targetId} -> targetId) (\s@RemoveTargetsResultEntry' {} a -> s {targetId = a} :: RemoveTargetsResultEntry)
 
 -- | The error message that explains why the target removal failed.
-removeTargetsResultEntry_errorMessage :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
+removeTargetsResultEntry_errorMessage :: Lens.Lens' RemoveTargetsResultEntry (Core.Maybe Core.Text)
 removeTargetsResultEntry_errorMessage = Lens.lens (\RemoveTargetsResultEntry' {errorMessage} -> errorMessage) (\s@RemoveTargetsResultEntry' {} a -> s {errorMessage = a} :: RemoveTargetsResultEntry)
 
 -- | The error code that indicates why the target removal failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
 -- at the same time.
-removeTargetsResultEntry_errorCode :: Lens.Lens' RemoveTargetsResultEntry (Prelude.Maybe Prelude.Text)
+removeTargetsResultEntry_errorCode :: Lens.Lens' RemoveTargetsResultEntry (Core.Maybe Core.Text)
 removeTargetsResultEntry_errorCode = Lens.lens (\RemoveTargetsResultEntry' {errorCode} -> errorCode) (\s@RemoveTargetsResultEntry' {} a -> s {errorCode = a} :: RemoveTargetsResultEntry)
 
-instance Prelude.FromJSON RemoveTargetsResultEntry where
+instance Core.FromJSON RemoveTargetsResultEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RemoveTargetsResultEntry"
       ( \x ->
           RemoveTargetsResultEntry'
-            Prelude.<$> (x Prelude..:? "TargetId")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "TargetId")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable RemoveTargetsResultEntry
+instance Core.Hashable RemoveTargetsResultEntry
 
-instance Prelude.NFData RemoveTargetsResultEntry
+instance Core.NFData RemoveTargetsResultEntry

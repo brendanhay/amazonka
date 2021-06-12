@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -95,8 +94,8 @@ module Network.AWS.SES.SendTemplatedEmail
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -115,7 +114,7 @@ data SendTemplatedEmail = SendTemplatedEmail'
     -- parameter is never overwritten. This email address must be either
     -- individually verified with Amazon SES, or from a domain that has been
     -- verified with Amazon SES.
-    returnPath :: Prelude.Maybe Prelude.Text,
+    returnPath :: Core.Maybe Core.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -130,15 +129,15 @@ data SendTemplatedEmail = SendTemplatedEmail'
     --
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    returnPathArn :: Prelude.Maybe Prelude.Text,
+    returnPathArn :: Core.Maybe Core.Text,
     -- | The reply-to email address(es) for the message. If the recipient replies
     -- to the message, each reply-to address will receive the reply.
-    replyToAddresses :: Prelude.Maybe [Prelude.Text],
+    replyToAddresses :: Core.Maybe [Core.Text],
     -- | A list of tags, in the form of name\/value pairs, to apply to an email
     -- that you send using @SendTemplatedEmail@. Tags correspond to
     -- characteristics of the email that you define, so that you can publish
     -- email sending events.
-    tags :: Prelude.Maybe [MessageTag],
+    tags :: Core.Maybe [MessageTag],
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -153,12 +152,12 @@ data SendTemplatedEmail = SendTemplatedEmail'
     --
     -- For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    sourceArn :: Prelude.Maybe Prelude.Text,
+    sourceArn :: Core.Maybe Core.Text,
     -- | The ARN of the template to use when sending this email.
-    templateArn :: Prelude.Maybe Prelude.Text,
+    templateArn :: Core.Maybe Core.Text,
     -- | The name of the configuration set to use when you send an email using
     -- @SendTemplatedEmail@.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
+    configurationSetName :: Core.Maybe Core.Text,
     -- | The email address that is sending the email. This email address must be
     -- either individually verified with Amazon SES, or from a domain that has
     -- been verified with Amazon SES. For information about verifying
@@ -184,18 +183,18 @@ data SendTemplatedEmail = SendTemplatedEmail'
     -- described in<https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
     -- encoded-word syntax uses the following form:
     -- @=?charset?encoding?encoded-text?=@.
-    source :: Prelude.Text,
+    source :: Core.Text,
     -- | The destination for this email, composed of To:, CC:, and BCC: fields. A
     -- Destination can include up to 50 recipients across these three fields.
     destination :: Destination,
     -- | The template to use when sending this email.
-    template :: Prelude.Text,
+    template :: Core.Text,
     -- | A list of replacement values to apply to the template. This parameter is
     -- a JSON object, typically consisting of key-value pairs in which the keys
     -- correspond to replacement tags in the email template.
-    templateData :: Prelude.Text
+    templateData :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendTemplatedEmail' with all optional fields omitted.
@@ -293,13 +292,13 @@ data SendTemplatedEmail = SendTemplatedEmail'
 -- correspond to replacement tags in the email template.
 newSendTemplatedEmail ::
   -- | 'source'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destination'
   Destination ->
   -- | 'template'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'templateData'
-  Prelude.Text ->
+  Core.Text ->
   SendTemplatedEmail
 newSendTemplatedEmail
   pSource_
@@ -307,13 +306,13 @@ newSendTemplatedEmail
   pTemplate_
   pTemplateData_ =
     SendTemplatedEmail'
-      { returnPath = Prelude.Nothing,
-        returnPathArn = Prelude.Nothing,
-        replyToAddresses = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        sourceArn = Prelude.Nothing,
-        templateArn = Prelude.Nothing,
-        configurationSetName = Prelude.Nothing,
+      { returnPath = Core.Nothing,
+        returnPathArn = Core.Nothing,
+        replyToAddresses = Core.Nothing,
+        tags = Core.Nothing,
+        sourceArn = Core.Nothing,
+        templateArn = Core.Nothing,
+        configurationSetName = Core.Nothing,
         source = pSource_,
         destination = pDestination_,
         template = pTemplate_,
@@ -328,7 +327,7 @@ newSendTemplatedEmail
 -- parameter is never overwritten. This email address must be either
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
-sendTemplatedEmail_returnPath :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendTemplatedEmail_returnPath :: Lens.Lens' SendTemplatedEmail (Core.Maybe Core.Text)
 sendTemplatedEmail_returnPath = Lens.lens (\SendTemplatedEmail' {returnPath} -> returnPath) (\s@SendTemplatedEmail' {} a -> s {returnPath = a} :: SendTemplatedEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
@@ -345,20 +344,20 @@ sendTemplatedEmail_returnPath = Lens.lens (\SendTemplatedEmail' {returnPath} -> 
 --
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendTemplatedEmail_returnPathArn :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendTemplatedEmail_returnPathArn :: Lens.Lens' SendTemplatedEmail (Core.Maybe Core.Text)
 sendTemplatedEmail_returnPathArn = Lens.lens (\SendTemplatedEmail' {returnPathArn} -> returnPathArn) (\s@SendTemplatedEmail' {} a -> s {returnPathArn = a} :: SendTemplatedEmail)
 
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
-sendTemplatedEmail_replyToAddresses :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe [Prelude.Text])
-sendTemplatedEmail_replyToAddresses = Lens.lens (\SendTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendTemplatedEmail) Prelude.. Lens.mapping Prelude._Coerce
+sendTemplatedEmail_replyToAddresses :: Lens.Lens' SendTemplatedEmail (Core.Maybe [Core.Text])
+sendTemplatedEmail_replyToAddresses = Lens.lens (\SendTemplatedEmail' {replyToAddresses} -> replyToAddresses) (\s@SendTemplatedEmail' {} a -> s {replyToAddresses = a} :: SendTemplatedEmail) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using @SendTemplatedEmail@. Tags correspond to
 -- characteristics of the email that you define, so that you can publish
 -- email sending events.
-sendTemplatedEmail_tags :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe [MessageTag])
-sendTemplatedEmail_tags = Lens.lens (\SendTemplatedEmail' {tags} -> tags) (\s@SendTemplatedEmail' {} a -> s {tags = a} :: SendTemplatedEmail) Prelude.. Lens.mapping Prelude._Coerce
+sendTemplatedEmail_tags :: Lens.Lens' SendTemplatedEmail (Core.Maybe [MessageTag])
+sendTemplatedEmail_tags = Lens.lens (\SendTemplatedEmail' {tags} -> tags) (\s@SendTemplatedEmail' {} a -> s {tags = a} :: SendTemplatedEmail) Core.. Lens.mapping Lens._Coerce
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -374,16 +373,16 @@ sendTemplatedEmail_tags = Lens.lens (\SendTemplatedEmail' {tags} -> tags) (\s@Se
 --
 -- For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-sendTemplatedEmail_sourceArn :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendTemplatedEmail_sourceArn :: Lens.Lens' SendTemplatedEmail (Core.Maybe Core.Text)
 sendTemplatedEmail_sourceArn = Lens.lens (\SendTemplatedEmail' {sourceArn} -> sourceArn) (\s@SendTemplatedEmail' {} a -> s {sourceArn = a} :: SendTemplatedEmail)
 
 -- | The ARN of the template to use when sending this email.
-sendTemplatedEmail_templateArn :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendTemplatedEmail_templateArn :: Lens.Lens' SendTemplatedEmail (Core.Maybe Core.Text)
 sendTemplatedEmail_templateArn = Lens.lens (\SendTemplatedEmail' {templateArn} -> templateArn) (\s@SendTemplatedEmail' {} a -> s {templateArn = a} :: SendTemplatedEmail)
 
 -- | The name of the configuration set to use when you send an email using
 -- @SendTemplatedEmail@.
-sendTemplatedEmail_configurationSetName :: Lens.Lens' SendTemplatedEmail (Prelude.Maybe Prelude.Text)
+sendTemplatedEmail_configurationSetName :: Lens.Lens' SendTemplatedEmail (Core.Maybe Core.Text)
 sendTemplatedEmail_configurationSetName = Lens.lens (\SendTemplatedEmail' {configurationSetName} -> configurationSetName) (\s@SendTemplatedEmail' {} a -> s {configurationSetName = a} :: SendTemplatedEmail)
 
 -- | The email address that is sending the email. This email address must be
@@ -411,7 +410,7 @@ sendTemplatedEmail_configurationSetName = Lens.lens (\SendTemplatedEmail' {confi
 -- described in<https://tools.ietf.org/html/rfc2047 RFC 2047>. MIME
 -- encoded-word syntax uses the following form:
 -- @=?charset?encoding?encoded-text?=@.
-sendTemplatedEmail_source :: Lens.Lens' SendTemplatedEmail Prelude.Text
+sendTemplatedEmail_source :: Lens.Lens' SendTemplatedEmail Core.Text
 sendTemplatedEmail_source = Lens.lens (\SendTemplatedEmail' {source} -> source) (\s@SendTemplatedEmail' {} a -> s {source = a} :: SendTemplatedEmail)
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields. A
@@ -420,18 +419,18 @@ sendTemplatedEmail_destination :: Lens.Lens' SendTemplatedEmail Destination
 sendTemplatedEmail_destination = Lens.lens (\SendTemplatedEmail' {destination} -> destination) (\s@SendTemplatedEmail' {} a -> s {destination = a} :: SendTemplatedEmail)
 
 -- | The template to use when sending this email.
-sendTemplatedEmail_template :: Lens.Lens' SendTemplatedEmail Prelude.Text
+sendTemplatedEmail_template :: Lens.Lens' SendTemplatedEmail Core.Text
 sendTemplatedEmail_template = Lens.lens (\SendTemplatedEmail' {template} -> template) (\s@SendTemplatedEmail' {} a -> s {template = a} :: SendTemplatedEmail)
 
 -- | A list of replacement values to apply to the template. This parameter is
 -- a JSON object, typically consisting of key-value pairs in which the keys
 -- correspond to replacement tags in the email template.
-sendTemplatedEmail_templateData :: Lens.Lens' SendTemplatedEmail Prelude.Text
+sendTemplatedEmail_templateData :: Lens.Lens' SendTemplatedEmail Core.Text
 sendTemplatedEmail_templateData = Lens.lens (\SendTemplatedEmail' {templateData} -> templateData) (\s@SendTemplatedEmail' {} a -> s {templateData = a} :: SendTemplatedEmail)
 
-instance Prelude.AWSRequest SendTemplatedEmail where
+instance Core.AWSRequest SendTemplatedEmail where
   type
-    Rs SendTemplatedEmail =
+    AWSResponse SendTemplatedEmail =
       SendTemplatedEmailResponse
   request = Request.postQuery defaultService
   response =
@@ -439,56 +438,54 @@ instance Prelude.AWSRequest SendTemplatedEmail where
       "SendTemplatedEmailResult"
       ( \s h x ->
           SendTemplatedEmailResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "MessageId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "MessageId")
       )
 
-instance Prelude.Hashable SendTemplatedEmail
+instance Core.Hashable SendTemplatedEmail
 
-instance Prelude.NFData SendTemplatedEmail
+instance Core.NFData SendTemplatedEmail
 
-instance Prelude.ToHeaders SendTemplatedEmail where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SendTemplatedEmail where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SendTemplatedEmail where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendTemplatedEmail where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendTemplatedEmail where
+instance Core.ToQuery SendTemplatedEmail where
   toQuery SendTemplatedEmail' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SendTemplatedEmail" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "ReturnPath" Prelude.=: returnPath,
-        "ReturnPathArn" Prelude.=: returnPathArn,
+          Core.=: ("SendTemplatedEmail" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "ReturnPath" Core.=: returnPath,
+        "ReturnPathArn" Core.=: returnPathArn,
         "ReplyToAddresses"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> replyToAddresses
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> replyToAddresses
             ),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
-        "SourceArn" Prelude.=: sourceArn,
-        "TemplateArn" Prelude.=: templateArn,
-        "ConfigurationSetName"
-          Prelude.=: configurationSetName,
-        "Source" Prelude.=: source,
-        "Destination" Prelude.=: destination,
-        "Template" Prelude.=: template,
-        "TemplateData" Prelude.=: templateData
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
+        "SourceArn" Core.=: sourceArn,
+        "TemplateArn" Core.=: templateArn,
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "Source" Core.=: source,
+        "Destination" Core.=: destination,
+        "Template" Core.=: template,
+        "TemplateData" Core.=: templateData
       ]
 
 -- | /See:/ 'newSendTemplatedEmailResponse' smart constructor.
 data SendTemplatedEmailResponse = SendTemplatedEmailResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The unique message identifier returned from the @SendTemplatedEmail@
     -- action.
-    messageId :: Prelude.Text
+    messageId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendTemplatedEmailResponse' with all optional fields omitted.
@@ -504,9 +501,9 @@ data SendTemplatedEmailResponse = SendTemplatedEmailResponse'
 -- action.
 newSendTemplatedEmailResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'messageId'
-  Prelude.Text ->
+  Core.Text ->
   SendTemplatedEmailResponse
 newSendTemplatedEmailResponse
   pHttpStatus_
@@ -518,12 +515,12 @@ newSendTemplatedEmailResponse
       }
 
 -- | The response's http status code.
-sendTemplatedEmailResponse_httpStatus :: Lens.Lens' SendTemplatedEmailResponse Prelude.Int
+sendTemplatedEmailResponse_httpStatus :: Lens.Lens' SendTemplatedEmailResponse Core.Int
 sendTemplatedEmailResponse_httpStatus = Lens.lens (\SendTemplatedEmailResponse' {httpStatus} -> httpStatus) (\s@SendTemplatedEmailResponse' {} a -> s {httpStatus = a} :: SendTemplatedEmailResponse)
 
 -- | The unique message identifier returned from the @SendTemplatedEmail@
 -- action.
-sendTemplatedEmailResponse_messageId :: Lens.Lens' SendTemplatedEmailResponse Prelude.Text
+sendTemplatedEmailResponse_messageId :: Lens.Lens' SendTemplatedEmailResponse Core.Text
 sendTemplatedEmailResponse_messageId = Lens.lens (\SendTemplatedEmailResponse' {messageId} -> messageId) (\s@SendTemplatedEmailResponse' {} a -> s {messageId = a} :: SendTemplatedEmailResponse)
 
-instance Prelude.NFData SendTemplatedEmailResponse
+instance Core.NFData SendTemplatedEmailResponse

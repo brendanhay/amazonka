@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Inspector.DescribeCrossAccountAccessRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data DescribeCrossAccountAccessRole = DescribeCrossAccountAccessRole'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCrossAccountAccessRole' with all optional fields omitted.
@@ -62,82 +61,66 @@ newDescribeCrossAccountAccessRole =
   DescribeCrossAccountAccessRole'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeCrossAccountAccessRole
   where
   type
-    Rs DescribeCrossAccountAccessRole =
+    AWSResponse DescribeCrossAccountAccessRole =
       DescribeCrossAccountAccessRoleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeCrossAccountAccessRoleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "roleArn")
-            Prelude.<*> (x Prelude..:> "valid")
-            Prelude.<*> (x Prelude..:> "registeredAt")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "roleArn")
+            Core.<*> (x Core..:> "valid")
+            Core.<*> (x Core..:> "registeredAt")
       )
 
-instance
-  Prelude.Hashable
-    DescribeCrossAccountAccessRole
+instance Core.Hashable DescribeCrossAccountAccessRole
+
+instance Core.NFData DescribeCrossAccountAccessRole
 
 instance
-  Prelude.NFData
-    DescribeCrossAccountAccessRole
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeCrossAccountAccessRole
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.DescribeCrossAccountAccessRole" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.DescribeCrossAccountAccessRole" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeCrossAccountAccessRole
-  where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeCrossAccountAccessRole where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance
-  Prelude.ToPath
-    DescribeCrossAccountAccessRole
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCrossAccountAccessRole where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeCrossAccountAccessRole
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeCrossAccountAccessRole where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeCrossAccountAccessRoleResponse' smart constructor.
 data DescribeCrossAccountAccessRoleResponse = DescribeCrossAccountAccessRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ARN that specifies the IAM role that Amazon Inspector uses to access
     -- your AWS account.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | A Boolean value that specifies whether the IAM role has the necessary
     -- policies attached to enable Amazon Inspector to access your AWS account.
-    valid :: Prelude.Bool,
+    valid :: Core.Bool,
     -- | The date when the cross-account access role was registered.
-    registeredAt :: Prelude.POSIX
+    registeredAt :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCrossAccountAccessRoleResponse' with all optional fields omitted.
@@ -158,13 +141,13 @@ data DescribeCrossAccountAccessRoleResponse = DescribeCrossAccountAccessRoleResp
 -- 'registeredAt', 'describeCrossAccountAccessRoleResponse_registeredAt' - The date when the cross-account access role was registered.
 newDescribeCrossAccountAccessRoleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'valid'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'registeredAt'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   DescribeCrossAccountAccessRoleResponse
 newDescribeCrossAccountAccessRoleResponse
   pHttpStatus_
@@ -177,28 +160,27 @@ newDescribeCrossAccountAccessRoleResponse
         roleArn = pRoleArn_,
         valid = pValid_,
         registeredAt =
-          Prelude._Time
-            Lens.# pRegisteredAt_
+          Core._Time Lens.# pRegisteredAt_
       }
 
 -- | The response's http status code.
-describeCrossAccountAccessRoleResponse_httpStatus :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Prelude.Int
+describeCrossAccountAccessRoleResponse_httpStatus :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Core.Int
 describeCrossAccountAccessRoleResponse_httpStatus = Lens.lens (\DescribeCrossAccountAccessRoleResponse' {httpStatus} -> httpStatus) (\s@DescribeCrossAccountAccessRoleResponse' {} a -> s {httpStatus = a} :: DescribeCrossAccountAccessRoleResponse)
 
 -- | The ARN that specifies the IAM role that Amazon Inspector uses to access
 -- your AWS account.
-describeCrossAccountAccessRoleResponse_roleArn :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Prelude.Text
+describeCrossAccountAccessRoleResponse_roleArn :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Core.Text
 describeCrossAccountAccessRoleResponse_roleArn = Lens.lens (\DescribeCrossAccountAccessRoleResponse' {roleArn} -> roleArn) (\s@DescribeCrossAccountAccessRoleResponse' {} a -> s {roleArn = a} :: DescribeCrossAccountAccessRoleResponse)
 
 -- | A Boolean value that specifies whether the IAM role has the necessary
 -- policies attached to enable Amazon Inspector to access your AWS account.
-describeCrossAccountAccessRoleResponse_valid :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Prelude.Bool
+describeCrossAccountAccessRoleResponse_valid :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Core.Bool
 describeCrossAccountAccessRoleResponse_valid = Lens.lens (\DescribeCrossAccountAccessRoleResponse' {valid} -> valid) (\s@DescribeCrossAccountAccessRoleResponse' {} a -> s {valid = a} :: DescribeCrossAccountAccessRoleResponse)
 
 -- | The date when the cross-account access role was registered.
-describeCrossAccountAccessRoleResponse_registeredAt :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Prelude.UTCTime
-describeCrossAccountAccessRoleResponse_registeredAt = Lens.lens (\DescribeCrossAccountAccessRoleResponse' {registeredAt} -> registeredAt) (\s@DescribeCrossAccountAccessRoleResponse' {} a -> s {registeredAt = a} :: DescribeCrossAccountAccessRoleResponse) Prelude.. Prelude._Time
+describeCrossAccountAccessRoleResponse_registeredAt :: Lens.Lens' DescribeCrossAccountAccessRoleResponse Core.UTCTime
+describeCrossAccountAccessRoleResponse_registeredAt = Lens.lens (\DescribeCrossAccountAccessRoleResponse' {registeredAt} -> registeredAt) (\s@DescribeCrossAccountAccessRoleResponse' {} a -> s {registeredAt = a} :: DescribeCrossAccountAccessRoleResponse) Core.. Core._Time
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeCrossAccountAccessRoleResponse

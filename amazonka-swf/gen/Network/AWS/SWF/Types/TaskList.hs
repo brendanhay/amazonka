@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.TaskList where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a task list.
 --
 -- /See:/ 'newTaskList' smart constructor.
 data TaskList = TaskList'
   { -- | The name of the task list.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TaskList' with all optional fields omitted.
@@ -43,27 +42,25 @@ data TaskList = TaskList'
 -- 'name', 'taskList_name' - The name of the task list.
 newTaskList ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   TaskList
 newTaskList pName_ = TaskList' {name = pName_}
 
 -- | The name of the task list.
-taskList_name :: Lens.Lens' TaskList Prelude.Text
+taskList_name :: Lens.Lens' TaskList Core.Text
 taskList_name = Lens.lens (\TaskList' {name} -> name) (\s@TaskList' {} a -> s {name = a} :: TaskList)
 
-instance Prelude.FromJSON TaskList where
+instance Core.FromJSON TaskList where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TaskList"
-      (\x -> TaskList' Prelude.<$> (x Prelude..: "name"))
+      (\x -> TaskList' Core.<$> (x Core..: "name"))
 
-instance Prelude.Hashable TaskList
+instance Core.Hashable TaskList
 
-instance Prelude.NFData TaskList
+instance Core.NFData TaskList
 
-instance Prelude.ToJSON TaskList where
+instance Core.ToJSON TaskList where
   toJSON TaskList' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])

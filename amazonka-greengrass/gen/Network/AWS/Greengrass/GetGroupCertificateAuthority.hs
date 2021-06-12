@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,20 +43,20 @@ module Network.AWS.Greengrass.GetGroupCertificateAuthority
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetGroupCertificateAuthority' smart constructor.
 data GetGroupCertificateAuthority = GetGroupCertificateAuthority'
   { -- | The ID of the certificate authority.
-    certificateAuthorityId :: Prelude.Text,
+    certificateAuthorityId :: Core.Text,
     -- | The ID of the Greengrass group.
-    groupId :: Prelude.Text
+    groupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroupCertificateAuthority' with all optional fields omitted.
@@ -72,9 +71,9 @@ data GetGroupCertificateAuthority = GetGroupCertificateAuthority'
 -- 'groupId', 'getGroupCertificateAuthority_groupId' - The ID of the Greengrass group.
 newGetGroupCertificateAuthority ::
   -- | 'certificateAuthorityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'groupId'
-  Prelude.Text ->
+  Core.Text ->
   GetGroupCertificateAuthority
 newGetGroupCertificateAuthority
   pCertificateAuthorityId_
@@ -86,75 +85,65 @@ newGetGroupCertificateAuthority
       }
 
 -- | The ID of the certificate authority.
-getGroupCertificateAuthority_certificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthority Prelude.Text
+getGroupCertificateAuthority_certificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthority Core.Text
 getGroupCertificateAuthority_certificateAuthorityId = Lens.lens (\GetGroupCertificateAuthority' {certificateAuthorityId} -> certificateAuthorityId) (\s@GetGroupCertificateAuthority' {} a -> s {certificateAuthorityId = a} :: GetGroupCertificateAuthority)
 
 -- | The ID of the Greengrass group.
-getGroupCertificateAuthority_groupId :: Lens.Lens' GetGroupCertificateAuthority Prelude.Text
+getGroupCertificateAuthority_groupId :: Lens.Lens' GetGroupCertificateAuthority Core.Text
 getGroupCertificateAuthority_groupId = Lens.lens (\GetGroupCertificateAuthority' {groupId} -> groupId) (\s@GetGroupCertificateAuthority' {} a -> s {groupId = a} :: GetGroupCertificateAuthority)
 
-instance
-  Prelude.AWSRequest
-    GetGroupCertificateAuthority
-  where
+instance Core.AWSRequest GetGroupCertificateAuthority where
   type
-    Rs GetGroupCertificateAuthority =
+    AWSResponse GetGroupCertificateAuthority =
       GetGroupCertificateAuthorityResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetGroupCertificateAuthorityResponse'
-            Prelude.<$> (x Prelude..?> "GroupCertificateAuthorityArn")
-            Prelude.<*> (x Prelude..?> "PemEncodedCertificate")
-            Prelude.<*> (x Prelude..?> "GroupCertificateAuthorityId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GroupCertificateAuthorityArn")
+            Core.<*> (x Core..?> "PemEncodedCertificate")
+            Core.<*> (x Core..?> "GroupCertificateAuthorityId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetGroupCertificateAuthority
+instance Core.Hashable GetGroupCertificateAuthority
 
-instance Prelude.NFData GetGroupCertificateAuthority
+instance Core.NFData GetGroupCertificateAuthority
 
-instance
-  Prelude.ToHeaders
-    GetGroupCertificateAuthority
-  where
+instance Core.ToHeaders GetGroupCertificateAuthority where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetGroupCertificateAuthority where
+instance Core.ToPath GetGroupCertificateAuthority where
   toPath GetGroupCertificateAuthority' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/groups/",
-        Prelude.toBS groupId,
+        Core.toBS groupId,
         "/certificateauthorities/",
-        Prelude.toBS certificateAuthorityId
+        Core.toBS certificateAuthorityId
       ]
 
-instance Prelude.ToQuery GetGroupCertificateAuthority where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetGroupCertificateAuthority where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetGroupCertificateAuthorityResponse' smart constructor.
 data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse'
   { -- | The ARN of the certificate authority for the group.
-    groupCertificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    groupCertificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The PEM encoded certificate for the group.
-    pemEncodedCertificate :: Prelude.Maybe Prelude.Text,
+    pemEncodedCertificate :: Core.Maybe Core.Text,
     -- | The ID of the certificate authority for the group.
-    groupCertificateAuthorityId :: Prelude.Maybe Prelude.Text,
+    groupCertificateAuthorityId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroupCertificateAuthorityResponse' with all optional fields omitted.
@@ -173,35 +162,34 @@ data GetGroupCertificateAuthorityResponse = GetGroupCertificateAuthorityResponse
 -- 'httpStatus', 'getGroupCertificateAuthorityResponse_httpStatus' - The response's http status code.
 newGetGroupCertificateAuthorityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetGroupCertificateAuthorityResponse
 newGetGroupCertificateAuthorityResponse pHttpStatus_ =
   GetGroupCertificateAuthorityResponse'
     { groupCertificateAuthorityArn =
-        Prelude.Nothing,
-      pemEncodedCertificate =
-        Prelude.Nothing,
+        Core.Nothing,
+      pemEncodedCertificate = Core.Nothing,
       groupCertificateAuthorityId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the certificate authority for the group.
-getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn :: Lens.Lens' GetGroupCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn :: Lens.Lens' GetGroupCertificateAuthorityResponse (Core.Maybe Core.Text)
 getGroupCertificateAuthorityResponse_groupCertificateAuthorityArn = Lens.lens (\GetGroupCertificateAuthorityResponse' {groupCertificateAuthorityArn} -> groupCertificateAuthorityArn) (\s@GetGroupCertificateAuthorityResponse' {} a -> s {groupCertificateAuthorityArn = a} :: GetGroupCertificateAuthorityResponse)
 
 -- | The PEM encoded certificate for the group.
-getGroupCertificateAuthorityResponse_pemEncodedCertificate :: Lens.Lens' GetGroupCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateAuthorityResponse_pemEncodedCertificate :: Lens.Lens' GetGroupCertificateAuthorityResponse (Core.Maybe Core.Text)
 getGroupCertificateAuthorityResponse_pemEncodedCertificate = Lens.lens (\GetGroupCertificateAuthorityResponse' {pemEncodedCertificate} -> pemEncodedCertificate) (\s@GetGroupCertificateAuthorityResponse' {} a -> s {pemEncodedCertificate = a} :: GetGroupCertificateAuthorityResponse)
 
 -- | The ID of the certificate authority for the group.
-getGroupCertificateAuthorityResponse_groupCertificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthorityResponse (Prelude.Maybe Prelude.Text)
+getGroupCertificateAuthorityResponse_groupCertificateAuthorityId :: Lens.Lens' GetGroupCertificateAuthorityResponse (Core.Maybe Core.Text)
 getGroupCertificateAuthorityResponse_groupCertificateAuthorityId = Lens.lens (\GetGroupCertificateAuthorityResponse' {groupCertificateAuthorityId} -> groupCertificateAuthorityId) (\s@GetGroupCertificateAuthorityResponse' {} a -> s {groupCertificateAuthorityId = a} :: GetGroupCertificateAuthorityResponse)
 
 -- | The response's http status code.
-getGroupCertificateAuthorityResponse_httpStatus :: Lens.Lens' GetGroupCertificateAuthorityResponse Prelude.Int
+getGroupCertificateAuthorityResponse_httpStatus :: Lens.Lens' GetGroupCertificateAuthorityResponse Core.Int
 getGroupCertificateAuthorityResponse_httpStatus = Lens.lens (\GetGroupCertificateAuthorityResponse' {httpStatus} -> httpStatus) (\s@GetGroupCertificateAuthorityResponse' {} a -> s {httpStatus = a} :: GetGroupCertificateAuthorityResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetGroupCertificateAuthorityResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.SetDimension where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.DimensionType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the dimension type and values for a segment dimension.
 --
@@ -32,13 +31,13 @@ data SetDimension = SetDimension'
     -- endpoints that match the criteria are included in the segment; and,
     -- EXCLUSIVE, endpoints that match the criteria are excluded from the
     -- segment.
-    dimensionType :: Prelude.Maybe DimensionType,
+    dimensionType :: Core.Maybe DimensionType,
     -- | The criteria values to use for the segment dimension. Depending on the
     -- value of the DimensionType property, endpoints are included or excluded
     -- from the segment if their values match the criteria values.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetDimension' with all optional fields omitted.
@@ -60,43 +59,42 @@ newSetDimension ::
   SetDimension
 newSetDimension =
   SetDimension'
-    { dimensionType = Prelude.Nothing,
-      values = Prelude.mempty
+    { dimensionType = Core.Nothing,
+      values = Core.mempty
     }
 
 -- | The type of segment dimension to use. Valid values are: INCLUSIVE,
 -- endpoints that match the criteria are included in the segment; and,
 -- EXCLUSIVE, endpoints that match the criteria are excluded from the
 -- segment.
-setDimension_dimensionType :: Lens.Lens' SetDimension (Prelude.Maybe DimensionType)
+setDimension_dimensionType :: Lens.Lens' SetDimension (Core.Maybe DimensionType)
 setDimension_dimensionType = Lens.lens (\SetDimension' {dimensionType} -> dimensionType) (\s@SetDimension' {} a -> s {dimensionType = a} :: SetDimension)
 
 -- | The criteria values to use for the segment dimension. Depending on the
 -- value of the DimensionType property, endpoints are included or excluded
 -- from the segment if their values match the criteria values.
-setDimension_values :: Lens.Lens' SetDimension [Prelude.Text]
-setDimension_values = Lens.lens (\SetDimension' {values} -> values) (\s@SetDimension' {} a -> s {values = a} :: SetDimension) Prelude.. Prelude._Coerce
+setDimension_values :: Lens.Lens' SetDimension [Core.Text]
+setDimension_values = Lens.lens (\SetDimension' {values} -> values) (\s@SetDimension' {} a -> s {values = a} :: SetDimension) Core.. Lens._Coerce
 
-instance Prelude.FromJSON SetDimension where
+instance Core.FromJSON SetDimension where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SetDimension"
       ( \x ->
           SetDimension'
-            Prelude.<$> (x Prelude..:? "DimensionType")
-            Prelude.<*> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "DimensionType")
+            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable SetDimension
+instance Core.Hashable SetDimension
 
-instance Prelude.NFData SetDimension
+instance Core.NFData SetDimension
 
-instance Prelude.ToJSON SetDimension where
+instance Core.ToJSON SetDimension where
   toJSON SetDimension' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DimensionType" Prelude..=)
-              Prelude.<$> dimensionType,
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ ("DimensionType" Core..=) Core.<$> dimensionType,
+            Core.Just ("Values" Core..= values)
           ]
       )

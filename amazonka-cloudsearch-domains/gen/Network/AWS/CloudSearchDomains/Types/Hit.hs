@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearchDomains.Types.Hit where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a document that matches the search request.
 --
 -- /See:/ 'newHit' smart constructor.
 data Hit = Hit'
   { -- | The document ID of a document that matches the search request.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The expressions returned from a document that matches the search
     -- request.
-    exprs :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    exprs :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The fields returned from a document that matches the search request.
-    fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    fields :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The highlights returned from a document that matches the search request.
-    highlights :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    highlights :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Hit' with all optional fields omitted.
@@ -59,43 +58,41 @@ newHit ::
   Hit
 newHit =
   Hit'
-    { id = Prelude.Nothing,
-      exprs = Prelude.Nothing,
-      fields = Prelude.Nothing,
-      highlights = Prelude.Nothing
+    { id = Core.Nothing,
+      exprs = Core.Nothing,
+      fields = Core.Nothing,
+      highlights = Core.Nothing
     }
 
 -- | The document ID of a document that matches the search request.
-hit_id :: Lens.Lens' Hit (Prelude.Maybe Prelude.Text)
+hit_id :: Lens.Lens' Hit (Core.Maybe Core.Text)
 hit_id = Lens.lens (\Hit' {id} -> id) (\s@Hit' {} a -> s {id = a} :: Hit)
 
 -- | The expressions returned from a document that matches the search
 -- request.
-hit_exprs :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hit_exprs = Lens.lens (\Hit' {exprs} -> exprs) (\s@Hit' {} a -> s {exprs = a} :: Hit) Prelude.. Lens.mapping Prelude._Coerce
+hit_exprs :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Core.Text Core.Text))
+hit_exprs = Lens.lens (\Hit' {exprs} -> exprs) (\s@Hit' {} a -> s {exprs = a} :: Hit) Core.. Lens.mapping Lens._Coerce
 
 -- | The fields returned from a document that matches the search request.
-hit_fields :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-hit_fields = Lens.lens (\Hit' {fields} -> fields) (\s@Hit' {} a -> s {fields = a} :: Hit) Prelude.. Lens.mapping Prelude._Coerce
+hit_fields :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+hit_fields = Lens.lens (\Hit' {fields} -> fields) (\s@Hit' {} a -> s {fields = a} :: Hit) Core.. Lens.mapping Lens._Coerce
 
 -- | The highlights returned from a document that matches the search request.
-hit_highlights :: Lens.Lens' Hit (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hit_highlights = Lens.lens (\Hit' {highlights} -> highlights) (\s@Hit' {} a -> s {highlights = a} :: Hit) Prelude.. Lens.mapping Prelude._Coerce
+hit_highlights :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Core.Text Core.Text))
+hit_highlights = Lens.lens (\Hit' {highlights} -> highlights) (\s@Hit' {} a -> s {highlights = a} :: Hit) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Hit where
+instance Core.FromJSON Hit where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Hit"
       ( \x ->
           Hit'
-            Prelude.<$> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "exprs" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "fields" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "highlights"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "id")
+            Core.<*> (x Core..:? "exprs" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "fields" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "highlights" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Hit
+instance Core.Hashable Hit
 
-instance Prelude.NFData Hit
+instance Core.NFData Hit

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.SMS.TerminateApp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -48,9 +47,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newTerminateApp' smart constructor.
 data TerminateApp = TerminateApp'
   { -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    appId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateApp' with all optional fields omitted.
@@ -63,61 +62,56 @@ data TerminateApp = TerminateApp'
 -- 'appId', 'terminateApp_appId' - The ID of the application.
 newTerminateApp ::
   TerminateApp
-newTerminateApp =
-  TerminateApp' {appId = Prelude.Nothing}
+newTerminateApp = TerminateApp' {appId = Core.Nothing}
 
 -- | The ID of the application.
-terminateApp_appId :: Lens.Lens' TerminateApp (Prelude.Maybe Prelude.Text)
+terminateApp_appId :: Lens.Lens' TerminateApp (Core.Maybe Core.Text)
 terminateApp_appId = Lens.lens (\TerminateApp' {appId} -> appId) (\s@TerminateApp' {} a -> s {appId = a} :: TerminateApp)
 
-instance Prelude.AWSRequest TerminateApp where
-  type Rs TerminateApp = TerminateAppResponse
+instance Core.AWSRequest TerminateApp where
+  type AWSResponse TerminateApp = TerminateAppResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           TerminateAppResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TerminateApp
+instance Core.Hashable TerminateApp
 
-instance Prelude.NFData TerminateApp
+instance Core.NFData TerminateApp
 
-instance Prelude.ToHeaders TerminateApp where
+instance Core.ToHeaders TerminateApp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.TerminateApp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.TerminateApp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TerminateApp where
+instance Core.ToJSON TerminateApp where
   toJSON TerminateApp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("appId" Prelude..=) Prelude.<$> appId]
-      )
+    Core.object
+      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
 
-instance Prelude.ToPath TerminateApp where
-  toPath = Prelude.const "/"
+instance Core.ToPath TerminateApp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TerminateApp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TerminateApp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTerminateAppResponse' smart constructor.
 data TerminateAppResponse = TerminateAppResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateAppResponse' with all optional fields omitted.
@@ -130,13 +124,13 @@ data TerminateAppResponse = TerminateAppResponse'
 -- 'httpStatus', 'terminateAppResponse_httpStatus' - The response's http status code.
 newTerminateAppResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TerminateAppResponse
 newTerminateAppResponse pHttpStatus_ =
   TerminateAppResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-terminateAppResponse_httpStatus :: Lens.Lens' TerminateAppResponse Prelude.Int
+terminateAppResponse_httpStatus :: Lens.Lens' TerminateAppResponse Core.Int
 terminateAppResponse_httpStatus = Lens.lens (\TerminateAppResponse' {httpStatus} -> httpStatus) (\s@TerminateAppResponse' {} a -> s {httpStatus = a} :: TerminateAppResponse)
 
-instance Prelude.NFData TerminateAppResponse
+instance Core.NFData TerminateAppResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.ComplianceSummary where
 
 import Network.AWS.Config.Types.ComplianceContributorCount
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of AWS Config rules or AWS resources that are compliant and
 -- noncompliant.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newComplianceSummary' smart constructor.
 data ComplianceSummary = ComplianceSummary'
   { -- | The time that AWS Config created the compliance summary.
-    complianceSummaryTimestamp :: Prelude.Maybe Prelude.POSIX,
+    complianceSummaryTimestamp :: Core.Maybe Core.POSIX,
     -- | The number of AWS Config rules or AWS resources that are noncompliant,
     -- up to a maximum of 25 for rules and 100 for resources.
-    nonCompliantResourceCount :: Prelude.Maybe ComplianceContributorCount,
+    nonCompliantResourceCount :: Core.Maybe ComplianceContributorCount,
     -- | The number of AWS Config rules or AWS resources that are compliant, up
     -- to a maximum of 25 for rules and 100 for resources.
-    compliantResourceCount :: Prelude.Maybe ComplianceContributorCount
+    compliantResourceCount :: Core.Maybe ComplianceContributorCount
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComplianceSummary' with all optional fields omitted.
@@ -60,36 +59,36 @@ newComplianceSummary ::
 newComplianceSummary =
   ComplianceSummary'
     { complianceSummaryTimestamp =
-        Prelude.Nothing,
-      nonCompliantResourceCount = Prelude.Nothing,
-      compliantResourceCount = Prelude.Nothing
+        Core.Nothing,
+      nonCompliantResourceCount = Core.Nothing,
+      compliantResourceCount = Core.Nothing
     }
 
 -- | The time that AWS Config created the compliance summary.
-complianceSummary_complianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Prelude.Maybe Prelude.UTCTime)
-complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Prelude.. Lens.mapping Prelude._Time
+complianceSummary_complianceSummaryTimestamp :: Lens.Lens' ComplianceSummary (Core.Maybe Core.UTCTime)
+complianceSummary_complianceSummaryTimestamp = Lens.lens (\ComplianceSummary' {complianceSummaryTimestamp} -> complianceSummaryTimestamp) (\s@ComplianceSummary' {} a -> s {complianceSummaryTimestamp = a} :: ComplianceSummary) Core.. Lens.mapping Core._Time
 
 -- | The number of AWS Config rules or AWS resources that are noncompliant,
 -- up to a maximum of 25 for rules and 100 for resources.
-complianceSummary_nonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
+complianceSummary_nonCompliantResourceCount :: Lens.Lens' ComplianceSummary (Core.Maybe ComplianceContributorCount)
 complianceSummary_nonCompliantResourceCount = Lens.lens (\ComplianceSummary' {nonCompliantResourceCount} -> nonCompliantResourceCount) (\s@ComplianceSummary' {} a -> s {nonCompliantResourceCount = a} :: ComplianceSummary)
 
 -- | The number of AWS Config rules or AWS resources that are compliant, up
 -- to a maximum of 25 for rules and 100 for resources.
-complianceSummary_compliantResourceCount :: Lens.Lens' ComplianceSummary (Prelude.Maybe ComplianceContributorCount)
+complianceSummary_compliantResourceCount :: Lens.Lens' ComplianceSummary (Core.Maybe ComplianceContributorCount)
 complianceSummary_compliantResourceCount = Lens.lens (\ComplianceSummary' {compliantResourceCount} -> compliantResourceCount) (\s@ComplianceSummary' {} a -> s {compliantResourceCount = a} :: ComplianceSummary)
 
-instance Prelude.FromJSON ComplianceSummary where
+instance Core.FromJSON ComplianceSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComplianceSummary"
       ( \x ->
           ComplianceSummary'
-            Prelude.<$> (x Prelude..:? "ComplianceSummaryTimestamp")
-            Prelude.<*> (x Prelude..:? "NonCompliantResourceCount")
-            Prelude.<*> (x Prelude..:? "CompliantResourceCount")
+            Core.<$> (x Core..:? "ComplianceSummaryTimestamp")
+            Core.<*> (x Core..:? "NonCompliantResourceCount")
+            Core.<*> (x Core..:? "CompliantResourceCount")
       )
 
-instance Prelude.Hashable ComplianceSummary
+instance Core.Hashable ComplianceSummary
 
-instance Prelude.NFData ComplianceSummary
+instance Core.NFData ComplianceSummary

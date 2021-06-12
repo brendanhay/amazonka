@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SDB.Types.ReplaceableAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data ReplaceableAttribute = ReplaceableAttribute'
   { -- | A flag specifying whether or not to replace the attribute\/value pair or
     -- to add a new attribute\/value pair. The default setting is @false@.
-    replace :: Prelude.Maybe Prelude.Bool,
+    replace :: Core.Maybe Core.Bool,
     -- | The name of the replaceable attribute.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The value of the replaceable attribute.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceableAttribute' with all optional fields omitted.
@@ -53,38 +52,38 @@ data ReplaceableAttribute = ReplaceableAttribute'
 -- 'value', 'replaceableAttribute_value' - The value of the replaceable attribute.
 newReplaceableAttribute ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   ReplaceableAttribute
 newReplaceableAttribute pName_ pValue_ =
   ReplaceableAttribute'
-    { replace = Prelude.Nothing,
+    { replace = Core.Nothing,
       name = pName_,
       value = pValue_
     }
 
 -- | A flag specifying whether or not to replace the attribute\/value pair or
 -- to add a new attribute\/value pair. The default setting is @false@.
-replaceableAttribute_replace :: Lens.Lens' ReplaceableAttribute (Prelude.Maybe Prelude.Bool)
+replaceableAttribute_replace :: Lens.Lens' ReplaceableAttribute (Core.Maybe Core.Bool)
 replaceableAttribute_replace = Lens.lens (\ReplaceableAttribute' {replace} -> replace) (\s@ReplaceableAttribute' {} a -> s {replace = a} :: ReplaceableAttribute)
 
 -- | The name of the replaceable attribute.
-replaceableAttribute_name :: Lens.Lens' ReplaceableAttribute Prelude.Text
+replaceableAttribute_name :: Lens.Lens' ReplaceableAttribute Core.Text
 replaceableAttribute_name = Lens.lens (\ReplaceableAttribute' {name} -> name) (\s@ReplaceableAttribute' {} a -> s {name = a} :: ReplaceableAttribute)
 
 -- | The value of the replaceable attribute.
-replaceableAttribute_value :: Lens.Lens' ReplaceableAttribute Prelude.Text
+replaceableAttribute_value :: Lens.Lens' ReplaceableAttribute Core.Text
 replaceableAttribute_value = Lens.lens (\ReplaceableAttribute' {value} -> value) (\s@ReplaceableAttribute' {} a -> s {value = a} :: ReplaceableAttribute)
 
-instance Prelude.Hashable ReplaceableAttribute
+instance Core.Hashable ReplaceableAttribute
 
-instance Prelude.NFData ReplaceableAttribute
+instance Core.NFData ReplaceableAttribute
 
-instance Prelude.ToQuery ReplaceableAttribute where
+instance Core.ToQuery ReplaceableAttribute where
   toQuery ReplaceableAttribute' {..} =
-    Prelude.mconcat
-      [ "Replace" Prelude.=: replace,
-        "Name" Prelude.=: name,
-        "Value" Prelude.=: value
+    Core.mconcat
+      [ "Replace" Core.=: replace,
+        "Name" Core.=: name,
+        "Value" Core.=: value
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,21 +42,21 @@ module Network.AWS.Connect.UpdateQueueOutboundCallerConfig
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQueueOutboundCallerConfig' smart constructor.
 data UpdateQueueOutboundCallerConfig = UpdateQueueOutboundCallerConfig'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the queue.
-    queueId :: Prelude.Text,
+    queueId :: Core.Text,
     -- | The outbound caller ID name, number, and outbound whisper flow.
     outboundCallerConfig :: OutboundCallerConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueOutboundCallerConfig' with all optional fields omitted.
@@ -74,9 +73,9 @@ data UpdateQueueOutboundCallerConfig = UpdateQueueOutboundCallerConfig'
 -- 'outboundCallerConfig', 'updateQueueOutboundCallerConfig_outboundCallerConfig' - The outbound caller ID name, number, and outbound whisper flow.
 newUpdateQueueOutboundCallerConfig ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'outboundCallerConfig'
   OutboundCallerConfig ->
   UpdateQueueOutboundCallerConfig
@@ -93,11 +92,11 @@ newUpdateQueueOutboundCallerConfig
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateQueueOutboundCallerConfig_instanceId :: Lens.Lens' UpdateQueueOutboundCallerConfig Prelude.Text
+updateQueueOutboundCallerConfig_instanceId :: Lens.Lens' UpdateQueueOutboundCallerConfig Core.Text
 updateQueueOutboundCallerConfig_instanceId = Lens.lens (\UpdateQueueOutboundCallerConfig' {instanceId} -> instanceId) (\s@UpdateQueueOutboundCallerConfig' {} a -> s {instanceId = a} :: UpdateQueueOutboundCallerConfig)
 
 -- | The identifier for the queue.
-updateQueueOutboundCallerConfig_queueId :: Lens.Lens' UpdateQueueOutboundCallerConfig Prelude.Text
+updateQueueOutboundCallerConfig_queueId :: Lens.Lens' UpdateQueueOutboundCallerConfig Core.Text
 updateQueueOutboundCallerConfig_queueId = Lens.lens (\UpdateQueueOutboundCallerConfig' {queueId} -> queueId) (\s@UpdateQueueOutboundCallerConfig' {} a -> s {queueId = a} :: UpdateQueueOutboundCallerConfig)
 
 -- | The outbound caller ID name, number, and outbound whisper flow.
@@ -105,11 +104,11 @@ updateQueueOutboundCallerConfig_outboundCallerConfig :: Lens.Lens' UpdateQueueOu
 updateQueueOutboundCallerConfig_outboundCallerConfig = Lens.lens (\UpdateQueueOutboundCallerConfig' {outboundCallerConfig} -> outboundCallerConfig) (\s@UpdateQueueOutboundCallerConfig' {} a -> s {outboundCallerConfig = a} :: UpdateQueueOutboundCallerConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateQueueOutboundCallerConfig
   where
   type
-    Rs UpdateQueueOutboundCallerConfig =
+    AWSResponse UpdateQueueOutboundCallerConfig =
       UpdateQueueOutboundCallerConfigResponse
   request = Request.postJSON defaultService
   response =
@@ -117,65 +116,52 @@ instance
       UpdateQueueOutboundCallerConfigResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateQueueOutboundCallerConfig
 
-instance
-  Prelude.NFData
-    UpdateQueueOutboundCallerConfig
+instance Core.NFData UpdateQueueOutboundCallerConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateQueueOutboundCallerConfig
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateQueueOutboundCallerConfig
-  where
+instance Core.ToJSON UpdateQueueOutboundCallerConfig where
   toJSON UpdateQueueOutboundCallerConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "OutboundCallerConfig"
-                  Prelude..= outboundCallerConfig
+                  Core..= outboundCallerConfig
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateQueueOutboundCallerConfig
-  where
+instance Core.ToPath UpdateQueueOutboundCallerConfig where
   toPath UpdateQueueOutboundCallerConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/queues/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS queueId,
+        Core.toBS queueId,
         "/outbound-caller-config"
       ]
 
-instance
-  Prelude.ToQuery
-    UpdateQueueOutboundCallerConfig
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateQueueOutboundCallerConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateQueueOutboundCallerConfigResponse' smart constructor.
 data UpdateQueueOutboundCallerConfigResponse = UpdateQueueOutboundCallerConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQueueOutboundCallerConfigResponse' with all optional fields omitted.
@@ -187,5 +173,5 @@ newUpdateQueueOutboundCallerConfigResponse =
   UpdateQueueOutboundCallerConfigResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateQueueOutboundCallerConfigResponse

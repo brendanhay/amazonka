@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.Owner where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the owner of the bucket.
 --
@@ -30,9 +29,9 @@ data Owner = Owner'
   { -- | The canonical user ID of the bucket owner. For information about
     -- locating your canonical user ID see
     -- <https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.>
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Owner' with all optional fields omitted.
@@ -47,20 +46,20 @@ data Owner = Owner'
 -- <https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.>
 newOwner ::
   Owner
-newOwner = Owner' {id = Prelude.Nothing}
+newOwner = Owner' {id = Core.Nothing}
 
 -- | The canonical user ID of the bucket owner. For information about
 -- locating your canonical user ID see
 -- <https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId Finding Your Account Canonical User ID.>
-owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
+owner_id :: Lens.Lens' Owner (Core.Maybe Core.Text)
 owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
 
-instance Prelude.FromJSON Owner where
+instance Core.FromJSON Owner where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Owner"
-      (\x -> Owner' Prelude.<$> (x Prelude..:? "id"))
+      (\x -> Owner' Core.<$> (x Core..:? "id"))
 
-instance Prelude.Hashable Owner
+instance Core.Hashable Owner
 
-instance Prelude.NFData Owner
+instance Core.NFData Owner

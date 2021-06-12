@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,18 +42,18 @@ module Network.AWS.DAX.DeleteSubnetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSubnetGroup' smart constructor.
 data DeleteSubnetGroup = DeleteSubnetGroup'
   { -- | The name of the subnet group to delete.
-    subnetGroupName :: Prelude.Text
+    subnetGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSubnetGroup' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteSubnetGroup = DeleteSubnetGroup'
 -- 'subnetGroupName', 'deleteSubnetGroup_subnetGroupName' - The name of the subnet group to delete.
 newDeleteSubnetGroup ::
   -- | 'subnetGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSubnetGroup
 newDeleteSubnetGroup pSubnetGroupName_ =
   DeleteSubnetGroup'
@@ -76,63 +75,61 @@ newDeleteSubnetGroup pSubnetGroupName_ =
     }
 
 -- | The name of the subnet group to delete.
-deleteSubnetGroup_subnetGroupName :: Lens.Lens' DeleteSubnetGroup Prelude.Text
+deleteSubnetGroup_subnetGroupName :: Lens.Lens' DeleteSubnetGroup Core.Text
 deleteSubnetGroup_subnetGroupName = Lens.lens (\DeleteSubnetGroup' {subnetGroupName} -> subnetGroupName) (\s@DeleteSubnetGroup' {} a -> s {subnetGroupName = a} :: DeleteSubnetGroup)
 
-instance Prelude.AWSRequest DeleteSubnetGroup where
-  type Rs DeleteSubnetGroup = DeleteSubnetGroupResponse
+instance Core.AWSRequest DeleteSubnetGroup where
+  type
+    AWSResponse DeleteSubnetGroup =
+      DeleteSubnetGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSubnetGroupResponse'
-            Prelude.<$> (x Prelude..?> "DeletionMessage")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DeletionMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSubnetGroup
+instance Core.Hashable DeleteSubnetGroup
 
-instance Prelude.NFData DeleteSubnetGroup
+instance Core.NFData DeleteSubnetGroup
 
-instance Prelude.ToHeaders DeleteSubnetGroup where
+instance Core.ToHeaders DeleteSubnetGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDAXV3.DeleteSubnetGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonDAXV3.DeleteSubnetGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteSubnetGroup where
+instance Core.ToJSON DeleteSubnetGroup where
   toJSON DeleteSubnetGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("SubnetGroupName" Prelude..= subnetGroupName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SubnetGroupName" Core..= subnetGroupName)
           ]
       )
 
-instance Prelude.ToPath DeleteSubnetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSubnetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSubnetGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSubnetGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteSubnetGroupResponse' smart constructor.
 data DeleteSubnetGroupResponse = DeleteSubnetGroupResponse'
   { -- | A user-specified message for this action (i.e., a reason for deleting
     -- the subnet group).
-    deletionMessage :: Prelude.Maybe Prelude.Text,
+    deletionMessage :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSubnetGroupResponse' with all optional fields omitted.
@@ -148,22 +145,22 @@ data DeleteSubnetGroupResponse = DeleteSubnetGroupResponse'
 -- 'httpStatus', 'deleteSubnetGroupResponse_httpStatus' - The response's http status code.
 newDeleteSubnetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSubnetGroupResponse
 newDeleteSubnetGroupResponse pHttpStatus_ =
   DeleteSubnetGroupResponse'
     { deletionMessage =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-specified message for this action (i.e., a reason for deleting
 -- the subnet group).
-deleteSubnetGroupResponse_deletionMessage :: Lens.Lens' DeleteSubnetGroupResponse (Prelude.Maybe Prelude.Text)
+deleteSubnetGroupResponse_deletionMessage :: Lens.Lens' DeleteSubnetGroupResponse (Core.Maybe Core.Text)
 deleteSubnetGroupResponse_deletionMessage = Lens.lens (\DeleteSubnetGroupResponse' {deletionMessage} -> deletionMessage) (\s@DeleteSubnetGroupResponse' {} a -> s {deletionMessage = a} :: DeleteSubnetGroupResponse)
 
 -- | The response's http status code.
-deleteSubnetGroupResponse_httpStatus :: Lens.Lens' DeleteSubnetGroupResponse Prelude.Int
+deleteSubnetGroupResponse_httpStatus :: Lens.Lens' DeleteSubnetGroupResponse Core.Int
 deleteSubnetGroupResponse_httpStatus = Lens.lens (\DeleteSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteSubnetGroupResponse' {} a -> s {httpStatus = a} :: DeleteSubnetGroupResponse)
 
-instance Prelude.NFData DeleteSubnetGroupResponse
+instance Core.NFData DeleteSubnetGroupResponse

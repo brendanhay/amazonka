@@ -1,5 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DerivingStrategies #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -28,7 +28,7 @@ module Network.AWS.ElasticSearch.Types.LogType
   )
 where
 
-import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Core as Core
 
 -- | Type of Log File, it can be one of the following:
 --
@@ -41,32 +41,29 @@ import qualified Network.AWS.Prelude as Prelude
 --     the service and can be useful for troubleshooting.
 -- -   AUDIT_LOGS: Audit logs contain records of user requests for access
 --     from the domain.
-newtype LogType = LogType'
-  { fromLogType ::
-      Prelude.Text
-  }
-  deriving
-    ( Prelude.Show,
-      Prelude.Read,
-      Prelude.Eq,
-      Prelude.Ord,
-      Prelude.Data,
-      Prelude.Typeable,
-      Prelude.Generic,
-      Prelude.Hashable,
-      Prelude.NFData,
-      Prelude.FromText,
-      Prelude.ToText,
-      Prelude.ToByteString,
-      Prelude.ToLog,
-      Prelude.ToHeader,
-      Prelude.ToQuery,
-      Prelude.FromJSON,
-      Prelude.FromJSONKey,
-      Prelude.ToJSON,
-      Prelude.ToJSONKey,
-      Prelude.FromXML,
-      Prelude.ToXML
+newtype LogType = LogType' {fromLogType :: Core.Text}
+  deriving stock
+    ( Core.Show,
+      Core.Read,
+      Core.Eq,
+      Core.Ord,
+      Core.Generic
+    )
+  deriving newtype
+    ( Core.Hashable,
+      Core.NFData,
+      Core.FromText,
+      Core.ToText,
+      Core.ToByteString,
+      Core.ToLog,
+      Core.ToHeader,
+      Core.ToQuery,
+      Core.FromJSON,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.ToJSONKey,
+      Core.FromXML,
+      Core.ToXML
     )
 
 pattern LogType_AUDIT_LOGS :: LogType

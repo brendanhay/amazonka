@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.CompatibleImage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A JSON-formatted object that describes a compatible Amazon Machine Image
 -- (AMI), including the ID and name for a Snow device AMI. This AMI is
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCompatibleImage' smart constructor.
 data CompatibleImage = CompatibleImage'
   { -- | The unique identifier for an individual Snow device AMI.
-    amiId :: Prelude.Maybe Prelude.Text,
+    amiId :: Core.Maybe Core.Text,
     -- | The optional name of a compatible image.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompatibleImage' with all optional fields omitted.
@@ -52,28 +51,27 @@ newCompatibleImage ::
   CompatibleImage
 newCompatibleImage =
   CompatibleImage'
-    { amiId = Prelude.Nothing,
-      name = Prelude.Nothing
+    { amiId = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The unique identifier for an individual Snow device AMI.
-compatibleImage_amiId :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
+compatibleImage_amiId :: Lens.Lens' CompatibleImage (Core.Maybe Core.Text)
 compatibleImage_amiId = Lens.lens (\CompatibleImage' {amiId} -> amiId) (\s@CompatibleImage' {} a -> s {amiId = a} :: CompatibleImage)
 
 -- | The optional name of a compatible image.
-compatibleImage_name :: Lens.Lens' CompatibleImage (Prelude.Maybe Prelude.Text)
+compatibleImage_name :: Lens.Lens' CompatibleImage (Core.Maybe Core.Text)
 compatibleImage_name = Lens.lens (\CompatibleImage' {name} -> name) (\s@CompatibleImage' {} a -> s {name = a} :: CompatibleImage)
 
-instance Prelude.FromJSON CompatibleImage where
+instance Core.FromJSON CompatibleImage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CompatibleImage"
       ( \x ->
           CompatibleImage'
-            Prelude.<$> (x Prelude..:? "AmiId")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "AmiId") Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable CompatibleImage
+instance Core.Hashable CompatibleImage
 
-instance Prelude.NFData CompatibleImage
+instance Core.NFData CompatibleImage

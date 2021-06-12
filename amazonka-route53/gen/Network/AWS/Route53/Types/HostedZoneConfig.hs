@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.HostedZoneConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that contains an optional comment about your hosted zone.
@@ -31,11 +30,11 @@ import Network.AWS.Route53.Internal
 -- /See:/ 'newHostedZoneConfig' smart constructor.
 data HostedZoneConfig = HostedZoneConfig'
   { -- | Any comments that you want to include about the hosted zone.
-    comment :: Prelude.Maybe Prelude.Text,
+    comment :: Core.Maybe Core.Text,
     -- | A value that indicates whether this is a private hosted zone.
-    privateZone :: Prelude.Maybe Prelude.Bool
+    privateZone :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HostedZoneConfig' with all optional fields omitted.
@@ -52,31 +51,31 @@ newHostedZoneConfig ::
   HostedZoneConfig
 newHostedZoneConfig =
   HostedZoneConfig'
-    { comment = Prelude.Nothing,
-      privateZone = Prelude.Nothing
+    { comment = Core.Nothing,
+      privateZone = Core.Nothing
     }
 
 -- | Any comments that you want to include about the hosted zone.
-hostedZoneConfig_comment :: Lens.Lens' HostedZoneConfig (Prelude.Maybe Prelude.Text)
+hostedZoneConfig_comment :: Lens.Lens' HostedZoneConfig (Core.Maybe Core.Text)
 hostedZoneConfig_comment = Lens.lens (\HostedZoneConfig' {comment} -> comment) (\s@HostedZoneConfig' {} a -> s {comment = a} :: HostedZoneConfig)
 
 -- | A value that indicates whether this is a private hosted zone.
-hostedZoneConfig_privateZone :: Lens.Lens' HostedZoneConfig (Prelude.Maybe Prelude.Bool)
+hostedZoneConfig_privateZone :: Lens.Lens' HostedZoneConfig (Core.Maybe Core.Bool)
 hostedZoneConfig_privateZone = Lens.lens (\HostedZoneConfig' {privateZone} -> privateZone) (\s@HostedZoneConfig' {} a -> s {privateZone = a} :: HostedZoneConfig)
 
-instance Prelude.FromXML HostedZoneConfig where
+instance Core.FromXML HostedZoneConfig where
   parseXML x =
     HostedZoneConfig'
-      Prelude.<$> (x Prelude..@? "Comment")
-      Prelude.<*> (x Prelude..@? "PrivateZone")
+      Core.<$> (x Core..@? "Comment")
+      Core.<*> (x Core..@? "PrivateZone")
 
-instance Prelude.Hashable HostedZoneConfig
+instance Core.Hashable HostedZoneConfig
 
-instance Prelude.NFData HostedZoneConfig
+instance Core.NFData HostedZoneConfig
 
-instance Prelude.ToXML HostedZoneConfig where
+instance Core.ToXML HostedZoneConfig where
   toXML HostedZoneConfig' {..} =
-    Prelude.mconcat
-      [ "Comment" Prelude.@= comment,
-        "PrivateZone" Prelude.@= privateZone
+    Core.mconcat
+      [ "Comment" Core.@= comment,
+        "PrivateZone" Core.@= privateZone
       ]

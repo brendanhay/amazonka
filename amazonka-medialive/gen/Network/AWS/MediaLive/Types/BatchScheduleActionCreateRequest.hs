@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.BatchScheduleActionCreateRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleAction
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of schedule actions to create (in a request) or that have been
 -- created (in a response).
@@ -32,7 +31,7 @@ data BatchScheduleActionCreateRequest = BatchScheduleActionCreateRequest'
   { -- | A list of schedule actions to create.
     scheduleActions :: [ScheduleAction]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchScheduleActionCreateRequest' with all optional fields omitted.
@@ -48,29 +47,24 @@ newBatchScheduleActionCreateRequest ::
 newBatchScheduleActionCreateRequest =
   BatchScheduleActionCreateRequest'
     { scheduleActions =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A list of schedule actions to create.
 batchScheduleActionCreateRequest_scheduleActions :: Lens.Lens' BatchScheduleActionCreateRequest [ScheduleAction]
-batchScheduleActionCreateRequest_scheduleActions = Lens.lens (\BatchScheduleActionCreateRequest' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateRequest' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateRequest) Prelude.. Prelude._Coerce
+batchScheduleActionCreateRequest_scheduleActions = Lens.lens (\BatchScheduleActionCreateRequest' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionCreateRequest' {} a -> s {scheduleActions = a} :: BatchScheduleActionCreateRequest) Core.. Lens._Coerce
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchScheduleActionCreateRequest
 
-instance
-  Prelude.NFData
-    BatchScheduleActionCreateRequest
+instance Core.NFData BatchScheduleActionCreateRequest
 
-instance
-  Prelude.ToJSON
-    BatchScheduleActionCreateRequest
-  where
+instance Core.ToJSON BatchScheduleActionCreateRequest where
   toJSON BatchScheduleActionCreateRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("scheduleActions" Prelude..= scheduleActions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("scheduleActions" Core..= scheduleActions)
           ]
       )

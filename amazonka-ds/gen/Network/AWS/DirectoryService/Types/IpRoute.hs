@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.IpRoute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | IP address block. This is often the address block of the DNS server used
 -- for your on-premises domain.
@@ -32,11 +31,11 @@ data IpRoute = IpRoute'
     -- often the address block of the DNS server used for your on-premises
     -- domain. For a single IP address use a CIDR address block with \/32. For
     -- example 10.0.0.0\/32.
-    cidrIp :: Prelude.Maybe Prelude.Text,
+    cidrIp :: Core.Maybe Core.Text,
     -- | Description of the address block.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IpRoute' with all optional fields omitted.
@@ -56,30 +55,30 @@ newIpRoute ::
   IpRoute
 newIpRoute =
   IpRoute'
-    { cidrIp = Prelude.Nothing,
-      description = Prelude.Nothing
+    { cidrIp = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | IP address block using CIDR format, for example 10.0.0.0\/24. This is
 -- often the address block of the DNS server used for your on-premises
 -- domain. For a single IP address use a CIDR address block with \/32. For
 -- example 10.0.0.0\/32.
-ipRoute_cidrIp :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
+ipRoute_cidrIp :: Lens.Lens' IpRoute (Core.Maybe Core.Text)
 ipRoute_cidrIp = Lens.lens (\IpRoute' {cidrIp} -> cidrIp) (\s@IpRoute' {} a -> s {cidrIp = a} :: IpRoute)
 
 -- | Description of the address block.
-ipRoute_description :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)
+ipRoute_description :: Lens.Lens' IpRoute (Core.Maybe Core.Text)
 ipRoute_description = Lens.lens (\IpRoute' {description} -> description) (\s@IpRoute' {} a -> s {description = a} :: IpRoute)
 
-instance Prelude.Hashable IpRoute
+instance Core.Hashable IpRoute
 
-instance Prelude.NFData IpRoute
+instance Core.NFData IpRoute
 
-instance Prelude.ToJSON IpRoute where
+instance Core.ToJSON IpRoute where
   toJSON IpRoute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CidrIp" Prelude..=) Prelude.<$> cidrIp,
-            ("Description" Prelude..=) Prelude.<$> description
+    Core.object
+      ( Core.catMaybes
+          [ ("CidrIp" Core..=) Core.<$> cidrIp,
+            ("Description" Core..=) Core.<$> description
           ]
       )

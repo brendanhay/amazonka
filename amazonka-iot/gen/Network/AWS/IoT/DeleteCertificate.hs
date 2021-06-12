@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IoT.DeleteCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data DeleteCertificate = DeleteCertificate'
   { -- | Forces the deletion of a certificate if it is inactive and is not
     -- attached to an IoT thing.
-    forceDelete :: Prelude.Maybe Prelude.Bool,
+    forceDelete :: Core.Maybe Core.Bool,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Prelude.Text
+    certificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificate' with all optional fields omitted.
@@ -76,52 +75,53 @@ data DeleteCertificate = DeleteCertificate'
 -- contains the certificate ID.)
 newDeleteCertificate ::
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCertificate
 newDeleteCertificate pCertificateId_ =
   DeleteCertificate'
-    { forceDelete = Prelude.Nothing,
+    { forceDelete = Core.Nothing,
       certificateId = pCertificateId_
     }
 
 -- | Forces the deletion of a certificate if it is inactive and is not
 -- attached to an IoT thing.
-deleteCertificate_forceDelete :: Lens.Lens' DeleteCertificate (Prelude.Maybe Prelude.Bool)
+deleteCertificate_forceDelete :: Lens.Lens' DeleteCertificate (Core.Maybe Core.Bool)
 deleteCertificate_forceDelete = Lens.lens (\DeleteCertificate' {forceDelete} -> forceDelete) (\s@DeleteCertificate' {} a -> s {forceDelete = a} :: DeleteCertificate)
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-deleteCertificate_certificateId :: Lens.Lens' DeleteCertificate Prelude.Text
+deleteCertificate_certificateId :: Lens.Lens' DeleteCertificate Core.Text
 deleteCertificate_certificateId = Lens.lens (\DeleteCertificate' {certificateId} -> certificateId) (\s@DeleteCertificate' {} a -> s {certificateId = a} :: DeleteCertificate)
 
-instance Prelude.AWSRequest DeleteCertificate where
-  type Rs DeleteCertificate = DeleteCertificateResponse
+instance Core.AWSRequest DeleteCertificate where
+  type
+    AWSResponse DeleteCertificate =
+      DeleteCertificateResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteCertificateResponse'
 
-instance Prelude.Hashable DeleteCertificate
+instance Core.Hashable DeleteCertificate
 
-instance Prelude.NFData DeleteCertificate
+instance Core.NFData DeleteCertificate
 
-instance Prelude.ToHeaders DeleteCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteCertificate where
+instance Core.ToPath DeleteCertificate where
   toPath DeleteCertificate' {..} =
-    Prelude.mconcat
-      ["/certificates/", Prelude.toBS certificateId]
+    Core.mconcat
+      ["/certificates/", Core.toBS certificateId]
 
-instance Prelude.ToQuery DeleteCertificate where
+instance Core.ToQuery DeleteCertificate where
   toQuery DeleteCertificate' {..} =
-    Prelude.mconcat
-      ["forceDelete" Prelude.=: forceDelete]
+    Core.mconcat ["forceDelete" Core.=: forceDelete]
 
 -- | /See:/ 'newDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificateResponse' with all optional fields omitted.
@@ -132,4 +132,4 @@ newDeleteCertificateResponse ::
 newDeleteCertificateResponse =
   DeleteCertificateResponse'
 
-instance Prelude.NFData DeleteCertificateResponse
+instance Core.NFData DeleteCertificateResponse

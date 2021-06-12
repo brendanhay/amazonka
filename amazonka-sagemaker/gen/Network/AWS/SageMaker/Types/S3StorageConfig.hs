@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.S3StorageConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon Simple Storage (Amazon S3) location and and security
 -- configuration for @OfflineStore@.
@@ -35,16 +34,16 @@ data S3StorageConfig = S3StorageConfig'
     -- must have below permissions to the @KmsKeyId@:
     --
     -- -   @\"kms:GenerateDataKey\"@
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The S3 path where offline records are written.
-    resolvedOutputS3Uri :: Prelude.Maybe Prelude.Text,
+    resolvedOutputS3Uri :: Core.Maybe Core.Text,
     -- | The S3 URI, or location in Amazon S3, of @OfflineStore@.
     --
     -- S3 URIs have a format similar to the following:
     -- @s3:\/\/example-bucket\/prefix\/@.
-    s3Uri :: Prelude.Text
+    s3Uri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3StorageConfig' with all optional fields omitted.
@@ -70,12 +69,12 @@ data S3StorageConfig = S3StorageConfig'
 -- @s3:\/\/example-bucket\/prefix\/@.
 newS3StorageConfig ::
   -- | 's3Uri'
-  Prelude.Text ->
+  Core.Text ->
   S3StorageConfig
 newS3StorageConfig pS3Uri_ =
   S3StorageConfig'
-    { kmsKeyId = Prelude.Nothing,
-      resolvedOutputS3Uri = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
+      resolvedOutputS3Uri = Core.Nothing,
       s3Uri = pS3Uri_
     }
 
@@ -86,42 +85,42 @@ newS3StorageConfig pS3Uri_ =
 -- must have below permissions to the @KmsKeyId@:
 --
 -- -   @\"kms:GenerateDataKey\"@
-s3StorageConfig_kmsKeyId :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
+s3StorageConfig_kmsKeyId :: Lens.Lens' S3StorageConfig (Core.Maybe Core.Text)
 s3StorageConfig_kmsKeyId = Lens.lens (\S3StorageConfig' {kmsKeyId} -> kmsKeyId) (\s@S3StorageConfig' {} a -> s {kmsKeyId = a} :: S3StorageConfig)
 
 -- | The S3 path where offline records are written.
-s3StorageConfig_resolvedOutputS3Uri :: Lens.Lens' S3StorageConfig (Prelude.Maybe Prelude.Text)
+s3StorageConfig_resolvedOutputS3Uri :: Lens.Lens' S3StorageConfig (Core.Maybe Core.Text)
 s3StorageConfig_resolvedOutputS3Uri = Lens.lens (\S3StorageConfig' {resolvedOutputS3Uri} -> resolvedOutputS3Uri) (\s@S3StorageConfig' {} a -> s {resolvedOutputS3Uri = a} :: S3StorageConfig)
 
 -- | The S3 URI, or location in Amazon S3, of @OfflineStore@.
 --
 -- S3 URIs have a format similar to the following:
 -- @s3:\/\/example-bucket\/prefix\/@.
-s3StorageConfig_s3Uri :: Lens.Lens' S3StorageConfig Prelude.Text
+s3StorageConfig_s3Uri :: Lens.Lens' S3StorageConfig Core.Text
 s3StorageConfig_s3Uri = Lens.lens (\S3StorageConfig' {s3Uri} -> s3Uri) (\s@S3StorageConfig' {} a -> s {s3Uri = a} :: S3StorageConfig)
 
-instance Prelude.FromJSON S3StorageConfig where
+instance Core.FromJSON S3StorageConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3StorageConfig"
       ( \x ->
           S3StorageConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..:? "ResolvedOutputS3Uri")
-            Prelude.<*> (x Prelude..: "S3Uri")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..:? "ResolvedOutputS3Uri")
+            Core.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable S3StorageConfig
+instance Core.Hashable S3StorageConfig
 
-instance Prelude.NFData S3StorageConfig
+instance Core.NFData S3StorageConfig
 
-instance Prelude.ToJSON S3StorageConfig where
+instance Core.ToJSON S3StorageConfig where
   toJSON S3StorageConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            ("ResolvedOutputS3Uri" Prelude..=)
-              Prelude.<$> resolvedOutputS3Uri,
-            Prelude.Just ("S3Uri" Prelude..= s3Uri)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("ResolvedOutputS3Uri" Core..=)
+              Core.<$> resolvedOutputS3Uri,
+            Core.Just ("S3Uri" Core..= s3Uri)
           ]
       )

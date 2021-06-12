@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides output results configuration parameters for custom classifier
 -- jobs.
@@ -41,7 +40,7 @@ data DocumentClassifierOutputDataConfig = DocumentClassifierOutputDataConfig'
     --
     -- -   ARN of a KMS Key Alias:
     --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | When you use the @OutputDataConfig@ object while creating a custom
     -- classifier, you specify the Amazon S3 location where you want to write
     -- the confusion matrix. The URI must be in the same region as the API
@@ -52,9 +51,9 @@ data DocumentClassifierOutputDataConfig = DocumentClassifierOutputDataConfig'
     -- output file in a directory specific to the job. The @S3Uri@ field
     -- contains the location of the output file, called @output.tar.gz@. It is
     -- a compressed archive that contains the confusion matrix.
-    s3Uri :: Prelude.Maybe Prelude.Text
+    s3Uri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentClassifierOutputDataConfig' with all optional fields omitted.
@@ -93,8 +92,8 @@ newDocumentClassifierOutputDataConfig ::
 newDocumentClassifierOutputDataConfig =
   DocumentClassifierOutputDataConfig'
     { kmsKeyId =
-        Prelude.Nothing,
-      s3Uri = Prelude.Nothing
+        Core.Nothing,
+      s3Uri = Core.Nothing
     }
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -110,7 +109,7 @@ newDocumentClassifierOutputDataConfig =
 --
 -- -   ARN of a KMS Key Alias:
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
-documentClassifierOutputDataConfig_kmsKeyId :: Lens.Lens' DocumentClassifierOutputDataConfig (Prelude.Maybe Prelude.Text)
+documentClassifierOutputDataConfig_kmsKeyId :: Lens.Lens' DocumentClassifierOutputDataConfig (Core.Maybe Core.Text)
 documentClassifierOutputDataConfig_kmsKeyId = Lens.lens (\DocumentClassifierOutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@DocumentClassifierOutputDataConfig' {} a -> s {kmsKeyId = a} :: DocumentClassifierOutputDataConfig)
 
 -- | When you use the @OutputDataConfig@ object while creating a custom
@@ -123,38 +122,38 @@ documentClassifierOutputDataConfig_kmsKeyId = Lens.lens (\DocumentClassifierOutp
 -- output file in a directory specific to the job. The @S3Uri@ field
 -- contains the location of the output file, called @output.tar.gz@. It is
 -- a compressed archive that contains the confusion matrix.
-documentClassifierOutputDataConfig_s3Uri :: Lens.Lens' DocumentClassifierOutputDataConfig (Prelude.Maybe Prelude.Text)
+documentClassifierOutputDataConfig_s3Uri :: Lens.Lens' DocumentClassifierOutputDataConfig (Core.Maybe Core.Text)
 documentClassifierOutputDataConfig_s3Uri = Lens.lens (\DocumentClassifierOutputDataConfig' {s3Uri} -> s3Uri) (\s@DocumentClassifierOutputDataConfig' {} a -> s {s3Uri = a} :: DocumentClassifierOutputDataConfig)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     DocumentClassifierOutputDataConfig
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentClassifierOutputDataConfig"
       ( \x ->
           DocumentClassifierOutputDataConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..:? "S3Uri")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..:? "S3Uri")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DocumentClassifierOutputDataConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     DocumentClassifierOutputDataConfig
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DocumentClassifierOutputDataConfig
   where
   toJSON DocumentClassifierOutputDataConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            ("S3Uri" Prelude..=) Prelude.<$> s3Uri
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("S3Uri" Core..=) Core.<$> s3Uri
           ]
       )

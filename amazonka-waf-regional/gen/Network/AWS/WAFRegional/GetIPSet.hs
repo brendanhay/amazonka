@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WAFRegional.GetIPSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -59,9 +58,9 @@ import Network.AWS.WAFRegional.Types
 data GetIPSet = GetIPSet'
   { -- | The @IPSetId@ of the IPSet that you want to get. @IPSetId@ is returned
     -- by CreateIPSet and by ListIPSets.
-    iPSetId :: Prelude.Text
+    iPSetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIPSet' with all optional fields omitted.
@@ -75,58 +74,56 @@ data GetIPSet = GetIPSet'
 -- by CreateIPSet and by ListIPSets.
 newGetIPSet ::
   -- | 'iPSetId'
-  Prelude.Text ->
+  Core.Text ->
   GetIPSet
 newGetIPSet pIPSetId_ =
   GetIPSet' {iPSetId = pIPSetId_}
 
 -- | The @IPSetId@ of the IPSet that you want to get. @IPSetId@ is returned
 -- by CreateIPSet and by ListIPSets.
-getIPSet_iPSetId :: Lens.Lens' GetIPSet Prelude.Text
+getIPSet_iPSetId :: Lens.Lens' GetIPSet Core.Text
 getIPSet_iPSetId = Lens.lens (\GetIPSet' {iPSetId} -> iPSetId) (\s@GetIPSet' {} a -> s {iPSetId = a} :: GetIPSet)
 
-instance Prelude.AWSRequest GetIPSet where
-  type Rs GetIPSet = GetIPSetResponse
+instance Core.AWSRequest GetIPSet where
+  type AWSResponse GetIPSet = GetIPSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetIPSetResponse'
-            Prelude.<$> (x Prelude..?> "IPSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "IPSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetIPSet
+instance Core.Hashable GetIPSet
 
-instance Prelude.NFData GetIPSet
+instance Core.NFData GetIPSet
 
-instance Prelude.ToHeaders GetIPSet where
+instance Core.ToHeaders GetIPSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.GetIPSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.GetIPSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetIPSet where
+instance Core.ToJSON GetIPSet where
   toJSON GetIPSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("IPSetId" Prelude..= iPSetId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("IPSetId" Core..= iPSetId)]
       )
 
-instance Prelude.ToPath GetIPSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetIPSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetIPSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetIPSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetIPSetResponse' smart constructor.
 data GetIPSetResponse = GetIPSetResponse'
@@ -137,11 +134,11 @@ data GetIPSetResponse = GetIPSetResponse'
     --
     -- -   @IPSetDescriptors@: Contains an array of IPSetDescriptor objects.
     --     Each @IPSetDescriptor@ object contains @Type@ and @Value@
-    iPSet :: Prelude.Maybe IPSet,
+    iPSet :: Core.Maybe IPSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIPSetResponse' with all optional fields omitted.
@@ -162,11 +159,11 @@ data GetIPSetResponse = GetIPSetResponse'
 -- 'httpStatus', 'getIPSetResponse_httpStatus' - The response's http status code.
 newGetIPSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetIPSetResponse
 newGetIPSetResponse pHttpStatus_ =
   GetIPSetResponse'
-    { iPSet = Prelude.Nothing,
+    { iPSet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -177,11 +174,11 @@ newGetIPSetResponse pHttpStatus_ =
 --
 -- -   @IPSetDescriptors@: Contains an array of IPSetDescriptor objects.
 --     Each @IPSetDescriptor@ object contains @Type@ and @Value@
-getIPSetResponse_iPSet :: Lens.Lens' GetIPSetResponse (Prelude.Maybe IPSet)
+getIPSetResponse_iPSet :: Lens.Lens' GetIPSetResponse (Core.Maybe IPSet)
 getIPSetResponse_iPSet = Lens.lens (\GetIPSetResponse' {iPSet} -> iPSet) (\s@GetIPSetResponse' {} a -> s {iPSet = a} :: GetIPSetResponse)
 
 -- | The response's http status code.
-getIPSetResponse_httpStatus :: Lens.Lens' GetIPSetResponse Prelude.Int
+getIPSetResponse_httpStatus :: Lens.Lens' GetIPSetResponse Core.Int
 getIPSetResponse_httpStatus = Lens.lens (\GetIPSetResponse' {httpStatus} -> httpStatus) (\s@GetIPSetResponse' {} a -> s {httpStatus = a} :: GetIPSetResponse)
 
-instance Prelude.NFData GetIPSetResponse
+instance Core.NFData GetIPSetResponse

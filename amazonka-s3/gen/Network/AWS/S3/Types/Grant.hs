@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Grant where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Grantee
 import Network.AWS.S3.Types.Permission
@@ -31,11 +30,11 @@ import Network.AWS.S3.Types.Permission
 -- /See:/ 'newGrant' smart constructor.
 data Grant = Grant'
   { -- | The person being granted permissions.
-    grantee :: Prelude.Maybe Grantee,
+    grantee :: Core.Maybe Grantee,
     -- | Specifies the permission given to the grantee.
-    permission :: Prelude.Maybe Permission
+    permission :: Core.Maybe Permission
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Grant' with all optional fields omitted.
@@ -52,31 +51,31 @@ newGrant ::
   Grant
 newGrant =
   Grant'
-    { grantee = Prelude.Nothing,
-      permission = Prelude.Nothing
+    { grantee = Core.Nothing,
+      permission = Core.Nothing
     }
 
 -- | The person being granted permissions.
-grant_grantee :: Lens.Lens' Grant (Prelude.Maybe Grantee)
+grant_grantee :: Lens.Lens' Grant (Core.Maybe Grantee)
 grant_grantee = Lens.lens (\Grant' {grantee} -> grantee) (\s@Grant' {} a -> s {grantee = a} :: Grant)
 
 -- | Specifies the permission given to the grantee.
-grant_permission :: Lens.Lens' Grant (Prelude.Maybe Permission)
+grant_permission :: Lens.Lens' Grant (Core.Maybe Permission)
 grant_permission = Lens.lens (\Grant' {permission} -> permission) (\s@Grant' {} a -> s {permission = a} :: Grant)
 
-instance Prelude.FromXML Grant where
+instance Core.FromXML Grant where
   parseXML x =
     Grant'
-      Prelude.<$> (x Prelude..@? "Grantee")
-      Prelude.<*> (x Prelude..@? "Permission")
+      Core.<$> (x Core..@? "Grantee")
+      Core.<*> (x Core..@? "Permission")
 
-instance Prelude.Hashable Grant
+instance Core.Hashable Grant
 
-instance Prelude.NFData Grant
+instance Core.NFData Grant
 
-instance Prelude.ToXML Grant where
+instance Core.ToXML Grant where
   toXML Grant' {..} =
-    Prelude.mconcat
-      [ "Grantee" Prelude.@= grantee,
-        "Permission" Prelude.@= permission
+    Core.mconcat
+      [ "Grantee" Core.@= grantee,
+        "Permission" Core.@= permission
       ]

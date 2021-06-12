@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,18 +58,18 @@ module Network.AWS.MechanicalTurk.DeleteHIT
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteHIT' smart constructor.
 data DeleteHIT = DeleteHIT'
   { -- | The ID of the HIT to be deleted.
-    hITId :: Prelude.Text
+    hITId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHIT' with all optional fields omitted.
@@ -83,62 +82,58 @@ data DeleteHIT = DeleteHIT'
 -- 'hITId', 'deleteHIT_hITId' - The ID of the HIT to be deleted.
 newDeleteHIT ::
   -- | 'hITId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteHIT
 newDeleteHIT pHITId_ = DeleteHIT' {hITId = pHITId_}
 
 -- | The ID of the HIT to be deleted.
-deleteHIT_hITId :: Lens.Lens' DeleteHIT Prelude.Text
+deleteHIT_hITId :: Lens.Lens' DeleteHIT Core.Text
 deleteHIT_hITId = Lens.lens (\DeleteHIT' {hITId} -> hITId) (\s@DeleteHIT' {} a -> s {hITId = a} :: DeleteHIT)
 
-instance Prelude.AWSRequest DeleteHIT where
-  type Rs DeleteHIT = DeleteHITResponse
+instance Core.AWSRequest DeleteHIT where
+  type AWSResponse DeleteHIT = DeleteHITResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteHITResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteHIT
+instance Core.Hashable DeleteHIT
 
-instance Prelude.NFData DeleteHIT
+instance Core.NFData DeleteHIT
 
-instance Prelude.ToHeaders DeleteHIT where
+instance Core.ToHeaders DeleteHIT where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.DeleteHIT" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.DeleteHIT" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteHIT where
+instance Core.ToJSON DeleteHIT where
   toJSON DeleteHIT' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("HITId" Prelude..= hITId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("HITId" Core..= hITId)])
 
-instance Prelude.ToPath DeleteHIT where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteHIT where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteHIT where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteHIT where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteHITResponse' smart constructor.
 data DeleteHITResponse = DeleteHITResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHITResponse' with all optional fields omitted.
@@ -151,13 +146,13 @@ data DeleteHITResponse = DeleteHITResponse'
 -- 'httpStatus', 'deleteHITResponse_httpStatus' - The response's http status code.
 newDeleteHITResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteHITResponse
 newDeleteHITResponse pHttpStatus_ =
   DeleteHITResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteHITResponse_httpStatus :: Lens.Lens' DeleteHITResponse Prelude.Int
+deleteHITResponse_httpStatus :: Lens.Lens' DeleteHITResponse Core.Int
 deleteHITResponse_httpStatus = Lens.lens (\DeleteHITResponse' {httpStatus} -> httpStatus) (\s@DeleteHITResponse' {} a -> s {httpStatus = a} :: DeleteHITResponse)
 
-instance Prelude.NFData DeleteHITResponse
+instance Core.NFData DeleteHITResponse

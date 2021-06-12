@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,9 +69,8 @@ module Network.AWS.Config.DescribeComplianceByConfigRule
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,15 +80,15 @@ import qualified Network.AWS.Response as Response
 data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Filters the results by compliance.
     --
     -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
-    complianceTypes :: Prelude.Maybe [ComplianceType],
+    complianceTypes :: Core.Maybe [ComplianceType],
     -- | Specify one or more AWS Config rule names to filter the results by rule.
-    configRuleNames :: Prelude.Maybe [Prelude.Text]
+    configRuleNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeComplianceByConfigRule' with all optional fields omitted.
@@ -113,122 +111,103 @@ newDescribeComplianceByConfigRule ::
 newDescribeComplianceByConfigRule =
   DescribeComplianceByConfigRule'
     { nextToken =
-        Prelude.Nothing,
-      complianceTypes = Prelude.Nothing,
-      configRuleNames = Prelude.Nothing
+        Core.Nothing,
+      complianceTypes = Core.Nothing,
+      configRuleNames = Core.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeComplianceByConfigRule_nextToken :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe Prelude.Text)
+describeComplianceByConfigRule_nextToken :: Lens.Lens' DescribeComplianceByConfigRule (Core.Maybe Core.Text)
 describeComplianceByConfigRule_nextToken = Lens.lens (\DescribeComplianceByConfigRule' {nextToken} -> nextToken) (\s@DescribeComplianceByConfigRule' {} a -> s {nextToken = a} :: DescribeComplianceByConfigRule)
 
 -- | Filters the results by compliance.
 --
 -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
-describeComplianceByConfigRule_complianceTypes :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe [ComplianceType])
-describeComplianceByConfigRule_complianceTypes = Lens.lens (\DescribeComplianceByConfigRule' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByConfigRule' {} a -> s {complianceTypes = a} :: DescribeComplianceByConfigRule) Prelude.. Lens.mapping Prelude._Coerce
+describeComplianceByConfigRule_complianceTypes :: Lens.Lens' DescribeComplianceByConfigRule (Core.Maybe [ComplianceType])
+describeComplianceByConfigRule_complianceTypes = Lens.lens (\DescribeComplianceByConfigRule' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByConfigRule' {} a -> s {complianceTypes = a} :: DescribeComplianceByConfigRule) Core.. Lens.mapping Lens._Coerce
 
 -- | Specify one or more AWS Config rule names to filter the results by rule.
-describeComplianceByConfigRule_configRuleNames :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe [Prelude.Text])
-describeComplianceByConfigRule_configRuleNames = Lens.lens (\DescribeComplianceByConfigRule' {configRuleNames} -> configRuleNames) (\s@DescribeComplianceByConfigRule' {} a -> s {configRuleNames = a} :: DescribeComplianceByConfigRule) Prelude.. Lens.mapping Prelude._Coerce
+describeComplianceByConfigRule_configRuleNames :: Lens.Lens' DescribeComplianceByConfigRule (Core.Maybe [Core.Text])
+describeComplianceByConfigRule_configRuleNames = Lens.lens (\DescribeComplianceByConfigRule' {configRuleNames} -> configRuleNames) (\s@DescribeComplianceByConfigRule' {} a -> s {configRuleNames = a} :: DescribeComplianceByConfigRule) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Pager.AWSPager
-    DescribeComplianceByConfigRule
-  where
+instance Core.AWSPager DescribeComplianceByConfigRule where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeComplianceByConfigRuleResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeComplianceByConfigRuleResponse_complianceByConfigRules
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeComplianceByConfigRule_nextToken
           Lens..~ rs
           Lens.^? describeComplianceByConfigRuleResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeComplianceByConfigRule
   where
   type
-    Rs DescribeComplianceByConfigRule =
+    AWSResponse DescribeComplianceByConfigRule =
       DescribeComplianceByConfigRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByConfigRuleResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ComplianceByConfigRules"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "ComplianceByConfigRules"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeComplianceByConfigRule
+instance Core.Hashable DescribeComplianceByConfigRule
+
+instance Core.NFData DescribeComplianceByConfigRule
 
 instance
-  Prelude.NFData
-    DescribeComplianceByConfigRule
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeComplianceByConfigRule
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DescribeComplianceByConfigRule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DescribeComplianceByConfigRule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeComplianceByConfigRule
-  where
+instance Core.ToJSON DescribeComplianceByConfigRule where
   toJSON DescribeComplianceByConfigRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("ComplianceTypes" Prelude..=)
-              Prelude.<$> complianceTypes,
-            ("ConfigRuleNames" Prelude..=)
-              Prelude.<$> configRuleNames
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("ComplianceTypes" Core..=) Core.<$> complianceTypes,
+            ("ConfigRuleNames" Core..=)
+              Core.<$> configRuleNames
           ]
       )
 
-instance
-  Prelude.ToPath
-    DescribeComplianceByConfigRule
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeComplianceByConfigRule where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeComplianceByConfigRule
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeComplianceByConfigRule where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
@@ -236,13 +215,13 @@ instance
 data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResponse'
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Indicates whether each of the specified AWS Config rules is compliant.
-    complianceByConfigRules :: Prelude.Maybe [ComplianceByConfigRule],
+    complianceByConfigRules :: Core.Maybe [ComplianceByConfigRule],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeComplianceByConfigRuleResponse' with all optional fields omitted.
@@ -260,31 +239,31 @@ data DescribeComplianceByConfigRuleResponse = DescribeComplianceByConfigRuleResp
 -- 'httpStatus', 'describeComplianceByConfigRuleResponse_httpStatus' - The response's http status code.
 newDescribeComplianceByConfigRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeComplianceByConfigRuleResponse
 newDescribeComplianceByConfigRuleResponse
   pHttpStatus_ =
     DescribeComplianceByConfigRuleResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         complianceByConfigRules =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
-describeComplianceByConfigRuleResponse_nextToken :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Prelude.Maybe Prelude.Text)
+describeComplianceByConfigRuleResponse_nextToken :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Core.Maybe Core.Text)
 describeComplianceByConfigRuleResponse_nextToken = Lens.lens (\DescribeComplianceByConfigRuleResponse' {nextToken} -> nextToken) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {nextToken = a} :: DescribeComplianceByConfigRuleResponse)
 
 -- | Indicates whether each of the specified AWS Config rules is compliant.
-describeComplianceByConfigRuleResponse_complianceByConfigRules :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Prelude.Maybe [ComplianceByConfigRule])
-describeComplianceByConfigRuleResponse_complianceByConfigRules = Lens.lens (\DescribeComplianceByConfigRuleResponse' {complianceByConfigRules} -> complianceByConfigRules) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {complianceByConfigRules = a} :: DescribeComplianceByConfigRuleResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeComplianceByConfigRuleResponse_complianceByConfigRules :: Lens.Lens' DescribeComplianceByConfigRuleResponse (Core.Maybe [ComplianceByConfigRule])
+describeComplianceByConfigRuleResponse_complianceByConfigRules = Lens.lens (\DescribeComplianceByConfigRuleResponse' {complianceByConfigRules} -> complianceByConfigRules) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {complianceByConfigRules = a} :: DescribeComplianceByConfigRuleResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeComplianceByConfigRuleResponse_httpStatus :: Lens.Lens' DescribeComplianceByConfigRuleResponse Prelude.Int
+describeComplianceByConfigRuleResponse_httpStatus :: Lens.Lens' DescribeComplianceByConfigRuleResponse Core.Int
 describeComplianceByConfigRuleResponse_httpStatus = Lens.lens (\DescribeComplianceByConfigRuleResponse' {httpStatus} -> httpStatus) (\s@DescribeComplianceByConfigRuleResponse' {} a -> s {httpStatus = a} :: DescribeComplianceByConfigRuleResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeComplianceByConfigRuleResponse

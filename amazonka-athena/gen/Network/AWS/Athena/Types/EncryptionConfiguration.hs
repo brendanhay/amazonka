@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Athena.Types.EncryptionConfiguration where
 
 import Network.AWS.Athena.Types.EncryptionOption
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | If query results are encrypted in Amazon S3, indicates the encryption
 -- option used (for example, @SSE-KMS@ or @CSE-KMS@) and key information.
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
   { -- | For @SSE-KMS@ and @CSE-KMS@, this is the KMS key ARN or ID.
-    kmsKey :: Prelude.Maybe Prelude.Text,
+    kmsKey :: Core.Maybe Core.Text,
     -- | Indicates whether Amazon S3 server-side encryption with Amazon
     -- S3-managed keys (@SSE-S3@), server-side encryption with KMS-managed keys
     -- (@SSE-KMS@), or client-side encryption with KMS-managed keys (CSE-KMS)
@@ -42,7 +41,7 @@ data EncryptionConfiguration = EncryptionConfiguration'
     -- run in this workgroup.
     encryptionOption :: EncryptionOption
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfiguration' with all optional fields omitted.
@@ -69,12 +68,12 @@ newEncryptionConfiguration ::
   EncryptionConfiguration
 newEncryptionConfiguration pEncryptionOption_ =
   EncryptionConfiguration'
-    { kmsKey = Prelude.Nothing,
+    { kmsKey = Core.Nothing,
       encryptionOption = pEncryptionOption_
     }
 
 -- | For @SSE-KMS@ and @CSE-KMS@, this is the KMS key ARN or ID.
-encryptionConfiguration_kmsKey :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe Prelude.Text)
+encryptionConfiguration_kmsKey :: Lens.Lens' EncryptionConfiguration (Core.Maybe Core.Text)
 encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -> kmsKey) (\s@EncryptionConfiguration' {} a -> s {kmsKey = a} :: EncryptionConfiguration)
 
 -- | Indicates whether Amazon S3 server-side encryption with Amazon
@@ -89,26 +88,26 @@ encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -
 encryptionConfiguration_encryptionOption :: Lens.Lens' EncryptionConfiguration EncryptionOption
 encryptionConfiguration_encryptionOption = Lens.lens (\EncryptionConfiguration' {encryptionOption} -> encryptionOption) (\s@EncryptionConfiguration' {} a -> s {encryptionOption = a} :: EncryptionConfiguration)
 
-instance Prelude.FromJSON EncryptionConfiguration where
+instance Core.FromJSON EncryptionConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Prelude..:? "KmsKey")
-            Prelude.<*> (x Prelude..: "EncryptionOption")
+            Core.<$> (x Core..:? "KmsKey")
+            Core.<*> (x Core..: "EncryptionOption")
       )
 
-instance Prelude.Hashable EncryptionConfiguration
+instance Core.Hashable EncryptionConfiguration
 
-instance Prelude.NFData EncryptionConfiguration
+instance Core.NFData EncryptionConfiguration
 
-instance Prelude.ToJSON EncryptionConfiguration where
+instance Core.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKey" Prelude..=) Prelude.<$> kmsKey,
-            Prelude.Just
-              ("EncryptionOption" Prelude..= encryptionOption)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKey" Core..=) Core.<$> kmsKey,
+            Core.Just
+              ("EncryptionOption" Core..= encryptionOption)
           ]
       )

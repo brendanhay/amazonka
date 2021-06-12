@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.UsernameConfigurationType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The username configuration type.
 --
@@ -42,9 +41,9 @@ data UsernameConfigurationType = UsernameConfigurationType'
     --     sign in using either \"username\" or \"Username\". This option also
     --     enables both @preferred_username@ and @email@ alias to be case
     --     insensitive, in addition to the @username@ attribute.
-    caseSensitive :: Prelude.Bool
+    caseSensitive :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UsernameConfigurationType' with all optional fields omitted.
@@ -71,7 +70,7 @@ data UsernameConfigurationType = UsernameConfigurationType'
 --     insensitive, in addition to the @username@ attribute.
 newUsernameConfigurationType ::
   -- | 'caseSensitive'
-  Prelude.Bool ->
+  Core.Bool ->
   UsernameConfigurationType
 newUsernameConfigurationType pCaseSensitive_ =
   UsernameConfigurationType'
@@ -94,27 +93,25 @@ newUsernameConfigurationType pCaseSensitive_ =
 --     sign in using either \"username\" or \"Username\". This option also
 --     enables both @preferred_username@ and @email@ alias to be case
 --     insensitive, in addition to the @username@ attribute.
-usernameConfigurationType_caseSensitive :: Lens.Lens' UsernameConfigurationType Prelude.Bool
+usernameConfigurationType_caseSensitive :: Lens.Lens' UsernameConfigurationType Core.Bool
 usernameConfigurationType_caseSensitive = Lens.lens (\UsernameConfigurationType' {caseSensitive} -> caseSensitive) (\s@UsernameConfigurationType' {} a -> s {caseSensitive = a} :: UsernameConfigurationType)
 
-instance Prelude.FromJSON UsernameConfigurationType where
+instance Core.FromJSON UsernameConfigurationType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UsernameConfigurationType"
       ( \x ->
           UsernameConfigurationType'
-            Prelude.<$> (x Prelude..: "CaseSensitive")
+            Core.<$> (x Core..: "CaseSensitive")
       )
 
-instance Prelude.Hashable UsernameConfigurationType
+instance Core.Hashable UsernameConfigurationType
 
-instance Prelude.NFData UsernameConfigurationType
+instance Core.NFData UsernameConfigurationType
 
-instance Prelude.ToJSON UsernameConfigurationType where
+instance Core.ToJSON UsernameConfigurationType where
   toJSON UsernameConfigurationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CaseSensitive" Prelude..= caseSensitive)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CaseSensitive" Core..= caseSensitive)]
       )

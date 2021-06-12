@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IoT.DescribeAuditFinding
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DescribeAuditFinding = DescribeAuditFinding'
   { -- | A unique identifier for a single audit finding. You can use this
     -- identifier to apply mitigation actions to the finding.
-    findingId :: Prelude.Text
+    findingId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAuditFinding' with all optional fields omitted.
@@ -68,51 +67,51 @@ data DescribeAuditFinding = DescribeAuditFinding'
 -- identifier to apply mitigation actions to the finding.
 newDescribeAuditFinding ::
   -- | 'findingId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAuditFinding
 newDescribeAuditFinding pFindingId_ =
   DescribeAuditFinding' {findingId = pFindingId_}
 
 -- | A unique identifier for a single audit finding. You can use this
 -- identifier to apply mitigation actions to the finding.
-describeAuditFinding_findingId :: Lens.Lens' DescribeAuditFinding Prelude.Text
+describeAuditFinding_findingId :: Lens.Lens' DescribeAuditFinding Core.Text
 describeAuditFinding_findingId = Lens.lens (\DescribeAuditFinding' {findingId} -> findingId) (\s@DescribeAuditFinding' {} a -> s {findingId = a} :: DescribeAuditFinding)
 
-instance Prelude.AWSRequest DescribeAuditFinding where
+instance Core.AWSRequest DescribeAuditFinding where
   type
-    Rs DescribeAuditFinding =
+    AWSResponse DescribeAuditFinding =
       DescribeAuditFindingResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAuditFindingResponse'
-            Prelude.<$> (x Prelude..?> "finding")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "finding")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAuditFinding
+instance Core.Hashable DescribeAuditFinding
 
-instance Prelude.NFData DescribeAuditFinding
+instance Core.NFData DescribeAuditFinding
 
-instance Prelude.ToHeaders DescribeAuditFinding where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAuditFinding where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAuditFinding where
+instance Core.ToPath DescribeAuditFinding where
   toPath DescribeAuditFinding' {..} =
-    Prelude.mconcat
-      ["/audit/findings/", Prelude.toBS findingId]
+    Core.mconcat
+      ["/audit/findings/", Core.toBS findingId]
 
-instance Prelude.ToQuery DescribeAuditFinding where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAuditFinding where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAuditFindingResponse' smart constructor.
 data DescribeAuditFindingResponse = DescribeAuditFindingResponse'
-  { finding :: Prelude.Maybe AuditFinding,
+  { finding :: Core.Maybe AuditFinding,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAuditFindingResponse' with all optional fields omitted.
@@ -127,21 +126,21 @@ data DescribeAuditFindingResponse = DescribeAuditFindingResponse'
 -- 'httpStatus', 'describeAuditFindingResponse_httpStatus' - The response's http status code.
 newDescribeAuditFindingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAuditFindingResponse
 newDescribeAuditFindingResponse pHttpStatus_ =
   DescribeAuditFindingResponse'
     { finding =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeAuditFindingResponse_finding :: Lens.Lens' DescribeAuditFindingResponse (Prelude.Maybe AuditFinding)
+describeAuditFindingResponse_finding :: Lens.Lens' DescribeAuditFindingResponse (Core.Maybe AuditFinding)
 describeAuditFindingResponse_finding = Lens.lens (\DescribeAuditFindingResponse' {finding} -> finding) (\s@DescribeAuditFindingResponse' {} a -> s {finding = a} :: DescribeAuditFindingResponse)
 
 -- | The response's http status code.
-describeAuditFindingResponse_httpStatus :: Lens.Lens' DescribeAuditFindingResponse Prelude.Int
+describeAuditFindingResponse_httpStatus :: Lens.Lens' DescribeAuditFindingResponse Core.Int
 describeAuditFindingResponse_httpStatus = Lens.lens (\DescribeAuditFindingResponse' {httpStatus} -> httpStatus) (\s@DescribeAuditFindingResponse' {} a -> s {httpStatus = a} :: DescribeAuditFindingResponse)
 
-instance Prelude.NFData DescribeAuditFindingResponse
+instance Core.NFData DescribeAuditFindingResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.Lightsail.DeleteKeyPair
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
   { -- | The name of the key pair to delete.
-    keyPairName :: Prelude.Text
+    keyPairName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyPair' with all optional fields omitted.
@@ -69,70 +68,68 @@ data DeleteKeyPair = DeleteKeyPair'
 -- 'keyPairName', 'deleteKeyPair_keyPairName' - The name of the key pair to delete.
 newDeleteKeyPair ::
   -- | 'keyPairName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteKeyPair
 newDeleteKeyPair pKeyPairName_ =
   DeleteKeyPair' {keyPairName = pKeyPairName_}
 
 -- | The name of the key pair to delete.
-deleteKeyPair_keyPairName :: Lens.Lens' DeleteKeyPair Prelude.Text
+deleteKeyPair_keyPairName :: Lens.Lens' DeleteKeyPair Core.Text
 deleteKeyPair_keyPairName = Lens.lens (\DeleteKeyPair' {keyPairName} -> keyPairName) (\s@DeleteKeyPair' {} a -> s {keyPairName = a} :: DeleteKeyPair)
 
-instance Prelude.AWSRequest DeleteKeyPair where
-  type Rs DeleteKeyPair = DeleteKeyPairResponse
+instance Core.AWSRequest DeleteKeyPair where
+  type
+    AWSResponse DeleteKeyPair =
+      DeleteKeyPairResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteKeyPairResponse'
-            Prelude.<$> (x Prelude..?> "operation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteKeyPair
+instance Core.Hashable DeleteKeyPair
 
-instance Prelude.NFData DeleteKeyPair
+instance Core.NFData DeleteKeyPair
 
-instance Prelude.ToHeaders DeleteKeyPair where
+instance Core.ToHeaders DeleteKeyPair where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteKeyPair" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteKeyPair" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteKeyPair where
+instance Core.ToJSON DeleteKeyPair where
   toJSON DeleteKeyPair' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("keyPairName" Prelude..= keyPairName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("keyPairName" Core..= keyPairName)]
       )
 
-instance Prelude.ToPath DeleteKeyPair where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteKeyPair where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteKeyPair where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteKeyPair where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse = DeleteKeyPairResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Prelude.Maybe Operation,
+    operation :: Core.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyPairResponse' with all optional fields omitted.
@@ -149,22 +146,22 @@ data DeleteKeyPairResponse = DeleteKeyPairResponse'
 -- 'httpStatus', 'deleteKeyPairResponse_httpStatus' - The response's http status code.
 newDeleteKeyPairResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteKeyPairResponse
 newDeleteKeyPairResponse pHttpStatus_ =
   DeleteKeyPairResponse'
-    { operation = Prelude.Nothing,
+    { operation = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteKeyPairResponse_operation :: Lens.Lens' DeleteKeyPairResponse (Prelude.Maybe Operation)
+deleteKeyPairResponse_operation :: Lens.Lens' DeleteKeyPairResponse (Core.Maybe Operation)
 deleteKeyPairResponse_operation = Lens.lens (\DeleteKeyPairResponse' {operation} -> operation) (\s@DeleteKeyPairResponse' {} a -> s {operation = a} :: DeleteKeyPairResponse)
 
 -- | The response's http status code.
-deleteKeyPairResponse_httpStatus :: Lens.Lens' DeleteKeyPairResponse Prelude.Int
+deleteKeyPairResponse_httpStatus :: Lens.Lens' DeleteKeyPairResponse Core.Int
 deleteKeyPairResponse_httpStatus = Lens.lens (\DeleteKeyPairResponse' {httpStatus} -> httpStatus) (\s@DeleteKeyPairResponse' {} a -> s {httpStatus = a} :: DeleteKeyPairResponse)
 
-instance Prelude.NFData DeleteKeyPairResponse
+instance Core.NFData DeleteKeyPairResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,19 +46,18 @@ module Network.AWS.EMR.ListSecurityConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSecurityConfigurations' smart constructor.
 data ListSecurityConfigurations = ListSecurityConfigurations'
   { -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSecurityConfigurations' with all optional fields omitted.
@@ -73,100 +71,90 @@ data ListSecurityConfigurations = ListSecurityConfigurations'
 newListSecurityConfigurations ::
   ListSecurityConfigurations
 newListSecurityConfigurations =
-  ListSecurityConfigurations'
-    { marker =
-        Prelude.Nothing
-    }
+  ListSecurityConfigurations' {marker = Core.Nothing}
 
 -- | The pagination token that indicates the set of results to retrieve.
-listSecurityConfigurations_marker :: Lens.Lens' ListSecurityConfigurations (Prelude.Maybe Prelude.Text)
+listSecurityConfigurations_marker :: Lens.Lens' ListSecurityConfigurations (Core.Maybe Core.Text)
 listSecurityConfigurations_marker = Lens.lens (\ListSecurityConfigurations' {marker} -> marker) (\s@ListSecurityConfigurations' {} a -> s {marker = a} :: ListSecurityConfigurations)
 
-instance Pager.AWSPager ListSecurityConfigurations where
+instance Core.AWSPager ListSecurityConfigurations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSecurityConfigurationsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listSecurityConfigurationsResponse_securityConfigurations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSecurityConfigurations_marker
           Lens..~ rs
           Lens.^? listSecurityConfigurationsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListSecurityConfigurations
-  where
+instance Core.AWSRequest ListSecurityConfigurations where
   type
-    Rs ListSecurityConfigurations =
+    AWSResponse ListSecurityConfigurations =
       ListSecurityConfigurationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSecurityConfigurationsResponse'
-            Prelude.<$> ( x Prelude..?> "SecurityConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "SecurityConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSecurityConfigurations
+instance Core.Hashable ListSecurityConfigurations
 
-instance Prelude.NFData ListSecurityConfigurations
+instance Core.NFData ListSecurityConfigurations
 
-instance Prelude.ToHeaders ListSecurityConfigurations where
+instance Core.ToHeaders ListSecurityConfigurations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.ListSecurityConfigurations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.ListSecurityConfigurations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListSecurityConfigurations where
+instance Core.ToJSON ListSecurityConfigurations where
   toJSON ListSecurityConfigurations' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Marker" Prelude..=) Prelude.<$> marker]
-      )
+    Core.object
+      (Core.catMaybes [("Marker" Core..=) Core.<$> marker])
 
-instance Prelude.ToPath ListSecurityConfigurations where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSecurityConfigurations where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSecurityConfigurations where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListSecurityConfigurations where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListSecurityConfigurationsResponse' smart constructor.
 data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
   { -- | The creation date and time, and name, of each security configuration.
-    securityConfigurations :: Prelude.Maybe [SecurityConfigurationSummary],
+    securityConfigurations :: Core.Maybe [SecurityConfigurationSummary],
     -- | A pagination token that indicates the next set of results to retrieve.
     -- Include the marker in the next ListSecurityConfiguration call to
     -- retrieve the next page of results, if required.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSecurityConfigurationsResponse' with all optional fields omitted.
@@ -185,30 +173,30 @@ data ListSecurityConfigurationsResponse = ListSecurityConfigurationsResponse'
 -- 'httpStatus', 'listSecurityConfigurationsResponse_httpStatus' - The response's http status code.
 newListSecurityConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSecurityConfigurationsResponse
 newListSecurityConfigurationsResponse pHttpStatus_ =
   ListSecurityConfigurationsResponse'
     { securityConfigurations =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The creation date and time, and name, of each security configuration.
-listSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe [SecurityConfigurationSummary])
-listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSecurityConfigurationsResponse_securityConfigurations :: Lens.Lens' ListSecurityConfigurationsResponse (Core.Maybe [SecurityConfigurationSummary])
+listSecurityConfigurationsResponse_securityConfigurations = Lens.lens (\ListSecurityConfigurationsResponse' {securityConfigurations} -> securityConfigurations) (\s@ListSecurityConfigurationsResponse' {} a -> s {securityConfigurations = a} :: ListSecurityConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that indicates the next set of results to retrieve.
 -- Include the marker in the next ListSecurityConfiguration call to
 -- retrieve the next page of results, if required.
-listSecurityConfigurationsResponse_marker :: Lens.Lens' ListSecurityConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listSecurityConfigurationsResponse_marker :: Lens.Lens' ListSecurityConfigurationsResponse (Core.Maybe Core.Text)
 listSecurityConfigurationsResponse_marker = Lens.lens (\ListSecurityConfigurationsResponse' {marker} -> marker) (\s@ListSecurityConfigurationsResponse' {} a -> s {marker = a} :: ListSecurityConfigurationsResponse)
 
 -- | The response's http status code.
-listSecurityConfigurationsResponse_httpStatus :: Lens.Lens' ListSecurityConfigurationsResponse Prelude.Int
+listSecurityConfigurationsResponse_httpStatus :: Lens.Lens' ListSecurityConfigurationsResponse Core.Int
 listSecurityConfigurationsResponse_httpStatus = Lens.lens (\ListSecurityConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListSecurityConfigurationsResponse' {} a -> s {httpStatus = a} :: ListSecurityConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListSecurityConfigurationsResponse

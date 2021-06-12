@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,17 +56,17 @@ data ApplySecurityGroupsToClientVpnTargetNetwork = ApplySecurityGroupsToClientVp
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the Client VPN endpoint.
-    clientVpnEndpointId :: Prelude.Text,
+    clientVpnEndpointId :: Core.Text,
     -- | The ID of the VPC in which the associated target network is located.
-    vpcId :: Prelude.Text,
+    vpcId :: Core.Text,
     -- | The IDs of the security groups to apply to the associated target
     -- network. Up to 5 security groups can be applied to an associated target
     -- network.
-    securityGroupIds :: [Prelude.Text]
+    securityGroupIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplySecurityGroupsToClientVpnTargetNetwork' with all optional fields omitted.
@@ -91,112 +90,108 @@ data ApplySecurityGroupsToClientVpnTargetNetwork = ApplySecurityGroupsToClientVp
 -- network.
 newApplySecurityGroupsToClientVpnTargetNetwork ::
   -- | 'clientVpnEndpointId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   ApplySecurityGroupsToClientVpnTargetNetwork
 newApplySecurityGroupsToClientVpnTargetNetwork
   pClientVpnEndpointId_
   pVpcId_ =
     ApplySecurityGroupsToClientVpnTargetNetwork'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         clientVpnEndpointId =
           pClientVpnEndpointId_,
         vpcId = pVpcId_,
-        securityGroupIds =
-          Prelude.mempty
+        securityGroupIds = Core.mempty
       }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-applySecurityGroupsToClientVpnTargetNetwork_dryRun :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork (Prelude.Maybe Prelude.Bool)
+applySecurityGroupsToClientVpnTargetNetwork_dryRun :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork (Core.Maybe Core.Bool)
 applySecurityGroupsToClientVpnTargetNetwork_dryRun = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetwork' {dryRun} -> dryRun) (\s@ApplySecurityGroupsToClientVpnTargetNetwork' {} a -> s {dryRun = a} :: ApplySecurityGroupsToClientVpnTargetNetwork)
 
 -- | The ID of the Client VPN endpoint.
-applySecurityGroupsToClientVpnTargetNetwork_clientVpnEndpointId :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork Prelude.Text
+applySecurityGroupsToClientVpnTargetNetwork_clientVpnEndpointId :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork Core.Text
 applySecurityGroupsToClientVpnTargetNetwork_clientVpnEndpointId = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetwork' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@ApplySecurityGroupsToClientVpnTargetNetwork' {} a -> s {clientVpnEndpointId = a} :: ApplySecurityGroupsToClientVpnTargetNetwork)
 
 -- | The ID of the VPC in which the associated target network is located.
-applySecurityGroupsToClientVpnTargetNetwork_vpcId :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork Prelude.Text
+applySecurityGroupsToClientVpnTargetNetwork_vpcId :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork Core.Text
 applySecurityGroupsToClientVpnTargetNetwork_vpcId = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetwork' {vpcId} -> vpcId) (\s@ApplySecurityGroupsToClientVpnTargetNetwork' {} a -> s {vpcId = a} :: ApplySecurityGroupsToClientVpnTargetNetwork)
 
 -- | The IDs of the security groups to apply to the associated target
 -- network. Up to 5 security groups can be applied to an associated target
 -- network.
-applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork [Prelude.Text]
-applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetwork' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetwork' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetwork) Prelude.. Prelude._Coerce
+applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetwork [Core.Text]
+applySecurityGroupsToClientVpnTargetNetwork_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetwork' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetwork' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetwork) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ApplySecurityGroupsToClientVpnTargetNetwork
   where
   type
-    Rs ApplySecurityGroupsToClientVpnTargetNetwork =
+    AWSResponse
+      ApplySecurityGroupsToClientVpnTargetNetwork =
       ApplySecurityGroupsToClientVpnTargetNetworkResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ApplySecurityGroupsToClientVpnTargetNetworkResponse'
-            Prelude.<$> ( x Prelude..@? "securityGroupIds"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "securityGroupIds" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ApplySecurityGroupsToClientVpnTargetNetwork
 
 instance
-  Prelude.NFData
+  Core.NFData
     ApplySecurityGroupsToClientVpnTargetNetwork
 
 instance
-  Prelude.ToHeaders
-    ApplySecurityGroupsToClientVpnTargetNetwork
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ApplySecurityGroupsToClientVpnTargetNetwork
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ApplySecurityGroupsToClientVpnTargetNetwork
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ApplySecurityGroupsToClientVpnTargetNetwork
   where
   toQuery
     ApplySecurityGroupsToClientVpnTargetNetwork' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "ApplySecurityGroupsToClientVpnTargetNetwork" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
-          "ClientVpnEndpointId" Prelude.=: clientVpnEndpointId,
-          "VpcId" Prelude.=: vpcId,
-          Prelude.toQueryList
-            "SecurityGroupId"
-            securityGroupIds
+            Core.=: ( "ApplySecurityGroupsToClientVpnTargetNetwork" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
+          "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
+          "VpcId" Core.=: vpcId,
+          Core.toQueryList "SecurityGroupId" securityGroupIds
         ]
 
 -- | /See:/ 'newApplySecurityGroupsToClientVpnTargetNetworkResponse' smart constructor.
 data ApplySecurityGroupsToClientVpnTargetNetworkResponse = ApplySecurityGroupsToClientVpnTargetNetworkResponse'
   { -- | The IDs of the applied security groups.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplySecurityGroupsToClientVpnTargetNetworkResponse' with all optional fields omitted.
@@ -211,25 +206,25 @@ data ApplySecurityGroupsToClientVpnTargetNetworkResponse = ApplySecurityGroupsTo
 -- 'httpStatus', 'applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus' - The response's http status code.
 newApplySecurityGroupsToClientVpnTargetNetworkResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ApplySecurityGroupsToClientVpnTargetNetworkResponse
 newApplySecurityGroupsToClientVpnTargetNetworkResponse
   pHttpStatus_ =
     ApplySecurityGroupsToClientVpnTargetNetworkResponse'
       { securityGroupIds =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | The IDs of the applied security groups.
-applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetworkResponse (Prelude.Maybe [Prelude.Text])
-applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetworkResponse' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetworkResponse' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetworkResponse) Prelude.. Lens.mapping Prelude._Coerce
+applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetworkResponse (Core.Maybe [Core.Text])
+applySecurityGroupsToClientVpnTargetNetworkResponse_securityGroupIds = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetworkResponse' {securityGroupIds} -> securityGroupIds) (\s@ApplySecurityGroupsToClientVpnTargetNetworkResponse' {} a -> s {securityGroupIds = a} :: ApplySecurityGroupsToClientVpnTargetNetworkResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetworkResponse Prelude.Int
+applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus :: Lens.Lens' ApplySecurityGroupsToClientVpnTargetNetworkResponse Core.Int
 applySecurityGroupsToClientVpnTargetNetworkResponse_httpStatus = Lens.lens (\ApplySecurityGroupsToClientVpnTargetNetworkResponse' {httpStatus} -> httpStatus) (\s@ApplySecurityGroupsToClientVpnTargetNetworkResponse' {} a -> s {httpStatus = a} :: ApplySecurityGroupsToClientVpnTargetNetworkResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ApplySecurityGroupsToClientVpnTargetNetworkResponse

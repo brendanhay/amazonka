@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AlexaBusiness.Types.PhoneNumber where
 
 import Network.AWS.AlexaBusiness.Types.PhoneNumberType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The phone number for the contact containing the raw number and phone
 -- number type.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPhoneNumber' smart constructor.
 data PhoneNumber = PhoneNumber'
   { -- | The raw value of the phone number.
-    number :: Prelude.Sensitive Prelude.Text,
+    number :: Core.Sensitive Core.Text,
     -- | The type of the phone number.
-    type' :: Prelude.Sensitive PhoneNumberType
+    type' :: Core.Sensitive PhoneNumberType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PhoneNumber' with all optional fields omitted.
@@ -49,44 +48,43 @@ data PhoneNumber = PhoneNumber'
 -- 'type'', 'phoneNumber_type' - The type of the phone number.
 newPhoneNumber ::
   -- | 'number'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   PhoneNumberType ->
   PhoneNumber
 newPhoneNumber pNumber_ pType_ =
   PhoneNumber'
     { number =
-        Prelude._Sensitive Lens.# pNumber_,
-      type' = Prelude._Sensitive Lens.# pType_
+        Core._Sensitive Lens.# pNumber_,
+      type' = Core._Sensitive Lens.# pType_
     }
 
 -- | The raw value of the phone number.
-phoneNumber_number :: Lens.Lens' PhoneNumber Prelude.Text
-phoneNumber_number = Lens.lens (\PhoneNumber' {number} -> number) (\s@PhoneNumber' {} a -> s {number = a} :: PhoneNumber) Prelude.. Prelude._Sensitive
+phoneNumber_number :: Lens.Lens' PhoneNumber Core.Text
+phoneNumber_number = Lens.lens (\PhoneNumber' {number} -> number) (\s@PhoneNumber' {} a -> s {number = a} :: PhoneNumber) Core.. Core._Sensitive
 
 -- | The type of the phone number.
 phoneNumber_type :: Lens.Lens' PhoneNumber PhoneNumberType
-phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {} a -> s {type' = a} :: PhoneNumber) Prelude.. Prelude._Sensitive
+phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {} a -> s {type' = a} :: PhoneNumber) Core.. Core._Sensitive
 
-instance Prelude.FromJSON PhoneNumber where
+instance Core.FromJSON PhoneNumber where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PhoneNumber"
       ( \x ->
           PhoneNumber'
-            Prelude.<$> (x Prelude..: "Number")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..: "Number") Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable PhoneNumber
+instance Core.Hashable PhoneNumber
 
-instance Prelude.NFData PhoneNumber
+instance Core.NFData PhoneNumber
 
-instance Prelude.ToJSON PhoneNumber where
+instance Core.ToJSON PhoneNumber where
   toJSON PhoneNumber' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Number" Prelude..= number),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Number" Core..= number),
+            Core.Just ("Type" Core..= type')
           ]
       )

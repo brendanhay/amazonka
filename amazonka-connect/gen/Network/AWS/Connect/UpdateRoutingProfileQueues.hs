@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,23 +39,23 @@ module Network.AWS.Connect.UpdateRoutingProfileQueues
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRoutingProfileQueues' smart constructor.
 data UpdateRoutingProfileQueues = UpdateRoutingProfileQueues'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Prelude.Text,
+    routingProfileId :: Core.Text,
     -- | The queues to be updated for this routing profile. Queues must first be
     -- associated to the routing profile. You can do this using
     -- AssociateRoutingProfileQueues.
-    queueConfigs :: Prelude.NonEmpty RoutingProfileQueueConfig
+    queueConfigs :: Core.NonEmpty RoutingProfileQueueConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileQueues' with all optional fields omitted.
@@ -75,11 +74,11 @@ data UpdateRoutingProfileQueues = UpdateRoutingProfileQueues'
 -- AssociateRoutingProfileQueues.
 newUpdateRoutingProfileQueues ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'routingProfileId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueConfigs'
-  Prelude.NonEmpty RoutingProfileQueueConfig ->
+  Core.NonEmpty RoutingProfileQueueConfig ->
   UpdateRoutingProfileQueues
 newUpdateRoutingProfileQueues
   pInstanceId_
@@ -90,77 +89,70 @@ newUpdateRoutingProfileQueues
           pInstanceId_,
         routingProfileId = pRoutingProfileId_,
         queueConfigs =
-          Prelude._Coerce Lens.# pQueueConfigs_
+          Lens._Coerce Lens.# pQueueConfigs_
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateRoutingProfileQueues_instanceId :: Lens.Lens' UpdateRoutingProfileQueues Prelude.Text
+updateRoutingProfileQueues_instanceId :: Lens.Lens' UpdateRoutingProfileQueues Core.Text
 updateRoutingProfileQueues_instanceId = Lens.lens (\UpdateRoutingProfileQueues' {instanceId} -> instanceId) (\s@UpdateRoutingProfileQueues' {} a -> s {instanceId = a} :: UpdateRoutingProfileQueues)
 
 -- | The identifier of the routing profile.
-updateRoutingProfileQueues_routingProfileId :: Lens.Lens' UpdateRoutingProfileQueues Prelude.Text
+updateRoutingProfileQueues_routingProfileId :: Lens.Lens' UpdateRoutingProfileQueues Core.Text
 updateRoutingProfileQueues_routingProfileId = Lens.lens (\UpdateRoutingProfileQueues' {routingProfileId} -> routingProfileId) (\s@UpdateRoutingProfileQueues' {} a -> s {routingProfileId = a} :: UpdateRoutingProfileQueues)
 
 -- | The queues to be updated for this routing profile. Queues must first be
 -- associated to the routing profile. You can do this using
 -- AssociateRoutingProfileQueues.
-updateRoutingProfileQueues_queueConfigs :: Lens.Lens' UpdateRoutingProfileQueues (Prelude.NonEmpty RoutingProfileQueueConfig)
-updateRoutingProfileQueues_queueConfigs = Lens.lens (\UpdateRoutingProfileQueues' {queueConfigs} -> queueConfigs) (\s@UpdateRoutingProfileQueues' {} a -> s {queueConfigs = a} :: UpdateRoutingProfileQueues) Prelude.. Prelude._Coerce
+updateRoutingProfileQueues_queueConfigs :: Lens.Lens' UpdateRoutingProfileQueues (Core.NonEmpty RoutingProfileQueueConfig)
+updateRoutingProfileQueues_queueConfigs = Lens.lens (\UpdateRoutingProfileQueues' {queueConfigs} -> queueConfigs) (\s@UpdateRoutingProfileQueues' {} a -> s {queueConfigs = a} :: UpdateRoutingProfileQueues) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    UpdateRoutingProfileQueues
-  where
+instance Core.AWSRequest UpdateRoutingProfileQueues where
   type
-    Rs UpdateRoutingProfileQueues =
+    AWSResponse UpdateRoutingProfileQueues =
       UpdateRoutingProfileQueuesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateRoutingProfileQueuesResponse'
 
-instance Prelude.Hashable UpdateRoutingProfileQueues
+instance Core.Hashable UpdateRoutingProfileQueues
 
-instance Prelude.NFData UpdateRoutingProfileQueues
+instance Core.NFData UpdateRoutingProfileQueues
 
-instance Prelude.ToHeaders UpdateRoutingProfileQueues where
+instance Core.ToHeaders UpdateRoutingProfileQueues where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateRoutingProfileQueues where
+instance Core.ToJSON UpdateRoutingProfileQueues where
   toJSON UpdateRoutingProfileQueues' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("QueueConfigs" Prelude..= queueConfigs)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("QueueConfigs" Core..= queueConfigs)]
       )
 
-instance Prelude.ToPath UpdateRoutingProfileQueues where
+instance Core.ToPath UpdateRoutingProfileQueues where
   toPath UpdateRoutingProfileQueues' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/routing-profiles/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS routingProfileId,
+        Core.toBS routingProfileId,
         "/queues"
       ]
 
-instance Prelude.ToQuery UpdateRoutingProfileQueues where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRoutingProfileQueues where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateRoutingProfileQueuesResponse' smart constructor.
 data UpdateRoutingProfileQueuesResponse = UpdateRoutingProfileQueuesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRoutingProfileQueuesResponse' with all optional fields omitted.
@@ -172,5 +164,5 @@ newUpdateRoutingProfileQueuesResponse =
   UpdateRoutingProfileQueuesResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateRoutingProfileQueuesResponse

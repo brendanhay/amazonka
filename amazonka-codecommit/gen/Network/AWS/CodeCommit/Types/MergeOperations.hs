@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeCommit.Types.MergeOperations where
 
 import Network.AWS.CodeCommit.Types.ChangeTypeEnum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the file operation conflicts in a merge operation.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data MergeOperations = MergeOperations'
   { -- | The operation (add, modify, or delete) on a file in the source of a
     -- merge or pull request.
-    source :: Prelude.Maybe ChangeTypeEnum,
+    source :: Core.Maybe ChangeTypeEnum,
     -- | The operation on a file in the destination of a merge or pull request.
-    destination :: Prelude.Maybe ChangeTypeEnum
+    destination :: Core.Maybe ChangeTypeEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MergeOperations' with all optional fields omitted.
@@ -52,29 +51,29 @@ newMergeOperations ::
   MergeOperations
 newMergeOperations =
   MergeOperations'
-    { source = Prelude.Nothing,
-      destination = Prelude.Nothing
+    { source = Core.Nothing,
+      destination = Core.Nothing
     }
 
 -- | The operation (add, modify, or delete) on a file in the source of a
 -- merge or pull request.
-mergeOperations_source :: Lens.Lens' MergeOperations (Prelude.Maybe ChangeTypeEnum)
+mergeOperations_source :: Lens.Lens' MergeOperations (Core.Maybe ChangeTypeEnum)
 mergeOperations_source = Lens.lens (\MergeOperations' {source} -> source) (\s@MergeOperations' {} a -> s {source = a} :: MergeOperations)
 
 -- | The operation on a file in the destination of a merge or pull request.
-mergeOperations_destination :: Lens.Lens' MergeOperations (Prelude.Maybe ChangeTypeEnum)
+mergeOperations_destination :: Lens.Lens' MergeOperations (Core.Maybe ChangeTypeEnum)
 mergeOperations_destination = Lens.lens (\MergeOperations' {destination} -> destination) (\s@MergeOperations' {} a -> s {destination = a} :: MergeOperations)
 
-instance Prelude.FromJSON MergeOperations where
+instance Core.FromJSON MergeOperations where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MergeOperations"
       ( \x ->
           MergeOperations'
-            Prelude.<$> (x Prelude..:? "source")
-            Prelude.<*> (x Prelude..:? "destination")
+            Core.<$> (x Core..:? "source")
+            Core.<*> (x Core..:? "destination")
       )
 
-instance Prelude.Hashable MergeOperations
+instance Core.Hashable MergeOperations
 
-instance Prelude.NFData MergeOperations
+instance Core.NFData MergeOperations

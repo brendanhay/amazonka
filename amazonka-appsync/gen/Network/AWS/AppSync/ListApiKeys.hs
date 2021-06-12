@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.AppSync.ListApiKeys
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,13 +60,13 @@ data ListApiKeys = ListApiKeys'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results you want the request to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The API ID.
-    apiId :: Prelude.Text
+    apiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListApiKeys' with all optional fields omitted.
@@ -87,98 +85,96 @@ data ListApiKeys = ListApiKeys'
 -- 'apiId', 'listApiKeys_apiId' - The API ID.
 newListApiKeys ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   ListApiKeys
 newListApiKeys pApiId_ =
   ListApiKeys'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       apiId = pApiId_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listApiKeys_nextToken :: Lens.Lens' ListApiKeys (Prelude.Maybe Prelude.Text)
+listApiKeys_nextToken :: Lens.Lens' ListApiKeys (Core.Maybe Core.Text)
 listApiKeys_nextToken = Lens.lens (\ListApiKeys' {nextToken} -> nextToken) (\s@ListApiKeys' {} a -> s {nextToken = a} :: ListApiKeys)
 
 -- | The maximum number of results you want the request to return.
-listApiKeys_maxResults :: Lens.Lens' ListApiKeys (Prelude.Maybe Prelude.Natural)
+listApiKeys_maxResults :: Lens.Lens' ListApiKeys (Core.Maybe Core.Natural)
 listApiKeys_maxResults = Lens.lens (\ListApiKeys' {maxResults} -> maxResults) (\s@ListApiKeys' {} a -> s {maxResults = a} :: ListApiKeys)
 
 -- | The API ID.
-listApiKeys_apiId :: Lens.Lens' ListApiKeys Prelude.Text
+listApiKeys_apiId :: Lens.Lens' ListApiKeys Core.Text
 listApiKeys_apiId = Lens.lens (\ListApiKeys' {apiId} -> apiId) (\s@ListApiKeys' {} a -> s {apiId = a} :: ListApiKeys)
 
-instance Pager.AWSPager ListApiKeys where
+instance Core.AWSPager ListApiKeys where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listApiKeysResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listApiKeysResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listApiKeysResponse_apiKeys Prelude.. Lens._Just
+            Lens.^? listApiKeysResponse_apiKeys Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listApiKeys_nextToken
           Lens..~ rs
-          Lens.^? listApiKeysResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listApiKeysResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListApiKeys where
-  type Rs ListApiKeys = ListApiKeysResponse
+instance Core.AWSRequest ListApiKeys where
+  type AWSResponse ListApiKeys = ListApiKeysResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListApiKeysResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "apiKeys" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "apiKeys" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListApiKeys
+instance Core.Hashable ListApiKeys
 
-instance Prelude.NFData ListApiKeys
+instance Core.NFData ListApiKeys
 
-instance Prelude.ToHeaders ListApiKeys where
+instance Core.ToHeaders ListApiKeys where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListApiKeys where
+instance Core.ToPath ListApiKeys where
   toPath ListApiKeys' {..} =
-    Prelude.mconcat
-      ["/v1/apis/", Prelude.toBS apiId, "/apikeys"]
+    Core.mconcat
+      ["/v1/apis/", Core.toBS apiId, "/apikeys"]
 
-instance Prelude.ToQuery ListApiKeys where
+instance Core.ToQuery ListApiKeys where
   toQuery ListApiKeys' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListApiKeysResponse' smart constructor.
 data ListApiKeysResponse = ListApiKeysResponse'
   { -- | An identifier to be passed in the next request to this operation to
     -- return the next set of items in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The @ApiKey@ objects.
-    apiKeys :: Prelude.Maybe [ApiKey],
+    apiKeys :: Core.Maybe [ApiKey],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListApiKeysResponse' with all optional fields omitted.
@@ -196,26 +192,26 @@ data ListApiKeysResponse = ListApiKeysResponse'
 -- 'httpStatus', 'listApiKeysResponse_httpStatus' - The response's http status code.
 newListApiKeysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListApiKeysResponse
 newListApiKeysResponse pHttpStatus_ =
   ListApiKeysResponse'
-    { nextToken = Prelude.Nothing,
-      apiKeys = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      apiKeys = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier to be passed in the next request to this operation to
 -- return the next set of items in the list.
-listApiKeysResponse_nextToken :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe Prelude.Text)
+listApiKeysResponse_nextToken :: Lens.Lens' ListApiKeysResponse (Core.Maybe Core.Text)
 listApiKeysResponse_nextToken = Lens.lens (\ListApiKeysResponse' {nextToken} -> nextToken) (\s@ListApiKeysResponse' {} a -> s {nextToken = a} :: ListApiKeysResponse)
 
 -- | The @ApiKey@ objects.
-listApiKeysResponse_apiKeys :: Lens.Lens' ListApiKeysResponse (Prelude.Maybe [ApiKey])
-listApiKeysResponse_apiKeys = Lens.lens (\ListApiKeysResponse' {apiKeys} -> apiKeys) (\s@ListApiKeysResponse' {} a -> s {apiKeys = a} :: ListApiKeysResponse) Prelude.. Lens.mapping Prelude._Coerce
+listApiKeysResponse_apiKeys :: Lens.Lens' ListApiKeysResponse (Core.Maybe [ApiKey])
+listApiKeysResponse_apiKeys = Lens.lens (\ListApiKeysResponse' {apiKeys} -> apiKeys) (\s@ListApiKeysResponse' {} a -> s {apiKeys = a} :: ListApiKeysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listApiKeysResponse_httpStatus :: Lens.Lens' ListApiKeysResponse Prelude.Int
+listApiKeysResponse_httpStatus :: Lens.Lens' ListApiKeysResponse Core.Int
 listApiKeysResponse_httpStatus = Lens.lens (\ListApiKeysResponse' {httpStatus} -> httpStatus) (\s@ListApiKeysResponse' {} a -> s {httpStatus = a} :: ListApiKeysResponse)
 
-instance Prelude.NFData ListApiKeysResponse
+instance Core.NFData ListApiKeysResponse

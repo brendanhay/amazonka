@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.StoredQuery where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of a stored query.
 --
@@ -29,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 data StoredQuery = StoredQuery'
   { -- | Amazon Resource Name (ARN) of the query. For example,
     -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
-    queryArn :: Prelude.Maybe Prelude.Text,
+    queryArn :: Core.Maybe Core.Text,
     -- | The ID of the query.
-    queryId :: Prelude.Maybe Prelude.Text,
+    queryId :: Core.Maybe Core.Text,
     -- | A unique description for the query.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The expression of the query. For example,
     -- @SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = \'AWS::S3::Bucket\' AND supplementaryConfiguration.BucketVersioningConfiguration.status = \'Off\'.@
-    expression :: Prelude.Maybe Prelude.Text,
+    expression :: Core.Maybe Core.Text,
     -- | The name of the query.
-    queryName :: Prelude.Text
+    queryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StoredQuery' with all optional fields omitted.
@@ -63,64 +62,64 @@ data StoredQuery = StoredQuery'
 -- 'queryName', 'storedQuery_queryName' - The name of the query.
 newStoredQuery ::
   -- | 'queryName'
-  Prelude.Text ->
+  Core.Text ->
   StoredQuery
 newStoredQuery pQueryName_ =
   StoredQuery'
-    { queryArn = Prelude.Nothing,
-      queryId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      expression = Prelude.Nothing,
+    { queryArn = Core.Nothing,
+      queryId = Core.Nothing,
+      description = Core.Nothing,
+      expression = Core.Nothing,
       queryName = pQueryName_
     }
 
 -- | Amazon Resource Name (ARN) of the query. For example,
 -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
-storedQuery_queryArn :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
+storedQuery_queryArn :: Lens.Lens' StoredQuery (Core.Maybe Core.Text)
 storedQuery_queryArn = Lens.lens (\StoredQuery' {queryArn} -> queryArn) (\s@StoredQuery' {} a -> s {queryArn = a} :: StoredQuery)
 
 -- | The ID of the query.
-storedQuery_queryId :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
+storedQuery_queryId :: Lens.Lens' StoredQuery (Core.Maybe Core.Text)
 storedQuery_queryId = Lens.lens (\StoredQuery' {queryId} -> queryId) (\s@StoredQuery' {} a -> s {queryId = a} :: StoredQuery)
 
 -- | A unique description for the query.
-storedQuery_description :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
+storedQuery_description :: Lens.Lens' StoredQuery (Core.Maybe Core.Text)
 storedQuery_description = Lens.lens (\StoredQuery' {description} -> description) (\s@StoredQuery' {} a -> s {description = a} :: StoredQuery)
 
 -- | The expression of the query. For example,
 -- @SELECT resourceId, resourceType, supplementaryConfiguration.BucketVersioningConfiguration.status WHERE resourceType = \'AWS::S3::Bucket\' AND supplementaryConfiguration.BucketVersioningConfiguration.status = \'Off\'.@
-storedQuery_expression :: Lens.Lens' StoredQuery (Prelude.Maybe Prelude.Text)
+storedQuery_expression :: Lens.Lens' StoredQuery (Core.Maybe Core.Text)
 storedQuery_expression = Lens.lens (\StoredQuery' {expression} -> expression) (\s@StoredQuery' {} a -> s {expression = a} :: StoredQuery)
 
 -- | The name of the query.
-storedQuery_queryName :: Lens.Lens' StoredQuery Prelude.Text
+storedQuery_queryName :: Lens.Lens' StoredQuery Core.Text
 storedQuery_queryName = Lens.lens (\StoredQuery' {queryName} -> queryName) (\s@StoredQuery' {} a -> s {queryName = a} :: StoredQuery)
 
-instance Prelude.FromJSON StoredQuery where
+instance Core.FromJSON StoredQuery where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StoredQuery"
       ( \x ->
           StoredQuery'
-            Prelude.<$> (x Prelude..:? "QueryArn")
-            Prelude.<*> (x Prelude..:? "QueryId")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "Expression")
-            Prelude.<*> (x Prelude..: "QueryName")
+            Core.<$> (x Core..:? "QueryArn")
+            Core.<*> (x Core..:? "QueryId")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "Expression")
+            Core.<*> (x Core..: "QueryName")
       )
 
-instance Prelude.Hashable StoredQuery
+instance Core.Hashable StoredQuery
 
-instance Prelude.NFData StoredQuery
+instance Core.NFData StoredQuery
 
-instance Prelude.ToJSON StoredQuery where
+instance Core.ToJSON StoredQuery where
   toJSON StoredQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("QueryArn" Prelude..=) Prelude.<$> queryArn,
-            ("QueryId" Prelude..=) Prelude.<$> queryId,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("Expression" Prelude..=) Prelude.<$> expression,
-            Prelude.Just ("QueryName" Prelude..= queryName)
+    Core.object
+      ( Core.catMaybes
+          [ ("QueryArn" Core..=) Core.<$> queryArn,
+            ("QueryId" Core..=) Core.<$> queryId,
+            ("Description" Core..=) Core.<$> description,
+            ("Expression" Core..=) Core.<$> expression,
+            Core.Just ("QueryName" Core..= queryName)
           ]
       )

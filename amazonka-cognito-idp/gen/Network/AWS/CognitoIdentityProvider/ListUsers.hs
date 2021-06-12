@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.CognitoIdentityProvider.ListUsers
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +59,7 @@ data ListUsers = ListUsers'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    paginationToken :: Prelude.Maybe Prelude.Text,
+    paginationToken :: Core.Maybe Core.Text,
     -- | A filter string of the form \"/AttributeName/ /Filter-Type/
     -- \"/AttributeValue/\"\". Quotation marks within the filter string must be
     -- escaped using the backslash (\\) character. For example, \"@family_name@
@@ -110,18 +108,18 @@ data ListUsers = ListUsers'
     -- and
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples Examples of Using the ListUsers API>
     -- in the /Amazon Cognito Developer Guide/.
-    filter' :: Prelude.Maybe Prelude.Text,
+    filter' :: Core.Maybe Core.Text,
     -- | Maximum number of users to be returned.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | An array of strings, where each string is the name of a user attribute
     -- to be returned for each user in the search results. If the array is
     -- null, all attributes are returned.
-    attributesToGet :: Prelude.Maybe [Prelude.Text],
+    attributesToGet :: Core.Maybe [Core.Text],
     -- | The user pool ID for the user pool on which the search should be
     -- performed.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUsers' with all optional fields omitted.
@@ -194,21 +192,21 @@ data ListUsers = ListUsers'
 -- performed.
 newListUsers ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   ListUsers
 newListUsers pUserPoolId_ =
   ListUsers'
-    { paginationToken = Prelude.Nothing,
-      filter' = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      attributesToGet = Prelude.Nothing,
+    { paginationToken = Core.Nothing,
+      filter' = Core.Nothing,
+      limit = Core.Nothing,
+      attributesToGet = Core.Nothing,
       userPoolId = pUserPoolId_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listUsers_paginationToken :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_paginationToken :: Lens.Lens' ListUsers (Core.Maybe Core.Text)
 listUsers_paginationToken = Lens.lens (\ListUsers' {paginationToken} -> paginationToken) (\s@ListUsers' {} a -> s {paginationToken = a} :: ListUsers)
 
 -- | A filter string of the form \"/AttributeName/ /Filter-Type/
@@ -259,95 +257,90 @@ listUsers_paginationToken = Lens.lens (\ListUsers' {paginationToken} -> paginati
 -- and
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples Examples of Using the ListUsers API>
 -- in the /Amazon Cognito Developer Guide/.
-listUsers_filter :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_filter :: Lens.Lens' ListUsers (Core.Maybe Core.Text)
 listUsers_filter = Lens.lens (\ListUsers' {filter'} -> filter') (\s@ListUsers' {} a -> s {filter' = a} :: ListUsers)
 
 -- | Maximum number of users to be returned.
-listUsers_limit :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
+listUsers_limit :: Lens.Lens' ListUsers (Core.Maybe Core.Natural)
 listUsers_limit = Lens.lens (\ListUsers' {limit} -> limit) (\s@ListUsers' {} a -> s {limit = a} :: ListUsers)
 
 -- | An array of strings, where each string is the name of a user attribute
 -- to be returned for each user in the search results. If the array is
 -- null, all attributes are returned.
-listUsers_attributesToGet :: Lens.Lens' ListUsers (Prelude.Maybe [Prelude.Text])
-listUsers_attributesToGet = Lens.lens (\ListUsers' {attributesToGet} -> attributesToGet) (\s@ListUsers' {} a -> s {attributesToGet = a} :: ListUsers) Prelude.. Lens.mapping Prelude._Coerce
+listUsers_attributesToGet :: Lens.Lens' ListUsers (Core.Maybe [Core.Text])
+listUsers_attributesToGet = Lens.lens (\ListUsers' {attributesToGet} -> attributesToGet) (\s@ListUsers' {} a -> s {attributesToGet = a} :: ListUsers) Core.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID for the user pool on which the search should be
 -- performed.
-listUsers_userPoolId :: Lens.Lens' ListUsers Prelude.Text
+listUsers_userPoolId :: Lens.Lens' ListUsers Core.Text
 listUsers_userPoolId = Lens.lens (\ListUsers' {userPoolId} -> userPoolId) (\s@ListUsers' {} a -> s {userPoolId = a} :: ListUsers)
 
-instance Pager.AWSPager ListUsers where
+instance Core.AWSPager ListUsers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listUsersResponse_paginationToken
-              Prelude.. Lens._Just
+            Lens.^? listUsersResponse_paginationToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listUsersResponse_users Prelude.. Lens._Just
+            Lens.^? listUsersResponse_users Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listUsers_paginationToken
           Lens..~ rs
-          Lens.^? listUsersResponse_paginationToken
-            Prelude.. Lens._Just
+          Lens.^? listUsersResponse_paginationToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListUsers where
-  type Rs ListUsers = ListUsersResponse
+instance Core.AWSRequest ListUsers where
+  type AWSResponse ListUsers = ListUsersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Prelude..?> "PaginationToken")
-            Prelude.<*> (x Prelude..?> "Users" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PaginationToken")
+            Core.<*> (x Core..?> "Users" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListUsers
+instance Core.Hashable ListUsers
 
-instance Prelude.NFData ListUsers
+instance Core.NFData ListUsers
 
-instance Prelude.ToHeaders ListUsers where
+instance Core.ToHeaders ListUsers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.ListUsers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.ListUsers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListUsers where
+instance Core.ToJSON ListUsers where
   toJSON ListUsers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PaginationToken" Prelude..=)
-              Prelude.<$> paginationToken,
-            ("Filter" Prelude..=) Prelude.<$> filter',
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            ("AttributesToGet" Prelude..=)
-              Prelude.<$> attributesToGet,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ ("PaginationToken" Core..=)
+              Core.<$> paginationToken,
+            ("Filter" Core..=) Core.<$> filter',
+            ("Limit" Core..=) Core.<$> limit,
+            ("AttributesToGet" Core..=) Core.<$> attributesToGet,
+            Core.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
-instance Prelude.ToPath ListUsers where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListUsers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListUsers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListUsers where
+  toQuery = Core.const Core.mempty
 
 -- | The response from the request to list users.
 --
@@ -356,13 +349,13 @@ data ListUsersResponse = ListUsersResponse'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    paginationToken :: Prelude.Maybe Prelude.Text,
+    paginationToken :: Core.Maybe Core.Text,
     -- | The users returned in the request to list users.
-    users :: Prelude.Maybe [UserType],
+    users :: Core.Maybe [UserType],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUsersResponse' with all optional fields omitted.
@@ -381,28 +374,27 @@ data ListUsersResponse = ListUsersResponse'
 -- 'httpStatus', 'listUsersResponse_httpStatus' - The response's http status code.
 newListUsersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListUsersResponse
 newListUsersResponse pHttpStatus_ =
   ListUsersResponse'
-    { paginationToken =
-        Prelude.Nothing,
-      users = Prelude.Nothing,
+    { paginationToken = Core.Nothing,
+      users = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listUsersResponse_paginationToken :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
+listUsersResponse_paginationToken :: Lens.Lens' ListUsersResponse (Core.Maybe Core.Text)
 listUsersResponse_paginationToken = Lens.lens (\ListUsersResponse' {paginationToken} -> paginationToken) (\s@ListUsersResponse' {} a -> s {paginationToken = a} :: ListUsersResponse)
 
 -- | The users returned in the request to list users.
-listUsersResponse_users :: Lens.Lens' ListUsersResponse (Prelude.Maybe [UserType])
-listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Lens.mapping Prelude._Coerce
+listUsersResponse_users :: Lens.Lens' ListUsersResponse (Core.Maybe [UserType])
+listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int
+listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Core.Int
 listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> httpStatus) (\s@ListUsersResponse' {} a -> s {httpStatus = a} :: ListUsersResponse)
 
-instance Prelude.NFData ListUsersResponse
+instance Core.NFData ListUsersResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.AudioParameters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.AudioCodecOptions
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters required for transcoding audio.
 --
@@ -35,10 +34,10 @@ data AudioParameters = AudioParameters'
     --
     -- If you specify @auto@, Elastic Transcoder chooses a profile based on the
     -- bit rate of the output file.
-    codecOptions :: Prelude.Maybe AudioCodecOptions,
+    codecOptions :: Core.Maybe AudioCodecOptions,
     -- | The audio codec for the output file. Valid values include @aac@, @flac@,
     -- @mp2@, @mp3@, @pcm@, and @vorbis@.
-    codec :: Prelude.Maybe Prelude.Text,
+    codec :: Core.Maybe Core.Text,
     -- | The number of audio channels in the output file. The following values
     -- are valid:
     --
@@ -68,7 +67,7 @@ data AudioParameters = AudioParameters'
     --
     -- For more information about how Elastic Transcoder organizes channels and
     -- tracks, see @Audio:AudioPackingMode@.
-    channels :: Prelude.Maybe Prelude.Text,
+    channels :: Core.Maybe Core.Text,
     -- | The sample rate of the audio stream in the output file, in Hertz. Valid
     -- values include:
     --
@@ -76,7 +75,7 @@ data AudioParameters = AudioParameters'
     --
     -- If you specify @auto@, Elastic Transcoder automatically detects the
     -- sample rate.
-    sampleRate :: Prelude.Maybe Prelude.Text,
+    sampleRate :: Core.Maybe Core.Text,
     -- | The method of organizing audio channels and tracks. Use @Audio:Channels@
     -- to specify the number of channels in your output, and
     -- @Audio:AudioPackingMode@ to specify the number of tracks and their
@@ -188,12 +187,12 @@ data AudioParameters = AudioParameters'
     -- -   @auto @ __channels with one track with multiple channels:__ Up to
     --     eight tracks with one channel each, plus MOS tracks until there are
     --     eight tracks in all
-    audioPackingMode :: Prelude.Maybe Prelude.Text,
+    audioPackingMode :: Core.Maybe Core.Text,
     -- | The bit rate of the audio stream in the output file, in
     -- kilobits\/second. Enter an integer between 64 and 320, inclusive.
-    bitRate :: Prelude.Maybe Prelude.Text
+    bitRate :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioParameters' with all optional fields omitted.
@@ -370,12 +369,12 @@ newAudioParameters ::
   AudioParameters
 newAudioParameters =
   AudioParameters'
-    { codecOptions = Prelude.Nothing,
-      codec = Prelude.Nothing,
-      channels = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
-      audioPackingMode = Prelude.Nothing,
-      bitRate = Prelude.Nothing
+    { codecOptions = Core.Nothing,
+      codec = Core.Nothing,
+      channels = Core.Nothing,
+      sampleRate = Core.Nothing,
+      audioPackingMode = Core.Nothing,
+      bitRate = Core.Nothing
     }
 
 -- | If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
@@ -385,12 +384,12 @@ newAudioParameters =
 --
 -- If you specify @auto@, Elastic Transcoder chooses a profile based on the
 -- bit rate of the output file.
-audioParameters_codecOptions :: Lens.Lens' AudioParameters (Prelude.Maybe AudioCodecOptions)
+audioParameters_codecOptions :: Lens.Lens' AudioParameters (Core.Maybe AudioCodecOptions)
 audioParameters_codecOptions = Lens.lens (\AudioParameters' {codecOptions} -> codecOptions) (\s@AudioParameters' {} a -> s {codecOptions = a} :: AudioParameters)
 
 -- | The audio codec for the output file. Valid values include @aac@, @flac@,
 -- @mp2@, @mp3@, @pcm@, and @vorbis@.
-audioParameters_codec :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
+audioParameters_codec :: Lens.Lens' AudioParameters (Core.Maybe Core.Text)
 audioParameters_codec = Lens.lens (\AudioParameters' {codec} -> codec) (\s@AudioParameters' {} a -> s {codec = a} :: AudioParameters)
 
 -- | The number of audio channels in the output file. The following values
@@ -422,7 +421,7 @@ audioParameters_codec = Lens.lens (\AudioParameters' {codec} -> codec) (\s@Audio
 --
 -- For more information about how Elastic Transcoder organizes channels and
 -- tracks, see @Audio:AudioPackingMode@.
-audioParameters_channels :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
+audioParameters_channels :: Lens.Lens' AudioParameters (Core.Maybe Core.Text)
 audioParameters_channels = Lens.lens (\AudioParameters' {channels} -> channels) (\s@AudioParameters' {} a -> s {channels = a} :: AudioParameters)
 
 -- | The sample rate of the audio stream in the output file, in Hertz. Valid
@@ -432,7 +431,7 @@ audioParameters_channels = Lens.lens (\AudioParameters' {channels} -> channels) 
 --
 -- If you specify @auto@, Elastic Transcoder automatically detects the
 -- sample rate.
-audioParameters_sampleRate :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
+audioParameters_sampleRate :: Lens.Lens' AudioParameters (Core.Maybe Core.Text)
 audioParameters_sampleRate = Lens.lens (\AudioParameters' {sampleRate} -> sampleRate) (\s@AudioParameters' {} a -> s {sampleRate = a} :: AudioParameters)
 
 -- | The method of organizing audio channels and tracks. Use @Audio:Channels@
@@ -546,43 +545,42 @@ audioParameters_sampleRate = Lens.lens (\AudioParameters' {sampleRate} -> sample
 -- -   @auto @ __channels with one track with multiple channels:__ Up to
 --     eight tracks with one channel each, plus MOS tracks until there are
 --     eight tracks in all
-audioParameters_audioPackingMode :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
+audioParameters_audioPackingMode :: Lens.Lens' AudioParameters (Core.Maybe Core.Text)
 audioParameters_audioPackingMode = Lens.lens (\AudioParameters' {audioPackingMode} -> audioPackingMode) (\s@AudioParameters' {} a -> s {audioPackingMode = a} :: AudioParameters)
 
 -- | The bit rate of the audio stream in the output file, in
 -- kilobits\/second. Enter an integer between 64 and 320, inclusive.
-audioParameters_bitRate :: Lens.Lens' AudioParameters (Prelude.Maybe Prelude.Text)
+audioParameters_bitRate :: Lens.Lens' AudioParameters (Core.Maybe Core.Text)
 audioParameters_bitRate = Lens.lens (\AudioParameters' {bitRate} -> bitRate) (\s@AudioParameters' {} a -> s {bitRate = a} :: AudioParameters)
 
-instance Prelude.FromJSON AudioParameters where
+instance Core.FromJSON AudioParameters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioParameters"
       ( \x ->
           AudioParameters'
-            Prelude.<$> (x Prelude..:? "CodecOptions")
-            Prelude.<*> (x Prelude..:? "Codec")
-            Prelude.<*> (x Prelude..:? "Channels")
-            Prelude.<*> (x Prelude..:? "SampleRate")
-            Prelude.<*> (x Prelude..:? "AudioPackingMode")
-            Prelude.<*> (x Prelude..:? "BitRate")
+            Core.<$> (x Core..:? "CodecOptions")
+            Core.<*> (x Core..:? "Codec")
+            Core.<*> (x Core..:? "Channels")
+            Core.<*> (x Core..:? "SampleRate")
+            Core.<*> (x Core..:? "AudioPackingMode")
+            Core.<*> (x Core..:? "BitRate")
       )
 
-instance Prelude.Hashable AudioParameters
+instance Core.Hashable AudioParameters
 
-instance Prelude.NFData AudioParameters
+instance Core.NFData AudioParameters
 
-instance Prelude.ToJSON AudioParameters where
+instance Core.ToJSON AudioParameters where
   toJSON AudioParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CodecOptions" Prelude..=)
-              Prelude.<$> codecOptions,
-            ("Codec" Prelude..=) Prelude.<$> codec,
-            ("Channels" Prelude..=) Prelude.<$> channels,
-            ("SampleRate" Prelude..=) Prelude.<$> sampleRate,
-            ("AudioPackingMode" Prelude..=)
-              Prelude.<$> audioPackingMode,
-            ("BitRate" Prelude..=) Prelude.<$> bitRate
+    Core.object
+      ( Core.catMaybes
+          [ ("CodecOptions" Core..=) Core.<$> codecOptions,
+            ("Codec" Core..=) Core.<$> codec,
+            ("Channels" Core..=) Core.<$> channels,
+            ("SampleRate" Core..=) Core.<$> sampleRate,
+            ("AudioPackingMode" Core..=)
+              Core.<$> audioPackingMode,
+            ("BitRate" Core..=) Core.<$> bitRate
           ]
       )

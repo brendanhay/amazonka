@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,21 +43,21 @@ module Network.AWS.MachineLearning.UpdateEvaluation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateEvaluation' smart constructor.
 data UpdateEvaluation = UpdateEvaluation'
   { -- | The ID assigned to the @Evaluation@ during creation.
-    evaluationId :: Prelude.Text,
+    evaluationId :: Core.Text,
     -- | A new user-supplied name or description of the @Evaluation@ that will
     -- replace the current content.
-    evaluationName :: Prelude.Text
+    evaluationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEvaluation' with all optional fields omitted.
@@ -74,9 +73,9 @@ data UpdateEvaluation = UpdateEvaluation'
 -- replace the current content.
 newUpdateEvaluation ::
   -- | 'evaluationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'evaluationName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateEvaluation
 newUpdateEvaluation pEvaluationId_ pEvaluationName_ =
   UpdateEvaluation'
@@ -85,60 +84,58 @@ newUpdateEvaluation pEvaluationId_ pEvaluationName_ =
     }
 
 -- | The ID assigned to the @Evaluation@ during creation.
-updateEvaluation_evaluationId :: Lens.Lens' UpdateEvaluation Prelude.Text
+updateEvaluation_evaluationId :: Lens.Lens' UpdateEvaluation Core.Text
 updateEvaluation_evaluationId = Lens.lens (\UpdateEvaluation' {evaluationId} -> evaluationId) (\s@UpdateEvaluation' {} a -> s {evaluationId = a} :: UpdateEvaluation)
 
 -- | A new user-supplied name or description of the @Evaluation@ that will
 -- replace the current content.
-updateEvaluation_evaluationName :: Lens.Lens' UpdateEvaluation Prelude.Text
+updateEvaluation_evaluationName :: Lens.Lens' UpdateEvaluation Core.Text
 updateEvaluation_evaluationName = Lens.lens (\UpdateEvaluation' {evaluationName} -> evaluationName) (\s@UpdateEvaluation' {} a -> s {evaluationName = a} :: UpdateEvaluation)
 
-instance Prelude.AWSRequest UpdateEvaluation where
-  type Rs UpdateEvaluation = UpdateEvaluationResponse
+instance Core.AWSRequest UpdateEvaluation where
+  type
+    AWSResponse UpdateEvaluation =
+      UpdateEvaluationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateEvaluationResponse'
-            Prelude.<$> (x Prelude..?> "EvaluationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EvaluationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEvaluation
+instance Core.Hashable UpdateEvaluation
 
-instance Prelude.NFData UpdateEvaluation
+instance Core.NFData UpdateEvaluation
 
-instance Prelude.ToHeaders UpdateEvaluation where
+instance Core.ToHeaders UpdateEvaluation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.UpdateEvaluation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.UpdateEvaluation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateEvaluation where
+instance Core.ToJSON UpdateEvaluation where
   toJSON UpdateEvaluation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EvaluationId" Prelude..= evaluationId),
-            Prelude.Just
-              ("EvaluationName" Prelude..= evaluationName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EvaluationId" Core..= evaluationId),
+            Core.Just ("EvaluationName" Core..= evaluationName)
           ]
       )
 
-instance Prelude.ToPath UpdateEvaluation where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateEvaluation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateEvaluation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateEvaluation where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of an @UpdateEvaluation@ operation.
 --
@@ -148,11 +145,11 @@ instance Prelude.ToQuery UpdateEvaluation where
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
   { -- | The ID assigned to the @Evaluation@ during creation. This value should
     -- be identical to the value of the @Evaluation@ in the request.
-    evaluationId :: Prelude.Maybe Prelude.Text,
+    evaluationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEvaluationResponse' with all optional fields omitted.
@@ -168,22 +165,22 @@ data UpdateEvaluationResponse = UpdateEvaluationResponse'
 -- 'httpStatus', 'updateEvaluationResponse_httpStatus' - The response's http status code.
 newUpdateEvaluationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateEvaluationResponse
 newUpdateEvaluationResponse pHttpStatus_ =
   UpdateEvaluationResponse'
     { evaluationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should
 -- be identical to the value of the @Evaluation@ in the request.
-updateEvaluationResponse_evaluationId :: Lens.Lens' UpdateEvaluationResponse (Prelude.Maybe Prelude.Text)
+updateEvaluationResponse_evaluationId :: Lens.Lens' UpdateEvaluationResponse (Core.Maybe Core.Text)
 updateEvaluationResponse_evaluationId = Lens.lens (\UpdateEvaluationResponse' {evaluationId} -> evaluationId) (\s@UpdateEvaluationResponse' {} a -> s {evaluationId = a} :: UpdateEvaluationResponse)
 
 -- | The response's http status code.
-updateEvaluationResponse_httpStatus :: Lens.Lens' UpdateEvaluationResponse Prelude.Int
+updateEvaluationResponse_httpStatus :: Lens.Lens' UpdateEvaluationResponse Core.Int
 updateEvaluationResponse_httpStatus = Lens.lens (\UpdateEvaluationResponse' {httpStatus} -> httpStatus) (\s@UpdateEvaluationResponse' {} a -> s {httpStatus = a} :: UpdateEvaluationResponse)
 
-instance Prelude.NFData UpdateEvaluationResponse
+instance Core.NFData UpdateEvaluationResponse

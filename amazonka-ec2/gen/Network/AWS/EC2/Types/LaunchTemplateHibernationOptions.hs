@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateHibernationOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether an instance is configured for hibernation.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data LaunchTemplateHibernationOptions = LaunchTemplateHibernationOptions'
   { -- | If this parameter is set to @true@, the instance is enabled for
     -- hibernation; otherwise, it is not enabled for hibernation.
-    configured :: Prelude.Maybe Prelude.Bool
+    configured :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateHibernationOptions' with all optional fields omitted.
@@ -49,26 +48,24 @@ newLaunchTemplateHibernationOptions ::
 newLaunchTemplateHibernationOptions =
   LaunchTemplateHibernationOptions'
     { configured =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | If this parameter is set to @true@, the instance is enabled for
 -- hibernation; otherwise, it is not enabled for hibernation.
-launchTemplateHibernationOptions_configured :: Lens.Lens' LaunchTemplateHibernationOptions (Prelude.Maybe Prelude.Bool)
+launchTemplateHibernationOptions_configured :: Lens.Lens' LaunchTemplateHibernationOptions (Core.Maybe Core.Bool)
 launchTemplateHibernationOptions_configured = Lens.lens (\LaunchTemplateHibernationOptions' {configured} -> configured) (\s@LaunchTemplateHibernationOptions' {} a -> s {configured = a} :: LaunchTemplateHibernationOptions)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     LaunchTemplateHibernationOptions
   where
   parseXML x =
     LaunchTemplateHibernationOptions'
-      Prelude.<$> (x Prelude..@? "configured")
+      Core.<$> (x Core..@? "configured")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateHibernationOptions
 
-instance
-  Prelude.NFData
-    LaunchTemplateHibernationOptions
+instance Core.NFData LaunchTemplateHibernationOptions

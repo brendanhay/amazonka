@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.SageMaker.CreateImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,19 +55,19 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateImage' smart constructor.
 data CreateImage = CreateImage'
   { -- | A list of tags to apply to the image.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The description of the image.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The display name of the image. If not provided, @ImageName@ is
     -- displayed.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Core.Maybe Core.Text,
     -- | The name of the image. Must be unique to your account.
-    imageName :: Prelude.Text,
+    imageName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
     -- SageMaker to perform tasks on your behalf.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateImage' with all optional fields omitted.
@@ -91,95 +90,93 @@ data CreateImage = CreateImage'
 -- SageMaker to perform tasks on your behalf.
 newCreateImage ::
   -- | 'imageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateImage
 newCreateImage pImageName_ pRoleArn_ =
   CreateImage'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+    { tags = Core.Nothing,
+      description = Core.Nothing,
+      displayName = Core.Nothing,
       imageName = pImageName_,
       roleArn = pRoleArn_
     }
 
 -- | A list of tags to apply to the image.
-createImage_tags :: Lens.Lens' CreateImage (Prelude.Maybe [Tag])
-createImage_tags = Lens.lens (\CreateImage' {tags} -> tags) (\s@CreateImage' {} a -> s {tags = a} :: CreateImage) Prelude.. Lens.mapping Prelude._Coerce
+createImage_tags :: Lens.Lens' CreateImage (Core.Maybe [Tag])
+createImage_tags = Lens.lens (\CreateImage' {tags} -> tags) (\s@CreateImage' {} a -> s {tags = a} :: CreateImage) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the image.
-createImage_description :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
+createImage_description :: Lens.Lens' CreateImage (Core.Maybe Core.Text)
 createImage_description = Lens.lens (\CreateImage' {description} -> description) (\s@CreateImage' {} a -> s {description = a} :: CreateImage)
 
 -- | The display name of the image. If not provided, @ImageName@ is
 -- displayed.
-createImage_displayName :: Lens.Lens' CreateImage (Prelude.Maybe Prelude.Text)
+createImage_displayName :: Lens.Lens' CreateImage (Core.Maybe Core.Text)
 createImage_displayName = Lens.lens (\CreateImage' {displayName} -> displayName) (\s@CreateImage' {} a -> s {displayName = a} :: CreateImage)
 
 -- | The name of the image. Must be unique to your account.
-createImage_imageName :: Lens.Lens' CreateImage Prelude.Text
+createImage_imageName :: Lens.Lens' CreateImage Core.Text
 createImage_imageName = Lens.lens (\CreateImage' {imageName} -> imageName) (\s@CreateImage' {} a -> s {imageName = a} :: CreateImage)
 
 -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
 -- SageMaker to perform tasks on your behalf.
-createImage_roleArn :: Lens.Lens' CreateImage Prelude.Text
+createImage_roleArn :: Lens.Lens' CreateImage Core.Text
 createImage_roleArn = Lens.lens (\CreateImage' {roleArn} -> roleArn) (\s@CreateImage' {} a -> s {roleArn = a} :: CreateImage)
 
-instance Prelude.AWSRequest CreateImage where
-  type Rs CreateImage = CreateImageResponse
+instance Core.AWSRequest CreateImage where
+  type AWSResponse CreateImage = CreateImageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateImageResponse'
-            Prelude.<$> (x Prelude..?> "ImageArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ImageArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateImage
+instance Core.Hashable CreateImage
 
-instance Prelude.NFData CreateImage
+instance Core.NFData CreateImage
 
-instance Prelude.ToHeaders CreateImage where
+instance Core.ToHeaders CreateImage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.CreateImage" :: Prelude.ByteString),
+              Core.=# ("SageMaker.CreateImage" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateImage where
+instance Core.ToJSON CreateImage where
   toJSON CreateImage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("DisplayName" Prelude..=) Prelude.<$> displayName,
-            Prelude.Just ("ImageName" Prelude..= imageName),
-            Prelude.Just ("RoleArn" Prelude..= roleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            ("DisplayName" Core..=) Core.<$> displayName,
+            Core.Just ("ImageName" Core..= imageName),
+            Core.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
-instance Prelude.ToPath CreateImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateImage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateImage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
   { -- | The Amazon Resource Name (ARN) of the image.
-    imageArn :: Prelude.Maybe Prelude.Text,
+    imageArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateImageResponse' with all optional fields omitted.
@@ -194,20 +191,20 @@ data CreateImageResponse = CreateImageResponse'
 -- 'httpStatus', 'createImageResponse_httpStatus' - The response's http status code.
 newCreateImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateImageResponse
 newCreateImageResponse pHttpStatus_ =
   CreateImageResponse'
-    { imageArn = Prelude.Nothing,
+    { imageArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the image.
-createImageResponse_imageArn :: Lens.Lens' CreateImageResponse (Prelude.Maybe Prelude.Text)
+createImageResponse_imageArn :: Lens.Lens' CreateImageResponse (Core.Maybe Core.Text)
 createImageResponse_imageArn = Lens.lens (\CreateImageResponse' {imageArn} -> imageArn) (\s@CreateImageResponse' {} a -> s {imageArn = a} :: CreateImageResponse)
 
 -- | The response's http status code.
-createImageResponse_httpStatus :: Lens.Lens' CreateImageResponse Prelude.Int
+createImageResponse_httpStatus :: Lens.Lens' CreateImageResponse Core.Int
 createImageResponse_httpStatus = Lens.lens (\CreateImageResponse' {httpStatus} -> httpStatus) (\s@CreateImageResponse' {} a -> s {httpStatus = a} :: CreateImageResponse)
 
-instance Prelude.NFData CreateImageResponse
+instance Core.NFData CreateImageResponse

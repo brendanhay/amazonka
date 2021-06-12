@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.EC2.ImportVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,17 +61,17 @@ data ImportVolume = ImportVolume'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | A description of the volume.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The Availability Zone for the resulting EBS volume.
-    availabilityZone :: Prelude.Text,
+    availabilityZone :: Core.Text,
     -- | The disk image.
     image :: DiskImageDetail,
     -- | The volume size.
     volume :: VolumeDetail
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportVolume' with all optional fields omitted.
@@ -96,7 +95,7 @@ data ImportVolume = ImportVolume'
 -- 'volume', 'importVolume_volume' - The volume size.
 newImportVolume ::
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'image'
   DiskImageDetail ->
   -- | 'volume'
@@ -104,8 +103,8 @@ newImportVolume ::
   ImportVolume
 newImportVolume pAvailabilityZone_ pImage_ pVolume_ =
   ImportVolume'
-    { dryRun = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      description = Core.Nothing,
       availabilityZone = pAvailabilityZone_,
       image = pImage_,
       volume = pVolume_
@@ -115,15 +114,15 @@ newImportVolume pAvailabilityZone_ pImage_ pVolume_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-importVolume_dryRun :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Bool)
+importVolume_dryRun :: Lens.Lens' ImportVolume (Core.Maybe Core.Bool)
 importVolume_dryRun = Lens.lens (\ImportVolume' {dryRun} -> dryRun) (\s@ImportVolume' {} a -> s {dryRun = a} :: ImportVolume)
 
 -- | A description of the volume.
-importVolume_description :: Lens.Lens' ImportVolume (Prelude.Maybe Prelude.Text)
+importVolume_description :: Lens.Lens' ImportVolume (Core.Maybe Core.Text)
 importVolume_description = Lens.lens (\ImportVolume' {description} -> description) (\s@ImportVolume' {} a -> s {description = a} :: ImportVolume)
 
 -- | The Availability Zone for the resulting EBS volume.
-importVolume_availabilityZone :: Lens.Lens' ImportVolume Prelude.Text
+importVolume_availabilityZone :: Lens.Lens' ImportVolume Core.Text
 importVolume_availabilityZone = Lens.lens (\ImportVolume' {availabilityZone} -> availabilityZone) (\s@ImportVolume' {} a -> s {availabilityZone = a} :: ImportVolume)
 
 -- | The disk image.
@@ -134,49 +133,48 @@ importVolume_image = Lens.lens (\ImportVolume' {image} -> image) (\s@ImportVolum
 importVolume_volume :: Lens.Lens' ImportVolume VolumeDetail
 importVolume_volume = Lens.lens (\ImportVolume' {volume} -> volume) (\s@ImportVolume' {} a -> s {volume = a} :: ImportVolume)
 
-instance Prelude.AWSRequest ImportVolume where
-  type Rs ImportVolume = ImportVolumeResponse
+instance Core.AWSRequest ImportVolume where
+  type AWSResponse ImportVolume = ImportVolumeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ImportVolumeResponse'
-            Prelude.<$> (x Prelude..@? "conversionTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "conversionTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportVolume
+instance Core.Hashable ImportVolume
 
-instance Prelude.NFData ImportVolume
+instance Core.NFData ImportVolume
 
-instance Prelude.ToHeaders ImportVolume where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ImportVolume where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ImportVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportVolume where
+instance Core.ToQuery ImportVolume where
   toQuery ImportVolume' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ImportVolume" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Description" Prelude.=: description,
-        "AvailabilityZone" Prelude.=: availabilityZone,
-        "Image" Prelude.=: image,
-        "Volume" Prelude.=: volume
+          Core.=: ("ImportVolume" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Description" Core.=: description,
+        "AvailabilityZone" Core.=: availabilityZone,
+        "Image" Core.=: image,
+        "Volume" Core.=: volume
       ]
 
 -- | /See:/ 'newImportVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
   { -- | Information about the conversion task.
-    conversionTask :: Prelude.Maybe ConversionTask,
+    conversionTask :: Core.Maybe ConversionTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportVolumeResponse' with all optional fields omitted.
@@ -191,21 +189,21 @@ data ImportVolumeResponse = ImportVolumeResponse'
 -- 'httpStatus', 'importVolumeResponse_httpStatus' - The response's http status code.
 newImportVolumeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportVolumeResponse
 newImportVolumeResponse pHttpStatus_ =
   ImportVolumeResponse'
     { conversionTask =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the conversion task.
-importVolumeResponse_conversionTask :: Lens.Lens' ImportVolumeResponse (Prelude.Maybe ConversionTask)
+importVolumeResponse_conversionTask :: Lens.Lens' ImportVolumeResponse (Core.Maybe ConversionTask)
 importVolumeResponse_conversionTask = Lens.lens (\ImportVolumeResponse' {conversionTask} -> conversionTask) (\s@ImportVolumeResponse' {} a -> s {conversionTask = a} :: ImportVolumeResponse)
 
 -- | The response's http status code.
-importVolumeResponse_httpStatus :: Lens.Lens' ImportVolumeResponse Prelude.Int
+importVolumeResponse_httpStatus :: Lens.Lens' ImportVolumeResponse Core.Int
 importVolumeResponse_httpStatus = Lens.lens (\ImportVolumeResponse' {httpStatus} -> httpStatus) (\s@ImportVolumeResponse' {} a -> s {httpStatus = a} :: ImportVolumeResponse)
 
-instance Prelude.NFData ImportVolumeResponse
+instance Core.NFData ImportVolumeResponse

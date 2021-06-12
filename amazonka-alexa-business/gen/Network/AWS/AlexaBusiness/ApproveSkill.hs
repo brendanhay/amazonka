@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.AlexaBusiness.ApproveSkill
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newApproveSkill' smart constructor.
 data ApproveSkill = ApproveSkill'
   { -- | The unique identifier of the skill.
-    skillId :: Prelude.Text
+    skillId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApproveSkill' with all optional fields omitted.
@@ -65,63 +64,59 @@ data ApproveSkill = ApproveSkill'
 -- 'skillId', 'approveSkill_skillId' - The unique identifier of the skill.
 newApproveSkill ::
   -- | 'skillId'
-  Prelude.Text ->
+  Core.Text ->
   ApproveSkill
 newApproveSkill pSkillId_ =
   ApproveSkill' {skillId = pSkillId_}
 
 -- | The unique identifier of the skill.
-approveSkill_skillId :: Lens.Lens' ApproveSkill Prelude.Text
+approveSkill_skillId :: Lens.Lens' ApproveSkill Core.Text
 approveSkill_skillId = Lens.lens (\ApproveSkill' {skillId} -> skillId) (\s@ApproveSkill' {} a -> s {skillId = a} :: ApproveSkill)
 
-instance Prelude.AWSRequest ApproveSkill where
-  type Rs ApproveSkill = ApproveSkillResponse
+instance Core.AWSRequest ApproveSkill where
+  type AWSResponse ApproveSkill = ApproveSkillResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ApproveSkillResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ApproveSkill
+instance Core.Hashable ApproveSkill
 
-instance Prelude.NFData ApproveSkill
+instance Core.NFData ApproveSkill
 
-instance Prelude.ToHeaders ApproveSkill where
+instance Core.ToHeaders ApproveSkill where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.ApproveSkill" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AlexaForBusiness.ApproveSkill" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ApproveSkill where
+instance Core.ToJSON ApproveSkill where
   toJSON ApproveSkill' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SkillId" Prelude..= skillId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SkillId" Core..= skillId)]
       )
 
-instance Prelude.ToPath ApproveSkill where
-  toPath = Prelude.const "/"
+instance Core.ToPath ApproveSkill where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ApproveSkill where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ApproveSkill where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newApproveSkillResponse' smart constructor.
 data ApproveSkillResponse = ApproveSkillResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApproveSkillResponse' with all optional fields omitted.
@@ -134,13 +129,13 @@ data ApproveSkillResponse = ApproveSkillResponse'
 -- 'httpStatus', 'approveSkillResponse_httpStatus' - The response's http status code.
 newApproveSkillResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ApproveSkillResponse
 newApproveSkillResponse pHttpStatus_ =
   ApproveSkillResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-approveSkillResponse_httpStatus :: Lens.Lens' ApproveSkillResponse Prelude.Int
+approveSkillResponse_httpStatus :: Lens.Lens' ApproveSkillResponse Core.Int
 approveSkillResponse_httpStatus = Lens.lens (\ApproveSkillResponse' {httpStatus} -> httpStatus) (\s@ApproveSkillResponse' {} a -> s {httpStatus = a} :: ApproveSkillResponse)
 
-instance Prelude.NFData ApproveSkillResponse
+instance Core.NFData ApproveSkillResponse

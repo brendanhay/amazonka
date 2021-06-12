@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CertificateManager.DescribeCertificate
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ data DescribeCertificate = DescribeCertificate'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Prelude.Text
+    certificateArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificate' with all optional fields omitted.
@@ -76,7 +75,7 @@ data DescribeCertificate = DescribeCertificate'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
 newDescribeCertificate ::
   -- | 'certificateArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeCertificate
 newDescribeCertificate pCertificateArn_ =
   DescribeCertificate'
@@ -91,64 +90,62 @@ newDescribeCertificate pCertificateArn_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-describeCertificate_certificateArn :: Lens.Lens' DescribeCertificate Prelude.Text
+describeCertificate_certificateArn :: Lens.Lens' DescribeCertificate Core.Text
 describeCertificate_certificateArn = Lens.lens (\DescribeCertificate' {certificateArn} -> certificateArn) (\s@DescribeCertificate' {} a -> s {certificateArn = a} :: DescribeCertificate)
 
-instance Prelude.AWSRequest DescribeCertificate where
+instance Core.AWSRequest DescribeCertificate where
   type
-    Rs DescribeCertificate =
+    AWSResponse DescribeCertificate =
       DescribeCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeCertificateResponse'
-            Prelude.<$> (x Prelude..?> "Certificate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Certificate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCertificate
+instance Core.Hashable DescribeCertificate
 
-instance Prelude.NFData DescribeCertificate
+instance Core.NFData DescribeCertificate
 
-instance Prelude.ToHeaders DescribeCertificate where
+instance Core.ToHeaders DescribeCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.DescribeCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.DescribeCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeCertificate where
+instance Core.ToJSON DescribeCertificate where
   toJSON DescribeCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CertificateArn" Prelude..= certificateArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateArn" Core..= certificateArn)
           ]
       )
 
-instance Prelude.ToPath DescribeCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeCertificateResponse' smart constructor.
 data DescribeCertificateResponse = DescribeCertificateResponse'
   { -- | Metadata about an ACM certificate.
-    certificate :: Prelude.Maybe CertificateDetail,
+    certificate :: Core.Maybe CertificateDetail,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCertificateResponse' with all optional fields omitted.
@@ -163,21 +160,21 @@ data DescribeCertificateResponse = DescribeCertificateResponse'
 -- 'httpStatus', 'describeCertificateResponse_httpStatus' - The response's http status code.
 newDescribeCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCertificateResponse
 newDescribeCertificateResponse pHttpStatus_ =
   DescribeCertificateResponse'
     { certificate =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Metadata about an ACM certificate.
-describeCertificateResponse_certificate :: Lens.Lens' DescribeCertificateResponse (Prelude.Maybe CertificateDetail)
+describeCertificateResponse_certificate :: Lens.Lens' DescribeCertificateResponse (Core.Maybe CertificateDetail)
 describeCertificateResponse_certificate = Lens.lens (\DescribeCertificateResponse' {certificate} -> certificate) (\s@DescribeCertificateResponse' {} a -> s {certificate = a} :: DescribeCertificateResponse)
 
 -- | The response's http status code.
-describeCertificateResponse_httpStatus :: Lens.Lens' DescribeCertificateResponse Prelude.Int
+describeCertificateResponse_httpStatus :: Lens.Lens' DescribeCertificateResponse Core.Int
 describeCertificateResponse_httpStatus = Lens.lens (\DescribeCertificateResponse' {httpStatus} -> httpStatus) (\s@DescribeCertificateResponse' {} a -> s {httpStatus = a} :: DescribeCertificateResponse)
 
-instance Prelude.NFData DescribeCertificateResponse
+instance Core.NFData DescribeCertificateResponse

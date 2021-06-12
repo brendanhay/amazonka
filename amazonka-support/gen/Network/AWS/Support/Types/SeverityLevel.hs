@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.SeverityLevel where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A code and name pair that represents the severity level of a support
 -- case. The available values depend on the support plan for the account.
@@ -34,7 +33,7 @@ data SeverityLevel = SeverityLevel'
   { -- | The code for case severity level.
     --
     -- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
-    code :: Prelude.Maybe Prelude.Text,
+    code :: Core.Maybe Core.Text,
     -- | The name of the severity level that corresponds to the severity level
     -- code.
     --
@@ -56,9 +55,9 @@ data SeverityLevel = SeverityLevel'
     -- For more information, see
     -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
     -- in the /AWS Support User Guide/.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SeverityLevel' with all optional fields omitted.
@@ -97,14 +96,14 @@ newSeverityLevel ::
   SeverityLevel
 newSeverityLevel =
   SeverityLevel'
-    { code = Prelude.Nothing,
-      name = Prelude.Nothing
+    { code = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The code for case severity level.
 --
 -- Valid values: @low@ | @normal@ | @high@ | @urgent@ | @critical@
-severityLevel_code :: Lens.Lens' SeverityLevel (Prelude.Maybe Prelude.Text)
+severityLevel_code :: Lens.Lens' SeverityLevel (Core.Maybe Core.Text)
 severityLevel_code = Lens.lens (\SeverityLevel' {code} -> code) (\s@SeverityLevel' {} a -> s {code = a} :: SeverityLevel)
 
 -- | The name of the severity level that corresponds to the severity level
@@ -128,19 +127,18 @@ severityLevel_code = Lens.lens (\SeverityLevel' {code} -> code) (\s@SeverityLeve
 -- For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
 -- in the /AWS Support User Guide/.
-severityLevel_name :: Lens.Lens' SeverityLevel (Prelude.Maybe Prelude.Text)
+severityLevel_name :: Lens.Lens' SeverityLevel (Core.Maybe Core.Text)
 severityLevel_name = Lens.lens (\SeverityLevel' {name} -> name) (\s@SeverityLevel' {} a -> s {name = a} :: SeverityLevel)
 
-instance Prelude.FromJSON SeverityLevel where
+instance Core.FromJSON SeverityLevel where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SeverityLevel"
       ( \x ->
           SeverityLevel'
-            Prelude.<$> (x Prelude..:? "code")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable SeverityLevel
+instance Core.Hashable SeverityLevel
 
-instance Prelude.NFData SeverityLevel
+instance Core.NFData SeverityLevel

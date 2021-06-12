@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,20 +44,20 @@ module Network.AWS.DynamoDB.EnableKinesisStreamingDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableKinesisStreamingDestination' smart constructor.
 data EnableKinesisStreamingDestination = EnableKinesisStreamingDestination'
   { -- | The name of the DynamoDB table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | The ARN for a Kinesis data stream.
-    streamArn :: Prelude.Text
+    streamArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableKinesisStreamingDestination' with all optional fields omitted.
@@ -73,9 +72,9 @@ data EnableKinesisStreamingDestination = EnableKinesisStreamingDestination'
 -- 'streamArn', 'enableKinesisStreamingDestination_streamArn' - The ARN for a Kinesis data stream.
 newEnableKinesisStreamingDestination ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'streamArn'
-  Prelude.Text ->
+  Core.Text ->
   EnableKinesisStreamingDestination
 newEnableKinesisStreamingDestination
   pTableName_
@@ -87,71 +86,69 @@ newEnableKinesisStreamingDestination
       }
 
 -- | The name of the DynamoDB table.
-enableKinesisStreamingDestination_tableName :: Lens.Lens' EnableKinesisStreamingDestination Prelude.Text
+enableKinesisStreamingDestination_tableName :: Lens.Lens' EnableKinesisStreamingDestination Core.Text
 enableKinesisStreamingDestination_tableName = Lens.lens (\EnableKinesisStreamingDestination' {tableName} -> tableName) (\s@EnableKinesisStreamingDestination' {} a -> s {tableName = a} :: EnableKinesisStreamingDestination)
 
 -- | The ARN for a Kinesis data stream.
-enableKinesisStreamingDestination_streamArn :: Lens.Lens' EnableKinesisStreamingDestination Prelude.Text
+enableKinesisStreamingDestination_streamArn :: Lens.Lens' EnableKinesisStreamingDestination Core.Text
 enableKinesisStreamingDestination_streamArn = Lens.lens (\EnableKinesisStreamingDestination' {streamArn} -> streamArn) (\s@EnableKinesisStreamingDestination' {} a -> s {streamArn = a} :: EnableKinesisStreamingDestination)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     EnableKinesisStreamingDestination
   where
   type
-    Rs EnableKinesisStreamingDestination =
+    AWSResponse EnableKinesisStreamingDestination =
       KinesisStreamingDestinationOutput
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EnableKinesisStreamingDestination
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableKinesisStreamingDestination
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     EnableKinesisStreamingDestination
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.EnableKinesisStreamingDestination" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.EnableKinesisStreamingDestination" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     EnableKinesisStreamingDestination
   where
   toJSON EnableKinesisStreamingDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just ("StreamArn" Prelude..= streamArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just ("StreamArn" Core..= streamArn)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     EnableKinesisStreamingDestination
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     EnableKinesisStreamingDestination
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty

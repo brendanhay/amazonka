@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -68,16 +66,16 @@ data DescribeVTLDevices = DescribeVTLDevices'
     -- All of the specified VTL devices must be from the same gateway. If no
     -- VTL devices are specified, the result will contain all devices on the
     -- specified gateway.
-    vTLDeviceARNs :: Prelude.Maybe [Prelude.Text],
+    vTLDeviceARNs :: Core.Maybe [Core.Text],
     -- | Specifies that the number of VTL devices described be limited to the
     -- specified number.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | An opaque string that indicates the position at which to begin
     -- describing the VTL devices.
-    marker :: Prelude.Maybe Prelude.Text,
-    gatewayARN :: Prelude.Text
+    marker :: Core.Maybe Core.Text,
+    gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVTLDevices' with all optional fields omitted.
@@ -103,14 +101,13 @@ data DescribeVTLDevices = DescribeVTLDevices'
 -- 'gatewayARN', 'describeVTLDevices_gatewayARN' - Undocumented member.
 newDescribeVTLDevices ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   DescribeVTLDevices
 newDescribeVTLDevices pGatewayARN_ =
   DescribeVTLDevices'
-    { vTLDeviceARNs =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { vTLDeviceARNs = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
       gatewayARN = pGatewayARN_
     }
 
@@ -120,98 +117,91 @@ newDescribeVTLDevices pGatewayARN_ =
 -- All of the specified VTL devices must be from the same gateway. If no
 -- VTL devices are specified, the result will contain all devices on the
 -- specified gateway.
-describeVTLDevices_vTLDeviceARNs :: Lens.Lens' DescribeVTLDevices (Prelude.Maybe [Prelude.Text])
-describeVTLDevices_vTLDeviceARNs = Lens.lens (\DescribeVTLDevices' {vTLDeviceARNs} -> vTLDeviceARNs) (\s@DescribeVTLDevices' {} a -> s {vTLDeviceARNs = a} :: DescribeVTLDevices) Prelude.. Lens.mapping Prelude._Coerce
+describeVTLDevices_vTLDeviceARNs :: Lens.Lens' DescribeVTLDevices (Core.Maybe [Core.Text])
+describeVTLDevices_vTLDeviceARNs = Lens.lens (\DescribeVTLDevices' {vTLDeviceARNs} -> vTLDeviceARNs) (\s@DescribeVTLDevices' {} a -> s {vTLDeviceARNs = a} :: DescribeVTLDevices) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies that the number of VTL devices described be limited to the
 -- specified number.
-describeVTLDevices_limit :: Lens.Lens' DescribeVTLDevices (Prelude.Maybe Prelude.Natural)
+describeVTLDevices_limit :: Lens.Lens' DescribeVTLDevices (Core.Maybe Core.Natural)
 describeVTLDevices_limit = Lens.lens (\DescribeVTLDevices' {limit} -> limit) (\s@DescribeVTLDevices' {} a -> s {limit = a} :: DescribeVTLDevices)
 
 -- | An opaque string that indicates the position at which to begin
 -- describing the VTL devices.
-describeVTLDevices_marker :: Lens.Lens' DescribeVTLDevices (Prelude.Maybe Prelude.Text)
+describeVTLDevices_marker :: Lens.Lens' DescribeVTLDevices (Core.Maybe Core.Text)
 describeVTLDevices_marker = Lens.lens (\DescribeVTLDevices' {marker} -> marker) (\s@DescribeVTLDevices' {} a -> s {marker = a} :: DescribeVTLDevices)
 
 -- | Undocumented member.
-describeVTLDevices_gatewayARN :: Lens.Lens' DescribeVTLDevices Prelude.Text
+describeVTLDevices_gatewayARN :: Lens.Lens' DescribeVTLDevices Core.Text
 describeVTLDevices_gatewayARN = Lens.lens (\DescribeVTLDevices' {gatewayARN} -> gatewayARN) (\s@DescribeVTLDevices' {} a -> s {gatewayARN = a} :: DescribeVTLDevices)
 
-instance Pager.AWSPager DescribeVTLDevices where
+instance Core.AWSPager DescribeVTLDevices where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeVTLDevicesResponse_marker
-              Prelude.. Lens._Just
+            Lens.^? describeVTLDevicesResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeVTLDevicesResponse_vTLDevices
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeVTLDevices_marker
           Lens..~ rs
-          Lens.^? describeVTLDevicesResponse_marker
-            Prelude.. Lens._Just
+          Lens.^? describeVTLDevicesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeVTLDevices where
+instance Core.AWSRequest DescribeVTLDevices where
   type
-    Rs DescribeVTLDevices =
+    AWSResponse DescribeVTLDevices =
       DescribeVTLDevicesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeVTLDevicesResponse'
-            Prelude.<$> ( x Prelude..?> "VTLDevices"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VTLDevices" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "GatewayARN")
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVTLDevices
+instance Core.Hashable DescribeVTLDevices
 
-instance Prelude.NFData DescribeVTLDevices
+instance Core.NFData DescribeVTLDevices
 
-instance Prelude.ToHeaders DescribeVTLDevices where
+instance Core.ToHeaders DescribeVTLDevices where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DescribeVTLDevices" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DescribeVTLDevices" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeVTLDevices where
+instance Core.ToJSON DescribeVTLDevices where
   toJSON DescribeVTLDevices' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VTLDeviceARNs" Prelude..=)
-              Prelude.<$> vTLDeviceARNs,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            ("Marker" Prelude..=) Prelude.<$> marker,
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("VTLDeviceARNs" Core..=) Core.<$> vTLDeviceARNs,
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker,
+            Core.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )
 
-instance Prelude.ToPath DescribeVTLDevices where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeVTLDevices where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeVTLDevices where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeVTLDevices where
+  toQuery = Core.const Core.mempty
 
 -- | DescribeVTLDevicesOutput
 --
@@ -219,18 +209,18 @@ instance Prelude.ToQuery DescribeVTLDevices where
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
   { -- | An array of VTL device objects composed of the Amazon Resource Name
     -- (ARN) of the VTL devices.
-    vTLDevices :: Prelude.Maybe [VTLDevice],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    vTLDevices :: Core.Maybe [VTLDevice],
+    gatewayARN :: Core.Maybe Core.Text,
     -- | An opaque string that indicates the position at which the VTL devices
     -- that were fetched for description ended. Use the marker in your next
     -- request to fetch the next set of VTL devices in the list. If there are
     -- no more VTL devices to describe, this field does not appear in the
     -- response.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVTLDevicesResponse' with all optional fields omitted.
@@ -254,24 +244,24 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
 -- 'httpStatus', 'describeVTLDevicesResponse_httpStatus' - The response's http status code.
 newDescribeVTLDevicesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVTLDevicesResponse
 newDescribeVTLDevicesResponse pHttpStatus_ =
   DescribeVTLDevicesResponse'
     { vTLDevices =
-        Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      gatewayARN = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of VTL device objects composed of the Amazon Resource Name
 -- (ARN) of the VTL devices.
-describeVTLDevicesResponse_vTLDevices :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe [VTLDevice])
-describeVTLDevicesResponse_vTLDevices = Lens.lens (\DescribeVTLDevicesResponse' {vTLDevices} -> vTLDevices) (\s@DescribeVTLDevicesResponse' {} a -> s {vTLDevices = a} :: DescribeVTLDevicesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVTLDevicesResponse_vTLDevices :: Lens.Lens' DescribeVTLDevicesResponse (Core.Maybe [VTLDevice])
+describeVTLDevicesResponse_vTLDevices = Lens.lens (\DescribeVTLDevicesResponse' {vTLDevices} -> vTLDevices) (\s@DescribeVTLDevicesResponse' {} a -> s {vTLDevices = a} :: DescribeVTLDevicesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-describeVTLDevicesResponse_gatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe Prelude.Text)
+describeVTLDevicesResponse_gatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Core.Maybe Core.Text)
 describeVTLDevicesResponse_gatewayARN = Lens.lens (\DescribeVTLDevicesResponse' {gatewayARN} -> gatewayARN) (\s@DescribeVTLDevicesResponse' {} a -> s {gatewayARN = a} :: DescribeVTLDevicesResponse)
 
 -- | An opaque string that indicates the position at which the VTL devices
@@ -279,11 +269,11 @@ describeVTLDevicesResponse_gatewayARN = Lens.lens (\DescribeVTLDevicesResponse' 
 -- request to fetch the next set of VTL devices in the list. If there are
 -- no more VTL devices to describe, this field does not appear in the
 -- response.
-describeVTLDevicesResponse_marker :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe Prelude.Text)
+describeVTLDevicesResponse_marker :: Lens.Lens' DescribeVTLDevicesResponse (Core.Maybe Core.Text)
 describeVTLDevicesResponse_marker = Lens.lens (\DescribeVTLDevicesResponse' {marker} -> marker) (\s@DescribeVTLDevicesResponse' {} a -> s {marker = a} :: DescribeVTLDevicesResponse)
 
 -- | The response's http status code.
-describeVTLDevicesResponse_httpStatus :: Lens.Lens' DescribeVTLDevicesResponse Prelude.Int
+describeVTLDevicesResponse_httpStatus :: Lens.Lens' DescribeVTLDevicesResponse Core.Int
 describeVTLDevicesResponse_httpStatus = Lens.lens (\DescribeVTLDevicesResponse' {httpStatus} -> httpStatus) (\s@DescribeVTLDevicesResponse' {} a -> s {httpStatus = a} :: DescribeVTLDevicesResponse)
 
-instance Prelude.NFData DescribeVTLDevicesResponse
+instance Core.NFData DescribeVTLDevicesResponse

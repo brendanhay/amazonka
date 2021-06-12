@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CodeCommit.BatchGetCommits
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ data BatchGetCommits = BatchGetCommits'
     --
     -- You must supply the full SHA IDs of each commit. You cannot use
     -- shortened SHA IDs.
-    commitIds :: [Prelude.Text],
+    commitIds :: [Core.Text],
     -- | The name of the repository that contains the commits.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetCommits' with all optional fields omitted.
@@ -77,11 +76,11 @@ data BatchGetCommits = BatchGetCommits'
 -- 'repositoryName', 'batchGetCommits_repositoryName' - The name of the repository that contains the commits.
 newBatchGetCommits ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   BatchGetCommits
 newBatchGetCommits pRepositoryName_ =
   BatchGetCommits'
-    { commitIds = Prelude.mempty,
+    { commitIds = Core.mempty,
       repositoryName = pRepositoryName_
     }
 
@@ -89,74 +88,73 @@ newBatchGetCommits pRepositoryName_ =
 --
 -- You must supply the full SHA IDs of each commit. You cannot use
 -- shortened SHA IDs.
-batchGetCommits_commitIds :: Lens.Lens' BatchGetCommits [Prelude.Text]
-batchGetCommits_commitIds = Lens.lens (\BatchGetCommits' {commitIds} -> commitIds) (\s@BatchGetCommits' {} a -> s {commitIds = a} :: BatchGetCommits) Prelude.. Prelude._Coerce
+batchGetCommits_commitIds :: Lens.Lens' BatchGetCommits [Core.Text]
+batchGetCommits_commitIds = Lens.lens (\BatchGetCommits' {commitIds} -> commitIds) (\s@BatchGetCommits' {} a -> s {commitIds = a} :: BatchGetCommits) Core.. Lens._Coerce
 
 -- | The name of the repository that contains the commits.
-batchGetCommits_repositoryName :: Lens.Lens' BatchGetCommits Prelude.Text
+batchGetCommits_repositoryName :: Lens.Lens' BatchGetCommits Core.Text
 batchGetCommits_repositoryName = Lens.lens (\BatchGetCommits' {repositoryName} -> repositoryName) (\s@BatchGetCommits' {} a -> s {repositoryName = a} :: BatchGetCommits)
 
-instance Prelude.AWSRequest BatchGetCommits where
-  type Rs BatchGetCommits = BatchGetCommitsResponse
+instance Core.AWSRequest BatchGetCommits where
+  type
+    AWSResponse BatchGetCommits =
+      BatchGetCommitsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchGetCommitsResponse'
-            Prelude.<$> (x Prelude..?> "commits" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "commits" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetCommits
+instance Core.Hashable BatchGetCommits
 
-instance Prelude.NFData BatchGetCommits
+instance Core.NFData BatchGetCommits
 
-instance Prelude.ToHeaders BatchGetCommits where
+instance Core.ToHeaders BatchGetCommits where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.BatchGetCommits" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.BatchGetCommits" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchGetCommits where
+instance Core.ToJSON BatchGetCommits where
   toJSON BatchGetCommits' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("commitIds" Prelude..= commitIds),
-            Prelude.Just
-              ("repositoryName" Prelude..= repositoryName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("commitIds" Core..= commitIds),
+            Core.Just ("repositoryName" Core..= repositoryName)
           ]
       )
 
-instance Prelude.ToPath BatchGetCommits where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchGetCommits where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchGetCommits where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchGetCommits where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchGetCommitsResponse' smart constructor.
 data BatchGetCommitsResponse = BatchGetCommitsResponse'
   { -- | An array of commit data type objects, each of which contains information
     -- about a specified commit.
-    commits :: Prelude.Maybe [Commit],
+    commits :: Core.Maybe [Commit],
     -- | Returns any commit IDs for which information could not be found. For
     -- example, if one of the commit IDs was a shortened SHA ID or that commit
     -- was not found in the specified repository, the ID returns an error
     -- object with more information.
-    errors :: Prelude.Maybe [BatchGetCommitsError],
+    errors :: Core.Maybe [BatchGetCommitsError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetCommitsResponse' with all optional fields omitted.
@@ -177,29 +175,29 @@ data BatchGetCommitsResponse = BatchGetCommitsResponse'
 -- 'httpStatus', 'batchGetCommitsResponse_httpStatus' - The response's http status code.
 newBatchGetCommitsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchGetCommitsResponse
 newBatchGetCommitsResponse pHttpStatus_ =
   BatchGetCommitsResponse'
-    { commits = Prelude.Nothing,
-      errors = Prelude.Nothing,
+    { commits = Core.Nothing,
+      errors = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of commit data type objects, each of which contains information
 -- about a specified commit.
-batchGetCommitsResponse_commits :: Lens.Lens' BatchGetCommitsResponse (Prelude.Maybe [Commit])
-batchGetCommitsResponse_commits = Lens.lens (\BatchGetCommitsResponse' {commits} -> commits) (\s@BatchGetCommitsResponse' {} a -> s {commits = a} :: BatchGetCommitsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetCommitsResponse_commits :: Lens.Lens' BatchGetCommitsResponse (Core.Maybe [Commit])
+batchGetCommitsResponse_commits = Lens.lens (\BatchGetCommitsResponse' {commits} -> commits) (\s@BatchGetCommitsResponse' {} a -> s {commits = a} :: BatchGetCommitsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Returns any commit IDs for which information could not be found. For
 -- example, if one of the commit IDs was a shortened SHA ID or that commit
 -- was not found in the specified repository, the ID returns an error
 -- object with more information.
-batchGetCommitsResponse_errors :: Lens.Lens' BatchGetCommitsResponse (Prelude.Maybe [BatchGetCommitsError])
-batchGetCommitsResponse_errors = Lens.lens (\BatchGetCommitsResponse' {errors} -> errors) (\s@BatchGetCommitsResponse' {} a -> s {errors = a} :: BatchGetCommitsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetCommitsResponse_errors :: Lens.Lens' BatchGetCommitsResponse (Core.Maybe [BatchGetCommitsError])
+batchGetCommitsResponse_errors = Lens.lens (\BatchGetCommitsResponse' {errors} -> errors) (\s@BatchGetCommitsResponse' {} a -> s {errors = a} :: BatchGetCommitsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetCommitsResponse_httpStatus :: Lens.Lens' BatchGetCommitsResponse Prelude.Int
+batchGetCommitsResponse_httpStatus :: Lens.Lens' BatchGetCommitsResponse Core.Int
 batchGetCommitsResponse_httpStatus = Lens.lens (\BatchGetCommitsResponse' {httpStatus} -> httpStatus) (\s@BatchGetCommitsResponse' {} a -> s {httpStatus = a} :: BatchGetCommitsResponse)
 
-instance Prelude.NFData BatchGetCommitsResponse
+instance Core.NFData BatchGetCommitsResponse

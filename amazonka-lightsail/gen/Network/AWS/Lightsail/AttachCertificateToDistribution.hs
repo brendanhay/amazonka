@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.Lightsail.AttachCertificateToDistribution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,7 +65,7 @@ data AttachCertificateToDistribution = AttachCertificateToDistribution'
     --
     -- Use the @GetDistributions@ action to get a list of distribution names
     -- that you can specify.
-    distributionName :: Prelude.Text,
+    distributionName :: Core.Text,
     -- | The name of the certificate to attach to a distribution.
     --
     -- Only certificates with a status of @ISSUED@ can be attached to a
@@ -80,9 +79,9 @@ data AttachCertificateToDistribution = AttachCertificateToDistribution'
     -- the domain name of the certificate. For example, your certificate name
     -- might be @WordPress-Blog-Certificate@ and the domain name of the
     -- certificate might be @example.com@.
-    certificateName :: Prelude.Text
+    certificateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachCertificateToDistribution' with all optional fields omitted.
@@ -112,9 +111,9 @@ data AttachCertificateToDistribution = AttachCertificateToDistribution'
 -- certificate might be @example.com@.
 newAttachCertificateToDistribution ::
   -- | 'distributionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateName'
-  Prelude.Text ->
+  Core.Text ->
   AttachCertificateToDistribution
 newAttachCertificateToDistribution
   pDistributionName_
@@ -129,7 +128,7 @@ newAttachCertificateToDistribution
 --
 -- Use the @GetDistributions@ action to get a list of distribution names
 -- that you can specify.
-attachCertificateToDistribution_distributionName :: Lens.Lens' AttachCertificateToDistribution Prelude.Text
+attachCertificateToDistribution_distributionName :: Lens.Lens' AttachCertificateToDistribution Core.Text
 attachCertificateToDistribution_distributionName = Lens.lens (\AttachCertificateToDistribution' {distributionName} -> distributionName) (\s@AttachCertificateToDistribution' {} a -> s {distributionName = a} :: AttachCertificateToDistribution)
 
 -- | The name of the certificate to attach to a distribution.
@@ -145,87 +144,74 @@ attachCertificateToDistribution_distributionName = Lens.lens (\AttachCertificate
 -- the domain name of the certificate. For example, your certificate name
 -- might be @WordPress-Blog-Certificate@ and the domain name of the
 -- certificate might be @example.com@.
-attachCertificateToDistribution_certificateName :: Lens.Lens' AttachCertificateToDistribution Prelude.Text
+attachCertificateToDistribution_certificateName :: Lens.Lens' AttachCertificateToDistribution Core.Text
 attachCertificateToDistribution_certificateName = Lens.lens (\AttachCertificateToDistribution' {certificateName} -> certificateName) (\s@AttachCertificateToDistribution' {} a -> s {certificateName = a} :: AttachCertificateToDistribution)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AttachCertificateToDistribution
   where
   type
-    Rs AttachCertificateToDistribution =
+    AWSResponse AttachCertificateToDistribution =
       AttachCertificateToDistributionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AttachCertificateToDistributionResponse'
-            Prelude.<$> (x Prelude..?> "operation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AttachCertificateToDistribution
 
-instance
-  Prelude.NFData
-    AttachCertificateToDistribution
+instance Core.NFData AttachCertificateToDistribution
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AttachCertificateToDistribution
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.AttachCertificateToDistribution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.AttachCertificateToDistribution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    AttachCertificateToDistribution
-  where
+instance Core.ToJSON AttachCertificateToDistribution where
   toJSON AttachCertificateToDistribution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("distributionName" Prelude..= distributionName),
-            Prelude.Just
-              ("certificateName" Prelude..= certificateName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("distributionName" Core..= distributionName),
+            Core.Just
+              ("certificateName" Core..= certificateName)
           ]
       )
 
-instance
-  Prelude.ToPath
-    AttachCertificateToDistribution
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachCertificateToDistribution where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    AttachCertificateToDistribution
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AttachCertificateToDistribution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAttachCertificateToDistributionResponse' smart constructor.
 data AttachCertificateToDistributionResponse = AttachCertificateToDistributionResponse'
   { -- | An object that describes the result of the action, such as the status of
     -- the request, the timestamp of the request, and the resources affected by
     -- the request.
-    operation :: Prelude.Maybe Operation,
+    operation :: Core.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachCertificateToDistributionResponse' with all optional fields omitted.
@@ -242,26 +228,26 @@ data AttachCertificateToDistributionResponse = AttachCertificateToDistributionRe
 -- 'httpStatus', 'attachCertificateToDistributionResponse_httpStatus' - The response's http status code.
 newAttachCertificateToDistributionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachCertificateToDistributionResponse
 newAttachCertificateToDistributionResponse
   pHttpStatus_ =
     AttachCertificateToDistributionResponse'
       { operation =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object that describes the result of the action, such as the status of
 -- the request, the timestamp of the request, and the resources affected by
 -- the request.
-attachCertificateToDistributionResponse_operation :: Lens.Lens' AttachCertificateToDistributionResponse (Prelude.Maybe Operation)
+attachCertificateToDistributionResponse_operation :: Lens.Lens' AttachCertificateToDistributionResponse (Core.Maybe Operation)
 attachCertificateToDistributionResponse_operation = Lens.lens (\AttachCertificateToDistributionResponse' {operation} -> operation) (\s@AttachCertificateToDistributionResponse' {} a -> s {operation = a} :: AttachCertificateToDistributionResponse)
 
 -- | The response's http status code.
-attachCertificateToDistributionResponse_httpStatus :: Lens.Lens' AttachCertificateToDistributionResponse Prelude.Int
+attachCertificateToDistributionResponse_httpStatus :: Lens.Lens' AttachCertificateToDistributionResponse Core.Int
 attachCertificateToDistributionResponse_httpStatus = Lens.lens (\AttachCertificateToDistributionResponse' {httpStatus} -> httpStatus) (\s@AttachCertificateToDistributionResponse' {} a -> s {httpStatus = a} :: AttachCertificateToDistributionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AttachCertificateToDistributionResponse

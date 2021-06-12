@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Scte35DeliveryRestrictions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag
 import Network.AWS.MediaLive.Types.Scte35DeviceRestrictions
 import Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
 import Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Corresponds to SCTE-35 delivery_not_restricted_flag parameter. To
 -- declare delivery restrictions, include this element and its four
@@ -43,7 +42,7 @@ data Scte35DeliveryRestrictions = Scte35DeliveryRestrictions'
     -- | Corresponds to SCTE-35 no_regional_blackout_flag parameter.
     noRegionalBlackoutFlag :: Scte35NoRegionalBlackoutFlag
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scte35DeliveryRestrictions' with all optional fields omitted.
@@ -101,37 +100,37 @@ scte35DeliveryRestrictions_webDeliveryAllowedFlag = Lens.lens (\Scte35DeliveryRe
 scte35DeliveryRestrictions_noRegionalBlackoutFlag :: Lens.Lens' Scte35DeliveryRestrictions Scte35NoRegionalBlackoutFlag
 scte35DeliveryRestrictions_noRegionalBlackoutFlag = Lens.lens (\Scte35DeliveryRestrictions' {noRegionalBlackoutFlag} -> noRegionalBlackoutFlag) (\s@Scte35DeliveryRestrictions' {} a -> s {noRegionalBlackoutFlag = a} :: Scte35DeliveryRestrictions)
 
-instance Prelude.FromJSON Scte35DeliveryRestrictions where
+instance Core.FromJSON Scte35DeliveryRestrictions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scte35DeliveryRestrictions"
       ( \x ->
           Scte35DeliveryRestrictions'
-            Prelude.<$> (x Prelude..: "deviceRestrictions")
-            Prelude.<*> (x Prelude..: "archiveAllowedFlag")
-            Prelude.<*> (x Prelude..: "webDeliveryAllowedFlag")
-            Prelude.<*> (x Prelude..: "noRegionalBlackoutFlag")
+            Core.<$> (x Core..: "deviceRestrictions")
+            Core.<*> (x Core..: "archiveAllowedFlag")
+            Core.<*> (x Core..: "webDeliveryAllowedFlag")
+            Core.<*> (x Core..: "noRegionalBlackoutFlag")
       )
 
-instance Prelude.Hashable Scte35DeliveryRestrictions
+instance Core.Hashable Scte35DeliveryRestrictions
 
-instance Prelude.NFData Scte35DeliveryRestrictions
+instance Core.NFData Scte35DeliveryRestrictions
 
-instance Prelude.ToJSON Scte35DeliveryRestrictions where
+instance Core.ToJSON Scte35DeliveryRestrictions where
   toJSON Scte35DeliveryRestrictions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("deviceRestrictions" Prelude..= deviceRestrictions),
-            Prelude.Just
-              ("archiveAllowedFlag" Prelude..= archiveAllowedFlag),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("deviceRestrictions" Core..= deviceRestrictions),
+            Core.Just
+              ("archiveAllowedFlag" Core..= archiveAllowedFlag),
+            Core.Just
               ( "webDeliveryAllowedFlag"
-                  Prelude..= webDeliveryAllowedFlag
+                  Core..= webDeliveryAllowedFlag
               ),
-            Prelude.Just
+            Core.Just
               ( "noRegionalBlackoutFlag"
-                  Prelude..= noRegionalBlackoutFlag
+                  Core..= noRegionalBlackoutFlag
               )
           ]
       )

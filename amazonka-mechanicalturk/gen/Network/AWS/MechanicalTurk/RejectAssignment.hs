@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.MechanicalTurk.RejectAssignment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,12 +59,12 @@ import qualified Network.AWS.Response as Response
 data RejectAssignment = RejectAssignment'
   { -- | The ID of the assignment. The assignment must correspond to a HIT
     -- created by the Requester.
-    assignmentId :: Prelude.Text,
+    assignmentId :: Core.Text,
     -- | A message for the Worker, which the Worker can see in the Status section
     -- of the web site.
-    requesterFeedback :: Prelude.Text
+    requesterFeedback :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RejectAssignment' with all optional fields omitted.
@@ -82,9 +81,9 @@ data RejectAssignment = RejectAssignment'
 -- of the web site.
 newRejectAssignment ::
   -- | 'assignmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'requesterFeedback'
-  Prelude.Text ->
+  Core.Text ->
   RejectAssignment
 newRejectAssignment
   pAssignmentId_
@@ -96,66 +95,65 @@ newRejectAssignment
 
 -- | The ID of the assignment. The assignment must correspond to a HIT
 -- created by the Requester.
-rejectAssignment_assignmentId :: Lens.Lens' RejectAssignment Prelude.Text
+rejectAssignment_assignmentId :: Lens.Lens' RejectAssignment Core.Text
 rejectAssignment_assignmentId = Lens.lens (\RejectAssignment' {assignmentId} -> assignmentId) (\s@RejectAssignment' {} a -> s {assignmentId = a} :: RejectAssignment)
 
 -- | A message for the Worker, which the Worker can see in the Status section
 -- of the web site.
-rejectAssignment_requesterFeedback :: Lens.Lens' RejectAssignment Prelude.Text
+rejectAssignment_requesterFeedback :: Lens.Lens' RejectAssignment Core.Text
 rejectAssignment_requesterFeedback = Lens.lens (\RejectAssignment' {requesterFeedback} -> requesterFeedback) (\s@RejectAssignment' {} a -> s {requesterFeedback = a} :: RejectAssignment)
 
-instance Prelude.AWSRequest RejectAssignment where
-  type Rs RejectAssignment = RejectAssignmentResponse
+instance Core.AWSRequest RejectAssignment where
+  type
+    AWSResponse RejectAssignment =
+      RejectAssignmentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RejectAssignmentResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RejectAssignment
+instance Core.Hashable RejectAssignment
 
-instance Prelude.NFData RejectAssignment
+instance Core.NFData RejectAssignment
 
-instance Prelude.ToHeaders RejectAssignment where
+instance Core.ToHeaders RejectAssignment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.RejectAssignment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.RejectAssignment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RejectAssignment where
+instance Core.ToJSON RejectAssignment where
   toJSON RejectAssignment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AssignmentId" Prelude..= assignmentId),
-            Prelude.Just
-              ("RequesterFeedback" Prelude..= requesterFeedback)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AssignmentId" Core..= assignmentId),
+            Core.Just
+              ("RequesterFeedback" Core..= requesterFeedback)
           ]
       )
 
-instance Prelude.ToPath RejectAssignment where
-  toPath = Prelude.const "/"
+instance Core.ToPath RejectAssignment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RejectAssignment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RejectAssignment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRejectAssignmentResponse' smart constructor.
 data RejectAssignmentResponse = RejectAssignmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RejectAssignmentResponse' with all optional fields omitted.
@@ -168,7 +166,7 @@ data RejectAssignmentResponse = RejectAssignmentResponse'
 -- 'httpStatus', 'rejectAssignmentResponse_httpStatus' - The response's http status code.
 newRejectAssignmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RejectAssignmentResponse
 newRejectAssignmentResponse pHttpStatus_ =
   RejectAssignmentResponse'
@@ -177,7 +175,7 @@ newRejectAssignmentResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-rejectAssignmentResponse_httpStatus :: Lens.Lens' RejectAssignmentResponse Prelude.Int
+rejectAssignmentResponse_httpStatus :: Lens.Lens' RejectAssignmentResponse Core.Int
 rejectAssignmentResponse_httpStatus = Lens.lens (\RejectAssignmentResponse' {httpStatus} -> httpStatus) (\s@RejectAssignmentResponse' {} a -> s {httpStatus = a} :: RejectAssignmentResponse)
 
-instance Prelude.NFData RejectAssignmentResponse
+instance Core.NFData RejectAssignmentResponse

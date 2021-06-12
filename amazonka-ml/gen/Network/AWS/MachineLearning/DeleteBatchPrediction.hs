@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,18 +47,18 @@ module Network.AWS.MachineLearning.DeleteBatchPrediction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBatchPrediction' smart constructor.
 data DeleteBatchPrediction = DeleteBatchPrediction'
   { -- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
-    batchPredictionId :: Prelude.Text
+    batchPredictionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBatchPrediction' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DeleteBatchPrediction = DeleteBatchPrediction'
 -- 'batchPredictionId', 'deleteBatchPrediction_batchPredictionId' - A user-supplied ID that uniquely identifies the @BatchPrediction@.
 newDeleteBatchPrediction ::
   -- | 'batchPredictionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBatchPrediction
 newDeleteBatchPrediction pBatchPredictionId_ =
   DeleteBatchPrediction'
@@ -81,55 +80,53 @@ newDeleteBatchPrediction pBatchPredictionId_ =
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
-deleteBatchPrediction_batchPredictionId :: Lens.Lens' DeleteBatchPrediction Prelude.Text
+deleteBatchPrediction_batchPredictionId :: Lens.Lens' DeleteBatchPrediction Core.Text
 deleteBatchPrediction_batchPredictionId = Lens.lens (\DeleteBatchPrediction' {batchPredictionId} -> batchPredictionId) (\s@DeleteBatchPrediction' {} a -> s {batchPredictionId = a} :: DeleteBatchPrediction)
 
-instance Prelude.AWSRequest DeleteBatchPrediction where
+instance Core.AWSRequest DeleteBatchPrediction where
   type
-    Rs DeleteBatchPrediction =
+    AWSResponse DeleteBatchPrediction =
       DeleteBatchPredictionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteBatchPredictionResponse'
-            Prelude.<$> (x Prelude..?> "BatchPredictionId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "BatchPredictionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBatchPrediction
+instance Core.Hashable DeleteBatchPrediction
 
-instance Prelude.NFData DeleteBatchPrediction
+instance Core.NFData DeleteBatchPrediction
 
-instance Prelude.ToHeaders DeleteBatchPrediction where
+instance Core.ToHeaders DeleteBatchPrediction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.DeleteBatchPrediction" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.DeleteBatchPrediction" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteBatchPrediction where
+instance Core.ToJSON DeleteBatchPrediction where
   toJSON DeleteBatchPrediction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("BatchPredictionId" Prelude..= batchPredictionId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("BatchPredictionId" Core..= batchPredictionId)
           ]
       )
 
-instance Prelude.ToPath DeleteBatchPrediction where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteBatchPrediction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteBatchPrediction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBatchPrediction where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DeleteBatchPrediction@ operation.
 --
@@ -142,11 +139,11 @@ data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
   { -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
     -- value should be identical to the value of the @BatchPredictionID@ in the
     -- request.
-    batchPredictionId :: Prelude.Maybe Prelude.Text,
+    batchPredictionId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBatchPredictionResponse' with all optional fields omitted.
@@ -163,23 +160,23 @@ data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
 -- 'httpStatus', 'deleteBatchPredictionResponse_httpStatus' - The response's http status code.
 newDeleteBatchPredictionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteBatchPredictionResponse
 newDeleteBatchPredictionResponse pHttpStatus_ =
   DeleteBatchPredictionResponse'
     { batchPredictionId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value should be identical to the value of the @BatchPredictionID@ in the
 -- request.
-deleteBatchPredictionResponse_batchPredictionId :: Lens.Lens' DeleteBatchPredictionResponse (Prelude.Maybe Prelude.Text)
+deleteBatchPredictionResponse_batchPredictionId :: Lens.Lens' DeleteBatchPredictionResponse (Core.Maybe Core.Text)
 deleteBatchPredictionResponse_batchPredictionId = Lens.lens (\DeleteBatchPredictionResponse' {batchPredictionId} -> batchPredictionId) (\s@DeleteBatchPredictionResponse' {} a -> s {batchPredictionId = a} :: DeleteBatchPredictionResponse)
 
 -- | The response's http status code.
-deleteBatchPredictionResponse_httpStatus :: Lens.Lens' DeleteBatchPredictionResponse Prelude.Int
+deleteBatchPredictionResponse_httpStatus :: Lens.Lens' DeleteBatchPredictionResponse Core.Int
 deleteBatchPredictionResponse_httpStatus = Lens.lens (\DeleteBatchPredictionResponse' {httpStatus} -> httpStatus) (\s@DeleteBatchPredictionResponse' {} a -> s {httpStatus = a} :: DeleteBatchPredictionResponse)
 
-instance Prelude.NFData DeleteBatchPredictionResponse
+instance Core.NFData DeleteBatchPredictionResponse

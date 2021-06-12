@@ -15,32 +15,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorksCM.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
 import Network.AWS.OpsWorksCM.Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus' every 15 seconds until a successful state is reached. An error is returned after 15 failed checks.
-newNodeAssociated :: Waiter.Wait DescribeNodeAssociationStatus
+newNodeAssociated :: Core.Wait DescribeNodeAssociationStatus
 newNodeAssociated =
-  Waiter.Wait
-    { Waiter._waitName = "NodeAssociated",
-      Waiter._waitAttempts = 15,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "NodeAssociated",
+      Core._waitAttempts = 15,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "SUCCESS"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeNodeAssociationStatusResponse_nodeAssociationStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeNodeAssociationStatusResponse_nodeAssociationStatus
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

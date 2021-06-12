@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.QLDB.Types.S3ExportConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types.S3EncryptionConfiguration
 
 -- | The Amazon Simple Storage Service (Amazon S3) bucket location in which a
@@ -36,7 +35,7 @@ data S3ExportConfiguration = S3ExportConfiguration'
     -- conventions. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
     -- in the /Amazon S3 Developer Guide/.
-    bucket :: Prelude.Text,
+    bucket :: Core.Text,
     -- | The prefix for the Amazon S3 bucket in which a journal export job writes
     -- the journal contents.
     --
@@ -52,12 +51,12 @@ data S3ExportConfiguration = S3ExportConfiguration'
     -- -   @JournalExports@
     --
     -- -   @My:Tests\/@
-    prefix :: Prelude.Text,
+    prefix :: Core.Text,
     -- | The encryption settings that are used by a journal export job to write
     -- data in an Amazon S3 bucket.
     encryptionConfiguration :: S3EncryptionConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3ExportConfiguration' with all optional fields omitted.
@@ -95,9 +94,9 @@ data S3ExportConfiguration = S3ExportConfiguration'
 -- data in an Amazon S3 bucket.
 newS3ExportConfiguration ::
   -- | 'bucket'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'prefix'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'encryptionConfiguration'
   S3EncryptionConfiguration ->
   S3ExportConfiguration
@@ -118,7 +117,7 @@ newS3ExportConfiguration
 -- conventions. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
 -- in the /Amazon S3 Developer Guide/.
-s3ExportConfiguration_bucket :: Lens.Lens' S3ExportConfiguration Prelude.Text
+s3ExportConfiguration_bucket :: Lens.Lens' S3ExportConfiguration Core.Text
 s3ExportConfiguration_bucket = Lens.lens (\S3ExportConfiguration' {bucket} -> bucket) (\s@S3ExportConfiguration' {} a -> s {bucket = a} :: S3ExportConfiguration)
 
 -- | The prefix for the Amazon S3 bucket in which a journal export job writes
@@ -136,7 +135,7 @@ s3ExportConfiguration_bucket = Lens.lens (\S3ExportConfiguration' {bucket} -> bu
 -- -   @JournalExports@
 --
 -- -   @My:Tests\/@
-s3ExportConfiguration_prefix :: Lens.Lens' S3ExportConfiguration Prelude.Text
+s3ExportConfiguration_prefix :: Lens.Lens' S3ExportConfiguration Core.Text
 s3ExportConfiguration_prefix = Lens.lens (\S3ExportConfiguration' {prefix} -> prefix) (\s@S3ExportConfiguration' {} a -> s {prefix = a} :: S3ExportConfiguration)
 
 -- | The encryption settings that are used by a journal export job to write
@@ -144,30 +143,30 @@ s3ExportConfiguration_prefix = Lens.lens (\S3ExportConfiguration' {prefix} -> pr
 s3ExportConfiguration_encryptionConfiguration :: Lens.Lens' S3ExportConfiguration S3EncryptionConfiguration
 s3ExportConfiguration_encryptionConfiguration = Lens.lens (\S3ExportConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@S3ExportConfiguration' {} a -> s {encryptionConfiguration = a} :: S3ExportConfiguration)
 
-instance Prelude.FromJSON S3ExportConfiguration where
+instance Core.FromJSON S3ExportConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3ExportConfiguration"
       ( \x ->
           S3ExportConfiguration'
-            Prelude.<$> (x Prelude..: "Bucket")
-            Prelude.<*> (x Prelude..: "Prefix")
-            Prelude.<*> (x Prelude..: "EncryptionConfiguration")
+            Core.<$> (x Core..: "Bucket")
+            Core.<*> (x Core..: "Prefix")
+            Core.<*> (x Core..: "EncryptionConfiguration")
       )
 
-instance Prelude.Hashable S3ExportConfiguration
+instance Core.Hashable S3ExportConfiguration
 
-instance Prelude.NFData S3ExportConfiguration
+instance Core.NFData S3ExportConfiguration
 
-instance Prelude.ToJSON S3ExportConfiguration where
+instance Core.ToJSON S3ExportConfiguration where
   toJSON S3ExportConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Bucket" Prelude..= bucket),
-            Prelude.Just ("Prefix" Prelude..= prefix),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Bucket" Core..= bucket),
+            Core.Just ("Prefix" Core..= prefix),
+            Core.Just
               ( "EncryptionConfiguration"
-                  Prelude..= encryptionConfiguration
+                  Core..= encryptionConfiguration
               )
           ]
       )

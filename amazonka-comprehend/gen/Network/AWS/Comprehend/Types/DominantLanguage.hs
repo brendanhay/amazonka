@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.DominantLanguage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the code for the dominant language in the input text and the
 -- level of confidence that Amazon Comprehend has in the accuracy of the
@@ -33,12 +32,12 @@ data DominantLanguage = DominantLanguage'
     -- information about RFC 5646, see
     -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
     -- the /IETF Tools/ web site.
-    languageCode :: Prelude.Maybe Prelude.Text,
+    languageCode :: Core.Maybe Core.Text,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- the detection.
-    score :: Prelude.Maybe Prelude.Double
+    score :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DominantLanguage' with all optional fields omitted.
@@ -59,32 +58,32 @@ newDominantLanguage ::
   DominantLanguage
 newDominantLanguage =
   DominantLanguage'
-    { languageCode = Prelude.Nothing,
-      score = Prelude.Nothing
+    { languageCode = Core.Nothing,
+      score = Core.Nothing
     }
 
 -- | The RFC 5646 language code for the dominant language. For more
 -- information about RFC 5646, see
 -- <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on
 -- the /IETF Tools/ web site.
-dominantLanguage_languageCode :: Lens.Lens' DominantLanguage (Prelude.Maybe Prelude.Text)
+dominantLanguage_languageCode :: Lens.Lens' DominantLanguage (Core.Maybe Core.Text)
 dominantLanguage_languageCode = Lens.lens (\DominantLanguage' {languageCode} -> languageCode) (\s@DominantLanguage' {} a -> s {languageCode = a} :: DominantLanguage)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- the detection.
-dominantLanguage_score :: Lens.Lens' DominantLanguage (Prelude.Maybe Prelude.Double)
+dominantLanguage_score :: Lens.Lens' DominantLanguage (Core.Maybe Core.Double)
 dominantLanguage_score = Lens.lens (\DominantLanguage' {score} -> score) (\s@DominantLanguage' {} a -> s {score = a} :: DominantLanguage)
 
-instance Prelude.FromJSON DominantLanguage where
+instance Core.FromJSON DominantLanguage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DominantLanguage"
       ( \x ->
           DominantLanguage'
-            Prelude.<$> (x Prelude..:? "LanguageCode")
-            Prelude.<*> (x Prelude..:? "Score")
+            Core.<$> (x Core..:? "LanguageCode")
+            Core.<*> (x Core..:? "Score")
       )
 
-instance Prelude.Hashable DominantLanguage
+instance Core.Hashable DominantLanguage
 
-instance Prelude.NFData DominantLanguage
+instance Core.NFData DominantLanguage

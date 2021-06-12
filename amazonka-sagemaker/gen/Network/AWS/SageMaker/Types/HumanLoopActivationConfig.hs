@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.HumanLoopActivationConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig
 
 -- | Provides information about how and under what conditions SageMaker
@@ -34,7 +33,7 @@ data HumanLoopActivationConfig = HumanLoopActivationConfig'
     -- a human loop.
     humanLoopActivationConditionsConfig :: HumanLoopActivationConditionsConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HumanLoopActivationConfig' with all optional fields omitted.
@@ -62,26 +61,26 @@ newHumanLoopActivationConfig
 humanLoopActivationConfig_humanLoopActivationConditionsConfig :: Lens.Lens' HumanLoopActivationConfig HumanLoopActivationConditionsConfig
 humanLoopActivationConfig_humanLoopActivationConditionsConfig = Lens.lens (\HumanLoopActivationConfig' {humanLoopActivationConditionsConfig} -> humanLoopActivationConditionsConfig) (\s@HumanLoopActivationConfig' {} a -> s {humanLoopActivationConditionsConfig = a} :: HumanLoopActivationConfig)
 
-instance Prelude.FromJSON HumanLoopActivationConfig where
+instance Core.FromJSON HumanLoopActivationConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HumanLoopActivationConfig"
       ( \x ->
           HumanLoopActivationConfig'
-            Prelude.<$> (x Prelude..: "HumanLoopActivationConditionsConfig")
+            Core.<$> (x Core..: "HumanLoopActivationConditionsConfig")
       )
 
-instance Prelude.Hashable HumanLoopActivationConfig
+instance Core.Hashable HumanLoopActivationConfig
 
-instance Prelude.NFData HumanLoopActivationConfig
+instance Core.NFData HumanLoopActivationConfig
 
-instance Prelude.ToJSON HumanLoopActivationConfig where
+instance Core.ToJSON HumanLoopActivationConfig where
   toJSON HumanLoopActivationConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "HumanLoopActivationConditionsConfig"
-                  Prelude..= humanLoopActivationConditionsConfig
+                  Core..= humanLoopActivationConditionsConfig
               )
           ]
       )

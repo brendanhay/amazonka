@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.MedicalTranscript where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the location of a medical transcript.
 --
@@ -31,9 +30,9 @@ data MedicalTranscript = MedicalTranscript'
     --
     -- Use this URI to access the medical transcript. This URI points to the S3
     -- bucket you created to store the medical transcript.
-    transcriptFileUri :: Prelude.Maybe Prelude.Text
+    transcriptFileUri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MedicalTranscript' with all optional fields omitted.
@@ -52,25 +51,25 @@ newMedicalTranscript ::
 newMedicalTranscript =
   MedicalTranscript'
     { transcriptFileUri =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The S3 object location of the medical transcript.
 --
 -- Use this URI to access the medical transcript. This URI points to the S3
 -- bucket you created to store the medical transcript.
-medicalTranscript_transcriptFileUri :: Lens.Lens' MedicalTranscript (Prelude.Maybe Prelude.Text)
+medicalTranscript_transcriptFileUri :: Lens.Lens' MedicalTranscript (Core.Maybe Core.Text)
 medicalTranscript_transcriptFileUri = Lens.lens (\MedicalTranscript' {transcriptFileUri} -> transcriptFileUri) (\s@MedicalTranscript' {} a -> s {transcriptFileUri = a} :: MedicalTranscript)
 
-instance Prelude.FromJSON MedicalTranscript where
+instance Core.FromJSON MedicalTranscript where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MedicalTranscript"
       ( \x ->
           MedicalTranscript'
-            Prelude.<$> (x Prelude..:? "TranscriptFileUri")
+            Core.<$> (x Core..:? "TranscriptFileUri")
       )
 
-instance Prelude.Hashable MedicalTranscript
+instance Core.Hashable MedicalTranscript
 
-instance Prelude.NFData MedicalTranscript
+instance Core.NFData MedicalTranscript

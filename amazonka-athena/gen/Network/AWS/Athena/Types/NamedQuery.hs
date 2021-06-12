@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Athena.Types.NamedQuery where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A query, where @QueryString@ is the list of SQL query statements that
 -- comprise the query.
@@ -29,19 +28,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNamedQuery' smart constructor.
 data NamedQuery = NamedQuery'
   { -- | The unique identifier of the query.
-    namedQueryId :: Prelude.Maybe Prelude.Text,
+    namedQueryId :: Core.Maybe Core.Text,
     -- | The name of the workgroup that contains the named query.
-    workGroup :: Prelude.Maybe Prelude.Text,
+    workGroup :: Core.Maybe Core.Text,
     -- | The query description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The query name.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The database to which the query belongs.
-    database :: Prelude.Text,
+    database :: Core.Text,
     -- | The SQL query statements that comprise the query.
-    queryString :: Prelude.Text
+    queryString :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NamedQuery' with all optional fields omitted.
@@ -64,60 +63,60 @@ data NamedQuery = NamedQuery'
 -- 'queryString', 'namedQuery_queryString' - The SQL query statements that comprise the query.
 newNamedQuery ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'database'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queryString'
-  Prelude.Text ->
+  Core.Text ->
   NamedQuery
 newNamedQuery pName_ pDatabase_ pQueryString_ =
   NamedQuery'
-    { namedQueryId = Prelude.Nothing,
-      workGroup = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { namedQueryId = Core.Nothing,
+      workGroup = Core.Nothing,
+      description = Core.Nothing,
       name = pName_,
       database = pDatabase_,
       queryString = pQueryString_
     }
 
 -- | The unique identifier of the query.
-namedQuery_namedQueryId :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
+namedQuery_namedQueryId :: Lens.Lens' NamedQuery (Core.Maybe Core.Text)
 namedQuery_namedQueryId = Lens.lens (\NamedQuery' {namedQueryId} -> namedQueryId) (\s@NamedQuery' {} a -> s {namedQueryId = a} :: NamedQuery)
 
 -- | The name of the workgroup that contains the named query.
-namedQuery_workGroup :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
+namedQuery_workGroup :: Lens.Lens' NamedQuery (Core.Maybe Core.Text)
 namedQuery_workGroup = Lens.lens (\NamedQuery' {workGroup} -> workGroup) (\s@NamedQuery' {} a -> s {workGroup = a} :: NamedQuery)
 
 -- | The query description.
-namedQuery_description :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
+namedQuery_description :: Lens.Lens' NamedQuery (Core.Maybe Core.Text)
 namedQuery_description = Lens.lens (\NamedQuery' {description} -> description) (\s@NamedQuery' {} a -> s {description = a} :: NamedQuery)
 
 -- | The query name.
-namedQuery_name :: Lens.Lens' NamedQuery Prelude.Text
+namedQuery_name :: Lens.Lens' NamedQuery Core.Text
 namedQuery_name = Lens.lens (\NamedQuery' {name} -> name) (\s@NamedQuery' {} a -> s {name = a} :: NamedQuery)
 
 -- | The database to which the query belongs.
-namedQuery_database :: Lens.Lens' NamedQuery Prelude.Text
+namedQuery_database :: Lens.Lens' NamedQuery Core.Text
 namedQuery_database = Lens.lens (\NamedQuery' {database} -> database) (\s@NamedQuery' {} a -> s {database = a} :: NamedQuery)
 
 -- | The SQL query statements that comprise the query.
-namedQuery_queryString :: Lens.Lens' NamedQuery Prelude.Text
+namedQuery_queryString :: Lens.Lens' NamedQuery Core.Text
 namedQuery_queryString = Lens.lens (\NamedQuery' {queryString} -> queryString) (\s@NamedQuery' {} a -> s {queryString = a} :: NamedQuery)
 
-instance Prelude.FromJSON NamedQuery where
+instance Core.FromJSON NamedQuery where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NamedQuery"
       ( \x ->
           NamedQuery'
-            Prelude.<$> (x Prelude..:? "NamedQueryId")
-            Prelude.<*> (x Prelude..:? "WorkGroup")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Database")
-            Prelude.<*> (x Prelude..: "QueryString")
+            Core.<$> (x Core..:? "NamedQueryId")
+            Core.<*> (x Core..:? "WorkGroup")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "Database")
+            Core.<*> (x Core..: "QueryString")
       )
 
-instance Prelude.Hashable NamedQuery
+instance Core.Hashable NamedQuery
 
-instance Prelude.NFData NamedQuery
+instance Core.NFData NamedQuery

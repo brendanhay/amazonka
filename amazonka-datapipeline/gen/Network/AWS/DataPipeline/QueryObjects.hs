@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,10 +48,9 @@ module Network.AWS.DataPipeline.QueryObjects
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,22 +62,22 @@ data QueryObjects = QueryObjects'
     -- can contain a maximum of ten selectors. The conditions in the query are
     -- limited to top-level String fields in the object. These filters can be
     -- applied to components, instances, and attempts.
-    query :: Prelude.Maybe Query,
+    query :: Core.Maybe Query,
     -- | The maximum number of object names that @QueryObjects@ will return in a
     -- single call. The default value is 100.
-    limit :: Prelude.Maybe Prelude.Int,
+    limit :: Core.Maybe Core.Int,
     -- | The starting point for the results to be returned. For the first call,
     -- this value should be empty. As long as there are more results, continue
     -- to call @QueryObjects@ with the marker value from the previous call to
     -- retrieve the next set of results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The ID of the pipeline.
-    pipelineId :: Prelude.Text,
+    pipelineId :: Core.Text,
     -- | Indicates whether the query applies to components or instances. The
     -- possible values are: @COMPONENT@, @INSTANCE@, and @ATTEMPT@.
-    sphere :: Prelude.Text
+    sphere :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryObjects' with all optional fields omitted.
@@ -108,15 +106,15 @@ data QueryObjects = QueryObjects'
 -- possible values are: @COMPONENT@, @INSTANCE@, and @ATTEMPT@.
 newQueryObjects ::
   -- | 'pipelineId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sphere'
-  Prelude.Text ->
+  Core.Text ->
   QueryObjects
 newQueryObjects pPipelineId_ pSphere_ =
   QueryObjects'
-    { query = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { query = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
       pipelineId = pPipelineId_,
       sphere = pSphere_
     }
@@ -125,115 +123,113 @@ newQueryObjects pPipelineId_ pSphere_ =
 -- can contain a maximum of ten selectors. The conditions in the query are
 -- limited to top-level String fields in the object. These filters can be
 -- applied to components, instances, and attempts.
-queryObjects_query :: Lens.Lens' QueryObjects (Prelude.Maybe Query)
+queryObjects_query :: Lens.Lens' QueryObjects (Core.Maybe Query)
 queryObjects_query = Lens.lens (\QueryObjects' {query} -> query) (\s@QueryObjects' {} a -> s {query = a} :: QueryObjects)
 
 -- | The maximum number of object names that @QueryObjects@ will return in a
 -- single call. The default value is 100.
-queryObjects_limit :: Lens.Lens' QueryObjects (Prelude.Maybe Prelude.Int)
+queryObjects_limit :: Lens.Lens' QueryObjects (Core.Maybe Core.Int)
 queryObjects_limit = Lens.lens (\QueryObjects' {limit} -> limit) (\s@QueryObjects' {} a -> s {limit = a} :: QueryObjects)
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @QueryObjects@ with the marker value from the previous call to
 -- retrieve the next set of results.
-queryObjects_marker :: Lens.Lens' QueryObjects (Prelude.Maybe Prelude.Text)
+queryObjects_marker :: Lens.Lens' QueryObjects (Core.Maybe Core.Text)
 queryObjects_marker = Lens.lens (\QueryObjects' {marker} -> marker) (\s@QueryObjects' {} a -> s {marker = a} :: QueryObjects)
 
 -- | The ID of the pipeline.
-queryObjects_pipelineId :: Lens.Lens' QueryObjects Prelude.Text
+queryObjects_pipelineId :: Lens.Lens' QueryObjects Core.Text
 queryObjects_pipelineId = Lens.lens (\QueryObjects' {pipelineId} -> pipelineId) (\s@QueryObjects' {} a -> s {pipelineId = a} :: QueryObjects)
 
 -- | Indicates whether the query applies to components or instances. The
 -- possible values are: @COMPONENT@, @INSTANCE@, and @ATTEMPT@.
-queryObjects_sphere :: Lens.Lens' QueryObjects Prelude.Text
+queryObjects_sphere :: Lens.Lens' QueryObjects Core.Text
 queryObjects_sphere = Lens.lens (\QueryObjects' {sphere} -> sphere) (\s@QueryObjects' {} a -> s {sphere = a} :: QueryObjects)
 
-instance Pager.AWSPager QueryObjects where
+instance Core.AWSPager QueryObjects where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? queryObjectsResponse_hasMoreResults
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? queryObjectsResponse_marker Prelude.. Lens._Just
+            Lens.^? queryObjectsResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& queryObjects_marker
           Lens..~ rs
-          Lens.^? queryObjectsResponse_marker Prelude.. Lens._Just
+          Lens.^? queryObjectsResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest QueryObjects where
-  type Rs QueryObjects = QueryObjectsResponse
+instance Core.AWSRequest QueryObjects where
+  type AWSResponse QueryObjects = QueryObjectsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           QueryObjectsResponse'
-            Prelude.<$> (x Prelude..?> "ids" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "hasMoreResults")
-            Prelude.<*> (x Prelude..?> "marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ids" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "hasMoreResults")
+            Core.<*> (x Core..?> "marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable QueryObjects
+instance Core.Hashable QueryObjects
 
-instance Prelude.NFData QueryObjects
+instance Core.NFData QueryObjects
 
-instance Prelude.ToHeaders QueryObjects where
+instance Core.ToHeaders QueryObjects where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("DataPipeline.QueryObjects" :: Prelude.ByteString),
+              Core.=# ("DataPipeline.QueryObjects" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON QueryObjects where
+instance Core.ToJSON QueryObjects where
   toJSON QueryObjects' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("query" Prelude..=) Prelude.<$> query,
-            ("limit" Prelude..=) Prelude.<$> limit,
-            ("marker" Prelude..=) Prelude.<$> marker,
-            Prelude.Just ("pipelineId" Prelude..= pipelineId),
-            Prelude.Just ("sphere" Prelude..= sphere)
+    Core.object
+      ( Core.catMaybes
+          [ ("query" Core..=) Core.<$> query,
+            ("limit" Core..=) Core.<$> limit,
+            ("marker" Core..=) Core.<$> marker,
+            Core.Just ("pipelineId" Core..= pipelineId),
+            Core.Just ("sphere" Core..= sphere)
           ]
       )
 
-instance Prelude.ToPath QueryObjects where
-  toPath = Prelude.const "/"
+instance Core.ToPath QueryObjects where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery QueryObjects where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery QueryObjects where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of QueryObjects.
 --
 -- /See:/ 'newQueryObjectsResponse' smart constructor.
 data QueryObjectsResponse = QueryObjectsResponse'
   { -- | The identifiers that match the query selectors.
-    ids :: Prelude.Maybe [Prelude.Text],
+    ids :: Core.Maybe [Core.Text],
     -- | Indicates whether there are more results that can be obtained by a
     -- subsequent call.
-    hasMoreResults :: Prelude.Maybe Prelude.Bool,
+    hasMoreResults :: Core.Maybe Core.Bool,
     -- | The starting point for the next page of results. To view the next page
     -- of results, call @QueryObjects@ again with this marker value. If the
     -- value is null, there are no more results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryObjectsResponse' with all optional fields omitted.
@@ -255,33 +251,33 @@ data QueryObjectsResponse = QueryObjectsResponse'
 -- 'httpStatus', 'queryObjectsResponse_httpStatus' - The response's http status code.
 newQueryObjectsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   QueryObjectsResponse
 newQueryObjectsResponse pHttpStatus_ =
   QueryObjectsResponse'
-    { ids = Prelude.Nothing,
-      hasMoreResults = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { ids = Core.Nothing,
+      hasMoreResults = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifiers that match the query selectors.
-queryObjectsResponse_ids :: Lens.Lens' QueryObjectsResponse (Prelude.Maybe [Prelude.Text])
-queryObjectsResponse_ids = Lens.lens (\QueryObjectsResponse' {ids} -> ids) (\s@QueryObjectsResponse' {} a -> s {ids = a} :: QueryObjectsResponse) Prelude.. Lens.mapping Prelude._Coerce
+queryObjectsResponse_ids :: Lens.Lens' QueryObjectsResponse (Core.Maybe [Core.Text])
+queryObjectsResponse_ids = Lens.lens (\QueryObjectsResponse' {ids} -> ids) (\s@QueryObjectsResponse' {} a -> s {ids = a} :: QueryObjectsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
-queryObjectsResponse_hasMoreResults :: Lens.Lens' QueryObjectsResponse (Prelude.Maybe Prelude.Bool)
+queryObjectsResponse_hasMoreResults :: Lens.Lens' QueryObjectsResponse (Core.Maybe Core.Bool)
 queryObjectsResponse_hasMoreResults = Lens.lens (\QueryObjectsResponse' {hasMoreResults} -> hasMoreResults) (\s@QueryObjectsResponse' {} a -> s {hasMoreResults = a} :: QueryObjectsResponse)
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @QueryObjects@ again with this marker value. If the
 -- value is null, there are no more results.
-queryObjectsResponse_marker :: Lens.Lens' QueryObjectsResponse (Prelude.Maybe Prelude.Text)
+queryObjectsResponse_marker :: Lens.Lens' QueryObjectsResponse (Core.Maybe Core.Text)
 queryObjectsResponse_marker = Lens.lens (\QueryObjectsResponse' {marker} -> marker) (\s@QueryObjectsResponse' {} a -> s {marker = a} :: QueryObjectsResponse)
 
 -- | The response's http status code.
-queryObjectsResponse_httpStatus :: Lens.Lens' QueryObjectsResponse Prelude.Int
+queryObjectsResponse_httpStatus :: Lens.Lens' QueryObjectsResponse Core.Int
 queryObjectsResponse_httpStatus = Lens.lens (\QueryObjectsResponse' {httpStatus} -> httpStatus) (\s@QueryObjectsResponse' {} a -> s {httpStatus = a} :: QueryObjectsResponse)
 
-instance Prelude.NFData QueryObjectsResponse
+instance Core.NFData QueryObjectsResponse

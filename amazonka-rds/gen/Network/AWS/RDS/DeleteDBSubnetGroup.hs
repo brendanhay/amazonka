@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -59,9 +58,9 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup'
     -- be default.
     --
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Prelude.Text
+    dbSubnetGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSubnetGroup' with all optional fields omitted.
@@ -83,7 +82,7 @@ data DeleteDBSubnetGroup = DeleteDBSubnetGroup'
 -- Example: @mySubnetgroup@
 newDeleteDBSubnetGroup ::
   -- | 'dbSubnetGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDBSubnetGroup
 newDeleteDBSubnetGroup pDBSubnetGroupName_ =
   DeleteDBSubnetGroup'
@@ -101,42 +100,41 @@ newDeleteDBSubnetGroup pDBSubnetGroupName_ =
 -- be default.
 --
 -- Example: @mySubnetgroup@
-deleteDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' DeleteDBSubnetGroup Prelude.Text
+deleteDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' DeleteDBSubnetGroup Core.Text
 deleteDBSubnetGroup_dbSubnetGroupName = Lens.lens (\DeleteDBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@DeleteDBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: DeleteDBSubnetGroup)
 
-instance Prelude.AWSRequest DeleteDBSubnetGroup where
+instance Core.AWSRequest DeleteDBSubnetGroup where
   type
-    Rs DeleteDBSubnetGroup =
+    AWSResponse DeleteDBSubnetGroup =
       DeleteDBSubnetGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteDBSubnetGroupResponse'
 
-instance Prelude.Hashable DeleteDBSubnetGroup
+instance Core.Hashable DeleteDBSubnetGroup
 
-instance Prelude.NFData DeleteDBSubnetGroup
+instance Core.NFData DeleteDBSubnetGroup
 
-instance Prelude.ToHeaders DeleteDBSubnetGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDBSubnetGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDBSubnetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDBSubnetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDBSubnetGroup where
+instance Core.ToQuery DeleteDBSubnetGroup where
   toQuery DeleteDBSubnetGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteDBSubnetGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBSubnetGroupName" Prelude.=: dbSubnetGroupName
+          Core.=: ("DeleteDBSubnetGroup" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "DBSubnetGroupName" Core.=: dbSubnetGroupName
       ]
 
 -- | /See:/ 'newDeleteDBSubnetGroupResponse' smart constructor.
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBSubnetGroupResponse' with all optional fields omitted.
@@ -147,4 +145,4 @@ newDeleteDBSubnetGroupResponse ::
 newDeleteDBSubnetGroupResponse =
   DeleteDBSubnetGroupResponse'
 
-instance Prelude.NFData DeleteDBSubnetGroupResponse
+instance Core.NFData DeleteDBSubnetGroupResponse

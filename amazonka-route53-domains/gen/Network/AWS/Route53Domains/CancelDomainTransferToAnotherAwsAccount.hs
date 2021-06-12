@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -68,9 +67,9 @@ import Network.AWS.Route53Domains.Types
 data CancelDomainTransferToAnotherAwsAccount = CancelDomainTransferToAnotherAwsAccount'
   { -- | The name of the domain for which you want to cancel the transfer to
     -- another AWS account.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelDomainTransferToAnotherAwsAccount' with all optional fields omitted.
@@ -84,7 +83,7 @@ data CancelDomainTransferToAnotherAwsAccount = CancelDomainTransferToAnotherAwsA
 -- another AWS account.
 newCancelDomainTransferToAnotherAwsAccount ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   CancelDomainTransferToAnotherAwsAccount
 newCancelDomainTransferToAnotherAwsAccount
   pDomainName_ =
@@ -95,72 +94,71 @@ newCancelDomainTransferToAnotherAwsAccount
 
 -- | The name of the domain for which you want to cancel the transfer to
 -- another AWS account.
-cancelDomainTransferToAnotherAwsAccount_domainName :: Lens.Lens' CancelDomainTransferToAnotherAwsAccount Prelude.Text
+cancelDomainTransferToAnotherAwsAccount_domainName :: Lens.Lens' CancelDomainTransferToAnotherAwsAccount Core.Text
 cancelDomainTransferToAnotherAwsAccount_domainName = Lens.lens (\CancelDomainTransferToAnotherAwsAccount' {domainName} -> domainName) (\s@CancelDomainTransferToAnotherAwsAccount' {} a -> s {domainName = a} :: CancelDomainTransferToAnotherAwsAccount)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CancelDomainTransferToAnotherAwsAccount
   where
   type
-    Rs CancelDomainTransferToAnotherAwsAccount =
+    AWSResponse
+      CancelDomainTransferToAnotherAwsAccount =
       CancelDomainTransferToAnotherAwsAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelDomainTransferToAnotherAwsAccountResponse'
-            Prelude.<$> (x Prelude..?> "OperationId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OperationId")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CancelDomainTransferToAnotherAwsAccount
 
 instance
-  Prelude.NFData
+  Core.NFData
     CancelDomainTransferToAnotherAwsAccount
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CancelDomainTransferToAnotherAwsAccount
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.CancelDomainTransferToAnotherAwsAccount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.CancelDomainTransferToAnotherAwsAccount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CancelDomainTransferToAnotherAwsAccount
   where
   toJSON CancelDomainTransferToAnotherAwsAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Prelude..= domainName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DomainName" Core..= domainName)]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     CancelDomainTransferToAnotherAwsAccount
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CancelDomainTransferToAnotherAwsAccount
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | The @CancelDomainTransferToAnotherAwsAccount@ response includes the
 -- following element.
@@ -171,11 +169,11 @@ data CancelDomainTransferToAnotherAwsAccountResponse = CancelDomainTransferToAno
     -- track the progress of the request. Because the transfer request was
     -- canceled, the value is no longer valid, and you can\'t use
     -- @GetOperationDetail@ to query the operation status.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelDomainTransferToAnotherAwsAccountResponse' with all optional fields omitted.
@@ -193,13 +191,13 @@ data CancelDomainTransferToAnotherAwsAccountResponse = CancelDomainTransferToAno
 -- 'httpStatus', 'cancelDomainTransferToAnotherAwsAccountResponse_httpStatus' - The response's http status code.
 newCancelDomainTransferToAnotherAwsAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelDomainTransferToAnotherAwsAccountResponse
 newCancelDomainTransferToAnotherAwsAccountResponse
   pHttpStatus_ =
     CancelDomainTransferToAnotherAwsAccountResponse'
       { operationId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -207,13 +205,13 @@ newCancelDomainTransferToAnotherAwsAccountResponse
 -- track the progress of the request. Because the transfer request was
 -- canceled, the value is no longer valid, and you can\'t use
 -- @GetOperationDetail@ to query the operation status.
-cancelDomainTransferToAnotherAwsAccountResponse_operationId :: Lens.Lens' CancelDomainTransferToAnotherAwsAccountResponse (Prelude.Maybe Prelude.Text)
+cancelDomainTransferToAnotherAwsAccountResponse_operationId :: Lens.Lens' CancelDomainTransferToAnotherAwsAccountResponse (Core.Maybe Core.Text)
 cancelDomainTransferToAnotherAwsAccountResponse_operationId = Lens.lens (\CancelDomainTransferToAnotherAwsAccountResponse' {operationId} -> operationId) (\s@CancelDomainTransferToAnotherAwsAccountResponse' {} a -> s {operationId = a} :: CancelDomainTransferToAnotherAwsAccountResponse)
 
 -- | The response's http status code.
-cancelDomainTransferToAnotherAwsAccountResponse_httpStatus :: Lens.Lens' CancelDomainTransferToAnotherAwsAccountResponse Prelude.Int
+cancelDomainTransferToAnotherAwsAccountResponse_httpStatus :: Lens.Lens' CancelDomainTransferToAnotherAwsAccountResponse Core.Int
 cancelDomainTransferToAnotherAwsAccountResponse_httpStatus = Lens.lens (\CancelDomainTransferToAnotherAwsAccountResponse' {httpStatus} -> httpStatus) (\s@CancelDomainTransferToAnotherAwsAccountResponse' {} a -> s {httpStatus = a} :: CancelDomainTransferToAnotherAwsAccountResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CancelDomainTransferToAnotherAwsAccountResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,14 +58,14 @@ import qualified Network.AWS.Response as Response
 data DescribeLoadBalancers = DescribeLoadBalancers'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @100@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int,
+    maxRecords :: Core.Maybe Core.Int,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancers' with all optional fields omitted.
@@ -86,54 +84,54 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 -- 'autoScalingGroupName', 'describeLoadBalancers_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribeLoadBalancers ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeLoadBalancers
 newDescribeLoadBalancers pAutoScalingGroupName_ =
   DescribeLoadBalancers'
-    { nextToken = Prelude.Nothing,
-      maxRecords = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxRecords = Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeLoadBalancers_nextToken :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe Prelude.Text)
+describeLoadBalancers_nextToken :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Core.Text)
 describeLoadBalancers_nextToken = Lens.lens (\DescribeLoadBalancers' {nextToken} -> nextToken) (\s@DescribeLoadBalancers' {} a -> s {nextToken = a} :: DescribeLoadBalancers)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @100@ and the maximum value is @100@.
-describeLoadBalancers_maxRecords :: Lens.Lens' DescribeLoadBalancers (Prelude.Maybe Prelude.Int)
+describeLoadBalancers_maxRecords :: Lens.Lens' DescribeLoadBalancers (Core.Maybe Core.Int)
 describeLoadBalancers_maxRecords = Lens.lens (\DescribeLoadBalancers' {maxRecords} -> maxRecords) (\s@DescribeLoadBalancers' {} a -> s {maxRecords = a} :: DescribeLoadBalancers)
 
 -- | The name of the Auto Scaling group.
-describeLoadBalancers_autoScalingGroupName :: Lens.Lens' DescribeLoadBalancers Prelude.Text
+describeLoadBalancers_autoScalingGroupName :: Lens.Lens' DescribeLoadBalancers Core.Text
 describeLoadBalancers_autoScalingGroupName = Lens.lens (\DescribeLoadBalancers' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeLoadBalancers' {} a -> s {autoScalingGroupName = a} :: DescribeLoadBalancers)
 
-instance Pager.AWSPager DescribeLoadBalancers where
+instance Core.AWSPager DescribeLoadBalancers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeLoadBalancersResponse_loadBalancers
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeLoadBalancers_nextToken
           Lens..~ rs
           Lens.^? describeLoadBalancersResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeLoadBalancers where
+instance Core.AWSRequest DescribeLoadBalancers where
   type
-    Rs DescribeLoadBalancers =
+    AWSResponse DescribeLoadBalancers =
       DescribeLoadBalancersResponse
   request = Request.postQuery defaultService
   response =
@@ -141,35 +139,32 @@ instance Prelude.AWSRequest DescribeLoadBalancers where
       "DescribeLoadBalancersResult"
       ( \s h x ->
           DescribeLoadBalancersResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "LoadBalancers"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "LoadBalancers" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLoadBalancers
+instance Core.Hashable DescribeLoadBalancers
 
-instance Prelude.NFData DescribeLoadBalancers
+instance Core.NFData DescribeLoadBalancers
 
-instance Prelude.ToHeaders DescribeLoadBalancers where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeLoadBalancers where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeLoadBalancers where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLoadBalancers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLoadBalancers where
+instance Core.ToQuery DescribeLoadBalancers where
   toQuery DescribeLoadBalancers' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeLoadBalancers" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "MaxRecords" Prelude.=: maxRecords,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: ("DescribeLoadBalancers" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "MaxRecords" Core.=: maxRecords,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribeLoadBalancersResponse' smart constructor.
@@ -178,13 +173,13 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The load balancers.
-    loadBalancers :: Prelude.Maybe [LoadBalancerState],
+    loadBalancers :: Core.Maybe [LoadBalancerState],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancersResponse' with all optional fields omitted.
@@ -204,13 +199,13 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 -- 'httpStatus', 'describeLoadBalancersResponse_httpStatus' - The response's http status code.
 newDescribeLoadBalancersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLoadBalancersResponse
 newDescribeLoadBalancersResponse pHttpStatus_ =
   DescribeLoadBalancersResponse'
     { nextToken =
-        Prelude.Nothing,
-      loadBalancers = Prelude.Nothing,
+        Core.Nothing,
+      loadBalancers = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -218,15 +213,15 @@ newDescribeLoadBalancersResponse pHttpStatus_ =
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
-describeLoadBalancersResponse_nextToken :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe Prelude.Text)
+describeLoadBalancersResponse_nextToken :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe Core.Text)
 describeLoadBalancersResponse_nextToken = Lens.lens (\DescribeLoadBalancersResponse' {nextToken} -> nextToken) (\s@DescribeLoadBalancersResponse' {} a -> s {nextToken = a} :: DescribeLoadBalancersResponse)
 
 -- | The load balancers.
-describeLoadBalancersResponse_loadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Prelude.Maybe [LoadBalancerState])
-describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@DescribeLoadBalancersResponse' {} a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLoadBalancersResponse_loadBalancers :: Lens.Lens' DescribeLoadBalancersResponse (Core.Maybe [LoadBalancerState])
+describeLoadBalancersResponse_loadBalancers = Lens.lens (\DescribeLoadBalancersResponse' {loadBalancers} -> loadBalancers) (\s@DescribeLoadBalancersResponse' {} a -> s {loadBalancers = a} :: DescribeLoadBalancersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Prelude.Int
+describeLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeLoadBalancersResponse Core.Int
 describeLoadBalancersResponse_httpStatus = Lens.lens (\DescribeLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancersResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancersResponse)
 
-instance Prelude.NFData DescribeLoadBalancersResponse
+instance Core.NFData DescribeLoadBalancersResponse

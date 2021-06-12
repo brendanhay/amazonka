@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.NotificationConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a notification topic and its status. Notification topics are
 -- used for publishing ElastiCache events to subscribers using Amazon
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
   { -- | The current state of the topic.
-    topicStatus :: Prelude.Maybe Prelude.Text,
+    topicStatus :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) that identifies the topic.
-    topicArn :: Prelude.Maybe Prelude.Text
+    topicArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NotificationConfiguration' with all optional fields omitted.
@@ -52,24 +51,24 @@ newNotificationConfiguration ::
 newNotificationConfiguration =
   NotificationConfiguration'
     { topicStatus =
-        Prelude.Nothing,
-      topicArn = Prelude.Nothing
+        Core.Nothing,
+      topicArn = Core.Nothing
     }
 
 -- | The current state of the topic.
-notificationConfiguration_topicStatus :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
+notificationConfiguration_topicStatus :: Lens.Lens' NotificationConfiguration (Core.Maybe Core.Text)
 notificationConfiguration_topicStatus = Lens.lens (\NotificationConfiguration' {topicStatus} -> topicStatus) (\s@NotificationConfiguration' {} a -> s {topicStatus = a} :: NotificationConfiguration)
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
-notificationConfiguration_topicArn :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
+notificationConfiguration_topicArn :: Lens.Lens' NotificationConfiguration (Core.Maybe Core.Text)
 notificationConfiguration_topicArn = Lens.lens (\NotificationConfiguration' {topicArn} -> topicArn) (\s@NotificationConfiguration' {} a -> s {topicArn = a} :: NotificationConfiguration)
 
-instance Prelude.FromXML NotificationConfiguration where
+instance Core.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Prelude.<$> (x Prelude..@? "TopicStatus")
-      Prelude.<*> (x Prelude..@? "TopicArn")
+      Core.<$> (x Core..@? "TopicStatus")
+      Core.<*> (x Core..@? "TopicArn")
 
-instance Prelude.Hashable NotificationConfiguration
+instance Core.Hashable NotificationConfiguration
 
-instance Prelude.NFData NotificationConfiguration
+instance Core.NFData NotificationConfiguration

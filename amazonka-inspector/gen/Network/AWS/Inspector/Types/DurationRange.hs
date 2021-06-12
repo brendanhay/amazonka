@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.DurationRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used in the AssessmentTemplateFilter data type.
 --
 -- /See:/ 'newDurationRange' smart constructor.
 data DurationRange = DurationRange'
   { -- | The minimum value of the duration range. Must be greater than zero.
-    minSeconds :: Prelude.Maybe Prelude.Natural,
+    minSeconds :: Core.Maybe Core.Natural,
     -- | The maximum value of the duration range. Must be less than or equal to
     -- 604800 seconds (1 week).
-    maxSeconds :: Prelude.Maybe Prelude.Natural
+    maxSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DurationRange' with all optional fields omitted.
@@ -51,28 +50,28 @@ newDurationRange ::
   DurationRange
 newDurationRange =
   DurationRange'
-    { minSeconds = Prelude.Nothing,
-      maxSeconds = Prelude.Nothing
+    { minSeconds = Core.Nothing,
+      maxSeconds = Core.Nothing
     }
 
 -- | The minimum value of the duration range. Must be greater than zero.
-durationRange_minSeconds :: Lens.Lens' DurationRange (Prelude.Maybe Prelude.Natural)
+durationRange_minSeconds :: Lens.Lens' DurationRange (Core.Maybe Core.Natural)
 durationRange_minSeconds = Lens.lens (\DurationRange' {minSeconds} -> minSeconds) (\s@DurationRange' {} a -> s {minSeconds = a} :: DurationRange)
 
 -- | The maximum value of the duration range. Must be less than or equal to
 -- 604800 seconds (1 week).
-durationRange_maxSeconds :: Lens.Lens' DurationRange (Prelude.Maybe Prelude.Natural)
+durationRange_maxSeconds :: Lens.Lens' DurationRange (Core.Maybe Core.Natural)
 durationRange_maxSeconds = Lens.lens (\DurationRange' {maxSeconds} -> maxSeconds) (\s@DurationRange' {} a -> s {maxSeconds = a} :: DurationRange)
 
-instance Prelude.Hashable DurationRange
+instance Core.Hashable DurationRange
 
-instance Prelude.NFData DurationRange
+instance Core.NFData DurationRange
 
-instance Prelude.ToJSON DurationRange where
+instance Core.ToJSON DurationRange where
   toJSON DurationRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("minSeconds" Prelude..=) Prelude.<$> minSeconds,
-            ("maxSeconds" Prelude..=) Prelude.<$> maxSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("minSeconds" Core..=) Core.<$> minSeconds,
+            ("maxSeconds" Core..=) Core.<$> maxSeconds
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CognitoIdentityProvider.AdminGetDevice
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +54,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAdminGetDevice' smart constructor.
 data AdminGetDevice = AdminGetDevice'
   { -- | The device key.
-    deviceKey :: Prelude.Text,
+    deviceKey :: Core.Text,
     -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user name.
-    username :: Prelude.Sensitive Prelude.Text
+    username :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminGetDevice' with all optional fields omitted.
@@ -78,87 +77,87 @@ data AdminGetDevice = AdminGetDevice'
 -- 'username', 'adminGetDevice_username' - The user name.
 newAdminGetDevice ::
   -- | 'deviceKey'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminGetDevice
 newAdminGetDevice pDeviceKey_ pUserPoolId_ pUsername_ =
   AdminGetDevice'
     { deviceKey = pDeviceKey_,
       userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_
+      username = Core._Sensitive Lens.# pUsername_
     }
 
 -- | The device key.
-adminGetDevice_deviceKey :: Lens.Lens' AdminGetDevice Prelude.Text
+adminGetDevice_deviceKey :: Lens.Lens' AdminGetDevice Core.Text
 adminGetDevice_deviceKey = Lens.lens (\AdminGetDevice' {deviceKey} -> deviceKey) (\s@AdminGetDevice' {} a -> s {deviceKey = a} :: AdminGetDevice)
 
 -- | The user pool ID.
-adminGetDevice_userPoolId :: Lens.Lens' AdminGetDevice Prelude.Text
+adminGetDevice_userPoolId :: Lens.Lens' AdminGetDevice Core.Text
 adminGetDevice_userPoolId = Lens.lens (\AdminGetDevice' {userPoolId} -> userPoolId) (\s@AdminGetDevice' {} a -> s {userPoolId = a} :: AdminGetDevice)
 
 -- | The user name.
-adminGetDevice_username :: Lens.Lens' AdminGetDevice Prelude.Text
-adminGetDevice_username = Lens.lens (\AdminGetDevice' {username} -> username) (\s@AdminGetDevice' {} a -> s {username = a} :: AdminGetDevice) Prelude.. Prelude._Sensitive
+adminGetDevice_username :: Lens.Lens' AdminGetDevice Core.Text
+adminGetDevice_username = Lens.lens (\AdminGetDevice' {username} -> username) (\s@AdminGetDevice' {} a -> s {username = a} :: AdminGetDevice) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest AdminGetDevice where
-  type Rs AdminGetDevice = AdminGetDeviceResponse
+instance Core.AWSRequest AdminGetDevice where
+  type
+    AWSResponse AdminGetDevice =
+      AdminGetDeviceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AdminGetDeviceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Device")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Device")
       )
 
-instance Prelude.Hashable AdminGetDevice
+instance Core.Hashable AdminGetDevice
 
-instance Prelude.NFData AdminGetDevice
+instance Core.NFData AdminGetDevice
 
-instance Prelude.ToHeaders AdminGetDevice where
+instance Core.ToHeaders AdminGetDevice where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminGetDevice" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminGetDevice" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminGetDevice where
+instance Core.ToJSON AdminGetDevice where
   toJSON AdminGetDevice' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DeviceKey" Prelude..= deviceKey),
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeviceKey" Core..= deviceKey),
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
           ]
       )
 
-instance Prelude.ToPath AdminGetDevice where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminGetDevice where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminGetDevice where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminGetDevice where
+  toQuery = Core.const Core.mempty
 
 -- | Gets the device response, as an administrator.
 --
 -- /See:/ 'newAdminGetDeviceResponse' smart constructor.
 data AdminGetDeviceResponse = AdminGetDeviceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The device.
     device :: DeviceType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminGetDeviceResponse' with all optional fields omitted.
@@ -173,7 +172,7 @@ data AdminGetDeviceResponse = AdminGetDeviceResponse'
 -- 'device', 'adminGetDeviceResponse_device' - The device.
 newAdminGetDeviceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'device'
   DeviceType ->
   AdminGetDeviceResponse
@@ -184,11 +183,11 @@ newAdminGetDeviceResponse pHttpStatus_ pDevice_ =
     }
 
 -- | The response's http status code.
-adminGetDeviceResponse_httpStatus :: Lens.Lens' AdminGetDeviceResponse Prelude.Int
+adminGetDeviceResponse_httpStatus :: Lens.Lens' AdminGetDeviceResponse Core.Int
 adminGetDeviceResponse_httpStatus = Lens.lens (\AdminGetDeviceResponse' {httpStatus} -> httpStatus) (\s@AdminGetDeviceResponse' {} a -> s {httpStatus = a} :: AdminGetDeviceResponse)
 
 -- | The device.
 adminGetDeviceResponse_device :: Lens.Lens' AdminGetDeviceResponse DeviceType
 adminGetDeviceResponse_device = Lens.lens (\AdminGetDeviceResponse' {device} -> device) (\s@AdminGetDeviceResponse' {} a -> s {device = a} :: AdminGetDeviceResponse)
 
-instance Prelude.NFData AdminGetDeviceResponse
+instance Core.NFData AdminGetDeviceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.TechnicalCueSegment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.TechnicalCueType
 
 -- | Information about a technical cue segment. For more information, see
@@ -31,11 +30,11 @@ import Network.AWS.Rekognition.Types.TechnicalCueType
 data TechnicalCueSegment = TechnicalCueSegment'
   { -- | The confidence that Amazon Rekognition Video has in the accuracy of the
     -- detected segment.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | The type of the technical cue.
-    type' :: Prelude.Maybe TechnicalCueType
+    type' :: Core.Maybe TechnicalCueType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TechnicalCueSegment' with all optional fields omitted.
@@ -53,29 +52,29 @@ newTechnicalCueSegment ::
   TechnicalCueSegment
 newTechnicalCueSegment =
   TechnicalCueSegment'
-    { confidence = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { confidence = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The confidence that Amazon Rekognition Video has in the accuracy of the
 -- detected segment.
-technicalCueSegment_confidence :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe Prelude.Double)
+technicalCueSegment_confidence :: Lens.Lens' TechnicalCueSegment (Core.Maybe Core.Double)
 technicalCueSegment_confidence = Lens.lens (\TechnicalCueSegment' {confidence} -> confidence) (\s@TechnicalCueSegment' {} a -> s {confidence = a} :: TechnicalCueSegment)
 
 -- | The type of the technical cue.
-technicalCueSegment_type :: Lens.Lens' TechnicalCueSegment (Prelude.Maybe TechnicalCueType)
+technicalCueSegment_type :: Lens.Lens' TechnicalCueSegment (Core.Maybe TechnicalCueType)
 technicalCueSegment_type = Lens.lens (\TechnicalCueSegment' {type'} -> type') (\s@TechnicalCueSegment' {} a -> s {type' = a} :: TechnicalCueSegment)
 
-instance Prelude.FromJSON TechnicalCueSegment where
+instance Core.FromJSON TechnicalCueSegment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TechnicalCueSegment"
       ( \x ->
           TechnicalCueSegment'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable TechnicalCueSegment
+instance Core.Hashable TechnicalCueSegment
 
-instance Prelude.NFData TechnicalCueSegment
+instance Core.NFData TechnicalCueSegment

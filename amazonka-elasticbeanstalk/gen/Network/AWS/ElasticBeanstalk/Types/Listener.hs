@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.Listener where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
 -- /See:/ 'newListener' smart constructor.
 data Listener = Listener'
   { -- | The port that is used by the Listener.
-    port :: Prelude.Maybe Prelude.Int,
+    port :: Core.Maybe Core.Int,
     -- | The protocol that is used by the Listener.
-    protocol :: Prelude.Maybe Prelude.Text
+    protocol :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Listener' with all optional fields omitted.
@@ -49,24 +48,23 @@ newListener ::
   Listener
 newListener =
   Listener'
-    { port = Prelude.Nothing,
-      protocol = Prelude.Nothing
+    { port = Core.Nothing,
+      protocol = Core.Nothing
     }
 
 -- | The port that is used by the Listener.
-listener_port :: Lens.Lens' Listener (Prelude.Maybe Prelude.Int)
+listener_port :: Lens.Lens' Listener (Core.Maybe Core.Int)
 listener_port = Lens.lens (\Listener' {port} -> port) (\s@Listener' {} a -> s {port = a} :: Listener)
 
 -- | The protocol that is used by the Listener.
-listener_protocol :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
+listener_protocol :: Lens.Lens' Listener (Core.Maybe Core.Text)
 listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
 
-instance Prelude.FromXML Listener where
+instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> (x Prelude..@? "Port")
-      Prelude.<*> (x Prelude..@? "Protocol")
+      Core.<$> (x Core..@? "Port") Core.<*> (x Core..@? "Protocol")
 
-instance Prelude.Hashable Listener
+instance Core.Hashable Listener
 
-instance Prelude.NFData Listener
+instance Core.NFData Listener

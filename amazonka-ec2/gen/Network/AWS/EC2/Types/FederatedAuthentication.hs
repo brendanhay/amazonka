@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.FederatedAuthentication where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the IAM SAML identity providers used for federated
 -- authentication.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data FederatedAuthentication = FederatedAuthentication'
   { -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the
     -- self-service portal.
-    selfServiceSamlProviderArn :: Prelude.Maybe Prelude.Text,
+    selfServiceSamlProviderArn :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
-    samlProviderArn :: Prelude.Maybe Prelude.Text
+    samlProviderArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FederatedAuthentication' with all optional fields omitted.
@@ -54,25 +53,25 @@ newFederatedAuthentication ::
 newFederatedAuthentication =
   FederatedAuthentication'
     { selfServiceSamlProviderArn =
-        Prelude.Nothing,
-      samlProviderArn = Prelude.Nothing
+        Core.Nothing,
+      samlProviderArn = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the
 -- self-service portal.
-federatedAuthentication_selfServiceSamlProviderArn :: Lens.Lens' FederatedAuthentication (Prelude.Maybe Prelude.Text)
+federatedAuthentication_selfServiceSamlProviderArn :: Lens.Lens' FederatedAuthentication (Core.Maybe Core.Text)
 federatedAuthentication_selfServiceSamlProviderArn = Lens.lens (\FederatedAuthentication' {selfServiceSamlProviderArn} -> selfServiceSamlProviderArn) (\s@FederatedAuthentication' {} a -> s {selfServiceSamlProviderArn = a} :: FederatedAuthentication)
 
 -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
-federatedAuthentication_samlProviderArn :: Lens.Lens' FederatedAuthentication (Prelude.Maybe Prelude.Text)
+federatedAuthentication_samlProviderArn :: Lens.Lens' FederatedAuthentication (Core.Maybe Core.Text)
 federatedAuthentication_samlProviderArn = Lens.lens (\FederatedAuthentication' {samlProviderArn} -> samlProviderArn) (\s@FederatedAuthentication' {} a -> s {samlProviderArn = a} :: FederatedAuthentication)
 
-instance Prelude.FromXML FederatedAuthentication where
+instance Core.FromXML FederatedAuthentication where
   parseXML x =
     FederatedAuthentication'
-      Prelude.<$> (x Prelude..@? "selfServiceSamlProviderArn")
-      Prelude.<*> (x Prelude..@? "samlProviderArn")
+      Core.<$> (x Core..@? "selfServiceSamlProviderArn")
+      Core.<*> (x Core..@? "samlProviderArn")
 
-instance Prelude.Hashable FederatedAuthentication
+instance Core.Hashable FederatedAuthentication
 
-instance Prelude.NFData FederatedAuthentication
+instance Core.NFData FederatedAuthentication

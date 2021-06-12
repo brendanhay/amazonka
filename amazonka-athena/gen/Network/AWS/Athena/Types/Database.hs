@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Athena.Types.Database where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains metadata information for a database in a data catalog.
 --
 -- /See:/ 'newDatabase' smart constructor.
 data Database = Database'
   { -- | An optional description of the database.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | A set of custom key\/value pairs.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the database.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Database' with all optional fields omitted.
@@ -51,40 +50,38 @@ data Database = Database'
 -- 'name', 'database_name' - The name of the database.
 newDatabase ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Database
 newDatabase pName_ =
   Database'
-    { description = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { description = Core.Nothing,
+      parameters = Core.Nothing,
       name = pName_
     }
 
 -- | An optional description of the database.
-database_description :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
+database_description :: Lens.Lens' Database (Core.Maybe Core.Text)
 database_description = Lens.lens (\Database' {description} -> description) (\s@Database' {} a -> s {description = a} :: Database)
 
 -- | A set of custom key\/value pairs.
-database_parameters :: Lens.Lens' Database (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Database' {} a -> s {parameters = a} :: Database) Prelude.. Lens.mapping Prelude._Coerce
+database_parameters :: Lens.Lens' Database (Core.Maybe (Core.HashMap Core.Text Core.Text))
+database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Database' {} a -> s {parameters = a} :: Database) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the database.
-database_name :: Lens.Lens' Database Prelude.Text
+database_name :: Lens.Lens' Database Core.Text
 database_name = Lens.lens (\Database' {name} -> name) (\s@Database' {} a -> s {name = a} :: Database)
 
-instance Prelude.FromJSON Database where
+instance Core.FromJSON Database where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> (x Prelude..:? "Description")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "Description")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Database
+instance Core.Hashable Database
 
-instance Prelude.NFData Database
+instance Core.NFData Database

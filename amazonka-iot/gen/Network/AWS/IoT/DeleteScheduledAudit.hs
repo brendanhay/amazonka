@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.IoT.DeleteScheduledAudit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteScheduledAudit' smart constructor.
 data DeleteScheduledAudit = DeleteScheduledAudit'
   { -- | The name of the scheduled audit you want to delete.
-    scheduledAuditName :: Prelude.Text
+    scheduledAuditName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledAudit' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteScheduledAudit = DeleteScheduledAudit'
 -- 'scheduledAuditName', 'deleteScheduledAudit_scheduledAuditName' - The name of the scheduled audit you want to delete.
 newDeleteScheduledAudit ::
   -- | 'scheduledAuditName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteScheduledAudit
 newDeleteScheduledAudit pScheduledAuditName_ =
   DeleteScheduledAudit'
@@ -72,44 +71,44 @@ newDeleteScheduledAudit pScheduledAuditName_ =
     }
 
 -- | The name of the scheduled audit you want to delete.
-deleteScheduledAudit_scheduledAuditName :: Lens.Lens' DeleteScheduledAudit Prelude.Text
+deleteScheduledAudit_scheduledAuditName :: Lens.Lens' DeleteScheduledAudit Core.Text
 deleteScheduledAudit_scheduledAuditName = Lens.lens (\DeleteScheduledAudit' {scheduledAuditName} -> scheduledAuditName) (\s@DeleteScheduledAudit' {} a -> s {scheduledAuditName = a} :: DeleteScheduledAudit)
 
-instance Prelude.AWSRequest DeleteScheduledAudit where
+instance Core.AWSRequest DeleteScheduledAudit where
   type
-    Rs DeleteScheduledAudit =
+    AWSResponse DeleteScheduledAudit =
       DeleteScheduledAuditResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteScheduledAuditResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteScheduledAudit
+instance Core.Hashable DeleteScheduledAudit
 
-instance Prelude.NFData DeleteScheduledAudit
+instance Core.NFData DeleteScheduledAudit
 
-instance Prelude.ToHeaders DeleteScheduledAudit where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteScheduledAudit where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteScheduledAudit where
+instance Core.ToPath DeleteScheduledAudit where
   toPath DeleteScheduledAudit' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/audit/scheduledaudits/",
-        Prelude.toBS scheduledAuditName
+        Core.toBS scheduledAuditName
       ]
 
-instance Prelude.ToQuery DeleteScheduledAudit where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteScheduledAudit where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteScheduledAuditResponse' smart constructor.
 data DeleteScheduledAuditResponse = DeleteScheduledAuditResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScheduledAuditResponse' with all optional fields omitted.
@@ -122,7 +121,7 @@ data DeleteScheduledAuditResponse = DeleteScheduledAuditResponse'
 -- 'httpStatus', 'deleteScheduledAuditResponse_httpStatus' - The response's http status code.
 newDeleteScheduledAuditResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteScheduledAuditResponse
 newDeleteScheduledAuditResponse pHttpStatus_ =
   DeleteScheduledAuditResponse'
@@ -131,7 +130,7 @@ newDeleteScheduledAuditResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteScheduledAuditResponse_httpStatus :: Lens.Lens' DeleteScheduledAuditResponse Prelude.Int
+deleteScheduledAuditResponse_httpStatus :: Lens.Lens' DeleteScheduledAuditResponse Core.Int
 deleteScheduledAuditResponse_httpStatus = Lens.lens (\DeleteScheduledAuditResponse' {httpStatus} -> httpStatus) (\s@DeleteScheduledAuditResponse' {} a -> s {httpStatus = a} :: DeleteScheduledAuditResponse)
 
-instance Prelude.NFData DeleteScheduledAuditResponse
+instance Core.NFData DeleteScheduledAuditResponse

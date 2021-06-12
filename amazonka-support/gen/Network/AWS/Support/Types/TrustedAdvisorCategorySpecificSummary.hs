@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
 
 -- | The container for summary information that relates to the category of
@@ -31,9 +30,9 @@ import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
 data TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
   { -- | The summary information about cost savings for a Trusted Advisor check
     -- that is in the Cost Optimizing category.
-    costOptimizing :: Prelude.Maybe TrustedAdvisorCostOptimizingSummary
+    costOptimizing :: Core.Maybe TrustedAdvisorCostOptimizingSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorCategorySpecificSummary' with all optional fields omitted.
@@ -50,30 +49,30 @@ newTrustedAdvisorCategorySpecificSummary ::
 newTrustedAdvisorCategorySpecificSummary =
   TrustedAdvisorCategorySpecificSummary'
     { costOptimizing =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The summary information about cost savings for a Trusted Advisor check
 -- that is in the Cost Optimizing category.
-trustedAdvisorCategorySpecificSummary_costOptimizing :: Lens.Lens' TrustedAdvisorCategorySpecificSummary (Prelude.Maybe TrustedAdvisorCostOptimizingSummary)
+trustedAdvisorCategorySpecificSummary_costOptimizing :: Lens.Lens' TrustedAdvisorCategorySpecificSummary (Core.Maybe TrustedAdvisorCostOptimizingSummary)
 trustedAdvisorCategorySpecificSummary_costOptimizing = Lens.lens (\TrustedAdvisorCategorySpecificSummary' {costOptimizing} -> costOptimizing) (\s@TrustedAdvisorCategorySpecificSummary' {} a -> s {costOptimizing = a} :: TrustedAdvisorCategorySpecificSummary)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     TrustedAdvisorCategorySpecificSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrustedAdvisorCategorySpecificSummary"
       ( \x ->
           TrustedAdvisorCategorySpecificSummary'
-            Prelude.<$> (x Prelude..:? "costOptimizing")
+            Core.<$> (x Core..:? "costOptimizing")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TrustedAdvisorCategorySpecificSummary
 
 instance
-  Prelude.NFData
+  Core.NFData
     TrustedAdvisorCategorySpecificSummary

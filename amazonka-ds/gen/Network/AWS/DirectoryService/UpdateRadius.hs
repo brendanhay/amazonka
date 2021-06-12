@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DirectoryService.UpdateRadius
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ import qualified Network.AWS.Response as Response
 data UpdateRadius = UpdateRadius'
   { -- | The identifier of the directory for which to update the RADIUS server
     -- information.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | A RadiusSettings object that contains information about the RADIUS
     -- server.
     radiusSettings :: RadiusSettings
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRadius' with all optional fields omitted.
@@ -75,7 +74,7 @@ data UpdateRadius = UpdateRadius'
 -- server.
 newUpdateRadius ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'radiusSettings'
   RadiusSettings ->
   UpdateRadius
@@ -87,7 +86,7 @@ newUpdateRadius pDirectoryId_ pRadiusSettings_ =
 
 -- | The identifier of the directory for which to update the RADIUS server
 -- information.
-updateRadius_directoryId :: Lens.Lens' UpdateRadius Prelude.Text
+updateRadius_directoryId :: Lens.Lens' UpdateRadius Core.Text
 updateRadius_directoryId = Lens.lens (\UpdateRadius' {directoryId} -> directoryId) (\s@UpdateRadius' {} a -> s {directoryId = a} :: UpdateRadius)
 
 -- | A RadiusSettings object that contains information about the RADIUS
@@ -95,59 +94,56 @@ updateRadius_directoryId = Lens.lens (\UpdateRadius' {directoryId} -> directoryI
 updateRadius_radiusSettings :: Lens.Lens' UpdateRadius RadiusSettings
 updateRadius_radiusSettings = Lens.lens (\UpdateRadius' {radiusSettings} -> radiusSettings) (\s@UpdateRadius' {} a -> s {radiusSettings = a} :: UpdateRadius)
 
-instance Prelude.AWSRequest UpdateRadius where
-  type Rs UpdateRadius = UpdateRadiusResponse
+instance Core.AWSRequest UpdateRadius where
+  type AWSResponse UpdateRadius = UpdateRadiusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateRadiusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRadius
+instance Core.Hashable UpdateRadius
 
-instance Prelude.NFData UpdateRadius
+instance Core.NFData UpdateRadius
 
-instance Prelude.ToHeaders UpdateRadius where
+instance Core.ToHeaders UpdateRadius where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.UpdateRadius" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.UpdateRadius" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateRadius where
+instance Core.ToJSON UpdateRadius where
   toJSON UpdateRadius' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just
-              ("RadiusSettings" Prelude..= radiusSettings)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("RadiusSettings" Core..= radiusSettings)
           ]
       )
 
-instance Prelude.ToPath UpdateRadius where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateRadius where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateRadius where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRadius where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the results of the UpdateRadius operation.
 --
 -- /See:/ 'newUpdateRadiusResponse' smart constructor.
 data UpdateRadiusResponse = UpdateRadiusResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRadiusResponse' with all optional fields omitted.
@@ -160,13 +156,13 @@ data UpdateRadiusResponse = UpdateRadiusResponse'
 -- 'httpStatus', 'updateRadiusResponse_httpStatus' - The response's http status code.
 newUpdateRadiusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateRadiusResponse
 newUpdateRadiusResponse pHttpStatus_ =
   UpdateRadiusResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateRadiusResponse_httpStatus :: Lens.Lens' UpdateRadiusResponse Prelude.Int
+updateRadiusResponse_httpStatus :: Lens.Lens' UpdateRadiusResponse Core.Int
 updateRadiusResponse_httpStatus = Lens.lens (\UpdateRadiusResponse' {httpStatus} -> httpStatus) (\s@UpdateRadiusResponse' {} a -> s {httpStatus = a} :: UpdateRadiusResponse)
 
-instance Prelude.NFData UpdateRadiusResponse
+instance Core.NFData UpdateRadiusResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SSM.UpdateDocument
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -55,29 +54,29 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
   { -- | Specify a new target type for the document.
-    targetType :: Prelude.Maybe Prelude.Text,
+    targetType :: Core.Maybe Core.Text,
     -- | An optional field specifying the version of the artifact you are
     -- updating with the document. For example, \"Release 12, Update 6\". This
     -- value is unique across all versions of a document, and cannot be
     -- changed.
-    versionName :: Prelude.Maybe Prelude.Text,
+    versionName :: Core.Maybe Core.Text,
     -- | Specify the document format for the new document version. Systems
     -- Manager supports JSON and YAML documents. JSON is the default format.
-    documentFormat :: Prelude.Maybe DocumentFormat,
+    documentFormat :: Core.Maybe DocumentFormat,
     -- | (Required) The latest version of the document that you want to update.
     -- The latest document version can be specified using the $LATEST variable
     -- or by the version number. Updating a previous version of a document is
     -- not supported.
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    documentVersion :: Core.Maybe Core.Text,
     -- | A list of key and value pairs that describe attachments to a version of
     -- a document.
-    attachments :: Prelude.Maybe [AttachmentsSource],
+    attachments :: Core.Maybe [AttachmentsSource],
     -- | A valid JSON or YAML string.
-    content :: Prelude.Text,
+    content :: Core.Text,
     -- | The name of the document that you want to update.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocument' with all optional fields omitted.
@@ -110,115 +109,113 @@ data UpdateDocument = UpdateDocument'
 -- 'name', 'updateDocument_name' - The name of the document that you want to update.
 newUpdateDocument ::
   -- | 'content'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDocument
 newUpdateDocument pContent_ pName_ =
   UpdateDocument'
-    { targetType = Prelude.Nothing,
-      versionName = Prelude.Nothing,
-      documentFormat = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      attachments = Prelude.Nothing,
+    { targetType = Core.Nothing,
+      versionName = Core.Nothing,
+      documentFormat = Core.Nothing,
+      documentVersion = Core.Nothing,
+      attachments = Core.Nothing,
       content = pContent_,
       name = pName_
     }
 
 -- | Specify a new target type for the document.
-updateDocument_targetType :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_targetType :: Lens.Lens' UpdateDocument (Core.Maybe Core.Text)
 updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetType) (\s@UpdateDocument' {} a -> s {targetType = a} :: UpdateDocument)
 
 -- | An optional field specifying the version of the artifact you are
 -- updating with the document. For example, \"Release 12, Update 6\". This
 -- value is unique across all versions of a document, and cannot be
 -- changed.
-updateDocument_versionName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_versionName :: Lens.Lens' UpdateDocument (Core.Maybe Core.Text)
 updateDocument_versionName = Lens.lens (\UpdateDocument' {versionName} -> versionName) (\s@UpdateDocument' {} a -> s {versionName = a} :: UpdateDocument)
 
 -- | Specify the document format for the new document version. Systems
 -- Manager supports JSON and YAML documents. JSON is the default format.
-updateDocument_documentFormat :: Lens.Lens' UpdateDocument (Prelude.Maybe DocumentFormat)
+updateDocument_documentFormat :: Lens.Lens' UpdateDocument (Core.Maybe DocumentFormat)
 updateDocument_documentFormat = Lens.lens (\UpdateDocument' {documentFormat} -> documentFormat) (\s@UpdateDocument' {} a -> s {documentFormat = a} :: UpdateDocument)
 
 -- | (Required) The latest version of the document that you want to update.
 -- The latest document version can be specified using the $LATEST variable
 -- or by the version number. Updating a previous version of a document is
 -- not supported.
-updateDocument_documentVersion :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_documentVersion :: Lens.Lens' UpdateDocument (Core.Maybe Core.Text)
 updateDocument_documentVersion = Lens.lens (\UpdateDocument' {documentVersion} -> documentVersion) (\s@UpdateDocument' {} a -> s {documentVersion = a} :: UpdateDocument)
 
 -- | A list of key and value pairs that describe attachments to a version of
 -- a document.
-updateDocument_attachments :: Lens.Lens' UpdateDocument (Prelude.Maybe [AttachmentsSource])
-updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Prelude.. Lens.mapping Prelude._Coerce
+updateDocument_attachments :: Lens.Lens' UpdateDocument (Core.Maybe [AttachmentsSource])
+updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Core.. Lens.mapping Lens._Coerce
 
 -- | A valid JSON or YAML string.
-updateDocument_content :: Lens.Lens' UpdateDocument Prelude.Text
+updateDocument_content :: Lens.Lens' UpdateDocument Core.Text
 updateDocument_content = Lens.lens (\UpdateDocument' {content} -> content) (\s@UpdateDocument' {} a -> s {content = a} :: UpdateDocument)
 
 -- | The name of the document that you want to update.
-updateDocument_name :: Lens.Lens' UpdateDocument Prelude.Text
+updateDocument_name :: Lens.Lens' UpdateDocument Core.Text
 updateDocument_name = Lens.lens (\UpdateDocument' {name} -> name) (\s@UpdateDocument' {} a -> s {name = a} :: UpdateDocument)
 
-instance Prelude.AWSRequest UpdateDocument where
-  type Rs UpdateDocument = UpdateDocumentResponse
+instance Core.AWSRequest UpdateDocument where
+  type
+    AWSResponse UpdateDocument =
+      UpdateDocumentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateDocumentResponse'
-            Prelude.<$> (x Prelude..?> "DocumentDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DocumentDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDocument
+instance Core.Hashable UpdateDocument
 
-instance Prelude.NFData UpdateDocument
+instance Core.NFData UpdateDocument
 
-instance Prelude.ToHeaders UpdateDocument where
+instance Core.ToHeaders UpdateDocument where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.UpdateDocument" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.UpdateDocument" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDocument where
+instance Core.ToJSON UpdateDocument where
   toJSON UpdateDocument' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TargetType" Prelude..=) Prelude.<$> targetType,
-            ("VersionName" Prelude..=) Prelude.<$> versionName,
-            ("DocumentFormat" Prelude..=)
-              Prelude.<$> documentFormat,
-            ("DocumentVersion" Prelude..=)
-              Prelude.<$> documentVersion,
-            ("Attachments" Prelude..=) Prelude.<$> attachments,
-            Prelude.Just ("Content" Prelude..= content),
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("TargetType" Core..=) Core.<$> targetType,
+            ("VersionName" Core..=) Core.<$> versionName,
+            ("DocumentFormat" Core..=) Core.<$> documentFormat,
+            ("DocumentVersion" Core..=) Core.<$> documentVersion,
+            ("Attachments" Core..=) Core.<$> attachments,
+            Core.Just ("Content" Core..= content),
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath UpdateDocument where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateDocument where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateDocument where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDocument where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDocumentResponse' smart constructor.
 data UpdateDocumentResponse = UpdateDocumentResponse'
   { -- | A description of the document that was updated.
-    documentDescription :: Prelude.Maybe DocumentDescription,
+    documentDescription :: Core.Maybe DocumentDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentResponse' with all optional fields omitted.
@@ -233,21 +230,21 @@ data UpdateDocumentResponse = UpdateDocumentResponse'
 -- 'httpStatus', 'updateDocumentResponse_httpStatus' - The response's http status code.
 newUpdateDocumentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDocumentResponse
 newUpdateDocumentResponse pHttpStatus_ =
   UpdateDocumentResponse'
     { documentDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A description of the document that was updated.
-updateDocumentResponse_documentDescription :: Lens.Lens' UpdateDocumentResponse (Prelude.Maybe DocumentDescription)
+updateDocumentResponse_documentDescription :: Lens.Lens' UpdateDocumentResponse (Core.Maybe DocumentDescription)
 updateDocumentResponse_documentDescription = Lens.lens (\UpdateDocumentResponse' {documentDescription} -> documentDescription) (\s@UpdateDocumentResponse' {} a -> s {documentDescription = a} :: UpdateDocumentResponse)
 
 -- | The response's http status code.
-updateDocumentResponse_httpStatus :: Lens.Lens' UpdateDocumentResponse Prelude.Int
+updateDocumentResponse_httpStatus :: Lens.Lens' UpdateDocumentResponse Core.Int
 updateDocumentResponse_httpStatus = Lens.lens (\UpdateDocumentResponse' {httpStatus} -> httpStatus) (\s@UpdateDocumentResponse' {} a -> s {httpStatus = a} :: UpdateDocumentResponse)
 
-instance Prelude.NFData UpdateDocumentResponse
+instance Core.NFData UpdateDocumentResponse

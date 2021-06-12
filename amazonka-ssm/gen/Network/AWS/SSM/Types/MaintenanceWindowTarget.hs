@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.MaintenanceWindowTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.MaintenanceWindowResourceType
 import Network.AWS.SSM.Types.Target
 
@@ -30,9 +29,9 @@ import Network.AWS.SSM.Types.Target
 -- /See:/ 'newMaintenanceWindowTarget' smart constructor.
 data MaintenanceWindowTarget = MaintenanceWindowTarget'
   { -- | The ID of the target.
-    windowTargetId :: Prelude.Maybe Prelude.Text,
+    windowTargetId :: Core.Maybe Core.Text,
     -- | The type of target that is being registered with the maintenance window.
-    resourceType :: Prelude.Maybe MaintenanceWindowResourceType,
+    resourceType :: Core.Maybe MaintenanceWindowResourceType,
     -- | The targets, either instances or tags.
     --
     -- Specify instances using the following format:
@@ -42,19 +41,19 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
     -- Tags are specified using the following format:
     --
     -- @Key=\<tag name>,Values=\<tag value>@.
-    targets :: Prelude.Maybe [Target],
+    targets :: Core.Maybe [Target],
     -- | The name for the maintenance window target.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID of the maintenance window to register the target with.
-    windowId :: Prelude.Maybe Prelude.Text,
+    windowId :: Core.Maybe Core.Text,
     -- | A description for the target.
-    description :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    description :: Core.Maybe (Core.Sensitive Core.Text),
     -- | A user-provided value that will be included in any CloudWatch events
     -- that are raised while running tasks for these targets in this
     -- maintenance window.
-    ownerInformation :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    ownerInformation :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowTarget' with all optional fields omitted.
@@ -92,21 +91,21 @@ newMaintenanceWindowTarget ::
 newMaintenanceWindowTarget =
   MaintenanceWindowTarget'
     { windowTargetId =
-        Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      name = Prelude.Nothing,
-      windowId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      ownerInformation = Prelude.Nothing
+        Core.Nothing,
+      resourceType = Core.Nothing,
+      targets = Core.Nothing,
+      name = Core.Nothing,
+      windowId = Core.Nothing,
+      description = Core.Nothing,
+      ownerInformation = Core.Nothing
     }
 
 -- | The ID of the target.
-maintenanceWindowTarget_windowTargetId :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
+maintenanceWindowTarget_windowTargetId :: Lens.Lens' MaintenanceWindowTarget (Core.Maybe Core.Text)
 maintenanceWindowTarget_windowTargetId = Lens.lens (\MaintenanceWindowTarget' {windowTargetId} -> windowTargetId) (\s@MaintenanceWindowTarget' {} a -> s {windowTargetId = a} :: MaintenanceWindowTarget)
 
 -- | The type of target that is being registered with the maintenance window.
-maintenanceWindowTarget_resourceType :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe MaintenanceWindowResourceType)
+maintenanceWindowTarget_resourceType :: Lens.Lens' MaintenanceWindowTarget (Core.Maybe MaintenanceWindowResourceType)
 maintenanceWindowTarget_resourceType = Lens.lens (\MaintenanceWindowTarget' {resourceType} -> resourceType) (\s@MaintenanceWindowTarget' {} a -> s {resourceType = a} :: MaintenanceWindowTarget)
 
 -- | The targets, either instances or tags.
@@ -118,42 +117,42 @@ maintenanceWindowTarget_resourceType = Lens.lens (\MaintenanceWindowTarget' {res
 -- Tags are specified using the following format:
 --
 -- @Key=\<tag name>,Values=\<tag value>@.
-maintenanceWindowTarget_targets :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe [Target])
-maintenanceWindowTarget_targets = Lens.lens (\MaintenanceWindowTarget' {targets} -> targets) (\s@MaintenanceWindowTarget' {} a -> s {targets = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Prelude._Coerce
+maintenanceWindowTarget_targets :: Lens.Lens' MaintenanceWindowTarget (Core.Maybe [Target])
+maintenanceWindowTarget_targets = Lens.lens (\MaintenanceWindowTarget' {targets} -> targets) (\s@MaintenanceWindowTarget' {} a -> s {targets = a} :: MaintenanceWindowTarget) Core.. Lens.mapping Lens._Coerce
 
 -- | The name for the maintenance window target.
-maintenanceWindowTarget_name :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
+maintenanceWindowTarget_name :: Lens.Lens' MaintenanceWindowTarget (Core.Maybe Core.Text)
 maintenanceWindowTarget_name = Lens.lens (\MaintenanceWindowTarget' {name} -> name) (\s@MaintenanceWindowTarget' {} a -> s {name = a} :: MaintenanceWindowTarget)
 
 -- | The ID of the maintenance window to register the target with.
-maintenanceWindowTarget_windowId :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
+maintenanceWindowTarget_windowId :: Lens.Lens' MaintenanceWindowTarget (Core.Maybe Core.Text)
 maintenanceWindowTarget_windowId = Lens.lens (\MaintenanceWindowTarget' {windowId} -> windowId) (\s@MaintenanceWindowTarget' {} a -> s {windowId = a} :: MaintenanceWindowTarget)
 
 -- | A description for the target.
-maintenanceWindowTarget_description :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
-maintenanceWindowTarget_description = Lens.lens (\MaintenanceWindowTarget' {description} -> description) (\s@MaintenanceWindowTarget' {} a -> s {description = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Prelude._Sensitive
+maintenanceWindowTarget_description :: Lens.Lens' MaintenanceWindowTarget (Core.Maybe Core.Text)
+maintenanceWindowTarget_description = Lens.lens (\MaintenanceWindowTarget' {description} -> description) (\s@MaintenanceWindowTarget' {} a -> s {description = a} :: MaintenanceWindowTarget) Core.. Lens.mapping Core._Sensitive
 
 -- | A user-provided value that will be included in any CloudWatch events
 -- that are raised while running tasks for these targets in this
 -- maintenance window.
-maintenanceWindowTarget_ownerInformation :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
-maintenanceWindowTarget_ownerInformation = Lens.lens (\MaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: MaintenanceWindowTarget) Prelude.. Lens.mapping Prelude._Sensitive
+maintenanceWindowTarget_ownerInformation :: Lens.Lens' MaintenanceWindowTarget (Core.Maybe Core.Text)
+maintenanceWindowTarget_ownerInformation = Lens.lens (\MaintenanceWindowTarget' {ownerInformation} -> ownerInformation) (\s@MaintenanceWindowTarget' {} a -> s {ownerInformation = a} :: MaintenanceWindowTarget) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromJSON MaintenanceWindowTarget where
+instance Core.FromJSON MaintenanceWindowTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MaintenanceWindowTarget"
       ( \x ->
           MaintenanceWindowTarget'
-            Prelude.<$> (x Prelude..:? "WindowTargetId")
-            Prelude.<*> (x Prelude..:? "ResourceType")
-            Prelude.<*> (x Prelude..:? "Targets" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "WindowId")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "OwnerInformation")
+            Core.<$> (x Core..:? "WindowTargetId")
+            Core.<*> (x Core..:? "ResourceType")
+            Core.<*> (x Core..:? "Targets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "WindowId")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "OwnerInformation")
       )
 
-instance Prelude.Hashable MaintenanceWindowTarget
+instance Core.Hashable MaintenanceWindowTarget
 
-instance Prelude.NFData MaintenanceWindowTarget
+instance Core.NFData MaintenanceWindowTarget

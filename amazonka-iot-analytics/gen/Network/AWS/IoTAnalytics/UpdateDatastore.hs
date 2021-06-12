@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.IoTAnalytics.UpdateDatastore
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +50,7 @@ data UpdateDatastore = UpdateDatastore'
     -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
     -- default is@serviceManagedS3@. You cannot change this storage option
     -- after the data store is created.
-    datastoreStorage :: Prelude.Maybe DatastoreStorage,
+    datastoreStorage :: Core.Maybe DatastoreStorage,
     -- | Contains the configuration information of file formats. AWS IoT
     -- Analytics data stores support JSON and
     -- <https://parquet.apache.org/ Parquet>.
@@ -59,15 +58,15 @@ data UpdateDatastore = UpdateDatastore'
     -- The default file format is JSON. You can specify only one format.
     --
     -- You can\'t change the file format after you create the data store.
-    fileFormatConfiguration :: Prelude.Maybe FileFormatConfiguration,
+    fileFormatConfiguration :: Core.Maybe FileFormatConfiguration,
     -- | How long, in days, message data is kept for the data store. The
     -- retention period cannot be updated if the data store\'s S3 storage is
     -- customer-managed.
-    retentionPeriod :: Prelude.Maybe RetentionPeriod,
+    retentionPeriod :: Core.Maybe RetentionPeriod,
     -- | The name of the data store to be updated.
-    datastoreName :: Prelude.Text
+    datastoreName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDatastore' with all optional fields omitted.
@@ -97,14 +96,13 @@ data UpdateDatastore = UpdateDatastore'
 -- 'datastoreName', 'updateDatastore_datastoreName' - The name of the data store to be updated.
 newUpdateDatastore ::
   -- | 'datastoreName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDatastore
 newUpdateDatastore pDatastoreName_ =
   UpdateDatastore'
-    { datastoreStorage =
-        Prelude.Nothing,
-      fileFormatConfiguration = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
+    { datastoreStorage = Core.Nothing,
+      fileFormatConfiguration = Core.Nothing,
+      retentionPeriod = Core.Nothing,
       datastoreName = pDatastoreName_
     }
 
@@ -112,7 +110,7 @@ newUpdateDatastore pDatastoreName_ =
 -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
 -- default is@serviceManagedS3@. You cannot change this storage option
 -- after the data store is created.
-updateDatastore_datastoreStorage :: Lens.Lens' UpdateDatastore (Prelude.Maybe DatastoreStorage)
+updateDatastore_datastoreStorage :: Lens.Lens' UpdateDatastore (Core.Maybe DatastoreStorage)
 updateDatastore_datastoreStorage = Lens.lens (\UpdateDatastore' {datastoreStorage} -> datastoreStorage) (\s@UpdateDatastore' {} a -> s {datastoreStorage = a} :: UpdateDatastore)
 
 -- | Contains the configuration information of file formats. AWS IoT
@@ -122,58 +120,60 @@ updateDatastore_datastoreStorage = Lens.lens (\UpdateDatastore' {datastoreStorag
 -- The default file format is JSON. You can specify only one format.
 --
 -- You can\'t change the file format after you create the data store.
-updateDatastore_fileFormatConfiguration :: Lens.Lens' UpdateDatastore (Prelude.Maybe FileFormatConfiguration)
+updateDatastore_fileFormatConfiguration :: Lens.Lens' UpdateDatastore (Core.Maybe FileFormatConfiguration)
 updateDatastore_fileFormatConfiguration = Lens.lens (\UpdateDatastore' {fileFormatConfiguration} -> fileFormatConfiguration) (\s@UpdateDatastore' {} a -> s {fileFormatConfiguration = a} :: UpdateDatastore)
 
 -- | How long, in days, message data is kept for the data store. The
 -- retention period cannot be updated if the data store\'s S3 storage is
 -- customer-managed.
-updateDatastore_retentionPeriod :: Lens.Lens' UpdateDatastore (Prelude.Maybe RetentionPeriod)
+updateDatastore_retentionPeriod :: Lens.Lens' UpdateDatastore (Core.Maybe RetentionPeriod)
 updateDatastore_retentionPeriod = Lens.lens (\UpdateDatastore' {retentionPeriod} -> retentionPeriod) (\s@UpdateDatastore' {} a -> s {retentionPeriod = a} :: UpdateDatastore)
 
 -- | The name of the data store to be updated.
-updateDatastore_datastoreName :: Lens.Lens' UpdateDatastore Prelude.Text
+updateDatastore_datastoreName :: Lens.Lens' UpdateDatastore Core.Text
 updateDatastore_datastoreName = Lens.lens (\UpdateDatastore' {datastoreName} -> datastoreName) (\s@UpdateDatastore' {} a -> s {datastoreName = a} :: UpdateDatastore)
 
-instance Prelude.AWSRequest UpdateDatastore where
-  type Rs UpdateDatastore = UpdateDatastoreResponse
+instance Core.AWSRequest UpdateDatastore where
+  type
+    AWSResponse UpdateDatastore =
+      UpdateDatastoreResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveNull UpdateDatastoreResponse'
 
-instance Prelude.Hashable UpdateDatastore
+instance Core.Hashable UpdateDatastore
 
-instance Prelude.NFData UpdateDatastore
+instance Core.NFData UpdateDatastore
 
-instance Prelude.ToHeaders UpdateDatastore where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateDatastore where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateDatastore where
+instance Core.ToJSON UpdateDatastore where
   toJSON UpdateDatastore' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("datastoreStorage" Prelude..=)
-              Prelude.<$> datastoreStorage,
-            ("fileFormatConfiguration" Prelude..=)
-              Prelude.<$> fileFormatConfiguration,
-            ("retentionPeriod" Prelude..=)
-              Prelude.<$> retentionPeriod
+    Core.object
+      ( Core.catMaybes
+          [ ("datastoreStorage" Core..=)
+              Core.<$> datastoreStorage,
+            ("fileFormatConfiguration" Core..=)
+              Core.<$> fileFormatConfiguration,
+            ("retentionPeriod" Core..=)
+              Core.<$> retentionPeriod
           ]
       )
 
-instance Prelude.ToPath UpdateDatastore where
+instance Core.ToPath UpdateDatastore where
   toPath UpdateDatastore' {..} =
-    Prelude.mconcat
-      ["/datastores/", Prelude.toBS datastoreName]
+    Core.mconcat
+      ["/datastores/", Core.toBS datastoreName]
 
-instance Prelude.ToQuery UpdateDatastore where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDatastore where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDatastoreResponse' smart constructor.
 data UpdateDatastoreResponse = UpdateDatastoreResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDatastoreResponse' with all optional fields omitted.
@@ -183,4 +183,4 @@ newUpdateDatastoreResponse ::
   UpdateDatastoreResponse
 newUpdateDatastoreResponse = UpdateDatastoreResponse'
 
-instance Prelude.NFData UpdateDatastoreResponse
+instance Core.NFData UpdateDatastoreResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelBiasJobInput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 import Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input
 
@@ -33,7 +32,7 @@ data ModelBiasJobInput = ModelBiasJobInput'
     -- | Location of ground truth labels to use in model bias job.
     groundTruthS3Input :: MonitoringGroundTruthS3Input
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelBiasJobInput' with all optional fields omitted.
@@ -68,29 +67,26 @@ modelBiasJobInput_endpointInput = Lens.lens (\ModelBiasJobInput' {endpointInput}
 modelBiasJobInput_groundTruthS3Input :: Lens.Lens' ModelBiasJobInput MonitoringGroundTruthS3Input
 modelBiasJobInput_groundTruthS3Input = Lens.lens (\ModelBiasJobInput' {groundTruthS3Input} -> groundTruthS3Input) (\s@ModelBiasJobInput' {} a -> s {groundTruthS3Input = a} :: ModelBiasJobInput)
 
-instance Prelude.FromJSON ModelBiasJobInput where
+instance Core.FromJSON ModelBiasJobInput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelBiasJobInput"
       ( \x ->
           ModelBiasJobInput'
-            Prelude.<$> (x Prelude..: "EndpointInput")
-            Prelude.<*> (x Prelude..: "GroundTruthS3Input")
+            Core.<$> (x Core..: "EndpointInput")
+            Core.<*> (x Core..: "GroundTruthS3Input")
       )
 
-instance Prelude.Hashable ModelBiasJobInput
+instance Core.Hashable ModelBiasJobInput
 
-instance Prelude.NFData ModelBiasJobInput
+instance Core.NFData ModelBiasJobInput
 
-instance Prelude.ToJSON ModelBiasJobInput where
+instance Core.ToJSON ModelBiasJobInput where
   toJSON ModelBiasJobInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Prelude..= endpointInput),
-            Prelude.Just
-              ( "GroundTruthS3Input"
-                  Prelude..= groundTruthS3Input
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EndpointInput" Core..= endpointInput),
+            Core.Just
+              ("GroundTruthS3Input" Core..= groundTruthS3Input)
           ]
       )

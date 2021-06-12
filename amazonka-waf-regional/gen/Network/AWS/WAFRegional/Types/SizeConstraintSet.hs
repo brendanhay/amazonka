@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.SizeConstraintSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.SizeConstraint
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -41,7 +40,7 @@ import Network.AWS.WAFRegional.Types.SizeConstraint
 -- /See:/ 'newSizeConstraintSet' smart constructor.
 data SizeConstraintSet = SizeConstraintSet'
   { -- | The name, if any, of the @SizeConstraintSet@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A unique identifier for a @SizeConstraintSet@. You use
     -- @SizeConstraintSetId@ to get information about a @SizeConstraintSet@
     -- (see GetSizeConstraintSet), update a @SizeConstraintSet@ (see
@@ -51,12 +50,12 @@ data SizeConstraintSet = SizeConstraintSet'
     --
     -- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
     -- ListSizeConstraintSets.
-    sizeConstraintSetId :: Prelude.Text,
+    sizeConstraintSetId :: Core.Text,
     -- | Specifies the parts of web requests that you want to inspect the size
     -- of.
     sizeConstraints :: [SizeConstraint]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SizeConstraintSet' with all optional fields omitted.
@@ -82,17 +81,17 @@ data SizeConstraintSet = SizeConstraintSet'
 -- of.
 newSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
-  Prelude.Text ->
+  Core.Text ->
   SizeConstraintSet
 newSizeConstraintSet pSizeConstraintSetId_ =
   SizeConstraintSet'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       sizeConstraintSetId = pSizeConstraintSetId_,
-      sizeConstraints = Prelude.mempty
+      sizeConstraints = Core.mempty
     }
 
 -- | The name, if any, of the @SizeConstraintSet@.
-sizeConstraintSet_name :: Lens.Lens' SizeConstraintSet (Prelude.Maybe Prelude.Text)
+sizeConstraintSet_name :: Lens.Lens' SizeConstraintSet (Core.Maybe Core.Text)
 sizeConstraintSet_name = Lens.lens (\SizeConstraintSet' {name} -> name) (\s@SizeConstraintSet' {} a -> s {name = a} :: SizeConstraintSet)
 
 -- | A unique identifier for a @SizeConstraintSet@. You use
@@ -104,27 +103,25 @@ sizeConstraintSet_name = Lens.lens (\SizeConstraintSet' {name} -> name) (\s@Size
 --
 -- @SizeConstraintSetId@ is returned by CreateSizeConstraintSet and by
 -- ListSizeConstraintSets.
-sizeConstraintSet_sizeConstraintSetId :: Lens.Lens' SizeConstraintSet Prelude.Text
+sizeConstraintSet_sizeConstraintSetId :: Lens.Lens' SizeConstraintSet Core.Text
 sizeConstraintSet_sizeConstraintSetId = Lens.lens (\SizeConstraintSet' {sizeConstraintSetId} -> sizeConstraintSetId) (\s@SizeConstraintSet' {} a -> s {sizeConstraintSetId = a} :: SizeConstraintSet)
 
 -- | Specifies the parts of web requests that you want to inspect the size
 -- of.
 sizeConstraintSet_sizeConstraints :: Lens.Lens' SizeConstraintSet [SizeConstraint]
-sizeConstraintSet_sizeConstraints = Lens.lens (\SizeConstraintSet' {sizeConstraints} -> sizeConstraints) (\s@SizeConstraintSet' {} a -> s {sizeConstraints = a} :: SizeConstraintSet) Prelude.. Prelude._Coerce
+sizeConstraintSet_sizeConstraints = Lens.lens (\SizeConstraintSet' {sizeConstraints} -> sizeConstraints) (\s@SizeConstraintSet' {} a -> s {sizeConstraints = a} :: SizeConstraintSet) Core.. Lens._Coerce
 
-instance Prelude.FromJSON SizeConstraintSet where
+instance Core.FromJSON SizeConstraintSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SizeConstraintSet"
       ( \x ->
           SizeConstraintSet'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..: "SizeConstraintSetId")
-            Prelude.<*> ( x Prelude..:? "SizeConstraints"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..: "SizeConstraintSetId")
+            Core.<*> (x Core..:? "SizeConstraints" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable SizeConstraintSet
+instance Core.Hashable SizeConstraintSet
 
-instance Prelude.NFData SizeConstraintSet
+instance Core.NFData SizeConstraintSet

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.APIGateway.UpdateDomainName
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,11 +66,11 @@ import qualified Network.AWS.Response as Response
 data UpdateDomainName = UpdateDomainName'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The name of the DomainName resource to be changed.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainName' with all optional fields omitted.
@@ -87,57 +86,56 @@ data UpdateDomainName = UpdateDomainName'
 -- 'domainName', 'updateDomainName_domainName' - [Required] The name of the DomainName resource to be changed.
 newUpdateDomainName ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDomainName
 newUpdateDomainName pDomainName_ =
   UpdateDomainName'
-    { patchOperations =
-        Prelude.Nothing,
+    { patchOperations = Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateDomainName_patchOperations :: Lens.Lens' UpdateDomainName (Prelude.Maybe [PatchOperation])
-updateDomainName_patchOperations = Lens.lens (\UpdateDomainName' {patchOperations} -> patchOperations) (\s@UpdateDomainName' {} a -> s {patchOperations = a} :: UpdateDomainName) Prelude.. Lens.mapping Prelude._Coerce
+updateDomainName_patchOperations :: Lens.Lens' UpdateDomainName (Core.Maybe [PatchOperation])
+updateDomainName_patchOperations = Lens.lens (\UpdateDomainName' {patchOperations} -> patchOperations) (\s@UpdateDomainName' {} a -> s {patchOperations = a} :: UpdateDomainName) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The name of the DomainName resource to be changed.
-updateDomainName_domainName :: Lens.Lens' UpdateDomainName Prelude.Text
+updateDomainName_domainName :: Lens.Lens' UpdateDomainName Core.Text
 updateDomainName_domainName = Lens.lens (\UpdateDomainName' {domainName} -> domainName) (\s@UpdateDomainName' {} a -> s {domainName = a} :: UpdateDomainName)
 
-instance Prelude.AWSRequest UpdateDomainName where
-  type Rs UpdateDomainName = DomainName
+instance Core.AWSRequest UpdateDomainName where
+  type AWSResponse UpdateDomainName = DomainName
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateDomainName
+instance Core.Hashable UpdateDomainName
 
-instance Prelude.NFData UpdateDomainName
+instance Core.NFData UpdateDomainName
 
-instance Prelude.ToHeaders UpdateDomainName where
+instance Core.ToHeaders UpdateDomainName where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDomainName where
+instance Core.ToJSON UpdateDomainName where
   toJSON UpdateDomainName' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateDomainName where
+instance Core.ToPath UpdateDomainName where
   toPath UpdateDomainName' {..} =
-    Prelude.mconcat
-      ["/domainnames/", Prelude.toBS domainName]
+    Core.mconcat
+      ["/domainnames/", Core.toBS domainName]
 
-instance Prelude.ToQuery UpdateDomainName where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDomainName where
+  toQuery = Core.const Core.mempty

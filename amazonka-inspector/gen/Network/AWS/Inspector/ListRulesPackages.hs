@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.Inspector.ListRulesPackages
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +56,12 @@ data ListRulesPackages = ListRulesPackages'
     -- action. Subsequent calls to the action fill __nextToken__ in the request
     -- with the value of __NextToken__ from the previous response to continue
     -- listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int
+    maxResults :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRulesPackages' with all optional fields omitted.
@@ -85,8 +83,8 @@ newListRulesPackages ::
   ListRulesPackages
 newListRulesPackages =
   ListRulesPackages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | You can use this parameter when paginating results. Set the value of
@@ -94,82 +92,79 @@ newListRulesPackages =
 -- action. Subsequent calls to the action fill __nextToken__ in the request
 -- with the value of __NextToken__ from the previous response to continue
 -- listing data.
-listRulesPackages_nextToken :: Lens.Lens' ListRulesPackages (Prelude.Maybe Prelude.Text)
+listRulesPackages_nextToken :: Lens.Lens' ListRulesPackages (Core.Maybe Core.Text)
 listRulesPackages_nextToken = Lens.lens (\ListRulesPackages' {nextToken} -> nextToken) (\s@ListRulesPackages' {} a -> s {nextToken = a} :: ListRulesPackages)
 
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
-listRulesPackages_maxResults :: Lens.Lens' ListRulesPackages (Prelude.Maybe Prelude.Int)
+listRulesPackages_maxResults :: Lens.Lens' ListRulesPackages (Core.Maybe Core.Int)
 listRulesPackages_maxResults = Lens.lens (\ListRulesPackages' {maxResults} -> maxResults) (\s@ListRulesPackages' {} a -> s {maxResults = a} :: ListRulesPackages)
 
-instance Pager.AWSPager ListRulesPackages where
+instance Core.AWSPager ListRulesPackages where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listRulesPackagesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listRulesPackagesResponse_rulesPackageArns
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listRulesPackages_nextToken
           Lens..~ rs
-          Lens.^? listRulesPackagesResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listRulesPackagesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListRulesPackages where
-  type Rs ListRulesPackages = ListRulesPackagesResponse
+instance Core.AWSRequest ListRulesPackages where
+  type
+    AWSResponse ListRulesPackages =
+      ListRulesPackagesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListRulesPackagesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "rulesPackageArns"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "rulesPackageArns" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListRulesPackages
+instance Core.Hashable ListRulesPackages
 
-instance Prelude.NFData ListRulesPackages
+instance Core.NFData ListRulesPackages
 
-instance Prelude.ToHeaders ListRulesPackages where
+instance Core.ToHeaders ListRulesPackages where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.ListRulesPackages" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.ListRulesPackages" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListRulesPackages where
+instance Core.ToJSON ListRulesPackages where
   toJSON ListRulesPackages' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListRulesPackages where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListRulesPackages where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListRulesPackages where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListRulesPackages where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListRulesPackagesResponse' smart constructor.
 data ListRulesPackagesResponse = ListRulesPackagesResponse'
@@ -177,14 +172,14 @@ data ListRulesPackagesResponse = ListRulesPackagesResponse'
     -- parameter is present in the response and contains the value to use for
     -- the __nextToken__ parameter in a subsequent pagination request. If there
     -- is no more data to be listed, this parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The list of ARNs that specifies the rules packages returned by the
     -- action.
-    rulesPackageArns :: [Prelude.Text]
+    rulesPackageArns :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRulesPackagesResponse' with all optional fields omitted.
@@ -205,30 +200,30 @@ data ListRulesPackagesResponse = ListRulesPackagesResponse'
 -- action.
 newListRulesPackagesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListRulesPackagesResponse
 newListRulesPackagesResponse pHttpStatus_ =
   ListRulesPackagesResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      rulesPackageArns = Prelude.mempty
+      rulesPackageArns = Core.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameter is present in the response and contains the value to use for
 -- the __nextToken__ parameter in a subsequent pagination request. If there
 -- is no more data to be listed, this parameter is set to null.
-listRulesPackagesResponse_nextToken :: Lens.Lens' ListRulesPackagesResponse (Prelude.Maybe Prelude.Text)
+listRulesPackagesResponse_nextToken :: Lens.Lens' ListRulesPackagesResponse (Core.Maybe Core.Text)
 listRulesPackagesResponse_nextToken = Lens.lens (\ListRulesPackagesResponse' {nextToken} -> nextToken) (\s@ListRulesPackagesResponse' {} a -> s {nextToken = a} :: ListRulesPackagesResponse)
 
 -- | The response's http status code.
-listRulesPackagesResponse_httpStatus :: Lens.Lens' ListRulesPackagesResponse Prelude.Int
+listRulesPackagesResponse_httpStatus :: Lens.Lens' ListRulesPackagesResponse Core.Int
 listRulesPackagesResponse_httpStatus = Lens.lens (\ListRulesPackagesResponse' {httpStatus} -> httpStatus) (\s@ListRulesPackagesResponse' {} a -> s {httpStatus = a} :: ListRulesPackagesResponse)
 
 -- | The list of ARNs that specifies the rules packages returned by the
 -- action.
-listRulesPackagesResponse_rulesPackageArns :: Lens.Lens' ListRulesPackagesResponse [Prelude.Text]
-listRulesPackagesResponse_rulesPackageArns = Lens.lens (\ListRulesPackagesResponse' {rulesPackageArns} -> rulesPackageArns) (\s@ListRulesPackagesResponse' {} a -> s {rulesPackageArns = a} :: ListRulesPackagesResponse) Prelude.. Prelude._Coerce
+listRulesPackagesResponse_rulesPackageArns :: Lens.Lens' ListRulesPackagesResponse [Core.Text]
+listRulesPackagesResponse_rulesPackageArns = Lens.lens (\ListRulesPackagesResponse' {rulesPackageArns} -> rulesPackageArns) (\s@ListRulesPackagesResponse' {} a -> s {rulesPackageArns = a} :: ListRulesPackagesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListRulesPackagesResponse
+instance Core.NFData ListRulesPackagesResponse

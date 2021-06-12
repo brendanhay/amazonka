@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types.AwsIamConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS IAM configuration.
 --
 -- /See:/ 'newAwsIamConfig' smart constructor.
 data AwsIamConfig = AwsIamConfig'
   { -- | The signing service name for AWS IAM authorization.
-    signingServiceName :: Prelude.Maybe Prelude.Text,
+    signingServiceName :: Core.Maybe Core.Text,
     -- | The signing region for AWS IAM authorization.
-    signingRegion :: Prelude.Maybe Prelude.Text
+    signingRegion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AwsIamConfig' with all optional fields omitted.
@@ -49,39 +48,38 @@ newAwsIamConfig ::
   AwsIamConfig
 newAwsIamConfig =
   AwsIamConfig'
-    { signingServiceName = Prelude.Nothing,
-      signingRegion = Prelude.Nothing
+    { signingServiceName = Core.Nothing,
+      signingRegion = Core.Nothing
     }
 
 -- | The signing service name for AWS IAM authorization.
-awsIamConfig_signingServiceName :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
+awsIamConfig_signingServiceName :: Lens.Lens' AwsIamConfig (Core.Maybe Core.Text)
 awsIamConfig_signingServiceName = Lens.lens (\AwsIamConfig' {signingServiceName} -> signingServiceName) (\s@AwsIamConfig' {} a -> s {signingServiceName = a} :: AwsIamConfig)
 
 -- | The signing region for AWS IAM authorization.
-awsIamConfig_signingRegion :: Lens.Lens' AwsIamConfig (Prelude.Maybe Prelude.Text)
+awsIamConfig_signingRegion :: Lens.Lens' AwsIamConfig (Core.Maybe Core.Text)
 awsIamConfig_signingRegion = Lens.lens (\AwsIamConfig' {signingRegion} -> signingRegion) (\s@AwsIamConfig' {} a -> s {signingRegion = a} :: AwsIamConfig)
 
-instance Prelude.FromJSON AwsIamConfig where
+instance Core.FromJSON AwsIamConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AwsIamConfig"
       ( \x ->
           AwsIamConfig'
-            Prelude.<$> (x Prelude..:? "signingServiceName")
-            Prelude.<*> (x Prelude..:? "signingRegion")
+            Core.<$> (x Core..:? "signingServiceName")
+            Core.<*> (x Core..:? "signingRegion")
       )
 
-instance Prelude.Hashable AwsIamConfig
+instance Core.Hashable AwsIamConfig
 
-instance Prelude.NFData AwsIamConfig
+instance Core.NFData AwsIamConfig
 
-instance Prelude.ToJSON AwsIamConfig where
+instance Core.ToJSON AwsIamConfig where
   toJSON AwsIamConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("signingServiceName" Prelude..=)
-              Prelude.<$> signingServiceName,
-            ("signingRegion" Prelude..=)
-              Prelude.<$> signingRegion
+    Core.object
+      ( Core.catMaybes
+          [ ("signingServiceName" Core..=)
+              Core.<$> signingServiceName,
+            ("signingRegion" Core..=) Core.<$> signingRegion
           ]
       )

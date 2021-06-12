@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a CreateObject response operation.
 --
 -- /See:/ 'newBatchCreateObjectResponse' smart constructor.
 data BatchCreateObjectResponse = BatchCreateObjectResponse'
   { -- | The ID that is associated with the object.
-    objectIdentifier :: Prelude.Maybe Prelude.Text
+    objectIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchCreateObjectResponse' with all optional fields omitted.
@@ -46,22 +45,22 @@ newBatchCreateObjectResponse ::
 newBatchCreateObjectResponse =
   BatchCreateObjectResponse'
     { objectIdentifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID that is associated with the object.
-batchCreateObjectResponse_objectIdentifier :: Lens.Lens' BatchCreateObjectResponse (Prelude.Maybe Prelude.Text)
+batchCreateObjectResponse_objectIdentifier :: Lens.Lens' BatchCreateObjectResponse (Core.Maybe Core.Text)
 batchCreateObjectResponse_objectIdentifier = Lens.lens (\BatchCreateObjectResponse' {objectIdentifier} -> objectIdentifier) (\s@BatchCreateObjectResponse' {} a -> s {objectIdentifier = a} :: BatchCreateObjectResponse)
 
-instance Prelude.FromJSON BatchCreateObjectResponse where
+instance Core.FromJSON BatchCreateObjectResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchCreateObjectResponse"
       ( \x ->
           BatchCreateObjectResponse'
-            Prelude.<$> (x Prelude..:? "ObjectIdentifier")
+            Core.<$> (x Core..:? "ObjectIdentifier")
       )
 
-instance Prelude.Hashable BatchCreateObjectResponse
+instance Core.Hashable BatchCreateObjectResponse
 
-instance Prelude.NFData BatchCreateObjectResponse
+instance Core.NFData BatchCreateObjectResponse

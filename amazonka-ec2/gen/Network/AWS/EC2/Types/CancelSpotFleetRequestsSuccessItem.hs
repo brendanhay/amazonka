@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CancelSpotFleetRequestsSuccessItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.BatchState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Spot Fleet request that was successfully canceled.
 --
 -- /See:/ 'newCancelSpotFleetRequestsSuccessItem' smart constructor.
 data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
   { -- | The current state of the Spot Fleet request.
-    currentSpotFleetRequestState :: Prelude.Maybe BatchState,
+    currentSpotFleetRequestState :: Core.Maybe BatchState,
     -- | The previous state of the Spot Fleet request.
-    previousSpotFleetRequestState :: Prelude.Maybe BatchState,
+    previousSpotFleetRequestState :: Core.Maybe BatchState,
     -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Prelude.Maybe Prelude.Text
+    spotFleetRequestId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelSpotFleetRequestsSuccessItem' with all optional fields omitted.
@@ -56,38 +55,38 @@ newCancelSpotFleetRequestsSuccessItem ::
 newCancelSpotFleetRequestsSuccessItem =
   CancelSpotFleetRequestsSuccessItem'
     { currentSpotFleetRequestState =
-        Prelude.Nothing,
+        Core.Nothing,
       previousSpotFleetRequestState =
-        Prelude.Nothing,
-      spotFleetRequestId = Prelude.Nothing
+        Core.Nothing,
+      spotFleetRequestId = Core.Nothing
     }
 
 -- | The current state of the Spot Fleet request.
-cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Prelude.Maybe BatchState)
+cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Core.Maybe BatchState)
 cancelSpotFleetRequestsSuccessItem_currentSpotFleetRequestState = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {currentSpotFleetRequestState} -> currentSpotFleetRequestState) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {currentSpotFleetRequestState = a} :: CancelSpotFleetRequestsSuccessItem)
 
 -- | The previous state of the Spot Fleet request.
-cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Prelude.Maybe BatchState)
+cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Core.Maybe BatchState)
 cancelSpotFleetRequestsSuccessItem_previousSpotFleetRequestState = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {previousSpotFleetRequestState} -> previousSpotFleetRequestState) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {previousSpotFleetRequestState = a} :: CancelSpotFleetRequestsSuccessItem)
 
 -- | The ID of the Spot Fleet request.
-cancelSpotFleetRequestsSuccessItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Prelude.Maybe Prelude.Text)
+cancelSpotFleetRequestsSuccessItem_spotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsSuccessItem (Core.Maybe Core.Text)
 cancelSpotFleetRequestsSuccessItem_spotFleetRequestId = Lens.lens (\CancelSpotFleetRequestsSuccessItem' {spotFleetRequestId} -> spotFleetRequestId) (\s@CancelSpotFleetRequestsSuccessItem' {} a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsSuccessItem)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     CancelSpotFleetRequestsSuccessItem
   where
   parseXML x =
     CancelSpotFleetRequestsSuccessItem'
-      Prelude.<$> (x Prelude..@? "currentSpotFleetRequestState")
-      Prelude.<*> (x Prelude..@? "previousSpotFleetRequestState")
-      Prelude.<*> (x Prelude..@? "spotFleetRequestId")
+      Core.<$> (x Core..@? "currentSpotFleetRequestState")
+      Core.<*> (x Core..@? "previousSpotFleetRequestState")
+      Core.<*> (x Core..@? "spotFleetRequestId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CancelSpotFleetRequestsSuccessItem
 
 instance
-  Prelude.NFData
+  Core.NFData
     CancelSpotFleetRequestsSuccessItem

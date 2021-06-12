@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudTrail.Types.InsightSelector where
 
 import Network.AWS.CloudTrail.Types.InsightType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A JSON string that contains a list of insight types that are logged on a
 -- trail.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data InsightSelector = InsightSelector'
   { -- | The type of insights to log on a trail. In this release, only
     -- @ApiCallRateInsight@ is supported as an insight type.
-    insightType :: Prelude.Maybe InsightType
+    insightType :: Core.Maybe InsightType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InsightSelector' with all optional fields omitted.
@@ -48,29 +47,28 @@ data InsightSelector = InsightSelector'
 newInsightSelector ::
   InsightSelector
 newInsightSelector =
-  InsightSelector' {insightType = Prelude.Nothing}
+  InsightSelector' {insightType = Core.Nothing}
 
 -- | The type of insights to log on a trail. In this release, only
 -- @ApiCallRateInsight@ is supported as an insight type.
-insightSelector_insightType :: Lens.Lens' InsightSelector (Prelude.Maybe InsightType)
+insightSelector_insightType :: Lens.Lens' InsightSelector (Core.Maybe InsightType)
 insightSelector_insightType = Lens.lens (\InsightSelector' {insightType} -> insightType) (\s@InsightSelector' {} a -> s {insightType = a} :: InsightSelector)
 
-instance Prelude.FromJSON InsightSelector where
+instance Core.FromJSON InsightSelector where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InsightSelector"
       ( \x ->
-          InsightSelector'
-            Prelude.<$> (x Prelude..:? "InsightType")
+          InsightSelector' Core.<$> (x Core..:? "InsightType")
       )
 
-instance Prelude.Hashable InsightSelector
+instance Core.Hashable InsightSelector
 
-instance Prelude.NFData InsightSelector
+instance Core.NFData InsightSelector
 
-instance Prelude.ToJSON InsightSelector where
+instance Core.ToJSON InsightSelector where
   toJSON InsightSelector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("InsightType" Prelude..=) Prelude.<$> insightType]
+    Core.object
+      ( Core.catMaybes
+          [("InsightType" Core..=) Core.<$> insightType]
       )

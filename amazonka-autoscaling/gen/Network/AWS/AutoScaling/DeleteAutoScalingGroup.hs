@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,11 +64,11 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
     -- associated with the group, without waiting for all instances to be
     -- terminated. This parameter also deletes any lifecycle actions associated
     -- with the group.
-    forceDelete :: Prelude.Maybe Prelude.Bool,
+    forceDelete :: Core.Maybe Core.Bool,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAutoScalingGroup' with all optional fields omitted.
@@ -87,12 +86,11 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
 -- 'autoScalingGroupName', 'deleteAutoScalingGroup_autoScalingGroupName' - The name of the Auto Scaling group.
 newDeleteAutoScalingGroup ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAutoScalingGroup
 newDeleteAutoScalingGroup pAutoScalingGroupName_ =
   DeleteAutoScalingGroup'
-    { forceDelete =
-        Prelude.Nothing,
+    { forceDelete = Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -100,49 +98,47 @@ newDeleteAutoScalingGroup pAutoScalingGroupName_ =
 -- associated with the group, without waiting for all instances to be
 -- terminated. This parameter also deletes any lifecycle actions associated
 -- with the group.
-deleteAutoScalingGroup_forceDelete :: Lens.Lens' DeleteAutoScalingGroup (Prelude.Maybe Prelude.Bool)
+deleteAutoScalingGroup_forceDelete :: Lens.Lens' DeleteAutoScalingGroup (Core.Maybe Core.Bool)
 deleteAutoScalingGroup_forceDelete = Lens.lens (\DeleteAutoScalingGroup' {forceDelete} -> forceDelete) (\s@DeleteAutoScalingGroup' {} a -> s {forceDelete = a} :: DeleteAutoScalingGroup)
 
 -- | The name of the Auto Scaling group.
-deleteAutoScalingGroup_autoScalingGroupName :: Lens.Lens' DeleteAutoScalingGroup Prelude.Text
+deleteAutoScalingGroup_autoScalingGroupName :: Lens.Lens' DeleteAutoScalingGroup Core.Text
 deleteAutoScalingGroup_autoScalingGroupName = Lens.lens (\DeleteAutoScalingGroup' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeleteAutoScalingGroup' {} a -> s {autoScalingGroupName = a} :: DeleteAutoScalingGroup)
 
-instance Prelude.AWSRequest DeleteAutoScalingGroup where
+instance Core.AWSRequest DeleteAutoScalingGroup where
   type
-    Rs DeleteAutoScalingGroup =
+    AWSResponse DeleteAutoScalingGroup =
       DeleteAutoScalingGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteAutoScalingGroupResponse'
 
-instance Prelude.Hashable DeleteAutoScalingGroup
+instance Core.Hashable DeleteAutoScalingGroup
 
-instance Prelude.NFData DeleteAutoScalingGroup
+instance Core.NFData DeleteAutoScalingGroup
 
-instance Prelude.ToHeaders DeleteAutoScalingGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteAutoScalingGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteAutoScalingGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAutoScalingGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAutoScalingGroup where
+instance Core.ToQuery DeleteAutoScalingGroup where
   toQuery DeleteAutoScalingGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteAutoScalingGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "ForceDelete" Prelude.=: forceDelete,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: ("DeleteAutoScalingGroup" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "ForceDelete" Core.=: forceDelete,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDeleteAutoScalingGroupResponse' smart constructor.
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAutoScalingGroupResponse' with all optional fields omitted.
@@ -153,6 +149,4 @@ newDeleteAutoScalingGroupResponse ::
 newDeleteAutoScalingGroupResponse =
   DeleteAutoScalingGroupResponse'
 
-instance
-  Prelude.NFData
-    DeleteAutoScalingGroupResponse
+instance Core.NFData DeleteAutoScalingGroupResponse

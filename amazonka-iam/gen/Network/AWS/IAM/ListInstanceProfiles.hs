@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,10 +56,9 @@ module Network.AWS.IAM.ListInstanceProfiles
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,7 +76,7 @@ data ListInstanceProfiles = ListInstanceProfiles'
     -- contain any ASCII character from the ! (@\\u0021@) through the DEL
     -- character (@\\u007F@), including most punctuation characters, digits,
     -- and upper and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
+    pathPrefix :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -88,14 +86,14 @@ data ListInstanceProfiles = ListInstanceProfiles'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInstanceProfiles' with all optional fields omitted.
@@ -136,9 +134,9 @@ newListInstanceProfiles ::
   ListInstanceProfiles
 newListInstanceProfiles =
   ListInstanceProfiles'
-    { pathPrefix = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { pathPrefix = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -153,7 +151,7 @@ newListInstanceProfiles =
 -- contain any ASCII character from the ! (@\\u0021@) through the DEL
 -- character (@\\u007F@), including most punctuation characters, digits,
 -- and upper and lowercased letters.
-listInstanceProfiles_pathPrefix :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Text)
+listInstanceProfiles_pathPrefix :: Lens.Lens' ListInstanceProfiles (Core.Maybe Core.Text)
 listInstanceProfiles_pathPrefix = Lens.lens (\ListInstanceProfiles' {pathPrefix} -> pathPrefix) (\s@ListInstanceProfiles' {} a -> s {pathPrefix = a} :: ListInstanceProfiles)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -165,41 +163,40 @@ listInstanceProfiles_pathPrefix = Lens.lens (\ListInstanceProfiles' {pathPrefix}
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listInstanceProfiles_maxItems :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Natural)
+listInstanceProfiles_maxItems :: Lens.Lens' ListInstanceProfiles (Core.Maybe Core.Natural)
 listInstanceProfiles_maxItems = Lens.lens (\ListInstanceProfiles' {maxItems} -> maxItems) (\s@ListInstanceProfiles' {} a -> s {maxItems = a} :: ListInstanceProfiles)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listInstanceProfiles_marker :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Text)
+listInstanceProfiles_marker :: Lens.Lens' ListInstanceProfiles (Core.Maybe Core.Text)
 listInstanceProfiles_marker = Lens.lens (\ListInstanceProfiles' {marker} -> marker) (\s@ListInstanceProfiles' {} a -> s {marker = a} :: ListInstanceProfiles)
 
-instance Pager.AWSPager ListInstanceProfiles where
+instance Core.AWSPager ListInstanceProfiles where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listInstanceProfilesResponse_isTruncated
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
             Lens.^? listInstanceProfilesResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listInstanceProfiles_marker
           Lens..~ rs
-          Lens.^? listInstanceProfilesResponse_marker
-            Prelude.. Lens._Just
+          Lens.^? listInstanceProfilesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListInstanceProfiles where
+instance Core.AWSRequest ListInstanceProfiles where
   type
-    Rs ListInstanceProfiles =
+    AWSResponse ListInstanceProfiles =
       ListInstanceProfilesResponse
   request = Request.postQuery defaultService
   response =
@@ -207,35 +204,33 @@ instance Prelude.AWSRequest ListInstanceProfiles where
       "ListInstanceProfilesResult"
       ( \s h x ->
           ListInstanceProfilesResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "InstanceProfiles"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "InstanceProfiles" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListInstanceProfiles
+instance Core.Hashable ListInstanceProfiles
 
-instance Prelude.NFData ListInstanceProfiles
+instance Core.NFData ListInstanceProfiles
 
-instance Prelude.ToHeaders ListInstanceProfiles where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListInstanceProfiles where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListInstanceProfiles where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListInstanceProfiles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListInstanceProfiles where
+instance Core.ToQuery ListInstanceProfiles where
   toQuery ListInstanceProfiles' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListInstanceProfiles" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Prelude.=: pathPrefix,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+          Core.=: ("ListInstanceProfiles" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "PathPrefix" Core.=: pathPrefix,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the response to a successful ListInstanceProfiles request.
@@ -249,17 +244,17 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of instance profiles.
     instanceProfiles :: [InstanceProfile]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInstanceProfilesResponse' with all optional fields omitted.
@@ -286,15 +281,15 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
 -- 'instanceProfiles', 'listInstanceProfilesResponse_instanceProfiles' - A list of instance profiles.
 newListInstanceProfilesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListInstanceProfilesResponse
 newListInstanceProfilesResponse pHttpStatus_ =
   ListInstanceProfilesResponse'
     { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      instanceProfiles = Prelude.mempty
+      instanceProfiles = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -304,21 +299,21 @@ newListInstanceProfilesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listInstanceProfilesResponse_isTruncated :: Lens.Lens' ListInstanceProfilesResponse (Prelude.Maybe Prelude.Bool)
+listInstanceProfilesResponse_isTruncated :: Lens.Lens' ListInstanceProfilesResponse (Core.Maybe Core.Bool)
 listInstanceProfilesResponse_isTruncated = Lens.lens (\ListInstanceProfilesResponse' {isTruncated} -> isTruncated) (\s@ListInstanceProfilesResponse' {} a -> s {isTruncated = a} :: ListInstanceProfilesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listInstanceProfilesResponse_marker :: Lens.Lens' ListInstanceProfilesResponse (Prelude.Maybe Prelude.Text)
+listInstanceProfilesResponse_marker :: Lens.Lens' ListInstanceProfilesResponse (Core.Maybe Core.Text)
 listInstanceProfilesResponse_marker = Lens.lens (\ListInstanceProfilesResponse' {marker} -> marker) (\s@ListInstanceProfilesResponse' {} a -> s {marker = a} :: ListInstanceProfilesResponse)
 
 -- | The response's http status code.
-listInstanceProfilesResponse_httpStatus :: Lens.Lens' ListInstanceProfilesResponse Prelude.Int
+listInstanceProfilesResponse_httpStatus :: Lens.Lens' ListInstanceProfilesResponse Core.Int
 listInstanceProfilesResponse_httpStatus = Lens.lens (\ListInstanceProfilesResponse' {httpStatus} -> httpStatus) (\s@ListInstanceProfilesResponse' {} a -> s {httpStatus = a} :: ListInstanceProfilesResponse)
 
 -- | A list of instance profiles.
 listInstanceProfilesResponse_instanceProfiles :: Lens.Lens' ListInstanceProfilesResponse [InstanceProfile]
-listInstanceProfilesResponse_instanceProfiles = Lens.lens (\ListInstanceProfilesResponse' {instanceProfiles} -> instanceProfiles) (\s@ListInstanceProfilesResponse' {} a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse) Prelude.. Prelude._Coerce
+listInstanceProfilesResponse_instanceProfiles = Lens.lens (\ListInstanceProfilesResponse' {instanceProfiles} -> instanceProfiles) (\s@ListInstanceProfilesResponse' {} a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListInstanceProfilesResponse
+instance Core.NFData ListInstanceProfilesResponse

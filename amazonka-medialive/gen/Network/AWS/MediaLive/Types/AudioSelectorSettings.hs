@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AudioSelectorSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AudioLanguageSelection
 import Network.AWS.MediaLive.Types.AudioPidSelection
 import Network.AWS.MediaLive.Types.AudioTrackSelection
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Selector Settings
 --
 -- /See:/ 'newAudioSelectorSettings' smart constructor.
 data AudioSelectorSettings = AudioSelectorSettings'
-  { audioLanguageSelection :: Prelude.Maybe AudioLanguageSelection,
-    audioPidSelection :: Prelude.Maybe AudioPidSelection,
-    audioTrackSelection :: Prelude.Maybe AudioTrackSelection
+  { audioLanguageSelection :: Core.Maybe AudioLanguageSelection,
+    audioPidSelection :: Core.Maybe AudioPidSelection,
+    audioTrackSelection :: Core.Maybe AudioTrackSelection
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioSelectorSettings' with all optional fields omitted.
@@ -54,47 +53,47 @@ newAudioSelectorSettings ::
 newAudioSelectorSettings =
   AudioSelectorSettings'
     { audioLanguageSelection =
-        Prelude.Nothing,
-      audioPidSelection = Prelude.Nothing,
-      audioTrackSelection = Prelude.Nothing
+        Core.Nothing,
+      audioPidSelection = Core.Nothing,
+      audioTrackSelection = Core.Nothing
     }
 
 -- | Undocumented member.
-audioSelectorSettings_audioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioLanguageSelection)
+audioSelectorSettings_audioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe AudioLanguageSelection)
 audioSelectorSettings_audioLanguageSelection = Lens.lens (\AudioSelectorSettings' {audioLanguageSelection} -> audioLanguageSelection) (\s@AudioSelectorSettings' {} a -> s {audioLanguageSelection = a} :: AudioSelectorSettings)
 
 -- | Undocumented member.
-audioSelectorSettings_audioPidSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioPidSelection)
+audioSelectorSettings_audioPidSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe AudioPidSelection)
 audioSelectorSettings_audioPidSelection = Lens.lens (\AudioSelectorSettings' {audioPidSelection} -> audioPidSelection) (\s@AudioSelectorSettings' {} a -> s {audioPidSelection = a} :: AudioSelectorSettings)
 
 -- | Undocumented member.
-audioSelectorSettings_audioTrackSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioTrackSelection)
+audioSelectorSettings_audioTrackSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe AudioTrackSelection)
 audioSelectorSettings_audioTrackSelection = Lens.lens (\AudioSelectorSettings' {audioTrackSelection} -> audioTrackSelection) (\s@AudioSelectorSettings' {} a -> s {audioTrackSelection = a} :: AudioSelectorSettings)
 
-instance Prelude.FromJSON AudioSelectorSettings where
+instance Core.FromJSON AudioSelectorSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioSelectorSettings"
       ( \x ->
           AudioSelectorSettings'
-            Prelude.<$> (x Prelude..:? "audioLanguageSelection")
-            Prelude.<*> (x Prelude..:? "audioPidSelection")
-            Prelude.<*> (x Prelude..:? "audioTrackSelection")
+            Core.<$> (x Core..:? "audioLanguageSelection")
+            Core.<*> (x Core..:? "audioPidSelection")
+            Core.<*> (x Core..:? "audioTrackSelection")
       )
 
-instance Prelude.Hashable AudioSelectorSettings
+instance Core.Hashable AudioSelectorSettings
 
-instance Prelude.NFData AudioSelectorSettings
+instance Core.NFData AudioSelectorSettings
 
-instance Prelude.ToJSON AudioSelectorSettings where
+instance Core.ToJSON AudioSelectorSettings where
   toJSON AudioSelectorSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("audioLanguageSelection" Prelude..=)
-              Prelude.<$> audioLanguageSelection,
-            ("audioPidSelection" Prelude..=)
-              Prelude.<$> audioPidSelection,
-            ("audioTrackSelection" Prelude..=)
-              Prelude.<$> audioTrackSelection
+    Core.object
+      ( Core.catMaybes
+          [ ("audioLanguageSelection" Core..=)
+              Core.<$> audioLanguageSelection,
+            ("audioPidSelection" Core..=)
+              Core.<$> audioPidSelection,
+            ("audioTrackSelection" Core..=)
+              Core.<$> audioTrackSelection
           ]
       )

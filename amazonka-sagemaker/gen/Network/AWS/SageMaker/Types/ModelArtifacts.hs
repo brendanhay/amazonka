@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelArtifacts where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the location that is configured for storing
 -- model artifacts.
@@ -34,9 +33,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ModelArtifacts = ModelArtifacts'
   { -- | The path of the S3 object that contains the model artifacts. For
     -- example, @s3:\/\/bucket-name\/keynameprefix\/model.tar.gz@.
-    s3ModelArtifacts :: Prelude.Text
+    s3ModelArtifacts :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelArtifacts' with all optional fields omitted.
@@ -50,7 +49,7 @@ data ModelArtifacts = ModelArtifacts'
 -- example, @s3:\/\/bucket-name\/keynameprefix\/model.tar.gz@.
 newModelArtifacts ::
   -- | 's3ModelArtifacts'
-  Prelude.Text ->
+  Core.Text ->
   ModelArtifacts
 newModelArtifacts pS3ModelArtifacts_ =
   ModelArtifacts'
@@ -60,18 +59,18 @@ newModelArtifacts pS3ModelArtifacts_ =
 
 -- | The path of the S3 object that contains the model artifacts. For
 -- example, @s3:\/\/bucket-name\/keynameprefix\/model.tar.gz@.
-modelArtifacts_s3ModelArtifacts :: Lens.Lens' ModelArtifacts Prelude.Text
+modelArtifacts_s3ModelArtifacts :: Lens.Lens' ModelArtifacts Core.Text
 modelArtifacts_s3ModelArtifacts = Lens.lens (\ModelArtifacts' {s3ModelArtifacts} -> s3ModelArtifacts) (\s@ModelArtifacts' {} a -> s {s3ModelArtifacts = a} :: ModelArtifacts)
 
-instance Prelude.FromJSON ModelArtifacts where
+instance Core.FromJSON ModelArtifacts where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelArtifacts"
       ( \x ->
           ModelArtifacts'
-            Prelude.<$> (x Prelude..: "S3ModelArtifacts")
+            Core.<$> (x Core..: "S3ModelArtifacts")
       )
 
-instance Prelude.Hashable ModelArtifacts
+instance Core.Hashable ModelArtifacts
 
-instance Prelude.NFData ModelArtifacts
+instance Core.NFData ModelArtifacts

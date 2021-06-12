@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.HostedZoneSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HostedZoneOwner
 
@@ -37,12 +36,12 @@ data HostedZoneSummary = HostedZoneSummary'
     -- VPC is associated with.
     hostedZoneId :: ResourceId,
     -- | The name of the private hosted zone, such as @example.com@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The owner of a private hosted zone that the specified VPC is associated
     -- with. The owner can be either an AWS account or an AWS service.
     owner :: HostedZoneOwner
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HostedZoneSummary' with all optional fields omitted.
@@ -63,7 +62,7 @@ newHostedZoneSummary ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'owner'
   HostedZoneOwner ->
   HostedZoneSummary
@@ -80,7 +79,7 @@ hostedZoneSummary_hostedZoneId :: Lens.Lens' HostedZoneSummary ResourceId
 hostedZoneSummary_hostedZoneId = Lens.lens (\HostedZoneSummary' {hostedZoneId} -> hostedZoneId) (\s@HostedZoneSummary' {} a -> s {hostedZoneId = a} :: HostedZoneSummary)
 
 -- | The name of the private hosted zone, such as @example.com@.
-hostedZoneSummary_name :: Lens.Lens' HostedZoneSummary Prelude.Text
+hostedZoneSummary_name :: Lens.Lens' HostedZoneSummary Core.Text
 hostedZoneSummary_name = Lens.lens (\HostedZoneSummary' {name} -> name) (\s@HostedZoneSummary' {} a -> s {name = a} :: HostedZoneSummary)
 
 -- | The owner of a private hosted zone that the specified VPC is associated
@@ -88,13 +87,13 @@ hostedZoneSummary_name = Lens.lens (\HostedZoneSummary' {name} -> name) (\s@Host
 hostedZoneSummary_owner :: Lens.Lens' HostedZoneSummary HostedZoneOwner
 hostedZoneSummary_owner = Lens.lens (\HostedZoneSummary' {owner} -> owner) (\s@HostedZoneSummary' {} a -> s {owner = a} :: HostedZoneSummary)
 
-instance Prelude.FromXML HostedZoneSummary where
+instance Core.FromXML HostedZoneSummary where
   parseXML x =
     HostedZoneSummary'
-      Prelude.<$> (x Prelude..@ "HostedZoneId")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "Owner")
+      Core.<$> (x Core..@ "HostedZoneId")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "Owner")
 
-instance Prelude.Hashable HostedZoneSummary
+instance Core.Hashable HostedZoneSummary
 
-instance Prelude.NFData HostedZoneSummary
+instance Core.NFData HostedZoneSummary

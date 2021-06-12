@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.TaxDocuments where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.INDTaxDocuments
 
 -- | The tax documents required in your AWS Region.
 --
 -- /See:/ 'newTaxDocuments' smart constructor.
 data TaxDocuments = TaxDocuments'
-  { ind :: Prelude.Maybe INDTaxDocuments
+  { ind :: Core.Maybe INDTaxDocuments
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TaxDocuments' with all optional fields omitted.
@@ -43,28 +42,23 @@ data TaxDocuments = TaxDocuments'
 -- 'ind', 'taxDocuments_ind' - Undocumented member.
 newTaxDocuments ::
   TaxDocuments
-newTaxDocuments =
-  TaxDocuments' {ind = Prelude.Nothing}
+newTaxDocuments = TaxDocuments' {ind = Core.Nothing}
 
 -- | Undocumented member.
-taxDocuments_ind :: Lens.Lens' TaxDocuments (Prelude.Maybe INDTaxDocuments)
+taxDocuments_ind :: Lens.Lens' TaxDocuments (Core.Maybe INDTaxDocuments)
 taxDocuments_ind = Lens.lens (\TaxDocuments' {ind} -> ind) (\s@TaxDocuments' {} a -> s {ind = a} :: TaxDocuments)
 
-instance Prelude.FromJSON TaxDocuments where
+instance Core.FromJSON TaxDocuments where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TaxDocuments"
-      ( \x ->
-          TaxDocuments' Prelude.<$> (x Prelude..:? "IND")
-      )
+      (\x -> TaxDocuments' Core.<$> (x Core..:? "IND"))
 
-instance Prelude.Hashable TaxDocuments
+instance Core.Hashable TaxDocuments
 
-instance Prelude.NFData TaxDocuments
+instance Core.NFData TaxDocuments
 
-instance Prelude.ToJSON TaxDocuments where
+instance Core.ToJSON TaxDocuments where
   toJSON TaxDocuments' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("IND" Prelude..=) Prelude.<$> ind]
-      )
+    Core.object
+      (Core.catMaybes [("IND" Core..=) Core.<$> ind])

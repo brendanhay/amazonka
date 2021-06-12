@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.Route53Domains.GetContactReachabilityStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -57,9 +56,9 @@ import Network.AWS.Route53Domains.Types
 data GetContactReachabilityStatus = GetContactReachabilityStatus'
   { -- | The name of the domain for which you want to know whether the registrant
     -- contact has confirmed that the email address is valid.
-    domainName :: Prelude.Maybe Prelude.Text
+    domainName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContactReachabilityStatus' with all optional fields omitted.
@@ -76,67 +75,57 @@ newGetContactReachabilityStatus ::
 newGetContactReachabilityStatus =
   GetContactReachabilityStatus'
     { domainName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the domain for which you want to know whether the registrant
 -- contact has confirmed that the email address is valid.
-getContactReachabilityStatus_domainName :: Lens.Lens' GetContactReachabilityStatus (Prelude.Maybe Prelude.Text)
+getContactReachabilityStatus_domainName :: Lens.Lens' GetContactReachabilityStatus (Core.Maybe Core.Text)
 getContactReachabilityStatus_domainName = Lens.lens (\GetContactReachabilityStatus' {domainName} -> domainName) (\s@GetContactReachabilityStatus' {} a -> s {domainName = a} :: GetContactReachabilityStatus)
 
-instance
-  Prelude.AWSRequest
-    GetContactReachabilityStatus
-  where
+instance Core.AWSRequest GetContactReachabilityStatus where
   type
-    Rs GetContactReachabilityStatus =
+    AWSResponse GetContactReachabilityStatus =
       GetContactReachabilityStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetContactReachabilityStatusResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "domainName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "domainName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetContactReachabilityStatus
+instance Core.Hashable GetContactReachabilityStatus
 
-instance Prelude.NFData GetContactReachabilityStatus
+instance Core.NFData GetContactReachabilityStatus
 
-instance
-  Prelude.ToHeaders
-    GetContactReachabilityStatus
-  where
+instance Core.ToHeaders GetContactReachabilityStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.GetContactReachabilityStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.GetContactReachabilityStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetContactReachabilityStatus where
+instance Core.ToJSON GetContactReachabilityStatus where
   toJSON GetContactReachabilityStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("domainName" Prelude..=) Prelude.<$> domainName]
+    Core.object
+      ( Core.catMaybes
+          [("domainName" Core..=) Core.<$> domainName]
       )
 
-instance Prelude.ToPath GetContactReachabilityStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetContactReachabilityStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetContactReachabilityStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetContactReachabilityStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetContactReachabilityStatusResponse' smart constructor.
 data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse'
@@ -151,13 +140,13 @@ data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse
     --
     -- [EXPIRED]
     --     The time limit expired before the registrant contact responded.
-    status :: Prelude.Maybe ReachabilityStatus,
+    status :: Core.Maybe ReachabilityStatus,
     -- | The domain name for which you requested the reachability status.
-    domainName :: Prelude.Maybe Prelude.Text,
+    domainName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContactReachabilityStatusResponse' with all optional fields omitted.
@@ -184,13 +173,13 @@ data GetContactReachabilityStatusResponse = GetContactReachabilityStatusResponse
 -- 'httpStatus', 'getContactReachabilityStatusResponse_httpStatus' - The response's http status code.
 newGetContactReachabilityStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetContactReachabilityStatusResponse
 newGetContactReachabilityStatusResponse pHttpStatus_ =
   GetContactReachabilityStatusResponse'
     { status =
-        Prelude.Nothing,
-      domainName = Prelude.Nothing,
+        Core.Nothing,
+      domainName = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -205,17 +194,17 @@ newGetContactReachabilityStatusResponse pHttpStatus_ =
 --
 -- [EXPIRED]
 --     The time limit expired before the registrant contact responded.
-getContactReachabilityStatusResponse_status :: Lens.Lens' GetContactReachabilityStatusResponse (Prelude.Maybe ReachabilityStatus)
+getContactReachabilityStatusResponse_status :: Lens.Lens' GetContactReachabilityStatusResponse (Core.Maybe ReachabilityStatus)
 getContactReachabilityStatusResponse_status = Lens.lens (\GetContactReachabilityStatusResponse' {status} -> status) (\s@GetContactReachabilityStatusResponse' {} a -> s {status = a} :: GetContactReachabilityStatusResponse)
 
 -- | The domain name for which you requested the reachability status.
-getContactReachabilityStatusResponse_domainName :: Lens.Lens' GetContactReachabilityStatusResponse (Prelude.Maybe Prelude.Text)
+getContactReachabilityStatusResponse_domainName :: Lens.Lens' GetContactReachabilityStatusResponse (Core.Maybe Core.Text)
 getContactReachabilityStatusResponse_domainName = Lens.lens (\GetContactReachabilityStatusResponse' {domainName} -> domainName) (\s@GetContactReachabilityStatusResponse' {} a -> s {domainName = a} :: GetContactReachabilityStatusResponse)
 
 -- | The response's http status code.
-getContactReachabilityStatusResponse_httpStatus :: Lens.Lens' GetContactReachabilityStatusResponse Prelude.Int
+getContactReachabilityStatusResponse_httpStatus :: Lens.Lens' GetContactReachabilityStatusResponse Core.Int
 getContactReachabilityStatusResponse_httpStatus = Lens.lens (\GetContactReachabilityStatusResponse' {httpStatus} -> httpStatus) (\s@GetContactReachabilityStatusResponse' {} a -> s {httpStatus = a} :: GetContactReachabilityStatusResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetContactReachabilityStatusResponse

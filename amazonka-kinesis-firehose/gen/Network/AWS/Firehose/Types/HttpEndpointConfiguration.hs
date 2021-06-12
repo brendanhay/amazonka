@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.HttpEndpointConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the configuration of the HTTP endpoint to which Kinesis
 -- Firehose delivers data.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data HttpEndpointConfiguration = HttpEndpointConfiguration'
   { -- | The access key required for Kinesis Firehose to authenticate with the
     -- HTTP endpoint selected as the destination.
-    accessKey :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    accessKey :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The name of the HTTP endpoint selected as the destination.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The URL of the HTTP endpoint selected as the destination.
-    url :: Prelude.Sensitive Prelude.Text
+    url :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointConfiguration' with all optional fields omitted.
@@ -54,39 +53,39 @@ data HttpEndpointConfiguration = HttpEndpointConfiguration'
 -- 'url', 'httpEndpointConfiguration_url' - The URL of the HTTP endpoint selected as the destination.
 newHttpEndpointConfiguration ::
   -- | 'url'
-  Prelude.Text ->
+  Core.Text ->
   HttpEndpointConfiguration
 newHttpEndpointConfiguration pUrl_ =
   HttpEndpointConfiguration'
     { accessKey =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      url = Prelude._Sensitive Lens.# pUrl_
+        Core.Nothing,
+      name = Core.Nothing,
+      url = Core._Sensitive Lens.# pUrl_
     }
 
 -- | The access key required for Kinesis Firehose to authenticate with the
 -- HTTP endpoint selected as the destination.
-httpEndpointConfiguration_accessKey :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
-httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Prelude.. Lens.mapping Prelude._Sensitive
+httpEndpointConfiguration_accessKey :: Lens.Lens' HttpEndpointConfiguration (Core.Maybe Core.Text)
+httpEndpointConfiguration_accessKey = Lens.lens (\HttpEndpointConfiguration' {accessKey} -> accessKey) (\s@HttpEndpointConfiguration' {} a -> s {accessKey = a} :: HttpEndpointConfiguration) Core.. Lens.mapping Core._Sensitive
 
 -- | The name of the HTTP endpoint selected as the destination.
-httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Prelude.Maybe Prelude.Text)
+httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Core.Maybe Core.Text)
 httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -> name) (\s@HttpEndpointConfiguration' {} a -> s {name = a} :: HttpEndpointConfiguration)
 
 -- | The URL of the HTTP endpoint selected as the destination.
-httpEndpointConfiguration_url :: Lens.Lens' HttpEndpointConfiguration Prelude.Text
-httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Prelude.. Prelude._Sensitive
+httpEndpointConfiguration_url :: Lens.Lens' HttpEndpointConfiguration Core.Text
+httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Core.. Core._Sensitive
 
-instance Prelude.Hashable HttpEndpointConfiguration
+instance Core.Hashable HttpEndpointConfiguration
 
-instance Prelude.NFData HttpEndpointConfiguration
+instance Core.NFData HttpEndpointConfiguration
 
-instance Prelude.ToJSON HttpEndpointConfiguration where
+instance Core.ToJSON HttpEndpointConfiguration where
   toJSON HttpEndpointConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AccessKey" Prelude..=) Prelude.<$> accessKey,
-            ("Name" Prelude..=) Prelude.<$> name,
-            Prelude.Just ("Url" Prelude..= url)
+    Core.object
+      ( Core.catMaybes
+          [ ("AccessKey" Core..=) Core.<$> accessKey,
+            ("Name" Core..=) Core.<$> name,
+            Core.Just ("Url" Core..= url)
           ]
       )

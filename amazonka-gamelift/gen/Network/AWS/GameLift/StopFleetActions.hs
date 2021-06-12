@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,9 +66,9 @@ module Network.AWS.GameLift.StopFleetActions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,11 +76,11 @@ import qualified Network.AWS.Response as Response
 data StopFleetActions = StopFleetActions'
   { -- | A unique identifier for a fleet to stop actions on. You can use either
     -- the fleet ID or ARN value.
-    fleetId :: Prelude.Text,
+    fleetId :: Core.Text,
     -- | List of actions to suspend on the fleet.
-    actions :: Prelude.NonEmpty FleetAction
+    actions :: Core.NonEmpty FleetAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopFleetActions' with all optional fields omitted.
@@ -97,73 +96,73 @@ data StopFleetActions = StopFleetActions'
 -- 'actions', 'stopFleetActions_actions' - List of actions to suspend on the fleet.
 newStopFleetActions ::
   -- | 'fleetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'actions'
-  Prelude.NonEmpty FleetAction ->
+  Core.NonEmpty FleetAction ->
   StopFleetActions
 newStopFleetActions pFleetId_ pActions_ =
   StopFleetActions'
     { fleetId = pFleetId_,
-      actions = Prelude._Coerce Lens.# pActions_
+      actions = Lens._Coerce Lens.# pActions_
     }
 
 -- | A unique identifier for a fleet to stop actions on. You can use either
 -- the fleet ID or ARN value.
-stopFleetActions_fleetId :: Lens.Lens' StopFleetActions Prelude.Text
+stopFleetActions_fleetId :: Lens.Lens' StopFleetActions Core.Text
 stopFleetActions_fleetId = Lens.lens (\StopFleetActions' {fleetId} -> fleetId) (\s@StopFleetActions' {} a -> s {fleetId = a} :: StopFleetActions)
 
 -- | List of actions to suspend on the fleet.
-stopFleetActions_actions :: Lens.Lens' StopFleetActions (Prelude.NonEmpty FleetAction)
-stopFleetActions_actions = Lens.lens (\StopFleetActions' {actions} -> actions) (\s@StopFleetActions' {} a -> s {actions = a} :: StopFleetActions) Prelude.. Prelude._Coerce
+stopFleetActions_actions :: Lens.Lens' StopFleetActions (Core.NonEmpty FleetAction)
+stopFleetActions_actions = Lens.lens (\StopFleetActions' {actions} -> actions) (\s@StopFleetActions' {} a -> s {actions = a} :: StopFleetActions) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StopFleetActions where
-  type Rs StopFleetActions = StopFleetActionsResponse
+instance Core.AWSRequest StopFleetActions where
+  type
+    AWSResponse StopFleetActions =
+      StopFleetActionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopFleetActionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopFleetActions
+instance Core.Hashable StopFleetActions
 
-instance Prelude.NFData StopFleetActions
+instance Core.NFData StopFleetActions
 
-instance Prelude.ToHeaders StopFleetActions where
+instance Core.ToHeaders StopFleetActions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.StopFleetActions" :: Prelude.ByteString),
+              Core.=# ("GameLift.StopFleetActions" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopFleetActions where
+instance Core.ToJSON StopFleetActions where
   toJSON StopFleetActions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("FleetId" Prelude..= fleetId),
-            Prelude.Just ("Actions" Prelude..= actions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            Core.Just ("Actions" Core..= actions)
           ]
       )
 
-instance Prelude.ToPath StopFleetActions where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopFleetActions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopFleetActions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopFleetActions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopFleetActionsResponse' smart constructor.
 data StopFleetActionsResponse = StopFleetActionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopFleetActionsResponse' with all optional fields omitted.
@@ -176,7 +175,7 @@ data StopFleetActionsResponse = StopFleetActionsResponse'
 -- 'httpStatus', 'stopFleetActionsResponse_httpStatus' - The response's http status code.
 newStopFleetActionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopFleetActionsResponse
 newStopFleetActionsResponse pHttpStatus_ =
   StopFleetActionsResponse'
@@ -185,7 +184,7 @@ newStopFleetActionsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopFleetActionsResponse_httpStatus :: Lens.Lens' StopFleetActionsResponse Prelude.Int
+stopFleetActionsResponse_httpStatus :: Lens.Lens' StopFleetActionsResponse Core.Int
 stopFleetActionsResponse_httpStatus = Lens.lens (\StopFleetActionsResponse' {httpStatus} -> httpStatus) (\s@StopFleetActionsResponse' {} a -> s {httpStatus = a} :: StopFleetActionsResponse)
 
-instance Prelude.NFData StopFleetActionsResponse
+instance Core.NFData StopFleetActionsResponse

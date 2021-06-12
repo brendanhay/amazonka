@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.IdentityNotificationAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the notification attributes of an identity, including whether
 -- an identity has Amazon Simple Notification Service (Amazon SNS) topics
@@ -35,36 +34,36 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
     -- specifies that Amazon SES will include headers in complaint
     -- notifications, and a value of @false@ specifies that Amazon SES will not
     -- include headers in complaint notifications.
-    headersInComplaintNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
+    headersInComplaintNotificationsEnabled :: Core.Maybe Core.Bool,
     -- | Describes whether Amazon SES includes the original email headers in
     -- Amazon SNS notifications of type @Delivery@. A value of @true@ specifies
     -- that Amazon SES will include headers in delivery notifications, and a
     -- value of @false@ specifies that Amazon SES will not include headers in
     -- delivery notifications.
-    headersInDeliveryNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
+    headersInDeliveryNotificationsEnabled :: Core.Maybe Core.Bool,
     -- | Describes whether Amazon SES includes the original email headers in
     -- Amazon SNS notifications of type @Bounce@. A value of @true@ specifies
     -- that Amazon SES will include headers in bounce notifications, and a
     -- value of @false@ specifies that Amazon SES will not include headers in
     -- bounce notifications.
-    headersInBounceNotificationsEnabled :: Prelude.Maybe Prelude.Bool,
+    headersInBounceNotificationsEnabled :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
     -- will publish bounce notifications.
-    bounceTopic :: Prelude.Text,
+    bounceTopic :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
     -- will publish complaint notifications.
-    complaintTopic :: Prelude.Text,
+    complaintTopic :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
     -- will publish delivery notifications.
-    deliveryTopic :: Prelude.Text,
+    deliveryTopic :: Core.Text,
     -- | Describes whether Amazon SES will forward bounce and complaint
     -- notifications as email. @true@ indicates that Amazon SES will forward
     -- bounce and complaint notifications as email, while @false@ indicates
     -- that bounce and complaint notifications will be published only to the
     -- specified bounce and complaint Amazon SNS topics.
-    forwardingEnabled :: Prelude.Bool
+    forwardingEnabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityNotificationAttributes' with all optional fields omitted.
@@ -108,13 +107,13 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
 -- specified bounce and complaint Amazon SNS topics.
 newIdentityNotificationAttributes ::
   -- | 'bounceTopic'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'complaintTopic'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deliveryTopic'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'forwardingEnabled'
-  Prelude.Bool ->
+  Core.Bool ->
   IdentityNotificationAttributes
 newIdentityNotificationAttributes
   pBounceTopic_
@@ -123,11 +122,11 @@ newIdentityNotificationAttributes
   pForwardingEnabled_ =
     IdentityNotificationAttributes'
       { headersInComplaintNotificationsEnabled =
-          Prelude.Nothing,
+          Core.Nothing,
         headersInDeliveryNotificationsEnabled =
-          Prelude.Nothing,
+          Core.Nothing,
         headersInBounceNotificationsEnabled =
-          Prelude.Nothing,
+          Core.Nothing,
         bounceTopic = pBounceTopic_,
         complaintTopic = pComplaintTopic_,
         deliveryTopic = pDeliveryTopic_,
@@ -139,7 +138,7 @@ newIdentityNotificationAttributes
 -- specifies that Amazon SES will include headers in complaint
 -- notifications, and a value of @false@ specifies that Amazon SES will not
 -- include headers in complaint notifications.
-identityNotificationAttributes_headersInComplaintNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Prelude.Maybe Prelude.Bool)
+identityNotificationAttributes_headersInComplaintNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Core.Maybe Core.Bool)
 identityNotificationAttributes_headersInComplaintNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInComplaintNotificationsEnabled} -> headersInComplaintNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInComplaintNotificationsEnabled = a} :: IdentityNotificationAttributes)
 
 -- | Describes whether Amazon SES includes the original email headers in
@@ -147,7 +146,7 @@ identityNotificationAttributes_headersInComplaintNotificationsEnabled = Lens.len
 -- that Amazon SES will include headers in delivery notifications, and a
 -- value of @false@ specifies that Amazon SES will not include headers in
 -- delivery notifications.
-identityNotificationAttributes_headersInDeliveryNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Prelude.Maybe Prelude.Bool)
+identityNotificationAttributes_headersInDeliveryNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Core.Maybe Core.Bool)
 identityNotificationAttributes_headersInDeliveryNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInDeliveryNotificationsEnabled} -> headersInDeliveryNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInDeliveryNotificationsEnabled = a} :: IdentityNotificationAttributes)
 
 -- | Describes whether Amazon SES includes the original email headers in
@@ -155,22 +154,22 @@ identityNotificationAttributes_headersInDeliveryNotificationsEnabled = Lens.lens
 -- that Amazon SES will include headers in bounce notifications, and a
 -- value of @false@ specifies that Amazon SES will not include headers in
 -- bounce notifications.
-identityNotificationAttributes_headersInBounceNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Prelude.Maybe Prelude.Bool)
+identityNotificationAttributes_headersInBounceNotificationsEnabled :: Lens.Lens' IdentityNotificationAttributes (Core.Maybe Core.Bool)
 identityNotificationAttributes_headersInBounceNotificationsEnabled = Lens.lens (\IdentityNotificationAttributes' {headersInBounceNotificationsEnabled} -> headersInBounceNotificationsEnabled) (\s@IdentityNotificationAttributes' {} a -> s {headersInBounceNotificationsEnabled = a} :: IdentityNotificationAttributes)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish bounce notifications.
-identityNotificationAttributes_bounceTopic :: Lens.Lens' IdentityNotificationAttributes Prelude.Text
+identityNotificationAttributes_bounceTopic :: Lens.Lens' IdentityNotificationAttributes Core.Text
 identityNotificationAttributes_bounceTopic = Lens.lens (\IdentityNotificationAttributes' {bounceTopic} -> bounceTopic) (\s@IdentityNotificationAttributes' {} a -> s {bounceTopic = a} :: IdentityNotificationAttributes)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish complaint notifications.
-identityNotificationAttributes_complaintTopic :: Lens.Lens' IdentityNotificationAttributes Prelude.Text
+identityNotificationAttributes_complaintTopic :: Lens.Lens' IdentityNotificationAttributes Core.Text
 identityNotificationAttributes_complaintTopic = Lens.lens (\IdentityNotificationAttributes' {complaintTopic} -> complaintTopic) (\s@IdentityNotificationAttributes' {} a -> s {complaintTopic = a} :: IdentityNotificationAttributes)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
 -- will publish delivery notifications.
-identityNotificationAttributes_deliveryTopic :: Lens.Lens' IdentityNotificationAttributes Prelude.Text
+identityNotificationAttributes_deliveryTopic :: Lens.Lens' IdentityNotificationAttributes Core.Text
 identityNotificationAttributes_deliveryTopic = Lens.lens (\IdentityNotificationAttributes' {deliveryTopic} -> deliveryTopic) (\s@IdentityNotificationAttributes' {} a -> s {deliveryTopic = a} :: IdentityNotificationAttributes)
 
 -- | Describes whether Amazon SES will forward bounce and complaint
@@ -178,31 +177,20 @@ identityNotificationAttributes_deliveryTopic = Lens.lens (\IdentityNotificationA
 -- bounce and complaint notifications as email, while @false@ indicates
 -- that bounce and complaint notifications will be published only to the
 -- specified bounce and complaint Amazon SNS topics.
-identityNotificationAttributes_forwardingEnabled :: Lens.Lens' IdentityNotificationAttributes Prelude.Bool
+identityNotificationAttributes_forwardingEnabled :: Lens.Lens' IdentityNotificationAttributes Core.Bool
 identityNotificationAttributes_forwardingEnabled = Lens.lens (\IdentityNotificationAttributes' {forwardingEnabled} -> forwardingEnabled) (\s@IdentityNotificationAttributes' {} a -> s {forwardingEnabled = a} :: IdentityNotificationAttributes)
 
-instance
-  Prelude.FromXML
-    IdentityNotificationAttributes
-  where
+instance Core.FromXML IdentityNotificationAttributes where
   parseXML x =
     IdentityNotificationAttributes'
-      Prelude.<$> ( x
-                      Prelude..@? "HeadersInComplaintNotificationsEnabled"
-                  )
-      Prelude.<*> ( x
-                      Prelude..@? "HeadersInDeliveryNotificationsEnabled"
-                  )
-      Prelude.<*> (x Prelude..@? "HeadersInBounceNotificationsEnabled")
-      Prelude.<*> (x Prelude..@ "BounceTopic")
-      Prelude.<*> (x Prelude..@ "ComplaintTopic")
-      Prelude.<*> (x Prelude..@ "DeliveryTopic")
-      Prelude.<*> (x Prelude..@ "ForwardingEnabled")
+      Core.<$> (x Core..@? "HeadersInComplaintNotificationsEnabled")
+      Core.<*> (x Core..@? "HeadersInDeliveryNotificationsEnabled")
+      Core.<*> (x Core..@? "HeadersInBounceNotificationsEnabled")
+      Core.<*> (x Core..@ "BounceTopic")
+      Core.<*> (x Core..@ "ComplaintTopic")
+      Core.<*> (x Core..@ "DeliveryTopic")
+      Core.<*> (x Core..@ "ForwardingEnabled")
 
-instance
-  Prelude.Hashable
-    IdentityNotificationAttributes
+instance Core.Hashable IdentityNotificationAttributes
 
-instance
-  Prelude.NFData
-    IdentityNotificationAttributes
+instance Core.NFData IdentityNotificationAttributes

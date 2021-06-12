@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -97,9 +96,9 @@ module Network.AWS.EMR.RunJobFlow
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -110,23 +109,23 @@ data RunJobFlow = RunJobFlow'
   { -- | Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR
     -- releases 4.0 and later, @ReleaseLabel@ is used. To specify a custom AMI,
     -- use @CustomAmiID@.
-    amiVersion :: Prelude.Maybe Prelude.Text,
+    amiVersion :: Core.Maybe Core.Text,
     -- | A JSON string for selecting additional features.
-    additionalInfo :: Prelude.Maybe Prelude.Text,
+    additionalInfo :: Core.Maybe Core.Text,
     -- | The specified placement group configuration for an Amazon EMR cluster.
-    placementGroupConfigs :: Prelude.Maybe [PlacementGroupConfig],
+    placementGroupConfigs :: Core.Maybe [PlacementGroupConfig],
     -- | Applies only when @CustomAmiID@ is used. Specifies which updates from
     -- the Amazon Linux AMI package repositories to apply automatically when
     -- the instance boots using the AMI. If omitted, the default is @SECURITY@,
     -- which indicates that only security updates are applied. If @NONE@ is
     -- specified, no updates are applied, and all updates must be applied
     -- manually.
-    repoUpgradeOnBoot :: Prelude.Maybe RepoUpgradeOnBoot,
+    repoUpgradeOnBoot :: Core.Maybe RepoUpgradeOnBoot,
     -- | The IAM role that will be assumed by the Amazon EMR service to access
     -- AWS resources on your behalf.
-    serviceRole :: Prelude.Maybe Prelude.Text,
+    serviceRole :: Core.Maybe Core.Text,
     -- | The name of a security configuration to apply to the cluster.
-    securityConfiguration :: Prelude.Maybe Prelude.Text,
+    securityConfiguration :: Core.Maybe Core.Text,
     -- | Specifies the way that individual Amazon EC2 instances terminate when an
     -- automatic scale-in activity occurs or an instance group is resized.
     -- @TERMINATE_AT_INSTANCE_HOUR@ indicates that Amazon EMR terminates nodes
@@ -141,15 +140,15 @@ data RunJobFlow = RunJobFlow'
     -- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version
     -- 4.1.0 and later, and is the default for versions of Amazon EMR earlier
     -- than 5.1.0.
-    scaleDownBehavior :: Prelude.Maybe ScaleDownBehavior,
+    scaleDownBehavior :: Core.Maybe ScaleDownBehavior,
     -- | An IAM role for automatic scaling policies. The default role is
     -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
     -- the automatic scaling feature requires to launch and terminate EC2
     -- instances in an instance group.
-    autoScalingRole :: Prelude.Maybe Prelude.Text,
+    autoScalingRole :: Core.Maybe Core.Text,
     -- | For Amazon EMR releases 4.0 and later. The list of configurations
     -- supplied for the EMR cluster you are creating.
-    configurations :: Prelude.Maybe [Configuration],
+    configurations :: Core.Maybe [Configuration],
     -- | The Amazon EMR release label, which determines the version of
     -- open-source application packages installed on the cluster. Release
     -- labels are in the form @emr-x.x.x@, where x.x.x is an Amazon EMR release
@@ -158,38 +157,38 @@ data RunJobFlow = RunJobFlow'
     -- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/>. The release
     -- label applies only to Amazon EMR releases version 4.0 and later. Earlier
     -- versions use @AmiVersion@.
-    releaseLabel :: Prelude.Maybe Prelude.Text,
+    releaseLabel :: Core.Maybe Core.Text,
     -- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
     -- that is used for each EC2 instance. Available in Amazon EMR version 4.x
     -- and later.
-    ebsRootVolumeSize :: Prelude.Maybe Prelude.Int,
+    ebsRootVolumeSize :: Core.Maybe Core.Int,
     -- | A list of bootstrap actions to run before Hadoop starts on the cluster
     -- nodes.
-    bootstrapActions :: Prelude.Maybe [BootstrapActionConfig],
+    bootstrapActions :: Core.Maybe [BootstrapActionConfig],
     -- | The AWS KMS customer master key (CMK) used for encrypting log files. If
     -- a value is not provided, the logs remain encrypted by AES-256. This
     -- attribute is only available with Amazon EMR version 5.30.0 and later,
     -- excluding Amazon EMR 6.0.0.
-    logEncryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
+    logEncryptionKmsKeyId :: Core.Maybe Core.Text,
     -- | A list of tags to associate with a cluster and propagate to Amazon EC2
     -- instances.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of
     -- applications for Amazon EMR to install and configure when launching the
     -- cluster. For a list of applications available for each Amazon EMR
     -- release version, see the
     -- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide>.
-    applications :: Prelude.Maybe [Application],
+    applications :: Core.Maybe [Application],
     -- | Specifies the number of steps that can be executed concurrently. The
     -- default value is @1@. The maximum value is @256@.
-    stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
+    stepConcurrencyLevel :: Core.Maybe Core.Int,
     -- | Also called instance profile and EC2 role. An IAM role for an EMR
     -- cluster. The EC2 instances of the cluster assume this role. The default
     -- role is @EMR_EC2_DefaultRole@. In order to use the default role, you
     -- must have already created it using the CLI or console.
-    jobFlowRole :: Prelude.Maybe Prelude.Text,
+    jobFlowRole :: Core.Maybe Core.Text,
     -- | A list of steps to run.
-    steps :: Prelude.Maybe [StepConfig],
+    steps :: Core.Maybe [StepConfig],
     -- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
     -- later, use Applications.
     --
@@ -201,12 +200,12 @@ data RunJobFlow = RunJobFlow'
     -- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
     --
     -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
-    supportedProducts :: Prelude.Maybe [Prelude.Text],
+    supportedProducts :: Core.Maybe [Core.Text],
     -- | A value of @true@ indicates that all IAM users in the AWS account can
     -- perform cluster actions if they have the proper IAM policy permissions.
     -- This is the default. A value of @false@ indicates that only the IAM user
     -- who created the cluster can perform actions.
-    visibleToAllUsers :: Prelude.Maybe Prelude.Bool,
+    visibleToAllUsers :: Core.Maybe Core.Bool,
     -- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
     -- Amazon EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when
     -- it launches cluster EC2 instances. For more information about custom
@@ -221,17 +220,17 @@ data RunJobFlow = RunJobFlow'
     -- in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/.
     -- For information about finding an AMI ID, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI>.
-    customAmiId :: Prelude.Maybe Prelude.Text,
+    customAmiId :: Core.Maybe Core.Text,
     -- | The specified managed scaling policy for an Amazon EMR cluster.
-    managedScalingPolicy :: Prelude.Maybe ManagedScalingPolicy,
+    managedScalingPolicy :: Core.Maybe ManagedScalingPolicy,
     -- | Attributes for Kerberos configuration when Kerberos authentication is
     -- enabled using a security configuration. For more information see
     -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
     -- in the /Amazon EMR Management Guide/.
-    kerberosAttributes :: Prelude.Maybe KerberosAttributes,
+    kerberosAttributes :: Core.Maybe KerberosAttributes,
     -- | The location in Amazon S3 to write the log files of the job flow. If a
     -- value is not provided, logs are not created.
-    logUri :: Prelude.Maybe Prelude.Text,
+    logUri :: Core.Maybe Core.Text,
     -- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
     -- later, use Applications.
     --
@@ -262,13 +261,13 @@ data RunJobFlow = RunJobFlow'
     --
     -- -   \"ganglia\" - launch the cluster with the Ganglia Monitoring System
     --     installed.
-    newSupportedProducts' :: Prelude.Maybe [SupportedProductConfig],
+    newSupportedProducts' :: Core.Maybe [SupportedProductConfig],
     -- | The name of the job flow.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A specification of the number and type of Amazon EC2 instances.
     instances :: JobFlowInstancesConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunJobFlow' with all optional fields omitted.
@@ -439,37 +438,37 @@ data RunJobFlow = RunJobFlow'
 -- 'instances', 'runJobFlow_instances' - A specification of the number and type of Amazon EC2 instances.
 newRunJobFlow ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instances'
   JobFlowInstancesConfig ->
   RunJobFlow
 newRunJobFlow pName_ pInstances_ =
   RunJobFlow'
-    { amiVersion = Prelude.Nothing,
-      additionalInfo = Prelude.Nothing,
-      placementGroupConfigs = Prelude.Nothing,
-      repoUpgradeOnBoot = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      securityConfiguration = Prelude.Nothing,
-      scaleDownBehavior = Prelude.Nothing,
-      autoScalingRole = Prelude.Nothing,
-      configurations = Prelude.Nothing,
-      releaseLabel = Prelude.Nothing,
-      ebsRootVolumeSize = Prelude.Nothing,
-      bootstrapActions = Prelude.Nothing,
-      logEncryptionKmsKeyId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      applications = Prelude.Nothing,
-      stepConcurrencyLevel = Prelude.Nothing,
-      jobFlowRole = Prelude.Nothing,
-      steps = Prelude.Nothing,
-      supportedProducts = Prelude.Nothing,
-      visibleToAllUsers = Prelude.Nothing,
-      customAmiId = Prelude.Nothing,
-      managedScalingPolicy = Prelude.Nothing,
-      kerberosAttributes = Prelude.Nothing,
-      logUri = Prelude.Nothing,
-      newSupportedProducts' = Prelude.Nothing,
+    { amiVersion = Core.Nothing,
+      additionalInfo = Core.Nothing,
+      placementGroupConfigs = Core.Nothing,
+      repoUpgradeOnBoot = Core.Nothing,
+      serviceRole = Core.Nothing,
+      securityConfiguration = Core.Nothing,
+      scaleDownBehavior = Core.Nothing,
+      autoScalingRole = Core.Nothing,
+      configurations = Core.Nothing,
+      releaseLabel = Core.Nothing,
+      ebsRootVolumeSize = Core.Nothing,
+      bootstrapActions = Core.Nothing,
+      logEncryptionKmsKeyId = Core.Nothing,
+      tags = Core.Nothing,
+      applications = Core.Nothing,
+      stepConcurrencyLevel = Core.Nothing,
+      jobFlowRole = Core.Nothing,
+      steps = Core.Nothing,
+      supportedProducts = Core.Nothing,
+      visibleToAllUsers = Core.Nothing,
+      customAmiId = Core.Nothing,
+      managedScalingPolicy = Core.Nothing,
+      kerberosAttributes = Core.Nothing,
+      logUri = Core.Nothing,
+      newSupportedProducts' = Core.Nothing,
       name = pName_,
       instances = pInstances_
     }
@@ -477,16 +476,16 @@ newRunJobFlow pName_ pInstances_ =
 -- | Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR
 -- releases 4.0 and later, @ReleaseLabel@ is used. To specify a custom AMI,
 -- use @CustomAmiID@.
-runJobFlow_amiVersion :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_amiVersion :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_amiVersion = Lens.lens (\RunJobFlow' {amiVersion} -> amiVersion) (\s@RunJobFlow' {} a -> s {amiVersion = a} :: RunJobFlow)
 
 -- | A JSON string for selecting additional features.
-runJobFlow_additionalInfo :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_additionalInfo :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_additionalInfo = Lens.lens (\RunJobFlow' {additionalInfo} -> additionalInfo) (\s@RunJobFlow' {} a -> s {additionalInfo = a} :: RunJobFlow)
 
 -- | The specified placement group configuration for an Amazon EMR cluster.
-runJobFlow_placementGroupConfigs :: Lens.Lens' RunJobFlow (Prelude.Maybe [PlacementGroupConfig])
-runJobFlow_placementGroupConfigs = Lens.lens (\RunJobFlow' {placementGroupConfigs} -> placementGroupConfigs) (\s@RunJobFlow' {} a -> s {placementGroupConfigs = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_placementGroupConfigs :: Lens.Lens' RunJobFlow (Core.Maybe [PlacementGroupConfig])
+runJobFlow_placementGroupConfigs = Lens.lens (\RunJobFlow' {placementGroupConfigs} -> placementGroupConfigs) (\s@RunJobFlow' {} a -> s {placementGroupConfigs = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | Applies only when @CustomAmiID@ is used. Specifies which updates from
 -- the Amazon Linux AMI package repositories to apply automatically when
@@ -494,16 +493,16 @@ runJobFlow_placementGroupConfigs = Lens.lens (\RunJobFlow' {placementGroupConfig
 -- which indicates that only security updates are applied. If @NONE@ is
 -- specified, no updates are applied, and all updates must be applied
 -- manually.
-runJobFlow_repoUpgradeOnBoot :: Lens.Lens' RunJobFlow (Prelude.Maybe RepoUpgradeOnBoot)
+runJobFlow_repoUpgradeOnBoot :: Lens.Lens' RunJobFlow (Core.Maybe RepoUpgradeOnBoot)
 runJobFlow_repoUpgradeOnBoot = Lens.lens (\RunJobFlow' {repoUpgradeOnBoot} -> repoUpgradeOnBoot) (\s@RunJobFlow' {} a -> s {repoUpgradeOnBoot = a} :: RunJobFlow)
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
 -- AWS resources on your behalf.
-runJobFlow_serviceRole :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_serviceRole :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_serviceRole = Lens.lens (\RunJobFlow' {serviceRole} -> serviceRole) (\s@RunJobFlow' {} a -> s {serviceRole = a} :: RunJobFlow)
 
 -- | The name of a security configuration to apply to the cluster.
-runJobFlow_securityConfiguration :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_securityConfiguration :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_securityConfiguration = Lens.lens (\RunJobFlow' {securityConfiguration} -> securityConfiguration) (\s@RunJobFlow' {} a -> s {securityConfiguration = a} :: RunJobFlow)
 
 -- | Specifies the way that individual Amazon EC2 instances terminate when an
@@ -520,20 +519,20 @@ runJobFlow_securityConfiguration = Lens.lens (\RunJobFlow' {securityConfiguratio
 -- @TERMINATE_AT_TASK_COMPLETION@ available only in Amazon EMR version
 -- 4.1.0 and later, and is the default for versions of Amazon EMR earlier
 -- than 5.1.0.
-runJobFlow_scaleDownBehavior :: Lens.Lens' RunJobFlow (Prelude.Maybe ScaleDownBehavior)
+runJobFlow_scaleDownBehavior :: Lens.Lens' RunJobFlow (Core.Maybe ScaleDownBehavior)
 runJobFlow_scaleDownBehavior = Lens.lens (\RunJobFlow' {scaleDownBehavior} -> scaleDownBehavior) (\s@RunJobFlow' {} a -> s {scaleDownBehavior = a} :: RunJobFlow)
 
 -- | An IAM role for automatic scaling policies. The default role is
 -- @EMR_AutoScaling_DefaultRole@. The IAM role provides permissions that
 -- the automatic scaling feature requires to launch and terminate EC2
 -- instances in an instance group.
-runJobFlow_autoScalingRole :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_autoScalingRole :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_autoScalingRole = Lens.lens (\RunJobFlow' {autoScalingRole} -> autoScalingRole) (\s@RunJobFlow' {} a -> s {autoScalingRole = a} :: RunJobFlow)
 
 -- | For Amazon EMR releases 4.0 and later. The list of configurations
 -- supplied for the EMR cluster you are creating.
-runJobFlow_configurations :: Lens.Lens' RunJobFlow (Prelude.Maybe [Configuration])
-runJobFlow_configurations = Lens.lens (\RunJobFlow' {configurations} -> configurations) (\s@RunJobFlow' {} a -> s {configurations = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_configurations :: Lens.Lens' RunJobFlow (Core.Maybe [Configuration])
+runJobFlow_configurations = Lens.lens (\RunJobFlow' {configurations} -> configurations) (\s@RunJobFlow' {} a -> s {configurations = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon EMR release label, which determines the version of
 -- open-source application packages installed on the cluster. Release
@@ -543,55 +542,55 @@ runJobFlow_configurations = Lens.lens (\RunJobFlow' {configurations} -> configur
 -- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/>. The release
 -- label applies only to Amazon EMR releases version 4.0 and later. Earlier
 -- versions use @AmiVersion@.
-runJobFlow_releaseLabel :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_releaseLabel :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_releaseLabel = Lens.lens (\RunJobFlow' {releaseLabel} -> releaseLabel) (\s@RunJobFlow' {} a -> s {releaseLabel = a} :: RunJobFlow)
 
 -- | The size, in GiB, of the Amazon EBS root device volume of the Linux AMI
 -- that is used for each EC2 instance. Available in Amazon EMR version 4.x
 -- and later.
-runJobFlow_ebsRootVolumeSize :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Int)
+runJobFlow_ebsRootVolumeSize :: Lens.Lens' RunJobFlow (Core.Maybe Core.Int)
 runJobFlow_ebsRootVolumeSize = Lens.lens (\RunJobFlow' {ebsRootVolumeSize} -> ebsRootVolumeSize) (\s@RunJobFlow' {} a -> s {ebsRootVolumeSize = a} :: RunJobFlow)
 
 -- | A list of bootstrap actions to run before Hadoop starts on the cluster
 -- nodes.
-runJobFlow_bootstrapActions :: Lens.Lens' RunJobFlow (Prelude.Maybe [BootstrapActionConfig])
-runJobFlow_bootstrapActions = Lens.lens (\RunJobFlow' {bootstrapActions} -> bootstrapActions) (\s@RunJobFlow' {} a -> s {bootstrapActions = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_bootstrapActions :: Lens.Lens' RunJobFlow (Core.Maybe [BootstrapActionConfig])
+runJobFlow_bootstrapActions = Lens.lens (\RunJobFlow' {bootstrapActions} -> bootstrapActions) (\s@RunJobFlow' {} a -> s {bootstrapActions = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | The AWS KMS customer master key (CMK) used for encrypting log files. If
 -- a value is not provided, the logs remain encrypted by AES-256. This
 -- attribute is only available with Amazon EMR version 5.30.0 and later,
 -- excluding Amazon EMR 6.0.0.
-runJobFlow_logEncryptionKmsKeyId :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_logEncryptionKmsKeyId :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_logEncryptionKmsKeyId = Lens.lens (\RunJobFlow' {logEncryptionKmsKeyId} -> logEncryptionKmsKeyId) (\s@RunJobFlow' {} a -> s {logEncryptionKmsKeyId = a} :: RunJobFlow)
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
-runJobFlow_tags :: Lens.Lens' RunJobFlow (Prelude.Maybe [Tag])
-runJobFlow_tags = Lens.lens (\RunJobFlow' {tags} -> tags) (\s@RunJobFlow' {} a -> s {tags = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_tags :: Lens.Lens' RunJobFlow (Core.Maybe [Tag])
+runJobFlow_tags = Lens.lens (\RunJobFlow' {tags} -> tags) (\s@RunJobFlow' {} a -> s {tags = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of
 -- applications for Amazon EMR to install and configure when launching the
 -- cluster. For a list of applications available for each Amazon EMR
 -- release version, see the
 -- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide>.
-runJobFlow_applications :: Lens.Lens' RunJobFlow (Prelude.Maybe [Application])
-runJobFlow_applications = Lens.lens (\RunJobFlow' {applications} -> applications) (\s@RunJobFlow' {} a -> s {applications = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_applications :: Lens.Lens' RunJobFlow (Core.Maybe [Application])
+runJobFlow_applications = Lens.lens (\RunJobFlow' {applications} -> applications) (\s@RunJobFlow' {} a -> s {applications = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the number of steps that can be executed concurrently. The
 -- default value is @1@. The maximum value is @256@.
-runJobFlow_stepConcurrencyLevel :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Int)
+runJobFlow_stepConcurrencyLevel :: Lens.Lens' RunJobFlow (Core.Maybe Core.Int)
 runJobFlow_stepConcurrencyLevel = Lens.lens (\RunJobFlow' {stepConcurrencyLevel} -> stepConcurrencyLevel) (\s@RunJobFlow' {} a -> s {stepConcurrencyLevel = a} :: RunJobFlow)
 
 -- | Also called instance profile and EC2 role. An IAM role for an EMR
 -- cluster. The EC2 instances of the cluster assume this role. The default
 -- role is @EMR_EC2_DefaultRole@. In order to use the default role, you
 -- must have already created it using the CLI or console.
-runJobFlow_jobFlowRole :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_jobFlowRole :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_jobFlowRole = Lens.lens (\RunJobFlow' {jobFlowRole} -> jobFlowRole) (\s@RunJobFlow' {} a -> s {jobFlowRole = a} :: RunJobFlow)
 
 -- | A list of steps to run.
-runJobFlow_steps :: Lens.Lens' RunJobFlow (Prelude.Maybe [StepConfig])
-runJobFlow_steps = Lens.lens (\RunJobFlow' {steps} -> steps) (\s@RunJobFlow' {} a -> s {steps = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_steps :: Lens.Lens' RunJobFlow (Core.Maybe [StepConfig])
+runJobFlow_steps = Lens.lens (\RunJobFlow' {steps} -> steps) (\s@RunJobFlow' {} a -> s {steps = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
 -- later, use Applications.
@@ -604,14 +603,14 @@ runJobFlow_steps = Lens.lens (\RunJobFlow' {steps} -> steps) (\s@RunJobFlow' {} 
 -- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
 --
 -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
-runJobFlow_supportedProducts :: Lens.Lens' RunJobFlow (Prelude.Maybe [Prelude.Text])
-runJobFlow_supportedProducts = Lens.lens (\RunJobFlow' {supportedProducts} -> supportedProducts) (\s@RunJobFlow' {} a -> s {supportedProducts = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_supportedProducts :: Lens.Lens' RunJobFlow (Core.Maybe [Core.Text])
+runJobFlow_supportedProducts = Lens.lens (\RunJobFlow' {supportedProducts} -> supportedProducts) (\s@RunJobFlow' {} a -> s {supportedProducts = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | A value of @true@ indicates that all IAM users in the AWS account can
 -- perform cluster actions if they have the proper IAM policy permissions.
 -- This is the default. A value of @false@ indicates that only the IAM user
 -- who created the cluster can perform actions.
-runJobFlow_visibleToAllUsers :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Bool)
+runJobFlow_visibleToAllUsers :: Lens.Lens' RunJobFlow (Core.Maybe Core.Bool)
 runJobFlow_visibleToAllUsers = Lens.lens (\RunJobFlow' {visibleToAllUsers} -> visibleToAllUsers) (\s@RunJobFlow' {} a -> s {visibleToAllUsers = a} :: RunJobFlow)
 
 -- | Available only in Amazon EMR version 5.7.0 and later. The ID of a custom
@@ -628,23 +627,23 @@ runJobFlow_visibleToAllUsers = Lens.lens (\RunJobFlow' {visibleToAllUsers} -> vi
 -- in the /Amazon Elastic Compute Cloud User Guide for Linux Instances/.
 -- For information about finding an AMI ID, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding a Linux AMI>.
-runJobFlow_customAmiId :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_customAmiId :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_customAmiId = Lens.lens (\RunJobFlow' {customAmiId} -> customAmiId) (\s@RunJobFlow' {} a -> s {customAmiId = a} :: RunJobFlow)
 
 -- | The specified managed scaling policy for an Amazon EMR cluster.
-runJobFlow_managedScalingPolicy :: Lens.Lens' RunJobFlow (Prelude.Maybe ManagedScalingPolicy)
+runJobFlow_managedScalingPolicy :: Lens.Lens' RunJobFlow (Core.Maybe ManagedScalingPolicy)
 runJobFlow_managedScalingPolicy = Lens.lens (\RunJobFlow' {managedScalingPolicy} -> managedScalingPolicy) (\s@RunJobFlow' {} a -> s {managedScalingPolicy = a} :: RunJobFlow)
 
 -- | Attributes for Kerberos configuration when Kerberos authentication is
 -- enabled using a security configuration. For more information see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html Use Kerberos Authentication>
 -- in the /Amazon EMR Management Guide/.
-runJobFlow_kerberosAttributes :: Lens.Lens' RunJobFlow (Prelude.Maybe KerberosAttributes)
+runJobFlow_kerberosAttributes :: Lens.Lens' RunJobFlow (Core.Maybe KerberosAttributes)
 runJobFlow_kerberosAttributes = Lens.lens (\RunJobFlow' {kerberosAttributes} -> kerberosAttributes) (\s@RunJobFlow' {} a -> s {kerberosAttributes = a} :: RunJobFlow)
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a
 -- value is not provided, logs are not created.
-runJobFlow_logUri :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_logUri :: Lens.Lens' RunJobFlow (Core.Maybe Core.Text)
 runJobFlow_logUri = Lens.lens (\RunJobFlow' {logUri} -> logUri) (\s@RunJobFlow' {} a -> s {logUri = a} :: RunJobFlow)
 
 -- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
@@ -677,116 +676,109 @@ runJobFlow_logUri = Lens.lens (\RunJobFlow' {logUri} -> logUri) (\s@RunJobFlow' 
 --
 -- -   \"ganglia\" - launch the cluster with the Ganglia Monitoring System
 --     installed.
-runJobFlow_newSupportedProducts :: Lens.Lens' RunJobFlow (Prelude.Maybe [SupportedProductConfig])
-runJobFlow_newSupportedProducts = Lens.lens (\RunJobFlow' {newSupportedProducts'} -> newSupportedProducts') (\s@RunJobFlow' {} a -> s {newSupportedProducts' = a} :: RunJobFlow) Prelude.. Lens.mapping Prelude._Coerce
+runJobFlow_newSupportedProducts :: Lens.Lens' RunJobFlow (Core.Maybe [SupportedProductConfig])
+runJobFlow_newSupportedProducts = Lens.lens (\RunJobFlow' {newSupportedProducts'} -> newSupportedProducts') (\s@RunJobFlow' {} a -> s {newSupportedProducts' = a} :: RunJobFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the job flow.
-runJobFlow_name :: Lens.Lens' RunJobFlow Prelude.Text
+runJobFlow_name :: Lens.Lens' RunJobFlow Core.Text
 runJobFlow_name = Lens.lens (\RunJobFlow' {name} -> name) (\s@RunJobFlow' {} a -> s {name = a} :: RunJobFlow)
 
 -- | A specification of the number and type of Amazon EC2 instances.
 runJobFlow_instances :: Lens.Lens' RunJobFlow JobFlowInstancesConfig
 runJobFlow_instances = Lens.lens (\RunJobFlow' {instances} -> instances) (\s@RunJobFlow' {} a -> s {instances = a} :: RunJobFlow)
 
-instance Prelude.AWSRequest RunJobFlow where
-  type Rs RunJobFlow = RunJobFlowResponse
+instance Core.AWSRequest RunJobFlow where
+  type AWSResponse RunJobFlow = RunJobFlowResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RunJobFlowResponse'
-            Prelude.<$> (x Prelude..?> "ClusterArn")
-            Prelude.<*> (x Prelude..?> "JobFlowId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ClusterArn")
+            Core.<*> (x Core..?> "JobFlowId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RunJobFlow
+instance Core.Hashable RunJobFlow
 
-instance Prelude.NFData RunJobFlow
+instance Core.NFData RunJobFlow
 
-instance Prelude.ToHeaders RunJobFlow where
+instance Core.ToHeaders RunJobFlow where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.RunJobFlow" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("ElasticMapReduce.RunJobFlow" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RunJobFlow where
+instance Core.ToJSON RunJobFlow where
   toJSON RunJobFlow' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AmiVersion" Prelude..=) Prelude.<$> amiVersion,
-            ("AdditionalInfo" Prelude..=)
-              Prelude.<$> additionalInfo,
-            ("PlacementGroupConfigs" Prelude..=)
-              Prelude.<$> placementGroupConfigs,
-            ("RepoUpgradeOnBoot" Prelude..=)
-              Prelude.<$> repoUpgradeOnBoot,
-            ("ServiceRole" Prelude..=) Prelude.<$> serviceRole,
-            ("SecurityConfiguration" Prelude..=)
-              Prelude.<$> securityConfiguration,
-            ("ScaleDownBehavior" Prelude..=)
-              Prelude.<$> scaleDownBehavior,
-            ("AutoScalingRole" Prelude..=)
-              Prelude.<$> autoScalingRole,
-            ("Configurations" Prelude..=)
-              Prelude.<$> configurations,
-            ("ReleaseLabel" Prelude..=) Prelude.<$> releaseLabel,
-            ("EbsRootVolumeSize" Prelude..=)
-              Prelude.<$> ebsRootVolumeSize,
-            ("BootstrapActions" Prelude..=)
-              Prelude.<$> bootstrapActions,
-            ("LogEncryptionKmsKeyId" Prelude..=)
-              Prelude.<$> logEncryptionKmsKeyId,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Applications" Prelude..=) Prelude.<$> applications,
-            ("StepConcurrencyLevel" Prelude..=)
-              Prelude.<$> stepConcurrencyLevel,
-            ("JobFlowRole" Prelude..=) Prelude.<$> jobFlowRole,
-            ("Steps" Prelude..=) Prelude.<$> steps,
-            ("SupportedProducts" Prelude..=)
-              Prelude.<$> supportedProducts,
-            ("VisibleToAllUsers" Prelude..=)
-              Prelude.<$> visibleToAllUsers,
-            ("CustomAmiId" Prelude..=) Prelude.<$> customAmiId,
-            ("ManagedScalingPolicy" Prelude..=)
-              Prelude.<$> managedScalingPolicy,
-            ("KerberosAttributes" Prelude..=)
-              Prelude.<$> kerberosAttributes,
-            ("LogUri" Prelude..=) Prelude.<$> logUri,
-            ("NewSupportedProducts" Prelude..=)
-              Prelude.<$> newSupportedProducts',
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Instances" Prelude..= instances)
+    Core.object
+      ( Core.catMaybes
+          [ ("AmiVersion" Core..=) Core.<$> amiVersion,
+            ("AdditionalInfo" Core..=) Core.<$> additionalInfo,
+            ("PlacementGroupConfigs" Core..=)
+              Core.<$> placementGroupConfigs,
+            ("RepoUpgradeOnBoot" Core..=)
+              Core.<$> repoUpgradeOnBoot,
+            ("ServiceRole" Core..=) Core.<$> serviceRole,
+            ("SecurityConfiguration" Core..=)
+              Core.<$> securityConfiguration,
+            ("ScaleDownBehavior" Core..=)
+              Core.<$> scaleDownBehavior,
+            ("AutoScalingRole" Core..=) Core.<$> autoScalingRole,
+            ("Configurations" Core..=) Core.<$> configurations,
+            ("ReleaseLabel" Core..=) Core.<$> releaseLabel,
+            ("EbsRootVolumeSize" Core..=)
+              Core.<$> ebsRootVolumeSize,
+            ("BootstrapActions" Core..=)
+              Core.<$> bootstrapActions,
+            ("LogEncryptionKmsKeyId" Core..=)
+              Core.<$> logEncryptionKmsKeyId,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Applications" Core..=) Core.<$> applications,
+            ("StepConcurrencyLevel" Core..=)
+              Core.<$> stepConcurrencyLevel,
+            ("JobFlowRole" Core..=) Core.<$> jobFlowRole,
+            ("Steps" Core..=) Core.<$> steps,
+            ("SupportedProducts" Core..=)
+              Core.<$> supportedProducts,
+            ("VisibleToAllUsers" Core..=)
+              Core.<$> visibleToAllUsers,
+            ("CustomAmiId" Core..=) Core.<$> customAmiId,
+            ("ManagedScalingPolicy" Core..=)
+              Core.<$> managedScalingPolicy,
+            ("KerberosAttributes" Core..=)
+              Core.<$> kerberosAttributes,
+            ("LogUri" Core..=) Core.<$> logUri,
+            ("NewSupportedProducts" Core..=)
+              Core.<$> newSupportedProducts',
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Instances" Core..= instances)
           ]
       )
 
-instance Prelude.ToPath RunJobFlow where
-  toPath = Prelude.const "/"
+instance Core.ToPath RunJobFlow where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RunJobFlow where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RunJobFlow where
+  toQuery = Core.const Core.mempty
 
 -- | The result of the RunJobFlow operation.
 --
 -- /See:/ 'newRunJobFlowResponse' smart constructor.
 data RunJobFlowResponse = RunJobFlowResponse'
   { -- | The Amazon Resource Name (ARN) of the cluster.
-    clusterArn :: Prelude.Maybe Prelude.Text,
+    clusterArn :: Core.Maybe Core.Text,
     -- | A unique identifier for the job flow.
-    jobFlowId :: Prelude.Maybe Prelude.Text,
+    jobFlowId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunJobFlowResponse' with all optional fields omitted.
@@ -803,25 +795,25 @@ data RunJobFlowResponse = RunJobFlowResponse'
 -- 'httpStatus', 'runJobFlowResponse_httpStatus' - The response's http status code.
 newRunJobFlowResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RunJobFlowResponse
 newRunJobFlowResponse pHttpStatus_ =
   RunJobFlowResponse'
-    { clusterArn = Prelude.Nothing,
-      jobFlowId = Prelude.Nothing,
+    { clusterArn = Core.Nothing,
+      jobFlowId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the cluster.
-runJobFlowResponse_clusterArn :: Lens.Lens' RunJobFlowResponse (Prelude.Maybe Prelude.Text)
+runJobFlowResponse_clusterArn :: Lens.Lens' RunJobFlowResponse (Core.Maybe Core.Text)
 runJobFlowResponse_clusterArn = Lens.lens (\RunJobFlowResponse' {clusterArn} -> clusterArn) (\s@RunJobFlowResponse' {} a -> s {clusterArn = a} :: RunJobFlowResponse)
 
 -- | A unique identifier for the job flow.
-runJobFlowResponse_jobFlowId :: Lens.Lens' RunJobFlowResponse (Prelude.Maybe Prelude.Text)
+runJobFlowResponse_jobFlowId :: Lens.Lens' RunJobFlowResponse (Core.Maybe Core.Text)
 runJobFlowResponse_jobFlowId = Lens.lens (\RunJobFlowResponse' {jobFlowId} -> jobFlowId) (\s@RunJobFlowResponse' {} a -> s {jobFlowId = a} :: RunJobFlowResponse)
 
 -- | The response's http status code.
-runJobFlowResponse_httpStatus :: Lens.Lens' RunJobFlowResponse Prelude.Int
+runJobFlowResponse_httpStatus :: Lens.Lens' RunJobFlowResponse Core.Int
 runJobFlowResponse_httpStatus = Lens.lens (\RunJobFlowResponse' {httpStatus} -> httpStatus) (\s@RunJobFlowResponse' {} a -> s {httpStatus = a} :: RunJobFlowResponse)
 
-instance Prelude.NFData RunJobFlowResponse
+instance Core.NFData RunJobFlowResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.ParquetConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.SchemaDefinition
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the configuration information of the Parquet format.
 --
 -- /See:/ 'newParquetConfiguration' smart constructor.
 data ParquetConfiguration = ParquetConfiguration'
   { -- | Information needed to define a schema.
-    schemaDefinition :: Prelude.Maybe SchemaDefinition
+    schemaDefinition :: Core.Maybe SchemaDefinition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParquetConfiguration' with all optional fields omitted.
@@ -47,31 +46,31 @@ newParquetConfiguration ::
 newParquetConfiguration =
   ParquetConfiguration'
     { schemaDefinition =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Information needed to define a schema.
-parquetConfiguration_schemaDefinition :: Lens.Lens' ParquetConfiguration (Prelude.Maybe SchemaDefinition)
+parquetConfiguration_schemaDefinition :: Lens.Lens' ParquetConfiguration (Core.Maybe SchemaDefinition)
 parquetConfiguration_schemaDefinition = Lens.lens (\ParquetConfiguration' {schemaDefinition} -> schemaDefinition) (\s@ParquetConfiguration' {} a -> s {schemaDefinition = a} :: ParquetConfiguration)
 
-instance Prelude.FromJSON ParquetConfiguration where
+instance Core.FromJSON ParquetConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParquetConfiguration"
       ( \x ->
           ParquetConfiguration'
-            Prelude.<$> (x Prelude..:? "schemaDefinition")
+            Core.<$> (x Core..:? "schemaDefinition")
       )
 
-instance Prelude.Hashable ParquetConfiguration
+instance Core.Hashable ParquetConfiguration
 
-instance Prelude.NFData ParquetConfiguration
+instance Core.NFData ParquetConfiguration
 
-instance Prelude.ToJSON ParquetConfiguration where
+instance Core.ToJSON ParquetConfiguration where
   toJSON ParquetConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("schemaDefinition" Prelude..=)
-              Prelude.<$> schemaDefinition
+    Core.object
+      ( Core.catMaybes
+          [ ("schemaDefinition" Core..=)
+              Core.<$> schemaDefinition
           ]
       )

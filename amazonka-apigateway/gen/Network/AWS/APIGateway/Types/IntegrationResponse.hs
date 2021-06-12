@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.APIGateway.Types.IntegrationResponse where
 
 import Network.AWS.APIGateway.Types.ContentHandlingStrategy
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an integration response. The status code must map to an
 -- existing MethodResponse, and parameters and templates can be used to
@@ -45,14 +44,14 @@ data IntegrationResponse = IntegrationResponse'
     -- If this property is not defined, the response payload will be passed
     -- through from the integration response to the method response without
     -- modification.
-    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
+    contentHandling :: Core.Maybe ContentHandlingStrategy,
     -- | Specifies the templates used to transform the integration response body.
     -- Response templates are represented as a key\/value map, with a
     -- content-type as the key and a template as the value.
-    responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseTemplates :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies the status code that is used to map the integration response
     -- to an existing MethodResponse.
-    statusCode :: Prelude.Maybe Prelude.Text,
+    statusCode :: Core.Maybe Core.Text,
     -- | A key-value map specifying response parameters that are passed to the
     -- method response from the back end. The key is a method response header
     -- parameter name and the mapped value is an integration response header
@@ -64,7 +63,7 @@ data IntegrationResponse = IntegrationResponse'
     -- @integration.response.body.{JSON-expression}@, where @name@ is a valid
     -- and unique response header name and @JSON-expression@ is a valid JSON
     -- expression without the @$@ prefix.
-    responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    responseParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies the regular expression (regex) pattern used to choose an
     -- integration response based on the response from the back end. For
     -- example, if the success response returns nothing and the error response
@@ -73,9 +72,9 @@ data IntegrationResponse = IntegrationResponse'
     -- any newline (@\\n@) character in such cases. If the back end is an AWS
     -- Lambda function, the AWS Lambda function error header is matched. For
     -- all other HTTP and AWS back ends, the HTTP status code is matched.
-    selectionPattern :: Prelude.Maybe Prelude.Text
+    selectionPattern :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IntegrationResponse' with all optional fields omitted.
@@ -131,11 +130,11 @@ newIntegrationResponse ::
 newIntegrationResponse =
   IntegrationResponse'
     { contentHandling =
-        Prelude.Nothing,
-      responseTemplates = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
-      responseParameters = Prelude.Nothing,
-      selectionPattern = Prelude.Nothing
+        Core.Nothing,
+      responseTemplates = Core.Nothing,
+      statusCode = Core.Nothing,
+      responseParameters = Core.Nothing,
+      selectionPattern = Core.Nothing
     }
 
 -- | Specifies how to handle response payload content type conversions.
@@ -151,18 +150,18 @@ newIntegrationResponse =
 -- If this property is not defined, the response payload will be passed
 -- through from the integration response to the method response without
 -- modification.
-integrationResponse_contentHandling :: Lens.Lens' IntegrationResponse (Prelude.Maybe ContentHandlingStrategy)
+integrationResponse_contentHandling :: Lens.Lens' IntegrationResponse (Core.Maybe ContentHandlingStrategy)
 integrationResponse_contentHandling = Lens.lens (\IntegrationResponse' {contentHandling} -> contentHandling) (\s@IntegrationResponse' {} a -> s {contentHandling = a} :: IntegrationResponse)
 
 -- | Specifies the templates used to transform the integration response body.
 -- Response templates are represented as a key\/value map, with a
 -- content-type as the key and a template as the value.
-integrationResponse_responseTemplates :: Lens.Lens' IntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-integrationResponse_responseTemplates = Lens.lens (\IntegrationResponse' {responseTemplates} -> responseTemplates) (\s@IntegrationResponse' {} a -> s {responseTemplates = a} :: IntegrationResponse) Prelude.. Lens.mapping Prelude._Coerce
+integrationResponse_responseTemplates :: Lens.Lens' IntegrationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+integrationResponse_responseTemplates = Lens.lens (\IntegrationResponse' {responseTemplates} -> responseTemplates) (\s@IntegrationResponse' {} a -> s {responseTemplates = a} :: IntegrationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the status code that is used to map the integration response
 -- to an existing MethodResponse.
-integrationResponse_statusCode :: Lens.Lens' IntegrationResponse (Prelude.Maybe Prelude.Text)
+integrationResponse_statusCode :: Lens.Lens' IntegrationResponse (Core.Maybe Core.Text)
 integrationResponse_statusCode = Lens.lens (\IntegrationResponse' {statusCode} -> statusCode) (\s@IntegrationResponse' {} a -> s {statusCode = a} :: IntegrationResponse)
 
 -- | A key-value map specifying response parameters that are passed to the
@@ -176,8 +175,8 @@ integrationResponse_statusCode = Lens.lens (\IntegrationResponse' {statusCode} -
 -- @integration.response.body.{JSON-expression}@, where @name@ is a valid
 -- and unique response header name and @JSON-expression@ is a valid JSON
 -- expression without the @$@ prefix.
-integrationResponse_responseParameters :: Lens.Lens' IntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-integrationResponse_responseParameters = Lens.lens (\IntegrationResponse' {responseParameters} -> responseParameters) (\s@IntegrationResponse' {} a -> s {responseParameters = a} :: IntegrationResponse) Prelude.. Lens.mapping Prelude._Coerce
+integrationResponse_responseParameters :: Lens.Lens' IntegrationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+integrationResponse_responseParameters = Lens.lens (\IntegrationResponse' {responseParameters} -> responseParameters) (\s@IntegrationResponse' {} a -> s {responseParameters = a} :: IntegrationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the regular expression (regex) pattern used to choose an
 -- integration response based on the response from the back end. For
@@ -187,26 +186,24 @@ integrationResponse_responseParameters = Lens.lens (\IntegrationResponse' {respo
 -- any newline (@\\n@) character in such cases. If the back end is an AWS
 -- Lambda function, the AWS Lambda function error header is matched. For
 -- all other HTTP and AWS back ends, the HTTP status code is matched.
-integrationResponse_selectionPattern :: Lens.Lens' IntegrationResponse (Prelude.Maybe Prelude.Text)
+integrationResponse_selectionPattern :: Lens.Lens' IntegrationResponse (Core.Maybe Core.Text)
 integrationResponse_selectionPattern = Lens.lens (\IntegrationResponse' {selectionPattern} -> selectionPattern) (\s@IntegrationResponse' {} a -> s {selectionPattern = a} :: IntegrationResponse)
 
-instance Prelude.FromJSON IntegrationResponse where
+instance Core.FromJSON IntegrationResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IntegrationResponse"
       ( \x ->
           IntegrationResponse'
-            Prelude.<$> (x Prelude..:? "contentHandling")
-            Prelude.<*> ( x Prelude..:? "responseTemplates"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "statusCode")
-            Prelude.<*> ( x Prelude..:? "responseParameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "selectionPattern")
+            Core.<$> (x Core..:? "contentHandling")
+            Core.<*> (x Core..:? "responseTemplates" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "statusCode")
+            Core.<*> ( x Core..:? "responseParameters"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "selectionPattern")
       )
 
-instance Prelude.Hashable IntegrationResponse
+instance Core.Hashable IntegrationResponse
 
-instance Prelude.NFData IntegrationResponse
+instance Core.NFData IntegrationResponse

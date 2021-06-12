@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.VoiceMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for a one-time voice message that\'s sent
 -- directly to an endpoint through the voice channel.
@@ -32,24 +31,24 @@ data VoiceMessage = VoiceMessage'
     -- message script. For a list of supported languages and the code for each
     -- one, see the
     -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-    languageCode :: Prelude.Maybe Prelude.Text,
+    languageCode :: Core.Maybe Core.Text,
     -- | The name of the voice to use when delivering the message. For a list of
     -- supported voices, see the
     -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-    voiceId :: Prelude.Maybe Prelude.Text,
+    voiceId :: Core.Maybe Core.Text,
     -- | The text of the script to use for the voice message.
-    body :: Prelude.Maybe Prelude.Text,
+    body :: Core.Maybe Core.Text,
     -- | The default message variables to use in the voice message. You can
     -- override the default variables with individual address variables.
-    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The long code to send the voice message from. This value should be one
     -- of the dedicated long codes that\'s assigned to your AWS account.
     -- Although it isn\'t required, we recommend that you specify the long code
     -- in E.164 format, for example +12065550100, to ensure prompt and accurate
     -- delivery of the message.
-    originationNumber :: Prelude.Maybe Prelude.Text
+    originationNumber :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VoiceMessage' with all optional fields omitted.
@@ -82,58 +81,56 @@ newVoiceMessage ::
   VoiceMessage
 newVoiceMessage =
   VoiceMessage'
-    { languageCode = Prelude.Nothing,
-      voiceId = Prelude.Nothing,
-      body = Prelude.Nothing,
-      substitutions = Prelude.Nothing,
-      originationNumber = Prelude.Nothing
+    { languageCode = Core.Nothing,
+      voiceId = Core.Nothing,
+      body = Core.Nothing,
+      substitutions = Core.Nothing,
+      originationNumber = Core.Nothing
     }
 
 -- | The code for the language to use when synthesizing the text of the
 -- message script. For a list of supported languages and the code for each
 -- one, see the
 -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-voiceMessage_languageCode :: Lens.Lens' VoiceMessage (Prelude.Maybe Prelude.Text)
+voiceMessage_languageCode :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
 voiceMessage_languageCode = Lens.lens (\VoiceMessage' {languageCode} -> languageCode) (\s@VoiceMessage' {} a -> s {languageCode = a} :: VoiceMessage)
 
 -- | The name of the voice to use when delivering the message. For a list of
 -- supported voices, see the
 -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
-voiceMessage_voiceId :: Lens.Lens' VoiceMessage (Prelude.Maybe Prelude.Text)
+voiceMessage_voiceId :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
 voiceMessage_voiceId = Lens.lens (\VoiceMessage' {voiceId} -> voiceId) (\s@VoiceMessage' {} a -> s {voiceId = a} :: VoiceMessage)
 
 -- | The text of the script to use for the voice message.
-voiceMessage_body :: Lens.Lens' VoiceMessage (Prelude.Maybe Prelude.Text)
+voiceMessage_body :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
 voiceMessage_body = Lens.lens (\VoiceMessage' {body} -> body) (\s@VoiceMessage' {} a -> s {body = a} :: VoiceMessage)
 
 -- | The default message variables to use in the voice message. You can
 -- override the default variables with individual address variables.
-voiceMessage_substitutions :: Lens.Lens' VoiceMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-voiceMessage_substitutions = Lens.lens (\VoiceMessage' {substitutions} -> substitutions) (\s@VoiceMessage' {} a -> s {substitutions = a} :: VoiceMessage) Prelude.. Lens.mapping Prelude._Coerce
+voiceMessage_substitutions :: Lens.Lens' VoiceMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+voiceMessage_substitutions = Lens.lens (\VoiceMessage' {substitutions} -> substitutions) (\s@VoiceMessage' {} a -> s {substitutions = a} :: VoiceMessage) Core.. Lens.mapping Lens._Coerce
 
 -- | The long code to send the voice message from. This value should be one
 -- of the dedicated long codes that\'s assigned to your AWS account.
 -- Although it isn\'t required, we recommend that you specify the long code
 -- in E.164 format, for example +12065550100, to ensure prompt and accurate
 -- delivery of the message.
-voiceMessage_originationNumber :: Lens.Lens' VoiceMessage (Prelude.Maybe Prelude.Text)
+voiceMessage_originationNumber :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
 voiceMessage_originationNumber = Lens.lens (\VoiceMessage' {originationNumber} -> originationNumber) (\s@VoiceMessage' {} a -> s {originationNumber = a} :: VoiceMessage)
 
-instance Prelude.Hashable VoiceMessage
+instance Core.Hashable VoiceMessage
 
-instance Prelude.NFData VoiceMessage
+instance Core.NFData VoiceMessage
 
-instance Prelude.ToJSON VoiceMessage where
+instance Core.ToJSON VoiceMessage where
   toJSON VoiceMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LanguageCode" Prelude..=)
-              Prelude.<$> languageCode,
-            ("VoiceId" Prelude..=) Prelude.<$> voiceId,
-            ("Body" Prelude..=) Prelude.<$> body,
-            ("Substitutions" Prelude..=)
-              Prelude.<$> substitutions,
-            ("OriginationNumber" Prelude..=)
-              Prelude.<$> originationNumber
+    Core.object
+      ( Core.catMaybes
+          [ ("LanguageCode" Core..=) Core.<$> languageCode,
+            ("VoiceId" Core..=) Core.<$> voiceId,
+            ("Body" Core..=) Core.<$> body,
+            ("Substitutions" Core..=) Core.<$> substitutions,
+            ("OriginationNumber" Core..=)
+              Core.<$> originationNumber
           ]
       )

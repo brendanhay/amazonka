@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.Lambda.DeleteFunctionCodeSigningConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data DeleteFunctionCodeSigningConfig = DeleteFunctionCodeSigningConfig'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it is limited to 64 characters in length.
-    functionName :: Prelude.Text
+    functionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionCodeSigningConfig' with all optional fields omitted.
@@ -84,7 +83,7 @@ data DeleteFunctionCodeSigningConfig = DeleteFunctionCodeSigningConfig'
 -- the function name, it is limited to 64 characters in length.
 newDeleteFunctionCodeSigningConfig ::
   -- | 'functionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFunctionCodeSigningConfig
 newDeleteFunctionCodeSigningConfig pFunctionName_ =
   DeleteFunctionCodeSigningConfig'
@@ -105,15 +104,15 @@ newDeleteFunctionCodeSigningConfig pFunctionName_ =
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it is limited to 64 characters in length.
-deleteFunctionCodeSigningConfig_functionName :: Lens.Lens' DeleteFunctionCodeSigningConfig Prelude.Text
+deleteFunctionCodeSigningConfig_functionName :: Lens.Lens' DeleteFunctionCodeSigningConfig Core.Text
 deleteFunctionCodeSigningConfig_functionName = Lens.lens (\DeleteFunctionCodeSigningConfig' {functionName} -> functionName) (\s@DeleteFunctionCodeSigningConfig' {} a -> s {functionName = a} :: DeleteFunctionCodeSigningConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteFunctionCodeSigningConfig
   where
   type
-    Rs DeleteFunctionCodeSigningConfig =
+    AWSResponse DeleteFunctionCodeSigningConfig =
       DeleteFunctionCodeSigningConfigResponse
   request = Request.delete defaultService
   response =
@@ -121,41 +120,33 @@ instance
       DeleteFunctionCodeSigningConfigResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteFunctionCodeSigningConfig
 
-instance
-  Prelude.NFData
-    DeleteFunctionCodeSigningConfig
+instance Core.NFData DeleteFunctionCodeSigningConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteFunctionCodeSigningConfig
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteFunctionCodeSigningConfig
-  where
+instance Core.ToPath DeleteFunctionCodeSigningConfig where
   toPath DeleteFunctionCodeSigningConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-06-30/functions/",
-        Prelude.toBS functionName,
+        Core.toBS functionName,
         "/code-signing-config"
       ]
 
-instance
-  Prelude.ToQuery
-    DeleteFunctionCodeSigningConfig
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteFunctionCodeSigningConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFunctionCodeSigningConfigResponse' smart constructor.
 data DeleteFunctionCodeSigningConfigResponse = DeleteFunctionCodeSigningConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionCodeSigningConfigResponse' with all optional fields omitted.
@@ -167,5 +158,5 @@ newDeleteFunctionCodeSigningConfigResponse =
   DeleteFunctionCodeSigningConfigResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteFunctionCodeSigningConfigResponse

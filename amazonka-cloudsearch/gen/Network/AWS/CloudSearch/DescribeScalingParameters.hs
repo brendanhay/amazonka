@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeScalingParameters' smart constructor.
 data DescribeScalingParameters = DescribeScalingParameters'
-  { domainName :: Prelude.Text
+  { domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingParameters' with all optional fields omitted.
@@ -70,7 +69,7 @@ data DescribeScalingParameters = DescribeScalingParameters'
 -- 'domainName', 'describeScalingParameters_domainName' - Undocumented member.
 newDescribeScalingParameters ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeScalingParameters
 newDescribeScalingParameters pDomainName_ =
   DescribeScalingParameters'
@@ -79,12 +78,12 @@ newDescribeScalingParameters pDomainName_ =
     }
 
 -- | Undocumented member.
-describeScalingParameters_domainName :: Lens.Lens' DescribeScalingParameters Prelude.Text
+describeScalingParameters_domainName :: Lens.Lens' DescribeScalingParameters Core.Text
 describeScalingParameters_domainName = Lens.lens (\DescribeScalingParameters' {domainName} -> domainName) (\s@DescribeScalingParameters' {} a -> s {domainName = a} :: DescribeScalingParameters)
 
-instance Prelude.AWSRequest DescribeScalingParameters where
+instance Core.AWSRequest DescribeScalingParameters where
   type
-    Rs DescribeScalingParameters =
+    AWSResponse DescribeScalingParameters =
       DescribeScalingParametersResponse
   request = Request.postQuery defaultService
   response =
@@ -92,28 +91,27 @@ instance Prelude.AWSRequest DescribeScalingParameters where
       "DescribeScalingParametersResult"
       ( \s h x ->
           DescribeScalingParametersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ScalingParameters")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ScalingParameters")
       )
 
-instance Prelude.Hashable DescribeScalingParameters
+instance Core.Hashable DescribeScalingParameters
 
-instance Prelude.NFData DescribeScalingParameters
+instance Core.NFData DescribeScalingParameters
 
-instance Prelude.ToHeaders DescribeScalingParameters where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeScalingParameters where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeScalingParameters where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeScalingParameters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeScalingParameters where
+instance Core.ToQuery DescribeScalingParameters where
   toQuery DescribeScalingParameters' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeScalingParameters" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName
+          Core.=: ("DescribeScalingParameters" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName
       ]
 
 -- | The result of a @DescribeScalingParameters@ request. Contains the
@@ -122,10 +120,10 @@ instance Prelude.ToQuery DescribeScalingParameters where
 -- /See:/ 'newDescribeScalingParametersResponse' smart constructor.
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     scalingParameters :: ScalingParametersStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingParametersResponse' with all optional fields omitted.
@@ -140,7 +138,7 @@ data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
 -- 'scalingParameters', 'describeScalingParametersResponse_scalingParameters' - Undocumented member.
 newDescribeScalingParametersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'scalingParameters'
   ScalingParametersStatus ->
   DescribeScalingParametersResponse
@@ -154,7 +152,7 @@ newDescribeScalingParametersResponse
       }
 
 -- | The response's http status code.
-describeScalingParametersResponse_httpStatus :: Lens.Lens' DescribeScalingParametersResponse Prelude.Int
+describeScalingParametersResponse_httpStatus :: Lens.Lens' DescribeScalingParametersResponse Core.Int
 describeScalingParametersResponse_httpStatus = Lens.lens (\DescribeScalingParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingParametersResponse' {} a -> s {httpStatus = a} :: DescribeScalingParametersResponse)
 
 -- | Undocumented member.
@@ -162,5 +160,5 @@ describeScalingParametersResponse_scalingParameters :: Lens.Lens' DescribeScalin
 describeScalingParametersResponse_scalingParameters = Lens.lens (\DescribeScalingParametersResponse' {scalingParameters} -> scalingParameters) (\s@DescribeScalingParametersResponse' {} a -> s {scalingParameters = a} :: DescribeScalingParametersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeScalingParametersResponse

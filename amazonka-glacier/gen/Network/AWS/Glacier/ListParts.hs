@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,10 +77,9 @@ module Network.AWS.Glacier.ListParts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,25 +91,25 @@ data ListParts = ListParts'
   { -- | The maximum number of parts to be returned. The default limit is 50. The
     -- number of parts returned might be fewer than the specified limit, but
     -- the number of returned parts never exceeds the limit.
-    limit :: Prelude.Maybe Prelude.Text,
+    limit :: Core.Maybe Core.Text,
     -- | An opaque string used for pagination. This value specifies the part at
     -- which the listing of parts should begin. Get the marker value from the
     -- response of a previous List Parts response. You need only include the
     -- marker if you are continuing the pagination of results started in a
     -- previous List Parts request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text,
+    vaultName :: Core.Text,
     -- | The upload ID of the multipart upload.
-    uploadId :: Prelude.Text
+    uploadId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListParts' with all optional fields omitted.
@@ -142,16 +140,16 @@ data ListParts = ListParts'
 -- 'uploadId', 'listParts_uploadId' - The upload ID of the multipart upload.
 newListParts ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'uploadId'
-  Prelude.Text ->
+  Core.Text ->
   ListParts
 newListParts pAccountId_ pVaultName_ pUploadId_ =
   ListParts'
-    { limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { limit = Core.Nothing,
+      marker = Core.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_,
       uploadId = pUploadId_
@@ -160,7 +158,7 @@ newListParts pAccountId_ pVaultName_ pUploadId_ =
 -- | The maximum number of parts to be returned. The default limit is 50. The
 -- number of parts returned might be fewer than the specified limit, but
 -- the number of returned parts never exceeds the limit.
-listParts_limit :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
+listParts_limit :: Lens.Lens' ListParts (Core.Maybe Core.Text)
 listParts_limit = Lens.lens (\ListParts' {limit} -> limit) (\s@ListParts' {} a -> s {limit = a} :: ListParts)
 
 -- | An opaque string used for pagination. This value specifies the part at
@@ -168,7 +166,7 @@ listParts_limit = Lens.lens (\ListParts' {limit} -> limit) (\s@ListParts' {} a -
 -- response of a previous List Parts response. You need only include the
 -- marker if you are continuing the pagination of results started in a
 -- previous List Parts request.
-listParts_marker :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
+listParts_marker :: Lens.Lens' ListParts (Core.Maybe Core.Text)
 listParts_marker = Lens.lens (\ListParts' {marker} -> marker) (\s@ListParts' {} a -> s {marker = a} :: ListParts)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -176,79 +174,76 @@ listParts_marker = Lens.lens (\ListParts' {marker} -> marker) (\s@ListParts' {} 
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-listParts_accountId :: Lens.Lens' ListParts Prelude.Text
+listParts_accountId :: Lens.Lens' ListParts Core.Text
 listParts_accountId = Lens.lens (\ListParts' {accountId} -> accountId) (\s@ListParts' {} a -> s {accountId = a} :: ListParts)
 
 -- | The name of the vault.
-listParts_vaultName :: Lens.Lens' ListParts Prelude.Text
+listParts_vaultName :: Lens.Lens' ListParts Core.Text
 listParts_vaultName = Lens.lens (\ListParts' {vaultName} -> vaultName) (\s@ListParts' {} a -> s {vaultName = a} :: ListParts)
 
 -- | The upload ID of the multipart upload.
-listParts_uploadId :: Lens.Lens' ListParts Prelude.Text
+listParts_uploadId :: Lens.Lens' ListParts Core.Text
 listParts_uploadId = Lens.lens (\ListParts' {uploadId} -> uploadId) (\s@ListParts' {} a -> s {uploadId = a} :: ListParts)
 
-instance Pager.AWSPager ListParts where
+instance Core.AWSPager ListParts where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listPartsResponse_marker Prelude.. Lens._Just
+            Lens.^? listPartsResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listPartsResponse_parts Prelude.. Lens._Just
+            Lens.^? listPartsResponse_parts Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listParts_marker
-          Lens..~ rs
-          Lens.^? listPartsResponse_marker Prelude.. Lens._Just
+          Lens..~ rs Lens.^? listPartsResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListParts where
-  type Rs ListParts = ListPartsResponse
+instance Core.AWSRequest ListParts where
+  type AWSResponse ListParts = ListPartsResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPartsResponse'
-            Prelude.<$> (x Prelude..?> "PartSizeInBytes")
-            Prelude.<*> (x Prelude..?> "CreationDate")
-            Prelude.<*> (x Prelude..?> "VaultARN")
-            Prelude.<*> (x Prelude..?> "ArchiveDescription")
-            Prelude.<*> (x Prelude..?> "Parts" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "MultipartUploadId")
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PartSizeInBytes")
+            Core.<*> (x Core..?> "CreationDate")
+            Core.<*> (x Core..?> "VaultARN")
+            Core.<*> (x Core..?> "ArchiveDescription")
+            Core.<*> (x Core..?> "Parts" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "MultipartUploadId")
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListParts
+instance Core.Hashable ListParts
 
-instance Prelude.NFData ListParts
+instance Core.NFData ListParts
 
-instance Prelude.ToHeaders ListParts where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListParts where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListParts where
+instance Core.ToPath ListParts where
   toPath ListParts' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/multipart-uploads/",
-        Prelude.toBS uploadId
+        Core.toBS uploadId
       ]
 
-instance Prelude.ToQuery ListParts where
+instance Core.ToQuery ListParts where
   toQuery ListParts' {..} =
-    Prelude.mconcat
-      [ "limit" Prelude.=: limit,
-        "marker" Prelude.=: marker
-      ]
+    Core.mconcat
+      ["limit" Core.=: limit, "marker" Core.=: marker]
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -256,28 +251,28 @@ instance Prelude.ToQuery ListParts where
 data ListPartsResponse = ListPartsResponse'
   { -- | The part size in bytes. This is the same value that you specified in the
     -- Initiate Multipart Upload request.
-    partSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    partSizeInBytes :: Core.Maybe Core.Integer,
     -- | The UTC time at which the multipart upload was initiated.
-    creationDate :: Prelude.Maybe Prelude.Text,
+    creationDate :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the vault to which the multipart
     -- upload was initiated.
-    vaultARN :: Prelude.Maybe Prelude.Text,
+    vaultARN :: Core.Maybe Core.Text,
     -- | The description of the archive that was specified in the Initiate
     -- Multipart Upload request.
-    archiveDescription :: Prelude.Maybe Prelude.Text,
+    archiveDescription :: Core.Maybe Core.Text,
     -- | A list of the part sizes of the multipart upload. Each object in the
     -- array contains a @RangeBytes@ and @sha256-tree-hash@ name\/value pair.
-    parts :: Prelude.Maybe [PartListElement],
+    parts :: Core.Maybe [PartListElement],
     -- | The ID of the upload to which the parts are associated.
-    multipartUploadId :: Prelude.Maybe Prelude.Text,
+    multipartUploadId :: Core.Maybe Core.Text,
     -- | An opaque string that represents where to continue pagination of the
     -- results. You use the marker in a new List Parts request to obtain more
     -- jobs in the list. If there are no more parts, this value is @null@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPartsResponse' with all optional fields omitted.
@@ -310,57 +305,56 @@ data ListPartsResponse = ListPartsResponse'
 -- 'httpStatus', 'listPartsResponse_httpStatus' - The response's http status code.
 newListPartsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPartsResponse
 newListPartsResponse pHttpStatus_ =
   ListPartsResponse'
-    { partSizeInBytes =
-        Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      vaultARN = Prelude.Nothing,
-      archiveDescription = Prelude.Nothing,
-      parts = Prelude.Nothing,
-      multipartUploadId = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { partSizeInBytes = Core.Nothing,
+      creationDate = Core.Nothing,
+      vaultARN = Core.Nothing,
+      archiveDescription = Core.Nothing,
+      parts = Core.Nothing,
+      multipartUploadId = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The part size in bytes. This is the same value that you specified in the
 -- Initiate Multipart Upload request.
-listPartsResponse_partSizeInBytes :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Integer)
+listPartsResponse_partSizeInBytes :: Lens.Lens' ListPartsResponse (Core.Maybe Core.Integer)
 listPartsResponse_partSizeInBytes = Lens.lens (\ListPartsResponse' {partSizeInBytes} -> partSizeInBytes) (\s@ListPartsResponse' {} a -> s {partSizeInBytes = a} :: ListPartsResponse)
 
 -- | The UTC time at which the multipart upload was initiated.
-listPartsResponse_creationDate :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_creationDate :: Lens.Lens' ListPartsResponse (Core.Maybe Core.Text)
 listPartsResponse_creationDate = Lens.lens (\ListPartsResponse' {creationDate} -> creationDate) (\s@ListPartsResponse' {} a -> s {creationDate = a} :: ListPartsResponse)
 
 -- | The Amazon Resource Name (ARN) of the vault to which the multipart
 -- upload was initiated.
-listPartsResponse_vaultARN :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_vaultARN :: Lens.Lens' ListPartsResponse (Core.Maybe Core.Text)
 listPartsResponse_vaultARN = Lens.lens (\ListPartsResponse' {vaultARN} -> vaultARN) (\s@ListPartsResponse' {} a -> s {vaultARN = a} :: ListPartsResponse)
 
 -- | The description of the archive that was specified in the Initiate
 -- Multipart Upload request.
-listPartsResponse_archiveDescription :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_archiveDescription :: Lens.Lens' ListPartsResponse (Core.Maybe Core.Text)
 listPartsResponse_archiveDescription = Lens.lens (\ListPartsResponse' {archiveDescription} -> archiveDescription) (\s@ListPartsResponse' {} a -> s {archiveDescription = a} :: ListPartsResponse)
 
 -- | A list of the part sizes of the multipart upload. Each object in the
 -- array contains a @RangeBytes@ and @sha256-tree-hash@ name\/value pair.
-listPartsResponse_parts :: Lens.Lens' ListPartsResponse (Prelude.Maybe [PartListElement])
-listPartsResponse_parts = Lens.lens (\ListPartsResponse' {parts} -> parts) (\s@ListPartsResponse' {} a -> s {parts = a} :: ListPartsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPartsResponse_parts :: Lens.Lens' ListPartsResponse (Core.Maybe [PartListElement])
+listPartsResponse_parts = Lens.lens (\ListPartsResponse' {parts} -> parts) (\s@ListPartsResponse' {} a -> s {parts = a} :: ListPartsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the upload to which the parts are associated.
-listPartsResponse_multipartUploadId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_multipartUploadId :: Lens.Lens' ListPartsResponse (Core.Maybe Core.Text)
 listPartsResponse_multipartUploadId = Lens.lens (\ListPartsResponse' {multipartUploadId} -> multipartUploadId) (\s@ListPartsResponse' {} a -> s {multipartUploadId = a} :: ListPartsResponse)
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Parts request to obtain more
 -- jobs in the list. If there are no more parts, this value is @null@.
-listPartsResponse_marker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_marker :: Lens.Lens' ListPartsResponse (Core.Maybe Core.Text)
 listPartsResponse_marker = Lens.lens (\ListPartsResponse' {marker} -> marker) (\s@ListPartsResponse' {} a -> s {marker = a} :: ListPartsResponse)
 
 -- | The response's http status code.
-listPartsResponse_httpStatus :: Lens.Lens' ListPartsResponse Prelude.Int
+listPartsResponse_httpStatus :: Lens.Lens' ListPartsResponse Core.Int
 listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> httpStatus) (\s@ListPartsResponse' {} a -> s {httpStatus = a} :: ListPartsResponse)
 
-instance Prelude.NFData ListPartsResponse
+instance Core.NFData ListPartsResponse

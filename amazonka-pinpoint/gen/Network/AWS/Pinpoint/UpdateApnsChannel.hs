@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.UpdateApnsChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data UpdateApnsChannel = UpdateApnsChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     aPNSChannelRequest :: APNSChannelRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApnsChannel' with all optional fields omitted.
@@ -71,7 +70,7 @@ data UpdateApnsChannel = UpdateApnsChannel'
 -- 'aPNSChannelRequest', 'updateApnsChannel_aPNSChannelRequest' - Undocumented member.
 newUpdateApnsChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'aPNSChannelRequest'
   APNSChannelRequest ->
   UpdateApnsChannel
@@ -85,68 +84,66 @@ newUpdateApnsChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateApnsChannel_applicationId :: Lens.Lens' UpdateApnsChannel Prelude.Text
+updateApnsChannel_applicationId :: Lens.Lens' UpdateApnsChannel Core.Text
 updateApnsChannel_applicationId = Lens.lens (\UpdateApnsChannel' {applicationId} -> applicationId) (\s@UpdateApnsChannel' {} a -> s {applicationId = a} :: UpdateApnsChannel)
 
 -- | Undocumented member.
 updateApnsChannel_aPNSChannelRequest :: Lens.Lens' UpdateApnsChannel APNSChannelRequest
 updateApnsChannel_aPNSChannelRequest = Lens.lens (\UpdateApnsChannel' {aPNSChannelRequest} -> aPNSChannelRequest) (\s@UpdateApnsChannel' {} a -> s {aPNSChannelRequest = a} :: UpdateApnsChannel)
 
-instance Prelude.AWSRequest UpdateApnsChannel where
-  type Rs UpdateApnsChannel = UpdateApnsChannelResponse
+instance Core.AWSRequest UpdateApnsChannel where
+  type
+    AWSResponse UpdateApnsChannel =
+      UpdateApnsChannelResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateApnsChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateApnsChannel
+instance Core.Hashable UpdateApnsChannel
 
-instance Prelude.NFData UpdateApnsChannel
+instance Core.NFData UpdateApnsChannel
 
-instance Prelude.ToHeaders UpdateApnsChannel where
+instance Core.ToHeaders UpdateApnsChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateApnsChannel where
+instance Core.ToJSON UpdateApnsChannel where
   toJSON UpdateApnsChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "APNSChannelRequest"
-                  Prelude..= aPNSChannelRequest
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("APNSChannelRequest" Core..= aPNSChannelRequest)
           ]
       )
 
-instance Prelude.ToPath UpdateApnsChannel where
+instance Core.ToPath UpdateApnsChannel where
   toPath UpdateApnsChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/apns"
       ]
 
-instance Prelude.ToQuery UpdateApnsChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateApnsChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateApnsChannelResponse' smart constructor.
 data UpdateApnsChannelResponse = UpdateApnsChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     aPNSChannelResponse :: APNSChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApnsChannelResponse' with all optional fields omitted.
@@ -161,7 +158,7 @@ data UpdateApnsChannelResponse = UpdateApnsChannelResponse'
 -- 'aPNSChannelResponse', 'updateApnsChannelResponse_aPNSChannelResponse' - Undocumented member.
 newUpdateApnsChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'aPNSChannelResponse'
   APNSChannelResponse ->
   UpdateApnsChannelResponse
@@ -175,11 +172,11 @@ newUpdateApnsChannelResponse
       }
 
 -- | The response's http status code.
-updateApnsChannelResponse_httpStatus :: Lens.Lens' UpdateApnsChannelResponse Prelude.Int
+updateApnsChannelResponse_httpStatus :: Lens.Lens' UpdateApnsChannelResponse Core.Int
 updateApnsChannelResponse_httpStatus = Lens.lens (\UpdateApnsChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateApnsChannelResponse' {} a -> s {httpStatus = a} :: UpdateApnsChannelResponse)
 
 -- | Undocumented member.
 updateApnsChannelResponse_aPNSChannelResponse :: Lens.Lens' UpdateApnsChannelResponse APNSChannelResponse
 updateApnsChannelResponse_aPNSChannelResponse = Lens.lens (\UpdateApnsChannelResponse' {aPNSChannelResponse} -> aPNSChannelResponse) (\s@UpdateApnsChannelResponse' {} a -> s {aPNSChannelResponse = a} :: UpdateApnsChannelResponse)
 
-instance Prelude.NFData UpdateApnsChannelResponse
+instance Core.NFData UpdateApnsChannelResponse

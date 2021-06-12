@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,9 +73,9 @@ data DescribeStackDriftDetectionStatus = DescribeStackDriftDetectionStatus'
     -- each time this operation is run. However, the number of drift results
     -- AWS CloudFormation retains for any given stack, and for how long, may
     -- vary.
-    stackDriftDetectionId :: Prelude.Text
+    stackDriftDetectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackDriftDetectionStatus' with all optional fields omitted.
@@ -94,7 +93,7 @@ data DescribeStackDriftDetectionStatus = DescribeStackDriftDetectionStatus'
 -- vary.
 newDescribeStackDriftDetectionStatus ::
   -- | 'stackDriftDetectionId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeStackDriftDetectionStatus
 newDescribeStackDriftDetectionStatus
   pStackDriftDetectionId_ =
@@ -109,15 +108,15 @@ newDescribeStackDriftDetectionStatus
 -- each time this operation is run. However, the number of drift results
 -- AWS CloudFormation retains for any given stack, and for how long, may
 -- vary.
-describeStackDriftDetectionStatus_stackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatus Prelude.Text
+describeStackDriftDetectionStatus_stackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatus Core.Text
 describeStackDriftDetectionStatus_stackDriftDetectionId = Lens.lens (\DescribeStackDriftDetectionStatus' {stackDriftDetectionId} -> stackDriftDetectionId) (\s@DescribeStackDriftDetectionStatus' {} a -> s {stackDriftDetectionId = a} :: DescribeStackDriftDetectionStatus)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeStackDriftDetectionStatus
   where
   type
-    Rs DescribeStackDriftDetectionStatus =
+    AWSResponse DescribeStackDriftDetectionStatus =
       DescribeStackDriftDetectionStatusResponse
   request = Request.postQuery defaultService
   response =
@@ -125,50 +124,49 @@ instance
       "DescribeStackDriftDetectionStatusResult"
       ( \s h x ->
           DescribeStackDriftDetectionStatusResponse'
-            Prelude.<$> (x Prelude..@? "StackDriftStatus")
-              Prelude.<*> (x Prelude..@? "DetectionStatusReason")
-              Prelude.<*> (x Prelude..@? "DriftedStackResourceCount")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Prelude..@ "StackId")
-              Prelude.<*> (x Prelude..@ "StackDriftDetectionId")
-              Prelude.<*> (x Prelude..@ "DetectionStatus")
-              Prelude.<*> (x Prelude..@ "Timestamp")
+            Core.<$> (x Core..@? "StackDriftStatus")
+            Core.<*> (x Core..@? "DetectionStatusReason")
+            Core.<*> (x Core..@? "DriftedStackResourceCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "StackId")
+            Core.<*> (x Core..@ "StackDriftDetectionId")
+            Core.<*> (x Core..@ "DetectionStatus")
+            Core.<*> (x Core..@ "Timestamp")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeStackDriftDetectionStatus
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeStackDriftDetectionStatus
 
 instance
-  Prelude.ToHeaders
-    DescribeStackDriftDetectionStatus
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeStackDriftDetectionStatus
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeStackDriftDetectionStatus
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeStackDriftDetectionStatus
   where
   toQuery DescribeStackDriftDetectionStatus' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeStackDriftDetectionStatus" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
+          Core.=: ( "DescribeStackDriftDetectionStatus" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
         "StackDriftDetectionId"
-          Prelude.=: stackDriftDetectionId
+          Core.=: stackDriftDetectionId
       ]
 
 -- | /See:/ 'newDescribeStackDriftDetectionStatusResponse' smart constructor.
@@ -187,23 +185,23 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     --     template configuration.
     --
     -- -   @UNKNOWN@: This value is reserved for future use.
-    stackDriftStatus :: Prelude.Maybe StackDriftStatus,
+    stackDriftStatus :: Core.Maybe StackDriftStatus,
     -- | The reason the stack drift detection operation has its current status.
-    detectionStatusReason :: Prelude.Maybe Prelude.Text,
+    detectionStatusReason :: Core.Maybe Core.Text,
     -- | Total number of stack resources that have drifted. This is NULL until
     -- the drift detection operation reaches a status of @DETECTION_COMPLETE@.
     -- This value will be 0 for stacks whose drift status is @IN_SYNC@.
-    driftedStackResourceCount :: Prelude.Maybe Prelude.Int,
+    driftedStackResourceCount :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ID of the stack.
-    stackId :: Prelude.Text,
+    stackId :: Core.Text,
     -- | The ID of the drift detection results of this operation.
     --
     -- AWS CloudFormation generates new results, with a new drift detection ID,
     -- each time this operation is run. However, the number of reports AWS
     -- CloudFormation retains for any given stack, and for how long, may vary.
-    stackDriftDetectionId :: Prelude.Text,
+    stackDriftDetectionId :: Core.Text,
     -- | The status of the stack drift detection operation.
     --
     -- -   @DETECTION_COMPLETE@: The stack drift detection operation has
@@ -224,9 +222,9 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     --     currently in progress.
     detectionStatus :: StackDriftDetectionStatus,
     -- | Time at which the stack drift detection operation was initiated.
-    timestamp :: Prelude.ISO8601
+    timestamp :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackDriftDetectionStatusResponse' with all optional fields omitted.
@@ -289,15 +287,15 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 -- 'timestamp', 'describeStackDriftDetectionStatusResponse_timestamp' - Time at which the stack drift detection operation was initiated.
 newDescribeStackDriftDetectionStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stackDriftDetectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'detectionStatus'
   StackDriftDetectionStatus ->
   -- | 'timestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   DescribeStackDriftDetectionStatusResponse
 newDescribeStackDriftDetectionStatusResponse
   pHttpStatus_
@@ -307,11 +305,11 @@ newDescribeStackDriftDetectionStatusResponse
   pTimestamp_ =
     DescribeStackDriftDetectionStatusResponse'
       { stackDriftStatus =
-          Prelude.Nothing,
+          Core.Nothing,
         detectionStatusReason =
-          Prelude.Nothing,
+          Core.Nothing,
         driftedStackResourceCount =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
         stackId = pStackId_,
         stackDriftDetectionId =
@@ -319,8 +317,7 @@ newDescribeStackDriftDetectionStatusResponse
         detectionStatus =
           pDetectionStatus_,
         timestamp =
-          Prelude._Time
-            Lens.# pTimestamp_
+          Core._Time Lens.# pTimestamp_
       }
 
 -- | Status of the stack\'s actual configuration compared to its expected
@@ -337,25 +334,25 @@ newDescribeStackDriftDetectionStatusResponse
 --     template configuration.
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
-describeStackDriftDetectionStatusResponse_stackDriftStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe StackDriftStatus)
+describeStackDriftDetectionStatusResponse_stackDriftStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Core.Maybe StackDriftStatus)
 describeStackDriftDetectionStatusResponse_stackDriftStatus = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {stackDriftStatus} -> stackDriftStatus) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {stackDriftStatus = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | The reason the stack drift detection operation has its current status.
-describeStackDriftDetectionStatusResponse_detectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe Prelude.Text)
+describeStackDriftDetectionStatusResponse_detectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Core.Maybe Core.Text)
 describeStackDriftDetectionStatusResponse_detectionStatusReason = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {detectionStatusReason} -> detectionStatusReason) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {detectionStatusReason = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | Total number of stack resources that have drifted. This is NULL until
 -- the drift detection operation reaches a status of @DETECTION_COMPLETE@.
 -- This value will be 0 for stacks whose drift status is @IN_SYNC@.
-describeStackDriftDetectionStatusResponse_driftedStackResourceCount :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe Prelude.Int)
+describeStackDriftDetectionStatusResponse_driftedStackResourceCount :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Core.Maybe Core.Int)
 describeStackDriftDetectionStatusResponse_driftedStackResourceCount = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {driftedStackResourceCount} -> driftedStackResourceCount) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {driftedStackResourceCount = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | The response's http status code.
-describeStackDriftDetectionStatusResponse_httpStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Prelude.Int
+describeStackDriftDetectionStatusResponse_httpStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Core.Int
 describeStackDriftDetectionStatusResponse_httpStatus = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {httpStatus = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | The ID of the stack.
-describeStackDriftDetectionStatusResponse_stackId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Prelude.Text
+describeStackDriftDetectionStatusResponse_stackId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Core.Text
 describeStackDriftDetectionStatusResponse_stackId = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {stackId} -> stackId) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {stackId = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | The ID of the drift detection results of this operation.
@@ -363,7 +360,7 @@ describeStackDriftDetectionStatusResponse_stackId = Lens.lens (\DescribeStackDri
 -- AWS CloudFormation generates new results, with a new drift detection ID,
 -- each time this operation is run. However, the number of reports AWS
 -- CloudFormation retains for any given stack, and for how long, may vary.
-describeStackDriftDetectionStatusResponse_stackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Prelude.Text
+describeStackDriftDetectionStatusResponse_stackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Core.Text
 describeStackDriftDetectionStatusResponse_stackDriftDetectionId = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {stackDriftDetectionId} -> stackDriftDetectionId) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {stackDriftDetectionId = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | The status of the stack drift detection operation.
@@ -388,9 +385,9 @@ describeStackDriftDetectionStatusResponse_detectionStatus :: Lens.Lens' Describe
 describeStackDriftDetectionStatusResponse_detectionStatus = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {detectionStatus} -> detectionStatus) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {detectionStatus = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | Time at which the stack drift detection operation was initiated.
-describeStackDriftDetectionStatusResponse_timestamp :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Prelude.UTCTime
-describeStackDriftDetectionStatusResponse_timestamp = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {timestamp} -> timestamp) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {timestamp = a} :: DescribeStackDriftDetectionStatusResponse) Prelude.. Prelude._Time
+describeStackDriftDetectionStatusResponse_timestamp :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Core.UTCTime
+describeStackDriftDetectionStatusResponse_timestamp = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {timestamp} -> timestamp) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {timestamp = a} :: DescribeStackDriftDetectionStatusResponse) Core.. Core._Time
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeStackDriftDetectionStatusResponse

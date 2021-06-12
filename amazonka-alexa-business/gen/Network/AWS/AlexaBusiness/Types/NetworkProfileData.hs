@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AlexaBusiness.Types.NetworkProfileData where
 
 import Network.AWS.AlexaBusiness.Types.NetworkEapMethod
 import Network.AWS.AlexaBusiness.Types.NetworkSecurityType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The data associated with a network profile.
 --
@@ -32,23 +31,23 @@ data NetworkProfileData = NetworkProfileData'
   { -- | The ARN of the Private Certificate Authority (PCA) created in AWS
     -- Certificate Manager (ACM). This is used to issue certificates to the
     -- devices.
-    certificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    certificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The authentication standard that is used in the EAP framework.
     -- Currently, EAP_TLS is supported.
-    eapMethod :: Prelude.Maybe NetworkEapMethod,
+    eapMethod :: Core.Maybe NetworkEapMethod,
     -- | The name of the network profile associated with a device.
-    networkProfileName :: Prelude.Maybe Prelude.Text,
+    networkProfileName :: Core.Maybe Core.Text,
     -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
     -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
-    securityType :: Prelude.Maybe NetworkSecurityType,
+    securityType :: Core.Maybe NetworkSecurityType,
     -- | Detailed information about a device\'s network profile.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ARN of the network profile associated with a device.
-    networkProfileArn :: Prelude.Maybe Prelude.Text,
+    networkProfileArn :: Core.Maybe Core.Text,
     -- | The SSID of the Wi-Fi network.
-    ssid :: Prelude.Maybe Prelude.Text
+    ssid :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkProfileData' with all optional fields omitted.
@@ -80,62 +79,62 @@ newNetworkProfileData ::
 newNetworkProfileData =
   NetworkProfileData'
     { certificateAuthorityArn =
-        Prelude.Nothing,
-      eapMethod = Prelude.Nothing,
-      networkProfileName = Prelude.Nothing,
-      securityType = Prelude.Nothing,
-      description = Prelude.Nothing,
-      networkProfileArn = Prelude.Nothing,
-      ssid = Prelude.Nothing
+        Core.Nothing,
+      eapMethod = Core.Nothing,
+      networkProfileName = Core.Nothing,
+      securityType = Core.Nothing,
+      description = Core.Nothing,
+      networkProfileArn = Core.Nothing,
+      ssid = Core.Nothing
     }
 
 -- | The ARN of the Private Certificate Authority (PCA) created in AWS
 -- Certificate Manager (ACM). This is used to issue certificates to the
 -- devices.
-networkProfileData_certificateAuthorityArn :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
+networkProfileData_certificateAuthorityArn :: Lens.Lens' NetworkProfileData (Core.Maybe Core.Text)
 networkProfileData_certificateAuthorityArn = Lens.lens (\NetworkProfileData' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@NetworkProfileData' {} a -> s {certificateAuthorityArn = a} :: NetworkProfileData)
 
 -- | The authentication standard that is used in the EAP framework.
 -- Currently, EAP_TLS is supported.
-networkProfileData_eapMethod :: Lens.Lens' NetworkProfileData (Prelude.Maybe NetworkEapMethod)
+networkProfileData_eapMethod :: Lens.Lens' NetworkProfileData (Core.Maybe NetworkEapMethod)
 networkProfileData_eapMethod = Lens.lens (\NetworkProfileData' {eapMethod} -> eapMethod) (\s@NetworkProfileData' {} a -> s {eapMethod = a} :: NetworkProfileData)
 
 -- | The name of the network profile associated with a device.
-networkProfileData_networkProfileName :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
+networkProfileData_networkProfileName :: Lens.Lens' NetworkProfileData (Core.Maybe Core.Text)
 networkProfileData_networkProfileName = Lens.lens (\NetworkProfileData' {networkProfileName} -> networkProfileName) (\s@NetworkProfileData' {} a -> s {networkProfileName = a} :: NetworkProfileData)
 
 -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE,
 -- WPA2_PSK, WPA_PSK, WEP, or OPEN.
-networkProfileData_securityType :: Lens.Lens' NetworkProfileData (Prelude.Maybe NetworkSecurityType)
+networkProfileData_securityType :: Lens.Lens' NetworkProfileData (Core.Maybe NetworkSecurityType)
 networkProfileData_securityType = Lens.lens (\NetworkProfileData' {securityType} -> securityType) (\s@NetworkProfileData' {} a -> s {securityType = a} :: NetworkProfileData)
 
 -- | Detailed information about a device\'s network profile.
-networkProfileData_description :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
+networkProfileData_description :: Lens.Lens' NetworkProfileData (Core.Maybe Core.Text)
 networkProfileData_description = Lens.lens (\NetworkProfileData' {description} -> description) (\s@NetworkProfileData' {} a -> s {description = a} :: NetworkProfileData)
 
 -- | The ARN of the network profile associated with a device.
-networkProfileData_networkProfileArn :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
+networkProfileData_networkProfileArn :: Lens.Lens' NetworkProfileData (Core.Maybe Core.Text)
 networkProfileData_networkProfileArn = Lens.lens (\NetworkProfileData' {networkProfileArn} -> networkProfileArn) (\s@NetworkProfileData' {} a -> s {networkProfileArn = a} :: NetworkProfileData)
 
 -- | The SSID of the Wi-Fi network.
-networkProfileData_ssid :: Lens.Lens' NetworkProfileData (Prelude.Maybe Prelude.Text)
+networkProfileData_ssid :: Lens.Lens' NetworkProfileData (Core.Maybe Core.Text)
 networkProfileData_ssid = Lens.lens (\NetworkProfileData' {ssid} -> ssid) (\s@NetworkProfileData' {} a -> s {ssid = a} :: NetworkProfileData)
 
-instance Prelude.FromJSON NetworkProfileData where
+instance Core.FromJSON NetworkProfileData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkProfileData"
       ( \x ->
           NetworkProfileData'
-            Prelude.<$> (x Prelude..:? "CertificateAuthorityArn")
-            Prelude.<*> (x Prelude..:? "EapMethod")
-            Prelude.<*> (x Prelude..:? "NetworkProfileName")
-            Prelude.<*> (x Prelude..:? "SecurityType")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "NetworkProfileArn")
-            Prelude.<*> (x Prelude..:? "Ssid")
+            Core.<$> (x Core..:? "CertificateAuthorityArn")
+            Core.<*> (x Core..:? "EapMethod")
+            Core.<*> (x Core..:? "NetworkProfileName")
+            Core.<*> (x Core..:? "SecurityType")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "NetworkProfileArn")
+            Core.<*> (x Core..:? "Ssid")
       )
 
-instance Prelude.Hashable NetworkProfileData
+instance Core.Hashable NetworkProfileData
 
-instance Prelude.NFData NetworkProfileData
+instance Core.NFData NetworkProfileData

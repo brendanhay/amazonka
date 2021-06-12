@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.ConnectionSettings where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the @ConnectionSettings@ attribute.
 --
@@ -31,9 +30,9 @@ data ConnectionSettings = ConnectionSettings'
   { -- | The time, in seconds, that the connection is allowed to be idle (no data
     -- has been sent over the connection) before it is closed by the load
     -- balancer.
-    idleTimeout :: Prelude.Natural
+    idleTimeout :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionSettings' with all optional fields omitted.
@@ -48,7 +47,7 @@ data ConnectionSettings = ConnectionSettings'
 -- balancer.
 newConnectionSettings ::
   -- | 'idleTimeout'
-  Prelude.Natural ->
+  Core.Natural ->
   ConnectionSettings
 newConnectionSettings pIdleTimeout_ =
   ConnectionSettings' {idleTimeout = pIdleTimeout_}
@@ -56,19 +55,18 @@ newConnectionSettings pIdleTimeout_ =
 -- | The time, in seconds, that the connection is allowed to be idle (no data
 -- has been sent over the connection) before it is closed by the load
 -- balancer.
-connectionSettings_idleTimeout :: Lens.Lens' ConnectionSettings Prelude.Natural
+connectionSettings_idleTimeout :: Lens.Lens' ConnectionSettings Core.Natural
 connectionSettings_idleTimeout = Lens.lens (\ConnectionSettings' {idleTimeout} -> idleTimeout) (\s@ConnectionSettings' {} a -> s {idleTimeout = a} :: ConnectionSettings)
 
-instance Prelude.FromXML ConnectionSettings where
+instance Core.FromXML ConnectionSettings where
   parseXML x =
     ConnectionSettings'
-      Prelude.<$> (x Prelude..@ "IdleTimeout")
+      Core.<$> (x Core..@ "IdleTimeout")
 
-instance Prelude.Hashable ConnectionSettings
+instance Core.Hashable ConnectionSettings
 
-instance Prelude.NFData ConnectionSettings
+instance Core.NFData ConnectionSettings
 
-instance Prelude.ToQuery ConnectionSettings where
+instance Core.ToQuery ConnectionSettings where
   toQuery ConnectionSettings' {..} =
-    Prelude.mconcat
-      ["IdleTimeout" Prelude.=: idleTimeout]
+    Core.mconcat ["IdleTimeout" Core.=: idleTimeout]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.AssessmentRunStateChange where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.AssessmentRunState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used as one of the elements of the AssessmentRun data type.
 --
 -- /See:/ 'newAssessmentRunStateChange' smart constructor.
 data AssessmentRunStateChange = AssessmentRunStateChange'
   { -- | The last time the assessment run state changed.
-    stateChangedAt :: Prelude.POSIX,
+    stateChangedAt :: Core.POSIX,
     -- | The assessment run state.
     state :: AssessmentRunState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssessmentRunStateChange' with all optional fields omitted.
@@ -48,35 +47,35 @@ data AssessmentRunStateChange = AssessmentRunStateChange'
 -- 'state', 'assessmentRunStateChange_state' - The assessment run state.
 newAssessmentRunStateChange ::
   -- | 'stateChangedAt'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'state'
   AssessmentRunState ->
   AssessmentRunStateChange
 newAssessmentRunStateChange pStateChangedAt_ pState_ =
   AssessmentRunStateChange'
     { stateChangedAt =
-        Prelude._Time Lens.# pStateChangedAt_,
+        Core._Time Lens.# pStateChangedAt_,
       state = pState_
     }
 
 -- | The last time the assessment run state changed.
-assessmentRunStateChange_stateChangedAt :: Lens.Lens' AssessmentRunStateChange Prelude.UTCTime
-assessmentRunStateChange_stateChangedAt = Lens.lens (\AssessmentRunStateChange' {stateChangedAt} -> stateChangedAt) (\s@AssessmentRunStateChange' {} a -> s {stateChangedAt = a} :: AssessmentRunStateChange) Prelude.. Prelude._Time
+assessmentRunStateChange_stateChangedAt :: Lens.Lens' AssessmentRunStateChange Core.UTCTime
+assessmentRunStateChange_stateChangedAt = Lens.lens (\AssessmentRunStateChange' {stateChangedAt} -> stateChangedAt) (\s@AssessmentRunStateChange' {} a -> s {stateChangedAt = a} :: AssessmentRunStateChange) Core.. Core._Time
 
 -- | The assessment run state.
 assessmentRunStateChange_state :: Lens.Lens' AssessmentRunStateChange AssessmentRunState
 assessmentRunStateChange_state = Lens.lens (\AssessmentRunStateChange' {state} -> state) (\s@AssessmentRunStateChange' {} a -> s {state = a} :: AssessmentRunStateChange)
 
-instance Prelude.FromJSON AssessmentRunStateChange where
+instance Core.FromJSON AssessmentRunStateChange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssessmentRunStateChange"
       ( \x ->
           AssessmentRunStateChange'
-            Prelude.<$> (x Prelude..: "stateChangedAt")
-            Prelude.<*> (x Prelude..: "state")
+            Core.<$> (x Core..: "stateChangedAt")
+            Core.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable AssessmentRunStateChange
+instance Core.Hashable AssessmentRunStateChange
 
-instance Prelude.NFData AssessmentRunStateChange
+instance Core.NFData AssessmentRunStateChange

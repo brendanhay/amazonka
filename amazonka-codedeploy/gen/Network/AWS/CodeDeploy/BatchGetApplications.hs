@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeDeploy.BatchGetApplications
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data BatchGetApplications = BatchGetApplications'
   { -- | A list of application names separated by spaces. The maximum number of
     -- application names you can specify is 100.
-    applicationNames :: [Prelude.Text]
+    applicationNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetApplications' with all optional fields omitted.
@@ -72,73 +71,69 @@ newBatchGetApplications ::
 newBatchGetApplications =
   BatchGetApplications'
     { applicationNames =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A list of application names separated by spaces. The maximum number of
 -- application names you can specify is 100.
-batchGetApplications_applicationNames :: Lens.Lens' BatchGetApplications [Prelude.Text]
-batchGetApplications_applicationNames = Lens.lens (\BatchGetApplications' {applicationNames} -> applicationNames) (\s@BatchGetApplications' {} a -> s {applicationNames = a} :: BatchGetApplications) Prelude.. Prelude._Coerce
+batchGetApplications_applicationNames :: Lens.Lens' BatchGetApplications [Core.Text]
+batchGetApplications_applicationNames = Lens.lens (\BatchGetApplications' {applicationNames} -> applicationNames) (\s@BatchGetApplications' {} a -> s {applicationNames = a} :: BatchGetApplications) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchGetApplications where
+instance Core.AWSRequest BatchGetApplications where
   type
-    Rs BatchGetApplications =
+    AWSResponse BatchGetApplications =
       BatchGetApplicationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchGetApplicationsResponse'
-            Prelude.<$> ( x Prelude..?> "applicationsInfo"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "applicationsInfo" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetApplications
+instance Core.Hashable BatchGetApplications
 
-instance Prelude.NFData BatchGetApplications
+instance Core.NFData BatchGetApplications
 
-instance Prelude.ToHeaders BatchGetApplications where
+instance Core.ToHeaders BatchGetApplications where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.BatchGetApplications" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.BatchGetApplications" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchGetApplications where
+instance Core.ToJSON BatchGetApplications where
   toJSON BatchGetApplications' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("applicationNames" Prelude..= applicationNames)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("applicationNames" Core..= applicationNames)
           ]
       )
 
-instance Prelude.ToPath BatchGetApplications where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchGetApplications where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchGetApplications where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchGetApplications where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @BatchGetApplications@ operation.
 --
 -- /See:/ 'newBatchGetApplicationsResponse' smart constructor.
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
   { -- | Information about the applications.
-    applicationsInfo :: Prelude.Maybe [ApplicationInfo],
+    applicationsInfo :: Core.Maybe [ApplicationInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetApplicationsResponse' with all optional fields omitted.
@@ -153,21 +148,21 @@ data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
 -- 'httpStatus', 'batchGetApplicationsResponse_httpStatus' - The response's http status code.
 newBatchGetApplicationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchGetApplicationsResponse
 newBatchGetApplicationsResponse pHttpStatus_ =
   BatchGetApplicationsResponse'
     { applicationsInfo =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the applications.
-batchGetApplicationsResponse_applicationsInfo :: Lens.Lens' BatchGetApplicationsResponse (Prelude.Maybe [ApplicationInfo])
-batchGetApplicationsResponse_applicationsInfo = Lens.lens (\BatchGetApplicationsResponse' {applicationsInfo} -> applicationsInfo) (\s@BatchGetApplicationsResponse' {} a -> s {applicationsInfo = a} :: BatchGetApplicationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetApplicationsResponse_applicationsInfo :: Lens.Lens' BatchGetApplicationsResponse (Core.Maybe [ApplicationInfo])
+batchGetApplicationsResponse_applicationsInfo = Lens.lens (\BatchGetApplicationsResponse' {applicationsInfo} -> applicationsInfo) (\s@BatchGetApplicationsResponse' {} a -> s {applicationsInfo = a} :: BatchGetApplicationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetApplicationsResponse_httpStatus :: Lens.Lens' BatchGetApplicationsResponse Prelude.Int
+batchGetApplicationsResponse_httpStatus :: Lens.Lens' BatchGetApplicationsResponse Core.Int
 batchGetApplicationsResponse_httpStatus = Lens.lens (\BatchGetApplicationsResponse' {httpStatus} -> httpStatus) (\s@BatchGetApplicationsResponse' {} a -> s {httpStatus = a} :: BatchGetApplicationsResponse)
 
-instance Prelude.NFData BatchGetApplicationsResponse
+instance Core.NFData BatchGetApplicationsResponse

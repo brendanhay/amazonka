@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Budgets.Types.TimePeriod where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The period of time that is covered by a budget. The period has a start
 -- date and an end date. The start date must come before the end date.
@@ -36,7 +35,7 @@ data TimePeriod = TimePeriod'
     -- After the end date, AWS deletes the budget and all associated
     -- notifications and subscribers. You can change your end date with the
     -- @UpdateBudget@ operation.
-    end :: Prelude.Maybe Prelude.POSIX,
+    end :: Core.Maybe Core.POSIX,
     -- | The start date for a budget. If you created your budget and didn\'t
     -- specify a start date, AWS defaults to the start of your chosen time
     -- period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you
@@ -47,9 +46,9 @@ data TimePeriod = TimePeriod'
     -- and the API.
     --
     -- You can change your start date with the @UpdateBudget@ operation.
-    start :: Prelude.Maybe Prelude.POSIX
+    start :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimePeriod' with all optional fields omitted.
@@ -81,8 +80,8 @@ newTimePeriod ::
   TimePeriod
 newTimePeriod =
   TimePeriod'
-    { end = Prelude.Nothing,
-      start = Prelude.Nothing
+    { end = Core.Nothing,
+      start = Core.Nothing
     }
 
 -- | The end date for a budget. If you didn\'t specify an end date, AWS set
@@ -92,8 +91,8 @@ newTimePeriod =
 -- After the end date, AWS deletes the budget and all associated
 -- notifications and subscribers. You can change your end date with the
 -- @UpdateBudget@ operation.
-timePeriod_end :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
-timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Prelude.. Lens.mapping Prelude._Time
+timePeriod_end :: Lens.Lens' TimePeriod (Core.Maybe Core.UTCTime)
+timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s {end = a} :: TimePeriod) Core.. Lens.mapping Core._Time
 
 -- | The start date for a budget. If you created your budget and didn\'t
 -- specify a start date, AWS defaults to the start of your chosen time
@@ -105,28 +104,27 @@ timePeriod_end = Lens.lens (\TimePeriod' {end} -> end) (\s@TimePeriod' {} a -> s
 -- and the API.
 --
 -- You can change your start date with the @UpdateBudget@ operation.
-timePeriod_start :: Lens.Lens' TimePeriod (Prelude.Maybe Prelude.UTCTime)
-timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} a -> s {start = a} :: TimePeriod) Prelude.. Lens.mapping Prelude._Time
+timePeriod_start :: Lens.Lens' TimePeriod (Core.Maybe Core.UTCTime)
+timePeriod_start = Lens.lens (\TimePeriod' {start} -> start) (\s@TimePeriod' {} a -> s {start = a} :: TimePeriod) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON TimePeriod where
+instance Core.FromJSON TimePeriod where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TimePeriod"
       ( \x ->
           TimePeriod'
-            Prelude.<$> (x Prelude..:? "End")
-            Prelude.<*> (x Prelude..:? "Start")
+            Core.<$> (x Core..:? "End") Core.<*> (x Core..:? "Start")
       )
 
-instance Prelude.Hashable TimePeriod
+instance Core.Hashable TimePeriod
 
-instance Prelude.NFData TimePeriod
+instance Core.NFData TimePeriod
 
-instance Prelude.ToJSON TimePeriod where
+instance Core.ToJSON TimePeriod where
   toJSON TimePeriod' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("End" Prelude..=) Prelude.<$> end,
-            ("Start" Prelude..=) Prelude.<$> start
+    Core.object
+      ( Core.catMaybes
+          [ ("End" Core..=) Core.<$> end,
+            ("Start" Core..=) Core.<$> start
           ]
       )

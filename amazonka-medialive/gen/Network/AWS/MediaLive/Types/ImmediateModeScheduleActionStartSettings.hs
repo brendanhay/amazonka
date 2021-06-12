@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to configure an action so that it occurs as soon as possible.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ImmediateModeScheduleActionStartSettings = ImmediateModeScheduleActionStartSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImmediateModeScheduleActionStartSettings' with all optional fields omitted.
@@ -41,28 +40,26 @@ newImmediateModeScheduleActionStartSettings =
   ImmediateModeScheduleActionStartSettings'
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ImmediateModeScheduleActionStartSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImmediateModeScheduleActionStartSettings"
       ( \x ->
-          Prelude.pure
-            ImmediateModeScheduleActionStartSettings'
+          Core.pure ImmediateModeScheduleActionStartSettings'
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ImmediateModeScheduleActionStartSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     ImmediateModeScheduleActionStartSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ImmediateModeScheduleActionStartSettings
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)

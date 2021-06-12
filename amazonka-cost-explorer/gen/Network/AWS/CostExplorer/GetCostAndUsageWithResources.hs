@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,9 +62,9 @@ module Network.AWS.CostExplorer.GetCostAndUsageWithResources
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,11 +73,11 @@ data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
   { -- | Sets the AWS cost granularity to @MONTHLY@, @DAILY@, or @HOURLY@. If
     -- @Granularity@ isn\'t set, the response object doesn\'t include the
     -- @Granularity@, @MONTHLY@, @DAILY@, or @HOURLY@.
-    granularity :: Prelude.Maybe Granularity,
+    granularity :: Core.Maybe Granularity,
     -- | The token to retrieve the next set of results. AWS provides the token
     -- when the response from a previous call has more results than the maximum
     -- page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | Which metrics are returned in the query. For more information about
     -- blended and unblended rates, see
     -- <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the \"blended\" annotation appear on some line items in my bill?>.
@@ -96,10 +95,10 @@ data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
     -- @UsageTypeGroups@.
     --
     -- @Metrics@ is required for @GetCostAndUsageWithResources@ requests.
-    metrics :: Prelude.Maybe [Prelude.Text],
+    metrics :: Core.Maybe [Core.Text],
     -- | You can group Amazon Web Services costs using up to two different
     -- groups: @DIMENSION@, @TAG@, @COST_CATEGORY@.
-    groupBy :: Prelude.Maybe [GroupDefinition],
+    groupBy :: Core.Maybe [GroupDefinition],
     -- | Sets the start and end dates for retrieving Amazon Web Services costs.
     -- The range must be within the last 14 days (the start date cannot be
     -- earlier than 14 days ago). The start date is inclusive, but the end date
@@ -121,7 +120,7 @@ data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
     -- @\"SERVICE = Amazon Elastic Compute Cloud - Compute\"@ in the filter.
     filter' :: Expression
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCostAndUsageWithResources' with all optional fields omitted.
@@ -188,10 +187,10 @@ newGetCostAndUsageWithResources ::
 newGetCostAndUsageWithResources pTimePeriod_ pFilter_ =
   GetCostAndUsageWithResources'
     { granularity =
-        Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      metrics = Prelude.Nothing,
-      groupBy = Prelude.Nothing,
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
+      metrics = Core.Nothing,
+      groupBy = Core.Nothing,
       timePeriod = pTimePeriod_,
       filter' = pFilter_
     }
@@ -199,13 +198,13 @@ newGetCostAndUsageWithResources pTimePeriod_ pFilter_ =
 -- | Sets the AWS cost granularity to @MONTHLY@, @DAILY@, or @HOURLY@. If
 -- @Granularity@ isn\'t set, the response object doesn\'t include the
 -- @Granularity@, @MONTHLY@, @DAILY@, or @HOURLY@.
-getCostAndUsageWithResources_granularity :: Lens.Lens' GetCostAndUsageWithResources (Prelude.Maybe Granularity)
+getCostAndUsageWithResources_granularity :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe Granularity)
 getCostAndUsageWithResources_granularity = Lens.lens (\GetCostAndUsageWithResources' {granularity} -> granularity) (\s@GetCostAndUsageWithResources' {} a -> s {granularity = a} :: GetCostAndUsageWithResources)
 
 -- | The token to retrieve the next set of results. AWS provides the token
 -- when the response from a previous call has more results than the maximum
 -- page size.
-getCostAndUsageWithResources_nextPageToken :: Lens.Lens' GetCostAndUsageWithResources (Prelude.Maybe Prelude.Text)
+getCostAndUsageWithResources_nextPageToken :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe Core.Text)
 getCostAndUsageWithResources_nextPageToken = Lens.lens (\GetCostAndUsageWithResources' {nextPageToken} -> nextPageToken) (\s@GetCostAndUsageWithResources' {} a -> s {nextPageToken = a} :: GetCostAndUsageWithResources)
 
 -- | Which metrics are returned in the query. For more information about
@@ -225,13 +224,13 @@ getCostAndUsageWithResources_nextPageToken = Lens.lens (\GetCostAndUsageWithReso
 -- @UsageTypeGroups@.
 --
 -- @Metrics@ is required for @GetCostAndUsageWithResources@ requests.
-getCostAndUsageWithResources_metrics :: Lens.Lens' GetCostAndUsageWithResources (Prelude.Maybe [Prelude.Text])
-getCostAndUsageWithResources_metrics = Lens.lens (\GetCostAndUsageWithResources' {metrics} -> metrics) (\s@GetCostAndUsageWithResources' {} a -> s {metrics = a} :: GetCostAndUsageWithResources) Prelude.. Lens.mapping Prelude._Coerce
+getCostAndUsageWithResources_metrics :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe [Core.Text])
+getCostAndUsageWithResources_metrics = Lens.lens (\GetCostAndUsageWithResources' {metrics} -> metrics) (\s@GetCostAndUsageWithResources' {} a -> s {metrics = a} :: GetCostAndUsageWithResources) Core.. Lens.mapping Lens._Coerce
 
 -- | You can group Amazon Web Services costs using up to two different
 -- groups: @DIMENSION@, @TAG@, @COST_CATEGORY@.
-getCostAndUsageWithResources_groupBy :: Lens.Lens' GetCostAndUsageWithResources (Prelude.Maybe [GroupDefinition])
-getCostAndUsageWithResources_groupBy = Lens.lens (\GetCostAndUsageWithResources' {groupBy} -> groupBy) (\s@GetCostAndUsageWithResources' {} a -> s {groupBy = a} :: GetCostAndUsageWithResources) Prelude.. Lens.mapping Prelude._Coerce
+getCostAndUsageWithResources_groupBy :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe [GroupDefinition])
+getCostAndUsageWithResources_groupBy = Lens.lens (\GetCostAndUsageWithResources' {groupBy} -> groupBy) (\s@GetCostAndUsageWithResources' {} a -> s {groupBy = a} :: GetCostAndUsageWithResources) Core.. Lens.mapping Lens._Coerce
 
 -- | Sets the start and end dates for retrieving Amazon Web Services costs.
 -- The range must be within the last 14 days (the start date cannot be
@@ -257,93 +256,78 @@ getCostAndUsageWithResources_timePeriod = Lens.lens (\GetCostAndUsageWithResourc
 getCostAndUsageWithResources_filter :: Lens.Lens' GetCostAndUsageWithResources Expression
 getCostAndUsageWithResources_filter = Lens.lens (\GetCostAndUsageWithResources' {filter'} -> filter') (\s@GetCostAndUsageWithResources' {} a -> s {filter' = a} :: GetCostAndUsageWithResources)
 
-instance
-  Prelude.AWSRequest
-    GetCostAndUsageWithResources
-  where
+instance Core.AWSRequest GetCostAndUsageWithResources where
   type
-    Rs GetCostAndUsageWithResources =
+    AWSResponse GetCostAndUsageWithResources =
       GetCostAndUsageWithResourcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCostAndUsageWithResourcesResponse'
-            Prelude.<$> (x Prelude..?> "NextPageToken")
-            Prelude.<*> ( x Prelude..?> "ResultsByTime"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "DimensionValueAttributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "GroupDefinitions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextPageToken")
+            Core.<*> (x Core..?> "ResultsByTime" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "DimensionValueAttributes"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "GroupDefinitions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetCostAndUsageWithResources
+instance Core.Hashable GetCostAndUsageWithResources
 
-instance Prelude.NFData GetCostAndUsageWithResources
+instance Core.NFData GetCostAndUsageWithResources
 
-instance
-  Prelude.ToHeaders
-    GetCostAndUsageWithResources
-  where
+instance Core.ToHeaders GetCostAndUsageWithResources where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.GetCostAndUsageWithResources" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.GetCostAndUsageWithResources" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetCostAndUsageWithResources where
+instance Core.ToJSON GetCostAndUsageWithResources where
   toJSON GetCostAndUsageWithResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Granularity" Prelude..=) Prelude.<$> granularity,
-            ("NextPageToken" Prelude..=)
-              Prelude.<$> nextPageToken,
-            ("Metrics" Prelude..=) Prelude.<$> metrics,
-            ("GroupBy" Prelude..=) Prelude.<$> groupBy,
-            Prelude.Just ("TimePeriod" Prelude..= timePeriod),
-            Prelude.Just ("Filter" Prelude..= filter')
+    Core.object
+      ( Core.catMaybes
+          [ ("Granularity" Core..=) Core.<$> granularity,
+            ("NextPageToken" Core..=) Core.<$> nextPageToken,
+            ("Metrics" Core..=) Core.<$> metrics,
+            ("GroupBy" Core..=) Core.<$> groupBy,
+            Core.Just ("TimePeriod" Core..= timePeriod),
+            Core.Just ("Filter" Core..= filter')
           ]
       )
 
-instance Prelude.ToPath GetCostAndUsageWithResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetCostAndUsageWithResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetCostAndUsageWithResources where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCostAndUsageWithResources where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCostAndUsageWithResourcesResponse' smart constructor.
 data GetCostAndUsageWithResourcesResponse = GetCostAndUsageWithResourcesResponse'
   { -- | The token for the next set of retrievable results. AWS provides the
     -- token when the response from a previous call has more results than the
     -- maximum page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The time period that is covered by the results in the response.
-    resultsByTime :: Prelude.Maybe [ResultByTime],
+    resultsByTime :: Core.Maybe [ResultByTime],
     -- | The attributes that apply to a specific dimension value. For example, if
     -- the value is a linked account, the attribute is that account name.
-    dimensionValueAttributes :: Prelude.Maybe [DimensionValuesWithAttributes],
+    dimensionValueAttributes :: Core.Maybe [DimensionValuesWithAttributes],
     -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in
     -- the request.
-    groupDefinitions :: Prelude.Maybe [GroupDefinition],
+    groupDefinitions :: Core.Maybe [GroupDefinition],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCostAndUsageWithResourcesResponse' with all optional fields omitted.
@@ -368,43 +352,43 @@ data GetCostAndUsageWithResourcesResponse = GetCostAndUsageWithResourcesResponse
 -- 'httpStatus', 'getCostAndUsageWithResourcesResponse_httpStatus' - The response's http status code.
 newGetCostAndUsageWithResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCostAndUsageWithResourcesResponse
 newGetCostAndUsageWithResourcesResponse pHttpStatus_ =
   GetCostAndUsageWithResourcesResponse'
     { nextPageToken =
-        Prelude.Nothing,
-      resultsByTime = Prelude.Nothing,
+        Core.Nothing,
+      resultsByTime = Core.Nothing,
       dimensionValueAttributes =
-        Prelude.Nothing,
-      groupDefinitions = Prelude.Nothing,
+        Core.Nothing,
+      groupDefinitions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of retrievable results. AWS provides the
 -- token when the response from a previous call has more results than the
 -- maximum page size.
-getCostAndUsageWithResourcesResponse_nextPageToken :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Prelude.Maybe Prelude.Text)
+getCostAndUsageWithResourcesResponse_nextPageToken :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Core.Maybe Core.Text)
 getCostAndUsageWithResourcesResponse_nextPageToken = Lens.lens (\GetCostAndUsageWithResourcesResponse' {nextPageToken} -> nextPageToken) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {nextPageToken = a} :: GetCostAndUsageWithResourcesResponse)
 
 -- | The time period that is covered by the results in the response.
-getCostAndUsageWithResourcesResponse_resultsByTime :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Prelude.Maybe [ResultByTime])
-getCostAndUsageWithResourcesResponse_resultsByTime = Lens.lens (\GetCostAndUsageWithResourcesResponse' {resultsByTime} -> resultsByTime) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {resultsByTime = a} :: GetCostAndUsageWithResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getCostAndUsageWithResourcesResponse_resultsByTime :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Core.Maybe [ResultByTime])
+getCostAndUsageWithResourcesResponse_resultsByTime = Lens.lens (\GetCostAndUsageWithResourcesResponse' {resultsByTime} -> resultsByTime) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {resultsByTime = a} :: GetCostAndUsageWithResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The attributes that apply to a specific dimension value. For example, if
 -- the value is a linked account, the attribute is that account name.
-getCostAndUsageWithResourcesResponse_dimensionValueAttributes :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Prelude.Maybe [DimensionValuesWithAttributes])
-getCostAndUsageWithResourcesResponse_dimensionValueAttributes = Lens.lens (\GetCostAndUsageWithResourcesResponse' {dimensionValueAttributes} -> dimensionValueAttributes) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {dimensionValueAttributes = a} :: GetCostAndUsageWithResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getCostAndUsageWithResourcesResponse_dimensionValueAttributes :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Core.Maybe [DimensionValuesWithAttributes])
+getCostAndUsageWithResourcesResponse_dimensionValueAttributes = Lens.lens (\GetCostAndUsageWithResourcesResponse' {dimensionValueAttributes} -> dimensionValueAttributes) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {dimensionValueAttributes = a} :: GetCostAndUsageWithResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in
 -- the request.
-getCostAndUsageWithResourcesResponse_groupDefinitions :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Prelude.Maybe [GroupDefinition])
-getCostAndUsageWithResourcesResponse_groupDefinitions = Lens.lens (\GetCostAndUsageWithResourcesResponse' {groupDefinitions} -> groupDefinitions) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {groupDefinitions = a} :: GetCostAndUsageWithResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getCostAndUsageWithResourcesResponse_groupDefinitions :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Core.Maybe [GroupDefinition])
+getCostAndUsageWithResourcesResponse_groupDefinitions = Lens.lens (\GetCostAndUsageWithResourcesResponse' {groupDefinitions} -> groupDefinitions) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {groupDefinitions = a} :: GetCostAndUsageWithResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getCostAndUsageWithResourcesResponse_httpStatus :: Lens.Lens' GetCostAndUsageWithResourcesResponse Prelude.Int
+getCostAndUsageWithResourcesResponse_httpStatus :: Lens.Lens' GetCostAndUsageWithResourcesResponse Core.Int
 getCostAndUsageWithResourcesResponse_httpStatus = Lens.lens (\GetCostAndUsageWithResourcesResponse' {httpStatus} -> httpStatus) (\s@GetCostAndUsageWithResourcesResponse' {} a -> s {httpStatus = a} :: GetCostAndUsageWithResourcesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetCostAndUsageWithResourcesResponse

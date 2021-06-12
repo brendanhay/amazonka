@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ContextSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure describing the source of a context.
 --
 -- /See:/ 'newContextSource' smart constructor.
 data ContextSource = ContextSource'
   { -- | The ID of the source.
-    sourceId :: Prelude.Maybe Prelude.Text,
+    sourceId :: Core.Maybe Core.Text,
     -- | The type of the source.
-    sourceType :: Prelude.Maybe Prelude.Text,
+    sourceType :: Core.Maybe Core.Text,
     -- | The URI of the source.
-    sourceUri :: Prelude.Text
+    sourceUri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContextSource' with all optional fields omitted.
@@ -51,48 +50,48 @@ data ContextSource = ContextSource'
 -- 'sourceUri', 'contextSource_sourceUri' - The URI of the source.
 newContextSource ::
   -- | 'sourceUri'
-  Prelude.Text ->
+  Core.Text ->
   ContextSource
 newContextSource pSourceUri_ =
   ContextSource'
-    { sourceId = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
+    { sourceId = Core.Nothing,
+      sourceType = Core.Nothing,
       sourceUri = pSourceUri_
     }
 
 -- | The ID of the source.
-contextSource_sourceId :: Lens.Lens' ContextSource (Prelude.Maybe Prelude.Text)
+contextSource_sourceId :: Lens.Lens' ContextSource (Core.Maybe Core.Text)
 contextSource_sourceId = Lens.lens (\ContextSource' {sourceId} -> sourceId) (\s@ContextSource' {} a -> s {sourceId = a} :: ContextSource)
 
 -- | The type of the source.
-contextSource_sourceType :: Lens.Lens' ContextSource (Prelude.Maybe Prelude.Text)
+contextSource_sourceType :: Lens.Lens' ContextSource (Core.Maybe Core.Text)
 contextSource_sourceType = Lens.lens (\ContextSource' {sourceType} -> sourceType) (\s@ContextSource' {} a -> s {sourceType = a} :: ContextSource)
 
 -- | The URI of the source.
-contextSource_sourceUri :: Lens.Lens' ContextSource Prelude.Text
+contextSource_sourceUri :: Lens.Lens' ContextSource Core.Text
 contextSource_sourceUri = Lens.lens (\ContextSource' {sourceUri} -> sourceUri) (\s@ContextSource' {} a -> s {sourceUri = a} :: ContextSource)
 
-instance Prelude.FromJSON ContextSource where
+instance Core.FromJSON ContextSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContextSource"
       ( \x ->
           ContextSource'
-            Prelude.<$> (x Prelude..:? "SourceId")
-            Prelude.<*> (x Prelude..:? "SourceType")
-            Prelude.<*> (x Prelude..: "SourceUri")
+            Core.<$> (x Core..:? "SourceId")
+            Core.<*> (x Core..:? "SourceType")
+            Core.<*> (x Core..: "SourceUri")
       )
 
-instance Prelude.Hashable ContextSource
+instance Core.Hashable ContextSource
 
-instance Prelude.NFData ContextSource
+instance Core.NFData ContextSource
 
-instance Prelude.ToJSON ContextSource where
+instance Core.ToJSON ContextSource where
   toJSON ContextSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SourceId" Prelude..=) Prelude.<$> sourceId,
-            ("SourceType" Prelude..=) Prelude.<$> sourceType,
-            Prelude.Just ("SourceUri" Prelude..= sourceUri)
+    Core.object
+      ( Core.catMaybes
+          [ ("SourceId" Core..=) Core.<$> sourceId,
+            ("SourceType" Core..=) Core.<$> sourceType,
+            Core.Just ("SourceUri" Core..= sourceUri)
           ]
       )

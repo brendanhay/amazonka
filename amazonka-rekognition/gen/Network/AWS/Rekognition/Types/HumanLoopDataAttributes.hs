@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.HumanLoopDataAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.ContentClassifier
 
 -- | Allows you to set attributes of the image. Currently, you can declare an
@@ -31,9 +30,9 @@ import Network.AWS.Rekognition.Types.ContentClassifier
 data HumanLoopDataAttributes = HumanLoopDataAttributes'
   { -- | Sets whether the input image is free of personally identifiable
     -- information.
-    contentClassifiers :: Prelude.Maybe [ContentClassifier]
+    contentClassifiers :: Core.Maybe [ContentClassifier]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HumanLoopDataAttributes' with all optional fields omitted.
@@ -50,23 +49,23 @@ newHumanLoopDataAttributes ::
 newHumanLoopDataAttributes =
   HumanLoopDataAttributes'
     { contentClassifiers =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Sets whether the input image is free of personally identifiable
 -- information.
-humanLoopDataAttributes_contentClassifiers :: Lens.Lens' HumanLoopDataAttributes (Prelude.Maybe [ContentClassifier])
-humanLoopDataAttributes_contentClassifiers = Lens.lens (\HumanLoopDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@HumanLoopDataAttributes' {} a -> s {contentClassifiers = a} :: HumanLoopDataAttributes) Prelude.. Lens.mapping Prelude._Coerce
+humanLoopDataAttributes_contentClassifiers :: Lens.Lens' HumanLoopDataAttributes (Core.Maybe [ContentClassifier])
+humanLoopDataAttributes_contentClassifiers = Lens.lens (\HumanLoopDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@HumanLoopDataAttributes' {} a -> s {contentClassifiers = a} :: HumanLoopDataAttributes) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable HumanLoopDataAttributes
+instance Core.Hashable HumanLoopDataAttributes
 
-instance Prelude.NFData HumanLoopDataAttributes
+instance Core.NFData HumanLoopDataAttributes
 
-instance Prelude.ToJSON HumanLoopDataAttributes where
+instance Core.ToJSON HumanLoopDataAttributes where
   toJSON HumanLoopDataAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ContentClassifiers" Prelude..=)
-              Prelude.<$> contentClassifiers
+    Core.object
+      ( Core.catMaybes
+          [ ("ContentClassifiers" Core..=)
+              Core.<$> contentClassifiers
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CapacityReservationOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the strategy for using unused Capacity Reservations for
 -- fulfilling On-Demand capacity.
@@ -53,9 +52,9 @@ data CapacityReservationOptions = CapacityReservationOptions'
     --
     -- If you do not specify a value, the fleet fulfils the On-Demand capacity
     -- according to the chosen On-Demand allocation strategy.
-    usageStrategy :: Prelude.Maybe FleetCapacityReservationUsageStrategy
+    usageStrategy :: Core.Maybe FleetCapacityReservationUsageStrategy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CapacityReservationOptions' with all optional fields omitted.
@@ -84,7 +83,7 @@ newCapacityReservationOptions ::
 newCapacityReservationOptions =
   CapacityReservationOptions'
     { usageStrategy =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Indicates whether to use unused Capacity Reservations for fulfilling
@@ -101,14 +100,14 @@ newCapacityReservationOptions =
 --
 -- If you do not specify a value, the fleet fulfils the On-Demand capacity
 -- according to the chosen On-Demand allocation strategy.
-capacityReservationOptions_usageStrategy :: Lens.Lens' CapacityReservationOptions (Prelude.Maybe FleetCapacityReservationUsageStrategy)
+capacityReservationOptions_usageStrategy :: Lens.Lens' CapacityReservationOptions (Core.Maybe FleetCapacityReservationUsageStrategy)
 capacityReservationOptions_usageStrategy = Lens.lens (\CapacityReservationOptions' {usageStrategy} -> usageStrategy) (\s@CapacityReservationOptions' {} a -> s {usageStrategy = a} :: CapacityReservationOptions)
 
-instance Prelude.FromXML CapacityReservationOptions where
+instance Core.FromXML CapacityReservationOptions where
   parseXML x =
     CapacityReservationOptions'
-      Prelude.<$> (x Prelude..@? "usageStrategy")
+      Core.<$> (x Core..@? "usageStrategy")
 
-instance Prelude.Hashable CapacityReservationOptions
+instance Core.Hashable CapacityReservationOptions
 
-instance Prelude.NFData CapacityReservationOptions
+instance Core.NFData CapacityReservationOptions

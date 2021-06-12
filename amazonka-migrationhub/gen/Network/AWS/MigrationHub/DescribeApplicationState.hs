@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.MigrationHub.DescribeApplicationState
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DescribeApplicationState = DescribeApplicationState'
   { -- | The configurationId in Application Discovery Service that uniquely
     -- identifies the grouped application.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicationState' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DescribeApplicationState = DescribeApplicationState'
 -- identifies the grouped application.
 newDescribeApplicationState ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeApplicationState
 newDescribeApplicationState pApplicationId_ =
   DescribeApplicationState'
@@ -77,67 +76,63 @@ newDescribeApplicationState pApplicationId_ =
 
 -- | The configurationId in Application Discovery Service that uniquely
 -- identifies the grouped application.
-describeApplicationState_applicationId :: Lens.Lens' DescribeApplicationState Prelude.Text
+describeApplicationState_applicationId :: Lens.Lens' DescribeApplicationState Core.Text
 describeApplicationState_applicationId = Lens.lens (\DescribeApplicationState' {applicationId} -> applicationId) (\s@DescribeApplicationState' {} a -> s {applicationId = a} :: DescribeApplicationState)
 
-instance Prelude.AWSRequest DescribeApplicationState where
+instance Core.AWSRequest DescribeApplicationState where
   type
-    Rs DescribeApplicationState =
+    AWSResponse DescribeApplicationState =
       DescribeApplicationStateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeApplicationStateResponse'
-            Prelude.<$> (x Prelude..?> "ApplicationStatus")
-            Prelude.<*> (x Prelude..?> "LastUpdatedTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ApplicationStatus")
+            Core.<*> (x Core..?> "LastUpdatedTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApplicationState
+instance Core.Hashable DescribeApplicationState
 
-instance Prelude.NFData DescribeApplicationState
+instance Core.NFData DescribeApplicationState
 
-instance Prelude.ToHeaders DescribeApplicationState where
+instance Core.ToHeaders DescribeApplicationState where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMigrationHub.DescribeApplicationState" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMigrationHub.DescribeApplicationState" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeApplicationState where
+instance Core.ToJSON DescribeApplicationState where
   toJSON DescribeApplicationState' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ApplicationId" Prelude..= applicationId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ApplicationId" Core..= applicationId)]
       )
 
-instance Prelude.ToPath DescribeApplicationState where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeApplicationState where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeApplicationState where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeApplicationState where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeApplicationStateResponse' smart constructor.
 data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
   { -- | Status of the application - Not Started, In-Progress, Complete.
-    applicationStatus :: Prelude.Maybe ApplicationStatus,
+    applicationStatus :: Core.Maybe ApplicationStatus,
     -- | The timestamp when the application status was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.POSIX,
+    lastUpdatedTime :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicationStateResponse' with all optional fields omitted.
@@ -154,28 +149,26 @@ data DescribeApplicationStateResponse = DescribeApplicationStateResponse'
 -- 'httpStatus', 'describeApplicationStateResponse_httpStatus' - The response's http status code.
 newDescribeApplicationStateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeApplicationStateResponse
 newDescribeApplicationStateResponse pHttpStatus_ =
   DescribeApplicationStateResponse'
     { applicationStatus =
-        Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing,
+        Core.Nothing,
+      lastUpdatedTime = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Status of the application - Not Started, In-Progress, Complete.
-describeApplicationStateResponse_applicationStatus :: Lens.Lens' DescribeApplicationStateResponse (Prelude.Maybe ApplicationStatus)
+describeApplicationStateResponse_applicationStatus :: Lens.Lens' DescribeApplicationStateResponse (Core.Maybe ApplicationStatus)
 describeApplicationStateResponse_applicationStatus = Lens.lens (\DescribeApplicationStateResponse' {applicationStatus} -> applicationStatus) (\s@DescribeApplicationStateResponse' {} a -> s {applicationStatus = a} :: DescribeApplicationStateResponse)
 
 -- | The timestamp when the application status was last updated.
-describeApplicationStateResponse_lastUpdatedTime :: Lens.Lens' DescribeApplicationStateResponse (Prelude.Maybe Prelude.UTCTime)
-describeApplicationStateResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationStateResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationStateResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationStateResponse) Prelude.. Lens.mapping Prelude._Time
+describeApplicationStateResponse_lastUpdatedTime :: Lens.Lens' DescribeApplicationStateResponse (Core.Maybe Core.UTCTime)
+describeApplicationStateResponse_lastUpdatedTime = Lens.lens (\DescribeApplicationStateResponse' {lastUpdatedTime} -> lastUpdatedTime) (\s@DescribeApplicationStateResponse' {} a -> s {lastUpdatedTime = a} :: DescribeApplicationStateResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeApplicationStateResponse_httpStatus :: Lens.Lens' DescribeApplicationStateResponse Prelude.Int
+describeApplicationStateResponse_httpStatus :: Lens.Lens' DescribeApplicationStateResponse Core.Int
 describeApplicationStateResponse_httpStatus = Lens.lens (\DescribeApplicationStateResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicationStateResponse' {} a -> s {httpStatus = a} :: DescribeApplicationStateResponse)
 
-instance
-  Prelude.NFData
-    DescribeApplicationStateResponse
+instance Core.NFData DescribeApplicationStateResponse

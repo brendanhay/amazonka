@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.ServiceCatalog.DescribePortfolioShares
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -60,13 +59,13 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDescribePortfolioShares' smart constructor.
 data DescribePortfolioShares = DescribePortfolioShares'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The unique identifier of the portfolio for which shares will be
     -- retrieved.
-    portfolioId :: Prelude.Text,
+    portfolioId :: Core.Text,
     -- | The type of portfolio share to summarize. This field acts as a filter on
     -- the type of portfolio share, which can be one of the following:
     --
@@ -81,7 +80,7 @@ data DescribePortfolioShares = DescribePortfolioShares'
     -- the organization.
     type' :: DescribePortfolioShareType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePortfolioShares' with all optional fields omitted.
@@ -113,31 +112,30 @@ data DescribePortfolioShares = DescribePortfolioShares'
 -- the organization.
 newDescribePortfolioShares ::
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   DescribePortfolioShareType ->
   DescribePortfolioShares
 newDescribePortfolioShares pPortfolioId_ pType_ =
   DescribePortfolioShares'
-    { pageSize =
-        Prelude.Nothing,
-      pageToken = Prelude.Nothing,
+    { pageSize = Core.Nothing,
+      pageToken = Core.Nothing,
       portfolioId = pPortfolioId_,
       type' = pType_
     }
 
 -- | The maximum number of items to return with this call.
-describePortfolioShares_pageSize :: Lens.Lens' DescribePortfolioShares (Prelude.Maybe Prelude.Natural)
+describePortfolioShares_pageSize :: Lens.Lens' DescribePortfolioShares (Core.Maybe Core.Natural)
 describePortfolioShares_pageSize = Lens.lens (\DescribePortfolioShares' {pageSize} -> pageSize) (\s@DescribePortfolioShares' {} a -> s {pageSize = a} :: DescribePortfolioShares)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-describePortfolioShares_pageToken :: Lens.Lens' DescribePortfolioShares (Prelude.Maybe Prelude.Text)
+describePortfolioShares_pageToken :: Lens.Lens' DescribePortfolioShares (Core.Maybe Core.Text)
 describePortfolioShares_pageToken = Lens.lens (\DescribePortfolioShares' {pageToken} -> pageToken) (\s@DescribePortfolioShares' {} a -> s {pageToken = a} :: DescribePortfolioShares)
 
 -- | The unique identifier of the portfolio for which shares will be
 -- retrieved.
-describePortfolioShares_portfolioId :: Lens.Lens' DescribePortfolioShares Prelude.Text
+describePortfolioShares_portfolioId :: Lens.Lens' DescribePortfolioShares Core.Text
 describePortfolioShares_portfolioId = Lens.lens (\DescribePortfolioShares' {portfolioId} -> portfolioId) (\s@DescribePortfolioShares' {} a -> s {portfolioId = a} :: DescribePortfolioShares)
 
 -- | The type of portfolio share to summarize. This field acts as a filter on
@@ -155,69 +153,67 @@ describePortfolioShares_portfolioId = Lens.lens (\DescribePortfolioShares' {port
 describePortfolioShares_type :: Lens.Lens' DescribePortfolioShares DescribePortfolioShareType
 describePortfolioShares_type = Lens.lens (\DescribePortfolioShares' {type'} -> type') (\s@DescribePortfolioShares' {} a -> s {type' = a} :: DescribePortfolioShares)
 
-instance Prelude.AWSRequest DescribePortfolioShares where
+instance Core.AWSRequest DescribePortfolioShares where
   type
-    Rs DescribePortfolioShares =
+    AWSResponse DescribePortfolioShares =
       DescribePortfolioSharesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioSharesResponse'
-            Prelude.<$> (x Prelude..?> "NextPageToken")
-            Prelude.<*> ( x Prelude..?> "PortfolioShareDetails"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextPageToken")
+            Core.<*> ( x Core..?> "PortfolioShareDetails"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePortfolioShares
+instance Core.Hashable DescribePortfolioShares
 
-instance Prelude.NFData DescribePortfolioShares
+instance Core.NFData DescribePortfolioShares
 
-instance Prelude.ToHeaders DescribePortfolioShares where
+instance Core.ToHeaders DescribePortfolioShares where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DescribePortfolioShares" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DescribePortfolioShares" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribePortfolioShares where
+instance Core.ToJSON DescribePortfolioShares where
   toJSON DescribePortfolioShares' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
-            ("PageToken" Prelude..=) Prelude.<$> pageToken,
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            Core.Just ("PortfolioId" Core..= portfolioId),
+            Core.Just ("Type" Core..= type')
           ]
       )
 
-instance Prelude.ToPath DescribePortfolioShares where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribePortfolioShares where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribePortfolioShares where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePortfolioShares where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePortfolioSharesResponse' smart constructor.
 data DescribePortfolioSharesResponse = DescribePortfolioSharesResponse'
   { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | Summaries about each of the portfolio shares.
-    portfolioShareDetails :: Prelude.Maybe [PortfolioShareDetail],
+    portfolioShareDetails :: Core.Maybe [PortfolioShareDetail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePortfolioSharesResponse' with all optional fields omitted.
@@ -235,29 +231,27 @@ data DescribePortfolioSharesResponse = DescribePortfolioSharesResponse'
 -- 'httpStatus', 'describePortfolioSharesResponse_httpStatus' - The response's http status code.
 newDescribePortfolioSharesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePortfolioSharesResponse
 newDescribePortfolioSharesResponse pHttpStatus_ =
   DescribePortfolioSharesResponse'
     { nextPageToken =
-        Prelude.Nothing,
-      portfolioShareDetails = Prelude.Nothing,
+        Core.Nothing,
+      portfolioShareDetails = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-describePortfolioSharesResponse_nextPageToken :: Lens.Lens' DescribePortfolioSharesResponse (Prelude.Maybe Prelude.Text)
+describePortfolioSharesResponse_nextPageToken :: Lens.Lens' DescribePortfolioSharesResponse (Core.Maybe Core.Text)
 describePortfolioSharesResponse_nextPageToken = Lens.lens (\DescribePortfolioSharesResponse' {nextPageToken} -> nextPageToken) (\s@DescribePortfolioSharesResponse' {} a -> s {nextPageToken = a} :: DescribePortfolioSharesResponse)
 
 -- | Summaries about each of the portfolio shares.
-describePortfolioSharesResponse_portfolioShareDetails :: Lens.Lens' DescribePortfolioSharesResponse (Prelude.Maybe [PortfolioShareDetail])
-describePortfolioSharesResponse_portfolioShareDetails = Lens.lens (\DescribePortfolioSharesResponse' {portfolioShareDetails} -> portfolioShareDetails) (\s@DescribePortfolioSharesResponse' {} a -> s {portfolioShareDetails = a} :: DescribePortfolioSharesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePortfolioSharesResponse_portfolioShareDetails :: Lens.Lens' DescribePortfolioSharesResponse (Core.Maybe [PortfolioShareDetail])
+describePortfolioSharesResponse_portfolioShareDetails = Lens.lens (\DescribePortfolioSharesResponse' {portfolioShareDetails} -> portfolioShareDetails) (\s@DescribePortfolioSharesResponse' {} a -> s {portfolioShareDetails = a} :: DescribePortfolioSharesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePortfolioSharesResponse_httpStatus :: Lens.Lens' DescribePortfolioSharesResponse Prelude.Int
+describePortfolioSharesResponse_httpStatus :: Lens.Lens' DescribePortfolioSharesResponse Core.Int
 describePortfolioSharesResponse_httpStatus = Lens.lens (\DescribePortfolioSharesResponse' {httpStatus} -> httpStatus) (\s@DescribePortfolioSharesResponse' {} a -> s {httpStatus = a} :: DescribePortfolioSharesResponse)
 
-instance
-  Prelude.NFData
-    DescribePortfolioSharesResponse
+instance Core.NFData DescribePortfolioSharesResponse

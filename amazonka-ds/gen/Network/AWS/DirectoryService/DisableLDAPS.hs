@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,21 +39,21 @@ module Network.AWS.DirectoryService.DisableLDAPS
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisableLDAPS' smart constructor.
 data DisableLDAPS = DisableLDAPS'
   { -- | The identifier of the directory.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The type of LDAP security to enable. Currently only the value @Client@
     -- is supported.
     type' :: LDAPSType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableLDAPS' with all optional fields omitted.
@@ -70,7 +69,7 @@ data DisableLDAPS = DisableLDAPS'
 -- is supported.
 newDisableLDAPS ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   LDAPSType ->
   DisableLDAPS
@@ -81,7 +80,7 @@ newDisableLDAPS pDirectoryId_ pType_ =
     }
 
 -- | The identifier of the directory.
-disableLDAPS_directoryId :: Lens.Lens' DisableLDAPS Prelude.Text
+disableLDAPS_directoryId :: Lens.Lens' DisableLDAPS Core.Text
 disableLDAPS_directoryId = Lens.lens (\DisableLDAPS' {directoryId} -> directoryId) (\s@DisableLDAPS' {} a -> s {directoryId = a} :: DisableLDAPS)
 
 -- | The type of LDAP security to enable. Currently only the value @Client@
@@ -89,56 +88,54 @@ disableLDAPS_directoryId = Lens.lens (\DisableLDAPS' {directoryId} -> directoryI
 disableLDAPS_type :: Lens.Lens' DisableLDAPS LDAPSType
 disableLDAPS_type = Lens.lens (\DisableLDAPS' {type'} -> type') (\s@DisableLDAPS' {} a -> s {type' = a} :: DisableLDAPS)
 
-instance Prelude.AWSRequest DisableLDAPS where
-  type Rs DisableLDAPS = DisableLDAPSResponse
+instance Core.AWSRequest DisableLDAPS where
+  type AWSResponse DisableLDAPS = DisableLDAPSResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableLDAPSResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisableLDAPS
+instance Core.Hashable DisableLDAPS
 
-instance Prelude.NFData DisableLDAPS
+instance Core.NFData DisableLDAPS
 
-instance Prelude.ToHeaders DisableLDAPS where
+instance Core.ToHeaders DisableLDAPS where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DisableLDAPS" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DisableLDAPS" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableLDAPS where
+instance Core.ToJSON DisableLDAPS where
   toJSON DisableLDAPS' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("Type" Core..= type')
           ]
       )
 
-instance Prelude.ToPath DisableLDAPS where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableLDAPS where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableLDAPS where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableLDAPS where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableLDAPSResponse' smart constructor.
 data DisableLDAPSResponse = DisableLDAPSResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableLDAPSResponse' with all optional fields omitted.
@@ -151,13 +148,13 @@ data DisableLDAPSResponse = DisableLDAPSResponse'
 -- 'httpStatus', 'disableLDAPSResponse_httpStatus' - The response's http status code.
 newDisableLDAPSResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableLDAPSResponse
 newDisableLDAPSResponse pHttpStatus_ =
   DisableLDAPSResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-disableLDAPSResponse_httpStatus :: Lens.Lens' DisableLDAPSResponse Prelude.Int
+disableLDAPSResponse_httpStatus :: Lens.Lens' DisableLDAPSResponse Core.Int
 disableLDAPSResponse_httpStatus = Lens.lens (\DisableLDAPSResponse' {httpStatus} -> httpStatus) (\s@DisableLDAPSResponse' {} a -> s {httpStatus = a} :: DisableLDAPSResponse)
 
-instance Prelude.NFData DisableLDAPSResponse
+instance Core.NFData DisableLDAPSResponse

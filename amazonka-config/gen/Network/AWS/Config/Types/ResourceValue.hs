@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.ResourceValue where
 
 import Network.AWS.Config.Types.ResourceValueType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The dynamic value of the resource.
 --
@@ -31,7 +30,7 @@ data ResourceValue = ResourceValue'
   { -- | The value is a resource ID.
     value :: ResourceValueType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceValue' with all optional fields omitted.
@@ -53,21 +52,17 @@ newResourceValue pValue_ =
 resourceValue_value :: Lens.Lens' ResourceValue ResourceValueType
 resourceValue_value = Lens.lens (\ResourceValue' {value} -> value) (\s@ResourceValue' {} a -> s {value = a} :: ResourceValue)
 
-instance Prelude.FromJSON ResourceValue where
+instance Core.FromJSON ResourceValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceValue"
-      ( \x ->
-          ResourceValue' Prelude.<$> (x Prelude..: "Value")
-      )
+      (\x -> ResourceValue' Core.<$> (x Core..: "Value"))
 
-instance Prelude.Hashable ResourceValue
+instance Core.Hashable ResourceValue
 
-instance Prelude.NFData ResourceValue
+instance Core.NFData ResourceValue
 
-instance Prelude.ToJSON ResourceValue where
+instance Core.ToJSON ResourceValue where
   toJSON ResourceValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Value" Prelude..= value)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Value" Core..= value)])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.Directory where
 
 import Network.AWS.CloudDirectory.Types.DirectoryState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Directory structure that includes the directory name and directory ARN.
 --
@@ -30,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 data Directory = Directory'
   { -- | The Amazon Resource Name (ARN) that is associated with the directory.
     -- For more information, see arns.
-    directoryArn :: Prelude.Maybe Prelude.Text,
+    directoryArn :: Core.Maybe Core.Text,
     -- | The state of the directory. Can be either @Enabled@, @Disabled@, or
     -- @Deleted@.
-    state :: Prelude.Maybe DirectoryState,
+    state :: Core.Maybe DirectoryState,
     -- | The name of the directory.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time when the directory was created.
-    creationDateTime :: Prelude.Maybe Prelude.POSIX
+    creationDateTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Directory' with all optional fields omitted.
@@ -62,42 +61,42 @@ newDirectory ::
   Directory
 newDirectory =
   Directory'
-    { directoryArn = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+    { directoryArn = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      creationDateTime = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the directory.
 -- For more information, see arns.
-directory_directoryArn :: Lens.Lens' Directory (Prelude.Maybe Prelude.Text)
+directory_directoryArn :: Lens.Lens' Directory (Core.Maybe Core.Text)
 directory_directoryArn = Lens.lens (\Directory' {directoryArn} -> directoryArn) (\s@Directory' {} a -> s {directoryArn = a} :: Directory)
 
 -- | The state of the directory. Can be either @Enabled@, @Disabled@, or
 -- @Deleted@.
-directory_state :: Lens.Lens' Directory (Prelude.Maybe DirectoryState)
+directory_state :: Lens.Lens' Directory (Core.Maybe DirectoryState)
 directory_state = Lens.lens (\Directory' {state} -> state) (\s@Directory' {} a -> s {state = a} :: Directory)
 
 -- | The name of the directory.
-directory_name :: Lens.Lens' Directory (Prelude.Maybe Prelude.Text)
+directory_name :: Lens.Lens' Directory (Core.Maybe Core.Text)
 directory_name = Lens.lens (\Directory' {name} -> name) (\s@Directory' {} a -> s {name = a} :: Directory)
 
 -- | The date and time when the directory was created.
-directory_creationDateTime :: Lens.Lens' Directory (Prelude.Maybe Prelude.UTCTime)
-directory_creationDateTime = Lens.lens (\Directory' {creationDateTime} -> creationDateTime) (\s@Directory' {} a -> s {creationDateTime = a} :: Directory) Prelude.. Lens.mapping Prelude._Time
+directory_creationDateTime :: Lens.Lens' Directory (Core.Maybe Core.UTCTime)
+directory_creationDateTime = Lens.lens (\Directory' {creationDateTime} -> creationDateTime) (\s@Directory' {} a -> s {creationDateTime = a} :: Directory) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON Directory where
+instance Core.FromJSON Directory where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Directory"
       ( \x ->
           Directory'
-            Prelude.<$> (x Prelude..:? "DirectoryArn")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "CreationDateTime")
+            Core.<$> (x Core..:? "DirectoryArn")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "CreationDateTime")
       )
 
-instance Prelude.Hashable Directory
+instance Core.Hashable Directory
 
-instance Prelude.NFData Directory
+instance Core.NFData Directory

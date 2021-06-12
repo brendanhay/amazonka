@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AgentVersion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Edge Manager agent version.
 --
 -- /See:/ 'newAgentVersion' smart constructor.
 data AgentVersion = AgentVersion'
   { -- | Version of the agent.
-    version :: Prelude.Text,
+    version :: Core.Text,
     -- | The number of Edge Manager agents.
-    agentCount :: Prelude.Integer
+    agentCount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AgentVersion' with all optional fields omitted.
@@ -47,9 +46,9 @@ data AgentVersion = AgentVersion'
 -- 'agentCount', 'agentVersion_agentCount' - The number of Edge Manager agents.
 newAgentVersion ::
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'agentCount'
-  Prelude.Integer ->
+  Core.Integer ->
   AgentVersion
 newAgentVersion pVersion_ pAgentCount_ =
   AgentVersion'
@@ -58,23 +57,23 @@ newAgentVersion pVersion_ pAgentCount_ =
     }
 
 -- | Version of the agent.
-agentVersion_version :: Lens.Lens' AgentVersion Prelude.Text
+agentVersion_version :: Lens.Lens' AgentVersion Core.Text
 agentVersion_version = Lens.lens (\AgentVersion' {version} -> version) (\s@AgentVersion' {} a -> s {version = a} :: AgentVersion)
 
 -- | The number of Edge Manager agents.
-agentVersion_agentCount :: Lens.Lens' AgentVersion Prelude.Integer
+agentVersion_agentCount :: Lens.Lens' AgentVersion Core.Integer
 agentVersion_agentCount = Lens.lens (\AgentVersion' {agentCount} -> agentCount) (\s@AgentVersion' {} a -> s {agentCount = a} :: AgentVersion)
 
-instance Prelude.FromJSON AgentVersion where
+instance Core.FromJSON AgentVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AgentVersion"
       ( \x ->
           AgentVersion'
-            Prelude.<$> (x Prelude..: "Version")
-            Prelude.<*> (x Prelude..: "AgentCount")
+            Core.<$> (x Core..: "Version")
+            Core.<*> (x Core..: "AgentCount")
       )
 
-instance Prelude.Hashable AgentVersion
+instance Core.Hashable AgentVersion
 
-instance Prelude.NFData AgentVersion
+instance Core.NFData AgentVersion

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AutoScalingPlans.Types.PredefinedScalingMetricSpecification where
 
 import Network.AWS.AutoScalingPlans.Types.ScalingMetricType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a predefined metric that can be used for dynamic scaling as
 -- part of a target tracking scaling policy.
@@ -55,12 +54,12 @@ data PredefinedScalingMetricSpecification = PredefinedScalingMetricSpecification
     -- API operation. To find the ARN for the target group, use the
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
     -- API operation.
-    resourceLabel :: Prelude.Maybe Prelude.Text,
+    resourceLabel :: Core.Maybe Core.Text,
     -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
     -- to Auto Scaling groups, Spot Fleet requests, and ECS services.
     predefinedScalingMetricType :: ScalingMetricType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PredefinedScalingMetricSpecification' with all optional fields omitted.
@@ -107,7 +106,7 @@ newPredefinedScalingMetricSpecification
   pPredefinedScalingMetricType_ =
     PredefinedScalingMetricSpecification'
       { resourceLabel =
-          Prelude.Nothing,
+          Core.Nothing,
         predefinedScalingMetricType =
           pPredefinedScalingMetricType_
       }
@@ -138,7 +137,7 @@ newPredefinedScalingMetricSpecification
 -- API operation. To find the ARN for the target group, use the
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html DescribeTargetGroups>
 -- API operation.
-predefinedScalingMetricSpecification_resourceLabel :: Lens.Lens' PredefinedScalingMetricSpecification (Prelude.Maybe Prelude.Text)
+predefinedScalingMetricSpecification_resourceLabel :: Lens.Lens' PredefinedScalingMetricSpecification (Core.Maybe Core.Text)
 predefinedScalingMetricSpecification_resourceLabel = Lens.lens (\PredefinedScalingMetricSpecification' {resourceLabel} -> resourceLabel) (\s@PredefinedScalingMetricSpecification' {} a -> s {resourceLabel = a} :: PredefinedScalingMetricSpecification)
 
 -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only
@@ -147,38 +146,37 @@ predefinedScalingMetricSpecification_predefinedScalingMetricType :: Lens.Lens' P
 predefinedScalingMetricSpecification_predefinedScalingMetricType = Lens.lens (\PredefinedScalingMetricSpecification' {predefinedScalingMetricType} -> predefinedScalingMetricType) (\s@PredefinedScalingMetricSpecification' {} a -> s {predefinedScalingMetricType = a} :: PredefinedScalingMetricSpecification)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     PredefinedScalingMetricSpecification
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PredefinedScalingMetricSpecification"
       ( \x ->
           PredefinedScalingMetricSpecification'
-            Prelude.<$> (x Prelude..:? "ResourceLabel")
-            Prelude.<*> (x Prelude..: "PredefinedScalingMetricType")
+            Core.<$> (x Core..:? "ResourceLabel")
+            Core.<*> (x Core..: "PredefinedScalingMetricType")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PredefinedScalingMetricSpecification
 
 instance
-  Prelude.NFData
+  Core.NFData
     PredefinedScalingMetricSpecification
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     PredefinedScalingMetricSpecification
   where
   toJSON PredefinedScalingMetricSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceLabel" Prelude..=)
-              Prelude.<$> resourceLabel,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceLabel" Core..=) Core.<$> resourceLabel,
+            Core.Just
               ( "PredefinedScalingMetricType"
-                  Prelude..= predefinedScalingMetricType
+                  Core..= predefinedScalingMetricType
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CloudHSMv2.DeleteHsm
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,17 +55,17 @@ import qualified Network.AWS.Response as Response
 data DeleteHsm = DeleteHsm'
   { -- | The IP address of the elastic network interface (ENI) of the HSM that
     -- you are deleting.
-    eniIp :: Prelude.Maybe Prelude.Text,
+    eniIp :: Core.Maybe Core.Text,
     -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
     -- that you are deleting.
-    eniId :: Prelude.Maybe Prelude.Text,
+    eniId :: Core.Maybe Core.Text,
     -- | The identifier (ID) of the HSM that you are deleting.
-    hsmId :: Prelude.Maybe Prelude.Text,
+    hsmId :: Core.Maybe Core.Text,
     -- | The identifier (ID) of the cluster that contains the HSM that you are
     -- deleting.
-    clusterId :: Prelude.Text
+    clusterId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHsm' with all optional fields omitted.
@@ -88,88 +87,86 @@ data DeleteHsm = DeleteHsm'
 -- deleting.
 newDeleteHsm ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteHsm
 newDeleteHsm pClusterId_ =
   DeleteHsm'
-    { eniIp = Prelude.Nothing,
-      eniId = Prelude.Nothing,
-      hsmId = Prelude.Nothing,
+    { eniIp = Core.Nothing,
+      eniId = Core.Nothing,
+      hsmId = Core.Nothing,
       clusterId = pClusterId_
     }
 
 -- | The IP address of the elastic network interface (ENI) of the HSM that
 -- you are deleting.
-deleteHsm_eniIp :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
+deleteHsm_eniIp :: Lens.Lens' DeleteHsm (Core.Maybe Core.Text)
 deleteHsm_eniIp = Lens.lens (\DeleteHsm' {eniIp} -> eniIp) (\s@DeleteHsm' {} a -> s {eniIp = a} :: DeleteHsm)
 
 -- | The identifier (ID) of the elastic network interface (ENI) of the HSM
 -- that you are deleting.
-deleteHsm_eniId :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
+deleteHsm_eniId :: Lens.Lens' DeleteHsm (Core.Maybe Core.Text)
 deleteHsm_eniId = Lens.lens (\DeleteHsm' {eniId} -> eniId) (\s@DeleteHsm' {} a -> s {eniId = a} :: DeleteHsm)
 
 -- | The identifier (ID) of the HSM that you are deleting.
-deleteHsm_hsmId :: Lens.Lens' DeleteHsm (Prelude.Maybe Prelude.Text)
+deleteHsm_hsmId :: Lens.Lens' DeleteHsm (Core.Maybe Core.Text)
 deleteHsm_hsmId = Lens.lens (\DeleteHsm' {hsmId} -> hsmId) (\s@DeleteHsm' {} a -> s {hsmId = a} :: DeleteHsm)
 
 -- | The identifier (ID) of the cluster that contains the HSM that you are
 -- deleting.
-deleteHsm_clusterId :: Lens.Lens' DeleteHsm Prelude.Text
+deleteHsm_clusterId :: Lens.Lens' DeleteHsm Core.Text
 deleteHsm_clusterId = Lens.lens (\DeleteHsm' {clusterId} -> clusterId) (\s@DeleteHsm' {} a -> s {clusterId = a} :: DeleteHsm)
 
-instance Prelude.AWSRequest DeleteHsm where
-  type Rs DeleteHsm = DeleteHsmResponse
+instance Core.AWSRequest DeleteHsm where
+  type AWSResponse DeleteHsm = DeleteHsmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteHsmResponse'
-            Prelude.<$> (x Prelude..?> "HsmId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "HsmId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteHsm
+instance Core.Hashable DeleteHsm
 
-instance Prelude.NFData DeleteHsm
+instance Core.NFData DeleteHsm
 
-instance Prelude.ToHeaders DeleteHsm where
+instance Core.ToHeaders DeleteHsm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("BaldrApiService.DeleteHsm" :: Prelude.ByteString),
+              Core.=# ("BaldrApiService.DeleteHsm" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteHsm where
+instance Core.ToJSON DeleteHsm where
   toJSON DeleteHsm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EniIp" Prelude..=) Prelude.<$> eniIp,
-            ("EniId" Prelude..=) Prelude.<$> eniId,
-            ("HsmId" Prelude..=) Prelude.<$> hsmId,
-            Prelude.Just ("ClusterId" Prelude..= clusterId)
+    Core.object
+      ( Core.catMaybes
+          [ ("EniIp" Core..=) Core.<$> eniIp,
+            ("EniId" Core..=) Core.<$> eniId,
+            ("HsmId" Core..=) Core.<$> hsmId,
+            Core.Just ("ClusterId" Core..= clusterId)
           ]
       )
 
-instance Prelude.ToPath DeleteHsm where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteHsm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteHsm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteHsm where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteHsmResponse' smart constructor.
 data DeleteHsmResponse = DeleteHsmResponse'
   { -- | The identifier (ID) of the HSM that was deleted.
-    hsmId :: Prelude.Maybe Prelude.Text,
+    hsmId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmResponse' with all optional fields omitted.
@@ -184,20 +181,20 @@ data DeleteHsmResponse = DeleteHsmResponse'
 -- 'httpStatus', 'deleteHsmResponse_httpStatus' - The response's http status code.
 newDeleteHsmResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteHsmResponse
 newDeleteHsmResponse pHttpStatus_ =
   DeleteHsmResponse'
-    { hsmId = Prelude.Nothing,
+    { hsmId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier (ID) of the HSM that was deleted.
-deleteHsmResponse_hsmId :: Lens.Lens' DeleteHsmResponse (Prelude.Maybe Prelude.Text)
+deleteHsmResponse_hsmId :: Lens.Lens' DeleteHsmResponse (Core.Maybe Core.Text)
 deleteHsmResponse_hsmId = Lens.lens (\DeleteHsmResponse' {hsmId} -> hsmId) (\s@DeleteHsmResponse' {} a -> s {hsmId = a} :: DeleteHsmResponse)
 
 -- | The response's http status code.
-deleteHsmResponse_httpStatus :: Lens.Lens' DeleteHsmResponse Prelude.Int
+deleteHsmResponse_httpStatus :: Lens.Lens' DeleteHsmResponse Core.Int
 deleteHsmResponse_httpStatus = Lens.lens (\DeleteHsmResponse' {httpStatus} -> httpStatus) (\s@DeleteHsmResponse' {} a -> s {httpStatus = a} :: DeleteHsmResponse)
 
-instance Prelude.NFData DeleteHsmResponse
+instance Core.NFData DeleteHsmResponse

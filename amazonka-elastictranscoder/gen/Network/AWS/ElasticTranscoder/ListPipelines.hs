@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.ElasticTranscoder.ListPipelines
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +57,13 @@ data ListPipelines = ListPipelines'
   { -- | To list pipelines in chronological order by the date and time that they
     -- were created, enter @true@. To list pipelines in reverse chronological
     -- order, enter @false@.
-    ascending :: Prelude.Maybe Prelude.Text,
+    ascending :: Core.Maybe Core.Text,
     -- | When Elastic Transcoder returns more than one page of results, use
     -- @pageToken@ in subsequent @GET@ requests to get each successive page of
     -- results.
-    pageToken :: Prelude.Maybe Prelude.Text
+    pageToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPipelines' with all optional fields omitted.
@@ -86,72 +84,71 @@ newListPipelines ::
   ListPipelines
 newListPipelines =
   ListPipelines'
-    { ascending = Prelude.Nothing,
-      pageToken = Prelude.Nothing
+    { ascending = Core.Nothing,
+      pageToken = Core.Nothing
     }
 
 -- | To list pipelines in chronological order by the date and time that they
 -- were created, enter @true@. To list pipelines in reverse chronological
 -- order, enter @false@.
-listPipelines_ascending :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
+listPipelines_ascending :: Lens.Lens' ListPipelines (Core.Maybe Core.Text)
 listPipelines_ascending = Lens.lens (\ListPipelines' {ascending} -> ascending) (\s@ListPipelines' {} a -> s {ascending = a} :: ListPipelines)
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-listPipelines_pageToken :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
+listPipelines_pageToken :: Lens.Lens' ListPipelines (Core.Maybe Core.Text)
 listPipelines_pageToken = Lens.lens (\ListPipelines' {pageToken} -> pageToken) (\s@ListPipelines' {} a -> s {pageToken = a} :: ListPipelines)
 
-instance Pager.AWSPager ListPipelines where
+instance Core.AWSPager ListPipelines where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listPipelinesResponse_nextPageToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listPipelinesResponse_pipelines Prelude.. Lens._Just
+            Lens.^? listPipelinesResponse_pipelines Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listPipelines_pageToken
           Lens..~ rs
-          Lens.^? listPipelinesResponse_nextPageToken
-            Prelude.. Lens._Just
+          Lens.^? listPipelinesResponse_nextPageToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListPipelines where
-  type Rs ListPipelines = ListPipelinesResponse
+instance Core.AWSRequest ListPipelines where
+  type
+    AWSResponse ListPipelines =
+      ListPipelinesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Prelude.<$> (x Prelude..?> "NextPageToken")
-            Prelude.<*> ( x Prelude..?> "Pipelines"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextPageToken")
+            Core.<*> (x Core..?> "Pipelines" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListPipelines
+instance Core.Hashable ListPipelines
 
-instance Prelude.NFData ListPipelines
+instance Core.NFData ListPipelines
 
-instance Prelude.ToHeaders ListPipelines where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListPipelines where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListPipelines where
-  toPath = Prelude.const "/2012-09-25/pipelines"
+instance Core.ToPath ListPipelines where
+  toPath = Core.const "/2012-09-25/pipelines"
 
-instance Prelude.ToQuery ListPipelines where
+instance Core.ToQuery ListPipelines where
   toQuery ListPipelines' {..} =
-    Prelude.mconcat
-      [ "Ascending" Prelude.=: ascending,
-        "PageToken" Prelude.=: pageToken
+    Core.mconcat
+      [ "Ascending" Core.=: ascending,
+        "PageToken" Core.=: pageToken
       ]
 
 -- | A list of the pipelines associated with the current AWS account.
@@ -162,13 +159,13 @@ data ListPipelinesResponse = ListPipelinesResponse'
     -- results, if any. When the pipelines fit on one page or when you\'ve
     -- reached the last page of results, the value of @NextPageToken@ is
     -- @null@.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | An array of @Pipeline@ objects.
-    pipelines :: Prelude.Maybe [Pipeline],
+    pipelines :: Core.Maybe [Pipeline],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPipelinesResponse' with all optional fields omitted.
@@ -188,13 +185,13 @@ data ListPipelinesResponse = ListPipelinesResponse'
 -- 'httpStatus', 'listPipelinesResponse_httpStatus' - The response's http status code.
 newListPipelinesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPipelinesResponse
 newListPipelinesResponse pHttpStatus_ =
   ListPipelinesResponse'
     { nextPageToken =
-        Prelude.Nothing,
-      pipelines = Prelude.Nothing,
+        Core.Nothing,
+      pipelines = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -202,15 +199,15 @@ newListPipelinesResponse pHttpStatus_ =
 -- results, if any. When the pipelines fit on one page or when you\'ve
 -- reached the last page of results, the value of @NextPageToken@ is
 -- @null@.
-listPipelinesResponse_nextPageToken :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Text)
+listPipelinesResponse_nextPageToken :: Lens.Lens' ListPipelinesResponse (Core.Maybe Core.Text)
 listPipelinesResponse_nextPageToken = Lens.lens (\ListPipelinesResponse' {nextPageToken} -> nextPageToken) (\s@ListPipelinesResponse' {} a -> s {nextPageToken = a} :: ListPipelinesResponse)
 
 -- | An array of @Pipeline@ objects.
-listPipelinesResponse_pipelines :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe [Pipeline])
-listPipelinesResponse_pipelines = Lens.lens (\ListPipelinesResponse' {pipelines} -> pipelines) (\s@ListPipelinesResponse' {} a -> s {pipelines = a} :: ListPipelinesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPipelinesResponse_pipelines :: Lens.Lens' ListPipelinesResponse (Core.Maybe [Pipeline])
+listPipelinesResponse_pipelines = Lens.lens (\ListPipelinesResponse' {pipelines} -> pipelines) (\s@ListPipelinesResponse' {} a -> s {pipelines = a} :: ListPipelinesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int
+listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Core.Int
 listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatus} -> httpStatus) (\s@ListPipelinesResponse' {} a -> s {httpStatus = a} :: ListPipelinesResponse)
 
-instance Prelude.NFData ListPipelinesResponse
+instance Core.NFData ListPipelinesResponse

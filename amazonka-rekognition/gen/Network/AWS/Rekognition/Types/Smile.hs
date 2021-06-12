@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Smile where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the face is smiling, and the confidence level
 -- in the determination.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSmile' smart constructor.
 data Smile = Smile'
   { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | Boolean value that indicates whether the face is smiling or not.
-    value :: Prelude.Maybe Prelude.Bool
+    value :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Smile' with all optional fields omitted.
@@ -50,28 +49,28 @@ newSmile ::
   Smile
 newSmile =
   Smile'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { confidence = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Level of confidence in the determination.
-smile_confidence :: Lens.Lens' Smile (Prelude.Maybe Prelude.Double)
+smile_confidence :: Lens.Lens' Smile (Core.Maybe Core.Double)
 smile_confidence = Lens.lens (\Smile' {confidence} -> confidence) (\s@Smile' {} a -> s {confidence = a} :: Smile)
 
 -- | Boolean value that indicates whether the face is smiling or not.
-smile_value :: Lens.Lens' Smile (Prelude.Maybe Prelude.Bool)
+smile_value :: Lens.Lens' Smile (Core.Maybe Core.Bool)
 smile_value = Lens.lens (\Smile' {value} -> value) (\s@Smile' {} a -> s {value = a} :: Smile)
 
-instance Prelude.FromJSON Smile where
+instance Core.FromJSON Smile where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Smile"
       ( \x ->
           Smile'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Smile
+instance Core.Hashable Smile
 
-instance Prelude.NFData Smile
+instance Core.NFData Smile

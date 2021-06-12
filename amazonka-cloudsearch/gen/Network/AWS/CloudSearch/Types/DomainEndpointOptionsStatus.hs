@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus where
 
 import Network.AWS.CloudSearch.Types.DomainEndpointOptions
 import Network.AWS.CloudSearch.Types.OptionStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration and status of the domain\'s endpoint options.
 --
@@ -34,7 +33,7 @@ data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
     -- | The status of the configured domain endpoint options.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DomainEndpointOptionsStatus' with all optional fields omitted.
@@ -67,12 +66,11 @@ domainEndpointOptionsStatus_options = Lens.lens (\DomainEndpointOptionsStatus' {
 domainEndpointOptionsStatus_status :: Lens.Lens' DomainEndpointOptionsStatus OptionStatus
 domainEndpointOptionsStatus_status = Lens.lens (\DomainEndpointOptionsStatus' {status} -> status) (\s@DomainEndpointOptionsStatus' {} a -> s {status = a} :: DomainEndpointOptionsStatus)
 
-instance Prelude.FromXML DomainEndpointOptionsStatus where
+instance Core.FromXML DomainEndpointOptionsStatus where
   parseXML x =
     DomainEndpointOptionsStatus'
-      Prelude.<$> (x Prelude..@ "Options")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable DomainEndpointOptionsStatus
+instance Core.Hashable DomainEndpointOptionsStatus
 
-instance Prelude.NFData DomainEndpointOptionsStatus
+instance Core.NFData DomainEndpointOptionsStatus

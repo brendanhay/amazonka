@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskIdentity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
 import Network.AWS.SSM.Types.MaintenanceWindowTaskType
 
@@ -31,25 +30,25 @@ import Network.AWS.SSM.Types.MaintenanceWindowTaskType
 -- /See:/ 'newMaintenanceWindowExecutionTaskIdentity' smart constructor.
 data MaintenanceWindowExecutionTaskIdentity = MaintenanceWindowExecutionTaskIdentity'
   { -- | The status of the task execution.
-    status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
+    status :: Core.Maybe MaintenanceWindowExecutionStatus,
     -- | The details explaining the status of the task execution. Only available
     -- for certain status values.
-    statusDetails :: Prelude.Maybe Prelude.Text,
+    statusDetails :: Core.Maybe Core.Text,
     -- | The time the task execution started.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The time the task execution finished.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The ID of the maintenance window execution that ran the task.
-    windowExecutionId :: Prelude.Maybe Prelude.Text,
+    windowExecutionId :: Core.Maybe Core.Text,
     -- | The ARN of the task that ran.
-    taskArn :: Prelude.Maybe Prelude.Text,
+    taskArn :: Core.Maybe Core.Text,
     -- | The type of task that ran.
-    taskType :: Prelude.Maybe MaintenanceWindowTaskType,
+    taskType :: Core.Maybe MaintenanceWindowTaskType,
     -- | The ID of the specific task execution in the maintenance window
     -- execution.
-    taskExecutionId :: Prelude.Maybe Prelude.Text
+    taskExecutionId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowExecutionTaskIdentity' with all optional fields omitted.
@@ -81,73 +80,73 @@ newMaintenanceWindowExecutionTaskIdentity ::
 newMaintenanceWindowExecutionTaskIdentity =
   MaintenanceWindowExecutionTaskIdentity'
     { status =
-        Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      windowExecutionId = Prelude.Nothing,
-      taskArn = Prelude.Nothing,
-      taskType = Prelude.Nothing,
-      taskExecutionId = Prelude.Nothing
+        Core.Nothing,
+      statusDetails = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      windowExecutionId = Core.Nothing,
+      taskArn = Core.Nothing,
+      taskType = Core.Nothing,
+      taskExecutionId = Core.Nothing
     }
 
 -- | The status of the task execution.
-maintenanceWindowExecutionTaskIdentity_status :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe MaintenanceWindowExecutionStatus)
+maintenanceWindowExecutionTaskIdentity_status :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe MaintenanceWindowExecutionStatus)
 maintenanceWindowExecutionTaskIdentity_status = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {status} -> status) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {status = a} :: MaintenanceWindowExecutionTaskIdentity)
 
 -- | The details explaining the status of the task execution. Only available
 -- for certain status values.
-maintenanceWindowExecutionTaskIdentity_statusDetails :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskIdentity_statusDetails :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe Core.Text)
 maintenanceWindowExecutionTaskIdentity_statusDetails = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {statusDetails} -> statusDetails) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {statusDetails = a} :: MaintenanceWindowExecutionTaskIdentity)
 
 -- | The time the task execution started.
-maintenanceWindowExecutionTaskIdentity_startTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.UTCTime)
-maintenanceWindowExecutionTaskIdentity_startTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {startTime} -> startTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {startTime = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Prelude._Time
+maintenanceWindowExecutionTaskIdentity_startTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe Core.UTCTime)
+maintenanceWindowExecutionTaskIdentity_startTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {startTime} -> startTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {startTime = a} :: MaintenanceWindowExecutionTaskIdentity) Core.. Lens.mapping Core._Time
 
 -- | The time the task execution finished.
-maintenanceWindowExecutionTaskIdentity_endTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.UTCTime)
-maintenanceWindowExecutionTaskIdentity_endTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {endTime} -> endTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {endTime = a} :: MaintenanceWindowExecutionTaskIdentity) Prelude.. Lens.mapping Prelude._Time
+maintenanceWindowExecutionTaskIdentity_endTime :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe Core.UTCTime)
+maintenanceWindowExecutionTaskIdentity_endTime = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {endTime} -> endTime) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {endTime = a} :: MaintenanceWindowExecutionTaskIdentity) Core.. Lens.mapping Core._Time
 
 -- | The ID of the maintenance window execution that ran the task.
-maintenanceWindowExecutionTaskIdentity_windowExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskIdentity_windowExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe Core.Text)
 maintenanceWindowExecutionTaskIdentity_windowExecutionId = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {windowExecutionId} -> windowExecutionId) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {windowExecutionId = a} :: MaintenanceWindowExecutionTaskIdentity)
 
 -- | The ARN of the task that ran.
-maintenanceWindowExecutionTaskIdentity_taskArn :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskIdentity_taskArn :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe Core.Text)
 maintenanceWindowExecutionTaskIdentity_taskArn = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {taskArn} -> taskArn) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {taskArn = a} :: MaintenanceWindowExecutionTaskIdentity)
 
 -- | The type of task that ran.
-maintenanceWindowExecutionTaskIdentity_taskType :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe MaintenanceWindowTaskType)
+maintenanceWindowExecutionTaskIdentity_taskType :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe MaintenanceWindowTaskType)
 maintenanceWindowExecutionTaskIdentity_taskType = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {taskType} -> taskType) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {taskType = a} :: MaintenanceWindowExecutionTaskIdentity)
 
 -- | The ID of the specific task execution in the maintenance window
 -- execution.
-maintenanceWindowExecutionTaskIdentity_taskExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Prelude.Maybe Prelude.Text)
+maintenanceWindowExecutionTaskIdentity_taskExecutionId :: Lens.Lens' MaintenanceWindowExecutionTaskIdentity (Core.Maybe Core.Text)
 maintenanceWindowExecutionTaskIdentity_taskExecutionId = Lens.lens (\MaintenanceWindowExecutionTaskIdentity' {taskExecutionId} -> taskExecutionId) (\s@MaintenanceWindowExecutionTaskIdentity' {} a -> s {taskExecutionId = a} :: MaintenanceWindowExecutionTaskIdentity)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     MaintenanceWindowExecutionTaskIdentity
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MaintenanceWindowExecutionTaskIdentity"
       ( \x ->
           MaintenanceWindowExecutionTaskIdentity'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "StatusDetails")
-            Prelude.<*> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "EndTime")
-            Prelude.<*> (x Prelude..:? "WindowExecutionId")
-            Prelude.<*> (x Prelude..:? "TaskArn")
-            Prelude.<*> (x Prelude..:? "TaskType")
-            Prelude.<*> (x Prelude..:? "TaskExecutionId")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "StatusDetails")
+            Core.<*> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "EndTime")
+            Core.<*> (x Core..:? "WindowExecutionId")
+            Core.<*> (x Core..:? "TaskArn")
+            Core.<*> (x Core..:? "TaskType")
+            Core.<*> (x Core..:? "TaskExecutionId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     MaintenanceWindowExecutionTaskIdentity
 
 instance
-  Prelude.NFData
+  Core.NFData
     MaintenanceWindowExecutionTaskIdentity

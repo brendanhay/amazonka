@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.CloudFormation.CreateStack
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,7 +72,7 @@ data CreateStack = CreateStack'
     -- @OnFailure@ or @DisableRollback@, but not both.
     --
     -- Default: @ROLLBACK@
-    onFailure :: Prelude.Maybe OnFailure,
+    onFailure :: Core.Maybe OnFailure,
     -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
     -- (IAM) role that AWS CloudFormation assumes to create the stack. AWS
     -- CloudFormation uses the role\'s credentials to make calls on your
@@ -86,7 +85,7 @@ data CreateStack = CreateStack'
     -- previously associated with the stack. If no role is available, AWS
     -- CloudFormation uses a temporary session that is generated from your user
     -- credentials.
-    roleARN :: Prelude.Maybe Prelude.Text,
+    roleARN :: Core.Maybe Core.Text,
     -- | The template resource types that you have permissions to work with for
     -- this create stack action, such as @AWS::EC2::Instance@, @AWS::EC2::*@,
     -- or @Custom::MyCustomInstance@. Use the following syntax to describe
@@ -102,7 +101,7 @@ data CreateStack = CreateStack'
     -- Management (IAM) uses this parameter for AWS CloudFormation-specific
     -- condition keys in IAM policies. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>.
-    resourceTypes :: Prelude.Maybe [Prelude.Text],
+    resourceTypes :: Core.Maybe [Core.Text],
     -- | In some cases, you must explicitly acknowledge that your stack template
     -- contains certain capabilities in order for AWS CloudFormation to create
     -- the stack.
@@ -178,12 +177,12 @@ data CreateStack = CreateStack'
     --
     --     For more information, see
     --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using AWS CloudFormation Macros to Perform Custom Processing on Templates>.
-    capabilities :: Prelude.Maybe [Capability],
+    capabilities :: Core.Maybe [Capability],
     -- | Structure containing the stack policy body. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
     -- in the /AWS CloudFormation User Guide/. You can specify either the
     -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-    stackPolicyBody :: Prelude.Maybe Prelude.Text,
+    stackPolicyBody :: Core.Maybe Core.Text,
     -- | Whether to enable termination protection on the specified stack. If a
     -- user attempts to delete a stack with termination protection enabled, the
     -- operation fails and the stack remains unchanged. For more information,
@@ -196,7 +195,7 @@ data CreateStack = CreateStack'
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks>,
     -- termination protection is set on the root stack and cannot be changed
     -- directly on the nested stack.
-    enableTerminationProtection :: Prelude.Maybe Prelude.Bool,
+    enableTerminationProtection :: Core.Maybe Core.Bool,
     -- | Location of file containing the template body. The URL must point to a
     -- template (max size: 460,800 bytes) that is located in an Amazon S3
     -- bucket or a Systems Manager document. For more information, go to the
@@ -205,28 +204,28 @@ data CreateStack = CreateStack'
     --
     -- Conditional: You must specify either the @TemplateBody@ or the
     -- @TemplateURL@ parameter, but not both.
-    templateURL :: Prelude.Maybe Prelude.Text,
+    templateURL :: Core.Maybe Core.Text,
     -- | The Simple Notification Service (SNS) topic ARNs to publish stack
     -- related events. You can find your SNS topic ARNs using the SNS console
     -- or your Command Line Interface (CLI).
-    notificationARNs :: Prelude.Maybe [Prelude.Text],
+    notificationARNs :: Core.Maybe [Core.Text],
     -- | Location of a file containing the stack policy. The URL must point to a
     -- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
     -- as the stack. You can specify either the @StackPolicyBody@ or the
     -- @StackPolicyURL@ parameter, but not both.
-    stackPolicyURL :: Prelude.Maybe Prelude.Text,
+    stackPolicyURL :: Core.Maybe Core.Text,
     -- | Key-value pairs to associate with this stack. AWS CloudFormation also
     -- propagates these tags to the resources created in the stack. A maximum
     -- number of 50 tags can be specified.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The amount of time that can pass before the stack status becomes
     -- CREATE_FAILED; if @DisableRollback@ is not set or is set to @false@, the
     -- stack will be rolled back.
-    timeoutInMinutes :: Prelude.Maybe Prelude.Natural,
+    timeoutInMinutes :: Core.Maybe Core.Natural,
     -- | The rollback triggers for AWS CloudFormation to monitor during stack
     -- creation and updating operations, and for the specified monitoring
     -- period afterwards.
-    rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
+    rollbackConfiguration :: Core.Maybe RollbackConfiguration,
     -- | A unique identifier for this @CreateStack@ request. Specify this token
     -- if you plan to retry requests so that AWS CloudFormation knows that
     -- you\'re not attempting to create a stack with the same name. You might
@@ -246,7 +245,7 @@ data CreateStack = CreateStack'
     -- the console, each stack event would be assigned the same token in the
     -- following format:
     -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | Structure containing the template body with a minimum length of 1 byte
     -- and a maximum length of 51,200 bytes. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
@@ -254,26 +253,26 @@ data CreateStack = CreateStack'
     --
     -- Conditional: You must specify either the @TemplateBody@ or the
     -- @TemplateURL@ parameter, but not both.
-    templateBody :: Prelude.Maybe Prelude.Text,
+    templateBody :: Core.Maybe Core.Text,
     -- | Set to @true@ to disable rollback of the stack if stack creation failed.
     -- You can specify either @DisableRollback@ or @OnFailure@, but not both.
     --
     -- Default: @false@
-    disableRollback :: Prelude.Maybe Prelude.Bool,
+    disableRollback :: Core.Maybe Core.Bool,
     -- | A list of @Parameter@ structures that specify input parameters for the
     -- stack. For more information, see the
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
     -- data type.
-    parameters :: Prelude.Maybe [Parameter],
+    parameters :: Core.Maybe [Parameter],
     -- | The name that is associated with the stack. The name must be unique in
     -- the Region in which you are creating the stack.
     --
     -- A stack name can contain only alphanumeric characters (case sensitive)
     -- and hyphens. It must start with an alphabetic character and cannot be
     -- longer than 128 characters.
-    stackName :: Prelude.Text
+    stackName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStack' with all optional fields omitted.
@@ -488,26 +487,26 @@ data CreateStack = CreateStack'
 -- longer than 128 characters.
 newCreateStack ::
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   CreateStack
 newCreateStack pStackName_ =
   CreateStack'
-    { onFailure = Prelude.Nothing,
-      roleARN = Prelude.Nothing,
-      resourceTypes = Prelude.Nothing,
-      capabilities = Prelude.Nothing,
-      stackPolicyBody = Prelude.Nothing,
-      enableTerminationProtection = Prelude.Nothing,
-      templateURL = Prelude.Nothing,
-      notificationARNs = Prelude.Nothing,
-      stackPolicyURL = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      timeoutInMinutes = Prelude.Nothing,
-      rollbackConfiguration = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      templateBody = Prelude.Nothing,
-      disableRollback = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+    { onFailure = Core.Nothing,
+      roleARN = Core.Nothing,
+      resourceTypes = Core.Nothing,
+      capabilities = Core.Nothing,
+      stackPolicyBody = Core.Nothing,
+      enableTerminationProtection = Core.Nothing,
+      templateURL = Core.Nothing,
+      notificationARNs = Core.Nothing,
+      stackPolicyURL = Core.Nothing,
+      tags = Core.Nothing,
+      timeoutInMinutes = Core.Nothing,
+      rollbackConfiguration = Core.Nothing,
+      clientRequestToken = Core.Nothing,
+      templateBody = Core.Nothing,
+      disableRollback = Core.Nothing,
+      parameters = Core.Nothing,
       stackName = pStackName_
     }
 
@@ -516,7 +515,7 @@ newCreateStack pStackName_ =
 -- @OnFailure@ or @DisableRollback@, but not both.
 --
 -- Default: @ROLLBACK@
-createStack_onFailure :: Lens.Lens' CreateStack (Prelude.Maybe OnFailure)
+createStack_onFailure :: Lens.Lens' CreateStack (Core.Maybe OnFailure)
 createStack_onFailure = Lens.lens (\CreateStack' {onFailure} -> onFailure) (\s@CreateStack' {} a -> s {onFailure = a} :: CreateStack)
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
@@ -531,7 +530,7 @@ createStack_onFailure = Lens.lens (\CreateStack' {onFailure} -> onFailure) (\s@C
 -- previously associated with the stack. If no role is available, AWS
 -- CloudFormation uses a temporary session that is generated from your user
 -- credentials.
-createStack_roleARN :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_roleARN :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_roleARN = Lens.lens (\CreateStack' {roleARN} -> roleARN) (\s@CreateStack' {} a -> s {roleARN = a} :: CreateStack)
 
 -- | The template resource types that you have permissions to work with for
@@ -549,8 +548,8 @@ createStack_roleARN = Lens.lens (\CreateStack' {roleARN} -> roleARN) (\s@CreateS
 -- Management (IAM) uses this parameter for AWS CloudFormation-specific
 -- condition keys in IAM policies. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with AWS Identity and Access Management>.
-createStack_resourceTypes :: Lens.Lens' CreateStack (Prelude.Maybe [Prelude.Text])
-createStack_resourceTypes = Lens.lens (\CreateStack' {resourceTypes} -> resourceTypes) (\s@CreateStack' {} a -> s {resourceTypes = a} :: CreateStack) Prelude.. Lens.mapping Prelude._Coerce
+createStack_resourceTypes :: Lens.Lens' CreateStack (Core.Maybe [Core.Text])
+createStack_resourceTypes = Lens.lens (\CreateStack' {resourceTypes} -> resourceTypes) (\s@CreateStack' {} a -> s {resourceTypes = a} :: CreateStack) Core.. Lens.mapping Lens._Coerce
 
 -- | In some cases, you must explicitly acknowledge that your stack template
 -- contains certain capabilities in order for AWS CloudFormation to create
@@ -627,14 +626,14 @@ createStack_resourceTypes = Lens.lens (\CreateStack' {resourceTypes} -> resource
 --
 --     For more information, see
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using AWS CloudFormation Macros to Perform Custom Processing on Templates>.
-createStack_capabilities :: Lens.Lens' CreateStack (Prelude.Maybe [Capability])
-createStack_capabilities = Lens.lens (\CreateStack' {capabilities} -> capabilities) (\s@CreateStack' {} a -> s {capabilities = a} :: CreateStack) Prelude.. Lens.mapping Prelude._Coerce
+createStack_capabilities :: Lens.Lens' CreateStack (Core.Maybe [Capability])
+createStack_capabilities = Lens.lens (\CreateStack' {capabilities} -> capabilities) (\s@CreateStack' {} a -> s {capabilities = a} :: CreateStack) Core.. Lens.mapping Lens._Coerce
 
 -- | Structure containing the stack policy body. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
 -- in the /AWS CloudFormation User Guide/. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
-createStack_stackPolicyBody :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_stackPolicyBody :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_stackPolicyBody = Lens.lens (\CreateStack' {stackPolicyBody} -> stackPolicyBody) (\s@CreateStack' {} a -> s {stackPolicyBody = a} :: CreateStack)
 
 -- | Whether to enable termination protection on the specified stack. If a
@@ -649,7 +648,7 @@ createStack_stackPolicyBody = Lens.lens (\CreateStack' {stackPolicyBody} -> stac
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html nested stacks>,
 -- termination protection is set on the root stack and cannot be changed
 -- directly on the nested stack.
-createStack_enableTerminationProtection :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
+createStack_enableTerminationProtection :: Lens.Lens' CreateStack (Core.Maybe Core.Bool)
 createStack_enableTerminationProtection = Lens.lens (\CreateStack' {enableTerminationProtection} -> enableTerminationProtection) (\s@CreateStack' {} a -> s {enableTerminationProtection = a} :: CreateStack)
 
 -- | Location of file containing the template body. The URL must point to a
@@ -660,38 +659,38 @@ createStack_enableTerminationProtection = Lens.lens (\CreateStack' {enableTermin
 --
 -- Conditional: You must specify either the @TemplateBody@ or the
 -- @TemplateURL@ parameter, but not both.
-createStack_templateURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_templateURL :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_templateURL = Lens.lens (\CreateStack' {templateURL} -> templateURL) (\s@CreateStack' {} a -> s {templateURL = a} :: CreateStack)
 
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack
 -- related events. You can find your SNS topic ARNs using the SNS console
 -- or your Command Line Interface (CLI).
-createStack_notificationARNs :: Lens.Lens' CreateStack (Prelude.Maybe [Prelude.Text])
-createStack_notificationARNs = Lens.lens (\CreateStack' {notificationARNs} -> notificationARNs) (\s@CreateStack' {} a -> s {notificationARNs = a} :: CreateStack) Prelude.. Lens.mapping Prelude._Coerce
+createStack_notificationARNs :: Lens.Lens' CreateStack (Core.Maybe [Core.Text])
+createStack_notificationARNs = Lens.lens (\CreateStack' {notificationARNs} -> notificationARNs) (\s@CreateStack' {} a -> s {notificationARNs = a} :: CreateStack) Core.. Lens.mapping Lens._Coerce
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
 -- as the stack. You can specify either the @StackPolicyBody@ or the
 -- @StackPolicyURL@ parameter, but not both.
-createStack_stackPolicyURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_stackPolicyURL :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_stackPolicyURL = Lens.lens (\CreateStack' {stackPolicyURL} -> stackPolicyURL) (\s@CreateStack' {} a -> s {stackPolicyURL = a} :: CreateStack)
 
 -- | Key-value pairs to associate with this stack. AWS CloudFormation also
 -- propagates these tags to the resources created in the stack. A maximum
 -- number of 50 tags can be specified.
-createStack_tags :: Lens.Lens' CreateStack (Prelude.Maybe [Tag])
-createStack_tags = Lens.lens (\CreateStack' {tags} -> tags) (\s@CreateStack' {} a -> s {tags = a} :: CreateStack) Prelude.. Lens.mapping Prelude._Coerce
+createStack_tags :: Lens.Lens' CreateStack (Core.Maybe [Tag])
+createStack_tags = Lens.lens (\CreateStack' {tags} -> tags) (\s@CreateStack' {} a -> s {tags = a} :: CreateStack) Core.. Lens.mapping Lens._Coerce
 
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if @DisableRollback@ is not set or is set to @false@, the
 -- stack will be rolled back.
-createStack_timeoutInMinutes :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Natural)
+createStack_timeoutInMinutes :: Lens.Lens' CreateStack (Core.Maybe Core.Natural)
 createStack_timeoutInMinutes = Lens.lens (\CreateStack' {timeoutInMinutes} -> timeoutInMinutes) (\s@CreateStack' {} a -> s {timeoutInMinutes = a} :: CreateStack)
 
 -- | The rollback triggers for AWS CloudFormation to monitor during stack
 -- creation and updating operations, and for the specified monitoring
 -- period afterwards.
-createStack_rollbackConfiguration :: Lens.Lens' CreateStack (Prelude.Maybe RollbackConfiguration)
+createStack_rollbackConfiguration :: Lens.Lens' CreateStack (Core.Maybe RollbackConfiguration)
 createStack_rollbackConfiguration = Lens.lens (\CreateStack' {rollbackConfiguration} -> rollbackConfiguration) (\s@CreateStack' {} a -> s {rollbackConfiguration = a} :: CreateStack)
 
 -- | A unique identifier for this @CreateStack@ request. Specify this token
@@ -713,7 +712,7 @@ createStack_rollbackConfiguration = Lens.lens (\CreateStack' {rollbackConfigurat
 -- the console, each stack event would be assigned the same token in the
 -- following format:
 -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-createStack_clientRequestToken :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_clientRequestToken :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_clientRequestToken = Lens.lens (\CreateStack' {clientRequestToken} -> clientRequestToken) (\s@CreateStack' {} a -> s {clientRequestToken = a} :: CreateStack)
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -723,22 +722,22 @@ createStack_clientRequestToken = Lens.lens (\CreateStack' {clientRequestToken} -
 --
 -- Conditional: You must specify either the @TemplateBody@ or the
 -- @TemplateURL@ parameter, but not both.
-createStack_templateBody :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_templateBody :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_templateBody = Lens.lens (\CreateStack' {templateBody} -> templateBody) (\s@CreateStack' {} a -> s {templateBody = a} :: CreateStack)
 
 -- | Set to @true@ to disable rollback of the stack if stack creation failed.
 -- You can specify either @DisableRollback@ or @OnFailure@, but not both.
 --
 -- Default: @false@
-createStack_disableRollback :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
+createStack_disableRollback :: Lens.Lens' CreateStack (Core.Maybe Core.Bool)
 createStack_disableRollback = Lens.lens (\CreateStack' {disableRollback} -> disableRollback) (\s@CreateStack' {} a -> s {disableRollback = a} :: CreateStack)
 
 -- | A list of @Parameter@ structures that specify input parameters for the
 -- stack. For more information, see the
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
 -- data type.
-createStack_parameters :: Lens.Lens' CreateStack (Prelude.Maybe [Parameter])
-createStack_parameters = Lens.lens (\CreateStack' {parameters} -> parameters) (\s@CreateStack' {} a -> s {parameters = a} :: CreateStack) Prelude.. Lens.mapping Prelude._Coerce
+createStack_parameters :: Lens.Lens' CreateStack (Core.Maybe [Parameter])
+createStack_parameters = Lens.lens (\CreateStack' {parameters} -> parameters) (\s@CreateStack' {} a -> s {parameters = a} :: CreateStack) Core.. Lens.mapping Lens._Coerce
 
 -- | The name that is associated with the stack. The name must be unique in
 -- the Region in which you are creating the stack.
@@ -746,75 +745,67 @@ createStack_parameters = Lens.lens (\CreateStack' {parameters} -> parameters) (\
 -- A stack name can contain only alphanumeric characters (case sensitive)
 -- and hyphens. It must start with an alphabetic character and cannot be
 -- longer than 128 characters.
-createStack_stackName :: Lens.Lens' CreateStack Prelude.Text
+createStack_stackName :: Lens.Lens' CreateStack Core.Text
 createStack_stackName = Lens.lens (\CreateStack' {stackName} -> stackName) (\s@CreateStack' {} a -> s {stackName = a} :: CreateStack)
 
-instance Prelude.AWSRequest CreateStack where
-  type Rs CreateStack = CreateStackResponse
+instance Core.AWSRequest CreateStack where
+  type AWSResponse CreateStack = CreateStackResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateStackResult"
       ( \s h x ->
           CreateStackResponse'
-            Prelude.<$> (x Prelude..@? "StackId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "StackId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStack
+instance Core.Hashable CreateStack
 
-instance Prelude.NFData CreateStack
+instance Core.NFData CreateStack
 
-instance Prelude.ToHeaders CreateStack where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateStack where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateStack where
+instance Core.ToQuery CreateStack where
   toQuery CreateStack' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("CreateStack" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "OnFailure" Prelude.=: onFailure,
-        "RoleARN" Prelude.=: roleARN,
+    Core.mconcat
+      [ "Action" Core.=: ("CreateStack" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "OnFailure" Core.=: onFailure,
+        "RoleARN" Core.=: roleARN,
         "ResourceTypes"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> resourceTypes
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> resourceTypes),
         "Capabilities"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> capabilities
-            ),
-        "StackPolicyBody" Prelude.=: stackPolicyBody,
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> capabilities),
+        "StackPolicyBody" Core.=: stackPolicyBody,
         "EnableTerminationProtection"
-          Prelude.=: enableTerminationProtection,
-        "TemplateURL" Prelude.=: templateURL,
+          Core.=: enableTerminationProtection,
+        "TemplateURL" Core.=: templateURL,
         "NotificationARNs"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> notificationARNs
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> notificationARNs
             ),
-        "StackPolicyURL" Prelude.=: stackPolicyURL,
+        "StackPolicyURL" Core.=: stackPolicyURL,
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
-        "TimeoutInMinutes" Prelude.=: timeoutInMinutes,
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
+        "TimeoutInMinutes" Core.=: timeoutInMinutes,
         "RollbackConfiguration"
-          Prelude.=: rollbackConfiguration,
-        "ClientRequestToken" Prelude.=: clientRequestToken,
-        "TemplateBody" Prelude.=: templateBody,
-        "DisableRollback" Prelude.=: disableRollback,
+          Core.=: rollbackConfiguration,
+        "ClientRequestToken" Core.=: clientRequestToken,
+        "TemplateBody" Core.=: templateBody,
+        "DisableRollback" Core.=: disableRollback,
         "Parameters"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> parameters
-            ),
-        "StackName" Prelude.=: stackName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> parameters),
+        "StackName" Core.=: stackName
       ]
 
 -- | The output for a CreateStack action.
@@ -822,11 +813,11 @@ instance Prelude.ToQuery CreateStack where
 -- /See:/ 'newCreateStackResponse' smart constructor.
 data CreateStackResponse = CreateStackResponse'
   { -- | Unique identifier of the stack.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStackResponse' with all optional fields omitted.
@@ -841,20 +832,20 @@ data CreateStackResponse = CreateStackResponse'
 -- 'httpStatus', 'createStackResponse_httpStatus' - The response's http status code.
 newCreateStackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateStackResponse
 newCreateStackResponse pHttpStatus_ =
   CreateStackResponse'
-    { stackId = Prelude.Nothing,
+    { stackId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Unique identifier of the stack.
-createStackResponse_stackId :: Lens.Lens' CreateStackResponse (Prelude.Maybe Prelude.Text)
+createStackResponse_stackId :: Lens.Lens' CreateStackResponse (Core.Maybe Core.Text)
 createStackResponse_stackId = Lens.lens (\CreateStackResponse' {stackId} -> stackId) (\s@CreateStackResponse' {} a -> s {stackId = a} :: CreateStackResponse)
 
 -- | The response's http status code.
-createStackResponse_httpStatus :: Lens.Lens' CreateStackResponse Prelude.Int
+createStackResponse_httpStatus :: Lens.Lens' CreateStackResponse Core.Int
 createStackResponse_httpStatus = Lens.lens (\CreateStackResponse' {httpStatus} -> httpStatus) (\s@CreateStackResponse' {} a -> s {httpStatus = a} :: CreateStackResponse)
 
-instance Prelude.NFData CreateStackResponse
+instance Core.NFData CreateStackResponse

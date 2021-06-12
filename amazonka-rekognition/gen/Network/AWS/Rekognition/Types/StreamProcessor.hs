@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.StreamProcessor where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.StreamProcessorStatus
 
 -- | An object that recognizes faces in a streaming video. An Amazon
@@ -34,11 +33,11 @@ import Network.AWS.Rekognition.Types.StreamProcessorStatus
 -- /See:/ 'newStreamProcessor' smart constructor.
 data StreamProcessor = StreamProcessor'
   { -- | Current status of the Amazon Rekognition stream processor.
-    status :: Prelude.Maybe StreamProcessorStatus,
+    status :: Core.Maybe StreamProcessorStatus,
     -- | Name of the Amazon Rekognition stream processor.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamProcessor' with all optional fields omitted.
@@ -55,28 +54,27 @@ newStreamProcessor ::
   StreamProcessor
 newStreamProcessor =
   StreamProcessor'
-    { status = Prelude.Nothing,
-      name = Prelude.Nothing
+    { status = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | Current status of the Amazon Rekognition stream processor.
-streamProcessor_status :: Lens.Lens' StreamProcessor (Prelude.Maybe StreamProcessorStatus)
+streamProcessor_status :: Lens.Lens' StreamProcessor (Core.Maybe StreamProcessorStatus)
 streamProcessor_status = Lens.lens (\StreamProcessor' {status} -> status) (\s@StreamProcessor' {} a -> s {status = a} :: StreamProcessor)
 
 -- | Name of the Amazon Rekognition stream processor.
-streamProcessor_name :: Lens.Lens' StreamProcessor (Prelude.Maybe Prelude.Text)
+streamProcessor_name :: Lens.Lens' StreamProcessor (Core.Maybe Core.Text)
 streamProcessor_name = Lens.lens (\StreamProcessor' {name} -> name) (\s@StreamProcessor' {} a -> s {name = a} :: StreamProcessor)
 
-instance Prelude.FromJSON StreamProcessor where
+instance Core.FromJSON StreamProcessor where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StreamProcessor"
       ( \x ->
           StreamProcessor'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "Status") Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable StreamProcessor
+instance Core.Hashable StreamProcessor
 
-instance Prelude.NFData StreamProcessor
+instance Core.NFData StreamProcessor

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -86,8 +85,8 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -99,14 +98,14 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- enabled. By default, deletion protection is disabled. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    deletionProtection :: Core.Maybe Core.Bool,
     -- | A value that indicates whether to enable Performance Insights for the
     -- read replica.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
     -- in the /Amazon RDS User Guide/.
-    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
+    enablePerformanceInsights :: Core.Maybe Core.Bool,
     -- | The upper limit to which Amazon RDS can automatically scale the storage
     -- of the DB instance.
     --
@@ -114,7 +113,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- apply to it, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
     -- in the /Amazon RDS User Guide/.
-    maxAllocatedStorage :: Prelude.Maybe Prelude.Int,
+    maxAllocatedStorage :: Core.Maybe Core.Int,
     -- | A value that indicates whether to enable mapping of AWS Identity and
     -- Access Management (IAM) accounts to database accounts. By default,
     -- mapping is disabled.
@@ -122,13 +121,13 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- For more information about IAM database authentication, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
     -- in the /Amazon RDS User Guide./
-    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
+    enableIAMDatabaseAuthentication :: Core.Maybe Core.Bool,
     -- | The list of logs that the new DB instance is to export to CloudWatch
     -- Logs. The values in the list depend on the DB engine being used. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
     -- in the /Amazon RDS User Guide/.
-    enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
+    enableCloudwatchLogsExports :: Core.Maybe [Core.Text],
     -- | Specifies the storage type to be associated with the read replica.
     --
     -- Valid values: @standard | gp2 | io1@
@@ -137,10 +136,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- parameter.
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-    storageType :: Prelude.Maybe Prelude.Text,
+    storageType :: Core.Maybe Core.Text,
     -- | A value that indicates whether the DB instance class of the DB instance
     -- uses its default processor features.
-    useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
+    useDefaultProcessorFeatures :: Core.Maybe Core.Bool,
     -- | The interval, in seconds, between points when Enhanced Monitoring
     -- metrics are collected for the read replica. To disable collecting
     -- Enhanced Monitoring metrics, specify 0. The default is 0.
@@ -149,13 +148,13 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- @MonitoringInterval@ to a value other than 0.
     --
     -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
-    monitoringInterval :: Prelude.Maybe Prelude.Int,
+    monitoringInterval :: Core.Maybe Core.Int,
     -- | The option group the DB instance is associated with. If omitted, the
     -- option group associated with the source instance is used.
     --
     -- For SQL Server, you must use the option group associated with the source
     -- instance.
-    optionGroupName :: Prelude.Maybe Prelude.Text,
+    optionGroupName :: Core.Maybe Core.Text,
     -- | The Active Directory directory ID to create the DB instance in.
     -- Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
     -- instances can be created in an Active Directory Domain.
@@ -163,7 +162,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
     -- in the /Amazon RDS User Guide/.
-    domain :: Prelude.Maybe Prelude.Text,
+    domain :: Core.Maybe Core.Text,
     -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
     -- metrics to Amazon CloudWatch Logs. For example,
     -- @arn:aws:iam:123456789012:role\/emaccess@. For information on creating a
@@ -173,7 +172,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- If @MonitoringInterval@ is set to a value other than 0, then you must
     -- supply a @MonitoringRoleArn@ value.
-    monitoringRoleArn :: Prelude.Maybe Prelude.Text,
+    monitoringRoleArn :: Core.Maybe Core.Text,
     -- | Specifies a DB subnet group for the DB instance. The new DB instance is
     -- created in the VPC associated with the DB subnet group. If no DB subnet
     -- group is specified, then the new DB instance isn\'t created in a VPC.
@@ -198,7 +197,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --         created outside of any VPC.
     --
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    dbSubnetGroupName :: Core.Maybe Core.Text,
     -- | A value that indicates whether the read replica is in a Multi-AZ
     -- deployment.
     --
@@ -207,7 +206,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- support for the replica. Creating your read replica as a Multi-AZ DB
     -- instance is independent of whether the source database is a Multi-AZ DB
     -- instance.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
+    multiAZ :: Core.Maybe Core.Bool,
     -- | A value that indicates whether the DB instance is publicly accessible.
     --
     -- When the DB instance is publicly accessible, its DNS endpoint resolves
@@ -221,12 +220,12 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- instance with a DNS name that resolves to a private IP address.
     --
     -- For more information, see CreateDBInstance.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    publiclyAccessible :: Core.Maybe Core.Bool,
     -- | A list of EC2 VPC security groups to associate with the read replica.
     --
     -- Default: The default EC2 VPC security group for the DB subnet group\'s
     -- VPC.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
     -- | The AWS KMS key identifier for encryption of Performance Insights data.
     --
     -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
@@ -236,7 +235,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- Amazon RDS uses your default CMK. There is a default CMK for your AWS
     -- account. Your AWS account has a different default CMK for each AWS
     -- Region.
-    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
+    performanceInsightsKMSKeyId :: Core.Maybe Core.Text,
     -- | The AWS KMS key identifier for an encrypted read replica.
     --
     -- The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias
@@ -255,7 +254,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- You can\'t create an encrypted read replica from an unencrypted DB
     -- instance.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The name of the DB parameter group to associate with this DB instance.
     --
     -- If you do not specify a value for @DBParameterGroupName@, then Amazon
@@ -273,27 +272,27 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- -   First character must be a letter
     --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
+    dbParameterGroupName :: Core.Maybe Core.Text,
     -- | The Availability Zone (AZ) where the read replica will be created.
     --
     -- Default: A random, system-chosen Availability Zone in the endpoint\'s
     -- AWS Region.
     --
     -- Example: @us-east-1d@
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The amount of time, in days, to retain Performance Insights data. Valid
     -- values are 7 or 731 (2 years).
-    performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
-    tags :: Prelude.Maybe [Tag],
+    performanceInsightsRetentionPeriod :: Core.Maybe Core.Int,
+    tags :: Core.Maybe [Tag],
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
-    processorFeatures :: Prelude.Maybe [ProcessorFeature],
+    processorFeatures :: Core.Maybe [ProcessorFeature],
     -- | The port number that the DB instance uses for connections.
     --
     -- Default: Inherits from the source DB instance
     --
     -- Valid Values: @1150-65535@
-    port :: Prelude.Maybe Prelude.Int,
+    port :: Core.Maybe Core.Int,
     -- | The compute and memory capacity of the read replica, for example,
     -- @db.m4.large@. Not all DB instance classes are available in all AWS
     -- Regions, or for all database engines. For the full list of DB instance
@@ -302,10 +301,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- in the /Amazon RDS User Guide./
     --
     -- Default: Inherits from the source DB instance.
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    dbInstanceClass :: Core.Maybe Core.Text,
     -- | Specify the name of the IAM role to be used when making API calls to the
     -- Directory Service.
-    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
+    domainIAMRoleName :: Core.Maybe Core.Text,
     -- | The URL that contains a Signature Version 4 signed request for the
     -- @CreateDBInstanceReadReplica@ API action in the source AWS Region that
     -- contains the source DB instance.
@@ -360,10 +359,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --
     -- @SourceRegion@ isn\'t supported for SQL Server, because SQL Server on
     -- Amazon RDS doesn\'t support cross-region read replicas.
-    preSignedUrl :: Prelude.Maybe Prelude.Text,
+    preSignedUrl :: Core.Maybe Core.Text,
     -- | A value that indicates whether to copy all tags from the read replica to
     -- snapshots of the read replica. By default, tags are not copied.
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
+    copyTagsToSnapshot :: Core.Maybe Core.Bool,
     -- | The open mode of the replica database: mounted or read-only.
     --
     -- This parameter is only supported for Oracle DB instances.
@@ -378,19 +377,19 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- the same primary DB instance. For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
     -- in the /Amazon RDS User Guide/.
-    replicaMode :: Prelude.Maybe ReplicaMode,
+    replicaMode :: Core.Maybe ReplicaMode,
     -- | The amount of Provisioned IOPS (input\/output operations per second) to
     -- be initially allocated for the DB instance.
-    iops :: Prelude.Maybe Prelude.Int,
+    iops :: Core.Maybe Core.Int,
     -- | A value that indicates whether minor engine upgrades are applied
     -- automatically to the read replica during the maintenance window.
     --
     -- Default: Inherits from the source DB instance
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
     -- | The DB instance identifier of the read replica. This identifier is the
     -- unique key that identifies a DB instance. This parameter is stored as a
     -- lowercase string.
-    dbInstanceIdentifier :: Prelude.Text,
+    dbInstanceIdentifier :: Core.Text,
     -- | The identifier of the DB instance that will act as the source for the
     -- read replica. Each DB instance can have up to five read replicas.
     --
@@ -425,9 +424,9 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
     --     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server,
     --     which doesn\'t support cross-region replicas.
-    sourceDBInstanceIdentifier :: Prelude.Text
+    sourceDBInstanceIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBInstanceReadReplica' with all optional fields omitted.
@@ -771,47 +770,46 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 --     which doesn\'t support cross-region replicas.
 newCreateDBInstanceReadReplica ::
   -- | 'dbInstanceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceDBInstanceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   CreateDBInstanceReadReplica
 newCreateDBInstanceReadReplica
   pDBInstanceIdentifier_
   pSourceDBInstanceIdentifier_ =
     CreateDBInstanceReadReplica'
       { deletionProtection =
-          Prelude.Nothing,
-        enablePerformanceInsights = Prelude.Nothing,
-        maxAllocatedStorage = Prelude.Nothing,
-        enableIAMDatabaseAuthentication =
-          Prelude.Nothing,
-        enableCloudwatchLogsExports = Prelude.Nothing,
-        storageType = Prelude.Nothing,
-        useDefaultProcessorFeatures = Prelude.Nothing,
-        monitoringInterval = Prelude.Nothing,
-        optionGroupName = Prelude.Nothing,
-        domain = Prelude.Nothing,
-        monitoringRoleArn = Prelude.Nothing,
-        dbSubnetGroupName = Prelude.Nothing,
-        multiAZ = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
-        performanceInsightsKMSKeyId = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        dbParameterGroupName = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
+          Core.Nothing,
+        enablePerformanceInsights = Core.Nothing,
+        maxAllocatedStorage = Core.Nothing,
+        enableIAMDatabaseAuthentication = Core.Nothing,
+        enableCloudwatchLogsExports = Core.Nothing,
+        storageType = Core.Nothing,
+        useDefaultProcessorFeatures = Core.Nothing,
+        monitoringInterval = Core.Nothing,
+        optionGroupName = Core.Nothing,
+        domain = Core.Nothing,
+        monitoringRoleArn = Core.Nothing,
+        dbSubnetGroupName = Core.Nothing,
+        multiAZ = Core.Nothing,
+        publiclyAccessible = Core.Nothing,
+        vpcSecurityGroupIds = Core.Nothing,
+        performanceInsightsKMSKeyId = Core.Nothing,
+        kmsKeyId = Core.Nothing,
+        dbParameterGroupName = Core.Nothing,
+        availabilityZone = Core.Nothing,
         performanceInsightsRetentionPeriod =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        processorFeatures = Prelude.Nothing,
-        port = Prelude.Nothing,
-        dbInstanceClass = Prelude.Nothing,
-        domainIAMRoleName = Prelude.Nothing,
-        preSignedUrl = Prelude.Nothing,
-        copyTagsToSnapshot = Prelude.Nothing,
-        replicaMode = Prelude.Nothing,
-        iops = Prelude.Nothing,
-        autoMinorVersionUpgrade = Prelude.Nothing,
+          Core.Nothing,
+        tags = Core.Nothing,
+        processorFeatures = Core.Nothing,
+        port = Core.Nothing,
+        dbInstanceClass = Core.Nothing,
+        domainIAMRoleName = Core.Nothing,
+        preSignedUrl = Core.Nothing,
+        copyTagsToSnapshot = Core.Nothing,
+        replicaMode = Core.Nothing,
+        iops = Core.Nothing,
+        autoMinorVersionUpgrade = Core.Nothing,
         dbInstanceIdentifier = pDBInstanceIdentifier_,
         sourceDBInstanceIdentifier =
           pSourceDBInstanceIdentifier_
@@ -822,7 +820,7 @@ newCreateDBInstanceReadReplica
 -- enabled. By default, deletion protection is disabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-createDBInstanceReadReplica_deletionProtection :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_deletionProtection :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_deletionProtection = Lens.lens (\CreateDBInstanceReadReplica' {deletionProtection} -> deletionProtection) (\s@CreateDBInstanceReadReplica' {} a -> s {deletionProtection = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether to enable Performance Insights for the
@@ -831,7 +829,7 @@ createDBInstanceReadReplica_deletionProtection = Lens.lens (\CreateDBInstanceRea
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
 -- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_enablePerformanceInsights :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_enablePerformanceInsights :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_enablePerformanceInsights = Lens.lens (\CreateDBInstanceReadReplica' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@CreateDBInstanceReadReplica' {} a -> s {enablePerformanceInsights = a} :: CreateDBInstanceReadReplica)
 
 -- | The upper limit to which Amazon RDS can automatically scale the storage
@@ -841,7 +839,7 @@ createDBInstanceReadReplica_enablePerformanceInsights = Lens.lens (\CreateDBInst
 -- apply to it, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
 -- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_maxAllocatedStorage :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_maxAllocatedStorage :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Int)
 createDBInstanceReadReplica_maxAllocatedStorage = Lens.lens (\CreateDBInstanceReadReplica' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@CreateDBInstanceReadReplica' {} a -> s {maxAllocatedStorage = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether to enable mapping of AWS Identity and
@@ -851,7 +849,7 @@ createDBInstanceReadReplica_maxAllocatedStorage = Lens.lens (\CreateDBInstanceRe
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
-createDBInstanceReadReplica_enableIAMDatabaseAuthentication :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_enableIAMDatabaseAuthentication :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_enableIAMDatabaseAuthentication = Lens.lens (\CreateDBInstanceReadReplica' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@CreateDBInstanceReadReplica' {} a -> s {enableIAMDatabaseAuthentication = a} :: CreateDBInstanceReadReplica)
 
 -- | The list of logs that the new DB instance is to export to CloudWatch
@@ -859,8 +857,8 @@ createDBInstanceReadReplica_enableIAMDatabaseAuthentication = Lens.lens (\Create
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_enableCloudwatchLogsExports :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Prelude.Text])
-createDBInstanceReadReplica_enableCloudwatchLogsExports = Lens.lens (\CreateDBInstanceReadReplica' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@CreateDBInstanceReadReplica' {} a -> s {enableCloudwatchLogsExports = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Prelude._Coerce
+createDBInstanceReadReplica_enableCloudwatchLogsExports :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe [Core.Text])
+createDBInstanceReadReplica_enableCloudwatchLogsExports = Lens.lens (\CreateDBInstanceReadReplica' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@CreateDBInstanceReadReplica' {} a -> s {enableCloudwatchLogsExports = a} :: CreateDBInstanceReadReplica) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the storage type to be associated with the read replica.
 --
@@ -870,12 +868,12 @@ createDBInstanceReadReplica_enableCloudwatchLogsExports = Lens.lens (\CreateDBIn
 -- parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-createDBInstanceReadReplica_storageType :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_storageType :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_storageType = Lens.lens (\CreateDBInstanceReadReplica' {storageType} -> storageType) (\s@CreateDBInstanceReadReplica' {} a -> s {storageType = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
-createDBInstanceReadReplica_useDefaultProcessorFeatures :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_useDefaultProcessorFeatures :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_useDefaultProcessorFeatures = Lens.lens (\CreateDBInstanceReadReplica' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@CreateDBInstanceReadReplica' {} a -> s {useDefaultProcessorFeatures = a} :: CreateDBInstanceReadReplica)
 
 -- | The interval, in seconds, between points when Enhanced Monitoring
@@ -886,7 +884,7 @@ createDBInstanceReadReplica_useDefaultProcessorFeatures = Lens.lens (\CreateDBIn
 -- @MonitoringInterval@ to a value other than 0.
 --
 -- Valid Values: @0, 1, 5, 10, 15, 30, 60@
-createDBInstanceReadReplica_monitoringInterval :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_monitoringInterval :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Int)
 createDBInstanceReadReplica_monitoringInterval = Lens.lens (\CreateDBInstanceReadReplica' {monitoringInterval} -> monitoringInterval) (\s@CreateDBInstanceReadReplica' {} a -> s {monitoringInterval = a} :: CreateDBInstanceReadReplica)
 
 -- | The option group the DB instance is associated with. If omitted, the
@@ -894,7 +892,7 @@ createDBInstanceReadReplica_monitoringInterval = Lens.lens (\CreateDBInstanceRea
 --
 -- For SQL Server, you must use the option group associated with the source
 -- instance.
-createDBInstanceReadReplica_optionGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_optionGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_optionGroupName = Lens.lens (\CreateDBInstanceReadReplica' {optionGroupName} -> optionGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {optionGroupName = a} :: CreateDBInstanceReadReplica)
 
 -- | The Active Directory directory ID to create the DB instance in.
@@ -904,7 +902,7 @@ createDBInstanceReadReplica_optionGroupName = Lens.lens (\CreateDBInstanceReadRe
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_domain :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_domain :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_domain = Lens.lens (\CreateDBInstanceReadReplica' {domain} -> domain) (\s@CreateDBInstanceReadReplica' {} a -> s {domain = a} :: CreateDBInstanceReadReplica)
 
 -- | The ARN for the IAM role that permits RDS to send enhanced monitoring
@@ -916,7 +914,7 @@ createDBInstanceReadReplica_domain = Lens.lens (\CreateDBInstanceReadReplica' {d
 --
 -- If @MonitoringInterval@ is set to a value other than 0, then you must
 -- supply a @MonitoringRoleArn@ value.
-createDBInstanceReadReplica_monitoringRoleArn :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_monitoringRoleArn :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_monitoringRoleArn = Lens.lens (\CreateDBInstanceReadReplica' {monitoringRoleArn} -> monitoringRoleArn) (\s@CreateDBInstanceReadReplica' {} a -> s {monitoringRoleArn = a} :: CreateDBInstanceReadReplica)
 
 -- | Specifies a DB subnet group for the DB instance. The new DB instance is
@@ -943,7 +941,7 @@ createDBInstanceReadReplica_monitoringRoleArn = Lens.lens (\CreateDBInstanceRead
 --         created outside of any VPC.
 --
 -- Example: @mySubnetgroup@
-createDBInstanceReadReplica_dbSubnetGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_dbSubnetGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_dbSubnetGroupName = Lens.lens (\CreateDBInstanceReadReplica' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {dbSubnetGroupName = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether the read replica is in a Multi-AZ
@@ -954,7 +952,7 @@ createDBInstanceReadReplica_dbSubnetGroupName = Lens.lens (\CreateDBInstanceRead
 -- support for the replica. Creating your read replica as a Multi-AZ DB
 -- instance is independent of whether the source database is a Multi-AZ DB
 -- instance.
-createDBInstanceReadReplica_multiAZ :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_multiAZ :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_multiAZ = Lens.lens (\CreateDBInstanceReadReplica' {multiAZ} -> multiAZ) (\s@CreateDBInstanceReadReplica' {} a -> s {multiAZ = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether the DB instance is publicly accessible.
@@ -970,15 +968,15 @@ createDBInstanceReadReplica_multiAZ = Lens.lens (\CreateDBInstanceReadReplica' {
 -- instance with a DNS name that resolves to a private IP address.
 --
 -- For more information, see CreateDBInstance.
-createDBInstanceReadReplica_publiclyAccessible :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_publiclyAccessible :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_publiclyAccessible = Lens.lens (\CreateDBInstanceReadReplica' {publiclyAccessible} -> publiclyAccessible) (\s@CreateDBInstanceReadReplica' {} a -> s {publiclyAccessible = a} :: CreateDBInstanceReadReplica)
 
 -- | A list of EC2 VPC security groups to associate with the read replica.
 --
 -- Default: The default EC2 VPC security group for the DB subnet group\'s
 -- VPC.
-createDBInstanceReadReplica_vpcSecurityGroupIds :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Prelude.Text])
-createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceReadReplica' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBInstanceReadReplica' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Prelude._Coerce
+createDBInstanceReadReplica_vpcSecurityGroupIds :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe [Core.Text])
+createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceReadReplica' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateDBInstanceReadReplica' {} a -> s {vpcSecurityGroupIds = a} :: CreateDBInstanceReadReplica) Core.. Lens.mapping Lens._Coerce
 
 -- | The AWS KMS key identifier for encryption of Performance Insights data.
 --
@@ -989,7 +987,7 @@ createDBInstanceReadReplica_vpcSecurityGroupIds = Lens.lens (\CreateDBInstanceRe
 -- Amazon RDS uses your default CMK. There is a default CMK for your AWS
 -- account. Your AWS account has a different default CMK for each AWS
 -- Region.
-createDBInstanceReadReplica_performanceInsightsKMSKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_performanceInsightsKMSKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_performanceInsightsKMSKeyId = Lens.lens (\CreateDBInstanceReadReplica' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@CreateDBInstanceReadReplica' {} a -> s {performanceInsightsKMSKeyId = a} :: CreateDBInstanceReadReplica)
 
 -- | The AWS KMS key identifier for an encrypted read replica.
@@ -1010,7 +1008,7 @@ createDBInstanceReadReplica_performanceInsightsKMSKeyId = Lens.lens (\CreateDBIn
 --
 -- You can\'t create an encrypted read replica from an unencrypted DB
 -- instance.
-createDBInstanceReadReplica_kmsKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_kmsKeyId :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_kmsKeyId = Lens.lens (\CreateDBInstanceReadReplica' {kmsKeyId} -> kmsKeyId) (\s@CreateDBInstanceReadReplica' {} a -> s {kmsKeyId = a} :: CreateDBInstanceReadReplica)
 
 -- | The name of the DB parameter group to associate with this DB instance.
@@ -1030,7 +1028,7 @@ createDBInstanceReadReplica_kmsKeyId = Lens.lens (\CreateDBInstanceReadReplica' 
 -- -   First character must be a letter
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-createDBInstanceReadReplica_dbParameterGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_dbParameterGroupName :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_dbParameterGroupName = Lens.lens (\CreateDBInstanceReadReplica' {dbParameterGroupName} -> dbParameterGroupName) (\s@CreateDBInstanceReadReplica' {} a -> s {dbParameterGroupName = a} :: CreateDBInstanceReadReplica)
 
 -- | The Availability Zone (AZ) where the read replica will be created.
@@ -1039,29 +1037,29 @@ createDBInstanceReadReplica_dbParameterGroupName = Lens.lens (\CreateDBInstanceR
 -- AWS Region.
 --
 -- Example: @us-east-1d@
-createDBInstanceReadReplica_availabilityZone :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_availabilityZone :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_availabilityZone = Lens.lens (\CreateDBInstanceReadReplica' {availabilityZone} -> availabilityZone) (\s@CreateDBInstanceReadReplica' {} a -> s {availabilityZone = a} :: CreateDBInstanceReadReplica)
 
 -- | The amount of time, in days, to retain Performance Insights data. Valid
 -- values are 7 or 731 (2 years).
-createDBInstanceReadReplica_performanceInsightsRetentionPeriod :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_performanceInsightsRetentionPeriod :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Int)
 createDBInstanceReadReplica_performanceInsightsRetentionPeriod = Lens.lens (\CreateDBInstanceReadReplica' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@CreateDBInstanceReadReplica' {} a -> s {performanceInsightsRetentionPeriod = a} :: CreateDBInstanceReadReplica)
 
 -- | Undocumented member.
-createDBInstanceReadReplica_tags :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [Tag])
-createDBInstanceReadReplica_tags = Lens.lens (\CreateDBInstanceReadReplica' {tags} -> tags) (\s@CreateDBInstanceReadReplica' {} a -> s {tags = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Prelude._Coerce
+createDBInstanceReadReplica_tags :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe [Tag])
+createDBInstanceReadReplica_tags = Lens.lens (\CreateDBInstanceReadReplica' {tags} -> tags) (\s@CreateDBInstanceReadReplica' {} a -> s {tags = a} :: CreateDBInstanceReadReplica) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
-createDBInstanceReadReplica_processorFeatures :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe [ProcessorFeature])
-createDBInstanceReadReplica_processorFeatures = Lens.lens (\CreateDBInstanceReadReplica' {processorFeatures} -> processorFeatures) (\s@CreateDBInstanceReadReplica' {} a -> s {processorFeatures = a} :: CreateDBInstanceReadReplica) Prelude.. Lens.mapping Prelude._Coerce
+createDBInstanceReadReplica_processorFeatures :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe [ProcessorFeature])
+createDBInstanceReadReplica_processorFeatures = Lens.lens (\CreateDBInstanceReadReplica' {processorFeatures} -> processorFeatures) (\s@CreateDBInstanceReadReplica' {} a -> s {processorFeatures = a} :: CreateDBInstanceReadReplica) Core.. Lens.mapping Lens._Coerce
 
 -- | The port number that the DB instance uses for connections.
 --
 -- Default: Inherits from the source DB instance
 --
 -- Valid Values: @1150-65535@
-createDBInstanceReadReplica_port :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_port :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Int)
 createDBInstanceReadReplica_port = Lens.lens (\CreateDBInstanceReadReplica' {port} -> port) (\s@CreateDBInstanceReadReplica' {} a -> s {port = a} :: CreateDBInstanceReadReplica)
 
 -- | The compute and memory capacity of the read replica, for example,
@@ -1072,12 +1070,12 @@ createDBInstanceReadReplica_port = Lens.lens (\CreateDBInstanceReadReplica' {por
 -- in the /Amazon RDS User Guide./
 --
 -- Default: Inherits from the source DB instance.
-createDBInstanceReadReplica_dbInstanceClass :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_dbInstanceClass :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_dbInstanceClass = Lens.lens (\CreateDBInstanceReadReplica' {dbInstanceClass} -> dbInstanceClass) (\s@CreateDBInstanceReadReplica' {} a -> s {dbInstanceClass = a} :: CreateDBInstanceReadReplica)
 
 -- | Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
-createDBInstanceReadReplica_domainIAMRoleName :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_domainIAMRoleName :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_domainIAMRoleName = Lens.lens (\CreateDBInstanceReadReplica' {domainIAMRoleName} -> domainIAMRoleName) (\s@CreateDBInstanceReadReplica' {} a -> s {domainIAMRoleName = a} :: CreateDBInstanceReadReplica)
 
 -- | The URL that contains a Signature Version 4 signed request for the
@@ -1134,12 +1132,12 @@ createDBInstanceReadReplica_domainIAMRoleName = Lens.lens (\CreateDBInstanceRead
 --
 -- @SourceRegion@ isn\'t supported for SQL Server, because SQL Server on
 -- Amazon RDS doesn\'t support cross-region read replicas.
-createDBInstanceReadReplica_preSignedUrl :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_preSignedUrl :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Text)
 createDBInstanceReadReplica_preSignedUrl = Lens.lens (\CreateDBInstanceReadReplica' {preSignedUrl} -> preSignedUrl) (\s@CreateDBInstanceReadReplica' {} a -> s {preSignedUrl = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether to copy all tags from the read replica to
 -- snapshots of the read replica. By default, tags are not copied.
-createDBInstanceReadReplica_copyTagsToSnapshot :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_copyTagsToSnapshot :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_copyTagsToSnapshot = Lens.lens (\CreateDBInstanceReadReplica' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@CreateDBInstanceReadReplica' {} a -> s {copyTagsToSnapshot = a} :: CreateDBInstanceReadReplica)
 
 -- | The open mode of the replica database: mounted or read-only.
@@ -1156,25 +1154,25 @@ createDBInstanceReadReplica_copyTagsToSnapshot = Lens.lens (\CreateDBInstanceRea
 -- the same primary DB instance. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html Working with Oracle Read Replicas for Amazon RDS>
 -- in the /Amazon RDS User Guide/.
-createDBInstanceReadReplica_replicaMode :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe ReplicaMode)
+createDBInstanceReadReplica_replicaMode :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe ReplicaMode)
 createDBInstanceReadReplica_replicaMode = Lens.lens (\CreateDBInstanceReadReplica' {replicaMode} -> replicaMode) (\s@CreateDBInstanceReadReplica' {} a -> s {replicaMode = a} :: CreateDBInstanceReadReplica)
 
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for the DB instance.
-createDBInstanceReadReplica_iops :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Int)
+createDBInstanceReadReplica_iops :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Int)
 createDBInstanceReadReplica_iops = Lens.lens (\CreateDBInstanceReadReplica' {iops} -> iops) (\s@CreateDBInstanceReadReplica' {} a -> s {iops = a} :: CreateDBInstanceReadReplica)
 
 -- | A value that indicates whether minor engine upgrades are applied
 -- automatically to the read replica during the maintenance window.
 --
 -- Default: Inherits from the source DB instance
-createDBInstanceReadReplica_autoMinorVersionUpgrade :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
+createDBInstanceReadReplica_autoMinorVersionUpgrade :: Lens.Lens' CreateDBInstanceReadReplica (Core.Maybe Core.Bool)
 createDBInstanceReadReplica_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstanceReadReplica' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBInstanceReadReplica' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBInstanceReadReplica)
 
 -- | The DB instance identifier of the read replica. This identifier is the
 -- unique key that identifies a DB instance. This parameter is stored as a
 -- lowercase string.
-createDBInstanceReadReplica_dbInstanceIdentifier :: Lens.Lens' CreateDBInstanceReadReplica Prelude.Text
+createDBInstanceReadReplica_dbInstanceIdentifier :: Lens.Lens' CreateDBInstanceReadReplica Core.Text
 createDBInstanceReadReplica_dbInstanceIdentifier = Lens.lens (\CreateDBInstanceReadReplica' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@CreateDBInstanceReadReplica' {} a -> s {dbInstanceIdentifier = a} :: CreateDBInstanceReadReplica)
 
 -- | The identifier of the DB instance that will act as the source for the
@@ -1211,15 +1209,12 @@ createDBInstanceReadReplica_dbInstanceIdentifier = Lens.lens (\CreateDBInstanceR
 --     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an ARN for Amazon RDS>
 --     in the /Amazon RDS User Guide/. This doesn\'t apply to SQL Server,
 --     which doesn\'t support cross-region replicas.
-createDBInstanceReadReplica_sourceDBInstanceIdentifier :: Lens.Lens' CreateDBInstanceReadReplica Prelude.Text
+createDBInstanceReadReplica_sourceDBInstanceIdentifier :: Lens.Lens' CreateDBInstanceReadReplica Core.Text
 createDBInstanceReadReplica_sourceDBInstanceIdentifier = Lens.lens (\CreateDBInstanceReadReplica' {sourceDBInstanceIdentifier} -> sourceDBInstanceIdentifier) (\s@CreateDBInstanceReadReplica' {} a -> s {sourceDBInstanceIdentifier = a} :: CreateDBInstanceReadReplica)
 
-instance
-  Prelude.AWSRequest
-    CreateDBInstanceReadReplica
-  where
+instance Core.AWSRequest CreateDBInstanceReadReplica where
   type
-    Rs CreateDBInstanceReadReplica =
+    AWSResponse CreateDBInstanceReadReplica =
       CreateDBInstanceReadReplicaResponse
   request = Request.postQuery defaultService
   response =
@@ -1227,96 +1222,87 @@ instance
       "CreateDBInstanceReadReplicaResult"
       ( \s h x ->
           CreateDBInstanceReadReplicaResponse'
-            Prelude.<$> (x Prelude..@? "DBInstance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDBInstanceReadReplica
+instance Core.Hashable CreateDBInstanceReadReplica
 
-instance Prelude.NFData CreateDBInstanceReadReplica
+instance Core.NFData CreateDBInstanceReadReplica
 
-instance
-  Prelude.ToHeaders
-    CreateDBInstanceReadReplica
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDBInstanceReadReplica where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDBInstanceReadReplica where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDBInstanceReadReplica where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDBInstanceReadReplica where
+instance Core.ToQuery CreateDBInstanceReadReplica where
   toQuery CreateDBInstanceReadReplica' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateDBInstanceReadReplica" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "DeletionProtection" Prelude.=: deletionProtection,
+          Core.=: ("CreateDBInstanceReadReplica" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "DeletionProtection" Core.=: deletionProtection,
         "EnablePerformanceInsights"
-          Prelude.=: enablePerformanceInsights,
-        "MaxAllocatedStorage" Prelude.=: maxAllocatedStorage,
+          Core.=: enablePerformanceInsights,
+        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
         "EnableIAMDatabaseAuthentication"
-          Prelude.=: enableIAMDatabaseAuthentication,
+          Core.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> enableCloudwatchLogsExports
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> enableCloudwatchLogsExports
             ),
-        "StorageType" Prelude.=: storageType,
+        "StorageType" Core.=: storageType,
         "UseDefaultProcessorFeatures"
-          Prelude.=: useDefaultProcessorFeatures,
-        "MonitoringInterval" Prelude.=: monitoringInterval,
-        "OptionGroupName" Prelude.=: optionGroupName,
-        "Domain" Prelude.=: domain,
-        "MonitoringRoleArn" Prelude.=: monitoringRoleArn,
-        "DBSubnetGroupName" Prelude.=: dbSubnetGroupName,
-        "MultiAZ" Prelude.=: multiAZ,
-        "PubliclyAccessible" Prelude.=: publiclyAccessible,
+          Core.=: useDefaultProcessorFeatures,
+        "MonitoringInterval" Core.=: monitoringInterval,
+        "OptionGroupName" Core.=: optionGroupName,
+        "Domain" Core.=: domain,
+        "MonitoringRoleArn" Core.=: monitoringRoleArn,
+        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "MultiAZ" Core.=: multiAZ,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
         "VpcSecurityGroupIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
+          Core.=: Core.toQuery
+            ( Core.toQueryList "VpcSecurityGroupId"
+                Core.<$> vpcSecurityGroupIds
             ),
         "PerformanceInsightsKMSKeyId"
-          Prelude.=: performanceInsightsKMSKeyId,
-        "KmsKeyId" Prelude.=: kmsKeyId,
-        "DBParameterGroupName"
-          Prelude.=: dbParameterGroupName,
-        "AvailabilityZone" Prelude.=: availabilityZone,
+          Core.=: performanceInsightsKMSKeyId,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "AvailabilityZone" Core.=: availabilityZone,
         "PerformanceInsightsRetentionPeriod"
-          Prelude.=: performanceInsightsRetentionPeriod,
+          Core.=: performanceInsightsRetentionPeriod,
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
         "ProcessorFeatures"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "ProcessorFeature"
-                Prelude.<$> processorFeatures
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ProcessorFeature"
+                Core.<$> processorFeatures
             ),
-        "Port" Prelude.=: port,
-        "DBInstanceClass" Prelude.=: dbInstanceClass,
-        "DomainIAMRoleName" Prelude.=: domainIAMRoleName,
-        "PreSignedUrl" Prelude.=: preSignedUrl,
-        "CopyTagsToSnapshot" Prelude.=: copyTagsToSnapshot,
-        "ReplicaMode" Prelude.=: replicaMode,
-        "Iops" Prelude.=: iops,
+        "Port" Core.=: port,
+        "DBInstanceClass" Core.=: dbInstanceClass,
+        "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "PreSignedUrl" Core.=: preSignedUrl,
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
+        "ReplicaMode" Core.=: replicaMode,
+        "Iops" Core.=: iops,
         "AutoMinorVersionUpgrade"
-          Prelude.=: autoMinorVersionUpgrade,
-        "DBInstanceIdentifier"
-          Prelude.=: dbInstanceIdentifier,
+          Core.=: autoMinorVersionUpgrade,
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "SourceDBInstanceIdentifier"
-          Prelude.=: sourceDBInstanceIdentifier
+          Core.=: sourceDBInstanceIdentifier
       ]
 
 -- | /See:/ 'newCreateDBInstanceReadReplicaResponse' smart constructor.
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
-  { dbInstance :: Prelude.Maybe DBInstance,
+  { dbInstance :: Core.Maybe DBInstance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDBInstanceReadReplicaResponse' with all optional fields omitted.
@@ -1331,23 +1317,23 @@ data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
 -- 'httpStatus', 'createDBInstanceReadReplicaResponse_httpStatus' - The response's http status code.
 newCreateDBInstanceReadReplicaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDBInstanceReadReplicaResponse
 newCreateDBInstanceReadReplicaResponse pHttpStatus_ =
   CreateDBInstanceReadReplicaResponse'
     { dbInstance =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createDBInstanceReadReplicaResponse_dbInstance :: Lens.Lens' CreateDBInstanceReadReplicaResponse (Prelude.Maybe DBInstance)
+createDBInstanceReadReplicaResponse_dbInstance :: Lens.Lens' CreateDBInstanceReadReplicaResponse (Core.Maybe DBInstance)
 createDBInstanceReadReplicaResponse_dbInstance = Lens.lens (\CreateDBInstanceReadReplicaResponse' {dbInstance} -> dbInstance) (\s@CreateDBInstanceReadReplicaResponse' {} a -> s {dbInstance = a} :: CreateDBInstanceReadReplicaResponse)
 
 -- | The response's http status code.
-createDBInstanceReadReplicaResponse_httpStatus :: Lens.Lens' CreateDBInstanceReadReplicaResponse Prelude.Int
+createDBInstanceReadReplicaResponse_httpStatus :: Lens.Lens' CreateDBInstanceReadReplicaResponse Core.Int
 createDBInstanceReadReplicaResponse_httpStatus = Lens.lens (\CreateDBInstanceReadReplicaResponse' {httpStatus} -> httpStatus) (\s@CreateDBInstanceReadReplicaResponse' {} a -> s {httpStatus = a} :: CreateDBInstanceReadReplicaResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateDBInstanceReadReplicaResponse

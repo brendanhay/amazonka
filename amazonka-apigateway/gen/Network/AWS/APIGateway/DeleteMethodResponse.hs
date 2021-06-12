@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.APIGateway.DeleteMethodResponse
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,15 +49,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteMethodResponse' smart constructor.
 data DeleteMethodResponse = DeleteMethodResponse'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The Resource identifier for the MethodResponse resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] The HTTP verb of the Method resource.
-    httpMethod :: Prelude.Text,
+    httpMethod :: Core.Text,
     -- | [Required] The status code identifier for the MethodResponse resource.
-    statusCode :: Prelude.Text
+    statusCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMethodResponse' with all optional fields omitted.
@@ -77,13 +76,13 @@ data DeleteMethodResponse = DeleteMethodResponse'
 -- 'statusCode', 'deleteMethodResponse_statusCode' - [Required] The status code identifier for the MethodResponse resource.
 newDeleteMethodResponse ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'statusCode'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMethodResponse
 newDeleteMethodResponse
   pRestApiId_
@@ -98,63 +97,63 @@ newDeleteMethodResponse
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteMethodResponse_restApiId :: Lens.Lens' DeleteMethodResponse Prelude.Text
+deleteMethodResponse_restApiId :: Lens.Lens' DeleteMethodResponse Core.Text
 deleteMethodResponse_restApiId = Lens.lens (\DeleteMethodResponse' {restApiId} -> restApiId) (\s@DeleteMethodResponse' {} a -> s {restApiId = a} :: DeleteMethodResponse)
 
 -- | [Required] The Resource identifier for the MethodResponse resource.
-deleteMethodResponse_resourceId :: Lens.Lens' DeleteMethodResponse Prelude.Text
+deleteMethodResponse_resourceId :: Lens.Lens' DeleteMethodResponse Core.Text
 deleteMethodResponse_resourceId = Lens.lens (\DeleteMethodResponse' {resourceId} -> resourceId) (\s@DeleteMethodResponse' {} a -> s {resourceId = a} :: DeleteMethodResponse)
 
 -- | [Required] The HTTP verb of the Method resource.
-deleteMethodResponse_httpMethod :: Lens.Lens' DeleteMethodResponse Prelude.Text
+deleteMethodResponse_httpMethod :: Lens.Lens' DeleteMethodResponse Core.Text
 deleteMethodResponse_httpMethod = Lens.lens (\DeleteMethodResponse' {httpMethod} -> httpMethod) (\s@DeleteMethodResponse' {} a -> s {httpMethod = a} :: DeleteMethodResponse)
 
 -- | [Required] The status code identifier for the MethodResponse resource.
-deleteMethodResponse_statusCode :: Lens.Lens' DeleteMethodResponse Prelude.Text
+deleteMethodResponse_statusCode :: Lens.Lens' DeleteMethodResponse Core.Text
 deleteMethodResponse_statusCode = Lens.lens (\DeleteMethodResponse' {statusCode} -> statusCode) (\s@DeleteMethodResponse' {} a -> s {statusCode = a} :: DeleteMethodResponse)
 
-instance Prelude.AWSRequest DeleteMethodResponse where
+instance Core.AWSRequest DeleteMethodResponse where
   type
-    Rs DeleteMethodResponse =
+    AWSResponse DeleteMethodResponse =
       DeleteMethodResponseResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteMethodResponseResponse'
 
-instance Prelude.Hashable DeleteMethodResponse
+instance Core.Hashable DeleteMethodResponse
 
-instance Prelude.NFData DeleteMethodResponse
+instance Core.NFData DeleteMethodResponse
 
-instance Prelude.ToHeaders DeleteMethodResponse where
+instance Core.ToHeaders DeleteMethodResponse where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteMethodResponse where
+instance Core.ToPath DeleteMethodResponse where
   toPath DeleteMethodResponse' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod,
+        Core.toBS httpMethod,
         "/responses/",
-        Prelude.toBS statusCode
+        Core.toBS statusCode
       ]
 
-instance Prelude.ToQuery DeleteMethodResponse where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMethodResponse where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteMethodResponseResponse' smart constructor.
 data DeleteMethodResponseResponse = DeleteMethodResponseResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMethodResponseResponse' with all optional fields omitted.
@@ -165,4 +164,4 @@ newDeleteMethodResponseResponse ::
 newDeleteMethodResponseResponse =
   DeleteMethodResponseResponse'
 
-instance Prelude.NFData DeleteMethodResponseResponse
+instance Core.NFData DeleteMethodResponseResponse

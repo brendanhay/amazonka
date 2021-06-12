@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.ClusterListEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.ClusterState
 
 -- | Contains a cluster\'s state, a cluster\'s ID, and other important
@@ -31,17 +30,17 @@ import Network.AWS.Snowball.Types.ClusterState
 data ClusterListEntry = ClusterListEntry'
   { -- | The 39-character ID for the cluster that you want to list, for example
     -- @CID123e4567-e89b-12d3-a456-426655440000@.
-    clusterId :: Prelude.Maybe Prelude.Text,
+    clusterId :: Core.Maybe Core.Text,
     -- | The creation date for this cluster.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | Defines an optional description of the cluster, for example
     -- @Environmental Data Cluster-01@.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The current state of this cluster. For information about the state of a
     -- specific node, see JobListEntry$JobState.
-    clusterState :: Prelude.Maybe ClusterState
+    clusterState :: Core.Maybe ClusterState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClusterListEntry' with all optional fields omitted.
@@ -65,43 +64,43 @@ newClusterListEntry ::
   ClusterListEntry
 newClusterListEntry =
   ClusterListEntry'
-    { clusterId = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      description = Prelude.Nothing,
-      clusterState = Prelude.Nothing
+    { clusterId = Core.Nothing,
+      creationDate = Core.Nothing,
+      description = Core.Nothing,
+      clusterState = Core.Nothing
     }
 
 -- | The 39-character ID for the cluster that you want to list, for example
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
-clusterListEntry_clusterId :: Lens.Lens' ClusterListEntry (Prelude.Maybe Prelude.Text)
+clusterListEntry_clusterId :: Lens.Lens' ClusterListEntry (Core.Maybe Core.Text)
 clusterListEntry_clusterId = Lens.lens (\ClusterListEntry' {clusterId} -> clusterId) (\s@ClusterListEntry' {} a -> s {clusterId = a} :: ClusterListEntry)
 
 -- | The creation date for this cluster.
-clusterListEntry_creationDate :: Lens.Lens' ClusterListEntry (Prelude.Maybe Prelude.UTCTime)
-clusterListEntry_creationDate = Lens.lens (\ClusterListEntry' {creationDate} -> creationDate) (\s@ClusterListEntry' {} a -> s {creationDate = a} :: ClusterListEntry) Prelude.. Lens.mapping Prelude._Time
+clusterListEntry_creationDate :: Lens.Lens' ClusterListEntry (Core.Maybe Core.UTCTime)
+clusterListEntry_creationDate = Lens.lens (\ClusterListEntry' {creationDate} -> creationDate) (\s@ClusterListEntry' {} a -> s {creationDate = a} :: ClusterListEntry) Core.. Lens.mapping Core._Time
 
 -- | Defines an optional description of the cluster, for example
 -- @Environmental Data Cluster-01@.
-clusterListEntry_description :: Lens.Lens' ClusterListEntry (Prelude.Maybe Prelude.Text)
+clusterListEntry_description :: Lens.Lens' ClusterListEntry (Core.Maybe Core.Text)
 clusterListEntry_description = Lens.lens (\ClusterListEntry' {description} -> description) (\s@ClusterListEntry' {} a -> s {description = a} :: ClusterListEntry)
 
 -- | The current state of this cluster. For information about the state of a
 -- specific node, see JobListEntry$JobState.
-clusterListEntry_clusterState :: Lens.Lens' ClusterListEntry (Prelude.Maybe ClusterState)
+clusterListEntry_clusterState :: Lens.Lens' ClusterListEntry (Core.Maybe ClusterState)
 clusterListEntry_clusterState = Lens.lens (\ClusterListEntry' {clusterState} -> clusterState) (\s@ClusterListEntry' {} a -> s {clusterState = a} :: ClusterListEntry)
 
-instance Prelude.FromJSON ClusterListEntry where
+instance Core.FromJSON ClusterListEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ClusterListEntry"
       ( \x ->
           ClusterListEntry'
-            Prelude.<$> (x Prelude..:? "ClusterId")
-            Prelude.<*> (x Prelude..:? "CreationDate")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "ClusterState")
+            Core.<$> (x Core..:? "ClusterId")
+            Core.<*> (x Core..:? "CreationDate")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "ClusterState")
       )
 
-instance Prelude.Hashable ClusterListEntry
+instance Core.Hashable ClusterListEntry
 
-instance Prelude.NFData ClusterListEntry
+instance Core.NFData ClusterListEntry

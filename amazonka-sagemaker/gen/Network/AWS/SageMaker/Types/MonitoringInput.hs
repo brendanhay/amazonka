@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringInput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 
 -- | The inputs for a monitoring job.
@@ -31,7 +30,7 @@ data MonitoringInput = MonitoringInput'
   { -- | The endpoint for a monitoring job.
     endpointInput :: EndpointInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringInput' with all optional fields omitted.
@@ -53,24 +52,22 @@ newMonitoringInput pEndpointInput_ =
 monitoringInput_endpointInput :: Lens.Lens' MonitoringInput EndpointInput
 monitoringInput_endpointInput = Lens.lens (\MonitoringInput' {endpointInput} -> endpointInput) (\s@MonitoringInput' {} a -> s {endpointInput = a} :: MonitoringInput)
 
-instance Prelude.FromJSON MonitoringInput where
+instance Core.FromJSON MonitoringInput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringInput"
       ( \x ->
           MonitoringInput'
-            Prelude.<$> (x Prelude..: "EndpointInput")
+            Core.<$> (x Core..: "EndpointInput")
       )
 
-instance Prelude.Hashable MonitoringInput
+instance Core.Hashable MonitoringInput
 
-instance Prelude.NFData MonitoringInput
+instance Core.NFData MonitoringInput
 
-instance Prelude.ToJSON MonitoringInput where
+instance Core.ToJSON MonitoringInput where
   toJSON MonitoringInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Prelude..= endpointInput)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointInput" Core..= endpointInput)]
       )

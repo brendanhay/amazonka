@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.DeviceFarm.GetInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetInstanceProfile' smart constructor.
 data GetInstanceProfile = GetInstanceProfile'
   { -- | The Amazon Resource Name (ARN) of an instance profile.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceProfile' with all optional fields omitted.
@@ -64,68 +63,64 @@ data GetInstanceProfile = GetInstanceProfile'
 -- 'arn', 'getInstanceProfile_arn' - The Amazon Resource Name (ARN) of an instance profile.
 newGetInstanceProfile ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetInstanceProfile
 newGetInstanceProfile pArn_ =
   GetInstanceProfile' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of an instance profile.
-getInstanceProfile_arn :: Lens.Lens' GetInstanceProfile Prelude.Text
+getInstanceProfile_arn :: Lens.Lens' GetInstanceProfile Core.Text
 getInstanceProfile_arn = Lens.lens (\GetInstanceProfile' {arn} -> arn) (\s@GetInstanceProfile' {} a -> s {arn = a} :: GetInstanceProfile)
 
-instance Prelude.AWSRequest GetInstanceProfile where
+instance Core.AWSRequest GetInstanceProfile where
   type
-    Rs GetInstanceProfile =
+    AWSResponse GetInstanceProfile =
       GetInstanceProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInstanceProfileResponse'
-            Prelude.<$> (x Prelude..?> "instanceProfile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "instanceProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstanceProfile
+instance Core.Hashable GetInstanceProfile
 
-instance Prelude.NFData GetInstanceProfile
+instance Core.NFData GetInstanceProfile
 
-instance Prelude.ToHeaders GetInstanceProfile where
+instance Core.ToHeaders GetInstanceProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetInstanceProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.GetInstanceProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetInstanceProfile where
+instance Core.ToJSON GetInstanceProfile where
   toJSON GetInstanceProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInstanceProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInstanceProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
   { -- | An object that contains information about an instance profile.
-    instanceProfile :: Prelude.Maybe InstanceProfile,
+    instanceProfile :: Core.Maybe InstanceProfile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceProfileResponse' with all optional fields omitted.
@@ -140,21 +135,21 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse'
 -- 'httpStatus', 'getInstanceProfileResponse_httpStatus' - The response's http status code.
 newGetInstanceProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInstanceProfileResponse
 newGetInstanceProfileResponse pHttpStatus_ =
   GetInstanceProfileResponse'
     { instanceProfile =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about an instance profile.
-getInstanceProfileResponse_instanceProfile :: Lens.Lens' GetInstanceProfileResponse (Prelude.Maybe InstanceProfile)
+getInstanceProfileResponse_instanceProfile :: Lens.Lens' GetInstanceProfileResponse (Core.Maybe InstanceProfile)
 getInstanceProfileResponse_instanceProfile = Lens.lens (\GetInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@GetInstanceProfileResponse' {} a -> s {instanceProfile = a} :: GetInstanceProfileResponse)
 
 -- | The response's http status code.
-getInstanceProfileResponse_httpStatus :: Lens.Lens' GetInstanceProfileResponse Prelude.Int
+getInstanceProfileResponse_httpStatus :: Lens.Lens' GetInstanceProfileResponse Core.Int
 getInstanceProfileResponse_httpStatus = Lens.lens (\GetInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@GetInstanceProfileResponse' {} a -> s {httpStatus = a} :: GetInstanceProfileResponse)
 
-instance Prelude.NFData GetInstanceProfileResponse
+instance Core.NFData GetInstanceProfileResponse

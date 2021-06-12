@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.EKS.UpdateClusterVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,13 +63,13 @@ import qualified Network.AWS.Response as Response
 data UpdateClusterVersion = UpdateClusterVersion'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name of the Amazon EKS cluster to update.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The desired Kubernetes version following a successful update.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateClusterVersion' with all optional fields omitted.
@@ -88,85 +87,83 @@ data UpdateClusterVersion = UpdateClusterVersion'
 -- 'version', 'updateClusterVersion_version' - The desired Kubernetes version following a successful update.
 newUpdateClusterVersion ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   UpdateClusterVersion
 newUpdateClusterVersion pName_ pVersion_ =
   UpdateClusterVersion'
     { clientRequestToken =
-        Prelude.Nothing,
+        Core.Nothing,
       name = pName_,
       version = pVersion_
     }
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-updateClusterVersion_clientRequestToken :: Lens.Lens' UpdateClusterVersion (Prelude.Maybe Prelude.Text)
+updateClusterVersion_clientRequestToken :: Lens.Lens' UpdateClusterVersion (Core.Maybe Core.Text)
 updateClusterVersion_clientRequestToken = Lens.lens (\UpdateClusterVersion' {clientRequestToken} -> clientRequestToken) (\s@UpdateClusterVersion' {} a -> s {clientRequestToken = a} :: UpdateClusterVersion)
 
 -- | The name of the Amazon EKS cluster to update.
-updateClusterVersion_name :: Lens.Lens' UpdateClusterVersion Prelude.Text
+updateClusterVersion_name :: Lens.Lens' UpdateClusterVersion Core.Text
 updateClusterVersion_name = Lens.lens (\UpdateClusterVersion' {name} -> name) (\s@UpdateClusterVersion' {} a -> s {name = a} :: UpdateClusterVersion)
 
 -- | The desired Kubernetes version following a successful update.
-updateClusterVersion_version :: Lens.Lens' UpdateClusterVersion Prelude.Text
+updateClusterVersion_version :: Lens.Lens' UpdateClusterVersion Core.Text
 updateClusterVersion_version = Lens.lens (\UpdateClusterVersion' {version} -> version) (\s@UpdateClusterVersion' {} a -> s {version = a} :: UpdateClusterVersion)
 
-instance Prelude.AWSRequest UpdateClusterVersion where
+instance Core.AWSRequest UpdateClusterVersion where
   type
-    Rs UpdateClusterVersion =
+    AWSResponse UpdateClusterVersion =
       UpdateClusterVersionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateClusterVersionResponse'
-            Prelude.<$> (x Prelude..?> "update")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "update")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClusterVersion
+instance Core.Hashable UpdateClusterVersion
 
-instance Prelude.NFData UpdateClusterVersion
+instance Core.NFData UpdateClusterVersion
 
-instance Prelude.ToHeaders UpdateClusterVersion where
+instance Core.ToHeaders UpdateClusterVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateClusterVersion where
+instance Core.ToJSON UpdateClusterVersion where
   toJSON UpdateClusterVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            Prelude.Just ("version" Prelude..= version)
+    Core.object
+      ( Core.catMaybes
+          [ ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            Core.Just ("version" Core..= version)
           ]
       )
 
-instance Prelude.ToPath UpdateClusterVersion where
+instance Core.ToPath UpdateClusterVersion where
   toPath UpdateClusterVersion' {..} =
-    Prelude.mconcat
-      ["/clusters/", Prelude.toBS name, "/updates"]
+    Core.mconcat
+      ["/clusters/", Core.toBS name, "/updates"]
 
-instance Prelude.ToQuery UpdateClusterVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateClusterVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateClusterVersionResponse' smart constructor.
 data UpdateClusterVersionResponse = UpdateClusterVersionResponse'
   { -- | The full description of the specified update
-    update :: Prelude.Maybe Update,
+    update :: Core.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateClusterVersionResponse' with all optional fields omitted.
@@ -181,21 +178,21 @@ data UpdateClusterVersionResponse = UpdateClusterVersionResponse'
 -- 'httpStatus', 'updateClusterVersionResponse_httpStatus' - The response's http status code.
 newUpdateClusterVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateClusterVersionResponse
 newUpdateClusterVersionResponse pHttpStatus_ =
   UpdateClusterVersionResponse'
     { update =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of the specified update
-updateClusterVersionResponse_update :: Lens.Lens' UpdateClusterVersionResponse (Prelude.Maybe Update)
+updateClusterVersionResponse_update :: Lens.Lens' UpdateClusterVersionResponse (Core.Maybe Update)
 updateClusterVersionResponse_update = Lens.lens (\UpdateClusterVersionResponse' {update} -> update) (\s@UpdateClusterVersionResponse' {} a -> s {update = a} :: UpdateClusterVersionResponse)
 
 -- | The response's http status code.
-updateClusterVersionResponse_httpStatus :: Lens.Lens' UpdateClusterVersionResponse Prelude.Int
+updateClusterVersionResponse_httpStatus :: Lens.Lens' UpdateClusterVersionResponse Core.Int
 updateClusterVersionResponse_httpStatus = Lens.lens (\UpdateClusterVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterVersionResponse' {} a -> s {httpStatus = a} :: UpdateClusterVersionResponse)
 
-instance Prelude.NFData UpdateClusterVersionResponse
+instance Core.NFData UpdateClusterVersionResponse

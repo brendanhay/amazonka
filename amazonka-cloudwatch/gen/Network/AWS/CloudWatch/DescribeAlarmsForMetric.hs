@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
 where
 
 import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,24 +61,24 @@ import qualified Network.AWS.Response as Response
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
   { -- | The percentile statistic for the metric. Specify a value between p0.0
     -- and p100.
-    extendedStatistic :: Prelude.Maybe Prelude.Text,
+    extendedStatistic :: Core.Maybe Core.Text,
     -- | The unit for the metric.
-    unit :: Prelude.Maybe StandardUnit,
+    unit :: Core.Maybe StandardUnit,
     -- | The statistic for the metric, other than percentiles. For percentile
     -- statistics, use @ExtendedStatistics@.
-    statistic :: Prelude.Maybe Statistic,
+    statistic :: Core.Maybe Statistic,
     -- | The dimensions associated with the metric. If the metric has any
     -- associated dimensions, you must specify them in order for the call to
     -- succeed.
-    dimensions :: Prelude.Maybe [Dimension],
+    dimensions :: Core.Maybe [Dimension],
     -- | The period, in seconds, over which the statistic is applied.
-    period :: Prelude.Maybe Prelude.Natural,
+    period :: Core.Maybe Core.Natural,
     -- | The name of the metric.
-    metricName :: Prelude.Text,
+    metricName :: Core.Text,
     -- | The namespace of the metric.
-    namespace :: Prelude.Text
+    namespace :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAlarmsForMetric' with all optional fields omitted.
@@ -108,57 +107,57 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
 -- 'namespace', 'describeAlarmsForMetric_namespace' - The namespace of the metric.
 newDescribeAlarmsForMetric ::
   -- | 'metricName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'namespace'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAlarmsForMetric
 newDescribeAlarmsForMetric pMetricName_ pNamespace_ =
   DescribeAlarmsForMetric'
     { extendedStatistic =
-        Prelude.Nothing,
-      unit = Prelude.Nothing,
-      statistic = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
-      period = Prelude.Nothing,
+        Core.Nothing,
+      unit = Core.Nothing,
+      statistic = Core.Nothing,
+      dimensions = Core.Nothing,
+      period = Core.Nothing,
       metricName = pMetricName_,
       namespace = pNamespace_
     }
 
 -- | The percentile statistic for the metric. Specify a value between p0.0
 -- and p100.
-describeAlarmsForMetric_extendedStatistic :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Prelude.Text)
+describeAlarmsForMetric_extendedStatistic :: Lens.Lens' DescribeAlarmsForMetric (Core.Maybe Core.Text)
 describeAlarmsForMetric_extendedStatistic = Lens.lens (\DescribeAlarmsForMetric' {extendedStatistic} -> extendedStatistic) (\s@DescribeAlarmsForMetric' {} a -> s {extendedStatistic = a} :: DescribeAlarmsForMetric)
 
 -- | The unit for the metric.
-describeAlarmsForMetric_unit :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe StandardUnit)
+describeAlarmsForMetric_unit :: Lens.Lens' DescribeAlarmsForMetric (Core.Maybe StandardUnit)
 describeAlarmsForMetric_unit = Lens.lens (\DescribeAlarmsForMetric' {unit} -> unit) (\s@DescribeAlarmsForMetric' {} a -> s {unit = a} :: DescribeAlarmsForMetric)
 
 -- | The statistic for the metric, other than percentiles. For percentile
 -- statistics, use @ExtendedStatistics@.
-describeAlarmsForMetric_statistic :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Statistic)
+describeAlarmsForMetric_statistic :: Lens.Lens' DescribeAlarmsForMetric (Core.Maybe Statistic)
 describeAlarmsForMetric_statistic = Lens.lens (\DescribeAlarmsForMetric' {statistic} -> statistic) (\s@DescribeAlarmsForMetric' {} a -> s {statistic = a} :: DescribeAlarmsForMetric)
 
 -- | The dimensions associated with the metric. If the metric has any
 -- associated dimensions, you must specify them in order for the call to
 -- succeed.
-describeAlarmsForMetric_dimensions :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe [Dimension])
-describeAlarmsForMetric_dimensions = Lens.lens (\DescribeAlarmsForMetric' {dimensions} -> dimensions) (\s@DescribeAlarmsForMetric' {} a -> s {dimensions = a} :: DescribeAlarmsForMetric) Prelude.. Lens.mapping Prelude._Coerce
+describeAlarmsForMetric_dimensions :: Lens.Lens' DescribeAlarmsForMetric (Core.Maybe [Dimension])
+describeAlarmsForMetric_dimensions = Lens.lens (\DescribeAlarmsForMetric' {dimensions} -> dimensions) (\s@DescribeAlarmsForMetric' {} a -> s {dimensions = a} :: DescribeAlarmsForMetric) Core.. Lens.mapping Lens._Coerce
 
 -- | The period, in seconds, over which the statistic is applied.
-describeAlarmsForMetric_period :: Lens.Lens' DescribeAlarmsForMetric (Prelude.Maybe Prelude.Natural)
+describeAlarmsForMetric_period :: Lens.Lens' DescribeAlarmsForMetric (Core.Maybe Core.Natural)
 describeAlarmsForMetric_period = Lens.lens (\DescribeAlarmsForMetric' {period} -> period) (\s@DescribeAlarmsForMetric' {} a -> s {period = a} :: DescribeAlarmsForMetric)
 
 -- | The name of the metric.
-describeAlarmsForMetric_metricName :: Lens.Lens' DescribeAlarmsForMetric Prelude.Text
+describeAlarmsForMetric_metricName :: Lens.Lens' DescribeAlarmsForMetric Core.Text
 describeAlarmsForMetric_metricName = Lens.lens (\DescribeAlarmsForMetric' {metricName} -> metricName) (\s@DescribeAlarmsForMetric' {} a -> s {metricName = a} :: DescribeAlarmsForMetric)
 
 -- | The namespace of the metric.
-describeAlarmsForMetric_namespace :: Lens.Lens' DescribeAlarmsForMetric Prelude.Text
+describeAlarmsForMetric_namespace :: Lens.Lens' DescribeAlarmsForMetric Core.Text
 describeAlarmsForMetric_namespace = Lens.lens (\DescribeAlarmsForMetric' {namespace} -> namespace) (\s@DescribeAlarmsForMetric' {} a -> s {namespace = a} :: DescribeAlarmsForMetric)
 
-instance Prelude.AWSRequest DescribeAlarmsForMetric where
+instance Core.AWSRequest DescribeAlarmsForMetric where
   type
-    Rs DescribeAlarmsForMetric =
+    AWSResponse DescribeAlarmsForMetric =
       DescribeAlarmsForMetricResponse
   request = Request.postQuery defaultService
   response =
@@ -166,51 +165,47 @@ instance Prelude.AWSRequest DescribeAlarmsForMetric where
       "DescribeAlarmsForMetricResult"
       ( \s h x ->
           DescribeAlarmsForMetricResponse'
-            Prelude.<$> ( x Prelude..@? "MetricAlarms"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "MetricAlarms" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAlarmsForMetric
+instance Core.Hashable DescribeAlarmsForMetric
 
-instance Prelude.NFData DescribeAlarmsForMetric
+instance Core.NFData DescribeAlarmsForMetric
 
-instance Prelude.ToHeaders DescribeAlarmsForMetric where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAlarmsForMetric where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAlarmsForMetric where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAlarmsForMetric where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAlarmsForMetric where
+instance Core.ToQuery DescribeAlarmsForMetric where
   toQuery DescribeAlarmsForMetric' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeAlarmsForMetric" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
-        "ExtendedStatistic" Prelude.=: extendedStatistic,
-        "Unit" Prelude.=: unit,
-        "Statistic" Prelude.=: statistic,
+          Core.=: ("DescribeAlarmsForMetric" :: Core.ByteString),
+        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+        "ExtendedStatistic" Core.=: extendedStatistic,
+        "Unit" Core.=: unit,
+        "Statistic" Core.=: statistic,
         "Dimensions"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> dimensions
-            ),
-        "Period" Prelude.=: period,
-        "MetricName" Prelude.=: metricName,
-        "Namespace" Prelude.=: namespace
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> dimensions),
+        "Period" Core.=: period,
+        "MetricName" Core.=: metricName,
+        "Namespace" Core.=: namespace
       ]
 
 -- | /See:/ 'newDescribeAlarmsForMetricResponse' smart constructor.
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
   { -- | The information for each alarm with the specified metric.
-    metricAlarms :: Prelude.Maybe [MetricAlarm],
+    metricAlarms :: Core.Maybe [MetricAlarm],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAlarmsForMetricResponse' with all optional fields omitted.
@@ -225,23 +220,21 @@ data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
 -- 'httpStatus', 'describeAlarmsForMetricResponse_httpStatus' - The response's http status code.
 newDescribeAlarmsForMetricResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAlarmsForMetricResponse
 newDescribeAlarmsForMetricResponse pHttpStatus_ =
   DescribeAlarmsForMetricResponse'
     { metricAlarms =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The information for each alarm with the specified metric.
-describeAlarmsForMetricResponse_metricAlarms :: Lens.Lens' DescribeAlarmsForMetricResponse (Prelude.Maybe [MetricAlarm])
-describeAlarmsForMetricResponse_metricAlarms = Lens.lens (\DescribeAlarmsForMetricResponse' {metricAlarms} -> metricAlarms) (\s@DescribeAlarmsForMetricResponse' {} a -> s {metricAlarms = a} :: DescribeAlarmsForMetricResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAlarmsForMetricResponse_metricAlarms :: Lens.Lens' DescribeAlarmsForMetricResponse (Core.Maybe [MetricAlarm])
+describeAlarmsForMetricResponse_metricAlarms = Lens.lens (\DescribeAlarmsForMetricResponse' {metricAlarms} -> metricAlarms) (\s@DescribeAlarmsForMetricResponse' {} a -> s {metricAlarms = a} :: DescribeAlarmsForMetricResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAlarmsForMetricResponse_httpStatus :: Lens.Lens' DescribeAlarmsForMetricResponse Prelude.Int
+describeAlarmsForMetricResponse_httpStatus :: Lens.Lens' DescribeAlarmsForMetricResponse Core.Int
 describeAlarmsForMetricResponse_httpStatus = Lens.lens (\DescribeAlarmsForMetricResponse' {httpStatus} -> httpStatus) (\s@DescribeAlarmsForMetricResponse' {} a -> s {httpStatus = a} :: DescribeAlarmsForMetricResponse)
 
-instance
-  Prelude.NFData
-    DescribeAlarmsForMetricResponse
+instance Core.NFData DescribeAlarmsForMetricResponse

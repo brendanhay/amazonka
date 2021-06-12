@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,21 +38,21 @@ module Network.AWS.Connect.AssociateRoutingProfileQueues
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateRoutingProfileQueues' smart constructor.
 data AssociateRoutingProfileQueues = AssociateRoutingProfileQueues'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier of the routing profile.
-    routingProfileId :: Prelude.Text,
+    routingProfileId :: Core.Text,
     -- | The queues to associate with this routing profile.
-    queueConfigs :: Prelude.NonEmpty RoutingProfileQueueConfig
+    queueConfigs :: Core.NonEmpty RoutingProfileQueueConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateRoutingProfileQueues' with all optional fields omitted.
@@ -70,11 +69,11 @@ data AssociateRoutingProfileQueues = AssociateRoutingProfileQueues'
 -- 'queueConfigs', 'associateRoutingProfileQueues_queueConfigs' - The queues to associate with this routing profile.
 newAssociateRoutingProfileQueues ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'routingProfileId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'queueConfigs'
-  Prelude.NonEmpty RoutingProfileQueueConfig ->
+  Core.NonEmpty RoutingProfileQueueConfig ->
   AssociateRoutingProfileQueues
 newAssociateRoutingProfileQueues
   pInstanceId_
@@ -85,83 +84,71 @@ newAssociateRoutingProfileQueues
           pInstanceId_,
         routingProfileId = pRoutingProfileId_,
         queueConfigs =
-          Prelude._Coerce Lens.# pQueueConfigs_
+          Lens._Coerce Lens.# pQueueConfigs_
       }
 
 -- | The identifier of the Amazon Connect instance.
-associateRoutingProfileQueues_instanceId :: Lens.Lens' AssociateRoutingProfileQueues Prelude.Text
+associateRoutingProfileQueues_instanceId :: Lens.Lens' AssociateRoutingProfileQueues Core.Text
 associateRoutingProfileQueues_instanceId = Lens.lens (\AssociateRoutingProfileQueues' {instanceId} -> instanceId) (\s@AssociateRoutingProfileQueues' {} a -> s {instanceId = a} :: AssociateRoutingProfileQueues)
 
 -- | The identifier of the routing profile.
-associateRoutingProfileQueues_routingProfileId :: Lens.Lens' AssociateRoutingProfileQueues Prelude.Text
+associateRoutingProfileQueues_routingProfileId :: Lens.Lens' AssociateRoutingProfileQueues Core.Text
 associateRoutingProfileQueues_routingProfileId = Lens.lens (\AssociateRoutingProfileQueues' {routingProfileId} -> routingProfileId) (\s@AssociateRoutingProfileQueues' {} a -> s {routingProfileId = a} :: AssociateRoutingProfileQueues)
 
 -- | The queues to associate with this routing profile.
-associateRoutingProfileQueues_queueConfigs :: Lens.Lens' AssociateRoutingProfileQueues (Prelude.NonEmpty RoutingProfileQueueConfig)
-associateRoutingProfileQueues_queueConfigs = Lens.lens (\AssociateRoutingProfileQueues' {queueConfigs} -> queueConfigs) (\s@AssociateRoutingProfileQueues' {} a -> s {queueConfigs = a} :: AssociateRoutingProfileQueues) Prelude.. Prelude._Coerce
+associateRoutingProfileQueues_queueConfigs :: Lens.Lens' AssociateRoutingProfileQueues (Core.NonEmpty RoutingProfileQueueConfig)
+associateRoutingProfileQueues_queueConfigs = Lens.lens (\AssociateRoutingProfileQueues' {queueConfigs} -> queueConfigs) (\s@AssociateRoutingProfileQueues' {} a -> s {queueConfigs = a} :: AssociateRoutingProfileQueues) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AssociateRoutingProfileQueues
   where
   type
-    Rs AssociateRoutingProfileQueues =
+    AWSResponse AssociateRoutingProfileQueues =
       AssociateRoutingProfileQueuesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       AssociateRoutingProfileQueuesResponse'
 
-instance
-  Prelude.Hashable
-    AssociateRoutingProfileQueues
+instance Core.Hashable AssociateRoutingProfileQueues
 
-instance Prelude.NFData AssociateRoutingProfileQueues
+instance Core.NFData AssociateRoutingProfileQueues
 
-instance
-  Prelude.ToHeaders
-    AssociateRoutingProfileQueues
-  where
+instance Core.ToHeaders AssociateRoutingProfileQueues where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateRoutingProfileQueues where
+instance Core.ToJSON AssociateRoutingProfileQueues where
   toJSON AssociateRoutingProfileQueues' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("QueueConfigs" Prelude..= queueConfigs)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("QueueConfigs" Core..= queueConfigs)]
       )
 
-instance Prelude.ToPath AssociateRoutingProfileQueues where
+instance Core.ToPath AssociateRoutingProfileQueues where
   toPath AssociateRoutingProfileQueues' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/routing-profiles/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS routingProfileId,
+        Core.toBS routingProfileId,
         "/associate-queues"
       ]
 
-instance
-  Prelude.ToQuery
-    AssociateRoutingProfileQueues
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateRoutingProfileQueues where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateRoutingProfileQueuesResponse' smart constructor.
 data AssociateRoutingProfileQueuesResponse = AssociateRoutingProfileQueuesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateRoutingProfileQueuesResponse' with all optional fields omitted.
@@ -173,5 +160,5 @@ newAssociateRoutingProfileQueuesResponse =
   AssociateRoutingProfileQueuesResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateRoutingProfileQueuesResponse

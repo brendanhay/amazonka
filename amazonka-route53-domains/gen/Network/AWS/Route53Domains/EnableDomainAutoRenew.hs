@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -57,9 +56,9 @@ import Network.AWS.Route53Domains.Types
 -- | /See:/ 'newEnableDomainAutoRenew' smart constructor.
 data EnableDomainAutoRenew = EnableDomainAutoRenew'
   { -- | The name of the domain that you want to enable automatic renewal for.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableDomainAutoRenew' with all optional fields omitted.
@@ -72,65 +71,63 @@ data EnableDomainAutoRenew = EnableDomainAutoRenew'
 -- 'domainName', 'enableDomainAutoRenew_domainName' - The name of the domain that you want to enable automatic renewal for.
 newEnableDomainAutoRenew ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   EnableDomainAutoRenew
 newEnableDomainAutoRenew pDomainName_ =
   EnableDomainAutoRenew' {domainName = pDomainName_}
 
 -- | The name of the domain that you want to enable automatic renewal for.
-enableDomainAutoRenew_domainName :: Lens.Lens' EnableDomainAutoRenew Prelude.Text
+enableDomainAutoRenew_domainName :: Lens.Lens' EnableDomainAutoRenew Core.Text
 enableDomainAutoRenew_domainName = Lens.lens (\EnableDomainAutoRenew' {domainName} -> domainName) (\s@EnableDomainAutoRenew' {} a -> s {domainName = a} :: EnableDomainAutoRenew)
 
-instance Prelude.AWSRequest EnableDomainAutoRenew where
+instance Core.AWSRequest EnableDomainAutoRenew where
   type
-    Rs EnableDomainAutoRenew =
+    AWSResponse EnableDomainAutoRenew =
       EnableDomainAutoRenewResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableDomainAutoRenewResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable EnableDomainAutoRenew
+instance Core.Hashable EnableDomainAutoRenew
 
-instance Prelude.NFData EnableDomainAutoRenew
+instance Core.NFData EnableDomainAutoRenew
 
-instance Prelude.ToHeaders EnableDomainAutoRenew where
+instance Core.ToHeaders EnableDomainAutoRenew where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.EnableDomainAutoRenew" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.EnableDomainAutoRenew" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableDomainAutoRenew where
+instance Core.ToJSON EnableDomainAutoRenew where
   toJSON EnableDomainAutoRenew' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Prelude..= domainName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DomainName" Core..= domainName)]
       )
 
-instance Prelude.ToPath EnableDomainAutoRenew where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableDomainAutoRenew where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableDomainAutoRenew where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableDomainAutoRenew where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableDomainAutoRenewResponse' smart constructor.
 data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableDomainAutoRenewResponse' with all optional fields omitted.
@@ -143,7 +140,7 @@ data EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
 -- 'httpStatus', 'enableDomainAutoRenewResponse_httpStatus' - The response's http status code.
 newEnableDomainAutoRenewResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableDomainAutoRenewResponse
 newEnableDomainAutoRenewResponse pHttpStatus_ =
   EnableDomainAutoRenewResponse'
@@ -152,7 +149,7 @@ newEnableDomainAutoRenewResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-enableDomainAutoRenewResponse_httpStatus :: Lens.Lens' EnableDomainAutoRenewResponse Prelude.Int
+enableDomainAutoRenewResponse_httpStatus :: Lens.Lens' EnableDomainAutoRenewResponse Core.Int
 enableDomainAutoRenewResponse_httpStatus = Lens.lens (\EnableDomainAutoRenewResponse' {httpStatus} -> httpStatus) (\s@EnableDomainAutoRenewResponse' {} a -> s {httpStatus = a} :: EnableDomainAutoRenewResponse)
 
-instance Prelude.NFData EnableDomainAutoRenewResponse
+instance Core.NFData EnableDomainAutoRenewResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.Message where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a message.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Message = Message'
   { -- | The ID you want to assign to the message. Each @messageId@ must be
     -- unique within each batch sent.
-    messageId :: Prelude.Text,
+    messageId :: Core.Text,
     -- | The payload of the message. This can be a JSON string or a
     -- base64-encoded string representing binary data, in which case you must
     -- decode it by means of a pipeline activity.
-    payload :: Prelude.Base64
+    payload :: Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Message' with all optional fields omitted.
@@ -57,19 +56,19 @@ data Message = Message'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newMessage ::
   -- | 'messageId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'payload'
-  Prelude.ByteString ->
+  Core.ByteString ->
   Message
 newMessage pMessageId_ pPayload_ =
   Message'
     { messageId = pMessageId_,
-      payload = Prelude._Base64 Lens.# pPayload_
+      payload = Core._Base64 Lens.# pPayload_
     }
 
 -- | The ID you want to assign to the message. Each @messageId@ must be
 -- unique within each batch sent.
-message_messageId :: Lens.Lens' Message Prelude.Text
+message_messageId :: Lens.Lens' Message Core.Text
 message_messageId = Lens.lens (\Message' {messageId} -> messageId) (\s@Message' {} a -> s {messageId = a} :: Message)
 
 -- | The payload of the message. This can be a JSON string or a
@@ -79,18 +78,18 @@ message_messageId = Lens.lens (\Message' {messageId} -> messageId) (\s@Message' 
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-message_payload :: Lens.Lens' Message Prelude.ByteString
-message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Prelude.. Prelude._Base64
+message_payload :: Lens.Lens' Message Core.ByteString
+message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -> s {payload = a} :: Message) Core.. Core._Base64
 
-instance Prelude.Hashable Message
+instance Core.Hashable Message
 
-instance Prelude.NFData Message
+instance Core.NFData Message
 
-instance Prelude.ToJSON Message where
+instance Core.ToJSON Message where
   toJSON Message' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("messageId" Prelude..= messageId),
-            Prelude.Just ("payload" Prelude..= payload)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("messageId" Core..= messageId),
+            Core.Just ("payload" Core..= payload)
           ]
       )

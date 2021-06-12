@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Inspector.GetAssessmentReport
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ import qualified Network.AWS.Response as Response
 data GetAssessmentReport = GetAssessmentReport'
   { -- | The ARN that specifies the assessment run for which you want to generate
     -- a report.
-    assessmentRunArn :: Prelude.Text,
+    assessmentRunArn :: Core.Text,
     -- | Specifies the file format (html or pdf) of the assessment report that
     -- you want to generate.
     reportFileFormat :: ReportFileFormat,
@@ -64,7 +63,7 @@ data GetAssessmentReport = GetAssessmentReport'
     -- <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports>.
     reportType :: ReportType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAssessmentReport' with all optional fields omitted.
@@ -86,7 +85,7 @@ data GetAssessmentReport = GetAssessmentReport'
 -- <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports>.
 newGetAssessmentReport ::
   -- | 'assessmentRunArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'reportFileFormat'
   ReportFileFormat ->
   -- | 'reportType'
@@ -105,7 +104,7 @@ newGetAssessmentReport
 
 -- | The ARN that specifies the assessment run for which you want to generate
 -- a report.
-getAssessmentReport_assessmentRunArn :: Lens.Lens' GetAssessmentReport Prelude.Text
+getAssessmentReport_assessmentRunArn :: Lens.Lens' GetAssessmentReport Core.Text
 getAssessmentReport_assessmentRunArn = Lens.lens (\GetAssessmentReport' {assessmentRunArn} -> assessmentRunArn) (\s@GetAssessmentReport' {} a -> s {assessmentRunArn = a} :: GetAssessmentReport)
 
 -- | Specifies the file format (html or pdf) of the assessment report that
@@ -120,68 +119,66 @@ getAssessmentReport_reportFileFormat = Lens.lens (\GetAssessmentReport' {reportF
 getAssessmentReport_reportType :: Lens.Lens' GetAssessmentReport ReportType
 getAssessmentReport_reportType = Lens.lens (\GetAssessmentReport' {reportType} -> reportType) (\s@GetAssessmentReport' {} a -> s {reportType = a} :: GetAssessmentReport)
 
-instance Prelude.AWSRequest GetAssessmentReport where
+instance Core.AWSRequest GetAssessmentReport where
   type
-    Rs GetAssessmentReport =
+    AWSResponse GetAssessmentReport =
       GetAssessmentReportResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAssessmentReportResponse'
-            Prelude.<$> (x Prelude..?> "url")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "status")
+            Core.<$> (x Core..?> "url")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "status")
       )
 
-instance Prelude.Hashable GetAssessmentReport
+instance Core.Hashable GetAssessmentReport
 
-instance Prelude.NFData GetAssessmentReport
+instance Core.NFData GetAssessmentReport
 
-instance Prelude.ToHeaders GetAssessmentReport where
+instance Core.ToHeaders GetAssessmentReport where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.GetAssessmentReport" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.GetAssessmentReport" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetAssessmentReport where
+instance Core.ToJSON GetAssessmentReport where
   toJSON GetAssessmentReport' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("assessmentRunArn" Prelude..= assessmentRunArn),
-            Prelude.Just
-              ("reportFileFormat" Prelude..= reportFileFormat),
-            Prelude.Just ("reportType" Prelude..= reportType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("assessmentRunArn" Core..= assessmentRunArn),
+            Core.Just
+              ("reportFileFormat" Core..= reportFileFormat),
+            Core.Just ("reportType" Core..= reportType)
           ]
       )
 
-instance Prelude.ToPath GetAssessmentReport where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAssessmentReport where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAssessmentReport where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAssessmentReport where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAssessmentReportResponse' smart constructor.
 data GetAssessmentReportResponse = GetAssessmentReportResponse'
   { -- | Specifies the URL where you can find the generated assessment report.
     -- This parameter is only returned if the report is successfully generated.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Specifies the status of the request to generate an assessment report.
     status :: ReportStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAssessmentReportResponse' with all optional fields omitted.
@@ -199,28 +196,28 @@ data GetAssessmentReportResponse = GetAssessmentReportResponse'
 -- 'status', 'getAssessmentReportResponse_status' - Specifies the status of the request to generate an assessment report.
 newGetAssessmentReportResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'status'
   ReportStatus ->
   GetAssessmentReportResponse
 newGetAssessmentReportResponse pHttpStatus_ pStatus_ =
   GetAssessmentReportResponse'
-    { url = Prelude.Nothing,
+    { url = Core.Nothing,
       httpStatus = pHttpStatus_,
       status = pStatus_
     }
 
 -- | Specifies the URL where you can find the generated assessment report.
 -- This parameter is only returned if the report is successfully generated.
-getAssessmentReportResponse_url :: Lens.Lens' GetAssessmentReportResponse (Prelude.Maybe Prelude.Text)
+getAssessmentReportResponse_url :: Lens.Lens' GetAssessmentReportResponse (Core.Maybe Core.Text)
 getAssessmentReportResponse_url = Lens.lens (\GetAssessmentReportResponse' {url} -> url) (\s@GetAssessmentReportResponse' {} a -> s {url = a} :: GetAssessmentReportResponse)
 
 -- | The response's http status code.
-getAssessmentReportResponse_httpStatus :: Lens.Lens' GetAssessmentReportResponse Prelude.Int
+getAssessmentReportResponse_httpStatus :: Lens.Lens' GetAssessmentReportResponse Core.Int
 getAssessmentReportResponse_httpStatus = Lens.lens (\GetAssessmentReportResponse' {httpStatus} -> httpStatus) (\s@GetAssessmentReportResponse' {} a -> s {httpStatus = a} :: GetAssessmentReportResponse)
 
 -- | Specifies the status of the request to generate an assessment report.
 getAssessmentReportResponse_status :: Lens.Lens' GetAssessmentReportResponse ReportStatus
 getAssessmentReportResponse_status = Lens.lens (\GetAssessmentReportResponse' {status} -> status) (\s@GetAssessmentReportResponse' {} a -> s {status = a} :: GetAssessmentReportResponse)
 
-instance Prelude.NFData GetAssessmentReportResponse
+instance Core.NFData GetAssessmentReportResponse

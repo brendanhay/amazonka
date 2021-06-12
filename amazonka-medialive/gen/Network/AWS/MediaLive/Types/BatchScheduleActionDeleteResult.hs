@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.BatchScheduleActionDeleteResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.ScheduleAction
-import qualified Network.AWS.Prelude as Prelude
 
 -- | List of actions that have been deleted from the schedule.
 --
@@ -31,7 +30,7 @@ data BatchScheduleActionDeleteResult = BatchScheduleActionDeleteResult'
   { -- | List of actions that have been deleted from the schedule.
     scheduleActions :: [ScheduleAction]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchScheduleActionDeleteResult' with all optional fields omitted.
@@ -47,31 +46,27 @@ newBatchScheduleActionDeleteResult ::
 newBatchScheduleActionDeleteResult =
   BatchScheduleActionDeleteResult'
     { scheduleActions =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | List of actions that have been deleted from the schedule.
 batchScheduleActionDeleteResult_scheduleActions :: Lens.Lens' BatchScheduleActionDeleteResult [ScheduleAction]
-batchScheduleActionDeleteResult_scheduleActions = Lens.lens (\BatchScheduleActionDeleteResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionDeleteResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionDeleteResult) Prelude.. Prelude._Coerce
+batchScheduleActionDeleteResult_scheduleActions = Lens.lens (\BatchScheduleActionDeleteResult' {scheduleActions} -> scheduleActions) (\s@BatchScheduleActionDeleteResult' {} a -> s {scheduleActions = a} :: BatchScheduleActionDeleteResult) Core.. Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchScheduleActionDeleteResult
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchScheduleActionDeleteResult"
       ( \x ->
           BatchScheduleActionDeleteResult'
-            Prelude.<$> ( x Prelude..:? "scheduleActions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "scheduleActions" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchScheduleActionDeleteResult
 
-instance
-  Prelude.NFData
-    BatchScheduleActionDeleteResult
+instance Core.NFData BatchScheduleActionDeleteResult

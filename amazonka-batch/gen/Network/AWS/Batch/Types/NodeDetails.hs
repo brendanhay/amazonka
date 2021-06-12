@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.NodeDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the details of a multi-node parallel job node.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data NodeDetails = NodeDetails'
   { -- | Specifies whether the current node is the main node for a multi-node
     -- parallel job.
-    isMainNode :: Prelude.Maybe Prelude.Bool,
+    isMainNode :: Core.Maybe Core.Bool,
     -- | The node index for the node. Node index numbering begins at zero. This
     -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
     -- environment variable.
-    nodeIndex :: Prelude.Maybe Prelude.Int
+    nodeIndex :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NodeDetails' with all optional fields omitted.
@@ -55,31 +54,31 @@ newNodeDetails ::
   NodeDetails
 newNodeDetails =
   NodeDetails'
-    { isMainNode = Prelude.Nothing,
-      nodeIndex = Prelude.Nothing
+    { isMainNode = Core.Nothing,
+      nodeIndex = Core.Nothing
     }
 
 -- | Specifies whether the current node is the main node for a multi-node
 -- parallel job.
-nodeDetails_isMainNode :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Bool)
+nodeDetails_isMainNode :: Lens.Lens' NodeDetails (Core.Maybe Core.Bool)
 nodeDetails_isMainNode = Lens.lens (\NodeDetails' {isMainNode} -> isMainNode) (\s@NodeDetails' {} a -> s {isMainNode = a} :: NodeDetails)
 
 -- | The node index for the node. Node index numbering begins at zero. This
 -- index is also available on the node with the @AWS_BATCH_JOB_NODE_INDEX@
 -- environment variable.
-nodeDetails_nodeIndex :: Lens.Lens' NodeDetails (Prelude.Maybe Prelude.Int)
+nodeDetails_nodeIndex :: Lens.Lens' NodeDetails (Core.Maybe Core.Int)
 nodeDetails_nodeIndex = Lens.lens (\NodeDetails' {nodeIndex} -> nodeIndex) (\s@NodeDetails' {} a -> s {nodeIndex = a} :: NodeDetails)
 
-instance Prelude.FromJSON NodeDetails where
+instance Core.FromJSON NodeDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NodeDetails"
       ( \x ->
           NodeDetails'
-            Prelude.<$> (x Prelude..:? "isMainNode")
-            Prelude.<*> (x Prelude..:? "nodeIndex")
+            Core.<$> (x Core..:? "isMainNode")
+            Core.<*> (x Core..:? "nodeIndex")
       )
 
-instance Prelude.Hashable NodeDetails
+instance Core.Hashable NodeDetails
 
-instance Prelude.NFData NodeDetails
+instance Core.NFData NodeDetails

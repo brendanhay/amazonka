@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,9 +72,8 @@ module Network.AWS.SWF.ListDomains
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -91,18 +89,18 @@ data ListDomains = ListDomains'
     --
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The maximum number of results that are returned per call. Use
     -- @nextPageToken@ to obtain further pages of results.
-    maximumPageSize :: Prelude.Maybe Prelude.Natural,
+    maximumPageSize :: Core.Maybe Core.Natural,
     -- | When set to @true@, returns the results in reverse order. By default,
     -- the results are returned in ascending alphabetical order by @name@ of
     -- the domains.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
+    reverseOrder :: Core.Maybe Core.Bool,
     -- | Specifies the registration status of the domains to list.
     registrationStatus :: RegistrationStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomains' with all optional fields omitted.
@@ -136,9 +134,9 @@ newListDomains ::
   ListDomains
 newListDomains pRegistrationStatus_ =
   ListDomains'
-    { nextPageToken = Prelude.Nothing,
-      maximumPageSize = Prelude.Nothing,
-      reverseOrder = Prelude.Nothing,
+    { nextPageToken = Core.Nothing,
+      maximumPageSize = Core.Nothing,
+      reverseOrder = Core.Nothing,
       registrationStatus = pRegistrationStatus_
     }
 
@@ -151,97 +149,87 @@ newListDomains pRegistrationStatus_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-listDomains_nextPageToken :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Text)
+listDomains_nextPageToken :: Lens.Lens' ListDomains (Core.Maybe Core.Text)
 listDomains_nextPageToken = Lens.lens (\ListDomains' {nextPageToken} -> nextPageToken) (\s@ListDomains' {} a -> s {nextPageToken = a} :: ListDomains)
 
 -- | The maximum number of results that are returned per call. Use
 -- @nextPageToken@ to obtain further pages of results.
-listDomains_maximumPageSize :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
+listDomains_maximumPageSize :: Lens.Lens' ListDomains (Core.Maybe Core.Natural)
 listDomains_maximumPageSize = Lens.lens (\ListDomains' {maximumPageSize} -> maximumPageSize) (\s@ListDomains' {} a -> s {maximumPageSize = a} :: ListDomains)
 
 -- | When set to @true@, returns the results in reverse order. By default,
 -- the results are returned in ascending alphabetical order by @name@ of
 -- the domains.
-listDomains_reverseOrder :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Bool)
+listDomains_reverseOrder :: Lens.Lens' ListDomains (Core.Maybe Core.Bool)
 listDomains_reverseOrder = Lens.lens (\ListDomains' {reverseOrder} -> reverseOrder) (\s@ListDomains' {} a -> s {reverseOrder = a} :: ListDomains)
 
 -- | Specifies the registration status of the domains to list.
 listDomains_registrationStatus :: Lens.Lens' ListDomains RegistrationStatus
 listDomains_registrationStatus = Lens.lens (\ListDomains' {registrationStatus} -> registrationStatus) (\s@ListDomains' {} a -> s {registrationStatus = a} :: ListDomains)
 
-instance Pager.AWSPager ListDomains where
+instance Core.AWSPager ListDomains where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_nextPageToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listDomainsResponse_domainInfos) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDomains_nextPageToken
           Lens..~ rs
-          Lens.^? listDomainsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Lens.^? listDomainsResponse_nextPageToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDomains where
-  type Rs ListDomains = ListDomainsResponse
+instance Core.AWSRequest ListDomains where
+  type AWSResponse ListDomains = ListDomainsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDomainsResponse'
-            Prelude.<$> (x Prelude..?> "nextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "domainInfos"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "domainInfos" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListDomains
+instance Core.Hashable ListDomains
 
-instance Prelude.NFData ListDomains
+instance Core.NFData ListDomains
 
-instance Prelude.ToHeaders ListDomains where
+instance Core.ToHeaders ListDomains where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.ListDomains" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.ListDomains" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListDomains where
+instance Core.ToJSON ListDomains where
   toJSON ListDomains' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextPageToken" Prelude..=)
-              Prelude.<$> nextPageToken,
-            ("maximumPageSize" Prelude..=)
-              Prelude.<$> maximumPageSize,
-            ("reverseOrder" Prelude..=) Prelude.<$> reverseOrder,
-            Prelude.Just
-              ( "registrationStatus"
-                  Prelude..= registrationStatus
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("nextPageToken" Core..=) Core.<$> nextPageToken,
+            ("maximumPageSize" Core..=) Core.<$> maximumPageSize,
+            ("reverseOrder" Core..=) Core.<$> reverseOrder,
+            Core.Just
+              ("registrationStatus" Core..= registrationStatus)
           ]
       )
 
-instance Prelude.ToPath ListDomains where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDomains where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListDomains where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDomains where
+  toQuery = Core.const Core.mempty
 
 -- | Contains a paginated collection of DomainInfo structures.
 --
@@ -254,13 +242,13 @@ data ListDomainsResponse = ListDomainsResponse'
     --
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of DomainInfo structures.
     domainInfos :: [DomainInfo]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomainsResponse' with all optional fields omitted.
@@ -283,14 +271,13 @@ data ListDomainsResponse = ListDomainsResponse'
 -- 'domainInfos', 'listDomainsResponse_domainInfos' - A list of DomainInfo structures.
 newListDomainsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDomainsResponse
 newListDomainsResponse pHttpStatus_ =
   ListDomainsResponse'
-    { nextPageToken =
-        Prelude.Nothing,
+    { nextPageToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      domainInfos = Prelude.mempty
+      domainInfos = Core.mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -300,15 +287,15 @@ newListDomainsResponse pHttpStatus_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-listDomainsResponse_nextPageToken :: Lens.Lens' ListDomainsResponse (Prelude.Maybe Prelude.Text)
+listDomainsResponse_nextPageToken :: Lens.Lens' ListDomainsResponse (Core.Maybe Core.Text)
 listDomainsResponse_nextPageToken = Lens.lens (\ListDomainsResponse' {nextPageToken} -> nextPageToken) (\s@ListDomainsResponse' {} a -> s {nextPageToken = a} :: ListDomainsResponse)
 
 -- | The response's http status code.
-listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Prelude.Int
+listDomainsResponse_httpStatus :: Lens.Lens' ListDomainsResponse Core.Int
 listDomainsResponse_httpStatus = Lens.lens (\ListDomainsResponse' {httpStatus} -> httpStatus) (\s@ListDomainsResponse' {} a -> s {httpStatus = a} :: ListDomainsResponse)
 
 -- | A list of DomainInfo structures.
 listDomainsResponse_domainInfos :: Lens.Lens' ListDomainsResponse [DomainInfo]
-listDomainsResponse_domainInfos = Lens.lens (\ListDomainsResponse' {domainInfos} -> domainInfos) (\s@ListDomainsResponse' {} a -> s {domainInfos = a} :: ListDomainsResponse) Prelude.. Prelude._Coerce
+listDomainsResponse_domainInfos = Lens.lens (\ListDomainsResponse' {domainInfos} -> domainInfos) (\s@ListDomainsResponse' {} a -> s {domainInfos = a} :: ListDomainsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListDomainsResponse
+instance Core.NFData ListDomainsResponse

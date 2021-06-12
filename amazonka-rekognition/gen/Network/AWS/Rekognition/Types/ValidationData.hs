@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.ValidationData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Asset
 
 -- | Contains the Amazon S3 bucket location of the validation data for a
@@ -42,9 +41,9 @@ import Network.AWS.Rekognition.Types.Asset
 -- /See:/ 'newValidationData' smart constructor.
 data ValidationData = ValidationData'
   { -- | The assets that comprise the validation data.
-    assets :: Prelude.Maybe [Asset]
+    assets :: Core.Maybe [Asset]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidationData' with all optional fields omitted.
@@ -58,21 +57,21 @@ data ValidationData = ValidationData'
 newValidationData ::
   ValidationData
 newValidationData =
-  ValidationData' {assets = Prelude.Nothing}
+  ValidationData' {assets = Core.Nothing}
 
 -- | The assets that comprise the validation data.
-validationData_assets :: Lens.Lens' ValidationData (Prelude.Maybe [Asset])
-validationData_assets = Lens.lens (\ValidationData' {assets} -> assets) (\s@ValidationData' {} a -> s {assets = a} :: ValidationData) Prelude.. Lens.mapping Prelude._Coerce
+validationData_assets :: Lens.Lens' ValidationData (Core.Maybe [Asset])
+validationData_assets = Lens.lens (\ValidationData' {assets} -> assets) (\s@ValidationData' {} a -> s {assets = a} :: ValidationData) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ValidationData where
+instance Core.FromJSON ValidationData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ValidationData"
       ( \x ->
           ValidationData'
-            Prelude.<$> (x Prelude..:? "Assets" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Assets" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ValidationData
+instance Core.Hashable ValidationData
 
-instance Prelude.NFData ValidationData
+instance Core.NFData ValidationData

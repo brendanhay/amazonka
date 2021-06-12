@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.JourneyPushMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the message configuration for a push notification that\'s sent
 -- to participants in a journey.
@@ -37,9 +36,9 @@ data JourneyPushMessage = JourneyPushMessage'
     --
     -- This value doesn\'t apply to messages that are sent through the Amazon
     -- Device Messaging (ADM) service.
-    timeToLive :: Prelude.Maybe Prelude.Text
+    timeToLive :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JourneyPushMessage' with all optional fields omitted.
@@ -61,7 +60,7 @@ data JourneyPushMessage = JourneyPushMessage'
 newJourneyPushMessage ::
   JourneyPushMessage
 newJourneyPushMessage =
-  JourneyPushMessage' {timeToLive = Prelude.Nothing}
+  JourneyPushMessage' {timeToLive = Core.Nothing}
 
 -- | The number of seconds that the push notification service should keep the
 -- message, if the service is unable to deliver the notification the first
@@ -72,25 +71,25 @@ newJourneyPushMessage =
 --
 -- This value doesn\'t apply to messages that are sent through the Amazon
 -- Device Messaging (ADM) service.
-journeyPushMessage_timeToLive :: Lens.Lens' JourneyPushMessage (Prelude.Maybe Prelude.Text)
+journeyPushMessage_timeToLive :: Lens.Lens' JourneyPushMessage (Core.Maybe Core.Text)
 journeyPushMessage_timeToLive = Lens.lens (\JourneyPushMessage' {timeToLive} -> timeToLive) (\s@JourneyPushMessage' {} a -> s {timeToLive = a} :: JourneyPushMessage)
 
-instance Prelude.FromJSON JourneyPushMessage where
+instance Core.FromJSON JourneyPushMessage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JourneyPushMessage"
       ( \x ->
           JourneyPushMessage'
-            Prelude.<$> (x Prelude..:? "TimeToLive")
+            Core.<$> (x Core..:? "TimeToLive")
       )
 
-instance Prelude.Hashable JourneyPushMessage
+instance Core.Hashable JourneyPushMessage
 
-instance Prelude.NFData JourneyPushMessage
+instance Core.NFData JourneyPushMessage
 
-instance Prelude.ToJSON JourneyPushMessage where
+instance Core.ToJSON JourneyPushMessage where
   toJSON JourneyPushMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("TimeToLive" Prelude..=) Prelude.<$> timeToLive]
+    Core.object
+      ( Core.catMaybes
+          [("TimeToLive" Core..=) Core.<$> timeToLive]
       )

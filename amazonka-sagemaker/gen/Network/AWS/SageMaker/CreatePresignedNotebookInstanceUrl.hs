@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,8 +62,8 @@ module Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -72,11 +71,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreatePresignedNotebookInstanceUrl' smart constructor.
 data CreatePresignedNotebookInstanceUrl = CreatePresignedNotebookInstanceUrl'
   { -- | The duration of the session, in seconds. The default is 12 hours.
-    sessionExpirationDurationInSeconds :: Prelude.Maybe Prelude.Natural,
+    sessionExpirationDurationInSeconds :: Core.Maybe Core.Natural,
     -- | The name of the notebook instance.
-    notebookInstanceName :: Prelude.Text
+    notebookInstanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePresignedNotebookInstanceUrl' with all optional fields omitted.
@@ -91,103 +90,101 @@ data CreatePresignedNotebookInstanceUrl = CreatePresignedNotebookInstanceUrl'
 -- 'notebookInstanceName', 'createPresignedNotebookInstanceUrl_notebookInstanceName' - The name of the notebook instance.
 newCreatePresignedNotebookInstanceUrl ::
   -- | 'notebookInstanceName'
-  Prelude.Text ->
+  Core.Text ->
   CreatePresignedNotebookInstanceUrl
 newCreatePresignedNotebookInstanceUrl
   pNotebookInstanceName_ =
     CreatePresignedNotebookInstanceUrl'
       { sessionExpirationDurationInSeconds =
-          Prelude.Nothing,
+          Core.Nothing,
         notebookInstanceName =
           pNotebookInstanceName_
       }
 
 -- | The duration of the session, in seconds. The default is 12 hours.
-createPresignedNotebookInstanceUrl_sessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedNotebookInstanceUrl (Prelude.Maybe Prelude.Natural)
+createPresignedNotebookInstanceUrl_sessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedNotebookInstanceUrl (Core.Maybe Core.Natural)
 createPresignedNotebookInstanceUrl_sessionExpirationDurationInSeconds = Lens.lens (\CreatePresignedNotebookInstanceUrl' {sessionExpirationDurationInSeconds} -> sessionExpirationDurationInSeconds) (\s@CreatePresignedNotebookInstanceUrl' {} a -> s {sessionExpirationDurationInSeconds = a} :: CreatePresignedNotebookInstanceUrl)
 
 -- | The name of the notebook instance.
-createPresignedNotebookInstanceUrl_notebookInstanceName :: Lens.Lens' CreatePresignedNotebookInstanceUrl Prelude.Text
+createPresignedNotebookInstanceUrl_notebookInstanceName :: Lens.Lens' CreatePresignedNotebookInstanceUrl Core.Text
 createPresignedNotebookInstanceUrl_notebookInstanceName = Lens.lens (\CreatePresignedNotebookInstanceUrl' {notebookInstanceName} -> notebookInstanceName) (\s@CreatePresignedNotebookInstanceUrl' {} a -> s {notebookInstanceName = a} :: CreatePresignedNotebookInstanceUrl)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreatePresignedNotebookInstanceUrl
   where
   type
-    Rs CreatePresignedNotebookInstanceUrl =
+    AWSResponse CreatePresignedNotebookInstanceUrl =
       CreatePresignedNotebookInstanceUrlResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePresignedNotebookInstanceUrlResponse'
-            Prelude.<$> (x Prelude..?> "AuthorizedUrl")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AuthorizedUrl")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreatePresignedNotebookInstanceUrl
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreatePresignedNotebookInstanceUrl
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreatePresignedNotebookInstanceUrl
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreatePresignedNotebookInstanceUrl" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.CreatePresignedNotebookInstanceUrl" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CreatePresignedNotebookInstanceUrl
   where
   toJSON CreatePresignedNotebookInstanceUrl' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SessionExpirationDurationInSeconds" Prelude..=)
-              Prelude.<$> sessionExpirationDurationInSeconds,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("SessionExpirationDurationInSeconds" Core..=)
+              Core.<$> sessionExpirationDurationInSeconds,
+            Core.Just
               ( "NotebookInstanceName"
-                  Prelude..= notebookInstanceName
+                  Core..= notebookInstanceName
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     CreatePresignedNotebookInstanceUrl
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreatePresignedNotebookInstanceUrl
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreatePresignedNotebookInstanceUrlResponse' smart constructor.
 data CreatePresignedNotebookInstanceUrlResponse = CreatePresignedNotebookInstanceUrlResponse'
   { -- | A JSON object that contains the URL string.
-    authorizedUrl :: Prelude.Maybe Prelude.Text,
+    authorizedUrl :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePresignedNotebookInstanceUrlResponse' with all optional fields omitted.
@@ -202,24 +199,24 @@ data CreatePresignedNotebookInstanceUrlResponse = CreatePresignedNotebookInstanc
 -- 'httpStatus', 'createPresignedNotebookInstanceUrlResponse_httpStatus' - The response's http status code.
 newCreatePresignedNotebookInstanceUrlResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePresignedNotebookInstanceUrlResponse
 newCreatePresignedNotebookInstanceUrlResponse
   pHttpStatus_ =
     CreatePresignedNotebookInstanceUrlResponse'
       { authorizedUrl =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A JSON object that contains the URL string.
-createPresignedNotebookInstanceUrlResponse_authorizedUrl :: Lens.Lens' CreatePresignedNotebookInstanceUrlResponse (Prelude.Maybe Prelude.Text)
+createPresignedNotebookInstanceUrlResponse_authorizedUrl :: Lens.Lens' CreatePresignedNotebookInstanceUrlResponse (Core.Maybe Core.Text)
 createPresignedNotebookInstanceUrlResponse_authorizedUrl = Lens.lens (\CreatePresignedNotebookInstanceUrlResponse' {authorizedUrl} -> authorizedUrl) (\s@CreatePresignedNotebookInstanceUrlResponse' {} a -> s {authorizedUrl = a} :: CreatePresignedNotebookInstanceUrlResponse)
 
 -- | The response's http status code.
-createPresignedNotebookInstanceUrlResponse_httpStatus :: Lens.Lens' CreatePresignedNotebookInstanceUrlResponse Prelude.Int
+createPresignedNotebookInstanceUrlResponse_httpStatus :: Lens.Lens' CreatePresignedNotebookInstanceUrlResponse Core.Int
 createPresignedNotebookInstanceUrlResponse_httpStatus = Lens.lens (\CreatePresignedNotebookInstanceUrlResponse' {httpStatus} -> httpStatus) (\s@CreatePresignedNotebookInstanceUrlResponse' {} a -> s {httpStatus = a} :: CreatePresignedNotebookInstanceUrlResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreatePresignedNotebookInstanceUrlResponse

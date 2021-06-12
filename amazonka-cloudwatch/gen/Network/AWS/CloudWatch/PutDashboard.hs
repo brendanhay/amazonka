@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.CloudWatch.PutDashboard
 where
 
 import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,16 +72,16 @@ data PutDashboard = PutDashboard'
     -- Otherwise, a new dashboard is created. The maximum length is 255, and
     -- valid characters are A-Z, a-z, 0-9, \"-\", and \"_\". This parameter is
     -- required.
-    dashboardName :: Prelude.Text,
+    dashboardName :: Core.Text,
     -- | The detailed information about the dashboard in JSON format, including
     -- the widgets to include and their location on the dashboard. This
     -- parameter is required.
     --
     -- For more information about the syntax, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax>.
-    dashboardBody :: Prelude.Text
+    dashboardBody :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDashboard' with all optional fields omitted.
@@ -106,9 +105,9 @@ data PutDashboard = PutDashboard'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax>.
 newPutDashboard ::
   -- | 'dashboardName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dashboardBody'
-  Prelude.Text ->
+  Core.Text ->
   PutDashboard
 newPutDashboard pDashboardName_ pDashboardBody_ =
   PutDashboard'
@@ -121,7 +120,7 @@ newPutDashboard pDashboardName_ pDashboardBody_ =
 -- Otherwise, a new dashboard is created. The maximum length is 255, and
 -- valid characters are A-Z, a-z, 0-9, \"-\", and \"_\". This parameter is
 -- required.
-putDashboard_dashboardName :: Lens.Lens' PutDashboard Prelude.Text
+putDashboard_dashboardName :: Lens.Lens' PutDashboard Core.Text
 putDashboard_dashboardName = Lens.lens (\PutDashboard' {dashboardName} -> dashboardName) (\s@PutDashboard' {} a -> s {dashboardName = a} :: PutDashboard)
 
 -- | The detailed information about the dashboard in JSON format, including
@@ -130,43 +129,42 @@ putDashboard_dashboardName = Lens.lens (\PutDashboard' {dashboardName} -> dashbo
 --
 -- For more information about the syntax, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax>.
-putDashboard_dashboardBody :: Lens.Lens' PutDashboard Prelude.Text
+putDashboard_dashboardBody :: Lens.Lens' PutDashboard Core.Text
 putDashboard_dashboardBody = Lens.lens (\PutDashboard' {dashboardBody} -> dashboardBody) (\s@PutDashboard' {} a -> s {dashboardBody = a} :: PutDashboard)
 
-instance Prelude.AWSRequest PutDashboard where
-  type Rs PutDashboard = PutDashboardResponse
+instance Core.AWSRequest PutDashboard where
+  type AWSResponse PutDashboard = PutDashboardResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "PutDashboardResult"
       ( \s h x ->
           PutDashboardResponse'
-            Prelude.<$> ( x Prelude..@? "DashboardValidationMessages"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "DashboardValidationMessages"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutDashboard
+instance Core.Hashable PutDashboard
 
-instance Prelude.NFData PutDashboard
+instance Core.NFData PutDashboard
 
-instance Prelude.ToHeaders PutDashboard where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutDashboard where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutDashboard where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutDashboard where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutDashboard where
+instance Core.ToQuery PutDashboard where
   toQuery PutDashboard' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutDashboard" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
-        "DashboardName" Prelude.=: dashboardName,
-        "DashboardBody" Prelude.=: dashboardBody
+          Core.=: ("PutDashboard" :: Core.ByteString),
+        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+        "DashboardName" Core.=: dashboardName,
+        "DashboardBody" Core.=: dashboardBody
       ]
 
 -- | /See:/ 'newPutDashboardResponse' smart constructor.
@@ -180,11 +178,11 @@ data PutDashboardResponse = PutDashboardResponse'
     --
     -- If this result includes error messages, the input was not valid and the
     -- operation failed.
-    dashboardValidationMessages :: Prelude.Maybe [DashboardValidationMessage],
+    dashboardValidationMessages :: Core.Maybe [DashboardValidationMessage],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDashboardResponse' with all optional fields omitted.
@@ -207,12 +205,12 @@ data PutDashboardResponse = PutDashboardResponse'
 -- 'httpStatus', 'putDashboardResponse_httpStatus' - The response's http status code.
 newPutDashboardResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutDashboardResponse
 newPutDashboardResponse pHttpStatus_ =
   PutDashboardResponse'
     { dashboardValidationMessages =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -225,11 +223,11 @@ newPutDashboardResponse pHttpStatus_ =
 --
 -- If this result includes error messages, the input was not valid and the
 -- operation failed.
-putDashboardResponse_dashboardValidationMessages :: Lens.Lens' PutDashboardResponse (Prelude.Maybe [DashboardValidationMessage])
-putDashboardResponse_dashboardValidationMessages = Lens.lens (\PutDashboardResponse' {dashboardValidationMessages} -> dashboardValidationMessages) (\s@PutDashboardResponse' {} a -> s {dashboardValidationMessages = a} :: PutDashboardResponse) Prelude.. Lens.mapping Prelude._Coerce
+putDashboardResponse_dashboardValidationMessages :: Lens.Lens' PutDashboardResponse (Core.Maybe [DashboardValidationMessage])
+putDashboardResponse_dashboardValidationMessages = Lens.lens (\PutDashboardResponse' {dashboardValidationMessages} -> dashboardValidationMessages) (\s@PutDashboardResponse' {} a -> s {dashboardValidationMessages = a} :: PutDashboardResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putDashboardResponse_httpStatus :: Lens.Lens' PutDashboardResponse Prelude.Int
+putDashboardResponse_httpStatus :: Lens.Lens' PutDashboardResponse Core.Int
 putDashboardResponse_httpStatus = Lens.lens (\PutDashboardResponse' {httpStatus} -> httpStatus) (\s@PutDashboardResponse' {} a -> s {httpStatus = a} :: PutDashboardResponse)
 
-instance Prelude.NFData PutDashboardResponse
+instance Core.NFData PutDashboardResponse

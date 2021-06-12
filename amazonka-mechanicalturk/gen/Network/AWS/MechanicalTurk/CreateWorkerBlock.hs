@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,22 +41,22 @@ module Network.AWS.MechanicalTurk.CreateWorkerBlock
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateWorkerBlock' smart constructor.
 data CreateWorkerBlock = CreateWorkerBlock'
   { -- | The ID of the Worker to block.
-    workerId :: Prelude.Text,
+    workerId :: Core.Text,
     -- | A message explaining the reason for blocking the Worker. This parameter
     -- enables you to keep track of your Workers. The Worker does not see this
     -- message.
-    reason :: Prelude.Text
+    reason :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateWorkerBlock' with all optional fields omitted.
@@ -74,9 +73,9 @@ data CreateWorkerBlock = CreateWorkerBlock'
 -- message.
 newCreateWorkerBlock ::
   -- | 'workerId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'reason'
-  Prelude.Text ->
+  Core.Text ->
   CreateWorkerBlock
 newCreateWorkerBlock pWorkerId_ pReason_ =
   CreateWorkerBlock'
@@ -85,65 +84,65 @@ newCreateWorkerBlock pWorkerId_ pReason_ =
     }
 
 -- | The ID of the Worker to block.
-createWorkerBlock_workerId :: Lens.Lens' CreateWorkerBlock Prelude.Text
+createWorkerBlock_workerId :: Lens.Lens' CreateWorkerBlock Core.Text
 createWorkerBlock_workerId = Lens.lens (\CreateWorkerBlock' {workerId} -> workerId) (\s@CreateWorkerBlock' {} a -> s {workerId = a} :: CreateWorkerBlock)
 
 -- | A message explaining the reason for blocking the Worker. This parameter
 -- enables you to keep track of your Workers. The Worker does not see this
 -- message.
-createWorkerBlock_reason :: Lens.Lens' CreateWorkerBlock Prelude.Text
+createWorkerBlock_reason :: Lens.Lens' CreateWorkerBlock Core.Text
 createWorkerBlock_reason = Lens.lens (\CreateWorkerBlock' {reason} -> reason) (\s@CreateWorkerBlock' {} a -> s {reason = a} :: CreateWorkerBlock)
 
-instance Prelude.AWSRequest CreateWorkerBlock where
-  type Rs CreateWorkerBlock = CreateWorkerBlockResponse
+instance Core.AWSRequest CreateWorkerBlock where
+  type
+    AWSResponse CreateWorkerBlock =
+      CreateWorkerBlockResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateWorkerBlockResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateWorkerBlock
+instance Core.Hashable CreateWorkerBlock
 
-instance Prelude.NFData CreateWorkerBlock
+instance Core.NFData CreateWorkerBlock
 
-instance Prelude.ToHeaders CreateWorkerBlock where
+instance Core.ToHeaders CreateWorkerBlock where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.CreateWorkerBlock" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.CreateWorkerBlock" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateWorkerBlock where
+instance Core.ToJSON CreateWorkerBlock where
   toJSON CreateWorkerBlock' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("WorkerId" Prelude..= workerId),
-            Prelude.Just ("Reason" Prelude..= reason)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WorkerId" Core..= workerId),
+            Core.Just ("Reason" Core..= reason)
           ]
       )
 
-instance Prelude.ToPath CreateWorkerBlock where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateWorkerBlock where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateWorkerBlock where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateWorkerBlock where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateWorkerBlockResponse' smart constructor.
 data CreateWorkerBlockResponse = CreateWorkerBlockResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateWorkerBlockResponse' with all optional fields omitted.
@@ -156,7 +155,7 @@ data CreateWorkerBlockResponse = CreateWorkerBlockResponse'
 -- 'httpStatus', 'createWorkerBlockResponse_httpStatus' - The response's http status code.
 newCreateWorkerBlockResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateWorkerBlockResponse
 newCreateWorkerBlockResponse pHttpStatus_ =
   CreateWorkerBlockResponse'
@@ -165,7 +164,7 @@ newCreateWorkerBlockResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createWorkerBlockResponse_httpStatus :: Lens.Lens' CreateWorkerBlockResponse Prelude.Int
+createWorkerBlockResponse_httpStatus :: Lens.Lens' CreateWorkerBlockResponse Core.Int
 createWorkerBlockResponse_httpStatus = Lens.lens (\CreateWorkerBlockResponse' {httpStatus} -> httpStatus) (\s@CreateWorkerBlockResponse' {} a -> s {httpStatus = a} :: CreateWorkerBlockResponse)
 
-instance Prelude.NFData CreateWorkerBlockResponse
+instance Core.NFData CreateWorkerBlockResponse

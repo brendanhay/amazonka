@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.EBSOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.EBSOptions
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the EBS options for the specified Elasticsearch domain.
 --
@@ -35,7 +34,7 @@ data EBSOptionsStatus = EBSOptionsStatus'
     -- domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EBSOptionsStatus' with all optional fields omitted.
@@ -70,16 +69,15 @@ eBSOptionsStatus_options = Lens.lens (\EBSOptionsStatus' {options} -> options) (
 eBSOptionsStatus_status :: Lens.Lens' EBSOptionsStatus OptionStatus
 eBSOptionsStatus_status = Lens.lens (\EBSOptionsStatus' {status} -> status) (\s@EBSOptionsStatus' {} a -> s {status = a} :: EBSOptionsStatus)
 
-instance Prelude.FromJSON EBSOptionsStatus where
+instance Core.FromJSON EBSOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EBSOptionsStatus"
       ( \x ->
           EBSOptionsStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable EBSOptionsStatus
+instance Core.Hashable EBSOptionsStatus
 
-instance Prelude.NFData EBSOptionsStatus
+instance Core.NFData EBSOptionsStatus

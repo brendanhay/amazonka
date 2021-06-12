@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.MechanicalTurk.UpdateNotificationSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,14 +62,14 @@ data UpdateNotificationSettings = UpdateNotificationSettings'
     -- according to the notification specification. You must specify either the
     -- Notification parameter or the Active parameter for the call to
     -- UpdateNotificationSettings to succeed.
-    active :: Prelude.Maybe Prelude.Bool,
+    active :: Core.Maybe Core.Bool,
     -- | The notification specification for the HIT type.
-    notification :: Prelude.Maybe NotificationSpecification,
+    notification :: Core.Maybe NotificationSpecification,
     -- | The ID of the HIT type whose notification specification is being
     -- updated.
-    hITTypeId :: Prelude.Text
+    hITTypeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateNotificationSettings' with all optional fields omitted.
@@ -91,13 +90,12 @@ data UpdateNotificationSettings = UpdateNotificationSettings'
 -- updated.
 newUpdateNotificationSettings ::
   -- | 'hITTypeId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateNotificationSettings
 newUpdateNotificationSettings pHITTypeId_ =
   UpdateNotificationSettings'
-    { active =
-        Prelude.Nothing,
-      notification = Prelude.Nothing,
+    { active = Core.Nothing,
+      notification = Core.Nothing,
       hITTypeId = pHITTypeId_
     }
 
@@ -105,74 +103,69 @@ newUpdateNotificationSettings pHITTypeId_ =
 -- according to the notification specification. You must specify either the
 -- Notification parameter or the Active parameter for the call to
 -- UpdateNotificationSettings to succeed.
-updateNotificationSettings_active :: Lens.Lens' UpdateNotificationSettings (Prelude.Maybe Prelude.Bool)
+updateNotificationSettings_active :: Lens.Lens' UpdateNotificationSettings (Core.Maybe Core.Bool)
 updateNotificationSettings_active = Lens.lens (\UpdateNotificationSettings' {active} -> active) (\s@UpdateNotificationSettings' {} a -> s {active = a} :: UpdateNotificationSettings)
 
 -- | The notification specification for the HIT type.
-updateNotificationSettings_notification :: Lens.Lens' UpdateNotificationSettings (Prelude.Maybe NotificationSpecification)
+updateNotificationSettings_notification :: Lens.Lens' UpdateNotificationSettings (Core.Maybe NotificationSpecification)
 updateNotificationSettings_notification = Lens.lens (\UpdateNotificationSettings' {notification} -> notification) (\s@UpdateNotificationSettings' {} a -> s {notification = a} :: UpdateNotificationSettings)
 
 -- | The ID of the HIT type whose notification specification is being
 -- updated.
-updateNotificationSettings_hITTypeId :: Lens.Lens' UpdateNotificationSettings Prelude.Text
+updateNotificationSettings_hITTypeId :: Lens.Lens' UpdateNotificationSettings Core.Text
 updateNotificationSettings_hITTypeId = Lens.lens (\UpdateNotificationSettings' {hITTypeId} -> hITTypeId) (\s@UpdateNotificationSettings' {} a -> s {hITTypeId = a} :: UpdateNotificationSettings)
 
-instance
-  Prelude.AWSRequest
-    UpdateNotificationSettings
-  where
+instance Core.AWSRequest UpdateNotificationSettings where
   type
-    Rs UpdateNotificationSettings =
+    AWSResponse UpdateNotificationSettings =
       UpdateNotificationSettingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNotificationSettingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNotificationSettings
+instance Core.Hashable UpdateNotificationSettings
 
-instance Prelude.NFData UpdateNotificationSettings
+instance Core.NFData UpdateNotificationSettings
 
-instance Prelude.ToHeaders UpdateNotificationSettings where
+instance Core.ToHeaders UpdateNotificationSettings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.UpdateNotificationSettings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.UpdateNotificationSettings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateNotificationSettings where
+instance Core.ToJSON UpdateNotificationSettings where
   toJSON UpdateNotificationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Active" Prelude..=) Prelude.<$> active,
-            ("Notification" Prelude..=) Prelude.<$> notification,
-            Prelude.Just ("HITTypeId" Prelude..= hITTypeId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Active" Core..=) Core.<$> active,
+            ("Notification" Core..=) Core.<$> notification,
+            Core.Just ("HITTypeId" Core..= hITTypeId)
           ]
       )
 
-instance Prelude.ToPath UpdateNotificationSettings where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateNotificationSettings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateNotificationSettings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateNotificationSettings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateNotificationSettingsResponse' smart constructor.
 data UpdateNotificationSettingsResponse = UpdateNotificationSettingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateNotificationSettingsResponse' with all optional fields omitted.
@@ -185,7 +178,7 @@ data UpdateNotificationSettingsResponse = UpdateNotificationSettingsResponse'
 -- 'httpStatus', 'updateNotificationSettingsResponse_httpStatus' - The response's http status code.
 newUpdateNotificationSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateNotificationSettingsResponse
 newUpdateNotificationSettingsResponse pHttpStatus_ =
   UpdateNotificationSettingsResponse'
@@ -194,9 +187,9 @@ newUpdateNotificationSettingsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateNotificationSettingsResponse_httpStatus :: Lens.Lens' UpdateNotificationSettingsResponse Prelude.Int
+updateNotificationSettingsResponse_httpStatus :: Lens.Lens' UpdateNotificationSettingsResponse Core.Int
 updateNotificationSettingsResponse_httpStatus = Lens.lens (\UpdateNotificationSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateNotificationSettingsResponse' {} a -> s {httpStatus = a} :: UpdateNotificationSettingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateNotificationSettingsResponse

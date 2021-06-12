@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.OpsWorks.DeregisterInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterInstance' smart constructor.
 data DeregisterInstance = DeregisterInstance'
   { -- | The instance ID.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstance' with all optional fields omitted.
@@ -69,60 +68,58 @@ data DeregisterInstance = DeregisterInstance'
 -- 'instanceId', 'deregisterInstance_instanceId' - The instance ID.
 newDeregisterInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterInstance
 newDeregisterInstance pInstanceId_ =
   DeregisterInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Prelude.Text
+deregisterInstance_instanceId :: Lens.Lens' DeregisterInstance Core.Text
 deregisterInstance_instanceId = Lens.lens (\DeregisterInstance' {instanceId} -> instanceId) (\s@DeregisterInstance' {} a -> s {instanceId = a} :: DeregisterInstance)
 
-instance Prelude.AWSRequest DeregisterInstance where
+instance Core.AWSRequest DeregisterInstance where
   type
-    Rs DeregisterInstance =
+    AWSResponse DeregisterInstance =
       DeregisterInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeregisterInstanceResponse'
 
-instance Prelude.Hashable DeregisterInstance
+instance Core.Hashable DeregisterInstance
 
-instance Prelude.NFData DeregisterInstance
+instance Core.NFData DeregisterInstance
 
-instance Prelude.ToHeaders DeregisterInstance where
+instance Core.ToHeaders DeregisterInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DeregisterInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DeregisterInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterInstance where
+instance Core.ToJSON DeregisterInstance where
   toJSON DeregisterInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("InstanceId" Prelude..= instanceId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("InstanceId" Core..= instanceId)]
       )
 
-instance Prelude.ToPath DeregisterInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse = DeregisterInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstanceResponse' with all optional fields omitted.
@@ -133,4 +130,4 @@ newDeregisterInstanceResponse ::
 newDeregisterInstanceResponse =
   DeregisterInstanceResponse'
 
-instance Prelude.NFData DeregisterInstanceResponse
+instance Core.NFData DeregisterInstanceResponse

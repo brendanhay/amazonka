@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Greengrass.UpdateGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGroup' smart constructor.
 data UpdateGroup = UpdateGroup'
   { -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID of the Greengrass group.
-    groupId :: Prelude.Text
+    groupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGroup' with all optional fields omitted.
@@ -68,68 +67,64 @@ data UpdateGroup = UpdateGroup'
 -- 'groupId', 'updateGroup_groupId' - The ID of the Greengrass group.
 newUpdateGroup ::
   -- | 'groupId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateGroup
 newUpdateGroup pGroupId_ =
   UpdateGroup'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       groupId = pGroupId_
     }
 
 -- | The name of the definition.
-updateGroup_name :: Lens.Lens' UpdateGroup (Prelude.Maybe Prelude.Text)
+updateGroup_name :: Lens.Lens' UpdateGroup (Core.Maybe Core.Text)
 updateGroup_name = Lens.lens (\UpdateGroup' {name} -> name) (\s@UpdateGroup' {} a -> s {name = a} :: UpdateGroup)
 
 -- | The ID of the Greengrass group.
-updateGroup_groupId :: Lens.Lens' UpdateGroup Prelude.Text
+updateGroup_groupId :: Lens.Lens' UpdateGroup Core.Text
 updateGroup_groupId = Lens.lens (\UpdateGroup' {groupId} -> groupId) (\s@UpdateGroup' {} a -> s {groupId = a} :: UpdateGroup)
 
-instance Prelude.AWSRequest UpdateGroup where
-  type Rs UpdateGroup = UpdateGroupResponse
+instance Core.AWSRequest UpdateGroup where
+  type AWSResponse UpdateGroup = UpdateGroupResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGroup
+instance Core.Hashable UpdateGroup
 
-instance Prelude.NFData UpdateGroup
+instance Core.NFData UpdateGroup
 
-instance Prelude.ToHeaders UpdateGroup where
+instance Core.ToHeaders UpdateGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateGroup where
+instance Core.ToJSON UpdateGroup where
   toJSON UpdateGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Name" Prelude..=) Prelude.<$> name]
-      )
+    Core.object
+      (Core.catMaybes [("Name" Core..=) Core.<$> name])
 
-instance Prelude.ToPath UpdateGroup where
+instance Core.ToPath UpdateGroup where
   toPath UpdateGroup' {..} =
-    Prelude.mconcat
-      ["/greengrass/groups/", Prelude.toBS groupId]
+    Core.mconcat
+      ["/greengrass/groups/", Core.toBS groupId]
 
-instance Prelude.ToQuery UpdateGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateGroupResponse' smart constructor.
 data UpdateGroupResponse = UpdateGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGroupResponse' with all optional fields omitted.
@@ -142,13 +137,13 @@ data UpdateGroupResponse = UpdateGroupResponse'
 -- 'httpStatus', 'updateGroupResponse_httpStatus' - The response's http status code.
 newUpdateGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateGroupResponse
 newUpdateGroupResponse pHttpStatus_ =
   UpdateGroupResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateGroupResponse_httpStatus :: Lens.Lens' UpdateGroupResponse Prelude.Int
+updateGroupResponse_httpStatus :: Lens.Lens' UpdateGroupResponse Core.Int
 updateGroupResponse_httpStatus = Lens.lens (\UpdateGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateGroupResponse' {} a -> s {httpStatus = a} :: UpdateGroupResponse)
 
-instance Prelude.NFData UpdateGroupResponse
+instance Core.NFData UpdateGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.Inspector.PreviewAgents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,14 +58,14 @@ data PreviewAgents = PreviewAgents'
     -- action. Subsequent calls to the action fill __nextToken__ in the request
     -- with the value of __NextToken__ from the previous response to continue
     -- listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | You can use this parameter to indicate the maximum number of items you
     -- want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The ARN of the assessment target whose agents you want to preview.
-    previewAgentsArn :: Prelude.Text
+    previewAgentsArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PreviewAgents' with all optional fields omitted.
@@ -89,12 +87,12 @@ data PreviewAgents = PreviewAgents'
 -- 'previewAgentsArn', 'previewAgents_previewAgentsArn' - The ARN of the assessment target whose agents you want to preview.
 newPreviewAgents ::
   -- | 'previewAgentsArn'
-  Prelude.Text ->
+  Core.Text ->
   PreviewAgents
 newPreviewAgents pPreviewAgentsArn_ =
   PreviewAgents'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       previewAgentsArn = pPreviewAgentsArn_
     }
 
@@ -103,84 +101,82 @@ newPreviewAgents pPreviewAgentsArn_ =
 -- action. Subsequent calls to the action fill __nextToken__ in the request
 -- with the value of __NextToken__ from the previous response to continue
 -- listing data.
-previewAgents_nextToken :: Lens.Lens' PreviewAgents (Prelude.Maybe Prelude.Text)
+previewAgents_nextToken :: Lens.Lens' PreviewAgents (Core.Maybe Core.Text)
 previewAgents_nextToken = Lens.lens (\PreviewAgents' {nextToken} -> nextToken) (\s@PreviewAgents' {} a -> s {nextToken = a} :: PreviewAgents)
 
 -- | You can use this parameter to indicate the maximum number of items you
 -- want in the response. The default value is 10. The maximum value is 500.
-previewAgents_maxResults :: Lens.Lens' PreviewAgents (Prelude.Maybe Prelude.Int)
+previewAgents_maxResults :: Lens.Lens' PreviewAgents (Core.Maybe Core.Int)
 previewAgents_maxResults = Lens.lens (\PreviewAgents' {maxResults} -> maxResults) (\s@PreviewAgents' {} a -> s {maxResults = a} :: PreviewAgents)
 
 -- | The ARN of the assessment target whose agents you want to preview.
-previewAgents_previewAgentsArn :: Lens.Lens' PreviewAgents Prelude.Text
+previewAgents_previewAgentsArn :: Lens.Lens' PreviewAgents Core.Text
 previewAgents_previewAgentsArn = Lens.lens (\PreviewAgents' {previewAgentsArn} -> previewAgentsArn) (\s@PreviewAgents' {} a -> s {previewAgentsArn = a} :: PreviewAgents)
 
-instance Pager.AWSPager PreviewAgents where
+instance Core.AWSPager PreviewAgents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? previewAgentsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? previewAgentsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. previewAgentsResponse_agentPreviews) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& previewAgents_nextToken
           Lens..~ rs
-          Lens.^? previewAgentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? previewAgentsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest PreviewAgents where
-  type Rs PreviewAgents = PreviewAgentsResponse
+instance Core.AWSRequest PreviewAgents where
+  type
+    AWSResponse PreviewAgents =
+      PreviewAgentsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PreviewAgentsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "agentPreviews"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "agentPreviews" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable PreviewAgents
+instance Core.Hashable PreviewAgents
 
-instance Prelude.NFData PreviewAgents
+instance Core.NFData PreviewAgents
 
-instance Prelude.ToHeaders PreviewAgents where
+instance Core.ToHeaders PreviewAgents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.PreviewAgents" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.PreviewAgents" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PreviewAgents where
+instance Core.ToJSON PreviewAgents where
   toJSON PreviewAgents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("previewAgentsArn" Prelude..= previewAgentsArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            Core.Just
+              ("previewAgentsArn" Core..= previewAgentsArn)
           ]
       )
 
-instance Prelude.ToPath PreviewAgents where
-  toPath = Prelude.const "/"
+instance Core.ToPath PreviewAgents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PreviewAgents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PreviewAgents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPreviewAgentsResponse' smart constructor.
 data PreviewAgentsResponse = PreviewAgentsResponse'
@@ -188,13 +184,13 @@ data PreviewAgentsResponse = PreviewAgentsResponse'
     -- parameter is present in the response and contains the value to use for
     -- the __nextToken__ parameter in a subsequent pagination request. If there
     -- is no more data to be listed, this parameter is set to null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The resulting list of agents.
     agentPreviews :: [AgentPreview]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PreviewAgentsResponse' with all optional fields omitted.
@@ -214,28 +210,28 @@ data PreviewAgentsResponse = PreviewAgentsResponse'
 -- 'agentPreviews', 'previewAgentsResponse_agentPreviews' - The resulting list of agents.
 newPreviewAgentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PreviewAgentsResponse
 newPreviewAgentsResponse pHttpStatus_ =
   PreviewAgentsResponse'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      agentPreviews = Prelude.mempty
+      agentPreviews = Core.mempty
     }
 
 -- | When a response is generated, if there is more data to be listed, this
 -- parameter is present in the response and contains the value to use for
 -- the __nextToken__ parameter in a subsequent pagination request. If there
 -- is no more data to be listed, this parameter is set to null.
-previewAgentsResponse_nextToken :: Lens.Lens' PreviewAgentsResponse (Prelude.Maybe Prelude.Text)
+previewAgentsResponse_nextToken :: Lens.Lens' PreviewAgentsResponse (Core.Maybe Core.Text)
 previewAgentsResponse_nextToken = Lens.lens (\PreviewAgentsResponse' {nextToken} -> nextToken) (\s@PreviewAgentsResponse' {} a -> s {nextToken = a} :: PreviewAgentsResponse)
 
 -- | The response's http status code.
-previewAgentsResponse_httpStatus :: Lens.Lens' PreviewAgentsResponse Prelude.Int
+previewAgentsResponse_httpStatus :: Lens.Lens' PreviewAgentsResponse Core.Int
 previewAgentsResponse_httpStatus = Lens.lens (\PreviewAgentsResponse' {httpStatus} -> httpStatus) (\s@PreviewAgentsResponse' {} a -> s {httpStatus = a} :: PreviewAgentsResponse)
 
 -- | The resulting list of agents.
 previewAgentsResponse_agentPreviews :: Lens.Lens' PreviewAgentsResponse [AgentPreview]
-previewAgentsResponse_agentPreviews = Lens.lens (\PreviewAgentsResponse' {agentPreviews} -> agentPreviews) (\s@PreviewAgentsResponse' {} a -> s {agentPreviews = a} :: PreviewAgentsResponse) Prelude.. Prelude._Coerce
+previewAgentsResponse_agentPreviews = Lens.lens (\PreviewAgentsResponse' {agentPreviews} -> agentPreviews) (\s@PreviewAgentsResponse' {} a -> s {agentPreviews = a} :: PreviewAgentsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData PreviewAgentsResponse
+instance Core.NFData PreviewAgentsResponse

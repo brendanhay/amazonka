@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.GetApps
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ data GetApps = GetApps'
   { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
+    pageSize :: Core.Maybe Core.Text,
     -- | The NextToken string that specifies which page of results to return in a
     -- paginated response.
-    token :: Prelude.Maybe Prelude.Text
+    token :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApps' with all optional fields omitted.
@@ -78,64 +77,60 @@ newGetApps ::
   GetApps
 newGetApps =
   GetApps'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing
+    { pageSize = Core.Nothing,
+      token = Core.Nothing
     }
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getApps_pageSize :: Lens.Lens' GetApps (Prelude.Maybe Prelude.Text)
+getApps_pageSize :: Lens.Lens' GetApps (Core.Maybe Core.Text)
 getApps_pageSize = Lens.lens (\GetApps' {pageSize} -> pageSize) (\s@GetApps' {} a -> s {pageSize = a} :: GetApps)
 
 -- | The NextToken string that specifies which page of results to return in a
 -- paginated response.
-getApps_token :: Lens.Lens' GetApps (Prelude.Maybe Prelude.Text)
+getApps_token :: Lens.Lens' GetApps (Core.Maybe Core.Text)
 getApps_token = Lens.lens (\GetApps' {token} -> token) (\s@GetApps' {} a -> s {token = a} :: GetApps)
 
-instance Prelude.AWSRequest GetApps where
-  type Rs GetApps = GetAppsResponse
+instance Core.AWSRequest GetApps where
+  type AWSResponse GetApps = GetAppsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAppsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetApps
+instance Core.Hashable GetApps
 
-instance Prelude.NFData GetApps
+instance Core.NFData GetApps
 
-instance Prelude.ToHeaders GetApps where
+instance Core.ToHeaders GetApps where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetApps where
-  toPath = Prelude.const "/v1/apps"
+instance Core.ToPath GetApps where
+  toPath = Core.const "/v1/apps"
 
-instance Prelude.ToQuery GetApps where
+instance Core.ToQuery GetApps where
   toQuery GetApps' {..} =
-    Prelude.mconcat
-      [ "page-size" Prelude.=: pageSize,
-        "token" Prelude.=: token
-      ]
+    Core.mconcat
+      ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetAppsResponse' smart constructor.
 data GetAppsResponse = GetAppsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     applicationsResponse :: ApplicationsResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAppsResponse' with all optional fields omitted.
@@ -150,7 +145,7 @@ data GetAppsResponse = GetAppsResponse'
 -- 'applicationsResponse', 'getAppsResponse_applicationsResponse' - Undocumented member.
 newGetAppsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'applicationsResponse'
   ApplicationsResponse ->
   GetAppsResponse
@@ -163,11 +158,11 @@ newGetAppsResponse
       }
 
 -- | The response's http status code.
-getAppsResponse_httpStatus :: Lens.Lens' GetAppsResponse Prelude.Int
+getAppsResponse_httpStatus :: Lens.Lens' GetAppsResponse Core.Int
 getAppsResponse_httpStatus = Lens.lens (\GetAppsResponse' {httpStatus} -> httpStatus) (\s@GetAppsResponse' {} a -> s {httpStatus = a} :: GetAppsResponse)
 
 -- | Undocumented member.
 getAppsResponse_applicationsResponse :: Lens.Lens' GetAppsResponse ApplicationsResponse
 getAppsResponse_applicationsResponse = Lens.lens (\GetAppsResponse' {applicationsResponse} -> applicationsResponse) (\s@GetAppsResponse' {} a -> s {applicationsResponse = a} :: GetAppsResponse)
 
-instance Prelude.NFData GetAppsResponse
+instance Core.NFData GetAppsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Database where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.DatabaseIdentifier
 import Network.AWS.Glue.Types.PrincipalPermissions
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @Database@ object represents a logical grouping of tables that might
 -- reside in a Hive metastore or an RDBMS.
@@ -31,25 +30,25 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDatabase' smart constructor.
 data Database = Database'
   { -- | Creates a set of default permissions on the table for principals.
-    createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
+    createTableDefaultPermissions :: Core.Maybe [PrincipalPermissions],
     -- | The ID of the Data Catalog in which the database resides.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | A @DatabaseIdentifier@ structure that describes a target database for
     -- resource linking.
-    targetDatabase :: Prelude.Maybe DatabaseIdentifier,
+    targetDatabase :: Core.Maybe DatabaseIdentifier,
     -- | The time at which the metadata database was created in the catalog.
-    createTime :: Prelude.Maybe Prelude.POSIX,
+    createTime :: Core.Maybe Core.POSIX,
     -- | A description of the database.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The location of the database (for example, an HDFS path).
-    locationUri :: Prelude.Maybe Prelude.Text,
+    locationUri :: Core.Maybe Core.Text,
     -- | These key-value pairs define parameters and properties of the database.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the database. For Hive compatibility, this is folded to
     -- lowercase when it is stored.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Database' with all optional fields omitted.
@@ -78,75 +77,73 @@ data Database = Database'
 -- lowercase when it is stored.
 newDatabase ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Database
 newDatabase pName_ =
   Database'
     { createTableDefaultPermissions =
-        Prelude.Nothing,
-      catalogId = Prelude.Nothing,
-      targetDatabase = Prelude.Nothing,
-      createTime = Prelude.Nothing,
-      description = Prelude.Nothing,
-      locationUri = Prelude.Nothing,
-      parameters = Prelude.Nothing,
+        Core.Nothing,
+      catalogId = Core.Nothing,
+      targetDatabase = Core.Nothing,
+      createTime = Core.Nothing,
+      description = Core.Nothing,
+      locationUri = Core.Nothing,
+      parameters = Core.Nothing,
       name = pName_
     }
 
 -- | Creates a set of default permissions on the table for principals.
-database_createTableDefaultPermissions :: Lens.Lens' Database (Prelude.Maybe [PrincipalPermissions])
-database_createTableDefaultPermissions = Lens.lens (\Database' {createTableDefaultPermissions} -> createTableDefaultPermissions) (\s@Database' {} a -> s {createTableDefaultPermissions = a} :: Database) Prelude.. Lens.mapping Prelude._Coerce
+database_createTableDefaultPermissions :: Lens.Lens' Database (Core.Maybe [PrincipalPermissions])
+database_createTableDefaultPermissions = Lens.lens (\Database' {createTableDefaultPermissions} -> createTableDefaultPermissions) (\s@Database' {} a -> s {createTableDefaultPermissions = a} :: Database) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the Data Catalog in which the database resides.
-database_catalogId :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
+database_catalogId :: Lens.Lens' Database (Core.Maybe Core.Text)
 database_catalogId = Lens.lens (\Database' {catalogId} -> catalogId) (\s@Database' {} a -> s {catalogId = a} :: Database)
 
 -- | A @DatabaseIdentifier@ structure that describes a target database for
 -- resource linking.
-database_targetDatabase :: Lens.Lens' Database (Prelude.Maybe DatabaseIdentifier)
+database_targetDatabase :: Lens.Lens' Database (Core.Maybe DatabaseIdentifier)
 database_targetDatabase = Lens.lens (\Database' {targetDatabase} -> targetDatabase) (\s@Database' {} a -> s {targetDatabase = a} :: Database)
 
 -- | The time at which the metadata database was created in the catalog.
-database_createTime :: Lens.Lens' Database (Prelude.Maybe Prelude.UTCTime)
-database_createTime = Lens.lens (\Database' {createTime} -> createTime) (\s@Database' {} a -> s {createTime = a} :: Database) Prelude.. Lens.mapping Prelude._Time
+database_createTime :: Lens.Lens' Database (Core.Maybe Core.UTCTime)
+database_createTime = Lens.lens (\Database' {createTime} -> createTime) (\s@Database' {} a -> s {createTime = a} :: Database) Core.. Lens.mapping Core._Time
 
 -- | A description of the database.
-database_description :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
+database_description :: Lens.Lens' Database (Core.Maybe Core.Text)
 database_description = Lens.lens (\Database' {description} -> description) (\s@Database' {} a -> s {description = a} :: Database)
 
 -- | The location of the database (for example, an HDFS path).
-database_locationUri :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
+database_locationUri :: Lens.Lens' Database (Core.Maybe Core.Text)
 database_locationUri = Lens.lens (\Database' {locationUri} -> locationUri) (\s@Database' {} a -> s {locationUri = a} :: Database)
 
 -- | These key-value pairs define parameters and properties of the database.
-database_parameters :: Lens.Lens' Database (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Database' {} a -> s {parameters = a} :: Database) Prelude.. Lens.mapping Prelude._Coerce
+database_parameters :: Lens.Lens' Database (Core.Maybe (Core.HashMap Core.Text Core.Text))
+database_parameters = Lens.lens (\Database' {parameters} -> parameters) (\s@Database' {} a -> s {parameters = a} :: Database) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the database. For Hive compatibility, this is folded to
 -- lowercase when it is stored.
-database_name :: Lens.Lens' Database Prelude.Text
+database_name :: Lens.Lens' Database Core.Text
 database_name = Lens.lens (\Database' {name} -> name) (\s@Database' {} a -> s {name = a} :: Database)
 
-instance Prelude.FromJSON Database where
+instance Core.FromJSON Database where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Database"
       ( \x ->
           Database'
-            Prelude.<$> ( x Prelude..:? "CreateTableDefaultPermissions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "CatalogId")
-            Prelude.<*> (x Prelude..:? "TargetDatabase")
-            Prelude.<*> (x Prelude..:? "CreateTime")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "LocationUri")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> ( x Core..:? "CreateTableDefaultPermissions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "CatalogId")
+            Core.<*> (x Core..:? "TargetDatabase")
+            Core.<*> (x Core..:? "CreateTime")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "LocationUri")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Database
+instance Core.Hashable Database
 
-instance Prelude.NFData Database
+instance Core.NFData Database

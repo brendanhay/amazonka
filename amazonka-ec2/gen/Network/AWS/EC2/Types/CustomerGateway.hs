@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,36 +19,36 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CustomerGateway where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a customer gateway.
 --
 -- /See:/ 'newCustomerGateway' smart constructor.
 data CustomerGateway = CustomerGateway'
   { -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | The name of customer gateway device.
-    deviceName :: Prelude.Maybe Prelude.Text,
+    deviceName :: Core.Maybe Core.Text,
     -- | Any tags assigned to the customer gateway.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
     -- Number (ASN).
-    bgpAsn :: Prelude.Text,
+    bgpAsn :: Core.Text,
     -- | The ID of the customer gateway.
-    customerGatewayId :: Prelude.Text,
+    customerGatewayId :: Core.Text,
     -- | The Internet-routable IP address of the customer gateway\'s outside
     -- interface.
-    ipAddress :: Prelude.Text,
+    ipAddress :: Core.Text,
     -- | The current state of the customer gateway
     -- (@pending | available | deleting | deleted@).
-    state :: Prelude.Text,
+    state :: Core.Text,
     -- | The type of VPN connection the customer gateway supports (@ipsec.1@).
-    type' :: Prelude.Text
+    type' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CustomerGateway' with all optional fields omitted.
@@ -79,15 +78,15 @@ data CustomerGateway = CustomerGateway'
 -- 'type'', 'customerGateway_type' - The type of VPN connection the customer gateway supports (@ipsec.1@).
 newCustomerGateway ::
   -- | 'bgpAsn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'customerGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ipAddress'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'state'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   CustomerGateway
 newCustomerGateway
   pBgpAsn_
@@ -96,9 +95,9 @@ newCustomerGateway
   pState_
   pType_ =
     CustomerGateway'
-      { certificateArn = Prelude.Nothing,
-        deviceName = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { certificateArn = Core.Nothing,
+        deviceName = Core.Nothing,
+        tags = Core.Nothing,
         bgpAsn = pBgpAsn_,
         customerGatewayId = pCustomerGatewayId_,
         ipAddress = pIpAddress_,
@@ -107,54 +106,54 @@ newCustomerGateway
       }
 
 -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
-customerGateway_certificateArn :: Lens.Lens' CustomerGateway (Prelude.Maybe Prelude.Text)
+customerGateway_certificateArn :: Lens.Lens' CustomerGateway (Core.Maybe Core.Text)
 customerGateway_certificateArn = Lens.lens (\CustomerGateway' {certificateArn} -> certificateArn) (\s@CustomerGateway' {} a -> s {certificateArn = a} :: CustomerGateway)
 
 -- | The name of customer gateway device.
-customerGateway_deviceName :: Lens.Lens' CustomerGateway (Prelude.Maybe Prelude.Text)
+customerGateway_deviceName :: Lens.Lens' CustomerGateway (Core.Maybe Core.Text)
 customerGateway_deviceName = Lens.lens (\CustomerGateway' {deviceName} -> deviceName) (\s@CustomerGateway' {} a -> s {deviceName = a} :: CustomerGateway)
 
 -- | Any tags assigned to the customer gateway.
-customerGateway_tags :: Lens.Lens' CustomerGateway (Prelude.Maybe [Tag])
-customerGateway_tags = Lens.lens (\CustomerGateway' {tags} -> tags) (\s@CustomerGateway' {} a -> s {tags = a} :: CustomerGateway) Prelude.. Lens.mapping Prelude._Coerce
+customerGateway_tags :: Lens.Lens' CustomerGateway (Core.Maybe [Tag])
+customerGateway_tags = Lens.lens (\CustomerGateway' {tags} -> tags) (\s@CustomerGateway' {} a -> s {tags = a} :: CustomerGateway) Core.. Lens.mapping Lens._Coerce
 
 -- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
 -- Number (ASN).
-customerGateway_bgpAsn :: Lens.Lens' CustomerGateway Prelude.Text
+customerGateway_bgpAsn :: Lens.Lens' CustomerGateway Core.Text
 customerGateway_bgpAsn = Lens.lens (\CustomerGateway' {bgpAsn} -> bgpAsn) (\s@CustomerGateway' {} a -> s {bgpAsn = a} :: CustomerGateway)
 
 -- | The ID of the customer gateway.
-customerGateway_customerGatewayId :: Lens.Lens' CustomerGateway Prelude.Text
+customerGateway_customerGatewayId :: Lens.Lens' CustomerGateway Core.Text
 customerGateway_customerGatewayId = Lens.lens (\CustomerGateway' {customerGatewayId} -> customerGatewayId) (\s@CustomerGateway' {} a -> s {customerGatewayId = a} :: CustomerGateway)
 
 -- | The Internet-routable IP address of the customer gateway\'s outside
 -- interface.
-customerGateway_ipAddress :: Lens.Lens' CustomerGateway Prelude.Text
+customerGateway_ipAddress :: Lens.Lens' CustomerGateway Core.Text
 customerGateway_ipAddress = Lens.lens (\CustomerGateway' {ipAddress} -> ipAddress) (\s@CustomerGateway' {} a -> s {ipAddress = a} :: CustomerGateway)
 
 -- | The current state of the customer gateway
 -- (@pending | available | deleting | deleted@).
-customerGateway_state :: Lens.Lens' CustomerGateway Prelude.Text
+customerGateway_state :: Lens.Lens' CustomerGateway Core.Text
 customerGateway_state = Lens.lens (\CustomerGateway' {state} -> state) (\s@CustomerGateway' {} a -> s {state = a} :: CustomerGateway)
 
 -- | The type of VPN connection the customer gateway supports (@ipsec.1@).
-customerGateway_type :: Lens.Lens' CustomerGateway Prelude.Text
+customerGateway_type :: Lens.Lens' CustomerGateway Core.Text
 customerGateway_type = Lens.lens (\CustomerGateway' {type'} -> type') (\s@CustomerGateway' {} a -> s {type' = a} :: CustomerGateway)
 
-instance Prelude.FromXML CustomerGateway where
+instance Core.FromXML CustomerGateway where
   parseXML x =
     CustomerGateway'
-      Prelude.<$> (x Prelude..@? "certificateArn")
-      Prelude.<*> (x Prelude..@? "deviceName")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@ "bgpAsn")
-      Prelude.<*> (x Prelude..@ "customerGatewayId")
-      Prelude.<*> (x Prelude..@ "ipAddress")
-      Prelude.<*> (x Prelude..@ "state")
-      Prelude.<*> (x Prelude..@ "type")
+      Core.<$> (x Core..@? "certificateArn")
+      Core.<*> (x Core..@? "deviceName")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@ "bgpAsn")
+      Core.<*> (x Core..@ "customerGatewayId")
+      Core.<*> (x Core..@ "ipAddress")
+      Core.<*> (x Core..@ "state")
+      Core.<*> (x Core..@ "type")
 
-instance Prelude.Hashable CustomerGateway
+instance Core.Hashable CustomerGateway
 
-instance Prelude.NFData CustomerGateway
+instance Core.NFData CustomerGateway

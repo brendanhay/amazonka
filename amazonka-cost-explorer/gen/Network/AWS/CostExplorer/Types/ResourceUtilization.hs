@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.ResourceUtilization where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.EC2ResourceUtilization
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Resource utilization of current resource.
 --
 -- /See:/ 'newResourceUtilization' smart constructor.
 data ResourceUtilization = ResourceUtilization'
   { -- | Utilization of current Amazon EC2 instance.
-    eC2ResourceUtilization :: Prelude.Maybe EC2ResourceUtilization
+    eC2ResourceUtilization :: Core.Maybe EC2ResourceUtilization
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceUtilization' with all optional fields omitted.
@@ -47,22 +46,22 @@ newResourceUtilization ::
 newResourceUtilization =
   ResourceUtilization'
     { eC2ResourceUtilization =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Utilization of current Amazon EC2 instance.
-resourceUtilization_eC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Prelude.Maybe EC2ResourceUtilization)
+resourceUtilization_eC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Core.Maybe EC2ResourceUtilization)
 resourceUtilization_eC2ResourceUtilization = Lens.lens (\ResourceUtilization' {eC2ResourceUtilization} -> eC2ResourceUtilization) (\s@ResourceUtilization' {} a -> s {eC2ResourceUtilization = a} :: ResourceUtilization)
 
-instance Prelude.FromJSON ResourceUtilization where
+instance Core.FromJSON ResourceUtilization where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceUtilization"
       ( \x ->
           ResourceUtilization'
-            Prelude.<$> (x Prelude..:? "EC2ResourceUtilization")
+            Core.<$> (x Core..:? "EC2ResourceUtilization")
       )
 
-instance Prelude.Hashable ResourceUtilization
+instance Core.Hashable ResourceUtilization
 
-instance Prelude.NFData ResourceUtilization
+instance Core.NFData ResourceUtilization

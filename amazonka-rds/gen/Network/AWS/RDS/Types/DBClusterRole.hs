@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBClusterRole where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an AWS Identity and Access Management (IAM) role that is
 -- associated with a DB cluster.
@@ -40,16 +39,16 @@ data DBClusterRole = DBClusterRole'
     -- -   @INVALID@ - the IAM role ARN is associated with the DB cluster, but
     --     the DB cluster is unable to assume the IAM role in order to access
     --     other AWS services on your behalf.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
     -- the DB cluster.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The name of the feature associated with the AWS Identity and Access
     -- Management (IAM) role. For the list of supported feature names, see
     -- DBEngineVersion.
-    featureName :: Prelude.Maybe Prelude.Text
+    featureName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBClusterRole' with all optional fields omitted.
@@ -82,9 +81,9 @@ newDBClusterRole ::
   DBClusterRole
 newDBClusterRole =
   DBClusterRole'
-    { status = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      featureName = Prelude.Nothing
+    { status = Core.Nothing,
+      roleArn = Core.Nothing,
+      featureName = Core.Nothing
     }
 
 -- | Describes the state of association between the IAM role and the DB
@@ -99,27 +98,27 @@ newDBClusterRole =
 -- -   @INVALID@ - the IAM role ARN is associated with the DB cluster, but
 --     the DB cluster is unable to assume the IAM role in order to access
 --     other AWS services on your behalf.
-dbClusterRole_status :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
+dbClusterRole_status :: Lens.Lens' DBClusterRole (Core.Maybe Core.Text)
 dbClusterRole_status = Lens.lens (\DBClusterRole' {status} -> status) (\s@DBClusterRole' {} a -> s {status = a} :: DBClusterRole)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that is associated with
 -- the DB cluster.
-dbClusterRole_roleArn :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
+dbClusterRole_roleArn :: Lens.Lens' DBClusterRole (Core.Maybe Core.Text)
 dbClusterRole_roleArn = Lens.lens (\DBClusterRole' {roleArn} -> roleArn) (\s@DBClusterRole' {} a -> s {roleArn = a} :: DBClusterRole)
 
 -- | The name of the feature associated with the AWS Identity and Access
 -- Management (IAM) role. For the list of supported feature names, see
 -- DBEngineVersion.
-dbClusterRole_featureName :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
+dbClusterRole_featureName :: Lens.Lens' DBClusterRole (Core.Maybe Core.Text)
 dbClusterRole_featureName = Lens.lens (\DBClusterRole' {featureName} -> featureName) (\s@DBClusterRole' {} a -> s {featureName = a} :: DBClusterRole)
 
-instance Prelude.FromXML DBClusterRole where
+instance Core.FromXML DBClusterRole where
   parseXML x =
     DBClusterRole'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "RoleArn")
-      Prelude.<*> (x Prelude..@? "FeatureName")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "RoleArn")
+      Core.<*> (x Core..@? "FeatureName")
 
-instance Prelude.Hashable DBClusterRole
+instance Core.Hashable DBClusterRole
 
-instance Prelude.NFData DBClusterRole
+instance Core.NFData DBClusterRole

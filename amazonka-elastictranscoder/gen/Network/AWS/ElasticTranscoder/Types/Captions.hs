@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.Captions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.CaptionFormat
 import Network.AWS.ElasticTranscoder.Types.CaptionSource
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The captions to be created, if any.
 --
@@ -31,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Captions = Captions'
   { -- | Source files for the input sidecar captions used during the transcoding
     -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-    captionSources :: Prelude.Maybe [CaptionSource],
+    captionSources :: Core.Maybe [CaptionSource],
     -- | The array of file formats for the output captions. If you leave this
     -- value blank, Elastic Transcoder returns an error.
-    captionFormats :: Prelude.Maybe [CaptionFormat],
+    captionFormats :: Core.Maybe [CaptionFormat],
     -- | A policy that determines how Elastic Transcoder handles the existence of
     -- multiple captions.
     --
@@ -55,9 +54,9 @@ data Captions = Captions'
     --     captions that you specify in @CaptionSources@.
     --
     -- @MergePolicy@ cannot be null.
-    mergePolicy :: Prelude.Maybe Prelude.Text
+    mergePolicy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Captions' with all optional fields omitted.
@@ -97,20 +96,20 @@ newCaptions ::
   Captions
 newCaptions =
   Captions'
-    { captionSources = Prelude.Nothing,
-      captionFormats = Prelude.Nothing,
-      mergePolicy = Prelude.Nothing
+    { captionSources = Core.Nothing,
+      captionFormats = Core.Nothing,
+      mergePolicy = Core.Nothing
     }
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-captions_captionSources :: Lens.Lens' Captions (Prelude.Maybe [CaptionSource])
-captions_captionSources = Lens.lens (\Captions' {captionSources} -> captionSources) (\s@Captions' {} a -> s {captionSources = a} :: Captions) Prelude.. Lens.mapping Prelude._Coerce
+captions_captionSources :: Lens.Lens' Captions (Core.Maybe [CaptionSource])
+captions_captionSources = Lens.lens (\Captions' {captionSources} -> captionSources) (\s@Captions' {} a -> s {captionSources = a} :: Captions) Core.. Lens.mapping Lens._Coerce
 
 -- | The array of file formats for the output captions. If you leave this
 -- value blank, Elastic Transcoder returns an error.
-captions_captionFormats :: Lens.Lens' Captions (Prelude.Maybe [CaptionFormat])
-captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionFormats) (\s@Captions' {} a -> s {captionFormats = a} :: Captions) Prelude.. Lens.mapping Prelude._Coerce
+captions_captionFormats :: Lens.Lens' Captions (Core.Maybe [CaptionFormat])
+captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionFormats) (\s@Captions' {} a -> s {captionFormats = a} :: Captions) Core.. Lens.mapping Lens._Coerce
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -132,36 +131,30 @@ captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionForma
 --     captions that you specify in @CaptionSources@.
 --
 -- @MergePolicy@ cannot be null.
-captions_mergePolicy :: Lens.Lens' Captions (Prelude.Maybe Prelude.Text)
+captions_mergePolicy :: Lens.Lens' Captions (Core.Maybe Core.Text)
 captions_mergePolicy = Lens.lens (\Captions' {mergePolicy} -> mergePolicy) (\s@Captions' {} a -> s {mergePolicy = a} :: Captions)
 
-instance Prelude.FromJSON Captions where
+instance Core.FromJSON Captions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Captions"
       ( \x ->
           Captions'
-            Prelude.<$> ( x Prelude..:? "CaptionSources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "CaptionFormats"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "MergePolicy")
+            Core.<$> (x Core..:? "CaptionSources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "CaptionFormats" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MergePolicy")
       )
 
-instance Prelude.Hashable Captions
+instance Core.Hashable Captions
 
-instance Prelude.NFData Captions
+instance Core.NFData Captions
 
-instance Prelude.ToJSON Captions where
+instance Core.ToJSON Captions where
   toJSON Captions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CaptionSources" Prelude..=)
-              Prelude.<$> captionSources,
-            ("CaptionFormats" Prelude..=)
-              Prelude.<$> captionFormats,
-            ("MergePolicy" Prelude..=) Prelude.<$> mergePolicy
+    Core.object
+      ( Core.catMaybes
+          [ ("CaptionSources" Core..=) Core.<$> captionSources,
+            ("CaptionFormats" Core..=) Core.<$> captionFormats,
+            ("MergePolicy" Core..=) Core.<$> mergePolicy
           ]
       )

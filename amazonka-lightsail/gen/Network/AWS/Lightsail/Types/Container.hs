@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.Container where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.ContainerServiceProtocol
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the settings of a container that will be launched, or that is
 -- launched, to an Amazon Lightsail container service.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newContainer' smart constructor.
 data Container = Container'
   { -- | The environment variables of the container.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The open firewall ports of the container.
-    ports :: Prelude.Maybe (Prelude.HashMap Prelude.Text ContainerServiceProtocol),
+    ports :: Core.Maybe (Core.HashMap Core.Text ContainerServiceProtocol),
     -- | The name of the image used for the container.
     --
     -- Container images sourced from your Lightsail container service, that are
@@ -40,11 +39,11 @@ data Container = Container'
     -- example, @:container-service-1.mystaticwebsite.1@. Container images
     -- sourced from a public registry like Docker Hub don\'t start with a
     -- colon. For example, @nginx:latest@ or @nginx@.
-    image :: Prelude.Maybe Prelude.Text,
+    image :: Core.Maybe Core.Text,
     -- | The launch command for the container.
-    command :: Prelude.Maybe [Prelude.Text]
+    command :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Container' with all optional fields omitted.
@@ -71,19 +70,19 @@ newContainer ::
   Container
 newContainer =
   Container'
-    { environment = Prelude.Nothing,
-      ports = Prelude.Nothing,
-      image = Prelude.Nothing,
-      command = Prelude.Nothing
+    { environment = Core.Nothing,
+      ports = Core.Nothing,
+      image = Core.Nothing,
+      command = Core.Nothing
     }
 
 -- | The environment variables of the container.
-container_environment :: Lens.Lens' Container (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-container_environment = Lens.lens (\Container' {environment} -> environment) (\s@Container' {} a -> s {environment = a} :: Container) Prelude.. Lens.mapping Prelude._Coerce
+container_environment :: Lens.Lens' Container (Core.Maybe (Core.HashMap Core.Text Core.Text))
+container_environment = Lens.lens (\Container' {environment} -> environment) (\s@Container' {} a -> s {environment = a} :: Container) Core.. Lens.mapping Lens._Coerce
 
 -- | The open firewall ports of the container.
-container_ports :: Lens.Lens' Container (Prelude.Maybe (Prelude.HashMap Prelude.Text ContainerServiceProtocol))
-container_ports = Lens.lens (\Container' {ports} -> ports) (\s@Container' {} a -> s {ports = a} :: Container) Prelude.. Lens.mapping Prelude._Coerce
+container_ports :: Lens.Lens' Container (Core.Maybe (Core.HashMap Core.Text ContainerServiceProtocol))
+container_ports = Lens.lens (\Container' {ports} -> ports) (\s@Container' {} a -> s {ports = a} :: Container) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the image used for the container.
 --
@@ -92,38 +91,36 @@ container_ports = Lens.lens (\Container' {ports} -> ports) (\s@Container' {} a -
 -- example, @:container-service-1.mystaticwebsite.1@. Container images
 -- sourced from a public registry like Docker Hub don\'t start with a
 -- colon. For example, @nginx:latest@ or @nginx@.
-container_image :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
+container_image :: Lens.Lens' Container (Core.Maybe Core.Text)
 container_image = Lens.lens (\Container' {image} -> image) (\s@Container' {} a -> s {image = a} :: Container)
 
 -- | The launch command for the container.
-container_command :: Lens.Lens' Container (Prelude.Maybe [Prelude.Text])
-container_command = Lens.lens (\Container' {command} -> command) (\s@Container' {} a -> s {command = a} :: Container) Prelude.. Lens.mapping Prelude._Coerce
+container_command :: Lens.Lens' Container (Core.Maybe [Core.Text])
+container_command = Lens.lens (\Container' {command} -> command) (\s@Container' {} a -> s {command = a} :: Container) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Container where
+instance Core.FromJSON Container where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> ( x Prelude..:? "environment"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ports" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "image")
-            Prelude.<*> (x Prelude..:? "command" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "environment" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ports" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "image")
+            Core.<*> (x Core..:? "command" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Container
+instance Core.Hashable Container
 
-instance Prelude.NFData Container
+instance Core.NFData Container
 
-instance Prelude.ToJSON Container where
+instance Core.ToJSON Container where
   toJSON Container' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("environment" Prelude..=) Prelude.<$> environment,
-            ("ports" Prelude..=) Prelude.<$> ports,
-            ("image" Prelude..=) Prelude.<$> image,
-            ("command" Prelude..=) Prelude.<$> command
+    Core.object
+      ( Core.catMaybes
+          [ ("environment" Core..=) Core.<$> environment,
+            ("ports" Core..=) Core.<$> ports,
+            ("image" Core..=) Core.<$> image,
+            ("command" Core..=) Core.<$> command
           ]
       )

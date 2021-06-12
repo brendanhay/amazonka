@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.CompletedMultipartUpload where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.CompletedPart
 
@@ -30,9 +29,9 @@ import Network.AWS.S3.Types.CompletedPart
 -- /See:/ 'newCompletedMultipartUpload' smart constructor.
 data CompletedMultipartUpload = CompletedMultipartUpload'
   { -- | Array of CompletedPart data types.
-    parts :: Prelude.Maybe (Prelude.NonEmpty CompletedPart)
+    parts :: Core.Maybe (Core.NonEmpty CompletedPart)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompletedMultipartUpload' with all optional fields omitted.
@@ -46,19 +45,17 @@ data CompletedMultipartUpload = CompletedMultipartUpload'
 newCompletedMultipartUpload ::
   CompletedMultipartUpload
 newCompletedMultipartUpload =
-  CompletedMultipartUpload' {parts = Prelude.Nothing}
+  CompletedMultipartUpload' {parts = Core.Nothing}
 
 -- | Array of CompletedPart data types.
-completedMultipartUpload_parts :: Lens.Lens' CompletedMultipartUpload (Prelude.Maybe (Prelude.NonEmpty CompletedPart))
-completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Prelude.. Lens.mapping Prelude._Coerce
+completedMultipartUpload_parts :: Lens.Lens' CompletedMultipartUpload (Core.Maybe (Core.NonEmpty CompletedPart))
+completedMultipartUpload_parts = Lens.lens (\CompletedMultipartUpload' {parts} -> parts) (\s@CompletedMultipartUpload' {} a -> s {parts = a} :: CompletedMultipartUpload) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable CompletedMultipartUpload
+instance Core.Hashable CompletedMultipartUpload
 
-instance Prelude.NFData CompletedMultipartUpload
+instance Core.NFData CompletedMultipartUpload
 
-instance Prelude.ToXML CompletedMultipartUpload where
+instance Core.ToXML CompletedMultipartUpload where
   toXML CompletedMultipartUpload' {..} =
-    Prelude.mconcat
-      [ Prelude.toXML
-          (Prelude.toXMLList "Part" Prelude.<$> parts)
-      ]
+    Core.mconcat
+      [Core.toXML (Core.toXMLList "Part" Core.<$> parts)]

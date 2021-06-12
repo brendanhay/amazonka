@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CertificateManager.Types.DomainValidation where
 import Network.AWS.CertificateManager.Types.DomainStatus
 import Network.AWS.CertificateManager.Types.ResourceRecord
 import Network.AWS.CertificateManager.Types.ValidationMethod
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the validation of each domain name in the
 -- certificate.
@@ -40,12 +39,12 @@ data DomainValidation = DomainValidation'
     -- record, validation fails.  For example, if the name is
     -- \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only
     -- \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.
-    resourceRecord :: Prelude.Maybe ResourceRecord,
+    resourceRecord :: Core.Maybe ResourceRecord,
     -- | A list of email addresses that ACM used to send domain validation
     -- emails.
-    validationEmails :: Prelude.Maybe [Prelude.Text],
+    validationEmails :: Core.Maybe [Core.Text],
     -- | Specifies the domain validation method.
-    validationMethod :: Prelude.Maybe ValidationMethod,
+    validationMethod :: Core.Maybe ValidationMethod,
     -- | The validation status of the domain name. This can be one of the
     -- following values:
     --
@@ -54,14 +53,14 @@ data DomainValidation = DomainValidation'
     -- -   @@SUCCESS
     --
     -- -   @@FAILED
-    validationStatus :: Prelude.Maybe DomainStatus,
+    validationStatus :: Core.Maybe DomainStatus,
     -- | The domain name that ACM used to send domain validation emails.
-    validationDomain :: Prelude.Maybe Prelude.Text,
+    validationDomain :: Core.Maybe Core.Text,
     -- | A fully qualified domain name (FQDN) in the certificate. For example,
     -- @www.example.com@ or @example.com@.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DomainValidation' with all optional fields omitted.
@@ -101,15 +100,15 @@ data DomainValidation = DomainValidation'
 -- @www.example.com@ or @example.com@.
 newDomainValidation ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DomainValidation
 newDomainValidation pDomainName_ =
   DomainValidation'
-    { resourceRecord = Prelude.Nothing,
-      validationEmails = Prelude.Nothing,
-      validationMethod = Prelude.Nothing,
-      validationStatus = Prelude.Nothing,
-      validationDomain = Prelude.Nothing,
+    { resourceRecord = Core.Nothing,
+      validationEmails = Core.Nothing,
+      validationMethod = Core.Nothing,
+      validationStatus = Core.Nothing,
+      validationDomain = Core.Nothing,
       domainName = pDomainName_
     }
 
@@ -122,16 +121,16 @@ newDomainValidation pDomainName_ =
 -- record, validation fails.  For example, if the name is
 -- \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only
 -- \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.
-domainValidation_resourceRecord :: Lens.Lens' DomainValidation (Prelude.Maybe ResourceRecord)
+domainValidation_resourceRecord :: Lens.Lens' DomainValidation (Core.Maybe ResourceRecord)
 domainValidation_resourceRecord = Lens.lens (\DomainValidation' {resourceRecord} -> resourceRecord) (\s@DomainValidation' {} a -> s {resourceRecord = a} :: DomainValidation)
 
 -- | A list of email addresses that ACM used to send domain validation
 -- emails.
-domainValidation_validationEmails :: Lens.Lens' DomainValidation (Prelude.Maybe [Prelude.Text])
-domainValidation_validationEmails = Lens.lens (\DomainValidation' {validationEmails} -> validationEmails) (\s@DomainValidation' {} a -> s {validationEmails = a} :: DomainValidation) Prelude.. Lens.mapping Prelude._Coerce
+domainValidation_validationEmails :: Lens.Lens' DomainValidation (Core.Maybe [Core.Text])
+domainValidation_validationEmails = Lens.lens (\DomainValidation' {validationEmails} -> validationEmails) (\s@DomainValidation' {} a -> s {validationEmails = a} :: DomainValidation) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the domain validation method.
-domainValidation_validationMethod :: Lens.Lens' DomainValidation (Prelude.Maybe ValidationMethod)
+domainValidation_validationMethod :: Lens.Lens' DomainValidation (Core.Maybe ValidationMethod)
 domainValidation_validationMethod = Lens.lens (\DomainValidation' {validationMethod} -> validationMethod) (\s@DomainValidation' {} a -> s {validationMethod = a} :: DomainValidation)
 
 -- | The validation status of the domain name. This can be one of the
@@ -142,34 +141,32 @@ domainValidation_validationMethod = Lens.lens (\DomainValidation' {validationMet
 -- -   @@SUCCESS
 --
 -- -   @@FAILED
-domainValidation_validationStatus :: Lens.Lens' DomainValidation (Prelude.Maybe DomainStatus)
+domainValidation_validationStatus :: Lens.Lens' DomainValidation (Core.Maybe DomainStatus)
 domainValidation_validationStatus = Lens.lens (\DomainValidation' {validationStatus} -> validationStatus) (\s@DomainValidation' {} a -> s {validationStatus = a} :: DomainValidation)
 
 -- | The domain name that ACM used to send domain validation emails.
-domainValidation_validationDomain :: Lens.Lens' DomainValidation (Prelude.Maybe Prelude.Text)
+domainValidation_validationDomain :: Lens.Lens' DomainValidation (Core.Maybe Core.Text)
 domainValidation_validationDomain = Lens.lens (\DomainValidation' {validationDomain} -> validationDomain) (\s@DomainValidation' {} a -> s {validationDomain = a} :: DomainValidation)
 
 -- | A fully qualified domain name (FQDN) in the certificate. For example,
 -- @www.example.com@ or @example.com@.
-domainValidation_domainName :: Lens.Lens' DomainValidation Prelude.Text
+domainValidation_domainName :: Lens.Lens' DomainValidation Core.Text
 domainValidation_domainName = Lens.lens (\DomainValidation' {domainName} -> domainName) (\s@DomainValidation' {} a -> s {domainName = a} :: DomainValidation)
 
-instance Prelude.FromJSON DomainValidation where
+instance Core.FromJSON DomainValidation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DomainValidation"
       ( \x ->
           DomainValidation'
-            Prelude.<$> (x Prelude..:? "ResourceRecord")
-            Prelude.<*> ( x Prelude..:? "ValidationEmails"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ValidationMethod")
-            Prelude.<*> (x Prelude..:? "ValidationStatus")
-            Prelude.<*> (x Prelude..:? "ValidationDomain")
-            Prelude.<*> (x Prelude..: "DomainName")
+            Core.<$> (x Core..:? "ResourceRecord")
+            Core.<*> (x Core..:? "ValidationEmails" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ValidationMethod")
+            Core.<*> (x Core..:? "ValidationStatus")
+            Core.<*> (x Core..:? "ValidationDomain")
+            Core.<*> (x Core..: "DomainName")
       )
 
-instance Prelude.Hashable DomainValidation
+instance Core.Hashable DomainValidation
 
-instance Prelude.NFData DomainValidation
+instance Core.NFData DomainValidation

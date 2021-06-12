@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -63,15 +61,15 @@ import Network.AWS.StorageGateway.Types
 data DescribeTapeArchives = DescribeTapeArchives'
   { -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
     -- the virtual tapes you want to describe.
-    tapeARNs :: Prelude.Maybe [Prelude.Text],
+    tapeARNs :: Core.Maybe [Core.Text],
     -- | Specifies that the number of virtual tapes described be limited to the
     -- specified number.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | An opaque string that indicates the position at which to begin
     -- describing virtual tapes.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTapeArchives' with all optional fields omitted.
@@ -93,98 +91,93 @@ newDescribeTapeArchives ::
   DescribeTapeArchives
 newDescribeTapeArchives =
   DescribeTapeArchives'
-    { tapeARNs = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { tapeARNs = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
 -- the virtual tapes you want to describe.
-describeTapeArchives_tapeARNs :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe [Prelude.Text])
-describeTapeArchives_tapeARNs = Lens.lens (\DescribeTapeArchives' {tapeARNs} -> tapeARNs) (\s@DescribeTapeArchives' {} a -> s {tapeARNs = a} :: DescribeTapeArchives) Prelude.. Lens.mapping Prelude._Coerce
+describeTapeArchives_tapeARNs :: Lens.Lens' DescribeTapeArchives (Core.Maybe [Core.Text])
+describeTapeArchives_tapeARNs = Lens.lens (\DescribeTapeArchives' {tapeARNs} -> tapeARNs) (\s@DescribeTapeArchives' {} a -> s {tapeARNs = a} :: DescribeTapeArchives) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
-describeTapeArchives_limit :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe Prelude.Natural)
+describeTapeArchives_limit :: Lens.Lens' DescribeTapeArchives (Core.Maybe Core.Natural)
 describeTapeArchives_limit = Lens.lens (\DescribeTapeArchives' {limit} -> limit) (\s@DescribeTapeArchives' {} a -> s {limit = a} :: DescribeTapeArchives)
 
 -- | An opaque string that indicates the position at which to begin
 -- describing virtual tapes.
-describeTapeArchives_marker :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe Prelude.Text)
+describeTapeArchives_marker :: Lens.Lens' DescribeTapeArchives (Core.Maybe Core.Text)
 describeTapeArchives_marker = Lens.lens (\DescribeTapeArchives' {marker} -> marker) (\s@DescribeTapeArchives' {} a -> s {marker = a} :: DescribeTapeArchives)
 
-instance Pager.AWSPager DescribeTapeArchives where
+instance Core.AWSPager DescribeTapeArchives where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeTapeArchivesResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeTapeArchivesResponse_tapeArchives
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeTapeArchives_marker
           Lens..~ rs
-          Lens.^? describeTapeArchivesResponse_marker
-            Prelude.. Lens._Just
+          Lens.^? describeTapeArchivesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeTapeArchives where
+instance Core.AWSRequest DescribeTapeArchives where
   type
-    Rs DescribeTapeArchives =
+    AWSResponse DescribeTapeArchives =
       DescribeTapeArchivesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTapeArchivesResponse'
-            Prelude.<$> ( x Prelude..?> "TapeArchives"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TapeArchives" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTapeArchives
+instance Core.Hashable DescribeTapeArchives
 
-instance Prelude.NFData DescribeTapeArchives
+instance Core.NFData DescribeTapeArchives
 
-instance Prelude.ToHeaders DescribeTapeArchives where
+instance Core.ToHeaders DescribeTapeArchives where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DescribeTapeArchives" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DescribeTapeArchives" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTapeArchives where
+instance Core.ToJSON DescribeTapeArchives where
   toJSON DescribeTapeArchives' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TapeARNs" Prelude..=) Prelude.<$> tapeARNs,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            ("Marker" Prelude..=) Prelude.<$> marker
+    Core.object
+      ( Core.catMaybes
+          [ ("TapeARNs" Core..=) Core.<$> tapeARNs,
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
           ]
       )
 
-instance Prelude.ToPath DescribeTapeArchives where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTapeArchives where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTapeArchives where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTapeArchives where
+  toQuery = Core.const Core.mempty
 
 -- | DescribeTapeArchivesOutput
 --
@@ -195,17 +188,17 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
     -- tapes. The information returned includes the Amazon Resource Names
     -- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of
     -- the description, and tape barcode.
-    tapeArchives :: Prelude.Maybe [TapeArchive],
+    tapeArchives :: Core.Maybe [TapeArchive],
     -- | An opaque string that indicates the position at which the virtual tapes
     -- that were fetched for description ended. Use this marker in your next
     -- request to fetch the next set of virtual tapes in the virtual tape shelf
     -- (VTS). If there are no more virtual tapes to describe, this field does
     -- not appear in the response.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTapeArchivesResponse' with all optional fields omitted.
@@ -230,13 +223,13 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
 -- 'httpStatus', 'describeTapeArchivesResponse_httpStatus' - The response's http status code.
 newDescribeTapeArchivesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTapeArchivesResponse
 newDescribeTapeArchivesResponse pHttpStatus_ =
   DescribeTapeArchivesResponse'
     { tapeArchives =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -245,19 +238,19 @@ newDescribeTapeArchivesResponse pHttpStatus_ =
 -- tapes. The information returned includes the Amazon Resource Names
 -- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of
 -- the description, and tape barcode.
-describeTapeArchivesResponse_tapeArchives :: Lens.Lens' DescribeTapeArchivesResponse (Prelude.Maybe [TapeArchive])
-describeTapeArchivesResponse_tapeArchives = Lens.lens (\DescribeTapeArchivesResponse' {tapeArchives} -> tapeArchives) (\s@DescribeTapeArchivesResponse' {} a -> s {tapeArchives = a} :: DescribeTapeArchivesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTapeArchivesResponse_tapeArchives :: Lens.Lens' DescribeTapeArchivesResponse (Core.Maybe [TapeArchive])
+describeTapeArchivesResponse_tapeArchives = Lens.lens (\DescribeTapeArchivesResponse' {tapeArchives} -> tapeArchives) (\s@DescribeTapeArchivesResponse' {} a -> s {tapeArchives = a} :: DescribeTapeArchivesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An opaque string that indicates the position at which the virtual tapes
 -- that were fetched for description ended. Use this marker in your next
 -- request to fetch the next set of virtual tapes in the virtual tape shelf
 -- (VTS). If there are no more virtual tapes to describe, this field does
 -- not appear in the response.
-describeTapeArchivesResponse_marker :: Lens.Lens' DescribeTapeArchivesResponse (Prelude.Maybe Prelude.Text)
+describeTapeArchivesResponse_marker :: Lens.Lens' DescribeTapeArchivesResponse (Core.Maybe Core.Text)
 describeTapeArchivesResponse_marker = Lens.lens (\DescribeTapeArchivesResponse' {marker} -> marker) (\s@DescribeTapeArchivesResponse' {} a -> s {marker = a} :: DescribeTapeArchivesResponse)
 
 -- | The response's http status code.
-describeTapeArchivesResponse_httpStatus :: Lens.Lens' DescribeTapeArchivesResponse Prelude.Int
+describeTapeArchivesResponse_httpStatus :: Lens.Lens' DescribeTapeArchivesResponse Core.Int
 describeTapeArchivesResponse_httpStatus = Lens.lens (\DescribeTapeArchivesResponse' {httpStatus} -> httpStatus) (\s@DescribeTapeArchivesResponse' {} a -> s {httpStatus = a} :: DescribeTapeArchivesResponse)
 
-instance Prelude.NFData DescribeTapeArchivesResponse
+instance Core.NFData DescribeTapeArchivesResponse

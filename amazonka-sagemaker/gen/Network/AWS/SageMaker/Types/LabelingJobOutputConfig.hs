@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.LabelingJobOutputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Output configuration information for a labeling job.
 --
@@ -46,7 +45,7 @@ data LabelingJobOutputConfig = LabelingJobOutputConfig'
     -- specify in your @CreateLabelingJob@ request. For more information, see
     -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
     -- in the /AWS Key Management Service Developer Guide/.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
     --
     -- When workers complete labeling tasks, Ground Truth will send labeling
@@ -54,11 +53,11 @@ data LabelingJobOutputConfig = LabelingJobOutputConfig'
     --
     -- You must provide a value for this parameter if you provide an Amazon SNS
     -- input topic in @SnsDataSource@ in @InputConfig@.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    snsTopicArn :: Core.Maybe Core.Text,
     -- | The Amazon S3 location to write output data.
-    s3OutputPath :: Prelude.Text
+    s3OutputPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelingJobOutputConfig' with all optional fields omitted.
@@ -99,13 +98,12 @@ data LabelingJobOutputConfig = LabelingJobOutputConfig'
 -- 's3OutputPath', 'labelingJobOutputConfig_s3OutputPath' - The Amazon S3 location to write output data.
 newLabelingJobOutputConfig ::
   -- | 's3OutputPath'
-  Prelude.Text ->
+  Core.Text ->
   LabelingJobOutputConfig
 newLabelingJobOutputConfig pS3OutputPath_ =
   LabelingJobOutputConfig'
-    { kmsKeyId =
-        Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
+      snsTopicArn = Core.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
@@ -128,7 +126,7 @@ newLabelingJobOutputConfig pS3OutputPath_ =
 -- specify in your @CreateLabelingJob@ request. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
 -- in the /AWS Key Management Service Developer Guide/.
-labelingJobOutputConfig_kmsKeyId :: Lens.Lens' LabelingJobOutputConfig (Prelude.Maybe Prelude.Text)
+labelingJobOutputConfig_kmsKeyId :: Lens.Lens' LabelingJobOutputConfig (Core.Maybe Core.Text)
 labelingJobOutputConfig_kmsKeyId = Lens.lens (\LabelingJobOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@LabelingJobOutputConfig' {} a -> s {kmsKeyId = a} :: LabelingJobOutputConfig)
 
 -- | An Amazon Simple Notification Service (Amazon SNS) output topic ARN.
@@ -138,35 +136,34 @@ labelingJobOutputConfig_kmsKeyId = Lens.lens (\LabelingJobOutputConfig' {kmsKeyI
 --
 -- You must provide a value for this parameter if you provide an Amazon SNS
 -- input topic in @SnsDataSource@ in @InputConfig@.
-labelingJobOutputConfig_snsTopicArn :: Lens.Lens' LabelingJobOutputConfig (Prelude.Maybe Prelude.Text)
+labelingJobOutputConfig_snsTopicArn :: Lens.Lens' LabelingJobOutputConfig (Core.Maybe Core.Text)
 labelingJobOutputConfig_snsTopicArn = Lens.lens (\LabelingJobOutputConfig' {snsTopicArn} -> snsTopicArn) (\s@LabelingJobOutputConfig' {} a -> s {snsTopicArn = a} :: LabelingJobOutputConfig)
 
 -- | The Amazon S3 location to write output data.
-labelingJobOutputConfig_s3OutputPath :: Lens.Lens' LabelingJobOutputConfig Prelude.Text
+labelingJobOutputConfig_s3OutputPath :: Lens.Lens' LabelingJobOutputConfig Core.Text
 labelingJobOutputConfig_s3OutputPath = Lens.lens (\LabelingJobOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@LabelingJobOutputConfig' {} a -> s {s3OutputPath = a} :: LabelingJobOutputConfig)
 
-instance Prelude.FromJSON LabelingJobOutputConfig where
+instance Core.FromJSON LabelingJobOutputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LabelingJobOutputConfig"
       ( \x ->
           LabelingJobOutputConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..:? "SnsTopicArn")
-            Prelude.<*> (x Prelude..: "S3OutputPath")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..:? "SnsTopicArn")
+            Core.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable LabelingJobOutputConfig
+instance Core.Hashable LabelingJobOutputConfig
 
-instance Prelude.NFData LabelingJobOutputConfig
+instance Core.NFData LabelingJobOutputConfig
 
-instance Prelude.ToJSON LabelingJobOutputConfig where
+instance Core.ToJSON LabelingJobOutputConfig where
   toJSON LabelingJobOutputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            ("SnsTopicArn" Prelude..=) Prelude.<$> snsTopicArn,
-            Prelude.Just
-              ("S3OutputPath" Prelude..= s3OutputPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("SnsTopicArn" Core..=) Core.<$> snsTopicArn,
+            Core.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -162,9 +161,9 @@ module Network.AWS.ECS.UpdateService
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -172,8 +171,8 @@ import qualified Network.AWS.Response as Response
 data UpdateService = UpdateService'
   { -- | Optional deployment parameters that control how many tasks run during
     -- the deployment and the ordering of stopping and starting tasks.
-    deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    deploymentConfiguration :: Core.Maybe DeploymentConfiguration,
+    networkConfiguration :: Core.Maybe NetworkConfiguration,
     -- | The capacity provider strategy to update the service to use.
     --
     -- If the service is using the default capacity provider strategy for the
@@ -202,17 +201,17 @@ data UpdateService = UpdateService'
     -- The PutClusterCapacityProviders API operation is used to update the list
     -- of available capacity providers for a cluster after the cluster is
     -- created.
-    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
+    capacityProviderStrategy :: Core.Maybe [CapacityProviderStrategyItem],
     -- | The number of instantiations of the task to place and keep running in
     -- your service.
-    desiredCount :: Prelude.Maybe Prelude.Int,
+    desiredCount :: Core.Maybe Core.Int,
     -- | The platform version on which your tasks in the service are running. A
     -- platform version is only specified for tasks using the Fargate launch
     -- type. If a platform version is not specified, the @LATEST@ platform
     -- version is used by default. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    platformVersion :: Prelude.Maybe Prelude.Text,
+    platformVersion :: Core.Maybe Core.Text,
     -- | The task placement strategy objects to update the service to use. If no
     -- value is specified, the existing placement strategy for the service will
     -- remain unchanged. If this value is specified, it will override the
@@ -220,7 +219,7 @@ data UpdateService = UpdateService'
     -- existing placement strategy, specify an empty object.
     --
     -- You can specify a maximum of five strategy rules per service.
-    placementStrategy :: Prelude.Maybe [PlacementStrategy],
+    placementStrategy :: Core.Maybe [PlacementStrategy],
     -- | An array of task placement constraint objects to update the service to
     -- use. If no value is specified, the existing placement constraints for
     -- the service will remain unchanged. If this value is specified, it will
@@ -230,7 +229,7 @@ data UpdateService = UpdateService'
     -- You can specify a maximum of 10 constraints per task (this limit
     -- includes constraints in the task definition and those specified at
     -- runtime).
-    placementConstraints :: Prelude.Maybe [PlacementConstraint],
+    placementConstraints :: Core.Maybe [PlacementConstraint],
     -- | The period of time, in seconds, that the Amazon ECS service scheduler
     -- should ignore unhealthy Elastic Load Balancing target health checks
     -- after a task has first started. This is only valid if your service is
@@ -241,29 +240,29 @@ data UpdateService = UpdateService'
     -- Load Balancing health check status. This grace period can prevent the
     -- ECS service scheduler from marking tasks as unhealthy and stopping them
     -- before they have time to come up.
-    healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
+    healthCheckGracePeriodSeconds :: Core.Maybe Core.Int,
     -- | Whether to force a new deployment of the service. Deployments are not
     -- forced by default. You can use this option to trigger a new deployment
     -- with no service definition changes. For example, you can update a
     -- service\'s tasks to use a newer Docker image with the same image\/tag
     -- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
     -- platform version.
-    forceNewDeployment :: Prelude.Maybe Prelude.Bool,
+    forceNewDeployment :: Core.Maybe Core.Bool,
     -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
     -- definition to run in your service. If a @revision@ is not specified, the
     -- latest @ACTIVE@ revision is used. If you modify the task definition with
     -- @UpdateService@, Amazon ECS spawns a task with the new version of the
     -- task definition and then stops an old task after the new version is
     -- running.
-    taskDefinition :: Prelude.Maybe Prelude.Text,
+    taskDefinition :: Core.Maybe Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- your service is running on. If you do not specify a cluster, the default
     -- cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
+    cluster :: Core.Maybe Core.Text,
     -- | The name of the service to update.
-    service :: Prelude.Text
+    service :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateService' with all optional fields omitted.
@@ -367,32 +366,32 @@ data UpdateService = UpdateService'
 -- 'service', 'updateService_service' - The name of the service to update.
 newUpdateService ::
   -- | 'service'
-  Prelude.Text ->
+  Core.Text ->
   UpdateService
 newUpdateService pService_ =
   UpdateService'
     { deploymentConfiguration =
-        Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
-      capacityProviderStrategy = Prelude.Nothing,
-      desiredCount = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
-      placementStrategy = Prelude.Nothing,
-      placementConstraints = Prelude.Nothing,
-      healthCheckGracePeriodSeconds = Prelude.Nothing,
-      forceNewDeployment = Prelude.Nothing,
-      taskDefinition = Prelude.Nothing,
-      cluster = Prelude.Nothing,
+        Core.Nothing,
+      networkConfiguration = Core.Nothing,
+      capacityProviderStrategy = Core.Nothing,
+      desiredCount = Core.Nothing,
+      platformVersion = Core.Nothing,
+      placementStrategy = Core.Nothing,
+      placementConstraints = Core.Nothing,
+      healthCheckGracePeriodSeconds = Core.Nothing,
+      forceNewDeployment = Core.Nothing,
+      taskDefinition = Core.Nothing,
+      cluster = Core.Nothing,
       service = pService_
     }
 
 -- | Optional deployment parameters that control how many tasks run during
 -- the deployment and the ordering of stopping and starting tasks.
-updateService_deploymentConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe DeploymentConfiguration)
+updateService_deploymentConfiguration :: Lens.Lens' UpdateService (Core.Maybe DeploymentConfiguration)
 updateService_deploymentConfiguration = Lens.lens (\UpdateService' {deploymentConfiguration} -> deploymentConfiguration) (\s@UpdateService' {} a -> s {deploymentConfiguration = a} :: UpdateService)
 
 -- | Undocumented member.
-updateService_networkConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe NetworkConfiguration)
+updateService_networkConfiguration :: Lens.Lens' UpdateService (Core.Maybe NetworkConfiguration)
 updateService_networkConfiguration = Lens.lens (\UpdateService' {networkConfiguration} -> networkConfiguration) (\s@UpdateService' {} a -> s {networkConfiguration = a} :: UpdateService)
 
 -- | The capacity provider strategy to update the service to use.
@@ -423,12 +422,12 @@ updateService_networkConfiguration = Lens.lens (\UpdateService' {networkConfigur
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
-updateService_capacityProviderStrategy :: Lens.Lens' UpdateService (Prelude.Maybe [CapacityProviderStrategyItem])
-updateService_capacityProviderStrategy = Lens.lens (\UpdateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@UpdateService' {} a -> s {capacityProviderStrategy = a} :: UpdateService) Prelude.. Lens.mapping Prelude._Coerce
+updateService_capacityProviderStrategy :: Lens.Lens' UpdateService (Core.Maybe [CapacityProviderStrategyItem])
+updateService_capacityProviderStrategy = Lens.lens (\UpdateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@UpdateService' {} a -> s {capacityProviderStrategy = a} :: UpdateService) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of instantiations of the task to place and keep running in
 -- your service.
-updateService_desiredCount :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Int)
+updateService_desiredCount :: Lens.Lens' UpdateService (Core.Maybe Core.Int)
 updateService_desiredCount = Lens.lens (\UpdateService' {desiredCount} -> desiredCount) (\s@UpdateService' {} a -> s {desiredCount = a} :: UpdateService)
 
 -- | The platform version on which your tasks in the service are running. A
@@ -437,7 +436,7 @@ updateService_desiredCount = Lens.lens (\UpdateService' {desiredCount} -> desire
 -- version is used by default. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-updateService_platformVersion :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
+updateService_platformVersion :: Lens.Lens' UpdateService (Core.Maybe Core.Text)
 updateService_platformVersion = Lens.lens (\UpdateService' {platformVersion} -> platformVersion) (\s@UpdateService' {} a -> s {platformVersion = a} :: UpdateService)
 
 -- | The task placement strategy objects to update the service to use. If no
@@ -447,8 +446,8 @@ updateService_platformVersion = Lens.lens (\UpdateService' {platformVersion} -> 
 -- existing placement strategy, specify an empty object.
 --
 -- You can specify a maximum of five strategy rules per service.
-updateService_placementStrategy :: Lens.Lens' UpdateService (Prelude.Maybe [PlacementStrategy])
-updateService_placementStrategy = Lens.lens (\UpdateService' {placementStrategy} -> placementStrategy) (\s@UpdateService' {} a -> s {placementStrategy = a} :: UpdateService) Prelude.. Lens.mapping Prelude._Coerce
+updateService_placementStrategy :: Lens.Lens' UpdateService (Core.Maybe [PlacementStrategy])
+updateService_placementStrategy = Lens.lens (\UpdateService' {placementStrategy} -> placementStrategy) (\s@UpdateService' {} a -> s {placementStrategy = a} :: UpdateService) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of task placement constraint objects to update the service to
 -- use. If no value is specified, the existing placement constraints for
@@ -459,8 +458,8 @@ updateService_placementStrategy = Lens.lens (\UpdateService' {placementStrategy}
 -- You can specify a maximum of 10 constraints per task (this limit
 -- includes constraints in the task definition and those specified at
 -- runtime).
-updateService_placementConstraints :: Lens.Lens' UpdateService (Prelude.Maybe [PlacementConstraint])
-updateService_placementConstraints = Lens.lens (\UpdateService' {placementConstraints} -> placementConstraints) (\s@UpdateService' {} a -> s {placementConstraints = a} :: UpdateService) Prelude.. Lens.mapping Prelude._Coerce
+updateService_placementConstraints :: Lens.Lens' UpdateService (Core.Maybe [PlacementConstraint])
+updateService_placementConstraints = Lens.lens (\UpdateService' {placementConstraints} -> placementConstraints) (\s@UpdateService' {} a -> s {placementConstraints = a} :: UpdateService) Core.. Lens.mapping Lens._Coerce
 
 -- | The period of time, in seconds, that the Amazon ECS service scheduler
 -- should ignore unhealthy Elastic Load Balancing target health checks
@@ -472,7 +471,7 @@ updateService_placementConstraints = Lens.lens (\UpdateService' {placementConstr
 -- Load Balancing health check status. This grace period can prevent the
 -- ECS service scheduler from marking tasks as unhealthy and stopping them
 -- before they have time to come up.
-updateService_healthCheckGracePeriodSeconds :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Int)
+updateService_healthCheckGracePeriodSeconds :: Lens.Lens' UpdateService (Core.Maybe Core.Int)
 updateService_healthCheckGracePeriodSeconds = Lens.lens (\UpdateService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@UpdateService' {} a -> s {healthCheckGracePeriodSeconds = a} :: UpdateService)
 
 -- | Whether to force a new deployment of the service. Deployments are not
@@ -481,7 +480,7 @@ updateService_healthCheckGracePeriodSeconds = Lens.lens (\UpdateService' {health
 -- service\'s tasks to use a newer Docker image with the same image\/tag
 -- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
 -- platform version.
-updateService_forceNewDeployment :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
+updateService_forceNewDeployment :: Lens.Lens' UpdateService (Core.Maybe Core.Bool)
 updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeployment} -> forceNewDeployment) (\s@UpdateService' {} a -> s {forceNewDeployment = a} :: UpdateService)
 
 -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
@@ -490,91 +489,89 @@ updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeploymen
 -- @UpdateService@, Amazon ECS spawns a task with the new version of the
 -- task definition and then stops an old task after the new version is
 -- running.
-updateService_taskDefinition :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
+updateService_taskDefinition :: Lens.Lens' UpdateService (Core.Maybe Core.Text)
 updateService_taskDefinition = Lens.lens (\UpdateService' {taskDefinition} -> taskDefinition) (\s@UpdateService' {} a -> s {taskDefinition = a} :: UpdateService)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your service is running on. If you do not specify a cluster, the default
 -- cluster is assumed.
-updateService_cluster :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
+updateService_cluster :: Lens.Lens' UpdateService (Core.Maybe Core.Text)
 updateService_cluster = Lens.lens (\UpdateService' {cluster} -> cluster) (\s@UpdateService' {} a -> s {cluster = a} :: UpdateService)
 
 -- | The name of the service to update.
-updateService_service :: Lens.Lens' UpdateService Prelude.Text
+updateService_service :: Lens.Lens' UpdateService Core.Text
 updateService_service = Lens.lens (\UpdateService' {service} -> service) (\s@UpdateService' {} a -> s {service = a} :: UpdateService)
 
-instance Prelude.AWSRequest UpdateService where
-  type Rs UpdateService = UpdateServiceResponse
+instance Core.AWSRequest UpdateService where
+  type
+    AWSResponse UpdateService =
+      UpdateServiceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateServiceResponse'
-            Prelude.<$> (x Prelude..?> "service")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "service")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateService
+instance Core.Hashable UpdateService
 
-instance Prelude.NFData UpdateService
+instance Core.NFData UpdateService
 
-instance Prelude.ToHeaders UpdateService where
+instance Core.ToHeaders UpdateService where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateService" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateService" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateService where
+instance Core.ToJSON UpdateService where
   toJSON UpdateService' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deploymentConfiguration" Prelude..=)
-              Prelude.<$> deploymentConfiguration,
-            ("networkConfiguration" Prelude..=)
-              Prelude.<$> networkConfiguration,
-            ("capacityProviderStrategy" Prelude..=)
-              Prelude.<$> capacityProviderStrategy,
-            ("desiredCount" Prelude..=) Prelude.<$> desiredCount,
-            ("platformVersion" Prelude..=)
-              Prelude.<$> platformVersion,
-            ("placementStrategy" Prelude..=)
-              Prelude.<$> placementStrategy,
-            ("placementConstraints" Prelude..=)
-              Prelude.<$> placementConstraints,
-            ("healthCheckGracePeriodSeconds" Prelude..=)
-              Prelude.<$> healthCheckGracePeriodSeconds,
-            ("forceNewDeployment" Prelude..=)
-              Prelude.<$> forceNewDeployment,
-            ("taskDefinition" Prelude..=)
-              Prelude.<$> taskDefinition,
-            ("cluster" Prelude..=) Prelude.<$> cluster,
-            Prelude.Just ("service" Prelude..= service)
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentConfiguration" Core..=)
+              Core.<$> deploymentConfiguration,
+            ("networkConfiguration" Core..=)
+              Core.<$> networkConfiguration,
+            ("capacityProviderStrategy" Core..=)
+              Core.<$> capacityProviderStrategy,
+            ("desiredCount" Core..=) Core.<$> desiredCount,
+            ("platformVersion" Core..=) Core.<$> platformVersion,
+            ("placementStrategy" Core..=)
+              Core.<$> placementStrategy,
+            ("placementConstraints" Core..=)
+              Core.<$> placementConstraints,
+            ("healthCheckGracePeriodSeconds" Core..=)
+              Core.<$> healthCheckGracePeriodSeconds,
+            ("forceNewDeployment" Core..=)
+              Core.<$> forceNewDeployment,
+            ("taskDefinition" Core..=) Core.<$> taskDefinition,
+            ("cluster" Core..=) Core.<$> cluster,
+            Core.Just ("service" Core..= service)
           ]
       )
 
-instance Prelude.ToPath UpdateService where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateService where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateService where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateService where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateServiceResponse' smart constructor.
 data UpdateServiceResponse = UpdateServiceResponse'
   { -- | The full description of your service following the update call.
-    service :: Prelude.Maybe ContainerService,
+    service :: Core.Maybe ContainerService,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceResponse' with all optional fields omitted.
@@ -589,20 +586,20 @@ data UpdateServiceResponse = UpdateServiceResponse'
 -- 'httpStatus', 'updateServiceResponse_httpStatus' - The response's http status code.
 newUpdateServiceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateServiceResponse
 newUpdateServiceResponse pHttpStatus_ =
   UpdateServiceResponse'
-    { service = Prelude.Nothing,
+    { service = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your service following the update call.
-updateServiceResponse_service :: Lens.Lens' UpdateServiceResponse (Prelude.Maybe ContainerService)
+updateServiceResponse_service :: Lens.Lens' UpdateServiceResponse (Core.Maybe ContainerService)
 updateServiceResponse_service = Lens.lens (\UpdateServiceResponse' {service} -> service) (\s@UpdateServiceResponse' {} a -> s {service = a} :: UpdateServiceResponse)
 
 -- | The response's http status code.
-updateServiceResponse_httpStatus :: Lens.Lens' UpdateServiceResponse Prelude.Int
+updateServiceResponse_httpStatus :: Lens.Lens' UpdateServiceResponse Core.Int
 updateServiceResponse_httpStatus = Lens.lens (\UpdateServiceResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceResponse' {} a -> s {httpStatus = a} :: UpdateServiceResponse)
 
-instance Prelude.NFData UpdateServiceResponse
+instance Core.NFData UpdateServiceResponse

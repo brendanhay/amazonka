@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.ScheduledActionFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.ScheduledActionFilterName
 
@@ -33,9 +32,9 @@ data ScheduledActionFilter = ScheduledActionFilter'
     name :: ScheduledActionFilterName,
     -- | List of values. Compare if the value (of type defined by @Name@) equals
     -- an item in the list of scheduled actions.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledActionFilter' with all optional fields omitted.
@@ -56,7 +55,7 @@ newScheduledActionFilter ::
 newScheduledActionFilter pName_ =
   ScheduledActionFilter'
     { name = pName_,
-      values = Prelude.mempty
+      values = Core.mempty
     }
 
 -- | The type of element to filter.
@@ -65,17 +64,16 @@ scheduledActionFilter_name = Lens.lens (\ScheduledActionFilter' {name} -> name) 
 
 -- | List of values. Compare if the value (of type defined by @Name@) equals
 -- an item in the list of scheduled actions.
-scheduledActionFilter_values :: Lens.Lens' ScheduledActionFilter [Prelude.Text]
-scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> values) (\s@ScheduledActionFilter' {} a -> s {values = a} :: ScheduledActionFilter) Prelude.. Prelude._Coerce
+scheduledActionFilter_values :: Lens.Lens' ScheduledActionFilter [Core.Text]
+scheduledActionFilter_values = Lens.lens (\ScheduledActionFilter' {values} -> values) (\s@ScheduledActionFilter' {} a -> s {values = a} :: ScheduledActionFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable ScheduledActionFilter
+instance Core.Hashable ScheduledActionFilter
 
-instance Prelude.NFData ScheduledActionFilter
+instance Core.NFData ScheduledActionFilter
 
-instance Prelude.ToQuery ScheduledActionFilter where
+instance Core.ToQuery ScheduledActionFilter where
   toQuery ScheduledActionFilter' {..} =
-    Prelude.mconcat
-      [ "Name" Prelude.=: name,
-        "Values"
-          Prelude.=: Prelude.toQueryList "item" values
+    Core.mconcat
+      [ "Name" Core.=: name,
+        "Values" Core.=: Core.toQueryList "item" values
       ]

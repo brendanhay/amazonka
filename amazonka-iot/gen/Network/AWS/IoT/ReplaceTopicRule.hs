@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IoT.ReplaceTopicRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newReplaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
   { -- | The name of the rule.
-    ruleName :: Prelude.Text,
+    ruleName :: Core.Text,
     -- | The rule payload.
     topicRulePayload :: TopicRulePayload
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceTopicRule' with all optional fields omitted.
@@ -70,7 +69,7 @@ data ReplaceTopicRule = ReplaceTopicRule'
 -- 'topicRulePayload', 'replaceTopicRule_topicRulePayload' - The rule payload.
 newReplaceTopicRule ::
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'topicRulePayload'
   TopicRulePayload ->
   ReplaceTopicRule
@@ -81,47 +80,49 @@ newReplaceTopicRule pRuleName_ pTopicRulePayload_ =
     }
 
 -- | The name of the rule.
-replaceTopicRule_ruleName :: Lens.Lens' ReplaceTopicRule Prelude.Text
+replaceTopicRule_ruleName :: Lens.Lens' ReplaceTopicRule Core.Text
 replaceTopicRule_ruleName = Lens.lens (\ReplaceTopicRule' {ruleName} -> ruleName) (\s@ReplaceTopicRule' {} a -> s {ruleName = a} :: ReplaceTopicRule)
 
 -- | The rule payload.
 replaceTopicRule_topicRulePayload :: Lens.Lens' ReplaceTopicRule TopicRulePayload
 replaceTopicRule_topicRulePayload = Lens.lens (\ReplaceTopicRule' {topicRulePayload} -> topicRulePayload) (\s@ReplaceTopicRule' {} a -> s {topicRulePayload = a} :: ReplaceTopicRule)
 
-instance Prelude.AWSRequest ReplaceTopicRule where
-  type Rs ReplaceTopicRule = ReplaceTopicRuleResponse
+instance Core.AWSRequest ReplaceTopicRule where
+  type
+    AWSResponse ReplaceTopicRule =
+      ReplaceTopicRuleResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveNull ReplaceTopicRuleResponse'
 
-instance Prelude.Hashable ReplaceTopicRule
+instance Core.Hashable ReplaceTopicRule
 
-instance Prelude.NFData ReplaceTopicRule
+instance Core.NFData ReplaceTopicRule
 
-instance Prelude.ToHeaders ReplaceTopicRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReplaceTopicRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON ReplaceTopicRule where
+instance Core.ToJSON ReplaceTopicRule where
   toJSON ReplaceTopicRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("topicRulePayload" Prelude..= topicRulePayload)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("topicRulePayload" Core..= topicRulePayload)
           ]
       )
 
-instance Prelude.ToPath ReplaceTopicRule where
+instance Core.ToPath ReplaceTopicRule where
   toPath ReplaceTopicRule' {..} =
-    Prelude.mconcat ["/rules/", Prelude.toBS ruleName]
+    Core.mconcat ["/rules/", Core.toBS ruleName]
 
-instance Prelude.ToQuery ReplaceTopicRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ReplaceTopicRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newReplaceTopicRuleResponse' smart constructor.
 data ReplaceTopicRuleResponse = ReplaceTopicRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceTopicRuleResponse' with all optional fields omitted.
@@ -132,4 +133,4 @@ newReplaceTopicRuleResponse ::
 newReplaceTopicRuleResponse =
   ReplaceTopicRuleResponse'
 
-instance Prelude.NFData ReplaceTopicRuleResponse
+instance Core.NFData ReplaceTopicRuleResponse

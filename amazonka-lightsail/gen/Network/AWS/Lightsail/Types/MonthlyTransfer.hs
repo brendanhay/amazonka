@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.MonthlyTransfer where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monthly data transfer in and out of your virtual private
 -- server (or /instance/).
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMonthlyTransfer' smart constructor.
 data MonthlyTransfer = MonthlyTransfer'
   { -- | The amount allocated per month (in GB).
-    gbPerMonthAllocated :: Prelude.Maybe Prelude.Int
+    gbPerMonthAllocated :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonthlyTransfer' with all optional fields omitted.
@@ -47,22 +46,22 @@ newMonthlyTransfer ::
 newMonthlyTransfer =
   MonthlyTransfer'
     { gbPerMonthAllocated =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The amount allocated per month (in GB).
-monthlyTransfer_gbPerMonthAllocated :: Lens.Lens' MonthlyTransfer (Prelude.Maybe Prelude.Int)
+monthlyTransfer_gbPerMonthAllocated :: Lens.Lens' MonthlyTransfer (Core.Maybe Core.Int)
 monthlyTransfer_gbPerMonthAllocated = Lens.lens (\MonthlyTransfer' {gbPerMonthAllocated} -> gbPerMonthAllocated) (\s@MonthlyTransfer' {} a -> s {gbPerMonthAllocated = a} :: MonthlyTransfer)
 
-instance Prelude.FromJSON MonthlyTransfer where
+instance Core.FromJSON MonthlyTransfer where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonthlyTransfer"
       ( \x ->
           MonthlyTransfer'
-            Prelude.<$> (x Prelude..:? "gbPerMonthAllocated")
+            Core.<$> (x Core..:? "gbPerMonthAllocated")
       )
 
-instance Prelude.Hashable MonthlyTransfer
+instance Core.Hashable MonthlyTransfer
 
-instance Prelude.NFData MonthlyTransfer
+instance Core.NFData MonthlyTransfer

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.IoT.ClearDefaultAuthorizer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,7 +45,7 @@ import qualified Network.AWS.Response as Response
 data ClearDefaultAuthorizer = ClearDefaultAuthorizer'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClearDefaultAuthorizer' with all optional fields omitted.
@@ -56,37 +55,37 @@ newClearDefaultAuthorizer ::
   ClearDefaultAuthorizer
 newClearDefaultAuthorizer = ClearDefaultAuthorizer'
 
-instance Prelude.AWSRequest ClearDefaultAuthorizer where
+instance Core.AWSRequest ClearDefaultAuthorizer where
   type
-    Rs ClearDefaultAuthorizer =
+    AWSResponse ClearDefaultAuthorizer =
       ClearDefaultAuthorizerResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ClearDefaultAuthorizerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ClearDefaultAuthorizer
+instance Core.Hashable ClearDefaultAuthorizer
 
-instance Prelude.NFData ClearDefaultAuthorizer
+instance Core.NFData ClearDefaultAuthorizer
 
-instance Prelude.ToHeaders ClearDefaultAuthorizer where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ClearDefaultAuthorizer where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ClearDefaultAuthorizer where
-  toPath = Prelude.const "/default-authorizer"
+instance Core.ToPath ClearDefaultAuthorizer where
+  toPath = Core.const "/default-authorizer"
 
-instance Prelude.ToQuery ClearDefaultAuthorizer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ClearDefaultAuthorizer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newClearDefaultAuthorizerResponse' smart constructor.
 data ClearDefaultAuthorizerResponse = ClearDefaultAuthorizerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClearDefaultAuthorizerResponse' with all optional fields omitted.
@@ -99,7 +98,7 @@ data ClearDefaultAuthorizerResponse = ClearDefaultAuthorizerResponse'
 -- 'httpStatus', 'clearDefaultAuthorizerResponse_httpStatus' - The response's http status code.
 newClearDefaultAuthorizerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ClearDefaultAuthorizerResponse
 newClearDefaultAuthorizerResponse pHttpStatus_ =
   ClearDefaultAuthorizerResponse'
@@ -108,9 +107,7 @@ newClearDefaultAuthorizerResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-clearDefaultAuthorizerResponse_httpStatus :: Lens.Lens' ClearDefaultAuthorizerResponse Prelude.Int
+clearDefaultAuthorizerResponse_httpStatus :: Lens.Lens' ClearDefaultAuthorizerResponse Core.Int
 clearDefaultAuthorizerResponse_httpStatus = Lens.lens (\ClearDefaultAuthorizerResponse' {httpStatus} -> httpStatus) (\s@ClearDefaultAuthorizerResponse' {} a -> s {httpStatus = a} :: ClearDefaultAuthorizerResponse)
 
-instance
-  Prelude.NFData
-    ClearDefaultAuthorizerResponse
+instance Core.NFData ClearDefaultAuthorizerResponse

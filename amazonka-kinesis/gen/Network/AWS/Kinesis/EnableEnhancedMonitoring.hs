@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Kinesis.EnableEnhancedMonitoring
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newEnableEnhancedMonitoring' smart constructor.
 data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
   { -- | The name of the stream for which to enable enhanced monitoring.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | List of shard-level metrics to enable.
     --
     -- The following are the valid shard-level metrics. The value \"@ALL@\"
@@ -80,7 +79,7 @@ data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
     -- in the /Amazon Kinesis Data Streams Developer Guide/.
     shardLevelMetrics :: [MetricsName]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableEnhancedMonitoring' with all optional fields omitted.
@@ -118,17 +117,17 @@ data EnableEnhancedMonitoring = EnableEnhancedMonitoring'
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 newEnableEnhancedMonitoring ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   EnableEnhancedMonitoring
 newEnableEnhancedMonitoring pStreamName_ =
   EnableEnhancedMonitoring'
     { streamName =
         pStreamName_,
-      shardLevelMetrics = Prelude.mempty
+      shardLevelMetrics = Core.mempty
     }
 
 -- | The name of the stream for which to enable enhanced monitoring.
-enableEnhancedMonitoring_streamName :: Lens.Lens' EnableEnhancedMonitoring Prelude.Text
+enableEnhancedMonitoring_streamName :: Lens.Lens' EnableEnhancedMonitoring Core.Text
 enableEnhancedMonitoring_streamName = Lens.lens (\EnableEnhancedMonitoring' {streamName} -> streamName) (\s@EnableEnhancedMonitoring' {} a -> s {streamName = a} :: EnableEnhancedMonitoring)
 
 -- | List of shard-level metrics to enable.
@@ -156,48 +155,46 @@ enableEnhancedMonitoring_streamName = Lens.lens (\EnableEnhancedMonitoring' {str
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 enableEnhancedMonitoring_shardLevelMetrics :: Lens.Lens' EnableEnhancedMonitoring [MetricsName]
-enableEnhancedMonitoring_shardLevelMetrics = Lens.lens (\EnableEnhancedMonitoring' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnableEnhancedMonitoring' {} a -> s {shardLevelMetrics = a} :: EnableEnhancedMonitoring) Prelude.. Prelude._Coerce
+enableEnhancedMonitoring_shardLevelMetrics = Lens.lens (\EnableEnhancedMonitoring' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnableEnhancedMonitoring' {} a -> s {shardLevelMetrics = a} :: EnableEnhancedMonitoring) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest EnableEnhancedMonitoring where
+instance Core.AWSRequest EnableEnhancedMonitoring where
   type
-    Rs EnableEnhancedMonitoring =
+    AWSResponse EnableEnhancedMonitoring =
       EnhancedMonitoringOutput
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable EnableEnhancedMonitoring
+instance Core.Hashable EnableEnhancedMonitoring
 
-instance Prelude.NFData EnableEnhancedMonitoring
+instance Core.NFData EnableEnhancedMonitoring
 
-instance Prelude.ToHeaders EnableEnhancedMonitoring where
+instance Core.ToHeaders EnableEnhancedMonitoring where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.EnableEnhancedMonitoring" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.EnableEnhancedMonitoring" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableEnhancedMonitoring where
+instance Core.ToJSON EnableEnhancedMonitoring where
   toJSON EnableEnhancedMonitoring' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
-              ("ShardLevelMetrics" Prelude..= shardLevelMetrics)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just
+              ("ShardLevelMetrics" Core..= shardLevelMetrics)
           ]
       )
 
-instance Prelude.ToPath EnableEnhancedMonitoring where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableEnhancedMonitoring where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableEnhancedMonitoring where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableEnhancedMonitoring where
+  toQuery = Core.const Core.mempty

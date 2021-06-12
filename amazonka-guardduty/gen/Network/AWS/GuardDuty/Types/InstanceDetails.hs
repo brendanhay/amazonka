@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,46 +19,46 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.InstanceDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.IamInstanceProfile
 import Network.AWS.GuardDuty.Types.NetworkInterface
 import Network.AWS.GuardDuty.Types.ProductCode
 import Network.AWS.GuardDuty.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the details of an instance.
 --
 -- /See:/ 'newInstanceDetails' smart constructor.
 data InstanceDetails = InstanceDetails'
   { -- | The platform of the EC2 instance.
-    platform :: Prelude.Maybe Prelude.Text,
+    platform :: Core.Maybe Core.Text,
     -- | The ID of the EC2 instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The type of the EC2 instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
     -- AWS Outposts instances.
-    outpostArn :: Prelude.Maybe Prelude.Text,
+    outpostArn :: Core.Maybe Core.Text,
     -- | The launch time of the EC2 instance.
-    launchTime :: Prelude.Maybe Prelude.Text,
+    launchTime :: Core.Maybe Core.Text,
     -- | The product code of the EC2 instance.
-    productCodes :: Prelude.Maybe [ProductCode],
+    productCodes :: Core.Maybe [ProductCode],
     -- | The image ID of the EC2 instance.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | The profile information of the EC2 instance.
-    iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
+    iamInstanceProfile :: Core.Maybe IamInstanceProfile,
     -- | The Availability Zone of the EC2 instance.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The tags of the EC2 instance.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The image description of the EC2 instance.
-    imageDescription :: Prelude.Maybe Prelude.Text,
+    imageDescription :: Core.Maybe Core.Text,
     -- | The state of the EC2 instance.
-    instanceState :: Prelude.Maybe Prelude.Text,
+    instanceState :: Core.Maybe Core.Text,
     -- | The elastic network interface information of the EC2 instance.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface]
+    networkInterfaces :: Core.Maybe [NetworkInterface]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceDetails' with all optional fields omitted.
@@ -99,99 +98,97 @@ newInstanceDetails ::
   InstanceDetails
 newInstanceDetails =
   InstanceDetails'
-    { platform = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
-      launchTime = Prelude.Nothing,
-      productCodes = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      iamInstanceProfile = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      imageDescription = Prelude.Nothing,
-      instanceState = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing
+    { platform = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceType = Core.Nothing,
+      outpostArn = Core.Nothing,
+      launchTime = Core.Nothing,
+      productCodes = Core.Nothing,
+      imageId = Core.Nothing,
+      iamInstanceProfile = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      tags = Core.Nothing,
+      imageDescription = Core.Nothing,
+      instanceState = Core.Nothing,
+      networkInterfaces = Core.Nothing
     }
 
 -- | The platform of the EC2 instance.
-instanceDetails_platform :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_platform :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_platform = Lens.lens (\InstanceDetails' {platform} -> platform) (\s@InstanceDetails' {} a -> s {platform = a} :: InstanceDetails)
 
 -- | The ID of the EC2 instance.
-instanceDetails_instanceId :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_instanceId :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_instanceId = Lens.lens (\InstanceDetails' {instanceId} -> instanceId) (\s@InstanceDetails' {} a -> s {instanceId = a} :: InstanceDetails)
 
 -- | The type of the EC2 instance.
-instanceDetails_instanceType :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_instanceType :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_instanceType = Lens.lens (\InstanceDetails' {instanceType} -> instanceType) (\s@InstanceDetails' {} a -> s {instanceType = a} :: InstanceDetails)
 
 -- | The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
 -- AWS Outposts instances.
-instanceDetails_outpostArn :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_outpostArn :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_outpostArn = Lens.lens (\InstanceDetails' {outpostArn} -> outpostArn) (\s@InstanceDetails' {} a -> s {outpostArn = a} :: InstanceDetails)
 
 -- | The launch time of the EC2 instance.
-instanceDetails_launchTime :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_launchTime :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_launchTime = Lens.lens (\InstanceDetails' {launchTime} -> launchTime) (\s@InstanceDetails' {} a -> s {launchTime = a} :: InstanceDetails)
 
 -- | The product code of the EC2 instance.
-instanceDetails_productCodes :: Lens.Lens' InstanceDetails (Prelude.Maybe [ProductCode])
-instanceDetails_productCodes = Lens.lens (\InstanceDetails' {productCodes} -> productCodes) (\s@InstanceDetails' {} a -> s {productCodes = a} :: InstanceDetails) Prelude.. Lens.mapping Prelude._Coerce
+instanceDetails_productCodes :: Lens.Lens' InstanceDetails (Core.Maybe [ProductCode])
+instanceDetails_productCodes = Lens.lens (\InstanceDetails' {productCodes} -> productCodes) (\s@InstanceDetails' {} a -> s {productCodes = a} :: InstanceDetails) Core.. Lens.mapping Lens._Coerce
 
 -- | The image ID of the EC2 instance.
-instanceDetails_imageId :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_imageId :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_imageId = Lens.lens (\InstanceDetails' {imageId} -> imageId) (\s@InstanceDetails' {} a -> s {imageId = a} :: InstanceDetails)
 
 -- | The profile information of the EC2 instance.
-instanceDetails_iamInstanceProfile :: Lens.Lens' InstanceDetails (Prelude.Maybe IamInstanceProfile)
+instanceDetails_iamInstanceProfile :: Lens.Lens' InstanceDetails (Core.Maybe IamInstanceProfile)
 instanceDetails_iamInstanceProfile = Lens.lens (\InstanceDetails' {iamInstanceProfile} -> iamInstanceProfile) (\s@InstanceDetails' {} a -> s {iamInstanceProfile = a} :: InstanceDetails)
 
 -- | The Availability Zone of the EC2 instance.
-instanceDetails_availabilityZone :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_availabilityZone :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_availabilityZone = Lens.lens (\InstanceDetails' {availabilityZone} -> availabilityZone) (\s@InstanceDetails' {} a -> s {availabilityZone = a} :: InstanceDetails)
 
 -- | The tags of the EC2 instance.
-instanceDetails_tags :: Lens.Lens' InstanceDetails (Prelude.Maybe [Tag])
-instanceDetails_tags = Lens.lens (\InstanceDetails' {tags} -> tags) (\s@InstanceDetails' {} a -> s {tags = a} :: InstanceDetails) Prelude.. Lens.mapping Prelude._Coerce
+instanceDetails_tags :: Lens.Lens' InstanceDetails (Core.Maybe [Tag])
+instanceDetails_tags = Lens.lens (\InstanceDetails' {tags} -> tags) (\s@InstanceDetails' {} a -> s {tags = a} :: InstanceDetails) Core.. Lens.mapping Lens._Coerce
 
 -- | The image description of the EC2 instance.
-instanceDetails_imageDescription :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_imageDescription :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_imageDescription = Lens.lens (\InstanceDetails' {imageDescription} -> imageDescription) (\s@InstanceDetails' {} a -> s {imageDescription = a} :: InstanceDetails)
 
 -- | The state of the EC2 instance.
-instanceDetails_instanceState :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
+instanceDetails_instanceState :: Lens.Lens' InstanceDetails (Core.Maybe Core.Text)
 instanceDetails_instanceState = Lens.lens (\InstanceDetails' {instanceState} -> instanceState) (\s@InstanceDetails' {} a -> s {instanceState = a} :: InstanceDetails)
 
 -- | The elastic network interface information of the EC2 instance.
-instanceDetails_networkInterfaces :: Lens.Lens' InstanceDetails (Prelude.Maybe [NetworkInterface])
-instanceDetails_networkInterfaces = Lens.lens (\InstanceDetails' {networkInterfaces} -> networkInterfaces) (\s@InstanceDetails' {} a -> s {networkInterfaces = a} :: InstanceDetails) Prelude.. Lens.mapping Prelude._Coerce
+instanceDetails_networkInterfaces :: Lens.Lens' InstanceDetails (Core.Maybe [NetworkInterface])
+instanceDetails_networkInterfaces = Lens.lens (\InstanceDetails' {networkInterfaces} -> networkInterfaces) (\s@InstanceDetails' {} a -> s {networkInterfaces = a} :: InstanceDetails) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON InstanceDetails where
+instance Core.FromJSON InstanceDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceDetails"
       ( \x ->
           InstanceDetails'
-            Prelude.<$> (x Prelude..:? "platform")
-            Prelude.<*> (x Prelude..:? "instanceId")
-            Prelude.<*> (x Prelude..:? "instanceType")
-            Prelude.<*> (x Prelude..:? "outpostArn")
-            Prelude.<*> (x Prelude..:? "launchTime")
-            Prelude.<*> ( x Prelude..:? "productCodes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "imageId")
-            Prelude.<*> (x Prelude..:? "iamInstanceProfile")
-            Prelude.<*> (x Prelude..:? "availabilityZone")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "imageDescription")
-            Prelude.<*> (x Prelude..:? "instanceState")
-            Prelude.<*> ( x Prelude..:? "networkInterfaces"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "platform")
+            Core.<*> (x Core..:? "instanceId")
+            Core.<*> (x Core..:? "instanceType")
+            Core.<*> (x Core..:? "outpostArn")
+            Core.<*> (x Core..:? "launchTime")
+            Core.<*> (x Core..:? "productCodes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "imageId")
+            Core.<*> (x Core..:? "iamInstanceProfile")
+            Core.<*> (x Core..:? "availabilityZone")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "imageDescription")
+            Core.<*> (x Core..:? "instanceState")
+            Core.<*> ( x Core..:? "networkInterfaces"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable InstanceDetails
+instance Core.Hashable InstanceDetails
 
-instance Prelude.NFData InstanceDetails
+instance Core.NFData InstanceDetails

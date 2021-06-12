@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.AttachVpnGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +60,13 @@ data AttachVpnGateway = AttachVpnGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text,
+    vpcId :: Core.Text,
     -- | The ID of the virtual private gateway.
-    vpnGatewayId :: Prelude.Text
+    vpnGatewayId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachVpnGateway' with all optional fields omitted.
@@ -87,13 +86,13 @@ data AttachVpnGateway = AttachVpnGateway'
 -- 'vpnGatewayId', 'attachVpnGateway_vpnGatewayId' - The ID of the virtual private gateway.
 newAttachVpnGateway ::
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpnGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   AttachVpnGateway
 newAttachVpnGateway pVpcId_ pVpnGatewayId_ =
   AttachVpnGateway'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       vpcId = pVpcId_,
       vpnGatewayId = pVpnGatewayId_
     }
@@ -102,48 +101,49 @@ newAttachVpnGateway pVpcId_ pVpnGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-attachVpnGateway_dryRun :: Lens.Lens' AttachVpnGateway (Prelude.Maybe Prelude.Bool)
+attachVpnGateway_dryRun :: Lens.Lens' AttachVpnGateway (Core.Maybe Core.Bool)
 attachVpnGateway_dryRun = Lens.lens (\AttachVpnGateway' {dryRun} -> dryRun) (\s@AttachVpnGateway' {} a -> s {dryRun = a} :: AttachVpnGateway)
 
 -- | The ID of the VPC.
-attachVpnGateway_vpcId :: Lens.Lens' AttachVpnGateway Prelude.Text
+attachVpnGateway_vpcId :: Lens.Lens' AttachVpnGateway Core.Text
 attachVpnGateway_vpcId = Lens.lens (\AttachVpnGateway' {vpcId} -> vpcId) (\s@AttachVpnGateway' {} a -> s {vpcId = a} :: AttachVpnGateway)
 
 -- | The ID of the virtual private gateway.
-attachVpnGateway_vpnGatewayId :: Lens.Lens' AttachVpnGateway Prelude.Text
+attachVpnGateway_vpnGatewayId :: Lens.Lens' AttachVpnGateway Core.Text
 attachVpnGateway_vpnGatewayId = Lens.lens (\AttachVpnGateway' {vpnGatewayId} -> vpnGatewayId) (\s@AttachVpnGateway' {} a -> s {vpnGatewayId = a} :: AttachVpnGateway)
 
-instance Prelude.AWSRequest AttachVpnGateway where
-  type Rs AttachVpnGateway = AttachVpnGatewayResponse
+instance Core.AWSRequest AttachVpnGateway where
+  type
+    AWSResponse AttachVpnGateway =
+      AttachVpnGatewayResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           AttachVpnGatewayResponse'
-            Prelude.<$> (x Prelude..@? "attachment")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "attachment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AttachVpnGateway
+instance Core.Hashable AttachVpnGateway
 
-instance Prelude.NFData AttachVpnGateway
+instance Core.NFData AttachVpnGateway
 
-instance Prelude.ToHeaders AttachVpnGateway where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AttachVpnGateway where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AttachVpnGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachVpnGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachVpnGateway where
+instance Core.ToQuery AttachVpnGateway where
   toQuery AttachVpnGateway' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AttachVpnGateway" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "VpcId" Prelude.=: vpcId,
-        "VpnGatewayId" Prelude.=: vpnGatewayId
+          Core.=: ("AttachVpnGateway" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "VpcId" Core.=: vpcId,
+        "VpnGatewayId" Core.=: vpnGatewayId
       ]
 
 -- | Contains the output of AttachVpnGateway.
@@ -151,11 +151,11 @@ instance Prelude.ToQuery AttachVpnGateway where
 -- /See:/ 'newAttachVpnGatewayResponse' smart constructor.
 data AttachVpnGatewayResponse = AttachVpnGatewayResponse'
   { -- | Information about the attachment.
-    vpcAttachment :: Prelude.Maybe VpcAttachment,
+    vpcAttachment :: Core.Maybe VpcAttachment,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachVpnGatewayResponse' with all optional fields omitted.
@@ -170,21 +170,21 @@ data AttachVpnGatewayResponse = AttachVpnGatewayResponse'
 -- 'httpStatus', 'attachVpnGatewayResponse_httpStatus' - The response's http status code.
 newAttachVpnGatewayResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachVpnGatewayResponse
 newAttachVpnGatewayResponse pHttpStatus_ =
   AttachVpnGatewayResponse'
     { vpcAttachment =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the attachment.
-attachVpnGatewayResponse_vpcAttachment :: Lens.Lens' AttachVpnGatewayResponse (Prelude.Maybe VpcAttachment)
+attachVpnGatewayResponse_vpcAttachment :: Lens.Lens' AttachVpnGatewayResponse (Core.Maybe VpcAttachment)
 attachVpnGatewayResponse_vpcAttachment = Lens.lens (\AttachVpnGatewayResponse' {vpcAttachment} -> vpcAttachment) (\s@AttachVpnGatewayResponse' {} a -> s {vpcAttachment = a} :: AttachVpnGatewayResponse)
 
 -- | The response's http status code.
-attachVpnGatewayResponse_httpStatus :: Lens.Lens' AttachVpnGatewayResponse Prelude.Int
+attachVpnGatewayResponse_httpStatus :: Lens.Lens' AttachVpnGatewayResponse Core.Int
 attachVpnGatewayResponse_httpStatus = Lens.lens (\AttachVpnGatewayResponse' {httpStatus} -> httpStatus) (\s@AttachVpnGatewayResponse' {} a -> s {httpStatus = a} :: AttachVpnGatewayResponse)
 
-instance Prelude.NFData AttachVpnGatewayResponse
+instance Core.NFData AttachVpnGatewayResponse

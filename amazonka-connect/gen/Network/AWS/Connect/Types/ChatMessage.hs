@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.ChatMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A chat message.
 --
 -- /See:/ 'newChatMessage' smart constructor.
 data ChatMessage = ChatMessage'
   { -- | The type of the content. Supported types are text and plain.
-    contentType :: Prelude.Text,
+    contentType :: Core.Text,
     -- | The content of the chat message.
-    content :: Prelude.Text
+    content :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChatMessage' with all optional fields omitted.
@@ -47,9 +46,9 @@ data ChatMessage = ChatMessage'
 -- 'content', 'chatMessage_content' - The content of the chat message.
 newChatMessage ::
   -- | 'contentType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'content'
-  Prelude.Text ->
+  Core.Text ->
   ChatMessage
 newChatMessage pContentType_ pContent_ =
   ChatMessage'
@@ -58,22 +57,22 @@ newChatMessage pContentType_ pContent_ =
     }
 
 -- | The type of the content. Supported types are text and plain.
-chatMessage_contentType :: Lens.Lens' ChatMessage Prelude.Text
+chatMessage_contentType :: Lens.Lens' ChatMessage Core.Text
 chatMessage_contentType = Lens.lens (\ChatMessage' {contentType} -> contentType) (\s@ChatMessage' {} a -> s {contentType = a} :: ChatMessage)
 
 -- | The content of the chat message.
-chatMessage_content :: Lens.Lens' ChatMessage Prelude.Text
+chatMessage_content :: Lens.Lens' ChatMessage Core.Text
 chatMessage_content = Lens.lens (\ChatMessage' {content} -> content) (\s@ChatMessage' {} a -> s {content = a} :: ChatMessage)
 
-instance Prelude.Hashable ChatMessage
+instance Core.Hashable ChatMessage
 
-instance Prelude.NFData ChatMessage
+instance Core.NFData ChatMessage
 
-instance Prelude.ToJSON ChatMessage where
+instance Core.ToJSON ChatMessage where
   toJSON ChatMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ContentType" Prelude..= contentType),
-            Prelude.Just ("Content" Prelude..= content)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContentType" Core..= contentType),
+            Core.Just ("Content" Core..= content)
           ]
       )

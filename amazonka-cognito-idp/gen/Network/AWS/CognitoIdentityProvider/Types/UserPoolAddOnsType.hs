@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.UserPoolAddOnsType where
 
 import Network.AWS.CognitoIdentityProvider.Types.AdvancedSecurityModeType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The user pool add-ons type.
 --
@@ -31,7 +30,7 @@ data UserPoolAddOnsType = UserPoolAddOnsType'
   { -- | The advanced security mode.
     advancedSecurityMode :: AdvancedSecurityModeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserPoolAddOnsType' with all optional fields omitted.
@@ -56,26 +55,26 @@ newUserPoolAddOnsType pAdvancedSecurityMode_ =
 userPoolAddOnsType_advancedSecurityMode :: Lens.Lens' UserPoolAddOnsType AdvancedSecurityModeType
 userPoolAddOnsType_advancedSecurityMode = Lens.lens (\UserPoolAddOnsType' {advancedSecurityMode} -> advancedSecurityMode) (\s@UserPoolAddOnsType' {} a -> s {advancedSecurityMode = a} :: UserPoolAddOnsType)
 
-instance Prelude.FromJSON UserPoolAddOnsType where
+instance Core.FromJSON UserPoolAddOnsType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserPoolAddOnsType"
       ( \x ->
           UserPoolAddOnsType'
-            Prelude.<$> (x Prelude..: "AdvancedSecurityMode")
+            Core.<$> (x Core..: "AdvancedSecurityMode")
       )
 
-instance Prelude.Hashable UserPoolAddOnsType
+instance Core.Hashable UserPoolAddOnsType
 
-instance Prelude.NFData UserPoolAddOnsType
+instance Core.NFData UserPoolAddOnsType
 
-instance Prelude.ToJSON UserPoolAddOnsType where
+instance Core.ToJSON UserPoolAddOnsType where
   toJSON UserPoolAddOnsType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "AdvancedSecurityMode"
-                  Prelude..= advancedSecurityMode
+                  Core..= advancedSecurityMode
               )
           ]
       )

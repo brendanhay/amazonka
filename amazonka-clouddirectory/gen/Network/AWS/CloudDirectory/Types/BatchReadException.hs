@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.BatchReadException where
 
 import Network.AWS.CloudDirectory.Types.BatchReadExceptionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The batch read exception structure, which contains the exception type
 -- and message.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchReadException' smart constructor.
 data BatchReadException = BatchReadException'
   { -- | An exception message that is associated with the failure.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | A type of exception, such as @InvalidArnException@.
-    type' :: Prelude.Maybe BatchReadExceptionType
+    type' :: Core.Maybe BatchReadExceptionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchReadException' with all optional fields omitted.
@@ -51,28 +50,27 @@ newBatchReadException ::
   BatchReadException
 newBatchReadException =
   BatchReadException'
-    { message = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { message = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | An exception message that is associated with the failure.
-batchReadException_message :: Lens.Lens' BatchReadException (Prelude.Maybe Prelude.Text)
+batchReadException_message :: Lens.Lens' BatchReadException (Core.Maybe Core.Text)
 batchReadException_message = Lens.lens (\BatchReadException' {message} -> message) (\s@BatchReadException' {} a -> s {message = a} :: BatchReadException)
 
 -- | A type of exception, such as @InvalidArnException@.
-batchReadException_type :: Lens.Lens' BatchReadException (Prelude.Maybe BatchReadExceptionType)
+batchReadException_type :: Lens.Lens' BatchReadException (Core.Maybe BatchReadExceptionType)
 batchReadException_type = Lens.lens (\BatchReadException' {type'} -> type') (\s@BatchReadException' {} a -> s {type' = a} :: BatchReadException)
 
-instance Prelude.FromJSON BatchReadException where
+instance Core.FromJSON BatchReadException where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchReadException"
       ( \x ->
           BatchReadException'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable BatchReadException
+instance Core.Hashable BatchReadException
 
-instance Prelude.NFData BatchReadException
+instance Core.NFData BatchReadException

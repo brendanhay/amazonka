@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.PublicKeyConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information about a public key that you can use with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
@@ -31,19 +30,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPublicKeyConfig' smart constructor.
 data PublicKeyConfig = PublicKeyConfig'
   { -- | A comment to describe the public key.
-    comment :: Prelude.Maybe Prelude.Text,
+    comment :: Core.Maybe Core.Text,
     -- | A string included in the request to help make sure that the request
     -- can’t be replayed.
-    callerReference :: Prelude.Text,
+    callerReference :: Core.Text,
     -- | A name to help identify the public key.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The public key that you can use with
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
     -- or with
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
-    encodedKey :: Prelude.Text
+    encodedKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PublicKeyConfig' with all optional fields omitted.
@@ -66,60 +65,60 @@ data PublicKeyConfig = PublicKeyConfig'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
 newPublicKeyConfig ::
   -- | 'callerReference'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'encodedKey'
-  Prelude.Text ->
+  Core.Text ->
   PublicKeyConfig
 newPublicKeyConfig
   pCallerReference_
   pName_
   pEncodedKey_ =
     PublicKeyConfig'
-      { comment = Prelude.Nothing,
+      { comment = Core.Nothing,
         callerReference = pCallerReference_,
         name = pName_,
         encodedKey = pEncodedKey_
       }
 
 -- | A comment to describe the public key.
-publicKeyConfig_comment :: Lens.Lens' PublicKeyConfig (Prelude.Maybe Prelude.Text)
+publicKeyConfig_comment :: Lens.Lens' PublicKeyConfig (Core.Maybe Core.Text)
 publicKeyConfig_comment = Lens.lens (\PublicKeyConfig' {comment} -> comment) (\s@PublicKeyConfig' {} a -> s {comment = a} :: PublicKeyConfig)
 
 -- | A string included in the request to help make sure that the request
 -- can’t be replayed.
-publicKeyConfig_callerReference :: Lens.Lens' PublicKeyConfig Prelude.Text
+publicKeyConfig_callerReference :: Lens.Lens' PublicKeyConfig Core.Text
 publicKeyConfig_callerReference = Lens.lens (\PublicKeyConfig' {callerReference} -> callerReference) (\s@PublicKeyConfig' {} a -> s {callerReference = a} :: PublicKeyConfig)
 
 -- | A name to help identify the public key.
-publicKeyConfig_name :: Lens.Lens' PublicKeyConfig Prelude.Text
+publicKeyConfig_name :: Lens.Lens' PublicKeyConfig Core.Text
 publicKeyConfig_name = Lens.lens (\PublicKeyConfig' {name} -> name) (\s@PublicKeyConfig' {} a -> s {name = a} :: PublicKeyConfig)
 
 -- | The public key that you can use with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
 -- or with
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
-publicKeyConfig_encodedKey :: Lens.Lens' PublicKeyConfig Prelude.Text
+publicKeyConfig_encodedKey :: Lens.Lens' PublicKeyConfig Core.Text
 publicKeyConfig_encodedKey = Lens.lens (\PublicKeyConfig' {encodedKey} -> encodedKey) (\s@PublicKeyConfig' {} a -> s {encodedKey = a} :: PublicKeyConfig)
 
-instance Prelude.FromXML PublicKeyConfig where
+instance Core.FromXML PublicKeyConfig where
   parseXML x =
     PublicKeyConfig'
-      Prelude.<$> (x Prelude..@? "Comment")
-      Prelude.<*> (x Prelude..@ "CallerReference")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "EncodedKey")
+      Core.<$> (x Core..@? "Comment")
+      Core.<*> (x Core..@ "CallerReference")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "EncodedKey")
 
-instance Prelude.Hashable PublicKeyConfig
+instance Core.Hashable PublicKeyConfig
 
-instance Prelude.NFData PublicKeyConfig
+instance Core.NFData PublicKeyConfig
 
-instance Prelude.ToXML PublicKeyConfig where
+instance Core.ToXML PublicKeyConfig where
   toXML PublicKeyConfig' {..} =
-    Prelude.mconcat
-      [ "Comment" Prelude.@= comment,
-        "CallerReference" Prelude.@= callerReference,
-        "Name" Prelude.@= name,
-        "EncodedKey" Prelude.@= encodedKey
+    Core.mconcat
+      [ "Comment" Core.@= comment,
+        "CallerReference" Core.@= callerReference,
+        "Name" Core.@= name,
+        "EncodedKey" Core.@= encodedKey
       ]

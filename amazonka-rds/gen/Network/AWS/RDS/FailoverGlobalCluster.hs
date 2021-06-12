@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.RDS.FailoverGlobalCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -76,14 +75,14 @@ data FailoverGlobalCluster = FailoverGlobalCluster'
     --
     -- -   Must match the identifier of an existing GlobalCluster (Aurora
     --     global database).
-    globalClusterIdentifier :: Prelude.Text,
+    globalClusterIdentifier :: Core.Text,
     -- | Identifier of the secondary Aurora DB cluster that you want to promote
     -- to primary for the Aurora global database (GlobalCluster.) Use the
     -- Amazon Resource Name (ARN) for the identifier so that Aurora can locate
     -- the cluster in its AWS Region.
-    targetDbClusterIdentifier :: Prelude.Text
+    targetDbClusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailoverGlobalCluster' with all optional fields omitted.
@@ -109,9 +108,9 @@ data FailoverGlobalCluster = FailoverGlobalCluster'
 -- the cluster in its AWS Region.
 newFailoverGlobalCluster ::
   -- | 'globalClusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetDbClusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   FailoverGlobalCluster
 newFailoverGlobalCluster
   pGlobalClusterIdentifier_
@@ -132,19 +131,19 @@ newFailoverGlobalCluster
 --
 -- -   Must match the identifier of an existing GlobalCluster (Aurora
 --     global database).
-failoverGlobalCluster_globalClusterIdentifier :: Lens.Lens' FailoverGlobalCluster Prelude.Text
+failoverGlobalCluster_globalClusterIdentifier :: Lens.Lens' FailoverGlobalCluster Core.Text
 failoverGlobalCluster_globalClusterIdentifier = Lens.lens (\FailoverGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@FailoverGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: FailoverGlobalCluster)
 
 -- | Identifier of the secondary Aurora DB cluster that you want to promote
 -- to primary for the Aurora global database (GlobalCluster.) Use the
 -- Amazon Resource Name (ARN) for the identifier so that Aurora can locate
 -- the cluster in its AWS Region.
-failoverGlobalCluster_targetDbClusterIdentifier :: Lens.Lens' FailoverGlobalCluster Prelude.Text
+failoverGlobalCluster_targetDbClusterIdentifier :: Lens.Lens' FailoverGlobalCluster Core.Text
 failoverGlobalCluster_targetDbClusterIdentifier = Lens.lens (\FailoverGlobalCluster' {targetDbClusterIdentifier} -> targetDbClusterIdentifier) (\s@FailoverGlobalCluster' {} a -> s {targetDbClusterIdentifier = a} :: FailoverGlobalCluster)
 
-instance Prelude.AWSRequest FailoverGlobalCluster where
+instance Core.AWSRequest FailoverGlobalCluster where
   type
-    Rs FailoverGlobalCluster =
+    AWSResponse FailoverGlobalCluster =
       FailoverGlobalClusterResponse
   request = Request.postQuery defaultService
   response =
@@ -152,40 +151,39 @@ instance Prelude.AWSRequest FailoverGlobalCluster where
       "FailoverGlobalClusterResult"
       ( \s h x ->
           FailoverGlobalClusterResponse'
-            Prelude.<$> (x Prelude..@? "GlobalCluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalCluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable FailoverGlobalCluster
+instance Core.Hashable FailoverGlobalCluster
 
-instance Prelude.NFData FailoverGlobalCluster
+instance Core.NFData FailoverGlobalCluster
 
-instance Prelude.ToHeaders FailoverGlobalCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders FailoverGlobalCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath FailoverGlobalCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath FailoverGlobalCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery FailoverGlobalCluster where
+instance Core.ToQuery FailoverGlobalCluster where
   toQuery FailoverGlobalCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("FailoverGlobalCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("FailoverGlobalCluster" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "GlobalClusterIdentifier"
-          Prelude.=: globalClusterIdentifier,
+          Core.=: globalClusterIdentifier,
         "TargetDbClusterIdentifier"
-          Prelude.=: targetDbClusterIdentifier
+          Core.=: targetDbClusterIdentifier
       ]
 
 -- | /See:/ 'newFailoverGlobalClusterResponse' smart constructor.
 data FailoverGlobalClusterResponse = FailoverGlobalClusterResponse'
-  { globalCluster :: Prelude.Maybe GlobalCluster,
+  { globalCluster :: Core.Maybe GlobalCluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailoverGlobalClusterResponse' with all optional fields omitted.
@@ -200,21 +198,21 @@ data FailoverGlobalClusterResponse = FailoverGlobalClusterResponse'
 -- 'httpStatus', 'failoverGlobalClusterResponse_httpStatus' - The response's http status code.
 newFailoverGlobalClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   FailoverGlobalClusterResponse
 newFailoverGlobalClusterResponse pHttpStatus_ =
   FailoverGlobalClusterResponse'
     { globalCluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-failoverGlobalClusterResponse_globalCluster :: Lens.Lens' FailoverGlobalClusterResponse (Prelude.Maybe GlobalCluster)
+failoverGlobalClusterResponse_globalCluster :: Lens.Lens' FailoverGlobalClusterResponse (Core.Maybe GlobalCluster)
 failoverGlobalClusterResponse_globalCluster = Lens.lens (\FailoverGlobalClusterResponse' {globalCluster} -> globalCluster) (\s@FailoverGlobalClusterResponse' {} a -> s {globalCluster = a} :: FailoverGlobalClusterResponse)
 
 -- | The response's http status code.
-failoverGlobalClusterResponse_httpStatus :: Lens.Lens' FailoverGlobalClusterResponse Prelude.Int
+failoverGlobalClusterResponse_httpStatus :: Lens.Lens' FailoverGlobalClusterResponse Core.Int
 failoverGlobalClusterResponse_httpStatus = Lens.lens (\FailoverGlobalClusterResponse' {httpStatus} -> httpStatus) (\s@FailoverGlobalClusterResponse' {} a -> s {httpStatus = a} :: FailoverGlobalClusterResponse)
 
-instance Prelude.NFData FailoverGlobalClusterResponse
+instance Core.NFData FailoverGlobalClusterResponse

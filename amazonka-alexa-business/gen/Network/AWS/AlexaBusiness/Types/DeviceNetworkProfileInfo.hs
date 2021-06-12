@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.DeviceNetworkProfileInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Detailed information about a device\'s network profile.
 --
 -- /See:/ 'newDeviceNetworkProfileInfo' smart constructor.
 data DeviceNetworkProfileInfo = DeviceNetworkProfileInfo'
   { -- | The time (in epoch) when the certificate expires.
-    certificateExpirationTime :: Prelude.Maybe Prelude.POSIX,
+    certificateExpirationTime :: Core.Maybe Core.POSIX,
     -- | The ARN of the certificate associated with a device.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | The ARN of the network profile associated with a device.
-    networkProfileArn :: Prelude.Maybe Prelude.Text
+    networkProfileArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceNetworkProfileInfo' with all optional fields omitted.
@@ -54,34 +53,34 @@ newDeviceNetworkProfileInfo ::
 newDeviceNetworkProfileInfo =
   DeviceNetworkProfileInfo'
     { certificateExpirationTime =
-        Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      networkProfileArn = Prelude.Nothing
+        Core.Nothing,
+      certificateArn = Core.Nothing,
+      networkProfileArn = Core.Nothing
     }
 
 -- | The time (in epoch) when the certificate expires.
-deviceNetworkProfileInfo_certificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.UTCTime)
-deviceNetworkProfileInfo_certificateExpirationTime = Lens.lens (\DeviceNetworkProfileInfo' {certificateExpirationTime} -> certificateExpirationTime) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo) Prelude.. Lens.mapping Prelude._Time
+deviceNetworkProfileInfo_certificateExpirationTime :: Lens.Lens' DeviceNetworkProfileInfo (Core.Maybe Core.UTCTime)
+deviceNetworkProfileInfo_certificateExpirationTime = Lens.lens (\DeviceNetworkProfileInfo' {certificateExpirationTime} -> certificateExpirationTime) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateExpirationTime = a} :: DeviceNetworkProfileInfo) Core.. Lens.mapping Core._Time
 
 -- | The ARN of the certificate associated with a device.
-deviceNetworkProfileInfo_certificateArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
+deviceNetworkProfileInfo_certificateArn :: Lens.Lens' DeviceNetworkProfileInfo (Core.Maybe Core.Text)
 deviceNetworkProfileInfo_certificateArn = Lens.lens (\DeviceNetworkProfileInfo' {certificateArn} -> certificateArn) (\s@DeviceNetworkProfileInfo' {} a -> s {certificateArn = a} :: DeviceNetworkProfileInfo)
 
 -- | The ARN of the network profile associated with a device.
-deviceNetworkProfileInfo_networkProfileArn :: Lens.Lens' DeviceNetworkProfileInfo (Prelude.Maybe Prelude.Text)
+deviceNetworkProfileInfo_networkProfileArn :: Lens.Lens' DeviceNetworkProfileInfo (Core.Maybe Core.Text)
 deviceNetworkProfileInfo_networkProfileArn = Lens.lens (\DeviceNetworkProfileInfo' {networkProfileArn} -> networkProfileArn) (\s@DeviceNetworkProfileInfo' {} a -> s {networkProfileArn = a} :: DeviceNetworkProfileInfo)
 
-instance Prelude.FromJSON DeviceNetworkProfileInfo where
+instance Core.FromJSON DeviceNetworkProfileInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceNetworkProfileInfo"
       ( \x ->
           DeviceNetworkProfileInfo'
-            Prelude.<$> (x Prelude..:? "CertificateExpirationTime")
-            Prelude.<*> (x Prelude..:? "CertificateArn")
-            Prelude.<*> (x Prelude..:? "NetworkProfileArn")
+            Core.<$> (x Core..:? "CertificateExpirationTime")
+            Core.<*> (x Core..:? "CertificateArn")
+            Core.<*> (x Core..:? "NetworkProfileArn")
       )
 
-instance Prelude.Hashable DeviceNetworkProfileInfo
+instance Core.Hashable DeviceNetworkProfileInfo
 
-instance Prelude.NFData DeviceNetworkProfileInfo
+instance Core.NFData DeviceNetworkProfileInfo

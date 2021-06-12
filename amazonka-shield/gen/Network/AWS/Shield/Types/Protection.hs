@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.Protection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that represents a resource that is under DDoS protection.
 --
 -- /See:/ 'newProtection' smart constructor.
 data Protection = Protection'
   { -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+    resourceArn :: Core.Maybe Core.Text,
     -- | The unique identifier (ID) of the protection.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the protection. For example, @My CloudFront distributions@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The unique identifier (ID) for the Route 53 health check that\'s
     -- associated with the protection.
-    healthCheckIds :: Prelude.Maybe [Prelude.Text]
+    healthCheckIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Protection' with all optional fields omitted.
@@ -59,43 +58,41 @@ newProtection ::
   Protection
 newProtection =
   Protection'
-    { resourceArn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      healthCheckIds = Prelude.Nothing
+    { resourceArn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      healthCheckIds = Core.Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the AWS resource that is protected.
-protection_resourceArn :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
+protection_resourceArn :: Lens.Lens' Protection (Core.Maybe Core.Text)
 protection_resourceArn = Lens.lens (\Protection' {resourceArn} -> resourceArn) (\s@Protection' {} a -> s {resourceArn = a} :: Protection)
 
 -- | The unique identifier (ID) of the protection.
-protection_id :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
+protection_id :: Lens.Lens' Protection (Core.Maybe Core.Text)
 protection_id = Lens.lens (\Protection' {id} -> id) (\s@Protection' {} a -> s {id = a} :: Protection)
 
 -- | The name of the protection. For example, @My CloudFront distributions@.
-protection_name :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
+protection_name :: Lens.Lens' Protection (Core.Maybe Core.Text)
 protection_name = Lens.lens (\Protection' {name} -> name) (\s@Protection' {} a -> s {name = a} :: Protection)
 
 -- | The unique identifier (ID) for the Route 53 health check that\'s
 -- associated with the protection.
-protection_healthCheckIds :: Lens.Lens' Protection (Prelude.Maybe [Prelude.Text])
-protection_healthCheckIds = Lens.lens (\Protection' {healthCheckIds} -> healthCheckIds) (\s@Protection' {} a -> s {healthCheckIds = a} :: Protection) Prelude.. Lens.mapping Prelude._Coerce
+protection_healthCheckIds :: Lens.Lens' Protection (Core.Maybe [Core.Text])
+protection_healthCheckIds = Lens.lens (\Protection' {healthCheckIds} -> healthCheckIds) (\s@Protection' {} a -> s {healthCheckIds = a} :: Protection) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Protection where
+instance Core.FromJSON Protection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Protection"
       ( \x ->
           Protection'
-            Prelude.<$> (x Prelude..:? "ResourceArn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> ( x Prelude..:? "HealthCheckIds"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ResourceArn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "HealthCheckIds" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Protection
+instance Core.Hashable Protection
 
-instance Prelude.NFData Protection
+instance Core.NFData Protection

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SSM.CancelMaintenanceWindowExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,9 +50,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newCancelMaintenanceWindowExecution' smart constructor.
 data CancelMaintenanceWindowExecution = CancelMaintenanceWindowExecution'
   { -- | The ID of the maintenance window execution to stop.
-    windowExecutionId :: Prelude.Text
+    windowExecutionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelMaintenanceWindowExecution' with all optional fields omitted.
@@ -66,7 +65,7 @@ data CancelMaintenanceWindowExecution = CancelMaintenanceWindowExecution'
 -- 'windowExecutionId', 'cancelMaintenanceWindowExecution_windowExecutionId' - The ID of the maintenance window execution to stop.
 newCancelMaintenanceWindowExecution ::
   -- | 'windowExecutionId'
-  Prelude.Text ->
+  Core.Text ->
   CancelMaintenanceWindowExecution
 newCancelMaintenanceWindowExecution
   pWindowExecutionId_ =
@@ -76,83 +75,73 @@ newCancelMaintenanceWindowExecution
       }
 
 -- | The ID of the maintenance window execution to stop.
-cancelMaintenanceWindowExecution_windowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecution Prelude.Text
+cancelMaintenanceWindowExecution_windowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecution Core.Text
 cancelMaintenanceWindowExecution_windowExecutionId = Lens.lens (\CancelMaintenanceWindowExecution' {windowExecutionId} -> windowExecutionId) (\s@CancelMaintenanceWindowExecution' {} a -> s {windowExecutionId = a} :: CancelMaintenanceWindowExecution)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CancelMaintenanceWindowExecution
   where
   type
-    Rs CancelMaintenanceWindowExecution =
+    AWSResponse CancelMaintenanceWindowExecution =
       CancelMaintenanceWindowExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelMaintenanceWindowExecutionResponse'
-            Prelude.<$> (x Prelude..?> "WindowExecutionId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "WindowExecutionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CancelMaintenanceWindowExecution
 
-instance
-  Prelude.NFData
-    CancelMaintenanceWindowExecution
+instance Core.NFData CancelMaintenanceWindowExecution
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CancelMaintenanceWindowExecution
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.CancelMaintenanceWindowExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.CancelMaintenanceWindowExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    CancelMaintenanceWindowExecution
-  where
+instance Core.ToJSON CancelMaintenanceWindowExecution where
   toJSON CancelMaintenanceWindowExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WindowExecutionId" Prelude..= windowExecutionId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("WindowExecutionId" Core..= windowExecutionId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    CancelMaintenanceWindowExecution
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelMaintenanceWindowExecution where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CancelMaintenanceWindowExecution
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelMaintenanceWindowExecutionResponse' smart constructor.
 data CancelMaintenanceWindowExecutionResponse = CancelMaintenanceWindowExecutionResponse'
   { -- | The ID of the maintenance window execution that has been stopped.
-    windowExecutionId :: Prelude.Maybe Prelude.Text,
+    windowExecutionId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelMaintenanceWindowExecutionResponse' with all optional fields omitted.
@@ -167,24 +156,24 @@ data CancelMaintenanceWindowExecutionResponse = CancelMaintenanceWindowExecution
 -- 'httpStatus', 'cancelMaintenanceWindowExecutionResponse_httpStatus' - The response's http status code.
 newCancelMaintenanceWindowExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelMaintenanceWindowExecutionResponse
 newCancelMaintenanceWindowExecutionResponse
   pHttpStatus_ =
     CancelMaintenanceWindowExecutionResponse'
       { windowExecutionId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The ID of the maintenance window execution that has been stopped.
-cancelMaintenanceWindowExecutionResponse_windowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecutionResponse (Prelude.Maybe Prelude.Text)
+cancelMaintenanceWindowExecutionResponse_windowExecutionId :: Lens.Lens' CancelMaintenanceWindowExecutionResponse (Core.Maybe Core.Text)
 cancelMaintenanceWindowExecutionResponse_windowExecutionId = Lens.lens (\CancelMaintenanceWindowExecutionResponse' {windowExecutionId} -> windowExecutionId) (\s@CancelMaintenanceWindowExecutionResponse' {} a -> s {windowExecutionId = a} :: CancelMaintenanceWindowExecutionResponse)
 
 -- | The response's http status code.
-cancelMaintenanceWindowExecutionResponse_httpStatus :: Lens.Lens' CancelMaintenanceWindowExecutionResponse Prelude.Int
+cancelMaintenanceWindowExecutionResponse_httpStatus :: Lens.Lens' CancelMaintenanceWindowExecutionResponse Core.Int
 cancelMaintenanceWindowExecutionResponse_httpStatus = Lens.lens (\CancelMaintenanceWindowExecutionResponse' {httpStatus} -> httpStatus) (\s@CancelMaintenanceWindowExecutionResponse' {} a -> s {httpStatus = a} :: CancelMaintenanceWindowExecutionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CancelMaintenanceWindowExecutionResponse

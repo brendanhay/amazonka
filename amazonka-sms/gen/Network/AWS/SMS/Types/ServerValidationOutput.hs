@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.ServerValidationOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.Server
 
 -- | Contains output from validating an instance.
 --
 -- /See:/ 'newServerValidationOutput' smart constructor.
 data ServerValidationOutput = ServerValidationOutput'
-  { server :: Prelude.Maybe Server
+  { server :: Core.Maybe Server
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerValidationOutput' with all optional fields omitted.
@@ -44,21 +43,21 @@ data ServerValidationOutput = ServerValidationOutput'
 newServerValidationOutput ::
   ServerValidationOutput
 newServerValidationOutput =
-  ServerValidationOutput' {server = Prelude.Nothing}
+  ServerValidationOutput' {server = Core.Nothing}
 
 -- | Undocumented member.
-serverValidationOutput_server :: Lens.Lens' ServerValidationOutput (Prelude.Maybe Server)
+serverValidationOutput_server :: Lens.Lens' ServerValidationOutput (Core.Maybe Server)
 serverValidationOutput_server = Lens.lens (\ServerValidationOutput' {server} -> server) (\s@ServerValidationOutput' {} a -> s {server = a} :: ServerValidationOutput)
 
-instance Prelude.FromJSON ServerValidationOutput where
+instance Core.FromJSON ServerValidationOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServerValidationOutput"
       ( \x ->
           ServerValidationOutput'
-            Prelude.<$> (x Prelude..:? "server")
+            Core.<$> (x Core..:? "server")
       )
 
-instance Prelude.Hashable ServerValidationOutput
+instance Core.Hashable ServerValidationOutput
 
-instance Prelude.NFData ServerValidationOutput
+instance Core.NFData ServerValidationOutput

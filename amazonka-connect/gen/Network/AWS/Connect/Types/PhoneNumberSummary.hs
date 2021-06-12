@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,25 +21,25 @@ module Network.AWS.Connect.Types.PhoneNumberSummary where
 
 import Network.AWS.Connect.Types.PhoneNumberCountryCode
 import Network.AWS.Connect.Types.PhoneNumberType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about a phone number for a contact center.
 --
 -- /See:/ 'newPhoneNumberSummary' smart constructor.
 data PhoneNumberSummary = PhoneNumberSummary'
   { -- | The phone number.
-    phoneNumber :: Prelude.Maybe Prelude.Text,
+    phoneNumber :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the phone number.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the phone number.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The type of phone number.
-    phoneNumberType :: Prelude.Maybe PhoneNumberType,
+    phoneNumberType :: Core.Maybe PhoneNumberType,
     -- | The ISO country code.
-    phoneNumberCountryCode :: Prelude.Maybe PhoneNumberCountryCode
+    phoneNumberCountryCode :: Core.Maybe PhoneNumberCountryCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PhoneNumberSummary' with all optional fields omitted.
@@ -63,46 +62,46 @@ newPhoneNumberSummary ::
   PhoneNumberSummary
 newPhoneNumberSummary =
   PhoneNumberSummary'
-    { phoneNumber = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      phoneNumberType = Prelude.Nothing,
-      phoneNumberCountryCode = Prelude.Nothing
+    { phoneNumber = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      phoneNumberType = Core.Nothing,
+      phoneNumberCountryCode = Core.Nothing
     }
 
 -- | The phone number.
-phoneNumberSummary_phoneNumber :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe Prelude.Text)
+phoneNumberSummary_phoneNumber :: Lens.Lens' PhoneNumberSummary (Core.Maybe Core.Text)
 phoneNumberSummary_phoneNumber = Lens.lens (\PhoneNumberSummary' {phoneNumber} -> phoneNumber) (\s@PhoneNumberSummary' {} a -> s {phoneNumber = a} :: PhoneNumberSummary)
 
 -- | The Amazon Resource Name (ARN) of the phone number.
-phoneNumberSummary_arn :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe Prelude.Text)
+phoneNumberSummary_arn :: Lens.Lens' PhoneNumberSummary (Core.Maybe Core.Text)
 phoneNumberSummary_arn = Lens.lens (\PhoneNumberSummary' {arn} -> arn) (\s@PhoneNumberSummary' {} a -> s {arn = a} :: PhoneNumberSummary)
 
 -- | The identifier of the phone number.
-phoneNumberSummary_id :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe Prelude.Text)
+phoneNumberSummary_id :: Lens.Lens' PhoneNumberSummary (Core.Maybe Core.Text)
 phoneNumberSummary_id = Lens.lens (\PhoneNumberSummary' {id} -> id) (\s@PhoneNumberSummary' {} a -> s {id = a} :: PhoneNumberSummary)
 
 -- | The type of phone number.
-phoneNumberSummary_phoneNumberType :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe PhoneNumberType)
+phoneNumberSummary_phoneNumberType :: Lens.Lens' PhoneNumberSummary (Core.Maybe PhoneNumberType)
 phoneNumberSummary_phoneNumberType = Lens.lens (\PhoneNumberSummary' {phoneNumberType} -> phoneNumberType) (\s@PhoneNumberSummary' {} a -> s {phoneNumberType = a} :: PhoneNumberSummary)
 
 -- | The ISO country code.
-phoneNumberSummary_phoneNumberCountryCode :: Lens.Lens' PhoneNumberSummary (Prelude.Maybe PhoneNumberCountryCode)
+phoneNumberSummary_phoneNumberCountryCode :: Lens.Lens' PhoneNumberSummary (Core.Maybe PhoneNumberCountryCode)
 phoneNumberSummary_phoneNumberCountryCode = Lens.lens (\PhoneNumberSummary' {phoneNumberCountryCode} -> phoneNumberCountryCode) (\s@PhoneNumberSummary' {} a -> s {phoneNumberCountryCode = a} :: PhoneNumberSummary)
 
-instance Prelude.FromJSON PhoneNumberSummary where
+instance Core.FromJSON PhoneNumberSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PhoneNumberSummary"
       ( \x ->
           PhoneNumberSummary'
-            Prelude.<$> (x Prelude..:? "PhoneNumber")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "PhoneNumberType")
-            Prelude.<*> (x Prelude..:? "PhoneNumberCountryCode")
+            Core.<$> (x Core..:? "PhoneNumber")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "PhoneNumberType")
+            Core.<*> (x Core..:? "PhoneNumberCountryCode")
       )
 
-instance Prelude.Hashable PhoneNumberSummary
+instance Core.Hashable PhoneNumberSummary
 
-instance Prelude.NFData PhoneNumberSummary
+instance Core.NFData PhoneNumberSummary

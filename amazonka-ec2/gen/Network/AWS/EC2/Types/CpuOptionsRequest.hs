@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CpuOptionsRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The CPU options for the instance. Both the core count and threads per
 -- core must be specified in the request.
@@ -32,11 +31,11 @@ data CpuOptionsRequest = CpuOptionsRequest'
   { -- | The number of threads per CPU core. To disable multithreading for the
     -- instance, specify a value of @1@. Otherwise, specify the default value
     -- of @2@.
-    threadsPerCore :: Prelude.Maybe Prelude.Int,
+    threadsPerCore :: Core.Maybe Core.Int,
     -- | The number of CPU cores for the instance.
-    coreCount :: Prelude.Maybe Prelude.Int
+    coreCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CpuOptionsRequest' with all optional fields omitted.
@@ -55,28 +54,27 @@ newCpuOptionsRequest ::
   CpuOptionsRequest
 newCpuOptionsRequest =
   CpuOptionsRequest'
-    { threadsPerCore =
-        Prelude.Nothing,
-      coreCount = Prelude.Nothing
+    { threadsPerCore = Core.Nothing,
+      coreCount = Core.Nothing
     }
 
 -- | The number of threads per CPU core. To disable multithreading for the
 -- instance, specify a value of @1@. Otherwise, specify the default value
 -- of @2@.
-cpuOptionsRequest_threadsPerCore :: Lens.Lens' CpuOptionsRequest (Prelude.Maybe Prelude.Int)
+cpuOptionsRequest_threadsPerCore :: Lens.Lens' CpuOptionsRequest (Core.Maybe Core.Int)
 cpuOptionsRequest_threadsPerCore = Lens.lens (\CpuOptionsRequest' {threadsPerCore} -> threadsPerCore) (\s@CpuOptionsRequest' {} a -> s {threadsPerCore = a} :: CpuOptionsRequest)
 
 -- | The number of CPU cores for the instance.
-cpuOptionsRequest_coreCount :: Lens.Lens' CpuOptionsRequest (Prelude.Maybe Prelude.Int)
+cpuOptionsRequest_coreCount :: Lens.Lens' CpuOptionsRequest (Core.Maybe Core.Int)
 cpuOptionsRequest_coreCount = Lens.lens (\CpuOptionsRequest' {coreCount} -> coreCount) (\s@CpuOptionsRequest' {} a -> s {coreCount = a} :: CpuOptionsRequest)
 
-instance Prelude.Hashable CpuOptionsRequest
+instance Core.Hashable CpuOptionsRequest
 
-instance Prelude.NFData CpuOptionsRequest
+instance Core.NFData CpuOptionsRequest
 
-instance Prelude.ToQuery CpuOptionsRequest where
+instance Core.ToQuery CpuOptionsRequest where
   toQuery CpuOptionsRequest' {..} =
-    Prelude.mconcat
-      [ "ThreadsPerCore" Prelude.=: threadsPerCore,
-        "CoreCount" Prelude.=: coreCount
+    Core.mconcat
+      [ "ThreadsPerCore" Core.=: threadsPerCore,
+        "CoreCount" Core.=: coreCount
       ]

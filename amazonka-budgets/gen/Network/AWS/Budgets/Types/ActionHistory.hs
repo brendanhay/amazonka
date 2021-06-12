@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,14 +22,14 @@ module Network.AWS.Budgets.Types.ActionHistory where
 import Network.AWS.Budgets.Types.ActionHistoryDetails
 import Network.AWS.Budgets.Types.ActionStatus
 import Network.AWS.Budgets.Types.EventType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The historical records for a budget action.
 --
 -- /See:/ 'newActionHistory' smart constructor.
 data ActionHistory = ActionHistory'
-  { timestamp :: Prelude.POSIX,
+  { timestamp :: Core.POSIX,
     -- | The status of action at the time of the event.
     status :: ActionStatus,
     -- | This distinguishes between whether the events are triggered by the user
@@ -39,7 +38,7 @@ data ActionHistory = ActionHistory'
     -- | The description of details of the event.
     actionHistoryDetails :: ActionHistoryDetails
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionHistory' with all optional fields omitted.
@@ -59,7 +58,7 @@ data ActionHistory = ActionHistory'
 -- 'actionHistoryDetails', 'actionHistory_actionHistoryDetails' - The description of details of the event.
 newActionHistory ::
   -- | 'timestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'status'
   ActionStatus ->
   -- | 'eventType'
@@ -74,15 +73,15 @@ newActionHistory
   pActionHistoryDetails_ =
     ActionHistory'
       { timestamp =
-          Prelude._Time Lens.# pTimestamp_,
+          Core._Time Lens.# pTimestamp_,
         status = pStatus_,
         eventType = pEventType_,
         actionHistoryDetails = pActionHistoryDetails_
       }
 
 -- | Undocumented member.
-actionHistory_timestamp :: Lens.Lens' ActionHistory Prelude.UTCTime
-actionHistory_timestamp = Lens.lens (\ActionHistory' {timestamp} -> timestamp) (\s@ActionHistory' {} a -> s {timestamp = a} :: ActionHistory) Prelude.. Prelude._Time
+actionHistory_timestamp :: Lens.Lens' ActionHistory Core.UTCTime
+actionHistory_timestamp = Lens.lens (\ActionHistory' {timestamp} -> timestamp) (\s@ActionHistory' {} a -> s {timestamp = a} :: ActionHistory) Core.. Core._Time
 
 -- | The status of action at the time of the event.
 actionHistory_status :: Lens.Lens' ActionHistory ActionStatus
@@ -97,18 +96,18 @@ actionHistory_eventType = Lens.lens (\ActionHistory' {eventType} -> eventType) (
 actionHistory_actionHistoryDetails :: Lens.Lens' ActionHistory ActionHistoryDetails
 actionHistory_actionHistoryDetails = Lens.lens (\ActionHistory' {actionHistoryDetails} -> actionHistoryDetails) (\s@ActionHistory' {} a -> s {actionHistoryDetails = a} :: ActionHistory)
 
-instance Prelude.FromJSON ActionHistory where
+instance Core.FromJSON ActionHistory where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionHistory"
       ( \x ->
           ActionHistory'
-            Prelude.<$> (x Prelude..: "Timestamp")
-            Prelude.<*> (x Prelude..: "Status")
-            Prelude.<*> (x Prelude..: "EventType")
-            Prelude.<*> (x Prelude..: "ActionHistoryDetails")
+            Core.<$> (x Core..: "Timestamp")
+            Core.<*> (x Core..: "Status")
+            Core.<*> (x Core..: "EventType")
+            Core.<*> (x Core..: "ActionHistoryDetails")
       )
 
-instance Prelude.Hashable ActionHistory
+instance Core.Hashable ActionHistory
 
-instance Prelude.NFData ActionHistory
+instance Core.NFData ActionHistory

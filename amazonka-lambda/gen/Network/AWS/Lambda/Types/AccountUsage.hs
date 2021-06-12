@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.AccountUsage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of functions and amount of storage in use.
 --
 -- /See:/ 'newAccountUsage' smart constructor.
 data AccountUsage = AccountUsage'
   { -- | The number of Lambda functions.
-    functionCount :: Prelude.Maybe Prelude.Integer,
+    functionCount :: Core.Maybe Core.Integer,
     -- | The amount of storage space, in bytes, that\'s being used by deployment
     -- packages and layer archives.
-    totalCodeSize :: Prelude.Maybe Prelude.Integer
+    totalCodeSize :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountUsage' with all optional fields omitted.
@@ -51,29 +50,29 @@ newAccountUsage ::
   AccountUsage
 newAccountUsage =
   AccountUsage'
-    { functionCount = Prelude.Nothing,
-      totalCodeSize = Prelude.Nothing
+    { functionCount = Core.Nothing,
+      totalCodeSize = Core.Nothing
     }
 
 -- | The number of Lambda functions.
-accountUsage_functionCount :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
+accountUsage_functionCount :: Lens.Lens' AccountUsage (Core.Maybe Core.Integer)
 accountUsage_functionCount = Lens.lens (\AccountUsage' {functionCount} -> functionCount) (\s@AccountUsage' {} a -> s {functionCount = a} :: AccountUsage)
 
 -- | The amount of storage space, in bytes, that\'s being used by deployment
 -- packages and layer archives.
-accountUsage_totalCodeSize :: Lens.Lens' AccountUsage (Prelude.Maybe Prelude.Integer)
+accountUsage_totalCodeSize :: Lens.Lens' AccountUsage (Core.Maybe Core.Integer)
 accountUsage_totalCodeSize = Lens.lens (\AccountUsage' {totalCodeSize} -> totalCodeSize) (\s@AccountUsage' {} a -> s {totalCodeSize = a} :: AccountUsage)
 
-instance Prelude.FromJSON AccountUsage where
+instance Core.FromJSON AccountUsage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountUsage"
       ( \x ->
           AccountUsage'
-            Prelude.<$> (x Prelude..:? "FunctionCount")
-            Prelude.<*> (x Prelude..:? "TotalCodeSize")
+            Core.<$> (x Core..:? "FunctionCount")
+            Core.<*> (x Core..:? "TotalCodeSize")
       )
 
-instance Prelude.Hashable AccountUsage
+instance Core.Hashable AccountUsage
 
-instance Prelude.NFData AccountUsage
+instance Core.NFData AccountUsage

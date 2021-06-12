@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.AlexaBusiness.GetInvitationConfiguration
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data GetInvitationConfiguration = GetInvitationConfiguration'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInvitationConfiguration' with all optional fields omitted.
@@ -61,69 +60,61 @@ newGetInvitationConfiguration ::
 newGetInvitationConfiguration =
   GetInvitationConfiguration'
 
-instance
-  Prelude.AWSRequest
-    GetInvitationConfiguration
-  where
+instance Core.AWSRequest GetInvitationConfiguration where
   type
-    Rs GetInvitationConfiguration =
+    AWSResponse GetInvitationConfiguration =
       GetInvitationConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInvitationConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "OrganizationName")
-            Prelude.<*> (x Prelude..?> "ContactEmail")
-            Prelude.<*> ( x Prelude..?> "PrivateSkillIds"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OrganizationName")
+            Core.<*> (x Core..?> "ContactEmail")
+            Core.<*> (x Core..?> "PrivateSkillIds" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInvitationConfiguration
+instance Core.Hashable GetInvitationConfiguration
 
-instance Prelude.NFData GetInvitationConfiguration
+instance Core.NFData GetInvitationConfiguration
 
-instance Prelude.ToHeaders GetInvitationConfiguration where
+instance Core.ToHeaders GetInvitationConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.GetInvitationConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.GetInvitationConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetInvitationConfiguration where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetInvitationConfiguration where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetInvitationConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInvitationConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInvitationConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInvitationConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInvitationConfigurationResponse' smart constructor.
 data GetInvitationConfigurationResponse = GetInvitationConfigurationResponse'
   { -- | The name of the organization sending the enrollment invite to a user.
-    organizationName :: Prelude.Maybe Prelude.Text,
+    organizationName :: Core.Maybe Core.Text,
     -- | The email ID of the organization or individual contact that the enrolled
     -- user can use.
-    contactEmail :: Prelude.Maybe Prelude.Text,
+    contactEmail :: Core.Maybe Core.Text,
     -- | The list of private skill IDs that you want to recommend to the user to
     -- enable in the invitation.
-    privateSkillIds :: Prelude.Maybe [Prelude.Text],
+    privateSkillIds :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInvitationConfigurationResponse' with all optional fields omitted.
@@ -144,35 +135,35 @@ data GetInvitationConfigurationResponse = GetInvitationConfigurationResponse'
 -- 'httpStatus', 'getInvitationConfigurationResponse_httpStatus' - The response's http status code.
 newGetInvitationConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInvitationConfigurationResponse
 newGetInvitationConfigurationResponse pHttpStatus_ =
   GetInvitationConfigurationResponse'
     { organizationName =
-        Prelude.Nothing,
-      contactEmail = Prelude.Nothing,
-      privateSkillIds = Prelude.Nothing,
+        Core.Nothing,
+      contactEmail = Core.Nothing,
+      privateSkillIds = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the organization sending the enrollment invite to a user.
-getInvitationConfigurationResponse_organizationName :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe Prelude.Text)
+getInvitationConfigurationResponse_organizationName :: Lens.Lens' GetInvitationConfigurationResponse (Core.Maybe Core.Text)
 getInvitationConfigurationResponse_organizationName = Lens.lens (\GetInvitationConfigurationResponse' {organizationName} -> organizationName) (\s@GetInvitationConfigurationResponse' {} a -> s {organizationName = a} :: GetInvitationConfigurationResponse)
 
 -- | The email ID of the organization or individual contact that the enrolled
 -- user can use.
-getInvitationConfigurationResponse_contactEmail :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe Prelude.Text)
+getInvitationConfigurationResponse_contactEmail :: Lens.Lens' GetInvitationConfigurationResponse (Core.Maybe Core.Text)
 getInvitationConfigurationResponse_contactEmail = Lens.lens (\GetInvitationConfigurationResponse' {contactEmail} -> contactEmail) (\s@GetInvitationConfigurationResponse' {} a -> s {contactEmail = a} :: GetInvitationConfigurationResponse)
 
 -- | The list of private skill IDs that you want to recommend to the user to
 -- enable in the invitation.
-getInvitationConfigurationResponse_privateSkillIds :: Lens.Lens' GetInvitationConfigurationResponse (Prelude.Maybe [Prelude.Text])
-getInvitationConfigurationResponse_privateSkillIds = Lens.lens (\GetInvitationConfigurationResponse' {privateSkillIds} -> privateSkillIds) (\s@GetInvitationConfigurationResponse' {} a -> s {privateSkillIds = a} :: GetInvitationConfigurationResponse) Prelude.. Lens.mapping Prelude._Coerce
+getInvitationConfigurationResponse_privateSkillIds :: Lens.Lens' GetInvitationConfigurationResponse (Core.Maybe [Core.Text])
+getInvitationConfigurationResponse_privateSkillIds = Lens.lens (\GetInvitationConfigurationResponse' {privateSkillIds} -> privateSkillIds) (\s@GetInvitationConfigurationResponse' {} a -> s {privateSkillIds = a} :: GetInvitationConfigurationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getInvitationConfigurationResponse_httpStatus :: Lens.Lens' GetInvitationConfigurationResponse Prelude.Int
+getInvitationConfigurationResponse_httpStatus :: Lens.Lens' GetInvitationConfigurationResponse Core.Int
 getInvitationConfigurationResponse_httpStatus = Lens.lens (\GetInvitationConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetInvitationConfigurationResponse' {} a -> s {httpStatus = a} :: GetInvitationConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetInvitationConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.MQ.ListBrokers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data ListBrokers = ListBrokers'
   { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of brokers that Amazon MQ can return per page (20 by
     -- default). This value must be an integer from 5 to 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBrokers' with all optional fields omitted.
@@ -79,90 +77,86 @@ newListBrokers ::
   ListBrokers
 newListBrokers =
   ListBrokers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
-listBrokers_nextToken :: Lens.Lens' ListBrokers (Prelude.Maybe Prelude.Text)
+listBrokers_nextToken :: Lens.Lens' ListBrokers (Core.Maybe Core.Text)
 listBrokers_nextToken = Lens.lens (\ListBrokers' {nextToken} -> nextToken) (\s@ListBrokers' {} a -> s {nextToken = a} :: ListBrokers)
 
 -- | The maximum number of brokers that Amazon MQ can return per page (20 by
 -- default). This value must be an integer from 5 to 100.
-listBrokers_maxResults :: Lens.Lens' ListBrokers (Prelude.Maybe Prelude.Natural)
+listBrokers_maxResults :: Lens.Lens' ListBrokers (Core.Maybe Core.Natural)
 listBrokers_maxResults = Lens.lens (\ListBrokers' {maxResults} -> maxResults) (\s@ListBrokers' {} a -> s {maxResults = a} :: ListBrokers)
 
-instance Pager.AWSPager ListBrokers where
+instance Core.AWSPager ListBrokers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listBrokersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listBrokersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listBrokersResponse_brokerSummaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listBrokers_nextToken
           Lens..~ rs
-          Lens.^? listBrokersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBrokersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListBrokers where
-  type Rs ListBrokers = ListBrokersResponse
+instance Core.AWSRequest ListBrokers where
+  type AWSResponse ListBrokers = ListBrokersResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListBrokersResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "brokerSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "brokerSummaries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListBrokers
+instance Core.Hashable ListBrokers
 
-instance Prelude.NFData ListBrokers
+instance Core.NFData ListBrokers
 
-instance Prelude.ToHeaders ListBrokers where
+instance Core.ToHeaders ListBrokers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListBrokers where
-  toPath = Prelude.const "/v1/brokers"
+instance Core.ToPath ListBrokers where
+  toPath = Core.const "/v1/brokers"
 
-instance Prelude.ToQuery ListBrokers where
+instance Core.ToQuery ListBrokers where
   toQuery ListBrokers' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListBrokersResponse' smart constructor.
 data ListBrokersResponse = ListBrokersResponse'
   { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of information about all brokers.
-    brokerSummaries :: Prelude.Maybe [BrokerSummary],
+    brokerSummaries :: Core.Maybe [BrokerSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBrokersResponse' with all optional fields omitted.
@@ -180,26 +174,26 @@ data ListBrokersResponse = ListBrokersResponse'
 -- 'httpStatus', 'listBrokersResponse_httpStatus' - The response's http status code.
 newListBrokersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListBrokersResponse
 newListBrokersResponse pHttpStatus_ =
   ListBrokersResponse'
-    { nextToken = Prelude.Nothing,
-      brokerSummaries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      brokerSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
-listBrokersResponse_nextToken :: Lens.Lens' ListBrokersResponse (Prelude.Maybe Prelude.Text)
+listBrokersResponse_nextToken :: Lens.Lens' ListBrokersResponse (Core.Maybe Core.Text)
 listBrokersResponse_nextToken = Lens.lens (\ListBrokersResponse' {nextToken} -> nextToken) (\s@ListBrokersResponse' {} a -> s {nextToken = a} :: ListBrokersResponse)
 
 -- | A list of information about all brokers.
-listBrokersResponse_brokerSummaries :: Lens.Lens' ListBrokersResponse (Prelude.Maybe [BrokerSummary])
-listBrokersResponse_brokerSummaries = Lens.lens (\ListBrokersResponse' {brokerSummaries} -> brokerSummaries) (\s@ListBrokersResponse' {} a -> s {brokerSummaries = a} :: ListBrokersResponse) Prelude.. Lens.mapping Prelude._Coerce
+listBrokersResponse_brokerSummaries :: Lens.Lens' ListBrokersResponse (Core.Maybe [BrokerSummary])
+listBrokersResponse_brokerSummaries = Lens.lens (\ListBrokersResponse' {brokerSummaries} -> brokerSummaries) (\s@ListBrokersResponse' {} a -> s {brokerSummaries = a} :: ListBrokersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBrokersResponse_httpStatus :: Lens.Lens' ListBrokersResponse Prelude.Int
+listBrokersResponse_httpStatus :: Lens.Lens' ListBrokersResponse Core.Int
 listBrokersResponse_httpStatus = Lens.lens (\ListBrokersResponse' {httpStatus} -> httpStatus) (\s@ListBrokersResponse' {} a -> s {httpStatus = a} :: ListBrokersResponse)
 
-instance Prelude.NFData ListBrokersResponse
+instance Core.NFData ListBrokersResponse

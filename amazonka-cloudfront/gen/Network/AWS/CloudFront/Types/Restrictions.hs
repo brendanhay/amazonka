@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.Restrictions where
 
 import Network.AWS.CloudFront.Types.GeoRestriction
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
@@ -34,7 +33,7 @@ data Restrictions = Restrictions'
     -- @MaxMind@ GeoIP databases.
     geoRestriction :: GeoRestriction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Restrictions' with all optional fields omitted.
@@ -60,16 +59,15 @@ newRestrictions pGeoRestriction_ =
 restrictions_geoRestriction :: Lens.Lens' Restrictions GeoRestriction
 restrictions_geoRestriction = Lens.lens (\Restrictions' {geoRestriction} -> geoRestriction) (\s@Restrictions' {} a -> s {geoRestriction = a} :: Restrictions)
 
-instance Prelude.FromXML Restrictions where
+instance Core.FromXML Restrictions where
   parseXML x =
-    Restrictions'
-      Prelude.<$> (x Prelude..@ "GeoRestriction")
+    Restrictions' Core.<$> (x Core..@ "GeoRestriction")
 
-instance Prelude.Hashable Restrictions
+instance Core.Hashable Restrictions
 
-instance Prelude.NFData Restrictions
+instance Core.NFData Restrictions
 
-instance Prelude.ToXML Restrictions where
+instance Core.ToXML Restrictions where
   toXML Restrictions' {..} =
-    Prelude.mconcat
-      ["GeoRestriction" Prelude.@= geoRestriction]
+    Core.mconcat
+      ["GeoRestriction" Core.@= geoRestriction]

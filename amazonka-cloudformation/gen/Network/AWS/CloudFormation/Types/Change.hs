@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFormation.Types.Change where
 
 import Network.AWS.CloudFormation.Types.ChangeType
 import Network.AWS.CloudFormation.Types.ResourceChange
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @Change@ structure describes the changes AWS CloudFormation will
 -- perform if you execute the change set.
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Change = Change'
   { -- | A @ResourceChange@ structure that describes the resource and action that
     -- AWS CloudFormation will perform.
-    resourceChange :: Prelude.Maybe ResourceChange,
+    resourceChange :: Core.Maybe ResourceChange,
     -- | The type of entity that AWS CloudFormation changes. Currently, the only
     -- entity type is @Resource@.
-    type' :: Prelude.Maybe ChangeType
+    type' :: Core.Maybe ChangeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Change' with all optional fields omitted.
@@ -56,26 +55,26 @@ newChange ::
   Change
 newChange =
   Change'
-    { resourceChange = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { resourceChange = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | A @ResourceChange@ structure that describes the resource and action that
 -- AWS CloudFormation will perform.
-change_resourceChange :: Lens.Lens' Change (Prelude.Maybe ResourceChange)
+change_resourceChange :: Lens.Lens' Change (Core.Maybe ResourceChange)
 change_resourceChange = Lens.lens (\Change' {resourceChange} -> resourceChange) (\s@Change' {} a -> s {resourceChange = a} :: Change)
 
 -- | The type of entity that AWS CloudFormation changes. Currently, the only
 -- entity type is @Resource@.
-change_type :: Lens.Lens' Change (Prelude.Maybe ChangeType)
+change_type :: Lens.Lens' Change (Core.Maybe ChangeType)
 change_type = Lens.lens (\Change' {type'} -> type') (\s@Change' {} a -> s {type' = a} :: Change)
 
-instance Prelude.FromXML Change where
+instance Core.FromXML Change where
   parseXML x =
     Change'
-      Prelude.<$> (x Prelude..@? "ResourceChange")
-      Prelude.<*> (x Prelude..@? "Type")
+      Core.<$> (x Core..@? "ResourceChange")
+      Core.<*> (x Core..@? "Type")
 
-instance Prelude.Hashable Change
+instance Core.Hashable Change
 
-instance Prelude.NFData Change
+instance Core.NFData Change

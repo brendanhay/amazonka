@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newForgetSmartHomeAppliances' smart constructor.
 data ForgetSmartHomeAppliances = ForgetSmartHomeAppliances'
   { -- | The room that the appliances are associated with.
-    roomArn :: Prelude.Text
+    roomArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ForgetSmartHomeAppliances' with all optional fields omitted.
@@ -63,65 +62,63 @@ data ForgetSmartHomeAppliances = ForgetSmartHomeAppliances'
 -- 'roomArn', 'forgetSmartHomeAppliances_roomArn' - The room that the appliances are associated with.
 newForgetSmartHomeAppliances ::
   -- | 'roomArn'
-  Prelude.Text ->
+  Core.Text ->
   ForgetSmartHomeAppliances
 newForgetSmartHomeAppliances pRoomArn_ =
   ForgetSmartHomeAppliances' {roomArn = pRoomArn_}
 
 -- | The room that the appliances are associated with.
-forgetSmartHomeAppliances_roomArn :: Lens.Lens' ForgetSmartHomeAppliances Prelude.Text
+forgetSmartHomeAppliances_roomArn :: Lens.Lens' ForgetSmartHomeAppliances Core.Text
 forgetSmartHomeAppliances_roomArn = Lens.lens (\ForgetSmartHomeAppliances' {roomArn} -> roomArn) (\s@ForgetSmartHomeAppliances' {} a -> s {roomArn = a} :: ForgetSmartHomeAppliances)
 
-instance Prelude.AWSRequest ForgetSmartHomeAppliances where
+instance Core.AWSRequest ForgetSmartHomeAppliances where
   type
-    Rs ForgetSmartHomeAppliances =
+    AWSResponse ForgetSmartHomeAppliances =
       ForgetSmartHomeAppliancesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ForgetSmartHomeAppliancesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ForgetSmartHomeAppliances
+instance Core.Hashable ForgetSmartHomeAppliances
 
-instance Prelude.NFData ForgetSmartHomeAppliances
+instance Core.NFData ForgetSmartHomeAppliances
 
-instance Prelude.ToHeaders ForgetSmartHomeAppliances where
+instance Core.ToHeaders ForgetSmartHomeAppliances where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.ForgetSmartHomeAppliances" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.ForgetSmartHomeAppliances" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ForgetSmartHomeAppliances where
+instance Core.ToJSON ForgetSmartHomeAppliances where
   toJSON ForgetSmartHomeAppliances' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("RoomArn" Prelude..= roomArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RoomArn" Core..= roomArn)]
       )
 
-instance Prelude.ToPath ForgetSmartHomeAppliances where
-  toPath = Prelude.const "/"
+instance Core.ToPath ForgetSmartHomeAppliances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ForgetSmartHomeAppliances where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ForgetSmartHomeAppliances where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newForgetSmartHomeAppliancesResponse' smart constructor.
 data ForgetSmartHomeAppliancesResponse = ForgetSmartHomeAppliancesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ForgetSmartHomeAppliancesResponse' with all optional fields omitted.
@@ -134,7 +131,7 @@ data ForgetSmartHomeAppliancesResponse = ForgetSmartHomeAppliancesResponse'
 -- 'httpStatus', 'forgetSmartHomeAppliancesResponse_httpStatus' - The response's http status code.
 newForgetSmartHomeAppliancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ForgetSmartHomeAppliancesResponse
 newForgetSmartHomeAppliancesResponse pHttpStatus_ =
   ForgetSmartHomeAppliancesResponse'
@@ -143,9 +140,9 @@ newForgetSmartHomeAppliancesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-forgetSmartHomeAppliancesResponse_httpStatus :: Lens.Lens' ForgetSmartHomeAppliancesResponse Prelude.Int
+forgetSmartHomeAppliancesResponse_httpStatus :: Lens.Lens' ForgetSmartHomeAppliancesResponse Core.Int
 forgetSmartHomeAppliancesResponse_httpStatus = Lens.lens (\ForgetSmartHomeAppliancesResponse' {httpStatus} -> httpStatus) (\s@ForgetSmartHomeAppliancesResponse' {} a -> s {httpStatus = a} :: ForgetSmartHomeAppliancesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ForgetSmartHomeAppliancesResponse

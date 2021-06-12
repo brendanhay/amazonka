@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KMS.Types.KeyMetadata where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types.CustomerMasterKeySpec
 import Network.AWS.KMS.Types.EncryptionAlgorithmSpec
 import Network.AWS.KMS.Types.ExpirationModelType
@@ -29,7 +29,6 @@ import Network.AWS.KMS.Types.KeyUsageType
 import Network.AWS.KMS.Types.OriginType
 import Network.AWS.KMS.Types.SigningAlgorithmSpec
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains metadata about a customer master key (CMK).
 --
@@ -42,78 +41,78 @@ data KeyMetadata = KeyMetadata'
     -- with other signing algorithms within AWS KMS.
     --
     -- This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@.
-    signingAlgorithms :: Prelude.Maybe [SigningAlgorithmSpec],
+    signingAlgorithms :: Core.Maybe [SigningAlgorithmSpec],
     -- | The manager of the CMK. CMKs in your AWS account are either customer
     -- managed or AWS managed. For more information about the difference, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys>
     -- in the /AWS Key Management Service Developer Guide/.
-    keyManager :: Prelude.Maybe KeyManagerType,
+    keyManager :: Core.Maybe KeyManagerType,
     -- | The source of the CMK\'s key material. When this value is @AWS_KMS@, AWS
     -- KMS created the key material. When this value is @EXTERNAL@, the key
     -- material was imported from your existing key management infrastructure
     -- or the CMK lacks key material. When this value is @AWS_CLOUDHSM@, the
     -- key material was created in the AWS CloudHSM cluster associated with a
     -- custom key store.
-    origin :: Prelude.Maybe OriginType,
+    origin :: Core.Maybe OriginType,
     -- | The twelve-digit account ID of the AWS account that owns the CMK.
-    aWSAccountId :: Prelude.Maybe Prelude.Text,
+    aWSAccountId :: Core.Maybe Core.Text,
     -- | A unique identifier for the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
     -- that contains the CMK. This value is present only when the CMK is
     -- created in a custom key store.
-    customKeyStoreId :: Prelude.Maybe Prelude.Text,
+    customKeyStoreId :: Core.Maybe Core.Text,
     -- | The encryption algorithms that the CMK supports. You cannot use the CMK
     -- with other encryption algorithms within AWS KMS.
     --
     -- This field appears only when the @KeyUsage@ of the CMK is
     -- @ENCRYPT_DECRYPT@.
-    encryptionAlgorithms :: Prelude.Maybe [EncryptionAlgorithmSpec],
+    encryptionAlgorithms :: Core.Maybe [EncryptionAlgorithmSpec],
     -- | The cluster ID of the AWS CloudHSM cluster that contains the key
     -- material for the CMK. When you create a CMK in a
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>,
     -- AWS KMS creates the key material for the CMK in the associated AWS
     -- CloudHSM cluster. This value is present only when the CMK is created in
     -- a custom key store.
-    cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
+    cloudHsmClusterId :: Core.Maybe Core.Text,
     -- | The current status of the CMK.
     --
     -- For more information about how key state affects the use of a CMK, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK>
     -- in the /AWS Key Management Service Developer Guide/.
-    keyState :: Prelude.Maybe KeyState,
+    keyState :: Core.Maybe KeyState,
     -- | The Amazon Resource Name (ARN) of the CMK. For examples, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)>
     -- in the Example ARNs section of the /AWS General Reference/.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The date and time when the CMK was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The time at which the imported key material expires. When the key
     -- material expires, AWS KMS deletes the key material and the CMK becomes
     -- unusable. This value is present only for CMKs whose @Origin@ is
     -- @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@,
     -- otherwise this value is omitted.
-    validTo :: Prelude.Maybe Prelude.POSIX,
+    validTo :: Core.Maybe Core.POSIX,
     -- | Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this
     -- value is true, otherwise it is false.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | Specifies whether the CMK\'s key material expires. This value is present
     -- only when @Origin@ is @EXTERNAL@, otherwise this value is omitted.
-    expirationModel :: Prelude.Maybe ExpirationModelType,
+    expirationModel :: Core.Maybe ExpirationModelType,
     -- | The description of the CMK.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The date and time after which AWS KMS deletes the CMK. This value is
     -- present only when @KeyState@ is @PendingDeletion@.
-    deletionDate :: Prelude.Maybe Prelude.POSIX,
+    deletionDate :: Core.Maybe Core.POSIX,
     -- | The
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
     -- for which you can use the CMK.
-    keyUsage :: Prelude.Maybe KeyUsageType,
+    keyUsage :: Core.Maybe KeyUsageType,
     -- | Describes the type of key material in the CMK.
-    customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec,
+    customerMasterKeySpec :: Core.Maybe CustomerMasterKeySpec,
     -- | The globally unique identifier for the CMK.
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyMetadata' with all optional fields omitted.
@@ -198,27 +197,27 @@ data KeyMetadata = KeyMetadata'
 -- 'keyId', 'keyMetadata_keyId' - The globally unique identifier for the CMK.
 newKeyMetadata ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   KeyMetadata
 newKeyMetadata pKeyId_ =
   KeyMetadata'
-    { signingAlgorithms = Prelude.Nothing,
-      keyManager = Prelude.Nothing,
-      origin = Prelude.Nothing,
-      aWSAccountId = Prelude.Nothing,
-      customKeyStoreId = Prelude.Nothing,
-      encryptionAlgorithms = Prelude.Nothing,
-      cloudHsmClusterId = Prelude.Nothing,
-      keyState = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      validTo = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      expirationModel = Prelude.Nothing,
-      description = Prelude.Nothing,
-      deletionDate = Prelude.Nothing,
-      keyUsage = Prelude.Nothing,
-      customerMasterKeySpec = Prelude.Nothing,
+    { signingAlgorithms = Core.Nothing,
+      keyManager = Core.Nothing,
+      origin = Core.Nothing,
+      aWSAccountId = Core.Nothing,
+      customKeyStoreId = Core.Nothing,
+      encryptionAlgorithms = Core.Nothing,
+      cloudHsmClusterId = Core.Nothing,
+      keyState = Core.Nothing,
+      arn = Core.Nothing,
+      creationDate = Core.Nothing,
+      validTo = Core.Nothing,
+      enabled = Core.Nothing,
+      expirationModel = Core.Nothing,
+      description = Core.Nothing,
+      deletionDate = Core.Nothing,
+      keyUsage = Core.Nothing,
+      customerMasterKeySpec = Core.Nothing,
       keyId = pKeyId_
     }
 
@@ -226,14 +225,14 @@ newKeyMetadata pKeyId_ =
 -- with other signing algorithms within AWS KMS.
 --
 -- This field appears only when the @KeyUsage@ of the CMK is @SIGN_VERIFY@.
-keyMetadata_signingAlgorithms :: Lens.Lens' KeyMetadata (Prelude.Maybe [SigningAlgorithmSpec])
-keyMetadata_signingAlgorithms = Lens.lens (\KeyMetadata' {signingAlgorithms} -> signingAlgorithms) (\s@KeyMetadata' {} a -> s {signingAlgorithms = a} :: KeyMetadata) Prelude.. Lens.mapping Prelude._Coerce
+keyMetadata_signingAlgorithms :: Lens.Lens' KeyMetadata (Core.Maybe [SigningAlgorithmSpec])
+keyMetadata_signingAlgorithms = Lens.lens (\KeyMetadata' {signingAlgorithms} -> signingAlgorithms) (\s@KeyMetadata' {} a -> s {signingAlgorithms = a} :: KeyMetadata) Core.. Lens.mapping Lens._Coerce
 
 -- | The manager of the CMK. CMKs in your AWS account are either customer
 -- managed or AWS managed. For more information about the difference, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys Customer Master Keys>
 -- in the /AWS Key Management Service Developer Guide/.
-keyMetadata_keyManager :: Lens.Lens' KeyMetadata (Prelude.Maybe KeyManagerType)
+keyMetadata_keyManager :: Lens.Lens' KeyMetadata (Core.Maybe KeyManagerType)
 keyMetadata_keyManager = Lens.lens (\KeyMetadata' {keyManager} -> keyManager) (\s@KeyMetadata' {} a -> s {keyManager = a} :: KeyMetadata)
 
 -- | The source of the CMK\'s key material. When this value is @AWS_KMS@, AWS
@@ -242,18 +241,18 @@ keyMetadata_keyManager = Lens.lens (\KeyMetadata' {keyManager} -> keyManager) (\
 -- or the CMK lacks key material. When this value is @AWS_CLOUDHSM@, the
 -- key material was created in the AWS CloudHSM cluster associated with a
 -- custom key store.
-keyMetadata_origin :: Lens.Lens' KeyMetadata (Prelude.Maybe OriginType)
+keyMetadata_origin :: Lens.Lens' KeyMetadata (Core.Maybe OriginType)
 keyMetadata_origin = Lens.lens (\KeyMetadata' {origin} -> origin) (\s@KeyMetadata' {} a -> s {origin = a} :: KeyMetadata)
 
 -- | The twelve-digit account ID of the AWS account that owns the CMK.
-keyMetadata_aWSAccountId :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.Text)
+keyMetadata_aWSAccountId :: Lens.Lens' KeyMetadata (Core.Maybe Core.Text)
 keyMetadata_aWSAccountId = Lens.lens (\KeyMetadata' {aWSAccountId} -> aWSAccountId) (\s@KeyMetadata' {} a -> s {aWSAccountId = a} :: KeyMetadata)
 
 -- | A unique identifier for the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
 -- that contains the CMK. This value is present only when the CMK is
 -- created in a custom key store.
-keyMetadata_customKeyStoreId :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.Text)
+keyMetadata_customKeyStoreId :: Lens.Lens' KeyMetadata (Core.Maybe Core.Text)
 keyMetadata_customKeyStoreId = Lens.lens (\KeyMetadata' {customKeyStoreId} -> customKeyStoreId) (\s@KeyMetadata' {} a -> s {customKeyStoreId = a} :: KeyMetadata)
 
 -- | The encryption algorithms that the CMK supports. You cannot use the CMK
@@ -261,8 +260,8 @@ keyMetadata_customKeyStoreId = Lens.lens (\KeyMetadata' {customKeyStoreId} -> cu
 --
 -- This field appears only when the @KeyUsage@ of the CMK is
 -- @ENCRYPT_DECRYPT@.
-keyMetadata_encryptionAlgorithms :: Lens.Lens' KeyMetadata (Prelude.Maybe [EncryptionAlgorithmSpec])
-keyMetadata_encryptionAlgorithms = Lens.lens (\KeyMetadata' {encryptionAlgorithms} -> encryptionAlgorithms) (\s@KeyMetadata' {} a -> s {encryptionAlgorithms = a} :: KeyMetadata) Prelude.. Lens.mapping Prelude._Coerce
+keyMetadata_encryptionAlgorithms :: Lens.Lens' KeyMetadata (Core.Maybe [EncryptionAlgorithmSpec])
+keyMetadata_encryptionAlgorithms = Lens.lens (\KeyMetadata' {encryptionAlgorithms} -> encryptionAlgorithms) (\s@KeyMetadata' {} a -> s {encryptionAlgorithms = a} :: KeyMetadata) Core.. Lens.mapping Lens._Coerce
 
 -- | The cluster ID of the AWS CloudHSM cluster that contains the key
 -- material for the CMK. When you create a CMK in a
@@ -270,7 +269,7 @@ keyMetadata_encryptionAlgorithms = Lens.lens (\KeyMetadata' {encryptionAlgorithm
 -- AWS KMS creates the key material for the CMK in the associated AWS
 -- CloudHSM cluster. This value is present only when the CMK is created in
 -- a custom key store.
-keyMetadata_cloudHsmClusterId :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.Text)
+keyMetadata_cloudHsmClusterId :: Lens.Lens' KeyMetadata (Core.Maybe Core.Text)
 keyMetadata_cloudHsmClusterId = Lens.lens (\KeyMetadata' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@KeyMetadata' {} a -> s {cloudHsmClusterId = a} :: KeyMetadata)
 
 -- | The current status of the CMK.
@@ -278,90 +277,88 @@ keyMetadata_cloudHsmClusterId = Lens.lens (\KeyMetadata' {cloudHsmClusterId} -> 
 -- For more information about how key state affects the use of a CMK, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your CMK>
 -- in the /AWS Key Management Service Developer Guide/.
-keyMetadata_keyState :: Lens.Lens' KeyMetadata (Prelude.Maybe KeyState)
+keyMetadata_keyState :: Lens.Lens' KeyMetadata (Core.Maybe KeyState)
 keyMetadata_keyState = Lens.lens (\KeyMetadata' {keyState} -> keyState) (\s@KeyMetadata' {} a -> s {keyState = a} :: KeyMetadata)
 
 -- | The Amazon Resource Name (ARN) of the CMK. For examples, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms AWS Key Management Service (AWS KMS)>
 -- in the Example ARNs section of the /AWS General Reference/.
-keyMetadata_arn :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.Text)
+keyMetadata_arn :: Lens.Lens' KeyMetadata (Core.Maybe Core.Text)
 keyMetadata_arn = Lens.lens (\KeyMetadata' {arn} -> arn) (\s@KeyMetadata' {} a -> s {arn = a} :: KeyMetadata)
 
 -- | The date and time when the CMK was created.
-keyMetadata_creationDate :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.UTCTime)
-keyMetadata_creationDate = Lens.lens (\KeyMetadata' {creationDate} -> creationDate) (\s@KeyMetadata' {} a -> s {creationDate = a} :: KeyMetadata) Prelude.. Lens.mapping Prelude._Time
+keyMetadata_creationDate :: Lens.Lens' KeyMetadata (Core.Maybe Core.UTCTime)
+keyMetadata_creationDate = Lens.lens (\KeyMetadata' {creationDate} -> creationDate) (\s@KeyMetadata' {} a -> s {creationDate = a} :: KeyMetadata) Core.. Lens.mapping Core._Time
 
 -- | The time at which the imported key material expires. When the key
 -- material expires, AWS KMS deletes the key material and the CMK becomes
 -- unusable. This value is present only for CMKs whose @Origin@ is
 -- @EXTERNAL@ and whose @ExpirationModel@ is @KEY_MATERIAL_EXPIRES@,
 -- otherwise this value is omitted.
-keyMetadata_validTo :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.UTCTime)
-keyMetadata_validTo = Lens.lens (\KeyMetadata' {validTo} -> validTo) (\s@KeyMetadata' {} a -> s {validTo = a} :: KeyMetadata) Prelude.. Lens.mapping Prelude._Time
+keyMetadata_validTo :: Lens.Lens' KeyMetadata (Core.Maybe Core.UTCTime)
+keyMetadata_validTo = Lens.lens (\KeyMetadata' {validTo} -> validTo) (\s@KeyMetadata' {} a -> s {validTo = a} :: KeyMetadata) Core.. Lens.mapping Core._Time
 
 -- | Specifies whether the CMK is enabled. When @KeyState@ is @Enabled@ this
 -- value is true, otherwise it is false.
-keyMetadata_enabled :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.Bool)
+keyMetadata_enabled :: Lens.Lens' KeyMetadata (Core.Maybe Core.Bool)
 keyMetadata_enabled = Lens.lens (\KeyMetadata' {enabled} -> enabled) (\s@KeyMetadata' {} a -> s {enabled = a} :: KeyMetadata)
 
 -- | Specifies whether the CMK\'s key material expires. This value is present
 -- only when @Origin@ is @EXTERNAL@, otherwise this value is omitted.
-keyMetadata_expirationModel :: Lens.Lens' KeyMetadata (Prelude.Maybe ExpirationModelType)
+keyMetadata_expirationModel :: Lens.Lens' KeyMetadata (Core.Maybe ExpirationModelType)
 keyMetadata_expirationModel = Lens.lens (\KeyMetadata' {expirationModel} -> expirationModel) (\s@KeyMetadata' {} a -> s {expirationModel = a} :: KeyMetadata)
 
 -- | The description of the CMK.
-keyMetadata_description :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.Text)
+keyMetadata_description :: Lens.Lens' KeyMetadata (Core.Maybe Core.Text)
 keyMetadata_description = Lens.lens (\KeyMetadata' {description} -> description) (\s@KeyMetadata' {} a -> s {description = a} :: KeyMetadata)
 
 -- | The date and time after which AWS KMS deletes the CMK. This value is
 -- present only when @KeyState@ is @PendingDeletion@.
-keyMetadata_deletionDate :: Lens.Lens' KeyMetadata (Prelude.Maybe Prelude.UTCTime)
-keyMetadata_deletionDate = Lens.lens (\KeyMetadata' {deletionDate} -> deletionDate) (\s@KeyMetadata' {} a -> s {deletionDate = a} :: KeyMetadata) Prelude.. Lens.mapping Prelude._Time
+keyMetadata_deletionDate :: Lens.Lens' KeyMetadata (Core.Maybe Core.UTCTime)
+keyMetadata_deletionDate = Lens.lens (\KeyMetadata' {deletionDate} -> deletionDate) (\s@KeyMetadata' {} a -> s {deletionDate = a} :: KeyMetadata) Core.. Lens.mapping Core._Time
 
 -- | The
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
 -- for which you can use the CMK.
-keyMetadata_keyUsage :: Lens.Lens' KeyMetadata (Prelude.Maybe KeyUsageType)
+keyMetadata_keyUsage :: Lens.Lens' KeyMetadata (Core.Maybe KeyUsageType)
 keyMetadata_keyUsage = Lens.lens (\KeyMetadata' {keyUsage} -> keyUsage) (\s@KeyMetadata' {} a -> s {keyUsage = a} :: KeyMetadata)
 
 -- | Describes the type of key material in the CMK.
-keyMetadata_customerMasterKeySpec :: Lens.Lens' KeyMetadata (Prelude.Maybe CustomerMasterKeySpec)
+keyMetadata_customerMasterKeySpec :: Lens.Lens' KeyMetadata (Core.Maybe CustomerMasterKeySpec)
 keyMetadata_customerMasterKeySpec = Lens.lens (\KeyMetadata' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@KeyMetadata' {} a -> s {customerMasterKeySpec = a} :: KeyMetadata)
 
 -- | The globally unique identifier for the CMK.
-keyMetadata_keyId :: Lens.Lens' KeyMetadata Prelude.Text
+keyMetadata_keyId :: Lens.Lens' KeyMetadata Core.Text
 keyMetadata_keyId = Lens.lens (\KeyMetadata' {keyId} -> keyId) (\s@KeyMetadata' {} a -> s {keyId = a} :: KeyMetadata)
 
-instance Prelude.FromJSON KeyMetadata where
+instance Core.FromJSON KeyMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyMetadata"
       ( \x ->
           KeyMetadata'
-            Prelude.<$> ( x Prelude..:? "SigningAlgorithms"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "KeyManager")
-            Prelude.<*> (x Prelude..:? "Origin")
-            Prelude.<*> (x Prelude..:? "AWSAccountId")
-            Prelude.<*> (x Prelude..:? "CustomKeyStoreId")
-            Prelude.<*> ( x Prelude..:? "EncryptionAlgorithms"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "CloudHsmClusterId")
-            Prelude.<*> (x Prelude..:? "KeyState")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "CreationDate")
-            Prelude.<*> (x Prelude..:? "ValidTo")
-            Prelude.<*> (x Prelude..:? "Enabled")
-            Prelude.<*> (x Prelude..:? "ExpirationModel")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "DeletionDate")
-            Prelude.<*> (x Prelude..:? "KeyUsage")
-            Prelude.<*> (x Prelude..:? "CustomerMasterKeySpec")
-            Prelude.<*> (x Prelude..: "KeyId")
+            Core.<$> (x Core..:? "SigningAlgorithms" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "KeyManager")
+            Core.<*> (x Core..:? "Origin")
+            Core.<*> (x Core..:? "AWSAccountId")
+            Core.<*> (x Core..:? "CustomKeyStoreId")
+            Core.<*> ( x Core..:? "EncryptionAlgorithms"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "CloudHsmClusterId")
+            Core.<*> (x Core..:? "KeyState")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationDate")
+            Core.<*> (x Core..:? "ValidTo")
+            Core.<*> (x Core..:? "Enabled")
+            Core.<*> (x Core..:? "ExpirationModel")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "DeletionDate")
+            Core.<*> (x Core..:? "KeyUsage")
+            Core.<*> (x Core..:? "CustomerMasterKeySpec")
+            Core.<*> (x Core..: "KeyId")
       )
 
-instance Prelude.Hashable KeyMetadata
+instance Core.Hashable KeyMetadata
 
-instance Prelude.NFData KeyMetadata
+instance Core.NFData KeyMetadata

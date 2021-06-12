@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.FailureDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an Automation failure.
 --
 -- /See:/ 'newFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
   { -- | Detailed information about the Automation step failure.
-    details :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    details :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The stage of the Automation execution when the failure occurred. The
     -- stages include the following: InputValidation, PreVerification,
     -- Invocation, PostVerification.
-    failureStage :: Prelude.Maybe Prelude.Text,
+    failureStage :: Core.Maybe Core.Text,
     -- | The type of Automation failure. Failure types include the following:
     -- Action, Permission, Throttling, Verification, Internal.
-    failureType :: Prelude.Maybe Prelude.Text
+    failureType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailureDetails' with all optional fields omitted.
@@ -59,37 +58,37 @@ newFailureDetails ::
   FailureDetails
 newFailureDetails =
   FailureDetails'
-    { details = Prelude.Nothing,
-      failureStage = Prelude.Nothing,
-      failureType = Prelude.Nothing
+    { details = Core.Nothing,
+      failureStage = Core.Nothing,
+      failureType = Core.Nothing
     }
 
 -- | Detailed information about the Automation step failure.
-failureDetails_details :: Lens.Lens' FailureDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@FailureDetails' {} a -> s {details = a} :: FailureDetails) Prelude.. Lens.mapping Prelude._Coerce
+failureDetails_details :: Lens.Lens' FailureDetails (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+failureDetails_details = Lens.lens (\FailureDetails' {details} -> details) (\s@FailureDetails' {} a -> s {details = a} :: FailureDetails) Core.. Lens.mapping Lens._Coerce
 
 -- | The stage of the Automation execution when the failure occurred. The
 -- stages include the following: InputValidation, PreVerification,
 -- Invocation, PostVerification.
-failureDetails_failureStage :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_failureStage :: Lens.Lens' FailureDetails (Core.Maybe Core.Text)
 failureDetails_failureStage = Lens.lens (\FailureDetails' {failureStage} -> failureStage) (\s@FailureDetails' {} a -> s {failureStage = a} :: FailureDetails)
 
 -- | The type of Automation failure. Failure types include the following:
 -- Action, Permission, Throttling, Verification, Internal.
-failureDetails_failureType :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_failureType :: Lens.Lens' FailureDetails (Core.Maybe Core.Text)
 failureDetails_failureType = Lens.lens (\FailureDetails' {failureType} -> failureType) (\s@FailureDetails' {} a -> s {failureType = a} :: FailureDetails)
 
-instance Prelude.FromJSON FailureDetails where
+instance Core.FromJSON FailureDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailureDetails"
       ( \x ->
           FailureDetails'
-            Prelude.<$> (x Prelude..:? "Details" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "FailureStage")
-            Prelude.<*> (x Prelude..:? "FailureType")
+            Core.<$> (x Core..:? "Details" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "FailureStage")
+            Core.<*> (x Core..:? "FailureType")
       )
 
-instance Prelude.Hashable FailureDetails
+instance Core.Hashable FailureDetails
 
-instance Prelude.NFData FailureDetails
+instance Core.NFData FailureDetails

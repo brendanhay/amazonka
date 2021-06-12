@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.JobExecutionSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about when a transcription job should be executed.
 --
@@ -36,7 +35,7 @@ data JobExecutionSettings = JobExecutionSettings'
     --
     -- If you specify the @AllowDeferredExecution@ field, you must specify the
     -- @DataAccessRoleArn@ field.
-    allowDeferredExecution :: Prelude.Maybe Prelude.Bool,
+    allowDeferredExecution :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of a role that has access to the S3
     -- bucket that contains the input files. Amazon Transcribe assumes this
     -- role to read queued media files. If you have specified an output S3
@@ -45,9 +44,9 @@ data JobExecutionSettings = JobExecutionSettings'
     --
     -- If you specify the @AllowDeferredExecution@ field, you must specify the
     -- @DataAccessRoleArn@ field.
-    dataAccessRoleArn :: Prelude.Maybe Prelude.Text
+    dataAccessRoleArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobExecutionSettings' with all optional fields omitted.
@@ -80,8 +79,8 @@ newJobExecutionSettings ::
 newJobExecutionSettings =
   JobExecutionSettings'
     { allowDeferredExecution =
-        Prelude.Nothing,
-      dataAccessRoleArn = Prelude.Nothing
+        Core.Nothing,
+      dataAccessRoleArn = Core.Nothing
     }
 
 -- | Indicates whether a job should be queued by Amazon Transcribe when the
@@ -93,7 +92,7 @@ newJobExecutionSettings =
 --
 -- If you specify the @AllowDeferredExecution@ field, you must specify the
 -- @DataAccessRoleArn@ field.
-jobExecutionSettings_allowDeferredExecution :: Lens.Lens' JobExecutionSettings (Prelude.Maybe Prelude.Bool)
+jobExecutionSettings_allowDeferredExecution :: Lens.Lens' JobExecutionSettings (Core.Maybe Core.Bool)
 jobExecutionSettings_allowDeferredExecution = Lens.lens (\JobExecutionSettings' {allowDeferredExecution} -> allowDeferredExecution) (\s@JobExecutionSettings' {} a -> s {allowDeferredExecution = a} :: JobExecutionSettings)
 
 -- | The Amazon Resource Name (ARN) of a role that has access to the S3
@@ -104,30 +103,30 @@ jobExecutionSettings_allowDeferredExecution = Lens.lens (\JobExecutionSettings' 
 --
 -- If you specify the @AllowDeferredExecution@ field, you must specify the
 -- @DataAccessRoleArn@ field.
-jobExecutionSettings_dataAccessRoleArn :: Lens.Lens' JobExecutionSettings (Prelude.Maybe Prelude.Text)
+jobExecutionSettings_dataAccessRoleArn :: Lens.Lens' JobExecutionSettings (Core.Maybe Core.Text)
 jobExecutionSettings_dataAccessRoleArn = Lens.lens (\JobExecutionSettings' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@JobExecutionSettings' {} a -> s {dataAccessRoleArn = a} :: JobExecutionSettings)
 
-instance Prelude.FromJSON JobExecutionSettings where
+instance Core.FromJSON JobExecutionSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobExecutionSettings"
       ( \x ->
           JobExecutionSettings'
-            Prelude.<$> (x Prelude..:? "AllowDeferredExecution")
-            Prelude.<*> (x Prelude..:? "DataAccessRoleArn")
+            Core.<$> (x Core..:? "AllowDeferredExecution")
+            Core.<*> (x Core..:? "DataAccessRoleArn")
       )
 
-instance Prelude.Hashable JobExecutionSettings
+instance Core.Hashable JobExecutionSettings
 
-instance Prelude.NFData JobExecutionSettings
+instance Core.NFData JobExecutionSettings
 
-instance Prelude.ToJSON JobExecutionSettings where
+instance Core.ToJSON JobExecutionSettings where
   toJSON JobExecutionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AllowDeferredExecution" Prelude..=)
-              Prelude.<$> allowDeferredExecution,
-            ("DataAccessRoleArn" Prelude..=)
-              Prelude.<$> dataAccessRoleArn
+    Core.object
+      ( Core.catMaybes
+          [ ("AllowDeferredExecution" Core..=)
+              Core.<$> allowDeferredExecution,
+            ("DataAccessRoleArn" Core..=)
+              Core.<$> dataAccessRoleArn
           ]
       )

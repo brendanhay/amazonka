@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.DeleteApnsVoipSandboxChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteApnsVoipSandboxChannel = DeleteApnsVoipSandboxChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsVoipSandboxChannel' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteApnsVoipSandboxChannel = DeleteApnsVoipSandboxChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteApnsVoipSandboxChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApnsVoipSandboxChannel
 newDeleteApnsVoipSandboxChannel pApplicationId_ =
   DeleteApnsVoipSandboxChannel'
@@ -77,63 +76,53 @@ newDeleteApnsVoipSandboxChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteApnsVoipSandboxChannel_applicationId :: Lens.Lens' DeleteApnsVoipSandboxChannel Prelude.Text
+deleteApnsVoipSandboxChannel_applicationId :: Lens.Lens' DeleteApnsVoipSandboxChannel Core.Text
 deleteApnsVoipSandboxChannel_applicationId = Lens.lens (\DeleteApnsVoipSandboxChannel' {applicationId} -> applicationId) (\s@DeleteApnsVoipSandboxChannel' {} a -> s {applicationId = a} :: DeleteApnsVoipSandboxChannel)
 
-instance
-  Prelude.AWSRequest
-    DeleteApnsVoipSandboxChannel
-  where
+instance Core.AWSRequest DeleteApnsVoipSandboxChannel where
   type
-    Rs DeleteApnsVoipSandboxChannel =
+    AWSResponse DeleteApnsVoipSandboxChannel =
       DeleteApnsVoipSandboxChannelResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteApnsVoipSandboxChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance
-  Prelude.Hashable
-    DeleteApnsVoipSandboxChannel
+instance Core.Hashable DeleteApnsVoipSandboxChannel
 
-instance Prelude.NFData DeleteApnsVoipSandboxChannel
+instance Core.NFData DeleteApnsVoipSandboxChannel
 
-instance
-  Prelude.ToHeaders
-    DeleteApnsVoipSandboxChannel
-  where
+instance Core.ToHeaders DeleteApnsVoipSandboxChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteApnsVoipSandboxChannel where
+instance Core.ToPath DeleteApnsVoipSandboxChannel where
   toPath DeleteApnsVoipSandboxChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/apns_voip_sandbox"
       ]
 
-instance Prelude.ToQuery DeleteApnsVoipSandboxChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApnsVoipSandboxChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApnsVoipSandboxChannelResponse' smart constructor.
 data DeleteApnsVoipSandboxChannelResponse = DeleteApnsVoipSandboxChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     aPNSVoipSandboxChannelResponse :: APNSVoipSandboxChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApnsVoipSandboxChannelResponse' with all optional fields omitted.
@@ -148,7 +137,7 @@ data DeleteApnsVoipSandboxChannelResponse = DeleteApnsVoipSandboxChannelResponse
 -- 'aPNSVoipSandboxChannelResponse', 'deleteApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse' - Undocumented member.
 newDeleteApnsVoipSandboxChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'aPNSVoipSandboxChannelResponse'
   APNSVoipSandboxChannelResponse ->
   DeleteApnsVoipSandboxChannelResponse
@@ -163,7 +152,7 @@ newDeleteApnsVoipSandboxChannelResponse
       }
 
 -- | The response's http status code.
-deleteApnsVoipSandboxChannelResponse_httpStatus :: Lens.Lens' DeleteApnsVoipSandboxChannelResponse Prelude.Int
+deleteApnsVoipSandboxChannelResponse_httpStatus :: Lens.Lens' DeleteApnsVoipSandboxChannelResponse Core.Int
 deleteApnsVoipSandboxChannelResponse_httpStatus = Lens.lens (\DeleteApnsVoipSandboxChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteApnsVoipSandboxChannelResponse' {} a -> s {httpStatus = a} :: DeleteApnsVoipSandboxChannelResponse)
 
 -- | Undocumented member.
@@ -171,5 +160,5 @@ deleteApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse :: Lens.Lens
 deleteApnsVoipSandboxChannelResponse_aPNSVoipSandboxChannelResponse = Lens.lens (\DeleteApnsVoipSandboxChannelResponse' {aPNSVoipSandboxChannelResponse} -> aPNSVoipSandboxChannelResponse) (\s@DeleteApnsVoipSandboxChannelResponse' {} a -> s {aPNSVoipSandboxChannelResponse = a} :: DeleteApnsVoipSandboxChannelResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteApnsVoipSandboxChannelResponse

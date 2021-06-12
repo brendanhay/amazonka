@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.Principal where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.PermissionInfo
 import Network.AWS.WorkDocs.Types.PrincipalType
 
@@ -30,13 +29,13 @@ import Network.AWS.WorkDocs.Types.PrincipalType
 -- /See:/ 'newPrincipal' smart constructor.
 data Principal = Principal'
   { -- | The ID of the resource.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The permission information for the resource.
-    roles :: Prelude.Maybe [PermissionInfo],
+    roles :: Core.Maybe [PermissionInfo],
     -- | The type of resource.
-    type' :: Prelude.Maybe PrincipalType
+    type' :: Core.Maybe PrincipalType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Principal' with all optional fields omitted.
@@ -55,34 +54,34 @@ newPrincipal ::
   Principal
 newPrincipal =
   Principal'
-    { id = Prelude.Nothing,
-      roles = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { id = Core.Nothing,
+      roles = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The ID of the resource.
-principal_id :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
+principal_id :: Lens.Lens' Principal (Core.Maybe Core.Text)
 principal_id = Lens.lens (\Principal' {id} -> id) (\s@Principal' {} a -> s {id = a} :: Principal)
 
 -- | The permission information for the resource.
-principal_roles :: Lens.Lens' Principal (Prelude.Maybe [PermissionInfo])
-principal_roles = Lens.lens (\Principal' {roles} -> roles) (\s@Principal' {} a -> s {roles = a} :: Principal) Prelude.. Lens.mapping Prelude._Coerce
+principal_roles :: Lens.Lens' Principal (Core.Maybe [PermissionInfo])
+principal_roles = Lens.lens (\Principal' {roles} -> roles) (\s@Principal' {} a -> s {roles = a} :: Principal) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of resource.
-principal_type :: Lens.Lens' Principal (Prelude.Maybe PrincipalType)
+principal_type :: Lens.Lens' Principal (Core.Maybe PrincipalType)
 principal_type = Lens.lens (\Principal' {type'} -> type') (\s@Principal' {} a -> s {type' = a} :: Principal)
 
-instance Prelude.FromJSON Principal where
+instance Core.FromJSON Principal where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Principal"
       ( \x ->
           Principal'
-            Prelude.<$> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Roles" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Roles" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Principal
+instance Core.Hashable Principal
 
-instance Prelude.NFData Principal
+instance Core.NFData Principal

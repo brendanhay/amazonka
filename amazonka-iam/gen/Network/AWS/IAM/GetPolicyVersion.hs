@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,9 +62,9 @@ module Network.AWS.IAM.GetPolicyVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,7 +76,7 @@ data GetPolicyVersion = GetPolicyVersion'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Prelude.Text,
+    policyArn :: Core.Text,
     -- | Identifies the policy version to retrieve.
     --
     -- This parameter allows (through its
@@ -85,9 +84,9 @@ data GetPolicyVersion = GetPolicyVersion'
     -- that consists of the lowercase letter \'v\' followed by one or two
     -- digits, and optionally followed by a period \'.\' and a string of
     -- letters and digits.
-    versionId :: Prelude.Text
+    versionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPolicyVersion' with all optional fields omitted.
@@ -113,9 +112,9 @@ data GetPolicyVersion = GetPolicyVersion'
 -- letters and digits.
 newGetPolicyVersion ::
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionId'
-  Prelude.Text ->
+  Core.Text ->
   GetPolicyVersion
 newGetPolicyVersion pPolicyArn_ pVersionId_ =
   GetPolicyVersion'
@@ -129,7 +128,7 @@ newGetPolicyVersion pPolicyArn_ pVersionId_ =
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-getPolicyVersion_policyArn :: Lens.Lens' GetPolicyVersion Prelude.Text
+getPolicyVersion_policyArn :: Lens.Lens' GetPolicyVersion Core.Text
 getPolicyVersion_policyArn = Lens.lens (\GetPolicyVersion' {policyArn} -> policyArn) (\s@GetPolicyVersion' {} a -> s {policyArn = a} :: GetPolicyVersion)
 
 -- | Identifies the policy version to retrieve.
@@ -139,40 +138,41 @@ getPolicyVersion_policyArn = Lens.lens (\GetPolicyVersion' {policyArn} -> policy
 -- that consists of the lowercase letter \'v\' followed by one or two
 -- digits, and optionally followed by a period \'.\' and a string of
 -- letters and digits.
-getPolicyVersion_versionId :: Lens.Lens' GetPolicyVersion Prelude.Text
+getPolicyVersion_versionId :: Lens.Lens' GetPolicyVersion Core.Text
 getPolicyVersion_versionId = Lens.lens (\GetPolicyVersion' {versionId} -> versionId) (\s@GetPolicyVersion' {} a -> s {versionId = a} :: GetPolicyVersion)
 
-instance Prelude.AWSRequest GetPolicyVersion where
-  type Rs GetPolicyVersion = GetPolicyVersionResponse
+instance Core.AWSRequest GetPolicyVersion where
+  type
+    AWSResponse GetPolicyVersion =
+      GetPolicyVersionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetPolicyVersionResult"
       ( \s h x ->
           GetPolicyVersionResponse'
-            Prelude.<$> (x Prelude..@? "PolicyVersion")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "PolicyVersion")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPolicyVersion
+instance Core.Hashable GetPolicyVersion
 
-instance Prelude.NFData GetPolicyVersion
+instance Core.NFData GetPolicyVersion
 
-instance Prelude.ToHeaders GetPolicyVersion where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetPolicyVersion where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetPolicyVersion where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPolicyVersion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPolicyVersion where
+instance Core.ToQuery GetPolicyVersion where
   toQuery GetPolicyVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetPolicyVersion" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "PolicyArn" Prelude.=: policyArn,
-        "VersionId" Prelude.=: versionId
+          Core.=: ("GetPolicyVersion" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "PolicyArn" Core.=: policyArn,
+        "VersionId" Core.=: versionId
       ]
 
 -- | Contains the response to a successful GetPolicyVersion request.
@@ -180,11 +180,11 @@ instance Prelude.ToQuery GetPolicyVersion where
 -- /See:/ 'newGetPolicyVersionResponse' smart constructor.
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
   { -- | A structure containing details about the policy version.
-    policyVersion :: Prelude.Maybe PolicyVersion,
+    policyVersion :: Core.Maybe PolicyVersion,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPolicyVersionResponse' with all optional fields omitted.
@@ -199,21 +199,21 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
 -- 'httpStatus', 'getPolicyVersionResponse_httpStatus' - The response's http status code.
 newGetPolicyVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPolicyVersionResponse
 newGetPolicyVersionResponse pHttpStatus_ =
   GetPolicyVersionResponse'
     { policyVersion =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure containing details about the policy version.
-getPolicyVersionResponse_policyVersion :: Lens.Lens' GetPolicyVersionResponse (Prelude.Maybe PolicyVersion)
+getPolicyVersionResponse_policyVersion :: Lens.Lens' GetPolicyVersionResponse (Core.Maybe PolicyVersion)
 getPolicyVersionResponse_policyVersion = Lens.lens (\GetPolicyVersionResponse' {policyVersion} -> policyVersion) (\s@GetPolicyVersionResponse' {} a -> s {policyVersion = a} :: GetPolicyVersionResponse)
 
 -- | The response's http status code.
-getPolicyVersionResponse_httpStatus :: Lens.Lens' GetPolicyVersionResponse Prelude.Int
+getPolicyVersionResponse_httpStatus :: Lens.Lens' GetPolicyVersionResponse Core.Int
 getPolicyVersionResponse_httpStatus = Lens.lens (\GetPolicyVersionResponse' {httpStatus} -> httpStatus) (\s@GetPolicyVersionResponse' {} a -> s {httpStatus = a} :: GetPolicyVersionResponse)
 
-instance Prelude.NFData GetPolicyVersionResponse
+instance Core.NFData GetPolicyVersionResponse

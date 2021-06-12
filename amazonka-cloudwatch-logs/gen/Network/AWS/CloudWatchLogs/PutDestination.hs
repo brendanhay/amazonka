@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,23 +60,23 @@ module Network.AWS.CloudWatchLogs.PutDestination
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutDestination' smart constructor.
 data PutDestination = PutDestination'
   { -- | A name for the destination.
-    destinationName :: Prelude.Text,
+    destinationName :: Core.Text,
     -- | The ARN of an Amazon Kinesis stream to which to deliver matching log
     -- events.
-    targetArn :: Prelude.Text,
+    targetArn :: Core.Text,
     -- | The ARN of an IAM role that grants CloudWatch Logs permissions to call
     -- the Amazon Kinesis @PutRecord@ operation on the destination stream.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDestination' with all optional fields omitted.
@@ -96,11 +95,11 @@ data PutDestination = PutDestination'
 -- the Amazon Kinesis @PutRecord@ operation on the destination stream.
 newPutDestination ::
   -- | 'destinationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   PutDestination
 newPutDestination
   pDestinationName_
@@ -114,74 +113,72 @@ newPutDestination
       }
 
 -- | A name for the destination.
-putDestination_destinationName :: Lens.Lens' PutDestination Prelude.Text
+putDestination_destinationName :: Lens.Lens' PutDestination Core.Text
 putDestination_destinationName = Lens.lens (\PutDestination' {destinationName} -> destinationName) (\s@PutDestination' {} a -> s {destinationName = a} :: PutDestination)
 
 -- | The ARN of an Amazon Kinesis stream to which to deliver matching log
 -- events.
-putDestination_targetArn :: Lens.Lens' PutDestination Prelude.Text
+putDestination_targetArn :: Lens.Lens' PutDestination Core.Text
 putDestination_targetArn = Lens.lens (\PutDestination' {targetArn} -> targetArn) (\s@PutDestination' {} a -> s {targetArn = a} :: PutDestination)
 
 -- | The ARN of an IAM role that grants CloudWatch Logs permissions to call
 -- the Amazon Kinesis @PutRecord@ operation on the destination stream.
-putDestination_roleArn :: Lens.Lens' PutDestination Prelude.Text
+putDestination_roleArn :: Lens.Lens' PutDestination Core.Text
 putDestination_roleArn = Lens.lens (\PutDestination' {roleArn} -> roleArn) (\s@PutDestination' {} a -> s {roleArn = a} :: PutDestination)
 
-instance Prelude.AWSRequest PutDestination where
-  type Rs PutDestination = PutDestinationResponse
+instance Core.AWSRequest PutDestination where
+  type
+    AWSResponse PutDestination =
+      PutDestinationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutDestinationResponse'
-            Prelude.<$> (x Prelude..?> "destination")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "destination")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutDestination
+instance Core.Hashable PutDestination
 
-instance Prelude.NFData PutDestination
+instance Core.NFData PutDestination
 
-instance Prelude.ToHeaders PutDestination where
+instance Core.ToHeaders PutDestination where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.PutDestination" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.PutDestination" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutDestination where
+instance Core.ToJSON PutDestination where
   toJSON PutDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("destinationName" Prelude..= destinationName),
-            Prelude.Just ("targetArn" Prelude..= targetArn),
-            Prelude.Just ("roleArn" Prelude..= roleArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("destinationName" Core..= destinationName),
+            Core.Just ("targetArn" Core..= targetArn),
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )
 
-instance Prelude.ToPath PutDestination where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutDestination where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutDestinationResponse' smart constructor.
 data PutDestinationResponse = PutDestinationResponse'
   { -- | The destination.
-    destination :: Prelude.Maybe Destination,
+    destination :: Core.Maybe Destination,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDestinationResponse' with all optional fields omitted.
@@ -196,21 +193,20 @@ data PutDestinationResponse = PutDestinationResponse'
 -- 'httpStatus', 'putDestinationResponse_httpStatus' - The response's http status code.
 newPutDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutDestinationResponse
 newPutDestinationResponse pHttpStatus_ =
   PutDestinationResponse'
-    { destination =
-        Prelude.Nothing,
+    { destination = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The destination.
-putDestinationResponse_destination :: Lens.Lens' PutDestinationResponse (Prelude.Maybe Destination)
+putDestinationResponse_destination :: Lens.Lens' PutDestinationResponse (Core.Maybe Destination)
 putDestinationResponse_destination = Lens.lens (\PutDestinationResponse' {destination} -> destination) (\s@PutDestinationResponse' {} a -> s {destination = a} :: PutDestinationResponse)
 
 -- | The response's http status code.
-putDestinationResponse_httpStatus :: Lens.Lens' PutDestinationResponse Prelude.Int
+putDestinationResponse_httpStatus :: Lens.Lens' PutDestinationResponse Core.Int
 putDestinationResponse_httpStatus = Lens.lens (\PutDestinationResponse' {httpStatus} -> httpStatus) (\s@PutDestinationResponse' {} a -> s {httpStatus = a} :: PutDestinationResponse)
 
-instance Prelude.NFData PutDestinationResponse
+instance Core.NFData PutDestinationResponse

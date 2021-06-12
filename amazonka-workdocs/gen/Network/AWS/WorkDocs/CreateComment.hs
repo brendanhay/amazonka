@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.WorkDocs.CreateComment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -56,28 +55,28 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newCreateComment' smart constructor.
 data CreateComment = CreateComment'
   { -- | The ID of the parent comment.
-    parentId :: Prelude.Maybe Prelude.Text,
+    parentId :: Core.Maybe Core.Text,
     -- | The visibility of the comment. Options are either PRIVATE, where the
     -- comment is visible only to the comment author and document owner and
     -- co-owners, or PUBLIC, where the comment is visible to document owners,
     -- co-owners, and contributors.
-    visibility :: Prelude.Maybe CommentVisibilityType,
+    visibility :: Core.Maybe CommentVisibilityType,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The ID of the root comment in the thread.
-    threadId :: Prelude.Maybe Prelude.Text,
+    threadId :: Core.Maybe Core.Text,
     -- | Set this parameter to TRUE to send an email out to the document
     -- collaborators after the comment is created.
-    notifyCollaborators :: Prelude.Maybe Prelude.Bool,
+    notifyCollaborators :: Core.Maybe Core.Bool,
     -- | The ID of the document.
-    documentId :: Prelude.Text,
+    documentId :: Core.Text,
     -- | The ID of the document version.
-    versionId :: Prelude.Text,
+    versionId :: Core.Text,
     -- | The text of the comment.
-    text :: Prelude.Sensitive Prelude.Text
+    text :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateComment' with all optional fields omitted.
@@ -109,118 +108,120 @@ data CreateComment = CreateComment'
 -- 'text', 'createComment_text' - The text of the comment.
 newCreateComment ::
   -- | 'documentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'text'
-  Prelude.Text ->
+  Core.Text ->
   CreateComment
 newCreateComment pDocumentId_ pVersionId_ pText_ =
   CreateComment'
-    { parentId = Prelude.Nothing,
-      visibility = Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
-      threadId = Prelude.Nothing,
-      notifyCollaborators = Prelude.Nothing,
+    { parentId = Core.Nothing,
+      visibility = Core.Nothing,
+      authenticationToken = Core.Nothing,
+      threadId = Core.Nothing,
+      notifyCollaborators = Core.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_,
-      text = Prelude._Sensitive Lens.# pText_
+      text = Core._Sensitive Lens.# pText_
     }
 
 -- | The ID of the parent comment.
-createComment_parentId :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
+createComment_parentId :: Lens.Lens' CreateComment (Core.Maybe Core.Text)
 createComment_parentId = Lens.lens (\CreateComment' {parentId} -> parentId) (\s@CreateComment' {} a -> s {parentId = a} :: CreateComment)
 
 -- | The visibility of the comment. Options are either PRIVATE, where the
 -- comment is visible only to the comment author and document owner and
 -- co-owners, or PUBLIC, where the comment is visible to document owners,
 -- co-owners, and contributors.
-createComment_visibility :: Lens.Lens' CreateComment (Prelude.Maybe CommentVisibilityType)
+createComment_visibility :: Lens.Lens' CreateComment (Core.Maybe CommentVisibilityType)
 createComment_visibility = Lens.lens (\CreateComment' {visibility} -> visibility) (\s@CreateComment' {} a -> s {visibility = a} :: CreateComment)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-createComment_authenticationToken :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
-createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationToken} -> authenticationToken) (\s@CreateComment' {} a -> s {authenticationToken = a} :: CreateComment) Prelude.. Lens.mapping Prelude._Sensitive
+createComment_authenticationToken :: Lens.Lens' CreateComment (Core.Maybe Core.Text)
+createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationToken} -> authenticationToken) (\s@CreateComment' {} a -> s {authenticationToken = a} :: CreateComment) Core.. Lens.mapping Core._Sensitive
 
 -- | The ID of the root comment in the thread.
-createComment_threadId :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
+createComment_threadId :: Lens.Lens' CreateComment (Core.Maybe Core.Text)
 createComment_threadId = Lens.lens (\CreateComment' {threadId} -> threadId) (\s@CreateComment' {} a -> s {threadId = a} :: CreateComment)
 
 -- | Set this parameter to TRUE to send an email out to the document
 -- collaborators after the comment is created.
-createComment_notifyCollaborators :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Bool)
+createComment_notifyCollaborators :: Lens.Lens' CreateComment (Core.Maybe Core.Bool)
 createComment_notifyCollaborators = Lens.lens (\CreateComment' {notifyCollaborators} -> notifyCollaborators) (\s@CreateComment' {} a -> s {notifyCollaborators = a} :: CreateComment)
 
 -- | The ID of the document.
-createComment_documentId :: Lens.Lens' CreateComment Prelude.Text
+createComment_documentId :: Lens.Lens' CreateComment Core.Text
 createComment_documentId = Lens.lens (\CreateComment' {documentId} -> documentId) (\s@CreateComment' {} a -> s {documentId = a} :: CreateComment)
 
 -- | The ID of the document version.
-createComment_versionId :: Lens.Lens' CreateComment Prelude.Text
+createComment_versionId :: Lens.Lens' CreateComment Core.Text
 createComment_versionId = Lens.lens (\CreateComment' {versionId} -> versionId) (\s@CreateComment' {} a -> s {versionId = a} :: CreateComment)
 
 -- | The text of the comment.
-createComment_text :: Lens.Lens' CreateComment Prelude.Text
-createComment_text = Lens.lens (\CreateComment' {text} -> text) (\s@CreateComment' {} a -> s {text = a} :: CreateComment) Prelude.. Prelude._Sensitive
+createComment_text :: Lens.Lens' CreateComment Core.Text
+createComment_text = Lens.lens (\CreateComment' {text} -> text) (\s@CreateComment' {} a -> s {text = a} :: CreateComment) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest CreateComment where
-  type Rs CreateComment = CreateCommentResponse
+instance Core.AWSRequest CreateComment where
+  type
+    AWSResponse CreateComment =
+      CreateCommentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCommentResponse'
-            Prelude.<$> (x Prelude..?> "Comment")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Comment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateComment
+instance Core.Hashable CreateComment
 
-instance Prelude.NFData CreateComment
+instance Core.NFData CreateComment
 
-instance Prelude.ToHeaders CreateComment where
+instance Core.ToHeaders CreateComment where
   toHeaders CreateComment' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToJSON CreateComment where
+instance Core.ToJSON CreateComment where
   toJSON CreateComment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ParentId" Prelude..=) Prelude.<$> parentId,
-            ("Visibility" Prelude..=) Prelude.<$> visibility,
-            ("ThreadId" Prelude..=) Prelude.<$> threadId,
-            ("NotifyCollaborators" Prelude..=)
-              Prelude.<$> notifyCollaborators,
-            Prelude.Just ("Text" Prelude..= text)
+    Core.object
+      ( Core.catMaybes
+          [ ("ParentId" Core..=) Core.<$> parentId,
+            ("Visibility" Core..=) Core.<$> visibility,
+            ("ThreadId" Core..=) Core.<$> threadId,
+            ("NotifyCollaborators" Core..=)
+              Core.<$> notifyCollaborators,
+            Core.Just ("Text" Core..= text)
           ]
       )
 
-instance Prelude.ToPath CreateComment where
+instance Core.ToPath CreateComment where
   toPath CreateComment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/api/v1/documents/",
-        Prelude.toBS documentId,
+        Core.toBS documentId,
         "/versions/",
-        Prelude.toBS versionId,
+        Core.toBS versionId,
         "/comment"
       ]
 
-instance Prelude.ToQuery CreateComment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateComment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCommentResponse' smart constructor.
 data CreateCommentResponse = CreateCommentResponse'
   { -- | The comment that has been created.
-    comment :: Prelude.Maybe Comment,
+    comment :: Core.Maybe Comment,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCommentResponse' with all optional fields omitted.
@@ -235,20 +236,20 @@ data CreateCommentResponse = CreateCommentResponse'
 -- 'httpStatus', 'createCommentResponse_httpStatus' - The response's http status code.
 newCreateCommentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCommentResponse
 newCreateCommentResponse pHttpStatus_ =
   CreateCommentResponse'
-    { comment = Prelude.Nothing,
+    { comment = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The comment that has been created.
-createCommentResponse_comment :: Lens.Lens' CreateCommentResponse (Prelude.Maybe Comment)
+createCommentResponse_comment :: Lens.Lens' CreateCommentResponse (Core.Maybe Comment)
 createCommentResponse_comment = Lens.lens (\CreateCommentResponse' {comment} -> comment) (\s@CreateCommentResponse' {} a -> s {comment = a} :: CreateCommentResponse)
 
 -- | The response's http status code.
-createCommentResponse_httpStatus :: Lens.Lens' CreateCommentResponse Prelude.Int
+createCommentResponse_httpStatus :: Lens.Lens' CreateCommentResponse Core.Int
 createCommentResponse_httpStatus = Lens.lens (\CreateCommentResponse' {httpStatus} -> httpStatus) (\s@CreateCommentResponse' {} a -> s {httpStatus = a} :: CreateCommentResponse)
 
-instance Prelude.NFData CreateCommentResponse
+instance Core.NFData CreateCommentResponse

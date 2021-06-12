@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,39 +69,39 @@ module Network.AWS.EC2.CreateVpcEndpointServiceConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateVpcEndpointServiceConfiguration' smart constructor.
 data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfiguration'
   { -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-    gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    gatewayLoadBalancerArns :: Core.Maybe [Core.Text],
     -- | The tags to associate with the service.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | (Interface endpoint configuration) The private DNS name to assign to the
     -- VPC endpoint service.
-    privateDnsName :: Prelude.Maybe Prelude.Text,
+    privateDnsName :: Core.Maybe Core.Text,
     -- | Indicates whether requests from service consumers to create an endpoint
     -- to your service must be accepted. To accept a request, use
     -- AcceptVpcEndpointConnections.
-    acceptanceRequired :: Prelude.Maybe Prelude.Bool,
+    acceptanceRequired :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
     -- for your service.
-    networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    networkLoadBalancerArns :: Core.Maybe [Core.Text],
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text
+    clientToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpcEndpointServiceConfiguration' with all optional fields omitted.
@@ -139,131 +138,131 @@ newCreateVpcEndpointServiceConfiguration ::
 newCreateVpcEndpointServiceConfiguration =
   CreateVpcEndpointServiceConfiguration'
     { gatewayLoadBalancerArns =
-        Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      privateDnsName = Prelude.Nothing,
-      acceptanceRequired = Prelude.Nothing,
+        Core.Nothing,
+      tagSpecifications = Core.Nothing,
+      dryRun = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      acceptanceRequired = Core.Nothing,
       networkLoadBalancerArns =
-        Prelude.Nothing,
-      clientToken = Prelude.Nothing
+        Core.Nothing,
+      clientToken = Core.Nothing
     }
 
 -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
-createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
-createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Core.Maybe [Core.Text])
+createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags to associate with the service.
-createVpcEndpointServiceConfiguration_tagSpecifications :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [TagSpecification])
-createVpcEndpointServiceConfiguration_tagSpecifications = Lens.lens (\CreateVpcEndpointServiceConfiguration' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {tagSpecifications = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+createVpcEndpointServiceConfiguration_tagSpecifications :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Core.Maybe [TagSpecification])
+createVpcEndpointServiceConfiguration_tagSpecifications = Lens.lens (\CreateVpcEndpointServiceConfiguration' {tagSpecifications} -> tagSpecifications) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {tagSpecifications = a} :: CreateVpcEndpointServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createVpcEndpointServiceConfiguration_dryRun :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
+createVpcEndpointServiceConfiguration_dryRun :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Core.Maybe Core.Bool)
 createVpcEndpointServiceConfiguration_dryRun = Lens.lens (\CreateVpcEndpointServiceConfiguration' {dryRun} -> dryRun) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {dryRun = a} :: CreateVpcEndpointServiceConfiguration)
 
 -- | (Interface endpoint configuration) The private DNS name to assign to the
 -- VPC endpoint service.
-createVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
+createVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Core.Maybe Core.Text)
 createVpcEndpointServiceConfiguration_privateDnsName = Lens.lens (\CreateVpcEndpointServiceConfiguration' {privateDnsName} -> privateDnsName) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {privateDnsName = a} :: CreateVpcEndpointServiceConfiguration)
 
 -- | Indicates whether requests from service consumers to create an endpoint
 -- to your service must be accepted. To accept a request, use
 -- AcceptVpcEndpointConnections.
-createVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
+createVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Core.Maybe Core.Bool)
 createVpcEndpointServiceConfiguration_acceptanceRequired = Lens.lens (\CreateVpcEndpointServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {acceptanceRequired = a} :: CreateVpcEndpointServiceConfiguration)
 
 -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
 -- for your service.
-createVpcEndpointServiceConfiguration_networkLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
-createVpcEndpointServiceConfiguration_networkLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+createVpcEndpointServiceConfiguration_networkLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Core.Maybe [Core.Text])
+createVpcEndpointServiceConfiguration_networkLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-createVpcEndpointServiceConfiguration_clientToken :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
+createVpcEndpointServiceConfiguration_clientToken :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Core.Maybe Core.Text)
 createVpcEndpointServiceConfiguration_clientToken = Lens.lens (\CreateVpcEndpointServiceConfiguration' {clientToken} -> clientToken) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {clientToken = a} :: CreateVpcEndpointServiceConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateVpcEndpointServiceConfiguration
   where
   type
-    Rs CreateVpcEndpointServiceConfiguration =
+    AWSResponse
+      CreateVpcEndpointServiceConfiguration =
       CreateVpcEndpointServiceConfigurationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateVpcEndpointServiceConfigurationResponse'
-            Prelude.<$> (x Prelude..@? "serviceConfiguration")
-              Prelude.<*> (x Prelude..@? "clientToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "serviceConfiguration")
+              Core.<*> (x Core..@? "clientToken")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateVpcEndpointServiceConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateVpcEndpointServiceConfiguration
 
 instance
-  Prelude.ToHeaders
-    CreateVpcEndpointServiceConfiguration
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     CreateVpcEndpointServiceConfiguration
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    CreateVpcEndpointServiceConfiguration
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     CreateVpcEndpointServiceConfiguration
   where
   toQuery CreateVpcEndpointServiceConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateVpcEndpointServiceConfiguration" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "GatewayLoadBalancerArn"
-              Prelude.<$> gatewayLoadBalancerArns
+          Core.=: ( "CreateVpcEndpointServiceConfiguration" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "GatewayLoadBalancerArn"
+              Core.<$> gatewayLoadBalancerArns
           ),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "PrivateDnsName" Prelude.=: privateDnsName,
-        "AcceptanceRequired" Prelude.=: acceptanceRequired,
-        Prelude.toQuery
-          ( Prelude.toQueryList "NetworkLoadBalancerArn"
-              Prelude.<$> networkLoadBalancerArns
+        "DryRun" Core.=: dryRun,
+        "PrivateDnsName" Core.=: privateDnsName,
+        "AcceptanceRequired" Core.=: acceptanceRequired,
+        Core.toQuery
+          ( Core.toQueryList "NetworkLoadBalancerArn"
+              Core.<$> networkLoadBalancerArns
           ),
-        "ClientToken" Prelude.=: clientToken
+        "ClientToken" Core.=: clientToken
       ]
 
 -- | /See:/ 'newCreateVpcEndpointServiceConfigurationResponse' smart constructor.
 data CreateVpcEndpointServiceConfigurationResponse = CreateVpcEndpointServiceConfigurationResponse'
   { -- | Information about the service configuration.
-    serviceConfiguration :: Prelude.Maybe ServiceConfiguration,
+    serviceConfiguration :: Core.Maybe ServiceConfiguration,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpcEndpointServiceConfigurationResponse' with all optional fields omitted.
@@ -281,31 +280,30 @@ data CreateVpcEndpointServiceConfigurationResponse = CreateVpcEndpointServiceCon
 -- 'httpStatus', 'createVpcEndpointServiceConfigurationResponse_httpStatus' - The response's http status code.
 newCreateVpcEndpointServiceConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateVpcEndpointServiceConfigurationResponse
 newCreateVpcEndpointServiceConfigurationResponse
   pHttpStatus_ =
     CreateVpcEndpointServiceConfigurationResponse'
       { serviceConfiguration =
-          Prelude.Nothing,
-        clientToken =
-          Prelude.Nothing,
+          Core.Nothing,
+        clientToken = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the service configuration.
-createVpcEndpointServiceConfigurationResponse_serviceConfiguration :: Lens.Lens' CreateVpcEndpointServiceConfigurationResponse (Prelude.Maybe ServiceConfiguration)
+createVpcEndpointServiceConfigurationResponse_serviceConfiguration :: Lens.Lens' CreateVpcEndpointServiceConfigurationResponse (Core.Maybe ServiceConfiguration)
 createVpcEndpointServiceConfigurationResponse_serviceConfiguration = Lens.lens (\CreateVpcEndpointServiceConfigurationResponse' {serviceConfiguration} -> serviceConfiguration) (\s@CreateVpcEndpointServiceConfigurationResponse' {} a -> s {serviceConfiguration = a} :: CreateVpcEndpointServiceConfigurationResponse)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-createVpcEndpointServiceConfigurationResponse_clientToken :: Lens.Lens' CreateVpcEndpointServiceConfigurationResponse (Prelude.Maybe Prelude.Text)
+createVpcEndpointServiceConfigurationResponse_clientToken :: Lens.Lens' CreateVpcEndpointServiceConfigurationResponse (Core.Maybe Core.Text)
 createVpcEndpointServiceConfigurationResponse_clientToken = Lens.lens (\CreateVpcEndpointServiceConfigurationResponse' {clientToken} -> clientToken) (\s@CreateVpcEndpointServiceConfigurationResponse' {} a -> s {clientToken = a} :: CreateVpcEndpointServiceConfigurationResponse)
 
 -- | The response's http status code.
-createVpcEndpointServiceConfigurationResponse_httpStatus :: Lens.Lens' CreateVpcEndpointServiceConfigurationResponse Prelude.Int
+createVpcEndpointServiceConfigurationResponse_httpStatus :: Lens.Lens' CreateVpcEndpointServiceConfigurationResponse Core.Int
 createVpcEndpointServiceConfigurationResponse_httpStatus = Lens.lens (\CreateVpcEndpointServiceConfigurationResponse' {httpStatus} -> httpStatus) (\s@CreateVpcEndpointServiceConfigurationResponse' {} a -> s {httpStatus = a} :: CreateVpcEndpointServiceConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateVpcEndpointServiceConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.Artwork where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.Encryption
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The file to be used as album art. There can be multiple artworks
 -- associated with an audio file, to a maximum of 20.
@@ -45,9 +44,9 @@ data Artwork = Artwork'
     -- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
     -- include the prefix in the key. If the file isn\'t in the specified
     -- bucket, Elastic Transcoder returns an error.
-    inputKey :: Prelude.Maybe Prelude.Text,
+    inputKey :: Core.Maybe Core.Text,
     -- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
-    albumArtFormat :: Prelude.Maybe Prelude.Text,
+    albumArtFormat :: Core.Maybe Core.Text,
     -- | Specify one of the following values to control scaling of the output
     -- album art:
     --
@@ -80,25 +79,25 @@ data Artwork = Artwork'
     --     of @MaxWidth@ and @MaxHeight@ without dropping below either value.
     --     If you specify this option, Elastic Transcoder does not scale the
     --     art up.
-    sizingPolicy :: Prelude.Maybe Prelude.Text,
+    sizingPolicy :: Core.Maybe Core.Text,
     -- | The encryption settings, if any, that you want Elastic Transcoder to
     -- apply to your artwork.
-    encryption :: Prelude.Maybe Encryption,
+    encryption :: Core.Maybe Encryption,
     -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
     -- bars to the top and bottom and\/or left and right sides of the output
     -- album art to make the total size of the output art match the values that
     -- you specified for @MaxWidth@ and @MaxHeight@.
-    paddingPolicy :: Prelude.Maybe Prelude.Text,
+    paddingPolicy :: Core.Maybe Core.Text,
     -- | The maximum height of the output album art in pixels. If you specify
     -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
     -- a numeric value, enter an even integer between 32 and 3072, inclusive.
-    maxHeight :: Prelude.Maybe Prelude.Text,
+    maxHeight :: Core.Maybe Core.Text,
     -- | The maximum width of the output album art in pixels. If you specify
     -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
     -- a numeric value, enter an even integer between 32 and 4096, inclusive.
-    maxWidth :: Prelude.Maybe Prelude.Text
+    maxWidth :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Artwork' with all optional fields omitted.
@@ -171,13 +170,13 @@ newArtwork ::
   Artwork
 newArtwork =
   Artwork'
-    { inputKey = Prelude.Nothing,
-      albumArtFormat = Prelude.Nothing,
-      sizingPolicy = Prelude.Nothing,
-      encryption = Prelude.Nothing,
-      paddingPolicy = Prelude.Nothing,
-      maxHeight = Prelude.Nothing,
-      maxWidth = Prelude.Nothing
+    { inputKey = Core.Nothing,
+      albumArtFormat = Core.Nothing,
+      sizingPolicy = Core.Nothing,
+      encryption = Core.Nothing,
+      paddingPolicy = Core.Nothing,
+      maxHeight = Core.Nothing,
+      maxWidth = Core.Nothing
     }
 
 -- | The name of the file to be used as album art. To determine which Amazon
@@ -188,11 +187,11 @@ newArtwork =
 -- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
 -- include the prefix in the key. If the file isn\'t in the specified
 -- bucket, Elastic Transcoder returns an error.
-artwork_inputKey :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_inputKey :: Lens.Lens' Artwork (Core.Maybe Core.Text)
 artwork_inputKey = Lens.lens (\Artwork' {inputKey} -> inputKey) (\s@Artwork' {} a -> s {inputKey = a} :: Artwork)
 
 -- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
-artwork_albumArtFormat :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_albumArtFormat :: Lens.Lens' Artwork (Core.Maybe Core.Text)
 artwork_albumArtFormat = Lens.lens (\Artwork' {albumArtFormat} -> albumArtFormat) (\s@Artwork' {} a -> s {albumArtFormat = a} :: Artwork)
 
 -- | Specify one of the following values to control scaling of the output
@@ -227,64 +226,62 @@ artwork_albumArtFormat = Lens.lens (\Artwork' {albumArtFormat} -> albumArtFormat
 --     of @MaxWidth@ and @MaxHeight@ without dropping below either value.
 --     If you specify this option, Elastic Transcoder does not scale the
 --     art up.
-artwork_sizingPolicy :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_sizingPolicy :: Lens.Lens' Artwork (Core.Maybe Core.Text)
 artwork_sizingPolicy = Lens.lens (\Artwork' {sizingPolicy} -> sizingPolicy) (\s@Artwork' {} a -> s {sizingPolicy = a} :: Artwork)
 
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your artwork.
-artwork_encryption :: Lens.Lens' Artwork (Prelude.Maybe Encryption)
+artwork_encryption :: Lens.Lens' Artwork (Core.Maybe Encryption)
 artwork_encryption = Lens.lens (\Artwork' {encryption} -> encryption) (\s@Artwork' {} a -> s {encryption = a} :: Artwork)
 
 -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
 -- bars to the top and bottom and\/or left and right sides of the output
 -- album art to make the total size of the output art match the values that
 -- you specified for @MaxWidth@ and @MaxHeight@.
-artwork_paddingPolicy :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_paddingPolicy :: Lens.Lens' Artwork (Core.Maybe Core.Text)
 artwork_paddingPolicy = Lens.lens (\Artwork' {paddingPolicy} -> paddingPolicy) (\s@Artwork' {} a -> s {paddingPolicy = a} :: Artwork)
 
 -- | The maximum height of the output album art in pixels. If you specify
 -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
 -- a numeric value, enter an even integer between 32 and 3072, inclusive.
-artwork_maxHeight :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_maxHeight :: Lens.Lens' Artwork (Core.Maybe Core.Text)
 artwork_maxHeight = Lens.lens (\Artwork' {maxHeight} -> maxHeight) (\s@Artwork' {} a -> s {maxHeight = a} :: Artwork)
 
 -- | The maximum width of the output album art in pixels. If you specify
 -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
 -- a numeric value, enter an even integer between 32 and 4096, inclusive.
-artwork_maxWidth :: Lens.Lens' Artwork (Prelude.Maybe Prelude.Text)
+artwork_maxWidth :: Lens.Lens' Artwork (Core.Maybe Core.Text)
 artwork_maxWidth = Lens.lens (\Artwork' {maxWidth} -> maxWidth) (\s@Artwork' {} a -> s {maxWidth = a} :: Artwork)
 
-instance Prelude.FromJSON Artwork where
+instance Core.FromJSON Artwork where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Artwork"
       ( \x ->
           Artwork'
-            Prelude.<$> (x Prelude..:? "InputKey")
-            Prelude.<*> (x Prelude..:? "AlbumArtFormat")
-            Prelude.<*> (x Prelude..:? "SizingPolicy")
-            Prelude.<*> (x Prelude..:? "Encryption")
-            Prelude.<*> (x Prelude..:? "PaddingPolicy")
-            Prelude.<*> (x Prelude..:? "MaxHeight")
-            Prelude.<*> (x Prelude..:? "MaxWidth")
+            Core.<$> (x Core..:? "InputKey")
+            Core.<*> (x Core..:? "AlbumArtFormat")
+            Core.<*> (x Core..:? "SizingPolicy")
+            Core.<*> (x Core..:? "Encryption")
+            Core.<*> (x Core..:? "PaddingPolicy")
+            Core.<*> (x Core..:? "MaxHeight")
+            Core.<*> (x Core..:? "MaxWidth")
       )
 
-instance Prelude.Hashable Artwork
+instance Core.Hashable Artwork
 
-instance Prelude.NFData Artwork
+instance Core.NFData Artwork
 
-instance Prelude.ToJSON Artwork where
+instance Core.ToJSON Artwork where
   toJSON Artwork' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InputKey" Prelude..=) Prelude.<$> inputKey,
-            ("AlbumArtFormat" Prelude..=)
-              Prelude.<$> albumArtFormat,
-            ("SizingPolicy" Prelude..=) Prelude.<$> sizingPolicy,
-            ("Encryption" Prelude..=) Prelude.<$> encryption,
-            ("PaddingPolicy" Prelude..=)
-              Prelude.<$> paddingPolicy,
-            ("MaxHeight" Prelude..=) Prelude.<$> maxHeight,
-            ("MaxWidth" Prelude..=) Prelude.<$> maxWidth
+    Core.object
+      ( Core.catMaybes
+          [ ("InputKey" Core..=) Core.<$> inputKey,
+            ("AlbumArtFormat" Core..=) Core.<$> albumArtFormat,
+            ("SizingPolicy" Core..=) Core.<$> sizingPolicy,
+            ("Encryption" Core..=) Core.<$> encryption,
+            ("PaddingPolicy" Core..=) Core.<$> paddingPolicy,
+            ("MaxHeight" Core..=) Core.<$> maxHeight,
+            ("MaxWidth" Core..=) Core.<$> maxWidth
           ]
       )

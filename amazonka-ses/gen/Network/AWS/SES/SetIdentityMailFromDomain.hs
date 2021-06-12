@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.SES.SetIdentityMailFromDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -70,7 +69,7 @@ data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
     -- and 3) not be used to receive emails. A value of @null@ disables the
     -- custom MAIL FROM setting for the identity.
-    mailFromDomain :: Prelude.Maybe Prelude.Text,
+    mailFromDomain :: Core.Maybe Core.Text,
     -- | The action that you want Amazon SES to take if it cannot successfully
     -- read the required MX record when you send an email. If you choose
     -- @UseDefaultValue@, Amazon SES will use amazonses.com (or a subdomain of
@@ -80,12 +79,12 @@ data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
     -- The action specified in @BehaviorOnMXFailure@ is taken when the custom
     -- MAIL FROM domain setup is in the @Pending@, @Failed@, and
     -- @TemporaryFailure@ states.
-    behaviorOnMXFailure :: Prelude.Maybe BehaviorOnMXFailure,
+    behaviorOnMXFailure :: Core.Maybe BehaviorOnMXFailure,
     -- | The verified identity for which you want to enable or disable the
     -- specified custom MAIL FROM domain.
-    identity :: Prelude.Text
+    identity :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityMailFromDomain' with all optional fields omitted.
@@ -117,13 +116,13 @@ data SetIdentityMailFromDomain = SetIdentityMailFromDomain'
 -- specified custom MAIL FROM domain.
 newSetIdentityMailFromDomain ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   SetIdentityMailFromDomain
 newSetIdentityMailFromDomain pIdentity_ =
   SetIdentityMailFromDomain'
     { mailFromDomain =
-        Prelude.Nothing,
-      behaviorOnMXFailure = Prelude.Nothing,
+        Core.Nothing,
+      behaviorOnMXFailure = Core.Nothing,
       identity = pIdentity_
     }
 
@@ -134,7 +133,7 @@ newSetIdentityMailFromDomain pIdentity_ =
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html Amazon SES Developer Guide>),
 -- and 3) not be used to receive emails. A value of @null@ disables the
 -- custom MAIL FROM setting for the identity.
-setIdentityMailFromDomain_mailFromDomain :: Lens.Lens' SetIdentityMailFromDomain (Prelude.Maybe Prelude.Text)
+setIdentityMailFromDomain_mailFromDomain :: Lens.Lens' SetIdentityMailFromDomain (Core.Maybe Core.Text)
 setIdentityMailFromDomain_mailFromDomain = Lens.lens (\SetIdentityMailFromDomain' {mailFromDomain} -> mailFromDomain) (\s@SetIdentityMailFromDomain' {} a -> s {mailFromDomain = a} :: SetIdentityMailFromDomain)
 
 -- | The action that you want Amazon SES to take if it cannot successfully
@@ -146,17 +145,17 @@ setIdentityMailFromDomain_mailFromDomain = Lens.lens (\SetIdentityMailFromDomain
 -- The action specified in @BehaviorOnMXFailure@ is taken when the custom
 -- MAIL FROM domain setup is in the @Pending@, @Failed@, and
 -- @TemporaryFailure@ states.
-setIdentityMailFromDomain_behaviorOnMXFailure :: Lens.Lens' SetIdentityMailFromDomain (Prelude.Maybe BehaviorOnMXFailure)
+setIdentityMailFromDomain_behaviorOnMXFailure :: Lens.Lens' SetIdentityMailFromDomain (Core.Maybe BehaviorOnMXFailure)
 setIdentityMailFromDomain_behaviorOnMXFailure = Lens.lens (\SetIdentityMailFromDomain' {behaviorOnMXFailure} -> behaviorOnMXFailure) (\s@SetIdentityMailFromDomain' {} a -> s {behaviorOnMXFailure = a} :: SetIdentityMailFromDomain)
 
 -- | The verified identity for which you want to enable or disable the
 -- specified custom MAIL FROM domain.
-setIdentityMailFromDomain_identity :: Lens.Lens' SetIdentityMailFromDomain Prelude.Text
+setIdentityMailFromDomain_identity :: Lens.Lens' SetIdentityMailFromDomain Core.Text
 setIdentityMailFromDomain_identity = Lens.lens (\SetIdentityMailFromDomain' {identity} -> identity) (\s@SetIdentityMailFromDomain' {} a -> s {identity = a} :: SetIdentityMailFromDomain)
 
-instance Prelude.AWSRequest SetIdentityMailFromDomain where
+instance Core.AWSRequest SetIdentityMailFromDomain where
   type
-    Rs SetIdentityMailFromDomain =
+    AWSResponse SetIdentityMailFromDomain =
       SetIdentityMailFromDomainResponse
   request = Request.postQuery defaultService
   response =
@@ -164,29 +163,28 @@ instance Prelude.AWSRequest SetIdentityMailFromDomain where
       "SetIdentityMailFromDomainResult"
       ( \s h x ->
           SetIdentityMailFromDomainResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SetIdentityMailFromDomain
+instance Core.Hashable SetIdentityMailFromDomain
 
-instance Prelude.NFData SetIdentityMailFromDomain
+instance Core.NFData SetIdentityMailFromDomain
 
-instance Prelude.ToHeaders SetIdentityMailFromDomain where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetIdentityMailFromDomain where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetIdentityMailFromDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetIdentityMailFromDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetIdentityMailFromDomain where
+instance Core.ToQuery SetIdentityMailFromDomain where
   toQuery SetIdentityMailFromDomain' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetIdentityMailFromDomain" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "MailFromDomain" Prelude.=: mailFromDomain,
-        "BehaviorOnMXFailure" Prelude.=: behaviorOnMXFailure,
-        "Identity" Prelude.=: identity
+          Core.=: ("SetIdentityMailFromDomain" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "MailFromDomain" Core.=: mailFromDomain,
+        "BehaviorOnMXFailure" Core.=: behaviorOnMXFailure,
+        "Identity" Core.=: identity
       ]
 
 -- | An empty element returned on a successful request.
@@ -194,9 +192,9 @@ instance Prelude.ToQuery SetIdentityMailFromDomain where
 -- /See:/ 'newSetIdentityMailFromDomainResponse' smart constructor.
 data SetIdentityMailFromDomainResponse = SetIdentityMailFromDomainResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityMailFromDomainResponse' with all optional fields omitted.
@@ -209,7 +207,7 @@ data SetIdentityMailFromDomainResponse = SetIdentityMailFromDomainResponse'
 -- 'httpStatus', 'setIdentityMailFromDomainResponse_httpStatus' - The response's http status code.
 newSetIdentityMailFromDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetIdentityMailFromDomainResponse
 newSetIdentityMailFromDomainResponse pHttpStatus_ =
   SetIdentityMailFromDomainResponse'
@@ -218,9 +216,9 @@ newSetIdentityMailFromDomainResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setIdentityMailFromDomainResponse_httpStatus :: Lens.Lens' SetIdentityMailFromDomainResponse Prelude.Int
+setIdentityMailFromDomainResponse_httpStatus :: Lens.Lens' SetIdentityMailFromDomainResponse Core.Int
 setIdentityMailFromDomainResponse_httpStatus = Lens.lens (\SetIdentityMailFromDomainResponse' {httpStatus} -> httpStatus) (\s@SetIdentityMailFromDomainResponse' {} a -> s {httpStatus = a} :: SetIdentityMailFromDomainResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetIdentityMailFromDomainResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.ValueWithServiceIds where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.AnnotationValue
 import Network.AWS.XRay.Types.ServiceId
 
@@ -30,11 +29,11 @@ import Network.AWS.XRay.Types.ServiceId
 -- /See:/ 'newValueWithServiceIds' smart constructor.
 data ValueWithServiceIds = ValueWithServiceIds'
   { -- | Values of the annotation.
-    annotationValue :: Prelude.Maybe AnnotationValue,
+    annotationValue :: Core.Maybe AnnotationValue,
     -- | Services to which the annotation applies.
-    serviceIds :: Prelude.Maybe [ServiceId]
+    serviceIds :: Core.Maybe [ServiceId]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValueWithServiceIds' with all optional fields omitted.
@@ -52,30 +51,28 @@ newValueWithServiceIds ::
 newValueWithServiceIds =
   ValueWithServiceIds'
     { annotationValue =
-        Prelude.Nothing,
-      serviceIds = Prelude.Nothing
+        Core.Nothing,
+      serviceIds = Core.Nothing
     }
 
 -- | Values of the annotation.
-valueWithServiceIds_annotationValue :: Lens.Lens' ValueWithServiceIds (Prelude.Maybe AnnotationValue)
+valueWithServiceIds_annotationValue :: Lens.Lens' ValueWithServiceIds (Core.Maybe AnnotationValue)
 valueWithServiceIds_annotationValue = Lens.lens (\ValueWithServiceIds' {annotationValue} -> annotationValue) (\s@ValueWithServiceIds' {} a -> s {annotationValue = a} :: ValueWithServiceIds)
 
 -- | Services to which the annotation applies.
-valueWithServiceIds_serviceIds :: Lens.Lens' ValueWithServiceIds (Prelude.Maybe [ServiceId])
-valueWithServiceIds_serviceIds = Lens.lens (\ValueWithServiceIds' {serviceIds} -> serviceIds) (\s@ValueWithServiceIds' {} a -> s {serviceIds = a} :: ValueWithServiceIds) Prelude.. Lens.mapping Prelude._Coerce
+valueWithServiceIds_serviceIds :: Lens.Lens' ValueWithServiceIds (Core.Maybe [ServiceId])
+valueWithServiceIds_serviceIds = Lens.lens (\ValueWithServiceIds' {serviceIds} -> serviceIds) (\s@ValueWithServiceIds' {} a -> s {serviceIds = a} :: ValueWithServiceIds) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ValueWithServiceIds where
+instance Core.FromJSON ValueWithServiceIds where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ValueWithServiceIds"
       ( \x ->
           ValueWithServiceIds'
-            Prelude.<$> (x Prelude..:? "AnnotationValue")
-            Prelude.<*> ( x Prelude..:? "ServiceIds"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "AnnotationValue")
+            Core.<*> (x Core..:? "ServiceIds" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ValueWithServiceIds
+instance Core.Hashable ValueWithServiceIds
 
-instance Prelude.NFData ValueWithServiceIds
+instance Core.NFData ValueWithServiceIds

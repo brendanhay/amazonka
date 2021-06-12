@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.StreamProcessorSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.FaceSearchSettings
 
 -- | Input parameters used to recognize faces in a streaming video analyzed
@@ -30,9 +29,9 @@ import Network.AWS.Rekognition.Types.FaceSearchSettings
 -- /See:/ 'newStreamProcessorSettings' smart constructor.
 data StreamProcessorSettings = StreamProcessorSettings'
   { -- | Face search settings to use on a streaming video.
-    faceSearch :: Prelude.Maybe FaceSearchSettings
+    faceSearch :: Core.Maybe FaceSearchSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamProcessorSettings' with all optional fields omitted.
@@ -46,31 +45,28 @@ data StreamProcessorSettings = StreamProcessorSettings'
 newStreamProcessorSettings ::
   StreamProcessorSettings
 newStreamProcessorSettings =
-  StreamProcessorSettings'
-    { faceSearch =
-        Prelude.Nothing
-    }
+  StreamProcessorSettings' {faceSearch = Core.Nothing}
 
 -- | Face search settings to use on a streaming video.
-streamProcessorSettings_faceSearch :: Lens.Lens' StreamProcessorSettings (Prelude.Maybe FaceSearchSettings)
+streamProcessorSettings_faceSearch :: Lens.Lens' StreamProcessorSettings (Core.Maybe FaceSearchSettings)
 streamProcessorSettings_faceSearch = Lens.lens (\StreamProcessorSettings' {faceSearch} -> faceSearch) (\s@StreamProcessorSettings' {} a -> s {faceSearch = a} :: StreamProcessorSettings)
 
-instance Prelude.FromJSON StreamProcessorSettings where
+instance Core.FromJSON StreamProcessorSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StreamProcessorSettings"
       ( \x ->
           StreamProcessorSettings'
-            Prelude.<$> (x Prelude..:? "FaceSearch")
+            Core.<$> (x Core..:? "FaceSearch")
       )
 
-instance Prelude.Hashable StreamProcessorSettings
+instance Core.Hashable StreamProcessorSettings
 
-instance Prelude.NFData StreamProcessorSettings
+instance Core.NFData StreamProcessorSettings
 
-instance Prelude.ToJSON StreamProcessorSettings where
+instance Core.ToJSON StreamProcessorSettings where
   toJSON StreamProcessorSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("FaceSearch" Prelude..=) Prelude.<$> faceSearch]
+    Core.object
+      ( Core.catMaybes
+          [("FaceSearch" Core..=) Core.<$> faceSearch]
       )

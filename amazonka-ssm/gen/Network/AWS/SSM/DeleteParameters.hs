@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SSM.DeleteParameters
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -50,9 +49,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteParameters' smart constructor.
 data DeleteParameters = DeleteParameters'
   { -- | The names of the parameters to delete.
-    names :: Prelude.NonEmpty Prelude.Text
+    names :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteParameters' with all optional fields omitted.
@@ -65,71 +64,69 @@ data DeleteParameters = DeleteParameters'
 -- 'names', 'deleteParameters_names' - The names of the parameters to delete.
 newDeleteParameters ::
   -- | 'names'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   DeleteParameters
 newDeleteParameters pNames_ =
   DeleteParameters'
     { names =
-        Prelude._Coerce Lens.# pNames_
+        Lens._Coerce Lens.# pNames_
     }
 
 -- | The names of the parameters to delete.
-deleteParameters_names :: Lens.Lens' DeleteParameters (Prelude.NonEmpty Prelude.Text)
-deleteParameters_names = Lens.lens (\DeleteParameters' {names} -> names) (\s@DeleteParameters' {} a -> s {names = a} :: DeleteParameters) Prelude.. Prelude._Coerce
+deleteParameters_names :: Lens.Lens' DeleteParameters (Core.NonEmpty Core.Text)
+deleteParameters_names = Lens.lens (\DeleteParameters' {names} -> names) (\s@DeleteParameters' {} a -> s {names = a} :: DeleteParameters) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteParameters where
-  type Rs DeleteParameters = DeleteParametersResponse
+instance Core.AWSRequest DeleteParameters where
+  type
+    AWSResponse DeleteParameters =
+      DeleteParametersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteParametersResponse'
-            Prelude.<$> (x Prelude..?> "InvalidParameters")
-            Prelude.<*> (x Prelude..?> "DeletedParameters")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "InvalidParameters")
+            Core.<*> (x Core..?> "DeletedParameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteParameters
+instance Core.Hashable DeleteParameters
 
-instance Prelude.NFData DeleteParameters
+instance Core.NFData DeleteParameters
 
-instance Prelude.ToHeaders DeleteParameters where
+instance Core.ToHeaders DeleteParameters where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.DeleteParameters" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.DeleteParameters" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteParameters where
+instance Core.ToJSON DeleteParameters where
   toJSON DeleteParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Names" Prelude..= names)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Names" Core..= names)])
 
-instance Prelude.ToPath DeleteParameters where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteParameters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteParameters where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteParameters where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteParametersResponse' smart constructor.
 data DeleteParametersResponse = DeleteParametersResponse'
   { -- | The names of parameters that weren\'t deleted because the parameters are
     -- not valid.
-    invalidParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    invalidParameters :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The names of the deleted parameters.
-    deletedParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    deletedParameters :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteParametersResponse' with all optional fields omitted.
@@ -147,27 +144,27 @@ data DeleteParametersResponse = DeleteParametersResponse'
 -- 'httpStatus', 'deleteParametersResponse_httpStatus' - The response's http status code.
 newDeleteParametersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteParametersResponse
 newDeleteParametersResponse pHttpStatus_ =
   DeleteParametersResponse'
     { invalidParameters =
-        Prelude.Nothing,
-      deletedParameters = Prelude.Nothing,
+        Core.Nothing,
+      deletedParameters = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The names of parameters that weren\'t deleted because the parameters are
 -- not valid.
-deleteParametersResponse_invalidParameters :: Lens.Lens' DeleteParametersResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-deleteParametersResponse_invalidParameters = Lens.lens (\DeleteParametersResponse' {invalidParameters} -> invalidParameters) (\s@DeleteParametersResponse' {} a -> s {invalidParameters = a} :: DeleteParametersResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteParametersResponse_invalidParameters :: Lens.Lens' DeleteParametersResponse (Core.Maybe (Core.NonEmpty Core.Text))
+deleteParametersResponse_invalidParameters = Lens.lens (\DeleteParametersResponse' {invalidParameters} -> invalidParameters) (\s@DeleteParametersResponse' {} a -> s {invalidParameters = a} :: DeleteParametersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The names of the deleted parameters.
-deleteParametersResponse_deletedParameters :: Lens.Lens' DeleteParametersResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-deleteParametersResponse_deletedParameters = Lens.lens (\DeleteParametersResponse' {deletedParameters} -> deletedParameters) (\s@DeleteParametersResponse' {} a -> s {deletedParameters = a} :: DeleteParametersResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteParametersResponse_deletedParameters :: Lens.Lens' DeleteParametersResponse (Core.Maybe (Core.NonEmpty Core.Text))
+deleteParametersResponse_deletedParameters = Lens.lens (\DeleteParametersResponse' {deletedParameters} -> deletedParameters) (\s@DeleteParametersResponse' {} a -> s {deletedParameters = a} :: DeleteParametersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteParametersResponse_httpStatus :: Lens.Lens' DeleteParametersResponse Prelude.Int
+deleteParametersResponse_httpStatus :: Lens.Lens' DeleteParametersResponse Core.Int
 deleteParametersResponse_httpStatus = Lens.lens (\DeleteParametersResponse' {httpStatus} -> httpStatus) (\s@DeleteParametersResponse' {} a -> s {httpStatus = a} :: DeleteParametersResponse)
 
-instance Prelude.NFData DeleteParametersResponse
+instance Core.NFData DeleteParametersResponse

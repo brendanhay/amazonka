@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Lightsail.UpdateLoadBalancerAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ import qualified Network.AWS.Response as Response
 data UpdateLoadBalancerAttribute = UpdateLoadBalancerAttribute'
   { -- | The name of the load balancer that you want to modify (e.g.,
     -- @my-load-balancer@.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The name of the attribute you want to update. Valid values are below.
     attributeName :: LoadBalancerAttributeName,
     -- | The value that you want to specify for the attribute name.
-    attributeValue :: Prelude.Text
+    attributeValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateLoadBalancerAttribute' with all optional fields omitted.
@@ -82,11 +81,11 @@ data UpdateLoadBalancerAttribute = UpdateLoadBalancerAttribute'
 -- 'attributeValue', 'updateLoadBalancerAttribute_attributeValue' - The value that you want to specify for the attribute name.
 newUpdateLoadBalancerAttribute ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributeName'
   LoadBalancerAttributeName ->
   -- | 'attributeValue'
-  Prelude.Text ->
+  Core.Text ->
   UpdateLoadBalancerAttribute
 newUpdateLoadBalancerAttribute
   pLoadBalancerName_
@@ -101,7 +100,7 @@ newUpdateLoadBalancerAttribute
 
 -- | The name of the load balancer that you want to modify (e.g.,
 -- @my-load-balancer@.
-updateLoadBalancerAttribute_loadBalancerName :: Lens.Lens' UpdateLoadBalancerAttribute Prelude.Text
+updateLoadBalancerAttribute_loadBalancerName :: Lens.Lens' UpdateLoadBalancerAttribute Core.Text
 updateLoadBalancerAttribute_loadBalancerName = Lens.lens (\UpdateLoadBalancerAttribute' {loadBalancerName} -> loadBalancerName) (\s@UpdateLoadBalancerAttribute' {} a -> s {loadBalancerName = a} :: UpdateLoadBalancerAttribute)
 
 -- | The name of the attribute you want to update. Valid values are below.
@@ -109,78 +108,66 @@ updateLoadBalancerAttribute_attributeName :: Lens.Lens' UpdateLoadBalancerAttrib
 updateLoadBalancerAttribute_attributeName = Lens.lens (\UpdateLoadBalancerAttribute' {attributeName} -> attributeName) (\s@UpdateLoadBalancerAttribute' {} a -> s {attributeName = a} :: UpdateLoadBalancerAttribute)
 
 -- | The value that you want to specify for the attribute name.
-updateLoadBalancerAttribute_attributeValue :: Lens.Lens' UpdateLoadBalancerAttribute Prelude.Text
+updateLoadBalancerAttribute_attributeValue :: Lens.Lens' UpdateLoadBalancerAttribute Core.Text
 updateLoadBalancerAttribute_attributeValue = Lens.lens (\UpdateLoadBalancerAttribute' {attributeValue} -> attributeValue) (\s@UpdateLoadBalancerAttribute' {} a -> s {attributeValue = a} :: UpdateLoadBalancerAttribute)
 
-instance
-  Prelude.AWSRequest
-    UpdateLoadBalancerAttribute
-  where
+instance Core.AWSRequest UpdateLoadBalancerAttribute where
   type
-    Rs UpdateLoadBalancerAttribute =
+    AWSResponse UpdateLoadBalancerAttribute =
       UpdateLoadBalancerAttributeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateLoadBalancerAttributeResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateLoadBalancerAttribute
+instance Core.Hashable UpdateLoadBalancerAttribute
 
-instance Prelude.NFData UpdateLoadBalancerAttribute
+instance Core.NFData UpdateLoadBalancerAttribute
 
-instance
-  Prelude.ToHeaders
-    UpdateLoadBalancerAttribute
-  where
+instance Core.ToHeaders UpdateLoadBalancerAttribute where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.UpdateLoadBalancerAttribute" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.UpdateLoadBalancerAttribute" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateLoadBalancerAttribute where
+instance Core.ToJSON UpdateLoadBalancerAttribute where
   toJSON UpdateLoadBalancerAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("loadBalancerName" Prelude..= loadBalancerName),
-            Prelude.Just
-              ("attributeName" Prelude..= attributeName),
-            Prelude.Just
-              ("attributeValue" Prelude..= attributeValue)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("loadBalancerName" Core..= loadBalancerName),
+            Core.Just ("attributeName" Core..= attributeName),
+            Core.Just ("attributeValue" Core..= attributeValue)
           ]
       )
 
-instance Prelude.ToPath UpdateLoadBalancerAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateLoadBalancerAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateLoadBalancerAttribute where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateLoadBalancerAttribute where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateLoadBalancerAttributeResponse' smart constructor.
 data UpdateLoadBalancerAttributeResponse = UpdateLoadBalancerAttributeResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateLoadBalancerAttributeResponse' with all optional fields omitted.
@@ -197,25 +184,25 @@ data UpdateLoadBalancerAttributeResponse = UpdateLoadBalancerAttributeResponse'
 -- 'httpStatus', 'updateLoadBalancerAttributeResponse_httpStatus' - The response's http status code.
 newUpdateLoadBalancerAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateLoadBalancerAttributeResponse
 newUpdateLoadBalancerAttributeResponse pHttpStatus_ =
   UpdateLoadBalancerAttributeResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-updateLoadBalancerAttributeResponse_operations :: Lens.Lens' UpdateLoadBalancerAttributeResponse (Prelude.Maybe [Operation])
-updateLoadBalancerAttributeResponse_operations = Lens.lens (\UpdateLoadBalancerAttributeResponse' {operations} -> operations) (\s@UpdateLoadBalancerAttributeResponse' {} a -> s {operations = a} :: UpdateLoadBalancerAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateLoadBalancerAttributeResponse_operations :: Lens.Lens' UpdateLoadBalancerAttributeResponse (Core.Maybe [Operation])
+updateLoadBalancerAttributeResponse_operations = Lens.lens (\UpdateLoadBalancerAttributeResponse' {operations} -> operations) (\s@UpdateLoadBalancerAttributeResponse' {} a -> s {operations = a} :: UpdateLoadBalancerAttributeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateLoadBalancerAttributeResponse_httpStatus :: Lens.Lens' UpdateLoadBalancerAttributeResponse Prelude.Int
+updateLoadBalancerAttributeResponse_httpStatus :: Lens.Lens' UpdateLoadBalancerAttributeResponse Core.Int
 updateLoadBalancerAttributeResponse_httpStatus = Lens.lens (\UpdateLoadBalancerAttributeResponse' {httpStatus} -> httpStatus) (\s@UpdateLoadBalancerAttributeResponse' {} a -> s {httpStatus = a} :: UpdateLoadBalancerAttributeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateLoadBalancerAttributeResponse

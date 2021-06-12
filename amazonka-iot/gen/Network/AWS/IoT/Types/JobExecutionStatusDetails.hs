@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.JobExecutionStatusDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the job execution status.
 --
 -- /See:/ 'newJobExecutionStatusDetails' smart constructor.
 data JobExecutionStatusDetails = JobExecutionStatusDetails'
   { -- | The job execution status.
-    detailsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    detailsMap :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobExecutionStatusDetails' with all optional fields omitted.
@@ -46,24 +45,22 @@ newJobExecutionStatusDetails ::
 newJobExecutionStatusDetails =
   JobExecutionStatusDetails'
     { detailsMap =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The job execution status.
-jobExecutionStatusDetails_detailsMap :: Lens.Lens' JobExecutionStatusDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobExecutionStatusDetails_detailsMap = Lens.lens (\JobExecutionStatusDetails' {detailsMap} -> detailsMap) (\s@JobExecutionStatusDetails' {} a -> s {detailsMap = a} :: JobExecutionStatusDetails) Prelude.. Lens.mapping Prelude._Coerce
+jobExecutionStatusDetails_detailsMap :: Lens.Lens' JobExecutionStatusDetails (Core.Maybe (Core.HashMap Core.Text Core.Text))
+jobExecutionStatusDetails_detailsMap = Lens.lens (\JobExecutionStatusDetails' {detailsMap} -> detailsMap) (\s@JobExecutionStatusDetails' {} a -> s {detailsMap = a} :: JobExecutionStatusDetails) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON JobExecutionStatusDetails where
+instance Core.FromJSON JobExecutionStatusDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobExecutionStatusDetails"
       ( \x ->
           JobExecutionStatusDetails'
-            Prelude.<$> ( x Prelude..:? "detailsMap"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "detailsMap" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable JobExecutionStatusDetails
+instance Core.Hashable JobExecutionStatusDetails
 
-instance Prelude.NFData JobExecutionStatusDetails
+instance Core.NFData JobExecutionStatusDetails

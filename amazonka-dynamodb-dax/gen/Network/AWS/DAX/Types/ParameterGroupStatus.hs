@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DAX.Types.ParameterGroupStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of a parameter group.
 --
 -- /See:/ 'newParameterGroupStatus' smart constructor.
 data ParameterGroupStatus = ParameterGroupStatus'
   { -- | The node IDs of one or more nodes to be rebooted.
-    nodeIdsToReboot :: Prelude.Maybe [Prelude.Text],
+    nodeIdsToReboot :: Core.Maybe [Core.Text],
     -- | The name of the parameter group.
-    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    parameterGroupName :: Core.Maybe Core.Text,
     -- | The status of parameter updates.
-    parameterApplyStatus :: Prelude.Maybe Prelude.Text
+    parameterApplyStatus :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterGroupStatus' with all optional fields omitted.
@@ -54,36 +53,34 @@ newParameterGroupStatus ::
 newParameterGroupStatus =
   ParameterGroupStatus'
     { nodeIdsToReboot =
-        Prelude.Nothing,
-      parameterGroupName = Prelude.Nothing,
-      parameterApplyStatus = Prelude.Nothing
+        Core.Nothing,
+      parameterGroupName = Core.Nothing,
+      parameterApplyStatus = Core.Nothing
     }
 
 -- | The node IDs of one or more nodes to be rebooted.
-parameterGroupStatus_nodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe [Prelude.Text])
-parameterGroupStatus_nodeIdsToReboot = Lens.lens (\ParameterGroupStatus' {nodeIdsToReboot} -> nodeIdsToReboot) (\s@ParameterGroupStatus' {} a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus) Prelude.. Lens.mapping Prelude._Coerce
+parameterGroupStatus_nodeIdsToReboot :: Lens.Lens' ParameterGroupStatus (Core.Maybe [Core.Text])
+parameterGroupStatus_nodeIdsToReboot = Lens.lens (\ParameterGroupStatus' {nodeIdsToReboot} -> nodeIdsToReboot) (\s@ParameterGroupStatus' {} a -> s {nodeIdsToReboot = a} :: ParameterGroupStatus) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the parameter group.
-parameterGroupStatus_parameterGroupName :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe Prelude.Text)
+parameterGroupStatus_parameterGroupName :: Lens.Lens' ParameterGroupStatus (Core.Maybe Core.Text)
 parameterGroupStatus_parameterGroupName = Lens.lens (\ParameterGroupStatus' {parameterGroupName} -> parameterGroupName) (\s@ParameterGroupStatus' {} a -> s {parameterGroupName = a} :: ParameterGroupStatus)
 
 -- | The status of parameter updates.
-parameterGroupStatus_parameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Prelude.Maybe Prelude.Text)
+parameterGroupStatus_parameterApplyStatus :: Lens.Lens' ParameterGroupStatus (Core.Maybe Core.Text)
 parameterGroupStatus_parameterApplyStatus = Lens.lens (\ParameterGroupStatus' {parameterApplyStatus} -> parameterApplyStatus) (\s@ParameterGroupStatus' {} a -> s {parameterApplyStatus = a} :: ParameterGroupStatus)
 
-instance Prelude.FromJSON ParameterGroupStatus where
+instance Core.FromJSON ParameterGroupStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterGroupStatus"
       ( \x ->
           ParameterGroupStatus'
-            Prelude.<$> ( x Prelude..:? "NodeIdsToReboot"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ParameterGroupName")
-            Prelude.<*> (x Prelude..:? "ParameterApplyStatus")
+            Core.<$> (x Core..:? "NodeIdsToReboot" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ParameterGroupName")
+            Core.<*> (x Core..:? "ParameterApplyStatus")
       )
 
-instance Prelude.Hashable ParameterGroupStatus
+instance Core.Hashable ParameterGroupStatus
 
-instance Prelude.NFData ParameterGroupStatus
+instance Core.NFData ParameterGroupStatus

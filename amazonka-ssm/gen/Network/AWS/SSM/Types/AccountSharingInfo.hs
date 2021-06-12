@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AccountSharingInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information includes the AWS account ID where the current document is
 -- shared and the version shared with that account.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAccountSharingInfo' smart constructor.
 data AccountSharingInfo = AccountSharingInfo'
   { -- | The AWS account ID where the current document is shared.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | The version of the current document shared with the account.
-    sharedDocumentVersion :: Prelude.Maybe Prelude.Text
+    sharedDocumentVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountSharingInfo' with all optional fields omitted.
@@ -50,28 +49,28 @@ newAccountSharingInfo ::
   AccountSharingInfo
 newAccountSharingInfo =
   AccountSharingInfo'
-    { accountId = Prelude.Nothing,
-      sharedDocumentVersion = Prelude.Nothing
+    { accountId = Core.Nothing,
+      sharedDocumentVersion = Core.Nothing
     }
 
 -- | The AWS account ID where the current document is shared.
-accountSharingInfo_accountId :: Lens.Lens' AccountSharingInfo (Prelude.Maybe Prelude.Text)
+accountSharingInfo_accountId :: Lens.Lens' AccountSharingInfo (Core.Maybe Core.Text)
 accountSharingInfo_accountId = Lens.lens (\AccountSharingInfo' {accountId} -> accountId) (\s@AccountSharingInfo' {} a -> s {accountId = a} :: AccountSharingInfo)
 
 -- | The version of the current document shared with the account.
-accountSharingInfo_sharedDocumentVersion :: Lens.Lens' AccountSharingInfo (Prelude.Maybe Prelude.Text)
+accountSharingInfo_sharedDocumentVersion :: Lens.Lens' AccountSharingInfo (Core.Maybe Core.Text)
 accountSharingInfo_sharedDocumentVersion = Lens.lens (\AccountSharingInfo' {sharedDocumentVersion} -> sharedDocumentVersion) (\s@AccountSharingInfo' {} a -> s {sharedDocumentVersion = a} :: AccountSharingInfo)
 
-instance Prelude.FromJSON AccountSharingInfo where
+instance Core.FromJSON AccountSharingInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountSharingInfo"
       ( \x ->
           AccountSharingInfo'
-            Prelude.<$> (x Prelude..:? "AccountId")
-            Prelude.<*> (x Prelude..:? "SharedDocumentVersion")
+            Core.<$> (x Core..:? "AccountId")
+            Core.<*> (x Core..:? "SharedDocumentVersion")
       )
 
-instance Prelude.Hashable AccountSharingInfo
+instance Core.Hashable AccountSharingInfo
 
-instance Prelude.NFData AccountSharingInfo
+instance Core.NFData AccountSharingInfo

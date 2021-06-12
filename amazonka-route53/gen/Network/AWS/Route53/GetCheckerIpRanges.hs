@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Route53.GetCheckerIpRanges
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -56,7 +55,7 @@ import Network.AWS.Route53.Types
 data GetCheckerIpRanges = GetCheckerIpRanges'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCheckerIpRanges' with all optional fields omitted.
@@ -66,46 +65,45 @@ newGetCheckerIpRanges ::
   GetCheckerIpRanges
 newGetCheckerIpRanges = GetCheckerIpRanges'
 
-instance Prelude.AWSRequest GetCheckerIpRanges where
+instance Core.AWSRequest GetCheckerIpRanges where
   type
-    Rs GetCheckerIpRanges =
+    AWSResponse GetCheckerIpRanges =
       GetCheckerIpRangesResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetCheckerIpRangesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "CheckerIpRanges"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "CheckerIpRanges" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable GetCheckerIpRanges
+instance Core.Hashable GetCheckerIpRanges
 
-instance Prelude.NFData GetCheckerIpRanges
+instance Core.NFData GetCheckerIpRanges
 
-instance Prelude.ToHeaders GetCheckerIpRanges where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetCheckerIpRanges where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetCheckerIpRanges where
-  toPath = Prelude.const "/2013-04-01/checkeripranges"
+instance Core.ToPath GetCheckerIpRanges where
+  toPath = Core.const "/2013-04-01/checkeripranges"
 
-instance Prelude.ToQuery GetCheckerIpRanges where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCheckerIpRanges where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains the @CheckerIpRanges@ element.
 --
 -- /See:/ 'newGetCheckerIpRangesResponse' smart constructor.
 data GetCheckerIpRangesResponse = GetCheckerIpRangesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains sorted list of IP ranges in CIDR format for
     -- Amazon Route 53 health checkers.
-    checkerIpRanges :: [Prelude.Text]
+    checkerIpRanges :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCheckerIpRangesResponse' with all optional fields omitted.
@@ -121,22 +119,22 @@ data GetCheckerIpRangesResponse = GetCheckerIpRangesResponse'
 -- Amazon Route 53 health checkers.
 newGetCheckerIpRangesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCheckerIpRangesResponse
 newGetCheckerIpRangesResponse pHttpStatus_ =
   GetCheckerIpRangesResponse'
     { httpStatus =
         pHttpStatus_,
-      checkerIpRanges = Prelude.mempty
+      checkerIpRanges = Core.mempty
     }
 
 -- | The response's http status code.
-getCheckerIpRangesResponse_httpStatus :: Lens.Lens' GetCheckerIpRangesResponse Prelude.Int
+getCheckerIpRangesResponse_httpStatus :: Lens.Lens' GetCheckerIpRangesResponse Core.Int
 getCheckerIpRangesResponse_httpStatus = Lens.lens (\GetCheckerIpRangesResponse' {httpStatus} -> httpStatus) (\s@GetCheckerIpRangesResponse' {} a -> s {httpStatus = a} :: GetCheckerIpRangesResponse)
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
-getCheckerIpRangesResponse_checkerIpRanges :: Lens.Lens' GetCheckerIpRangesResponse [Prelude.Text]
-getCheckerIpRangesResponse_checkerIpRanges = Lens.lens (\GetCheckerIpRangesResponse' {checkerIpRanges} -> checkerIpRanges) (\s@GetCheckerIpRangesResponse' {} a -> s {checkerIpRanges = a} :: GetCheckerIpRangesResponse) Prelude.. Prelude._Coerce
+getCheckerIpRangesResponse_checkerIpRanges :: Lens.Lens' GetCheckerIpRangesResponse [Core.Text]
+getCheckerIpRangesResponse_checkerIpRanges = Lens.lens (\GetCheckerIpRangesResponse' {checkerIpRanges} -> checkerIpRanges) (\s@GetCheckerIpRangesResponse' {} a -> s {checkerIpRanges = a} :: GetCheckerIpRangesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetCheckerIpRangesResponse
+instance Core.NFData GetCheckerIpRangesResponse

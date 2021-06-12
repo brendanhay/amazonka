@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,20 +54,20 @@ module Network.AWS.Lightsail.UpdateRelationalDatabaseParameters
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateRelationalDatabaseParameters' smart constructor.
 data UpdateRelationalDatabaseParameters = UpdateRelationalDatabaseParameters'
   { -- | The name of your database for which to update parameters.
-    relationalDatabaseName :: Prelude.Text,
+    relationalDatabaseName :: Core.Text,
     -- | The database parameters to update.
     parameters :: [RelationalDatabaseParameter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRelationalDatabaseParameters' with all optional fields omitted.
@@ -83,105 +82,101 @@ data UpdateRelationalDatabaseParameters = UpdateRelationalDatabaseParameters'
 -- 'parameters', 'updateRelationalDatabaseParameters_parameters' - The database parameters to update.
 newUpdateRelationalDatabaseParameters ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateRelationalDatabaseParameters
 newUpdateRelationalDatabaseParameters
   pRelationalDatabaseName_ =
     UpdateRelationalDatabaseParameters'
       { relationalDatabaseName =
           pRelationalDatabaseName_,
-        parameters = Prelude.mempty
+        parameters = Core.mempty
       }
 
 -- | The name of your database for which to update parameters.
-updateRelationalDatabaseParameters_relationalDatabaseName :: Lens.Lens' UpdateRelationalDatabaseParameters Prelude.Text
+updateRelationalDatabaseParameters_relationalDatabaseName :: Lens.Lens' UpdateRelationalDatabaseParameters Core.Text
 updateRelationalDatabaseParameters_relationalDatabaseName = Lens.lens (\UpdateRelationalDatabaseParameters' {relationalDatabaseName} -> relationalDatabaseName) (\s@UpdateRelationalDatabaseParameters' {} a -> s {relationalDatabaseName = a} :: UpdateRelationalDatabaseParameters)
 
 -- | The database parameters to update.
 updateRelationalDatabaseParameters_parameters :: Lens.Lens' UpdateRelationalDatabaseParameters [RelationalDatabaseParameter]
-updateRelationalDatabaseParameters_parameters = Lens.lens (\UpdateRelationalDatabaseParameters' {parameters} -> parameters) (\s@UpdateRelationalDatabaseParameters' {} a -> s {parameters = a} :: UpdateRelationalDatabaseParameters) Prelude.. Prelude._Coerce
+updateRelationalDatabaseParameters_parameters = Lens.lens (\UpdateRelationalDatabaseParameters' {parameters} -> parameters) (\s@UpdateRelationalDatabaseParameters' {} a -> s {parameters = a} :: UpdateRelationalDatabaseParameters) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateRelationalDatabaseParameters
   where
   type
-    Rs UpdateRelationalDatabaseParameters =
+    AWSResponse UpdateRelationalDatabaseParameters =
       UpdateRelationalDatabaseParametersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRelationalDatabaseParametersResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateRelationalDatabaseParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateRelationalDatabaseParameters
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateRelationalDatabaseParameters
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.UpdateRelationalDatabaseParameters" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.UpdateRelationalDatabaseParameters" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     UpdateRelationalDatabaseParameters
   where
   toJSON UpdateRelationalDatabaseParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               ),
-            Prelude.Just ("parameters" Prelude..= parameters)
+            Core.Just ("parameters" Core..= parameters)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     UpdateRelationalDatabaseParameters
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     UpdateRelationalDatabaseParameters
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateRelationalDatabaseParametersResponse' smart constructor.
 data UpdateRelationalDatabaseParametersResponse = UpdateRelationalDatabaseParametersResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRelationalDatabaseParametersResponse' with all optional fields omitted.
@@ -198,26 +193,26 @@ data UpdateRelationalDatabaseParametersResponse = UpdateRelationalDatabaseParame
 -- 'httpStatus', 'updateRelationalDatabaseParametersResponse_httpStatus' - The response's http status code.
 newUpdateRelationalDatabaseParametersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateRelationalDatabaseParametersResponse
 newUpdateRelationalDatabaseParametersResponse
   pHttpStatus_ =
     UpdateRelationalDatabaseParametersResponse'
       { operations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-updateRelationalDatabaseParametersResponse_operations :: Lens.Lens' UpdateRelationalDatabaseParametersResponse (Prelude.Maybe [Operation])
-updateRelationalDatabaseParametersResponse_operations = Lens.lens (\UpdateRelationalDatabaseParametersResponse' {operations} -> operations) (\s@UpdateRelationalDatabaseParametersResponse' {} a -> s {operations = a} :: UpdateRelationalDatabaseParametersResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateRelationalDatabaseParametersResponse_operations :: Lens.Lens' UpdateRelationalDatabaseParametersResponse (Core.Maybe [Operation])
+updateRelationalDatabaseParametersResponse_operations = Lens.lens (\UpdateRelationalDatabaseParametersResponse' {operations} -> operations) (\s@UpdateRelationalDatabaseParametersResponse' {} a -> s {operations = a} :: UpdateRelationalDatabaseParametersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateRelationalDatabaseParametersResponse_httpStatus :: Lens.Lens' UpdateRelationalDatabaseParametersResponse Prelude.Int
+updateRelationalDatabaseParametersResponse_httpStatus :: Lens.Lens' UpdateRelationalDatabaseParametersResponse Core.Int
 updateRelationalDatabaseParametersResponse_httpStatus = Lens.lens (\UpdateRelationalDatabaseParametersResponse' {httpStatus} -> httpStatus) (\s@UpdateRelationalDatabaseParametersResponse' {} a -> s {httpStatus = a} :: UpdateRelationalDatabaseParametersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateRelationalDatabaseParametersResponse

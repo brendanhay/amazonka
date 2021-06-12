@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SSM.CancelCommand
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -55,11 +54,11 @@ data CancelCommand = CancelCommand'
   { -- | (Optional) A list of instance IDs on which you want to cancel the
     -- command. If not provided, the command is canceled on every instance on
     -- which it was requested.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
+    instanceIds :: Core.Maybe [Core.Text],
     -- | The ID of the command you want to cancel.
-    commandId :: Prelude.Text
+    commandId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelCommand' with all optional fields omitted.
@@ -76,65 +75,65 @@ data CancelCommand = CancelCommand'
 -- 'commandId', 'cancelCommand_commandId' - The ID of the command you want to cancel.
 newCancelCommand ::
   -- | 'commandId'
-  Prelude.Text ->
+  Core.Text ->
   CancelCommand
 newCancelCommand pCommandId_ =
   CancelCommand'
-    { instanceIds = Prelude.Nothing,
+    { instanceIds = Core.Nothing,
       commandId = pCommandId_
     }
 
 -- | (Optional) A list of instance IDs on which you want to cancel the
 -- command. If not provided, the command is canceled on every instance on
 -- which it was requested.
-cancelCommand_instanceIds :: Lens.Lens' CancelCommand (Prelude.Maybe [Prelude.Text])
-cancelCommand_instanceIds = Lens.lens (\CancelCommand' {instanceIds} -> instanceIds) (\s@CancelCommand' {} a -> s {instanceIds = a} :: CancelCommand) Prelude.. Lens.mapping Prelude._Coerce
+cancelCommand_instanceIds :: Lens.Lens' CancelCommand (Core.Maybe [Core.Text])
+cancelCommand_instanceIds = Lens.lens (\CancelCommand' {instanceIds} -> instanceIds) (\s@CancelCommand' {} a -> s {instanceIds = a} :: CancelCommand) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the command you want to cancel.
-cancelCommand_commandId :: Lens.Lens' CancelCommand Prelude.Text
+cancelCommand_commandId :: Lens.Lens' CancelCommand Core.Text
 cancelCommand_commandId = Lens.lens (\CancelCommand' {commandId} -> commandId) (\s@CancelCommand' {} a -> s {commandId = a} :: CancelCommand)
 
-instance Prelude.AWSRequest CancelCommand where
-  type Rs CancelCommand = CancelCommandResponse
+instance Core.AWSRequest CancelCommand where
+  type
+    AWSResponse CancelCommand =
+      CancelCommandResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelCommandResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelCommand
+instance Core.Hashable CancelCommand
 
-instance Prelude.NFData CancelCommand
+instance Core.NFData CancelCommand
 
-instance Prelude.ToHeaders CancelCommand where
+instance Core.ToHeaders CancelCommand where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.CancelCommand" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.CancelCommand" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CancelCommand where
+instance Core.ToJSON CancelCommand where
   toJSON CancelCommand' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceIds" Prelude..=) Prelude.<$> instanceIds,
-            Prelude.Just ("CommandId" Prelude..= commandId)
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceIds" Core..=) Core.<$> instanceIds,
+            Core.Just ("CommandId" Core..= commandId)
           ]
       )
 
-instance Prelude.ToPath CancelCommand where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelCommand where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelCommand where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelCommand where
+  toQuery = Core.const Core.mempty
 
 -- | Whether or not the command was successfully canceled. There is no
 -- guarantee that a request can be canceled.
@@ -142,9 +141,9 @@ instance Prelude.ToQuery CancelCommand where
 -- /See:/ 'newCancelCommandResponse' smart constructor.
 data CancelCommandResponse = CancelCommandResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelCommandResponse' with all optional fields omitted.
@@ -157,13 +156,13 @@ data CancelCommandResponse = CancelCommandResponse'
 -- 'httpStatus', 'cancelCommandResponse_httpStatus' - The response's http status code.
 newCancelCommandResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelCommandResponse
 newCancelCommandResponse pHttpStatus_ =
   CancelCommandResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-cancelCommandResponse_httpStatus :: Lens.Lens' CancelCommandResponse Prelude.Int
+cancelCommandResponse_httpStatus :: Lens.Lens' CancelCommandResponse Core.Int
 cancelCommandResponse_httpStatus = Lens.lens (\CancelCommandResponse' {httpStatus} -> httpStatus) (\s@CancelCommandResponse' {} a -> s {httpStatus = a} :: CancelCommandResponse)
 
-instance Prelude.NFData CancelCommandResponse
+instance Core.NFData CancelCommandResponse

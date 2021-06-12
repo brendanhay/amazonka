@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Inspector.DescribeFindings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data DescribeFindings = DescribeFindings'
   { -- | The locale into which you want to translate a finding description,
     -- recommendation, and the short description that identifies the finding.
-    locale :: Prelude.Maybe Locale,
+    locale :: Core.Maybe Locale,
     -- | The ARN that specifies the finding that you want to describe.
-    findingArns :: Prelude.NonEmpty Prelude.Text
+    findingArns :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFindings' with all optional fields omitted.
@@ -72,82 +71,80 @@ data DescribeFindings = DescribeFindings'
 -- 'findingArns', 'describeFindings_findingArns' - The ARN that specifies the finding that you want to describe.
 newDescribeFindings ::
   -- | 'findingArns'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   DescribeFindings
 newDescribeFindings pFindingArns_ =
   DescribeFindings'
-    { locale = Prelude.Nothing,
-      findingArns = Prelude._Coerce Lens.# pFindingArns_
+    { locale = Core.Nothing,
+      findingArns = Lens._Coerce Lens.# pFindingArns_
     }
 
 -- | The locale into which you want to translate a finding description,
 -- recommendation, and the short description that identifies the finding.
-describeFindings_locale :: Lens.Lens' DescribeFindings (Prelude.Maybe Locale)
+describeFindings_locale :: Lens.Lens' DescribeFindings (Core.Maybe Locale)
 describeFindings_locale = Lens.lens (\DescribeFindings' {locale} -> locale) (\s@DescribeFindings' {} a -> s {locale = a} :: DescribeFindings)
 
 -- | The ARN that specifies the finding that you want to describe.
-describeFindings_findingArns :: Lens.Lens' DescribeFindings (Prelude.NonEmpty Prelude.Text)
-describeFindings_findingArns = Lens.lens (\DescribeFindings' {findingArns} -> findingArns) (\s@DescribeFindings' {} a -> s {findingArns = a} :: DescribeFindings) Prelude.. Prelude._Coerce
+describeFindings_findingArns :: Lens.Lens' DescribeFindings (Core.NonEmpty Core.Text)
+describeFindings_findingArns = Lens.lens (\DescribeFindings' {findingArns} -> findingArns) (\s@DescribeFindings' {} a -> s {findingArns = a} :: DescribeFindings) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DescribeFindings where
-  type Rs DescribeFindings = DescribeFindingsResponse
+instance Core.AWSRequest DescribeFindings where
+  type
+    AWSResponse DescribeFindings =
+      DescribeFindingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeFindingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "findings" Prelude..!@ Prelude.mempty)
-            Prelude.<*> ( x Prelude..?> "failedItems"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "findings" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "failedItems" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable DescribeFindings
+instance Core.Hashable DescribeFindings
 
-instance Prelude.NFData DescribeFindings
+instance Core.NFData DescribeFindings
 
-instance Prelude.ToHeaders DescribeFindings where
+instance Core.ToHeaders DescribeFindings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.DescribeFindings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.DescribeFindings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeFindings where
+instance Core.ToJSON DescribeFindings where
   toJSON DescribeFindings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("locale" Prelude..=) Prelude.<$> locale,
-            Prelude.Just ("findingArns" Prelude..= findingArns)
+    Core.object
+      ( Core.catMaybes
+          [ ("locale" Core..=) Core.<$> locale,
+            Core.Just ("findingArns" Core..= findingArns)
           ]
       )
 
-instance Prelude.ToPath DescribeFindings where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeFindings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeFindings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeFindings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeFindingsResponse' smart constructor.
 data DescribeFindingsResponse = DescribeFindingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Information about the finding.
     findings :: [Finding],
     -- | Finding details that cannot be described. An error code is provided for
     -- each failed item.
-    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
+    failedItems :: Core.HashMap Core.Text FailedItemDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFindingsResponse' with all optional fields omitted.
@@ -165,27 +162,27 @@ data DescribeFindingsResponse = DescribeFindingsResponse'
 -- each failed item.
 newDescribeFindingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeFindingsResponse
 newDescribeFindingsResponse pHttpStatus_ =
   DescribeFindingsResponse'
     { httpStatus =
         pHttpStatus_,
-      findings = Prelude.mempty,
-      failedItems = Prelude.mempty
+      findings = Core.mempty,
+      failedItems = Core.mempty
     }
 
 -- | The response's http status code.
-describeFindingsResponse_httpStatus :: Lens.Lens' DescribeFindingsResponse Prelude.Int
+describeFindingsResponse_httpStatus :: Lens.Lens' DescribeFindingsResponse Core.Int
 describeFindingsResponse_httpStatus = Lens.lens (\DescribeFindingsResponse' {httpStatus} -> httpStatus) (\s@DescribeFindingsResponse' {} a -> s {httpStatus = a} :: DescribeFindingsResponse)
 
 -- | Information about the finding.
 describeFindingsResponse_findings :: Lens.Lens' DescribeFindingsResponse [Finding]
-describeFindingsResponse_findings = Lens.lens (\DescribeFindingsResponse' {findings} -> findings) (\s@DescribeFindingsResponse' {} a -> s {findings = a} :: DescribeFindingsResponse) Prelude.. Prelude._Coerce
+describeFindingsResponse_findings = Lens.lens (\DescribeFindingsResponse' {findings} -> findings) (\s@DescribeFindingsResponse' {} a -> s {findings = a} :: DescribeFindingsResponse) Core.. Lens._Coerce
 
 -- | Finding details that cannot be described. An error code is provided for
 -- each failed item.
-describeFindingsResponse_failedItems :: Lens.Lens' DescribeFindingsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeFindingsResponse_failedItems = Lens.lens (\DescribeFindingsResponse' {failedItems} -> failedItems) (\s@DescribeFindingsResponse' {} a -> s {failedItems = a} :: DescribeFindingsResponse) Prelude.. Prelude._Coerce
+describeFindingsResponse_failedItems :: Lens.Lens' DescribeFindingsResponse (Core.HashMap Core.Text FailedItemDetails)
+describeFindingsResponse_failedItems = Lens.lens (\DescribeFindingsResponse' {failedItems} -> failedItems) (\s@DescribeFindingsResponse' {} a -> s {failedItems = a} :: DescribeFindingsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData DescribeFindingsResponse
+instance Core.NFData DescribeFindingsResponse

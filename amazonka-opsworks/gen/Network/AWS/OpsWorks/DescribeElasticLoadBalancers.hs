@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +58,12 @@ import qualified Network.AWS.Response as Response
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
   { -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
     -- instances.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | A list of layer IDs. The action describes the Elastic Load Balancing
     -- instances for the specified layers.
-    layerIds :: Prelude.Maybe [Prelude.Text]
+    layerIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticLoadBalancers' with all optional fields omitted.
@@ -84,76 +83,66 @@ newDescribeElasticLoadBalancers ::
 newDescribeElasticLoadBalancers =
   DescribeElasticLoadBalancers'
     { stackId =
-        Prelude.Nothing,
-      layerIds = Prelude.Nothing
+        Core.Nothing,
+      layerIds = Core.Nothing
     }
 
 -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
 -- instances.
-describeElasticLoadBalancers_stackId :: Lens.Lens' DescribeElasticLoadBalancers (Prelude.Maybe Prelude.Text)
+describeElasticLoadBalancers_stackId :: Lens.Lens' DescribeElasticLoadBalancers (Core.Maybe Core.Text)
 describeElasticLoadBalancers_stackId = Lens.lens (\DescribeElasticLoadBalancers' {stackId} -> stackId) (\s@DescribeElasticLoadBalancers' {} a -> s {stackId = a} :: DescribeElasticLoadBalancers)
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
-describeElasticLoadBalancers_layerIds :: Lens.Lens' DescribeElasticLoadBalancers (Prelude.Maybe [Prelude.Text])
-describeElasticLoadBalancers_layerIds = Lens.lens (\DescribeElasticLoadBalancers' {layerIds} -> layerIds) (\s@DescribeElasticLoadBalancers' {} a -> s {layerIds = a} :: DescribeElasticLoadBalancers) Prelude.. Lens.mapping Prelude._Coerce
+describeElasticLoadBalancers_layerIds :: Lens.Lens' DescribeElasticLoadBalancers (Core.Maybe [Core.Text])
+describeElasticLoadBalancers_layerIds = Lens.lens (\DescribeElasticLoadBalancers' {layerIds} -> layerIds) (\s@DescribeElasticLoadBalancers' {} a -> s {layerIds = a} :: DescribeElasticLoadBalancers) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    DescribeElasticLoadBalancers
-  where
+instance Core.AWSRequest DescribeElasticLoadBalancers where
   type
-    Rs DescribeElasticLoadBalancers =
+    AWSResponse DescribeElasticLoadBalancers =
       DescribeElasticLoadBalancersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeElasticLoadBalancersResponse'
-            Prelude.<$> ( x Prelude..?> "ElasticLoadBalancers"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "ElasticLoadBalancers"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeElasticLoadBalancers
+instance Core.Hashable DescribeElasticLoadBalancers
 
-instance Prelude.NFData DescribeElasticLoadBalancers
+instance Core.NFData DescribeElasticLoadBalancers
 
-instance
-  Prelude.ToHeaders
-    DescribeElasticLoadBalancers
-  where
+instance Core.ToHeaders DescribeElasticLoadBalancers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeElasticLoadBalancers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeElasticLoadBalancers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeElasticLoadBalancers where
+instance Core.ToJSON DescribeElasticLoadBalancers where
   toJSON DescribeElasticLoadBalancers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StackId" Prelude..=) Prelude.<$> stackId,
-            ("LayerIds" Prelude..=) Prelude.<$> layerIds
+    Core.object
+      ( Core.catMaybes
+          [ ("StackId" Core..=) Core.<$> stackId,
+            ("LayerIds" Core..=) Core.<$> layerIds
           ]
       )
 
-instance Prelude.ToPath DescribeElasticLoadBalancers where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeElasticLoadBalancers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeElasticLoadBalancers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeElasticLoadBalancers where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeElasticLoadBalancers@ request.
 --
@@ -161,11 +150,11 @@ instance Prelude.ToQuery DescribeElasticLoadBalancers where
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
   { -- | A list of @ElasticLoadBalancer@ objects that describe the specified
     -- Elastic Load Balancing instances.
-    elasticLoadBalancers :: Prelude.Maybe [ElasticLoadBalancer],
+    elasticLoadBalancers :: Core.Maybe [ElasticLoadBalancer],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticLoadBalancersResponse' with all optional fields omitted.
@@ -181,24 +170,24 @@ data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
 -- 'httpStatus', 'describeElasticLoadBalancersResponse_httpStatus' - The response's http status code.
 newDescribeElasticLoadBalancersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeElasticLoadBalancersResponse
 newDescribeElasticLoadBalancersResponse pHttpStatus_ =
   DescribeElasticLoadBalancersResponse'
     { elasticLoadBalancers =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
-describeElasticLoadBalancersResponse_elasticLoadBalancers :: Lens.Lens' DescribeElasticLoadBalancersResponse (Prelude.Maybe [ElasticLoadBalancer])
-describeElasticLoadBalancersResponse_elasticLoadBalancers = Lens.lens (\DescribeElasticLoadBalancersResponse' {elasticLoadBalancers} -> elasticLoadBalancers) (\s@DescribeElasticLoadBalancersResponse' {} a -> s {elasticLoadBalancers = a} :: DescribeElasticLoadBalancersResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeElasticLoadBalancersResponse_elasticLoadBalancers :: Lens.Lens' DescribeElasticLoadBalancersResponse (Core.Maybe [ElasticLoadBalancer])
+describeElasticLoadBalancersResponse_elasticLoadBalancers = Lens.lens (\DescribeElasticLoadBalancersResponse' {elasticLoadBalancers} -> elasticLoadBalancers) (\s@DescribeElasticLoadBalancersResponse' {} a -> s {elasticLoadBalancers = a} :: DescribeElasticLoadBalancersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeElasticLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeElasticLoadBalancersResponse Prelude.Int
+describeElasticLoadBalancersResponse_httpStatus :: Lens.Lens' DescribeElasticLoadBalancersResponse Core.Int
 describeElasticLoadBalancersResponse_httpStatus = Lens.lens (\DescribeElasticLoadBalancersResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticLoadBalancersResponse' {} a -> s {httpStatus = a} :: DescribeElasticLoadBalancersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeElasticLoadBalancersResponse

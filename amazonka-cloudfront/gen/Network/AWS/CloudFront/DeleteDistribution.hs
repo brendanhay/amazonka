@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.CloudFront.DeleteDistribution
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,11 +87,11 @@ import qualified Network.AWS.Response as Response
 data DeleteDistribution = DeleteDistribution'
   { -- | The value of the @ETag@ header that you received when you disabled the
     -- distribution. For example: @E2QWRUHAPOMQZL@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The distribution ID.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDistribution' with all optional fields omitted.
@@ -108,52 +107,52 @@ data DeleteDistribution = DeleteDistribution'
 -- 'id', 'deleteDistribution_id' - The distribution ID.
 newDeleteDistribution ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDistribution
 newDeleteDistribution pId_ =
   DeleteDistribution'
-    { ifMatch = Prelude.Nothing,
+    { ifMatch = Core.Nothing,
       id = pId_
     }
 
 -- | The value of the @ETag@ header that you received when you disabled the
 -- distribution. For example: @E2QWRUHAPOMQZL@.
-deleteDistribution_ifMatch :: Lens.Lens' DeleteDistribution (Prelude.Maybe Prelude.Text)
+deleteDistribution_ifMatch :: Lens.Lens' DeleteDistribution (Core.Maybe Core.Text)
 deleteDistribution_ifMatch = Lens.lens (\DeleteDistribution' {ifMatch} -> ifMatch) (\s@DeleteDistribution' {} a -> s {ifMatch = a} :: DeleteDistribution)
 
 -- | The distribution ID.
-deleteDistribution_id :: Lens.Lens' DeleteDistribution Prelude.Text
+deleteDistribution_id :: Lens.Lens' DeleteDistribution Core.Text
 deleteDistribution_id = Lens.lens (\DeleteDistribution' {id} -> id) (\s@DeleteDistribution' {} a -> s {id = a} :: DeleteDistribution)
 
-instance Prelude.AWSRequest DeleteDistribution where
+instance Core.AWSRequest DeleteDistribution where
   type
-    Rs DeleteDistribution =
+    AWSResponse DeleteDistribution =
       DeleteDistributionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteDistributionResponse'
 
-instance Prelude.Hashable DeleteDistribution
+instance Core.Hashable DeleteDistribution
 
-instance Prelude.NFData DeleteDistribution
+instance Core.NFData DeleteDistribution
 
-instance Prelude.ToHeaders DeleteDistribution where
+instance Core.ToHeaders DeleteDistribution where
   toHeaders DeleteDistribution' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
-instance Prelude.ToPath DeleteDistribution where
+instance Core.ToPath DeleteDistribution where
   toPath DeleteDistribution' {..} =
-    Prelude.mconcat
-      ["/2020-05-31/distribution/", Prelude.toBS id]
+    Core.mconcat
+      ["/2020-05-31/distribution/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteDistribution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDistribution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse = DeleteDistributionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDistributionResponse' with all optional fields omitted.
@@ -164,4 +163,4 @@ newDeleteDistributionResponse ::
 newDeleteDistributionResponse =
   DeleteDistributionResponse'
 
-instance Prelude.NFData DeleteDistributionResponse
+instance Core.NFData DeleteDistributionResponse

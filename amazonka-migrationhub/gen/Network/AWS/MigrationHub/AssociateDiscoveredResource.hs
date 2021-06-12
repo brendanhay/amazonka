@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.MigrationHub.AssociateDiscoveredResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,16 +52,16 @@ import qualified Network.AWS.Response as Response
 data AssociateDiscoveredResource = AssociateDiscoveredResource'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Prelude.Text,
+    progressUpdateStream :: Core.Text,
     -- | The identifier given to the MigrationTask. /Do not store personal data
     -- in this field./
-    migrationTaskName :: Prelude.Text,
+    migrationTaskName :: Core.Text,
     -- | Object representing a Resource.
     discoveredResource :: DiscoveredResource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDiscoveredResource' with all optional fields omitted.
@@ -83,9 +82,9 @@ data AssociateDiscoveredResource = AssociateDiscoveredResource'
 -- 'discoveredResource', 'associateDiscoveredResource_discoveredResource' - Object representing a Resource.
 newAssociateDiscoveredResource ::
   -- | 'progressUpdateStream'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'migrationTaskName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'discoveredResource'
   DiscoveredResource ->
   AssociateDiscoveredResource
@@ -94,8 +93,7 @@ newAssociateDiscoveredResource
   pMigrationTaskName_
   pDiscoveredResource_ =
     AssociateDiscoveredResource'
-      { dryRun =
-          Prelude.Nothing,
+      { dryRun = Core.Nothing,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_,
         discoveredResource = pDiscoveredResource_
@@ -103,89 +101,79 @@ newAssociateDiscoveredResource
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-associateDiscoveredResource_dryRun :: Lens.Lens' AssociateDiscoveredResource (Prelude.Maybe Prelude.Bool)
+associateDiscoveredResource_dryRun :: Lens.Lens' AssociateDiscoveredResource (Core.Maybe Core.Bool)
 associateDiscoveredResource_dryRun = Lens.lens (\AssociateDiscoveredResource' {dryRun} -> dryRun) (\s@AssociateDiscoveredResource' {} a -> s {dryRun = a} :: AssociateDiscoveredResource)
 
 -- | The name of the ProgressUpdateStream.
-associateDiscoveredResource_progressUpdateStream :: Lens.Lens' AssociateDiscoveredResource Prelude.Text
+associateDiscoveredResource_progressUpdateStream :: Lens.Lens' AssociateDiscoveredResource Core.Text
 associateDiscoveredResource_progressUpdateStream = Lens.lens (\AssociateDiscoveredResource' {progressUpdateStream} -> progressUpdateStream) (\s@AssociateDiscoveredResource' {} a -> s {progressUpdateStream = a} :: AssociateDiscoveredResource)
 
 -- | The identifier given to the MigrationTask. /Do not store personal data
 -- in this field./
-associateDiscoveredResource_migrationTaskName :: Lens.Lens' AssociateDiscoveredResource Prelude.Text
+associateDiscoveredResource_migrationTaskName :: Lens.Lens' AssociateDiscoveredResource Core.Text
 associateDiscoveredResource_migrationTaskName = Lens.lens (\AssociateDiscoveredResource' {migrationTaskName} -> migrationTaskName) (\s@AssociateDiscoveredResource' {} a -> s {migrationTaskName = a} :: AssociateDiscoveredResource)
 
 -- | Object representing a Resource.
 associateDiscoveredResource_discoveredResource :: Lens.Lens' AssociateDiscoveredResource DiscoveredResource
 associateDiscoveredResource_discoveredResource = Lens.lens (\AssociateDiscoveredResource' {discoveredResource} -> discoveredResource) (\s@AssociateDiscoveredResource' {} a -> s {discoveredResource = a} :: AssociateDiscoveredResource)
 
-instance
-  Prelude.AWSRequest
-    AssociateDiscoveredResource
-  where
+instance Core.AWSRequest AssociateDiscoveredResource where
   type
-    Rs AssociateDiscoveredResource =
+    AWSResponse AssociateDiscoveredResource =
       AssociateDiscoveredResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDiscoveredResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDiscoveredResource
+instance Core.Hashable AssociateDiscoveredResource
 
-instance Prelude.NFData AssociateDiscoveredResource
+instance Core.NFData AssociateDiscoveredResource
 
-instance
-  Prelude.ToHeaders
-    AssociateDiscoveredResource
-  where
+instance Core.ToHeaders AssociateDiscoveredResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMigrationHub.AssociateDiscoveredResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMigrationHub.AssociateDiscoveredResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateDiscoveredResource where
+instance Core.ToJSON AssociateDiscoveredResource where
   toJSON AssociateDiscoveredResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DryRun" Core..=) Core.<$> dryRun,
+            Core.Just
               ( "ProgressUpdateStream"
-                  Prelude..= progressUpdateStream
+                  Core..= progressUpdateStream
               ),
-            Prelude.Just
-              ("MigrationTaskName" Prelude..= migrationTaskName),
-            Prelude.Just
-              ( "DiscoveredResource"
-                  Prelude..= discoveredResource
-              )
+            Core.Just
+              ("MigrationTaskName" Core..= migrationTaskName),
+            Core.Just
+              ("DiscoveredResource" Core..= discoveredResource)
           ]
       )
 
-instance Prelude.ToPath AssociateDiscoveredResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateDiscoveredResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateDiscoveredResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateDiscoveredResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateDiscoveredResourceResponse' smart constructor.
 data AssociateDiscoveredResourceResponse = AssociateDiscoveredResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDiscoveredResourceResponse' with all optional fields omitted.
@@ -198,7 +186,7 @@ data AssociateDiscoveredResourceResponse = AssociateDiscoveredResourceResponse'
 -- 'httpStatus', 'associateDiscoveredResourceResponse_httpStatus' - The response's http status code.
 newAssociateDiscoveredResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateDiscoveredResourceResponse
 newAssociateDiscoveredResourceResponse pHttpStatus_ =
   AssociateDiscoveredResourceResponse'
@@ -207,9 +195,9 @@ newAssociateDiscoveredResourceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateDiscoveredResourceResponse_httpStatus :: Lens.Lens' AssociateDiscoveredResourceResponse Prelude.Int
+associateDiscoveredResourceResponse_httpStatus :: Lens.Lens' AssociateDiscoveredResourceResponse Core.Int
 associateDiscoveredResourceResponse_httpStatus = Lens.lens (\AssociateDiscoveredResourceResponse' {httpStatus} -> httpStatus) (\s@AssociateDiscoveredResourceResponse' {} a -> s {httpStatus = a} :: AssociateDiscoveredResourceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateDiscoveredResourceResponse

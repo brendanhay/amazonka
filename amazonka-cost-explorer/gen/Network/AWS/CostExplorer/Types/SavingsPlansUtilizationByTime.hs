@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansUtilizationByTime where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
 import Network.AWS.CostExplorer.Types.SavingsPlansSavings
 import Network.AWS.CostExplorer.Types.SavingsPlansUtilization
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of Savings Plans utilization, in hours.
 --
@@ -34,16 +33,16 @@ data SavingsPlansUtilizationByTime = SavingsPlansUtilizationByTime'
   { -- | The amount saved by using existing Savings Plans. Savings returns both
     -- net savings from Savings Plans as well as the @onDemandCostEquivalent@
     -- of the Savings Plans when considering the utilization rate.
-    savings :: Prelude.Maybe SavingsPlansSavings,
+    savings :: Core.Maybe SavingsPlansSavings,
     -- | The total amortized commitment for a Savings Plans. This includes the
     -- sum of the upfront and recurring Savings Plans fees.
-    amortizedCommitment :: Prelude.Maybe SavingsPlansAmortizedCommitment,
+    amortizedCommitment :: Core.Maybe SavingsPlansAmortizedCommitment,
     timePeriod :: DateInterval,
     -- | A ratio of your effectiveness of using existing Savings Plans to apply
     -- to workloads that are Savings Plans eligible.
     utilization :: SavingsPlansUtilization
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansUtilizationByTime' with all optional fields omitted.
@@ -75,8 +74,8 @@ newSavingsPlansUtilizationByTime
   pUtilization_ =
     SavingsPlansUtilizationByTime'
       { savings =
-          Prelude.Nothing,
-        amortizedCommitment = Prelude.Nothing,
+          Core.Nothing,
+        amortizedCommitment = Core.Nothing,
         timePeriod = pTimePeriod_,
         utilization = pUtilization_
       }
@@ -84,12 +83,12 @@ newSavingsPlansUtilizationByTime
 -- | The amount saved by using existing Savings Plans. Savings returns both
 -- net savings from Savings Plans as well as the @onDemandCostEquivalent@
 -- of the Savings Plans when considering the utilization rate.
-savingsPlansUtilizationByTime_savings :: Lens.Lens' SavingsPlansUtilizationByTime (Prelude.Maybe SavingsPlansSavings)
+savingsPlansUtilizationByTime_savings :: Lens.Lens' SavingsPlansUtilizationByTime (Core.Maybe SavingsPlansSavings)
 savingsPlansUtilizationByTime_savings = Lens.lens (\SavingsPlansUtilizationByTime' {savings} -> savings) (\s@SavingsPlansUtilizationByTime' {} a -> s {savings = a} :: SavingsPlansUtilizationByTime)
 
 -- | The total amortized commitment for a Savings Plans. This includes the
 -- sum of the upfront and recurring Savings Plans fees.
-savingsPlansUtilizationByTime_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationByTime (Prelude.Maybe SavingsPlansAmortizedCommitment)
+savingsPlansUtilizationByTime_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationByTime (Core.Maybe SavingsPlansAmortizedCommitment)
 savingsPlansUtilizationByTime_amortizedCommitment = Lens.lens (\SavingsPlansUtilizationByTime' {amortizedCommitment} -> amortizedCommitment) (\s@SavingsPlansUtilizationByTime' {} a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationByTime)
 
 -- | Undocumented member.
@@ -101,23 +100,18 @@ savingsPlansUtilizationByTime_timePeriod = Lens.lens (\SavingsPlansUtilizationBy
 savingsPlansUtilizationByTime_utilization :: Lens.Lens' SavingsPlansUtilizationByTime SavingsPlansUtilization
 savingsPlansUtilizationByTime_utilization = Lens.lens (\SavingsPlansUtilizationByTime' {utilization} -> utilization) (\s@SavingsPlansUtilizationByTime' {} a -> s {utilization = a} :: SavingsPlansUtilizationByTime)
 
-instance
-  Prelude.FromJSON
-    SavingsPlansUtilizationByTime
-  where
+instance Core.FromJSON SavingsPlansUtilizationByTime where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansUtilizationByTime"
       ( \x ->
           SavingsPlansUtilizationByTime'
-            Prelude.<$> (x Prelude..:? "Savings")
-            Prelude.<*> (x Prelude..:? "AmortizedCommitment")
-            Prelude.<*> (x Prelude..: "TimePeriod")
-            Prelude.<*> (x Prelude..: "Utilization")
+            Core.<$> (x Core..:? "Savings")
+            Core.<*> (x Core..:? "AmortizedCommitment")
+            Core.<*> (x Core..: "TimePeriod")
+            Core.<*> (x Core..: "Utilization")
       )
 
-instance
-  Prelude.Hashable
-    SavingsPlansUtilizationByTime
+instance Core.Hashable SavingsPlansUtilizationByTime
 
-instance Prelude.NFData SavingsPlansUtilizationByTime
+instance Core.NFData SavingsPlansUtilizationByTime

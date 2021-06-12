@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Gender where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.GenderType
 
 -- | The predicted gender of a detected face.
@@ -45,11 +44,11 @@ import Network.AWS.Rekognition.Types.GenderType
 -- /See:/ 'newGender' smart constructor.
 data Gender = Gender'
   { -- | Level of confidence in the prediction.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | The predicted gender of the face.
-    value :: Prelude.Maybe GenderType
+    value :: Core.Maybe GenderType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Gender' with all optional fields omitted.
@@ -66,28 +65,28 @@ newGender ::
   Gender
 newGender =
   Gender'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { confidence = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Level of confidence in the prediction.
-gender_confidence :: Lens.Lens' Gender (Prelude.Maybe Prelude.Double)
+gender_confidence :: Lens.Lens' Gender (Core.Maybe Core.Double)
 gender_confidence = Lens.lens (\Gender' {confidence} -> confidence) (\s@Gender' {} a -> s {confidence = a} :: Gender)
 
 -- | The predicted gender of the face.
-gender_value :: Lens.Lens' Gender (Prelude.Maybe GenderType)
+gender_value :: Lens.Lens' Gender (Core.Maybe GenderType)
 gender_value = Lens.lens (\Gender' {value} -> value) (\s@Gender' {} a -> s {value = a} :: Gender)
 
-instance Prelude.FromJSON Gender where
+instance Core.FromJSON Gender where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Gender"
       ( \x ->
           Gender'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Gender
+instance Core.Hashable Gender
 
-instance Prelude.NFData Gender
+instance Core.NFData Gender

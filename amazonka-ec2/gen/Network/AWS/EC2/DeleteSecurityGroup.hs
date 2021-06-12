@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.DeleteSecurityGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,14 +54,14 @@ data DeleteSecurityGroup = DeleteSecurityGroup'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | [EC2-Classic, default VPC] The name of the security group. You can
     -- specify either the security group name or the security group ID.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The ID of the security group. Required for a nondefault VPC.
-    groupId :: Prelude.Maybe Prelude.Text
+    groupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSecurityGroup' with all optional fields omitted.
@@ -85,62 +84,61 @@ newDeleteSecurityGroup ::
   DeleteSecurityGroup
 newDeleteSecurityGroup =
   DeleteSecurityGroup'
-    { dryRun = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      groupName = Core.Nothing,
+      groupId = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteSecurityGroup_dryRun :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Bool)
+deleteSecurityGroup_dryRun :: Lens.Lens' DeleteSecurityGroup (Core.Maybe Core.Bool)
 deleteSecurityGroup_dryRun = Lens.lens (\DeleteSecurityGroup' {dryRun} -> dryRun) (\s@DeleteSecurityGroup' {} a -> s {dryRun = a} :: DeleteSecurityGroup)
 
 -- | [EC2-Classic, default VPC] The name of the security group. You can
 -- specify either the security group name or the security group ID.
-deleteSecurityGroup_groupName :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
+deleteSecurityGroup_groupName :: Lens.Lens' DeleteSecurityGroup (Core.Maybe Core.Text)
 deleteSecurityGroup_groupName = Lens.lens (\DeleteSecurityGroup' {groupName} -> groupName) (\s@DeleteSecurityGroup' {} a -> s {groupName = a} :: DeleteSecurityGroup)
 
 -- | The ID of the security group. Required for a nondefault VPC.
-deleteSecurityGroup_groupId :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
+deleteSecurityGroup_groupId :: Lens.Lens' DeleteSecurityGroup (Core.Maybe Core.Text)
 deleteSecurityGroup_groupId = Lens.lens (\DeleteSecurityGroup' {groupId} -> groupId) (\s@DeleteSecurityGroup' {} a -> s {groupId = a} :: DeleteSecurityGroup)
 
-instance Prelude.AWSRequest DeleteSecurityGroup where
+instance Core.AWSRequest DeleteSecurityGroup where
   type
-    Rs DeleteSecurityGroup =
+    AWSResponse DeleteSecurityGroup =
       DeleteSecurityGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteSecurityGroupResponse'
 
-instance Prelude.Hashable DeleteSecurityGroup
+instance Core.Hashable DeleteSecurityGroup
 
-instance Prelude.NFData DeleteSecurityGroup
+instance Core.NFData DeleteSecurityGroup
 
-instance Prelude.ToHeaders DeleteSecurityGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteSecurityGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteSecurityGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSecurityGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSecurityGroup where
+instance Core.ToQuery DeleteSecurityGroup where
   toQuery DeleteSecurityGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteSecurityGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "GroupName" Prelude.=: groupName,
-        "GroupId" Prelude.=: groupId
+          Core.=: ("DeleteSecurityGroup" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "GroupName" Core.=: groupName,
+        "GroupId" Core.=: groupId
       ]
 
 -- | /See:/ 'newDeleteSecurityGroupResponse' smart constructor.
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSecurityGroupResponse' with all optional fields omitted.
@@ -151,4 +149,4 @@ newDeleteSecurityGroupResponse ::
 newDeleteSecurityGroupResponse =
   DeleteSecurityGroupResponse'
 
-instance Prelude.NFData DeleteSecurityGroupResponse
+instance Core.NFData DeleteSecurityGroupResponse

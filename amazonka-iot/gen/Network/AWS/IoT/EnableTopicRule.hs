@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.IoT.EnableTopicRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newEnableTopicRule' smart constructor.
 data EnableTopicRule = EnableTopicRule'
   { -- | The name of the topic rule to enable.
-    ruleName :: Prelude.Text
+    ruleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableTopicRule' with all optional fields omitted.
@@ -62,45 +61,46 @@ data EnableTopicRule = EnableTopicRule'
 -- 'ruleName', 'enableTopicRule_ruleName' - The name of the topic rule to enable.
 newEnableTopicRule ::
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   EnableTopicRule
 newEnableTopicRule pRuleName_ =
   EnableTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the topic rule to enable.
-enableTopicRule_ruleName :: Lens.Lens' EnableTopicRule Prelude.Text
+enableTopicRule_ruleName :: Lens.Lens' EnableTopicRule Core.Text
 enableTopicRule_ruleName = Lens.lens (\EnableTopicRule' {ruleName} -> ruleName) (\s@EnableTopicRule' {} a -> s {ruleName = a} :: EnableTopicRule)
 
-instance Prelude.AWSRequest EnableTopicRule where
-  type Rs EnableTopicRule = EnableTopicRuleResponse
+instance Core.AWSRequest EnableTopicRule where
+  type
+    AWSResponse EnableTopicRule =
+      EnableTopicRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull EnableTopicRuleResponse'
 
-instance Prelude.Hashable EnableTopicRule
+instance Core.Hashable EnableTopicRule
 
-instance Prelude.NFData EnableTopicRule
+instance Core.NFData EnableTopicRule
 
-instance Prelude.ToHeaders EnableTopicRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders EnableTopicRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON EnableTopicRule where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON EnableTopicRule where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath EnableTopicRule where
+instance Core.ToPath EnableTopicRule where
   toPath EnableTopicRule' {..} =
-    Prelude.mconcat
-      ["/rules/", Prelude.toBS ruleName, "/enable"]
+    Core.mconcat
+      ["/rules/", Core.toBS ruleName, "/enable"]
 
-instance Prelude.ToQuery EnableTopicRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableTopicRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableTopicRuleResponse' smart constructor.
 data EnableTopicRuleResponse = EnableTopicRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableTopicRuleResponse' with all optional fields omitted.
@@ -110,4 +110,4 @@ newEnableTopicRuleResponse ::
   EnableTopicRuleResponse
 newEnableTopicRuleResponse = EnableTopicRuleResponse'
 
-instance Prelude.NFData EnableTopicRuleResponse
+instance Core.NFData EnableTopicRuleResponse

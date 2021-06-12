@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.Explainability where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetricsSource
 
 -- | Contains explainability metrics for a model.
@@ -29,9 +28,9 @@ import Network.AWS.SageMaker.Types.MetricsSource
 -- /See:/ 'newExplainability' smart constructor.
 data Explainability = Explainability'
   { -- | The explainability report for a model.
-    report :: Prelude.Maybe MetricsSource
+    report :: Core.Maybe MetricsSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Explainability' with all optional fields omitted.
@@ -45,27 +44,25 @@ data Explainability = Explainability'
 newExplainability ::
   Explainability
 newExplainability =
-  Explainability' {report = Prelude.Nothing}
+  Explainability' {report = Core.Nothing}
 
 -- | The explainability report for a model.
-explainability_report :: Lens.Lens' Explainability (Prelude.Maybe MetricsSource)
+explainability_report :: Lens.Lens' Explainability (Core.Maybe MetricsSource)
 explainability_report = Lens.lens (\Explainability' {report} -> report) (\s@Explainability' {} a -> s {report = a} :: Explainability)
 
-instance Prelude.FromJSON Explainability where
+instance Core.FromJSON Explainability where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Explainability"
       ( \x ->
-          Explainability' Prelude.<$> (x Prelude..:? "Report")
+          Explainability' Core.<$> (x Core..:? "Report")
       )
 
-instance Prelude.Hashable Explainability
+instance Core.Hashable Explainability
 
-instance Prelude.NFData Explainability
+instance Core.NFData Explainability
 
-instance Prelude.ToJSON Explainability where
+instance Core.ToJSON Explainability where
   toJSON Explainability' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Report" Prelude..=) Prelude.<$> report]
-      )
+    Core.object
+      (Core.catMaybes [("Report" Core..=) Core.<$> report])

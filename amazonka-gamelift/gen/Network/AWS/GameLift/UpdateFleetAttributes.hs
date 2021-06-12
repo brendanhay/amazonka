@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -74,9 +73,9 @@ module Network.AWS.GameLift.UpdateFleetAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,26 +92,26 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
     --
     -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
     --     it cannot be terminated during a scale-down event.
-    newGameSessionProtectionPolicy' :: Prelude.Maybe ProtectionPolicy,
+    newGameSessionProtectionPolicy' :: Core.Maybe ProtectionPolicy,
     -- | A descriptive label that is associated with a fleet. Fleet names do not
     -- need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Human-readable description of a fleet.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Policy that limits the number of game sessions an individual player can
     -- create over a span of time.
-    resourceCreationLimitPolicy :: Prelude.Maybe ResourceCreationLimitPolicy,
+    resourceCreationLimitPolicy :: Core.Maybe ResourceCreationLimitPolicy,
     -- | Names of metric groups to include this fleet in. Amazon CloudWatch uses
     -- a fleet metric group is to aggregate metrics from multiple fleets. Use
     -- an existing metric group name to add this fleet to the group. Or use a
     -- new name to create a new metric group. A fleet can only be included in
     -- one metric group at a time.
-    metricGroups :: Prelude.Maybe [Prelude.Text],
+    metricGroups :: Core.Maybe [Core.Text],
     -- | A unique identifier for a fleet to update attribute metadata for. You
     -- can use either the fleet ID or ARN value.
-    fleetId :: Prelude.Text
+    fleetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateFleetAttributes' with all optional fields omitted.
@@ -150,16 +149,16 @@ data UpdateFleetAttributes = UpdateFleetAttributes'
 -- can use either the fleet ID or ARN value.
 newUpdateFleetAttributes ::
   -- | 'fleetId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateFleetAttributes
 newUpdateFleetAttributes pFleetId_ =
   UpdateFleetAttributes'
     { newGameSessionProtectionPolicy' =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      resourceCreationLimitPolicy = Prelude.Nothing,
-      metricGroups = Prelude.Nothing,
+        Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      resourceCreationLimitPolicy = Core.Nothing,
+      metricGroups = Core.Nothing,
       fleetId = pFleetId_
     }
 
@@ -172,21 +171,21 @@ newUpdateFleetAttributes pFleetId_ =
 --
 -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
 --     it cannot be terminated during a scale-down event.
-updateFleetAttributes_newGameSessionProtectionPolicy :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe ProtectionPolicy)
+updateFleetAttributes_newGameSessionProtectionPolicy :: Lens.Lens' UpdateFleetAttributes (Core.Maybe ProtectionPolicy)
 updateFleetAttributes_newGameSessionProtectionPolicy = Lens.lens (\UpdateFleetAttributes' {newGameSessionProtectionPolicy'} -> newGameSessionProtectionPolicy') (\s@UpdateFleetAttributes' {} a -> s {newGameSessionProtectionPolicy' = a} :: UpdateFleetAttributes)
 
 -- | A descriptive label that is associated with a fleet. Fleet names do not
 -- need to be unique.
-updateFleetAttributes_name :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe Prelude.Text)
+updateFleetAttributes_name :: Lens.Lens' UpdateFleetAttributes (Core.Maybe Core.Text)
 updateFleetAttributes_name = Lens.lens (\UpdateFleetAttributes' {name} -> name) (\s@UpdateFleetAttributes' {} a -> s {name = a} :: UpdateFleetAttributes)
 
 -- | Human-readable description of a fleet.
-updateFleetAttributes_description :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe Prelude.Text)
+updateFleetAttributes_description :: Lens.Lens' UpdateFleetAttributes (Core.Maybe Core.Text)
 updateFleetAttributes_description = Lens.lens (\UpdateFleetAttributes' {description} -> description) (\s@UpdateFleetAttributes' {} a -> s {description = a} :: UpdateFleetAttributes)
 
 -- | Policy that limits the number of game sessions an individual player can
 -- create over a span of time.
-updateFleetAttributes_resourceCreationLimitPolicy :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe ResourceCreationLimitPolicy)
+updateFleetAttributes_resourceCreationLimitPolicy :: Lens.Lens' UpdateFleetAttributes (Core.Maybe ResourceCreationLimitPolicy)
 updateFleetAttributes_resourceCreationLimitPolicy = Lens.lens (\UpdateFleetAttributes' {resourceCreationLimitPolicy} -> resourceCreationLimitPolicy) (\s@UpdateFleetAttributes' {} a -> s {resourceCreationLimitPolicy = a} :: UpdateFleetAttributes)
 
 -- | Names of metric groups to include this fleet in. Amazon CloudWatch uses
@@ -194,66 +193,64 @@ updateFleetAttributes_resourceCreationLimitPolicy = Lens.lens (\UpdateFleetAttri
 -- an existing metric group name to add this fleet to the group. Or use a
 -- new name to create a new metric group. A fleet can only be included in
 -- one metric group at a time.
-updateFleetAttributes_metricGroups :: Lens.Lens' UpdateFleetAttributes (Prelude.Maybe [Prelude.Text])
-updateFleetAttributes_metricGroups = Lens.lens (\UpdateFleetAttributes' {metricGroups} -> metricGroups) (\s@UpdateFleetAttributes' {} a -> s {metricGroups = a} :: UpdateFleetAttributes) Prelude.. Lens.mapping Prelude._Coerce
+updateFleetAttributes_metricGroups :: Lens.Lens' UpdateFleetAttributes (Core.Maybe [Core.Text])
+updateFleetAttributes_metricGroups = Lens.lens (\UpdateFleetAttributes' {metricGroups} -> metricGroups) (\s@UpdateFleetAttributes' {} a -> s {metricGroups = a} :: UpdateFleetAttributes) Core.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for a fleet to update attribute metadata for. You
 -- can use either the fleet ID or ARN value.
-updateFleetAttributes_fleetId :: Lens.Lens' UpdateFleetAttributes Prelude.Text
+updateFleetAttributes_fleetId :: Lens.Lens' UpdateFleetAttributes Core.Text
 updateFleetAttributes_fleetId = Lens.lens (\UpdateFleetAttributes' {fleetId} -> fleetId) (\s@UpdateFleetAttributes' {} a -> s {fleetId = a} :: UpdateFleetAttributes)
 
-instance Prelude.AWSRequest UpdateFleetAttributes where
+instance Core.AWSRequest UpdateFleetAttributes where
   type
-    Rs UpdateFleetAttributes =
+    AWSResponse UpdateFleetAttributes =
       UpdateFleetAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateFleetAttributesResponse'
-            Prelude.<$> (x Prelude..?> "FleetId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FleetId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFleetAttributes
+instance Core.Hashable UpdateFleetAttributes
 
-instance Prelude.NFData UpdateFleetAttributes
+instance Core.NFData UpdateFleetAttributes
 
-instance Prelude.ToHeaders UpdateFleetAttributes where
+instance Core.ToHeaders UpdateFleetAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.UpdateFleetAttributes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.UpdateFleetAttributes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateFleetAttributes where
+instance Core.ToJSON UpdateFleetAttributes where
   toJSON UpdateFleetAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NewGameSessionProtectionPolicy" Prelude..=)
-              Prelude.<$> newGameSessionProtectionPolicy',
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("ResourceCreationLimitPolicy" Prelude..=)
-              Prelude.<$> resourceCreationLimitPolicy,
-            ("MetricGroups" Prelude..=) Prelude.<$> metricGroups,
-            Prelude.Just ("FleetId" Prelude..= fleetId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NewGameSessionProtectionPolicy" Core..=)
+              Core.<$> newGameSessionProtectionPolicy',
+            ("Name" Core..=) Core.<$> name,
+            ("Description" Core..=) Core.<$> description,
+            ("ResourceCreationLimitPolicy" Core..=)
+              Core.<$> resourceCreationLimitPolicy,
+            ("MetricGroups" Core..=) Core.<$> metricGroups,
+            Core.Just ("FleetId" Core..= fleetId)
           ]
       )
 
-instance Prelude.ToPath UpdateFleetAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateFleetAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateFleetAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateFleetAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -261,11 +258,11 @@ instance Prelude.ToQuery UpdateFleetAttributes where
 data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
   { -- | A unique identifier for a fleet that was updated. Use either the fleet
     -- ID or ARN value.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    fleetId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateFleetAttributesResponse' with all optional fields omitted.
@@ -281,22 +278,22 @@ data UpdateFleetAttributesResponse = UpdateFleetAttributesResponse'
 -- 'httpStatus', 'updateFleetAttributesResponse_httpStatus' - The response's http status code.
 newUpdateFleetAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateFleetAttributesResponse
 newUpdateFleetAttributesResponse pHttpStatus_ =
   UpdateFleetAttributesResponse'
     { fleetId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier for a fleet that was updated. Use either the fleet
 -- ID or ARN value.
-updateFleetAttributesResponse_fleetId :: Lens.Lens' UpdateFleetAttributesResponse (Prelude.Maybe Prelude.Text)
+updateFleetAttributesResponse_fleetId :: Lens.Lens' UpdateFleetAttributesResponse (Core.Maybe Core.Text)
 updateFleetAttributesResponse_fleetId = Lens.lens (\UpdateFleetAttributesResponse' {fleetId} -> fleetId) (\s@UpdateFleetAttributesResponse' {} a -> s {fleetId = a} :: UpdateFleetAttributesResponse)
 
 -- | The response's http status code.
-updateFleetAttributesResponse_httpStatus :: Lens.Lens' UpdateFleetAttributesResponse Prelude.Int
+updateFleetAttributesResponse_httpStatus :: Lens.Lens' UpdateFleetAttributesResponse Core.Int
 updateFleetAttributesResponse_httpStatus = Lens.lens (\UpdateFleetAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateFleetAttributesResponse' {} a -> s {httpStatus = a} :: UpdateFleetAttributesResponse)
 
-instance Prelude.NFData UpdateFleetAttributesResponse
+instance Core.NFData UpdateFleetAttributesResponse

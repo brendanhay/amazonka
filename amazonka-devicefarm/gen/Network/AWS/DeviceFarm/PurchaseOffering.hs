@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.DeviceFarm.PurchaseOffering
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPurchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
   { -- | The number of device slots to purchase in an offering request.
-    quantity :: Prelude.Maybe Prelude.Int,
+    quantity :: Core.Maybe Core.Int,
     -- | The ID of the offering.
-    offeringId :: Prelude.Maybe Prelude.Text,
+    offeringId :: Core.Maybe Core.Text,
     -- | The ID of the offering promotion to be applied to the purchase.
-    offeringPromotionId :: Prelude.Maybe Prelude.Text
+    offeringPromotionId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseOffering' with all optional fields omitted.
@@ -83,80 +82,80 @@ newPurchaseOffering ::
   PurchaseOffering
 newPurchaseOffering =
   PurchaseOffering'
-    { quantity = Prelude.Nothing,
-      offeringId = Prelude.Nothing,
-      offeringPromotionId = Prelude.Nothing
+    { quantity = Core.Nothing,
+      offeringId = Core.Nothing,
+      offeringPromotionId = Core.Nothing
     }
 
 -- | The number of device slots to purchase in an offering request.
-purchaseOffering_quantity :: Lens.Lens' PurchaseOffering (Prelude.Maybe Prelude.Int)
+purchaseOffering_quantity :: Lens.Lens' PurchaseOffering (Core.Maybe Core.Int)
 purchaseOffering_quantity = Lens.lens (\PurchaseOffering' {quantity} -> quantity) (\s@PurchaseOffering' {} a -> s {quantity = a} :: PurchaseOffering)
 
 -- | The ID of the offering.
-purchaseOffering_offeringId :: Lens.Lens' PurchaseOffering (Prelude.Maybe Prelude.Text)
+purchaseOffering_offeringId :: Lens.Lens' PurchaseOffering (Core.Maybe Core.Text)
 purchaseOffering_offeringId = Lens.lens (\PurchaseOffering' {offeringId} -> offeringId) (\s@PurchaseOffering' {} a -> s {offeringId = a} :: PurchaseOffering)
 
 -- | The ID of the offering promotion to be applied to the purchase.
-purchaseOffering_offeringPromotionId :: Lens.Lens' PurchaseOffering (Prelude.Maybe Prelude.Text)
+purchaseOffering_offeringPromotionId :: Lens.Lens' PurchaseOffering (Core.Maybe Core.Text)
 purchaseOffering_offeringPromotionId = Lens.lens (\PurchaseOffering' {offeringPromotionId} -> offeringPromotionId) (\s@PurchaseOffering' {} a -> s {offeringPromotionId = a} :: PurchaseOffering)
 
-instance Prelude.AWSRequest PurchaseOffering where
-  type Rs PurchaseOffering = PurchaseOfferingResponse
+instance Core.AWSRequest PurchaseOffering where
+  type
+    AWSResponse PurchaseOffering =
+      PurchaseOfferingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PurchaseOfferingResponse'
-            Prelude.<$> (x Prelude..?> "offeringTransaction")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "offeringTransaction")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PurchaseOffering
+instance Core.Hashable PurchaseOffering
 
-instance Prelude.NFData PurchaseOffering
+instance Core.NFData PurchaseOffering
 
-instance Prelude.ToHeaders PurchaseOffering where
+instance Core.ToHeaders PurchaseOffering where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.PurchaseOffering" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.PurchaseOffering" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PurchaseOffering where
+instance Core.ToJSON PurchaseOffering where
   toJSON PurchaseOffering' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("quantity" Prelude..=) Prelude.<$> quantity,
-            ("offeringId" Prelude..=) Prelude.<$> offeringId,
-            ("offeringPromotionId" Prelude..=)
-              Prelude.<$> offeringPromotionId
+    Core.object
+      ( Core.catMaybes
+          [ ("quantity" Core..=) Core.<$> quantity,
+            ("offeringId" Core..=) Core.<$> offeringId,
+            ("offeringPromotionId" Core..=)
+              Core.<$> offeringPromotionId
           ]
       )
 
-instance Prelude.ToPath PurchaseOffering where
-  toPath = Prelude.const "/"
+instance Core.ToPath PurchaseOffering where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PurchaseOffering where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PurchaseOffering where
+  toQuery = Core.const Core.mempty
 
 -- | The result of the purchase offering (for example, success or failure).
 --
 -- /See:/ 'newPurchaseOfferingResponse' smart constructor.
 data PurchaseOfferingResponse = PurchaseOfferingResponse'
   { -- | Represents the offering transaction for the purchase result.
-    offeringTransaction :: Prelude.Maybe OfferingTransaction,
+    offeringTransaction :: Core.Maybe OfferingTransaction,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseOfferingResponse' with all optional fields omitted.
@@ -171,21 +170,21 @@ data PurchaseOfferingResponse = PurchaseOfferingResponse'
 -- 'httpStatus', 'purchaseOfferingResponse_httpStatus' - The response's http status code.
 newPurchaseOfferingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PurchaseOfferingResponse
 newPurchaseOfferingResponse pHttpStatus_ =
   PurchaseOfferingResponse'
     { offeringTransaction =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the offering transaction for the purchase result.
-purchaseOfferingResponse_offeringTransaction :: Lens.Lens' PurchaseOfferingResponse (Prelude.Maybe OfferingTransaction)
+purchaseOfferingResponse_offeringTransaction :: Lens.Lens' PurchaseOfferingResponse (Core.Maybe OfferingTransaction)
 purchaseOfferingResponse_offeringTransaction = Lens.lens (\PurchaseOfferingResponse' {offeringTransaction} -> offeringTransaction) (\s@PurchaseOfferingResponse' {} a -> s {offeringTransaction = a} :: PurchaseOfferingResponse)
 
 -- | The response's http status code.
-purchaseOfferingResponse_httpStatus :: Lens.Lens' PurchaseOfferingResponse Prelude.Int
+purchaseOfferingResponse_httpStatus :: Lens.Lens' PurchaseOfferingResponse Core.Int
 purchaseOfferingResponse_httpStatus = Lens.lens (\PurchaseOfferingResponse' {httpStatus} -> httpStatus) (\s@PurchaseOfferingResponse' {} a -> s {httpStatus = a} :: PurchaseOfferingResponse)
 
-instance Prelude.NFData PurchaseOfferingResponse
+instance Core.NFData PurchaseOfferingResponse

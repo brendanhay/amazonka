@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.UserBucketDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Amazon S3 bucket for the disk image.
 --
 -- /See:/ 'newUserBucketDetails' smart constructor.
 data UserBucketDetails = UserBucketDetails'
   { -- | The Amazon S3 bucket from which the disk image was created.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
+    s3Bucket :: Core.Maybe Core.Text,
     -- | The file name of the disk image.
-    s3Key :: Prelude.Maybe Prelude.Text
+    s3Key :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserBucketDetails' with all optional fields omitted.
@@ -50,24 +49,23 @@ newUserBucketDetails ::
   UserBucketDetails
 newUserBucketDetails =
   UserBucketDetails'
-    { s3Bucket = Prelude.Nothing,
-      s3Key = Prelude.Nothing
+    { s3Bucket = Core.Nothing,
+      s3Key = Core.Nothing
     }
 
 -- | The Amazon S3 bucket from which the disk image was created.
-userBucketDetails_s3Bucket :: Lens.Lens' UserBucketDetails (Prelude.Maybe Prelude.Text)
+userBucketDetails_s3Bucket :: Lens.Lens' UserBucketDetails (Core.Maybe Core.Text)
 userBucketDetails_s3Bucket = Lens.lens (\UserBucketDetails' {s3Bucket} -> s3Bucket) (\s@UserBucketDetails' {} a -> s {s3Bucket = a} :: UserBucketDetails)
 
 -- | The file name of the disk image.
-userBucketDetails_s3Key :: Lens.Lens' UserBucketDetails (Prelude.Maybe Prelude.Text)
+userBucketDetails_s3Key :: Lens.Lens' UserBucketDetails (Core.Maybe Core.Text)
 userBucketDetails_s3Key = Lens.lens (\UserBucketDetails' {s3Key} -> s3Key) (\s@UserBucketDetails' {} a -> s {s3Key = a} :: UserBucketDetails)
 
-instance Prelude.FromXML UserBucketDetails where
+instance Core.FromXML UserBucketDetails where
   parseXML x =
     UserBucketDetails'
-      Prelude.<$> (x Prelude..@? "s3Bucket")
-      Prelude.<*> (x Prelude..@? "s3Key")
+      Core.<$> (x Core..@? "s3Bucket") Core.<*> (x Core..@? "s3Key")
 
-instance Prelude.Hashable UserBucketDetails
+instance Core.Hashable UserBucketDetails
 
-instance Prelude.NFData UserBucketDetails
+instance Core.NFData UserBucketDetails

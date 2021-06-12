@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.GpuInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.GpuDeviceInfo
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the GPU accelerators for the instance type.
 --
 -- /See:/ 'newGpuInfo' smart constructor.
 data GpuInfo = GpuInfo'
   { -- | Describes the GPU accelerators for the instance type.
-    gpus :: Prelude.Maybe [GpuDeviceInfo],
+    gpus :: Core.Maybe [GpuDeviceInfo],
     -- | The total size of the memory for the GPU accelerators for the instance
     -- type, in MiB.
-    totalGpuMemoryInMiB :: Prelude.Maybe Prelude.Int
+    totalGpuMemoryInMiB :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GpuInfo' with all optional fields omitted.
@@ -53,27 +52,27 @@ newGpuInfo ::
   GpuInfo
 newGpuInfo =
   GpuInfo'
-    { gpus = Prelude.Nothing,
-      totalGpuMemoryInMiB = Prelude.Nothing
+    { gpus = Core.Nothing,
+      totalGpuMemoryInMiB = Core.Nothing
     }
 
 -- | Describes the GPU accelerators for the instance type.
-gpuInfo_gpus :: Lens.Lens' GpuInfo (Prelude.Maybe [GpuDeviceInfo])
-gpuInfo_gpus = Lens.lens (\GpuInfo' {gpus} -> gpus) (\s@GpuInfo' {} a -> s {gpus = a} :: GpuInfo) Prelude.. Lens.mapping Prelude._Coerce
+gpuInfo_gpus :: Lens.Lens' GpuInfo (Core.Maybe [GpuDeviceInfo])
+gpuInfo_gpus = Lens.lens (\GpuInfo' {gpus} -> gpus) (\s@GpuInfo' {} a -> s {gpus = a} :: GpuInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The total size of the memory for the GPU accelerators for the instance
 -- type, in MiB.
-gpuInfo_totalGpuMemoryInMiB :: Lens.Lens' GpuInfo (Prelude.Maybe Prelude.Int)
+gpuInfo_totalGpuMemoryInMiB :: Lens.Lens' GpuInfo (Core.Maybe Core.Int)
 gpuInfo_totalGpuMemoryInMiB = Lens.lens (\GpuInfo' {totalGpuMemoryInMiB} -> totalGpuMemoryInMiB) (\s@GpuInfo' {} a -> s {totalGpuMemoryInMiB = a} :: GpuInfo)
 
-instance Prelude.FromXML GpuInfo where
+instance Core.FromXML GpuInfo where
   parseXML x =
     GpuInfo'
-      Prelude.<$> ( x Prelude..@? "gpus" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "totalGpuMemoryInMiB")
+      Core.<$> ( x Core..@? "gpus" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "totalGpuMemoryInMiB")
 
-instance Prelude.Hashable GpuInfo
+instance Core.Hashable GpuInfo
 
-instance Prelude.NFData GpuInfo
+instance Core.NFData GpuInfo

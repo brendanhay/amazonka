@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -99,9 +98,9 @@ module Network.AWS.KMS.UpdateCustomKeyStore
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -113,10 +112,10 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- This parameter tells AWS KMS the current password of the @kmsuser@
     -- crypto user (CU). It does not set or change the password of any users in
     -- the AWS CloudHSM cluster.
-    keyStorePassword :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    keyStorePassword :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Changes the friendly name of the custom key store to the value that you
     -- specify. The custom key store name must be unique in the AWS account.
-    newCustomKeyStoreName' :: Prelude.Maybe Prelude.Text,
+    newCustomKeyStoreName' :: Core.Maybe Core.Text,
     -- | Associates the custom key store with a related AWS CloudHSM cluster.
     --
     -- Enter the cluster ID of the cluster that you used to create the custom
@@ -129,13 +128,13 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
     -- certificate of a cluster, use the
     -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
     -- operation.
-    cloudHsmClusterId :: Prelude.Maybe Prelude.Text,
+    cloudHsmClusterId :: Core.Maybe Core.Text,
     -- | Identifies the custom key store that you want to update. Enter the ID of
     -- the custom key store. To find the ID of a custom key store, use the
     -- DescribeCustomKeyStores operation.
-    customKeyStoreId :: Prelude.Text
+    customKeyStoreId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCustomKeyStore' with all optional fields omitted.
@@ -173,14 +172,14 @@ data UpdateCustomKeyStore = UpdateCustomKeyStore'
 -- DescribeCustomKeyStores operation.
 newUpdateCustomKeyStore ::
   -- | 'customKeyStoreId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateCustomKeyStore
 newUpdateCustomKeyStore pCustomKeyStoreId_ =
   UpdateCustomKeyStore'
     { keyStorePassword =
-        Prelude.Nothing,
-      newCustomKeyStoreName' = Prelude.Nothing,
-      cloudHsmClusterId = Prelude.Nothing,
+        Core.Nothing,
+      newCustomKeyStoreName' = Core.Nothing,
+      cloudHsmClusterId = Core.Nothing,
       customKeyStoreId = pCustomKeyStoreId_
     }
 
@@ -190,12 +189,12 @@ newUpdateCustomKeyStore pCustomKeyStoreId_ =
 -- This parameter tells AWS KMS the current password of the @kmsuser@
 -- crypto user (CU). It does not set or change the password of any users in
 -- the AWS CloudHSM cluster.
-updateCustomKeyStore_keyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
-updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Prelude.. Lens.mapping Prelude._Sensitive
+updateCustomKeyStore_keyStorePassword :: Lens.Lens' UpdateCustomKeyStore (Core.Maybe Core.Text)
+updateCustomKeyStore_keyStorePassword = Lens.lens (\UpdateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@UpdateCustomKeyStore' {} a -> s {keyStorePassword = a} :: UpdateCustomKeyStore) Core.. Lens.mapping Core._Sensitive
 
 -- | Changes the friendly name of the custom key store to the value that you
 -- specify. The custom key store name must be unique in the AWS account.
-updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_newCustomKeyStoreName :: Lens.Lens' UpdateCustomKeyStore (Core.Maybe Core.Text)
 updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {newCustomKeyStoreName'} -> newCustomKeyStoreName') (\s@UpdateCustomKeyStore' {} a -> s {newCustomKeyStoreName' = a} :: UpdateCustomKeyStore)
 
 -- | Associates the custom key store with a related AWS CloudHSM cluster.
@@ -210,73 +209,71 @@ updateCustomKeyStore_newCustomKeyStoreName = Lens.lens (\UpdateCustomKeyStore' {
 -- certificate of a cluster, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
-updateCustomKeyStore_cloudHsmClusterId :: Lens.Lens' UpdateCustomKeyStore (Prelude.Maybe Prelude.Text)
+updateCustomKeyStore_cloudHsmClusterId :: Lens.Lens' UpdateCustomKeyStore (Core.Maybe Core.Text)
 updateCustomKeyStore_cloudHsmClusterId = Lens.lens (\UpdateCustomKeyStore' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@UpdateCustomKeyStore' {} a -> s {cloudHsmClusterId = a} :: UpdateCustomKeyStore)
 
 -- | Identifies the custom key store that you want to update. Enter the ID of
 -- the custom key store. To find the ID of a custom key store, use the
 -- DescribeCustomKeyStores operation.
-updateCustomKeyStore_customKeyStoreId :: Lens.Lens' UpdateCustomKeyStore Prelude.Text
+updateCustomKeyStore_customKeyStoreId :: Lens.Lens' UpdateCustomKeyStore Core.Text
 updateCustomKeyStore_customKeyStoreId = Lens.lens (\UpdateCustomKeyStore' {customKeyStoreId} -> customKeyStoreId) (\s@UpdateCustomKeyStore' {} a -> s {customKeyStoreId = a} :: UpdateCustomKeyStore)
 
-instance Prelude.AWSRequest UpdateCustomKeyStore where
+instance Core.AWSRequest UpdateCustomKeyStore where
   type
-    Rs UpdateCustomKeyStore =
+    AWSResponse UpdateCustomKeyStore =
       UpdateCustomKeyStoreResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateCustomKeyStoreResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateCustomKeyStore
+instance Core.Hashable UpdateCustomKeyStore
 
-instance Prelude.NFData UpdateCustomKeyStore
+instance Core.NFData UpdateCustomKeyStore
 
-instance Prelude.ToHeaders UpdateCustomKeyStore where
+instance Core.ToHeaders UpdateCustomKeyStore where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.UpdateCustomKeyStore" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "TrentService.UpdateCustomKeyStore" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateCustomKeyStore where
+instance Core.ToJSON UpdateCustomKeyStore where
   toJSON UpdateCustomKeyStore' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KeyStorePassword" Prelude..=)
-              Prelude.<$> keyStorePassword,
-            ("NewCustomKeyStoreName" Prelude..=)
-              Prelude.<$> newCustomKeyStoreName',
-            ("CloudHsmClusterId" Prelude..=)
-              Prelude.<$> cloudHsmClusterId,
-            Prelude.Just
-              ("CustomKeyStoreId" Prelude..= customKeyStoreId)
+    Core.object
+      ( Core.catMaybes
+          [ ("KeyStorePassword" Core..=)
+              Core.<$> keyStorePassword,
+            ("NewCustomKeyStoreName" Core..=)
+              Core.<$> newCustomKeyStoreName',
+            ("CloudHsmClusterId" Core..=)
+              Core.<$> cloudHsmClusterId,
+            Core.Just
+              ("CustomKeyStoreId" Core..= customKeyStoreId)
           ]
       )
 
-instance Prelude.ToPath UpdateCustomKeyStore where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateCustomKeyStore where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateCustomKeyStore where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateCustomKeyStore where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateCustomKeyStoreResponse' smart constructor.
 data UpdateCustomKeyStoreResponse = UpdateCustomKeyStoreResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCustomKeyStoreResponse' with all optional fields omitted.
@@ -289,7 +286,7 @@ data UpdateCustomKeyStoreResponse = UpdateCustomKeyStoreResponse'
 -- 'httpStatus', 'updateCustomKeyStoreResponse_httpStatus' - The response's http status code.
 newUpdateCustomKeyStoreResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateCustomKeyStoreResponse
 newUpdateCustomKeyStoreResponse pHttpStatus_ =
   UpdateCustomKeyStoreResponse'
@@ -298,7 +295,7 @@ newUpdateCustomKeyStoreResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateCustomKeyStoreResponse_httpStatus :: Lens.Lens' UpdateCustomKeyStoreResponse Prelude.Int
+updateCustomKeyStoreResponse_httpStatus :: Lens.Lens' UpdateCustomKeyStoreResponse Core.Int
 updateCustomKeyStoreResponse_httpStatus = Lens.lens (\UpdateCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@UpdateCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: UpdateCustomKeyStoreResponse)
 
-instance Prelude.NFData UpdateCustomKeyStoreResponse
+instance Core.NFData UpdateCustomKeyStoreResponse

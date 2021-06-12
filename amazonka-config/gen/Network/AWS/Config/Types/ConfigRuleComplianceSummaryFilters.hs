@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.ConfigRuleComplianceSummaryFilters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters the results based on the account IDs and regions.
 --
 -- /See:/ 'newConfigRuleComplianceSummaryFilters' smart constructor.
 data ConfigRuleComplianceSummaryFilters = ConfigRuleComplianceSummaryFilters'
   { -- | The 12-digit account ID of the source account.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | The source region where the data is aggregated.
-    awsRegion :: Prelude.Maybe Prelude.Text
+    awsRegion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfigRuleComplianceSummaryFilters' with all optional fields omitted.
@@ -50,34 +49,34 @@ newConfigRuleComplianceSummaryFilters ::
 newConfigRuleComplianceSummaryFilters =
   ConfigRuleComplianceSummaryFilters'
     { accountId =
-        Prelude.Nothing,
-      awsRegion = Prelude.Nothing
+        Core.Nothing,
+      awsRegion = Core.Nothing
     }
 
 -- | The 12-digit account ID of the source account.
-configRuleComplianceSummaryFilters_accountId :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Prelude.Maybe Prelude.Text)
+configRuleComplianceSummaryFilters_accountId :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Core.Maybe Core.Text)
 configRuleComplianceSummaryFilters_accountId = Lens.lens (\ConfigRuleComplianceSummaryFilters' {accountId} -> accountId) (\s@ConfigRuleComplianceSummaryFilters' {} a -> s {accountId = a} :: ConfigRuleComplianceSummaryFilters)
 
 -- | The source region where the data is aggregated.
-configRuleComplianceSummaryFilters_awsRegion :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Prelude.Maybe Prelude.Text)
+configRuleComplianceSummaryFilters_awsRegion :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Core.Maybe Core.Text)
 configRuleComplianceSummaryFilters_awsRegion = Lens.lens (\ConfigRuleComplianceSummaryFilters' {awsRegion} -> awsRegion) (\s@ConfigRuleComplianceSummaryFilters' {} a -> s {awsRegion = a} :: ConfigRuleComplianceSummaryFilters)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ConfigRuleComplianceSummaryFilters
 
 instance
-  Prelude.NFData
+  Core.NFData
     ConfigRuleComplianceSummaryFilters
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ConfigRuleComplianceSummaryFilters
   where
   toJSON ConfigRuleComplianceSummaryFilters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AccountId" Prelude..=) Prelude.<$> accountId,
-            ("AwsRegion" Prelude..=) Prelude.<$> awsRegion
+    Core.object
+      ( Core.catMaybes
+          [ ("AccountId" Core..=) Core.<$> accountId,
+            ("AwsRegion" Core..=) Core.<$> awsRegion
           ]
       )

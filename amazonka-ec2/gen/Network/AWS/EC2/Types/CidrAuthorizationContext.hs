@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CidrAuthorizationContext where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides authorization for Amazon to bring a specific IP address range
 -- to a specific AWS account using bring your own IP addresses (BYOIP). For
@@ -33,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCidrAuthorizationContext' smart constructor.
 data CidrAuthorizationContext = CidrAuthorizationContext'
   { -- | The plain-text authorization message for the prefix and account.
-    message :: Prelude.Text,
+    message :: Core.Text,
     -- | The signed authorization message for the prefix and account.
-    signature :: Prelude.Text
+    signature :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CidrAuthorizationContext' with all optional fields omitted.
@@ -52,9 +51,9 @@ data CidrAuthorizationContext = CidrAuthorizationContext'
 -- 'signature', 'cidrAuthorizationContext_signature' - The signed authorization message for the prefix and account.
 newCidrAuthorizationContext ::
   -- | 'message'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'signature'
-  Prelude.Text ->
+  Core.Text ->
   CidrAuthorizationContext
 newCidrAuthorizationContext pMessage_ pSignature_ =
   CidrAuthorizationContext'
@@ -63,20 +62,20 @@ newCidrAuthorizationContext pMessage_ pSignature_ =
     }
 
 -- | The plain-text authorization message for the prefix and account.
-cidrAuthorizationContext_message :: Lens.Lens' CidrAuthorizationContext Prelude.Text
+cidrAuthorizationContext_message :: Lens.Lens' CidrAuthorizationContext Core.Text
 cidrAuthorizationContext_message = Lens.lens (\CidrAuthorizationContext' {message} -> message) (\s@CidrAuthorizationContext' {} a -> s {message = a} :: CidrAuthorizationContext)
 
 -- | The signed authorization message for the prefix and account.
-cidrAuthorizationContext_signature :: Lens.Lens' CidrAuthorizationContext Prelude.Text
+cidrAuthorizationContext_signature :: Lens.Lens' CidrAuthorizationContext Core.Text
 cidrAuthorizationContext_signature = Lens.lens (\CidrAuthorizationContext' {signature} -> signature) (\s@CidrAuthorizationContext' {} a -> s {signature = a} :: CidrAuthorizationContext)
 
-instance Prelude.Hashable CidrAuthorizationContext
+instance Core.Hashable CidrAuthorizationContext
 
-instance Prelude.NFData CidrAuthorizationContext
+instance Core.NFData CidrAuthorizationContext
 
-instance Prelude.ToQuery CidrAuthorizationContext where
+instance Core.ToQuery CidrAuthorizationContext where
   toQuery CidrAuthorizationContext' {..} =
-    Prelude.mconcat
-      [ "Message" Prelude.=: message,
-        "Signature" Prelude.=: signature
+    Core.mconcat
+      [ "Message" Core.=: message,
+        "Signature" Core.=: signature
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.IoT.DeleteCustomMetric
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteCustomMetric' smart constructor.
 data DeleteCustomMetric = DeleteCustomMetric'
   { -- | The name of the custom metric.
-    metricName :: Prelude.Text
+    metricName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomMetric' with all optional fields omitted.
@@ -69,48 +68,48 @@ data DeleteCustomMetric = DeleteCustomMetric'
 -- 'metricName', 'deleteCustomMetric_metricName' - The name of the custom metric.
 newDeleteCustomMetric ::
   -- | 'metricName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCustomMetric
 newDeleteCustomMetric pMetricName_ =
   DeleteCustomMetric' {metricName = pMetricName_}
 
 -- | The name of the custom metric.
-deleteCustomMetric_metricName :: Lens.Lens' DeleteCustomMetric Prelude.Text
+deleteCustomMetric_metricName :: Lens.Lens' DeleteCustomMetric Core.Text
 deleteCustomMetric_metricName = Lens.lens (\DeleteCustomMetric' {metricName} -> metricName) (\s@DeleteCustomMetric' {} a -> s {metricName = a} :: DeleteCustomMetric)
 
-instance Prelude.AWSRequest DeleteCustomMetric where
+instance Core.AWSRequest DeleteCustomMetric where
   type
-    Rs DeleteCustomMetric =
+    AWSResponse DeleteCustomMetric =
       DeleteCustomMetricResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCustomMetricResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCustomMetric
+instance Core.Hashable DeleteCustomMetric
 
-instance Prelude.NFData DeleteCustomMetric
+instance Core.NFData DeleteCustomMetric
 
-instance Prelude.ToHeaders DeleteCustomMetric where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteCustomMetric where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteCustomMetric where
+instance Core.ToPath DeleteCustomMetric where
   toPath DeleteCustomMetric' {..} =
-    Prelude.mconcat
-      ["/custom-metric/", Prelude.toBS metricName]
+    Core.mconcat
+      ["/custom-metric/", Core.toBS metricName]
 
-instance Prelude.ToQuery DeleteCustomMetric where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCustomMetric where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCustomMetricResponse' smart constructor.
 data DeleteCustomMetricResponse = DeleteCustomMetricResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomMetricResponse' with all optional fields omitted.
@@ -123,7 +122,7 @@ data DeleteCustomMetricResponse = DeleteCustomMetricResponse'
 -- 'httpStatus', 'deleteCustomMetricResponse_httpStatus' - The response's http status code.
 newDeleteCustomMetricResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCustomMetricResponse
 newDeleteCustomMetricResponse pHttpStatus_ =
   DeleteCustomMetricResponse'
@@ -132,7 +131,7 @@ newDeleteCustomMetricResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteCustomMetricResponse_httpStatus :: Lens.Lens' DeleteCustomMetricResponse Prelude.Int
+deleteCustomMetricResponse_httpStatus :: Lens.Lens' DeleteCustomMetricResponse Core.Int
 deleteCustomMetricResponse_httpStatus = Lens.lens (\DeleteCustomMetricResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomMetricResponse' {} a -> s {httpStatus = a} :: DeleteCustomMetricResponse)
 
-instance Prelude.NFData DeleteCustomMetricResponse
+instance Core.NFData DeleteCustomMetricResponse

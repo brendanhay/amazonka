@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Ipv6CidrBlock where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an IPv6 CIDR block.
 --
 -- /See:/ 'newIpv6CidrBlock' smart constructor.
 data Ipv6CidrBlock = Ipv6CidrBlock'
   { -- | The IPv6 CIDR block.
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text
+    ipv6CidrBlock :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Ipv6CidrBlock' with all optional fields omitted.
@@ -45,17 +44,17 @@ data Ipv6CidrBlock = Ipv6CidrBlock'
 newIpv6CidrBlock ::
   Ipv6CidrBlock
 newIpv6CidrBlock =
-  Ipv6CidrBlock' {ipv6CidrBlock = Prelude.Nothing}
+  Ipv6CidrBlock' {ipv6CidrBlock = Core.Nothing}
 
 -- | The IPv6 CIDR block.
-ipv6CidrBlock_ipv6CidrBlock :: Lens.Lens' Ipv6CidrBlock (Prelude.Maybe Prelude.Text)
+ipv6CidrBlock_ipv6CidrBlock :: Lens.Lens' Ipv6CidrBlock (Core.Maybe Core.Text)
 ipv6CidrBlock_ipv6CidrBlock = Lens.lens (\Ipv6CidrBlock' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@Ipv6CidrBlock' {} a -> s {ipv6CidrBlock = a} :: Ipv6CidrBlock)
 
-instance Prelude.FromXML Ipv6CidrBlock where
+instance Core.FromXML Ipv6CidrBlock where
   parseXML x =
     Ipv6CidrBlock'
-      Prelude.<$> (x Prelude..@? "ipv6CidrBlock")
+      Core.<$> (x Core..@? "ipv6CidrBlock")
 
-instance Prelude.Hashable Ipv6CidrBlock
+instance Core.Hashable Ipv6CidrBlock
 
-instance Prelude.NFData Ipv6CidrBlock
+instance Core.NFData Ipv6CidrBlock

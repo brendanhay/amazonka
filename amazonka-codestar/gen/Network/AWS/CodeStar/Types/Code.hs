@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeStar.Types.Code where
 
 import Network.AWS.CodeStar.Types.CodeDestination
 import Network.AWS.CodeStar.Types.CodeSource
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Location and destination information about the source code files
 -- provided with the project request. The source code is uploaded to the
@@ -41,7 +40,7 @@ data Code = Code'
     -- the repository.
     destination :: CodeDestination
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Code' with all optional fields omitted.
@@ -84,15 +83,15 @@ code_source = Lens.lens (\Code' {source} -> source) (\s@Code' {} a -> s {source 
 code_destination :: Lens.Lens' Code CodeDestination
 code_destination = Lens.lens (\Code' {destination} -> destination) (\s@Code' {} a -> s {destination = a} :: Code)
 
-instance Prelude.Hashable Code
+instance Core.Hashable Code
 
-instance Prelude.NFData Code
+instance Core.NFData Code
 
-instance Prelude.ToJSON Code where
+instance Core.ToJSON Code where
   toJSON Code' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("source" Prelude..= source),
-            Prelude.Just ("destination" Prelude..= destination)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("source" Core..= source),
+            Core.Just ("destination" Core..= destination)
           ]
       )

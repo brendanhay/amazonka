@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,30 +49,30 @@ module Network.AWS.Connect.CreateContactFlow
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateContactFlow' smart constructor.
 data CreateContactFlow = CreateContactFlow'
   { -- | One or more tags.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The description of the contact flow.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The name of the contact flow.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The type of the contact flow. For descriptions of the available types,
     -- see
     -- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type>
     -- in the /Amazon Connect Administrator Guide/.
     type' :: ContactFlowType,
     -- | The content of the contact flow.
-    content :: Prelude.Text
+    content :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContactFlow' with all optional fields omitted.
@@ -99,13 +98,13 @@ data CreateContactFlow = CreateContactFlow'
 -- 'content', 'createContactFlow_content' - The content of the contact flow.
 newCreateContactFlow ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   ContactFlowType ->
   -- | 'content'
-  Prelude.Text ->
+  Core.Text ->
   CreateContactFlow
 newCreateContactFlow
   pInstanceId_
@@ -113,8 +112,8 @@ newCreateContactFlow
   pType_
   pContent_ =
     CreateContactFlow'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { tags = Core.Nothing,
+        description = Core.Nothing,
         instanceId = pInstanceId_,
         name = pName_,
         type' = pType_,
@@ -122,19 +121,19 @@ newCreateContactFlow
       }
 
 -- | One or more tags.
-createContactFlow_tags :: Lens.Lens' CreateContactFlow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createContactFlow_tags = Lens.lens (\CreateContactFlow' {tags} -> tags) (\s@CreateContactFlow' {} a -> s {tags = a} :: CreateContactFlow) Prelude.. Lens.mapping Prelude._Coerce
+createContactFlow_tags :: Lens.Lens' CreateContactFlow (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createContactFlow_tags = Lens.lens (\CreateContactFlow' {tags} -> tags) (\s@CreateContactFlow' {} a -> s {tags = a} :: CreateContactFlow) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the contact flow.
-createContactFlow_description :: Lens.Lens' CreateContactFlow (Prelude.Maybe Prelude.Text)
+createContactFlow_description :: Lens.Lens' CreateContactFlow (Core.Maybe Core.Text)
 createContactFlow_description = Lens.lens (\CreateContactFlow' {description} -> description) (\s@CreateContactFlow' {} a -> s {description = a} :: CreateContactFlow)
 
 -- | The identifier of the Amazon Connect instance.
-createContactFlow_instanceId :: Lens.Lens' CreateContactFlow Prelude.Text
+createContactFlow_instanceId :: Lens.Lens' CreateContactFlow Core.Text
 createContactFlow_instanceId = Lens.lens (\CreateContactFlow' {instanceId} -> instanceId) (\s@CreateContactFlow' {} a -> s {instanceId = a} :: CreateContactFlow)
 
 -- | The name of the contact flow.
-createContactFlow_name :: Lens.Lens' CreateContactFlow Prelude.Text
+createContactFlow_name :: Lens.Lens' CreateContactFlow Core.Text
 createContactFlow_name = Lens.lens (\CreateContactFlow' {name} -> name) (\s@CreateContactFlow' {} a -> s {name = a} :: CreateContactFlow)
 
 -- | The type of the contact flow. For descriptions of the available types,
@@ -145,66 +144,66 @@ createContactFlow_type :: Lens.Lens' CreateContactFlow ContactFlowType
 createContactFlow_type = Lens.lens (\CreateContactFlow' {type'} -> type') (\s@CreateContactFlow' {} a -> s {type' = a} :: CreateContactFlow)
 
 -- | The content of the contact flow.
-createContactFlow_content :: Lens.Lens' CreateContactFlow Prelude.Text
+createContactFlow_content :: Lens.Lens' CreateContactFlow Core.Text
 createContactFlow_content = Lens.lens (\CreateContactFlow' {content} -> content) (\s@CreateContactFlow' {} a -> s {content = a} :: CreateContactFlow)
 
-instance Prelude.AWSRequest CreateContactFlow where
-  type Rs CreateContactFlow = CreateContactFlowResponse
+instance Core.AWSRequest CreateContactFlow where
+  type
+    AWSResponse CreateContactFlow =
+      CreateContactFlowResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateContactFlowResponse'
-            Prelude.<$> (x Prelude..?> "ContactFlowArn")
-            Prelude.<*> (x Prelude..?> "ContactFlowId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ContactFlowArn")
+            Core.<*> (x Core..?> "ContactFlowId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContactFlow
+instance Core.Hashable CreateContactFlow
 
-instance Prelude.NFData CreateContactFlow
+instance Core.NFData CreateContactFlow
 
-instance Prelude.ToHeaders CreateContactFlow where
+instance Core.ToHeaders CreateContactFlow where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateContactFlow where
+instance Core.ToJSON CreateContactFlow where
   toJSON CreateContactFlow' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Content" Prelude..= content)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Type" Core..= type'),
+            Core.Just ("Content" Core..= content)
           ]
       )
 
-instance Prelude.ToPath CreateContactFlow where
+instance Core.ToPath CreateContactFlow where
   toPath CreateContactFlow' {..} =
-    Prelude.mconcat
-      ["/contact-flows/", Prelude.toBS instanceId]
+    Core.mconcat
+      ["/contact-flows/", Core.toBS instanceId]
 
-instance Prelude.ToQuery CreateContactFlow where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateContactFlow where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateContactFlowResponse' smart constructor.
 data CreateContactFlowResponse = CreateContactFlowResponse'
   { -- | The Amazon Resource Name (ARN) of the contact flow.
-    contactFlowArn :: Prelude.Maybe Prelude.Text,
+    contactFlowArn :: Core.Maybe Core.Text,
     -- | The identifier of the contact flow.
-    contactFlowId :: Prelude.Maybe Prelude.Text,
+    contactFlowId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContactFlowResponse' with all optional fields omitted.
@@ -221,26 +220,26 @@ data CreateContactFlowResponse = CreateContactFlowResponse'
 -- 'httpStatus', 'createContactFlowResponse_httpStatus' - The response's http status code.
 newCreateContactFlowResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateContactFlowResponse
 newCreateContactFlowResponse pHttpStatus_ =
   CreateContactFlowResponse'
     { contactFlowArn =
-        Prelude.Nothing,
-      contactFlowId = Prelude.Nothing,
+        Core.Nothing,
+      contactFlowId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the contact flow.
-createContactFlowResponse_contactFlowArn :: Lens.Lens' CreateContactFlowResponse (Prelude.Maybe Prelude.Text)
+createContactFlowResponse_contactFlowArn :: Lens.Lens' CreateContactFlowResponse (Core.Maybe Core.Text)
 createContactFlowResponse_contactFlowArn = Lens.lens (\CreateContactFlowResponse' {contactFlowArn} -> contactFlowArn) (\s@CreateContactFlowResponse' {} a -> s {contactFlowArn = a} :: CreateContactFlowResponse)
 
 -- | The identifier of the contact flow.
-createContactFlowResponse_contactFlowId :: Lens.Lens' CreateContactFlowResponse (Prelude.Maybe Prelude.Text)
+createContactFlowResponse_contactFlowId :: Lens.Lens' CreateContactFlowResponse (Core.Maybe Core.Text)
 createContactFlowResponse_contactFlowId = Lens.lens (\CreateContactFlowResponse' {contactFlowId} -> contactFlowId) (\s@CreateContactFlowResponse' {} a -> s {contactFlowId = a} :: CreateContactFlowResponse)
 
 -- | The response's http status code.
-createContactFlowResponse_httpStatus :: Lens.Lens' CreateContactFlowResponse Prelude.Int
+createContactFlowResponse_httpStatus :: Lens.Lens' CreateContactFlowResponse Core.Int
 createContactFlowResponse_httpStatus = Lens.lens (\CreateContactFlowResponse' {httpStatus} -> httpStatus) (\s@CreateContactFlowResponse' {} a -> s {httpStatus = a} :: CreateContactFlowResponse)
 
-instance Prelude.NFData CreateContactFlowResponse
+instance Core.NFData CreateContactFlowResponse

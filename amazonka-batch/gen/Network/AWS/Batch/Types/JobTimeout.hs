@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.JobTimeout where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a job timeout configuration.
 --
@@ -30,9 +29,9 @@ data JobTimeout = JobTimeout'
   { -- | The time duration in seconds (measured from the job attempt\'s
     -- @startedAt@ timestamp) after which AWS Batch terminates your jobs if
     -- they have not finished. The minimum value for the timeout is 60 seconds.
-    attemptDurationSeconds :: Prelude.Maybe Prelude.Int
+    attemptDurationSeconds :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobTimeout' with all optional fields omitted.
@@ -48,35 +47,32 @@ data JobTimeout = JobTimeout'
 newJobTimeout ::
   JobTimeout
 newJobTimeout =
-  JobTimeout'
-    { attemptDurationSeconds =
-        Prelude.Nothing
-    }
+  JobTimeout' {attemptDurationSeconds = Core.Nothing}
 
 -- | The time duration in seconds (measured from the job attempt\'s
 -- @startedAt@ timestamp) after which AWS Batch terminates your jobs if
 -- they have not finished. The minimum value for the timeout is 60 seconds.
-jobTimeout_attemptDurationSeconds :: Lens.Lens' JobTimeout (Prelude.Maybe Prelude.Int)
+jobTimeout_attemptDurationSeconds :: Lens.Lens' JobTimeout (Core.Maybe Core.Int)
 jobTimeout_attemptDurationSeconds = Lens.lens (\JobTimeout' {attemptDurationSeconds} -> attemptDurationSeconds) (\s@JobTimeout' {} a -> s {attemptDurationSeconds = a} :: JobTimeout)
 
-instance Prelude.FromJSON JobTimeout where
+instance Core.FromJSON JobTimeout where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobTimeout"
       ( \x ->
           JobTimeout'
-            Prelude.<$> (x Prelude..:? "attemptDurationSeconds")
+            Core.<$> (x Core..:? "attemptDurationSeconds")
       )
 
-instance Prelude.Hashable JobTimeout
+instance Core.Hashable JobTimeout
 
-instance Prelude.NFData JobTimeout
+instance Core.NFData JobTimeout
 
-instance Prelude.ToJSON JobTimeout where
+instance Core.ToJSON JobTimeout where
   toJSON JobTimeout' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("attemptDurationSeconds" Prelude..=)
-              Prelude.<$> attemptDurationSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("attemptDurationSeconds" Core..=)
+              Core.<$> attemptDurationSeconds
           ]
       )

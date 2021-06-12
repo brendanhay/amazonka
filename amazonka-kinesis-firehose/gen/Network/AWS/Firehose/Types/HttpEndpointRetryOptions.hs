@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.HttpEndpointRetryOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the retry behavior in case Kinesis Data Firehose is unable to
 -- deliver data to the specified HTTP endpoint destination, or if it
@@ -35,9 +34,9 @@ data HttpEndpointRetryOptions = HttpEndpointRetryOptions'
     -- custom destination via HTTPS endpoint fails. It doesn\'t include the
     -- periods during which Kinesis Data Firehose waits for acknowledgment from
     -- the specified destination after each attempt.
-    durationInSeconds :: Prelude.Maybe Prelude.Natural
+    durationInSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointRetryOptions' with all optional fields omitted.
@@ -57,7 +56,7 @@ newHttpEndpointRetryOptions ::
 newHttpEndpointRetryOptions =
   HttpEndpointRetryOptions'
     { durationInSeconds =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The total amount of time that Kinesis Data Firehose spends on retries.
@@ -65,27 +64,27 @@ newHttpEndpointRetryOptions =
 -- custom destination via HTTPS endpoint fails. It doesn\'t include the
 -- periods during which Kinesis Data Firehose waits for acknowledgment from
 -- the specified destination after each attempt.
-httpEndpointRetryOptions_durationInSeconds :: Lens.Lens' HttpEndpointRetryOptions (Prelude.Maybe Prelude.Natural)
+httpEndpointRetryOptions_durationInSeconds :: Lens.Lens' HttpEndpointRetryOptions (Core.Maybe Core.Natural)
 httpEndpointRetryOptions_durationInSeconds = Lens.lens (\HttpEndpointRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@HttpEndpointRetryOptions' {} a -> s {durationInSeconds = a} :: HttpEndpointRetryOptions)
 
-instance Prelude.FromJSON HttpEndpointRetryOptions where
+instance Core.FromJSON HttpEndpointRetryOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpEndpointRetryOptions"
       ( \x ->
           HttpEndpointRetryOptions'
-            Prelude.<$> (x Prelude..:? "DurationInSeconds")
+            Core.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable HttpEndpointRetryOptions
+instance Core.Hashable HttpEndpointRetryOptions
 
-instance Prelude.NFData HttpEndpointRetryOptions
+instance Core.NFData HttpEndpointRetryOptions
 
-instance Prelude.ToJSON HttpEndpointRetryOptions where
+instance Core.ToJSON HttpEndpointRetryOptions where
   toJSON HttpEndpointRetryOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DurationInSeconds" Prelude..=)
-              Prelude.<$> durationInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("DurationInSeconds" Core..=)
+              Core.<$> durationInSeconds
           ]
       )

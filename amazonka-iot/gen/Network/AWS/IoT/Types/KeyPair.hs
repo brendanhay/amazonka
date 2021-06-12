@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.KeyPair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a key pair.
 --
 -- /See:/ 'newKeyPair' smart constructor.
 data KeyPair = KeyPair'
   { -- | The public key.
-    publicKey :: Prelude.Maybe Prelude.Text,
+    publicKey :: Core.Maybe Core.Text,
     -- | The private key.
-    privateKey :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    privateKey :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyPair' with all optional fields omitted.
@@ -49,28 +48,28 @@ newKeyPair ::
   KeyPair
 newKeyPair =
   KeyPair'
-    { publicKey = Prelude.Nothing,
-      privateKey = Prelude.Nothing
+    { publicKey = Core.Nothing,
+      privateKey = Core.Nothing
     }
 
 -- | The public key.
-keyPair_publicKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
+keyPair_publicKey :: Lens.Lens' KeyPair (Core.Maybe Core.Text)
 keyPair_publicKey = Lens.lens (\KeyPair' {publicKey} -> publicKey) (\s@KeyPair' {} a -> s {publicKey = a} :: KeyPair)
 
 -- | The private key.
-keyPair_privateKey :: Lens.Lens' KeyPair (Prelude.Maybe Prelude.Text)
-keyPair_privateKey = Lens.lens (\KeyPair' {privateKey} -> privateKey) (\s@KeyPair' {} a -> s {privateKey = a} :: KeyPair) Prelude.. Lens.mapping Prelude._Sensitive
+keyPair_privateKey :: Lens.Lens' KeyPair (Core.Maybe Core.Text)
+keyPair_privateKey = Lens.lens (\KeyPair' {privateKey} -> privateKey) (\s@KeyPair' {} a -> s {privateKey = a} :: KeyPair) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromJSON KeyPair where
+instance Core.FromJSON KeyPair where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyPair"
       ( \x ->
           KeyPair'
-            Prelude.<$> (x Prelude..:? "PublicKey")
-            Prelude.<*> (x Prelude..:? "PrivateKey")
+            Core.<$> (x Core..:? "PublicKey")
+            Core.<*> (x Core..:? "PrivateKey")
       )
 
-instance Prelude.Hashable KeyPair
+instance Core.Hashable KeyPair
 
-instance Prelude.NFData KeyPair
+instance Core.NFData KeyPair

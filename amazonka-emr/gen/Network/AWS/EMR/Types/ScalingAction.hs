@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ScalingAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.MarketType
 import Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The type of adjustment the automatic scaling activity makes when
 -- triggered, and the periodicity of the adjustment.
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ScalingAction = ScalingAction'
   { -- | Not available for instance groups. Instance groups use the market type
     -- specified for the group.
-    market :: Prelude.Maybe MarketType,
+    market :: Core.Maybe MarketType,
     -- | The type of adjustment the automatic scaling activity makes when
     -- triggered, and the periodicity of the adjustment.
     simpleScalingPolicyConfiguration :: SimpleScalingPolicyConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingAction' with all optional fields omitted.
@@ -58,14 +57,14 @@ newScalingAction ::
   ScalingAction
 newScalingAction pSimpleScalingPolicyConfiguration_ =
   ScalingAction'
-    { market = Prelude.Nothing,
+    { market = Core.Nothing,
       simpleScalingPolicyConfiguration =
         pSimpleScalingPolicyConfiguration_
     }
 
 -- | Not available for instance groups. Instance groups use the market type
 -- specified for the group.
-scalingAction_market :: Lens.Lens' ScalingAction (Prelude.Maybe MarketType)
+scalingAction_market :: Lens.Lens' ScalingAction (Core.Maybe MarketType)
 scalingAction_market = Lens.lens (\ScalingAction' {market} -> market) (\s@ScalingAction' {} a -> s {market = a} :: ScalingAction)
 
 -- | The type of adjustment the automatic scaling activity makes when
@@ -73,28 +72,28 @@ scalingAction_market = Lens.lens (\ScalingAction' {market} -> market) (\s@Scalin
 scalingAction_simpleScalingPolicyConfiguration :: Lens.Lens' ScalingAction SimpleScalingPolicyConfiguration
 scalingAction_simpleScalingPolicyConfiguration = Lens.lens (\ScalingAction' {simpleScalingPolicyConfiguration} -> simpleScalingPolicyConfiguration) (\s@ScalingAction' {} a -> s {simpleScalingPolicyConfiguration = a} :: ScalingAction)
 
-instance Prelude.FromJSON ScalingAction where
+instance Core.FromJSON ScalingAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScalingAction"
       ( \x ->
           ScalingAction'
-            Prelude.<$> (x Prelude..:? "Market")
-            Prelude.<*> (x Prelude..: "SimpleScalingPolicyConfiguration")
+            Core.<$> (x Core..:? "Market")
+            Core.<*> (x Core..: "SimpleScalingPolicyConfiguration")
       )
 
-instance Prelude.Hashable ScalingAction
+instance Core.Hashable ScalingAction
 
-instance Prelude.NFData ScalingAction
+instance Core.NFData ScalingAction
 
-instance Prelude.ToJSON ScalingAction where
+instance Core.ToJSON ScalingAction where
   toJSON ScalingAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Market" Prelude..=) Prelude.<$> market,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("Market" Core..=) Core.<$> market,
+            Core.Just
               ( "SimpleScalingPolicyConfiguration"
-                  Prelude..= simpleScalingPolicyConfiguration
+                  Core..= simpleScalingPolicyConfiguration
               )
           ]
       )

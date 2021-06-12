@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -24,29 +23,29 @@ import Network.AWS.CloudFront.Types.Aliases
 import Network.AWS.CloudFront.Types.PriceClass
 import Network.AWS.CloudFront.Types.S3Origin
 import Network.AWS.CloudFront.Types.TrustedSigners
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of the information for a CloudFront streaming distribution.
 --
 -- /See:/ 'newStreamingDistributionSummary' smart constructor.
 data StreamingDistributionSummary = StreamingDistributionSummary'
   { -- | The identifier for the distribution, for example, @EDFDVBD632BHDS5@.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The ARN (Amazon Resource Name) for the streaming distribution. For
     -- example:
     -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
     -- where @123456789012@ is your AWS account ID.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | Indicates the current status of the distribution. When the status is
     -- @Deployed@, the distribution\'s information is fully propagated
     -- throughout the Amazon CloudFront system.
-    status :: Prelude.Text,
+    status :: Core.Text,
     -- | The date and time the distribution was last modified.
-    lastModifiedTime :: Prelude.ISO8601,
+    lastModifiedTime :: Core.ISO8601,
     -- | The domain name corresponding to the distribution, for example,
     -- @d111111abcdef8.cloudfront.net@.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | A complex type that contains information about the Amazon S3 bucket from
     -- which you want CloudFront to get your media files for distribution.
     s3Origin :: S3Origin,
@@ -70,15 +69,15 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
     -- in the /Amazon CloudFront Developer Guide/.
     trustedSigners :: TrustedSigners,
     -- | The comment originally specified when this distribution was created.
-    comment :: Prelude.Text,
+    comment :: Core.Text,
     -- | A complex type that contains information about price class for this
     -- streaming distribution.
     priceClass :: PriceClass,
     -- | Whether the distribution is enabled to accept end user requests for
     -- content.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamingDistributionSummary' with all optional fields omitted.
@@ -135,15 +134,15 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 -- content.
 newStreamingDistributionSummary ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lastModifiedTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 's3Origin'
   S3Origin ->
   -- | 'aliases'
@@ -151,11 +150,11 @@ newStreamingDistributionSummary ::
   -- | 'trustedSigners'
   TrustedSigners ->
   -- | 'comment'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'priceClass'
   PriceClass ->
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   StreamingDistributionSummary
 newStreamingDistributionSummary
   pId_
@@ -174,7 +173,7 @@ newStreamingDistributionSummary
         arn = pARN_,
         status = pStatus_,
         lastModifiedTime =
-          Prelude._Time Lens.# pLastModifiedTime_,
+          Core._Time Lens.# pLastModifiedTime_,
         domainName = pDomainName_,
         s3Origin = pS3Origin_,
         aliases = pAliases_,
@@ -185,29 +184,29 @@ newStreamingDistributionSummary
       }
 
 -- | The identifier for the distribution, for example, @EDFDVBD632BHDS5@.
-streamingDistributionSummary_id :: Lens.Lens' StreamingDistributionSummary Prelude.Text
+streamingDistributionSummary_id :: Lens.Lens' StreamingDistributionSummary Core.Text
 streamingDistributionSummary_id = Lens.lens (\StreamingDistributionSummary' {id} -> id) (\s@StreamingDistributionSummary' {} a -> s {id = a} :: StreamingDistributionSummary)
 
 -- | The ARN (Amazon Resource Name) for the streaming distribution. For
 -- example:
 -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
 -- where @123456789012@ is your AWS account ID.
-streamingDistributionSummary_arn :: Lens.Lens' StreamingDistributionSummary Prelude.Text
+streamingDistributionSummary_arn :: Lens.Lens' StreamingDistributionSummary Core.Text
 streamingDistributionSummary_arn = Lens.lens (\StreamingDistributionSummary' {arn} -> arn) (\s@StreamingDistributionSummary' {} a -> s {arn = a} :: StreamingDistributionSummary)
 
 -- | Indicates the current status of the distribution. When the status is
 -- @Deployed@, the distribution\'s information is fully propagated
 -- throughout the Amazon CloudFront system.
-streamingDistributionSummary_status :: Lens.Lens' StreamingDistributionSummary Prelude.Text
+streamingDistributionSummary_status :: Lens.Lens' StreamingDistributionSummary Core.Text
 streamingDistributionSummary_status = Lens.lens (\StreamingDistributionSummary' {status} -> status) (\s@StreamingDistributionSummary' {} a -> s {status = a} :: StreamingDistributionSummary)
 
 -- | The date and time the distribution was last modified.
-streamingDistributionSummary_lastModifiedTime :: Lens.Lens' StreamingDistributionSummary Prelude.UTCTime
-streamingDistributionSummary_lastModifiedTime = Lens.lens (\StreamingDistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistributionSummary' {} a -> s {lastModifiedTime = a} :: StreamingDistributionSummary) Prelude.. Prelude._Time
+streamingDistributionSummary_lastModifiedTime :: Lens.Lens' StreamingDistributionSummary Core.UTCTime
+streamingDistributionSummary_lastModifiedTime = Lens.lens (\StreamingDistributionSummary' {lastModifiedTime} -> lastModifiedTime) (\s@StreamingDistributionSummary' {} a -> s {lastModifiedTime = a} :: StreamingDistributionSummary) Core.. Core._Time
 
 -- | The domain name corresponding to the distribution, for example,
 -- @d111111abcdef8.cloudfront.net@.
-streamingDistributionSummary_domainName :: Lens.Lens' StreamingDistributionSummary Prelude.Text
+streamingDistributionSummary_domainName :: Lens.Lens' StreamingDistributionSummary Core.Text
 streamingDistributionSummary_domainName = Lens.lens (\StreamingDistributionSummary' {domainName} -> domainName) (\s@StreamingDistributionSummary' {} a -> s {domainName = a} :: StreamingDistributionSummary)
 
 -- | A complex type that contains information about the Amazon S3 bucket from
@@ -239,7 +238,7 @@ streamingDistributionSummary_trustedSigners :: Lens.Lens' StreamingDistributionS
 streamingDistributionSummary_trustedSigners = Lens.lens (\StreamingDistributionSummary' {trustedSigners} -> trustedSigners) (\s@StreamingDistributionSummary' {} a -> s {trustedSigners = a} :: StreamingDistributionSummary)
 
 -- | The comment originally specified when this distribution was created.
-streamingDistributionSummary_comment :: Lens.Lens' StreamingDistributionSummary Prelude.Text
+streamingDistributionSummary_comment :: Lens.Lens' StreamingDistributionSummary Core.Text
 streamingDistributionSummary_comment = Lens.lens (\StreamingDistributionSummary' {comment} -> comment) (\s@StreamingDistributionSummary' {} a -> s {comment = a} :: StreamingDistributionSummary)
 
 -- | A complex type that contains information about price class for this
@@ -249,26 +248,24 @@ streamingDistributionSummary_priceClass = Lens.lens (\StreamingDistributionSumma
 
 -- | Whether the distribution is enabled to accept end user requests for
 -- content.
-streamingDistributionSummary_enabled :: Lens.Lens' StreamingDistributionSummary Prelude.Bool
+streamingDistributionSummary_enabled :: Lens.Lens' StreamingDistributionSummary Core.Bool
 streamingDistributionSummary_enabled = Lens.lens (\StreamingDistributionSummary' {enabled} -> enabled) (\s@StreamingDistributionSummary' {} a -> s {enabled = a} :: StreamingDistributionSummary)
 
-instance Prelude.FromXML StreamingDistributionSummary where
+instance Core.FromXML StreamingDistributionSummary where
   parseXML x =
     StreamingDistributionSummary'
-      Prelude.<$> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "ARN")
-      Prelude.<*> (x Prelude..@ "Status")
-      Prelude.<*> (x Prelude..@ "LastModifiedTime")
-      Prelude.<*> (x Prelude..@ "DomainName")
-      Prelude.<*> (x Prelude..@ "S3Origin")
-      Prelude.<*> (x Prelude..@ "Aliases")
-      Prelude.<*> (x Prelude..@ "TrustedSigners")
-      Prelude.<*> (x Prelude..@ "Comment")
-      Prelude.<*> (x Prelude..@ "PriceClass")
-      Prelude.<*> (x Prelude..@ "Enabled")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "ARN")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@ "DomainName")
+      Core.<*> (x Core..@ "S3Origin")
+      Core.<*> (x Core..@ "Aliases")
+      Core.<*> (x Core..@ "TrustedSigners")
+      Core.<*> (x Core..@ "Comment")
+      Core.<*> (x Core..@ "PriceClass")
+      Core.<*> (x Core..@ "Enabled")
 
-instance
-  Prelude.Hashable
-    StreamingDistributionSummary
+instance Core.Hashable StreamingDistributionSummary
 
-instance Prelude.NFData StreamingDistributionSummary
+instance Core.NFData StreamingDistributionSummary

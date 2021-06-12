@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.FieldPatterns where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type that includes the field patterns to match for
 -- field-level encryption.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newFieldPatterns' smart constructor.
 data FieldPatterns = FieldPatterns'
   { -- | An array of the field-level encryption field patterns.
-    items :: Prelude.Maybe [Prelude.Text],
+    items :: Core.Maybe [Core.Text],
     -- | The number of field-level encryption field patterns.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FieldPatterns' with all optional fields omitted.
@@ -48,39 +47,39 @@ data FieldPatterns = FieldPatterns'
 -- 'quantity', 'fieldPatterns_quantity' - The number of field-level encryption field patterns.
 newFieldPatterns ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   FieldPatterns
 newFieldPatterns pQuantity_ =
   FieldPatterns'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | An array of the field-level encryption field patterns.
-fieldPatterns_items :: Lens.Lens' FieldPatterns (Prelude.Maybe [Prelude.Text])
-fieldPatterns_items = Lens.lens (\FieldPatterns' {items} -> items) (\s@FieldPatterns' {} a -> s {items = a} :: FieldPatterns) Prelude.. Lens.mapping Prelude._Coerce
+fieldPatterns_items :: Lens.Lens' FieldPatterns (Core.Maybe [Core.Text])
+fieldPatterns_items = Lens.lens (\FieldPatterns' {items} -> items) (\s@FieldPatterns' {} a -> s {items = a} :: FieldPatterns) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of field-level encryption field patterns.
-fieldPatterns_quantity :: Lens.Lens' FieldPatterns Prelude.Int
+fieldPatterns_quantity :: Lens.Lens' FieldPatterns Core.Int
 fieldPatterns_quantity = Lens.lens (\FieldPatterns' {quantity} -> quantity) (\s@FieldPatterns' {} a -> s {quantity = a} :: FieldPatterns)
 
-instance Prelude.FromXML FieldPatterns where
+instance Core.FromXML FieldPatterns where
   parseXML x =
     FieldPatterns'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "FieldPattern")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "FieldPattern")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable FieldPatterns
+instance Core.Hashable FieldPatterns
 
-instance Prelude.NFData FieldPatterns
+instance Core.NFData FieldPatterns
 
-instance Prelude.ToXML FieldPatterns where
+instance Core.ToXML FieldPatterns where
   toXML FieldPatterns' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "FieldPattern" Prelude.<$> items),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML
+            (Core.toXMLList "FieldPattern" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

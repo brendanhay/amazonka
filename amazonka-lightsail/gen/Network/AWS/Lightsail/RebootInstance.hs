@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.Lightsail.RebootInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebootInstance' smart constructor.
 data RebootInstance = RebootInstance'
   { -- | The name of the instance to reboot.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootInstance' with all optional fields omitted.
@@ -69,72 +68,68 @@ data RebootInstance = RebootInstance'
 -- 'instanceName', 'rebootInstance_instanceName' - The name of the instance to reboot.
 newRebootInstance ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   RebootInstance
 newRebootInstance pInstanceName_ =
   RebootInstance' {instanceName = pInstanceName_}
 
 -- | The name of the instance to reboot.
-rebootInstance_instanceName :: Lens.Lens' RebootInstance Prelude.Text
+rebootInstance_instanceName :: Lens.Lens' RebootInstance Core.Text
 rebootInstance_instanceName = Lens.lens (\RebootInstance' {instanceName} -> instanceName) (\s@RebootInstance' {} a -> s {instanceName = a} :: RebootInstance)
 
-instance Prelude.AWSRequest RebootInstance where
-  type Rs RebootInstance = RebootInstanceResponse
+instance Core.AWSRequest RebootInstance where
+  type
+    AWSResponse RebootInstance =
+      RebootInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RebootInstanceResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RebootInstance
+instance Core.Hashable RebootInstance
 
-instance Prelude.NFData RebootInstance
+instance Core.NFData RebootInstance
 
-instance Prelude.ToHeaders RebootInstance where
+instance Core.ToHeaders RebootInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.RebootInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.RebootInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RebootInstance where
+instance Core.ToJSON RebootInstance where
   toJSON RebootInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("instanceName" Prelude..= instanceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceName" Core..= instanceName)]
       )
 
-instance Prelude.ToPath RebootInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebootInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebootInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RebootInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRebootInstanceResponse' smart constructor.
 data RebootInstanceResponse = RebootInstanceResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootInstanceResponse' with all optional fields omitted.
@@ -151,23 +146,22 @@ data RebootInstanceResponse = RebootInstanceResponse'
 -- 'httpStatus', 'rebootInstanceResponse_httpStatus' - The response's http status code.
 newRebootInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RebootInstanceResponse
 newRebootInstanceResponse pHttpStatus_ =
   RebootInstanceResponse'
-    { operations =
-        Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-rebootInstanceResponse_operations :: Lens.Lens' RebootInstanceResponse (Prelude.Maybe [Operation])
-rebootInstanceResponse_operations = Lens.lens (\RebootInstanceResponse' {operations} -> operations) (\s@RebootInstanceResponse' {} a -> s {operations = a} :: RebootInstanceResponse) Prelude.. Lens.mapping Prelude._Coerce
+rebootInstanceResponse_operations :: Lens.Lens' RebootInstanceResponse (Core.Maybe [Operation])
+rebootInstanceResponse_operations = Lens.lens (\RebootInstanceResponse' {operations} -> operations) (\s@RebootInstanceResponse' {} a -> s {operations = a} :: RebootInstanceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-rebootInstanceResponse_httpStatus :: Lens.Lens' RebootInstanceResponse Prelude.Int
+rebootInstanceResponse_httpStatus :: Lens.Lens' RebootInstanceResponse Core.Int
 rebootInstanceResponse_httpStatus = Lens.lens (\RebootInstanceResponse' {httpStatus} -> httpStatus) (\s@RebootInstanceResponse' {} a -> s {httpStatus = a} :: RebootInstanceResponse)
 
-instance Prelude.NFData RebootInstanceResponse
+instance Core.NFData RebootInstanceResponse

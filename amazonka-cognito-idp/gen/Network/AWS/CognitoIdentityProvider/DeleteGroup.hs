@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,19 +39,19 @@ module Network.AWS.CognitoIdentityProvider.DeleteGroup
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
   { -- | The name of the group.
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | The user pool ID for the user pool.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGroup' with all optional fields omitted.
@@ -67,9 +66,9 @@ data DeleteGroup = DeleteGroup'
 -- 'userPoolId', 'deleteGroup_userPoolId' - The user pool ID for the user pool.
 newDeleteGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteGroup
 newDeleteGroup pGroupName_ pUserPoolId_ =
   DeleteGroup'
@@ -78,57 +77,55 @@ newDeleteGroup pGroupName_ pUserPoolId_ =
     }
 
 -- | The name of the group.
-deleteGroup_groupName :: Lens.Lens' DeleteGroup Prelude.Text
+deleteGroup_groupName :: Lens.Lens' DeleteGroup Core.Text
 deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
 -- | The user pool ID for the user pool.
-deleteGroup_userPoolId :: Lens.Lens' DeleteGroup Prelude.Text
+deleteGroup_userPoolId :: Lens.Lens' DeleteGroup Core.Text
 deleteGroup_userPoolId = Lens.lens (\DeleteGroup' {userPoolId} -> userPoolId) (\s@DeleteGroup' {} a -> s {userPoolId = a} :: DeleteGroup)
 
-instance Prelude.AWSRequest DeleteGroup where
-  type Rs DeleteGroup = DeleteGroupResponse
+instance Core.AWSRequest DeleteGroup where
+  type AWSResponse DeleteGroup = DeleteGroupResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteGroupResponse'
 
-instance Prelude.Hashable DeleteGroup
+instance Core.Hashable DeleteGroup
 
-instance Prelude.NFData DeleteGroup
+instance Core.NFData DeleteGroup
 
-instance Prelude.ToHeaders DeleteGroup where
+instance Core.ToHeaders DeleteGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.DeleteGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.DeleteGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteGroup where
+instance Core.ToJSON DeleteGroup where
   toJSON DeleteGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("GroupName" Prelude..= groupName),
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GroupName" Core..= groupName),
+            Core.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
-instance Prelude.ToPath DeleteGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGroupResponse' with all optional fields omitted.
@@ -138,4 +135,4 @@ newDeleteGroupResponse ::
   DeleteGroupResponse
 newDeleteGroupResponse = DeleteGroupResponse'
 
-instance Prelude.NFData DeleteGroupResponse
+instance Core.NFData DeleteGroupResponse

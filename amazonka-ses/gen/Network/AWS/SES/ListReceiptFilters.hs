@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SES.ListReceiptFilters
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -58,7 +57,7 @@ import Network.AWS.SES.Types
 data ListReceiptFilters = ListReceiptFilters'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListReceiptFilters' with all optional fields omitted.
@@ -68,9 +67,9 @@ newListReceiptFilters ::
   ListReceiptFilters
 newListReceiptFilters = ListReceiptFilters'
 
-instance Prelude.AWSRequest ListReceiptFilters where
+instance Core.AWSRequest ListReceiptFilters where
   type
-    Rs ListReceiptFilters =
+    AWSResponse ListReceiptFilters =
       ListReceiptFiltersResponse
   request = Request.postQuery defaultService
   response =
@@ -78,30 +77,29 @@ instance Prelude.AWSRequest ListReceiptFilters where
       "ListReceiptFiltersResult"
       ( \s h x ->
           ListReceiptFiltersResponse'
-            Prelude.<$> ( x Prelude..@? "Filters" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Filters" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListReceiptFilters
+instance Core.Hashable ListReceiptFilters
 
-instance Prelude.NFData ListReceiptFilters
+instance Core.NFData ListReceiptFilters
 
-instance Prelude.ToHeaders ListReceiptFilters where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListReceiptFilters where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListReceiptFilters where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListReceiptFilters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListReceiptFilters where
+instance Core.ToQuery ListReceiptFilters where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("ListReceiptFilters" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2010-12-01" :: Prelude.ByteString)
+              Core.=: ("ListReceiptFilters" :: Core.ByteString),
+            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
           ]
       )
 
@@ -111,11 +109,11 @@ instance Prelude.ToQuery ListReceiptFilters where
 data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
   { -- | A list of IP address filter data structures, which each consist of a
     -- name, an IP address range, and whether to allow or block mail from it.
-    filters :: Prelude.Maybe [ReceiptFilter],
+    filters :: Core.Maybe [ReceiptFilter],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListReceiptFiltersResponse' with all optional fields omitted.
@@ -131,22 +129,21 @@ data ListReceiptFiltersResponse = ListReceiptFiltersResponse'
 -- 'httpStatus', 'listReceiptFiltersResponse_httpStatus' - The response's http status code.
 newListReceiptFiltersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListReceiptFiltersResponse
 newListReceiptFiltersResponse pHttpStatus_ =
   ListReceiptFiltersResponse'
-    { filters =
-        Prelude.Nothing,
+    { filters = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of IP address filter data structures, which each consist of a
 -- name, an IP address range, and whether to allow or block mail from it.
-listReceiptFiltersResponse_filters :: Lens.Lens' ListReceiptFiltersResponse (Prelude.Maybe [ReceiptFilter])
-listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {filters} -> filters) (\s@ListReceiptFiltersResponse' {} a -> s {filters = a} :: ListReceiptFiltersResponse) Prelude.. Lens.mapping Prelude._Coerce
+listReceiptFiltersResponse_filters :: Lens.Lens' ListReceiptFiltersResponse (Core.Maybe [ReceiptFilter])
+listReceiptFiltersResponse_filters = Lens.lens (\ListReceiptFiltersResponse' {filters} -> filters) (\s@ListReceiptFiltersResponse' {} a -> s {filters = a} :: ListReceiptFiltersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listReceiptFiltersResponse_httpStatus :: Lens.Lens' ListReceiptFiltersResponse Prelude.Int
+listReceiptFiltersResponse_httpStatus :: Lens.Lens' ListReceiptFiltersResponse Core.Int
 listReceiptFiltersResponse_httpStatus = Lens.lens (\ListReceiptFiltersResponse' {httpStatus} -> httpStatus) (\s@ListReceiptFiltersResponse' {} a -> s {httpStatus = a} :: ListReceiptFiltersResponse)
 
-instance Prelude.NFData ListReceiptFiltersResponse
+instance Core.NFData ListReceiptFiltersResponse

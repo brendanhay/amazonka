@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EndpointBatchRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointBatchItem
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a batch of endpoints to create or update and the settings and
 -- attributes to set or change for each endpoint.
@@ -34,7 +33,7 @@ data EndpointBatchRequest = EndpointBatchRequest'
     -- maximum of 100 items.
     item :: [EndpointBatchItem]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndpointBatchRequest' with all optional fields omitted.
@@ -50,21 +49,19 @@ data EndpointBatchRequest = EndpointBatchRequest'
 newEndpointBatchRequest ::
   EndpointBatchRequest
 newEndpointBatchRequest =
-  EndpointBatchRequest' {item = Prelude.mempty}
+  EndpointBatchRequest' {item = Core.mempty}
 
 -- | An array that defines the endpoints to create or update and, for each
 -- endpoint, the property values to set or change. An array can contain a
 -- maximum of 100 items.
 endpointBatchRequest_item :: Lens.Lens' EndpointBatchRequest [EndpointBatchItem]
-endpointBatchRequest_item = Lens.lens (\EndpointBatchRequest' {item} -> item) (\s@EndpointBatchRequest' {} a -> s {item = a} :: EndpointBatchRequest) Prelude.. Prelude._Coerce
+endpointBatchRequest_item = Lens.lens (\EndpointBatchRequest' {item} -> item) (\s@EndpointBatchRequest' {} a -> s {item = a} :: EndpointBatchRequest) Core.. Lens._Coerce
 
-instance Prelude.Hashable EndpointBatchRequest
+instance Core.Hashable EndpointBatchRequest
 
-instance Prelude.NFData EndpointBatchRequest
+instance Core.NFData EndpointBatchRequest
 
-instance Prelude.ToJSON EndpointBatchRequest where
+instance Core.ToJSON EndpointBatchRequest where
   toJSON EndpointBatchRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Item" Prelude..= item)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Item" Core..= item)])

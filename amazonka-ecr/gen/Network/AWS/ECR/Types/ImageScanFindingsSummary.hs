@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ImageScanFindingsSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.FindingSeverity
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of the last completed image scan.
 --
 -- /See:/ 'newImageScanFindingsSummary' smart constructor.
 data ImageScanFindingsSummary = ImageScanFindingsSummary'
   { -- | The time of the last completed image scan.
-    imageScanCompletedAt :: Prelude.Maybe Prelude.POSIX,
+    imageScanCompletedAt :: Core.Maybe Core.POSIX,
     -- | The time when the vulnerability data was last scanned.
-    vulnerabilitySourceUpdatedAt :: Prelude.Maybe Prelude.POSIX,
+    vulnerabilitySourceUpdatedAt :: Core.Maybe Core.POSIX,
     -- | The image vulnerability counts, sorted by severity.
-    findingSeverityCounts :: Prelude.Maybe (Prelude.HashMap FindingSeverity Prelude.Natural)
+    findingSeverityCounts :: Core.Maybe (Core.HashMap FindingSeverity Core.Natural)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageScanFindingsSummary' with all optional fields omitted.
@@ -55,36 +54,36 @@ newImageScanFindingsSummary ::
 newImageScanFindingsSummary =
   ImageScanFindingsSummary'
     { imageScanCompletedAt =
-        Prelude.Nothing,
-      vulnerabilitySourceUpdatedAt = Prelude.Nothing,
-      findingSeverityCounts = Prelude.Nothing
+        Core.Nothing,
+      vulnerabilitySourceUpdatedAt = Core.Nothing,
+      findingSeverityCounts = Core.Nothing
     }
 
 -- | The time of the last completed image scan.
-imageScanFindingsSummary_imageScanCompletedAt :: Lens.Lens' ImageScanFindingsSummary (Prelude.Maybe Prelude.UTCTime)
-imageScanFindingsSummary_imageScanCompletedAt = Lens.lens (\ImageScanFindingsSummary' {imageScanCompletedAt} -> imageScanCompletedAt) (\s@ImageScanFindingsSummary' {} a -> s {imageScanCompletedAt = a} :: ImageScanFindingsSummary) Prelude.. Lens.mapping Prelude._Time
+imageScanFindingsSummary_imageScanCompletedAt :: Lens.Lens' ImageScanFindingsSummary (Core.Maybe Core.UTCTime)
+imageScanFindingsSummary_imageScanCompletedAt = Lens.lens (\ImageScanFindingsSummary' {imageScanCompletedAt} -> imageScanCompletedAt) (\s@ImageScanFindingsSummary' {} a -> s {imageScanCompletedAt = a} :: ImageScanFindingsSummary) Core.. Lens.mapping Core._Time
 
 -- | The time when the vulnerability data was last scanned.
-imageScanFindingsSummary_vulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindingsSummary (Prelude.Maybe Prelude.UTCTime)
-imageScanFindingsSummary_vulnerabilitySourceUpdatedAt = Lens.lens (\ImageScanFindingsSummary' {vulnerabilitySourceUpdatedAt} -> vulnerabilitySourceUpdatedAt) (\s@ImageScanFindingsSummary' {} a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindingsSummary) Prelude.. Lens.mapping Prelude._Time
+imageScanFindingsSummary_vulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindingsSummary (Core.Maybe Core.UTCTime)
+imageScanFindingsSummary_vulnerabilitySourceUpdatedAt = Lens.lens (\ImageScanFindingsSummary' {vulnerabilitySourceUpdatedAt} -> vulnerabilitySourceUpdatedAt) (\s@ImageScanFindingsSummary' {} a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindingsSummary) Core.. Lens.mapping Core._Time
 
 -- | The image vulnerability counts, sorted by severity.
-imageScanFindingsSummary_findingSeverityCounts :: Lens.Lens' ImageScanFindingsSummary (Prelude.Maybe (Prelude.HashMap FindingSeverity Prelude.Natural))
-imageScanFindingsSummary_findingSeverityCounts = Lens.lens (\ImageScanFindingsSummary' {findingSeverityCounts} -> findingSeverityCounts) (\s@ImageScanFindingsSummary' {} a -> s {findingSeverityCounts = a} :: ImageScanFindingsSummary) Prelude.. Lens.mapping Prelude._Coerce
+imageScanFindingsSummary_findingSeverityCounts :: Lens.Lens' ImageScanFindingsSummary (Core.Maybe (Core.HashMap FindingSeverity Core.Natural))
+imageScanFindingsSummary_findingSeverityCounts = Lens.lens (\ImageScanFindingsSummary' {findingSeverityCounts} -> findingSeverityCounts) (\s@ImageScanFindingsSummary' {} a -> s {findingSeverityCounts = a} :: ImageScanFindingsSummary) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ImageScanFindingsSummary where
+instance Core.FromJSON ImageScanFindingsSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageScanFindingsSummary"
       ( \x ->
           ImageScanFindingsSummary'
-            Prelude.<$> (x Prelude..:? "imageScanCompletedAt")
-            Prelude.<*> (x Prelude..:? "vulnerabilitySourceUpdatedAt")
-            Prelude.<*> ( x Prelude..:? "findingSeverityCounts"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "imageScanCompletedAt")
+            Core.<*> (x Core..:? "vulnerabilitySourceUpdatedAt")
+            Core.<*> ( x Core..:? "findingSeverityCounts"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ImageScanFindingsSummary
+instance Core.Hashable ImageScanFindingsSummary
 
-instance Prelude.NFData ImageScanFindingsSummary
+instance Core.NFData ImageScanFindingsSummary

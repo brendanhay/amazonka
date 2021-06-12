@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.EC2.ReportInstanceStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,15 +60,15 @@ data ReportInstanceStatus = ReportInstanceStatus'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The time at which the reported instance health state began.
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | The time at which the reported instance health state ended.
-    endTime :: Prelude.Maybe Prelude.ISO8601,
+    endTime :: Core.Maybe Core.ISO8601,
     -- | Descriptive text about the health state of your instance.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The instances.
-    instances :: [Prelude.Text],
+    instances :: [Core.Text],
     -- | The reason codes that describe the health state of your instance.
     --
     -- -   @instance-stuck-in-state@: My instance is stuck in a state.
@@ -100,7 +99,7 @@ data ReportInstanceStatus = ReportInstanceStatus'
     -- | The status of all instances listed.
     status :: ReportStatusType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReportInstanceStatus' with all optional fields omitted.
@@ -157,12 +156,12 @@ newReportInstanceStatus ::
   ReportInstanceStatus
 newReportInstanceStatus pStatus_ =
   ReportInstanceStatus'
-    { dryRun = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      description = Prelude.Nothing,
-      instances = Prelude.mempty,
-      reasonCodes = Prelude.mempty,
+    { dryRun = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      description = Core.Nothing,
+      instances = Core.mempty,
+      reasonCodes = Core.mempty,
       status = pStatus_
     }
 
@@ -170,24 +169,24 @@ newReportInstanceStatus pStatus_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-reportInstanceStatus_dryRun :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.Bool)
+reportInstanceStatus_dryRun :: Lens.Lens' ReportInstanceStatus (Core.Maybe Core.Bool)
 reportInstanceStatus_dryRun = Lens.lens (\ReportInstanceStatus' {dryRun} -> dryRun) (\s@ReportInstanceStatus' {} a -> s {dryRun = a} :: ReportInstanceStatus)
 
 -- | The time at which the reported instance health state began.
-reportInstanceStatus_startTime :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.UTCTime)
-reportInstanceStatus_startTime = Lens.lens (\ReportInstanceStatus' {startTime} -> startTime) (\s@ReportInstanceStatus' {} a -> s {startTime = a} :: ReportInstanceStatus) Prelude.. Lens.mapping Prelude._Time
+reportInstanceStatus_startTime :: Lens.Lens' ReportInstanceStatus (Core.Maybe Core.UTCTime)
+reportInstanceStatus_startTime = Lens.lens (\ReportInstanceStatus' {startTime} -> startTime) (\s@ReportInstanceStatus' {} a -> s {startTime = a} :: ReportInstanceStatus) Core.. Lens.mapping Core._Time
 
 -- | The time at which the reported instance health state ended.
-reportInstanceStatus_endTime :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.UTCTime)
-reportInstanceStatus_endTime = Lens.lens (\ReportInstanceStatus' {endTime} -> endTime) (\s@ReportInstanceStatus' {} a -> s {endTime = a} :: ReportInstanceStatus) Prelude.. Lens.mapping Prelude._Time
+reportInstanceStatus_endTime :: Lens.Lens' ReportInstanceStatus (Core.Maybe Core.UTCTime)
+reportInstanceStatus_endTime = Lens.lens (\ReportInstanceStatus' {endTime} -> endTime) (\s@ReportInstanceStatus' {} a -> s {endTime = a} :: ReportInstanceStatus) Core.. Lens.mapping Core._Time
 
 -- | Descriptive text about the health state of your instance.
-reportInstanceStatus_description :: Lens.Lens' ReportInstanceStatus (Prelude.Maybe Prelude.Text)
+reportInstanceStatus_description :: Lens.Lens' ReportInstanceStatus (Core.Maybe Core.Text)
 reportInstanceStatus_description = Lens.lens (\ReportInstanceStatus' {description} -> description) (\s@ReportInstanceStatus' {} a -> s {description = a} :: ReportInstanceStatus)
 
 -- | The instances.
-reportInstanceStatus_instances :: Lens.Lens' ReportInstanceStatus [Prelude.Text]
-reportInstanceStatus_instances = Lens.lens (\ReportInstanceStatus' {instances} -> instances) (\s@ReportInstanceStatus' {} a -> s {instances = a} :: ReportInstanceStatus) Prelude.. Prelude._Coerce
+reportInstanceStatus_instances :: Lens.Lens' ReportInstanceStatus [Core.Text]
+reportInstanceStatus_instances = Lens.lens (\ReportInstanceStatus' {instances} -> instances) (\s@ReportInstanceStatus' {} a -> s {instances = a} :: ReportInstanceStatus) Core.. Lens._Coerce
 
 -- | The reason codes that describe the health state of your instance.
 --
@@ -216,51 +215,50 @@ reportInstanceStatus_instances = Lens.lens (\ReportInstanceStatus' {instances} -
 --
 -- -   @other@: [explain using the description parameter]
 reportInstanceStatus_reasonCodes :: Lens.Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
-reportInstanceStatus_reasonCodes = Lens.lens (\ReportInstanceStatus' {reasonCodes} -> reasonCodes) (\s@ReportInstanceStatus' {} a -> s {reasonCodes = a} :: ReportInstanceStatus) Prelude.. Prelude._Coerce
+reportInstanceStatus_reasonCodes = Lens.lens (\ReportInstanceStatus' {reasonCodes} -> reasonCodes) (\s@ReportInstanceStatus' {} a -> s {reasonCodes = a} :: ReportInstanceStatus) Core.. Lens._Coerce
 
 -- | The status of all instances listed.
 reportInstanceStatus_status :: Lens.Lens' ReportInstanceStatus ReportStatusType
 reportInstanceStatus_status = Lens.lens (\ReportInstanceStatus' {status} -> status) (\s@ReportInstanceStatus' {} a -> s {status = a} :: ReportInstanceStatus)
 
-instance Prelude.AWSRequest ReportInstanceStatus where
+instance Core.AWSRequest ReportInstanceStatus where
   type
-    Rs ReportInstanceStatus =
+    AWSResponse ReportInstanceStatus =
       ReportInstanceStatusResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull ReportInstanceStatusResponse'
 
-instance Prelude.Hashable ReportInstanceStatus
+instance Core.Hashable ReportInstanceStatus
 
-instance Prelude.NFData ReportInstanceStatus
+instance Core.NFData ReportInstanceStatus
 
-instance Prelude.ToHeaders ReportInstanceStatus where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReportInstanceStatus where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ReportInstanceStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath ReportInstanceStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ReportInstanceStatus where
+instance Core.ToQuery ReportInstanceStatus where
   toQuery ReportInstanceStatus' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ReportInstanceStatus" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime,
-        "Description" Prelude.=: description,
-        Prelude.toQueryList "InstanceId" instances,
-        Prelude.toQueryList "ReasonCode" reasonCodes,
-        "Status" Prelude.=: status
+          Core.=: ("ReportInstanceStatus" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "Description" Core.=: description,
+        Core.toQueryList "InstanceId" instances,
+        Core.toQueryList "ReasonCode" reasonCodes,
+        "Status" Core.=: status
       ]
 
 -- | /See:/ 'newReportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReportInstanceStatusResponse' with all optional fields omitted.
@@ -271,4 +269,4 @@ newReportInstanceStatusResponse ::
 newReportInstanceStatusResponse =
   ReportInstanceStatusResponse'
 
-instance Prelude.NFData ReportInstanceStatusResponse
+instance Core.NFData ReportInstanceStatusResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.CloudTrail.GetInsightSelectors
 where
 
 import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,9 +75,9 @@ data GetInsightSelectors = GetInsightSelectors'
     -- If you specify a trail ARN, it must be in the format:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    trailName :: Prelude.Text
+    trailName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInsightSelectors' with all optional fields omitted.
@@ -108,7 +107,7 @@ data GetInsightSelectors = GetInsightSelectors'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newGetInsightSelectors ::
   -- | 'trailName'
-  Prelude.Text ->
+  Core.Text ->
   GetInsightSelectors
 newGetInsightSelectors pTrailName_ =
   GetInsightSelectors' {trailName = pTrailName_}
@@ -131,70 +130,66 @@ newGetInsightSelectors pTrailName_ =
 -- If you specify a trail ARN, it must be in the format:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-getInsightSelectors_trailName :: Lens.Lens' GetInsightSelectors Prelude.Text
+getInsightSelectors_trailName :: Lens.Lens' GetInsightSelectors Core.Text
 getInsightSelectors_trailName = Lens.lens (\GetInsightSelectors' {trailName} -> trailName) (\s@GetInsightSelectors' {} a -> s {trailName = a} :: GetInsightSelectors)
 
-instance Prelude.AWSRequest GetInsightSelectors where
+instance Core.AWSRequest GetInsightSelectors where
   type
-    Rs GetInsightSelectors =
+    AWSResponse GetInsightSelectors =
       GetInsightSelectorsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInsightSelectorsResponse'
-            Prelude.<$> (x Prelude..?> "TrailARN")
-            Prelude.<*> ( x Prelude..?> "InsightSelectors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TrailARN")
+            Core.<*> (x Core..?> "InsightSelectors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightSelectors
+instance Core.Hashable GetInsightSelectors
 
-instance Prelude.NFData GetInsightSelectors
+instance Core.NFData GetInsightSelectors
 
-instance Prelude.ToHeaders GetInsightSelectors where
+instance Core.ToHeaders GetInsightSelectors where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetInsightSelectors" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetInsightSelectors" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetInsightSelectors where
+instance Core.ToJSON GetInsightSelectors where
   toJSON GetInsightSelectors' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TrailName" Prelude..= trailName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TrailName" Core..= trailName)]
       )
 
-instance Prelude.ToPath GetInsightSelectors where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInsightSelectors where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInsightSelectors where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInsightSelectors where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInsightSelectorsResponse' smart constructor.
 data GetInsightSelectorsResponse = GetInsightSelectorsResponse'
   { -- | The Amazon Resource Name (ARN) of a trail for which you want to get
     -- Insights selectors.
-    trailARN :: Prelude.Maybe Prelude.Text,
+    trailARN :: Core.Maybe Core.Text,
     -- | A JSON string that contains the insight types you want to log on a
     -- trail. In this release, only @ApiCallRateInsight@ is supported as an
     -- insight type.
-    insightSelectors :: Prelude.Maybe [InsightSelector],
+    insightSelectors :: Core.Maybe [InsightSelector],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInsightSelectorsResponse' with all optional fields omitted.
@@ -214,29 +209,29 @@ data GetInsightSelectorsResponse = GetInsightSelectorsResponse'
 -- 'httpStatus', 'getInsightSelectorsResponse_httpStatus' - The response's http status code.
 newGetInsightSelectorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInsightSelectorsResponse
 newGetInsightSelectorsResponse pHttpStatus_ =
   GetInsightSelectorsResponse'
     { trailARN =
-        Prelude.Nothing,
-      insightSelectors = Prelude.Nothing,
+        Core.Nothing,
+      insightSelectors = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of a trail for which you want to get
 -- Insights selectors.
-getInsightSelectorsResponse_trailARN :: Lens.Lens' GetInsightSelectorsResponse (Prelude.Maybe Prelude.Text)
+getInsightSelectorsResponse_trailARN :: Lens.Lens' GetInsightSelectorsResponse (Core.Maybe Core.Text)
 getInsightSelectorsResponse_trailARN = Lens.lens (\GetInsightSelectorsResponse' {trailARN} -> trailARN) (\s@GetInsightSelectorsResponse' {} a -> s {trailARN = a} :: GetInsightSelectorsResponse)
 
 -- | A JSON string that contains the insight types you want to log on a
 -- trail. In this release, only @ApiCallRateInsight@ is supported as an
 -- insight type.
-getInsightSelectorsResponse_insightSelectors :: Lens.Lens' GetInsightSelectorsResponse (Prelude.Maybe [InsightSelector])
-getInsightSelectorsResponse_insightSelectors = Lens.lens (\GetInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@GetInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: GetInsightSelectorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getInsightSelectorsResponse_insightSelectors :: Lens.Lens' GetInsightSelectorsResponse (Core.Maybe [InsightSelector])
+getInsightSelectorsResponse_insightSelectors = Lens.lens (\GetInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@GetInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: GetInsightSelectorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getInsightSelectorsResponse_httpStatus :: Lens.Lens' GetInsightSelectorsResponse Prelude.Int
+getInsightSelectorsResponse_httpStatus :: Lens.Lens' GetInsightSelectorsResponse Core.Int
 getInsightSelectorsResponse_httpStatus = Lens.lens (\GetInsightSelectorsResponse' {httpStatus} -> httpStatus) (\s@GetInsightSelectorsResponse' {} a -> s {httpStatus = a} :: GetInsightSelectorsResponse)
 
-instance Prelude.NFData GetInsightSelectorsResponse
+instance Core.NFData GetInsightSelectorsResponse

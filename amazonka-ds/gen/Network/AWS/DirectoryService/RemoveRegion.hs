@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DirectoryService.RemoveRegion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data RemoveRegion = RemoveRegion'
   { -- | The identifier of the directory for which you want to remove Region
     -- replication.
-    directoryId :: Prelude.Text
+    directoryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveRegion' with all optional fields omitted.
@@ -67,66 +66,62 @@ data RemoveRegion = RemoveRegion'
 -- replication.
 newRemoveRegion ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   RemoveRegion
 newRemoveRegion pDirectoryId_ =
   RemoveRegion' {directoryId = pDirectoryId_}
 
 -- | The identifier of the directory for which you want to remove Region
 -- replication.
-removeRegion_directoryId :: Lens.Lens' RemoveRegion Prelude.Text
+removeRegion_directoryId :: Lens.Lens' RemoveRegion Core.Text
 removeRegion_directoryId = Lens.lens (\RemoveRegion' {directoryId} -> directoryId) (\s@RemoveRegion' {} a -> s {directoryId = a} :: RemoveRegion)
 
-instance Prelude.AWSRequest RemoveRegion where
-  type Rs RemoveRegion = RemoveRegionResponse
+instance Core.AWSRequest RemoveRegion where
+  type AWSResponse RemoveRegion = RemoveRegionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveRegionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveRegion
+instance Core.Hashable RemoveRegion
 
-instance Prelude.NFData RemoveRegion
+instance Core.NFData RemoveRegion
 
-instance Prelude.ToHeaders RemoveRegion where
+instance Core.ToHeaders RemoveRegion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.RemoveRegion" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.RemoveRegion" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RemoveRegion where
+instance Core.ToJSON RemoveRegion where
   toJSON RemoveRegion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DirectoryId" Prelude..= directoryId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DirectoryId" Core..= directoryId)]
       )
 
-instance Prelude.ToPath RemoveRegion where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveRegion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveRegion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveRegion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveRegionResponse' smart constructor.
 data RemoveRegionResponse = RemoveRegionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveRegionResponse' with all optional fields omitted.
@@ -139,13 +134,13 @@ data RemoveRegionResponse = RemoveRegionResponse'
 -- 'httpStatus', 'removeRegionResponse_httpStatus' - The response's http status code.
 newRemoveRegionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveRegionResponse
 newRemoveRegionResponse pHttpStatus_ =
   RemoveRegionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-removeRegionResponse_httpStatus :: Lens.Lens' RemoveRegionResponse Prelude.Int
+removeRegionResponse_httpStatus :: Lens.Lens' RemoveRegionResponse Core.Int
 removeRegionResponse_httpStatus = Lens.lens (\RemoveRegionResponse' {httpStatus} -> httpStatus) (\s@RemoveRegionResponse' {} a -> s {httpStatus = a} :: RemoveRegionResponse)
 
-instance Prelude.NFData RemoveRegionResponse
+instance Core.NFData RemoveRegionResponse

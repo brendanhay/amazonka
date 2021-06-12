@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Action where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.CloudwatchAlarmAction
 import Network.AWS.IoT.Types.CloudwatchLogsAction
 import Network.AWS.IoT.Types.CloudwatchMetricAction
@@ -42,63 +42,62 @@ import Network.AWS.IoT.Types.SqsAction
 import Network.AWS.IoT.Types.StepFunctionsAction
 import Network.AWS.IoT.Types.TimestreamAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the actions associated with a rule.
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'
   { -- | Send data to CloudWatch Logs.
-    cloudwatchLogs :: Prelude.Maybe CloudwatchLogsAction,
+    cloudwatchLogs :: Core.Maybe CloudwatchLogsAction,
     -- | Capture a CloudWatch metric.
-    cloudwatchMetric :: Prelude.Maybe CloudwatchMetricAction,
+    cloudwatchMetric :: Core.Maybe CloudwatchMetricAction,
     -- | Publish to an Amazon SQS queue.
-    sqs :: Prelude.Maybe SqsAction,
+    sqs :: Core.Maybe SqsAction,
     -- | The Timestream rule action writes attributes (measures) from an MQTT
     -- message into an Amazon Timestream table. For more information, see the
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream>
     -- topic rule action documentation.
-    timestream :: Prelude.Maybe TimestreamAction,
+    timestream :: Core.Maybe TimestreamAction,
     -- | Write to an Amazon Kinesis Firehose stream.
-    firehose :: Prelude.Maybe FirehoseAction,
+    firehose :: Core.Maybe FirehoseAction,
     -- | Publish to an Amazon SNS topic.
-    sns :: Prelude.Maybe SnsAction,
+    sns :: Core.Maybe SnsAction,
     -- | Write data to an Amazon Elasticsearch Service domain.
-    elasticsearch :: Prelude.Maybe ElasticsearchAction,
+    elasticsearch :: Core.Maybe ElasticsearchAction,
     -- | Write data to an Amazon Kinesis stream.
-    kinesis :: Prelude.Maybe KinesisAction,
+    kinesis :: Core.Maybe KinesisAction,
     -- | Send a message to a Salesforce IoT Cloud Input Stream.
-    salesforce :: Prelude.Maybe SalesforceAction,
+    salesforce :: Core.Maybe SalesforceAction,
     -- | Write to a DynamoDB table. This is a new version of the DynamoDB action.
     -- It allows you to write each attribute in an MQTT message payload into a
     -- separate DynamoDB column.
-    dynamoDBv2 :: Prelude.Maybe DynamoDBv2Action,
+    dynamoDBv2 :: Core.Maybe DynamoDBv2Action,
     -- | Invoke a Lambda function.
-    lambda :: Prelude.Maybe LambdaAction,
+    lambda :: Core.Maybe LambdaAction,
     -- | Sends message data to an AWS IoT Analytics channel.
-    iotAnalytics :: Prelude.Maybe IotAnalyticsAction,
+    iotAnalytics :: Core.Maybe IotAnalyticsAction,
     -- | Sends data from the MQTT message that triggered the rule to AWS IoT
     -- SiteWise asset properties.
-    iotSiteWise :: Prelude.Maybe IotSiteWiseAction,
+    iotSiteWise :: Core.Maybe IotSiteWiseAction,
     -- | Publish to another MQTT topic.
-    republish :: Prelude.Maybe RepublishAction,
+    republish :: Core.Maybe RepublishAction,
     -- | Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon
     -- MSK) or self-managed Apache Kafka cluster.
-    kafka :: Prelude.Maybe KafkaAction,
+    kafka :: Core.Maybe KafkaAction,
     -- | Write to a DynamoDB table.
-    dynamoDB :: Prelude.Maybe DynamoDBAction,
+    dynamoDB :: Core.Maybe DynamoDBAction,
     -- | Starts execution of a Step Functions state machine.
-    stepFunctions :: Prelude.Maybe StepFunctionsAction,
+    stepFunctions :: Core.Maybe StepFunctionsAction,
     -- | Change the state of a CloudWatch alarm.
-    cloudwatchAlarm :: Prelude.Maybe CloudwatchAlarmAction,
+    cloudwatchAlarm :: Core.Maybe CloudwatchAlarmAction,
     -- | Send data to an HTTPS endpoint.
-    http :: Prelude.Maybe HttpAction,
+    http :: Core.Maybe HttpAction,
     -- | Write to an Amazon S3 bucket.
-    s3 :: Prelude.Maybe S3Action,
+    s3 :: Core.Maybe S3Action,
     -- | Sends an input to an AWS IoT Events detector.
-    iotEvents :: Prelude.Maybe IotEventsAction
+    iotEvents :: Core.Maybe IotEventsAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Action' with all optional fields omitted.
@@ -160,182 +159,178 @@ newAction ::
   Action
 newAction =
   Action'
-    { cloudwatchLogs = Prelude.Nothing,
-      cloudwatchMetric = Prelude.Nothing,
-      sqs = Prelude.Nothing,
-      timestream = Prelude.Nothing,
-      firehose = Prelude.Nothing,
-      sns = Prelude.Nothing,
-      elasticsearch = Prelude.Nothing,
-      kinesis = Prelude.Nothing,
-      salesforce = Prelude.Nothing,
-      dynamoDBv2 = Prelude.Nothing,
-      lambda = Prelude.Nothing,
-      iotAnalytics = Prelude.Nothing,
-      iotSiteWise = Prelude.Nothing,
-      republish = Prelude.Nothing,
-      kafka = Prelude.Nothing,
-      dynamoDB = Prelude.Nothing,
-      stepFunctions = Prelude.Nothing,
-      cloudwatchAlarm = Prelude.Nothing,
-      http = Prelude.Nothing,
-      s3 = Prelude.Nothing,
-      iotEvents = Prelude.Nothing
+    { cloudwatchLogs = Core.Nothing,
+      cloudwatchMetric = Core.Nothing,
+      sqs = Core.Nothing,
+      timestream = Core.Nothing,
+      firehose = Core.Nothing,
+      sns = Core.Nothing,
+      elasticsearch = Core.Nothing,
+      kinesis = Core.Nothing,
+      salesforce = Core.Nothing,
+      dynamoDBv2 = Core.Nothing,
+      lambda = Core.Nothing,
+      iotAnalytics = Core.Nothing,
+      iotSiteWise = Core.Nothing,
+      republish = Core.Nothing,
+      kafka = Core.Nothing,
+      dynamoDB = Core.Nothing,
+      stepFunctions = Core.Nothing,
+      cloudwatchAlarm = Core.Nothing,
+      http = Core.Nothing,
+      s3 = Core.Nothing,
+      iotEvents = Core.Nothing
     }
 
 -- | Send data to CloudWatch Logs.
-action_cloudwatchLogs :: Lens.Lens' Action (Prelude.Maybe CloudwatchLogsAction)
+action_cloudwatchLogs :: Lens.Lens' Action (Core.Maybe CloudwatchLogsAction)
 action_cloudwatchLogs = Lens.lens (\Action' {cloudwatchLogs} -> cloudwatchLogs) (\s@Action' {} a -> s {cloudwatchLogs = a} :: Action)
 
 -- | Capture a CloudWatch metric.
-action_cloudwatchMetric :: Lens.Lens' Action (Prelude.Maybe CloudwatchMetricAction)
+action_cloudwatchMetric :: Lens.Lens' Action (Core.Maybe CloudwatchMetricAction)
 action_cloudwatchMetric = Lens.lens (\Action' {cloudwatchMetric} -> cloudwatchMetric) (\s@Action' {} a -> s {cloudwatchMetric = a} :: Action)
 
 -- | Publish to an Amazon SQS queue.
-action_sqs :: Lens.Lens' Action (Prelude.Maybe SqsAction)
+action_sqs :: Lens.Lens' Action (Core.Maybe SqsAction)
 action_sqs = Lens.lens (\Action' {sqs} -> sqs) (\s@Action' {} a -> s {sqs = a} :: Action)
 
 -- | The Timestream rule action writes attributes (measures) from an MQTT
 -- message into an Amazon Timestream table. For more information, see the
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/timestream-rule-action.html Timestream>
 -- topic rule action documentation.
-action_timestream :: Lens.Lens' Action (Prelude.Maybe TimestreamAction)
+action_timestream :: Lens.Lens' Action (Core.Maybe TimestreamAction)
 action_timestream = Lens.lens (\Action' {timestream} -> timestream) (\s@Action' {} a -> s {timestream = a} :: Action)
 
 -- | Write to an Amazon Kinesis Firehose stream.
-action_firehose :: Lens.Lens' Action (Prelude.Maybe FirehoseAction)
+action_firehose :: Lens.Lens' Action (Core.Maybe FirehoseAction)
 action_firehose = Lens.lens (\Action' {firehose} -> firehose) (\s@Action' {} a -> s {firehose = a} :: Action)
 
 -- | Publish to an Amazon SNS topic.
-action_sns :: Lens.Lens' Action (Prelude.Maybe SnsAction)
+action_sns :: Lens.Lens' Action (Core.Maybe SnsAction)
 action_sns = Lens.lens (\Action' {sns} -> sns) (\s@Action' {} a -> s {sns = a} :: Action)
 
 -- | Write data to an Amazon Elasticsearch Service domain.
-action_elasticsearch :: Lens.Lens' Action (Prelude.Maybe ElasticsearchAction)
+action_elasticsearch :: Lens.Lens' Action (Core.Maybe ElasticsearchAction)
 action_elasticsearch = Lens.lens (\Action' {elasticsearch} -> elasticsearch) (\s@Action' {} a -> s {elasticsearch = a} :: Action)
 
 -- | Write data to an Amazon Kinesis stream.
-action_kinesis :: Lens.Lens' Action (Prelude.Maybe KinesisAction)
+action_kinesis :: Lens.Lens' Action (Core.Maybe KinesisAction)
 action_kinesis = Lens.lens (\Action' {kinesis} -> kinesis) (\s@Action' {} a -> s {kinesis = a} :: Action)
 
 -- | Send a message to a Salesforce IoT Cloud Input Stream.
-action_salesforce :: Lens.Lens' Action (Prelude.Maybe SalesforceAction)
+action_salesforce :: Lens.Lens' Action (Core.Maybe SalesforceAction)
 action_salesforce = Lens.lens (\Action' {salesforce} -> salesforce) (\s@Action' {} a -> s {salesforce = a} :: Action)
 
 -- | Write to a DynamoDB table. This is a new version of the DynamoDB action.
 -- It allows you to write each attribute in an MQTT message payload into a
 -- separate DynamoDB column.
-action_dynamoDBv2 :: Lens.Lens' Action (Prelude.Maybe DynamoDBv2Action)
+action_dynamoDBv2 :: Lens.Lens' Action (Core.Maybe DynamoDBv2Action)
 action_dynamoDBv2 = Lens.lens (\Action' {dynamoDBv2} -> dynamoDBv2) (\s@Action' {} a -> s {dynamoDBv2 = a} :: Action)
 
 -- | Invoke a Lambda function.
-action_lambda :: Lens.Lens' Action (Prelude.Maybe LambdaAction)
+action_lambda :: Lens.Lens' Action (Core.Maybe LambdaAction)
 action_lambda = Lens.lens (\Action' {lambda} -> lambda) (\s@Action' {} a -> s {lambda = a} :: Action)
 
 -- | Sends message data to an AWS IoT Analytics channel.
-action_iotAnalytics :: Lens.Lens' Action (Prelude.Maybe IotAnalyticsAction)
+action_iotAnalytics :: Lens.Lens' Action (Core.Maybe IotAnalyticsAction)
 action_iotAnalytics = Lens.lens (\Action' {iotAnalytics} -> iotAnalytics) (\s@Action' {} a -> s {iotAnalytics = a} :: Action)
 
 -- | Sends data from the MQTT message that triggered the rule to AWS IoT
 -- SiteWise asset properties.
-action_iotSiteWise :: Lens.Lens' Action (Prelude.Maybe IotSiteWiseAction)
+action_iotSiteWise :: Lens.Lens' Action (Core.Maybe IotSiteWiseAction)
 action_iotSiteWise = Lens.lens (\Action' {iotSiteWise} -> iotSiteWise) (\s@Action' {} a -> s {iotSiteWise = a} :: Action)
 
 -- | Publish to another MQTT topic.
-action_republish :: Lens.Lens' Action (Prelude.Maybe RepublishAction)
+action_republish :: Lens.Lens' Action (Core.Maybe RepublishAction)
 action_republish = Lens.lens (\Action' {republish} -> republish) (\s@Action' {} a -> s {republish = a} :: Action)
 
 -- | Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon
 -- MSK) or self-managed Apache Kafka cluster.
-action_kafka :: Lens.Lens' Action (Prelude.Maybe KafkaAction)
+action_kafka :: Lens.Lens' Action (Core.Maybe KafkaAction)
 action_kafka = Lens.lens (\Action' {kafka} -> kafka) (\s@Action' {} a -> s {kafka = a} :: Action)
 
 -- | Write to a DynamoDB table.
-action_dynamoDB :: Lens.Lens' Action (Prelude.Maybe DynamoDBAction)
+action_dynamoDB :: Lens.Lens' Action (Core.Maybe DynamoDBAction)
 action_dynamoDB = Lens.lens (\Action' {dynamoDB} -> dynamoDB) (\s@Action' {} a -> s {dynamoDB = a} :: Action)
 
 -- | Starts execution of a Step Functions state machine.
-action_stepFunctions :: Lens.Lens' Action (Prelude.Maybe StepFunctionsAction)
+action_stepFunctions :: Lens.Lens' Action (Core.Maybe StepFunctionsAction)
 action_stepFunctions = Lens.lens (\Action' {stepFunctions} -> stepFunctions) (\s@Action' {} a -> s {stepFunctions = a} :: Action)
 
 -- | Change the state of a CloudWatch alarm.
-action_cloudwatchAlarm :: Lens.Lens' Action (Prelude.Maybe CloudwatchAlarmAction)
+action_cloudwatchAlarm :: Lens.Lens' Action (Core.Maybe CloudwatchAlarmAction)
 action_cloudwatchAlarm = Lens.lens (\Action' {cloudwatchAlarm} -> cloudwatchAlarm) (\s@Action' {} a -> s {cloudwatchAlarm = a} :: Action)
 
 -- | Send data to an HTTPS endpoint.
-action_http :: Lens.Lens' Action (Prelude.Maybe HttpAction)
+action_http :: Lens.Lens' Action (Core.Maybe HttpAction)
 action_http = Lens.lens (\Action' {http} -> http) (\s@Action' {} a -> s {http = a} :: Action)
 
 -- | Write to an Amazon S3 bucket.
-action_s3 :: Lens.Lens' Action (Prelude.Maybe S3Action)
+action_s3 :: Lens.Lens' Action (Core.Maybe S3Action)
 action_s3 = Lens.lens (\Action' {s3} -> s3) (\s@Action' {} a -> s {s3 = a} :: Action)
 
 -- | Sends an input to an AWS IoT Events detector.
-action_iotEvents :: Lens.Lens' Action (Prelude.Maybe IotEventsAction)
+action_iotEvents :: Lens.Lens' Action (Core.Maybe IotEventsAction)
 action_iotEvents = Lens.lens (\Action' {iotEvents} -> iotEvents) (\s@Action' {} a -> s {iotEvents = a} :: Action)
 
-instance Prelude.FromJSON Action where
+instance Core.FromJSON Action where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Prelude..:? "cloudwatchLogs")
-            Prelude.<*> (x Prelude..:? "cloudwatchMetric")
-            Prelude.<*> (x Prelude..:? "sqs")
-            Prelude.<*> (x Prelude..:? "timestream")
-            Prelude.<*> (x Prelude..:? "firehose")
-            Prelude.<*> (x Prelude..:? "sns")
-            Prelude.<*> (x Prelude..:? "elasticsearch")
-            Prelude.<*> (x Prelude..:? "kinesis")
-            Prelude.<*> (x Prelude..:? "salesforce")
-            Prelude.<*> (x Prelude..:? "dynamoDBv2")
-            Prelude.<*> (x Prelude..:? "lambda")
-            Prelude.<*> (x Prelude..:? "iotAnalytics")
-            Prelude.<*> (x Prelude..:? "iotSiteWise")
-            Prelude.<*> (x Prelude..:? "republish")
-            Prelude.<*> (x Prelude..:? "kafka")
-            Prelude.<*> (x Prelude..:? "dynamoDB")
-            Prelude.<*> (x Prelude..:? "stepFunctions")
-            Prelude.<*> (x Prelude..:? "cloudwatchAlarm")
-            Prelude.<*> (x Prelude..:? "http")
-            Prelude.<*> (x Prelude..:? "s3")
-            Prelude.<*> (x Prelude..:? "iotEvents")
+            Core.<$> (x Core..:? "cloudwatchLogs")
+            Core.<*> (x Core..:? "cloudwatchMetric")
+            Core.<*> (x Core..:? "sqs")
+            Core.<*> (x Core..:? "timestream")
+            Core.<*> (x Core..:? "firehose")
+            Core.<*> (x Core..:? "sns")
+            Core.<*> (x Core..:? "elasticsearch")
+            Core.<*> (x Core..:? "kinesis")
+            Core.<*> (x Core..:? "salesforce")
+            Core.<*> (x Core..:? "dynamoDBv2")
+            Core.<*> (x Core..:? "lambda")
+            Core.<*> (x Core..:? "iotAnalytics")
+            Core.<*> (x Core..:? "iotSiteWise")
+            Core.<*> (x Core..:? "republish")
+            Core.<*> (x Core..:? "kafka")
+            Core.<*> (x Core..:? "dynamoDB")
+            Core.<*> (x Core..:? "stepFunctions")
+            Core.<*> (x Core..:? "cloudwatchAlarm")
+            Core.<*> (x Core..:? "http")
+            Core.<*> (x Core..:? "s3")
+            Core.<*> (x Core..:? "iotEvents")
       )
 
-instance Prelude.Hashable Action
+instance Core.Hashable Action
 
-instance Prelude.NFData Action
+instance Core.NFData Action
 
-instance Prelude.ToJSON Action where
+instance Core.ToJSON Action where
   toJSON Action' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("cloudwatchLogs" Prelude..=)
-              Prelude.<$> cloudwatchLogs,
-            ("cloudwatchMetric" Prelude..=)
-              Prelude.<$> cloudwatchMetric,
-            ("sqs" Prelude..=) Prelude.<$> sqs,
-            ("timestream" Prelude..=) Prelude.<$> timestream,
-            ("firehose" Prelude..=) Prelude.<$> firehose,
-            ("sns" Prelude..=) Prelude.<$> sns,
-            ("elasticsearch" Prelude..=)
-              Prelude.<$> elasticsearch,
-            ("kinesis" Prelude..=) Prelude.<$> kinesis,
-            ("salesforce" Prelude..=) Prelude.<$> salesforce,
-            ("dynamoDBv2" Prelude..=) Prelude.<$> dynamoDBv2,
-            ("lambda" Prelude..=) Prelude.<$> lambda,
-            ("iotAnalytics" Prelude..=) Prelude.<$> iotAnalytics,
-            ("iotSiteWise" Prelude..=) Prelude.<$> iotSiteWise,
-            ("republish" Prelude..=) Prelude.<$> republish,
-            ("kafka" Prelude..=) Prelude.<$> kafka,
-            ("dynamoDB" Prelude..=) Prelude.<$> dynamoDB,
-            ("stepFunctions" Prelude..=)
-              Prelude.<$> stepFunctions,
-            ("cloudwatchAlarm" Prelude..=)
-              Prelude.<$> cloudwatchAlarm,
-            ("http" Prelude..=) Prelude.<$> http,
-            ("s3" Prelude..=) Prelude.<$> s3,
-            ("iotEvents" Prelude..=) Prelude.<$> iotEvents
+    Core.object
+      ( Core.catMaybes
+          [ ("cloudwatchLogs" Core..=) Core.<$> cloudwatchLogs,
+            ("cloudwatchMetric" Core..=)
+              Core.<$> cloudwatchMetric,
+            ("sqs" Core..=) Core.<$> sqs,
+            ("timestream" Core..=) Core.<$> timestream,
+            ("firehose" Core..=) Core.<$> firehose,
+            ("sns" Core..=) Core.<$> sns,
+            ("elasticsearch" Core..=) Core.<$> elasticsearch,
+            ("kinesis" Core..=) Core.<$> kinesis,
+            ("salesforce" Core..=) Core.<$> salesforce,
+            ("dynamoDBv2" Core..=) Core.<$> dynamoDBv2,
+            ("lambda" Core..=) Core.<$> lambda,
+            ("iotAnalytics" Core..=) Core.<$> iotAnalytics,
+            ("iotSiteWise" Core..=) Core.<$> iotSiteWise,
+            ("republish" Core..=) Core.<$> republish,
+            ("kafka" Core..=) Core.<$> kafka,
+            ("dynamoDB" Core..=) Core.<$> dynamoDB,
+            ("stepFunctions" Core..=) Core.<$> stepFunctions,
+            ("cloudwatchAlarm" Core..=) Core.<$> cloudwatchAlarm,
+            ("http" Core..=) Core.<$> http,
+            ("s3" Core..=) Core.<$> s3,
+            ("iotEvents" Core..=) Core.<$> iotEvents
           ]
       )

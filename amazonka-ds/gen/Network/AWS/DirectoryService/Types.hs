@@ -420,6 +420,7 @@ module Network.AWS.DirectoryService.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.Attribute
 import Network.AWS.DirectoryService.Types.Certificate
 import Network.AWS.DirectoryService.Types.CertificateInfo
@@ -477,332 +478,329 @@ import Network.AWS.DirectoryService.Types.TrustState
 import Network.AWS.DirectoryService.Types.TrustType
 import Network.AWS.DirectoryService.Types.UnshareTarget
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-04-16@ of the Amazon Directory Service SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
+  Core.Service
+    { Core._serviceAbbrev =
         "DirectoryService",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "ds",
-      Prelude._svcSigningName = "ds",
-      Prelude._svcVersion = "2015-04-16",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "DirectoryService",
-      Prelude._svcRetry = retry
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "ds",
+      Core._serviceSigningName = "ds",
+      Core._serviceVersion = "2015-04-16",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "DirectoryService",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The specified entity could not be found.
-_EntityDoesNotExistException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EntityDoesNotExistException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EntityDoesNotExistException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EntityDoesNotExistException"
 
 -- | The Region you specified is the same Region where the AWS Managed
 -- Microsoft AD directory was created. Specify a different Region and try
 -- again.
-_DirectoryAlreadyInRegionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectoryAlreadyInRegionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DirectoryAlreadyInRegionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DirectoryAlreadyInRegionException"
 
 -- | The maximum number of AWS accounts that you can share with this
 -- directory has been reached.
-_ShareLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ShareLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ShareLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ShareLimitExceededException"
 
 -- | You have reached the limit for maximum number of simultaneous Region
 -- replications per directory.
-_RegionLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RegionLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RegionLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RegionLimitExceededException"
 
 -- | The specified directory has already been shared with this AWS account.
-_DirectoryAlreadySharedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectoryAlreadySharedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DirectoryAlreadySharedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DirectoryAlreadySharedException"
 
 -- | The certificate is being used for the LDAP security connection and
 -- cannot be removed without disabling LDAP security.
-_CertificateInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateInUseException"
 
 -- | The maximum allowed number of tags was exceeded.
-_TagLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagLimitExceededException"
 
 -- | The maximum allowed number of domain controllers per directory was
 -- exceeded. The default limit per directory is 20 domain controllers.
-_DomainControllerLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DomainControllerLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DomainControllerLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DomainControllerLimitExceededException"
 
 -- | The specified directory does not exist in the system.
-_DirectoryDoesNotExistException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectoryDoesNotExistException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DirectoryDoesNotExistException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DirectoryDoesNotExistException"
 
 -- | The user provided a username that does not exist in your directory.
-_UserDoesNotExistException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserDoesNotExistException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserDoesNotExistException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserDoesNotExistException"
 
 -- | The maximum number of manual snapshots for the directory has been
 -- reached. You can use the GetSnapshotLimits operation to determine the
 -- snapshot limits for a directory.
-_SnapshotLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SnapshotLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SnapshotLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SnapshotLimitExceededException"
 
 -- | The specified entity already exists.
-_EntityAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EntityAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EntityAlreadyExistsException"
 
 -- | The specified directory has not been shared with this AWS account.
-_DirectoryNotSharedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectoryNotSharedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DirectoryNotSharedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DirectoryNotSharedException"
 
 -- | The @NextToken@ value is not valid.
-_InvalidNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | Exception encountered while trying to access your AWS organization.
-_OrganizationsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OrganizationsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OrganizationsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OrganizationsException"
 
 -- | The operation is not supported.
-_UnsupportedOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedOperationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedOperationException"
 
 -- | The specified shared target is not valid.
-_InvalidTargetException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTargetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTargetException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTargetException"
 
 -- | One or more parameters are not valid.
-_InvalidParameterException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | Client authentication is not available in this region at this time.
-_AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | The specified directory is unavailable or could not be found.
-_DirectoryUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectoryUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DirectoryUnavailableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DirectoryUnavailableException"
 
 -- | The certificate has already been registered into the system.
-_CertificateAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateAlreadyExistsException"
 
 -- | An authentication error occurred.
-_AuthenticationFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AuthenticationFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AuthenticationFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AuthenticationFailedException"
 
 -- | The certificate could not be added because the certificate limit has
 -- been reached.
-_CertificateLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateLimitExceededException"
 
 -- | The new password provided by the user does not meet the password
 -- complexity requirements defined in your directory.
-_InvalidPasswordException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidPasswordException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidPasswordException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidPasswordException"
 
 -- | The certificate is not present in the system for describe or deregister
 -- activities.
-_CertificateDoesNotExistException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateDoesNotExistException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateDoesNotExistException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateDoesNotExistException"
 
 -- | The maximum allowed number of IP addresses was exceeded. The default
 -- limit is 100 IP address blocks.
-_IpRouteLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IpRouteLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IpRouteLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IpRouteLimitExceededException"
 
 -- | A client exception has occurred.
-_ClientException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClientException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClientException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClientException"
 
 -- | The certificate PEM that was provided has incorrect encoding.
-_InvalidCertificateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCertificateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCertificateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCertificateException"
 
 -- | Client authentication is already enabled.
-_InvalidClientAuthStatusException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidClientAuthStatusException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidClientAuthStatusException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidClientAuthStatusException"
 
 -- | The LDAP activities could not be performed because they are limited by
 -- the LDAPS status.
-_InvalidLDAPSStatusException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidLDAPSStatusException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidLDAPSStatusException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidLDAPSStatusException"
 
 -- | The maximum number of directories in the region has been reached. You
 -- can use the GetDirectoryLimits operation to determine your directory
 -- limits in the region.
-_DirectoryLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectoryLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DirectoryLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DirectoryLimitExceededException"
 
 -- | The account does not have sufficient permission to perform the
 -- operation.
-_InsufficientPermissionsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientPermissionsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientPermissionsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientPermissionsException"
 
 -- | An exception has occurred in AWS Directory Service.
-_ServiceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceException"
 
 -- | Client authentication setup could not be completed because at least one
 -- valid certificate must be registered in the system.
-_NoAvailableCertificateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoAvailableCertificateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoAvailableCertificateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoAvailableCertificateException"

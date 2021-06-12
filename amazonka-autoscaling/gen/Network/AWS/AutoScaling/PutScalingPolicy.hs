@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.AutoScaling.PutScalingPolicy
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,7 +72,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- Required if the policy type is @StepScaling@. (Not used with any other
     -- policy type.)
-    stepAdjustments :: Prelude.Maybe [StepAdjustment],
+    stepAdjustments :: Core.Maybe [StepAdjustment],
     -- | A target tracking scaling policy. Includes support for predefined or
     -- customized metrics.
     --
@@ -96,13 +95,13 @@ data PutScalingPolicy = PutScalingPolicy'
     -- in the /Amazon EC2 Auto Scaling API Reference/.
     --
     -- Required if the policy type is @TargetTrackingScaling@.
-    targetTrackingConfiguration :: Prelude.Maybe TargetTrackingConfiguration,
+    targetTrackingConfiguration :: Core.Maybe TargetTrackingConfiguration,
     -- | The aggregation type for the CloudWatch metrics. The valid values are
     -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
     -- the value is treated as @Average@.
     --
     -- Valid only if the policy type is @StepScaling@.
-    metricAggregationType :: Prelude.Maybe Prelude.Text,
+    metricAggregationType :: Core.Maybe Core.Text,
     -- | One of the following policy types:
     --
     -- -   @TargetTrackingScaling@
@@ -110,7 +109,7 @@ data PutScalingPolicy = PutScalingPolicy'
     -- -   @StepScaling@
     --
     -- -   @SimpleScaling@ (default)
-    policyType :: Prelude.Maybe Prelude.Text,
+    policyType :: Core.Maybe Core.Text,
     -- | The duration of the policy\'s cooldown period, in seconds. When a
     -- cooldown period is specified here, it overrides the default cooldown
     -- period defined for the Auto Scaling group.
@@ -119,12 +118,12 @@ data PutScalingPolicy = PutScalingPolicy'
     -- see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    cooldown :: Prelude.Maybe Prelude.Int,
+    cooldown :: Core.Maybe Core.Int,
     -- | Indicates whether the scaling policy is enabled or disabled. The default
     -- is enabled. For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The amount by which to scale, based on the specified adjustment type. A
     -- positive value adds to the current capacity while a negative number
     -- removes from the current capacity. For exact capacity, you must specify
@@ -132,7 +131,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- Required if the policy type is @SimpleScaling@. (Not used with any other
     -- policy type.)
-    scalingAdjustment :: Prelude.Maybe Prelude.Int,
+    scalingAdjustment :: Core.Maybe Core.Int,
     -- | Specifies how the scaling adjustment is interpreted (for example, an
     -- absolute number or a percentage). The valid values are
     -- @ChangeInCapacity@, @ExactCapacity@, and @PercentChangeInCapacity@.
@@ -141,10 +140,10 @@ data PutScalingPolicy = PutScalingPolicy'
     -- more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    adjustmentType :: Prelude.Maybe Prelude.Text,
+    adjustmentType :: Core.Maybe Core.Text,
     -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
     -- instead.
-    minAdjustmentStep :: Prelude.Maybe Prelude.Int,
+    minAdjustmentStep :: Core.Maybe Core.Int,
     -- | The estimated time, in seconds, until a newly launched instance can
     -- contribute to the CloudWatch metrics. If not provided, the default is to
     -- use the value from the default cooldown period for the Auto Scaling
@@ -152,7 +151,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- Valid only if the policy type is @TargetTrackingScaling@ or
     -- @StepScaling@.
-    estimatedInstanceWarmup :: Prelude.Maybe Prelude.Int,
+    estimatedInstanceWarmup :: Core.Maybe Core.Int,
     -- | The minimum value to scale by when the adjustment type is
     -- @PercentChangeInCapacity@. For example, suppose that you create a step
     -- scaling policy to scale out an Auto Scaling group by 25 percent and you
@@ -169,13 +168,13 @@ data PutScalingPolicy = PutScalingPolicy'
     -- Some Auto Scaling groups use instance weights. In this case, set the
     -- @MinAdjustmentMagnitude@ to a value that is at least as large as your
     -- largest instance weight.
-    minAdjustmentMagnitude :: Prelude.Maybe Prelude.Int,
+    minAdjustmentMagnitude :: Core.Maybe Core.Int,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text,
+    autoScalingGroupName :: Core.Text,
     -- | The name of the policy.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutScalingPolicy' with all optional fields omitted.
@@ -292,26 +291,25 @@ data PutScalingPolicy = PutScalingPolicy'
 -- 'policyName', 'putScalingPolicy_policyName' - The name of the policy.
 newPutScalingPolicy ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   PutScalingPolicy
 newPutScalingPolicy
   pAutoScalingGroupName_
   pPolicyName_ =
     PutScalingPolicy'
-      { stepAdjustments =
-          Prelude.Nothing,
-        targetTrackingConfiguration = Prelude.Nothing,
-        metricAggregationType = Prelude.Nothing,
-        policyType = Prelude.Nothing,
-        cooldown = Prelude.Nothing,
-        enabled = Prelude.Nothing,
-        scalingAdjustment = Prelude.Nothing,
-        adjustmentType = Prelude.Nothing,
-        minAdjustmentStep = Prelude.Nothing,
-        estimatedInstanceWarmup = Prelude.Nothing,
-        minAdjustmentMagnitude = Prelude.Nothing,
+      { stepAdjustments = Core.Nothing,
+        targetTrackingConfiguration = Core.Nothing,
+        metricAggregationType = Core.Nothing,
+        policyType = Core.Nothing,
+        cooldown = Core.Nothing,
+        enabled = Core.Nothing,
+        scalingAdjustment = Core.Nothing,
+        adjustmentType = Core.Nothing,
+        minAdjustmentStep = Core.Nothing,
+        estimatedInstanceWarmup = Core.Nothing,
+        minAdjustmentMagnitude = Core.Nothing,
         autoScalingGroupName = pAutoScalingGroupName_,
         policyName = pPolicyName_
       }
@@ -321,8 +319,8 @@ newPutScalingPolicy
 --
 -- Required if the policy type is @StepScaling@. (Not used with any other
 -- policy type.)
-putScalingPolicy_stepAdjustments :: Lens.Lens' PutScalingPolicy (Prelude.Maybe [StepAdjustment])
-putScalingPolicy_stepAdjustments = Lens.lens (\PutScalingPolicy' {stepAdjustments} -> stepAdjustments) (\s@PutScalingPolicy' {} a -> s {stepAdjustments = a} :: PutScalingPolicy) Prelude.. Lens.mapping Prelude._Coerce
+putScalingPolicy_stepAdjustments :: Lens.Lens' PutScalingPolicy (Core.Maybe [StepAdjustment])
+putScalingPolicy_stepAdjustments = Lens.lens (\PutScalingPolicy' {stepAdjustments} -> stepAdjustments) (\s@PutScalingPolicy' {} a -> s {stepAdjustments = a} :: PutScalingPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | A target tracking scaling policy. Includes support for predefined or
 -- customized metrics.
@@ -346,7 +344,7 @@ putScalingPolicy_stepAdjustments = Lens.lens (\PutScalingPolicy' {stepAdjustment
 -- in the /Amazon EC2 Auto Scaling API Reference/.
 --
 -- Required if the policy type is @TargetTrackingScaling@.
-putScalingPolicy_targetTrackingConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetTrackingConfiguration)
+putScalingPolicy_targetTrackingConfiguration :: Lens.Lens' PutScalingPolicy (Core.Maybe TargetTrackingConfiguration)
 putScalingPolicy_targetTrackingConfiguration = Lens.lens (\PutScalingPolicy' {targetTrackingConfiguration} -> targetTrackingConfiguration) (\s@PutScalingPolicy' {} a -> s {targetTrackingConfiguration = a} :: PutScalingPolicy)
 
 -- | The aggregation type for the CloudWatch metrics. The valid values are
@@ -354,7 +352,7 @@ putScalingPolicy_targetTrackingConfiguration = Lens.lens (\PutScalingPolicy' {ta
 -- the value is treated as @Average@.
 --
 -- Valid only if the policy type is @StepScaling@.
-putScalingPolicy_metricAggregationType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
+putScalingPolicy_metricAggregationType :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Text)
 putScalingPolicy_metricAggregationType = Lens.lens (\PutScalingPolicy' {metricAggregationType} -> metricAggregationType) (\s@PutScalingPolicy' {} a -> s {metricAggregationType = a} :: PutScalingPolicy)
 
 -- | One of the following policy types:
@@ -364,7 +362,7 @@ putScalingPolicy_metricAggregationType = Lens.lens (\PutScalingPolicy' {metricAg
 -- -   @StepScaling@
 --
 -- -   @SimpleScaling@ (default)
-putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
+putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Text)
 putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
 
 -- | The duration of the policy\'s cooldown period, in seconds. When a
@@ -375,14 +373,14 @@ putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> poli
 -- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-putScalingPolicy_cooldown :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_cooldown :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Int)
 putScalingPolicy_cooldown = Lens.lens (\PutScalingPolicy' {cooldown} -> cooldown) (\s@PutScalingPolicy' {} a -> s {cooldown = a} :: PutScalingPolicy)
 
 -- | Indicates whether the scaling policy is enabled or disabled. The default
 -- is enabled. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html Disabling a scaling policy for an Auto Scaling group>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-putScalingPolicy_enabled :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Bool)
+putScalingPolicy_enabled :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Bool)
 putScalingPolicy_enabled = Lens.lens (\PutScalingPolicy' {enabled} -> enabled) (\s@PutScalingPolicy' {} a -> s {enabled = a} :: PutScalingPolicy)
 
 -- | The amount by which to scale, based on the specified adjustment type. A
@@ -392,7 +390,7 @@ putScalingPolicy_enabled = Lens.lens (\PutScalingPolicy' {enabled} -> enabled) (
 --
 -- Required if the policy type is @SimpleScaling@. (Not used with any other
 -- policy type.)
-putScalingPolicy_scalingAdjustment :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_scalingAdjustment :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Int)
 putScalingPolicy_scalingAdjustment = Lens.lens (\PutScalingPolicy' {scalingAdjustment} -> scalingAdjustment) (\s@PutScalingPolicy' {} a -> s {scalingAdjustment = a} :: PutScalingPolicy)
 
 -- | Specifies how the scaling adjustment is interpreted (for example, an
@@ -403,12 +401,12 @@ putScalingPolicy_scalingAdjustment = Lens.lens (\PutScalingPolicy' {scalingAdjus
 -- more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment Scaling adjustment types>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-putScalingPolicy_adjustmentType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Text)
+putScalingPolicy_adjustmentType :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Text)
 putScalingPolicy_adjustmentType = Lens.lens (\PutScalingPolicy' {adjustmentType} -> adjustmentType) (\s@PutScalingPolicy' {} a -> s {adjustmentType = a} :: PutScalingPolicy)
 
 -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
 -- instead.
-putScalingPolicy_minAdjustmentStep :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_minAdjustmentStep :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Int)
 putScalingPolicy_minAdjustmentStep = Lens.lens (\PutScalingPolicy' {minAdjustmentStep} -> minAdjustmentStep) (\s@PutScalingPolicy' {} a -> s {minAdjustmentStep = a} :: PutScalingPolicy)
 
 -- | The estimated time, in seconds, until a newly launched instance can
@@ -418,7 +416,7 @@ putScalingPolicy_minAdjustmentStep = Lens.lens (\PutScalingPolicy' {minAdjustmen
 --
 -- Valid only if the policy type is @TargetTrackingScaling@ or
 -- @StepScaling@.
-putScalingPolicy_estimatedInstanceWarmup :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_estimatedInstanceWarmup :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Int)
 putScalingPolicy_estimatedInstanceWarmup = Lens.lens (\PutScalingPolicy' {estimatedInstanceWarmup} -> estimatedInstanceWarmup) (\s@PutScalingPolicy' {} a -> s {estimatedInstanceWarmup = a} :: PutScalingPolicy)
 
 -- | The minimum value to scale by when the adjustment type is
@@ -437,71 +435,69 @@ putScalingPolicy_estimatedInstanceWarmup = Lens.lens (\PutScalingPolicy' {estima
 -- Some Auto Scaling groups use instance weights. In this case, set the
 -- @MinAdjustmentMagnitude@ to a value that is at least as large as your
 -- largest instance weight.
-putScalingPolicy_minAdjustmentMagnitude :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Int)
+putScalingPolicy_minAdjustmentMagnitude :: Lens.Lens' PutScalingPolicy (Core.Maybe Core.Int)
 putScalingPolicy_minAdjustmentMagnitude = Lens.lens (\PutScalingPolicy' {minAdjustmentMagnitude} -> minAdjustmentMagnitude) (\s@PutScalingPolicy' {} a -> s {minAdjustmentMagnitude = a} :: PutScalingPolicy)
 
 -- | The name of the Auto Scaling group.
-putScalingPolicy_autoScalingGroupName :: Lens.Lens' PutScalingPolicy Prelude.Text
+putScalingPolicy_autoScalingGroupName :: Lens.Lens' PutScalingPolicy Core.Text
 putScalingPolicy_autoScalingGroupName = Lens.lens (\PutScalingPolicy' {autoScalingGroupName} -> autoScalingGroupName) (\s@PutScalingPolicy' {} a -> s {autoScalingGroupName = a} :: PutScalingPolicy)
 
 -- | The name of the policy.
-putScalingPolicy_policyName :: Lens.Lens' PutScalingPolicy Prelude.Text
+putScalingPolicy_policyName :: Lens.Lens' PutScalingPolicy Core.Text
 putScalingPolicy_policyName = Lens.lens (\PutScalingPolicy' {policyName} -> policyName) (\s@PutScalingPolicy' {} a -> s {policyName = a} :: PutScalingPolicy)
 
-instance Prelude.AWSRequest PutScalingPolicy where
-  type Rs PutScalingPolicy = PutScalingPolicyResponse
+instance Core.AWSRequest PutScalingPolicy where
+  type
+    AWSResponse PutScalingPolicy =
+      PutScalingPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "PutScalingPolicyResult"
       ( \s h x ->
           PutScalingPolicyResponse'
-            Prelude.<$> ( x Prelude..@? "Alarms" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (x Prelude..@? "PolicyARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Alarms" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (x Core..@? "PolicyARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutScalingPolicy
+instance Core.Hashable PutScalingPolicy
 
-instance Prelude.NFData PutScalingPolicy
+instance Core.NFData PutScalingPolicy
 
-instance Prelude.ToHeaders PutScalingPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutScalingPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutScalingPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutScalingPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutScalingPolicy where
+instance Core.ToQuery PutScalingPolicy where
   toQuery PutScalingPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutScalingPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+          Core.=: ("PutScalingPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
         "StepAdjustments"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> stepAdjustments
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> stepAdjustments),
         "TargetTrackingConfiguration"
-          Prelude.=: targetTrackingConfiguration,
+          Core.=: targetTrackingConfiguration,
         "MetricAggregationType"
-          Prelude.=: metricAggregationType,
-        "PolicyType" Prelude.=: policyType,
-        "Cooldown" Prelude.=: cooldown,
-        "Enabled" Prelude.=: enabled,
-        "ScalingAdjustment" Prelude.=: scalingAdjustment,
-        "AdjustmentType" Prelude.=: adjustmentType,
-        "MinAdjustmentStep" Prelude.=: minAdjustmentStep,
+          Core.=: metricAggregationType,
+        "PolicyType" Core.=: policyType,
+        "Cooldown" Core.=: cooldown,
+        "Enabled" Core.=: enabled,
+        "ScalingAdjustment" Core.=: scalingAdjustment,
+        "AdjustmentType" Core.=: adjustmentType,
+        "MinAdjustmentStep" Core.=: minAdjustmentStep,
         "EstimatedInstanceWarmup"
-          Prelude.=: estimatedInstanceWarmup,
+          Core.=: estimatedInstanceWarmup,
         "MinAdjustmentMagnitude"
-          Prelude.=: minAdjustmentMagnitude,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
-        "PolicyName" Prelude.=: policyName
+          Core.=: minAdjustmentMagnitude,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "PolicyName" Core.=: policyName
       ]
 
 -- | Contains the output of PutScalingPolicy.
@@ -509,13 +505,13 @@ instance Prelude.ToQuery PutScalingPolicy where
 -- /See:/ 'newPutScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
   { -- | The CloudWatch alarms created for the target tracking scaling policy.
-    alarms :: Prelude.Maybe [Alarm],
+    alarms :: Core.Maybe [Alarm],
     -- | The Amazon Resource Name (ARN) of the policy.
-    policyARN :: Prelude.Maybe Prelude.Text,
+    policyARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutScalingPolicyResponse' with all optional fields omitted.
@@ -532,25 +528,25 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 -- 'httpStatus', 'putScalingPolicyResponse_httpStatus' - The response's http status code.
 newPutScalingPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutScalingPolicyResponse
 newPutScalingPolicyResponse pHttpStatus_ =
   PutScalingPolicyResponse'
-    { alarms = Prelude.Nothing,
-      policyARN = Prelude.Nothing,
+    { alarms = Core.Nothing,
+      policyARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The CloudWatch alarms created for the target tracking scaling policy.
-putScalingPolicyResponse_alarms :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe [Alarm])
-putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Prelude.. Lens.mapping Prelude._Coerce
+putScalingPolicyResponse_alarms :: Lens.Lens' PutScalingPolicyResponse (Core.Maybe [Alarm])
+putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the policy.
-putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe Prelude.Text)
+putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse (Core.Maybe Core.Text)
 putScalingPolicyResponse_policyARN = Lens.lens (\PutScalingPolicyResponse' {policyARN} -> policyARN) (\s@PutScalingPolicyResponse' {} a -> s {policyARN = a} :: PutScalingPolicyResponse)
 
 -- | The response's http status code.
-putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Prelude.Int
+putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Core.Int
 putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@PutScalingPolicyResponse' {} a -> s {httpStatus = a} :: PutScalingPolicyResponse)
 
-instance Prelude.NFData PutScalingPolicyResponse
+instance Core.NFData PutScalingPolicyResponse

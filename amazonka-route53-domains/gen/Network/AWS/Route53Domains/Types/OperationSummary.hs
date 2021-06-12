@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53Domains.Types.OperationSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53Domains.Types.OperationStatus
 import Network.AWS.Route53Domains.Types.OperationType
 
@@ -30,15 +29,15 @@ import Network.AWS.Route53Domains.Types.OperationType
 -- /See:/ 'newOperationSummary' smart constructor.
 data OperationSummary = OperationSummary'
   { -- | Identifier returned to track the requested action.
-    operationId :: Prelude.Text,
+    operationId :: Core.Text,
     -- | The current status of the requested operation in the system.
     status :: OperationStatus,
     -- | Type of the action requested.
     type' :: OperationType,
     -- | The date when the request was submitted.
-    submittedDate :: Prelude.POSIX
+    submittedDate :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OperationSummary' with all optional fields omitted.
@@ -57,13 +56,13 @@ data OperationSummary = OperationSummary'
 -- 'submittedDate', 'operationSummary_submittedDate' - The date when the request was submitted.
 newOperationSummary ::
   -- | 'operationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   OperationStatus ->
   -- | 'type''
   OperationType ->
   -- | 'submittedDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   OperationSummary
 newOperationSummary
   pOperationId_
@@ -74,11 +73,11 @@ newOperationSummary
       { operationId = pOperationId_,
         status = pStatus_,
         type' = pType_,
-        submittedDate = Prelude._Time Lens.# pSubmittedDate_
+        submittedDate = Core._Time Lens.# pSubmittedDate_
       }
 
 -- | Identifier returned to track the requested action.
-operationSummary_operationId :: Lens.Lens' OperationSummary Prelude.Text
+operationSummary_operationId :: Lens.Lens' OperationSummary Core.Text
 operationSummary_operationId = Lens.lens (\OperationSummary' {operationId} -> operationId) (\s@OperationSummary' {} a -> s {operationId = a} :: OperationSummary)
 
 -- | The current status of the requested operation in the system.
@@ -90,21 +89,21 @@ operationSummary_type :: Lens.Lens' OperationSummary OperationType
 operationSummary_type = Lens.lens (\OperationSummary' {type'} -> type') (\s@OperationSummary' {} a -> s {type' = a} :: OperationSummary)
 
 -- | The date when the request was submitted.
-operationSummary_submittedDate :: Lens.Lens' OperationSummary Prelude.UTCTime
-operationSummary_submittedDate = Lens.lens (\OperationSummary' {submittedDate} -> submittedDate) (\s@OperationSummary' {} a -> s {submittedDate = a} :: OperationSummary) Prelude.. Prelude._Time
+operationSummary_submittedDate :: Lens.Lens' OperationSummary Core.UTCTime
+operationSummary_submittedDate = Lens.lens (\OperationSummary' {submittedDate} -> submittedDate) (\s@OperationSummary' {} a -> s {submittedDate = a} :: OperationSummary) Core.. Core._Time
 
-instance Prelude.FromJSON OperationSummary where
+instance Core.FromJSON OperationSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OperationSummary"
       ( \x ->
           OperationSummary'
-            Prelude.<$> (x Prelude..: "OperationId")
-            Prelude.<*> (x Prelude..: "Status")
-            Prelude.<*> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "SubmittedDate")
+            Core.<$> (x Core..: "OperationId")
+            Core.<*> (x Core..: "Status")
+            Core.<*> (x Core..: "Type")
+            Core.<*> (x Core..: "SubmittedDate")
       )
 
-instance Prelude.Hashable OperationSummary
+instance Core.Hashable OperationSummary
 
-instance Prelude.NFData OperationSummary
+instance Core.NFData OperationSummary

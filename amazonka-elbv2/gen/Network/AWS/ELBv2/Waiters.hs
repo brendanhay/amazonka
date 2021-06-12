@@ -15,160 +15,151 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.DescribeLoadBalancers
 import Network.AWS.ELBv2.DescribeTargetHealth
 import Network.AWS.ELBv2.Lens
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newLoadBalancersDeleted :: Waiter.Wait DescribeLoadBalancers
+newLoadBalancersDeleted :: Core.Wait DescribeLoadBalancers
 newLoadBalancersDeleted =
-  Waiter.Wait
-    { Waiter._waitName =
-        "LoadBalancersDeleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "LoadBalancersDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "active"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeLoadBalancersResponse_loadBalancers
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. loadBalancer_state
-                Prelude.. Lens._Just
-                Prelude.. loadBalancerState_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. loadBalancer_state
+                Core.. Lens._Just
+                Core.. loadBalancerState_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "LoadBalancerNotFound"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newTargetDeregistered :: Waiter.Wait DescribeTargetHealth
+newTargetDeregistered :: Core.Wait DescribeTargetHealth
 newTargetDeregistered =
-  Waiter.Wait
-    { Waiter._waitName =
-        "TargetDeregistered",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchError
-            "InvalidTarget"
-            Waiter.AcceptSuccess,
-          Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "TargetDeregistered",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchError "InvalidTarget" Core.AcceptSuccess,
+          Core.matchAll
             "unused"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeTargetHealthResponse_targetHealthDescriptions
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. targetHealthDescription_targetHealth
-                Prelude.. Lens._Just
-                Prelude.. targetHealth_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. targetHealthDescription_targetHealth
+                Core.. Lens._Just
+                Core.. targetHealth_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newLoadBalancerAvailable :: Waiter.Wait DescribeLoadBalancers
+newLoadBalancerAvailable :: Core.Wait DescribeLoadBalancers
 newLoadBalancerAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
-        "LoadBalancerAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "LoadBalancerAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "active"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeLoadBalancersResponse_loadBalancers
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. loadBalancer_state
-                Prelude.. Lens._Just
-                Prelude.. loadBalancerState_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. loadBalancer_state
+                Core.. Lens._Just
+                Core.. loadBalancerState_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "provisioning"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeLoadBalancersResponse_loadBalancers
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. loadBalancer_state
-                Prelude.. Lens._Just
-                Prelude.. loadBalancerState_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. loadBalancer_state
+                Core.. Lens._Just
+                Core.. loadBalancerState_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "LoadBalancerNotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.ELBv2.DescribeTargetHealth' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newTargetInService :: Waiter.Wait DescribeTargetHealth
+newTargetInService :: Core.Wait DescribeTargetHealth
 newTargetInService =
-  Waiter.Wait
-    { Waiter._waitName = "TargetInService",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "TargetInService",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "healthy"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeTargetHealthResponse_targetHealthDescriptions
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. targetHealthDescription_targetHealth
-                Prelude.. Lens._Just
-                Prelude.. targetHealth_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. targetHealthDescription_targetHealth
+                Core.. Lens._Just
+                Core.. targetHealth_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
-            "InvalidInstance"
-            Waiter.AcceptRetry
+          Core.matchError "InvalidInstance" Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.ELBv2.DescribeLoadBalancers' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newLoadBalancerExists :: Waiter.Wait DescribeLoadBalancers
+newLoadBalancerExists :: Core.Wait DescribeLoadBalancers
 newLoadBalancerExists =
-  Waiter.Wait
-    { Waiter._waitName =
-        "LoadBalancerExists",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
-          Waiter.matchError
+  Core.Wait
+    { Core._waitName = "LoadBalancerExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
             "LoadBalancerNotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }

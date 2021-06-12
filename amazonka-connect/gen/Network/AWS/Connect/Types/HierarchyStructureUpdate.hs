@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,25 +20,25 @@
 module Network.AWS.Connect.Types.HierarchyStructureUpdate where
 
 import Network.AWS.Connect.Types.HierarchyLevelUpdate
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the level hierarchy to update.
 --
 -- /See:/ 'newHierarchyStructureUpdate' smart constructor.
 data HierarchyStructureUpdate = HierarchyStructureUpdate'
   { -- | The update for level three.
-    levelThree :: Prelude.Maybe HierarchyLevelUpdate,
+    levelThree :: Core.Maybe HierarchyLevelUpdate,
     -- | The update for level four.
-    levelFour :: Prelude.Maybe HierarchyLevelUpdate,
+    levelFour :: Core.Maybe HierarchyLevelUpdate,
     -- | The update for level two.
-    levelTwo :: Prelude.Maybe HierarchyLevelUpdate,
+    levelTwo :: Core.Maybe HierarchyLevelUpdate,
     -- | The update for level one.
-    levelOne :: Prelude.Maybe HierarchyLevelUpdate,
+    levelOne :: Core.Maybe HierarchyLevelUpdate,
     -- | The update for level five.
-    levelFive :: Prelude.Maybe HierarchyLevelUpdate
+    levelFive :: Core.Maybe HierarchyLevelUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HierarchyStructureUpdate' with all optional fields omitted.
@@ -63,45 +62,45 @@ newHierarchyStructureUpdate ::
 newHierarchyStructureUpdate =
   HierarchyStructureUpdate'
     { levelThree =
-        Prelude.Nothing,
-      levelFour = Prelude.Nothing,
-      levelTwo = Prelude.Nothing,
-      levelOne = Prelude.Nothing,
-      levelFive = Prelude.Nothing
+        Core.Nothing,
+      levelFour = Core.Nothing,
+      levelTwo = Core.Nothing,
+      levelOne = Core.Nothing,
+      levelFive = Core.Nothing
     }
 
 -- | The update for level three.
-hierarchyStructureUpdate_levelThree :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
+hierarchyStructureUpdate_levelThree :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelThree = Lens.lens (\HierarchyStructureUpdate' {levelThree} -> levelThree) (\s@HierarchyStructureUpdate' {} a -> s {levelThree = a} :: HierarchyStructureUpdate)
 
 -- | The update for level four.
-hierarchyStructureUpdate_levelFour :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
+hierarchyStructureUpdate_levelFour :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelFour = Lens.lens (\HierarchyStructureUpdate' {levelFour} -> levelFour) (\s@HierarchyStructureUpdate' {} a -> s {levelFour = a} :: HierarchyStructureUpdate)
 
 -- | The update for level two.
-hierarchyStructureUpdate_levelTwo :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
+hierarchyStructureUpdate_levelTwo :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelTwo = Lens.lens (\HierarchyStructureUpdate' {levelTwo} -> levelTwo) (\s@HierarchyStructureUpdate' {} a -> s {levelTwo = a} :: HierarchyStructureUpdate)
 
 -- | The update for level one.
-hierarchyStructureUpdate_levelOne :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
+hierarchyStructureUpdate_levelOne :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelOne = Lens.lens (\HierarchyStructureUpdate' {levelOne} -> levelOne) (\s@HierarchyStructureUpdate' {} a -> s {levelOne = a} :: HierarchyStructureUpdate)
 
 -- | The update for level five.
-hierarchyStructureUpdate_levelFive :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
+hierarchyStructureUpdate_levelFive :: Lens.Lens' HierarchyStructureUpdate (Core.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelFive = Lens.lens (\HierarchyStructureUpdate' {levelFive} -> levelFive) (\s@HierarchyStructureUpdate' {} a -> s {levelFive = a} :: HierarchyStructureUpdate)
 
-instance Prelude.Hashable HierarchyStructureUpdate
+instance Core.Hashable HierarchyStructureUpdate
 
-instance Prelude.NFData HierarchyStructureUpdate
+instance Core.NFData HierarchyStructureUpdate
 
-instance Prelude.ToJSON HierarchyStructureUpdate where
+instance Core.ToJSON HierarchyStructureUpdate where
   toJSON HierarchyStructureUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LevelThree" Prelude..=) Prelude.<$> levelThree,
-            ("LevelFour" Prelude..=) Prelude.<$> levelFour,
-            ("LevelTwo" Prelude..=) Prelude.<$> levelTwo,
-            ("LevelOne" Prelude..=) Prelude.<$> levelOne,
-            ("LevelFive" Prelude..=) Prelude.<$> levelFive
+    Core.object
+      ( Core.catMaybes
+          [ ("LevelThree" Core..=) Core.<$> levelThree,
+            ("LevelFour" Core..=) Core.<$> levelFour,
+            ("LevelTwo" Core..=) Core.<$> levelTwo,
+            ("LevelOne" Core..=) Core.<$> levelOne,
+            ("LevelFive" Core..=) Core.<$> levelFive
           ]
       )

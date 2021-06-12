@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.IoT.SetV2LoggingLevel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ data SetV2LoggingLevel = SetV2LoggingLevel'
     -- | The log level.
     logLevel :: LogLevel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetV2LoggingLevel' with all optional fields omitted.
@@ -83,39 +82,41 @@ setV2LoggingLevel_logTarget = Lens.lens (\SetV2LoggingLevel' {logTarget} -> logT
 setV2LoggingLevel_logLevel :: Lens.Lens' SetV2LoggingLevel LogLevel
 setV2LoggingLevel_logLevel = Lens.lens (\SetV2LoggingLevel' {logLevel} -> logLevel) (\s@SetV2LoggingLevel' {} a -> s {logLevel = a} :: SetV2LoggingLevel)
 
-instance Prelude.AWSRequest SetV2LoggingLevel where
-  type Rs SetV2LoggingLevel = SetV2LoggingLevelResponse
+instance Core.AWSRequest SetV2LoggingLevel where
+  type
+    AWSResponse SetV2LoggingLevel =
+      SetV2LoggingLevelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull SetV2LoggingLevelResponse'
 
-instance Prelude.Hashable SetV2LoggingLevel
+instance Core.Hashable SetV2LoggingLevel
 
-instance Prelude.NFData SetV2LoggingLevel
+instance Core.NFData SetV2LoggingLevel
 
-instance Prelude.ToHeaders SetV2LoggingLevel where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetV2LoggingLevel where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON SetV2LoggingLevel where
+instance Core.ToJSON SetV2LoggingLevel where
   toJSON SetV2LoggingLevel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("logTarget" Prelude..= logTarget),
-            Prelude.Just ("logLevel" Prelude..= logLevel)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logTarget" Core..= logTarget),
+            Core.Just ("logLevel" Core..= logLevel)
           ]
       )
 
-instance Prelude.ToPath SetV2LoggingLevel where
-  toPath = Prelude.const "/v2LoggingLevel"
+instance Core.ToPath SetV2LoggingLevel where
+  toPath = Core.const "/v2LoggingLevel"
 
-instance Prelude.ToQuery SetV2LoggingLevel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SetV2LoggingLevel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSetV2LoggingLevelResponse' smart constructor.
 data SetV2LoggingLevelResponse = SetV2LoggingLevelResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetV2LoggingLevelResponse' with all optional fields omitted.
@@ -126,4 +127,4 @@ newSetV2LoggingLevelResponse ::
 newSetV2LoggingLevelResponse =
   SetV2LoggingLevelResponse'
 
-instance Prelude.NFData SetV2LoggingLevelResponse
+instance Core.NFData SetV2LoggingLevelResponse

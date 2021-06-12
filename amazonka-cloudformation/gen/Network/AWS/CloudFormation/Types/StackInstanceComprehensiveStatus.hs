@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus where
 
 import Network.AWS.CloudFormation.Types.StackInstanceDetailedStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The detailed status of the stack instance.
 --
@@ -53,9 +52,9 @@ data StackInstanceComprehensiveStatus = StackInstanceComprehensiveStatus'
     --
     -- -   @SUCCEEDED@: The operation in the specified account and Region
     --     completed successfully.
-    detailedStatus :: Prelude.Maybe StackInstanceDetailedStatus
+    detailedStatus :: Core.Maybe StackInstanceDetailedStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StackInstanceComprehensiveStatus' with all optional fields omitted.
@@ -95,7 +94,7 @@ newStackInstanceComprehensiveStatus ::
 newStackInstanceComprehensiveStatus =
   StackInstanceComprehensiveStatus'
     { detailedStatus =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | -   @CANCELLED@: The operation in the specified account and Region has
@@ -123,21 +122,19 @@ newStackInstanceComprehensiveStatus =
 --
 -- -   @SUCCEEDED@: The operation in the specified account and Region
 --     completed successfully.
-stackInstanceComprehensiveStatus_detailedStatus :: Lens.Lens' StackInstanceComprehensiveStatus (Prelude.Maybe StackInstanceDetailedStatus)
+stackInstanceComprehensiveStatus_detailedStatus :: Lens.Lens' StackInstanceComprehensiveStatus (Core.Maybe StackInstanceDetailedStatus)
 stackInstanceComprehensiveStatus_detailedStatus = Lens.lens (\StackInstanceComprehensiveStatus' {detailedStatus} -> detailedStatus) (\s@StackInstanceComprehensiveStatus' {} a -> s {detailedStatus = a} :: StackInstanceComprehensiveStatus)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     StackInstanceComprehensiveStatus
   where
   parseXML x =
     StackInstanceComprehensiveStatus'
-      Prelude.<$> (x Prelude..@? "DetailedStatus")
+      Core.<$> (x Core..@? "DetailedStatus")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     StackInstanceComprehensiveStatus
 
-instance
-  Prelude.NFData
-    StackInstanceComprehensiveStatus
+instance Core.NFData StackInstanceComprehensiveStatus

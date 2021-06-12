@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EMR.CreateStudioSessionMapping
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +55,7 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
     -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
     -- @IdentityId@ must be specified.
-    identityName :: Prelude.Maybe Prelude.Text,
+    identityName :: Core.Maybe Core.Text,
     -- | The globally unique identifier (GUID) of the user or group from the AWS
     -- SSO Identity Store. For more information, see
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId>
@@ -64,19 +63,19 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
     -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
     -- @IdentityId@ must be specified.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | The ID of the Amazon EMR Studio to which the user or group will be
     -- mapped.
-    studioId :: Prelude.Text,
+    studioId :: Core.Text,
     -- | Specifies whether the identity to map to the Amazon EMR Studio is a user
     -- or a group.
     identityType :: IdentityType,
     -- | The Amazon Resource Name (ARN) for the session policy that will be
     -- applied to the user or group. Session policies refine Studio user
     -- permissions without the need to use multiple IAM user roles.
-    sessionPolicyArn :: Prelude.Text
+    sessionPolicyArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStudioSessionMapping' with all optional fields omitted.
@@ -112,11 +111,11 @@ data CreateStudioSessionMapping = CreateStudioSessionMapping'
 -- permissions without the need to use multiple IAM user roles.
 newCreateStudioSessionMapping ::
   -- | 'studioId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityType'
   IdentityType ->
   -- | 'sessionPolicyArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateStudioSessionMapping
 newCreateStudioSessionMapping
   pStudioId_
@@ -124,8 +123,8 @@ newCreateStudioSessionMapping
   pSessionPolicyArn_ =
     CreateStudioSessionMapping'
       { identityName =
-          Prelude.Nothing,
-        identityId = Prelude.Nothing,
+          Core.Nothing,
+        identityId = Core.Nothing,
         studioId = pStudioId_,
         identityType = pIdentityType_,
         sessionPolicyArn = pSessionPolicyArn_
@@ -137,7 +136,7 @@ newCreateStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
 -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
 -- @IdentityId@ must be specified.
-createStudioSessionMapping_identityName :: Lens.Lens' CreateStudioSessionMapping (Prelude.Maybe Prelude.Text)
+createStudioSessionMapping_identityName :: Lens.Lens' CreateStudioSessionMapping (Core.Maybe Core.Text)
 createStudioSessionMapping_identityName = Lens.lens (\CreateStudioSessionMapping' {identityName} -> identityName) (\s@CreateStudioSessionMapping' {} a -> s {identityName = a} :: CreateStudioSessionMapping)
 
 -- | The globally unique identifier (GUID) of the user or group from the AWS
@@ -147,12 +146,12 @@ createStudioSessionMapping_identityName = Lens.lens (\CreateStudioSessionMapping
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId>
 -- in the /AWS SSO Identity Store API Reference/. Either @IdentityName@ or
 -- @IdentityId@ must be specified.
-createStudioSessionMapping_identityId :: Lens.Lens' CreateStudioSessionMapping (Prelude.Maybe Prelude.Text)
+createStudioSessionMapping_identityId :: Lens.Lens' CreateStudioSessionMapping (Core.Maybe Core.Text)
 createStudioSessionMapping_identityId = Lens.lens (\CreateStudioSessionMapping' {identityId} -> identityId) (\s@CreateStudioSessionMapping' {} a -> s {identityId = a} :: CreateStudioSessionMapping)
 
 -- | The ID of the Amazon EMR Studio to which the user or group will be
 -- mapped.
-createStudioSessionMapping_studioId :: Lens.Lens' CreateStudioSessionMapping Prelude.Text
+createStudioSessionMapping_studioId :: Lens.Lens' CreateStudioSessionMapping Core.Text
 createStudioSessionMapping_studioId = Lens.lens (\CreateStudioSessionMapping' {studioId} -> studioId) (\s@CreateStudioSessionMapping' {} a -> s {studioId = a} :: CreateStudioSessionMapping)
 
 -- | Specifies whether the identity to map to the Amazon EMR Studio is a user
@@ -163,66 +162,59 @@ createStudioSessionMapping_identityType = Lens.lens (\CreateStudioSessionMapping
 -- | The Amazon Resource Name (ARN) for the session policy that will be
 -- applied to the user or group. Session policies refine Studio user
 -- permissions without the need to use multiple IAM user roles.
-createStudioSessionMapping_sessionPolicyArn :: Lens.Lens' CreateStudioSessionMapping Prelude.Text
+createStudioSessionMapping_sessionPolicyArn :: Lens.Lens' CreateStudioSessionMapping Core.Text
 createStudioSessionMapping_sessionPolicyArn = Lens.lens (\CreateStudioSessionMapping' {sessionPolicyArn} -> sessionPolicyArn) (\s@CreateStudioSessionMapping' {} a -> s {sessionPolicyArn = a} :: CreateStudioSessionMapping)
 
-instance
-  Prelude.AWSRequest
-    CreateStudioSessionMapping
-  where
+instance Core.AWSRequest CreateStudioSessionMapping where
   type
-    Rs CreateStudioSessionMapping =
+    AWSResponse CreateStudioSessionMapping =
       CreateStudioSessionMappingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       CreateStudioSessionMappingResponse'
 
-instance Prelude.Hashable CreateStudioSessionMapping
+instance Core.Hashable CreateStudioSessionMapping
 
-instance Prelude.NFData CreateStudioSessionMapping
+instance Core.NFData CreateStudioSessionMapping
 
-instance Prelude.ToHeaders CreateStudioSessionMapping where
+instance Core.ToHeaders CreateStudioSessionMapping where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.CreateStudioSessionMapping" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.CreateStudioSessionMapping" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateStudioSessionMapping where
+instance Core.ToJSON CreateStudioSessionMapping where
   toJSON CreateStudioSessionMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IdentityName" Prelude..=)
-              Prelude.<$> identityName,
-            ("IdentityId" Prelude..=) Prelude.<$> identityId,
-            Prelude.Just ("StudioId" Prelude..= studioId),
-            Prelude.Just
-              ("IdentityType" Prelude..= identityType),
-            Prelude.Just
-              ("SessionPolicyArn" Prelude..= sessionPolicyArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("IdentityName" Core..=) Core.<$> identityName,
+            ("IdentityId" Core..=) Core.<$> identityId,
+            Core.Just ("StudioId" Core..= studioId),
+            Core.Just ("IdentityType" Core..= identityType),
+            Core.Just
+              ("SessionPolicyArn" Core..= sessionPolicyArn)
           ]
       )
 
-instance Prelude.ToPath CreateStudioSessionMapping where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateStudioSessionMapping where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateStudioSessionMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateStudioSessionMapping where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateStudioSessionMappingResponse' smart constructor.
 data CreateStudioSessionMappingResponse = CreateStudioSessionMappingResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStudioSessionMappingResponse' with all optional fields omitted.
@@ -234,5 +226,5 @@ newCreateStudioSessionMappingResponse =
   CreateStudioSessionMappingResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateStudioSessionMappingResponse

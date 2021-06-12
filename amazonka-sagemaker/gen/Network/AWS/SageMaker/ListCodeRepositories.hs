@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.SageMaker.ListCodeRepositories
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -62,31 +60,31 @@ import Network.AWS.SageMaker.Types
 data ListCodeRepositories = ListCodeRepositories'
   { -- | A filter that returns only Git repositories that were last modified
     -- before the specified time.
-    lastModifiedTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTimeBefore :: Core.Maybe Core.POSIX,
     -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe CodeRepositorySortOrder,
+    sortOrder :: Core.Maybe CodeRepositorySortOrder,
     -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
     -- the response includes a @NextToken@. To get the next set of Git
     -- repositories, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A string in the Git repositories name. This filter returns only
     -- repositories whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of Git repositories to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A filter that returns only Git repositories that were created before the
     -- specified time.
-    creationTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    creationTimeBefore :: Core.Maybe Core.POSIX,
     -- | A filter that returns only Git repositories that were last modified
     -- after the specified time.
-    lastModifiedTimeAfter :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTimeAfter :: Core.Maybe Core.POSIX,
     -- | The field to sort results by. The default is @Name@.
-    sortBy :: Prelude.Maybe CodeRepositorySortBy,
+    sortBy :: Core.Maybe CodeRepositorySortBy,
     -- | A filter that returns only Git repositories that were created after the
     -- specified time.
-    creationTimeAfter :: Prelude.Maybe Prelude.POSIX
+    creationTimeAfter :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCodeRepositories' with all optional fields omitted.
@@ -125,150 +123,148 @@ newListCodeRepositories ::
 newListCodeRepositories =
   ListCodeRepositories'
     { lastModifiedTimeBefore =
-        Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+        Core.Nothing,
+      sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      lastModifiedTimeAfter = Core.Nothing,
+      sortBy = Core.Nothing,
+      creationTimeAfter = Core.Nothing
     }
 
 -- | A filter that returns only Git repositories that were last modified
 -- before the specified time.
-listCodeRepositories_lastModifiedTimeBefore :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_lastModifiedTimeBefore = Lens.lens (\ListCodeRepositories' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeBefore = a} :: ListCodeRepositories) Prelude.. Lens.mapping Prelude._Time
+listCodeRepositories_lastModifiedTimeBefore :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.UTCTime)
+listCodeRepositories_lastModifiedTimeBefore = Lens.lens (\ListCodeRepositories' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeBefore = a} :: ListCodeRepositories) Core.. Lens.mapping Core._Time
 
 -- | The sort order for results. The default is @Ascending@.
-listCodeRepositories_sortOrder :: Lens.Lens' ListCodeRepositories (Prelude.Maybe CodeRepositorySortOrder)
+listCodeRepositories_sortOrder :: Lens.Lens' ListCodeRepositories (Core.Maybe CodeRepositorySortOrder)
 listCodeRepositories_sortOrder = Lens.lens (\ListCodeRepositories' {sortOrder} -> sortOrder) (\s@ListCodeRepositories' {} a -> s {sortOrder = a} :: ListCodeRepositories)
 
 -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
 -- the response includes a @NextToken@. To get the next set of Git
 -- repositories, use the token in the next request.
-listCodeRepositories_nextToken :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Text)
+listCodeRepositories_nextToken :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.Text)
 listCodeRepositories_nextToken = Lens.lens (\ListCodeRepositories' {nextToken} -> nextToken) (\s@ListCodeRepositories' {} a -> s {nextToken = a} :: ListCodeRepositories)
 
 -- | A string in the Git repositories name. This filter returns only
 -- repositories whose name contains the specified string.
-listCodeRepositories_nameContains :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Text)
+listCodeRepositories_nameContains :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.Text)
 listCodeRepositories_nameContains = Lens.lens (\ListCodeRepositories' {nameContains} -> nameContains) (\s@ListCodeRepositories' {} a -> s {nameContains = a} :: ListCodeRepositories)
 
 -- | The maximum number of Git repositories to return in the response.
-listCodeRepositories_maxResults :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.Natural)
+listCodeRepositories_maxResults :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.Natural)
 listCodeRepositories_maxResults = Lens.lens (\ListCodeRepositories' {maxResults} -> maxResults) (\s@ListCodeRepositories' {} a -> s {maxResults = a} :: ListCodeRepositories)
 
 -- | A filter that returns only Git repositories that were created before the
 -- specified time.
-listCodeRepositories_creationTimeBefore :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_creationTimeBefore = Lens.lens (\ListCodeRepositories' {creationTimeBefore} -> creationTimeBefore) (\s@ListCodeRepositories' {} a -> s {creationTimeBefore = a} :: ListCodeRepositories) Prelude.. Lens.mapping Prelude._Time
+listCodeRepositories_creationTimeBefore :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.UTCTime)
+listCodeRepositories_creationTimeBefore = Lens.lens (\ListCodeRepositories' {creationTimeBefore} -> creationTimeBefore) (\s@ListCodeRepositories' {} a -> s {creationTimeBefore = a} :: ListCodeRepositories) Core.. Lens.mapping Core._Time
 
 -- | A filter that returns only Git repositories that were last modified
 -- after the specified time.
-listCodeRepositories_lastModifiedTimeAfter :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_lastModifiedTimeAfter = Lens.lens (\ListCodeRepositories' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeAfter = a} :: ListCodeRepositories) Prelude.. Lens.mapping Prelude._Time
+listCodeRepositories_lastModifiedTimeAfter :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.UTCTime)
+listCodeRepositories_lastModifiedTimeAfter = Lens.lens (\ListCodeRepositories' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListCodeRepositories' {} a -> s {lastModifiedTimeAfter = a} :: ListCodeRepositories) Core.. Lens.mapping Core._Time
 
 -- | The field to sort results by. The default is @Name@.
-listCodeRepositories_sortBy :: Lens.Lens' ListCodeRepositories (Prelude.Maybe CodeRepositorySortBy)
+listCodeRepositories_sortBy :: Lens.Lens' ListCodeRepositories (Core.Maybe CodeRepositorySortBy)
 listCodeRepositories_sortBy = Lens.lens (\ListCodeRepositories' {sortBy} -> sortBy) (\s@ListCodeRepositories' {} a -> s {sortBy = a} :: ListCodeRepositories)
 
 -- | A filter that returns only Git repositories that were created after the
 -- specified time.
-listCodeRepositories_creationTimeAfter :: Lens.Lens' ListCodeRepositories (Prelude.Maybe Prelude.UTCTime)
-listCodeRepositories_creationTimeAfter = Lens.lens (\ListCodeRepositories' {creationTimeAfter} -> creationTimeAfter) (\s@ListCodeRepositories' {} a -> s {creationTimeAfter = a} :: ListCodeRepositories) Prelude.. Lens.mapping Prelude._Time
+listCodeRepositories_creationTimeAfter :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.UTCTime)
+listCodeRepositories_creationTimeAfter = Lens.lens (\ListCodeRepositories' {creationTimeAfter} -> creationTimeAfter) (\s@ListCodeRepositories' {} a -> s {creationTimeAfter = a} :: ListCodeRepositories) Core.. Lens.mapping Core._Time
 
-instance Pager.AWSPager ListCodeRepositories where
+instance Core.AWSPager ListCodeRepositories where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listCodeRepositoriesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listCodeRepositoriesResponse_codeRepositorySummaryList
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listCodeRepositories_nextToken
           Lens..~ rs
           Lens.^? listCodeRepositoriesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListCodeRepositories where
+instance Core.AWSRequest ListCodeRepositories where
   type
-    Rs ListCodeRepositories =
+    AWSResponse ListCodeRepositories =
       ListCodeRepositoriesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListCodeRepositoriesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "CodeRepositorySummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "CodeRepositorySummaryList"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ListCodeRepositories
+instance Core.Hashable ListCodeRepositories
 
-instance Prelude.NFData ListCodeRepositories
+instance Core.NFData ListCodeRepositories
 
-instance Prelude.ToHeaders ListCodeRepositories where
+instance Core.ToHeaders ListCodeRepositories where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.ListCodeRepositories" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.ListCodeRepositories" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListCodeRepositories where
+instance Core.ToJSON ListCodeRepositories where
   toJSON ListCodeRepositories' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LastModifiedTimeBefore" Prelude..=)
-              Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NameContains" Prelude..=) Prelude.<$> nameContains,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("CreationTimeBefore" Prelude..=)
-              Prelude.<$> creationTimeBefore,
-            ("LastModifiedTimeAfter" Prelude..=)
-              Prelude.<$> lastModifiedTimeAfter,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Prelude..=)
-              Prelude.<$> creationTimeAfter
+    Core.object
+      ( Core.catMaybes
+          [ ("LastModifiedTimeBefore" Core..=)
+              Core.<$> lastModifiedTimeBefore,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("CreationTimeBefore" Core..=)
+              Core.<$> creationTimeBefore,
+            ("LastModifiedTimeAfter" Core..=)
+              Core.<$> lastModifiedTimeAfter,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("CreationTimeAfter" Core..=)
+              Core.<$> creationTimeAfter
           ]
       )
 
-instance Prelude.ToPath ListCodeRepositories where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListCodeRepositories where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListCodeRepositories where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListCodeRepositories where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListCodeRepositoriesResponse' smart constructor.
 data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
   { -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
     -- the response includes a @NextToken@. To get the next set of Git
     -- repositories, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Gets a list of summaries of the Git repositories. Each summary specifies
     -- the following values for the repository:
     --
@@ -285,7 +281,7 @@ data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
     --     contains the credentials used to access the repository.
     codeRepositorySummaryList :: [CodeRepositorySummary]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCodeRepositoriesResponse' with all optional fields omitted.
@@ -317,24 +313,24 @@ data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
 --     contains the credentials used to access the repository.
 newListCodeRepositoriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListCodeRepositoriesResponse
 newListCodeRepositoriesResponse pHttpStatus_ =
   ListCodeRepositoriesResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      codeRepositorySummaryList = Prelude.mempty
+      codeRepositorySummaryList = Core.mempty
     }
 
 -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated,
 -- the response includes a @NextToken@. To get the next set of Git
 -- repositories, use the token in the next request.
-listCodeRepositoriesResponse_nextToken :: Lens.Lens' ListCodeRepositoriesResponse (Prelude.Maybe Prelude.Text)
+listCodeRepositoriesResponse_nextToken :: Lens.Lens' ListCodeRepositoriesResponse (Core.Maybe Core.Text)
 listCodeRepositoriesResponse_nextToken = Lens.lens (\ListCodeRepositoriesResponse' {nextToken} -> nextToken) (\s@ListCodeRepositoriesResponse' {} a -> s {nextToken = a} :: ListCodeRepositoriesResponse)
 
 -- | The response's http status code.
-listCodeRepositoriesResponse_httpStatus :: Lens.Lens' ListCodeRepositoriesResponse Prelude.Int
+listCodeRepositoriesResponse_httpStatus :: Lens.Lens' ListCodeRepositoriesResponse Core.Int
 listCodeRepositoriesResponse_httpStatus = Lens.lens (\ListCodeRepositoriesResponse' {httpStatus} -> httpStatus) (\s@ListCodeRepositoriesResponse' {} a -> s {httpStatus = a} :: ListCodeRepositoriesResponse)
 
 -- | Gets a list of summaries of the Git repositories. Each summary specifies
@@ -352,6 +348,6 @@ listCodeRepositoriesResponse_httpStatus = Lens.lens (\ListCodeRepositoriesRespon
 --     repository and the ARN of the AWS Secrets Manager secret that
 --     contains the credentials used to access the repository.
 listCodeRepositoriesResponse_codeRepositorySummaryList :: Lens.Lens' ListCodeRepositoriesResponse [CodeRepositorySummary]
-listCodeRepositoriesResponse_codeRepositorySummaryList = Lens.lens (\ListCodeRepositoriesResponse' {codeRepositorySummaryList} -> codeRepositorySummaryList) (\s@ListCodeRepositoriesResponse' {} a -> s {codeRepositorySummaryList = a} :: ListCodeRepositoriesResponse) Prelude.. Prelude._Coerce
+listCodeRepositoriesResponse_codeRepositorySummaryList = Lens.lens (\ListCodeRepositoriesResponse' {codeRepositorySummaryList} -> codeRepositorySummaryList) (\s@ListCodeRepositoriesResponse' {} a -> s {codeRepositorySummaryList = a} :: ListCodeRepositoriesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListCodeRepositoriesResponse
+instance Core.NFData ListCodeRepositoriesResponse

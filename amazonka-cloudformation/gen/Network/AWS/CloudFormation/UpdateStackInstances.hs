@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,8 +68,8 @@ module Network.AWS.CloudFormation.UpdateStackInstances
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -116,7 +115,7 @@ data UpdateStackInstances = UpdateStackInstances'
     -- value specified in the stack set. Once a stack instance has been updated
     -- with the new parameter, you can then override the parameter value using
     -- @UpdateStackInstances@.
-    parameterOverrides :: Prelude.Maybe [Parameter],
+    parameterOverrides :: Core.Maybe [Parameter],
     -- | [Service-managed permissions] The AWS Organizations accounts for which
     -- you want to update parameter values for stack instances. If your update
     -- targets OUs, the overridden parameter values only apply to the accounts
@@ -125,7 +124,7 @@ data UpdateStackInstances = UpdateStackInstances'
     -- overridden values.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    deploymentTargets :: Prelude.Maybe DeploymentTargets,
+    deploymentTargets :: Core.Maybe DeploymentTargets,
     -- | The unique identifier for this stack set operation.
     --
     -- The operation ID also functions as an idempotency token, to ensure that
@@ -136,7 +135,7 @@ data UpdateStackInstances = UpdateStackInstances'
     --
     -- If you don\'t specify an operation ID, the SDK generates one
     -- automatically.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -153,26 +152,26 @@ data UpdateStackInstances = UpdateStackInstances'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs,
+    callAs :: Core.Maybe CallAs,
     -- | Preferences for how AWS CloudFormation performs this stack set
     -- operation.
-    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    operationPreferences :: Core.Maybe StackSetOperationPreferences,
     -- | [Self-managed permissions] The names of one or more AWS accounts for
     -- which you want to update parameter values for stack instances. The
     -- overridden parameter values will be applied to all stack instances in
     -- the specified accounts and Regions.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-    accounts :: Prelude.Maybe [Prelude.Text],
+    accounts :: Core.Maybe [Core.Text],
     -- | The name or unique ID of the stack set associated with the stack
     -- instances.
-    stackSetName :: Prelude.Text,
+    stackSetName :: Core.Text,
     -- | The names of one or more Regions in which you want to update parameter
     -- values for stack instances. The overridden parameter values will be
     -- applied to all stack instances in the specified accounts and Regions.
-    regions :: [Prelude.Text]
+    regions :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStackInstances' with all optional fields omitted.
@@ -278,19 +277,19 @@ data UpdateStackInstances = UpdateStackInstances'
 -- applied to all stack instances in the specified accounts and Regions.
 newUpdateStackInstances ::
   -- | 'stackSetName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateStackInstances
 newUpdateStackInstances pStackSetName_ =
   UpdateStackInstances'
     { parameterOverrides =
-        Prelude.Nothing,
-      deploymentTargets = Prelude.Nothing,
-      operationId = Prelude.Nothing,
-      callAs = Prelude.Nothing,
-      operationPreferences = Prelude.Nothing,
-      accounts = Prelude.Nothing,
+        Core.Nothing,
+      deploymentTargets = Core.Nothing,
+      operationId = Core.Nothing,
+      callAs = Core.Nothing,
+      operationPreferences = Core.Nothing,
+      accounts = Core.Nothing,
       stackSetName = pStackSetName_,
-      regions = Prelude.mempty
+      regions = Core.mempty
     }
 
 -- | A list of input parameters whose values you want to update for the
@@ -333,8 +332,8 @@ newUpdateStackInstances pStackSetName_ =
 -- value specified in the stack set. Once a stack instance has been updated
 -- with the new parameter, you can then override the parameter value using
 -- @UpdateStackInstances@.
-updateStackInstances_parameterOverrides :: Lens.Lens' UpdateStackInstances (Prelude.Maybe [Parameter])
-updateStackInstances_parameterOverrides = Lens.lens (\UpdateStackInstances' {parameterOverrides} -> parameterOverrides) (\s@UpdateStackInstances' {} a -> s {parameterOverrides = a} :: UpdateStackInstances) Prelude.. Lens.mapping Prelude._Coerce
+updateStackInstances_parameterOverrides :: Lens.Lens' UpdateStackInstances (Core.Maybe [Parameter])
+updateStackInstances_parameterOverrides = Lens.lens (\UpdateStackInstances' {parameterOverrides} -> parameterOverrides) (\s@UpdateStackInstances' {} a -> s {parameterOverrides = a} :: UpdateStackInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | [Service-managed permissions] The AWS Organizations accounts for which
 -- you want to update parameter values for stack instances. If your update
@@ -344,7 +343,7 @@ updateStackInstances_parameterOverrides = Lens.lens (\UpdateStackInstances' {par
 -- overridden values.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-updateStackInstances_deploymentTargets :: Lens.Lens' UpdateStackInstances (Prelude.Maybe DeploymentTargets)
+updateStackInstances_deploymentTargets :: Lens.Lens' UpdateStackInstances (Core.Maybe DeploymentTargets)
 updateStackInstances_deploymentTargets = Lens.lens (\UpdateStackInstances' {deploymentTargets} -> deploymentTargets) (\s@UpdateStackInstances' {} a -> s {deploymentTargets = a} :: UpdateStackInstances)
 
 -- | The unique identifier for this stack set operation.
@@ -357,7 +356,7 @@ updateStackInstances_deploymentTargets = Lens.lens (\UpdateStackInstances' {depl
 --
 -- If you don\'t specify an operation ID, the SDK generates one
 -- automatically.
-updateStackInstances_operationId :: Lens.Lens' UpdateStackInstances (Prelude.Maybe Prelude.Text)
+updateStackInstances_operationId :: Lens.Lens' UpdateStackInstances (Core.Maybe Core.Text)
 updateStackInstances_operationId = Lens.lens (\UpdateStackInstances' {operationId} -> operationId) (\s@UpdateStackInstances' {} a -> s {operationId = a} :: UpdateStackInstances)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
@@ -376,12 +375,12 @@ updateStackInstances_operationId = Lens.lens (\UpdateStackInstances' {operationI
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-updateStackInstances_callAs :: Lens.Lens' UpdateStackInstances (Prelude.Maybe CallAs)
+updateStackInstances_callAs :: Lens.Lens' UpdateStackInstances (Core.Maybe CallAs)
 updateStackInstances_callAs = Lens.lens (\UpdateStackInstances' {callAs} -> callAs) (\s@UpdateStackInstances' {} a -> s {callAs = a} :: UpdateStackInstances)
 
 -- | Preferences for how AWS CloudFormation performs this stack set
 -- operation.
-updateStackInstances_operationPreferences :: Lens.Lens' UpdateStackInstances (Prelude.Maybe StackSetOperationPreferences)
+updateStackInstances_operationPreferences :: Lens.Lens' UpdateStackInstances (Core.Maybe StackSetOperationPreferences)
 updateStackInstances_operationPreferences = Lens.lens (\UpdateStackInstances' {operationPreferences} -> operationPreferences) (\s@UpdateStackInstances' {} a -> s {operationPreferences = a} :: UpdateStackInstances)
 
 -- | [Self-managed permissions] The names of one or more AWS accounts for
@@ -390,23 +389,23 @@ updateStackInstances_operationPreferences = Lens.lens (\UpdateStackInstances' {o
 -- the specified accounts and Regions.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
-updateStackInstances_accounts :: Lens.Lens' UpdateStackInstances (Prelude.Maybe [Prelude.Text])
-updateStackInstances_accounts = Lens.lens (\UpdateStackInstances' {accounts} -> accounts) (\s@UpdateStackInstances' {} a -> s {accounts = a} :: UpdateStackInstances) Prelude.. Lens.mapping Prelude._Coerce
+updateStackInstances_accounts :: Lens.Lens' UpdateStackInstances (Core.Maybe [Core.Text])
+updateStackInstances_accounts = Lens.lens (\UpdateStackInstances' {accounts} -> accounts) (\s@UpdateStackInstances' {} a -> s {accounts = a} :: UpdateStackInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The name or unique ID of the stack set associated with the stack
 -- instances.
-updateStackInstances_stackSetName :: Lens.Lens' UpdateStackInstances Prelude.Text
+updateStackInstances_stackSetName :: Lens.Lens' UpdateStackInstances Core.Text
 updateStackInstances_stackSetName = Lens.lens (\UpdateStackInstances' {stackSetName} -> stackSetName) (\s@UpdateStackInstances' {} a -> s {stackSetName = a} :: UpdateStackInstances)
 
 -- | The names of one or more Regions in which you want to update parameter
 -- values for stack instances. The overridden parameter values will be
 -- applied to all stack instances in the specified accounts and Regions.
-updateStackInstances_regions :: Lens.Lens' UpdateStackInstances [Prelude.Text]
-updateStackInstances_regions = Lens.lens (\UpdateStackInstances' {regions} -> regions) (\s@UpdateStackInstances' {} a -> s {regions = a} :: UpdateStackInstances) Prelude.. Prelude._Coerce
+updateStackInstances_regions :: Lens.Lens' UpdateStackInstances [Core.Text]
+updateStackInstances_regions = Lens.lens (\UpdateStackInstances' {regions} -> regions) (\s@UpdateStackInstances' {} a -> s {regions = a} :: UpdateStackInstances) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UpdateStackInstances where
+instance Core.AWSRequest UpdateStackInstances where
   type
-    Rs UpdateStackInstances =
+    AWSResponse UpdateStackInstances =
       UpdateStackInstancesResponse
   request = Request.postQuery defaultService
   response =
@@ -414,53 +413,50 @@ instance Prelude.AWSRequest UpdateStackInstances where
       "UpdateStackInstancesResult"
       ( \s h x ->
           UpdateStackInstancesResponse'
-            Prelude.<$> (x Prelude..@? "OperationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "OperationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateStackInstances
+instance Core.Hashable UpdateStackInstances
 
-instance Prelude.NFData UpdateStackInstances
+instance Core.NFData UpdateStackInstances
 
-instance Prelude.ToHeaders UpdateStackInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateStackInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateStackInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateStackInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateStackInstances where
+instance Core.ToQuery UpdateStackInstances where
   toQuery UpdateStackInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateStackInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
+          Core.=: ("UpdateStackInstances" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
         "ParameterOverrides"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> parameterOverrides
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> parameterOverrides
             ),
-        "DeploymentTargets" Prelude.=: deploymentTargets,
-        "OperationId" Prelude.=: operationId,
-        "CallAs" Prelude.=: callAs,
-        "OperationPreferences"
-          Prelude.=: operationPreferences,
+        "DeploymentTargets" Core.=: deploymentTargets,
+        "OperationId" Core.=: operationId,
+        "CallAs" Core.=: callAs,
+        "OperationPreferences" Core.=: operationPreferences,
         "Accounts"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> accounts),
-        "StackSetName" Prelude.=: stackSetName,
-        "Regions"
-          Prelude.=: Prelude.toQueryList "member" regions
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> accounts),
+        "StackSetName" Core.=: stackSetName,
+        "Regions" Core.=: Core.toQueryList "member" regions
       ]
 
 -- | /See:/ 'newUpdateStackInstancesResponse' smart constructor.
 data UpdateStackInstancesResponse = UpdateStackInstancesResponse'
   { -- | The unique identifier for this stack set operation.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStackInstancesResponse' with all optional fields omitted.
@@ -475,21 +471,21 @@ data UpdateStackInstancesResponse = UpdateStackInstancesResponse'
 -- 'httpStatus', 'updateStackInstancesResponse_httpStatus' - The response's http status code.
 newUpdateStackInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateStackInstancesResponse
 newUpdateStackInstancesResponse pHttpStatus_ =
   UpdateStackInstancesResponse'
     { operationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier for this stack set operation.
-updateStackInstancesResponse_operationId :: Lens.Lens' UpdateStackInstancesResponse (Prelude.Maybe Prelude.Text)
+updateStackInstancesResponse_operationId :: Lens.Lens' UpdateStackInstancesResponse (Core.Maybe Core.Text)
 updateStackInstancesResponse_operationId = Lens.lens (\UpdateStackInstancesResponse' {operationId} -> operationId) (\s@UpdateStackInstancesResponse' {} a -> s {operationId = a} :: UpdateStackInstancesResponse)
 
 -- | The response's http status code.
-updateStackInstancesResponse_httpStatus :: Lens.Lens' UpdateStackInstancesResponse Prelude.Int
+updateStackInstancesResponse_httpStatus :: Lens.Lens' UpdateStackInstancesResponse Core.Int
 updateStackInstancesResponse_httpStatus = Lens.lens (\UpdateStackInstancesResponse' {httpStatus} -> httpStatus) (\s@UpdateStackInstancesResponse' {} a -> s {httpStatus = a} :: UpdateStackInstancesResponse)
 
-instance Prelude.NFData UpdateStackInstancesResponse
+instance Core.NFData UpdateStackInstancesResponse

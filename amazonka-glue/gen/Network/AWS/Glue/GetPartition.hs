@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Glue.GetPartition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +52,15 @@ import qualified Network.AWS.Response as Response
 data GetPartition = GetPartition'
   { -- | The ID of the Data Catalog where the partition in question resides. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database where the partition resides.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the partition\'s table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | The values that define the partition.
-    partitionValues :: [Prelude.Text]
+    partitionValues :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPartition' with all optional fields omitted.
@@ -81,90 +80,87 @@ data GetPartition = GetPartition'
 -- 'partitionValues', 'getPartition_partitionValues' - The values that define the partition.
 newGetPartition ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   GetPartition
 newGetPartition pDatabaseName_ pTableName_ =
   GetPartition'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_,
-      partitionValues = Prelude.mempty
+      partitionValues = Core.mempty
     }
 
 -- | The ID of the Data Catalog where the partition in question resides. If
 -- none is provided, the AWS account ID is used by default.
-getPartition_catalogId :: Lens.Lens' GetPartition (Prelude.Maybe Prelude.Text)
+getPartition_catalogId :: Lens.Lens' GetPartition (Core.Maybe Core.Text)
 getPartition_catalogId = Lens.lens (\GetPartition' {catalogId} -> catalogId) (\s@GetPartition' {} a -> s {catalogId = a} :: GetPartition)
 
 -- | The name of the catalog database where the partition resides.
-getPartition_databaseName :: Lens.Lens' GetPartition Prelude.Text
+getPartition_databaseName :: Lens.Lens' GetPartition Core.Text
 getPartition_databaseName = Lens.lens (\GetPartition' {databaseName} -> databaseName) (\s@GetPartition' {} a -> s {databaseName = a} :: GetPartition)
 
 -- | The name of the partition\'s table.
-getPartition_tableName :: Lens.Lens' GetPartition Prelude.Text
+getPartition_tableName :: Lens.Lens' GetPartition Core.Text
 getPartition_tableName = Lens.lens (\GetPartition' {tableName} -> tableName) (\s@GetPartition' {} a -> s {tableName = a} :: GetPartition)
 
 -- | The values that define the partition.
-getPartition_partitionValues :: Lens.Lens' GetPartition [Prelude.Text]
-getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> partitionValues) (\s@GetPartition' {} a -> s {partitionValues = a} :: GetPartition) Prelude.. Prelude._Coerce
+getPartition_partitionValues :: Lens.Lens' GetPartition [Core.Text]
+getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> partitionValues) (\s@GetPartition' {} a -> s {partitionValues = a} :: GetPartition) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest GetPartition where
-  type Rs GetPartition = GetPartitionResponse
+instance Core.AWSRequest GetPartition where
+  type AWSResponse GetPartition = GetPartitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPartitionResponse'
-            Prelude.<$> (x Prelude..?> "Partition")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Partition")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPartition
+instance Core.Hashable GetPartition
 
-instance Prelude.NFData GetPartition
+instance Core.NFData GetPartition
 
-instance Prelude.ToHeaders GetPartition where
+instance Core.ToHeaders GetPartition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetPartition" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetPartition" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetPartition where
+instance Core.ToJSON GetPartition where
   toJSON GetPartition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ("PartitionValues" Prelude..= partitionValues)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("PartitionValues" Core..= partitionValues)
           ]
       )
 
-instance Prelude.ToPath GetPartition where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPartition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPartition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPartition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetPartitionResponse' smart constructor.
 data GetPartitionResponse = GetPartitionResponse'
   { -- | The requested information, in the form of a @Partition@ object.
-    partition :: Prelude.Maybe Partition,
+    partition :: Core.Maybe Partition,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPartitionResponse' with all optional fields omitted.
@@ -179,20 +175,20 @@ data GetPartitionResponse = GetPartitionResponse'
 -- 'httpStatus', 'getPartitionResponse_httpStatus' - The response's http status code.
 newGetPartitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPartitionResponse
 newGetPartitionResponse pHttpStatus_ =
   GetPartitionResponse'
-    { partition = Prelude.Nothing,
+    { partition = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested information, in the form of a @Partition@ object.
-getPartitionResponse_partition :: Lens.Lens' GetPartitionResponse (Prelude.Maybe Partition)
+getPartitionResponse_partition :: Lens.Lens' GetPartitionResponse (Core.Maybe Partition)
 getPartitionResponse_partition = Lens.lens (\GetPartitionResponse' {partition} -> partition) (\s@GetPartitionResponse' {} a -> s {partition = a} :: GetPartitionResponse)
 
 -- | The response's http status code.
-getPartitionResponse_httpStatus :: Lens.Lens' GetPartitionResponse Prelude.Int
+getPartitionResponse_httpStatus :: Lens.Lens' GetPartitionResponse Core.Int
 getPartitionResponse_httpStatus = Lens.lens (\GetPartitionResponse' {httpStatus} -> httpStatus) (\s@GetPartitionResponse' {} a -> s {httpStatus = a} :: GetPartitionResponse)
 
-instance Prelude.NFData GetPartitionResponse
+instance Core.NFData GetPartitionResponse

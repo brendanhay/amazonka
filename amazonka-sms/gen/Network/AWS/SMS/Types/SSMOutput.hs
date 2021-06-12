@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.SSMOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.S3Location
 
 -- | Contains the location of validation output.
 --
 -- /See:/ 'newSSMOutput' smart constructor.
 data SSMOutput = SSMOutput'
-  { s3Location :: Prelude.Maybe S3Location
+  { s3Location :: Core.Maybe S3Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SSMOutput' with all optional fields omitted.
@@ -43,21 +42,20 @@ data SSMOutput = SSMOutput'
 -- 's3Location', 'sSMOutput_s3Location' - Undocumented member.
 newSSMOutput ::
   SSMOutput
-newSSMOutput =
-  SSMOutput' {s3Location = Prelude.Nothing}
+newSSMOutput = SSMOutput' {s3Location = Core.Nothing}
 
 -- | Undocumented member.
-sSMOutput_s3Location :: Lens.Lens' SSMOutput (Prelude.Maybe S3Location)
+sSMOutput_s3Location :: Lens.Lens' SSMOutput (Core.Maybe S3Location)
 sSMOutput_s3Location = Lens.lens (\SSMOutput' {s3Location} -> s3Location) (\s@SSMOutput' {} a -> s {s3Location = a} :: SSMOutput)
 
-instance Prelude.FromJSON SSMOutput where
+instance Core.FromJSON SSMOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SSMOutput"
       ( \x ->
-          SSMOutput' Prelude.<$> (x Prelude..:? "s3Location")
+          SSMOutput' Core.<$> (x Core..:? "s3Location")
       )
 
-instance Prelude.Hashable SSMOutput
+instance Core.Hashable SSMOutput
 
-instance Prelude.NFData SSMOutput
+instance Core.NFData SSMOutput

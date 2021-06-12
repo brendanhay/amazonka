@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.DocumentParameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.DocumentParameterType
 
 -- | Parameters specified in a System Manager document that run on the server
@@ -30,18 +29,18 @@ import Network.AWS.SSM.Types.DocumentParameterType
 -- /See:/ 'newDocumentParameter' smart constructor.
 data DocumentParameter = DocumentParameter'
   { -- | The name of the parameter.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A description of what the parameter does, how to use it, the default
     -- value, and whether or not the parameter is optional.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The type of parameter. The type can be either String or StringList.
-    type' :: Prelude.Maybe DocumentParameterType,
+    type' :: Core.Maybe DocumentParameterType,
     -- | If specified, the default values for the parameters. Parameters without
     -- a default value are required. Parameters with a default value are
     -- optional.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentParameter' with all optional fields omitted.
@@ -65,43 +64,43 @@ newDocumentParameter ::
   DocumentParameter
 newDocumentParameter =
   DocumentParameter'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+    { name = Core.Nothing,
+      description = Core.Nothing,
+      type' = Core.Nothing,
+      defaultValue = Core.Nothing
     }
 
 -- | The name of the parameter.
-documentParameter_name :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
+documentParameter_name :: Lens.Lens' DocumentParameter (Core.Maybe Core.Text)
 documentParameter_name = Lens.lens (\DocumentParameter' {name} -> name) (\s@DocumentParameter' {} a -> s {name = a} :: DocumentParameter)
 
 -- | A description of what the parameter does, how to use it, the default
 -- value, and whether or not the parameter is optional.
-documentParameter_description :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
+documentParameter_description :: Lens.Lens' DocumentParameter (Core.Maybe Core.Text)
 documentParameter_description = Lens.lens (\DocumentParameter' {description} -> description) (\s@DocumentParameter' {} a -> s {description = a} :: DocumentParameter)
 
 -- | The type of parameter. The type can be either String or StringList.
-documentParameter_type :: Lens.Lens' DocumentParameter (Prelude.Maybe DocumentParameterType)
+documentParameter_type :: Lens.Lens' DocumentParameter (Core.Maybe DocumentParameterType)
 documentParameter_type = Lens.lens (\DocumentParameter' {type'} -> type') (\s@DocumentParameter' {} a -> s {type' = a} :: DocumentParameter)
 
 -- | If specified, the default values for the parameters. Parameters without
 -- a default value are required. Parameters with a default value are
 -- optional.
-documentParameter_defaultValue :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
+documentParameter_defaultValue :: Lens.Lens' DocumentParameter (Core.Maybe Core.Text)
 documentParameter_defaultValue = Lens.lens (\DocumentParameter' {defaultValue} -> defaultValue) (\s@DocumentParameter' {} a -> s {defaultValue = a} :: DocumentParameter)
 
-instance Prelude.FromJSON DocumentParameter where
+instance Core.FromJSON DocumentParameter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentParameter"
       ( \x ->
           DocumentParameter'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "Type")
-            Prelude.<*> (x Prelude..:? "DefaultValue")
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (x Core..:? "DefaultValue")
       )
 
-instance Prelude.Hashable DocumentParameter
+instance Core.Hashable DocumentParameter
 
-instance Prelude.NFData DocumentParameter
+instance Core.NFData DocumentParameter

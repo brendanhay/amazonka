@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.SessionManagerOutputUrl where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Reserved for future use.
 --
 -- /See:/ 'newSessionManagerOutputUrl' smart constructor.
 data SessionManagerOutputUrl = SessionManagerOutputUrl'
   { -- | Reserved for future use.
-    s3OutputUrl :: Prelude.Maybe Prelude.Text,
+    s3OutputUrl :: Core.Maybe Core.Text,
     -- | Reserved for future use.
-    cloudWatchOutputUrl :: Prelude.Maybe Prelude.Text
+    cloudWatchOutputUrl :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SessionManagerOutputUrl' with all optional fields omitted.
@@ -50,28 +49,28 @@ newSessionManagerOutputUrl ::
 newSessionManagerOutputUrl =
   SessionManagerOutputUrl'
     { s3OutputUrl =
-        Prelude.Nothing,
-      cloudWatchOutputUrl = Prelude.Nothing
+        Core.Nothing,
+      cloudWatchOutputUrl = Core.Nothing
     }
 
 -- | Reserved for future use.
-sessionManagerOutputUrl_s3OutputUrl :: Lens.Lens' SessionManagerOutputUrl (Prelude.Maybe Prelude.Text)
+sessionManagerOutputUrl_s3OutputUrl :: Lens.Lens' SessionManagerOutputUrl (Core.Maybe Core.Text)
 sessionManagerOutputUrl_s3OutputUrl = Lens.lens (\SessionManagerOutputUrl' {s3OutputUrl} -> s3OutputUrl) (\s@SessionManagerOutputUrl' {} a -> s {s3OutputUrl = a} :: SessionManagerOutputUrl)
 
 -- | Reserved for future use.
-sessionManagerOutputUrl_cloudWatchOutputUrl :: Lens.Lens' SessionManagerOutputUrl (Prelude.Maybe Prelude.Text)
+sessionManagerOutputUrl_cloudWatchOutputUrl :: Lens.Lens' SessionManagerOutputUrl (Core.Maybe Core.Text)
 sessionManagerOutputUrl_cloudWatchOutputUrl = Lens.lens (\SessionManagerOutputUrl' {cloudWatchOutputUrl} -> cloudWatchOutputUrl) (\s@SessionManagerOutputUrl' {} a -> s {cloudWatchOutputUrl = a} :: SessionManagerOutputUrl)
 
-instance Prelude.FromJSON SessionManagerOutputUrl where
+instance Core.FromJSON SessionManagerOutputUrl where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SessionManagerOutputUrl"
       ( \x ->
           SessionManagerOutputUrl'
-            Prelude.<$> (x Prelude..:? "S3OutputUrl")
-            Prelude.<*> (x Prelude..:? "CloudWatchOutputUrl")
+            Core.<$> (x Core..:? "S3OutputUrl")
+            Core.<*> (x Core..:? "CloudWatchOutputUrl")
       )
 
-instance Prelude.Hashable SessionManagerOutputUrl
+instance Core.Hashable SessionManagerOutputUrl
 
-instance Prelude.NFData SessionManagerOutputUrl
+instance Core.NFData SessionManagerOutputUrl

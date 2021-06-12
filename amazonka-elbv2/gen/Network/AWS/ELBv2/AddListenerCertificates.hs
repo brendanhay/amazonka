@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,21 +50,21 @@ module Network.AWS.ELBv2.AddListenerCertificates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAddListenerCertificates' smart constructor.
 data AddListenerCertificates = AddListenerCertificates'
   { -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Prelude.Text,
+    listenerArn :: Core.Text,
     -- | The certificate to add. You can specify one certificate per call. Set
     -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
     certificates :: [Certificate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddListenerCertificates' with all optional fields omitted.
@@ -81,27 +80,27 @@ data AddListenerCertificates = AddListenerCertificates'
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 newAddListenerCertificates ::
   -- | 'listenerArn'
-  Prelude.Text ->
+  Core.Text ->
   AddListenerCertificates
 newAddListenerCertificates pListenerArn_ =
   AddListenerCertificates'
     { listenerArn =
         pListenerArn_,
-      certificates = Prelude.mempty
+      certificates = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the listener.
-addListenerCertificates_listenerArn :: Lens.Lens' AddListenerCertificates Prelude.Text
+addListenerCertificates_listenerArn :: Lens.Lens' AddListenerCertificates Core.Text
 addListenerCertificates_listenerArn = Lens.lens (\AddListenerCertificates' {listenerArn} -> listenerArn) (\s@AddListenerCertificates' {} a -> s {listenerArn = a} :: AddListenerCertificates)
 
 -- | The certificate to add. You can specify one certificate per call. Set
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 addListenerCertificates_certificates :: Lens.Lens' AddListenerCertificates [Certificate]
-addListenerCertificates_certificates = Lens.lens (\AddListenerCertificates' {certificates} -> certificates) (\s@AddListenerCertificates' {} a -> s {certificates = a} :: AddListenerCertificates) Prelude.. Prelude._Coerce
+addListenerCertificates_certificates = Lens.lens (\AddListenerCertificates' {certificates} -> certificates) (\s@AddListenerCertificates' {} a -> s {certificates = a} :: AddListenerCertificates) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddListenerCertificates where
+instance Core.AWSRequest AddListenerCertificates where
   type
-    Rs AddListenerCertificates =
+    AWSResponse AddListenerCertificates =
       AddListenerCertificatesResponse
   request = Request.postQuery defaultService
   response =
@@ -109,43 +108,41 @@ instance Prelude.AWSRequest AddListenerCertificates where
       "AddListenerCertificatesResult"
       ( \s h x ->
           AddListenerCertificatesResponse'
-            Prelude.<$> ( x Prelude..@? "Certificates"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Certificates" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddListenerCertificates
+instance Core.Hashable AddListenerCertificates
 
-instance Prelude.NFData AddListenerCertificates
+instance Core.NFData AddListenerCertificates
 
-instance Prelude.ToHeaders AddListenerCertificates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AddListenerCertificates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AddListenerCertificates where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddListenerCertificates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddListenerCertificates where
+instance Core.ToQuery AddListenerCertificates where
   toQuery AddListenerCertificates' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AddListenerCertificates" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "ListenerArn" Prelude.=: listenerArn,
+          Core.=: ("AddListenerCertificates" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "ListenerArn" Core.=: listenerArn,
         "Certificates"
-          Prelude.=: Prelude.toQueryList "member" certificates
+          Core.=: Core.toQueryList "member" certificates
       ]
 
 -- | /See:/ 'newAddListenerCertificatesResponse' smart constructor.
 data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
   { -- | Information about the certificates in the certificate list.
-    certificates :: Prelude.Maybe [Certificate],
+    certificates :: Core.Maybe [Certificate],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddListenerCertificatesResponse' with all optional fields omitted.
@@ -160,23 +157,21 @@ data AddListenerCertificatesResponse = AddListenerCertificatesResponse'
 -- 'httpStatus', 'addListenerCertificatesResponse_httpStatus' - The response's http status code.
 newAddListenerCertificatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddListenerCertificatesResponse
 newAddListenerCertificatesResponse pHttpStatus_ =
   AddListenerCertificatesResponse'
     { certificates =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the certificates in the certificate list.
-addListenerCertificatesResponse_certificates :: Lens.Lens' AddListenerCertificatesResponse (Prelude.Maybe [Certificate])
-addListenerCertificatesResponse_certificates = Lens.lens (\AddListenerCertificatesResponse' {certificates} -> certificates) (\s@AddListenerCertificatesResponse' {} a -> s {certificates = a} :: AddListenerCertificatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+addListenerCertificatesResponse_certificates :: Lens.Lens' AddListenerCertificatesResponse (Core.Maybe [Certificate])
+addListenerCertificatesResponse_certificates = Lens.lens (\AddListenerCertificatesResponse' {certificates} -> certificates) (\s@AddListenerCertificatesResponse' {} a -> s {certificates = a} :: AddListenerCertificatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-addListenerCertificatesResponse_httpStatus :: Lens.Lens' AddListenerCertificatesResponse Prelude.Int
+addListenerCertificatesResponse_httpStatus :: Lens.Lens' AddListenerCertificatesResponse Core.Int
 addListenerCertificatesResponse_httpStatus = Lens.lens (\AddListenerCertificatesResponse' {httpStatus} -> httpStatus) (\s@AddListenerCertificatesResponse' {} a -> s {httpStatus = a} :: AddListenerCertificatesResponse)
 
-instance
-  Prelude.NFData
-    AddListenerCertificatesResponse
+instance Core.NFData AddListenerCertificatesResponse

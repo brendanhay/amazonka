@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.AppStream.DeleteDirectoryConfig
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDirectoryConfig' smart constructor.
 data DeleteDirectoryConfig = DeleteDirectoryConfig'
   { -- | The name of the directory configuration.
-    directoryName :: Prelude.Text
+    directoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDirectoryConfig' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DeleteDirectoryConfig = DeleteDirectoryConfig'
 -- 'directoryName', 'deleteDirectoryConfig_directoryName' - The name of the directory configuration.
 newDeleteDirectoryConfig ::
   -- | 'directoryName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDirectoryConfig
 newDeleteDirectoryConfig pDirectoryName_ =
   DeleteDirectoryConfig'
@@ -74,61 +73,57 @@ newDeleteDirectoryConfig pDirectoryName_ =
     }
 
 -- | The name of the directory configuration.
-deleteDirectoryConfig_directoryName :: Lens.Lens' DeleteDirectoryConfig Prelude.Text
+deleteDirectoryConfig_directoryName :: Lens.Lens' DeleteDirectoryConfig Core.Text
 deleteDirectoryConfig_directoryName = Lens.lens (\DeleteDirectoryConfig' {directoryName} -> directoryName) (\s@DeleteDirectoryConfig' {} a -> s {directoryName = a} :: DeleteDirectoryConfig)
 
-instance Prelude.AWSRequest DeleteDirectoryConfig where
+instance Core.AWSRequest DeleteDirectoryConfig where
   type
-    Rs DeleteDirectoryConfig =
+    AWSResponse DeleteDirectoryConfig =
       DeleteDirectoryConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDirectoryConfigResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDirectoryConfig
+instance Core.Hashable DeleteDirectoryConfig
 
-instance Prelude.NFData DeleteDirectoryConfig
+instance Core.NFData DeleteDirectoryConfig
 
-instance Prelude.ToHeaders DeleteDirectoryConfig where
+instance Core.ToHeaders DeleteDirectoryConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DeleteDirectoryConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DeleteDirectoryConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDirectoryConfig where
+instance Core.ToJSON DeleteDirectoryConfig where
   toJSON DeleteDirectoryConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DirectoryName" Prelude..= directoryName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DirectoryName" Core..= directoryName)]
       )
 
-instance Prelude.ToPath DeleteDirectoryConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDirectoryConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDirectoryConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDirectoryConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDirectoryConfigResponse' smart constructor.
 data DeleteDirectoryConfigResponse = DeleteDirectoryConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDirectoryConfigResponse' with all optional fields omitted.
@@ -141,7 +136,7 @@ data DeleteDirectoryConfigResponse = DeleteDirectoryConfigResponse'
 -- 'httpStatus', 'deleteDirectoryConfigResponse_httpStatus' - The response's http status code.
 newDeleteDirectoryConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDirectoryConfigResponse
 newDeleteDirectoryConfigResponse pHttpStatus_ =
   DeleteDirectoryConfigResponse'
@@ -150,7 +145,7 @@ newDeleteDirectoryConfigResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteDirectoryConfigResponse_httpStatus :: Lens.Lens' DeleteDirectoryConfigResponse Prelude.Int
+deleteDirectoryConfigResponse_httpStatus :: Lens.Lens' DeleteDirectoryConfigResponse Core.Int
 deleteDirectoryConfigResponse_httpStatus = Lens.lens (\DeleteDirectoryConfigResponse' {httpStatus} -> httpStatus) (\s@DeleteDirectoryConfigResponse' {} a -> s {httpStatus = a} :: DeleteDirectoryConfigResponse)
 
-instance Prelude.NFData DeleteDirectoryConfigResponse
+instance Core.NFData DeleteDirectoryConfigResponse

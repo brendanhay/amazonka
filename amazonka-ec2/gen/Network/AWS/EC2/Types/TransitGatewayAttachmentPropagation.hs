@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayAttachmentPropagation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TransitGatewayPropagationState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a propagation route table.
 --
 -- /See:/ 'newTransitGatewayAttachmentPropagation' smart constructor.
 data TransitGatewayAttachmentPropagation = TransitGatewayAttachmentPropagation'
   { -- | The state of the propagation route table.
-    state :: Prelude.Maybe TransitGatewayPropagationState,
+    state :: Core.Maybe TransitGatewayPropagationState,
     -- | The ID of the propagation route table.
-    transitGatewayRouteTableId :: Prelude.Maybe Prelude.Text
+    transitGatewayRouteTableId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayAttachmentPropagation' with all optional fields omitted.
@@ -52,32 +51,32 @@ newTransitGatewayAttachmentPropagation ::
 newTransitGatewayAttachmentPropagation =
   TransitGatewayAttachmentPropagation'
     { state =
-        Prelude.Nothing,
+        Core.Nothing,
       transitGatewayRouteTableId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The state of the propagation route table.
-transitGatewayAttachmentPropagation_state :: Lens.Lens' TransitGatewayAttachmentPropagation (Prelude.Maybe TransitGatewayPropagationState)
+transitGatewayAttachmentPropagation_state :: Lens.Lens' TransitGatewayAttachmentPropagation (Core.Maybe TransitGatewayPropagationState)
 transitGatewayAttachmentPropagation_state = Lens.lens (\TransitGatewayAttachmentPropagation' {state} -> state) (\s@TransitGatewayAttachmentPropagation' {} a -> s {state = a} :: TransitGatewayAttachmentPropagation)
 
 -- | The ID of the propagation route table.
-transitGatewayAttachmentPropagation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentPropagation (Prelude.Maybe Prelude.Text)
+transitGatewayAttachmentPropagation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentPropagation (Core.Maybe Core.Text)
 transitGatewayAttachmentPropagation_transitGatewayRouteTableId = Lens.lens (\TransitGatewayAttachmentPropagation' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayAttachmentPropagation' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayAttachmentPropagation)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     TransitGatewayAttachmentPropagation
   where
   parseXML x =
     TransitGatewayAttachmentPropagation'
-      Prelude.<$> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "transitGatewayRouteTableId")
+      Core.<$> (x Core..@? "state")
+      Core.<*> (x Core..@? "transitGatewayRouteTableId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TransitGatewayAttachmentPropagation
 
 instance
-  Prelude.NFData
+  Core.NFData
     TransitGatewayAttachmentPropagation

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Budgets.Types.SsmActionDefinition where
 
 import Network.AWS.Budgets.Types.ActionSubType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS Systems Manager (SSM) action definition details.
 --
@@ -31,11 +30,11 @@ data SsmActionDefinition = SsmActionDefinition'
   { -- | The action subType.
     actionSubType :: ActionSubType,
     -- | The Region to run the SSM document.
-    region :: Prelude.Text,
+    region :: Core.Text,
     -- | The EC2 and RDS instance IDs.
-    instanceIds :: Prelude.NonEmpty Prelude.Text
+    instanceIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SsmActionDefinition' with all optional fields omitted.
@@ -54,9 +53,9 @@ newSsmActionDefinition ::
   -- | 'actionSubType'
   ActionSubType ->
   -- | 'region'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   SsmActionDefinition
 newSsmActionDefinition
   pActionSubType_
@@ -66,7 +65,7 @@ newSsmActionDefinition
       { actionSubType =
           pActionSubType_,
         region = pRegion_,
-        instanceIds = Prelude._Coerce Lens.# pInstanceIds_
+        instanceIds = Lens._Coerce Lens.# pInstanceIds_
       }
 
 -- | The action subType.
@@ -74,35 +73,34 @@ ssmActionDefinition_actionSubType :: Lens.Lens' SsmActionDefinition ActionSubTyp
 ssmActionDefinition_actionSubType = Lens.lens (\SsmActionDefinition' {actionSubType} -> actionSubType) (\s@SsmActionDefinition' {} a -> s {actionSubType = a} :: SsmActionDefinition)
 
 -- | The Region to run the SSM document.
-ssmActionDefinition_region :: Lens.Lens' SsmActionDefinition Prelude.Text
+ssmActionDefinition_region :: Lens.Lens' SsmActionDefinition Core.Text
 ssmActionDefinition_region = Lens.lens (\SsmActionDefinition' {region} -> region) (\s@SsmActionDefinition' {} a -> s {region = a} :: SsmActionDefinition)
 
 -- | The EC2 and RDS instance IDs.
-ssmActionDefinition_instanceIds :: Lens.Lens' SsmActionDefinition (Prelude.NonEmpty Prelude.Text)
-ssmActionDefinition_instanceIds = Lens.lens (\SsmActionDefinition' {instanceIds} -> instanceIds) (\s@SsmActionDefinition' {} a -> s {instanceIds = a} :: SsmActionDefinition) Prelude.. Prelude._Coerce
+ssmActionDefinition_instanceIds :: Lens.Lens' SsmActionDefinition (Core.NonEmpty Core.Text)
+ssmActionDefinition_instanceIds = Lens.lens (\SsmActionDefinition' {instanceIds} -> instanceIds) (\s@SsmActionDefinition' {} a -> s {instanceIds = a} :: SsmActionDefinition) Core.. Lens._Coerce
 
-instance Prelude.FromJSON SsmActionDefinition where
+instance Core.FromJSON SsmActionDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SsmActionDefinition"
       ( \x ->
           SsmActionDefinition'
-            Prelude.<$> (x Prelude..: "ActionSubType")
-            Prelude.<*> (x Prelude..: "Region")
-            Prelude.<*> (x Prelude..: "InstanceIds")
+            Core.<$> (x Core..: "ActionSubType")
+            Core.<*> (x Core..: "Region")
+            Core.<*> (x Core..: "InstanceIds")
       )
 
-instance Prelude.Hashable SsmActionDefinition
+instance Core.Hashable SsmActionDefinition
 
-instance Prelude.NFData SsmActionDefinition
+instance Core.NFData SsmActionDefinition
 
-instance Prelude.ToJSON SsmActionDefinition where
+instance Core.ToJSON SsmActionDefinition where
   toJSON SsmActionDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ActionSubType" Prelude..= actionSubType),
-            Prelude.Just ("Region" Prelude..= region),
-            Prelude.Just ("InstanceIds" Prelude..= instanceIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ActionSubType" Core..= actionSubType),
+            Core.Just ("Region" Core..= region),
+            Core.Just ("InstanceIds" Core..= instanceIds)
           ]
       )

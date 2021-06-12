@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SecretsManager.Types.ValidationErrorsEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Displays errors that occurred during validation of the resource policy.
 --
 -- /See:/ 'newValidationErrorsEntry' smart constructor.
 data ValidationErrorsEntry = ValidationErrorsEntry'
   { -- | Checks the name of the policy.
-    checkName :: Prelude.Maybe Prelude.Text,
+    checkName :: Core.Maybe Core.Text,
     -- | Displays error messages if validation encounters problems during
     -- validation of the resource policy.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidationErrorsEntry' with all optional fields omitted.
@@ -51,29 +50,29 @@ newValidationErrorsEntry ::
   ValidationErrorsEntry
 newValidationErrorsEntry =
   ValidationErrorsEntry'
-    { checkName = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+    { checkName = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | Checks the name of the policy.
-validationErrorsEntry_checkName :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
+validationErrorsEntry_checkName :: Lens.Lens' ValidationErrorsEntry (Core.Maybe Core.Text)
 validationErrorsEntry_checkName = Lens.lens (\ValidationErrorsEntry' {checkName} -> checkName) (\s@ValidationErrorsEntry' {} a -> s {checkName = a} :: ValidationErrorsEntry)
 
 -- | Displays error messages if validation encounters problems during
 -- validation of the resource policy.
-validationErrorsEntry_errorMessage :: Lens.Lens' ValidationErrorsEntry (Prelude.Maybe Prelude.Text)
+validationErrorsEntry_errorMessage :: Lens.Lens' ValidationErrorsEntry (Core.Maybe Core.Text)
 validationErrorsEntry_errorMessage = Lens.lens (\ValidationErrorsEntry' {errorMessage} -> errorMessage) (\s@ValidationErrorsEntry' {} a -> s {errorMessage = a} :: ValidationErrorsEntry)
 
-instance Prelude.FromJSON ValidationErrorsEntry where
+instance Core.FromJSON ValidationErrorsEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ValidationErrorsEntry"
       ( \x ->
           ValidationErrorsEntry'
-            Prelude.<$> (x Prelude..:? "CheckName")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
+            Core.<$> (x Core..:? "CheckName")
+            Core.<*> (x Core..:? "ErrorMessage")
       )
 
-instance Prelude.Hashable ValidationErrorsEntry
+instance Core.Hashable ValidationErrorsEntry
 
-instance Prelude.NFData ValidationErrorsEntry
+instance Core.NFData ValidationErrorsEntry

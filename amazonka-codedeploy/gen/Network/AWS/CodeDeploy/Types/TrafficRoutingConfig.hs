@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CodeDeploy.Types.TrafficRoutingConfig where
 import Network.AWS.CodeDeploy.Types.TimeBasedCanary
 import Network.AWS.CodeDeploy.Types.TimeBasedLinear
 import Network.AWS.CodeDeploy.Types.TrafficRoutingType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration that specifies how traffic is shifted from one version
 -- of a Lambda function to another version during an AWS Lambda deployment,
@@ -38,17 +37,17 @@ data TrafficRoutingConfig = TrafficRoutingConfig'
     -- number of minutes between each increment. The original and target Lambda
     -- function versions or ECS task sets are specified in the deployment\'s
     -- AppSpec file.
-    timeBasedLinear :: Prelude.Maybe TimeBasedLinear,
+    timeBasedLinear :: Core.Maybe TimeBasedLinear,
     -- | The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@)
     -- used by a deployment configuration.
-    type' :: Prelude.Maybe TrafficRoutingType,
+    type' :: Core.Maybe TrafficRoutingType,
     -- | A configuration that shifts traffic from one version of a Lambda
     -- function or ECS task set to another in two increments. The original and
     -- target Lambda function versions or ECS task sets are specified in the
     -- deployment\'s AppSpec file.
-    timeBasedCanary :: Prelude.Maybe TimeBasedCanary
+    timeBasedCanary :: Core.Maybe TimeBasedCanary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrafficRoutingConfig' with all optional fields omitted.
@@ -76,9 +75,9 @@ newTrafficRoutingConfig ::
 newTrafficRoutingConfig =
   TrafficRoutingConfig'
     { timeBasedLinear =
-        Prelude.Nothing,
-      type' = Prelude.Nothing,
-      timeBasedCanary = Prelude.Nothing
+        Core.Nothing,
+      type' = Core.Nothing,
+      timeBasedCanary = Core.Nothing
     }
 
 -- | A configuration that shifts traffic from one version of a Lambda
@@ -86,44 +85,44 @@ newTrafficRoutingConfig =
 -- number of minutes between each increment. The original and target Lambda
 -- function versions or ECS task sets are specified in the deployment\'s
 -- AppSpec file.
-trafficRoutingConfig_timeBasedLinear :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TimeBasedLinear)
+trafficRoutingConfig_timeBasedLinear :: Lens.Lens' TrafficRoutingConfig (Core.Maybe TimeBasedLinear)
 trafficRoutingConfig_timeBasedLinear = Lens.lens (\TrafficRoutingConfig' {timeBasedLinear} -> timeBasedLinear) (\s@TrafficRoutingConfig' {} a -> s {timeBasedLinear = a} :: TrafficRoutingConfig)
 
 -- | The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@)
 -- used by a deployment configuration.
-trafficRoutingConfig_type :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TrafficRoutingType)
+trafficRoutingConfig_type :: Lens.Lens' TrafficRoutingConfig (Core.Maybe TrafficRoutingType)
 trafficRoutingConfig_type = Lens.lens (\TrafficRoutingConfig' {type'} -> type') (\s@TrafficRoutingConfig' {} a -> s {type' = a} :: TrafficRoutingConfig)
 
 -- | A configuration that shifts traffic from one version of a Lambda
 -- function or ECS task set to another in two increments. The original and
 -- target Lambda function versions or ECS task sets are specified in the
 -- deployment\'s AppSpec file.
-trafficRoutingConfig_timeBasedCanary :: Lens.Lens' TrafficRoutingConfig (Prelude.Maybe TimeBasedCanary)
+trafficRoutingConfig_timeBasedCanary :: Lens.Lens' TrafficRoutingConfig (Core.Maybe TimeBasedCanary)
 trafficRoutingConfig_timeBasedCanary = Lens.lens (\TrafficRoutingConfig' {timeBasedCanary} -> timeBasedCanary) (\s@TrafficRoutingConfig' {} a -> s {timeBasedCanary = a} :: TrafficRoutingConfig)
 
-instance Prelude.FromJSON TrafficRoutingConfig where
+instance Core.FromJSON TrafficRoutingConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrafficRoutingConfig"
       ( \x ->
           TrafficRoutingConfig'
-            Prelude.<$> (x Prelude..:? "timeBasedLinear")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "timeBasedCanary")
+            Core.<$> (x Core..:? "timeBasedLinear")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "timeBasedCanary")
       )
 
-instance Prelude.Hashable TrafficRoutingConfig
+instance Core.Hashable TrafficRoutingConfig
 
-instance Prelude.NFData TrafficRoutingConfig
+instance Core.NFData TrafficRoutingConfig
 
-instance Prelude.ToJSON TrafficRoutingConfig where
+instance Core.ToJSON TrafficRoutingConfig where
   toJSON TrafficRoutingConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("timeBasedLinear" Prelude..=)
-              Prelude.<$> timeBasedLinear,
-            ("type" Prelude..=) Prelude.<$> type',
-            ("timeBasedCanary" Prelude..=)
-              Prelude.<$> timeBasedCanary
+    Core.object
+      ( Core.catMaybes
+          [ ("timeBasedLinear" Core..=)
+              Core.<$> timeBasedLinear,
+            ("type" Core..=) Core.<$> type',
+            ("timeBasedCanary" Core..=)
+              Core.<$> timeBasedCanary
           ]
       )

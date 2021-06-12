@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.RealtimeEndpointInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the real-time endpoint information for an @MLModel@.
 --
@@ -30,17 +29,17 @@ import qualified Network.AWS.Prelude as Prelude
 data RealtimeEndpointInfo = RealtimeEndpointInfo'
   { -- | The time that the request to create the real-time endpoint for the
     -- @MLModel@ was received. The time is expressed in epoch time.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The maximum processing rate for the real-time endpoint for @MLModel@,
     -- measured in incoming requests per second.
-    peakRequestsPerSecond :: Prelude.Maybe Prelude.Int,
+    peakRequestsPerSecond :: Core.Maybe Core.Int,
     -- | The current status of the real-time endpoint for the @MLModel@. This
     -- element can have one of the following values:
     --
     -- -   @NONE@ - Endpoint does not exist or was previously deleted.
     -- -   @READY@ - Endpoint is ready to be used for real-time predictions.
     -- -   @UPDATING@ - Updating\/creating the endpoint.
-    endpointStatus :: Prelude.Maybe RealtimeEndpointStatus,
+    endpointStatus :: Core.Maybe RealtimeEndpointStatus,
     -- | The URI that specifies where to send real-time prediction requests for
     -- the @MLModel@.
     --
@@ -48,9 +47,9 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
     --
     -- The application must wait until the real-time endpoint is ready before
     -- using this URI.
-    endpointUrl :: Prelude.Maybe Prelude.Text
+    endpointUrl :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RealtimeEndpointInfo' with all optional fields omitted.
@@ -84,20 +83,20 @@ newRealtimeEndpointInfo ::
   RealtimeEndpointInfo
 newRealtimeEndpointInfo =
   RealtimeEndpointInfo'
-    { createdAt = Prelude.Nothing,
-      peakRequestsPerSecond = Prelude.Nothing,
-      endpointStatus = Prelude.Nothing,
-      endpointUrl = Prelude.Nothing
+    { createdAt = Core.Nothing,
+      peakRequestsPerSecond = Core.Nothing,
+      endpointStatus = Core.Nothing,
+      endpointUrl = Core.Nothing
     }
 
 -- | The time that the request to create the real-time endpoint for the
 -- @MLModel@ was received. The time is expressed in epoch time.
-realtimeEndpointInfo_createdAt :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.UTCTime)
-realtimeEndpointInfo_createdAt = Lens.lens (\RealtimeEndpointInfo' {createdAt} -> createdAt) (\s@RealtimeEndpointInfo' {} a -> s {createdAt = a} :: RealtimeEndpointInfo) Prelude.. Lens.mapping Prelude._Time
+realtimeEndpointInfo_createdAt :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe Core.UTCTime)
+realtimeEndpointInfo_createdAt = Lens.lens (\RealtimeEndpointInfo' {createdAt} -> createdAt) (\s@RealtimeEndpointInfo' {} a -> s {createdAt = a} :: RealtimeEndpointInfo) Core.. Lens.mapping Core._Time
 
 -- | The maximum processing rate for the real-time endpoint for @MLModel@,
 -- measured in incoming requests per second.
-realtimeEndpointInfo_peakRequestsPerSecond :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.Int)
+realtimeEndpointInfo_peakRequestsPerSecond :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe Core.Int)
 realtimeEndpointInfo_peakRequestsPerSecond = Lens.lens (\RealtimeEndpointInfo' {peakRequestsPerSecond} -> peakRequestsPerSecond) (\s@RealtimeEndpointInfo' {} a -> s {peakRequestsPerSecond = a} :: RealtimeEndpointInfo)
 
 -- | The current status of the real-time endpoint for the @MLModel@. This
@@ -106,7 +105,7 @@ realtimeEndpointInfo_peakRequestsPerSecond = Lens.lens (\RealtimeEndpointInfo' {
 -- -   @NONE@ - Endpoint does not exist or was previously deleted.
 -- -   @READY@ - Endpoint is ready to be used for real-time predictions.
 -- -   @UPDATING@ - Updating\/creating the endpoint.
-realtimeEndpointInfo_endpointStatus :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe RealtimeEndpointStatus)
+realtimeEndpointInfo_endpointStatus :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe RealtimeEndpointStatus)
 realtimeEndpointInfo_endpointStatus = Lens.lens (\RealtimeEndpointInfo' {endpointStatus} -> endpointStatus) (\s@RealtimeEndpointInfo' {} a -> s {endpointStatus = a} :: RealtimeEndpointInfo)
 
 -- | The URI that specifies where to send real-time prediction requests for
@@ -116,21 +115,21 @@ realtimeEndpointInfo_endpointStatus = Lens.lens (\RealtimeEndpointInfo' {endpoin
 --
 -- The application must wait until the real-time endpoint is ready before
 -- using this URI.
-realtimeEndpointInfo_endpointUrl :: Lens.Lens' RealtimeEndpointInfo (Prelude.Maybe Prelude.Text)
+realtimeEndpointInfo_endpointUrl :: Lens.Lens' RealtimeEndpointInfo (Core.Maybe Core.Text)
 realtimeEndpointInfo_endpointUrl = Lens.lens (\RealtimeEndpointInfo' {endpointUrl} -> endpointUrl) (\s@RealtimeEndpointInfo' {} a -> s {endpointUrl = a} :: RealtimeEndpointInfo)
 
-instance Prelude.FromJSON RealtimeEndpointInfo where
+instance Core.FromJSON RealtimeEndpointInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RealtimeEndpointInfo"
       ( \x ->
           RealtimeEndpointInfo'
-            Prelude.<$> (x Prelude..:? "CreatedAt")
-            Prelude.<*> (x Prelude..:? "PeakRequestsPerSecond")
-            Prelude.<*> (x Prelude..:? "EndpointStatus")
-            Prelude.<*> (x Prelude..:? "EndpointUrl")
+            Core.<$> (x Core..:? "CreatedAt")
+            Core.<*> (x Core..:? "PeakRequestsPerSecond")
+            Core.<*> (x Core..:? "EndpointStatus")
+            Core.<*> (x Core..:? "EndpointUrl")
       )
 
-instance Prelude.Hashable RealtimeEndpointInfo
+instance Core.Hashable RealtimeEndpointInfo
 
-instance Prelude.NFData RealtimeEndpointInfo
+instance Core.NFData RealtimeEndpointInfo

@@ -15,8 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Lens
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter

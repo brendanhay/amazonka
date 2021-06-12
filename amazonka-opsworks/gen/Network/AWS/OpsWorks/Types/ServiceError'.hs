@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.ServiceError' where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an AWS OpsWorks Stacks service error.
 --
 -- /See:/ 'newServiceError'' smart constructor.
 data ServiceError' = ServiceError''
   { -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | A message that describes the error.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The error ID.
-    serviceErrorId :: Prelude.Maybe Prelude.Text,
+    serviceErrorId :: Core.Maybe Core.Text,
     -- | When the error occurred.
-    createdAt :: Prelude.Maybe Prelude.Text,
+    createdAt :: Core.Maybe Core.Text,
     -- | The error type.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceError'' with all optional fields omitted.
@@ -65,52 +64,52 @@ newServiceError' ::
   ServiceError'
 newServiceError' =
   ServiceError''
-    { instanceId = Prelude.Nothing,
-      stackId = Prelude.Nothing,
-      message = Prelude.Nothing,
-      serviceErrorId = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      stackId = Core.Nothing,
+      message = Core.Nothing,
+      serviceErrorId = Core.Nothing,
+      createdAt = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The instance ID.
-serviceError'_instanceId :: Lens.Lens' ServiceError' (Prelude.Maybe Prelude.Text)
+serviceError'_instanceId :: Lens.Lens' ServiceError' (Core.Maybe Core.Text)
 serviceError'_instanceId = Lens.lens (\ServiceError'' {instanceId} -> instanceId) (\s@ServiceError'' {} a -> s {instanceId = a} :: ServiceError')
 
 -- | The stack ID.
-serviceError'_stackId :: Lens.Lens' ServiceError' (Prelude.Maybe Prelude.Text)
+serviceError'_stackId :: Lens.Lens' ServiceError' (Core.Maybe Core.Text)
 serviceError'_stackId = Lens.lens (\ServiceError'' {stackId} -> stackId) (\s@ServiceError'' {} a -> s {stackId = a} :: ServiceError')
 
 -- | A message that describes the error.
-serviceError'_message :: Lens.Lens' ServiceError' (Prelude.Maybe Prelude.Text)
+serviceError'_message :: Lens.Lens' ServiceError' (Core.Maybe Core.Text)
 serviceError'_message = Lens.lens (\ServiceError'' {message} -> message) (\s@ServiceError'' {} a -> s {message = a} :: ServiceError')
 
 -- | The error ID.
-serviceError'_serviceErrorId :: Lens.Lens' ServiceError' (Prelude.Maybe Prelude.Text)
+serviceError'_serviceErrorId :: Lens.Lens' ServiceError' (Core.Maybe Core.Text)
 serviceError'_serviceErrorId = Lens.lens (\ServiceError'' {serviceErrorId} -> serviceErrorId) (\s@ServiceError'' {} a -> s {serviceErrorId = a} :: ServiceError')
 
 -- | When the error occurred.
-serviceError'_createdAt :: Lens.Lens' ServiceError' (Prelude.Maybe Prelude.Text)
+serviceError'_createdAt :: Lens.Lens' ServiceError' (Core.Maybe Core.Text)
 serviceError'_createdAt = Lens.lens (\ServiceError'' {createdAt} -> createdAt) (\s@ServiceError'' {} a -> s {createdAt = a} :: ServiceError')
 
 -- | The error type.
-serviceError'_type :: Lens.Lens' ServiceError' (Prelude.Maybe Prelude.Text)
+serviceError'_type :: Lens.Lens' ServiceError' (Core.Maybe Core.Text)
 serviceError'_type = Lens.lens (\ServiceError'' {type'} -> type') (\s@ServiceError'' {} a -> s {type' = a} :: ServiceError')
 
-instance Prelude.FromJSON ServiceError' where
+instance Core.FromJSON ServiceError' where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceError'"
       ( \x ->
           ServiceError''
-            Prelude.<$> (x Prelude..:? "InstanceId")
-            Prelude.<*> (x Prelude..:? "StackId")
-            Prelude.<*> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "ServiceErrorId")
-            Prelude.<*> (x Prelude..:? "CreatedAt")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "InstanceId")
+            Core.<*> (x Core..:? "StackId")
+            Core.<*> (x Core..:? "Message")
+            Core.<*> (x Core..:? "ServiceErrorId")
+            Core.<*> (x Core..:? "CreatedAt")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ServiceError'
+instance Core.Hashable ServiceError'
 
-instance Prelude.NFData ServiceError'
+instance Core.NFData ServiceError'

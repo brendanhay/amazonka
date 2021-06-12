@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +60,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeregisterInstancesFromLoadBalancer' smart constructor.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The IDs of the instances.
     instances :: [Instance]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstancesFromLoadBalancer' with all optional fields omitted.
@@ -80,30 +79,30 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
 -- 'instances', 'deregisterInstancesFromLoadBalancer_instances' - The IDs of the instances.
 newDeregisterInstancesFromLoadBalancer ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterInstancesFromLoadBalancer
 newDeregisterInstancesFromLoadBalancer
   pLoadBalancerName_ =
     DeregisterInstancesFromLoadBalancer'
       { loadBalancerName =
           pLoadBalancerName_,
-        instances = Prelude.mempty
+        instances = Core.mempty
       }
 
 -- | The name of the load balancer.
-deregisterInstancesFromLoadBalancer_loadBalancerName :: Lens.Lens' DeregisterInstancesFromLoadBalancer Prelude.Text
+deregisterInstancesFromLoadBalancer_loadBalancerName :: Lens.Lens' DeregisterInstancesFromLoadBalancer Core.Text
 deregisterInstancesFromLoadBalancer_loadBalancerName = Lens.lens (\DeregisterInstancesFromLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@DeregisterInstancesFromLoadBalancer' {} a -> s {loadBalancerName = a} :: DeregisterInstancesFromLoadBalancer)
 
 -- | The IDs of the instances.
 deregisterInstancesFromLoadBalancer_instances :: Lens.Lens' DeregisterInstancesFromLoadBalancer [Instance]
-deregisterInstancesFromLoadBalancer_instances = Lens.lens (\DeregisterInstancesFromLoadBalancer' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancer' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancer) Prelude.. Prelude._Coerce
+deregisterInstancesFromLoadBalancer_instances = Lens.lens (\DeregisterInstancesFromLoadBalancer' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancer' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancer) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeregisterInstancesFromLoadBalancer
   where
   type
-    Rs DeregisterInstancesFromLoadBalancer =
+    AWSResponse DeregisterInstancesFromLoadBalancer =
       DeregisterInstancesFromLoadBalancerResponse
   request = Request.postQuery defaultService
   response =
@@ -111,47 +110,46 @@ instance
       "DeregisterInstancesFromLoadBalancerResult"
       ( \s h x ->
           DeregisterInstancesFromLoadBalancerResponse'
-            Prelude.<$> ( x Prelude..@? "Instances" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Instances" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeregisterInstancesFromLoadBalancer
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterInstancesFromLoadBalancer
 
 instance
-  Prelude.ToHeaders
-    DeregisterInstancesFromLoadBalancer
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DeregisterInstancesFromLoadBalancer
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DeregisterInstancesFromLoadBalancer
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DeregisterInstancesFromLoadBalancer
   where
   toQuery DeregisterInstancesFromLoadBalancer' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeregisterInstancesFromLoadBalancer" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
+          Core.=: ( "DeregisterInstancesFromLoadBalancer" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
         "Instances"
-          Prelude.=: Prelude.toQueryList "member" instances
+          Core.=: Core.toQueryList "member" instances
       ]
 
 -- | Contains the output of DeregisterInstancesFromLoadBalancer.
@@ -159,11 +157,11 @@ instance
 -- /See:/ 'newDeregisterInstancesFromLoadBalancerResponse' smart constructor.
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
   { -- | The remaining instances registered with the load balancer.
-    instances :: Prelude.Maybe [Instance],
+    instances :: Core.Maybe [Instance],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstancesFromLoadBalancerResponse' with all optional fields omitted.
@@ -178,24 +176,24 @@ data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBa
 -- 'httpStatus', 'deregisterInstancesFromLoadBalancerResponse_httpStatus' - The response's http status code.
 newDeregisterInstancesFromLoadBalancerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterInstancesFromLoadBalancerResponse
 newDeregisterInstancesFromLoadBalancerResponse
   pHttpStatus_ =
     DeregisterInstancesFromLoadBalancerResponse'
       { instances =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The remaining instances registered with the load balancer.
-deregisterInstancesFromLoadBalancerResponse_instances :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse (Prelude.Maybe [Instance])
-deregisterInstancesFromLoadBalancerResponse_instances = Lens.lens (\DeregisterInstancesFromLoadBalancerResponse' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancerResponse' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancerResponse) Prelude.. Lens.mapping Prelude._Coerce
+deregisterInstancesFromLoadBalancerResponse_instances :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse (Core.Maybe [Instance])
+deregisterInstancesFromLoadBalancerResponse_instances = Lens.lens (\DeregisterInstancesFromLoadBalancerResponse' {instances} -> instances) (\s@DeregisterInstancesFromLoadBalancerResponse' {} a -> s {instances = a} :: DeregisterInstancesFromLoadBalancerResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deregisterInstancesFromLoadBalancerResponse_httpStatus :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse Prelude.Int
+deregisterInstancesFromLoadBalancerResponse_httpStatus :: Lens.Lens' DeregisterInstancesFromLoadBalancerResponse Core.Int
 deregisterInstancesFromLoadBalancerResponse_httpStatus = Lens.lens (\DeregisterInstancesFromLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@DeregisterInstancesFromLoadBalancerResponse' {} a -> s {httpStatus = a} :: DeregisterInstancesFromLoadBalancerResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterInstancesFromLoadBalancerResponse

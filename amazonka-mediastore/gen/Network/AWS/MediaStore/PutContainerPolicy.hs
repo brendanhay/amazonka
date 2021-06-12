@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,24 +46,24 @@ module Network.AWS.MediaStore.PutContainerPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutContainerPolicy' smart constructor.
 data PutContainerPolicy = PutContainerPolicy'
   { -- | The name of the container.
-    containerName :: Prelude.Text,
+    containerName :: Core.Text,
     -- | The contents of the policy, which includes the following:
     --
     -- -   One @Version@ tag
     --
     -- -   One @Statement@ tag that contains the standard tags for the policy.
-    policy :: Prelude.Text
+    policy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutContainerPolicy' with all optional fields omitted.
@@ -83,9 +82,9 @@ data PutContainerPolicy = PutContainerPolicy'
 -- -   One @Statement@ tag that contains the standard tags for the policy.
 newPutContainerPolicy ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policy'
-  Prelude.Text ->
+  Core.Text ->
   PutContainerPolicy
 newPutContainerPolicy pContainerName_ pPolicy_ =
   PutContainerPolicy'
@@ -95,7 +94,7 @@ newPutContainerPolicy pContainerName_ pPolicy_ =
     }
 
 -- | The name of the container.
-putContainerPolicy_containerName :: Lens.Lens' PutContainerPolicy Prelude.Text
+putContainerPolicy_containerName :: Lens.Lens' PutContainerPolicy Core.Text
 putContainerPolicy_containerName = Lens.lens (\PutContainerPolicy' {containerName} -> containerName) (\s@PutContainerPolicy' {} a -> s {containerName = a} :: PutContainerPolicy)
 
 -- | The contents of the policy, which includes the following:
@@ -103,62 +102,59 @@ putContainerPolicy_containerName = Lens.lens (\PutContainerPolicy' {containerNam
 -- -   One @Version@ tag
 --
 -- -   One @Statement@ tag that contains the standard tags for the policy.
-putContainerPolicy_policy :: Lens.Lens' PutContainerPolicy Prelude.Text
+putContainerPolicy_policy :: Lens.Lens' PutContainerPolicy Core.Text
 putContainerPolicy_policy = Lens.lens (\PutContainerPolicy' {policy} -> policy) (\s@PutContainerPolicy' {} a -> s {policy = a} :: PutContainerPolicy)
 
-instance Prelude.AWSRequest PutContainerPolicy where
+instance Core.AWSRequest PutContainerPolicy where
   type
-    Rs PutContainerPolicy =
+    AWSResponse PutContainerPolicy =
       PutContainerPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutContainerPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutContainerPolicy
+instance Core.Hashable PutContainerPolicy
 
-instance Prelude.NFData PutContainerPolicy
+instance Core.NFData PutContainerPolicy
 
-instance Prelude.ToHeaders PutContainerPolicy where
+instance Core.ToHeaders PutContainerPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.PutContainerPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.PutContainerPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutContainerPolicy where
+instance Core.ToJSON PutContainerPolicy where
   toJSON PutContainerPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ContainerName" Prelude..= containerName),
-            Prelude.Just ("Policy" Prelude..= policy)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContainerName" Core..= containerName),
+            Core.Just ("Policy" Core..= policy)
           ]
       )
 
-instance Prelude.ToPath PutContainerPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutContainerPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutContainerPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutContainerPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutContainerPolicyResponse' smart constructor.
 data PutContainerPolicyResponse = PutContainerPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutContainerPolicyResponse' with all optional fields omitted.
@@ -171,7 +167,7 @@ data PutContainerPolicyResponse = PutContainerPolicyResponse'
 -- 'httpStatus', 'putContainerPolicyResponse_httpStatus' - The response's http status code.
 newPutContainerPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutContainerPolicyResponse
 newPutContainerPolicyResponse pHttpStatus_ =
   PutContainerPolicyResponse'
@@ -180,7 +176,7 @@ newPutContainerPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putContainerPolicyResponse_httpStatus :: Lens.Lens' PutContainerPolicyResponse Prelude.Int
+putContainerPolicyResponse_httpStatus :: Lens.Lens' PutContainerPolicyResponse Core.Int
 putContainerPolicyResponse_httpStatus = Lens.lens (\PutContainerPolicyResponse' {httpStatus} -> httpStatus) (\s@PutContainerPolicyResponse' {} a -> s {httpStatus = a} :: PutContainerPolicyResponse)
 
-instance Prelude.NFData PutContainerPolicyResponse
+instance Core.NFData PutContainerPolicyResponse

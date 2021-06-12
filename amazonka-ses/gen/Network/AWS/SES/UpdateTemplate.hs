@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SES.UpdateTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -54,7 +53,7 @@ import Network.AWS.SES.Types
 data UpdateTemplate = UpdateTemplate'
   { template :: Template
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTemplate' with all optional fields omitted.
@@ -76,43 +75,44 @@ newUpdateTemplate pTemplate_ =
 updateTemplate_template :: Lens.Lens' UpdateTemplate Template
 updateTemplate_template = Lens.lens (\UpdateTemplate' {template} -> template) (\s@UpdateTemplate' {} a -> s {template = a} :: UpdateTemplate)
 
-instance Prelude.AWSRequest UpdateTemplate where
-  type Rs UpdateTemplate = UpdateTemplateResponse
+instance Core.AWSRequest UpdateTemplate where
+  type
+    AWSResponse UpdateTemplate =
+      UpdateTemplateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "UpdateTemplateResult"
       ( \s h x ->
           UpdateTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTemplate
+instance Core.Hashable UpdateTemplate
 
-instance Prelude.NFData UpdateTemplate
+instance Core.NFData UpdateTemplate
 
-instance Prelude.ToHeaders UpdateTemplate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateTemplate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateTemplate where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTemplate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTemplate where
+instance Core.ToQuery UpdateTemplate where
   toQuery UpdateTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateTemplate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Template" Prelude.=: template
+          Core.=: ("UpdateTemplate" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Template" Core.=: template
       ]
 
 -- | /See:/ 'newUpdateTemplateResponse' smart constructor.
 data UpdateTemplateResponse = UpdateTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTemplateResponse' with all optional fields omitted.
@@ -125,13 +125,13 @@ data UpdateTemplateResponse = UpdateTemplateResponse'
 -- 'httpStatus', 'updateTemplateResponse_httpStatus' - The response's http status code.
 newUpdateTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTemplateResponse
 newUpdateTemplateResponse pHttpStatus_ =
   UpdateTemplateResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateTemplateResponse_httpStatus :: Lens.Lens' UpdateTemplateResponse Prelude.Int
+updateTemplateResponse_httpStatus :: Lens.Lens' UpdateTemplateResponse Core.Int
 updateTemplateResponse_httpStatus = Lens.lens (\UpdateTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateTemplateResponse' {} a -> s {httpStatus = a} :: UpdateTemplateResponse)
 
-instance Prelude.NFData UpdateTemplateResponse
+instance Core.NFData UpdateTemplateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ReplicationGroupUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.CreateReplicationGroupMemberAction
 import Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction
 import Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents one of the following:
 --
@@ -42,13 +41,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReplicationGroupUpdate' smart constructor.
 data ReplicationGroupUpdate = ReplicationGroupUpdate'
   { -- | The parameters required for creating a replica for the table.
-    create :: Prelude.Maybe CreateReplicationGroupMemberAction,
+    create :: Core.Maybe CreateReplicationGroupMemberAction,
     -- | The parameters required for updating a replica for the table.
-    update :: Prelude.Maybe UpdateReplicationGroupMemberAction,
+    update :: Core.Maybe UpdateReplicationGroupMemberAction,
     -- | The parameters required for deleting a replica for the table.
-    delete' :: Prelude.Maybe DeleteReplicationGroupMemberAction
+    delete' :: Core.Maybe DeleteReplicationGroupMemberAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationGroupUpdate' with all optional fields omitted.
@@ -67,33 +66,33 @@ newReplicationGroupUpdate ::
   ReplicationGroupUpdate
 newReplicationGroupUpdate =
   ReplicationGroupUpdate'
-    { create = Prelude.Nothing,
-      update = Prelude.Nothing,
-      delete' = Prelude.Nothing
+    { create = Core.Nothing,
+      update = Core.Nothing,
+      delete' = Core.Nothing
     }
 
 -- | The parameters required for creating a replica for the table.
-replicationGroupUpdate_create :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe CreateReplicationGroupMemberAction)
+replicationGroupUpdate_create :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe CreateReplicationGroupMemberAction)
 replicationGroupUpdate_create = Lens.lens (\ReplicationGroupUpdate' {create} -> create) (\s@ReplicationGroupUpdate' {} a -> s {create = a} :: ReplicationGroupUpdate)
 
 -- | The parameters required for updating a replica for the table.
-replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe UpdateReplicationGroupMemberAction)
+replicationGroupUpdate_update :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe UpdateReplicationGroupMemberAction)
 replicationGroupUpdate_update = Lens.lens (\ReplicationGroupUpdate' {update} -> update) (\s@ReplicationGroupUpdate' {} a -> s {update = a} :: ReplicationGroupUpdate)
 
 -- | The parameters required for deleting a replica for the table.
-replicationGroupUpdate_delete :: Lens.Lens' ReplicationGroupUpdate (Prelude.Maybe DeleteReplicationGroupMemberAction)
+replicationGroupUpdate_delete :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe DeleteReplicationGroupMemberAction)
 replicationGroupUpdate_delete = Lens.lens (\ReplicationGroupUpdate' {delete'} -> delete') (\s@ReplicationGroupUpdate' {} a -> s {delete' = a} :: ReplicationGroupUpdate)
 
-instance Prelude.Hashable ReplicationGroupUpdate
+instance Core.Hashable ReplicationGroupUpdate
 
-instance Prelude.NFData ReplicationGroupUpdate
+instance Core.NFData ReplicationGroupUpdate
 
-instance Prelude.ToJSON ReplicationGroupUpdate where
+instance Core.ToJSON ReplicationGroupUpdate where
   toJSON ReplicationGroupUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Create" Prelude..=) Prelude.<$> create,
-            ("Update" Prelude..=) Prelude.<$> update,
-            ("Delete" Prelude..=) Prelude.<$> delete'
+    Core.object
+      ( Core.catMaybes
+          [ ("Create" Core..=) Core.<$> create,
+            ("Update" Core..=) Core.<$> update,
+            ("Delete" Core..=) Core.<$> delete'
           ]
       )

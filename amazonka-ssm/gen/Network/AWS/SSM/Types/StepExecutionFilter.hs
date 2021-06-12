@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.StepExecutionFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.StepExecutionFilterKey
 
 -- | A filter to limit the amount of step execution information returned by
@@ -34,9 +33,9 @@ data StepExecutionFilter = StepExecutionFilter'
     -- StartTimeBefore, StartTimeAfter.
     key :: StepExecutionFilterKey,
     -- | The values of the filter key.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StepExecutionFilter' with all optional fields omitted.
@@ -55,12 +54,12 @@ newStepExecutionFilter ::
   -- | 'key'
   StepExecutionFilterKey ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   StepExecutionFilter
 newStepExecutionFilter pKey_ pValues_ =
   StepExecutionFilter'
     { key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | One or more keys to limit the results. Valid filter keys include the
@@ -70,18 +69,18 @@ stepExecutionFilter_key :: Lens.Lens' StepExecutionFilter StepExecutionFilterKey
 stepExecutionFilter_key = Lens.lens (\StepExecutionFilter' {key} -> key) (\s@StepExecutionFilter' {} a -> s {key = a} :: StepExecutionFilter)
 
 -- | The values of the filter key.
-stepExecutionFilter_values :: Lens.Lens' StepExecutionFilter (Prelude.NonEmpty Prelude.Text)
-stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values) (\s@StepExecutionFilter' {} a -> s {values = a} :: StepExecutionFilter) Prelude.. Prelude._Coerce
+stepExecutionFilter_values :: Lens.Lens' StepExecutionFilter (Core.NonEmpty Core.Text)
+stepExecutionFilter_values = Lens.lens (\StepExecutionFilter' {values} -> values) (\s@StepExecutionFilter' {} a -> s {values = a} :: StepExecutionFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable StepExecutionFilter
+instance Core.Hashable StepExecutionFilter
 
-instance Prelude.NFData StepExecutionFilter
+instance Core.NFData StepExecutionFilter
 
-instance Prelude.ToJSON StepExecutionFilter where
+instance Core.ToJSON StepExecutionFilter where
   toJSON StepExecutionFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

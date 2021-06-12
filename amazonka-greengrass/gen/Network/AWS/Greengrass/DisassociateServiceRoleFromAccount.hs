@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data DisassociateServiceRoleFromAccount = DisassociateServiceRoleFromAccount'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateServiceRoleFromAccount' with all optional fields omitted.
@@ -60,63 +59,61 @@ newDisassociateServiceRoleFromAccount =
   DisassociateServiceRoleFromAccount'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateServiceRoleFromAccount
   where
   type
-    Rs DisassociateServiceRoleFromAccount =
+    AWSResponse DisassociateServiceRoleFromAccount =
       DisassociateServiceRoleFromAccountResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DisassociateServiceRoleFromAccountResponse'
-            Prelude.<$> (x Prelude..?> "DisassociatedAt")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DisassociatedAt")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateServiceRoleFromAccount
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateServiceRoleFromAccount
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateServiceRoleFromAccount
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DisassociateServiceRoleFromAccount
   where
-  toPath = Prelude.const "/greengrass/servicerole"
+  toPath = Core.const "/greengrass/servicerole"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisassociateServiceRoleFromAccount
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateServiceRoleFromAccountResponse' smart constructor.
 data DisassociateServiceRoleFromAccountResponse = DisassociateServiceRoleFromAccountResponse'
   { -- | The time when the service role was disassociated from the account.
-    disassociatedAt :: Prelude.Maybe Prelude.Text,
+    disassociatedAt :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateServiceRoleFromAccountResponse' with all optional fields omitted.
@@ -131,24 +128,24 @@ data DisassociateServiceRoleFromAccountResponse = DisassociateServiceRoleFromAcc
 -- 'httpStatus', 'disassociateServiceRoleFromAccountResponse_httpStatus' - The response's http status code.
 newDisassociateServiceRoleFromAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateServiceRoleFromAccountResponse
 newDisassociateServiceRoleFromAccountResponse
   pHttpStatus_ =
     DisassociateServiceRoleFromAccountResponse'
       { disassociatedAt =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The time when the service role was disassociated from the account.
-disassociateServiceRoleFromAccountResponse_disassociatedAt :: Lens.Lens' DisassociateServiceRoleFromAccountResponse (Prelude.Maybe Prelude.Text)
+disassociateServiceRoleFromAccountResponse_disassociatedAt :: Lens.Lens' DisassociateServiceRoleFromAccountResponse (Core.Maybe Core.Text)
 disassociateServiceRoleFromAccountResponse_disassociatedAt = Lens.lens (\DisassociateServiceRoleFromAccountResponse' {disassociatedAt} -> disassociatedAt) (\s@DisassociateServiceRoleFromAccountResponse' {} a -> s {disassociatedAt = a} :: DisassociateServiceRoleFromAccountResponse)
 
 -- | The response's http status code.
-disassociateServiceRoleFromAccountResponse_httpStatus :: Lens.Lens' DisassociateServiceRoleFromAccountResponse Prelude.Int
+disassociateServiceRoleFromAccountResponse_httpStatus :: Lens.Lens' DisassociateServiceRoleFromAccountResponse Core.Int
 disassociateServiceRoleFromAccountResponse_httpStatus = Lens.lens (\DisassociateServiceRoleFromAccountResponse' {httpStatus} -> httpStatus) (\s@DisassociateServiceRoleFromAccountResponse' {} a -> s {httpStatus = a} :: DisassociateServiceRoleFromAccountResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateServiceRoleFromAccountResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,20 +49,20 @@ module Network.AWS.OpsWorks.RegisterEcsCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterEcsCluster' smart constructor.
 data RegisterEcsCluster = RegisterEcsCluster'
   { -- | The cluster\'s ARN.
-    ecsClusterArn :: Prelude.Text,
+    ecsClusterArn :: Core.Text,
     -- | The stack ID.
-    stackId :: Prelude.Text
+    stackId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterEcsCluster' with all optional fields omitted.
@@ -78,9 +77,9 @@ data RegisterEcsCluster = RegisterEcsCluster'
 -- 'stackId', 'registerEcsCluster_stackId' - The stack ID.
 newRegisterEcsCluster ::
   -- | 'ecsClusterArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   RegisterEcsCluster
 newRegisterEcsCluster pEcsClusterArn_ pStackId_ =
   RegisterEcsCluster'
@@ -90,71 +89,68 @@ newRegisterEcsCluster pEcsClusterArn_ pStackId_ =
     }
 
 -- | The cluster\'s ARN.
-registerEcsCluster_ecsClusterArn :: Lens.Lens' RegisterEcsCluster Prelude.Text
+registerEcsCluster_ecsClusterArn :: Lens.Lens' RegisterEcsCluster Core.Text
 registerEcsCluster_ecsClusterArn = Lens.lens (\RegisterEcsCluster' {ecsClusterArn} -> ecsClusterArn) (\s@RegisterEcsCluster' {} a -> s {ecsClusterArn = a} :: RegisterEcsCluster)
 
 -- | The stack ID.
-registerEcsCluster_stackId :: Lens.Lens' RegisterEcsCluster Prelude.Text
+registerEcsCluster_stackId :: Lens.Lens' RegisterEcsCluster Core.Text
 registerEcsCluster_stackId = Lens.lens (\RegisterEcsCluster' {stackId} -> stackId) (\s@RegisterEcsCluster' {} a -> s {stackId = a} :: RegisterEcsCluster)
 
-instance Prelude.AWSRequest RegisterEcsCluster where
+instance Core.AWSRequest RegisterEcsCluster where
   type
-    Rs RegisterEcsCluster =
+    AWSResponse RegisterEcsCluster =
       RegisterEcsClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterEcsClusterResponse'
-            Prelude.<$> (x Prelude..?> "EcsClusterArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EcsClusterArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterEcsCluster
+instance Core.Hashable RegisterEcsCluster
 
-instance Prelude.NFData RegisterEcsCluster
+instance Core.NFData RegisterEcsCluster
 
-instance Prelude.ToHeaders RegisterEcsCluster where
+instance Core.ToHeaders RegisterEcsCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.RegisterEcsCluster" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.RegisterEcsCluster" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterEcsCluster where
+instance Core.ToJSON RegisterEcsCluster where
   toJSON RegisterEcsCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EcsClusterArn" Prelude..= ecsClusterArn),
-            Prelude.Just ("StackId" Prelude..= stackId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EcsClusterArn" Core..= ecsClusterArn),
+            Core.Just ("StackId" Core..= stackId)
           ]
       )
 
-instance Prelude.ToPath RegisterEcsCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterEcsCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterEcsCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterEcsCluster where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @RegisterEcsCluster@ request.
 --
 -- /See:/ 'newRegisterEcsClusterResponse' smart constructor.
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
   { -- | The cluster\'s ARN.
-    ecsClusterArn :: Prelude.Maybe Prelude.Text,
+    ecsClusterArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterEcsClusterResponse' with all optional fields omitted.
@@ -169,21 +165,21 @@ data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
 -- 'httpStatus', 'registerEcsClusterResponse_httpStatus' - The response's http status code.
 newRegisterEcsClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterEcsClusterResponse
 newRegisterEcsClusterResponse pHttpStatus_ =
   RegisterEcsClusterResponse'
     { ecsClusterArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The cluster\'s ARN.
-registerEcsClusterResponse_ecsClusterArn :: Lens.Lens' RegisterEcsClusterResponse (Prelude.Maybe Prelude.Text)
+registerEcsClusterResponse_ecsClusterArn :: Lens.Lens' RegisterEcsClusterResponse (Core.Maybe Core.Text)
 registerEcsClusterResponse_ecsClusterArn = Lens.lens (\RegisterEcsClusterResponse' {ecsClusterArn} -> ecsClusterArn) (\s@RegisterEcsClusterResponse' {} a -> s {ecsClusterArn = a} :: RegisterEcsClusterResponse)
 
 -- | The response's http status code.
-registerEcsClusterResponse_httpStatus :: Lens.Lens' RegisterEcsClusterResponse Prelude.Int
+registerEcsClusterResponse_httpStatus :: Lens.Lens' RegisterEcsClusterResponse Core.Int
 registerEcsClusterResponse_httpStatus = Lens.lens (\RegisterEcsClusterResponse' {httpStatus} -> httpStatus) (\s@RegisterEcsClusterResponse' {} a -> s {httpStatus = a} :: RegisterEcsClusterResponse)
 
-instance Prelude.NFData RegisterEcsClusterResponse
+instance Core.NFData RegisterEcsClusterResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ModifyTransitGatewayOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AutoAcceptSharedAttachmentsValue
 import Network.AWS.EC2.Types.DefaultRouteTableAssociationValue
@@ -27,36 +27,35 @@ import Network.AWS.EC2.Types.DefaultRouteTablePropagationValue
 import Network.AWS.EC2.Types.DnsSupportValue
 import Network.AWS.EC2.Types.VpnEcmpSupportValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The transit gateway options.
 --
 -- /See:/ 'newModifyTransitGatewayOptions' smart constructor.
 data ModifyTransitGatewayOptions = ModifyTransitGatewayOptions'
   { -- | Removes CIDR blocks for the transit gateway.
-    removeTransitGatewayCidrBlocks :: Prelude.Maybe [Prelude.Text],
+    removeTransitGatewayCidrBlocks :: Core.Maybe [Core.Text],
     -- | The ID of the default propagation route table.
-    propagationDefaultRouteTableId :: Prelude.Maybe Prelude.Text,
+    propagationDefaultRouteTableId :: Core.Maybe Core.Text,
     -- | Enable or disable Equal Cost Multipath Protocol support.
-    vpnEcmpSupport :: Prelude.Maybe VpnEcmpSupportValue,
+    vpnEcmpSupport :: Core.Maybe VpnEcmpSupportValue,
     -- | Enable or disable DNS support.
-    dnsSupport :: Prelude.Maybe DnsSupportValue,
+    dnsSupport :: Core.Maybe DnsSupportValue,
     -- | Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size
     -- \/24 CIDR block or larger for IPv4, or a size \/64 CIDR block or larger
     -- for IPv6.
-    addTransitGatewayCidrBlocks :: Prelude.Maybe [Prelude.Text],
+    addTransitGatewayCidrBlocks :: Core.Maybe [Core.Text],
     -- | The ID of the default association route table.
-    associationDefaultRouteTableId :: Prelude.Maybe Prelude.Text,
+    associationDefaultRouteTableId :: Core.Maybe Core.Text,
     -- | Enable or disable automatic acceptance of attachment requests.
-    autoAcceptSharedAttachments :: Prelude.Maybe AutoAcceptSharedAttachmentsValue,
+    autoAcceptSharedAttachments :: Core.Maybe AutoAcceptSharedAttachmentsValue,
     -- | Enable or disable automatic association with the default association
     -- route table.
-    defaultRouteTableAssociation :: Prelude.Maybe DefaultRouteTableAssociationValue,
+    defaultRouteTableAssociation :: Core.Maybe DefaultRouteTableAssociationValue,
     -- | Enable or disable automatic propagation of routes to the default
     -- propagation route table.
-    defaultRouteTablePropagation :: Prelude.Maybe DefaultRouteTablePropagationValue
+    defaultRouteTablePropagation :: Core.Maybe DefaultRouteTablePropagationValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGatewayOptions' with all optional fields omitted.
@@ -92,84 +91,82 @@ newModifyTransitGatewayOptions ::
 newModifyTransitGatewayOptions =
   ModifyTransitGatewayOptions'
     { removeTransitGatewayCidrBlocks =
-        Prelude.Nothing,
-      propagationDefaultRouteTableId =
-        Prelude.Nothing,
-      vpnEcmpSupport = Prelude.Nothing,
-      dnsSupport = Prelude.Nothing,
-      addTransitGatewayCidrBlocks = Prelude.Nothing,
-      associationDefaultRouteTableId =
-        Prelude.Nothing,
-      autoAcceptSharedAttachments = Prelude.Nothing,
-      defaultRouteTableAssociation = Prelude.Nothing,
-      defaultRouteTablePropagation = Prelude.Nothing
+        Core.Nothing,
+      propagationDefaultRouteTableId = Core.Nothing,
+      vpnEcmpSupport = Core.Nothing,
+      dnsSupport = Core.Nothing,
+      addTransitGatewayCidrBlocks = Core.Nothing,
+      associationDefaultRouteTableId = Core.Nothing,
+      autoAcceptSharedAttachments = Core.Nothing,
+      defaultRouteTableAssociation = Core.Nothing,
+      defaultRouteTablePropagation = Core.Nothing
     }
 
 -- | Removes CIDR blocks for the transit gateway.
-modifyTransitGatewayOptions_removeTransitGatewayCidrBlocks :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe [Prelude.Text])
-modifyTransitGatewayOptions_removeTransitGatewayCidrBlocks = Lens.lens (\ModifyTransitGatewayOptions' {removeTransitGatewayCidrBlocks} -> removeTransitGatewayCidrBlocks) (\s@ModifyTransitGatewayOptions' {} a -> s {removeTransitGatewayCidrBlocks = a} :: ModifyTransitGatewayOptions) Prelude.. Lens.mapping Prelude._Coerce
+modifyTransitGatewayOptions_removeTransitGatewayCidrBlocks :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe [Core.Text])
+modifyTransitGatewayOptions_removeTransitGatewayCidrBlocks = Lens.lens (\ModifyTransitGatewayOptions' {removeTransitGatewayCidrBlocks} -> removeTransitGatewayCidrBlocks) (\s@ModifyTransitGatewayOptions' {} a -> s {removeTransitGatewayCidrBlocks = a} :: ModifyTransitGatewayOptions) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the default propagation route table.
-modifyTransitGatewayOptions_propagationDefaultRouteTableId :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe Prelude.Text)
+modifyTransitGatewayOptions_propagationDefaultRouteTableId :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe Core.Text)
 modifyTransitGatewayOptions_propagationDefaultRouteTableId = Lens.lens (\ModifyTransitGatewayOptions' {propagationDefaultRouteTableId} -> propagationDefaultRouteTableId) (\s@ModifyTransitGatewayOptions' {} a -> s {propagationDefaultRouteTableId = a} :: ModifyTransitGatewayOptions)
 
 -- | Enable or disable Equal Cost Multipath Protocol support.
-modifyTransitGatewayOptions_vpnEcmpSupport :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe VpnEcmpSupportValue)
+modifyTransitGatewayOptions_vpnEcmpSupport :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe VpnEcmpSupportValue)
 modifyTransitGatewayOptions_vpnEcmpSupport = Lens.lens (\ModifyTransitGatewayOptions' {vpnEcmpSupport} -> vpnEcmpSupport) (\s@ModifyTransitGatewayOptions' {} a -> s {vpnEcmpSupport = a} :: ModifyTransitGatewayOptions)
 
 -- | Enable or disable DNS support.
-modifyTransitGatewayOptions_dnsSupport :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe DnsSupportValue)
+modifyTransitGatewayOptions_dnsSupport :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe DnsSupportValue)
 modifyTransitGatewayOptions_dnsSupport = Lens.lens (\ModifyTransitGatewayOptions' {dnsSupport} -> dnsSupport) (\s@ModifyTransitGatewayOptions' {} a -> s {dnsSupport = a} :: ModifyTransitGatewayOptions)
 
 -- | Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size
 -- \/24 CIDR block or larger for IPv4, or a size \/64 CIDR block or larger
 -- for IPv6.
-modifyTransitGatewayOptions_addTransitGatewayCidrBlocks :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe [Prelude.Text])
-modifyTransitGatewayOptions_addTransitGatewayCidrBlocks = Lens.lens (\ModifyTransitGatewayOptions' {addTransitGatewayCidrBlocks} -> addTransitGatewayCidrBlocks) (\s@ModifyTransitGatewayOptions' {} a -> s {addTransitGatewayCidrBlocks = a} :: ModifyTransitGatewayOptions) Prelude.. Lens.mapping Prelude._Coerce
+modifyTransitGatewayOptions_addTransitGatewayCidrBlocks :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe [Core.Text])
+modifyTransitGatewayOptions_addTransitGatewayCidrBlocks = Lens.lens (\ModifyTransitGatewayOptions' {addTransitGatewayCidrBlocks} -> addTransitGatewayCidrBlocks) (\s@ModifyTransitGatewayOptions' {} a -> s {addTransitGatewayCidrBlocks = a} :: ModifyTransitGatewayOptions) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the default association route table.
-modifyTransitGatewayOptions_associationDefaultRouteTableId :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe Prelude.Text)
+modifyTransitGatewayOptions_associationDefaultRouteTableId :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe Core.Text)
 modifyTransitGatewayOptions_associationDefaultRouteTableId = Lens.lens (\ModifyTransitGatewayOptions' {associationDefaultRouteTableId} -> associationDefaultRouteTableId) (\s@ModifyTransitGatewayOptions' {} a -> s {associationDefaultRouteTableId = a} :: ModifyTransitGatewayOptions)
 
 -- | Enable or disable automatic acceptance of attachment requests.
-modifyTransitGatewayOptions_autoAcceptSharedAttachments :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe AutoAcceptSharedAttachmentsValue)
+modifyTransitGatewayOptions_autoAcceptSharedAttachments :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe AutoAcceptSharedAttachmentsValue)
 modifyTransitGatewayOptions_autoAcceptSharedAttachments = Lens.lens (\ModifyTransitGatewayOptions' {autoAcceptSharedAttachments} -> autoAcceptSharedAttachments) (\s@ModifyTransitGatewayOptions' {} a -> s {autoAcceptSharedAttachments = a} :: ModifyTransitGatewayOptions)
 
 -- | Enable or disable automatic association with the default association
 -- route table.
-modifyTransitGatewayOptions_defaultRouteTableAssociation :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe DefaultRouteTableAssociationValue)
+modifyTransitGatewayOptions_defaultRouteTableAssociation :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe DefaultRouteTableAssociationValue)
 modifyTransitGatewayOptions_defaultRouteTableAssociation = Lens.lens (\ModifyTransitGatewayOptions' {defaultRouteTableAssociation} -> defaultRouteTableAssociation) (\s@ModifyTransitGatewayOptions' {} a -> s {defaultRouteTableAssociation = a} :: ModifyTransitGatewayOptions)
 
 -- | Enable or disable automatic propagation of routes to the default
 -- propagation route table.
-modifyTransitGatewayOptions_defaultRouteTablePropagation :: Lens.Lens' ModifyTransitGatewayOptions (Prelude.Maybe DefaultRouteTablePropagationValue)
+modifyTransitGatewayOptions_defaultRouteTablePropagation :: Lens.Lens' ModifyTransitGatewayOptions (Core.Maybe DefaultRouteTablePropagationValue)
 modifyTransitGatewayOptions_defaultRouteTablePropagation = Lens.lens (\ModifyTransitGatewayOptions' {defaultRouteTablePropagation} -> defaultRouteTablePropagation) (\s@ModifyTransitGatewayOptions' {} a -> s {defaultRouteTablePropagation = a} :: ModifyTransitGatewayOptions)
 
-instance Prelude.Hashable ModifyTransitGatewayOptions
+instance Core.Hashable ModifyTransitGatewayOptions
 
-instance Prelude.NFData ModifyTransitGatewayOptions
+instance Core.NFData ModifyTransitGatewayOptions
 
-instance Prelude.ToQuery ModifyTransitGatewayOptions where
+instance Core.ToQuery ModifyTransitGatewayOptions where
   toQuery ModifyTransitGatewayOptions' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          ( Prelude.toQueryList "RemoveTransitGatewayCidrBlocks"
-              Prelude.<$> removeTransitGatewayCidrBlocks
+    Core.mconcat
+      [ Core.toQuery
+          ( Core.toQueryList "RemoveTransitGatewayCidrBlocks"
+              Core.<$> removeTransitGatewayCidrBlocks
           ),
         "PropagationDefaultRouteTableId"
-          Prelude.=: propagationDefaultRouteTableId,
-        "VpnEcmpSupport" Prelude.=: vpnEcmpSupport,
-        "DnsSupport" Prelude.=: dnsSupport,
-        Prelude.toQuery
-          ( Prelude.toQueryList "AddTransitGatewayCidrBlocks"
-              Prelude.<$> addTransitGatewayCidrBlocks
+          Core.=: propagationDefaultRouteTableId,
+        "VpnEcmpSupport" Core.=: vpnEcmpSupport,
+        "DnsSupport" Core.=: dnsSupport,
+        Core.toQuery
+          ( Core.toQueryList "AddTransitGatewayCidrBlocks"
+              Core.<$> addTransitGatewayCidrBlocks
           ),
         "AssociationDefaultRouteTableId"
-          Prelude.=: associationDefaultRouteTableId,
+          Core.=: associationDefaultRouteTableId,
         "AutoAcceptSharedAttachments"
-          Prelude.=: autoAcceptSharedAttachments,
+          Core.=: autoAcceptSharedAttachments,
         "DefaultRouteTableAssociation"
-          Prelude.=: defaultRouteTableAssociation,
+          Core.=: defaultRouteTableAssociation,
         "DefaultRouteTablePropagation"
-          Prelude.=: defaultRouteTablePropagation
+          Core.=: defaultRouteTablePropagation
       ]

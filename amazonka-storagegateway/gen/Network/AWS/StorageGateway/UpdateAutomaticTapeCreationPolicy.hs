@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.StorageGateway.UpdateAutomaticTapeCreationPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -58,10 +57,10 @@ data UpdateAutomaticTapeCreationPolicy = UpdateAutomaticTapeCreationPolicy'
   { -- | An automatic tape creation policy consists of a list of automatic tape
     -- creation rules. The rules determine when and how to automatically create
     -- new tapes.
-    automaticTapeCreationRules :: Prelude.NonEmpty AutomaticTapeCreationRule,
-    gatewayARN :: Prelude.Text
+    automaticTapeCreationRules :: Core.NonEmpty AutomaticTapeCreationRule,
+    gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAutomaticTapeCreationPolicy' with all optional fields omitted.
@@ -78,16 +77,16 @@ data UpdateAutomaticTapeCreationPolicy = UpdateAutomaticTapeCreationPolicy'
 -- 'gatewayARN', 'updateAutomaticTapeCreationPolicy_gatewayARN' - Undocumented member.
 newUpdateAutomaticTapeCreationPolicy ::
   -- | 'automaticTapeCreationRules'
-  Prelude.NonEmpty AutomaticTapeCreationRule ->
+  Core.NonEmpty AutomaticTapeCreationRule ->
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   UpdateAutomaticTapeCreationPolicy
 newUpdateAutomaticTapeCreationPolicy
   pAutomaticTapeCreationRules_
   pGatewayARN_ =
     UpdateAutomaticTapeCreationPolicy'
       { automaticTapeCreationRules =
-          Prelude._Coerce
+          Lens._Coerce
             Lens.# pAutomaticTapeCreationRules_,
         gatewayARN = pGatewayARN_
       }
@@ -95,89 +94,87 @@ newUpdateAutomaticTapeCreationPolicy
 -- | An automatic tape creation policy consists of a list of automatic tape
 -- creation rules. The rules determine when and how to automatically create
 -- new tapes.
-updateAutomaticTapeCreationPolicy_automaticTapeCreationRules :: Lens.Lens' UpdateAutomaticTapeCreationPolicy (Prelude.NonEmpty AutomaticTapeCreationRule)
-updateAutomaticTapeCreationPolicy_automaticTapeCreationRules = Lens.lens (\UpdateAutomaticTapeCreationPolicy' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@UpdateAutomaticTapeCreationPolicy' {} a -> s {automaticTapeCreationRules = a} :: UpdateAutomaticTapeCreationPolicy) Prelude.. Prelude._Coerce
+updateAutomaticTapeCreationPolicy_automaticTapeCreationRules :: Lens.Lens' UpdateAutomaticTapeCreationPolicy (Core.NonEmpty AutomaticTapeCreationRule)
+updateAutomaticTapeCreationPolicy_automaticTapeCreationRules = Lens.lens (\UpdateAutomaticTapeCreationPolicy' {automaticTapeCreationRules} -> automaticTapeCreationRules) (\s@UpdateAutomaticTapeCreationPolicy' {} a -> s {automaticTapeCreationRules = a} :: UpdateAutomaticTapeCreationPolicy) Core.. Lens._Coerce
 
 -- | Undocumented member.
-updateAutomaticTapeCreationPolicy_gatewayARN :: Lens.Lens' UpdateAutomaticTapeCreationPolicy Prelude.Text
+updateAutomaticTapeCreationPolicy_gatewayARN :: Lens.Lens' UpdateAutomaticTapeCreationPolicy Core.Text
 updateAutomaticTapeCreationPolicy_gatewayARN = Lens.lens (\UpdateAutomaticTapeCreationPolicy' {gatewayARN} -> gatewayARN) (\s@UpdateAutomaticTapeCreationPolicy' {} a -> s {gatewayARN = a} :: UpdateAutomaticTapeCreationPolicy)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateAutomaticTapeCreationPolicy
   where
   type
-    Rs UpdateAutomaticTapeCreationPolicy =
+    AWSResponse UpdateAutomaticTapeCreationPolicy =
       UpdateAutomaticTapeCreationPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateAutomaticTapeCreationPolicyResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateAutomaticTapeCreationPolicy
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateAutomaticTapeCreationPolicy
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateAutomaticTapeCreationPolicy
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     UpdateAutomaticTapeCreationPolicy
   where
   toJSON UpdateAutomaticTapeCreationPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "AutomaticTapeCreationRules"
-                  Prelude..= automaticTapeCreationRules
+                  Core..= automaticTapeCreationRules
               ),
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN)
+            Core.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     UpdateAutomaticTapeCreationPolicy
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     UpdateAutomaticTapeCreationPolicy
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateAutomaticTapeCreationPolicyResponse' smart constructor.
 data UpdateAutomaticTapeCreationPolicyResponse = UpdateAutomaticTapeCreationPolicyResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAutomaticTapeCreationPolicyResponse' with all optional fields omitted.
@@ -192,24 +189,24 @@ data UpdateAutomaticTapeCreationPolicyResponse = UpdateAutomaticTapeCreationPoli
 -- 'httpStatus', 'updateAutomaticTapeCreationPolicyResponse_httpStatus' - The response's http status code.
 newUpdateAutomaticTapeCreationPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateAutomaticTapeCreationPolicyResponse
 newUpdateAutomaticTapeCreationPolicyResponse
   pHttpStatus_ =
     UpdateAutomaticTapeCreationPolicyResponse'
       { gatewayARN =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-updateAutomaticTapeCreationPolicyResponse_gatewayARN :: Lens.Lens' UpdateAutomaticTapeCreationPolicyResponse (Prelude.Maybe Prelude.Text)
+updateAutomaticTapeCreationPolicyResponse_gatewayARN :: Lens.Lens' UpdateAutomaticTapeCreationPolicyResponse (Core.Maybe Core.Text)
 updateAutomaticTapeCreationPolicyResponse_gatewayARN = Lens.lens (\UpdateAutomaticTapeCreationPolicyResponse' {gatewayARN} -> gatewayARN) (\s@UpdateAutomaticTapeCreationPolicyResponse' {} a -> s {gatewayARN = a} :: UpdateAutomaticTapeCreationPolicyResponse)
 
 -- | The response's http status code.
-updateAutomaticTapeCreationPolicyResponse_httpStatus :: Lens.Lens' UpdateAutomaticTapeCreationPolicyResponse Prelude.Int
+updateAutomaticTapeCreationPolicyResponse_httpStatus :: Lens.Lens' UpdateAutomaticTapeCreationPolicyResponse Core.Int
 updateAutomaticTapeCreationPolicyResponse_httpStatus = Lens.lens (\UpdateAutomaticTapeCreationPolicyResponse' {httpStatus} -> httpStatus) (\s@UpdateAutomaticTapeCreationPolicyResponse' {} a -> s {httpStatus = a} :: UpdateAutomaticTapeCreationPolicyResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateAutomaticTapeCreationPolicyResponse

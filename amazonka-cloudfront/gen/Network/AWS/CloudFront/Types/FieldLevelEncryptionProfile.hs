@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfile where
 
 import Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type for field-level encryption profiles.
 --
@@ -31,14 +30,14 @@ data FieldLevelEncryptionProfile = FieldLevelEncryptionProfile'
   { -- | The ID for a field-level encryption profile configuration which includes
     -- a set of profiles that specify certain selected data fields to be
     -- encrypted by specific public keys.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The last time the field-level encryption profile was updated.
-    lastModifiedTime :: Prelude.ISO8601,
+    lastModifiedTime :: Core.ISO8601,
     -- | A complex data type that includes the profile name and the encryption
     -- entities for the field-level encryption profile.
     fieldLevelEncryptionProfileConfig :: FieldLevelEncryptionProfileConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FieldLevelEncryptionProfile' with all optional fields omitted.
@@ -58,9 +57,9 @@ data FieldLevelEncryptionProfile = FieldLevelEncryptionProfile'
 -- entities for the field-level encryption profile.
 newFieldLevelEncryptionProfile ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lastModifiedTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'fieldLevelEncryptionProfileConfig'
   FieldLevelEncryptionProfileConfig ->
   FieldLevelEncryptionProfile
@@ -71,7 +70,7 @@ newFieldLevelEncryptionProfile
     FieldLevelEncryptionProfile'
       { id = pId_,
         lastModifiedTime =
-          Prelude._Time Lens.# pLastModifiedTime_,
+          Core._Time Lens.# pLastModifiedTime_,
         fieldLevelEncryptionProfileConfig =
           pFieldLevelEncryptionProfileConfig_
       }
@@ -79,25 +78,25 @@ newFieldLevelEncryptionProfile
 -- | The ID for a field-level encryption profile configuration which includes
 -- a set of profiles that specify certain selected data fields to be
 -- encrypted by specific public keys.
-fieldLevelEncryptionProfile_id :: Lens.Lens' FieldLevelEncryptionProfile Prelude.Text
+fieldLevelEncryptionProfile_id :: Lens.Lens' FieldLevelEncryptionProfile Core.Text
 fieldLevelEncryptionProfile_id = Lens.lens (\FieldLevelEncryptionProfile' {id} -> id) (\s@FieldLevelEncryptionProfile' {} a -> s {id = a} :: FieldLevelEncryptionProfile)
 
 -- | The last time the field-level encryption profile was updated.
-fieldLevelEncryptionProfile_lastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfile Prelude.UTCTime
-fieldLevelEncryptionProfile_lastModifiedTime = Lens.lens (\FieldLevelEncryptionProfile' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionProfile' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfile) Prelude.. Prelude._Time
+fieldLevelEncryptionProfile_lastModifiedTime :: Lens.Lens' FieldLevelEncryptionProfile Core.UTCTime
+fieldLevelEncryptionProfile_lastModifiedTime = Lens.lens (\FieldLevelEncryptionProfile' {lastModifiedTime} -> lastModifiedTime) (\s@FieldLevelEncryptionProfile' {} a -> s {lastModifiedTime = a} :: FieldLevelEncryptionProfile) Core.. Core._Time
 
 -- | A complex data type that includes the profile name and the encryption
 -- entities for the field-level encryption profile.
 fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig :: Lens.Lens' FieldLevelEncryptionProfile FieldLevelEncryptionProfileConfig
 fieldLevelEncryptionProfile_fieldLevelEncryptionProfileConfig = Lens.lens (\FieldLevelEncryptionProfile' {fieldLevelEncryptionProfileConfig} -> fieldLevelEncryptionProfileConfig) (\s@FieldLevelEncryptionProfile' {} a -> s {fieldLevelEncryptionProfileConfig = a} :: FieldLevelEncryptionProfile)
 
-instance Prelude.FromXML FieldLevelEncryptionProfile where
+instance Core.FromXML FieldLevelEncryptionProfile where
   parseXML x =
     FieldLevelEncryptionProfile'
-      Prelude.<$> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "LastModifiedTime")
-      Prelude.<*> (x Prelude..@ "FieldLevelEncryptionProfileConfig")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@ "FieldLevelEncryptionProfileConfig")
 
-instance Prelude.Hashable FieldLevelEncryptionProfile
+instance Core.Hashable FieldLevelEncryptionProfile
 
-instance Prelude.NFData FieldLevelEncryptionProfile
+instance Core.NFData FieldLevelEncryptionProfile

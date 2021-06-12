@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Phase2DHGroupNumbersListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Diffie-Hellmann group number for phase 2 IKE negotiations.
 --
 -- /See:/ 'newPhase2DHGroupNumbersListValue' smart constructor.
 data Phase2DHGroupNumbersListValue = Phase2DHGroupNumbersListValue'
   { -- | The Diffie-Hellmann group number.
-    value :: Prelude.Maybe Prelude.Int
+    value :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Phase2DHGroupNumbersListValue' with all optional fields omitted.
@@ -47,23 +46,18 @@ newPhase2DHGroupNumbersListValue ::
 newPhase2DHGroupNumbersListValue =
   Phase2DHGroupNumbersListValue'
     { value =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Diffie-Hellmann group number.
-phase2DHGroupNumbersListValue_value :: Lens.Lens' Phase2DHGroupNumbersListValue (Prelude.Maybe Prelude.Int)
+phase2DHGroupNumbersListValue_value :: Lens.Lens' Phase2DHGroupNumbersListValue (Core.Maybe Core.Int)
 phase2DHGroupNumbersListValue_value = Lens.lens (\Phase2DHGroupNumbersListValue' {value} -> value) (\s@Phase2DHGroupNumbersListValue' {} a -> s {value = a} :: Phase2DHGroupNumbersListValue)
 
-instance
-  Prelude.FromXML
-    Phase2DHGroupNumbersListValue
-  where
+instance Core.FromXML Phase2DHGroupNumbersListValue where
   parseXML x =
     Phase2DHGroupNumbersListValue'
-      Prelude.<$> (x Prelude..@? "value")
+      Core.<$> (x Core..@? "value")
 
-instance
-  Prelude.Hashable
-    Phase2DHGroupNumbersListValue
+instance Core.Hashable Phase2DHGroupNumbersListValue
 
-instance Prelude.NFData Phase2DHGroupNumbersListValue
+instance Core.NFData Phase2DHGroupNumbersListValue

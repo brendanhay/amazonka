@@ -156,10 +156,10 @@ library
     Network.AWS.AutoScaling.UpdateAutoScalingGroup
     Network.AWS.AutoScaling.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-autoscaling-test
   type:             exitcode-stdio-1.0
@@ -177,8 +177,8 @@ test-suite amazonka-autoscaling-test
     Test.AWS.Gen.AutoScaling
 
   build-depends:
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-autoscaling
-    , amazonka-core         >=1.6.1 && <1.6.2
     , amazonka-test         >=1.6.1 && <1.6.2
     , base
     , bytestring

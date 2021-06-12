@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.PolicySummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.SecurityServiceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the AWS Firewall Manager policy.
 --
 -- /See:/ 'newPolicySummary' smart constructor.
 data PolicySummary = PolicySummary'
   { -- | The name of the specified policy.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | The service that the policy is using to protect the resources. This
     -- specifies the type of policy that is created, either an AWS WAF policy,
     -- a Shield Advanced policy, or a security group policy.
-    securityServiceType :: Prelude.Maybe SecurityServiceType,
+    securityServiceType :: Core.Maybe SecurityServiceType,
     -- | The type of resource protected by or in scope of the policy. This is in
     -- the format shown in the
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
@@ -46,16 +45,16 @@ data PolicySummary = PolicySummary'
     -- @AWS::EC2::Instance@. For a security group usage audit policy, the value
     -- is @AWS::EC2::SecurityGroup@. For an AWS Network Firewall policy, the
     -- value is @AWS::EC2::VPC@.
-    resourceType :: Prelude.Maybe Prelude.Text,
+    resourceType :: Core.Maybe Core.Text,
     -- | Indicates if the policy should be automatically applied to new
     -- resources.
-    remediationEnabled :: Prelude.Maybe Prelude.Bool,
+    remediationEnabled :: Core.Maybe Core.Bool,
     -- | The ID of the specified policy.
-    policyId :: Prelude.Maybe Prelude.Text,
+    policyId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the specified policy.
-    policyArn :: Prelude.Maybe Prelude.Text
+    policyArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicySummary' with all optional fields omitted.
@@ -94,22 +93,22 @@ newPolicySummary ::
   PolicySummary
 newPolicySummary =
   PolicySummary'
-    { policyName = Prelude.Nothing,
-      securityServiceType = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      remediationEnabled = Prelude.Nothing,
-      policyId = Prelude.Nothing,
-      policyArn = Prelude.Nothing
+    { policyName = Core.Nothing,
+      securityServiceType = Core.Nothing,
+      resourceType = Core.Nothing,
+      remediationEnabled = Core.Nothing,
+      policyId = Core.Nothing,
+      policyArn = Core.Nothing
     }
 
 -- | The name of the specified policy.
-policySummary_policyName :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_policyName :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
 policySummary_policyName = Lens.lens (\PolicySummary' {policyName} -> policyName) (\s@PolicySummary' {} a -> s {policyName = a} :: PolicySummary)
 
 -- | The service that the policy is using to protect the resources. This
 -- specifies the type of policy that is created, either an AWS WAF policy,
 -- a Shield Advanced policy, or a security group policy.
-policySummary_securityServiceType :: Lens.Lens' PolicySummary (Prelude.Maybe SecurityServiceType)
+policySummary_securityServiceType :: Lens.Lens' PolicySummary (Core.Maybe SecurityServiceType)
 policySummary_securityServiceType = Lens.lens (\PolicySummary' {securityServiceType} -> securityServiceType) (\s@PolicySummary' {} a -> s {securityServiceType = a} :: PolicySummary)
 
 -- | The type of resource protected by or in scope of the policy. This is in
@@ -124,36 +123,36 @@ policySummary_securityServiceType = Lens.lens (\PolicySummary' {securityServiceT
 -- @AWS::EC2::Instance@. For a security group usage audit policy, the value
 -- is @AWS::EC2::SecurityGroup@. For an AWS Network Firewall policy, the
 -- value is @AWS::EC2::VPC@.
-policySummary_resourceType :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_resourceType :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
 policySummary_resourceType = Lens.lens (\PolicySummary' {resourceType} -> resourceType) (\s@PolicySummary' {} a -> s {resourceType = a} :: PolicySummary)
 
 -- | Indicates if the policy should be automatically applied to new
 -- resources.
-policySummary_remediationEnabled :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Bool)
+policySummary_remediationEnabled :: Lens.Lens' PolicySummary (Core.Maybe Core.Bool)
 policySummary_remediationEnabled = Lens.lens (\PolicySummary' {remediationEnabled} -> remediationEnabled) (\s@PolicySummary' {} a -> s {remediationEnabled = a} :: PolicySummary)
 
 -- | The ID of the specified policy.
-policySummary_policyId :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_policyId :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
 policySummary_policyId = Lens.lens (\PolicySummary' {policyId} -> policyId) (\s@PolicySummary' {} a -> s {policyId = a} :: PolicySummary)
 
 -- | The Amazon Resource Name (ARN) of the specified policy.
-policySummary_policyArn :: Lens.Lens' PolicySummary (Prelude.Maybe Prelude.Text)
+policySummary_policyArn :: Lens.Lens' PolicySummary (Core.Maybe Core.Text)
 policySummary_policyArn = Lens.lens (\PolicySummary' {policyArn} -> policyArn) (\s@PolicySummary' {} a -> s {policyArn = a} :: PolicySummary)
 
-instance Prelude.FromJSON PolicySummary where
+instance Core.FromJSON PolicySummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PolicySummary"
       ( \x ->
           PolicySummary'
-            Prelude.<$> (x Prelude..:? "PolicyName")
-            Prelude.<*> (x Prelude..:? "SecurityServiceType")
-            Prelude.<*> (x Prelude..:? "ResourceType")
-            Prelude.<*> (x Prelude..:? "RemediationEnabled")
-            Prelude.<*> (x Prelude..:? "PolicyId")
-            Prelude.<*> (x Prelude..:? "PolicyArn")
+            Core.<$> (x Core..:? "PolicyName")
+            Core.<*> (x Core..:? "SecurityServiceType")
+            Core.<*> (x Core..:? "ResourceType")
+            Core.<*> (x Core..:? "RemediationEnabled")
+            Core.<*> (x Core..:? "PolicyId")
+            Core.<*> (x Core..:? "PolicyArn")
       )
 
-instance Prelude.Hashable PolicySummary
+instance Core.Hashable PolicySummary
 
-instance Prelude.NFData PolicySummary
+instance Core.NFData PolicySummary

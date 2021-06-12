@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.ListPoliciesGrantingServiceAccessEntry where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.PolicyGrantingServiceAccess
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the permissions policies that are attached to the
 -- specified identity (user, group, or role).
@@ -34,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ListPoliciesGrantingServiceAccessEntry = ListPoliciesGrantingServiceAccessEntry'
   { -- | The @PoliciesGrantingServiceAccess@ object that contains details about
     -- the policy.
-    policies :: Prelude.Maybe [PolicyGrantingServiceAccess],
+    policies :: Core.Maybe [PolicyGrantingServiceAccess],
     -- | The namespace of the service that was accessed.
     --
     -- To learn the service namespace of a service, see
@@ -45,9 +44,9 @@ data ListPoliciesGrantingServiceAccessEntry = ListPoliciesGrantingServiceAccessE
     -- information about service namespaces, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
     -- in the /AWS General Reference/.
-    serviceNamespace :: Prelude.Maybe Prelude.Text
+    serviceNamespace :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPoliciesGrantingServiceAccessEntry' with all optional fields omitted.
@@ -75,14 +74,14 @@ newListPoliciesGrantingServiceAccessEntry ::
 newListPoliciesGrantingServiceAccessEntry =
   ListPoliciesGrantingServiceAccessEntry'
     { policies =
-        Prelude.Nothing,
-      serviceNamespace = Prelude.Nothing
+        Core.Nothing,
+      serviceNamespace = Core.Nothing
     }
 
 -- | The @PoliciesGrantingServiceAccess@ object that contains details about
 -- the policy.
-listPoliciesGrantingServiceAccessEntry_policies :: Lens.Lens' ListPoliciesGrantingServiceAccessEntry (Prelude.Maybe [PolicyGrantingServiceAccess])
-listPoliciesGrantingServiceAccessEntry_policies = Lens.lens (\ListPoliciesGrantingServiceAccessEntry' {policies} -> policies) (\s@ListPoliciesGrantingServiceAccessEntry' {} a -> s {policies = a} :: ListPoliciesGrantingServiceAccessEntry) Prelude.. Lens.mapping Prelude._Coerce
+listPoliciesGrantingServiceAccessEntry_policies :: Lens.Lens' ListPoliciesGrantingServiceAccessEntry (Core.Maybe [PolicyGrantingServiceAccess])
+listPoliciesGrantingServiceAccessEntry_policies = Lens.lens (\ListPoliciesGrantingServiceAccessEntry' {policies} -> policies) (\s@ListPoliciesGrantingServiceAccessEntry' {} a -> s {policies = a} :: ListPoliciesGrantingServiceAccessEntry) Core.. Lens.mapping Lens._Coerce
 
 -- | The namespace of the service that was accessed.
 --
@@ -94,24 +93,24 @@ listPoliciesGrantingServiceAccessEntry_policies = Lens.lens (\ListPoliciesGranti
 -- information about service namespaces, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
 -- in the /AWS General Reference/.
-listPoliciesGrantingServiceAccessEntry_serviceNamespace :: Lens.Lens' ListPoliciesGrantingServiceAccessEntry (Prelude.Maybe Prelude.Text)
+listPoliciesGrantingServiceAccessEntry_serviceNamespace :: Lens.Lens' ListPoliciesGrantingServiceAccessEntry (Core.Maybe Core.Text)
 listPoliciesGrantingServiceAccessEntry_serviceNamespace = Lens.lens (\ListPoliciesGrantingServiceAccessEntry' {serviceNamespace} -> serviceNamespace) (\s@ListPoliciesGrantingServiceAccessEntry' {} a -> s {serviceNamespace = a} :: ListPoliciesGrantingServiceAccessEntry)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ListPoliciesGrantingServiceAccessEntry
   where
   parseXML x =
     ListPoliciesGrantingServiceAccessEntry'
-      Prelude.<$> ( x Prelude..@? "Policies" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "ServiceNamespace")
+      Core.<$> ( x Core..@? "Policies" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "ServiceNamespace")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListPoliciesGrantingServiceAccessEntry
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPoliciesGrantingServiceAccessEntry

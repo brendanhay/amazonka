@@ -677,8 +677,8 @@ module Network.AWS.Rekognition.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.AgeRange
 import Network.AWS.Rekognition.Types.Asset
 import Network.AWS.Rekognition.Types.Attribute
@@ -790,175 +790,173 @@ import Network.AWS.Rekognition.Types.VideoMetadata
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-06-27@ of the Amazon Rekognition SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Rekognition",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "rekognition",
-      Prelude._svcSigningName = "rekognition",
-      Prelude._svcVersion = "2016-06-27",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "Rekognition",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Rekognition",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "rekognition",
+      Core._serviceSigningName = "rekognition",
+      Core._serviceVersion = "2016-06-27",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "Rekognition",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The size of the collection exceeds the allowed limit. For more
 -- information, see Limits in Amazon Rekognition in the Amazon Rekognition
 -- Developer Guide.
-_ServiceQuotaExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceQuotaExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
 
 -- | The file size or duration of the supplied media is too large. The
 -- maximum file size is 10GB. The maximum duration is 6 hours.
-_VideoTooLargeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_VideoTooLargeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _VideoTooLargeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "VideoTooLargeException"
 
 -- | Pagination token in the request is not valid.
-_InvalidPaginationTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidPaginationTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidPaginationTokenException"
 
 -- | The number of in-progress human reviews you have has exceeded the number
 -- allowed.
-_HumanLoopQuotaExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HumanLoopQuotaExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HumanLoopQuotaExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HumanLoopQuotaExceededException"
 
 -- | The input image size exceeds the allowed limit. For more information,
 -- see Limits in Amazon Rekognition in the Amazon Rekognition Developer
 -- Guide.
-_ImageTooLargeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ImageTooLargeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ImageTooLargeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ImageTooLargeException"
 
 -- | The requested resource isn\'t ready. For example, this exception occurs
 -- when you call @DetectCustomLabels@ with a model version that isn\'t
 -- deployed.
-_ResourceNotReadyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotReadyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotReadyException"
 
 -- | Amazon Rekognition is unable to access the S3 object specified in the
 -- request.
-_InvalidS3ObjectException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidS3ObjectException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidS3ObjectException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidS3ObjectException"
 
 -- | A collection with the specified ID already exists.
-_ResourceAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
 
 -- | Amazon Rekognition is temporarily unable to process the request. Try
 -- your call again.
-_ThrottlingException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | Amazon Rekognition experienced a service issue. Try your call again.
-_InternalServerError :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServerError"
 
 -- | Input parameter violated a constraint. Validate your parameter before
 -- calling the API operation again.
-_InvalidParameterException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | You are not authorized to perform the action.
-_AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | The specified resource is already being used.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
@@ -968,39 +966,39 @@ _ResourceInUseException =
 -- @LimitExceededException@ exception (HTTP status code: 400) until the
 -- number of concurrently running jobs is below the Amazon Rekognition
 -- service limit.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The number of requests exceeded your throughput limit. If you want to
 -- increase this limit, contact Amazon Rekognition.
-_ProvisionedThroughputExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ProvisionedThroughputExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ProvisionedThroughputExceededException"
 
 -- | The collection specified in the request cannot be found.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | A @ClientRequestToken@ input parameter was reused with an operation, but
 -- at least one of the other input parameters is different from the
 -- previous call to the operation.
-_IdempotentParameterMismatchException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IdempotentParameterMismatchException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | The provided image format is not supported.
-_InvalidImageFormatException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidImageFormatException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidImageFormatException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidImageFormatException"

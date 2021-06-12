@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CloudDirectory.Types.BatchAddFacetToObject where
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.SchemaFacet
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a batch add facet to object operation.
 --
@@ -37,7 +36,7 @@ data BatchAddFacetToObject = BatchAddFacetToObject'
     -- | A reference to the object being mutated.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAddFacetToObject' with all optional fields omitted.
@@ -63,7 +62,7 @@ newBatchAddFacetToObject
   pObjectReference_ =
     BatchAddFacetToObject'
       { schemaFacet = pSchemaFacet_,
-        objectAttributeList = Prelude.mempty,
+        objectAttributeList = Core.mempty,
         objectReference = pObjectReference_
       }
 
@@ -73,26 +72,24 @@ batchAddFacetToObject_schemaFacet = Lens.lens (\BatchAddFacetToObject' {schemaFa
 
 -- | The attributes to set on the object.
 batchAddFacetToObject_objectAttributeList :: Lens.Lens' BatchAddFacetToObject [AttributeKeyAndValue]
-batchAddFacetToObject_objectAttributeList = Lens.lens (\BatchAddFacetToObject' {objectAttributeList} -> objectAttributeList) (\s@BatchAddFacetToObject' {} a -> s {objectAttributeList = a} :: BatchAddFacetToObject) Prelude.. Prelude._Coerce
+batchAddFacetToObject_objectAttributeList = Lens.lens (\BatchAddFacetToObject' {objectAttributeList} -> objectAttributeList) (\s@BatchAddFacetToObject' {} a -> s {objectAttributeList = a} :: BatchAddFacetToObject) Core.. Lens._Coerce
 
 -- | A reference to the object being mutated.
 batchAddFacetToObject_objectReference :: Lens.Lens' BatchAddFacetToObject ObjectReference
 batchAddFacetToObject_objectReference = Lens.lens (\BatchAddFacetToObject' {objectReference} -> objectReference) (\s@BatchAddFacetToObject' {} a -> s {objectReference = a} :: BatchAddFacetToObject)
 
-instance Prelude.Hashable BatchAddFacetToObject
+instance Core.Hashable BatchAddFacetToObject
 
-instance Prelude.NFData BatchAddFacetToObject
+instance Core.NFData BatchAddFacetToObject
 
-instance Prelude.ToJSON BatchAddFacetToObject where
+instance Core.ToJSON BatchAddFacetToObject where
   toJSON BatchAddFacetToObject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaFacet" Prelude..= schemaFacet),
-            Prelude.Just
-              ( "ObjectAttributeList"
-                  Prelude..= objectAttributeList
-              ),
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaFacet" Core..= schemaFacet),
+            Core.Just
+              ("ObjectAttributeList" Core..= objectAttributeList),
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )

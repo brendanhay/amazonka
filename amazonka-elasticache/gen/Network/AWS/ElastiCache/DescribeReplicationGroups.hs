@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,10 +48,9 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,12 +63,12 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
     --
     -- If you do not specify this parameter, information about all replication
     -- groups is returned.
-    replicationGroupId :: Prelude.Maybe Prelude.Text,
+    replicationGroupId :: Core.Maybe Core.Text,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -78,9 +76,9 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationGroups' with all optional fields omitted.
@@ -113,9 +111,9 @@ newDescribeReplicationGroups ::
 newDescribeReplicationGroups =
   DescribeReplicationGroups'
     { replicationGroupId =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The identifier for the replication group to be described. This parameter
@@ -123,14 +121,14 @@ newDescribeReplicationGroups =
 --
 -- If you do not specify this parameter, information about all replication
 -- groups is returned.
-describeReplicationGroups_replicationGroupId :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
+describeReplicationGroups_replicationGroupId :: Lens.Lens' DescribeReplicationGroups (Core.Maybe Core.Text)
 describeReplicationGroups_replicationGroupId = Lens.lens (\DescribeReplicationGroups' {replicationGroupId} -> replicationGroupId) (\s@DescribeReplicationGroups' {} a -> s {replicationGroupId = a} :: DescribeReplicationGroups)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeReplicationGroups_marker :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
+describeReplicationGroups_marker :: Lens.Lens' DescribeReplicationGroups (Core.Maybe Core.Text)
 describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marker} -> marker) (\s@DescribeReplicationGroups' {} a -> s {marker = a} :: DescribeReplicationGroups)
 
 -- | The maximum number of records to include in the response. If more
@@ -140,34 +138,34 @@ describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marke
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeReplicationGroups_maxRecords :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Int)
+describeReplicationGroups_maxRecords :: Lens.Lens' DescribeReplicationGroups (Core.Maybe Core.Int)
 describeReplicationGroups_maxRecords = Lens.lens (\DescribeReplicationGroups' {maxRecords} -> maxRecords) (\s@DescribeReplicationGroups' {} a -> s {maxRecords = a} :: DescribeReplicationGroups)
 
-instance Pager.AWSPager DescribeReplicationGroups where
+instance Core.AWSPager DescribeReplicationGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeReplicationGroupsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeReplicationGroupsResponse_replicationGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeReplicationGroups_marker
           Lens..~ rs
           Lens.^? describeReplicationGroupsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeReplicationGroups where
+instance Core.AWSRequest DescribeReplicationGroups where
   type
-    Rs DescribeReplicationGroups =
+    AWSResponse DescribeReplicationGroups =
       DescribeReplicationGroupsResponse
   request = Request.postQuery defaultService
   response =
@@ -175,35 +173,32 @@ instance Prelude.AWSRequest DescribeReplicationGroups where
       "DescribeReplicationGroupsResult"
       ( \s h x ->
           DescribeReplicationGroupsResponse'
-            Prelude.<$> ( x Prelude..@? "ReplicationGroups"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "ReplicationGroup")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "ReplicationGroups" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "ReplicationGroup")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReplicationGroups
+instance Core.Hashable DescribeReplicationGroups
 
-instance Prelude.NFData DescribeReplicationGroups
+instance Core.NFData DescribeReplicationGroups
 
-instance Prelude.ToHeaders DescribeReplicationGroups where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeReplicationGroups where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeReplicationGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeReplicationGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeReplicationGroups where
+instance Core.ToQuery DescribeReplicationGroups where
   toQuery DescribeReplicationGroups' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeReplicationGroups" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "ReplicationGroupId" Prelude.=: replicationGroupId,
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: ("DescribeReplicationGroups" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "ReplicationGroupId" Core.=: replicationGroupId,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeReplicationGroups@ operation.
@@ -212,13 +207,13 @@ instance Prelude.ToQuery DescribeReplicationGroups where
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
   { -- | A list of replication groups. Each item in the list contains detailed
     -- information about one replication group.
-    replicationGroups :: Prelude.Maybe [ReplicationGroup],
+    replicationGroups :: Core.Maybe [ReplicationGroup],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReplicationGroupsResponse' with all optional fields omitted.
@@ -236,29 +231,29 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
 -- 'httpStatus', 'describeReplicationGroupsResponse_httpStatus' - The response's http status code.
 newDescribeReplicationGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReplicationGroupsResponse
 newDescribeReplicationGroupsResponse pHttpStatus_ =
   DescribeReplicationGroupsResponse'
     { replicationGroups =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-describeReplicationGroupsResponse_replicationGroups :: Lens.Lens' DescribeReplicationGroupsResponse (Prelude.Maybe [ReplicationGroup])
-describeReplicationGroupsResponse_replicationGroups = Lens.lens (\DescribeReplicationGroupsResponse' {replicationGroups} -> replicationGroups) (\s@DescribeReplicationGroupsResponse' {} a -> s {replicationGroups = a} :: DescribeReplicationGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeReplicationGroupsResponse_replicationGroups :: Lens.Lens' DescribeReplicationGroupsResponse (Core.Maybe [ReplicationGroup])
+describeReplicationGroupsResponse_replicationGroups = Lens.lens (\DescribeReplicationGroupsResponse' {replicationGroups} -> replicationGroups) (\s@DescribeReplicationGroupsResponse' {} a -> s {replicationGroups = a} :: DescribeReplicationGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeReplicationGroupsResponse_marker :: Lens.Lens' DescribeReplicationGroupsResponse (Prelude.Maybe Prelude.Text)
+describeReplicationGroupsResponse_marker :: Lens.Lens' DescribeReplicationGroupsResponse (Core.Maybe Core.Text)
 describeReplicationGroupsResponse_marker = Lens.lens (\DescribeReplicationGroupsResponse' {marker} -> marker) (\s@DescribeReplicationGroupsResponse' {} a -> s {marker = a} :: DescribeReplicationGroupsResponse)
 
 -- | The response's http status code.
-describeReplicationGroupsResponse_httpStatus :: Lens.Lens' DescribeReplicationGroupsResponse Prelude.Int
+describeReplicationGroupsResponse_httpStatus :: Lens.Lens' DescribeReplicationGroupsResponse Core.Int
 describeReplicationGroupsResponse_httpStatus = Lens.lens (\DescribeReplicationGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationGroupsResponse' {} a -> s {httpStatus = a} :: DescribeReplicationGroupsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReplicationGroupsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.SES.ListIdentities
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -63,16 +61,16 @@ import Network.AWS.SES.Types
 -- /See:/ 'newListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
   { -- | The token to use for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The type of the identities to list. Possible values are \"EmailAddress\"
     -- and \"Domain\". If this parameter is omitted, then all identities will
     -- be listed.
-    identityType :: Prelude.Maybe IdentityType,
+    identityType :: Core.Maybe IdentityType,
     -- | The maximum number of identities per page. Possible values are 1-1000
     -- inclusive.
-    maxItems :: Prelude.Maybe Prelude.Int
+    maxItems :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIdentities' with all optional fields omitted.
@@ -94,80 +92,79 @@ newListIdentities ::
   ListIdentities
 newListIdentities =
   ListIdentities'
-    { nextToken = Prelude.Nothing,
-      identityType = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      identityType = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | The token to use for pagination.
-listIdentities_nextToken :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Text)
+listIdentities_nextToken :: Lens.Lens' ListIdentities (Core.Maybe Core.Text)
 listIdentities_nextToken = Lens.lens (\ListIdentities' {nextToken} -> nextToken) (\s@ListIdentities' {} a -> s {nextToken = a} :: ListIdentities)
 
 -- | The type of the identities to list. Possible values are \"EmailAddress\"
 -- and \"Domain\". If this parameter is omitted, then all identities will
 -- be listed.
-listIdentities_identityType :: Lens.Lens' ListIdentities (Prelude.Maybe IdentityType)
+listIdentities_identityType :: Lens.Lens' ListIdentities (Core.Maybe IdentityType)
 listIdentities_identityType = Lens.lens (\ListIdentities' {identityType} -> identityType) (\s@ListIdentities' {} a -> s {identityType = a} :: ListIdentities)
 
 -- | The maximum number of identities per page. Possible values are 1-1000
 -- inclusive.
-listIdentities_maxItems :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Int)
+listIdentities_maxItems :: Lens.Lens' ListIdentities (Core.Maybe Core.Int)
 listIdentities_maxItems = Lens.lens (\ListIdentities' {maxItems} -> maxItems) (\s@ListIdentities' {} a -> s {maxItems = a} :: ListIdentities)
 
-instance Pager.AWSPager ListIdentities where
+instance Core.AWSPager ListIdentities where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listIdentitiesResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listIdentitiesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listIdentitiesResponse_identities) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listIdentities_nextToken
           Lens..~ rs
-          Lens.^? listIdentitiesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listIdentitiesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListIdentities where
-  type Rs ListIdentities = ListIdentitiesResponse
+instance Core.AWSRequest ListIdentities where
+  type
+    AWSResponse ListIdentities =
+      ListIdentitiesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListIdentitiesResult"
       ( \s h x ->
           ListIdentitiesResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "Identities"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "Identities" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListIdentities
+instance Core.Hashable ListIdentities
 
-instance Prelude.NFData ListIdentities
+instance Core.NFData ListIdentities
 
-instance Prelude.ToHeaders ListIdentities where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListIdentities where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListIdentities where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListIdentities where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListIdentities where
+instance Core.ToQuery ListIdentities where
   toQuery ListIdentities' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListIdentities" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "IdentityType" Prelude.=: identityType,
-        "MaxItems" Prelude.=: maxItems
+          Core.=: ("ListIdentities" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "IdentityType" Core.=: identityType,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | A list of all identities that you have attempted to verify under your
@@ -176,13 +173,13 @@ instance Prelude.ToQuery ListIdentities where
 -- /See:/ 'newListIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
   { -- | The token used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of identities.
-    identities :: [Prelude.Text]
+    identities :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIdentitiesResponse' with all optional fields omitted.
@@ -199,26 +196,25 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
 -- 'identities', 'listIdentitiesResponse_identities' - A list of identities.
 newListIdentitiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListIdentitiesResponse
 newListIdentitiesResponse pHttpStatus_ =
   ListIdentitiesResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      identities = Prelude.mempty
+      identities = Core.mempty
     }
 
 -- | The token used for pagination.
-listIdentitiesResponse_nextToken :: Lens.Lens' ListIdentitiesResponse (Prelude.Maybe Prelude.Text)
+listIdentitiesResponse_nextToken :: Lens.Lens' ListIdentitiesResponse (Core.Maybe Core.Text)
 listIdentitiesResponse_nextToken = Lens.lens (\ListIdentitiesResponse' {nextToken} -> nextToken) (\s@ListIdentitiesResponse' {} a -> s {nextToken = a} :: ListIdentitiesResponse)
 
 -- | The response's http status code.
-listIdentitiesResponse_httpStatus :: Lens.Lens' ListIdentitiesResponse Prelude.Int
+listIdentitiesResponse_httpStatus :: Lens.Lens' ListIdentitiesResponse Core.Int
 listIdentitiesResponse_httpStatus = Lens.lens (\ListIdentitiesResponse' {httpStatus} -> httpStatus) (\s@ListIdentitiesResponse' {} a -> s {httpStatus = a} :: ListIdentitiesResponse)
 
 -- | A list of identities.
-listIdentitiesResponse_identities :: Lens.Lens' ListIdentitiesResponse [Prelude.Text]
-listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identities} -> identities) (\s@ListIdentitiesResponse' {} a -> s {identities = a} :: ListIdentitiesResponse) Prelude.. Prelude._Coerce
+listIdentitiesResponse_identities :: Lens.Lens' ListIdentitiesResponse [Core.Text]
+listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identities} -> identities) (\s@ListIdentitiesResponse' {} a -> s {identities = a} :: ListIdentitiesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListIdentitiesResponse
+instance Core.NFData ListIdentitiesResponse

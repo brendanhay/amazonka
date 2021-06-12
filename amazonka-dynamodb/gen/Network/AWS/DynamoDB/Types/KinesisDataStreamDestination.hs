@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.KinesisDataStreamDestination where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.DestinationStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Kinesis data stream destination.
 --
 -- /See:/ 'newKinesisDataStreamDestination' smart constructor.
 data KinesisDataStreamDestination = KinesisDataStreamDestination'
   { -- | The human-readable string that corresponds to the replica status.
-    destinationStatusDescription :: Prelude.Maybe Prelude.Text,
+    destinationStatusDescription :: Core.Maybe Core.Text,
     -- | The ARN for a specific Kinesis data stream.
-    streamArn :: Prelude.Maybe Prelude.Text,
+    streamArn :: Core.Maybe Core.Text,
     -- | The current status of replication.
-    destinationStatus :: Prelude.Maybe DestinationStatus
+    destinationStatus :: Core.Maybe DestinationStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisDataStreamDestination' with all optional fields omitted.
@@ -55,39 +54,34 @@ newKinesisDataStreamDestination ::
 newKinesisDataStreamDestination =
   KinesisDataStreamDestination'
     { destinationStatusDescription =
-        Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      destinationStatus = Prelude.Nothing
+        Core.Nothing,
+      streamArn = Core.Nothing,
+      destinationStatus = Core.Nothing
     }
 
 -- | The human-readable string that corresponds to the replica status.
-kinesisDataStreamDestination_destinationStatusDescription :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe Prelude.Text)
+kinesisDataStreamDestination_destinationStatusDescription :: Lens.Lens' KinesisDataStreamDestination (Core.Maybe Core.Text)
 kinesisDataStreamDestination_destinationStatusDescription = Lens.lens (\KinesisDataStreamDestination' {destinationStatusDescription} -> destinationStatusDescription) (\s@KinesisDataStreamDestination' {} a -> s {destinationStatusDescription = a} :: KinesisDataStreamDestination)
 
 -- | The ARN for a specific Kinesis data stream.
-kinesisDataStreamDestination_streamArn :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe Prelude.Text)
+kinesisDataStreamDestination_streamArn :: Lens.Lens' KinesisDataStreamDestination (Core.Maybe Core.Text)
 kinesisDataStreamDestination_streamArn = Lens.lens (\KinesisDataStreamDestination' {streamArn} -> streamArn) (\s@KinesisDataStreamDestination' {} a -> s {streamArn = a} :: KinesisDataStreamDestination)
 
 -- | The current status of replication.
-kinesisDataStreamDestination_destinationStatus :: Lens.Lens' KinesisDataStreamDestination (Prelude.Maybe DestinationStatus)
+kinesisDataStreamDestination_destinationStatus :: Lens.Lens' KinesisDataStreamDestination (Core.Maybe DestinationStatus)
 kinesisDataStreamDestination_destinationStatus = Lens.lens (\KinesisDataStreamDestination' {destinationStatus} -> destinationStatus) (\s@KinesisDataStreamDestination' {} a -> s {destinationStatus = a} :: KinesisDataStreamDestination)
 
-instance
-  Prelude.FromJSON
-    KinesisDataStreamDestination
-  where
+instance Core.FromJSON KinesisDataStreamDestination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KinesisDataStreamDestination"
       ( \x ->
           KinesisDataStreamDestination'
-            Prelude.<$> (x Prelude..:? "DestinationStatusDescription")
-            Prelude.<*> (x Prelude..:? "StreamArn")
-            Prelude.<*> (x Prelude..:? "DestinationStatus")
+            Core.<$> (x Core..:? "DestinationStatusDescription")
+            Core.<*> (x Core..:? "StreamArn")
+            Core.<*> (x Core..:? "DestinationStatus")
       )
 
-instance
-  Prelude.Hashable
-    KinesisDataStreamDestination
+instance Core.Hashable KinesisDataStreamDestination
 
-instance Prelude.NFData KinesisDataStreamDestination
+instance Core.NFData KinesisDataStreamDestination

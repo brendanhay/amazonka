@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.GetApnsVoipChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetApnsVoipChannel = GetApnsVoipChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApnsVoipChannel' with all optional fields omitted.
@@ -67,7 +66,7 @@ data GetApnsVoipChannel = GetApnsVoipChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetApnsVoipChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   GetApnsVoipChannel
 newGetApnsVoipChannel pApplicationId_ =
   GetApnsVoipChannel'
@@ -77,55 +76,53 @@ newGetApnsVoipChannel pApplicationId_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getApnsVoipChannel_applicationId :: Lens.Lens' GetApnsVoipChannel Prelude.Text
+getApnsVoipChannel_applicationId :: Lens.Lens' GetApnsVoipChannel Core.Text
 getApnsVoipChannel_applicationId = Lens.lens (\GetApnsVoipChannel' {applicationId} -> applicationId) (\s@GetApnsVoipChannel' {} a -> s {applicationId = a} :: GetApnsVoipChannel)
 
-instance Prelude.AWSRequest GetApnsVoipChannel where
+instance Core.AWSRequest GetApnsVoipChannel where
   type
-    Rs GetApnsVoipChannel =
+    AWSResponse GetApnsVoipChannel =
       GetApnsVoipChannelResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetApnsVoipChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetApnsVoipChannel
+instance Core.Hashable GetApnsVoipChannel
 
-instance Prelude.NFData GetApnsVoipChannel
+instance Core.NFData GetApnsVoipChannel
 
-instance Prelude.ToHeaders GetApnsVoipChannel where
+instance Core.ToHeaders GetApnsVoipChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetApnsVoipChannel where
+instance Core.ToPath GetApnsVoipChannel where
   toPath GetApnsVoipChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/apns_voip"
       ]
 
-instance Prelude.ToQuery GetApnsVoipChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetApnsVoipChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetApnsVoipChannelResponse' smart constructor.
 data GetApnsVoipChannelResponse = GetApnsVoipChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     aPNSVoipChannelResponse :: APNSVoipChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApnsVoipChannelResponse' with all optional fields omitted.
@@ -140,7 +137,7 @@ data GetApnsVoipChannelResponse = GetApnsVoipChannelResponse'
 -- 'aPNSVoipChannelResponse', 'getApnsVoipChannelResponse_aPNSVoipChannelResponse' - Undocumented member.
 newGetApnsVoipChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'aPNSVoipChannelResponse'
   APNSVoipChannelResponse ->
   GetApnsVoipChannelResponse
@@ -155,11 +152,11 @@ newGetApnsVoipChannelResponse
       }
 
 -- | The response's http status code.
-getApnsVoipChannelResponse_httpStatus :: Lens.Lens' GetApnsVoipChannelResponse Prelude.Int
+getApnsVoipChannelResponse_httpStatus :: Lens.Lens' GetApnsVoipChannelResponse Core.Int
 getApnsVoipChannelResponse_httpStatus = Lens.lens (\GetApnsVoipChannelResponse' {httpStatus} -> httpStatus) (\s@GetApnsVoipChannelResponse' {} a -> s {httpStatus = a} :: GetApnsVoipChannelResponse)
 
 -- | Undocumented member.
 getApnsVoipChannelResponse_aPNSVoipChannelResponse :: Lens.Lens' GetApnsVoipChannelResponse APNSVoipChannelResponse
 getApnsVoipChannelResponse_aPNSVoipChannelResponse = Lens.lens (\GetApnsVoipChannelResponse' {aPNSVoipChannelResponse} -> aPNSVoipChannelResponse) (\s@GetApnsVoipChannelResponse' {} a -> s {aPNSVoipChannelResponse = a} :: GetApnsVoipChannelResponse)
 
-instance Prelude.NFData GetApnsVoipChannelResponse
+instance Core.NFData GetApnsVoipChannelResponse

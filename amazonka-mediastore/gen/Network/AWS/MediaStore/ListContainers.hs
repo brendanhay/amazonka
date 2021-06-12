@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,10 +53,9 @@ module Network.AWS.MediaStore.ListContainers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,12 +65,12 @@ data ListContainers = ListContainers'
     -- (which was included in the previous response) to obtain the next set of
     -- containers. This token is included in a response only if there actually
     -- are more containers to list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Enter the maximum number of containers in the response. Use from 1 to
     -- 255 characters.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListContainers' with all optional fields omitted.
@@ -93,100 +91,97 @@ newListContainers ::
   ListContainers
 newListContainers =
   ListContainers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | Only if you used @MaxResults@ in the first command, enter the token
 -- (which was included in the previous response) to obtain the next set of
 -- containers. This token is included in a response only if there actually
 -- are more containers to list.
-listContainers_nextToken :: Lens.Lens' ListContainers (Prelude.Maybe Prelude.Text)
+listContainers_nextToken :: Lens.Lens' ListContainers (Core.Maybe Core.Text)
 listContainers_nextToken = Lens.lens (\ListContainers' {nextToken} -> nextToken) (\s@ListContainers' {} a -> s {nextToken = a} :: ListContainers)
 
 -- | Enter the maximum number of containers in the response. Use from 1 to
 -- 255 characters.
-listContainers_maxResults :: Lens.Lens' ListContainers (Prelude.Maybe Prelude.Natural)
+listContainers_maxResults :: Lens.Lens' ListContainers (Core.Maybe Core.Natural)
 listContainers_maxResults = Lens.lens (\ListContainers' {maxResults} -> maxResults) (\s@ListContainers' {} a -> s {maxResults = a} :: ListContainers)
 
-instance Pager.AWSPager ListContainers where
+instance Core.AWSPager ListContainers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listContainersResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listContainersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listContainersResponse_containers) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listContainers_nextToken
           Lens..~ rs
-          Lens.^? listContainersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listContainersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListContainers where
-  type Rs ListContainers = ListContainersResponse
+instance Core.AWSRequest ListContainers where
+  type
+    AWSResponse ListContainers =
+      ListContainersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListContainersResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "Containers"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "Containers" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListContainers
+instance Core.Hashable ListContainers
 
-instance Prelude.NFData ListContainers
+instance Core.NFData ListContainers
 
-instance Prelude.ToHeaders ListContainers where
+instance Core.ToHeaders ListContainers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.ListContainers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.ListContainers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListContainers where
+instance Core.ToJSON ListContainers where
   toJSON ListContainers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListContainers where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListContainers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListContainers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListContainers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListContainersResponse' smart constructor.
 data ListContainersResponse = ListContainersResponse'
   { -- | @NextToken@ is the token to use in the next call to @ListContainers@.
     -- This token is returned only if you included the @MaxResults@ tag in the
     -- original command, and only if there are still containers to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The names of the containers.
     containers :: [Container]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListContainersResponse' with all optional fields omitted.
@@ -205,28 +200,27 @@ data ListContainersResponse = ListContainersResponse'
 -- 'containers', 'listContainersResponse_containers' - The names of the containers.
 newListContainersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListContainersResponse
 newListContainersResponse pHttpStatus_ =
   ListContainersResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      containers = Prelude.mempty
+      containers = Core.mempty
     }
 
 -- | @NextToken@ is the token to use in the next call to @ListContainers@.
 -- This token is returned only if you included the @MaxResults@ tag in the
 -- original command, and only if there are still containers to return.
-listContainersResponse_nextToken :: Lens.Lens' ListContainersResponse (Prelude.Maybe Prelude.Text)
+listContainersResponse_nextToken :: Lens.Lens' ListContainersResponse (Core.Maybe Core.Text)
 listContainersResponse_nextToken = Lens.lens (\ListContainersResponse' {nextToken} -> nextToken) (\s@ListContainersResponse' {} a -> s {nextToken = a} :: ListContainersResponse)
 
 -- | The response's http status code.
-listContainersResponse_httpStatus :: Lens.Lens' ListContainersResponse Prelude.Int
+listContainersResponse_httpStatus :: Lens.Lens' ListContainersResponse Core.Int
 listContainersResponse_httpStatus = Lens.lens (\ListContainersResponse' {httpStatus} -> httpStatus) (\s@ListContainersResponse' {} a -> s {httpStatus = a} :: ListContainersResponse)
 
 -- | The names of the containers.
 listContainersResponse_containers :: Lens.Lens' ListContainersResponse [Container]
-listContainersResponse_containers = Lens.lens (\ListContainersResponse' {containers} -> containers) (\s@ListContainersResponse' {} a -> s {containers = a} :: ListContainersResponse) Prelude.. Prelude._Coerce
+listContainersResponse_containers = Lens.lens (\ListContainersResponse' {containers} -> containers) (\s@ListContainersResponse' {} a -> s {containers = a} :: ListContainersResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListContainersResponse
+instance Core.NFData ListContainersResponse

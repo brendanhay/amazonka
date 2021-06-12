@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.EntityInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.PolicyOwnerEntityType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the specified entity (user or role).
 --
@@ -34,16 +33,16 @@ data EntityInfo = EntityInfo'
     -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    path :: Prelude.Maybe Prelude.Text,
-    arn :: Prelude.Text,
+    path :: Core.Maybe Core.Text,
+    arn :: Core.Text,
     -- | The name of the entity (user or role).
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The type of entity (user or role).
     type' :: PolicyOwnerEntityType,
     -- | The identifier of the entity (user or role).
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EntityInfo' with all optional fields omitted.
@@ -67,17 +66,17 @@ data EntityInfo = EntityInfo'
 -- 'id', 'entityInfo_id' - The identifier of the entity (user or role).
 newEntityInfo ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   PolicyOwnerEntityType ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   EntityInfo
 newEntityInfo pArn_ pName_ pType_ pId_ =
   EntityInfo'
-    { path = Prelude.Nothing,
+    { path = Core.Nothing,
       arn = pArn_,
       name = pName_,
       type' = pType_,
@@ -88,15 +87,15 @@ newEntityInfo pArn_ pName_ pType_ pId_ =
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-entityInfo_path :: Lens.Lens' EntityInfo (Prelude.Maybe Prelude.Text)
+entityInfo_path :: Lens.Lens' EntityInfo (Core.Maybe Core.Text)
 entityInfo_path = Lens.lens (\EntityInfo' {path} -> path) (\s@EntityInfo' {} a -> s {path = a} :: EntityInfo)
 
 -- | Undocumented member.
-entityInfo_arn :: Lens.Lens' EntityInfo Prelude.Text
+entityInfo_arn :: Lens.Lens' EntityInfo Core.Text
 entityInfo_arn = Lens.lens (\EntityInfo' {arn} -> arn) (\s@EntityInfo' {} a -> s {arn = a} :: EntityInfo)
 
 -- | The name of the entity (user or role).
-entityInfo_name :: Lens.Lens' EntityInfo Prelude.Text
+entityInfo_name :: Lens.Lens' EntityInfo Core.Text
 entityInfo_name = Lens.lens (\EntityInfo' {name} -> name) (\s@EntityInfo' {} a -> s {name = a} :: EntityInfo)
 
 -- | The type of entity (user or role).
@@ -104,18 +103,18 @@ entityInfo_type :: Lens.Lens' EntityInfo PolicyOwnerEntityType
 entityInfo_type = Lens.lens (\EntityInfo' {type'} -> type') (\s@EntityInfo' {} a -> s {type' = a} :: EntityInfo)
 
 -- | The identifier of the entity (user or role).
-entityInfo_id :: Lens.Lens' EntityInfo Prelude.Text
+entityInfo_id :: Lens.Lens' EntityInfo Core.Text
 entityInfo_id = Lens.lens (\EntityInfo' {id} -> id) (\s@EntityInfo' {} a -> s {id = a} :: EntityInfo)
 
-instance Prelude.FromXML EntityInfo where
+instance Core.FromXML EntityInfo where
   parseXML x =
     EntityInfo'
-      Prelude.<$> (x Prelude..@? "Path")
-      Prelude.<*> (x Prelude..@ "Arn")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "Type")
-      Prelude.<*> (x Prelude..@ "Id")
+      Core.<$> (x Core..@? "Path")
+      Core.<*> (x Core..@ "Arn")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "Type")
+      Core.<*> (x Core..@ "Id")
 
-instance Prelude.Hashable EntityInfo
+instance Core.Hashable EntityInfo
 
-instance Prelude.NFData EntityInfo
+instance Core.NFData EntityInfo

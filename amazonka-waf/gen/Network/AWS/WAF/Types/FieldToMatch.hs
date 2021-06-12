@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.FieldToMatch where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.MatchFieldType
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -46,7 +45,7 @@ data FieldToMatch = FieldToMatch'
     -- @SalesRegion@. The parameter name is not case sensitive.
     --
     -- If the value of @Type@ is any other value, omit @Data@.
-    data' :: Prelude.Maybe Prelude.Text,
+    data' :: Core.Maybe Core.Text,
     -- | The part of the web request that you want AWS WAF to search for a
     -- specified string. Parts of a request that you can search include the
     -- following:
@@ -85,7 +84,7 @@ data FieldToMatch = FieldToMatch'
     --     @TargetString@.
     type' :: MatchFieldType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FieldToMatch' with all optional fields omitted.
@@ -146,10 +145,7 @@ newFieldToMatch ::
   MatchFieldType ->
   FieldToMatch
 newFieldToMatch pType_ =
-  FieldToMatch'
-    { data' = Prelude.Nothing,
-      type' = pType_
-    }
+  FieldToMatch' {data' = Core.Nothing, type' = pType_}
 
 -- | When the value of @Type@ is @HEADER@, enter the name of the header that
 -- you want AWS WAF to search, for example, @User-Agent@ or @Referer@. The
@@ -160,7 +156,7 @@ newFieldToMatch pType_ =
 -- @SalesRegion@. The parameter name is not case sensitive.
 --
 -- If the value of @Type@ is any other value, omit @Data@.
-fieldToMatch_data :: Lens.Lens' FieldToMatch (Prelude.Maybe Prelude.Text)
+fieldToMatch_data :: Lens.Lens' FieldToMatch (Core.Maybe Core.Text)
 fieldToMatch_data = Lens.lens (\FieldToMatch' {data'} -> data') (\s@FieldToMatch' {} a -> s {data' = a} :: FieldToMatch)
 
 -- | The part of the web request that you want AWS WAF to search for a
@@ -202,25 +198,24 @@ fieldToMatch_data = Lens.lens (\FieldToMatch' {data'} -> data') (\s@FieldToMatch
 fieldToMatch_type :: Lens.Lens' FieldToMatch MatchFieldType
 fieldToMatch_type = Lens.lens (\FieldToMatch' {type'} -> type') (\s@FieldToMatch' {} a -> s {type' = a} :: FieldToMatch)
 
-instance Prelude.FromJSON FieldToMatch where
+instance Core.FromJSON FieldToMatch where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FieldToMatch"
       ( \x ->
           FieldToMatch'
-            Prelude.<$> (x Prelude..:? "Data")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..:? "Data") Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable FieldToMatch
+instance Core.Hashable FieldToMatch
 
-instance Prelude.NFData FieldToMatch
+instance Core.NFData FieldToMatch
 
-instance Prelude.ToJSON FieldToMatch where
+instance Core.ToJSON FieldToMatch where
   toJSON FieldToMatch' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Data" Prelude..=) Prelude.<$> data',
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("Data" Core..=) Core.<$> data',
+            Core.Just ("Type" Core..= type')
           ]
       )

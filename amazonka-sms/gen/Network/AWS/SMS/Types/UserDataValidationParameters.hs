@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.UserDataValidationParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.ScriptType
 import Network.AWS.SMS.Types.Source
 
@@ -30,11 +29,11 @@ import Network.AWS.SMS.Types.Source
 -- /See:/ 'newUserDataValidationParameters' smart constructor.
 data UserDataValidationParameters = UserDataValidationParameters'
   { -- | The location of the validation script.
-    source :: Prelude.Maybe Source,
+    source :: Core.Maybe Source,
     -- | The type of validation script.
-    scriptType :: Prelude.Maybe ScriptType
+    scriptType :: Core.Maybe ScriptType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserDataValidationParameters' with all optional fields omitted.
@@ -52,42 +51,37 @@ newUserDataValidationParameters ::
 newUserDataValidationParameters =
   UserDataValidationParameters'
     { source =
-        Prelude.Nothing,
-      scriptType = Prelude.Nothing
+        Core.Nothing,
+      scriptType = Core.Nothing
     }
 
 -- | The location of the validation script.
-userDataValidationParameters_source :: Lens.Lens' UserDataValidationParameters (Prelude.Maybe Source)
+userDataValidationParameters_source :: Lens.Lens' UserDataValidationParameters (Core.Maybe Source)
 userDataValidationParameters_source = Lens.lens (\UserDataValidationParameters' {source} -> source) (\s@UserDataValidationParameters' {} a -> s {source = a} :: UserDataValidationParameters)
 
 -- | The type of validation script.
-userDataValidationParameters_scriptType :: Lens.Lens' UserDataValidationParameters (Prelude.Maybe ScriptType)
+userDataValidationParameters_scriptType :: Lens.Lens' UserDataValidationParameters (Core.Maybe ScriptType)
 userDataValidationParameters_scriptType = Lens.lens (\UserDataValidationParameters' {scriptType} -> scriptType) (\s@UserDataValidationParameters' {} a -> s {scriptType = a} :: UserDataValidationParameters)
 
-instance
-  Prelude.FromJSON
-    UserDataValidationParameters
-  where
+instance Core.FromJSON UserDataValidationParameters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserDataValidationParameters"
       ( \x ->
           UserDataValidationParameters'
-            Prelude.<$> (x Prelude..:? "source")
-            Prelude.<*> (x Prelude..:? "scriptType")
+            Core.<$> (x Core..:? "source")
+            Core.<*> (x Core..:? "scriptType")
       )
 
-instance
-  Prelude.Hashable
-    UserDataValidationParameters
+instance Core.Hashable UserDataValidationParameters
 
-instance Prelude.NFData UserDataValidationParameters
+instance Core.NFData UserDataValidationParameters
 
-instance Prelude.ToJSON UserDataValidationParameters where
+instance Core.ToJSON UserDataValidationParameters where
   toJSON UserDataValidationParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("source" Prelude..=) Prelude.<$> source,
-            ("scriptType" Prelude..=) Prelude.<$> scriptType
+    Core.object
+      ( Core.catMaybes
+          [ ("source" Core..=) Core.<$> source,
+            ("scriptType" Core..=) Core.<$> scriptType
           ]
       )

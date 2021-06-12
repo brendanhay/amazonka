@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.Organization where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.OrganizationFeatureSet
 import Network.AWS.Organizations.Types.PolicyTypeSummary
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about an organization. An organization is a collection
 -- of accounts that are centrally managed together using consolidated
@@ -34,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Organization = Organization'
   { -- | The email address that is associated with the AWS account that is
     -- designated as the management account for the organization.
-    masterAccountEmail :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    masterAccountEmail :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Specifies the functionality that currently is available to the
     -- organization. If set to \"ALL\", then all features are enabled and
     -- policies can be applied to accounts in the organization. If set to
@@ -42,39 +41,39 @@ data Organization = Organization'
     -- is available. For more information, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
     -- in the /AWS Organizations User Guide/.
-    featureSet :: Prelude.Maybe OrganizationFeatureSet,
+    featureSet :: Core.Maybe OrganizationFeatureSet,
     -- | The Amazon Resource Name (ARN) of the account that is designated as the
     -- management account for the organization.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    masterAccountArn :: Prelude.Maybe Prelude.Text,
+    masterAccountArn :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of an organization.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique identifier (ID) of an organization.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
     -- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
     -- digits.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The unique identifier (ID) of the management account of an organization.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
-    masterAccountId :: Prelude.Maybe Prelude.Text,
+    masterAccountId :: Core.Maybe Core.Text,
     -- | Do not use. This field is deprecated and doesn\'t provide complete
     -- information about the policies in your organization.
     --
     -- To determine the policies that are enabled and available for use in your
     -- organization, use the ListRoots operation instead.
-    availablePolicyTypes :: Prelude.Maybe [PolicyTypeSummary]
+    availablePolicyTypes :: Core.Maybe [PolicyTypeSummary]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Organization' with all optional fields omitted.
@@ -128,19 +127,19 @@ newOrganization ::
   Organization
 newOrganization =
   Organization'
-    { masterAccountEmail = Prelude.Nothing,
-      featureSet = Prelude.Nothing,
-      masterAccountArn = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      masterAccountId = Prelude.Nothing,
-      availablePolicyTypes = Prelude.Nothing
+    { masterAccountEmail = Core.Nothing,
+      featureSet = Core.Nothing,
+      masterAccountArn = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      masterAccountId = Core.Nothing,
+      availablePolicyTypes = Core.Nothing
     }
 
 -- | The email address that is associated with the AWS account that is
 -- designated as the management account for the organization.
-organization_masterAccountEmail :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
-organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail} -> masterAccountEmail) (\s@Organization' {} a -> s {masterAccountEmail = a} :: Organization) Prelude.. Lens.mapping Prelude._Sensitive
+organization_masterAccountEmail :: Lens.Lens' Organization (Core.Maybe Core.Text)
+organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail} -> masterAccountEmail) (\s@Organization' {} a -> s {masterAccountEmail = a} :: Organization) Core.. Lens.mapping Core._Sensitive
 
 -- | Specifies the functionality that currently is available to the
 -- organization. If set to \"ALL\", then all features are enabled and
@@ -149,7 +148,7 @@ organization_masterAccountEmail = Lens.lens (\Organization' {masterAccountEmail}
 -- is available. For more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
 -- in the /AWS Organizations User Guide/.
-organization_featureSet :: Lens.Lens' Organization (Prelude.Maybe OrganizationFeatureSet)
+organization_featureSet :: Lens.Lens' Organization (Core.Maybe OrganizationFeatureSet)
 organization_featureSet = Lens.lens (\Organization' {featureSet} -> featureSet) (\s@Organization' {} a -> s {featureSet = a} :: Organization)
 
 -- | The Amazon Resource Name (ARN) of the account that is designated as the
@@ -158,7 +157,7 @@ organization_featureSet = Lens.lens (\Organization' {featureSet} -> featureSet) 
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
-organization_masterAccountArn :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_masterAccountArn :: Lens.Lens' Organization (Core.Maybe Core.Text)
 organization_masterAccountArn = Lens.lens (\Organization' {masterAccountArn} -> masterAccountArn) (\s@Organization' {} a -> s {masterAccountArn = a} :: Organization)
 
 -- | The Amazon Resource Name (ARN) of an organization.
@@ -166,7 +165,7 @@ organization_masterAccountArn = Lens.lens (\Organization' {masterAccountArn} -> 
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
-organization_arn :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_arn :: Lens.Lens' Organization (Core.Maybe Core.Text)
 organization_arn = Lens.lens (\Organization' {arn} -> arn) (\s@Organization' {} a -> s {arn = a} :: Organization)
 
 -- | The unique identifier (ID) of an organization.
@@ -174,14 +173,14 @@ organization_arn = Lens.lens (\Organization' {arn} -> arn) (\s@Organization' {} 
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an organization
 -- ID string requires \"o-\" followed by from 10 to 32 lowercase letters or
 -- digits.
-organization_id :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_id :: Lens.Lens' Organization (Core.Maybe Core.Text)
 organization_id = Lens.lens (\Organization' {id} -> id) (\s@Organization' {} a -> s {id = a} :: Organization)
 
 -- | The unique identifier (ID) of the management account of an organization.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
-organization_masterAccountId :: Lens.Lens' Organization (Prelude.Maybe Prelude.Text)
+organization_masterAccountId :: Lens.Lens' Organization (Core.Maybe Core.Text)
 organization_masterAccountId = Lens.lens (\Organization' {masterAccountId} -> masterAccountId) (\s@Organization' {} a -> s {masterAccountId = a} :: Organization)
 
 -- | Do not use. This field is deprecated and doesn\'t provide complete
@@ -189,26 +188,26 @@ organization_masterAccountId = Lens.lens (\Organization' {masterAccountId} -> ma
 --
 -- To determine the policies that are enabled and available for use in your
 -- organization, use the ListRoots operation instead.
-organization_availablePolicyTypes :: Lens.Lens' Organization (Prelude.Maybe [PolicyTypeSummary])
-organization_availablePolicyTypes = Lens.lens (\Organization' {availablePolicyTypes} -> availablePolicyTypes) (\s@Organization' {} a -> s {availablePolicyTypes = a} :: Organization) Prelude.. Lens.mapping Prelude._Coerce
+organization_availablePolicyTypes :: Lens.Lens' Organization (Core.Maybe [PolicyTypeSummary])
+organization_availablePolicyTypes = Lens.lens (\Organization' {availablePolicyTypes} -> availablePolicyTypes) (\s@Organization' {} a -> s {availablePolicyTypes = a} :: Organization) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Organization where
+instance Core.FromJSON Organization where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Organization"
       ( \x ->
           Organization'
-            Prelude.<$> (x Prelude..:? "MasterAccountEmail")
-            Prelude.<*> (x Prelude..:? "FeatureSet")
-            Prelude.<*> (x Prelude..:? "MasterAccountArn")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "MasterAccountId")
-            Prelude.<*> ( x Prelude..:? "AvailablePolicyTypes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "MasterAccountEmail")
+            Core.<*> (x Core..:? "FeatureSet")
+            Core.<*> (x Core..:? "MasterAccountArn")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "MasterAccountId")
+            Core.<*> ( x Core..:? "AvailablePolicyTypes"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable Organization
+instance Core.Hashable Organization
 
-instance Prelude.NFData Organization
+instance Core.NFData Organization

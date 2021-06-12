@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Organizations.DescribeHandshake
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +63,9 @@ data DescribeHandshake = DescribeHandshake'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    handshakeId :: Prelude.Text
+    handshakeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHandshake' with all optional fields omitted.
@@ -86,7 +85,7 @@ data DescribeHandshake = DescribeHandshake'
 -- digits.
 newDescribeHandshake ::
   -- | 'handshakeId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeHandshake
 newDescribeHandshake pHandshakeId_ =
   DescribeHandshake' {handshakeId = pHandshakeId_}
@@ -99,62 +98,60 @@ newDescribeHandshake pHandshakeId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-describeHandshake_handshakeId :: Lens.Lens' DescribeHandshake Prelude.Text
+describeHandshake_handshakeId :: Lens.Lens' DescribeHandshake Core.Text
 describeHandshake_handshakeId = Lens.lens (\DescribeHandshake' {handshakeId} -> handshakeId) (\s@DescribeHandshake' {} a -> s {handshakeId = a} :: DescribeHandshake)
 
-instance Prelude.AWSRequest DescribeHandshake where
-  type Rs DescribeHandshake = DescribeHandshakeResponse
+instance Core.AWSRequest DescribeHandshake where
+  type
+    AWSResponse DescribeHandshake =
+      DescribeHandshakeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeHandshakeResponse'
-            Prelude.<$> (x Prelude..?> "Handshake")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Handshake")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeHandshake
+instance Core.Hashable DescribeHandshake
 
-instance Prelude.NFData DescribeHandshake
+instance Core.NFData DescribeHandshake
 
-instance Prelude.ToHeaders DescribeHandshake where
+instance Core.ToHeaders DescribeHandshake where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DescribeHandshake" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DescribeHandshake" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeHandshake where
+instance Core.ToJSON DescribeHandshake where
   toJSON DescribeHandshake' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("HandshakeId" Prelude..= handshakeId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("HandshakeId" Core..= handshakeId)]
       )
 
-instance Prelude.ToPath DescribeHandshake where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeHandshake where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeHandshake where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeHandshake where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeHandshakeResponse' smart constructor.
 data DescribeHandshakeResponse = DescribeHandshakeResponse'
   { -- | A structure that contains information about the specified handshake.
-    handshake :: Prelude.Maybe Handshake,
+    handshake :: Core.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHandshakeResponse' with all optional fields omitted.
@@ -169,21 +166,21 @@ data DescribeHandshakeResponse = DescribeHandshakeResponse'
 -- 'httpStatus', 'describeHandshakeResponse_httpStatus' - The response's http status code.
 newDescribeHandshakeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeHandshakeResponse
 newDescribeHandshakeResponse pHttpStatus_ =
   DescribeHandshakeResponse'
     { handshake =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains information about the specified handshake.
-describeHandshakeResponse_handshake :: Lens.Lens' DescribeHandshakeResponse (Prelude.Maybe Handshake)
+describeHandshakeResponse_handshake :: Lens.Lens' DescribeHandshakeResponse (Core.Maybe Handshake)
 describeHandshakeResponse_handshake = Lens.lens (\DescribeHandshakeResponse' {handshake} -> handshake) (\s@DescribeHandshakeResponse' {} a -> s {handshake = a} :: DescribeHandshakeResponse)
 
 -- | The response's http status code.
-describeHandshakeResponse_httpStatus :: Lens.Lens' DescribeHandshakeResponse Prelude.Int
+describeHandshakeResponse_httpStatus :: Lens.Lens' DescribeHandshakeResponse Core.Int
 describeHandshakeResponse_httpStatus = Lens.lens (\DescribeHandshakeResponse' {httpStatus} -> httpStatus) (\s@DescribeHandshakeResponse' {} a -> s {httpStatus = a} :: DescribeHandshakeResponse)
 
-instance Prelude.NFData DescribeHandshakeResponse
+instance Core.NFData DescribeHandshakeResponse

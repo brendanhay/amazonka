@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,33 +19,33 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.NodeGroupMember where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.Endpoint
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a single node within a node group (shard).
 --
 -- /See:/ 'newNodeGroupMember' smart constructor.
 data NodeGroupMember = NodeGroupMember'
   { -- | The ID of the cluster to which the node belongs.
-    cacheClusterId :: Prelude.Maybe Prelude.Text,
+    cacheClusterId :: Core.Maybe Core.Text,
     -- | The name of the Availability Zone in which the node is located.
-    preferredAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    preferredAvailabilityZone :: Core.Maybe Core.Text,
     -- | The information required for client programs to connect to a node for
     -- read operations. The read endpoint is only applicable on Redis (cluster
     -- mode disabled) clusters.
-    readEndpoint :: Prelude.Maybe Endpoint,
+    readEndpoint :: Core.Maybe Endpoint,
     -- | The ID of the node within its cluster. A node ID is a numeric identifier
     -- (0001, 0002, etc.).
-    cacheNodeId :: Prelude.Maybe Prelude.Text,
+    cacheNodeId :: Core.Maybe Core.Text,
     -- | The outpost ARN of the node group member.
-    preferredOutpostArn :: Prelude.Maybe Prelude.Text,
+    preferredOutpostArn :: Core.Maybe Core.Text,
     -- | The role that is currently assigned to the node - @primary@ or
     -- @replica@. This member is only applicable for Redis (cluster mode
     -- disabled) replication groups.
-    currentRole :: Prelude.Maybe Prelude.Text
+    currentRole :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NodeGroupMember' with all optional fields omitted.
@@ -76,53 +75,53 @@ newNodeGroupMember ::
   NodeGroupMember
 newNodeGroupMember =
   NodeGroupMember'
-    { cacheClusterId = Prelude.Nothing,
-      preferredAvailabilityZone = Prelude.Nothing,
-      readEndpoint = Prelude.Nothing,
-      cacheNodeId = Prelude.Nothing,
-      preferredOutpostArn = Prelude.Nothing,
-      currentRole = Prelude.Nothing
+    { cacheClusterId = Core.Nothing,
+      preferredAvailabilityZone = Core.Nothing,
+      readEndpoint = Core.Nothing,
+      cacheNodeId = Core.Nothing,
+      preferredOutpostArn = Core.Nothing,
+      currentRole = Core.Nothing
     }
 
 -- | The ID of the cluster to which the node belongs.
-nodeGroupMember_cacheClusterId :: Lens.Lens' NodeGroupMember (Prelude.Maybe Prelude.Text)
+nodeGroupMember_cacheClusterId :: Lens.Lens' NodeGroupMember (Core.Maybe Core.Text)
 nodeGroupMember_cacheClusterId = Lens.lens (\NodeGroupMember' {cacheClusterId} -> cacheClusterId) (\s@NodeGroupMember' {} a -> s {cacheClusterId = a} :: NodeGroupMember)
 
 -- | The name of the Availability Zone in which the node is located.
-nodeGroupMember_preferredAvailabilityZone :: Lens.Lens' NodeGroupMember (Prelude.Maybe Prelude.Text)
+nodeGroupMember_preferredAvailabilityZone :: Lens.Lens' NodeGroupMember (Core.Maybe Core.Text)
 nodeGroupMember_preferredAvailabilityZone = Lens.lens (\NodeGroupMember' {preferredAvailabilityZone} -> preferredAvailabilityZone) (\s@NodeGroupMember' {} a -> s {preferredAvailabilityZone = a} :: NodeGroupMember)
 
 -- | The information required for client programs to connect to a node for
 -- read operations. The read endpoint is only applicable on Redis (cluster
 -- mode disabled) clusters.
-nodeGroupMember_readEndpoint :: Lens.Lens' NodeGroupMember (Prelude.Maybe Endpoint)
+nodeGroupMember_readEndpoint :: Lens.Lens' NodeGroupMember (Core.Maybe Endpoint)
 nodeGroupMember_readEndpoint = Lens.lens (\NodeGroupMember' {readEndpoint} -> readEndpoint) (\s@NodeGroupMember' {} a -> s {readEndpoint = a} :: NodeGroupMember)
 
 -- | The ID of the node within its cluster. A node ID is a numeric identifier
 -- (0001, 0002, etc.).
-nodeGroupMember_cacheNodeId :: Lens.Lens' NodeGroupMember (Prelude.Maybe Prelude.Text)
+nodeGroupMember_cacheNodeId :: Lens.Lens' NodeGroupMember (Core.Maybe Core.Text)
 nodeGroupMember_cacheNodeId = Lens.lens (\NodeGroupMember' {cacheNodeId} -> cacheNodeId) (\s@NodeGroupMember' {} a -> s {cacheNodeId = a} :: NodeGroupMember)
 
 -- | The outpost ARN of the node group member.
-nodeGroupMember_preferredOutpostArn :: Lens.Lens' NodeGroupMember (Prelude.Maybe Prelude.Text)
+nodeGroupMember_preferredOutpostArn :: Lens.Lens' NodeGroupMember (Core.Maybe Core.Text)
 nodeGroupMember_preferredOutpostArn = Lens.lens (\NodeGroupMember' {preferredOutpostArn} -> preferredOutpostArn) (\s@NodeGroupMember' {} a -> s {preferredOutpostArn = a} :: NodeGroupMember)
 
 -- | The role that is currently assigned to the node - @primary@ or
 -- @replica@. This member is only applicable for Redis (cluster mode
 -- disabled) replication groups.
-nodeGroupMember_currentRole :: Lens.Lens' NodeGroupMember (Prelude.Maybe Prelude.Text)
+nodeGroupMember_currentRole :: Lens.Lens' NodeGroupMember (Core.Maybe Core.Text)
 nodeGroupMember_currentRole = Lens.lens (\NodeGroupMember' {currentRole} -> currentRole) (\s@NodeGroupMember' {} a -> s {currentRole = a} :: NodeGroupMember)
 
-instance Prelude.FromXML NodeGroupMember where
+instance Core.FromXML NodeGroupMember where
   parseXML x =
     NodeGroupMember'
-      Prelude.<$> (x Prelude..@? "CacheClusterId")
-      Prelude.<*> (x Prelude..@? "PreferredAvailabilityZone")
-      Prelude.<*> (x Prelude..@? "ReadEndpoint")
-      Prelude.<*> (x Prelude..@? "CacheNodeId")
-      Prelude.<*> (x Prelude..@? "PreferredOutpostArn")
-      Prelude.<*> (x Prelude..@? "CurrentRole")
+      Core.<$> (x Core..@? "CacheClusterId")
+      Core.<*> (x Core..@? "PreferredAvailabilityZone")
+      Core.<*> (x Core..@? "ReadEndpoint")
+      Core.<*> (x Core..@? "CacheNodeId")
+      Core.<*> (x Core..@? "PreferredOutpostArn")
+      Core.<*> (x Core..@? "CurrentRole")
 
-instance Prelude.Hashable NodeGroupMember
+instance Core.Hashable NodeGroupMember
 
-instance Prelude.NFData NodeGroupMember
+instance Core.NFData NodeGroupMember

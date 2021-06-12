@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The response information for license configurations.
 --
 -- /See:/ 'newImportImageLicenseConfigurationResponse' smart constructor.
 data ImportImageLicenseConfigurationResponse = ImportImageLicenseConfigurationResponse'
   { -- | The ARN of a license configuration.
-    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
+    licenseConfigurationArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportImageLicenseConfigurationResponse' with all optional fields omitted.
@@ -47,25 +46,25 @@ newImportImageLicenseConfigurationResponse ::
 newImportImageLicenseConfigurationResponse =
   ImportImageLicenseConfigurationResponse'
     { licenseConfigurationArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ARN of a license configuration.
-importImageLicenseConfigurationResponse_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationResponse (Prelude.Maybe Prelude.Text)
+importImageLicenseConfigurationResponse_licenseConfigurationArn :: Lens.Lens' ImportImageLicenseConfigurationResponse (Core.Maybe Core.Text)
 importImageLicenseConfigurationResponse_licenseConfigurationArn = Lens.lens (\ImportImageLicenseConfigurationResponse' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@ImportImageLicenseConfigurationResponse' {} a -> s {licenseConfigurationArn = a} :: ImportImageLicenseConfigurationResponse)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ImportImageLicenseConfigurationResponse
   where
   parseXML x =
     ImportImageLicenseConfigurationResponse'
-      Prelude.<$> (x Prelude..@? "licenseConfigurationArn")
+      Core.<$> (x Core..@? "licenseConfigurationArn")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ImportImageLicenseConfigurationResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     ImportImageLicenseConfigurationResponse

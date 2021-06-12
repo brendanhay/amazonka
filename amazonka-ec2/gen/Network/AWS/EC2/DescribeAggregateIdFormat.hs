@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.EC2.DescribeAggregateIdFormat
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,9 +69,9 @@ data DescribeAggregateIdFormat = DescribeAggregateIdFormat'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAggregateIdFormat' with all optional fields omitted.
@@ -89,52 +88,48 @@ data DescribeAggregateIdFormat = DescribeAggregateIdFormat'
 newDescribeAggregateIdFormat ::
   DescribeAggregateIdFormat
 newDescribeAggregateIdFormat =
-  DescribeAggregateIdFormat'
-    { dryRun =
-        Prelude.Nothing
-    }
+  DescribeAggregateIdFormat' {dryRun = Core.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeAggregateIdFormat_dryRun :: Lens.Lens' DescribeAggregateIdFormat (Prelude.Maybe Prelude.Bool)
+describeAggregateIdFormat_dryRun :: Lens.Lens' DescribeAggregateIdFormat (Core.Maybe Core.Bool)
 describeAggregateIdFormat_dryRun = Lens.lens (\DescribeAggregateIdFormat' {dryRun} -> dryRun) (\s@DescribeAggregateIdFormat' {} a -> s {dryRun = a} :: DescribeAggregateIdFormat)
 
-instance Prelude.AWSRequest DescribeAggregateIdFormat where
+instance Core.AWSRequest DescribeAggregateIdFormat where
   type
-    Rs DescribeAggregateIdFormat =
+    AWSResponse DescribeAggregateIdFormat =
       DescribeAggregateIdFormatResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeAggregateIdFormatResponse'
-            Prelude.<$> (x Prelude..@? "useLongIdsAggregated")
-            Prelude.<*> ( x Prelude..@? "statusSet" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "useLongIdsAggregated")
+            Core.<*> ( x Core..@? "statusSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAggregateIdFormat
+instance Core.Hashable DescribeAggregateIdFormat
 
-instance Prelude.NFData DescribeAggregateIdFormat
+instance Core.NFData DescribeAggregateIdFormat
 
-instance Prelude.ToHeaders DescribeAggregateIdFormat where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAggregateIdFormat where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAggregateIdFormat where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAggregateIdFormat where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAggregateIdFormat where
+instance Core.ToQuery DescribeAggregateIdFormat where
   toQuery DescribeAggregateIdFormat' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeAggregateIdFormat" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun
+          Core.=: ("DescribeAggregateIdFormat" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newDescribeAggregateIdFormatResponse' smart constructor.
@@ -142,13 +137,13 @@ data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
   { -- | Indicates whether all resource types in the Region are configured to use
     -- longer IDs. This value is only @true@ if all users are configured to use
     -- longer IDs for all resources types in the Region.
-    useLongIdsAggregated :: Prelude.Maybe Prelude.Bool,
+    useLongIdsAggregated :: Core.Maybe Core.Bool,
     -- | Information about each resource\'s ID format.
-    statuses :: Prelude.Maybe [IdFormat],
+    statuses :: Core.Maybe [IdFormat],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAggregateIdFormatResponse' with all optional fields omitted.
@@ -167,30 +162,30 @@ data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
 -- 'httpStatus', 'describeAggregateIdFormatResponse_httpStatus' - The response's http status code.
 newDescribeAggregateIdFormatResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAggregateIdFormatResponse
 newDescribeAggregateIdFormatResponse pHttpStatus_ =
   DescribeAggregateIdFormatResponse'
     { useLongIdsAggregated =
-        Prelude.Nothing,
-      statuses = Prelude.Nothing,
+        Core.Nothing,
+      statuses = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Indicates whether all resource types in the Region are configured to use
 -- longer IDs. This value is only @true@ if all users are configured to use
 -- longer IDs for all resources types in the Region.
-describeAggregateIdFormatResponse_useLongIdsAggregated :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe Prelude.Bool)
+describeAggregateIdFormatResponse_useLongIdsAggregated :: Lens.Lens' DescribeAggregateIdFormatResponse (Core.Maybe Core.Bool)
 describeAggregateIdFormatResponse_useLongIdsAggregated = Lens.lens (\DescribeAggregateIdFormatResponse' {useLongIdsAggregated} -> useLongIdsAggregated) (\s@DescribeAggregateIdFormatResponse' {} a -> s {useLongIdsAggregated = a} :: DescribeAggregateIdFormatResponse)
 
 -- | Information about each resource\'s ID format.
-describeAggregateIdFormatResponse_statuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe [IdFormat])
-describeAggregateIdFormatResponse_statuses = Lens.lens (\DescribeAggregateIdFormatResponse' {statuses} -> statuses) (\s@DescribeAggregateIdFormatResponse' {} a -> s {statuses = a} :: DescribeAggregateIdFormatResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAggregateIdFormatResponse_statuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Core.Maybe [IdFormat])
+describeAggregateIdFormatResponse_statuses = Lens.lens (\DescribeAggregateIdFormatResponse' {statuses} -> statuses) (\s@DescribeAggregateIdFormatResponse' {} a -> s {statuses = a} :: DescribeAggregateIdFormatResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAggregateIdFormatResponse_httpStatus :: Lens.Lens' DescribeAggregateIdFormatResponse Prelude.Int
+describeAggregateIdFormatResponse_httpStatus :: Lens.Lens' DescribeAggregateIdFormatResponse Core.Int
 describeAggregateIdFormatResponse_httpStatus = Lens.lens (\DescribeAggregateIdFormatResponse' {httpStatus} -> httpStatus) (\s@DescribeAggregateIdFormatResponse' {} a -> s {httpStatus = a} :: DescribeAggregateIdFormatResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAggregateIdFormatResponse

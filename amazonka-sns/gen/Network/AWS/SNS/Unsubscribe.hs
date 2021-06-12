@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SNS.Unsubscribe
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -55,9 +54,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newUnsubscribe' smart constructor.
 data Unsubscribe = Unsubscribe'
   { -- | The ARN of the subscription to be deleted.
-    subscriptionArn :: Prelude.Text
+    subscriptionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Unsubscribe' with all optional fields omitted.
@@ -70,45 +69,43 @@ data Unsubscribe = Unsubscribe'
 -- 'subscriptionArn', 'unsubscribe_subscriptionArn' - The ARN of the subscription to be deleted.
 newUnsubscribe ::
   -- | 'subscriptionArn'
-  Prelude.Text ->
+  Core.Text ->
   Unsubscribe
 newUnsubscribe pSubscriptionArn_ =
   Unsubscribe' {subscriptionArn = pSubscriptionArn_}
 
 -- | The ARN of the subscription to be deleted.
-unsubscribe_subscriptionArn :: Lens.Lens' Unsubscribe Prelude.Text
+unsubscribe_subscriptionArn :: Lens.Lens' Unsubscribe Core.Text
 unsubscribe_subscriptionArn = Lens.lens (\Unsubscribe' {subscriptionArn} -> subscriptionArn) (\s@Unsubscribe' {} a -> s {subscriptionArn = a} :: Unsubscribe)
 
-instance Prelude.AWSRequest Unsubscribe where
-  type Rs Unsubscribe = UnsubscribeResponse
+instance Core.AWSRequest Unsubscribe where
+  type AWSResponse Unsubscribe = UnsubscribeResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull UnsubscribeResponse'
 
-instance Prelude.Hashable Unsubscribe
+instance Core.Hashable Unsubscribe
 
-instance Prelude.NFData Unsubscribe
+instance Core.NFData Unsubscribe
 
-instance Prelude.ToHeaders Unsubscribe where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders Unsubscribe where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath Unsubscribe where
-  toPath = Prelude.const "/"
+instance Core.ToPath Unsubscribe where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery Unsubscribe where
+instance Core.ToQuery Unsubscribe where
   toQuery Unsubscribe' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("Unsubscribe" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "SubscriptionArn" Prelude.=: subscriptionArn
+    Core.mconcat
+      [ "Action" Core.=: ("Unsubscribe" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "SubscriptionArn" Core.=: subscriptionArn
       ]
 
 -- | /See:/ 'newUnsubscribeResponse' smart constructor.
 data UnsubscribeResponse = UnsubscribeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnsubscribeResponse' with all optional fields omitted.
@@ -118,4 +115,4 @@ newUnsubscribeResponse ::
   UnsubscribeResponse
 newUnsubscribeResponse = UnsubscribeResponse'
 
-instance Prelude.NFData UnsubscribeResponse
+instance Core.NFData UnsubscribeResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,10 +54,9 @@ module Network.AWS.MigrationHub.ListCreatedArtifacts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,16 +65,16 @@ data ListCreatedArtifacts = ListCreatedArtifacts'
   { -- | If a @NextToken@ was returned by a previous call, there are more results
     -- available. To retrieve the next page of results, make the call again
     -- using the returned token in @NextToken@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Maximum number of results to be returned per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Prelude.Text,
+    progressUpdateStream :: Core.Text,
     -- | Unique identifier that references the migration task. /Do not store
     -- personal data in this field./
-    migrationTaskName :: Prelude.Text
+    migrationTaskName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCreatedArtifacts' with all optional fields omitted.
@@ -98,16 +96,16 @@ data ListCreatedArtifacts = ListCreatedArtifacts'
 -- personal data in this field./
 newListCreatedArtifacts ::
   -- | 'progressUpdateStream'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'migrationTaskName'
-  Prelude.Text ->
+  Core.Text ->
   ListCreatedArtifacts
 newListCreatedArtifacts
   pProgressUpdateStream_
   pMigrationTaskName_ =
     ListCreatedArtifacts'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+      { nextToken = Core.Nothing,
+        maxResults = Core.Nothing,
         progressUpdateStream = pProgressUpdateStream_,
         migrationTaskName = pMigrationTaskName_
       }
@@ -115,113 +113,111 @@ newListCreatedArtifacts
 -- | If a @NextToken@ was returned by a previous call, there are more results
 -- available. To retrieve the next page of results, make the call again
 -- using the returned token in @NextToken@.
-listCreatedArtifacts_nextToken :: Lens.Lens' ListCreatedArtifacts (Prelude.Maybe Prelude.Text)
+listCreatedArtifacts_nextToken :: Lens.Lens' ListCreatedArtifacts (Core.Maybe Core.Text)
 listCreatedArtifacts_nextToken = Lens.lens (\ListCreatedArtifacts' {nextToken} -> nextToken) (\s@ListCreatedArtifacts' {} a -> s {nextToken = a} :: ListCreatedArtifacts)
 
 -- | Maximum number of results to be returned per page.
-listCreatedArtifacts_maxResults :: Lens.Lens' ListCreatedArtifacts (Prelude.Maybe Prelude.Natural)
+listCreatedArtifacts_maxResults :: Lens.Lens' ListCreatedArtifacts (Core.Maybe Core.Natural)
 listCreatedArtifacts_maxResults = Lens.lens (\ListCreatedArtifacts' {maxResults} -> maxResults) (\s@ListCreatedArtifacts' {} a -> s {maxResults = a} :: ListCreatedArtifacts)
 
 -- | The name of the ProgressUpdateStream.
-listCreatedArtifacts_progressUpdateStream :: Lens.Lens' ListCreatedArtifacts Prelude.Text
+listCreatedArtifacts_progressUpdateStream :: Lens.Lens' ListCreatedArtifacts Core.Text
 listCreatedArtifacts_progressUpdateStream = Lens.lens (\ListCreatedArtifacts' {progressUpdateStream} -> progressUpdateStream) (\s@ListCreatedArtifacts' {} a -> s {progressUpdateStream = a} :: ListCreatedArtifacts)
 
 -- | Unique identifier that references the migration task. /Do not store
 -- personal data in this field./
-listCreatedArtifacts_migrationTaskName :: Lens.Lens' ListCreatedArtifacts Prelude.Text
+listCreatedArtifacts_migrationTaskName :: Lens.Lens' ListCreatedArtifacts Core.Text
 listCreatedArtifacts_migrationTaskName = Lens.lens (\ListCreatedArtifacts' {migrationTaskName} -> migrationTaskName) (\s@ListCreatedArtifacts' {} a -> s {migrationTaskName = a} :: ListCreatedArtifacts)
 
-instance Pager.AWSPager ListCreatedArtifacts where
+instance Core.AWSPager ListCreatedArtifacts where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listCreatedArtifactsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listCreatedArtifactsResponse_createdArtifactList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listCreatedArtifacts_nextToken
           Lens..~ rs
           Lens.^? listCreatedArtifactsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListCreatedArtifacts where
+instance Core.AWSRequest ListCreatedArtifacts where
   type
-    Rs ListCreatedArtifacts =
+    AWSResponse ListCreatedArtifacts =
       ListCreatedArtifactsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListCreatedArtifactsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "CreatedArtifactList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "CreatedArtifactList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListCreatedArtifacts
+instance Core.Hashable ListCreatedArtifacts
 
-instance Prelude.NFData ListCreatedArtifacts
+instance Core.NFData ListCreatedArtifacts
 
-instance Prelude.ToHeaders ListCreatedArtifacts where
+instance Core.ToHeaders ListCreatedArtifacts where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMigrationHub.ListCreatedArtifacts" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMigrationHub.ListCreatedArtifacts" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListCreatedArtifacts where
+instance Core.ToJSON ListCreatedArtifacts where
   toJSON ListCreatedArtifacts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
               ( "ProgressUpdateStream"
-                  Prelude..= progressUpdateStream
+                  Core..= progressUpdateStream
               ),
-            Prelude.Just
-              ("MigrationTaskName" Prelude..= migrationTaskName)
+            Core.Just
+              ("MigrationTaskName" Core..= migrationTaskName)
           ]
       )
 
-instance Prelude.ToPath ListCreatedArtifacts where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListCreatedArtifacts where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListCreatedArtifacts where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListCreatedArtifacts where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListCreatedArtifactsResponse' smart constructor.
 data ListCreatedArtifactsResponse = ListCreatedArtifactsResponse'
   { -- | If there are more created artifacts than the max result, return the next
     -- token to be passed to the next call as a bookmark of where to start
     -- from.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | List of created artifacts up to the maximum number of results specified
     -- in the request.
-    createdArtifactList :: Prelude.Maybe [CreatedArtifact],
+    createdArtifactList :: Core.Maybe [CreatedArtifact],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCreatedArtifactsResponse' with all optional fields omitted.
@@ -241,29 +237,29 @@ data ListCreatedArtifactsResponse = ListCreatedArtifactsResponse'
 -- 'httpStatus', 'listCreatedArtifactsResponse_httpStatus' - The response's http status code.
 newListCreatedArtifactsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListCreatedArtifactsResponse
 newListCreatedArtifactsResponse pHttpStatus_ =
   ListCreatedArtifactsResponse'
     { nextToken =
-        Prelude.Nothing,
-      createdArtifactList = Prelude.Nothing,
+        Core.Nothing,
+      createdArtifactList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are more created artifacts than the max result, return the next
 -- token to be passed to the next call as a bookmark of where to start
 -- from.
-listCreatedArtifactsResponse_nextToken :: Lens.Lens' ListCreatedArtifactsResponse (Prelude.Maybe Prelude.Text)
+listCreatedArtifactsResponse_nextToken :: Lens.Lens' ListCreatedArtifactsResponse (Core.Maybe Core.Text)
 listCreatedArtifactsResponse_nextToken = Lens.lens (\ListCreatedArtifactsResponse' {nextToken} -> nextToken) (\s@ListCreatedArtifactsResponse' {} a -> s {nextToken = a} :: ListCreatedArtifactsResponse)
 
 -- | List of created artifacts up to the maximum number of results specified
 -- in the request.
-listCreatedArtifactsResponse_createdArtifactList :: Lens.Lens' ListCreatedArtifactsResponse (Prelude.Maybe [CreatedArtifact])
-listCreatedArtifactsResponse_createdArtifactList = Lens.lens (\ListCreatedArtifactsResponse' {createdArtifactList} -> createdArtifactList) (\s@ListCreatedArtifactsResponse' {} a -> s {createdArtifactList = a} :: ListCreatedArtifactsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listCreatedArtifactsResponse_createdArtifactList :: Lens.Lens' ListCreatedArtifactsResponse (Core.Maybe [CreatedArtifact])
+listCreatedArtifactsResponse_createdArtifactList = Lens.lens (\ListCreatedArtifactsResponse' {createdArtifactList} -> createdArtifactList) (\s@ListCreatedArtifactsResponse' {} a -> s {createdArtifactList = a} :: ListCreatedArtifactsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCreatedArtifactsResponse_httpStatus :: Lens.Lens' ListCreatedArtifactsResponse Prelude.Int
+listCreatedArtifactsResponse_httpStatus :: Lens.Lens' ListCreatedArtifactsResponse Core.Int
 listCreatedArtifactsResponse_httpStatus = Lens.lens (\ListCreatedArtifactsResponse' {httpStatus} -> httpStatus) (\s@ListCreatedArtifactsResponse' {} a -> s {httpStatus = a} :: ListCreatedArtifactsResponse)
 
-instance Prelude.NFData ListCreatedArtifactsResponse
+instance Core.NFData ListCreatedArtifactsResponse

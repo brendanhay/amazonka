@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WAF.GetWebACL
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -59,9 +58,9 @@ import Network.AWS.WAF.Types
 data GetWebACL = GetWebACL'
   { -- | The @WebACLId@ of the WebACL that you want to get. @WebACLId@ is
     -- returned by CreateWebACL and by ListWebACLs.
-    webACLId :: Prelude.Text
+    webACLId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWebACL' with all optional fields omitted.
@@ -75,56 +74,54 @@ data GetWebACL = GetWebACL'
 -- returned by CreateWebACL and by ListWebACLs.
 newGetWebACL ::
   -- | 'webACLId'
-  Prelude.Text ->
+  Core.Text ->
   GetWebACL
 newGetWebACL pWebACLId_ =
   GetWebACL' {webACLId = pWebACLId_}
 
 -- | The @WebACLId@ of the WebACL that you want to get. @WebACLId@ is
 -- returned by CreateWebACL and by ListWebACLs.
-getWebACL_webACLId :: Lens.Lens' GetWebACL Prelude.Text
+getWebACL_webACLId :: Lens.Lens' GetWebACL Core.Text
 getWebACL_webACLId = Lens.lens (\GetWebACL' {webACLId} -> webACLId) (\s@GetWebACL' {} a -> s {webACLId = a} :: GetWebACL)
 
-instance Prelude.AWSRequest GetWebACL where
-  type Rs GetWebACL = GetWebACLResponse
+instance Core.AWSRequest GetWebACL where
+  type AWSResponse GetWebACL = GetWebACLResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetWebACLResponse'
-            Prelude.<$> (x Prelude..?> "WebACL")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "WebACL")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetWebACL
+instance Core.Hashable GetWebACL
 
-instance Prelude.NFData GetWebACL
+instance Core.NFData GetWebACL
 
-instance Prelude.ToHeaders GetWebACL where
+instance Core.ToHeaders GetWebACL where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSWAF_20150824.GetWebACL" :: Prelude.ByteString),
+              Core.=# ("AWSWAF_20150824.GetWebACL" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetWebACL where
+instance Core.ToJSON GetWebACL where
   toJSON GetWebACL' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("WebACLId" Prelude..= webACLId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WebACLId" Core..= webACLId)]
       )
 
-instance Prelude.ToPath GetWebACL where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetWebACL where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetWebACL where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetWebACL where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetWebACLResponse' smart constructor.
 data GetWebACLResponse = GetWebACLResponse'
@@ -140,11 +137,11 @@ data GetWebACLResponse = GetWebACLResponse'
     --     @Action@, @Priority@, and @RuleId@
     --
     -- -   @Action@: Contains @Type@
-    webACL :: Prelude.Maybe WebACL,
+    webACL :: Core.Maybe WebACL,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWebACLResponse' with all optional fields omitted.
@@ -170,11 +167,11 @@ data GetWebACLResponse = GetWebACLResponse'
 -- 'httpStatus', 'getWebACLResponse_httpStatus' - The response's http status code.
 newGetWebACLResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetWebACLResponse
 newGetWebACLResponse pHttpStatus_ =
   GetWebACLResponse'
-    { webACL = Prelude.Nothing,
+    { webACL = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -190,11 +187,11 @@ newGetWebACLResponse pHttpStatus_ =
 --     @Action@, @Priority@, and @RuleId@
 --
 -- -   @Action@: Contains @Type@
-getWebACLResponse_webACL :: Lens.Lens' GetWebACLResponse (Prelude.Maybe WebACL)
+getWebACLResponse_webACL :: Lens.Lens' GetWebACLResponse (Core.Maybe WebACL)
 getWebACLResponse_webACL = Lens.lens (\GetWebACLResponse' {webACL} -> webACL) (\s@GetWebACLResponse' {} a -> s {webACL = a} :: GetWebACLResponse)
 
 -- | The response's http status code.
-getWebACLResponse_httpStatus :: Lens.Lens' GetWebACLResponse Prelude.Int
+getWebACLResponse_httpStatus :: Lens.Lens' GetWebACLResponse Core.Int
 getWebACLResponse_httpStatus = Lens.lens (\GetWebACLResponse' {httpStatus} -> httpStatus) (\s@GetWebACLResponse' {} a -> s {httpStatus = a} :: GetWebACLResponse)
 
-instance Prelude.NFData GetWebACLResponse
+instance Core.NFData GetWebACLResponse

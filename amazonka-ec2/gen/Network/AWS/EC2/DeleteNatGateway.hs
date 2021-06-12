@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.DeleteNatGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ data DeleteNatGateway = DeleteNatGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the NAT gateway.
-    natGatewayId :: Prelude.Text
+    natGatewayId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNatGateway' with all optional fields omitted.
@@ -78,11 +77,11 @@ data DeleteNatGateway = DeleteNatGateway'
 -- 'natGatewayId', 'deleteNatGateway_natGatewayId' - The ID of the NAT gateway.
 newDeleteNatGateway ::
   -- | 'natGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNatGateway
 newDeleteNatGateway pNatGatewayId_ =
   DeleteNatGateway'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       natGatewayId = pNatGatewayId_
     }
 
@@ -90,53 +89,54 @@ newDeleteNatGateway pNatGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteNatGateway_dryRun :: Lens.Lens' DeleteNatGateway (Prelude.Maybe Prelude.Bool)
+deleteNatGateway_dryRun :: Lens.Lens' DeleteNatGateway (Core.Maybe Core.Bool)
 deleteNatGateway_dryRun = Lens.lens (\DeleteNatGateway' {dryRun} -> dryRun) (\s@DeleteNatGateway' {} a -> s {dryRun = a} :: DeleteNatGateway)
 
 -- | The ID of the NAT gateway.
-deleteNatGateway_natGatewayId :: Lens.Lens' DeleteNatGateway Prelude.Text
+deleteNatGateway_natGatewayId :: Lens.Lens' DeleteNatGateway Core.Text
 deleteNatGateway_natGatewayId = Lens.lens (\DeleteNatGateway' {natGatewayId} -> natGatewayId) (\s@DeleteNatGateway' {} a -> s {natGatewayId = a} :: DeleteNatGateway)
 
-instance Prelude.AWSRequest DeleteNatGateway where
-  type Rs DeleteNatGateway = DeleteNatGatewayResponse
+instance Core.AWSRequest DeleteNatGateway where
+  type
+    AWSResponse DeleteNatGateway =
+      DeleteNatGatewayResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteNatGatewayResponse'
-            Prelude.<$> (x Prelude..@? "natGatewayId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "natGatewayId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNatGateway
+instance Core.Hashable DeleteNatGateway
 
-instance Prelude.NFData DeleteNatGateway
+instance Core.NFData DeleteNatGateway
 
-instance Prelude.ToHeaders DeleteNatGateway where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteNatGateway where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteNatGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNatGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteNatGateway where
+instance Core.ToQuery DeleteNatGateway where
   toQuery DeleteNatGateway' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteNatGateway" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "NatGatewayId" Prelude.=: natGatewayId
+          Core.=: ("DeleteNatGateway" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "NatGatewayId" Core.=: natGatewayId
       ]
 
 -- | /See:/ 'newDeleteNatGatewayResponse' smart constructor.
 data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
   { -- | The ID of the NAT gateway.
-    natGatewayId :: Prelude.Maybe Prelude.Text,
+    natGatewayId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNatGatewayResponse' with all optional fields omitted.
@@ -151,21 +151,21 @@ data DeleteNatGatewayResponse = DeleteNatGatewayResponse'
 -- 'httpStatus', 'deleteNatGatewayResponse_httpStatus' - The response's http status code.
 newDeleteNatGatewayResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteNatGatewayResponse
 newDeleteNatGatewayResponse pHttpStatus_ =
   DeleteNatGatewayResponse'
     { natGatewayId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the NAT gateway.
-deleteNatGatewayResponse_natGatewayId :: Lens.Lens' DeleteNatGatewayResponse (Prelude.Maybe Prelude.Text)
+deleteNatGatewayResponse_natGatewayId :: Lens.Lens' DeleteNatGatewayResponse (Core.Maybe Core.Text)
 deleteNatGatewayResponse_natGatewayId = Lens.lens (\DeleteNatGatewayResponse' {natGatewayId} -> natGatewayId) (\s@DeleteNatGatewayResponse' {} a -> s {natGatewayId = a} :: DeleteNatGatewayResponse)
 
 -- | The response's http status code.
-deleteNatGatewayResponse_httpStatus :: Lens.Lens' DeleteNatGatewayResponse Prelude.Int
+deleteNatGatewayResponse_httpStatus :: Lens.Lens' DeleteNatGatewayResponse Core.Int
 deleteNatGatewayResponse_httpStatus = Lens.lens (\DeleteNatGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteNatGatewayResponse' {} a -> s {httpStatus = a} :: DeleteNatGatewayResponse)
 
-instance Prelude.NFData DeleteNatGatewayResponse
+instance Core.NFData DeleteNatGatewayResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.ServerCertificate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.ServerCertificateMetadata
 import Network.AWS.IAM.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a server certificate.
 --
@@ -36,16 +35,16 @@ data ServerCertificate = ServerCertificate'
     -- information about tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The contents of the public key certificate chain.
-    certificateChain :: Prelude.Maybe Prelude.Text,
+    certificateChain :: Core.Maybe Core.Text,
     -- | The meta information of the server certificate, such as its name, path,
     -- ID, and ARN.
     serverCertificateMetadata :: ServerCertificateMetadata,
     -- | The contents of the public key certificate.
-    certificateBody :: Prelude.Text
+    certificateBody :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerCertificate' with all optional fields omitted.
@@ -70,14 +69,14 @@ newServerCertificate ::
   -- | 'serverCertificateMetadata'
   ServerCertificateMetadata ->
   -- | 'certificateBody'
-  Prelude.Text ->
+  Core.Text ->
   ServerCertificate
 newServerCertificate
   pServerCertificateMetadata_
   pCertificateBody_ =
     ServerCertificate'
-      { tags = Prelude.Nothing,
-        certificateChain = Prelude.Nothing,
+      { tags = Core.Nothing,
+        certificateChain = Core.Nothing,
         serverCertificateMetadata =
           pServerCertificateMetadata_,
         certificateBody = pCertificateBody_
@@ -87,11 +86,11 @@ newServerCertificate
 -- information about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-serverCertificate_tags :: Lens.Lens' ServerCertificate (Prelude.Maybe [Tag])
-serverCertificate_tags = Lens.lens (\ServerCertificate' {tags} -> tags) (\s@ServerCertificate' {} a -> s {tags = a} :: ServerCertificate) Prelude.. Lens.mapping Prelude._Coerce
+serverCertificate_tags :: Lens.Lens' ServerCertificate (Core.Maybe [Tag])
+serverCertificate_tags = Lens.lens (\ServerCertificate' {tags} -> tags) (\s@ServerCertificate' {} a -> s {tags = a} :: ServerCertificate) Core.. Lens.mapping Lens._Coerce
 
 -- | The contents of the public key certificate chain.
-serverCertificate_certificateChain :: Lens.Lens' ServerCertificate (Prelude.Maybe Prelude.Text)
+serverCertificate_certificateChain :: Lens.Lens' ServerCertificate (Core.Maybe Core.Text)
 serverCertificate_certificateChain = Lens.lens (\ServerCertificate' {certificateChain} -> certificateChain) (\s@ServerCertificate' {} a -> s {certificateChain = a} :: ServerCertificate)
 
 -- | The meta information of the server certificate, such as its name, path,
@@ -100,19 +99,19 @@ serverCertificate_serverCertificateMetadata :: Lens.Lens' ServerCertificate Serv
 serverCertificate_serverCertificateMetadata = Lens.lens (\ServerCertificate' {serverCertificateMetadata} -> serverCertificateMetadata) (\s@ServerCertificate' {} a -> s {serverCertificateMetadata = a} :: ServerCertificate)
 
 -- | The contents of the public key certificate.
-serverCertificate_certificateBody :: Lens.Lens' ServerCertificate Prelude.Text
+serverCertificate_certificateBody :: Lens.Lens' ServerCertificate Core.Text
 serverCertificate_certificateBody = Lens.lens (\ServerCertificate' {certificateBody} -> certificateBody) (\s@ServerCertificate' {} a -> s {certificateBody = a} :: ServerCertificate)
 
-instance Prelude.FromXML ServerCertificate where
+instance Core.FromXML ServerCertificate where
   parseXML x =
     ServerCertificate'
-      Prelude.<$> ( x Prelude..@? "Tags" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "CertificateChain")
-      Prelude.<*> (x Prelude..@ "ServerCertificateMetadata")
-      Prelude.<*> (x Prelude..@ "CertificateBody")
+      Core.<$> ( x Core..@? "Tags" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "CertificateChain")
+      Core.<*> (x Core..@ "ServerCertificateMetadata")
+      Core.<*> (x Core..@ "CertificateBody")
 
-instance Prelude.Hashable ServerCertificate
+instance Core.Hashable ServerCertificate
 
-instance Prelude.NFData ServerCertificate
+instance Core.NFData ServerCertificate

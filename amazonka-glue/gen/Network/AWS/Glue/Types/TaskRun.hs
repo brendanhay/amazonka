@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.TaskRun where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.TaskRunProperties
 import Network.AWS.Glue.Types.TaskStatusType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The sampling parameters that are associated with the machine learning
 -- transform.
@@ -31,28 +30,28 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTaskRun' smart constructor.
 data TaskRun = TaskRun'
   { -- | The amount of time (in seconds) that the task run consumed resources.
-    executionTime :: Prelude.Maybe Prelude.Int,
+    executionTime :: Core.Maybe Core.Int,
     -- | The current status of the requested task run.
-    status :: Prelude.Maybe TaskStatusType,
+    status :: Core.Maybe TaskStatusType,
     -- | The unique identifier for the transform.
-    transformId :: Prelude.Maybe Prelude.Text,
+    transformId :: Core.Maybe Core.Text,
     -- | The unique identifier for this task run.
-    taskRunId :: Prelude.Maybe Prelude.Text,
+    taskRunId :: Core.Maybe Core.Text,
     -- | The list of error strings associated with this task run.
-    errorString :: Prelude.Maybe Prelude.Text,
+    errorString :: Core.Maybe Core.Text,
     -- | The last point in time that the requested task run was updated.
-    lastModifiedOn :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedOn :: Core.Maybe Core.POSIX,
     -- | The names of the log group for secure logging, associated with this task
     -- run.
-    logGroupName :: Prelude.Maybe Prelude.Text,
+    logGroupName :: Core.Maybe Core.Text,
     -- | The last point in time that the requested task run was completed.
-    completedOn :: Prelude.Maybe Prelude.POSIX,
+    completedOn :: Core.Maybe Core.POSIX,
     -- | Specifies configuration properties associated with this task run.
-    properties :: Prelude.Maybe TaskRunProperties,
+    properties :: Core.Maybe TaskRunProperties,
     -- | The date and time that this task run started.
-    startedOn :: Prelude.Maybe Prelude.POSIX
+    startedOn :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TaskRun' with all optional fields omitted.
@@ -86,77 +85,77 @@ newTaskRun ::
   TaskRun
 newTaskRun =
   TaskRun'
-    { executionTime = Prelude.Nothing,
-      status = Prelude.Nothing,
-      transformId = Prelude.Nothing,
-      taskRunId = Prelude.Nothing,
-      errorString = Prelude.Nothing,
-      lastModifiedOn = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      completedOn = Prelude.Nothing,
-      properties = Prelude.Nothing,
-      startedOn = Prelude.Nothing
+    { executionTime = Core.Nothing,
+      status = Core.Nothing,
+      transformId = Core.Nothing,
+      taskRunId = Core.Nothing,
+      errorString = Core.Nothing,
+      lastModifiedOn = Core.Nothing,
+      logGroupName = Core.Nothing,
+      completedOn = Core.Nothing,
+      properties = Core.Nothing,
+      startedOn = Core.Nothing
     }
 
 -- | The amount of time (in seconds) that the task run consumed resources.
-taskRun_executionTime :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.Int)
+taskRun_executionTime :: Lens.Lens' TaskRun (Core.Maybe Core.Int)
 taskRun_executionTime = Lens.lens (\TaskRun' {executionTime} -> executionTime) (\s@TaskRun' {} a -> s {executionTime = a} :: TaskRun)
 
 -- | The current status of the requested task run.
-taskRun_status :: Lens.Lens' TaskRun (Prelude.Maybe TaskStatusType)
+taskRun_status :: Lens.Lens' TaskRun (Core.Maybe TaskStatusType)
 taskRun_status = Lens.lens (\TaskRun' {status} -> status) (\s@TaskRun' {} a -> s {status = a} :: TaskRun)
 
 -- | The unique identifier for the transform.
-taskRun_transformId :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.Text)
+taskRun_transformId :: Lens.Lens' TaskRun (Core.Maybe Core.Text)
 taskRun_transformId = Lens.lens (\TaskRun' {transformId} -> transformId) (\s@TaskRun' {} a -> s {transformId = a} :: TaskRun)
 
 -- | The unique identifier for this task run.
-taskRun_taskRunId :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.Text)
+taskRun_taskRunId :: Lens.Lens' TaskRun (Core.Maybe Core.Text)
 taskRun_taskRunId = Lens.lens (\TaskRun' {taskRunId} -> taskRunId) (\s@TaskRun' {} a -> s {taskRunId = a} :: TaskRun)
 
 -- | The list of error strings associated with this task run.
-taskRun_errorString :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.Text)
+taskRun_errorString :: Lens.Lens' TaskRun (Core.Maybe Core.Text)
 taskRun_errorString = Lens.lens (\TaskRun' {errorString} -> errorString) (\s@TaskRun' {} a -> s {errorString = a} :: TaskRun)
 
 -- | The last point in time that the requested task run was updated.
-taskRun_lastModifiedOn :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.UTCTime)
-taskRun_lastModifiedOn = Lens.lens (\TaskRun' {lastModifiedOn} -> lastModifiedOn) (\s@TaskRun' {} a -> s {lastModifiedOn = a} :: TaskRun) Prelude.. Lens.mapping Prelude._Time
+taskRun_lastModifiedOn :: Lens.Lens' TaskRun (Core.Maybe Core.UTCTime)
+taskRun_lastModifiedOn = Lens.lens (\TaskRun' {lastModifiedOn} -> lastModifiedOn) (\s@TaskRun' {} a -> s {lastModifiedOn = a} :: TaskRun) Core.. Lens.mapping Core._Time
 
 -- | The names of the log group for secure logging, associated with this task
 -- run.
-taskRun_logGroupName :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.Text)
+taskRun_logGroupName :: Lens.Lens' TaskRun (Core.Maybe Core.Text)
 taskRun_logGroupName = Lens.lens (\TaskRun' {logGroupName} -> logGroupName) (\s@TaskRun' {} a -> s {logGroupName = a} :: TaskRun)
 
 -- | The last point in time that the requested task run was completed.
-taskRun_completedOn :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.UTCTime)
-taskRun_completedOn = Lens.lens (\TaskRun' {completedOn} -> completedOn) (\s@TaskRun' {} a -> s {completedOn = a} :: TaskRun) Prelude.. Lens.mapping Prelude._Time
+taskRun_completedOn :: Lens.Lens' TaskRun (Core.Maybe Core.UTCTime)
+taskRun_completedOn = Lens.lens (\TaskRun' {completedOn} -> completedOn) (\s@TaskRun' {} a -> s {completedOn = a} :: TaskRun) Core.. Lens.mapping Core._Time
 
 -- | Specifies configuration properties associated with this task run.
-taskRun_properties :: Lens.Lens' TaskRun (Prelude.Maybe TaskRunProperties)
+taskRun_properties :: Lens.Lens' TaskRun (Core.Maybe TaskRunProperties)
 taskRun_properties = Lens.lens (\TaskRun' {properties} -> properties) (\s@TaskRun' {} a -> s {properties = a} :: TaskRun)
 
 -- | The date and time that this task run started.
-taskRun_startedOn :: Lens.Lens' TaskRun (Prelude.Maybe Prelude.UTCTime)
-taskRun_startedOn = Lens.lens (\TaskRun' {startedOn} -> startedOn) (\s@TaskRun' {} a -> s {startedOn = a} :: TaskRun) Prelude.. Lens.mapping Prelude._Time
+taskRun_startedOn :: Lens.Lens' TaskRun (Core.Maybe Core.UTCTime)
+taskRun_startedOn = Lens.lens (\TaskRun' {startedOn} -> startedOn) (\s@TaskRun' {} a -> s {startedOn = a} :: TaskRun) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON TaskRun where
+instance Core.FromJSON TaskRun where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TaskRun"
       ( \x ->
           TaskRun'
-            Prelude.<$> (x Prelude..:? "ExecutionTime")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "TransformId")
-            Prelude.<*> (x Prelude..:? "TaskRunId")
-            Prelude.<*> (x Prelude..:? "ErrorString")
-            Prelude.<*> (x Prelude..:? "LastModifiedOn")
-            Prelude.<*> (x Prelude..:? "LogGroupName")
-            Prelude.<*> (x Prelude..:? "CompletedOn")
-            Prelude.<*> (x Prelude..:? "Properties")
-            Prelude.<*> (x Prelude..:? "StartedOn")
+            Core.<$> (x Core..:? "ExecutionTime")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "TransformId")
+            Core.<*> (x Core..:? "TaskRunId")
+            Core.<*> (x Core..:? "ErrorString")
+            Core.<*> (x Core..:? "LastModifiedOn")
+            Core.<*> (x Core..:? "LogGroupName")
+            Core.<*> (x Core..:? "CompletedOn")
+            Core.<*> (x Core..:? "Properties")
+            Core.<*> (x Core..:? "StartedOn")
       )
 
-instance Prelude.Hashable TaskRun
+instance Core.Hashable TaskRun
 
-instance Prelude.NFData TaskRun
+instance Core.NFData TaskRun

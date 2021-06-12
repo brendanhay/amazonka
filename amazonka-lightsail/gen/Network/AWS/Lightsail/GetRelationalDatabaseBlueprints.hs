@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.Lightsail.GetRelationalDatabaseBlueprints
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,9 +60,9 @@ data GetRelationalDatabaseBlueprints = GetRelationalDatabaseBlueprints'
     -- @GetRelationalDatabaseBlueprints@ request. If your results are
     -- paginated, the response will return a next page token that you can
     -- specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text
+    pageToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseBlueprints' with all optional fields omitted.
@@ -85,7 +83,7 @@ newGetRelationalDatabaseBlueprints ::
 newGetRelationalDatabaseBlueprints =
   GetRelationalDatabaseBlueprints'
     { pageToken =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -94,106 +92,91 @@ newGetRelationalDatabaseBlueprints =
 -- @GetRelationalDatabaseBlueprints@ request. If your results are
 -- paginated, the response will return a next page token that you can
 -- specify as the page token in a subsequent request.
-getRelationalDatabaseBlueprints_pageToken :: Lens.Lens' GetRelationalDatabaseBlueprints (Prelude.Maybe Prelude.Text)
+getRelationalDatabaseBlueprints_pageToken :: Lens.Lens' GetRelationalDatabaseBlueprints (Core.Maybe Core.Text)
 getRelationalDatabaseBlueprints_pageToken = Lens.lens (\GetRelationalDatabaseBlueprints' {pageToken} -> pageToken) (\s@GetRelationalDatabaseBlueprints' {} a -> s {pageToken = a} :: GetRelationalDatabaseBlueprints)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     GetRelationalDatabaseBlueprints
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseBlueprintsResponse_nextPageToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseBlueprintsResponse_blueprints
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getRelationalDatabaseBlueprints_pageToken
           Lens..~ rs
           Lens.^? getRelationalDatabaseBlueprintsResponse_nextPageToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetRelationalDatabaseBlueprints
   where
   type
-    Rs GetRelationalDatabaseBlueprints =
+    AWSResponse GetRelationalDatabaseBlueprints =
       GetRelationalDatabaseBlueprintsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseBlueprintsResponse'
-            Prelude.<$> ( x Prelude..?> "blueprints"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "blueprints" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetRelationalDatabaseBlueprints
 
-instance
-  Prelude.NFData
-    GetRelationalDatabaseBlueprints
+instance Core.NFData GetRelationalDatabaseBlueprints
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetRelationalDatabaseBlueprints
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetRelationalDatabaseBlueprints" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseBlueprints" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetRelationalDatabaseBlueprints
-  where
+instance Core.ToJSON GetRelationalDatabaseBlueprints where
   toJSON GetRelationalDatabaseBlueprints' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("pageToken" Prelude..=) Prelude.<$> pageToken]
+    Core.object
+      ( Core.catMaybes
+          [("pageToken" Core..=) Core.<$> pageToken]
       )
 
-instance
-  Prelude.ToPath
-    GetRelationalDatabaseBlueprints
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRelationalDatabaseBlueprints where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetRelationalDatabaseBlueprints
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRelationalDatabaseBlueprints where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseBlueprintsResponse' smart constructor.
 data GetRelationalDatabaseBlueprintsResponse = GetRelationalDatabaseBlueprintsResponse'
   { -- | An object describing the result of your get relational database
     -- blueprints request.
-    blueprints :: Prelude.Maybe [RelationalDatabaseBlueprint],
+    blueprints :: Core.Maybe [RelationalDatabaseBlueprint],
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to
@@ -202,11 +185,11 @@ data GetRelationalDatabaseBlueprintsResponse = GetRelationalDatabaseBlueprintsRe
     -- To get the next page of results, perform another
     -- @GetRelationalDatabaseBlueprints@ request and specify the next page
     -- token using the @pageToken@ parameter.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseBlueprintsResponse' with all optional fields omitted.
@@ -231,21 +214,21 @@ data GetRelationalDatabaseBlueprintsResponse = GetRelationalDatabaseBlueprintsRe
 -- 'httpStatus', 'getRelationalDatabaseBlueprintsResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseBlueprintsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRelationalDatabaseBlueprintsResponse
 newGetRelationalDatabaseBlueprintsResponse
   pHttpStatus_ =
     GetRelationalDatabaseBlueprintsResponse'
       { blueprints =
-          Prelude.Nothing,
-        nextPageToken = Prelude.Nothing,
+          Core.Nothing,
+        nextPageToken = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object describing the result of your get relational database
 -- blueprints request.
-getRelationalDatabaseBlueprintsResponse_blueprints :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Prelude.Maybe [RelationalDatabaseBlueprint])
-getRelationalDatabaseBlueprintsResponse_blueprints = Lens.lens (\GetRelationalDatabaseBlueprintsResponse' {blueprints} -> blueprints) (\s@GetRelationalDatabaseBlueprintsResponse' {} a -> s {blueprints = a} :: GetRelationalDatabaseBlueprintsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRelationalDatabaseBlueprintsResponse_blueprints :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Core.Maybe [RelationalDatabaseBlueprint])
+getRelationalDatabaseBlueprintsResponse_blueprints = Lens.lens (\GetRelationalDatabaseBlueprintsResponse' {blueprints} -> blueprints) (\s@GetRelationalDatabaseBlueprintsResponse' {} a -> s {blueprints = a} :: GetRelationalDatabaseBlueprintsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -255,13 +238,13 @@ getRelationalDatabaseBlueprintsResponse_blueprints = Lens.lens (\GetRelationalDa
 -- To get the next page of results, perform another
 -- @GetRelationalDatabaseBlueprints@ request and specify the next page
 -- token using the @pageToken@ parameter.
-getRelationalDatabaseBlueprintsResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Prelude.Maybe Prelude.Text)
+getRelationalDatabaseBlueprintsResponse_nextPageToken :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse (Core.Maybe Core.Text)
 getRelationalDatabaseBlueprintsResponse_nextPageToken = Lens.lens (\GetRelationalDatabaseBlueprintsResponse' {nextPageToken} -> nextPageToken) (\s@GetRelationalDatabaseBlueprintsResponse' {} a -> s {nextPageToken = a} :: GetRelationalDatabaseBlueprintsResponse)
 
 -- | The response's http status code.
-getRelationalDatabaseBlueprintsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse Prelude.Int
+getRelationalDatabaseBlueprintsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseBlueprintsResponse Core.Int
 getRelationalDatabaseBlueprintsResponse_httpStatus = Lens.lens (\GetRelationalDatabaseBlueprintsResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseBlueprintsResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseBlueprintsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRelationalDatabaseBlueprintsResponse

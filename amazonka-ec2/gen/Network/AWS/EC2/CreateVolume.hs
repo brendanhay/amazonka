@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -85,9 +84,9 @@ module Network.AWS.EC2.CreateVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -100,14 +99,14 @@ data CreateVolume = CreateVolume'
     -- and @io2@ volumes only. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    multiAttachEnabled :: Prelude.Maybe Prelude.Bool,
+    multiAttachEnabled :: Core.Maybe Core.Bool,
     -- | The tags to apply to the volume during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Indicates whether the volume should be encrypted. The effect of setting
     -- the encryption state to @true@ depends on the volume origin (new or from
     -- a snapshot), starting encryption state, ownership, and whether
@@ -118,16 +117,16 @@ data CreateVolume = CreateVolume'
     -- Encrypted Amazon EBS volumes must be attached to instances that support
     -- Amazon EBS encryption. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostArn :: Prelude.Maybe Prelude.Text,
+    outpostArn :: Core.Maybe Core.Text,
     -- | The throughput to provision for a volume, with a maximum of 1,000
     -- MiB\/s.
     --
     -- This parameter is valid only for @gp3@ volumes.
     --
     -- Valid Range: Minimum value of 125. Maximum value of 1000.
-    throughput :: Prelude.Maybe Prelude.Int,
+    throughput :: Core.Maybe Core.Int,
     -- | The identifier of the AWS Key Management Service (AWS KMS) customer
     -- master key (CMK) to use for Amazon EBS encryption. If this parameter is
     -- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
@@ -148,10 +147,10 @@ data CreateVolume = CreateVolume'
     -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
     -- ID, alias, or ARN that is not valid, the action can appear to complete,
     -- but eventually fails.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The snapshot from which to create the volume. You must specify either a
     -- snapshot ID or a volume size.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    snapshotId :: Core.Maybe Core.Text,
     -- | The volume type. This parameter can be one of the following values:
     --
     -- -   General Purpose SSD: @gp2@ | @gp3@
@@ -169,7 +168,7 @@ data CreateVolume = CreateVolume'
     -- in the /Amazon Elastic Compute Cloud User Guide/.
     --
     -- Default: @gp2@
-    volumeType :: Prelude.Maybe VolumeType,
+    volumeType :: Core.Maybe VolumeType,
     -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
     -- @io2@ volumes, this represents the number of IOPS that are provisioned
     -- for the volume. For @gp2@ volumes, this represents the baseline
@@ -191,7 +190,7 @@ data CreateVolume = CreateVolume'
     -- This parameter is required for @io1@ and @io2@ volumes. The default for
     -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
     -- @st1@, @sc1@, or @standard@ volumes.
-    iops :: Prelude.Maybe Prelude.Int,
+    iops :: Core.Maybe Core.Int,
     -- | The size of the volume, in GiBs. You must specify either a snapshot ID
     -- or a volume size. If you specify a snapshot, the default is the snapshot
     -- size. You can specify a volume size that is equal to or larger than the
@@ -206,11 +205,11 @@ data CreateVolume = CreateVolume'
     -- -   @st1@ and @sc1@: 125-16,384
     --
     -- -   @standard@: 1-1,024
-    size :: Prelude.Maybe Prelude.Int,
+    size :: Core.Maybe Core.Int,
     -- | The Availability Zone in which to create the volume.
-    availabilityZone :: Prelude.Text
+    availabilityZone :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVolume' with all optional fields omitted.
@@ -337,21 +336,21 @@ data CreateVolume = CreateVolume'
 -- 'availabilityZone', 'createVolume_availabilityZone' - The Availability Zone in which to create the volume.
 newCreateVolume ::
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   CreateVolume
 newCreateVolume pAvailabilityZone_ =
   CreateVolume'
-    { multiAttachEnabled = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      outpostArn = Prelude.Nothing,
-      throughput = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      snapshotId = Prelude.Nothing,
-      volumeType = Prelude.Nothing,
-      iops = Prelude.Nothing,
-      size = Prelude.Nothing,
+    { multiAttachEnabled = Core.Nothing,
+      tagSpecifications = Core.Nothing,
+      dryRun = Core.Nothing,
+      encrypted = Core.Nothing,
+      outpostArn = Core.Nothing,
+      throughput = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      snapshotId = Core.Nothing,
+      volumeType = Core.Nothing,
+      iops = Core.Nothing,
+      size = Core.Nothing,
       availabilityZone = pAvailabilityZone_
     }
 
@@ -362,18 +361,18 @@ newCreateVolume pAvailabilityZone_ =
 -- and @io2@ volumes only. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html Amazon EBS Multi-Attach>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-createVolume_multiAttachEnabled :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Bool)
+createVolume_multiAttachEnabled :: Lens.Lens' CreateVolume (Core.Maybe Core.Bool)
 createVolume_multiAttachEnabled = Lens.lens (\CreateVolume' {multiAttachEnabled} -> multiAttachEnabled) (\s@CreateVolume' {} a -> s {multiAttachEnabled = a} :: CreateVolume)
 
 -- | The tags to apply to the volume during creation.
-createVolume_tagSpecifications :: Lens.Lens' CreateVolume (Prelude.Maybe [TagSpecification])
-createVolume_tagSpecifications = Lens.lens (\CreateVolume' {tagSpecifications} -> tagSpecifications) (\s@CreateVolume' {} a -> s {tagSpecifications = a} :: CreateVolume) Prelude.. Lens.mapping Prelude._Coerce
+createVolume_tagSpecifications :: Lens.Lens' CreateVolume (Core.Maybe [TagSpecification])
+createVolume_tagSpecifications = Lens.lens (\CreateVolume' {tagSpecifications} -> tagSpecifications) (\s@CreateVolume' {} a -> s {tagSpecifications = a} :: CreateVolume) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createVolume_dryRun :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Bool)
+createVolume_dryRun :: Lens.Lens' CreateVolume (Core.Maybe Core.Bool)
 createVolume_dryRun = Lens.lens (\CreateVolume' {dryRun} -> dryRun) (\s@CreateVolume' {} a -> s {dryRun = a} :: CreateVolume)
 
 -- | Indicates whether the volume should be encrypted. The effect of setting
@@ -386,11 +385,11 @@ createVolume_dryRun = Lens.lens (\CreateVolume' {dryRun} -> dryRun) (\s@CreateVo
 -- Encrypted Amazon EBS volumes must be attached to instances that support
 -- Amazon EBS encryption. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
-createVolume_encrypted :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Bool)
+createVolume_encrypted :: Lens.Lens' CreateVolume (Core.Maybe Core.Bool)
 createVolume_encrypted = Lens.lens (\CreateVolume' {encrypted} -> encrypted) (\s@CreateVolume' {} a -> s {encrypted = a} :: CreateVolume)
 
 -- | The Amazon Resource Name (ARN) of the Outpost.
-createVolume_outpostArn :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Text)
+createVolume_outpostArn :: Lens.Lens' CreateVolume (Core.Maybe Core.Text)
 createVolume_outpostArn = Lens.lens (\CreateVolume' {outpostArn} -> outpostArn) (\s@CreateVolume' {} a -> s {outpostArn = a} :: CreateVolume)
 
 -- | The throughput to provision for a volume, with a maximum of 1,000
@@ -399,7 +398,7 @@ createVolume_outpostArn = Lens.lens (\CreateVolume' {outpostArn} -> outpostArn) 
 -- This parameter is valid only for @gp3@ volumes.
 --
 -- Valid Range: Minimum value of 125. Maximum value of 1000.
-createVolume_throughput :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Int)
+createVolume_throughput :: Lens.Lens' CreateVolume (Core.Maybe Core.Int)
 createVolume_throughput = Lens.lens (\CreateVolume' {throughput} -> throughput) (\s@CreateVolume' {} a -> s {throughput = a} :: CreateVolume)
 
 -- | The identifier of the AWS Key Management Service (AWS KMS) customer
@@ -422,12 +421,12 @@ createVolume_throughput = Lens.lens (\CreateVolume' {throughput} -> throughput) 
 -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
 -- ID, alias, or ARN that is not valid, the action can appear to complete,
 -- but eventually fails.
-createVolume_kmsKeyId :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Text)
+createVolume_kmsKeyId :: Lens.Lens' CreateVolume (Core.Maybe Core.Text)
 createVolume_kmsKeyId = Lens.lens (\CreateVolume' {kmsKeyId} -> kmsKeyId) (\s@CreateVolume' {} a -> s {kmsKeyId = a} :: CreateVolume)
 
 -- | The snapshot from which to create the volume. You must specify either a
 -- snapshot ID or a volume size.
-createVolume_snapshotId :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Text)
+createVolume_snapshotId :: Lens.Lens' CreateVolume (Core.Maybe Core.Text)
 createVolume_snapshotId = Lens.lens (\CreateVolume' {snapshotId} -> snapshotId) (\s@CreateVolume' {} a -> s {snapshotId = a} :: CreateVolume)
 
 -- | The volume type. This parameter can be one of the following values:
@@ -447,7 +446,7 @@ createVolume_snapshotId = Lens.lens (\CreateVolume' {snapshotId} -> snapshotId) 
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Default: @gp2@
-createVolume_volumeType :: Lens.Lens' CreateVolume (Prelude.Maybe VolumeType)
+createVolume_volumeType :: Lens.Lens' CreateVolume (Core.Maybe VolumeType)
 createVolume_volumeType = Lens.lens (\CreateVolume' {volumeType} -> volumeType) (\s@CreateVolume' {} a -> s {volumeType = a} :: CreateVolume)
 
 -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
@@ -471,7 +470,7 @@ createVolume_volumeType = Lens.lens (\CreateVolume' {volumeType} -> volumeType) 
 -- This parameter is required for @io1@ and @io2@ volumes. The default for
 -- @gp3@ volumes is 3,000 IOPS. This parameter is not supported for @gp2@,
 -- @st1@, @sc1@, or @standard@ volumes.
-createVolume_iops :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Int)
+createVolume_iops :: Lens.Lens' CreateVolume (Core.Maybe Core.Int)
 createVolume_iops = Lens.lens (\CreateVolume' {iops} -> iops) (\s@CreateVolume' {} a -> s {iops = a} :: CreateVolume)
 
 -- | The size of the volume, in GiBs. You must specify either a snapshot ID
@@ -488,49 +487,48 @@ createVolume_iops = Lens.lens (\CreateVolume' {iops} -> iops) (\s@CreateVolume' 
 -- -   @st1@ and @sc1@: 125-16,384
 --
 -- -   @standard@: 1-1,024
-createVolume_size :: Lens.Lens' CreateVolume (Prelude.Maybe Prelude.Int)
+createVolume_size :: Lens.Lens' CreateVolume (Core.Maybe Core.Int)
 createVolume_size = Lens.lens (\CreateVolume' {size} -> size) (\s@CreateVolume' {} a -> s {size = a} :: CreateVolume)
 
 -- | The Availability Zone in which to create the volume.
-createVolume_availabilityZone :: Lens.Lens' CreateVolume Prelude.Text
+createVolume_availabilityZone :: Lens.Lens' CreateVolume Core.Text
 createVolume_availabilityZone = Lens.lens (\CreateVolume' {availabilityZone} -> availabilityZone) (\s@CreateVolume' {} a -> s {availabilityZone = a} :: CreateVolume)
 
-instance Prelude.AWSRequest CreateVolume where
-  type Rs CreateVolume = Volume
+instance Core.AWSRequest CreateVolume where
+  type AWSResponse CreateVolume = Volume
   request = Request.postQuery defaultService
   response =
-    Response.receiveXML (\s h x -> Prelude.parseXML x)
+    Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateVolume
+instance Core.Hashable CreateVolume
 
-instance Prelude.NFData CreateVolume
+instance Core.NFData CreateVolume
 
-instance Prelude.ToHeaders CreateVolume where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateVolume where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateVolume where
+instance Core.ToQuery CreateVolume where
   toQuery CreateVolume' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateVolume" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "MultiAttachEnabled" Prelude.=: multiAttachEnabled,
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateVolume" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "MultiAttachEnabled" Core.=: multiAttachEnabled,
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "Encrypted" Prelude.=: encrypted,
-        "OutpostArn" Prelude.=: outpostArn,
-        "Throughput" Prelude.=: throughput,
-        "KmsKeyId" Prelude.=: kmsKeyId,
-        "SnapshotId" Prelude.=: snapshotId,
-        "VolumeType" Prelude.=: volumeType,
-        "Iops" Prelude.=: iops,
-        "Size" Prelude.=: size,
-        "AvailabilityZone" Prelude.=: availabilityZone
+        "DryRun" Core.=: dryRun,
+        "Encrypted" Core.=: encrypted,
+        "OutpostArn" Core.=: outpostArn,
+        "Throughput" Core.=: throughput,
+        "KmsKeyId" Core.=: kmsKeyId,
+        "SnapshotId" Core.=: snapshotId,
+        "VolumeType" Core.=: volumeType,
+        "Iops" Core.=: iops,
+        "Size" Core.=: size,
+        "AvailabilityZone" Core.=: availabilityZone
       ]

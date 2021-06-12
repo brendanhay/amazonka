@@ -1468,6 +1468,7 @@ module Network.AWS.Glue.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Action
 import Network.AWS.Glue.Types.BackfillError
 import Network.AWS.Glue.Types.BackfillErrorCode
@@ -1669,245 +1670,242 @@ import Network.AWS.Glue.Types.WorkflowRunStatistics
 import Network.AWS.Glue.Types.WorkflowRunStatus
 import Network.AWS.Glue.Types.XMLClassifier
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-03-31@ of the Amazon Glue SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Glue",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "glue",
-      Prelude._svcSigningName = "glue",
-      Prelude._svcVersion = "2017-03-31",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "Glue",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Glue",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "glue",
+      Core._serviceSigningName = "glue",
+      Core._serviceVersion = "2017-03-31",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Glue",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | A specified entity does not exist
-_EntityNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EntityNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EntityNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EntityNotFoundException"
 
 -- | The specified crawler is not running.
-_CrawlerNotRunningException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CrawlerNotRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CrawlerNotRunningException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CrawlerNotRunningException"
 
 -- | There was a version conflict.
-_VersionMismatchException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_VersionMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _VersionMismatchException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "VersionMismatchException"
 
 -- | An encryption operation failed.
-_GlueEncryptionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_GlueEncryptionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _GlueEncryptionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "GlueEncryptionException"
 
 -- | The input provided was not valid.
-_InvalidInputException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInputException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidInputException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | An internal service error occurred.
-_InternalServiceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServiceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServiceException"
 
 -- | The workflow is in an invalid state to perform a requested operation.
-_IllegalWorkflowStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IllegalWorkflowStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IllegalWorkflowStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IllegalWorkflowStateException"
 
 -- | Too many jobs are being run concurrently.
-_ConcurrentRunsExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentRunsExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConcurrentRunsExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConcurrentRunsExceededException"
 
 -- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | A specified condition was not satisfied.
-_ConditionCheckFailureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConditionCheckFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConditionCheckFailureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConditionCheckFailureException"
 
 -- | The specified scheduler is transitioning.
-_SchedulerTransitioningException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SchedulerTransitioningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SchedulerTransitioningException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SchedulerTransitioningException"
 
 -- | The specified scheduler is already running.
-_SchedulerRunningException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SchedulerRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SchedulerRunningException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SchedulerRunningException"
 
 -- | Access to a resource was denied.
-_AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | A value could not be validated.
-_ValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | The operation cannot be performed because the crawler is already
 -- running.
-_CrawlerRunningException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CrawlerRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CrawlerRunningException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CrawlerRunningException"
 
 -- | The machine learning transform is not ready to run.
-_MLTransformNotReadyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MLTransformNotReadyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MLTransformNotReadyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MLTransformNotReadyException"
 
 -- | The @CreatePartitions@ API was called on a table that has indexes
 -- enabled.
-_ConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | A resource to be created or added already exists.
-_AlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AlreadyExistsException"
 
 -- | The operation timed out.
-_OperationTimeoutException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OperationTimeoutException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OperationTimeoutException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OperationTimeoutException"
 
 -- | The same unique identifier was associated with two different records.
-_IdempotentParameterMismatchException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IdempotentParameterMismatchException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | The specified crawler is stopping.
-_CrawlerStoppingException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CrawlerStoppingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CrawlerStoppingException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CrawlerStoppingException"
 
 -- | There is no applicable schedule.
-_NoScheduleException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoScheduleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoScheduleException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoScheduleException"
 
 -- | A resource numerical limit was exceeded.
-_ResourceNumberLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNumberLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNumberLimitExceededException"
 
 -- | The specified scheduler is not running.
-_SchedulerNotRunningException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SchedulerNotRunningException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SchedulerNotRunningException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SchedulerNotRunningException"

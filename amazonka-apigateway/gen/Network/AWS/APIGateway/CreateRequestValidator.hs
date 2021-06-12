@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.CreateRequestValidator
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +56,16 @@ import qualified Network.AWS.Response as Response
 data CreateRequestValidator = CreateRequestValidator'
   { -- | A Boolean flag to indicate whether to validate request body according to
     -- the configured model schema for the method (@true@) or not (@false@).
-    validateRequestBody :: Prelude.Maybe Prelude.Bool,
+    validateRequestBody :: Core.Maybe Core.Bool,
     -- | A Boolean flag to indicate whether to validate request parameters,
     -- @true@, or not @false@.
-    validateRequestParameters :: Prelude.Maybe Prelude.Bool,
+    validateRequestParameters :: Core.Maybe Core.Bool,
     -- | The name of the to-be-created RequestValidator.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text
+    restApiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRequestValidator' with all optional fields omitted.
@@ -87,74 +86,76 @@ data CreateRequestValidator = CreateRequestValidator'
 -- 'restApiId', 'createRequestValidator_restApiId' - [Required] The string identifier of the associated RestApi.
 newCreateRequestValidator ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   CreateRequestValidator
 newCreateRequestValidator pRestApiId_ =
   CreateRequestValidator'
     { validateRequestBody =
-        Prelude.Nothing,
-      validateRequestParameters = Prelude.Nothing,
-      name = Prelude.Nothing,
+        Core.Nothing,
+      validateRequestParameters = Core.Nothing,
+      name = Core.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | A Boolean flag to indicate whether to validate request body according to
 -- the configured model schema for the method (@true@) or not (@false@).
-createRequestValidator_validateRequestBody :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
+createRequestValidator_validateRequestBody :: Lens.Lens' CreateRequestValidator (Core.Maybe Core.Bool)
 createRequestValidator_validateRequestBody = Lens.lens (\CreateRequestValidator' {validateRequestBody} -> validateRequestBody) (\s@CreateRequestValidator' {} a -> s {validateRequestBody = a} :: CreateRequestValidator)
 
 -- | A Boolean flag to indicate whether to validate request parameters,
 -- @true@, or not @false@.
-createRequestValidator_validateRequestParameters :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Bool)
+createRequestValidator_validateRequestParameters :: Lens.Lens' CreateRequestValidator (Core.Maybe Core.Bool)
 createRequestValidator_validateRequestParameters = Lens.lens (\CreateRequestValidator' {validateRequestParameters} -> validateRequestParameters) (\s@CreateRequestValidator' {} a -> s {validateRequestParameters = a} :: CreateRequestValidator)
 
 -- | The name of the to-be-created RequestValidator.
-createRequestValidator_name :: Lens.Lens' CreateRequestValidator (Prelude.Maybe Prelude.Text)
+createRequestValidator_name :: Lens.Lens' CreateRequestValidator (Core.Maybe Core.Text)
 createRequestValidator_name = Lens.lens (\CreateRequestValidator' {name} -> name) (\s@CreateRequestValidator' {} a -> s {name = a} :: CreateRequestValidator)
 
 -- | [Required] The string identifier of the associated RestApi.
-createRequestValidator_restApiId :: Lens.Lens' CreateRequestValidator Prelude.Text
+createRequestValidator_restApiId :: Lens.Lens' CreateRequestValidator Core.Text
 createRequestValidator_restApiId = Lens.lens (\CreateRequestValidator' {restApiId} -> restApiId) (\s@CreateRequestValidator' {} a -> s {restApiId = a} :: CreateRequestValidator)
 
-instance Prelude.AWSRequest CreateRequestValidator where
-  type Rs CreateRequestValidator = RequestValidator
+instance Core.AWSRequest CreateRequestValidator where
+  type
+    AWSResponse CreateRequestValidator =
+      RequestValidator
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateRequestValidator
+instance Core.Hashable CreateRequestValidator
 
-instance Prelude.NFData CreateRequestValidator
+instance Core.NFData CreateRequestValidator
 
-instance Prelude.ToHeaders CreateRequestValidator where
+instance Core.ToHeaders CreateRequestValidator where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateRequestValidator where
+instance Core.ToJSON CreateRequestValidator where
   toJSON CreateRequestValidator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("validateRequestBody" Prelude..=)
-              Prelude.<$> validateRequestBody,
-            ("validateRequestParameters" Prelude..=)
-              Prelude.<$> validateRequestParameters,
-            ("name" Prelude..=) Prelude.<$> name
+    Core.object
+      ( Core.catMaybes
+          [ ("validateRequestBody" Core..=)
+              Core.<$> validateRequestBody,
+            ("validateRequestParameters" Core..=)
+              Core.<$> validateRequestParameters,
+            ("name" Core..=) Core.<$> name
           ]
       )
 
-instance Prelude.ToPath CreateRequestValidator where
+instance Core.ToPath CreateRequestValidator where
   toPath CreateRequestValidator' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/requestvalidators"
       ]
 
-instance Prelude.ToQuery CreateRequestValidator where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateRequestValidator where
+  toQuery = Core.const Core.mempty

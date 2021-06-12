@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.RDS.CreateOptionGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,7 +54,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateOptionGroup' smart constructor.
 data CreateOptionGroup = CreateOptionGroup'
   { -- | Tags to assign to the option group.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Specifies the name of the option group to be created.
     --
     -- Constraints:
@@ -67,7 +66,7 @@ data CreateOptionGroup = CreateOptionGroup'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @myoptiongroup@
-    optionGroupName :: Prelude.Text,
+    optionGroupName :: Core.Text,
     -- | Specifies the name of the engine that this option group should be
     -- associated with.
     --
@@ -94,14 +93,14 @@ data CreateOptionGroup = CreateOptionGroup'
     -- -   @sqlserver-ex@
     --
     -- -   @sqlserver-web@
-    engineName :: Prelude.Text,
+    engineName :: Core.Text,
     -- | Specifies the major version of the engine that this option group should
     -- be associated with.
-    majorEngineVersion :: Prelude.Text,
+    majorEngineVersion :: Core.Text,
     -- | The description of the option group.
-    optionGroupDescription :: Prelude.Text
+    optionGroupDescription :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateOptionGroup' with all optional fields omitted.
@@ -158,13 +157,13 @@ data CreateOptionGroup = CreateOptionGroup'
 -- 'optionGroupDescription', 'createOptionGroup_optionGroupDescription' - The description of the option group.
 newCreateOptionGroup ::
   -- | 'optionGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'engineName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'majorEngineVersion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'optionGroupDescription'
-  Prelude.Text ->
+  Core.Text ->
   CreateOptionGroup
 newCreateOptionGroup
   pOptionGroupName_
@@ -172,7 +171,7 @@ newCreateOptionGroup
   pMajorEngineVersion_
   pOptionGroupDescription_ =
     CreateOptionGroup'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         optionGroupName = pOptionGroupName_,
         engineName = pEngineName_,
         majorEngineVersion = pMajorEngineVersion_,
@@ -180,8 +179,8 @@ newCreateOptionGroup
       }
 
 -- | Tags to assign to the option group.
-createOptionGroup_tags :: Lens.Lens' CreateOptionGroup (Prelude.Maybe [Tag])
-createOptionGroup_tags = Lens.lens (\CreateOptionGroup' {tags} -> tags) (\s@CreateOptionGroup' {} a -> s {tags = a} :: CreateOptionGroup) Prelude.. Lens.mapping Prelude._Coerce
+createOptionGroup_tags :: Lens.Lens' CreateOptionGroup (Core.Maybe [Tag])
+createOptionGroup_tags = Lens.lens (\CreateOptionGroup' {tags} -> tags) (\s@CreateOptionGroup' {} a -> s {tags = a} :: CreateOptionGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the name of the option group to be created.
 --
@@ -194,7 +193,7 @@ createOptionGroup_tags = Lens.lens (\CreateOptionGroup' {tags} -> tags) (\s@Crea
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @myoptiongroup@
-createOptionGroup_optionGroupName :: Lens.Lens' CreateOptionGroup Prelude.Text
+createOptionGroup_optionGroupName :: Lens.Lens' CreateOptionGroup Core.Text
 createOptionGroup_optionGroupName = Lens.lens (\CreateOptionGroup' {optionGroupName} -> optionGroupName) (\s@CreateOptionGroup' {} a -> s {optionGroupName = a} :: CreateOptionGroup)
 
 -- | Specifies the name of the engine that this option group should be
@@ -223,64 +222,64 @@ createOptionGroup_optionGroupName = Lens.lens (\CreateOptionGroup' {optionGroupN
 -- -   @sqlserver-ex@
 --
 -- -   @sqlserver-web@
-createOptionGroup_engineName :: Lens.Lens' CreateOptionGroup Prelude.Text
+createOptionGroup_engineName :: Lens.Lens' CreateOptionGroup Core.Text
 createOptionGroup_engineName = Lens.lens (\CreateOptionGroup' {engineName} -> engineName) (\s@CreateOptionGroup' {} a -> s {engineName = a} :: CreateOptionGroup)
 
 -- | Specifies the major version of the engine that this option group should
 -- be associated with.
-createOptionGroup_majorEngineVersion :: Lens.Lens' CreateOptionGroup Prelude.Text
+createOptionGroup_majorEngineVersion :: Lens.Lens' CreateOptionGroup Core.Text
 createOptionGroup_majorEngineVersion = Lens.lens (\CreateOptionGroup' {majorEngineVersion} -> majorEngineVersion) (\s@CreateOptionGroup' {} a -> s {majorEngineVersion = a} :: CreateOptionGroup)
 
 -- | The description of the option group.
-createOptionGroup_optionGroupDescription :: Lens.Lens' CreateOptionGroup Prelude.Text
+createOptionGroup_optionGroupDescription :: Lens.Lens' CreateOptionGroup Core.Text
 createOptionGroup_optionGroupDescription = Lens.lens (\CreateOptionGroup' {optionGroupDescription} -> optionGroupDescription) (\s@CreateOptionGroup' {} a -> s {optionGroupDescription = a} :: CreateOptionGroup)
 
-instance Prelude.AWSRequest CreateOptionGroup where
-  type Rs CreateOptionGroup = CreateOptionGroupResponse
+instance Core.AWSRequest CreateOptionGroup where
+  type
+    AWSResponse CreateOptionGroup =
+      CreateOptionGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateOptionGroupResult"
       ( \s h x ->
           CreateOptionGroupResponse'
-            Prelude.<$> (x Prelude..@? "OptionGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "OptionGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateOptionGroup
+instance Core.Hashable CreateOptionGroup
 
-instance Prelude.NFData CreateOptionGroup
+instance Core.NFData CreateOptionGroup
 
-instance Prelude.ToHeaders CreateOptionGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateOptionGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateOptionGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateOptionGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateOptionGroup where
+instance Core.ToQuery CreateOptionGroup where
   toQuery CreateOptionGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateOptionGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("CreateOptionGroup" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
-        "OptionGroupName" Prelude.=: optionGroupName,
-        "EngineName" Prelude.=: engineName,
-        "MajorEngineVersion" Prelude.=: majorEngineVersion,
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+        "OptionGroupName" Core.=: optionGroupName,
+        "EngineName" Core.=: engineName,
+        "MajorEngineVersion" Core.=: majorEngineVersion,
         "OptionGroupDescription"
-          Prelude.=: optionGroupDescription
+          Core.=: optionGroupDescription
       ]
 
 -- | /See:/ 'newCreateOptionGroupResponse' smart constructor.
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
-  { optionGroup :: Prelude.Maybe OptionGroup,
+  { optionGroup :: Core.Maybe OptionGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateOptionGroupResponse' with all optional fields omitted.
@@ -295,21 +294,21 @@ data CreateOptionGroupResponse = CreateOptionGroupResponse'
 -- 'httpStatus', 'createOptionGroupResponse_httpStatus' - The response's http status code.
 newCreateOptionGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateOptionGroupResponse
 newCreateOptionGroupResponse pHttpStatus_ =
   CreateOptionGroupResponse'
     { optionGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createOptionGroupResponse_optionGroup :: Lens.Lens' CreateOptionGroupResponse (Prelude.Maybe OptionGroup)
+createOptionGroupResponse_optionGroup :: Lens.Lens' CreateOptionGroupResponse (Core.Maybe OptionGroup)
 createOptionGroupResponse_optionGroup = Lens.lens (\CreateOptionGroupResponse' {optionGroup} -> optionGroup) (\s@CreateOptionGroupResponse' {} a -> s {optionGroup = a} :: CreateOptionGroupResponse)
 
 -- | The response's http status code.
-createOptionGroupResponse_httpStatus :: Lens.Lens' CreateOptionGroupResponse Prelude.Int
+createOptionGroupResponse_httpStatus :: Lens.Lens' CreateOptionGroupResponse Core.Int
 createOptionGroupResponse_httpStatus = Lens.lens (\CreateOptionGroupResponse' {httpStatus} -> httpStatus) (\s@CreateOptionGroupResponse' {} a -> s {httpStatus = a} :: CreateOptionGroupResponse)
 
-instance Prelude.NFData CreateOptionGroupResponse
+instance Core.NFData CreateOptionGroupResponse

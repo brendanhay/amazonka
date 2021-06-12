@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.Redshift.DescribeResize
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -76,9 +75,9 @@ data DescribeResize = DescribeResize'
     --
     -- By default, resize operations for all clusters defined for an AWS
     -- account are returned.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeResize' with all optional fields omitted.
@@ -95,7 +94,7 @@ data DescribeResize = DescribeResize'
 -- account are returned.
 newDescribeResize ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DescribeResize
 newDescribeResize pClusterIdentifier_ =
   DescribeResize'
@@ -108,33 +107,34 @@ newDescribeResize pClusterIdentifier_ =
 --
 -- By default, resize operations for all clusters defined for an AWS
 -- account are returned.
-describeResize_clusterIdentifier :: Lens.Lens' DescribeResize Prelude.Text
+describeResize_clusterIdentifier :: Lens.Lens' DescribeResize Core.Text
 describeResize_clusterIdentifier = Lens.lens (\DescribeResize' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeResize' {} a -> s {clusterIdentifier = a} :: DescribeResize)
 
-instance Prelude.AWSRequest DescribeResize where
-  type Rs DescribeResize = ResizeProgressMessage
+instance Core.AWSRequest DescribeResize where
+  type
+    AWSResponse DescribeResize =
+      ResizeProgressMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DescribeResizeResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DescribeResize
+instance Core.Hashable DescribeResize
 
-instance Prelude.NFData DescribeResize
+instance Core.NFData DescribeResize
 
-instance Prelude.ToHeaders DescribeResize where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeResize where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeResize where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeResize where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeResize where
+instance Core.ToQuery DescribeResize where
   toQuery DescribeResize' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeResize" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier
+          Core.=: ("DescribeResize" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier
       ]

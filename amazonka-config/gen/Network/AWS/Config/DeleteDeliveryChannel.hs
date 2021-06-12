@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Config.DeleteDeliveryChannel
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteDeliveryChannel' smart constructor.
 data DeleteDeliveryChannel = DeleteDeliveryChannel'
   { -- | The name of the delivery channel to delete.
-    deliveryChannelName :: Prelude.Text
+    deliveryChannelName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeliveryChannel' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeleteDeliveryChannel = DeleteDeliveryChannel'
 -- 'deliveryChannelName', 'deleteDeliveryChannel_deliveryChannelName' - The name of the delivery channel to delete.
 newDeleteDeliveryChannel ::
   -- | 'deliveryChannelName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDeliveryChannel
 newDeleteDeliveryChannel pDeliveryChannelName_ =
   DeleteDeliveryChannel'
@@ -75,58 +74,54 @@ newDeleteDeliveryChannel pDeliveryChannelName_ =
     }
 
 -- | The name of the delivery channel to delete.
-deleteDeliveryChannel_deliveryChannelName :: Lens.Lens' DeleteDeliveryChannel Prelude.Text
+deleteDeliveryChannel_deliveryChannelName :: Lens.Lens' DeleteDeliveryChannel Core.Text
 deleteDeliveryChannel_deliveryChannelName = Lens.lens (\DeleteDeliveryChannel' {deliveryChannelName} -> deliveryChannelName) (\s@DeleteDeliveryChannel' {} a -> s {deliveryChannelName = a} :: DeleteDeliveryChannel)
 
-instance Prelude.AWSRequest DeleteDeliveryChannel where
+instance Core.AWSRequest DeleteDeliveryChannel where
   type
-    Rs DeleteDeliveryChannel =
+    AWSResponse DeleteDeliveryChannel =
       DeleteDeliveryChannelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteDeliveryChannelResponse'
 
-instance Prelude.Hashable DeleteDeliveryChannel
+instance Core.Hashable DeleteDeliveryChannel
 
-instance Prelude.NFData DeleteDeliveryChannel
+instance Core.NFData DeleteDeliveryChannel
 
-instance Prelude.ToHeaders DeleteDeliveryChannel where
+instance Core.ToHeaders DeleteDeliveryChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeleteDeliveryChannel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeleteDeliveryChannel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDeliveryChannel where
+instance Core.ToJSON DeleteDeliveryChannel where
   toJSON DeleteDeliveryChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "DeliveryChannelName"
-                  Prelude..= deliveryChannelName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeliveryChannelName" Core..= deliveryChannelName)
           ]
       )
 
-instance Prelude.ToPath DeleteDeliveryChannel where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDeliveryChannel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDeliveryChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDeliveryChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDeliveryChannelResponse' smart constructor.
 data DeleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeliveryChannelResponse' with all optional fields omitted.
@@ -137,4 +132,4 @@ newDeleteDeliveryChannelResponse ::
 newDeleteDeliveryChannelResponse =
   DeleteDeliveryChannelResponse'
 
-instance Prelude.NFData DeleteDeliveryChannelResponse
+instance Core.NFData DeleteDeliveryChannelResponse

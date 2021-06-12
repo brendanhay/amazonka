@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.FileSystemConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about the connection between a Lambda function and an Amazon EFS
 -- file system.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data FileSystemConfig = FileSystemConfig'
   { -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that
     -- provides access to the file system.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The path where the function can access the file system, starting with
     -- @\/mnt\/@.
-    localMountPath :: Prelude.Text
+    localMountPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FileSystemConfig' with all optional fields omitted.
@@ -52,9 +51,9 @@ data FileSystemConfig = FileSystemConfig'
 -- @\/mnt\/@.
 newFileSystemConfig ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'localMountPath'
-  Prelude.Text ->
+  Core.Text ->
   FileSystemConfig
 newFileSystemConfig pArn_ pLocalMountPath_ =
   FileSystemConfig'
@@ -64,34 +63,33 @@ newFileSystemConfig pArn_ pLocalMountPath_ =
 
 -- | The Amazon Resource Name (ARN) of the Amazon EFS access point that
 -- provides access to the file system.
-fileSystemConfig_arn :: Lens.Lens' FileSystemConfig Prelude.Text
+fileSystemConfig_arn :: Lens.Lens' FileSystemConfig Core.Text
 fileSystemConfig_arn = Lens.lens (\FileSystemConfig' {arn} -> arn) (\s@FileSystemConfig' {} a -> s {arn = a} :: FileSystemConfig)
 
 -- | The path where the function can access the file system, starting with
 -- @\/mnt\/@.
-fileSystemConfig_localMountPath :: Lens.Lens' FileSystemConfig Prelude.Text
+fileSystemConfig_localMountPath :: Lens.Lens' FileSystemConfig Core.Text
 fileSystemConfig_localMountPath = Lens.lens (\FileSystemConfig' {localMountPath} -> localMountPath) (\s@FileSystemConfig' {} a -> s {localMountPath = a} :: FileSystemConfig)
 
-instance Prelude.FromJSON FileSystemConfig where
+instance Core.FromJSON FileSystemConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FileSystemConfig"
       ( \x ->
           FileSystemConfig'
-            Prelude.<$> (x Prelude..: "Arn")
-            Prelude.<*> (x Prelude..: "LocalMountPath")
+            Core.<$> (x Core..: "Arn")
+            Core.<*> (x Core..: "LocalMountPath")
       )
 
-instance Prelude.Hashable FileSystemConfig
+instance Core.Hashable FileSystemConfig
 
-instance Prelude.NFData FileSystemConfig
+instance Core.NFData FileSystemConfig
 
-instance Prelude.ToJSON FileSystemConfig where
+instance Core.ToJSON FileSystemConfig where
   toJSON FileSystemConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Prelude..= arn),
-            Prelude.Just
-              ("LocalMountPath" Prelude..= localMountPath)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Arn" Core..= arn),
+            Core.Just ("LocalMountPath" Core..= localMountPath)
           ]
       )

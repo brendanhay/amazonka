@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.ProtectionGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.ProtectedResourceType
 import Network.AWS.Shield.Types.ProtectionGroupAggregation
 import Network.AWS.Shield.Types.ProtectionGroupPattern
@@ -36,11 +35,11 @@ data ProtectionGroup = ProtectionGroup'
     -- resources of this type are included in the protection group. You must
     -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
     -- set it for any other @Pattern@ setting.
-    resourceType :: Prelude.Maybe ProtectedResourceType,
+    resourceType :: Core.Maybe ProtectedResourceType,
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
-    protectionGroupId :: Prelude.Text,
+    protectionGroupId :: Core.Text,
     -- | Defines how AWS Shield combines resource data for the group in order to
     -- detect, mitigate, and report events.
     --
@@ -65,9 +64,9 @@ data ProtectionGroup = ProtectionGroup'
     -- | The Amazon Resource Names (ARNs) of the resources to include in the
     -- protection group. You must set this when you set @Pattern@ to
     -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-    members :: [Prelude.Text]
+    members :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProtectionGroup' with all optional fields omitted.
@@ -112,7 +111,7 @@ data ProtectionGroup = ProtectionGroup'
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
 newProtectionGroup ::
   -- | 'protectionGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'aggregation'
   ProtectionGroupAggregation ->
   -- | 'pattern''
@@ -123,24 +122,24 @@ newProtectionGroup
   pAggregation_
   pPattern_ =
     ProtectionGroup'
-      { resourceType = Prelude.Nothing,
+      { resourceType = Core.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
         pattern' = pPattern_,
-        members = Prelude.mempty
+        members = Core.mempty
       }
 
 -- | The resource type to include in the protection group. All protected
 -- resources of this type are included in the protection group. You must
 -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
 -- set it for any other @Pattern@ setting.
-protectionGroup_resourceType :: Lens.Lens' ProtectionGroup (Prelude.Maybe ProtectedResourceType)
+protectionGroup_resourceType :: Lens.Lens' ProtectionGroup (Core.Maybe ProtectedResourceType)
 protectionGroup_resourceType = Lens.lens (\ProtectionGroup' {resourceType} -> resourceType) (\s@ProtectionGroup' {} a -> s {resourceType = a} :: ProtectionGroup)
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
-protectionGroup_protectionGroupId :: Lens.Lens' ProtectionGroup Prelude.Text
+protectionGroup_protectionGroupId :: Lens.Lens' ProtectionGroup Core.Text
 protectionGroup_protectionGroupId = Lens.lens (\ProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@ProtectionGroup' {} a -> s {protectionGroupId = a} :: ProtectionGroup)
 
 -- | Defines how AWS Shield combines resource data for the group in order to
@@ -171,22 +170,22 @@ protectionGroup_pattern = Lens.lens (\ProtectionGroup' {pattern'} -> pattern') (
 -- | The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-protectionGroup_members :: Lens.Lens' ProtectionGroup [Prelude.Text]
-protectionGroup_members = Lens.lens (\ProtectionGroup' {members} -> members) (\s@ProtectionGroup' {} a -> s {members = a} :: ProtectionGroup) Prelude.. Prelude._Coerce
+protectionGroup_members :: Lens.Lens' ProtectionGroup [Core.Text]
+protectionGroup_members = Lens.lens (\ProtectionGroup' {members} -> members) (\s@ProtectionGroup' {} a -> s {members = a} :: ProtectionGroup) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ProtectionGroup where
+instance Core.FromJSON ProtectionGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProtectionGroup"
       ( \x ->
           ProtectionGroup'
-            Prelude.<$> (x Prelude..:? "ResourceType")
-            Prelude.<*> (x Prelude..: "ProtectionGroupId")
-            Prelude.<*> (x Prelude..: "Aggregation")
-            Prelude.<*> (x Prelude..: "Pattern")
-            Prelude.<*> (x Prelude..:? "Members" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "ResourceType")
+            Core.<*> (x Core..: "ProtectionGroupId")
+            Core.<*> (x Core..: "Aggregation")
+            Core.<*> (x Core..: "Pattern")
+            Core.<*> (x Core..:? "Members" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ProtectionGroup
+instance Core.Hashable ProtectionGroup
 
-instance Prelude.NFData ProtectionGroup
+instance Core.NFData ProtectionGroup

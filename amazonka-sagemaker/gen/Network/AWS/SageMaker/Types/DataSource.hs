@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.DataSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.FileSystemDataSource
 import Network.AWS.SageMaker.Types.S3DataSource
 
@@ -30,11 +29,11 @@ import Network.AWS.SageMaker.Types.S3DataSource
 -- /See:/ 'newDataSource' smart constructor.
 data DataSource = DataSource'
   { -- | The file system that is associated with a channel.
-    fileSystemDataSource :: Prelude.Maybe FileSystemDataSource,
+    fileSystemDataSource :: Core.Maybe FileSystemDataSource,
     -- | The S3 location of the data source that is associated with a channel.
-    s3DataSource :: Prelude.Maybe S3DataSource
+    s3DataSource :: Core.Maybe S3DataSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataSource' with all optional fields omitted.
@@ -51,39 +50,38 @@ newDataSource ::
   DataSource
 newDataSource =
   DataSource'
-    { fileSystemDataSource = Prelude.Nothing,
-      s3DataSource = Prelude.Nothing
+    { fileSystemDataSource = Core.Nothing,
+      s3DataSource = Core.Nothing
     }
 
 -- | The file system that is associated with a channel.
-dataSource_fileSystemDataSource :: Lens.Lens' DataSource (Prelude.Maybe FileSystemDataSource)
+dataSource_fileSystemDataSource :: Lens.Lens' DataSource (Core.Maybe FileSystemDataSource)
 dataSource_fileSystemDataSource = Lens.lens (\DataSource' {fileSystemDataSource} -> fileSystemDataSource) (\s@DataSource' {} a -> s {fileSystemDataSource = a} :: DataSource)
 
 -- | The S3 location of the data source that is associated with a channel.
-dataSource_s3DataSource :: Lens.Lens' DataSource (Prelude.Maybe S3DataSource)
+dataSource_s3DataSource :: Lens.Lens' DataSource (Core.Maybe S3DataSource)
 dataSource_s3DataSource = Lens.lens (\DataSource' {s3DataSource} -> s3DataSource) (\s@DataSource' {} a -> s {s3DataSource = a} :: DataSource)
 
-instance Prelude.FromJSON DataSource where
+instance Core.FromJSON DataSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DataSource"
       ( \x ->
           DataSource'
-            Prelude.<$> (x Prelude..:? "FileSystemDataSource")
-            Prelude.<*> (x Prelude..:? "S3DataSource")
+            Core.<$> (x Core..:? "FileSystemDataSource")
+            Core.<*> (x Core..:? "S3DataSource")
       )
 
-instance Prelude.Hashable DataSource
+instance Core.Hashable DataSource
 
-instance Prelude.NFData DataSource
+instance Core.NFData DataSource
 
-instance Prelude.ToJSON DataSource where
+instance Core.ToJSON DataSource where
   toJSON DataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FileSystemDataSource" Prelude..=)
-              Prelude.<$> fileSystemDataSource,
-            ("S3DataSource" Prelude..=)
-              Prelude.<$> s3DataSource
+    Core.object
+      ( Core.catMaybes
+          [ ("FileSystemDataSource" Core..=)
+              Core.<$> fileSystemDataSource,
+            ("S3DataSource" Core..=) Core.<$> s3DataSource
           ]
       )

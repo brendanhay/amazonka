@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CodeCommit.Types.ConflictResolution where
 import Network.AWS.CodeCommit.Types.DeleteFileEntry
 import Network.AWS.CodeCommit.Types.ReplaceContentEntry
 import Network.AWS.CodeCommit.Types.SetFileModeEntry
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
 -- use when resolving conflicts during a merge.
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConflictResolution' smart constructor.
 data ConflictResolution = ConflictResolution'
   { -- | Files to be deleted as part of the merge conflict resolution.
-    deleteFiles :: Prelude.Maybe [DeleteFileEntry],
+    deleteFiles :: Core.Maybe [DeleteFileEntry],
     -- | File modes that are set as part of the merge conflict resolution.
-    setFileModes :: Prelude.Maybe [SetFileModeEntry],
+    setFileModes :: Core.Maybe [SetFileModeEntry],
     -- | Files to have content replaced as part of the merge conflict resolution.
-    replaceContents :: Prelude.Maybe [ReplaceContentEntry]
+    replaceContents :: Core.Maybe [ReplaceContentEntry]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConflictResolution' with all optional fields omitted.
@@ -57,34 +56,34 @@ newConflictResolution ::
   ConflictResolution
 newConflictResolution =
   ConflictResolution'
-    { deleteFiles = Prelude.Nothing,
-      setFileModes = Prelude.Nothing,
-      replaceContents = Prelude.Nothing
+    { deleteFiles = Core.Nothing,
+      setFileModes = Core.Nothing,
+      replaceContents = Core.Nothing
     }
 
 -- | Files to be deleted as part of the merge conflict resolution.
-conflictResolution_deleteFiles :: Lens.Lens' ConflictResolution (Prelude.Maybe [DeleteFileEntry])
-conflictResolution_deleteFiles = Lens.lens (\ConflictResolution' {deleteFiles} -> deleteFiles) (\s@ConflictResolution' {} a -> s {deleteFiles = a} :: ConflictResolution) Prelude.. Lens.mapping Prelude._Coerce
+conflictResolution_deleteFiles :: Lens.Lens' ConflictResolution (Core.Maybe [DeleteFileEntry])
+conflictResolution_deleteFiles = Lens.lens (\ConflictResolution' {deleteFiles} -> deleteFiles) (\s@ConflictResolution' {} a -> s {deleteFiles = a} :: ConflictResolution) Core.. Lens.mapping Lens._Coerce
 
 -- | File modes that are set as part of the merge conflict resolution.
-conflictResolution_setFileModes :: Lens.Lens' ConflictResolution (Prelude.Maybe [SetFileModeEntry])
-conflictResolution_setFileModes = Lens.lens (\ConflictResolution' {setFileModes} -> setFileModes) (\s@ConflictResolution' {} a -> s {setFileModes = a} :: ConflictResolution) Prelude.. Lens.mapping Prelude._Coerce
+conflictResolution_setFileModes :: Lens.Lens' ConflictResolution (Core.Maybe [SetFileModeEntry])
+conflictResolution_setFileModes = Lens.lens (\ConflictResolution' {setFileModes} -> setFileModes) (\s@ConflictResolution' {} a -> s {setFileModes = a} :: ConflictResolution) Core.. Lens.mapping Lens._Coerce
 
 -- | Files to have content replaced as part of the merge conflict resolution.
-conflictResolution_replaceContents :: Lens.Lens' ConflictResolution (Prelude.Maybe [ReplaceContentEntry])
-conflictResolution_replaceContents = Lens.lens (\ConflictResolution' {replaceContents} -> replaceContents) (\s@ConflictResolution' {} a -> s {replaceContents = a} :: ConflictResolution) Prelude.. Lens.mapping Prelude._Coerce
+conflictResolution_replaceContents :: Lens.Lens' ConflictResolution (Core.Maybe [ReplaceContentEntry])
+conflictResolution_replaceContents = Lens.lens (\ConflictResolution' {replaceContents} -> replaceContents) (\s@ConflictResolution' {} a -> s {replaceContents = a} :: ConflictResolution) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable ConflictResolution
+instance Core.Hashable ConflictResolution
 
-instance Prelude.NFData ConflictResolution
+instance Core.NFData ConflictResolution
 
-instance Prelude.ToJSON ConflictResolution where
+instance Core.ToJSON ConflictResolution where
   toJSON ConflictResolution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deleteFiles" Prelude..=) Prelude.<$> deleteFiles,
-            ("setFileModes" Prelude..=) Prelude.<$> setFileModes,
-            ("replaceContents" Prelude..=)
-              Prelude.<$> replaceContents
+    Core.object
+      ( Core.catMaybes
+          [ ("deleteFiles" Core..=) Core.<$> deleteFiles,
+            ("setFileModes" Core..=) Core.<$> setFileModes,
+            ("replaceContents" Core..=)
+              Core.<$> replaceContents
           ]
       )

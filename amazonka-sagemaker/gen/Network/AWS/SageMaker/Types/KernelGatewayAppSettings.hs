@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.KernelGatewayAppSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CustomImage
 import Network.AWS.SageMaker.Types.ResourceSpec
 
@@ -31,12 +30,12 @@ import Network.AWS.SageMaker.Types.ResourceSpec
 data KernelGatewayAppSettings = KernelGatewayAppSettings'
   { -- | A list of custom SageMaker images that are configured to run as a
     -- KernelGateway app.
-    customImages :: Prelude.Maybe [CustomImage],
+    customImages :: Core.Maybe [CustomImage],
     -- | The default instance type and the Amazon Resource Name (ARN) of the
     -- default SageMaker image used by the KernelGateway app.
-    defaultResourceSpec :: Prelude.Maybe ResourceSpec
+    defaultResourceSpec :: Core.Maybe ResourceSpec
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KernelGatewayAppSettings' with all optional fields omitted.
@@ -56,43 +55,40 @@ newKernelGatewayAppSettings ::
 newKernelGatewayAppSettings =
   KernelGatewayAppSettings'
     { customImages =
-        Prelude.Nothing,
-      defaultResourceSpec = Prelude.Nothing
+        Core.Nothing,
+      defaultResourceSpec = Core.Nothing
     }
 
 -- | A list of custom SageMaker images that are configured to run as a
 -- KernelGateway app.
-kernelGatewayAppSettings_customImages :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [CustomImage])
-kernelGatewayAppSettings_customImages = Lens.lens (\KernelGatewayAppSettings' {customImages} -> customImages) (\s@KernelGatewayAppSettings' {} a -> s {customImages = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Prelude._Coerce
+kernelGatewayAppSettings_customImages :: Lens.Lens' KernelGatewayAppSettings (Core.Maybe [CustomImage])
+kernelGatewayAppSettings_customImages = Lens.lens (\KernelGatewayAppSettings' {customImages} -> customImages) (\s@KernelGatewayAppSettings' {} a -> s {customImages = a} :: KernelGatewayAppSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the KernelGateway app.
-kernelGatewayAppSettings_defaultResourceSpec :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe ResourceSpec)
+kernelGatewayAppSettings_defaultResourceSpec :: Lens.Lens' KernelGatewayAppSettings (Core.Maybe ResourceSpec)
 kernelGatewayAppSettings_defaultResourceSpec = Lens.lens (\KernelGatewayAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@KernelGatewayAppSettings' {} a -> s {defaultResourceSpec = a} :: KernelGatewayAppSettings)
 
-instance Prelude.FromJSON KernelGatewayAppSettings where
+instance Core.FromJSON KernelGatewayAppSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KernelGatewayAppSettings"
       ( \x ->
           KernelGatewayAppSettings'
-            Prelude.<$> ( x Prelude..:? "CustomImages"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "DefaultResourceSpec")
+            Core.<$> (x Core..:? "CustomImages" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "DefaultResourceSpec")
       )
 
-instance Prelude.Hashable KernelGatewayAppSettings
+instance Core.Hashable KernelGatewayAppSettings
 
-instance Prelude.NFData KernelGatewayAppSettings
+instance Core.NFData KernelGatewayAppSettings
 
-instance Prelude.ToJSON KernelGatewayAppSettings where
+instance Core.ToJSON KernelGatewayAppSettings where
   toJSON KernelGatewayAppSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CustomImages" Prelude..=)
-              Prelude.<$> customImages,
-            ("DefaultResourceSpec" Prelude..=)
-              Prelude.<$> defaultResourceSpec
+    Core.object
+      ( Core.catMaybes
+          [ ("CustomImages" Core..=) Core.<$> customImages,
+            ("DefaultResourceSpec" Core..=)
+              Core.<$> defaultResourceSpec
           ]
       )

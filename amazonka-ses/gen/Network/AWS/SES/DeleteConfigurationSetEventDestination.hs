@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SES.DeleteConfigurationSetEventDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -62,11 +61,11 @@ import Network.AWS.SES.Types
 data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestination'
   { -- | The name of the configuration set from which to delete the event
     -- destination.
-    configurationSetName :: Prelude.Text,
+    configurationSetName :: Core.Text,
     -- | The name of the event destination to delete.
-    eventDestinationName :: Prelude.Text
+    eventDestinationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationSetEventDestination' with all optional fields omitted.
@@ -82,9 +81,9 @@ data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestina
 -- 'eventDestinationName', 'deleteConfigurationSetEventDestination_eventDestinationName' - The name of the event destination to delete.
 newDeleteConfigurationSetEventDestination ::
   -- | 'configurationSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'eventDestinationName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteConfigurationSetEventDestination
 newDeleteConfigurationSetEventDestination
   pConfigurationSetName_
@@ -98,19 +97,20 @@ newDeleteConfigurationSetEventDestination
 
 -- | The name of the configuration set from which to delete the event
 -- destination.
-deleteConfigurationSetEventDestination_configurationSetName :: Lens.Lens' DeleteConfigurationSetEventDestination Prelude.Text
+deleteConfigurationSetEventDestination_configurationSetName :: Lens.Lens' DeleteConfigurationSetEventDestination Core.Text
 deleteConfigurationSetEventDestination_configurationSetName = Lens.lens (\DeleteConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: DeleteConfigurationSetEventDestination)
 
 -- | The name of the event destination to delete.
-deleteConfigurationSetEventDestination_eventDestinationName :: Lens.Lens' DeleteConfigurationSetEventDestination Prelude.Text
+deleteConfigurationSetEventDestination_eventDestinationName :: Lens.Lens' DeleteConfigurationSetEventDestination Core.Text
 deleteConfigurationSetEventDestination_eventDestinationName = Lens.lens (\DeleteConfigurationSetEventDestination' {eventDestinationName} -> eventDestinationName) (\s@DeleteConfigurationSetEventDestination' {} a -> s {eventDestinationName = a} :: DeleteConfigurationSetEventDestination)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteConfigurationSetEventDestination
   where
   type
-    Rs DeleteConfigurationSetEventDestination =
+    AWSResponse
+      DeleteConfigurationSetEventDestination =
       DeleteConfigurationSetEventDestinationResponse
   request = Request.postQuery defaultService
   response =
@@ -118,45 +118,42 @@ instance
       "DeleteConfigurationSetEventDestinationResult"
       ( \s h x ->
           DeleteConfigurationSetEventDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteConfigurationSetEventDestination
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteConfigurationSetEventDestination
 
 instance
-  Prelude.ToHeaders
-    DeleteConfigurationSetEventDestination
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DeleteConfigurationSetEventDestination
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DeleteConfigurationSetEventDestination
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DeleteConfigurationSetEventDestination
   where
   toQuery DeleteConfigurationSetEventDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteConfigurationSetEventDestination" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName"
-          Prelude.=: configurationSetName,
-        "EventDestinationName"
-          Prelude.=: eventDestinationName
+          Core.=: ( "DeleteConfigurationSetEventDestination" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "EventDestinationName" Core.=: eventDestinationName
       ]
 
 -- | An empty element returned on a successful request.
@@ -164,9 +161,9 @@ instance
 -- /See:/ 'newDeleteConfigurationSetEventDestinationResponse' smart constructor.
 data DeleteConfigurationSetEventDestinationResponse = DeleteConfigurationSetEventDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteConfigurationSetEventDestinationResponse' with all optional fields omitted.
@@ -179,7 +176,7 @@ data DeleteConfigurationSetEventDestinationResponse = DeleteConfigurationSetEven
 -- 'httpStatus', 'deleteConfigurationSetEventDestinationResponse_httpStatus' - The response's http status code.
 newDeleteConfigurationSetEventDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteConfigurationSetEventDestinationResponse
 newDeleteConfigurationSetEventDestinationResponse
   pHttpStatus_ =
@@ -189,9 +186,9 @@ newDeleteConfigurationSetEventDestinationResponse
       }
 
 -- | The response's http status code.
-deleteConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' DeleteConfigurationSetEventDestinationResponse Prelude.Int
+deleteConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' DeleteConfigurationSetEventDestinationResponse Core.Int
 deleteConfigurationSetEventDestinationResponse_httpStatus = Lens.lens (\DeleteConfigurationSetEventDestinationResponse' {httpStatus} -> httpStatus) (\s@DeleteConfigurationSetEventDestinationResponse' {} a -> s {httpStatus = a} :: DeleteConfigurationSetEventDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteConfigurationSetEventDestinationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CloudWatchEvents.ListPartnerEventSourceAccounts
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,16 +54,16 @@ import qualified Network.AWS.Response as Response
 data ListPartnerEventSourceAccounts = ListPartnerEventSourceAccounts'
   { -- | The token returned by a previous call to this operation. Specifying this
     -- retrieves the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Specifying this limits the number of results returned by this operation.
     -- The operation also returns a NextToken which you can use in a subsequent
     -- operation to retrieve the next set of results.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The name of the partner event source to display account information
     -- about.
-    eventSourceName :: Prelude.Text
+    eventSourceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPartnerEventSourceAccounts' with all optional fields omitted.
@@ -85,114 +84,99 @@ data ListPartnerEventSourceAccounts = ListPartnerEventSourceAccounts'
 -- about.
 newListPartnerEventSourceAccounts ::
   -- | 'eventSourceName'
-  Prelude.Text ->
+  Core.Text ->
   ListPartnerEventSourceAccounts
 newListPartnerEventSourceAccounts pEventSourceName_ =
   ListPartnerEventSourceAccounts'
     { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+        Core.Nothing,
+      limit = Core.Nothing,
       eventSourceName = pEventSourceName_
     }
 
 -- | The token returned by a previous call to this operation. Specifying this
 -- retrieves the next set of results.
-listPartnerEventSourceAccounts_nextToken :: Lens.Lens' ListPartnerEventSourceAccounts (Prelude.Maybe Prelude.Text)
+listPartnerEventSourceAccounts_nextToken :: Lens.Lens' ListPartnerEventSourceAccounts (Core.Maybe Core.Text)
 listPartnerEventSourceAccounts_nextToken = Lens.lens (\ListPartnerEventSourceAccounts' {nextToken} -> nextToken) (\s@ListPartnerEventSourceAccounts' {} a -> s {nextToken = a} :: ListPartnerEventSourceAccounts)
 
 -- | Specifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
-listPartnerEventSourceAccounts_limit :: Lens.Lens' ListPartnerEventSourceAccounts (Prelude.Maybe Prelude.Natural)
+listPartnerEventSourceAccounts_limit :: Lens.Lens' ListPartnerEventSourceAccounts (Core.Maybe Core.Natural)
 listPartnerEventSourceAccounts_limit = Lens.lens (\ListPartnerEventSourceAccounts' {limit} -> limit) (\s@ListPartnerEventSourceAccounts' {} a -> s {limit = a} :: ListPartnerEventSourceAccounts)
 
 -- | The name of the partner event source to display account information
 -- about.
-listPartnerEventSourceAccounts_eventSourceName :: Lens.Lens' ListPartnerEventSourceAccounts Prelude.Text
+listPartnerEventSourceAccounts_eventSourceName :: Lens.Lens' ListPartnerEventSourceAccounts Core.Text
 listPartnerEventSourceAccounts_eventSourceName = Lens.lens (\ListPartnerEventSourceAccounts' {eventSourceName} -> eventSourceName) (\s@ListPartnerEventSourceAccounts' {} a -> s {eventSourceName = a} :: ListPartnerEventSourceAccounts)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListPartnerEventSourceAccounts
   where
   type
-    Rs ListPartnerEventSourceAccounts =
+    AWSResponse ListPartnerEventSourceAccounts =
       ListPartnerEventSourceAccountsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPartnerEventSourceAccountsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "PartnerEventSourceAccounts"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "PartnerEventSourceAccounts"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListPartnerEventSourceAccounts
+instance Core.Hashable ListPartnerEventSourceAccounts
+
+instance Core.NFData ListPartnerEventSourceAccounts
 
 instance
-  Prelude.NFData
-    ListPartnerEventSourceAccounts
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListPartnerEventSourceAccounts
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.ListPartnerEventSourceAccounts" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSEvents.ListPartnerEventSourceAccounts" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    ListPartnerEventSourceAccounts
-  where
+instance Core.ToJSON ListPartnerEventSourceAccounts where
   toJSON ListPartnerEventSourceAccounts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just
-              ("EventSourceName" Prelude..= eventSourceName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just
+              ("EventSourceName" Core..= eventSourceName)
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListPartnerEventSourceAccounts
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListPartnerEventSourceAccounts where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ListPartnerEventSourceAccounts
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListPartnerEventSourceAccounts where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListPartnerEventSourceAccountsResponse' smart constructor.
 data ListPartnerEventSourceAccountsResponse = ListPartnerEventSourceAccountsResponse'
   { -- | A token you can use in a subsequent operation to retrieve the next set
     -- of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of partner event sources returned by the operation.
-    partnerEventSourceAccounts :: Prelude.Maybe [PartnerEventSourceAccount],
+    partnerEventSourceAccounts :: Core.Maybe [PartnerEventSourceAccount],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPartnerEventSourceAccountsResponse' with all optional fields omitted.
@@ -210,31 +194,31 @@ data ListPartnerEventSourceAccountsResponse = ListPartnerEventSourceAccountsResp
 -- 'httpStatus', 'listPartnerEventSourceAccountsResponse_httpStatus' - The response's http status code.
 newListPartnerEventSourceAccountsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPartnerEventSourceAccountsResponse
 newListPartnerEventSourceAccountsResponse
   pHttpStatus_ =
     ListPartnerEventSourceAccountsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         partnerEventSourceAccounts =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A token you can use in a subsequent operation to retrieve the next set
 -- of results.
-listPartnerEventSourceAccountsResponse_nextToken :: Lens.Lens' ListPartnerEventSourceAccountsResponse (Prelude.Maybe Prelude.Text)
+listPartnerEventSourceAccountsResponse_nextToken :: Lens.Lens' ListPartnerEventSourceAccountsResponse (Core.Maybe Core.Text)
 listPartnerEventSourceAccountsResponse_nextToken = Lens.lens (\ListPartnerEventSourceAccountsResponse' {nextToken} -> nextToken) (\s@ListPartnerEventSourceAccountsResponse' {} a -> s {nextToken = a} :: ListPartnerEventSourceAccountsResponse)
 
 -- | The list of partner event sources returned by the operation.
-listPartnerEventSourceAccountsResponse_partnerEventSourceAccounts :: Lens.Lens' ListPartnerEventSourceAccountsResponse (Prelude.Maybe [PartnerEventSourceAccount])
-listPartnerEventSourceAccountsResponse_partnerEventSourceAccounts = Lens.lens (\ListPartnerEventSourceAccountsResponse' {partnerEventSourceAccounts} -> partnerEventSourceAccounts) (\s@ListPartnerEventSourceAccountsResponse' {} a -> s {partnerEventSourceAccounts = a} :: ListPartnerEventSourceAccountsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPartnerEventSourceAccountsResponse_partnerEventSourceAccounts :: Lens.Lens' ListPartnerEventSourceAccountsResponse (Core.Maybe [PartnerEventSourceAccount])
+listPartnerEventSourceAccountsResponse_partnerEventSourceAccounts = Lens.lens (\ListPartnerEventSourceAccountsResponse' {partnerEventSourceAccounts} -> partnerEventSourceAccounts) (\s@ListPartnerEventSourceAccountsResponse' {} a -> s {partnerEventSourceAccounts = a} :: ListPartnerEventSourceAccountsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPartnerEventSourceAccountsResponse_httpStatus :: Lens.Lens' ListPartnerEventSourceAccountsResponse Prelude.Int
+listPartnerEventSourceAccountsResponse_httpStatus :: Lens.Lens' ListPartnerEventSourceAccountsResponse Core.Int
 listPartnerEventSourceAccountsResponse_httpStatus = Lens.lens (\ListPartnerEventSourceAccountsResponse' {httpStatus} -> httpStatus) (\s@ListPartnerEventSourceAccountsResponse' {} a -> s {httpStatus = a} :: ListPartnerEventSourceAccountsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPartnerEventSourceAccountsResponse

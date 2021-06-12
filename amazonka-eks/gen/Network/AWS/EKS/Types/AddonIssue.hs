@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.AddonIssue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.AddonIssueCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An issue related to an add-on.
 --
 -- /See:/ 'newAddonIssue' smart constructor.
 data AddonIssue = AddonIssue'
   { -- | A message that provides details about the issue and what might cause it.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | A code that describes the type of issue.
-    code :: Prelude.Maybe AddonIssueCode,
+    code :: Core.Maybe AddonIssueCode,
     -- | The resource IDs of the issue.
-    resourceIds :: Prelude.Maybe [Prelude.Text]
+    resourceIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddonIssue' with all optional fields omitted.
@@ -54,36 +53,34 @@ newAddonIssue ::
   AddonIssue
 newAddonIssue =
   AddonIssue'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing,
-      resourceIds = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing,
+      resourceIds = Core.Nothing
     }
 
 -- | A message that provides details about the issue and what might cause it.
-addonIssue_message :: Lens.Lens' AddonIssue (Prelude.Maybe Prelude.Text)
+addonIssue_message :: Lens.Lens' AddonIssue (Core.Maybe Core.Text)
 addonIssue_message = Lens.lens (\AddonIssue' {message} -> message) (\s@AddonIssue' {} a -> s {message = a} :: AddonIssue)
 
 -- | A code that describes the type of issue.
-addonIssue_code :: Lens.Lens' AddonIssue (Prelude.Maybe AddonIssueCode)
+addonIssue_code :: Lens.Lens' AddonIssue (Core.Maybe AddonIssueCode)
 addonIssue_code = Lens.lens (\AddonIssue' {code} -> code) (\s@AddonIssue' {} a -> s {code = a} :: AddonIssue)
 
 -- | The resource IDs of the issue.
-addonIssue_resourceIds :: Lens.Lens' AddonIssue (Prelude.Maybe [Prelude.Text])
-addonIssue_resourceIds = Lens.lens (\AddonIssue' {resourceIds} -> resourceIds) (\s@AddonIssue' {} a -> s {resourceIds = a} :: AddonIssue) Prelude.. Lens.mapping Prelude._Coerce
+addonIssue_resourceIds :: Lens.Lens' AddonIssue (Core.Maybe [Core.Text])
+addonIssue_resourceIds = Lens.lens (\AddonIssue' {resourceIds} -> resourceIds) (\s@AddonIssue' {} a -> s {resourceIds = a} :: AddonIssue) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AddonIssue where
+instance Core.FromJSON AddonIssue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AddonIssue"
       ( \x ->
           AddonIssue'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "code")
-            Prelude.<*> ( x Prelude..:? "resourceIds"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "code")
+            Core.<*> (x Core..:? "resourceIds" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AddonIssue
+instance Core.Hashable AddonIssue
 
-instance Prelude.NFData AddonIssue
+instance Core.NFData AddonIssue

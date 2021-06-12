@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.Mitigation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The mitigation applied to a DDoS attack.
 --
 -- /See:/ 'newMitigation' smart constructor.
 data Mitigation = Mitigation'
   { -- | The name of the mitigation taken for this attack.
-    mitigationName :: Prelude.Maybe Prelude.Text
+    mitigationName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Mitigation' with all optional fields omitted.
@@ -44,21 +43,20 @@ data Mitigation = Mitigation'
 newMitigation ::
   Mitigation
 newMitigation =
-  Mitigation' {mitigationName = Prelude.Nothing}
+  Mitigation' {mitigationName = Core.Nothing}
 
 -- | The name of the mitigation taken for this attack.
-mitigation_mitigationName :: Lens.Lens' Mitigation (Prelude.Maybe Prelude.Text)
+mitigation_mitigationName :: Lens.Lens' Mitigation (Core.Maybe Core.Text)
 mitigation_mitigationName = Lens.lens (\Mitigation' {mitigationName} -> mitigationName) (\s@Mitigation' {} a -> s {mitigationName = a} :: Mitigation)
 
-instance Prelude.FromJSON Mitigation where
+instance Core.FromJSON Mitigation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Mitigation"
       ( \x ->
-          Mitigation'
-            Prelude.<$> (x Prelude..:? "MitigationName")
+          Mitigation' Core.<$> (x Core..:? "MitigationName")
       )
 
-instance Prelude.Hashable Mitigation
+instance Core.Hashable Mitigation
 
-instance Prelude.NFData Mitigation
+instance Core.NFData Mitigation

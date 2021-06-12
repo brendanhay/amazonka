@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.Grantee where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.Type
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the grantee.
 --
 -- /See:/ 'newGrantee' smart constructor.
 data Grantee = Grantee'
   { -- | URI of the grantee group.
-    uri :: Prelude.Maybe Prelude.Text,
+    uri :: Core.Maybe Core.Text,
     -- | The canonical user ID of the grantee.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Screen name of the grantee.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Core.Maybe Core.Text,
     -- | Email address of the grantee.
-    emailAddress :: Prelude.Maybe Prelude.Text,
+    emailAddress :: Core.Maybe Core.Text,
     -- | Type of grantee
     type' :: Type
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Grantee' with all optional fields omitted.
@@ -64,58 +63,58 @@ newGrantee ::
   Grantee
 newGrantee pType_ =
   Grantee'
-    { uri = Prelude.Nothing,
-      id = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      emailAddress = Prelude.Nothing,
+    { uri = Core.Nothing,
+      id = Core.Nothing,
+      displayName = Core.Nothing,
+      emailAddress = Core.Nothing,
       type' = pType_
     }
 
 -- | URI of the grantee group.
-grantee_uri :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_uri :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_uri = Lens.lens (\Grantee' {uri} -> uri) (\s@Grantee' {} a -> s {uri = a} :: Grantee)
 
 -- | The canonical user ID of the grantee.
-grantee_id :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_id :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_id = Lens.lens (\Grantee' {id} -> id) (\s@Grantee' {} a -> s {id = a} :: Grantee)
 
 -- | Screen name of the grantee.
-grantee_displayName :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_displayName :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Grantee' {} a -> s {displayName = a} :: Grantee)
 
 -- | Email address of the grantee.
-grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
+grantee_emailAddress :: Lens.Lens' Grantee (Core.Maybe Core.Text)
 grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
 
 -- | Type of grantee
 grantee_type :: Lens.Lens' Grantee Type
 grantee_type = Lens.lens (\Grantee' {type'} -> type') (\s@Grantee' {} a -> s {type' = a} :: Grantee)
 
-instance Prelude.FromJSON Grantee where
+instance Core.FromJSON Grantee where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Grantee"
       ( \x ->
           Grantee'
-            Prelude.<$> (x Prelude..:? "URI")
-            Prelude.<*> (x Prelude..:? "ID")
-            Prelude.<*> (x Prelude..:? "DisplayName")
-            Prelude.<*> (x Prelude..:? "EmailAddress")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..:? "URI")
+            Core.<*> (x Core..:? "ID")
+            Core.<*> (x Core..:? "DisplayName")
+            Core.<*> (x Core..:? "EmailAddress")
+            Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable Grantee
+instance Core.Hashable Grantee
 
-instance Prelude.NFData Grantee
+instance Core.NFData Grantee
 
-instance Prelude.ToJSON Grantee where
+instance Core.ToJSON Grantee where
   toJSON Grantee' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("URI" Prelude..=) Prelude.<$> uri,
-            ("ID" Prelude..=) Prelude.<$> id,
-            ("DisplayName" Prelude..=) Prelude.<$> displayName,
-            ("EmailAddress" Prelude..=) Prelude.<$> emailAddress,
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("URI" Core..=) Core.<$> uri,
+            ("ID" Core..=) Core.<$> id,
+            ("DisplayName" Core..=) Core.<$> displayName,
+            ("EmailAddress" Core..=) Core.<$> emailAddress,
+            Core.Just ("Type" Core..= type')
           ]
       )

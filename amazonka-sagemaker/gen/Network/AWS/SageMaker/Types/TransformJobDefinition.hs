@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TransformJobDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.BatchStrategy
 import Network.AWS.SageMaker.Types.TransformInput
 import Network.AWS.SageMaker.Types.TransformOutput
@@ -34,20 +33,20 @@ import Network.AWS.SageMaker.Types.TransformResources
 data TransformJobDefinition = TransformJobDefinition'
   { -- | The maximum number of parallel requests that can be sent to each
     -- instance in a transform job. The default value is 1.
-    maxConcurrentTransforms :: Prelude.Maybe Prelude.Natural,
+    maxConcurrentTransforms :: Core.Maybe Core.Natural,
     -- | The environment variables to set in the Docker container. We support up
     -- to 16 key and values entries in the map.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The maximum payload size allowed, in MB. A payload is the data portion
     -- of a record (without metadata).
-    maxPayloadInMB :: Prelude.Maybe Prelude.Natural,
+    maxPayloadInMB :: Core.Maybe Core.Natural,
     -- | A string that determines the number of records included in a single
     -- mini-batch.
     --
     -- @SingleRecord@ means only one record is used per mini-batch.
     -- @MultiRecord@ means a mini-batch is set to contain as many records that
     -- can fit within the @MaxPayloadInMB@ limit.
-    batchStrategy :: Prelude.Maybe BatchStrategy,
+    batchStrategy :: Core.Maybe BatchStrategy,
     -- | A description of the input source and the way the transform job consumes
     -- it.
     transformInput :: TransformInput,
@@ -57,7 +56,7 @@ data TransformJobDefinition = TransformJobDefinition'
     -- | Identifies the ML compute instances for the transform job.
     transformResources :: TransformResources
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformJobDefinition' with all optional fields omitted.
@@ -104,10 +103,10 @@ newTransformJobDefinition
   pTransformResources_ =
     TransformJobDefinition'
       { maxConcurrentTransforms =
-          Prelude.Nothing,
-        environment = Prelude.Nothing,
-        maxPayloadInMB = Prelude.Nothing,
-        batchStrategy = Prelude.Nothing,
+          Core.Nothing,
+        environment = Core.Nothing,
+        maxPayloadInMB = Core.Nothing,
+        batchStrategy = Core.Nothing,
         transformInput = pTransformInput_,
         transformOutput = pTransformOutput_,
         transformResources = pTransformResources_
@@ -115,17 +114,17 @@ newTransformJobDefinition
 
 -- | The maximum number of parallel requests that can be sent to each
 -- instance in a transform job. The default value is 1.
-transformJobDefinition_maxConcurrentTransforms :: Lens.Lens' TransformJobDefinition (Prelude.Maybe Prelude.Natural)
+transformJobDefinition_maxConcurrentTransforms :: Lens.Lens' TransformJobDefinition (Core.Maybe Core.Natural)
 transformJobDefinition_maxConcurrentTransforms = Lens.lens (\TransformJobDefinition' {maxConcurrentTransforms} -> maxConcurrentTransforms) (\s@TransformJobDefinition' {} a -> s {maxConcurrentTransforms = a} :: TransformJobDefinition)
 
 -- | The environment variables to set in the Docker container. We support up
 -- to 16 key and values entries in the map.
-transformJobDefinition_environment :: Lens.Lens' TransformJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-transformJobDefinition_environment = Lens.lens (\TransformJobDefinition' {environment} -> environment) (\s@TransformJobDefinition' {} a -> s {environment = a} :: TransformJobDefinition) Prelude.. Lens.mapping Prelude._Coerce
+transformJobDefinition_environment :: Lens.Lens' TransformJobDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
+transformJobDefinition_environment = Lens.lens (\TransformJobDefinition' {environment} -> environment) (\s@TransformJobDefinition' {} a -> s {environment = a} :: TransformJobDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum payload size allowed, in MB. A payload is the data portion
 -- of a record (without metadata).
-transformJobDefinition_maxPayloadInMB :: Lens.Lens' TransformJobDefinition (Prelude.Maybe Prelude.Natural)
+transformJobDefinition_maxPayloadInMB :: Lens.Lens' TransformJobDefinition (Core.Maybe Core.Natural)
 transformJobDefinition_maxPayloadInMB = Lens.lens (\TransformJobDefinition' {maxPayloadInMB} -> maxPayloadInMB) (\s@TransformJobDefinition' {} a -> s {maxPayloadInMB = a} :: TransformJobDefinition)
 
 -- | A string that determines the number of records included in a single
@@ -134,7 +133,7 @@ transformJobDefinition_maxPayloadInMB = Lens.lens (\TransformJobDefinition' {max
 -- @SingleRecord@ means only one record is used per mini-batch.
 -- @MultiRecord@ means a mini-batch is set to contain as many records that
 -- can fit within the @MaxPayloadInMB@ limit.
-transformJobDefinition_batchStrategy :: Lens.Lens' TransformJobDefinition (Prelude.Maybe BatchStrategy)
+transformJobDefinition_batchStrategy :: Lens.Lens' TransformJobDefinition (Core.Maybe BatchStrategy)
 transformJobDefinition_batchStrategy = Lens.lens (\TransformJobDefinition' {batchStrategy} -> batchStrategy) (\s@TransformJobDefinition' {} a -> s {batchStrategy = a} :: TransformJobDefinition)
 
 -- | A description of the input source and the way the transform job consumes
@@ -151,45 +150,38 @@ transformJobDefinition_transformOutput = Lens.lens (\TransformJobDefinition' {tr
 transformJobDefinition_transformResources :: Lens.Lens' TransformJobDefinition TransformResources
 transformJobDefinition_transformResources = Lens.lens (\TransformJobDefinition' {transformResources} -> transformResources) (\s@TransformJobDefinition' {} a -> s {transformResources = a} :: TransformJobDefinition)
 
-instance Prelude.FromJSON TransformJobDefinition where
+instance Core.FromJSON TransformJobDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TransformJobDefinition"
       ( \x ->
           TransformJobDefinition'
-            Prelude.<$> (x Prelude..:? "MaxConcurrentTransforms")
-            Prelude.<*> ( x Prelude..:? "Environment"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "MaxPayloadInMB")
-            Prelude.<*> (x Prelude..:? "BatchStrategy")
-            Prelude.<*> (x Prelude..: "TransformInput")
-            Prelude.<*> (x Prelude..: "TransformOutput")
-            Prelude.<*> (x Prelude..: "TransformResources")
+            Core.<$> (x Core..:? "MaxConcurrentTransforms")
+            Core.<*> (x Core..:? "Environment" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MaxPayloadInMB")
+            Core.<*> (x Core..:? "BatchStrategy")
+            Core.<*> (x Core..: "TransformInput")
+            Core.<*> (x Core..: "TransformOutput")
+            Core.<*> (x Core..: "TransformResources")
       )
 
-instance Prelude.Hashable TransformJobDefinition
+instance Core.Hashable TransformJobDefinition
 
-instance Prelude.NFData TransformJobDefinition
+instance Core.NFData TransformJobDefinition
 
-instance Prelude.ToJSON TransformJobDefinition where
+instance Core.ToJSON TransformJobDefinition where
   toJSON TransformJobDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxConcurrentTransforms" Prelude..=)
-              Prelude.<$> maxConcurrentTransforms,
-            ("Environment" Prelude..=) Prelude.<$> environment,
-            ("MaxPayloadInMB" Prelude..=)
-              Prelude.<$> maxPayloadInMB,
-            ("BatchStrategy" Prelude..=)
-              Prelude.<$> batchStrategy,
-            Prelude.Just
-              ("TransformInput" Prelude..= transformInput),
-            Prelude.Just
-              ("TransformOutput" Prelude..= transformOutput),
-            Prelude.Just
-              ( "TransformResources"
-                  Prelude..= transformResources
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxConcurrentTransforms" Core..=)
+              Core.<$> maxConcurrentTransforms,
+            ("Environment" Core..=) Core.<$> environment,
+            ("MaxPayloadInMB" Core..=) Core.<$> maxPayloadInMB,
+            ("BatchStrategy" Core..=) Core.<$> batchStrategy,
+            Core.Just ("TransformInput" Core..= transformInput),
+            Core.Just
+              ("TransformOutput" Core..= transformOutput),
+            Core.Just
+              ("TransformResources" Core..= transformResources)
           ]
       )

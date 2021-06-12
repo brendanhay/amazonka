@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.ServiceCatalog.AcceptPortfolioShare
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -62,7 +61,7 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
     --
     -- For example,
     -- @aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS@
-    portfolioShareType :: Prelude.Maybe PortfolioShareType,
+    portfolioShareType :: Core.Maybe PortfolioShareType,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -70,11 +69,11 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The portfolio identifier.
-    portfolioId :: Prelude.Text
+    portfolioId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptPortfolioShare' with all optional fields omitted.
@@ -109,13 +108,13 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
 -- 'portfolioId', 'acceptPortfolioShare_portfolioId' - The portfolio identifier.
 newAcceptPortfolioShare ::
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   AcceptPortfolioShare
 newAcceptPortfolioShare pPortfolioId_ =
   AcceptPortfolioShare'
     { portfolioShareType =
-        Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+        Core.Nothing,
+      acceptLanguage = Core.Nothing,
       portfolioId = pPortfolioId_
     }
 
@@ -132,7 +131,7 @@ newAcceptPortfolioShare pPortfolioId_ =
 --
 -- For example,
 -- @aws servicecatalog accept-portfolio-share --portfolio-id \"port-2qwzkwxt3y5fk\" --portfolio-share-type AWS_ORGANIZATIONS@
-acceptPortfolioShare_portfolioShareType :: Lens.Lens' AcceptPortfolioShare (Prelude.Maybe PortfolioShareType)
+acceptPortfolioShare_portfolioShareType :: Lens.Lens' AcceptPortfolioShare (Core.Maybe PortfolioShareType)
 acceptPortfolioShare_portfolioShareType = Lens.lens (\AcceptPortfolioShare' {portfolioShareType} -> portfolioShareType) (\s@AcceptPortfolioShare' {} a -> s {portfolioShareType = a} :: AcceptPortfolioShare)
 
 -- | The language code.
@@ -142,68 +141,65 @@ acceptPortfolioShare_portfolioShareType = Lens.lens (\AcceptPortfolioShare' {por
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-acceptPortfolioShare_acceptLanguage :: Lens.Lens' AcceptPortfolioShare (Prelude.Maybe Prelude.Text)
+acceptPortfolioShare_acceptLanguage :: Lens.Lens' AcceptPortfolioShare (Core.Maybe Core.Text)
 acceptPortfolioShare_acceptLanguage = Lens.lens (\AcceptPortfolioShare' {acceptLanguage} -> acceptLanguage) (\s@AcceptPortfolioShare' {} a -> s {acceptLanguage = a} :: AcceptPortfolioShare)
 
 -- | The portfolio identifier.
-acceptPortfolioShare_portfolioId :: Lens.Lens' AcceptPortfolioShare Prelude.Text
+acceptPortfolioShare_portfolioId :: Lens.Lens' AcceptPortfolioShare Core.Text
 acceptPortfolioShare_portfolioId = Lens.lens (\AcceptPortfolioShare' {portfolioId} -> portfolioId) (\s@AcceptPortfolioShare' {} a -> s {portfolioId = a} :: AcceptPortfolioShare)
 
-instance Prelude.AWSRequest AcceptPortfolioShare where
+instance Core.AWSRequest AcceptPortfolioShare where
   type
-    Rs AcceptPortfolioShare =
+    AWSResponse AcceptPortfolioShare =
       AcceptPortfolioShareResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AcceptPortfolioShareResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptPortfolioShare
+instance Core.Hashable AcceptPortfolioShare
 
-instance Prelude.NFData AcceptPortfolioShare
+instance Core.NFData AcceptPortfolioShare
 
-instance Prelude.ToHeaders AcceptPortfolioShare where
+instance Core.ToHeaders AcceptPortfolioShare where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.AcceptPortfolioShare" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.AcceptPortfolioShare" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AcceptPortfolioShare where
+instance Core.ToJSON AcceptPortfolioShare where
   toJSON AcceptPortfolioShare' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PortfolioShareType" Prelude..=)
-              Prelude.<$> portfolioShareType,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId)
+    Core.object
+      ( Core.catMaybes
+          [ ("PortfolioShareType" Core..=)
+              Core.<$> portfolioShareType,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
-instance Prelude.ToPath AcceptPortfolioShare where
-  toPath = Prelude.const "/"
+instance Core.ToPath AcceptPortfolioShare where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AcceptPortfolioShare where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AcceptPortfolioShare where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAcceptPortfolioShareResponse' smart constructor.
 data AcceptPortfolioShareResponse = AcceptPortfolioShareResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptPortfolioShareResponse' with all optional fields omitted.
@@ -216,7 +212,7 @@ data AcceptPortfolioShareResponse = AcceptPortfolioShareResponse'
 -- 'httpStatus', 'acceptPortfolioShareResponse_httpStatus' - The response's http status code.
 newAcceptPortfolioShareResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AcceptPortfolioShareResponse
 newAcceptPortfolioShareResponse pHttpStatus_ =
   AcceptPortfolioShareResponse'
@@ -225,7 +221,7 @@ newAcceptPortfolioShareResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-acceptPortfolioShareResponse_httpStatus :: Lens.Lens' AcceptPortfolioShareResponse Prelude.Int
+acceptPortfolioShareResponse_httpStatus :: Lens.Lens' AcceptPortfolioShareResponse Core.Int
 acceptPortfolioShareResponse_httpStatus = Lens.lens (\AcceptPortfolioShareResponse' {httpStatus} -> httpStatus) (\s@AcceptPortfolioShareResponse' {} a -> s {httpStatus = a} :: AcceptPortfolioShareResponse)
 
-instance Prelude.NFData AcceptPortfolioShareResponse
+instance Core.NFData AcceptPortfolioShareResponse

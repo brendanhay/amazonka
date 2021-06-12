@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a workflow type.
 --
@@ -31,14 +30,14 @@ data WorkflowType = WorkflowType'
     --
     -- The combination of workflow type name and version must be unique with in
     -- a domain.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version of the workflow type.
     --
     -- The combination of workflow type name and version must be unique with in
     -- a domain.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowType' with all optional fields omitted.
@@ -59,9 +58,9 @@ data WorkflowType = WorkflowType'
 -- a domain.
 newWorkflowType ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   WorkflowType
 newWorkflowType pName_ pVersion_ =
   WorkflowType' {name = pName_, version = pVersion_}
@@ -70,35 +69,34 @@ newWorkflowType pName_ pVersion_ =
 --
 -- The combination of workflow type name and version must be unique with in
 -- a domain.
-workflowType_name :: Lens.Lens' WorkflowType Prelude.Text
+workflowType_name :: Lens.Lens' WorkflowType Core.Text
 workflowType_name = Lens.lens (\WorkflowType' {name} -> name) (\s@WorkflowType' {} a -> s {name = a} :: WorkflowType)
 
 -- | The version of the workflow type.
 --
 -- The combination of workflow type name and version must be unique with in
 -- a domain.
-workflowType_version :: Lens.Lens' WorkflowType Prelude.Text
+workflowType_version :: Lens.Lens' WorkflowType Core.Text
 workflowType_version = Lens.lens (\WorkflowType' {version} -> version) (\s@WorkflowType' {} a -> s {version = a} :: WorkflowType)
 
-instance Prelude.FromJSON WorkflowType where
+instance Core.FromJSON WorkflowType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowType"
       ( \x ->
           WorkflowType'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "version")
+            Core.<$> (x Core..: "name") Core.<*> (x Core..: "version")
       )
 
-instance Prelude.Hashable WorkflowType
+instance Core.Hashable WorkflowType
 
-instance Prelude.NFData WorkflowType
+instance Core.NFData WorkflowType
 
-instance Prelude.ToJSON WorkflowType where
+instance Core.ToJSON WorkflowType where
   toJSON WorkflowType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("version" Prelude..= version)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("version" Core..= version)
           ]
       )

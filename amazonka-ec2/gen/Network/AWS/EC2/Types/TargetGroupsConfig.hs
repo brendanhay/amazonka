@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TargetGroupsConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TargetGroup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the target groups to attach to a Spot Fleet. Spot Fleet
 -- registers the running Spot Instances with these target groups.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTargetGroupsConfig' smart constructor.
 data TargetGroupsConfig = TargetGroupsConfig'
   { -- | One or more target groups.
-    targetGroups :: Prelude.Maybe (Prelude.NonEmpty TargetGroup)
+    targetGroups :: Core.Maybe (Core.NonEmpty TargetGroup)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetGroupsConfig' with all optional fields omitted.
@@ -47,29 +46,28 @@ data TargetGroupsConfig = TargetGroupsConfig'
 newTargetGroupsConfig ::
   TargetGroupsConfig
 newTargetGroupsConfig =
-  TargetGroupsConfig' {targetGroups = Prelude.Nothing}
+  TargetGroupsConfig' {targetGroups = Core.Nothing}
 
 -- | One or more target groups.
-targetGroupsConfig_targetGroups :: Lens.Lens' TargetGroupsConfig (Prelude.Maybe (Prelude.NonEmpty TargetGroup))
-targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups} -> targetGroups) (\s@TargetGroupsConfig' {} a -> s {targetGroups = a} :: TargetGroupsConfig) Prelude.. Lens.mapping Prelude._Coerce
+targetGroupsConfig_targetGroups :: Lens.Lens' TargetGroupsConfig (Core.Maybe (Core.NonEmpty TargetGroup))
+targetGroupsConfig_targetGroups = Lens.lens (\TargetGroupsConfig' {targetGroups} -> targetGroups) (\s@TargetGroupsConfig' {} a -> s {targetGroups = a} :: TargetGroupsConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML TargetGroupsConfig where
+instance Core.FromXML TargetGroupsConfig where
   parseXML x =
     TargetGroupsConfig'
-      Prelude.<$> ( x Prelude..@? "targetGroups"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList1 "item")
-                  )
+      Core.<$> ( x Core..@? "targetGroups" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList1 "item")
+               )
 
-instance Prelude.Hashable TargetGroupsConfig
+instance Core.Hashable TargetGroupsConfig
 
-instance Prelude.NFData TargetGroupsConfig
+instance Core.NFData TargetGroupsConfig
 
-instance Prelude.ToQuery TargetGroupsConfig where
+instance Core.ToQuery TargetGroupsConfig where
   toQuery TargetGroupsConfig' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          ( Prelude.toQueryList "TargetGroups"
-              Prelude.<$> targetGroups
+    Core.mconcat
+      [ Core.toQuery
+          ( Core.toQueryList "TargetGroups"
+              Core.<$> targetGroups
           )
       ]

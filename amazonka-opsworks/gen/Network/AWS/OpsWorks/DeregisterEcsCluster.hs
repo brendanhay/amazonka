@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.OpsWorks.DeregisterEcsCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeregisterEcsCluster' smart constructor.
 data DeregisterEcsCluster = DeregisterEcsCluster'
   { -- | The cluster\'s Amazon Resource Number (ARN).
-    ecsClusterArn :: Prelude.Text
+    ecsClusterArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterEcsCluster' with all optional fields omitted.
@@ -68,7 +67,7 @@ data DeregisterEcsCluster = DeregisterEcsCluster'
 -- 'ecsClusterArn', 'deregisterEcsCluster_ecsClusterArn' - The cluster\'s Amazon Resource Number (ARN).
 newDeregisterEcsCluster ::
   -- | 'ecsClusterArn'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterEcsCluster
 newDeregisterEcsCluster pEcsClusterArn_ =
   DeregisterEcsCluster'
@@ -77,56 +76,52 @@ newDeregisterEcsCluster pEcsClusterArn_ =
     }
 
 -- | The cluster\'s Amazon Resource Number (ARN).
-deregisterEcsCluster_ecsClusterArn :: Lens.Lens' DeregisterEcsCluster Prelude.Text
+deregisterEcsCluster_ecsClusterArn :: Lens.Lens' DeregisterEcsCluster Core.Text
 deregisterEcsCluster_ecsClusterArn = Lens.lens (\DeregisterEcsCluster' {ecsClusterArn} -> ecsClusterArn) (\s@DeregisterEcsCluster' {} a -> s {ecsClusterArn = a} :: DeregisterEcsCluster)
 
-instance Prelude.AWSRequest DeregisterEcsCluster where
+instance Core.AWSRequest DeregisterEcsCluster where
   type
-    Rs DeregisterEcsCluster =
+    AWSResponse DeregisterEcsCluster =
       DeregisterEcsClusterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeregisterEcsClusterResponse'
 
-instance Prelude.Hashable DeregisterEcsCluster
+instance Core.Hashable DeregisterEcsCluster
 
-instance Prelude.NFData DeregisterEcsCluster
+instance Core.NFData DeregisterEcsCluster
 
-instance Prelude.ToHeaders DeregisterEcsCluster where
+instance Core.ToHeaders DeregisterEcsCluster where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DeregisterEcsCluster" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DeregisterEcsCluster" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterEcsCluster where
+instance Core.ToJSON DeregisterEcsCluster where
   toJSON DeregisterEcsCluster' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EcsClusterArn" Prelude..= ecsClusterArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EcsClusterArn" Core..= ecsClusterArn)]
       )
 
-instance Prelude.ToPath DeregisterEcsCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterEcsCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterEcsCluster where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterEcsCluster where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterEcsClusterResponse' smart constructor.
 data DeregisterEcsClusterResponse = DeregisterEcsClusterResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterEcsClusterResponse' with all optional fields omitted.
@@ -137,4 +132,4 @@ newDeregisterEcsClusterResponse ::
 newDeregisterEcsClusterResponse =
   DeregisterEcsClusterResponse'
 
-instance Prelude.NFData DeregisterEcsClusterResponse
+instance Core.NFData DeregisterEcsClusterResponse

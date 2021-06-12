@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.S3Destination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the location of updated firmware in S3.
 --
 -- /See:/ 'newS3Destination' smart constructor.
 data S3Destination = S3Destination'
   { -- | The S3 prefix.
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | The S3 bucket that contains the updated firmware.
-    bucket :: Prelude.Maybe Prelude.Text
+    bucket :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3Destination' with all optional fields omitted.
@@ -49,37 +48,36 @@ newS3Destination ::
   S3Destination
 newS3Destination =
   S3Destination'
-    { prefix = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { prefix = Core.Nothing,
+      bucket = Core.Nothing
     }
 
 -- | The S3 prefix.
-s3Destination_prefix :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
+s3Destination_prefix :: Lens.Lens' S3Destination (Core.Maybe Core.Text)
 s3Destination_prefix = Lens.lens (\S3Destination' {prefix} -> prefix) (\s@S3Destination' {} a -> s {prefix = a} :: S3Destination)
 
 -- | The S3 bucket that contains the updated firmware.
-s3Destination_bucket :: Lens.Lens' S3Destination (Prelude.Maybe Prelude.Text)
+s3Destination_bucket :: Lens.Lens' S3Destination (Core.Maybe Core.Text)
 s3Destination_bucket = Lens.lens (\S3Destination' {bucket} -> bucket) (\s@S3Destination' {} a -> s {bucket = a} :: S3Destination)
 
-instance Prelude.FromJSON S3Destination where
+instance Core.FromJSON S3Destination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3Destination"
       ( \x ->
           S3Destination'
-            Prelude.<$> (x Prelude..:? "prefix")
-            Prelude.<*> (x Prelude..:? "bucket")
+            Core.<$> (x Core..:? "prefix") Core.<*> (x Core..:? "bucket")
       )
 
-instance Prelude.Hashable S3Destination
+instance Core.Hashable S3Destination
 
-instance Prelude.NFData S3Destination
+instance Core.NFData S3Destination
 
-instance Prelude.ToJSON S3Destination where
+instance Core.ToJSON S3Destination where
   toJSON S3Destination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("prefix" Prelude..=) Prelude.<$> prefix,
-            ("bucket" Prelude..=) Prelude.<$> bucket
+    Core.object
+      ( Core.catMaybes
+          [ ("prefix" Core..=) Core.<$> prefix,
+            ("bucket" Core..=) Core.<$> bucket
           ]
       )

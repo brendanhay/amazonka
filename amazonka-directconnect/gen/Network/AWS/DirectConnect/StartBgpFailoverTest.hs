@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,26 +54,26 @@ module Network.AWS.DirectConnect.StartBgpFailoverTest
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartBgpFailoverTest' smart constructor.
 data StartBgpFailoverTest = StartBgpFailoverTest'
   { -- | The BGP peers to place in the DOWN state.
-    bgpPeers :: Prelude.Maybe [Prelude.Text],
+    bgpPeers :: Core.Maybe [Core.Text],
     -- | The time in minutes that the virtual interface failover test will last.
     --
     -- Maximum value: 180 minutes (3 hours).
     --
     -- Default: 180 minutes (3 hours).
-    testDurationInMinutes :: Prelude.Maybe Prelude.Int,
+    testDurationInMinutes :: Core.Maybe Core.Int,
     -- | The ID of the virtual interface you want to test.
-    virtualInterfaceId :: Prelude.Text
+    virtualInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartBgpFailoverTest' with all optional fields omitted.
@@ -95,91 +94,87 @@ data StartBgpFailoverTest = StartBgpFailoverTest'
 -- 'virtualInterfaceId', 'startBgpFailoverTest_virtualInterfaceId' - The ID of the virtual interface you want to test.
 newStartBgpFailoverTest ::
   -- | 'virtualInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   StartBgpFailoverTest
 newStartBgpFailoverTest pVirtualInterfaceId_ =
   StartBgpFailoverTest'
-    { bgpPeers = Prelude.Nothing,
-      testDurationInMinutes = Prelude.Nothing,
+    { bgpPeers = Core.Nothing,
+      testDurationInMinutes = Core.Nothing,
       virtualInterfaceId = pVirtualInterfaceId_
     }
 
 -- | The BGP peers to place in the DOWN state.
-startBgpFailoverTest_bgpPeers :: Lens.Lens' StartBgpFailoverTest (Prelude.Maybe [Prelude.Text])
-startBgpFailoverTest_bgpPeers = Lens.lens (\StartBgpFailoverTest' {bgpPeers} -> bgpPeers) (\s@StartBgpFailoverTest' {} a -> s {bgpPeers = a} :: StartBgpFailoverTest) Prelude.. Lens.mapping Prelude._Coerce
+startBgpFailoverTest_bgpPeers :: Lens.Lens' StartBgpFailoverTest (Core.Maybe [Core.Text])
+startBgpFailoverTest_bgpPeers = Lens.lens (\StartBgpFailoverTest' {bgpPeers} -> bgpPeers) (\s@StartBgpFailoverTest' {} a -> s {bgpPeers = a} :: StartBgpFailoverTest) Core.. Lens.mapping Lens._Coerce
 
 -- | The time in minutes that the virtual interface failover test will last.
 --
 -- Maximum value: 180 minutes (3 hours).
 --
 -- Default: 180 minutes (3 hours).
-startBgpFailoverTest_testDurationInMinutes :: Lens.Lens' StartBgpFailoverTest (Prelude.Maybe Prelude.Int)
+startBgpFailoverTest_testDurationInMinutes :: Lens.Lens' StartBgpFailoverTest (Core.Maybe Core.Int)
 startBgpFailoverTest_testDurationInMinutes = Lens.lens (\StartBgpFailoverTest' {testDurationInMinutes} -> testDurationInMinutes) (\s@StartBgpFailoverTest' {} a -> s {testDurationInMinutes = a} :: StartBgpFailoverTest)
 
 -- | The ID of the virtual interface you want to test.
-startBgpFailoverTest_virtualInterfaceId :: Lens.Lens' StartBgpFailoverTest Prelude.Text
+startBgpFailoverTest_virtualInterfaceId :: Lens.Lens' StartBgpFailoverTest Core.Text
 startBgpFailoverTest_virtualInterfaceId = Lens.lens (\StartBgpFailoverTest' {virtualInterfaceId} -> virtualInterfaceId) (\s@StartBgpFailoverTest' {} a -> s {virtualInterfaceId = a} :: StartBgpFailoverTest)
 
-instance Prelude.AWSRequest StartBgpFailoverTest where
+instance Core.AWSRequest StartBgpFailoverTest where
   type
-    Rs StartBgpFailoverTest =
+    AWSResponse StartBgpFailoverTest =
       StartBgpFailoverTestResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartBgpFailoverTestResponse'
-            Prelude.<$> (x Prelude..?> "virtualInterfaceTest")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "virtualInterfaceTest")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartBgpFailoverTest
+instance Core.Hashable StartBgpFailoverTest
 
-instance Prelude.NFData StartBgpFailoverTest
+instance Core.NFData StartBgpFailoverTest
 
-instance Prelude.ToHeaders StartBgpFailoverTest where
+instance Core.ToHeaders StartBgpFailoverTest where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.StartBgpFailoverTest" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.StartBgpFailoverTest" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartBgpFailoverTest where
+instance Core.ToJSON StartBgpFailoverTest where
   toJSON StartBgpFailoverTest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("bgpPeers" Prelude..=) Prelude.<$> bgpPeers,
-            ("testDurationInMinutes" Prelude..=)
-              Prelude.<$> testDurationInMinutes,
-            Prelude.Just
-              ( "virtualInterfaceId"
-                  Prelude..= virtualInterfaceId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("bgpPeers" Core..=) Core.<$> bgpPeers,
+            ("testDurationInMinutes" Core..=)
+              Core.<$> testDurationInMinutes,
+            Core.Just
+              ("virtualInterfaceId" Core..= virtualInterfaceId)
           ]
       )
 
-instance Prelude.ToPath StartBgpFailoverTest where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartBgpFailoverTest where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartBgpFailoverTest where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartBgpFailoverTest where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartBgpFailoverTestResponse' smart constructor.
 data StartBgpFailoverTestResponse = StartBgpFailoverTestResponse'
   { -- | Information about the virtual interface failover test.
-    virtualInterfaceTest :: Prelude.Maybe VirtualInterfaceTestHistory,
+    virtualInterfaceTest :: Core.Maybe VirtualInterfaceTestHistory,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartBgpFailoverTestResponse' with all optional fields omitted.
@@ -194,21 +189,21 @@ data StartBgpFailoverTestResponse = StartBgpFailoverTestResponse'
 -- 'httpStatus', 'startBgpFailoverTestResponse_httpStatus' - The response's http status code.
 newStartBgpFailoverTestResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartBgpFailoverTestResponse
 newStartBgpFailoverTestResponse pHttpStatus_ =
   StartBgpFailoverTestResponse'
     { virtualInterfaceTest =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the virtual interface failover test.
-startBgpFailoverTestResponse_virtualInterfaceTest :: Lens.Lens' StartBgpFailoverTestResponse (Prelude.Maybe VirtualInterfaceTestHistory)
+startBgpFailoverTestResponse_virtualInterfaceTest :: Lens.Lens' StartBgpFailoverTestResponse (Core.Maybe VirtualInterfaceTestHistory)
 startBgpFailoverTestResponse_virtualInterfaceTest = Lens.lens (\StartBgpFailoverTestResponse' {virtualInterfaceTest} -> virtualInterfaceTest) (\s@StartBgpFailoverTestResponse' {} a -> s {virtualInterfaceTest = a} :: StartBgpFailoverTestResponse)
 
 -- | The response's http status code.
-startBgpFailoverTestResponse_httpStatus :: Lens.Lens' StartBgpFailoverTestResponse Prelude.Int
+startBgpFailoverTestResponse_httpStatus :: Lens.Lens' StartBgpFailoverTestResponse Core.Int
 startBgpFailoverTestResponse_httpStatus = Lens.lens (\StartBgpFailoverTestResponse' {httpStatus} -> httpStatus) (\s@StartBgpFailoverTestResponse' {} a -> s {httpStatus = a} :: StartBgpFailoverTestResponse)
 
-instance Prelude.NFData StartBgpFailoverTestResponse
+instance Core.NFData StartBgpFailoverTestResponse

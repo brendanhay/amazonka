@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ArtifactSourceType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ArtifactSourceIdType
 
 -- | The ID and ID type of an artifact source.
@@ -31,9 +30,9 @@ data ArtifactSourceType = ArtifactSourceType'
   { -- | The type of ID.
     sourceIdType :: ArtifactSourceIdType,
     -- | The ID.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArtifactSourceType' with all optional fields omitted.
@@ -50,7 +49,7 @@ newArtifactSourceType ::
   -- | 'sourceIdType'
   ArtifactSourceIdType ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   ArtifactSourceType
 newArtifactSourceType pSourceIdType_ pValue_ =
   ArtifactSourceType'
@@ -63,29 +62,28 @@ artifactSourceType_sourceIdType :: Lens.Lens' ArtifactSourceType ArtifactSourceI
 artifactSourceType_sourceIdType = Lens.lens (\ArtifactSourceType' {sourceIdType} -> sourceIdType) (\s@ArtifactSourceType' {} a -> s {sourceIdType = a} :: ArtifactSourceType)
 
 -- | The ID.
-artifactSourceType_value :: Lens.Lens' ArtifactSourceType Prelude.Text
+artifactSourceType_value :: Lens.Lens' ArtifactSourceType Core.Text
 artifactSourceType_value = Lens.lens (\ArtifactSourceType' {value} -> value) (\s@ArtifactSourceType' {} a -> s {value = a} :: ArtifactSourceType)
 
-instance Prelude.FromJSON ArtifactSourceType where
+instance Core.FromJSON ArtifactSourceType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ArtifactSourceType"
       ( \x ->
           ArtifactSourceType'
-            Prelude.<$> (x Prelude..: "SourceIdType")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "SourceIdType")
+            Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable ArtifactSourceType
+instance Core.Hashable ArtifactSourceType
 
-instance Prelude.NFData ArtifactSourceType
+instance Core.NFData ArtifactSourceType
 
-instance Prelude.ToJSON ArtifactSourceType where
+instance Core.ToJSON ArtifactSourceType where
   toJSON ArtifactSourceType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("SourceIdType" Prelude..= sourceIdType),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SourceIdType" Core..= sourceIdType),
+            Core.Just ("Value" Core..= value)
           ]
       )

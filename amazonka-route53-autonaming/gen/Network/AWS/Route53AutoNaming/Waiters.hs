@@ -15,8 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Lens
 import Network.AWS.Route53AutoNaming.Types
-import qualified Network.AWS.Waiter as Waiter

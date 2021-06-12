@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.Queue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.PricingPlan
 import Network.AWS.MediaConvert.Types.QueueStatus
 import Network.AWS.MediaConvert.Types.ReservationPlan
 import Network.AWS.MediaConvert.Types.Type
-import qualified Network.AWS.Prelude as Prelude
 
 -- | You can use queues to manage the resources that are available to your
 -- AWS account for running multiple transcoding jobs at the same time. If
@@ -38,38 +37,38 @@ data Queue = Queue'
   { -- | Queues can be ACTIVE or PAUSED. If you pause a queue, the service won\'t
     -- begin processing jobs in that queue. Jobs that are running when you
     -- pause the queue continue to run until they finish or result in an error.
-    status :: Prelude.Maybe QueueStatus,
+    status :: Core.Maybe QueueStatus,
     -- | An identifier for this resource that is unique within all of AWS.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The timestamp in epoch seconds for when you created the queue.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The timestamp in epoch seconds for when you most recently updated the
     -- queue.
-    lastUpdated :: Prelude.Maybe Prelude.POSIX,
+    lastUpdated :: Core.Maybe Core.POSIX,
     -- | The estimated number of jobs with a SUBMITTED status.
-    submittedJobsCount :: Prelude.Maybe Prelude.Int,
+    submittedJobsCount :: Core.Maybe Core.Int,
     -- | An optional description that you create for each queue.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Specifies whether the pricing plan for the queue is on-demand or
     -- reserved. For on-demand, you pay per minute, billed in increments of .01
     -- minute. For reserved, you pay for the transcoding capacity of the entire
     -- queue, regardless of how much or how little you use it. Reserved pricing
     -- requires a 12-month commitment.
-    pricingPlan :: Prelude.Maybe PricingPlan,
+    pricingPlan :: Core.Maybe PricingPlan,
     -- | Details about the pricing plan for your reserved queue. Required for
     -- reserved queues and not applicable to on-demand queues.
-    reservationPlan :: Prelude.Maybe ReservationPlan,
+    reservationPlan :: Core.Maybe ReservationPlan,
     -- | Specifies whether this on-demand queue is system or custom. System
     -- queues are built in. You can\'t modify or delete system queues. You can
     -- create and modify custom queues.
-    type' :: Prelude.Maybe Type,
+    type' :: Core.Maybe Type,
     -- | The estimated number of jobs with a PROGRESSING status.
-    progressingJobsCount :: Prelude.Maybe Prelude.Int,
+    progressingJobsCount :: Core.Maybe Core.Int,
     -- | A name that you create for each queue. Each name must be unique within
     -- your account.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Queue' with all optional fields omitted.
@@ -113,48 +112,48 @@ data Queue = Queue'
 -- your account.
 newQueue ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Queue
 newQueue pName_ =
   Queue'
-    { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
-      submittedJobsCount = Prelude.Nothing,
-      description = Prelude.Nothing,
-      pricingPlan = Prelude.Nothing,
-      reservationPlan = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      progressingJobsCount = Prelude.Nothing,
+    { status = Core.Nothing,
+      arn = Core.Nothing,
+      createdAt = Core.Nothing,
+      lastUpdated = Core.Nothing,
+      submittedJobsCount = Core.Nothing,
+      description = Core.Nothing,
+      pricingPlan = Core.Nothing,
+      reservationPlan = Core.Nothing,
+      type' = Core.Nothing,
+      progressingJobsCount = Core.Nothing,
       name = pName_
     }
 
 -- | Queues can be ACTIVE or PAUSED. If you pause a queue, the service won\'t
 -- begin processing jobs in that queue. Jobs that are running when you
 -- pause the queue continue to run until they finish or result in an error.
-queue_status :: Lens.Lens' Queue (Prelude.Maybe QueueStatus)
+queue_status :: Lens.Lens' Queue (Core.Maybe QueueStatus)
 queue_status = Lens.lens (\Queue' {status} -> status) (\s@Queue' {} a -> s {status = a} :: Queue)
 
 -- | An identifier for this resource that is unique within all of AWS.
-queue_arn :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_arn :: Lens.Lens' Queue (Core.Maybe Core.Text)
 queue_arn = Lens.lens (\Queue' {arn} -> arn) (\s@Queue' {} a -> s {arn = a} :: Queue)
 
 -- | The timestamp in epoch seconds for when you created the queue.
-queue_createdAt :: Lens.Lens' Queue (Prelude.Maybe Prelude.UTCTime)
-queue_createdAt = Lens.lens (\Queue' {createdAt} -> createdAt) (\s@Queue' {} a -> s {createdAt = a} :: Queue) Prelude.. Lens.mapping Prelude._Time
+queue_createdAt :: Lens.Lens' Queue (Core.Maybe Core.UTCTime)
+queue_createdAt = Lens.lens (\Queue' {createdAt} -> createdAt) (\s@Queue' {} a -> s {createdAt = a} :: Queue) Core.. Lens.mapping Core._Time
 
 -- | The timestamp in epoch seconds for when you most recently updated the
 -- queue.
-queue_lastUpdated :: Lens.Lens' Queue (Prelude.Maybe Prelude.UTCTime)
-queue_lastUpdated = Lens.lens (\Queue' {lastUpdated} -> lastUpdated) (\s@Queue' {} a -> s {lastUpdated = a} :: Queue) Prelude.. Lens.mapping Prelude._Time
+queue_lastUpdated :: Lens.Lens' Queue (Core.Maybe Core.UTCTime)
+queue_lastUpdated = Lens.lens (\Queue' {lastUpdated} -> lastUpdated) (\s@Queue' {} a -> s {lastUpdated = a} :: Queue) Core.. Lens.mapping Core._Time
 
 -- | The estimated number of jobs with a SUBMITTED status.
-queue_submittedJobsCount :: Lens.Lens' Queue (Prelude.Maybe Prelude.Int)
+queue_submittedJobsCount :: Lens.Lens' Queue (Core.Maybe Core.Int)
 queue_submittedJobsCount = Lens.lens (\Queue' {submittedJobsCount} -> submittedJobsCount) (\s@Queue' {} a -> s {submittedJobsCount = a} :: Queue)
 
 -- | An optional description that you create for each queue.
-queue_description :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_description :: Lens.Lens' Queue (Core.Maybe Core.Text)
 queue_description = Lens.lens (\Queue' {description} -> description) (\s@Queue' {} a -> s {description = a} :: Queue)
 
 -- | Specifies whether the pricing plan for the queue is on-demand or
@@ -162,48 +161,48 @@ queue_description = Lens.lens (\Queue' {description} -> description) (\s@Queue' 
 -- minute. For reserved, you pay for the transcoding capacity of the entire
 -- queue, regardless of how much or how little you use it. Reserved pricing
 -- requires a 12-month commitment.
-queue_pricingPlan :: Lens.Lens' Queue (Prelude.Maybe PricingPlan)
+queue_pricingPlan :: Lens.Lens' Queue (Core.Maybe PricingPlan)
 queue_pricingPlan = Lens.lens (\Queue' {pricingPlan} -> pricingPlan) (\s@Queue' {} a -> s {pricingPlan = a} :: Queue)
 
 -- | Details about the pricing plan for your reserved queue. Required for
 -- reserved queues and not applicable to on-demand queues.
-queue_reservationPlan :: Lens.Lens' Queue (Prelude.Maybe ReservationPlan)
+queue_reservationPlan :: Lens.Lens' Queue (Core.Maybe ReservationPlan)
 queue_reservationPlan = Lens.lens (\Queue' {reservationPlan} -> reservationPlan) (\s@Queue' {} a -> s {reservationPlan = a} :: Queue)
 
 -- | Specifies whether this on-demand queue is system or custom. System
 -- queues are built in. You can\'t modify or delete system queues. You can
 -- create and modify custom queues.
-queue_type :: Lens.Lens' Queue (Prelude.Maybe Type)
+queue_type :: Lens.Lens' Queue (Core.Maybe Type)
 queue_type = Lens.lens (\Queue' {type'} -> type') (\s@Queue' {} a -> s {type' = a} :: Queue)
 
 -- | The estimated number of jobs with a PROGRESSING status.
-queue_progressingJobsCount :: Lens.Lens' Queue (Prelude.Maybe Prelude.Int)
+queue_progressingJobsCount :: Lens.Lens' Queue (Core.Maybe Core.Int)
 queue_progressingJobsCount = Lens.lens (\Queue' {progressingJobsCount} -> progressingJobsCount) (\s@Queue' {} a -> s {progressingJobsCount = a} :: Queue)
 
 -- | A name that you create for each queue. Each name must be unique within
 -- your account.
-queue_name :: Lens.Lens' Queue Prelude.Text
+queue_name :: Lens.Lens' Queue Core.Text
 queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} :: Queue)
 
-instance Prelude.FromJSON Queue where
+instance Core.FromJSON Queue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Queue"
       ( \x ->
           Queue'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "lastUpdated")
-            Prelude.<*> (x Prelude..:? "submittedJobsCount")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "pricingPlan")
-            Prelude.<*> (x Prelude..:? "reservationPlan")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "progressingJobsCount")
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "lastUpdated")
+            Core.<*> (x Core..:? "submittedJobsCount")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "pricingPlan")
+            Core.<*> (x Core..:? "reservationPlan")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "progressingJobsCount")
+            Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Queue
+instance Core.Hashable Queue
 
-instance Prelude.NFData Queue
+instance Core.NFData Queue

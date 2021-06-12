@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.RDS.CreateCustomAvailabilityZone
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -63,19 +62,19 @@ data CreateCustomAvailabilityZone = CreateCustomAvailabilityZone'
     -- custom AZ receives the network traffic.
     --
     -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
-    vpnTunnelOriginatorIP :: Prelude.Maybe Prelude.Text,
+    vpnTunnelOriginatorIP :: Core.Maybe Core.Text,
     -- | The ID of an existing virtual private network (VPN) between the Amazon
     -- RDS website and the VMware vSphere cluster.
-    existingVpnId :: Prelude.Maybe Prelude.Text,
+    existingVpnId :: Core.Maybe Core.Text,
     -- | The name of a new VPN tunnel between the Amazon RDS website and the
     -- VMware vSphere cluster.
     --
     -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
-    newVpnTunnelName' :: Prelude.Maybe Prelude.Text,
+    newVpnTunnelName' :: Core.Maybe Core.Text,
     -- | The name of the custom Availability Zone (AZ).
-    customAvailabilityZoneName :: Prelude.Text
+    customAvailabilityZoneName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCustomAvailabilityZone' with all optional fields omitted.
@@ -101,15 +100,15 @@ data CreateCustomAvailabilityZone = CreateCustomAvailabilityZone'
 -- 'customAvailabilityZoneName', 'createCustomAvailabilityZone_customAvailabilityZoneName' - The name of the custom Availability Zone (AZ).
 newCreateCustomAvailabilityZone ::
   -- | 'customAvailabilityZoneName'
-  Prelude.Text ->
+  Core.Text ->
   CreateCustomAvailabilityZone
 newCreateCustomAvailabilityZone
   pCustomAvailabilityZoneName_ =
     CreateCustomAvailabilityZone'
       { vpnTunnelOriginatorIP =
-          Prelude.Nothing,
-        existingVpnId = Prelude.Nothing,
-        newVpnTunnelName' = Prelude.Nothing,
+          Core.Nothing,
+        existingVpnId = Core.Nothing,
+        newVpnTunnelName' = Core.Nothing,
         customAvailabilityZoneName =
           pCustomAvailabilityZoneName_
       }
@@ -118,31 +117,28 @@ newCreateCustomAvailabilityZone
 -- custom AZ receives the network traffic.
 --
 -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
-createCustomAvailabilityZone_vpnTunnelOriginatorIP :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+createCustomAvailabilityZone_vpnTunnelOriginatorIP :: Lens.Lens' CreateCustomAvailabilityZone (Core.Maybe Core.Text)
 createCustomAvailabilityZone_vpnTunnelOriginatorIP = Lens.lens (\CreateCustomAvailabilityZone' {vpnTunnelOriginatorIP} -> vpnTunnelOriginatorIP) (\s@CreateCustomAvailabilityZone' {} a -> s {vpnTunnelOriginatorIP = a} :: CreateCustomAvailabilityZone)
 
 -- | The ID of an existing virtual private network (VPN) between the Amazon
 -- RDS website and the VMware vSphere cluster.
-createCustomAvailabilityZone_existingVpnId :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+createCustomAvailabilityZone_existingVpnId :: Lens.Lens' CreateCustomAvailabilityZone (Core.Maybe Core.Text)
 createCustomAvailabilityZone_existingVpnId = Lens.lens (\CreateCustomAvailabilityZone' {existingVpnId} -> existingVpnId) (\s@CreateCustomAvailabilityZone' {} a -> s {existingVpnId = a} :: CreateCustomAvailabilityZone)
 
 -- | The name of a new VPN tunnel between the Amazon RDS website and the
 -- VMware vSphere cluster.
 --
 -- Specify this parameter only if @ExistingVpnId@ isn\'t specified.
-createCustomAvailabilityZone_newVpnTunnelName :: Lens.Lens' CreateCustomAvailabilityZone (Prelude.Maybe Prelude.Text)
+createCustomAvailabilityZone_newVpnTunnelName :: Lens.Lens' CreateCustomAvailabilityZone (Core.Maybe Core.Text)
 createCustomAvailabilityZone_newVpnTunnelName = Lens.lens (\CreateCustomAvailabilityZone' {newVpnTunnelName'} -> newVpnTunnelName') (\s@CreateCustomAvailabilityZone' {} a -> s {newVpnTunnelName' = a} :: CreateCustomAvailabilityZone)
 
 -- | The name of the custom Availability Zone (AZ).
-createCustomAvailabilityZone_customAvailabilityZoneName :: Lens.Lens' CreateCustomAvailabilityZone Prelude.Text
+createCustomAvailabilityZone_customAvailabilityZoneName :: Lens.Lens' CreateCustomAvailabilityZone Core.Text
 createCustomAvailabilityZone_customAvailabilityZoneName = Lens.lens (\CreateCustomAvailabilityZone' {customAvailabilityZoneName} -> customAvailabilityZoneName) (\s@CreateCustomAvailabilityZone' {} a -> s {customAvailabilityZoneName = a} :: CreateCustomAvailabilityZone)
 
-instance
-  Prelude.AWSRequest
-    CreateCustomAvailabilityZone
-  where
+instance Core.AWSRequest CreateCustomAvailabilityZone where
   type
-    Rs CreateCustomAvailabilityZone =
+    AWSResponse CreateCustomAvailabilityZone =
       CreateCustomAvailabilityZoneResponse
   request = Request.postQuery defaultService
   response =
@@ -150,49 +146,41 @@ instance
       "CreateCustomAvailabilityZoneResult"
       ( \s h x ->
           CreateCustomAvailabilityZoneResponse'
-            Prelude.<$> (x Prelude..@? "CustomAvailabilityZone")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "CustomAvailabilityZone")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateCustomAvailabilityZone
+instance Core.Hashable CreateCustomAvailabilityZone
 
-instance Prelude.NFData CreateCustomAvailabilityZone
+instance Core.NFData CreateCustomAvailabilityZone
 
-instance
-  Prelude.ToHeaders
-    CreateCustomAvailabilityZone
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateCustomAvailabilityZone where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateCustomAvailabilityZone where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCustomAvailabilityZone where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCustomAvailabilityZone where
+instance Core.ToQuery CreateCustomAvailabilityZone where
   toQuery CreateCustomAvailabilityZone' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateCustomAvailabilityZone" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("CreateCustomAvailabilityZone" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "VpnTunnelOriginatorIP"
-          Prelude.=: vpnTunnelOriginatorIP,
-        "ExistingVpnId" Prelude.=: existingVpnId,
-        "NewVpnTunnelName" Prelude.=: newVpnTunnelName',
+          Core.=: vpnTunnelOriginatorIP,
+        "ExistingVpnId" Core.=: existingVpnId,
+        "NewVpnTunnelName" Core.=: newVpnTunnelName',
         "CustomAvailabilityZoneName"
-          Prelude.=: customAvailabilityZoneName
+          Core.=: customAvailabilityZoneName
       ]
 
 -- | /See:/ 'newCreateCustomAvailabilityZoneResponse' smart constructor.
 data CreateCustomAvailabilityZoneResponse = CreateCustomAvailabilityZoneResponse'
-  { customAvailabilityZone :: Prelude.Maybe CustomAvailabilityZone,
+  { customAvailabilityZone :: Core.Maybe CustomAvailabilityZone,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCustomAvailabilityZoneResponse' with all optional fields omitted.
@@ -207,23 +195,23 @@ data CreateCustomAvailabilityZoneResponse = CreateCustomAvailabilityZoneResponse
 -- 'httpStatus', 'createCustomAvailabilityZoneResponse_httpStatus' - The response's http status code.
 newCreateCustomAvailabilityZoneResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCustomAvailabilityZoneResponse
 newCreateCustomAvailabilityZoneResponse pHttpStatus_ =
   CreateCustomAvailabilityZoneResponse'
     { customAvailabilityZone =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createCustomAvailabilityZoneResponse_customAvailabilityZone :: Lens.Lens' CreateCustomAvailabilityZoneResponse (Prelude.Maybe CustomAvailabilityZone)
+createCustomAvailabilityZoneResponse_customAvailabilityZone :: Lens.Lens' CreateCustomAvailabilityZoneResponse (Core.Maybe CustomAvailabilityZone)
 createCustomAvailabilityZoneResponse_customAvailabilityZone = Lens.lens (\CreateCustomAvailabilityZoneResponse' {customAvailabilityZone} -> customAvailabilityZone) (\s@CreateCustomAvailabilityZoneResponse' {} a -> s {customAvailabilityZone = a} :: CreateCustomAvailabilityZoneResponse)
 
 -- | The response's http status code.
-createCustomAvailabilityZoneResponse_httpStatus :: Lens.Lens' CreateCustomAvailabilityZoneResponse Prelude.Int
+createCustomAvailabilityZoneResponse_httpStatus :: Lens.Lens' CreateCustomAvailabilityZoneResponse Core.Int
 createCustomAvailabilityZoneResponse_httpStatus = Lens.lens (\CreateCustomAvailabilityZoneResponse' {httpStatus} -> httpStatus) (\s@CreateCustomAvailabilityZoneResponse' {} a -> s {httpStatus = a} :: CreateCustomAvailabilityZoneResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateCustomAvailabilityZoneResponse

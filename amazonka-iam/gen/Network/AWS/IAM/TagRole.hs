@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -74,9 +73,9 @@ module Network.AWS.IAM.TagRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -88,12 +87,12 @@ data TagRole = TagRole'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Prelude.Text,
+    roleName :: Core.Text,
     -- | The list of tags that you want to attach to the IAM role. Each tag
     -- consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagRole' with all optional fields omitted.
@@ -114,13 +113,10 @@ data TagRole = TagRole'
 -- consists of a key name and an associated value.
 newTagRole ::
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   TagRole
 newTagRole pRoleName_ =
-  TagRole'
-    { roleName = pRoleName_,
-      tags = Prelude.mempty
-    }
+  TagRole' {roleName = pRoleName_, tags = Core.mempty}
 
 -- | The name of the IAM role to which you want to add tags.
 --
@@ -128,45 +124,43 @@ newTagRole pRoleName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-tagRole_roleName :: Lens.Lens' TagRole Prelude.Text
+tagRole_roleName :: Lens.Lens' TagRole Core.Text
 tagRole_roleName = Lens.lens (\TagRole' {roleName} -> roleName) (\s@TagRole' {} a -> s {roleName = a} :: TagRole)
 
 -- | The list of tags that you want to attach to the IAM role. Each tag
 -- consists of a key name and an associated value.
 tagRole_tags :: Lens.Lens' TagRole [Tag]
-tagRole_tags = Lens.lens (\TagRole' {tags} -> tags) (\s@TagRole' {} a -> s {tags = a} :: TagRole) Prelude.. Prelude._Coerce
+tagRole_tags = Lens.lens (\TagRole' {tags} -> tags) (\s@TagRole' {} a -> s {tags = a} :: TagRole) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagRole where
-  type Rs TagRole = TagRoleResponse
+instance Core.AWSRequest TagRole where
+  type AWSResponse TagRole = TagRoleResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull TagRoleResponse'
 
-instance Prelude.Hashable TagRole
+instance Core.Hashable TagRole
 
-instance Prelude.NFData TagRole
+instance Core.NFData TagRole
 
-instance Prelude.ToHeaders TagRole where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagRole where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TagRole where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagRole where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagRole where
+instance Core.ToQuery TagRole where
   toQuery TagRole' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("TagRole" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Prelude.=: roleName,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+    Core.mconcat
+      [ "Action" Core.=: ("TagRole" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "RoleName" Core.=: roleName,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagRoleResponse' smart constructor.
 data TagRoleResponse = TagRoleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagRoleResponse' with all optional fields omitted.
@@ -176,4 +170,4 @@ newTagRoleResponse ::
   TagRoleResponse
 newTagRoleResponse = TagRoleResponse'
 
-instance Prelude.NFData TagRoleResponse
+instance Core.NFData TagRoleResponse

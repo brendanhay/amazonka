@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CodeDeploy.DeleteGitHubAccountToken
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteGitHubAccountToken' smart constructor.
 data DeleteGitHubAccountToken = DeleteGitHubAccountToken'
   { -- | The name of the GitHub account connection to delete.
-    tokenName :: Prelude.Maybe Prelude.Text
+    tokenName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGitHubAccountToken' with all optional fields omitted.
@@ -67,70 +66,65 @@ data DeleteGitHubAccountToken = DeleteGitHubAccountToken'
 newDeleteGitHubAccountToken ::
   DeleteGitHubAccountToken
 newDeleteGitHubAccountToken =
-  DeleteGitHubAccountToken'
-    { tokenName =
-        Prelude.Nothing
-    }
+  DeleteGitHubAccountToken' {tokenName = Core.Nothing}
 
 -- | The name of the GitHub account connection to delete.
-deleteGitHubAccountToken_tokenName :: Lens.Lens' DeleteGitHubAccountToken (Prelude.Maybe Prelude.Text)
+deleteGitHubAccountToken_tokenName :: Lens.Lens' DeleteGitHubAccountToken (Core.Maybe Core.Text)
 deleteGitHubAccountToken_tokenName = Lens.lens (\DeleteGitHubAccountToken' {tokenName} -> tokenName) (\s@DeleteGitHubAccountToken' {} a -> s {tokenName = a} :: DeleteGitHubAccountToken)
 
-instance Prelude.AWSRequest DeleteGitHubAccountToken where
+instance Core.AWSRequest DeleteGitHubAccountToken where
   type
-    Rs DeleteGitHubAccountToken =
+    AWSResponse DeleteGitHubAccountToken =
       DeleteGitHubAccountTokenResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteGitHubAccountTokenResponse'
-            Prelude.<$> (x Prelude..?> "tokenName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "tokenName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteGitHubAccountToken
+instance Core.Hashable DeleteGitHubAccountToken
 
-instance Prelude.NFData DeleteGitHubAccountToken
+instance Core.NFData DeleteGitHubAccountToken
 
-instance Prelude.ToHeaders DeleteGitHubAccountToken where
+instance Core.ToHeaders DeleteGitHubAccountToken where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.DeleteGitHubAccountToken" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.DeleteGitHubAccountToken" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteGitHubAccountToken where
+instance Core.ToJSON DeleteGitHubAccountToken where
   toJSON DeleteGitHubAccountToken' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("tokenName" Prelude..=) Prelude.<$> tokenName]
+    Core.object
+      ( Core.catMaybes
+          [("tokenName" Core..=) Core.<$> tokenName]
       )
 
-instance Prelude.ToPath DeleteGitHubAccountToken where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteGitHubAccountToken where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteGitHubAccountToken where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteGitHubAccountToken where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DeleteGitHubAccountToken@ operation.
 --
 -- /See:/ 'newDeleteGitHubAccountTokenResponse' smart constructor.
 data DeleteGitHubAccountTokenResponse = DeleteGitHubAccountTokenResponse'
   { -- | The name of the GitHub account connection that was deleted.
-    tokenName :: Prelude.Maybe Prelude.Text,
+    tokenName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGitHubAccountTokenResponse' with all optional fields omitted.
@@ -145,23 +139,21 @@ data DeleteGitHubAccountTokenResponse = DeleteGitHubAccountTokenResponse'
 -- 'httpStatus', 'deleteGitHubAccountTokenResponse_httpStatus' - The response's http status code.
 newDeleteGitHubAccountTokenResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteGitHubAccountTokenResponse
 newDeleteGitHubAccountTokenResponse pHttpStatus_ =
   DeleteGitHubAccountTokenResponse'
     { tokenName =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the GitHub account connection that was deleted.
-deleteGitHubAccountTokenResponse_tokenName :: Lens.Lens' DeleteGitHubAccountTokenResponse (Prelude.Maybe Prelude.Text)
+deleteGitHubAccountTokenResponse_tokenName :: Lens.Lens' DeleteGitHubAccountTokenResponse (Core.Maybe Core.Text)
 deleteGitHubAccountTokenResponse_tokenName = Lens.lens (\DeleteGitHubAccountTokenResponse' {tokenName} -> tokenName) (\s@DeleteGitHubAccountTokenResponse' {} a -> s {tokenName = a} :: DeleteGitHubAccountTokenResponse)
 
 -- | The response's http status code.
-deleteGitHubAccountTokenResponse_httpStatus :: Lens.Lens' DeleteGitHubAccountTokenResponse Prelude.Int
+deleteGitHubAccountTokenResponse_httpStatus :: Lens.Lens' DeleteGitHubAccountTokenResponse Core.Int
 deleteGitHubAccountTokenResponse_httpStatus = Lens.lens (\DeleteGitHubAccountTokenResponse' {httpStatus} -> httpStatus) (\s@DeleteGitHubAccountTokenResponse' {} a -> s {httpStatus = a} :: DeleteGitHubAccountTokenResponse)
 
-instance
-  Prelude.NFData
-    DeleteGitHubAccountTokenResponse
+instance Core.NFData DeleteGitHubAccountTokenResponse

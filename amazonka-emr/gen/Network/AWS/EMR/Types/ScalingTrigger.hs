@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ScalingTrigger where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.CloudWatchAlarmDefinition
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The conditions that trigger an automatic scaling activity.
 --
@@ -33,7 +32,7 @@ data ScalingTrigger = ScalingTrigger'
     -- begins.
     cloudWatchAlarmDefinition :: CloudWatchAlarmDefinition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingTrigger' with all optional fields omitted.
@@ -62,26 +61,26 @@ newScalingTrigger pCloudWatchAlarmDefinition_ =
 scalingTrigger_cloudWatchAlarmDefinition :: Lens.Lens' ScalingTrigger CloudWatchAlarmDefinition
 scalingTrigger_cloudWatchAlarmDefinition = Lens.lens (\ScalingTrigger' {cloudWatchAlarmDefinition} -> cloudWatchAlarmDefinition) (\s@ScalingTrigger' {} a -> s {cloudWatchAlarmDefinition = a} :: ScalingTrigger)
 
-instance Prelude.FromJSON ScalingTrigger where
+instance Core.FromJSON ScalingTrigger where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScalingTrigger"
       ( \x ->
           ScalingTrigger'
-            Prelude.<$> (x Prelude..: "CloudWatchAlarmDefinition")
+            Core.<$> (x Core..: "CloudWatchAlarmDefinition")
       )
 
-instance Prelude.Hashable ScalingTrigger
+instance Core.Hashable ScalingTrigger
 
-instance Prelude.NFData ScalingTrigger
+instance Core.NFData ScalingTrigger
 
-instance Prelude.ToJSON ScalingTrigger where
+instance Core.ToJSON ScalingTrigger where
   toJSON ScalingTrigger' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "CloudWatchAlarmDefinition"
-                  Prelude..= cloudWatchAlarmDefinition
+                  Core..= cloudWatchAlarmDefinition
               )
           ]
       )

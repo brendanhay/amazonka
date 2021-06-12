@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.Shield.DisableProactiveEngagement
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -48,7 +47,7 @@ import Network.AWS.Shield.Types
 data DisableProactiveEngagement = DisableProactiveEngagement'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableProactiveEngagement' with all optional fields omitted.
@@ -59,56 +58,50 @@ newDisableProactiveEngagement ::
 newDisableProactiveEngagement =
   DisableProactiveEngagement'
 
-instance
-  Prelude.AWSRequest
-    DisableProactiveEngagement
-  where
+instance Core.AWSRequest DisableProactiveEngagement where
   type
-    Rs DisableProactiveEngagement =
+    AWSResponse DisableProactiveEngagement =
       DisableProactiveEngagementResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableProactiveEngagementResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisableProactiveEngagement
+instance Core.Hashable DisableProactiveEngagement
 
-instance Prelude.NFData DisableProactiveEngagement
+instance Core.NFData DisableProactiveEngagement
 
-instance Prelude.ToHeaders DisableProactiveEngagement where
+instance Core.ToHeaders DisableProactiveEngagement where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.DisableProactiveEngagement" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.DisableProactiveEngagement" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableProactiveEngagement where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DisableProactiveEngagement where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DisableProactiveEngagement where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableProactiveEngagement where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableProactiveEngagement where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableProactiveEngagement where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableProactiveEngagementResponse' smart constructor.
 data DisableProactiveEngagementResponse = DisableProactiveEngagementResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableProactiveEngagementResponse' with all optional fields omitted.
@@ -121,7 +114,7 @@ data DisableProactiveEngagementResponse = DisableProactiveEngagementResponse'
 -- 'httpStatus', 'disableProactiveEngagementResponse_httpStatus' - The response's http status code.
 newDisableProactiveEngagementResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableProactiveEngagementResponse
 newDisableProactiveEngagementResponse pHttpStatus_ =
   DisableProactiveEngagementResponse'
@@ -130,9 +123,9 @@ newDisableProactiveEngagementResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disableProactiveEngagementResponse_httpStatus :: Lens.Lens' DisableProactiveEngagementResponse Prelude.Int
+disableProactiveEngagementResponse_httpStatus :: Lens.Lens' DisableProactiveEngagementResponse Core.Int
 disableProactiveEngagementResponse_httpStatus = Lens.lens (\DisableProactiveEngagementResponse' {httpStatus} -> httpStatus) (\s@DisableProactiveEngagementResponse' {} a -> s {httpStatus = a} :: DisableProactiveEngagementResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableProactiveEngagementResponse

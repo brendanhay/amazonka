@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.IoT.DeleteStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
   { -- | The stream ID.
-    streamId :: Prelude.Text
+    streamId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStream' with all optional fields omitted.
@@ -63,46 +62,45 @@ data DeleteStream = DeleteStream'
 -- 'streamId', 'deleteStream_streamId' - The stream ID.
 newDeleteStream ::
   -- | 'streamId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStream
 newDeleteStream pStreamId_ =
   DeleteStream' {streamId = pStreamId_}
 
 -- | The stream ID.
-deleteStream_streamId :: Lens.Lens' DeleteStream Prelude.Text
+deleteStream_streamId :: Lens.Lens' DeleteStream Core.Text
 deleteStream_streamId = Lens.lens (\DeleteStream' {streamId} -> streamId) (\s@DeleteStream' {} a -> s {streamId = a} :: DeleteStream)
 
-instance Prelude.AWSRequest DeleteStream where
-  type Rs DeleteStream = DeleteStreamResponse
+instance Core.AWSRequest DeleteStream where
+  type AWSResponse DeleteStream = DeleteStreamResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStream
+instance Core.Hashable DeleteStream
 
-instance Prelude.NFData DeleteStream
+instance Core.NFData DeleteStream
 
-instance Prelude.ToHeaders DeleteStream where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteStream where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteStream where
+instance Core.ToPath DeleteStream where
   toPath DeleteStream' {..} =
-    Prelude.mconcat
-      ["/streams/", Prelude.toBS streamId]
+    Core.mconcat ["/streams/", Core.toBS streamId]
 
-instance Prelude.ToQuery DeleteStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamResponse' with all optional fields omitted.
@@ -115,13 +113,13 @@ data DeleteStreamResponse = DeleteStreamResponse'
 -- 'httpStatus', 'deleteStreamResponse_httpStatus' - The response's http status code.
 newDeleteStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteStreamResponse
 newDeleteStreamResponse pHttpStatus_ =
   DeleteStreamResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Prelude.Int
+deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Core.Int
 deleteStreamResponse_httpStatus = Lens.lens (\DeleteStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamResponse' {} a -> s {httpStatus = a} :: DeleteStreamResponse)
 
-instance Prelude.NFData DeleteStreamResponse
+instance Core.NFData DeleteStreamResponse

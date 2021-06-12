@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.NotificationOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Set of options which defines notification preferences of given action.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data NotificationOptions = NotificationOptions'
   { -- | Boolean value to indicate an email notification should be sent to the
     -- receipients.
-    sendEmail :: Prelude.Maybe Prelude.Bool,
+    sendEmail :: Core.Maybe Core.Bool,
     -- | Text value to be included in the email body.
-    emailMessage :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    emailMessage :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NotificationOptions' with all optional fields omitted.
@@ -51,29 +50,28 @@ newNotificationOptions ::
   NotificationOptions
 newNotificationOptions =
   NotificationOptions'
-    { sendEmail = Prelude.Nothing,
-      emailMessage = Prelude.Nothing
+    { sendEmail = Core.Nothing,
+      emailMessage = Core.Nothing
     }
 
 -- | Boolean value to indicate an email notification should be sent to the
 -- receipients.
-notificationOptions_sendEmail :: Lens.Lens' NotificationOptions (Prelude.Maybe Prelude.Bool)
+notificationOptions_sendEmail :: Lens.Lens' NotificationOptions (Core.Maybe Core.Bool)
 notificationOptions_sendEmail = Lens.lens (\NotificationOptions' {sendEmail} -> sendEmail) (\s@NotificationOptions' {} a -> s {sendEmail = a} :: NotificationOptions)
 
 -- | Text value to be included in the email body.
-notificationOptions_emailMessage :: Lens.Lens' NotificationOptions (Prelude.Maybe Prelude.Text)
-notificationOptions_emailMessage = Lens.lens (\NotificationOptions' {emailMessage} -> emailMessage) (\s@NotificationOptions' {} a -> s {emailMessage = a} :: NotificationOptions) Prelude.. Lens.mapping Prelude._Sensitive
+notificationOptions_emailMessage :: Lens.Lens' NotificationOptions (Core.Maybe Core.Text)
+notificationOptions_emailMessage = Lens.lens (\NotificationOptions' {emailMessage} -> emailMessage) (\s@NotificationOptions' {} a -> s {emailMessage = a} :: NotificationOptions) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.Hashable NotificationOptions
+instance Core.Hashable NotificationOptions
 
-instance Prelude.NFData NotificationOptions
+instance Core.NFData NotificationOptions
 
-instance Prelude.ToJSON NotificationOptions where
+instance Core.ToJSON NotificationOptions where
   toJSON NotificationOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SendEmail" Prelude..=) Prelude.<$> sendEmail,
-            ("EmailMessage" Prelude..=)
-              Prelude.<$> emailMessage
+    Core.object
+      ( Core.catMaybes
+          [ ("SendEmail" Core..=) Core.<$> sendEmail,
+            ("EmailMessage" Core..=) Core.<$> emailMessage
           ]
       )

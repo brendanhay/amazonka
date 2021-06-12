@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.DisassociateRouteTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +54,12 @@ data DisassociateRouteTable = DisassociateRouteTable'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The association ID representing the current association between the
     -- route table and subnet or gateway.
-    associationId :: Prelude.Text
+    associationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateRouteTable' with all optional fields omitted.
@@ -79,11 +78,11 @@ data DisassociateRouteTable = DisassociateRouteTable'
 -- route table and subnet or gateway.
 newDisassociateRouteTable ::
   -- | 'associationId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateRouteTable
 newDisassociateRouteTable pAssociationId_ =
   DisassociateRouteTable'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       associationId = pAssociationId_
     }
 
@@ -91,49 +90,48 @@ newDisassociateRouteTable pAssociationId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateRouteTable_dryRun :: Lens.Lens' DisassociateRouteTable (Prelude.Maybe Prelude.Bool)
+disassociateRouteTable_dryRun :: Lens.Lens' DisassociateRouteTable (Core.Maybe Core.Bool)
 disassociateRouteTable_dryRun = Lens.lens (\DisassociateRouteTable' {dryRun} -> dryRun) (\s@DisassociateRouteTable' {} a -> s {dryRun = a} :: DisassociateRouteTable)
 
 -- | The association ID representing the current association between the
 -- route table and subnet or gateway.
-disassociateRouteTable_associationId :: Lens.Lens' DisassociateRouteTable Prelude.Text
+disassociateRouteTable_associationId :: Lens.Lens' DisassociateRouteTable Core.Text
 disassociateRouteTable_associationId = Lens.lens (\DisassociateRouteTable' {associationId} -> associationId) (\s@DisassociateRouteTable' {} a -> s {associationId = a} :: DisassociateRouteTable)
 
-instance Prelude.AWSRequest DisassociateRouteTable where
+instance Core.AWSRequest DisassociateRouteTable where
   type
-    Rs DisassociateRouteTable =
+    AWSResponse DisassociateRouteTable =
       DisassociateRouteTableResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DisassociateRouteTableResponse'
 
-instance Prelude.Hashable DisassociateRouteTable
+instance Core.Hashable DisassociateRouteTable
 
-instance Prelude.NFData DisassociateRouteTable
+instance Core.NFData DisassociateRouteTable
 
-instance Prelude.ToHeaders DisassociateRouteTable where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DisassociateRouteTable where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DisassociateRouteTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateRouteTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateRouteTable where
+instance Core.ToQuery DisassociateRouteTable where
   toQuery DisassociateRouteTable' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DisassociateRouteTable" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "AssociationId" Prelude.=: associationId
+          Core.=: ("DisassociateRouteTable" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "AssociationId" Core.=: associationId
       ]
 
 -- | /See:/ 'newDisassociateRouteTableResponse' smart constructor.
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateRouteTableResponse' with all optional fields omitted.
@@ -144,6 +142,4 @@ newDisassociateRouteTableResponse ::
 newDisassociateRouteTableResponse =
   DisassociateRouteTableResponse'
 
-instance
-  Prelude.NFData
-    DisassociateRouteTableResponse
+instance Core.NFData DisassociateRouteTableResponse

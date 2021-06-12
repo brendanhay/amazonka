@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.GetEmailTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,14 +71,14 @@ data GetEmailTemplate = GetEmailTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEmailTemplate' with all optional fields omitted.
@@ -118,11 +117,11 @@ data GetEmailTemplate = GetEmailTemplate'
 -- (-). Template names are case sensitive.
 newGetEmailTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   GetEmailTemplate
 newGetEmailTemplate pTemplateName_ =
   GetEmailTemplate'
-    { version = Prelude.Nothing,
+    { version = Core.Nothing,
       templateName = pTemplateName_
     }
 
@@ -148,61 +147,58 @@ newGetEmailTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-getEmailTemplate_version :: Lens.Lens' GetEmailTemplate (Prelude.Maybe Prelude.Text)
+getEmailTemplate_version :: Lens.Lens' GetEmailTemplate (Core.Maybe Core.Text)
 getEmailTemplate_version = Lens.lens (\GetEmailTemplate' {version} -> version) (\s@GetEmailTemplate' {} a -> s {version = a} :: GetEmailTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-getEmailTemplate_templateName :: Lens.Lens' GetEmailTemplate Prelude.Text
+getEmailTemplate_templateName :: Lens.Lens' GetEmailTemplate Core.Text
 getEmailTemplate_templateName = Lens.lens (\GetEmailTemplate' {templateName} -> templateName) (\s@GetEmailTemplate' {} a -> s {templateName = a} :: GetEmailTemplate)
 
-instance Prelude.AWSRequest GetEmailTemplate where
-  type Rs GetEmailTemplate = GetEmailTemplateResponse
+instance Core.AWSRequest GetEmailTemplate where
+  type
+    AWSResponse GetEmailTemplate =
+      GetEmailTemplateResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetEmailTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetEmailTemplate
+instance Core.Hashable GetEmailTemplate
 
-instance Prelude.NFData GetEmailTemplate
+instance Core.NFData GetEmailTemplate
 
-instance Prelude.ToHeaders GetEmailTemplate where
+instance Core.ToHeaders GetEmailTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetEmailTemplate where
+instance Core.ToPath GetEmailTemplate where
   toPath GetEmailTemplate' {..} =
-    Prelude.mconcat
-      [ "/v1/templates/",
-        Prelude.toBS templateName,
-        "/email"
-      ]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/email"]
 
-instance Prelude.ToQuery GetEmailTemplate where
+instance Core.ToQuery GetEmailTemplate where
   toQuery GetEmailTemplate' {..} =
-    Prelude.mconcat ["version" Prelude.=: version]
+    Core.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newGetEmailTemplateResponse' smart constructor.
 data GetEmailTemplateResponse = GetEmailTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     emailTemplateResponse :: EmailTemplateResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEmailTemplateResponse' with all optional fields omitted.
@@ -217,7 +213,7 @@ data GetEmailTemplateResponse = GetEmailTemplateResponse'
 -- 'emailTemplateResponse', 'getEmailTemplateResponse_emailTemplateResponse' - Undocumented member.
 newGetEmailTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'emailTemplateResponse'
   EmailTemplateResponse ->
   GetEmailTemplateResponse
@@ -231,11 +227,11 @@ newGetEmailTemplateResponse
       }
 
 -- | The response's http status code.
-getEmailTemplateResponse_httpStatus :: Lens.Lens' GetEmailTemplateResponse Prelude.Int
+getEmailTemplateResponse_httpStatus :: Lens.Lens' GetEmailTemplateResponse Core.Int
 getEmailTemplateResponse_httpStatus = Lens.lens (\GetEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@GetEmailTemplateResponse' {} a -> s {httpStatus = a} :: GetEmailTemplateResponse)
 
 -- | Undocumented member.
 getEmailTemplateResponse_emailTemplateResponse :: Lens.Lens' GetEmailTemplateResponse EmailTemplateResponse
 getEmailTemplateResponse_emailTemplateResponse = Lens.lens (\GetEmailTemplateResponse' {emailTemplateResponse} -> emailTemplateResponse) (\s@GetEmailTemplateResponse' {} a -> s {emailTemplateResponse = a} :: GetEmailTemplateResponse)
 
-instance Prelude.NFData GetEmailTemplateResponse
+instance Core.NFData GetEmailTemplateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DirectoryService.DeleteSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
   { -- | The identifier of the directory snapshot to be deleted.
-    snapshotId :: Prelude.Text
+    snapshotId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshot' with all optional fields omitted.
@@ -66,68 +65,68 @@ data DeleteSnapshot = DeleteSnapshot'
 -- 'snapshotId', 'deleteSnapshot_snapshotId' - The identifier of the directory snapshot to be deleted.
 newDeleteSnapshot ::
   -- | 'snapshotId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSnapshot
 newDeleteSnapshot pSnapshotId_ =
   DeleteSnapshot' {snapshotId = pSnapshotId_}
 
 -- | The identifier of the directory snapshot to be deleted.
-deleteSnapshot_snapshotId :: Lens.Lens' DeleteSnapshot Prelude.Text
+deleteSnapshot_snapshotId :: Lens.Lens' DeleteSnapshot Core.Text
 deleteSnapshot_snapshotId = Lens.lens (\DeleteSnapshot' {snapshotId} -> snapshotId) (\s@DeleteSnapshot' {} a -> s {snapshotId = a} :: DeleteSnapshot)
 
-instance Prelude.AWSRequest DeleteSnapshot where
-  type Rs DeleteSnapshot = DeleteSnapshotResponse
+instance Core.AWSRequest DeleteSnapshot where
+  type
+    AWSResponse DeleteSnapshot =
+      DeleteSnapshotResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSnapshotResponse'
-            Prelude.<$> (x Prelude..?> "SnapshotId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SnapshotId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSnapshot
+instance Core.Hashable DeleteSnapshot
 
-instance Prelude.NFData DeleteSnapshot
+instance Core.NFData DeleteSnapshot
 
-instance Prelude.ToHeaders DeleteSnapshot where
+instance Core.ToHeaders DeleteSnapshot where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DeleteSnapshot" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DeleteSnapshot" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteSnapshot where
+instance Core.ToJSON DeleteSnapshot where
   toJSON DeleteSnapshot' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SnapshotId" Prelude..= snapshotId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SnapshotId" Core..= snapshotId)]
       )
 
-instance Prelude.ToPath DeleteSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSnapshot where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSnapshot where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the results of the DeleteSnapshot operation.
 --
 -- /See:/ 'newDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
   { -- | The identifier of the directory snapshot that was deleted.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    snapshotId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotResponse' with all optional fields omitted.
@@ -142,21 +141,20 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse'
 -- 'httpStatus', 'deleteSnapshotResponse_httpStatus' - The response's http status code.
 newDeleteSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSnapshotResponse
 newDeleteSnapshotResponse pHttpStatus_ =
   DeleteSnapshotResponse'
-    { snapshotId =
-        Prelude.Nothing,
+    { snapshotId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the directory snapshot that was deleted.
-deleteSnapshotResponse_snapshotId :: Lens.Lens' DeleteSnapshotResponse (Prelude.Maybe Prelude.Text)
+deleteSnapshotResponse_snapshotId :: Lens.Lens' DeleteSnapshotResponse (Core.Maybe Core.Text)
 deleteSnapshotResponse_snapshotId = Lens.lens (\DeleteSnapshotResponse' {snapshotId} -> snapshotId) (\s@DeleteSnapshotResponse' {} a -> s {snapshotId = a} :: DeleteSnapshotResponse)
 
 -- | The response's http status code.
-deleteSnapshotResponse_httpStatus :: Lens.Lens' DeleteSnapshotResponse Prelude.Int
+deleteSnapshotResponse_httpStatus :: Lens.Lens' DeleteSnapshotResponse Core.Int
 deleteSnapshotResponse_httpStatus = Lens.lens (\DeleteSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteSnapshotResponse)
 
-instance Prelude.NFData DeleteSnapshotResponse
+instance Core.NFData DeleteSnapshotResponse

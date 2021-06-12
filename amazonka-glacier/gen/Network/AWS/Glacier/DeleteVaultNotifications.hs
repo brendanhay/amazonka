@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.Glacier.DeleteVaultNotifications
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,11 +68,11 @@ data DeleteVaultNotifications = DeleteVaultNotifications'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVaultNotifications' with all optional fields omitted.
@@ -92,9 +91,9 @@ data DeleteVaultNotifications = DeleteVaultNotifications'
 -- 'vaultName', 'deleteVaultNotifications_vaultName' - The name of the vault.
 newDeleteVaultNotifications ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVaultNotifications
 newDeleteVaultNotifications pAccountId_ pVaultName_ =
   DeleteVaultNotifications'
@@ -107,49 +106,49 @@ newDeleteVaultNotifications pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-deleteVaultNotifications_accountId :: Lens.Lens' DeleteVaultNotifications Prelude.Text
+deleteVaultNotifications_accountId :: Lens.Lens' DeleteVaultNotifications Core.Text
 deleteVaultNotifications_accountId = Lens.lens (\DeleteVaultNotifications' {accountId} -> accountId) (\s@DeleteVaultNotifications' {} a -> s {accountId = a} :: DeleteVaultNotifications)
 
 -- | The name of the vault.
-deleteVaultNotifications_vaultName :: Lens.Lens' DeleteVaultNotifications Prelude.Text
+deleteVaultNotifications_vaultName :: Lens.Lens' DeleteVaultNotifications Core.Text
 deleteVaultNotifications_vaultName = Lens.lens (\DeleteVaultNotifications' {vaultName} -> vaultName) (\s@DeleteVaultNotifications' {} a -> s {vaultName = a} :: DeleteVaultNotifications)
 
-instance Prelude.AWSRequest DeleteVaultNotifications where
+instance Core.AWSRequest DeleteVaultNotifications where
   type
-    Rs DeleteVaultNotifications =
+    AWSResponse DeleteVaultNotifications =
       DeleteVaultNotificationsResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.delete defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.delete defaultService
   response =
     Response.receiveNull
       DeleteVaultNotificationsResponse'
 
-instance Prelude.Hashable DeleteVaultNotifications
+instance Core.Hashable DeleteVaultNotifications
 
-instance Prelude.NFData DeleteVaultNotifications
+instance Core.NFData DeleteVaultNotifications
 
-instance Prelude.ToHeaders DeleteVaultNotifications where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVaultNotifications where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVaultNotifications where
+instance Core.ToPath DeleteVaultNotifications where
   toPath DeleteVaultNotifications' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/notification-configuration"
       ]
 
-instance Prelude.ToQuery DeleteVaultNotifications where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteVaultNotifications where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteVaultNotificationsResponse' smart constructor.
 data DeleteVaultNotificationsResponse = DeleteVaultNotificationsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVaultNotificationsResponse' with all optional fields omitted.
@@ -160,6 +159,4 @@ newDeleteVaultNotificationsResponse ::
 newDeleteVaultNotificationsResponse =
   DeleteVaultNotificationsResponse'
 
-instance
-  Prelude.NFData
-    DeleteVaultNotificationsResponse
+instance Core.NFData DeleteVaultNotificationsResponse

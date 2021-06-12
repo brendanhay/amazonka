@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,22 +46,22 @@ module Network.AWS.Connect.CreateUseCase
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateUseCase' smart constructor.
 data CreateUseCase = CreateUseCase'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the AppIntegration association.
-    integrationAssociationId :: Prelude.Text,
+    integrationAssociationId :: Core.Text,
     -- | The type of use case to associate to the AppIntegration association.
     -- Each AppIntegration association can have only one of each use case type.
     useCaseType :: UseCaseType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUseCase' with all optional fields omitted.
@@ -80,9 +79,9 @@ data CreateUseCase = CreateUseCase'
 -- Each AppIntegration association can have only one of each use case type.
 newCreateUseCase ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'integrationAssociationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'useCaseType'
   UseCaseType ->
   CreateUseCase
@@ -98,11 +97,11 @@ newCreateUseCase
       }
 
 -- | The identifier of the Amazon Connect instance.
-createUseCase_instanceId :: Lens.Lens' CreateUseCase Prelude.Text
+createUseCase_instanceId :: Lens.Lens' CreateUseCase Core.Text
 createUseCase_instanceId = Lens.lens (\CreateUseCase' {instanceId} -> instanceId) (\s@CreateUseCase' {} a -> s {instanceId = a} :: CreateUseCase)
 
 -- | The identifier for the AppIntegration association.
-createUseCase_integrationAssociationId :: Lens.Lens' CreateUseCase Prelude.Text
+createUseCase_integrationAssociationId :: Lens.Lens' CreateUseCase Core.Text
 createUseCase_integrationAssociationId = Lens.lens (\CreateUseCase' {integrationAssociationId} -> integrationAssociationId) (\s@CreateUseCase' {} a -> s {integrationAssociationId = a} :: CreateUseCase)
 
 -- | The type of use case to associate to the AppIntegration association.
@@ -110,65 +109,63 @@ createUseCase_integrationAssociationId = Lens.lens (\CreateUseCase' {integration
 createUseCase_useCaseType :: Lens.Lens' CreateUseCase UseCaseType
 createUseCase_useCaseType = Lens.lens (\CreateUseCase' {useCaseType} -> useCaseType) (\s@CreateUseCase' {} a -> s {useCaseType = a} :: CreateUseCase)
 
-instance Prelude.AWSRequest CreateUseCase where
-  type Rs CreateUseCase = CreateUseCaseResponse
+instance Core.AWSRequest CreateUseCase where
+  type
+    AWSResponse CreateUseCase =
+      CreateUseCaseResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateUseCaseResponse'
-            Prelude.<$> (x Prelude..?> "UseCaseArn")
-            Prelude.<*> (x Prelude..?> "UseCaseId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UseCaseArn")
+            Core.<*> (x Core..?> "UseCaseId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUseCase
+instance Core.Hashable CreateUseCase
 
-instance Prelude.NFData CreateUseCase
+instance Core.NFData CreateUseCase
 
-instance Prelude.ToHeaders CreateUseCase where
+instance Core.ToHeaders CreateUseCase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateUseCase where
+instance Core.ToJSON CreateUseCase where
   toJSON CreateUseCase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("UseCaseType" Prelude..= useCaseType)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("UseCaseType" Core..= useCaseType)]
       )
 
-instance Prelude.ToPath CreateUseCase where
+instance Core.ToPath CreateUseCase where
   toPath CreateUseCase' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/integration-associations/",
-        Prelude.toBS integrationAssociationId,
+        Core.toBS integrationAssociationId,
         "/use-cases"
       ]
 
-instance Prelude.ToQuery CreateUseCase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateUseCase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateUseCaseResponse' smart constructor.
 data CreateUseCaseResponse = CreateUseCaseResponse'
   { -- | The Amazon Resource Name (ARN) for the use case.
-    useCaseArn :: Prelude.Maybe Prelude.Text,
+    useCaseArn :: Core.Maybe Core.Text,
     -- | The identifier of the use case.
-    useCaseId :: Prelude.Maybe Prelude.Text,
+    useCaseId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUseCaseResponse' with all optional fields omitted.
@@ -185,26 +182,25 @@ data CreateUseCaseResponse = CreateUseCaseResponse'
 -- 'httpStatus', 'createUseCaseResponse_httpStatus' - The response's http status code.
 newCreateUseCaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateUseCaseResponse
 newCreateUseCaseResponse pHttpStatus_ =
   CreateUseCaseResponse'
-    { useCaseArn =
-        Prelude.Nothing,
-      useCaseId = Prelude.Nothing,
+    { useCaseArn = Core.Nothing,
+      useCaseId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) for the use case.
-createUseCaseResponse_useCaseArn :: Lens.Lens' CreateUseCaseResponse (Prelude.Maybe Prelude.Text)
+createUseCaseResponse_useCaseArn :: Lens.Lens' CreateUseCaseResponse (Core.Maybe Core.Text)
 createUseCaseResponse_useCaseArn = Lens.lens (\CreateUseCaseResponse' {useCaseArn} -> useCaseArn) (\s@CreateUseCaseResponse' {} a -> s {useCaseArn = a} :: CreateUseCaseResponse)
 
 -- | The identifier of the use case.
-createUseCaseResponse_useCaseId :: Lens.Lens' CreateUseCaseResponse (Prelude.Maybe Prelude.Text)
+createUseCaseResponse_useCaseId :: Lens.Lens' CreateUseCaseResponse (Core.Maybe Core.Text)
 createUseCaseResponse_useCaseId = Lens.lens (\CreateUseCaseResponse' {useCaseId} -> useCaseId) (\s@CreateUseCaseResponse' {} a -> s {useCaseId = a} :: CreateUseCaseResponse)
 
 -- | The response's http status code.
-createUseCaseResponse_httpStatus :: Lens.Lens' CreateUseCaseResponse Prelude.Int
+createUseCaseResponse_httpStatus :: Lens.Lens' CreateUseCaseResponse Core.Int
 createUseCaseResponse_httpStatus = Lens.lens (\CreateUseCaseResponse' {httpStatus} -> httpStatus) (\s@CreateUseCaseResponse' {} a -> s {httpStatus = a} :: CreateUseCaseResponse)
 
-instance Prelude.NFData CreateUseCaseResponse
+instance Core.NFData CreateUseCaseResponse

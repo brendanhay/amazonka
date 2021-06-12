@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.LoggingOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.LoggingLevel
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about logging options.
 --
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data LoggingOptions = LoggingOptions'
   { -- | The ARN of the role that grants permission to AWS IoT Analytics to
     -- perform logging.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The logging level. Currently, only ERROR is supported.
     level :: LoggingLevel,
     -- | If true, logging is enabled for AWS IoT Analytics.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoggingOptions' with all optional fields omitted.
@@ -54,11 +53,11 @@ data LoggingOptions = LoggingOptions'
 -- 'enabled', 'loggingOptions_enabled' - If true, logging is enabled for AWS IoT Analytics.
 newLoggingOptions ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'level'
   LoggingLevel ->
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   LoggingOptions
 newLoggingOptions pRoleArn_ pLevel_ pEnabled_ =
   LoggingOptions'
@@ -69,7 +68,7 @@ newLoggingOptions pRoleArn_ pLevel_ pEnabled_ =
 
 -- | The ARN of the role that grants permission to AWS IoT Analytics to
 -- perform logging.
-loggingOptions_roleArn :: Lens.Lens' LoggingOptions Prelude.Text
+loggingOptions_roleArn :: Lens.Lens' LoggingOptions Core.Text
 loggingOptions_roleArn = Lens.lens (\LoggingOptions' {roleArn} -> roleArn) (\s@LoggingOptions' {} a -> s {roleArn = a} :: LoggingOptions)
 
 -- | The logging level. Currently, only ERROR is supported.
@@ -77,30 +76,30 @@ loggingOptions_level :: Lens.Lens' LoggingOptions LoggingLevel
 loggingOptions_level = Lens.lens (\LoggingOptions' {level} -> level) (\s@LoggingOptions' {} a -> s {level = a} :: LoggingOptions)
 
 -- | If true, logging is enabled for AWS IoT Analytics.
-loggingOptions_enabled :: Lens.Lens' LoggingOptions Prelude.Bool
+loggingOptions_enabled :: Lens.Lens' LoggingOptions Core.Bool
 loggingOptions_enabled = Lens.lens (\LoggingOptions' {enabled} -> enabled) (\s@LoggingOptions' {} a -> s {enabled = a} :: LoggingOptions)
 
-instance Prelude.FromJSON LoggingOptions where
+instance Core.FromJSON LoggingOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LoggingOptions"
       ( \x ->
           LoggingOptions'
-            Prelude.<$> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..: "level")
-            Prelude.<*> (x Prelude..: "enabled")
+            Core.<$> (x Core..: "roleArn")
+            Core.<*> (x Core..: "level")
+            Core.<*> (x Core..: "enabled")
       )
 
-instance Prelude.Hashable LoggingOptions
+instance Core.Hashable LoggingOptions
 
-instance Prelude.NFData LoggingOptions
+instance Core.NFData LoggingOptions
 
-instance Prelude.ToJSON LoggingOptions where
+instance Core.ToJSON LoggingOptions where
   toJSON LoggingOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just ("level" Prelude..= level),
-            Prelude.Just ("enabled" Prelude..= enabled)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("level" Core..= level),
+            Core.Just ("enabled" Core..= enabled)
           ]
       )

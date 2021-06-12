@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,12 +64,12 @@ import qualified Network.AWS.Response as Response
 data GetSignalingChannelEndpoint = GetSignalingChannelEndpoint'
   { -- | A structure containing the endpoint configuration for the
     -- @SINGLE_MASTER@ channel type.
-    singleMasterChannelEndpointConfiguration :: Prelude.Maybe SingleMasterChannelEndpointConfiguration,
+    singleMasterChannelEndpointConfiguration :: Core.Maybe SingleMasterChannelEndpointConfiguration,
     -- | The Amazon Resource Name (ARN) of the signalling channel for which you
     -- want to get an endpoint.
-    channelARN :: Prelude.Text
+    channelARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSignalingChannelEndpoint' with all optional fields omitted.
@@ -87,79 +86,71 @@ data GetSignalingChannelEndpoint = GetSignalingChannelEndpoint'
 -- want to get an endpoint.
 newGetSignalingChannelEndpoint ::
   -- | 'channelARN'
-  Prelude.Text ->
+  Core.Text ->
   GetSignalingChannelEndpoint
 newGetSignalingChannelEndpoint pChannelARN_ =
   GetSignalingChannelEndpoint'
     { singleMasterChannelEndpointConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       channelARN = pChannelARN_
     }
 
 -- | A structure containing the endpoint configuration for the
 -- @SINGLE_MASTER@ channel type.
-getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration :: Lens.Lens' GetSignalingChannelEndpoint (Prelude.Maybe SingleMasterChannelEndpointConfiguration)
+getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration :: Lens.Lens' GetSignalingChannelEndpoint (Core.Maybe SingleMasterChannelEndpointConfiguration)
 getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration = Lens.lens (\GetSignalingChannelEndpoint' {singleMasterChannelEndpointConfiguration} -> singleMasterChannelEndpointConfiguration) (\s@GetSignalingChannelEndpoint' {} a -> s {singleMasterChannelEndpointConfiguration = a} :: GetSignalingChannelEndpoint)
 
 -- | The Amazon Resource Name (ARN) of the signalling channel for which you
 -- want to get an endpoint.
-getSignalingChannelEndpoint_channelARN :: Lens.Lens' GetSignalingChannelEndpoint Prelude.Text
+getSignalingChannelEndpoint_channelARN :: Lens.Lens' GetSignalingChannelEndpoint Core.Text
 getSignalingChannelEndpoint_channelARN = Lens.lens (\GetSignalingChannelEndpoint' {channelARN} -> channelARN) (\s@GetSignalingChannelEndpoint' {} a -> s {channelARN = a} :: GetSignalingChannelEndpoint)
 
-instance
-  Prelude.AWSRequest
-    GetSignalingChannelEndpoint
-  where
+instance Core.AWSRequest GetSignalingChannelEndpoint where
   type
-    Rs GetSignalingChannelEndpoint =
+    AWSResponse GetSignalingChannelEndpoint =
       GetSignalingChannelEndpointResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSignalingChannelEndpointResponse'
-            Prelude.<$> ( x Prelude..?> "ResourceEndpointList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "ResourceEndpointList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSignalingChannelEndpoint
+instance Core.Hashable GetSignalingChannelEndpoint
 
-instance Prelude.NFData GetSignalingChannelEndpoint
+instance Core.NFData GetSignalingChannelEndpoint
 
-instance
-  Prelude.ToHeaders
-    GetSignalingChannelEndpoint
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetSignalingChannelEndpoint where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetSignalingChannelEndpoint where
+instance Core.ToJSON GetSignalingChannelEndpoint where
   toJSON GetSignalingChannelEndpoint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ( "SingleMasterChannelEndpointConfiguration"
-                Prelude..=
-            )
-              Prelude.<$> singleMasterChannelEndpointConfiguration,
-            Prelude.Just ("ChannelARN" Prelude..= channelARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("SingleMasterChannelEndpointConfiguration" Core..=)
+              Core.<$> singleMasterChannelEndpointConfiguration,
+            Core.Just ("ChannelARN" Core..= channelARN)
           ]
       )
 
-instance Prelude.ToPath GetSignalingChannelEndpoint where
-  toPath = Prelude.const "/getSignalingChannelEndpoint"
+instance Core.ToPath GetSignalingChannelEndpoint where
+  toPath = Core.const "/getSignalingChannelEndpoint"
 
-instance Prelude.ToQuery GetSignalingChannelEndpoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSignalingChannelEndpoint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSignalingChannelEndpointResponse' smart constructor.
 data GetSignalingChannelEndpointResponse = GetSignalingChannelEndpointResponse'
   { -- | A list of endpoints for the specified signaling channel.
-    resourceEndpointList :: Prelude.Maybe [ResourceEndpointListItem],
+    resourceEndpointList :: Core.Maybe [ResourceEndpointListItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSignalingChannelEndpointResponse' with all optional fields omitted.
@@ -174,23 +165,23 @@ data GetSignalingChannelEndpointResponse = GetSignalingChannelEndpointResponse'
 -- 'httpStatus', 'getSignalingChannelEndpointResponse_httpStatus' - The response's http status code.
 newGetSignalingChannelEndpointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSignalingChannelEndpointResponse
 newGetSignalingChannelEndpointResponse pHttpStatus_ =
   GetSignalingChannelEndpointResponse'
     { resourceEndpointList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of endpoints for the specified signaling channel.
-getSignalingChannelEndpointResponse_resourceEndpointList :: Lens.Lens' GetSignalingChannelEndpointResponse (Prelude.Maybe [ResourceEndpointListItem])
-getSignalingChannelEndpointResponse_resourceEndpointList = Lens.lens (\GetSignalingChannelEndpointResponse' {resourceEndpointList} -> resourceEndpointList) (\s@GetSignalingChannelEndpointResponse' {} a -> s {resourceEndpointList = a} :: GetSignalingChannelEndpointResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSignalingChannelEndpointResponse_resourceEndpointList :: Lens.Lens' GetSignalingChannelEndpointResponse (Core.Maybe [ResourceEndpointListItem])
+getSignalingChannelEndpointResponse_resourceEndpointList = Lens.lens (\GetSignalingChannelEndpointResponse' {resourceEndpointList} -> resourceEndpointList) (\s@GetSignalingChannelEndpointResponse' {} a -> s {resourceEndpointList = a} :: GetSignalingChannelEndpointResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSignalingChannelEndpointResponse_httpStatus :: Lens.Lens' GetSignalingChannelEndpointResponse Prelude.Int
+getSignalingChannelEndpointResponse_httpStatus :: Lens.Lens' GetSignalingChannelEndpointResponse Core.Int
 getSignalingChannelEndpointResponse_httpStatus = Lens.lens (\GetSignalingChannelEndpointResponse' {httpStatus} -> httpStatus) (\s@GetSignalingChannelEndpointResponse' {} a -> s {httpStatus = a} :: GetSignalingChannelEndpointResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetSignalingChannelEndpointResponse

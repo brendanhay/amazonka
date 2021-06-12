@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Pinpoint.PhoneNumberValidate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data PhoneNumberValidate = PhoneNumberValidate'
   { numberValidateRequest :: NumberValidateRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PhoneNumberValidate' with all optional fields omitted.
@@ -75,58 +74,56 @@ newPhoneNumberValidate pNumberValidateRequest_ =
 phoneNumberValidate_numberValidateRequest :: Lens.Lens' PhoneNumberValidate NumberValidateRequest
 phoneNumberValidate_numberValidateRequest = Lens.lens (\PhoneNumberValidate' {numberValidateRequest} -> numberValidateRequest) (\s@PhoneNumberValidate' {} a -> s {numberValidateRequest = a} :: PhoneNumberValidate)
 
-instance Prelude.AWSRequest PhoneNumberValidate where
+instance Core.AWSRequest PhoneNumberValidate where
   type
-    Rs PhoneNumberValidate =
+    AWSResponse PhoneNumberValidate =
       PhoneNumberValidateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PhoneNumberValidateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable PhoneNumberValidate
+instance Core.Hashable PhoneNumberValidate
 
-instance Prelude.NFData PhoneNumberValidate
+instance Core.NFData PhoneNumberValidate
 
-instance Prelude.ToHeaders PhoneNumberValidate where
+instance Core.ToHeaders PhoneNumberValidate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PhoneNumberValidate where
+instance Core.ToJSON PhoneNumberValidate where
   toJSON PhoneNumberValidate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "NumberValidateRequest"
-                  Prelude..= numberValidateRequest
+                  Core..= numberValidateRequest
               )
           ]
       )
 
-instance Prelude.ToPath PhoneNumberValidate where
-  toPath = Prelude.const "/v1/phone/number/validate"
+instance Core.ToPath PhoneNumberValidate where
+  toPath = Core.const "/v1/phone/number/validate"
 
-instance Prelude.ToQuery PhoneNumberValidate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PhoneNumberValidate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPhoneNumberValidateResponse' smart constructor.
 data PhoneNumberValidateResponse = PhoneNumberValidateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     numberValidateResponse :: NumberValidateResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PhoneNumberValidateResponse' with all optional fields omitted.
@@ -141,7 +138,7 @@ data PhoneNumberValidateResponse = PhoneNumberValidateResponse'
 -- 'numberValidateResponse', 'phoneNumberValidateResponse_numberValidateResponse' - Undocumented member.
 newPhoneNumberValidateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'numberValidateResponse'
   NumberValidateResponse ->
   PhoneNumberValidateResponse
@@ -156,11 +153,11 @@ newPhoneNumberValidateResponse
       }
 
 -- | The response's http status code.
-phoneNumberValidateResponse_httpStatus :: Lens.Lens' PhoneNumberValidateResponse Prelude.Int
+phoneNumberValidateResponse_httpStatus :: Lens.Lens' PhoneNumberValidateResponse Core.Int
 phoneNumberValidateResponse_httpStatus = Lens.lens (\PhoneNumberValidateResponse' {httpStatus} -> httpStatus) (\s@PhoneNumberValidateResponse' {} a -> s {httpStatus = a} :: PhoneNumberValidateResponse)
 
 -- | Undocumented member.
 phoneNumberValidateResponse_numberValidateResponse :: Lens.Lens' PhoneNumberValidateResponse NumberValidateResponse
 phoneNumberValidateResponse_numberValidateResponse = Lens.lens (\PhoneNumberValidateResponse' {numberValidateResponse} -> numberValidateResponse) (\s@PhoneNumberValidateResponse' {} a -> s {numberValidateResponse = a} :: PhoneNumberValidateResponse)
 
-instance Prelude.NFData PhoneNumberValidateResponse
+instance Core.NFData PhoneNumberValidateResponse

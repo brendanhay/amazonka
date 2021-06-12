@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,21 +45,21 @@ module Network.AWS.Firehose.UntagDeliveryStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagDeliveryStream' smart constructor.
 data UntagDeliveryStream = UntagDeliveryStream'
   { -- | The name of the delivery stream.
-    deliveryStreamName :: Prelude.Text,
+    deliveryStreamName :: Core.Text,
     -- | A list of tag keys. Each corresponding tag is removed from the delivery
     -- stream.
-    tagKeys :: Prelude.NonEmpty Prelude.Text
+    tagKeys :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagDeliveryStream' with all optional fields omitted.
@@ -76,79 +75,77 @@ data UntagDeliveryStream = UntagDeliveryStream'
 -- stream.
 newUntagDeliveryStream ::
   -- | 'deliveryStreamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tagKeys'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   UntagDeliveryStream
 newUntagDeliveryStream pDeliveryStreamName_ pTagKeys_ =
   UntagDeliveryStream'
     { deliveryStreamName =
         pDeliveryStreamName_,
-      tagKeys = Prelude._Coerce Lens.# pTagKeys_
+      tagKeys = Lens._Coerce Lens.# pTagKeys_
     }
 
 -- | The name of the delivery stream.
-untagDeliveryStream_deliveryStreamName :: Lens.Lens' UntagDeliveryStream Prelude.Text
+untagDeliveryStream_deliveryStreamName :: Lens.Lens' UntagDeliveryStream Core.Text
 untagDeliveryStream_deliveryStreamName = Lens.lens (\UntagDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@UntagDeliveryStream' {} a -> s {deliveryStreamName = a} :: UntagDeliveryStream)
 
 -- | A list of tag keys. Each corresponding tag is removed from the delivery
 -- stream.
-untagDeliveryStream_tagKeys :: Lens.Lens' UntagDeliveryStream (Prelude.NonEmpty Prelude.Text)
-untagDeliveryStream_tagKeys = Lens.lens (\UntagDeliveryStream' {tagKeys} -> tagKeys) (\s@UntagDeliveryStream' {} a -> s {tagKeys = a} :: UntagDeliveryStream) Prelude.. Prelude._Coerce
+untagDeliveryStream_tagKeys :: Lens.Lens' UntagDeliveryStream (Core.NonEmpty Core.Text)
+untagDeliveryStream_tagKeys = Lens.lens (\UntagDeliveryStream' {tagKeys} -> tagKeys) (\s@UntagDeliveryStream' {} a -> s {tagKeys = a} :: UntagDeliveryStream) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagDeliveryStream where
+instance Core.AWSRequest UntagDeliveryStream where
   type
-    Rs UntagDeliveryStream =
+    AWSResponse UntagDeliveryStream =
       UntagDeliveryStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UntagDeliveryStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UntagDeliveryStream
+instance Core.Hashable UntagDeliveryStream
 
-instance Prelude.NFData UntagDeliveryStream
+instance Core.NFData UntagDeliveryStream
 
-instance Prelude.ToHeaders UntagDeliveryStream where
+instance Core.ToHeaders UntagDeliveryStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Firehose_20150804.UntagDeliveryStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Firehose_20150804.UntagDeliveryStream" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UntagDeliveryStream where
+instance Core.ToJSON UntagDeliveryStream where
   toJSON UntagDeliveryStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DeliveryStreamName" Prelude..= deliveryStreamName),
-            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
-instance Prelude.ToPath UntagDeliveryStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagDeliveryStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagDeliveryStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UntagDeliveryStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUntagDeliveryStreamResponse' smart constructor.
 data UntagDeliveryStreamResponse = UntagDeliveryStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagDeliveryStreamResponse' with all optional fields omitted.
@@ -161,7 +158,7 @@ data UntagDeliveryStreamResponse = UntagDeliveryStreamResponse'
 -- 'httpStatus', 'untagDeliveryStreamResponse_httpStatus' - The response's http status code.
 newUntagDeliveryStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UntagDeliveryStreamResponse
 newUntagDeliveryStreamResponse pHttpStatus_ =
   UntagDeliveryStreamResponse'
@@ -170,7 +167,7 @@ newUntagDeliveryStreamResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-untagDeliveryStreamResponse_httpStatus :: Lens.Lens' UntagDeliveryStreamResponse Prelude.Int
+untagDeliveryStreamResponse_httpStatus :: Lens.Lens' UntagDeliveryStreamResponse Core.Int
 untagDeliveryStreamResponse_httpStatus = Lens.lens (\UntagDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@UntagDeliveryStreamResponse' {} a -> s {httpStatus = a} :: UntagDeliveryStreamResponse)
 
-instance Prelude.NFData UntagDeliveryStreamResponse
+instance Core.NFData UntagDeliveryStreamResponse

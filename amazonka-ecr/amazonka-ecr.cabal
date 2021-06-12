@@ -119,10 +119,10 @@ library
     Network.AWS.ECR.UploadLayerPart
     Network.AWS.ECR.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-ecr-test
   type:             exitcode-stdio-1.0
@@ -140,7 +140,7 @@ test-suite amazonka-ecr-test
     Test.AWS.Gen.ECR
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-ecr
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.MFADevice where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an MFA device.
 --
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMFADevice' smart constructor.
 data MFADevice = MFADevice'
   { -- | The user with whom the MFA device is associated.
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The serial number that uniquely identifies the MFA device. For virtual
     -- MFA devices, the serial number is the device ARN.
-    serialNumber :: Prelude.Text,
+    serialNumber :: Core.Text,
     -- | The date when the MFA device was enabled for the user.
-    enableDate :: Prelude.ISO8601
+    enableDate :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MFADevice' with all optional fields omitted.
@@ -56,39 +55,39 @@ data MFADevice = MFADevice'
 -- 'enableDate', 'mfaDevice_enableDate' - The date when the MFA device was enabled for the user.
 newMFADevice ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serialNumber'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'enableDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   MFADevice
 newMFADevice pUserName_ pSerialNumber_ pEnableDate_ =
   MFADevice'
     { userName = pUserName_,
       serialNumber = pSerialNumber_,
-      enableDate = Prelude._Time Lens.# pEnableDate_
+      enableDate = Core._Time Lens.# pEnableDate_
     }
 
 -- | The user with whom the MFA device is associated.
-mfaDevice_userName :: Lens.Lens' MFADevice Prelude.Text
+mfaDevice_userName :: Lens.Lens' MFADevice Core.Text
 mfaDevice_userName = Lens.lens (\MFADevice' {userName} -> userName) (\s@MFADevice' {} a -> s {userName = a} :: MFADevice)
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
 -- MFA devices, the serial number is the device ARN.
-mfaDevice_serialNumber :: Lens.Lens' MFADevice Prelude.Text
+mfaDevice_serialNumber :: Lens.Lens' MFADevice Core.Text
 mfaDevice_serialNumber = Lens.lens (\MFADevice' {serialNumber} -> serialNumber) (\s@MFADevice' {} a -> s {serialNumber = a} :: MFADevice)
 
 -- | The date when the MFA device was enabled for the user.
-mfaDevice_enableDate :: Lens.Lens' MFADevice Prelude.UTCTime
-mfaDevice_enableDate = Lens.lens (\MFADevice' {enableDate} -> enableDate) (\s@MFADevice' {} a -> s {enableDate = a} :: MFADevice) Prelude.. Prelude._Time
+mfaDevice_enableDate :: Lens.Lens' MFADevice Core.UTCTime
+mfaDevice_enableDate = Lens.lens (\MFADevice' {enableDate} -> enableDate) (\s@MFADevice' {} a -> s {enableDate = a} :: MFADevice) Core.. Core._Time
 
-instance Prelude.FromXML MFADevice where
+instance Core.FromXML MFADevice where
   parseXML x =
     MFADevice'
-      Prelude.<$> (x Prelude..@ "UserName")
-      Prelude.<*> (x Prelude..@ "SerialNumber")
-      Prelude.<*> (x Prelude..@ "EnableDate")
+      Core.<$> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "SerialNumber")
+      Core.<*> (x Core..@ "EnableDate")
 
-instance Prelude.Hashable MFADevice
+instance Core.Hashable MFADevice
 
-instance Prelude.NFData MFADevice
+instance Core.NFData MFADevice

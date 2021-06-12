@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Redshift.DisableLogging
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -58,9 +57,9 @@ data DisableLogging = DisableLogging'
   { -- | The identifier of the cluster on which logging is to be stopped.
     --
     -- Example: @examplecluster@
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableLogging' with all optional fields omitted.
@@ -75,7 +74,7 @@ data DisableLogging = DisableLogging'
 -- Example: @examplecluster@
 newDisableLogging ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DisableLogging
 newDisableLogging pClusterIdentifier_ =
   DisableLogging'
@@ -86,33 +85,32 @@ newDisableLogging pClusterIdentifier_ =
 -- | The identifier of the cluster on which logging is to be stopped.
 --
 -- Example: @examplecluster@
-disableLogging_clusterIdentifier :: Lens.Lens' DisableLogging Prelude.Text
+disableLogging_clusterIdentifier :: Lens.Lens' DisableLogging Core.Text
 disableLogging_clusterIdentifier = Lens.lens (\DisableLogging' {clusterIdentifier} -> clusterIdentifier) (\s@DisableLogging' {} a -> s {clusterIdentifier = a} :: DisableLogging)
 
-instance Prelude.AWSRequest DisableLogging where
-  type Rs DisableLogging = LoggingStatus
+instance Core.AWSRequest DisableLogging where
+  type AWSResponse DisableLogging = LoggingStatus
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DisableLoggingResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DisableLogging
+instance Core.Hashable DisableLogging
 
-instance Prelude.NFData DisableLogging
+instance Core.NFData DisableLogging
 
-instance Prelude.ToHeaders DisableLogging where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DisableLogging where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DisableLogging where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableLogging where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableLogging where
+instance Core.ToQuery DisableLogging where
   toQuery DisableLogging' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DisableLogging" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier
+          Core.=: ("DisableLogging" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier
       ]

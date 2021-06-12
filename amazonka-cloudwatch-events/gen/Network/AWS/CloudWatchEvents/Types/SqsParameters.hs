@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.SqsParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure includes the custom parameter to be used when the target
 -- is an SQS FIFO queue.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSqsParameters' smart constructor.
 data SqsParameters = SqsParameters'
   { -- | The FIFO message group ID to use as the target.
-    messageGroupId :: Prelude.Maybe Prelude.Text
+    messageGroupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SqsParameters' with all optional fields omitted.
@@ -45,30 +44,28 @@ data SqsParameters = SqsParameters'
 newSqsParameters ::
   SqsParameters
 newSqsParameters =
-  SqsParameters' {messageGroupId = Prelude.Nothing}
+  SqsParameters' {messageGroupId = Core.Nothing}
 
 -- | The FIFO message group ID to use as the target.
-sqsParameters_messageGroupId :: Lens.Lens' SqsParameters (Prelude.Maybe Prelude.Text)
+sqsParameters_messageGroupId :: Lens.Lens' SqsParameters (Core.Maybe Core.Text)
 sqsParameters_messageGroupId = Lens.lens (\SqsParameters' {messageGroupId} -> messageGroupId) (\s@SqsParameters' {} a -> s {messageGroupId = a} :: SqsParameters)
 
-instance Prelude.FromJSON SqsParameters where
+instance Core.FromJSON SqsParameters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SqsParameters"
       ( \x ->
           SqsParameters'
-            Prelude.<$> (x Prelude..:? "MessageGroupId")
+            Core.<$> (x Core..:? "MessageGroupId")
       )
 
-instance Prelude.Hashable SqsParameters
+instance Core.Hashable SqsParameters
 
-instance Prelude.NFData SqsParameters
+instance Core.NFData SqsParameters
 
-instance Prelude.ToJSON SqsParameters where
+instance Core.ToJSON SqsParameters where
   toJSON SqsParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MessageGroupId" Prelude..=)
-              Prelude.<$> messageGroupId
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("MessageGroupId" Core..=) Core.<$> messageGroupId]
       )

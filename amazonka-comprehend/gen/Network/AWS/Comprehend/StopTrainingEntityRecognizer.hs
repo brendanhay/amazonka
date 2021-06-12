@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.Comprehend.StopTrainingEntityRecognizer
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data StopTrainingEntityRecognizer = StopTrainingEntityRecognizer'
   { -- | The Amazon Resource Name (ARN) that identifies the entity recognizer
     -- currently being trained.
-    entityRecognizerArn :: Prelude.Text
+    entityRecognizerArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTrainingEntityRecognizer' with all optional fields omitted.
@@ -72,7 +71,7 @@ data StopTrainingEntityRecognizer = StopTrainingEntityRecognizer'
 -- currently being trained.
 newStopTrainingEntityRecognizer ::
   -- | 'entityRecognizerArn'
-  Prelude.Text ->
+  Core.Text ->
   StopTrainingEntityRecognizer
 newStopTrainingEntityRecognizer pEntityRecognizerArn_ =
   StopTrainingEntityRecognizer'
@@ -82,71 +81,59 @@ newStopTrainingEntityRecognizer pEntityRecognizerArn_ =
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer
 -- currently being trained.
-stopTrainingEntityRecognizer_entityRecognizerArn :: Lens.Lens' StopTrainingEntityRecognizer Prelude.Text
+stopTrainingEntityRecognizer_entityRecognizerArn :: Lens.Lens' StopTrainingEntityRecognizer Core.Text
 stopTrainingEntityRecognizer_entityRecognizerArn = Lens.lens (\StopTrainingEntityRecognizer' {entityRecognizerArn} -> entityRecognizerArn) (\s@StopTrainingEntityRecognizer' {} a -> s {entityRecognizerArn = a} :: StopTrainingEntityRecognizer)
 
-instance
-  Prelude.AWSRequest
-    StopTrainingEntityRecognizer
-  where
+instance Core.AWSRequest StopTrainingEntityRecognizer where
   type
-    Rs StopTrainingEntityRecognizer =
+    AWSResponse StopTrainingEntityRecognizer =
       StopTrainingEntityRecognizerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopTrainingEntityRecognizerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StopTrainingEntityRecognizer
+instance Core.Hashable StopTrainingEntityRecognizer
 
-instance Prelude.NFData StopTrainingEntityRecognizer
+instance Core.NFData StopTrainingEntityRecognizer
 
-instance
-  Prelude.ToHeaders
-    StopTrainingEntityRecognizer
-  where
+instance Core.ToHeaders StopTrainingEntityRecognizer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StopTrainingEntityRecognizer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StopTrainingEntityRecognizer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopTrainingEntityRecognizer where
+instance Core.ToJSON StopTrainingEntityRecognizer where
   toJSON StopTrainingEntityRecognizer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "EntityRecognizerArn"
-                  Prelude..= entityRecognizerArn
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("EntityRecognizerArn" Core..= entityRecognizerArn)
           ]
       )
 
-instance Prelude.ToPath StopTrainingEntityRecognizer where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopTrainingEntityRecognizer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopTrainingEntityRecognizer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopTrainingEntityRecognizer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopTrainingEntityRecognizerResponse' smart constructor.
 data StopTrainingEntityRecognizerResponse = StopTrainingEntityRecognizerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTrainingEntityRecognizerResponse' with all optional fields omitted.
@@ -159,7 +146,7 @@ data StopTrainingEntityRecognizerResponse = StopTrainingEntityRecognizerResponse
 -- 'httpStatus', 'stopTrainingEntityRecognizerResponse_httpStatus' - The response's http status code.
 newStopTrainingEntityRecognizerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopTrainingEntityRecognizerResponse
 newStopTrainingEntityRecognizerResponse pHttpStatus_ =
   StopTrainingEntityRecognizerResponse'
@@ -168,9 +155,9 @@ newStopTrainingEntityRecognizerResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopTrainingEntityRecognizerResponse_httpStatus :: Lens.Lens' StopTrainingEntityRecognizerResponse Prelude.Int
+stopTrainingEntityRecognizerResponse_httpStatus :: Lens.Lens' StopTrainingEntityRecognizerResponse Core.Int
 stopTrainingEntityRecognizerResponse_httpStatus = Lens.lens (\StopTrainingEntityRecognizerResponse' {httpStatus} -> httpStatus) (\s@StopTrainingEntityRecognizerResponse' {} a -> s {httpStatus = a} :: StopTrainingEntityRecognizerResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StopTrainingEntityRecognizerResponse

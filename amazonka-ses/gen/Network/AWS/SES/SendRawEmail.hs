@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -135,8 +134,8 @@ module Network.AWS.SES.SendRawEmail
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -160,7 +159,7 @@ data SendRawEmail = SendRawEmail'
     -- For information about when to use this parameter, see the description of
     -- @SendRawEmail@ in this guide, or see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-    fromArn :: Prelude.Maybe Prelude.Text,
+    fromArn :: Core.Maybe Core.Text,
     -- | The identity\'s email address. If you do not provide a value for this
     -- parameter, you must specify a \"From\" address in the raw text of the
     -- message. (You can also specify both.)
@@ -183,7 +182,7 @@ data SendRawEmail = SendRawEmail'
     -- enabled, then bounces and complaints will be sent to this email address.
     -- This takes precedence over any Return-Path header that you might include
     -- in the raw text of the message.
-    source :: Prelude.Maybe Prelude.Text,
+    source :: Core.Maybe Core.Text,
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to use the email address specified in the @ReturnPath@
@@ -204,15 +203,15 @@ data SendRawEmail = SendRawEmail'
     -- For information about when to use this parameter, see the description of
     -- @SendRawEmail@ in this guide, or see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-    returnPathArn :: Prelude.Maybe Prelude.Text,
+    returnPathArn :: Core.Maybe Core.Text,
     -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
     -- addresses.
-    destinations :: Prelude.Maybe [Prelude.Text],
+    destinations :: Core.Maybe [Core.Text],
     -- | A list of tags, in the form of name\/value pairs, to apply to an email
     -- that you send using @SendRawEmail@. Tags correspond to characteristics
     -- of the email that you define, so that you can publish email sending
     -- events.
-    tags :: Prelude.Maybe [MessageTag],
+    tags :: Core.Maybe [MessageTag],
     -- | This parameter is used only for sending authorization. It is the ARN of
     -- the identity that is associated with the sending authorization policy
     -- that permits you to send for the email address specified in the @Source@
@@ -233,10 +232,10 @@ data SendRawEmail = SendRawEmail'
     -- For information about when to use this parameter, see the description of
     -- @SendRawEmail@ in this guide, or see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-    sourceArn :: Prelude.Maybe Prelude.Text,
+    sourceArn :: Core.Maybe Core.Text,
     -- | The name of the configuration set to use when you send an email using
     -- @SendRawEmail@.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
+    configurationSetName :: Core.Maybe Core.Text,
     -- | The raw email message itself. The message has to meet the following
     -- criteria:
     --
@@ -266,7 +265,7 @@ data SendRawEmail = SendRawEmail'
     --     not exceed 1,000 characters.
     rawMessage :: RawMessage
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendRawEmail' with all optional fields omitted.
@@ -399,13 +398,13 @@ newSendRawEmail ::
   SendRawEmail
 newSendRawEmail pRawMessage_ =
   SendRawEmail'
-    { fromArn = Prelude.Nothing,
-      source = Prelude.Nothing,
-      returnPathArn = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      configurationSetName = Prelude.Nothing,
+    { fromArn = Core.Nothing,
+      source = Core.Nothing,
+      returnPathArn = Core.Nothing,
+      destinations = Core.Nothing,
+      tags = Core.Nothing,
+      sourceArn = Core.Nothing,
+      configurationSetName = Core.Nothing,
       rawMessage = pRawMessage_
     }
 
@@ -422,7 +421,7 @@ newSendRawEmail pRawMessage_ =
 -- For information about when to use this parameter, see the description of
 -- @SendRawEmail@ in this guide, or see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-sendRawEmail_fromArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_fromArn :: Lens.Lens' SendRawEmail (Core.Maybe Core.Text)
 sendRawEmail_fromArn = Lens.lens (\SendRawEmail' {fromArn} -> fromArn) (\s@SendRawEmail' {} a -> s {fromArn = a} :: SendRawEmail)
 
 -- | The identity\'s email address. If you do not provide a value for this
@@ -447,7 +446,7 @@ sendRawEmail_fromArn = Lens.lens (\SendRawEmail' {fromArn} -> fromArn) (\s@SendR
 -- enabled, then bounces and complaints will be sent to this email address.
 -- This takes precedence over any Return-Path header that you might include
 -- in the raw text of the message.
-sendRawEmail_source :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_source :: Lens.Lens' SendRawEmail (Core.Maybe Core.Text)
 sendRawEmail_source = Lens.lens (\SendRawEmail' {source} -> source) (\s@SendRawEmail' {} a -> s {source = a} :: SendRawEmail)
 
 -- | This parameter is used only for sending authorization. It is the ARN of
@@ -470,20 +469,20 @@ sendRawEmail_source = Lens.lens (\SendRawEmail' {source} -> source) (\s@SendRawE
 -- For information about when to use this parameter, see the description of
 -- @SendRawEmail@ in this guide, or see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-sendRawEmail_returnPathArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_returnPathArn :: Lens.Lens' SendRawEmail (Core.Maybe Core.Text)
 sendRawEmail_returnPathArn = Lens.lens (\SendRawEmail' {returnPathArn} -> returnPathArn) (\s@SendRawEmail' {} a -> s {returnPathArn = a} :: SendRawEmail)
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
-sendRawEmail_destinations :: Lens.Lens' SendRawEmail (Prelude.Maybe [Prelude.Text])
-sendRawEmail_destinations = Lens.lens (\SendRawEmail' {destinations} -> destinations) (\s@SendRawEmail' {} a -> s {destinations = a} :: SendRawEmail) Prelude.. Lens.mapping Prelude._Coerce
+sendRawEmail_destinations :: Lens.Lens' SendRawEmail (Core.Maybe [Core.Text])
+sendRawEmail_destinations = Lens.lens (\SendRawEmail' {destinations} -> destinations) (\s@SendRawEmail' {} a -> s {destinations = a} :: SendRawEmail) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of tags, in the form of name\/value pairs, to apply to an email
 -- that you send using @SendRawEmail@. Tags correspond to characteristics
 -- of the email that you define, so that you can publish email sending
 -- events.
-sendRawEmail_tags :: Lens.Lens' SendRawEmail (Prelude.Maybe [MessageTag])
-sendRawEmail_tags = Lens.lens (\SendRawEmail' {tags} -> tags) (\s@SendRawEmail' {} a -> s {tags = a} :: SendRawEmail) Prelude.. Lens.mapping Prelude._Coerce
+sendRawEmail_tags :: Lens.Lens' SendRawEmail (Core.Maybe [MessageTag])
+sendRawEmail_tags = Lens.lens (\SendRawEmail' {tags} -> tags) (\s@SendRawEmail' {} a -> s {tags = a} :: SendRawEmail) Core.. Lens.mapping Lens._Coerce
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -505,12 +504,12 @@ sendRawEmail_tags = Lens.lens (\SendRawEmail' {tags} -> tags) (\s@SendRawEmail' 
 -- For information about when to use this parameter, see the description of
 -- @SendRawEmail@ in this guide, or see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-sendRawEmail_sourceArn :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_sourceArn :: Lens.Lens' SendRawEmail (Core.Maybe Core.Text)
 sendRawEmail_sourceArn = Lens.lens (\SendRawEmail' {sourceArn} -> sourceArn) (\s@SendRawEmail' {} a -> s {sourceArn = a} :: SendRawEmail)
 
 -- | The name of the configuration set to use when you send an email using
 -- @SendRawEmail@.
-sendRawEmail_configurationSetName :: Lens.Lens' SendRawEmail (Prelude.Maybe Prelude.Text)
+sendRawEmail_configurationSetName :: Lens.Lens' SendRawEmail (Core.Maybe Core.Text)
 sendRawEmail_configurationSetName = Lens.lens (\SendRawEmail' {configurationSetName} -> configurationSetName) (\s@SendRawEmail' {} a -> s {configurationSetName = a} :: SendRawEmail)
 
 -- | The raw email message itself. The message has to meet the following
@@ -543,50 +542,46 @@ sendRawEmail_configurationSetName = Lens.lens (\SendRawEmail' {configurationSetN
 sendRawEmail_rawMessage :: Lens.Lens' SendRawEmail RawMessage
 sendRawEmail_rawMessage = Lens.lens (\SendRawEmail' {rawMessage} -> rawMessage) (\s@SendRawEmail' {} a -> s {rawMessage = a} :: SendRawEmail)
 
-instance Prelude.AWSRequest SendRawEmail where
-  type Rs SendRawEmail = SendRawEmailResponse
+instance Core.AWSRequest SendRawEmail where
+  type AWSResponse SendRawEmail = SendRawEmailResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "SendRawEmailResult"
       ( \s h x ->
           SendRawEmailResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "MessageId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "MessageId")
       )
 
-instance Prelude.Hashable SendRawEmail
+instance Core.Hashable SendRawEmail
 
-instance Prelude.NFData SendRawEmail
+instance Core.NFData SendRawEmail
 
-instance Prelude.ToHeaders SendRawEmail where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SendRawEmail where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SendRawEmail where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendRawEmail where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendRawEmail where
+instance Core.ToQuery SendRawEmail where
   toQuery SendRawEmail' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SendRawEmail" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "FromArn" Prelude.=: fromArn,
-        "Source" Prelude.=: source,
-        "ReturnPathArn" Prelude.=: returnPathArn,
+          Core.=: ("SendRawEmail" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "FromArn" Core.=: fromArn,
+        "Source" Core.=: source,
+        "ReturnPathArn" Core.=: returnPathArn,
         "Destinations"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> destinations
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> destinations),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
-        "SourceArn" Prelude.=: sourceArn,
-        "ConfigurationSetName"
-          Prelude.=: configurationSetName,
-        "RawMessage" Prelude.=: rawMessage
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
+        "SourceArn" Core.=: sourceArn,
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "RawMessage" Core.=: rawMessage
       ]
 
 -- | Represents a unique message ID.
@@ -594,11 +589,11 @@ instance Prelude.ToQuery SendRawEmail where
 -- /See:/ 'newSendRawEmailResponse' smart constructor.
 data SendRawEmailResponse = SendRawEmailResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The unique message identifier returned from the @SendRawEmail@ action.
-    messageId :: Prelude.Text
+    messageId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendRawEmailResponse' with all optional fields omitted.
@@ -613,9 +608,9 @@ data SendRawEmailResponse = SendRawEmailResponse'
 -- 'messageId', 'sendRawEmailResponse_messageId' - The unique message identifier returned from the @SendRawEmail@ action.
 newSendRawEmailResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'messageId'
-  Prelude.Text ->
+  Core.Text ->
   SendRawEmailResponse
 newSendRawEmailResponse pHttpStatus_ pMessageId_ =
   SendRawEmailResponse'
@@ -624,11 +619,11 @@ newSendRawEmailResponse pHttpStatus_ pMessageId_ =
     }
 
 -- | The response's http status code.
-sendRawEmailResponse_httpStatus :: Lens.Lens' SendRawEmailResponse Prelude.Int
+sendRawEmailResponse_httpStatus :: Lens.Lens' SendRawEmailResponse Core.Int
 sendRawEmailResponse_httpStatus = Lens.lens (\SendRawEmailResponse' {httpStatus} -> httpStatus) (\s@SendRawEmailResponse' {} a -> s {httpStatus = a} :: SendRawEmailResponse)
 
 -- | The unique message identifier returned from the @SendRawEmail@ action.
-sendRawEmailResponse_messageId :: Lens.Lens' SendRawEmailResponse Prelude.Text
+sendRawEmailResponse_messageId :: Lens.Lens' SendRawEmailResponse Core.Text
 sendRawEmailResponse_messageId = Lens.lens (\SendRawEmailResponse' {messageId} -> messageId) (\s@SendRawEmailResponse' {} a -> s {messageId = a} :: SendRawEmailResponse)
 
-instance Prelude.NFData SendRawEmailResponse
+instance Core.NFData SendRawEmailResponse

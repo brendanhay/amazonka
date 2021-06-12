@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.APIGateway.GetMethod
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,13 +61,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetMethod' smart constructor.
 data GetMethod = GetMethod'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The Resource identifier for the Method resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] Specifies the method request\'s HTTP method type.
-    httpMethod :: Prelude.Text
+    httpMethod :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMethod' with all optional fields omitted.
@@ -85,11 +84,11 @@ data GetMethod = GetMethod'
 -- 'httpMethod', 'getMethod_httpMethod' - [Required] Specifies the method request\'s HTTP method type.
 newGetMethod ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   GetMethod
 newGetMethod pRestApiId_ pResourceId_ pHttpMethod_ =
   GetMethod'
@@ -99,47 +98,47 @@ newGetMethod pRestApiId_ pResourceId_ pHttpMethod_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-getMethod_restApiId :: Lens.Lens' GetMethod Prelude.Text
+getMethod_restApiId :: Lens.Lens' GetMethod Core.Text
 getMethod_restApiId = Lens.lens (\GetMethod' {restApiId} -> restApiId) (\s@GetMethod' {} a -> s {restApiId = a} :: GetMethod)
 
 -- | [Required] The Resource identifier for the Method resource.
-getMethod_resourceId :: Lens.Lens' GetMethod Prelude.Text
+getMethod_resourceId :: Lens.Lens' GetMethod Core.Text
 getMethod_resourceId = Lens.lens (\GetMethod' {resourceId} -> resourceId) (\s@GetMethod' {} a -> s {resourceId = a} :: GetMethod)
 
 -- | [Required] Specifies the method request\'s HTTP method type.
-getMethod_httpMethod :: Lens.Lens' GetMethod Prelude.Text
+getMethod_httpMethod :: Lens.Lens' GetMethod Core.Text
 getMethod_httpMethod = Lens.lens (\GetMethod' {httpMethod} -> httpMethod) (\s@GetMethod' {} a -> s {httpMethod = a} :: GetMethod)
 
-instance Prelude.AWSRequest GetMethod where
-  type Rs GetMethod = Method
+instance Core.AWSRequest GetMethod where
+  type AWSResponse GetMethod = Method
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetMethod
+instance Core.Hashable GetMethod
 
-instance Prelude.NFData GetMethod
+instance Core.NFData GetMethod
 
-instance Prelude.ToHeaders GetMethod where
+instance Core.ToHeaders GetMethod where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetMethod where
+instance Core.ToPath GetMethod where
   toPath GetMethod' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod
+        Core.toBS httpMethod
       ]
 
-instance Prelude.ToQuery GetMethod where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMethod where
+  toQuery = Core.const Core.mempty

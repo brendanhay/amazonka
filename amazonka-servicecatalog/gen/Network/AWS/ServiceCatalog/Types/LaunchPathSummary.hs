@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.LaunchPathSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ConstraintSummary
 import Network.AWS.ServiceCatalog.Types.Tag
 
@@ -30,15 +29,15 @@ import Network.AWS.ServiceCatalog.Types.Tag
 -- /See:/ 'newLaunchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
   { -- | The constraints on the portfolio-product relationship.
-    constraintSummaries :: Prelude.Maybe [ConstraintSummary],
+    constraintSummaries :: Core.Maybe [ConstraintSummary],
     -- | The identifier of the product path.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the portfolio to which the user was assigned.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The tags associated with this product path.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchPathSummary' with all optional fields omitted.
@@ -60,42 +59,42 @@ newLaunchPathSummary ::
 newLaunchPathSummary =
   LaunchPathSummary'
     { constraintSummaries =
-        Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing
+        Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The constraints on the portfolio-product relationship.
-launchPathSummary_constraintSummaries :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [ConstraintSummary])
-launchPathSummary_constraintSummaries = Lens.lens (\LaunchPathSummary' {constraintSummaries} -> constraintSummaries) (\s@LaunchPathSummary' {} a -> s {constraintSummaries = a} :: LaunchPathSummary) Prelude.. Lens.mapping Prelude._Coerce
+launchPathSummary_constraintSummaries :: Lens.Lens' LaunchPathSummary (Core.Maybe [ConstraintSummary])
+launchPathSummary_constraintSummaries = Lens.lens (\LaunchPathSummary' {constraintSummaries} -> constraintSummaries) (\s@LaunchPathSummary' {} a -> s {constraintSummaries = a} :: LaunchPathSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the product path.
-launchPathSummary_id :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
+launchPathSummary_id :: Lens.Lens' LaunchPathSummary (Core.Maybe Core.Text)
 launchPathSummary_id = Lens.lens (\LaunchPathSummary' {id} -> id) (\s@LaunchPathSummary' {} a -> s {id = a} :: LaunchPathSummary)
 
 -- | The name of the portfolio to which the user was assigned.
-launchPathSummary_name :: Lens.Lens' LaunchPathSummary (Prelude.Maybe Prelude.Text)
+launchPathSummary_name :: Lens.Lens' LaunchPathSummary (Core.Maybe Core.Text)
 launchPathSummary_name = Lens.lens (\LaunchPathSummary' {name} -> name) (\s@LaunchPathSummary' {} a -> s {name = a} :: LaunchPathSummary)
 
 -- | The tags associated with this product path.
-launchPathSummary_tags :: Lens.Lens' LaunchPathSummary (Prelude.Maybe [Tag])
-launchPathSummary_tags = Lens.lens (\LaunchPathSummary' {tags} -> tags) (\s@LaunchPathSummary' {} a -> s {tags = a} :: LaunchPathSummary) Prelude.. Lens.mapping Prelude._Coerce
+launchPathSummary_tags :: Lens.Lens' LaunchPathSummary (Core.Maybe [Tag])
+launchPathSummary_tags = Lens.lens (\LaunchPathSummary' {tags} -> tags) (\s@LaunchPathSummary' {} a -> s {tags = a} :: LaunchPathSummary) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON LaunchPathSummary where
+instance Core.FromJSON LaunchPathSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LaunchPathSummary"
       ( \x ->
           LaunchPathSummary'
-            Prelude.<$> ( x Prelude..:? "ConstraintSummaries"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
+            Core.<$> ( x Core..:? "ConstraintSummaries"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable LaunchPathSummary
+instance Core.Hashable LaunchPathSummary
 
-instance Prelude.NFData LaunchPathSummary
+instance Core.NFData LaunchPathSummary

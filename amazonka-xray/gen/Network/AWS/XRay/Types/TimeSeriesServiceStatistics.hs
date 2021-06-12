@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.TimeSeriesServiceStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.EdgeStatistics
 import Network.AWS.XRay.Types.ForecastStatistics
 import Network.AWS.XRay.Types.HistogramEntry
@@ -31,16 +30,16 @@ import Network.AWS.XRay.Types.ServiceStatistics
 --
 -- /See:/ 'newTimeSeriesServiceStatistics' smart constructor.
 data TimeSeriesServiceStatistics = TimeSeriesServiceStatistics'
-  { serviceSummaryStatistics :: Prelude.Maybe ServiceStatistics,
+  { serviceSummaryStatistics :: Core.Maybe ServiceStatistics,
     -- | The response time histogram for the selected entities.
-    responseTimeHistogram :: Prelude.Maybe [HistogramEntry],
+    responseTimeHistogram :: Core.Maybe [HistogramEntry],
     -- | The forecasted high and low fault count values.
-    serviceForecastStatistics :: Prelude.Maybe ForecastStatistics,
-    edgeSummaryStatistics :: Prelude.Maybe EdgeStatistics,
+    serviceForecastStatistics :: Core.Maybe ForecastStatistics,
+    edgeSummaryStatistics :: Core.Maybe EdgeStatistics,
     -- | Timestamp of the window for which statistics are aggregated.
-    timestamp :: Prelude.Maybe Prelude.POSIX
+    timestamp :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimeSeriesServiceStatistics' with all optional fields omitted.
@@ -64,48 +63,48 @@ newTimeSeriesServiceStatistics ::
 newTimeSeriesServiceStatistics =
   TimeSeriesServiceStatistics'
     { serviceSummaryStatistics =
-        Prelude.Nothing,
-      responseTimeHistogram = Prelude.Nothing,
-      serviceForecastStatistics = Prelude.Nothing,
-      edgeSummaryStatistics = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+        Core.Nothing,
+      responseTimeHistogram = Core.Nothing,
+      serviceForecastStatistics = Core.Nothing,
+      edgeSummaryStatistics = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | Undocumented member.
-timeSeriesServiceStatistics_serviceSummaryStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe ServiceStatistics)
+timeSeriesServiceStatistics_serviceSummaryStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Core.Maybe ServiceStatistics)
 timeSeriesServiceStatistics_serviceSummaryStatistics = Lens.lens (\TimeSeriesServiceStatistics' {serviceSummaryStatistics} -> serviceSummaryStatistics) (\s@TimeSeriesServiceStatistics' {} a -> s {serviceSummaryStatistics = a} :: TimeSeriesServiceStatistics)
 
 -- | The response time histogram for the selected entities.
-timeSeriesServiceStatistics_responseTimeHistogram :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe [HistogramEntry])
-timeSeriesServiceStatistics_responseTimeHistogram = Lens.lens (\TimeSeriesServiceStatistics' {responseTimeHistogram} -> responseTimeHistogram) (\s@TimeSeriesServiceStatistics' {} a -> s {responseTimeHistogram = a} :: TimeSeriesServiceStatistics) Prelude.. Lens.mapping Prelude._Coerce
+timeSeriesServiceStatistics_responseTimeHistogram :: Lens.Lens' TimeSeriesServiceStatistics (Core.Maybe [HistogramEntry])
+timeSeriesServiceStatistics_responseTimeHistogram = Lens.lens (\TimeSeriesServiceStatistics' {responseTimeHistogram} -> responseTimeHistogram) (\s@TimeSeriesServiceStatistics' {} a -> s {responseTimeHistogram = a} :: TimeSeriesServiceStatistics) Core.. Lens.mapping Lens._Coerce
 
 -- | The forecasted high and low fault count values.
-timeSeriesServiceStatistics_serviceForecastStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe ForecastStatistics)
+timeSeriesServiceStatistics_serviceForecastStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Core.Maybe ForecastStatistics)
 timeSeriesServiceStatistics_serviceForecastStatistics = Lens.lens (\TimeSeriesServiceStatistics' {serviceForecastStatistics} -> serviceForecastStatistics) (\s@TimeSeriesServiceStatistics' {} a -> s {serviceForecastStatistics = a} :: TimeSeriesServiceStatistics)
 
 -- | Undocumented member.
-timeSeriesServiceStatistics_edgeSummaryStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe EdgeStatistics)
+timeSeriesServiceStatistics_edgeSummaryStatistics :: Lens.Lens' TimeSeriesServiceStatistics (Core.Maybe EdgeStatistics)
 timeSeriesServiceStatistics_edgeSummaryStatistics = Lens.lens (\TimeSeriesServiceStatistics' {edgeSummaryStatistics} -> edgeSummaryStatistics) (\s@TimeSeriesServiceStatistics' {} a -> s {edgeSummaryStatistics = a} :: TimeSeriesServiceStatistics)
 
 -- | Timestamp of the window for which statistics are aggregated.
-timeSeriesServiceStatistics_timestamp :: Lens.Lens' TimeSeriesServiceStatistics (Prelude.Maybe Prelude.UTCTime)
-timeSeriesServiceStatistics_timestamp = Lens.lens (\TimeSeriesServiceStatistics' {timestamp} -> timestamp) (\s@TimeSeriesServiceStatistics' {} a -> s {timestamp = a} :: TimeSeriesServiceStatistics) Prelude.. Lens.mapping Prelude._Time
+timeSeriesServiceStatistics_timestamp :: Lens.Lens' TimeSeriesServiceStatistics (Core.Maybe Core.UTCTime)
+timeSeriesServiceStatistics_timestamp = Lens.lens (\TimeSeriesServiceStatistics' {timestamp} -> timestamp) (\s@TimeSeriesServiceStatistics' {} a -> s {timestamp = a} :: TimeSeriesServiceStatistics) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON TimeSeriesServiceStatistics where
+instance Core.FromJSON TimeSeriesServiceStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TimeSeriesServiceStatistics"
       ( \x ->
           TimeSeriesServiceStatistics'
-            Prelude.<$> (x Prelude..:? "ServiceSummaryStatistics")
-            Prelude.<*> ( x Prelude..:? "ResponseTimeHistogram"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ServiceForecastStatistics")
-            Prelude.<*> (x Prelude..:? "EdgeSummaryStatistics")
-            Prelude.<*> (x Prelude..:? "Timestamp")
+            Core.<$> (x Core..:? "ServiceSummaryStatistics")
+            Core.<*> ( x Core..:? "ResponseTimeHistogram"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "ServiceForecastStatistics")
+            Core.<*> (x Core..:? "EdgeSummaryStatistics")
+            Core.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable TimeSeriesServiceStatistics
+instance Core.Hashable TimeSeriesServiceStatistics
 
-instance Prelude.NFData TimeSeriesServiceStatistics
+instance Core.NFData TimeSeriesServiceStatistics

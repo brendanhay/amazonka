@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.DirectoryService.ConnectDirectory
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,23 +62,23 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newConnectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
   { -- | The NetBIOS name of the on-premises directory, such as @CORP@.
-    shortName :: Prelude.Maybe Prelude.Text,
+    shortName :: Core.Maybe Core.Text,
     -- | The tags to be assigned to AD Connector.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A description for the directory.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The fully qualified name of the on-premises directory, such as
     -- @corp.example.com@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The password for the on-premises user account.
-    password :: Prelude.Sensitive Prelude.Text,
+    password :: Core.Sensitive Core.Text,
     -- | The size of the directory.
     size :: DirectorySize,
     -- | A DirectoryConnectSettings object that contains additional information
     -- for the operation.
     connectSettings :: DirectoryConnectSettings
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectDirectory' with all optional fields omitted.
@@ -106,9 +105,9 @@ data ConnectDirectory = ConnectDirectory'
 -- for the operation.
 newConnectDirectory ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'password'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'size'
   DirectorySize ->
   -- | 'connectSettings'
@@ -120,35 +119,35 @@ newConnectDirectory
   pSize_
   pConnectSettings_ =
     ConnectDirectory'
-      { shortName = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { shortName = Core.Nothing,
+        tags = Core.Nothing,
+        description = Core.Nothing,
         name = pName_,
-        password = Prelude._Sensitive Lens.# pPassword_,
+        password = Core._Sensitive Lens.# pPassword_,
         size = pSize_,
         connectSettings = pConnectSettings_
       }
 
 -- | The NetBIOS name of the on-premises directory, such as @CORP@.
-connectDirectory_shortName :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
+connectDirectory_shortName :: Lens.Lens' ConnectDirectory (Core.Maybe Core.Text)
 connectDirectory_shortName = Lens.lens (\ConnectDirectory' {shortName} -> shortName) (\s@ConnectDirectory' {} a -> s {shortName = a} :: ConnectDirectory)
 
 -- | The tags to be assigned to AD Connector.
-connectDirectory_tags :: Lens.Lens' ConnectDirectory (Prelude.Maybe [Tag])
-connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@ConnectDirectory' {} a -> s {tags = a} :: ConnectDirectory) Prelude.. Lens.mapping Prelude._Coerce
+connectDirectory_tags :: Lens.Lens' ConnectDirectory (Core.Maybe [Tag])
+connectDirectory_tags = Lens.lens (\ConnectDirectory' {tags} -> tags) (\s@ConnectDirectory' {} a -> s {tags = a} :: ConnectDirectory) Core.. Lens.mapping Lens._Coerce
 
 -- | A description for the directory.
-connectDirectory_description :: Lens.Lens' ConnectDirectory (Prelude.Maybe Prelude.Text)
+connectDirectory_description :: Lens.Lens' ConnectDirectory (Core.Maybe Core.Text)
 connectDirectory_description = Lens.lens (\ConnectDirectory' {description} -> description) (\s@ConnectDirectory' {} a -> s {description = a} :: ConnectDirectory)
 
 -- | The fully qualified name of the on-premises directory, such as
 -- @corp.example.com@.
-connectDirectory_name :: Lens.Lens' ConnectDirectory Prelude.Text
+connectDirectory_name :: Lens.Lens' ConnectDirectory Core.Text
 connectDirectory_name = Lens.lens (\ConnectDirectory' {name} -> name) (\s@ConnectDirectory' {} a -> s {name = a} :: ConnectDirectory)
 
 -- | The password for the on-premises user account.
-connectDirectory_password :: Lens.Lens' ConnectDirectory Prelude.Text
-connectDirectory_password = Lens.lens (\ConnectDirectory' {password} -> password) (\s@ConnectDirectory' {} a -> s {password = a} :: ConnectDirectory) Prelude.. Prelude._Sensitive
+connectDirectory_password :: Lens.Lens' ConnectDirectory Core.Text
+connectDirectory_password = Lens.lens (\ConnectDirectory' {password} -> password) (\s@ConnectDirectory' {} a -> s {password = a} :: ConnectDirectory) Core.. Core._Sensitive
 
 -- | The size of the directory.
 connectDirectory_size :: Lens.Lens' ConnectDirectory DirectorySize
@@ -159,67 +158,67 @@ connectDirectory_size = Lens.lens (\ConnectDirectory' {size} -> size) (\s@Connec
 connectDirectory_connectSettings :: Lens.Lens' ConnectDirectory DirectoryConnectSettings
 connectDirectory_connectSettings = Lens.lens (\ConnectDirectory' {connectSettings} -> connectSettings) (\s@ConnectDirectory' {} a -> s {connectSettings = a} :: ConnectDirectory)
 
-instance Prelude.AWSRequest ConnectDirectory where
-  type Rs ConnectDirectory = ConnectDirectoryResponse
+instance Core.AWSRequest ConnectDirectory where
+  type
+    AWSResponse ConnectDirectory =
+      ConnectDirectoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ConnectDirectoryResponse'
-            Prelude.<$> (x Prelude..?> "DirectoryId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DirectoryId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ConnectDirectory
+instance Core.Hashable ConnectDirectory
 
-instance Prelude.NFData ConnectDirectory
+instance Core.NFData ConnectDirectory
 
-instance Prelude.ToHeaders ConnectDirectory where
+instance Core.ToHeaders ConnectDirectory where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.ConnectDirectory" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.ConnectDirectory" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ConnectDirectory where
+instance Core.ToJSON ConnectDirectory where
   toJSON ConnectDirectory' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ShortName" Prelude..=) Prelude.<$> shortName,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Password" Prelude..= password),
-            Prelude.Just ("Size" Prelude..= size),
-            Prelude.Just
-              ("ConnectSettings" Prelude..= connectSettings)
+    Core.object
+      ( Core.catMaybes
+          [ ("ShortName" Core..=) Core.<$> shortName,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Password" Core..= password),
+            Core.Just ("Size" Core..= size),
+            Core.Just
+              ("ConnectSettings" Core..= connectSettings)
           ]
       )
 
-instance Prelude.ToPath ConnectDirectory where
-  toPath = Prelude.const "/"
+instance Core.ToPath ConnectDirectory where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ConnectDirectory where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ConnectDirectory where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the results of the ConnectDirectory operation.
 --
 -- /See:/ 'newConnectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
   { -- | The identifier of the new directory.
-    directoryId :: Prelude.Maybe Prelude.Text,
+    directoryId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectDirectoryResponse' with all optional fields omitted.
@@ -234,21 +233,21 @@ data ConnectDirectoryResponse = ConnectDirectoryResponse'
 -- 'httpStatus', 'connectDirectoryResponse_httpStatus' - The response's http status code.
 newConnectDirectoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ConnectDirectoryResponse
 newConnectDirectoryResponse pHttpStatus_ =
   ConnectDirectoryResponse'
     { directoryId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the new directory.
-connectDirectoryResponse_directoryId :: Lens.Lens' ConnectDirectoryResponse (Prelude.Maybe Prelude.Text)
+connectDirectoryResponse_directoryId :: Lens.Lens' ConnectDirectoryResponse (Core.Maybe Core.Text)
 connectDirectoryResponse_directoryId = Lens.lens (\ConnectDirectoryResponse' {directoryId} -> directoryId) (\s@ConnectDirectoryResponse' {} a -> s {directoryId = a} :: ConnectDirectoryResponse)
 
 -- | The response's http status code.
-connectDirectoryResponse_httpStatus :: Lens.Lens' ConnectDirectoryResponse Prelude.Int
+connectDirectoryResponse_httpStatus :: Lens.Lens' ConnectDirectoryResponse Core.Int
 connectDirectoryResponse_httpStatus = Lens.lens (\ConnectDirectoryResponse' {httpStatus} -> httpStatus) (\s@ConnectDirectoryResponse' {} a -> s {httpStatus = a} :: ConnectDirectoryResponse)
 
-instance Prelude.NFData ConnectDirectoryResponse
+instance Core.NFData ConnectDirectoryResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.MQ.CreateTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +47,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateTags' smart constructor.
 data CreateTags = CreateTags'
   { -- | The key-value pair for the resource tag.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The Amazon Resource Name (ARN) of the resource tag.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTags' with all optional fields omitted.
@@ -67,62 +66,57 @@ data CreateTags = CreateTags'
 -- 'resourceArn', 'createTags_resourceArn' - The Amazon Resource Name (ARN) of the resource tag.
 newCreateTags ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateTags
 newCreateTags pResourceArn_ =
   CreateTags'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | The key-value pair for the resource tag.
-createTags_tags :: Lens.Lens' CreateTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Prelude.. Lens.mapping Prelude._Coerce
+createTags_tags :: Lens.Lens' CreateTags (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -> s {tags = a} :: CreateTags) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the resource tag.
-createTags_resourceArn :: Lens.Lens' CreateTags Prelude.Text
+createTags_resourceArn :: Lens.Lens' CreateTags Core.Text
 createTags_resourceArn = Lens.lens (\CreateTags' {resourceArn} -> resourceArn) (\s@CreateTags' {} a -> s {resourceArn = a} :: CreateTags)
 
-instance Prelude.AWSRequest CreateTags where
-  type Rs CreateTags = CreateTagsResponse
+instance Core.AWSRequest CreateTags where
+  type AWSResponse CreateTags = CreateTagsResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull CreateTagsResponse'
 
-instance Prelude.Hashable CreateTags
+instance Core.Hashable CreateTags
 
-instance Prelude.NFData CreateTags
+instance Core.NFData CreateTags
 
-instance Prelude.ToHeaders CreateTags where
+instance Core.ToHeaders CreateTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateTags where
+instance Core.ToJSON CreateTags where
   toJSON CreateTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("tags" Prelude..=) Prelude.<$> tags]
-      )
+    Core.object
+      (Core.catMaybes [("tags" Core..=) Core.<$> tags])
 
-instance Prelude.ToPath CreateTags where
+instance Core.ToPath CreateTags where
   toPath CreateTags' {..} =
-    Prelude.mconcat
-      ["/v1/tags/", Prelude.toBS resourceArn]
+    Core.mconcat ["/v1/tags/", Core.toBS resourceArn]
 
-instance Prelude.ToQuery CreateTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTagsResponse' with all optional fields omitted.
@@ -132,4 +126,4 @@ newCreateTagsResponse ::
   CreateTagsResponse
 newCreateTagsResponse = CreateTagsResponse'
 
-instance Prelude.NFData CreateTagsResponse
+instance Core.NFData CreateTagsResponse

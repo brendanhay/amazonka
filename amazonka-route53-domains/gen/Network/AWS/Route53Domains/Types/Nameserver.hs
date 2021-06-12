@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53Domains.Types.Nameserver where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Nameserver includes the following elements.
 --
@@ -34,13 +33,13 @@ data Nameserver = Nameserver'
     -- ns.example.com.
     --
     -- Constraints: The list can contain only one IPv4 and one IPv6 address.
-    glueIps :: Prelude.Maybe [Prelude.Text],
+    glueIps :: Core.Maybe [Core.Text],
     -- | The fully qualified host name of the name server.
     --
     -- Constraint: Maximum 255 characters
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Nameserver' with all optional fields omitted.
@@ -63,13 +62,10 @@ data Nameserver = Nameserver'
 -- Constraint: Maximum 255 characters
 newNameserver ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Nameserver
 newNameserver pName_ =
-  Nameserver'
-    { glueIps = Prelude.Nothing,
-      name = pName_
-    }
+  Nameserver' {glueIps = Core.Nothing, name = pName_}
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required
 -- only when the name of the name server is a subdomain of the domain. For
@@ -78,34 +74,34 @@ newNameserver pName_ =
 -- ns.example.com.
 --
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
-nameserver_glueIps :: Lens.Lens' Nameserver (Prelude.Maybe [Prelude.Text])
-nameserver_glueIps = Lens.lens (\Nameserver' {glueIps} -> glueIps) (\s@Nameserver' {} a -> s {glueIps = a} :: Nameserver) Prelude.. Lens.mapping Prelude._Coerce
+nameserver_glueIps :: Lens.Lens' Nameserver (Core.Maybe [Core.Text])
+nameserver_glueIps = Lens.lens (\Nameserver' {glueIps} -> glueIps) (\s@Nameserver' {} a -> s {glueIps = a} :: Nameserver) Core.. Lens.mapping Lens._Coerce
 
 -- | The fully qualified host name of the name server.
 --
 -- Constraint: Maximum 255 characters
-nameserver_name :: Lens.Lens' Nameserver Prelude.Text
+nameserver_name :: Lens.Lens' Nameserver Core.Text
 nameserver_name = Lens.lens (\Nameserver' {name} -> name) (\s@Nameserver' {} a -> s {name = a} :: Nameserver)
 
-instance Prelude.FromJSON Nameserver where
+instance Core.FromJSON Nameserver where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Nameserver"
       ( \x ->
           Nameserver'
-            Prelude.<$> (x Prelude..:? "GlueIps" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "GlueIps" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Nameserver
+instance Core.Hashable Nameserver
 
-instance Prelude.NFData Nameserver
+instance Core.NFData Nameserver
 
-instance Prelude.ToJSON Nameserver where
+instance Core.ToJSON Nameserver where
   toJSON Nameserver' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GlueIps" Prelude..=) Prelude.<$> glueIps,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("GlueIps" Core..=) Core.<$> glueIps,
+            Core.Just ("Name" Core..= name)
           ]
       )

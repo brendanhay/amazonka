@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Context information that enables AWS CloudFormation to uniquely identify
 -- a resource. AWS CloudFormation uses context key-value pairs in cases
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPhysicalResourceIdContextKeyValuePair' smart constructor.
 data PhysicalResourceIdContextKeyValuePair = PhysicalResourceIdContextKeyValuePair'
   { -- | The resource context key.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The resource context value.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PhysicalResourceIdContextKeyValuePair' with all optional fields omitted.
@@ -51,9 +50,9 @@ data PhysicalResourceIdContextKeyValuePair = PhysicalResourceIdContextKeyValuePa
 -- 'value', 'physicalResourceIdContextKeyValuePair_value' - The resource context value.
 newPhysicalResourceIdContextKeyValuePair ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   PhysicalResourceIdContextKeyValuePair
 newPhysicalResourceIdContextKeyValuePair
   pKey_
@@ -64,26 +63,25 @@ newPhysicalResourceIdContextKeyValuePair
       }
 
 -- | The resource context key.
-physicalResourceIdContextKeyValuePair_key :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Prelude.Text
+physicalResourceIdContextKeyValuePair_key :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Core.Text
 physicalResourceIdContextKeyValuePair_key = Lens.lens (\PhysicalResourceIdContextKeyValuePair' {key} -> key) (\s@PhysicalResourceIdContextKeyValuePair' {} a -> s {key = a} :: PhysicalResourceIdContextKeyValuePair)
 
 -- | The resource context value.
-physicalResourceIdContextKeyValuePair_value :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Prelude.Text
+physicalResourceIdContextKeyValuePair_value :: Lens.Lens' PhysicalResourceIdContextKeyValuePair Core.Text
 physicalResourceIdContextKeyValuePair_value = Lens.lens (\PhysicalResourceIdContextKeyValuePair' {value} -> value) (\s@PhysicalResourceIdContextKeyValuePair' {} a -> s {value = a} :: PhysicalResourceIdContextKeyValuePair)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     PhysicalResourceIdContextKeyValuePair
   where
   parseXML x =
     PhysicalResourceIdContextKeyValuePair'
-      Prelude.<$> (x Prelude..@ "Key")
-      Prelude.<*> (x Prelude..@ "Value")
+      Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PhysicalResourceIdContextKeyValuePair
 
 instance
-  Prelude.NFData
+  Core.NFData
     PhysicalResourceIdContextKeyValuePair

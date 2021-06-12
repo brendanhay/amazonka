@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.EC2.DeleteCustomerGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ data DeleteCustomerGateway = DeleteCustomerGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the customer gateway.
-    customerGatewayId :: Prelude.Text
+    customerGatewayId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomerGateway' with all optional fields omitted.
@@ -74,11 +73,11 @@ data DeleteCustomerGateway = DeleteCustomerGateway'
 -- 'customerGatewayId', 'deleteCustomerGateway_customerGatewayId' - The ID of the customer gateway.
 newDeleteCustomerGateway ::
   -- | 'customerGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCustomerGateway
 newDeleteCustomerGateway pCustomerGatewayId_ =
   DeleteCustomerGateway'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       customerGatewayId = pCustomerGatewayId_
     }
 
@@ -86,47 +85,46 @@ newDeleteCustomerGateway pCustomerGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteCustomerGateway_dryRun :: Lens.Lens' DeleteCustomerGateway (Prelude.Maybe Prelude.Bool)
+deleteCustomerGateway_dryRun :: Lens.Lens' DeleteCustomerGateway (Core.Maybe Core.Bool)
 deleteCustomerGateway_dryRun = Lens.lens (\DeleteCustomerGateway' {dryRun} -> dryRun) (\s@DeleteCustomerGateway' {} a -> s {dryRun = a} :: DeleteCustomerGateway)
 
 -- | The ID of the customer gateway.
-deleteCustomerGateway_customerGatewayId :: Lens.Lens' DeleteCustomerGateway Prelude.Text
+deleteCustomerGateway_customerGatewayId :: Lens.Lens' DeleteCustomerGateway Core.Text
 deleteCustomerGateway_customerGatewayId = Lens.lens (\DeleteCustomerGateway' {customerGatewayId} -> customerGatewayId) (\s@DeleteCustomerGateway' {} a -> s {customerGatewayId = a} :: DeleteCustomerGateway)
 
-instance Prelude.AWSRequest DeleteCustomerGateway where
+instance Core.AWSRequest DeleteCustomerGateway where
   type
-    Rs DeleteCustomerGateway =
+    AWSResponse DeleteCustomerGateway =
       DeleteCustomerGatewayResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteCustomerGatewayResponse'
 
-instance Prelude.Hashable DeleteCustomerGateway
+instance Core.Hashable DeleteCustomerGateway
 
-instance Prelude.NFData DeleteCustomerGateway
+instance Core.NFData DeleteCustomerGateway
 
-instance Prelude.ToHeaders DeleteCustomerGateway where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteCustomerGateway where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteCustomerGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCustomerGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCustomerGateway where
+instance Core.ToQuery DeleteCustomerGateway where
   toQuery DeleteCustomerGateway' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteCustomerGateway" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "CustomerGatewayId" Prelude.=: customerGatewayId
+          Core.=: ("DeleteCustomerGateway" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "CustomerGatewayId" Core.=: customerGatewayId
       ]
 
 -- | /See:/ 'newDeleteCustomerGatewayResponse' smart constructor.
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomerGatewayResponse' with all optional fields omitted.
@@ -137,4 +135,4 @@ newDeleteCustomerGatewayResponse ::
 newDeleteCustomerGatewayResponse =
   DeleteCustomerGatewayResponse'
 
-instance Prelude.NFData DeleteCustomerGatewayResponse
+instance Core.NFData DeleteCustomerGatewayResponse

@@ -446,8 +446,8 @@ module Network.AWS.WAF.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.WAF.Types.ActivatedRule
 import Network.AWS.WAF.Types.ByteMatchSet
@@ -520,108 +520,106 @@ import Network.AWS.WAF.Types.XssMatchSetUpdate
 import Network.AWS.WAF.Types.XssMatchTuple
 
 -- | API version @2015-08-24@ of the Amazon WAF SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "WAF",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "waf",
-      Prelude._svcSigningName = "waf",
-      Prelude._svcVersion = "2015-08-24",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "WAF",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "WAF",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "waf",
+      Core._serviceSigningName = "waf",
+      Core._serviceVersion = "2015-08-24",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "WAF",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- |
-_WAFTagOperationInternalErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFTagOperationInternalErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFTagOperationInternalErrorException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFTagOperationInternalErrorException"
 
 -- | The operation failed because you tried to create, update, or delete an
 -- object by using an invalid account identifier.
-_WAFInvalidAccountException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFInvalidAccountException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFInvalidAccountException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFInvalidAccountException"
 
 -- | The specified subscription does not exist.
-_WAFSubscriptionNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFSubscriptionNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFSubscriptionNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFSubscriptionNotFoundException"
 
 -- |
-_WAFBadRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFBadRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFBadRequestException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFBadRequestException"
 
 -- | The name specified is invalid.
-_WAFDisallowedNameException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFDisallowedNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFDisallowedNameException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFDisallowedNameException"
 
@@ -639,9 +637,9 @@ _WAFDisallowedNameException =
 --
 -- -   You tried to delete an @IPSet@ that references one or more IP
 --     addresses.
-_WAFNonEmptyEntityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFNonEmptyEntityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFNonEmptyEntityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFNonEmptyEntityException"
 
@@ -661,32 +659,32 @@ _WAFNonEmptyEntityException =
 --
 -- -   You tried to add a @ByteMatchTuple@ to a @ByteMatchSet@, but the
 --     @ByteMatchTuple@ already exists in the specified @WebACL@.
-_WAFInvalidOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFInvalidOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFInvalidOperationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFInvalidOperationException"
 
 -- | The operation failed because you tried to create, update, or delete an
 -- object by using a change token that has already been used.
-_WAFStaleDataException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFStaleDataException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFStaleDataException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFStaleDataException"
 
 -- |
-_WAFTagOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFTagOperationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFTagOperationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFTagOperationException"
 
 -- | The operation failed because of a system problem, even though the
 -- request was valid. Retry your request.
-_WAFInternalErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFInternalErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFInternalErrorException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFInternalErrorException"
 
@@ -699,9 +697,9 @@ _WAFInternalErrorException =
 -- at least 15 minutes and try the request again. If you receive this same
 -- exception again, you will have to wait additional time until the role is
 -- unlocked.
-_WAFServiceLinkedRoleErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFServiceLinkedRoleErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFServiceLinkedRoleErrorException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFServiceLinkedRoleErrorException"
 
@@ -732,24 +730,24 @@ _WAFServiceLinkedRoleErrorException =
 --
 -- -   Your request references an ARN that is malformed, or corresponds to
 --     a resource with which a web ACL cannot be associated.
-_WAFInvalidParameterException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFInvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFInvalidParameterException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFInvalidParameterException"
 
 -- | The operation failed because the referenced object doesn\'t exist.
-_WAFNonexistentItemException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFNonexistentItemException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFNonexistentItemException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFNonexistentItemException"
 
 -- | The regular expression (regex) you specified in @RegexPatternString@ is
 -- invalid.
-_WAFInvalidRegexPatternException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFInvalidRegexPatternException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFInvalidRegexPatternException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFInvalidRegexPatternException"
 
@@ -767,9 +765,9 @@ _WAFInvalidRegexPatternException =
 --
 -- -   You tried to add a @ByteMatchTuple@ to or delete a @ByteMatchTuple@
 --     from a @ByteMatchSet@ that doesn\'t exist.
-_WAFNonexistentContainerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFNonexistentContainerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFNonexistentContainerException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFNonexistentContainerException"
 
@@ -794,9 +792,9 @@ _WAFNonexistentContainerException =
 --
 -- -   @S3_INTERNAL_ERROR@ - AWS WAF failed to create the template in the
 --     S3 bucket for another reason.
-_WAFEntityMigrationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFEntityMigrationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFEntityMigrationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFEntityMigrationException"
 
@@ -807,9 +805,9 @@ _WAFEntityMigrationException =
 --     @Rule@.
 --
 -- -   You tried to delete a @Rule@ that is still referenced by a @WebACL@.
-_WAFReferencedItemException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFReferencedItemException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFReferencedItemException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFReferencedItemException"
 
@@ -838,9 +836,9 @@ _WAFReferencedItemException =
 -- -   The user making the request must be the owner of the RuleGroup.
 --
 -- -   Your policy must be composed using IAM Policy version 2012-10-17.
-_WAFInvalidPermissionPolicyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFInvalidPermissionPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFInvalidPermissionPolicyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFInvalidPermissionPolicyException"
 
@@ -849,8 +847,8 @@ _WAFInvalidPermissionPolicyException =
 -- information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/limits.html Limits>
 -- in the /AWS WAF Developer Guide/.
-_WAFLimitsExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_WAFLimitsExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _WAFLimitsExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "WAFLimitsExceededException"

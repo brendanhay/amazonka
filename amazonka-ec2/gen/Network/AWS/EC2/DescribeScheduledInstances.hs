@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,10 +48,9 @@ module Network.AWS.EC2.DescribeScheduledInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,21 +59,21 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeScheduledInstances' smart constructor.
 data DescribeScheduledInstances = DescribeScheduledInstances'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The Scheduled Instance IDs.
-    scheduledInstanceIds :: Prelude.Maybe [Prelude.Text],
+    scheduledInstanceIds :: Core.Maybe [Core.Text],
     -- | The maximum number of results to return in a single call. This value can
     -- be between 5 and 300. The default value is 100. To retrieve the
     -- remaining results, make another call with the returned @NextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The time period for the first schedule to start.
-    slotStartTimeRange :: Prelude.Maybe SlotStartTimeRangeRequest,
+    slotStartTimeRange :: Core.Maybe SlotStartTimeRangeRequest,
     -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone (for example,
@@ -87,9 +85,9 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
     --     @EC2-VPC@).
     --
     -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledInstances' with all optional fields omitted.
@@ -131,38 +129,38 @@ newDescribeScheduledInstances ::
 newDescribeScheduledInstances =
   DescribeScheduledInstances'
     { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      scheduledInstanceIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      slotStartTimeRange = Prelude.Nothing,
-      filters = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      scheduledInstanceIds = Core.Nothing,
+      maxResults = Core.Nothing,
+      slotStartTimeRange = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next set of results.
-describeScheduledInstances_nextToken :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe Prelude.Text)
+describeScheduledInstances_nextToken :: Lens.Lens' DescribeScheduledInstances (Core.Maybe Core.Text)
 describeScheduledInstances_nextToken = Lens.lens (\DescribeScheduledInstances' {nextToken} -> nextToken) (\s@DescribeScheduledInstances' {} a -> s {nextToken = a} :: DescribeScheduledInstances)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeScheduledInstances_dryRun :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe Prelude.Bool)
+describeScheduledInstances_dryRun :: Lens.Lens' DescribeScheduledInstances (Core.Maybe Core.Bool)
 describeScheduledInstances_dryRun = Lens.lens (\DescribeScheduledInstances' {dryRun} -> dryRun) (\s@DescribeScheduledInstances' {} a -> s {dryRun = a} :: DescribeScheduledInstances)
 
 -- | The Scheduled Instance IDs.
-describeScheduledInstances_scheduledInstanceIds :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe [Prelude.Text])
-describeScheduledInstances_scheduledInstanceIds = Lens.lens (\DescribeScheduledInstances' {scheduledInstanceIds} -> scheduledInstanceIds) (\s@DescribeScheduledInstances' {} a -> s {scheduledInstanceIds = a} :: DescribeScheduledInstances) Prelude.. Lens.mapping Prelude._Coerce
+describeScheduledInstances_scheduledInstanceIds :: Lens.Lens' DescribeScheduledInstances (Core.Maybe [Core.Text])
+describeScheduledInstances_scheduledInstanceIds = Lens.lens (\DescribeScheduledInstances' {scheduledInstanceIds} -> scheduledInstanceIds) (\s@DescribeScheduledInstances' {} a -> s {scheduledInstanceIds = a} :: DescribeScheduledInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return in a single call. This value can
 -- be between 5 and 300. The default value is 100. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-describeScheduledInstances_maxResults :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe Prelude.Int)
+describeScheduledInstances_maxResults :: Lens.Lens' DescribeScheduledInstances (Core.Maybe Core.Int)
 describeScheduledInstances_maxResults = Lens.lens (\DescribeScheduledInstances' {maxResults} -> maxResults) (\s@DescribeScheduledInstances' {} a -> s {maxResults = a} :: DescribeScheduledInstances)
 
 -- | The time period for the first schedule to start.
-describeScheduledInstances_slotStartTimeRange :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe SlotStartTimeRangeRequest)
+describeScheduledInstances_slotStartTimeRange :: Lens.Lens' DescribeScheduledInstances (Core.Maybe SlotStartTimeRangeRequest)
 describeScheduledInstances_slotStartTimeRange = Lens.lens (\DescribeScheduledInstances' {slotStartTimeRange} -> slotStartTimeRange) (\s@DescribeScheduledInstances' {} a -> s {slotStartTimeRange = a} :: DescribeScheduledInstances)
 
 -- | The filters.
@@ -176,78 +174,74 @@ describeScheduledInstances_slotStartTimeRange = Lens.lens (\DescribeScheduledIns
 --     @EC2-VPC@).
 --
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
-describeScheduledInstances_filters :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe [Filter])
-describeScheduledInstances_filters = Lens.lens (\DescribeScheduledInstances' {filters} -> filters) (\s@DescribeScheduledInstances' {} a -> s {filters = a} :: DescribeScheduledInstances) Prelude.. Lens.mapping Prelude._Coerce
+describeScheduledInstances_filters :: Lens.Lens' DescribeScheduledInstances (Core.Maybe [Filter])
+describeScheduledInstances_filters = Lens.lens (\DescribeScheduledInstances' {filters} -> filters) (\s@DescribeScheduledInstances' {} a -> s {filters = a} :: DescribeScheduledInstances) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeScheduledInstances where
+instance Core.AWSPager DescribeScheduledInstances where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeScheduledInstancesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeScheduledInstancesResponse_scheduledInstanceSet
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeScheduledInstances_nextToken
           Lens..~ rs
           Lens.^? describeScheduledInstancesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeScheduledInstances
-  where
+instance Core.AWSRequest DescribeScheduledInstances where
   type
-    Rs DescribeScheduledInstances =
+    AWSResponse DescribeScheduledInstances =
       DescribeScheduledInstancesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeScheduledInstancesResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "scheduledInstanceSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "scheduledInstanceSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeScheduledInstances
+instance Core.Hashable DescribeScheduledInstances
 
-instance Prelude.NFData DescribeScheduledInstances
+instance Core.NFData DescribeScheduledInstances
 
-instance Prelude.ToHeaders DescribeScheduledInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeScheduledInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeScheduledInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeScheduledInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeScheduledInstances where
+instance Core.ToQuery DescribeScheduledInstances where
   toQuery DescribeScheduledInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeScheduledInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "ScheduledInstanceId"
-              Prelude.<$> scheduledInstanceIds
+          Core.=: ("DescribeScheduledInstances" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "ScheduledInstanceId"
+              Core.<$> scheduledInstanceIds
           ),
-        "MaxResults" Prelude.=: maxResults,
-        "SlotStartTimeRange" Prelude.=: slotStartTimeRange,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults,
+        "SlotStartTimeRange" Core.=: slotStartTimeRange,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | Contains the output of DescribeScheduledInstances.
@@ -256,13 +250,13 @@ instance Prelude.ToQuery DescribeScheduledInstances where
 data DescribeScheduledInstancesResponse = DescribeScheduledInstancesResponse'
   { -- | The token required to retrieve the next set of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the Scheduled Instances.
-    scheduledInstanceSet :: Prelude.Maybe [ScheduledInstance],
+    scheduledInstanceSet :: Core.Maybe [ScheduledInstance],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScheduledInstancesResponse' with all optional fields omitted.
@@ -280,29 +274,29 @@ data DescribeScheduledInstancesResponse = DescribeScheduledInstancesResponse'
 -- 'httpStatus', 'describeScheduledInstancesResponse_httpStatus' - The response's http status code.
 newDescribeScheduledInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeScheduledInstancesResponse
 newDescribeScheduledInstancesResponse pHttpStatus_ =
   DescribeScheduledInstancesResponse'
     { nextToken =
-        Prelude.Nothing,
-      scheduledInstanceSet = Prelude.Nothing,
+        Core.Nothing,
+      scheduledInstanceSet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-describeScheduledInstancesResponse_nextToken :: Lens.Lens' DescribeScheduledInstancesResponse (Prelude.Maybe Prelude.Text)
+describeScheduledInstancesResponse_nextToken :: Lens.Lens' DescribeScheduledInstancesResponse (Core.Maybe Core.Text)
 describeScheduledInstancesResponse_nextToken = Lens.lens (\DescribeScheduledInstancesResponse' {nextToken} -> nextToken) (\s@DescribeScheduledInstancesResponse' {} a -> s {nextToken = a} :: DescribeScheduledInstancesResponse)
 
 -- | Information about the Scheduled Instances.
-describeScheduledInstancesResponse_scheduledInstanceSet :: Lens.Lens' DescribeScheduledInstancesResponse (Prelude.Maybe [ScheduledInstance])
-describeScheduledInstancesResponse_scheduledInstanceSet = Lens.lens (\DescribeScheduledInstancesResponse' {scheduledInstanceSet} -> scheduledInstanceSet) (\s@DescribeScheduledInstancesResponse' {} a -> s {scheduledInstanceSet = a} :: DescribeScheduledInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeScheduledInstancesResponse_scheduledInstanceSet :: Lens.Lens' DescribeScheduledInstancesResponse (Core.Maybe [ScheduledInstance])
+describeScheduledInstancesResponse_scheduledInstanceSet = Lens.lens (\DescribeScheduledInstancesResponse' {scheduledInstanceSet} -> scheduledInstanceSet) (\s@DescribeScheduledInstancesResponse' {} a -> s {scheduledInstanceSet = a} :: DescribeScheduledInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScheduledInstancesResponse_httpStatus :: Lens.Lens' DescribeScheduledInstancesResponse Prelude.Int
+describeScheduledInstancesResponse_httpStatus :: Lens.Lens' DescribeScheduledInstancesResponse Core.Int
 describeScheduledInstancesResponse_httpStatus = Lens.lens (\DescribeScheduledInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeScheduledInstancesResponse' {} a -> s {httpStatus = a} :: DescribeScheduledInstancesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeScheduledInstancesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.DeviceFarm.CreateInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,19 +57,19 @@ data CreateInstanceProfile = CreateInstanceProfile'
     --
     -- The list of packages is considered only if you set @packageCleanup@ to
     -- @true@.
-    excludeAppPackagesFromCleanup :: Prelude.Maybe [Prelude.Text],
+    excludeAppPackagesFromCleanup :: Core.Maybe [Core.Text],
     -- | The description of your instance profile.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | When set to @true@, Device Farm reboots the instance after a test run.
     -- The default value is @true@.
-    rebootAfterUse :: Prelude.Maybe Prelude.Bool,
+    rebootAfterUse :: Core.Maybe Core.Bool,
     -- | When set to @true@, Device Farm removes app packages after a test run.
     -- The default value is @false@ for private devices.
-    packageCleanup :: Prelude.Maybe Prelude.Bool,
+    packageCleanup :: Core.Maybe Core.Bool,
     -- | The name of your instance profile.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceProfile' with all optional fields omitted.
@@ -97,15 +96,15 @@ data CreateInstanceProfile = CreateInstanceProfile'
 -- 'name', 'createInstanceProfile_name' - The name of your instance profile.
 newCreateInstanceProfile ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateInstanceProfile
 newCreateInstanceProfile pName_ =
   CreateInstanceProfile'
     { excludeAppPackagesFromCleanup =
-        Prelude.Nothing,
-      description = Prelude.Nothing,
-      rebootAfterUse = Prelude.Nothing,
-      packageCleanup = Prelude.Nothing,
+        Core.Nothing,
+      description = Core.Nothing,
+      rebootAfterUse = Core.Nothing,
+      packageCleanup = Core.Nothing,
       name = pName_
     }
 
@@ -114,88 +113,84 @@ newCreateInstanceProfile pName_ =
 --
 -- The list of packages is considered only if you set @packageCleanup@ to
 -- @true@.
-createInstanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe [Prelude.Text])
-createInstanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\CreateInstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@CreateInstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: CreateInstanceProfile) Prelude.. Lens.mapping Prelude._Coerce
+createInstanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' CreateInstanceProfile (Core.Maybe [Core.Text])
+createInstanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\CreateInstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@CreateInstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: CreateInstanceProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of your instance profile.
-createInstanceProfile_description :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Text)
+createInstanceProfile_description :: Lens.Lens' CreateInstanceProfile (Core.Maybe Core.Text)
 createInstanceProfile_description = Lens.lens (\CreateInstanceProfile' {description} -> description) (\s@CreateInstanceProfile' {} a -> s {description = a} :: CreateInstanceProfile)
 
 -- | When set to @true@, Device Farm reboots the instance after a test run.
 -- The default value is @true@.
-createInstanceProfile_rebootAfterUse :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Bool)
+createInstanceProfile_rebootAfterUse :: Lens.Lens' CreateInstanceProfile (Core.Maybe Core.Bool)
 createInstanceProfile_rebootAfterUse = Lens.lens (\CreateInstanceProfile' {rebootAfterUse} -> rebootAfterUse) (\s@CreateInstanceProfile' {} a -> s {rebootAfterUse = a} :: CreateInstanceProfile)
 
 -- | When set to @true@, Device Farm removes app packages after a test run.
 -- The default value is @false@ for private devices.
-createInstanceProfile_packageCleanup :: Lens.Lens' CreateInstanceProfile (Prelude.Maybe Prelude.Bool)
+createInstanceProfile_packageCleanup :: Lens.Lens' CreateInstanceProfile (Core.Maybe Core.Bool)
 createInstanceProfile_packageCleanup = Lens.lens (\CreateInstanceProfile' {packageCleanup} -> packageCleanup) (\s@CreateInstanceProfile' {} a -> s {packageCleanup = a} :: CreateInstanceProfile)
 
 -- | The name of your instance profile.
-createInstanceProfile_name :: Lens.Lens' CreateInstanceProfile Prelude.Text
+createInstanceProfile_name :: Lens.Lens' CreateInstanceProfile Core.Text
 createInstanceProfile_name = Lens.lens (\CreateInstanceProfile' {name} -> name) (\s@CreateInstanceProfile' {} a -> s {name = a} :: CreateInstanceProfile)
 
-instance Prelude.AWSRequest CreateInstanceProfile where
+instance Core.AWSRequest CreateInstanceProfile where
   type
-    Rs CreateInstanceProfile =
+    AWSResponse CreateInstanceProfile =
       CreateInstanceProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateInstanceProfileResponse'
-            Prelude.<$> (x Prelude..?> "instanceProfile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "instanceProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstanceProfile
+instance Core.Hashable CreateInstanceProfile
 
-instance Prelude.NFData CreateInstanceProfile
+instance Core.NFData CreateInstanceProfile
 
-instance Prelude.ToHeaders CreateInstanceProfile where
+instance Core.ToHeaders CreateInstanceProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.CreateInstanceProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.CreateInstanceProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateInstanceProfile where
+instance Core.ToJSON CreateInstanceProfile where
   toJSON CreateInstanceProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("excludeAppPackagesFromCleanup" Prelude..=)
-              Prelude.<$> excludeAppPackagesFromCleanup,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("rebootAfterUse" Prelude..=)
-              Prelude.<$> rebootAfterUse,
-            ("packageCleanup" Prelude..=)
-              Prelude.<$> packageCleanup,
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("excludeAppPackagesFromCleanup" Core..=)
+              Core.<$> excludeAppPackagesFromCleanup,
+            ("description" Core..=) Core.<$> description,
+            ("rebootAfterUse" Core..=) Core.<$> rebootAfterUse,
+            ("packageCleanup" Core..=) Core.<$> packageCleanup,
+            Core.Just ("name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath CreateInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateInstanceProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateInstanceProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
   { -- | An object that contains information about your instance profile.
-    instanceProfile :: Prelude.Maybe InstanceProfile,
+    instanceProfile :: Core.Maybe InstanceProfile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceProfileResponse' with all optional fields omitted.
@@ -210,21 +205,21 @@ data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
 -- 'httpStatus', 'createInstanceProfileResponse_httpStatus' - The response's http status code.
 newCreateInstanceProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateInstanceProfileResponse
 newCreateInstanceProfileResponse pHttpStatus_ =
   CreateInstanceProfileResponse'
     { instanceProfile =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about your instance profile.
-createInstanceProfileResponse_instanceProfile :: Lens.Lens' CreateInstanceProfileResponse (Prelude.Maybe InstanceProfile)
+createInstanceProfileResponse_instanceProfile :: Lens.Lens' CreateInstanceProfileResponse (Core.Maybe InstanceProfile)
 createInstanceProfileResponse_instanceProfile = Lens.lens (\CreateInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@CreateInstanceProfileResponse' {} a -> s {instanceProfile = a} :: CreateInstanceProfileResponse)
 
 -- | The response's http status code.
-createInstanceProfileResponse_httpStatus :: Lens.Lens' CreateInstanceProfileResponse Prelude.Int
+createInstanceProfileResponse_httpStatus :: Lens.Lens' CreateInstanceProfileResponse Core.Int
 createInstanceProfileResponse_httpStatus = Lens.lens (\CreateInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceProfileResponse' {} a -> s {httpStatus = a} :: CreateInstanceProfileResponse)
 
-instance Prelude.NFData CreateInstanceProfileResponse
+instance Core.NFData CreateInstanceProfileResponse

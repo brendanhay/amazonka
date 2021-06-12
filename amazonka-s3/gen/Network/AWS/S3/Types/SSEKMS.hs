@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.SSEKMS where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.
@@ -31,9 +30,9 @@ data SSEKMS = SSEKMS'
   { -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
     -- customer managed customer master key (CMK) to use for encrypting
     -- inventory reports.
-    keyId :: Prelude.Sensitive Prelude.Text
+    keyId :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SSEKMS' with all optional fields omitted.
@@ -48,25 +47,24 @@ data SSEKMS = SSEKMS'
 -- inventory reports.
 newSSEKMS ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   SSEKMS
 newSSEKMS pKeyId_ =
-  SSEKMS' {keyId = Prelude._Sensitive Lens.# pKeyId_}
+  SSEKMS' {keyId = Core._Sensitive Lens.# pKeyId_}
 
 -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
 -- customer managed customer master key (CMK) to use for encrypting
 -- inventory reports.
-ssekms_keyId :: Lens.Lens' SSEKMS Prelude.Text
-ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyId = a} :: SSEKMS) Prelude.. Prelude._Sensitive
+ssekms_keyId :: Lens.Lens' SSEKMS Core.Text
+ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyId = a} :: SSEKMS) Core.. Core._Sensitive
 
-instance Prelude.FromXML SSEKMS where
-  parseXML x =
-    SSEKMS' Prelude.<$> (x Prelude..@ "KeyId")
+instance Core.FromXML SSEKMS where
+  parseXML x = SSEKMS' Core.<$> (x Core..@ "KeyId")
 
-instance Prelude.Hashable SSEKMS
+instance Core.Hashable SSEKMS
 
-instance Prelude.NFData SSEKMS
+instance Core.NFData SSEKMS
 
-instance Prelude.ToXML SSEKMS where
+instance Core.ToXML SSEKMS where
   toXML SSEKMS' {..} =
-    Prelude.mconcat ["KeyId" Prelude.@= keyId]
+    Core.mconcat ["KeyId" Core.@= keyId]

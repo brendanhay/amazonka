@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -49,11 +48,11 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDisassociateTagOptionFromResource' smart constructor.
 data DisassociateTagOptionFromResource = DisassociateTagOptionFromResource'
   { -- | The resource identifier.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The TagOption identifier.
-    tagOptionId :: Prelude.Text
+    tagOptionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTagOptionFromResource' with all optional fields omitted.
@@ -68,9 +67,9 @@ data DisassociateTagOptionFromResource = DisassociateTagOptionFromResource'
 -- 'tagOptionId', 'disassociateTagOptionFromResource_tagOptionId' - The TagOption identifier.
 newDisassociateTagOptionFromResource ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tagOptionId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateTagOptionFromResource
 newDisassociateTagOptionFromResource
   pResourceId_
@@ -82,84 +81,82 @@ newDisassociateTagOptionFromResource
       }
 
 -- | The resource identifier.
-disassociateTagOptionFromResource_resourceId :: Lens.Lens' DisassociateTagOptionFromResource Prelude.Text
+disassociateTagOptionFromResource_resourceId :: Lens.Lens' DisassociateTagOptionFromResource Core.Text
 disassociateTagOptionFromResource_resourceId = Lens.lens (\DisassociateTagOptionFromResource' {resourceId} -> resourceId) (\s@DisassociateTagOptionFromResource' {} a -> s {resourceId = a} :: DisassociateTagOptionFromResource)
 
 -- | The TagOption identifier.
-disassociateTagOptionFromResource_tagOptionId :: Lens.Lens' DisassociateTagOptionFromResource Prelude.Text
+disassociateTagOptionFromResource_tagOptionId :: Lens.Lens' DisassociateTagOptionFromResource Core.Text
 disassociateTagOptionFromResource_tagOptionId = Lens.lens (\DisassociateTagOptionFromResource' {tagOptionId} -> tagOptionId) (\s@DisassociateTagOptionFromResource' {} a -> s {tagOptionId = a} :: DisassociateTagOptionFromResource)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateTagOptionFromResource
   where
   type
-    Rs DisassociateTagOptionFromResource =
+    AWSResponse DisassociateTagOptionFromResource =
       DisassociateTagOptionFromResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateTagOptionFromResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateTagOptionFromResource
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateTagOptionFromResource
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateTagOptionFromResource
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DisassociateTagOptionFromResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DisassociateTagOptionFromResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DisassociateTagOptionFromResource
   where
   toJSON DisassociateTagOptionFromResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just ("TagOptionId" Prelude..= tagOptionId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("TagOptionId" Core..= tagOptionId)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DisassociateTagOptionFromResource
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisassociateTagOptionFromResource
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateTagOptionFromResourceResponse' smart constructor.
 data DisassociateTagOptionFromResourceResponse = DisassociateTagOptionFromResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTagOptionFromResourceResponse' with all optional fields omitted.
@@ -172,7 +169,7 @@ data DisassociateTagOptionFromResourceResponse = DisassociateTagOptionFromResour
 -- 'httpStatus', 'disassociateTagOptionFromResourceResponse_httpStatus' - The response's http status code.
 newDisassociateTagOptionFromResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateTagOptionFromResourceResponse
 newDisassociateTagOptionFromResourceResponse
   pHttpStatus_ =
@@ -182,9 +179,9 @@ newDisassociateTagOptionFromResourceResponse
       }
 
 -- | The response's http status code.
-disassociateTagOptionFromResourceResponse_httpStatus :: Lens.Lens' DisassociateTagOptionFromResourceResponse Prelude.Int
+disassociateTagOptionFromResourceResponse_httpStatus :: Lens.Lens' DisassociateTagOptionFromResourceResponse Core.Int
 disassociateTagOptionFromResourceResponse_httpStatus = Lens.lens (\DisassociateTagOptionFromResourceResponse' {httpStatus} -> httpStatus) (\s@DisassociateTagOptionFromResourceResponse' {} a -> s {httpStatus = a} :: DisassociateTagOptionFromResourceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateTagOptionFromResourceResponse

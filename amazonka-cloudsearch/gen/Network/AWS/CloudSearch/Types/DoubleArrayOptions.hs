@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearch.Types.DoubleArrayOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Options for a field that contains an array of double-precision 64-bit
 -- floating point values. Present if @IndexFieldType@ specifies the field
@@ -30,18 +29,18 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDoubleArrayOptions' smart constructor.
 data DoubleArrayOptions = DoubleArrayOptions'
   { -- | A list of source fields to map to the field.
-    sourceFields :: Prelude.Maybe Prelude.Text,
+    sourceFields :: Core.Maybe Core.Text,
     -- | Whether facet information can be returned for the field.
-    facetEnabled :: Prelude.Maybe Prelude.Bool,
+    facetEnabled :: Core.Maybe Core.Bool,
     -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Prelude.Maybe Prelude.Bool,
+    returnEnabled :: Core.Maybe Core.Bool,
     -- | Whether the contents of the field are searchable.
-    searchEnabled :: Prelude.Maybe Prelude.Bool,
+    searchEnabled :: Core.Maybe Core.Bool,
     -- | A value to use for the field if the field isn\'t specified for a
     -- document.
-    defaultValue :: Prelude.Maybe Prelude.Double
+    defaultValue :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DoubleArrayOptions' with all optional fields omitted.
@@ -65,53 +64,53 @@ newDoubleArrayOptions ::
   DoubleArrayOptions
 newDoubleArrayOptions =
   DoubleArrayOptions'
-    { sourceFields = Prelude.Nothing,
-      facetEnabled = Prelude.Nothing,
-      returnEnabled = Prelude.Nothing,
-      searchEnabled = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+    { sourceFields = Core.Nothing,
+      facetEnabled = Core.Nothing,
+      returnEnabled = Core.Nothing,
+      searchEnabled = Core.Nothing,
+      defaultValue = Core.Nothing
     }
 
 -- | A list of source fields to map to the field.
-doubleArrayOptions_sourceFields :: Lens.Lens' DoubleArrayOptions (Prelude.Maybe Prelude.Text)
+doubleArrayOptions_sourceFields :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Text)
 doubleArrayOptions_sourceFields = Lens.lens (\DoubleArrayOptions' {sourceFields} -> sourceFields) (\s@DoubleArrayOptions' {} a -> s {sourceFields = a} :: DoubleArrayOptions)
 
 -- | Whether facet information can be returned for the field.
-doubleArrayOptions_facetEnabled :: Lens.Lens' DoubleArrayOptions (Prelude.Maybe Prelude.Bool)
+doubleArrayOptions_facetEnabled :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Bool)
 doubleArrayOptions_facetEnabled = Lens.lens (\DoubleArrayOptions' {facetEnabled} -> facetEnabled) (\s@DoubleArrayOptions' {} a -> s {facetEnabled = a} :: DoubleArrayOptions)
 
 -- | Whether the contents of the field can be returned in the search results.
-doubleArrayOptions_returnEnabled :: Lens.Lens' DoubleArrayOptions (Prelude.Maybe Prelude.Bool)
+doubleArrayOptions_returnEnabled :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Bool)
 doubleArrayOptions_returnEnabled = Lens.lens (\DoubleArrayOptions' {returnEnabled} -> returnEnabled) (\s@DoubleArrayOptions' {} a -> s {returnEnabled = a} :: DoubleArrayOptions)
 
 -- | Whether the contents of the field are searchable.
-doubleArrayOptions_searchEnabled :: Lens.Lens' DoubleArrayOptions (Prelude.Maybe Prelude.Bool)
+doubleArrayOptions_searchEnabled :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Bool)
 doubleArrayOptions_searchEnabled = Lens.lens (\DoubleArrayOptions' {searchEnabled} -> searchEnabled) (\s@DoubleArrayOptions' {} a -> s {searchEnabled = a} :: DoubleArrayOptions)
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document.
-doubleArrayOptions_defaultValue :: Lens.Lens' DoubleArrayOptions (Prelude.Maybe Prelude.Double)
+doubleArrayOptions_defaultValue :: Lens.Lens' DoubleArrayOptions (Core.Maybe Core.Double)
 doubleArrayOptions_defaultValue = Lens.lens (\DoubleArrayOptions' {defaultValue} -> defaultValue) (\s@DoubleArrayOptions' {} a -> s {defaultValue = a} :: DoubleArrayOptions)
 
-instance Prelude.FromXML DoubleArrayOptions where
+instance Core.FromXML DoubleArrayOptions where
   parseXML x =
     DoubleArrayOptions'
-      Prelude.<$> (x Prelude..@? "SourceFields")
-      Prelude.<*> (x Prelude..@? "FacetEnabled")
-      Prelude.<*> (x Prelude..@? "ReturnEnabled")
-      Prelude.<*> (x Prelude..@? "SearchEnabled")
-      Prelude.<*> (x Prelude..@? "DefaultValue")
+      Core.<$> (x Core..@? "SourceFields")
+      Core.<*> (x Core..@? "FacetEnabled")
+      Core.<*> (x Core..@? "ReturnEnabled")
+      Core.<*> (x Core..@? "SearchEnabled")
+      Core.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable DoubleArrayOptions
+instance Core.Hashable DoubleArrayOptions
 
-instance Prelude.NFData DoubleArrayOptions
+instance Core.NFData DoubleArrayOptions
 
-instance Prelude.ToQuery DoubleArrayOptions where
+instance Core.ToQuery DoubleArrayOptions where
   toQuery DoubleArrayOptions' {..} =
-    Prelude.mconcat
-      [ "SourceFields" Prelude.=: sourceFields,
-        "FacetEnabled" Prelude.=: facetEnabled,
-        "ReturnEnabled" Prelude.=: returnEnabled,
-        "SearchEnabled" Prelude.=: searchEnabled,
-        "DefaultValue" Prelude.=: defaultValue
+    Core.mconcat
+      [ "SourceFields" Core.=: sourceFields,
+        "FacetEnabled" Core.=: facetEnabled,
+        "ReturnEnabled" Core.=: returnEnabled,
+        "SearchEnabled" Core.=: searchEnabled,
+        "DefaultValue" Core.=: defaultValue
       ]

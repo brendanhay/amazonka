@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.IoT.ListThingGroupsForThing
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +55,13 @@ data ListThingGroupsForThing = ListThingGroupsForThing'
   { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The thing name.
-    thingName :: Prelude.Text
+    thingName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListThingGroupsForThing' with all optional fields omitted.
@@ -82,98 +80,95 @@ data ListThingGroupsForThing = ListThingGroupsForThing'
 -- 'thingName', 'listThingGroupsForThing_thingName' - The thing name.
 newListThingGroupsForThing ::
   -- | 'thingName'
-  Prelude.Text ->
+  Core.Text ->
   ListThingGroupsForThing
 newListThingGroupsForThing pThingName_ =
   ListThingGroupsForThing'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       thingName = pThingName_
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
-listThingGroupsForThing_nextToken :: Lens.Lens' ListThingGroupsForThing (Prelude.Maybe Prelude.Text)
+listThingGroupsForThing_nextToken :: Lens.Lens' ListThingGroupsForThing (Core.Maybe Core.Text)
 listThingGroupsForThing_nextToken = Lens.lens (\ListThingGroupsForThing' {nextToken} -> nextToken) (\s@ListThingGroupsForThing' {} a -> s {nextToken = a} :: ListThingGroupsForThing)
 
 -- | The maximum number of results to return at one time.
-listThingGroupsForThing_maxResults :: Lens.Lens' ListThingGroupsForThing (Prelude.Maybe Prelude.Natural)
+listThingGroupsForThing_maxResults :: Lens.Lens' ListThingGroupsForThing (Core.Maybe Core.Natural)
 listThingGroupsForThing_maxResults = Lens.lens (\ListThingGroupsForThing' {maxResults} -> maxResults) (\s@ListThingGroupsForThing' {} a -> s {maxResults = a} :: ListThingGroupsForThing)
 
 -- | The thing name.
-listThingGroupsForThing_thingName :: Lens.Lens' ListThingGroupsForThing Prelude.Text
+listThingGroupsForThing_thingName :: Lens.Lens' ListThingGroupsForThing Core.Text
 listThingGroupsForThing_thingName = Lens.lens (\ListThingGroupsForThing' {thingName} -> thingName) (\s@ListThingGroupsForThing' {} a -> s {thingName = a} :: ListThingGroupsForThing)
 
-instance Pager.AWSPager ListThingGroupsForThing where
+instance Core.AWSPager ListThingGroupsForThing where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listThingGroupsForThingResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listThingGroupsForThingResponse_thingGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listThingGroupsForThing_nextToken
           Lens..~ rs
           Lens.^? listThingGroupsForThingResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListThingGroupsForThing where
+instance Core.AWSRequest ListThingGroupsForThing where
   type
-    Rs ListThingGroupsForThing =
+    AWSResponse ListThingGroupsForThing =
       ListThingGroupsForThingResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListThingGroupsForThingResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "thingGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "thingGroups" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListThingGroupsForThing
+instance Core.Hashable ListThingGroupsForThing
 
-instance Prelude.NFData ListThingGroupsForThing
+instance Core.NFData ListThingGroupsForThing
 
-instance Prelude.ToHeaders ListThingGroupsForThing where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListThingGroupsForThing where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListThingGroupsForThing where
+instance Core.ToPath ListThingGroupsForThing where
   toPath ListThingGroupsForThing' {..} =
-    Prelude.mconcat
-      ["/things/", Prelude.toBS thingName, "/thing-groups"]
+    Core.mconcat
+      ["/things/", Core.toBS thingName, "/thing-groups"]
 
-instance Prelude.ToQuery ListThingGroupsForThing where
+instance Core.ToQuery ListThingGroupsForThing where
   toQuery ListThingGroupsForThing' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListThingGroupsForThingResponse' smart constructor.
 data ListThingGroupsForThingResponse = ListThingGroupsForThingResponse'
   { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The thing groups.
-    thingGroups :: Prelude.Maybe [GroupNameAndArn],
+    thingGroups :: Core.Maybe [GroupNameAndArn],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListThingGroupsForThingResponse' with all optional fields omitted.
@@ -191,29 +186,27 @@ data ListThingGroupsForThingResponse = ListThingGroupsForThingResponse'
 -- 'httpStatus', 'listThingGroupsForThingResponse_httpStatus' - The response's http status code.
 newListThingGroupsForThingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListThingGroupsForThingResponse
 newListThingGroupsForThingResponse pHttpStatus_ =
   ListThingGroupsForThingResponse'
     { nextToken =
-        Prelude.Nothing,
-      thingGroups = Prelude.Nothing,
+        Core.Nothing,
+      thingGroups = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
-listThingGroupsForThingResponse_nextToken :: Lens.Lens' ListThingGroupsForThingResponse (Prelude.Maybe Prelude.Text)
+listThingGroupsForThingResponse_nextToken :: Lens.Lens' ListThingGroupsForThingResponse (Core.Maybe Core.Text)
 listThingGroupsForThingResponse_nextToken = Lens.lens (\ListThingGroupsForThingResponse' {nextToken} -> nextToken) (\s@ListThingGroupsForThingResponse' {} a -> s {nextToken = a} :: ListThingGroupsForThingResponse)
 
 -- | The thing groups.
-listThingGroupsForThingResponse_thingGroups :: Lens.Lens' ListThingGroupsForThingResponse (Prelude.Maybe [GroupNameAndArn])
-listThingGroupsForThingResponse_thingGroups = Lens.lens (\ListThingGroupsForThingResponse' {thingGroups} -> thingGroups) (\s@ListThingGroupsForThingResponse' {} a -> s {thingGroups = a} :: ListThingGroupsForThingResponse) Prelude.. Lens.mapping Prelude._Coerce
+listThingGroupsForThingResponse_thingGroups :: Lens.Lens' ListThingGroupsForThingResponse (Core.Maybe [GroupNameAndArn])
+listThingGroupsForThingResponse_thingGroups = Lens.lens (\ListThingGroupsForThingResponse' {thingGroups} -> thingGroups) (\s@ListThingGroupsForThingResponse' {} a -> s {thingGroups = a} :: ListThingGroupsForThingResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listThingGroupsForThingResponse_httpStatus :: Lens.Lens' ListThingGroupsForThingResponse Prelude.Int
+listThingGroupsForThingResponse_httpStatus :: Lens.Lens' ListThingGroupsForThingResponse Core.Int
 listThingGroupsForThingResponse_httpStatus = Lens.lens (\ListThingGroupsForThingResponse' {httpStatus} -> httpStatus) (\s@ListThingGroupsForThingResponse' {} a -> s {httpStatus = a} :: ListThingGroupsForThingResponse)
 
-instance
-  Prelude.NFData
-    ListThingGroupsForThingResponse
+instance Core.NFData ListThingGroupsForThingResponse

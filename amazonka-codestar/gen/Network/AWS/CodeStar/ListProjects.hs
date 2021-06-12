@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.CodeStar.ListProjects
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data ListProjects = ListProjects'
   { -- | The continuation token to be used to return the next set of results, if
     -- the results cannot be returned in one response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum amount of data that can be contained in a single set of
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProjects' with all optional fields omitted.
@@ -79,96 +77,92 @@ newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The continuation token to be used to return the next set of results, if
 -- the results cannot be returned in one response.
-listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
+listProjects_nextToken :: Lens.Lens' ListProjects (Core.Maybe Core.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
 
 -- | The maximum amount of data that can be contained in a single set of
 -- results.
-listProjects_maxResults :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Natural)
+listProjects_maxResults :: Lens.Lens' ListProjects (Core.Maybe Core.Natural)
 listProjects_maxResults = Lens.lens (\ListProjects' {maxResults} -> maxResults) (\s@ListProjects' {} a -> s {maxResults = a} :: ListProjects)
 
-instance Pager.AWSPager ListProjects where
+instance Core.AWSPager ListProjects where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listProjectsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listProjectsResponse_projects) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listProjects_nextToken
           Lens..~ rs
-          Lens.^? listProjectsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listProjectsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListProjects where
-  type Rs ListProjects = ListProjectsResponse
+instance Core.AWSRequest ListProjects where
+  type AWSResponse ListProjects = ListProjectsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListProjectsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "projects"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "projects" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListProjects
+instance Core.Hashable ListProjects
 
-instance Prelude.NFData ListProjects
+instance Core.NFData ListProjects
 
-instance Prelude.ToHeaders ListProjects where
+instance Core.ToHeaders ListProjects where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.ListProjects" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.ListProjects" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListProjects where
+instance Core.ToJSON ListProjects where
   toJSON ListProjects' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListProjects where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListProjects where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListProjects where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListProjects where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListProjectsResponse' smart constructor.
 data ListProjectsResponse = ListProjectsResponse'
   { -- | The continuation token to use when requesting the next set of results,
     -- if there are more results to be returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of projects.
     projects :: [ProjectSummary]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProjectsResponse' with all optional fields omitted.
@@ -186,26 +180,26 @@ data ListProjectsResponse = ListProjectsResponse'
 -- 'projects', 'listProjectsResponse_projects' - A list of projects.
 newListProjectsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListProjectsResponse
 newListProjectsResponse pHttpStatus_ =
   ListProjectsResponse'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      projects = Prelude.mempty
+      projects = Core.mempty
     }
 
 -- | The continuation token to use when requesting the next set of results,
 -- if there are more results to be returned.
-listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Prelude.Maybe Prelude.Text)
+listProjectsResponse_nextToken :: Lens.Lens' ListProjectsResponse (Core.Maybe Core.Text)
 listProjectsResponse_nextToken = Lens.lens (\ListProjectsResponse' {nextToken} -> nextToken) (\s@ListProjectsResponse' {} a -> s {nextToken = a} :: ListProjectsResponse)
 
 -- | The response's http status code.
-listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Prelude.Int
+listProjectsResponse_httpStatus :: Lens.Lens' ListProjectsResponse Core.Int
 listProjectsResponse_httpStatus = Lens.lens (\ListProjectsResponse' {httpStatus} -> httpStatus) (\s@ListProjectsResponse' {} a -> s {httpStatus = a} :: ListProjectsResponse)
 
 -- | A list of projects.
 listProjectsResponse_projects :: Lens.Lens' ListProjectsResponse [ProjectSummary]
-listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Prelude.. Prelude._Coerce
+listProjectsResponse_projects = Lens.lens (\ListProjectsResponse' {projects} -> projects) (\s@ListProjectsResponse' {} a -> s {projects = a} :: ListProjectsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListProjectsResponse
+instance Core.NFData ListProjectsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Configuration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration.
 --
 -- /See:/ 'newConfiguration' smart constructor.
 data Configuration = Configuration'
   { -- | True to enable the configuration.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Configuration' with all optional fields omitted.
@@ -44,27 +43,27 @@ data Configuration = Configuration'
 newConfiguration ::
   Configuration
 newConfiguration =
-  Configuration' {enabled = Prelude.Nothing}
+  Configuration' {enabled = Core.Nothing}
 
 -- | True to enable the configuration.
-configuration_enabled :: Lens.Lens' Configuration (Prelude.Maybe Prelude.Bool)
+configuration_enabled :: Lens.Lens' Configuration (Core.Maybe Core.Bool)
 configuration_enabled = Lens.lens (\Configuration' {enabled} -> enabled) (\s@Configuration' {} a -> s {enabled = a} :: Configuration)
 
-instance Prelude.FromJSON Configuration where
+instance Core.FromJSON Configuration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Configuration"
       ( \x ->
-          Configuration' Prelude.<$> (x Prelude..:? "Enabled")
+          Configuration' Core.<$> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable Configuration
+instance Core.Hashable Configuration
 
-instance Prelude.NFData Configuration
+instance Core.NFData Configuration
 
-instance Prelude.ToJSON Configuration where
+instance Core.ToJSON Configuration where
   toJSON Configuration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Enabled" Prelude..=) Prelude.<$> enabled]
+    Core.object
+      ( Core.catMaybes
+          [("Enabled" Core..=) Core.<$> enabled]
       )

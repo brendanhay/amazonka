@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A cost allocation Tag that can be added to an ElastiCache cluster or
 -- replication group. Tags are composed of a Key\/Value pair. A tag with a
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The key for the tag. May not be null.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The tag\'s value. May be null.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -50,30 +49,26 @@ data Tag = Tag'
 newTag ::
   Tag
 newTag =
-  Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
-    }
+  Tag' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The key for the tag. May not be null.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key :: Lens.Lens' Tag (Core.Maybe Core.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The tag\'s value. May be null.
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.FromXML Tag where
+instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Prelude..@? "Key")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToQuery Tag where
+instance Core.ToQuery Tag where
   toQuery Tag' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Key" Core.=: key, "Value" Core.=: value]

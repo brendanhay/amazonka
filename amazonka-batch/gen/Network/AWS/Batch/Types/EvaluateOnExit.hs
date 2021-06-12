@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Batch.Types.EvaluateOnExit where
 
 import Network.AWS.Batch.Types.RetryAction
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a set of conditions to be met, and an action to take (@RETRY@
 -- or @EXIT@) if all conditions are met.
@@ -34,25 +33,25 @@ data EvaluateOnExit = EvaluateOnExit'
     -- characters long, can contain only numbers, and can optionally end with
     -- an asterisk (*) so that only the start of the string needs to be an
     -- exact match.
-    onExitCode :: Prelude.Maybe Prelude.Text,
+    onExitCode :: Core.Maybe Core.Text,
     -- | Contains a glob pattern to match against the @StatusReason@ returned for
     -- a job. The patten can be up to 512 characters long, can contain letters,
     -- numbers, periods (.), colons (:), and white space (spaces, tabs). and
     -- can optionally end with an asterisk (*) so that only the start of the
     -- string needs to be an exact match.
-    onStatusReason :: Prelude.Maybe Prelude.Text,
+    onStatusReason :: Core.Maybe Core.Text,
     -- | Contains a glob pattern to match against the @Reason@ returned for a
     -- job. The patten can be up to 512 characters long, can contain letters,
     -- numbers, periods (.), colons (:), and white space (spaces, tabs), and
     -- can optionally end with an asterisk (*) so that only the start of the
     -- string needs to be an exact match.
-    onReason :: Prelude.Maybe Prelude.Text,
+    onReason :: Core.Maybe Core.Text,
     -- | Specifies the action to take if all of the specified conditions
     -- (@onStatusReason@, @onReason@, and @onExitCode@) are met. The values are
     -- not case sensitive.
     action :: RetryAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EvaluateOnExit' with all optional fields omitted.
@@ -89,9 +88,9 @@ newEvaluateOnExit ::
   EvaluateOnExit
 newEvaluateOnExit pAction_ =
   EvaluateOnExit'
-    { onExitCode = Prelude.Nothing,
-      onStatusReason = Prelude.Nothing,
-      onReason = Prelude.Nothing,
+    { onExitCode = Core.Nothing,
+      onStatusReason = Core.Nothing,
+      onReason = Core.Nothing,
       action = pAction_
     }
 
@@ -100,7 +99,7 @@ newEvaluateOnExit pAction_ =
 -- characters long, can contain only numbers, and can optionally end with
 -- an asterisk (*) so that only the start of the string needs to be an
 -- exact match.
-evaluateOnExit_onExitCode :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
+evaluateOnExit_onExitCode :: Lens.Lens' EvaluateOnExit (Core.Maybe Core.Text)
 evaluateOnExit_onExitCode = Lens.lens (\EvaluateOnExit' {onExitCode} -> onExitCode) (\s@EvaluateOnExit' {} a -> s {onExitCode = a} :: EvaluateOnExit)
 
 -- | Contains a glob pattern to match against the @StatusReason@ returned for
@@ -108,7 +107,7 @@ evaluateOnExit_onExitCode = Lens.lens (\EvaluateOnExit' {onExitCode} -> onExitCo
 -- numbers, periods (.), colons (:), and white space (spaces, tabs). and
 -- can optionally end with an asterisk (*) so that only the start of the
 -- string needs to be an exact match.
-evaluateOnExit_onStatusReason :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
+evaluateOnExit_onStatusReason :: Lens.Lens' EvaluateOnExit (Core.Maybe Core.Text)
 evaluateOnExit_onStatusReason = Lens.lens (\EvaluateOnExit' {onStatusReason} -> onStatusReason) (\s@EvaluateOnExit' {} a -> s {onStatusReason = a} :: EvaluateOnExit)
 
 -- | Contains a glob pattern to match against the @Reason@ returned for a
@@ -116,7 +115,7 @@ evaluateOnExit_onStatusReason = Lens.lens (\EvaluateOnExit' {onStatusReason} -> 
 -- numbers, periods (.), colons (:), and white space (spaces, tabs), and
 -- can optionally end with an asterisk (*) so that only the start of the
 -- string needs to be an exact match.
-evaluateOnExit_onReason :: Lens.Lens' EvaluateOnExit (Prelude.Maybe Prelude.Text)
+evaluateOnExit_onReason :: Lens.Lens' EvaluateOnExit (Core.Maybe Core.Text)
 evaluateOnExit_onReason = Lens.lens (\EvaluateOnExit' {onReason} -> onReason) (\s@EvaluateOnExit' {} a -> s {onReason = a} :: EvaluateOnExit)
 
 -- | Specifies the action to take if all of the specified conditions
@@ -125,30 +124,29 @@ evaluateOnExit_onReason = Lens.lens (\EvaluateOnExit' {onReason} -> onReason) (\
 evaluateOnExit_action :: Lens.Lens' EvaluateOnExit RetryAction
 evaluateOnExit_action = Lens.lens (\EvaluateOnExit' {action} -> action) (\s@EvaluateOnExit' {} a -> s {action = a} :: EvaluateOnExit)
 
-instance Prelude.FromJSON EvaluateOnExit where
+instance Core.FromJSON EvaluateOnExit where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EvaluateOnExit"
       ( \x ->
           EvaluateOnExit'
-            Prelude.<$> (x Prelude..:? "onExitCode")
-            Prelude.<*> (x Prelude..:? "onStatusReason")
-            Prelude.<*> (x Prelude..:? "onReason")
-            Prelude.<*> (x Prelude..: "action")
+            Core.<$> (x Core..:? "onExitCode")
+            Core.<*> (x Core..:? "onStatusReason")
+            Core.<*> (x Core..:? "onReason")
+            Core.<*> (x Core..: "action")
       )
 
-instance Prelude.Hashable EvaluateOnExit
+instance Core.Hashable EvaluateOnExit
 
-instance Prelude.NFData EvaluateOnExit
+instance Core.NFData EvaluateOnExit
 
-instance Prelude.ToJSON EvaluateOnExit where
+instance Core.ToJSON EvaluateOnExit where
   toJSON EvaluateOnExit' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("onExitCode" Prelude..=) Prelude.<$> onExitCode,
-            ("onStatusReason" Prelude..=)
-              Prelude.<$> onStatusReason,
-            ("onReason" Prelude..=) Prelude.<$> onReason,
-            Prelude.Just ("action" Prelude..= action)
+    Core.object
+      ( Core.catMaybes
+          [ ("onExitCode" Core..=) Core.<$> onExitCode,
+            ("onStatusReason" Core..=) Core.<$> onStatusReason,
+            ("onReason" Core..=) Core.<$> onReason,
+            Core.Just ("action" Core..= action)
           ]
       )

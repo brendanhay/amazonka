@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The ground truth labels for the dataset used for the monitoring job.
 --
 -- /See:/ 'newMonitoringGroundTruthS3Input' smart constructor.
 data MonitoringGroundTruthS3Input = MonitoringGroundTruthS3Input'
   { -- | The address of the Amazon S3 location of the ground truth labels.
-    s3Uri :: Prelude.Maybe Prelude.Text
+    s3Uri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringGroundTruthS3Input' with all optional fields omitted.
@@ -44,36 +43,26 @@ data MonitoringGroundTruthS3Input = MonitoringGroundTruthS3Input'
 newMonitoringGroundTruthS3Input ::
   MonitoringGroundTruthS3Input
 newMonitoringGroundTruthS3Input =
-  MonitoringGroundTruthS3Input'
-    { s3Uri =
-        Prelude.Nothing
-    }
+  MonitoringGroundTruthS3Input' {s3Uri = Core.Nothing}
 
 -- | The address of the Amazon S3 location of the ground truth labels.
-monitoringGroundTruthS3Input_s3Uri :: Lens.Lens' MonitoringGroundTruthS3Input (Prelude.Maybe Prelude.Text)
+monitoringGroundTruthS3Input_s3Uri :: Lens.Lens' MonitoringGroundTruthS3Input (Core.Maybe Core.Text)
 monitoringGroundTruthS3Input_s3Uri = Lens.lens (\MonitoringGroundTruthS3Input' {s3Uri} -> s3Uri) (\s@MonitoringGroundTruthS3Input' {} a -> s {s3Uri = a} :: MonitoringGroundTruthS3Input)
 
-instance
-  Prelude.FromJSON
-    MonitoringGroundTruthS3Input
-  where
+instance Core.FromJSON MonitoringGroundTruthS3Input where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringGroundTruthS3Input"
       ( \x ->
           MonitoringGroundTruthS3Input'
-            Prelude.<$> (x Prelude..:? "S3Uri")
+            Core.<$> (x Core..:? "S3Uri")
       )
 
-instance
-  Prelude.Hashable
-    MonitoringGroundTruthS3Input
+instance Core.Hashable MonitoringGroundTruthS3Input
 
-instance Prelude.NFData MonitoringGroundTruthS3Input
+instance Core.NFData MonitoringGroundTruthS3Input
 
-instance Prelude.ToJSON MonitoringGroundTruthS3Input where
+instance Core.ToJSON MonitoringGroundTruthS3Input where
   toJSON MonitoringGroundTruthS3Input' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("S3Uri" Prelude..=) Prelude.<$> s3Uri]
-      )
+    Core.object
+      (Core.catMaybes [("S3Uri" Core..=) Core.<$> s3Uri])

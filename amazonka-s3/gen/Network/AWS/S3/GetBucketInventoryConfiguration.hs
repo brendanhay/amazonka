@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,8 +62,8 @@ module Network.AWS.S3.GetBucketInventoryConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -74,14 +73,14 @@ data GetBucketInventoryConfiguration = GetBucketInventoryConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket containing the inventory configuration to
     -- retrieve.
     bucket :: BucketName,
     -- | The ID used to identify the inventory configuration.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketInventoryConfiguration' with all optional fields omitted.
@@ -103,12 +102,12 @@ newGetBucketInventoryConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetBucketInventoryConfiguration
 newGetBucketInventoryConfiguration pBucket_ pId_ =
   GetBucketInventoryConfiguration'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_,
       id = pId_
     }
@@ -116,7 +115,7 @@ newGetBucketInventoryConfiguration pBucket_ pId_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketInventoryConfiguration (Prelude.Maybe Prelude.Text)
+getBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketInventoryConfiguration (Core.Maybe Core.Text)
 getBucketInventoryConfiguration_expectedBucketOwner = Lens.lens (\GetBucketInventoryConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketInventoryConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketInventoryConfiguration)
 
 -- | The name of the bucket containing the inventory configuration to
@@ -125,65 +124,57 @@ getBucketInventoryConfiguration_bucket :: Lens.Lens' GetBucketInventoryConfigura
 getBucketInventoryConfiguration_bucket = Lens.lens (\GetBucketInventoryConfiguration' {bucket} -> bucket) (\s@GetBucketInventoryConfiguration' {} a -> s {bucket = a} :: GetBucketInventoryConfiguration)
 
 -- | The ID used to identify the inventory configuration.
-getBucketInventoryConfiguration_id :: Lens.Lens' GetBucketInventoryConfiguration Prelude.Text
+getBucketInventoryConfiguration_id :: Lens.Lens' GetBucketInventoryConfiguration Core.Text
 getBucketInventoryConfiguration_id = Lens.lens (\GetBucketInventoryConfiguration' {id} -> id) (\s@GetBucketInventoryConfiguration' {} a -> s {id = a} :: GetBucketInventoryConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetBucketInventoryConfiguration
   where
   type
-    Rs GetBucketInventoryConfiguration =
+    AWSResponse GetBucketInventoryConfiguration =
       GetBucketInventoryConfigurationResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketInventoryConfigurationResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetBucketInventoryConfiguration
 
-instance
-  Prelude.NFData
-    GetBucketInventoryConfiguration
+instance Core.NFData GetBucketInventoryConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetBucketInventoryConfiguration
   where
   toHeaders GetBucketInventoryConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance
-  Prelude.ToPath
-    GetBucketInventoryConfiguration
-  where
+instance Core.ToPath GetBucketInventoryConfiguration where
   toPath GetBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance
-  Prelude.ToQuery
-    GetBucketInventoryConfiguration
-  where
+instance Core.ToQuery GetBucketInventoryConfiguration where
   toQuery GetBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["id" Prelude.=: id, "inventory"]
+    Core.mconcat ["id" Core.=: id, "inventory"]
 
 -- | /See:/ 'newGetBucketInventoryConfigurationResponse' smart constructor.
 data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationResponse'
   { -- | Specifies the inventory configuration.
-    inventoryConfiguration :: Prelude.Maybe InventoryConfiguration,
+    inventoryConfiguration :: Core.Maybe InventoryConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketInventoryConfigurationResponse' with all optional fields omitted.
@@ -198,24 +189,24 @@ data GetBucketInventoryConfigurationResponse = GetBucketInventoryConfigurationRe
 -- 'httpStatus', 'getBucketInventoryConfigurationResponse_httpStatus' - The response's http status code.
 newGetBucketInventoryConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBucketInventoryConfigurationResponse
 newGetBucketInventoryConfigurationResponse
   pHttpStatus_ =
     GetBucketInventoryConfigurationResponse'
       { inventoryConfiguration =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Specifies the inventory configuration.
-getBucketInventoryConfigurationResponse_inventoryConfiguration :: Lens.Lens' GetBucketInventoryConfigurationResponse (Prelude.Maybe InventoryConfiguration)
+getBucketInventoryConfigurationResponse_inventoryConfiguration :: Lens.Lens' GetBucketInventoryConfigurationResponse (Core.Maybe InventoryConfiguration)
 getBucketInventoryConfigurationResponse_inventoryConfiguration = Lens.lens (\GetBucketInventoryConfigurationResponse' {inventoryConfiguration} -> inventoryConfiguration) (\s@GetBucketInventoryConfigurationResponse' {} a -> s {inventoryConfiguration = a} :: GetBucketInventoryConfigurationResponse)
 
 -- | The response's http status code.
-getBucketInventoryConfigurationResponse_httpStatus :: Lens.Lens' GetBucketInventoryConfigurationResponse Prelude.Int
+getBucketInventoryConfigurationResponse_httpStatus :: Lens.Lens' GetBucketInventoryConfigurationResponse Core.Int
 getBucketInventoryConfigurationResponse_httpStatus = Lens.lens (\GetBucketInventoryConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetBucketInventoryConfigurationResponse' {} a -> s {httpStatus = a} :: GetBucketInventoryConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetBucketInventoryConfigurationResponse

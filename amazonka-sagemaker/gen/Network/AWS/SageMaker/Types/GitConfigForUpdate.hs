@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.GitConfigForUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration details for a Git repository when the repository
 -- is updated.
@@ -34,9 +33,9 @@ data GitConfigForUpdate = GitConfigForUpdate'
     -- format:
     --
     -- @{\"username\": UserName, \"password\": Password}@
-    secretArn :: Prelude.Maybe Prelude.Text
+    secretArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GitConfigForUpdate' with all optional fields omitted.
@@ -55,7 +54,7 @@ data GitConfigForUpdate = GitConfigForUpdate'
 newGitConfigForUpdate ::
   GitConfigForUpdate
 newGitConfigForUpdate =
-  GitConfigForUpdate' {secretArn = Prelude.Nothing}
+  GitConfigForUpdate' {secretArn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that
 -- contains the credentials used to access the git repository. The secret
@@ -63,16 +62,16 @@ newGitConfigForUpdate =
 -- format:
 --
 -- @{\"username\": UserName, \"password\": Password}@
-gitConfigForUpdate_secretArn :: Lens.Lens' GitConfigForUpdate (Prelude.Maybe Prelude.Text)
+gitConfigForUpdate_secretArn :: Lens.Lens' GitConfigForUpdate (Core.Maybe Core.Text)
 gitConfigForUpdate_secretArn = Lens.lens (\GitConfigForUpdate' {secretArn} -> secretArn) (\s@GitConfigForUpdate' {} a -> s {secretArn = a} :: GitConfigForUpdate)
 
-instance Prelude.Hashable GitConfigForUpdate
+instance Core.Hashable GitConfigForUpdate
 
-instance Prelude.NFData GitConfigForUpdate
+instance Core.NFData GitConfigForUpdate
 
-instance Prelude.ToJSON GitConfigForUpdate where
+instance Core.ToJSON GitConfigForUpdate where
   toJSON GitConfigForUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("SecretArn" Prelude..=) Prelude.<$> secretArn]
+    Core.object
+      ( Core.catMaybes
+          [("SecretArn" Core..=) Core.<$> secretArn]
       )

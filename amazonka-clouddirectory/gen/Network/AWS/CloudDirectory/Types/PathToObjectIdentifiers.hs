@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the path to the @ObjectIdentifiers@ that is associated with the
 -- directory.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data PathToObjectIdentifiers = PathToObjectIdentifiers'
   { -- | Lists @ObjectIdentifiers@ starting from directory root to the object in
     -- the request.
-    objectIdentifiers :: Prelude.Maybe [Prelude.Text],
+    objectIdentifiers :: Core.Maybe [Core.Text],
     -- | The path that is used to identify the object starting from directory
     -- root.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PathToObjectIdentifiers' with all optional fields omitted.
@@ -55,32 +54,30 @@ newPathToObjectIdentifiers ::
 newPathToObjectIdentifiers =
   PathToObjectIdentifiers'
     { objectIdentifiers =
-        Prelude.Nothing,
-      path = Prelude.Nothing
+        Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | Lists @ObjectIdentifiers@ starting from directory root to the object in
 -- the request.
-pathToObjectIdentifiers_objectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe [Prelude.Text])
-pathToObjectIdentifiers_objectIdentifiers = Lens.lens (\PathToObjectIdentifiers' {objectIdentifiers} -> objectIdentifiers) (\s@PathToObjectIdentifiers' {} a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers) Prelude.. Lens.mapping Prelude._Coerce
+pathToObjectIdentifiers_objectIdentifiers :: Lens.Lens' PathToObjectIdentifiers (Core.Maybe [Core.Text])
+pathToObjectIdentifiers_objectIdentifiers = Lens.lens (\PathToObjectIdentifiers' {objectIdentifiers} -> objectIdentifiers) (\s@PathToObjectIdentifiers' {} a -> s {objectIdentifiers = a} :: PathToObjectIdentifiers) Core.. Lens.mapping Lens._Coerce
 
 -- | The path that is used to identify the object starting from directory
 -- root.
-pathToObjectIdentifiers_path :: Lens.Lens' PathToObjectIdentifiers (Prelude.Maybe Prelude.Text)
+pathToObjectIdentifiers_path :: Lens.Lens' PathToObjectIdentifiers (Core.Maybe Core.Text)
 pathToObjectIdentifiers_path = Lens.lens (\PathToObjectIdentifiers' {path} -> path) (\s@PathToObjectIdentifiers' {} a -> s {path = a} :: PathToObjectIdentifiers)
 
-instance Prelude.FromJSON PathToObjectIdentifiers where
+instance Core.FromJSON PathToObjectIdentifiers where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PathToObjectIdentifiers"
       ( \x ->
           PathToObjectIdentifiers'
-            Prelude.<$> ( x Prelude..:? "ObjectIdentifiers"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Path")
+            Core.<$> (x Core..:? "ObjectIdentifiers" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable PathToObjectIdentifiers
+instance Core.Hashable PathToObjectIdentifiers
 
-instance Prelude.NFData PathToObjectIdentifiers
+instance Core.NFData PathToObjectIdentifiers

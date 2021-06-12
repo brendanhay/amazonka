@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.ShareTarget where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.TargetType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifier that contains details about the directory consumer account.
 --
 -- /See:/ 'newShareTarget' smart constructor.
 data ShareTarget = ShareTarget'
   { -- | Identifier of the directory consumer account.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | Type of identifier to be used in the @Id@ field.
     type' :: TargetType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShareTarget' with all optional fields omitted.
@@ -48,7 +47,7 @@ data ShareTarget = ShareTarget'
 -- 'type'', 'shareTarget_type' - Type of identifier to be used in the @Id@ field.
 newShareTarget ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   TargetType ->
   ShareTarget
@@ -56,22 +55,22 @@ newShareTarget pId_ pType_ =
   ShareTarget' {id = pId_, type' = pType_}
 
 -- | Identifier of the directory consumer account.
-shareTarget_id :: Lens.Lens' ShareTarget Prelude.Text
+shareTarget_id :: Lens.Lens' ShareTarget Core.Text
 shareTarget_id = Lens.lens (\ShareTarget' {id} -> id) (\s@ShareTarget' {} a -> s {id = a} :: ShareTarget)
 
 -- | Type of identifier to be used in the @Id@ field.
 shareTarget_type :: Lens.Lens' ShareTarget TargetType
 shareTarget_type = Lens.lens (\ShareTarget' {type'} -> type') (\s@ShareTarget' {} a -> s {type' = a} :: ShareTarget)
 
-instance Prelude.Hashable ShareTarget
+instance Core.Hashable ShareTarget
 
-instance Prelude.NFData ShareTarget
+instance Core.NFData ShareTarget
 
-instance Prelude.ToJSON ShareTarget where
+instance Core.ToJSON ShareTarget where
   toJSON ShareTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Id" Prelude..= id),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            Core.Just ("Type" Core..= type')
           ]
       )

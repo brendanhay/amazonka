@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClientVpnEndpointStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnEndpointStatusCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a Client VPN endpoint.
 --
 -- /See:/ 'newClientVpnEndpointStatus' smart constructor.
 data ClientVpnEndpointStatus = ClientVpnEndpointStatus'
   { -- | A message about the status of the Client VPN endpoint.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The state of the Client VPN endpoint. Possible states include:
     --
     -- -   @pending-associate@ - The Client VPN endpoint has been created but
@@ -46,9 +45,9 @@ data ClientVpnEndpointStatus = ClientVpnEndpointStatus'
     --
     -- -   @deleted@ - The Client VPN endpoint has been deleted. The Client VPN
     --     endpoint cannot accept connections.
-    code :: Prelude.Maybe ClientVpnEndpointStatusCode
+    code :: Core.Maybe ClientVpnEndpointStatusCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClientVpnEndpointStatus' with all optional fields omitted.
@@ -79,12 +78,12 @@ newClientVpnEndpointStatus ::
   ClientVpnEndpointStatus
 newClientVpnEndpointStatus =
   ClientVpnEndpointStatus'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | A message about the status of the Client VPN endpoint.
-clientVpnEndpointStatus_message :: Lens.Lens' ClientVpnEndpointStatus (Prelude.Maybe Prelude.Text)
+clientVpnEndpointStatus_message :: Lens.Lens' ClientVpnEndpointStatus (Core.Maybe Core.Text)
 clientVpnEndpointStatus_message = Lens.lens (\ClientVpnEndpointStatus' {message} -> message) (\s@ClientVpnEndpointStatus' {} a -> s {message = a} :: ClientVpnEndpointStatus)
 
 -- | The state of the Client VPN endpoint. Possible states include:
@@ -102,15 +101,14 @@ clientVpnEndpointStatus_message = Lens.lens (\ClientVpnEndpointStatus' {message}
 --
 -- -   @deleted@ - The Client VPN endpoint has been deleted. The Client VPN
 --     endpoint cannot accept connections.
-clientVpnEndpointStatus_code :: Lens.Lens' ClientVpnEndpointStatus (Prelude.Maybe ClientVpnEndpointStatusCode)
+clientVpnEndpointStatus_code :: Lens.Lens' ClientVpnEndpointStatus (Core.Maybe ClientVpnEndpointStatusCode)
 clientVpnEndpointStatus_code = Lens.lens (\ClientVpnEndpointStatus' {code} -> code) (\s@ClientVpnEndpointStatus' {} a -> s {code = a} :: ClientVpnEndpointStatus)
 
-instance Prelude.FromXML ClientVpnEndpointStatus where
+instance Core.FromXML ClientVpnEndpointStatus where
   parseXML x =
     ClientVpnEndpointStatus'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
-instance Prelude.Hashable ClientVpnEndpointStatus
+instance Core.Hashable ClientVpnEndpointStatus
 
-instance Prelude.NFData ClientVpnEndpointStatus
+instance Core.NFData ClientVpnEndpointStatus

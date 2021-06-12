@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ComplianceSummaryItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.CompliantSummary
 import Network.AWS.SSM.Types.NonCompliantSummary
 
@@ -30,14 +29,14 @@ import Network.AWS.SSM.Types.NonCompliantSummary
 -- /See:/ 'newComplianceSummaryItem' smart constructor.
 data ComplianceSummaryItem = ComplianceSummaryItem'
   { -- | A list of COMPLIANT items for the specified compliance type.
-    compliantSummary :: Prelude.Maybe CompliantSummary,
+    compliantSummary :: Core.Maybe CompliantSummary,
     -- | The type of compliance item. For example, the compliance type can be
     -- Association, Patch, or Custom:string.
-    complianceType :: Prelude.Maybe Prelude.Text,
+    complianceType :: Core.Maybe Core.Text,
     -- | A list of NON_COMPLIANT items for the specified compliance type.
-    nonCompliantSummary :: Prelude.Maybe NonCompliantSummary
+    nonCompliantSummary :: Core.Maybe NonCompliantSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComplianceSummaryItem' with all optional fields omitted.
@@ -58,35 +57,35 @@ newComplianceSummaryItem ::
 newComplianceSummaryItem =
   ComplianceSummaryItem'
     { compliantSummary =
-        Prelude.Nothing,
-      complianceType = Prelude.Nothing,
-      nonCompliantSummary = Prelude.Nothing
+        Core.Nothing,
+      complianceType = Core.Nothing,
+      nonCompliantSummary = Core.Nothing
     }
 
 -- | A list of COMPLIANT items for the specified compliance type.
-complianceSummaryItem_compliantSummary :: Lens.Lens' ComplianceSummaryItem (Prelude.Maybe CompliantSummary)
+complianceSummaryItem_compliantSummary :: Lens.Lens' ComplianceSummaryItem (Core.Maybe CompliantSummary)
 complianceSummaryItem_compliantSummary = Lens.lens (\ComplianceSummaryItem' {compliantSummary} -> compliantSummary) (\s@ComplianceSummaryItem' {} a -> s {compliantSummary = a} :: ComplianceSummaryItem)
 
 -- | The type of compliance item. For example, the compliance type can be
 -- Association, Patch, or Custom:string.
-complianceSummaryItem_complianceType :: Lens.Lens' ComplianceSummaryItem (Prelude.Maybe Prelude.Text)
+complianceSummaryItem_complianceType :: Lens.Lens' ComplianceSummaryItem (Core.Maybe Core.Text)
 complianceSummaryItem_complianceType = Lens.lens (\ComplianceSummaryItem' {complianceType} -> complianceType) (\s@ComplianceSummaryItem' {} a -> s {complianceType = a} :: ComplianceSummaryItem)
 
 -- | A list of NON_COMPLIANT items for the specified compliance type.
-complianceSummaryItem_nonCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Prelude.Maybe NonCompliantSummary)
+complianceSummaryItem_nonCompliantSummary :: Lens.Lens' ComplianceSummaryItem (Core.Maybe NonCompliantSummary)
 complianceSummaryItem_nonCompliantSummary = Lens.lens (\ComplianceSummaryItem' {nonCompliantSummary} -> nonCompliantSummary) (\s@ComplianceSummaryItem' {} a -> s {nonCompliantSummary = a} :: ComplianceSummaryItem)
 
-instance Prelude.FromJSON ComplianceSummaryItem where
+instance Core.FromJSON ComplianceSummaryItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComplianceSummaryItem"
       ( \x ->
           ComplianceSummaryItem'
-            Prelude.<$> (x Prelude..:? "CompliantSummary")
-            Prelude.<*> (x Prelude..:? "ComplianceType")
-            Prelude.<*> (x Prelude..:? "NonCompliantSummary")
+            Core.<$> (x Core..:? "CompliantSummary")
+            Core.<*> (x Core..:? "ComplianceType")
+            Core.<*> (x Core..:? "NonCompliantSummary")
       )
 
-instance Prelude.Hashable ComplianceSummaryItem
+instance Core.Hashable ComplianceSummaryItem
 
-instance Prelude.NFData ComplianceSummaryItem
+instance Core.NFData ComplianceSummaryItem

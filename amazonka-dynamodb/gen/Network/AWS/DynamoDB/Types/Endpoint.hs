@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.Endpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An endpoint information details.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | IP address of the endpoint.
-    address :: Prelude.Text,
+    address :: Core.Text,
     -- | Endpoint cache time to live (TTL) value.
-    cachePeriodInMinutes :: Prelude.Integer
+    cachePeriodInMinutes :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Endpoint' with all optional fields omitted.
@@ -47,9 +46,9 @@ data Endpoint = Endpoint'
 -- 'cachePeriodInMinutes', 'endpoint_cachePeriodInMinutes' - Endpoint cache time to live (TTL) value.
 newEndpoint ::
   -- | 'address'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'cachePeriodInMinutes'
-  Prelude.Integer ->
+  Core.Integer ->
   Endpoint
 newEndpoint pAddress_ pCachePeriodInMinutes_ =
   Endpoint'
@@ -58,23 +57,23 @@ newEndpoint pAddress_ pCachePeriodInMinutes_ =
     }
 
 -- | IP address of the endpoint.
-endpoint_address :: Lens.Lens' Endpoint Prelude.Text
+endpoint_address :: Lens.Lens' Endpoint Core.Text
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
 -- | Endpoint cache time to live (TTL) value.
-endpoint_cachePeriodInMinutes :: Lens.Lens' Endpoint Prelude.Integer
+endpoint_cachePeriodInMinutes :: Lens.Lens' Endpoint Core.Integer
 endpoint_cachePeriodInMinutes = Lens.lens (\Endpoint' {cachePeriodInMinutes} -> cachePeriodInMinutes) (\s@Endpoint' {} a -> s {cachePeriodInMinutes = a} :: Endpoint)
 
-instance Prelude.FromJSON Endpoint where
+instance Core.FromJSON Endpoint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Endpoint"
       ( \x ->
           Endpoint'
-            Prelude.<$> (x Prelude..: "Address")
-            Prelude.<*> (x Prelude..: "CachePeriodInMinutes")
+            Core.<$> (x Core..: "Address")
+            Core.<*> (x Core..: "CachePeriodInMinutes")
       )
 
-instance Prelude.Hashable Endpoint
+instance Core.Hashable Endpoint
 
-instance Prelude.NFData Endpoint
+instance Core.NFData Endpoint

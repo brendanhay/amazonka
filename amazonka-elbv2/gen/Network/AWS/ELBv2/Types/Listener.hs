@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,36 +19,36 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.Listener where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.Action
 import Network.AWS.ELBv2.Types.Certificate
 import Network.AWS.ELBv2.Types.ProtocolEnum
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a listener.
 --
 -- /See:/ 'newListener' smart constructor.
 data Listener = Listener'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Prelude.Maybe Prelude.Text,
+    loadBalancerArn :: Core.Maybe Core.Text,
     -- | [HTTPS or TLS listener] The security policy that defines which protocols
     -- and ciphers are supported.
-    sslPolicy :: Prelude.Maybe Prelude.Text,
+    sslPolicy :: Core.Maybe Core.Text,
     -- | The port on which the load balancer is listening.
-    port :: Prelude.Maybe Prelude.Natural,
+    port :: Core.Maybe Core.Natural,
     -- | The default actions for the listener.
-    defaultActions :: Prelude.Maybe [Action],
+    defaultActions :: Core.Maybe [Action],
     -- | The protocol for connections from clients to the load balancer.
-    protocol :: Prelude.Maybe ProtocolEnum,
+    protocol :: Core.Maybe ProtocolEnum,
     -- | [HTTPS or TLS listener] The default certificate for the listener.
-    certificates :: Prelude.Maybe [Certificate],
+    certificates :: Core.Maybe [Certificate],
     -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Prelude.Maybe Prelude.Text,
+    listenerArn :: Core.Maybe Core.Text,
     -- | [TLS listener] The name of the Application-Layer Protocol Negotiation
     -- (ALPN) policy.
-    alpnPolicy :: Prelude.Maybe [Prelude.Text]
+    alpnPolicy :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Listener' with all optional fields omitted.
@@ -80,71 +79,68 @@ newListener ::
   Listener
 newListener =
   Listener'
-    { loadBalancerArn = Prelude.Nothing,
-      sslPolicy = Prelude.Nothing,
-      port = Prelude.Nothing,
-      defaultActions = Prelude.Nothing,
-      protocol = Prelude.Nothing,
-      certificates = Prelude.Nothing,
-      listenerArn = Prelude.Nothing,
-      alpnPolicy = Prelude.Nothing
+    { loadBalancerArn = Core.Nothing,
+      sslPolicy = Core.Nothing,
+      port = Core.Nothing,
+      defaultActions = Core.Nothing,
+      protocol = Core.Nothing,
+      certificates = Core.Nothing,
+      listenerArn = Core.Nothing,
+      alpnPolicy = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-listener_loadBalancerArn :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
+listener_loadBalancerArn :: Lens.Lens' Listener (Core.Maybe Core.Text)
 listener_loadBalancerArn = Lens.lens (\Listener' {loadBalancerArn} -> loadBalancerArn) (\s@Listener' {} a -> s {loadBalancerArn = a} :: Listener)
 
 -- | [HTTPS or TLS listener] The security policy that defines which protocols
 -- and ciphers are supported.
-listener_sslPolicy :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
+listener_sslPolicy :: Lens.Lens' Listener (Core.Maybe Core.Text)
 listener_sslPolicy = Lens.lens (\Listener' {sslPolicy} -> sslPolicy) (\s@Listener' {} a -> s {sslPolicy = a} :: Listener)
 
 -- | The port on which the load balancer is listening.
-listener_port :: Lens.Lens' Listener (Prelude.Maybe Prelude.Natural)
+listener_port :: Lens.Lens' Listener (Core.Maybe Core.Natural)
 listener_port = Lens.lens (\Listener' {port} -> port) (\s@Listener' {} a -> s {port = a} :: Listener)
 
 -- | The default actions for the listener.
-listener_defaultActions :: Lens.Lens' Listener (Prelude.Maybe [Action])
-listener_defaultActions = Lens.lens (\Listener' {defaultActions} -> defaultActions) (\s@Listener' {} a -> s {defaultActions = a} :: Listener) Prelude.. Lens.mapping Prelude._Coerce
+listener_defaultActions :: Lens.Lens' Listener (Core.Maybe [Action])
+listener_defaultActions = Lens.lens (\Listener' {defaultActions} -> defaultActions) (\s@Listener' {} a -> s {defaultActions = a} :: Listener) Core.. Lens.mapping Lens._Coerce
 
 -- | The protocol for connections from clients to the load balancer.
-listener_protocol :: Lens.Lens' Listener (Prelude.Maybe ProtocolEnum)
+listener_protocol :: Lens.Lens' Listener (Core.Maybe ProtocolEnum)
 listener_protocol = Lens.lens (\Listener' {protocol} -> protocol) (\s@Listener' {} a -> s {protocol = a} :: Listener)
 
 -- | [HTTPS or TLS listener] The default certificate for the listener.
-listener_certificates :: Lens.Lens' Listener (Prelude.Maybe [Certificate])
-listener_certificates = Lens.lens (\Listener' {certificates} -> certificates) (\s@Listener' {} a -> s {certificates = a} :: Listener) Prelude.. Lens.mapping Prelude._Coerce
+listener_certificates :: Lens.Lens' Listener (Core.Maybe [Certificate])
+listener_certificates = Lens.lens (\Listener' {certificates} -> certificates) (\s@Listener' {} a -> s {certificates = a} :: Listener) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the listener.
-listener_listenerArn :: Lens.Lens' Listener (Prelude.Maybe Prelude.Text)
+listener_listenerArn :: Lens.Lens' Listener (Core.Maybe Core.Text)
 listener_listenerArn = Lens.lens (\Listener' {listenerArn} -> listenerArn) (\s@Listener' {} a -> s {listenerArn = a} :: Listener)
 
 -- | [TLS listener] The name of the Application-Layer Protocol Negotiation
 -- (ALPN) policy.
-listener_alpnPolicy :: Lens.Lens' Listener (Prelude.Maybe [Prelude.Text])
-listener_alpnPolicy = Lens.lens (\Listener' {alpnPolicy} -> alpnPolicy) (\s@Listener' {} a -> s {alpnPolicy = a} :: Listener) Prelude.. Lens.mapping Prelude._Coerce
+listener_alpnPolicy :: Lens.Lens' Listener (Core.Maybe [Core.Text])
+listener_alpnPolicy = Lens.lens (\Listener' {alpnPolicy} -> alpnPolicy) (\s@Listener' {} a -> s {alpnPolicy = a} :: Listener) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML Listener where
+instance Core.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> (x Prelude..@? "LoadBalancerArn")
-      Prelude.<*> (x Prelude..@? "SslPolicy")
-      Prelude.<*> (x Prelude..@? "Port")
-      Prelude.<*> ( x Prelude..@? "DefaultActions"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "Protocol")
-      Prelude.<*> ( x Prelude..@? "Certificates"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "ListenerArn")
-      Prelude.<*> ( x Prelude..@? "AlpnPolicy"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "LoadBalancerArn")
+      Core.<*> (x Core..@? "SslPolicy")
+      Core.<*> (x Core..@? "Port")
+      Core.<*> ( x Core..@? "DefaultActions" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "Protocol")
+      Core.<*> ( x Core..@? "Certificates" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "ListenerArn")
+      Core.<*> ( x Core..@? "AlpnPolicy" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable Listener
+instance Core.Hashable Listener
 
-instance Prelude.NFData Listener
+instance Core.NFData Listener

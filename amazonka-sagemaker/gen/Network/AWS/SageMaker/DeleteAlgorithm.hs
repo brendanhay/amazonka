@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteAlgorithm
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteAlgorithm' smart constructor.
 data DeleteAlgorithm = DeleteAlgorithm'
   { -- | The name of the algorithm to delete.
-    algorithmName :: Prelude.Text
+    algorithmName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAlgorithm' with all optional fields omitted.
@@ -60,58 +59,56 @@ data DeleteAlgorithm = DeleteAlgorithm'
 -- 'algorithmName', 'deleteAlgorithm_algorithmName' - The name of the algorithm to delete.
 newDeleteAlgorithm ::
   -- | 'algorithmName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAlgorithm
 newDeleteAlgorithm pAlgorithmName_ =
   DeleteAlgorithm' {algorithmName = pAlgorithmName_}
 
 -- | The name of the algorithm to delete.
-deleteAlgorithm_algorithmName :: Lens.Lens' DeleteAlgorithm Prelude.Text
+deleteAlgorithm_algorithmName :: Lens.Lens' DeleteAlgorithm Core.Text
 deleteAlgorithm_algorithmName = Lens.lens (\DeleteAlgorithm' {algorithmName} -> algorithmName) (\s@DeleteAlgorithm' {} a -> s {algorithmName = a} :: DeleteAlgorithm)
 
-instance Prelude.AWSRequest DeleteAlgorithm where
-  type Rs DeleteAlgorithm = DeleteAlgorithmResponse
+instance Core.AWSRequest DeleteAlgorithm where
+  type
+    AWSResponse DeleteAlgorithm =
+      DeleteAlgorithmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteAlgorithmResponse'
 
-instance Prelude.Hashable DeleteAlgorithm
+instance Core.Hashable DeleteAlgorithm
 
-instance Prelude.NFData DeleteAlgorithm
+instance Core.NFData DeleteAlgorithm
 
-instance Prelude.ToHeaders DeleteAlgorithm where
+instance Core.ToHeaders DeleteAlgorithm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.DeleteAlgorithm" :: Prelude.ByteString),
+              Core.=# ("SageMaker.DeleteAlgorithm" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAlgorithm where
+instance Core.ToJSON DeleteAlgorithm where
   toJSON DeleteAlgorithm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AlgorithmName" Prelude..= algorithmName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AlgorithmName" Core..= algorithmName)]
       )
 
-instance Prelude.ToPath DeleteAlgorithm where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAlgorithm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAlgorithm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAlgorithm where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAlgorithmResponse' smart constructor.
 data DeleteAlgorithmResponse = DeleteAlgorithmResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAlgorithmResponse' with all optional fields omitted.
@@ -121,4 +118,4 @@ newDeleteAlgorithmResponse ::
   DeleteAlgorithmResponse
 newDeleteAlgorithmResponse = DeleteAlgorithmResponse'
 
-instance Prelude.NFData DeleteAlgorithmResponse
+instance Core.NFData DeleteAlgorithmResponse

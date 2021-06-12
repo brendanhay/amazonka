@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.S3Location where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon S3 artifact location for an action\'s artifacts.
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
   { -- | The artifact name.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The Amazon S3 artifact bucket for an action\'s artifacts.
-    bucket :: Prelude.Maybe Prelude.Text
+    bucket :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3Location' with all optional fields omitted.
@@ -49,28 +48,27 @@ newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { key = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { key = Core.Nothing,
+      bucket = Core.Nothing
     }
 
 -- | The artifact name.
-s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_key :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The Amazon S3 artifact bucket for an action\'s artifacts.
-s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_bucket :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
-instance Prelude.FromJSON S3Location where
+instance Core.FromJSON S3Location where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Prelude..:? "key")
-            Prelude.<*> (x Prelude..:? "bucket")
+            Core.<$> (x Core..:? "key") Core.<*> (x Core..:? "bucket")
       )
 
-instance Prelude.Hashable S3Location
+instance Core.Hashable S3Location
 
-instance Prelude.NFData S3Location
+instance Core.NFData S3Location

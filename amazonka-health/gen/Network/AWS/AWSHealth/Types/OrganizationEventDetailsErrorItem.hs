@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Error information returned when a
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
@@ -30,20 +29,20 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOrganizationEventDetailsErrorItem' smart constructor.
 data OrganizationEventDetailsErrorItem = OrganizationEventDetailsErrorItem'
   { -- | The name of the error.
-    errorName :: Prelude.Maybe Prelude.Text,
+    errorName :: Core.Maybe Core.Text,
     -- | The unique identifier for the event. Format:
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
     -- Example:
     -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Prelude.Maybe Prelude.Text,
+    eventArn :: Core.Maybe Core.Text,
     -- | Error information returned when a
     -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
     -- operation cannot find a specified event.
-    awsAccountId :: Prelude.Maybe Prelude.Text,
+    awsAccountId :: Core.Maybe Core.Text,
     -- | A message that describes the error.
-    errorMessage :: Prelude.Maybe Prelude.Text
+    errorMessage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationEventDetailsErrorItem' with all optional fields omitted.
@@ -70,52 +69,52 @@ newOrganizationEventDetailsErrorItem ::
 newOrganizationEventDetailsErrorItem =
   OrganizationEventDetailsErrorItem'
     { errorName =
-        Prelude.Nothing,
-      eventArn = Prelude.Nothing,
-      awsAccountId = Prelude.Nothing,
-      errorMessage = Prelude.Nothing
+        Core.Nothing,
+      eventArn = Core.Nothing,
+      awsAccountId = Core.Nothing,
+      errorMessage = Core.Nothing
     }
 
 -- | The name of the error.
-organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+organizationEventDetailsErrorItem_errorName :: Lens.Lens' OrganizationEventDetailsErrorItem (Core.Maybe Core.Text)
 organizationEventDetailsErrorItem_errorName = Lens.lens (\OrganizationEventDetailsErrorItem' {errorName} -> errorName) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorName = a} :: OrganizationEventDetailsErrorItem)
 
 -- | The unique identifier for the event. Format:
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
 -- Example:
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-organizationEventDetailsErrorItem_eventArn :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+organizationEventDetailsErrorItem_eventArn :: Lens.Lens' OrganizationEventDetailsErrorItem (Core.Maybe Core.Text)
 organizationEventDetailsErrorItem_eventArn = Lens.lens (\OrganizationEventDetailsErrorItem' {eventArn} -> eventArn) (\s@OrganizationEventDetailsErrorItem' {} a -> s {eventArn = a} :: OrganizationEventDetailsErrorItem)
 
 -- | Error information returned when a
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
 -- operation cannot find a specified event.
-organizationEventDetailsErrorItem_awsAccountId :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+organizationEventDetailsErrorItem_awsAccountId :: Lens.Lens' OrganizationEventDetailsErrorItem (Core.Maybe Core.Text)
 organizationEventDetailsErrorItem_awsAccountId = Lens.lens (\OrganizationEventDetailsErrorItem' {awsAccountId} -> awsAccountId) (\s@OrganizationEventDetailsErrorItem' {} a -> s {awsAccountId = a} :: OrganizationEventDetailsErrorItem)
 
 -- | A message that describes the error.
-organizationEventDetailsErrorItem_errorMessage :: Lens.Lens' OrganizationEventDetailsErrorItem (Prelude.Maybe Prelude.Text)
+organizationEventDetailsErrorItem_errorMessage :: Lens.Lens' OrganizationEventDetailsErrorItem (Core.Maybe Core.Text)
 organizationEventDetailsErrorItem_errorMessage = Lens.lens (\OrganizationEventDetailsErrorItem' {errorMessage} -> errorMessage) (\s@OrganizationEventDetailsErrorItem' {} a -> s {errorMessage = a} :: OrganizationEventDetailsErrorItem)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     OrganizationEventDetailsErrorItem
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OrganizationEventDetailsErrorItem"
       ( \x ->
           OrganizationEventDetailsErrorItem'
-            Prelude.<$> (x Prelude..:? "errorName")
-            Prelude.<*> (x Prelude..:? "eventArn")
-            Prelude.<*> (x Prelude..:? "awsAccountId")
-            Prelude.<*> (x Prelude..:? "errorMessage")
+            Core.<$> (x Core..:? "errorName")
+            Core.<*> (x Core..:? "eventArn")
+            Core.<*> (x Core..:? "awsAccountId")
+            Core.<*> (x Core..:? "errorMessage")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     OrganizationEventDetailsErrorItem
 
 instance
-  Prelude.NFData
+  Core.NFData
     OrganizationEventDetailsErrorItem

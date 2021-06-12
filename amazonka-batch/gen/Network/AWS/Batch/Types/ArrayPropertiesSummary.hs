@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.ArrayPropertiesSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the array properties of a job.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ArrayPropertiesSummary = ArrayPropertiesSummary'
   { -- | The job index within the array that\'s associated with this job. This
     -- parameter is returned for children of array jobs.
-    index :: Prelude.Maybe Prelude.Int,
+    index :: Core.Maybe Core.Int,
     -- | The size of the array job. This parameter is returned for parent array
     -- jobs.
-    size :: Prelude.Maybe Prelude.Int
+    size :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArrayPropertiesSummary' with all optional fields omitted.
@@ -53,30 +52,29 @@ newArrayPropertiesSummary ::
   ArrayPropertiesSummary
 newArrayPropertiesSummary =
   ArrayPropertiesSummary'
-    { index = Prelude.Nothing,
-      size = Prelude.Nothing
+    { index = Core.Nothing,
+      size = Core.Nothing
     }
 
 -- | The job index within the array that\'s associated with this job. This
 -- parameter is returned for children of array jobs.
-arrayPropertiesSummary_index :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
+arrayPropertiesSummary_index :: Lens.Lens' ArrayPropertiesSummary (Core.Maybe Core.Int)
 arrayPropertiesSummary_index = Lens.lens (\ArrayPropertiesSummary' {index} -> index) (\s@ArrayPropertiesSummary' {} a -> s {index = a} :: ArrayPropertiesSummary)
 
 -- | The size of the array job. This parameter is returned for parent array
 -- jobs.
-arrayPropertiesSummary_size :: Lens.Lens' ArrayPropertiesSummary (Prelude.Maybe Prelude.Int)
+arrayPropertiesSummary_size :: Lens.Lens' ArrayPropertiesSummary (Core.Maybe Core.Int)
 arrayPropertiesSummary_size = Lens.lens (\ArrayPropertiesSummary' {size} -> size) (\s@ArrayPropertiesSummary' {} a -> s {size = a} :: ArrayPropertiesSummary)
 
-instance Prelude.FromJSON ArrayPropertiesSummary where
+instance Core.FromJSON ArrayPropertiesSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ArrayPropertiesSummary"
       ( \x ->
           ArrayPropertiesSummary'
-            Prelude.<$> (x Prelude..:? "index")
-            Prelude.<*> (x Prelude..:? "size")
+            Core.<$> (x Core..:? "index") Core.<*> (x Core..:? "size")
       )
 
-instance Prelude.Hashable ArrayPropertiesSummary
+instance Core.Hashable ArrayPropertiesSummary
 
-instance Prelude.NFData ArrayPropertiesSummary
+instance Core.NFData ArrayPropertiesSummary

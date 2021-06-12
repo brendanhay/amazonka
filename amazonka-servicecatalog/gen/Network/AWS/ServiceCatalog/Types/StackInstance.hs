@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.StackInstance where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.StackInstanceStatus
 
 -- | An AWS CloudFormation stack, in a specific account and region, that\'s
@@ -51,13 +50,13 @@ data StackInstance = StackInstance'
     --     stopped before the stack was created or updated.
     --
     -- -   @CURRENT@: The stack is currently up to date with the stack set.
-    stackInstanceStatus :: Prelude.Maybe StackInstanceStatus,
+    stackInstanceStatus :: Core.Maybe StackInstanceStatus,
     -- | The name of the AWS account that the stack instance is associated with.
-    account :: Prelude.Maybe Prelude.Text,
+    account :: Core.Maybe Core.Text,
     -- | The name of the AWS region that the stack instance is associated with.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StackInstance' with all optional fields omitted.
@@ -91,10 +90,9 @@ newStackInstance ::
   StackInstance
 newStackInstance =
   StackInstance'
-    { stackInstanceStatus =
-        Prelude.Nothing,
-      account = Prelude.Nothing,
-      region = Prelude.Nothing
+    { stackInstanceStatus = Core.Nothing,
+      account = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | The status of the stack instance, in terms of its synchronization with
@@ -113,28 +111,28 @@ newStackInstance =
 --     stopped before the stack was created or updated.
 --
 -- -   @CURRENT@: The stack is currently up to date with the stack set.
-stackInstance_stackInstanceStatus :: Lens.Lens' StackInstance (Prelude.Maybe StackInstanceStatus)
+stackInstance_stackInstanceStatus :: Lens.Lens' StackInstance (Core.Maybe StackInstanceStatus)
 stackInstance_stackInstanceStatus = Lens.lens (\StackInstance' {stackInstanceStatus} -> stackInstanceStatus) (\s@StackInstance' {} a -> s {stackInstanceStatus = a} :: StackInstance)
 
 -- | The name of the AWS account that the stack instance is associated with.
-stackInstance_account :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_account :: Lens.Lens' StackInstance (Core.Maybe Core.Text)
 stackInstance_account = Lens.lens (\StackInstance' {account} -> account) (\s@StackInstance' {} a -> s {account = a} :: StackInstance)
 
 -- | The name of the AWS region that the stack instance is associated with.
-stackInstance_region :: Lens.Lens' StackInstance (Prelude.Maybe Prelude.Text)
+stackInstance_region :: Lens.Lens' StackInstance (Core.Maybe Core.Text)
 stackInstance_region = Lens.lens (\StackInstance' {region} -> region) (\s@StackInstance' {} a -> s {region = a} :: StackInstance)
 
-instance Prelude.FromJSON StackInstance where
+instance Core.FromJSON StackInstance where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StackInstance"
       ( \x ->
           StackInstance'
-            Prelude.<$> (x Prelude..:? "StackInstanceStatus")
-            Prelude.<*> (x Prelude..:? "Account")
-            Prelude.<*> (x Prelude..:? "Region")
+            Core.<$> (x Core..:? "StackInstanceStatus")
+            Core.<*> (x Core..:? "Account")
+            Core.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable StackInstance
+instance Core.Hashable StackInstance
 
-instance Prelude.NFData StackInstance
+instance Core.NFData StackInstance

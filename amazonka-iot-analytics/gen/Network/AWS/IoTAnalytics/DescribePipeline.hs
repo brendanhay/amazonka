@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.IoTAnalytics.DescribePipeline
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribePipeline' smart constructor.
 data DescribePipeline = DescribePipeline'
   { -- | The name of the pipeline whose information is retrieved.
-    pipelineName :: Prelude.Text
+    pipelineName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePipeline' with all optional fields omitted.
@@ -64,49 +63,51 @@ data DescribePipeline = DescribePipeline'
 -- 'pipelineName', 'describePipeline_pipelineName' - The name of the pipeline whose information is retrieved.
 newDescribePipeline ::
   -- | 'pipelineName'
-  Prelude.Text ->
+  Core.Text ->
   DescribePipeline
 newDescribePipeline pPipelineName_ =
   DescribePipeline' {pipelineName = pPipelineName_}
 
 -- | The name of the pipeline whose information is retrieved.
-describePipeline_pipelineName :: Lens.Lens' DescribePipeline Prelude.Text
+describePipeline_pipelineName :: Lens.Lens' DescribePipeline Core.Text
 describePipeline_pipelineName = Lens.lens (\DescribePipeline' {pipelineName} -> pipelineName) (\s@DescribePipeline' {} a -> s {pipelineName = a} :: DescribePipeline)
 
-instance Prelude.AWSRequest DescribePipeline where
-  type Rs DescribePipeline = DescribePipelineResponse
+instance Core.AWSRequest DescribePipeline where
+  type
+    AWSResponse DescribePipeline =
+      DescribePipelineResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePipelineResponse'
-            Prelude.<$> (x Prelude..?> "pipeline")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "pipeline")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePipeline
+instance Core.Hashable DescribePipeline
 
-instance Prelude.NFData DescribePipeline
+instance Core.NFData DescribePipeline
 
-instance Prelude.ToHeaders DescribePipeline where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribePipeline where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribePipeline where
+instance Core.ToPath DescribePipeline where
   toPath DescribePipeline' {..} =
-    Prelude.mconcat
-      ["/pipelines/", Prelude.toBS pipelineName]
+    Core.mconcat
+      ["/pipelines/", Core.toBS pipelineName]
 
-instance Prelude.ToQuery DescribePipeline where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePipeline where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePipelineResponse' smart constructor.
 data DescribePipelineResponse = DescribePipelineResponse'
   { -- | A @Pipeline@ object that contains information about the pipeline.
-    pipeline :: Prelude.Maybe Pipeline,
+    pipeline :: Core.Maybe Pipeline,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePipelineResponse' with all optional fields omitted.
@@ -121,21 +122,20 @@ data DescribePipelineResponse = DescribePipelineResponse'
 -- 'httpStatus', 'describePipelineResponse_httpStatus' - The response's http status code.
 newDescribePipelineResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePipelineResponse
 newDescribePipelineResponse pHttpStatus_ =
   DescribePipelineResponse'
-    { pipeline =
-        Prelude.Nothing,
+    { pipeline = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @Pipeline@ object that contains information about the pipeline.
-describePipelineResponse_pipeline :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Pipeline)
+describePipelineResponse_pipeline :: Lens.Lens' DescribePipelineResponse (Core.Maybe Pipeline)
 describePipelineResponse_pipeline = Lens.lens (\DescribePipelineResponse' {pipeline} -> pipeline) (\s@DescribePipelineResponse' {} a -> s {pipeline = a} :: DescribePipelineResponse)
 
 -- | The response's http status code.
-describePipelineResponse_httpStatus :: Lens.Lens' DescribePipelineResponse Prelude.Int
+describePipelineResponse_httpStatus :: Lens.Lens' DescribePipelineResponse Core.Int
 describePipelineResponse_httpStatus = Lens.lens (\DescribePipelineResponse' {httpStatus} -> httpStatus) (\s@DescribePipelineResponse' {} a -> s {httpStatus = a} :: DescribePipelineResponse)
 
-instance Prelude.NFData DescribePipelineResponse
+instance Core.NFData DescribePipelineResponse

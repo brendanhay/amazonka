@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IAM.DeleteRolePermissionsBoundary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DeleteRolePermissionsBoundary = DeleteRolePermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM role from which you want to
     -- remove the permissions boundary.
-    roleName :: Prelude.Text
+    roleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRolePermissionsBoundary' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeleteRolePermissionsBoundary = DeleteRolePermissionsBoundary'
 -- remove the permissions boundary.
 newDeleteRolePermissionsBoundary ::
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteRolePermissionsBoundary
 newDeleteRolePermissionsBoundary pRoleName_ =
   DeleteRolePermissionsBoundary'
@@ -76,56 +75,45 @@ newDeleteRolePermissionsBoundary pRoleName_ =
 
 -- | The name (friendly name, not ARN) of the IAM role from which you want to
 -- remove the permissions boundary.
-deleteRolePermissionsBoundary_roleName :: Lens.Lens' DeleteRolePermissionsBoundary Prelude.Text
+deleteRolePermissionsBoundary_roleName :: Lens.Lens' DeleteRolePermissionsBoundary Core.Text
 deleteRolePermissionsBoundary_roleName = Lens.lens (\DeleteRolePermissionsBoundary' {roleName} -> roleName) (\s@DeleteRolePermissionsBoundary' {} a -> s {roleName = a} :: DeleteRolePermissionsBoundary)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteRolePermissionsBoundary
   where
   type
-    Rs DeleteRolePermissionsBoundary =
+    AWSResponse DeleteRolePermissionsBoundary =
       DeleteRolePermissionsBoundaryResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteRolePermissionsBoundaryResponse'
 
-instance
-  Prelude.Hashable
-    DeleteRolePermissionsBoundary
+instance Core.Hashable DeleteRolePermissionsBoundary
 
-instance Prelude.NFData DeleteRolePermissionsBoundary
+instance Core.NFData DeleteRolePermissionsBoundary
 
-instance
-  Prelude.ToHeaders
-    DeleteRolePermissionsBoundary
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteRolePermissionsBoundary where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteRolePermissionsBoundary where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteRolePermissionsBoundary where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteRolePermissionsBoundary
-  where
+instance Core.ToQuery DeleteRolePermissionsBoundary where
   toQuery DeleteRolePermissionsBoundary' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteRolePermissionsBoundary" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Prelude.=: roleName
+          Core.=: ("DeleteRolePermissionsBoundary" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "RoleName" Core.=: roleName
       ]
 
 -- | /See:/ 'newDeleteRolePermissionsBoundaryResponse' smart constructor.
 data DeleteRolePermissionsBoundaryResponse = DeleteRolePermissionsBoundaryResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRolePermissionsBoundaryResponse' with all optional fields omitted.
@@ -137,5 +125,5 @@ newDeleteRolePermissionsBoundaryResponse =
   DeleteRolePermissionsBoundaryResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteRolePermissionsBoundaryResponse

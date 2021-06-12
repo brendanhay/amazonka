@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,9 @@ module Network.AWS.Glacier.CompleteVaultLock
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,14 +69,14 @@ data CompleteVaultLock = CompleteVaultLock'
     -- (hyphen), in which case Amazon Glacier uses the AWS account ID
     -- associated with the credentials used to sign the request. If you specify
     -- your account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text,
+    vaultName :: Core.Text,
     -- | The @lockId@ value is the lock ID obtained from a InitiateVaultLock
     -- request.
-    lockId :: Prelude.Text
+    lockId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompleteVaultLock' with all optional fields omitted.
@@ -100,11 +99,11 @@ data CompleteVaultLock = CompleteVaultLock'
 -- request.
 newCompleteVaultLock ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lockId'
-  Prelude.Text ->
+  Core.Text ->
   CompleteVaultLock
 newCompleteVaultLock pAccountId_ pVaultName_ pLockId_ =
   CompleteVaultLock'
@@ -119,56 +118,57 @@ newCompleteVaultLock pAccountId_ pVaultName_ pLockId_ =
 -- (hyphen), in which case Amazon Glacier uses the AWS account ID
 -- associated with the credentials used to sign the request. If you specify
 -- your account ID, do not include any hyphens (\'-\') in the ID.
-completeVaultLock_accountId :: Lens.Lens' CompleteVaultLock Prelude.Text
+completeVaultLock_accountId :: Lens.Lens' CompleteVaultLock Core.Text
 completeVaultLock_accountId = Lens.lens (\CompleteVaultLock' {accountId} -> accountId) (\s@CompleteVaultLock' {} a -> s {accountId = a} :: CompleteVaultLock)
 
 -- | The name of the vault.
-completeVaultLock_vaultName :: Lens.Lens' CompleteVaultLock Prelude.Text
+completeVaultLock_vaultName :: Lens.Lens' CompleteVaultLock Core.Text
 completeVaultLock_vaultName = Lens.lens (\CompleteVaultLock' {vaultName} -> vaultName) (\s@CompleteVaultLock' {} a -> s {vaultName = a} :: CompleteVaultLock)
 
 -- | The @lockId@ value is the lock ID obtained from a InitiateVaultLock
 -- request.
-completeVaultLock_lockId :: Lens.Lens' CompleteVaultLock Prelude.Text
+completeVaultLock_lockId :: Lens.Lens' CompleteVaultLock Core.Text
 completeVaultLock_lockId = Lens.lens (\CompleteVaultLock' {lockId} -> lockId) (\s@CompleteVaultLock' {} a -> s {lockId = a} :: CompleteVaultLock)
 
-instance Prelude.AWSRequest CompleteVaultLock where
-  type Rs CompleteVaultLock = CompleteVaultLockResponse
+instance Core.AWSRequest CompleteVaultLock where
+  type
+    AWSResponse CompleteVaultLock =
+      CompleteVaultLockResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.postJSON defaultService
   response =
     Response.receiveNull CompleteVaultLockResponse'
 
-instance Prelude.Hashable CompleteVaultLock
+instance Core.Hashable CompleteVaultLock
 
-instance Prelude.NFData CompleteVaultLock
+instance Core.NFData CompleteVaultLock
 
-instance Prelude.ToHeaders CompleteVaultLock where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CompleteVaultLock where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CompleteVaultLock where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON CompleteVaultLock where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath CompleteVaultLock where
+instance Core.ToPath CompleteVaultLock where
   toPath CompleteVaultLock' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/lock-policy/",
-        Prelude.toBS lockId
+        Core.toBS lockId
       ]
 
-instance Prelude.ToQuery CompleteVaultLock where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CompleteVaultLock where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCompleteVaultLockResponse' smart constructor.
 data CompleteVaultLockResponse = CompleteVaultLockResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompleteVaultLockResponse' with all optional fields omitted.
@@ -179,4 +179,4 @@ newCompleteVaultLockResponse ::
 newCompleteVaultLockResponse =
   CompleteVaultLockResponse'
 
-instance Prelude.NFData CompleteVaultLockResponse
+instance Core.NFData CompleteVaultLockResponse

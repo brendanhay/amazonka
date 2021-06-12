@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.SageMaker.DisableSagemakerServicecatalogPortfolio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,7 +46,7 @@ import Network.AWS.SageMaker.Types
 data DisableSagemakerServicecatalogPortfolio = DisableSagemakerServicecatalogPortfolio'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableSagemakerServicecatalogPortfolio' with all optional fields omitted.
@@ -59,71 +58,69 @@ newDisableSagemakerServicecatalogPortfolio =
   DisableSagemakerServicecatalogPortfolio'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisableSagemakerServicecatalogPortfolio
   where
   type
-    Rs DisableSagemakerServicecatalogPortfolio =
+    AWSResponse
+      DisableSagemakerServicecatalogPortfolio =
       DisableSagemakerServicecatalogPortfolioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableSagemakerServicecatalogPortfolioResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisableSagemakerServicecatalogPortfolio
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableSagemakerServicecatalogPortfolio
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisableSagemakerServicecatalogPortfolio
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DisableSagemakerServicecatalogPortfolio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DisableSagemakerServicecatalogPortfolio" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DisableSagemakerServicecatalogPortfolio
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DisableSagemakerServicecatalogPortfolio
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisableSagemakerServicecatalogPortfolio
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableSagemakerServicecatalogPortfolioResponse' smart constructor.
 data DisableSagemakerServicecatalogPortfolioResponse = DisableSagemakerServicecatalogPortfolioResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableSagemakerServicecatalogPortfolioResponse' with all optional fields omitted.
@@ -136,7 +133,7 @@ data DisableSagemakerServicecatalogPortfolioResponse = DisableSagemakerServiceca
 -- 'httpStatus', 'disableSagemakerServicecatalogPortfolioResponse_httpStatus' - The response's http status code.
 newDisableSagemakerServicecatalogPortfolioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableSagemakerServicecatalogPortfolioResponse
 newDisableSagemakerServicecatalogPortfolioResponse
   pHttpStatus_ =
@@ -146,9 +143,9 @@ newDisableSagemakerServicecatalogPortfolioResponse
       }
 
 -- | The response's http status code.
-disableSagemakerServicecatalogPortfolioResponse_httpStatus :: Lens.Lens' DisableSagemakerServicecatalogPortfolioResponse Prelude.Int
+disableSagemakerServicecatalogPortfolioResponse_httpStatus :: Lens.Lens' DisableSagemakerServicecatalogPortfolioResponse Core.Int
 disableSagemakerServicecatalogPortfolioResponse_httpStatus = Lens.lens (\DisableSagemakerServicecatalogPortfolioResponse' {httpStatus} -> httpStatus) (\s@DisableSagemakerServicecatalogPortfolioResponse' {} a -> s {httpStatus = a} :: DisableSagemakerServicecatalogPortfolioResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableSagemakerServicecatalogPortfolioResponse

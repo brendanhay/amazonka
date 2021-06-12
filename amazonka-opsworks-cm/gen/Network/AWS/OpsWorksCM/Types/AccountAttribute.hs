@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorksCM.Types.AccountAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Stores account attributes.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data AccountAttribute = AccountAttribute'
   { -- | The current usage, such as the current number of servers that are
     -- associated with the account.
-    used :: Prelude.Maybe Prelude.Int,
+    used :: Core.Maybe Core.Int,
     -- | The attribute name. The following are supported attribute names.
     --
     -- -   /ServerLimit:/ The number of current servers\/maximum number of
@@ -38,11 +37,11 @@ data AccountAttribute = AccountAttribute'
     -- -   /ManualBackupLimit:/ The number of current manual backups\/maximum
     --     number of backups allowed. By default, you can have a maximum of 50
     --     manual backups saved.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The maximum allowed value.
-    maximum :: Prelude.Maybe Prelude.Int
+    maximum :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountAttribute' with all optional fields omitted.
@@ -69,14 +68,14 @@ newAccountAttribute ::
   AccountAttribute
 newAccountAttribute =
   AccountAttribute'
-    { used = Prelude.Nothing,
-      name = Prelude.Nothing,
-      maximum = Prelude.Nothing
+    { used = Core.Nothing,
+      name = Core.Nothing,
+      maximum = Core.Nothing
     }
 
 -- | The current usage, such as the current number of servers that are
 -- associated with the account.
-accountAttribute_used :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
+accountAttribute_used :: Lens.Lens' AccountAttribute (Core.Maybe Core.Int)
 accountAttribute_used = Lens.lens (\AccountAttribute' {used} -> used) (\s@AccountAttribute' {} a -> s {used = a} :: AccountAttribute)
 
 -- | The attribute name. The following are supported attribute names.
@@ -87,24 +86,24 @@ accountAttribute_used = Lens.lens (\AccountAttribute' {used} -> used) (\s@Accoun
 -- -   /ManualBackupLimit:/ The number of current manual backups\/maximum
 --     number of backups allowed. By default, you can have a maximum of 50
 --     manual backups saved.
-accountAttribute_name :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Text)
+accountAttribute_name :: Lens.Lens' AccountAttribute (Core.Maybe Core.Text)
 accountAttribute_name = Lens.lens (\AccountAttribute' {name} -> name) (\s@AccountAttribute' {} a -> s {name = a} :: AccountAttribute)
 
 -- | The maximum allowed value.
-accountAttribute_maximum :: Lens.Lens' AccountAttribute (Prelude.Maybe Prelude.Int)
+accountAttribute_maximum :: Lens.Lens' AccountAttribute (Core.Maybe Core.Int)
 accountAttribute_maximum = Lens.lens (\AccountAttribute' {maximum} -> maximum) (\s@AccountAttribute' {} a -> s {maximum = a} :: AccountAttribute)
 
-instance Prelude.FromJSON AccountAttribute where
+instance Core.FromJSON AccountAttribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountAttribute"
       ( \x ->
           AccountAttribute'
-            Prelude.<$> (x Prelude..:? "Used")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Maximum")
+            Core.<$> (x Core..:? "Used")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Maximum")
       )
 
-instance Prelude.Hashable AccountAttribute
+instance Core.Hashable AccountAttribute
 
-instance Prelude.NFData AccountAttribute
+instance Core.NFData AccountAttribute

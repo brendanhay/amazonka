@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,10 +55,9 @@ module Network.AWS.IAM.ListUsers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,7 +75,7 @@ data ListUsers = ListUsers'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
+    pathPrefix :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -87,14 +85,14 @@ data ListUsers = ListUsers'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUsers' with all optional fields omitted.
@@ -135,9 +133,9 @@ newListUsers ::
   ListUsers
 newListUsers =
   ListUsers'
-    { pathPrefix = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { pathPrefix = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The path prefix for filtering the results. For example:
@@ -152,7 +150,7 @@ newListUsers =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-listUsers_pathPrefix :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_pathPrefix :: Lens.Lens' ListUsers (Core.Maybe Core.Text)
 listUsers_pathPrefix = Lens.lens (\ListUsers' {pathPrefix} -> pathPrefix) (\s@ListUsers' {} a -> s {pathPrefix = a} :: ListUsers)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -164,71 +162,68 @@ listUsers_pathPrefix = Lens.lens (\ListUsers' {pathPrefix} -> pathPrefix) (\s@Li
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listUsers_maxItems :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
+listUsers_maxItems :: Lens.Lens' ListUsers (Core.Maybe Core.Natural)
 listUsers_maxItems = Lens.lens (\ListUsers' {maxItems} -> maxItems) (\s@ListUsers' {} a -> s {maxItems = a} :: ListUsers)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listUsers_marker :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Text)
+listUsers_marker :: Lens.Lens' ListUsers (Core.Maybe Core.Text)
 listUsers_marker = Lens.lens (\ListUsers' {marker} -> marker) (\s@ListUsers' {} a -> s {marker = a} :: ListUsers)
 
-instance Pager.AWSPager ListUsers where
+instance Core.AWSPager ListUsers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listUsersResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? listUsersResponse_isTruncated Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listUsersResponse_marker Prelude.. Lens._Just
+            Lens.^? listUsersResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listUsers_marker
-          Lens..~ rs
-          Lens.^? listUsersResponse_marker Prelude.. Lens._Just
+          Lens..~ rs Lens.^? listUsersResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListUsers where
-  type Rs ListUsers = ListUsersResponse
+instance Core.AWSRequest ListUsers where
+  type AWSResponse ListUsers = ListUsersResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListUsersResult"
       ( \s h x ->
           ListUsersResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "Users" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "Users" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListUsers
+instance Core.Hashable ListUsers
 
-instance Prelude.NFData ListUsers
+instance Core.NFData ListUsers
 
-instance Prelude.ToHeaders ListUsers where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListUsers where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListUsers where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListUsers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListUsers where
+instance Core.ToQuery ListUsers where
   toQuery ListUsers' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("ListUsers" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Prelude.=: pathPrefix,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "Action" Core.=: ("ListUsers" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "PathPrefix" Core.=: pathPrefix,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the response to a successful ListUsers request.
@@ -242,17 +237,17 @@ data ListUsersResponse = ListUsersResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of users.
     users :: [User]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUsersResponse' with all optional fields omitted.
@@ -279,14 +274,14 @@ data ListUsersResponse = ListUsersResponse'
 -- 'users', 'listUsersResponse_users' - A list of users.
 newListUsersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListUsersResponse
 newListUsersResponse pHttpStatus_ =
   ListUsersResponse'
-    { isTruncated = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { isTruncated = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      users = Prelude.mempty
+      users = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -296,21 +291,21 @@ newListUsersResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listUsersResponse_isTruncated :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Bool)
+listUsersResponse_isTruncated :: Lens.Lens' ListUsersResponse (Core.Maybe Core.Bool)
 listUsersResponse_isTruncated = Lens.lens (\ListUsersResponse' {isTruncated} -> isTruncated) (\s@ListUsersResponse' {} a -> s {isTruncated = a} :: ListUsersResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listUsersResponse_marker :: Lens.Lens' ListUsersResponse (Prelude.Maybe Prelude.Text)
+listUsersResponse_marker :: Lens.Lens' ListUsersResponse (Core.Maybe Core.Text)
 listUsersResponse_marker = Lens.lens (\ListUsersResponse' {marker} -> marker) (\s@ListUsersResponse' {} a -> s {marker = a} :: ListUsersResponse)
 
 -- | The response's http status code.
-listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Prelude.Int
+listUsersResponse_httpStatus :: Lens.Lens' ListUsersResponse Core.Int
 listUsersResponse_httpStatus = Lens.lens (\ListUsersResponse' {httpStatus} -> httpStatus) (\s@ListUsersResponse' {} a -> s {httpStatus = a} :: ListUsersResponse)
 
 -- | A list of users.
 listUsersResponse_users :: Lens.Lens' ListUsersResponse [User]
-listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Prelude.. Prelude._Coerce
+listUsersResponse_users = Lens.lens (\ListUsersResponse' {users} -> users) (\s@ListUsersResponse' {} a -> s {users = a} :: ListUsersResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListUsersResponse
+instance Core.NFData ListUsersResponse

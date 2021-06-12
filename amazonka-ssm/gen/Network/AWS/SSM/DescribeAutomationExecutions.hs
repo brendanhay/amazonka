@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.SSM.DescribeAutomationExecutions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,15 +54,15 @@ import Network.AWS.SSM.Types
 data DescribeAutomationExecutions = DescribeAutomationExecutions'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Filters used to limit the scope of executions that are requested.
-    filters :: Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter)
+    filters :: Core.Maybe (Core.NonEmpty AutomationExecutionFilter)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutomationExecutions' with all optional fields omitted.
@@ -87,119 +85,109 @@ newDescribeAutomationExecutions ::
 newDescribeAutomationExecutions =
   DescribeAutomationExecutions'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeAutomationExecutions_nextToken :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe Prelude.Text)
+describeAutomationExecutions_nextToken :: Lens.Lens' DescribeAutomationExecutions (Core.Maybe Core.Text)
 describeAutomationExecutions_nextToken = Lens.lens (\DescribeAutomationExecutions' {nextToken} -> nextToken) (\s@DescribeAutomationExecutions' {} a -> s {nextToken = a} :: DescribeAutomationExecutions)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeAutomationExecutions_maxResults :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe Prelude.Natural)
+describeAutomationExecutions_maxResults :: Lens.Lens' DescribeAutomationExecutions (Core.Maybe Core.Natural)
 describeAutomationExecutions_maxResults = Lens.lens (\DescribeAutomationExecutions' {maxResults} -> maxResults) (\s@DescribeAutomationExecutions' {} a -> s {maxResults = a} :: DescribeAutomationExecutions)
 
 -- | Filters used to limit the scope of executions that are requested.
-describeAutomationExecutions_filters :: Lens.Lens' DescribeAutomationExecutions (Prelude.Maybe (Prelude.NonEmpty AutomationExecutionFilter))
-describeAutomationExecutions_filters = Lens.lens (\DescribeAutomationExecutions' {filters} -> filters) (\s@DescribeAutomationExecutions' {} a -> s {filters = a} :: DescribeAutomationExecutions) Prelude.. Lens.mapping Prelude._Coerce
+describeAutomationExecutions_filters :: Lens.Lens' DescribeAutomationExecutions (Core.Maybe (Core.NonEmpty AutomationExecutionFilter))
+describeAutomationExecutions_filters = Lens.lens (\DescribeAutomationExecutions' {filters} -> filters) (\s@DescribeAutomationExecutions' {} a -> s {filters = a} :: DescribeAutomationExecutions) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeAutomationExecutions where
+instance Core.AWSPager DescribeAutomationExecutions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAutomationExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAutomationExecutionsResponse_automationExecutionMetadataList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAutomationExecutions_nextToken
           Lens..~ rs
           Lens.^? describeAutomationExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeAutomationExecutions
-  where
+instance Core.AWSRequest DescribeAutomationExecutions where
   type
-    Rs DescribeAutomationExecutions =
+    AWSResponse DescribeAutomationExecutions =
       DescribeAutomationExecutionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAutomationExecutionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "AutomationExecutionMetadataList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "AutomationExecutionMetadataList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeAutomationExecutions
+instance Core.Hashable DescribeAutomationExecutions
 
-instance Prelude.NFData DescribeAutomationExecutions
+instance Core.NFData DescribeAutomationExecutions
 
-instance
-  Prelude.ToHeaders
-    DescribeAutomationExecutions
-  where
+instance Core.ToHeaders DescribeAutomationExecutions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribeAutomationExecutions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DescribeAutomationExecutions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAutomationExecutions where
+instance Core.ToJSON DescribeAutomationExecutions where
   toJSON DescribeAutomationExecutions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath DescribeAutomationExecutions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAutomationExecutions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAutomationExecutions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAutomationExecutions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAutomationExecutionsResponse' smart constructor.
 data DescribeAutomationExecutionsResponse = DescribeAutomationExecutionsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of details about each automation execution which has occurred
     -- which matches the filter specification, if any.
-    automationExecutionMetadataList :: Prelude.Maybe [AutomationExecutionMetadata],
+    automationExecutionMetadataList :: Core.Maybe [AutomationExecutionMetadata],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutomationExecutionsResponse' with all optional fields omitted.
@@ -218,31 +206,31 @@ data DescribeAutomationExecutionsResponse = DescribeAutomationExecutionsResponse
 -- 'httpStatus', 'describeAutomationExecutionsResponse_httpStatus' - The response's http status code.
 newDescribeAutomationExecutionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAutomationExecutionsResponse
 newDescribeAutomationExecutionsResponse pHttpStatus_ =
   DescribeAutomationExecutionsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       automationExecutionMetadataList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describeAutomationExecutionsResponse_nextToken :: Lens.Lens' DescribeAutomationExecutionsResponse (Prelude.Maybe Prelude.Text)
+describeAutomationExecutionsResponse_nextToken :: Lens.Lens' DescribeAutomationExecutionsResponse (Core.Maybe Core.Text)
 describeAutomationExecutionsResponse_nextToken = Lens.lens (\DescribeAutomationExecutionsResponse' {nextToken} -> nextToken) (\s@DescribeAutomationExecutionsResponse' {} a -> s {nextToken = a} :: DescribeAutomationExecutionsResponse)
 
 -- | The list of details about each automation execution which has occurred
 -- which matches the filter specification, if any.
-describeAutomationExecutionsResponse_automationExecutionMetadataList :: Lens.Lens' DescribeAutomationExecutionsResponse (Prelude.Maybe [AutomationExecutionMetadata])
-describeAutomationExecutionsResponse_automationExecutionMetadataList = Lens.lens (\DescribeAutomationExecutionsResponse' {automationExecutionMetadataList} -> automationExecutionMetadataList) (\s@DescribeAutomationExecutionsResponse' {} a -> s {automationExecutionMetadataList = a} :: DescribeAutomationExecutionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAutomationExecutionsResponse_automationExecutionMetadataList :: Lens.Lens' DescribeAutomationExecutionsResponse (Core.Maybe [AutomationExecutionMetadata])
+describeAutomationExecutionsResponse_automationExecutionMetadataList = Lens.lens (\DescribeAutomationExecutionsResponse' {automationExecutionMetadataList} -> automationExecutionMetadataList) (\s@DescribeAutomationExecutionsResponse' {} a -> s {automationExecutionMetadataList = a} :: DescribeAutomationExecutionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAutomationExecutionsResponse_httpStatus :: Lens.Lens' DescribeAutomationExecutionsResponse Prelude.Int
+describeAutomationExecutionsResponse_httpStatus :: Lens.Lens' DescribeAutomationExecutionsResponse Core.Int
 describeAutomationExecutionsResponse_httpStatus = Lens.lens (\DescribeAutomationExecutionsResponse' {httpStatus} -> httpStatus) (\s@DescribeAutomationExecutionsResponse' {} a -> s {httpStatus = a} :: DescribeAutomationExecutionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAutomationExecutionsResponse

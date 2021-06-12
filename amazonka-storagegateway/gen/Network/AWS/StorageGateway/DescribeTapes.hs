@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.StorageGateway.DescribeTapes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -64,20 +62,20 @@ data DescribeTapes = DescribeTapes'
     -- the virtual tapes you want to describe. If this parameter is not
     -- specified, Tape gateway returns a description of all virtual tapes
     -- associated with the specified gateway.
-    tapeARNs :: Prelude.Maybe [Prelude.Text],
+    tapeARNs :: Core.Maybe [Core.Text],
     -- | Specifies that the number of virtual tapes described be limited to the
     -- specified number.
     --
     -- Amazon Web Services may impose its own limit, if this field is not set.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | A marker value, obtained in a previous call to @DescribeTapes@. This
     -- marker indicates which page of results to retrieve.
     --
     -- If not specified, the first page of results is retrieved.
-    marker :: Prelude.Maybe Prelude.Text,
-    gatewayARN :: Prelude.Text
+    marker :: Core.Maybe Core.Text,
+    gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTapes' with all optional fields omitted.
@@ -105,13 +103,13 @@ data DescribeTapes = DescribeTapes'
 -- 'gatewayARN', 'describeTapes_gatewayARN' - Undocumented member.
 newDescribeTapes ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTapes
 newDescribeTapes pGatewayARN_ =
   DescribeTapes'
-    { tapeARNs = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { tapeARNs = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
       gatewayARN = pGatewayARN_
     }
 
@@ -119,110 +117,110 @@ newDescribeTapes pGatewayARN_ =
 -- the virtual tapes you want to describe. If this parameter is not
 -- specified, Tape gateway returns a description of all virtual tapes
 -- associated with the specified gateway.
-describeTapes_tapeARNs :: Lens.Lens' DescribeTapes (Prelude.Maybe [Prelude.Text])
-describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@DescribeTapes' {} a -> s {tapeARNs = a} :: DescribeTapes) Prelude.. Lens.mapping Prelude._Coerce
+describeTapes_tapeARNs :: Lens.Lens' DescribeTapes (Core.Maybe [Core.Text])
+describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@DescribeTapes' {} a -> s {tapeARNs = a} :: DescribeTapes) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
 --
 -- Amazon Web Services may impose its own limit, if this field is not set.
-describeTapes_limit :: Lens.Lens' DescribeTapes (Prelude.Maybe Prelude.Natural)
+describeTapes_limit :: Lens.Lens' DescribeTapes (Core.Maybe Core.Natural)
 describeTapes_limit = Lens.lens (\DescribeTapes' {limit} -> limit) (\s@DescribeTapes' {} a -> s {limit = a} :: DescribeTapes)
 
 -- | A marker value, obtained in a previous call to @DescribeTapes@. This
 -- marker indicates which page of results to retrieve.
 --
 -- If not specified, the first page of results is retrieved.
-describeTapes_marker :: Lens.Lens' DescribeTapes (Prelude.Maybe Prelude.Text)
+describeTapes_marker :: Lens.Lens' DescribeTapes (Core.Maybe Core.Text)
 describeTapes_marker = Lens.lens (\DescribeTapes' {marker} -> marker) (\s@DescribeTapes' {} a -> s {marker = a} :: DescribeTapes)
 
 -- | Undocumented member.
-describeTapes_gatewayARN :: Lens.Lens' DescribeTapes Prelude.Text
+describeTapes_gatewayARN :: Lens.Lens' DescribeTapes Core.Text
 describeTapes_gatewayARN = Lens.lens (\DescribeTapes' {gatewayARN} -> gatewayARN) (\s@DescribeTapes' {} a -> s {gatewayARN = a} :: DescribeTapes)
 
-instance Pager.AWSPager DescribeTapes where
+instance Core.AWSPager DescribeTapes where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeTapesResponse_marker Prelude.. Lens._Just
+            Lens.^? describeTapesResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeTapesResponse_tapes Prelude.. Lens._Just
+            Lens.^? describeTapesResponse_tapes Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeTapes_marker
           Lens..~ rs
-          Lens.^? describeTapesResponse_marker Prelude.. Lens._Just
+          Lens.^? describeTapesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeTapes where
-  type Rs DescribeTapes = DescribeTapesResponse
+instance Core.AWSRequest DescribeTapes where
+  type
+    AWSResponse DescribeTapes =
+      DescribeTapesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTapesResponse'
-            Prelude.<$> (x Prelude..?> "Tapes" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Tapes" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTapes
+instance Core.Hashable DescribeTapes
 
-instance Prelude.NFData DescribeTapes
+instance Core.NFData DescribeTapes
 
-instance Prelude.ToHeaders DescribeTapes where
+instance Core.ToHeaders DescribeTapes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DescribeTapes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DescribeTapes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTapes where
+instance Core.ToJSON DescribeTapes where
   toJSON DescribeTapes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TapeARNs" Prelude..=) Prelude.<$> tapeARNs,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            ("Marker" Prelude..=) Prelude.<$> marker,
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("TapeARNs" Core..=) Core.<$> tapeARNs,
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker,
+            Core.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )
 
-instance Prelude.ToPath DescribeTapes where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTapes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTapes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTapes where
+  toQuery = Core.const Core.mempty
 
 -- | DescribeTapesOutput
 --
 -- /See:/ 'newDescribeTapesResponse' smart constructor.
 data DescribeTapesResponse = DescribeTapesResponse'
   { -- | An array of virtual tape descriptions.
-    tapes :: Prelude.Maybe [Tape],
+    tapes :: Core.Maybe [Tape],
     -- | An opaque string which can be used as part of a subsequent DescribeTapes
     -- call to retrieve the next page of results.
     --
     -- If a response does not contain a marker, then there are no more results
     -- to be retrieved.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTapesResponse' with all optional fields omitted.
@@ -243,29 +241,29 @@ data DescribeTapesResponse = DescribeTapesResponse'
 -- 'httpStatus', 'describeTapesResponse_httpStatus' - The response's http status code.
 newDescribeTapesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTapesResponse
 newDescribeTapesResponse pHttpStatus_ =
   DescribeTapesResponse'
-    { tapes = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { tapes = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of virtual tape descriptions.
-describeTapesResponse_tapes :: Lens.Lens' DescribeTapesResponse (Prelude.Maybe [Tape])
-describeTapesResponse_tapes = Lens.lens (\DescribeTapesResponse' {tapes} -> tapes) (\s@DescribeTapesResponse' {} a -> s {tapes = a} :: DescribeTapesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTapesResponse_tapes :: Lens.Lens' DescribeTapesResponse (Core.Maybe [Tape])
+describeTapesResponse_tapes = Lens.lens (\DescribeTapesResponse' {tapes} -> tapes) (\s@DescribeTapesResponse' {} a -> s {tapes = a} :: DescribeTapesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes
 -- call to retrieve the next page of results.
 --
 -- If a response does not contain a marker, then there are no more results
 -- to be retrieved.
-describeTapesResponse_marker :: Lens.Lens' DescribeTapesResponse (Prelude.Maybe Prelude.Text)
+describeTapesResponse_marker :: Lens.Lens' DescribeTapesResponse (Core.Maybe Core.Text)
 describeTapesResponse_marker = Lens.lens (\DescribeTapesResponse' {marker} -> marker) (\s@DescribeTapesResponse' {} a -> s {marker = a} :: DescribeTapesResponse)
 
 -- | The response's http status code.
-describeTapesResponse_httpStatus :: Lens.Lens' DescribeTapesResponse Prelude.Int
+describeTapesResponse_httpStatus :: Lens.Lens' DescribeTapesResponse Core.Int
 describeTapesResponse_httpStatus = Lens.lens (\DescribeTapesResponse' {httpStatus} -> httpStatus) (\s@DescribeTapesResponse' {} a -> s {httpStatus = a} :: DescribeTapesResponse)
 
-instance Prelude.NFData DescribeTapesResponse
+instance Core.NFData DescribeTapesResponse

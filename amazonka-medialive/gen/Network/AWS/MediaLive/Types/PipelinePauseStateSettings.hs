@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.PipelinePauseStateSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.PipelineId
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for pausing a pipeline.
 --
@@ -31,7 +30,7 @@ data PipelinePauseStateSettings = PipelinePauseStateSettings'
   { -- | Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\").
     pipelineId :: PipelineId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelinePauseStateSettings' with all optional fields omitted.
@@ -56,22 +55,22 @@ newPipelinePauseStateSettings pPipelineId_ =
 pipelinePauseStateSettings_pipelineId :: Lens.Lens' PipelinePauseStateSettings PipelineId
 pipelinePauseStateSettings_pipelineId = Lens.lens (\PipelinePauseStateSettings' {pipelineId} -> pipelineId) (\s@PipelinePauseStateSettings' {} a -> s {pipelineId = a} :: PipelinePauseStateSettings)
 
-instance Prelude.FromJSON PipelinePauseStateSettings where
+instance Core.FromJSON PipelinePauseStateSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelinePauseStateSettings"
       ( \x ->
           PipelinePauseStateSettings'
-            Prelude.<$> (x Prelude..: "pipelineId")
+            Core.<$> (x Core..: "pipelineId")
       )
 
-instance Prelude.Hashable PipelinePauseStateSettings
+instance Core.Hashable PipelinePauseStateSettings
 
-instance Prelude.NFData PipelinePauseStateSettings
+instance Core.NFData PipelinePauseStateSettings
 
-instance Prelude.ToJSON PipelinePauseStateSettings where
+instance Core.ToJSON PipelinePauseStateSettings where
   toJSON PipelinePauseStateSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("pipelineId" Prelude..= pipelineId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("pipelineId" Core..= pipelineId)]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.Comprehend.StopEventsDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopEventsDetectionJob' smart constructor.
 data StopEventsDetectionJob = StopEventsDetectionJob'
   { -- | The identifier of the events detection job to stop.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopEventsDetectionJob' with all optional fields omitted.
@@ -65,71 +64,67 @@ data StopEventsDetectionJob = StopEventsDetectionJob'
 -- 'jobId', 'stopEventsDetectionJob_jobId' - The identifier of the events detection job to stop.
 newStopEventsDetectionJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   StopEventsDetectionJob
 newStopEventsDetectionJob pJobId_ =
   StopEventsDetectionJob' {jobId = pJobId_}
 
 -- | The identifier of the events detection job to stop.
-stopEventsDetectionJob_jobId :: Lens.Lens' StopEventsDetectionJob Prelude.Text
+stopEventsDetectionJob_jobId :: Lens.Lens' StopEventsDetectionJob Core.Text
 stopEventsDetectionJob_jobId = Lens.lens (\StopEventsDetectionJob' {jobId} -> jobId) (\s@StopEventsDetectionJob' {} a -> s {jobId = a} :: StopEventsDetectionJob)
 
-instance Prelude.AWSRequest StopEventsDetectionJob where
+instance Core.AWSRequest StopEventsDetectionJob where
   type
-    Rs StopEventsDetectionJob =
+    AWSResponse StopEventsDetectionJob =
       StopEventsDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopEventsDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "JobStatus")
-            Prelude.<*> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopEventsDetectionJob
+instance Core.Hashable StopEventsDetectionJob
 
-instance Prelude.NFData StopEventsDetectionJob
+instance Core.NFData StopEventsDetectionJob
 
-instance Prelude.ToHeaders StopEventsDetectionJob where
+instance Core.ToHeaders StopEventsDetectionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StopEventsDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StopEventsDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopEventsDetectionJob where
+instance Core.ToJSON StopEventsDetectionJob where
   toJSON StopEventsDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance Prelude.ToPath StopEventsDetectionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopEventsDetectionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopEventsDetectionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopEventsDetectionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopEventsDetectionJobResponse' smart constructor.
 data StopEventsDetectionJobResponse = StopEventsDetectionJobResponse'
   { -- | The status of the events detection job.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The identifier of the events detection job to stop.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopEventsDetectionJobResponse' with all optional fields omitted.
@@ -146,28 +141,26 @@ data StopEventsDetectionJobResponse = StopEventsDetectionJobResponse'
 -- 'httpStatus', 'stopEventsDetectionJobResponse_httpStatus' - The response's http status code.
 newStopEventsDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopEventsDetectionJobResponse
 newStopEventsDetectionJobResponse pHttpStatus_ =
   StopEventsDetectionJobResponse'
     { jobStatus =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
+        Core.Nothing,
+      jobId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the events detection job.
-stopEventsDetectionJobResponse_jobStatus :: Lens.Lens' StopEventsDetectionJobResponse (Prelude.Maybe JobStatus)
+stopEventsDetectionJobResponse_jobStatus :: Lens.Lens' StopEventsDetectionJobResponse (Core.Maybe JobStatus)
 stopEventsDetectionJobResponse_jobStatus = Lens.lens (\StopEventsDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StopEventsDetectionJobResponse' {} a -> s {jobStatus = a} :: StopEventsDetectionJobResponse)
 
 -- | The identifier of the events detection job to stop.
-stopEventsDetectionJobResponse_jobId :: Lens.Lens' StopEventsDetectionJobResponse (Prelude.Maybe Prelude.Text)
+stopEventsDetectionJobResponse_jobId :: Lens.Lens' StopEventsDetectionJobResponse (Core.Maybe Core.Text)
 stopEventsDetectionJobResponse_jobId = Lens.lens (\StopEventsDetectionJobResponse' {jobId} -> jobId) (\s@StopEventsDetectionJobResponse' {} a -> s {jobId = a} :: StopEventsDetectionJobResponse)
 
 -- | The response's http status code.
-stopEventsDetectionJobResponse_httpStatus :: Lens.Lens' StopEventsDetectionJobResponse Prelude.Int
+stopEventsDetectionJobResponse_httpStatus :: Lens.Lens' StopEventsDetectionJobResponse Core.Int
 stopEventsDetectionJobResponse_httpStatus = Lens.lens (\StopEventsDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StopEventsDetectionJobResponse' {} a -> s {httpStatus = a} :: StopEventsDetectionJobResponse)
 
-instance
-  Prelude.NFData
-    StopEventsDetectionJobResponse
+instance Core.NFData StopEventsDetectionJobResponse

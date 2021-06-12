@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.ScalingProcessQuery where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newScalingProcessQuery' smart constructor.
 data ScalingProcessQuery = ScalingProcessQuery'
@@ -46,11 +45,11 @@ data ScalingProcessQuery = ScalingProcessQuery'
     -- -   @ScheduledActions@
     --
     -- If you omit this parameter, all processes are specified.
-    scalingProcesses :: Prelude.Maybe [Prelude.Text],
+    scalingProcesses :: Core.Maybe [Core.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingProcessQuery' with all optional fields omitted.
@@ -85,12 +84,12 @@ data ScalingProcessQuery = ScalingProcessQuery'
 -- 'autoScalingGroupName', 'scalingProcessQuery_autoScalingGroupName' - The name of the Auto Scaling group.
 newScalingProcessQuery ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ScalingProcessQuery
 newScalingProcessQuery pAutoScalingGroupName_ =
   ScalingProcessQuery'
     { scalingProcesses =
-        Prelude.Nothing,
+        Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -115,25 +114,24 @@ newScalingProcessQuery pAutoScalingGroupName_ =
 -- -   @ScheduledActions@
 --
 -- If you omit this parameter, all processes are specified.
-scalingProcessQuery_scalingProcesses :: Lens.Lens' ScalingProcessQuery (Prelude.Maybe [Prelude.Text])
-scalingProcessQuery_scalingProcesses = Lens.lens (\ScalingProcessQuery' {scalingProcesses} -> scalingProcesses) (\s@ScalingProcessQuery' {} a -> s {scalingProcesses = a} :: ScalingProcessQuery) Prelude.. Lens.mapping Prelude._Coerce
+scalingProcessQuery_scalingProcesses :: Lens.Lens' ScalingProcessQuery (Core.Maybe [Core.Text])
+scalingProcessQuery_scalingProcesses = Lens.lens (\ScalingProcessQuery' {scalingProcesses} -> scalingProcesses) (\s@ScalingProcessQuery' {} a -> s {scalingProcesses = a} :: ScalingProcessQuery) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-scalingProcessQuery_autoScalingGroupName :: Lens.Lens' ScalingProcessQuery Prelude.Text
+scalingProcessQuery_autoScalingGroupName :: Lens.Lens' ScalingProcessQuery Core.Text
 scalingProcessQuery_autoScalingGroupName = Lens.lens (\ScalingProcessQuery' {autoScalingGroupName} -> autoScalingGroupName) (\s@ScalingProcessQuery' {} a -> s {autoScalingGroupName = a} :: ScalingProcessQuery)
 
-instance Prelude.Hashable ScalingProcessQuery
+instance Core.Hashable ScalingProcessQuery
 
-instance Prelude.NFData ScalingProcessQuery
+instance Core.NFData ScalingProcessQuery
 
-instance Prelude.ToQuery ScalingProcessQuery where
+instance Core.ToQuery ScalingProcessQuery where
   toQuery ScalingProcessQuery' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "ScalingProcesses"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> scalingProcesses
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> scalingProcesses
             ),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]

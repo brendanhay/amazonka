@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PrefixListAssociation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the resource with which a prefix list is associated.
 --
 -- /See:/ 'newPrefixListAssociation' smart constructor.
 data PrefixListAssociation = PrefixListAssociation'
   { -- | The ID of the resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The owner of the resource.
-    resourceOwner :: Prelude.Maybe Prelude.Text
+    resourceOwner :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PrefixListAssociation' with all optional fields omitted.
@@ -50,25 +49,24 @@ newPrefixListAssociation ::
   PrefixListAssociation
 newPrefixListAssociation =
   PrefixListAssociation'
-    { resourceId =
-        Prelude.Nothing,
-      resourceOwner = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      resourceOwner = Core.Nothing
     }
 
 -- | The ID of the resource.
-prefixListAssociation_resourceId :: Lens.Lens' PrefixListAssociation (Prelude.Maybe Prelude.Text)
+prefixListAssociation_resourceId :: Lens.Lens' PrefixListAssociation (Core.Maybe Core.Text)
 prefixListAssociation_resourceId = Lens.lens (\PrefixListAssociation' {resourceId} -> resourceId) (\s@PrefixListAssociation' {} a -> s {resourceId = a} :: PrefixListAssociation)
 
 -- | The owner of the resource.
-prefixListAssociation_resourceOwner :: Lens.Lens' PrefixListAssociation (Prelude.Maybe Prelude.Text)
+prefixListAssociation_resourceOwner :: Lens.Lens' PrefixListAssociation (Core.Maybe Core.Text)
 prefixListAssociation_resourceOwner = Lens.lens (\PrefixListAssociation' {resourceOwner} -> resourceOwner) (\s@PrefixListAssociation' {} a -> s {resourceOwner = a} :: PrefixListAssociation)
 
-instance Prelude.FromXML PrefixListAssociation where
+instance Core.FromXML PrefixListAssociation where
   parseXML x =
     PrefixListAssociation'
-      Prelude.<$> (x Prelude..@? "resourceId")
-      Prelude.<*> (x Prelude..@? "resourceOwner")
+      Core.<$> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "resourceOwner")
 
-instance Prelude.Hashable PrefixListAssociation
+instance Core.Hashable PrefixListAssociation
 
-instance Prelude.NFData PrefixListAssociation
+instance Core.NFData PrefixListAssociation

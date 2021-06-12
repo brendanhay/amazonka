@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.Organizations.DeclineHandshake
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +62,9 @@ data DeclineHandshake = DeclineHandshake'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    handshakeId :: Prelude.Text
+    handshakeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeclineHandshake' with all optional fields omitted.
@@ -83,7 +82,7 @@ data DeclineHandshake = DeclineHandshake'
 -- digits.
 newDeclineHandshake ::
   -- | 'handshakeId'
-  Prelude.Text ->
+  Core.Text ->
   DeclineHandshake
 newDeclineHandshake pHandshakeId_ =
   DeclineHandshake' {handshakeId = pHandshakeId_}
@@ -94,63 +93,61 @@ newDeclineHandshake pHandshakeId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-declineHandshake_handshakeId :: Lens.Lens' DeclineHandshake Prelude.Text
+declineHandshake_handshakeId :: Lens.Lens' DeclineHandshake Core.Text
 declineHandshake_handshakeId = Lens.lens (\DeclineHandshake' {handshakeId} -> handshakeId) (\s@DeclineHandshake' {} a -> s {handshakeId = a} :: DeclineHandshake)
 
-instance Prelude.AWSRequest DeclineHandshake where
-  type Rs DeclineHandshake = DeclineHandshakeResponse
+instance Core.AWSRequest DeclineHandshake where
+  type
+    AWSResponse DeclineHandshake =
+      DeclineHandshakeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeclineHandshakeResponse'
-            Prelude.<$> (x Prelude..?> "Handshake")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Handshake")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeclineHandshake
+instance Core.Hashable DeclineHandshake
 
-instance Prelude.NFData DeclineHandshake
+instance Core.NFData DeclineHandshake
 
-instance Prelude.ToHeaders DeclineHandshake where
+instance Core.ToHeaders DeclineHandshake where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DeclineHandshake" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DeclineHandshake" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeclineHandshake where
+instance Core.ToJSON DeclineHandshake where
   toJSON DeclineHandshake' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("HandshakeId" Prelude..= handshakeId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("HandshakeId" Core..= handshakeId)]
       )
 
-instance Prelude.ToPath DeclineHandshake where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeclineHandshake where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeclineHandshake where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeclineHandshake where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeclineHandshakeResponse' smart constructor.
 data DeclineHandshakeResponse = DeclineHandshakeResponse'
   { -- | A structure that contains details about the declined handshake. The
     -- state is updated to show the value @DECLINED@.
-    handshake :: Prelude.Maybe Handshake,
+    handshake :: Core.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeclineHandshakeResponse' with all optional fields omitted.
@@ -166,22 +163,21 @@ data DeclineHandshakeResponse = DeclineHandshakeResponse'
 -- 'httpStatus', 'declineHandshakeResponse_httpStatus' - The response's http status code.
 newDeclineHandshakeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeclineHandshakeResponse
 newDeclineHandshakeResponse pHttpStatus_ =
   DeclineHandshakeResponse'
-    { handshake =
-        Prelude.Nothing,
+    { handshake = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the declined handshake. The
 -- state is updated to show the value @DECLINED@.
-declineHandshakeResponse_handshake :: Lens.Lens' DeclineHandshakeResponse (Prelude.Maybe Handshake)
+declineHandshakeResponse_handshake :: Lens.Lens' DeclineHandshakeResponse (Core.Maybe Handshake)
 declineHandshakeResponse_handshake = Lens.lens (\DeclineHandshakeResponse' {handshake} -> handshake) (\s@DeclineHandshakeResponse' {} a -> s {handshake = a} :: DeclineHandshakeResponse)
 
 -- | The response's http status code.
-declineHandshakeResponse_httpStatus :: Lens.Lens' DeclineHandshakeResponse Prelude.Int
+declineHandshakeResponse_httpStatus :: Lens.Lens' DeclineHandshakeResponse Core.Int
 declineHandshakeResponse_httpStatus = Lens.lens (\DeclineHandshakeResponse' {httpStatus} -> httpStatus) (\s@DeclineHandshakeResponse' {} a -> s {httpStatus = a} :: DeclineHandshakeResponse)
 
-instance Prelude.NFData DeclineHandshakeResponse
+instance Core.NFData DeclineHandshakeResponse

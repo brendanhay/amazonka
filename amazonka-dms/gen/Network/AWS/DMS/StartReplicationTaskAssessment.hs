@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DMS.StartReplicationTaskAssessment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStartReplicationTaskAssessment' smart constructor.
 data StartReplicationTaskAssessment = StartReplicationTaskAssessment'
   { -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Prelude.Text
+    replicationTaskArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartReplicationTaskAssessment' with all optional fields omitted.
@@ -67,7 +66,7 @@ data StartReplicationTaskAssessment = StartReplicationTaskAssessment'
 -- 'replicationTaskArn', 'startReplicationTaskAssessment_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
 newStartReplicationTaskAssessment ::
   -- | 'replicationTaskArn'
-  Prelude.Text ->
+  Core.Text ->
   StartReplicationTaskAssessment
 newStartReplicationTaskAssessment
   pReplicationTaskArn_ =
@@ -77,87 +76,70 @@ newStartReplicationTaskAssessment
       }
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-startReplicationTaskAssessment_replicationTaskArn :: Lens.Lens' StartReplicationTaskAssessment Prelude.Text
+startReplicationTaskAssessment_replicationTaskArn :: Lens.Lens' StartReplicationTaskAssessment Core.Text
 startReplicationTaskAssessment_replicationTaskArn = Lens.lens (\StartReplicationTaskAssessment' {replicationTaskArn} -> replicationTaskArn) (\s@StartReplicationTaskAssessment' {} a -> s {replicationTaskArn = a} :: StartReplicationTaskAssessment)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StartReplicationTaskAssessment
   where
   type
-    Rs StartReplicationTaskAssessment =
+    AWSResponse StartReplicationTaskAssessment =
       StartReplicationTaskAssessmentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartReplicationTaskAssessmentResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StartReplicationTaskAssessment
+instance Core.Hashable StartReplicationTaskAssessment
+
+instance Core.NFData StartReplicationTaskAssessment
 
 instance
-  Prelude.NFData
-    StartReplicationTaskAssessment
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     StartReplicationTaskAssessment
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    StartReplicationTaskAssessment
-  where
+instance Core.ToJSON StartReplicationTaskAssessment where
   toJSON StartReplicationTaskAssessment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "ReplicationTaskArn"
-                  Prelude..= replicationTaskArn
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ReplicationTaskArn" Core..= replicationTaskArn)
           ]
       )
 
-instance
-  Prelude.ToPath
-    StartReplicationTaskAssessment
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartReplicationTaskAssessment where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    StartReplicationTaskAssessment
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartReplicationTaskAssessment where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newStartReplicationTaskAssessmentResponse' smart constructor.
 data StartReplicationTaskAssessmentResponse = StartReplicationTaskAssessmentResponse'
   { -- | The assessed replication task.
-    replicationTask :: Prelude.Maybe ReplicationTask,
+    replicationTask :: Core.Maybe ReplicationTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartReplicationTaskAssessmentResponse' with all optional fields omitted.
@@ -172,24 +154,24 @@ data StartReplicationTaskAssessmentResponse = StartReplicationTaskAssessmentResp
 -- 'httpStatus', 'startReplicationTaskAssessmentResponse_httpStatus' - The response's http status code.
 newStartReplicationTaskAssessmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartReplicationTaskAssessmentResponse
 newStartReplicationTaskAssessmentResponse
   pHttpStatus_ =
     StartReplicationTaskAssessmentResponse'
       { replicationTask =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The assessed replication task.
-startReplicationTaskAssessmentResponse_replicationTask :: Lens.Lens' StartReplicationTaskAssessmentResponse (Prelude.Maybe ReplicationTask)
+startReplicationTaskAssessmentResponse_replicationTask :: Lens.Lens' StartReplicationTaskAssessmentResponse (Core.Maybe ReplicationTask)
 startReplicationTaskAssessmentResponse_replicationTask = Lens.lens (\StartReplicationTaskAssessmentResponse' {replicationTask} -> replicationTask) (\s@StartReplicationTaskAssessmentResponse' {} a -> s {replicationTask = a} :: StartReplicationTaskAssessmentResponse)
 
 -- | The response's http status code.
-startReplicationTaskAssessmentResponse_httpStatus :: Lens.Lens' StartReplicationTaskAssessmentResponse Prelude.Int
+startReplicationTaskAssessmentResponse_httpStatus :: Lens.Lens' StartReplicationTaskAssessmentResponse Core.Int
 startReplicationTaskAssessmentResponse_httpStatus = Lens.lens (\StartReplicationTaskAssessmentResponse' {httpStatus} -> httpStatus) (\s@StartReplicationTaskAssessmentResponse' {} a -> s {httpStatus = a} :: StartReplicationTaskAssessmentResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartReplicationTaskAssessmentResponse

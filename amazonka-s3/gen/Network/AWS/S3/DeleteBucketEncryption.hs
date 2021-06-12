@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.S3.DeleteBucketEncryption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -67,12 +66,12 @@ data DeleteBucketEncryption = DeleteBucketEncryption'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket containing the server-side encryption
     -- configuration to delete.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketEncryption' with all optional fields omitted.
@@ -95,14 +94,14 @@ newDeleteBucketEncryption ::
 newDeleteBucketEncryption pBucket_ =
   DeleteBucketEncryption'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketEncryption_expectedBucketOwner :: Lens.Lens' DeleteBucketEncryption (Prelude.Maybe Prelude.Text)
+deleteBucketEncryption_expectedBucketOwner :: Lens.Lens' DeleteBucketEncryption (Core.Maybe Core.Text)
 deleteBucketEncryption_expectedBucketOwner = Lens.lens (\DeleteBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketEncryption' {} a -> s {expectedBucketOwner = a} :: DeleteBucketEncryption)
 
 -- | The name of the bucket containing the server-side encryption
@@ -110,39 +109,38 @@ deleteBucketEncryption_expectedBucketOwner = Lens.lens (\DeleteBucketEncryption'
 deleteBucketEncryption_bucket :: Lens.Lens' DeleteBucketEncryption BucketName
 deleteBucketEncryption_bucket = Lens.lens (\DeleteBucketEncryption' {bucket} -> bucket) (\s@DeleteBucketEncryption' {} a -> s {bucket = a} :: DeleteBucketEncryption)
 
-instance Prelude.AWSRequest DeleteBucketEncryption where
+instance Core.AWSRequest DeleteBucketEncryption where
   type
-    Rs DeleteBucketEncryption =
+    AWSResponse DeleteBucketEncryption =
       DeleteBucketEncryptionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteBucketEncryptionResponse'
 
-instance Prelude.Hashable DeleteBucketEncryption
+instance Core.Hashable DeleteBucketEncryption
 
-instance Prelude.NFData DeleteBucketEncryption
+instance Core.NFData DeleteBucketEncryption
 
-instance Prelude.ToHeaders DeleteBucketEncryption where
+instance Core.ToHeaders DeleteBucketEncryption where
   toHeaders DeleteBucketEncryption' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath DeleteBucketEncryption where
+instance Core.ToPath DeleteBucketEncryption where
   toPath DeleteBucketEncryption' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery DeleteBucketEncryption where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["encryption"])
+instance Core.ToQuery DeleteBucketEncryption where
+  toQuery = Core.const (Core.mconcat ["encryption"])
 
 -- | /See:/ 'newDeleteBucketEncryptionResponse' smart constructor.
 data DeleteBucketEncryptionResponse = DeleteBucketEncryptionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketEncryptionResponse' with all optional fields omitted.
@@ -153,6 +151,4 @@ newDeleteBucketEncryptionResponse ::
 newDeleteBucketEncryptionResponse =
   DeleteBucketEncryptionResponse'
 
-instance
-  Prelude.NFData
-    DeleteBucketEncryptionResponse
+instance Core.NFData DeleteBucketEncryptionResponse

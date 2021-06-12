@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.StopMonitoringSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopMonitoringSchedule' smart constructor.
 data StopMonitoringSchedule = StopMonitoringSchedule'
   { -- | The name of the schedule to stop.
-    monitoringScheduleName :: Prelude.Text
+    monitoringScheduleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopMonitoringSchedule' with all optional fields omitted.
@@ -60,7 +59,7 @@ data StopMonitoringSchedule = StopMonitoringSchedule'
 -- 'monitoringScheduleName', 'stopMonitoringSchedule_monitoringScheduleName' - The name of the schedule to stop.
 newStopMonitoringSchedule ::
   -- | 'monitoringScheduleName'
-  Prelude.Text ->
+  Core.Text ->
   StopMonitoringSchedule
 newStopMonitoringSchedule pMonitoringScheduleName_ =
   StopMonitoringSchedule'
@@ -69,59 +68,57 @@ newStopMonitoringSchedule pMonitoringScheduleName_ =
     }
 
 -- | The name of the schedule to stop.
-stopMonitoringSchedule_monitoringScheduleName :: Lens.Lens' StopMonitoringSchedule Prelude.Text
+stopMonitoringSchedule_monitoringScheduleName :: Lens.Lens' StopMonitoringSchedule Core.Text
 stopMonitoringSchedule_monitoringScheduleName = Lens.lens (\StopMonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@StopMonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: StopMonitoringSchedule)
 
-instance Prelude.AWSRequest StopMonitoringSchedule where
+instance Core.AWSRequest StopMonitoringSchedule where
   type
-    Rs StopMonitoringSchedule =
+    AWSResponse StopMonitoringSchedule =
       StopMonitoringScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       StopMonitoringScheduleResponse'
 
-instance Prelude.Hashable StopMonitoringSchedule
+instance Core.Hashable StopMonitoringSchedule
 
-instance Prelude.NFData StopMonitoringSchedule
+instance Core.NFData StopMonitoringSchedule
 
-instance Prelude.ToHeaders StopMonitoringSchedule where
+instance Core.ToHeaders StopMonitoringSchedule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StopMonitoringSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.StopMonitoringSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopMonitoringSchedule where
+instance Core.ToJSON StopMonitoringSchedule where
   toJSON StopMonitoringSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "MonitoringScheduleName"
-                  Prelude..= monitoringScheduleName
+                  Core..= monitoringScheduleName
               )
           ]
       )
 
-instance Prelude.ToPath StopMonitoringSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopMonitoringSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopMonitoringSchedule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopMonitoringSchedule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopMonitoringScheduleResponse' smart constructor.
 data StopMonitoringScheduleResponse = StopMonitoringScheduleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopMonitoringScheduleResponse' with all optional fields omitted.
@@ -132,6 +129,4 @@ newStopMonitoringScheduleResponse ::
 newStopMonitoringScheduleResponse =
   StopMonitoringScheduleResponse'
 
-instance
-  Prelude.NFData
-    StopMonitoringScheduleResponse
+instance Core.NFData StopMonitoringScheduleResponse

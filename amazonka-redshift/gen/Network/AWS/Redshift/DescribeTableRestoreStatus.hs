@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,8 @@ module Network.AWS.Redshift.DescribeTableRestoreStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,24 +62,24 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeTableRestoreStatus' smart constructor.
 data DescribeTableRestoreStatus = DescribeTableRestoreStatus'
   { -- | The Amazon Redshift cluster that the table is being restored to.
-    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    clusterIdentifier :: Core.Maybe Core.Text,
     -- | An optional pagination token provided by a previous
     -- @DescribeTableRestoreStatus@ request. If this parameter is specified,
     -- the response includes only records beyond the marker, up to the value
     -- specified by the @MaxRecords@ parameter.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The identifier of the table restore request to return status for. If you
     -- don\'t specify a @TableRestoreRequestId@ value, then
     -- @DescribeTableRestoreStatus@ returns the status of all in-progress table
     -- restore requests.
-    tableRestoreRequestId :: Prelude.Maybe Prelude.Text,
+    tableRestoreRequestId :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
     -- results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTableRestoreStatus' with all optional fields omitted.
@@ -112,65 +110,62 @@ newDescribeTableRestoreStatus ::
 newDescribeTableRestoreStatus =
   DescribeTableRestoreStatus'
     { clusterIdentifier =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
-      tableRestoreRequestId = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      marker = Core.Nothing,
+      tableRestoreRequestId = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The Amazon Redshift cluster that the table is being restored to.
-describeTableRestoreStatus_clusterIdentifier :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
+describeTableRestoreStatus_clusterIdentifier :: Lens.Lens' DescribeTableRestoreStatus (Core.Maybe Core.Text)
 describeTableRestoreStatus_clusterIdentifier = Lens.lens (\DescribeTableRestoreStatus' {clusterIdentifier} -> clusterIdentifier) (\s@DescribeTableRestoreStatus' {} a -> s {clusterIdentifier = a} :: DescribeTableRestoreStatus)
 
 -- | An optional pagination token provided by a previous
 -- @DescribeTableRestoreStatus@ request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by the @MaxRecords@ parameter.
-describeTableRestoreStatus_marker :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
+describeTableRestoreStatus_marker :: Lens.Lens' DescribeTableRestoreStatus (Core.Maybe Core.Text)
 describeTableRestoreStatus_marker = Lens.lens (\DescribeTableRestoreStatus' {marker} -> marker) (\s@DescribeTableRestoreStatus' {} a -> s {marker = a} :: DescribeTableRestoreStatus)
 
 -- | The identifier of the table restore request to return status for. If you
 -- don\'t specify a @TableRestoreRequestId@ value, then
 -- @DescribeTableRestoreStatus@ returns the status of all in-progress table
 -- restore requests.
-describeTableRestoreStatus_tableRestoreRequestId :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Text)
+describeTableRestoreStatus_tableRestoreRequestId :: Lens.Lens' DescribeTableRestoreStatus (Core.Maybe Core.Text)
 describeTableRestoreStatus_tableRestoreRequestId = Lens.lens (\DescribeTableRestoreStatus' {tableRestoreRequestId} -> tableRestoreRequestId) (\s@DescribeTableRestoreStatus' {} a -> s {tableRestoreRequestId = a} :: DescribeTableRestoreStatus)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
-describeTableRestoreStatus_maxRecords :: Lens.Lens' DescribeTableRestoreStatus (Prelude.Maybe Prelude.Int)
+describeTableRestoreStatus_maxRecords :: Lens.Lens' DescribeTableRestoreStatus (Core.Maybe Core.Int)
 describeTableRestoreStatus_maxRecords = Lens.lens (\DescribeTableRestoreStatus' {maxRecords} -> maxRecords) (\s@DescribeTableRestoreStatus' {} a -> s {maxRecords = a} :: DescribeTableRestoreStatus)
 
-instance Pager.AWSPager DescribeTableRestoreStatus where
+instance Core.AWSPager DescribeTableRestoreStatus where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeTableRestoreStatusResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeTableRestoreStatusResponse_tableRestoreStatusDetails
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeTableRestoreStatus_marker
           Lens..~ rs
           Lens.^? describeTableRestoreStatusResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeTableRestoreStatus
-  where
+instance Core.AWSRequest DescribeTableRestoreStatus where
   type
-    Rs DescribeTableRestoreStatus =
+    AWSResponse DescribeTableRestoreStatus =
       DescribeTableRestoreStatusResponse
   request = Request.postQuery defaultService
   response =
@@ -178,37 +173,35 @@ instance
       "DescribeTableRestoreStatusResult"
       ( \s h x ->
           DescribeTableRestoreStatusResponse'
-            Prelude.<$> ( x Prelude..@? "TableRestoreStatusDetails"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "TableRestoreStatus")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "TableRestoreStatusDetails"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "TableRestoreStatus")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTableRestoreStatus
+instance Core.Hashable DescribeTableRestoreStatus
 
-instance Prelude.NFData DescribeTableRestoreStatus
+instance Core.NFData DescribeTableRestoreStatus
 
-instance Prelude.ToHeaders DescribeTableRestoreStatus where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeTableRestoreStatus where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeTableRestoreStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTableRestoreStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTableRestoreStatus where
+instance Core.ToQuery DescribeTableRestoreStatus where
   toQuery DescribeTableRestoreStatus' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeTableRestoreStatus" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier,
-        "Marker" Prelude.=: marker,
+          Core.=: ("DescribeTableRestoreStatus" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier,
+        "Marker" Core.=: marker,
         "TableRestoreRequestId"
-          Prelude.=: tableRestoreRequestId,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: tableRestoreRequestId,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- |
@@ -216,14 +209,14 @@ instance Prelude.ToQuery DescribeTableRestoreStatus where
 -- /See:/ 'newDescribeTableRestoreStatusResponse' smart constructor.
 data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
   { -- | A list of status details for one or more table restore requests.
-    tableRestoreStatusDetails :: Prelude.Maybe [TableRestoreStatus],
+    tableRestoreStatusDetails :: Core.Maybe [TableRestoreStatus],
     -- | A pagination token that can be used in a subsequent
     -- DescribeTableRestoreStatus request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTableRestoreStatusResponse' with all optional fields omitted.
@@ -241,29 +234,29 @@ data DescribeTableRestoreStatusResponse = DescribeTableRestoreStatusResponse'
 -- 'httpStatus', 'describeTableRestoreStatusResponse_httpStatus' - The response's http status code.
 newDescribeTableRestoreStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTableRestoreStatusResponse
 newDescribeTableRestoreStatusResponse pHttpStatus_ =
   DescribeTableRestoreStatusResponse'
     { tableRestoreStatusDetails =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of status details for one or more table restore requests.
-describeTableRestoreStatusResponse_tableRestoreStatusDetails :: Lens.Lens' DescribeTableRestoreStatusResponse (Prelude.Maybe [TableRestoreStatus])
-describeTableRestoreStatusResponse_tableRestoreStatusDetails = Lens.lens (\DescribeTableRestoreStatusResponse' {tableRestoreStatusDetails} -> tableRestoreStatusDetails) (\s@DescribeTableRestoreStatusResponse' {} a -> s {tableRestoreStatusDetails = a} :: DescribeTableRestoreStatusResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTableRestoreStatusResponse_tableRestoreStatusDetails :: Lens.Lens' DescribeTableRestoreStatusResponse (Core.Maybe [TableRestoreStatus])
+describeTableRestoreStatusResponse_tableRestoreStatusDetails = Lens.lens (\DescribeTableRestoreStatusResponse' {tableRestoreStatusDetails} -> tableRestoreStatusDetails) (\s@DescribeTableRestoreStatusResponse' {} a -> s {tableRestoreStatusDetails = a} :: DescribeTableRestoreStatusResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A pagination token that can be used in a subsequent
 -- DescribeTableRestoreStatus request.
-describeTableRestoreStatusResponse_marker :: Lens.Lens' DescribeTableRestoreStatusResponse (Prelude.Maybe Prelude.Text)
+describeTableRestoreStatusResponse_marker :: Lens.Lens' DescribeTableRestoreStatusResponse (Core.Maybe Core.Text)
 describeTableRestoreStatusResponse_marker = Lens.lens (\DescribeTableRestoreStatusResponse' {marker} -> marker) (\s@DescribeTableRestoreStatusResponse' {} a -> s {marker = a} :: DescribeTableRestoreStatusResponse)
 
 -- | The response's http status code.
-describeTableRestoreStatusResponse_httpStatus :: Lens.Lens' DescribeTableRestoreStatusResponse Prelude.Int
+describeTableRestoreStatusResponse_httpStatus :: Lens.Lens' DescribeTableRestoreStatusResponse Core.Int
 describeTableRestoreStatusResponse_httpStatus = Lens.lens (\DescribeTableRestoreStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeTableRestoreStatusResponse' {} a -> s {httpStatus = a} :: DescribeTableRestoreStatusResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeTableRestoreStatusResponse

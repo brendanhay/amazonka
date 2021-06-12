@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.Lightsail.GetStaticIp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetStaticIp' smart constructor.
 data GetStaticIp = GetStaticIp'
   { -- | The name of the static IP in Lightsail.
-    staticIpName :: Prelude.Text
+    staticIpName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetStaticIp' with all optional fields omitted.
@@ -64,69 +63,65 @@ data GetStaticIp = GetStaticIp'
 -- 'staticIpName', 'getStaticIp_staticIpName' - The name of the static IP in Lightsail.
 newGetStaticIp ::
   -- | 'staticIpName'
-  Prelude.Text ->
+  Core.Text ->
   GetStaticIp
 newGetStaticIp pStaticIpName_ =
   GetStaticIp' {staticIpName = pStaticIpName_}
 
 -- | The name of the static IP in Lightsail.
-getStaticIp_staticIpName :: Lens.Lens' GetStaticIp Prelude.Text
+getStaticIp_staticIpName :: Lens.Lens' GetStaticIp Core.Text
 getStaticIp_staticIpName = Lens.lens (\GetStaticIp' {staticIpName} -> staticIpName) (\s@GetStaticIp' {} a -> s {staticIpName = a} :: GetStaticIp)
 
-instance Prelude.AWSRequest GetStaticIp where
-  type Rs GetStaticIp = GetStaticIpResponse
+instance Core.AWSRequest GetStaticIp where
+  type AWSResponse GetStaticIp = GetStaticIpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetStaticIpResponse'
-            Prelude.<$> (x Prelude..?> "staticIp")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "staticIp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetStaticIp
+instance Core.Hashable GetStaticIp
 
-instance Prelude.NFData GetStaticIp
+instance Core.NFData GetStaticIp
 
-instance Prelude.ToHeaders GetStaticIp where
+instance Core.ToHeaders GetStaticIp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetStaticIp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetStaticIp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetStaticIp where
+instance Core.ToJSON GetStaticIp where
   toJSON GetStaticIp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("staticIpName" Prelude..= staticIpName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("staticIpName" Core..= staticIpName)]
       )
 
-instance Prelude.ToPath GetStaticIp where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetStaticIp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetStaticIp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetStaticIp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetStaticIpResponse' smart constructor.
 data GetStaticIpResponse = GetStaticIpResponse'
   { -- | An array of key-value pairs containing information about the requested
     -- static IP.
-    staticIp :: Prelude.Maybe StaticIp,
+    staticIp :: Core.Maybe StaticIp,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetStaticIpResponse' with all optional fields omitted.
@@ -142,21 +137,21 @@ data GetStaticIpResponse = GetStaticIpResponse'
 -- 'httpStatus', 'getStaticIpResponse_httpStatus' - The response's http status code.
 newGetStaticIpResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetStaticIpResponse
 newGetStaticIpResponse pHttpStatus_ =
   GetStaticIpResponse'
-    { staticIp = Prelude.Nothing,
+    { staticIp = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about the requested
 -- static IP.
-getStaticIpResponse_staticIp :: Lens.Lens' GetStaticIpResponse (Prelude.Maybe StaticIp)
+getStaticIpResponse_staticIp :: Lens.Lens' GetStaticIpResponse (Core.Maybe StaticIp)
 getStaticIpResponse_staticIp = Lens.lens (\GetStaticIpResponse' {staticIp} -> staticIp) (\s@GetStaticIpResponse' {} a -> s {staticIp = a} :: GetStaticIpResponse)
 
 -- | The response's http status code.
-getStaticIpResponse_httpStatus :: Lens.Lens' GetStaticIpResponse Prelude.Int
+getStaticIpResponse_httpStatus :: Lens.Lens' GetStaticIpResponse Core.Int
 getStaticIpResponse_httpStatus = Lens.lens (\GetStaticIpResponse' {httpStatus} -> httpStatus) (\s@GetStaticIpResponse' {} a -> s {httpStatus = a} :: GetStaticIpResponse)
 
-instance Prelude.NFData GetStaticIpResponse
+instance Core.NFData GetStaticIpResponse

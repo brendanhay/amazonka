@@ -938,99 +938,97 @@ import Network.AWS.Config.Types.StatusDetailFilters
 import Network.AWS.Config.Types.StoredQuery
 import Network.AWS.Config.Types.StoredQueryMetadata
 import Network.AWS.Config.Types.Tag
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-11-12@ of the Amazon Config SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Config",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "config",
-      Prelude._svcSigningName = "config",
-      Prelude._svcVersion = "2014-11-12",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "Config",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Config",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "config",
+      Core._serviceSigningName = "config",
+      Core._serviceVersion = "2014-11-12",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Config",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | You have specified a retention configuration that does not exist.
-_NoSuchRetentionConfigurationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchRetentionConfigurationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchRetentionConfigurationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchRetentionConfigurationException"
 
 -- | One or more AWS Config rules in the request are invalid. Verify that the
 -- rule names are correct and try again.
-_NoSuchConfigRuleException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchConfigRuleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchConfigRuleException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchConfigRuleException"
 
 -- | Organization is no longer available.
-_NoAvailableOrganizationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoAvailableOrganizationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoAvailableOrganizationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoAvailableOrganizationException"
 
@@ -1039,149 +1037,149 @@ _NoAvailableOrganizationException =
 --
 -- For DeleteOrganizationConformancePack, you tried to delete an
 -- organization conformance pack that does not exist.
-_NoSuchOrganizationConformancePackException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchOrganizationConformancePackException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchOrganizationConformancePackException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchOrganizationConformancePackException"
 
 -- | You specified one or more organization config rules that do not exist.
-_NoSuchOrganizationConfigRuleException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchOrganizationConfigRuleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchOrganizationConfigRuleException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchOrganizationConfigRuleException"
 
 -- | The specified @ResultToken@ is invalid.
-_InvalidResultTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidResultTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidResultTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidResultTokenException"
 
 -- | AWS Config throws an exception if the recording group does not contain a
 -- valid list of resource types. Invalid values might also be incorrectly
 -- formatted.
-_InvalidRecordingGroupException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRecordingGroupException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRecordingGroupException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRecordingGroupException"
 
 -- | The syntax of the query is incorrect.
-_InvalidExpressionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidExpressionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidExpressionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidExpressionException"
 
 -- | You have reached the limit of the number of tags you can use. You have
 -- more than 50 tags.
-_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | The specified Amazon S3 key prefix is not valid.
-_InvalidS3KeyPrefixException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidS3KeyPrefixException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidS3KeyPrefixException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidS3KeyPrefixException"
 
 -- | You have reached the limit of the number of delivery channels you can
 -- create.
-_MaxNumberOfDeliveryChannelsExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxNumberOfDeliveryChannelsExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfDeliveryChannelsExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxNumberOfDeliveryChannelsExceededException"
 
 -- | The specified delivery channel name is not valid.
-_InvalidDeliveryChannelNameException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidDeliveryChannelNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidDeliveryChannelNameException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidDeliveryChannelNameException"
 
 -- | You have provided a configuration recorder name that is not valid.
-_InvalidConfigurationRecorderNameException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidConfigurationRecorderNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidConfigurationRecorderNameException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidConfigurationRecorderNameException"
 
 -- | There is no configuration recorder running.
-_NoRunningConfigurationRecorderException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoRunningConfigurationRecorderException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoRunningConfigurationRecorderException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoRunningConfigurationRecorderException"
 
 -- | There is no delivery channel available to record configurations.
-_NoAvailableDeliveryChannelException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoAvailableDeliveryChannelException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoAvailableDeliveryChannelException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoAvailableDeliveryChannelException"
 
 -- | You cannot delete the delivery channel you specified because the
 -- configuration recorder is running.
-_LastDeliveryChannelDeleteFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LastDeliveryChannelDeleteFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LastDeliveryChannelDeleteFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LastDeliveryChannelDeleteFailedException"
 
 -- | You have specified a template that is not valid or supported.
-_ConformancePackTemplateValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConformancePackTemplateValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConformancePackTemplateValidationException"
 
 -- | The configuration item size is outside the allowable range.
-_OversizedConfigurationItemException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OversizedConfigurationItemException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OversizedConfigurationItemException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OversizedConfigurationItemException"
 
 -- | You have reached the limit (6) of the number of conformance packs in an
 -- account (6 conformance pack with 25 AWS Config rules per pack).
-_MaxNumberOfConformancePacksExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxNumberOfConformancePacksExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfConformancePacksExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxNumberOfConformancePacksExceededException"
 
 -- | You have provided a null or empty role ARN.
-_InvalidRoleException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRoleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRoleException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRoleException"
 
 -- | The specified next token is invalid. Specify the @nextToken@ string that
 -- was returned in the previous response to get the next page of results.
-_InvalidNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | You have specified a configuration aggregator that does not exist.
-_NoSuchConfigurationAggregatorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchConfigurationAggregatorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchConfigurationAggregatorException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchConfigurationAggregatorException"
 
 -- | You specified one or more conformance packs that do not exist.
-_NoSuchConformancePackException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchConformancePackException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchConformancePackException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchConformancePackException"
 
@@ -1209,39 +1207,39 @@ _NoSuchConformancePackException =
 -- For all @OrganizationConfigRule@ and @OrganizationConformancePack@ APIs,
 -- AWS Config throws an exception if APIs are called from member accounts.
 -- All APIs must be called from organization master account.
-_OrganizationAccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OrganizationAccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OrganizationAccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OrganizationAccessDeniedException"
 
 -- | One or more of the specified parameters are invalid. Verify that your
 -- parameters are valid and try again.
-_InvalidParameterValueException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValueException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
 
 -- | You specified an AWS Config rule without a remediation configuration.
-_NoSuchRemediationConfigurationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchRemediationConfigurationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchRemediationConfigurationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchRemediationConfigurationException"
 
 -- | The specified time range is not valid. The earlier time is not
 -- chronologically before the later time.
-_InvalidTimeRangeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTimeRangeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTimeRangeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTimeRangeException"
 
 -- | AWS Config rule that you passed in the filter does not exist.
-_NoSuchConfigRuleInConformancePackException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchConfigRuleInConformancePackException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchConfigRuleInConformancePackException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchConfigRuleInConformancePackException"
 
@@ -1254,23 +1252,23 @@ _NoSuchConfigRuleInConformancePackException =
 -- For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see
 -- this exception if there are missing required fields or if the input
 -- value fails the validation.
-_ValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | The specified Amazon SNS topic does not exist.
-_InvalidSNSTopicARNException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSNSTopicARNException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSNSTopicARNException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSNSTopicARNException"
 
 -- | You have specified a delivery channel that does not exist.
-_NoSuchDeliveryChannelException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchDeliveryChannelException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchDeliveryChannelException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchDeliveryChannelException"
 
@@ -1299,9 +1297,9 @@ _NoSuchDeliveryChannelException =
 --
 -- -   For DeleteConformancePack, a conformance pack creation, update, and
 --     deletion is in progress. Try your request again later.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
@@ -1311,138 +1309,138 @@ _ResourceInUseException =
 --
 -- For @PutConfigurationAggregator@ API, this exception is thrown if the
 -- number of accounts and aggregators exceeds the limit.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The specified Amazon KMS Key ARN is not valid.
-_InvalidS3KmsKeyArnException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidS3KmsKeyArnException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidS3KmsKeyArnException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidS3KmsKeyArnException"
 
 -- | You have specified a configuration recorder that does not exist.
-_NoSuchConfigurationRecorderException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchConfigurationRecorderException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchConfigurationRecorderException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchConfigurationRecorderException"
 
 -- | Your Amazon S3 bucket policy does not permit AWS Config to write to it.
-_InsufficientDeliveryPolicyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientDeliveryPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientDeliveryPolicyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientDeliveryPolicyException"
 
 -- | You have reached the limit of the number of organization config rules
 -- you can create.
-_MaxNumberOfOrganizationConfigRulesExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxNumberOfOrganizationConfigRulesExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfOrganizationConfigRulesExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxNumberOfOrganizationConfigRulesExceededException"
 
 -- | You have reached the limit (6) of the number of organization conformance
 -- packs in an account (6 conformance pack with 25 AWS Config rules per
 -- pack per account).
-_MaxNumberOfOrganizationConformancePacksExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxNumberOfOrganizationConformancePacksExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfOrganizationConformancePacksExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxNumberOfOrganizationConformancePacksExceededException"
 
 -- | You have specified a resource that does not exist.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The specified limit is outside the allowable range.
-_InvalidLimitException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidLimitException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidLimitException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidLimitException"
 
 -- | You have specified a template that is not valid or supported.
-_OrganizationConformancePackTemplateValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OrganizationConformancePackTemplateValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OrganizationConformancePackTemplateValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OrganizationConformancePackTemplateValidationException"
 
 -- | You have reached the limit of the number of recorders you can create.
-_MaxNumberOfConfigurationRecordersExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxNumberOfConfigurationRecordersExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfConfigurationRecordersExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxNumberOfConfigurationRecordersExceededException"
 
 -- | You tried to delete a remediation exception that does not exist.
-_NoSuchRemediationExceptionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchRemediationExceptionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchRemediationExceptionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchRemediationExceptionException"
 
 -- | Two users are trying to modify the same query at the same time. Wait for
 -- a moment and try again.
-_ResourceConcurrentModificationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceConcurrentModificationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceConcurrentModificationException"
 
 -- | Failed to add the AWS Config rule because the account already contains
 -- the maximum number of 150 rules. Consider deleting any deactivated rules
 -- before you add new rules.
-_MaxNumberOfConfigRulesExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxNumberOfConfigRulesExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfConfigRulesExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxNumberOfConfigRulesExceededException"
 
 -- | There are no configuration recorders available to provide the role
 -- needed to describe your resources. Create a configuration recorder.
-_NoAvailableConfigurationRecorderException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoAvailableConfigurationRecorderException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoAvailableConfigurationRecorderException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoAvailableConfigurationRecorderException"
 
 -- | The specified Amazon S3 bucket does not exist.
-_NoSuchBucketException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchBucketException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoSuchBucketException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoSuchBucketException"
 
 -- | You have reached the limit (100,000) of active custom resource types in
 -- your account. Delete unused resources using @DeleteResourceConfig@.
-_MaxActiveResourcesExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxActiveResourcesExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxActiveResourcesExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxActiveResourcesExceededException"
 
 -- | Failed to add the retention configuration because a retention
 -- configuration with that name already exists.
-_MaxNumberOfRetentionConfigurationsExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxNumberOfRetentionConfigurationsExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfRetentionConfigurationsExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxNumberOfRetentionConfigurationsExceededException"
 
 -- | AWS Config resource cannot be created because your organization does not
 -- have all features enabled.
-_OrganizationAllFeaturesNotEnabledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OrganizationAllFeaturesNotEnabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OrganizationAllFeaturesNotEnabledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OrganizationAllFeaturesNotEnabledException"
 
@@ -1466,24 +1464,24 @@ _OrganizationAllFeaturesNotEnabledException =
 --     -   To call IAM @GetRole@ action or create a service linked role.
 --
 --     -   To read Amazon S3 bucket.
-_InsufficientPermissionsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientPermissionsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientPermissionsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientPermissionsException"
 
 -- | Remediation action is in progress. You can either cancel execution in
 -- AWS Systems Manager or wait and try again later.
-_RemediationInProgressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RemediationInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RemediationInProgressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RemediationInProgressException"
 
 -- | You have specified a resource that is either unknown or has not been
 -- discovered.
-_ResourceNotDiscoveredException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotDiscoveredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotDiscoveredException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotDiscoveredException"

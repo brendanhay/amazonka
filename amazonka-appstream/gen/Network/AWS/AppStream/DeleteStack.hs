@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,17 +42,17 @@ module Network.AWS.AppStream.DeleteStack
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteStack' smart constructor.
 data DeleteStack = DeleteStack'
   { -- | The name of the stack.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStack' with all optional fields omitted.
@@ -66,62 +65,58 @@ data DeleteStack = DeleteStack'
 -- 'name', 'deleteStack_name' - The name of the stack.
 newDeleteStack ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStack
 newDeleteStack pName_ = DeleteStack' {name = pName_}
 
 -- | The name of the stack.
-deleteStack_name :: Lens.Lens' DeleteStack Prelude.Text
+deleteStack_name :: Lens.Lens' DeleteStack Core.Text
 deleteStack_name = Lens.lens (\DeleteStack' {name} -> name) (\s@DeleteStack' {} a -> s {name = a} :: DeleteStack)
 
-instance Prelude.AWSRequest DeleteStack where
-  type Rs DeleteStack = DeleteStackResponse
+instance Core.AWSRequest DeleteStack where
+  type AWSResponse DeleteStack = DeleteStackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteStackResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStack
+instance Core.Hashable DeleteStack
 
-instance Prelude.NFData DeleteStack
+instance Core.NFData DeleteStack
 
-instance Prelude.ToHeaders DeleteStack where
+instance Core.ToHeaders DeleteStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DeleteStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DeleteStack" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteStack where
+instance Core.ToJSON DeleteStack where
   toJSON DeleteStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStack where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStackResponse' smart constructor.
 data DeleteStackResponse = DeleteStackResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStackResponse' with all optional fields omitted.
@@ -134,13 +129,13 @@ data DeleteStackResponse = DeleteStackResponse'
 -- 'httpStatus', 'deleteStackResponse_httpStatus' - The response's http status code.
 newDeleteStackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteStackResponse
 newDeleteStackResponse pHttpStatus_ =
   DeleteStackResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteStackResponse_httpStatus :: Lens.Lens' DeleteStackResponse Prelude.Int
+deleteStackResponse_httpStatus :: Lens.Lens' DeleteStackResponse Core.Int
 deleteStackResponse_httpStatus = Lens.lens (\DeleteStackResponse' {httpStatus} -> httpStatus) (\s@DeleteStackResponse' {} a -> s {httpStatus = a} :: DeleteStackResponse)
 
-instance Prelude.NFData DeleteStackResponse
+instance Core.NFData DeleteStackResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SDB.CreateDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -55,9 +54,9 @@ data CreateDomain = CreateDomain'
   { -- | The name of the domain to create. The name can range between 3 and 255
     -- characters and can contain the following characters: a-z, A-Z, 0-9,
     -- \'_\', \'-\', and \'.\'.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDomain' with all optional fields omitted.
@@ -72,7 +71,7 @@ data CreateDomain = CreateDomain'
 -- \'_\', \'-\', and \'.\'.
 newCreateDomain ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   CreateDomain
 newCreateDomain pDomainName_ =
   CreateDomain' {domainName = pDomainName_}
@@ -80,39 +79,38 @@ newCreateDomain pDomainName_ =
 -- | The name of the domain to create. The name can range between 3 and 255
 -- characters and can contain the following characters: a-z, A-Z, 0-9,
 -- \'_\', \'-\', and \'.\'.
-createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
+createDomain_domainName :: Lens.Lens' CreateDomain Core.Text
 createDomain_domainName = Lens.lens (\CreateDomain' {domainName} -> domainName) (\s@CreateDomain' {} a -> s {domainName = a} :: CreateDomain)
 
-instance Prelude.AWSRequest CreateDomain where
-  type Rs CreateDomain = CreateDomainResponse
+instance Core.AWSRequest CreateDomain where
+  type AWSResponse CreateDomain = CreateDomainResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull CreateDomainResponse'
 
-instance Prelude.Hashable CreateDomain
+instance Core.Hashable CreateDomain
 
-instance Prelude.NFData CreateDomain
+instance Core.NFData CreateDomain
 
-instance Prelude.ToHeaders CreateDomain where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDomain where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDomain where
+instance Core.ToQuery CreateDomain where
   toQuery CreateDomain' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateDomain" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2009-04-15" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName
+          Core.=: ("CreateDomain" :: Core.ByteString),
+        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+        "DomainName" Core.=: domainName
       ]
 
 -- | /See:/ 'newCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDomainResponse' with all optional fields omitted.
@@ -122,4 +120,4 @@ newCreateDomainResponse ::
   CreateDomainResponse
 newCreateDomainResponse = CreateDomainResponse'
 
-instance Prelude.NFData CreateDomainResponse
+instance Core.NFData CreateDomainResponse

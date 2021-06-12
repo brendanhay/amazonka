@@ -182,10 +182,10 @@ library
     Network.AWS.OpsWorks.UpdateVolume
     Network.AWS.OpsWorks.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-opsworks-test
   type:             exitcode-stdio-1.0
@@ -203,7 +203,7 @@ test-suite amazonka-opsworks-test
     Test.AWS.OpsWorks.Internal
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-opsworks
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DeviceFarm.GetUpload
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetUpload' smart constructor.
 data GetUpload = GetUpload'
   { -- | The upload\'s ARN.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUpload' with all optional fields omitted.
@@ -66,56 +65,50 @@ data GetUpload = GetUpload'
 -- 'arn', 'getUpload_arn' - The upload\'s ARN.
 newGetUpload ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetUpload
 newGetUpload pArn_ = GetUpload' {arn = pArn_}
 
 -- | The upload\'s ARN.
-getUpload_arn :: Lens.Lens' GetUpload Prelude.Text
+getUpload_arn :: Lens.Lens' GetUpload Core.Text
 getUpload_arn = Lens.lens (\GetUpload' {arn} -> arn) (\s@GetUpload' {} a -> s {arn = a} :: GetUpload)
 
-instance Prelude.AWSRequest GetUpload where
-  type Rs GetUpload = GetUploadResponse
+instance Core.AWSRequest GetUpload where
+  type AWSResponse GetUpload = GetUploadResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetUploadResponse'
-            Prelude.<$> (x Prelude..?> "upload")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "upload")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetUpload
+instance Core.Hashable GetUpload
 
-instance Prelude.NFData GetUpload
+instance Core.NFData GetUpload
 
-instance Prelude.ToHeaders GetUpload where
+instance Core.ToHeaders GetUpload where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetUpload" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DeviceFarm_20150623.GetUpload" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetUpload where
+instance Core.ToJSON GetUpload where
   toJSON GetUpload' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetUpload where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetUpload where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetUpload where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetUpload where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a get upload request.
 --
@@ -123,11 +116,11 @@ instance Prelude.ToQuery GetUpload where
 data GetUploadResponse = GetUploadResponse'
   { -- | An app or a set of one or more tests to upload or that have been
     -- uploaded.
-    upload :: Prelude.Maybe Upload,
+    upload :: Core.Maybe Upload,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUploadResponse' with all optional fields omitted.
@@ -143,21 +136,21 @@ data GetUploadResponse = GetUploadResponse'
 -- 'httpStatus', 'getUploadResponse_httpStatus' - The response's http status code.
 newGetUploadResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetUploadResponse
 newGetUploadResponse pHttpStatus_ =
   GetUploadResponse'
-    { upload = Prelude.Nothing,
+    { upload = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An app or a set of one or more tests to upload or that have been
 -- uploaded.
-getUploadResponse_upload :: Lens.Lens' GetUploadResponse (Prelude.Maybe Upload)
+getUploadResponse_upload :: Lens.Lens' GetUploadResponse (Core.Maybe Upload)
 getUploadResponse_upload = Lens.lens (\GetUploadResponse' {upload} -> upload) (\s@GetUploadResponse' {} a -> s {upload = a} :: GetUploadResponse)
 
 -- | The response's http status code.
-getUploadResponse_httpStatus :: Lens.Lens' GetUploadResponse Prelude.Int
+getUploadResponse_httpStatus :: Lens.Lens' GetUploadResponse Core.Int
 getUploadResponse_httpStatus = Lens.lens (\GetUploadResponse' {httpStatus} -> httpStatus) (\s@GetUploadResponse' {} a -> s {httpStatus = a} :: GetUploadResponse)
 
-instance Prelude.NFData GetUploadResponse
+instance Core.NFData GetUploadResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.HealthCheck where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a container health check. Health check parameters
 -- that are specified in a container definition override any Docker health
@@ -79,11 +78,11 @@ data HealthCheck = HealthCheck'
   { -- | The number of times to retry a failed health check before the container
     -- is considered unhealthy. You may specify between 1 and 10 retries. The
     -- default value is 3.
-    retries :: Prelude.Maybe Prelude.Int,
+    retries :: Core.Maybe Core.Int,
     -- | The time period in seconds to wait for a health check to succeed before
     -- it is considered a failure. You may specify between 2 and 60 seconds.
     -- The default value is 5.
-    timeout :: Prelude.Maybe Prelude.Int,
+    timeout :: Core.Maybe Core.Int,
     -- | The optional grace period within which to provide containers time to
     -- bootstrap before failed health checks count towards the maximum number
     -- of retries. You may specify between 0 and 300 seconds. The @startPeriod@
@@ -92,10 +91,10 @@ data HealthCheck = HealthCheck'
     -- If a health check succeeds within the @startPeriod@, then the container
     -- is considered healthy and any subsequent failures count toward the
     -- maximum number of retries.
-    startPeriod :: Prelude.Maybe Prelude.Int,
+    startPeriod :: Core.Maybe Core.Int,
     -- | The time period in seconds between each health check execution. You may
     -- specify between 5 and 300 seconds. The default value is 30 seconds.
-    interval :: Prelude.Maybe Prelude.Int,
+    interval :: Core.Maybe Core.Int,
     -- | A string array representing the command that the container runs to
     -- determine if it is healthy. The string array must start with @CMD@ to
     -- execute the command arguments directly, or @CMD-SHELL@ to run the
@@ -108,9 +107,9 @@ data HealthCheck = HealthCheck'
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API>.
-    command :: [Prelude.Text]
+    command :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HealthCheck' with all optional fields omitted.
@@ -156,23 +155,23 @@ newHealthCheck ::
   HealthCheck
 newHealthCheck =
   HealthCheck'
-    { retries = Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      startPeriod = Prelude.Nothing,
-      interval = Prelude.Nothing,
-      command = Prelude.mempty
+    { retries = Core.Nothing,
+      timeout = Core.Nothing,
+      startPeriod = Core.Nothing,
+      interval = Core.Nothing,
+      command = Core.mempty
     }
 
 -- | The number of times to retry a failed health check before the container
 -- is considered unhealthy. You may specify between 1 and 10 retries. The
 -- default value is 3.
-healthCheck_retries :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
+healthCheck_retries :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
 healthCheck_retries = Lens.lens (\HealthCheck' {retries} -> retries) (\s@HealthCheck' {} a -> s {retries = a} :: HealthCheck)
 
 -- | The time period in seconds to wait for a health check to succeed before
 -- it is considered a failure. You may specify between 2 and 60 seconds.
 -- The default value is 5.
-healthCheck_timeout :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
+healthCheck_timeout :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
 healthCheck_timeout = Lens.lens (\HealthCheck' {timeout} -> timeout) (\s@HealthCheck' {} a -> s {timeout = a} :: HealthCheck)
 
 -- | The optional grace period within which to provide containers time to
@@ -183,12 +182,12 @@ healthCheck_timeout = Lens.lens (\HealthCheck' {timeout} -> timeout) (\s@HealthC
 -- If a health check succeeds within the @startPeriod@, then the container
 -- is considered healthy and any subsequent failures count toward the
 -- maximum number of retries.
-healthCheck_startPeriod :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
+healthCheck_startPeriod :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
 healthCheck_startPeriod = Lens.lens (\HealthCheck' {startPeriod} -> startPeriod) (\s@HealthCheck' {} a -> s {startPeriod = a} :: HealthCheck)
 
 -- | The time period in seconds between each health check execution. You may
 -- specify between 5 and 300 seconds. The default value is 30 seconds.
-healthCheck_interval :: Lens.Lens' HealthCheck (Prelude.Maybe Prelude.Int)
+healthCheck_interval :: Lens.Lens' HealthCheck (Core.Maybe Core.Int)
 healthCheck_interval = Lens.lens (\HealthCheck' {interval} -> interval) (\s@HealthCheck' {} a -> s {interval = a} :: HealthCheck)
 
 -- | A string array representing the command that the container runs to
@@ -203,34 +202,34 @@ healthCheck_interval = Lens.lens (\HealthCheck' {interval} -> interval) (\s@Heal
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API>.
-healthCheck_command :: Lens.Lens' HealthCheck [Prelude.Text]
-healthCheck_command = Lens.lens (\HealthCheck' {command} -> command) (\s@HealthCheck' {} a -> s {command = a} :: HealthCheck) Prelude.. Prelude._Coerce
+healthCheck_command :: Lens.Lens' HealthCheck [Core.Text]
+healthCheck_command = Lens.lens (\HealthCheck' {command} -> command) (\s@HealthCheck' {} a -> s {command = a} :: HealthCheck) Core.. Lens._Coerce
 
-instance Prelude.FromJSON HealthCheck where
+instance Core.FromJSON HealthCheck where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HealthCheck"
       ( \x ->
           HealthCheck'
-            Prelude.<$> (x Prelude..:? "retries")
-            Prelude.<*> (x Prelude..:? "timeout")
-            Prelude.<*> (x Prelude..:? "startPeriod")
-            Prelude.<*> (x Prelude..:? "interval")
-            Prelude.<*> (x Prelude..:? "command" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "retries")
+            Core.<*> (x Core..:? "timeout")
+            Core.<*> (x Core..:? "startPeriod")
+            Core.<*> (x Core..:? "interval")
+            Core.<*> (x Core..:? "command" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable HealthCheck
+instance Core.Hashable HealthCheck
 
-instance Prelude.NFData HealthCheck
+instance Core.NFData HealthCheck
 
-instance Prelude.ToJSON HealthCheck where
+instance Core.ToJSON HealthCheck where
   toJSON HealthCheck' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("retries" Prelude..=) Prelude.<$> retries,
-            ("timeout" Prelude..=) Prelude.<$> timeout,
-            ("startPeriod" Prelude..=) Prelude.<$> startPeriod,
-            ("interval" Prelude..=) Prelude.<$> interval,
-            Prelude.Just ("command" Prelude..= command)
+    Core.object
+      ( Core.catMaybes
+          [ ("retries" Core..=) Core.<$> retries,
+            ("timeout" Core..=) Core.<$> timeout,
+            ("startPeriod" Core..=) Core.<$> startPeriod,
+            ("interval" Core..=) Core.<$> interval,
+            Core.Just ("command" Core..= command)
           ]
       )

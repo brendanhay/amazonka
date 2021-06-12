@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,33 +44,33 @@ module Network.AWS.IoT.UpdateDynamicThingGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDynamicThingGroup' smart constructor.
 data UpdateDynamicThingGroup = UpdateDynamicThingGroup'
   { -- | The dynamic thing group search query string to update.
-    queryString :: Prelude.Maybe Prelude.Text,
+    queryString :: Core.Maybe Core.Text,
     -- | The expected version of the dynamic thing group to update.
-    expectedVersion :: Prelude.Maybe Prelude.Integer,
+    expectedVersion :: Core.Maybe Core.Integer,
     -- | The dynamic thing group index to update.
     --
     -- Currently one index is supported: \'AWS_Things\'.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | The dynamic thing group query version to update.
     --
     -- Currently one query version is supported: \"2017-09-30\". If not
     -- specified, the query version defaults to this value.
-    queryVersion :: Prelude.Maybe Prelude.Text,
+    queryVersion :: Core.Maybe Core.Text,
     -- | The name of the dynamic thing group to update.
-    thingGroupName :: Prelude.Text,
+    thingGroupName :: Core.Text,
     -- | The dynamic thing group properties to update.
     thingGroupProperties :: ThingGroupProperties
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDynamicThingGroup' with all optional fields omitted.
@@ -99,7 +98,7 @@ data UpdateDynamicThingGroup = UpdateDynamicThingGroup'
 -- 'thingGroupProperties', 'updateDynamicThingGroup_thingGroupProperties' - The dynamic thing group properties to update.
 newUpdateDynamicThingGroup ::
   -- | 'thingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'thingGroupProperties'
   ThingGroupProperties ->
   UpdateDynamicThingGroup
@@ -108,97 +107,94 @@ newUpdateDynamicThingGroup
   pThingGroupProperties_ =
     UpdateDynamicThingGroup'
       { queryString =
-          Prelude.Nothing,
-        expectedVersion = Prelude.Nothing,
-        indexName = Prelude.Nothing,
-        queryVersion = Prelude.Nothing,
+          Core.Nothing,
+        expectedVersion = Core.Nothing,
+        indexName = Core.Nothing,
+        queryVersion = Core.Nothing,
         thingGroupName = pThingGroupName_,
         thingGroupProperties = pThingGroupProperties_
       }
 
 -- | The dynamic thing group search query string to update.
-updateDynamicThingGroup_queryString :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
+updateDynamicThingGroup_queryString :: Lens.Lens' UpdateDynamicThingGroup (Core.Maybe Core.Text)
 updateDynamicThingGroup_queryString = Lens.lens (\UpdateDynamicThingGroup' {queryString} -> queryString) (\s@UpdateDynamicThingGroup' {} a -> s {queryString = a} :: UpdateDynamicThingGroup)
 
 -- | The expected version of the dynamic thing group to update.
-updateDynamicThingGroup_expectedVersion :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Integer)
+updateDynamicThingGroup_expectedVersion :: Lens.Lens' UpdateDynamicThingGroup (Core.Maybe Core.Integer)
 updateDynamicThingGroup_expectedVersion = Lens.lens (\UpdateDynamicThingGroup' {expectedVersion} -> expectedVersion) (\s@UpdateDynamicThingGroup' {} a -> s {expectedVersion = a} :: UpdateDynamicThingGroup)
 
 -- | The dynamic thing group index to update.
 --
 -- Currently one index is supported: \'AWS_Things\'.
-updateDynamicThingGroup_indexName :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
+updateDynamicThingGroup_indexName :: Lens.Lens' UpdateDynamicThingGroup (Core.Maybe Core.Text)
 updateDynamicThingGroup_indexName = Lens.lens (\UpdateDynamicThingGroup' {indexName} -> indexName) (\s@UpdateDynamicThingGroup' {} a -> s {indexName = a} :: UpdateDynamicThingGroup)
 
 -- | The dynamic thing group query version to update.
 --
 -- Currently one query version is supported: \"2017-09-30\". If not
 -- specified, the query version defaults to this value.
-updateDynamicThingGroup_queryVersion :: Lens.Lens' UpdateDynamicThingGroup (Prelude.Maybe Prelude.Text)
+updateDynamicThingGroup_queryVersion :: Lens.Lens' UpdateDynamicThingGroup (Core.Maybe Core.Text)
 updateDynamicThingGroup_queryVersion = Lens.lens (\UpdateDynamicThingGroup' {queryVersion} -> queryVersion) (\s@UpdateDynamicThingGroup' {} a -> s {queryVersion = a} :: UpdateDynamicThingGroup)
 
 -- | The name of the dynamic thing group to update.
-updateDynamicThingGroup_thingGroupName :: Lens.Lens' UpdateDynamicThingGroup Prelude.Text
+updateDynamicThingGroup_thingGroupName :: Lens.Lens' UpdateDynamicThingGroup Core.Text
 updateDynamicThingGroup_thingGroupName = Lens.lens (\UpdateDynamicThingGroup' {thingGroupName} -> thingGroupName) (\s@UpdateDynamicThingGroup' {} a -> s {thingGroupName = a} :: UpdateDynamicThingGroup)
 
 -- | The dynamic thing group properties to update.
 updateDynamicThingGroup_thingGroupProperties :: Lens.Lens' UpdateDynamicThingGroup ThingGroupProperties
 updateDynamicThingGroup_thingGroupProperties = Lens.lens (\UpdateDynamicThingGroup' {thingGroupProperties} -> thingGroupProperties) (\s@UpdateDynamicThingGroup' {} a -> s {thingGroupProperties = a} :: UpdateDynamicThingGroup)
 
-instance Prelude.AWSRequest UpdateDynamicThingGroup where
+instance Core.AWSRequest UpdateDynamicThingGroup where
   type
-    Rs UpdateDynamicThingGroup =
+    AWSResponse UpdateDynamicThingGroup =
       UpdateDynamicThingGroupResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateDynamicThingGroupResponse'
-            Prelude.<$> (x Prelude..?> "version")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDynamicThingGroup
+instance Core.Hashable UpdateDynamicThingGroup
 
-instance Prelude.NFData UpdateDynamicThingGroup
+instance Core.NFData UpdateDynamicThingGroup
 
-instance Prelude.ToHeaders UpdateDynamicThingGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateDynamicThingGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateDynamicThingGroup where
+instance Core.ToJSON UpdateDynamicThingGroup where
   toJSON UpdateDynamicThingGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("queryString" Prelude..=) Prelude.<$> queryString,
-            ("expectedVersion" Prelude..=)
-              Prelude.<$> expectedVersion,
-            ("indexName" Prelude..=) Prelude.<$> indexName,
-            ("queryVersion" Prelude..=) Prelude.<$> queryVersion,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("queryString" Core..=) Core.<$> queryString,
+            ("expectedVersion" Core..=) Core.<$> expectedVersion,
+            ("indexName" Core..=) Core.<$> indexName,
+            ("queryVersion" Core..=) Core.<$> queryVersion,
+            Core.Just
               ( "thingGroupProperties"
-                  Prelude..= thingGroupProperties
+                  Core..= thingGroupProperties
               )
           ]
       )
 
-instance Prelude.ToPath UpdateDynamicThingGroup where
+instance Core.ToPath UpdateDynamicThingGroup where
   toPath UpdateDynamicThingGroup' {..} =
-    Prelude.mconcat
-      [ "/dynamic-thing-groups/",
-        Prelude.toBS thingGroupName
-      ]
+    Core.mconcat
+      ["/dynamic-thing-groups/", Core.toBS thingGroupName]
 
-instance Prelude.ToQuery UpdateDynamicThingGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDynamicThingGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDynamicThingGroupResponse' smart constructor.
 data UpdateDynamicThingGroupResponse = UpdateDynamicThingGroupResponse'
   { -- | The dynamic thing group version.
-    version :: Prelude.Maybe Prelude.Integer,
+    version :: Core.Maybe Core.Integer,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDynamicThingGroupResponse' with all optional fields omitted.
@@ -213,23 +209,21 @@ data UpdateDynamicThingGroupResponse = UpdateDynamicThingGroupResponse'
 -- 'httpStatus', 'updateDynamicThingGroupResponse_httpStatus' - The response's http status code.
 newUpdateDynamicThingGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDynamicThingGroupResponse
 newUpdateDynamicThingGroupResponse pHttpStatus_ =
   UpdateDynamicThingGroupResponse'
     { version =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The dynamic thing group version.
-updateDynamicThingGroupResponse_version :: Lens.Lens' UpdateDynamicThingGroupResponse (Prelude.Maybe Prelude.Integer)
+updateDynamicThingGroupResponse_version :: Lens.Lens' UpdateDynamicThingGroupResponse (Core.Maybe Core.Integer)
 updateDynamicThingGroupResponse_version = Lens.lens (\UpdateDynamicThingGroupResponse' {version} -> version) (\s@UpdateDynamicThingGroupResponse' {} a -> s {version = a} :: UpdateDynamicThingGroupResponse)
 
 -- | The response's http status code.
-updateDynamicThingGroupResponse_httpStatus :: Lens.Lens' UpdateDynamicThingGroupResponse Prelude.Int
+updateDynamicThingGroupResponse_httpStatus :: Lens.Lens' UpdateDynamicThingGroupResponse Core.Int
 updateDynamicThingGroupResponse_httpStatus = Lens.lens (\UpdateDynamicThingGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateDynamicThingGroupResponse' {} a -> s {httpStatus = a} :: UpdateDynamicThingGroupResponse)
 
-instance
-  Prelude.NFData
-    UpdateDynamicThingGroupResponse
+instance Core.NFData UpdateDynamicThingGroupResponse

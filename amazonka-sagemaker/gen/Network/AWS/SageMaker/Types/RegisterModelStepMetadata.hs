@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.RegisterModelStepMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for a register model job step.
 --
 -- /See:/ 'newRegisterModelStepMetadata' smart constructor.
 data RegisterModelStepMetadata = RegisterModelStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the model package.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterModelStepMetadata' with all optional fields omitted.
@@ -44,21 +43,21 @@ data RegisterModelStepMetadata = RegisterModelStepMetadata'
 newRegisterModelStepMetadata ::
   RegisterModelStepMetadata
 newRegisterModelStepMetadata =
-  RegisterModelStepMetadata' {arn = Prelude.Nothing}
+  RegisterModelStepMetadata' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the model package.
-registerModelStepMetadata_arn :: Lens.Lens' RegisterModelStepMetadata (Prelude.Maybe Prelude.Text)
+registerModelStepMetadata_arn :: Lens.Lens' RegisterModelStepMetadata (Core.Maybe Core.Text)
 registerModelStepMetadata_arn = Lens.lens (\RegisterModelStepMetadata' {arn} -> arn) (\s@RegisterModelStepMetadata' {} a -> s {arn = a} :: RegisterModelStepMetadata)
 
-instance Prelude.FromJSON RegisterModelStepMetadata where
+instance Core.FromJSON RegisterModelStepMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RegisterModelStepMetadata"
       ( \x ->
           RegisterModelStepMetadata'
-            Prelude.<$> (x Prelude..:? "Arn")
+            Core.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable RegisterModelStepMetadata
+instance Core.Hashable RegisterModelStepMetadata
 
-instance Prelude.NFData RegisterModelStepMetadata
+instance Core.NFData RegisterModelStepMetadata

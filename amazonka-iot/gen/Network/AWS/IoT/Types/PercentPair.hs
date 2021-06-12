@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.PercentPair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the percentile and percentile value.
 --
 -- /See:/ 'newPercentPair' smart constructor.
 data PercentPair = PercentPair'
   { -- | The percentile.
-    percent :: Prelude.Maybe Prelude.Double,
+    percent :: Core.Maybe Core.Double,
     -- | The value of the percentile.
-    value :: Prelude.Maybe Prelude.Double
+    value :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PercentPair' with all optional fields omitted.
@@ -49,28 +48,27 @@ newPercentPair ::
   PercentPair
 newPercentPair =
   PercentPair'
-    { percent = Prelude.Nothing,
-      value = Prelude.Nothing
+    { percent = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The percentile.
-percentPair_percent :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
+percentPair_percent :: Lens.Lens' PercentPair (Core.Maybe Core.Double)
 percentPair_percent = Lens.lens (\PercentPair' {percent} -> percent) (\s@PercentPair' {} a -> s {percent = a} :: PercentPair)
 
 -- | The value of the percentile.
-percentPair_value :: Lens.Lens' PercentPair (Prelude.Maybe Prelude.Double)
+percentPair_value :: Lens.Lens' PercentPair (Core.Maybe Core.Double)
 percentPair_value = Lens.lens (\PercentPair' {value} -> value) (\s@PercentPair' {} a -> s {value = a} :: PercentPair)
 
-instance Prelude.FromJSON PercentPair where
+instance Core.FromJSON PercentPair where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PercentPair"
       ( \x ->
           PercentPair'
-            Prelude.<$> (x Prelude..:? "percent")
-            Prelude.<*> (x Prelude..:? "value")
+            Core.<$> (x Core..:? "percent") Core.<*> (x Core..:? "value")
       )
 
-instance Prelude.Hashable PercentPair
+instance Core.Hashable PercentPair
 
-instance Prelude.NFData PercentPair
+instance Core.NFData PercentPair

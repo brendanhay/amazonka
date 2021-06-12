@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,31 +21,31 @@ module Network.AWS.Connect.Types.IntegrationAssociationSummary where
 
 import Network.AWS.Connect.Types.IntegrationType
 import Network.AWS.Connect.Types.SourceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about the associated AppIntegrations.
 --
 -- /See:/ 'newIntegrationAssociationSummary' smart constructor.
 data IntegrationAssociationSummary = IntegrationAssociationSummary'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The user-provided, friendly name for the external application.
-    sourceApplicationName :: Prelude.Maybe Prelude.Text,
+    sourceApplicationName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) for the AppIntegration association.
-    integrationAssociationArn :: Prelude.Maybe Prelude.Text,
+    integrationAssociationArn :: Core.Maybe Core.Text,
     -- | The URL for the external application.
-    sourceApplicationUrl :: Prelude.Maybe Prelude.Text,
+    sourceApplicationUrl :: Core.Maybe Core.Text,
     -- | The integration type.
-    integrationType :: Prelude.Maybe IntegrationType,
+    integrationType :: Core.Maybe IntegrationType,
     -- | The Amazon Resource Name (ARN) for the AppIntegration.
-    integrationArn :: Prelude.Maybe Prelude.Text,
+    integrationArn :: Core.Maybe Core.Text,
     -- | The name of the source.
-    sourceType :: Prelude.Maybe SourceType,
+    sourceType :: Core.Maybe SourceType,
     -- | The identifier for the AppIntegration association.
-    integrationAssociationId :: Prelude.Maybe Prelude.Text
+    integrationAssociationId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IntegrationAssociationSummary' with all optional fields omitted.
@@ -76,69 +75,64 @@ newIntegrationAssociationSummary ::
 newIntegrationAssociationSummary =
   IntegrationAssociationSummary'
     { instanceId =
-        Prelude.Nothing,
-      sourceApplicationName = Prelude.Nothing,
-      integrationAssociationArn = Prelude.Nothing,
-      sourceApplicationUrl = Prelude.Nothing,
-      integrationType = Prelude.Nothing,
-      integrationArn = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
-      integrationAssociationId = Prelude.Nothing
+        Core.Nothing,
+      sourceApplicationName = Core.Nothing,
+      integrationAssociationArn = Core.Nothing,
+      sourceApplicationUrl = Core.Nothing,
+      integrationType = Core.Nothing,
+      integrationArn = Core.Nothing,
+      sourceType = Core.Nothing,
+      integrationAssociationId = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
-integrationAssociationSummary_instanceId :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
+integrationAssociationSummary_instanceId :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe Core.Text)
 integrationAssociationSummary_instanceId = Lens.lens (\IntegrationAssociationSummary' {instanceId} -> instanceId) (\s@IntegrationAssociationSummary' {} a -> s {instanceId = a} :: IntegrationAssociationSummary)
 
 -- | The user-provided, friendly name for the external application.
-integrationAssociationSummary_sourceApplicationName :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
+integrationAssociationSummary_sourceApplicationName :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe Core.Text)
 integrationAssociationSummary_sourceApplicationName = Lens.lens (\IntegrationAssociationSummary' {sourceApplicationName} -> sourceApplicationName) (\s@IntegrationAssociationSummary' {} a -> s {sourceApplicationName = a} :: IntegrationAssociationSummary)
 
 -- | The Amazon Resource Name (ARN) for the AppIntegration association.
-integrationAssociationSummary_integrationAssociationArn :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
+integrationAssociationSummary_integrationAssociationArn :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe Core.Text)
 integrationAssociationSummary_integrationAssociationArn = Lens.lens (\IntegrationAssociationSummary' {integrationAssociationArn} -> integrationAssociationArn) (\s@IntegrationAssociationSummary' {} a -> s {integrationAssociationArn = a} :: IntegrationAssociationSummary)
 
 -- | The URL for the external application.
-integrationAssociationSummary_sourceApplicationUrl :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
+integrationAssociationSummary_sourceApplicationUrl :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe Core.Text)
 integrationAssociationSummary_sourceApplicationUrl = Lens.lens (\IntegrationAssociationSummary' {sourceApplicationUrl} -> sourceApplicationUrl) (\s@IntegrationAssociationSummary' {} a -> s {sourceApplicationUrl = a} :: IntegrationAssociationSummary)
 
 -- | The integration type.
-integrationAssociationSummary_integrationType :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe IntegrationType)
+integrationAssociationSummary_integrationType :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe IntegrationType)
 integrationAssociationSummary_integrationType = Lens.lens (\IntegrationAssociationSummary' {integrationType} -> integrationType) (\s@IntegrationAssociationSummary' {} a -> s {integrationType = a} :: IntegrationAssociationSummary)
 
 -- | The Amazon Resource Name (ARN) for the AppIntegration.
-integrationAssociationSummary_integrationArn :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
+integrationAssociationSummary_integrationArn :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe Core.Text)
 integrationAssociationSummary_integrationArn = Lens.lens (\IntegrationAssociationSummary' {integrationArn} -> integrationArn) (\s@IntegrationAssociationSummary' {} a -> s {integrationArn = a} :: IntegrationAssociationSummary)
 
 -- | The name of the source.
-integrationAssociationSummary_sourceType :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe SourceType)
+integrationAssociationSummary_sourceType :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe SourceType)
 integrationAssociationSummary_sourceType = Lens.lens (\IntegrationAssociationSummary' {sourceType} -> sourceType) (\s@IntegrationAssociationSummary' {} a -> s {sourceType = a} :: IntegrationAssociationSummary)
 
 -- | The identifier for the AppIntegration association.
-integrationAssociationSummary_integrationAssociationId :: Lens.Lens' IntegrationAssociationSummary (Prelude.Maybe Prelude.Text)
+integrationAssociationSummary_integrationAssociationId :: Lens.Lens' IntegrationAssociationSummary (Core.Maybe Core.Text)
 integrationAssociationSummary_integrationAssociationId = Lens.lens (\IntegrationAssociationSummary' {integrationAssociationId} -> integrationAssociationId) (\s@IntegrationAssociationSummary' {} a -> s {integrationAssociationId = a} :: IntegrationAssociationSummary)
 
-instance
-  Prelude.FromJSON
-    IntegrationAssociationSummary
-  where
+instance Core.FromJSON IntegrationAssociationSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IntegrationAssociationSummary"
       ( \x ->
           IntegrationAssociationSummary'
-            Prelude.<$> (x Prelude..:? "InstanceId")
-            Prelude.<*> (x Prelude..:? "SourceApplicationName")
-            Prelude.<*> (x Prelude..:? "IntegrationAssociationArn")
-            Prelude.<*> (x Prelude..:? "SourceApplicationUrl")
-            Prelude.<*> (x Prelude..:? "IntegrationType")
-            Prelude.<*> (x Prelude..:? "IntegrationArn")
-            Prelude.<*> (x Prelude..:? "SourceType")
-            Prelude.<*> (x Prelude..:? "IntegrationAssociationId")
+            Core.<$> (x Core..:? "InstanceId")
+            Core.<*> (x Core..:? "SourceApplicationName")
+            Core.<*> (x Core..:? "IntegrationAssociationArn")
+            Core.<*> (x Core..:? "SourceApplicationUrl")
+            Core.<*> (x Core..:? "IntegrationType")
+            Core.<*> (x Core..:? "IntegrationArn")
+            Core.<*> (x Core..:? "SourceType")
+            Core.<*> (x Core..:? "IntegrationAssociationId")
       )
 
-instance
-  Prelude.Hashable
-    IntegrationAssociationSummary
+instance Core.Hashable IntegrationAssociationSummary
 
-instance Prelude.NFData IntegrationAssociationSummary
+instance Core.NFData IntegrationAssociationSummary

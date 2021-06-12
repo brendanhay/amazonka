@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.MutualTlsAuthenticationInput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | If specified, API Gateway performs two-way authentication between the
 -- client and the server. Clients must present a trusted certificate to
@@ -31,16 +30,16 @@ import qualified Network.AWS.Prelude as Prelude
 data MutualTlsAuthenticationInput = MutualTlsAuthenticationInput'
   { -- | The version of the S3 object that contains your truststore. To specify a
     -- version, you must have versioning enabled for the S3 bucket.
-    truststoreVersion :: Prelude.Maybe Prelude.Text,
+    truststoreVersion :: Core.Maybe Core.Text,
     -- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS
     -- authentication, for example, @s3:\/\/bucket-name\/key-name@. The
     -- truststore can contain certificates from public or private certificate
     -- authorities. To update the truststore, upload a new version to S3, and
     -- then update your custom domain name to use the new version. To update
     -- the truststore, you must have permissions to access the S3 object.
-    truststoreUri :: Prelude.Maybe Prelude.Text
+    truststoreUri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MutualTlsAuthenticationInput' with all optional fields omitted.
@@ -64,13 +63,13 @@ newMutualTlsAuthenticationInput ::
 newMutualTlsAuthenticationInput =
   MutualTlsAuthenticationInput'
     { truststoreVersion =
-        Prelude.Nothing,
-      truststoreUri = Prelude.Nothing
+        Core.Nothing,
+      truststoreUri = Core.Nothing
     }
 
 -- | The version of the S3 object that contains your truststore. To specify a
 -- version, you must have versioning enabled for the S3 bucket.
-mutualTlsAuthenticationInput_truststoreVersion :: Lens.Lens' MutualTlsAuthenticationInput (Prelude.Maybe Prelude.Text)
+mutualTlsAuthenticationInput_truststoreVersion :: Lens.Lens' MutualTlsAuthenticationInput (Core.Maybe Core.Text)
 mutualTlsAuthenticationInput_truststoreVersion = Lens.lens (\MutualTlsAuthenticationInput' {truststoreVersion} -> truststoreVersion) (\s@MutualTlsAuthenticationInput' {} a -> s {truststoreVersion = a} :: MutualTlsAuthenticationInput)
 
 -- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS
@@ -79,22 +78,19 @@ mutualTlsAuthenticationInput_truststoreVersion = Lens.lens (\MutualTlsAuthentica
 -- authorities. To update the truststore, upload a new version to S3, and
 -- then update your custom domain name to use the new version. To update
 -- the truststore, you must have permissions to access the S3 object.
-mutualTlsAuthenticationInput_truststoreUri :: Lens.Lens' MutualTlsAuthenticationInput (Prelude.Maybe Prelude.Text)
+mutualTlsAuthenticationInput_truststoreUri :: Lens.Lens' MutualTlsAuthenticationInput (Core.Maybe Core.Text)
 mutualTlsAuthenticationInput_truststoreUri = Lens.lens (\MutualTlsAuthenticationInput' {truststoreUri} -> truststoreUri) (\s@MutualTlsAuthenticationInput' {} a -> s {truststoreUri = a} :: MutualTlsAuthenticationInput)
 
-instance
-  Prelude.Hashable
-    MutualTlsAuthenticationInput
+instance Core.Hashable MutualTlsAuthenticationInput
 
-instance Prelude.NFData MutualTlsAuthenticationInput
+instance Core.NFData MutualTlsAuthenticationInput
 
-instance Prelude.ToJSON MutualTlsAuthenticationInput where
+instance Core.ToJSON MutualTlsAuthenticationInput where
   toJSON MutualTlsAuthenticationInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("truststoreVersion" Prelude..=)
-              Prelude.<$> truststoreVersion,
-            ("truststoreUri" Prelude..=)
-              Prelude.<$> truststoreUri
+    Core.object
+      ( Core.catMaybes
+          [ ("truststoreVersion" Core..=)
+              Core.<$> truststoreVersion,
+            ("truststoreUri" Core..=) Core.<$> truststoreUri
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.TagKeyOnly where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The key of a tag.
 --
 -- /See:/ 'newTagKeyOnly' smart constructor.
 data TagKeyOnly = TagKeyOnly'
   { -- | The name of the key.
-    key :: Prelude.Maybe Prelude.Text
+    key :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagKeyOnly' with all optional fields omitted.
@@ -44,16 +43,16 @@ data TagKeyOnly = TagKeyOnly'
 -- 'key', 'tagKeyOnly_key' - The name of the key.
 newTagKeyOnly ::
   TagKeyOnly
-newTagKeyOnly = TagKeyOnly' {key = Prelude.Nothing}
+newTagKeyOnly = TagKeyOnly' {key = Core.Nothing}
 
 -- | The name of the key.
-tagKeyOnly_key :: Lens.Lens' TagKeyOnly (Prelude.Maybe Prelude.Text)
+tagKeyOnly_key :: Lens.Lens' TagKeyOnly (Core.Maybe Core.Text)
 tagKeyOnly_key = Lens.lens (\TagKeyOnly' {key} -> key) (\s@TagKeyOnly' {} a -> s {key = a} :: TagKeyOnly)
 
-instance Prelude.Hashable TagKeyOnly
+instance Core.Hashable TagKeyOnly
 
-instance Prelude.NFData TagKeyOnly
+instance Core.NFData TagKeyOnly
 
-instance Prelude.ToQuery TagKeyOnly where
+instance Core.ToQuery TagKeyOnly where
   toQuery TagKeyOnly' {..} =
-    Prelude.mconcat ["Key" Prelude.=: key]
+    Core.mconcat ["Key" Core.=: key]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.VpcConfigResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an Amazon EKS cluster VPC configuration response.
 --
@@ -30,20 +29,20 @@ data VpcConfigResponse = VpcConfigResponse'
   { -- | The security groups associated with the cross-account elastic network
     -- interfaces that are used to allow communication between your nodes and
     -- the Kubernetes control plane.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | This parameter indicates whether the Amazon EKS public API server
     -- endpoint is enabled. If the Amazon EKS public API server endpoint is
     -- disabled, your cluster\'s Kubernetes API server can only receive
     -- requests that originate from within the cluster VPC.
-    endpointPublicAccess :: Prelude.Maybe Prelude.Bool,
+    endpointPublicAccess :: Core.Maybe Core.Bool,
     -- | The subnets associated with your cluster.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | The cluster security group that was created by Amazon EKS for the
     -- cluster. Managed node groups use this security group for
     -- control-plane-to-data-plane communication.
-    clusterSecurityGroupId :: Prelude.Maybe Prelude.Text,
+    clusterSecurityGroupId :: Core.Maybe Core.Text,
     -- | The VPC associated with your cluster.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    vpcId :: Core.Maybe Core.Text,
     -- | This parameter indicates whether the Amazon EKS private API server
     -- endpoint is enabled. If the Amazon EKS private API server endpoint is
     -- enabled, Kubernetes API requests that originate from within your
@@ -54,7 +53,7 @@ data VpcConfigResponse = VpcConfigResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
     -- in the //Amazon EKS User Guide// .
-    endpointPrivateAccess :: Prelude.Maybe Prelude.Bool,
+    endpointPrivateAccess :: Core.Maybe Core.Bool,
     -- | The CIDR blocks that are allowed access to your cluster\'s public
     -- Kubernetes API server endpoint. Communication to the endpoint from
     -- addresses outside of the listed CIDR blocks is denied. The default value
@@ -63,9 +62,9 @@ data VpcConfigResponse = VpcConfigResponse'
     -- necessary CIDR blocks are listed. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
     -- in the //Amazon EKS User Guide// .
-    publicAccessCidrs :: Prelude.Maybe [Prelude.Text]
+    publicAccessCidrs :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcConfigResponse' with all optional fields omitted.
@@ -115,41 +114,40 @@ newVpcConfigResponse ::
   VpcConfigResponse
 newVpcConfigResponse =
   VpcConfigResponse'
-    { securityGroupIds =
-        Prelude.Nothing,
-      endpointPublicAccess = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      clusterSecurityGroupId = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      endpointPrivateAccess = Prelude.Nothing,
-      publicAccessCidrs = Prelude.Nothing
+    { securityGroupIds = Core.Nothing,
+      endpointPublicAccess = Core.Nothing,
+      subnetIds = Core.Nothing,
+      clusterSecurityGroupId = Core.Nothing,
+      vpcId = Core.Nothing,
+      endpointPrivateAccess = Core.Nothing,
+      publicAccessCidrs = Core.Nothing
     }
 
 -- | The security groups associated with the cross-account elastic network
 -- interfaces that are used to allow communication between your nodes and
 -- the Kubernetes control plane.
-vpcConfigResponse_securityGroupIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_securityGroupIds = Lens.lens (\VpcConfigResponse' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigResponse' {} a -> s {securityGroupIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Prelude._Coerce
+vpcConfigResponse_securityGroupIds :: Lens.Lens' VpcConfigResponse (Core.Maybe [Core.Text])
+vpcConfigResponse_securityGroupIds = Lens.lens (\VpcConfigResponse' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigResponse' {} a -> s {securityGroupIds = a} :: VpcConfigResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | This parameter indicates whether the Amazon EKS public API server
 -- endpoint is enabled. If the Amazon EKS public API server endpoint is
 -- disabled, your cluster\'s Kubernetes API server can only receive
 -- requests that originate from within the cluster VPC.
-vpcConfigResponse_endpointPublicAccess :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Bool)
+vpcConfigResponse_endpointPublicAccess :: Lens.Lens' VpcConfigResponse (Core.Maybe Core.Bool)
 vpcConfigResponse_endpointPublicAccess = Lens.lens (\VpcConfigResponse' {endpointPublicAccess} -> endpointPublicAccess) (\s@VpcConfigResponse' {} a -> s {endpointPublicAccess = a} :: VpcConfigResponse)
 
 -- | The subnets associated with your cluster.
-vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Prelude.. Lens.mapping Prelude._Coerce
+vpcConfigResponse_subnetIds :: Lens.Lens' VpcConfigResponse (Core.Maybe [Core.Text])
+vpcConfigResponse_subnetIds = Lens.lens (\VpcConfigResponse' {subnetIds} -> subnetIds) (\s@VpcConfigResponse' {} a -> s {subnetIds = a} :: VpcConfigResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The cluster security group that was created by Amazon EKS for the
 -- cluster. Managed node groups use this security group for
 -- control-plane-to-data-plane communication.
-vpcConfigResponse_clusterSecurityGroupId :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Text)
+vpcConfigResponse_clusterSecurityGroupId :: Lens.Lens' VpcConfigResponse (Core.Maybe Core.Text)
 vpcConfigResponse_clusterSecurityGroupId = Lens.lens (\VpcConfigResponse' {clusterSecurityGroupId} -> clusterSecurityGroupId) (\s@VpcConfigResponse' {} a -> s {clusterSecurityGroupId = a} :: VpcConfigResponse)
 
 -- | The VPC associated with your cluster.
-vpcConfigResponse_vpcId :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Text)
+vpcConfigResponse_vpcId :: Lens.Lens' VpcConfigResponse (Core.Maybe Core.Text)
 vpcConfigResponse_vpcId = Lens.lens (\VpcConfigResponse' {vpcId} -> vpcId) (\s@VpcConfigResponse' {} a -> s {vpcId = a} :: VpcConfigResponse)
 
 -- | This parameter indicates whether the Amazon EKS private API server
@@ -162,7 +160,7 @@ vpcConfigResponse_vpcId = Lens.lens (\VpcConfigResponse' {vpcId} -> vpcId) (\s@V
 -- For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
 -- in the //Amazon EKS User Guide// .
-vpcConfigResponse_endpointPrivateAccess :: Lens.Lens' VpcConfigResponse (Prelude.Maybe Prelude.Bool)
+vpcConfigResponse_endpointPrivateAccess :: Lens.Lens' VpcConfigResponse (Core.Maybe Core.Bool)
 vpcConfigResponse_endpointPrivateAccess = Lens.lens (\VpcConfigResponse' {endpointPrivateAccess} -> endpointPrivateAccess) (\s@VpcConfigResponse' {} a -> s {endpointPrivateAccess = a} :: VpcConfigResponse)
 
 -- | The CIDR blocks that are allowed access to your cluster\'s public
@@ -173,30 +171,26 @@ vpcConfigResponse_endpointPrivateAccess = Lens.lens (\VpcConfigResponse' {endpoi
 -- necessary CIDR blocks are listed. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
 -- in the //Amazon EKS User Guide// .
-vpcConfigResponse_publicAccessCidrs :: Lens.Lens' VpcConfigResponse (Prelude.Maybe [Prelude.Text])
-vpcConfigResponse_publicAccessCidrs = Lens.lens (\VpcConfigResponse' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigResponse' {} a -> s {publicAccessCidrs = a} :: VpcConfigResponse) Prelude.. Lens.mapping Prelude._Coerce
+vpcConfigResponse_publicAccessCidrs :: Lens.Lens' VpcConfigResponse (Core.Maybe [Core.Text])
+vpcConfigResponse_publicAccessCidrs = Lens.lens (\VpcConfigResponse' {publicAccessCidrs} -> publicAccessCidrs) (\s@VpcConfigResponse' {} a -> s {publicAccessCidrs = a} :: VpcConfigResponse) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON VpcConfigResponse where
+instance Core.FromJSON VpcConfigResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VpcConfigResponse"
       ( \x ->
           VpcConfigResponse'
-            Prelude.<$> ( x Prelude..:? "securityGroupIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "endpointPublicAccess")
-            Prelude.<*> ( x Prelude..:? "subnetIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "clusterSecurityGroupId")
-            Prelude.<*> (x Prelude..:? "vpcId")
-            Prelude.<*> (x Prelude..:? "endpointPrivateAccess")
-            Prelude.<*> ( x Prelude..:? "publicAccessCidrs"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "securityGroupIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "endpointPublicAccess")
+            Core.<*> (x Core..:? "subnetIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "clusterSecurityGroupId")
+            Core.<*> (x Core..:? "vpcId")
+            Core.<*> (x Core..:? "endpointPrivateAccess")
+            Core.<*> ( x Core..:? "publicAccessCidrs"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable VpcConfigResponse
+instance Core.Hashable VpcConfigResponse
 
-instance Prelude.NFData VpcConfigResponse
+instance Core.NFData VpcConfigResponse

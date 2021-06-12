@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.WAF.ListByteMatchSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -68,14 +66,14 @@ data ListByteMatchSets = ListByteMatchSets'
     -- the second and subsequent @ListByteMatchSets@ requests, specify the
     -- value of @NextMarker@ from the previous response to get information
     -- about another batch of @ByteMatchSets@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to
     -- return for this request. If you have more @ByteMatchSets@ objects than
     -- the number you specify for @Limit@, the response includes a @NextMarker@
     -- value that you can use to get another batch of @ByteMatchSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListByteMatchSets' with all optional fields omitted.
@@ -100,8 +98,8 @@ newListByteMatchSets ::
   ListByteMatchSets
 newListByteMatchSets =
   ListByteMatchSets'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @ByteMatchSets@
@@ -110,85 +108,83 @@ newListByteMatchSets =
 -- the second and subsequent @ListByteMatchSets@ requests, specify the
 -- value of @NextMarker@ from the previous response to get information
 -- about another batch of @ByteMatchSets@.
-listByteMatchSets_nextMarker :: Lens.Lens' ListByteMatchSets (Prelude.Maybe Prelude.Text)
+listByteMatchSets_nextMarker :: Lens.Lens' ListByteMatchSets (Core.Maybe Core.Text)
 listByteMatchSets_nextMarker = Lens.lens (\ListByteMatchSets' {nextMarker} -> nextMarker) (\s@ListByteMatchSets' {} a -> s {nextMarker = a} :: ListByteMatchSets)
 
 -- | Specifies the number of @ByteMatchSet@ objects that you want AWS WAF to
 -- return for this request. If you have more @ByteMatchSets@ objects than
 -- the number you specify for @Limit@, the response includes a @NextMarker@
 -- value that you can use to get another batch of @ByteMatchSet@ objects.
-listByteMatchSets_limit :: Lens.Lens' ListByteMatchSets (Prelude.Maybe Prelude.Natural)
+listByteMatchSets_limit :: Lens.Lens' ListByteMatchSets (Core.Maybe Core.Natural)
 listByteMatchSets_limit = Lens.lens (\ListByteMatchSets' {limit} -> limit) (\s@ListByteMatchSets' {} a -> s {limit = a} :: ListByteMatchSets)
 
-instance Pager.AWSPager ListByteMatchSets where
+instance Core.AWSPager ListByteMatchSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listByteMatchSetsResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listByteMatchSetsResponse_byteMatchSets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listByteMatchSets_nextMarker
           Lens..~ rs
           Lens.^? listByteMatchSetsResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListByteMatchSets where
-  type Rs ListByteMatchSets = ListByteMatchSetsResponse
+instance Core.AWSRequest ListByteMatchSets where
+  type
+    AWSResponse ListByteMatchSets =
+      ListByteMatchSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListByteMatchSetsResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> ( x Prelude..?> "ByteMatchSets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "ByteMatchSets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListByteMatchSets
+instance Core.Hashable ListByteMatchSets
 
-instance Prelude.NFData ListByteMatchSets
+instance Core.NFData ListByteMatchSets
 
-instance Prelude.ToHeaders ListByteMatchSets where
+instance Core.ToHeaders ListByteMatchSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.ListByteMatchSets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.ListByteMatchSets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListByteMatchSets where
+instance Core.ToJSON ListByteMatchSets where
   toJSON ListByteMatchSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListByteMatchSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListByteMatchSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListByteMatchSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListByteMatchSets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListByteMatchSetsResponse' smart constructor.
 data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
@@ -197,13 +193,13 @@ data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
     -- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another
     -- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the
     -- response in the @NextMarker@ value in the next request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | An array of ByteMatchSetSummary objects.
-    byteMatchSets :: Prelude.Maybe [ByteMatchSetSummary],
+    byteMatchSets :: Core.Maybe [ByteMatchSetSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListByteMatchSetsResponse' with all optional fields omitted.
@@ -224,13 +220,13 @@ data ListByteMatchSetsResponse = ListByteMatchSetsResponse'
 -- 'httpStatus', 'listByteMatchSetsResponse_httpStatus' - The response's http status code.
 newListByteMatchSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListByteMatchSetsResponse
 newListByteMatchSetsResponse pHttpStatus_ =
   ListByteMatchSetsResponse'
     { nextMarker =
-        Prelude.Nothing,
-      byteMatchSets = Prelude.Nothing,
+        Core.Nothing,
+      byteMatchSets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -239,15 +235,15 @@ newListByteMatchSetsResponse pHttpStatus_ =
 -- @NextMarker@ value. To list more @ByteMatchSet@ objects, submit another
 -- @ListByteMatchSets@ request, and specify the @NextMarker@ value from the
 -- response in the @NextMarker@ value in the next request.
-listByteMatchSetsResponse_nextMarker :: Lens.Lens' ListByteMatchSetsResponse (Prelude.Maybe Prelude.Text)
+listByteMatchSetsResponse_nextMarker :: Lens.Lens' ListByteMatchSetsResponse (Core.Maybe Core.Text)
 listByteMatchSetsResponse_nextMarker = Lens.lens (\ListByteMatchSetsResponse' {nextMarker} -> nextMarker) (\s@ListByteMatchSetsResponse' {} a -> s {nextMarker = a} :: ListByteMatchSetsResponse)
 
 -- | An array of ByteMatchSetSummary objects.
-listByteMatchSetsResponse_byteMatchSets :: Lens.Lens' ListByteMatchSetsResponse (Prelude.Maybe [ByteMatchSetSummary])
-listByteMatchSetsResponse_byteMatchSets = Lens.lens (\ListByteMatchSetsResponse' {byteMatchSets} -> byteMatchSets) (\s@ListByteMatchSetsResponse' {} a -> s {byteMatchSets = a} :: ListByteMatchSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listByteMatchSetsResponse_byteMatchSets :: Lens.Lens' ListByteMatchSetsResponse (Core.Maybe [ByteMatchSetSummary])
+listByteMatchSetsResponse_byteMatchSets = Lens.lens (\ListByteMatchSetsResponse' {byteMatchSets} -> byteMatchSets) (\s@ListByteMatchSetsResponse' {} a -> s {byteMatchSets = a} :: ListByteMatchSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listByteMatchSetsResponse_httpStatus :: Lens.Lens' ListByteMatchSetsResponse Prelude.Int
+listByteMatchSetsResponse_httpStatus :: Lens.Lens' ListByteMatchSetsResponse Core.Int
 listByteMatchSetsResponse_httpStatus = Lens.lens (\ListByteMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListByteMatchSetsResponse' {} a -> s {httpStatus = a} :: ListByteMatchSetsResponse)
 
-instance Prelude.NFData ListByteMatchSetsResponse
+instance Core.NFData ListByteMatchSetsResponse

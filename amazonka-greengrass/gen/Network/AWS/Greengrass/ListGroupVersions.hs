@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.Greengrass.ListGroupVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +54,13 @@ import qualified Network.AWS.Response as Response
 data ListGroupVersions = ListGroupVersions'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text,
+    maxResults :: Core.Maybe Core.Text,
     -- | The ID of the Greengrass group.
-    groupId :: Prelude.Text
+    groupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGroupVersions' with all optional fields omitted.
@@ -80,103 +78,101 @@ data ListGroupVersions = ListGroupVersions'
 -- 'groupId', 'listGroupVersions_groupId' - The ID of the Greengrass group.
 newListGroupVersions ::
   -- | 'groupId'
-  Prelude.Text ->
+  Core.Text ->
   ListGroupVersions
 newListGroupVersions pGroupId_ =
   ListGroupVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       groupId = pGroupId_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listGroupVersions_nextToken :: Lens.Lens' ListGroupVersions (Prelude.Maybe Prelude.Text)
+listGroupVersions_nextToken :: Lens.Lens' ListGroupVersions (Core.Maybe Core.Text)
 listGroupVersions_nextToken = Lens.lens (\ListGroupVersions' {nextToken} -> nextToken) (\s@ListGroupVersions' {} a -> s {nextToken = a} :: ListGroupVersions)
 
 -- | The maximum number of results to be returned per request.
-listGroupVersions_maxResults :: Lens.Lens' ListGroupVersions (Prelude.Maybe Prelude.Text)
+listGroupVersions_maxResults :: Lens.Lens' ListGroupVersions (Core.Maybe Core.Text)
 listGroupVersions_maxResults = Lens.lens (\ListGroupVersions' {maxResults} -> maxResults) (\s@ListGroupVersions' {} a -> s {maxResults = a} :: ListGroupVersions)
 
 -- | The ID of the Greengrass group.
-listGroupVersions_groupId :: Lens.Lens' ListGroupVersions Prelude.Text
+listGroupVersions_groupId :: Lens.Lens' ListGroupVersions Core.Text
 listGroupVersions_groupId = Lens.lens (\ListGroupVersions' {groupId} -> groupId) (\s@ListGroupVersions' {} a -> s {groupId = a} :: ListGroupVersions)
 
-instance Pager.AWSPager ListGroupVersions where
+instance Core.AWSPager ListGroupVersions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listGroupVersionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listGroupVersionsResponse_versions
-              Prelude.. Lens._Just
+            Lens.^? listGroupVersionsResponse_versions Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listGroupVersions_nextToken
           Lens..~ rs
-          Lens.^? listGroupVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listGroupVersionsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListGroupVersions where
-  type Rs ListGroupVersions = ListGroupVersionsResponse
+instance Core.AWSRequest ListGroupVersions where
+  type
+    AWSResponse ListGroupVersions =
+      ListGroupVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListGroupVersionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Versions" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Versions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListGroupVersions
+instance Core.Hashable ListGroupVersions
 
-instance Prelude.NFData ListGroupVersions
+instance Core.NFData ListGroupVersions
 
-instance Prelude.ToHeaders ListGroupVersions where
+instance Core.ToHeaders ListGroupVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListGroupVersions where
+instance Core.ToPath ListGroupVersions where
   toPath ListGroupVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/groups/",
-        Prelude.toBS groupId,
+        Core.toBS groupId,
         "/versions"
       ]
 
-instance Prelude.ToQuery ListGroupVersions where
+instance Core.ToQuery ListGroupVersions where
   toQuery ListGroupVersions' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListGroupVersionsResponse' smart constructor.
 data ListGroupVersionsResponse = ListGroupVersionsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about a version.
-    versions :: Prelude.Maybe [VersionInformation],
+    versions :: Core.Maybe [VersionInformation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGroupVersionsResponse' with all optional fields omitted.
@@ -194,27 +190,27 @@ data ListGroupVersionsResponse = ListGroupVersionsResponse'
 -- 'httpStatus', 'listGroupVersionsResponse_httpStatus' - The response's http status code.
 newListGroupVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListGroupVersionsResponse
 newListGroupVersionsResponse pHttpStatus_ =
   ListGroupVersionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      versions = Prelude.Nothing,
+        Core.Nothing,
+      versions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listGroupVersionsResponse_nextToken :: Lens.Lens' ListGroupVersionsResponse (Prelude.Maybe Prelude.Text)
+listGroupVersionsResponse_nextToken :: Lens.Lens' ListGroupVersionsResponse (Core.Maybe Core.Text)
 listGroupVersionsResponse_nextToken = Lens.lens (\ListGroupVersionsResponse' {nextToken} -> nextToken) (\s@ListGroupVersionsResponse' {} a -> s {nextToken = a} :: ListGroupVersionsResponse)
 
 -- | Information about a version.
-listGroupVersionsResponse_versions :: Lens.Lens' ListGroupVersionsResponse (Prelude.Maybe [VersionInformation])
-listGroupVersionsResponse_versions = Lens.lens (\ListGroupVersionsResponse' {versions} -> versions) (\s@ListGroupVersionsResponse' {} a -> s {versions = a} :: ListGroupVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listGroupVersionsResponse_versions :: Lens.Lens' ListGroupVersionsResponse (Core.Maybe [VersionInformation])
+listGroupVersionsResponse_versions = Lens.lens (\ListGroupVersionsResponse' {versions} -> versions) (\s@ListGroupVersionsResponse' {} a -> s {versions = a} :: ListGroupVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listGroupVersionsResponse_httpStatus :: Lens.Lens' ListGroupVersionsResponse Prelude.Int
+listGroupVersionsResponse_httpStatus :: Lens.Lens' ListGroupVersionsResponse Core.Int
 listGroupVersionsResponse_httpStatus = Lens.lens (\ListGroupVersionsResponse' {httpStatus} -> httpStatus) (\s@ListGroupVersionsResponse' {} a -> s {httpStatus = a} :: ListGroupVersionsResponse)
 
-instance Prelude.NFData ListGroupVersionsResponse
+instance Core.NFData ListGroupVersionsResponse

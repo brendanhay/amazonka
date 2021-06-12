@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.CodePipeline.DeletePipeline
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeletePipeline' smart constructor.
 data DeletePipeline = DeletePipeline'
   { -- | The name of the pipeline to be deleted.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePipeline' with all optional fields omitted.
@@ -62,58 +61,56 @@ data DeletePipeline = DeletePipeline'
 -- 'name', 'deletePipeline_name' - The name of the pipeline to be deleted.
 newDeletePipeline ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeletePipeline
 newDeletePipeline pName_ =
   DeletePipeline' {name = pName_}
 
 -- | The name of the pipeline to be deleted.
-deletePipeline_name :: Lens.Lens' DeletePipeline Prelude.Text
+deletePipeline_name :: Lens.Lens' DeletePipeline Core.Text
 deletePipeline_name = Lens.lens (\DeletePipeline' {name} -> name) (\s@DeletePipeline' {} a -> s {name = a} :: DeletePipeline)
 
-instance Prelude.AWSRequest DeletePipeline where
-  type Rs DeletePipeline = DeletePipelineResponse
+instance Core.AWSRequest DeletePipeline where
+  type
+    AWSResponse DeletePipeline =
+      DeletePipelineResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeletePipelineResponse'
 
-instance Prelude.Hashable DeletePipeline
+instance Core.Hashable DeletePipeline
 
-instance Prelude.NFData DeletePipeline
+instance Core.NFData DeletePipeline
 
-instance Prelude.ToHeaders DeletePipeline where
+instance Core.ToHeaders DeletePipeline where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.DeletePipeline" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.DeletePipeline" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeletePipeline where
+instance Core.ToJSON DeletePipeline where
   toJSON DeletePipeline' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])
 
-instance Prelude.ToPath DeletePipeline where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePipeline where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePipeline where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePipeline where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePipelineResponse' smart constructor.
 data DeletePipelineResponse = DeletePipelineResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePipelineResponse' with all optional fields omitted.
@@ -123,4 +120,4 @@ newDeletePipelineResponse ::
   DeletePipelineResponse
 newDeletePipelineResponse = DeletePipelineResponse'
 
-instance Prelude.NFData DeletePipelineResponse
+instance Core.NFData DeletePipelineResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.AddOn where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an add-on that is enabled for an Amazon Lightsail resource.
 --
@@ -34,11 +33,11 @@ data AddOn = AddOn'
     --
     -- The snapshot is automatically created between the time shown and up to
     -- 45 minutes after.
-    snapshotTimeOfDay :: Prelude.Maybe Prelude.Text,
+    snapshotTimeOfDay :: Core.Maybe Core.Text,
     -- | The status of the add-on.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The name of the add-on.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The next daily time an automatic snapshot will be created.
     --
     -- The time shown is in @HH:00@ format, and in Coordinated Universal Time
@@ -46,9 +45,9 @@ data AddOn = AddOn'
     --
     -- The snapshot is automatically created between the time shown and up to
     -- 45 minutes after.
-    nextSnapshotTimeOfDay :: Prelude.Maybe Prelude.Text
+    nextSnapshotTimeOfDay :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddOn' with all optional fields omitted.
@@ -81,10 +80,10 @@ newAddOn ::
   AddOn
 newAddOn =
   AddOn'
-    { snapshotTimeOfDay = Prelude.Nothing,
-      status = Prelude.Nothing,
-      name = Prelude.Nothing,
-      nextSnapshotTimeOfDay = Prelude.Nothing
+    { snapshotTimeOfDay = Core.Nothing,
+      status = Core.Nothing,
+      name = Core.Nothing,
+      nextSnapshotTimeOfDay = Core.Nothing
     }
 
 -- | The daily time when an automatic snapshot is created.
@@ -94,15 +93,15 @@ newAddOn =
 --
 -- The snapshot is automatically created between the time shown and up to
 -- 45 minutes after.
-addOn_snapshotTimeOfDay :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_snapshotTimeOfDay :: Lens.Lens' AddOn (Core.Maybe Core.Text)
 addOn_snapshotTimeOfDay = Lens.lens (\AddOn' {snapshotTimeOfDay} -> snapshotTimeOfDay) (\s@AddOn' {} a -> s {snapshotTimeOfDay = a} :: AddOn)
 
 -- | The status of the add-on.
-addOn_status :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_status :: Lens.Lens' AddOn (Core.Maybe Core.Text)
 addOn_status = Lens.lens (\AddOn' {status} -> status) (\s@AddOn' {} a -> s {status = a} :: AddOn)
 
 -- | The name of the add-on.
-addOn_name :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_name :: Lens.Lens' AddOn (Core.Maybe Core.Text)
 addOn_name = Lens.lens (\AddOn' {name} -> name) (\s@AddOn' {} a -> s {name = a} :: AddOn)
 
 -- | The next daily time an automatic snapshot will be created.
@@ -112,21 +111,21 @@ addOn_name = Lens.lens (\AddOn' {name} -> name) (\s@AddOn' {} a -> s {name = a} 
 --
 -- The snapshot is automatically created between the time shown and up to
 -- 45 minutes after.
-addOn_nextSnapshotTimeOfDay :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_nextSnapshotTimeOfDay :: Lens.Lens' AddOn (Core.Maybe Core.Text)
 addOn_nextSnapshotTimeOfDay = Lens.lens (\AddOn' {nextSnapshotTimeOfDay} -> nextSnapshotTimeOfDay) (\s@AddOn' {} a -> s {nextSnapshotTimeOfDay = a} :: AddOn)
 
-instance Prelude.FromJSON AddOn where
+instance Core.FromJSON AddOn where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AddOn"
       ( \x ->
           AddOn'
-            Prelude.<$> (x Prelude..:? "snapshotTimeOfDay")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "nextSnapshotTimeOfDay")
+            Core.<$> (x Core..:? "snapshotTimeOfDay")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "nextSnapshotTimeOfDay")
       )
 
-instance Prelude.Hashable AddOn
+instance Core.Hashable AddOn
 
-instance Prelude.NFData AddOn
+instance Core.NFData AddOn

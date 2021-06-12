@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.RecordsEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | The container for the records event.
@@ -29,9 +28,9 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newRecordsEvent' smart constructor.
 data RecordsEvent = RecordsEvent'
   { -- | The byte array of partial, one or more result records.
-    payload :: Prelude.Maybe Prelude.Base64
+    payload :: Core.Maybe Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordsEvent' with all optional fields omitted.
@@ -49,20 +48,20 @@ data RecordsEvent = RecordsEvent'
 newRecordsEvent ::
   RecordsEvent
 newRecordsEvent =
-  RecordsEvent' {payload = Prelude.Nothing}
+  RecordsEvent' {payload = Core.Nothing}
 
 -- | The byte array of partial, one or more result records.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-recordsEvent_payload :: Lens.Lens' RecordsEvent (Prelude.Maybe Prelude.ByteString)
-recordsEvent_payload = Lens.lens (\RecordsEvent' {payload} -> payload) (\s@RecordsEvent' {} a -> s {payload = a} :: RecordsEvent) Prelude.. Lens.mapping Prelude._Base64
+recordsEvent_payload :: Lens.Lens' RecordsEvent (Core.Maybe Core.ByteString)
+recordsEvent_payload = Lens.lens (\RecordsEvent' {payload} -> payload) (\s@RecordsEvent' {} a -> s {payload = a} :: RecordsEvent) Core.. Lens.mapping Core._Base64
 
-instance Prelude.FromXML RecordsEvent where
+instance Core.FromXML RecordsEvent where
   parseXML x =
-    RecordsEvent' Prelude.<$> (x Prelude..@? "Payload")
+    RecordsEvent' Core.<$> (x Core..@? "Payload")
 
-instance Prelude.Hashable RecordsEvent
+instance Core.Hashable RecordsEvent
 
-instance Prelude.NFData RecordsEvent
+instance Core.NFData RecordsEvent

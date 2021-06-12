@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CloudFront.CreatePublicKey
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +55,7 @@ data CreatePublicKey = CreatePublicKey'
   { -- | A CloudFront public key configuration.
     publicKeyConfig :: PublicKeyConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePublicKey' with all optional fields omitted.
@@ -81,50 +80,52 @@ newCreatePublicKey pPublicKeyConfig_ =
 createPublicKey_publicKeyConfig :: Lens.Lens' CreatePublicKey PublicKeyConfig
 createPublicKey_publicKeyConfig = Lens.lens (\CreatePublicKey' {publicKeyConfig} -> publicKeyConfig) (\s@CreatePublicKey' {} a -> s {publicKeyConfig = a} :: CreatePublicKey)
 
-instance Prelude.AWSRequest CreatePublicKey where
-  type Rs CreatePublicKey = CreatePublicKeyResponse
+instance Core.AWSRequest CreatePublicKey where
+  type
+    AWSResponse CreatePublicKey =
+      CreatePublicKeyResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreatePublicKeyResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (h Prelude..#? "Location")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (h Core..#? "Location")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePublicKey
+instance Core.Hashable CreatePublicKey
 
-instance Prelude.NFData CreatePublicKey
+instance Core.NFData CreatePublicKey
 
-instance Prelude.ToElement CreatePublicKey where
+instance Core.ToElement CreatePublicKey where
   toElement CreatePublicKey' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}PublicKeyConfig"
       publicKeyConfig
 
-instance Prelude.ToHeaders CreatePublicKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreatePublicKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreatePublicKey where
-  toPath = Prelude.const "/2020-05-31/public-key"
+instance Core.ToPath CreatePublicKey where
+  toPath = Core.const "/2020-05-31/public-key"
 
-instance Prelude.ToQuery CreatePublicKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePublicKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreatePublicKeyResponse' smart constructor.
 data CreatePublicKeyResponse = CreatePublicKeyResponse'
   { -- | The identifier for this version of the public key.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The public key.
-    publicKey :: Prelude.Maybe PublicKey,
+    publicKey :: Core.Maybe PublicKey,
     -- | The URL of the public key.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePublicKeyResponse' with all optional fields omitted.
@@ -143,30 +144,30 @@ data CreatePublicKeyResponse = CreatePublicKeyResponse'
 -- 'httpStatus', 'createPublicKeyResponse_httpStatus' - The response's http status code.
 newCreatePublicKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePublicKeyResponse
 newCreatePublicKeyResponse pHttpStatus_ =
   CreatePublicKeyResponse'
-    { eTag = Prelude.Nothing,
-      publicKey = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      publicKey = Core.Nothing,
+      location = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for this version of the public key.
-createPublicKeyResponse_eTag :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe Prelude.Text)
+createPublicKeyResponse_eTag :: Lens.Lens' CreatePublicKeyResponse (Core.Maybe Core.Text)
 createPublicKeyResponse_eTag = Lens.lens (\CreatePublicKeyResponse' {eTag} -> eTag) (\s@CreatePublicKeyResponse' {} a -> s {eTag = a} :: CreatePublicKeyResponse)
 
 -- | The public key.
-createPublicKeyResponse_publicKey :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe PublicKey)
+createPublicKeyResponse_publicKey :: Lens.Lens' CreatePublicKeyResponse (Core.Maybe PublicKey)
 createPublicKeyResponse_publicKey = Lens.lens (\CreatePublicKeyResponse' {publicKey} -> publicKey) (\s@CreatePublicKeyResponse' {} a -> s {publicKey = a} :: CreatePublicKeyResponse)
 
 -- | The URL of the public key.
-createPublicKeyResponse_location :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe Prelude.Text)
+createPublicKeyResponse_location :: Lens.Lens' CreatePublicKeyResponse (Core.Maybe Core.Text)
 createPublicKeyResponse_location = Lens.lens (\CreatePublicKeyResponse' {location} -> location) (\s@CreatePublicKeyResponse' {} a -> s {location = a} :: CreatePublicKeyResponse)
 
 -- | The response's http status code.
-createPublicKeyResponse_httpStatus :: Lens.Lens' CreatePublicKeyResponse Prelude.Int
+createPublicKeyResponse_httpStatus :: Lens.Lens' CreatePublicKeyResponse Core.Int
 createPublicKeyResponse_httpStatus = Lens.lens (\CreatePublicKeyResponse' {httpStatus} -> httpStatus) (\s@CreatePublicKeyResponse' {} a -> s {httpStatus = a} :: CreatePublicKeyResponse)
 
-instance Prelude.NFData CreatePublicKeyResponse
+instance Core.NFData CreatePublicKeyResponse

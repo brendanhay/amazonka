@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,34 +19,34 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.VpcPeeringConnectionVpcInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CidrBlock
 import Network.AWS.EC2.Types.Ipv6CidrBlock
 import Network.AWS.EC2.Types.VpcPeeringConnectionOptionsDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a VPC in a VPC peering connection.
 --
 -- /See:/ 'newVpcPeeringConnectionVpcInfo' smart constructor.
 data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo'
   { -- | Information about the IPv4 CIDR blocks for the VPC.
-    cidrBlockSet :: Prelude.Maybe [CidrBlock],
+    cidrBlockSet :: Core.Maybe [CidrBlock],
     -- | The AWS account ID of the VPC owner.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    ownerId :: Core.Maybe Core.Text,
     -- | The IPv6 CIDR block for the VPC.
-    ipv6CidrBlockSet :: Prelude.Maybe [Ipv6CidrBlock],
+    ipv6CidrBlockSet :: Core.Maybe [Ipv6CidrBlock],
     -- | The Region in which the VPC is located.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    vpcId :: Core.Maybe Core.Text,
     -- | The IPv4 CIDR block for the VPC.
-    cidrBlock :: Prelude.Maybe Prelude.Text,
+    cidrBlock :: Core.Maybe Core.Text,
     -- | Information about the VPC peering connection options for the accepter or
     -- requester VPC.
-    peeringOptions :: Prelude.Maybe VpcPeeringConnectionOptionsDescription
+    peeringOptions :: Core.Maybe VpcPeeringConnectionOptionsDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcPeeringConnectionVpcInfo' with all optional fields omitted.
@@ -76,61 +75,59 @@ newVpcPeeringConnectionVpcInfo ::
 newVpcPeeringConnectionVpcInfo =
   VpcPeeringConnectionVpcInfo'
     { cidrBlockSet =
-        Prelude.Nothing,
-      ownerId = Prelude.Nothing,
-      ipv6CidrBlockSet = Prelude.Nothing,
-      region = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
-      cidrBlock = Prelude.Nothing,
-      peeringOptions = Prelude.Nothing
+        Core.Nothing,
+      ownerId = Core.Nothing,
+      ipv6CidrBlockSet = Core.Nothing,
+      region = Core.Nothing,
+      vpcId = Core.Nothing,
+      cidrBlock = Core.Nothing,
+      peeringOptions = Core.Nothing
     }
 
 -- | Information about the IPv4 CIDR blocks for the VPC.
-vpcPeeringConnectionVpcInfo_cidrBlockSet :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe [CidrBlock])
-vpcPeeringConnectionVpcInfo_cidrBlockSet = Lens.lens (\VpcPeeringConnectionVpcInfo' {cidrBlockSet} -> cidrBlockSet) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {cidrBlockSet = a} :: VpcPeeringConnectionVpcInfo) Prelude.. Lens.mapping Prelude._Coerce
+vpcPeeringConnectionVpcInfo_cidrBlockSet :: Lens.Lens' VpcPeeringConnectionVpcInfo (Core.Maybe [CidrBlock])
+vpcPeeringConnectionVpcInfo_cidrBlockSet = Lens.lens (\VpcPeeringConnectionVpcInfo' {cidrBlockSet} -> cidrBlockSet) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {cidrBlockSet = a} :: VpcPeeringConnectionVpcInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The AWS account ID of the VPC owner.
-vpcPeeringConnectionVpcInfo_ownerId :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe Prelude.Text)
+vpcPeeringConnectionVpcInfo_ownerId :: Lens.Lens' VpcPeeringConnectionVpcInfo (Core.Maybe Core.Text)
 vpcPeeringConnectionVpcInfo_ownerId = Lens.lens (\VpcPeeringConnectionVpcInfo' {ownerId} -> ownerId) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {ownerId = a} :: VpcPeeringConnectionVpcInfo)
 
 -- | The IPv6 CIDR block for the VPC.
-vpcPeeringConnectionVpcInfo_ipv6CidrBlockSet :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe [Ipv6CidrBlock])
-vpcPeeringConnectionVpcInfo_ipv6CidrBlockSet = Lens.lens (\VpcPeeringConnectionVpcInfo' {ipv6CidrBlockSet} -> ipv6CidrBlockSet) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {ipv6CidrBlockSet = a} :: VpcPeeringConnectionVpcInfo) Prelude.. Lens.mapping Prelude._Coerce
+vpcPeeringConnectionVpcInfo_ipv6CidrBlockSet :: Lens.Lens' VpcPeeringConnectionVpcInfo (Core.Maybe [Ipv6CidrBlock])
+vpcPeeringConnectionVpcInfo_ipv6CidrBlockSet = Lens.lens (\VpcPeeringConnectionVpcInfo' {ipv6CidrBlockSet} -> ipv6CidrBlockSet) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {ipv6CidrBlockSet = a} :: VpcPeeringConnectionVpcInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The Region in which the VPC is located.
-vpcPeeringConnectionVpcInfo_region :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe Prelude.Text)
+vpcPeeringConnectionVpcInfo_region :: Lens.Lens' VpcPeeringConnectionVpcInfo (Core.Maybe Core.Text)
 vpcPeeringConnectionVpcInfo_region = Lens.lens (\VpcPeeringConnectionVpcInfo' {region} -> region) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {region = a} :: VpcPeeringConnectionVpcInfo)
 
 -- | The ID of the VPC.
-vpcPeeringConnectionVpcInfo_vpcId :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe Prelude.Text)
+vpcPeeringConnectionVpcInfo_vpcId :: Lens.Lens' VpcPeeringConnectionVpcInfo (Core.Maybe Core.Text)
 vpcPeeringConnectionVpcInfo_vpcId = Lens.lens (\VpcPeeringConnectionVpcInfo' {vpcId} -> vpcId) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {vpcId = a} :: VpcPeeringConnectionVpcInfo)
 
 -- | The IPv4 CIDR block for the VPC.
-vpcPeeringConnectionVpcInfo_cidrBlock :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe Prelude.Text)
+vpcPeeringConnectionVpcInfo_cidrBlock :: Lens.Lens' VpcPeeringConnectionVpcInfo (Core.Maybe Core.Text)
 vpcPeeringConnectionVpcInfo_cidrBlock = Lens.lens (\VpcPeeringConnectionVpcInfo' {cidrBlock} -> cidrBlock) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {cidrBlock = a} :: VpcPeeringConnectionVpcInfo)
 
 -- | Information about the VPC peering connection options for the accepter or
 -- requester VPC.
-vpcPeeringConnectionVpcInfo_peeringOptions :: Lens.Lens' VpcPeeringConnectionVpcInfo (Prelude.Maybe VpcPeeringConnectionOptionsDescription)
+vpcPeeringConnectionVpcInfo_peeringOptions :: Lens.Lens' VpcPeeringConnectionVpcInfo (Core.Maybe VpcPeeringConnectionOptionsDescription)
 vpcPeeringConnectionVpcInfo_peeringOptions = Lens.lens (\VpcPeeringConnectionVpcInfo' {peeringOptions} -> peeringOptions) (\s@VpcPeeringConnectionVpcInfo' {} a -> s {peeringOptions = a} :: VpcPeeringConnectionVpcInfo)
 
-instance Prelude.FromXML VpcPeeringConnectionVpcInfo where
+instance Core.FromXML VpcPeeringConnectionVpcInfo where
   parseXML x =
     VpcPeeringConnectionVpcInfo'
-      Prelude.<$> ( x Prelude..@? "cidrBlockSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "ownerId")
-      Prelude.<*> ( x Prelude..@? "ipv6CidrBlockSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "region")
-      Prelude.<*> (x Prelude..@? "vpcId")
-      Prelude.<*> (x Prelude..@? "cidrBlock")
-      Prelude.<*> (x Prelude..@? "peeringOptions")
+      Core.<$> ( x Core..@? "cidrBlockSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> ( x Core..@? "ipv6CidrBlockSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "region")
+      Core.<*> (x Core..@? "vpcId")
+      Core.<*> (x Core..@? "cidrBlock")
+      Core.<*> (x Core..@? "peeringOptions")
 
-instance Prelude.Hashable VpcPeeringConnectionVpcInfo
+instance Core.Hashable VpcPeeringConnectionVpcInfo
 
-instance Prelude.NFData VpcPeeringConnectionVpcInfo
+instance Core.NFData VpcPeeringConnectionVpcInfo

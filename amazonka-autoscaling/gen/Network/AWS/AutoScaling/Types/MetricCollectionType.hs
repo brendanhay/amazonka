@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.MetricCollectionType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a metric.
 --
@@ -54,9 +53,9 @@ data MetricCollectionType = MetricCollectionType'
     -- -   @GroupTerminatingCapacity@
     --
     -- -   @GroupTotalCapacity@
-    metric :: Prelude.Maybe Prelude.Text
+    metric :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricCollectionType' with all optional fields omitted.
@@ -96,7 +95,7 @@ data MetricCollectionType = MetricCollectionType'
 newMetricCollectionType ::
   MetricCollectionType
 newMetricCollectionType =
-  MetricCollectionType' {metric = Prelude.Nothing}
+  MetricCollectionType' {metric = Core.Nothing}
 
 -- | One of the following metrics:
 --
@@ -125,14 +124,14 @@ newMetricCollectionType =
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
-metricCollectionType_metric :: Lens.Lens' MetricCollectionType (Prelude.Maybe Prelude.Text)
+metricCollectionType_metric :: Lens.Lens' MetricCollectionType (Core.Maybe Core.Text)
 metricCollectionType_metric = Lens.lens (\MetricCollectionType' {metric} -> metric) (\s@MetricCollectionType' {} a -> s {metric = a} :: MetricCollectionType)
 
-instance Prelude.FromXML MetricCollectionType where
+instance Core.FromXML MetricCollectionType where
   parseXML x =
     MetricCollectionType'
-      Prelude.<$> (x Prelude..@? "Metric")
+      Core.<$> (x Core..@? "Metric")
 
-instance Prelude.Hashable MetricCollectionType
+instance Core.Hashable MetricCollectionType
 
-instance Prelude.NFData MetricCollectionType
+instance Core.NFData MetricCollectionType

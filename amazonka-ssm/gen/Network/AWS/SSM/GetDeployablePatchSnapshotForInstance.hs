@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,14 +55,14 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetDeployablePatchSnapshotForInstance' smart constructor.
 data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstance'
   { -- | Defines the basic information about a patch baseline override.
-    baselineOverride :: Prelude.Maybe BaselineOverride,
+    baselineOverride :: Core.Maybe BaselineOverride,
     -- | The ID of the instance for which the appropriate patch snapshot should
     -- be retrieved.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The user-defined snapshot ID.
-    snapshotId :: Prelude.Text
+    snapshotId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeployablePatchSnapshotForInstance' with all optional fields omitted.
@@ -81,121 +80,120 @@ data GetDeployablePatchSnapshotForInstance = GetDeployablePatchSnapshotForInstan
 -- 'snapshotId', 'getDeployablePatchSnapshotForInstance_snapshotId' - The user-defined snapshot ID.
 newGetDeployablePatchSnapshotForInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'snapshotId'
-  Prelude.Text ->
+  Core.Text ->
   GetDeployablePatchSnapshotForInstance
 newGetDeployablePatchSnapshotForInstance
   pInstanceId_
   pSnapshotId_ =
     GetDeployablePatchSnapshotForInstance'
       { baselineOverride =
-          Prelude.Nothing,
+          Core.Nothing,
         instanceId = pInstanceId_,
         snapshotId = pSnapshotId_
       }
 
 -- | Defines the basic information about a patch baseline override.
-getDeployablePatchSnapshotForInstance_baselineOverride :: Lens.Lens' GetDeployablePatchSnapshotForInstance (Prelude.Maybe BaselineOverride)
+getDeployablePatchSnapshotForInstance_baselineOverride :: Lens.Lens' GetDeployablePatchSnapshotForInstance (Core.Maybe BaselineOverride)
 getDeployablePatchSnapshotForInstance_baselineOverride = Lens.lens (\GetDeployablePatchSnapshotForInstance' {baselineOverride} -> baselineOverride) (\s@GetDeployablePatchSnapshotForInstance' {} a -> s {baselineOverride = a} :: GetDeployablePatchSnapshotForInstance)
 
 -- | The ID of the instance for which the appropriate patch snapshot should
 -- be retrieved.
-getDeployablePatchSnapshotForInstance_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstance Prelude.Text
+getDeployablePatchSnapshotForInstance_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstance Core.Text
 getDeployablePatchSnapshotForInstance_instanceId = Lens.lens (\GetDeployablePatchSnapshotForInstance' {instanceId} -> instanceId) (\s@GetDeployablePatchSnapshotForInstance' {} a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstance)
 
 -- | The user-defined snapshot ID.
-getDeployablePatchSnapshotForInstance_snapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstance Prelude.Text
+getDeployablePatchSnapshotForInstance_snapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstance Core.Text
 getDeployablePatchSnapshotForInstance_snapshotId = Lens.lens (\GetDeployablePatchSnapshotForInstance' {snapshotId} -> snapshotId) (\s@GetDeployablePatchSnapshotForInstance' {} a -> s {snapshotId = a} :: GetDeployablePatchSnapshotForInstance)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetDeployablePatchSnapshotForInstance
   where
   type
-    Rs GetDeployablePatchSnapshotForInstance =
+    AWSResponse
+      GetDeployablePatchSnapshotForInstance =
       GetDeployablePatchSnapshotForInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDeployablePatchSnapshotForInstanceResponse'
-            Prelude.<$> (x Prelude..?> "InstanceId")
-              Prelude.<*> (x Prelude..?> "Product")
-              Prelude.<*> (x Prelude..?> "SnapshotDownloadUrl")
-              Prelude.<*> (x Prelude..?> "SnapshotId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "InstanceId")
+              Core.<*> (x Core..?> "Product")
+              Core.<*> (x Core..?> "SnapshotDownloadUrl")
+              Core.<*> (x Core..?> "SnapshotId")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetDeployablePatchSnapshotForInstance
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetDeployablePatchSnapshotForInstance
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetDeployablePatchSnapshotForInstance
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.GetDeployablePatchSnapshotForInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.GetDeployablePatchSnapshotForInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     GetDeployablePatchSnapshotForInstance
   where
   toJSON GetDeployablePatchSnapshotForInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("BaselineOverride" Prelude..=)
-              Prelude.<$> baselineOverride,
-            Prelude.Just ("InstanceId" Prelude..= instanceId),
-            Prelude.Just ("SnapshotId" Prelude..= snapshotId)
+    Core.object
+      ( Core.catMaybes
+          [ ("BaselineOverride" Core..=)
+              Core.<$> baselineOverride,
+            Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("SnapshotId" Core..= snapshotId)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     GetDeployablePatchSnapshotForInstance
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetDeployablePatchSnapshotForInstance
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDeployablePatchSnapshotForInstanceResponse' smart constructor.
 data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotForInstanceResponse'
   { -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | Returns the specific operating system (for example Windows Server 2012
     -- or Amazon Linux 2015.09) on the instance for the specified patch
     -- snapshot.
-    product :: Prelude.Maybe Prelude.Text,
+    product :: Core.Maybe Core.Text,
     -- | A pre-signed Amazon S3 URL that can be used to download the patch
     -- snapshot.
-    snapshotDownloadUrl :: Prelude.Maybe Prelude.Text,
+    snapshotDownloadUrl :: Core.Maybe Core.Text,
     -- | The user-defined snapshot ID.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    snapshotId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeployablePatchSnapshotForInstanceResponse' with all optional fields omitted.
@@ -219,43 +217,43 @@ data GetDeployablePatchSnapshotForInstanceResponse = GetDeployablePatchSnapshotF
 -- 'httpStatus', 'getDeployablePatchSnapshotForInstanceResponse_httpStatus' - The response's http status code.
 newGetDeployablePatchSnapshotForInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDeployablePatchSnapshotForInstanceResponse
 newGetDeployablePatchSnapshotForInstanceResponse
   pHttpStatus_ =
     GetDeployablePatchSnapshotForInstanceResponse'
       { instanceId =
-          Prelude.Nothing,
-        product = Prelude.Nothing,
+          Core.Nothing,
+        product = Core.Nothing,
         snapshotDownloadUrl =
-          Prelude.Nothing,
-        snapshotId = Prelude.Nothing,
+          Core.Nothing,
+        snapshotId = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The ID of the instance.
-getDeployablePatchSnapshotForInstanceResponse_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
+getDeployablePatchSnapshotForInstanceResponse_instanceId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Core.Maybe Core.Text)
 getDeployablePatchSnapshotForInstanceResponse_instanceId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {instanceId} -> instanceId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {instanceId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
 -- | Returns the specific operating system (for example Windows Server 2012
 -- or Amazon Linux 2015.09) on the instance for the specified patch
 -- snapshot.
-getDeployablePatchSnapshotForInstanceResponse_product :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
+getDeployablePatchSnapshotForInstanceResponse_product :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Core.Maybe Core.Text)
 getDeployablePatchSnapshotForInstanceResponse_product = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {product} -> product) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {product = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
 -- | A pre-signed Amazon S3 URL that can be used to download the patch
 -- snapshot.
-getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
+getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Core.Maybe Core.Text)
 getDeployablePatchSnapshotForInstanceResponse_snapshotDownloadUrl = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {snapshotDownloadUrl} -> snapshotDownloadUrl) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {snapshotDownloadUrl = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
 -- | The user-defined snapshot ID.
-getDeployablePatchSnapshotForInstanceResponse_snapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Prelude.Maybe Prelude.Text)
+getDeployablePatchSnapshotForInstanceResponse_snapshotId :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse (Core.Maybe Core.Text)
 getDeployablePatchSnapshotForInstanceResponse_snapshotId = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {snapshotId} -> snapshotId) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {snapshotId = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
 -- | The response's http status code.
-getDeployablePatchSnapshotForInstanceResponse_httpStatus :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse Prelude.Int
+getDeployablePatchSnapshotForInstanceResponse_httpStatus :: Lens.Lens' GetDeployablePatchSnapshotForInstanceResponse Core.Int
 getDeployablePatchSnapshotForInstanceResponse_httpStatus = Lens.lens (\GetDeployablePatchSnapshotForInstanceResponse' {httpStatus} -> httpStatus) (\s@GetDeployablePatchSnapshotForInstanceResponse' {} a -> s {httpStatus = a} :: GetDeployablePatchSnapshotForInstanceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetDeployablePatchSnapshotForInstanceResponse

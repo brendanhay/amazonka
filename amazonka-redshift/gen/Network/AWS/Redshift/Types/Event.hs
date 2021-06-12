@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.Event where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.SourceType
 
@@ -30,25 +29,25 @@ import Network.AWS.Redshift.Types.SourceType
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | The identifier of the event.
-    eventId :: Prelude.Maybe Prelude.Text,
+    eventId :: Core.Maybe Core.Text,
     -- | The severity of the event.
     --
     -- Values: ERROR, INFO
-    severity :: Prelude.Maybe Prelude.Text,
+    severity :: Core.Maybe Core.Text,
     -- | The text of this event.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | A list of the event categories.
     --
     -- Values: Configuration, Management, Monitoring, Security
-    eventCategories :: Prelude.Maybe [Prelude.Text],
+    eventCategories :: Core.Maybe [Core.Text],
     -- | The date and time of the event.
-    date :: Prelude.Maybe Prelude.ISO8601,
+    date :: Core.Maybe Core.ISO8601,
     -- | The identifier for the source of the event.
-    sourceIdentifier :: Prelude.Maybe Prelude.Text,
+    sourceIdentifier :: Core.Maybe Core.Text,
     -- | The source type for this event.
-    sourceType :: Prelude.Maybe SourceType
+    sourceType :: Core.Maybe SourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Event' with all optional fields omitted.
@@ -79,61 +78,60 @@ newEvent ::
   Event
 newEvent =
   Event'
-    { eventId = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      message = Prelude.Nothing,
-      eventCategories = Prelude.Nothing,
-      date = Prelude.Nothing,
-      sourceIdentifier = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+    { eventId = Core.Nothing,
+      severity = Core.Nothing,
+      message = Core.Nothing,
+      eventCategories = Core.Nothing,
+      date = Core.Nothing,
+      sourceIdentifier = Core.Nothing,
+      sourceType = Core.Nothing
     }
 
 -- | The identifier of the event.
-event_eventId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_eventId :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {eventId = a} :: Event)
 
 -- | The severity of the event.
 --
 -- Values: ERROR, INFO
-event_severity :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_severity :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_severity = Lens.lens (\Event' {severity} -> severity) (\s@Event' {} a -> s {severity = a} :: Event)
 
 -- | The text of this event.
-event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_message :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
 -- | A list of the event categories.
 --
 -- Values: Configuration, Management, Monitoring, Security
-event_eventCategories :: Lens.Lens' Event (Prelude.Maybe [Prelude.Text])
-event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Prelude.. Lens.mapping Prelude._Coerce
+event_eventCategories :: Lens.Lens' Event (Core.Maybe [Core.Text])
+event_eventCategories = Lens.lens (\Event' {eventCategories} -> eventCategories) (\s@Event' {} a -> s {eventCategories = a} :: Event) Core.. Lens.mapping Lens._Coerce
 
 -- | The date and time of the event.
-event_date :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Prelude.. Lens.mapping Prelude._Time
+event_date :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
+event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} :: Event) Core.. Lens.mapping Core._Time
 
 -- | The identifier for the source of the event.
-event_sourceIdentifier :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_sourceIdentifier :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifier) (\s@Event' {} a -> s {sourceIdentifier = a} :: Event)
 
 -- | The source type for this event.
-event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)
+event_sourceType :: Lens.Lens' Event (Core.Maybe SourceType)
 event_sourceType = Lens.lens (\Event' {sourceType} -> sourceType) (\s@Event' {} a -> s {sourceType = a} :: Event)
 
-instance Prelude.FromXML Event where
+instance Core.FromXML Event where
   parseXML x =
     Event'
-      Prelude.<$> (x Prelude..@? "EventId")
-      Prelude.<*> (x Prelude..@? "Severity")
-      Prelude.<*> (x Prelude..@? "Message")
-      Prelude.<*> ( x Prelude..@? "EventCategories"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "EventCategory")
-                  )
-      Prelude.<*> (x Prelude..@? "Date")
-      Prelude.<*> (x Prelude..@? "SourceIdentifier")
-      Prelude.<*> (x Prelude..@? "SourceType")
+      Core.<$> (x Core..@? "EventId")
+      Core.<*> (x Core..@? "Severity")
+      Core.<*> (x Core..@? "Message")
+      Core.<*> ( x Core..@? "EventCategories" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "EventCategory")
+               )
+      Core.<*> (x Core..@? "Date")
+      Core.<*> (x Core..@? "SourceIdentifier")
+      Core.<*> (x Core..@? "SourceType")
 
-instance Prelude.Hashable Event
+instance Core.Hashable Event
 
-instance Prelude.NFData Event
+instance Core.NFData Event

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.AvailBlanking where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for Avail Blanking
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data AvailBlanking = AvailBlanking'
   { -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
     -- images are supported.
-    availBlankingImage :: Prelude.Maybe Prelude.Text
+    availBlankingImage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailBlanking' with all optional fields omitted.
@@ -46,34 +45,31 @@ data AvailBlanking = AvailBlanking'
 newAvailBlanking ::
   AvailBlanking
 newAvailBlanking =
-  AvailBlanking'
-    { availBlankingImage =
-        Prelude.Nothing
-    }
+  AvailBlanking' {availBlankingImage = Core.Nothing}
 
 -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
 -- images are supported.
-availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Prelude.Maybe Prelude.Text)
+availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Core.Maybe Core.Text)
 availBlanking_availBlankingImage = Lens.lens (\AvailBlanking' {availBlankingImage} -> availBlankingImage) (\s@AvailBlanking' {} a -> s {availBlankingImage = a} :: AvailBlanking)
 
-instance Prelude.FromJSON AvailBlanking where
+instance Core.FromJSON AvailBlanking where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AvailBlanking"
       ( \x ->
           AvailBlanking'
-            Prelude.<$> (x Prelude..:? "availBlankingImage")
+            Core.<$> (x Core..:? "availBlankingImage")
       )
 
-instance Prelude.Hashable AvailBlanking
+instance Core.Hashable AvailBlanking
 
-instance Prelude.NFData AvailBlanking
+instance Core.NFData AvailBlanking
 
-instance Prelude.ToJSON AvailBlanking where
+instance Core.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("availBlankingImage" Prelude..=)
-              Prelude.<$> availBlankingImage
+    Core.object
+      ( Core.catMaybes
+          [ ("availBlankingImage" Core..=)
+              Core.<$> availBlankingImage
           ]
       )

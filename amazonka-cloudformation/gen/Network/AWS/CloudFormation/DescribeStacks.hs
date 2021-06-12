@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.CloudFormation.DescribeStacks
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +59,7 @@ import qualified Network.AWS.Response as Response
 data DescribeStacks = DescribeStacks'
   { -- | A string that identifies the next page of stacks that you want to
     -- retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name or the unique stack ID that is associated with the stack, which
     -- are not always interchangeable:
     --
@@ -71,9 +69,9 @@ data DescribeStacks = DescribeStacks'
     -- -   Deleted stacks: You must specify the unique stack ID.
     --
     -- Default: There is no default value.
-    stackName :: Prelude.Maybe Prelude.Text
+    stackName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStacks' with all optional fields omitted.
@@ -99,13 +97,13 @@ newDescribeStacks ::
   DescribeStacks
 newDescribeStacks =
   DescribeStacks'
-    { nextToken = Prelude.Nothing,
-      stackName = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      stackName = Core.Nothing
     }
 
 -- | A string that identifies the next page of stacks that you want to
 -- retrieve.
-describeStacks_nextToken :: Lens.Lens' DescribeStacks (Prelude.Maybe Prelude.Text)
+describeStacks_nextToken :: Lens.Lens' DescribeStacks (Core.Maybe Core.Text)
 describeStacks_nextToken = Lens.lens (\DescribeStacks' {nextToken} -> nextToken) (\s@DescribeStacks' {} a -> s {nextToken = a} :: DescribeStacks)
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -117,63 +115,63 @@ describeStacks_nextToken = Lens.lens (\DescribeStacks' {nextToken} -> nextToken)
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-describeStacks_stackName :: Lens.Lens' DescribeStacks (Prelude.Maybe Prelude.Text)
+describeStacks_stackName :: Lens.Lens' DescribeStacks (Core.Maybe Core.Text)
 describeStacks_stackName = Lens.lens (\DescribeStacks' {stackName} -> stackName) (\s@DescribeStacks' {} a -> s {stackName = a} :: DescribeStacks)
 
-instance Pager.AWSPager DescribeStacks where
+instance Core.AWSPager DescribeStacks where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeStacksResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeStacksResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeStacksResponse_stacks Prelude.. Lens._Just
+            Lens.^? describeStacksResponse_stacks Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeStacks_nextToken
           Lens..~ rs
-          Lens.^? describeStacksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeStacksResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeStacks where
-  type Rs DescribeStacks = DescribeStacksResponse
+instance Core.AWSRequest DescribeStacks where
+  type
+    AWSResponse DescribeStacks =
+      DescribeStacksResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DescribeStacksResult"
       ( \s h x ->
           DescribeStacksResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "Stacks" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "Stacks" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStacks
+instance Core.Hashable DescribeStacks
 
-instance Prelude.NFData DescribeStacks
+instance Core.NFData DescribeStacks
 
-instance Prelude.ToHeaders DescribeStacks where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeStacks where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeStacks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStacks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStacks where
+instance Core.ToQuery DescribeStacks where
   toQuery DescribeStacks' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeStacks" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "StackName" Prelude.=: stackName
+          Core.=: ("DescribeStacks" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "StackName" Core.=: stackName
       ]
 
 -- | The output for a DescribeStacks action.
@@ -182,13 +180,13 @@ instance Prelude.ToQuery DescribeStacks where
 data DescribeStacksResponse = DescribeStacksResponse'
   { -- | If the output exceeds 1 MB in size, a string that identifies the next
     -- page of stacks. If no additional page exists, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of stack structures.
-    stacks :: Prelude.Maybe [Stack],
+    stacks :: Core.Maybe [Stack],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStacksResponse' with all optional fields omitted.
@@ -206,27 +204,26 @@ data DescribeStacksResponse = DescribeStacksResponse'
 -- 'httpStatus', 'describeStacksResponse_httpStatus' - The response's http status code.
 newDescribeStacksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStacksResponse
 newDescribeStacksResponse pHttpStatus_ =
   DescribeStacksResponse'
-    { nextToken =
-        Prelude.Nothing,
-      stacks = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      stacks = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next
 -- page of stacks. If no additional page exists, this value is null.
-describeStacksResponse_nextToken :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe Prelude.Text)
+describeStacksResponse_nextToken :: Lens.Lens' DescribeStacksResponse (Core.Maybe Core.Text)
 describeStacksResponse_nextToken = Lens.lens (\DescribeStacksResponse' {nextToken} -> nextToken) (\s@DescribeStacksResponse' {} a -> s {nextToken = a} :: DescribeStacksResponse)
 
 -- | A list of stack structures.
-describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Prelude.Maybe [Stack])
-describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeStacksResponse_stacks :: Lens.Lens' DescribeStacksResponse (Core.Maybe [Stack])
+describeStacksResponse_stacks = Lens.lens (\DescribeStacksResponse' {stacks} -> stacks) (\s@DescribeStacksResponse' {} a -> s {stacks = a} :: DescribeStacksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Prelude.Int
+describeStacksResponse_httpStatus :: Lens.Lens' DescribeStacksResponse Core.Int
 describeStacksResponse_httpStatus = Lens.lens (\DescribeStacksResponse' {httpStatus} -> httpStatus) (\s@DescribeStacksResponse' {} a -> s {httpStatus = a} :: DescribeStacksResponse)
 
-instance Prelude.NFData DescribeStacksResponse
+instance Core.NFData DescribeStacksResponse

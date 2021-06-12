@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,8 @@ module Network.AWS.SageMaker.ListTransformJobs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -63,34 +61,34 @@ import Network.AWS.SageMaker.Types
 data ListTransformJobs = ListTransformJobs'
   { -- | A filter that returns only transform jobs modified before the specified
     -- time.
-    lastModifiedTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTimeBefore :: Core.Maybe Core.POSIX,
     -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+    sortOrder :: Core.Maybe SortOrder,
     -- | If the result of the previous @ListTransformJobs@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- transform jobs, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A string in the transform job name. This filter returns only transform
     -- jobs whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of transform jobs to return in the response. The
     -- default value is @10@.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A filter that returns only transform jobs created before the specified
     -- time.
-    creationTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    creationTimeBefore :: Core.Maybe Core.POSIX,
     -- | A filter that returns only transform jobs modified after the specified
     -- time.
-    lastModifiedTimeAfter :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTimeAfter :: Core.Maybe Core.POSIX,
     -- | The field to sort results by. The default is @CreationTime@.
-    sortBy :: Prelude.Maybe SortBy,
+    sortBy :: Core.Maybe SortBy,
     -- | A filter that retrieves only transform jobs with a specific status.
-    statusEquals :: Prelude.Maybe TransformJobStatus,
+    statusEquals :: Core.Maybe TransformJobStatus,
     -- | A filter that returns only transform jobs created after the specified
     -- time.
-    creationTimeAfter :: Prelude.Maybe Prelude.POSIX
+    creationTimeAfter :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTransformJobs' with all optional fields omitted.
@@ -132,158 +130,155 @@ newListTransformJobs ::
 newListTransformJobs =
   ListTransformJobs'
     { lastModifiedTimeBefore =
-        Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
-      lastModifiedTimeAfter = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      statusEquals = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+        Core.Nothing,
+      sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      lastModifiedTimeAfter = Core.Nothing,
+      sortBy = Core.Nothing,
+      statusEquals = Core.Nothing,
+      creationTimeAfter = Core.Nothing
     }
 
 -- | A filter that returns only transform jobs modified before the specified
 -- time.
-listTransformJobs_lastModifiedTimeBefore :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_lastModifiedTimeBefore = Lens.lens (\ListTransformJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTransformJobs) Prelude.. Lens.mapping Prelude._Time
+listTransformJobs_lastModifiedTimeBefore :: Lens.Lens' ListTransformJobs (Core.Maybe Core.UTCTime)
+listTransformJobs_lastModifiedTimeBefore = Lens.lens (\ListTransformJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTransformJobs) Core.. Lens.mapping Core._Time
 
 -- | The sort order for results. The default is @Descending@.
-listTransformJobs_sortOrder :: Lens.Lens' ListTransformJobs (Prelude.Maybe SortOrder)
+listTransformJobs_sortOrder :: Lens.Lens' ListTransformJobs (Core.Maybe SortOrder)
 listTransformJobs_sortOrder = Lens.lens (\ListTransformJobs' {sortOrder} -> sortOrder) (\s@ListTransformJobs' {} a -> s {sortOrder = a} :: ListTransformJobs)
 
 -- | If the result of the previous @ListTransformJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- transform jobs, use the token in the next request.
-listTransformJobs_nextToken :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Text)
+listTransformJobs_nextToken :: Lens.Lens' ListTransformJobs (Core.Maybe Core.Text)
 listTransformJobs_nextToken = Lens.lens (\ListTransformJobs' {nextToken} -> nextToken) (\s@ListTransformJobs' {} a -> s {nextToken = a} :: ListTransformJobs)
 
 -- | A string in the transform job name. This filter returns only transform
 -- jobs whose name contains the specified string.
-listTransformJobs_nameContains :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Text)
+listTransformJobs_nameContains :: Lens.Lens' ListTransformJobs (Core.Maybe Core.Text)
 listTransformJobs_nameContains = Lens.lens (\ListTransformJobs' {nameContains} -> nameContains) (\s@ListTransformJobs' {} a -> s {nameContains = a} :: ListTransformJobs)
 
 -- | The maximum number of transform jobs to return in the response. The
 -- default value is @10@.
-listTransformJobs_maxResults :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Natural)
+listTransformJobs_maxResults :: Lens.Lens' ListTransformJobs (Core.Maybe Core.Natural)
 listTransformJobs_maxResults = Lens.lens (\ListTransformJobs' {maxResults} -> maxResults) (\s@ListTransformJobs' {} a -> s {maxResults = a} :: ListTransformJobs)
 
 -- | A filter that returns only transform jobs created before the specified
 -- time.
-listTransformJobs_creationTimeBefore :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_creationTimeBefore = Lens.lens (\ListTransformJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListTransformJobs' {} a -> s {creationTimeBefore = a} :: ListTransformJobs) Prelude.. Lens.mapping Prelude._Time
+listTransformJobs_creationTimeBefore :: Lens.Lens' ListTransformJobs (Core.Maybe Core.UTCTime)
+listTransformJobs_creationTimeBefore = Lens.lens (\ListTransformJobs' {creationTimeBefore} -> creationTimeBefore) (\s@ListTransformJobs' {} a -> s {creationTimeBefore = a} :: ListTransformJobs) Core.. Lens.mapping Core._Time
 
 -- | A filter that returns only transform jobs modified after the specified
 -- time.
-listTransformJobs_lastModifiedTimeAfter :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_lastModifiedTimeAfter = Lens.lens (\ListTransformJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListTransformJobs) Prelude.. Lens.mapping Prelude._Time
+listTransformJobs_lastModifiedTimeAfter :: Lens.Lens' ListTransformJobs (Core.Maybe Core.UTCTime)
+listTransformJobs_lastModifiedTimeAfter = Lens.lens (\ListTransformJobs' {lastModifiedTimeAfter} -> lastModifiedTimeAfter) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeAfter = a} :: ListTransformJobs) Core.. Lens.mapping Core._Time
 
 -- | The field to sort results by. The default is @CreationTime@.
-listTransformJobs_sortBy :: Lens.Lens' ListTransformJobs (Prelude.Maybe SortBy)
+listTransformJobs_sortBy :: Lens.Lens' ListTransformJobs (Core.Maybe SortBy)
 listTransformJobs_sortBy = Lens.lens (\ListTransformJobs' {sortBy} -> sortBy) (\s@ListTransformJobs' {} a -> s {sortBy = a} :: ListTransformJobs)
 
 -- | A filter that retrieves only transform jobs with a specific status.
-listTransformJobs_statusEquals :: Lens.Lens' ListTransformJobs (Prelude.Maybe TransformJobStatus)
+listTransformJobs_statusEquals :: Lens.Lens' ListTransformJobs (Core.Maybe TransformJobStatus)
 listTransformJobs_statusEquals = Lens.lens (\ListTransformJobs' {statusEquals} -> statusEquals) (\s@ListTransformJobs' {} a -> s {statusEquals = a} :: ListTransformJobs)
 
 -- | A filter that returns only transform jobs created after the specified
 -- time.
-listTransformJobs_creationTimeAfter :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
-listTransformJobs_creationTimeAfter = Lens.lens (\ListTransformJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListTransformJobs' {} a -> s {creationTimeAfter = a} :: ListTransformJobs) Prelude.. Lens.mapping Prelude._Time
+listTransformJobs_creationTimeAfter :: Lens.Lens' ListTransformJobs (Core.Maybe Core.UTCTime)
+listTransformJobs_creationTimeAfter = Lens.lens (\ListTransformJobs' {creationTimeAfter} -> creationTimeAfter) (\s@ListTransformJobs' {} a -> s {creationTimeAfter = a} :: ListTransformJobs) Core.. Lens.mapping Core._Time
 
-instance Pager.AWSPager ListTransformJobs where
+instance Core.AWSPager ListTransformJobs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTransformJobsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listTransformJobsResponse_transformJobSummaries
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTransformJobs_nextToken
           Lens..~ rs
-          Lens.^? listTransformJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listTransformJobsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTransformJobs where
-  type Rs ListTransformJobs = ListTransformJobsResponse
+instance Core.AWSRequest ListTransformJobs where
+  type
+    AWSResponse ListTransformJobs =
+      ListTransformJobsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTransformJobsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "TransformJobSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "TransformJobSummaries"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ListTransformJobs
+instance Core.Hashable ListTransformJobs
 
-instance Prelude.NFData ListTransformJobs
+instance Core.NFData ListTransformJobs
 
-instance Prelude.ToHeaders ListTransformJobs where
+instance Core.ToHeaders ListTransformJobs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.ListTransformJobs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.ListTransformJobs" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTransformJobs where
+instance Core.ToJSON ListTransformJobs where
   toJSON ListTransformJobs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LastModifiedTimeBefore" Prelude..=)
-              Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NameContains" Prelude..=) Prelude.<$> nameContains,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("CreationTimeBefore" Prelude..=)
-              Prelude.<$> creationTimeBefore,
-            ("LastModifiedTimeAfter" Prelude..=)
-              Prelude.<$> lastModifiedTimeAfter,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            ("StatusEquals" Prelude..=) Prelude.<$> statusEquals,
-            ("CreationTimeAfter" Prelude..=)
-              Prelude.<$> creationTimeAfter
+    Core.object
+      ( Core.catMaybes
+          [ ("LastModifiedTimeBefore" Core..=)
+              Core.<$> lastModifiedTimeBefore,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("CreationTimeBefore" Core..=)
+              Core.<$> creationTimeBefore,
+            ("LastModifiedTimeAfter" Core..=)
+              Core.<$> lastModifiedTimeAfter,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("StatusEquals" Core..=) Core.<$> statusEquals,
+            ("CreationTimeAfter" Core..=)
+              Core.<$> creationTimeAfter
           ]
       )
 
-instance Prelude.ToPath ListTransformJobs where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTransformJobs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTransformJobs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTransformJobs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTransformJobsResponse' smart constructor.
 data ListTransformJobsResponse = ListTransformJobsResponse'
   { -- | If the response is truncated, Amazon SageMaker returns this token. To
     -- retrieve the next set of transform jobs, use it in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | An array of @TransformJobSummary@ objects.
     transformJobSummaries :: [TransformJobSummary]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTransformJobsResponse' with all optional fields omitted.
@@ -301,27 +296,27 @@ data ListTransformJobsResponse = ListTransformJobsResponse'
 -- 'transformJobSummaries', 'listTransformJobsResponse_transformJobSummaries' - An array of @TransformJobSummary@ objects.
 newListTransformJobsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTransformJobsResponse
 newListTransformJobsResponse pHttpStatus_ =
   ListTransformJobsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      transformJobSummaries = Prelude.mempty
+      transformJobSummaries = Core.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To
 -- retrieve the next set of transform jobs, use it in the next request.
-listTransformJobsResponse_nextToken :: Lens.Lens' ListTransformJobsResponse (Prelude.Maybe Prelude.Text)
+listTransformJobsResponse_nextToken :: Lens.Lens' ListTransformJobsResponse (Core.Maybe Core.Text)
 listTransformJobsResponse_nextToken = Lens.lens (\ListTransformJobsResponse' {nextToken} -> nextToken) (\s@ListTransformJobsResponse' {} a -> s {nextToken = a} :: ListTransformJobsResponse)
 
 -- | The response's http status code.
-listTransformJobsResponse_httpStatus :: Lens.Lens' ListTransformJobsResponse Prelude.Int
+listTransformJobsResponse_httpStatus :: Lens.Lens' ListTransformJobsResponse Core.Int
 listTransformJobsResponse_httpStatus = Lens.lens (\ListTransformJobsResponse' {httpStatus} -> httpStatus) (\s@ListTransformJobsResponse' {} a -> s {httpStatus = a} :: ListTransformJobsResponse)
 
 -- | An array of @TransformJobSummary@ objects.
 listTransformJobsResponse_transformJobSummaries :: Lens.Lens' ListTransformJobsResponse [TransformJobSummary]
-listTransformJobsResponse_transformJobSummaries = Lens.lens (\ListTransformJobsResponse' {transformJobSummaries} -> transformJobSummaries) (\s@ListTransformJobsResponse' {} a -> s {transformJobSummaries = a} :: ListTransformJobsResponse) Prelude.. Prelude._Coerce
+listTransformJobsResponse_transformJobSummaries = Lens.lens (\ListTransformJobsResponse' {transformJobSummaries} -> transformJobSummaries) (\s@ListTransformJobsResponse' {} a -> s {transformJobSummaries = a} :: ListTransformJobsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListTransformJobsResponse
+instance Core.NFData ListTransformJobsResponse

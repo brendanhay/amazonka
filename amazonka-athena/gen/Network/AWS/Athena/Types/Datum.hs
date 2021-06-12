@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Athena.Types.Datum where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A piece of data (a field in the table).
 --
 -- /See:/ 'newDatum' smart constructor.
 data Datum = Datum'
   { -- | The value of the datum.
-    varCharValue :: Prelude.Maybe Prelude.Text
+    varCharValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Datum' with all optional fields omitted.
@@ -43,20 +42,18 @@ data Datum = Datum'
 -- 'varCharValue', 'datum_varCharValue' - The value of the datum.
 newDatum ::
   Datum
-newDatum = Datum' {varCharValue = Prelude.Nothing}
+newDatum = Datum' {varCharValue = Core.Nothing}
 
 -- | The value of the datum.
-datum_varCharValue :: Lens.Lens' Datum (Prelude.Maybe Prelude.Text)
+datum_varCharValue :: Lens.Lens' Datum (Core.Maybe Core.Text)
 datum_varCharValue = Lens.lens (\Datum' {varCharValue} -> varCharValue) (\s@Datum' {} a -> s {varCharValue = a} :: Datum)
 
-instance Prelude.FromJSON Datum where
+instance Core.FromJSON Datum where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Datum"
-      ( \x ->
-          Datum' Prelude.<$> (x Prelude..:? "VarCharValue")
-      )
+      (\x -> Datum' Core.<$> (x Core..:? "VarCharValue"))
 
-instance Prelude.Hashable Datum
+instance Core.Hashable Datum
 
-instance Prelude.NFData Datum
+instance Core.NFData Datum

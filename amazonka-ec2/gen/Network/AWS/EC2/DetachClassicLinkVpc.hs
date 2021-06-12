@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.DetachClassicLinkVpc
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +56,13 @@ data DetachClassicLinkVpc = DetachClassicLinkVpc'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the instance to unlink from the VPC.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The ID of the VPC to which the instance is linked.
-    vpcId :: Prelude.Text
+    vpcId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachClassicLinkVpc' with all optional fields omitted.
@@ -83,13 +82,13 @@ data DetachClassicLinkVpc = DetachClassicLinkVpc'
 -- 'vpcId', 'detachClassicLinkVpc_vpcId' - The ID of the VPC to which the instance is linked.
 newDetachClassicLinkVpc ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   DetachClassicLinkVpc
 newDetachClassicLinkVpc pInstanceId_ pVpcId_ =
   DetachClassicLinkVpc'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       instanceId = pInstanceId_,
       vpcId = pVpcId_
     }
@@ -98,60 +97,59 @@ newDetachClassicLinkVpc pInstanceId_ pVpcId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-detachClassicLinkVpc_dryRun :: Lens.Lens' DetachClassicLinkVpc (Prelude.Maybe Prelude.Bool)
+detachClassicLinkVpc_dryRun :: Lens.Lens' DetachClassicLinkVpc (Core.Maybe Core.Bool)
 detachClassicLinkVpc_dryRun = Lens.lens (\DetachClassicLinkVpc' {dryRun} -> dryRun) (\s@DetachClassicLinkVpc' {} a -> s {dryRun = a} :: DetachClassicLinkVpc)
 
 -- | The ID of the instance to unlink from the VPC.
-detachClassicLinkVpc_instanceId :: Lens.Lens' DetachClassicLinkVpc Prelude.Text
+detachClassicLinkVpc_instanceId :: Lens.Lens' DetachClassicLinkVpc Core.Text
 detachClassicLinkVpc_instanceId = Lens.lens (\DetachClassicLinkVpc' {instanceId} -> instanceId) (\s@DetachClassicLinkVpc' {} a -> s {instanceId = a} :: DetachClassicLinkVpc)
 
 -- | The ID of the VPC to which the instance is linked.
-detachClassicLinkVpc_vpcId :: Lens.Lens' DetachClassicLinkVpc Prelude.Text
+detachClassicLinkVpc_vpcId :: Lens.Lens' DetachClassicLinkVpc Core.Text
 detachClassicLinkVpc_vpcId = Lens.lens (\DetachClassicLinkVpc' {vpcId} -> vpcId) (\s@DetachClassicLinkVpc' {} a -> s {vpcId = a} :: DetachClassicLinkVpc)
 
-instance Prelude.AWSRequest DetachClassicLinkVpc where
+instance Core.AWSRequest DetachClassicLinkVpc where
   type
-    Rs DetachClassicLinkVpc =
+    AWSResponse DetachClassicLinkVpc =
       DetachClassicLinkVpcResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DetachClassicLinkVpcResponse'
-            Prelude.<$> (x Prelude..@? "return")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetachClassicLinkVpc
+instance Core.Hashable DetachClassicLinkVpc
 
-instance Prelude.NFData DetachClassicLinkVpc
+instance Core.NFData DetachClassicLinkVpc
 
-instance Prelude.ToHeaders DetachClassicLinkVpc where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DetachClassicLinkVpc where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DetachClassicLinkVpc where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetachClassicLinkVpc where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetachClassicLinkVpc where
+instance Core.ToQuery DetachClassicLinkVpc where
   toQuery DetachClassicLinkVpc' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DetachClassicLinkVpc" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "InstanceId" Prelude.=: instanceId,
-        "VpcId" Prelude.=: vpcId
+          Core.=: ("DetachClassicLinkVpc" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InstanceId" Core.=: instanceId,
+        "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newDetachClassicLinkVpcResponse' smart constructor.
 data DetachClassicLinkVpcResponse = DetachClassicLinkVpcResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachClassicLinkVpcResponse' with all optional fields omitted.
@@ -166,21 +164,21 @@ data DetachClassicLinkVpcResponse = DetachClassicLinkVpcResponse'
 -- 'httpStatus', 'detachClassicLinkVpcResponse_httpStatus' - The response's http status code.
 newDetachClassicLinkVpcResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetachClassicLinkVpcResponse
 newDetachClassicLinkVpcResponse pHttpStatus_ =
   DetachClassicLinkVpcResponse'
     { return' =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-detachClassicLinkVpcResponse_return :: Lens.Lens' DetachClassicLinkVpcResponse (Prelude.Maybe Prelude.Bool)
+detachClassicLinkVpcResponse_return :: Lens.Lens' DetachClassicLinkVpcResponse (Core.Maybe Core.Bool)
 detachClassicLinkVpcResponse_return = Lens.lens (\DetachClassicLinkVpcResponse' {return'} -> return') (\s@DetachClassicLinkVpcResponse' {} a -> s {return' = a} :: DetachClassicLinkVpcResponse)
 
 -- | The response's http status code.
-detachClassicLinkVpcResponse_httpStatus :: Lens.Lens' DetachClassicLinkVpcResponse Prelude.Int
+detachClassicLinkVpcResponse_httpStatus :: Lens.Lens' DetachClassicLinkVpcResponse Core.Int
 detachClassicLinkVpcResponse_httpStatus = Lens.lens (\DetachClassicLinkVpcResponse' {httpStatus} -> httpStatus) (\s@DetachClassicLinkVpcResponse' {} a -> s {httpStatus = a} :: DetachClassicLinkVpcResponse)
 
-instance Prelude.NFData DetachClassicLinkVpcResponse
+instance Core.NFData DetachClassicLinkVpcResponse

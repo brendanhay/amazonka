@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AlgorithmStatusDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AlgorithmStatusItem
 
 -- | Specifies the validation and image scan statuses of the algorithm.
@@ -29,11 +28,11 @@ import Network.AWS.SageMaker.Types.AlgorithmStatusItem
 -- /See:/ 'newAlgorithmStatusDetails' smart constructor.
 data AlgorithmStatusDetails = AlgorithmStatusDetails'
   { -- | The status of algorithm validation.
-    validationStatuses :: Prelude.Maybe [AlgorithmStatusItem],
+    validationStatuses :: Core.Maybe [AlgorithmStatusItem],
     -- | The status of the scan of the algorithm\'s Docker image container.
-    imageScanStatuses :: Prelude.Maybe [AlgorithmStatusItem]
+    imageScanStatuses :: Core.Maybe [AlgorithmStatusItem]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AlgorithmStatusDetails' with all optional fields omitted.
@@ -51,32 +50,32 @@ newAlgorithmStatusDetails ::
 newAlgorithmStatusDetails =
   AlgorithmStatusDetails'
     { validationStatuses =
-        Prelude.Nothing,
-      imageScanStatuses = Prelude.Nothing
+        Core.Nothing,
+      imageScanStatuses = Core.Nothing
     }
 
 -- | The status of algorithm validation.
-algorithmStatusDetails_validationStatuses :: Lens.Lens' AlgorithmStatusDetails (Prelude.Maybe [AlgorithmStatusItem])
-algorithmStatusDetails_validationStatuses = Lens.lens (\AlgorithmStatusDetails' {validationStatuses} -> validationStatuses) (\s@AlgorithmStatusDetails' {} a -> s {validationStatuses = a} :: AlgorithmStatusDetails) Prelude.. Lens.mapping Prelude._Coerce
+algorithmStatusDetails_validationStatuses :: Lens.Lens' AlgorithmStatusDetails (Core.Maybe [AlgorithmStatusItem])
+algorithmStatusDetails_validationStatuses = Lens.lens (\AlgorithmStatusDetails' {validationStatuses} -> validationStatuses) (\s@AlgorithmStatusDetails' {} a -> s {validationStatuses = a} :: AlgorithmStatusDetails) Core.. Lens.mapping Lens._Coerce
 
 -- | The status of the scan of the algorithm\'s Docker image container.
-algorithmStatusDetails_imageScanStatuses :: Lens.Lens' AlgorithmStatusDetails (Prelude.Maybe [AlgorithmStatusItem])
-algorithmStatusDetails_imageScanStatuses = Lens.lens (\AlgorithmStatusDetails' {imageScanStatuses} -> imageScanStatuses) (\s@AlgorithmStatusDetails' {} a -> s {imageScanStatuses = a} :: AlgorithmStatusDetails) Prelude.. Lens.mapping Prelude._Coerce
+algorithmStatusDetails_imageScanStatuses :: Lens.Lens' AlgorithmStatusDetails (Core.Maybe [AlgorithmStatusItem])
+algorithmStatusDetails_imageScanStatuses = Lens.lens (\AlgorithmStatusDetails' {imageScanStatuses} -> imageScanStatuses) (\s@AlgorithmStatusDetails' {} a -> s {imageScanStatuses = a} :: AlgorithmStatusDetails) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AlgorithmStatusDetails where
+instance Core.FromJSON AlgorithmStatusDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AlgorithmStatusDetails"
       ( \x ->
           AlgorithmStatusDetails'
-            Prelude.<$> ( x Prelude..:? "ValidationStatuses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "ImageScanStatuses"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "ValidationStatuses"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "ImageScanStatuses"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable AlgorithmStatusDetails
+instance Core.Hashable AlgorithmStatusDetails
 
-instance Prelude.NFData AlgorithmStatusDetails
+instance Core.NFData AlgorithmStatusDetails

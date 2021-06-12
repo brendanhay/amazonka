@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.EventInfoMap where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes event information.
@@ -29,17 +28,17 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newEventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
   { -- | The identifier of an Amazon Redshift event.
-    eventId :: Prelude.Maybe Prelude.Text,
+    eventId :: Core.Maybe Core.Text,
     -- | The severity of the event.
     --
     -- Values: ERROR, INFO
-    severity :: Prelude.Maybe Prelude.Text,
+    severity :: Core.Maybe Core.Text,
     -- | The description of an Amazon Redshift event.
-    eventDescription :: Prelude.Maybe Prelude.Text,
+    eventDescription :: Core.Maybe Core.Text,
     -- | The category of an Amazon Redshift event.
-    eventCategories :: Prelude.Maybe [Prelude.Text]
+    eventCategories :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventInfoMap' with all optional fields omitted.
@@ -62,41 +61,40 @@ newEventInfoMap ::
   EventInfoMap
 newEventInfoMap =
   EventInfoMap'
-    { eventId = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      eventDescription = Prelude.Nothing,
-      eventCategories = Prelude.Nothing
+    { eventId = Core.Nothing,
+      severity = Core.Nothing,
+      eventDescription = Core.Nothing,
+      eventCategories = Core.Nothing
     }
 
 -- | The identifier of an Amazon Redshift event.
-eventInfoMap_eventId :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
+eventInfoMap_eventId :: Lens.Lens' EventInfoMap (Core.Maybe Core.Text)
 eventInfoMap_eventId = Lens.lens (\EventInfoMap' {eventId} -> eventId) (\s@EventInfoMap' {} a -> s {eventId = a} :: EventInfoMap)
 
 -- | The severity of the event.
 --
 -- Values: ERROR, INFO
-eventInfoMap_severity :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
+eventInfoMap_severity :: Lens.Lens' EventInfoMap (Core.Maybe Core.Text)
 eventInfoMap_severity = Lens.lens (\EventInfoMap' {severity} -> severity) (\s@EventInfoMap' {} a -> s {severity = a} :: EventInfoMap)
 
 -- | The description of an Amazon Redshift event.
-eventInfoMap_eventDescription :: Lens.Lens' EventInfoMap (Prelude.Maybe Prelude.Text)
+eventInfoMap_eventDescription :: Lens.Lens' EventInfoMap (Core.Maybe Core.Text)
 eventInfoMap_eventDescription = Lens.lens (\EventInfoMap' {eventDescription} -> eventDescription) (\s@EventInfoMap' {} a -> s {eventDescription = a} :: EventInfoMap)
 
 -- | The category of an Amazon Redshift event.
-eventInfoMap_eventCategories :: Lens.Lens' EventInfoMap (Prelude.Maybe [Prelude.Text])
-eventInfoMap_eventCategories = Lens.lens (\EventInfoMap' {eventCategories} -> eventCategories) (\s@EventInfoMap' {} a -> s {eventCategories = a} :: EventInfoMap) Prelude.. Lens.mapping Prelude._Coerce
+eventInfoMap_eventCategories :: Lens.Lens' EventInfoMap (Core.Maybe [Core.Text])
+eventInfoMap_eventCategories = Lens.lens (\EventInfoMap' {eventCategories} -> eventCategories) (\s@EventInfoMap' {} a -> s {eventCategories = a} :: EventInfoMap) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML EventInfoMap where
+instance Core.FromXML EventInfoMap where
   parseXML x =
     EventInfoMap'
-      Prelude.<$> (x Prelude..@? "EventId")
-      Prelude.<*> (x Prelude..@? "Severity")
-      Prelude.<*> (x Prelude..@? "EventDescription")
-      Prelude.<*> ( x Prelude..@? "EventCategories"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "EventCategory")
-                  )
+      Core.<$> (x Core..@? "EventId")
+      Core.<*> (x Core..@? "Severity")
+      Core.<*> (x Core..@? "EventDescription")
+      Core.<*> ( x Core..@? "EventCategories" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "EventCategory")
+               )
 
-instance Prelude.Hashable EventInfoMap
+instance Core.Hashable EventInfoMap
 
-instance Prelude.NFData EventInfoMap
+instance Core.NFData EventInfoMap

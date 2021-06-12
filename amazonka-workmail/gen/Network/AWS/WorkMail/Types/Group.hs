@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkMail.Types.Group where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkMail.Types.EntityState
 
 -- | The representation of an Amazon WorkMail group.
@@ -29,20 +28,20 @@ import Network.AWS.WorkMail.Types.EntityState
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
   { -- | The date indicating when the group was enabled for Amazon WorkMail use.
-    enabledDate :: Prelude.Maybe Prelude.POSIX,
+    enabledDate :: Core.Maybe Core.POSIX,
     -- | The identifier of the group.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The state of the group, which can be ENABLED, DISABLED, or DELETED.
-    state :: Prelude.Maybe EntityState,
+    state :: Core.Maybe EntityState,
     -- | The name of the group.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The email of the group.
-    email :: Prelude.Maybe Prelude.Text,
+    email :: Core.Maybe Core.Text,
     -- | The date indicating when the group was disabled from Amazon WorkMail
     -- use.
-    disabledDate :: Prelude.Maybe Prelude.POSIX
+    disabledDate :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Group' with all optional fields omitted.
@@ -68,53 +67,53 @@ newGroup ::
   Group
 newGroup =
   Group'
-    { enabledDate = Prelude.Nothing,
-      id = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      email = Prelude.Nothing,
-      disabledDate = Prelude.Nothing
+    { enabledDate = Core.Nothing,
+      id = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      email = Core.Nothing,
+      disabledDate = Core.Nothing
     }
 
 -- | The date indicating when the group was enabled for Amazon WorkMail use.
-group_enabledDate :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
-group_enabledDate = Lens.lens (\Group' {enabledDate} -> enabledDate) (\s@Group' {} a -> s {enabledDate = a} :: Group) Prelude.. Lens.mapping Prelude._Time
+group_enabledDate :: Lens.Lens' Group (Core.Maybe Core.UTCTime)
+group_enabledDate = Lens.lens (\Group' {enabledDate} -> enabledDate) (\s@Group' {} a -> s {enabledDate = a} :: Group) Core.. Lens.mapping Core._Time
 
 -- | The identifier of the group.
-group_id :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_id :: Lens.Lens' Group (Core.Maybe Core.Text)
 group_id = Lens.lens (\Group' {id} -> id) (\s@Group' {} a -> s {id = a} :: Group)
 
 -- | The state of the group, which can be ENABLED, DISABLED, or DELETED.
-group_state :: Lens.Lens' Group (Prelude.Maybe EntityState)
+group_state :: Lens.Lens' Group (Core.Maybe EntityState)
 group_state = Lens.lens (\Group' {state} -> state) (\s@Group' {} a -> s {state = a} :: Group)
 
 -- | The name of the group.
-group_name :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_name :: Lens.Lens' Group (Core.Maybe Core.Text)
 group_name = Lens.lens (\Group' {name} -> name) (\s@Group' {} a -> s {name = a} :: Group)
 
 -- | The email of the group.
-group_email :: Lens.Lens' Group (Prelude.Maybe Prelude.Text)
+group_email :: Lens.Lens' Group (Core.Maybe Core.Text)
 group_email = Lens.lens (\Group' {email} -> email) (\s@Group' {} a -> s {email = a} :: Group)
 
 -- | The date indicating when the group was disabled from Amazon WorkMail
 -- use.
-group_disabledDate :: Lens.Lens' Group (Prelude.Maybe Prelude.UTCTime)
-group_disabledDate = Lens.lens (\Group' {disabledDate} -> disabledDate) (\s@Group' {} a -> s {disabledDate = a} :: Group) Prelude.. Lens.mapping Prelude._Time
+group_disabledDate :: Lens.Lens' Group (Core.Maybe Core.UTCTime)
+group_disabledDate = Lens.lens (\Group' {disabledDate} -> disabledDate) (\s@Group' {} a -> s {disabledDate = a} :: Group) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON Group where
+instance Core.FromJSON Group where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Prelude..:? "EnabledDate")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Email")
-            Prelude.<*> (x Prelude..:? "DisabledDate")
+            Core.<$> (x Core..:? "EnabledDate")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Email")
+            Core.<*> (x Core..:? "DisabledDate")
       )
 
-instance Prelude.Hashable Group
+instance Core.Hashable Group
 
-instance Prelude.NFData Group
+instance Core.NFData Group

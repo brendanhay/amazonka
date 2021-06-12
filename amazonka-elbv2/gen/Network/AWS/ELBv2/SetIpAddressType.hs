@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,23 +41,23 @@ module Network.AWS.ELBv2.SetIpAddressType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetIpAddressType' smart constructor.
 data SetIpAddressType = SetIpAddressType'
   { -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerArn :: Prelude.Text,
+    loadBalancerArn :: Core.Text,
     -- | The IP address type. The possible values are @ipv4@ (for IPv4 addresses)
     -- and @dualstack@ (for IPv4 and IPv6 addresses). Internal load balancers
     -- must use @ipv4@. You can’t specify @dualstack@ for a load balancer with
     -- a UDP or TCP_UDP listener.
     ipAddressType :: IpAddressType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIpAddressType' with all optional fields omitted.
@@ -76,7 +75,7 @@ data SetIpAddressType = SetIpAddressType'
 -- a UDP or TCP_UDP listener.
 newSetIpAddressType ::
   -- | 'loadBalancerArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ipAddressType'
   IpAddressType ->
   SetIpAddressType
@@ -88,7 +87,7 @@ newSetIpAddressType pLoadBalancerArn_ pIpAddressType_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-setIpAddressType_loadBalancerArn :: Lens.Lens' SetIpAddressType Prelude.Text
+setIpAddressType_loadBalancerArn :: Lens.Lens' SetIpAddressType Core.Text
 setIpAddressType_loadBalancerArn = Lens.lens (\SetIpAddressType' {loadBalancerArn} -> loadBalancerArn) (\s@SetIpAddressType' {} a -> s {loadBalancerArn = a} :: SetIpAddressType)
 
 -- | The IP address type. The possible values are @ipv4@ (for IPv4 addresses)
@@ -98,47 +97,48 @@ setIpAddressType_loadBalancerArn = Lens.lens (\SetIpAddressType' {loadBalancerAr
 setIpAddressType_ipAddressType :: Lens.Lens' SetIpAddressType IpAddressType
 setIpAddressType_ipAddressType = Lens.lens (\SetIpAddressType' {ipAddressType} -> ipAddressType) (\s@SetIpAddressType' {} a -> s {ipAddressType = a} :: SetIpAddressType)
 
-instance Prelude.AWSRequest SetIpAddressType where
-  type Rs SetIpAddressType = SetIpAddressTypeResponse
+instance Core.AWSRequest SetIpAddressType where
+  type
+    AWSResponse SetIpAddressType =
+      SetIpAddressTypeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "SetIpAddressTypeResult"
       ( \s h x ->
           SetIpAddressTypeResponse'
-            Prelude.<$> (x Prelude..@? "IpAddressType")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "IpAddressType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SetIpAddressType
+instance Core.Hashable SetIpAddressType
 
-instance Prelude.NFData SetIpAddressType
+instance Core.NFData SetIpAddressType
 
-instance Prelude.ToHeaders SetIpAddressType where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetIpAddressType where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetIpAddressType where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetIpAddressType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetIpAddressType where
+instance Core.ToQuery SetIpAddressType where
   toQuery SetIpAddressType' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetIpAddressType" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "LoadBalancerArn" Prelude.=: loadBalancerArn,
-        "IpAddressType" Prelude.=: ipAddressType
+          Core.=: ("SetIpAddressType" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "LoadBalancerArn" Core.=: loadBalancerArn,
+        "IpAddressType" Core.=: ipAddressType
       ]
 
 -- | /See:/ 'newSetIpAddressTypeResponse' smart constructor.
 data SetIpAddressTypeResponse = SetIpAddressTypeResponse'
   { -- | The IP address type.
-    ipAddressType :: Prelude.Maybe IpAddressType,
+    ipAddressType :: Core.Maybe IpAddressType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIpAddressTypeResponse' with all optional fields omitted.
@@ -153,21 +153,21 @@ data SetIpAddressTypeResponse = SetIpAddressTypeResponse'
 -- 'httpStatus', 'setIpAddressTypeResponse_httpStatus' - The response's http status code.
 newSetIpAddressTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetIpAddressTypeResponse
 newSetIpAddressTypeResponse pHttpStatus_ =
   SetIpAddressTypeResponse'
     { ipAddressType =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IP address type.
-setIpAddressTypeResponse_ipAddressType :: Lens.Lens' SetIpAddressTypeResponse (Prelude.Maybe IpAddressType)
+setIpAddressTypeResponse_ipAddressType :: Lens.Lens' SetIpAddressTypeResponse (Core.Maybe IpAddressType)
 setIpAddressTypeResponse_ipAddressType = Lens.lens (\SetIpAddressTypeResponse' {ipAddressType} -> ipAddressType) (\s@SetIpAddressTypeResponse' {} a -> s {ipAddressType = a} :: SetIpAddressTypeResponse)
 
 -- | The response's http status code.
-setIpAddressTypeResponse_httpStatus :: Lens.Lens' SetIpAddressTypeResponse Prelude.Int
+setIpAddressTypeResponse_httpStatus :: Lens.Lens' SetIpAddressTypeResponse Core.Int
 setIpAddressTypeResponse_httpStatus = Lens.lens (\SetIpAddressTypeResponse' {httpStatus} -> httpStatus) (\s@SetIpAddressTypeResponse' {} a -> s {httpStatus = a} :: SetIpAddressTypeResponse)
 
-instance Prelude.NFData SetIpAddressTypeResponse
+instance Core.NFData SetIpAddressTypeResponse

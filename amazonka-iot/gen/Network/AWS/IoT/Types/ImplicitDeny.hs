@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ImplicitDeny where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Policy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information that implicitly denies authorization. When policy doesn\'t
 -- explicitly deny or allow an action on a resource it is considered an
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ImplicitDeny = ImplicitDeny'
   { -- | Policies that don\'t contain a matching allow or deny statement for the
     -- specified action on the specified resource.
-    policies :: Prelude.Maybe [Policy]
+    policies :: Core.Maybe [Policy]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImplicitDeny' with all optional fields omitted.
@@ -49,24 +48,22 @@ data ImplicitDeny = ImplicitDeny'
 newImplicitDeny ::
   ImplicitDeny
 newImplicitDeny =
-  ImplicitDeny' {policies = Prelude.Nothing}
+  ImplicitDeny' {policies = Core.Nothing}
 
 -- | Policies that don\'t contain a matching allow or deny statement for the
 -- specified action on the specified resource.
-implicitDeny_policies :: Lens.Lens' ImplicitDeny (Prelude.Maybe [Policy])
-implicitDeny_policies = Lens.lens (\ImplicitDeny' {policies} -> policies) (\s@ImplicitDeny' {} a -> s {policies = a} :: ImplicitDeny) Prelude.. Lens.mapping Prelude._Coerce
+implicitDeny_policies :: Lens.Lens' ImplicitDeny (Core.Maybe [Policy])
+implicitDeny_policies = Lens.lens (\ImplicitDeny' {policies} -> policies) (\s@ImplicitDeny' {} a -> s {policies = a} :: ImplicitDeny) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ImplicitDeny where
+instance Core.FromJSON ImplicitDeny where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImplicitDeny"
       ( \x ->
           ImplicitDeny'
-            Prelude.<$> ( x Prelude..:? "policies"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "policies" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ImplicitDeny
+instance Core.Hashable ImplicitDeny
 
-instance Prelude.NFData ImplicitDeny
+instance Core.NFData ImplicitDeny

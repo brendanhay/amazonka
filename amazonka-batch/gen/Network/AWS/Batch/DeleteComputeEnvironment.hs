@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.Batch.DeleteComputeEnvironment
 where
 
 import Network.AWS.Batch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ import qualified Network.AWS.Response as Response
 data DeleteComputeEnvironment = DeleteComputeEnvironment'
   { -- | The name or Amazon Resource Name (ARN) of the compute environment to
     -- delete.
-    computeEnvironment :: Prelude.Text
+    computeEnvironment :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteComputeEnvironment' with all optional fields omitted.
@@ -75,7 +74,7 @@ data DeleteComputeEnvironment = DeleteComputeEnvironment'
 -- delete.
 newDeleteComputeEnvironment ::
   -- | 'computeEnvironment'
-  Prelude.Text ->
+  Core.Text ->
   DeleteComputeEnvironment
 newDeleteComputeEnvironment pComputeEnvironment_ =
   DeleteComputeEnvironment'
@@ -85,59 +84,55 @@ newDeleteComputeEnvironment pComputeEnvironment_ =
 
 -- | The name or Amazon Resource Name (ARN) of the compute environment to
 -- delete.
-deleteComputeEnvironment_computeEnvironment :: Lens.Lens' DeleteComputeEnvironment Prelude.Text
+deleteComputeEnvironment_computeEnvironment :: Lens.Lens' DeleteComputeEnvironment Core.Text
 deleteComputeEnvironment_computeEnvironment = Lens.lens (\DeleteComputeEnvironment' {computeEnvironment} -> computeEnvironment) (\s@DeleteComputeEnvironment' {} a -> s {computeEnvironment = a} :: DeleteComputeEnvironment)
 
-instance Prelude.AWSRequest DeleteComputeEnvironment where
+instance Core.AWSRequest DeleteComputeEnvironment where
   type
-    Rs DeleteComputeEnvironment =
+    AWSResponse DeleteComputeEnvironment =
       DeleteComputeEnvironmentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteComputeEnvironmentResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteComputeEnvironment
+instance Core.Hashable DeleteComputeEnvironment
 
-instance Prelude.NFData DeleteComputeEnvironment
+instance Core.NFData DeleteComputeEnvironment
 
-instance Prelude.ToHeaders DeleteComputeEnvironment where
+instance Core.ToHeaders DeleteComputeEnvironment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteComputeEnvironment where
+instance Core.ToJSON DeleteComputeEnvironment where
   toJSON DeleteComputeEnvironment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "computeEnvironment"
-                  Prelude..= computeEnvironment
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("computeEnvironment" Core..= computeEnvironment)
           ]
       )
 
-instance Prelude.ToPath DeleteComputeEnvironment where
-  toPath = Prelude.const "/v1/deletecomputeenvironment"
+instance Core.ToPath DeleteComputeEnvironment where
+  toPath = Core.const "/v1/deletecomputeenvironment"
 
-instance Prelude.ToQuery DeleteComputeEnvironment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteComputeEnvironment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteComputeEnvironmentResponse' smart constructor.
 data DeleteComputeEnvironmentResponse = DeleteComputeEnvironmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteComputeEnvironmentResponse' with all optional fields omitted.
@@ -150,7 +145,7 @@ data DeleteComputeEnvironmentResponse = DeleteComputeEnvironmentResponse'
 -- 'httpStatus', 'deleteComputeEnvironmentResponse_httpStatus' - The response's http status code.
 newDeleteComputeEnvironmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteComputeEnvironmentResponse
 newDeleteComputeEnvironmentResponse pHttpStatus_ =
   DeleteComputeEnvironmentResponse'
@@ -159,9 +154,7 @@ newDeleteComputeEnvironmentResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteComputeEnvironmentResponse_httpStatus :: Lens.Lens' DeleteComputeEnvironmentResponse Prelude.Int
+deleteComputeEnvironmentResponse_httpStatus :: Lens.Lens' DeleteComputeEnvironmentResponse Core.Int
 deleteComputeEnvironmentResponse_httpStatus = Lens.lens (\DeleteComputeEnvironmentResponse' {httpStatus} -> httpStatus) (\s@DeleteComputeEnvironmentResponse' {} a -> s {httpStatus = a} :: DeleteComputeEnvironmentResponse)
 
-instance
-  Prelude.NFData
-    DeleteComputeEnvironmentResponse
+instance Core.NFData DeleteComputeEnvironmentResponse

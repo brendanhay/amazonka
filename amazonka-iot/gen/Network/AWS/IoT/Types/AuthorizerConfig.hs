@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AuthorizerConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that specifies the authorization service for a domain.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data AuthorizerConfig = AuthorizerConfig'
   { -- | A Boolean that specifies whether the domain configuration\'s
     -- authorization service can be overridden.
-    allowAuthorizerOverride :: Prelude.Maybe Prelude.Bool,
+    allowAuthorizerOverride :: Core.Maybe Core.Bool,
     -- | The name of the authorization service for a domain configuration.
-    defaultAuthorizerName :: Prelude.Maybe Prelude.Text
+    defaultAuthorizerName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizerConfig' with all optional fields omitted.
@@ -52,40 +51,40 @@ newAuthorizerConfig ::
 newAuthorizerConfig =
   AuthorizerConfig'
     { allowAuthorizerOverride =
-        Prelude.Nothing,
-      defaultAuthorizerName = Prelude.Nothing
+        Core.Nothing,
+      defaultAuthorizerName = Core.Nothing
     }
 
 -- | A Boolean that specifies whether the domain configuration\'s
 -- authorization service can be overridden.
-authorizerConfig_allowAuthorizerOverride :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Bool)
+authorizerConfig_allowAuthorizerOverride :: Lens.Lens' AuthorizerConfig (Core.Maybe Core.Bool)
 authorizerConfig_allowAuthorizerOverride = Lens.lens (\AuthorizerConfig' {allowAuthorizerOverride} -> allowAuthorizerOverride) (\s@AuthorizerConfig' {} a -> s {allowAuthorizerOverride = a} :: AuthorizerConfig)
 
 -- | The name of the authorization service for a domain configuration.
-authorizerConfig_defaultAuthorizerName :: Lens.Lens' AuthorizerConfig (Prelude.Maybe Prelude.Text)
+authorizerConfig_defaultAuthorizerName :: Lens.Lens' AuthorizerConfig (Core.Maybe Core.Text)
 authorizerConfig_defaultAuthorizerName = Lens.lens (\AuthorizerConfig' {defaultAuthorizerName} -> defaultAuthorizerName) (\s@AuthorizerConfig' {} a -> s {defaultAuthorizerName = a} :: AuthorizerConfig)
 
-instance Prelude.FromJSON AuthorizerConfig where
+instance Core.FromJSON AuthorizerConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AuthorizerConfig"
       ( \x ->
           AuthorizerConfig'
-            Prelude.<$> (x Prelude..:? "allowAuthorizerOverride")
-            Prelude.<*> (x Prelude..:? "defaultAuthorizerName")
+            Core.<$> (x Core..:? "allowAuthorizerOverride")
+            Core.<*> (x Core..:? "defaultAuthorizerName")
       )
 
-instance Prelude.Hashable AuthorizerConfig
+instance Core.Hashable AuthorizerConfig
 
-instance Prelude.NFData AuthorizerConfig
+instance Core.NFData AuthorizerConfig
 
-instance Prelude.ToJSON AuthorizerConfig where
+instance Core.ToJSON AuthorizerConfig where
   toJSON AuthorizerConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("allowAuthorizerOverride" Prelude..=)
-              Prelude.<$> allowAuthorizerOverride,
-            ("defaultAuthorizerName" Prelude..=)
-              Prelude.<$> defaultAuthorizerName
+    Core.object
+      ( Core.catMaybes
+          [ ("allowAuthorizerOverride" Core..=)
+              Core.<$> allowAuthorizerOverride,
+            ("defaultAuthorizerName" Core..=)
+              Core.<$> defaultAuthorizerName
           ]
       )

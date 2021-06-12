@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newReadPipeline' smart constructor.
 data ReadPipeline = ReadPipeline'
   { -- | The identifier of the pipeline to read.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReadPipeline' with all optional fields omitted.
@@ -67,40 +66,40 @@ data ReadPipeline = ReadPipeline'
 -- 'id', 'readPipeline_id' - The identifier of the pipeline to read.
 newReadPipeline ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   ReadPipeline
 newReadPipeline pId_ = ReadPipeline' {id = pId_}
 
 -- | The identifier of the pipeline to read.
-readPipeline_id :: Lens.Lens' ReadPipeline Prelude.Text
+readPipeline_id :: Lens.Lens' ReadPipeline Core.Text
 readPipeline_id = Lens.lens (\ReadPipeline' {id} -> id) (\s@ReadPipeline' {} a -> s {id = a} :: ReadPipeline)
 
-instance Prelude.AWSRequest ReadPipeline where
-  type Rs ReadPipeline = ReadPipelineResponse
+instance Core.AWSRequest ReadPipeline where
+  type AWSResponse ReadPipeline = ReadPipelineResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ReadPipelineResponse'
-            Prelude.<$> (x Prelude..?> "Warnings" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Pipeline")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Warnings" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Pipeline")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ReadPipeline
+instance Core.Hashable ReadPipeline
 
-instance Prelude.NFData ReadPipeline
+instance Core.NFData ReadPipeline
 
-instance Prelude.ToHeaders ReadPipeline where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReadPipeline where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ReadPipeline where
+instance Core.ToPath ReadPipeline where
   toPath ReadPipeline' {..} =
-    Prelude.mconcat
-      ["/2012-09-25/pipelines/", Prelude.toBS id]
+    Core.mconcat
+      ["/2012-09-25/pipelines/", Core.toBS id]
 
-instance Prelude.ToQuery ReadPipeline where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ReadPipeline where
+  toQuery = Core.const Core.mempty
 
 -- | The @ReadPipelineResponse@ structure.
 --
@@ -112,14 +111,14 @@ data ReadPipelineResponse = ReadPipelineResponse'
     -- Using resources in the same region, such as your Amazon S3 buckets,
     -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
     -- and prevents cross-regional charges.
-    warnings :: Prelude.Maybe [Warning],
+    warnings :: Core.Maybe [Warning],
     -- | A section of the response body that provides information about the
     -- pipeline.
-    pipeline :: Prelude.Maybe Pipeline,
+    pipeline :: Core.Maybe Pipeline,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReadPipelineResponse' with all optional fields omitted.
@@ -142,12 +141,12 @@ data ReadPipelineResponse = ReadPipelineResponse'
 -- 'httpStatus', 'readPipelineResponse_httpStatus' - The response's http status code.
 newReadPipelineResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ReadPipelineResponse
 newReadPipelineResponse pHttpStatus_ =
   ReadPipelineResponse'
-    { warnings = Prelude.Nothing,
-      pipeline = Prelude.Nothing,
+    { warnings = Core.Nothing,
+      pipeline = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -157,16 +156,16 @@ newReadPipelineResponse pHttpStatus_ =
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-readPipelineResponse_warnings :: Lens.Lens' ReadPipelineResponse (Prelude.Maybe [Warning])
-readPipelineResponse_warnings = Lens.lens (\ReadPipelineResponse' {warnings} -> warnings) (\s@ReadPipelineResponse' {} a -> s {warnings = a} :: ReadPipelineResponse) Prelude.. Lens.mapping Prelude._Coerce
+readPipelineResponse_warnings :: Lens.Lens' ReadPipelineResponse (Core.Maybe [Warning])
+readPipelineResponse_warnings = Lens.lens (\ReadPipelineResponse' {warnings} -> warnings) (\s@ReadPipelineResponse' {} a -> s {warnings = a} :: ReadPipelineResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-readPipelineResponse_pipeline :: Lens.Lens' ReadPipelineResponse (Prelude.Maybe Pipeline)
+readPipelineResponse_pipeline :: Lens.Lens' ReadPipelineResponse (Core.Maybe Pipeline)
 readPipelineResponse_pipeline = Lens.lens (\ReadPipelineResponse' {pipeline} -> pipeline) (\s@ReadPipelineResponse' {} a -> s {pipeline = a} :: ReadPipelineResponse)
 
 -- | The response's http status code.
-readPipelineResponse_httpStatus :: Lens.Lens' ReadPipelineResponse Prelude.Int
+readPipelineResponse_httpStatus :: Lens.Lens' ReadPipelineResponse Core.Int
 readPipelineResponse_httpStatus = Lens.lens (\ReadPipelineResponse' {httpStatus} -> httpStatus) (\s@ReadPipelineResponse' {} a -> s {httpStatus = a} :: ReadPipelineResponse)
 
-instance Prelude.NFData ReadPipelineResponse
+instance Core.NFData ReadPipelineResponse

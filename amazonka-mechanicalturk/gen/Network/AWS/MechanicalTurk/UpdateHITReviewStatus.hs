@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.MechanicalTurk.UpdateHITReviewStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +57,11 @@ data UpdateHITReviewStatus = UpdateHITReviewStatus'
     --
     -- -   Setting this to true will only transition a HIT from @Reviewing@ to
     --     @Reviewable@
-    revert :: Prelude.Maybe Prelude.Bool,
+    revert :: Core.Maybe Core.Bool,
     -- | The ID of the HIT to update.
-    hITId :: Prelude.Text
+    hITId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateHITReviewStatus' with all optional fields omitted.
@@ -83,11 +82,11 @@ data UpdateHITReviewStatus = UpdateHITReviewStatus'
 -- 'hITId', 'updateHITReviewStatus_hITId' - The ID of the HIT to update.
 newUpdateHITReviewStatus ::
   -- | 'hITId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateHITReviewStatus
 newUpdateHITReviewStatus pHITId_ =
   UpdateHITReviewStatus'
-    { revert = Prelude.Nothing,
+    { revert = Core.Nothing,
       hITId = pHITId_
     }
 
@@ -98,65 +97,63 @@ newUpdateHITReviewStatus pHITId_ =
 --
 -- -   Setting this to true will only transition a HIT from @Reviewing@ to
 --     @Reviewable@
-updateHITReviewStatus_revert :: Lens.Lens' UpdateHITReviewStatus (Prelude.Maybe Prelude.Bool)
+updateHITReviewStatus_revert :: Lens.Lens' UpdateHITReviewStatus (Core.Maybe Core.Bool)
 updateHITReviewStatus_revert = Lens.lens (\UpdateHITReviewStatus' {revert} -> revert) (\s@UpdateHITReviewStatus' {} a -> s {revert = a} :: UpdateHITReviewStatus)
 
 -- | The ID of the HIT to update.
-updateHITReviewStatus_hITId :: Lens.Lens' UpdateHITReviewStatus Prelude.Text
+updateHITReviewStatus_hITId :: Lens.Lens' UpdateHITReviewStatus Core.Text
 updateHITReviewStatus_hITId = Lens.lens (\UpdateHITReviewStatus' {hITId} -> hITId) (\s@UpdateHITReviewStatus' {} a -> s {hITId = a} :: UpdateHITReviewStatus)
 
-instance Prelude.AWSRequest UpdateHITReviewStatus where
+instance Core.AWSRequest UpdateHITReviewStatus where
   type
-    Rs UpdateHITReviewStatus =
+    AWSResponse UpdateHITReviewStatus =
       UpdateHITReviewStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateHITReviewStatusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateHITReviewStatus
+instance Core.Hashable UpdateHITReviewStatus
 
-instance Prelude.NFData UpdateHITReviewStatus
+instance Core.NFData UpdateHITReviewStatus
 
-instance Prelude.ToHeaders UpdateHITReviewStatus where
+instance Core.ToHeaders UpdateHITReviewStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.UpdateHITReviewStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateHITReviewStatus where
+instance Core.ToJSON UpdateHITReviewStatus where
   toJSON UpdateHITReviewStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Revert" Prelude..=) Prelude.<$> revert,
-            Prelude.Just ("HITId" Prelude..= hITId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Revert" Core..=) Core.<$> revert,
+            Core.Just ("HITId" Core..= hITId)
           ]
       )
 
-instance Prelude.ToPath UpdateHITReviewStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateHITReviewStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateHITReviewStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateHITReviewStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateHITReviewStatusResponse' smart constructor.
 data UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateHITReviewStatusResponse' with all optional fields omitted.
@@ -169,7 +166,7 @@ data UpdateHITReviewStatusResponse = UpdateHITReviewStatusResponse'
 -- 'httpStatus', 'updateHITReviewStatusResponse_httpStatus' - The response's http status code.
 newUpdateHITReviewStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateHITReviewStatusResponse
 newUpdateHITReviewStatusResponse pHttpStatus_ =
   UpdateHITReviewStatusResponse'
@@ -178,7 +175,7 @@ newUpdateHITReviewStatusResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateHITReviewStatusResponse_httpStatus :: Lens.Lens' UpdateHITReviewStatusResponse Prelude.Int
+updateHITReviewStatusResponse_httpStatus :: Lens.Lens' UpdateHITReviewStatusResponse Core.Int
 updateHITReviewStatusResponse_httpStatus = Lens.lens (\UpdateHITReviewStatusResponse' {httpStatus} -> httpStatus) (\s@UpdateHITReviewStatusResponse' {} a -> s {httpStatus = a} :: UpdateHITReviewStatusResponse)
 
-instance Prelude.NFData UpdateHITReviewStatusResponse
+instance Core.NFData UpdateHITReviewStatusResponse

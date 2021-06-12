@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.GuardDuty.DisableOrganizationAdminAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data DisableOrganizationAdminAccount = DisableOrganizationAdminAccount'
   { -- | The AWS Account ID for the organizations account to be disabled as a
     -- GuardDuty delegated administrator.
-    adminAccountId :: Prelude.Text
+    adminAccountId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableOrganizationAdminAccount' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DisableOrganizationAdminAccount = DisableOrganizationAdminAccount'
 -- GuardDuty delegated administrator.
 newDisableOrganizationAdminAccount ::
   -- | 'adminAccountId'
-  Prelude.Text ->
+  Core.Text ->
   DisableOrganizationAdminAccount
 newDisableOrganizationAdminAccount pAdminAccountId_ =
   DisableOrganizationAdminAccount'
@@ -76,76 +75,63 @@ newDisableOrganizationAdminAccount pAdminAccountId_ =
 
 -- | The AWS Account ID for the organizations account to be disabled as a
 -- GuardDuty delegated administrator.
-disableOrganizationAdminAccount_adminAccountId :: Lens.Lens' DisableOrganizationAdminAccount Prelude.Text
+disableOrganizationAdminAccount_adminAccountId :: Lens.Lens' DisableOrganizationAdminAccount Core.Text
 disableOrganizationAdminAccount_adminAccountId = Lens.lens (\DisableOrganizationAdminAccount' {adminAccountId} -> adminAccountId) (\s@DisableOrganizationAdminAccount' {} a -> s {adminAccountId = a} :: DisableOrganizationAdminAccount)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisableOrganizationAdminAccount
   where
   type
-    Rs DisableOrganizationAdminAccount =
+    AWSResponse DisableOrganizationAdminAccount =
       DisableOrganizationAdminAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableOrganizationAdminAccountResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisableOrganizationAdminAccount
 
-instance
-  Prelude.NFData
-    DisableOrganizationAdminAccount
+instance Core.NFData DisableOrganizationAdminAccount
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisableOrganizationAdminAccount
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DisableOrganizationAdminAccount
-  where
+instance Core.ToJSON DisableOrganizationAdminAccount where
   toJSON DisableOrganizationAdminAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("adminAccountId" Prelude..= adminAccountId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("adminAccountId" Core..= adminAccountId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DisableOrganizationAdminAccount
-  where
-  toPath = Prelude.const "/admin/disable"
+instance Core.ToPath DisableOrganizationAdminAccount where
+  toPath = Core.const "/admin/disable"
 
-instance
-  Prelude.ToQuery
-    DisableOrganizationAdminAccount
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableOrganizationAdminAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableOrganizationAdminAccountResponse' smart constructor.
 data DisableOrganizationAdminAccountResponse = DisableOrganizationAdminAccountResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableOrganizationAdminAccountResponse' with all optional fields omitted.
@@ -158,7 +144,7 @@ data DisableOrganizationAdminAccountResponse = DisableOrganizationAdminAccountRe
 -- 'httpStatus', 'disableOrganizationAdminAccountResponse_httpStatus' - The response's http status code.
 newDisableOrganizationAdminAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableOrganizationAdminAccountResponse
 newDisableOrganizationAdminAccountResponse
   pHttpStatus_ =
@@ -168,9 +154,9 @@ newDisableOrganizationAdminAccountResponse
       }
 
 -- | The response's http status code.
-disableOrganizationAdminAccountResponse_httpStatus :: Lens.Lens' DisableOrganizationAdminAccountResponse Prelude.Int
+disableOrganizationAdminAccountResponse_httpStatus :: Lens.Lens' DisableOrganizationAdminAccountResponse Core.Int
 disableOrganizationAdminAccountResponse_httpStatus = Lens.lens (\DisableOrganizationAdminAccountResponse' {httpStatus} -> httpStatus) (\s@DisableOrganizationAdminAccountResponse' {} a -> s {httpStatus = a} :: DisableOrganizationAdminAccountResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableOrganizationAdminAccountResponse

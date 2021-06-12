@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,27 +42,27 @@ module Network.AWS.DeviceFarm.UpdateUpload
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateUpload' smart constructor.
 data UpdateUpload = UpdateUpload'
   { -- | The upload\'s content type (for example, @application\/x-yaml@).
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | Set to true if the YAML file has changed and must be updated. Otherwise,
     -- set to false.
-    editContent :: Prelude.Maybe Prelude.Bool,
+    editContent :: Core.Maybe Core.Bool,
     -- | The upload\'s test spec file name. The name must not contain any forward
     -- slashes (\/). The test spec file name must end with the @.yaml@ or
     -- @.yml@ file extension.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the uploaded test spec.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUpload' with all optional fields omitted.
@@ -85,90 +84,88 @@ data UpdateUpload = UpdateUpload'
 -- 'arn', 'updateUpload_arn' - The Amazon Resource Name (ARN) of the uploaded test spec.
 newUpdateUpload ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   UpdateUpload
 newUpdateUpload pArn_ =
   UpdateUpload'
-    { contentType = Prelude.Nothing,
-      editContent = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { contentType = Core.Nothing,
+      editContent = Core.Nothing,
+      name = Core.Nothing,
       arn = pArn_
     }
 
 -- | The upload\'s content type (for example, @application\/x-yaml@).
-updateUpload_contentType :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Text)
+updateUpload_contentType :: Lens.Lens' UpdateUpload (Core.Maybe Core.Text)
 updateUpload_contentType = Lens.lens (\UpdateUpload' {contentType} -> contentType) (\s@UpdateUpload' {} a -> s {contentType = a} :: UpdateUpload)
 
 -- | Set to true if the YAML file has changed and must be updated. Otherwise,
 -- set to false.
-updateUpload_editContent :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Bool)
+updateUpload_editContent :: Lens.Lens' UpdateUpload (Core.Maybe Core.Bool)
 updateUpload_editContent = Lens.lens (\UpdateUpload' {editContent} -> editContent) (\s@UpdateUpload' {} a -> s {editContent = a} :: UpdateUpload)
 
 -- | The upload\'s test spec file name. The name must not contain any forward
 -- slashes (\/). The test spec file name must end with the @.yaml@ or
 -- @.yml@ file extension.
-updateUpload_name :: Lens.Lens' UpdateUpload (Prelude.Maybe Prelude.Text)
+updateUpload_name :: Lens.Lens' UpdateUpload (Core.Maybe Core.Text)
 updateUpload_name = Lens.lens (\UpdateUpload' {name} -> name) (\s@UpdateUpload' {} a -> s {name = a} :: UpdateUpload)
 
 -- | The Amazon Resource Name (ARN) of the uploaded test spec.
-updateUpload_arn :: Lens.Lens' UpdateUpload Prelude.Text
+updateUpload_arn :: Lens.Lens' UpdateUpload Core.Text
 updateUpload_arn = Lens.lens (\UpdateUpload' {arn} -> arn) (\s@UpdateUpload' {} a -> s {arn = a} :: UpdateUpload)
 
-instance Prelude.AWSRequest UpdateUpload where
-  type Rs UpdateUpload = UpdateUploadResponse
+instance Core.AWSRequest UpdateUpload where
+  type AWSResponse UpdateUpload = UpdateUploadResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateUploadResponse'
-            Prelude.<$> (x Prelude..?> "upload")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "upload")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateUpload
+instance Core.Hashable UpdateUpload
 
-instance Prelude.NFData UpdateUpload
+instance Core.NFData UpdateUpload
 
-instance Prelude.ToHeaders UpdateUpload where
+instance Core.ToHeaders UpdateUpload where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.UpdateUpload" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.UpdateUpload" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUpload where
+instance Core.ToJSON UpdateUpload where
   toJSON UpdateUpload' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("contentType" Prelude..=) Prelude.<$> contentType,
-            ("editContent" Prelude..=) Prelude.<$> editContent,
-            ("name" Prelude..=) Prelude.<$> name,
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("contentType" Core..=) Core.<$> contentType,
+            ("editContent" Core..=) Core.<$> editContent,
+            ("name" Core..=) Core.<$> name,
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath UpdateUpload where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateUpload where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateUpload where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUpload where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateUploadResponse' smart constructor.
 data UpdateUploadResponse = UpdateUploadResponse'
   { -- | A test spec uploaded to Device Farm.
-    upload :: Prelude.Maybe Upload,
+    upload :: Core.Maybe Upload,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUploadResponse' with all optional fields omitted.
@@ -183,20 +180,20 @@ data UpdateUploadResponse = UpdateUploadResponse'
 -- 'httpStatus', 'updateUploadResponse_httpStatus' - The response's http status code.
 newUpdateUploadResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateUploadResponse
 newUpdateUploadResponse pHttpStatus_ =
   UpdateUploadResponse'
-    { upload = Prelude.Nothing,
+    { upload = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A test spec uploaded to Device Farm.
-updateUploadResponse_upload :: Lens.Lens' UpdateUploadResponse (Prelude.Maybe Upload)
+updateUploadResponse_upload :: Lens.Lens' UpdateUploadResponse (Core.Maybe Upload)
 updateUploadResponse_upload = Lens.lens (\UpdateUploadResponse' {upload} -> upload) (\s@UpdateUploadResponse' {} a -> s {upload = a} :: UpdateUploadResponse)
 
 -- | The response's http status code.
-updateUploadResponse_httpStatus :: Lens.Lens' UpdateUploadResponse Prelude.Int
+updateUploadResponse_httpStatus :: Lens.Lens' UpdateUploadResponse Core.Int
 updateUploadResponse_httpStatus = Lens.lens (\UpdateUploadResponse' {httpStatus} -> httpStatus) (\s@UpdateUploadResponse' {} a -> s {httpStatus = a} :: UpdateUploadResponse)
 
-instance Prelude.NFData UpdateUploadResponse
+instance Core.NFData UpdateUploadResponse

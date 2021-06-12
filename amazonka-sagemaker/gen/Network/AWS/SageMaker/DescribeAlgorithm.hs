@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.SageMaker.DescribeAlgorithm
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -60,9 +59,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeAlgorithm' smart constructor.
 data DescribeAlgorithm = DescribeAlgorithm'
   { -- | The name of the algorithm to describe.
-    algorithmName :: Prelude.Text
+    algorithmName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAlgorithm' with all optional fields omitted.
@@ -75,91 +74,87 @@ data DescribeAlgorithm = DescribeAlgorithm'
 -- 'algorithmName', 'describeAlgorithm_algorithmName' - The name of the algorithm to describe.
 newDescribeAlgorithm ::
   -- | 'algorithmName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAlgorithm
 newDescribeAlgorithm pAlgorithmName_ =
   DescribeAlgorithm' {algorithmName = pAlgorithmName_}
 
 -- | The name of the algorithm to describe.
-describeAlgorithm_algorithmName :: Lens.Lens' DescribeAlgorithm Prelude.Text
+describeAlgorithm_algorithmName :: Lens.Lens' DescribeAlgorithm Core.Text
 describeAlgorithm_algorithmName = Lens.lens (\DescribeAlgorithm' {algorithmName} -> algorithmName) (\s@DescribeAlgorithm' {} a -> s {algorithmName = a} :: DescribeAlgorithm)
 
-instance Prelude.AWSRequest DescribeAlgorithm where
-  type Rs DescribeAlgorithm = DescribeAlgorithmResponse
+instance Core.AWSRequest DescribeAlgorithm where
+  type
+    AWSResponse DescribeAlgorithm =
+      DescribeAlgorithmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAlgorithmResponse'
-            Prelude.<$> (x Prelude..?> "AlgorithmDescription")
-            Prelude.<*> (x Prelude..?> "ValidationSpecification")
-            Prelude.<*> (x Prelude..?> "CertifyForMarketplace")
-            Prelude.<*> (x Prelude..?> "ProductId")
-            Prelude.<*> (x Prelude..?> "InferenceSpecification")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "AlgorithmName")
-            Prelude.<*> (x Prelude..:> "AlgorithmArn")
-            Prelude.<*> (x Prelude..:> "CreationTime")
-            Prelude.<*> (x Prelude..:> "TrainingSpecification")
-            Prelude.<*> (x Prelude..:> "AlgorithmStatus")
-            Prelude.<*> (x Prelude..:> "AlgorithmStatusDetails")
+            Core.<$> (x Core..?> "AlgorithmDescription")
+            Core.<*> (x Core..?> "ValidationSpecification")
+            Core.<*> (x Core..?> "CertifyForMarketplace")
+            Core.<*> (x Core..?> "ProductId")
+            Core.<*> (x Core..?> "InferenceSpecification")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "AlgorithmName")
+            Core.<*> (x Core..:> "AlgorithmArn")
+            Core.<*> (x Core..:> "CreationTime")
+            Core.<*> (x Core..:> "TrainingSpecification")
+            Core.<*> (x Core..:> "AlgorithmStatus")
+            Core.<*> (x Core..:> "AlgorithmStatusDetails")
       )
 
-instance Prelude.Hashable DescribeAlgorithm
+instance Core.Hashable DescribeAlgorithm
 
-instance Prelude.NFData DescribeAlgorithm
+instance Core.NFData DescribeAlgorithm
 
-instance Prelude.ToHeaders DescribeAlgorithm where
+instance Core.ToHeaders DescribeAlgorithm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeAlgorithm" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DescribeAlgorithm" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAlgorithm where
+instance Core.ToJSON DescribeAlgorithm where
   toJSON DescribeAlgorithm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AlgorithmName" Prelude..= algorithmName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AlgorithmName" Core..= algorithmName)]
       )
 
-instance Prelude.ToPath DescribeAlgorithm where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAlgorithm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAlgorithm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAlgorithm where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAlgorithmResponse' smart constructor.
 data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
   { -- | A brief summary about the algorithm.
-    algorithmDescription :: Prelude.Maybe Prelude.Text,
+    algorithmDescription :: Core.Maybe Core.Text,
     -- | Details about configurations for one or more training jobs that Amazon
     -- SageMaker runs to test the algorithm.
-    validationSpecification :: Prelude.Maybe AlgorithmValidationSpecification,
+    validationSpecification :: Core.Maybe AlgorithmValidationSpecification,
     -- | Whether the algorithm is certified to be listed in AWS Marketplace.
-    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
+    certifyForMarketplace :: Core.Maybe Core.Bool,
     -- | The product identifier of the algorithm.
-    productId :: Prelude.Maybe Prelude.Text,
+    productId :: Core.Maybe Core.Text,
     -- | Details about inference jobs that the algorithm runs.
-    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
+    inferenceSpecification :: Core.Maybe InferenceSpecification,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The name of the algorithm being described.
-    algorithmName :: Prelude.Text,
+    algorithmName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the algorithm.
-    algorithmArn :: Prelude.Text,
+    algorithmArn :: Core.Text,
     -- | A timestamp specifying when the algorithm was created.
-    creationTime :: Prelude.POSIX,
+    creationTime :: Core.POSIX,
     -- | Details about training jobs run by this algorithm.
     trainingSpecification :: TrainingSpecification,
     -- | The current status of the algorithm.
@@ -167,7 +162,7 @@ data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
     -- | Details about the current status of the algorithm.
     algorithmStatusDetails :: AlgorithmStatusDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAlgorithmResponse' with all optional fields omitted.
@@ -203,13 +198,13 @@ data DescribeAlgorithmResponse = DescribeAlgorithmResponse'
 -- 'algorithmStatusDetails', 'describeAlgorithmResponse_algorithmStatusDetails' - Details about the current status of the algorithm.
 newDescribeAlgorithmResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'algorithmName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'algorithmArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'trainingSpecification'
   TrainingSpecification ->
   -- | 'algorithmStatus'
@@ -227,16 +222,15 @@ newDescribeAlgorithmResponse
   pAlgorithmStatusDetails_ =
     DescribeAlgorithmResponse'
       { algorithmDescription =
-          Prelude.Nothing,
-        validationSpecification = Prelude.Nothing,
-        certifyForMarketplace = Prelude.Nothing,
-        productId = Prelude.Nothing,
-        inferenceSpecification = Prelude.Nothing,
+          Core.Nothing,
+        validationSpecification = Core.Nothing,
+        certifyForMarketplace = Core.Nothing,
+        productId = Core.Nothing,
+        inferenceSpecification = Core.Nothing,
         httpStatus = pHttpStatus_,
         algorithmName = pAlgorithmName_,
         algorithmArn = pAlgorithmArn_,
-        creationTime =
-          Prelude._Time Lens.# pCreationTime_,
+        creationTime = Core._Time Lens.# pCreationTime_,
         trainingSpecification = pTrainingSpecification_,
         algorithmStatus = pAlgorithmStatus_,
         algorithmStatusDetails =
@@ -244,41 +238,41 @@ newDescribeAlgorithmResponse
       }
 
 -- | A brief summary about the algorithm.
-describeAlgorithmResponse_algorithmDescription :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe Prelude.Text)
+describeAlgorithmResponse_algorithmDescription :: Lens.Lens' DescribeAlgorithmResponse (Core.Maybe Core.Text)
 describeAlgorithmResponse_algorithmDescription = Lens.lens (\DescribeAlgorithmResponse' {algorithmDescription} -> algorithmDescription) (\s@DescribeAlgorithmResponse' {} a -> s {algorithmDescription = a} :: DescribeAlgorithmResponse)
 
 -- | Details about configurations for one or more training jobs that Amazon
 -- SageMaker runs to test the algorithm.
-describeAlgorithmResponse_validationSpecification :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe AlgorithmValidationSpecification)
+describeAlgorithmResponse_validationSpecification :: Lens.Lens' DescribeAlgorithmResponse (Core.Maybe AlgorithmValidationSpecification)
 describeAlgorithmResponse_validationSpecification = Lens.lens (\DescribeAlgorithmResponse' {validationSpecification} -> validationSpecification) (\s@DescribeAlgorithmResponse' {} a -> s {validationSpecification = a} :: DescribeAlgorithmResponse)
 
 -- | Whether the algorithm is certified to be listed in AWS Marketplace.
-describeAlgorithmResponse_certifyForMarketplace :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe Prelude.Bool)
+describeAlgorithmResponse_certifyForMarketplace :: Lens.Lens' DescribeAlgorithmResponse (Core.Maybe Core.Bool)
 describeAlgorithmResponse_certifyForMarketplace = Lens.lens (\DescribeAlgorithmResponse' {certifyForMarketplace} -> certifyForMarketplace) (\s@DescribeAlgorithmResponse' {} a -> s {certifyForMarketplace = a} :: DescribeAlgorithmResponse)
 
 -- | The product identifier of the algorithm.
-describeAlgorithmResponse_productId :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe Prelude.Text)
+describeAlgorithmResponse_productId :: Lens.Lens' DescribeAlgorithmResponse (Core.Maybe Core.Text)
 describeAlgorithmResponse_productId = Lens.lens (\DescribeAlgorithmResponse' {productId} -> productId) (\s@DescribeAlgorithmResponse' {} a -> s {productId = a} :: DescribeAlgorithmResponse)
 
 -- | Details about inference jobs that the algorithm runs.
-describeAlgorithmResponse_inferenceSpecification :: Lens.Lens' DescribeAlgorithmResponse (Prelude.Maybe InferenceSpecification)
+describeAlgorithmResponse_inferenceSpecification :: Lens.Lens' DescribeAlgorithmResponse (Core.Maybe InferenceSpecification)
 describeAlgorithmResponse_inferenceSpecification = Lens.lens (\DescribeAlgorithmResponse' {inferenceSpecification} -> inferenceSpecification) (\s@DescribeAlgorithmResponse' {} a -> s {inferenceSpecification = a} :: DescribeAlgorithmResponse)
 
 -- | The response's http status code.
-describeAlgorithmResponse_httpStatus :: Lens.Lens' DescribeAlgorithmResponse Prelude.Int
+describeAlgorithmResponse_httpStatus :: Lens.Lens' DescribeAlgorithmResponse Core.Int
 describeAlgorithmResponse_httpStatus = Lens.lens (\DescribeAlgorithmResponse' {httpStatus} -> httpStatus) (\s@DescribeAlgorithmResponse' {} a -> s {httpStatus = a} :: DescribeAlgorithmResponse)
 
 -- | The name of the algorithm being described.
-describeAlgorithmResponse_algorithmName :: Lens.Lens' DescribeAlgorithmResponse Prelude.Text
+describeAlgorithmResponse_algorithmName :: Lens.Lens' DescribeAlgorithmResponse Core.Text
 describeAlgorithmResponse_algorithmName = Lens.lens (\DescribeAlgorithmResponse' {algorithmName} -> algorithmName) (\s@DescribeAlgorithmResponse' {} a -> s {algorithmName = a} :: DescribeAlgorithmResponse)
 
 -- | The Amazon Resource Name (ARN) of the algorithm.
-describeAlgorithmResponse_algorithmArn :: Lens.Lens' DescribeAlgorithmResponse Prelude.Text
+describeAlgorithmResponse_algorithmArn :: Lens.Lens' DescribeAlgorithmResponse Core.Text
 describeAlgorithmResponse_algorithmArn = Lens.lens (\DescribeAlgorithmResponse' {algorithmArn} -> algorithmArn) (\s@DescribeAlgorithmResponse' {} a -> s {algorithmArn = a} :: DescribeAlgorithmResponse)
 
 -- | A timestamp specifying when the algorithm was created.
-describeAlgorithmResponse_creationTime :: Lens.Lens' DescribeAlgorithmResponse Prelude.UTCTime
-describeAlgorithmResponse_creationTime = Lens.lens (\DescribeAlgorithmResponse' {creationTime} -> creationTime) (\s@DescribeAlgorithmResponse' {} a -> s {creationTime = a} :: DescribeAlgorithmResponse) Prelude.. Prelude._Time
+describeAlgorithmResponse_creationTime :: Lens.Lens' DescribeAlgorithmResponse Core.UTCTime
+describeAlgorithmResponse_creationTime = Lens.lens (\DescribeAlgorithmResponse' {creationTime} -> creationTime) (\s@DescribeAlgorithmResponse' {} a -> s {creationTime = a} :: DescribeAlgorithmResponse) Core.. Core._Time
 
 -- | Details about training jobs run by this algorithm.
 describeAlgorithmResponse_trainingSpecification :: Lens.Lens' DescribeAlgorithmResponse TrainingSpecification
@@ -292,4 +286,4 @@ describeAlgorithmResponse_algorithmStatus = Lens.lens (\DescribeAlgorithmRespons
 describeAlgorithmResponse_algorithmStatusDetails :: Lens.Lens' DescribeAlgorithmResponse AlgorithmStatusDetails
 describeAlgorithmResponse_algorithmStatusDetails = Lens.lens (\DescribeAlgorithmResponse' {algorithmStatusDetails} -> algorithmStatusDetails) (\s@DescribeAlgorithmResponse' {} a -> s {algorithmStatusDetails = a} :: DescribeAlgorithmResponse)
 
-instance Prelude.NFData DescribeAlgorithmResponse
+instance Core.NFData DescribeAlgorithmResponse

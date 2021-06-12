@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,8 +63,8 @@ module Network.AWS.CognitoIdentityProvider.AdminCreateUser
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -103,12 +102,12 @@ data AdminCreateUser = AdminCreateUser'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Set to @\"RESEND\"@ to resend the invitation message to a user that
     -- already exists and reset the expiration limit on the user\'s account.
     -- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
     -- can be specified.
-    messageAction :: Prelude.Maybe MessageActionType,
+    messageAction :: Core.Maybe MessageActionType,
     -- | This parameter is only used if the @phone_number_verified@ or
     -- @email_verified@ attribute is set to @True@. Otherwise, it is ignored.
     --
@@ -121,11 +120,11 @@ data AdminCreateUser = AdminCreateUser'
     -- If this parameter is set to @False@, the API throws an
     -- @AliasExistsException@ error if the alias already exists. The default
     -- value is @False@.
-    forceAliasCreation :: Prelude.Maybe Prelude.Bool,
+    forceAliasCreation :: Core.Maybe Core.Bool,
     -- | Specify @\"EMAIL\"@ if email will be used to send the welcome message.
     -- Specify @\"SMS\"@ if the phone number will be used. The default value is
     -- @\"SMS\"@. More than one value can be specified.
-    desiredDeliveryMediums :: Prelude.Maybe [DeliveryMediumType],
+    desiredDeliveryMediums :: Core.Maybe [DeliveryMediumType],
     -- | The user\'s temporary password. This password must conform to the
     -- password policy that you specified when you created the user pool.
     --
@@ -140,7 +139,7 @@ data AdminCreateUser = AdminCreateUser'
     -- expiration limit that you specified when you created the user pool. To
     -- reset the account after that time limit, you must call @AdminCreateUser@
     -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
-    temporaryPassword :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    temporaryPassword :: Core.Maybe (Core.Sensitive Core.Text),
     -- | An array of name-value pairs that contain user attributes and attribute
     -- values to be set for the user to be created. You can create a user
     -- without specifying any attributes other than @Username@. However, any
@@ -171,7 +170,7 @@ data AdminCreateUser = AdminCreateUser'
     --     that contains the code and username will be sent. Required if the
     --     @phone_number_verified@ attribute is set to @True@, or if @\"SMS\"@
     --     is specified in the @DesiredDeliveryMediums@ parameter.
-    userAttributes :: Prelude.Maybe [AttributeType],
+    userAttributes :: Core.Maybe [AttributeType],
     -- | The user\'s validation data. This is an array of name-value pairs that
     -- contain user attributes and attribute values that you can use for custom
     -- validation, such as restricting the types of user accounts that can be
@@ -184,15 +183,15 @@ data AdminCreateUser = AdminCreateUser'
     -- the validation process.
     --
     -- The user\'s validation data is not persisted.
-    validationData :: Prelude.Maybe [AttributeType],
+    validationData :: Core.Maybe [AttributeType],
     -- | The user pool ID for the user pool where the user will be created.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The username for the user. Must be unique within the user pool. Must be
     -- a UTF-8 string between 1 and 128 characters. After the user is created,
     -- the username cannot be changed.
-    username :: Prelude.Sensitive Prelude.Text
+    username :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminCreateUser' with all optional fields omitted.
@@ -321,21 +320,21 @@ data AdminCreateUser = AdminCreateUser'
 -- the username cannot be changed.
 newAdminCreateUser ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminCreateUser
 newAdminCreateUser pUserPoolId_ pUsername_ =
   AdminCreateUser'
-    { clientMetadata = Prelude.Nothing,
-      messageAction = Prelude.Nothing,
-      forceAliasCreation = Prelude.Nothing,
-      desiredDeliveryMediums = Prelude.Nothing,
-      temporaryPassword = Prelude.Nothing,
-      userAttributes = Prelude.Nothing,
-      validationData = Prelude.Nothing,
+    { clientMetadata = Core.Nothing,
+      messageAction = Core.Nothing,
+      forceAliasCreation = Core.Nothing,
+      desiredDeliveryMediums = Core.Nothing,
+      temporaryPassword = Core.Nothing,
+      userAttributes = Core.Nothing,
+      validationData = Core.Nothing,
       userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_
+      username = Core._Sensitive Lens.# pUsername_
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -368,14 +367,14 @@ newAdminCreateUser pUserPoolId_ pUsername_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-adminCreateUser_clientMetadata :: Lens.Lens' AdminCreateUser (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminCreateUser_clientMetadata = Lens.lens (\AdminCreateUser' {clientMetadata} -> clientMetadata) (\s@AdminCreateUser' {} a -> s {clientMetadata = a} :: AdminCreateUser) Prelude.. Lens.mapping Prelude._Coerce
+adminCreateUser_clientMetadata :: Lens.Lens' AdminCreateUser (Core.Maybe (Core.HashMap Core.Text Core.Text))
+adminCreateUser_clientMetadata = Lens.lens (\AdminCreateUser' {clientMetadata} -> clientMetadata) (\s@AdminCreateUser' {} a -> s {clientMetadata = a} :: AdminCreateUser) Core.. Lens.mapping Lens._Coerce
 
 -- | Set to @\"RESEND\"@ to resend the invitation message to a user that
 -- already exists and reset the expiration limit on the user\'s account.
 -- Set to @\"SUPPRESS\"@ to suppress sending the message. Only one value
 -- can be specified.
-adminCreateUser_messageAction :: Lens.Lens' AdminCreateUser (Prelude.Maybe MessageActionType)
+adminCreateUser_messageAction :: Lens.Lens' AdminCreateUser (Core.Maybe MessageActionType)
 adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> messageAction) (\s@AdminCreateUser' {} a -> s {messageAction = a} :: AdminCreateUser)
 
 -- | This parameter is only used if the @phone_number_verified@ or
@@ -390,14 +389,14 @@ adminCreateUser_messageAction = Lens.lens (\AdminCreateUser' {messageAction} -> 
 -- If this parameter is set to @False@, the API throws an
 -- @AliasExistsException@ error if the alias already exists. The default
 -- value is @False@.
-adminCreateUser_forceAliasCreation :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Bool)
+adminCreateUser_forceAliasCreation :: Lens.Lens' AdminCreateUser (Core.Maybe Core.Bool)
 adminCreateUser_forceAliasCreation = Lens.lens (\AdminCreateUser' {forceAliasCreation} -> forceAliasCreation) (\s@AdminCreateUser' {} a -> s {forceAliasCreation = a} :: AdminCreateUser)
 
 -- | Specify @\"EMAIL\"@ if email will be used to send the welcome message.
 -- Specify @\"SMS\"@ if the phone number will be used. The default value is
 -- @\"SMS\"@. More than one value can be specified.
-adminCreateUser_desiredDeliveryMediums :: Lens.Lens' AdminCreateUser (Prelude.Maybe [DeliveryMediumType])
-adminCreateUser_desiredDeliveryMediums = Lens.lens (\AdminCreateUser' {desiredDeliveryMediums} -> desiredDeliveryMediums) (\s@AdminCreateUser' {} a -> s {desiredDeliveryMediums = a} :: AdminCreateUser) Prelude.. Lens.mapping Prelude._Coerce
+adminCreateUser_desiredDeliveryMediums :: Lens.Lens' AdminCreateUser (Core.Maybe [DeliveryMediumType])
+adminCreateUser_desiredDeliveryMediums = Lens.lens (\AdminCreateUser' {desiredDeliveryMediums} -> desiredDeliveryMediums) (\s@AdminCreateUser' {} a -> s {desiredDeliveryMediums = a} :: AdminCreateUser) Core.. Lens.mapping Lens._Coerce
 
 -- | The user\'s temporary password. This password must conform to the
 -- password policy that you specified when you created the user pool.
@@ -413,8 +412,8 @@ adminCreateUser_desiredDeliveryMediums = Lens.lens (\AdminCreateUser' {desiredDe
 -- expiration limit that you specified when you created the user pool. To
 -- reset the account after that time limit, you must call @AdminCreateUser@
 -- again, specifying @\"RESEND\"@ for the @MessageAction@ parameter.
-adminCreateUser_temporaryPassword :: Lens.Lens' AdminCreateUser (Prelude.Maybe Prelude.Text)
-adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Prelude.. Lens.mapping Prelude._Sensitive
+adminCreateUser_temporaryPassword :: Lens.Lens' AdminCreateUser (Core.Maybe Core.Text)
+adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassword} -> temporaryPassword) (\s@AdminCreateUser' {} a -> s {temporaryPassword = a} :: AdminCreateUser) Core.. Lens.mapping Core._Sensitive
 
 -- | An array of name-value pairs that contain user attributes and attribute
 -- values to be set for the user to be created. You can create a user
@@ -446,8 +445,8 @@ adminCreateUser_temporaryPassword = Lens.lens (\AdminCreateUser' {temporaryPassw
 --     that contains the code and username will be sent. Required if the
 --     @phone_number_verified@ attribute is set to @True@, or if @\"SMS\"@
 --     is specified in the @DesiredDeliveryMediums@ parameter.
-adminCreateUser_userAttributes :: Lens.Lens' AdminCreateUser (Prelude.Maybe [AttributeType])
-adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -> userAttributes) (\s@AdminCreateUser' {} a -> s {userAttributes = a} :: AdminCreateUser) Prelude.. Lens.mapping Prelude._Coerce
+adminCreateUser_userAttributes :: Lens.Lens' AdminCreateUser (Core.Maybe [AttributeType])
+adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -> userAttributes) (\s@AdminCreateUser' {} a -> s {userAttributes = a} :: AdminCreateUser) Core.. Lens.mapping Lens._Coerce
 
 -- | The user\'s validation data. This is an array of name-value pairs that
 -- contain user attributes and attribute values that you can use for custom
@@ -461,77 +460,73 @@ adminCreateUser_userAttributes = Lens.lens (\AdminCreateUser' {userAttributes} -
 -- the validation process.
 --
 -- The user\'s validation data is not persisted.
-adminCreateUser_validationData :: Lens.Lens' AdminCreateUser (Prelude.Maybe [AttributeType])
-adminCreateUser_validationData = Lens.lens (\AdminCreateUser' {validationData} -> validationData) (\s@AdminCreateUser' {} a -> s {validationData = a} :: AdminCreateUser) Prelude.. Lens.mapping Prelude._Coerce
+adminCreateUser_validationData :: Lens.Lens' AdminCreateUser (Core.Maybe [AttributeType])
+adminCreateUser_validationData = Lens.lens (\AdminCreateUser' {validationData} -> validationData) (\s@AdminCreateUser' {} a -> s {validationData = a} :: AdminCreateUser) Core.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID for the user pool where the user will be created.
-adminCreateUser_userPoolId :: Lens.Lens' AdminCreateUser Prelude.Text
+adminCreateUser_userPoolId :: Lens.Lens' AdminCreateUser Core.Text
 adminCreateUser_userPoolId = Lens.lens (\AdminCreateUser' {userPoolId} -> userPoolId) (\s@AdminCreateUser' {} a -> s {userPoolId = a} :: AdminCreateUser)
 
 -- | The username for the user. Must be unique within the user pool. Must be
 -- a UTF-8 string between 1 and 128 characters. After the user is created,
 -- the username cannot be changed.
-adminCreateUser_username :: Lens.Lens' AdminCreateUser Prelude.Text
-adminCreateUser_username = Lens.lens (\AdminCreateUser' {username} -> username) (\s@AdminCreateUser' {} a -> s {username = a} :: AdminCreateUser) Prelude.. Prelude._Sensitive
+adminCreateUser_username :: Lens.Lens' AdminCreateUser Core.Text
+adminCreateUser_username = Lens.lens (\AdminCreateUser' {username} -> username) (\s@AdminCreateUser' {} a -> s {username = a} :: AdminCreateUser) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest AdminCreateUser where
-  type Rs AdminCreateUser = AdminCreateUserResponse
+instance Core.AWSRequest AdminCreateUser where
+  type
+    AWSResponse AdminCreateUser =
+      AdminCreateUserResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AdminCreateUserResponse'
-            Prelude.<$> (x Prelude..?> "User")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "User")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminCreateUser
+instance Core.Hashable AdminCreateUser
 
-instance Prelude.NFData AdminCreateUser
+instance Core.NFData AdminCreateUser
 
-instance Prelude.ToHeaders AdminCreateUser where
+instance Core.ToHeaders AdminCreateUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminCreateUser" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminCreateUser" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminCreateUser where
+instance Core.ToJSON AdminCreateUser where
   toJSON AdminCreateUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientMetadata" Prelude..=)
-              Prelude.<$> clientMetadata,
-            ("MessageAction" Prelude..=)
-              Prelude.<$> messageAction,
-            ("ForceAliasCreation" Prelude..=)
-              Prelude.<$> forceAliasCreation,
-            ("DesiredDeliveryMediums" Prelude..=)
-              Prelude.<$> desiredDeliveryMediums,
-            ("TemporaryPassword" Prelude..=)
-              Prelude.<$> temporaryPassword,
-            ("UserAttributes" Prelude..=)
-              Prelude.<$> userAttributes,
-            ("ValidationData" Prelude..=)
-              Prelude.<$> validationData,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            ("MessageAction" Core..=) Core.<$> messageAction,
+            ("ForceAliasCreation" Core..=)
+              Core.<$> forceAliasCreation,
+            ("DesiredDeliveryMediums" Core..=)
+              Core.<$> desiredDeliveryMediums,
+            ("TemporaryPassword" Core..=)
+              Core.<$> temporaryPassword,
+            ("UserAttributes" Core..=) Core.<$> userAttributes,
+            ("ValidationData" Core..=) Core.<$> validationData,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
           ]
       )
 
-instance Prelude.ToPath AdminCreateUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminCreateUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminCreateUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminCreateUser where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server to the request to create the
 -- user.
@@ -539,11 +534,11 @@ instance Prelude.ToQuery AdminCreateUser where
 -- /See:/ 'newAdminCreateUserResponse' smart constructor.
 data AdminCreateUserResponse = AdminCreateUserResponse'
   { -- | The newly created user.
-    user :: Prelude.Maybe UserType,
+    user :: Core.Maybe UserType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminCreateUserResponse' with all optional fields omitted.
@@ -558,20 +553,20 @@ data AdminCreateUserResponse = AdminCreateUserResponse'
 -- 'httpStatus', 'adminCreateUserResponse_httpStatus' - The response's http status code.
 newAdminCreateUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminCreateUserResponse
 newAdminCreateUserResponse pHttpStatus_ =
   AdminCreateUserResponse'
-    { user = Prelude.Nothing,
+    { user = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The newly created user.
-adminCreateUserResponse_user :: Lens.Lens' AdminCreateUserResponse (Prelude.Maybe UserType)
+adminCreateUserResponse_user :: Lens.Lens' AdminCreateUserResponse (Core.Maybe UserType)
 adminCreateUserResponse_user = Lens.lens (\AdminCreateUserResponse' {user} -> user) (\s@AdminCreateUserResponse' {} a -> s {user = a} :: AdminCreateUserResponse)
 
 -- | The response's http status code.
-adminCreateUserResponse_httpStatus :: Lens.Lens' AdminCreateUserResponse Prelude.Int
+adminCreateUserResponse_httpStatus :: Lens.Lens' AdminCreateUserResponse Core.Int
 adminCreateUserResponse_httpStatus = Lens.lens (\AdminCreateUserResponse' {httpStatus} -> httpStatus) (\s@AdminCreateUserResponse' {} a -> s {httpStatus = a} :: AdminCreateUserResponse)
 
-instance Prelude.NFData AdminCreateUserResponse
+instance Core.NFData AdminCreateUserResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.ResourceGroups.UpdateGroupQuery
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -59,9 +58,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateGroupQuery' smart constructor.
 data UpdateGroupQuery = UpdateGroupQuery'
   { -- | Don\'t use this parameter. Use @Group@ instead.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The name or the ARN of the resource group to query.
-    group' :: Prelude.Maybe Prelude.Text,
+    group' :: Core.Maybe Core.Text,
     -- | The resource query to determine which AWS resources are members of this
     -- resource group.
     --
@@ -69,7 +68,7 @@ data UpdateGroupQuery = UpdateGroupQuery'
     -- @ResourceQuery@, but not both.
     resourceQuery :: ResourceQuery
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGroupQuery' with all optional fields omitted.
@@ -94,17 +93,17 @@ newUpdateGroupQuery ::
   UpdateGroupQuery
 newUpdateGroupQuery pResourceQuery_ =
   UpdateGroupQuery'
-    { groupName = Prelude.Nothing,
-      group' = Prelude.Nothing,
+    { groupName = Core.Nothing,
+      group' = Core.Nothing,
       resourceQuery = pResourceQuery_
     }
 
 -- | Don\'t use this parameter. Use @Group@ instead.
-updateGroupQuery_groupName :: Lens.Lens' UpdateGroupQuery (Prelude.Maybe Prelude.Text)
+updateGroupQuery_groupName :: Lens.Lens' UpdateGroupQuery (Core.Maybe Core.Text)
 updateGroupQuery_groupName = Lens.lens (\UpdateGroupQuery' {groupName} -> groupName) (\s@UpdateGroupQuery' {} a -> s {groupName = a} :: UpdateGroupQuery)
 
 -- | The name or the ARN of the resource group to query.
-updateGroupQuery_group :: Lens.Lens' UpdateGroupQuery (Prelude.Maybe Prelude.Text)
+updateGroupQuery_group :: Lens.Lens' UpdateGroupQuery (Core.Maybe Core.Text)
 updateGroupQuery_group = Lens.lens (\UpdateGroupQuery' {group'} -> group') (\s@UpdateGroupQuery' {} a -> s {group' = a} :: UpdateGroupQuery)
 
 -- | The resource query to determine which AWS resources are members of this
@@ -115,50 +114,51 @@ updateGroupQuery_group = Lens.lens (\UpdateGroupQuery' {group'} -> group') (\s@U
 updateGroupQuery_resourceQuery :: Lens.Lens' UpdateGroupQuery ResourceQuery
 updateGroupQuery_resourceQuery = Lens.lens (\UpdateGroupQuery' {resourceQuery} -> resourceQuery) (\s@UpdateGroupQuery' {} a -> s {resourceQuery = a} :: UpdateGroupQuery)
 
-instance Prelude.AWSRequest UpdateGroupQuery where
-  type Rs UpdateGroupQuery = UpdateGroupQueryResponse
+instance Core.AWSRequest UpdateGroupQuery where
+  type
+    AWSResponse UpdateGroupQuery =
+      UpdateGroupQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateGroupQueryResponse'
-            Prelude.<$> (x Prelude..?> "GroupQuery")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GroupQuery")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGroupQuery
+instance Core.Hashable UpdateGroupQuery
 
-instance Prelude.NFData UpdateGroupQuery
+instance Core.NFData UpdateGroupQuery
 
-instance Prelude.ToHeaders UpdateGroupQuery where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateGroupQuery where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateGroupQuery where
+instance Core.ToJSON UpdateGroupQuery where
   toJSON UpdateGroupQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GroupName" Prelude..=) Prelude.<$> groupName,
-            ("Group" Prelude..=) Prelude.<$> group',
-            Prelude.Just
-              ("ResourceQuery" Prelude..= resourceQuery)
+    Core.object
+      ( Core.catMaybes
+          [ ("GroupName" Core..=) Core.<$> groupName,
+            ("Group" Core..=) Core.<$> group',
+            Core.Just ("ResourceQuery" Core..= resourceQuery)
           ]
       )
 
-instance Prelude.ToPath UpdateGroupQuery where
-  toPath = Prelude.const "/update-group-query"
+instance Core.ToPath UpdateGroupQuery where
+  toPath = Core.const "/update-group-query"
 
-instance Prelude.ToQuery UpdateGroupQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateGroupQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateGroupQueryResponse' smart constructor.
 data UpdateGroupQueryResponse = UpdateGroupQueryResponse'
   { -- | The updated resource query associated with the resource group after the
     -- update.
-    groupQuery :: Prelude.Maybe GroupQuery,
+    groupQuery :: Core.Maybe GroupQuery,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGroupQueryResponse' with all optional fields omitted.
@@ -174,22 +174,22 @@ data UpdateGroupQueryResponse = UpdateGroupQueryResponse'
 -- 'httpStatus', 'updateGroupQueryResponse_httpStatus' - The response's http status code.
 newUpdateGroupQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateGroupQueryResponse
 newUpdateGroupQueryResponse pHttpStatus_ =
   UpdateGroupQueryResponse'
     { groupQuery =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated resource query associated with the resource group after the
 -- update.
-updateGroupQueryResponse_groupQuery :: Lens.Lens' UpdateGroupQueryResponse (Prelude.Maybe GroupQuery)
+updateGroupQueryResponse_groupQuery :: Lens.Lens' UpdateGroupQueryResponse (Core.Maybe GroupQuery)
 updateGroupQueryResponse_groupQuery = Lens.lens (\UpdateGroupQueryResponse' {groupQuery} -> groupQuery) (\s@UpdateGroupQueryResponse' {} a -> s {groupQuery = a} :: UpdateGroupQueryResponse)
 
 -- | The response's http status code.
-updateGroupQueryResponse_httpStatus :: Lens.Lens' UpdateGroupQueryResponse Prelude.Int
+updateGroupQueryResponse_httpStatus :: Lens.Lens' UpdateGroupQueryResponse Core.Int
 updateGroupQueryResponse_httpStatus = Lens.lens (\UpdateGroupQueryResponse' {httpStatus} -> httpStatus) (\s@UpdateGroupQueryResponse' {} a -> s {httpStatus = a} :: UpdateGroupQueryResponse)
 
-instance Prelude.NFData UpdateGroupQueryResponse
+instance Core.NFData UpdateGroupQueryResponse

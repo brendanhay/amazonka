@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -56,11 +55,11 @@ data UpdateTagsForDomain = UpdateTagsForDomain'
   { -- | A list of the tag keys and values that you want to add or update. If you
     -- specify a key that already exists, the corresponding value will be
     -- replaced.
-    tagsToUpdate :: Prelude.Maybe [Tag],
+    tagsToUpdate :: Core.Maybe [Tag],
     -- | The domain for which you want to add or update tags.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTagsForDomain' with all optional fields omitted.
@@ -77,78 +76,74 @@ data UpdateTagsForDomain = UpdateTagsForDomain'
 -- 'domainName', 'updateTagsForDomain_domainName' - The domain for which you want to add or update tags.
 newUpdateTagsForDomain ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTagsForDomain
 newUpdateTagsForDomain pDomainName_ =
   UpdateTagsForDomain'
-    { tagsToUpdate =
-        Prelude.Nothing,
+    { tagsToUpdate = Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | A list of the tag keys and values that you want to add or update. If you
 -- specify a key that already exists, the corresponding value will be
 -- replaced.
-updateTagsForDomain_tagsToUpdate :: Lens.Lens' UpdateTagsForDomain (Prelude.Maybe [Tag])
-updateTagsForDomain_tagsToUpdate = Lens.lens (\UpdateTagsForDomain' {tagsToUpdate} -> tagsToUpdate) (\s@UpdateTagsForDomain' {} a -> s {tagsToUpdate = a} :: UpdateTagsForDomain) Prelude.. Lens.mapping Prelude._Coerce
+updateTagsForDomain_tagsToUpdate :: Lens.Lens' UpdateTagsForDomain (Core.Maybe [Tag])
+updateTagsForDomain_tagsToUpdate = Lens.lens (\UpdateTagsForDomain' {tagsToUpdate} -> tagsToUpdate) (\s@UpdateTagsForDomain' {} a -> s {tagsToUpdate = a} :: UpdateTagsForDomain) Core.. Lens.mapping Lens._Coerce
 
 -- | The domain for which you want to add or update tags.
-updateTagsForDomain_domainName :: Lens.Lens' UpdateTagsForDomain Prelude.Text
+updateTagsForDomain_domainName :: Lens.Lens' UpdateTagsForDomain Core.Text
 updateTagsForDomain_domainName = Lens.lens (\UpdateTagsForDomain' {domainName} -> domainName) (\s@UpdateTagsForDomain' {} a -> s {domainName = a} :: UpdateTagsForDomain)
 
-instance Prelude.AWSRequest UpdateTagsForDomain where
+instance Core.AWSRequest UpdateTagsForDomain where
   type
-    Rs UpdateTagsForDomain =
+    AWSResponse UpdateTagsForDomain =
       UpdateTagsForDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateTagsForDomainResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTagsForDomain
+instance Core.Hashable UpdateTagsForDomain
 
-instance Prelude.NFData UpdateTagsForDomain
+instance Core.NFData UpdateTagsForDomain
 
-instance Prelude.ToHeaders UpdateTagsForDomain where
+instance Core.ToHeaders UpdateTagsForDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.UpdateTagsForDomain" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.UpdateTagsForDomain" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTagsForDomain where
+instance Core.ToJSON UpdateTagsForDomain where
   toJSON UpdateTagsForDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TagsToUpdate" Prelude..=)
-              Prelude.<$> tagsToUpdate,
-            Prelude.Just ("DomainName" Prelude..= domainName)
+    Core.object
+      ( Core.catMaybes
+          [ ("TagsToUpdate" Core..=) Core.<$> tagsToUpdate,
+            Core.Just ("DomainName" Core..= domainName)
           ]
       )
 
-instance Prelude.ToPath UpdateTagsForDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTagsForDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTagsForDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTagsForDomain where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateTagsForDomainResponse' smart constructor.
 data UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTagsForDomainResponse' with all optional fields omitted.
@@ -161,7 +156,7 @@ data UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
 -- 'httpStatus', 'updateTagsForDomainResponse_httpStatus' - The response's http status code.
 newUpdateTagsForDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTagsForDomainResponse
 newUpdateTagsForDomainResponse pHttpStatus_ =
   UpdateTagsForDomainResponse'
@@ -170,7 +165,7 @@ newUpdateTagsForDomainResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateTagsForDomainResponse_httpStatus :: Lens.Lens' UpdateTagsForDomainResponse Prelude.Int
+updateTagsForDomainResponse_httpStatus :: Lens.Lens' UpdateTagsForDomainResponse Core.Int
 updateTagsForDomainResponse_httpStatus = Lens.lens (\UpdateTagsForDomainResponse' {httpStatus} -> httpStatus) (\s@UpdateTagsForDomainResponse' {} a -> s {httpStatus = a} :: UpdateTagsForDomainResponse)
 
-instance Prelude.NFData UpdateTagsForDomainResponse
+instance Core.NFData UpdateTagsForDomainResponse

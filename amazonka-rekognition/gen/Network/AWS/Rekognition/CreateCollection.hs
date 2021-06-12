@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.Rekognition.CreateCollection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -65,9 +64,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateCollection' smart constructor.
 data CreateCollection = CreateCollection'
   { -- | ID for the collection that you are creating.
-    collectionId :: Prelude.Text
+    collectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCollection' with all optional fields omitted.
@@ -80,76 +79,74 @@ data CreateCollection = CreateCollection'
 -- 'collectionId', 'createCollection_collectionId' - ID for the collection that you are creating.
 newCreateCollection ::
   -- | 'collectionId'
-  Prelude.Text ->
+  Core.Text ->
   CreateCollection
 newCreateCollection pCollectionId_ =
   CreateCollection' {collectionId = pCollectionId_}
 
 -- | ID for the collection that you are creating.
-createCollection_collectionId :: Lens.Lens' CreateCollection Prelude.Text
+createCollection_collectionId :: Lens.Lens' CreateCollection Core.Text
 createCollection_collectionId = Lens.lens (\CreateCollection' {collectionId} -> collectionId) (\s@CreateCollection' {} a -> s {collectionId = a} :: CreateCollection)
 
-instance Prelude.AWSRequest CreateCollection where
-  type Rs CreateCollection = CreateCollectionResponse
+instance Core.AWSRequest CreateCollection where
+  type
+    AWSResponse CreateCollection =
+      CreateCollectionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCollectionResponse'
-            Prelude.<$> (x Prelude..?> "FaceModelVersion")
-            Prelude.<*> (x Prelude..?> "CollectionArn")
-            Prelude.<*> (x Prelude..?> "StatusCode")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FaceModelVersion")
+            Core.<*> (x Core..?> "CollectionArn")
+            Core.<*> (x Core..?> "StatusCode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCollection
+instance Core.Hashable CreateCollection
 
-instance Prelude.NFData CreateCollection
+instance Core.NFData CreateCollection
 
-instance Prelude.ToHeaders CreateCollection where
+instance Core.ToHeaders CreateCollection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.CreateCollection" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.CreateCollection" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCollection where
+instance Core.ToJSON CreateCollection where
   toJSON CreateCollection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CollectionId" Prelude..= collectionId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CollectionId" Core..= collectionId)]
       )
 
-instance Prelude.ToPath CreateCollection where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCollection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCollection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCollection where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
   { -- | Version number of the face detection model associated with the
     -- collection you are creating.
-    faceModelVersion :: Prelude.Maybe Prelude.Text,
+    faceModelVersion :: Core.Maybe Core.Text,
     -- | Amazon Resource Name (ARN) of the collection. You can use this to manage
     -- permissions on your resources.
-    collectionArn :: Prelude.Maybe Prelude.Text,
+    collectionArn :: Core.Maybe Core.Text,
     -- | HTTP status code indicating the result of the operation.
-    statusCode :: Prelude.Maybe Prelude.Natural,
+    statusCode :: Core.Maybe Core.Natural,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCollectionResponse' with all optional fields omitted.
@@ -170,33 +167,33 @@ data CreateCollectionResponse = CreateCollectionResponse'
 -- 'httpStatus', 'createCollectionResponse_httpStatus' - The response's http status code.
 newCreateCollectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCollectionResponse
 newCreateCollectionResponse pHttpStatus_ =
   CreateCollectionResponse'
     { faceModelVersion =
-        Prelude.Nothing,
-      collectionArn = Prelude.Nothing,
-      statusCode = Prelude.Nothing,
+        Core.Nothing,
+      collectionArn = Core.Nothing,
+      statusCode = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Version number of the face detection model associated with the
 -- collection you are creating.
-createCollectionResponse_faceModelVersion :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Text)
+createCollectionResponse_faceModelVersion :: Lens.Lens' CreateCollectionResponse (Core.Maybe Core.Text)
 createCollectionResponse_faceModelVersion = Lens.lens (\CreateCollectionResponse' {faceModelVersion} -> faceModelVersion) (\s@CreateCollectionResponse' {} a -> s {faceModelVersion = a} :: CreateCollectionResponse)
 
 -- | Amazon Resource Name (ARN) of the collection. You can use this to manage
 -- permissions on your resources.
-createCollectionResponse_collectionArn :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Text)
+createCollectionResponse_collectionArn :: Lens.Lens' CreateCollectionResponse (Core.Maybe Core.Text)
 createCollectionResponse_collectionArn = Lens.lens (\CreateCollectionResponse' {collectionArn} -> collectionArn) (\s@CreateCollectionResponse' {} a -> s {collectionArn = a} :: CreateCollectionResponse)
 
 -- | HTTP status code indicating the result of the operation.
-createCollectionResponse_statusCode :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Natural)
+createCollectionResponse_statusCode :: Lens.Lens' CreateCollectionResponse (Core.Maybe Core.Natural)
 createCollectionResponse_statusCode = Lens.lens (\CreateCollectionResponse' {statusCode} -> statusCode) (\s@CreateCollectionResponse' {} a -> s {statusCode = a} :: CreateCollectionResponse)
 
 -- | The response's http status code.
-createCollectionResponse_httpStatus :: Lens.Lens' CreateCollectionResponse Prelude.Int
+createCollectionResponse_httpStatus :: Lens.Lens' CreateCollectionResponse Core.Int
 createCollectionResponse_httpStatus = Lens.lens (\CreateCollectionResponse' {httpStatus} -> httpStatus) (\s@CreateCollectionResponse' {} a -> s {httpStatus = a} :: CreateCollectionResponse)
 
-instance Prelude.NFData CreateCollectionResponse
+instance Core.NFData CreateCollectionResponse

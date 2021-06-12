@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CertificateManagerPCA.Types.PolicyQualifierInfo where
 
 import Network.AWS.CertificateManagerPCA.Types.PolicyQualifierId
 import Network.AWS.CertificateManagerPCA.Types.Qualifier
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Modifies the @CertPolicyId@ of a @PolicyInformation@ object with a
 -- qualifier. ACM Private CA supports the certification practice statement
@@ -37,7 +36,7 @@ data PolicyQualifierInfo = PolicyQualifierInfo'
     -- a CPS qualifier in this field.
     qualifier :: Qualifier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyQualifierInfo' with all optional fields omitted.
@@ -75,16 +74,16 @@ policyQualifierInfo_policyQualifierId = Lens.lens (\PolicyQualifierInfo' {policy
 policyQualifierInfo_qualifier :: Lens.Lens' PolicyQualifierInfo Qualifier
 policyQualifierInfo_qualifier = Lens.lens (\PolicyQualifierInfo' {qualifier} -> qualifier) (\s@PolicyQualifierInfo' {} a -> s {qualifier = a} :: PolicyQualifierInfo)
 
-instance Prelude.Hashable PolicyQualifierInfo
+instance Core.Hashable PolicyQualifierInfo
 
-instance Prelude.NFData PolicyQualifierInfo
+instance Core.NFData PolicyQualifierInfo
 
-instance Prelude.ToJSON PolicyQualifierInfo where
+instance Core.ToJSON PolicyQualifierInfo where
   toJSON PolicyQualifierInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PolicyQualifierId" Prelude..= policyQualifierId),
-            Prelude.Just ("Qualifier" Prelude..= qualifier)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("PolicyQualifierId" Core..= policyQualifierId),
+            Core.Just ("Qualifier" Core..= qualifier)
           ]
       )

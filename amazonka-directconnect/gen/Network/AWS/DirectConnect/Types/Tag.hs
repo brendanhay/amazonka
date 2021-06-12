@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a tag.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The value.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The key.
-    key :: Prelude.Text
+    key :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -47,38 +46,37 @@ data Tag = Tag'
 -- 'key', 'tag_key' - The key.
 newTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pKey_ =
-  Tag' {value = Prelude.Nothing, key = pKey_}
+  Tag' {value = Core.Nothing, key = pKey_}
 
 -- | The value.
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | The key.
-tag_key :: Lens.Lens' Tag Prelude.Text
+tag_key :: Lens.Lens' Tag Core.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
-instance Prelude.FromJSON Tag where
+instance Core.FromJSON Tag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Prelude..:? "value")
-            Prelude.<*> (x Prelude..: "key")
+            Core.<$> (x Core..:? "value") Core.<*> (x Core..: "key")
       )
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToJSON Tag where
+instance Core.ToJSON Tag where
   toJSON Tag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("key" Prelude..= key)
+    Core.object
+      ( Core.catMaybes
+          [ ("value" Core..=) Core.<$> value,
+            Core.Just ("key" Core..= key)
           ]
       )

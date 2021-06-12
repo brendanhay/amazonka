@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.JobExecutionSummaryForJob where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.JobExecutionSummary
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a summary of information about job executions for a specific
 -- job.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newJobExecutionSummaryForJob' smart constructor.
 data JobExecutionSummaryForJob = JobExecutionSummaryForJob'
   { -- | The ARN of the thing on which the job execution is running.
-    thingArn :: Prelude.Maybe Prelude.Text,
+    thingArn :: Core.Maybe Core.Text,
     -- | Contains a subset of information about a job execution.
-    jobExecutionSummary :: Prelude.Maybe JobExecutionSummary
+    jobExecutionSummary :: Core.Maybe JobExecutionSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobExecutionSummaryForJob' with all optional fields omitted.
@@ -51,29 +50,28 @@ newJobExecutionSummaryForJob ::
   JobExecutionSummaryForJob
 newJobExecutionSummaryForJob =
   JobExecutionSummaryForJob'
-    { thingArn =
-        Prelude.Nothing,
-      jobExecutionSummary = Prelude.Nothing
+    { thingArn = Core.Nothing,
+      jobExecutionSummary = Core.Nothing
     }
 
 -- | The ARN of the thing on which the job execution is running.
-jobExecutionSummaryForJob_thingArn :: Lens.Lens' JobExecutionSummaryForJob (Prelude.Maybe Prelude.Text)
+jobExecutionSummaryForJob_thingArn :: Lens.Lens' JobExecutionSummaryForJob (Core.Maybe Core.Text)
 jobExecutionSummaryForJob_thingArn = Lens.lens (\JobExecutionSummaryForJob' {thingArn} -> thingArn) (\s@JobExecutionSummaryForJob' {} a -> s {thingArn = a} :: JobExecutionSummaryForJob)
 
 -- | Contains a subset of information about a job execution.
-jobExecutionSummaryForJob_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForJob (Prelude.Maybe JobExecutionSummary)
+jobExecutionSummaryForJob_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForJob (Core.Maybe JobExecutionSummary)
 jobExecutionSummaryForJob_jobExecutionSummary = Lens.lens (\JobExecutionSummaryForJob' {jobExecutionSummary} -> jobExecutionSummary) (\s@JobExecutionSummaryForJob' {} a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForJob)
 
-instance Prelude.FromJSON JobExecutionSummaryForJob where
+instance Core.FromJSON JobExecutionSummaryForJob where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobExecutionSummaryForJob"
       ( \x ->
           JobExecutionSummaryForJob'
-            Prelude.<$> (x Prelude..:? "thingArn")
-            Prelude.<*> (x Prelude..:? "jobExecutionSummary")
+            Core.<$> (x Core..:? "thingArn")
+            Core.<*> (x Core..:? "jobExecutionSummary")
       )
 
-instance Prelude.Hashable JobExecutionSummaryForJob
+instance Core.Hashable JobExecutionSummaryForJob
 
-instance Prelude.NFData JobExecutionSummaryForJob
+instance Core.NFData JobExecutionSummaryForJob

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +55,15 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources'
     -- Condition: You must specify either this or an EnvironmentName, or both.
     -- If you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentId :: Prelude.Maybe Prelude.Text,
+    environmentId :: Core.Maybe Core.Text,
     -- | The name of the environment to retrieve AWS resource usage data.
     --
     -- Condition: You must specify either this or an EnvironmentId, or both. If
     -- you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentName :: Prelude.Maybe Prelude.Text
+    environmentName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentResources' with all optional fields omitted.
@@ -90,8 +89,8 @@ newDescribeEnvironmentResources ::
 newDescribeEnvironmentResources =
   DescribeEnvironmentResources'
     { environmentId =
-        Prelude.Nothing,
-      environmentName = Prelude.Nothing
+        Core.Nothing,
+      environmentName = Core.Nothing
     }
 
 -- | The ID of the environment to retrieve AWS resource usage data.
@@ -99,7 +98,7 @@ newDescribeEnvironmentResources =
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-describeEnvironmentResources_environmentId :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
+describeEnvironmentResources_environmentId :: Lens.Lens' DescribeEnvironmentResources (Core.Maybe Core.Text)
 describeEnvironmentResources_environmentId = Lens.lens (\DescribeEnvironmentResources' {environmentId} -> environmentId) (\s@DescribeEnvironmentResources' {} a -> s {environmentId = a} :: DescribeEnvironmentResources)
 
 -- | The name of the environment to retrieve AWS resource usage data.
@@ -107,15 +106,12 @@ describeEnvironmentResources_environmentId = Lens.lens (\DescribeEnvironmentReso
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-describeEnvironmentResources_environmentName :: Lens.Lens' DescribeEnvironmentResources (Prelude.Maybe Prelude.Text)
+describeEnvironmentResources_environmentName :: Lens.Lens' DescribeEnvironmentResources (Core.Maybe Core.Text)
 describeEnvironmentResources_environmentName = Lens.lens (\DescribeEnvironmentResources' {environmentName} -> environmentName) (\s@DescribeEnvironmentResources' {} a -> s {environmentName = a} :: DescribeEnvironmentResources)
 
-instance
-  Prelude.AWSRequest
-    DescribeEnvironmentResources
-  where
+instance Core.AWSRequest DescribeEnvironmentResources where
   type
-    Rs DescribeEnvironmentResources =
+    AWSResponse DescribeEnvironmentResources =
       DescribeEnvironmentResourcesResponse
   request = Request.postQuery defaultService
   response =
@@ -123,36 +119,28 @@ instance
       "DescribeEnvironmentResourcesResult"
       ( \s h x ->
           DescribeEnvironmentResourcesResponse'
-            Prelude.<$> (x Prelude..@? "EnvironmentResources")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "EnvironmentResources")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeEnvironmentResources
+instance Core.Hashable DescribeEnvironmentResources
 
-instance Prelude.NFData DescribeEnvironmentResources
+instance Core.NFData DescribeEnvironmentResources
 
-instance
-  Prelude.ToHeaders
-    DescribeEnvironmentResources
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeEnvironmentResources where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeEnvironmentResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEnvironmentResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEnvironmentResources where
+instance Core.ToQuery DescribeEnvironmentResources where
   toQuery DescribeEnvironmentResources' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeEnvironmentResources" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentId" Prelude.=: environmentId,
-        "EnvironmentName" Prelude.=: environmentName
+          Core.=: ("DescribeEnvironmentResources" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EnvironmentId" Core.=: environmentId,
+        "EnvironmentName" Core.=: environmentName
       ]
 
 -- | Result message containing a list of environment resource descriptions.
@@ -160,11 +148,11 @@ instance Prelude.ToQuery DescribeEnvironmentResources where
 -- /See:/ 'newDescribeEnvironmentResourcesResponse' smart constructor.
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
   { -- | A list of EnvironmentResourceDescription.
-    environmentResources :: Prelude.Maybe EnvironmentResourceDescription,
+    environmentResources :: Core.Maybe EnvironmentResourceDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentResourcesResponse' with all optional fields omitted.
@@ -179,23 +167,23 @@ data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
 -- 'httpStatus', 'describeEnvironmentResourcesResponse_httpStatus' - The response's http status code.
 newDescribeEnvironmentResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEnvironmentResourcesResponse
 newDescribeEnvironmentResourcesResponse pHttpStatus_ =
   DescribeEnvironmentResourcesResponse'
     { environmentResources =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of EnvironmentResourceDescription.
-describeEnvironmentResourcesResponse_environmentResources :: Lens.Lens' DescribeEnvironmentResourcesResponse (Prelude.Maybe EnvironmentResourceDescription)
+describeEnvironmentResourcesResponse_environmentResources :: Lens.Lens' DescribeEnvironmentResourcesResponse (Core.Maybe EnvironmentResourceDescription)
 describeEnvironmentResourcesResponse_environmentResources = Lens.lens (\DescribeEnvironmentResourcesResponse' {environmentResources} -> environmentResources) (\s@DescribeEnvironmentResourcesResponse' {} a -> s {environmentResources = a} :: DescribeEnvironmentResourcesResponse)
 
 -- | The response's http status code.
-describeEnvironmentResourcesResponse_httpStatus :: Lens.Lens' DescribeEnvironmentResourcesResponse Prelude.Int
+describeEnvironmentResourcesResponse_httpStatus :: Lens.Lens' DescribeEnvironmentResourcesResponse Core.Int
 describeEnvironmentResourcesResponse_httpStatus = Lens.lens (\DescribeEnvironmentResourcesResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentResourcesResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentResourcesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEnvironmentResourcesResponse

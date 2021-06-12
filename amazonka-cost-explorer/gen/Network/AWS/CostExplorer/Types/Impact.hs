@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.Impact where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The anomaly\'s dollar value.
 --
 -- /See:/ 'newImpact' smart constructor.
 data Impact = Impact'
   { -- | The cumulative dollar value observed for an anomaly.
-    totalImpact :: Prelude.Maybe Prelude.Double,
+    totalImpact :: Core.Maybe Core.Double,
     -- | The maximum dollar value observed for an anomaly.
-    maxImpact :: Prelude.Double
+    maxImpact :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Impact' with all optional fields omitted.
@@ -47,32 +46,32 @@ data Impact = Impact'
 -- 'maxImpact', 'impact_maxImpact' - The maximum dollar value observed for an anomaly.
 newImpact ::
   -- | 'maxImpact'
-  Prelude.Double ->
+  Core.Double ->
   Impact
 newImpact pMaxImpact_ =
   Impact'
-    { totalImpact = Prelude.Nothing,
+    { totalImpact = Core.Nothing,
       maxImpact = pMaxImpact_
     }
 
 -- | The cumulative dollar value observed for an anomaly.
-impact_totalImpact :: Lens.Lens' Impact (Prelude.Maybe Prelude.Double)
+impact_totalImpact :: Lens.Lens' Impact (Core.Maybe Core.Double)
 impact_totalImpact = Lens.lens (\Impact' {totalImpact} -> totalImpact) (\s@Impact' {} a -> s {totalImpact = a} :: Impact)
 
 -- | The maximum dollar value observed for an anomaly.
-impact_maxImpact :: Lens.Lens' Impact Prelude.Double
+impact_maxImpact :: Lens.Lens' Impact Core.Double
 impact_maxImpact = Lens.lens (\Impact' {maxImpact} -> maxImpact) (\s@Impact' {} a -> s {maxImpact = a} :: Impact)
 
-instance Prelude.FromJSON Impact where
+instance Core.FromJSON Impact where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Impact"
       ( \x ->
           Impact'
-            Prelude.<$> (x Prelude..:? "TotalImpact")
-            Prelude.<*> (x Prelude..: "MaxImpact")
+            Core.<$> (x Core..:? "TotalImpact")
+            Core.<*> (x Core..: "MaxImpact")
       )
 
-instance Prelude.Hashable Impact
+instance Core.Hashable Impact
 
-instance Prelude.NFData Impact
+instance Core.NFData Impact

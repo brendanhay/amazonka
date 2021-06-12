@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.GlueTable where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The database and table in the AWS Glue Data Catalog that is used for
 -- input or output data.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGlueTable' smart constructor.
 data GlueTable = GlueTable'
   { -- | The name of the connection to the AWS Glue Data Catalog.
-    connectionName :: Prelude.Maybe Prelude.Text,
+    connectionName :: Core.Maybe Core.Text,
     -- | A unique identifier for the AWS Glue Data Catalog.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | A database name in the AWS Glue Data Catalog.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | A table name in the AWS Glue Data Catalog.
-    tableName :: Prelude.Text
+    tableName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlueTable' with all optional fields omitted.
@@ -56,59 +55,57 @@ data GlueTable = GlueTable'
 -- 'tableName', 'glueTable_tableName' - A table name in the AWS Glue Data Catalog.
 newGlueTable ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   GlueTable
 newGlueTable pDatabaseName_ pTableName_ =
   GlueTable'
-    { connectionName = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
+    { connectionName = Core.Nothing,
+      catalogId = Core.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
 
 -- | The name of the connection to the AWS Glue Data Catalog.
-glueTable_connectionName :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
+glueTable_connectionName :: Lens.Lens' GlueTable (Core.Maybe Core.Text)
 glueTable_connectionName = Lens.lens (\GlueTable' {connectionName} -> connectionName) (\s@GlueTable' {} a -> s {connectionName = a} :: GlueTable)
 
 -- | A unique identifier for the AWS Glue Data Catalog.
-glueTable_catalogId :: Lens.Lens' GlueTable (Prelude.Maybe Prelude.Text)
+glueTable_catalogId :: Lens.Lens' GlueTable (Core.Maybe Core.Text)
 glueTable_catalogId = Lens.lens (\GlueTable' {catalogId} -> catalogId) (\s@GlueTable' {} a -> s {catalogId = a} :: GlueTable)
 
 -- | A database name in the AWS Glue Data Catalog.
-glueTable_databaseName :: Lens.Lens' GlueTable Prelude.Text
+glueTable_databaseName :: Lens.Lens' GlueTable Core.Text
 glueTable_databaseName = Lens.lens (\GlueTable' {databaseName} -> databaseName) (\s@GlueTable' {} a -> s {databaseName = a} :: GlueTable)
 
 -- | A table name in the AWS Glue Data Catalog.
-glueTable_tableName :: Lens.Lens' GlueTable Prelude.Text
+glueTable_tableName :: Lens.Lens' GlueTable Core.Text
 glueTable_tableName = Lens.lens (\GlueTable' {tableName} -> tableName) (\s@GlueTable' {} a -> s {tableName = a} :: GlueTable)
 
-instance Prelude.FromJSON GlueTable where
+instance Core.FromJSON GlueTable where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GlueTable"
       ( \x ->
           GlueTable'
-            Prelude.<$> (x Prelude..:? "ConnectionName")
-            Prelude.<*> (x Prelude..:? "CatalogId")
-            Prelude.<*> (x Prelude..: "DatabaseName")
-            Prelude.<*> (x Prelude..: "TableName")
+            Core.<$> (x Core..:? "ConnectionName")
+            Core.<*> (x Core..:? "CatalogId")
+            Core.<*> (x Core..: "DatabaseName")
+            Core.<*> (x Core..: "TableName")
       )
 
-instance Prelude.Hashable GlueTable
+instance Core.Hashable GlueTable
 
-instance Prelude.NFData GlueTable
+instance Core.NFData GlueTable
 
-instance Prelude.ToJSON GlueTable where
+instance Core.ToJSON GlueTable where
   toJSON GlueTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConnectionName" Prelude..=)
-              Prelude.<$> connectionName,
-            ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName)
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionName" Core..=) Core.<$> connectionName,
+            ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName)
           ]
       )

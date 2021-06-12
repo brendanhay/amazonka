@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CodeStar.AssociateTeamMember
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,21 +54,21 @@ data AssociateTeamMember = AssociateTeamMember'
   { -- | Whether the team member is allowed to use an SSH public\/private key
     -- pair to remotely access project resources, for example Amazon EC2
     -- instances.
-    remoteAccessAllowed :: Prelude.Maybe Prelude.Bool,
+    remoteAccessAllowed :: Core.Maybe Core.Bool,
     -- | A user- or system-generated token that identifies the entity that
     -- requested the team member association to the project. This token can be
     -- used to repeat the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The ID of the project to which you will add the IAM user.
-    projectId :: Prelude.Text,
+    projectId :: Core.Text,
     -- | The Amazon Resource Name (ARN) for the IAM user you want to add to the
     -- AWS CodeStar project.
-    userArn :: Prelude.Text,
+    userArn :: Core.Text,
     -- | The AWS CodeStar project role that will apply to this user. This role
     -- determines what actions a user can take in an AWS CodeStar project.
-    projectRole :: Prelude.Text
+    projectRole :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateTeamMember' with all optional fields omitted.
@@ -96,11 +95,11 @@ data AssociateTeamMember = AssociateTeamMember'
 -- determines what actions a user can take in an AWS CodeStar project.
 newAssociateTeamMember ::
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'projectRole'
-  Prelude.Text ->
+  Core.Text ->
   AssociateTeamMember
 newAssociateTeamMember
   pProjectId_
@@ -108,8 +107,8 @@ newAssociateTeamMember
   pProjectRole_ =
     AssociateTeamMember'
       { remoteAccessAllowed =
-          Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+          Core.Nothing,
+        clientRequestToken = Core.Nothing,
         projectId = pProjectId_,
         userArn = pUserArn_,
         projectRole = pProjectRole_
@@ -118,90 +117,88 @@ newAssociateTeamMember
 -- | Whether the team member is allowed to use an SSH public\/private key
 -- pair to remotely access project resources, for example Amazon EC2
 -- instances.
-associateTeamMember_remoteAccessAllowed :: Lens.Lens' AssociateTeamMember (Prelude.Maybe Prelude.Bool)
+associateTeamMember_remoteAccessAllowed :: Lens.Lens' AssociateTeamMember (Core.Maybe Core.Bool)
 associateTeamMember_remoteAccessAllowed = Lens.lens (\AssociateTeamMember' {remoteAccessAllowed} -> remoteAccessAllowed) (\s@AssociateTeamMember' {} a -> s {remoteAccessAllowed = a} :: AssociateTeamMember)
 
 -- | A user- or system-generated token that identifies the entity that
 -- requested the team member association to the project. This token can be
 -- used to repeat the request.
-associateTeamMember_clientRequestToken :: Lens.Lens' AssociateTeamMember (Prelude.Maybe Prelude.Text)
+associateTeamMember_clientRequestToken :: Lens.Lens' AssociateTeamMember (Core.Maybe Core.Text)
 associateTeamMember_clientRequestToken = Lens.lens (\AssociateTeamMember' {clientRequestToken} -> clientRequestToken) (\s@AssociateTeamMember' {} a -> s {clientRequestToken = a} :: AssociateTeamMember)
 
 -- | The ID of the project to which you will add the IAM user.
-associateTeamMember_projectId :: Lens.Lens' AssociateTeamMember Prelude.Text
+associateTeamMember_projectId :: Lens.Lens' AssociateTeamMember Core.Text
 associateTeamMember_projectId = Lens.lens (\AssociateTeamMember' {projectId} -> projectId) (\s@AssociateTeamMember' {} a -> s {projectId = a} :: AssociateTeamMember)
 
 -- | The Amazon Resource Name (ARN) for the IAM user you want to add to the
 -- AWS CodeStar project.
-associateTeamMember_userArn :: Lens.Lens' AssociateTeamMember Prelude.Text
+associateTeamMember_userArn :: Lens.Lens' AssociateTeamMember Core.Text
 associateTeamMember_userArn = Lens.lens (\AssociateTeamMember' {userArn} -> userArn) (\s@AssociateTeamMember' {} a -> s {userArn = a} :: AssociateTeamMember)
 
 -- | The AWS CodeStar project role that will apply to this user. This role
 -- determines what actions a user can take in an AWS CodeStar project.
-associateTeamMember_projectRole :: Lens.Lens' AssociateTeamMember Prelude.Text
+associateTeamMember_projectRole :: Lens.Lens' AssociateTeamMember Core.Text
 associateTeamMember_projectRole = Lens.lens (\AssociateTeamMember' {projectRole} -> projectRole) (\s@AssociateTeamMember' {} a -> s {projectRole = a} :: AssociateTeamMember)
 
-instance Prelude.AWSRequest AssociateTeamMember where
+instance Core.AWSRequest AssociateTeamMember where
   type
-    Rs AssociateTeamMember =
+    AWSResponse AssociateTeamMember =
       AssociateTeamMemberResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AssociateTeamMemberResponse'
-            Prelude.<$> (x Prelude..?> "clientRequestToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "clientRequestToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateTeamMember
+instance Core.Hashable AssociateTeamMember
 
-instance Prelude.NFData AssociateTeamMember
+instance Core.NFData AssociateTeamMember
 
-instance Prelude.ToHeaders AssociateTeamMember where
+instance Core.ToHeaders AssociateTeamMember where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.AssociateTeamMember" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.AssociateTeamMember" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateTeamMember where
+instance Core.ToJSON AssociateTeamMember where
   toJSON AssociateTeamMember' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("remoteAccessAllowed" Prelude..=)
-              Prelude.<$> remoteAccessAllowed,
-            ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            Prelude.Just ("projectId" Prelude..= projectId),
-            Prelude.Just ("userArn" Prelude..= userArn),
-            Prelude.Just ("projectRole" Prelude..= projectRole)
+    Core.object
+      ( Core.catMaybes
+          [ ("remoteAccessAllowed" Core..=)
+              Core.<$> remoteAccessAllowed,
+            ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            Core.Just ("projectId" Core..= projectId),
+            Core.Just ("userArn" Core..= userArn),
+            Core.Just ("projectRole" Core..= projectRole)
           ]
       )
 
-instance Prelude.ToPath AssociateTeamMember where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateTeamMember where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateTeamMember where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateTeamMember where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateTeamMemberResponse' smart constructor.
 data AssociateTeamMemberResponse = AssociateTeamMemberResponse'
   { -- | The user- or system-generated token from the initial request that can be
     -- used to repeat the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateTeamMemberResponse' with all optional fields omitted.
@@ -217,22 +214,22 @@ data AssociateTeamMemberResponse = AssociateTeamMemberResponse'
 -- 'httpStatus', 'associateTeamMemberResponse_httpStatus' - The response's http status code.
 newAssociateTeamMemberResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateTeamMemberResponse
 newAssociateTeamMemberResponse pHttpStatus_ =
   AssociateTeamMemberResponse'
     { clientRequestToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user- or system-generated token from the initial request that can be
 -- used to repeat the request.
-associateTeamMemberResponse_clientRequestToken :: Lens.Lens' AssociateTeamMemberResponse (Prelude.Maybe Prelude.Text)
+associateTeamMemberResponse_clientRequestToken :: Lens.Lens' AssociateTeamMemberResponse (Core.Maybe Core.Text)
 associateTeamMemberResponse_clientRequestToken = Lens.lens (\AssociateTeamMemberResponse' {clientRequestToken} -> clientRequestToken) (\s@AssociateTeamMemberResponse' {} a -> s {clientRequestToken = a} :: AssociateTeamMemberResponse)
 
 -- | The response's http status code.
-associateTeamMemberResponse_httpStatus :: Lens.Lens' AssociateTeamMemberResponse Prelude.Int
+associateTeamMemberResponse_httpStatus :: Lens.Lens' AssociateTeamMemberResponse Core.Int
 associateTeamMemberResponse_httpStatus = Lens.lens (\AssociateTeamMemberResponse' {httpStatus} -> httpStatus) (\s@AssociateTeamMemberResponse' {} a -> s {httpStatus = a} :: AssociateTeamMemberResponse)
 
-instance Prelude.NFData AssociateTeamMemberResponse
+instance Core.NFData AssociateTeamMemberResponse

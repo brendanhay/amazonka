@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.DirectConnect.DeleteBGPPeer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +55,15 @@ import qualified Network.AWS.Response as Response
 data DeleteBGPPeer = DeleteBGPPeer'
   { -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
-    asn :: Prelude.Maybe Prelude.Int,
+    asn :: Core.Maybe Core.Int,
     -- | The ID of the BGP peer.
-    bgpPeerId :: Prelude.Maybe Prelude.Text,
+    bgpPeerId :: Core.Maybe Core.Text,
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceId :: Core.Maybe Core.Text,
     -- | The IP address assigned to the customer interface.
-    customerAddress :: Prelude.Maybe Prelude.Text
+    customerAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBGPPeer' with all optional fields omitted.
@@ -86,86 +85,84 @@ newDeleteBGPPeer ::
   DeleteBGPPeer
 newDeleteBGPPeer =
   DeleteBGPPeer'
-    { asn = Prelude.Nothing,
-      bgpPeerId = Prelude.Nothing,
-      virtualInterfaceId = Prelude.Nothing,
-      customerAddress = Prelude.Nothing
+    { asn = Core.Nothing,
+      bgpPeerId = Core.Nothing,
+      virtualInterfaceId = Core.Nothing,
+      customerAddress = Core.Nothing
     }
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
-deleteBGPPeer_asn :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Int)
+deleteBGPPeer_asn :: Lens.Lens' DeleteBGPPeer (Core.Maybe Core.Int)
 deleteBGPPeer_asn = Lens.lens (\DeleteBGPPeer' {asn} -> asn) (\s@DeleteBGPPeer' {} a -> s {asn = a} :: DeleteBGPPeer)
 
 -- | The ID of the BGP peer.
-deleteBGPPeer_bgpPeerId :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Text)
+deleteBGPPeer_bgpPeerId :: Lens.Lens' DeleteBGPPeer (Core.Maybe Core.Text)
 deleteBGPPeer_bgpPeerId = Lens.lens (\DeleteBGPPeer' {bgpPeerId} -> bgpPeerId) (\s@DeleteBGPPeer' {} a -> s {bgpPeerId = a} :: DeleteBGPPeer)
 
 -- | The ID of the virtual interface.
-deleteBGPPeer_virtualInterfaceId :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Text)
+deleteBGPPeer_virtualInterfaceId :: Lens.Lens' DeleteBGPPeer (Core.Maybe Core.Text)
 deleteBGPPeer_virtualInterfaceId = Lens.lens (\DeleteBGPPeer' {virtualInterfaceId} -> virtualInterfaceId) (\s@DeleteBGPPeer' {} a -> s {virtualInterfaceId = a} :: DeleteBGPPeer)
 
 -- | The IP address assigned to the customer interface.
-deleteBGPPeer_customerAddress :: Lens.Lens' DeleteBGPPeer (Prelude.Maybe Prelude.Text)
+deleteBGPPeer_customerAddress :: Lens.Lens' DeleteBGPPeer (Core.Maybe Core.Text)
 deleteBGPPeer_customerAddress = Lens.lens (\DeleteBGPPeer' {customerAddress} -> customerAddress) (\s@DeleteBGPPeer' {} a -> s {customerAddress = a} :: DeleteBGPPeer)
 
-instance Prelude.AWSRequest DeleteBGPPeer where
-  type Rs DeleteBGPPeer = DeleteBGPPeerResponse
+instance Core.AWSRequest DeleteBGPPeer where
+  type
+    AWSResponse DeleteBGPPeer =
+      DeleteBGPPeerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteBGPPeerResponse'
-            Prelude.<$> (x Prelude..?> "virtualInterface")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "virtualInterface")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBGPPeer
+instance Core.Hashable DeleteBGPPeer
 
-instance Prelude.NFData DeleteBGPPeer
+instance Core.NFData DeleteBGPPeer
 
-instance Prelude.ToHeaders DeleteBGPPeer where
+instance Core.ToHeaders DeleteBGPPeer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.DeleteBGPPeer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OvertureService.DeleteBGPPeer" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteBGPPeer where
+instance Core.ToJSON DeleteBGPPeer where
   toJSON DeleteBGPPeer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("asn" Prelude..=) Prelude.<$> asn,
-            ("bgpPeerId" Prelude..=) Prelude.<$> bgpPeerId,
-            ("virtualInterfaceId" Prelude..=)
-              Prelude.<$> virtualInterfaceId,
-            ("customerAddress" Prelude..=)
-              Prelude.<$> customerAddress
+    Core.object
+      ( Core.catMaybes
+          [ ("asn" Core..=) Core.<$> asn,
+            ("bgpPeerId" Core..=) Core.<$> bgpPeerId,
+            ("virtualInterfaceId" Core..=)
+              Core.<$> virtualInterfaceId,
+            ("customerAddress" Core..=)
+              Core.<$> customerAddress
           ]
       )
 
-instance Prelude.ToPath DeleteBGPPeer where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteBGPPeer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteBGPPeer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBGPPeer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteBGPPeerResponse' smart constructor.
 data DeleteBGPPeerResponse = DeleteBGPPeerResponse'
   { -- | The virtual interface.
-    virtualInterface :: Prelude.Maybe VirtualInterface,
+    virtualInterface :: Core.Maybe VirtualInterface,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBGPPeerResponse' with all optional fields omitted.
@@ -180,21 +177,21 @@ data DeleteBGPPeerResponse = DeleteBGPPeerResponse'
 -- 'httpStatus', 'deleteBGPPeerResponse_httpStatus' - The response's http status code.
 newDeleteBGPPeerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteBGPPeerResponse
 newDeleteBGPPeerResponse pHttpStatus_ =
   DeleteBGPPeerResponse'
     { virtualInterface =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The virtual interface.
-deleteBGPPeerResponse_virtualInterface :: Lens.Lens' DeleteBGPPeerResponse (Prelude.Maybe VirtualInterface)
+deleteBGPPeerResponse_virtualInterface :: Lens.Lens' DeleteBGPPeerResponse (Core.Maybe VirtualInterface)
 deleteBGPPeerResponse_virtualInterface = Lens.lens (\DeleteBGPPeerResponse' {virtualInterface} -> virtualInterface) (\s@DeleteBGPPeerResponse' {} a -> s {virtualInterface = a} :: DeleteBGPPeerResponse)
 
 -- | The response's http status code.
-deleteBGPPeerResponse_httpStatus :: Lens.Lens' DeleteBGPPeerResponse Prelude.Int
+deleteBGPPeerResponse_httpStatus :: Lens.Lens' DeleteBGPPeerResponse Core.Int
 deleteBGPPeerResponse_httpStatus = Lens.lens (\DeleteBGPPeerResponse' {httpStatus} -> httpStatus) (\s@DeleteBGPPeerResponse' {} a -> s {httpStatus = a} :: DeleteBGPPeerResponse)
 
-instance Prelude.NFData DeleteBGPPeerResponse
+instance Core.NFData DeleteBGPPeerResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,9 +65,9 @@ module Network.AWS.DynamoDB.CreateTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -113,7 +112,7 @@ data CreateTable = CreateTable'
     --         across all of the secondary indexes, must not exceed 100. If you
     --         project the same attribute into two different indexes, this
     --         counts as two distinct attributes when determining the total.
-    localSecondaryIndexes :: Prelude.Maybe [LocalSecondaryIndex],
+    localSecondaryIndexes :: Core.Maybe [LocalSecondaryIndex],
     -- | The settings for DynamoDB Streams on the table. These settings consist
     -- of:
     --
@@ -135,7 +134,7 @@ data CreateTable = CreateTable'
     --
     --     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
     --         the item are written to the stream.
-    streamSpecification :: Prelude.Maybe StreamSpecification,
+    streamSpecification :: Core.Maybe StreamSpecification,
     -- | One or more global secondary indexes (the maximum is 20) to be created
     -- on the table. Each global secondary index in the array includes the
     -- following:
@@ -173,9 +172,9 @@ data CreateTable = CreateTable'
     -- -   @ProvisionedThroughput@ - The provisioned throughput settings for
     --     the global secondary index, consisting of read and write capacity
     --     units.
-    globalSecondaryIndexes :: Prelude.Maybe [GlobalSecondaryIndex],
+    globalSecondaryIndexes :: Core.Maybe [GlobalSecondaryIndex],
     -- | Represents the settings used to enable server-side encryption.
-    sSESpecification :: Prelude.Maybe SSESpecification,
+    sSESpecification :: Core.Maybe SSESpecification,
     -- | Controls how you are charged for read and write throughput and how you
     -- manage capacity. This setting can be changed later.
     --
@@ -186,10 +185,10 @@ data CreateTable = CreateTable'
     -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
     --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
     --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-    billingMode :: Prelude.Maybe BillingMode,
+    billingMode :: Core.Maybe BillingMode,
     -- | A list of key-value pairs to label the table. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Represents the provisioned throughput settings for a specified table or
     -- index. The settings can be modified using the @UpdateTable@ operation.
     --
@@ -200,12 +199,12 @@ data CreateTable = CreateTable'
     -- For current minimum and maximum provisioned throughput values, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
     -- in the /Amazon DynamoDB Developer Guide/.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    provisionedThroughput :: Core.Maybe ProvisionedThroughput,
     -- | An array of attributes that describe the key schema for the table and
     -- indexes.
     attributeDefinitions :: [AttributeDefinition],
     -- | The name of the table to create.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | Specifies the attributes that make up the primary key for a table or an
     -- index. The attributes in @KeySchema@ must also be defined in the
     -- @AttributeDefinitions@ array. For more information, see
@@ -243,9 +242,9 @@ data CreateTable = CreateTable'
     -- For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables>
     -- in the /Amazon DynamoDB Developer Guide/.
-    keySchema :: Prelude.NonEmpty KeySchemaElement
+    keySchema :: Core.NonEmpty KeySchemaElement
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTable' with all optional fields omitted.
@@ -424,23 +423,22 @@ data CreateTable = CreateTable'
 -- in the /Amazon DynamoDB Developer Guide/.
 newCreateTable ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'keySchema'
-  Prelude.NonEmpty KeySchemaElement ->
+  Core.NonEmpty KeySchemaElement ->
   CreateTable
 newCreateTable pTableName_ pKeySchema_ =
   CreateTable'
-    { localSecondaryIndexes =
-        Prelude.Nothing,
-      streamSpecification = Prelude.Nothing,
-      globalSecondaryIndexes = Prelude.Nothing,
-      sSESpecification = Prelude.Nothing,
-      billingMode = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
-      attributeDefinitions = Prelude.mempty,
+    { localSecondaryIndexes = Core.Nothing,
+      streamSpecification = Core.Nothing,
+      globalSecondaryIndexes = Core.Nothing,
+      sSESpecification = Core.Nothing,
+      billingMode = Core.Nothing,
+      tags = Core.Nothing,
+      provisionedThroughput = Core.Nothing,
+      attributeDefinitions = Core.mempty,
       tableName = pTableName_,
-      keySchema = Prelude._Coerce Lens.# pKeySchema_
+      keySchema = Lens._Coerce Lens.# pKeySchema_
     }
 
 -- | One or more local secondary indexes (the maximum is 5) to be created on
@@ -480,8 +478,8 @@ newCreateTable pTableName_ pKeySchema_ =
 --         across all of the secondary indexes, must not exceed 100. If you
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
-createTable_localSecondaryIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [LocalSecondaryIndex])
-createTable_localSecondaryIndexes = Lens.lens (\CreateTable' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@CreateTable' {} a -> s {localSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Prelude._Coerce
+createTable_localSecondaryIndexes :: Lens.Lens' CreateTable (Core.Maybe [LocalSecondaryIndex])
+createTable_localSecondaryIndexes = Lens.lens (\CreateTable' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@CreateTable' {} a -> s {localSecondaryIndexes = a} :: CreateTable) Core.. Lens.mapping Lens._Coerce
 
 -- | The settings for DynamoDB Streams on the table. These settings consist
 -- of:
@@ -504,7 +502,7 @@ createTable_localSecondaryIndexes = Lens.lens (\CreateTable' {localSecondaryInde
 --
 --     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
 --         the item are written to the stream.
-createTable_streamSpecification :: Lens.Lens' CreateTable (Prelude.Maybe StreamSpecification)
+createTable_streamSpecification :: Lens.Lens' CreateTable (Core.Maybe StreamSpecification)
 createTable_streamSpecification = Lens.lens (\CreateTable' {streamSpecification} -> streamSpecification) (\s@CreateTable' {} a -> s {streamSpecification = a} :: CreateTable)
 
 -- | One or more global secondary indexes (the maximum is 20) to be created
@@ -544,11 +542,11 @@ createTable_streamSpecification = Lens.lens (\CreateTable' {streamSpecification}
 -- -   @ProvisionedThroughput@ - The provisioned throughput settings for
 --     the global secondary index, consisting of read and write capacity
 --     units.
-createTable_globalSecondaryIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [GlobalSecondaryIndex])
-createTable_globalSecondaryIndexes = Lens.lens (\CreateTable' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@CreateTable' {} a -> s {globalSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Prelude._Coerce
+createTable_globalSecondaryIndexes :: Lens.Lens' CreateTable (Core.Maybe [GlobalSecondaryIndex])
+createTable_globalSecondaryIndexes = Lens.lens (\CreateTable' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@CreateTable' {} a -> s {globalSecondaryIndexes = a} :: CreateTable) Core.. Lens.mapping Lens._Coerce
 
 -- | Represents the settings used to enable server-side encryption.
-createTable_sSESpecification :: Lens.Lens' CreateTable (Prelude.Maybe SSESpecification)
+createTable_sSESpecification :: Lens.Lens' CreateTable (Core.Maybe SSESpecification)
 createTable_sSESpecification = Lens.lens (\CreateTable' {sSESpecification} -> sSESpecification) (\s@CreateTable' {} a -> s {sSESpecification = a} :: CreateTable)
 
 -- | Controls how you are charged for read and write throughput and how you
@@ -561,13 +559,13 @@ createTable_sSESpecification = Lens.lens (\CreateTable' {sSESpecification} -> sS
 -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
 --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-createTable_billingMode :: Lens.Lens' CreateTable (Prelude.Maybe BillingMode)
+createTable_billingMode :: Lens.Lens' CreateTable (Core.Maybe BillingMode)
 createTable_billingMode = Lens.lens (\CreateTable' {billingMode} -> billingMode) (\s@CreateTable' {} a -> s {billingMode = a} :: CreateTable)
 
 -- | A list of key-value pairs to label the table. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html Tagging for DynamoDB>.
-createTable_tags :: Lens.Lens' CreateTable (Prelude.Maybe [Tag])
-createTable_tags = Lens.lens (\CreateTable' {tags} -> tags) (\s@CreateTable' {} a -> s {tags = a} :: CreateTable) Prelude.. Lens.mapping Prelude._Coerce
+createTable_tags :: Lens.Lens' CreateTable (Core.Maybe [Tag])
+createTable_tags = Lens.lens (\CreateTable' {tags} -> tags) (\s@CreateTable' {} a -> s {tags = a} :: CreateTable) Core.. Lens.mapping Lens._Coerce
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the @UpdateTable@ operation.
@@ -579,16 +577,16 @@ createTable_tags = Lens.lens (\CreateTable' {tags} -> tags) (\s@CreateTable' {} 
 -- For current minimum and maximum provisioned throughput values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
 -- in the /Amazon DynamoDB Developer Guide/.
-createTable_provisionedThroughput :: Lens.Lens' CreateTable (Prelude.Maybe ProvisionedThroughput)
+createTable_provisionedThroughput :: Lens.Lens' CreateTable (Core.Maybe ProvisionedThroughput)
 createTable_provisionedThroughput = Lens.lens (\CreateTable' {provisionedThroughput} -> provisionedThroughput) (\s@CreateTable' {} a -> s {provisionedThroughput = a} :: CreateTable)
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
 createTable_attributeDefinitions :: Lens.Lens' CreateTable [AttributeDefinition]
-createTable_attributeDefinitions = Lens.lens (\CreateTable' {attributeDefinitions} -> attributeDefinitions) (\s@CreateTable' {} a -> s {attributeDefinitions = a} :: CreateTable) Prelude.. Prelude._Coerce
+createTable_attributeDefinitions = Lens.lens (\CreateTable' {attributeDefinitions} -> attributeDefinitions) (\s@CreateTable' {} a -> s {attributeDefinitions = a} :: CreateTable) Core.. Lens._Coerce
 
 -- | The name of the table to create.
-createTable_tableName :: Lens.Lens' CreateTable Prelude.Text
+createTable_tableName :: Lens.Lens' CreateTable Core.Text
 createTable_tableName = Lens.lens (\CreateTable' {tableName} -> tableName) (\s@CreateTable' {} a -> s {tableName = a} :: CreateTable)
 
 -- | Specifies the attributes that make up the primary key for a table or an
@@ -628,80 +626,76 @@ createTable_tableName = Lens.lens (\CreateTable' {tableName} -> tableName) (\s@C
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Working with Tables>
 -- in the /Amazon DynamoDB Developer Guide/.
-createTable_keySchema :: Lens.Lens' CreateTable (Prelude.NonEmpty KeySchemaElement)
-createTable_keySchema = Lens.lens (\CreateTable' {keySchema} -> keySchema) (\s@CreateTable' {} a -> s {keySchema = a} :: CreateTable) Prelude.. Prelude._Coerce
+createTable_keySchema :: Lens.Lens' CreateTable (Core.NonEmpty KeySchemaElement)
+createTable_keySchema = Lens.lens (\CreateTable' {keySchema} -> keySchema) (\s@CreateTable' {} a -> s {keySchema = a} :: CreateTable) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateTable where
-  type Rs CreateTable = CreateTableResponse
+instance Core.AWSRequest CreateTable where
+  type AWSResponse CreateTable = CreateTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateTableResponse'
-            Prelude.<$> (x Prelude..?> "TableDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TableDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTable
+instance Core.Hashable CreateTable
 
-instance Prelude.NFData CreateTable
+instance Core.NFData CreateTable
 
-instance Prelude.ToHeaders CreateTable where
+instance Core.ToHeaders CreateTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.CreateTable" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DynamoDB_20120810.CreateTable" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateTable where
+instance Core.ToJSON CreateTable where
   toJSON CreateTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LocalSecondaryIndexes" Prelude..=)
-              Prelude.<$> localSecondaryIndexes,
-            ("StreamSpecification" Prelude..=)
-              Prelude.<$> streamSpecification,
-            ("GlobalSecondaryIndexes" Prelude..=)
-              Prelude.<$> globalSecondaryIndexes,
-            ("SSESpecification" Prelude..=)
-              Prelude.<$> sSESpecification,
-            ("BillingMode" Prelude..=) Prelude.<$> billingMode,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("ProvisionedThroughput" Prelude..=)
-              Prelude.<$> provisionedThroughput,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("LocalSecondaryIndexes" Core..=)
+              Core.<$> localSecondaryIndexes,
+            ("StreamSpecification" Core..=)
+              Core.<$> streamSpecification,
+            ("GlobalSecondaryIndexes" Core..=)
+              Core.<$> globalSecondaryIndexes,
+            ("SSESpecification" Core..=)
+              Core.<$> sSESpecification,
+            ("BillingMode" Core..=) Core.<$> billingMode,
+            ("Tags" Core..=) Core.<$> tags,
+            ("ProvisionedThroughput" Core..=)
+              Core.<$> provisionedThroughput,
+            Core.Just
               ( "AttributeDefinitions"
-                  Prelude..= attributeDefinitions
+                  Core..= attributeDefinitions
               ),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just ("KeySchema" Prelude..= keySchema)
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("KeySchema" Core..= keySchema)
           ]
       )
 
-instance Prelude.ToPath CreateTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTable where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @CreateTable@ operation.
 --
 -- /See:/ 'newCreateTableResponse' smart constructor.
 data CreateTableResponse = CreateTableResponse'
   { -- | Represents the properties of the table.
-    tableDescription :: Prelude.Maybe TableDescription,
+    tableDescription :: Core.Maybe TableDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTableResponse' with all optional fields omitted.
@@ -716,21 +710,21 @@ data CreateTableResponse = CreateTableResponse'
 -- 'httpStatus', 'createTableResponse_httpStatus' - The response's http status code.
 newCreateTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTableResponse
 newCreateTableResponse pHttpStatus_ =
   CreateTableResponse'
     { tableDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the properties of the table.
-createTableResponse_tableDescription :: Lens.Lens' CreateTableResponse (Prelude.Maybe TableDescription)
+createTableResponse_tableDescription :: Lens.Lens' CreateTableResponse (Core.Maybe TableDescription)
 createTableResponse_tableDescription = Lens.lens (\CreateTableResponse' {tableDescription} -> tableDescription) (\s@CreateTableResponse' {} a -> s {tableDescription = a} :: CreateTableResponse)
 
 -- | The response's http status code.
-createTableResponse_httpStatus :: Lens.Lens' CreateTableResponse Prelude.Int
+createTableResponse_httpStatus :: Lens.Lens' CreateTableResponse Core.Int
 createTableResponse_httpStatus = Lens.lens (\CreateTableResponse' {httpStatus} -> httpStatus) (\s@CreateTableResponse' {} a -> s {httpStatus = a} :: CreateTableResponse)
 
-instance Prelude.NFData CreateTableResponse
+instance Core.NFData CreateTableResponse

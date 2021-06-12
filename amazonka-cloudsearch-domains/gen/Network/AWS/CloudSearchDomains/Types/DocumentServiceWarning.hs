@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A warning returned by the document service when an issue is discovered
 -- while processing an upload request.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDocumentServiceWarning' smart constructor.
 data DocumentServiceWarning = DocumentServiceWarning'
   { -- | The description for a warning returned by the document service.
-    message :: Prelude.Maybe Prelude.Text
+    message :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentServiceWarning' with all optional fields omitted.
@@ -45,21 +44,21 @@ data DocumentServiceWarning = DocumentServiceWarning'
 newDocumentServiceWarning ::
   DocumentServiceWarning
 newDocumentServiceWarning =
-  DocumentServiceWarning' {message = Prelude.Nothing}
+  DocumentServiceWarning' {message = Core.Nothing}
 
 -- | The description for a warning returned by the document service.
-documentServiceWarning_message :: Lens.Lens' DocumentServiceWarning (Prelude.Maybe Prelude.Text)
+documentServiceWarning_message :: Lens.Lens' DocumentServiceWarning (Core.Maybe Core.Text)
 documentServiceWarning_message = Lens.lens (\DocumentServiceWarning' {message} -> message) (\s@DocumentServiceWarning' {} a -> s {message = a} :: DocumentServiceWarning)
 
-instance Prelude.FromJSON DocumentServiceWarning where
+instance Core.FromJSON DocumentServiceWarning where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentServiceWarning"
       ( \x ->
           DocumentServiceWarning'
-            Prelude.<$> (x Prelude..:? "message")
+            Core.<$> (x Core..:? "message")
       )
 
-instance Prelude.Hashable DocumentServiceWarning
+instance Core.Hashable DocumentServiceWarning
 
-instance Prelude.NFData DocumentServiceWarning
+instance Core.NFData DocumentServiceWarning

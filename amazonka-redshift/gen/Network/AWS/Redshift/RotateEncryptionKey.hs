@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Redshift.RotateEncryptionKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,9 +54,9 @@ data RotateEncryptionKey = RotateEncryptionKey'
     --
     -- Constraints: Must be the name of valid cluster that has encryption
     -- enabled.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RotateEncryptionKey' with all optional fields omitted.
@@ -74,7 +73,7 @@ data RotateEncryptionKey = RotateEncryptionKey'
 -- enabled.
 newRotateEncryptionKey ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   RotateEncryptionKey
 newRotateEncryptionKey pClusterIdentifier_ =
   RotateEncryptionKey'
@@ -87,12 +86,12 @@ newRotateEncryptionKey pClusterIdentifier_ =
 --
 -- Constraints: Must be the name of valid cluster that has encryption
 -- enabled.
-rotateEncryptionKey_clusterIdentifier :: Lens.Lens' RotateEncryptionKey Prelude.Text
+rotateEncryptionKey_clusterIdentifier :: Lens.Lens' RotateEncryptionKey Core.Text
 rotateEncryptionKey_clusterIdentifier = Lens.lens (\RotateEncryptionKey' {clusterIdentifier} -> clusterIdentifier) (\s@RotateEncryptionKey' {} a -> s {clusterIdentifier = a} :: RotateEncryptionKey)
 
-instance Prelude.AWSRequest RotateEncryptionKey where
+instance Core.AWSRequest RotateEncryptionKey where
   type
-    Rs RotateEncryptionKey =
+    AWSResponse RotateEncryptionKey =
       RotateEncryptionKeyResponse
   request = Request.postQuery defaultService
   response =
@@ -100,37 +99,36 @@ instance Prelude.AWSRequest RotateEncryptionKey where
       "RotateEncryptionKeyResult"
       ( \s h x ->
           RotateEncryptionKeyResponse'
-            Prelude.<$> (x Prelude..@? "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RotateEncryptionKey
+instance Core.Hashable RotateEncryptionKey
 
-instance Prelude.NFData RotateEncryptionKey
+instance Core.NFData RotateEncryptionKey
 
-instance Prelude.ToHeaders RotateEncryptionKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RotateEncryptionKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RotateEncryptionKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath RotateEncryptionKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RotateEncryptionKey where
+instance Core.ToQuery RotateEncryptionKey where
   toQuery RotateEncryptionKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RotateEncryptionKey" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier
+          Core.=: ("RotateEncryptionKey" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newRotateEncryptionKeyResponse' smart constructor.
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RotateEncryptionKeyResponse' with all optional fields omitted.
@@ -145,21 +143,21 @@ data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
 -- 'httpStatus', 'rotateEncryptionKeyResponse_httpStatus' - The response's http status code.
 newRotateEncryptionKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RotateEncryptionKeyResponse
 newRotateEncryptionKeyResponse pHttpStatus_ =
   RotateEncryptionKeyResponse'
     { cluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-rotateEncryptionKeyResponse_cluster :: Lens.Lens' RotateEncryptionKeyResponse (Prelude.Maybe Cluster)
+rotateEncryptionKeyResponse_cluster :: Lens.Lens' RotateEncryptionKeyResponse (Core.Maybe Cluster)
 rotateEncryptionKeyResponse_cluster = Lens.lens (\RotateEncryptionKeyResponse' {cluster} -> cluster) (\s@RotateEncryptionKeyResponse' {} a -> s {cluster = a} :: RotateEncryptionKeyResponse)
 
 -- | The response's http status code.
-rotateEncryptionKeyResponse_httpStatus :: Lens.Lens' RotateEncryptionKeyResponse Prelude.Int
+rotateEncryptionKeyResponse_httpStatus :: Lens.Lens' RotateEncryptionKeyResponse Core.Int
 rotateEncryptionKeyResponse_httpStatus = Lens.lens (\RotateEncryptionKeyResponse' {httpStatus} -> httpStatus) (\s@RotateEncryptionKeyResponse' {} a -> s {httpStatus = a} :: RotateEncryptionKeyResponse)
 
-instance Prelude.NFData RotateEncryptionKeyResponse
+instance Core.NFData RotateEncryptionKeyResponse

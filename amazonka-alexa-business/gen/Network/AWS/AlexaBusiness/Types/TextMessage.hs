@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AlexaBusiness.Types.TextMessage where
 
 import Network.AWS.AlexaBusiness.Types.Locale
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The text message.
 --
@@ -31,9 +30,9 @@ data TextMessage = TextMessage'
   { -- | The locale of the text message. Currently, en-US is supported.
     locale :: Locale,
     -- | The value of the text message.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TextMessage' with all optional fields omitted.
@@ -50,7 +49,7 @@ newTextMessage ::
   -- | 'locale'
   Locale ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   TextMessage
 newTextMessage pLocale_ pValue_ =
   TextMessage' {locale = pLocale_, value = pValue_}
@@ -60,18 +59,18 @@ textMessage_locale :: Lens.Lens' TextMessage Locale
 textMessage_locale = Lens.lens (\TextMessage' {locale} -> locale) (\s@TextMessage' {} a -> s {locale = a} :: TextMessage)
 
 -- | The value of the text message.
-textMessage_value :: Lens.Lens' TextMessage Prelude.Text
+textMessage_value :: Lens.Lens' TextMessage Core.Text
 textMessage_value = Lens.lens (\TextMessage' {value} -> value) (\s@TextMessage' {} a -> s {value = a} :: TextMessage)
 
-instance Prelude.Hashable TextMessage
+instance Core.Hashable TextMessage
 
-instance Prelude.NFData TextMessage
+instance Core.NFData TextMessage
 
-instance Prelude.ToJSON TextMessage where
+instance Core.ToJSON TextMessage where
   toJSON TextMessage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Locale" Prelude..= locale),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Locale" Core..= locale),
+            Core.Just ("Value" Core..= value)
           ]
       )

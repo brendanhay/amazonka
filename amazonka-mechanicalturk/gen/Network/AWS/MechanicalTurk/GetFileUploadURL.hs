@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.MechanicalTurk.GetFileUploadURL
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,12 +60,12 @@ import qualified Network.AWS.Response as Response
 data GetFileUploadURL = GetFileUploadURL'
   { -- | The ID of the assignment that contains the question with a
     -- FileUploadAnswer.
-    assignmentId :: Prelude.Text,
+    assignmentId :: Core.Text,
     -- | The identifier of the question with a FileUploadAnswer, as specified in
     -- the QuestionForm of the HIT.
-    questionIdentifier :: Prelude.Text
+    questionIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFileUploadURL' with all optional fields omitted.
@@ -83,9 +82,9 @@ data GetFileUploadURL = GetFileUploadURL'
 -- the QuestionForm of the HIT.
 newGetFileUploadURL ::
   -- | 'assignmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'questionIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   GetFileUploadURL
 newGetFileUploadURL
   pAssignmentId_
@@ -97,71 +96,68 @@ newGetFileUploadURL
 
 -- | The ID of the assignment that contains the question with a
 -- FileUploadAnswer.
-getFileUploadURL_assignmentId :: Lens.Lens' GetFileUploadURL Prelude.Text
+getFileUploadURL_assignmentId :: Lens.Lens' GetFileUploadURL Core.Text
 getFileUploadURL_assignmentId = Lens.lens (\GetFileUploadURL' {assignmentId} -> assignmentId) (\s@GetFileUploadURL' {} a -> s {assignmentId = a} :: GetFileUploadURL)
 
 -- | The identifier of the question with a FileUploadAnswer, as specified in
 -- the QuestionForm of the HIT.
-getFileUploadURL_questionIdentifier :: Lens.Lens' GetFileUploadURL Prelude.Text
+getFileUploadURL_questionIdentifier :: Lens.Lens' GetFileUploadURL Core.Text
 getFileUploadURL_questionIdentifier = Lens.lens (\GetFileUploadURL' {questionIdentifier} -> questionIdentifier) (\s@GetFileUploadURL' {} a -> s {questionIdentifier = a} :: GetFileUploadURL)
 
-instance Prelude.AWSRequest GetFileUploadURL where
-  type Rs GetFileUploadURL = GetFileUploadURLResponse
+instance Core.AWSRequest GetFileUploadURL where
+  type
+    AWSResponse GetFileUploadURL =
+      GetFileUploadURLResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetFileUploadURLResponse'
-            Prelude.<$> (x Prelude..?> "FileUploadURL")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FileUploadURL")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetFileUploadURL
+instance Core.Hashable GetFileUploadURL
 
-instance Prelude.NFData GetFileUploadURL
+instance Core.NFData GetFileUploadURL
 
-instance Prelude.ToHeaders GetFileUploadURL where
+instance Core.ToHeaders GetFileUploadURL where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.GetFileUploadURL" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.GetFileUploadURL" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetFileUploadURL where
+instance Core.ToJSON GetFileUploadURL where
   toJSON GetFileUploadURL' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AssignmentId" Prelude..= assignmentId),
-            Prelude.Just
-              ( "QuestionIdentifier"
-                  Prelude..= questionIdentifier
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AssignmentId" Core..= assignmentId),
+            Core.Just
+              ("QuestionIdentifier" Core..= questionIdentifier)
           ]
       )
 
-instance Prelude.ToPath GetFileUploadURL where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetFileUploadURL where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetFileUploadURL where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetFileUploadURL where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetFileUploadURLResponse' smart constructor.
 data GetFileUploadURLResponse = GetFileUploadURLResponse'
   { -- | A temporary URL for the file that the Worker uploaded for the answer.
-    fileUploadURL :: Prelude.Maybe Prelude.Text,
+    fileUploadURL :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFileUploadURLResponse' with all optional fields omitted.
@@ -176,21 +172,21 @@ data GetFileUploadURLResponse = GetFileUploadURLResponse'
 -- 'httpStatus', 'getFileUploadURLResponse_httpStatus' - The response's http status code.
 newGetFileUploadURLResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetFileUploadURLResponse
 newGetFileUploadURLResponse pHttpStatus_ =
   GetFileUploadURLResponse'
     { fileUploadURL =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A temporary URL for the file that the Worker uploaded for the answer.
-getFileUploadURLResponse_fileUploadURL :: Lens.Lens' GetFileUploadURLResponse (Prelude.Maybe Prelude.Text)
+getFileUploadURLResponse_fileUploadURL :: Lens.Lens' GetFileUploadURLResponse (Core.Maybe Core.Text)
 getFileUploadURLResponse_fileUploadURL = Lens.lens (\GetFileUploadURLResponse' {fileUploadURL} -> fileUploadURL) (\s@GetFileUploadURLResponse' {} a -> s {fileUploadURL = a} :: GetFileUploadURLResponse)
 
 -- | The response's http status code.
-getFileUploadURLResponse_httpStatus :: Lens.Lens' GetFileUploadURLResponse Prelude.Int
+getFileUploadURLResponse_httpStatus :: Lens.Lens' GetFileUploadURLResponse Core.Int
 getFileUploadURLResponse_httpStatus = Lens.lens (\GetFileUploadURLResponse' {httpStatus} -> httpStatus) (\s@GetFileUploadURLResponse' {} a -> s {httpStatus = a} :: GetFileUploadURLResponse)
 
-instance Prelude.NFData GetFileUploadURLResponse
+instance Core.NFData GetFileUploadURLResponse

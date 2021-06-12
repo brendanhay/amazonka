@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SageMaker.DeleteExperiment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,9 +50,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteExperiment' smart constructor.
 data DeleteExperiment = DeleteExperiment'
   { -- | The name of the experiment to delete.
-    experimentName :: Prelude.Text
+    experimentName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteExperiment' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeleteExperiment = DeleteExperiment'
 -- 'experimentName', 'deleteExperiment_experimentName' - The name of the experiment to delete.
 newDeleteExperiment ::
   -- | 'experimentName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteExperiment
 newDeleteExperiment pExperimentName_ =
   DeleteExperiment'
@@ -75,60 +74,60 @@ newDeleteExperiment pExperimentName_ =
     }
 
 -- | The name of the experiment to delete.
-deleteExperiment_experimentName :: Lens.Lens' DeleteExperiment Prelude.Text
+deleteExperiment_experimentName :: Lens.Lens' DeleteExperiment Core.Text
 deleteExperiment_experimentName = Lens.lens (\DeleteExperiment' {experimentName} -> experimentName) (\s@DeleteExperiment' {} a -> s {experimentName = a} :: DeleteExperiment)
 
-instance Prelude.AWSRequest DeleteExperiment where
-  type Rs DeleteExperiment = DeleteExperimentResponse
+instance Core.AWSRequest DeleteExperiment where
+  type
+    AWSResponse DeleteExperiment =
+      DeleteExperimentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteExperimentResponse'
-            Prelude.<$> (x Prelude..?> "ExperimentArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ExperimentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteExperiment
+instance Core.Hashable DeleteExperiment
 
-instance Prelude.NFData DeleteExperiment
+instance Core.NFData DeleteExperiment
 
-instance Prelude.ToHeaders DeleteExperiment where
+instance Core.ToHeaders DeleteExperiment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.DeleteExperiment" :: Prelude.ByteString),
+              Core.=# ("SageMaker.DeleteExperiment" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteExperiment where
+instance Core.ToJSON DeleteExperiment where
   toJSON DeleteExperiment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ExperimentName" Prelude..= experimentName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ExperimentName" Core..= experimentName)
           ]
       )
 
-instance Prelude.ToPath DeleteExperiment where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteExperiment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteExperiment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteExperiment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteExperimentResponse' smart constructor.
 data DeleteExperimentResponse = DeleteExperimentResponse'
   { -- | The Amazon Resource Name (ARN) of the experiment that is being deleted.
-    experimentArn :: Prelude.Maybe Prelude.Text,
+    experimentArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteExperimentResponse' with all optional fields omitted.
@@ -143,21 +142,21 @@ data DeleteExperimentResponse = DeleteExperimentResponse'
 -- 'httpStatus', 'deleteExperimentResponse_httpStatus' - The response's http status code.
 newDeleteExperimentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteExperimentResponse
 newDeleteExperimentResponse pHttpStatus_ =
   DeleteExperimentResponse'
     { experimentArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the experiment that is being deleted.
-deleteExperimentResponse_experimentArn :: Lens.Lens' DeleteExperimentResponse (Prelude.Maybe Prelude.Text)
+deleteExperimentResponse_experimentArn :: Lens.Lens' DeleteExperimentResponse (Core.Maybe Core.Text)
 deleteExperimentResponse_experimentArn = Lens.lens (\DeleteExperimentResponse' {experimentArn} -> experimentArn) (\s@DeleteExperimentResponse' {} a -> s {experimentArn = a} :: DeleteExperimentResponse)
 
 -- | The response's http status code.
-deleteExperimentResponse_httpStatus :: Lens.Lens' DeleteExperimentResponse Prelude.Int
+deleteExperimentResponse_httpStatus :: Lens.Lens' DeleteExperimentResponse Core.Int
 deleteExperimentResponse_httpStatus = Lens.lens (\DeleteExperimentResponse' {httpStatus} -> httpStatus) (\s@DeleteExperimentResponse' {} a -> s {httpStatus = a} :: DeleteExperimentResponse)
 
-instance Prelude.NFData DeleteExperimentResponse
+instance Core.NFData DeleteExperimentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.DMS.DescribeEventCategories
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeEventCategories' smart constructor.
 data DescribeEventCategories = DescribeEventCategories'
   { -- | Filters applied to the event categories.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The type of AWS DMS resource that generates events.
     --
     -- Valid values: replication-instance | replication-task
-    sourceType :: Prelude.Maybe Prelude.Text
+    sourceType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventCategories' with all optional fields omitted.
@@ -81,79 +80,77 @@ newDescribeEventCategories ::
   DescribeEventCategories
 newDescribeEventCategories =
   DescribeEventCategories'
-    { filters = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+    { filters = Core.Nothing,
+      sourceType = Core.Nothing
     }
 
 -- | Filters applied to the event categories.
-describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Prelude.Maybe [Filter])
-describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Prelude.. Lens.mapping Prelude._Coerce
+describeEventCategories_filters :: Lens.Lens' DescribeEventCategories (Core.Maybe [Filter])
+describeEventCategories_filters = Lens.lens (\DescribeEventCategories' {filters} -> filters) (\s@DescribeEventCategories' {} a -> s {filters = a} :: DescribeEventCategories) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of AWS DMS resource that generates events.
 --
 -- Valid values: replication-instance | replication-task
-describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Prelude.Maybe Prelude.Text)
+describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Core.Maybe Core.Text)
 describeEventCategories_sourceType = Lens.lens (\DescribeEventCategories' {sourceType} -> sourceType) (\s@DescribeEventCategories' {} a -> s {sourceType = a} :: DescribeEventCategories)
 
-instance Prelude.AWSRequest DescribeEventCategories where
+instance Core.AWSRequest DescribeEventCategories where
   type
-    Rs DescribeEventCategories =
+    AWSResponse DescribeEventCategories =
       DescribeEventCategoriesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEventCategoriesResponse'
-            Prelude.<$> ( x Prelude..?> "EventCategoryGroupList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "EventCategoryGroupList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventCategories
+instance Core.Hashable DescribeEventCategories
 
-instance Prelude.NFData DescribeEventCategories
+instance Core.NFData DescribeEventCategories
 
-instance Prelude.ToHeaders DescribeEventCategories where
+instance Core.ToHeaders DescribeEventCategories where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DescribeEventCategories" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DescribeEventCategories" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEventCategories where
+instance Core.ToJSON DescribeEventCategories where
   toJSON DescribeEventCategories' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Filters" Prelude..=) Prelude.<$> filters,
-            ("SourceType" Prelude..=) Prelude.<$> sourceType
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("SourceType" Core..=) Core.<$> sourceType
           ]
       )
 
-instance Prelude.ToPath DescribeEventCategories where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEventCategories where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEventCategories where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEventCategories where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeEventCategoriesResponse' smart constructor.
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
   { -- | A list of event categories.
-    eventCategoryGroupList :: Prelude.Maybe [EventCategoryGroup],
+    eventCategoryGroupList :: Core.Maybe [EventCategoryGroup],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventCategoriesResponse' with all optional fields omitted.
@@ -168,23 +165,21 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
 -- 'httpStatus', 'describeEventCategoriesResponse_httpStatus' - The response's http status code.
 newDescribeEventCategoriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventCategoriesResponse
 newDescribeEventCategoriesResponse pHttpStatus_ =
   DescribeEventCategoriesResponse'
     { eventCategoryGroupList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of event categories.
-describeEventCategoriesResponse_eventCategoryGroupList :: Lens.Lens' DescribeEventCategoriesResponse (Prelude.Maybe [EventCategoryGroup])
-describeEventCategoriesResponse_eventCategoryGroupList = Lens.lens (\DescribeEventCategoriesResponse' {eventCategoryGroupList} -> eventCategoryGroupList) (\s@DescribeEventCategoriesResponse' {} a -> s {eventCategoryGroupList = a} :: DescribeEventCategoriesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventCategoriesResponse_eventCategoryGroupList :: Lens.Lens' DescribeEventCategoriesResponse (Core.Maybe [EventCategoryGroup])
+describeEventCategoriesResponse_eventCategoryGroupList = Lens.lens (\DescribeEventCategoriesResponse' {eventCategoryGroupList} -> eventCategoryGroupList) (\s@DescribeEventCategoriesResponse' {} a -> s {eventCategoryGroupList = a} :: DescribeEventCategoriesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventCategoriesResponse_httpStatus :: Lens.Lens' DescribeEventCategoriesResponse Prelude.Int
+describeEventCategoriesResponse_httpStatus :: Lens.Lens' DescribeEventCategoriesResponse Core.Int
 describeEventCategoriesResponse_httpStatus = Lens.lens (\DescribeEventCategoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeEventCategoriesResponse' {} a -> s {httpStatus = a} :: DescribeEventCategoriesResponse)
 
-instance
-  Prelude.NFData
-    DescribeEventCategoriesResponse
+instance Core.NFData DescribeEventCategoriesResponse

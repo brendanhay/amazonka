@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputDestinationRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Endpoint settings for a PUSH type input.
 --
 -- /See:/ 'newInputDestinationRequest' smart constructor.
 data InputDestinationRequest = InputDestinationRequest'
   { -- | A unique name for the location the RTMP stream is being pushed to.
-    streamName :: Prelude.Maybe Prelude.Text
+    streamName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputDestinationRequest' with all optional fields omitted.
@@ -44,22 +43,19 @@ data InputDestinationRequest = InputDestinationRequest'
 newInputDestinationRequest ::
   InputDestinationRequest
 newInputDestinationRequest =
-  InputDestinationRequest'
-    { streamName =
-        Prelude.Nothing
-    }
+  InputDestinationRequest' {streamName = Core.Nothing}
 
 -- | A unique name for the location the RTMP stream is being pushed to.
-inputDestinationRequest_streamName :: Lens.Lens' InputDestinationRequest (Prelude.Maybe Prelude.Text)
+inputDestinationRequest_streamName :: Lens.Lens' InputDestinationRequest (Core.Maybe Core.Text)
 inputDestinationRequest_streamName = Lens.lens (\InputDestinationRequest' {streamName} -> streamName) (\s@InputDestinationRequest' {} a -> s {streamName = a} :: InputDestinationRequest)
 
-instance Prelude.Hashable InputDestinationRequest
+instance Core.Hashable InputDestinationRequest
 
-instance Prelude.NFData InputDestinationRequest
+instance Core.NFData InputDestinationRequest
 
-instance Prelude.ToJSON InputDestinationRequest where
+instance Core.ToJSON InputDestinationRequest where
   toJSON InputDestinationRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("streamName" Prelude..=) Prelude.<$> streamName]
+    Core.object
+      ( Core.catMaybes
+          [("streamName" Core..=) Core.<$> streamName]
       )

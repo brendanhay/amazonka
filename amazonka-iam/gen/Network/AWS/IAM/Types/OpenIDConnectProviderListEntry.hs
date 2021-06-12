@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.OpenIDConnectProviderListEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect
 -- provider.
 --
 -- /See:/ 'newOpenIDConnectProviderListEntry' smart constructor.
 data OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'
-  { arn :: Prelude.Maybe Prelude.Text
+  { arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpenIDConnectProviderListEntry' with all optional fields omitted.
@@ -44,27 +43,17 @@ data OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'
 newOpenIDConnectProviderListEntry ::
   OpenIDConnectProviderListEntry
 newOpenIDConnectProviderListEntry =
-  OpenIDConnectProviderListEntry'
-    { arn =
-        Prelude.Nothing
-    }
+  OpenIDConnectProviderListEntry' {arn = Core.Nothing}
 
 -- | Undocumented member.
-openIDConnectProviderListEntry_arn :: Lens.Lens' OpenIDConnectProviderListEntry (Prelude.Maybe Prelude.Text)
+openIDConnectProviderListEntry_arn :: Lens.Lens' OpenIDConnectProviderListEntry (Core.Maybe Core.Text)
 openIDConnectProviderListEntry_arn = Lens.lens (\OpenIDConnectProviderListEntry' {arn} -> arn) (\s@OpenIDConnectProviderListEntry' {} a -> s {arn = a} :: OpenIDConnectProviderListEntry)
 
-instance
-  Prelude.FromXML
-    OpenIDConnectProviderListEntry
-  where
+instance Core.FromXML OpenIDConnectProviderListEntry where
   parseXML x =
     OpenIDConnectProviderListEntry'
-      Prelude.<$> (x Prelude..@? "Arn")
+      Core.<$> (x Core..@? "Arn")
 
-instance
-  Prelude.Hashable
-    OpenIDConnectProviderListEntry
+instance Core.Hashable OpenIDConnectProviderListEntry
 
-instance
-  Prelude.NFData
-    OpenIDConnectProviderListEntry
+instance Core.NFData OpenIDConnectProviderListEntry

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AlexaBusiness.GetConferenceProvider
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetConferenceProvider' smart constructor.
 data GetConferenceProvider = GetConferenceProvider'
   { -- | The ARN of the newly created conference provider.
-    conferenceProviderArn :: Prelude.Text
+    conferenceProviderArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetConferenceProvider' with all optional fields omitted.
@@ -64,7 +63,7 @@ data GetConferenceProvider = GetConferenceProvider'
 -- 'conferenceProviderArn', 'getConferenceProvider_conferenceProviderArn' - The ARN of the newly created conference provider.
 newGetConferenceProvider ::
   -- | 'conferenceProviderArn'
-  Prelude.Text ->
+  Core.Text ->
   GetConferenceProvider
 newGetConferenceProvider pConferenceProviderArn_ =
   GetConferenceProvider'
@@ -73,66 +72,64 @@ newGetConferenceProvider pConferenceProviderArn_ =
     }
 
 -- | The ARN of the newly created conference provider.
-getConferenceProvider_conferenceProviderArn :: Lens.Lens' GetConferenceProvider Prelude.Text
+getConferenceProvider_conferenceProviderArn :: Lens.Lens' GetConferenceProvider Core.Text
 getConferenceProvider_conferenceProviderArn = Lens.lens (\GetConferenceProvider' {conferenceProviderArn} -> conferenceProviderArn) (\s@GetConferenceProvider' {} a -> s {conferenceProviderArn = a} :: GetConferenceProvider)
 
-instance Prelude.AWSRequest GetConferenceProvider where
+instance Core.AWSRequest GetConferenceProvider where
   type
-    Rs GetConferenceProvider =
+    AWSResponse GetConferenceProvider =
       GetConferenceProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetConferenceProviderResponse'
-            Prelude.<$> (x Prelude..?> "ConferenceProvider")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ConferenceProvider")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetConferenceProvider
+instance Core.Hashable GetConferenceProvider
 
-instance Prelude.NFData GetConferenceProvider
+instance Core.NFData GetConferenceProvider
 
-instance Prelude.ToHeaders GetConferenceProvider where
+instance Core.ToHeaders GetConferenceProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.GetConferenceProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.GetConferenceProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetConferenceProvider where
+instance Core.ToJSON GetConferenceProvider where
   toJSON GetConferenceProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ConferenceProviderArn"
-                  Prelude..= conferenceProviderArn
+                  Core..= conferenceProviderArn
               )
           ]
       )
 
-instance Prelude.ToPath GetConferenceProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetConferenceProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetConferenceProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetConferenceProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetConferenceProviderResponse' smart constructor.
 data GetConferenceProviderResponse = GetConferenceProviderResponse'
   { -- | The conference provider.
-    conferenceProvider :: Prelude.Maybe ConferenceProvider,
+    conferenceProvider :: Core.Maybe ConferenceProvider,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetConferenceProviderResponse' with all optional fields omitted.
@@ -147,21 +144,21 @@ data GetConferenceProviderResponse = GetConferenceProviderResponse'
 -- 'httpStatus', 'getConferenceProviderResponse_httpStatus' - The response's http status code.
 newGetConferenceProviderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetConferenceProviderResponse
 newGetConferenceProviderResponse pHttpStatus_ =
   GetConferenceProviderResponse'
     { conferenceProvider =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The conference provider.
-getConferenceProviderResponse_conferenceProvider :: Lens.Lens' GetConferenceProviderResponse (Prelude.Maybe ConferenceProvider)
+getConferenceProviderResponse_conferenceProvider :: Lens.Lens' GetConferenceProviderResponse (Core.Maybe ConferenceProvider)
 getConferenceProviderResponse_conferenceProvider = Lens.lens (\GetConferenceProviderResponse' {conferenceProvider} -> conferenceProvider) (\s@GetConferenceProviderResponse' {} a -> s {conferenceProvider = a} :: GetConferenceProviderResponse)
 
 -- | The response's http status code.
-getConferenceProviderResponse_httpStatus :: Lens.Lens' GetConferenceProviderResponse Prelude.Int
+getConferenceProviderResponse_httpStatus :: Lens.Lens' GetConferenceProviderResponse Core.Int
 getConferenceProviderResponse_httpStatus = Lens.lens (\GetConferenceProviderResponse' {httpStatus} -> httpStatus) (\s@GetConferenceProviderResponse' {} a -> s {httpStatus = a} :: GetConferenceProviderResponse)
 
-instance Prelude.NFData GetConferenceProviderResponse
+instance Core.NFData GetConferenceProviderResponse

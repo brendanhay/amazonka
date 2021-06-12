@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS Organizations organizational unit data source for the sync.
 --
 -- /See:/ 'newResourceDataSyncOrganizationalUnit' smart constructor.
 data ResourceDataSyncOrganizationalUnit = ResourceDataSyncOrganizationalUnit'
   { -- | The AWS Organization unit ID data source for the sync.
-    organizationalUnitId :: Prelude.Maybe Prelude.Text
+    organizationalUnitId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceDataSyncOrganizationalUnit' with all optional fields omitted.
@@ -46,41 +45,41 @@ newResourceDataSyncOrganizationalUnit ::
 newResourceDataSyncOrganizationalUnit =
   ResourceDataSyncOrganizationalUnit'
     { organizationalUnitId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The AWS Organization unit ID data source for the sync.
-resourceDataSyncOrganizationalUnit_organizationalUnitId :: Lens.Lens' ResourceDataSyncOrganizationalUnit (Prelude.Maybe Prelude.Text)
+resourceDataSyncOrganizationalUnit_organizationalUnitId :: Lens.Lens' ResourceDataSyncOrganizationalUnit (Core.Maybe Core.Text)
 resourceDataSyncOrganizationalUnit_organizationalUnitId = Lens.lens (\ResourceDataSyncOrganizationalUnit' {organizationalUnitId} -> organizationalUnitId) (\s@ResourceDataSyncOrganizationalUnit' {} a -> s {organizationalUnitId = a} :: ResourceDataSyncOrganizationalUnit)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ResourceDataSyncOrganizationalUnit
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceDataSyncOrganizationalUnit"
       ( \x ->
           ResourceDataSyncOrganizationalUnit'
-            Prelude.<$> (x Prelude..:? "OrganizationalUnitId")
+            Core.<$> (x Core..:? "OrganizationalUnitId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ResourceDataSyncOrganizationalUnit
 
 instance
-  Prelude.NFData
+  Core.NFData
     ResourceDataSyncOrganizationalUnit
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ResourceDataSyncOrganizationalUnit
   where
   toJSON ResourceDataSyncOrganizationalUnit' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("OrganizationalUnitId" Prelude..=)
-              Prelude.<$> organizationalUnitId
+    Core.object
+      ( Core.catMaybes
+          [ ("OrganizationalUnitId" Core..=)
+              Core.<$> organizationalUnitId
           ]
       )

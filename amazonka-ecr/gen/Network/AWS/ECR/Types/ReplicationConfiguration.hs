@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ReplicationConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.ReplicationRule
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The replication configuration for a registry.
 --
@@ -34,7 +33,7 @@ data ReplicationConfiguration = ReplicationConfiguration'
     -- destinations.
     rules :: [ReplicationRule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationConfiguration' with all optional fields omitted.
@@ -51,31 +50,29 @@ data ReplicationConfiguration = ReplicationConfiguration'
 newReplicationConfiguration ::
   ReplicationConfiguration
 newReplicationConfiguration =
-  ReplicationConfiguration' {rules = Prelude.mempty}
+  ReplicationConfiguration' {rules = Core.mempty}
 
 -- | An array of objects representing the replication rules for a replication
 -- configuration. A replication configuration may contain only one
 -- replication rule but the rule may contain one or more replication
 -- destinations.
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
-replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Prelude._Coerce
+replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ReplicationConfiguration where
+instance Core.FromJSON ReplicationConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReplicationConfiguration"
       ( \x ->
           ReplicationConfiguration'
-            Prelude.<$> (x Prelude..:? "rules" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "rules" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ReplicationConfiguration
+instance Core.Hashable ReplicationConfiguration
 
-instance Prelude.NFData ReplicationConfiguration
+instance Core.NFData ReplicationConfiguration
 
-instance Prelude.ToJSON ReplicationConfiguration where
+instance Core.ToJSON ReplicationConfiguration where
   toJSON ReplicationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("rules" Prelude..= rules)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("rules" Core..= rules)])

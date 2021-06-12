@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.SpekeKeyProviderCmaf where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | If your output group type is CMAF, use these settings when doing DRM
 -- encryption with a SPEKE-compliant key provider. If your output group
@@ -32,28 +31,28 @@ import qualified Network.AWS.Prelude as Prelude
 data SpekeKeyProviderCmaf = SpekeKeyProviderCmaf'
   { -- | Specify the resource ID that your SPEKE-compliant key provider uses to
     -- identify this content.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | If you want your key provider to encrypt the content keys that it
     -- provides to MediaConvert, set up a certificate with a master key using
     -- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
     -- (ARN) here.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | Specify the URL to the key server that your SPEKE-compliant DRM key
     -- provider uses to provide keys for encrypting your content.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | Specify the DRM system ID that you want signaled in the HLS manifest
     -- that MediaConvert creates as part of this CMAF package. The HLS manifest
     -- can currently signal only one system ID. For more information, see
     -- https:\/\/dashif.org\/identifiers\/content_protection\/.
-    hlsSignaledSystemIds :: Prelude.Maybe [Prelude.Text],
+    hlsSignaledSystemIds :: Core.Maybe [Core.Text],
     -- | Specify the DRM system IDs that you want signaled in the DASH manifest
     -- that MediaConvert creates as part of this CMAF package. The DASH
     -- manifest can currently signal up to three system IDs. For more
     -- information, see
     -- https:\/\/dashif.org\/identifiers\/content_protection\/.
-    dashSignaledSystemIds :: Prelude.Maybe [Prelude.Text]
+    dashSignaledSystemIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SpekeKeyProviderCmaf' with all optional fields omitted.
@@ -88,77 +87,76 @@ newSpekeKeyProviderCmaf ::
   SpekeKeyProviderCmaf
 newSpekeKeyProviderCmaf =
   SpekeKeyProviderCmaf'
-    { resourceId = Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      url = Prelude.Nothing,
-      hlsSignaledSystemIds = Prelude.Nothing,
-      dashSignaledSystemIds = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      certificateArn = Core.Nothing,
+      url = Core.Nothing,
+      hlsSignaledSystemIds = Core.Nothing,
+      dashSignaledSystemIds = Core.Nothing
     }
 
 -- | Specify the resource ID that your SPEKE-compliant key provider uses to
 -- identify this content.
-spekeKeyProviderCmaf_resourceId :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe Prelude.Text)
+spekeKeyProviderCmaf_resourceId :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe Core.Text)
 spekeKeyProviderCmaf_resourceId = Lens.lens (\SpekeKeyProviderCmaf' {resourceId} -> resourceId) (\s@SpekeKeyProviderCmaf' {} a -> s {resourceId = a} :: SpekeKeyProviderCmaf)
 
 -- | If you want your key provider to encrypt the content keys that it
 -- provides to MediaConvert, set up a certificate with a master key using
 -- AWS Certificate Manager. Specify the certificate\'s Amazon Resource Name
 -- (ARN) here.
-spekeKeyProviderCmaf_certificateArn :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe Prelude.Text)
+spekeKeyProviderCmaf_certificateArn :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe Core.Text)
 spekeKeyProviderCmaf_certificateArn = Lens.lens (\SpekeKeyProviderCmaf' {certificateArn} -> certificateArn) (\s@SpekeKeyProviderCmaf' {} a -> s {certificateArn = a} :: SpekeKeyProviderCmaf)
 
 -- | Specify the URL to the key server that your SPEKE-compliant DRM key
 -- provider uses to provide keys for encrypting your content.
-spekeKeyProviderCmaf_url :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe Prelude.Text)
+spekeKeyProviderCmaf_url :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe Core.Text)
 spekeKeyProviderCmaf_url = Lens.lens (\SpekeKeyProviderCmaf' {url} -> url) (\s@SpekeKeyProviderCmaf' {} a -> s {url = a} :: SpekeKeyProviderCmaf)
 
 -- | Specify the DRM system ID that you want signaled in the HLS manifest
 -- that MediaConvert creates as part of this CMAF package. The HLS manifest
 -- can currently signal only one system ID. For more information, see
 -- https:\/\/dashif.org\/identifiers\/content_protection\/.
-spekeKeyProviderCmaf_hlsSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe [Prelude.Text])
-spekeKeyProviderCmaf_hlsSignaledSystemIds = Lens.lens (\SpekeKeyProviderCmaf' {hlsSignaledSystemIds} -> hlsSignaledSystemIds) (\s@SpekeKeyProviderCmaf' {} a -> s {hlsSignaledSystemIds = a} :: SpekeKeyProviderCmaf) Prelude.. Lens.mapping Prelude._Coerce
+spekeKeyProviderCmaf_hlsSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe [Core.Text])
+spekeKeyProviderCmaf_hlsSignaledSystemIds = Lens.lens (\SpekeKeyProviderCmaf' {hlsSignaledSystemIds} -> hlsSignaledSystemIds) (\s@SpekeKeyProviderCmaf' {} a -> s {hlsSignaledSystemIds = a} :: SpekeKeyProviderCmaf) Core.. Lens.mapping Lens._Coerce
 
 -- | Specify the DRM system IDs that you want signaled in the DASH manifest
 -- that MediaConvert creates as part of this CMAF package. The DASH
 -- manifest can currently signal up to three system IDs. For more
 -- information, see
 -- https:\/\/dashif.org\/identifiers\/content_protection\/.
-spekeKeyProviderCmaf_dashSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Prelude.Maybe [Prelude.Text])
-spekeKeyProviderCmaf_dashSignaledSystemIds = Lens.lens (\SpekeKeyProviderCmaf' {dashSignaledSystemIds} -> dashSignaledSystemIds) (\s@SpekeKeyProviderCmaf' {} a -> s {dashSignaledSystemIds = a} :: SpekeKeyProviderCmaf) Prelude.. Lens.mapping Prelude._Coerce
+spekeKeyProviderCmaf_dashSignaledSystemIds :: Lens.Lens' SpekeKeyProviderCmaf (Core.Maybe [Core.Text])
+spekeKeyProviderCmaf_dashSignaledSystemIds = Lens.lens (\SpekeKeyProviderCmaf' {dashSignaledSystemIds} -> dashSignaledSystemIds) (\s@SpekeKeyProviderCmaf' {} a -> s {dashSignaledSystemIds = a} :: SpekeKeyProviderCmaf) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON SpekeKeyProviderCmaf where
+instance Core.FromJSON SpekeKeyProviderCmaf where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SpekeKeyProviderCmaf"
       ( \x ->
           SpekeKeyProviderCmaf'
-            Prelude.<$> (x Prelude..:? "resourceId")
-            Prelude.<*> (x Prelude..:? "certificateArn")
-            Prelude.<*> (x Prelude..:? "url")
-            Prelude.<*> ( x Prelude..:? "hlsSignaledSystemIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "dashSignaledSystemIds"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "resourceId")
+            Core.<*> (x Core..:? "certificateArn")
+            Core.<*> (x Core..:? "url")
+            Core.<*> ( x Core..:? "hlsSignaledSystemIds"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "dashSignaledSystemIds"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable SpekeKeyProviderCmaf
+instance Core.Hashable SpekeKeyProviderCmaf
 
-instance Prelude.NFData SpekeKeyProviderCmaf
+instance Core.NFData SpekeKeyProviderCmaf
 
-instance Prelude.ToJSON SpekeKeyProviderCmaf where
+instance Core.ToJSON SpekeKeyProviderCmaf where
   toJSON SpekeKeyProviderCmaf' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resourceId" Prelude..=) Prelude.<$> resourceId,
-            ("certificateArn" Prelude..=)
-              Prelude.<$> certificateArn,
-            ("url" Prelude..=) Prelude.<$> url,
-            ("hlsSignaledSystemIds" Prelude..=)
-              Prelude.<$> hlsSignaledSystemIds,
-            ("dashSignaledSystemIds" Prelude..=)
-              Prelude.<$> dashSignaledSystemIds
+    Core.object
+      ( Core.catMaybes
+          [ ("resourceId" Core..=) Core.<$> resourceId,
+            ("certificateArn" Core..=) Core.<$> certificateArn,
+            ("url" Core..=) Core.<$> url,
+            ("hlsSignaledSystemIds" Core..=)
+              Core.<$> hlsSignaledSystemIds,
+            ("dashSignaledSystemIds" Core..=)
+              Core.<$> dashSignaledSystemIds
           ]
       )

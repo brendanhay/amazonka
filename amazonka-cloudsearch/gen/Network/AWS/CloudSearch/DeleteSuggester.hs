@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CloudSearch.DeleteSuggester
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteSuggester' smart constructor.
 data DeleteSuggester = DeleteSuggester'
-  { domainName :: Prelude.Text,
+  { domainName :: Core.Text,
     -- | Specifies the name of the suggester you want to delete.
-    suggesterName :: Prelude.Text
+    suggesterName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSuggester' with all optional fields omitted.
@@ -74,9 +73,9 @@ data DeleteSuggester = DeleteSuggester'
 -- 'suggesterName', 'deleteSuggester_suggesterName' - Specifies the name of the suggester you want to delete.
 newDeleteSuggester ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'suggesterName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSuggester
 newDeleteSuggester pDomainName_ pSuggesterName_ =
   DeleteSuggester'
@@ -85,44 +84,45 @@ newDeleteSuggester pDomainName_ pSuggesterName_ =
     }
 
 -- | Undocumented member.
-deleteSuggester_domainName :: Lens.Lens' DeleteSuggester Prelude.Text
+deleteSuggester_domainName :: Lens.Lens' DeleteSuggester Core.Text
 deleteSuggester_domainName = Lens.lens (\DeleteSuggester' {domainName} -> domainName) (\s@DeleteSuggester' {} a -> s {domainName = a} :: DeleteSuggester)
 
 -- | Specifies the name of the suggester you want to delete.
-deleteSuggester_suggesterName :: Lens.Lens' DeleteSuggester Prelude.Text
+deleteSuggester_suggesterName :: Lens.Lens' DeleteSuggester Core.Text
 deleteSuggester_suggesterName = Lens.lens (\DeleteSuggester' {suggesterName} -> suggesterName) (\s@DeleteSuggester' {} a -> s {suggesterName = a} :: DeleteSuggester)
 
-instance Prelude.AWSRequest DeleteSuggester where
-  type Rs DeleteSuggester = DeleteSuggesterResponse
+instance Core.AWSRequest DeleteSuggester where
+  type
+    AWSResponse DeleteSuggester =
+      DeleteSuggesterResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteSuggesterResult"
       ( \s h x ->
           DeleteSuggesterResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "Suggester")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "Suggester")
       )
 
-instance Prelude.Hashable DeleteSuggester
+instance Core.Hashable DeleteSuggester
 
-instance Prelude.NFData DeleteSuggester
+instance Core.NFData DeleteSuggester
 
-instance Prelude.ToHeaders DeleteSuggester where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteSuggester where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteSuggester where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSuggester where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSuggester where
+instance Core.ToQuery DeleteSuggester where
   toQuery DeleteSuggester' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteSuggester" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName,
-        "SuggesterName" Prelude.=: suggesterName
+          Core.=: ("DeleteSuggester" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName,
+        "SuggesterName" Core.=: suggesterName
       ]
 
 -- | The result of a @DeleteSuggester@ request. Contains the status of the
@@ -131,11 +131,11 @@ instance Prelude.ToQuery DeleteSuggester where
 -- /See:/ 'newDeleteSuggesterResponse' smart constructor.
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The status of the suggester being deleted.
     suggester :: SuggesterStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSuggesterResponse' with all optional fields omitted.
@@ -150,7 +150,7 @@ data DeleteSuggesterResponse = DeleteSuggesterResponse'
 -- 'suggester', 'deleteSuggesterResponse_suggester' - The status of the suggester being deleted.
 newDeleteSuggesterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'suggester'
   SuggesterStatus ->
   DeleteSuggesterResponse
@@ -161,11 +161,11 @@ newDeleteSuggesterResponse pHttpStatus_ pSuggester_ =
     }
 
 -- | The response's http status code.
-deleteSuggesterResponse_httpStatus :: Lens.Lens' DeleteSuggesterResponse Prelude.Int
+deleteSuggesterResponse_httpStatus :: Lens.Lens' DeleteSuggesterResponse Core.Int
 deleteSuggesterResponse_httpStatus = Lens.lens (\DeleteSuggesterResponse' {httpStatus} -> httpStatus) (\s@DeleteSuggesterResponse' {} a -> s {httpStatus = a} :: DeleteSuggesterResponse)
 
 -- | The status of the suggester being deleted.
 deleteSuggesterResponse_suggester :: Lens.Lens' DeleteSuggesterResponse SuggesterStatus
 deleteSuggesterResponse_suggester = Lens.lens (\DeleteSuggesterResponse' {suggester} -> suggester) (\s@DeleteSuggesterResponse' {} a -> s {suggester = a} :: DeleteSuggesterResponse)
 
-instance Prelude.NFData DeleteSuggesterResponse
+instance Core.NFData DeleteSuggesterResponse

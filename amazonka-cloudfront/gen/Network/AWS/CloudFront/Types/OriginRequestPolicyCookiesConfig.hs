@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicyCookiesConfig where
 
 import Network.AWS.CloudFront.Types.CookieNames
 import Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any cookies in viewer requests (and if
 -- so, which cookies) are included in requests that CloudFront sends to the
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOriginRequestPolicyCookiesConfig' smart constructor.
 data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
-  { cookies :: Prelude.Maybe CookieNames,
+  { cookies :: Core.Maybe CookieNames,
     -- | Determines whether cookies in viewer requests are included in requests
     -- that CloudFront sends to the origin. Valid values are:
     --
@@ -48,7 +47,7 @@ data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
     --     CloudFront sends to the origin.
     cookieBehavior :: OriginRequestPolicyCookieBehavior
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicyCookiesConfig' with all optional fields omitted.
@@ -81,12 +80,12 @@ newOriginRequestPolicyCookiesConfig ::
 newOriginRequestPolicyCookiesConfig pCookieBehavior_ =
   OriginRequestPolicyCookiesConfig'
     { cookies =
-        Prelude.Nothing,
+        Core.Nothing,
       cookieBehavior = pCookieBehavior_
     }
 
 -- | Undocumented member.
-originRequestPolicyCookiesConfig_cookies :: Lens.Lens' OriginRequestPolicyCookiesConfig (Prelude.Maybe CookieNames)
+originRequestPolicyCookiesConfig_cookies :: Lens.Lens' OriginRequestPolicyCookiesConfig (Core.Maybe CookieNames)
 originRequestPolicyCookiesConfig_cookies = Lens.lens (\OriginRequestPolicyCookiesConfig' {cookies} -> cookies) (\s@OriginRequestPolicyCookiesConfig' {} a -> s {cookies = a} :: OriginRequestPolicyCookiesConfig)
 
 -- | Determines whether cookies in viewer requests are included in requests
@@ -107,28 +106,23 @@ originRequestPolicyCookiesConfig_cookieBehavior :: Lens.Lens' OriginRequestPolic
 originRequestPolicyCookiesConfig_cookieBehavior = Lens.lens (\OriginRequestPolicyCookiesConfig' {cookieBehavior} -> cookieBehavior) (\s@OriginRequestPolicyCookiesConfig' {} a -> s {cookieBehavior = a} :: OriginRequestPolicyCookiesConfig)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     OriginRequestPolicyCookiesConfig
   where
   parseXML x =
     OriginRequestPolicyCookiesConfig'
-      Prelude.<$> (x Prelude..@? "Cookies")
-      Prelude.<*> (x Prelude..@ "CookieBehavior")
+      Core.<$> (x Core..@? "Cookies")
+      Core.<*> (x Core..@ "CookieBehavior")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     OriginRequestPolicyCookiesConfig
 
-instance
-  Prelude.NFData
-    OriginRequestPolicyCookiesConfig
+instance Core.NFData OriginRequestPolicyCookiesConfig
 
-instance
-  Prelude.ToXML
-    OriginRequestPolicyCookiesConfig
-  where
+instance Core.ToXML OriginRequestPolicyCookiesConfig where
   toXML OriginRequestPolicyCookiesConfig' {..} =
-    Prelude.mconcat
-      [ "Cookies" Prelude.@= cookies,
-        "CookieBehavior" Prelude.@= cookieBehavior
+    Core.mconcat
+      [ "Cookies" Core.@= cookies,
+        "CookieBehavior" Core.@= cookieBehavior
       ]

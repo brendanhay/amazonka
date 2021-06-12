@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.CoversBodyPart where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an item of Personal Protective Equipment covering a
 -- corresponding body part. For more information, see
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCoversBodyPart' smart constructor.
 data CoversBodyPart = CoversBodyPart'
   { -- | The confidence that Amazon Rekognition has in the value of @Value@.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | True if the PPE covers the corresponding body part, otherwise false.
-    value :: Prelude.Maybe Prelude.Bool
+    value :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CoversBodyPart' with all optional fields omitted.
@@ -51,28 +50,28 @@ newCoversBodyPart ::
   CoversBodyPart
 newCoversBodyPart =
   CoversBodyPart'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { confidence = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The confidence that Amazon Rekognition has in the value of @Value@.
-coversBodyPart_confidence :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Double)
+coversBodyPart_confidence :: Lens.Lens' CoversBodyPart (Core.Maybe Core.Double)
 coversBodyPart_confidence = Lens.lens (\CoversBodyPart' {confidence} -> confidence) (\s@CoversBodyPart' {} a -> s {confidence = a} :: CoversBodyPart)
 
 -- | True if the PPE covers the corresponding body part, otherwise false.
-coversBodyPart_value :: Lens.Lens' CoversBodyPart (Prelude.Maybe Prelude.Bool)
+coversBodyPart_value :: Lens.Lens' CoversBodyPart (Core.Maybe Core.Bool)
 coversBodyPart_value = Lens.lens (\CoversBodyPart' {value} -> value) (\s@CoversBodyPart' {} a -> s {value = a} :: CoversBodyPart)
 
-instance Prelude.FromJSON CoversBodyPart where
+instance Core.FromJSON CoversBodyPart where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CoversBodyPart"
       ( \x ->
           CoversBodyPart'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable CoversBodyPart
+instance Core.Hashable CoversBodyPart
 
-instance Prelude.NFData CoversBodyPart
+instance Core.NFData CoversBodyPart

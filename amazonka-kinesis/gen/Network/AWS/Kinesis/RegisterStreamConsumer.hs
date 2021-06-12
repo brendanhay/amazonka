@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.Kinesis.RegisterStreamConsumer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,12 +68,12 @@ data RegisterStreamConsumer = RegisterStreamConsumer'
   { -- | The ARN of the Kinesis data stream that you want to register the
     -- consumer with. For more info, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    streamARN :: Prelude.Text,
+    streamARN :: Core.Text,
     -- | For a given Kinesis data stream, each consumer must have a unique name.
     -- However, consumer names don\'t have to be unique across data streams.
-    consumerName :: Prelude.Text
+    consumerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterStreamConsumer' with all optional fields omitted.
@@ -92,9 +91,9 @@ data RegisterStreamConsumer = RegisterStreamConsumer'
 -- However, consumer names don\'t have to be unique across data streams.
 newRegisterStreamConsumer ::
   -- | 'streamARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'consumerName'
-  Prelude.Text ->
+  Core.Text ->
   RegisterStreamConsumer
 newRegisterStreamConsumer pStreamARN_ pConsumerName_ =
   RegisterStreamConsumer'
@@ -105,72 +104,69 @@ newRegisterStreamConsumer pStreamARN_ pConsumerName_ =
 -- | The ARN of the Kinesis data stream that you want to register the
 -- consumer with. For more info, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-registerStreamConsumer_streamARN :: Lens.Lens' RegisterStreamConsumer Prelude.Text
+registerStreamConsumer_streamARN :: Lens.Lens' RegisterStreamConsumer Core.Text
 registerStreamConsumer_streamARN = Lens.lens (\RegisterStreamConsumer' {streamARN} -> streamARN) (\s@RegisterStreamConsumer' {} a -> s {streamARN = a} :: RegisterStreamConsumer)
 
 -- | For a given Kinesis data stream, each consumer must have a unique name.
 -- However, consumer names don\'t have to be unique across data streams.
-registerStreamConsumer_consumerName :: Lens.Lens' RegisterStreamConsumer Prelude.Text
+registerStreamConsumer_consumerName :: Lens.Lens' RegisterStreamConsumer Core.Text
 registerStreamConsumer_consumerName = Lens.lens (\RegisterStreamConsumer' {consumerName} -> consumerName) (\s@RegisterStreamConsumer' {} a -> s {consumerName = a} :: RegisterStreamConsumer)
 
-instance Prelude.AWSRequest RegisterStreamConsumer where
+instance Core.AWSRequest RegisterStreamConsumer where
   type
-    Rs RegisterStreamConsumer =
+    AWSResponse RegisterStreamConsumer =
       RegisterStreamConsumerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterStreamConsumerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Consumer")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Consumer")
       )
 
-instance Prelude.Hashable RegisterStreamConsumer
+instance Core.Hashable RegisterStreamConsumer
 
-instance Prelude.NFData RegisterStreamConsumer
+instance Core.NFData RegisterStreamConsumer
 
-instance Prelude.ToHeaders RegisterStreamConsumer where
+instance Core.ToHeaders RegisterStreamConsumer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.RegisterStreamConsumer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.RegisterStreamConsumer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterStreamConsumer where
+instance Core.ToJSON RegisterStreamConsumer where
   toJSON RegisterStreamConsumer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamARN" Prelude..= streamARN),
-            Prelude.Just
-              ("ConsumerName" Prelude..= consumerName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamARN" Core..= streamARN),
+            Core.Just ("ConsumerName" Core..= consumerName)
           ]
       )
 
-instance Prelude.ToPath RegisterStreamConsumer where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterStreamConsumer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterStreamConsumer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterStreamConsumer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterStreamConsumerResponse' smart constructor.
 data RegisterStreamConsumerResponse = RegisterStreamConsumerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | An object that represents the details of the consumer you registered.
     -- When you register a consumer, it gets an ARN that is generated by
     -- Kinesis Data Streams.
     consumer :: Consumer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterStreamConsumerResponse' with all optional fields omitted.
@@ -187,7 +183,7 @@ data RegisterStreamConsumerResponse = RegisterStreamConsumerResponse'
 -- Kinesis Data Streams.
 newRegisterStreamConsumerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'consumer'
   Consumer ->
   RegisterStreamConsumerResponse
@@ -201,7 +197,7 @@ newRegisterStreamConsumerResponse
       }
 
 -- | The response's http status code.
-registerStreamConsumerResponse_httpStatus :: Lens.Lens' RegisterStreamConsumerResponse Prelude.Int
+registerStreamConsumerResponse_httpStatus :: Lens.Lens' RegisterStreamConsumerResponse Core.Int
 registerStreamConsumerResponse_httpStatus = Lens.lens (\RegisterStreamConsumerResponse' {httpStatus} -> httpStatus) (\s@RegisterStreamConsumerResponse' {} a -> s {httpStatus = a} :: RegisterStreamConsumerResponse)
 
 -- | An object that represents the details of the consumer you registered.
@@ -210,6 +206,4 @@ registerStreamConsumerResponse_httpStatus = Lens.lens (\RegisterStreamConsumerRe
 registerStreamConsumerResponse_consumer :: Lens.Lens' RegisterStreamConsumerResponse Consumer
 registerStreamConsumerResponse_consumer = Lens.lens (\RegisterStreamConsumerResponse' {consumer} -> consumer) (\s@RegisterStreamConsumerResponse' {} a -> s {consumer = a} :: RegisterStreamConsumerResponse)
 
-instance
-  Prelude.NFData
-    RegisterStreamConsumerResponse
+instance Core.NFData RegisterStreamConsumerResponse

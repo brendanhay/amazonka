@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.CodeSigningSignature where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the signature for a file.
 --
 -- /See:/ 'newCodeSigningSignature' smart constructor.
 data CodeSigningSignature = CodeSigningSignature'
   { -- | A base64 encoded binary representation of the code signing signature.
-    inlineDocument :: Prelude.Maybe Prelude.Base64
+    inlineDocument :: Core.Maybe Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CodeSigningSignature' with all optional fields omitted.
@@ -50,7 +49,7 @@ newCodeSigningSignature ::
 newCodeSigningSignature =
   CodeSigningSignature'
     { inlineDocument =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A base64 encoded binary representation of the code signing signature.--
@@ -58,27 +57,25 @@ newCodeSigningSignature =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-codeSigningSignature_inlineDocument :: Lens.Lens' CodeSigningSignature (Prelude.Maybe Prelude.ByteString)
-codeSigningSignature_inlineDocument = Lens.lens (\CodeSigningSignature' {inlineDocument} -> inlineDocument) (\s@CodeSigningSignature' {} a -> s {inlineDocument = a} :: CodeSigningSignature) Prelude.. Lens.mapping Prelude._Base64
+codeSigningSignature_inlineDocument :: Lens.Lens' CodeSigningSignature (Core.Maybe Core.ByteString)
+codeSigningSignature_inlineDocument = Lens.lens (\CodeSigningSignature' {inlineDocument} -> inlineDocument) (\s@CodeSigningSignature' {} a -> s {inlineDocument = a} :: CodeSigningSignature) Core.. Lens.mapping Core._Base64
 
-instance Prelude.FromJSON CodeSigningSignature where
+instance Core.FromJSON CodeSigningSignature where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CodeSigningSignature"
       ( \x ->
           CodeSigningSignature'
-            Prelude.<$> (x Prelude..:? "inlineDocument")
+            Core.<$> (x Core..:? "inlineDocument")
       )
 
-instance Prelude.Hashable CodeSigningSignature
+instance Core.Hashable CodeSigningSignature
 
-instance Prelude.NFData CodeSigningSignature
+instance Core.NFData CodeSigningSignature
 
-instance Prelude.ToJSON CodeSigningSignature where
+instance Core.ToJSON CodeSigningSignature where
   toJSON CodeSigningSignature' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("inlineDocument" Prelude..=)
-              Prelude.<$> inlineDocument
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("inlineDocument" Core..=) Core.<$> inlineDocument]
       )

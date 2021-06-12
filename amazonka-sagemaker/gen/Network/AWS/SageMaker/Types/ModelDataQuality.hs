@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelDataQuality where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetricsSource
 
 -- | Data quality constraints and statistics for a model.
@@ -29,11 +28,11 @@ import Network.AWS.SageMaker.Types.MetricsSource
 -- /See:/ 'newModelDataQuality' smart constructor.
 data ModelDataQuality = ModelDataQuality'
   { -- | Data quality constraints for a model.
-    constraints :: Prelude.Maybe MetricsSource,
+    constraints :: Core.Maybe MetricsSource,
     -- | Data quality statistics for a model.
-    statistics :: Prelude.Maybe MetricsSource
+    statistics :: Core.Maybe MetricsSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelDataQuality' with all optional fields omitted.
@@ -50,37 +49,37 @@ newModelDataQuality ::
   ModelDataQuality
 newModelDataQuality =
   ModelDataQuality'
-    { constraints = Prelude.Nothing,
-      statistics = Prelude.Nothing
+    { constraints = Core.Nothing,
+      statistics = Core.Nothing
     }
 
 -- | Data quality constraints for a model.
-modelDataQuality_constraints :: Lens.Lens' ModelDataQuality (Prelude.Maybe MetricsSource)
+modelDataQuality_constraints :: Lens.Lens' ModelDataQuality (Core.Maybe MetricsSource)
 modelDataQuality_constraints = Lens.lens (\ModelDataQuality' {constraints} -> constraints) (\s@ModelDataQuality' {} a -> s {constraints = a} :: ModelDataQuality)
 
 -- | Data quality statistics for a model.
-modelDataQuality_statistics :: Lens.Lens' ModelDataQuality (Prelude.Maybe MetricsSource)
+modelDataQuality_statistics :: Lens.Lens' ModelDataQuality (Core.Maybe MetricsSource)
 modelDataQuality_statistics = Lens.lens (\ModelDataQuality' {statistics} -> statistics) (\s@ModelDataQuality' {} a -> s {statistics = a} :: ModelDataQuality)
 
-instance Prelude.FromJSON ModelDataQuality where
+instance Core.FromJSON ModelDataQuality where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelDataQuality"
       ( \x ->
           ModelDataQuality'
-            Prelude.<$> (x Prelude..:? "Constraints")
-            Prelude.<*> (x Prelude..:? "Statistics")
+            Core.<$> (x Core..:? "Constraints")
+            Core.<*> (x Core..:? "Statistics")
       )
 
-instance Prelude.Hashable ModelDataQuality
+instance Core.Hashable ModelDataQuality
 
-instance Prelude.NFData ModelDataQuality
+instance Core.NFData ModelDataQuality
 
-instance Prelude.ToJSON ModelDataQuality where
+instance Core.ToJSON ModelDataQuality where
   toJSON ModelDataQuality' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Constraints" Prelude..=) Prelude.<$> constraints,
-            ("Statistics" Prelude..=) Prelude.<$> statistics
+    Core.object
+      ( Core.catMaybes
+          [ ("Constraints" Core..=) Core.<$> constraints,
+            ("Statistics" Core..=) Core.<$> statistics
           ]
       )

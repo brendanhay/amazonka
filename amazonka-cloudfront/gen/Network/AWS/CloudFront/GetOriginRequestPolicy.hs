@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.CloudFront.GetOriginRequestPolicy
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,9 +65,9 @@ data GetOriginRequestPolicy = GetOriginRequestPolicy'
     -- @GetDistribution@. If the origin request policy is not attached to a
     -- cache behavior, you can get the identifier using
     -- @ListOriginRequestPolicies@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOriginRequestPolicy' with all optional fields omitted.
@@ -86,7 +85,7 @@ data GetOriginRequestPolicy = GetOriginRequestPolicy'
 -- @ListOriginRequestPolicies@.
 newGetOriginRequestPolicy ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetOriginRequestPolicy
 newGetOriginRequestPolicy pId_ =
   GetOriginRequestPolicy' {id = pId_}
@@ -97,50 +96,48 @@ newGetOriginRequestPolicy pId_ =
 -- @GetDistribution@. If the origin request policy is not attached to a
 -- cache behavior, you can get the identifier using
 -- @ListOriginRequestPolicies@.
-getOriginRequestPolicy_id :: Lens.Lens' GetOriginRequestPolicy Prelude.Text
+getOriginRequestPolicy_id :: Lens.Lens' GetOriginRequestPolicy Core.Text
 getOriginRequestPolicy_id = Lens.lens (\GetOriginRequestPolicy' {id} -> id) (\s@GetOriginRequestPolicy' {} a -> s {id = a} :: GetOriginRequestPolicy)
 
-instance Prelude.AWSRequest GetOriginRequestPolicy where
+instance Core.AWSRequest GetOriginRequestPolicy where
   type
-    Rs GetOriginRequestPolicy =
+    AWSResponse GetOriginRequestPolicy =
       GetOriginRequestPolicyResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetOriginRequestPolicyResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetOriginRequestPolicy
+instance Core.Hashable GetOriginRequestPolicy
 
-instance Prelude.NFData GetOriginRequestPolicy
+instance Core.NFData GetOriginRequestPolicy
 
-instance Prelude.ToHeaders GetOriginRequestPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetOriginRequestPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetOriginRequestPolicy where
+instance Core.ToPath GetOriginRequestPolicy where
   toPath GetOriginRequestPolicy' {..} =
-    Prelude.mconcat
-      [ "/2020-05-31/origin-request-policy/",
-        Prelude.toBS id
-      ]
+    Core.mconcat
+      ["/2020-05-31/origin-request-policy/", Core.toBS id]
 
-instance Prelude.ToQuery GetOriginRequestPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetOriginRequestPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetOriginRequestPolicyResponse' smart constructor.
 data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
   { -- | The current version of the origin request policy.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The origin request policy.
-    originRequestPolicy :: Prelude.Maybe OriginRequestPolicy,
+    originRequestPolicy :: Core.Maybe OriginRequestPolicy,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOriginRequestPolicyResponse' with all optional fields omitted.
@@ -157,28 +154,26 @@ data GetOriginRequestPolicyResponse = GetOriginRequestPolicyResponse'
 -- 'httpStatus', 'getOriginRequestPolicyResponse_httpStatus' - The response's http status code.
 newGetOriginRequestPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetOriginRequestPolicyResponse
 newGetOriginRequestPolicyResponse pHttpStatus_ =
   GetOriginRequestPolicyResponse'
     { eTag =
-        Prelude.Nothing,
-      originRequestPolicy = Prelude.Nothing,
+        Core.Nothing,
+      originRequestPolicy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the origin request policy.
-getOriginRequestPolicyResponse_eTag :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe Prelude.Text)
+getOriginRequestPolicyResponse_eTag :: Lens.Lens' GetOriginRequestPolicyResponse (Core.Maybe Core.Text)
 getOriginRequestPolicyResponse_eTag = Lens.lens (\GetOriginRequestPolicyResponse' {eTag} -> eTag) (\s@GetOriginRequestPolicyResponse' {} a -> s {eTag = a} :: GetOriginRequestPolicyResponse)
 
 -- | The origin request policy.
-getOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' GetOriginRequestPolicyResponse (Prelude.Maybe OriginRequestPolicy)
+getOriginRequestPolicyResponse_originRequestPolicy :: Lens.Lens' GetOriginRequestPolicyResponse (Core.Maybe OriginRequestPolicy)
 getOriginRequestPolicyResponse_originRequestPolicy = Lens.lens (\GetOriginRequestPolicyResponse' {originRequestPolicy} -> originRequestPolicy) (\s@GetOriginRequestPolicyResponse' {} a -> s {originRequestPolicy = a} :: GetOriginRequestPolicyResponse)
 
 -- | The response's http status code.
-getOriginRequestPolicyResponse_httpStatus :: Lens.Lens' GetOriginRequestPolicyResponse Prelude.Int
+getOriginRequestPolicyResponse_httpStatus :: Lens.Lens' GetOriginRequestPolicyResponse Core.Int
 getOriginRequestPolicyResponse_httpStatus = Lens.lens (\GetOriginRequestPolicyResponse' {httpStatus} -> httpStatus) (\s@GetOriginRequestPolicyResponse' {} a -> s {httpStatus = a} :: GetOriginRequestPolicyResponse)
 
-instance
-  Prelude.NFData
-    GetOriginRequestPolicyResponse
+instance Core.NFData GetOriginRequestPolicyResponse

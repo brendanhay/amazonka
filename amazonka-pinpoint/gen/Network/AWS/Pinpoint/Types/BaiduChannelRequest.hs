@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.BaiduChannelRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status and settings of the Baidu (Baidu Cloud Push)
 -- channel for an application.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBaiduChannelRequest' smart constructor.
 data BaiduChannelRequest = BaiduChannelRequest'
   { -- | Specifies whether to enable the Baidu channel for the application.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The secret key that you received from the Baidu Cloud Push service to
     -- communicate with the service.
-    secretKey :: Prelude.Text,
+    secretKey :: Core.Text,
     -- | The API key that you received from the Baidu Cloud Push service to
     -- communicate with the service.
-    apiKey :: Prelude.Text
+    apiKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BaiduChannelRequest' with all optional fields omitted.
@@ -56,41 +55,41 @@ data BaiduChannelRequest = BaiduChannelRequest'
 -- communicate with the service.
 newBaiduChannelRequest ::
   -- | 'secretKey'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'apiKey'
-  Prelude.Text ->
+  Core.Text ->
   BaiduChannelRequest
 newBaiduChannelRequest pSecretKey_ pApiKey_ =
   BaiduChannelRequest'
-    { enabled = Prelude.Nothing,
+    { enabled = Core.Nothing,
       secretKey = pSecretKey_,
       apiKey = pApiKey_
     }
 
 -- | Specifies whether to enable the Baidu channel for the application.
-baiduChannelRequest_enabled :: Lens.Lens' BaiduChannelRequest (Prelude.Maybe Prelude.Bool)
+baiduChannelRequest_enabled :: Lens.Lens' BaiduChannelRequest (Core.Maybe Core.Bool)
 baiduChannelRequest_enabled = Lens.lens (\BaiduChannelRequest' {enabled} -> enabled) (\s@BaiduChannelRequest' {} a -> s {enabled = a} :: BaiduChannelRequest)
 
 -- | The secret key that you received from the Baidu Cloud Push service to
 -- communicate with the service.
-baiduChannelRequest_secretKey :: Lens.Lens' BaiduChannelRequest Prelude.Text
+baiduChannelRequest_secretKey :: Lens.Lens' BaiduChannelRequest Core.Text
 baiduChannelRequest_secretKey = Lens.lens (\BaiduChannelRequest' {secretKey} -> secretKey) (\s@BaiduChannelRequest' {} a -> s {secretKey = a} :: BaiduChannelRequest)
 
 -- | The API key that you received from the Baidu Cloud Push service to
 -- communicate with the service.
-baiduChannelRequest_apiKey :: Lens.Lens' BaiduChannelRequest Prelude.Text
+baiduChannelRequest_apiKey :: Lens.Lens' BaiduChannelRequest Core.Text
 baiduChannelRequest_apiKey = Lens.lens (\BaiduChannelRequest' {apiKey} -> apiKey) (\s@BaiduChannelRequest' {} a -> s {apiKey = a} :: BaiduChannelRequest)
 
-instance Prelude.Hashable BaiduChannelRequest
+instance Core.Hashable BaiduChannelRequest
 
-instance Prelude.NFData BaiduChannelRequest
+instance Core.NFData BaiduChannelRequest
 
-instance Prelude.ToJSON BaiduChannelRequest where
+instance Core.ToJSON BaiduChannelRequest where
   toJSON BaiduChannelRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Enabled" Prelude..=) Prelude.<$> enabled,
-            Prelude.Just ("SecretKey" Prelude..= secretKey),
-            Prelude.Just ("ApiKey" Prelude..= apiKey)
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            Core.Just ("SecretKey" Core..= secretKey),
+            Core.Just ("ApiKey" Core..= apiKey)
           ]
       )

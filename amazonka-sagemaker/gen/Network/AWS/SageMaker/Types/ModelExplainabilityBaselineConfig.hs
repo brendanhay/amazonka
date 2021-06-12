@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelExplainabilityBaselineConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringConstraintsResource
 
 -- | The configuration for a baseline model explainability job.
 --
 -- /See:/ 'newModelExplainabilityBaselineConfig' smart constructor.
 data ModelExplainabilityBaselineConfig = ModelExplainabilityBaselineConfig'
-  { constraintsResource :: Prelude.Maybe MonitoringConstraintsResource,
+  { constraintsResource :: Core.Maybe MonitoringConstraintsResource,
     -- | The name of the baseline model explainability job.
-    baseliningJobName :: Prelude.Maybe Prelude.Text
+    baseliningJobName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelExplainabilityBaselineConfig' with all optional fields omitted.
@@ -50,49 +49,49 @@ newModelExplainabilityBaselineConfig ::
 newModelExplainabilityBaselineConfig =
   ModelExplainabilityBaselineConfig'
     { constraintsResource =
-        Prelude.Nothing,
-      baseliningJobName = Prelude.Nothing
+        Core.Nothing,
+      baseliningJobName = Core.Nothing
     }
 
 -- | Undocumented member.
-modelExplainabilityBaselineConfig_constraintsResource :: Lens.Lens' ModelExplainabilityBaselineConfig (Prelude.Maybe MonitoringConstraintsResource)
+modelExplainabilityBaselineConfig_constraintsResource :: Lens.Lens' ModelExplainabilityBaselineConfig (Core.Maybe MonitoringConstraintsResource)
 modelExplainabilityBaselineConfig_constraintsResource = Lens.lens (\ModelExplainabilityBaselineConfig' {constraintsResource} -> constraintsResource) (\s@ModelExplainabilityBaselineConfig' {} a -> s {constraintsResource = a} :: ModelExplainabilityBaselineConfig)
 
 -- | The name of the baseline model explainability job.
-modelExplainabilityBaselineConfig_baseliningJobName :: Lens.Lens' ModelExplainabilityBaselineConfig (Prelude.Maybe Prelude.Text)
+modelExplainabilityBaselineConfig_baseliningJobName :: Lens.Lens' ModelExplainabilityBaselineConfig (Core.Maybe Core.Text)
 modelExplainabilityBaselineConfig_baseliningJobName = Lens.lens (\ModelExplainabilityBaselineConfig' {baseliningJobName} -> baseliningJobName) (\s@ModelExplainabilityBaselineConfig' {} a -> s {baseliningJobName = a} :: ModelExplainabilityBaselineConfig)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ModelExplainabilityBaselineConfig
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelExplainabilityBaselineConfig"
       ( \x ->
           ModelExplainabilityBaselineConfig'
-            Prelude.<$> (x Prelude..:? "ConstraintsResource")
-            Prelude.<*> (x Prelude..:? "BaseliningJobName")
+            Core.<$> (x Core..:? "ConstraintsResource")
+            Core.<*> (x Core..:? "BaseliningJobName")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModelExplainabilityBaselineConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModelExplainabilityBaselineConfig
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ModelExplainabilityBaselineConfig
   where
   toJSON ModelExplainabilityBaselineConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConstraintsResource" Prelude..=)
-              Prelude.<$> constraintsResource,
-            ("BaseliningJobName" Prelude..=)
-              Prelude.<$> baseliningJobName
+    Core.object
+      ( Core.catMaybes
+          [ ("ConstraintsResource" Core..=)
+              Core.<$> constraintsResource,
+            ("BaseliningJobName" Core..=)
+              Core.<$> baseliningJobName
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.QueryArgProfile where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Query argument-profile mapping for field-level encryption.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data QueryArgProfile = QueryArgProfile'
   { -- | Query argument for field-level encryption query argument-profile
     -- mapping.
-    queryArg :: Prelude.Text,
+    queryArg :: Core.Text,
     -- | ID of profile to use for field-level encryption query argument-profile
     -- mapping
-    profileId :: Prelude.Text
+    profileId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryArgProfile' with all optional fields omitted.
@@ -51,9 +50,9 @@ data QueryArgProfile = QueryArgProfile'
 -- mapping
 newQueryArgProfile ::
   -- | 'queryArg'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'profileId'
-  Prelude.Text ->
+  Core.Text ->
   QueryArgProfile
 newQueryArgProfile pQueryArg_ pProfileId_ =
   QueryArgProfile'
@@ -63,27 +62,27 @@ newQueryArgProfile pQueryArg_ pProfileId_ =
 
 -- | Query argument for field-level encryption query argument-profile
 -- mapping.
-queryArgProfile_queryArg :: Lens.Lens' QueryArgProfile Prelude.Text
+queryArgProfile_queryArg :: Lens.Lens' QueryArgProfile Core.Text
 queryArgProfile_queryArg = Lens.lens (\QueryArgProfile' {queryArg} -> queryArg) (\s@QueryArgProfile' {} a -> s {queryArg = a} :: QueryArgProfile)
 
 -- | ID of profile to use for field-level encryption query argument-profile
 -- mapping
-queryArgProfile_profileId :: Lens.Lens' QueryArgProfile Prelude.Text
+queryArgProfile_profileId :: Lens.Lens' QueryArgProfile Core.Text
 queryArgProfile_profileId = Lens.lens (\QueryArgProfile' {profileId} -> profileId) (\s@QueryArgProfile' {} a -> s {profileId = a} :: QueryArgProfile)
 
-instance Prelude.FromXML QueryArgProfile where
+instance Core.FromXML QueryArgProfile where
   parseXML x =
     QueryArgProfile'
-      Prelude.<$> (x Prelude..@ "QueryArg")
-      Prelude.<*> (x Prelude..@ "ProfileId")
+      Core.<$> (x Core..@ "QueryArg")
+      Core.<*> (x Core..@ "ProfileId")
 
-instance Prelude.Hashable QueryArgProfile
+instance Core.Hashable QueryArgProfile
 
-instance Prelude.NFData QueryArgProfile
+instance Core.NFData QueryArgProfile
 
-instance Prelude.ToXML QueryArgProfile where
+instance Core.ToXML QueryArgProfile where
   toXML QueryArgProfile' {..} =
-    Prelude.mconcat
-      [ "QueryArg" Prelude.@= queryArg,
-        "ProfileId" Prelude.@= profileId
+    Core.mconcat
+      [ "QueryArg" Core.@= queryArg,
+        "ProfileId" Core.@= profileId
       ]

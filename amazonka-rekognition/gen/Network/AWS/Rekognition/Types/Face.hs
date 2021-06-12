@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Face where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 
 -- | Describes the face properties such as the bounding box, face ID, image
@@ -30,18 +29,18 @@ import Network.AWS.Rekognition.Types.BoundingBox
 -- /See:/ 'newFace' smart constructor.
 data Face = Face'
   { -- | Unique identifier that Amazon Rekognition assigns to the face.
-    faceId :: Prelude.Maybe Prelude.Text,
+    faceId :: Core.Maybe Core.Text,
     -- | Unique identifier that Amazon Rekognition assigns to the input image.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | Identifier that you assign to all the faces in the input image.
-    externalImageId :: Prelude.Maybe Prelude.Text,
+    externalImageId :: Core.Maybe Core.Text,
     -- | Bounding box of the face.
-    boundingBox :: Prelude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe BoundingBox,
     -- | Confidence level that the bounding box contains a face (and not a
     -- different object such as a tree).
-    confidence :: Prelude.Maybe Prelude.Double
+    confidence :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Face' with all optional fields omitted.
@@ -65,47 +64,47 @@ newFace ::
   Face
 newFace =
   Face'
-    { faceId = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      externalImageId = Prelude.Nothing,
-      boundingBox = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { faceId = Core.Nothing,
+      imageId = Core.Nothing,
+      externalImageId = Core.Nothing,
+      boundingBox = Core.Nothing,
+      confidence = Core.Nothing
     }
 
 -- | Unique identifier that Amazon Rekognition assigns to the face.
-face_faceId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
+face_faceId :: Lens.Lens' Face (Core.Maybe Core.Text)
 face_faceId = Lens.lens (\Face' {faceId} -> faceId) (\s@Face' {} a -> s {faceId = a} :: Face)
 
 -- | Unique identifier that Amazon Rekognition assigns to the input image.
-face_imageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
+face_imageId :: Lens.Lens' Face (Core.Maybe Core.Text)
 face_imageId = Lens.lens (\Face' {imageId} -> imageId) (\s@Face' {} a -> s {imageId = a} :: Face)
 
 -- | Identifier that you assign to all the faces in the input image.
-face_externalImageId :: Lens.Lens' Face (Prelude.Maybe Prelude.Text)
+face_externalImageId :: Lens.Lens' Face (Core.Maybe Core.Text)
 face_externalImageId = Lens.lens (\Face' {externalImageId} -> externalImageId) (\s@Face' {} a -> s {externalImageId = a} :: Face)
 
 -- | Bounding box of the face.
-face_boundingBox :: Lens.Lens' Face (Prelude.Maybe BoundingBox)
+face_boundingBox :: Lens.Lens' Face (Core.Maybe BoundingBox)
 face_boundingBox = Lens.lens (\Face' {boundingBox} -> boundingBox) (\s@Face' {} a -> s {boundingBox = a} :: Face)
 
 -- | Confidence level that the bounding box contains a face (and not a
 -- different object such as a tree).
-face_confidence :: Lens.Lens' Face (Prelude.Maybe Prelude.Double)
+face_confidence :: Lens.Lens' Face (Core.Maybe Core.Double)
 face_confidence = Lens.lens (\Face' {confidence} -> confidence) (\s@Face' {} a -> s {confidence = a} :: Face)
 
-instance Prelude.FromJSON Face where
+instance Core.FromJSON Face where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Face"
       ( \x ->
           Face'
-            Prelude.<$> (x Prelude..:? "FaceId")
-            Prelude.<*> (x Prelude..:? "ImageId")
-            Prelude.<*> (x Prelude..:? "ExternalImageId")
-            Prelude.<*> (x Prelude..:? "BoundingBox")
-            Prelude.<*> (x Prelude..:? "Confidence")
+            Core.<$> (x Core..:? "FaceId")
+            Core.<*> (x Core..:? "ImageId")
+            Core.<*> (x Core..:? "ExternalImageId")
+            Core.<*> (x Core..:? "BoundingBox")
+            Core.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable Face
+instance Core.Hashable Face
 
-instance Prelude.NFData Face
+instance Core.NFData Face

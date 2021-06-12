@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,8 +74,8 @@ module Network.AWS.Rekognition.RecognizeCelebrities
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -92,7 +91,7 @@ data RecognizeCelebrities = RecognizeCelebrities'
     -- more information, see Images in the Amazon Rekognition developer guide.
     image :: Image
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecognizeCelebrities' with all optional fields omitted.
@@ -126,64 +125,56 @@ newRecognizeCelebrities pImage_ =
 recognizeCelebrities_image :: Lens.Lens' RecognizeCelebrities Image
 recognizeCelebrities_image = Lens.lens (\RecognizeCelebrities' {image} -> image) (\s@RecognizeCelebrities' {} a -> s {image = a} :: RecognizeCelebrities)
 
-instance Prelude.AWSRequest RecognizeCelebrities where
+instance Core.AWSRequest RecognizeCelebrities where
   type
-    Rs RecognizeCelebrities =
+    AWSResponse RecognizeCelebrities =
       RecognizeCelebritiesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RecognizeCelebritiesResponse'
-            Prelude.<$> ( x Prelude..?> "UnrecognizedFaces"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "CelebrityFaces"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "OrientationCorrection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UnrecognizedFaces" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "CelebrityFaces" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "OrientationCorrection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RecognizeCelebrities
+instance Core.Hashable RecognizeCelebrities
 
-instance Prelude.NFData RecognizeCelebrities
+instance Core.NFData RecognizeCelebrities
 
-instance Prelude.ToHeaders RecognizeCelebrities where
+instance Core.ToHeaders RecognizeCelebrities where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.RecognizeCelebrities" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.RecognizeCelebrities" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RecognizeCelebrities where
+instance Core.ToJSON RecognizeCelebrities where
   toJSON RecognizeCelebrities' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Image" Prelude..= image)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Image" Core..= image)])
 
-instance Prelude.ToPath RecognizeCelebrities where
-  toPath = Prelude.const "/"
+instance Core.ToPath RecognizeCelebrities where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RecognizeCelebrities where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RecognizeCelebrities where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRecognizeCelebritiesResponse' smart constructor.
 data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
   { -- | Details about each unrecognized face in the image.
-    unrecognizedFaces :: Prelude.Maybe [ComparedFace],
+    unrecognizedFaces :: Core.Maybe [ComparedFace],
     -- | Details about each celebrity found in the image. Amazon Rekognition can
     -- detect a maximum of 64 celebrities in an image.
-    celebrityFaces :: Prelude.Maybe [Celebrity],
+    celebrityFaces :: Core.Maybe [Celebrity],
     -- | The orientation of the input image (counterclockwise direction). If your
     -- application displays the image, you can use this value to correct the
     -- orientation. The bounding box coordinates returned in @CelebrityFaces@
@@ -197,11 +188,11 @@ data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
     -- @UnrecognizedFaces@ bounding box coordinates represent face locations
     -- after Exif metadata is used to correct the image orientation. Images in
     -- .png format don\'t contain Exif metadata.
-    orientationCorrection :: Prelude.Maybe OrientationCorrection,
+    orientationCorrection :: Core.Maybe OrientationCorrection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecognizeCelebritiesResponse' with all optional fields omitted.
@@ -233,25 +224,25 @@ data RecognizeCelebritiesResponse = RecognizeCelebritiesResponse'
 -- 'httpStatus', 'recognizeCelebritiesResponse_httpStatus' - The response's http status code.
 newRecognizeCelebritiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RecognizeCelebritiesResponse
 newRecognizeCelebritiesResponse pHttpStatus_ =
   RecognizeCelebritiesResponse'
     { unrecognizedFaces =
-        Prelude.Nothing,
-      celebrityFaces = Prelude.Nothing,
-      orientationCorrection = Prelude.Nothing,
+        Core.Nothing,
+      celebrityFaces = Core.Nothing,
+      orientationCorrection = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Details about each unrecognized face in the image.
-recognizeCelebritiesResponse_unrecognizedFaces :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe [ComparedFace])
-recognizeCelebritiesResponse_unrecognizedFaces = Lens.lens (\RecognizeCelebritiesResponse' {unrecognizedFaces} -> unrecognizedFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {unrecognizedFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Prelude._Coerce
+recognizeCelebritiesResponse_unrecognizedFaces :: Lens.Lens' RecognizeCelebritiesResponse (Core.Maybe [ComparedFace])
+recognizeCelebritiesResponse_unrecognizedFaces = Lens.lens (\RecognizeCelebritiesResponse' {unrecognizedFaces} -> unrecognizedFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {unrecognizedFaces = a} :: RecognizeCelebritiesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Details about each celebrity found in the image. Amazon Rekognition can
 -- detect a maximum of 64 celebrities in an image.
-recognizeCelebritiesResponse_celebrityFaces :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe [Celebrity])
-recognizeCelebritiesResponse_celebrityFaces = Lens.lens (\RecognizeCelebritiesResponse' {celebrityFaces} -> celebrityFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {celebrityFaces = a} :: RecognizeCelebritiesResponse) Prelude.. Lens.mapping Prelude._Coerce
+recognizeCelebritiesResponse_celebrityFaces :: Lens.Lens' RecognizeCelebritiesResponse (Core.Maybe [Celebrity])
+recognizeCelebritiesResponse_celebrityFaces = Lens.lens (\RecognizeCelebritiesResponse' {celebrityFaces} -> celebrityFaces) (\s@RecognizeCelebritiesResponse' {} a -> s {celebrityFaces = a} :: RecognizeCelebritiesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The orientation of the input image (counterclockwise direction). If your
 -- application displays the image, you can use this value to correct the
@@ -266,11 +257,11 @@ recognizeCelebritiesResponse_celebrityFaces = Lens.lens (\RecognizeCelebritiesRe
 -- @UnrecognizedFaces@ bounding box coordinates represent face locations
 -- after Exif metadata is used to correct the image orientation. Images in
 -- .png format don\'t contain Exif metadata.
-recognizeCelebritiesResponse_orientationCorrection :: Lens.Lens' RecognizeCelebritiesResponse (Prelude.Maybe OrientationCorrection)
+recognizeCelebritiesResponse_orientationCorrection :: Lens.Lens' RecognizeCelebritiesResponse (Core.Maybe OrientationCorrection)
 recognizeCelebritiesResponse_orientationCorrection = Lens.lens (\RecognizeCelebritiesResponse' {orientationCorrection} -> orientationCorrection) (\s@RecognizeCelebritiesResponse' {} a -> s {orientationCorrection = a} :: RecognizeCelebritiesResponse)
 
 -- | The response's http status code.
-recognizeCelebritiesResponse_httpStatus :: Lens.Lens' RecognizeCelebritiesResponse Prelude.Int
+recognizeCelebritiesResponse_httpStatus :: Lens.Lens' RecognizeCelebritiesResponse Core.Int
 recognizeCelebritiesResponse_httpStatus = Lens.lens (\RecognizeCelebritiesResponse' {httpStatus} -> httpStatus) (\s@RecognizeCelebritiesResponse' {} a -> s {httpStatus = a} :: RecognizeCelebritiesResponse)
 
-instance Prelude.NFData RecognizeCelebritiesResponse
+instance Core.NFData RecognizeCelebritiesResponse

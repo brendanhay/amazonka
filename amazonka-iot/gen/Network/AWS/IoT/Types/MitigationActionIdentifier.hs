@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.MitigationActionIdentifier where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information that identifies a mitigation action. This information is
 -- returned by ListMitigationActions.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMitigationActionIdentifier' smart constructor.
 data MitigationActionIdentifier = MitigationActionIdentifier'
   { -- | The friendly name of the mitigation action.
-    actionName :: Prelude.Maybe Prelude.Text,
+    actionName :: Core.Maybe Core.Text,
     -- | The IAM role ARN used to apply this mitigation action.
-    actionArn :: Prelude.Maybe Prelude.Text,
+    actionArn :: Core.Maybe Core.Text,
     -- | The date when this mitigation action was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX
+    creationDate :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MitigationActionIdentifier' with all optional fields omitted.
@@ -55,34 +54,34 @@ newMitigationActionIdentifier ::
 newMitigationActionIdentifier =
   MitigationActionIdentifier'
     { actionName =
-        Prelude.Nothing,
-      actionArn = Prelude.Nothing,
-      creationDate = Prelude.Nothing
+        Core.Nothing,
+      actionArn = Core.Nothing,
+      creationDate = Core.Nothing
     }
 
 -- | The friendly name of the mitigation action.
-mitigationActionIdentifier_actionName :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.Text)
+mitigationActionIdentifier_actionName :: Lens.Lens' MitigationActionIdentifier (Core.Maybe Core.Text)
 mitigationActionIdentifier_actionName = Lens.lens (\MitigationActionIdentifier' {actionName} -> actionName) (\s@MitigationActionIdentifier' {} a -> s {actionName = a} :: MitigationActionIdentifier)
 
 -- | The IAM role ARN used to apply this mitigation action.
-mitigationActionIdentifier_actionArn :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.Text)
+mitigationActionIdentifier_actionArn :: Lens.Lens' MitigationActionIdentifier (Core.Maybe Core.Text)
 mitigationActionIdentifier_actionArn = Lens.lens (\MitigationActionIdentifier' {actionArn} -> actionArn) (\s@MitigationActionIdentifier' {} a -> s {actionArn = a} :: MitigationActionIdentifier)
 
 -- | The date when this mitigation action was created.
-mitigationActionIdentifier_creationDate :: Lens.Lens' MitigationActionIdentifier (Prelude.Maybe Prelude.UTCTime)
-mitigationActionIdentifier_creationDate = Lens.lens (\MitigationActionIdentifier' {creationDate} -> creationDate) (\s@MitigationActionIdentifier' {} a -> s {creationDate = a} :: MitigationActionIdentifier) Prelude.. Lens.mapping Prelude._Time
+mitigationActionIdentifier_creationDate :: Lens.Lens' MitigationActionIdentifier (Core.Maybe Core.UTCTime)
+mitigationActionIdentifier_creationDate = Lens.lens (\MitigationActionIdentifier' {creationDate} -> creationDate) (\s@MitigationActionIdentifier' {} a -> s {creationDate = a} :: MitigationActionIdentifier) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON MitigationActionIdentifier where
+instance Core.FromJSON MitigationActionIdentifier where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MitigationActionIdentifier"
       ( \x ->
           MitigationActionIdentifier'
-            Prelude.<$> (x Prelude..:? "actionName")
-            Prelude.<*> (x Prelude..:? "actionArn")
-            Prelude.<*> (x Prelude..:? "creationDate")
+            Core.<$> (x Core..:? "actionName")
+            Core.<*> (x Core..:? "actionArn")
+            Core.<*> (x Core..:? "creationDate")
       )
 
-instance Prelude.Hashable MitigationActionIdentifier
+instance Core.Hashable MitigationActionIdentifier
 
-instance Prelude.NFData MitigationActionIdentifier
+instance Core.NFData MitigationActionIdentifier

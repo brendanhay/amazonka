@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudDirectory.DeleteFacet
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data DeleteFacet = DeleteFacet'
   { -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
     -- more information, see arns.
-    schemaArn :: Prelude.Text,
+    schemaArn :: Core.Text,
     -- | The name of the facet to delete.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFacet' with all optional fields omitted.
@@ -72,9 +71,9 @@ data DeleteFacet = DeleteFacet'
 -- 'name', 'deleteFacet_name' - The name of the facet to delete.
 newDeleteFacet ::
   -- | 'schemaArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFacet
 newDeleteFacet pSchemaArn_ pName_ =
   DeleteFacet'
@@ -84,53 +83,51 @@ newDeleteFacet pSchemaArn_ pName_ =
 
 -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
 -- more information, see arns.
-deleteFacet_schemaArn :: Lens.Lens' DeleteFacet Prelude.Text
+deleteFacet_schemaArn :: Lens.Lens' DeleteFacet Core.Text
 deleteFacet_schemaArn = Lens.lens (\DeleteFacet' {schemaArn} -> schemaArn) (\s@DeleteFacet' {} a -> s {schemaArn = a} :: DeleteFacet)
 
 -- | The name of the facet to delete.
-deleteFacet_name :: Lens.Lens' DeleteFacet Prelude.Text
+deleteFacet_name :: Lens.Lens' DeleteFacet Core.Text
 deleteFacet_name = Lens.lens (\DeleteFacet' {name} -> name) (\s@DeleteFacet' {} a -> s {name = a} :: DeleteFacet)
 
-instance Prelude.AWSRequest DeleteFacet where
-  type Rs DeleteFacet = DeleteFacetResponse
+instance Core.AWSRequest DeleteFacet where
+  type AWSResponse DeleteFacet = DeleteFacetResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFacetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFacet
+instance Core.Hashable DeleteFacet
 
-instance Prelude.NFData DeleteFacet
+instance Core.NFData DeleteFacet
 
-instance Prelude.ToHeaders DeleteFacet where
+instance Core.ToHeaders DeleteFacet where
   toHeaders DeleteFacet' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# schemaArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# schemaArn]
 
-instance Prelude.ToJSON DeleteFacet where
+instance Core.ToJSON DeleteFacet where
   toJSON DeleteFacet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteFacet where
+instance Core.ToPath DeleteFacet where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/facet/delete"
 
-instance Prelude.ToQuery DeleteFacet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteFacet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFacetResponse' smart constructor.
 data DeleteFacetResponse = DeleteFacetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFacetResponse' with all optional fields omitted.
@@ -143,13 +140,13 @@ data DeleteFacetResponse = DeleteFacetResponse'
 -- 'httpStatus', 'deleteFacetResponse_httpStatus' - The response's http status code.
 newDeleteFacetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteFacetResponse
 newDeleteFacetResponse pHttpStatus_ =
   DeleteFacetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteFacetResponse_httpStatus :: Lens.Lens' DeleteFacetResponse Prelude.Int
+deleteFacetResponse_httpStatus :: Lens.Lens' DeleteFacetResponse Core.Int
 deleteFacetResponse_httpStatus = Lens.lens (\DeleteFacetResponse' {httpStatus} -> httpStatus) (\s@DeleteFacetResponse' {} a -> s {httpStatus = a} :: DeleteFacetResponse)
 
-instance Prelude.NFData DeleteFacetResponse
+instance Core.NFData DeleteFacetResponse

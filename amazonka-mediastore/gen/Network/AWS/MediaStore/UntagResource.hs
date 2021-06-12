@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,24 +40,24 @@ module Network.AWS.MediaStore.UntagResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) for the container.
-    resource :: Prelude.Text,
+    resource :: Core.Text,
     -- | A comma-separated list of keys for tags that you want to remove from the
     -- container. For example, if your container has two tags
     -- (customer:CompanyA and priority:High) and you want to remove one of the
     -- tags (priority:High), you specify the key for the tag that you want to
     -- remove (priority).
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -77,16 +76,16 @@ data UntagResource = UntagResource'
 -- remove (priority).
 newUntagResource ::
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   UntagResource
 newUntagResource pResource_ =
   UntagResource'
     { resource = pResource_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) for the container.
-untagResource_resource :: Lens.Lens' UntagResource Prelude.Text
+untagResource_resource :: Lens.Lens' UntagResource Core.Text
 untagResource_resource = Lens.lens (\UntagResource' {resource} -> resource) (\s@UntagResource' {} a -> s {resource = a} :: UntagResource)
 
 -- | A comma-separated list of keys for tags that you want to remove from the
@@ -94,59 +93,59 @@ untagResource_resource = Lens.lens (\UntagResource' {resource} -> resource) (\s@
 -- (customer:CompanyA and priority:High) and you want to remove one of the
 -- tags (priority:High), you specify the key for the tag that you want to
 -- remove (priority).
-untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Prelude._Coerce
+untagResource_tagKeys :: Lens.Lens' UntagResource [Core.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagResource where
-  type Rs UntagResource = UntagResourceResponse
+instance Core.AWSRequest UntagResource where
+  type
+    AWSResponse UntagResource =
+      UntagResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UntagResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UntagResource
+instance Core.Hashable UntagResource
 
-instance Prelude.NFData UntagResource
+instance Core.NFData UntagResource
 
-instance Prelude.ToHeaders UntagResource where
+instance Core.ToHeaders UntagResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.UntagResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.UntagResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UntagResource where
+instance Core.ToJSON UntagResource where
   toJSON UntagResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Resource" Prelude..= resource),
-            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Resource" Core..= resource),
+            Core.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
-instance Prelude.ToPath UntagResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UntagResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -159,13 +158,13 @@ data UntagResourceResponse = UntagResourceResponse'
 -- 'httpStatus', 'untagResourceResponse_httpStatus' - The response's http status code.
 newUntagResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UntagResourceResponse
 newUntagResourceResponse pHttpStatus_ =
   UntagResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Prelude.Int
+untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Core.Int
 untagResourceResponse_httpStatus = Lens.lens (\UntagResourceResponse' {httpStatus} -> httpStatus) (\s@UntagResourceResponse' {} a -> s {httpStatus = a} :: UntagResourceResponse)
 
-instance Prelude.NFData UntagResourceResponse
+instance Core.NFData UntagResourceResponse

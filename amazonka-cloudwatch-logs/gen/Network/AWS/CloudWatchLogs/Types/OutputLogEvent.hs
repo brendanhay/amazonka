@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.OutputLogEvent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a log event.
 --
 -- /See:/ 'newOutputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'
   { -- | The data contained in the log event.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The time the event was ingested, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    ingestionTime :: Prelude.Maybe Prelude.Natural,
+    ingestionTime :: Core.Maybe Core.Natural,
     -- | The time the event occurred, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Prelude.Maybe Prelude.Natural
+    timestamp :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputLogEvent' with all optional fields omitted.
@@ -57,36 +56,36 @@ newOutputLogEvent ::
   OutputLogEvent
 newOutputLogEvent =
   OutputLogEvent'
-    { message = Prelude.Nothing,
-      ingestionTime = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { message = Core.Nothing,
+      ingestionTime = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | The data contained in the log event.
-outputLogEvent_message :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Text)
+outputLogEvent_message :: Lens.Lens' OutputLogEvent (Core.Maybe Core.Text)
 outputLogEvent_message = Lens.lens (\OutputLogEvent' {message} -> message) (\s@OutputLogEvent' {} a -> s {message = a} :: OutputLogEvent)
 
 -- | The time the event was ingested, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
-outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
+outputLogEvent_ingestionTime :: Lens.Lens' OutputLogEvent (Core.Maybe Core.Natural)
 outputLogEvent_ingestionTime = Lens.lens (\OutputLogEvent' {ingestionTime} -> ingestionTime) (\s@OutputLogEvent' {} a -> s {ingestionTime = a} :: OutputLogEvent)
 
 -- | The time the event occurred, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC.
-outputLogEvent_timestamp :: Lens.Lens' OutputLogEvent (Prelude.Maybe Prelude.Natural)
+outputLogEvent_timestamp :: Lens.Lens' OutputLogEvent (Core.Maybe Core.Natural)
 outputLogEvent_timestamp = Lens.lens (\OutputLogEvent' {timestamp} -> timestamp) (\s@OutputLogEvent' {} a -> s {timestamp = a} :: OutputLogEvent)
 
-instance Prelude.FromJSON OutputLogEvent where
+instance Core.FromJSON OutputLogEvent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputLogEvent"
       ( \x ->
           OutputLogEvent'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "ingestionTime")
-            Prelude.<*> (x Prelude..:? "timestamp")
+            Core.<$> (x Core..:? "message")
+            Core.<*> (x Core..:? "ingestionTime")
+            Core.<*> (x Core..:? "timestamp")
       )
 
-instance Prelude.Hashable OutputLogEvent
+instance Core.Hashable OutputLogEvent
 
-instance Prelude.NFData OutputLogEvent
+instance Core.NFData OutputLogEvent

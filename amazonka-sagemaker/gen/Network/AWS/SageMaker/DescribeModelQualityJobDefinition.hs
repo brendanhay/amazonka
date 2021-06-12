@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.SageMaker.DescribeModelQualityJobDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -60,9 +59,9 @@ import Network.AWS.SageMaker.Types
 data DescribeModelQualityJobDefinition = DescribeModelQualityJobDefinition'
   { -- | The name of the model quality job. The name must be unique within an AWS
     -- Region in the AWS account.
-    jobDefinitionName :: Prelude.Text
+    jobDefinitionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeModelQualityJobDefinition' with all optional fields omitted.
@@ -76,7 +75,7 @@ data DescribeModelQualityJobDefinition = DescribeModelQualityJobDefinition'
 -- Region in the AWS account.
 newDescribeModelQualityJobDefinition ::
   -- | 'jobDefinitionName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeModelQualityJobDefinition
 newDescribeModelQualityJobDefinition
   pJobDefinitionName_ =
@@ -87,101 +86,99 @@ newDescribeModelQualityJobDefinition
 
 -- | The name of the model quality job. The name must be unique within an AWS
 -- Region in the AWS account.
-describeModelQualityJobDefinition_jobDefinitionName :: Lens.Lens' DescribeModelQualityJobDefinition Prelude.Text
+describeModelQualityJobDefinition_jobDefinitionName :: Lens.Lens' DescribeModelQualityJobDefinition Core.Text
 describeModelQualityJobDefinition_jobDefinitionName = Lens.lens (\DescribeModelQualityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelQualityJobDefinition' {} a -> s {jobDefinitionName = a} :: DescribeModelQualityJobDefinition)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeModelQualityJobDefinition
   where
   type
-    Rs DescribeModelQualityJobDefinition =
+    AWSResponse DescribeModelQualityJobDefinition =
       DescribeModelQualityJobDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeModelQualityJobDefinitionResponse'
-            Prelude.<$> (x Prelude..?> "NetworkConfig")
-              Prelude.<*> (x Prelude..?> "ModelQualityBaselineConfig")
-              Prelude.<*> (x Prelude..?> "StoppingCondition")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Prelude..:> "JobDefinitionArn")
-              Prelude.<*> (x Prelude..:> "JobDefinitionName")
-              Prelude.<*> (x Prelude..:> "CreationTime")
-              Prelude.<*> (x Prelude..:> "ModelQualityAppSpecification")
-              Prelude.<*> (x Prelude..:> "ModelQualityJobInput")
-              Prelude.<*> (x Prelude..:> "ModelQualityJobOutputConfig")
-              Prelude.<*> (x Prelude..:> "JobResources")
-              Prelude.<*> (x Prelude..:> "RoleArn")
+            Core.<$> (x Core..?> "NetworkConfig")
+            Core.<*> (x Core..?> "ModelQualityBaselineConfig")
+            Core.<*> (x Core..?> "StoppingCondition")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "JobDefinitionArn")
+            Core.<*> (x Core..:> "JobDefinitionName")
+            Core.<*> (x Core..:> "CreationTime")
+            Core.<*> (x Core..:> "ModelQualityAppSpecification")
+            Core.<*> (x Core..:> "ModelQualityJobInput")
+            Core.<*> (x Core..:> "ModelQualityJobOutputConfig")
+            Core.<*> (x Core..:> "JobResources")
+            Core.<*> (x Core..:> "RoleArn")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeModelQualityJobDefinition
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeModelQualityJobDefinition
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeModelQualityJobDefinition
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeModelQualityJobDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DescribeModelQualityJobDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeModelQualityJobDefinition
   where
   toJSON DescribeModelQualityJobDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("JobDefinitionName" Prelude..= jobDefinitionName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("JobDefinitionName" Core..= jobDefinitionName)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeModelQualityJobDefinition
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeModelQualityJobDefinition
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeModelQualityJobDefinitionResponse' smart constructor.
 data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefinitionResponse'
   { -- | Networking options for a model quality job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
+    networkConfig :: Core.Maybe MonitoringNetworkConfig,
     -- | The baseline configuration for a model quality job.
-    modelQualityBaselineConfig :: Prelude.Maybe ModelQualityBaselineConfig,
-    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
+    modelQualityBaselineConfig :: Core.Maybe ModelQualityBaselineConfig,
+    stoppingCondition :: Core.Maybe MonitoringStoppingCondition,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the model quality job.
-    jobDefinitionArn :: Prelude.Text,
+    jobDefinitionArn :: Core.Text,
     -- | The name of the quality job definition. The name must be unique within
     -- an AWS Region in the AWS account.
-    jobDefinitionName :: Prelude.Text,
+    jobDefinitionName :: Core.Text,
     -- | The time at which the model quality job was created.
-    creationTime :: Prelude.POSIX,
+    creationTime :: Core.POSIX,
     -- | Configures the model quality job to run a specified Docker container
     -- image.
     modelQualityAppSpecification :: ModelQualityAppSpecification,
@@ -191,9 +188,9 @@ data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefiniti
     jobResources :: MonitoringResources,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
     -- assume to perform tasks on your behalf.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeModelQualityJobDefinitionResponse' with all optional fields omitted.
@@ -231,13 +228,13 @@ data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefiniti
 -- assume to perform tasks on your behalf.
 newDescribeModelQualityJobDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'jobDefinitionArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobDefinitionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'modelQualityAppSpecification'
   ModelQualityAppSpecification ->
   -- | 'modelQualityJobInput'
@@ -247,7 +244,7 @@ newDescribeModelQualityJobDefinitionResponse ::
   -- | 'jobResources'
   MonitoringResources ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeModelQualityJobDefinitionResponse
 newDescribeModelQualityJobDefinitionResponse
   pHttpStatus_
@@ -261,18 +258,17 @@ newDescribeModelQualityJobDefinitionResponse
   pRoleArn_ =
     DescribeModelQualityJobDefinitionResponse'
       { networkConfig =
-          Prelude.Nothing,
+          Core.Nothing,
         modelQualityBaselineConfig =
-          Prelude.Nothing,
-        stoppingCondition =
-          Prelude.Nothing,
+          Core.Nothing,
+        stoppingCondition = Core.Nothing,
         httpStatus = pHttpStatus_,
         jobDefinitionArn =
           pJobDefinitionArn_,
         jobDefinitionName =
           pJobDefinitionName_,
         creationTime =
-          Prelude._Time
+          Core._Time
             Lens.# pCreationTime_,
         modelQualityAppSpecification =
           pModelQualityAppSpecification_,
@@ -285,33 +281,33 @@ newDescribeModelQualityJobDefinitionResponse
       }
 
 -- | Networking options for a model quality job.
-describeModelQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Prelude.Maybe MonitoringNetworkConfig)
+describeModelQualityJobDefinitionResponse_networkConfig :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Core.Maybe MonitoringNetworkConfig)
 describeModelQualityJobDefinitionResponse_networkConfig = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {networkConfig} -> networkConfig) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {networkConfig = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | The baseline configuration for a model quality job.
-describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Prelude.Maybe ModelQualityBaselineConfig)
+describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Core.Maybe ModelQualityBaselineConfig)
 describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {modelQualityBaselineConfig} -> modelQualityBaselineConfig) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {modelQualityBaselineConfig = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | Undocumented member.
-describeModelQualityJobDefinitionResponse_stoppingCondition :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Prelude.Maybe MonitoringStoppingCondition)
+describeModelQualityJobDefinitionResponse_stoppingCondition :: Lens.Lens' DescribeModelQualityJobDefinitionResponse (Core.Maybe MonitoringStoppingCondition)
 describeModelQualityJobDefinitionResponse_stoppingCondition = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {stoppingCondition = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | The response's http status code.
-describeModelQualityJobDefinitionResponse_httpStatus :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.Int
+describeModelQualityJobDefinitionResponse_httpStatus :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Core.Int
 describeModelQualityJobDefinitionResponse_httpStatus = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {httpStatus} -> httpStatus) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {httpStatus = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | The Amazon Resource Name (ARN) of the model quality job.
-describeModelQualityJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.Text
+describeModelQualityJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Core.Text
 describeModelQualityJobDefinitionResponse_jobDefinitionArn = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {jobDefinitionArn} -> jobDefinitionArn) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {jobDefinitionArn = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | The name of the quality job definition. The name must be unique within
 -- an AWS Region in the AWS account.
-describeModelQualityJobDefinitionResponse_jobDefinitionName :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.Text
+describeModelQualityJobDefinitionResponse_jobDefinitionName :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Core.Text
 describeModelQualityJobDefinitionResponse_jobDefinitionName = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {jobDefinitionName = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | The time at which the model quality job was created.
-describeModelQualityJobDefinitionResponse_creationTime :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.UTCTime
-describeModelQualityJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelQualityJobDefinitionResponse) Prelude.. Prelude._Time
+describeModelQualityJobDefinitionResponse_creationTime :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Core.UTCTime
+describeModelQualityJobDefinitionResponse_creationTime = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {creationTime} -> creationTime) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {creationTime = a} :: DescribeModelQualityJobDefinitionResponse) Core.. Core._Time
 
 -- | Configures the model quality job to run a specified Docker container
 -- image.
@@ -332,9 +328,9 @@ describeModelQualityJobDefinitionResponse_jobResources = Lens.lens (\DescribeMod
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
 -- assume to perform tasks on your behalf.
-describeModelQualityJobDefinitionResponse_roleArn :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.Text
+describeModelQualityJobDefinitionResponse_roleArn :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Core.Text
 describeModelQualityJobDefinitionResponse_roleArn = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {roleArn} -> roleArn) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {roleArn = a} :: DescribeModelQualityJobDefinitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeModelQualityJobDefinitionResponse

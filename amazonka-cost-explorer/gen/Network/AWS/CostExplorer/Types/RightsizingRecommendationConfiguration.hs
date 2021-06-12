@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.RightsizingRecommendationConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.RecommendationTarget
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Enables you to customize recommendations across two attributes. You can
 -- choose to view recommendations for instances within the same instance
@@ -38,9 +37,9 @@ data RightsizingRecommendationConfiguration = RightsizingRecommendationConfigura
     recommendationTarget :: RecommendationTarget,
     -- | The option to consider RI or Savings Plans discount benefits in your
     -- savings calculation. The default value is @TRUE@.
-    benefitsConsidered :: Prelude.Bool
+    benefitsConsidered :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RightsizingRecommendationConfiguration' with all optional fields omitted.
@@ -60,7 +59,7 @@ newRightsizingRecommendationConfiguration ::
   -- | 'recommendationTarget'
   RecommendationTarget ->
   -- | 'benefitsConsidered'
-  Prelude.Bool ->
+  Core.Bool ->
   RightsizingRecommendationConfiguration
 newRightsizingRecommendationConfiguration
   pRecommendationTarget_
@@ -80,44 +79,42 @@ rightsizingRecommendationConfiguration_recommendationTarget = Lens.lens (\Rights
 
 -- | The option to consider RI or Savings Plans discount benefits in your
 -- savings calculation. The default value is @TRUE@.
-rightsizingRecommendationConfiguration_benefitsConsidered :: Lens.Lens' RightsizingRecommendationConfiguration Prelude.Bool
+rightsizingRecommendationConfiguration_benefitsConsidered :: Lens.Lens' RightsizingRecommendationConfiguration Core.Bool
 rightsizingRecommendationConfiguration_benefitsConsidered = Lens.lens (\RightsizingRecommendationConfiguration' {benefitsConsidered} -> benefitsConsidered) (\s@RightsizingRecommendationConfiguration' {} a -> s {benefitsConsidered = a} :: RightsizingRecommendationConfiguration)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     RightsizingRecommendationConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RightsizingRecommendationConfiguration"
       ( \x ->
           RightsizingRecommendationConfiguration'
-            Prelude.<$> (x Prelude..: "RecommendationTarget")
-            Prelude.<*> (x Prelude..: "BenefitsConsidered")
+            Core.<$> (x Core..: "RecommendationTarget")
+            Core.<*> (x Core..: "BenefitsConsidered")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RightsizingRecommendationConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     RightsizingRecommendationConfiguration
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     RightsizingRecommendationConfiguration
   where
   toJSON RightsizingRecommendationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "RecommendationTarget"
-                  Prelude..= recommendationTarget
+                  Core..= recommendationTarget
               ),
-            Prelude.Just
-              ( "BenefitsConsidered"
-                  Prelude..= benefitsConsidered
-              )
+            Core.Just
+              ("BenefitsConsidered" Core..= benefitsConsidered)
           ]
       )

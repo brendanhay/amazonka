@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,15 +50,15 @@ module Network.AWS.Budgets.CreateBudgetAction
 where
 
 import Network.AWS.Budgets.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateBudgetAction' smart constructor.
 data CreateBudgetAction = CreateBudgetAction'
-  { accountId :: Prelude.Text,
-    budgetName :: Prelude.Text,
+  { accountId :: Core.Text,
+    budgetName :: Core.Text,
     notificationType :: NotificationType,
     -- | The type of action. This defines the type of tasks that can be carried
     -- out by this action. This field also determines the format for
@@ -69,12 +68,12 @@ data CreateBudgetAction = CreateBudgetAction'
     definition :: Definition,
     -- | The role passed for action execution and reversion. Roles and actions
     -- must be in the same account.
-    executionRoleArn :: Prelude.Text,
+    executionRoleArn :: Core.Text,
     -- | This specifies if the action needs manual or automatic approval.
     approvalModel :: ApprovalModel,
-    subscribers :: Prelude.NonEmpty Subscriber
+    subscribers :: Core.NonEmpty Subscriber
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBudgetAction' with all optional fields omitted.
@@ -106,9 +105,9 @@ data CreateBudgetAction = CreateBudgetAction'
 -- 'subscribers', 'createBudgetAction_subscribers' - Undocumented member.
 newCreateBudgetAction ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'notificationType'
   NotificationType ->
   -- | 'actionType'
@@ -118,11 +117,11 @@ newCreateBudgetAction ::
   -- | 'definition'
   Definition ->
   -- | 'executionRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'approvalModel'
   ApprovalModel ->
   -- | 'subscribers'
-  Prelude.NonEmpty Subscriber ->
+  Core.NonEmpty Subscriber ->
   CreateBudgetAction
 newCreateBudgetAction
   pAccountId_
@@ -143,15 +142,15 @@ newCreateBudgetAction
         definition = pDefinition_,
         executionRoleArn = pExecutionRoleArn_,
         approvalModel = pApprovalModel_,
-        subscribers = Prelude._Coerce Lens.# pSubscribers_
+        subscribers = Lens._Coerce Lens.# pSubscribers_
       }
 
 -- | Undocumented member.
-createBudgetAction_accountId :: Lens.Lens' CreateBudgetAction Prelude.Text
+createBudgetAction_accountId :: Lens.Lens' CreateBudgetAction Core.Text
 createBudgetAction_accountId = Lens.lens (\CreateBudgetAction' {accountId} -> accountId) (\s@CreateBudgetAction' {} a -> s {accountId = a} :: CreateBudgetAction)
 
 -- | Undocumented member.
-createBudgetAction_budgetName :: Lens.Lens' CreateBudgetAction Prelude.Text
+createBudgetAction_budgetName :: Lens.Lens' CreateBudgetAction Core.Text
 createBudgetAction_budgetName = Lens.lens (\CreateBudgetAction' {budgetName} -> budgetName) (\s@CreateBudgetAction' {} a -> s {budgetName = a} :: CreateBudgetAction)
 
 -- | Undocumented member.
@@ -174,7 +173,7 @@ createBudgetAction_definition = Lens.lens (\CreateBudgetAction' {definition} -> 
 
 -- | The role passed for action execution and reversion. Roles and actions
 -- must be in the same account.
-createBudgetAction_executionRoleArn :: Lens.Lens' CreateBudgetAction Prelude.Text
+createBudgetAction_executionRoleArn :: Lens.Lens' CreateBudgetAction Core.Text
 createBudgetAction_executionRoleArn = Lens.lens (\CreateBudgetAction' {executionRoleArn} -> executionRoleArn) (\s@CreateBudgetAction' {} a -> s {executionRoleArn = a} :: CreateBudgetAction)
 
 -- | This specifies if the action needs manual or automatic approval.
@@ -182,79 +181,76 @@ createBudgetAction_approvalModel :: Lens.Lens' CreateBudgetAction ApprovalModel
 createBudgetAction_approvalModel = Lens.lens (\CreateBudgetAction' {approvalModel} -> approvalModel) (\s@CreateBudgetAction' {} a -> s {approvalModel = a} :: CreateBudgetAction)
 
 -- | Undocumented member.
-createBudgetAction_subscribers :: Lens.Lens' CreateBudgetAction (Prelude.NonEmpty Subscriber)
-createBudgetAction_subscribers = Lens.lens (\CreateBudgetAction' {subscribers} -> subscribers) (\s@CreateBudgetAction' {} a -> s {subscribers = a} :: CreateBudgetAction) Prelude.. Prelude._Coerce
+createBudgetAction_subscribers :: Lens.Lens' CreateBudgetAction (Core.NonEmpty Subscriber)
+createBudgetAction_subscribers = Lens.lens (\CreateBudgetAction' {subscribers} -> subscribers) (\s@CreateBudgetAction' {} a -> s {subscribers = a} :: CreateBudgetAction) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateBudgetAction where
+instance Core.AWSRequest CreateBudgetAction where
   type
-    Rs CreateBudgetAction =
+    AWSResponse CreateBudgetAction =
       CreateBudgetActionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateBudgetActionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "AccountId")
-            Prelude.<*> (x Prelude..:> "BudgetName")
-            Prelude.<*> (x Prelude..:> "ActionId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "AccountId")
+            Core.<*> (x Core..:> "BudgetName")
+            Core.<*> (x Core..:> "ActionId")
       )
 
-instance Prelude.Hashable CreateBudgetAction
+instance Core.Hashable CreateBudgetAction
 
-instance Prelude.NFData CreateBudgetAction
+instance Core.NFData CreateBudgetAction
 
-instance Prelude.ToHeaders CreateBudgetAction where
+instance Core.ToHeaders CreateBudgetAction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSBudgetServiceGateway.CreateBudgetAction" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSBudgetServiceGateway.CreateBudgetAction" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateBudgetAction where
+instance Core.ToJSON CreateBudgetAction where
   toJSON CreateBudgetAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just ("BudgetName" Prelude..= budgetName),
-            Prelude.Just
-              ("NotificationType" Prelude..= notificationType),
-            Prelude.Just ("ActionType" Prelude..= actionType),
-            Prelude.Just
-              ("ActionThreshold" Prelude..= actionThreshold),
-            Prelude.Just ("Definition" Prelude..= definition),
-            Prelude.Just
-              ("ExecutionRoleArn" Prelude..= executionRoleArn),
-            Prelude.Just
-              ("ApprovalModel" Prelude..= approvalModel),
-            Prelude.Just ("Subscribers" Prelude..= subscribers)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just
+              ("NotificationType" Core..= notificationType),
+            Core.Just ("ActionType" Core..= actionType),
+            Core.Just
+              ("ActionThreshold" Core..= actionThreshold),
+            Core.Just ("Definition" Core..= definition),
+            Core.Just
+              ("ExecutionRoleArn" Core..= executionRoleArn),
+            Core.Just ("ApprovalModel" Core..= approvalModel),
+            Core.Just ("Subscribers" Core..= subscribers)
           ]
       )
 
-instance Prelude.ToPath CreateBudgetAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateBudgetAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateBudgetAction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateBudgetAction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateBudgetActionResponse' smart constructor.
 data CreateBudgetActionResponse = CreateBudgetActionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    accountId :: Prelude.Text,
-    budgetName :: Prelude.Text,
+    httpStatus :: Core.Int,
+    accountId :: Core.Text,
+    budgetName :: Core.Text,
     -- | A system-generated universally unique identifier (UUID) for the action.
-    actionId :: Prelude.Text
+    actionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBudgetActionResponse' with all optional fields omitted.
@@ -273,13 +269,13 @@ data CreateBudgetActionResponse = CreateBudgetActionResponse'
 -- 'actionId', 'createBudgetActionResponse_actionId' - A system-generated universally unique identifier (UUID) for the action.
 newCreateBudgetActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'actionId'
-  Prelude.Text ->
+  Core.Text ->
   CreateBudgetActionResponse
 newCreateBudgetActionResponse
   pHttpStatus_
@@ -295,19 +291,19 @@ newCreateBudgetActionResponse
       }
 
 -- | The response's http status code.
-createBudgetActionResponse_httpStatus :: Lens.Lens' CreateBudgetActionResponse Prelude.Int
+createBudgetActionResponse_httpStatus :: Lens.Lens' CreateBudgetActionResponse Core.Int
 createBudgetActionResponse_httpStatus = Lens.lens (\CreateBudgetActionResponse' {httpStatus} -> httpStatus) (\s@CreateBudgetActionResponse' {} a -> s {httpStatus = a} :: CreateBudgetActionResponse)
 
 -- | Undocumented member.
-createBudgetActionResponse_accountId :: Lens.Lens' CreateBudgetActionResponse Prelude.Text
+createBudgetActionResponse_accountId :: Lens.Lens' CreateBudgetActionResponse Core.Text
 createBudgetActionResponse_accountId = Lens.lens (\CreateBudgetActionResponse' {accountId} -> accountId) (\s@CreateBudgetActionResponse' {} a -> s {accountId = a} :: CreateBudgetActionResponse)
 
 -- | Undocumented member.
-createBudgetActionResponse_budgetName :: Lens.Lens' CreateBudgetActionResponse Prelude.Text
+createBudgetActionResponse_budgetName :: Lens.Lens' CreateBudgetActionResponse Core.Text
 createBudgetActionResponse_budgetName = Lens.lens (\CreateBudgetActionResponse' {budgetName} -> budgetName) (\s@CreateBudgetActionResponse' {} a -> s {budgetName = a} :: CreateBudgetActionResponse)
 
 -- | A system-generated universally unique identifier (UUID) for the action.
-createBudgetActionResponse_actionId :: Lens.Lens' CreateBudgetActionResponse Prelude.Text
+createBudgetActionResponse_actionId :: Lens.Lens' CreateBudgetActionResponse Core.Text
 createBudgetActionResponse_actionId = Lens.lens (\CreateBudgetActionResponse' {actionId} -> actionId) (\s@CreateBudgetActionResponse' {} a -> s {actionId = a} :: CreateBudgetActionResponse)
 
-instance Prelude.NFData CreateBudgetActionResponse
+instance Core.NFData CreateBudgetActionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.Route53.GetGeoLocation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -89,7 +88,7 @@ data GetGeoLocation = GetGeoLocation'
     -- -   __NA__: North America
     --
     -- -   __SA__: South America
-    continentCode :: Prelude.Maybe Prelude.Text,
+    continentCode :: Core.Maybe Core.Text,
     -- | The code for the subdivision, such as a particular state within the
     -- United States. For a list of US state abbreviations, see
     -- <https://pe.usps.com/text/pub28/28apb.htm Appendix B: Two–Letter State and Possession Abbreviations>
@@ -97,12 +96,12 @@ data GetGeoLocation = GetGeoLocation'
     -- subdivision codes, use the
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
     -- API.
-    subdivisionCode :: Prelude.Maybe Prelude.Text,
+    subdivisionCode :: Core.Maybe Core.Text,
     -- | Amazon Route 53 uses the two-letter country codes that are specified in
     -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
-    countryCode :: Prelude.Maybe Prelude.Text
+    countryCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGeoLocation' with all optional fields omitted.
@@ -144,9 +143,9 @@ newGetGeoLocation ::
   GetGeoLocation
 newGetGeoLocation =
   GetGeoLocation'
-    { continentCode = Prelude.Nothing,
-      subdivisionCode = Prelude.Nothing,
-      countryCode = Prelude.Nothing
+    { continentCode = Core.Nothing,
+      subdivisionCode = Core.Nothing,
+      countryCode = Core.Nothing
     }
 
 -- | For geolocation resource record sets, a two-letter abbreviation that
@@ -166,7 +165,7 @@ newGetGeoLocation =
 -- -   __NA__: North America
 --
 -- -   __SA__: South America
-getGeoLocation_continentCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
+getGeoLocation_continentCode :: Lens.Lens' GetGeoLocation (Core.Maybe Core.Text)
 getGeoLocation_continentCode = Lens.lens (\GetGeoLocation' {continentCode} -> continentCode) (\s@GetGeoLocation' {} a -> s {continentCode = a} :: GetGeoLocation)
 
 -- | The code for the subdivision, such as a particular state within the
@@ -176,41 +175,43 @@ getGeoLocation_continentCode = Lens.lens (\GetGeoLocation' {continentCode} -> co
 -- subdivision codes, use the
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html ListGeoLocations>
 -- API.
-getGeoLocation_subdivisionCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
+getGeoLocation_subdivisionCode :: Lens.Lens' GetGeoLocation (Core.Maybe Core.Text)
 getGeoLocation_subdivisionCode = Lens.lens (\GetGeoLocation' {subdivisionCode} -> subdivisionCode) (\s@GetGeoLocation' {} a -> s {subdivisionCode = a} :: GetGeoLocation)
 
 -- | Amazon Route 53 uses the two-letter country codes that are specified in
 -- <https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 ISO standard 3166-1 alpha-2>.
-getGeoLocation_countryCode :: Lens.Lens' GetGeoLocation (Prelude.Maybe Prelude.Text)
+getGeoLocation_countryCode :: Lens.Lens' GetGeoLocation (Core.Maybe Core.Text)
 getGeoLocation_countryCode = Lens.lens (\GetGeoLocation' {countryCode} -> countryCode) (\s@GetGeoLocation' {} a -> s {countryCode = a} :: GetGeoLocation)
 
-instance Prelude.AWSRequest GetGeoLocation where
-  type Rs GetGeoLocation = GetGeoLocationResponse
+instance Core.AWSRequest GetGeoLocation where
+  type
+    AWSResponse GetGeoLocation =
+      GetGeoLocationResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetGeoLocationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "GeoLocationDetails")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "GeoLocationDetails")
       )
 
-instance Prelude.Hashable GetGeoLocation
+instance Core.Hashable GetGeoLocation
 
-instance Prelude.NFData GetGeoLocation
+instance Core.NFData GetGeoLocation
 
-instance Prelude.ToHeaders GetGeoLocation where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetGeoLocation where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetGeoLocation where
-  toPath = Prelude.const "/2013-04-01/geolocation"
+instance Core.ToPath GetGeoLocation where
+  toPath = Core.const "/2013-04-01/geolocation"
 
-instance Prelude.ToQuery GetGeoLocation where
+instance Core.ToQuery GetGeoLocation where
   toQuery GetGeoLocation' {..} =
-    Prelude.mconcat
-      [ "continentcode" Prelude.=: continentCode,
-        "subdivisioncode" Prelude.=: subdivisionCode,
-        "countrycode" Prelude.=: countryCode
+    Core.mconcat
+      [ "continentcode" Core.=: continentCode,
+        "subdivisioncode" Core.=: subdivisionCode,
+        "countrycode" Core.=: countryCode
       ]
 
 -- | A complex type that contains the response information for the specified
@@ -219,12 +220,12 @@ instance Prelude.ToQuery GetGeoLocation where
 -- /See:/ 'newGetGeoLocationResponse' smart constructor.
 data GetGeoLocationResponse = GetGeoLocationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains the codes and full continent, country, and
     -- subdivision names for the specified geolocation code.
     geoLocationDetails :: GeoLocationDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGeoLocationResponse' with all optional fields omitted.
@@ -240,7 +241,7 @@ data GetGeoLocationResponse = GetGeoLocationResponse'
 -- subdivision names for the specified geolocation code.
 newGetGeoLocationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'geoLocationDetails'
   GeoLocationDetails ->
   GetGeoLocationResponse
@@ -253,7 +254,7 @@ newGetGeoLocationResponse
       }
 
 -- | The response's http status code.
-getGeoLocationResponse_httpStatus :: Lens.Lens' GetGeoLocationResponse Prelude.Int
+getGeoLocationResponse_httpStatus :: Lens.Lens' GetGeoLocationResponse Core.Int
 getGeoLocationResponse_httpStatus = Lens.lens (\GetGeoLocationResponse' {httpStatus} -> httpStatus) (\s@GetGeoLocationResponse' {} a -> s {httpStatus = a} :: GetGeoLocationResponse)
 
 -- | A complex type that contains the codes and full continent, country, and
@@ -261,4 +262,4 @@ getGeoLocationResponse_httpStatus = Lens.lens (\GetGeoLocationResponse' {httpSta
 getGeoLocationResponse_geoLocationDetails :: Lens.Lens' GetGeoLocationResponse GeoLocationDetails
 getGeoLocationResponse_geoLocationDetails = Lens.lens (\GetGeoLocationResponse' {geoLocationDetails} -> geoLocationDetails) (\s@GetGeoLocationResponse' {} a -> s {geoLocationDetails = a} :: GetGeoLocationResponse)
 
-instance Prelude.NFData GetGeoLocationResponse
+instance Core.NFData GetGeoLocationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.PromptSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the prompt.
 --
 -- /See:/ 'newPromptSummary' smart constructor.
 data PromptSummary = PromptSummary'
   { -- | The Amazon Resource Name (ARN) of the prompt.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the prompt.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the prompt.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PromptSummary' with all optional fields omitted.
@@ -53,34 +52,34 @@ newPromptSummary ::
   PromptSummary
 newPromptSummary =
   PromptSummary'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the prompt.
-promptSummary_arn :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
+promptSummary_arn :: Lens.Lens' PromptSummary (Core.Maybe Core.Text)
 promptSummary_arn = Lens.lens (\PromptSummary' {arn} -> arn) (\s@PromptSummary' {} a -> s {arn = a} :: PromptSummary)
 
 -- | The identifier of the prompt.
-promptSummary_id :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
+promptSummary_id :: Lens.Lens' PromptSummary (Core.Maybe Core.Text)
 promptSummary_id = Lens.lens (\PromptSummary' {id} -> id) (\s@PromptSummary' {} a -> s {id = a} :: PromptSummary)
 
 -- | The name of the prompt.
-promptSummary_name :: Lens.Lens' PromptSummary (Prelude.Maybe Prelude.Text)
+promptSummary_name :: Lens.Lens' PromptSummary (Core.Maybe Core.Text)
 promptSummary_name = Lens.lens (\PromptSummary' {name} -> name) (\s@PromptSummary' {} a -> s {name = a} :: PromptSummary)
 
-instance Prelude.FromJSON PromptSummary where
+instance Core.FromJSON PromptSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PromptSummary"
       ( \x ->
           PromptSummary'
-            Prelude.<$> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable PromptSummary
+instance Core.Hashable PromptSummary
 
-instance Prelude.NFData PromptSummary
+instance Core.NFData PromptSummary

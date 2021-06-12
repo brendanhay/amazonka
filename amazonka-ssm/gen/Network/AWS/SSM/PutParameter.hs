@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.SSM.PutParameter
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -81,10 +80,10 @@ data PutParameter = PutParameter'
     -- All existing policies are preserved until you send new policies or an
     -- empty policy. For more information about parameter policies, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html Assigning parameter policies>.
-    policies :: Prelude.Maybe Prelude.Text,
+    policies :: Core.Maybe Core.Text,
     -- | Overwrite an existing parameter. If not specified, will default to
     -- \"false\".
-    overwrite :: Prelude.Maybe Prelude.Bool,
+    overwrite :: Core.Maybe Core.Bool,
     -- | Optional metadata that you assign to a resource. Tags enable you to
     -- categorize a resource in different ways, such as by purpose, owner, or
     -- environment. For example, you might want to tag a Systems Manager
@@ -101,12 +100,12 @@ data PutParameter = PutParameter'
     --
     -- To add tags to an existing Systems Manager parameter, use the
     -- AddTagsToResource action.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Information about the parameter that you want to add to the system.
     -- Optional but recommended.
     --
     -- Do not enter personally identifiable information in this field.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The type of parameter that you want to add to the system.
     --
     -- @SecureString@ is not currently supported for AWS CloudFormation
@@ -119,7 +118,7 @@ data PutParameter = PutParameter'
     --
     -- Specifying a parameter type is not required when updating a parameter.
     -- You must specify a parameter type when creating a parameter.
-    type' :: Prelude.Maybe ParameterType,
+    type' :: Core.Maybe ParameterType,
     -- | The data type for a @String@ parameter. Supported data types include
     -- plain text and Amazon Machine Image IDs.
     --
@@ -135,11 +134,11 @@ data PutParameter = PutParameter'
     -- in your AWS account. For more information, see
     -- <http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image IDs>
     -- in the /AWS Systems Manager User Guide/.
-    dataType :: Prelude.Maybe Prelude.Text,
+    dataType :: Core.Maybe Core.Text,
     -- | A regular expression used to validate the parameter value. For example,
     -- for String types with values restricted to numbers, you can specify the
     -- following: AllowedPattern=^\\d+$
-    allowedPattern :: Prelude.Maybe Prelude.Text,
+    allowedPattern :: Core.Maybe Core.Text,
     -- | The parameter tier to assign to a parameter.
     --
     -- Parameter Store offers a standard tier and an advanced tier for
@@ -208,7 +207,7 @@ data PutParameter = PutParameter'
     -- For more information about configuring the default tier option, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html Specifying a default parameter tier>
     -- in the /AWS Systems Manager User Guide/.
-    tier :: Prelude.Maybe ParameterTier,
+    tier :: Core.Maybe ParameterTier,
     -- | The KMS Key ID that you want to use to encrypt a parameter. Either the
     -- default AWS Key Management Service (AWS KMS) key automatically assigned
     -- to your AWS account or a custom key. Required for parameters that use
@@ -224,7 +223,7 @@ data PutParameter = PutParameter'
     --
     -- -   To use a custom KMS key, choose the @SecureString@ data type with
     --     the @Key ID@ parameter.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | The fully qualified name of the parameter that you want to add to the
     -- system. The fully qualified name includes the complete hierarchy of the
     -- parameter path and name. For parameters in a hierarchy, you must include
@@ -263,7 +262,7 @@ data PutParameter = PutParameter'
     -- parameter name is 65 characters, not 20 characters:
     --
     -- @arn:aws:ssm:us-east-2:111122223333:parameter\/ExampleParameterName@
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The parameter value that you want to add to the system. Standard
     -- parameters have a value limit of 4 KB. Advanced parameters have a value
     -- limit of 8 KB.
@@ -271,9 +270,9 @@ data PutParameter = PutParameter'
     -- Parameters can\'t be referenced or nested in the values of other
     -- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
     -- parameter value.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutParameter' with all optional fields omitted.
@@ -497,21 +496,21 @@ data PutParameter = PutParameter'
 -- parameter value.
 newPutParameter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   PutParameter
 newPutParameter pName_ pValue_ =
   PutParameter'
-    { policies = Prelude.Nothing,
-      overwrite = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      dataType = Prelude.Nothing,
-      allowedPattern = Prelude.Nothing,
-      tier = Prelude.Nothing,
-      keyId = Prelude.Nothing,
+    { policies = Core.Nothing,
+      overwrite = Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
+      type' = Core.Nothing,
+      dataType = Core.Nothing,
+      allowedPattern = Core.Nothing,
+      tier = Core.Nothing,
+      keyId = Core.Nothing,
       name = pName_,
       value = pValue_
     }
@@ -538,12 +537,12 @@ newPutParameter pName_ pValue_ =
 -- All existing policies are preserved until you send new policies or an
 -- empty policy. For more information about parameter policies, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html Assigning parameter policies>.
-putParameter_policies :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_policies :: Lens.Lens' PutParameter (Core.Maybe Core.Text)
 putParameter_policies = Lens.lens (\PutParameter' {policies} -> policies) (\s@PutParameter' {} a -> s {policies = a} :: PutParameter)
 
 -- | Overwrite an existing parameter. If not specified, will default to
 -- \"false\".
-putParameter_overwrite :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Bool)
+putParameter_overwrite :: Lens.Lens' PutParameter (Core.Maybe Core.Bool)
 putParameter_overwrite = Lens.lens (\PutParameter' {overwrite} -> overwrite) (\s@PutParameter' {} a -> s {overwrite = a} :: PutParameter)
 
 -- | Optional metadata that you assign to a resource. Tags enable you to
@@ -562,14 +561,14 @@ putParameter_overwrite = Lens.lens (\PutParameter' {overwrite} -> overwrite) (\s
 --
 -- To add tags to an existing Systems Manager parameter, use the
 -- AddTagsToResource action.
-putParameter_tags :: Lens.Lens' PutParameter (Prelude.Maybe [Tag])
-putParameter_tags = Lens.lens (\PutParameter' {tags} -> tags) (\s@PutParameter' {} a -> s {tags = a} :: PutParameter) Prelude.. Lens.mapping Prelude._Coerce
+putParameter_tags :: Lens.Lens' PutParameter (Core.Maybe [Tag])
+putParameter_tags = Lens.lens (\PutParameter' {tags} -> tags) (\s@PutParameter' {} a -> s {tags = a} :: PutParameter) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the parameter that you want to add to the system.
 -- Optional but recommended.
 --
 -- Do not enter personally identifiable information in this field.
-putParameter_description :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_description :: Lens.Lens' PutParameter (Core.Maybe Core.Text)
 putParameter_description = Lens.lens (\PutParameter' {description} -> description) (\s@PutParameter' {} a -> s {description = a} :: PutParameter)
 
 -- | The type of parameter that you want to add to the system.
@@ -584,7 +583,7 @@ putParameter_description = Lens.lens (\PutParameter' {description} -> descriptio
 --
 -- Specifying a parameter type is not required when updating a parameter.
 -- You must specify a parameter type when creating a parameter.
-putParameter_type :: Lens.Lens' PutParameter (Prelude.Maybe ParameterType)
+putParameter_type :: Lens.Lens' PutParameter (Core.Maybe ParameterType)
 putParameter_type = Lens.lens (\PutParameter' {type'} -> type') (\s@PutParameter' {} a -> s {type' = a} :: PutParameter)
 
 -- | The data type for a @String@ parameter. Supported data types include
@@ -602,13 +601,13 @@ putParameter_type = Lens.lens (\PutParameter' {type'} -> type') (\s@PutParameter
 -- in your AWS account. For more information, see
 -- <http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html Native parameter support for Amazon Machine Image IDs>
 -- in the /AWS Systems Manager User Guide/.
-putParameter_dataType :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_dataType :: Lens.Lens' PutParameter (Core.Maybe Core.Text)
 putParameter_dataType = Lens.lens (\PutParameter' {dataType} -> dataType) (\s@PutParameter' {} a -> s {dataType = a} :: PutParameter)
 
 -- | A regular expression used to validate the parameter value. For example,
 -- for String types with values restricted to numbers, you can specify the
 -- following: AllowedPattern=^\\d+$
-putParameter_allowedPattern :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_allowedPattern :: Lens.Lens' PutParameter (Core.Maybe Core.Text)
 putParameter_allowedPattern = Lens.lens (\PutParameter' {allowedPattern} -> allowedPattern) (\s@PutParameter' {} a -> s {allowedPattern = a} :: PutParameter)
 
 -- | The parameter tier to assign to a parameter.
@@ -679,7 +678,7 @@ putParameter_allowedPattern = Lens.lens (\PutParameter' {allowedPattern} -> allo
 -- For more information about configuring the default tier option, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html Specifying a default parameter tier>
 -- in the /AWS Systems Manager User Guide/.
-putParameter_tier :: Lens.Lens' PutParameter (Prelude.Maybe ParameterTier)
+putParameter_tier :: Lens.Lens' PutParameter (Core.Maybe ParameterTier)
 putParameter_tier = Lens.lens (\PutParameter' {tier} -> tier) (\s@PutParameter' {} a -> s {tier = a} :: PutParameter)
 
 -- | The KMS Key ID that you want to use to encrypt a parameter. Either the
@@ -697,7 +696,7 @@ putParameter_tier = Lens.lens (\PutParameter' {tier} -> tier) (\s@PutParameter' 
 --
 -- -   To use a custom KMS key, choose the @SecureString@ data type with
 --     the @Key ID@ parameter.
-putParameter_keyId :: Lens.Lens' PutParameter (Prelude.Maybe Prelude.Text)
+putParameter_keyId :: Lens.Lens' PutParameter (Core.Maybe Core.Text)
 putParameter_keyId = Lens.lens (\PutParameter' {keyId} -> keyId) (\s@PutParameter' {} a -> s {keyId = a} :: PutParameter)
 
 -- | The fully qualified name of the parameter that you want to add to the
@@ -738,7 +737,7 @@ putParameter_keyId = Lens.lens (\PutParameter' {keyId} -> keyId) (\s@PutParamete
 -- parameter name is 65 characters, not 20 characters:
 --
 -- @arn:aws:ssm:us-east-2:111122223333:parameter\/ExampleParameterName@
-putParameter_name :: Lens.Lens' PutParameter Prelude.Text
+putParameter_name :: Lens.Lens' PutParameter Core.Text
 putParameter_name = Lens.lens (\PutParameter' {name} -> name) (\s@PutParameter' {} a -> s {name = a} :: PutParameter)
 
 -- | The parameter value that you want to add to the system. Standard
@@ -748,62 +747,59 @@ putParameter_name = Lens.lens (\PutParameter' {name} -> name) (\s@PutParameter' 
 -- Parameters can\'t be referenced or nested in the values of other
 -- parameters. You can\'t include @{{}}@ or @{{ssm:parameter-name}}@ in a
 -- parameter value.
-putParameter_value :: Lens.Lens' PutParameter Prelude.Text
+putParameter_value :: Lens.Lens' PutParameter Core.Text
 putParameter_value = Lens.lens (\PutParameter' {value} -> value) (\s@PutParameter' {} a -> s {value = a} :: PutParameter)
 
-instance Prelude.AWSRequest PutParameter where
-  type Rs PutParameter = PutParameterResponse
+instance Core.AWSRequest PutParameter where
+  type AWSResponse PutParameter = PutParameterResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutParameterResponse'
-            Prelude.<$> (x Prelude..?> "Version")
-            Prelude.<*> (x Prelude..?> "Tier")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Version")
+            Core.<*> (x Core..?> "Tier")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutParameter
+instance Core.Hashable PutParameter
 
-instance Prelude.NFData PutParameter
+instance Core.NFData PutParameter
 
-instance Prelude.ToHeaders PutParameter where
+instance Core.ToHeaders PutParameter where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.PutParameter" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.PutParameter" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutParameter where
+instance Core.ToJSON PutParameter where
   toJSON PutParameter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Policies" Prelude..=) Prelude.<$> policies,
-            ("Overwrite" Prelude..=) Prelude.<$> overwrite,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("Type" Prelude..=) Prelude.<$> type',
-            ("DataType" Prelude..=) Prelude.<$> dataType,
-            ("AllowedPattern" Prelude..=)
-              Prelude.<$> allowedPattern,
-            ("Tier" Prelude..=) Prelude.<$> tier,
-            ("KeyId" Prelude..=) Prelude.<$> keyId,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ ("Policies" Core..=) Core.<$> policies,
+            ("Overwrite" Core..=) Core.<$> overwrite,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            ("Type" Core..=) Core.<$> type',
+            ("DataType" Core..=) Core.<$> dataType,
+            ("AllowedPattern" Core..=) Core.<$> allowedPattern,
+            ("Tier" Core..=) Core.<$> tier,
+            ("KeyId" Core..=) Core.<$> keyId,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Value" Core..= value)
           ]
       )
 
-instance Prelude.ToPath PutParameter where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutParameter where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutParameter where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutParameter where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutParameterResponse' smart constructor.
 data PutParameterResponse = PutParameterResponse'
@@ -813,13 +809,13 @@ data PutParameterResponse = PutParameterResponse'
     -- actions or in Systems Manager documents (SSM documents). By default, if
     -- you don\'t specify a specific version, the system returns the latest
     -- parameter value when a parameter is called.
-    version :: Prelude.Maybe Prelude.Integer,
+    version :: Core.Maybe Core.Integer,
     -- | The tier assigned to the parameter.
-    tier :: Prelude.Maybe ParameterTier,
+    tier :: Core.Maybe ParameterTier,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutParameterResponse' with all optional fields omitted.
@@ -841,12 +837,12 @@ data PutParameterResponse = PutParameterResponse'
 -- 'httpStatus', 'putParameterResponse_httpStatus' - The response's http status code.
 newPutParameterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutParameterResponse
 newPutParameterResponse pHttpStatus_ =
   PutParameterResponse'
-    { version = Prelude.Nothing,
-      tier = Prelude.Nothing,
+    { version = Core.Nothing,
+      tier = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -856,15 +852,15 @@ newPutParameterResponse pHttpStatus_ =
 -- actions or in Systems Manager documents (SSM documents). By default, if
 -- you don\'t specify a specific version, the system returns the latest
 -- parameter value when a parameter is called.
-putParameterResponse_version :: Lens.Lens' PutParameterResponse (Prelude.Maybe Prelude.Integer)
+putParameterResponse_version :: Lens.Lens' PutParameterResponse (Core.Maybe Core.Integer)
 putParameterResponse_version = Lens.lens (\PutParameterResponse' {version} -> version) (\s@PutParameterResponse' {} a -> s {version = a} :: PutParameterResponse)
 
 -- | The tier assigned to the parameter.
-putParameterResponse_tier :: Lens.Lens' PutParameterResponse (Prelude.Maybe ParameterTier)
+putParameterResponse_tier :: Lens.Lens' PutParameterResponse (Core.Maybe ParameterTier)
 putParameterResponse_tier = Lens.lens (\PutParameterResponse' {tier} -> tier) (\s@PutParameterResponse' {} a -> s {tier = a} :: PutParameterResponse)
 
 -- | The response's http status code.
-putParameterResponse_httpStatus :: Lens.Lens' PutParameterResponse Prelude.Int
+putParameterResponse_httpStatus :: Lens.Lens' PutParameterResponse Core.Int
 putParameterResponse_httpStatus = Lens.lens (\PutParameterResponse' {httpStatus} -> httpStatus) (\s@PutParameterResponse' {} a -> s {httpStatus = a} :: PutParameterResponse)
 
-instance Prelude.NFData PutParameterResponse
+instance Core.NFData PutParameterResponse

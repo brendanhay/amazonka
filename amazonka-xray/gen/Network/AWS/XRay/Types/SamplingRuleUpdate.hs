@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,45 +19,45 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.SamplingRuleUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A document specifying changes to a sampling rule\'s configuration.
 --
 -- /See:/ 'newSamplingRuleUpdate' smart constructor.
 data SamplingRuleUpdate = SamplingRuleUpdate'
   { -- | Matches the ARN of the AWS resource on which the service runs.
-    resourceARN :: Prelude.Maybe Prelude.Text,
+    resourceARN :: Core.Maybe Core.Text,
     -- | Matches the HTTP method of a request.
-    hTTPMethod :: Prelude.Maybe Prelude.Text,
+    hTTPMethod :: Core.Maybe Core.Text,
     -- | A fixed number of matching requests to instrument per second, prior to
     -- applying the fixed rate. The reservoir is not used directly by services,
     -- but applies to all services using the rule collectively.
-    reservoirSize :: Prelude.Maybe Prelude.Int,
+    reservoirSize :: Core.Maybe Core.Int,
     -- | The percentage of matching requests to instrument, after the reservoir
     -- is exhausted.
-    fixedRate :: Prelude.Maybe Prelude.Double,
+    fixedRate :: Core.Maybe Core.Double,
     -- | The name of the sampling rule. Specify a rule by either name or ARN, but
     -- not both.
-    ruleName :: Prelude.Maybe Prelude.Text,
+    ruleName :: Core.Maybe Core.Text,
     -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but
     -- not both.
-    ruleARN :: Prelude.Maybe Prelude.Text,
+    ruleARN :: Core.Maybe Core.Text,
     -- | Matches the @name@ that the service uses to identify itself in segments.
-    serviceName :: Prelude.Maybe Prelude.Text,
+    serviceName :: Core.Maybe Core.Text,
     -- | The priority of the sampling rule.
-    priority :: Prelude.Maybe Prelude.Int,
+    priority :: Core.Maybe Core.Int,
     -- | Matches attributes derived from the request.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Matches the path from a request URL.
-    uRLPath :: Prelude.Maybe Prelude.Text,
+    uRLPath :: Core.Maybe Core.Text,
     -- | Matches the hostname from a request URL.
-    host :: Prelude.Maybe Prelude.Text,
+    host :: Core.Maybe Core.Text,
     -- | Matches the @origin@ that the service uses to identify its type in
     -- segments.
-    serviceType :: Prelude.Maybe Prelude.Text
+    serviceType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SamplingRuleUpdate' with all optional fields omitted.
@@ -101,94 +100,93 @@ newSamplingRuleUpdate ::
   SamplingRuleUpdate
 newSamplingRuleUpdate =
   SamplingRuleUpdate'
-    { resourceARN = Prelude.Nothing,
-      hTTPMethod = Prelude.Nothing,
-      reservoirSize = Prelude.Nothing,
-      fixedRate = Prelude.Nothing,
-      ruleName = Prelude.Nothing,
-      ruleARN = Prelude.Nothing,
-      serviceName = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      uRLPath = Prelude.Nothing,
-      host = Prelude.Nothing,
-      serviceType = Prelude.Nothing
+    { resourceARN = Core.Nothing,
+      hTTPMethod = Core.Nothing,
+      reservoirSize = Core.Nothing,
+      fixedRate = Core.Nothing,
+      ruleName = Core.Nothing,
+      ruleARN = Core.Nothing,
+      serviceName = Core.Nothing,
+      priority = Core.Nothing,
+      attributes = Core.Nothing,
+      uRLPath = Core.Nothing,
+      host = Core.Nothing,
+      serviceType = Core.Nothing
     }
 
 -- | Matches the ARN of the AWS resource on which the service runs.
-samplingRuleUpdate_resourceARN :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_resourceARN :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_resourceARN = Lens.lens (\SamplingRuleUpdate' {resourceARN} -> resourceARN) (\s@SamplingRuleUpdate' {} a -> s {resourceARN = a} :: SamplingRuleUpdate)
 
 -- | Matches the HTTP method of a request.
-samplingRuleUpdate_hTTPMethod :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_hTTPMethod :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_hTTPMethod = Lens.lens (\SamplingRuleUpdate' {hTTPMethod} -> hTTPMethod) (\s@SamplingRuleUpdate' {} a -> s {hTTPMethod = a} :: SamplingRuleUpdate)
 
 -- | A fixed number of matching requests to instrument per second, prior to
 -- applying the fixed rate. The reservoir is not used directly by services,
 -- but applies to all services using the rule collectively.
-samplingRuleUpdate_reservoirSize :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Int)
+samplingRuleUpdate_reservoirSize :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Int)
 samplingRuleUpdate_reservoirSize = Lens.lens (\SamplingRuleUpdate' {reservoirSize} -> reservoirSize) (\s@SamplingRuleUpdate' {} a -> s {reservoirSize = a} :: SamplingRuleUpdate)
 
 -- | The percentage of matching requests to instrument, after the reservoir
 -- is exhausted.
-samplingRuleUpdate_fixedRate :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Double)
+samplingRuleUpdate_fixedRate :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Double)
 samplingRuleUpdate_fixedRate = Lens.lens (\SamplingRuleUpdate' {fixedRate} -> fixedRate) (\s@SamplingRuleUpdate' {} a -> s {fixedRate = a} :: SamplingRuleUpdate)
 
 -- | The name of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
-samplingRuleUpdate_ruleName :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_ruleName :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_ruleName = Lens.lens (\SamplingRuleUpdate' {ruleName} -> ruleName) (\s@SamplingRuleUpdate' {} a -> s {ruleName = a} :: SamplingRuleUpdate)
 
 -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
-samplingRuleUpdate_ruleARN :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_ruleARN :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_ruleARN = Lens.lens (\SamplingRuleUpdate' {ruleARN} -> ruleARN) (\s@SamplingRuleUpdate' {} a -> s {ruleARN = a} :: SamplingRuleUpdate)
 
 -- | Matches the @name@ that the service uses to identify itself in segments.
-samplingRuleUpdate_serviceName :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_serviceName :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_serviceName = Lens.lens (\SamplingRuleUpdate' {serviceName} -> serviceName) (\s@SamplingRuleUpdate' {} a -> s {serviceName = a} :: SamplingRuleUpdate)
 
 -- | The priority of the sampling rule.
-samplingRuleUpdate_priority :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Int)
+samplingRuleUpdate_priority :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Int)
 samplingRuleUpdate_priority = Lens.lens (\SamplingRuleUpdate' {priority} -> priority) (\s@SamplingRuleUpdate' {} a -> s {priority = a} :: SamplingRuleUpdate)
 
 -- | Matches attributes derived from the request.
-samplingRuleUpdate_attributes :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-samplingRuleUpdate_attributes = Lens.lens (\SamplingRuleUpdate' {attributes} -> attributes) (\s@SamplingRuleUpdate' {} a -> s {attributes = a} :: SamplingRuleUpdate) Prelude.. Lens.mapping Prelude._Coerce
+samplingRuleUpdate_attributes :: Lens.Lens' SamplingRuleUpdate (Core.Maybe (Core.HashMap Core.Text Core.Text))
+samplingRuleUpdate_attributes = Lens.lens (\SamplingRuleUpdate' {attributes} -> attributes) (\s@SamplingRuleUpdate' {} a -> s {attributes = a} :: SamplingRuleUpdate) Core.. Lens.mapping Lens._Coerce
 
 -- | Matches the path from a request URL.
-samplingRuleUpdate_uRLPath :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_uRLPath :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_uRLPath = Lens.lens (\SamplingRuleUpdate' {uRLPath} -> uRLPath) (\s@SamplingRuleUpdate' {} a -> s {uRLPath = a} :: SamplingRuleUpdate)
 
 -- | Matches the hostname from a request URL.
-samplingRuleUpdate_host :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_host :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_host = Lens.lens (\SamplingRuleUpdate' {host} -> host) (\s@SamplingRuleUpdate' {} a -> s {host = a} :: SamplingRuleUpdate)
 
 -- | Matches the @origin@ that the service uses to identify its type in
 -- segments.
-samplingRuleUpdate_serviceType :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_serviceType :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Text)
 samplingRuleUpdate_serviceType = Lens.lens (\SamplingRuleUpdate' {serviceType} -> serviceType) (\s@SamplingRuleUpdate' {} a -> s {serviceType = a} :: SamplingRuleUpdate)
 
-instance Prelude.Hashable SamplingRuleUpdate
+instance Core.Hashable SamplingRuleUpdate
 
-instance Prelude.NFData SamplingRuleUpdate
+instance Core.NFData SamplingRuleUpdate
 
-instance Prelude.ToJSON SamplingRuleUpdate where
+instance Core.ToJSON SamplingRuleUpdate where
   toJSON SamplingRuleUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceARN" Prelude..=) Prelude.<$> resourceARN,
-            ("HTTPMethod" Prelude..=) Prelude.<$> hTTPMethod,
-            ("ReservoirSize" Prelude..=)
-              Prelude.<$> reservoirSize,
-            ("FixedRate" Prelude..=) Prelude.<$> fixedRate,
-            ("RuleName" Prelude..=) Prelude.<$> ruleName,
-            ("RuleARN" Prelude..=) Prelude.<$> ruleARN,
-            ("ServiceName" Prelude..=) Prelude.<$> serviceName,
-            ("Priority" Prelude..=) Prelude.<$> priority,
-            ("Attributes" Prelude..=) Prelude.<$> attributes,
-            ("URLPath" Prelude..=) Prelude.<$> uRLPath,
-            ("Host" Prelude..=) Prelude.<$> host,
-            ("ServiceType" Prelude..=) Prelude.<$> serviceType
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceARN" Core..=) Core.<$> resourceARN,
+            ("HTTPMethod" Core..=) Core.<$> hTTPMethod,
+            ("ReservoirSize" Core..=) Core.<$> reservoirSize,
+            ("FixedRate" Core..=) Core.<$> fixedRate,
+            ("RuleName" Core..=) Core.<$> ruleName,
+            ("RuleARN" Core..=) Core.<$> ruleARN,
+            ("ServiceName" Core..=) Core.<$> serviceName,
+            ("Priority" Core..=) Core.<$> priority,
+            ("Attributes" Core..=) Core.<$> attributes,
+            ("URLPath" Core..=) Core.<$> uRLPath,
+            ("Host" Core..=) Core.<$> host,
+            ("ServiceType" Core..=) Core.<$> serviceType
           ]
       )

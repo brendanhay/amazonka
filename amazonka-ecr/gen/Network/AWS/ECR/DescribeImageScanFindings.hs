@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,10 +50,9 @@ module Network.AWS.ECR.DescribeImageScanFindings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +63,7 @@ data DescribeImageScanFindings = DescribeImageScanFindings'
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
     -- This value is null when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of image scan results returned by
     -- @DescribeImageScanFindings@ in paginated output. When this parameter is
     -- used, @DescribeImageScanFindings@ only returns @maxResults@ results in a
@@ -75,16 +73,16 @@ data DescribeImageScanFindings = DescribeImageScanFindings'
     -- This value can be between 1 and 1000. If this parameter is not used,
     -- then @DescribeImageScanFindings@ returns up to 100 results and a
     -- @nextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The AWS account ID associated with the registry that contains the
     -- repository in which to describe the image scan findings for. If you do
     -- not specify a registry, the default registry is assumed.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The repository for the image for which to describe the scan findings.
-    repositoryName :: Prelude.Text,
+    repositoryName :: Core.Text,
     imageId :: ImageIdentifier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeImageScanFindings' with all optional fields omitted.
@@ -119,7 +117,7 @@ data DescribeImageScanFindings = DescribeImageScanFindings'
 -- 'imageId', 'describeImageScanFindings_imageId' - Undocumented member.
 newDescribeImageScanFindings ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'imageId'
   ImageIdentifier ->
   DescribeImageScanFindings
@@ -128,9 +126,9 @@ newDescribeImageScanFindings
   pImageId_ =
     DescribeImageScanFindings'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        registryId = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
+        registryId = Core.Nothing,
         repositoryName = pRepositoryName_,
         imageId = pImageId_
       }
@@ -140,7 +138,7 @@ newDescribeImageScanFindings
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is null when there are no more results to return.
-describeImageScanFindings_nextToken :: Lens.Lens' DescribeImageScanFindings (Prelude.Maybe Prelude.Text)
+describeImageScanFindings_nextToken :: Lens.Lens' DescribeImageScanFindings (Core.Maybe Core.Text)
 describeImageScanFindings_nextToken = Lens.lens (\DescribeImageScanFindings' {nextToken} -> nextToken) (\s@DescribeImageScanFindings' {} a -> s {nextToken = a} :: DescribeImageScanFindings)
 
 -- | The maximum number of image scan results returned by
@@ -152,102 +150,99 @@ describeImageScanFindings_nextToken = Lens.lens (\DescribeImageScanFindings' {ne
 -- This value can be between 1 and 1000. If this parameter is not used,
 -- then @DescribeImageScanFindings@ returns up to 100 results and a
 -- @nextToken@ value, if applicable.
-describeImageScanFindings_maxResults :: Lens.Lens' DescribeImageScanFindings (Prelude.Maybe Prelude.Natural)
+describeImageScanFindings_maxResults :: Lens.Lens' DescribeImageScanFindings (Core.Maybe Core.Natural)
 describeImageScanFindings_maxResults = Lens.lens (\DescribeImageScanFindings' {maxResults} -> maxResults) (\s@DescribeImageScanFindings' {} a -> s {maxResults = a} :: DescribeImageScanFindings)
 
 -- | The AWS account ID associated with the registry that contains the
 -- repository in which to describe the image scan findings for. If you do
 -- not specify a registry, the default registry is assumed.
-describeImageScanFindings_registryId :: Lens.Lens' DescribeImageScanFindings (Prelude.Maybe Prelude.Text)
+describeImageScanFindings_registryId :: Lens.Lens' DescribeImageScanFindings (Core.Maybe Core.Text)
 describeImageScanFindings_registryId = Lens.lens (\DescribeImageScanFindings' {registryId} -> registryId) (\s@DescribeImageScanFindings' {} a -> s {registryId = a} :: DescribeImageScanFindings)
 
 -- | The repository for the image for which to describe the scan findings.
-describeImageScanFindings_repositoryName :: Lens.Lens' DescribeImageScanFindings Prelude.Text
+describeImageScanFindings_repositoryName :: Lens.Lens' DescribeImageScanFindings Core.Text
 describeImageScanFindings_repositoryName = Lens.lens (\DescribeImageScanFindings' {repositoryName} -> repositoryName) (\s@DescribeImageScanFindings' {} a -> s {repositoryName = a} :: DescribeImageScanFindings)
 
 -- | Undocumented member.
 describeImageScanFindings_imageId :: Lens.Lens' DescribeImageScanFindings ImageIdentifier
 describeImageScanFindings_imageId = Lens.lens (\DescribeImageScanFindings' {imageId} -> imageId) (\s@DescribeImageScanFindings' {} a -> s {imageId = a} :: DescribeImageScanFindings)
 
-instance Pager.AWSPager DescribeImageScanFindings where
+instance Core.AWSPager DescribeImageScanFindings where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeImageScanFindingsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeImageScanFindingsResponse_imageScanFindings
-              Prelude.. Lens._Just
-              Prelude.. imageScanFindings_findings
-              Prelude.. Lens._Just
+              Core.. Lens._Just
+              Core.. imageScanFindings_findings
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeImageScanFindings_nextToken
           Lens..~ rs
           Lens.^? describeImageScanFindingsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeImageScanFindings where
+instance Core.AWSRequest DescribeImageScanFindings where
   type
-    Rs DescribeImageScanFindings =
+    AWSResponse DescribeImageScanFindings =
       DescribeImageScanFindingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeImageScanFindingsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "imageScanStatus")
-            Prelude.<*> (x Prelude..?> "imageScanFindings")
-            Prelude.<*> (x Prelude..?> "registryId")
-            Prelude.<*> (x Prelude..?> "repositoryName")
-            Prelude.<*> (x Prelude..?> "imageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "imageScanStatus")
+            Core.<*> (x Core..?> "imageScanFindings")
+            Core.<*> (x Core..?> "registryId")
+            Core.<*> (x Core..?> "repositoryName")
+            Core.<*> (x Core..?> "imageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImageScanFindings
+instance Core.Hashable DescribeImageScanFindings
 
-instance Prelude.NFData DescribeImageScanFindings
+instance Core.NFData DescribeImageScanFindings
 
-instance Prelude.ToHeaders DescribeImageScanFindings where
+instance Core.ToHeaders DescribeImageScanFindings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeImageScanFindings where
+instance Core.ToJSON DescribeImageScanFindings where
   toJSON DescribeImageScanFindings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("registryId" Prelude..=) Prelude.<$> registryId,
-            Prelude.Just
-              ("repositoryName" Prelude..= repositoryName),
-            Prelude.Just ("imageId" Prelude..= imageId)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("registryId" Core..=) Core.<$> registryId,
+            Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("imageId" Core..= imageId)
           ]
       )
 
-instance Prelude.ToPath DescribeImageScanFindings where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeImageScanFindings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeImageScanFindings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeImageScanFindings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeImageScanFindingsResponse' smart constructor.
 data DescribeImageScanFindingsResponse = DescribeImageScanFindingsResponse'
@@ -255,20 +250,20 @@ data DescribeImageScanFindingsResponse = DescribeImageScanFindingsResponse'
     -- request. When the results of a @DescribeImageScanFindings@ request
     -- exceed @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is null when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The current state of the scan.
-    imageScanStatus :: Prelude.Maybe ImageScanStatus,
+    imageScanStatus :: Core.Maybe ImageScanStatus,
     -- | The information contained in the image scan findings.
-    imageScanFindings :: Prelude.Maybe ImageScanFindings,
+    imageScanFindings :: Core.Maybe ImageScanFindings,
     -- | The registry ID associated with the request.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
-    imageId :: Prelude.Maybe ImageIdentifier,
+    repositoryName :: Core.Maybe Core.Text,
+    imageId :: Core.Maybe ImageIdentifier,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeImageScanFindingsResponse' with all optional fields omitted.
@@ -296,17 +291,17 @@ data DescribeImageScanFindingsResponse = DescribeImageScanFindingsResponse'
 -- 'httpStatus', 'describeImageScanFindingsResponse_httpStatus' - The response's http status code.
 newDescribeImageScanFindingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeImageScanFindingsResponse
 newDescribeImageScanFindingsResponse pHttpStatus_ =
   DescribeImageScanFindingsResponse'
     { nextToken =
-        Prelude.Nothing,
-      imageScanStatus = Prelude.Nothing,
-      imageScanFindings = Prelude.Nothing,
-      registryId = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      imageId = Prelude.Nothing,
+        Core.Nothing,
+      imageScanStatus = Core.Nothing,
+      imageScanFindings = Core.Nothing,
+      registryId = Core.Nothing,
+      repositoryName = Core.Nothing,
+      imageId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -314,33 +309,33 @@ newDescribeImageScanFindingsResponse pHttpStatus_ =
 -- request. When the results of a @DescribeImageScanFindings@ request
 -- exceed @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is null when there are no more results to return.
-describeImageScanFindingsResponse_nextToken :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe Prelude.Text)
+describeImageScanFindingsResponse_nextToken :: Lens.Lens' DescribeImageScanFindingsResponse (Core.Maybe Core.Text)
 describeImageScanFindingsResponse_nextToken = Lens.lens (\DescribeImageScanFindingsResponse' {nextToken} -> nextToken) (\s@DescribeImageScanFindingsResponse' {} a -> s {nextToken = a} :: DescribeImageScanFindingsResponse)
 
 -- | The current state of the scan.
-describeImageScanFindingsResponse_imageScanStatus :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe ImageScanStatus)
+describeImageScanFindingsResponse_imageScanStatus :: Lens.Lens' DescribeImageScanFindingsResponse (Core.Maybe ImageScanStatus)
 describeImageScanFindingsResponse_imageScanStatus = Lens.lens (\DescribeImageScanFindingsResponse' {imageScanStatus} -> imageScanStatus) (\s@DescribeImageScanFindingsResponse' {} a -> s {imageScanStatus = a} :: DescribeImageScanFindingsResponse)
 
 -- | The information contained in the image scan findings.
-describeImageScanFindingsResponse_imageScanFindings :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe ImageScanFindings)
+describeImageScanFindingsResponse_imageScanFindings :: Lens.Lens' DescribeImageScanFindingsResponse (Core.Maybe ImageScanFindings)
 describeImageScanFindingsResponse_imageScanFindings = Lens.lens (\DescribeImageScanFindingsResponse' {imageScanFindings} -> imageScanFindings) (\s@DescribeImageScanFindingsResponse' {} a -> s {imageScanFindings = a} :: DescribeImageScanFindingsResponse)
 
 -- | The registry ID associated with the request.
-describeImageScanFindingsResponse_registryId :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe Prelude.Text)
+describeImageScanFindingsResponse_registryId :: Lens.Lens' DescribeImageScanFindingsResponse (Core.Maybe Core.Text)
 describeImageScanFindingsResponse_registryId = Lens.lens (\DescribeImageScanFindingsResponse' {registryId} -> registryId) (\s@DescribeImageScanFindingsResponse' {} a -> s {registryId = a} :: DescribeImageScanFindingsResponse)
 
 -- | The repository name associated with the request.
-describeImageScanFindingsResponse_repositoryName :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe Prelude.Text)
+describeImageScanFindingsResponse_repositoryName :: Lens.Lens' DescribeImageScanFindingsResponse (Core.Maybe Core.Text)
 describeImageScanFindingsResponse_repositoryName = Lens.lens (\DescribeImageScanFindingsResponse' {repositoryName} -> repositoryName) (\s@DescribeImageScanFindingsResponse' {} a -> s {repositoryName = a} :: DescribeImageScanFindingsResponse)
 
 -- | Undocumented member.
-describeImageScanFindingsResponse_imageId :: Lens.Lens' DescribeImageScanFindingsResponse (Prelude.Maybe ImageIdentifier)
+describeImageScanFindingsResponse_imageId :: Lens.Lens' DescribeImageScanFindingsResponse (Core.Maybe ImageIdentifier)
 describeImageScanFindingsResponse_imageId = Lens.lens (\DescribeImageScanFindingsResponse' {imageId} -> imageId) (\s@DescribeImageScanFindingsResponse' {} a -> s {imageId = a} :: DescribeImageScanFindingsResponse)
 
 -- | The response's http status code.
-describeImageScanFindingsResponse_httpStatus :: Lens.Lens' DescribeImageScanFindingsResponse Prelude.Int
+describeImageScanFindingsResponse_httpStatus :: Lens.Lens' DescribeImageScanFindingsResponse Core.Int
 describeImageScanFindingsResponse_httpStatus = Lens.lens (\DescribeImageScanFindingsResponse' {httpStatus} -> httpStatus) (\s@DescribeImageScanFindingsResponse' {} a -> s {httpStatus = a} :: DescribeImageScanFindingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeImageScanFindingsResponse

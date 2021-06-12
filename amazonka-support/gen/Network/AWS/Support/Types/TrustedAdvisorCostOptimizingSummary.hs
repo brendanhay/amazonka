@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The estimated cost savings that might be realized if the recommended
 -- operations are taken.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
   { -- | The estimated monthly savings that might be realized if the recommended
     -- operations are taken.
-    estimatedMonthlySavings :: Prelude.Double,
+    estimatedMonthlySavings :: Core.Double,
     -- | The estimated percentage of savings that might be realized if the
     -- recommended operations are taken.
-    estimatedPercentMonthlySavings :: Prelude.Double
+    estimatedPercentMonthlySavings :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorCostOptimizingSummary' with all optional fields omitted.
@@ -52,9 +51,9 @@ data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
 -- recommended operations are taken.
 newTrustedAdvisorCostOptimizingSummary ::
   -- | 'estimatedMonthlySavings'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'estimatedPercentMonthlySavings'
-  Prelude.Double ->
+  Core.Double ->
   TrustedAdvisorCostOptimizingSummary
 newTrustedAdvisorCostOptimizingSummary
   pEstimatedMonthlySavings_
@@ -68,31 +67,31 @@ newTrustedAdvisorCostOptimizingSummary
 
 -- | The estimated monthly savings that might be realized if the recommended
 -- operations are taken.
-trustedAdvisorCostOptimizingSummary_estimatedMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Prelude.Double
+trustedAdvisorCostOptimizingSummary_estimatedMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Core.Double
 trustedAdvisorCostOptimizingSummary_estimatedMonthlySavings = Lens.lens (\TrustedAdvisorCostOptimizingSummary' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@TrustedAdvisorCostOptimizingSummary' {} a -> s {estimatedMonthlySavings = a} :: TrustedAdvisorCostOptimizingSummary)
 
 -- | The estimated percentage of savings that might be realized if the
 -- recommended operations are taken.
-trustedAdvisorCostOptimizingSummary_estimatedPercentMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Prelude.Double
+trustedAdvisorCostOptimizingSummary_estimatedPercentMonthlySavings :: Lens.Lens' TrustedAdvisorCostOptimizingSummary Core.Double
 trustedAdvisorCostOptimizingSummary_estimatedPercentMonthlySavings = Lens.lens (\TrustedAdvisorCostOptimizingSummary' {estimatedPercentMonthlySavings} -> estimatedPercentMonthlySavings) (\s@TrustedAdvisorCostOptimizingSummary' {} a -> s {estimatedPercentMonthlySavings = a} :: TrustedAdvisorCostOptimizingSummary)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     TrustedAdvisorCostOptimizingSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrustedAdvisorCostOptimizingSummary"
       ( \x ->
           TrustedAdvisorCostOptimizingSummary'
-            Prelude.<$> (x Prelude..: "estimatedMonthlySavings")
-            Prelude.<*> (x Prelude..: "estimatedPercentMonthlySavings")
+            Core.<$> (x Core..: "estimatedMonthlySavings")
+            Core.<*> (x Core..: "estimatedPercentMonthlySavings")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TrustedAdvisorCostOptimizingSummary
 
 instance
-  Prelude.NFData
+  Core.NFData
     TrustedAdvisorCostOptimizingSummary

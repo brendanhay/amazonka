@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SMS.GetApp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -51,9 +50,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newGetApp' smart constructor.
 data GetApp = GetApp'
   { -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    appId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApp' with all optional fields omitted.
@@ -66,71 +65,65 @@ data GetApp = GetApp'
 -- 'appId', 'getApp_appId' - The ID of the application.
 newGetApp ::
   GetApp
-newGetApp = GetApp' {appId = Prelude.Nothing}
+newGetApp = GetApp' {appId = Core.Nothing}
 
 -- | The ID of the application.
-getApp_appId :: Lens.Lens' GetApp (Prelude.Maybe Prelude.Text)
+getApp_appId :: Lens.Lens' GetApp (Core.Maybe Core.Text)
 getApp_appId = Lens.lens (\GetApp' {appId} -> appId) (\s@GetApp' {} a -> s {appId = a} :: GetApp)
 
-instance Prelude.AWSRequest GetApp where
-  type Rs GetApp = GetAppResponse
+instance Core.AWSRequest GetApp where
+  type AWSResponse GetApp = GetAppResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAppResponse'
-            Prelude.<$> (x Prelude..?> "appSummary")
-            Prelude.<*> ( x Prelude..?> "serverGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "appSummary")
+            Core.<*> (x Core..?> "serverGroups" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetApp
+instance Core.Hashable GetApp
 
-instance Prelude.NFData GetApp
+instance Core.NFData GetApp
 
-instance Prelude.ToHeaders GetApp where
+instance Core.ToHeaders GetApp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.GetApp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.GetApp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetApp where
+instance Core.ToJSON GetApp where
   toJSON GetApp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("appId" Prelude..=) Prelude.<$> appId]
-      )
+    Core.object
+      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
 
-instance Prelude.ToPath GetApp where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetApp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetApp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetApp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
   { -- | Information about the application.
-    appSummary :: Prelude.Maybe AppSummary,
+    appSummary :: Core.Maybe AppSummary,
     -- | The server groups that belong to the application.
-    serverGroups :: Prelude.Maybe [ServerGroup],
+    serverGroups :: Core.Maybe [ServerGroup],
     -- | The tags associated with the application.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAppResponse' with all optional fields omitted.
@@ -149,30 +142,30 @@ data GetAppResponse = GetAppResponse'
 -- 'httpStatus', 'getAppResponse_httpStatus' - The response's http status code.
 newGetAppResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAppResponse
 newGetAppResponse pHttpStatus_ =
   GetAppResponse'
-    { appSummary = Prelude.Nothing,
-      serverGroups = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { appSummary = Core.Nothing,
+      serverGroups = Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the application.
-getAppResponse_appSummary :: Lens.Lens' GetAppResponse (Prelude.Maybe AppSummary)
+getAppResponse_appSummary :: Lens.Lens' GetAppResponse (Core.Maybe AppSummary)
 getAppResponse_appSummary = Lens.lens (\GetAppResponse' {appSummary} -> appSummary) (\s@GetAppResponse' {} a -> s {appSummary = a} :: GetAppResponse)
 
 -- | The server groups that belong to the application.
-getAppResponse_serverGroups :: Lens.Lens' GetAppResponse (Prelude.Maybe [ServerGroup])
-getAppResponse_serverGroups = Lens.lens (\GetAppResponse' {serverGroups} -> serverGroups) (\s@GetAppResponse' {} a -> s {serverGroups = a} :: GetAppResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAppResponse_serverGroups :: Lens.Lens' GetAppResponse (Core.Maybe [ServerGroup])
+getAppResponse_serverGroups = Lens.lens (\GetAppResponse' {serverGroups} -> serverGroups) (\s@GetAppResponse' {} a -> s {serverGroups = a} :: GetAppResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags associated with the application.
-getAppResponse_tags :: Lens.Lens' GetAppResponse (Prelude.Maybe [Tag])
-getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAppResponse_tags :: Lens.Lens' GetAppResponse (Core.Maybe [Tag])
+getAppResponse_tags = Lens.lens (\GetAppResponse' {tags} -> tags) (\s@GetAppResponse' {} a -> s {tags = a} :: GetAppResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAppResponse_httpStatus :: Lens.Lens' GetAppResponse Prelude.Int
+getAppResponse_httpStatus :: Lens.Lens' GetAppResponse Core.Int
 getAppResponse_httpStatus = Lens.lens (\GetAppResponse' {httpStatus} -> httpStatus) (\s@GetAppResponse' {} a -> s {httpStatus = a} :: GetAppResponse)
 
-instance Prelude.NFData GetAppResponse
+instance Core.NFData GetAppResponse

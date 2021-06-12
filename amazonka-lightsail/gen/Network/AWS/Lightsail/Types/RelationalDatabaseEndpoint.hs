@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.RelationalDatabaseEndpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an endpoint for a database.
 --
 -- /See:/ 'newRelationalDatabaseEndpoint' smart constructor.
 data RelationalDatabaseEndpoint = RelationalDatabaseEndpoint'
   { -- | Specifies the DNS address of the database.
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | Specifies the port that the database is listening on.
-    port :: Prelude.Maybe Prelude.Int
+    port :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RelationalDatabaseEndpoint' with all optional fields omitted.
@@ -49,29 +48,27 @@ newRelationalDatabaseEndpoint ::
   RelationalDatabaseEndpoint
 newRelationalDatabaseEndpoint =
   RelationalDatabaseEndpoint'
-    { address =
-        Prelude.Nothing,
-      port = Prelude.Nothing
+    { address = Core.Nothing,
+      port = Core.Nothing
     }
 
 -- | Specifies the DNS address of the database.
-relationalDatabaseEndpoint_address :: Lens.Lens' RelationalDatabaseEndpoint (Prelude.Maybe Prelude.Text)
+relationalDatabaseEndpoint_address :: Lens.Lens' RelationalDatabaseEndpoint (Core.Maybe Core.Text)
 relationalDatabaseEndpoint_address = Lens.lens (\RelationalDatabaseEndpoint' {address} -> address) (\s@RelationalDatabaseEndpoint' {} a -> s {address = a} :: RelationalDatabaseEndpoint)
 
 -- | Specifies the port that the database is listening on.
-relationalDatabaseEndpoint_port :: Lens.Lens' RelationalDatabaseEndpoint (Prelude.Maybe Prelude.Int)
+relationalDatabaseEndpoint_port :: Lens.Lens' RelationalDatabaseEndpoint (Core.Maybe Core.Int)
 relationalDatabaseEndpoint_port = Lens.lens (\RelationalDatabaseEndpoint' {port} -> port) (\s@RelationalDatabaseEndpoint' {} a -> s {port = a} :: RelationalDatabaseEndpoint)
 
-instance Prelude.FromJSON RelationalDatabaseEndpoint where
+instance Core.FromJSON RelationalDatabaseEndpoint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RelationalDatabaseEndpoint"
       ( \x ->
           RelationalDatabaseEndpoint'
-            Prelude.<$> (x Prelude..:? "address")
-            Prelude.<*> (x Prelude..:? "port")
+            Core.<$> (x Core..:? "address") Core.<*> (x Core..:? "port")
       )
 
-instance Prelude.Hashable RelationalDatabaseEndpoint
+instance Core.Hashable RelationalDatabaseEndpoint
 
-instance Prelude.NFData RelationalDatabaseEndpoint
+instance Core.NFData RelationalDatabaseEndpoint

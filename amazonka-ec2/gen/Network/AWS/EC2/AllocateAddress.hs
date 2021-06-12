@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -82,38 +81,38 @@ module Network.AWS.EC2.AllocateAddress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAllocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
   { -- | The tags to assign to the Elastic IP address.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | The ID of a customer-owned address pool. Use this parameter to let
     -- Amazon EC2 select an address from the address pool. Alternatively,
     -- specify a specific address from the address pool.
-    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
+    customerOwnedIpv4Pool :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
     -- address pool.
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | Indicates whether the Elastic IP address is for use with instances in a
     -- VPC or instances in EC2-Classic.
     --
     -- Default: If the Region supports EC2-Classic, the default is @standard@.
     -- Otherwise, the default is @vpc@.
-    domain :: Prelude.Maybe DomainType,
+    domain :: Core.Maybe DomainType,
     -- | The ID of an address pool that you own. Use this parameter to let Amazon
     -- EC2 select an address from the address pool. To specify a specific
     -- address from the address pool, use the @Address@ parameter instead.
-    publicIpv4Pool :: Prelude.Maybe Prelude.Text,
+    publicIpv4Pool :: Core.Maybe Core.Text,
     -- | A unique set of Availability Zones, Local Zones, or Wavelength Zones
     -- from which AWS advertises IP addresses. Use this parameter to limit the
     -- IP address to this location. IP addresses cannot move between network
@@ -127,9 +126,9 @@ data AllocateAddress = AllocateAddress'
     -- this operation on EC2 classic, you will receive an
     -- @InvalidParameterCombination@ error. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
-    networkBorderGroup :: Prelude.Maybe Prelude.Text
+    networkBorderGroup :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AllocateAddress' with all optional fields omitted.
@@ -180,36 +179,35 @@ newAllocateAddress ::
   AllocateAddress
 newAllocateAddress =
   AllocateAddress'
-    { tagSpecifications =
-        Prelude.Nothing,
-      customerOwnedIpv4Pool = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      address = Prelude.Nothing,
-      domain = Prelude.Nothing,
-      publicIpv4Pool = Prelude.Nothing,
-      networkBorderGroup = Prelude.Nothing
+    { tagSpecifications = Core.Nothing,
+      customerOwnedIpv4Pool = Core.Nothing,
+      dryRun = Core.Nothing,
+      address = Core.Nothing,
+      domain = Core.Nothing,
+      publicIpv4Pool = Core.Nothing,
+      networkBorderGroup = Core.Nothing
     }
 
 -- | The tags to assign to the Elastic IP address.
-allocateAddress_tagSpecifications :: Lens.Lens' AllocateAddress (Prelude.Maybe [TagSpecification])
-allocateAddress_tagSpecifications = Lens.lens (\AllocateAddress' {tagSpecifications} -> tagSpecifications) (\s@AllocateAddress' {} a -> s {tagSpecifications = a} :: AllocateAddress) Prelude.. Lens.mapping Prelude._Coerce
+allocateAddress_tagSpecifications :: Lens.Lens' AllocateAddress (Core.Maybe [TagSpecification])
+allocateAddress_tagSpecifications = Lens.lens (\AllocateAddress' {tagSpecifications} -> tagSpecifications) (\s@AllocateAddress' {} a -> s {tagSpecifications = a} :: AllocateAddress) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of a customer-owned address pool. Use this parameter to let
 -- Amazon EC2 select an address from the address pool. Alternatively,
 -- specify a specific address from the address pool.
-allocateAddress_customerOwnedIpv4Pool :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
+allocateAddress_customerOwnedIpv4Pool :: Lens.Lens' AllocateAddress (Core.Maybe Core.Text)
 allocateAddress_customerOwnedIpv4Pool = Lens.lens (\AllocateAddress' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@AllocateAddress' {} a -> s {customerOwnedIpv4Pool = a} :: AllocateAddress)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-allocateAddress_dryRun :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Bool)
+allocateAddress_dryRun :: Lens.Lens' AllocateAddress (Core.Maybe Core.Bool)
 allocateAddress_dryRun = Lens.lens (\AllocateAddress' {dryRun} -> dryRun) (\s@AllocateAddress' {} a -> s {dryRun = a} :: AllocateAddress)
 
 -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
 -- address pool.
-allocateAddress_address :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
+allocateAddress_address :: Lens.Lens' AllocateAddress (Core.Maybe Core.Text)
 allocateAddress_address = Lens.lens (\AllocateAddress' {address} -> address) (\s@AllocateAddress' {} a -> s {address = a} :: AllocateAddress)
 
 -- | Indicates whether the Elastic IP address is for use with instances in a
@@ -217,13 +215,13 @@ allocateAddress_address = Lens.lens (\AllocateAddress' {address} -> address) (\s
 --
 -- Default: If the Region supports EC2-Classic, the default is @standard@.
 -- Otherwise, the default is @vpc@.
-allocateAddress_domain :: Lens.Lens' AllocateAddress (Prelude.Maybe DomainType)
+allocateAddress_domain :: Lens.Lens' AllocateAddress (Core.Maybe DomainType)
 allocateAddress_domain = Lens.lens (\AllocateAddress' {domain} -> domain) (\s@AllocateAddress' {} a -> s {domain = a} :: AllocateAddress)
 
 -- | The ID of an address pool that you own. Use this parameter to let Amazon
 -- EC2 select an address from the address pool. To specify a specific
 -- address from the address pool, use the @Address@ parameter instead.
-allocateAddress_publicIpv4Pool :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
+allocateAddress_publicIpv4Pool :: Lens.Lens' AllocateAddress (Core.Maybe Core.Text)
 allocateAddress_publicIpv4Pool = Lens.lens (\AllocateAddress' {publicIpv4Pool} -> publicIpv4Pool) (\s@AllocateAddress' {} a -> s {publicIpv4Pool = a} :: AllocateAddress)
 
 -- | A unique set of Availability Zones, Local Zones, or Wavelength Zones
@@ -239,84 +237,85 @@ allocateAddress_publicIpv4Pool = Lens.lens (\AllocateAddress' {publicIpv4Pool} -
 -- this operation on EC2 classic, you will receive an
 -- @InvalidParameterCombination@ error. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
-allocateAddress_networkBorderGroup :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
+allocateAddress_networkBorderGroup :: Lens.Lens' AllocateAddress (Core.Maybe Core.Text)
 allocateAddress_networkBorderGroup = Lens.lens (\AllocateAddress' {networkBorderGroup} -> networkBorderGroup) (\s@AllocateAddress' {} a -> s {networkBorderGroup = a} :: AllocateAddress)
 
-instance Prelude.AWSRequest AllocateAddress where
-  type Rs AllocateAddress = AllocateAddressResponse
+instance Core.AWSRequest AllocateAddress where
+  type
+    AWSResponse AllocateAddress =
+      AllocateAddressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           AllocateAddressResponse'
-            Prelude.<$> (x Prelude..@? "customerOwnedIpv4Pool")
-            Prelude.<*> (x Prelude..@? "domain")
-            Prelude.<*> (x Prelude..@? "carrierIp")
-            Prelude.<*> (x Prelude..@? "customerOwnedIp")
-            Prelude.<*> (x Prelude..@? "publicIpv4Pool")
-            Prelude.<*> (x Prelude..@? "publicIp")
-            Prelude.<*> (x Prelude..@? "allocationId")
-            Prelude.<*> (x Prelude..@? "networkBorderGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "customerOwnedIpv4Pool")
+            Core.<*> (x Core..@? "domain")
+            Core.<*> (x Core..@? "carrierIp")
+            Core.<*> (x Core..@? "customerOwnedIp")
+            Core.<*> (x Core..@? "publicIpv4Pool")
+            Core.<*> (x Core..@? "publicIp")
+            Core.<*> (x Core..@? "allocationId")
+            Core.<*> (x Core..@? "networkBorderGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AllocateAddress
+instance Core.Hashable AllocateAddress
 
-instance Prelude.NFData AllocateAddress
+instance Core.NFData AllocateAddress
 
-instance Prelude.ToHeaders AllocateAddress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AllocateAddress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AllocateAddress where
-  toPath = Prelude.const "/"
+instance Core.ToPath AllocateAddress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AllocateAddress where
+instance Core.ToQuery AllocateAddress where
   toQuery AllocateAddress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AllocateAddress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("AllocateAddress" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
         "CustomerOwnedIpv4Pool"
-          Prelude.=: customerOwnedIpv4Pool,
-        "DryRun" Prelude.=: dryRun,
-        "Address" Prelude.=: address,
-        "Domain" Prelude.=: domain,
-        "PublicIpv4Pool" Prelude.=: publicIpv4Pool,
-        "NetworkBorderGroup" Prelude.=: networkBorderGroup
+          Core.=: customerOwnedIpv4Pool,
+        "DryRun" Core.=: dryRun,
+        "Address" Core.=: address,
+        "Domain" Core.=: domain,
+        "PublicIpv4Pool" Core.=: publicIpv4Pool,
+        "NetworkBorderGroup" Core.=: networkBorderGroup
       ]
 
 -- | /See:/ 'newAllocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
   { -- | The ID of the customer-owned address pool.
-    customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
+    customerOwnedIpv4Pool :: Core.Maybe Core.Text,
     -- | Indicates whether the Elastic IP address is for use with instances in a
     -- VPC (@vpc@) or instances in EC2-Classic (@standard@).
-    domain :: Prelude.Maybe DomainType,
+    domain :: Core.Maybe DomainType,
     -- | The carrier IP address. This option is only available for network
     -- interfaces which reside in a subnet in a Wavelength Zone (for example an
     -- EC2 instance).
-    carrierIp :: Prelude.Maybe Prelude.Text,
+    carrierIp :: Core.Maybe Core.Text,
     -- | The customer-owned IP address.
-    customerOwnedIp :: Prelude.Maybe Prelude.Text,
+    customerOwnedIp :: Core.Maybe Core.Text,
     -- | The ID of an address pool.
-    publicIpv4Pool :: Prelude.Maybe Prelude.Text,
+    publicIpv4Pool :: Core.Maybe Core.Text,
     -- | The Elastic IP address.
-    publicIp :: Prelude.Maybe Prelude.Text,
+    publicIp :: Core.Maybe Core.Text,
     -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
     -- Elastic IP address for use with instances in a VPC.
-    allocationId :: Prelude.Maybe Prelude.Text,
+    allocationId :: Core.Maybe Core.Text,
     -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
     -- which AWS advertises IP addresses.
-    networkBorderGroup :: Prelude.Maybe Prelude.Text,
+    networkBorderGroup :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AllocateAddressResponse' with all optional fields omitted.
@@ -350,61 +349,61 @@ data AllocateAddressResponse = AllocateAddressResponse'
 -- 'httpStatus', 'allocateAddressResponse_httpStatus' - The response's http status code.
 newAllocateAddressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AllocateAddressResponse
 newAllocateAddressResponse pHttpStatus_ =
   AllocateAddressResponse'
     { customerOwnedIpv4Pool =
-        Prelude.Nothing,
-      domain = Prelude.Nothing,
-      carrierIp = Prelude.Nothing,
-      customerOwnedIp = Prelude.Nothing,
-      publicIpv4Pool = Prelude.Nothing,
-      publicIp = Prelude.Nothing,
-      allocationId = Prelude.Nothing,
-      networkBorderGroup = Prelude.Nothing,
+        Core.Nothing,
+      domain = Core.Nothing,
+      carrierIp = Core.Nothing,
+      customerOwnedIp = Core.Nothing,
+      publicIpv4Pool = Core.Nothing,
+      publicIp = Core.Nothing,
+      allocationId = Core.Nothing,
+      networkBorderGroup = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the customer-owned address pool.
-allocateAddressResponse_customerOwnedIpv4Pool :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
+allocateAddressResponse_customerOwnedIpv4Pool :: Lens.Lens' AllocateAddressResponse (Core.Maybe Core.Text)
 allocateAddressResponse_customerOwnedIpv4Pool = Lens.lens (\AllocateAddressResponse' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@AllocateAddressResponse' {} a -> s {customerOwnedIpv4Pool = a} :: AllocateAddressResponse)
 
 -- | Indicates whether the Elastic IP address is for use with instances in a
 -- VPC (@vpc@) or instances in EC2-Classic (@standard@).
-allocateAddressResponse_domain :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe DomainType)
+allocateAddressResponse_domain :: Lens.Lens' AllocateAddressResponse (Core.Maybe DomainType)
 allocateAddressResponse_domain = Lens.lens (\AllocateAddressResponse' {domain} -> domain) (\s@AllocateAddressResponse' {} a -> s {domain = a} :: AllocateAddressResponse)
 
 -- | The carrier IP address. This option is only available for network
 -- interfaces which reside in a subnet in a Wavelength Zone (for example an
 -- EC2 instance).
-allocateAddressResponse_carrierIp :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
+allocateAddressResponse_carrierIp :: Lens.Lens' AllocateAddressResponse (Core.Maybe Core.Text)
 allocateAddressResponse_carrierIp = Lens.lens (\AllocateAddressResponse' {carrierIp} -> carrierIp) (\s@AllocateAddressResponse' {} a -> s {carrierIp = a} :: AllocateAddressResponse)
 
 -- | The customer-owned IP address.
-allocateAddressResponse_customerOwnedIp :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
+allocateAddressResponse_customerOwnedIp :: Lens.Lens' AllocateAddressResponse (Core.Maybe Core.Text)
 allocateAddressResponse_customerOwnedIp = Lens.lens (\AllocateAddressResponse' {customerOwnedIp} -> customerOwnedIp) (\s@AllocateAddressResponse' {} a -> s {customerOwnedIp = a} :: AllocateAddressResponse)
 
 -- | The ID of an address pool.
-allocateAddressResponse_publicIpv4Pool :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
+allocateAddressResponse_publicIpv4Pool :: Lens.Lens' AllocateAddressResponse (Core.Maybe Core.Text)
 allocateAddressResponse_publicIpv4Pool = Lens.lens (\AllocateAddressResponse' {publicIpv4Pool} -> publicIpv4Pool) (\s@AllocateAddressResponse' {} a -> s {publicIpv4Pool = a} :: AllocateAddressResponse)
 
 -- | The Elastic IP address.
-allocateAddressResponse_publicIp :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
+allocateAddressResponse_publicIp :: Lens.Lens' AllocateAddressResponse (Core.Maybe Core.Text)
 allocateAddressResponse_publicIp = Lens.lens (\AllocateAddressResponse' {publicIp} -> publicIp) (\s@AllocateAddressResponse' {} a -> s {publicIp = a} :: AllocateAddressResponse)
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
-allocateAddressResponse_allocationId :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
+allocateAddressResponse_allocationId :: Lens.Lens' AllocateAddressResponse (Core.Maybe Core.Text)
 allocateAddressResponse_allocationId = Lens.lens (\AllocateAddressResponse' {allocationId} -> allocationId) (\s@AllocateAddressResponse' {} a -> s {allocationId = a} :: AllocateAddressResponse)
 
 -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
 -- which AWS advertises IP addresses.
-allocateAddressResponse_networkBorderGroup :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
+allocateAddressResponse_networkBorderGroup :: Lens.Lens' AllocateAddressResponse (Core.Maybe Core.Text)
 allocateAddressResponse_networkBorderGroup = Lens.lens (\AllocateAddressResponse' {networkBorderGroup} -> networkBorderGroup) (\s@AllocateAddressResponse' {} a -> s {networkBorderGroup = a} :: AllocateAddressResponse)
 
 -- | The response's http status code.
-allocateAddressResponse_httpStatus :: Lens.Lens' AllocateAddressResponse Prelude.Int
+allocateAddressResponse_httpStatus :: Lens.Lens' AllocateAddressResponse Core.Int
 allocateAddressResponse_httpStatus = Lens.lens (\AllocateAddressResponse' {httpStatus} -> httpStatus) (\s@AllocateAddressResponse' {} a -> s {httpStatus = a} :: AllocateAddressResponse)
 
-instance Prelude.NFData AllocateAddressResponse
+instance Core.NFData AllocateAddressResponse

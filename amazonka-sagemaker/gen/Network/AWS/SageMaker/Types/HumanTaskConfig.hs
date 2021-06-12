@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.HumanTaskConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AnnotationConsolidationConfig
 import Network.AWS.SageMaker.Types.PublicWorkforceTaskPrice
 import Network.AWS.SageMaker.Types.UiConfig
@@ -32,7 +31,7 @@ import Network.AWS.SageMaker.Types.UiConfig
 data HumanTaskConfig = HumanTaskConfig'
   { -- | Keywords used to describe the task so that workers on Amazon Mechanical
     -- Turk can discover the task.
-    taskKeywords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    taskKeywords :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The length of time that a task remains available for labeling by human
     -- workers. The default and maximum values for this parameter depend on the
     -- type of workforce you use.
@@ -43,18 +42,18 @@ data HumanTaskConfig = HumanTaskConfig'
     -- -   If you choose a private or vendor workforce, the default value is 10
     --     days (864,000 seconds). For most users, the maximum is also 10 days.
     --     If you want to change this limit, contact AWS Support.
-    taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    taskAvailabilityLifetimeInSeconds :: Core.Maybe Core.Natural,
     -- | Defines the maximum number of data objects that can be labeled by human
     -- workers at the same time. Also referred to as batch size. Each object
     -- may have more than one worker at one time. The default value is 1000
     -- objects.
-    maxConcurrentTaskCount :: Prelude.Maybe Prelude.Natural,
+    maxConcurrentTaskCount :: Core.Maybe Core.Natural,
     -- | The price that you pay for each task performed by an Amazon Mechanical
     -- Turk worker.
-    publicWorkforceTaskPrice :: Prelude.Maybe PublicWorkforceTaskPrice,
+    publicWorkforceTaskPrice :: Core.Maybe PublicWorkforceTaskPrice,
     -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
     -- tasks.
-    workteamArn :: Prelude.Text,
+    workteamArn :: Core.Text,
     -- | Information about the user interface that workers use to complete the
     -- labeling task.
     uiConfig :: UiConfig,
@@ -704,13 +703,13 @@ data HumanTaskConfig = HumanTaskConfig'
     -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
     --
     -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
-    preHumanTaskLambdaArn :: Prelude.Text,
+    preHumanTaskLambdaArn :: Core.Text,
     -- | A title for the task for your human workers.
-    taskTitle :: Prelude.Text,
+    taskTitle :: Core.Text,
     -- | A description of the task for your human workers.
-    taskDescription :: Prelude.Text,
+    taskDescription :: Core.Text,
     -- | The number of human workers that will label an object.
-    numberOfHumanWorkersPerDataObject :: Prelude.Natural,
+    numberOfHumanWorkersPerDataObject :: Core.Natural,
     -- | The amount of time that a worker has to complete a task.
     --
     -- If you create a custom labeling job, the maximum value for this
@@ -732,11 +731,11 @@ data HumanTaskConfig = HumanTaskConfig'
     --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
     --     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
     --     to change these limits, contact AWS Support.
-    taskTimeLimitInSeconds :: Prelude.Natural,
+    taskTimeLimitInSeconds :: Core.Natural,
     -- | Configures how labels are consolidated across human workers.
     annotationConsolidationConfig :: AnnotationConsolidationConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HumanTaskConfig' with all optional fields omitted.
@@ -1452,19 +1451,19 @@ data HumanTaskConfig = HumanTaskConfig'
 -- 'annotationConsolidationConfig', 'humanTaskConfig_annotationConsolidationConfig' - Configures how labels are consolidated across human workers.
 newHumanTaskConfig ::
   -- | 'workteamArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'uiConfig'
   UiConfig ->
   -- | 'preHumanTaskLambdaArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'taskTitle'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'taskDescription'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'numberOfHumanWorkersPerDataObject'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'taskTimeLimitInSeconds'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'annotationConsolidationConfig'
   AnnotationConsolidationConfig ->
   HumanTaskConfig
@@ -1478,10 +1477,10 @@ newHumanTaskConfig
   pTaskTimeLimitInSeconds_
   pAnnotationConsolidationConfig_ =
     HumanTaskConfig'
-      { taskKeywords = Prelude.Nothing,
-        taskAvailabilityLifetimeInSeconds = Prelude.Nothing,
-        maxConcurrentTaskCount = Prelude.Nothing,
-        publicWorkforceTaskPrice = Prelude.Nothing,
+      { taskKeywords = Core.Nothing,
+        taskAvailabilityLifetimeInSeconds = Core.Nothing,
+        maxConcurrentTaskCount = Core.Nothing,
+        publicWorkforceTaskPrice = Core.Nothing,
         workteamArn = pWorkteamArn_,
         uiConfig = pUiConfig_,
         preHumanTaskLambdaArn = pPreHumanTaskLambdaArn_,
@@ -1496,8 +1495,8 @@ newHumanTaskConfig
 
 -- | Keywords used to describe the task so that workers on Amazon Mechanical
 -- Turk can discover the task.
-humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Prelude.. Lens.mapping Prelude._Coerce
+humanTaskConfig_taskKeywords :: Lens.Lens' HumanTaskConfig (Core.Maybe (Core.NonEmpty Core.Text))
+humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> taskKeywords) (\s@HumanTaskConfig' {} a -> s {taskKeywords = a} :: HumanTaskConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The length of time that a task remains available for labeling by human
 -- workers. The default and maximum values for this parameter depend on the
@@ -1509,24 +1508,24 @@ humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> ta
 -- -   If you choose a private or vendor workforce, the default value is 10
 --     days (864,000 seconds). For most users, the maximum is also 10 days.
 --     If you want to change this limit, contact AWS Support.
-humanTaskConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
+humanTaskConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Core.Maybe Core.Natural)
 humanTaskConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanTaskConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanTaskConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
 
 -- | Defines the maximum number of data objects that can be labeled by human
 -- workers at the same time. Also referred to as batch size. Each object
 -- may have more than one worker at one time. The default value is 1000
 -- objects.
-humanTaskConfig_maxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
+humanTaskConfig_maxConcurrentTaskCount :: Lens.Lens' HumanTaskConfig (Core.Maybe Core.Natural)
 humanTaskConfig_maxConcurrentTaskCount = Lens.lens (\HumanTaskConfig' {maxConcurrentTaskCount} -> maxConcurrentTaskCount) (\s@HumanTaskConfig' {} a -> s {maxConcurrentTaskCount = a} :: HumanTaskConfig)
 
 -- | The price that you pay for each task performed by an Amazon Mechanical
 -- Turk worker.
-humanTaskConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Prelude.Maybe PublicWorkforceTaskPrice)
+humanTaskConfig_publicWorkforceTaskPrice :: Lens.Lens' HumanTaskConfig (Core.Maybe PublicWorkforceTaskPrice)
 humanTaskConfig_publicWorkforceTaskPrice = Lens.lens (\HumanTaskConfig' {publicWorkforceTaskPrice} -> publicWorkforceTaskPrice) (\s@HumanTaskConfig' {} a -> s {publicWorkforceTaskPrice = a} :: HumanTaskConfig)
 
 -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
-humanTaskConfig_workteamArn :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_workteamArn :: Lens.Lens' HumanTaskConfig Core.Text
 humanTaskConfig_workteamArn = Lens.lens (\HumanTaskConfig' {workteamArn} -> workteamArn) (\s@HumanTaskConfig' {} a -> s {workteamArn = a} :: HumanTaskConfig)
 
 -- | Information about the user interface that workers use to complete the
@@ -2180,19 +2179,19 @@ humanTaskConfig_uiConfig = Lens.lens (\HumanTaskConfig' {uiConfig} -> uiConfig) 
 -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
 --
 -- -   @arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation@
-humanTaskConfig_preHumanTaskLambdaArn :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_preHumanTaskLambdaArn :: Lens.Lens' HumanTaskConfig Core.Text
 humanTaskConfig_preHumanTaskLambdaArn = Lens.lens (\HumanTaskConfig' {preHumanTaskLambdaArn} -> preHumanTaskLambdaArn) (\s@HumanTaskConfig' {} a -> s {preHumanTaskLambdaArn = a} :: HumanTaskConfig)
 
 -- | A title for the task for your human workers.
-humanTaskConfig_taskTitle :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_taskTitle :: Lens.Lens' HumanTaskConfig Core.Text
 humanTaskConfig_taskTitle = Lens.lens (\HumanTaskConfig' {taskTitle} -> taskTitle) (\s@HumanTaskConfig' {} a -> s {taskTitle = a} :: HumanTaskConfig)
 
 -- | A description of the task for your human workers.
-humanTaskConfig_taskDescription :: Lens.Lens' HumanTaskConfig Prelude.Text
+humanTaskConfig_taskDescription :: Lens.Lens' HumanTaskConfig Core.Text
 humanTaskConfig_taskDescription = Lens.lens (\HumanTaskConfig' {taskDescription} -> taskDescription) (\s@HumanTaskConfig' {} a -> s {taskDescription = a} :: HumanTaskConfig)
 
 -- | The number of human workers that will label an object.
-humanTaskConfig_numberOfHumanWorkersPerDataObject :: Lens.Lens' HumanTaskConfig Prelude.Natural
+humanTaskConfig_numberOfHumanWorkersPerDataObject :: Lens.Lens' HumanTaskConfig Core.Natural
 humanTaskConfig_numberOfHumanWorkersPerDataObject = Lens.lens (\HumanTaskConfig' {numberOfHumanWorkersPerDataObject} -> numberOfHumanWorkersPerDataObject) (\s@HumanTaskConfig' {} a -> s {numberOfHumanWorkersPerDataObject = a} :: HumanTaskConfig)
 
 -- | The amount of time that a worker has to complete a task.
@@ -2216,69 +2215,68 @@ humanTaskConfig_numberOfHumanWorkersPerDataObject = Lens.lens (\HumanTaskConfig'
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
 --     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
 --     to change these limits, contact AWS Support.
-humanTaskConfig_taskTimeLimitInSeconds :: Lens.Lens' HumanTaskConfig Prelude.Natural
+humanTaskConfig_taskTimeLimitInSeconds :: Lens.Lens' HumanTaskConfig Core.Natural
 humanTaskConfig_taskTimeLimitInSeconds = Lens.lens (\HumanTaskConfig' {taskTimeLimitInSeconds} -> taskTimeLimitInSeconds) (\s@HumanTaskConfig' {} a -> s {taskTimeLimitInSeconds = a} :: HumanTaskConfig)
 
 -- | Configures how labels are consolidated across human workers.
 humanTaskConfig_annotationConsolidationConfig :: Lens.Lens' HumanTaskConfig AnnotationConsolidationConfig
 humanTaskConfig_annotationConsolidationConfig = Lens.lens (\HumanTaskConfig' {annotationConsolidationConfig} -> annotationConsolidationConfig) (\s@HumanTaskConfig' {} a -> s {annotationConsolidationConfig = a} :: HumanTaskConfig)
 
-instance Prelude.FromJSON HumanTaskConfig where
+instance Core.FromJSON HumanTaskConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HumanTaskConfig"
       ( \x ->
           HumanTaskConfig'
-            Prelude.<$> (x Prelude..:? "TaskKeywords")
-            Prelude.<*> (x Prelude..:? "TaskAvailabilityLifetimeInSeconds")
-            Prelude.<*> (x Prelude..:? "MaxConcurrentTaskCount")
-            Prelude.<*> (x Prelude..:? "PublicWorkforceTaskPrice")
-            Prelude.<*> (x Prelude..: "WorkteamArn")
-            Prelude.<*> (x Prelude..: "UiConfig")
-            Prelude.<*> (x Prelude..: "PreHumanTaskLambdaArn")
-            Prelude.<*> (x Prelude..: "TaskTitle")
-            Prelude.<*> (x Prelude..: "TaskDescription")
-            Prelude.<*> (x Prelude..: "NumberOfHumanWorkersPerDataObject")
-            Prelude.<*> (x Prelude..: "TaskTimeLimitInSeconds")
-            Prelude.<*> (x Prelude..: "AnnotationConsolidationConfig")
+            Core.<$> (x Core..:? "TaskKeywords")
+            Core.<*> (x Core..:? "TaskAvailabilityLifetimeInSeconds")
+            Core.<*> (x Core..:? "MaxConcurrentTaskCount")
+            Core.<*> (x Core..:? "PublicWorkforceTaskPrice")
+            Core.<*> (x Core..: "WorkteamArn")
+            Core.<*> (x Core..: "UiConfig")
+            Core.<*> (x Core..: "PreHumanTaskLambdaArn")
+            Core.<*> (x Core..: "TaskTitle")
+            Core.<*> (x Core..: "TaskDescription")
+            Core.<*> (x Core..: "NumberOfHumanWorkersPerDataObject")
+            Core.<*> (x Core..: "TaskTimeLimitInSeconds")
+            Core.<*> (x Core..: "AnnotationConsolidationConfig")
       )
 
-instance Prelude.Hashable HumanTaskConfig
+instance Core.Hashable HumanTaskConfig
 
-instance Prelude.NFData HumanTaskConfig
+instance Core.NFData HumanTaskConfig
 
-instance Prelude.ToJSON HumanTaskConfig where
+instance Core.ToJSON HumanTaskConfig where
   toJSON HumanTaskConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TaskKeywords" Prelude..=)
-              Prelude.<$> taskKeywords,
-            ("TaskAvailabilityLifetimeInSeconds" Prelude..=)
-              Prelude.<$> taskAvailabilityLifetimeInSeconds,
-            ("MaxConcurrentTaskCount" Prelude..=)
-              Prelude.<$> maxConcurrentTaskCount,
-            ("PublicWorkforceTaskPrice" Prelude..=)
-              Prelude.<$> publicWorkforceTaskPrice,
-            Prelude.Just ("WorkteamArn" Prelude..= workteamArn),
-            Prelude.Just ("UiConfig" Prelude..= uiConfig),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("TaskKeywords" Core..=) Core.<$> taskKeywords,
+            ("TaskAvailabilityLifetimeInSeconds" Core..=)
+              Core.<$> taskAvailabilityLifetimeInSeconds,
+            ("MaxConcurrentTaskCount" Core..=)
+              Core.<$> maxConcurrentTaskCount,
+            ("PublicWorkforceTaskPrice" Core..=)
+              Core.<$> publicWorkforceTaskPrice,
+            Core.Just ("WorkteamArn" Core..= workteamArn),
+            Core.Just ("UiConfig" Core..= uiConfig),
+            Core.Just
               ( "PreHumanTaskLambdaArn"
-                  Prelude..= preHumanTaskLambdaArn
+                  Core..= preHumanTaskLambdaArn
               ),
-            Prelude.Just ("TaskTitle" Prelude..= taskTitle),
-            Prelude.Just
-              ("TaskDescription" Prelude..= taskDescription),
-            Prelude.Just
+            Core.Just ("TaskTitle" Core..= taskTitle),
+            Core.Just
+              ("TaskDescription" Core..= taskDescription),
+            Core.Just
               ( "NumberOfHumanWorkersPerDataObject"
-                  Prelude..= numberOfHumanWorkersPerDataObject
+                  Core..= numberOfHumanWorkersPerDataObject
               ),
-            Prelude.Just
+            Core.Just
               ( "TaskTimeLimitInSeconds"
-                  Prelude..= taskTimeLimitInSeconds
+                  Core..= taskTimeLimitInSeconds
               ),
-            Prelude.Just
+            Core.Just
               ( "AnnotationConsolidationConfig"
-                  Prelude..= annotationConsolidationConfig
+                  Core..= annotationConsolidationConfig
               )
           ]
       )

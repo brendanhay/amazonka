@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.SubnetMapping where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a subnet mapping.
 --
@@ -29,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 data SubnetMapping = SubnetMapping'
   { -- | [Network Load Balancers] The private IPv4 address for an internal load
     -- balancer.
-    privateIPv4Address :: Prelude.Maybe Prelude.Text,
+    privateIPv4Address :: Core.Maybe Core.Text,
     -- | [Network Load Balancers] The IPv6 address.
-    iPv6Address :: Prelude.Maybe Prelude.Text,
+    iPv6Address :: Core.Maybe Core.Text,
     -- | The ID of the subnet.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | [Network Load Balancers] The allocation ID of the Elastic IP address for
     -- an internet-facing load balancer.
-    allocationId :: Prelude.Maybe Prelude.Text
+    allocationId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubnetMapping' with all optional fields omitted.
@@ -61,40 +60,39 @@ newSubnetMapping ::
   SubnetMapping
 newSubnetMapping =
   SubnetMapping'
-    { privateIPv4Address =
-        Prelude.Nothing,
-      iPv6Address = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      allocationId = Prelude.Nothing
+    { privateIPv4Address = Core.Nothing,
+      iPv6Address = Core.Nothing,
+      subnetId = Core.Nothing,
+      allocationId = Core.Nothing
     }
 
 -- | [Network Load Balancers] The private IPv4 address for an internal load
 -- balancer.
-subnetMapping_privateIPv4Address :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
+subnetMapping_privateIPv4Address :: Lens.Lens' SubnetMapping (Core.Maybe Core.Text)
 subnetMapping_privateIPv4Address = Lens.lens (\SubnetMapping' {privateIPv4Address} -> privateIPv4Address) (\s@SubnetMapping' {} a -> s {privateIPv4Address = a} :: SubnetMapping)
 
 -- | [Network Load Balancers] The IPv6 address.
-subnetMapping_iPv6Address :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
+subnetMapping_iPv6Address :: Lens.Lens' SubnetMapping (Core.Maybe Core.Text)
 subnetMapping_iPv6Address = Lens.lens (\SubnetMapping' {iPv6Address} -> iPv6Address) (\s@SubnetMapping' {} a -> s {iPv6Address = a} :: SubnetMapping)
 
 -- | The ID of the subnet.
-subnetMapping_subnetId :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
+subnetMapping_subnetId :: Lens.Lens' SubnetMapping (Core.Maybe Core.Text)
 subnetMapping_subnetId = Lens.lens (\SubnetMapping' {subnetId} -> subnetId) (\s@SubnetMapping' {} a -> s {subnetId = a} :: SubnetMapping)
 
 -- | [Network Load Balancers] The allocation ID of the Elastic IP address for
 -- an internet-facing load balancer.
-subnetMapping_allocationId :: Lens.Lens' SubnetMapping (Prelude.Maybe Prelude.Text)
+subnetMapping_allocationId :: Lens.Lens' SubnetMapping (Core.Maybe Core.Text)
 subnetMapping_allocationId = Lens.lens (\SubnetMapping' {allocationId} -> allocationId) (\s@SubnetMapping' {} a -> s {allocationId = a} :: SubnetMapping)
 
-instance Prelude.Hashable SubnetMapping
+instance Core.Hashable SubnetMapping
 
-instance Prelude.NFData SubnetMapping
+instance Core.NFData SubnetMapping
 
-instance Prelude.ToQuery SubnetMapping where
+instance Core.ToQuery SubnetMapping where
   toQuery SubnetMapping' {..} =
-    Prelude.mconcat
-      [ "PrivateIPv4Address" Prelude.=: privateIPv4Address,
-        "IPv6Address" Prelude.=: iPv6Address,
-        "SubnetId" Prelude.=: subnetId,
-        "AllocationId" Prelude.=: allocationId
+    Core.mconcat
+      [ "PrivateIPv4Address" Core.=: privateIPv4Address,
+        "IPv6Address" Core.=: iPv6Address,
+        "SubnetId" Core.=: subnetId,
+        "AllocationId" Core.=: allocationId
       ]

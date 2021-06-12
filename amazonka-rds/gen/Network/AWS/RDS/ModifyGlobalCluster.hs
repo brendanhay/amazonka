@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.RDS.ModifyGlobalCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,7 +61,7 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
   { -- | Indicates if the global database cluster has deletion protection
     -- enabled. The global database cluster can\'t be deleted when deletion
     -- protection is enabled.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    deletionProtection :: Core.Maybe Core.Bool,
     -- | A value that indicates whether major version upgrades are allowed.
     --
     -- Constraints: You must allow major version upgrades when specifying a
@@ -73,7 +72,7 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
     -- DB instance parameter groups are set to the default parameter groups for
     -- the new version. Apply any custom parameter groups after completing the
     -- upgrade.
-    allowMajorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    allowMajorVersionUpgrade :: Core.Maybe Core.Bool,
     -- | The version number of the database engine to which you want to upgrade.
     -- Changing this parameter results in an outage. The change is applied
     -- during the next maintenance window unless @ApplyImmediately@ is enabled.
@@ -92,7 +91,7 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
     -- use the following command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    engineVersion :: Core.Maybe Core.Text,
     -- | The new cluster identifier for the global database cluster when
     -- modifying a global database cluster. This value is stored as a lowercase
     -- string.
@@ -106,16 +105,16 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- Example: @my-cluster2@
-    newGlobalClusterIdentifier' :: Prelude.Maybe Prelude.Text,
+    newGlobalClusterIdentifier' :: Core.Maybe Core.Text,
     -- | The DB cluster identifier for the global cluster being modified. This
     -- parameter isn\'t case-sensitive.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing global database cluster.
-    globalClusterIdentifier :: Prelude.Maybe Prelude.Text
+    globalClusterIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyGlobalCluster' with all optional fields omitted.
@@ -184,17 +183,17 @@ newModifyGlobalCluster ::
 newModifyGlobalCluster =
   ModifyGlobalCluster'
     { deletionProtection =
-        Prelude.Nothing,
-      allowMajorVersionUpgrade = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      newGlobalClusterIdentifier' = Prelude.Nothing,
-      globalClusterIdentifier = Prelude.Nothing
+        Core.Nothing,
+      allowMajorVersionUpgrade = Core.Nothing,
+      engineVersion = Core.Nothing,
+      newGlobalClusterIdentifier' = Core.Nothing,
+      globalClusterIdentifier = Core.Nothing
     }
 
 -- | Indicates if the global database cluster has deletion protection
 -- enabled. The global database cluster can\'t be deleted when deletion
 -- protection is enabled.
-modifyGlobalCluster_deletionProtection :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Bool)
+modifyGlobalCluster_deletionProtection :: Lens.Lens' ModifyGlobalCluster (Core.Maybe Core.Bool)
 modifyGlobalCluster_deletionProtection = Lens.lens (\ModifyGlobalCluster' {deletionProtection} -> deletionProtection) (\s@ModifyGlobalCluster' {} a -> s {deletionProtection = a} :: ModifyGlobalCluster)
 
 -- | A value that indicates whether major version upgrades are allowed.
@@ -207,7 +206,7 @@ modifyGlobalCluster_deletionProtection = Lens.lens (\ModifyGlobalCluster' {delet
 -- DB instance parameter groups are set to the default parameter groups for
 -- the new version. Apply any custom parameter groups after completing the
 -- upgrade.
-modifyGlobalCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Bool)
+modifyGlobalCluster_allowMajorVersionUpgrade :: Lens.Lens' ModifyGlobalCluster (Core.Maybe Core.Bool)
 modifyGlobalCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyGlobalCluster' {allowMajorVersionUpgrade} -> allowMajorVersionUpgrade) (\s@ModifyGlobalCluster' {} a -> s {allowMajorVersionUpgrade = a} :: ModifyGlobalCluster)
 
 -- | The version number of the database engine to which you want to upgrade.
@@ -228,7 +227,7 @@ modifyGlobalCluster_allowMajorVersionUpgrade = Lens.lens (\ModifyGlobalCluster' 
 -- use the following command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-postgresql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
-modifyGlobalCluster_engineVersion :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
+modifyGlobalCluster_engineVersion :: Lens.Lens' ModifyGlobalCluster (Core.Maybe Core.Text)
 modifyGlobalCluster_engineVersion = Lens.lens (\ModifyGlobalCluster' {engineVersion} -> engineVersion) (\s@ModifyGlobalCluster' {} a -> s {engineVersion = a} :: ModifyGlobalCluster)
 
 -- | The new cluster identifier for the global database cluster when
@@ -244,7 +243,7 @@ modifyGlobalCluster_engineVersion = Lens.lens (\ModifyGlobalCluster' {engineVers
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-cluster2@
-modifyGlobalCluster_newGlobalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
+modifyGlobalCluster_newGlobalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Core.Maybe Core.Text)
 modifyGlobalCluster_newGlobalClusterIdentifier = Lens.lens (\ModifyGlobalCluster' {newGlobalClusterIdentifier'} -> newGlobalClusterIdentifier') (\s@ModifyGlobalCluster' {} a -> s {newGlobalClusterIdentifier' = a} :: ModifyGlobalCluster)
 
 -- | The DB cluster identifier for the global cluster being modified. This
@@ -253,12 +252,12 @@ modifyGlobalCluster_newGlobalClusterIdentifier = Lens.lens (\ModifyGlobalCluster
 -- Constraints:
 --
 -- -   Must match the identifier of an existing global database cluster.
-modifyGlobalCluster_globalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Prelude.Maybe Prelude.Text)
+modifyGlobalCluster_globalClusterIdentifier :: Lens.Lens' ModifyGlobalCluster (Core.Maybe Core.Text)
 modifyGlobalCluster_globalClusterIdentifier = Lens.lens (\ModifyGlobalCluster' {globalClusterIdentifier} -> globalClusterIdentifier) (\s@ModifyGlobalCluster' {} a -> s {globalClusterIdentifier = a} :: ModifyGlobalCluster)
 
-instance Prelude.AWSRequest ModifyGlobalCluster where
+instance Core.AWSRequest ModifyGlobalCluster where
   type
-    Rs ModifyGlobalCluster =
+    AWSResponse ModifyGlobalCluster =
       ModifyGlobalClusterResponse
   request = Request.postQuery defaultService
   response =
@@ -266,44 +265,43 @@ instance Prelude.AWSRequest ModifyGlobalCluster where
       "ModifyGlobalClusterResult"
       ( \s h x ->
           ModifyGlobalClusterResponse'
-            Prelude.<$> (x Prelude..@? "GlobalCluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalCluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyGlobalCluster
+instance Core.Hashable ModifyGlobalCluster
 
-instance Prelude.NFData ModifyGlobalCluster
+instance Core.NFData ModifyGlobalCluster
 
-instance Prelude.ToHeaders ModifyGlobalCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyGlobalCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyGlobalCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyGlobalCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyGlobalCluster where
+instance Core.ToQuery ModifyGlobalCluster where
   toQuery ModifyGlobalCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyGlobalCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "DeletionProtection" Prelude.=: deletionProtection,
+          Core.=: ("ModifyGlobalCluster" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "DeletionProtection" Core.=: deletionProtection,
         "AllowMajorVersionUpgrade"
-          Prelude.=: allowMajorVersionUpgrade,
-        "EngineVersion" Prelude.=: engineVersion,
+          Core.=: allowMajorVersionUpgrade,
+        "EngineVersion" Core.=: engineVersion,
         "NewGlobalClusterIdentifier"
-          Prelude.=: newGlobalClusterIdentifier',
+          Core.=: newGlobalClusterIdentifier',
         "GlobalClusterIdentifier"
-          Prelude.=: globalClusterIdentifier
+          Core.=: globalClusterIdentifier
       ]
 
 -- | /See:/ 'newModifyGlobalClusterResponse' smart constructor.
 data ModifyGlobalClusterResponse = ModifyGlobalClusterResponse'
-  { globalCluster :: Prelude.Maybe GlobalCluster,
+  { globalCluster :: Core.Maybe GlobalCluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyGlobalClusterResponse' with all optional fields omitted.
@@ -318,21 +316,21 @@ data ModifyGlobalClusterResponse = ModifyGlobalClusterResponse'
 -- 'httpStatus', 'modifyGlobalClusterResponse_httpStatus' - The response's http status code.
 newModifyGlobalClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyGlobalClusterResponse
 newModifyGlobalClusterResponse pHttpStatus_ =
   ModifyGlobalClusterResponse'
     { globalCluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyGlobalClusterResponse_globalCluster :: Lens.Lens' ModifyGlobalClusterResponse (Prelude.Maybe GlobalCluster)
+modifyGlobalClusterResponse_globalCluster :: Lens.Lens' ModifyGlobalClusterResponse (Core.Maybe GlobalCluster)
 modifyGlobalClusterResponse_globalCluster = Lens.lens (\ModifyGlobalClusterResponse' {globalCluster} -> globalCluster) (\s@ModifyGlobalClusterResponse' {} a -> s {globalCluster = a} :: ModifyGlobalClusterResponse)
 
 -- | The response's http status code.
-modifyGlobalClusterResponse_httpStatus :: Lens.Lens' ModifyGlobalClusterResponse Prelude.Int
+modifyGlobalClusterResponse_httpStatus :: Lens.Lens' ModifyGlobalClusterResponse Core.Int
 modifyGlobalClusterResponse_httpStatus = Lens.lens (\ModifyGlobalClusterResponse' {httpStatus} -> httpStatus) (\s@ModifyGlobalClusterResponse' {} a -> s {httpStatus = a} :: ModifyGlobalClusterResponse)
 
-instance Prelude.NFData ModifyGlobalClusterResponse
+instance Core.NFData ModifyGlobalClusterResponse

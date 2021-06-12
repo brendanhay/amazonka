@@ -15,76 +15,75 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.GetCommandInvocation
 import Network.AWS.SSM.Lens
 import Network.AWS.SSM.Types
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.SSM.GetCommandInvocation' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newCommandExecuted :: Waiter.Wait GetCommandInvocation
+newCommandExecuted :: Core.Wait GetCommandInvocation
 newCommandExecuted =
-  Waiter.Wait
-    { Waiter._waitName = "CommandExecuted",
-      Waiter._waitAttempts = 20,
-      Waiter._waitDelay = 5,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "CommandExecuted",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "Pending"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "InProgress"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Delayed"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Success"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Cancelled"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "TimedOut"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "Cancelling"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( getCommandInvocationResponse_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

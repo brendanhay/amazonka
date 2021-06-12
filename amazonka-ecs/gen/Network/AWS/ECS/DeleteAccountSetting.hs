@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.ECS.DeleteAccountSetting
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +54,7 @@ data DeleteAccountSetting = DeleteAccountSetting'
     -- for all IAM users, IAM roles, and the root user of the account unless an
     -- IAM user or role explicitly overrides these settings. If this field is
     -- omitted, the setting is changed only for the authenticated user.
-    principalArn :: Prelude.Maybe Prelude.Text,
+    principalArn :: Core.Maybe Core.Text,
     -- | The resource name for which to disable the account setting. If
     -- @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS
     -- services is affected. If @taskLongArnFormat@ is specified, the ARN and
@@ -66,7 +65,7 @@ data DeleteAccountSetting = DeleteAccountSetting'
     -- affected.
     name :: SettingName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountSetting' with all optional fields omitted.
@@ -96,8 +95,7 @@ newDeleteAccountSetting ::
   DeleteAccountSetting
 newDeleteAccountSetting pName_ =
   DeleteAccountSetting'
-    { principalArn =
-        Prelude.Nothing,
+    { principalArn = Core.Nothing,
       name = pName_
     }
 
@@ -106,7 +104,7 @@ newDeleteAccountSetting pName_ =
 -- for all IAM users, IAM roles, and the root user of the account unless an
 -- IAM user or role explicitly overrides these settings. If this field is
 -- omitted, the setting is changed only for the authenticated user.
-deleteAccountSetting_principalArn :: Lens.Lens' DeleteAccountSetting (Prelude.Maybe Prelude.Text)
+deleteAccountSetting_principalArn :: Lens.Lens' DeleteAccountSetting (Core.Maybe Core.Text)
 deleteAccountSetting_principalArn = Lens.lens (\DeleteAccountSetting' {principalArn} -> principalArn) (\s@DeleteAccountSetting' {} a -> s {principalArn = a} :: DeleteAccountSetting)
 
 -- | The resource name for which to disable the account setting. If
@@ -120,62 +118,59 @@ deleteAccountSetting_principalArn = Lens.lens (\DeleteAccountSetting' {principal
 deleteAccountSetting_name :: Lens.Lens' DeleteAccountSetting SettingName
 deleteAccountSetting_name = Lens.lens (\DeleteAccountSetting' {name} -> name) (\s@DeleteAccountSetting' {} a -> s {name = a} :: DeleteAccountSetting)
 
-instance Prelude.AWSRequest DeleteAccountSetting where
+instance Core.AWSRequest DeleteAccountSetting where
   type
-    Rs DeleteAccountSetting =
+    AWSResponse DeleteAccountSetting =
       DeleteAccountSettingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteAccountSettingResponse'
-            Prelude.<$> (x Prelude..?> "setting")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "setting")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAccountSetting
+instance Core.Hashable DeleteAccountSetting
 
-instance Prelude.NFData DeleteAccountSetting
+instance Core.NFData DeleteAccountSetting
 
-instance Prelude.ToHeaders DeleteAccountSetting where
+instance Core.ToHeaders DeleteAccountSetting where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DeleteAccountSetting" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAccountSetting where
+instance Core.ToJSON DeleteAccountSetting where
   toJSON DeleteAccountSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("principalArn" Prelude..=)
-              Prelude.<$> principalArn,
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("principalArn" Core..=) Core.<$> principalArn,
+            Core.Just ("name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath DeleteAccountSetting where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAccountSetting where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAccountSetting where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAccountSetting where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAccountSettingResponse' smart constructor.
 data DeleteAccountSettingResponse = DeleteAccountSettingResponse'
   { -- | The account setting for the specified principal ARN.
-    setting :: Prelude.Maybe Setting,
+    setting :: Core.Maybe Setting,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountSettingResponse' with all optional fields omitted.
@@ -190,21 +185,21 @@ data DeleteAccountSettingResponse = DeleteAccountSettingResponse'
 -- 'httpStatus', 'deleteAccountSettingResponse_httpStatus' - The response's http status code.
 newDeleteAccountSettingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteAccountSettingResponse
 newDeleteAccountSettingResponse pHttpStatus_ =
   DeleteAccountSettingResponse'
     { setting =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The account setting for the specified principal ARN.
-deleteAccountSettingResponse_setting :: Lens.Lens' DeleteAccountSettingResponse (Prelude.Maybe Setting)
+deleteAccountSettingResponse_setting :: Lens.Lens' DeleteAccountSettingResponse (Core.Maybe Setting)
 deleteAccountSettingResponse_setting = Lens.lens (\DeleteAccountSettingResponse' {setting} -> setting) (\s@DeleteAccountSettingResponse' {} a -> s {setting = a} :: DeleteAccountSettingResponse)
 
 -- | The response's http status code.
-deleteAccountSettingResponse_httpStatus :: Lens.Lens' DeleteAccountSettingResponse Prelude.Int
+deleteAccountSettingResponse_httpStatus :: Lens.Lens' DeleteAccountSettingResponse Core.Int
 deleteAccountSettingResponse_httpStatus = Lens.lens (\DeleteAccountSettingResponse' {httpStatus} -> httpStatus) (\s@DeleteAccountSettingResponse' {} a -> s {httpStatus = a} :: DeleteAccountSettingResponse)
 
-instance Prelude.NFData DeleteAccountSettingResponse
+instance Core.NFData DeleteAccountSettingResponse

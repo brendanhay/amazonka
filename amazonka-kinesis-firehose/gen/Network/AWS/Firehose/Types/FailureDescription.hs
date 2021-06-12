@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.FailureDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.DeliveryStreamFailureType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides details in case one of the following operations fails due to an
 -- error related to KMS: CreateDeliveryStream, DeleteDeliveryStream,
@@ -33,9 +32,9 @@ data FailureDescription = FailureDescription'
   { -- | The type of error that caused the failure.
     type' :: DeliveryStreamFailureType,
     -- | A message providing details about the error that caused the failure.
-    details :: Prelude.Text
+    details :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailureDescription' with all optional fields omitted.
@@ -52,7 +51,7 @@ newFailureDescription ::
   -- | 'type''
   DeliveryStreamFailureType ->
   -- | 'details'
-  Prelude.Text ->
+  Core.Text ->
   FailureDescription
 newFailureDescription pType_ pDetails_ =
   FailureDescription'
@@ -65,19 +64,18 @@ failureDescription_type :: Lens.Lens' FailureDescription DeliveryStreamFailureTy
 failureDescription_type = Lens.lens (\FailureDescription' {type'} -> type') (\s@FailureDescription' {} a -> s {type' = a} :: FailureDescription)
 
 -- | A message providing details about the error that caused the failure.
-failureDescription_details :: Lens.Lens' FailureDescription Prelude.Text
+failureDescription_details :: Lens.Lens' FailureDescription Core.Text
 failureDescription_details = Lens.lens (\FailureDescription' {details} -> details) (\s@FailureDescription' {} a -> s {details = a} :: FailureDescription)
 
-instance Prelude.FromJSON FailureDescription where
+instance Core.FromJSON FailureDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailureDescription"
       ( \x ->
           FailureDescription'
-            Prelude.<$> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Details")
+            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Details")
       )
 
-instance Prelude.Hashable FailureDescription
+instance Core.Hashable FailureDescription
 
-instance Prelude.NFData FailureDescription
+instance Core.NFData FailureDescription

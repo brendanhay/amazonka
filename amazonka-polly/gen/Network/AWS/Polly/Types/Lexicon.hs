@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Polly.Types.Lexicon where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides lexicon name and lexicon content in string format. For more
 -- information, see
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLexicon' smart constructor.
 data Lexicon = Lexicon'
   { -- | Name of the lexicon.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Lexicon content in string format. The content of a lexicon must be in
     -- PLS format.
-    content :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    content :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Lexicon' with all optional fields omitted.
@@ -53,29 +52,28 @@ newLexicon ::
   Lexicon
 newLexicon =
   Lexicon'
-    { name = Prelude.Nothing,
-      content = Prelude.Nothing
+    { name = Core.Nothing,
+      content = Core.Nothing
     }
 
 -- | Name of the lexicon.
-lexicon_name :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
+lexicon_name :: Lens.Lens' Lexicon (Core.Maybe Core.Text)
 lexicon_name = Lens.lens (\Lexicon' {name} -> name) (\s@Lexicon' {} a -> s {name = a} :: Lexicon)
 
 -- | Lexicon content in string format. The content of a lexicon must be in
 -- PLS format.
-lexicon_content :: Lens.Lens' Lexicon (Prelude.Maybe Prelude.Text)
-lexicon_content = Lens.lens (\Lexicon' {content} -> content) (\s@Lexicon' {} a -> s {content = a} :: Lexicon) Prelude.. Lens.mapping Prelude._Sensitive
+lexicon_content :: Lens.Lens' Lexicon (Core.Maybe Core.Text)
+lexicon_content = Lens.lens (\Lexicon' {content} -> content) (\s@Lexicon' {} a -> s {content = a} :: Lexicon) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromJSON Lexicon where
+instance Core.FromJSON Lexicon where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Lexicon"
       ( \x ->
           Lexicon'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Content")
+            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Content")
       )
 
-instance Prelude.Hashable Lexicon
+instance Core.Hashable Lexicon
 
-instance Prelude.NFData Lexicon
+instance Core.NFData Lexicon

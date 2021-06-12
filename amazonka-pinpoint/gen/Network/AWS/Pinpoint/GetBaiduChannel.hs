@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.GetBaiduChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetBaiduChannel = GetBaiduChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBaiduChannel' with all optional fields omitted.
@@ -67,60 +66,60 @@ data GetBaiduChannel = GetBaiduChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetBaiduChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   GetBaiduChannel
 newGetBaiduChannel pApplicationId_ =
   GetBaiduChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getBaiduChannel_applicationId :: Lens.Lens' GetBaiduChannel Prelude.Text
+getBaiduChannel_applicationId :: Lens.Lens' GetBaiduChannel Core.Text
 getBaiduChannel_applicationId = Lens.lens (\GetBaiduChannel' {applicationId} -> applicationId) (\s@GetBaiduChannel' {} a -> s {applicationId = a} :: GetBaiduChannel)
 
-instance Prelude.AWSRequest GetBaiduChannel where
-  type Rs GetBaiduChannel = GetBaiduChannelResponse
+instance Core.AWSRequest GetBaiduChannel where
+  type
+    AWSResponse GetBaiduChannel =
+      GetBaiduChannelResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBaiduChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetBaiduChannel
+instance Core.Hashable GetBaiduChannel
 
-instance Prelude.NFData GetBaiduChannel
+instance Core.NFData GetBaiduChannel
 
-instance Prelude.ToHeaders GetBaiduChannel where
+instance Core.ToHeaders GetBaiduChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetBaiduChannel where
+instance Core.ToPath GetBaiduChannel where
   toPath GetBaiduChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/baidu"
       ]
 
-instance Prelude.ToQuery GetBaiduChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetBaiduChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetBaiduChannelResponse' smart constructor.
 data GetBaiduChannelResponse = GetBaiduChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     baiduChannelResponse :: BaiduChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBaiduChannelResponse' with all optional fields omitted.
@@ -135,7 +134,7 @@ data GetBaiduChannelResponse = GetBaiduChannelResponse'
 -- 'baiduChannelResponse', 'getBaiduChannelResponse_baiduChannelResponse' - Undocumented member.
 newGetBaiduChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'baiduChannelResponse'
   BaiduChannelResponse ->
   GetBaiduChannelResponse
@@ -148,11 +147,11 @@ newGetBaiduChannelResponse
       }
 
 -- | The response's http status code.
-getBaiduChannelResponse_httpStatus :: Lens.Lens' GetBaiduChannelResponse Prelude.Int
+getBaiduChannelResponse_httpStatus :: Lens.Lens' GetBaiduChannelResponse Core.Int
 getBaiduChannelResponse_httpStatus = Lens.lens (\GetBaiduChannelResponse' {httpStatus} -> httpStatus) (\s@GetBaiduChannelResponse' {} a -> s {httpStatus = a} :: GetBaiduChannelResponse)
 
 -- | Undocumented member.
 getBaiduChannelResponse_baiduChannelResponse :: Lens.Lens' GetBaiduChannelResponse BaiduChannelResponse
 getBaiduChannelResponse_baiduChannelResponse = Lens.lens (\GetBaiduChannelResponse' {baiduChannelResponse} -> baiduChannelResponse) (\s@GetBaiduChannelResponse' {} a -> s {baiduChannelResponse = a} :: GetBaiduChannelResponse)
 
-instance Prelude.NFData GetBaiduChannelResponse
+instance Core.NFData GetBaiduChannelResponse

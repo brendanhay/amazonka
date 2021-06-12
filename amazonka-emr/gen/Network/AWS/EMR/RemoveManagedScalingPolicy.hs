@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.EMR.RemoveManagedScalingPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data RemoveManagedScalingPolicy = RemoveManagedScalingPolicy'
   { -- | Specifies the ID of the cluster from which the managed scaling policy
     -- will be removed.
-    clusterId :: Prelude.Text
+    clusterId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveManagedScalingPolicy' with all optional fields omitted.
@@ -65,7 +64,7 @@ data RemoveManagedScalingPolicy = RemoveManagedScalingPolicy'
 -- will be removed.
 newRemoveManagedScalingPolicy ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   RemoveManagedScalingPolicy
 newRemoveManagedScalingPolicy pClusterId_ =
   RemoveManagedScalingPolicy'
@@ -75,62 +74,57 @@ newRemoveManagedScalingPolicy pClusterId_ =
 
 -- | Specifies the ID of the cluster from which the managed scaling policy
 -- will be removed.
-removeManagedScalingPolicy_clusterId :: Lens.Lens' RemoveManagedScalingPolicy Prelude.Text
+removeManagedScalingPolicy_clusterId :: Lens.Lens' RemoveManagedScalingPolicy Core.Text
 removeManagedScalingPolicy_clusterId = Lens.lens (\RemoveManagedScalingPolicy' {clusterId} -> clusterId) (\s@RemoveManagedScalingPolicy' {} a -> s {clusterId = a} :: RemoveManagedScalingPolicy)
 
-instance
-  Prelude.AWSRequest
-    RemoveManagedScalingPolicy
-  where
+instance Core.AWSRequest RemoveManagedScalingPolicy where
   type
-    Rs RemoveManagedScalingPolicy =
+    AWSResponse RemoveManagedScalingPolicy =
       RemoveManagedScalingPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveManagedScalingPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveManagedScalingPolicy
+instance Core.Hashable RemoveManagedScalingPolicy
 
-instance Prelude.NFData RemoveManagedScalingPolicy
+instance Core.NFData RemoveManagedScalingPolicy
 
-instance Prelude.ToHeaders RemoveManagedScalingPolicy where
+instance Core.ToHeaders RemoveManagedScalingPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.RemoveManagedScalingPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.RemoveManagedScalingPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RemoveManagedScalingPolicy where
+instance Core.ToJSON RemoveManagedScalingPolicy where
   toJSON RemoveManagedScalingPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ClusterId" Prelude..= clusterId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ClusterId" Core..= clusterId)]
       )
 
-instance Prelude.ToPath RemoveManagedScalingPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveManagedScalingPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveManagedScalingPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveManagedScalingPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveManagedScalingPolicyResponse' smart constructor.
 data RemoveManagedScalingPolicyResponse = RemoveManagedScalingPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveManagedScalingPolicyResponse' with all optional fields omitted.
@@ -143,7 +137,7 @@ data RemoveManagedScalingPolicyResponse = RemoveManagedScalingPolicyResponse'
 -- 'httpStatus', 'removeManagedScalingPolicyResponse_httpStatus' - The response's http status code.
 newRemoveManagedScalingPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveManagedScalingPolicyResponse
 newRemoveManagedScalingPolicyResponse pHttpStatus_ =
   RemoveManagedScalingPolicyResponse'
@@ -152,9 +146,9 @@ newRemoveManagedScalingPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-removeManagedScalingPolicyResponse_httpStatus :: Lens.Lens' RemoveManagedScalingPolicyResponse Prelude.Int
+removeManagedScalingPolicyResponse_httpStatus :: Lens.Lens' RemoveManagedScalingPolicyResponse Core.Int
 removeManagedScalingPolicyResponse_httpStatus = Lens.lens (\RemoveManagedScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@RemoveManagedScalingPolicyResponse' {} a -> s {httpStatus = a} :: RemoveManagedScalingPolicyResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RemoveManagedScalingPolicyResponse

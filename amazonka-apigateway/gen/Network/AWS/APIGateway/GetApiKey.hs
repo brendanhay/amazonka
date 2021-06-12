@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.APIGateway.GetApiKey
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +60,11 @@ import qualified Network.AWS.Response as Response
 data GetApiKey = GetApiKey'
   { -- | A boolean flag to specify whether (@true@) or not (@false@) the result
     -- contains the key value.
-    includeValue :: Prelude.Maybe Prelude.Bool,
+    includeValue :: Core.Maybe Core.Bool,
     -- | [Required] The identifier of the ApiKey resource.
-    apiKey :: Prelude.Text
+    apiKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApiKey' with all optional fields omitted.
@@ -81,48 +80,47 @@ data GetApiKey = GetApiKey'
 -- 'apiKey', 'getApiKey_apiKey' - [Required] The identifier of the ApiKey resource.
 newGetApiKey ::
   -- | 'apiKey'
-  Prelude.Text ->
+  Core.Text ->
   GetApiKey
 newGetApiKey pApiKey_ =
   GetApiKey'
-    { includeValue = Prelude.Nothing,
+    { includeValue = Core.Nothing,
       apiKey = pApiKey_
     }
 
 -- | A boolean flag to specify whether (@true@) or not (@false@) the result
 -- contains the key value.
-getApiKey_includeValue :: Lens.Lens' GetApiKey (Prelude.Maybe Prelude.Bool)
+getApiKey_includeValue :: Lens.Lens' GetApiKey (Core.Maybe Core.Bool)
 getApiKey_includeValue = Lens.lens (\GetApiKey' {includeValue} -> includeValue) (\s@GetApiKey' {} a -> s {includeValue = a} :: GetApiKey)
 
 -- | [Required] The identifier of the ApiKey resource.
-getApiKey_apiKey :: Lens.Lens' GetApiKey Prelude.Text
+getApiKey_apiKey :: Lens.Lens' GetApiKey Core.Text
 getApiKey_apiKey = Lens.lens (\GetApiKey' {apiKey} -> apiKey) (\s@GetApiKey' {} a -> s {apiKey = a} :: GetApiKey)
 
-instance Prelude.AWSRequest GetApiKey where
-  type Rs GetApiKey = ApiKey
+instance Core.AWSRequest GetApiKey where
+  type AWSResponse GetApiKey = ApiKey
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetApiKey
+instance Core.Hashable GetApiKey
 
-instance Prelude.NFData GetApiKey
+instance Core.NFData GetApiKey
 
-instance Prelude.ToHeaders GetApiKey where
+instance Core.ToHeaders GetApiKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetApiKey where
+instance Core.ToPath GetApiKey where
   toPath GetApiKey' {..} =
-    Prelude.mconcat ["/apikeys/", Prelude.toBS apiKey]
+    Core.mconcat ["/apikeys/", Core.toBS apiKey]
 
-instance Prelude.ToQuery GetApiKey where
+instance Core.ToQuery GetApiKey where
   toQuery GetApiKey' {..} =
-    Prelude.mconcat
-      ["includeValue" Prelude.=: includeValue]
+    Core.mconcat ["includeValue" Core.=: includeValue]

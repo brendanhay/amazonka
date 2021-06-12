@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,8 @@ module Network.AWS.SSM.DescribeInstancePatches
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -58,18 +56,18 @@ import Network.AWS.SSM.Types
 data DescribeInstancePatches = DescribeInstancePatches'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of patches to return (per page).
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | An array of structures. Each entry in the array is a structure
     -- containing a Key, Value combination. Valid values for Key are
     -- @Classification@ | @KBId@ | @Severity@ | @State@.
-    filters :: Prelude.Maybe [PatchOrchestratorFilter],
+    filters :: Core.Maybe [PatchOrchestratorFilter],
     -- | The ID of the instance whose patch state information should be
     -- retrieved.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstancePatches' with all optional fields omitted.
@@ -92,114 +90,111 @@ data DescribeInstancePatches = DescribeInstancePatches'
 -- retrieved.
 newDescribeInstancePatches ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeInstancePatches
 newDescribeInstancePatches pInstanceId_ =
   DescribeInstancePatches'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeInstancePatches_nextToken :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe Prelude.Text)
+describeInstancePatches_nextToken :: Lens.Lens' DescribeInstancePatches (Core.Maybe Core.Text)
 describeInstancePatches_nextToken = Lens.lens (\DescribeInstancePatches' {nextToken} -> nextToken) (\s@DescribeInstancePatches' {} a -> s {nextToken = a} :: DescribeInstancePatches)
 
 -- | The maximum number of patches to return (per page).
-describeInstancePatches_maxResults :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe Prelude.Natural)
+describeInstancePatches_maxResults :: Lens.Lens' DescribeInstancePatches (Core.Maybe Core.Natural)
 describeInstancePatches_maxResults = Lens.lens (\DescribeInstancePatches' {maxResults} -> maxResults) (\s@DescribeInstancePatches' {} a -> s {maxResults = a} :: DescribeInstancePatches)
 
 -- | An array of structures. Each entry in the array is a structure
 -- containing a Key, Value combination. Valid values for Key are
 -- @Classification@ | @KBId@ | @Severity@ | @State@.
-describeInstancePatches_filters :: Lens.Lens' DescribeInstancePatches (Prelude.Maybe [PatchOrchestratorFilter])
-describeInstancePatches_filters = Lens.lens (\DescribeInstancePatches' {filters} -> filters) (\s@DescribeInstancePatches' {} a -> s {filters = a} :: DescribeInstancePatches) Prelude.. Lens.mapping Prelude._Coerce
+describeInstancePatches_filters :: Lens.Lens' DescribeInstancePatches (Core.Maybe [PatchOrchestratorFilter])
+describeInstancePatches_filters = Lens.lens (\DescribeInstancePatches' {filters} -> filters) (\s@DescribeInstancePatches' {} a -> s {filters = a} :: DescribeInstancePatches) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the instance whose patch state information should be
 -- retrieved.
-describeInstancePatches_instanceId :: Lens.Lens' DescribeInstancePatches Prelude.Text
+describeInstancePatches_instanceId :: Lens.Lens' DescribeInstancePatches Core.Text
 describeInstancePatches_instanceId = Lens.lens (\DescribeInstancePatches' {instanceId} -> instanceId) (\s@DescribeInstancePatches' {} a -> s {instanceId = a} :: DescribeInstancePatches)
 
-instance Pager.AWSPager DescribeInstancePatches where
+instance Core.AWSPager DescribeInstancePatches where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeInstancePatchesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeInstancePatchesResponse_patches
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeInstancePatches_nextToken
           Lens..~ rs
           Lens.^? describeInstancePatchesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeInstancePatches where
+instance Core.AWSRequest DescribeInstancePatches where
   type
-    Rs DescribeInstancePatches =
+    AWSResponse DescribeInstancePatches =
       DescribeInstancePatchesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeInstancePatchesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Patches" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Patches" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstancePatches
+instance Core.Hashable DescribeInstancePatches
 
-instance Prelude.NFData DescribeInstancePatches
+instance Core.NFData DescribeInstancePatches
 
-instance Prelude.ToHeaders DescribeInstancePatches where
+instance Core.ToHeaders DescribeInstancePatches where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribeInstancePatches" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DescribeInstancePatches" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeInstancePatches where
+instance Core.ToJSON DescribeInstancePatches where
   toJSON DescribeInstancePatches' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters,
-            Prelude.Just ("InstanceId" Prelude..= instanceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters,
+            Core.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
-instance Prelude.ToPath DescribeInstancePatches where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeInstancePatches where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeInstancePatches where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeInstancePatches where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeInstancePatchesResponse' smart constructor.
 data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Each entry in the array is a structure containing:
     --
     -- Title (string)
@@ -215,11 +210,11 @@ data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
     -- InstalledTime (DateTime)
     --
     -- InstalledBy (string)
-    patches :: Prelude.Maybe [PatchComplianceData],
+    patches :: Core.Maybe [PatchComplianceData],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstancePatchesResponse' with all optional fields omitted.
@@ -251,19 +246,19 @@ data DescribeInstancePatchesResponse = DescribeInstancePatchesResponse'
 -- 'httpStatus', 'describeInstancePatchesResponse_httpStatus' - The response's http status code.
 newDescribeInstancePatchesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeInstancePatchesResponse
 newDescribeInstancePatchesResponse pHttpStatus_ =
   DescribeInstancePatchesResponse'
     { nextToken =
-        Prelude.Nothing,
-      patches = Prelude.Nothing,
+        Core.Nothing,
+      patches = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describeInstancePatchesResponse_nextToken :: Lens.Lens' DescribeInstancePatchesResponse (Prelude.Maybe Prelude.Text)
+describeInstancePatchesResponse_nextToken :: Lens.Lens' DescribeInstancePatchesResponse (Core.Maybe Core.Text)
 describeInstancePatchesResponse_nextToken = Lens.lens (\DescribeInstancePatchesResponse' {nextToken} -> nextToken) (\s@DescribeInstancePatchesResponse' {} a -> s {nextToken = a} :: DescribeInstancePatchesResponse)
 
 -- | Each entry in the array is a structure containing:
@@ -281,13 +276,11 @@ describeInstancePatchesResponse_nextToken = Lens.lens (\DescribeInstancePatchesR
 -- InstalledTime (DateTime)
 --
 -- InstalledBy (string)
-describeInstancePatchesResponse_patches :: Lens.Lens' DescribeInstancePatchesResponse (Prelude.Maybe [PatchComplianceData])
-describeInstancePatchesResponse_patches = Lens.lens (\DescribeInstancePatchesResponse' {patches} -> patches) (\s@DescribeInstancePatchesResponse' {} a -> s {patches = a} :: DescribeInstancePatchesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInstancePatchesResponse_patches :: Lens.Lens' DescribeInstancePatchesResponse (Core.Maybe [PatchComplianceData])
+describeInstancePatchesResponse_patches = Lens.lens (\DescribeInstancePatchesResponse' {patches} -> patches) (\s@DescribeInstancePatchesResponse' {} a -> s {patches = a} :: DescribeInstancePatchesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeInstancePatchesResponse_httpStatus :: Lens.Lens' DescribeInstancePatchesResponse Prelude.Int
+describeInstancePatchesResponse_httpStatus :: Lens.Lens' DescribeInstancePatchesResponse Core.Int
 describeInstancePatchesResponse_httpStatus = Lens.lens (\DescribeInstancePatchesResponse' {httpStatus} -> httpStatus) (\s@DescribeInstancePatchesResponse' {} a -> s {httpStatus = a} :: DescribeInstancePatchesResponse)
 
-instance
-  Prelude.NFData
-    DescribeInstancePatchesResponse
+instance Core.NFData DescribeInstancePatchesResponse

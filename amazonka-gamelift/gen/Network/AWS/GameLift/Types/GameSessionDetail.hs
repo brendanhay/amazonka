@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.GameSessionDetail where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.GameSession
 import Network.AWS.GameLift.Types.ProtectionPolicy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A game session\'s properties plus the protection policy currently in
 -- force.
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGameSessionDetail' smart constructor.
 data GameSessionDetail = GameSessionDetail'
   { -- | Object that describes a game session.
-    gameSession :: Prelude.Maybe GameSession,
+    gameSession :: Core.Maybe GameSession,
     -- | Current status of protection for the game session.
     --
     -- -   __NoProtection__ -- The game session can be terminated during a
@@ -39,9 +38,9 @@ data GameSessionDetail = GameSessionDetail'
     --
     -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
     --     it cannot be terminated during a scale-down event.
-    protectionPolicy :: Prelude.Maybe ProtectionPolicy
+    protectionPolicy :: Core.Maybe ProtectionPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GameSessionDetail' with all optional fields omitted.
@@ -64,12 +63,12 @@ newGameSessionDetail ::
   GameSessionDetail
 newGameSessionDetail =
   GameSessionDetail'
-    { gameSession = Prelude.Nothing,
-      protectionPolicy = Prelude.Nothing
+    { gameSession = Core.Nothing,
+      protectionPolicy = Core.Nothing
     }
 
 -- | Object that describes a game session.
-gameSessionDetail_gameSession :: Lens.Lens' GameSessionDetail (Prelude.Maybe GameSession)
+gameSessionDetail_gameSession :: Lens.Lens' GameSessionDetail (Core.Maybe GameSession)
 gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> gameSession) (\s@GameSessionDetail' {} a -> s {gameSession = a} :: GameSessionDetail)
 
 -- | Current status of protection for the game session.
@@ -79,19 +78,19 @@ gameSessionDetail_gameSession = Lens.lens (\GameSessionDetail' {gameSession} -> 
 --
 -- -   __FullProtection__ -- If the game session is in an @ACTIVE@ status,
 --     it cannot be terminated during a scale-down event.
-gameSessionDetail_protectionPolicy :: Lens.Lens' GameSessionDetail (Prelude.Maybe ProtectionPolicy)
+gameSessionDetail_protectionPolicy :: Lens.Lens' GameSessionDetail (Core.Maybe ProtectionPolicy)
 gameSessionDetail_protectionPolicy = Lens.lens (\GameSessionDetail' {protectionPolicy} -> protectionPolicy) (\s@GameSessionDetail' {} a -> s {protectionPolicy = a} :: GameSessionDetail)
 
-instance Prelude.FromJSON GameSessionDetail where
+instance Core.FromJSON GameSessionDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GameSessionDetail"
       ( \x ->
           GameSessionDetail'
-            Prelude.<$> (x Prelude..:? "GameSession")
-            Prelude.<*> (x Prelude..:? "ProtectionPolicy")
+            Core.<$> (x Core..:? "GameSession")
+            Core.<*> (x Core..:? "ProtectionPolicy")
       )
 
-instance Prelude.Hashable GameSessionDetail
+instance Core.Hashable GameSessionDetail
 
-instance Prelude.NFData GameSessionDetail
+instance Core.NFData GameSessionDetail

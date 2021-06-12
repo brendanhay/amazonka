@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,22 +21,22 @@ module Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig where
 
 import Network.AWS.AppSync.Types.RdsHttpEndpointConfig
 import Network.AWS.AppSync.Types.RelationalDatabaseSourceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a relational database data source configuration.
 --
 -- /See:/ 'newRelationalDatabaseDataSourceConfig' smart constructor.
 data RelationalDatabaseDataSourceConfig = RelationalDatabaseDataSourceConfig'
   { -- | Amazon RDS HTTP endpoint settings.
-    rdsHttpEndpointConfig :: Prelude.Maybe RdsHttpEndpointConfig,
+    rdsHttpEndpointConfig :: Core.Maybe RdsHttpEndpointConfig,
     -- | Source type for the relational database.
     --
     -- -   __RDS_HTTP_ENDPOINT__: The relational database source type is an
     --     Amazon RDS HTTP endpoint.
-    relationalDatabaseSourceType :: Prelude.Maybe RelationalDatabaseSourceType
+    relationalDatabaseSourceType :: Core.Maybe RelationalDatabaseSourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RelationalDatabaseDataSourceConfig' with all optional fields omitted.
@@ -58,53 +57,53 @@ newRelationalDatabaseDataSourceConfig ::
 newRelationalDatabaseDataSourceConfig =
   RelationalDatabaseDataSourceConfig'
     { rdsHttpEndpointConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       relationalDatabaseSourceType =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Amazon RDS HTTP endpoint settings.
-relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig :: Lens.Lens' RelationalDatabaseDataSourceConfig (Prelude.Maybe RdsHttpEndpointConfig)
+relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig :: Lens.Lens' RelationalDatabaseDataSourceConfig (Core.Maybe RdsHttpEndpointConfig)
 relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig = Lens.lens (\RelationalDatabaseDataSourceConfig' {rdsHttpEndpointConfig} -> rdsHttpEndpointConfig) (\s@RelationalDatabaseDataSourceConfig' {} a -> s {rdsHttpEndpointConfig = a} :: RelationalDatabaseDataSourceConfig)
 
 -- | Source type for the relational database.
 --
 -- -   __RDS_HTTP_ENDPOINT__: The relational database source type is an
 --     Amazon RDS HTTP endpoint.
-relationalDatabaseDataSourceConfig_relationalDatabaseSourceType :: Lens.Lens' RelationalDatabaseDataSourceConfig (Prelude.Maybe RelationalDatabaseSourceType)
+relationalDatabaseDataSourceConfig_relationalDatabaseSourceType :: Lens.Lens' RelationalDatabaseDataSourceConfig (Core.Maybe RelationalDatabaseSourceType)
 relationalDatabaseDataSourceConfig_relationalDatabaseSourceType = Lens.lens (\RelationalDatabaseDataSourceConfig' {relationalDatabaseSourceType} -> relationalDatabaseSourceType) (\s@RelationalDatabaseDataSourceConfig' {} a -> s {relationalDatabaseSourceType = a} :: RelationalDatabaseDataSourceConfig)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     RelationalDatabaseDataSourceConfig
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RelationalDatabaseDataSourceConfig"
       ( \x ->
           RelationalDatabaseDataSourceConfig'
-            Prelude.<$> (x Prelude..:? "rdsHttpEndpointConfig")
-            Prelude.<*> (x Prelude..:? "relationalDatabaseSourceType")
+            Core.<$> (x Core..:? "rdsHttpEndpointConfig")
+            Core.<*> (x Core..:? "relationalDatabaseSourceType")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RelationalDatabaseDataSourceConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     RelationalDatabaseDataSourceConfig
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     RelationalDatabaseDataSourceConfig
   where
   toJSON RelationalDatabaseDataSourceConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("rdsHttpEndpointConfig" Prelude..=)
-              Prelude.<$> rdsHttpEndpointConfig,
-            ("relationalDatabaseSourceType" Prelude..=)
-              Prelude.<$> relationalDatabaseSourceType
+    Core.object
+      ( Core.catMaybes
+          [ ("rdsHttpEndpointConfig" Core..=)
+              Core.<$> rdsHttpEndpointConfig,
+            ("relationalDatabaseSourceType" Core..=)
+              Core.<$> relationalDatabaseSourceType
           ]
       )

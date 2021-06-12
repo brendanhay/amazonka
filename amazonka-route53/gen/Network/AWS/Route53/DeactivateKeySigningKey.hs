@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Route53.DeactivateKeySigningKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -53,9 +52,9 @@ data DeactivateKeySigningKey = DeactivateKeySigningKey'
   { -- | A unique string used to identify a hosted zone.
     hostedZoneId :: ResourceId,
     -- | A string used to identify a key-signing key (KSK).
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeactivateKeySigningKey' with all optional fields omitted.
@@ -72,7 +71,7 @@ newDeactivateKeySigningKey ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeactivateKeySigningKey
 newDeactivateKeySigningKey pHostedZoneId_ pName_ =
   DeactivateKeySigningKey'
@@ -86,49 +85,49 @@ deactivateKeySigningKey_hostedZoneId :: Lens.Lens' DeactivateKeySigningKey Resou
 deactivateKeySigningKey_hostedZoneId = Lens.lens (\DeactivateKeySigningKey' {hostedZoneId} -> hostedZoneId) (\s@DeactivateKeySigningKey' {} a -> s {hostedZoneId = a} :: DeactivateKeySigningKey)
 
 -- | A string used to identify a key-signing key (KSK).
-deactivateKeySigningKey_name :: Lens.Lens' DeactivateKeySigningKey Prelude.Text
+deactivateKeySigningKey_name :: Lens.Lens' DeactivateKeySigningKey Core.Text
 deactivateKeySigningKey_name = Lens.lens (\DeactivateKeySigningKey' {name} -> name) (\s@DeactivateKeySigningKey' {} a -> s {name = a} :: DeactivateKeySigningKey)
 
-instance Prelude.AWSRequest DeactivateKeySigningKey where
+instance Core.AWSRequest DeactivateKeySigningKey where
   type
-    Rs DeactivateKeySigningKey =
+    AWSResponse DeactivateKeySigningKey =
       DeactivateKeySigningKeyResponse
   request = Request.post defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeactivateKeySigningKeyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ChangeInfo")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable DeactivateKeySigningKey
+instance Core.Hashable DeactivateKeySigningKey
 
-instance Prelude.NFData DeactivateKeySigningKey
+instance Core.NFData DeactivateKeySigningKey
 
-instance Prelude.ToHeaders DeactivateKeySigningKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeactivateKeySigningKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeactivateKeySigningKey where
+instance Core.ToPath DeactivateKeySigningKey where
   toPath DeactivateKeySigningKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/keysigningkey/",
-        Prelude.toBS hostedZoneId,
+        Core.toBS hostedZoneId,
         "/",
-        Prelude.toBS name,
+        Core.toBS name,
         "/deactivate"
       ]
 
-instance Prelude.ToQuery DeactivateKeySigningKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeactivateKeySigningKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeactivateKeySigningKeyResponse' smart constructor.
 data DeactivateKeySigningKeyResponse = DeactivateKeySigningKeyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     changeInfo :: ChangeInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeactivateKeySigningKeyResponse' with all optional fields omitted.
@@ -143,7 +142,7 @@ data DeactivateKeySigningKeyResponse = DeactivateKeySigningKeyResponse'
 -- 'changeInfo', 'deactivateKeySigningKeyResponse_changeInfo' - Undocumented member.
 newDeactivateKeySigningKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   DeactivateKeySigningKeyResponse
@@ -157,13 +156,11 @@ newDeactivateKeySigningKeyResponse
       }
 
 -- | The response's http status code.
-deactivateKeySigningKeyResponse_httpStatus :: Lens.Lens' DeactivateKeySigningKeyResponse Prelude.Int
+deactivateKeySigningKeyResponse_httpStatus :: Lens.Lens' DeactivateKeySigningKeyResponse Core.Int
 deactivateKeySigningKeyResponse_httpStatus = Lens.lens (\DeactivateKeySigningKeyResponse' {httpStatus} -> httpStatus) (\s@DeactivateKeySigningKeyResponse' {} a -> s {httpStatus = a} :: DeactivateKeySigningKeyResponse)
 
 -- | Undocumented member.
 deactivateKeySigningKeyResponse_changeInfo :: Lens.Lens' DeactivateKeySigningKeyResponse ChangeInfo
 deactivateKeySigningKeyResponse_changeInfo = Lens.lens (\DeactivateKeySigningKeyResponse' {changeInfo} -> changeInfo) (\s@DeactivateKeySigningKeyResponse' {} a -> s {changeInfo = a} :: DeactivateKeySigningKeyResponse)
 
-instance
-  Prelude.NFData
-    DeactivateKeySigningKeyResponse
+instance Core.NFData DeactivateKeySigningKeyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IAM.ListSAMLProviders
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ import qualified Network.AWS.Response as Response
 data ListSAMLProviders = ListSAMLProviders'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSAMLProviders' with all optional fields omitted.
@@ -64,39 +63,39 @@ newListSAMLProviders ::
   ListSAMLProviders
 newListSAMLProviders = ListSAMLProviders'
 
-instance Prelude.AWSRequest ListSAMLProviders where
-  type Rs ListSAMLProviders = ListSAMLProvidersResponse
+instance Core.AWSRequest ListSAMLProviders where
+  type
+    AWSResponse ListSAMLProviders =
+      ListSAMLProvidersResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListSAMLProvidersResult"
       ( \s h x ->
           ListSAMLProvidersResponse'
-            Prelude.<$> ( x Prelude..@? "SAMLProviderList"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "SAMLProviderList" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSAMLProviders
+instance Core.Hashable ListSAMLProviders
 
-instance Prelude.NFData ListSAMLProviders
+instance Core.NFData ListSAMLProviders
 
-instance Prelude.ToHeaders ListSAMLProviders where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListSAMLProviders where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListSAMLProviders where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSAMLProviders where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSAMLProviders where
+instance Core.ToQuery ListSAMLProviders where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("ListSAMLProviders" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2010-05-08" :: Prelude.ByteString)
+              Core.=: ("ListSAMLProviders" :: Core.ByteString),
+            "Version" Core.=: ("2010-05-08" :: Core.ByteString)
           ]
       )
 
@@ -106,11 +105,11 @@ instance Prelude.ToQuery ListSAMLProviders where
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
   { -- | The list of SAML provider resource objects defined in IAM for this AWS
     -- account.
-    sAMLProviderList :: Prelude.Maybe [SAMLProviderListEntry],
+    sAMLProviderList :: Core.Maybe [SAMLProviderListEntry],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSAMLProvidersResponse' with all optional fields omitted.
@@ -126,22 +125,22 @@ data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
 -- 'httpStatus', 'listSAMLProvidersResponse_httpStatus' - The response's http status code.
 newListSAMLProvidersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSAMLProvidersResponse
 newListSAMLProvidersResponse pHttpStatus_ =
   ListSAMLProvidersResponse'
     { sAMLProviderList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of SAML provider resource objects defined in IAM for this AWS
 -- account.
-listSAMLProvidersResponse_sAMLProviderList :: Lens.Lens' ListSAMLProvidersResponse (Prelude.Maybe [SAMLProviderListEntry])
-listSAMLProvidersResponse_sAMLProviderList = Lens.lens (\ListSAMLProvidersResponse' {sAMLProviderList} -> sAMLProviderList) (\s@ListSAMLProvidersResponse' {} a -> s {sAMLProviderList = a} :: ListSAMLProvidersResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSAMLProvidersResponse_sAMLProviderList :: Lens.Lens' ListSAMLProvidersResponse (Core.Maybe [SAMLProviderListEntry])
+listSAMLProvidersResponse_sAMLProviderList = Lens.lens (\ListSAMLProvidersResponse' {sAMLProviderList} -> sAMLProviderList) (\s@ListSAMLProvidersResponse' {} a -> s {sAMLProviderList = a} :: ListSAMLProvidersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSAMLProvidersResponse_httpStatus :: Lens.Lens' ListSAMLProvidersResponse Prelude.Int
+listSAMLProvidersResponse_httpStatus :: Lens.Lens' ListSAMLProvidersResponse Core.Int
 listSAMLProvidersResponse_httpStatus = Lens.lens (\ListSAMLProvidersResponse' {httpStatus} -> httpStatus) (\s@ListSAMLProvidersResponse' {} a -> s {httpStatus = a} :: ListSAMLProvidersResponse)
 
-instance Prelude.NFData ListSAMLProvidersResponse
+instance Core.NFData ListSAMLProvidersResponse

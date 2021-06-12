@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.ExportLabelsTaskRunProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration properties for an exporting labels task run.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ExportLabelsTaskRunProperties = ExportLabelsTaskRunProperties'
   { -- | The Amazon Simple Storage Service (Amazon S3) path where you will export
     -- the labels.
-    outputS3Path :: Prelude.Maybe Prelude.Text
+    outputS3Path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportLabelsTaskRunProperties' with all optional fields omitted.
@@ -48,28 +47,23 @@ newExportLabelsTaskRunProperties ::
 newExportLabelsTaskRunProperties =
   ExportLabelsTaskRunProperties'
     { outputS3Path =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where you will export
 -- the labels.
-exportLabelsTaskRunProperties_outputS3Path :: Lens.Lens' ExportLabelsTaskRunProperties (Prelude.Maybe Prelude.Text)
+exportLabelsTaskRunProperties_outputS3Path :: Lens.Lens' ExportLabelsTaskRunProperties (Core.Maybe Core.Text)
 exportLabelsTaskRunProperties_outputS3Path = Lens.lens (\ExportLabelsTaskRunProperties' {outputS3Path} -> outputS3Path) (\s@ExportLabelsTaskRunProperties' {} a -> s {outputS3Path = a} :: ExportLabelsTaskRunProperties)
 
-instance
-  Prelude.FromJSON
-    ExportLabelsTaskRunProperties
-  where
+instance Core.FromJSON ExportLabelsTaskRunProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExportLabelsTaskRunProperties"
       ( \x ->
           ExportLabelsTaskRunProperties'
-            Prelude.<$> (x Prelude..:? "OutputS3Path")
+            Core.<$> (x Core..:? "OutputS3Path")
       )
 
-instance
-  Prelude.Hashable
-    ExportLabelsTaskRunProperties
+instance Core.Hashable ExportLabelsTaskRunProperties
 
-instance Prelude.NFData ExportLabelsTaskRunProperties
+instance Core.NFData ExportLabelsTaskRunProperties

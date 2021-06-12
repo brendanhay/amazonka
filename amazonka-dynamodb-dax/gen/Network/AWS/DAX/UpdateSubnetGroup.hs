@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,22 +41,22 @@ module Network.AWS.DAX.UpdateSubnetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateSubnetGroup' smart constructor.
 data UpdateSubnetGroup = UpdateSubnetGroup'
   { -- | A list of subnet IDs in the subnet group.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | A description of the subnet group.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the subnet group.
-    subnetGroupName :: Prelude.Text
+    subnetGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubnetGroup' with all optional fields omitted.
@@ -74,82 +73,80 @@ data UpdateSubnetGroup = UpdateSubnetGroup'
 -- 'subnetGroupName', 'updateSubnetGroup_subnetGroupName' - The name of the subnet group.
 newUpdateSubnetGroup ::
   -- | 'subnetGroupName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateSubnetGroup
 newUpdateSubnetGroup pSubnetGroupName_ =
   UpdateSubnetGroup'
-    { subnetIds = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { subnetIds = Core.Nothing,
+      description = Core.Nothing,
       subnetGroupName = pSubnetGroupName_
     }
 
 -- | A list of subnet IDs in the subnet group.
-updateSubnetGroup_subnetIds :: Lens.Lens' UpdateSubnetGroup (Prelude.Maybe [Prelude.Text])
-updateSubnetGroup_subnetIds = Lens.lens (\UpdateSubnetGroup' {subnetIds} -> subnetIds) (\s@UpdateSubnetGroup' {} a -> s {subnetIds = a} :: UpdateSubnetGroup) Prelude.. Lens.mapping Prelude._Coerce
+updateSubnetGroup_subnetIds :: Lens.Lens' UpdateSubnetGroup (Core.Maybe [Core.Text])
+updateSubnetGroup_subnetIds = Lens.lens (\UpdateSubnetGroup' {subnetIds} -> subnetIds) (\s@UpdateSubnetGroup' {} a -> s {subnetIds = a} :: UpdateSubnetGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the subnet group.
-updateSubnetGroup_description :: Lens.Lens' UpdateSubnetGroup (Prelude.Maybe Prelude.Text)
+updateSubnetGroup_description :: Lens.Lens' UpdateSubnetGroup (Core.Maybe Core.Text)
 updateSubnetGroup_description = Lens.lens (\UpdateSubnetGroup' {description} -> description) (\s@UpdateSubnetGroup' {} a -> s {description = a} :: UpdateSubnetGroup)
 
 -- | The name of the subnet group.
-updateSubnetGroup_subnetGroupName :: Lens.Lens' UpdateSubnetGroup Prelude.Text
+updateSubnetGroup_subnetGroupName :: Lens.Lens' UpdateSubnetGroup Core.Text
 updateSubnetGroup_subnetGroupName = Lens.lens (\UpdateSubnetGroup' {subnetGroupName} -> subnetGroupName) (\s@UpdateSubnetGroup' {} a -> s {subnetGroupName = a} :: UpdateSubnetGroup)
 
-instance Prelude.AWSRequest UpdateSubnetGroup where
-  type Rs UpdateSubnetGroup = UpdateSubnetGroupResponse
+instance Core.AWSRequest UpdateSubnetGroup where
+  type
+    AWSResponse UpdateSubnetGroup =
+      UpdateSubnetGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSubnetGroupResponse'
-            Prelude.<$> (x Prelude..?> "SubnetGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SubnetGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSubnetGroup
+instance Core.Hashable UpdateSubnetGroup
 
-instance Prelude.NFData UpdateSubnetGroup
+instance Core.NFData UpdateSubnetGroup
 
-instance Prelude.ToHeaders UpdateSubnetGroup where
+instance Core.ToHeaders UpdateSubnetGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDAXV3.UpdateSubnetGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonDAXV3.UpdateSubnetGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSubnetGroup where
+instance Core.ToJSON UpdateSubnetGroup where
   toJSON UpdateSubnetGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SubnetIds" Prelude..=) Prelude.<$> subnetIds,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just
-              ("SubnetGroupName" Prelude..= subnetGroupName)
+    Core.object
+      ( Core.catMaybes
+          [ ("SubnetIds" Core..=) Core.<$> subnetIds,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just
+              ("SubnetGroupName" Core..= subnetGroupName)
           ]
       )
 
-instance Prelude.ToPath UpdateSubnetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateSubnetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateSubnetGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSubnetGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSubnetGroupResponse' smart constructor.
 data UpdateSubnetGroupResponse = UpdateSubnetGroupResponse'
   { -- | The subnet group that has been modified.
-    subnetGroup :: Prelude.Maybe SubnetGroup,
+    subnetGroup :: Core.Maybe SubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubnetGroupResponse' with all optional fields omitted.
@@ -164,21 +161,21 @@ data UpdateSubnetGroupResponse = UpdateSubnetGroupResponse'
 -- 'httpStatus', 'updateSubnetGroupResponse_httpStatus' - The response's http status code.
 newUpdateSubnetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSubnetGroupResponse
 newUpdateSubnetGroupResponse pHttpStatus_ =
   UpdateSubnetGroupResponse'
     { subnetGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The subnet group that has been modified.
-updateSubnetGroupResponse_subnetGroup :: Lens.Lens' UpdateSubnetGroupResponse (Prelude.Maybe SubnetGroup)
+updateSubnetGroupResponse_subnetGroup :: Lens.Lens' UpdateSubnetGroupResponse (Core.Maybe SubnetGroup)
 updateSubnetGroupResponse_subnetGroup = Lens.lens (\UpdateSubnetGroupResponse' {subnetGroup} -> subnetGroup) (\s@UpdateSubnetGroupResponse' {} a -> s {subnetGroup = a} :: UpdateSubnetGroupResponse)
 
 -- | The response's http status code.
-updateSubnetGroupResponse_httpStatus :: Lens.Lens' UpdateSubnetGroupResponse Prelude.Int
+updateSubnetGroupResponse_httpStatus :: Lens.Lens' UpdateSubnetGroupResponse Core.Int
 updateSubnetGroupResponse_httpStatus = Lens.lens (\UpdateSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateSubnetGroupResponse' {} a -> s {httpStatus = a} :: UpdateSubnetGroupResponse)
 
-instance Prelude.NFData UpdateSubnetGroupResponse
+instance Core.NFData UpdateSubnetGroupResponse

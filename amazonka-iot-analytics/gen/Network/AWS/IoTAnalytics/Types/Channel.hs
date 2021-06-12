@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.Channel where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.ChannelStatus
 import Network.AWS.IoTAnalytics.Types.ChannelStorage
 import Network.AWS.IoTAnalytics.Types.RetentionPeriod
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of data from an MQTT topic. Channels archive the raw,
 -- unprocessed messages before publishing the data to a pipeline.
@@ -38,26 +37,26 @@ data Channel = Channel'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Prelude.POSIX,
+    lastMessageArrivalTime :: Core.Maybe Core.POSIX,
     -- | The status of the channel.
-    status :: Prelude.Maybe ChannelStatus,
+    status :: Core.Maybe ChannelStatus,
     -- | When the channel was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | When the channel was last updated.
-    lastUpdateTime :: Prelude.Maybe Prelude.POSIX,
+    lastUpdateTime :: Core.Maybe Core.POSIX,
     -- | The ARN of the channel.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The name of the channel.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | How long, in days, message data is kept for the channel.
-    retentionPeriod :: Prelude.Maybe RetentionPeriod,
+    retentionPeriod :: Core.Maybe RetentionPeriod,
     -- | Where channel data is stored. You can choose one of @serviceManagedS3@
     -- or @customerManagedS3@ storage. If not specified, the default is
     -- @serviceManagedS3@. You cannot change this storage option after the
     -- channel is created.
-    storage :: Prelude.Maybe ChannelStorage
+    storage :: Core.Maybe ChannelStorage
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Channel' with all optional fields omitted.
@@ -95,14 +94,14 @@ newChannel ::
   Channel
 newChannel =
   Channel'
-    { lastMessageArrivalTime = Prelude.Nothing,
-      status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      retentionPeriod = Prelude.Nothing,
-      storage = Prelude.Nothing
+    { lastMessageArrivalTime = Core.Nothing,
+      status = Core.Nothing,
+      creationTime = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
+      retentionPeriod = Core.Nothing,
+      storage = Core.Nothing
     }
 
 -- | The last time when a new message arrived in the channel.
@@ -112,56 +111,56 @@ newChannel =
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
-channel_lastMessageArrivalTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastMessageArrivalTime = Lens.lens (\Channel' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Channel' {} a -> s {lastMessageArrivalTime = a} :: Channel) Prelude.. Lens.mapping Prelude._Time
+channel_lastMessageArrivalTime :: Lens.Lens' Channel (Core.Maybe Core.UTCTime)
+channel_lastMessageArrivalTime = Lens.lens (\Channel' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@Channel' {} a -> s {lastMessageArrivalTime = a} :: Channel) Core.. Lens.mapping Core._Time
 
 -- | The status of the channel.
-channel_status :: Lens.Lens' Channel (Prelude.Maybe ChannelStatus)
+channel_status :: Lens.Lens' Channel (Core.Maybe ChannelStatus)
 channel_status = Lens.lens (\Channel' {status} -> status) (\s@Channel' {} a -> s {status = a} :: Channel)
 
 -- | When the channel was created.
-channel_creationTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Prelude.. Lens.mapping Prelude._Time
+channel_creationTime :: Lens.Lens' Channel (Core.Maybe Core.UTCTime)
+channel_creationTime = Lens.lens (\Channel' {creationTime} -> creationTime) (\s@Channel' {} a -> s {creationTime = a} :: Channel) Core.. Lens.mapping Core._Time
 
 -- | When the channel was last updated.
-channel_lastUpdateTime :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
-channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime) (\s@Channel' {} a -> s {lastUpdateTime = a} :: Channel) Prelude.. Lens.mapping Prelude._Time
+channel_lastUpdateTime :: Lens.Lens' Channel (Core.Maybe Core.UTCTime)
+channel_lastUpdateTime = Lens.lens (\Channel' {lastUpdateTime} -> lastUpdateTime) (\s@Channel' {} a -> s {lastUpdateTime = a} :: Channel) Core.. Lens.mapping Core._Time
 
 -- | The ARN of the channel.
-channel_arn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_arn :: Lens.Lens' Channel (Core.Maybe Core.Text)
 channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
 
 -- | The name of the channel.
-channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_name :: Lens.Lens' Channel (Core.Maybe Core.Text)
 channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel)
 
 -- | How long, in days, message data is kept for the channel.
-channel_retentionPeriod :: Lens.Lens' Channel (Prelude.Maybe RetentionPeriod)
+channel_retentionPeriod :: Lens.Lens' Channel (Core.Maybe RetentionPeriod)
 channel_retentionPeriod = Lens.lens (\Channel' {retentionPeriod} -> retentionPeriod) (\s@Channel' {} a -> s {retentionPeriod = a} :: Channel)
 
 -- | Where channel data is stored. You can choose one of @serviceManagedS3@
 -- or @customerManagedS3@ storage. If not specified, the default is
 -- @serviceManagedS3@. You cannot change this storage option after the
 -- channel is created.
-channel_storage :: Lens.Lens' Channel (Prelude.Maybe ChannelStorage)
+channel_storage :: Lens.Lens' Channel (Core.Maybe ChannelStorage)
 channel_storage = Lens.lens (\Channel' {storage} -> storage) (\s@Channel' {} a -> s {storage = a} :: Channel)
 
-instance Prelude.FromJSON Channel where
+instance Core.FromJSON Channel where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Channel"
       ( \x ->
           Channel'
-            Prelude.<$> (x Prelude..:? "lastMessageArrivalTime")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "creationTime")
-            Prelude.<*> (x Prelude..:? "lastUpdateTime")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "retentionPeriod")
-            Prelude.<*> (x Prelude..:? "storage")
+            Core.<$> (x Core..:? "lastMessageArrivalTime")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "lastUpdateTime")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "retentionPeriod")
+            Core.<*> (x Core..:? "storage")
       )
 
-instance Prelude.Hashable Channel
+instance Core.Hashable Channel
 
-instance Prelude.NFData Channel
+instance Core.NFData Channel

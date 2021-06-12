@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SkewedInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies skewed values in a table. Skewed values are those that occur
 -- with very high frequency.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSkewedInfo' smart constructor.
 data SkewedInfo = SkewedInfo'
   { -- | A list of names of columns that contain skewed values.
-    skewedColumnNames :: Prelude.Maybe [Prelude.Text],
+    skewedColumnNames :: Core.Maybe [Core.Text],
     -- | A list of values that appear so frequently as to be considered skewed.
-    skewedColumnValues :: Prelude.Maybe [Prelude.Text],
+    skewedColumnValues :: Core.Maybe [Core.Text],
     -- | A mapping of skewed values to the columns that contain them.
-    skewedColumnValueLocationMaps :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    skewedColumnValueLocationMaps :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SkewedInfo' with all optional fields omitted.
@@ -54,53 +53,51 @@ newSkewedInfo ::
   SkewedInfo
 newSkewedInfo =
   SkewedInfo'
-    { skewedColumnNames = Prelude.Nothing,
-      skewedColumnValues = Prelude.Nothing,
-      skewedColumnValueLocationMaps = Prelude.Nothing
+    { skewedColumnNames = Core.Nothing,
+      skewedColumnValues = Core.Nothing,
+      skewedColumnValueLocationMaps = Core.Nothing
     }
 
 -- | A list of names of columns that contain skewed values.
-skewedInfo_skewedColumnNames :: Lens.Lens' SkewedInfo (Prelude.Maybe [Prelude.Text])
-skewedInfo_skewedColumnNames = Lens.lens (\SkewedInfo' {skewedColumnNames} -> skewedColumnNames) (\s@SkewedInfo' {} a -> s {skewedColumnNames = a} :: SkewedInfo) Prelude.. Lens.mapping Prelude._Coerce
+skewedInfo_skewedColumnNames :: Lens.Lens' SkewedInfo (Core.Maybe [Core.Text])
+skewedInfo_skewedColumnNames = Lens.lens (\SkewedInfo' {skewedColumnNames} -> skewedColumnNames) (\s@SkewedInfo' {} a -> s {skewedColumnNames = a} :: SkewedInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of values that appear so frequently as to be considered skewed.
-skewedInfo_skewedColumnValues :: Lens.Lens' SkewedInfo (Prelude.Maybe [Prelude.Text])
-skewedInfo_skewedColumnValues = Lens.lens (\SkewedInfo' {skewedColumnValues} -> skewedColumnValues) (\s@SkewedInfo' {} a -> s {skewedColumnValues = a} :: SkewedInfo) Prelude.. Lens.mapping Prelude._Coerce
+skewedInfo_skewedColumnValues :: Lens.Lens' SkewedInfo (Core.Maybe [Core.Text])
+skewedInfo_skewedColumnValues = Lens.lens (\SkewedInfo' {skewedColumnValues} -> skewedColumnValues) (\s@SkewedInfo' {} a -> s {skewedColumnValues = a} :: SkewedInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | A mapping of skewed values to the columns that contain them.
-skewedInfo_skewedColumnValueLocationMaps :: Lens.Lens' SkewedInfo (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-skewedInfo_skewedColumnValueLocationMaps = Lens.lens (\SkewedInfo' {skewedColumnValueLocationMaps} -> skewedColumnValueLocationMaps) (\s@SkewedInfo' {} a -> s {skewedColumnValueLocationMaps = a} :: SkewedInfo) Prelude.. Lens.mapping Prelude._Coerce
+skewedInfo_skewedColumnValueLocationMaps :: Lens.Lens' SkewedInfo (Core.Maybe (Core.HashMap Core.Text Core.Text))
+skewedInfo_skewedColumnValueLocationMaps = Lens.lens (\SkewedInfo' {skewedColumnValueLocationMaps} -> skewedColumnValueLocationMaps) (\s@SkewedInfo' {} a -> s {skewedColumnValueLocationMaps = a} :: SkewedInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON SkewedInfo where
+instance Core.FromJSON SkewedInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SkewedInfo"
       ( \x ->
           SkewedInfo'
-            Prelude.<$> ( x Prelude..:? "SkewedColumnNames"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "SkewedColumnValues"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "SkewedColumnValueLocationMaps"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "SkewedColumnNames" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "SkewedColumnValues"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "SkewedColumnValueLocationMaps"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable SkewedInfo
+instance Core.Hashable SkewedInfo
 
-instance Prelude.NFData SkewedInfo
+instance Core.NFData SkewedInfo
 
-instance Prelude.ToJSON SkewedInfo where
+instance Core.ToJSON SkewedInfo where
   toJSON SkewedInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SkewedColumnNames" Prelude..=)
-              Prelude.<$> skewedColumnNames,
-            ("SkewedColumnValues" Prelude..=)
-              Prelude.<$> skewedColumnValues,
-            ("SkewedColumnValueLocationMaps" Prelude..=)
-              Prelude.<$> skewedColumnValueLocationMaps
+    Core.object
+      ( Core.catMaybes
+          [ ("SkewedColumnNames" Core..=)
+              Core.<$> skewedColumnNames,
+            ("SkewedColumnValues" Core..=)
+              Core.<$> skewedColumnValues,
+            ("SkewedColumnValueLocationMaps" Core..=)
+              Core.<$> skewedColumnValueLocationMaps
           ]
       )

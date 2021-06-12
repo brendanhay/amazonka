@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.EC2ResourceDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on the Amazon EC2 Resource.
 --
@@ -30,25 +29,25 @@ data EC2ResourceDetails = EC2ResourceDetails'
   { -- | The platform of the AWS instance. The platform is the specific
     -- combination of operating system, license model, and software on an
     -- instance.
-    platform :: Prelude.Maybe Prelude.Text,
+    platform :: Core.Maybe Core.Text,
     -- | The type of AWS instance.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | Memory capacity of the AWS instance.
-    memory :: Prelude.Maybe Prelude.Text,
+    memory :: Core.Maybe Core.Text,
     -- | Number of VCPU cores in the AWS instance type.
-    vcpu :: Prelude.Maybe Prelude.Text,
+    vcpu :: Core.Maybe Core.Text,
     -- | Hourly public On-Demand rate for the instance type.
-    hourlyOnDemandRate :: Prelude.Maybe Prelude.Text,
+    hourlyOnDemandRate :: Core.Maybe Core.Text,
     -- | The disk storage of the AWS instance (not EBS storage).
-    storage :: Prelude.Maybe Prelude.Text,
+    storage :: Core.Maybe Core.Text,
     -- | Network performance capacity of the AWS instance.
-    networkPerformance :: Prelude.Maybe Prelude.Text,
+    networkPerformance :: Core.Maybe Core.Text,
     -- | The AWS Region of the instance.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The SKU of the product.
-    sku :: Prelude.Maybe Prelude.Text
+    sku :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EC2ResourceDetails' with all optional fields omitted.
@@ -81,72 +80,72 @@ newEC2ResourceDetails ::
   EC2ResourceDetails
 newEC2ResourceDetails =
   EC2ResourceDetails'
-    { platform = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      memory = Prelude.Nothing,
-      vcpu = Prelude.Nothing,
-      hourlyOnDemandRate = Prelude.Nothing,
-      storage = Prelude.Nothing,
-      networkPerformance = Prelude.Nothing,
-      region = Prelude.Nothing,
-      sku = Prelude.Nothing
+    { platform = Core.Nothing,
+      instanceType = Core.Nothing,
+      memory = Core.Nothing,
+      vcpu = Core.Nothing,
+      hourlyOnDemandRate = Core.Nothing,
+      storage = Core.Nothing,
+      networkPerformance = Core.Nothing,
+      region = Core.Nothing,
+      sku = Core.Nothing
     }
 
 -- | The platform of the AWS instance. The platform is the specific
 -- combination of operating system, license model, and software on an
 -- instance.
-eC2ResourceDetails_platform :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_platform :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_platform = Lens.lens (\EC2ResourceDetails' {platform} -> platform) (\s@EC2ResourceDetails' {} a -> s {platform = a} :: EC2ResourceDetails)
 
 -- | The type of AWS instance.
-eC2ResourceDetails_instanceType :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_instanceType :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_instanceType = Lens.lens (\EC2ResourceDetails' {instanceType} -> instanceType) (\s@EC2ResourceDetails' {} a -> s {instanceType = a} :: EC2ResourceDetails)
 
 -- | Memory capacity of the AWS instance.
-eC2ResourceDetails_memory :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_memory :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_memory = Lens.lens (\EC2ResourceDetails' {memory} -> memory) (\s@EC2ResourceDetails' {} a -> s {memory = a} :: EC2ResourceDetails)
 
 -- | Number of VCPU cores in the AWS instance type.
-eC2ResourceDetails_vcpu :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_vcpu :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_vcpu = Lens.lens (\EC2ResourceDetails' {vcpu} -> vcpu) (\s@EC2ResourceDetails' {} a -> s {vcpu = a} :: EC2ResourceDetails)
 
 -- | Hourly public On-Demand rate for the instance type.
-eC2ResourceDetails_hourlyOnDemandRate :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_hourlyOnDemandRate :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_hourlyOnDemandRate = Lens.lens (\EC2ResourceDetails' {hourlyOnDemandRate} -> hourlyOnDemandRate) (\s@EC2ResourceDetails' {} a -> s {hourlyOnDemandRate = a} :: EC2ResourceDetails)
 
 -- | The disk storage of the AWS instance (not EBS storage).
-eC2ResourceDetails_storage :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_storage :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_storage = Lens.lens (\EC2ResourceDetails' {storage} -> storage) (\s@EC2ResourceDetails' {} a -> s {storage = a} :: EC2ResourceDetails)
 
 -- | Network performance capacity of the AWS instance.
-eC2ResourceDetails_networkPerformance :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_networkPerformance :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_networkPerformance = Lens.lens (\EC2ResourceDetails' {networkPerformance} -> networkPerformance) (\s@EC2ResourceDetails' {} a -> s {networkPerformance = a} :: EC2ResourceDetails)
 
 -- | The AWS Region of the instance.
-eC2ResourceDetails_region :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_region :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_region = Lens.lens (\EC2ResourceDetails' {region} -> region) (\s@EC2ResourceDetails' {} a -> s {region = a} :: EC2ResourceDetails)
 
 -- | The SKU of the product.
-eC2ResourceDetails_sku :: Lens.Lens' EC2ResourceDetails (Prelude.Maybe Prelude.Text)
+eC2ResourceDetails_sku :: Lens.Lens' EC2ResourceDetails (Core.Maybe Core.Text)
 eC2ResourceDetails_sku = Lens.lens (\EC2ResourceDetails' {sku} -> sku) (\s@EC2ResourceDetails' {} a -> s {sku = a} :: EC2ResourceDetails)
 
-instance Prelude.FromJSON EC2ResourceDetails where
+instance Core.FromJSON EC2ResourceDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EC2ResourceDetails"
       ( \x ->
           EC2ResourceDetails'
-            Prelude.<$> (x Prelude..:? "Platform")
-            Prelude.<*> (x Prelude..:? "InstanceType")
-            Prelude.<*> (x Prelude..:? "Memory")
-            Prelude.<*> (x Prelude..:? "Vcpu")
-            Prelude.<*> (x Prelude..:? "HourlyOnDemandRate")
-            Prelude.<*> (x Prelude..:? "Storage")
-            Prelude.<*> (x Prelude..:? "NetworkPerformance")
-            Prelude.<*> (x Prelude..:? "Region")
-            Prelude.<*> (x Prelude..:? "Sku")
+            Core.<$> (x Core..:? "Platform")
+            Core.<*> (x Core..:? "InstanceType")
+            Core.<*> (x Core..:? "Memory")
+            Core.<*> (x Core..:? "Vcpu")
+            Core.<*> (x Core..:? "HourlyOnDemandRate")
+            Core.<*> (x Core..:? "Storage")
+            Core.<*> (x Core..:? "NetworkPerformance")
+            Core.<*> (x Core..:? "Region")
+            Core.<*> (x Core..:? "Sku")
       )
 
-instance Prelude.Hashable EC2ResourceDetails
+instance Core.Hashable EC2ResourceDetails
 
-instance Prelude.NFData EC2ResourceDetails
+instance Core.NFData EC2ResourceDetails

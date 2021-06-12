@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +56,14 @@ import qualified Network.AWS.Response as Response
 data DescribeLogGroups = DescribeLogGroups'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The prefix to match.
-    logGroupNamePrefix :: Prelude.Maybe Prelude.Text,
+    logGroupNamePrefix :: Core.Maybe Core.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLogGroups' with all optional fields omitted.
@@ -86,109 +84,106 @@ newDescribeLogGroups ::
   DescribeLogGroups
 newDescribeLogGroups =
   DescribeLogGroups'
-    { nextToken = Prelude.Nothing,
-      logGroupNamePrefix = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      logGroupNamePrefix = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeLogGroups_nextToken :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Text)
+describeLogGroups_nextToken :: Lens.Lens' DescribeLogGroups (Core.Maybe Core.Text)
 describeLogGroups_nextToken = Lens.lens (\DescribeLogGroups' {nextToken} -> nextToken) (\s@DescribeLogGroups' {} a -> s {nextToken = a} :: DescribeLogGroups)
 
 -- | The prefix to match.
-describeLogGroups_logGroupNamePrefix :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Text)
+describeLogGroups_logGroupNamePrefix :: Lens.Lens' DescribeLogGroups (Core.Maybe Core.Text)
 describeLogGroups_logGroupNamePrefix = Lens.lens (\DescribeLogGroups' {logGroupNamePrefix} -> logGroupNamePrefix) (\s@DescribeLogGroups' {} a -> s {logGroupNamePrefix = a} :: DescribeLogGroups)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
-describeLogGroups_limit :: Lens.Lens' DescribeLogGroups (Prelude.Maybe Prelude.Natural)
+describeLogGroups_limit :: Lens.Lens' DescribeLogGroups (Core.Maybe Core.Natural)
 describeLogGroups_limit = Lens.lens (\DescribeLogGroups' {limit} -> limit) (\s@DescribeLogGroups' {} a -> s {limit = a} :: DescribeLogGroups)
 
-instance Pager.AWSPager DescribeLogGroups where
+instance Core.AWSPager DescribeLogGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeLogGroupsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeLogGroupsResponse_logGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeLogGroups_nextToken
           Lens..~ rs
-          Lens.^? describeLogGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeLogGroupsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeLogGroups where
-  type Rs DescribeLogGroups = DescribeLogGroupsResponse
+instance Core.AWSRequest DescribeLogGroups where
+  type
+    AWSResponse DescribeLogGroups =
+      DescribeLogGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLogGroupsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "logGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "logGroups" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLogGroups
+instance Core.Hashable DescribeLogGroups
 
-instance Prelude.NFData DescribeLogGroups
+instance Core.NFData DescribeLogGroups
 
-instance Prelude.ToHeaders DescribeLogGroups where
+instance Core.ToHeaders DescribeLogGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DescribeLogGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.DescribeLogGroups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeLogGroups where
+instance Core.ToJSON DescribeLogGroups where
   toJSON DescribeLogGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("logGroupNamePrefix" Prelude..=)
-              Prelude.<$> logGroupNamePrefix,
-            ("limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("logGroupNamePrefix" Core..=)
+              Core.<$> logGroupNamePrefix,
+            ("limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeLogGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLogGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLogGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLogGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeLogGroupsResponse' smart constructor.
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The log groups.
     --
     -- If the @retentionInDays@ value if not included for a log group, then
     -- that log group is set to have its events never expire.
-    logGroups :: Prelude.Maybe [LogGroup],
+    logGroups :: Core.Maybe [LogGroup],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLogGroupsResponse' with all optional fields omitted.
@@ -208,29 +203,29 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
 -- 'httpStatus', 'describeLogGroupsResponse_httpStatus' - The response's http status code.
 newDescribeLogGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLogGroupsResponse
 newDescribeLogGroupsResponse pHttpStatus_ =
   DescribeLogGroupsResponse'
     { nextToken =
-        Prelude.Nothing,
-      logGroups = Prelude.Nothing,
+        Core.Nothing,
+      logGroups = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeLogGroupsResponse_nextToken :: Lens.Lens' DescribeLogGroupsResponse (Prelude.Maybe Prelude.Text)
+describeLogGroupsResponse_nextToken :: Lens.Lens' DescribeLogGroupsResponse (Core.Maybe Core.Text)
 describeLogGroupsResponse_nextToken = Lens.lens (\DescribeLogGroupsResponse' {nextToken} -> nextToken) (\s@DescribeLogGroupsResponse' {} a -> s {nextToken = a} :: DescribeLogGroupsResponse)
 
 -- | The log groups.
 --
 -- If the @retentionInDays@ value if not included for a log group, then
 -- that log group is set to have its events never expire.
-describeLogGroupsResponse_logGroups :: Lens.Lens' DescribeLogGroupsResponse (Prelude.Maybe [LogGroup])
-describeLogGroupsResponse_logGroups = Lens.lens (\DescribeLogGroupsResponse' {logGroups} -> logGroups) (\s@DescribeLogGroupsResponse' {} a -> s {logGroups = a} :: DescribeLogGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLogGroupsResponse_logGroups :: Lens.Lens' DescribeLogGroupsResponse (Core.Maybe [LogGroup])
+describeLogGroupsResponse_logGroups = Lens.lens (\DescribeLogGroupsResponse' {logGroups} -> logGroups) (\s@DescribeLogGroupsResponse' {} a -> s {logGroups = a} :: DescribeLogGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLogGroupsResponse_httpStatus :: Lens.Lens' DescribeLogGroupsResponse Prelude.Int
+describeLogGroupsResponse_httpStatus :: Lens.Lens' DescribeLogGroupsResponse Core.Int
 describeLogGroupsResponse_httpStatus = Lens.lens (\DescribeLogGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeLogGroupsResponse' {} a -> s {httpStatus = a} :: DescribeLogGroupsResponse)
 
-instance Prelude.NFData DescribeLogGroupsResponse
+instance Core.NFData DescribeLogGroupsResponse

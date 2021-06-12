@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,17 +22,17 @@ module Network.AWS.ApplicationAutoScaling.Types.ScheduledAction where
 import Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
 import Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
 import Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a scheduled action.
 --
 -- /See:/ 'newScheduledAction' smart constructor.
 data ScheduledAction = ScheduledAction'
   { -- | The date and time that the action is scheduled to begin, in UTC.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The date and time that the action is scheduled to end, in UTC.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
@@ -90,20 +89,20 @@ data ScheduledAction = ScheduledAction'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
-    scalableDimension :: Prelude.Maybe ScalableDimension,
+    scalableDimension :: Core.Maybe ScalableDimension,
     -- | The time zone used when referring to the date and time of a scheduled
     -- action, when the scheduled action uses an at or cron expression.
-    timezone :: Prelude.Maybe Prelude.Text,
+    timezone :: Core.Maybe Core.Text,
     -- | The new minimum and maximum capacity. You can set both values or just
     -- one. At the scheduled time, if the current capacity is below the minimum
     -- capacity, Application Auto Scaling scales out to the minimum capacity.
     -- If the current capacity is above the maximum capacity, Application Auto
     -- Scaling scales in to the maximum capacity.
-    scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
+    scalableTargetAction :: Core.Maybe ScalableTargetAction,
     -- | The name of the scheduled action.
-    scheduledActionName :: Prelude.Text,
+    scheduledActionName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the scheduled action.
-    scheduledActionARN :: Prelude.Text,
+    scheduledActionARN :: Core.Text,
     -- | The namespace of the AWS service that provides the resource, or a
     -- @custom-resource@.
     serviceNamespace :: ServiceNamespace,
@@ -131,7 +130,7 @@ data ScheduledAction = ScheduledAction'
     -- For more information and examples, see
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
     -- in the /Application Auto Scaling User Guide/.
-    schedule :: Prelude.Text,
+    schedule :: Core.Text,
     -- | The identifier of the resource associated with the scaling policy. This
     -- string consists of the resource type and unique identifier.
     --
@@ -192,11 +191,11 @@ data ScheduledAction = ScheduledAction'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The date and time that the scheduled action was created.
-    creationTime :: Prelude.POSIX
+    creationTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledAction' with all optional fields omitted.
@@ -372,17 +371,17 @@ data ScheduledAction = ScheduledAction'
 -- 'creationTime', 'scheduledAction_creationTime' - The date and time that the scheduled action was created.
 newScheduledAction ::
   -- | 'scheduledActionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scheduledActionARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'schedule'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ScheduledAction
 newScheduledAction
   pScheduledActionName_
@@ -392,26 +391,26 @@ newScheduledAction
   pResourceId_
   pCreationTime_ =
     ScheduledAction'
-      { startTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
-        scalableDimension = Prelude.Nothing,
-        timezone = Prelude.Nothing,
-        scalableTargetAction = Prelude.Nothing,
+      { startTime = Core.Nothing,
+        endTime = Core.Nothing,
+        scalableDimension = Core.Nothing,
+        timezone = Core.Nothing,
+        scalableTargetAction = Core.Nothing,
         scheduledActionName = pScheduledActionName_,
         scheduledActionARN = pScheduledActionARN_,
         serviceNamespace = pServiceNamespace_,
         schedule = pSchedule_,
         resourceId = pResourceId_,
-        creationTime = Prelude._Time Lens.# pCreationTime_
+        creationTime = Core._Time Lens.# pCreationTime_
       }
 
 -- | The date and time that the action is scheduled to begin, in UTC.
-scheduledAction_startTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
-scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Prelude._Time
+scheduledAction_startTime :: Lens.Lens' ScheduledAction (Core.Maybe Core.UTCTime)
+scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Core.. Lens.mapping Core._Time
 
 -- | The date and time that the action is scheduled to end, in UTC.
-scheduledAction_endTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
-scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s@ScheduledAction' {} a -> s {endTime = a} :: ScheduledAction) Prelude.. Lens.mapping Prelude._Time
+scheduledAction_endTime :: Lens.Lens' ScheduledAction (Core.Maybe Core.UTCTime)
+scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s@ScheduledAction' {} a -> s {endTime = a} :: ScheduledAction) Core.. Lens.mapping Core._Time
 
 -- | The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
@@ -469,12 +468,12 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-scheduledAction_scalableDimension :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableDimension)
+scheduledAction_scalableDimension :: Lens.Lens' ScheduledAction (Core.Maybe ScalableDimension)
 scheduledAction_scalableDimension = Lens.lens (\ScheduledAction' {scalableDimension} -> scalableDimension) (\s@ScheduledAction' {} a -> s {scalableDimension = a} :: ScheduledAction)
 
 -- | The time zone used when referring to the date and time of a scheduled
 -- action, when the scheduled action uses an at or cron expression.
-scheduledAction_timezone :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.Text)
+scheduledAction_timezone :: Lens.Lens' ScheduledAction (Core.Maybe Core.Text)
 scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) (\s@ScheduledAction' {} a -> s {timezone = a} :: ScheduledAction)
 
 -- | The new minimum and maximum capacity. You can set both values or just
@@ -482,15 +481,15 @@ scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) 
 -- capacity, Application Auto Scaling scales out to the minimum capacity.
 -- If the current capacity is above the maximum capacity, Application Auto
 -- Scaling scales in to the maximum capacity.
-scheduledAction_scalableTargetAction :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableTargetAction)
+scheduledAction_scalableTargetAction :: Lens.Lens' ScheduledAction (Core.Maybe ScalableTargetAction)
 scheduledAction_scalableTargetAction = Lens.lens (\ScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@ScheduledAction' {} a -> s {scalableTargetAction = a} :: ScheduledAction)
 
 -- | The name of the scheduled action.
-scheduledAction_scheduledActionName :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_scheduledActionName :: Lens.Lens' ScheduledAction Core.Text
 scheduledAction_scheduledActionName = Lens.lens (\ScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@ScheduledAction' {} a -> s {scheduledActionName = a} :: ScheduledAction)
 
 -- | The Amazon Resource Name (ARN) of the scheduled action.
-scheduledAction_scheduledActionARN :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_scheduledActionARN :: Lens.Lens' ScheduledAction Core.Text
 scheduledAction_scheduledActionARN = Lens.lens (\ScheduledAction' {scheduledActionARN} -> scheduledActionARN) (\s@ScheduledAction' {} a -> s {scheduledActionARN = a} :: ScheduledAction)
 
 -- | The namespace of the AWS service that provides the resource, or a
@@ -522,7 +521,7 @@ scheduledAction_serviceNamespace = Lens.lens (\ScheduledAction' {serviceNamespac
 -- For more information and examples, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
-scheduledAction_schedule :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_schedule :: Lens.Lens' ScheduledAction Core.Text
 scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) (\s@ScheduledAction' {} a -> s {schedule = a} :: ScheduledAction)
 
 -- | The identifier of the resource associated with the scaling policy. This
@@ -585,32 +584,32 @@ scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) 
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-scheduledAction_resourceId :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_resourceId :: Lens.Lens' ScheduledAction Core.Text
 scheduledAction_resourceId = Lens.lens (\ScheduledAction' {resourceId} -> resourceId) (\s@ScheduledAction' {} a -> s {resourceId = a} :: ScheduledAction)
 
 -- | The date and time that the scheduled action was created.
-scheduledAction_creationTime :: Lens.Lens' ScheduledAction Prelude.UTCTime
-scheduledAction_creationTime = Lens.lens (\ScheduledAction' {creationTime} -> creationTime) (\s@ScheduledAction' {} a -> s {creationTime = a} :: ScheduledAction) Prelude.. Prelude._Time
+scheduledAction_creationTime :: Lens.Lens' ScheduledAction Core.UTCTime
+scheduledAction_creationTime = Lens.lens (\ScheduledAction' {creationTime} -> creationTime) (\s@ScheduledAction' {} a -> s {creationTime = a} :: ScheduledAction) Core.. Core._Time
 
-instance Prelude.FromJSON ScheduledAction where
+instance Core.FromJSON ScheduledAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScheduledAction"
       ( \x ->
           ScheduledAction'
-            Prelude.<$> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "EndTime")
-            Prelude.<*> (x Prelude..:? "ScalableDimension")
-            Prelude.<*> (x Prelude..:? "Timezone")
-            Prelude.<*> (x Prelude..:? "ScalableTargetAction")
-            Prelude.<*> (x Prelude..: "ScheduledActionName")
-            Prelude.<*> (x Prelude..: "ScheduledActionARN")
-            Prelude.<*> (x Prelude..: "ServiceNamespace")
-            Prelude.<*> (x Prelude..: "Schedule")
-            Prelude.<*> (x Prelude..: "ResourceId")
-            Prelude.<*> (x Prelude..: "CreationTime")
+            Core.<$> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "EndTime")
+            Core.<*> (x Core..:? "ScalableDimension")
+            Core.<*> (x Core..:? "Timezone")
+            Core.<*> (x Core..:? "ScalableTargetAction")
+            Core.<*> (x Core..: "ScheduledActionName")
+            Core.<*> (x Core..: "ScheduledActionARN")
+            Core.<*> (x Core..: "ServiceNamespace")
+            Core.<*> (x Core..: "Schedule")
+            Core.<*> (x Core..: "ResourceId")
+            Core.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable ScheduledAction
+instance Core.Hashable ScheduledAction
 
-instance Prelude.NFData ScheduledAction
+instance Core.NFData ScheduledAction

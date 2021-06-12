@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Glue.GetTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,15 +52,15 @@ import qualified Network.AWS.Response as Response
 data GetTable = GetTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the database in the catalog in which the table resides. For
     -- Hive compatibility, this name is entirely lowercase.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the table for which to retrieve the definition. For Hive
     -- compatibility, this name is entirely lowercase.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTable' with all optional fields omitted.
@@ -81,85 +80,82 @@ data GetTable = GetTable'
 -- compatibility, this name is entirely lowercase.
 newGetTable ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetTable
 newGetTable pDatabaseName_ pName_ =
   GetTable'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       databaseName = pDatabaseName_,
       name = pName_
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
 -- the AWS account ID is used by default.
-getTable_catalogId :: Lens.Lens' GetTable (Prelude.Maybe Prelude.Text)
+getTable_catalogId :: Lens.Lens' GetTable (Core.Maybe Core.Text)
 getTable_catalogId = Lens.lens (\GetTable' {catalogId} -> catalogId) (\s@GetTable' {} a -> s {catalogId = a} :: GetTable)
 
 -- | The name of the database in the catalog in which the table resides. For
 -- Hive compatibility, this name is entirely lowercase.
-getTable_databaseName :: Lens.Lens' GetTable Prelude.Text
+getTable_databaseName :: Lens.Lens' GetTable Core.Text
 getTable_databaseName = Lens.lens (\GetTable' {databaseName} -> databaseName) (\s@GetTable' {} a -> s {databaseName = a} :: GetTable)
 
 -- | The name of the table for which to retrieve the definition. For Hive
 -- compatibility, this name is entirely lowercase.
-getTable_name :: Lens.Lens' GetTable Prelude.Text
+getTable_name :: Lens.Lens' GetTable Core.Text
 getTable_name = Lens.lens (\GetTable' {name} -> name) (\s@GetTable' {} a -> s {name = a} :: GetTable)
 
-instance Prelude.AWSRequest GetTable where
-  type Rs GetTable = GetTableResponse
+instance Core.AWSRequest GetTable where
+  type AWSResponse GetTable = GetTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTableResponse'
-            Prelude.<$> (x Prelude..?> "Table")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Table")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTable
+instance Core.Hashable GetTable
 
-instance Prelude.NFData GetTable
+instance Core.NFData GetTable
 
-instance Prelude.ToHeaders GetTable where
+instance Core.ToHeaders GetTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetTable" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetTable" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetTable where
+instance Core.ToJSON GetTable where
   toJSON GetTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath GetTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTable where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetTableResponse' smart constructor.
 data GetTableResponse = GetTableResponse'
   { -- | The @Table@ object that defines the specified table.
-    table :: Prelude.Maybe Table,
+    table :: Core.Maybe Table,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTableResponse' with all optional fields omitted.
@@ -174,20 +170,20 @@ data GetTableResponse = GetTableResponse'
 -- 'httpStatus', 'getTableResponse_httpStatus' - The response's http status code.
 newGetTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTableResponse
 newGetTableResponse pHttpStatus_ =
   GetTableResponse'
-    { table = Prelude.Nothing,
+    { table = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Table@ object that defines the specified table.
-getTableResponse_table :: Lens.Lens' GetTableResponse (Prelude.Maybe Table)
+getTableResponse_table :: Lens.Lens' GetTableResponse (Core.Maybe Table)
 getTableResponse_table = Lens.lens (\GetTableResponse' {table} -> table) (\s@GetTableResponse' {} a -> s {table = a} :: GetTableResponse)
 
 -- | The response's http status code.
-getTableResponse_httpStatus :: Lens.Lens' GetTableResponse Prelude.Int
+getTableResponse_httpStatus :: Lens.Lens' GetTableResponse Core.Int
 getTableResponse_httpStatus = Lens.lens (\GetTableResponse' {httpStatus} -> httpStatus) (\s@GetTableResponse' {} a -> s {httpStatus = a} :: GetTableResponse)
 
-instance Prelude.NFData GetTableResponse
+instance Core.NFData GetTableResponse

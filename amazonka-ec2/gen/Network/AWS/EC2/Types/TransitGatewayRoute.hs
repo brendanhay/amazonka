@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayRoute where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TransitGatewayRouteAttachment
 import Network.AWS.EC2.Types.TransitGatewayRouteState
 import Network.AWS.EC2.Types.TransitGatewayRouteType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a route for a transit gateway route table.
 --
 -- /See:/ 'newTransitGatewayRoute' smart constructor.
 data TransitGatewayRoute = TransitGatewayRoute'
   { -- | The ID of the prefix list used for destination matches.
-    prefixListId :: Prelude.Maybe Prelude.Text,
+    prefixListId :: Core.Maybe Core.Text,
     -- | The state of the route.
-    state :: Prelude.Maybe TransitGatewayRouteState,
+    state :: Core.Maybe TransitGatewayRouteState,
     -- | The CIDR block used for destination matches.
-    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    destinationCidrBlock :: Core.Maybe Core.Text,
     -- | The route type.
-    type' :: Prelude.Maybe TransitGatewayRouteType,
+    type' :: Core.Maybe TransitGatewayRouteType,
     -- | The attachments.
-    transitGatewayAttachments :: Prelude.Maybe [TransitGatewayRouteAttachment]
+    transitGatewayAttachments :: Core.Maybe [TransitGatewayRouteAttachment]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayRoute' with all optional fields omitted.
@@ -65,46 +64,45 @@ newTransitGatewayRoute ::
   TransitGatewayRoute
 newTransitGatewayRoute =
   TransitGatewayRoute'
-    { prefixListId =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
-      destinationCidrBlock = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      transitGatewayAttachments = Prelude.Nothing
+    { prefixListId = Core.Nothing,
+      state = Core.Nothing,
+      destinationCidrBlock = Core.Nothing,
+      type' = Core.Nothing,
+      transitGatewayAttachments = Core.Nothing
     }
 
 -- | The ID of the prefix list used for destination matches.
-transitGatewayRoute_prefixListId :: Lens.Lens' TransitGatewayRoute (Prelude.Maybe Prelude.Text)
+transitGatewayRoute_prefixListId :: Lens.Lens' TransitGatewayRoute (Core.Maybe Core.Text)
 transitGatewayRoute_prefixListId = Lens.lens (\TransitGatewayRoute' {prefixListId} -> prefixListId) (\s@TransitGatewayRoute' {} a -> s {prefixListId = a} :: TransitGatewayRoute)
 
 -- | The state of the route.
-transitGatewayRoute_state :: Lens.Lens' TransitGatewayRoute (Prelude.Maybe TransitGatewayRouteState)
+transitGatewayRoute_state :: Lens.Lens' TransitGatewayRoute (Core.Maybe TransitGatewayRouteState)
 transitGatewayRoute_state = Lens.lens (\TransitGatewayRoute' {state} -> state) (\s@TransitGatewayRoute' {} a -> s {state = a} :: TransitGatewayRoute)
 
 -- | The CIDR block used for destination matches.
-transitGatewayRoute_destinationCidrBlock :: Lens.Lens' TransitGatewayRoute (Prelude.Maybe Prelude.Text)
+transitGatewayRoute_destinationCidrBlock :: Lens.Lens' TransitGatewayRoute (Core.Maybe Core.Text)
 transitGatewayRoute_destinationCidrBlock = Lens.lens (\TransitGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@TransitGatewayRoute' {} a -> s {destinationCidrBlock = a} :: TransitGatewayRoute)
 
 -- | The route type.
-transitGatewayRoute_type :: Lens.Lens' TransitGatewayRoute (Prelude.Maybe TransitGatewayRouteType)
+transitGatewayRoute_type :: Lens.Lens' TransitGatewayRoute (Core.Maybe TransitGatewayRouteType)
 transitGatewayRoute_type = Lens.lens (\TransitGatewayRoute' {type'} -> type') (\s@TransitGatewayRoute' {} a -> s {type' = a} :: TransitGatewayRoute)
 
 -- | The attachments.
-transitGatewayRoute_transitGatewayAttachments :: Lens.Lens' TransitGatewayRoute (Prelude.Maybe [TransitGatewayRouteAttachment])
-transitGatewayRoute_transitGatewayAttachments = Lens.lens (\TransitGatewayRoute' {transitGatewayAttachments} -> transitGatewayAttachments) (\s@TransitGatewayRoute' {} a -> s {transitGatewayAttachments = a} :: TransitGatewayRoute) Prelude.. Lens.mapping Prelude._Coerce
+transitGatewayRoute_transitGatewayAttachments :: Lens.Lens' TransitGatewayRoute (Core.Maybe [TransitGatewayRouteAttachment])
+transitGatewayRoute_transitGatewayAttachments = Lens.lens (\TransitGatewayRoute' {transitGatewayAttachments} -> transitGatewayAttachments) (\s@TransitGatewayRoute' {} a -> s {transitGatewayAttachments = a} :: TransitGatewayRoute) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML TransitGatewayRoute where
+instance Core.FromXML TransitGatewayRoute where
   parseXML x =
     TransitGatewayRoute'
-      Prelude.<$> (x Prelude..@? "prefixListId")
-      Prelude.<*> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "destinationCidrBlock")
-      Prelude.<*> (x Prelude..@? "type")
-      Prelude.<*> ( x Prelude..@? "transitGatewayAttachments"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "prefixListId")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "destinationCidrBlock")
+      Core.<*> (x Core..@? "type")
+      Core.<*> ( x Core..@? "transitGatewayAttachments"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable TransitGatewayRoute
+instance Core.Hashable TransitGatewayRoute
 
-instance Prelude.NFData TransitGatewayRoute
+instance Core.NFData TransitGatewayRoute

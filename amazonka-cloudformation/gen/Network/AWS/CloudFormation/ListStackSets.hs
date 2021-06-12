@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,9 +60,8 @@ module Network.AWS.CloudFormation.ListStackSets
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,19 +69,19 @@ import qualified Network.AWS.Response as Response
 data ListStackSets = ListStackSets'
   { -- | The status of the stack sets that you want to get summary information
     -- about.
-    status :: Prelude.Maybe StackSetStatus,
+    status :: Core.Maybe StackSetStatus,
     -- | If the previous paginated request didn\'t return all of the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call @ListStackSets@ again
     -- and assign that token to the request object\'s @NextToken@ parameter. If
     -- there are no remaining results, the previous response object\'s
     -- @NextToken@ parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the management account or as a delegated
     -- administrator in a member account.
@@ -100,9 +98,9 @@ data ListStackSets = ListStackSets'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs
+    callAs :: Core.Maybe CallAs
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStackSets' with all optional fields omitted.
@@ -147,15 +145,15 @@ newListStackSets ::
   ListStackSets
 newListStackSets =
   ListStackSets'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      callAs = Prelude.Nothing
+    { status = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      callAs = Core.Nothing
     }
 
 -- | The status of the stack sets that you want to get summary information
 -- about.
-listStackSets_status :: Lens.Lens' ListStackSets (Prelude.Maybe StackSetStatus)
+listStackSets_status :: Lens.Lens' ListStackSets (Core.Maybe StackSetStatus)
 listStackSets_status = Lens.lens (\ListStackSets' {status} -> status) (\s@ListStackSets' {} a -> s {status = a} :: ListStackSets)
 
 -- | If the previous paginated request didn\'t return all of the remaining
@@ -164,14 +162,14 @@ listStackSets_status = Lens.lens (\ListStackSets' {status} -> status) (\s@ListSt
 -- and assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
-listStackSets_nextToken :: Lens.Lens' ListStackSets (Prelude.Maybe Prelude.Text)
+listStackSets_nextToken :: Lens.Lens' ListStackSets (Core.Maybe Core.Text)
 listStackSets_nextToken = Lens.lens (\ListStackSets' {nextToken} -> nextToken) (\s@ListStackSets' {} a -> s {nextToken = a} :: ListStackSets)
 
 -- | The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
-listStackSets_maxResults :: Lens.Lens' ListStackSets (Prelude.Maybe Prelude.Natural)
+listStackSets_maxResults :: Lens.Lens' ListStackSets (Core.Maybe Core.Natural)
 listStackSets_maxResults = Lens.lens (\ListStackSets' {maxResults} -> maxResults) (\s@ListStackSets' {} a -> s {maxResults = a} :: ListStackSets)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
@@ -190,64 +188,65 @@ listStackSets_maxResults = Lens.lens (\ListStackSets' {maxResults} -> maxResults
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-listStackSets_callAs :: Lens.Lens' ListStackSets (Prelude.Maybe CallAs)
+listStackSets_callAs :: Lens.Lens' ListStackSets (Core.Maybe CallAs)
 listStackSets_callAs = Lens.lens (\ListStackSets' {callAs} -> callAs) (\s@ListStackSets' {} a -> s {callAs = a} :: ListStackSets)
 
-instance Pager.AWSPager ListStackSets where
+instance Core.AWSPager ListStackSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listStackSetsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listStackSetsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listStackSetsResponse_summaries Prelude.. Lens._Just
+            Lens.^? listStackSetsResponse_summaries Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listStackSets_nextToken
           Lens..~ rs
-          Lens.^? listStackSetsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listStackSetsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListStackSets where
-  type Rs ListStackSets = ListStackSetsResponse
+instance Core.AWSRequest ListStackSets where
+  type
+    AWSResponse ListStackSets =
+      ListStackSetsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListStackSetsResult"
       ( \s h x ->
           ListStackSetsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "Summaries" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "Summaries" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListStackSets
+instance Core.Hashable ListStackSets
 
-instance Prelude.NFData ListStackSets
+instance Core.NFData ListStackSets
 
-instance Prelude.ToHeaders ListStackSets where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListStackSets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListStackSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListStackSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListStackSets where
+instance Core.ToQuery ListStackSets where
   toQuery ListStackSets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListStackSets" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "Status" Prelude.=: status,
-        "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults,
-        "CallAs" Prelude.=: callAs
+          Core.=: ("ListStackSets" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "Status" Core.=: status,
+        "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
+        "CallAs" Core.=: callAs
       ]
 
 -- | /See:/ 'newListStackSetsResponse' smart constructor.
@@ -257,14 +256,14 @@ data ListStackSetsResponse = ListStackSetsResponse'
     -- @ListStackInstances@ again and assign that token to the request
     -- object\'s @NextToken@ parameter. If the request returns all results,
     -- @NextToken@ is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @StackSetSummary@ structures that contain information about
     -- the user\'s stack sets.
-    summaries :: Prelude.Maybe [StackSetSummary],
+    summaries :: Core.Maybe [StackSetSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStackSetsResponse' with all optional fields omitted.
@@ -286,12 +285,12 @@ data ListStackSetsResponse = ListStackSetsResponse'
 -- 'httpStatus', 'listStackSetsResponse_httpStatus' - The response's http status code.
 newListStackSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListStackSetsResponse
 newListStackSetsResponse pHttpStatus_ =
   ListStackSetsResponse'
-    { nextToken = Prelude.Nothing,
-      summaries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      summaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -300,16 +299,16 @@ newListStackSetsResponse pHttpStatus_ =
 -- @ListStackInstances@ again and assign that token to the request
 -- object\'s @NextToken@ parameter. If the request returns all results,
 -- @NextToken@ is set to @null@.
-listStackSetsResponse_nextToken :: Lens.Lens' ListStackSetsResponse (Prelude.Maybe Prelude.Text)
+listStackSetsResponse_nextToken :: Lens.Lens' ListStackSetsResponse (Core.Maybe Core.Text)
 listStackSetsResponse_nextToken = Lens.lens (\ListStackSetsResponse' {nextToken} -> nextToken) (\s@ListStackSetsResponse' {} a -> s {nextToken = a} :: ListStackSetsResponse)
 
 -- | A list of @StackSetSummary@ structures that contain information about
 -- the user\'s stack sets.
-listStackSetsResponse_summaries :: Lens.Lens' ListStackSetsResponse (Prelude.Maybe [StackSetSummary])
-listStackSetsResponse_summaries = Lens.lens (\ListStackSetsResponse' {summaries} -> summaries) (\s@ListStackSetsResponse' {} a -> s {summaries = a} :: ListStackSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listStackSetsResponse_summaries :: Lens.Lens' ListStackSetsResponse (Core.Maybe [StackSetSummary])
+listStackSetsResponse_summaries = Lens.lens (\ListStackSetsResponse' {summaries} -> summaries) (\s@ListStackSetsResponse' {} a -> s {summaries = a} :: ListStackSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStackSetsResponse_httpStatus :: Lens.Lens' ListStackSetsResponse Prelude.Int
+listStackSetsResponse_httpStatus :: Lens.Lens' ListStackSetsResponse Core.Int
 listStackSetsResponse_httpStatus = Lens.lens (\ListStackSetsResponse' {httpStatus} -> httpStatus) (\s@ListStackSetsResponse' {} a -> s {httpStatus = a} :: ListStackSetsResponse)
 
-instance Prelude.NFData ListStackSetsResponse
+instance Core.NFData ListStackSetsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The integrity algorithm for phase 2 IKE negotiations.
 --
 -- /See:/ 'newPhase2IntegrityAlgorithmsListValue' smart constructor.
 data Phase2IntegrityAlgorithmsListValue = Phase2IntegrityAlgorithmsListValue'
   { -- | The integrity algorithm.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Phase2IntegrityAlgorithmsListValue' with all optional fields omitted.
@@ -47,25 +46,25 @@ newPhase2IntegrityAlgorithmsListValue ::
 newPhase2IntegrityAlgorithmsListValue =
   Phase2IntegrityAlgorithmsListValue'
     { value =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The integrity algorithm.
-phase2IntegrityAlgorithmsListValue_value :: Lens.Lens' Phase2IntegrityAlgorithmsListValue (Prelude.Maybe Prelude.Text)
+phase2IntegrityAlgorithmsListValue_value :: Lens.Lens' Phase2IntegrityAlgorithmsListValue (Core.Maybe Core.Text)
 phase2IntegrityAlgorithmsListValue_value = Lens.lens (\Phase2IntegrityAlgorithmsListValue' {value} -> value) (\s@Phase2IntegrityAlgorithmsListValue' {} a -> s {value = a} :: Phase2IntegrityAlgorithmsListValue)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     Phase2IntegrityAlgorithmsListValue
   where
   parseXML x =
     Phase2IntegrityAlgorithmsListValue'
-      Prelude.<$> (x Prelude..@? "value")
+      Core.<$> (x Core..@? "value")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Phase2IntegrityAlgorithmsListValue
 
 instance
-  Prelude.NFData
+  Core.NFData
     Phase2IntegrityAlgorithmsListValue

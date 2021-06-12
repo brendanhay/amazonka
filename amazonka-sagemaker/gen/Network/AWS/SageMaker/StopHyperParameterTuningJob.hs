@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SageMaker.StopHyperParameterTuningJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -52,9 +51,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopHyperParameterTuningJob' smart constructor.
 data StopHyperParameterTuningJob = StopHyperParameterTuningJob'
   { -- | The name of the tuning job to stop.
-    hyperParameterTuningJobName :: Prelude.Text
+    hyperParameterTuningJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopHyperParameterTuningJob' with all optional fields omitted.
@@ -67,7 +66,7 @@ data StopHyperParameterTuningJob = StopHyperParameterTuningJob'
 -- 'hyperParameterTuningJobName', 'stopHyperParameterTuningJob_hyperParameterTuningJobName' - The name of the tuning job to stop.
 newStopHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
-  Prelude.Text ->
+  Core.Text ->
   StopHyperParameterTuningJob
 newStopHyperParameterTuningJob
   pHyperParameterTuningJobName_ =
@@ -77,65 +76,57 @@ newStopHyperParameterTuningJob
       }
 
 -- | The name of the tuning job to stop.
-stopHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' StopHyperParameterTuningJob Prelude.Text
+stopHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' StopHyperParameterTuningJob Core.Text
 stopHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\StopHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@StopHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: StopHyperParameterTuningJob)
 
-instance
-  Prelude.AWSRequest
-    StopHyperParameterTuningJob
-  where
+instance Core.AWSRequest StopHyperParameterTuningJob where
   type
-    Rs StopHyperParameterTuningJob =
+    AWSResponse StopHyperParameterTuningJob =
       StopHyperParameterTuningJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       StopHyperParameterTuningJobResponse'
 
-instance Prelude.Hashable StopHyperParameterTuningJob
+instance Core.Hashable StopHyperParameterTuningJob
 
-instance Prelude.NFData StopHyperParameterTuningJob
+instance Core.NFData StopHyperParameterTuningJob
 
-instance
-  Prelude.ToHeaders
-    StopHyperParameterTuningJob
-  where
+instance Core.ToHeaders StopHyperParameterTuningJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StopHyperParameterTuningJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.StopHyperParameterTuningJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopHyperParameterTuningJob where
+instance Core.ToJSON StopHyperParameterTuningJob where
   toJSON StopHyperParameterTuningJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "HyperParameterTuningJobName"
-                  Prelude..= hyperParameterTuningJobName
+                  Core..= hyperParameterTuningJobName
               )
           ]
       )
 
-instance Prelude.ToPath StopHyperParameterTuningJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopHyperParameterTuningJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopHyperParameterTuningJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopHyperParameterTuningJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopHyperParameterTuningJobResponse' smart constructor.
 data StopHyperParameterTuningJobResponse = StopHyperParameterTuningJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopHyperParameterTuningJobResponse' with all optional fields omitted.
@@ -147,5 +138,5 @@ newStopHyperParameterTuningJobResponse =
   StopHyperParameterTuningJobResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     StopHyperParameterTuningJobResponse

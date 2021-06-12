@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AssociatedTargetNetwork where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AssociatedNetworkType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a target network that is associated with a Client VPN
 -- endpoint. A target network is a subnet in a VPC.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAssociatedTargetNetwork' smart constructor.
 data AssociatedTargetNetwork = AssociatedTargetNetwork'
   { -- | The target network type.
-    networkType :: Prelude.Maybe AssociatedNetworkType,
+    networkType :: Core.Maybe AssociatedNetworkType,
     -- | The ID of the subnet.
-    networkId :: Prelude.Maybe Prelude.Text
+    networkId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociatedTargetNetwork' with all optional fields omitted.
@@ -53,24 +52,24 @@ newAssociatedTargetNetwork ::
 newAssociatedTargetNetwork =
   AssociatedTargetNetwork'
     { networkType =
-        Prelude.Nothing,
-      networkId = Prelude.Nothing
+        Core.Nothing,
+      networkId = Core.Nothing
     }
 
 -- | The target network type.
-associatedTargetNetwork_networkType :: Lens.Lens' AssociatedTargetNetwork (Prelude.Maybe AssociatedNetworkType)
+associatedTargetNetwork_networkType :: Lens.Lens' AssociatedTargetNetwork (Core.Maybe AssociatedNetworkType)
 associatedTargetNetwork_networkType = Lens.lens (\AssociatedTargetNetwork' {networkType} -> networkType) (\s@AssociatedTargetNetwork' {} a -> s {networkType = a} :: AssociatedTargetNetwork)
 
 -- | The ID of the subnet.
-associatedTargetNetwork_networkId :: Lens.Lens' AssociatedTargetNetwork (Prelude.Maybe Prelude.Text)
+associatedTargetNetwork_networkId :: Lens.Lens' AssociatedTargetNetwork (Core.Maybe Core.Text)
 associatedTargetNetwork_networkId = Lens.lens (\AssociatedTargetNetwork' {networkId} -> networkId) (\s@AssociatedTargetNetwork' {} a -> s {networkId = a} :: AssociatedTargetNetwork)
 
-instance Prelude.FromXML AssociatedTargetNetwork where
+instance Core.FromXML AssociatedTargetNetwork where
   parseXML x =
     AssociatedTargetNetwork'
-      Prelude.<$> (x Prelude..@? "networkType")
-      Prelude.<*> (x Prelude..@? "networkId")
+      Core.<$> (x Core..@? "networkType")
+      Core.<*> (x Core..@? "networkId")
 
-instance Prelude.Hashable AssociatedTargetNetwork
+instance Core.Hashable AssociatedTargetNetwork
 
-instance Prelude.NFData AssociatedTargetNetwork
+instance Core.NFData AssociatedTargetNetwork

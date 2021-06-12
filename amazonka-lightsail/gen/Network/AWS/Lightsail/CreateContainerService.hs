@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.Lightsail.CreateContainerService
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,12 +65,12 @@ data CreateContainerService = CreateContainerService'
     -- specifies the container that will serve as the public endpoint of the
     -- deployment and its settings, such as the HTTP or HTTPS port to use, and
     -- the health check configuration.
-    deployment :: Prelude.Maybe ContainerServiceDeploymentRequest,
+    deployment :: Core.Maybe ContainerServiceDeploymentRequest,
     -- | The tag keys and optional values for the container service.
     --
     -- For more information about tags in Lightsail, see the
     -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The public domain names to use with the container service, such as
     -- @example.com@ and @www.example.com@.
     --
@@ -90,7 +89,7 @@ data CreateContainerService = CreateContainerService'
     --
     -- You can specify public domain names using a string to array map as shown
     -- in the example later on this page.
-    publicDomainNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    publicDomainNames :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The name for the container service.
     --
     -- The name that you specify for your container service will make up part
@@ -112,7 +111,7 @@ data CreateContainerService = CreateContainerService'
     --
     -- -   A hyphen (-) can separate words but cannot be at the start or end of
     --     the name.
-    serviceName :: Prelude.Text,
+    serviceName :: Core.Text,
     -- | The power specification for the container service.
     --
     -- The power specifies the amount of memory, vCPUs, and base monthly cost
@@ -132,9 +131,9 @@ data CreateContainerService = CreateContainerService'
     -- configured capacity. To determine the monthly price of your container
     -- service, multiply the base price of the @power@ with the @scale@ (the
     -- number of nodes) of the service.
-    scale :: Prelude.Natural
+    scale :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContainerService' with all optional fields omitted.
@@ -220,21 +219,20 @@ data CreateContainerService = CreateContainerService'
 -- number of nodes) of the service.
 newCreateContainerService ::
   -- | 'serviceName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'power'
   ContainerServicePowerName ->
   -- | 'scale'
-  Prelude.Natural ->
+  Core.Natural ->
   CreateContainerService
 newCreateContainerService
   pServiceName_
   pPower_
   pScale_ =
     CreateContainerService'
-      { deployment =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        publicDomainNames = Prelude.Nothing,
+      { deployment = Core.Nothing,
+        tags = Core.Nothing,
+        publicDomainNames = Core.Nothing,
         serviceName = pServiceName_,
         power = pPower_,
         scale = pScale_
@@ -248,15 +246,15 @@ newCreateContainerService
 -- specifies the container that will serve as the public endpoint of the
 -- deployment and its settings, such as the HTTP or HTTPS port to use, and
 -- the health check configuration.
-createContainerService_deployment :: Lens.Lens' CreateContainerService (Prelude.Maybe ContainerServiceDeploymentRequest)
+createContainerService_deployment :: Lens.Lens' CreateContainerService (Core.Maybe ContainerServiceDeploymentRequest)
 createContainerService_deployment = Lens.lens (\CreateContainerService' {deployment} -> deployment) (\s@CreateContainerService' {} a -> s {deployment = a} :: CreateContainerService)
 
 -- | The tag keys and optional values for the container service.
 --
 -- For more information about tags in Lightsail, see the
 -- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags Lightsail Dev Guide>.
-createContainerService_tags :: Lens.Lens' CreateContainerService (Prelude.Maybe [Tag])
-createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags) (\s@CreateContainerService' {} a -> s {tags = a} :: CreateContainerService) Prelude.. Lens.mapping Prelude._Coerce
+createContainerService_tags :: Lens.Lens' CreateContainerService (Core.Maybe [Tag])
+createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags) (\s@CreateContainerService' {} a -> s {tags = a} :: CreateContainerService) Core.. Lens.mapping Lens._Coerce
 
 -- | The public domain names to use with the container service, such as
 -- @example.com@ and @www.example.com@.
@@ -276,8 +274,8 @@ createContainerService_tags = Lens.lens (\CreateContainerService' {tags} -> tags
 --
 -- You can specify public domain names using a string to array map as shown
 -- in the example later on this page.
-createContainerService_publicDomainNames :: Lens.Lens' CreateContainerService (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {publicDomainNames} -> publicDomainNames) (\s@CreateContainerService' {} a -> s {publicDomainNames = a} :: CreateContainerService) Prelude.. Lens.mapping Prelude._Coerce
+createContainerService_publicDomainNames :: Lens.Lens' CreateContainerService (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {publicDomainNames} -> publicDomainNames) (\s@CreateContainerService' {} a -> s {publicDomainNames = a} :: CreateContainerService) Core.. Lens.mapping Lens._Coerce
 
 -- | The name for the container service.
 --
@@ -300,7 +298,7 @@ createContainerService_publicDomainNames = Lens.lens (\CreateContainerService' {
 --
 -- -   A hyphen (-) can separate words but cannot be at the start or end of
 --     the name.
-createContainerService_serviceName :: Lens.Lens' CreateContainerService Prelude.Text
+createContainerService_serviceName :: Lens.Lens' CreateContainerService Core.Text
 createContainerService_serviceName = Lens.lens (\CreateContainerService' {serviceName} -> serviceName) (\s@CreateContainerService' {} a -> s {serviceName = a} :: CreateContainerService)
 
 -- | The power specification for the container service.
@@ -324,69 +322,67 @@ createContainerService_power = Lens.lens (\CreateContainerService' {power} -> po
 -- configured capacity. To determine the monthly price of your container
 -- service, multiply the base price of the @power@ with the @scale@ (the
 -- number of nodes) of the service.
-createContainerService_scale :: Lens.Lens' CreateContainerService Prelude.Natural
+createContainerService_scale :: Lens.Lens' CreateContainerService Core.Natural
 createContainerService_scale = Lens.lens (\CreateContainerService' {scale} -> scale) (\s@CreateContainerService' {} a -> s {scale = a} :: CreateContainerService)
 
-instance Prelude.AWSRequest CreateContainerService where
+instance Core.AWSRequest CreateContainerService where
   type
-    Rs CreateContainerService =
+    AWSResponse CreateContainerService =
       CreateContainerServiceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateContainerServiceResponse'
-            Prelude.<$> (x Prelude..?> "containerService")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "containerService")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContainerService
+instance Core.Hashable CreateContainerService
 
-instance Prelude.NFData CreateContainerService
+instance Core.NFData CreateContainerService
 
-instance Prelude.ToHeaders CreateContainerService where
+instance Core.ToHeaders CreateContainerService where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateContainerService" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateContainerService" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateContainerService where
+instance Core.ToJSON CreateContainerService where
   toJSON CreateContainerService' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deployment" Prelude..=) Prelude.<$> deployment,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("publicDomainNames" Prelude..=)
-              Prelude.<$> publicDomainNames,
-            Prelude.Just ("serviceName" Prelude..= serviceName),
-            Prelude.Just ("power" Prelude..= power),
-            Prelude.Just ("scale" Prelude..= scale)
+    Core.object
+      ( Core.catMaybes
+          [ ("deployment" Core..=) Core.<$> deployment,
+            ("tags" Core..=) Core.<$> tags,
+            ("publicDomainNames" Core..=)
+              Core.<$> publicDomainNames,
+            Core.Just ("serviceName" Core..= serviceName),
+            Core.Just ("power" Core..= power),
+            Core.Just ("scale" Core..= scale)
           ]
       )
 
-instance Prelude.ToPath CreateContainerService where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateContainerService where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateContainerService where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateContainerService where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateContainerServiceResponse' smart constructor.
 data CreateContainerServiceResponse = CreateContainerServiceResponse'
   { -- | An object that describes a container service.
-    containerService :: Prelude.Maybe ContainerService,
+    containerService :: Core.Maybe ContainerService,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContainerServiceResponse' with all optional fields omitted.
@@ -401,23 +397,21 @@ data CreateContainerServiceResponse = CreateContainerServiceResponse'
 -- 'httpStatus', 'createContainerServiceResponse_httpStatus' - The response's http status code.
 newCreateContainerServiceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateContainerServiceResponse
 newCreateContainerServiceResponse pHttpStatus_ =
   CreateContainerServiceResponse'
     { containerService =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes a container service.
-createContainerServiceResponse_containerService :: Lens.Lens' CreateContainerServiceResponse (Prelude.Maybe ContainerService)
+createContainerServiceResponse_containerService :: Lens.Lens' CreateContainerServiceResponse (Core.Maybe ContainerService)
 createContainerServiceResponse_containerService = Lens.lens (\CreateContainerServiceResponse' {containerService} -> containerService) (\s@CreateContainerServiceResponse' {} a -> s {containerService = a} :: CreateContainerServiceResponse)
 
 -- | The response's http status code.
-createContainerServiceResponse_httpStatus :: Lens.Lens' CreateContainerServiceResponse Prelude.Int
+createContainerServiceResponse_httpStatus :: Lens.Lens' CreateContainerServiceResponse Core.Int
 createContainerServiceResponse_httpStatus = Lens.lens (\CreateContainerServiceResponse' {httpStatus} -> httpStatus) (\s@CreateContainerServiceResponse' {} a -> s {httpStatus = a} :: CreateContainerServiceResponse)
 
-instance
-  Prelude.NFData
-    CreateContainerServiceResponse
+instance Core.NFData CreateContainerServiceResponse

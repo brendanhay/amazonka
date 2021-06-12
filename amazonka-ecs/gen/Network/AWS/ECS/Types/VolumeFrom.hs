@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.VolumeFrom where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on a data volume from another container in the same task
 -- definition.
@@ -31,12 +30,12 @@ data VolumeFrom = VolumeFrom'
   { -- | If this value is @true@, the container has read-only access to the
     -- volume. If this value is @false@, then the container can write to the
     -- volume. The default value is @false@.
-    readOnly :: Prelude.Maybe Prelude.Bool,
+    readOnly :: Core.Maybe Core.Bool,
     -- | The name of another container within the same task definition from which
     -- to mount volumes.
-    sourceContainer :: Prelude.Maybe Prelude.Text
+    sourceContainer :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VolumeFrom' with all optional fields omitted.
@@ -56,41 +55,41 @@ newVolumeFrom ::
   VolumeFrom
 newVolumeFrom =
   VolumeFrom'
-    { readOnly = Prelude.Nothing,
-      sourceContainer = Prelude.Nothing
+    { readOnly = Core.Nothing,
+      sourceContainer = Core.Nothing
     }
 
 -- | If this value is @true@, the container has read-only access to the
 -- volume. If this value is @false@, then the container can write to the
 -- volume. The default value is @false@.
-volumeFrom_readOnly :: Lens.Lens' VolumeFrom (Prelude.Maybe Prelude.Bool)
+volumeFrom_readOnly :: Lens.Lens' VolumeFrom (Core.Maybe Core.Bool)
 volumeFrom_readOnly = Lens.lens (\VolumeFrom' {readOnly} -> readOnly) (\s@VolumeFrom' {} a -> s {readOnly = a} :: VolumeFrom)
 
 -- | The name of another container within the same task definition from which
 -- to mount volumes.
-volumeFrom_sourceContainer :: Lens.Lens' VolumeFrom (Prelude.Maybe Prelude.Text)
+volumeFrom_sourceContainer :: Lens.Lens' VolumeFrom (Core.Maybe Core.Text)
 volumeFrom_sourceContainer = Lens.lens (\VolumeFrom' {sourceContainer} -> sourceContainer) (\s@VolumeFrom' {} a -> s {sourceContainer = a} :: VolumeFrom)
 
-instance Prelude.FromJSON VolumeFrom where
+instance Core.FromJSON VolumeFrom where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VolumeFrom"
       ( \x ->
           VolumeFrom'
-            Prelude.<$> (x Prelude..:? "readOnly")
-            Prelude.<*> (x Prelude..:? "sourceContainer")
+            Core.<$> (x Core..:? "readOnly")
+            Core.<*> (x Core..:? "sourceContainer")
       )
 
-instance Prelude.Hashable VolumeFrom
+instance Core.Hashable VolumeFrom
 
-instance Prelude.NFData VolumeFrom
+instance Core.NFData VolumeFrom
 
-instance Prelude.ToJSON VolumeFrom where
+instance Core.ToJSON VolumeFrom where
   toJSON VolumeFrom' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("readOnly" Prelude..=) Prelude.<$> readOnly,
-            ("sourceContainer" Prelude..=)
-              Prelude.<$> sourceContainer
+    Core.object
+      ( Core.catMaybes
+          [ ("readOnly" Core..=) Core.<$> readOnly,
+            ("sourceContainer" Core..=)
+              Core.<$> sourceContainer
           ]
       )

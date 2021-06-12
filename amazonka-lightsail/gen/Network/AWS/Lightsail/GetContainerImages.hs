@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Lightsail.GetContainerImages
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data GetContainerImages = GetContainerImages'
   { -- | The name of the container service for which to return registered
     -- container images.
-    serviceName :: Prelude.Text
+    serviceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerImages' with all optional fields omitted.
@@ -72,74 +71,68 @@ data GetContainerImages = GetContainerImages'
 -- container images.
 newGetContainerImages ::
   -- | 'serviceName'
-  Prelude.Text ->
+  Core.Text ->
   GetContainerImages
 newGetContainerImages pServiceName_ =
   GetContainerImages' {serviceName = pServiceName_}
 
 -- | The name of the container service for which to return registered
 -- container images.
-getContainerImages_serviceName :: Lens.Lens' GetContainerImages Prelude.Text
+getContainerImages_serviceName :: Lens.Lens' GetContainerImages Core.Text
 getContainerImages_serviceName = Lens.lens (\GetContainerImages' {serviceName} -> serviceName) (\s@GetContainerImages' {} a -> s {serviceName = a} :: GetContainerImages)
 
-instance Prelude.AWSRequest GetContainerImages where
+instance Core.AWSRequest GetContainerImages where
   type
-    Rs GetContainerImages =
+    AWSResponse GetContainerImages =
       GetContainerImagesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetContainerImagesResponse'
-            Prelude.<$> ( x Prelude..?> "containerImages"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "containerImages" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerImages
+instance Core.Hashable GetContainerImages
 
-instance Prelude.NFData GetContainerImages
+instance Core.NFData GetContainerImages
 
-instance Prelude.ToHeaders GetContainerImages where
+instance Core.ToHeaders GetContainerImages where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetContainerImages" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetContainerImages" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetContainerImages where
+instance Core.ToJSON GetContainerImages where
   toJSON GetContainerImages' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("serviceName" Prelude..= serviceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("serviceName" Core..= serviceName)]
       )
 
-instance Prelude.ToPath GetContainerImages where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetContainerImages where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetContainerImages where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetContainerImages where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetContainerImagesResponse' smart constructor.
 data GetContainerImagesResponse = GetContainerImagesResponse'
   { -- | An array of objects that describe container images that are registered
     -- to the container service.
-    containerImages :: Prelude.Maybe [ContainerImage],
+    containerImages :: Core.Maybe [ContainerImage],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerImagesResponse' with all optional fields omitted.
@@ -155,22 +148,22 @@ data GetContainerImagesResponse = GetContainerImagesResponse'
 -- 'httpStatus', 'getContainerImagesResponse_httpStatus' - The response's http status code.
 newGetContainerImagesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetContainerImagesResponse
 newGetContainerImagesResponse pHttpStatus_ =
   GetContainerImagesResponse'
     { containerImages =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe container images that are registered
 -- to the container service.
-getContainerImagesResponse_containerImages :: Lens.Lens' GetContainerImagesResponse (Prelude.Maybe [ContainerImage])
-getContainerImagesResponse_containerImages = Lens.lens (\GetContainerImagesResponse' {containerImages} -> containerImages) (\s@GetContainerImagesResponse' {} a -> s {containerImages = a} :: GetContainerImagesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getContainerImagesResponse_containerImages :: Lens.Lens' GetContainerImagesResponse (Core.Maybe [ContainerImage])
+getContainerImagesResponse_containerImages = Lens.lens (\GetContainerImagesResponse' {containerImages} -> containerImages) (\s@GetContainerImagesResponse' {} a -> s {containerImages = a} :: GetContainerImagesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContainerImagesResponse_httpStatus :: Lens.Lens' GetContainerImagesResponse Prelude.Int
+getContainerImagesResponse_httpStatus :: Lens.Lens' GetContainerImagesResponse Core.Int
 getContainerImagesResponse_httpStatus = Lens.lens (\GetContainerImagesResponse' {httpStatus} -> httpStatus) (\s@GetContainerImagesResponse' {} a -> s {httpStatus = a} :: GetContainerImagesResponse)
 
-instance Prelude.NFData GetContainerImagesResponse
+instance Core.NFData GetContainerImagesResponse

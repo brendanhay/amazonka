@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.MQ.UpdateConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateConfiguration' smart constructor.
 data UpdateConfiguration = UpdateConfiguration'
   { -- | Required. The base64-encoded XML configuration.
-    data' :: Prelude.Maybe Prelude.Text,
+    data' :: Core.Maybe Core.Text,
     -- | The description of the configuration.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The unique ID that Amazon MQ generates for the configuration.
-    configurationId :: Prelude.Text
+    configurationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConfiguration' with all optional fields omitted.
@@ -81,98 +80,96 @@ data UpdateConfiguration = UpdateConfiguration'
 -- 'configurationId', 'updateConfiguration_configurationId' - The unique ID that Amazon MQ generates for the configuration.
 newUpdateConfiguration ::
   -- | 'configurationId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateConfiguration
 newUpdateConfiguration pConfigurationId_ =
   UpdateConfiguration'
-    { data' = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { data' = Core.Nothing,
+      description = Core.Nothing,
       configurationId = pConfigurationId_
     }
 
 -- | Required. The base64-encoded XML configuration.
-updateConfiguration_data :: Lens.Lens' UpdateConfiguration (Prelude.Maybe Prelude.Text)
+updateConfiguration_data :: Lens.Lens' UpdateConfiguration (Core.Maybe Core.Text)
 updateConfiguration_data = Lens.lens (\UpdateConfiguration' {data'} -> data') (\s@UpdateConfiguration' {} a -> s {data' = a} :: UpdateConfiguration)
 
 -- | The description of the configuration.
-updateConfiguration_description :: Lens.Lens' UpdateConfiguration (Prelude.Maybe Prelude.Text)
+updateConfiguration_description :: Lens.Lens' UpdateConfiguration (Core.Maybe Core.Text)
 updateConfiguration_description = Lens.lens (\UpdateConfiguration' {description} -> description) (\s@UpdateConfiguration' {} a -> s {description = a} :: UpdateConfiguration)
 
 -- | The unique ID that Amazon MQ generates for the configuration.
-updateConfiguration_configurationId :: Lens.Lens' UpdateConfiguration Prelude.Text
+updateConfiguration_configurationId :: Lens.Lens' UpdateConfiguration Core.Text
 updateConfiguration_configurationId = Lens.lens (\UpdateConfiguration' {configurationId} -> configurationId) (\s@UpdateConfiguration' {} a -> s {configurationId = a} :: UpdateConfiguration)
 
-instance Prelude.AWSRequest UpdateConfiguration where
+instance Core.AWSRequest UpdateConfiguration where
   type
-    Rs UpdateConfiguration =
+    AWSResponse UpdateConfiguration =
       UpdateConfigurationResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "warnings" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "latestRevision")
-            Prelude.<*> (x Prelude..?> "arn")
-            Prelude.<*> (x Prelude..?> "id")
-            Prelude.<*> (x Prelude..?> "name")
-            Prelude.<*> (x Prelude..?> "created")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "warnings" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "latestRevision")
+            Core.<*> (x Core..?> "arn")
+            Core.<*> (x Core..?> "id")
+            Core.<*> (x Core..?> "name")
+            Core.<*> (x Core..?> "created")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateConfiguration
+instance Core.Hashable UpdateConfiguration
 
-instance Prelude.NFData UpdateConfiguration
+instance Core.NFData UpdateConfiguration
 
-instance Prelude.ToHeaders UpdateConfiguration where
+instance Core.ToHeaders UpdateConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateConfiguration where
+instance Core.ToJSON UpdateConfiguration where
   toJSON UpdateConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("data" Prelude..=) Prelude.<$> data',
-            ("description" Prelude..=) Prelude.<$> description
+    Core.object
+      ( Core.catMaybes
+          [ ("data" Core..=) Core.<$> data',
+            ("description" Core..=) Core.<$> description
           ]
       )
 
-instance Prelude.ToPath UpdateConfiguration where
+instance Core.ToPath UpdateConfiguration where
   toPath UpdateConfiguration' {..} =
-    Prelude.mconcat
-      ["/v1/configurations/", Prelude.toBS configurationId]
+    Core.mconcat
+      ["/v1/configurations/", Core.toBS configurationId]
 
-instance Prelude.ToQuery UpdateConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateConfigurationResponse' smart constructor.
 data UpdateConfigurationResponse = UpdateConfigurationResponse'
   { -- | The list of the first 20 warnings about the configuration XML elements
     -- or attributes that were sanitized.
-    warnings :: Prelude.Maybe [SanitizationWarning],
+    warnings :: Core.Maybe [SanitizationWarning],
     -- | The latest revision of the configuration.
-    latestRevision :: Prelude.Maybe ConfigurationRevision,
+    latestRevision :: Core.Maybe ConfigurationRevision,
     -- | Required. The Amazon Resource Name (ARN) of the configuration.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | Required. The unique ID that Amazon MQ generates for the configuration.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Required. The name of the configuration. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 1-150 characters long.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Required. The date and time of the configuration.
-    created :: Prelude.Maybe Prelude.POSIX,
+    created :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateConfigurationResponse' with all optional fields omitted.
@@ -200,49 +197,49 @@ data UpdateConfigurationResponse = UpdateConfigurationResponse'
 -- 'httpStatus', 'updateConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateConfigurationResponse
 newUpdateConfigurationResponse pHttpStatus_ =
   UpdateConfigurationResponse'
     { warnings =
-        Prelude.Nothing,
-      latestRevision = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      created = Prelude.Nothing,
+        Core.Nothing,
+      latestRevision = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      created = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of the first 20 warnings about the configuration XML elements
 -- or attributes that were sanitized.
-updateConfigurationResponse_warnings :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe [SanitizationWarning])
-updateConfigurationResponse_warnings = Lens.lens (\UpdateConfigurationResponse' {warnings} -> warnings) (\s@UpdateConfigurationResponse' {} a -> s {warnings = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateConfigurationResponse_warnings :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe [SanitizationWarning])
+updateConfigurationResponse_warnings = Lens.lens (\UpdateConfigurationResponse' {warnings} -> warnings) (\s@UpdateConfigurationResponse' {} a -> s {warnings = a} :: UpdateConfigurationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The latest revision of the configuration.
-updateConfigurationResponse_latestRevision :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe ConfigurationRevision)
+updateConfigurationResponse_latestRevision :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe ConfigurationRevision)
 updateConfigurationResponse_latestRevision = Lens.lens (\UpdateConfigurationResponse' {latestRevision} -> latestRevision) (\s@UpdateConfigurationResponse' {} a -> s {latestRevision = a} :: UpdateConfigurationResponse)
 
 -- | Required. The Amazon Resource Name (ARN) of the configuration.
-updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateConfigurationResponse_arn :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
 updateConfigurationResponse_arn = Lens.lens (\UpdateConfigurationResponse' {arn} -> arn) (\s@UpdateConfigurationResponse' {} a -> s {arn = a} :: UpdateConfigurationResponse)
 
 -- | Required. The unique ID that Amazon MQ generates for the configuration.
-updateConfigurationResponse_id :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateConfigurationResponse_id :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
 updateConfigurationResponse_id = Lens.lens (\UpdateConfigurationResponse' {id} -> id) (\s@UpdateConfigurationResponse' {} a -> s {id = a} :: UpdateConfigurationResponse)
 
 -- | Required. The name of the configuration. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 1-150 characters long.
-updateConfigurationResponse_name :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.Text)
+updateConfigurationResponse_name :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.Text)
 updateConfigurationResponse_name = Lens.lens (\UpdateConfigurationResponse' {name} -> name) (\s@UpdateConfigurationResponse' {} a -> s {name = a} :: UpdateConfigurationResponse)
 
 -- | Required. The date and time of the configuration.
-updateConfigurationResponse_created :: Lens.Lens' UpdateConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Prelude.. Lens.mapping Prelude._Time
+updateConfigurationResponse_created :: Lens.Lens' UpdateConfigurationResponse (Core.Maybe Core.UTCTime)
+updateConfigurationResponse_created = Lens.lens (\UpdateConfigurationResponse' {created} -> created) (\s@UpdateConfigurationResponse' {} a -> s {created = a} :: UpdateConfigurationResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-updateConfigurationResponse_httpStatus :: Lens.Lens' UpdateConfigurationResponse Prelude.Int
+updateConfigurationResponse_httpStatus :: Lens.Lens' UpdateConfigurationResponse Core.Int
 updateConfigurationResponse_httpStatus = Lens.lens (\UpdateConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateConfigurationResponse)
 
-instance Prelude.NFData UpdateConfigurationResponse
+instance Core.NFData UpdateConfigurationResponse

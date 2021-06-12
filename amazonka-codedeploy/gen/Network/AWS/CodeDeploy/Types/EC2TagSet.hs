@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeDeploy.Types.EC2TagSet where
 
 import Network.AWS.CodeDeploy.Types.EC2TagFilter
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about groups of EC2 instance tags.
 --
@@ -31,9 +30,9 @@ data EC2TagSet = EC2TagSet'
   { -- | A list that contains other lists of EC2 instance tag groups. For an
     -- instance to be included in the deployment group, it must be identified
     -- by all of the tag groups in the list.
-    ec2TagSetList :: Prelude.Maybe [[EC2TagFilter]]
+    ec2TagSetList :: Core.Maybe [[EC2TagFilter]]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EC2TagSet' with all optional fields omitted.
@@ -49,34 +48,30 @@ data EC2TagSet = EC2TagSet'
 newEC2TagSet ::
   EC2TagSet
 newEC2TagSet =
-  EC2TagSet' {ec2TagSetList = Prelude.Nothing}
+  EC2TagSet' {ec2TagSetList = Core.Nothing}
 
 -- | A list that contains other lists of EC2 instance tag groups. For an
 -- instance to be included in the deployment group, it must be identified
 -- by all of the tag groups in the list.
-eC2TagSet_ec2TagSetList :: Lens.Lens' EC2TagSet (Prelude.Maybe [[EC2TagFilter]])
-eC2TagSet_ec2TagSetList = Lens.lens (\EC2TagSet' {ec2TagSetList} -> ec2TagSetList) (\s@EC2TagSet' {} a -> s {ec2TagSetList = a} :: EC2TagSet) Prelude.. Lens.mapping Prelude._Coerce
+eC2TagSet_ec2TagSetList :: Lens.Lens' EC2TagSet (Core.Maybe [[EC2TagFilter]])
+eC2TagSet_ec2TagSetList = Lens.lens (\EC2TagSet' {ec2TagSetList} -> ec2TagSetList) (\s@EC2TagSet' {} a -> s {ec2TagSetList = a} :: EC2TagSet) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON EC2TagSet where
+instance Core.FromJSON EC2TagSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EC2TagSet"
       ( \x ->
           EC2TagSet'
-            Prelude.<$> ( x Prelude..:? "ec2TagSetList"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ec2TagSetList" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable EC2TagSet
+instance Core.Hashable EC2TagSet
 
-instance Prelude.NFData EC2TagSet
+instance Core.NFData EC2TagSet
 
-instance Prelude.ToJSON EC2TagSet where
+instance Core.ToJSON EC2TagSet where
   toJSON EC2TagSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ec2TagSetList" Prelude..=)
-              Prelude.<$> ec2TagSetList
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("ec2TagSetList" Core..=) Core.<$> ec2TagSetList]
       )

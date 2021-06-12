@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.IoT.DeleteProvisioningTemplateVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteProvisioningTemplateVersion' smart constructor.
 data DeleteProvisioningTemplateVersion = DeleteProvisioningTemplateVersion'
   { -- | The name of the fleet provisioning template version to delete.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     -- | The fleet provisioning template version ID to delete.
-    versionId :: Prelude.Int
+    versionId :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningTemplateVersion' with all optional fields omitted.
@@ -68,9 +67,9 @@ data DeleteProvisioningTemplateVersion = DeleteProvisioningTemplateVersion'
 -- 'versionId', 'deleteProvisioningTemplateVersion_versionId' - The fleet provisioning template version ID to delete.
 newDeleteProvisioningTemplateVersion ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionId'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProvisioningTemplateVersion
 newDeleteProvisioningTemplateVersion
   pTemplateName_
@@ -82,66 +81,66 @@ newDeleteProvisioningTemplateVersion
       }
 
 -- | The name of the fleet provisioning template version to delete.
-deleteProvisioningTemplateVersion_templateName :: Lens.Lens' DeleteProvisioningTemplateVersion Prelude.Text
+deleteProvisioningTemplateVersion_templateName :: Lens.Lens' DeleteProvisioningTemplateVersion Core.Text
 deleteProvisioningTemplateVersion_templateName = Lens.lens (\DeleteProvisioningTemplateVersion' {templateName} -> templateName) (\s@DeleteProvisioningTemplateVersion' {} a -> s {templateName = a} :: DeleteProvisioningTemplateVersion)
 
 -- | The fleet provisioning template version ID to delete.
-deleteProvisioningTemplateVersion_versionId :: Lens.Lens' DeleteProvisioningTemplateVersion Prelude.Int
+deleteProvisioningTemplateVersion_versionId :: Lens.Lens' DeleteProvisioningTemplateVersion Core.Int
 deleteProvisioningTemplateVersion_versionId = Lens.lens (\DeleteProvisioningTemplateVersion' {versionId} -> versionId) (\s@DeleteProvisioningTemplateVersion' {} a -> s {versionId = a} :: DeleteProvisioningTemplateVersion)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteProvisioningTemplateVersion
   where
   type
-    Rs DeleteProvisioningTemplateVersion =
+    AWSResponse DeleteProvisioningTemplateVersion =
       DeleteProvisioningTemplateVersionResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisioningTemplateVersionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteProvisioningTemplateVersion
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteProvisioningTemplateVersion
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteProvisioningTemplateVersion
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteProvisioningTemplateVersion
   where
   toPath DeleteProvisioningTemplateVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/provisioning-templates/",
-        Prelude.toBS templateName,
+        Core.toBS templateName,
         "/versions/",
-        Prelude.toBS versionId
+        Core.toBS versionId
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteProvisioningTemplateVersion
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteProvisioningTemplateVersionResponse' smart constructor.
 data DeleteProvisioningTemplateVersionResponse = DeleteProvisioningTemplateVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProvisioningTemplateVersionResponse' with all optional fields omitted.
@@ -154,7 +153,7 @@ data DeleteProvisioningTemplateVersionResponse = DeleteProvisioningTemplateVersi
 -- 'httpStatus', 'deleteProvisioningTemplateVersionResponse_httpStatus' - The response's http status code.
 newDeleteProvisioningTemplateVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProvisioningTemplateVersionResponse
 newDeleteProvisioningTemplateVersionResponse
   pHttpStatus_ =
@@ -164,9 +163,9 @@ newDeleteProvisioningTemplateVersionResponse
       }
 
 -- | The response's http status code.
-deleteProvisioningTemplateVersionResponse_httpStatus :: Lens.Lens' DeleteProvisioningTemplateVersionResponse Prelude.Int
+deleteProvisioningTemplateVersionResponse_httpStatus :: Lens.Lens' DeleteProvisioningTemplateVersionResponse Core.Int
 deleteProvisioningTemplateVersionResponse_httpStatus = Lens.lens (\DeleteProvisioningTemplateVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteProvisioningTemplateVersionResponse' {} a -> s {httpStatus = a} :: DeleteProvisioningTemplateVersionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteProvisioningTemplateVersionResponse

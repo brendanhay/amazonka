@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.KeySchemaElement
 import Network.AWS.DynamoDB.Types.Projection
 import Network.AWS.DynamoDB.Types.ProvisionedThroughput
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a new global secondary index to be added to an existing
 -- table.
@@ -37,17 +36,17 @@ data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
     -- For current minimum and maximum provisioned throughput values, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
     -- in the /Amazon DynamoDB Developer Guide/.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    provisionedThroughput :: Core.Maybe ProvisionedThroughput,
     -- | The name of the global secondary index to be created.
-    indexName :: Prelude.Text,
+    indexName :: Core.Text,
     -- | The key schema for the global secondary index.
-    keySchema :: Prelude.NonEmpty KeySchemaElement,
+    keySchema :: Core.NonEmpty KeySchemaElement,
     -- | Represents attributes that are copied (projected) from the table into an
     -- index. These are in addition to the primary key attributes and index key
     -- attributes, which are automatically projected.
     projection :: Projection
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGlobalSecondaryIndexAction' with all optional fields omitted.
@@ -73,9 +72,9 @@ data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
 -- attributes, which are automatically projected.
 newCreateGlobalSecondaryIndexAction ::
   -- | 'indexName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'keySchema'
-  Prelude.NonEmpty KeySchemaElement ->
+  Core.NonEmpty KeySchemaElement ->
   -- | 'projection'
   Projection ->
   CreateGlobalSecondaryIndexAction
@@ -85,10 +84,10 @@ newCreateGlobalSecondaryIndexAction
   pProjection_ =
     CreateGlobalSecondaryIndexAction'
       { provisionedThroughput =
-          Prelude.Nothing,
+          Core.Nothing,
         indexName = pIndexName_,
         keySchema =
-          Prelude._Coerce Lens.# pKeySchema_,
+          Lens._Coerce Lens.# pKeySchema_,
         projection = pProjection_
       }
 
@@ -98,16 +97,16 @@ newCreateGlobalSecondaryIndexAction
 -- For current minimum and maximum provisioned throughput values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
 -- in the /Amazon DynamoDB Developer Guide/.
-createGlobalSecondaryIndexAction_provisionedThroughput :: Lens.Lens' CreateGlobalSecondaryIndexAction (Prelude.Maybe ProvisionedThroughput)
+createGlobalSecondaryIndexAction_provisionedThroughput :: Lens.Lens' CreateGlobalSecondaryIndexAction (Core.Maybe ProvisionedThroughput)
 createGlobalSecondaryIndexAction_provisionedThroughput = Lens.lens (\CreateGlobalSecondaryIndexAction' {provisionedThroughput} -> provisionedThroughput) (\s@CreateGlobalSecondaryIndexAction' {} a -> s {provisionedThroughput = a} :: CreateGlobalSecondaryIndexAction)
 
 -- | The name of the global secondary index to be created.
-createGlobalSecondaryIndexAction_indexName :: Lens.Lens' CreateGlobalSecondaryIndexAction Prelude.Text
+createGlobalSecondaryIndexAction_indexName :: Lens.Lens' CreateGlobalSecondaryIndexAction Core.Text
 createGlobalSecondaryIndexAction_indexName = Lens.lens (\CreateGlobalSecondaryIndexAction' {indexName} -> indexName) (\s@CreateGlobalSecondaryIndexAction' {} a -> s {indexName = a} :: CreateGlobalSecondaryIndexAction)
 
 -- | The key schema for the global secondary index.
-createGlobalSecondaryIndexAction_keySchema :: Lens.Lens' CreateGlobalSecondaryIndexAction (Prelude.NonEmpty KeySchemaElement)
-createGlobalSecondaryIndexAction_keySchema = Lens.lens (\CreateGlobalSecondaryIndexAction' {keySchema} -> keySchema) (\s@CreateGlobalSecondaryIndexAction' {} a -> s {keySchema = a} :: CreateGlobalSecondaryIndexAction) Prelude.. Prelude._Coerce
+createGlobalSecondaryIndexAction_keySchema :: Lens.Lens' CreateGlobalSecondaryIndexAction (Core.NonEmpty KeySchemaElement)
+createGlobalSecondaryIndexAction_keySchema = Lens.lens (\CreateGlobalSecondaryIndexAction' {keySchema} -> keySchema) (\s@CreateGlobalSecondaryIndexAction' {} a -> s {keySchema = a} :: CreateGlobalSecondaryIndexAction) Core.. Lens._Coerce
 
 -- | Represents attributes that are copied (projected) from the table into an
 -- index. These are in addition to the primary key attributes and index key
@@ -116,24 +115,19 @@ createGlobalSecondaryIndexAction_projection :: Lens.Lens' CreateGlobalSecondaryI
 createGlobalSecondaryIndexAction_projection = Lens.lens (\CreateGlobalSecondaryIndexAction' {projection} -> projection) (\s@CreateGlobalSecondaryIndexAction' {} a -> s {projection = a} :: CreateGlobalSecondaryIndexAction)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateGlobalSecondaryIndexAction
 
-instance
-  Prelude.NFData
-    CreateGlobalSecondaryIndexAction
+instance Core.NFData CreateGlobalSecondaryIndexAction
 
-instance
-  Prelude.ToJSON
-    CreateGlobalSecondaryIndexAction
-  where
+instance Core.ToJSON CreateGlobalSecondaryIndexAction where
   toJSON CreateGlobalSecondaryIndexAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ProvisionedThroughput" Prelude..=)
-              Prelude.<$> provisionedThroughput,
-            Prelude.Just ("IndexName" Prelude..= indexName),
-            Prelude.Just ("KeySchema" Prelude..= keySchema),
-            Prelude.Just ("Projection" Prelude..= projection)
+    Core.object
+      ( Core.catMaybes
+          [ ("ProvisionedThroughput" Core..=)
+              Core.<$> provisionedThroughput,
+            Core.Just ("IndexName" Core..= indexName),
+            Core.Just ("KeySchema" Core..= keySchema),
+            Core.Just ("Projection" Core..= projection)
           ]
       )

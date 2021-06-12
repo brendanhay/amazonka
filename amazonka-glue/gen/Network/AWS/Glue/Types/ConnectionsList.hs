@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.ConnectionsList where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the connections used by a job.
 --
 -- /See:/ 'newConnectionsList' smart constructor.
 data ConnectionsList = ConnectionsList'
   { -- | A list of connections used by the job.
-    connections :: Prelude.Maybe [Prelude.Text]
+    connections :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionsList' with all optional fields omitted.
@@ -44,30 +43,28 @@ data ConnectionsList = ConnectionsList'
 newConnectionsList ::
   ConnectionsList
 newConnectionsList =
-  ConnectionsList' {connections = Prelude.Nothing}
+  ConnectionsList' {connections = Core.Nothing}
 
 -- | A list of connections used by the job.
-connectionsList_connections :: Lens.Lens' ConnectionsList (Prelude.Maybe [Prelude.Text])
-connectionsList_connections = Lens.lens (\ConnectionsList' {connections} -> connections) (\s@ConnectionsList' {} a -> s {connections = a} :: ConnectionsList) Prelude.. Lens.mapping Prelude._Coerce
+connectionsList_connections :: Lens.Lens' ConnectionsList (Core.Maybe [Core.Text])
+connectionsList_connections = Lens.lens (\ConnectionsList' {connections} -> connections) (\s@ConnectionsList' {} a -> s {connections = a} :: ConnectionsList) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ConnectionsList where
+instance Core.FromJSON ConnectionsList where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectionsList"
       ( \x ->
           ConnectionsList'
-            Prelude.<$> ( x Prelude..:? "Connections"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Connections" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ConnectionsList
+instance Core.Hashable ConnectionsList
 
-instance Prelude.NFData ConnectionsList
+instance Core.NFData ConnectionsList
 
-instance Prelude.ToJSON ConnectionsList where
+instance Core.ToJSON ConnectionsList where
   toJSON ConnectionsList' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Connections" Prelude..=) Prelude.<$> connections]
+    Core.object
+      ( Core.catMaybes
+          [("Connections" Core..=) Core.<$> connections]
       )

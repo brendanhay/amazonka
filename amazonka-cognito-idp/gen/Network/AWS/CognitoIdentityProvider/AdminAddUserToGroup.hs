@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,21 +40,21 @@ module Network.AWS.CognitoIdentityProvider.AdminAddUserToGroup
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminAddUserToGroup' smart constructor.
 data AdminAddUserToGroup = AdminAddUserToGroup'
   { -- | The user pool ID for the user pool.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The username for the user.
-    username :: Prelude.Sensitive Prelude.Text,
+    username :: Core.Sensitive Core.Text,
     -- | The group name.
-    groupName :: Prelude.Text
+    groupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminAddUserToGroup' with all optional fields omitted.
@@ -72,11 +71,11 @@ data AdminAddUserToGroup = AdminAddUserToGroup'
 -- 'groupName', 'adminAddUserToGroup_groupName' - The group name.
 newAdminAddUserToGroup ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   AdminAddUserToGroup
 newAdminAddUserToGroup
   pUserPoolId_
@@ -84,70 +83,68 @@ newAdminAddUserToGroup
   pGroupName_ =
     AdminAddUserToGroup'
       { userPoolId = pUserPoolId_,
-        username = Prelude._Sensitive Lens.# pUsername_,
+        username = Core._Sensitive Lens.# pUsername_,
         groupName = pGroupName_
       }
 
 -- | The user pool ID for the user pool.
-adminAddUserToGroup_userPoolId :: Lens.Lens' AdminAddUserToGroup Prelude.Text
+adminAddUserToGroup_userPoolId :: Lens.Lens' AdminAddUserToGroup Core.Text
 adminAddUserToGroup_userPoolId = Lens.lens (\AdminAddUserToGroup' {userPoolId} -> userPoolId) (\s@AdminAddUserToGroup' {} a -> s {userPoolId = a} :: AdminAddUserToGroup)
 
 -- | The username for the user.
-adminAddUserToGroup_username :: Lens.Lens' AdminAddUserToGroup Prelude.Text
-adminAddUserToGroup_username = Lens.lens (\AdminAddUserToGroup' {username} -> username) (\s@AdminAddUserToGroup' {} a -> s {username = a} :: AdminAddUserToGroup) Prelude.. Prelude._Sensitive
+adminAddUserToGroup_username :: Lens.Lens' AdminAddUserToGroup Core.Text
+adminAddUserToGroup_username = Lens.lens (\AdminAddUserToGroup' {username} -> username) (\s@AdminAddUserToGroup' {} a -> s {username = a} :: AdminAddUserToGroup) Core.. Core._Sensitive
 
 -- | The group name.
-adminAddUserToGroup_groupName :: Lens.Lens' AdminAddUserToGroup Prelude.Text
+adminAddUserToGroup_groupName :: Lens.Lens' AdminAddUserToGroup Core.Text
 adminAddUserToGroup_groupName = Lens.lens (\AdminAddUserToGroup' {groupName} -> groupName) (\s@AdminAddUserToGroup' {} a -> s {groupName = a} :: AdminAddUserToGroup)
 
-instance Prelude.AWSRequest AdminAddUserToGroup where
+instance Core.AWSRequest AdminAddUserToGroup where
   type
-    Rs AdminAddUserToGroup =
+    AWSResponse AdminAddUserToGroup =
       AdminAddUserToGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull AdminAddUserToGroupResponse'
 
-instance Prelude.Hashable AdminAddUserToGroup
+instance Core.Hashable AdminAddUserToGroup
 
-instance Prelude.NFData AdminAddUserToGroup
+instance Core.NFData AdminAddUserToGroup
 
-instance Prelude.ToHeaders AdminAddUserToGroup where
+instance Core.ToHeaders AdminAddUserToGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminAddUserToGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminAddUserToGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminAddUserToGroup where
+instance Core.ToJSON AdminAddUserToGroup where
   toJSON AdminAddUserToGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username),
-            Prelude.Just ("GroupName" Prelude..= groupName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            Core.Just ("GroupName" Core..= groupName)
           ]
       )
 
-instance Prelude.ToPath AdminAddUserToGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminAddUserToGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminAddUserToGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminAddUserToGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAdminAddUserToGroupResponse' smart constructor.
 data AdminAddUserToGroupResponse = AdminAddUserToGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminAddUserToGroupResponse' with all optional fields omitted.
@@ -158,4 +155,4 @@ newAdminAddUserToGroupResponse ::
 newAdminAddUserToGroupResponse =
   AdminAddUserToGroupResponse'
 
-instance Prelude.NFData AdminAddUserToGroupResponse
+instance Core.NFData AdminAddUserToGroupResponse

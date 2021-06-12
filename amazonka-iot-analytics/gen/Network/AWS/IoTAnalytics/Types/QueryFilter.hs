@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.QueryFilter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.DeltaTime
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information that is used to filter message data, to segregate it
 -- according to the timeframe in which it arrives.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data QueryFilter = QueryFilter'
   { -- | Used to limit data to that which has arrived since the last execution of
     -- the action.
-    deltaTime :: Prelude.Maybe DeltaTime
+    deltaTime :: Core.Maybe DeltaTime
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryFilter' with all optional fields omitted.
@@ -48,28 +47,28 @@ data QueryFilter = QueryFilter'
 newQueryFilter ::
   QueryFilter
 newQueryFilter =
-  QueryFilter' {deltaTime = Prelude.Nothing}
+  QueryFilter' {deltaTime = Core.Nothing}
 
 -- | Used to limit data to that which has arrived since the last execution of
 -- the action.
-queryFilter_deltaTime :: Lens.Lens' QueryFilter (Prelude.Maybe DeltaTime)
+queryFilter_deltaTime :: Lens.Lens' QueryFilter (Core.Maybe DeltaTime)
 queryFilter_deltaTime = Lens.lens (\QueryFilter' {deltaTime} -> deltaTime) (\s@QueryFilter' {} a -> s {deltaTime = a} :: QueryFilter)
 
-instance Prelude.FromJSON QueryFilter where
+instance Core.FromJSON QueryFilter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QueryFilter"
       ( \x ->
-          QueryFilter' Prelude.<$> (x Prelude..:? "deltaTime")
+          QueryFilter' Core.<$> (x Core..:? "deltaTime")
       )
 
-instance Prelude.Hashable QueryFilter
+instance Core.Hashable QueryFilter
 
-instance Prelude.NFData QueryFilter
+instance Core.NFData QueryFilter
 
-instance Prelude.ToJSON QueryFilter where
+instance Core.ToJSON QueryFilter where
   toJSON QueryFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("deltaTime" Prelude..=) Prelude.<$> deltaTime]
+    Core.object
+      ( Core.catMaybes
+          [("deltaTime" Core..=) Core.<$> deltaTime]
       )

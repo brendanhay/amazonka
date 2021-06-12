@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClassicLoadBalancersConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClassicLoadBalancer
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Classic Load Balancers to attach to a Spot Fleet. Spot
 -- Fleet registers the running Spot Instances with these Classic Load
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newClassicLoadBalancersConfig' smart constructor.
 data ClassicLoadBalancersConfig = ClassicLoadBalancersConfig'
   { -- | One or more Classic Load Balancers.
-    classicLoadBalancers :: Prelude.Maybe (Prelude.NonEmpty ClassicLoadBalancer)
+    classicLoadBalancers :: Core.Maybe (Core.NonEmpty ClassicLoadBalancer)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClassicLoadBalancersConfig' with all optional fields omitted.
@@ -50,30 +49,30 @@ newClassicLoadBalancersConfig ::
 newClassicLoadBalancersConfig =
   ClassicLoadBalancersConfig'
     { classicLoadBalancers =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | One or more Classic Load Balancers.
-classicLoadBalancersConfig_classicLoadBalancers :: Lens.Lens' ClassicLoadBalancersConfig (Prelude.Maybe (Prelude.NonEmpty ClassicLoadBalancer))
-classicLoadBalancersConfig_classicLoadBalancers = Lens.lens (\ClassicLoadBalancersConfig' {classicLoadBalancers} -> classicLoadBalancers) (\s@ClassicLoadBalancersConfig' {} a -> s {classicLoadBalancers = a} :: ClassicLoadBalancersConfig) Prelude.. Lens.mapping Prelude._Coerce
+classicLoadBalancersConfig_classicLoadBalancers :: Lens.Lens' ClassicLoadBalancersConfig (Core.Maybe (Core.NonEmpty ClassicLoadBalancer))
+classicLoadBalancersConfig_classicLoadBalancers = Lens.lens (\ClassicLoadBalancersConfig' {classicLoadBalancers} -> classicLoadBalancers) (\s@ClassicLoadBalancersConfig' {} a -> s {classicLoadBalancers = a} :: ClassicLoadBalancersConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML ClassicLoadBalancersConfig where
+instance Core.FromXML ClassicLoadBalancersConfig where
   parseXML x =
     ClassicLoadBalancersConfig'
-      Prelude.<$> ( x Prelude..@? "classicLoadBalancers"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList1 "item")
-                  )
+      Core.<$> ( x Core..@? "classicLoadBalancers"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList1 "item")
+               )
 
-instance Prelude.Hashable ClassicLoadBalancersConfig
+instance Core.Hashable ClassicLoadBalancersConfig
 
-instance Prelude.NFData ClassicLoadBalancersConfig
+instance Core.NFData ClassicLoadBalancersConfig
 
-instance Prelude.ToQuery ClassicLoadBalancersConfig where
+instance Core.ToQuery ClassicLoadBalancersConfig where
   toQuery ClassicLoadBalancersConfig' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          ( Prelude.toQueryList "ClassicLoadBalancers"
-              Prelude.<$> classicLoadBalancers
+    Core.mconcat
+      [ Core.toQuery
+          ( Core.toQueryList "ClassicLoadBalancers"
+              Core.<$> classicLoadBalancers
           )
       ]

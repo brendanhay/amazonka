@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.SES.SendCustomVerificationEmail
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -65,14 +64,14 @@ import Network.AWS.SES.Types
 -- /See:/ 'newSendCustomVerificationEmail' smart constructor.
 data SendCustomVerificationEmail = SendCustomVerificationEmail'
   { -- | Name of a configuration set to use when sending the verification email.
-    configurationSetName :: Prelude.Maybe Prelude.Text,
+    configurationSetName :: Core.Maybe Core.Text,
     -- | The email address to verify.
-    emailAddress :: Prelude.Text,
+    emailAddress :: Core.Text,
     -- | The name of the custom verification email template to use when sending
     -- the verification email.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendCustomVerificationEmail' with all optional fields omitted.
@@ -90,39 +89,36 @@ data SendCustomVerificationEmail = SendCustomVerificationEmail'
 -- the verification email.
 newSendCustomVerificationEmail ::
   -- | 'emailAddress'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   SendCustomVerificationEmail
 newSendCustomVerificationEmail
   pEmailAddress_
   pTemplateName_ =
     SendCustomVerificationEmail'
       { configurationSetName =
-          Prelude.Nothing,
+          Core.Nothing,
         emailAddress = pEmailAddress_,
         templateName = pTemplateName_
       }
 
 -- | Name of a configuration set to use when sending the verification email.
-sendCustomVerificationEmail_configurationSetName :: Lens.Lens' SendCustomVerificationEmail (Prelude.Maybe Prelude.Text)
+sendCustomVerificationEmail_configurationSetName :: Lens.Lens' SendCustomVerificationEmail (Core.Maybe Core.Text)
 sendCustomVerificationEmail_configurationSetName = Lens.lens (\SendCustomVerificationEmail' {configurationSetName} -> configurationSetName) (\s@SendCustomVerificationEmail' {} a -> s {configurationSetName = a} :: SendCustomVerificationEmail)
 
 -- | The email address to verify.
-sendCustomVerificationEmail_emailAddress :: Lens.Lens' SendCustomVerificationEmail Prelude.Text
+sendCustomVerificationEmail_emailAddress :: Lens.Lens' SendCustomVerificationEmail Core.Text
 sendCustomVerificationEmail_emailAddress = Lens.lens (\SendCustomVerificationEmail' {emailAddress} -> emailAddress) (\s@SendCustomVerificationEmail' {} a -> s {emailAddress = a} :: SendCustomVerificationEmail)
 
 -- | The name of the custom verification email template to use when sending
 -- the verification email.
-sendCustomVerificationEmail_templateName :: Lens.Lens' SendCustomVerificationEmail Prelude.Text
+sendCustomVerificationEmail_templateName :: Lens.Lens' SendCustomVerificationEmail Core.Text
 sendCustomVerificationEmail_templateName = Lens.lens (\SendCustomVerificationEmail' {templateName} -> templateName) (\s@SendCustomVerificationEmail' {} a -> s {templateName = a} :: SendCustomVerificationEmail)
 
-instance
-  Prelude.AWSRequest
-    SendCustomVerificationEmail
-  where
+instance Core.AWSRequest SendCustomVerificationEmail where
   type
-    Rs SendCustomVerificationEmail =
+    AWSResponse SendCustomVerificationEmail =
       SendCustomVerificationEmailResponse
   request = Request.postQuery defaultService
   response =
@@ -130,36 +126,29 @@ instance
       "SendCustomVerificationEmailResult"
       ( \s h x ->
           SendCustomVerificationEmailResponse'
-            Prelude.<$> (x Prelude..@? "MessageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "MessageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SendCustomVerificationEmail
+instance Core.Hashable SendCustomVerificationEmail
 
-instance Prelude.NFData SendCustomVerificationEmail
+instance Core.NFData SendCustomVerificationEmail
 
-instance
-  Prelude.ToHeaders
-    SendCustomVerificationEmail
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SendCustomVerificationEmail where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SendCustomVerificationEmail where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendCustomVerificationEmail where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendCustomVerificationEmail where
+instance Core.ToQuery SendCustomVerificationEmail where
   toQuery SendCustomVerificationEmail' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "SendCustomVerificationEmail" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "ConfigurationSetName"
-          Prelude.=: configurationSetName,
-        "EmailAddress" Prelude.=: emailAddress,
-        "TemplateName" Prelude.=: templateName
+          Core.=: ("SendCustomVerificationEmail" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "ConfigurationSetName" Core.=: configurationSetName,
+        "EmailAddress" Core.=: emailAddress,
+        "TemplateName" Core.=: templateName
       ]
 
 -- | The response received when attempting to send the custom verification
@@ -169,11 +158,11 @@ instance Prelude.ToQuery SendCustomVerificationEmail where
 data SendCustomVerificationEmailResponse = SendCustomVerificationEmailResponse'
   { -- | The unique message identifier returned from the
     -- @SendCustomVerificationEmail@ operation.
-    messageId :: Prelude.Maybe Prelude.Text,
+    messageId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendCustomVerificationEmailResponse' with all optional fields omitted.
@@ -189,24 +178,24 @@ data SendCustomVerificationEmailResponse = SendCustomVerificationEmailResponse'
 -- 'httpStatus', 'sendCustomVerificationEmailResponse_httpStatus' - The response's http status code.
 newSendCustomVerificationEmailResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SendCustomVerificationEmailResponse
 newSendCustomVerificationEmailResponse pHttpStatus_ =
   SendCustomVerificationEmailResponse'
     { messageId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique message identifier returned from the
 -- @SendCustomVerificationEmail@ operation.
-sendCustomVerificationEmailResponse_messageId :: Lens.Lens' SendCustomVerificationEmailResponse (Prelude.Maybe Prelude.Text)
+sendCustomVerificationEmailResponse_messageId :: Lens.Lens' SendCustomVerificationEmailResponse (Core.Maybe Core.Text)
 sendCustomVerificationEmailResponse_messageId = Lens.lens (\SendCustomVerificationEmailResponse' {messageId} -> messageId) (\s@SendCustomVerificationEmailResponse' {} a -> s {messageId = a} :: SendCustomVerificationEmailResponse)
 
 -- | The response's http status code.
-sendCustomVerificationEmailResponse_httpStatus :: Lens.Lens' SendCustomVerificationEmailResponse Prelude.Int
+sendCustomVerificationEmailResponse_httpStatus :: Lens.Lens' SendCustomVerificationEmailResponse Core.Int
 sendCustomVerificationEmailResponse_httpStatus = Lens.lens (\SendCustomVerificationEmailResponse' {httpStatus} -> httpStatus) (\s@SendCustomVerificationEmailResponse' {} a -> s {httpStatus = a} :: SendCustomVerificationEmailResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SendCustomVerificationEmailResponse

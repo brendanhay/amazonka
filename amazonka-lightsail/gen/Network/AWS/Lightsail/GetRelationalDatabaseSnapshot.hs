@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.Lightsail.GetRelationalDatabaseSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRelationalDatabaseSnapshot' smart constructor.
 data GetRelationalDatabaseSnapshot = GetRelationalDatabaseSnapshot'
   { -- | The name of the database snapshot for which to get information.
-    relationalDatabaseSnapshotName :: Prelude.Text
+    relationalDatabaseSnapshotName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseSnapshot' with all optional fields omitted.
@@ -65,7 +64,7 @@ data GetRelationalDatabaseSnapshot = GetRelationalDatabaseSnapshot'
 -- 'relationalDatabaseSnapshotName', 'getRelationalDatabaseSnapshot_relationalDatabaseSnapshotName' - The name of the database snapshot for which to get information.
 newGetRelationalDatabaseSnapshot ::
   -- | 'relationalDatabaseSnapshotName'
-  Prelude.Text ->
+  Core.Text ->
   GetRelationalDatabaseSnapshot
 newGetRelationalDatabaseSnapshot
   pRelationalDatabaseSnapshotName_ =
@@ -75,77 +74,67 @@ newGetRelationalDatabaseSnapshot
       }
 
 -- | The name of the database snapshot for which to get information.
-getRelationalDatabaseSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' GetRelationalDatabaseSnapshot Prelude.Text
+getRelationalDatabaseSnapshot_relationalDatabaseSnapshotName :: Lens.Lens' GetRelationalDatabaseSnapshot Core.Text
 getRelationalDatabaseSnapshot_relationalDatabaseSnapshotName = Lens.lens (\GetRelationalDatabaseSnapshot' {relationalDatabaseSnapshotName} -> relationalDatabaseSnapshotName) (\s@GetRelationalDatabaseSnapshot' {} a -> s {relationalDatabaseSnapshotName = a} :: GetRelationalDatabaseSnapshot)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetRelationalDatabaseSnapshot
   where
   type
-    Rs GetRelationalDatabaseSnapshot =
+    AWSResponse GetRelationalDatabaseSnapshot =
       GetRelationalDatabaseSnapshotResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseSnapshotResponse'
-            Prelude.<$> (x Prelude..?> "relationalDatabaseSnapshot")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "relationalDatabaseSnapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetRelationalDatabaseSnapshot
+instance Core.Hashable GetRelationalDatabaseSnapshot
 
-instance Prelude.NFData GetRelationalDatabaseSnapshot
+instance Core.NFData GetRelationalDatabaseSnapshot
 
-instance
-  Prelude.ToHeaders
-    GetRelationalDatabaseSnapshot
-  where
+instance Core.ToHeaders GetRelationalDatabaseSnapshot where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetRelationalDatabaseSnapshot" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseSnapshot" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRelationalDatabaseSnapshot where
+instance Core.ToJSON GetRelationalDatabaseSnapshot where
   toJSON GetRelationalDatabaseSnapshot' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "relationalDatabaseSnapshotName"
-                  Prelude..= relationalDatabaseSnapshotName
+                  Core..= relationalDatabaseSnapshotName
               )
           ]
       )
 
-instance Prelude.ToPath GetRelationalDatabaseSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRelationalDatabaseSnapshot where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetRelationalDatabaseSnapshot
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRelationalDatabaseSnapshot where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseSnapshotResponse' smart constructor.
 data GetRelationalDatabaseSnapshotResponse = GetRelationalDatabaseSnapshotResponse'
   { -- | An object describing the specified database snapshot.
-    relationalDatabaseSnapshot :: Prelude.Maybe RelationalDatabaseSnapshot,
+    relationalDatabaseSnapshot :: Core.Maybe RelationalDatabaseSnapshot,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseSnapshotResponse' with all optional fields omitted.
@@ -160,23 +149,23 @@ data GetRelationalDatabaseSnapshotResponse = GetRelationalDatabaseSnapshotRespon
 -- 'httpStatus', 'getRelationalDatabaseSnapshotResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRelationalDatabaseSnapshotResponse
 newGetRelationalDatabaseSnapshotResponse pHttpStatus_ =
   GetRelationalDatabaseSnapshotResponse'
     { relationalDatabaseSnapshot =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object describing the specified database snapshot.
-getRelationalDatabaseSnapshotResponse_relationalDatabaseSnapshot :: Lens.Lens' GetRelationalDatabaseSnapshotResponse (Prelude.Maybe RelationalDatabaseSnapshot)
+getRelationalDatabaseSnapshotResponse_relationalDatabaseSnapshot :: Lens.Lens' GetRelationalDatabaseSnapshotResponse (Core.Maybe RelationalDatabaseSnapshot)
 getRelationalDatabaseSnapshotResponse_relationalDatabaseSnapshot = Lens.lens (\GetRelationalDatabaseSnapshotResponse' {relationalDatabaseSnapshot} -> relationalDatabaseSnapshot) (\s@GetRelationalDatabaseSnapshotResponse' {} a -> s {relationalDatabaseSnapshot = a} :: GetRelationalDatabaseSnapshotResponse)
 
 -- | The response's http status code.
-getRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseSnapshotResponse Prelude.Int
+getRelationalDatabaseSnapshotResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseSnapshotResponse Core.Int
 getRelationalDatabaseSnapshotResponse_httpStatus = Lens.lens (\GetRelationalDatabaseSnapshotResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseSnapshotResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseSnapshotResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRelationalDatabaseSnapshotResponse

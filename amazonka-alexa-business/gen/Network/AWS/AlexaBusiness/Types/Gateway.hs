@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.Gateway where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of the gateway.
 --
 -- /See:/ 'newGateway' smart constructor.
 data Gateway = Gateway'
   { -- | The ARN of the gateway.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ARN of the gateway group that the gateway is associated to.
-    gatewayGroupArn :: Prelude.Maybe Prelude.Text,
+    gatewayGroupArn :: Core.Maybe Core.Text,
     -- | The name of the gateway.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description of the gateway.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The software version of the gateway. The gateway automatically updates
     -- its software version during normal operation.
-    softwareVersion :: Prelude.Maybe Prelude.Text
+    softwareVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Gateway' with all optional fields omitted.
@@ -63,47 +62,47 @@ newGateway ::
   Gateway
 newGateway =
   Gateway'
-    { arn = Prelude.Nothing,
-      gatewayGroupArn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      softwareVersion = Prelude.Nothing
+    { arn = Core.Nothing,
+      gatewayGroupArn = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      softwareVersion = Core.Nothing
     }
 
 -- | The ARN of the gateway.
-gateway_arn :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
+gateway_arn :: Lens.Lens' Gateway (Core.Maybe Core.Text)
 gateway_arn = Lens.lens (\Gateway' {arn} -> arn) (\s@Gateway' {} a -> s {arn = a} :: Gateway)
 
 -- | The ARN of the gateway group that the gateway is associated to.
-gateway_gatewayGroupArn :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
+gateway_gatewayGroupArn :: Lens.Lens' Gateway (Core.Maybe Core.Text)
 gateway_gatewayGroupArn = Lens.lens (\Gateway' {gatewayGroupArn} -> gatewayGroupArn) (\s@Gateway' {} a -> s {gatewayGroupArn = a} :: Gateway)
 
 -- | The name of the gateway.
-gateway_name :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
+gateway_name :: Lens.Lens' Gateway (Core.Maybe Core.Text)
 gateway_name = Lens.lens (\Gateway' {name} -> name) (\s@Gateway' {} a -> s {name = a} :: Gateway)
 
 -- | The description of the gateway.
-gateway_description :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
+gateway_description :: Lens.Lens' Gateway (Core.Maybe Core.Text)
 gateway_description = Lens.lens (\Gateway' {description} -> description) (\s@Gateway' {} a -> s {description = a} :: Gateway)
 
 -- | The software version of the gateway. The gateway automatically updates
 -- its software version during normal operation.
-gateway_softwareVersion :: Lens.Lens' Gateway (Prelude.Maybe Prelude.Text)
+gateway_softwareVersion :: Lens.Lens' Gateway (Core.Maybe Core.Text)
 gateway_softwareVersion = Lens.lens (\Gateway' {softwareVersion} -> softwareVersion) (\s@Gateway' {} a -> s {softwareVersion = a} :: Gateway)
 
-instance Prelude.FromJSON Gateway where
+instance Core.FromJSON Gateway where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Gateway"
       ( \x ->
           Gateway'
-            Prelude.<$> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "GatewayGroupArn")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "SoftwareVersion")
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "GatewayGroupArn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "SoftwareVersion")
       )
 
-instance Prelude.Hashable Gateway
+instance Core.Hashable Gateway
 
-instance Prelude.NFData Gateway
+instance Core.NFData Gateway

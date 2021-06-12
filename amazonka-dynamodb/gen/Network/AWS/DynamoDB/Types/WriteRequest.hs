@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.WriteRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.DeleteRequest
 import Network.AWS.DynamoDB.Types.PutRequest
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an operation to perform - either @DeleteItem@ or @PutItem@.
 -- You can only request one of these operations, not both, in a single
@@ -33,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newWriteRequest' smart constructor.
 data WriteRequest = WriteRequest'
   { -- | A request to perform a @DeleteItem@ operation.
-    deleteRequest :: Prelude.Maybe DeleteRequest,
+    deleteRequest :: Core.Maybe DeleteRequest,
     -- | A request to perform a @PutItem@ operation.
-    putRequest :: Prelude.Maybe PutRequest
+    putRequest :: Core.Maybe PutRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WriteRequest' with all optional fields omitted.
@@ -54,38 +53,37 @@ newWriteRequest ::
   WriteRequest
 newWriteRequest =
   WriteRequest'
-    { deleteRequest = Prelude.Nothing,
-      putRequest = Prelude.Nothing
+    { deleteRequest = Core.Nothing,
+      putRequest = Core.Nothing
     }
 
 -- | A request to perform a @DeleteItem@ operation.
-writeRequest_deleteRequest :: Lens.Lens' WriteRequest (Prelude.Maybe DeleteRequest)
+writeRequest_deleteRequest :: Lens.Lens' WriteRequest (Core.Maybe DeleteRequest)
 writeRequest_deleteRequest = Lens.lens (\WriteRequest' {deleteRequest} -> deleteRequest) (\s@WriteRequest' {} a -> s {deleteRequest = a} :: WriteRequest)
 
 -- | A request to perform a @PutItem@ operation.
-writeRequest_putRequest :: Lens.Lens' WriteRequest (Prelude.Maybe PutRequest)
+writeRequest_putRequest :: Lens.Lens' WriteRequest (Core.Maybe PutRequest)
 writeRequest_putRequest = Lens.lens (\WriteRequest' {putRequest} -> putRequest) (\s@WriteRequest' {} a -> s {putRequest = a} :: WriteRequest)
 
-instance Prelude.FromJSON WriteRequest where
+instance Core.FromJSON WriteRequest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WriteRequest"
       ( \x ->
           WriteRequest'
-            Prelude.<$> (x Prelude..:? "DeleteRequest")
-            Prelude.<*> (x Prelude..:? "PutRequest")
+            Core.<$> (x Core..:? "DeleteRequest")
+            Core.<*> (x Core..:? "PutRequest")
       )
 
-instance Prelude.Hashable WriteRequest
+instance Core.Hashable WriteRequest
 
-instance Prelude.NFData WriteRequest
+instance Core.NFData WriteRequest
 
-instance Prelude.ToJSON WriteRequest where
+instance Core.ToJSON WriteRequest where
   toJSON WriteRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeleteRequest" Prelude..=)
-              Prelude.<$> deleteRequest,
-            ("PutRequest" Prelude..=) Prelude.<$> putRequest
+    Core.object
+      ( Core.catMaybes
+          [ ("DeleteRequest" Core..=) Core.<$> deleteRequest,
+            ("PutRequest" Core..=) Core.<$> putRequest
           ]
       )

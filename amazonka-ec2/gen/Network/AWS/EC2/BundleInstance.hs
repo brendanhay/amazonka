@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.EC2.BundleInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ data BundleInstance = BundleInstance'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the instance to bundle.
     --
     -- Type: String
@@ -70,14 +69,14 @@ data BundleInstance = BundleInstance'
     -- Default: None
     --
     -- Required: Yes
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The bucket in which to store the AMI. You can specify a bucket that you
     -- already own or a new bucket that Amazon EC2 creates on your behalf. If
     -- you specify a bucket that belongs to someone else, Amazon EC2 returns an
     -- error.
     storage :: Storage
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BundleInstance' with all optional fields omitted.
@@ -106,13 +105,13 @@ data BundleInstance = BundleInstance'
 -- error.
 newBundleInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'storage'
   Storage ->
   BundleInstance
 newBundleInstance pInstanceId_ pStorage_ =
   BundleInstance'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       instanceId = pInstanceId_,
       storage = pStorage_
     }
@@ -121,7 +120,7 @@ newBundleInstance pInstanceId_ pStorage_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-bundleInstance_dryRun :: Lens.Lens' BundleInstance (Prelude.Maybe Prelude.Bool)
+bundleInstance_dryRun :: Lens.Lens' BundleInstance (Core.Maybe Core.Bool)
 bundleInstance_dryRun = Lens.lens (\BundleInstance' {dryRun} -> dryRun) (\s@BundleInstance' {} a -> s {dryRun = a} :: BundleInstance)
 
 -- | The ID of the instance to bundle.
@@ -131,7 +130,7 @@ bundleInstance_dryRun = Lens.lens (\BundleInstance' {dryRun} -> dryRun) (\s@Bund
 -- Default: None
 --
 -- Required: Yes
-bundleInstance_instanceId :: Lens.Lens' BundleInstance Prelude.Text
+bundleInstance_instanceId :: Lens.Lens' BundleInstance Core.Text
 bundleInstance_instanceId = Lens.lens (\BundleInstance' {instanceId} -> instanceId) (\s@BundleInstance' {} a -> s {instanceId = a} :: BundleInstance)
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
@@ -141,37 +140,38 @@ bundleInstance_instanceId = Lens.lens (\BundleInstance' {instanceId} -> instance
 bundleInstance_storage :: Lens.Lens' BundleInstance Storage
 bundleInstance_storage = Lens.lens (\BundleInstance' {storage} -> storage) (\s@BundleInstance' {} a -> s {storage = a} :: BundleInstance)
 
-instance Prelude.AWSRequest BundleInstance where
-  type Rs BundleInstance = BundleInstanceResponse
+instance Core.AWSRequest BundleInstance where
+  type
+    AWSResponse BundleInstance =
+      BundleInstanceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           BundleInstanceResponse'
-            Prelude.<$> (x Prelude..@? "bundleInstanceTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "bundleInstanceTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BundleInstance
+instance Core.Hashable BundleInstance
 
-instance Prelude.NFData BundleInstance
+instance Core.NFData BundleInstance
 
-instance Prelude.ToHeaders BundleInstance where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders BundleInstance where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath BundleInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath BundleInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BundleInstance where
+instance Core.ToQuery BundleInstance where
   toQuery BundleInstance' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("BundleInstance" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "InstanceId" Prelude.=: instanceId,
-        "Storage" Prelude.=: storage
+          Core.=: ("BundleInstance" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InstanceId" Core.=: instanceId,
+        "Storage" Core.=: storage
       ]
 
 -- | Contains the output of BundleInstance.
@@ -179,11 +179,11 @@ instance Prelude.ToQuery BundleInstance where
 -- /See:/ 'newBundleInstanceResponse' smart constructor.
 data BundleInstanceResponse = BundleInstanceResponse'
   { -- | Information about the bundle task.
-    bundleTask :: Prelude.Maybe BundleTask,
+    bundleTask :: Core.Maybe BundleTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BundleInstanceResponse' with all optional fields omitted.
@@ -198,21 +198,20 @@ data BundleInstanceResponse = BundleInstanceResponse'
 -- 'httpStatus', 'bundleInstanceResponse_httpStatus' - The response's http status code.
 newBundleInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BundleInstanceResponse
 newBundleInstanceResponse pHttpStatus_ =
   BundleInstanceResponse'
-    { bundleTask =
-        Prelude.Nothing,
+    { bundleTask = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the bundle task.
-bundleInstanceResponse_bundleTask :: Lens.Lens' BundleInstanceResponse (Prelude.Maybe BundleTask)
+bundleInstanceResponse_bundleTask :: Lens.Lens' BundleInstanceResponse (Core.Maybe BundleTask)
 bundleInstanceResponse_bundleTask = Lens.lens (\BundleInstanceResponse' {bundleTask} -> bundleTask) (\s@BundleInstanceResponse' {} a -> s {bundleTask = a} :: BundleInstanceResponse)
 
 -- | The response's http status code.
-bundleInstanceResponse_httpStatus :: Lens.Lens' BundleInstanceResponse Prelude.Int
+bundleInstanceResponse_httpStatus :: Lens.Lens' BundleInstanceResponse Core.Int
 bundleInstanceResponse_httpStatus = Lens.lens (\BundleInstanceResponse' {httpStatus} -> httpStatus) (\s@BundleInstanceResponse' {} a -> s {httpStatus = a} :: BundleInstanceResponse)
 
-instance Prelude.NFData BundleInstanceResponse
+instance Core.NFData BundleInstanceResponse

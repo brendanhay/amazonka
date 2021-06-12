@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the zone awareness configuration for the domain cluster, such
 -- as the number of availability zones.
@@ -31,9 +30,9 @@ data ZoneAwarenessConfig = ZoneAwarenessConfig'
   { -- | An integer value to indicate the number of availability zones for a
     -- domain when zone awareness is enabled. This should be equal to number of
     -- subnets if VPC endpoints is enabled
-    availabilityZoneCount :: Prelude.Maybe Prelude.Int
+    availabilityZoneCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ZoneAwarenessConfig' with all optional fields omitted.
@@ -51,33 +50,33 @@ newZoneAwarenessConfig ::
 newZoneAwarenessConfig =
   ZoneAwarenessConfig'
     { availabilityZoneCount =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | An integer value to indicate the number of availability zones for a
 -- domain when zone awareness is enabled. This should be equal to number of
 -- subnets if VPC endpoints is enabled
-zoneAwarenessConfig_availabilityZoneCount :: Lens.Lens' ZoneAwarenessConfig (Prelude.Maybe Prelude.Int)
+zoneAwarenessConfig_availabilityZoneCount :: Lens.Lens' ZoneAwarenessConfig (Core.Maybe Core.Int)
 zoneAwarenessConfig_availabilityZoneCount = Lens.lens (\ZoneAwarenessConfig' {availabilityZoneCount} -> availabilityZoneCount) (\s@ZoneAwarenessConfig' {} a -> s {availabilityZoneCount = a} :: ZoneAwarenessConfig)
 
-instance Prelude.FromJSON ZoneAwarenessConfig where
+instance Core.FromJSON ZoneAwarenessConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ZoneAwarenessConfig"
       ( \x ->
           ZoneAwarenessConfig'
-            Prelude.<$> (x Prelude..:? "AvailabilityZoneCount")
+            Core.<$> (x Core..:? "AvailabilityZoneCount")
       )
 
-instance Prelude.Hashable ZoneAwarenessConfig
+instance Core.Hashable ZoneAwarenessConfig
 
-instance Prelude.NFData ZoneAwarenessConfig
+instance Core.NFData ZoneAwarenessConfig
 
-instance Prelude.ToJSON ZoneAwarenessConfig where
+instance Core.ToJSON ZoneAwarenessConfig where
   toJSON ZoneAwarenessConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AvailabilityZoneCount" Prelude..=)
-              Prelude.<$> availabilityZoneCount
+    Core.object
+      ( Core.catMaybes
+          [ ("AvailabilityZoneCount" Core..=)
+              Core.<$> availabilityZoneCount
           ]
       )

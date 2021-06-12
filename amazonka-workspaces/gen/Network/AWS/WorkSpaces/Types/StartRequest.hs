@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.StartRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information used to start a WorkSpace.
 --
 -- /See:/ 'newStartRequest' smart constructor.
 data StartRequest = StartRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Maybe Prelude.Text
+    workspaceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartRequest' with all optional fields omitted.
@@ -44,19 +43,19 @@ data StartRequest = StartRequest'
 newStartRequest ::
   StartRequest
 newStartRequest =
-  StartRequest' {workspaceId = Prelude.Nothing}
+  StartRequest' {workspaceId = Core.Nothing}
 
 -- | The identifier of the WorkSpace.
-startRequest_workspaceId :: Lens.Lens' StartRequest (Prelude.Maybe Prelude.Text)
+startRequest_workspaceId :: Lens.Lens' StartRequest (Core.Maybe Core.Text)
 startRequest_workspaceId = Lens.lens (\StartRequest' {workspaceId} -> workspaceId) (\s@StartRequest' {} a -> s {workspaceId = a} :: StartRequest)
 
-instance Prelude.Hashable StartRequest
+instance Core.Hashable StartRequest
 
-instance Prelude.NFData StartRequest
+instance Core.NFData StartRequest
 
-instance Prelude.ToJSON StartRequest where
+instance Core.ToJSON StartRequest where
   toJSON StartRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("WorkspaceId" Prelude..=) Prelude.<$> workspaceId]
+    Core.object
+      ( Core.catMaybes
+          [("WorkspaceId" Core..=) Core.<$> workspaceId]
       )

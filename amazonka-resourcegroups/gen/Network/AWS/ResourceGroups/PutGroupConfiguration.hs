@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.ResourceGroups.PutGroupConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -66,12 +65,12 @@ data PutGroupConfiguration = PutGroupConfiguration'
     --
     -- A resource group can contain either a @Configuration@ or a
     -- @ResourceQuery@, but not both.
-    configuration :: Prelude.Maybe [GroupConfigurationItem],
+    configuration :: Core.Maybe [GroupConfigurationItem],
     -- | The name or ARN of the resource group with the configuration that you
     -- want to update.
-    group' :: Prelude.Maybe Prelude.Text
+    group' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutGroupConfiguration' with all optional fields omitted.
@@ -99,8 +98,8 @@ newPutGroupConfiguration ::
 newPutGroupConfiguration =
   PutGroupConfiguration'
     { configuration =
-        Prelude.Nothing,
-      group' = Prelude.Nothing
+        Core.Nothing,
+      group' = Core.Nothing
     }
 
 -- | The new configuration to associate with the specified group. A
@@ -113,55 +112,54 @@ newPutGroupConfiguration =
 --
 -- A resource group can contain either a @Configuration@ or a
 -- @ResourceQuery@, but not both.
-putGroupConfiguration_configuration :: Lens.Lens' PutGroupConfiguration (Prelude.Maybe [GroupConfigurationItem])
-putGroupConfiguration_configuration = Lens.lens (\PutGroupConfiguration' {configuration} -> configuration) (\s@PutGroupConfiguration' {} a -> s {configuration = a} :: PutGroupConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+putGroupConfiguration_configuration :: Lens.Lens' PutGroupConfiguration (Core.Maybe [GroupConfigurationItem])
+putGroupConfiguration_configuration = Lens.lens (\PutGroupConfiguration' {configuration} -> configuration) (\s@PutGroupConfiguration' {} a -> s {configuration = a} :: PutGroupConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The name or ARN of the resource group with the configuration that you
 -- want to update.
-putGroupConfiguration_group :: Lens.Lens' PutGroupConfiguration (Prelude.Maybe Prelude.Text)
+putGroupConfiguration_group :: Lens.Lens' PutGroupConfiguration (Core.Maybe Core.Text)
 putGroupConfiguration_group = Lens.lens (\PutGroupConfiguration' {group'} -> group') (\s@PutGroupConfiguration' {} a -> s {group' = a} :: PutGroupConfiguration)
 
-instance Prelude.AWSRequest PutGroupConfiguration where
+instance Core.AWSRequest PutGroupConfiguration where
   type
-    Rs PutGroupConfiguration =
+    AWSResponse PutGroupConfiguration =
       PutGroupConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutGroupConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutGroupConfiguration
+instance Core.Hashable PutGroupConfiguration
 
-instance Prelude.NFData PutGroupConfiguration
+instance Core.NFData PutGroupConfiguration
 
-instance Prelude.ToHeaders PutGroupConfiguration where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutGroupConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutGroupConfiguration where
+instance Core.ToJSON PutGroupConfiguration where
   toJSON PutGroupConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Configuration" Prelude..=)
-              Prelude.<$> configuration,
-            ("Group" Prelude..=) Prelude.<$> group'
+    Core.object
+      ( Core.catMaybes
+          [ ("Configuration" Core..=) Core.<$> configuration,
+            ("Group" Core..=) Core.<$> group'
           ]
       )
 
-instance Prelude.ToPath PutGroupConfiguration where
-  toPath = Prelude.const "/put-group-configuration"
+instance Core.ToPath PutGroupConfiguration where
+  toPath = Core.const "/put-group-configuration"
 
-instance Prelude.ToQuery PutGroupConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutGroupConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutGroupConfigurationResponse' smart constructor.
 data PutGroupConfigurationResponse = PutGroupConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutGroupConfigurationResponse' with all optional fields omitted.
@@ -174,7 +172,7 @@ data PutGroupConfigurationResponse = PutGroupConfigurationResponse'
 -- 'httpStatus', 'putGroupConfigurationResponse_httpStatus' - The response's http status code.
 newPutGroupConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutGroupConfigurationResponse
 newPutGroupConfigurationResponse pHttpStatus_ =
   PutGroupConfigurationResponse'
@@ -183,7 +181,7 @@ newPutGroupConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putGroupConfigurationResponse_httpStatus :: Lens.Lens' PutGroupConfigurationResponse Prelude.Int
+putGroupConfigurationResponse_httpStatus :: Lens.Lens' PutGroupConfigurationResponse Core.Int
 putGroupConfigurationResponse_httpStatus = Lens.lens (\PutGroupConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutGroupConfigurationResponse' {} a -> s {httpStatus = a} :: PutGroupConfigurationResponse)
 
-instance Prelude.NFData PutGroupConfigurationResponse
+instance Core.NFData PutGroupConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ReservedInstanceReservationValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ReservationValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The total value of the Convertible Reserved Instance.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ReservedInstanceReservationValue = ReservedInstanceReservationValue'
   { -- | The total value of the Convertible Reserved Instance that you are
     -- exchanging.
-    reservationValue :: Prelude.Maybe ReservationValue,
+    reservationValue :: Core.Maybe ReservationValue,
     -- | The ID of the Convertible Reserved Instance that you are exchanging.
-    reservedInstanceId :: Prelude.Maybe Prelude.Text
+    reservedInstanceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReservedInstanceReservationValue' with all optional fields omitted.
@@ -54,32 +53,30 @@ newReservedInstanceReservationValue ::
 newReservedInstanceReservationValue =
   ReservedInstanceReservationValue'
     { reservationValue =
-        Prelude.Nothing,
-      reservedInstanceId = Prelude.Nothing
+        Core.Nothing,
+      reservedInstanceId = Core.Nothing
     }
 
 -- | The total value of the Convertible Reserved Instance that you are
 -- exchanging.
-reservedInstanceReservationValue_reservationValue :: Lens.Lens' ReservedInstanceReservationValue (Prelude.Maybe ReservationValue)
+reservedInstanceReservationValue_reservationValue :: Lens.Lens' ReservedInstanceReservationValue (Core.Maybe ReservationValue)
 reservedInstanceReservationValue_reservationValue = Lens.lens (\ReservedInstanceReservationValue' {reservationValue} -> reservationValue) (\s@ReservedInstanceReservationValue' {} a -> s {reservationValue = a} :: ReservedInstanceReservationValue)
 
 -- | The ID of the Convertible Reserved Instance that you are exchanging.
-reservedInstanceReservationValue_reservedInstanceId :: Lens.Lens' ReservedInstanceReservationValue (Prelude.Maybe Prelude.Text)
+reservedInstanceReservationValue_reservedInstanceId :: Lens.Lens' ReservedInstanceReservationValue (Core.Maybe Core.Text)
 reservedInstanceReservationValue_reservedInstanceId = Lens.lens (\ReservedInstanceReservationValue' {reservedInstanceId} -> reservedInstanceId) (\s@ReservedInstanceReservationValue' {} a -> s {reservedInstanceId = a} :: ReservedInstanceReservationValue)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ReservedInstanceReservationValue
   where
   parseXML x =
     ReservedInstanceReservationValue'
-      Prelude.<$> (x Prelude..@? "reservationValue")
-      Prelude.<*> (x Prelude..@? "reservedInstanceId")
+      Core.<$> (x Core..@? "reservationValue")
+      Core.<*> (x Core..@? "reservedInstanceId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ReservedInstanceReservationValue
 
-instance
-  Prelude.NFData
-    ReservedInstanceReservationValue
+instance Core.NFData ReservedInstanceReservationValue

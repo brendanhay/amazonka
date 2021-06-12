@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.S3.DeletePublicAccessBlock
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -63,12 +62,12 @@ data DeletePublicAccessBlock = DeletePublicAccessBlock'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to
     -- delete.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePublicAccessBlock' with all optional fields omitted.
@@ -91,14 +90,14 @@ newDeletePublicAccessBlock ::
 newDeletePublicAccessBlock pBucket_ =
   DeletePublicAccessBlock'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deletePublicAccessBlock_expectedBucketOwner :: Lens.Lens' DeletePublicAccessBlock (Prelude.Maybe Prelude.Text)
+deletePublicAccessBlock_expectedBucketOwner :: Lens.Lens' DeletePublicAccessBlock (Core.Maybe Core.Text)
 deletePublicAccessBlock_expectedBucketOwner = Lens.lens (\DeletePublicAccessBlock' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeletePublicAccessBlock' {} a -> s {expectedBucketOwner = a} :: DeletePublicAccessBlock)
 
 -- | The Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to
@@ -106,40 +105,39 @@ deletePublicAccessBlock_expectedBucketOwner = Lens.lens (\DeletePublicAccessBloc
 deletePublicAccessBlock_bucket :: Lens.Lens' DeletePublicAccessBlock BucketName
 deletePublicAccessBlock_bucket = Lens.lens (\DeletePublicAccessBlock' {bucket} -> bucket) (\s@DeletePublicAccessBlock' {} a -> s {bucket = a} :: DeletePublicAccessBlock)
 
-instance Prelude.AWSRequest DeletePublicAccessBlock where
+instance Core.AWSRequest DeletePublicAccessBlock where
   type
-    Rs DeletePublicAccessBlock =
+    AWSResponse DeletePublicAccessBlock =
       DeletePublicAccessBlockResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeletePublicAccessBlockResponse'
 
-instance Prelude.Hashable DeletePublicAccessBlock
+instance Core.Hashable DeletePublicAccessBlock
 
-instance Prelude.NFData DeletePublicAccessBlock
+instance Core.NFData DeletePublicAccessBlock
 
-instance Prelude.ToHeaders DeletePublicAccessBlock where
+instance Core.ToHeaders DeletePublicAccessBlock where
   toHeaders DeletePublicAccessBlock' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath DeletePublicAccessBlock where
+instance Core.ToPath DeletePublicAccessBlock where
   toPath DeletePublicAccessBlock' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery DeletePublicAccessBlock where
+instance Core.ToQuery DeletePublicAccessBlock where
   toQuery =
-    Prelude.const
-      (Prelude.mconcat ["publicAccessBlock"])
+    Core.const (Core.mconcat ["publicAccessBlock"])
 
 -- | /See:/ 'newDeletePublicAccessBlockResponse' smart constructor.
 data DeletePublicAccessBlockResponse = DeletePublicAccessBlockResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePublicAccessBlockResponse' with all optional fields omitted.
@@ -150,6 +148,4 @@ newDeletePublicAccessBlockResponse ::
 newDeletePublicAccessBlockResponse =
   DeletePublicAccessBlockResponse'
 
-instance
-  Prelude.NFData
-    DeletePublicAccessBlockResponse
+instance Core.NFData DeletePublicAccessBlockResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.IAM.CreateUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +57,7 @@ import qualified Network.AWS.Response as Response
 data CreateUser = CreateUser'
   { -- | The ARN of the policy that is used to set the permissions boundary for
     -- the user.
-    permissionsBoundary :: Prelude.Maybe Prelude.Text,
+    permissionsBoundary :: Core.Maybe Core.Text,
     -- | A list of tags that you want to attach to the new user. Each tag
     -- consists of a key name and an associated value. For more information
     -- about tagging, see
@@ -68,7 +67,7 @@ data CreateUser = CreateUser'
     -- If any one of the tags is invalid or if you exceed the allowed maximum
     -- number of tags, then the entire request fails and the resource is not
     -- created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The path for the user name. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
@@ -83,15 +82,15 @@ data CreateUser = CreateUser'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    path :: Prelude.Maybe Prelude.Text,
+    path :: Core.Maybe Core.Text,
     -- | The name of the user to create.
     --
     -- IAM user, group, role, and policy names must be unique within the
     -- account. Names are not distinguished by case. For example, you cannot
     -- create resources named both \"MyResource\" and \"myresource\".
-    userName :: Prelude.Text
+    userName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUser' with all optional fields omitted.
@@ -136,19 +135,19 @@ data CreateUser = CreateUser'
 -- create resources named both \"MyResource\" and \"myresource\".
 newCreateUser ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   CreateUser
 newCreateUser pUserName_ =
   CreateUser'
-    { permissionsBoundary = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      path = Prelude.Nothing,
+    { permissionsBoundary = Core.Nothing,
+      tags = Core.Nothing,
+      path = Core.Nothing,
       userName = pUserName_
     }
 
 -- | The ARN of the policy that is used to set the permissions boundary for
 -- the user.
-createUser_permissionsBoundary :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_permissionsBoundary :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
 createUser_permissionsBoundary = Lens.lens (\CreateUser' {permissionsBoundary} -> permissionsBoundary) (\s@CreateUser' {} a -> s {permissionsBoundary = a} :: CreateUser)
 
 -- | A list of tags that you want to attach to the new user. Each tag
@@ -160,8 +159,8 @@ createUser_permissionsBoundary = Lens.lens (\CreateUser' {permissionsBoundary} -
 -- If any one of the tags is invalid or if you exceed the allowed maximum
 -- number of tags, then the entire request fails and the resource is not
 -- created.
-createUser_tags :: Lens.Lens' CreateUser (Prelude.Maybe [Tag])
-createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Prelude.. Lens.mapping Prelude._Coerce
+createUser_tags :: Lens.Lens' CreateUser (Core.Maybe [Tag])
+createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -> s {tags = a} :: CreateUser) Core.. Lens.mapping Lens._Coerce
 
 -- | The path for the user name. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
@@ -177,7 +176,7 @@ createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-createUser_path :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_path :: Lens.Lens' CreateUser (Core.Maybe Core.Text)
 createUser_path = Lens.lens (\CreateUser' {path} -> path) (\s@CreateUser' {} a -> s {path = a} :: CreateUser)
 
 -- | The name of the user to create.
@@ -185,44 +184,42 @@ createUser_path = Lens.lens (\CreateUser' {path} -> path) (\s@CreateUser' {} a -
 -- IAM user, group, role, and policy names must be unique within the
 -- account. Names are not distinguished by case. For example, you cannot
 -- create resources named both \"MyResource\" and \"myresource\".
-createUser_userName :: Lens.Lens' CreateUser Prelude.Text
+createUser_userName :: Lens.Lens' CreateUser Core.Text
 createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@CreateUser' {} a -> s {userName = a} :: CreateUser)
 
-instance Prelude.AWSRequest CreateUser where
-  type Rs CreateUser = CreateUserResponse
+instance Core.AWSRequest CreateUser where
+  type AWSResponse CreateUser = CreateUserResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateUserResult"
       ( \s h x ->
           CreateUserResponse'
-            Prelude.<$> (x Prelude..@? "User")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "User")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUser
+instance Core.Hashable CreateUser
 
-instance Prelude.NFData CreateUser
+instance Core.NFData CreateUser
 
-instance Prelude.ToHeaders CreateUser where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateUser where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateUser where
+instance Core.ToQuery CreateUser where
   toQuery CreateUser' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("CreateUser" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "PermissionsBoundary" Prelude.=: permissionsBoundary,
+    Core.mconcat
+      [ "Action" Core.=: ("CreateUser" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "PermissionsBoundary" Core.=: permissionsBoundary,
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
-        "Path" Prelude.=: path,
-        "UserName" Prelude.=: userName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
+        "Path" Core.=: path,
+        "UserName" Core.=: userName
       ]
 
 -- | Contains the response to a successful CreateUser request.
@@ -230,11 +227,11 @@ instance Prelude.ToQuery CreateUser where
 -- /See:/ 'newCreateUserResponse' smart constructor.
 data CreateUserResponse = CreateUserResponse'
   { -- | A structure with details about the new IAM user.
-    user :: Prelude.Maybe User,
+    user :: Core.Maybe User,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserResponse' with all optional fields omitted.
@@ -249,20 +246,20 @@ data CreateUserResponse = CreateUserResponse'
 -- 'httpStatus', 'createUserResponse_httpStatus' - The response's http status code.
 newCreateUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateUserResponse
 newCreateUserResponse pHttpStatus_ =
   CreateUserResponse'
-    { user = Prelude.Nothing,
+    { user = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure with details about the new IAM user.
-createUserResponse_user :: Lens.Lens' CreateUserResponse (Prelude.Maybe User)
+createUserResponse_user :: Lens.Lens' CreateUserResponse (Core.Maybe User)
 createUserResponse_user = Lens.lens (\CreateUserResponse' {user} -> user) (\s@CreateUserResponse' {} a -> s {user = a} :: CreateUserResponse)
 
 -- | The response's http status code.
-createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Prelude.Int
+createUserResponse_httpStatus :: Lens.Lens' CreateUserResponse Core.Int
 createUserResponse_httpStatus = Lens.lens (\CreateUserResponse' {httpStatus} -> httpStatus) (\s@CreateUserResponse' {} a -> s {httpStatus = a} :: CreateUserResponse)
 
-instance Prelude.NFData CreateUserResponse
+instance Core.NFData CreateUserResponse

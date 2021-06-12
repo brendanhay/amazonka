@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Lightsail.CloseInstancePublicPorts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data CloseInstancePublicPorts = CloseInstancePublicPorts'
   { -- | An object to describe the ports to close for the specified instance.
     portInfo :: PortInfo,
     -- | The name of the instance for which to close ports.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloseInstancePublicPorts' with all optional fields omitted.
@@ -76,7 +75,7 @@ newCloseInstancePublicPorts ::
   -- | 'portInfo'
   PortInfo ->
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   CloseInstancePublicPorts
 newCloseInstancePublicPorts pPortInfo_ pInstanceName_ =
   CloseInstancePublicPorts'
@@ -89,67 +88,64 @@ closeInstancePublicPorts_portInfo :: Lens.Lens' CloseInstancePublicPorts PortInf
 closeInstancePublicPorts_portInfo = Lens.lens (\CloseInstancePublicPorts' {portInfo} -> portInfo) (\s@CloseInstancePublicPorts' {} a -> s {portInfo = a} :: CloseInstancePublicPorts)
 
 -- | The name of the instance for which to close ports.
-closeInstancePublicPorts_instanceName :: Lens.Lens' CloseInstancePublicPorts Prelude.Text
+closeInstancePublicPorts_instanceName :: Lens.Lens' CloseInstancePublicPorts Core.Text
 closeInstancePublicPorts_instanceName = Lens.lens (\CloseInstancePublicPorts' {instanceName} -> instanceName) (\s@CloseInstancePublicPorts' {} a -> s {instanceName = a} :: CloseInstancePublicPorts)
 
-instance Prelude.AWSRequest CloseInstancePublicPorts where
+instance Core.AWSRequest CloseInstancePublicPorts where
   type
-    Rs CloseInstancePublicPorts =
+    AWSResponse CloseInstancePublicPorts =
       CloseInstancePublicPortsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CloseInstancePublicPortsResponse'
-            Prelude.<$> (x Prelude..?> "operation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CloseInstancePublicPorts
+instance Core.Hashable CloseInstancePublicPorts
 
-instance Prelude.NFData CloseInstancePublicPorts
+instance Core.NFData CloseInstancePublicPorts
 
-instance Prelude.ToHeaders CloseInstancePublicPorts where
+instance Core.ToHeaders CloseInstancePublicPorts where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CloseInstancePublicPorts" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CloseInstancePublicPorts" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CloseInstancePublicPorts where
+instance Core.ToJSON CloseInstancePublicPorts where
   toJSON CloseInstancePublicPorts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("portInfo" Prelude..= portInfo),
-            Prelude.Just
-              ("instanceName" Prelude..= instanceName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("portInfo" Core..= portInfo),
+            Core.Just ("instanceName" Core..= instanceName)
           ]
       )
 
-instance Prelude.ToPath CloseInstancePublicPorts where
-  toPath = Prelude.const "/"
+instance Core.ToPath CloseInstancePublicPorts where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CloseInstancePublicPorts where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CloseInstancePublicPorts where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCloseInstancePublicPortsResponse' smart constructor.
 data CloseInstancePublicPortsResponse = CloseInstancePublicPortsResponse'
   { -- | An object that describes the result of the action, such as the status of
     -- the request, the timestamp of the request, and the resources affected by
     -- the request.
-    operation :: Prelude.Maybe Operation,
+    operation :: Core.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloseInstancePublicPortsResponse' with all optional fields omitted.
@@ -166,25 +162,23 @@ data CloseInstancePublicPortsResponse = CloseInstancePublicPortsResponse'
 -- 'httpStatus', 'closeInstancePublicPortsResponse_httpStatus' - The response's http status code.
 newCloseInstancePublicPortsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CloseInstancePublicPortsResponse
 newCloseInstancePublicPortsResponse pHttpStatus_ =
   CloseInstancePublicPortsResponse'
     { operation =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the result of the action, such as the status of
 -- the request, the timestamp of the request, and the resources affected by
 -- the request.
-closeInstancePublicPortsResponse_operation :: Lens.Lens' CloseInstancePublicPortsResponse (Prelude.Maybe Operation)
+closeInstancePublicPortsResponse_operation :: Lens.Lens' CloseInstancePublicPortsResponse (Core.Maybe Operation)
 closeInstancePublicPortsResponse_operation = Lens.lens (\CloseInstancePublicPortsResponse' {operation} -> operation) (\s@CloseInstancePublicPortsResponse' {} a -> s {operation = a} :: CloseInstancePublicPortsResponse)
 
 -- | The response's http status code.
-closeInstancePublicPortsResponse_httpStatus :: Lens.Lens' CloseInstancePublicPortsResponse Prelude.Int
+closeInstancePublicPortsResponse_httpStatus :: Lens.Lens' CloseInstancePublicPortsResponse Core.Int
 closeInstancePublicPortsResponse_httpStatus = Lens.lens (\CloseInstancePublicPortsResponse' {httpStatus} -> httpStatus) (\s@CloseInstancePublicPortsResponse' {} a -> s {httpStatus = a} :: CloseInstancePublicPortsResponse)
 
-instance
-  Prelude.NFData
-    CloseInstancePublicPortsResponse
+instance Core.NFData CloseInstancePublicPortsResponse

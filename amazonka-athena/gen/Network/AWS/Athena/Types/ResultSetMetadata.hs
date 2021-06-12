@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Athena.Types.ResultSetMetadata where
 
 import Network.AWS.Athena.Types.ColumnInfo
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata that describes the column structure and data types of a
 -- table of query results. To return a @ResultSetMetadata@ object, use
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResultSetMetadata' smart constructor.
 data ResultSetMetadata = ResultSetMetadata'
   { -- | Information about the columns returned in a query result metadata.
-    columnInfo :: Prelude.Maybe [ColumnInfo]
+    columnInfo :: Core.Maybe [ColumnInfo]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResultSetMetadata' with all optional fields omitted.
@@ -47,23 +46,21 @@ data ResultSetMetadata = ResultSetMetadata'
 newResultSetMetadata ::
   ResultSetMetadata
 newResultSetMetadata =
-  ResultSetMetadata' {columnInfo = Prelude.Nothing}
+  ResultSetMetadata' {columnInfo = Core.Nothing}
 
 -- | Information about the columns returned in a query result metadata.
-resultSetMetadata_columnInfo :: Lens.Lens' ResultSetMetadata (Prelude.Maybe [ColumnInfo])
-resultSetMetadata_columnInfo = Lens.lens (\ResultSetMetadata' {columnInfo} -> columnInfo) (\s@ResultSetMetadata' {} a -> s {columnInfo = a} :: ResultSetMetadata) Prelude.. Lens.mapping Prelude._Coerce
+resultSetMetadata_columnInfo :: Lens.Lens' ResultSetMetadata (Core.Maybe [ColumnInfo])
+resultSetMetadata_columnInfo = Lens.lens (\ResultSetMetadata' {columnInfo} -> columnInfo) (\s@ResultSetMetadata' {} a -> s {columnInfo = a} :: ResultSetMetadata) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ResultSetMetadata where
+instance Core.FromJSON ResultSetMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResultSetMetadata"
       ( \x ->
           ResultSetMetadata'
-            Prelude.<$> ( x Prelude..:? "ColumnInfo"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ColumnInfo" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ResultSetMetadata
+instance Core.Hashable ResultSetMetadata
 
-instance Prelude.NFData ResultSetMetadata
+instance Core.NFData ResultSetMetadata

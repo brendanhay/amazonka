@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.CodeDeploy.DeleteApplication
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,9 +47,9 @@ import qualified Network.AWS.Response as Response
 data DeleteApplication = DeleteApplication'
   { -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplication' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DeleteApplication = DeleteApplication'
 -- or AWS account.
 newDeleteApplication ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApplication
 newDeleteApplication pApplicationName_ =
   DeleteApplication'
@@ -74,54 +73,54 @@ newDeleteApplication pApplicationName_ =
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
-deleteApplication_applicationName :: Lens.Lens' DeleteApplication Prelude.Text
+deleteApplication_applicationName :: Lens.Lens' DeleteApplication Core.Text
 deleteApplication_applicationName = Lens.lens (\DeleteApplication' {applicationName} -> applicationName) (\s@DeleteApplication' {} a -> s {applicationName = a} :: DeleteApplication)
 
-instance Prelude.AWSRequest DeleteApplication where
-  type Rs DeleteApplication = DeleteApplicationResponse
+instance Core.AWSRequest DeleteApplication where
+  type
+    AWSResponse DeleteApplication =
+      DeleteApplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteApplicationResponse'
 
-instance Prelude.Hashable DeleteApplication
+instance Core.Hashable DeleteApplication
 
-instance Prelude.NFData DeleteApplication
+instance Core.NFData DeleteApplication
 
-instance Prelude.ToHeaders DeleteApplication where
+instance Core.ToHeaders DeleteApplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.DeleteApplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.DeleteApplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteApplication where
+instance Core.ToJSON DeleteApplication where
   toJSON DeleteApplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("applicationName" Prelude..= applicationName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("applicationName" Core..= applicationName)
           ]
       )
 
-instance Prelude.ToPath DeleteApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteApplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApplication where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationResponse' with all optional fields omitted.
@@ -132,4 +131,4 @@ newDeleteApplicationResponse ::
 newDeleteApplicationResponse =
   DeleteApplicationResponse'
 
-instance Prelude.NFData DeleteApplicationResponse
+instance Core.NFData DeleteApplicationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.SqlInjectionMatchTuple where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.FieldToMatch
 import Network.AWS.WAF.Types.TextTransformation
 
@@ -118,7 +117,7 @@ data SqlInjectionMatchTuple = SqlInjectionMatchTuple'
     -- Specify @NONE@ if you don\'t want to perform any text transformations.
     textTransformation :: TextTransformation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SqlInjectionMatchTuple' with all optional fields omitted.
@@ -300,29 +299,26 @@ sqlInjectionMatchTuple_fieldToMatch = Lens.lens (\SqlInjectionMatchTuple' {field
 sqlInjectionMatchTuple_textTransformation :: Lens.Lens' SqlInjectionMatchTuple TextTransformation
 sqlInjectionMatchTuple_textTransformation = Lens.lens (\SqlInjectionMatchTuple' {textTransformation} -> textTransformation) (\s@SqlInjectionMatchTuple' {} a -> s {textTransformation = a} :: SqlInjectionMatchTuple)
 
-instance Prelude.FromJSON SqlInjectionMatchTuple where
+instance Core.FromJSON SqlInjectionMatchTuple where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SqlInjectionMatchTuple"
       ( \x ->
           SqlInjectionMatchTuple'
-            Prelude.<$> (x Prelude..: "FieldToMatch")
-            Prelude.<*> (x Prelude..: "TextTransformation")
+            Core.<$> (x Core..: "FieldToMatch")
+            Core.<*> (x Core..: "TextTransformation")
       )
 
-instance Prelude.Hashable SqlInjectionMatchTuple
+instance Core.Hashable SqlInjectionMatchTuple
 
-instance Prelude.NFData SqlInjectionMatchTuple
+instance Core.NFData SqlInjectionMatchTuple
 
-instance Prelude.ToJSON SqlInjectionMatchTuple where
+instance Core.ToJSON SqlInjectionMatchTuple where
   toJSON SqlInjectionMatchTuple' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("FieldToMatch" Prelude..= fieldToMatch),
-            Prelude.Just
-              ( "TextTransformation"
-                  Prelude..= textTransformation
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
+            Core.Just
+              ("TextTransformation" Core..= textTransformation)
           ]
       )

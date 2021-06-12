@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.TemplateActiveVersionRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies which version of a message template to use as the active
 -- version of the template.
@@ -35,9 +34,9 @@ data TemplateActiveVersionRequest = TemplateActiveVersionRequest'
     -- identifier for an existing template version. To retrieve a list of
     -- versions and version identifiers for a template, use the Template
     -- Versions resource.
-    version :: Prelude.Maybe Prelude.Text
+    version :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TemplateActiveVersionRequest' with all optional fields omitted.
@@ -59,7 +58,7 @@ newTemplateActiveVersionRequest ::
 newTemplateActiveVersionRequest =
   TemplateActiveVersionRequest'
     { version =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The version of the message template to use as the active version of the
@@ -69,18 +68,16 @@ newTemplateActiveVersionRequest =
 -- identifier for an existing template version. To retrieve a list of
 -- versions and version identifiers for a template, use the Template
 -- Versions resource.
-templateActiveVersionRequest_version :: Lens.Lens' TemplateActiveVersionRequest (Prelude.Maybe Prelude.Text)
+templateActiveVersionRequest_version :: Lens.Lens' TemplateActiveVersionRequest (Core.Maybe Core.Text)
 templateActiveVersionRequest_version = Lens.lens (\TemplateActiveVersionRequest' {version} -> version) (\s@TemplateActiveVersionRequest' {} a -> s {version = a} :: TemplateActiveVersionRequest)
 
-instance
-  Prelude.Hashable
-    TemplateActiveVersionRequest
+instance Core.Hashable TemplateActiveVersionRequest
 
-instance Prelude.NFData TemplateActiveVersionRequest
+instance Core.NFData TemplateActiveVersionRequest
 
-instance Prelude.ToJSON TemplateActiveVersionRequest where
+instance Core.ToJSON TemplateActiveVersionRequest where
   toJSON TemplateActiveVersionRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Version" Prelude..=) Prelude.<$> version]
+    Core.object
+      ( Core.catMaybes
+          [("Version" Core..=) Core.<$> version]
       )

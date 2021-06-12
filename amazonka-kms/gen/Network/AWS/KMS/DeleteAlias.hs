@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,9 +68,9 @@ module Network.AWS.KMS.DeleteAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,9 +78,9 @@ import qualified Network.AWS.Response as Response
 data DeleteAlias = DeleteAlias'
   { -- | The alias to be deleted. The alias name must begin with @alias\/@
     -- followed by the alias name, such as @alias\/ExampleAlias@.
-    aliasName :: Prelude.Text
+    aliasName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAlias' with all optional fields omitted.
@@ -95,56 +94,54 @@ data DeleteAlias = DeleteAlias'
 -- followed by the alias name, such as @alias\/ExampleAlias@.
 newDeleteAlias ::
   -- | 'aliasName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAlias
 newDeleteAlias pAliasName_ =
   DeleteAlias' {aliasName = pAliasName_}
 
 -- | The alias to be deleted. The alias name must begin with @alias\/@
 -- followed by the alias name, such as @alias\/ExampleAlias@.
-deleteAlias_aliasName :: Lens.Lens' DeleteAlias Prelude.Text
+deleteAlias_aliasName :: Lens.Lens' DeleteAlias Core.Text
 deleteAlias_aliasName = Lens.lens (\DeleteAlias' {aliasName} -> aliasName) (\s@DeleteAlias' {} a -> s {aliasName = a} :: DeleteAlias)
 
-instance Prelude.AWSRequest DeleteAlias where
-  type Rs DeleteAlias = DeleteAliasResponse
+instance Core.AWSRequest DeleteAlias where
+  type AWSResponse DeleteAlias = DeleteAliasResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteAliasResponse'
 
-instance Prelude.Hashable DeleteAlias
+instance Core.Hashable DeleteAlias
 
-instance Prelude.NFData DeleteAlias
+instance Core.NFData DeleteAlias
 
-instance Prelude.ToHeaders DeleteAlias where
+instance Core.ToHeaders DeleteAlias where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.DeleteAlias" :: Prelude.ByteString),
+              Core.=# ("TrentService.DeleteAlias" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAlias where
+instance Core.ToJSON DeleteAlias where
   toJSON DeleteAlias' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("AliasName" Prelude..= aliasName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AliasName" Core..= aliasName)]
       )
 
-instance Prelude.ToPath DeleteAlias where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAlias where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAlias where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAliasResponse' smart constructor.
 data DeleteAliasResponse = DeleteAliasResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAliasResponse' with all optional fields omitted.
@@ -154,4 +151,4 @@ newDeleteAliasResponse ::
   DeleteAliasResponse
 newDeleteAliasResponse = DeleteAliasResponse'
 
-instance Prelude.NFData DeleteAliasResponse
+instance Core.NFData DeleteAliasResponse

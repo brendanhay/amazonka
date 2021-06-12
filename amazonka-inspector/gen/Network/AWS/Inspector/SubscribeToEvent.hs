@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.Inspector.SubscribeToEvent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,13 +48,13 @@ import qualified Network.AWS.Response as Response
 data SubscribeToEvent = SubscribeToEvent'
   { -- | The ARN of the assessment template that is used during the event for
     -- which you want to receive SNS notifications.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | The event for which you want to receive SNS notifications.
     event :: InspectorEvent,
     -- | The ARN of the SNS topic to which the SNS notifications are sent.
-    topicArn :: Prelude.Text
+    topicArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubscribeToEvent' with all optional fields omitted.
@@ -73,11 +72,11 @@ data SubscribeToEvent = SubscribeToEvent'
 -- 'topicArn', 'subscribeToEvent_topicArn' - The ARN of the SNS topic to which the SNS notifications are sent.
 newSubscribeToEvent ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'event'
   InspectorEvent ->
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   SubscribeToEvent
 newSubscribeToEvent pResourceArn_ pEvent_ pTopicArn_ =
   SubscribeToEvent'
@@ -88,7 +87,7 @@ newSubscribeToEvent pResourceArn_ pEvent_ pTopicArn_ =
 
 -- | The ARN of the assessment template that is used during the event for
 -- which you want to receive SNS notifications.
-subscribeToEvent_resourceArn :: Lens.Lens' SubscribeToEvent Prelude.Text
+subscribeToEvent_resourceArn :: Lens.Lens' SubscribeToEvent Core.Text
 subscribeToEvent_resourceArn = Lens.lens (\SubscribeToEvent' {resourceArn} -> resourceArn) (\s@SubscribeToEvent' {} a -> s {resourceArn = a} :: SubscribeToEvent)
 
 -- | The event for which you want to receive SNS notifications.
@@ -96,55 +95,55 @@ subscribeToEvent_event :: Lens.Lens' SubscribeToEvent InspectorEvent
 subscribeToEvent_event = Lens.lens (\SubscribeToEvent' {event} -> event) (\s@SubscribeToEvent' {} a -> s {event = a} :: SubscribeToEvent)
 
 -- | The ARN of the SNS topic to which the SNS notifications are sent.
-subscribeToEvent_topicArn :: Lens.Lens' SubscribeToEvent Prelude.Text
+subscribeToEvent_topicArn :: Lens.Lens' SubscribeToEvent Core.Text
 subscribeToEvent_topicArn = Lens.lens (\SubscribeToEvent' {topicArn} -> topicArn) (\s@SubscribeToEvent' {} a -> s {topicArn = a} :: SubscribeToEvent)
 
-instance Prelude.AWSRequest SubscribeToEvent where
-  type Rs SubscribeToEvent = SubscribeToEventResponse
+instance Core.AWSRequest SubscribeToEvent where
+  type
+    AWSResponse SubscribeToEvent =
+      SubscribeToEventResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull SubscribeToEventResponse'
 
-instance Prelude.Hashable SubscribeToEvent
+instance Core.Hashable SubscribeToEvent
 
-instance Prelude.NFData SubscribeToEvent
+instance Core.NFData SubscribeToEvent
 
-instance Prelude.ToHeaders SubscribeToEvent where
+instance Core.ToHeaders SubscribeToEvent where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.SubscribeToEvent" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.SubscribeToEvent" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SubscribeToEvent where
+instance Core.ToJSON SubscribeToEvent where
   toJSON SubscribeToEvent' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("resourceArn" Prelude..= resourceArn),
-            Prelude.Just ("event" Prelude..= event),
-            Prelude.Just ("topicArn" Prelude..= topicArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceArn" Core..= resourceArn),
+            Core.Just ("event" Core..= event),
+            Core.Just ("topicArn" Core..= topicArn)
           ]
       )
 
-instance Prelude.ToPath SubscribeToEvent where
-  toPath = Prelude.const "/"
+instance Core.ToPath SubscribeToEvent where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SubscribeToEvent where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SubscribeToEvent where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSubscribeToEventResponse' smart constructor.
 data SubscribeToEventResponse = SubscribeToEventResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubscribeToEventResponse' with all optional fields omitted.
@@ -155,4 +154,4 @@ newSubscribeToEventResponse ::
 newSubscribeToEventResponse =
   SubscribeToEventResponse'
 
-instance Prelude.NFData SubscribeToEventResponse
+instance Core.NFData SubscribeToEventResponse

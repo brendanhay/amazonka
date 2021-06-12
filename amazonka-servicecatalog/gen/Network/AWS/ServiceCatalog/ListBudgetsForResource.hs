@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.ServiceCatalog.ListBudgetsForResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -53,10 +52,10 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newListBudgetsForResource' smart constructor.
 data ListBudgetsForResource = ListBudgetsForResource'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -64,11 +63,11 @@ data ListBudgetsForResource = ListBudgetsForResource'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The resource identifier.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBudgetsForResource' with all optional fields omitted.
@@ -94,23 +93,23 @@ data ListBudgetsForResource = ListBudgetsForResource'
 -- 'resourceId', 'listBudgetsForResource_resourceId' - The resource identifier.
 newListBudgetsForResource ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   ListBudgetsForResource
 newListBudgetsForResource pResourceId_ =
   ListBudgetsForResource'
-    { pageSize = Prelude.Nothing,
-      pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+    { pageSize = Core.Nothing,
+      pageToken = Core.Nothing,
+      acceptLanguage = Core.Nothing,
       resourceId = pResourceId_
     }
 
 -- | The maximum number of items to return with this call.
-listBudgetsForResource_pageSize :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Natural)
+listBudgetsForResource_pageSize :: Lens.Lens' ListBudgetsForResource (Core.Maybe Core.Natural)
 listBudgetsForResource_pageSize = Lens.lens (\ListBudgetsForResource' {pageSize} -> pageSize) (\s@ListBudgetsForResource' {} a -> s {pageSize = a} :: ListBudgetsForResource)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-listBudgetsForResource_pageToken :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
+listBudgetsForResource_pageToken :: Lens.Lens' ListBudgetsForResource (Core.Maybe Core.Text)
 listBudgetsForResource_pageToken = Lens.lens (\ListBudgetsForResource' {pageToken} -> pageToken) (\s@ListBudgetsForResource' {} a -> s {pageToken = a} :: ListBudgetsForResource)
 
 -- | The language code.
@@ -120,75 +119,72 @@ listBudgetsForResource_pageToken = Lens.lens (\ListBudgetsForResource' {pageToke
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-listBudgetsForResource_acceptLanguage :: Lens.Lens' ListBudgetsForResource (Prelude.Maybe Prelude.Text)
+listBudgetsForResource_acceptLanguage :: Lens.Lens' ListBudgetsForResource (Core.Maybe Core.Text)
 listBudgetsForResource_acceptLanguage = Lens.lens (\ListBudgetsForResource' {acceptLanguage} -> acceptLanguage) (\s@ListBudgetsForResource' {} a -> s {acceptLanguage = a} :: ListBudgetsForResource)
 
 -- | The resource identifier.
-listBudgetsForResource_resourceId :: Lens.Lens' ListBudgetsForResource Prelude.Text
+listBudgetsForResource_resourceId :: Lens.Lens' ListBudgetsForResource Core.Text
 listBudgetsForResource_resourceId = Lens.lens (\ListBudgetsForResource' {resourceId} -> resourceId) (\s@ListBudgetsForResource' {} a -> s {resourceId = a} :: ListBudgetsForResource)
 
-instance Prelude.AWSRequest ListBudgetsForResource where
+instance Core.AWSRequest ListBudgetsForResource where
   type
-    Rs ListBudgetsForResource =
+    AWSResponse ListBudgetsForResource =
       ListBudgetsForResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListBudgetsForResourceResponse'
-            Prelude.<$> (x Prelude..?> "NextPageToken")
-            Prelude.<*> (x Prelude..?> "Budgets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextPageToken")
+            Core.<*> (x Core..?> "Budgets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListBudgetsForResource
+instance Core.Hashable ListBudgetsForResource
 
-instance Prelude.NFData ListBudgetsForResource
+instance Core.NFData ListBudgetsForResource
 
-instance Prelude.ToHeaders ListBudgetsForResource where
+instance Core.ToHeaders ListBudgetsForResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.ListBudgetsForResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.ListBudgetsForResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListBudgetsForResource where
+instance Core.ToJSON ListBudgetsForResource where
   toJSON ListBudgetsForResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
-            ("PageToken" Prelude..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("ResourceId" Prelude..= resourceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
-instance Prelude.ToPath ListBudgetsForResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListBudgetsForResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListBudgetsForResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListBudgetsForResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListBudgetsForResourceResponse' smart constructor.
 data ListBudgetsForResourceResponse = ListBudgetsForResourceResponse'
   { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | Information about the associated budgets.
-    budgets :: Prelude.Maybe [BudgetDetail],
+    budgets :: Core.Maybe [BudgetDetail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListBudgetsForResourceResponse' with all optional fields omitted.
@@ -206,29 +202,27 @@ data ListBudgetsForResourceResponse = ListBudgetsForResourceResponse'
 -- 'httpStatus', 'listBudgetsForResourceResponse_httpStatus' - The response's http status code.
 newListBudgetsForResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListBudgetsForResourceResponse
 newListBudgetsForResourceResponse pHttpStatus_ =
   ListBudgetsForResourceResponse'
     { nextPageToken =
-        Prelude.Nothing,
-      budgets = Prelude.Nothing,
+        Core.Nothing,
+      budgets = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-listBudgetsForResourceResponse_nextPageToken :: Lens.Lens' ListBudgetsForResourceResponse (Prelude.Maybe Prelude.Text)
+listBudgetsForResourceResponse_nextPageToken :: Lens.Lens' ListBudgetsForResourceResponse (Core.Maybe Core.Text)
 listBudgetsForResourceResponse_nextPageToken = Lens.lens (\ListBudgetsForResourceResponse' {nextPageToken} -> nextPageToken) (\s@ListBudgetsForResourceResponse' {} a -> s {nextPageToken = a} :: ListBudgetsForResourceResponse)
 
 -- | Information about the associated budgets.
-listBudgetsForResourceResponse_budgets :: Lens.Lens' ListBudgetsForResourceResponse (Prelude.Maybe [BudgetDetail])
-listBudgetsForResourceResponse_budgets = Lens.lens (\ListBudgetsForResourceResponse' {budgets} -> budgets) (\s@ListBudgetsForResourceResponse' {} a -> s {budgets = a} :: ListBudgetsForResourceResponse) Prelude.. Lens.mapping Prelude._Coerce
+listBudgetsForResourceResponse_budgets :: Lens.Lens' ListBudgetsForResourceResponse (Core.Maybe [BudgetDetail])
+listBudgetsForResourceResponse_budgets = Lens.lens (\ListBudgetsForResourceResponse' {budgets} -> budgets) (\s@ListBudgetsForResourceResponse' {} a -> s {budgets = a} :: ListBudgetsForResourceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listBudgetsForResourceResponse_httpStatus :: Lens.Lens' ListBudgetsForResourceResponse Prelude.Int
+listBudgetsForResourceResponse_httpStatus :: Lens.Lens' ListBudgetsForResourceResponse Core.Int
 listBudgetsForResourceResponse_httpStatus = Lens.lens (\ListBudgetsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListBudgetsForResourceResponse' {} a -> s {httpStatus = a} :: ListBudgetsForResourceResponse)
 
-instance
-  Prelude.NFData
-    ListBudgetsForResourceResponse
+instance Core.NFData ListBudgetsForResourceResponse

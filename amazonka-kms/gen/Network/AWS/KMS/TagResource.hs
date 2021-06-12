@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -76,9 +75,9 @@ module Network.AWS.KMS.TagResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -96,7 +95,7 @@ data TagResource = TagResource'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Text,
+    keyId :: Core.Text,
     -- | One or more tags.
     --
     -- Each tag consists of a tag key and a tag value. The tag value can be an
@@ -107,7 +106,7 @@ data TagResource = TagResource'
     -- the current tag value with the specified one.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -140,13 +139,10 @@ data TagResource = TagResource'
 -- the current tag value with the specified one.
 newTagResource ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   TagResource
 newTagResource pKeyId_ =
-  TagResource'
-    { keyId = pKeyId_,
-      tags = Prelude.mempty
-    }
+  TagResource' {keyId = pKeyId_, tags = Core.mempty}
 
 -- | Identifies a customer managed CMK in the account and Region.
 --
@@ -160,7 +156,7 @@ newTagResource pKeyId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-tagResource_keyId :: Lens.Lens' TagResource Prelude.Text
+tagResource_keyId :: Lens.Lens' TagResource Core.Text
 tagResource_keyId = Lens.lens (\TagResource' {keyId} -> keyId) (\s@TagResource' {} a -> s {keyId = a} :: TagResource)
 
 -- | One or more tags.
@@ -172,50 +168,48 @@ tagResource_keyId = Lens.lens (\TagResource' {keyId} -> keyId) (\s@TagResource' 
 -- specify an existing tag key with a different tag value, AWS KMS replaces
 -- the current tag value with the specified one.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Prelude._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
+instance Core.AWSRequest TagResource where
+  type AWSResponse TagResource = TagResourceResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull TagResourceResponse'
 
-instance Prelude.Hashable TagResource
+instance Core.Hashable TagResource
 
-instance Prelude.NFData TagResource
+instance Core.NFData TagResource
 
-instance Prelude.ToHeaders TagResource where
+instance Core.ToHeaders TagResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.TagResource" :: Prelude.ByteString),
+              Core.=# ("TrentService.TagResource" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TagResource where
+instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("KeyId" Prelude..= keyId),
-            Prelude.Just ("Tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("Tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath TagResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -225,4 +219,4 @@ newTagResourceResponse ::
   TagResourceResponse
 newTagResourceResponse = TagResourceResponse'
 
-instance Prelude.NFData TagResourceResponse
+instance Core.NFData TagResourceResponse

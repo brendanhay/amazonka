@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,20 +44,20 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetTimeBasedAutoScaling' smart constructor.
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
   { -- | An @AutoScalingSchedule@ with the instance schedule.
-    autoScalingSchedule :: Prelude.Maybe WeeklyAutoScalingSchedule,
+    autoScalingSchedule :: Core.Maybe WeeklyAutoScalingSchedule,
     -- | The instance ID.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetTimeBasedAutoScaling' with all optional fields omitted.
@@ -73,72 +72,70 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
 -- 'instanceId', 'setTimeBasedAutoScaling_instanceId' - The instance ID.
 newSetTimeBasedAutoScaling ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   SetTimeBasedAutoScaling
 newSetTimeBasedAutoScaling pInstanceId_ =
   SetTimeBasedAutoScaling'
     { autoScalingSchedule =
-        Prelude.Nothing,
+        Core.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | An @AutoScalingSchedule@ with the instance schedule.
-setTimeBasedAutoScaling_autoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Prelude.Maybe WeeklyAutoScalingSchedule)
+setTimeBasedAutoScaling_autoScalingSchedule :: Lens.Lens' SetTimeBasedAutoScaling (Core.Maybe WeeklyAutoScalingSchedule)
 setTimeBasedAutoScaling_autoScalingSchedule = Lens.lens (\SetTimeBasedAutoScaling' {autoScalingSchedule} -> autoScalingSchedule) (\s@SetTimeBasedAutoScaling' {} a -> s {autoScalingSchedule = a} :: SetTimeBasedAutoScaling)
 
 -- | The instance ID.
-setTimeBasedAutoScaling_instanceId :: Lens.Lens' SetTimeBasedAutoScaling Prelude.Text
+setTimeBasedAutoScaling_instanceId :: Lens.Lens' SetTimeBasedAutoScaling Core.Text
 setTimeBasedAutoScaling_instanceId = Lens.lens (\SetTimeBasedAutoScaling' {instanceId} -> instanceId) (\s@SetTimeBasedAutoScaling' {} a -> s {instanceId = a} :: SetTimeBasedAutoScaling)
 
-instance Prelude.AWSRequest SetTimeBasedAutoScaling where
+instance Core.AWSRequest SetTimeBasedAutoScaling where
   type
-    Rs SetTimeBasedAutoScaling =
+    AWSResponse SetTimeBasedAutoScaling =
       SetTimeBasedAutoScalingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       SetTimeBasedAutoScalingResponse'
 
-instance Prelude.Hashable SetTimeBasedAutoScaling
+instance Core.Hashable SetTimeBasedAutoScaling
 
-instance Prelude.NFData SetTimeBasedAutoScaling
+instance Core.NFData SetTimeBasedAutoScaling
 
-instance Prelude.ToHeaders SetTimeBasedAutoScaling where
+instance Core.ToHeaders SetTimeBasedAutoScaling where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.SetTimeBasedAutoScaling" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.SetTimeBasedAutoScaling" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SetTimeBasedAutoScaling where
+instance Core.ToJSON SetTimeBasedAutoScaling where
   toJSON SetTimeBasedAutoScaling' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AutoScalingSchedule" Prelude..=)
-              Prelude.<$> autoScalingSchedule,
-            Prelude.Just ("InstanceId" Prelude..= instanceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("AutoScalingSchedule" Core..=)
+              Core.<$> autoScalingSchedule,
+            Core.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
-instance Prelude.ToPath SetTimeBasedAutoScaling where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetTimeBasedAutoScaling where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetTimeBasedAutoScaling where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SetTimeBasedAutoScaling where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSetTimeBasedAutoScalingResponse' smart constructor.
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetTimeBasedAutoScalingResponse' with all optional fields omitted.
@@ -149,6 +146,4 @@ newSetTimeBasedAutoScalingResponse ::
 newSetTimeBasedAutoScalingResponse =
   SetTimeBasedAutoScalingResponse'
 
-instance
-  Prelude.NFData
-    SetTimeBasedAutoScalingResponse
+instance Core.NFData SetTimeBasedAutoScalingResponse

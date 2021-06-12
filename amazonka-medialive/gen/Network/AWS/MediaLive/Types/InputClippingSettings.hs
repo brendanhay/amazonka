@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputClippingSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputTimecodeSource
 import Network.AWS.MediaLive.Types.StartTimecode
 import Network.AWS.MediaLive.Types.StopTimecode
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to let you create a clip of the file input, in order to set up
 -- the input to ingest only a portion of the file.
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInputClippingSettings' smart constructor.
 data InputClippingSettings = InputClippingSettings'
   { -- | Settings to identify the start of the clip.
-    startTimecode :: Prelude.Maybe StartTimecode,
+    startTimecode :: Core.Maybe StartTimecode,
     -- | Settings to identify the end of the clip.
-    stopTimecode :: Prelude.Maybe StopTimecode,
+    stopTimecode :: Core.Maybe StopTimecode,
     -- | The source of the timecodes in the source being clipped.
     inputTimecodeSource :: InputTimecodeSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputClippingSettings' with all optional fields omitted.
@@ -60,48 +59,45 @@ newInputClippingSettings ::
 newInputClippingSettings pInputTimecodeSource_ =
   InputClippingSettings'
     { startTimecode =
-        Prelude.Nothing,
-      stopTimecode = Prelude.Nothing,
+        Core.Nothing,
+      stopTimecode = Core.Nothing,
       inputTimecodeSource = pInputTimecodeSource_
     }
 
 -- | Settings to identify the start of the clip.
-inputClippingSettings_startTimecode :: Lens.Lens' InputClippingSettings (Prelude.Maybe StartTimecode)
+inputClippingSettings_startTimecode :: Lens.Lens' InputClippingSettings (Core.Maybe StartTimecode)
 inputClippingSettings_startTimecode = Lens.lens (\InputClippingSettings' {startTimecode} -> startTimecode) (\s@InputClippingSettings' {} a -> s {startTimecode = a} :: InputClippingSettings)
 
 -- | Settings to identify the end of the clip.
-inputClippingSettings_stopTimecode :: Lens.Lens' InputClippingSettings (Prelude.Maybe StopTimecode)
+inputClippingSettings_stopTimecode :: Lens.Lens' InputClippingSettings (Core.Maybe StopTimecode)
 inputClippingSettings_stopTimecode = Lens.lens (\InputClippingSettings' {stopTimecode} -> stopTimecode) (\s@InputClippingSettings' {} a -> s {stopTimecode = a} :: InputClippingSettings)
 
 -- | The source of the timecodes in the source being clipped.
 inputClippingSettings_inputTimecodeSource :: Lens.Lens' InputClippingSettings InputTimecodeSource
 inputClippingSettings_inputTimecodeSource = Lens.lens (\InputClippingSettings' {inputTimecodeSource} -> inputTimecodeSource) (\s@InputClippingSettings' {} a -> s {inputTimecodeSource = a} :: InputClippingSettings)
 
-instance Prelude.FromJSON InputClippingSettings where
+instance Core.FromJSON InputClippingSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputClippingSettings"
       ( \x ->
           InputClippingSettings'
-            Prelude.<$> (x Prelude..:? "startTimecode")
-            Prelude.<*> (x Prelude..:? "stopTimecode")
-            Prelude.<*> (x Prelude..: "inputTimecodeSource")
+            Core.<$> (x Core..:? "startTimecode")
+            Core.<*> (x Core..:? "stopTimecode")
+            Core.<*> (x Core..: "inputTimecodeSource")
       )
 
-instance Prelude.Hashable InputClippingSettings
+instance Core.Hashable InputClippingSettings
 
-instance Prelude.NFData InputClippingSettings
+instance Core.NFData InputClippingSettings
 
-instance Prelude.ToJSON InputClippingSettings where
+instance Core.ToJSON InputClippingSettings where
   toJSON InputClippingSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("startTimecode" Prelude..=)
-              Prelude.<$> startTimecode,
-            ("stopTimecode" Prelude..=) Prelude.<$> stopTimecode,
-            Prelude.Just
-              ( "inputTimecodeSource"
-                  Prelude..= inputTimecodeSource
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("startTimecode" Core..=) Core.<$> startTimecode,
+            ("stopTimecode" Core..=) Core.<$> stopTimecode,
+            Core.Just
+              ("inputTimecodeSource" Core..= inputTimecodeSource)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,8 +72,8 @@ module Network.AWS.STS.DecodeAuthorizationMessage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -82,9 +81,9 @@ import Network.AWS.STS.Types
 -- | /See:/ 'newDecodeAuthorizationMessage' smart constructor.
 data DecodeAuthorizationMessage = DecodeAuthorizationMessage'
   { -- | The encoded message that was returned with the response.
-    encodedMessage :: Prelude.Text
+    encodedMessage :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecodeAuthorizationMessage' with all optional fields omitted.
@@ -97,7 +96,7 @@ data DecodeAuthorizationMessage = DecodeAuthorizationMessage'
 -- 'encodedMessage', 'decodeAuthorizationMessage_encodedMessage' - The encoded message that was returned with the response.
 newDecodeAuthorizationMessage ::
   -- | 'encodedMessage'
-  Prelude.Text ->
+  Core.Text ->
   DecodeAuthorizationMessage
 newDecodeAuthorizationMessage pEncodedMessage_ =
   DecodeAuthorizationMessage'
@@ -106,15 +105,12 @@ newDecodeAuthorizationMessage pEncodedMessage_ =
     }
 
 -- | The encoded message that was returned with the response.
-decodeAuthorizationMessage_encodedMessage :: Lens.Lens' DecodeAuthorizationMessage Prelude.Text
+decodeAuthorizationMessage_encodedMessage :: Lens.Lens' DecodeAuthorizationMessage Core.Text
 decodeAuthorizationMessage_encodedMessage = Lens.lens (\DecodeAuthorizationMessage' {encodedMessage} -> encodedMessage) (\s@DecodeAuthorizationMessage' {} a -> s {encodedMessage = a} :: DecodeAuthorizationMessage)
 
-instance
-  Prelude.AWSRequest
-    DecodeAuthorizationMessage
-  where
+instance Core.AWSRequest DecodeAuthorizationMessage where
   type
-    Rs DecodeAuthorizationMessage =
+    AWSResponse DecodeAuthorizationMessage =
       DecodeAuthorizationMessageResponse
   request = Request.postQuery defaultService
   response =
@@ -122,28 +118,27 @@ instance
       "DecodeAuthorizationMessageResult"
       ( \s h x ->
           DecodeAuthorizationMessageResponse'
-            Prelude.<$> (x Prelude..@? "DecodedMessage")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DecodedMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DecodeAuthorizationMessage
+instance Core.Hashable DecodeAuthorizationMessage
 
-instance Prelude.NFData DecodeAuthorizationMessage
+instance Core.NFData DecodeAuthorizationMessage
 
-instance Prelude.ToHeaders DecodeAuthorizationMessage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DecodeAuthorizationMessage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DecodeAuthorizationMessage where
-  toPath = Prelude.const "/"
+instance Core.ToPath DecodeAuthorizationMessage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DecodeAuthorizationMessage where
+instance Core.ToQuery DecodeAuthorizationMessage where
   toQuery DecodeAuthorizationMessage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DecodeAuthorizationMessage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-06-15" :: Prelude.ByteString),
-        "EncodedMessage" Prelude.=: encodedMessage
+          Core.=: ("DecodeAuthorizationMessage" :: Core.ByteString),
+        "Version" Core.=: ("2011-06-15" :: Core.ByteString),
+        "EncodedMessage" Core.=: encodedMessage
       ]
 
 -- | A document that contains additional information about the authorization
@@ -153,11 +148,11 @@ instance Prelude.ToQuery DecodeAuthorizationMessage where
 -- /See:/ 'newDecodeAuthorizationMessageResponse' smart constructor.
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
   { -- | An XML document that contains the decoded message.
-    decodedMessage :: Prelude.Maybe Prelude.Text,
+    decodedMessage :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecodeAuthorizationMessageResponse' with all optional fields omitted.
@@ -172,23 +167,23 @@ data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
 -- 'httpStatus', 'decodeAuthorizationMessageResponse_httpStatus' - The response's http status code.
 newDecodeAuthorizationMessageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DecodeAuthorizationMessageResponse
 newDecodeAuthorizationMessageResponse pHttpStatus_ =
   DecodeAuthorizationMessageResponse'
     { decodedMessage =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An XML document that contains the decoded message.
-decodeAuthorizationMessageResponse_decodedMessage :: Lens.Lens' DecodeAuthorizationMessageResponse (Prelude.Maybe Prelude.Text)
+decodeAuthorizationMessageResponse_decodedMessage :: Lens.Lens' DecodeAuthorizationMessageResponse (Core.Maybe Core.Text)
 decodeAuthorizationMessageResponse_decodedMessage = Lens.lens (\DecodeAuthorizationMessageResponse' {decodedMessage} -> decodedMessage) (\s@DecodeAuthorizationMessageResponse' {} a -> s {decodedMessage = a} :: DecodeAuthorizationMessageResponse)
 
 -- | The response's http status code.
-decodeAuthorizationMessageResponse_httpStatus :: Lens.Lens' DecodeAuthorizationMessageResponse Prelude.Int
+decodeAuthorizationMessageResponse_httpStatus :: Lens.Lens' DecodeAuthorizationMessageResponse Core.Int
 decodeAuthorizationMessageResponse_httpStatus = Lens.lens (\DecodeAuthorizationMessageResponse' {httpStatus} -> httpStatus) (\s@DecodeAuthorizationMessageResponse' {} a -> s {httpStatus = a} :: DecodeAuthorizationMessageResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DecodeAuthorizationMessageResponse

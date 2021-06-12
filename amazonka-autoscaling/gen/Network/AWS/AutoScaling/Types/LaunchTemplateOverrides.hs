@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AutoScaling.Types.LaunchTemplateOverrides where
 
 import Network.AWS.AutoScaling.Types.LaunchTemplateSpecification
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an override for a launch template. The maximum number of
 -- instance types that can be associated with an Auto Scaling group is 40.
@@ -39,7 +38,7 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | Provides the launch template to be used when launching the instance
     -- type. For example, some instance types might require a launch template
     -- with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the
@@ -47,7 +46,7 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- more information, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-template-overrides.html Specifying a different launch template for an instance type>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    launchTemplateSpecification :: Prelude.Maybe LaunchTemplateSpecification,
+    launchTemplateSpecification :: Core.Maybe LaunchTemplateSpecification,
     -- | The number of capacity units provided by the specified instance type in
     -- terms of virtual CPUs, memory, storage, throughput, or other relative
     -- performance characteristic. When a Spot or On-Demand Instance is
@@ -61,9 +60,9 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance weighting for Amazon EC2 Auto Scaling>
     -- in the /Amazon EC2 Auto Scaling User Guide/. Value must be in the range
     -- of 1 to 999.
-    weightedCapacity :: Prelude.Maybe Prelude.Text
+    weightedCapacity :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateOverrides' with all optional fields omitted.
@@ -105,9 +104,9 @@ newLaunchTemplateOverrides ::
 newLaunchTemplateOverrides =
   LaunchTemplateOverrides'
     { instanceType =
-        Prelude.Nothing,
-      launchTemplateSpecification = Prelude.Nothing,
-      weightedCapacity = Prelude.Nothing
+        Core.Nothing,
+      launchTemplateSpecification = Core.Nothing,
+      weightedCapacity = Core.Nothing
     }
 
 -- | The instance type, such as @m3.xlarge@. You must use an instance type
@@ -115,7 +114,7 @@ newLaunchTemplateOverrides =
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-launchTemplateOverrides_instanceType :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+launchTemplateOverrides_instanceType :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe Core.Text)
 launchTemplateOverrides_instanceType = Lens.lens (\LaunchTemplateOverrides' {instanceType} -> instanceType) (\s@LaunchTemplateOverrides' {} a -> s {instanceType = a} :: LaunchTemplateOverrides)
 
 -- | Provides the launch template to be used when launching the instance
@@ -125,7 +124,7 @@ launchTemplateOverrides_instanceType = Lens.lens (\LaunchTemplateOverrides' {ins
 -- more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-template-overrides.html Specifying a different launch template for an instance type>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-launchTemplateOverrides_launchTemplateSpecification :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe LaunchTemplateSpecification)
+launchTemplateOverrides_launchTemplateSpecification :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe LaunchTemplateSpecification)
 launchTemplateOverrides_launchTemplateSpecification = Lens.lens (\LaunchTemplateOverrides' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateOverrides' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateOverrides)
 
 -- | The number of capacity units provided by the specified instance type in
@@ -141,25 +140,25 @@ launchTemplateOverrides_launchTemplateSpecification = Lens.lens (\LaunchTemplate
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance weighting for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/. Value must be in the range
 -- of 1 to 999.
-launchTemplateOverrides_weightedCapacity :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+launchTemplateOverrides_weightedCapacity :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe Core.Text)
 launchTemplateOverrides_weightedCapacity = Lens.lens (\LaunchTemplateOverrides' {weightedCapacity} -> weightedCapacity) (\s@LaunchTemplateOverrides' {} a -> s {weightedCapacity = a} :: LaunchTemplateOverrides)
 
-instance Prelude.FromXML LaunchTemplateOverrides where
+instance Core.FromXML LaunchTemplateOverrides where
   parseXML x =
     LaunchTemplateOverrides'
-      Prelude.<$> (x Prelude..@? "InstanceType")
-      Prelude.<*> (x Prelude..@? "LaunchTemplateSpecification")
-      Prelude.<*> (x Prelude..@? "WeightedCapacity")
+      Core.<$> (x Core..@? "InstanceType")
+      Core.<*> (x Core..@? "LaunchTemplateSpecification")
+      Core.<*> (x Core..@? "WeightedCapacity")
 
-instance Prelude.Hashable LaunchTemplateOverrides
+instance Core.Hashable LaunchTemplateOverrides
 
-instance Prelude.NFData LaunchTemplateOverrides
+instance Core.NFData LaunchTemplateOverrides
 
-instance Prelude.ToQuery LaunchTemplateOverrides where
+instance Core.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =
-    Prelude.mconcat
-      [ "InstanceType" Prelude.=: instanceType,
+    Core.mconcat
+      [ "InstanceType" Core.=: instanceType,
         "LaunchTemplateSpecification"
-          Prelude.=: launchTemplateSpecification,
-        "WeightedCapacity" Prelude.=: weightedCapacity
+          Core.=: launchTemplateSpecification,
+        "WeightedCapacity" Core.=: weightedCapacity
       ]

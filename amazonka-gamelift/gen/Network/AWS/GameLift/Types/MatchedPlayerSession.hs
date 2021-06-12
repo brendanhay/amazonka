@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.MatchedPlayerSession where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a new player session that is created as a result of a
 -- successful FlexMatch match. A successful match automatically creates new
@@ -34,11 +33,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMatchedPlayerSession' smart constructor.
 data MatchedPlayerSession = MatchedPlayerSession'
   { -- | A unique identifier for a player
-    playerId :: Prelude.Maybe Prelude.Text,
+    playerId :: Core.Maybe Core.Text,
     -- | A unique identifier for a player session
-    playerSessionId :: Prelude.Maybe Prelude.Text
+    playerSessionId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MatchedPlayerSession' with all optional fields omitted.
@@ -55,28 +54,28 @@ newMatchedPlayerSession ::
   MatchedPlayerSession
 newMatchedPlayerSession =
   MatchedPlayerSession'
-    { playerId = Prelude.Nothing,
-      playerSessionId = Prelude.Nothing
+    { playerId = Core.Nothing,
+      playerSessionId = Core.Nothing
     }
 
 -- | A unique identifier for a player
-matchedPlayerSession_playerId :: Lens.Lens' MatchedPlayerSession (Prelude.Maybe Prelude.Text)
+matchedPlayerSession_playerId :: Lens.Lens' MatchedPlayerSession (Core.Maybe Core.Text)
 matchedPlayerSession_playerId = Lens.lens (\MatchedPlayerSession' {playerId} -> playerId) (\s@MatchedPlayerSession' {} a -> s {playerId = a} :: MatchedPlayerSession)
 
 -- | A unique identifier for a player session
-matchedPlayerSession_playerSessionId :: Lens.Lens' MatchedPlayerSession (Prelude.Maybe Prelude.Text)
+matchedPlayerSession_playerSessionId :: Lens.Lens' MatchedPlayerSession (Core.Maybe Core.Text)
 matchedPlayerSession_playerSessionId = Lens.lens (\MatchedPlayerSession' {playerSessionId} -> playerSessionId) (\s@MatchedPlayerSession' {} a -> s {playerSessionId = a} :: MatchedPlayerSession)
 
-instance Prelude.FromJSON MatchedPlayerSession where
+instance Core.FromJSON MatchedPlayerSession where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MatchedPlayerSession"
       ( \x ->
           MatchedPlayerSession'
-            Prelude.<$> (x Prelude..:? "PlayerId")
-            Prelude.<*> (x Prelude..:? "PlayerSessionId")
+            Core.<$> (x Core..:? "PlayerId")
+            Core.<*> (x Core..:? "PlayerSessionId")
       )
 
-instance Prelude.Hashable MatchedPlayerSession
+instance Core.Hashable MatchedPlayerSession
 
-instance Prelude.NFData MatchedPlayerSession
+instance Core.NFData MatchedPlayerSession

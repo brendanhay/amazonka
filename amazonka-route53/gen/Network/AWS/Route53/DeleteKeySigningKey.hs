@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Route53.DeleteKeySigningKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -54,9 +53,9 @@ data DeleteKeySigningKey = DeleteKeySigningKey'
   { -- | A unique string used to identify a hosted zone.
     hostedZoneId :: ResourceId,
     -- | A string used to identify a key-signing key (KSK).
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKeySigningKey' with all optional fields omitted.
@@ -73,7 +72,7 @@ newDeleteKeySigningKey ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteKeySigningKey
 newDeleteKeySigningKey pHostedZoneId_ pName_ =
   DeleteKeySigningKey'
@@ -86,48 +85,48 @@ deleteKeySigningKey_hostedZoneId :: Lens.Lens' DeleteKeySigningKey ResourceId
 deleteKeySigningKey_hostedZoneId = Lens.lens (\DeleteKeySigningKey' {hostedZoneId} -> hostedZoneId) (\s@DeleteKeySigningKey' {} a -> s {hostedZoneId = a} :: DeleteKeySigningKey)
 
 -- | A string used to identify a key-signing key (KSK).
-deleteKeySigningKey_name :: Lens.Lens' DeleteKeySigningKey Prelude.Text
+deleteKeySigningKey_name :: Lens.Lens' DeleteKeySigningKey Core.Text
 deleteKeySigningKey_name = Lens.lens (\DeleteKeySigningKey' {name} -> name) (\s@DeleteKeySigningKey' {} a -> s {name = a} :: DeleteKeySigningKey)
 
-instance Prelude.AWSRequest DeleteKeySigningKey where
+instance Core.AWSRequest DeleteKeySigningKey where
   type
-    Rs DeleteKeySigningKey =
+    AWSResponse DeleteKeySigningKey =
       DeleteKeySigningKeyResponse
   request = Request.delete defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteKeySigningKeyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ChangeInfo")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable DeleteKeySigningKey
+instance Core.Hashable DeleteKeySigningKey
 
-instance Prelude.NFData DeleteKeySigningKey
+instance Core.NFData DeleteKeySigningKey
 
-instance Prelude.ToHeaders DeleteKeySigningKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteKeySigningKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteKeySigningKey where
+instance Core.ToPath DeleteKeySigningKey where
   toPath DeleteKeySigningKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/keysigningkey/",
-        Prelude.toBS hostedZoneId,
+        Core.toBS hostedZoneId,
         "/",
-        Prelude.toBS name
+        Core.toBS name
       ]
 
-instance Prelude.ToQuery DeleteKeySigningKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteKeySigningKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteKeySigningKeyResponse' smart constructor.
 data DeleteKeySigningKeyResponse = DeleteKeySigningKeyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     changeInfo :: ChangeInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKeySigningKeyResponse' with all optional fields omitted.
@@ -142,7 +141,7 @@ data DeleteKeySigningKeyResponse = DeleteKeySigningKeyResponse'
 -- 'changeInfo', 'deleteKeySigningKeyResponse_changeInfo' - Undocumented member.
 newDeleteKeySigningKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   DeleteKeySigningKeyResponse
@@ -156,11 +155,11 @@ newDeleteKeySigningKeyResponse
       }
 
 -- | The response's http status code.
-deleteKeySigningKeyResponse_httpStatus :: Lens.Lens' DeleteKeySigningKeyResponse Prelude.Int
+deleteKeySigningKeyResponse_httpStatus :: Lens.Lens' DeleteKeySigningKeyResponse Core.Int
 deleteKeySigningKeyResponse_httpStatus = Lens.lens (\DeleteKeySigningKeyResponse' {httpStatus} -> httpStatus) (\s@DeleteKeySigningKeyResponse' {} a -> s {httpStatus = a} :: DeleteKeySigningKeyResponse)
 
 -- | Undocumented member.
 deleteKeySigningKeyResponse_changeInfo :: Lens.Lens' DeleteKeySigningKeyResponse ChangeInfo
 deleteKeySigningKeyResponse_changeInfo = Lens.lens (\DeleteKeySigningKeyResponse' {changeInfo} -> changeInfo) (\s@DeleteKeySigningKeyResponse' {} a -> s {changeInfo = a} :: DeleteKeySigningKeyResponse)
 
-instance Prelude.NFData DeleteKeySigningKeyResponse
+instance Core.NFData DeleteKeySigningKeyResponse

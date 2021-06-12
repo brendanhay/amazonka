@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.XRay.GetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -50,11 +49,11 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newGetGroup' smart constructor.
 data GetGroup = GetGroup'
   { -- | The case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The ARN of the group that was generated on creation.
-    groupARN :: Prelude.Maybe Prelude.Text
+    groupARN :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroup' with all optional fields omitted.
@@ -71,61 +70,61 @@ newGetGroup ::
   GetGroup
 newGetGroup =
   GetGroup'
-    { groupName = Prelude.Nothing,
-      groupARN = Prelude.Nothing
+    { groupName = Core.Nothing,
+      groupARN = Core.Nothing
     }
 
 -- | The case-sensitive name of the group.
-getGroup_groupName :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
+getGroup_groupName :: Lens.Lens' GetGroup (Core.Maybe Core.Text)
 getGroup_groupName = Lens.lens (\GetGroup' {groupName} -> groupName) (\s@GetGroup' {} a -> s {groupName = a} :: GetGroup)
 
 -- | The ARN of the group that was generated on creation.
-getGroup_groupARN :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
+getGroup_groupARN :: Lens.Lens' GetGroup (Core.Maybe Core.Text)
 getGroup_groupARN = Lens.lens (\GetGroup' {groupARN} -> groupARN) (\s@GetGroup' {} a -> s {groupARN = a} :: GetGroup)
 
-instance Prelude.AWSRequest GetGroup where
-  type Rs GetGroup = GetGroupResponse
+instance Core.AWSRequest GetGroup where
+  type AWSResponse GetGroup = GetGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetGroupResponse'
-            Prelude.<$> (x Prelude..?> "Group")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Group")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetGroup
+instance Core.Hashable GetGroup
 
-instance Prelude.NFData GetGroup
+instance Core.NFData GetGroup
 
-instance Prelude.ToHeaders GetGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetGroup where
+instance Core.ToJSON GetGroup where
   toJSON GetGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GroupName" Prelude..=) Prelude.<$> groupName,
-            ("GroupARN" Prelude..=) Prelude.<$> groupARN
+    Core.object
+      ( Core.catMaybes
+          [ ("GroupName" Core..=) Core.<$> groupName,
+            ("GroupARN" Core..=) Core.<$> groupARN
           ]
       )
 
-instance Prelude.ToPath GetGroup where
-  toPath = Prelude.const "/GetGroup"
+instance Core.ToPath GetGroup where
+  toPath = Core.const "/GetGroup"
 
-instance Prelude.ToQuery GetGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
   { -- | The group that was requested. Contains the name of the group, the ARN of
     -- the group, the filter expression, and the insight configuration assigned
     -- to the group.
-    group' :: Prelude.Maybe Group,
+    group' :: Core.Maybe Group,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroupResponse' with all optional fields omitted.
@@ -142,22 +141,22 @@ data GetGroupResponse = GetGroupResponse'
 -- 'httpStatus', 'getGroupResponse_httpStatus' - The response's http status code.
 newGetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetGroupResponse
 newGetGroupResponse pHttpStatus_ =
   GetGroupResponse'
-    { group' = Prelude.Nothing,
+    { group' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The group that was requested. Contains the name of the group, the ARN of
 -- the group, the filter expression, and the insight configuration assigned
 -- to the group.
-getGroupResponse_group :: Lens.Lens' GetGroupResponse (Prelude.Maybe Group)
+getGroupResponse_group :: Lens.Lens' GetGroupResponse (Core.Maybe Group)
 getGroupResponse_group = Lens.lens (\GetGroupResponse' {group'} -> group') (\s@GetGroupResponse' {} a -> s {group' = a} :: GetGroupResponse)
 
 -- | The response's http status code.
-getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Prelude.Int
+getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Core.Int
 getGroupResponse_httpStatus = Lens.lens (\GetGroupResponse' {httpStatus} -> httpStatus) (\s@GetGroupResponse' {} a -> s {httpStatus = a} :: GetGroupResponse)
 
-instance Prelude.NFData GetGroupResponse
+instance Core.NFData GetGroupResponse

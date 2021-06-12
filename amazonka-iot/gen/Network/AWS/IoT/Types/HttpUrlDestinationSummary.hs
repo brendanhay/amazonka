@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.HttpUrlDestinationSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an HTTP URL destination.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data HttpUrlDestinationSummary = HttpUrlDestinationSummary'
   { -- | The URL used to confirm ownership of or access to the HTTP topic rule
     -- destination URL.
-    confirmationUrl :: Prelude.Maybe Prelude.Text
+    confirmationUrl :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpUrlDestinationSummary' with all optional fields omitted.
@@ -48,23 +47,23 @@ newHttpUrlDestinationSummary ::
 newHttpUrlDestinationSummary =
   HttpUrlDestinationSummary'
     { confirmationUrl =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The URL used to confirm ownership of or access to the HTTP topic rule
 -- destination URL.
-httpUrlDestinationSummary_confirmationUrl :: Lens.Lens' HttpUrlDestinationSummary (Prelude.Maybe Prelude.Text)
+httpUrlDestinationSummary_confirmationUrl :: Lens.Lens' HttpUrlDestinationSummary (Core.Maybe Core.Text)
 httpUrlDestinationSummary_confirmationUrl = Lens.lens (\HttpUrlDestinationSummary' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationSummary' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationSummary)
 
-instance Prelude.FromJSON HttpUrlDestinationSummary where
+instance Core.FromJSON HttpUrlDestinationSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpUrlDestinationSummary"
       ( \x ->
           HttpUrlDestinationSummary'
-            Prelude.<$> (x Prelude..:? "confirmationUrl")
+            Core.<$> (x Core..:? "confirmationUrl")
       )
 
-instance Prelude.Hashable HttpUrlDestinationSummary
+instance Core.Hashable HttpUrlDestinationSummary
 
-instance Prelude.NFData HttpUrlDestinationSummary
+instance Core.NFData HttpUrlDestinationSummary

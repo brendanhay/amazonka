@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Violation details for AWS Network Firewall for a subnet that doesn\'t
 -- have a Firewall Manager managed firewall in its VPC.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNetworkFirewallMissingFirewallViolation' smart constructor.
 data NetworkFirewallMissingFirewallViolation = NetworkFirewallMissingFirewallViolation'
   { -- | The reason the resource has this violation, if one is available.
-    targetViolationReason :: Prelude.Maybe Prelude.Text,
+    targetViolationReason :: Core.Maybe Core.Text,
     -- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
-    violationTarget :: Prelude.Maybe Prelude.Text,
+    violationTarget :: Core.Maybe Core.Text,
     -- | The Availability Zone of a violating subnet.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The resource ID of the VPC associated with a violating subnet.
-    vpc :: Prelude.Maybe Prelude.Text
+    vpc :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkFirewallMissingFirewallViolation' with all optional fields omitted.
@@ -59,47 +58,47 @@ newNetworkFirewallMissingFirewallViolation ::
 newNetworkFirewallMissingFirewallViolation =
   NetworkFirewallMissingFirewallViolation'
     { targetViolationReason =
-        Prelude.Nothing,
-      violationTarget = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      vpc = Prelude.Nothing
+        Core.Nothing,
+      violationTarget = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      vpc = Core.Nothing
     }
 
 -- | The reason the resource has this violation, if one is available.
-networkFirewallMissingFirewallViolation_targetViolationReason :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
+networkFirewallMissingFirewallViolation_targetViolationReason :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Core.Text)
 networkFirewallMissingFirewallViolation_targetViolationReason = Lens.lens (\NetworkFirewallMissingFirewallViolation' {targetViolationReason} -> targetViolationReason) (\s@NetworkFirewallMissingFirewallViolation' {} a -> s {targetViolationReason = a} :: NetworkFirewallMissingFirewallViolation)
 
 -- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
-networkFirewallMissingFirewallViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
+networkFirewallMissingFirewallViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Core.Text)
 networkFirewallMissingFirewallViolation_violationTarget = Lens.lens (\NetworkFirewallMissingFirewallViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingFirewallViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingFirewallViolation)
 
 -- | The Availability Zone of a violating subnet.
-networkFirewallMissingFirewallViolation_availabilityZone :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
+networkFirewallMissingFirewallViolation_availabilityZone :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Core.Text)
 networkFirewallMissingFirewallViolation_availabilityZone = Lens.lens (\NetworkFirewallMissingFirewallViolation' {availabilityZone} -> availabilityZone) (\s@NetworkFirewallMissingFirewallViolation' {} a -> s {availabilityZone = a} :: NetworkFirewallMissingFirewallViolation)
 
 -- | The resource ID of the VPC associated with a violating subnet.
-networkFirewallMissingFirewallViolation_vpc :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Prelude.Maybe Prelude.Text)
+networkFirewallMissingFirewallViolation_vpc :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Core.Text)
 networkFirewallMissingFirewallViolation_vpc = Lens.lens (\NetworkFirewallMissingFirewallViolation' {vpc} -> vpc) (\s@NetworkFirewallMissingFirewallViolation' {} a -> s {vpc = a} :: NetworkFirewallMissingFirewallViolation)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     NetworkFirewallMissingFirewallViolation
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkFirewallMissingFirewallViolation"
       ( \x ->
           NetworkFirewallMissingFirewallViolation'
-            Prelude.<$> (x Prelude..:? "TargetViolationReason")
-            Prelude.<*> (x Prelude..:? "ViolationTarget")
-            Prelude.<*> (x Prelude..:? "AvailabilityZone")
-            Prelude.<*> (x Prelude..:? "VPC")
+            Core.<$> (x Core..:? "TargetViolationReason")
+            Core.<*> (x Core..:? "ViolationTarget")
+            Core.<*> (x Core..:? "AvailabilityZone")
+            Core.<*> (x Core..:? "VPC")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     NetworkFirewallMissingFirewallViolation
 
 instance
-  Prelude.NFData
+  Core.NFData
     NetworkFirewallMissingFirewallViolation

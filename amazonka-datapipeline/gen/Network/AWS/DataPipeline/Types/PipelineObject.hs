@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DataPipeline.Types.PipelineObject where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.Field
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a pipeline object. This can be a logical,
 -- physical, or physical attempt pipeline object. The complete set of
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPipelineObject' smart constructor.
 data PipelineObject = PipelineObject'
   { -- | The ID of the object.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The name of the object.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | Key-value pairs that define the properties of the object.
     fields :: [Field]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelineObject' with all optional fields omitted.
@@ -54,50 +53,50 @@ data PipelineObject = PipelineObject'
 -- 'fields', 'pipelineObject_fields' - Key-value pairs that define the properties of the object.
 newPipelineObject ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   PipelineObject
 newPipelineObject pId_ pName_ =
   PipelineObject'
     { id = pId_,
       name = pName_,
-      fields = Prelude.mempty
+      fields = Core.mempty
     }
 
 -- | The ID of the object.
-pipelineObject_id :: Lens.Lens' PipelineObject Prelude.Text
+pipelineObject_id :: Lens.Lens' PipelineObject Core.Text
 pipelineObject_id = Lens.lens (\PipelineObject' {id} -> id) (\s@PipelineObject' {} a -> s {id = a} :: PipelineObject)
 
 -- | The name of the object.
-pipelineObject_name :: Lens.Lens' PipelineObject Prelude.Text
+pipelineObject_name :: Lens.Lens' PipelineObject Core.Text
 pipelineObject_name = Lens.lens (\PipelineObject' {name} -> name) (\s@PipelineObject' {} a -> s {name = a} :: PipelineObject)
 
 -- | Key-value pairs that define the properties of the object.
 pipelineObject_fields :: Lens.Lens' PipelineObject [Field]
-pipelineObject_fields = Lens.lens (\PipelineObject' {fields} -> fields) (\s@PipelineObject' {} a -> s {fields = a} :: PipelineObject) Prelude.. Prelude._Coerce
+pipelineObject_fields = Lens.lens (\PipelineObject' {fields} -> fields) (\s@PipelineObject' {} a -> s {fields = a} :: PipelineObject) Core.. Lens._Coerce
 
-instance Prelude.FromJSON PipelineObject where
+instance Core.FromJSON PipelineObject where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelineObject"
       ( \x ->
           PipelineObject'
-            Prelude.<$> (x Prelude..: "id")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..:? "fields" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..: "id")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..:? "fields" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PipelineObject
+instance Core.Hashable PipelineObject
 
-instance Prelude.NFData PipelineObject
+instance Core.NFData PipelineObject
 
-instance Prelude.ToJSON PipelineObject where
+instance Core.ToJSON PipelineObject where
   toJSON PipelineObject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("id" Prelude..= id),
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("fields" Prelude..= fields)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            Core.Just ("name" Core..= name),
+            Core.Just ("fields" Core..= fields)
           ]
       )

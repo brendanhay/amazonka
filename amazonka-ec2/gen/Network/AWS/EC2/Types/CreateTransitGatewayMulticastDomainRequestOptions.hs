@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CreateTransitGatewayMulticastDomainRequestOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AutoAcceptSharedAssociationsValue
 import Network.AWS.EC2.Types.Igmpv2SupportValue
 import Network.AWS.EC2.Types.StaticSourcesSupportValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The options for the transit gateway multicast domain.
 --
@@ -33,16 +32,16 @@ import qualified Network.AWS.Prelude as Prelude
 data CreateTransitGatewayMulticastDomainRequestOptions = CreateTransitGatewayMulticastDomainRequestOptions'
   { -- | Specify whether to enable Internet Group Management Protocol (IGMP)
     -- version 2 for the transit gateway multicast domain.
-    igmpv2Support :: Prelude.Maybe Igmpv2SupportValue,
+    igmpv2Support :: Core.Maybe Igmpv2SupportValue,
     -- | Indicates whether to automatically accept cross-account subnet
     -- associations that are associated with the transit gateway multicast
     -- domain.
-    autoAcceptSharedAssociations :: Prelude.Maybe AutoAcceptSharedAssociationsValue,
+    autoAcceptSharedAssociations :: Core.Maybe AutoAcceptSharedAssociationsValue,
     -- | Specify whether to enable support for statically configuring multicast
     -- group sources for a domain.
-    staticSourcesSupport :: Prelude.Maybe StaticSourcesSupportValue
+    staticSourcesSupport :: Core.Maybe StaticSourcesSupportValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayMulticastDomainRequestOptions' with all optional fields omitted.
@@ -66,47 +65,46 @@ newCreateTransitGatewayMulticastDomainRequestOptions ::
 newCreateTransitGatewayMulticastDomainRequestOptions =
   CreateTransitGatewayMulticastDomainRequestOptions'
     { igmpv2Support =
-        Prelude.Nothing,
+        Core.Nothing,
       autoAcceptSharedAssociations =
-        Prelude.Nothing,
+        Core.Nothing,
       staticSourcesSupport =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specify whether to enable Internet Group Management Protocol (IGMP)
 -- version 2 for the transit gateway multicast domain.
-createTransitGatewayMulticastDomainRequestOptions_igmpv2Support :: Lens.Lens' CreateTransitGatewayMulticastDomainRequestOptions (Prelude.Maybe Igmpv2SupportValue)
+createTransitGatewayMulticastDomainRequestOptions_igmpv2Support :: Lens.Lens' CreateTransitGatewayMulticastDomainRequestOptions (Core.Maybe Igmpv2SupportValue)
 createTransitGatewayMulticastDomainRequestOptions_igmpv2Support = Lens.lens (\CreateTransitGatewayMulticastDomainRequestOptions' {igmpv2Support} -> igmpv2Support) (\s@CreateTransitGatewayMulticastDomainRequestOptions' {} a -> s {igmpv2Support = a} :: CreateTransitGatewayMulticastDomainRequestOptions)
 
 -- | Indicates whether to automatically accept cross-account subnet
 -- associations that are associated with the transit gateway multicast
 -- domain.
-createTransitGatewayMulticastDomainRequestOptions_autoAcceptSharedAssociations :: Lens.Lens' CreateTransitGatewayMulticastDomainRequestOptions (Prelude.Maybe AutoAcceptSharedAssociationsValue)
+createTransitGatewayMulticastDomainRequestOptions_autoAcceptSharedAssociations :: Lens.Lens' CreateTransitGatewayMulticastDomainRequestOptions (Core.Maybe AutoAcceptSharedAssociationsValue)
 createTransitGatewayMulticastDomainRequestOptions_autoAcceptSharedAssociations = Lens.lens (\CreateTransitGatewayMulticastDomainRequestOptions' {autoAcceptSharedAssociations} -> autoAcceptSharedAssociations) (\s@CreateTransitGatewayMulticastDomainRequestOptions' {} a -> s {autoAcceptSharedAssociations = a} :: CreateTransitGatewayMulticastDomainRequestOptions)
 
 -- | Specify whether to enable support for statically configuring multicast
 -- group sources for a domain.
-createTransitGatewayMulticastDomainRequestOptions_staticSourcesSupport :: Lens.Lens' CreateTransitGatewayMulticastDomainRequestOptions (Prelude.Maybe StaticSourcesSupportValue)
+createTransitGatewayMulticastDomainRequestOptions_staticSourcesSupport :: Lens.Lens' CreateTransitGatewayMulticastDomainRequestOptions (Core.Maybe StaticSourcesSupportValue)
 createTransitGatewayMulticastDomainRequestOptions_staticSourcesSupport = Lens.lens (\CreateTransitGatewayMulticastDomainRequestOptions' {staticSourcesSupport} -> staticSourcesSupport) (\s@CreateTransitGatewayMulticastDomainRequestOptions' {} a -> s {staticSourcesSupport = a} :: CreateTransitGatewayMulticastDomainRequestOptions)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateTransitGatewayMulticastDomainRequestOptions
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTransitGatewayMulticastDomainRequestOptions
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateTransitGatewayMulticastDomainRequestOptions
   where
   toQuery
     CreateTransitGatewayMulticastDomainRequestOptions' {..} =
-      Prelude.mconcat
-        [ "Igmpv2Support" Prelude.=: igmpv2Support,
+      Core.mconcat
+        [ "Igmpv2Support" Core.=: igmpv2Support,
           "AutoAcceptSharedAssociations"
-            Prelude.=: autoAcceptSharedAssociations,
-          "StaticSourcesSupport"
-            Prelude.=: staticSourcesSupport
+            Core.=: autoAcceptSharedAssociations,
+          "StaticSourcesSupport" Core.=: staticSourcesSupport
         ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,8 +61,8 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,13 +82,13 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
     --
     -- Please provide for a small grace period, usually no more than 5 minutes,
     -- to account for clock skew.
-    tokenDuration :: Prelude.Maybe Prelude.Natural,
+    tokenDuration :: Core.Maybe Core.Natural,
     -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | Use this operation to configure attribute mappings for custom providers.
-    principalTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    principalTags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text,
+    identityPoolId :: Core.Text,
     -- | A set of optional name-value pairs that map provider names to provider
     -- tokens. Each name-value pair represents a user from a public provider or
     -- developer provider. If the user is from a developer provider, the
@@ -100,9 +99,9 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
     -- pool. The developer user identifier is an identifier from your backend
     -- that uniquely identifies a user. When you create an identity pool, you
     -- can specify the supported logins.
-    logins :: Prelude.HashMap Prelude.Text Prelude.Text
+    logins :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOpenIdTokenForDeveloperIdentity' with all optional fields omitted.
@@ -143,17 +142,17 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
 -- can specify the supported logins.
 newGetOpenIdTokenForDeveloperIdentity ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetOpenIdTokenForDeveloperIdentity
 newGetOpenIdTokenForDeveloperIdentity
   pIdentityPoolId_ =
     GetOpenIdTokenForDeveloperIdentity'
       { tokenDuration =
-          Prelude.Nothing,
-        identityId = Prelude.Nothing,
-        principalTags = Prelude.Nothing,
+          Core.Nothing,
+        identityId = Core.Nothing,
+        principalTags = Core.Nothing,
         identityPoolId = pIdentityPoolId_,
-        logins = Prelude.mempty
+        logins = Core.mempty
       }
 
 -- | The expiration time of the token, in seconds. You can specify a custom
@@ -168,19 +167,19 @@ newGetOpenIdTokenForDeveloperIdentity
 --
 -- Please provide for a small grace period, usually no more than 5 minutes,
 -- to account for clock skew.
-getOpenIdTokenForDeveloperIdentity_tokenDuration :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Natural)
+getOpenIdTokenForDeveloperIdentity_tokenDuration :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Core.Maybe Core.Natural)
 getOpenIdTokenForDeveloperIdentity_tokenDuration = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {tokenDuration} -> tokenDuration) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {tokenDuration = a} :: GetOpenIdTokenForDeveloperIdentity)
 
 -- | A unique identifier in the format REGION:GUID.
-getOpenIdTokenForDeveloperIdentity_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe Prelude.Text)
+getOpenIdTokenForDeveloperIdentity_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Core.Maybe Core.Text)
 getOpenIdTokenForDeveloperIdentity_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentity)
 
 -- | Use this operation to configure attribute mappings for custom providers.
-getOpenIdTokenForDeveloperIdentity_principalTags :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getOpenIdTokenForDeveloperIdentity_principalTags = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {principalTags} -> principalTags) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {principalTags = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Lens.mapping Prelude._Coerce
+getOpenIdTokenForDeveloperIdentity_principalTags :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getOpenIdTokenForDeveloperIdentity_principalTags = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {principalTags} -> principalTags) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {principalTags = a} :: GetOpenIdTokenForDeveloperIdentity) Core.. Lens.mapping Lens._Coerce
 
 -- | An identity pool ID in the format REGION:GUID.
-getOpenIdTokenForDeveloperIdentity_identityPoolId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity Prelude.Text
+getOpenIdTokenForDeveloperIdentity_identityPoolId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity Core.Text
 getOpenIdTokenForDeveloperIdentity_identityPoolId = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {identityPoolId} -> identityPoolId) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {identityPoolId = a} :: GetOpenIdTokenForDeveloperIdentity)
 
 -- | A set of optional name-value pairs that map provider names to provider
@@ -193,81 +192,76 @@ getOpenIdTokenForDeveloperIdentity_identityPoolId = Lens.lens (\GetOpenIdTokenFo
 -- pool. The developer user identifier is an identifier from your backend
 -- that uniquely identifies a user. When you create an identity pool, you
 -- can specify the supported logins.
-getOpenIdTokenForDeveloperIdentity_logins :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Prelude.HashMap Prelude.Text Prelude.Text)
-getOpenIdTokenForDeveloperIdentity_logins = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {logins} -> logins) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {logins = a} :: GetOpenIdTokenForDeveloperIdentity) Prelude.. Prelude._Coerce
+getOpenIdTokenForDeveloperIdentity_logins :: Lens.Lens' GetOpenIdTokenForDeveloperIdentity (Core.HashMap Core.Text Core.Text)
+getOpenIdTokenForDeveloperIdentity_logins = Lens.lens (\GetOpenIdTokenForDeveloperIdentity' {logins} -> logins) (\s@GetOpenIdTokenForDeveloperIdentity' {} a -> s {logins = a} :: GetOpenIdTokenForDeveloperIdentity) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetOpenIdTokenForDeveloperIdentity
   where
   type
-    Rs GetOpenIdTokenForDeveloperIdentity =
+    AWSResponse GetOpenIdTokenForDeveloperIdentity =
       GetOpenIdTokenForDeveloperIdentityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetOpenIdTokenForDeveloperIdentityResponse'
-            Prelude.<$> (x Prelude..?> "IdentityId")
-              Prelude.<*> (x Prelude..?> "Token")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "IdentityId")
+            Core.<*> (x Core..?> "Token")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetOpenIdTokenForDeveloperIdentity
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetOpenIdTokenForDeveloperIdentity
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetOpenIdTokenForDeveloperIdentity
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.GetOpenIdTokenForDeveloperIdentity" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     GetOpenIdTokenForDeveloperIdentity
   where
   toJSON GetOpenIdTokenForDeveloperIdentity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TokenDuration" Prelude..=)
-              Prelude.<$> tokenDuration,
-            ("IdentityId" Prelude..=) Prelude.<$> identityId,
-            ("PrincipalTags" Prelude..=)
-              Prelude.<$> principalTags,
-            Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId),
-            Prelude.Just ("Logins" Prelude..= logins)
+    Core.object
+      ( Core.catMaybes
+          [ ("TokenDuration" Core..=) Core.<$> tokenDuration,
+            ("IdentityId" Core..=) Core.<$> identityId,
+            ("PrincipalTags" Core..=) Core.<$> principalTags,
+            Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            Core.Just ("Logins" Core..= logins)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     GetOpenIdTokenForDeveloperIdentity
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetOpenIdTokenForDeveloperIdentity
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | Returned in response to a successful
 -- @GetOpenIdTokenForDeveloperIdentity@ request.
@@ -275,13 +269,13 @@ instance
 -- /See:/ 'newGetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | An OpenID token.
-    token :: Prelude.Maybe Prelude.Text,
+    token :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOpenIdTokenForDeveloperIdentityResponse' with all optional fields omitted.
@@ -298,29 +292,29 @@ data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIden
 -- 'httpStatus', 'getOpenIdTokenForDeveloperIdentityResponse_httpStatus' - The response's http status code.
 newGetOpenIdTokenForDeveloperIdentityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetOpenIdTokenForDeveloperIdentityResponse
 newGetOpenIdTokenForDeveloperIdentityResponse
   pHttpStatus_ =
     GetOpenIdTokenForDeveloperIdentityResponse'
       { identityId =
-          Prelude.Nothing,
-        token = Prelude.Nothing,
+          Core.Nothing,
+        token = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A unique identifier in the format REGION:GUID.
-getOpenIdTokenForDeveloperIdentityResponse_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenForDeveloperIdentityResponse_identityId :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Core.Maybe Core.Text)
 getOpenIdTokenForDeveloperIdentityResponse_identityId = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {identityId} -> identityId) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {identityId = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
 
 -- | An OpenID token.
-getOpenIdTokenForDeveloperIdentityResponse_token :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenForDeveloperIdentityResponse_token :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse (Core.Maybe Core.Text)
 getOpenIdTokenForDeveloperIdentityResponse_token = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {token} -> token) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {token = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
 
 -- | The response's http status code.
-getOpenIdTokenForDeveloperIdentityResponse_httpStatus :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse Prelude.Int
+getOpenIdTokenForDeveloperIdentityResponse_httpStatus :: Lens.Lens' GetOpenIdTokenForDeveloperIdentityResponse Core.Int
 getOpenIdTokenForDeveloperIdentityResponse_httpStatus = Lens.lens (\GetOpenIdTokenForDeveloperIdentityResponse' {httpStatus} -> httpStatus) (\s@GetOpenIdTokenForDeveloperIdentityResponse' {} a -> s {httpStatus = a} :: GetOpenIdTokenForDeveloperIdentityResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetOpenIdTokenForDeveloperIdentityResponse

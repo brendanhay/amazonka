@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CodeDeploy.StopDeployment
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ data StopDeployment = StopDeployment'
   { -- | Indicates, when a deployment is stopped, whether instances that have
     -- been updated should be rolled back to the previous version of the
     -- application revision.
-    autoRollbackEnabled :: Prelude.Maybe Prelude.Bool,
+    autoRollbackEnabled :: Core.Maybe Core.Bool,
     -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Text
+    deploymentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopDeployment' with all optional fields omitted.
@@ -76,89 +75,87 @@ data StopDeployment = StopDeployment'
 -- 'deploymentId', 'stopDeployment_deploymentId' - The unique ID of a deployment.
 newStopDeployment ::
   -- | 'deploymentId'
-  Prelude.Text ->
+  Core.Text ->
   StopDeployment
 newStopDeployment pDeploymentId_ =
   StopDeployment'
-    { autoRollbackEnabled =
-        Prelude.Nothing,
+    { autoRollbackEnabled = Core.Nothing,
       deploymentId = pDeploymentId_
     }
 
 -- | Indicates, when a deployment is stopped, whether instances that have
 -- been updated should be rolled back to the previous version of the
 -- application revision.
-stopDeployment_autoRollbackEnabled :: Lens.Lens' StopDeployment (Prelude.Maybe Prelude.Bool)
+stopDeployment_autoRollbackEnabled :: Lens.Lens' StopDeployment (Core.Maybe Core.Bool)
 stopDeployment_autoRollbackEnabled = Lens.lens (\StopDeployment' {autoRollbackEnabled} -> autoRollbackEnabled) (\s@StopDeployment' {} a -> s {autoRollbackEnabled = a} :: StopDeployment)
 
 -- | The unique ID of a deployment.
-stopDeployment_deploymentId :: Lens.Lens' StopDeployment Prelude.Text
+stopDeployment_deploymentId :: Lens.Lens' StopDeployment Core.Text
 stopDeployment_deploymentId = Lens.lens (\StopDeployment' {deploymentId} -> deploymentId) (\s@StopDeployment' {} a -> s {deploymentId = a} :: StopDeployment)
 
-instance Prelude.AWSRequest StopDeployment where
-  type Rs StopDeployment = StopDeploymentResponse
+instance Core.AWSRequest StopDeployment where
+  type
+    AWSResponse StopDeployment =
+      StopDeploymentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopDeploymentResponse'
-            Prelude.<$> (x Prelude..?> "statusMessage")
-            Prelude.<*> (x Prelude..?> "status")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "statusMessage")
+            Core.<*> (x Core..?> "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopDeployment
+instance Core.Hashable StopDeployment
 
-instance Prelude.NFData StopDeployment
+instance Core.NFData StopDeployment
 
-instance Prelude.ToHeaders StopDeployment where
+instance Core.ToHeaders StopDeployment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.StopDeployment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.StopDeployment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopDeployment where
+instance Core.ToJSON StopDeployment where
   toJSON StopDeployment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("autoRollbackEnabled" Prelude..=)
-              Prelude.<$> autoRollbackEnabled,
-            Prelude.Just
-              ("deploymentId" Prelude..= deploymentId)
+    Core.object
+      ( Core.catMaybes
+          [ ("autoRollbackEnabled" Core..=)
+              Core.<$> autoRollbackEnabled,
+            Core.Just ("deploymentId" Core..= deploymentId)
           ]
       )
 
-instance Prelude.ToPath StopDeployment where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopDeployment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopDeployment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopDeployment where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @StopDeployment@ operation.
 --
 -- /See:/ 'newStopDeploymentResponse' smart constructor.
 data StopDeploymentResponse = StopDeploymentResponse'
   { -- | An accompanying status message.
-    statusMessage :: Prelude.Maybe Prelude.Text,
+    statusMessage :: Core.Maybe Core.Text,
     -- | The status of the stop deployment operation:
     --
     -- -   Pending: The stop operation is pending.
     --
     -- -   Succeeded: The stop operation was successful.
-    status :: Prelude.Maybe StopStatus,
+    status :: Core.Maybe StopStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopDeploymentResponse' with all optional fields omitted.
@@ -179,18 +176,18 @@ data StopDeploymentResponse = StopDeploymentResponse'
 -- 'httpStatus', 'stopDeploymentResponse_httpStatus' - The response's http status code.
 newStopDeploymentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopDeploymentResponse
 newStopDeploymentResponse pHttpStatus_ =
   StopDeploymentResponse'
     { statusMessage =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+        Core.Nothing,
+      status = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An accompanying status message.
-stopDeploymentResponse_statusMessage :: Lens.Lens' StopDeploymentResponse (Prelude.Maybe Prelude.Text)
+stopDeploymentResponse_statusMessage :: Lens.Lens' StopDeploymentResponse (Core.Maybe Core.Text)
 stopDeploymentResponse_statusMessage = Lens.lens (\StopDeploymentResponse' {statusMessage} -> statusMessage) (\s@StopDeploymentResponse' {} a -> s {statusMessage = a} :: StopDeploymentResponse)
 
 -- | The status of the stop deployment operation:
@@ -198,11 +195,11 @@ stopDeploymentResponse_statusMessage = Lens.lens (\StopDeploymentResponse' {stat
 -- -   Pending: The stop operation is pending.
 --
 -- -   Succeeded: The stop operation was successful.
-stopDeploymentResponse_status :: Lens.Lens' StopDeploymentResponse (Prelude.Maybe StopStatus)
+stopDeploymentResponse_status :: Lens.Lens' StopDeploymentResponse (Core.Maybe StopStatus)
 stopDeploymentResponse_status = Lens.lens (\StopDeploymentResponse' {status} -> status) (\s@StopDeploymentResponse' {} a -> s {status = a} :: StopDeploymentResponse)
 
 -- | The response's http status code.
-stopDeploymentResponse_httpStatus :: Lens.Lens' StopDeploymentResponse Prelude.Int
+stopDeploymentResponse_httpStatus :: Lens.Lens' StopDeploymentResponse Core.Int
 stopDeploymentResponse_httpStatus = Lens.lens (\StopDeploymentResponse' {httpStatus} -> httpStatus) (\s@StopDeploymentResponse' {} a -> s {httpStatus = a} :: StopDeploymentResponse)
 
-instance Prelude.NFData StopDeploymentResponse
+instance Core.NFData StopDeploymentResponse

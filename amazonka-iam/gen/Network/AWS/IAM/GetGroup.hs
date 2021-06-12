@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,10 +47,9 @@ module Network.AWS.IAM.GetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,21 +64,21 @@ data GetGroup = GetGroup'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The name of the group.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Prelude.Text
+    groupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroup' with all optional fields omitted.
@@ -113,12 +111,12 @@ data GetGroup = GetGroup'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   GetGroup
 newGetGroup pGroupName_ =
   GetGroup'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { maxItems = Core.Nothing,
+      marker = Core.Nothing,
       groupName = pGroupName_
     }
 
@@ -131,14 +129,14 @@ newGetGroup pGroupName_ =
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-getGroup_maxItems :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Natural)
+getGroup_maxItems :: Lens.Lens' GetGroup (Core.Maybe Core.Natural)
 getGroup_maxItems = Lens.lens (\GetGroup' {maxItems} -> maxItems) (\s@GetGroup' {} a -> s {maxItems = a} :: GetGroup)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-getGroup_marker :: Lens.Lens' GetGroup (Prelude.Maybe Prelude.Text)
+getGroup_marker :: Lens.Lens' GetGroup (Core.Maybe Core.Text)
 getGroup_marker = Lens.lens (\GetGroup' {marker} -> marker) (\s@GetGroup' {} a -> s {marker = a} :: GetGroup)
 
 -- | The name of the group.
@@ -147,65 +145,62 @@ getGroup_marker = Lens.lens (\GetGroup' {marker} -> marker) (\s@GetGroup' {} a -
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getGroup_groupName :: Lens.Lens' GetGroup Prelude.Text
+getGroup_groupName :: Lens.Lens' GetGroup Core.Text
 getGroup_groupName = Lens.lens (\GetGroup' {groupName} -> groupName) (\s@GetGroup' {} a -> s {groupName = a} :: GetGroup)
 
-instance Pager.AWSPager GetGroup where
+instance Core.AWSPager GetGroup where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getGroupResponse_isTruncated Prelude.. Lens._Just
+            Lens.^? getGroupResponse_isTruncated Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? getGroupResponse_marker Prelude.. Lens._Just
+            Lens.^? getGroupResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getGroup_marker
-          Lens..~ rs
-          Lens.^? getGroupResponse_marker Prelude.. Lens._Just
+          Lens..~ rs Lens.^? getGroupResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest GetGroup where
-  type Rs GetGroup = GetGroupResponse
+instance Core.AWSRequest GetGroup where
+  type AWSResponse GetGroup = GetGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetGroupResult"
       ( \s h x ->
           GetGroupResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "Group")
-            Prelude.<*> ( x Prelude..@? "Users" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "Group")
+            Core.<*> ( x Core..@? "Users" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable GetGroup
+instance Core.Hashable GetGroup
 
-instance Prelude.NFData GetGroup
+instance Core.NFData GetGroup
 
-instance Prelude.ToHeaders GetGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetGroup where
+instance Core.ToQuery GetGroup where
   toQuery GetGroup' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("GetGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker,
-        "GroupName" Prelude.=: groupName
+    Core.mconcat
+      [ "Action" Core.=: ("GetGroup" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker,
+        "GroupName" Core.=: groupName
       ]
 
 -- | Contains the response to a successful GetGroup request.
@@ -219,19 +214,19 @@ data GetGroupResponse = GetGroupResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A structure that contains details about the group.
     group' :: Group,
     -- | A list of users in the group.
     users :: [User]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroupResponse' with all optional fields omitted.
@@ -260,17 +255,17 @@ data GetGroupResponse = GetGroupResponse'
 -- 'users', 'getGroupResponse_users' - A list of users in the group.
 newGetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'group''
   Group ->
   GetGroupResponse
 newGetGroupResponse pHttpStatus_ pGroup_ =
   GetGroupResponse'
-    { isTruncated = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { isTruncated = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
       group' = pGroup_,
-      users = Prelude.mempty
+      users = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -280,17 +275,17 @@ newGetGroupResponse pHttpStatus_ pGroup_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-getGroupResponse_isTruncated :: Lens.Lens' GetGroupResponse (Prelude.Maybe Prelude.Bool)
+getGroupResponse_isTruncated :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Bool)
 getGroupResponse_isTruncated = Lens.lens (\GetGroupResponse' {isTruncated} -> isTruncated) (\s@GetGroupResponse' {} a -> s {isTruncated = a} :: GetGroupResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-getGroupResponse_marker :: Lens.Lens' GetGroupResponse (Prelude.Maybe Prelude.Text)
+getGroupResponse_marker :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
 getGroupResponse_marker = Lens.lens (\GetGroupResponse' {marker} -> marker) (\s@GetGroupResponse' {} a -> s {marker = a} :: GetGroupResponse)
 
 -- | The response's http status code.
-getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Prelude.Int
+getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Core.Int
 getGroupResponse_httpStatus = Lens.lens (\GetGroupResponse' {httpStatus} -> httpStatus) (\s@GetGroupResponse' {} a -> s {httpStatus = a} :: GetGroupResponse)
 
 -- | A structure that contains details about the group.
@@ -299,6 +294,6 @@ getGroupResponse_group = Lens.lens (\GetGroupResponse' {group'} -> group') (\s@G
 
 -- | A list of users in the group.
 getGroupResponse_users :: Lens.Lens' GetGroupResponse [User]
-getGroupResponse_users = Lens.lens (\GetGroupResponse' {users} -> users) (\s@GetGroupResponse' {} a -> s {users = a} :: GetGroupResponse) Prelude.. Prelude._Coerce
+getGroupResponse_users = Lens.lens (\GetGroupResponse' {users} -> users) (\s@GetGroupResponse' {} a -> s {users = a} :: GetGroupResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetGroupResponse
+instance Core.NFData GetGroupResponse

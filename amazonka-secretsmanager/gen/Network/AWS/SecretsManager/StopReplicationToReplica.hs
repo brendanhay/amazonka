@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SecretsManager.StopReplicationToReplica
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -51,9 +50,9 @@ import Network.AWS.SecretsManager.Types
 data StopReplicationToReplica = StopReplicationToReplica'
   { -- | Response to @StopReplicationToReplica@ of a secret, based on the
     -- @SecretId@.
-    secretId :: Prelude.Text
+    secretId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopReplicationToReplica' with all optional fields omitted.
@@ -67,69 +66,67 @@ data StopReplicationToReplica = StopReplicationToReplica'
 -- @SecretId@.
 newStopReplicationToReplica ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   StopReplicationToReplica
 newStopReplicationToReplica pSecretId_ =
   StopReplicationToReplica' {secretId = pSecretId_}
 
 -- | Response to @StopReplicationToReplica@ of a secret, based on the
 -- @SecretId@.
-stopReplicationToReplica_secretId :: Lens.Lens' StopReplicationToReplica Prelude.Text
+stopReplicationToReplica_secretId :: Lens.Lens' StopReplicationToReplica Core.Text
 stopReplicationToReplica_secretId = Lens.lens (\StopReplicationToReplica' {secretId} -> secretId) (\s@StopReplicationToReplica' {} a -> s {secretId = a} :: StopReplicationToReplica)
 
-instance Prelude.AWSRequest StopReplicationToReplica where
+instance Core.AWSRequest StopReplicationToReplica where
   type
-    Rs StopReplicationToReplica =
+    AWSResponse StopReplicationToReplica =
       StopReplicationToReplicaResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopReplicationToReplicaResponse'
-            Prelude.<$> (x Prelude..?> "ARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopReplicationToReplica
+instance Core.Hashable StopReplicationToReplica
 
-instance Prelude.NFData StopReplicationToReplica
+instance Core.NFData StopReplicationToReplica
 
-instance Prelude.ToHeaders StopReplicationToReplica where
+instance Core.ToHeaders StopReplicationToReplica where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.StopReplicationToReplica" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.StopReplicationToReplica" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopReplicationToReplica where
+instance Core.ToJSON StopReplicationToReplica where
   toJSON StopReplicationToReplica' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Prelude..= secretId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SecretId" Core..= secretId)]
       )
 
-instance Prelude.ToPath StopReplicationToReplica where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopReplicationToReplica where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopReplicationToReplica where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopReplicationToReplica where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopReplicationToReplicaResponse' smart constructor.
 data StopReplicationToReplicaResponse = StopReplicationToReplicaResponse'
   { -- | Response @StopReplicationToReplica@ of a secret, based on the @ARN,@.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopReplicationToReplicaResponse' with all optional fields omitted.
@@ -144,23 +141,21 @@ data StopReplicationToReplicaResponse = StopReplicationToReplicaResponse'
 -- 'httpStatus', 'stopReplicationToReplicaResponse_httpStatus' - The response's http status code.
 newStopReplicationToReplicaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopReplicationToReplicaResponse
 newStopReplicationToReplicaResponse pHttpStatus_ =
   StopReplicationToReplicaResponse'
     { arn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Response @StopReplicationToReplica@ of a secret, based on the @ARN,@.
-stopReplicationToReplicaResponse_arn :: Lens.Lens' StopReplicationToReplicaResponse (Prelude.Maybe Prelude.Text)
+stopReplicationToReplicaResponse_arn :: Lens.Lens' StopReplicationToReplicaResponse (Core.Maybe Core.Text)
 stopReplicationToReplicaResponse_arn = Lens.lens (\StopReplicationToReplicaResponse' {arn} -> arn) (\s@StopReplicationToReplicaResponse' {} a -> s {arn = a} :: StopReplicationToReplicaResponse)
 
 -- | The response's http status code.
-stopReplicationToReplicaResponse_httpStatus :: Lens.Lens' StopReplicationToReplicaResponse Prelude.Int
+stopReplicationToReplicaResponse_httpStatus :: Lens.Lens' StopReplicationToReplicaResponse Core.Int
 stopReplicationToReplicaResponse_httpStatus = Lens.lens (\StopReplicationToReplicaResponse' {httpStatus} -> httpStatus) (\s@StopReplicationToReplicaResponse' {} a -> s {httpStatus = a} :: StopReplicationToReplicaResponse)
 
-instance
-  Prelude.NFData
-    StopReplicationToReplicaResponse
+instance Core.NFData StopReplicationToReplicaResponse

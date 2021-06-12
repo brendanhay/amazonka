@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,20 +45,20 @@ module Network.AWS.OpsWorks.AssociateElasticIp
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateElasticIp' smart constructor.
 data AssociateElasticIp = AssociateElasticIp'
   { -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The Elastic IP address.
-    elasticIp :: Prelude.Text
+    elasticIp :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateElasticIp' with all optional fields omitted.
@@ -74,69 +73,67 @@ data AssociateElasticIp = AssociateElasticIp'
 -- 'elasticIp', 'associateElasticIp_elasticIp' - The Elastic IP address.
 newAssociateElasticIp ::
   -- | 'elasticIp'
-  Prelude.Text ->
+  Core.Text ->
   AssociateElasticIp
 newAssociateElasticIp pElasticIp_ =
   AssociateElasticIp'
-    { instanceId = Prelude.Nothing,
+    { instanceId = Core.Nothing,
       elasticIp = pElasticIp_
     }
 
 -- | The instance ID.
-associateElasticIp_instanceId :: Lens.Lens' AssociateElasticIp (Prelude.Maybe Prelude.Text)
+associateElasticIp_instanceId :: Lens.Lens' AssociateElasticIp (Core.Maybe Core.Text)
 associateElasticIp_instanceId = Lens.lens (\AssociateElasticIp' {instanceId} -> instanceId) (\s@AssociateElasticIp' {} a -> s {instanceId = a} :: AssociateElasticIp)
 
 -- | The Elastic IP address.
-associateElasticIp_elasticIp :: Lens.Lens' AssociateElasticIp Prelude.Text
+associateElasticIp_elasticIp :: Lens.Lens' AssociateElasticIp Core.Text
 associateElasticIp_elasticIp = Lens.lens (\AssociateElasticIp' {elasticIp} -> elasticIp) (\s@AssociateElasticIp' {} a -> s {elasticIp = a} :: AssociateElasticIp)
 
-instance Prelude.AWSRequest AssociateElasticIp where
+instance Core.AWSRequest AssociateElasticIp where
   type
-    Rs AssociateElasticIp =
+    AWSResponse AssociateElasticIp =
       AssociateElasticIpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull AssociateElasticIpResponse'
 
-instance Prelude.Hashable AssociateElasticIp
+instance Core.Hashable AssociateElasticIp
 
-instance Prelude.NFData AssociateElasticIp
+instance Core.NFData AssociateElasticIp
 
-instance Prelude.ToHeaders AssociateElasticIp where
+instance Core.ToHeaders AssociateElasticIp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.AssociateElasticIp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.AssociateElasticIp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateElasticIp where
+instance Core.ToJSON AssociateElasticIp where
   toJSON AssociateElasticIp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceId" Prelude..=) Prelude.<$> instanceId,
-            Prelude.Just ("ElasticIp" Prelude..= elasticIp)
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceId" Core..=) Core.<$> instanceId,
+            Core.Just ("ElasticIp" Core..= elasticIp)
           ]
       )
 
-instance Prelude.ToPath AssociateElasticIp where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateElasticIp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateElasticIp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateElasticIp where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateElasticIpResponse' smart constructor.
 data AssociateElasticIpResponse = AssociateElasticIpResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateElasticIpResponse' with all optional fields omitted.
@@ -147,4 +144,4 @@ newAssociateElasticIpResponse ::
 newAssociateElasticIpResponse =
   AssociateElasticIpResponse'
 
-instance Prelude.NFData AssociateElasticIpResponse
+instance Core.NFData AssociateElasticIpResponse

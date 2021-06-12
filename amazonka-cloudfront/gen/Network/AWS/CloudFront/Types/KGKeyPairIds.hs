@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CloudFront.Types.KGKeyPairIds where
 
 import Network.AWS.CloudFront.Types.KeyPairIds
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of identifiers for the public keys that CloudFront can use to
 -- verify the signatures of signed URLs and signed cookies.
 --
 -- /See:/ 'newKGKeyPairIds' smart constructor.
 data KGKeyPairIds = KGKeyPairIds'
-  { keyPairIds :: Prelude.Maybe KeyPairIds,
+  { keyPairIds :: Core.Maybe KeyPairIds,
     -- | The identifier of the key group that contains the public keys.
-    keyGroupId :: Prelude.Maybe Prelude.Text
+    keyGroupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KGKeyPairIds' with all optional fields omitted.
@@ -50,24 +49,24 @@ newKGKeyPairIds ::
   KGKeyPairIds
 newKGKeyPairIds =
   KGKeyPairIds'
-    { keyPairIds = Prelude.Nothing,
-      keyGroupId = Prelude.Nothing
+    { keyPairIds = Core.Nothing,
+      keyGroupId = Core.Nothing
     }
 
 -- | Undocumented member.
-kGKeyPairIds_keyPairIds :: Lens.Lens' KGKeyPairIds (Prelude.Maybe KeyPairIds)
+kGKeyPairIds_keyPairIds :: Lens.Lens' KGKeyPairIds (Core.Maybe KeyPairIds)
 kGKeyPairIds_keyPairIds = Lens.lens (\KGKeyPairIds' {keyPairIds} -> keyPairIds) (\s@KGKeyPairIds' {} a -> s {keyPairIds = a} :: KGKeyPairIds)
 
 -- | The identifier of the key group that contains the public keys.
-kGKeyPairIds_keyGroupId :: Lens.Lens' KGKeyPairIds (Prelude.Maybe Prelude.Text)
+kGKeyPairIds_keyGroupId :: Lens.Lens' KGKeyPairIds (Core.Maybe Core.Text)
 kGKeyPairIds_keyGroupId = Lens.lens (\KGKeyPairIds' {keyGroupId} -> keyGroupId) (\s@KGKeyPairIds' {} a -> s {keyGroupId = a} :: KGKeyPairIds)
 
-instance Prelude.FromXML KGKeyPairIds where
+instance Core.FromXML KGKeyPairIds where
   parseXML x =
     KGKeyPairIds'
-      Prelude.<$> (x Prelude..@? "KeyPairIds")
-      Prelude.<*> (x Prelude..@? "KeyGroupId")
+      Core.<$> (x Core..@? "KeyPairIds")
+      Core.<*> (x Core..@? "KeyGroupId")
 
-instance Prelude.Hashable KGKeyPairIds
+instance Core.Hashable KGKeyPairIds
 
-instance Prelude.NFData KGKeyPairIds
+instance Core.NFData KGKeyPairIds

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.OpsWorksCM.ExportServerEngineAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,15 +79,15 @@ data ExportServerEngineAttribute = ExportServerEngineAttribute'
     --     numbers separated by dots, such as 13.8.5). If this attribute is
     --     empty, OpsWorks for Chef Automate uses the most current version. In
     --     Puppet, this parameter is ignored.
-    inputAttributes :: Prelude.Maybe [EngineAttribute],
+    inputAttributes :: Core.Maybe [EngineAttribute],
     -- | The name of the export attribute. Currently, the supported export
     -- attribute is @Userdata@. This exports a user data script that includes
     -- parameters and values provided in the @InputAttributes@ list.
-    exportAttributeName :: Prelude.Text,
+    exportAttributeName :: Core.Text,
     -- | The name of the server from which you are exporting the attribute.
-    serverName :: Prelude.Text
+    serverName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportServerEngineAttribute' with all optional fields omitted.
@@ -126,16 +125,16 @@ data ExportServerEngineAttribute = ExportServerEngineAttribute'
 -- 'serverName', 'exportServerEngineAttribute_serverName' - The name of the server from which you are exporting the attribute.
 newExportServerEngineAttribute ::
   -- | 'exportAttributeName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serverName'
-  Prelude.Text ->
+  Core.Text ->
   ExportServerEngineAttribute
 newExportServerEngineAttribute
   pExportAttributeName_
   pServerName_ =
     ExportServerEngineAttribute'
       { inputAttributes =
-          Prelude.Nothing,
+          Core.Nothing,
         exportAttributeName = pExportAttributeName_,
         serverName = pServerName_
       }
@@ -160,88 +159,78 @@ newExportServerEngineAttribute
 --     numbers separated by dots, such as 13.8.5). If this attribute is
 --     empty, OpsWorks for Chef Automate uses the most current version. In
 --     Puppet, this parameter is ignored.
-exportServerEngineAttribute_inputAttributes :: Lens.Lens' ExportServerEngineAttribute (Prelude.Maybe [EngineAttribute])
-exportServerEngineAttribute_inputAttributes = Lens.lens (\ExportServerEngineAttribute' {inputAttributes} -> inputAttributes) (\s@ExportServerEngineAttribute' {} a -> s {inputAttributes = a} :: ExportServerEngineAttribute) Prelude.. Lens.mapping Prelude._Coerce
+exportServerEngineAttribute_inputAttributes :: Lens.Lens' ExportServerEngineAttribute (Core.Maybe [EngineAttribute])
+exportServerEngineAttribute_inputAttributes = Lens.lens (\ExportServerEngineAttribute' {inputAttributes} -> inputAttributes) (\s@ExportServerEngineAttribute' {} a -> s {inputAttributes = a} :: ExportServerEngineAttribute) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the export attribute. Currently, the supported export
 -- attribute is @Userdata@. This exports a user data script that includes
 -- parameters and values provided in the @InputAttributes@ list.
-exportServerEngineAttribute_exportAttributeName :: Lens.Lens' ExportServerEngineAttribute Prelude.Text
+exportServerEngineAttribute_exportAttributeName :: Lens.Lens' ExportServerEngineAttribute Core.Text
 exportServerEngineAttribute_exportAttributeName = Lens.lens (\ExportServerEngineAttribute' {exportAttributeName} -> exportAttributeName) (\s@ExportServerEngineAttribute' {} a -> s {exportAttributeName = a} :: ExportServerEngineAttribute)
 
 -- | The name of the server from which you are exporting the attribute.
-exportServerEngineAttribute_serverName :: Lens.Lens' ExportServerEngineAttribute Prelude.Text
+exportServerEngineAttribute_serverName :: Lens.Lens' ExportServerEngineAttribute Core.Text
 exportServerEngineAttribute_serverName = Lens.lens (\ExportServerEngineAttribute' {serverName} -> serverName) (\s@ExportServerEngineAttribute' {} a -> s {serverName = a} :: ExportServerEngineAttribute)
 
-instance
-  Prelude.AWSRequest
-    ExportServerEngineAttribute
-  where
+instance Core.AWSRequest ExportServerEngineAttribute where
   type
-    Rs ExportServerEngineAttribute =
+    AWSResponse ExportServerEngineAttribute =
       ExportServerEngineAttributeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ExportServerEngineAttributeResponse'
-            Prelude.<$> (x Prelude..?> "EngineAttribute")
-            Prelude.<*> (x Prelude..?> "ServerName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EngineAttribute")
+            Core.<*> (x Core..?> "ServerName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ExportServerEngineAttribute
+instance Core.Hashable ExportServerEngineAttribute
 
-instance Prelude.NFData ExportServerEngineAttribute
+instance Core.NFData ExportServerEngineAttribute
 
-instance
-  Prelude.ToHeaders
-    ExportServerEngineAttribute
-  where
+instance Core.ToHeaders ExportServerEngineAttribute where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ExportServerEngineAttribute where
+instance Core.ToJSON ExportServerEngineAttribute where
   toJSON ExportServerEngineAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InputAttributes" Prelude..=)
-              Prelude.<$> inputAttributes,
-            Prelude.Just
-              ( "ExportAttributeName"
-                  Prelude..= exportAttributeName
-              ),
-            Prelude.Just ("ServerName" Prelude..= serverName)
+    Core.object
+      ( Core.catMaybes
+          [ ("InputAttributes" Core..=)
+              Core.<$> inputAttributes,
+            Core.Just
+              ("ExportAttributeName" Core..= exportAttributeName),
+            Core.Just ("ServerName" Core..= serverName)
           ]
       )
 
-instance Prelude.ToPath ExportServerEngineAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExportServerEngineAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ExportServerEngineAttribute where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ExportServerEngineAttribute where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newExportServerEngineAttributeResponse' smart constructor.
 data ExportServerEngineAttributeResponse = ExportServerEngineAttributeResponse'
   { -- | The requested engine attribute pair with attribute name and value.
-    engineAttribute :: Prelude.Maybe EngineAttribute,
+    engineAttribute :: Core.Maybe EngineAttribute,
     -- | The server name used in the request.
-    serverName :: Prelude.Maybe Prelude.Text,
+    serverName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportServerEngineAttributeResponse' with all optional fields omitted.
@@ -258,28 +247,28 @@ data ExportServerEngineAttributeResponse = ExportServerEngineAttributeResponse'
 -- 'httpStatus', 'exportServerEngineAttributeResponse_httpStatus' - The response's http status code.
 newExportServerEngineAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExportServerEngineAttributeResponse
 newExportServerEngineAttributeResponse pHttpStatus_ =
   ExportServerEngineAttributeResponse'
     { engineAttribute =
-        Prelude.Nothing,
-      serverName = Prelude.Nothing,
+        Core.Nothing,
+      serverName = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested engine attribute pair with attribute name and value.
-exportServerEngineAttributeResponse_engineAttribute :: Lens.Lens' ExportServerEngineAttributeResponse (Prelude.Maybe EngineAttribute)
+exportServerEngineAttributeResponse_engineAttribute :: Lens.Lens' ExportServerEngineAttributeResponse (Core.Maybe EngineAttribute)
 exportServerEngineAttributeResponse_engineAttribute = Lens.lens (\ExportServerEngineAttributeResponse' {engineAttribute} -> engineAttribute) (\s@ExportServerEngineAttributeResponse' {} a -> s {engineAttribute = a} :: ExportServerEngineAttributeResponse)
 
 -- | The server name used in the request.
-exportServerEngineAttributeResponse_serverName :: Lens.Lens' ExportServerEngineAttributeResponse (Prelude.Maybe Prelude.Text)
+exportServerEngineAttributeResponse_serverName :: Lens.Lens' ExportServerEngineAttributeResponse (Core.Maybe Core.Text)
 exportServerEngineAttributeResponse_serverName = Lens.lens (\ExportServerEngineAttributeResponse' {serverName} -> serverName) (\s@ExportServerEngineAttributeResponse' {} a -> s {serverName = a} :: ExportServerEngineAttributeResponse)
 
 -- | The response's http status code.
-exportServerEngineAttributeResponse_httpStatus :: Lens.Lens' ExportServerEngineAttributeResponse Prelude.Int
+exportServerEngineAttributeResponse_httpStatus :: Lens.Lens' ExportServerEngineAttributeResponse Core.Int
 exportServerEngineAttributeResponse_httpStatus = Lens.lens (\ExportServerEngineAttributeResponse' {httpStatus} -> httpStatus) (\s@ExportServerEngineAttributeResponse' {} a -> s {httpStatus = a} :: ExportServerEngineAttributeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ExportServerEngineAttributeResponse

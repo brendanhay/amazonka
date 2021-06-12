@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ProductCode where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ProductCodeValues
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a product code.
 --
 -- /See:/ 'newProductCode' smart constructor.
 data ProductCode = ProductCode'
   { -- | The type of product code.
-    productCodeType :: Prelude.Maybe ProductCodeValues,
+    productCodeType :: Core.Maybe ProductCodeValues,
     -- | The product code.
-    productCodeId :: Prelude.Maybe Prelude.Text
+    productCodeId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProductCode' with all optional fields omitted.
@@ -51,24 +50,24 @@ newProductCode ::
   ProductCode
 newProductCode =
   ProductCode'
-    { productCodeType = Prelude.Nothing,
-      productCodeId = Prelude.Nothing
+    { productCodeType = Core.Nothing,
+      productCodeId = Core.Nothing
     }
 
 -- | The type of product code.
-productCode_productCodeType :: Lens.Lens' ProductCode (Prelude.Maybe ProductCodeValues)
+productCode_productCodeType :: Lens.Lens' ProductCode (Core.Maybe ProductCodeValues)
 productCode_productCodeType = Lens.lens (\ProductCode' {productCodeType} -> productCodeType) (\s@ProductCode' {} a -> s {productCodeType = a} :: ProductCode)
 
 -- | The product code.
-productCode_productCodeId :: Lens.Lens' ProductCode (Prelude.Maybe Prelude.Text)
+productCode_productCodeId :: Lens.Lens' ProductCode (Core.Maybe Core.Text)
 productCode_productCodeId = Lens.lens (\ProductCode' {productCodeId} -> productCodeId) (\s@ProductCode' {} a -> s {productCodeId = a} :: ProductCode)
 
-instance Prelude.FromXML ProductCode where
+instance Core.FromXML ProductCode where
   parseXML x =
     ProductCode'
-      Prelude.<$> (x Prelude..@? "type")
-      Prelude.<*> (x Prelude..@? "productCode")
+      Core.<$> (x Core..@? "type")
+      Core.<*> (x Core..@? "productCode")
 
-instance Prelude.Hashable ProductCode
+instance Core.Hashable ProductCode
 
-instance Prelude.NFData ProductCode
+instance Core.NFData ProductCode

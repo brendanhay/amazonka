@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.GetRecommenderConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ data GetRecommenderConfigurations = GetRecommenderConfigurations'
   { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
+    pageSize :: Core.Maybe Core.Text,
     -- | The NextToken string that specifies which page of results to return in a
     -- paginated response.
-    token :: Prelude.Maybe Prelude.Text
+    token :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRecommenderConfigurations' with all optional fields omitted.
@@ -79,74 +78,62 @@ newGetRecommenderConfigurations ::
 newGetRecommenderConfigurations =
   GetRecommenderConfigurations'
     { pageSize =
-        Prelude.Nothing,
-      token = Prelude.Nothing
+        Core.Nothing,
+      token = Core.Nothing
     }
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getRecommenderConfigurations_pageSize :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
+getRecommenderConfigurations_pageSize :: Lens.Lens' GetRecommenderConfigurations (Core.Maybe Core.Text)
 getRecommenderConfigurations_pageSize = Lens.lens (\GetRecommenderConfigurations' {pageSize} -> pageSize) (\s@GetRecommenderConfigurations' {} a -> s {pageSize = a} :: GetRecommenderConfigurations)
 
 -- | The NextToken string that specifies which page of results to return in a
 -- paginated response.
-getRecommenderConfigurations_token :: Lens.Lens' GetRecommenderConfigurations (Prelude.Maybe Prelude.Text)
+getRecommenderConfigurations_token :: Lens.Lens' GetRecommenderConfigurations (Core.Maybe Core.Text)
 getRecommenderConfigurations_token = Lens.lens (\GetRecommenderConfigurations' {token} -> token) (\s@GetRecommenderConfigurations' {} a -> s {token = a} :: GetRecommenderConfigurations)
 
-instance
-  Prelude.AWSRequest
-    GetRecommenderConfigurations
-  where
+instance Core.AWSRequest GetRecommenderConfigurations where
   type
-    Rs GetRecommenderConfigurations =
+    AWSResponse GetRecommenderConfigurations =
       GetRecommenderConfigurationsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRecommenderConfigurationsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance
-  Prelude.Hashable
-    GetRecommenderConfigurations
+instance Core.Hashable GetRecommenderConfigurations
 
-instance Prelude.NFData GetRecommenderConfigurations
+instance Core.NFData GetRecommenderConfigurations
 
-instance
-  Prelude.ToHeaders
-    GetRecommenderConfigurations
-  where
+instance Core.ToHeaders GetRecommenderConfigurations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetRecommenderConfigurations where
-  toPath = Prelude.const "/v1/recommenders"
+instance Core.ToPath GetRecommenderConfigurations where
+  toPath = Core.const "/v1/recommenders"
 
-instance Prelude.ToQuery GetRecommenderConfigurations where
+instance Core.ToQuery GetRecommenderConfigurations where
   toQuery GetRecommenderConfigurations' {..} =
-    Prelude.mconcat
-      [ "page-size" Prelude.=: pageSize,
-        "token" Prelude.=: token
-      ]
+    Core.mconcat
+      ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetRecommenderConfigurationsResponse' smart constructor.
 data GetRecommenderConfigurationsResponse = GetRecommenderConfigurationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     listRecommenderConfigurationsResponse :: ListRecommenderConfigurationsResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRecommenderConfigurationsResponse' with all optional fields omitted.
@@ -161,7 +148,7 @@ data GetRecommenderConfigurationsResponse = GetRecommenderConfigurationsResponse
 -- 'listRecommenderConfigurationsResponse', 'getRecommenderConfigurationsResponse_listRecommenderConfigurationsResponse' - Undocumented member.
 newGetRecommenderConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'listRecommenderConfigurationsResponse'
   ListRecommenderConfigurationsResponse ->
   GetRecommenderConfigurationsResponse
@@ -176,7 +163,7 @@ newGetRecommenderConfigurationsResponse
       }
 
 -- | The response's http status code.
-getRecommenderConfigurationsResponse_httpStatus :: Lens.Lens' GetRecommenderConfigurationsResponse Prelude.Int
+getRecommenderConfigurationsResponse_httpStatus :: Lens.Lens' GetRecommenderConfigurationsResponse Core.Int
 getRecommenderConfigurationsResponse_httpStatus = Lens.lens (\GetRecommenderConfigurationsResponse' {httpStatus} -> httpStatus) (\s@GetRecommenderConfigurationsResponse' {} a -> s {httpStatus = a} :: GetRecommenderConfigurationsResponse)
 
 -- | Undocumented member.
@@ -184,5 +171,5 @@ getRecommenderConfigurationsResponse_listRecommenderConfigurationsResponse :: Le
 getRecommenderConfigurationsResponse_listRecommenderConfigurationsResponse = Lens.lens (\GetRecommenderConfigurationsResponse' {listRecommenderConfigurationsResponse} -> listRecommenderConfigurationsResponse) (\s@GetRecommenderConfigurationsResponse' {} a -> s {listRecommenderConfigurationsResponse = a} :: GetRecommenderConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRecommenderConfigurationsResponse

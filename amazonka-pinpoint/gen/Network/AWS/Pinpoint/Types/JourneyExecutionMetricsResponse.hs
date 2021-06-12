@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the results of a query that retrieved the data for a standard
 -- execution metric that applies to a journey, and provides information
@@ -32,16 +31,16 @@ data JourneyExecutionMetricsResponse = JourneyExecutionMetricsResponse'
   { -- | A JSON object that contains the results of the query. For information
     -- about the structure and contents of the results, see the
     -- <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-    metrics :: Prelude.HashMap Prelude.Text Prelude.Text,
+    metrics :: Core.HashMap Core.Text Core.Text,
     -- | The unique identifier for the journey that the metric applies to.
-    journeyId :: Prelude.Text,
+    journeyId :: Core.Text,
     -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last
     -- evaluated the journey and updated the data for the metric.
-    lastEvaluatedTime :: Prelude.Text,
+    lastEvaluatedTime :: Core.Text,
     -- | The unique identifier for the application that the metric applies to.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JourneyExecutionMetricsResponse' with all optional fields omitted.
@@ -63,11 +62,11 @@ data JourneyExecutionMetricsResponse = JourneyExecutionMetricsResponse'
 -- 'applicationId', 'journeyExecutionMetricsResponse_applicationId' - The unique identifier for the application that the metric applies to.
 newJourneyExecutionMetricsResponse ::
   -- | 'journeyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lastEvaluatedTime'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   JourneyExecutionMetricsResponse
 newJourneyExecutionMetricsResponse
   pJourneyId_
@@ -75,7 +74,7 @@ newJourneyExecutionMetricsResponse
   pApplicationId_ =
     JourneyExecutionMetricsResponse'
       { metrics =
-          Prelude.mempty,
+          Core.mempty,
         journeyId = pJourneyId_,
         lastEvaluatedTime = pLastEvaluatedTime_,
         applicationId = pApplicationId_
@@ -84,41 +83,39 @@ newJourneyExecutionMetricsResponse
 -- | A JSON object that contains the results of the query. For information
 -- about the structure and contents of the results, see the
 -- <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-journeyExecutionMetricsResponse_metrics :: Lens.Lens' JourneyExecutionMetricsResponse (Prelude.HashMap Prelude.Text Prelude.Text)
-journeyExecutionMetricsResponse_metrics = Lens.lens (\JourneyExecutionMetricsResponse' {metrics} -> metrics) (\s@JourneyExecutionMetricsResponse' {} a -> s {metrics = a} :: JourneyExecutionMetricsResponse) Prelude.. Prelude._Coerce
+journeyExecutionMetricsResponse_metrics :: Lens.Lens' JourneyExecutionMetricsResponse (Core.HashMap Core.Text Core.Text)
+journeyExecutionMetricsResponse_metrics = Lens.lens (\JourneyExecutionMetricsResponse' {metrics} -> metrics) (\s@JourneyExecutionMetricsResponse' {} a -> s {metrics = a} :: JourneyExecutionMetricsResponse) Core.. Lens._Coerce
 
 -- | The unique identifier for the journey that the metric applies to.
-journeyExecutionMetricsResponse_journeyId :: Lens.Lens' JourneyExecutionMetricsResponse Prelude.Text
+journeyExecutionMetricsResponse_journeyId :: Lens.Lens' JourneyExecutionMetricsResponse Core.Text
 journeyExecutionMetricsResponse_journeyId = Lens.lens (\JourneyExecutionMetricsResponse' {journeyId} -> journeyId) (\s@JourneyExecutionMetricsResponse' {} a -> s {journeyId = a} :: JourneyExecutionMetricsResponse)
 
 -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last
 -- evaluated the journey and updated the data for the metric.
-journeyExecutionMetricsResponse_lastEvaluatedTime :: Lens.Lens' JourneyExecutionMetricsResponse Prelude.Text
+journeyExecutionMetricsResponse_lastEvaluatedTime :: Lens.Lens' JourneyExecutionMetricsResponse Core.Text
 journeyExecutionMetricsResponse_lastEvaluatedTime = Lens.lens (\JourneyExecutionMetricsResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@JourneyExecutionMetricsResponse' {} a -> s {lastEvaluatedTime = a} :: JourneyExecutionMetricsResponse)
 
 -- | The unique identifier for the application that the metric applies to.
-journeyExecutionMetricsResponse_applicationId :: Lens.Lens' JourneyExecutionMetricsResponse Prelude.Text
+journeyExecutionMetricsResponse_applicationId :: Lens.Lens' JourneyExecutionMetricsResponse Core.Text
 journeyExecutionMetricsResponse_applicationId = Lens.lens (\JourneyExecutionMetricsResponse' {applicationId} -> applicationId) (\s@JourneyExecutionMetricsResponse' {} a -> s {applicationId = a} :: JourneyExecutionMetricsResponse)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     JourneyExecutionMetricsResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JourneyExecutionMetricsResponse"
       ( \x ->
           JourneyExecutionMetricsResponse'
-            Prelude.<$> (x Prelude..:? "Metrics" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "JourneyId")
-            Prelude.<*> (x Prelude..: "LastEvaluatedTime")
-            Prelude.<*> (x Prelude..: "ApplicationId")
+            Core.<$> (x Core..:? "Metrics" Core..!= Core.mempty)
+            Core.<*> (x Core..: "JourneyId")
+            Core.<*> (x Core..: "LastEvaluatedTime")
+            Core.<*> (x Core..: "ApplicationId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     JourneyExecutionMetricsResponse
 
-instance
-  Prelude.NFData
-    JourneyExecutionMetricsResponse
+instance Core.NFData JourneyExecutionMetricsResponse

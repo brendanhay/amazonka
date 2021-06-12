@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Stream where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a group of files that can be streamed.
 --
 -- /See:/ 'newStream' smart constructor.
 data Stream = Stream'
   { -- | The stream ID.
-    streamId :: Prelude.Maybe Prelude.Text,
+    streamId :: Core.Maybe Core.Text,
     -- | The ID of a file associated with a stream.
-    fileId :: Prelude.Maybe Prelude.Natural
+    fileId :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Stream' with all optional fields omitted.
@@ -49,37 +48,37 @@ newStream ::
   Stream
 newStream =
   Stream'
-    { streamId = Prelude.Nothing,
-      fileId = Prelude.Nothing
+    { streamId = Core.Nothing,
+      fileId = Core.Nothing
     }
 
 -- | The stream ID.
-stream_streamId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_streamId :: Lens.Lens' Stream (Core.Maybe Core.Text)
 stream_streamId = Lens.lens (\Stream' {streamId} -> streamId) (\s@Stream' {} a -> s {streamId = a} :: Stream)
 
 -- | The ID of a file associated with a stream.
-stream_fileId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Natural)
+stream_fileId :: Lens.Lens' Stream (Core.Maybe Core.Natural)
 stream_fileId = Lens.lens (\Stream' {fileId} -> fileId) (\s@Stream' {} a -> s {fileId = a} :: Stream)
 
-instance Prelude.FromJSON Stream where
+instance Core.FromJSON Stream where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Stream"
       ( \x ->
           Stream'
-            Prelude.<$> (x Prelude..:? "streamId")
-            Prelude.<*> (x Prelude..:? "fileId")
+            Core.<$> (x Core..:? "streamId")
+            Core.<*> (x Core..:? "fileId")
       )
 
-instance Prelude.Hashable Stream
+instance Core.Hashable Stream
 
-instance Prelude.NFData Stream
+instance Core.NFData Stream
 
-instance Prelude.ToJSON Stream where
+instance Core.ToJSON Stream where
   toJSON Stream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("streamId" Prelude..=) Prelude.<$> streamId,
-            ("fileId" Prelude..=) Prelude.<$> fileId
+    Core.object
+      ( Core.catMaybes
+          [ ("streamId" Core..=) Core.<$> streamId,
+            ("fileId" Core..=) Core.<$> fileId
           ]
       )

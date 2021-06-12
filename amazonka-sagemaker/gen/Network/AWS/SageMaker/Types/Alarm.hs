@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.Alarm where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This API is not supported.
 --
 -- /See:/ 'newAlarm' smart constructor.
 data Alarm = Alarm'
-  { alarmName :: Prelude.Maybe Prelude.Text
+  { alarmName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Alarm' with all optional fields omitted.
@@ -42,27 +41,25 @@ data Alarm = Alarm'
 -- 'alarmName', 'alarm_alarmName' -
 newAlarm ::
   Alarm
-newAlarm = Alarm' {alarmName = Prelude.Nothing}
+newAlarm = Alarm' {alarmName = Core.Nothing}
 
 -- |
-alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
+alarm_alarmName :: Lens.Lens' Alarm (Core.Maybe Core.Text)
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 
-instance Prelude.FromJSON Alarm where
+instance Core.FromJSON Alarm where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Alarm"
-      ( \x ->
-          Alarm' Prelude.<$> (x Prelude..:? "AlarmName")
-      )
+      (\x -> Alarm' Core.<$> (x Core..:? "AlarmName"))
 
-instance Prelude.Hashable Alarm
+instance Core.Hashable Alarm
 
-instance Prelude.NFData Alarm
+instance Core.NFData Alarm
 
-instance Prelude.ToJSON Alarm where
+instance Core.ToJSON Alarm where
   toJSON Alarm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("AlarmName" Prelude..=) Prelude.<$> alarmName]
+    Core.object
+      ( Core.catMaybes
+          [("AlarmName" Core..=) Core.<$> alarmName]
       )

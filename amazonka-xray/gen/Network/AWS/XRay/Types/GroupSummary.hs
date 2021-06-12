@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.GroupSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.InsightsConfiguration
 
 -- | Details for a group without metadata.
@@ -29,7 +28,7 @@ import Network.AWS.XRay.Types.InsightsConfiguration
 -- /See:/ 'newGroupSummary' smart constructor.
 data GroupSummary = GroupSummary'
   { -- | The unique case-sensitive name of the group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The structure containing configurations related to insights.
     --
     -- -   The InsightsEnabled boolean can be set to true to enable insights
@@ -38,13 +37,13 @@ data GroupSummary = GroupSummary'
     -- -   The NotificationsEnabled boolean can be set to true to enable
     --     insights notifications. Notifications can only be enabled on a group
     --     with InsightsEnabled set to true.
-    insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
+    insightsConfiguration :: Core.Maybe InsightsConfiguration,
     -- | The filter expression defining the parameters to include traces.
-    filterExpression :: Prelude.Maybe Prelude.Text,
+    filterExpression :: Core.Maybe Core.Text,
     -- | The ARN of the group generated based on the GroupName.
-    groupARN :: Prelude.Maybe Prelude.Text
+    groupARN :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupSummary' with all optional fields omitted.
@@ -72,14 +71,14 @@ newGroupSummary ::
   GroupSummary
 newGroupSummary =
   GroupSummary'
-    { groupName = Prelude.Nothing,
-      insightsConfiguration = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
-      groupARN = Prelude.Nothing
+    { groupName = Core.Nothing,
+      insightsConfiguration = Core.Nothing,
+      filterExpression = Core.Nothing,
+      groupARN = Core.Nothing
     }
 
 -- | The unique case-sensitive name of the group.
-groupSummary_groupName :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
+groupSummary_groupName :: Lens.Lens' GroupSummary (Core.Maybe Core.Text)
 groupSummary_groupName = Lens.lens (\GroupSummary' {groupName} -> groupName) (\s@GroupSummary' {} a -> s {groupName = a} :: GroupSummary)
 
 -- | The structure containing configurations related to insights.
@@ -90,29 +89,29 @@ groupSummary_groupName = Lens.lens (\GroupSummary' {groupName} -> groupName) (\s
 -- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications. Notifications can only be enabled on a group
 --     with InsightsEnabled set to true.
-groupSummary_insightsConfiguration :: Lens.Lens' GroupSummary (Prelude.Maybe InsightsConfiguration)
+groupSummary_insightsConfiguration :: Lens.Lens' GroupSummary (Core.Maybe InsightsConfiguration)
 groupSummary_insightsConfiguration = Lens.lens (\GroupSummary' {insightsConfiguration} -> insightsConfiguration) (\s@GroupSummary' {} a -> s {insightsConfiguration = a} :: GroupSummary)
 
 -- | The filter expression defining the parameters to include traces.
-groupSummary_filterExpression :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
+groupSummary_filterExpression :: Lens.Lens' GroupSummary (Core.Maybe Core.Text)
 groupSummary_filterExpression = Lens.lens (\GroupSummary' {filterExpression} -> filterExpression) (\s@GroupSummary' {} a -> s {filterExpression = a} :: GroupSummary)
 
 -- | The ARN of the group generated based on the GroupName.
-groupSummary_groupARN :: Lens.Lens' GroupSummary (Prelude.Maybe Prelude.Text)
+groupSummary_groupARN :: Lens.Lens' GroupSummary (Core.Maybe Core.Text)
 groupSummary_groupARN = Lens.lens (\GroupSummary' {groupARN} -> groupARN) (\s@GroupSummary' {} a -> s {groupARN = a} :: GroupSummary)
 
-instance Prelude.FromJSON GroupSummary where
+instance Core.FromJSON GroupSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupSummary"
       ( \x ->
           GroupSummary'
-            Prelude.<$> (x Prelude..:? "GroupName")
-            Prelude.<*> (x Prelude..:? "InsightsConfiguration")
-            Prelude.<*> (x Prelude..:? "FilterExpression")
-            Prelude.<*> (x Prelude..:? "GroupARN")
+            Core.<$> (x Core..:? "GroupName")
+            Core.<*> (x Core..:? "InsightsConfiguration")
+            Core.<*> (x Core..:? "FilterExpression")
+            Core.<*> (x Core..:? "GroupARN")
       )
 
-instance Prelude.Hashable GroupSummary
+instance Core.Hashable GroupSummary
 
-instance Prelude.NFData GroupSummary
+instance Core.NFData GroupSummary

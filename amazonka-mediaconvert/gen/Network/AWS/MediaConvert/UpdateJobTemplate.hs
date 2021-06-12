@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.MediaConvert.UpdateJobTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,34 +59,34 @@ data UpdateJobTemplate = UpdateJobTemplate'
     -- visually complex content. Outputs that use this feature incur pro-tier
     -- pricing. For information about feature limitations, see the AWS
     -- Elemental MediaConvert User Guide.
-    accelerationSettings :: Prelude.Maybe AccelerationSettings,
+    accelerationSettings :: Core.Maybe AccelerationSettings,
     -- | The new category for the job template, if you are changing it.
-    category :: Prelude.Maybe Prelude.Text,
+    category :: Core.Maybe Core.Text,
     -- | Specify the relative priority for this job. In any given queue, the
     -- service begins processing the job with the highest value first. When
     -- more than one job has the same priority, the service begins processing
     -- the job that you submitted first. If you don\'t specify a priority, the
     -- service uses the default value 0.
-    priority :: Prelude.Maybe Prelude.Int,
+    priority :: Core.Maybe Core.Int,
     -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
     -- CloudWatch Events. Set the interval, in seconds, between status updates.
     -- MediaConvert sends an update at this interval from the time the service
     -- begins processing your job to the time it completes the transcode or
     -- encounters an error.
-    statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
+    statusUpdateInterval :: Core.Maybe StatusUpdateInterval,
     -- | The new queue for the job template, if you are changing it.
-    queue :: Prelude.Maybe Prelude.Text,
+    queue :: Core.Maybe Core.Text,
     -- | The new description for the job template, if you are changing it.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Optional list of hop destinations.
-    hopDestinations :: Prelude.Maybe [HopDestination],
+    hopDestinations :: Core.Maybe [HopDestination],
     -- | JobTemplateSettings contains all the transcode settings saved in the
     -- template that will be applied to jobs created from it.
-    settings :: Prelude.Maybe JobTemplateSettings,
+    settings :: Core.Maybe JobTemplateSettings,
     -- | The name of the job template you are modifying
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateJobTemplate' with all optional fields omitted.
@@ -128,19 +127,19 @@ data UpdateJobTemplate = UpdateJobTemplate'
 -- 'name', 'updateJobTemplate_name' - The name of the job template you are modifying
 newUpdateJobTemplate ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateJobTemplate
 newUpdateJobTemplate pName_ =
   UpdateJobTemplate'
     { accelerationSettings =
-        Prelude.Nothing,
-      category = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      statusUpdateInterval = Prelude.Nothing,
-      queue = Prelude.Nothing,
-      description = Prelude.Nothing,
-      hopDestinations = Prelude.Nothing,
-      settings = Prelude.Nothing,
+        Core.Nothing,
+      category = Core.Nothing,
+      priority = Core.Nothing,
+      statusUpdateInterval = Core.Nothing,
+      queue = Core.Nothing,
+      description = Core.Nothing,
+      hopDestinations = Core.Nothing,
+      settings = Core.Nothing,
       name = pName_
     }
 
@@ -148,11 +147,11 @@ newUpdateJobTemplate pName_ =
 -- visually complex content. Outputs that use this feature incur pro-tier
 -- pricing. For information about feature limitations, see the AWS
 -- Elemental MediaConvert User Guide.
-updateJobTemplate_accelerationSettings :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe AccelerationSettings)
+updateJobTemplate_accelerationSettings :: Lens.Lens' UpdateJobTemplate (Core.Maybe AccelerationSettings)
 updateJobTemplate_accelerationSettings = Lens.lens (\UpdateJobTemplate' {accelerationSettings} -> accelerationSettings) (\s@UpdateJobTemplate' {} a -> s {accelerationSettings = a} :: UpdateJobTemplate)
 
 -- | The new category for the job template, if you are changing it.
-updateJobTemplate_category :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
+updateJobTemplate_category :: Lens.Lens' UpdateJobTemplate (Core.Maybe Core.Text)
 updateJobTemplate_category = Lens.lens (\UpdateJobTemplate' {category} -> category) (\s@UpdateJobTemplate' {} a -> s {category = a} :: UpdateJobTemplate)
 
 -- | Specify the relative priority for this job. In any given queue, the
@@ -160,7 +159,7 @@ updateJobTemplate_category = Lens.lens (\UpdateJobTemplate' {category} -> catego
 -- more than one job has the same priority, the service begins processing
 -- the job that you submitted first. If you don\'t specify a priority, the
 -- service uses the default value 0.
-updateJobTemplate_priority :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Int)
+updateJobTemplate_priority :: Lens.Lens' UpdateJobTemplate (Core.Maybe Core.Int)
 updateJobTemplate_priority = Lens.lens (\UpdateJobTemplate' {priority} -> priority) (\s@UpdateJobTemplate' {} a -> s {priority = a} :: UpdateJobTemplate)
 
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
@@ -168,91 +167,90 @@ updateJobTemplate_priority = Lens.lens (\UpdateJobTemplate' {priority} -> priori
 -- MediaConvert sends an update at this interval from the time the service
 -- begins processing your job to the time it completes the transcode or
 -- encounters an error.
-updateJobTemplate_statusUpdateInterval :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe StatusUpdateInterval)
+updateJobTemplate_statusUpdateInterval :: Lens.Lens' UpdateJobTemplate (Core.Maybe StatusUpdateInterval)
 updateJobTemplate_statusUpdateInterval = Lens.lens (\UpdateJobTemplate' {statusUpdateInterval} -> statusUpdateInterval) (\s@UpdateJobTemplate' {} a -> s {statusUpdateInterval = a} :: UpdateJobTemplate)
 
 -- | The new queue for the job template, if you are changing it.
-updateJobTemplate_queue :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
+updateJobTemplate_queue :: Lens.Lens' UpdateJobTemplate (Core.Maybe Core.Text)
 updateJobTemplate_queue = Lens.lens (\UpdateJobTemplate' {queue} -> queue) (\s@UpdateJobTemplate' {} a -> s {queue = a} :: UpdateJobTemplate)
 
 -- | The new description for the job template, if you are changing it.
-updateJobTemplate_description :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
+updateJobTemplate_description :: Lens.Lens' UpdateJobTemplate (Core.Maybe Core.Text)
 updateJobTemplate_description = Lens.lens (\UpdateJobTemplate' {description} -> description) (\s@UpdateJobTemplate' {} a -> s {description = a} :: UpdateJobTemplate)
 
 -- | Optional list of hop destinations.
-updateJobTemplate_hopDestinations :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe [HopDestination])
-updateJobTemplate_hopDestinations = Lens.lens (\UpdateJobTemplate' {hopDestinations} -> hopDestinations) (\s@UpdateJobTemplate' {} a -> s {hopDestinations = a} :: UpdateJobTemplate) Prelude.. Lens.mapping Prelude._Coerce
+updateJobTemplate_hopDestinations :: Lens.Lens' UpdateJobTemplate (Core.Maybe [HopDestination])
+updateJobTemplate_hopDestinations = Lens.lens (\UpdateJobTemplate' {hopDestinations} -> hopDestinations) (\s@UpdateJobTemplate' {} a -> s {hopDestinations = a} :: UpdateJobTemplate) Core.. Lens.mapping Lens._Coerce
 
 -- | JobTemplateSettings contains all the transcode settings saved in the
 -- template that will be applied to jobs created from it.
-updateJobTemplate_settings :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe JobTemplateSettings)
+updateJobTemplate_settings :: Lens.Lens' UpdateJobTemplate (Core.Maybe JobTemplateSettings)
 updateJobTemplate_settings = Lens.lens (\UpdateJobTemplate' {settings} -> settings) (\s@UpdateJobTemplate' {} a -> s {settings = a} :: UpdateJobTemplate)
 
 -- | The name of the job template you are modifying
-updateJobTemplate_name :: Lens.Lens' UpdateJobTemplate Prelude.Text
+updateJobTemplate_name :: Lens.Lens' UpdateJobTemplate Core.Text
 updateJobTemplate_name = Lens.lens (\UpdateJobTemplate' {name} -> name) (\s@UpdateJobTemplate' {} a -> s {name = a} :: UpdateJobTemplate)
 
-instance Prelude.AWSRequest UpdateJobTemplate where
-  type Rs UpdateJobTemplate = UpdateJobTemplateResponse
+instance Core.AWSRequest UpdateJobTemplate where
+  type
+    AWSResponse UpdateJobTemplate =
+      UpdateJobTemplateResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateJobTemplateResponse'
-            Prelude.<$> (x Prelude..?> "jobTemplate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "jobTemplate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJobTemplate
+instance Core.Hashable UpdateJobTemplate
 
-instance Prelude.NFData UpdateJobTemplate
+instance Core.NFData UpdateJobTemplate
 
-instance Prelude.ToHeaders UpdateJobTemplate where
+instance Core.ToHeaders UpdateJobTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateJobTemplate where
+instance Core.ToJSON UpdateJobTemplate where
   toJSON UpdateJobTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("accelerationSettings" Prelude..=)
-              Prelude.<$> accelerationSettings,
-            ("category" Prelude..=) Prelude.<$> category,
-            ("priority" Prelude..=) Prelude.<$> priority,
-            ("statusUpdateInterval" Prelude..=)
-              Prelude.<$> statusUpdateInterval,
-            ("queue" Prelude..=) Prelude.<$> queue,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("hopDestinations" Prelude..=)
-              Prelude.<$> hopDestinations,
-            ("settings" Prelude..=) Prelude.<$> settings
+    Core.object
+      ( Core.catMaybes
+          [ ("accelerationSettings" Core..=)
+              Core.<$> accelerationSettings,
+            ("category" Core..=) Core.<$> category,
+            ("priority" Core..=) Core.<$> priority,
+            ("statusUpdateInterval" Core..=)
+              Core.<$> statusUpdateInterval,
+            ("queue" Core..=) Core.<$> queue,
+            ("description" Core..=) Core.<$> description,
+            ("hopDestinations" Core..=) Core.<$> hopDestinations,
+            ("settings" Core..=) Core.<$> settings
           ]
       )
 
-instance Prelude.ToPath UpdateJobTemplate where
+instance Core.ToPath UpdateJobTemplate where
   toPath UpdateJobTemplate' {..} =
-    Prelude.mconcat
-      ["/2017-08-29/jobTemplates/", Prelude.toBS name]
+    Core.mconcat
+      ["/2017-08-29/jobTemplates/", Core.toBS name]
 
-instance Prelude.ToQuery UpdateJobTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateJobTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateJobTemplateResponse' smart constructor.
 data UpdateJobTemplateResponse = UpdateJobTemplateResponse'
   { -- | A job template is a pre-made set of encoding instructions that you can
     -- use to quickly create a job.
-    jobTemplate :: Prelude.Maybe JobTemplate,
+    jobTemplate :: Core.Maybe JobTemplate,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateJobTemplateResponse' with all optional fields omitted.
@@ -268,22 +266,22 @@ data UpdateJobTemplateResponse = UpdateJobTemplateResponse'
 -- 'httpStatus', 'updateJobTemplateResponse_httpStatus' - The response's http status code.
 newUpdateJobTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateJobTemplateResponse
 newUpdateJobTemplateResponse pHttpStatus_ =
   UpdateJobTemplateResponse'
     { jobTemplate =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A job template is a pre-made set of encoding instructions that you can
 -- use to quickly create a job.
-updateJobTemplateResponse_jobTemplate :: Lens.Lens' UpdateJobTemplateResponse (Prelude.Maybe JobTemplate)
+updateJobTemplateResponse_jobTemplate :: Lens.Lens' UpdateJobTemplateResponse (Core.Maybe JobTemplate)
 updateJobTemplateResponse_jobTemplate = Lens.lens (\UpdateJobTemplateResponse' {jobTemplate} -> jobTemplate) (\s@UpdateJobTemplateResponse' {} a -> s {jobTemplate = a} :: UpdateJobTemplateResponse)
 
 -- | The response's http status code.
-updateJobTemplateResponse_httpStatus :: Lens.Lens' UpdateJobTemplateResponse Prelude.Int
+updateJobTemplateResponse_httpStatus :: Lens.Lens' UpdateJobTemplateResponse Core.Int
 updateJobTemplateResponse_httpStatus = Lens.lens (\UpdateJobTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateJobTemplateResponse' {} a -> s {httpStatus = a} :: UpdateJobTemplateResponse)
 
-instance Prelude.NFData UpdateJobTemplateResponse
+instance Core.NFData UpdateJobTemplateResponse

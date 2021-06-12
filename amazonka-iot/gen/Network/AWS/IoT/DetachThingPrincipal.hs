@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.IoT.DetachThingPrincipal
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDetachThingPrincipal' smart constructor.
 data DetachThingPrincipal = DetachThingPrincipal'
   { -- | The name of the thing.
-    thingName :: Prelude.Text,
+    thingName :: Core.Text,
     -- | If the principal is a certificate, this value must be ARN of the
     -- certificate. If the principal is an Amazon Cognito identity, this value
     -- must be the ID of the Amazon Cognito identity.
-    principal :: Prelude.Text
+    principal :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachThingPrincipal' with all optional fields omitted.
@@ -79,9 +78,9 @@ data DetachThingPrincipal = DetachThingPrincipal'
 -- must be the ID of the Amazon Cognito identity.
 newDetachThingPrincipal ::
   -- | 'thingName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'principal'
-  Prelude.Text ->
+  Core.Text ->
   DetachThingPrincipal
 newDetachThingPrincipal pThingName_ pPrincipal_ =
   DetachThingPrincipal'
@@ -90,52 +89,51 @@ newDetachThingPrincipal pThingName_ pPrincipal_ =
     }
 
 -- | The name of the thing.
-detachThingPrincipal_thingName :: Lens.Lens' DetachThingPrincipal Prelude.Text
+detachThingPrincipal_thingName :: Lens.Lens' DetachThingPrincipal Core.Text
 detachThingPrincipal_thingName = Lens.lens (\DetachThingPrincipal' {thingName} -> thingName) (\s@DetachThingPrincipal' {} a -> s {thingName = a} :: DetachThingPrincipal)
 
 -- | If the principal is a certificate, this value must be ARN of the
 -- certificate. If the principal is an Amazon Cognito identity, this value
 -- must be the ID of the Amazon Cognito identity.
-detachThingPrincipal_principal :: Lens.Lens' DetachThingPrincipal Prelude.Text
+detachThingPrincipal_principal :: Lens.Lens' DetachThingPrincipal Core.Text
 detachThingPrincipal_principal = Lens.lens (\DetachThingPrincipal' {principal} -> principal) (\s@DetachThingPrincipal' {} a -> s {principal = a} :: DetachThingPrincipal)
 
-instance Prelude.AWSRequest DetachThingPrincipal where
+instance Core.AWSRequest DetachThingPrincipal where
   type
-    Rs DetachThingPrincipal =
+    AWSResponse DetachThingPrincipal =
       DetachThingPrincipalResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DetachThingPrincipalResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetachThingPrincipal
+instance Core.Hashable DetachThingPrincipal
 
-instance Prelude.NFData DetachThingPrincipal
+instance Core.NFData DetachThingPrincipal
 
-instance Prelude.ToHeaders DetachThingPrincipal where
+instance Core.ToHeaders DetachThingPrincipal where
   toHeaders DetachThingPrincipal' {..} =
-    Prelude.mconcat
-      ["x-amzn-principal" Prelude.=# principal]
+    Core.mconcat ["x-amzn-principal" Core.=# principal]
 
-instance Prelude.ToPath DetachThingPrincipal where
+instance Core.ToPath DetachThingPrincipal where
   toPath DetachThingPrincipal' {..} =
-    Prelude.mconcat
-      ["/things/", Prelude.toBS thingName, "/principals"]
+    Core.mconcat
+      ["/things/", Core.toBS thingName, "/principals"]
 
-instance Prelude.ToQuery DetachThingPrincipal where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetachThingPrincipal where
+  toQuery = Core.const Core.mempty
 
 -- | The output from the DetachThingPrincipal operation.
 --
 -- /See:/ 'newDetachThingPrincipalResponse' smart constructor.
 data DetachThingPrincipalResponse = DetachThingPrincipalResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachThingPrincipalResponse' with all optional fields omitted.
@@ -148,7 +146,7 @@ data DetachThingPrincipalResponse = DetachThingPrincipalResponse'
 -- 'httpStatus', 'detachThingPrincipalResponse_httpStatus' - The response's http status code.
 newDetachThingPrincipalResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetachThingPrincipalResponse
 newDetachThingPrincipalResponse pHttpStatus_ =
   DetachThingPrincipalResponse'
@@ -157,7 +155,7 @@ newDetachThingPrincipalResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-detachThingPrincipalResponse_httpStatus :: Lens.Lens' DetachThingPrincipalResponse Prelude.Int
+detachThingPrincipalResponse_httpStatus :: Lens.Lens' DetachThingPrincipalResponse Core.Int
 detachThingPrincipalResponse_httpStatus = Lens.lens (\DetachThingPrincipalResponse' {httpStatus} -> httpStatus) (\s@DetachThingPrincipalResponse' {} a -> s {httpStatus = a} :: DetachThingPrincipalResponse)
 
-instance Prelude.NFData DetachThingPrincipalResponse
+instance Core.NFData DetachThingPrincipalResponse

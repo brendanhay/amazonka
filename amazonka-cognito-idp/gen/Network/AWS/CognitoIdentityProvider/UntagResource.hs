@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CognitoIdentityProvider.UntagResource
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the user pool that the tags are
     -- assigned to.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | The keys of the tags to remove from the user pool.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -71,73 +70,73 @@ data UntagResource = UntagResource'
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to remove from the user pool.
 newUntagResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   UntagResource
 newUntagResource pResourceArn_ =
   UntagResource'
     { resourceArn = pResourceArn_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the user pool that the tags are
 -- assigned to.
-untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
+untagResource_resourceArn :: Lens.Lens' UntagResource Core.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
 -- | The keys of the tags to remove from the user pool.
-untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Prelude._Coerce
+untagResource_tagKeys :: Lens.Lens' UntagResource [Core.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagResource where
-  type Rs UntagResource = UntagResourceResponse
+instance Core.AWSRequest UntagResource where
+  type
+    AWSResponse UntagResource =
+      UntagResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UntagResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UntagResource
+instance Core.Hashable UntagResource
 
-instance Prelude.NFData UntagResource
+instance Core.NFData UntagResource
 
-instance Prelude.ToHeaders UntagResource where
+instance Core.ToHeaders UntagResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.UntagResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.UntagResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UntagResource where
+instance Core.ToJSON UntagResource where
   toJSON UntagResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Prelude..= resourceArn),
-            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
-instance Prelude.ToPath UntagResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UntagResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -150,13 +149,13 @@ data UntagResourceResponse = UntagResourceResponse'
 -- 'httpStatus', 'untagResourceResponse_httpStatus' - The response's http status code.
 newUntagResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UntagResourceResponse
 newUntagResourceResponse pHttpStatus_ =
   UntagResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Prelude.Int
+untagResourceResponse_httpStatus :: Lens.Lens' UntagResourceResponse Core.Int
 untagResourceResponse_httpStatus = Lens.lens (\UntagResourceResponse' {httpStatus} -> httpStatus) (\s@UntagResourceResponse' {} a -> s {httpStatus = a} :: UntagResourceResponse)
 
-instance Prelude.NFData UntagResourceResponse
+instance Core.NFData UntagResourceResponse

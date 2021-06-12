@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,24 +45,24 @@ module Network.AWS.DAX.DecreaseReplicationFactor
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDecreaseReplicationFactor' smart constructor.
 data DecreaseReplicationFactor = DecreaseReplicationFactor'
   { -- | The Availability Zone(s) from which to remove nodes.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The unique identifiers of the nodes to be removed from the cluster.
-    nodeIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    nodeIdsToRemove :: Core.Maybe [Core.Text],
     -- | The name of the DAX cluster from which you want to remove nodes.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The new number of nodes for the DAX cluster.
-    newReplicationFactor' :: Prelude.Int
+    newReplicationFactor' :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecreaseReplicationFactor' with all optional fields omitted.
@@ -82,100 +81,97 @@ data DecreaseReplicationFactor = DecreaseReplicationFactor'
 -- 'newReplicationFactor'', 'decreaseReplicationFactor_newReplicationFactor' - The new number of nodes for the DAX cluster.
 newDecreaseReplicationFactor ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newReplicationFactor''
-  Prelude.Int ->
+  Core.Int ->
   DecreaseReplicationFactor
 newDecreaseReplicationFactor
   pClusterName_
   pNewReplicationFactor_ =
     DecreaseReplicationFactor'
       { availabilityZones =
-          Prelude.Nothing,
-        nodeIdsToRemove = Prelude.Nothing,
+          Core.Nothing,
+        nodeIdsToRemove = Core.Nothing,
         clusterName = pClusterName_,
         newReplicationFactor' = pNewReplicationFactor_
       }
 
 -- | The Availability Zone(s) from which to remove nodes.
-decreaseReplicationFactor_availabilityZones :: Lens.Lens' DecreaseReplicationFactor (Prelude.Maybe [Prelude.Text])
-decreaseReplicationFactor_availabilityZones = Lens.lens (\DecreaseReplicationFactor' {availabilityZones} -> availabilityZones) (\s@DecreaseReplicationFactor' {} a -> s {availabilityZones = a} :: DecreaseReplicationFactor) Prelude.. Lens.mapping Prelude._Coerce
+decreaseReplicationFactor_availabilityZones :: Lens.Lens' DecreaseReplicationFactor (Core.Maybe [Core.Text])
+decreaseReplicationFactor_availabilityZones = Lens.lens (\DecreaseReplicationFactor' {availabilityZones} -> availabilityZones) (\s@DecreaseReplicationFactor' {} a -> s {availabilityZones = a} :: DecreaseReplicationFactor) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique identifiers of the nodes to be removed from the cluster.
-decreaseReplicationFactor_nodeIdsToRemove :: Lens.Lens' DecreaseReplicationFactor (Prelude.Maybe [Prelude.Text])
-decreaseReplicationFactor_nodeIdsToRemove = Lens.lens (\DecreaseReplicationFactor' {nodeIdsToRemove} -> nodeIdsToRemove) (\s@DecreaseReplicationFactor' {} a -> s {nodeIdsToRemove = a} :: DecreaseReplicationFactor) Prelude.. Lens.mapping Prelude._Coerce
+decreaseReplicationFactor_nodeIdsToRemove :: Lens.Lens' DecreaseReplicationFactor (Core.Maybe [Core.Text])
+decreaseReplicationFactor_nodeIdsToRemove = Lens.lens (\DecreaseReplicationFactor' {nodeIdsToRemove} -> nodeIdsToRemove) (\s@DecreaseReplicationFactor' {} a -> s {nodeIdsToRemove = a} :: DecreaseReplicationFactor) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the DAX cluster from which you want to remove nodes.
-decreaseReplicationFactor_clusterName :: Lens.Lens' DecreaseReplicationFactor Prelude.Text
+decreaseReplicationFactor_clusterName :: Lens.Lens' DecreaseReplicationFactor Core.Text
 decreaseReplicationFactor_clusterName = Lens.lens (\DecreaseReplicationFactor' {clusterName} -> clusterName) (\s@DecreaseReplicationFactor' {} a -> s {clusterName = a} :: DecreaseReplicationFactor)
 
 -- | The new number of nodes for the DAX cluster.
-decreaseReplicationFactor_newReplicationFactor :: Lens.Lens' DecreaseReplicationFactor Prelude.Int
+decreaseReplicationFactor_newReplicationFactor :: Lens.Lens' DecreaseReplicationFactor Core.Int
 decreaseReplicationFactor_newReplicationFactor = Lens.lens (\DecreaseReplicationFactor' {newReplicationFactor'} -> newReplicationFactor') (\s@DecreaseReplicationFactor' {} a -> s {newReplicationFactor' = a} :: DecreaseReplicationFactor)
 
-instance Prelude.AWSRequest DecreaseReplicationFactor where
+instance Core.AWSRequest DecreaseReplicationFactor where
   type
-    Rs DecreaseReplicationFactor =
+    AWSResponse DecreaseReplicationFactor =
       DecreaseReplicationFactorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DecreaseReplicationFactorResponse'
-            Prelude.<$> (x Prelude..?> "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DecreaseReplicationFactor
+instance Core.Hashable DecreaseReplicationFactor
 
-instance Prelude.NFData DecreaseReplicationFactor
+instance Core.NFData DecreaseReplicationFactor
 
-instance Prelude.ToHeaders DecreaseReplicationFactor where
+instance Core.ToHeaders DecreaseReplicationFactor where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDAXV3.DecreaseReplicationFactor" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDAXV3.DecreaseReplicationFactor" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DecreaseReplicationFactor where
+instance Core.ToJSON DecreaseReplicationFactor where
   toJSON DecreaseReplicationFactor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AvailabilityZones" Prelude..=)
-              Prelude.<$> availabilityZones,
-            ("NodeIdsToRemove" Prelude..=)
-              Prelude.<$> nodeIdsToRemove,
-            Prelude.Just ("ClusterName" Prelude..= clusterName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("AvailabilityZones" Core..=)
+              Core.<$> availabilityZones,
+            ("NodeIdsToRemove" Core..=) Core.<$> nodeIdsToRemove,
+            Core.Just ("ClusterName" Core..= clusterName),
+            Core.Just
               ( "NewReplicationFactor"
-                  Prelude..= newReplicationFactor'
+                  Core..= newReplicationFactor'
               )
           ]
       )
 
-instance Prelude.ToPath DecreaseReplicationFactor where
-  toPath = Prelude.const "/"
+instance Core.ToPath DecreaseReplicationFactor where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DecreaseReplicationFactor where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DecreaseReplicationFactor where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDecreaseReplicationFactorResponse' smart constructor.
 data DecreaseReplicationFactorResponse = DecreaseReplicationFactorResponse'
   { -- | A description of the DAX cluster, after you have decreased its
     -- replication factor.
-    cluster :: Prelude.Maybe Cluster,
+    cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecreaseReplicationFactorResponse' with all optional fields omitted.
@@ -191,24 +187,24 @@ data DecreaseReplicationFactorResponse = DecreaseReplicationFactorResponse'
 -- 'httpStatus', 'decreaseReplicationFactorResponse_httpStatus' - The response's http status code.
 newDecreaseReplicationFactorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DecreaseReplicationFactorResponse
 newDecreaseReplicationFactorResponse pHttpStatus_ =
   DecreaseReplicationFactorResponse'
     { cluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A description of the DAX cluster, after you have decreased its
 -- replication factor.
-decreaseReplicationFactorResponse_cluster :: Lens.Lens' DecreaseReplicationFactorResponse (Prelude.Maybe Cluster)
+decreaseReplicationFactorResponse_cluster :: Lens.Lens' DecreaseReplicationFactorResponse (Core.Maybe Cluster)
 decreaseReplicationFactorResponse_cluster = Lens.lens (\DecreaseReplicationFactorResponse' {cluster} -> cluster) (\s@DecreaseReplicationFactorResponse' {} a -> s {cluster = a} :: DecreaseReplicationFactorResponse)
 
 -- | The response's http status code.
-decreaseReplicationFactorResponse_httpStatus :: Lens.Lens' DecreaseReplicationFactorResponse Prelude.Int
+decreaseReplicationFactorResponse_httpStatus :: Lens.Lens' DecreaseReplicationFactorResponse Core.Int
 decreaseReplicationFactorResponse_httpStatus = Lens.lens (\DecreaseReplicationFactorResponse' {httpStatus} -> httpStatus) (\s@DecreaseReplicationFactorResponse' {} a -> s {httpStatus = a} :: DecreaseReplicationFactorResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DecreaseReplicationFactorResponse

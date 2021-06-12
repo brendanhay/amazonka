@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ThingTypeProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The ThingTypeProperties contains information about the thing type
 -- including: a thing type description, and a list of searchable thing
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newThingTypeProperties' smart constructor.
 data ThingTypeProperties = ThingTypeProperties'
   { -- | A list of searchable thing attribute names.
-    searchableAttributes :: Prelude.Maybe [Prelude.Text],
+    searchableAttributes :: Core.Maybe [Core.Text],
     -- | The description of the thing type.
-    thingTypeDescription :: Prelude.Maybe Prelude.Text
+    thingTypeDescription :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ThingTypeProperties' with all optional fields omitted.
@@ -52,41 +51,41 @@ newThingTypeProperties ::
 newThingTypeProperties =
   ThingTypeProperties'
     { searchableAttributes =
-        Prelude.Nothing,
-      thingTypeDescription = Prelude.Nothing
+        Core.Nothing,
+      thingTypeDescription = Core.Nothing
     }
 
 -- | A list of searchable thing attribute names.
-thingTypeProperties_searchableAttributes :: Lens.Lens' ThingTypeProperties (Prelude.Maybe [Prelude.Text])
-thingTypeProperties_searchableAttributes = Lens.lens (\ThingTypeProperties' {searchableAttributes} -> searchableAttributes) (\s@ThingTypeProperties' {} a -> s {searchableAttributes = a} :: ThingTypeProperties) Prelude.. Lens.mapping Prelude._Coerce
+thingTypeProperties_searchableAttributes :: Lens.Lens' ThingTypeProperties (Core.Maybe [Core.Text])
+thingTypeProperties_searchableAttributes = Lens.lens (\ThingTypeProperties' {searchableAttributes} -> searchableAttributes) (\s@ThingTypeProperties' {} a -> s {searchableAttributes = a} :: ThingTypeProperties) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the thing type.
-thingTypeProperties_thingTypeDescription :: Lens.Lens' ThingTypeProperties (Prelude.Maybe Prelude.Text)
+thingTypeProperties_thingTypeDescription :: Lens.Lens' ThingTypeProperties (Core.Maybe Core.Text)
 thingTypeProperties_thingTypeDescription = Lens.lens (\ThingTypeProperties' {thingTypeDescription} -> thingTypeDescription) (\s@ThingTypeProperties' {} a -> s {thingTypeDescription = a} :: ThingTypeProperties)
 
-instance Prelude.FromJSON ThingTypeProperties where
+instance Core.FromJSON ThingTypeProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ThingTypeProperties"
       ( \x ->
           ThingTypeProperties'
-            Prelude.<$> ( x Prelude..:? "searchableAttributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "thingTypeDescription")
+            Core.<$> ( x Core..:? "searchableAttributes"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "thingTypeDescription")
       )
 
-instance Prelude.Hashable ThingTypeProperties
+instance Core.Hashable ThingTypeProperties
 
-instance Prelude.NFData ThingTypeProperties
+instance Core.NFData ThingTypeProperties
 
-instance Prelude.ToJSON ThingTypeProperties where
+instance Core.ToJSON ThingTypeProperties where
   toJSON ThingTypeProperties' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("searchableAttributes" Prelude..=)
-              Prelude.<$> searchableAttributes,
-            ("thingTypeDescription" Prelude..=)
-              Prelude.<$> thingTypeDescription
+    Core.object
+      ( Core.catMaybes
+          [ ("searchableAttributes" Core..=)
+              Core.<$> searchableAttributes,
+            ("thingTypeDescription" Core..=)
+              Core.<$> thingTypeDescription
           ]
       )

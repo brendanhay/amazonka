@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.LoggingOptionsPayload where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.LogLevel
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the logging options payload.
 --
 -- /See:/ 'newLoggingOptionsPayload' smart constructor.
 data LoggingOptionsPayload = LoggingOptionsPayload'
   { -- | The log level.
-    logLevel :: Prelude.Maybe LogLevel,
+    logLevel :: Core.Maybe LogLevel,
     -- | The ARN of the IAM role that grants access.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoggingOptionsPayload' with all optional fields omitted.
@@ -48,31 +47,31 @@ data LoggingOptionsPayload = LoggingOptionsPayload'
 -- 'roleArn', 'loggingOptionsPayload_roleArn' - The ARN of the IAM role that grants access.
 newLoggingOptionsPayload ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   LoggingOptionsPayload
 newLoggingOptionsPayload pRoleArn_ =
   LoggingOptionsPayload'
-    { logLevel = Prelude.Nothing,
+    { logLevel = Core.Nothing,
       roleArn = pRoleArn_
     }
 
 -- | The log level.
-loggingOptionsPayload_logLevel :: Lens.Lens' LoggingOptionsPayload (Prelude.Maybe LogLevel)
+loggingOptionsPayload_logLevel :: Lens.Lens' LoggingOptionsPayload (Core.Maybe LogLevel)
 loggingOptionsPayload_logLevel = Lens.lens (\LoggingOptionsPayload' {logLevel} -> logLevel) (\s@LoggingOptionsPayload' {} a -> s {logLevel = a} :: LoggingOptionsPayload)
 
 -- | The ARN of the IAM role that grants access.
-loggingOptionsPayload_roleArn :: Lens.Lens' LoggingOptionsPayload Prelude.Text
+loggingOptionsPayload_roleArn :: Lens.Lens' LoggingOptionsPayload Core.Text
 loggingOptionsPayload_roleArn = Lens.lens (\LoggingOptionsPayload' {roleArn} -> roleArn) (\s@LoggingOptionsPayload' {} a -> s {roleArn = a} :: LoggingOptionsPayload)
 
-instance Prelude.Hashable LoggingOptionsPayload
+instance Core.Hashable LoggingOptionsPayload
 
-instance Prelude.NFData LoggingOptionsPayload
+instance Core.NFData LoggingOptionsPayload
 
-instance Prelude.ToJSON LoggingOptionsPayload where
+instance Core.ToJSON LoggingOptionsPayload where
   toJSON LoggingOptionsPayload' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("logLevel" Prelude..=) Prelude.<$> logLevel,
-            Prelude.Just ("roleArn" Prelude..= roleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("logLevel" Core..=) Core.<$> logLevel,
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )

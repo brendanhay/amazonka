@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -94,9 +93,9 @@ module Network.AWS.Glacier.GetJobOutput
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -135,19 +134,19 @@ data GetJobOutput = GetJobOutput'
     --     Amazon S3 Glacier. You compare this value with the checksum you
     --     computed to ensure you have downloaded the entire archive content
     --     with no errors.
-    range :: Prelude.Maybe Prelude.Text,
+    range :: Core.Maybe Core.Text,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text,
+    vaultName :: Core.Text,
     -- | The job ID whose data is downloaded.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobOutput' with all optional fields omitted.
@@ -200,15 +199,15 @@ data GetJobOutput = GetJobOutput'
 -- 'jobId', 'getJobOutput_jobId' - The job ID whose data is downloaded.
 newGetJobOutput ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   GetJobOutput
 newGetJobOutput pAccountId_ pVaultName_ pJobId_ =
   GetJobOutput'
-    { range = Prelude.Nothing,
+    { range = Core.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_,
       jobId = pJobId_
@@ -245,7 +244,7 @@ newGetJobOutput pAccountId_ pVaultName_ pJobId_ =
 --     Amazon S3 Glacier. You compare this value with the checksum you
 --     computed to ensure you have downloaded the entire archive content
 --     with no errors.
-getJobOutput_range :: Lens.Lens' GetJobOutput (Prelude.Maybe Prelude.Text)
+getJobOutput_range :: Lens.Lens' GetJobOutput (Core.Maybe Core.Text)
 getJobOutput_range = Lens.lens (\GetJobOutput' {range} -> range) (\s@GetJobOutput' {} a -> s {range = a} :: GetJobOutput)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -253,57 +252,57 @@ getJobOutput_range = Lens.lens (\GetJobOutput' {range} -> range) (\s@GetJobOutpu
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-getJobOutput_accountId :: Lens.Lens' GetJobOutput Prelude.Text
+getJobOutput_accountId :: Lens.Lens' GetJobOutput Core.Text
 getJobOutput_accountId = Lens.lens (\GetJobOutput' {accountId} -> accountId) (\s@GetJobOutput' {} a -> s {accountId = a} :: GetJobOutput)
 
 -- | The name of the vault.
-getJobOutput_vaultName :: Lens.Lens' GetJobOutput Prelude.Text
+getJobOutput_vaultName :: Lens.Lens' GetJobOutput Core.Text
 getJobOutput_vaultName = Lens.lens (\GetJobOutput' {vaultName} -> vaultName) (\s@GetJobOutput' {} a -> s {vaultName = a} :: GetJobOutput)
 
 -- | The job ID whose data is downloaded.
-getJobOutput_jobId :: Lens.Lens' GetJobOutput Prelude.Text
+getJobOutput_jobId :: Lens.Lens' GetJobOutput Core.Text
 getJobOutput_jobId = Lens.lens (\GetJobOutput' {jobId} -> jobId) (\s@GetJobOutput' {} a -> s {jobId = a} :: GetJobOutput)
 
-instance Prelude.AWSRequest GetJobOutput where
-  type Rs GetJobOutput = GetJobOutputResponse
+instance Core.AWSRequest GetJobOutput where
+  type AWSResponse GetJobOutput = GetJobOutputResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveBody
       ( \s h x ->
           GetJobOutputResponse'
-            Prelude.<$> (h Prelude..#? "Content-Type")
-            Prelude.<*> (h Prelude..#? "Content-Range")
-            Prelude.<*> (h Prelude..#? "x-amz-archive-description")
-            Prelude.<*> (h Prelude..#? "Accept-Ranges")
-            Prelude.<*> (h Prelude..#? "x-amz-sha256-tree-hash")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.pure x)
+            Core.<$> (h Core..#? "Content-Type")
+            Core.<*> (h Core..#? "Content-Range")
+            Core.<*> (h Core..#? "x-amz-archive-description")
+            Core.<*> (h Core..#? "Accept-Ranges")
+            Core.<*> (h Core..#? "x-amz-sha256-tree-hash")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.pure x)
       )
 
-instance Prelude.Hashable GetJobOutput
+instance Core.Hashable GetJobOutput
 
-instance Prelude.NFData GetJobOutput
+instance Core.NFData GetJobOutput
 
-instance Prelude.ToHeaders GetJobOutput where
+instance Core.ToHeaders GetJobOutput where
   toHeaders GetJobOutput' {..} =
-    Prelude.mconcat ["Range" Prelude.=# range]
+    Core.mconcat ["Range" Core.=# range]
 
-instance Prelude.ToPath GetJobOutput where
+instance Core.ToPath GetJobOutput where
   toPath GetJobOutput' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/jobs/",
-        Prelude.toBS jobId,
+        Core.toBS jobId,
         "/output"
       ]
 
-instance Prelude.ToQuery GetJobOutput where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJobOutput where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -315,17 +314,17 @@ data GetJobOutputResponse = GetJobOutputResponse'
     -- format when you initiated the job, the Content-Type is text\/csv.
     -- Otherwise, by default, vault inventory is returned as JSON, and the
     -- Content-Type is application\/json.
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | The range of bytes returned by Amazon S3 Glacier. If only partial output
     -- is downloaded, the response provides the range of bytes Amazon S3
     -- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
     -- first 1 MB from 8 MB.
-    contentRange :: Prelude.Maybe Prelude.Text,
+    contentRange :: Core.Maybe Core.Text,
     -- | The description of an archive.
-    archiveDescription :: Prelude.Maybe Prelude.Text,
+    archiveDescription :: Core.Maybe Core.Text,
     -- | Indicates the range units accepted. For more information, see
     -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
-    acceptRanges :: Prelude.Maybe Prelude.Text,
+    acceptRanges :: Core.Maybe Core.Text,
     -- | The checksum of the data in the response. This header is returned only
     -- when retrieving the output for an archive retrieval job. Furthermore,
     -- this header appears only under the following conditions:
@@ -342,14 +341,14 @@ data GetJobOutputResponse = GetJobOutputResponse'
     --     you have a 3.1 MB archive and you specify a range that starts at 2
     --     MB and ends at 3.1 MB (the end of the archive), then the
     --     x-amz-sha256-tree-hash is returned as a response header.
-    checksum :: Prelude.Maybe Prelude.Text,
+    checksum :: Core.Maybe Core.Text,
     -- | The HTTP response code for a job output request. The value depends on
     -- whether a range was specified in the request.
-    status :: Prelude.Int,
+    status :: Core.Int,
     -- | The job data, either archive data or inventory data.
-    body :: Prelude.RsBody
+    body :: Core.ResponseBody
   }
-  deriving (Prelude.Show, Prelude.Generic)
+  deriving (Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobOutputResponse' with all optional fields omitted.
@@ -399,18 +398,17 @@ data GetJobOutputResponse = GetJobOutputResponse'
 -- 'body', 'getJobOutputResponse_body' - The job data, either archive data or inventory data.
 newGetJobOutputResponse ::
   -- | 'status'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'body'
-  Prelude.RsBody ->
+  Core.ResponseBody ->
   GetJobOutputResponse
 newGetJobOutputResponse pStatus_ pBody_ =
   GetJobOutputResponse'
-    { contentType =
-        Prelude.Nothing,
-      contentRange = Prelude.Nothing,
-      archiveDescription = Prelude.Nothing,
-      acceptRanges = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+    { contentType = Core.Nothing,
+      contentRange = Core.Nothing,
+      archiveDescription = Core.Nothing,
+      acceptRanges = Core.Nothing,
+      checksum = Core.Nothing,
       status = pStatus_,
       body = pBody_
     }
@@ -421,23 +419,23 @@ newGetJobOutputResponse pStatus_ pBody_ =
 -- format when you initiated the job, the Content-Type is text\/csv.
 -- Otherwise, by default, vault inventory is returned as JSON, and the
 -- Content-Type is application\/json.
-getJobOutputResponse_contentType :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_contentType :: Lens.Lens' GetJobOutputResponse (Core.Maybe Core.Text)
 getJobOutputResponse_contentType = Lens.lens (\GetJobOutputResponse' {contentType} -> contentType) (\s@GetJobOutputResponse' {} a -> s {contentType = a} :: GetJobOutputResponse)
 
 -- | The range of bytes returned by Amazon S3 Glacier. If only partial output
 -- is downloaded, the response provides the range of bytes Amazon S3
 -- Glacier returned. For example, bytes 0-1048575\/8388608 returns the
 -- first 1 MB from 8 MB.
-getJobOutputResponse_contentRange :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_contentRange :: Lens.Lens' GetJobOutputResponse (Core.Maybe Core.Text)
 getJobOutputResponse_contentRange = Lens.lens (\GetJobOutputResponse' {contentRange} -> contentRange) (\s@GetJobOutputResponse' {} a -> s {contentRange = a} :: GetJobOutputResponse)
 
 -- | The description of an archive.
-getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_archiveDescription :: Lens.Lens' GetJobOutputResponse (Core.Maybe Core.Text)
 getJobOutputResponse_archiveDescription = Lens.lens (\GetJobOutputResponse' {archiveDescription} -> archiveDescription) (\s@GetJobOutputResponse' {} a -> s {archiveDescription = a} :: GetJobOutputResponse)
 
 -- | Indicates the range units accepted. For more information, see
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
-getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_acceptRanges :: Lens.Lens' GetJobOutputResponse (Core.Maybe Core.Text)
 getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRanges} -> acceptRanges) (\s@GetJobOutputResponse' {} a -> s {acceptRanges = a} :: GetJobOutputResponse)
 
 -- | The checksum of the data in the response. This header is returned only
@@ -456,14 +454,14 @@ getJobOutputResponse_acceptRanges = Lens.lens (\GetJobOutputResponse' {acceptRan
 --     you have a 3.1 MB archive and you specify a range that starts at 2
 --     MB and ends at 3.1 MB (the end of the archive), then the
 --     x-amz-sha256-tree-hash is returned as a response header.
-getJobOutputResponse_checksum :: Lens.Lens' GetJobOutputResponse (Prelude.Maybe Prelude.Text)
+getJobOutputResponse_checksum :: Lens.Lens' GetJobOutputResponse (Core.Maybe Core.Text)
 getJobOutputResponse_checksum = Lens.lens (\GetJobOutputResponse' {checksum} -> checksum) (\s@GetJobOutputResponse' {} a -> s {checksum = a} :: GetJobOutputResponse)
 
 -- | The HTTP response code for a job output request. The value depends on
 -- whether a range was specified in the request.
-getJobOutputResponse_status :: Lens.Lens' GetJobOutputResponse Prelude.Int
+getJobOutputResponse_status :: Lens.Lens' GetJobOutputResponse Core.Int
 getJobOutputResponse_status = Lens.lens (\GetJobOutputResponse' {status} -> status) (\s@GetJobOutputResponse' {} a -> s {status = a} :: GetJobOutputResponse)
 
 -- | The job data, either archive data or inventory data.
-getJobOutputResponse_body :: Lens.Lens' GetJobOutputResponse Prelude.RsBody
+getJobOutputResponse_body :: Lens.Lens' GetJobOutputResponse Core.ResponseBody
 getJobOutputResponse_body = Lens.lens (\GetJobOutputResponse' {body} -> body) (\s@GetJobOutputResponse' {} a -> s {body = a} :: GetJobOutputResponse)

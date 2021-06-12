@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.InventoryDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.InventoryS3BucketDestination
 
@@ -33,7 +32,7 @@ data InventoryDestination = InventoryDestination'
     -- prefix (optional) where inventory results are published.
     s3BucketDestination :: InventoryS3BucketDestination
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InventoryDestination' with all optional fields omitted.
@@ -60,18 +59,16 @@ newInventoryDestination pS3BucketDestination_ =
 inventoryDestination_s3BucketDestination :: Lens.Lens' InventoryDestination InventoryS3BucketDestination
 inventoryDestination_s3BucketDestination = Lens.lens (\InventoryDestination' {s3BucketDestination} -> s3BucketDestination) (\s@InventoryDestination' {} a -> s {s3BucketDestination = a} :: InventoryDestination)
 
-instance Prelude.FromXML InventoryDestination where
+instance Core.FromXML InventoryDestination where
   parseXML x =
     InventoryDestination'
-      Prelude.<$> (x Prelude..@ "S3BucketDestination")
+      Core.<$> (x Core..@ "S3BucketDestination")
 
-instance Prelude.Hashable InventoryDestination
+instance Core.Hashable InventoryDestination
 
-instance Prelude.NFData InventoryDestination
+instance Core.NFData InventoryDestination
 
-instance Prelude.ToXML InventoryDestination where
+instance Core.ToXML InventoryDestination where
   toXML InventoryDestination' {..} =
-    Prelude.mconcat
-      [ "S3BucketDestination"
-          Prelude.@= s3BucketDestination
-      ]
+    Core.mconcat
+      ["S3BucketDestination" Core.@= s3BucketDestination]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom key-value pair associated with an ML object, such as an ML
 -- model.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Tag = Tag'
   { -- | A unique identifier for the tag. Valid characters include Unicode
     -- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | An optional string, typically used to describe or define the tag. Valid
     -- characters include Unicode letters, digits, white space, _, ., \/, =, +,
     -- -, %, and \@.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -55,41 +54,37 @@ data Tag = Tag'
 newTag ::
   Tag
 newTag =
-  Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
-    }
+  Tag' {key = Core.Nothing, value = Core.Nothing}
 
 -- | A unique identifier for the tag. Valid characters include Unicode
 -- letters, digits, white space, _, ., \/, =, +, -, %, and \@.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key :: Lens.Lens' Tag (Core.Maybe Core.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | An optional string, typically used to describe or define the tag. Valid
 -- characters include Unicode letters, digits, white space, _, ., \/, =, +,
 -- -, %, and \@.
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.FromJSON Tag where
+instance Core.FromJSON Tag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToJSON Tag where
+instance Core.ToJSON Tag where
   toJSON Tag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +59,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeLoadBalancerPolicies' smart constructor.
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
   { -- | The names of the policies.
-    policyNames :: Prelude.Maybe [Prelude.Text],
+    policyNames :: Core.Maybe [Core.Text],
     -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Maybe Prelude.Text
+    loadBalancerName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancerPolicies' with all optional fields omitted.
@@ -82,24 +81,21 @@ newDescribeLoadBalancerPolicies ::
 newDescribeLoadBalancerPolicies =
   DescribeLoadBalancerPolicies'
     { policyNames =
-        Prelude.Nothing,
-      loadBalancerName = Prelude.Nothing
+        Core.Nothing,
+      loadBalancerName = Core.Nothing
     }
 
 -- | The names of the policies.
-describeLoadBalancerPolicies_policyNames :: Lens.Lens' DescribeLoadBalancerPolicies (Prelude.Maybe [Prelude.Text])
-describeLoadBalancerPolicies_policyNames = Lens.lens (\DescribeLoadBalancerPolicies' {policyNames} -> policyNames) (\s@DescribeLoadBalancerPolicies' {} a -> s {policyNames = a} :: DescribeLoadBalancerPolicies) Prelude.. Lens.mapping Prelude._Coerce
+describeLoadBalancerPolicies_policyNames :: Lens.Lens' DescribeLoadBalancerPolicies (Core.Maybe [Core.Text])
+describeLoadBalancerPolicies_policyNames = Lens.lens (\DescribeLoadBalancerPolicies' {policyNames} -> policyNames) (\s@DescribeLoadBalancerPolicies' {} a -> s {policyNames = a} :: DescribeLoadBalancerPolicies) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the load balancer.
-describeLoadBalancerPolicies_loadBalancerName :: Lens.Lens' DescribeLoadBalancerPolicies (Prelude.Maybe Prelude.Text)
+describeLoadBalancerPolicies_loadBalancerName :: Lens.Lens' DescribeLoadBalancerPolicies (Core.Maybe Core.Text)
 describeLoadBalancerPolicies_loadBalancerName = Lens.lens (\DescribeLoadBalancerPolicies' {loadBalancerName} -> loadBalancerName) (\s@DescribeLoadBalancerPolicies' {} a -> s {loadBalancerName = a} :: DescribeLoadBalancerPolicies)
 
-instance
-  Prelude.AWSRequest
-    DescribeLoadBalancerPolicies
-  where
+instance Core.AWSRequest DescribeLoadBalancerPolicies where
   type
-    Rs DescribeLoadBalancerPolicies =
+    AWSResponse DescribeLoadBalancerPolicies =
       DescribeLoadBalancerPoliciesResponse
   request = Request.postQuery defaultService
   response =
@@ -107,43 +103,32 @@ instance
       "DescribeLoadBalancerPoliciesResult"
       ( \s h x ->
           DescribeLoadBalancerPoliciesResponse'
-            Prelude.<$> ( x Prelude..@? "PolicyDescriptions"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "PolicyDescriptions" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeLoadBalancerPolicies
+instance Core.Hashable DescribeLoadBalancerPolicies
 
-instance Prelude.NFData DescribeLoadBalancerPolicies
+instance Core.NFData DescribeLoadBalancerPolicies
 
-instance
-  Prelude.ToHeaders
-    DescribeLoadBalancerPolicies
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeLoadBalancerPolicies where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeLoadBalancerPolicies where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLoadBalancerPolicies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLoadBalancerPolicies where
+instance Core.ToQuery DescribeLoadBalancerPolicies where
   toQuery DescribeLoadBalancerPolicies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeLoadBalancerPolicies" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
+          Core.=: ("DescribeLoadBalancerPolicies" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
         "PolicyNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> policyNames
-            ),
-        "LoadBalancerName" Prelude.=: loadBalancerName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> policyNames),
+        "LoadBalancerName" Core.=: loadBalancerName
       ]
 
 -- | Contains the output of DescribeLoadBalancerPolicies.
@@ -151,11 +136,11 @@ instance Prelude.ToQuery DescribeLoadBalancerPolicies where
 -- /See:/ 'newDescribeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
   { -- | Information about the policies.
-    policyDescriptions :: Prelude.Maybe [PolicyDescription],
+    policyDescriptions :: Core.Maybe [PolicyDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancerPoliciesResponse' with all optional fields omitted.
@@ -170,23 +155,23 @@ data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
 -- 'httpStatus', 'describeLoadBalancerPoliciesResponse_httpStatus' - The response's http status code.
 newDescribeLoadBalancerPoliciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLoadBalancerPoliciesResponse
 newDescribeLoadBalancerPoliciesResponse pHttpStatus_ =
   DescribeLoadBalancerPoliciesResponse'
     { policyDescriptions =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the policies.
-describeLoadBalancerPoliciesResponse_policyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Prelude.Maybe [PolicyDescription])
-describeLoadBalancerPoliciesResponse_policyDescriptions = Lens.lens (\DescribeLoadBalancerPoliciesResponse' {policyDescriptions} -> policyDescriptions) (\s@DescribeLoadBalancerPoliciesResponse' {} a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLoadBalancerPoliciesResponse_policyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Core.Maybe [PolicyDescription])
+describeLoadBalancerPoliciesResponse_policyDescriptions = Lens.lens (\DescribeLoadBalancerPoliciesResponse' {policyDescriptions} -> policyDescriptions) (\s@DescribeLoadBalancerPoliciesResponse' {} a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLoadBalancerPoliciesResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Prelude.Int
+describeLoadBalancerPoliciesResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Core.Int
 describeLoadBalancerPoliciesResponse_httpStatus = Lens.lens (\DescribeLoadBalancerPoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancerPoliciesResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancerPoliciesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeLoadBalancerPoliciesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.Inspector.CreateAssessmentTarget
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,12 +62,12 @@ data CreateAssessmentTarget = CreateAssessmentTarget'
     -- assessment target. If resourceGroupArn is not specified, all EC2
     -- instances in the current AWS account and region are included in the
     -- assessment target.
-    resourceGroupArn :: Prelude.Maybe Prelude.Text,
+    resourceGroupArn :: Core.Maybe Core.Text,
     -- | The user-defined name that identifies the assessment target that you
     -- want to create. The name must be unique within the AWS account.
-    assessmentTargetName :: Prelude.Text
+    assessmentTargetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAssessmentTarget' with all optional fields omitted.
@@ -87,12 +86,12 @@ data CreateAssessmentTarget = CreateAssessmentTarget'
 -- want to create. The name must be unique within the AWS account.
 newCreateAssessmentTarget ::
   -- | 'assessmentTargetName'
-  Prelude.Text ->
+  Core.Text ->
   CreateAssessmentTarget
 newCreateAssessmentTarget pAssessmentTargetName_ =
   CreateAssessmentTarget'
     { resourceGroupArn =
-        Prelude.Nothing,
+        Core.Nothing,
       assessmentTargetName = pAssessmentTargetName_
     }
 
@@ -100,73 +99,71 @@ newCreateAssessmentTarget pAssessmentTargetName_ =
 -- assessment target. If resourceGroupArn is not specified, all EC2
 -- instances in the current AWS account and region are included in the
 -- assessment target.
-createAssessmentTarget_resourceGroupArn :: Lens.Lens' CreateAssessmentTarget (Prelude.Maybe Prelude.Text)
+createAssessmentTarget_resourceGroupArn :: Lens.Lens' CreateAssessmentTarget (Core.Maybe Core.Text)
 createAssessmentTarget_resourceGroupArn = Lens.lens (\CreateAssessmentTarget' {resourceGroupArn} -> resourceGroupArn) (\s@CreateAssessmentTarget' {} a -> s {resourceGroupArn = a} :: CreateAssessmentTarget)
 
 -- | The user-defined name that identifies the assessment target that you
 -- want to create. The name must be unique within the AWS account.
-createAssessmentTarget_assessmentTargetName :: Lens.Lens' CreateAssessmentTarget Prelude.Text
+createAssessmentTarget_assessmentTargetName :: Lens.Lens' CreateAssessmentTarget Core.Text
 createAssessmentTarget_assessmentTargetName = Lens.lens (\CreateAssessmentTarget' {assessmentTargetName} -> assessmentTargetName) (\s@CreateAssessmentTarget' {} a -> s {assessmentTargetName = a} :: CreateAssessmentTarget)
 
-instance Prelude.AWSRequest CreateAssessmentTarget where
+instance Core.AWSRequest CreateAssessmentTarget where
   type
-    Rs CreateAssessmentTarget =
+    AWSResponse CreateAssessmentTarget =
       CreateAssessmentTargetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateAssessmentTargetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "assessmentTargetArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "assessmentTargetArn")
       )
 
-instance Prelude.Hashable CreateAssessmentTarget
+instance Core.Hashable CreateAssessmentTarget
 
-instance Prelude.NFData CreateAssessmentTarget
+instance Core.NFData CreateAssessmentTarget
 
-instance Prelude.ToHeaders CreateAssessmentTarget where
+instance Core.ToHeaders CreateAssessmentTarget where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.CreateAssessmentTarget" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.CreateAssessmentTarget" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAssessmentTarget where
+instance Core.ToJSON CreateAssessmentTarget where
   toJSON CreateAssessmentTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resourceGroupArn" Prelude..=)
-              Prelude.<$> resourceGroupArn,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("resourceGroupArn" Core..=)
+              Core.<$> resourceGroupArn,
+            Core.Just
               ( "assessmentTargetName"
-                  Prelude..= assessmentTargetName
+                  Core..= assessmentTargetName
               )
           ]
       )
 
-instance Prelude.ToPath CreateAssessmentTarget where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateAssessmentTarget where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateAssessmentTarget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAssessmentTarget where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAssessmentTargetResponse' smart constructor.
 data CreateAssessmentTargetResponse = CreateAssessmentTargetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ARN that specifies the assessment target that is created.
-    assessmentTargetArn :: Prelude.Text
+    assessmentTargetArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAssessmentTargetResponse' with all optional fields omitted.
@@ -181,9 +178,9 @@ data CreateAssessmentTargetResponse = CreateAssessmentTargetResponse'
 -- 'assessmentTargetArn', 'createAssessmentTargetResponse_assessmentTargetArn' - The ARN that specifies the assessment target that is created.
 newCreateAssessmentTargetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'assessmentTargetArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateAssessmentTargetResponse
 newCreateAssessmentTargetResponse
   pHttpStatus_
@@ -195,13 +192,11 @@ newCreateAssessmentTargetResponse
       }
 
 -- | The response's http status code.
-createAssessmentTargetResponse_httpStatus :: Lens.Lens' CreateAssessmentTargetResponse Prelude.Int
+createAssessmentTargetResponse_httpStatus :: Lens.Lens' CreateAssessmentTargetResponse Core.Int
 createAssessmentTargetResponse_httpStatus = Lens.lens (\CreateAssessmentTargetResponse' {httpStatus} -> httpStatus) (\s@CreateAssessmentTargetResponse' {} a -> s {httpStatus = a} :: CreateAssessmentTargetResponse)
 
 -- | The ARN that specifies the assessment target that is created.
-createAssessmentTargetResponse_assessmentTargetArn :: Lens.Lens' CreateAssessmentTargetResponse Prelude.Text
+createAssessmentTargetResponse_assessmentTargetArn :: Lens.Lens' CreateAssessmentTargetResponse Core.Text
 createAssessmentTargetResponse_assessmentTargetArn = Lens.lens (\CreateAssessmentTargetResponse' {assessmentTargetArn} -> assessmentTargetArn) (\s@CreateAssessmentTargetResponse' {} a -> s {assessmentTargetArn = a} :: CreateAssessmentTargetResponse)
 
-instance
-  Prelude.NFData
-    CreateAssessmentTargetResponse
+instance Core.NFData CreateAssessmentTargetResponse

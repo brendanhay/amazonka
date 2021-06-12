@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Lightsail.DeleteContactMethod
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ data DeleteContactMethod = DeleteContactMethod'
     -- must run separate @DeleteContactMethod@ actions to delete each protocol.
     protocol :: ContactProtocol
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteContactMethod' with all optional fields omitted.
@@ -92,63 +91,59 @@ newDeleteContactMethod pProtocol_ =
 deleteContactMethod_protocol :: Lens.Lens' DeleteContactMethod ContactProtocol
 deleteContactMethod_protocol = Lens.lens (\DeleteContactMethod' {protocol} -> protocol) (\s@DeleteContactMethod' {} a -> s {protocol = a} :: DeleteContactMethod)
 
-instance Prelude.AWSRequest DeleteContactMethod where
+instance Core.AWSRequest DeleteContactMethod where
   type
-    Rs DeleteContactMethod =
+    AWSResponse DeleteContactMethod =
       DeleteContactMethodResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteContactMethodResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContactMethod
+instance Core.Hashable DeleteContactMethod
 
-instance Prelude.NFData DeleteContactMethod
+instance Core.NFData DeleteContactMethod
 
-instance Prelude.ToHeaders DeleteContactMethod where
+instance Core.ToHeaders DeleteContactMethod where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteContactMethod" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteContactMethod" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteContactMethod where
+instance Core.ToJSON DeleteContactMethod where
   toJSON DeleteContactMethod' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("protocol" Prelude..= protocol)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("protocol" Core..= protocol)]
       )
 
-instance Prelude.ToPath DeleteContactMethod where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteContactMethod where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteContactMethod where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteContactMethod where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteContactMethodResponse' smart constructor.
 data DeleteContactMethodResponse = DeleteContactMethodResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteContactMethodResponse' with all optional fields omitted.
@@ -165,23 +160,23 @@ data DeleteContactMethodResponse = DeleteContactMethodResponse'
 -- 'httpStatus', 'deleteContactMethodResponse_httpStatus' - The response's http status code.
 newDeleteContactMethodResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteContactMethodResponse
 newDeleteContactMethodResponse pHttpStatus_ =
   DeleteContactMethodResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteContactMethodResponse_operations :: Lens.Lens' DeleteContactMethodResponse (Prelude.Maybe [Operation])
-deleteContactMethodResponse_operations = Lens.lens (\DeleteContactMethodResponse' {operations} -> operations) (\s@DeleteContactMethodResponse' {} a -> s {operations = a} :: DeleteContactMethodResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteContactMethodResponse_operations :: Lens.Lens' DeleteContactMethodResponse (Core.Maybe [Operation])
+deleteContactMethodResponse_operations = Lens.lens (\DeleteContactMethodResponse' {operations} -> operations) (\s@DeleteContactMethodResponse' {} a -> s {operations = a} :: DeleteContactMethodResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteContactMethodResponse_httpStatus :: Lens.Lens' DeleteContactMethodResponse Prelude.Int
+deleteContactMethodResponse_httpStatus :: Lens.Lens' DeleteContactMethodResponse Core.Int
 deleteContactMethodResponse_httpStatus = Lens.lens (\DeleteContactMethodResponse' {httpStatus} -> httpStatus) (\s@DeleteContactMethodResponse' {} a -> s {httpStatus = a} :: DeleteContactMethodResponse)
 
-instance Prelude.NFData DeleteContactMethodResponse
+instance Core.NFData DeleteContactMethodResponse

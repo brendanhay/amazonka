@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.LinuxParameters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.Device
 import Network.AWS.ECS.Types.KernelCapabilities
 import Network.AWS.ECS.Types.Tmpfs
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Linux-specific options that are applied to the container, such as Linux
 -- KernelCapabilities.
@@ -37,7 +36,7 @@ data LinuxParameters = LinuxParameters'
     --
     -- If you are using tasks that use the Fargate launch type, the @tmpfs@
     -- parameter is not supported.
-    tmpfs :: Prelude.Maybe [Tmpfs],
+    tmpfs :: Core.Maybe [Tmpfs],
     -- | The total amount of swap memory (in MiB) a container can use. This
     -- parameter will be translated to the @--memory-swap@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>
@@ -52,14 +51,14 @@ data LinuxParameters = LinuxParameters'
     --
     -- If you are using tasks that use the Fargate launch type, the @maxSwap@
     -- parameter is not supported.
-    maxSwap :: Prelude.Maybe Prelude.Int,
+    maxSwap :: Core.Maybe Core.Int,
     -- | The Linux capabilities for the container that are added to or dropped
     -- from the default configuration provided by Docker.
     --
     -- For tasks that use the Fargate launch type, @capabilities@ is supported
     -- for all platform versions but the @add@ parameter is only supported if
     -- using platform version 1.4.0 or later.
-    capabilities :: Prelude.Maybe KernelCapabilities,
+    capabilities :: Core.Maybe KernelCapabilities,
     -- | Any host devices to expose to the container. This parameter maps to
     -- @Devices@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
@@ -70,7 +69,7 @@ data LinuxParameters = LinuxParameters'
     --
     -- If you are using tasks that use the Fargate launch type, the @devices@
     -- parameter is not supported.
-    devices :: Prelude.Maybe [Device],
+    devices :: Core.Maybe [Device],
     -- | This allows you to tune a container\'s memory swappiness behavior. A
     -- @swappiness@ value of @0@ will cause swapping to not happen unless
     -- absolutely necessary. A @swappiness@ value of @100@ will cause pages to
@@ -83,7 +82,7 @@ data LinuxParameters = LinuxParameters'
     --
     -- If you are using tasks that use the Fargate launch type, the
     -- @swappiness@ parameter is not supported.
-    swappiness :: Prelude.Maybe Prelude.Int,
+    swappiness :: Core.Maybe Core.Int,
     -- | Run an @init@ process inside the container that forwards signals and
     -- reaps processes. This parameter maps to the @--init@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
@@ -92,16 +91,16 @@ data LinuxParameters = LinuxParameters'
     -- your container instance, log in to your container instance and run the
     -- following command:
     -- @sudo docker version --format \'{{.Server.APIVersion}}\'@
-    initProcessEnabled :: Prelude.Maybe Prelude.Bool,
+    initProcessEnabled :: Core.Maybe Core.Bool,
     -- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
     -- parameter maps to the @--shm-size@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
     -- If you are using tasks that use the Fargate launch type, the
     -- @sharedMemorySize@ parameter is not supported.
-    sharedMemorySize :: Prelude.Maybe Prelude.Int
+    sharedMemorySize :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LinuxParameters' with all optional fields omitted.
@@ -183,13 +182,13 @@ newLinuxParameters ::
   LinuxParameters
 newLinuxParameters =
   LinuxParameters'
-    { tmpfs = Prelude.Nothing,
-      maxSwap = Prelude.Nothing,
-      capabilities = Prelude.Nothing,
-      devices = Prelude.Nothing,
-      swappiness = Prelude.Nothing,
-      initProcessEnabled = Prelude.Nothing,
-      sharedMemorySize = Prelude.Nothing
+    { tmpfs = Core.Nothing,
+      maxSwap = Core.Nothing,
+      capabilities = Core.Nothing,
+      devices = Core.Nothing,
+      swappiness = Core.Nothing,
+      initProcessEnabled = Core.Nothing,
+      sharedMemorySize = Core.Nothing
     }
 
 -- | The container path, mount options, and size (in MiB) of the tmpfs mount.
@@ -198,8 +197,8 @@ newLinuxParameters =
 --
 -- If you are using tasks that use the Fargate launch type, the @tmpfs@
 -- parameter is not supported.
-linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Prelude.Maybe [Tmpfs])
-linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Prelude.. Lens.mapping Prelude._Coerce
+linuxParameters_tmpfs :: Lens.Lens' LinuxParameters (Core.Maybe [Tmpfs])
+linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@LinuxParameters' {} a -> s {tmpfs = a} :: LinuxParameters) Core.. Lens.mapping Lens._Coerce
 
 -- | The total amount of swap memory (in MiB) a container can use. This
 -- parameter will be translated to the @--memory-swap@ option to
@@ -215,7 +214,7 @@ linuxParameters_tmpfs = Lens.lens (\LinuxParameters' {tmpfs} -> tmpfs) (\s@Linux
 --
 -- If you are using tasks that use the Fargate launch type, the @maxSwap@
 -- parameter is not supported.
-linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
+linuxParameters_maxSwap :: Lens.Lens' LinuxParameters (Core.Maybe Core.Int)
 linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s@LinuxParameters' {} a -> s {maxSwap = a} :: LinuxParameters)
 
 -- | The Linux capabilities for the container that are added to or dropped
@@ -224,7 +223,7 @@ linuxParameters_maxSwap = Lens.lens (\LinuxParameters' {maxSwap} -> maxSwap) (\s
 -- For tasks that use the Fargate launch type, @capabilities@ is supported
 -- for all platform versions but the @add@ parameter is only supported if
 -- using platform version 1.4.0 or later.
-linuxParameters_capabilities :: Lens.Lens' LinuxParameters (Prelude.Maybe KernelCapabilities)
+linuxParameters_capabilities :: Lens.Lens' LinuxParameters (Core.Maybe KernelCapabilities)
 linuxParameters_capabilities = Lens.lens (\LinuxParameters' {capabilities} -> capabilities) (\s@LinuxParameters' {} a -> s {capabilities = a} :: LinuxParameters)
 
 -- | Any host devices to expose to the container. This parameter maps to
@@ -237,8 +236,8 @@ linuxParameters_capabilities = Lens.lens (\LinuxParameters' {capabilities} -> ca
 --
 -- If you are using tasks that use the Fargate launch type, the @devices@
 -- parameter is not supported.
-linuxParameters_devices :: Lens.Lens' LinuxParameters (Prelude.Maybe [Device])
-linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s@LinuxParameters' {} a -> s {devices = a} :: LinuxParameters) Prelude.. Lens.mapping Prelude._Coerce
+linuxParameters_devices :: Lens.Lens' LinuxParameters (Core.Maybe [Device])
+linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s@LinuxParameters' {} a -> s {devices = a} :: LinuxParameters) Core.. Lens.mapping Lens._Coerce
 
 -- | This allows you to tune a container\'s memory swappiness behavior. A
 -- @swappiness@ value of @0@ will cause swapping to not happen unless
@@ -252,7 +251,7 @@ linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s
 --
 -- If you are using tasks that use the Fargate launch type, the
 -- @swappiness@ parameter is not supported.
-linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
+linuxParameters_swappiness :: Lens.Lens' LinuxParameters (Core.Maybe Core.Int)
 linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappiness) (\s@LinuxParameters' {} a -> s {swappiness = a} :: LinuxParameters)
 
 -- | Run an @init@ process inside the container that forwards signals and
@@ -263,7 +262,7 @@ linuxParameters_swappiness = Lens.lens (\LinuxParameters' {swappiness} -> swappi
 -- your container instance, log in to your container instance and run the
 -- following command:
 -- @sudo docker version --format \'{{.Server.APIVersion}}\'@
-linuxParameters_initProcessEnabled :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Bool)
+linuxParameters_initProcessEnabled :: Lens.Lens' LinuxParameters (Core.Maybe Core.Bool)
 linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEnabled} -> initProcessEnabled) (\s@LinuxParameters' {} a -> s {initProcessEnabled = a} :: LinuxParameters)
 
 -- | The value for the size (in MiB) of the @\/dev\/shm@ volume. This
@@ -272,40 +271,40 @@ linuxParameters_initProcessEnabled = Lens.lens (\LinuxParameters' {initProcessEn
 --
 -- If you are using tasks that use the Fargate launch type, the
 -- @sharedMemorySize@ parameter is not supported.
-linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Prelude.Maybe Prelude.Int)
+linuxParameters_sharedMemorySize :: Lens.Lens' LinuxParameters (Core.Maybe Core.Int)
 linuxParameters_sharedMemorySize = Lens.lens (\LinuxParameters' {sharedMemorySize} -> sharedMemorySize) (\s@LinuxParameters' {} a -> s {sharedMemorySize = a} :: LinuxParameters)
 
-instance Prelude.FromJSON LinuxParameters where
+instance Core.FromJSON LinuxParameters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LinuxParameters"
       ( \x ->
           LinuxParameters'
-            Prelude.<$> (x Prelude..:? "tmpfs" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "maxSwap")
-            Prelude.<*> (x Prelude..:? "capabilities")
-            Prelude.<*> (x Prelude..:? "devices" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "swappiness")
-            Prelude.<*> (x Prelude..:? "initProcessEnabled")
-            Prelude.<*> (x Prelude..:? "sharedMemorySize")
+            Core.<$> (x Core..:? "tmpfs" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "maxSwap")
+            Core.<*> (x Core..:? "capabilities")
+            Core.<*> (x Core..:? "devices" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "swappiness")
+            Core.<*> (x Core..:? "initProcessEnabled")
+            Core.<*> (x Core..:? "sharedMemorySize")
       )
 
-instance Prelude.Hashable LinuxParameters
+instance Core.Hashable LinuxParameters
 
-instance Prelude.NFData LinuxParameters
+instance Core.NFData LinuxParameters
 
-instance Prelude.ToJSON LinuxParameters where
+instance Core.ToJSON LinuxParameters where
   toJSON LinuxParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tmpfs" Prelude..=) Prelude.<$> tmpfs,
-            ("maxSwap" Prelude..=) Prelude.<$> maxSwap,
-            ("capabilities" Prelude..=) Prelude.<$> capabilities,
-            ("devices" Prelude..=) Prelude.<$> devices,
-            ("swappiness" Prelude..=) Prelude.<$> swappiness,
-            ("initProcessEnabled" Prelude..=)
-              Prelude.<$> initProcessEnabled,
-            ("sharedMemorySize" Prelude..=)
-              Prelude.<$> sharedMemorySize
+    Core.object
+      ( Core.catMaybes
+          [ ("tmpfs" Core..=) Core.<$> tmpfs,
+            ("maxSwap" Core..=) Core.<$> maxSwap,
+            ("capabilities" Core..=) Core.<$> capabilities,
+            ("devices" Core..=) Core.<$> devices,
+            ("swappiness" Core..=) Core.<$> swappiness,
+            ("initProcessEnabled" Core..=)
+              Core.<$> initProcessEnabled,
+            ("sharedMemorySize" Core..=)
+              Core.<$> sharedMemorySize
           ]
       )

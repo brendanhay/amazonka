@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Permission
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The owner setting for downloaded machine learning resources.
 --
@@ -31,12 +30,12 @@ data ResourceDownloadOwnerSetting = ResourceDownloadOwnerSetting'
   { -- | The group owner of the resource. This is the name of an existing Linux
     -- OS group on the system or a GID. The group\'s permissions are added to
     -- the Lambda process.
-    groupOwner :: Prelude.Text,
+    groupOwner :: Core.Text,
     -- | The permissions that the group owner has to the resource. Valid values
     -- are \'\'rw\'\' (read\/write) or \'\'ro\'\' (read-only).
     groupPermission :: Permission
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceDownloadOwnerSetting' with all optional fields omitted.
@@ -54,7 +53,7 @@ data ResourceDownloadOwnerSetting = ResourceDownloadOwnerSetting'
 -- are \'\'rw\'\' (read\/write) or \'\'ro\'\' (read-only).
 newResourceDownloadOwnerSetting ::
   -- | 'groupOwner'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'groupPermission'
   Permission ->
   ResourceDownloadOwnerSetting
@@ -70,7 +69,7 @@ newResourceDownloadOwnerSetting
 -- | The group owner of the resource. This is the name of an existing Linux
 -- OS group on the system or a GID. The group\'s permissions are added to
 -- the Lambda process.
-resourceDownloadOwnerSetting_groupOwner :: Lens.Lens' ResourceDownloadOwnerSetting Prelude.Text
+resourceDownloadOwnerSetting_groupOwner :: Lens.Lens' ResourceDownloadOwnerSetting Core.Text
 resourceDownloadOwnerSetting_groupOwner = Lens.lens (\ResourceDownloadOwnerSetting' {groupOwner} -> groupOwner) (\s@ResourceDownloadOwnerSetting' {} a -> s {groupOwner = a} :: ResourceDownloadOwnerSetting)
 
 -- | The permissions that the group owner has to the resource. Valid values
@@ -78,31 +77,26 @@ resourceDownloadOwnerSetting_groupOwner = Lens.lens (\ResourceDownloadOwnerSetti
 resourceDownloadOwnerSetting_groupPermission :: Lens.Lens' ResourceDownloadOwnerSetting Permission
 resourceDownloadOwnerSetting_groupPermission = Lens.lens (\ResourceDownloadOwnerSetting' {groupPermission} -> groupPermission) (\s@ResourceDownloadOwnerSetting' {} a -> s {groupPermission = a} :: ResourceDownloadOwnerSetting)
 
-instance
-  Prelude.FromJSON
-    ResourceDownloadOwnerSetting
-  where
+instance Core.FromJSON ResourceDownloadOwnerSetting where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceDownloadOwnerSetting"
       ( \x ->
           ResourceDownloadOwnerSetting'
-            Prelude.<$> (x Prelude..: "GroupOwner")
-            Prelude.<*> (x Prelude..: "GroupPermission")
+            Core.<$> (x Core..: "GroupOwner")
+            Core.<*> (x Core..: "GroupPermission")
       )
 
-instance
-  Prelude.Hashable
-    ResourceDownloadOwnerSetting
+instance Core.Hashable ResourceDownloadOwnerSetting
 
-instance Prelude.NFData ResourceDownloadOwnerSetting
+instance Core.NFData ResourceDownloadOwnerSetting
 
-instance Prelude.ToJSON ResourceDownloadOwnerSetting where
+instance Core.ToJSON ResourceDownloadOwnerSetting where
   toJSON ResourceDownloadOwnerSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("GroupOwner" Prelude..= groupOwner),
-            Prelude.Just
-              ("GroupPermission" Prelude..= groupPermission)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GroupOwner" Core..= groupOwner),
+            Core.Just
+              ("GroupPermission" Core..= groupPermission)
           ]
       )

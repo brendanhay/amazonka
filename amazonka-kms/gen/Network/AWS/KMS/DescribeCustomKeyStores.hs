@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -95,9 +94,9 @@ module Network.AWS.KMS.DescribeCustomKeyStores
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -110,7 +109,7 @@ data DescribeCustomKeyStores = DescribeCustomKeyStores'
     -- in the account and region. To limit the output to a particular custom
     -- key store, you can use either the @CustomKeyStoreId@ or
     -- @CustomKeyStoreName@ parameter, but not both.
-    customKeyStoreName :: Prelude.Maybe Prelude.Text,
+    customKeyStoreName :: Core.Maybe Core.Text,
     -- | Gets only information about the specified custom key store. Enter the
     -- key store ID.
     --
@@ -118,17 +117,17 @@ data DescribeCustomKeyStores = DescribeCustomKeyStores'
     -- in the account and region. To limit the output to a particular custom
     -- key store, you can use either the @CustomKeyStoreId@ or
     -- @CustomKeyStoreName@ parameter, but not both.
-    customKeyStoreId :: Prelude.Maybe Prelude.Text,
+    customKeyStoreId :: Core.Maybe Core.Text,
     -- | Use this parameter to specify the maximum number of items to return.
     -- When this value is present, AWS KMS does not return more than the
     -- specified number of items, but it might return fewer.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCustomKeyStores' with all optional fields omitted.
@@ -166,10 +165,10 @@ newDescribeCustomKeyStores ::
 newDescribeCustomKeyStores =
   DescribeCustomKeyStores'
     { customKeyStoreName =
-        Prelude.Nothing,
-      customKeyStoreId = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing
+        Core.Nothing,
+      customKeyStoreId = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Gets only information about the specified custom key store. Enter the
@@ -179,7 +178,7 @@ newDescribeCustomKeyStores =
 -- in the account and region. To limit the output to a particular custom
 -- key store, you can use either the @CustomKeyStoreId@ or
 -- @CustomKeyStoreName@ parameter, but not both.
-describeCustomKeyStores_customKeyStoreName :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Text)
+describeCustomKeyStores_customKeyStoreName :: Lens.Lens' DescribeCustomKeyStores (Core.Maybe Core.Text)
 describeCustomKeyStores_customKeyStoreName = Lens.lens (\DescribeCustomKeyStores' {customKeyStoreName} -> customKeyStoreName) (\s@DescribeCustomKeyStores' {} a -> s {customKeyStoreName = a} :: DescribeCustomKeyStores)
 
 -- | Gets only information about the specified custom key store. Enter the
@@ -189,92 +188,88 @@ describeCustomKeyStores_customKeyStoreName = Lens.lens (\DescribeCustomKeyStores
 -- in the account and region. To limit the output to a particular custom
 -- key store, you can use either the @CustomKeyStoreId@ or
 -- @CustomKeyStoreName@ parameter, but not both.
-describeCustomKeyStores_customKeyStoreId :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Text)
+describeCustomKeyStores_customKeyStoreId :: Lens.Lens' DescribeCustomKeyStores (Core.Maybe Core.Text)
 describeCustomKeyStores_customKeyStoreId = Lens.lens (\DescribeCustomKeyStores' {customKeyStoreId} -> customKeyStoreId) (\s@DescribeCustomKeyStores' {} a -> s {customKeyStoreId = a} :: DescribeCustomKeyStores)
 
 -- | Use this parameter to specify the maximum number of items to return.
 -- When this value is present, AWS KMS does not return more than the
 -- specified number of items, but it might return fewer.
-describeCustomKeyStores_limit :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Natural)
+describeCustomKeyStores_limit :: Lens.Lens' DescribeCustomKeyStores (Core.Maybe Core.Natural)
 describeCustomKeyStores_limit = Lens.lens (\DescribeCustomKeyStores' {limit} -> limit) (\s@DescribeCustomKeyStores' {} a -> s {limit = a} :: DescribeCustomKeyStores)
 
 -- | Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
-describeCustomKeyStores_marker :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Text)
+describeCustomKeyStores_marker :: Lens.Lens' DescribeCustomKeyStores (Core.Maybe Core.Text)
 describeCustomKeyStores_marker = Lens.lens (\DescribeCustomKeyStores' {marker} -> marker) (\s@DescribeCustomKeyStores' {} a -> s {marker = a} :: DescribeCustomKeyStores)
 
-instance Prelude.AWSRequest DescribeCustomKeyStores where
+instance Core.AWSRequest DescribeCustomKeyStores where
   type
-    Rs DescribeCustomKeyStores =
+    AWSResponse DescribeCustomKeyStores =
       DescribeCustomKeyStoresResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeCustomKeyStoresResponse'
-            Prelude.<$> ( x Prelude..?> "CustomKeyStores"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextMarker")
-            Prelude.<*> (x Prelude..?> "Truncated")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CustomKeyStores" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "Truncated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCustomKeyStores
+instance Core.Hashable DescribeCustomKeyStores
 
-instance Prelude.NFData DescribeCustomKeyStores
+instance Core.NFData DescribeCustomKeyStores
 
-instance Prelude.ToHeaders DescribeCustomKeyStores where
+instance Core.ToHeaders DescribeCustomKeyStores where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.DescribeCustomKeyStores" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "TrentService.DescribeCustomKeyStores" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeCustomKeyStores where
+instance Core.ToJSON DescribeCustomKeyStores where
   toJSON DescribeCustomKeyStores' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CustomKeyStoreName" Prelude..=)
-              Prelude.<$> customKeyStoreName,
-            ("CustomKeyStoreId" Prelude..=)
-              Prelude.<$> customKeyStoreId,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            ("Marker" Prelude..=) Prelude.<$> marker
+    Core.object
+      ( Core.catMaybes
+          [ ("CustomKeyStoreName" Core..=)
+              Core.<$> customKeyStoreName,
+            ("CustomKeyStoreId" Core..=)
+              Core.<$> customKeyStoreId,
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
           ]
       )
 
-instance Prelude.ToPath DescribeCustomKeyStores where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCustomKeyStores where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCustomKeyStores where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeCustomKeyStores where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeCustomKeyStoresResponse' smart constructor.
 data DescribeCustomKeyStoresResponse = DescribeCustomKeyStoresResponse'
   { -- | Contains metadata about each custom key store.
-    customKeyStores :: Prelude.Maybe [CustomKeyStoresListEntry],
+    customKeyStores :: Core.Maybe [CustomKeyStoresListEntry],
     -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
-    truncated :: Prelude.Maybe Prelude.Bool,
+    truncated :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCustomKeyStoresResponse' with all optional fields omitted.
@@ -297,37 +292,35 @@ data DescribeCustomKeyStoresResponse = DescribeCustomKeyStoresResponse'
 -- 'httpStatus', 'describeCustomKeyStoresResponse_httpStatus' - The response's http status code.
 newDescribeCustomKeyStoresResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCustomKeyStoresResponse
 newDescribeCustomKeyStoresResponse pHttpStatus_ =
   DescribeCustomKeyStoresResponse'
     { customKeyStores =
-        Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
-      truncated = Prelude.Nothing,
+        Core.Nothing,
+      nextMarker = Core.Nothing,
+      truncated = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains metadata about each custom key store.
-describeCustomKeyStoresResponse_customKeyStores :: Lens.Lens' DescribeCustomKeyStoresResponse (Prelude.Maybe [CustomKeyStoresListEntry])
-describeCustomKeyStoresResponse_customKeyStores = Lens.lens (\DescribeCustomKeyStoresResponse' {customKeyStores} -> customKeyStores) (\s@DescribeCustomKeyStoresResponse' {} a -> s {customKeyStores = a} :: DescribeCustomKeyStoresResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeCustomKeyStoresResponse_customKeyStores :: Lens.Lens' DescribeCustomKeyStoresResponse (Core.Maybe [CustomKeyStoresListEntry])
+describeCustomKeyStoresResponse_customKeyStores = Lens.lens (\DescribeCustomKeyStoresResponse' {customKeyStores} -> customKeyStores) (\s@DescribeCustomKeyStoresResponse' {} a -> s {customKeyStores = a} :: DescribeCustomKeyStoresResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
-describeCustomKeyStoresResponse_nextMarker :: Lens.Lens' DescribeCustomKeyStoresResponse (Prelude.Maybe Prelude.Text)
+describeCustomKeyStoresResponse_nextMarker :: Lens.Lens' DescribeCustomKeyStoresResponse (Core.Maybe Core.Text)
 describeCustomKeyStoresResponse_nextMarker = Lens.lens (\DescribeCustomKeyStoresResponse' {nextMarker} -> nextMarker) (\s@DescribeCustomKeyStoresResponse' {} a -> s {nextMarker = a} :: DescribeCustomKeyStoresResponse)
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
-describeCustomKeyStoresResponse_truncated :: Lens.Lens' DescribeCustomKeyStoresResponse (Prelude.Maybe Prelude.Bool)
+describeCustomKeyStoresResponse_truncated :: Lens.Lens' DescribeCustomKeyStoresResponse (Core.Maybe Core.Bool)
 describeCustomKeyStoresResponse_truncated = Lens.lens (\DescribeCustomKeyStoresResponse' {truncated} -> truncated) (\s@DescribeCustomKeyStoresResponse' {} a -> s {truncated = a} :: DescribeCustomKeyStoresResponse)
 
 -- | The response's http status code.
-describeCustomKeyStoresResponse_httpStatus :: Lens.Lens' DescribeCustomKeyStoresResponse Prelude.Int
+describeCustomKeyStoresResponse_httpStatus :: Lens.Lens' DescribeCustomKeyStoresResponse Core.Int
 describeCustomKeyStoresResponse_httpStatus = Lens.lens (\DescribeCustomKeyStoresResponse' {httpStatus} -> httpStatus) (\s@DescribeCustomKeyStoresResponse' {} a -> s {httpStatus = a} :: DescribeCustomKeyStoresResponse)
 
-instance
-  Prelude.NFData
-    DescribeCustomKeyStoresResponse
+instance Core.NFData DescribeCustomKeyStoresResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 data DescribeUserProfiles = DescribeUserProfiles'
   { -- | An array of IAM or federated user ARNs that identify the users to be
     -- described.
-    iamUserArns :: Prelude.Maybe [Prelude.Text]
+    iamUserArns :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUserProfiles' with all optional fields omitted.
@@ -72,73 +71,66 @@ data DescribeUserProfiles = DescribeUserProfiles'
 newDescribeUserProfiles ::
   DescribeUserProfiles
 newDescribeUserProfiles =
-  DescribeUserProfiles'
-    { iamUserArns =
-        Prelude.Nothing
-    }
+  DescribeUserProfiles' {iamUserArns = Core.Nothing}
 
 -- | An array of IAM or federated user ARNs that identify the users to be
 -- described.
-describeUserProfiles_iamUserArns :: Lens.Lens' DescribeUserProfiles (Prelude.Maybe [Prelude.Text])
-describeUserProfiles_iamUserArns = Lens.lens (\DescribeUserProfiles' {iamUserArns} -> iamUserArns) (\s@DescribeUserProfiles' {} a -> s {iamUserArns = a} :: DescribeUserProfiles) Prelude.. Lens.mapping Prelude._Coerce
+describeUserProfiles_iamUserArns :: Lens.Lens' DescribeUserProfiles (Core.Maybe [Core.Text])
+describeUserProfiles_iamUserArns = Lens.lens (\DescribeUserProfiles' {iamUserArns} -> iamUserArns) (\s@DescribeUserProfiles' {} a -> s {iamUserArns = a} :: DescribeUserProfiles) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeUserProfiles where
+instance Core.AWSRequest DescribeUserProfiles where
   type
-    Rs DescribeUserProfiles =
+    AWSResponse DescribeUserProfiles =
       DescribeUserProfilesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeUserProfilesResponse'
-            Prelude.<$> ( x Prelude..?> "UserProfiles"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserProfiles" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUserProfiles
+instance Core.Hashable DescribeUserProfiles
 
-instance Prelude.NFData DescribeUserProfiles
+instance Core.NFData DescribeUserProfiles
 
-instance Prelude.ToHeaders DescribeUserProfiles where
+instance Core.ToHeaders DescribeUserProfiles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeUserProfiles" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeUserProfiles" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeUserProfiles where
+instance Core.ToJSON DescribeUserProfiles where
   toJSON DescribeUserProfiles' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("IamUserArns" Prelude..=) Prelude.<$> iamUserArns]
+    Core.object
+      ( Core.catMaybes
+          [("IamUserArns" Core..=) Core.<$> iamUserArns]
       )
 
-instance Prelude.ToPath DescribeUserProfiles where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeUserProfiles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeUserProfiles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeUserProfiles where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeUserProfiles@ request.
 --
 -- /See:/ 'newDescribeUserProfilesResponse' smart constructor.
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
   { -- | A @Users@ object that describes the specified users.
-    userProfiles :: Prelude.Maybe [UserProfile],
+    userProfiles :: Core.Maybe [UserProfile],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUserProfilesResponse' with all optional fields omitted.
@@ -153,21 +145,21 @@ data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
 -- 'httpStatus', 'describeUserProfilesResponse_httpStatus' - The response's http status code.
 newDescribeUserProfilesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeUserProfilesResponse
 newDescribeUserProfilesResponse pHttpStatus_ =
   DescribeUserProfilesResponse'
     { userProfiles =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @Users@ object that describes the specified users.
-describeUserProfilesResponse_userProfiles :: Lens.Lens' DescribeUserProfilesResponse (Prelude.Maybe [UserProfile])
-describeUserProfilesResponse_userProfiles = Lens.lens (\DescribeUserProfilesResponse' {userProfiles} -> userProfiles) (\s@DescribeUserProfilesResponse' {} a -> s {userProfiles = a} :: DescribeUserProfilesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeUserProfilesResponse_userProfiles :: Lens.Lens' DescribeUserProfilesResponse (Core.Maybe [UserProfile])
+describeUserProfilesResponse_userProfiles = Lens.lens (\DescribeUserProfilesResponse' {userProfiles} -> userProfiles) (\s@DescribeUserProfilesResponse' {} a -> s {userProfiles = a} :: DescribeUserProfilesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeUserProfilesResponse_httpStatus :: Lens.Lens' DescribeUserProfilesResponse Prelude.Int
+describeUserProfilesResponse_httpStatus :: Lens.Lens' DescribeUserProfilesResponse Core.Int
 describeUserProfilesResponse_httpStatus = Lens.lens (\DescribeUserProfilesResponse' {httpStatus} -> httpStatus) (\s@DescribeUserProfilesResponse' {} a -> s {httpStatus = a} :: DescribeUserProfilesResponse)
 
-instance Prelude.NFData DescribeUserProfilesResponse
+instance Core.NFData DescribeUserProfilesResponse

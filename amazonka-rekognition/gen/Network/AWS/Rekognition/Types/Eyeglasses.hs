@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Eyeglasses where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the face is wearing eye glasses, and the
 -- confidence level in the determination.
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEyeglasses' smart constructor.
 data Eyeglasses = Eyeglasses'
   { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | Boolean value that indicates whether the face is wearing eye glasses or
     -- not.
-    value :: Prelude.Maybe Prelude.Bool
+    value :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Eyeglasses' with all optional fields omitted.
@@ -52,29 +51,29 @@ newEyeglasses ::
   Eyeglasses
 newEyeglasses =
   Eyeglasses'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { confidence = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Level of confidence in the determination.
-eyeglasses_confidence :: Lens.Lens' Eyeglasses (Prelude.Maybe Prelude.Double)
+eyeglasses_confidence :: Lens.Lens' Eyeglasses (Core.Maybe Core.Double)
 eyeglasses_confidence = Lens.lens (\Eyeglasses' {confidence} -> confidence) (\s@Eyeglasses' {} a -> s {confidence = a} :: Eyeglasses)
 
 -- | Boolean value that indicates whether the face is wearing eye glasses or
 -- not.
-eyeglasses_value :: Lens.Lens' Eyeglasses (Prelude.Maybe Prelude.Bool)
+eyeglasses_value :: Lens.Lens' Eyeglasses (Core.Maybe Core.Bool)
 eyeglasses_value = Lens.lens (\Eyeglasses' {value} -> value) (\s@Eyeglasses' {} a -> s {value = a} :: Eyeglasses)
 
-instance Prelude.FromJSON Eyeglasses where
+instance Core.FromJSON Eyeglasses where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Eyeglasses"
       ( \x ->
           Eyeglasses'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Eyeglasses
+instance Core.Hashable Eyeglasses
 
-instance Prelude.NFData Eyeglasses
+instance Core.NFData Eyeglasses

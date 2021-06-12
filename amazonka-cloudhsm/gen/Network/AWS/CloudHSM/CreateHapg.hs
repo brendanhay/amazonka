@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.CloudHSM.CreateHapg
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,9 +66,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateHapg' smart constructor.
 data CreateHapg = CreateHapg'
   { -- | The label of the new high-availability partition group.
-    label :: Prelude.Text
+    label :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHapg' with all optional fields omitted.
@@ -82,67 +81,63 @@ data CreateHapg = CreateHapg'
 -- 'label', 'createHapg_label' - The label of the new high-availability partition group.
 newCreateHapg ::
   -- | 'label'
-  Prelude.Text ->
+  Core.Text ->
   CreateHapg
 newCreateHapg pLabel_ = CreateHapg' {label = pLabel_}
 
 -- | The label of the new high-availability partition group.
-createHapg_label :: Lens.Lens' CreateHapg Prelude.Text
+createHapg_label :: Lens.Lens' CreateHapg Core.Text
 createHapg_label = Lens.lens (\CreateHapg' {label} -> label) (\s@CreateHapg' {} a -> s {label = a} :: CreateHapg)
 
-instance Prelude.AWSRequest CreateHapg where
-  type Rs CreateHapg = CreateHapgResponse
+instance Core.AWSRequest CreateHapg where
+  type AWSResponse CreateHapg = CreateHapgResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateHapgResponse'
-            Prelude.<$> (x Prelude..?> "HapgArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "HapgArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHapg
+instance Core.Hashable CreateHapg
 
-instance Prelude.NFData CreateHapg
+instance Core.NFData CreateHapg
 
-instance Prelude.ToHeaders CreateHapg where
+instance Core.ToHeaders CreateHapg where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.CreateHapg" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.CreateHapg" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateHapg where
+instance Core.ToJSON CreateHapg where
   toJSON CreateHapg' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Label" Prelude..= label)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Label" Core..= label)])
 
-instance Prelude.ToPath CreateHapg where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateHapg where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateHapg where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateHapg where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of the CreateHAPartitionGroup action.
 --
 -- /See:/ 'newCreateHapgResponse' smart constructor.
 data CreateHapgResponse = CreateHapgResponse'
   { -- | The ARN of the high-availability partition group.
-    hapgArn :: Prelude.Maybe Prelude.Text,
+    hapgArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHapgResponse' with all optional fields omitted.
@@ -157,20 +152,20 @@ data CreateHapgResponse = CreateHapgResponse'
 -- 'httpStatus', 'createHapgResponse_httpStatus' - The response's http status code.
 newCreateHapgResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateHapgResponse
 newCreateHapgResponse pHttpStatus_ =
   CreateHapgResponse'
-    { hapgArn = Prelude.Nothing,
+    { hapgArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the high-availability partition group.
-createHapgResponse_hapgArn :: Lens.Lens' CreateHapgResponse (Prelude.Maybe Prelude.Text)
+createHapgResponse_hapgArn :: Lens.Lens' CreateHapgResponse (Core.Maybe Core.Text)
 createHapgResponse_hapgArn = Lens.lens (\CreateHapgResponse' {hapgArn} -> hapgArn) (\s@CreateHapgResponse' {} a -> s {hapgArn = a} :: CreateHapgResponse)
 
 -- | The response's http status code.
-createHapgResponse_httpStatus :: Lens.Lens' CreateHapgResponse Prelude.Int
+createHapgResponse_httpStatus :: Lens.Lens' CreateHapgResponse Core.Int
 createHapgResponse_httpStatus = Lens.lens (\CreateHapgResponse' {httpStatus} -> httpStatus) (\s@CreateHapgResponse' {} a -> s {httpStatus = a} :: CreateHapgResponse)
 
-instance Prelude.NFData CreateHapgResponse
+instance Core.NFData CreateHapgResponse

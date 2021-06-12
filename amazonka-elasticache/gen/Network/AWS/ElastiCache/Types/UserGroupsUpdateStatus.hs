@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of the user group update.
 --
 -- /See:/ 'newUserGroupsUpdateStatus' smart constructor.
 data UserGroupsUpdateStatus = UserGroupsUpdateStatus'
   { -- | The list of user group IDs to remove.
-    userGroupIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    userGroupIdsToRemove :: Core.Maybe [Core.Text],
     -- | The list of user group IDs to add.
-    userGroupIdsToAdd :: Prelude.Maybe [Prelude.Text]
+    userGroupIdsToAdd :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserGroupsUpdateStatus' with all optional fields omitted.
@@ -50,30 +49,29 @@ newUserGroupsUpdateStatus ::
 newUserGroupsUpdateStatus =
   UserGroupsUpdateStatus'
     { userGroupIdsToRemove =
-        Prelude.Nothing,
-      userGroupIdsToAdd = Prelude.Nothing
+        Core.Nothing,
+      userGroupIdsToAdd = Core.Nothing
     }
 
 -- | The list of user group IDs to remove.
-userGroupsUpdateStatus_userGroupIdsToRemove :: Lens.Lens' UserGroupsUpdateStatus (Prelude.Maybe [Prelude.Text])
-userGroupsUpdateStatus_userGroupIdsToRemove = Lens.lens (\UserGroupsUpdateStatus' {userGroupIdsToRemove} -> userGroupIdsToRemove) (\s@UserGroupsUpdateStatus' {} a -> s {userGroupIdsToRemove = a} :: UserGroupsUpdateStatus) Prelude.. Lens.mapping Prelude._Coerce
+userGroupsUpdateStatus_userGroupIdsToRemove :: Lens.Lens' UserGroupsUpdateStatus (Core.Maybe [Core.Text])
+userGroupsUpdateStatus_userGroupIdsToRemove = Lens.lens (\UserGroupsUpdateStatus' {userGroupIdsToRemove} -> userGroupIdsToRemove) (\s@UserGroupsUpdateStatus' {} a -> s {userGroupIdsToRemove = a} :: UserGroupsUpdateStatus) Core.. Lens.mapping Lens._Coerce
 
 -- | The list of user group IDs to add.
-userGroupsUpdateStatus_userGroupIdsToAdd :: Lens.Lens' UserGroupsUpdateStatus (Prelude.Maybe [Prelude.Text])
-userGroupsUpdateStatus_userGroupIdsToAdd = Lens.lens (\UserGroupsUpdateStatus' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@UserGroupsUpdateStatus' {} a -> s {userGroupIdsToAdd = a} :: UserGroupsUpdateStatus) Prelude.. Lens.mapping Prelude._Coerce
+userGroupsUpdateStatus_userGroupIdsToAdd :: Lens.Lens' UserGroupsUpdateStatus (Core.Maybe [Core.Text])
+userGroupsUpdateStatus_userGroupIdsToAdd = Lens.lens (\UserGroupsUpdateStatus' {userGroupIdsToAdd} -> userGroupIdsToAdd) (\s@UserGroupsUpdateStatus' {} a -> s {userGroupIdsToAdd = a} :: UserGroupsUpdateStatus) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML UserGroupsUpdateStatus where
+instance Core.FromXML UserGroupsUpdateStatus where
   parseXML x =
     UserGroupsUpdateStatus'
-      Prelude.<$> ( x Prelude..@? "UserGroupIdsToRemove"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "UserGroupIdsToAdd"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "UserGroupIdsToRemove"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "UserGroupIdsToAdd" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable UserGroupsUpdateStatus
+instance Core.Hashable UserGroupsUpdateStatus
 
-instance Prelude.NFData UserGroupsUpdateStatus
+instance Core.NFData UserGroupsUpdateStatus

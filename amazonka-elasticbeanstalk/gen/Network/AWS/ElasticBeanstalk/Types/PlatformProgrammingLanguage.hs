@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A programming language supported by the platform.
 --
 -- /See:/ 'newPlatformProgrammingLanguage' smart constructor.
 data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
   { -- | The version of the programming language.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the programming language.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlatformProgrammingLanguage' with all optional fields omitted.
@@ -50,24 +49,23 @@ newPlatformProgrammingLanguage ::
 newPlatformProgrammingLanguage =
   PlatformProgrammingLanguage'
     { version =
-        Prelude.Nothing,
-      name = Prelude.Nothing
+        Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The version of the programming language.
-platformProgrammingLanguage_version :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
+platformProgrammingLanguage_version :: Lens.Lens' PlatformProgrammingLanguage (Core.Maybe Core.Text)
 platformProgrammingLanguage_version = Lens.lens (\PlatformProgrammingLanguage' {version} -> version) (\s@PlatformProgrammingLanguage' {} a -> s {version = a} :: PlatformProgrammingLanguage)
 
 -- | The name of the programming language.
-platformProgrammingLanguage_name :: Lens.Lens' PlatformProgrammingLanguage (Prelude.Maybe Prelude.Text)
+platformProgrammingLanguage_name :: Lens.Lens' PlatformProgrammingLanguage (Core.Maybe Core.Text)
 platformProgrammingLanguage_name = Lens.lens (\PlatformProgrammingLanguage' {name} -> name) (\s@PlatformProgrammingLanguage' {} a -> s {name = a} :: PlatformProgrammingLanguage)
 
-instance Prelude.FromXML PlatformProgrammingLanguage where
+instance Core.FromXML PlatformProgrammingLanguage where
   parseXML x =
     PlatformProgrammingLanguage'
-      Prelude.<$> (x Prelude..@? "Version")
-      Prelude.<*> (x Prelude..@? "Name")
+      Core.<$> (x Core..@? "Version") Core.<*> (x Core..@? "Name")
 
-instance Prelude.Hashable PlatformProgrammingLanguage
+instance Core.Hashable PlatformProgrammingLanguage
 
-instance Prelude.NFData PlatformProgrammingLanguage
+instance Core.NFData PlatformProgrammingLanguage

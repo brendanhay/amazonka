@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.Shield.UpdateProtectionGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -58,15 +57,15 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
     -- resources of this type are included in the protection group. You must
     -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
     -- set it for any other @Pattern@ setting.
-    resourceType :: Prelude.Maybe ProtectedResourceType,
+    resourceType :: Core.Maybe ProtectedResourceType,
     -- | The Amazon Resource Names (ARNs) of the resources to include in the
     -- protection group. You must set this when you set @Pattern@ to
     -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-    members :: Prelude.Maybe [Prelude.Text],
+    members :: Core.Maybe [Core.Text],
     -- | The name of the protection group. You use this to identify the
     -- protection group in lists and to manage the protection group, for
     -- example to update, delete, or describe it.
-    protectionGroupId :: Prelude.Text,
+    protectionGroupId :: Core.Text,
     -- | Defines how AWS Shield combines resource data for the group in order to
     -- detect, mitigate, and report events.
     --
@@ -89,7 +88,7 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
     -- resources of a specified resource type.
     pattern' :: ProtectionGroupPattern
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateProtectionGroup' with all optional fields omitted.
@@ -134,7 +133,7 @@ data UpdateProtectionGroup = UpdateProtectionGroup'
 -- resources of a specified resource type.
 newUpdateProtectionGroup ::
   -- | 'protectionGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'aggregation'
   ProtectionGroupAggregation ->
   -- | 'pattern''
@@ -145,9 +144,8 @@ newUpdateProtectionGroup
   pAggregation_
   pPattern_ =
     UpdateProtectionGroup'
-      { resourceType =
-          Prelude.Nothing,
-        members = Prelude.Nothing,
+      { resourceType = Core.Nothing,
+        members = Core.Nothing,
         protectionGroupId = pProtectionGroupId_,
         aggregation = pAggregation_,
         pattern' = pPattern_
@@ -157,19 +155,19 @@ newUpdateProtectionGroup
 -- resources of this type are included in the protection group. You must
 -- set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you must not
 -- set it for any other @Pattern@ setting.
-updateProtectionGroup_resourceType :: Lens.Lens' UpdateProtectionGroup (Prelude.Maybe ProtectedResourceType)
+updateProtectionGroup_resourceType :: Lens.Lens' UpdateProtectionGroup (Core.Maybe ProtectedResourceType)
 updateProtectionGroup_resourceType = Lens.lens (\UpdateProtectionGroup' {resourceType} -> resourceType) (\s@UpdateProtectionGroup' {} a -> s {resourceType = a} :: UpdateProtectionGroup)
 
 -- | The Amazon Resource Names (ARNs) of the resources to include in the
 -- protection group. You must set this when you set @Pattern@ to
 -- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.
-updateProtectionGroup_members :: Lens.Lens' UpdateProtectionGroup (Prelude.Maybe [Prelude.Text])
-updateProtectionGroup_members = Lens.lens (\UpdateProtectionGroup' {members} -> members) (\s@UpdateProtectionGroup' {} a -> s {members = a} :: UpdateProtectionGroup) Prelude.. Lens.mapping Prelude._Coerce
+updateProtectionGroup_members :: Lens.Lens' UpdateProtectionGroup (Core.Maybe [Core.Text])
+updateProtectionGroup_members = Lens.lens (\UpdateProtectionGroup' {members} -> members) (\s@UpdateProtectionGroup' {} a -> s {members = a} :: UpdateProtectionGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the protection group. You use this to identify the
 -- protection group in lists and to manage the protection group, for
 -- example to update, delete, or describe it.
-updateProtectionGroup_protectionGroupId :: Lens.Lens' UpdateProtectionGroup Prelude.Text
+updateProtectionGroup_protectionGroupId :: Lens.Lens' UpdateProtectionGroup Core.Text
 updateProtectionGroup_protectionGroupId = Lens.lens (\UpdateProtectionGroup' {protectionGroupId} -> protectionGroupId) (\s@UpdateProtectionGroup' {} a -> s {protectionGroupId = a} :: UpdateProtectionGroup)
 
 -- | Defines how AWS Shield combines resource data for the group in order to
@@ -197,63 +195,60 @@ updateProtectionGroup_aggregation = Lens.lens (\UpdateProtectionGroup' {aggregat
 updateProtectionGroup_pattern :: Lens.Lens' UpdateProtectionGroup ProtectionGroupPattern
 updateProtectionGroup_pattern = Lens.lens (\UpdateProtectionGroup' {pattern'} -> pattern') (\s@UpdateProtectionGroup' {} a -> s {pattern' = a} :: UpdateProtectionGroup)
 
-instance Prelude.AWSRequest UpdateProtectionGroup where
+instance Core.AWSRequest UpdateProtectionGroup where
   type
-    Rs UpdateProtectionGroup =
+    AWSResponse UpdateProtectionGroup =
       UpdateProtectionGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateProtectionGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateProtectionGroup
+instance Core.Hashable UpdateProtectionGroup
 
-instance Prelude.NFData UpdateProtectionGroup
+instance Core.NFData UpdateProtectionGroup
 
-instance Prelude.ToHeaders UpdateProtectionGroup where
+instance Core.ToHeaders UpdateProtectionGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.UpdateProtectionGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.UpdateProtectionGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateProtectionGroup where
+instance Core.ToJSON UpdateProtectionGroup where
   toJSON UpdateProtectionGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceType" Prelude..=)
-              Prelude.<$> resourceType,
-            ("Members" Prelude..=) Prelude.<$> members,
-            Prelude.Just
-              ("ProtectionGroupId" Prelude..= protectionGroupId),
-            Prelude.Just ("Aggregation" Prelude..= aggregation),
-            Prelude.Just ("Pattern" Prelude..= pattern')
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceType" Core..=) Core.<$> resourceType,
+            ("Members" Core..=) Core.<$> members,
+            Core.Just
+              ("ProtectionGroupId" Core..= protectionGroupId),
+            Core.Just ("Aggregation" Core..= aggregation),
+            Core.Just ("Pattern" Core..= pattern')
           ]
       )
 
-instance Prelude.ToPath UpdateProtectionGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateProtectionGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateProtectionGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateProtectionGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateProtectionGroupResponse' smart constructor.
 data UpdateProtectionGroupResponse = UpdateProtectionGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateProtectionGroupResponse' with all optional fields omitted.
@@ -266,7 +261,7 @@ data UpdateProtectionGroupResponse = UpdateProtectionGroupResponse'
 -- 'httpStatus', 'updateProtectionGroupResponse_httpStatus' - The response's http status code.
 newUpdateProtectionGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateProtectionGroupResponse
 newUpdateProtectionGroupResponse pHttpStatus_ =
   UpdateProtectionGroupResponse'
@@ -275,7 +270,7 @@ newUpdateProtectionGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateProtectionGroupResponse_httpStatus :: Lens.Lens' UpdateProtectionGroupResponse Prelude.Int
+updateProtectionGroupResponse_httpStatus :: Lens.Lens' UpdateProtectionGroupResponse Core.Int
 updateProtectionGroupResponse_httpStatus = Lens.lens (\UpdateProtectionGroupResponse' {httpStatus} -> httpStatus) (\s@UpdateProtectionGroupResponse' {} a -> s {httpStatus = a} :: UpdateProtectionGroupResponse)
 
-instance Prelude.NFData UpdateProtectionGroupResponse
+instance Core.NFData UpdateProtectionGroupResponse

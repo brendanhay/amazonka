@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudSearchDomains.Types.SuggestModel where
 
 import Network.AWS.CloudSearchDomains.Types.SuggestionMatch
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Container for the suggestion information returned in a
 -- @SuggestResponse@.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSuggestModel' smart constructor.
 data SuggestModel = SuggestModel'
   { -- | The documents that match the query string.
-    suggestions :: Prelude.Maybe [SuggestionMatch],
+    suggestions :: Core.Maybe [SuggestionMatch],
     -- | The number of documents that were found to match the query string.
-    found :: Prelude.Maybe Prelude.Integer,
+    found :: Core.Maybe Core.Integer,
     -- | The query string specified in the suggest request.
-    query :: Prelude.Maybe Prelude.Text
+    query :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuggestModel' with all optional fields omitted.
@@ -55,36 +54,34 @@ newSuggestModel ::
   SuggestModel
 newSuggestModel =
   SuggestModel'
-    { suggestions = Prelude.Nothing,
-      found = Prelude.Nothing,
-      query = Prelude.Nothing
+    { suggestions = Core.Nothing,
+      found = Core.Nothing,
+      query = Core.Nothing
     }
 
 -- | The documents that match the query string.
-suggestModel_suggestions :: Lens.Lens' SuggestModel (Prelude.Maybe [SuggestionMatch])
-suggestModel_suggestions = Lens.lens (\SuggestModel' {suggestions} -> suggestions) (\s@SuggestModel' {} a -> s {suggestions = a} :: SuggestModel) Prelude.. Lens.mapping Prelude._Coerce
+suggestModel_suggestions :: Lens.Lens' SuggestModel (Core.Maybe [SuggestionMatch])
+suggestModel_suggestions = Lens.lens (\SuggestModel' {suggestions} -> suggestions) (\s@SuggestModel' {} a -> s {suggestions = a} :: SuggestModel) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of documents that were found to match the query string.
-suggestModel_found :: Lens.Lens' SuggestModel (Prelude.Maybe Prelude.Integer)
+suggestModel_found :: Lens.Lens' SuggestModel (Core.Maybe Core.Integer)
 suggestModel_found = Lens.lens (\SuggestModel' {found} -> found) (\s@SuggestModel' {} a -> s {found = a} :: SuggestModel)
 
 -- | The query string specified in the suggest request.
-suggestModel_query :: Lens.Lens' SuggestModel (Prelude.Maybe Prelude.Text)
+suggestModel_query :: Lens.Lens' SuggestModel (Core.Maybe Core.Text)
 suggestModel_query = Lens.lens (\SuggestModel' {query} -> query) (\s@SuggestModel' {} a -> s {query = a} :: SuggestModel)
 
-instance Prelude.FromJSON SuggestModel where
+instance Core.FromJSON SuggestModel where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SuggestModel"
       ( \x ->
           SuggestModel'
-            Prelude.<$> ( x Prelude..:? "suggestions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "found")
-            Prelude.<*> (x Prelude..:? "query")
+            Core.<$> (x Core..:? "suggestions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "found")
+            Core.<*> (x Core..:? "query")
       )
 
-instance Prelude.Hashable SuggestModel
+instance Core.Hashable SuggestModel
 
-instance Prelude.NFData SuggestModel
+instance Core.NFData SuggestModel

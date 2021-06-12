@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Glacier.ListProvisionedCapacity
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ data ListProvisionedCapacity = ListProvisionedCapacity'
     -- which case Amazon S3 Glacier uses the AWS account ID associated with the
     -- credentials used to sign the request. If you use an account ID, don\'t
     -- include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text
+    accountId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProvisionedCapacity' with all optional fields omitted.
@@ -73,7 +72,7 @@ data ListProvisionedCapacity = ListProvisionedCapacity'
 -- include any hyphens (\'-\') in the ID.
 newListProvisionedCapacity ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   ListProvisionedCapacity
 newListProvisionedCapacity pAccountId_ =
   ListProvisionedCapacity' {accountId = pAccountId_}
@@ -83,52 +82,49 @@ newListProvisionedCapacity pAccountId_ =
 -- which case Amazon S3 Glacier uses the AWS account ID associated with the
 -- credentials used to sign the request. If you use an account ID, don\'t
 -- include any hyphens (\'-\') in the ID.
-listProvisionedCapacity_accountId :: Lens.Lens' ListProvisionedCapacity Prelude.Text
+listProvisionedCapacity_accountId :: Lens.Lens' ListProvisionedCapacity Core.Text
 listProvisionedCapacity_accountId = Lens.lens (\ListProvisionedCapacity' {accountId} -> accountId) (\s@ListProvisionedCapacity' {} a -> s {accountId = a} :: ListProvisionedCapacity)
 
-instance Prelude.AWSRequest ListProvisionedCapacity where
+instance Core.AWSRequest ListProvisionedCapacity where
   type
-    Rs ListProvisionedCapacity =
+    AWSResponse ListProvisionedCapacity =
       ListProvisionedCapacityResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListProvisionedCapacityResponse'
-            Prelude.<$> ( x Prelude..?> "ProvisionedCapacityList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "ProvisionedCapacityList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListProvisionedCapacity
+instance Core.Hashable ListProvisionedCapacity
 
-instance Prelude.NFData ListProvisionedCapacity
+instance Core.NFData ListProvisionedCapacity
 
-instance Prelude.ToHeaders ListProvisionedCapacity where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListProvisionedCapacity where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListProvisionedCapacity where
+instance Core.ToPath ListProvisionedCapacity where
   toPath ListProvisionedCapacity' {..} =
-    Prelude.mconcat
-      [ "/",
-        Prelude.toBS accountId,
-        "/provisioned-capacity"
-      ]
+    Core.mconcat
+      ["/", Core.toBS accountId, "/provisioned-capacity"]
 
-instance Prelude.ToQuery ListProvisionedCapacity where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListProvisionedCapacity where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListProvisionedCapacityResponse' smart constructor.
 data ListProvisionedCapacityResponse = ListProvisionedCapacityResponse'
   { -- | The response body contains the following JSON fields.
-    provisionedCapacityList :: Prelude.Maybe [ProvisionedCapacityDescription],
+    provisionedCapacityList :: Core.Maybe [ProvisionedCapacityDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProvisionedCapacityResponse' with all optional fields omitted.
@@ -143,23 +139,21 @@ data ListProvisionedCapacityResponse = ListProvisionedCapacityResponse'
 -- 'httpStatus', 'listProvisionedCapacityResponse_httpStatus' - The response's http status code.
 newListProvisionedCapacityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListProvisionedCapacityResponse
 newListProvisionedCapacityResponse pHttpStatus_ =
   ListProvisionedCapacityResponse'
     { provisionedCapacityList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The response body contains the following JSON fields.
-listProvisionedCapacityResponse_provisionedCapacityList :: Lens.Lens' ListProvisionedCapacityResponse (Prelude.Maybe [ProvisionedCapacityDescription])
-listProvisionedCapacityResponse_provisionedCapacityList = Lens.lens (\ListProvisionedCapacityResponse' {provisionedCapacityList} -> provisionedCapacityList) (\s@ListProvisionedCapacityResponse' {} a -> s {provisionedCapacityList = a} :: ListProvisionedCapacityResponse) Prelude.. Lens.mapping Prelude._Coerce
+listProvisionedCapacityResponse_provisionedCapacityList :: Lens.Lens' ListProvisionedCapacityResponse (Core.Maybe [ProvisionedCapacityDescription])
+listProvisionedCapacityResponse_provisionedCapacityList = Lens.lens (\ListProvisionedCapacityResponse' {provisionedCapacityList} -> provisionedCapacityList) (\s@ListProvisionedCapacityResponse' {} a -> s {provisionedCapacityList = a} :: ListProvisionedCapacityResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listProvisionedCapacityResponse_httpStatus :: Lens.Lens' ListProvisionedCapacityResponse Prelude.Int
+listProvisionedCapacityResponse_httpStatus :: Lens.Lens' ListProvisionedCapacityResponse Core.Int
 listProvisionedCapacityResponse_httpStatus = Lens.lens (\ListProvisionedCapacityResponse' {httpStatus} -> httpStatus) (\s@ListProvisionedCapacityResponse' {} a -> s {httpStatus = a} :: ListProvisionedCapacityResponse)
 
-instance
-  Prelude.NFData
-    ListProvisionedCapacityResponse
+instance Core.NFData ListProvisionedCapacityResponse

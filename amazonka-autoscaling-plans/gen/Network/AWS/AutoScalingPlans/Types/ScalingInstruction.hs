@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -28,8 +27,8 @@ import Network.AWS.AutoScalingPlans.Types.ScalableDimension
 import Network.AWS.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
 import Network.AWS.AutoScalingPlans.Types.ServiceNamespace
 import Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a scaling instruction for a scalable resource in a scaling
 -- plan. Each scaling instruction applies to one resource.
@@ -63,15 +62,15 @@ data ScalingInstruction = ScalingInstruction'
     -- scaling policies based on the specified target tracking configurations.
     --
     -- The default is enabled (@false@).
-    disableDynamicScaling :: Prelude.Maybe Prelude.Bool,
+    disableDynamicScaling :: Core.Maybe Core.Bool,
     -- | The predefined load metric to use for predictive scaling. This parameter
     -- or a __CustomizedLoadMetricSpecification__ is required when configuring
     -- predictive scaling, and cannot be used otherwise.
-    predefinedLoadMetricSpecification :: Prelude.Maybe PredefinedLoadMetricSpecification,
+    predefinedLoadMetricSpecification :: Core.Maybe PredefinedLoadMetricSpecification,
     -- | The customized load metric to use for predictive scaling. This parameter
     -- or a __PredefinedLoadMetricSpecification__ is required when configuring
     -- predictive scaling, and cannot be used otherwise.
-    customizedLoadMetricSpecification :: Prelude.Maybe CustomizedLoadMetricSpecification,
+    customizedLoadMetricSpecification :: Core.Maybe CustomizedLoadMetricSpecification,
     -- | Defines the behavior that should be applied if the forecast capacity
     -- approaches or exceeds the maximum capacity specified for the resource.
     -- The default value is @SetForecastCapacityToMaxCapacity@.
@@ -92,7 +91,7 @@ data ScalingInstruction = ScalingInstruction'
     --     policy extra capacity if unexpected traffic occurs.
     --
     -- Only valid when configuring predictive scaling.
-    predictiveScalingMaxCapacityBehavior :: Prelude.Maybe PredictiveScalingMaxCapacityBehavior,
+    predictiveScalingMaxCapacityBehavior :: Core.Maybe PredictiveScalingMaxCapacityBehavior,
     -- | The size of the capacity buffer to use when the forecast capacity is
     -- close to or exceeds the maximum capacity. The value is specified as a
     -- percentage relative to the forecast capacity. For example, if the buffer
@@ -105,11 +104,11 @@ data ScalingInstruction = ScalingInstruction'
     -- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
     --
     -- The range is 1-100.
-    predictiveScalingMaxCapacityBuffer :: Prelude.Maybe Prelude.Int,
+    predictiveScalingMaxCapacityBuffer :: Core.Maybe Core.Int,
     -- | The predictive scaling mode. The default value is @ForecastAndScale@.
     -- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
     -- scheduled scaling actions based on the capacity forecast.
-    predictiveScalingMode :: Prelude.Maybe PredictiveScalingMode,
+    predictiveScalingMode :: Core.Maybe PredictiveScalingMode,
     -- | Controls whether a resource\'s externally created scaling policies are
     -- kept or replaced.
     --
@@ -124,7 +123,7 @@ data ScalingInstruction = ScalingInstruction'
     -- than or equal to 50. If there are more than 50 policies to be replaced,
     -- AWS Auto Scaling keeps all existing policies and does not create new
     -- ones.
-    scalingPolicyUpdateBehavior :: Prelude.Maybe ScalingPolicyUpdateBehavior,
+    scalingPolicyUpdateBehavior :: Core.Maybe ScalingPolicyUpdateBehavior,
     -- | The amount of time, in seconds, to buffer the run time of scheduled
     -- scaling actions when scaling out. For example, if the forecast says to
     -- add capacity at 10:00 AM, and the buffer time is 5 minutes, then the run
@@ -138,7 +137,7 @@ data ScalingInstruction = ScalingInstruction'
     -- seconds (60 minutes). The default is 300 seconds.
     --
     -- Only valid when configuring predictive scaling.
-    scheduledActionBufferTime :: Prelude.Maybe Prelude.Natural,
+    scheduledActionBufferTime :: Core.Maybe Core.Natural,
     -- | The namespace of the AWS service.
     serviceNamespace :: ServiceNamespace,
     -- | The ID of the resource. This string consists of the resource type and
@@ -165,7 +164,7 @@ data ScalingInstruction = ScalingInstruction'
     --
     -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
     --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The scalable dimension associated with the resource.
     --
     -- -   @autoscaling:autoScalingGroup:DesiredCapacity@ - The desired
@@ -194,16 +193,16 @@ data ScalingInstruction = ScalingInstruction'
     --     Aurora PostgreSQL-compatible edition.
     scalableDimension :: ScalableDimension,
     -- | The minimum capacity of the resource.
-    minCapacity :: Prelude.Int,
+    minCapacity :: Core.Int,
     -- | The maximum capacity of the resource. The exception to this upper limit
     -- is if you specify a non-default setting for
     -- __PredictiveScalingMaxCapacityBehavior__.
-    maxCapacity :: Prelude.Int,
+    maxCapacity :: Core.Int,
     -- | The target tracking configurations (up to 10). Each of these structures
     -- must specify a unique scaling metric and a target value for the metric.
     targetTrackingConfigurations :: [TargetTrackingConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingInstruction' with all optional fields omitted.
@@ -360,13 +359,13 @@ newScalingInstruction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   -- | 'minCapacity'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'maxCapacity'
-  Prelude.Int ->
+  Core.Int ->
   ScalingInstruction
 newScalingInstruction
   pServiceNamespace_
@@ -376,21 +375,20 @@ newScalingInstruction
   pMaxCapacity_ =
     ScalingInstruction'
       { disableDynamicScaling =
-          Prelude.Nothing,
-        predefinedLoadMetricSpecification = Prelude.Nothing,
-        customizedLoadMetricSpecification = Prelude.Nothing,
-        predictiveScalingMaxCapacityBehavior =
-          Prelude.Nothing,
-        predictiveScalingMaxCapacityBuffer = Prelude.Nothing,
-        predictiveScalingMode = Prelude.Nothing,
-        scalingPolicyUpdateBehavior = Prelude.Nothing,
-        scheduledActionBufferTime = Prelude.Nothing,
+          Core.Nothing,
+        predefinedLoadMetricSpecification = Core.Nothing,
+        customizedLoadMetricSpecification = Core.Nothing,
+        predictiveScalingMaxCapacityBehavior = Core.Nothing,
+        predictiveScalingMaxCapacityBuffer = Core.Nothing,
+        predictiveScalingMode = Core.Nothing,
+        scalingPolicyUpdateBehavior = Core.Nothing,
+        scheduledActionBufferTime = Core.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_,
         minCapacity = pMinCapacity_,
         maxCapacity = pMaxCapacity_,
-        targetTrackingConfigurations = Prelude.mempty
+        targetTrackingConfigurations = Core.mempty
       }
 
 -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
@@ -398,19 +396,19 @@ newScalingInstruction
 -- scaling policies based on the specified target tracking configurations.
 --
 -- The default is enabled (@false@).
-scalingInstruction_disableDynamicScaling :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Bool)
+scalingInstruction_disableDynamicScaling :: Lens.Lens' ScalingInstruction (Core.Maybe Core.Bool)
 scalingInstruction_disableDynamicScaling = Lens.lens (\ScalingInstruction' {disableDynamicScaling} -> disableDynamicScaling) (\s@ScalingInstruction' {} a -> s {disableDynamicScaling = a} :: ScalingInstruction)
 
 -- | The predefined load metric to use for predictive scaling. This parameter
 -- or a __CustomizedLoadMetricSpecification__ is required when configuring
 -- predictive scaling, and cannot be used otherwise.
-scalingInstruction_predefinedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredefinedLoadMetricSpecification)
+scalingInstruction_predefinedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Core.Maybe PredefinedLoadMetricSpecification)
 scalingInstruction_predefinedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {predefinedLoadMetricSpecification} -> predefinedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {predefinedLoadMetricSpecification = a} :: ScalingInstruction)
 
 -- | The customized load metric to use for predictive scaling. This parameter
 -- or a __PredefinedLoadMetricSpecification__ is required when configuring
 -- predictive scaling, and cannot be used otherwise.
-scalingInstruction_customizedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Prelude.Maybe CustomizedLoadMetricSpecification)
+scalingInstruction_customizedLoadMetricSpecification :: Lens.Lens' ScalingInstruction (Core.Maybe CustomizedLoadMetricSpecification)
 scalingInstruction_customizedLoadMetricSpecification = Lens.lens (\ScalingInstruction' {customizedLoadMetricSpecification} -> customizedLoadMetricSpecification) (\s@ScalingInstruction' {} a -> s {customizedLoadMetricSpecification = a} :: ScalingInstruction)
 
 -- | Defines the behavior that should be applied if the forecast capacity
@@ -433,7 +431,7 @@ scalingInstruction_customizedLoadMetricSpecification = Lens.lens (\ScalingInstru
 --     policy extra capacity if unexpected traffic occurs.
 --
 -- Only valid when configuring predictive scaling.
-scalingInstruction_predictiveScalingMaxCapacityBehavior :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredictiveScalingMaxCapacityBehavior)
+scalingInstruction_predictiveScalingMaxCapacityBehavior :: Lens.Lens' ScalingInstruction (Core.Maybe PredictiveScalingMaxCapacityBehavior)
 scalingInstruction_predictiveScalingMaxCapacityBehavior = Lens.lens (\ScalingInstruction' {predictiveScalingMaxCapacityBehavior} -> predictiveScalingMaxCapacityBehavior) (\s@ScalingInstruction' {} a -> s {predictiveScalingMaxCapacityBehavior = a} :: ScalingInstruction)
 
 -- | The size of the capacity buffer to use when the forecast capacity is
@@ -448,13 +446,13 @@ scalingInstruction_predictiveScalingMaxCapacityBehavior = Lens.lens (\ScalingIns
 -- @SetMaxCapacityAboveForecastCapacity@, and cannot be used otherwise.
 --
 -- The range is 1-100.
-scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Int)
+scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens.Lens' ScalingInstruction (Core.Maybe Core.Int)
 scalingInstruction_predictiveScalingMaxCapacityBuffer = Lens.lens (\ScalingInstruction' {predictiveScalingMaxCapacityBuffer} -> predictiveScalingMaxCapacityBuffer) (\s@ScalingInstruction' {} a -> s {predictiveScalingMaxCapacityBuffer = a} :: ScalingInstruction)
 
 -- | The predictive scaling mode. The default value is @ForecastAndScale@.
 -- Otherwise, AWS Auto Scaling forecasts capacity but does not create any
 -- scheduled scaling actions based on the capacity forecast.
-scalingInstruction_predictiveScalingMode :: Lens.Lens' ScalingInstruction (Prelude.Maybe PredictiveScalingMode)
+scalingInstruction_predictiveScalingMode :: Lens.Lens' ScalingInstruction (Core.Maybe PredictiveScalingMode)
 scalingInstruction_predictiveScalingMode = Lens.lens (\ScalingInstruction' {predictiveScalingMode} -> predictiveScalingMode) (\s@ScalingInstruction' {} a -> s {predictiveScalingMode = a} :: ScalingInstruction)
 
 -- | Controls whether a resource\'s externally created scaling policies are
@@ -471,7 +469,7 @@ scalingInstruction_predictiveScalingMode = Lens.lens (\ScalingInstruction' {pred
 -- than or equal to 50. If there are more than 50 policies to be replaced,
 -- AWS Auto Scaling keeps all existing policies and does not create new
 -- ones.
-scalingInstruction_scalingPolicyUpdateBehavior :: Lens.Lens' ScalingInstruction (Prelude.Maybe ScalingPolicyUpdateBehavior)
+scalingInstruction_scalingPolicyUpdateBehavior :: Lens.Lens' ScalingInstruction (Core.Maybe ScalingPolicyUpdateBehavior)
 scalingInstruction_scalingPolicyUpdateBehavior = Lens.lens (\ScalingInstruction' {scalingPolicyUpdateBehavior} -> scalingPolicyUpdateBehavior) (\s@ScalingInstruction' {} a -> s {scalingPolicyUpdateBehavior = a} :: ScalingInstruction)
 
 -- | The amount of time, in seconds, to buffer the run time of scheduled
@@ -487,7 +485,7 @@ scalingInstruction_scalingPolicyUpdateBehavior = Lens.lens (\ScalingInstruction'
 -- seconds (60 minutes). The default is 300 seconds.
 --
 -- Only valid when configuring predictive scaling.
-scalingInstruction_scheduledActionBufferTime :: Lens.Lens' ScalingInstruction (Prelude.Maybe Prelude.Natural)
+scalingInstruction_scheduledActionBufferTime :: Lens.Lens' ScalingInstruction (Core.Maybe Core.Natural)
 scalingInstruction_scheduledActionBufferTime = Lens.lens (\ScalingInstruction' {scheduledActionBufferTime} -> scheduledActionBufferTime) (\s@ScalingInstruction' {} a -> s {scheduledActionBufferTime = a} :: ScalingInstruction)
 
 -- | The namespace of the AWS service.
@@ -518,7 +516,7 @@ scalingInstruction_serviceNamespace = Lens.lens (\ScalingInstruction' {serviceNa
 --
 -- -   Aurora DB cluster - The resource type is @cluster@ and the unique
 --     identifier is the cluster name. Example: @cluster:my-db-cluster@.
-scalingInstruction_resourceId :: Lens.Lens' ScalingInstruction Prelude.Text
+scalingInstruction_resourceId :: Lens.Lens' ScalingInstruction Core.Text
 scalingInstruction_resourceId = Lens.lens (\ScalingInstruction' {resourceId} -> resourceId) (\s@ScalingInstruction' {} a -> s {resourceId = a} :: ScalingInstruction)
 
 -- | The scalable dimension associated with the resource.
@@ -551,80 +549,78 @@ scalingInstruction_scalableDimension :: Lens.Lens' ScalingInstruction ScalableDi
 scalingInstruction_scalableDimension = Lens.lens (\ScalingInstruction' {scalableDimension} -> scalableDimension) (\s@ScalingInstruction' {} a -> s {scalableDimension = a} :: ScalingInstruction)
 
 -- | The minimum capacity of the resource.
-scalingInstruction_minCapacity :: Lens.Lens' ScalingInstruction Prelude.Int
+scalingInstruction_minCapacity :: Lens.Lens' ScalingInstruction Core.Int
 scalingInstruction_minCapacity = Lens.lens (\ScalingInstruction' {minCapacity} -> minCapacity) (\s@ScalingInstruction' {} a -> s {minCapacity = a} :: ScalingInstruction)
 
 -- | The maximum capacity of the resource. The exception to this upper limit
 -- is if you specify a non-default setting for
 -- __PredictiveScalingMaxCapacityBehavior__.
-scalingInstruction_maxCapacity :: Lens.Lens' ScalingInstruction Prelude.Int
+scalingInstruction_maxCapacity :: Lens.Lens' ScalingInstruction Core.Int
 scalingInstruction_maxCapacity = Lens.lens (\ScalingInstruction' {maxCapacity} -> maxCapacity) (\s@ScalingInstruction' {} a -> s {maxCapacity = a} :: ScalingInstruction)
 
 -- | The target tracking configurations (up to 10). Each of these structures
 -- must specify a unique scaling metric and a target value for the metric.
 scalingInstruction_targetTrackingConfigurations :: Lens.Lens' ScalingInstruction [TargetTrackingConfiguration]
-scalingInstruction_targetTrackingConfigurations = Lens.lens (\ScalingInstruction' {targetTrackingConfigurations} -> targetTrackingConfigurations) (\s@ScalingInstruction' {} a -> s {targetTrackingConfigurations = a} :: ScalingInstruction) Prelude.. Prelude._Coerce
+scalingInstruction_targetTrackingConfigurations = Lens.lens (\ScalingInstruction' {targetTrackingConfigurations} -> targetTrackingConfigurations) (\s@ScalingInstruction' {} a -> s {targetTrackingConfigurations = a} :: ScalingInstruction) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ScalingInstruction where
+instance Core.FromJSON ScalingInstruction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScalingInstruction"
       ( \x ->
           ScalingInstruction'
-            Prelude.<$> (x Prelude..:? "DisableDynamicScaling")
-            Prelude.<*> (x Prelude..:? "PredefinedLoadMetricSpecification")
-            Prelude.<*> (x Prelude..:? "CustomizedLoadMetricSpecification")
-            Prelude.<*> ( x
-                            Prelude..:? "PredictiveScalingMaxCapacityBehavior"
-                        )
-            Prelude.<*> (x Prelude..:? "PredictiveScalingMaxCapacityBuffer")
-            Prelude.<*> (x Prelude..:? "PredictiveScalingMode")
-            Prelude.<*> (x Prelude..:? "ScalingPolicyUpdateBehavior")
-            Prelude.<*> (x Prelude..:? "ScheduledActionBufferTime")
-            Prelude.<*> (x Prelude..: "ServiceNamespace")
-            Prelude.<*> (x Prelude..: "ResourceId")
-            Prelude.<*> (x Prelude..: "ScalableDimension")
-            Prelude.<*> (x Prelude..: "MinCapacity")
-            Prelude.<*> (x Prelude..: "MaxCapacity")
-            Prelude.<*> ( x Prelude..:? "TargetTrackingConfigurations"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "DisableDynamicScaling")
+            Core.<*> (x Core..:? "PredefinedLoadMetricSpecification")
+            Core.<*> (x Core..:? "CustomizedLoadMetricSpecification")
+            Core.<*> (x Core..:? "PredictiveScalingMaxCapacityBehavior")
+            Core.<*> (x Core..:? "PredictiveScalingMaxCapacityBuffer")
+            Core.<*> (x Core..:? "PredictiveScalingMode")
+            Core.<*> (x Core..:? "ScalingPolicyUpdateBehavior")
+            Core.<*> (x Core..:? "ScheduledActionBufferTime")
+            Core.<*> (x Core..: "ServiceNamespace")
+            Core.<*> (x Core..: "ResourceId")
+            Core.<*> (x Core..: "ScalableDimension")
+            Core.<*> (x Core..: "MinCapacity")
+            Core.<*> (x Core..: "MaxCapacity")
+            Core.<*> ( x Core..:? "TargetTrackingConfigurations"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ScalingInstruction
+instance Core.Hashable ScalingInstruction
 
-instance Prelude.NFData ScalingInstruction
+instance Core.NFData ScalingInstruction
 
-instance Prelude.ToJSON ScalingInstruction where
+instance Core.ToJSON ScalingInstruction where
   toJSON ScalingInstruction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DisableDynamicScaling" Prelude..=)
-              Prelude.<$> disableDynamicScaling,
-            ("PredefinedLoadMetricSpecification" Prelude..=)
-              Prelude.<$> predefinedLoadMetricSpecification,
-            ("CustomizedLoadMetricSpecification" Prelude..=)
-              Prelude.<$> customizedLoadMetricSpecification,
-            ("PredictiveScalingMaxCapacityBehavior" Prelude..=)
-              Prelude.<$> predictiveScalingMaxCapacityBehavior,
-            ("PredictiveScalingMaxCapacityBuffer" Prelude..=)
-              Prelude.<$> predictiveScalingMaxCapacityBuffer,
-            ("PredictiveScalingMode" Prelude..=)
-              Prelude.<$> predictiveScalingMode,
-            ("ScalingPolicyUpdateBehavior" Prelude..=)
-              Prelude.<$> scalingPolicyUpdateBehavior,
-            ("ScheduledActionBufferTime" Prelude..=)
-              Prelude.<$> scheduledActionBufferTime,
-            Prelude.Just
-              ("ServiceNamespace" Prelude..= serviceNamespace),
-            Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just
-              ("ScalableDimension" Prelude..= scalableDimension),
-            Prelude.Just ("MinCapacity" Prelude..= minCapacity),
-            Prelude.Just ("MaxCapacity" Prelude..= maxCapacity),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DisableDynamicScaling" Core..=)
+              Core.<$> disableDynamicScaling,
+            ("PredefinedLoadMetricSpecification" Core..=)
+              Core.<$> predefinedLoadMetricSpecification,
+            ("CustomizedLoadMetricSpecification" Core..=)
+              Core.<$> customizedLoadMetricSpecification,
+            ("PredictiveScalingMaxCapacityBehavior" Core..=)
+              Core.<$> predictiveScalingMaxCapacityBehavior,
+            ("PredictiveScalingMaxCapacityBuffer" Core..=)
+              Core.<$> predictiveScalingMaxCapacityBuffer,
+            ("PredictiveScalingMode" Core..=)
+              Core.<$> predictiveScalingMode,
+            ("ScalingPolicyUpdateBehavior" Core..=)
+              Core.<$> scalingPolicyUpdateBehavior,
+            ("ScheduledActionBufferTime" Core..=)
+              Core.<$> scheduledActionBufferTime,
+            Core.Just
+              ("ServiceNamespace" Core..= serviceNamespace),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just
+              ("ScalableDimension" Core..= scalableDimension),
+            Core.Just ("MinCapacity" Core..= minCapacity),
+            Core.Just ("MaxCapacity" Core..= maxCapacity),
+            Core.Just
               ( "TargetTrackingConfigurations"
-                  Prelude..= targetTrackingConfigurations
+                  Core..= targetTrackingConfigurations
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.UiConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provided configuration information for the worker UI for a labeling job.
 --
@@ -64,15 +63,15 @@ data UiConfig = UiConfig'
     -- frame object tracking adjustment labeling jobs.
     --
     -- -   @arn:aws:sagemaker:aws-region:394669845002:human-task-ui\/VideoObjectTracking@
-    humanTaskUiArn :: Prelude.Maybe Prelude.Text,
+    humanTaskUiArn :: Core.Maybe Core.Text,
     -- | The Amazon S3 bucket location of the UI template, or worker task
     -- template. This is the template used to render the worker UI and tools
     -- for labeling job tasks. For more information about the contents of a UI
     -- template, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template>.
-    uiTemplateS3Uri :: Prelude.Maybe Prelude.Text
+    uiTemplateS3Uri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UiConfig' with all optional fields omitted.
@@ -129,8 +128,8 @@ newUiConfig ::
   UiConfig
 newUiConfig =
   UiConfig'
-    { humanTaskUiArn = Prelude.Nothing,
-      uiTemplateS3Uri = Prelude.Nothing
+    { humanTaskUiArn = Core.Nothing,
+      uiTemplateS3Uri = Core.Nothing
     }
 
 -- | The ARN of the worker task template used to render the worker UI and
@@ -170,7 +169,7 @@ newUiConfig =
 -- frame object tracking adjustment labeling jobs.
 --
 -- -   @arn:aws:sagemaker:aws-region:394669845002:human-task-ui\/VideoObjectTracking@
-uiConfig_humanTaskUiArn :: Lens.Lens' UiConfig (Prelude.Maybe Prelude.Text)
+uiConfig_humanTaskUiArn :: Lens.Lens' UiConfig (Core.Maybe Core.Text)
 uiConfig_humanTaskUiArn = Lens.lens (\UiConfig' {humanTaskUiArn} -> humanTaskUiArn) (\s@UiConfig' {} a -> s {humanTaskUiArn = a} :: UiConfig)
 
 -- | The Amazon S3 bucket location of the UI template, or worker task
@@ -178,30 +177,29 @@ uiConfig_humanTaskUiArn = Lens.lens (\UiConfig' {humanTaskUiArn} -> humanTaskUiA
 -- for labeling job tasks. For more information about the contents of a UI
 -- template, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html Creating Your Custom Labeling Task Template>.
-uiConfig_uiTemplateS3Uri :: Lens.Lens' UiConfig (Prelude.Maybe Prelude.Text)
+uiConfig_uiTemplateS3Uri :: Lens.Lens' UiConfig (Core.Maybe Core.Text)
 uiConfig_uiTemplateS3Uri = Lens.lens (\UiConfig' {uiTemplateS3Uri} -> uiTemplateS3Uri) (\s@UiConfig' {} a -> s {uiTemplateS3Uri = a} :: UiConfig)
 
-instance Prelude.FromJSON UiConfig where
+instance Core.FromJSON UiConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UiConfig"
       ( \x ->
           UiConfig'
-            Prelude.<$> (x Prelude..:? "HumanTaskUiArn")
-            Prelude.<*> (x Prelude..:? "UiTemplateS3Uri")
+            Core.<$> (x Core..:? "HumanTaskUiArn")
+            Core.<*> (x Core..:? "UiTemplateS3Uri")
       )
 
-instance Prelude.Hashable UiConfig
+instance Core.Hashable UiConfig
 
-instance Prelude.NFData UiConfig
+instance Core.NFData UiConfig
 
-instance Prelude.ToJSON UiConfig where
+instance Core.ToJSON UiConfig where
   toJSON UiConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("HumanTaskUiArn" Prelude..=)
-              Prelude.<$> humanTaskUiArn,
-            ("UiTemplateS3Uri" Prelude..=)
-              Prelude.<$> uiTemplateS3Uri
+    Core.object
+      ( Core.catMaybes
+          [ ("HumanTaskUiArn" Core..=) Core.<$> humanTaskUiArn,
+            ("UiTemplateS3Uri" Core..=)
+              Core.<$> uiTemplateS3Uri
           ]
       )

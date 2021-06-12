@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.AppStream.CopyImage
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,16 +54,16 @@ import qualified Network.AWS.Response as Response
 data CopyImage = CopyImage'
   { -- | The description that the image will have when it is copied to the
     -- destination.
-    destinationImageDescription :: Prelude.Maybe Prelude.Text,
+    destinationImageDescription :: Core.Maybe Core.Text,
     -- | The name of the image to copy.
-    sourceImageName :: Prelude.Text,
+    sourceImageName :: Core.Text,
     -- | The name that the image will have when it is copied to the destination.
-    destinationImageName :: Prelude.Text,
+    destinationImageName :: Core.Text,
     -- | The destination region to which the image will be copied. This parameter
     -- is required, even if you are copying an image within the same region.
-    destinationRegion :: Prelude.Text
+    destinationRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyImage' with all optional fields omitted.
@@ -85,11 +84,11 @@ data CopyImage = CopyImage'
 -- is required, even if you are copying an image within the same region.
 newCopyImage ::
   -- | 'sourceImageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationImageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationRegion'
-  Prelude.Text ->
+  Core.Text ->
   CopyImage
 newCopyImage
   pSourceImageName_
@@ -97,7 +96,7 @@ newCopyImage
   pDestinationRegion_ =
     CopyImage'
       { destinationImageDescription =
-          Prelude.Nothing,
+          Core.Nothing,
         sourceImageName = pSourceImageName_,
         destinationImageName = pDestinationImageName_,
         destinationRegion = pDestinationRegion_
@@ -105,83 +104,81 @@ newCopyImage
 
 -- | The description that the image will have when it is copied to the
 -- destination.
-copyImage_destinationImageDescription :: Lens.Lens' CopyImage (Prelude.Maybe Prelude.Text)
+copyImage_destinationImageDescription :: Lens.Lens' CopyImage (Core.Maybe Core.Text)
 copyImage_destinationImageDescription = Lens.lens (\CopyImage' {destinationImageDescription} -> destinationImageDescription) (\s@CopyImage' {} a -> s {destinationImageDescription = a} :: CopyImage)
 
 -- | The name of the image to copy.
-copyImage_sourceImageName :: Lens.Lens' CopyImage Prelude.Text
+copyImage_sourceImageName :: Lens.Lens' CopyImage Core.Text
 copyImage_sourceImageName = Lens.lens (\CopyImage' {sourceImageName} -> sourceImageName) (\s@CopyImage' {} a -> s {sourceImageName = a} :: CopyImage)
 
 -- | The name that the image will have when it is copied to the destination.
-copyImage_destinationImageName :: Lens.Lens' CopyImage Prelude.Text
+copyImage_destinationImageName :: Lens.Lens' CopyImage Core.Text
 copyImage_destinationImageName = Lens.lens (\CopyImage' {destinationImageName} -> destinationImageName) (\s@CopyImage' {} a -> s {destinationImageName = a} :: CopyImage)
 
 -- | The destination region to which the image will be copied. This parameter
 -- is required, even if you are copying an image within the same region.
-copyImage_destinationRegion :: Lens.Lens' CopyImage Prelude.Text
+copyImage_destinationRegion :: Lens.Lens' CopyImage Core.Text
 copyImage_destinationRegion = Lens.lens (\CopyImage' {destinationRegion} -> destinationRegion) (\s@CopyImage' {} a -> s {destinationRegion = a} :: CopyImage)
 
-instance Prelude.AWSRequest CopyImage where
-  type Rs CopyImage = CopyImageResponse
+instance Core.AWSRequest CopyImage where
+  type AWSResponse CopyImage = CopyImageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CopyImageResponse'
-            Prelude.<$> (x Prelude..?> "DestinationImageName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DestinationImageName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CopyImage
+instance Core.Hashable CopyImage
 
-instance Prelude.NFData CopyImage
+instance Core.NFData CopyImage
 
-instance Prelude.ToHeaders CopyImage where
+instance Core.ToHeaders CopyImage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.CopyImage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.CopyImage" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CopyImage where
+instance Core.ToJSON CopyImage where
   toJSON CopyImage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DestinationImageDescription" Prelude..=)
-              Prelude.<$> destinationImageDescription,
-            Prelude.Just
-              ("SourceImageName" Prelude..= sourceImageName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DestinationImageDescription" Core..=)
+              Core.<$> destinationImageDescription,
+            Core.Just
+              ("SourceImageName" Core..= sourceImageName),
+            Core.Just
               ( "DestinationImageName"
-                  Prelude..= destinationImageName
+                  Core..= destinationImageName
               ),
-            Prelude.Just
-              ("DestinationRegion" Prelude..= destinationRegion)
+            Core.Just
+              ("DestinationRegion" Core..= destinationRegion)
           ]
       )
 
-instance Prelude.ToPath CopyImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath CopyImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CopyImage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CopyImage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCopyImageResponse' smart constructor.
 data CopyImageResponse = CopyImageResponse'
   { -- | The name of the destination image.
-    destinationImageName :: Prelude.Maybe Prelude.Text,
+    destinationImageName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyImageResponse' with all optional fields omitted.
@@ -196,21 +193,21 @@ data CopyImageResponse = CopyImageResponse'
 -- 'httpStatus', 'copyImageResponse_httpStatus' - The response's http status code.
 newCopyImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CopyImageResponse
 newCopyImageResponse pHttpStatus_ =
   CopyImageResponse'
     { destinationImageName =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the destination image.
-copyImageResponse_destinationImageName :: Lens.Lens' CopyImageResponse (Prelude.Maybe Prelude.Text)
+copyImageResponse_destinationImageName :: Lens.Lens' CopyImageResponse (Core.Maybe Core.Text)
 copyImageResponse_destinationImageName = Lens.lens (\CopyImageResponse' {destinationImageName} -> destinationImageName) (\s@CopyImageResponse' {} a -> s {destinationImageName = a} :: CopyImageResponse)
 
 -- | The response's http status code.
-copyImageResponse_httpStatus :: Lens.Lens' CopyImageResponse Prelude.Int
+copyImageResponse_httpStatus :: Lens.Lens' CopyImageResponse Core.Int
 copyImageResponse_httpStatus = Lens.lens (\CopyImageResponse' {httpStatus} -> httpStatus) (\s@CopyImageResponse' {} a -> s {httpStatus = a} :: CopyImageResponse)
 
-instance Prelude.NFData CopyImageResponse
+instance Core.NFData CopyImageResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.MechanicalTurk.AssociateQualificationWithWorker
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,17 +66,17 @@ data AssociateQualificationWithWorker = AssociateQualificationWithWorker'
   { -- | Specifies whether to send a notification email message to the Worker
     -- saying that the qualification was assigned to the Worker. Note: this is
     -- true by default.
-    sendNotification :: Prelude.Maybe Prelude.Bool,
+    sendNotification :: Core.Maybe Core.Bool,
     -- | The value of the Qualification to assign.
-    integerValue :: Prelude.Maybe Prelude.Int,
+    integerValue :: Core.Maybe Core.Int,
     -- | The ID of the Qualification type to use for the assigned Qualification.
-    qualificationTypeId :: Prelude.Text,
+    qualificationTypeId :: Core.Text,
     -- | The ID of the Worker to whom the Qualification is being assigned. Worker
     -- IDs are included with submitted HIT assignments and Qualification
     -- requests.
-    workerId :: Prelude.Text
+    workerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateQualificationWithWorker' with all optional fields omitted.
@@ -100,17 +99,17 @@ data AssociateQualificationWithWorker = AssociateQualificationWithWorker'
 -- requests.
 newAssociateQualificationWithWorker ::
   -- | 'qualificationTypeId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workerId'
-  Prelude.Text ->
+  Core.Text ->
   AssociateQualificationWithWorker
 newAssociateQualificationWithWorker
   pQualificationTypeId_
   pWorkerId_ =
     AssociateQualificationWithWorker'
       { sendNotification =
-          Prelude.Nothing,
-        integerValue = Prelude.Nothing,
+          Core.Nothing,
+        integerValue = Core.Nothing,
         qualificationTypeId =
           pQualificationTypeId_,
         workerId = pWorkerId_
@@ -119,100 +118,88 @@ newAssociateQualificationWithWorker
 -- | Specifies whether to send a notification email message to the Worker
 -- saying that the qualification was assigned to the Worker. Note: this is
 -- true by default.
-associateQualificationWithWorker_sendNotification :: Lens.Lens' AssociateQualificationWithWorker (Prelude.Maybe Prelude.Bool)
+associateQualificationWithWorker_sendNotification :: Lens.Lens' AssociateQualificationWithWorker (Core.Maybe Core.Bool)
 associateQualificationWithWorker_sendNotification = Lens.lens (\AssociateQualificationWithWorker' {sendNotification} -> sendNotification) (\s@AssociateQualificationWithWorker' {} a -> s {sendNotification = a} :: AssociateQualificationWithWorker)
 
 -- | The value of the Qualification to assign.
-associateQualificationWithWorker_integerValue :: Lens.Lens' AssociateQualificationWithWorker (Prelude.Maybe Prelude.Int)
+associateQualificationWithWorker_integerValue :: Lens.Lens' AssociateQualificationWithWorker (Core.Maybe Core.Int)
 associateQualificationWithWorker_integerValue = Lens.lens (\AssociateQualificationWithWorker' {integerValue} -> integerValue) (\s@AssociateQualificationWithWorker' {} a -> s {integerValue = a} :: AssociateQualificationWithWorker)
 
 -- | The ID of the Qualification type to use for the assigned Qualification.
-associateQualificationWithWorker_qualificationTypeId :: Lens.Lens' AssociateQualificationWithWorker Prelude.Text
+associateQualificationWithWorker_qualificationTypeId :: Lens.Lens' AssociateQualificationWithWorker Core.Text
 associateQualificationWithWorker_qualificationTypeId = Lens.lens (\AssociateQualificationWithWorker' {qualificationTypeId} -> qualificationTypeId) (\s@AssociateQualificationWithWorker' {} a -> s {qualificationTypeId = a} :: AssociateQualificationWithWorker)
 
 -- | The ID of the Worker to whom the Qualification is being assigned. Worker
 -- IDs are included with submitted HIT assignments and Qualification
 -- requests.
-associateQualificationWithWorker_workerId :: Lens.Lens' AssociateQualificationWithWorker Prelude.Text
+associateQualificationWithWorker_workerId :: Lens.Lens' AssociateQualificationWithWorker Core.Text
 associateQualificationWithWorker_workerId = Lens.lens (\AssociateQualificationWithWorker' {workerId} -> workerId) (\s@AssociateQualificationWithWorker' {} a -> s {workerId = a} :: AssociateQualificationWithWorker)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AssociateQualificationWithWorker
   where
   type
-    Rs AssociateQualificationWithWorker =
+    AWSResponse AssociateQualificationWithWorker =
       AssociateQualificationWithWorkerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateQualificationWithWorkerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AssociateQualificationWithWorker
 
-instance
-  Prelude.NFData
-    AssociateQualificationWithWorker
+instance Core.NFData AssociateQualificationWithWorker
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AssociateQualificationWithWorker
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    AssociateQualificationWithWorker
-  where
+instance Core.ToJSON AssociateQualificationWithWorker where
   toJSON AssociateQualificationWithWorker' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SendNotification" Prelude..=)
-              Prelude.<$> sendNotification,
-            ("IntegerValue" Prelude..=) Prelude.<$> integerValue,
-            Prelude.Just
-              ( "QualificationTypeId"
-                  Prelude..= qualificationTypeId
-              ),
-            Prelude.Just ("WorkerId" Prelude..= workerId)
+    Core.object
+      ( Core.catMaybes
+          [ ("SendNotification" Core..=)
+              Core.<$> sendNotification,
+            ("IntegerValue" Core..=) Core.<$> integerValue,
+            Core.Just
+              ("QualificationTypeId" Core..= qualificationTypeId),
+            Core.Just ("WorkerId" Core..= workerId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    AssociateQualificationWithWorker
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateQualificationWithWorker where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     AssociateQualificationWithWorker
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateQualificationWithWorkerResponse' smart constructor.
 data AssociateQualificationWithWorkerResponse = AssociateQualificationWithWorkerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateQualificationWithWorkerResponse' with all optional fields omitted.
@@ -225,7 +212,7 @@ data AssociateQualificationWithWorkerResponse = AssociateQualificationWithWorker
 -- 'httpStatus', 'associateQualificationWithWorkerResponse_httpStatus' - The response's http status code.
 newAssociateQualificationWithWorkerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateQualificationWithWorkerResponse
 newAssociateQualificationWithWorkerResponse
   pHttpStatus_ =
@@ -235,9 +222,9 @@ newAssociateQualificationWithWorkerResponse
       }
 
 -- | The response's http status code.
-associateQualificationWithWorkerResponse_httpStatus :: Lens.Lens' AssociateQualificationWithWorkerResponse Prelude.Int
+associateQualificationWithWorkerResponse_httpStatus :: Lens.Lens' AssociateQualificationWithWorkerResponse Core.Int
 associateQualificationWithWorkerResponse_httpStatus = Lens.lens (\AssociateQualificationWithWorkerResponse' {httpStatus} -> httpStatus) (\s@AssociateQualificationWithWorkerResponse' {} a -> s {httpStatus = a} :: AssociateQualificationWithWorkerResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateQualificationWithWorkerResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodePipeline.Types.Artifact where
 
 import Network.AWS.CodePipeline.Types.ArtifactLocation
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an artifact that is worked on by actions in
 -- the pipeline.
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newArtifact' smart constructor.
 data Artifact = Artifact'
   { -- | The artifact\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The artifact\'s revision ID. Depending on the type of object, this could
     -- be a commit ID (GitHub) or a revision ID (Amazon S3).
-    revision :: Prelude.Maybe Prelude.Text,
+    revision :: Core.Maybe Core.Text,
     -- | The location of an artifact.
-    location :: Prelude.Maybe ArtifactLocation
+    location :: Core.Maybe ArtifactLocation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Artifact' with all optional fields omitted.
@@ -57,35 +56,35 @@ newArtifact ::
   Artifact
 newArtifact =
   Artifact'
-    { name = Prelude.Nothing,
-      revision = Prelude.Nothing,
-      location = Prelude.Nothing
+    { name = Core.Nothing,
+      revision = Core.Nothing,
+      location = Core.Nothing
     }
 
 -- | The artifact\'s name.
-artifact_name :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_name :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_name = Lens.lens (\Artifact' {name} -> name) (\s@Artifact' {} a -> s {name = a} :: Artifact)
 
 -- | The artifact\'s revision ID. Depending on the type of object, this could
 -- be a commit ID (GitHub) or a revision ID (Amazon S3).
-artifact_revision :: Lens.Lens' Artifact (Prelude.Maybe Prelude.Text)
+artifact_revision :: Lens.Lens' Artifact (Core.Maybe Core.Text)
 artifact_revision = Lens.lens (\Artifact' {revision} -> revision) (\s@Artifact' {} a -> s {revision = a} :: Artifact)
 
 -- | The location of an artifact.
-artifact_location :: Lens.Lens' Artifact (Prelude.Maybe ArtifactLocation)
+artifact_location :: Lens.Lens' Artifact (Core.Maybe ArtifactLocation)
 artifact_location = Lens.lens (\Artifact' {location} -> location) (\s@Artifact' {} a -> s {location = a} :: Artifact)
 
-instance Prelude.FromJSON Artifact where
+instance Core.FromJSON Artifact where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Artifact"
       ( \x ->
           Artifact'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "revision")
-            Prelude.<*> (x Prelude..:? "location")
+            Core.<$> (x Core..:? "name")
+            Core.<*> (x Core..:? "revision")
+            Core.<*> (x Core..:? "location")
       )
 
-instance Prelude.Hashable Artifact
+instance Core.Hashable Artifact
 
-instance Prelude.NFData Artifact
+instance Core.NFData Artifact

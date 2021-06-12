@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,32 +19,32 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AssociationExecution where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Includes information about the specified association.
 --
 -- /See:/ 'newAssociationExecution' smart constructor.
 data AssociationExecution = AssociationExecution'
   { -- | The status of the association execution.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The date of the last execution.
-    lastExecutionDate :: Prelude.Maybe Prelude.POSIX,
+    lastExecutionDate :: Core.Maybe Core.POSIX,
     -- | Detailed status information about the execution.
-    detailedStatus :: Prelude.Maybe Prelude.Text,
+    detailedStatus :: Core.Maybe Core.Text,
     -- | An aggregate status of the resources in the execution based on the
     -- status type.
-    resourceCountByStatus :: Prelude.Maybe Prelude.Text,
+    resourceCountByStatus :: Core.Maybe Core.Text,
     -- | The time the execution started.
-    createdTime :: Prelude.Maybe Prelude.POSIX,
+    createdTime :: Core.Maybe Core.POSIX,
     -- | The execution ID for the association.
-    executionId :: Prelude.Maybe Prelude.Text,
+    executionId :: Core.Maybe Core.Text,
     -- | The association ID.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | The association version.
-    associationVersion :: Prelude.Maybe Prelude.Text
+    associationVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociationExecution' with all optional fields omitted.
@@ -75,65 +74,65 @@ newAssociationExecution ::
   AssociationExecution
 newAssociationExecution =
   AssociationExecution'
-    { status = Prelude.Nothing,
-      lastExecutionDate = Prelude.Nothing,
-      detailedStatus = Prelude.Nothing,
-      resourceCountByStatus = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      executionId = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      associationVersion = Prelude.Nothing
+    { status = Core.Nothing,
+      lastExecutionDate = Core.Nothing,
+      detailedStatus = Core.Nothing,
+      resourceCountByStatus = Core.Nothing,
+      createdTime = Core.Nothing,
+      executionId = Core.Nothing,
+      associationId = Core.Nothing,
+      associationVersion = Core.Nothing
     }
 
 -- | The status of the association execution.
-associationExecution_status :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
+associationExecution_status :: Lens.Lens' AssociationExecution (Core.Maybe Core.Text)
 associationExecution_status = Lens.lens (\AssociationExecution' {status} -> status) (\s@AssociationExecution' {} a -> s {status = a} :: AssociationExecution)
 
 -- | The date of the last execution.
-associationExecution_lastExecutionDate :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.UTCTime)
-associationExecution_lastExecutionDate = Lens.lens (\AssociationExecution' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecution' {} a -> s {lastExecutionDate = a} :: AssociationExecution) Prelude.. Lens.mapping Prelude._Time
+associationExecution_lastExecutionDate :: Lens.Lens' AssociationExecution (Core.Maybe Core.UTCTime)
+associationExecution_lastExecutionDate = Lens.lens (\AssociationExecution' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecution' {} a -> s {lastExecutionDate = a} :: AssociationExecution) Core.. Lens.mapping Core._Time
 
 -- | Detailed status information about the execution.
-associationExecution_detailedStatus :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
+associationExecution_detailedStatus :: Lens.Lens' AssociationExecution (Core.Maybe Core.Text)
 associationExecution_detailedStatus = Lens.lens (\AssociationExecution' {detailedStatus} -> detailedStatus) (\s@AssociationExecution' {} a -> s {detailedStatus = a} :: AssociationExecution)
 
 -- | An aggregate status of the resources in the execution based on the
 -- status type.
-associationExecution_resourceCountByStatus :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
+associationExecution_resourceCountByStatus :: Lens.Lens' AssociationExecution (Core.Maybe Core.Text)
 associationExecution_resourceCountByStatus = Lens.lens (\AssociationExecution' {resourceCountByStatus} -> resourceCountByStatus) (\s@AssociationExecution' {} a -> s {resourceCountByStatus = a} :: AssociationExecution)
 
 -- | The time the execution started.
-associationExecution_createdTime :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.UTCTime)
-associationExecution_createdTime = Lens.lens (\AssociationExecution' {createdTime} -> createdTime) (\s@AssociationExecution' {} a -> s {createdTime = a} :: AssociationExecution) Prelude.. Lens.mapping Prelude._Time
+associationExecution_createdTime :: Lens.Lens' AssociationExecution (Core.Maybe Core.UTCTime)
+associationExecution_createdTime = Lens.lens (\AssociationExecution' {createdTime} -> createdTime) (\s@AssociationExecution' {} a -> s {createdTime = a} :: AssociationExecution) Core.. Lens.mapping Core._Time
 
 -- | The execution ID for the association.
-associationExecution_executionId :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
+associationExecution_executionId :: Lens.Lens' AssociationExecution (Core.Maybe Core.Text)
 associationExecution_executionId = Lens.lens (\AssociationExecution' {executionId} -> executionId) (\s@AssociationExecution' {} a -> s {executionId = a} :: AssociationExecution)
 
 -- | The association ID.
-associationExecution_associationId :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
+associationExecution_associationId :: Lens.Lens' AssociationExecution (Core.Maybe Core.Text)
 associationExecution_associationId = Lens.lens (\AssociationExecution' {associationId} -> associationId) (\s@AssociationExecution' {} a -> s {associationId = a} :: AssociationExecution)
 
 -- | The association version.
-associationExecution_associationVersion :: Lens.Lens' AssociationExecution (Prelude.Maybe Prelude.Text)
+associationExecution_associationVersion :: Lens.Lens' AssociationExecution (Core.Maybe Core.Text)
 associationExecution_associationVersion = Lens.lens (\AssociationExecution' {associationVersion} -> associationVersion) (\s@AssociationExecution' {} a -> s {associationVersion = a} :: AssociationExecution)
 
-instance Prelude.FromJSON AssociationExecution where
+instance Core.FromJSON AssociationExecution where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssociationExecution"
       ( \x ->
           AssociationExecution'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "LastExecutionDate")
-            Prelude.<*> (x Prelude..:? "DetailedStatus")
-            Prelude.<*> (x Prelude..:? "ResourceCountByStatus")
-            Prelude.<*> (x Prelude..:? "CreatedTime")
-            Prelude.<*> (x Prelude..:? "ExecutionId")
-            Prelude.<*> (x Prelude..:? "AssociationId")
-            Prelude.<*> (x Prelude..:? "AssociationVersion")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "LastExecutionDate")
+            Core.<*> (x Core..:? "DetailedStatus")
+            Core.<*> (x Core..:? "ResourceCountByStatus")
+            Core.<*> (x Core..:? "CreatedTime")
+            Core.<*> (x Core..:? "ExecutionId")
+            Core.<*> (x Core..:? "AssociationId")
+            Core.<*> (x Core..:? "AssociationVersion")
       )
 
-instance Prelude.Hashable AssociationExecution
+instance Core.Hashable AssociationExecution
 
-instance Prelude.NFData AssociationExecution
+instance Core.NFData AssociationExecution

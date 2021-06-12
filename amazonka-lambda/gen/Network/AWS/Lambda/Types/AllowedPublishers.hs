@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.AllowedPublishers where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | List of signing profiles that can sign a code package.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data AllowedPublishers = AllowedPublishers'
   { -- | The Amazon Resource Name (ARN) for each of the signing profiles. A
     -- signing profile defines a trusted user who can sign a code package.
-    signingProfileVersionArns :: Prelude.NonEmpty Prelude.Text
+    signingProfileVersionArns :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AllowedPublishers' with all optional fields omitted.
@@ -45,39 +44,39 @@ data AllowedPublishers = AllowedPublishers'
 -- signing profile defines a trusted user who can sign a code package.
 newAllowedPublishers ::
   -- | 'signingProfileVersionArns'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   AllowedPublishers
 newAllowedPublishers pSigningProfileVersionArns_ =
   AllowedPublishers'
     { signingProfileVersionArns =
-        Prelude._Coerce Lens.# pSigningProfileVersionArns_
+        Lens._Coerce Lens.# pSigningProfileVersionArns_
     }
 
 -- | The Amazon Resource Name (ARN) for each of the signing profiles. A
 -- signing profile defines a trusted user who can sign a code package.
-allowedPublishers_signingProfileVersionArns :: Lens.Lens' AllowedPublishers (Prelude.NonEmpty Prelude.Text)
-allowedPublishers_signingProfileVersionArns = Lens.lens (\AllowedPublishers' {signingProfileVersionArns} -> signingProfileVersionArns) (\s@AllowedPublishers' {} a -> s {signingProfileVersionArns = a} :: AllowedPublishers) Prelude.. Prelude._Coerce
+allowedPublishers_signingProfileVersionArns :: Lens.Lens' AllowedPublishers (Core.NonEmpty Core.Text)
+allowedPublishers_signingProfileVersionArns = Lens.lens (\AllowedPublishers' {signingProfileVersionArns} -> signingProfileVersionArns) (\s@AllowedPublishers' {} a -> s {signingProfileVersionArns = a} :: AllowedPublishers) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AllowedPublishers where
+instance Core.FromJSON AllowedPublishers where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AllowedPublishers"
       ( \x ->
           AllowedPublishers'
-            Prelude.<$> (x Prelude..: "SigningProfileVersionArns")
+            Core.<$> (x Core..: "SigningProfileVersionArns")
       )
 
-instance Prelude.Hashable AllowedPublishers
+instance Core.Hashable AllowedPublishers
 
-instance Prelude.NFData AllowedPublishers
+instance Core.NFData AllowedPublishers
 
-instance Prelude.ToJSON AllowedPublishers where
+instance Core.ToJSON AllowedPublishers where
   toJSON AllowedPublishers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "SigningProfileVersionArns"
-                  Prelude..= signingProfileVersionArns
+                  Core..= signingProfileVersionArns
               )
           ]
       )

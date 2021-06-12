@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,20 +46,20 @@ module Network.AWS.AutoScalingPlans.DeleteScalingPlan
 where
 
 import Network.AWS.AutoScalingPlans.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteScalingPlan' smart constructor.
 data DeleteScalingPlan = DeleteScalingPlan'
   { -- | The name of the scaling plan.
-    scalingPlanName :: Prelude.Text,
+    scalingPlanName :: Core.Text,
     -- | The version number of the scaling plan. Currently, the only valid value
     -- is @1@.
-    scalingPlanVersion :: Prelude.Integer
+    scalingPlanVersion :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScalingPlan' with all optional fields omitted.
@@ -76,9 +75,9 @@ data DeleteScalingPlan = DeleteScalingPlan'
 -- is @1@.
 newDeleteScalingPlan ::
   -- | 'scalingPlanName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalingPlanVersion'
-  Prelude.Integer ->
+  Core.Integer ->
   DeleteScalingPlan
 newDeleteScalingPlan
   pScalingPlanName_
@@ -90,68 +89,66 @@ newDeleteScalingPlan
       }
 
 -- | The name of the scaling plan.
-deleteScalingPlan_scalingPlanName :: Lens.Lens' DeleteScalingPlan Prelude.Text
+deleteScalingPlan_scalingPlanName :: Lens.Lens' DeleteScalingPlan Core.Text
 deleteScalingPlan_scalingPlanName = Lens.lens (\DeleteScalingPlan' {scalingPlanName} -> scalingPlanName) (\s@DeleteScalingPlan' {} a -> s {scalingPlanName = a} :: DeleteScalingPlan)
 
 -- | The version number of the scaling plan. Currently, the only valid value
 -- is @1@.
-deleteScalingPlan_scalingPlanVersion :: Lens.Lens' DeleteScalingPlan Prelude.Integer
+deleteScalingPlan_scalingPlanVersion :: Lens.Lens' DeleteScalingPlan Core.Integer
 deleteScalingPlan_scalingPlanVersion = Lens.lens (\DeleteScalingPlan' {scalingPlanVersion} -> scalingPlanVersion) (\s@DeleteScalingPlan' {} a -> s {scalingPlanVersion = a} :: DeleteScalingPlan)
 
-instance Prelude.AWSRequest DeleteScalingPlan where
-  type Rs DeleteScalingPlan = DeleteScalingPlanResponse
+instance Core.AWSRequest DeleteScalingPlan where
+  type
+    AWSResponse DeleteScalingPlan =
+      DeleteScalingPlanResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteScalingPlanResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteScalingPlan
+instance Core.Hashable DeleteScalingPlan
 
-instance Prelude.NFData DeleteScalingPlan
+instance Core.NFData DeleteScalingPlan
 
-instance Prelude.ToHeaders DeleteScalingPlan where
+instance Core.ToHeaders DeleteScalingPlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteScalingPlan where
+instance Core.ToJSON DeleteScalingPlan where
   toJSON DeleteScalingPlan' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ScalingPlanName" Prelude..= scalingPlanName),
-            Prelude.Just
-              ( "ScalingPlanVersion"
-                  Prelude..= scalingPlanVersion
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ScalingPlanName" Core..= scalingPlanName),
+            Core.Just
+              ("ScalingPlanVersion" Core..= scalingPlanVersion)
           ]
       )
 
-instance Prelude.ToPath DeleteScalingPlan where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteScalingPlan where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteScalingPlan where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteScalingPlan where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteScalingPlanResponse' smart constructor.
 data DeleteScalingPlanResponse = DeleteScalingPlanResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScalingPlanResponse' with all optional fields omitted.
@@ -164,7 +161,7 @@ data DeleteScalingPlanResponse = DeleteScalingPlanResponse'
 -- 'httpStatus', 'deleteScalingPlanResponse_httpStatus' - The response's http status code.
 newDeleteScalingPlanResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteScalingPlanResponse
 newDeleteScalingPlanResponse pHttpStatus_ =
   DeleteScalingPlanResponse'
@@ -173,7 +170,7 @@ newDeleteScalingPlanResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteScalingPlanResponse_httpStatus :: Lens.Lens' DeleteScalingPlanResponse Prelude.Int
+deleteScalingPlanResponse_httpStatus :: Lens.Lens' DeleteScalingPlanResponse Core.Int
 deleteScalingPlanResponse_httpStatus = Lens.lens (\DeleteScalingPlanResponse' {httpStatus} -> httpStatus) (\s@DeleteScalingPlanResponse' {} a -> s {httpStatus = a} :: DeleteScalingPlanResponse)
 
-instance Prelude.NFData DeleteScalingPlanResponse
+instance Core.NFData DeleteScalingPlanResponse

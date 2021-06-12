@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,24 +49,24 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutNotificationConfiguration' smart constructor.
 data PutNotificationConfiguration = PutNotificationConfiguration'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text,
+    autoScalingGroupName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- (Amazon SNS) topic.
-    topicARN :: Prelude.Text,
+    topicARN :: Core.Text,
     -- | The type of event that causes the notification to be sent. To query the
     -- notification types supported by Amazon EC2 Auto Scaling, call the
     -- DescribeAutoScalingNotificationTypes API.
-    notificationTypes :: [Prelude.Text]
+    notificationTypes :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutNotificationConfiguration' with all optional fields omitted.
@@ -87,9 +86,9 @@ data PutNotificationConfiguration = PutNotificationConfiguration'
 -- DescribeAutoScalingNotificationTypes API.
 newPutNotificationConfiguration ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'topicARN'
-  Prelude.Text ->
+  Core.Text ->
   PutNotificationConfiguration
 newPutNotificationConfiguration
   pAutoScalingGroupName_
@@ -98,72 +97,60 @@ newPutNotificationConfiguration
       { autoScalingGroupName =
           pAutoScalingGroupName_,
         topicARN = pTopicARN_,
-        notificationTypes = Prelude.mempty
+        notificationTypes = Core.mempty
       }
 
 -- | The name of the Auto Scaling group.
-putNotificationConfiguration_autoScalingGroupName :: Lens.Lens' PutNotificationConfiguration Prelude.Text
+putNotificationConfiguration_autoScalingGroupName :: Lens.Lens' PutNotificationConfiguration Core.Text
 putNotificationConfiguration_autoScalingGroupName = Lens.lens (\PutNotificationConfiguration' {autoScalingGroupName} -> autoScalingGroupName) (\s@PutNotificationConfiguration' {} a -> s {autoScalingGroupName = a} :: PutNotificationConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (Amazon SNS) topic.
-putNotificationConfiguration_topicARN :: Lens.Lens' PutNotificationConfiguration Prelude.Text
+putNotificationConfiguration_topicARN :: Lens.Lens' PutNotificationConfiguration Core.Text
 putNotificationConfiguration_topicARN = Lens.lens (\PutNotificationConfiguration' {topicARN} -> topicARN) (\s@PutNotificationConfiguration' {} a -> s {topicARN = a} :: PutNotificationConfiguration)
 
 -- | The type of event that causes the notification to be sent. To query the
 -- notification types supported by Amazon EC2 Auto Scaling, call the
 -- DescribeAutoScalingNotificationTypes API.
-putNotificationConfiguration_notificationTypes :: Lens.Lens' PutNotificationConfiguration [Prelude.Text]
-putNotificationConfiguration_notificationTypes = Lens.lens (\PutNotificationConfiguration' {notificationTypes} -> notificationTypes) (\s@PutNotificationConfiguration' {} a -> s {notificationTypes = a} :: PutNotificationConfiguration) Prelude.. Prelude._Coerce
+putNotificationConfiguration_notificationTypes :: Lens.Lens' PutNotificationConfiguration [Core.Text]
+putNotificationConfiguration_notificationTypes = Lens.lens (\PutNotificationConfiguration' {notificationTypes} -> notificationTypes) (\s@PutNotificationConfiguration' {} a -> s {notificationTypes = a} :: PutNotificationConfiguration) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    PutNotificationConfiguration
-  where
+instance Core.AWSRequest PutNotificationConfiguration where
   type
-    Rs PutNotificationConfiguration =
+    AWSResponse PutNotificationConfiguration =
       PutNotificationConfigurationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       PutNotificationConfigurationResponse'
 
-instance
-  Prelude.Hashable
-    PutNotificationConfiguration
+instance Core.Hashable PutNotificationConfiguration
 
-instance Prelude.NFData PutNotificationConfiguration
+instance Core.NFData PutNotificationConfiguration
 
-instance
-  Prelude.ToHeaders
-    PutNotificationConfiguration
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutNotificationConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutNotificationConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutNotificationConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutNotificationConfiguration where
+instance Core.ToQuery PutNotificationConfiguration where
   toQuery PutNotificationConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "PutNotificationConfiguration" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
-        "TopicARN" Prelude.=: topicARN,
+          Core.=: ("PutNotificationConfiguration" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "TopicARN" Core.=: topicARN,
         "NotificationTypes"
-          Prelude.=: Prelude.toQueryList "member" notificationTypes
+          Core.=: Core.toQueryList "member" notificationTypes
       ]
 
 -- | /See:/ 'newPutNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutNotificationConfigurationResponse' with all optional fields omitted.
@@ -175,5 +162,5 @@ newPutNotificationConfigurationResponse =
   PutNotificationConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutNotificationConfigurationResponse

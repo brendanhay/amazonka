@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.CreateGlobalSecondaryIndexAction
 import Network.AWS.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
 import Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents one of the following:
 --
@@ -50,14 +49,14 @@ data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
     -- -   @Projection @
     --
     -- -   @ProvisionedThroughput @
-    create :: Prelude.Maybe CreateGlobalSecondaryIndexAction,
+    create :: Core.Maybe CreateGlobalSecondaryIndexAction,
     -- | The name of an existing global secondary index, along with new
     -- provisioned throughput settings to be applied to that index.
-    update :: Prelude.Maybe UpdateGlobalSecondaryIndexAction,
+    update :: Core.Maybe UpdateGlobalSecondaryIndexAction,
     -- | The name of an existing global secondary index to be removed.
-    delete' :: Prelude.Maybe DeleteGlobalSecondaryIndexAction
+    delete' :: Core.Maybe DeleteGlobalSecondaryIndexAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalSecondaryIndexUpdate' with all optional fields omitted.
@@ -88,10 +87,9 @@ newGlobalSecondaryIndexUpdate ::
   GlobalSecondaryIndexUpdate
 newGlobalSecondaryIndexUpdate =
   GlobalSecondaryIndexUpdate'
-    { create =
-        Prelude.Nothing,
-      update = Prelude.Nothing,
-      delete' = Prelude.Nothing
+    { create = Core.Nothing,
+      update = Core.Nothing,
+      delete' = Core.Nothing
     }
 
 -- | The parameters required for creating a global secondary index on an
@@ -106,28 +104,28 @@ newGlobalSecondaryIndexUpdate =
 -- -   @Projection @
 --
 -- -   @ProvisionedThroughput @
-globalSecondaryIndexUpdate_create :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe CreateGlobalSecondaryIndexAction)
+globalSecondaryIndexUpdate_create :: Lens.Lens' GlobalSecondaryIndexUpdate (Core.Maybe CreateGlobalSecondaryIndexAction)
 globalSecondaryIndexUpdate_create = Lens.lens (\GlobalSecondaryIndexUpdate' {create} -> create) (\s@GlobalSecondaryIndexUpdate' {} a -> s {create = a} :: GlobalSecondaryIndexUpdate)
 
 -- | The name of an existing global secondary index, along with new
 -- provisioned throughput settings to be applied to that index.
-globalSecondaryIndexUpdate_update :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe UpdateGlobalSecondaryIndexAction)
+globalSecondaryIndexUpdate_update :: Lens.Lens' GlobalSecondaryIndexUpdate (Core.Maybe UpdateGlobalSecondaryIndexAction)
 globalSecondaryIndexUpdate_update = Lens.lens (\GlobalSecondaryIndexUpdate' {update} -> update) (\s@GlobalSecondaryIndexUpdate' {} a -> s {update = a} :: GlobalSecondaryIndexUpdate)
 
 -- | The name of an existing global secondary index to be removed.
-globalSecondaryIndexUpdate_delete :: Lens.Lens' GlobalSecondaryIndexUpdate (Prelude.Maybe DeleteGlobalSecondaryIndexAction)
+globalSecondaryIndexUpdate_delete :: Lens.Lens' GlobalSecondaryIndexUpdate (Core.Maybe DeleteGlobalSecondaryIndexAction)
 globalSecondaryIndexUpdate_delete = Lens.lens (\GlobalSecondaryIndexUpdate' {delete'} -> delete') (\s@GlobalSecondaryIndexUpdate' {} a -> s {delete' = a} :: GlobalSecondaryIndexUpdate)
 
-instance Prelude.Hashable GlobalSecondaryIndexUpdate
+instance Core.Hashable GlobalSecondaryIndexUpdate
 
-instance Prelude.NFData GlobalSecondaryIndexUpdate
+instance Core.NFData GlobalSecondaryIndexUpdate
 
-instance Prelude.ToJSON GlobalSecondaryIndexUpdate where
+instance Core.ToJSON GlobalSecondaryIndexUpdate where
   toJSON GlobalSecondaryIndexUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Create" Prelude..=) Prelude.<$> create,
-            ("Update" Prelude..=) Prelude.<$> update,
-            ("Delete" Prelude..=) Prelude.<$> delete'
+    Core.object
+      ( Core.catMaybes
+          [ ("Create" Core..=) Core.<$> create,
+            ("Update" Core..=) Core.<$> update,
+            ("Delete" Core..=) Core.<$> delete'
           ]
       )

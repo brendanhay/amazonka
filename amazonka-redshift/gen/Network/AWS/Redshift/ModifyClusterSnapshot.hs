@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Redshift.ModifyClusterSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,7 +54,7 @@ import qualified Network.AWS.Response as Response
 data ModifyClusterSnapshot = ModifyClusterSnapshot'
   { -- | A Boolean option to override an exception if the retention period has
     -- already passed.
-    force :: Prelude.Maybe Prelude.Bool,
+    force :: Core.Maybe Core.Bool,
     -- | The number of days that a manual snapshot is retained. If the value is
     -- -1, the manual snapshot is retained indefinitely.
     --
@@ -63,11 +62,11 @@ data ModifyClusterSnapshot = ModifyClusterSnapshot'
     -- can specify the force option to immediately delete the snapshot.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
-    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int,
     -- | The identifier of the snapshot whose setting you want to modify.
-    snapshotIdentifier :: Prelude.Text
+    snapshotIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterSnapshot' with all optional fields omitted.
@@ -91,18 +90,18 @@ data ModifyClusterSnapshot = ModifyClusterSnapshot'
 -- 'snapshotIdentifier', 'modifyClusterSnapshot_snapshotIdentifier' - The identifier of the snapshot whose setting you want to modify.
 newModifyClusterSnapshot ::
   -- | 'snapshotIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ModifyClusterSnapshot
 newModifyClusterSnapshot pSnapshotIdentifier_ =
   ModifyClusterSnapshot'
-    { force = Prelude.Nothing,
-      manualSnapshotRetentionPeriod = Prelude.Nothing,
+    { force = Core.Nothing,
+      manualSnapshotRetentionPeriod = Core.Nothing,
       snapshotIdentifier = pSnapshotIdentifier_
     }
 
 -- | A Boolean option to override an exception if the retention period has
 -- already passed.
-modifyClusterSnapshot_force :: Lens.Lens' ModifyClusterSnapshot (Prelude.Maybe Prelude.Bool)
+modifyClusterSnapshot_force :: Lens.Lens' ModifyClusterSnapshot (Core.Maybe Core.Bool)
 modifyClusterSnapshot_force = Lens.lens (\ModifyClusterSnapshot' {force} -> force) (\s@ModifyClusterSnapshot' {} a -> s {force = a} :: ModifyClusterSnapshot)
 
 -- | The number of days that a manual snapshot is retained. If the value is
@@ -112,16 +111,16 @@ modifyClusterSnapshot_force = Lens.lens (\ModifyClusterSnapshot' {force} -> forc
 -- can specify the force option to immediately delete the snapshot.
 --
 -- The value must be either -1 or an integer between 1 and 3,653.
-modifyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' ModifyClusterSnapshot (Prelude.Maybe Prelude.Int)
+modifyClusterSnapshot_manualSnapshotRetentionPeriod :: Lens.Lens' ModifyClusterSnapshot (Core.Maybe Core.Int)
 modifyClusterSnapshot_manualSnapshotRetentionPeriod = Lens.lens (\ModifyClusterSnapshot' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@ModifyClusterSnapshot' {} a -> s {manualSnapshotRetentionPeriod = a} :: ModifyClusterSnapshot)
 
 -- | The identifier of the snapshot whose setting you want to modify.
-modifyClusterSnapshot_snapshotIdentifier :: Lens.Lens' ModifyClusterSnapshot Prelude.Text
+modifyClusterSnapshot_snapshotIdentifier :: Lens.Lens' ModifyClusterSnapshot Core.Text
 modifyClusterSnapshot_snapshotIdentifier = Lens.lens (\ModifyClusterSnapshot' {snapshotIdentifier} -> snapshotIdentifier) (\s@ModifyClusterSnapshot' {} a -> s {snapshotIdentifier = a} :: ModifyClusterSnapshot)
 
-instance Prelude.AWSRequest ModifyClusterSnapshot where
+instance Core.AWSRequest ModifyClusterSnapshot where
   type
-    Rs ModifyClusterSnapshot =
+    AWSResponse ModifyClusterSnapshot =
       ModifyClusterSnapshotResponse
   request = Request.postQuery defaultService
   response =
@@ -129,40 +128,39 @@ instance Prelude.AWSRequest ModifyClusterSnapshot where
       "ModifyClusterSnapshotResult"
       ( \s h x ->
           ModifyClusterSnapshotResponse'
-            Prelude.<$> (x Prelude..@? "Snapshot")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Snapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterSnapshot
+instance Core.Hashable ModifyClusterSnapshot
 
-instance Prelude.NFData ModifyClusterSnapshot
+instance Core.NFData ModifyClusterSnapshot
 
-instance Prelude.ToHeaders ModifyClusterSnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyClusterSnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyClusterSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyClusterSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyClusterSnapshot where
+instance Core.ToQuery ModifyClusterSnapshot where
   toQuery ModifyClusterSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyClusterSnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "Force" Prelude.=: force,
+          Core.=: ("ModifyClusterSnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Force" Core.=: force,
         "ManualSnapshotRetentionPeriod"
-          Prelude.=: manualSnapshotRetentionPeriod,
-        "SnapshotIdentifier" Prelude.=: snapshotIdentifier
+          Core.=: manualSnapshotRetentionPeriod,
+        "SnapshotIdentifier" Core.=: snapshotIdentifier
       ]
 
 -- | /See:/ 'newModifyClusterSnapshotResponse' smart constructor.
 data ModifyClusterSnapshotResponse = ModifyClusterSnapshotResponse'
-  { snapshot :: Prelude.Maybe Snapshot,
+  { snapshot :: Core.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterSnapshotResponse' with all optional fields omitted.
@@ -177,21 +175,21 @@ data ModifyClusterSnapshotResponse = ModifyClusterSnapshotResponse'
 -- 'httpStatus', 'modifyClusterSnapshotResponse_httpStatus' - The response's http status code.
 newModifyClusterSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyClusterSnapshotResponse
 newModifyClusterSnapshotResponse pHttpStatus_ =
   ModifyClusterSnapshotResponse'
     { snapshot =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyClusterSnapshotResponse_snapshot :: Lens.Lens' ModifyClusterSnapshotResponse (Prelude.Maybe Snapshot)
+modifyClusterSnapshotResponse_snapshot :: Lens.Lens' ModifyClusterSnapshotResponse (Core.Maybe Snapshot)
 modifyClusterSnapshotResponse_snapshot = Lens.lens (\ModifyClusterSnapshotResponse' {snapshot} -> snapshot) (\s@ModifyClusterSnapshotResponse' {} a -> s {snapshot = a} :: ModifyClusterSnapshotResponse)
 
 -- | The response's http status code.
-modifyClusterSnapshotResponse_httpStatus :: Lens.Lens' ModifyClusterSnapshotResponse Prelude.Int
+modifyClusterSnapshotResponse_httpStatus :: Lens.Lens' ModifyClusterSnapshotResponse Core.Int
 modifyClusterSnapshotResponse_httpStatus = Lens.lens (\ModifyClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterSnapshotResponse' {} a -> s {httpStatus = a} :: ModifyClusterSnapshotResponse)
 
-instance Prelude.NFData ModifyClusterSnapshotResponse
+instance Core.NFData ModifyClusterSnapshotResponse

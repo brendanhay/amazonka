@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -83,22 +81,22 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
     --     request. Include the Marker value returned in the response as the
     --     Marker value for the next request, continuing until the
     --     AdditionalDataPending response element returns false.
-    numberOfLines :: Prelude.Maybe Prelude.Int,
+    numberOfLines :: Core.Maybe Core.Int,
     -- | The pagination token provided in the previous request or \"0\". If the
     -- Marker parameter is specified the response includes only records beyond
     -- the marker until the end of the file or up to NumberOfLines.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The customer-assigned name of the DB instance that contains the log
     -- files you want to list.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Prelude.Text,
+    dbInstanceIdentifier :: Core.Text,
     -- | The name of the log file to be downloaded.
-    logFileName :: Prelude.Text
+    logFileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DownloadDBLogFilePortion' with all optional fields omitted.
@@ -147,17 +145,17 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
 -- 'logFileName', 'downloadDBLogFilePortion_logFileName' - The name of the log file to be downloaded.
 newDownloadDBLogFilePortion ::
   -- | 'dbInstanceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logFileName'
-  Prelude.Text ->
+  Core.Text ->
   DownloadDBLogFilePortion
 newDownloadDBLogFilePortion
   pDBInstanceIdentifier_
   pLogFileName_ =
     DownloadDBLogFilePortion'
       { numberOfLines =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         dbInstanceIdentifier = pDBInstanceIdentifier_,
         logFileName = pLogFileName_
       }
@@ -186,13 +184,13 @@ newDownloadDBLogFilePortion
 --     request. Include the Marker value returned in the response as the
 --     Marker value for the next request, continuing until the
 --     AdditionalDataPending response element returns false.
-downloadDBLogFilePortion_numberOfLines :: Lens.Lens' DownloadDBLogFilePortion (Prelude.Maybe Prelude.Int)
+downloadDBLogFilePortion_numberOfLines :: Lens.Lens' DownloadDBLogFilePortion (Core.Maybe Core.Int)
 downloadDBLogFilePortion_numberOfLines = Lens.lens (\DownloadDBLogFilePortion' {numberOfLines} -> numberOfLines) (\s@DownloadDBLogFilePortion' {} a -> s {numberOfLines = a} :: DownloadDBLogFilePortion)
 
 -- | The pagination token provided in the previous request or \"0\". If the
 -- Marker parameter is specified the response includes only records beyond
 -- the marker until the end of the file or up to NumberOfLines.
-downloadDBLogFilePortion_marker :: Lens.Lens' DownloadDBLogFilePortion (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortion_marker :: Lens.Lens' DownloadDBLogFilePortion (Core.Maybe Core.Text)
 downloadDBLogFilePortion_marker = Lens.lens (\DownloadDBLogFilePortion' {marker} -> marker) (\s@DownloadDBLogFilePortion' {} a -> s {marker = a} :: DownloadDBLogFilePortion)
 
 -- | The customer-assigned name of the DB instance that contains the log
@@ -201,38 +199,38 @@ downloadDBLogFilePortion_marker = Lens.lens (\DownloadDBLogFilePortion' {marker}
 -- Constraints:
 --
 -- -   Must match the identifier of an existing DBInstance.
-downloadDBLogFilePortion_dbInstanceIdentifier :: Lens.Lens' DownloadDBLogFilePortion Prelude.Text
+downloadDBLogFilePortion_dbInstanceIdentifier :: Lens.Lens' DownloadDBLogFilePortion Core.Text
 downloadDBLogFilePortion_dbInstanceIdentifier = Lens.lens (\DownloadDBLogFilePortion' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DownloadDBLogFilePortion' {} a -> s {dbInstanceIdentifier = a} :: DownloadDBLogFilePortion)
 
 -- | The name of the log file to be downloaded.
-downloadDBLogFilePortion_logFileName :: Lens.Lens' DownloadDBLogFilePortion Prelude.Text
+downloadDBLogFilePortion_logFileName :: Lens.Lens' DownloadDBLogFilePortion Core.Text
 downloadDBLogFilePortion_logFileName = Lens.lens (\DownloadDBLogFilePortion' {logFileName} -> logFileName) (\s@DownloadDBLogFilePortion' {} a -> s {logFileName = a} :: DownloadDBLogFilePortion)
 
-instance Pager.AWSPager DownloadDBLogFilePortion where
+instance Core.AWSPager DownloadDBLogFilePortion where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? downloadDBLogFilePortionResponse_additionalDataPending
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
             Lens.^? downloadDBLogFilePortionResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& downloadDBLogFilePortion_marker
           Lens..~ rs
           Lens.^? downloadDBLogFilePortionResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DownloadDBLogFilePortion where
+instance Core.AWSRequest DownloadDBLogFilePortion where
   type
-    Rs DownloadDBLogFilePortion =
+    AWSResponse DownloadDBLogFilePortion =
       DownloadDBLogFilePortionResponse
   request = Request.postQuery defaultService
   response =
@@ -240,34 +238,32 @@ instance Prelude.AWSRequest DownloadDBLogFilePortion where
       "DownloadDBLogFilePortionResult"
       ( \s h x ->
           DownloadDBLogFilePortionResponse'
-            Prelude.<$> (x Prelude..@? "AdditionalDataPending")
-            Prelude.<*> (x Prelude..@? "LogFileData")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "AdditionalDataPending")
+            Core.<*> (x Core..@? "LogFileData")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DownloadDBLogFilePortion
+instance Core.Hashable DownloadDBLogFilePortion
 
-instance Prelude.NFData DownloadDBLogFilePortion
+instance Core.NFData DownloadDBLogFilePortion
 
-instance Prelude.ToHeaders DownloadDBLogFilePortion where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DownloadDBLogFilePortion where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DownloadDBLogFilePortion where
-  toPath = Prelude.const "/"
+instance Core.ToPath DownloadDBLogFilePortion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DownloadDBLogFilePortion where
+instance Core.ToQuery DownloadDBLogFilePortion where
   toQuery DownloadDBLogFilePortion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DownloadDBLogFilePortion" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "NumberOfLines" Prelude.=: numberOfLines,
-        "Marker" Prelude.=: marker,
-        "DBInstanceIdentifier"
-          Prelude.=: dbInstanceIdentifier,
-        "LogFileName" Prelude.=: logFileName
+          Core.=: ("DownloadDBLogFilePortion" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "NumberOfLines" Core.=: numberOfLines,
+        "Marker" Core.=: marker,
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
+        "LogFileName" Core.=: logFileName
       ]
 
 -- | This data type is used as a response element to
@@ -277,16 +273,16 @@ instance Prelude.ToQuery DownloadDBLogFilePortion where
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
   { -- | Boolean value that if true, indicates there is more data to be
     -- downloaded.
-    additionalDataPending :: Prelude.Maybe Prelude.Bool,
+    additionalDataPending :: Core.Maybe Core.Bool,
     -- | Entries from the specified log file.
-    logFileData :: Prelude.Maybe Prelude.Text,
+    logFileData :: Core.Maybe Core.Text,
     -- | A pagination token that can be used in a later DownloadDBLogFilePortion
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DownloadDBLogFilePortionResponse' with all optional fields omitted.
@@ -307,35 +303,33 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
 -- 'httpStatus', 'downloadDBLogFilePortionResponse_httpStatus' - The response's http status code.
 newDownloadDBLogFilePortionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DownloadDBLogFilePortionResponse
 newDownloadDBLogFilePortionResponse pHttpStatus_ =
   DownloadDBLogFilePortionResponse'
     { additionalDataPending =
-        Prelude.Nothing,
-      logFileData = Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      logFileData = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Boolean value that if true, indicates there is more data to be
 -- downloaded.
-downloadDBLogFilePortionResponse_additionalDataPending :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Bool)
+downloadDBLogFilePortionResponse_additionalDataPending :: Lens.Lens' DownloadDBLogFilePortionResponse (Core.Maybe Core.Bool)
 downloadDBLogFilePortionResponse_additionalDataPending = Lens.lens (\DownloadDBLogFilePortionResponse' {additionalDataPending} -> additionalDataPending) (\s@DownloadDBLogFilePortionResponse' {} a -> s {additionalDataPending = a} :: DownloadDBLogFilePortionResponse)
 
 -- | Entries from the specified log file.
-downloadDBLogFilePortionResponse_logFileData :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortionResponse_logFileData :: Lens.Lens' DownloadDBLogFilePortionResponse (Core.Maybe Core.Text)
 downloadDBLogFilePortionResponse_logFileData = Lens.lens (\DownloadDBLogFilePortionResponse' {logFileData} -> logFileData) (\s@DownloadDBLogFilePortionResponse' {} a -> s {logFileData = a} :: DownloadDBLogFilePortionResponse)
 
 -- | A pagination token that can be used in a later DownloadDBLogFilePortion
 -- request.
-downloadDBLogFilePortionResponse_marker :: Lens.Lens' DownloadDBLogFilePortionResponse (Prelude.Maybe Prelude.Text)
+downloadDBLogFilePortionResponse_marker :: Lens.Lens' DownloadDBLogFilePortionResponse (Core.Maybe Core.Text)
 downloadDBLogFilePortionResponse_marker = Lens.lens (\DownloadDBLogFilePortionResponse' {marker} -> marker) (\s@DownloadDBLogFilePortionResponse' {} a -> s {marker = a} :: DownloadDBLogFilePortionResponse)
 
 -- | The response's http status code.
-downloadDBLogFilePortionResponse_httpStatus :: Lens.Lens' DownloadDBLogFilePortionResponse Prelude.Int
+downloadDBLogFilePortionResponse_httpStatus :: Lens.Lens' DownloadDBLogFilePortionResponse Core.Int
 downloadDBLogFilePortionResponse_httpStatus = Lens.lens (\DownloadDBLogFilePortionResponse' {httpStatus} -> httpStatus) (\s@DownloadDBLogFilePortionResponse' {} a -> s {httpStatus = a} :: DownloadDBLogFilePortionResponse)
 
-instance
-  Prelude.NFData
-    DownloadDBLogFilePortionResponse
+instance Core.NFData DownloadDBLogFilePortionResponse

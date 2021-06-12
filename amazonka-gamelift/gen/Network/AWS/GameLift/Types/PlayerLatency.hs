@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.PlayerLatency where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Regional latency information for a player, used when requesting a new
 -- game session with StartGameSessionPlacement. This value indicates the
@@ -33,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPlayerLatency' smart constructor.
 data PlayerLatency = PlayerLatency'
   { -- | A unique identifier for a player associated with the latency data.
-    playerId :: Prelude.Maybe Prelude.Text,
+    playerId :: Core.Maybe Core.Text,
     -- | Amount of time that represents the time lag experienced by the player
     -- when connected to the specified Region.
-    latencyInMilliseconds :: Prelude.Maybe Prelude.Double,
+    latencyInMilliseconds :: Core.Maybe Core.Double,
     -- | Name of the Region that is associated with the latency value.
-    regionIdentifier :: Prelude.Maybe Prelude.Text
+    regionIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlayerLatency' with all optional fields omitted.
@@ -60,47 +59,47 @@ newPlayerLatency ::
   PlayerLatency
 newPlayerLatency =
   PlayerLatency'
-    { playerId = Prelude.Nothing,
-      latencyInMilliseconds = Prelude.Nothing,
-      regionIdentifier = Prelude.Nothing
+    { playerId = Core.Nothing,
+      latencyInMilliseconds = Core.Nothing,
+      regionIdentifier = Core.Nothing
     }
 
 -- | A unique identifier for a player associated with the latency data.
-playerLatency_playerId :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
+playerLatency_playerId :: Lens.Lens' PlayerLatency (Core.Maybe Core.Text)
 playerLatency_playerId = Lens.lens (\PlayerLatency' {playerId} -> playerId) (\s@PlayerLatency' {} a -> s {playerId = a} :: PlayerLatency)
 
 -- | Amount of time that represents the time lag experienced by the player
 -- when connected to the specified Region.
-playerLatency_latencyInMilliseconds :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Double)
+playerLatency_latencyInMilliseconds :: Lens.Lens' PlayerLatency (Core.Maybe Core.Double)
 playerLatency_latencyInMilliseconds = Lens.lens (\PlayerLatency' {latencyInMilliseconds} -> latencyInMilliseconds) (\s@PlayerLatency' {} a -> s {latencyInMilliseconds = a} :: PlayerLatency)
 
 -- | Name of the Region that is associated with the latency value.
-playerLatency_regionIdentifier :: Lens.Lens' PlayerLatency (Prelude.Maybe Prelude.Text)
+playerLatency_regionIdentifier :: Lens.Lens' PlayerLatency (Core.Maybe Core.Text)
 playerLatency_regionIdentifier = Lens.lens (\PlayerLatency' {regionIdentifier} -> regionIdentifier) (\s@PlayerLatency' {} a -> s {regionIdentifier = a} :: PlayerLatency)
 
-instance Prelude.FromJSON PlayerLatency where
+instance Core.FromJSON PlayerLatency where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PlayerLatency"
       ( \x ->
           PlayerLatency'
-            Prelude.<$> (x Prelude..:? "PlayerId")
-            Prelude.<*> (x Prelude..:? "LatencyInMilliseconds")
-            Prelude.<*> (x Prelude..:? "RegionIdentifier")
+            Core.<$> (x Core..:? "PlayerId")
+            Core.<*> (x Core..:? "LatencyInMilliseconds")
+            Core.<*> (x Core..:? "RegionIdentifier")
       )
 
-instance Prelude.Hashable PlayerLatency
+instance Core.Hashable PlayerLatency
 
-instance Prelude.NFData PlayerLatency
+instance Core.NFData PlayerLatency
 
-instance Prelude.ToJSON PlayerLatency where
+instance Core.ToJSON PlayerLatency where
   toJSON PlayerLatency' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PlayerId" Prelude..=) Prelude.<$> playerId,
-            ("LatencyInMilliseconds" Prelude..=)
-              Prelude.<$> latencyInMilliseconds,
-            ("RegionIdentifier" Prelude..=)
-              Prelude.<$> regionIdentifier
+    Core.object
+      ( Core.catMaybes
+          [ ("PlayerId" Core..=) Core.<$> playerId,
+            ("LatencyInMilliseconds" Core..=)
+              Core.<$> latencyInMilliseconds,
+            ("RegionIdentifier" Core..=)
+              Core.<$> regionIdentifier
           ]
       )

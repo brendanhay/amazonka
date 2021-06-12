@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansSavings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The amount of savings you\'re accumulating, against the public On-Demand
 -- rate of the usage accrued in an account.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data SavingsPlansSavings = SavingsPlansSavings'
   { -- | How much the amount that the usage would have cost if it was accrued at
     -- the On-Demand rate.
-    onDemandCostEquivalent :: Prelude.Maybe Prelude.Text,
+    onDemandCostEquivalent :: Core.Maybe Core.Text,
     -- | The savings amount that you are accumulating for the usage that is
     -- covered by a Savings Plans, when compared to the On-Demand equivalent of
     -- the same usage.
-    netSavings :: Prelude.Maybe Prelude.Text
+    netSavings :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansSavings' with all optional fields omitted.
@@ -57,31 +56,31 @@ newSavingsPlansSavings ::
 newSavingsPlansSavings =
   SavingsPlansSavings'
     { onDemandCostEquivalent =
-        Prelude.Nothing,
-      netSavings = Prelude.Nothing
+        Core.Nothing,
+      netSavings = Core.Nothing
     }
 
 -- | How much the amount that the usage would have cost if it was accrued at
 -- the On-Demand rate.
-savingsPlansSavings_onDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
+savingsPlansSavings_onDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Core.Maybe Core.Text)
 savingsPlansSavings_onDemandCostEquivalent = Lens.lens (\SavingsPlansSavings' {onDemandCostEquivalent} -> onDemandCostEquivalent) (\s@SavingsPlansSavings' {} a -> s {onDemandCostEquivalent = a} :: SavingsPlansSavings)
 
 -- | The savings amount that you are accumulating for the usage that is
 -- covered by a Savings Plans, when compared to the On-Demand equivalent of
 -- the same usage.
-savingsPlansSavings_netSavings :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
+savingsPlansSavings_netSavings :: Lens.Lens' SavingsPlansSavings (Core.Maybe Core.Text)
 savingsPlansSavings_netSavings = Lens.lens (\SavingsPlansSavings' {netSavings} -> netSavings) (\s@SavingsPlansSavings' {} a -> s {netSavings = a} :: SavingsPlansSavings)
 
-instance Prelude.FromJSON SavingsPlansSavings where
+instance Core.FromJSON SavingsPlansSavings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansSavings"
       ( \x ->
           SavingsPlansSavings'
-            Prelude.<$> (x Prelude..:? "OnDemandCostEquivalent")
-            Prelude.<*> (x Prelude..:? "NetSavings")
+            Core.<$> (x Core..:? "OnDemandCostEquivalent")
+            Core.<*> (x Core..:? "NetSavings")
       )
 
-instance Prelude.Hashable SavingsPlansSavings
+instance Core.Hashable SavingsPlansSavings
 
-instance Prelude.NFData SavingsPlansSavings
+instance Core.NFData SavingsPlansSavings

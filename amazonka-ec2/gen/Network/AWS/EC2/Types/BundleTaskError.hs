@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.BundleTaskError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an error for BundleInstance.
 --
 -- /See:/ 'newBundleTaskError' smart constructor.
 data BundleTaskError = BundleTaskError'
   { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The error code.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BundleTaskError' with all optional fields omitted.
@@ -50,24 +49,23 @@ newBundleTaskError ::
   BundleTaskError
 newBundleTaskError =
   BundleTaskError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The error message.
-bundleTaskError_message :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
+bundleTaskError_message :: Lens.Lens' BundleTaskError (Core.Maybe Core.Text)
 bundleTaskError_message = Lens.lens (\BundleTaskError' {message} -> message) (\s@BundleTaskError' {} a -> s {message = a} :: BundleTaskError)
 
 -- | The error code.
-bundleTaskError_code :: Lens.Lens' BundleTaskError (Prelude.Maybe Prelude.Text)
+bundleTaskError_code :: Lens.Lens' BundleTaskError (Core.Maybe Core.Text)
 bundleTaskError_code = Lens.lens (\BundleTaskError' {code} -> code) (\s@BundleTaskError' {} a -> s {code = a} :: BundleTaskError)
 
-instance Prelude.FromXML BundleTaskError where
+instance Core.FromXML BundleTaskError where
   parseXML x =
     BundleTaskError'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
-instance Prelude.Hashable BundleTaskError
+instance Core.Hashable BundleTaskError
 
-instance Prelude.NFData BundleTaskError
+instance Core.NFData BundleTaskError

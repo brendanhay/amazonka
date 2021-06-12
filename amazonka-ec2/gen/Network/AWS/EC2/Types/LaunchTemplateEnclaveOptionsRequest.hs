@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateEnclaveOptionsRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For
 -- more information, see
@@ -33,9 +32,9 @@ import qualified Network.AWS.Prelude as Prelude
 data LaunchTemplateEnclaveOptionsRequest = LaunchTemplateEnclaveOptionsRequest'
   { -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
     -- @true@.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateEnclaveOptionsRequest' with all optional fields omitted.
@@ -52,25 +51,25 @@ newLaunchTemplateEnclaveOptionsRequest ::
 newLaunchTemplateEnclaveOptionsRequest =
   LaunchTemplateEnclaveOptionsRequest'
     { enabled =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | To enable the instance for AWS Nitro Enclaves, set this parameter to
 -- @true@.
-launchTemplateEnclaveOptionsRequest_enabled :: Lens.Lens' LaunchTemplateEnclaveOptionsRequest (Prelude.Maybe Prelude.Bool)
+launchTemplateEnclaveOptionsRequest_enabled :: Lens.Lens' LaunchTemplateEnclaveOptionsRequest (Core.Maybe Core.Bool)
 launchTemplateEnclaveOptionsRequest_enabled = Lens.lens (\LaunchTemplateEnclaveOptionsRequest' {enabled} -> enabled) (\s@LaunchTemplateEnclaveOptionsRequest' {} a -> s {enabled = a} :: LaunchTemplateEnclaveOptionsRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateEnclaveOptionsRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateEnclaveOptionsRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     LaunchTemplateEnclaveOptionsRequest
   where
   toQuery LaunchTemplateEnclaveOptionsRequest' {..} =
-    Prelude.mconcat ["Enabled" Prelude.=: enabled]
+    Core.mconcat ["Enabled" Core.=: enabled]

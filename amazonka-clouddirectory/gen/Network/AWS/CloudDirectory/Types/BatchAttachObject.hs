@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.BatchAttachObject where
 
 import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of an AttachObject operation.
 --
@@ -33,9 +32,9 @@ data BatchAttachObject = BatchAttachObject'
     -- | The child object reference that is to be attached to the object.
     childReference :: ObjectReference,
     -- | The name of the link.
-    linkName :: Prelude.Text
+    linkName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAttachObject' with all optional fields omitted.
@@ -56,7 +55,7 @@ newBatchAttachObject ::
   -- | 'childReference'
   ObjectReference ->
   -- | 'linkName'
-  Prelude.Text ->
+  Core.Text ->
   BatchAttachObject
 newBatchAttachObject
   pParentReference_
@@ -78,21 +77,20 @@ batchAttachObject_childReference :: Lens.Lens' BatchAttachObject ObjectReference
 batchAttachObject_childReference = Lens.lens (\BatchAttachObject' {childReference} -> childReference) (\s@BatchAttachObject' {} a -> s {childReference = a} :: BatchAttachObject)
 
 -- | The name of the link.
-batchAttachObject_linkName :: Lens.Lens' BatchAttachObject Prelude.Text
+batchAttachObject_linkName :: Lens.Lens' BatchAttachObject Core.Text
 batchAttachObject_linkName = Lens.lens (\BatchAttachObject' {linkName} -> linkName) (\s@BatchAttachObject' {} a -> s {linkName = a} :: BatchAttachObject)
 
-instance Prelude.Hashable BatchAttachObject
+instance Core.Hashable BatchAttachObject
 
-instance Prelude.NFData BatchAttachObject
+instance Core.NFData BatchAttachObject
 
-instance Prelude.ToJSON BatchAttachObject where
+instance Core.ToJSON BatchAttachObject where
   toJSON BatchAttachObject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ParentReference" Prelude..= parentReference),
-            Prelude.Just
-              ("ChildReference" Prelude..= childReference),
-            Prelude.Just ("LinkName" Prelude..= linkName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ParentReference" Core..= parentReference),
+            Core.Just ("ChildReference" Core..= childReference),
+            Core.Just ("LinkName" Core..= linkName)
           ]
       )

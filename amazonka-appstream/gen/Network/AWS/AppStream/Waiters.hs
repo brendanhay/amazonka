@@ -18,88 +18,87 @@ module Network.AWS.AppStream.Waiters where
 import Network.AWS.AppStream.DescribeFleets
 import Network.AWS.AppStream.Lens
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newFleetStopped :: Waiter.Wait DescribeFleets
+newFleetStopped :: Core.Wait DescribeFleets
 newFleetStopped =
-  Waiter.Wait
-    { Waiter._waitName = "FleetStopped",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "FleetStopped",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "INACTIVE"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                    (describeFleetsResponse_fleets Core.. Lens._Just)
                 )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. fleet_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "PENDING_ACTIVATE"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                    (describeFleetsResponse_fleets Core.. Lens._Just)
                 )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. fleet_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "ACTIVE"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                    (describeFleetsResponse_fleets Core.. Lens._Just)
                 )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. fleet_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.AppStream.DescribeFleets' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newFleetStarted :: Waiter.Wait DescribeFleets
+newFleetStarted :: Core.Wait DescribeFleets
 newFleetStarted =
-  Waiter.Wait
-    { Waiter._waitName = "FleetStarted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "FleetStarted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "ACTIVE"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                    (describeFleetsResponse_fleets Core.. Lens._Just)
                 )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. fleet_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "PENDING_DEACTIVATE"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                    (describeFleetsResponse_fleets Core.. Lens._Just)
                 )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. fleet_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "INACTIVE"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeFleetsResponse_fleets Prelude.. Lens._Just)
+                    (describeFleetsResponse_fleets Core.. Lens._Just)
                 )
-                Prelude.. fleet_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. fleet_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

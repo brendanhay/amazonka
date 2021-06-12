@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
 -- negotiations.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPhase2IntegrityAlgorithmsRequestListValue' smart constructor.
 data Phase2IntegrityAlgorithmsRequestListValue = Phase2IntegrityAlgorithmsRequestListValue'
   { -- | The integrity algorithm.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Phase2IntegrityAlgorithmsRequestListValue' with all optional fields omitted.
@@ -48,25 +47,25 @@ newPhase2IntegrityAlgorithmsRequestListValue ::
 newPhase2IntegrityAlgorithmsRequestListValue =
   Phase2IntegrityAlgorithmsRequestListValue'
     { value =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The integrity algorithm.
-phase2IntegrityAlgorithmsRequestListValue_value :: Lens.Lens' Phase2IntegrityAlgorithmsRequestListValue (Prelude.Maybe Prelude.Text)
+phase2IntegrityAlgorithmsRequestListValue_value :: Lens.Lens' Phase2IntegrityAlgorithmsRequestListValue (Core.Maybe Core.Text)
 phase2IntegrityAlgorithmsRequestListValue_value = Lens.lens (\Phase2IntegrityAlgorithmsRequestListValue' {value} -> value) (\s@Phase2IntegrityAlgorithmsRequestListValue' {} a -> s {value = a} :: Phase2IntegrityAlgorithmsRequestListValue)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Phase2IntegrityAlgorithmsRequestListValue
 
 instance
-  Prelude.NFData
+  Core.NFData
     Phase2IntegrityAlgorithmsRequestListValue
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     Phase2IntegrityAlgorithmsRequestListValue
   where
   toQuery
     Phase2IntegrityAlgorithmsRequestListValue' {..} =
-      Prelude.mconcat ["Value" Prelude.=: value]
+      Core.mconcat ["Value" Core.=: value]

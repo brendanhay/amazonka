@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -32,25 +31,25 @@ import Network.AWS.CloudSearch.Types.LiteralArrayOptions
 import Network.AWS.CloudSearch.Types.LiteralOptions
 import Network.AWS.CloudSearch.Types.TextArrayOptions
 import Network.AWS.CloudSearch.Types.TextOptions
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for a field in the index, including its name,
 -- type, and options. The supported options depend on the @IndexFieldType@.
 --
 -- /See:/ 'newIndexField' smart constructor.
 data IndexField = IndexField'
-  { doubleArrayOptions :: Prelude.Maybe DoubleArrayOptions,
-    latLonOptions :: Prelude.Maybe LatLonOptions,
-    textArrayOptions :: Prelude.Maybe TextArrayOptions,
-    dateArrayOptions :: Prelude.Maybe DateArrayOptions,
-    doubleOptions :: Prelude.Maybe DoubleOptions,
-    textOptions :: Prelude.Maybe TextOptions,
-    intArrayOptions :: Prelude.Maybe IntArrayOptions,
-    literalArrayOptions :: Prelude.Maybe LiteralArrayOptions,
-    dateOptions :: Prelude.Maybe DateOptions,
-    intOptions :: Prelude.Maybe IntOptions,
-    literalOptions :: Prelude.Maybe LiteralOptions,
+  { doubleArrayOptions :: Core.Maybe DoubleArrayOptions,
+    latLonOptions :: Core.Maybe LatLonOptions,
+    textArrayOptions :: Core.Maybe TextArrayOptions,
+    dateArrayOptions :: Core.Maybe DateArrayOptions,
+    doubleOptions :: Core.Maybe DoubleOptions,
+    textOptions :: Core.Maybe TextOptions,
+    intArrayOptions :: Core.Maybe IntArrayOptions,
+    literalArrayOptions :: Core.Maybe LiteralArrayOptions,
+    dateOptions :: Core.Maybe DateOptions,
+    intOptions :: Core.Maybe IntOptions,
+    literalOptions :: Core.Maybe LiteralOptions,
     -- | A string that represents the name of an index field. CloudSearch
     -- supports regular index fields as well as dynamic fields. A dynamic
     -- field\'s name defines a pattern that begins or ends with a wildcard. Any
@@ -66,10 +65,10 @@ data IndexField = IndexField'
     --
     -- The name @score@ is reserved and cannot be used as a field name. To
     -- reference a document\'s ID, you can use the name @_id@.
-    indexFieldName :: Prelude.Text,
+    indexFieldName :: Core.Text,
     indexFieldType :: IndexFieldType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IndexField' with all optional fields omitted.
@@ -120,69 +119,69 @@ data IndexField = IndexField'
 -- 'indexFieldType', 'indexField_indexFieldType' - Undocumented member.
 newIndexField ::
   -- | 'indexFieldName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'indexFieldType'
   IndexFieldType ->
   IndexField
 newIndexField pIndexFieldName_ pIndexFieldType_ =
   IndexField'
-    { doubleArrayOptions = Prelude.Nothing,
-      latLonOptions = Prelude.Nothing,
-      textArrayOptions = Prelude.Nothing,
-      dateArrayOptions = Prelude.Nothing,
-      doubleOptions = Prelude.Nothing,
-      textOptions = Prelude.Nothing,
-      intArrayOptions = Prelude.Nothing,
-      literalArrayOptions = Prelude.Nothing,
-      dateOptions = Prelude.Nothing,
-      intOptions = Prelude.Nothing,
-      literalOptions = Prelude.Nothing,
+    { doubleArrayOptions = Core.Nothing,
+      latLonOptions = Core.Nothing,
+      textArrayOptions = Core.Nothing,
+      dateArrayOptions = Core.Nothing,
+      doubleOptions = Core.Nothing,
+      textOptions = Core.Nothing,
+      intArrayOptions = Core.Nothing,
+      literalArrayOptions = Core.Nothing,
+      dateOptions = Core.Nothing,
+      intOptions = Core.Nothing,
+      literalOptions = Core.Nothing,
       indexFieldName = pIndexFieldName_,
       indexFieldType = pIndexFieldType_
     }
 
 -- | Undocumented member.
-indexField_doubleArrayOptions :: Lens.Lens' IndexField (Prelude.Maybe DoubleArrayOptions)
+indexField_doubleArrayOptions :: Lens.Lens' IndexField (Core.Maybe DoubleArrayOptions)
 indexField_doubleArrayOptions = Lens.lens (\IndexField' {doubleArrayOptions} -> doubleArrayOptions) (\s@IndexField' {} a -> s {doubleArrayOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_latLonOptions :: Lens.Lens' IndexField (Prelude.Maybe LatLonOptions)
+indexField_latLonOptions :: Lens.Lens' IndexField (Core.Maybe LatLonOptions)
 indexField_latLonOptions = Lens.lens (\IndexField' {latLonOptions} -> latLonOptions) (\s@IndexField' {} a -> s {latLonOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_textArrayOptions :: Lens.Lens' IndexField (Prelude.Maybe TextArrayOptions)
+indexField_textArrayOptions :: Lens.Lens' IndexField (Core.Maybe TextArrayOptions)
 indexField_textArrayOptions = Lens.lens (\IndexField' {textArrayOptions} -> textArrayOptions) (\s@IndexField' {} a -> s {textArrayOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_dateArrayOptions :: Lens.Lens' IndexField (Prelude.Maybe DateArrayOptions)
+indexField_dateArrayOptions :: Lens.Lens' IndexField (Core.Maybe DateArrayOptions)
 indexField_dateArrayOptions = Lens.lens (\IndexField' {dateArrayOptions} -> dateArrayOptions) (\s@IndexField' {} a -> s {dateArrayOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_doubleOptions :: Lens.Lens' IndexField (Prelude.Maybe DoubleOptions)
+indexField_doubleOptions :: Lens.Lens' IndexField (Core.Maybe DoubleOptions)
 indexField_doubleOptions = Lens.lens (\IndexField' {doubleOptions} -> doubleOptions) (\s@IndexField' {} a -> s {doubleOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_textOptions :: Lens.Lens' IndexField (Prelude.Maybe TextOptions)
+indexField_textOptions :: Lens.Lens' IndexField (Core.Maybe TextOptions)
 indexField_textOptions = Lens.lens (\IndexField' {textOptions} -> textOptions) (\s@IndexField' {} a -> s {textOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_intArrayOptions :: Lens.Lens' IndexField (Prelude.Maybe IntArrayOptions)
+indexField_intArrayOptions :: Lens.Lens' IndexField (Core.Maybe IntArrayOptions)
 indexField_intArrayOptions = Lens.lens (\IndexField' {intArrayOptions} -> intArrayOptions) (\s@IndexField' {} a -> s {intArrayOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_literalArrayOptions :: Lens.Lens' IndexField (Prelude.Maybe LiteralArrayOptions)
+indexField_literalArrayOptions :: Lens.Lens' IndexField (Core.Maybe LiteralArrayOptions)
 indexField_literalArrayOptions = Lens.lens (\IndexField' {literalArrayOptions} -> literalArrayOptions) (\s@IndexField' {} a -> s {literalArrayOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_dateOptions :: Lens.Lens' IndexField (Prelude.Maybe DateOptions)
+indexField_dateOptions :: Lens.Lens' IndexField (Core.Maybe DateOptions)
 indexField_dateOptions = Lens.lens (\IndexField' {dateOptions} -> dateOptions) (\s@IndexField' {} a -> s {dateOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_intOptions :: Lens.Lens' IndexField (Prelude.Maybe IntOptions)
+indexField_intOptions :: Lens.Lens' IndexField (Core.Maybe IntOptions)
 indexField_intOptions = Lens.lens (\IndexField' {intOptions} -> intOptions) (\s@IndexField' {} a -> s {intOptions = a} :: IndexField)
 
 -- | Undocumented member.
-indexField_literalOptions :: Lens.Lens' IndexField (Prelude.Maybe LiteralOptions)
+indexField_literalOptions :: Lens.Lens' IndexField (Core.Maybe LiteralOptions)
 indexField_literalOptions = Lens.lens (\IndexField' {literalOptions} -> literalOptions) (\s@IndexField' {} a -> s {literalOptions = a} :: IndexField)
 
 -- | A string that represents the name of an index field. CloudSearch
@@ -200,48 +199,48 @@ indexField_literalOptions = Lens.lens (\IndexField' {literalOptions} -> literalO
 --
 -- The name @score@ is reserved and cannot be used as a field name. To
 -- reference a document\'s ID, you can use the name @_id@.
-indexField_indexFieldName :: Lens.Lens' IndexField Prelude.Text
+indexField_indexFieldName :: Lens.Lens' IndexField Core.Text
 indexField_indexFieldName = Lens.lens (\IndexField' {indexFieldName} -> indexFieldName) (\s@IndexField' {} a -> s {indexFieldName = a} :: IndexField)
 
 -- | Undocumented member.
 indexField_indexFieldType :: Lens.Lens' IndexField IndexFieldType
 indexField_indexFieldType = Lens.lens (\IndexField' {indexFieldType} -> indexFieldType) (\s@IndexField' {} a -> s {indexFieldType = a} :: IndexField)
 
-instance Prelude.FromXML IndexField where
+instance Core.FromXML IndexField where
   parseXML x =
     IndexField'
-      Prelude.<$> (x Prelude..@? "DoubleArrayOptions")
-      Prelude.<*> (x Prelude..@? "LatLonOptions")
-      Prelude.<*> (x Prelude..@? "TextArrayOptions")
-      Prelude.<*> (x Prelude..@? "DateArrayOptions")
-      Prelude.<*> (x Prelude..@? "DoubleOptions")
-      Prelude.<*> (x Prelude..@? "TextOptions")
-      Prelude.<*> (x Prelude..@? "IntArrayOptions")
-      Prelude.<*> (x Prelude..@? "LiteralArrayOptions")
-      Prelude.<*> (x Prelude..@? "DateOptions")
-      Prelude.<*> (x Prelude..@? "IntOptions")
-      Prelude.<*> (x Prelude..@? "LiteralOptions")
-      Prelude.<*> (x Prelude..@ "IndexFieldName")
-      Prelude.<*> (x Prelude..@ "IndexFieldType")
+      Core.<$> (x Core..@? "DoubleArrayOptions")
+      Core.<*> (x Core..@? "LatLonOptions")
+      Core.<*> (x Core..@? "TextArrayOptions")
+      Core.<*> (x Core..@? "DateArrayOptions")
+      Core.<*> (x Core..@? "DoubleOptions")
+      Core.<*> (x Core..@? "TextOptions")
+      Core.<*> (x Core..@? "IntArrayOptions")
+      Core.<*> (x Core..@? "LiteralArrayOptions")
+      Core.<*> (x Core..@? "DateOptions")
+      Core.<*> (x Core..@? "IntOptions")
+      Core.<*> (x Core..@? "LiteralOptions")
+      Core.<*> (x Core..@ "IndexFieldName")
+      Core.<*> (x Core..@ "IndexFieldType")
 
-instance Prelude.Hashable IndexField
+instance Core.Hashable IndexField
 
-instance Prelude.NFData IndexField
+instance Core.NFData IndexField
 
-instance Prelude.ToQuery IndexField where
+instance Core.ToQuery IndexField where
   toQuery IndexField' {..} =
-    Prelude.mconcat
-      [ "DoubleArrayOptions" Prelude.=: doubleArrayOptions,
-        "LatLonOptions" Prelude.=: latLonOptions,
-        "TextArrayOptions" Prelude.=: textArrayOptions,
-        "DateArrayOptions" Prelude.=: dateArrayOptions,
-        "DoubleOptions" Prelude.=: doubleOptions,
-        "TextOptions" Prelude.=: textOptions,
-        "IntArrayOptions" Prelude.=: intArrayOptions,
-        "LiteralArrayOptions" Prelude.=: literalArrayOptions,
-        "DateOptions" Prelude.=: dateOptions,
-        "IntOptions" Prelude.=: intOptions,
-        "LiteralOptions" Prelude.=: literalOptions,
-        "IndexFieldName" Prelude.=: indexFieldName,
-        "IndexFieldType" Prelude.=: indexFieldType
+    Core.mconcat
+      [ "DoubleArrayOptions" Core.=: doubleArrayOptions,
+        "LatLonOptions" Core.=: latLonOptions,
+        "TextArrayOptions" Core.=: textArrayOptions,
+        "DateArrayOptions" Core.=: dateArrayOptions,
+        "DoubleOptions" Core.=: doubleOptions,
+        "TextOptions" Core.=: textOptions,
+        "IntArrayOptions" Core.=: intArrayOptions,
+        "LiteralArrayOptions" Core.=: literalArrayOptions,
+        "DateOptions" Core.=: dateOptions,
+        "IntOptions" Core.=: intOptions,
+        "LiteralOptions" Core.=: literalOptions,
+        "IndexFieldName" Core.=: indexFieldName,
+        "IndexFieldType" Core.=: indexFieldType
       ]

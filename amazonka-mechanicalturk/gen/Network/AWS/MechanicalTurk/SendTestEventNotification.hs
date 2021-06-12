@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.MechanicalTurk.SendTestEventNotification
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,7 +62,7 @@ data SendTestEventNotification = SendTestEventNotification'
     -- filter out the test event.
     testEventType :: EventType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendTestEventNotification' with all optional fields omitted.
@@ -109,60 +108,56 @@ sendTestEventNotification_notification = Lens.lens (\SendTestEventNotification' 
 sendTestEventNotification_testEventType :: Lens.Lens' SendTestEventNotification EventType
 sendTestEventNotification_testEventType = Lens.lens (\SendTestEventNotification' {testEventType} -> testEventType) (\s@SendTestEventNotification' {} a -> s {testEventType = a} :: SendTestEventNotification)
 
-instance Prelude.AWSRequest SendTestEventNotification where
+instance Core.AWSRequest SendTestEventNotification where
   type
-    Rs SendTestEventNotification =
+    AWSResponse SendTestEventNotification =
       SendTestEventNotificationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendTestEventNotificationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SendTestEventNotification
+instance Core.Hashable SendTestEventNotification
 
-instance Prelude.NFData SendTestEventNotification
+instance Core.NFData SendTestEventNotification
 
-instance Prelude.ToHeaders SendTestEventNotification where
+instance Core.ToHeaders SendTestEventNotification where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.SendTestEventNotification" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.SendTestEventNotification" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SendTestEventNotification where
+instance Core.ToJSON SendTestEventNotification where
   toJSON SendTestEventNotification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("Notification" Prelude..= notification),
-            Prelude.Just
-              ("TestEventType" Prelude..= testEventType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Notification" Core..= notification),
+            Core.Just ("TestEventType" Core..= testEventType)
           ]
       )
 
-instance Prelude.ToPath SendTestEventNotification where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendTestEventNotification where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendTestEventNotification where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SendTestEventNotification where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSendTestEventNotificationResponse' smart constructor.
 data SendTestEventNotificationResponse = SendTestEventNotificationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendTestEventNotificationResponse' with all optional fields omitted.
@@ -175,7 +170,7 @@ data SendTestEventNotificationResponse = SendTestEventNotificationResponse'
 -- 'httpStatus', 'sendTestEventNotificationResponse_httpStatus' - The response's http status code.
 newSendTestEventNotificationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SendTestEventNotificationResponse
 newSendTestEventNotificationResponse pHttpStatus_ =
   SendTestEventNotificationResponse'
@@ -184,9 +179,9 @@ newSendTestEventNotificationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-sendTestEventNotificationResponse_httpStatus :: Lens.Lens' SendTestEventNotificationResponse Prelude.Int
+sendTestEventNotificationResponse_httpStatus :: Lens.Lens' SendTestEventNotificationResponse Core.Int
 sendTestEventNotificationResponse_httpStatus = Lens.lens (\SendTestEventNotificationResponse' {httpStatus} -> httpStatus) (\s@SendTestEventNotificationResponse' {} a -> s {httpStatus = a} :: SendTestEventNotificationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SendTestEventNotificationResponse

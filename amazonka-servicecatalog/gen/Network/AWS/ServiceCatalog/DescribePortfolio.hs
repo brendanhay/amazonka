@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.ServiceCatalog.DescribePortfolio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -61,11 +60,11 @@ data DescribePortfolio = DescribePortfolio'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The portfolio identifier.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePortfolio' with all optional fields omitted.
@@ -86,12 +85,11 @@ data DescribePortfolio = DescribePortfolio'
 -- 'id', 'describePortfolio_id' - The portfolio identifier.
 newDescribePortfolio ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DescribePortfolio
 newDescribePortfolio pId_ =
   DescribePortfolio'
-    { acceptLanguage =
-        Prelude.Nothing,
+    { acceptLanguage = Core.Nothing,
       id = pId_
     }
 
@@ -102,78 +100,75 @@ newDescribePortfolio pId_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describePortfolio_acceptLanguage :: Lens.Lens' DescribePortfolio (Prelude.Maybe Prelude.Text)
+describePortfolio_acceptLanguage :: Lens.Lens' DescribePortfolio (Core.Maybe Core.Text)
 describePortfolio_acceptLanguage = Lens.lens (\DescribePortfolio' {acceptLanguage} -> acceptLanguage) (\s@DescribePortfolio' {} a -> s {acceptLanguage = a} :: DescribePortfolio)
 
 -- | The portfolio identifier.
-describePortfolio_id :: Lens.Lens' DescribePortfolio Prelude.Text
+describePortfolio_id :: Lens.Lens' DescribePortfolio Core.Text
 describePortfolio_id = Lens.lens (\DescribePortfolio' {id} -> id) (\s@DescribePortfolio' {} a -> s {id = a} :: DescribePortfolio)
 
-instance Prelude.AWSRequest DescribePortfolio where
-  type Rs DescribePortfolio = DescribePortfolioResponse
+instance Core.AWSRequest DescribePortfolio where
+  type
+    AWSResponse DescribePortfolio =
+      DescribePortfolioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePortfolioResponse'
-            Prelude.<$> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Budgets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "PortfolioDetail")
-            Prelude.<*> ( x Prelude..?> "TagOptions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Budgets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "PortfolioDetail")
+            Core.<*> (x Core..?> "TagOptions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePortfolio
+instance Core.Hashable DescribePortfolio
 
-instance Prelude.NFData DescribePortfolio
+instance Core.NFData DescribePortfolio
 
-instance Prelude.ToHeaders DescribePortfolio where
+instance Core.ToHeaders DescribePortfolio where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DescribePortfolio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DescribePortfolio" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribePortfolio where
+instance Core.ToJSON DescribePortfolio where
   toJSON DescribePortfolio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("Id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath DescribePortfolio where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribePortfolio where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribePortfolio where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePortfolio where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePortfolioResponse' smart constructor.
 data DescribePortfolioResponse = DescribePortfolioResponse'
   { -- | Information about the tags associated with the portfolio.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Information about the associated budgets.
-    budgets :: Prelude.Maybe [BudgetDetail],
+    budgets :: Core.Maybe [BudgetDetail],
     -- | Information about the portfolio.
-    portfolioDetail :: Prelude.Maybe PortfolioDetail,
+    portfolioDetail :: Core.Maybe PortfolioDetail,
     -- | Information about the TagOptions associated with the portfolio.
-    tagOptions :: Prelude.Maybe [TagOptionDetail],
+    tagOptions :: Core.Maybe [TagOptionDetail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePortfolioResponse' with all optional fields omitted.
@@ -194,35 +189,35 @@ data DescribePortfolioResponse = DescribePortfolioResponse'
 -- 'httpStatus', 'describePortfolioResponse_httpStatus' - The response's http status code.
 newDescribePortfolioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePortfolioResponse
 newDescribePortfolioResponse pHttpStatus_ =
   DescribePortfolioResponse'
-    { tags = Prelude.Nothing,
-      budgets = Prelude.Nothing,
-      portfolioDetail = Prelude.Nothing,
-      tagOptions = Prelude.Nothing,
+    { tags = Core.Nothing,
+      budgets = Core.Nothing,
+      portfolioDetail = Core.Nothing,
+      tagOptions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the tags associated with the portfolio.
-describePortfolioResponse_tags :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe [Tag])
-describePortfolioResponse_tags = Lens.lens (\DescribePortfolioResponse' {tags} -> tags) (\s@DescribePortfolioResponse' {} a -> s {tags = a} :: DescribePortfolioResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePortfolioResponse_tags :: Lens.Lens' DescribePortfolioResponse (Core.Maybe [Tag])
+describePortfolioResponse_tags = Lens.lens (\DescribePortfolioResponse' {tags} -> tags) (\s@DescribePortfolioResponse' {} a -> s {tags = a} :: DescribePortfolioResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the associated budgets.
-describePortfolioResponse_budgets :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe [BudgetDetail])
-describePortfolioResponse_budgets = Lens.lens (\DescribePortfolioResponse' {budgets} -> budgets) (\s@DescribePortfolioResponse' {} a -> s {budgets = a} :: DescribePortfolioResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePortfolioResponse_budgets :: Lens.Lens' DescribePortfolioResponse (Core.Maybe [BudgetDetail])
+describePortfolioResponse_budgets = Lens.lens (\DescribePortfolioResponse' {budgets} -> budgets) (\s@DescribePortfolioResponse' {} a -> s {budgets = a} :: DescribePortfolioResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the portfolio.
-describePortfolioResponse_portfolioDetail :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe PortfolioDetail)
+describePortfolioResponse_portfolioDetail :: Lens.Lens' DescribePortfolioResponse (Core.Maybe PortfolioDetail)
 describePortfolioResponse_portfolioDetail = Lens.lens (\DescribePortfolioResponse' {portfolioDetail} -> portfolioDetail) (\s@DescribePortfolioResponse' {} a -> s {portfolioDetail = a} :: DescribePortfolioResponse)
 
 -- | Information about the TagOptions associated with the portfolio.
-describePortfolioResponse_tagOptions :: Lens.Lens' DescribePortfolioResponse (Prelude.Maybe [TagOptionDetail])
-describePortfolioResponse_tagOptions = Lens.lens (\DescribePortfolioResponse' {tagOptions} -> tagOptions) (\s@DescribePortfolioResponse' {} a -> s {tagOptions = a} :: DescribePortfolioResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePortfolioResponse_tagOptions :: Lens.Lens' DescribePortfolioResponse (Core.Maybe [TagOptionDetail])
+describePortfolioResponse_tagOptions = Lens.lens (\DescribePortfolioResponse' {tagOptions} -> tagOptions) (\s@DescribePortfolioResponse' {} a -> s {tagOptions = a} :: DescribePortfolioResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePortfolioResponse_httpStatus :: Lens.Lens' DescribePortfolioResponse Prelude.Int
+describePortfolioResponse_httpStatus :: Lens.Lens' DescribePortfolioResponse Core.Int
 describePortfolioResponse_httpStatus = Lens.lens (\DescribePortfolioResponse' {httpStatus} -> httpStatus) (\s@DescribePortfolioResponse' {} a -> s {httpStatus = a} :: DescribePortfolioResponse)
 
-instance Prelude.NFData DescribePortfolioResponse
+instance Core.NFData DescribePortfolioResponse

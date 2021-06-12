@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.Glue.GetWorkflowRunProperties
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetWorkflowRunProperties' smart constructor.
 data GetWorkflowRunProperties = GetWorkflowRunProperties'
   { -- | Name of the workflow which was run.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ID of the workflow run whose run properties should be returned.
-    runId :: Prelude.Text
+    runId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWorkflowRunProperties' with all optional fields omitted.
@@ -69,9 +68,9 @@ data GetWorkflowRunProperties = GetWorkflowRunProperties'
 -- 'runId', 'getWorkflowRunProperties_runId' - The ID of the workflow run whose run properties should be returned.
 newGetWorkflowRunProperties ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'runId'
-  Prelude.Text ->
+  Core.Text ->
   GetWorkflowRunProperties
 newGetWorkflowRunProperties pName_ pRunId_ =
   GetWorkflowRunProperties'
@@ -80,70 +79,66 @@ newGetWorkflowRunProperties pName_ pRunId_ =
     }
 
 -- | Name of the workflow which was run.
-getWorkflowRunProperties_name :: Lens.Lens' GetWorkflowRunProperties Prelude.Text
+getWorkflowRunProperties_name :: Lens.Lens' GetWorkflowRunProperties Core.Text
 getWorkflowRunProperties_name = Lens.lens (\GetWorkflowRunProperties' {name} -> name) (\s@GetWorkflowRunProperties' {} a -> s {name = a} :: GetWorkflowRunProperties)
 
 -- | The ID of the workflow run whose run properties should be returned.
-getWorkflowRunProperties_runId :: Lens.Lens' GetWorkflowRunProperties Prelude.Text
+getWorkflowRunProperties_runId :: Lens.Lens' GetWorkflowRunProperties Core.Text
 getWorkflowRunProperties_runId = Lens.lens (\GetWorkflowRunProperties' {runId} -> runId) (\s@GetWorkflowRunProperties' {} a -> s {runId = a} :: GetWorkflowRunProperties)
 
-instance Prelude.AWSRequest GetWorkflowRunProperties where
+instance Core.AWSRequest GetWorkflowRunProperties where
   type
-    Rs GetWorkflowRunProperties =
+    AWSResponse GetWorkflowRunProperties =
       GetWorkflowRunPropertiesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetWorkflowRunPropertiesResponse'
-            Prelude.<$> ( x Prelude..?> "RunProperties"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RunProperties" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetWorkflowRunProperties
+instance Core.Hashable GetWorkflowRunProperties
 
-instance Prelude.NFData GetWorkflowRunProperties
+instance Core.NFData GetWorkflowRunProperties
 
-instance Prelude.ToHeaders GetWorkflowRunProperties where
+instance Core.ToHeaders GetWorkflowRunProperties where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.GetWorkflowRunProperties" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.GetWorkflowRunProperties" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetWorkflowRunProperties where
+instance Core.ToJSON GetWorkflowRunProperties where
   toJSON GetWorkflowRunProperties' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("RunId" Prelude..= runId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("RunId" Core..= runId)
           ]
       )
 
-instance Prelude.ToPath GetWorkflowRunProperties where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetWorkflowRunProperties where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetWorkflowRunProperties where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetWorkflowRunProperties where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetWorkflowRunPropertiesResponse' smart constructor.
 data GetWorkflowRunPropertiesResponse = GetWorkflowRunPropertiesResponse'
   { -- | The workflow run properties which were set during the specified run.
-    runProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    runProperties :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWorkflowRunPropertiesResponse' with all optional fields omitted.
@@ -158,23 +153,21 @@ data GetWorkflowRunPropertiesResponse = GetWorkflowRunPropertiesResponse'
 -- 'httpStatus', 'getWorkflowRunPropertiesResponse_httpStatus' - The response's http status code.
 newGetWorkflowRunPropertiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetWorkflowRunPropertiesResponse
 newGetWorkflowRunPropertiesResponse pHttpStatus_ =
   GetWorkflowRunPropertiesResponse'
     { runProperties =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The workflow run properties which were set during the specified run.
-getWorkflowRunPropertiesResponse_runProperties :: Lens.Lens' GetWorkflowRunPropertiesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getWorkflowRunPropertiesResponse_runProperties = Lens.lens (\GetWorkflowRunPropertiesResponse' {runProperties} -> runProperties) (\s@GetWorkflowRunPropertiesResponse' {} a -> s {runProperties = a} :: GetWorkflowRunPropertiesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getWorkflowRunPropertiesResponse_runProperties :: Lens.Lens' GetWorkflowRunPropertiesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getWorkflowRunPropertiesResponse_runProperties = Lens.lens (\GetWorkflowRunPropertiesResponse' {runProperties} -> runProperties) (\s@GetWorkflowRunPropertiesResponse' {} a -> s {runProperties = a} :: GetWorkflowRunPropertiesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getWorkflowRunPropertiesResponse_httpStatus :: Lens.Lens' GetWorkflowRunPropertiesResponse Prelude.Int
+getWorkflowRunPropertiesResponse_httpStatus :: Lens.Lens' GetWorkflowRunPropertiesResponse Core.Int
 getWorkflowRunPropertiesResponse_httpStatus = Lens.lens (\GetWorkflowRunPropertiesResponse' {httpStatus} -> httpStatus) (\s@GetWorkflowRunPropertiesResponse' {} a -> s {httpStatus = a} :: GetWorkflowRunPropertiesResponse)
 
-instance
-  Prelude.NFData
-    GetWorkflowRunPropertiesResponse
+instance Core.NFData GetWorkflowRunPropertiesResponse

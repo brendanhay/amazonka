@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Transcribe.GetMedicalVocabulary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -55,9 +54,9 @@ import Network.AWS.Transcribe.Types
 data GetMedicalVocabulary = GetMedicalVocabulary'
   { -- | The name of the vocabulary that you want information about. The value is
     -- case sensitive.
-    vocabularyName :: Prelude.Text
+    vocabularyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMedicalVocabulary' with all optional fields omitted.
@@ -71,7 +70,7 @@ data GetMedicalVocabulary = GetMedicalVocabulary'
 -- case sensitive.
 newGetMedicalVocabulary ::
   -- | 'vocabularyName'
-  Prelude.Text ->
+  Core.Text ->
   GetMedicalVocabulary
 newGetMedicalVocabulary pVocabularyName_ =
   GetMedicalVocabulary'
@@ -81,85 +80,83 @@ newGetMedicalVocabulary pVocabularyName_ =
 
 -- | The name of the vocabulary that you want information about. The value is
 -- case sensitive.
-getMedicalVocabulary_vocabularyName :: Lens.Lens' GetMedicalVocabulary Prelude.Text
+getMedicalVocabulary_vocabularyName :: Lens.Lens' GetMedicalVocabulary Core.Text
 getMedicalVocabulary_vocabularyName = Lens.lens (\GetMedicalVocabulary' {vocabularyName} -> vocabularyName) (\s@GetMedicalVocabulary' {} a -> s {vocabularyName = a} :: GetMedicalVocabulary)
 
-instance Prelude.AWSRequest GetMedicalVocabulary where
+instance Core.AWSRequest GetMedicalVocabulary where
   type
-    Rs GetMedicalVocabulary =
+    AWSResponse GetMedicalVocabulary =
       GetMedicalVocabularyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetMedicalVocabularyResponse'
-            Prelude.<$> (x Prelude..?> "LanguageCode")
-            Prelude.<*> (x Prelude..?> "FailureReason")
-            Prelude.<*> (x Prelude..?> "LastModifiedTime")
-            Prelude.<*> (x Prelude..?> "VocabularyState")
-            Prelude.<*> (x Prelude..?> "VocabularyName")
-            Prelude.<*> (x Prelude..?> "DownloadUri")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "LanguageCode")
+            Core.<*> (x Core..?> "FailureReason")
+            Core.<*> (x Core..?> "LastModifiedTime")
+            Core.<*> (x Core..?> "VocabularyState")
+            Core.<*> (x Core..?> "VocabularyName")
+            Core.<*> (x Core..?> "DownloadUri")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetMedicalVocabulary
+instance Core.Hashable GetMedicalVocabulary
 
-instance Prelude.NFData GetMedicalVocabulary
+instance Core.NFData GetMedicalVocabulary
 
-instance Prelude.ToHeaders GetMedicalVocabulary where
+instance Core.ToHeaders GetMedicalVocabulary where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.GetMedicalVocabulary" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.GetMedicalVocabulary" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetMedicalVocabulary where
+instance Core.ToJSON GetMedicalVocabulary where
   toJSON GetMedicalVocabulary' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("VocabularyName" Prelude..= vocabularyName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("VocabularyName" Core..= vocabularyName)
           ]
       )
 
-instance Prelude.ToPath GetMedicalVocabulary where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetMedicalVocabulary where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetMedicalVocabulary where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMedicalVocabulary where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetMedicalVocabularyResponse' smart constructor.
 data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
   { -- | The valid language code for your vocabulary entries.
-    languageCode :: Prelude.Maybe LanguageCode,
+    languageCode :: Core.Maybe LanguageCode,
     -- | If the @VocabularyState@ is @FAILED@, this field contains information
     -- about why the job failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    failureReason :: Core.Maybe Core.Text,
     -- | The date and time that the vocabulary was last modified with a text file
     -- different from the one that was previously used.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The processing state of the vocabulary. If the @VocabularyState@ is
     -- @READY@ then you can use it in the @StartMedicalTranscriptionJob@
     -- operation.
-    vocabularyState :: Prelude.Maybe VocabularyState,
+    vocabularyState :: Core.Maybe VocabularyState,
     -- | The name of the vocabulary returned by Amazon Transcribe Medical.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
+    vocabularyName :: Core.Maybe Core.Text,
     -- | The location in Amazon S3 where the vocabulary is stored. Use this URI
     -- to get the contents of the vocabulary. You can download your vocabulary
     -- from the URI for a limited time.
-    downloadUri :: Prelude.Maybe Prelude.Text,
+    downloadUri :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMedicalVocabularyResponse' with all optional fields omitted.
@@ -190,52 +187,52 @@ data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
 -- 'httpStatus', 'getMedicalVocabularyResponse_httpStatus' - The response's http status code.
 newGetMedicalVocabularyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetMedicalVocabularyResponse
 newGetMedicalVocabularyResponse pHttpStatus_ =
   GetMedicalVocabularyResponse'
     { languageCode =
-        Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
-      vocabularyName = Prelude.Nothing,
-      downloadUri = Prelude.Nothing,
+        Core.Nothing,
+      failureReason = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      vocabularyState = Core.Nothing,
+      vocabularyName = Core.Nothing,
+      downloadUri = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The valid language code for your vocabulary entries.
-getMedicalVocabularyResponse_languageCode :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe LanguageCode)
+getMedicalVocabularyResponse_languageCode :: Lens.Lens' GetMedicalVocabularyResponse (Core.Maybe LanguageCode)
 getMedicalVocabularyResponse_languageCode = Lens.lens (\GetMedicalVocabularyResponse' {languageCode} -> languageCode) (\s@GetMedicalVocabularyResponse' {} a -> s {languageCode = a} :: GetMedicalVocabularyResponse)
 
 -- | If the @VocabularyState@ is @FAILED@, this field contains information
 -- about why the job failed.
-getMedicalVocabularyResponse_failureReason :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+getMedicalVocabularyResponse_failureReason :: Lens.Lens' GetMedicalVocabularyResponse (Core.Maybe Core.Text)
 getMedicalVocabularyResponse_failureReason = Lens.lens (\GetMedicalVocabularyResponse' {failureReason} -> failureReason) (\s@GetMedicalVocabularyResponse' {} a -> s {failureReason = a} :: GetMedicalVocabularyResponse)
 
 -- | The date and time that the vocabulary was last modified with a text file
 -- different from the one that was previously used.
-getMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
-getMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\GetMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: GetMedicalVocabularyResponse) Prelude.. Lens.mapping Prelude._Time
+getMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' GetMedicalVocabularyResponse (Core.Maybe Core.UTCTime)
+getMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\GetMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: GetMedicalVocabularyResponse) Core.. Lens.mapping Core._Time
 
 -- | The processing state of the vocabulary. If the @VocabularyState@ is
 -- @READY@ then you can use it in the @StartMedicalTranscriptionJob@
 -- operation.
-getMedicalVocabularyResponse_vocabularyState :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
+getMedicalVocabularyResponse_vocabularyState :: Lens.Lens' GetMedicalVocabularyResponse (Core.Maybe VocabularyState)
 getMedicalVocabularyResponse_vocabularyState = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: GetMedicalVocabularyResponse)
 
 -- | The name of the vocabulary returned by Amazon Transcribe Medical.
-getMedicalVocabularyResponse_vocabularyName :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+getMedicalVocabularyResponse_vocabularyName :: Lens.Lens' GetMedicalVocabularyResponse (Core.Maybe Core.Text)
 getMedicalVocabularyResponse_vocabularyName = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: GetMedicalVocabularyResponse)
 
 -- | The location in Amazon S3 where the vocabulary is stored. Use this URI
 -- to get the contents of the vocabulary. You can download your vocabulary
 -- from the URI for a limited time.
-getMedicalVocabularyResponse_downloadUri :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+getMedicalVocabularyResponse_downloadUri :: Lens.Lens' GetMedicalVocabularyResponse (Core.Maybe Core.Text)
 getMedicalVocabularyResponse_downloadUri = Lens.lens (\GetMedicalVocabularyResponse' {downloadUri} -> downloadUri) (\s@GetMedicalVocabularyResponse' {} a -> s {downloadUri = a} :: GetMedicalVocabularyResponse)
 
 -- | The response's http status code.
-getMedicalVocabularyResponse_httpStatus :: Lens.Lens' GetMedicalVocabularyResponse Prelude.Int
+getMedicalVocabularyResponse_httpStatus :: Lens.Lens' GetMedicalVocabularyResponse Core.Int
 getMedicalVocabularyResponse_httpStatus = Lens.lens (\GetMedicalVocabularyResponse' {httpStatus} -> httpStatus) (\s@GetMedicalVocabularyResponse' {} a -> s {httpStatus = a} :: GetMedicalVocabularyResponse)
 
-instance Prelude.NFData GetMedicalVocabularyResponse
+instance Core.NFData GetMedicalVocabularyResponse

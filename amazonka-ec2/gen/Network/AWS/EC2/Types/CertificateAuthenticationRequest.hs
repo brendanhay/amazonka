@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CertificateAuthenticationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the client certificate to be used for authentication.
 --
@@ -31,9 +30,9 @@ data CertificateAuthenticationRequest = CertificateAuthenticationRequest'
   { -- | The ARN of the client certificate. The certificate must be signed by a
     -- certificate authority (CA) and it must be provisioned in AWS Certificate
     -- Manager (ACM).
-    clientRootCertificateChainArn :: Prelude.Maybe Prelude.Text
+    clientRootCertificateChainArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CertificateAuthenticationRequest' with all optional fields omitted.
@@ -51,29 +50,27 @@ newCertificateAuthenticationRequest ::
 newCertificateAuthenticationRequest =
   CertificateAuthenticationRequest'
     { clientRootCertificateChainArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ARN of the client certificate. The certificate must be signed by a
 -- certificate authority (CA) and it must be provisioned in AWS Certificate
 -- Manager (ACM).
-certificateAuthenticationRequest_clientRootCertificateChainArn :: Lens.Lens' CertificateAuthenticationRequest (Prelude.Maybe Prelude.Text)
+certificateAuthenticationRequest_clientRootCertificateChainArn :: Lens.Lens' CertificateAuthenticationRequest (Core.Maybe Core.Text)
 certificateAuthenticationRequest_clientRootCertificateChainArn = Lens.lens (\CertificateAuthenticationRequest' {clientRootCertificateChainArn} -> clientRootCertificateChainArn) (\s@CertificateAuthenticationRequest' {} a -> s {clientRootCertificateChainArn = a} :: CertificateAuthenticationRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CertificateAuthenticationRequest
 
-instance
-  Prelude.NFData
-    CertificateAuthenticationRequest
+instance Core.NFData CertificateAuthenticationRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CertificateAuthenticationRequest
   where
   toQuery CertificateAuthenticationRequest' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "ClientRootCertificateChainArn"
-          Prelude.=: clientRootCertificateChainArn
+          Core.=: clientRootCertificateChainArn
       ]

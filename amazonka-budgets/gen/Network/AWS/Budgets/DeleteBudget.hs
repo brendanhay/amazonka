@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Budgets.DeleteBudget
 where
 
 import Network.AWS.Budgets.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ import qualified Network.AWS.Response as Response
 data DeleteBudget = DeleteBudget'
   { -- | The @accountId@ that is associated with the budget that you want to
     -- delete.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the budget that you want to delete.
-    budgetName :: Prelude.Text
+    budgetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBudget' with all optional fields omitted.
@@ -75,9 +74,9 @@ data DeleteBudget = DeleteBudget'
 -- 'budgetName', 'deleteBudget_budgetName' - The name of the budget that you want to delete.
 newDeleteBudget ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBudget
 newDeleteBudget pAccountId_ pBudgetName_ =
   DeleteBudget'
@@ -87,65 +86,63 @@ newDeleteBudget pAccountId_ pBudgetName_ =
 
 -- | The @accountId@ that is associated with the budget that you want to
 -- delete.
-deleteBudget_accountId :: Lens.Lens' DeleteBudget Prelude.Text
+deleteBudget_accountId :: Lens.Lens' DeleteBudget Core.Text
 deleteBudget_accountId = Lens.lens (\DeleteBudget' {accountId} -> accountId) (\s@DeleteBudget' {} a -> s {accountId = a} :: DeleteBudget)
 
 -- | The name of the budget that you want to delete.
-deleteBudget_budgetName :: Lens.Lens' DeleteBudget Prelude.Text
+deleteBudget_budgetName :: Lens.Lens' DeleteBudget Core.Text
 deleteBudget_budgetName = Lens.lens (\DeleteBudget' {budgetName} -> budgetName) (\s@DeleteBudget' {} a -> s {budgetName = a} :: DeleteBudget)
 
-instance Prelude.AWSRequest DeleteBudget where
-  type Rs DeleteBudget = DeleteBudgetResponse
+instance Core.AWSRequest DeleteBudget where
+  type AWSResponse DeleteBudget = DeleteBudgetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteBudgetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBudget
+instance Core.Hashable DeleteBudget
 
-instance Prelude.NFData DeleteBudget
+instance Core.NFData DeleteBudget
 
-instance Prelude.ToHeaders DeleteBudget where
+instance Core.ToHeaders DeleteBudget where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSBudgetServiceGateway.DeleteBudget" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSBudgetServiceGateway.DeleteBudget" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteBudget where
+instance Core.ToJSON DeleteBudget where
   toJSON DeleteBudget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just ("BudgetName" Prelude..= budgetName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("BudgetName" Core..= budgetName)
           ]
       )
 
-instance Prelude.ToPath DeleteBudget where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteBudget where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteBudget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBudget where
+  toQuery = Core.const Core.mempty
 
 -- | Response of DeleteBudget
 --
 -- /See:/ 'newDeleteBudgetResponse' smart constructor.
 data DeleteBudgetResponse = DeleteBudgetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBudgetResponse' with all optional fields omitted.
@@ -158,13 +155,13 @@ data DeleteBudgetResponse = DeleteBudgetResponse'
 -- 'httpStatus', 'deleteBudgetResponse_httpStatus' - The response's http status code.
 newDeleteBudgetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteBudgetResponse
 newDeleteBudgetResponse pHttpStatus_ =
   DeleteBudgetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteBudgetResponse_httpStatus :: Lens.Lens' DeleteBudgetResponse Prelude.Int
+deleteBudgetResponse_httpStatus :: Lens.Lens' DeleteBudgetResponse Core.Int
 deleteBudgetResponse_httpStatus = Lens.lens (\DeleteBudgetResponse' {httpStatus} -> httpStatus) (\s@DeleteBudgetResponse' {} a -> s {httpStatus = a} :: DeleteBudgetResponse)
 
-instance Prelude.NFData DeleteBudgetResponse
+instance Core.NFData DeleteBudgetResponse

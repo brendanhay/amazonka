@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.CertificateManagerPCA.ListTags
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,21 +62,21 @@ data ListTags = ListTags'
   { -- | Use this parameter when paginating results in a subsequent request after
     -- you receive a response with truncated results. Set it to the value of
     -- __NextToken__ from the response you just received.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Use this parameter when paginating results to specify the maximum number
     -- of items to return in the response. If additional items exist beyond the
     -- number you specify, the __NextToken__ element is sent in the response.
     -- Use this __NextToken__ value in a subsequent request to retrieve
     -- additional items.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) that was returned when you called the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
     -- action. This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-    certificateAuthorityArn :: Prelude.Text
+    certificateAuthorityArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTags' with all optional fields omitted.
@@ -105,19 +103,19 @@ data ListTags = ListTags'
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
 newListTags ::
   -- | 'certificateAuthorityArn'
-  Prelude.Text ->
+  Core.Text ->
   ListTags
 newListTags pCertificateAuthorityArn_ =
   ListTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       certificateAuthorityArn = pCertificateAuthorityArn_
     }
 
 -- | Use this parameter when paginating results in a subsequent request after
 -- you receive a response with truncated results. Set it to the value of
 -- __NextToken__ from the response you just received.
-listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
+listTags_nextToken :: Lens.Lens' ListTags (Core.Maybe Core.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
 -- | Use this parameter when paginating results to specify the maximum number
@@ -125,7 +123,7 @@ listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTag
 -- number you specify, the __NextToken__ element is sent in the response.
 -- Use this __NextToken__ value in a subsequent request to retrieve
 -- additional items.
-listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
+listTags_maxResults :: Lens.Lens' ListTags (Core.Maybe Core.Natural)
 listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
 -- | The Amazon Resource Name (ARN) that was returned when you called the
@@ -133,88 +131,86 @@ listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@List
 -- action. This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-listTags_certificateAuthorityArn :: Lens.Lens' ListTags Prelude.Text
+listTags_certificateAuthorityArn :: Lens.Lens' ListTags Core.Text
 listTags_certificateAuthorityArn = Lens.lens (\ListTags' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@ListTags' {} a -> s {certificateAuthorityArn = a} :: ListTags)
 
-instance Pager.AWSPager ListTags where
+instance Core.AWSPager ListTags where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTagsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listTagsResponse_tags Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Lens.^? listTagsResponse_tags Core.. Lens._Just
+              Core.. Lens.to Core.toList
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTags_nextToken
           Lens..~ rs
-          Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTagsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTags where
-  type Rs ListTags = ListTagsResponse
+instance Core.AWSRequest ListTags where
+  type AWSResponse ListTags = ListTagsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Tags")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTags
+instance Core.Hashable ListTags
 
-instance Prelude.NFData ListTags
+instance Core.NFData ListTags
 
-instance Prelude.ToHeaders ListTags where
+instance Core.ToHeaders ListTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("ACMPrivateCA.ListTags" :: Prelude.ByteString),
+              Core.=# ("ACMPrivateCA.ListTags" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTags where
+instance Core.ToJSON ListTags where
   toJSON ListTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
               ( "CertificateAuthorityArn"
-                  Prelude..= certificateAuthorityArn
+                  Core..= certificateAuthorityArn
               )
           ]
       )
 
-instance Prelude.ToPath ListTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
   { -- | When the list is truncated, this value is present and should be used for
     -- the __NextToken__ parameter in a subsequent pagination request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The tags associated with your private CA.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsResponse' with all optional fields omitted.
@@ -232,26 +228,26 @@ data ListTagsResponse = ListTagsResponse'
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When the list is truncated, this value is present and should be used for
 -- the __NextToken__ parameter in a subsequent pagination request.
-listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
+listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Core.Maybe Core.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
 -- | The tags associated with your private CA.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Core.Maybe (Core.NonEmpty Tag))
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
+listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Core.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
-instance Prelude.NFData ListTagsResponse
+instance Core.NFData ListTagsResponse

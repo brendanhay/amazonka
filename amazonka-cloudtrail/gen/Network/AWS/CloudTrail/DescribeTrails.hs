@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudTrail.DescribeTrails
 where
 
 import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,16 +70,16 @@ data DescribeTrails = DescribeTrails'
     -- if the names match the names of trails belonging only to the current
     -- region. To return information about a trail in another region, you must
     -- specify its trail ARN.
-    trailNameList :: Prelude.Maybe [Prelude.Text],
+    trailNameList :: Core.Maybe [Core.Text],
     -- | Specifies whether to include shadow trails in the response. A shadow
     -- trail is the replication in a region of a trail that was created in a
     -- different region, or in the case of an organization trail, the
     -- replication of an organization trail in member accounts. If you do not
     -- include shadow trails, organization trails in a member account and
     -- region replication trails will not be returned. The default is true.
-    includeShadowTrails :: Prelude.Maybe Prelude.Bool
+    includeShadowTrails :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrails' with all optional fields omitted.
@@ -120,8 +119,8 @@ newDescribeTrails ::
   DescribeTrails
 newDescribeTrails =
   DescribeTrails'
-    { trailNameList = Prelude.Nothing,
-      includeShadowTrails = Prelude.Nothing
+    { trailNameList = Core.Nothing,
+      includeShadowTrails = Core.Nothing
     }
 
 -- | Specifies a list of trail names, trail ARNs, or both, of the trails to
@@ -143,8 +142,8 @@ newDescribeTrails =
 -- if the names match the names of trails belonging only to the current
 -- region. To return information about a trail in another region, you must
 -- specify its trail ARN.
-describeTrails_trailNameList :: Lens.Lens' DescribeTrails (Prelude.Maybe [Prelude.Text])
-describeTrails_trailNameList = Lens.lens (\DescribeTrails' {trailNameList} -> trailNameList) (\s@DescribeTrails' {} a -> s {trailNameList = a} :: DescribeTrails) Prelude.. Lens.mapping Prelude._Coerce
+describeTrails_trailNameList :: Lens.Lens' DescribeTrails (Core.Maybe [Core.Text])
+describeTrails_trailNameList = Lens.lens (\DescribeTrails' {trailNameList} -> trailNameList) (\s@DescribeTrails' {} a -> s {trailNameList = a} :: DescribeTrails) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to include shadow trails in the response. A shadow
 -- trail is the replication in a region of a trail that was created in a
@@ -152,57 +151,54 @@ describeTrails_trailNameList = Lens.lens (\DescribeTrails' {trailNameList} -> tr
 -- replication of an organization trail in member accounts. If you do not
 -- include shadow trails, organization trails in a member account and
 -- region replication trails will not be returned. The default is true.
-describeTrails_includeShadowTrails :: Lens.Lens' DescribeTrails (Prelude.Maybe Prelude.Bool)
+describeTrails_includeShadowTrails :: Lens.Lens' DescribeTrails (Core.Maybe Core.Bool)
 describeTrails_includeShadowTrails = Lens.lens (\DescribeTrails' {includeShadowTrails} -> includeShadowTrails) (\s@DescribeTrails' {} a -> s {includeShadowTrails = a} :: DescribeTrails)
 
-instance Prelude.AWSRequest DescribeTrails where
-  type Rs DescribeTrails = DescribeTrailsResponse
+instance Core.AWSRequest DescribeTrails where
+  type
+    AWSResponse DescribeTrails =
+      DescribeTrailsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTrailsResponse'
-            Prelude.<$> ( x Prelude..?> "trailList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "trailList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTrails
+instance Core.Hashable DescribeTrails
 
-instance Prelude.NFData DescribeTrails
+instance Core.NFData DescribeTrails
 
-instance Prelude.ToHeaders DescribeTrails where
+instance Core.ToHeaders DescribeTrails where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTrails where
+instance Core.ToJSON DescribeTrails where
   toJSON DescribeTrails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("trailNameList" Prelude..=)
-              Prelude.<$> trailNameList,
-            ("includeShadowTrails" Prelude..=)
-              Prelude.<$> includeShadowTrails
+    Core.object
+      ( Core.catMaybes
+          [ ("trailNameList" Core..=) Core.<$> trailNameList,
+            ("includeShadowTrails" Core..=)
+              Core.<$> includeShadowTrails
           ]
       )
 
-instance Prelude.ToPath DescribeTrails where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTrails where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTrails where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTrails where
+  toQuery = Core.const Core.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise,
 -- returns an error.
@@ -215,11 +211,11 @@ data DescribeTrailsResponse = DescribeTrailsResponse'
     -- results if a trail is configured to send SNS notifications. Similarly,
     -- @KMSKeyId@ only appears in results if a trail\'s log files are encrypted
     -- with AWS KMS-managed keys.
-    trailList :: Prelude.Maybe [Trail],
+    trailList :: Core.Maybe [Trail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrailsResponse' with all optional fields omitted.
@@ -239,12 +235,11 @@ data DescribeTrailsResponse = DescribeTrailsResponse'
 -- 'httpStatus', 'describeTrailsResponse_httpStatus' - The response's http status code.
 newDescribeTrailsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTrailsResponse
 newDescribeTrailsResponse pHttpStatus_ =
   DescribeTrailsResponse'
-    { trailList =
-        Prelude.Nothing,
+    { trailList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -254,11 +249,11 @@ newDescribeTrailsResponse pHttpStatus_ =
 -- results if a trail is configured to send SNS notifications. Similarly,
 -- @KMSKeyId@ only appears in results if a trail\'s log files are encrypted
 -- with AWS KMS-managed keys.
-describeTrailsResponse_trailList :: Lens.Lens' DescribeTrailsResponse (Prelude.Maybe [Trail])
-describeTrailsResponse_trailList = Lens.lens (\DescribeTrailsResponse' {trailList} -> trailList) (\s@DescribeTrailsResponse' {} a -> s {trailList = a} :: DescribeTrailsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrailsResponse_trailList :: Lens.Lens' DescribeTrailsResponse (Core.Maybe [Trail])
+describeTrailsResponse_trailList = Lens.lens (\DescribeTrailsResponse' {trailList} -> trailList) (\s@DescribeTrailsResponse' {} a -> s {trailList = a} :: DescribeTrailsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTrailsResponse_httpStatus :: Lens.Lens' DescribeTrailsResponse Prelude.Int
+describeTrailsResponse_httpStatus :: Lens.Lens' DescribeTrailsResponse Core.Int
 describeTrailsResponse_httpStatus = Lens.lens (\DescribeTrailsResponse' {httpStatus} -> httpStatus) (\s@DescribeTrailsResponse' {} a -> s {httpStatus = a} :: DescribeTrailsResponse)
 
-instance Prelude.NFData DescribeTrailsResponse
+instance Core.NFData DescribeTrailsResponse

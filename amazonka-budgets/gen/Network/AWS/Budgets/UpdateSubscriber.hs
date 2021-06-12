@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Budgets.UpdateSubscriber
 where
 
 import Network.AWS.Budgets.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 data UpdateSubscriber = UpdateSubscriber'
   { -- | The @accountId@ that is associated with the budget whose subscriber you
     -- want to update.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the budget whose subscriber you want to update.
-    budgetName :: Prelude.Text,
+    budgetName :: Core.Text,
     -- | The notification whose subscriber you want to update.
     notification :: Notification,
     -- | The previous subscriber that is associated with a budget notification.
@@ -65,7 +64,7 @@ data UpdateSubscriber = UpdateSubscriber'
     -- | The updated subscriber that is associated with a budget notification.
     newSubscriber' :: Subscriber
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscriber' with all optional fields omitted.
@@ -87,9 +86,9 @@ data UpdateSubscriber = UpdateSubscriber'
 -- 'newSubscriber'', 'updateSubscriber_newSubscriber' - The updated subscriber that is associated with a budget notification.
 newUpdateSubscriber ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'notification'
   Notification ->
   -- | 'oldSubscriber'
@@ -113,11 +112,11 @@ newUpdateSubscriber
 
 -- | The @accountId@ that is associated with the budget whose subscriber you
 -- want to update.
-updateSubscriber_accountId :: Lens.Lens' UpdateSubscriber Prelude.Text
+updateSubscriber_accountId :: Lens.Lens' UpdateSubscriber Core.Text
 updateSubscriber_accountId = Lens.lens (\UpdateSubscriber' {accountId} -> accountId) (\s@UpdateSubscriber' {} a -> s {accountId = a} :: UpdateSubscriber)
 
 -- | The name of the budget whose subscriber you want to update.
-updateSubscriber_budgetName :: Lens.Lens' UpdateSubscriber Prelude.Text
+updateSubscriber_budgetName :: Lens.Lens' UpdateSubscriber Core.Text
 updateSubscriber_budgetName = Lens.lens (\UpdateSubscriber' {budgetName} -> budgetName) (\s@UpdateSubscriber' {} a -> s {budgetName = a} :: UpdateSubscriber)
 
 -- | The notification whose subscriber you want to update.
@@ -132,64 +131,61 @@ updateSubscriber_oldSubscriber = Lens.lens (\UpdateSubscriber' {oldSubscriber} -
 updateSubscriber_newSubscriber :: Lens.Lens' UpdateSubscriber Subscriber
 updateSubscriber_newSubscriber = Lens.lens (\UpdateSubscriber' {newSubscriber'} -> newSubscriber') (\s@UpdateSubscriber' {} a -> s {newSubscriber' = a} :: UpdateSubscriber)
 
-instance Prelude.AWSRequest UpdateSubscriber where
-  type Rs UpdateSubscriber = UpdateSubscriberResponse
+instance Core.AWSRequest UpdateSubscriber where
+  type
+    AWSResponse UpdateSubscriber =
+      UpdateSubscriberResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSubscriberResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSubscriber
+instance Core.Hashable UpdateSubscriber
 
-instance Prelude.NFData UpdateSubscriber
+instance Core.NFData UpdateSubscriber
 
-instance Prelude.ToHeaders UpdateSubscriber where
+instance Core.ToHeaders UpdateSubscriber where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSBudgetServiceGateway.UpdateSubscriber" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSBudgetServiceGateway.UpdateSubscriber" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSubscriber where
+instance Core.ToJSON UpdateSubscriber where
   toJSON UpdateSubscriber' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just ("BudgetName" Prelude..= budgetName),
-            Prelude.Just
-              ("Notification" Prelude..= notification),
-            Prelude.Just
-              ("OldSubscriber" Prelude..= oldSubscriber),
-            Prelude.Just
-              ("NewSubscriber" Prelude..= newSubscriber')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("Notification" Core..= notification),
+            Core.Just ("OldSubscriber" Core..= oldSubscriber),
+            Core.Just ("NewSubscriber" Core..= newSubscriber')
           ]
       )
 
-instance Prelude.ToPath UpdateSubscriber where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateSubscriber where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateSubscriber where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSubscriber where
+  toQuery = Core.const Core.mempty
 
 -- | Response of UpdateSubscriber
 --
 -- /See:/ 'newUpdateSubscriberResponse' smart constructor.
 data UpdateSubscriberResponse = UpdateSubscriberResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscriberResponse' with all optional fields omitted.
@@ -202,7 +198,7 @@ data UpdateSubscriberResponse = UpdateSubscriberResponse'
 -- 'httpStatus', 'updateSubscriberResponse_httpStatus' - The response's http status code.
 newUpdateSubscriberResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSubscriberResponse
 newUpdateSubscriberResponse pHttpStatus_ =
   UpdateSubscriberResponse'
@@ -211,7 +207,7 @@ newUpdateSubscriberResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateSubscriberResponse_httpStatus :: Lens.Lens' UpdateSubscriberResponse Prelude.Int
+updateSubscriberResponse_httpStatus :: Lens.Lens' UpdateSubscriberResponse Core.Int
 updateSubscriberResponse_httpStatus = Lens.lens (\UpdateSubscriberResponse' {httpStatus} -> httpStatus) (\s@UpdateSubscriberResponse' {} a -> s {httpStatus = a} :: UpdateSubscriberResponse)
 
-instance Prelude.NFData UpdateSubscriberResponse
+instance Core.NFData UpdateSubscriberResponse

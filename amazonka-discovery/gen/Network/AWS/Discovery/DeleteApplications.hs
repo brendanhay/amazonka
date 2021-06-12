@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.Discovery.DeleteApplications
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApplications' smart constructor.
 data DeleteApplications = DeleteApplications'
   { -- | Configuration ID of an application to be deleted.
-    configurationIds :: [Prelude.Text]
+    configurationIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplications' with all optional fields omitted.
@@ -65,67 +64,62 @@ data DeleteApplications = DeleteApplications'
 newDeleteApplications ::
   DeleteApplications
 newDeleteApplications =
-  DeleteApplications'
-    { configurationIds =
-        Prelude.mempty
-    }
+  DeleteApplications' {configurationIds = Core.mempty}
 
 -- | Configuration ID of an application to be deleted.
-deleteApplications_configurationIds :: Lens.Lens' DeleteApplications [Prelude.Text]
-deleteApplications_configurationIds = Lens.lens (\DeleteApplications' {configurationIds} -> configurationIds) (\s@DeleteApplications' {} a -> s {configurationIds = a} :: DeleteApplications) Prelude.. Prelude._Coerce
+deleteApplications_configurationIds :: Lens.Lens' DeleteApplications [Core.Text]
+deleteApplications_configurationIds = Lens.lens (\DeleteApplications' {configurationIds} -> configurationIds) (\s@DeleteApplications' {} a -> s {configurationIds = a} :: DeleteApplications) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteApplications where
+instance Core.AWSRequest DeleteApplications where
   type
-    Rs DeleteApplications =
+    AWSResponse DeleteApplications =
       DeleteApplicationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApplications
+instance Core.Hashable DeleteApplications
 
-instance Prelude.NFData DeleteApplications
+instance Core.NFData DeleteApplications
 
-instance Prelude.ToHeaders DeleteApplications where
+instance Core.ToHeaders DeleteApplications where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.DeleteApplications" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.DeleteApplications" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteApplications where
+instance Core.ToJSON DeleteApplications where
   toJSON DeleteApplications' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("configurationIds" Prelude..= configurationIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("configurationIds" Core..= configurationIds)
           ]
       )
 
-instance Prelude.ToPath DeleteApplications where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteApplications where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteApplications where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApplications where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApplicationsResponse' smart constructor.
 data DeleteApplicationsResponse = DeleteApplicationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationsResponse' with all optional fields omitted.
@@ -138,7 +132,7 @@ data DeleteApplicationsResponse = DeleteApplicationsResponse'
 -- 'httpStatus', 'deleteApplicationsResponse_httpStatus' - The response's http status code.
 newDeleteApplicationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteApplicationsResponse
 newDeleteApplicationsResponse pHttpStatus_ =
   DeleteApplicationsResponse'
@@ -147,7 +141,7 @@ newDeleteApplicationsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteApplicationsResponse_httpStatus :: Lens.Lens' DeleteApplicationsResponse Prelude.Int
+deleteApplicationsResponse_httpStatus :: Lens.Lens' DeleteApplicationsResponse Core.Int
 deleteApplicationsResponse_httpStatus = Lens.lens (\DeleteApplicationsResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationsResponse' {} a -> s {httpStatus = a} :: DeleteApplicationsResponse)
 
-instance Prelude.NFData DeleteApplicationsResponse
+instance Core.NFData DeleteApplicationsResponse

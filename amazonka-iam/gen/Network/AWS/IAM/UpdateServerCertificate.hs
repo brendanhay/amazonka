@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.IAM.UpdateServerCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,7 +76,7 @@ data UpdateServerCertificate = UpdateServerCertificate'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    newPath' :: Prelude.Maybe Prelude.Text,
+    newPath' :: Core.Maybe Core.Text,
     -- | The new name for the server certificate. Include this only if you are
     -- updating the server certificate\'s name. The name of the certificate
     -- cannot contain any spaces.
@@ -86,16 +85,16 @@ data UpdateServerCertificate = UpdateServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    newServerCertificateName' :: Prelude.Maybe Prelude.Text,
+    newServerCertificateName' :: Core.Maybe Core.Text,
     -- | The name of the server certificate that you want to update.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    serverCertificateName :: Prelude.Text
+    serverCertificateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServerCertificate' with all optional fields omitted.
@@ -133,13 +132,12 @@ data UpdateServerCertificate = UpdateServerCertificate'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newUpdateServerCertificate ::
   -- | 'serverCertificateName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateServerCertificate
 newUpdateServerCertificate pServerCertificateName_ =
   UpdateServerCertificate'
-    { newPath' =
-        Prelude.Nothing,
-      newServerCertificateName' = Prelude.Nothing,
+    { newPath' = Core.Nothing,
+      newServerCertificateName' = Core.Nothing,
       serverCertificateName = pServerCertificateName_
     }
 
@@ -153,7 +151,7 @@ newUpdateServerCertificate pServerCertificateName_ =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-updateServerCertificate_newPath :: Lens.Lens' UpdateServerCertificate (Prelude.Maybe Prelude.Text)
+updateServerCertificate_newPath :: Lens.Lens' UpdateServerCertificate (Core.Maybe Core.Text)
 updateServerCertificate_newPath = Lens.lens (\UpdateServerCertificate' {newPath'} -> newPath') (\s@UpdateServerCertificate' {} a -> s {newPath' = a} :: UpdateServerCertificate)
 
 -- | The new name for the server certificate. Include this only if you are
@@ -164,7 +162,7 @@ updateServerCertificate_newPath = Lens.lens (\UpdateServerCertificate' {newPath'
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateServerCertificate_newServerCertificateName :: Lens.Lens' UpdateServerCertificate (Prelude.Maybe Prelude.Text)
+updateServerCertificate_newServerCertificateName :: Lens.Lens' UpdateServerCertificate (Core.Maybe Core.Text)
 updateServerCertificate_newServerCertificateName = Lens.lens (\UpdateServerCertificate' {newServerCertificateName'} -> newServerCertificateName') (\s@UpdateServerCertificate' {} a -> s {newServerCertificateName' = a} :: UpdateServerCertificate)
 
 -- | The name of the server certificate that you want to update.
@@ -173,47 +171,46 @@ updateServerCertificate_newServerCertificateName = Lens.lens (\UpdateServerCerti
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateServerCertificate_serverCertificateName :: Lens.Lens' UpdateServerCertificate Prelude.Text
+updateServerCertificate_serverCertificateName :: Lens.Lens' UpdateServerCertificate Core.Text
 updateServerCertificate_serverCertificateName = Lens.lens (\UpdateServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@UpdateServerCertificate' {} a -> s {serverCertificateName = a} :: UpdateServerCertificate)
 
-instance Prelude.AWSRequest UpdateServerCertificate where
+instance Core.AWSRequest UpdateServerCertificate where
   type
-    Rs UpdateServerCertificate =
+    AWSResponse UpdateServerCertificate =
       UpdateServerCertificateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       UpdateServerCertificateResponse'
 
-instance Prelude.Hashable UpdateServerCertificate
+instance Core.Hashable UpdateServerCertificate
 
-instance Prelude.NFData UpdateServerCertificate
+instance Core.NFData UpdateServerCertificate
 
-instance Prelude.ToHeaders UpdateServerCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateServerCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateServerCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateServerCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateServerCertificate where
+instance Core.ToQuery UpdateServerCertificate where
   toQuery UpdateServerCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateServerCertificate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "NewPath" Prelude.=: newPath',
+          Core.=: ("UpdateServerCertificate" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "NewPath" Core.=: newPath',
         "NewServerCertificateName"
-          Prelude.=: newServerCertificateName',
+          Core.=: newServerCertificateName',
         "ServerCertificateName"
-          Prelude.=: serverCertificateName
+          Core.=: serverCertificateName
       ]
 
 -- | /See:/ 'newUpdateServerCertificateResponse' smart constructor.
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServerCertificateResponse' with all optional fields omitted.
@@ -224,6 +221,4 @@ newUpdateServerCertificateResponse ::
 newUpdateServerCertificateResponse =
   UpdateServerCertificateResponse'
 
-instance
-  Prelude.NFData
-    UpdateServerCertificateResponse
+instance Core.NFData UpdateServerCertificateResponse

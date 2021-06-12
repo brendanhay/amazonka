@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.RootStorage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the root volume for a WorkSpace bundle.
 --
 -- /See:/ 'newRootStorage' smart constructor.
 data RootStorage = RootStorage'
   { -- | The size of the root volume.
-    capacity :: Prelude.Maybe Prelude.Text
+    capacity :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RootStorage' with all optional fields omitted.
@@ -44,20 +43,20 @@ data RootStorage = RootStorage'
 newRootStorage ::
   RootStorage
 newRootStorage =
-  RootStorage' {capacity = Prelude.Nothing}
+  RootStorage' {capacity = Core.Nothing}
 
 -- | The size of the root volume.
-rootStorage_capacity :: Lens.Lens' RootStorage (Prelude.Maybe Prelude.Text)
+rootStorage_capacity :: Lens.Lens' RootStorage (Core.Maybe Core.Text)
 rootStorage_capacity = Lens.lens (\RootStorage' {capacity} -> capacity) (\s@RootStorage' {} a -> s {capacity = a} :: RootStorage)
 
-instance Prelude.FromJSON RootStorage where
+instance Core.FromJSON RootStorage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RootStorage"
       ( \x ->
-          RootStorage' Prelude.<$> (x Prelude..:? "Capacity")
+          RootStorage' Core.<$> (x Core..:? "Capacity")
       )
 
-instance Prelude.Hashable RootStorage
+instance Core.Hashable RootStorage
 
-instance Prelude.NFData RootStorage
+instance Core.NFData RootStorage

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.MFAOptionType where
 
 import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /This data type is no longer supported./ You can use it only for SMS MFA
 -- configurations. You can\'t use it for TOTP software token MFA
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data MFAOptionType = MFAOptionType'
   { -- | The delivery medium to send the MFA code. You can use this parameter to
     -- set only the @SMS@ delivery medium value.
-    deliveryMedium :: Prelude.Maybe DeliveryMediumType,
+    deliveryMedium :: Core.Maybe DeliveryMediumType,
     -- | The attribute name of the MFA option type. The only valid value is
     -- @phone_number@.
-    attributeName :: Prelude.Maybe Prelude.Text
+    attributeName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MFAOptionType' with all optional fields omitted.
@@ -56,41 +55,39 @@ newMFAOptionType ::
   MFAOptionType
 newMFAOptionType =
   MFAOptionType'
-    { deliveryMedium = Prelude.Nothing,
-      attributeName = Prelude.Nothing
+    { deliveryMedium = Core.Nothing,
+      attributeName = Core.Nothing
     }
 
 -- | The delivery medium to send the MFA code. You can use this parameter to
 -- set only the @SMS@ delivery medium value.
-mfaOptionType_deliveryMedium :: Lens.Lens' MFAOptionType (Prelude.Maybe DeliveryMediumType)
+mfaOptionType_deliveryMedium :: Lens.Lens' MFAOptionType (Core.Maybe DeliveryMediumType)
 mfaOptionType_deliveryMedium = Lens.lens (\MFAOptionType' {deliveryMedium} -> deliveryMedium) (\s@MFAOptionType' {} a -> s {deliveryMedium = a} :: MFAOptionType)
 
 -- | The attribute name of the MFA option type. The only valid value is
 -- @phone_number@.
-mfaOptionType_attributeName :: Lens.Lens' MFAOptionType (Prelude.Maybe Prelude.Text)
+mfaOptionType_attributeName :: Lens.Lens' MFAOptionType (Core.Maybe Core.Text)
 mfaOptionType_attributeName = Lens.lens (\MFAOptionType' {attributeName} -> attributeName) (\s@MFAOptionType' {} a -> s {attributeName = a} :: MFAOptionType)
 
-instance Prelude.FromJSON MFAOptionType where
+instance Core.FromJSON MFAOptionType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MFAOptionType"
       ( \x ->
           MFAOptionType'
-            Prelude.<$> (x Prelude..:? "DeliveryMedium")
-            Prelude.<*> (x Prelude..:? "AttributeName")
+            Core.<$> (x Core..:? "DeliveryMedium")
+            Core.<*> (x Core..:? "AttributeName")
       )
 
-instance Prelude.Hashable MFAOptionType
+instance Core.Hashable MFAOptionType
 
-instance Prelude.NFData MFAOptionType
+instance Core.NFData MFAOptionType
 
-instance Prelude.ToJSON MFAOptionType where
+instance Core.ToJSON MFAOptionType where
   toJSON MFAOptionType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeliveryMedium" Prelude..=)
-              Prelude.<$> deliveryMedium,
-            ("AttributeName" Prelude..=)
-              Prelude.<$> attributeName
+    Core.object
+      ( Core.catMaybes
+          [ ("DeliveryMedium" Core..=) Core.<$> deliveryMedium,
+            ("AttributeName" Core..=) Core.<$> attributeName
           ]
       )

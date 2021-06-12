@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.DAX.DeleteParameterGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteParameterGroup' smart constructor.
 data DeleteParameterGroup = DeleteParameterGroup'
   { -- | The name of the parameter group to delete.
-    parameterGroupName :: Prelude.Text
+    parameterGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteParameterGroup' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DeleteParameterGroup = DeleteParameterGroup'
 -- 'parameterGroupName', 'deleteParameterGroup_parameterGroupName' - The name of the parameter group to delete.
 newDeleteParameterGroup ::
   -- | 'parameterGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteParameterGroup
 newDeleteParameterGroup pParameterGroupName_ =
   DeleteParameterGroup'
@@ -74,67 +73,63 @@ newDeleteParameterGroup pParameterGroupName_ =
     }
 
 -- | The name of the parameter group to delete.
-deleteParameterGroup_parameterGroupName :: Lens.Lens' DeleteParameterGroup Prelude.Text
+deleteParameterGroup_parameterGroupName :: Lens.Lens' DeleteParameterGroup Core.Text
 deleteParameterGroup_parameterGroupName = Lens.lens (\DeleteParameterGroup' {parameterGroupName} -> parameterGroupName) (\s@DeleteParameterGroup' {} a -> s {parameterGroupName = a} :: DeleteParameterGroup)
 
-instance Prelude.AWSRequest DeleteParameterGroup where
+instance Core.AWSRequest DeleteParameterGroup where
   type
-    Rs DeleteParameterGroup =
+    AWSResponse DeleteParameterGroup =
       DeleteParameterGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteParameterGroupResponse'
-            Prelude.<$> (x Prelude..?> "DeletionMessage")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DeletionMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteParameterGroup
+instance Core.Hashable DeleteParameterGroup
 
-instance Prelude.NFData DeleteParameterGroup
+instance Core.NFData DeleteParameterGroup
 
-instance Prelude.ToHeaders DeleteParameterGroup where
+instance Core.ToHeaders DeleteParameterGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDAXV3.DeleteParameterGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDAXV3.DeleteParameterGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteParameterGroup where
+instance Core.ToJSON DeleteParameterGroup where
   toJSON DeleteParameterGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "ParameterGroupName"
-                  Prelude..= parameterGroupName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ParameterGroupName" Core..= parameterGroupName)
           ]
       )
 
-instance Prelude.ToPath DeleteParameterGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteParameterGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteParameterGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteParameterGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteParameterGroupResponse' smart constructor.
 data DeleteParameterGroupResponse = DeleteParameterGroupResponse'
   { -- | A user-specified message for this action (i.e., a reason for deleting
     -- the parameter group).
-    deletionMessage :: Prelude.Maybe Prelude.Text,
+    deletionMessage :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteParameterGroupResponse' with all optional fields omitted.
@@ -150,22 +145,22 @@ data DeleteParameterGroupResponse = DeleteParameterGroupResponse'
 -- 'httpStatus', 'deleteParameterGroupResponse_httpStatus' - The response's http status code.
 newDeleteParameterGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteParameterGroupResponse
 newDeleteParameterGroupResponse pHttpStatus_ =
   DeleteParameterGroupResponse'
     { deletionMessage =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-specified message for this action (i.e., a reason for deleting
 -- the parameter group).
-deleteParameterGroupResponse_deletionMessage :: Lens.Lens' DeleteParameterGroupResponse (Prelude.Maybe Prelude.Text)
+deleteParameterGroupResponse_deletionMessage :: Lens.Lens' DeleteParameterGroupResponse (Core.Maybe Core.Text)
 deleteParameterGroupResponse_deletionMessage = Lens.lens (\DeleteParameterGroupResponse' {deletionMessage} -> deletionMessage) (\s@DeleteParameterGroupResponse' {} a -> s {deletionMessage = a} :: DeleteParameterGroupResponse)
 
 -- | The response's http status code.
-deleteParameterGroupResponse_httpStatus :: Lens.Lens' DeleteParameterGroupResponse Prelude.Int
+deleteParameterGroupResponse_httpStatus :: Lens.Lens' DeleteParameterGroupResponse Core.Int
 deleteParameterGroupResponse_httpStatus = Lens.lens (\DeleteParameterGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteParameterGroupResponse' {} a -> s {httpStatus = a} :: DeleteParameterGroupResponse)
 
-instance Prelude.NFData DeleteParameterGroupResponse
+instance Core.NFData DeleteParameterGroupResponse

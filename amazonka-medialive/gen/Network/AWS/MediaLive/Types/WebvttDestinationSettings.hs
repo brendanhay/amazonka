@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.WebvttDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Webvtt Destination Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data WebvttDestinationSettings = WebvttDestinationSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WebvttDestinationSettings' with all optional fields omitted.
@@ -40,16 +39,15 @@ newWebvttDestinationSettings ::
 newWebvttDestinationSettings =
   WebvttDestinationSettings'
 
-instance Prelude.FromJSON WebvttDestinationSettings where
+instance Core.FromJSON WebvttDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WebvttDestinationSettings"
-      (\x -> Prelude.pure WebvttDestinationSettings')
+      (\x -> Core.pure WebvttDestinationSettings')
 
-instance Prelude.Hashable WebvttDestinationSettings
+instance Core.Hashable WebvttDestinationSettings
 
-instance Prelude.NFData WebvttDestinationSettings
+instance Core.NFData WebvttDestinationSettings
 
-instance Prelude.ToJSON WebvttDestinationSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON WebvttDestinationSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

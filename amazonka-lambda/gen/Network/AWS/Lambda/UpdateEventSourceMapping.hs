@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -94,9 +93,9 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -118,22 +117,22 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     --
     -- The length constraint applies only to the full ARN. If you specify only
     -- the function name, it\'s limited to 64 characters in length.
-    functionName :: Prelude.Maybe Prelude.Text,
+    functionName :: Core.Maybe Core.Text,
     -- | If true, the event source mapping is active. Set to false to pause
     -- polling and invocation.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | (Streams) Discard records older than the specified age. The default
     -- value is infinite (-1).
-    maximumRecordAgeInSeconds :: Prelude.Maybe Prelude.Int,
+    maximumRecordAgeInSeconds :: Core.Maybe Core.Int,
     -- | (Streams) A list of current response type enums applied to the event
     -- source mapping.
-    functionResponseTypes :: Prelude.Maybe (Prelude.NonEmpty FunctionResponseType),
+    functionResponseTypes :: Core.Maybe (Core.NonEmpty FunctionResponseType),
     -- | (Streams) The duration in seconds of a processing window. The range is
     -- between 1 second up to 900 seconds.
-    tumblingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
+    tumblingWindowInSeconds :: Core.Maybe Core.Natural,
     -- | (Streams and SQS standard queues) The maximum amount of time to gather
     -- records before invoking the function, in seconds.
-    maximumBatchingWindowInSeconds :: Prelude.Maybe Prelude.Natural,
+    maximumBatchingWindowInSeconds :: Core.Maybe Core.Natural,
     -- | The maximum number of items to retrieve in a single batch.
     --
     -- -   __Amazon Kinesis__ - Default 100. Max 10,000.
@@ -147,26 +146,26 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     --     10,000.
     --
     -- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
-    batchSize :: Prelude.Maybe Prelude.Natural,
+    batchSize :: Core.Maybe Core.Natural,
     -- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for
     -- discarded records.
-    destinationConfig :: Prelude.Maybe DestinationConfig,
+    destinationConfig :: Core.Maybe DestinationConfig,
     -- | (Streams) Discard records after the specified number of retries. The
     -- default value is infinite (-1). When set to infinite (-1), failed
     -- records will be retried until the record expires.
-    maximumRetryAttempts :: Prelude.Maybe Prelude.Int,
+    maximumRetryAttempts :: Core.Maybe Core.Int,
     -- | (Streams) The number of batches to process from each shard concurrently.
-    parallelizationFactor :: Prelude.Maybe Prelude.Natural,
+    parallelizationFactor :: Core.Maybe Core.Natural,
     -- | (Streams) If the function returns an error, split the batch in two and
     -- retry.
-    bisectBatchOnFunctionError :: Prelude.Maybe Prelude.Bool,
+    bisectBatchOnFunctionError :: Core.Maybe Core.Bool,
     -- | An array of the authentication protocol, or the VPC components to secure
     -- your event source.
-    sourceAccessConfigurations :: Prelude.Maybe [SourceAccessConfiguration],
+    sourceAccessConfigurations :: Core.Maybe [SourceAccessConfiguration],
     -- | The identifier of the event source mapping.
-    uuid :: Prelude.Text
+    uuid :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEventSourceMapping' with all optional fields omitted.
@@ -240,23 +239,23 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
 -- 'uuid', 'updateEventSourceMapping_uuid' - The identifier of the event source mapping.
 newUpdateEventSourceMapping ::
   -- | 'uuid'
-  Prelude.Text ->
+  Core.Text ->
   UpdateEventSourceMapping
 newUpdateEventSourceMapping pUUID_ =
   UpdateEventSourceMapping'
     { functionName =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      maximumRecordAgeInSeconds = Prelude.Nothing,
-      functionResponseTypes = Prelude.Nothing,
-      tumblingWindowInSeconds = Prelude.Nothing,
-      maximumBatchingWindowInSeconds = Prelude.Nothing,
-      batchSize = Prelude.Nothing,
-      destinationConfig = Prelude.Nothing,
-      maximumRetryAttempts = Prelude.Nothing,
-      parallelizationFactor = Prelude.Nothing,
-      bisectBatchOnFunctionError = Prelude.Nothing,
-      sourceAccessConfigurations = Prelude.Nothing,
+        Core.Nothing,
+      enabled = Core.Nothing,
+      maximumRecordAgeInSeconds = Core.Nothing,
+      functionResponseTypes = Core.Nothing,
+      tumblingWindowInSeconds = Core.Nothing,
+      maximumBatchingWindowInSeconds = Core.Nothing,
+      batchSize = Core.Nothing,
+      destinationConfig = Core.Nothing,
+      maximumRetryAttempts = Core.Nothing,
+      parallelizationFactor = Core.Nothing,
+      bisectBatchOnFunctionError = Core.Nothing,
+      sourceAccessConfigurations = Core.Nothing,
       uuid = pUUID_
     }
 
@@ -276,32 +275,32 @@ newUpdateEventSourceMapping pUUID_ =
 --
 -- The length constraint applies only to the full ARN. If you specify only
 -- the function name, it\'s limited to 64 characters in length.
-updateEventSourceMapping_functionName :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Text)
+updateEventSourceMapping_functionName :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Text)
 updateEventSourceMapping_functionName = Lens.lens (\UpdateEventSourceMapping' {functionName} -> functionName) (\s@UpdateEventSourceMapping' {} a -> s {functionName = a} :: UpdateEventSourceMapping)
 
 -- | If true, the event source mapping is active. Set to false to pause
 -- polling and invocation.
-updateEventSourceMapping_enabled :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Bool)
+updateEventSourceMapping_enabled :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Bool)
 updateEventSourceMapping_enabled = Lens.lens (\UpdateEventSourceMapping' {enabled} -> enabled) (\s@UpdateEventSourceMapping' {} a -> s {enabled = a} :: UpdateEventSourceMapping)
 
 -- | (Streams) Discard records older than the specified age. The default
 -- value is infinite (-1).
-updateEventSourceMapping_maximumRecordAgeInSeconds :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Int)
+updateEventSourceMapping_maximumRecordAgeInSeconds :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Int)
 updateEventSourceMapping_maximumRecordAgeInSeconds = Lens.lens (\UpdateEventSourceMapping' {maximumRecordAgeInSeconds} -> maximumRecordAgeInSeconds) (\s@UpdateEventSourceMapping' {} a -> s {maximumRecordAgeInSeconds = a} :: UpdateEventSourceMapping)
 
 -- | (Streams) A list of current response type enums applied to the event
 -- source mapping.
-updateEventSourceMapping_functionResponseTypes :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe (Prelude.NonEmpty FunctionResponseType))
-updateEventSourceMapping_functionResponseTypes = Lens.lens (\UpdateEventSourceMapping' {functionResponseTypes} -> functionResponseTypes) (\s@UpdateEventSourceMapping' {} a -> s {functionResponseTypes = a} :: UpdateEventSourceMapping) Prelude.. Lens.mapping Prelude._Coerce
+updateEventSourceMapping_functionResponseTypes :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe (Core.NonEmpty FunctionResponseType))
+updateEventSourceMapping_functionResponseTypes = Lens.lens (\UpdateEventSourceMapping' {functionResponseTypes} -> functionResponseTypes) (\s@UpdateEventSourceMapping' {} a -> s {functionResponseTypes = a} :: UpdateEventSourceMapping) Core.. Lens.mapping Lens._Coerce
 
 -- | (Streams) The duration in seconds of a processing window. The range is
 -- between 1 second up to 900 seconds.
-updateEventSourceMapping_tumblingWindowInSeconds :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Natural)
+updateEventSourceMapping_tumblingWindowInSeconds :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Natural)
 updateEventSourceMapping_tumblingWindowInSeconds = Lens.lens (\UpdateEventSourceMapping' {tumblingWindowInSeconds} -> tumblingWindowInSeconds) (\s@UpdateEventSourceMapping' {} a -> s {tumblingWindowInSeconds = a} :: UpdateEventSourceMapping)
 
 -- | (Streams and SQS standard queues) The maximum amount of time to gather
 -- records before invoking the function, in seconds.
-updateEventSourceMapping_maximumBatchingWindowInSeconds :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Natural)
+updateEventSourceMapping_maximumBatchingWindowInSeconds :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Natural)
 updateEventSourceMapping_maximumBatchingWindowInSeconds = Lens.lens (\UpdateEventSourceMapping' {maximumBatchingWindowInSeconds} -> maximumBatchingWindowInSeconds) (\s@UpdateEventSourceMapping' {} a -> s {maximumBatchingWindowInSeconds = a} :: UpdateEventSourceMapping)
 
 -- | The maximum number of items to retrieve in a single batch.
@@ -317,89 +316,88 @@ updateEventSourceMapping_maximumBatchingWindowInSeconds = Lens.lens (\UpdateEven
 --     10,000.
 --
 -- -   __Self-Managed Apache Kafka__ - Default 100. Max 10,000.
-updateEventSourceMapping_batchSize :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Natural)
+updateEventSourceMapping_batchSize :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Natural)
 updateEventSourceMapping_batchSize = Lens.lens (\UpdateEventSourceMapping' {batchSize} -> batchSize) (\s@UpdateEventSourceMapping' {} a -> s {batchSize = a} :: UpdateEventSourceMapping)
 
 -- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for
 -- discarded records.
-updateEventSourceMapping_destinationConfig :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe DestinationConfig)
+updateEventSourceMapping_destinationConfig :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe DestinationConfig)
 updateEventSourceMapping_destinationConfig = Lens.lens (\UpdateEventSourceMapping' {destinationConfig} -> destinationConfig) (\s@UpdateEventSourceMapping' {} a -> s {destinationConfig = a} :: UpdateEventSourceMapping)
 
 -- | (Streams) Discard records after the specified number of retries. The
 -- default value is infinite (-1). When set to infinite (-1), failed
 -- records will be retried until the record expires.
-updateEventSourceMapping_maximumRetryAttempts :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Int)
+updateEventSourceMapping_maximumRetryAttempts :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Int)
 updateEventSourceMapping_maximumRetryAttempts = Lens.lens (\UpdateEventSourceMapping' {maximumRetryAttempts} -> maximumRetryAttempts) (\s@UpdateEventSourceMapping' {} a -> s {maximumRetryAttempts = a} :: UpdateEventSourceMapping)
 
 -- | (Streams) The number of batches to process from each shard concurrently.
-updateEventSourceMapping_parallelizationFactor :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Natural)
+updateEventSourceMapping_parallelizationFactor :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Natural)
 updateEventSourceMapping_parallelizationFactor = Lens.lens (\UpdateEventSourceMapping' {parallelizationFactor} -> parallelizationFactor) (\s@UpdateEventSourceMapping' {} a -> s {parallelizationFactor = a} :: UpdateEventSourceMapping)
 
 -- | (Streams) If the function returns an error, split the batch in two and
 -- retry.
-updateEventSourceMapping_bisectBatchOnFunctionError :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe Prelude.Bool)
+updateEventSourceMapping_bisectBatchOnFunctionError :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Bool)
 updateEventSourceMapping_bisectBatchOnFunctionError = Lens.lens (\UpdateEventSourceMapping' {bisectBatchOnFunctionError} -> bisectBatchOnFunctionError) (\s@UpdateEventSourceMapping' {} a -> s {bisectBatchOnFunctionError = a} :: UpdateEventSourceMapping)
 
 -- | An array of the authentication protocol, or the VPC components to secure
 -- your event source.
-updateEventSourceMapping_sourceAccessConfigurations :: Lens.Lens' UpdateEventSourceMapping (Prelude.Maybe [SourceAccessConfiguration])
-updateEventSourceMapping_sourceAccessConfigurations = Lens.lens (\UpdateEventSourceMapping' {sourceAccessConfigurations} -> sourceAccessConfigurations) (\s@UpdateEventSourceMapping' {} a -> s {sourceAccessConfigurations = a} :: UpdateEventSourceMapping) Prelude.. Lens.mapping Prelude._Coerce
+updateEventSourceMapping_sourceAccessConfigurations :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe [SourceAccessConfiguration])
+updateEventSourceMapping_sourceAccessConfigurations = Lens.lens (\UpdateEventSourceMapping' {sourceAccessConfigurations} -> sourceAccessConfigurations) (\s@UpdateEventSourceMapping' {} a -> s {sourceAccessConfigurations = a} :: UpdateEventSourceMapping) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the event source mapping.
-updateEventSourceMapping_uuid :: Lens.Lens' UpdateEventSourceMapping Prelude.Text
+updateEventSourceMapping_uuid :: Lens.Lens' UpdateEventSourceMapping Core.Text
 updateEventSourceMapping_uuid = Lens.lens (\UpdateEventSourceMapping' {uuid} -> uuid) (\s@UpdateEventSourceMapping' {} a -> s {uuid = a} :: UpdateEventSourceMapping)
 
-instance Prelude.AWSRequest UpdateEventSourceMapping where
+instance Core.AWSRequest UpdateEventSourceMapping where
   type
-    Rs UpdateEventSourceMapping =
+    AWSResponse UpdateEventSourceMapping =
       EventSourceMappingConfiguration
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateEventSourceMapping
+instance Core.Hashable UpdateEventSourceMapping
 
-instance Prelude.NFData UpdateEventSourceMapping
+instance Core.NFData UpdateEventSourceMapping
 
-instance Prelude.ToHeaders UpdateEventSourceMapping where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateEventSourceMapping where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateEventSourceMapping where
+instance Core.ToJSON UpdateEventSourceMapping where
   toJSON UpdateEventSourceMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FunctionName" Prelude..=)
-              Prelude.<$> functionName,
-            ("Enabled" Prelude..=) Prelude.<$> enabled,
-            ("MaximumRecordAgeInSeconds" Prelude..=)
-              Prelude.<$> maximumRecordAgeInSeconds,
-            ("FunctionResponseTypes" Prelude..=)
-              Prelude.<$> functionResponseTypes,
-            ("TumblingWindowInSeconds" Prelude..=)
-              Prelude.<$> tumblingWindowInSeconds,
-            ("MaximumBatchingWindowInSeconds" Prelude..=)
-              Prelude.<$> maximumBatchingWindowInSeconds,
-            ("BatchSize" Prelude..=) Prelude.<$> batchSize,
-            ("DestinationConfig" Prelude..=)
-              Prelude.<$> destinationConfig,
-            ("MaximumRetryAttempts" Prelude..=)
-              Prelude.<$> maximumRetryAttempts,
-            ("ParallelizationFactor" Prelude..=)
-              Prelude.<$> parallelizationFactor,
-            ("BisectBatchOnFunctionError" Prelude..=)
-              Prelude.<$> bisectBatchOnFunctionError,
-            ("SourceAccessConfigurations" Prelude..=)
-              Prelude.<$> sourceAccessConfigurations
+    Core.object
+      ( Core.catMaybes
+          [ ("FunctionName" Core..=) Core.<$> functionName,
+            ("Enabled" Core..=) Core.<$> enabled,
+            ("MaximumRecordAgeInSeconds" Core..=)
+              Core.<$> maximumRecordAgeInSeconds,
+            ("FunctionResponseTypes" Core..=)
+              Core.<$> functionResponseTypes,
+            ("TumblingWindowInSeconds" Core..=)
+              Core.<$> tumblingWindowInSeconds,
+            ("MaximumBatchingWindowInSeconds" Core..=)
+              Core.<$> maximumBatchingWindowInSeconds,
+            ("BatchSize" Core..=) Core.<$> batchSize,
+            ("DestinationConfig" Core..=)
+              Core.<$> destinationConfig,
+            ("MaximumRetryAttempts" Core..=)
+              Core.<$> maximumRetryAttempts,
+            ("ParallelizationFactor" Core..=)
+              Core.<$> parallelizationFactor,
+            ("BisectBatchOnFunctionError" Core..=)
+              Core.<$> bisectBatchOnFunctionError,
+            ("SourceAccessConfigurations" Core..=)
+              Core.<$> sourceAccessConfigurations
           ]
       )
 
-instance Prelude.ToPath UpdateEventSourceMapping where
+instance Core.ToPath UpdateEventSourceMapping where
   toPath UpdateEventSourceMapping' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-03-31/event-source-mappings/",
-        Prelude.toBS uuid
+        Core.toBS uuid
       ]
 
-instance Prelude.ToQuery UpdateEventSourceMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateEventSourceMapping where
+  toQuery = Core.const Core.mempty

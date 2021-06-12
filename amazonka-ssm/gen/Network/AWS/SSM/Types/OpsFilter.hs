@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsFilterOperatorType
 
 -- | A filter for viewing OpsItem summaries.
@@ -29,13 +28,13 @@ import Network.AWS.SSM.Types.OpsFilterOperatorType
 -- /See:/ 'newOpsFilter' smart constructor.
 data OpsFilter = OpsFilter'
   { -- | The type of filter.
-    type' :: Prelude.Maybe OpsFilterOperatorType,
+    type' :: Core.Maybe OpsFilterOperatorType,
     -- | The name of the filter.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The filter value.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsFilter' with all optional fields omitted.
@@ -52,39 +51,39 @@ data OpsFilter = OpsFilter'
 -- 'values', 'opsFilter_values' - The filter value.
 newOpsFilter ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   OpsFilter
 newOpsFilter pKey_ pValues_ =
   OpsFilter'
-    { type' = Prelude.Nothing,
+    { type' = Core.Nothing,
       key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | The type of filter.
-opsFilter_type :: Lens.Lens' OpsFilter (Prelude.Maybe OpsFilterOperatorType)
+opsFilter_type :: Lens.Lens' OpsFilter (Core.Maybe OpsFilterOperatorType)
 opsFilter_type = Lens.lens (\OpsFilter' {type'} -> type') (\s@OpsFilter' {} a -> s {type' = a} :: OpsFilter)
 
 -- | The name of the filter.
-opsFilter_key :: Lens.Lens' OpsFilter Prelude.Text
+opsFilter_key :: Lens.Lens' OpsFilter Core.Text
 opsFilter_key = Lens.lens (\OpsFilter' {key} -> key) (\s@OpsFilter' {} a -> s {key = a} :: OpsFilter)
 
 -- | The filter value.
-opsFilter_values :: Lens.Lens' OpsFilter (Prelude.NonEmpty Prelude.Text)
-opsFilter_values = Lens.lens (\OpsFilter' {values} -> values) (\s@OpsFilter' {} a -> s {values = a} :: OpsFilter) Prelude.. Prelude._Coerce
+opsFilter_values :: Lens.Lens' OpsFilter (Core.NonEmpty Core.Text)
+opsFilter_values = Lens.lens (\OpsFilter' {values} -> values) (\s@OpsFilter' {} a -> s {values = a} :: OpsFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable OpsFilter
+instance Core.Hashable OpsFilter
 
-instance Prelude.NFData OpsFilter
+instance Core.NFData OpsFilter
 
-instance Prelude.ToJSON OpsFilter where
+instance Core.ToJSON OpsFilter where
   toJSON OpsFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ ("Type" Core..=) Core.<$> type',
+            Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

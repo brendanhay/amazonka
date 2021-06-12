@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.SourceSecurityGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a source security group.
 --
 -- /See:/ 'newSourceSecurityGroup' smart constructor.
 data SourceSecurityGroup = SourceSecurityGroup'
   { -- | The owner of the security group.
-    ownerAlias :: Prelude.Maybe Prelude.Text,
+    ownerAlias :: Core.Maybe Core.Text,
     -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SourceSecurityGroup' with all optional fields omitted.
@@ -50,24 +49,24 @@ newSourceSecurityGroup ::
   SourceSecurityGroup
 newSourceSecurityGroup =
   SourceSecurityGroup'
-    { ownerAlias = Prelude.Nothing,
-      groupName = Prelude.Nothing
+    { ownerAlias = Core.Nothing,
+      groupName = Core.Nothing
     }
 
 -- | The owner of the security group.
-sourceSecurityGroup_ownerAlias :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
+sourceSecurityGroup_ownerAlias :: Lens.Lens' SourceSecurityGroup (Core.Maybe Core.Text)
 sourceSecurityGroup_ownerAlias = Lens.lens (\SourceSecurityGroup' {ownerAlias} -> ownerAlias) (\s@SourceSecurityGroup' {} a -> s {ownerAlias = a} :: SourceSecurityGroup)
 
 -- | The name of the security group.
-sourceSecurityGroup_groupName :: Lens.Lens' SourceSecurityGroup (Prelude.Maybe Prelude.Text)
+sourceSecurityGroup_groupName :: Lens.Lens' SourceSecurityGroup (Core.Maybe Core.Text)
 sourceSecurityGroup_groupName = Lens.lens (\SourceSecurityGroup' {groupName} -> groupName) (\s@SourceSecurityGroup' {} a -> s {groupName = a} :: SourceSecurityGroup)
 
-instance Prelude.FromXML SourceSecurityGroup where
+instance Core.FromXML SourceSecurityGroup where
   parseXML x =
     SourceSecurityGroup'
-      Prelude.<$> (x Prelude..@? "OwnerAlias")
-      Prelude.<*> (x Prelude..@? "GroupName")
+      Core.<$> (x Core..@? "OwnerAlias")
+      Core.<*> (x Core..@? "GroupName")
 
-instance Prelude.Hashable SourceSecurityGroup
+instance Core.Hashable SourceSecurityGroup
 
-instance Prelude.NFData SourceSecurityGroup
+instance Core.NFData SourceSecurityGroup

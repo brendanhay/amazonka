@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,24 +43,24 @@ module Network.AWS.DeviceFarm.ListTestGridSessionArtifacts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListTestGridSessionArtifacts' smart constructor.
 data ListTestGridSessionArtifacts = ListTestGridSessionArtifacts'
   { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned by a request.
-    maxResult :: Prelude.Maybe Prelude.Natural,
+    maxResult :: Core.Maybe Core.Natural,
     -- | Limit results to a specified type of artifact.
-    type' :: Prelude.Maybe TestGridSessionArtifactCategory,
+    type' :: Core.Maybe TestGridSessionArtifactCategory,
     -- | The ARN of a TestGridSession.
-    sessionArn :: Prelude.Text
+    sessionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTestGridSessionArtifacts' with all optional fields omitted.
@@ -80,103 +79,91 @@ data ListTestGridSessionArtifacts = ListTestGridSessionArtifacts'
 -- 'sessionArn', 'listTestGridSessionArtifacts_sessionArn' - The ARN of a TestGridSession.
 newListTestGridSessionArtifacts ::
   -- | 'sessionArn'
-  Prelude.Text ->
+  Core.Text ->
   ListTestGridSessionArtifacts
 newListTestGridSessionArtifacts pSessionArn_ =
   ListTestGridSessionArtifacts'
     { nextToken =
-        Prelude.Nothing,
-      maxResult = Prelude.Nothing,
-      type' = Prelude.Nothing,
+        Core.Nothing,
+      maxResult = Core.Nothing,
+      type' = Core.Nothing,
       sessionArn = pSessionArn_
     }
 
 -- | Pagination token.
-listTestGridSessionArtifacts_nextToken :: Lens.Lens' ListTestGridSessionArtifacts (Prelude.Maybe Prelude.Text)
+listTestGridSessionArtifacts_nextToken :: Lens.Lens' ListTestGridSessionArtifacts (Core.Maybe Core.Text)
 listTestGridSessionArtifacts_nextToken = Lens.lens (\ListTestGridSessionArtifacts' {nextToken} -> nextToken) (\s@ListTestGridSessionArtifacts' {} a -> s {nextToken = a} :: ListTestGridSessionArtifacts)
 
 -- | The maximum number of results to be returned by a request.
-listTestGridSessionArtifacts_maxResult :: Lens.Lens' ListTestGridSessionArtifacts (Prelude.Maybe Prelude.Natural)
+listTestGridSessionArtifacts_maxResult :: Lens.Lens' ListTestGridSessionArtifacts (Core.Maybe Core.Natural)
 listTestGridSessionArtifacts_maxResult = Lens.lens (\ListTestGridSessionArtifacts' {maxResult} -> maxResult) (\s@ListTestGridSessionArtifacts' {} a -> s {maxResult = a} :: ListTestGridSessionArtifacts)
 
 -- | Limit results to a specified type of artifact.
-listTestGridSessionArtifacts_type :: Lens.Lens' ListTestGridSessionArtifacts (Prelude.Maybe TestGridSessionArtifactCategory)
+listTestGridSessionArtifacts_type :: Lens.Lens' ListTestGridSessionArtifacts (Core.Maybe TestGridSessionArtifactCategory)
 listTestGridSessionArtifacts_type = Lens.lens (\ListTestGridSessionArtifacts' {type'} -> type') (\s@ListTestGridSessionArtifacts' {} a -> s {type' = a} :: ListTestGridSessionArtifacts)
 
 -- | The ARN of a TestGridSession.
-listTestGridSessionArtifacts_sessionArn :: Lens.Lens' ListTestGridSessionArtifacts Prelude.Text
+listTestGridSessionArtifacts_sessionArn :: Lens.Lens' ListTestGridSessionArtifacts Core.Text
 listTestGridSessionArtifacts_sessionArn = Lens.lens (\ListTestGridSessionArtifacts' {sessionArn} -> sessionArn) (\s@ListTestGridSessionArtifacts' {} a -> s {sessionArn = a} :: ListTestGridSessionArtifacts)
 
-instance
-  Prelude.AWSRequest
-    ListTestGridSessionArtifacts
-  where
+instance Core.AWSRequest ListTestGridSessionArtifacts where
   type
-    Rs ListTestGridSessionArtifacts =
+    AWSResponse ListTestGridSessionArtifacts =
       ListTestGridSessionArtifactsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTestGridSessionArtifactsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "artifacts"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "artifacts" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListTestGridSessionArtifacts
+instance Core.Hashable ListTestGridSessionArtifacts
 
-instance Prelude.NFData ListTestGridSessionArtifacts
+instance Core.NFData ListTestGridSessionArtifacts
 
-instance
-  Prelude.ToHeaders
-    ListTestGridSessionArtifacts
-  where
+instance Core.ToHeaders ListTestGridSessionArtifacts where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListTestGridSessionArtifacts" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.ListTestGridSessionArtifacts" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTestGridSessionArtifacts where
+instance Core.ToJSON ListTestGridSessionArtifacts where
   toJSON ListTestGridSessionArtifacts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResult" Prelude..=) Prelude.<$> maxResult,
-            ("type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("sessionArn" Prelude..= sessionArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResult" Core..=) Core.<$> maxResult,
+            ("type" Core..=) Core.<$> type',
+            Core.Just ("sessionArn" Core..= sessionArn)
           ]
       )
 
-instance Prelude.ToPath ListTestGridSessionArtifacts where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTestGridSessionArtifacts where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTestGridSessionArtifacts where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTestGridSessionArtifacts where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTestGridSessionArtifactsResponse' smart constructor.
 data ListTestGridSessionArtifactsResponse = ListTestGridSessionArtifactsResponse'
   { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of test grid session artifacts for a TestGridSession.
-    artifacts :: Prelude.Maybe [TestGridSessionArtifact],
+    artifacts :: Core.Maybe [TestGridSessionArtifact],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTestGridSessionArtifactsResponse' with all optional fields omitted.
@@ -193,28 +180,28 @@ data ListTestGridSessionArtifactsResponse = ListTestGridSessionArtifactsResponse
 -- 'httpStatus', 'listTestGridSessionArtifactsResponse_httpStatus' - The response's http status code.
 newListTestGridSessionArtifactsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTestGridSessionArtifactsResponse
 newListTestGridSessionArtifactsResponse pHttpStatus_ =
   ListTestGridSessionArtifactsResponse'
     { nextToken =
-        Prelude.Nothing,
-      artifacts = Prelude.Nothing,
+        Core.Nothing,
+      artifacts = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Pagination token.
-listTestGridSessionArtifactsResponse_nextToken :: Lens.Lens' ListTestGridSessionArtifactsResponse (Prelude.Maybe Prelude.Text)
+listTestGridSessionArtifactsResponse_nextToken :: Lens.Lens' ListTestGridSessionArtifactsResponse (Core.Maybe Core.Text)
 listTestGridSessionArtifactsResponse_nextToken = Lens.lens (\ListTestGridSessionArtifactsResponse' {nextToken} -> nextToken) (\s@ListTestGridSessionArtifactsResponse' {} a -> s {nextToken = a} :: ListTestGridSessionArtifactsResponse)
 
 -- | A list of test grid session artifacts for a TestGridSession.
-listTestGridSessionArtifactsResponse_artifacts :: Lens.Lens' ListTestGridSessionArtifactsResponse (Prelude.Maybe [TestGridSessionArtifact])
-listTestGridSessionArtifactsResponse_artifacts = Lens.lens (\ListTestGridSessionArtifactsResponse' {artifacts} -> artifacts) (\s@ListTestGridSessionArtifactsResponse' {} a -> s {artifacts = a} :: ListTestGridSessionArtifactsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTestGridSessionArtifactsResponse_artifacts :: Lens.Lens' ListTestGridSessionArtifactsResponse (Core.Maybe [TestGridSessionArtifact])
+listTestGridSessionArtifactsResponse_artifacts = Lens.lens (\ListTestGridSessionArtifactsResponse' {artifacts} -> artifacts) (\s@ListTestGridSessionArtifactsResponse' {} a -> s {artifacts = a} :: ListTestGridSessionArtifactsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTestGridSessionArtifactsResponse_httpStatus :: Lens.Lens' ListTestGridSessionArtifactsResponse Prelude.Int
+listTestGridSessionArtifactsResponse_httpStatus :: Lens.Lens' ListTestGridSessionArtifactsResponse Core.Int
 listTestGridSessionArtifactsResponse_httpStatus = Lens.lens (\ListTestGridSessionArtifactsResponse' {httpStatus} -> httpStatus) (\s@ListTestGridSessionArtifactsResponse' {} a -> s {httpStatus = a} :: ListTestGridSessionArtifactsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListTestGridSessionArtifactsResponse

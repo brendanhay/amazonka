@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Predecessor where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A job run that was used in the predicate of a conditional trigger that
 -- triggered this job run.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPredecessor' smart constructor.
 data Predecessor = Predecessor'
   { -- | The job-run ID of the predecessor job run.
-    runId :: Prelude.Maybe Prelude.Text,
+    runId :: Core.Maybe Core.Text,
     -- | The name of the job definition used by the predecessor job run.
-    jobName :: Prelude.Maybe Prelude.Text
+    jobName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Predecessor' with all optional fields omitted.
@@ -50,28 +49,27 @@ newPredecessor ::
   Predecessor
 newPredecessor =
   Predecessor'
-    { runId = Prelude.Nothing,
-      jobName = Prelude.Nothing
+    { runId = Core.Nothing,
+      jobName = Core.Nothing
     }
 
 -- | The job-run ID of the predecessor job run.
-predecessor_runId :: Lens.Lens' Predecessor (Prelude.Maybe Prelude.Text)
+predecessor_runId :: Lens.Lens' Predecessor (Core.Maybe Core.Text)
 predecessor_runId = Lens.lens (\Predecessor' {runId} -> runId) (\s@Predecessor' {} a -> s {runId = a} :: Predecessor)
 
 -- | The name of the job definition used by the predecessor job run.
-predecessor_jobName :: Lens.Lens' Predecessor (Prelude.Maybe Prelude.Text)
+predecessor_jobName :: Lens.Lens' Predecessor (Core.Maybe Core.Text)
 predecessor_jobName = Lens.lens (\Predecessor' {jobName} -> jobName) (\s@Predecessor' {} a -> s {jobName = a} :: Predecessor)
 
-instance Prelude.FromJSON Predecessor where
+instance Core.FromJSON Predecessor where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Predecessor"
       ( \x ->
           Predecessor'
-            Prelude.<$> (x Prelude..:? "RunId")
-            Prelude.<*> (x Prelude..:? "JobName")
+            Core.<$> (x Core..:? "RunId") Core.<*> (x Core..:? "JobName")
       )
 
-instance Prelude.Hashable Predecessor
+instance Core.Hashable Predecessor
 
-instance Prelude.NFData Predecessor
+instance Core.NFData Predecessor

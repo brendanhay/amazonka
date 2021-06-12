@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.EC2.DeleteNetworkAcl
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +49,11 @@ data DeleteNetworkAcl = DeleteNetworkAcl'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the network ACL.
-    networkAclId :: Prelude.Text
+    networkAclId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkAcl' with all optional fields omitted.
@@ -72,11 +71,11 @@ data DeleteNetworkAcl = DeleteNetworkAcl'
 -- 'networkAclId', 'deleteNetworkAcl_networkAclId' - The ID of the network ACL.
 newDeleteNetworkAcl ::
   -- | 'networkAclId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNetworkAcl
 newDeleteNetworkAcl pNetworkAclId_ =
   DeleteNetworkAcl'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       networkAclId = pNetworkAclId_
     }
 
@@ -84,45 +83,46 @@ newDeleteNetworkAcl pNetworkAclId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteNetworkAcl_dryRun :: Lens.Lens' DeleteNetworkAcl (Prelude.Maybe Prelude.Bool)
+deleteNetworkAcl_dryRun :: Lens.Lens' DeleteNetworkAcl (Core.Maybe Core.Bool)
 deleteNetworkAcl_dryRun = Lens.lens (\DeleteNetworkAcl' {dryRun} -> dryRun) (\s@DeleteNetworkAcl' {} a -> s {dryRun = a} :: DeleteNetworkAcl)
 
 -- | The ID of the network ACL.
-deleteNetworkAcl_networkAclId :: Lens.Lens' DeleteNetworkAcl Prelude.Text
+deleteNetworkAcl_networkAclId :: Lens.Lens' DeleteNetworkAcl Core.Text
 deleteNetworkAcl_networkAclId = Lens.lens (\DeleteNetworkAcl' {networkAclId} -> networkAclId) (\s@DeleteNetworkAcl' {} a -> s {networkAclId = a} :: DeleteNetworkAcl)
 
-instance Prelude.AWSRequest DeleteNetworkAcl where
-  type Rs DeleteNetworkAcl = DeleteNetworkAclResponse
+instance Core.AWSRequest DeleteNetworkAcl where
+  type
+    AWSResponse DeleteNetworkAcl =
+      DeleteNetworkAclResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteNetworkAclResponse'
 
-instance Prelude.Hashable DeleteNetworkAcl
+instance Core.Hashable DeleteNetworkAcl
 
-instance Prelude.NFData DeleteNetworkAcl
+instance Core.NFData DeleteNetworkAcl
 
-instance Prelude.ToHeaders DeleteNetworkAcl where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteNetworkAcl where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteNetworkAcl where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNetworkAcl where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteNetworkAcl where
+instance Core.ToQuery DeleteNetworkAcl where
   toQuery DeleteNetworkAcl' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteNetworkAcl" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "NetworkAclId" Prelude.=: networkAclId
+          Core.=: ("DeleteNetworkAcl" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "NetworkAclId" Core.=: networkAclId
       ]
 
 -- | /See:/ 'newDeleteNetworkAclResponse' smart constructor.
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNetworkAclResponse' with all optional fields omitted.
@@ -133,4 +133,4 @@ newDeleteNetworkAclResponse ::
 newDeleteNetworkAclResponse =
   DeleteNetworkAclResponse'
 
-instance Prelude.NFData DeleteNetworkAclResponse
+instance Core.NFData DeleteNetworkAclResponse

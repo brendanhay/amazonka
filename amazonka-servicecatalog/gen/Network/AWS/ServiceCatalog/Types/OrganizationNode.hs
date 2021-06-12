@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.OrganizationNode where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.OrganizationNodeType
 
 -- | Information about the organization node.
@@ -29,11 +28,11 @@ import Network.AWS.ServiceCatalog.Types.OrganizationNodeType
 -- /See:/ 'newOrganizationNode' smart constructor.
 data OrganizationNode = OrganizationNode'
   { -- | The identifier of the organization node.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The organization node type.
-    type' :: Prelude.Maybe OrganizationNodeType
+    type' :: Core.Maybe OrganizationNodeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationNode' with all optional fields omitted.
@@ -50,37 +49,36 @@ newOrganizationNode ::
   OrganizationNode
 newOrganizationNode =
   OrganizationNode'
-    { value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The identifier of the organization node.
-organizationNode_value :: Lens.Lens' OrganizationNode (Prelude.Maybe Prelude.Text)
+organizationNode_value :: Lens.Lens' OrganizationNode (Core.Maybe Core.Text)
 organizationNode_value = Lens.lens (\OrganizationNode' {value} -> value) (\s@OrganizationNode' {} a -> s {value = a} :: OrganizationNode)
 
 -- | The organization node type.
-organizationNode_type :: Lens.Lens' OrganizationNode (Prelude.Maybe OrganizationNodeType)
+organizationNode_type :: Lens.Lens' OrganizationNode (Core.Maybe OrganizationNodeType)
 organizationNode_type = Lens.lens (\OrganizationNode' {type'} -> type') (\s@OrganizationNode' {} a -> s {type' = a} :: OrganizationNode)
 
-instance Prelude.FromJSON OrganizationNode where
+instance Core.FromJSON OrganizationNode where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OrganizationNode"
       ( \x ->
           OrganizationNode'
-            Prelude.<$> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Value") Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable OrganizationNode
+instance Core.Hashable OrganizationNode
 
-instance Prelude.NFData OrganizationNode
+instance Core.NFData OrganizationNode
 
-instance Prelude.ToJSON OrganizationNode where
+instance Core.ToJSON OrganizationNode where
   toJSON OrganizationNode' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Value" Prelude..=) Prelude.<$> value,
-            ("Type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("Value" Core..=) Core.<$> value,
+            ("Type" Core..=) Core.<$> type'
           ]
       )

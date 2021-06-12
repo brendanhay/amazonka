@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.StorageGateway.DeleteVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -68,9 +67,9 @@ import Network.AWS.StorageGateway.Types
 data DeleteVolume = DeleteVolume'
   { -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
     -- operation to return a list of gateway volumes.
-    volumeARN :: Prelude.Text
+    volumeARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVolume' with all optional fields omitted.
@@ -84,58 +83,56 @@ data DeleteVolume = DeleteVolume'
 -- operation to return a list of gateway volumes.
 newDeleteVolume ::
   -- | 'volumeARN'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVolume
 newDeleteVolume pVolumeARN_ =
   DeleteVolume' {volumeARN = pVolumeARN_}
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-deleteVolume_volumeARN :: Lens.Lens' DeleteVolume Prelude.Text
+deleteVolume_volumeARN :: Lens.Lens' DeleteVolume Core.Text
 deleteVolume_volumeARN = Lens.lens (\DeleteVolume' {volumeARN} -> volumeARN) (\s@DeleteVolume' {} a -> s {volumeARN = a} :: DeleteVolume)
 
-instance Prelude.AWSRequest DeleteVolume where
-  type Rs DeleteVolume = DeleteVolumeResponse
+instance Core.AWSRequest DeleteVolume where
+  type AWSResponse DeleteVolume = DeleteVolumeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteVolumeResponse'
-            Prelude.<$> (x Prelude..?> "VolumeARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VolumeARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteVolume
+instance Core.Hashable DeleteVolume
 
-instance Prelude.NFData DeleteVolume
+instance Core.NFData DeleteVolume
 
-instance Prelude.ToHeaders DeleteVolume where
+instance Core.ToHeaders DeleteVolume where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DeleteVolume" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DeleteVolume" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteVolume where
+instance Core.ToJSON DeleteVolume where
   toJSON DeleteVolume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("VolumeARN" Prelude..= volumeARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("VolumeARN" Core..= volumeARN)]
       )
 
-instance Prelude.ToPath DeleteVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVolume where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteVolume where
+  toQuery = Core.const Core.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the storage
 -- volume that was deleted.
@@ -144,11 +141,11 @@ instance Prelude.ToQuery DeleteVolume where
 data DeleteVolumeResponse = DeleteVolumeResponse'
   { -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
     -- It is the same ARN you provided in the request.
-    volumeARN :: Prelude.Maybe Prelude.Text,
+    volumeARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVolumeResponse' with all optional fields omitted.
@@ -164,21 +161,21 @@ data DeleteVolumeResponse = DeleteVolumeResponse'
 -- 'httpStatus', 'deleteVolumeResponse_httpStatus' - The response's http status code.
 newDeleteVolumeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteVolumeResponse
 newDeleteVolumeResponse pHttpStatus_ =
   DeleteVolumeResponse'
-    { volumeARN = Prelude.Nothing,
+    { volumeARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
 -- It is the same ARN you provided in the request.
-deleteVolumeResponse_volumeARN :: Lens.Lens' DeleteVolumeResponse (Prelude.Maybe Prelude.Text)
+deleteVolumeResponse_volumeARN :: Lens.Lens' DeleteVolumeResponse (Core.Maybe Core.Text)
 deleteVolumeResponse_volumeARN = Lens.lens (\DeleteVolumeResponse' {volumeARN} -> volumeARN) (\s@DeleteVolumeResponse' {} a -> s {volumeARN = a} :: DeleteVolumeResponse)
 
 -- | The response's http status code.
-deleteVolumeResponse_httpStatus :: Lens.Lens' DeleteVolumeResponse Prelude.Int
+deleteVolumeResponse_httpStatus :: Lens.Lens' DeleteVolumeResponse Core.Int
 deleteVolumeResponse_httpStatus = Lens.lens (\DeleteVolumeResponse' {httpStatus} -> httpStatus) (\s@DeleteVolumeResponse' {} a -> s {httpStatus = a} :: DeleteVolumeResponse)
 
-instance Prelude.NFData DeleteVolumeResponse
+instance Core.NFData DeleteVolumeResponse

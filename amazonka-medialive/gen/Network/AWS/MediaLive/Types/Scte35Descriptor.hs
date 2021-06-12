@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Scte35Descriptor where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35DescriptorSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Holds one set of SCTE-35 Descriptor Settings.
 --
@@ -31,7 +30,7 @@ data Scte35Descriptor = Scte35Descriptor'
   { -- | SCTE-35 Descriptor Settings.
     scte35DescriptorSettings :: Scte35DescriptorSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scte35Descriptor' with all optional fields omitted.
@@ -56,26 +55,26 @@ newScte35Descriptor pScte35DescriptorSettings_ =
 scte35Descriptor_scte35DescriptorSettings :: Lens.Lens' Scte35Descriptor Scte35DescriptorSettings
 scte35Descriptor_scte35DescriptorSettings = Lens.lens (\Scte35Descriptor' {scte35DescriptorSettings} -> scte35DescriptorSettings) (\s@Scte35Descriptor' {} a -> s {scte35DescriptorSettings = a} :: Scte35Descriptor)
 
-instance Prelude.FromJSON Scte35Descriptor where
+instance Core.FromJSON Scte35Descriptor where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scte35Descriptor"
       ( \x ->
           Scte35Descriptor'
-            Prelude.<$> (x Prelude..: "scte35DescriptorSettings")
+            Core.<$> (x Core..: "scte35DescriptorSettings")
       )
 
-instance Prelude.Hashable Scte35Descriptor
+instance Core.Hashable Scte35Descriptor
 
-instance Prelude.NFData Scte35Descriptor
+instance Core.NFData Scte35Descriptor
 
-instance Prelude.ToJSON Scte35Descriptor where
+instance Core.ToJSON Scte35Descriptor where
   toJSON Scte35Descriptor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "scte35DescriptorSettings"
-                  Prelude..= scte35DescriptorSettings
+                  Core..= scte35DescriptorSettings
               )
           ]
       )

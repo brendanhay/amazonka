@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.FileFormatConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.JsonConfiguration
 import Network.AWS.IoTAnalytics.Types.ParquetConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the configuration information of file formats. AWS IoT
 -- Analytics data stores support JSON and
@@ -36,11 +35,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newFileFormatConfiguration' smart constructor.
 data FileFormatConfiguration = FileFormatConfiguration'
   { -- | Contains the configuration information of the Parquet format.
-    parquetConfiguration :: Prelude.Maybe ParquetConfiguration,
+    parquetConfiguration :: Core.Maybe ParquetConfiguration,
     -- | Contains the configuration information of the JSON format.
-    jsonConfiguration :: Prelude.Maybe JsonConfiguration
+    jsonConfiguration :: Core.Maybe JsonConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FileFormatConfiguration' with all optional fields omitted.
@@ -58,39 +57,39 @@ newFileFormatConfiguration ::
 newFileFormatConfiguration =
   FileFormatConfiguration'
     { parquetConfiguration =
-        Prelude.Nothing,
-      jsonConfiguration = Prelude.Nothing
+        Core.Nothing,
+      jsonConfiguration = Core.Nothing
     }
 
 -- | Contains the configuration information of the Parquet format.
-fileFormatConfiguration_parquetConfiguration :: Lens.Lens' FileFormatConfiguration (Prelude.Maybe ParquetConfiguration)
+fileFormatConfiguration_parquetConfiguration :: Lens.Lens' FileFormatConfiguration (Core.Maybe ParquetConfiguration)
 fileFormatConfiguration_parquetConfiguration = Lens.lens (\FileFormatConfiguration' {parquetConfiguration} -> parquetConfiguration) (\s@FileFormatConfiguration' {} a -> s {parquetConfiguration = a} :: FileFormatConfiguration)
 
 -- | Contains the configuration information of the JSON format.
-fileFormatConfiguration_jsonConfiguration :: Lens.Lens' FileFormatConfiguration (Prelude.Maybe JsonConfiguration)
+fileFormatConfiguration_jsonConfiguration :: Lens.Lens' FileFormatConfiguration (Core.Maybe JsonConfiguration)
 fileFormatConfiguration_jsonConfiguration = Lens.lens (\FileFormatConfiguration' {jsonConfiguration} -> jsonConfiguration) (\s@FileFormatConfiguration' {} a -> s {jsonConfiguration = a} :: FileFormatConfiguration)
 
-instance Prelude.FromJSON FileFormatConfiguration where
+instance Core.FromJSON FileFormatConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FileFormatConfiguration"
       ( \x ->
           FileFormatConfiguration'
-            Prelude.<$> (x Prelude..:? "parquetConfiguration")
-            Prelude.<*> (x Prelude..:? "jsonConfiguration")
+            Core.<$> (x Core..:? "parquetConfiguration")
+            Core.<*> (x Core..:? "jsonConfiguration")
       )
 
-instance Prelude.Hashable FileFormatConfiguration
+instance Core.Hashable FileFormatConfiguration
 
-instance Prelude.NFData FileFormatConfiguration
+instance Core.NFData FileFormatConfiguration
 
-instance Prelude.ToJSON FileFormatConfiguration where
+instance Core.ToJSON FileFormatConfiguration where
   toJSON FileFormatConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("parquetConfiguration" Prelude..=)
-              Prelude.<$> parquetConfiguration,
-            ("jsonConfiguration" Prelude..=)
-              Prelude.<$> jsonConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("parquetConfiguration" Core..=)
+              Core.<$> parquetConfiguration,
+            ("jsonConfiguration" Core..=)
+              Core.<$> jsonConfiguration
           ]
       )

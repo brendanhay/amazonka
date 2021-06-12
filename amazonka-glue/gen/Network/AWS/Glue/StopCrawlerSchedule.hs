@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.Glue.StopCrawlerSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopCrawlerSchedule' smart constructor.
 data StopCrawlerSchedule = StopCrawlerSchedule'
   { -- | Name of the crawler whose schedule state to set.
-    crawlerName :: Prelude.Text
+    crawlerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopCrawlerSchedule' with all optional fields omitted.
@@ -64,67 +63,61 @@ data StopCrawlerSchedule = StopCrawlerSchedule'
 -- 'crawlerName', 'stopCrawlerSchedule_crawlerName' - Name of the crawler whose schedule state to set.
 newStopCrawlerSchedule ::
   -- | 'crawlerName'
-  Prelude.Text ->
+  Core.Text ->
   StopCrawlerSchedule
 newStopCrawlerSchedule pCrawlerName_ =
   StopCrawlerSchedule' {crawlerName = pCrawlerName_}
 
 -- | Name of the crawler whose schedule state to set.
-stopCrawlerSchedule_crawlerName :: Lens.Lens' StopCrawlerSchedule Prelude.Text
+stopCrawlerSchedule_crawlerName :: Lens.Lens' StopCrawlerSchedule Core.Text
 stopCrawlerSchedule_crawlerName = Lens.lens (\StopCrawlerSchedule' {crawlerName} -> crawlerName) (\s@StopCrawlerSchedule' {} a -> s {crawlerName = a} :: StopCrawlerSchedule)
 
-instance Prelude.AWSRequest StopCrawlerSchedule where
+instance Core.AWSRequest StopCrawlerSchedule where
   type
-    Rs StopCrawlerSchedule =
+    AWSResponse StopCrawlerSchedule =
       StopCrawlerScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopCrawlerScheduleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopCrawlerSchedule
+instance Core.Hashable StopCrawlerSchedule
 
-instance Prelude.NFData StopCrawlerSchedule
+instance Core.NFData StopCrawlerSchedule
 
-instance Prelude.ToHeaders StopCrawlerSchedule where
+instance Core.ToHeaders StopCrawlerSchedule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.StopCrawlerSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.StopCrawlerSchedule" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopCrawlerSchedule where
+instance Core.ToJSON StopCrawlerSchedule where
   toJSON StopCrawlerSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CrawlerName" Prelude..= crawlerName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CrawlerName" Core..= crawlerName)]
       )
 
-instance Prelude.ToPath StopCrawlerSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopCrawlerSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopCrawlerSchedule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopCrawlerSchedule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopCrawlerScheduleResponse' smart constructor.
 data StopCrawlerScheduleResponse = StopCrawlerScheduleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopCrawlerScheduleResponse' with all optional fields omitted.
@@ -137,7 +130,7 @@ data StopCrawlerScheduleResponse = StopCrawlerScheduleResponse'
 -- 'httpStatus', 'stopCrawlerScheduleResponse_httpStatus' - The response's http status code.
 newStopCrawlerScheduleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopCrawlerScheduleResponse
 newStopCrawlerScheduleResponse pHttpStatus_ =
   StopCrawlerScheduleResponse'
@@ -146,7 +139,7 @@ newStopCrawlerScheduleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopCrawlerScheduleResponse_httpStatus :: Lens.Lens' StopCrawlerScheduleResponse Prelude.Int
+stopCrawlerScheduleResponse_httpStatus :: Lens.Lens' StopCrawlerScheduleResponse Core.Int
 stopCrawlerScheduleResponse_httpStatus = Lens.lens (\StopCrawlerScheduleResponse' {httpStatus} -> httpStatus) (\s@StopCrawlerScheduleResponse' {} a -> s {httpStatus = a} :: StopCrawlerScheduleResponse)
 
-instance Prelude.NFData StopCrawlerScheduleResponse
+instance Core.NFData StopCrawlerScheduleResponse

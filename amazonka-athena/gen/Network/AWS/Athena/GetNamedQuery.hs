@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.Athena.GetNamedQuery
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetNamedQuery' smart constructor.
 data GetNamedQuery = GetNamedQuery'
   { -- | The unique ID of the query. Use ListNamedQueries to get query IDs.
-    namedQueryId :: Prelude.Text
+    namedQueryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetNamedQuery' with all optional fields omitted.
@@ -65,66 +64,64 @@ data GetNamedQuery = GetNamedQuery'
 -- 'namedQueryId', 'getNamedQuery_namedQueryId' - The unique ID of the query. Use ListNamedQueries to get query IDs.
 newGetNamedQuery ::
   -- | 'namedQueryId'
-  Prelude.Text ->
+  Core.Text ->
   GetNamedQuery
 newGetNamedQuery pNamedQueryId_ =
   GetNamedQuery' {namedQueryId = pNamedQueryId_}
 
 -- | The unique ID of the query. Use ListNamedQueries to get query IDs.
-getNamedQuery_namedQueryId :: Lens.Lens' GetNamedQuery Prelude.Text
+getNamedQuery_namedQueryId :: Lens.Lens' GetNamedQuery Core.Text
 getNamedQuery_namedQueryId = Lens.lens (\GetNamedQuery' {namedQueryId} -> namedQueryId) (\s@GetNamedQuery' {} a -> s {namedQueryId = a} :: GetNamedQuery)
 
-instance Prelude.AWSRequest GetNamedQuery where
-  type Rs GetNamedQuery = GetNamedQueryResponse
+instance Core.AWSRequest GetNamedQuery where
+  type
+    AWSResponse GetNamedQuery =
+      GetNamedQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetNamedQueryResponse'
-            Prelude.<$> (x Prelude..?> "NamedQuery")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NamedQuery")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetNamedQuery
+instance Core.Hashable GetNamedQuery
 
-instance Prelude.NFData GetNamedQuery
+instance Core.NFData GetNamedQuery
 
-instance Prelude.ToHeaders GetNamedQuery where
+instance Core.ToHeaders GetNamedQuery where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonAthena.GetNamedQuery" :: Prelude.ByteString),
+              Core.=# ("AmazonAthena.GetNamedQuery" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetNamedQuery where
+instance Core.ToJSON GetNamedQuery where
   toJSON GetNamedQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("NamedQueryId" Prelude..= namedQueryId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("NamedQueryId" Core..= namedQueryId)]
       )
 
-instance Prelude.ToPath GetNamedQuery where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetNamedQuery where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetNamedQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetNamedQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetNamedQueryResponse' smart constructor.
 data GetNamedQueryResponse = GetNamedQueryResponse'
   { -- | Information about the query.
-    namedQuery :: Prelude.Maybe NamedQuery,
+    namedQuery :: Core.Maybe NamedQuery,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetNamedQueryResponse' with all optional fields omitted.
@@ -139,21 +136,20 @@ data GetNamedQueryResponse = GetNamedQueryResponse'
 -- 'httpStatus', 'getNamedQueryResponse_httpStatus' - The response's http status code.
 newGetNamedQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetNamedQueryResponse
 newGetNamedQueryResponse pHttpStatus_ =
   GetNamedQueryResponse'
-    { namedQuery =
-        Prelude.Nothing,
+    { namedQuery = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the query.
-getNamedQueryResponse_namedQuery :: Lens.Lens' GetNamedQueryResponse (Prelude.Maybe NamedQuery)
+getNamedQueryResponse_namedQuery :: Lens.Lens' GetNamedQueryResponse (Core.Maybe NamedQuery)
 getNamedQueryResponse_namedQuery = Lens.lens (\GetNamedQueryResponse' {namedQuery} -> namedQuery) (\s@GetNamedQueryResponse' {} a -> s {namedQuery = a} :: GetNamedQueryResponse)
 
 -- | The response's http status code.
-getNamedQueryResponse_httpStatus :: Lens.Lens' GetNamedQueryResponse Prelude.Int
+getNamedQueryResponse_httpStatus :: Lens.Lens' GetNamedQueryResponse Core.Int
 getNamedQueryResponse_httpStatus = Lens.lens (\GetNamedQueryResponse' {httpStatus} -> httpStatus) (\s@GetNamedQueryResponse' {} a -> s {httpStatus = a} :: GetNamedQueryResponse)
 
-instance Prelude.NFData GetNamedQueryResponse
+instance Core.NFData GetNamedQueryResponse

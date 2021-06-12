@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.WorkDocs.DeleteNotificationSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -46,11 +45,11 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newDeleteNotificationSubscription' smart constructor.
 data DeleteNotificationSubscription = DeleteNotificationSubscription'
   { -- | The ID of the subscription.
-    subscriptionId :: Prelude.Text,
+    subscriptionId :: Core.Text,
     -- | The ID of the organization.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationSubscription' with all optional fields omitted.
@@ -65,9 +64,9 @@ data DeleteNotificationSubscription = DeleteNotificationSubscription'
 -- 'organizationId', 'deleteNotificationSubscription_organizationId' - The ID of the organization.
 newDeleteNotificationSubscription ::
   -- | 'subscriptionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNotificationSubscription
 newDeleteNotificationSubscription
   pSubscriptionId_
@@ -79,70 +78,58 @@ newDeleteNotificationSubscription
       }
 
 -- | The ID of the subscription.
-deleteNotificationSubscription_subscriptionId :: Lens.Lens' DeleteNotificationSubscription Prelude.Text
+deleteNotificationSubscription_subscriptionId :: Lens.Lens' DeleteNotificationSubscription Core.Text
 deleteNotificationSubscription_subscriptionId = Lens.lens (\DeleteNotificationSubscription' {subscriptionId} -> subscriptionId) (\s@DeleteNotificationSubscription' {} a -> s {subscriptionId = a} :: DeleteNotificationSubscription)
 
 -- | The ID of the organization.
-deleteNotificationSubscription_organizationId :: Lens.Lens' DeleteNotificationSubscription Prelude.Text
+deleteNotificationSubscription_organizationId :: Lens.Lens' DeleteNotificationSubscription Core.Text
 deleteNotificationSubscription_organizationId = Lens.lens (\DeleteNotificationSubscription' {organizationId} -> organizationId) (\s@DeleteNotificationSubscription' {} a -> s {organizationId = a} :: DeleteNotificationSubscription)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteNotificationSubscription
   where
   type
-    Rs DeleteNotificationSubscription =
+    AWSResponse DeleteNotificationSubscription =
       DeleteNotificationSubscriptionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteNotificationSubscriptionResponse'
 
-instance
-  Prelude.Hashable
-    DeleteNotificationSubscription
+instance Core.Hashable DeleteNotificationSubscription
+
+instance Core.NFData DeleteNotificationSubscription
 
 instance
-  Prelude.NFData
-    DeleteNotificationSubscription
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteNotificationSubscription
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DeleteNotificationSubscription
-  where
+instance Core.ToPath DeleteNotificationSubscription where
   toPath DeleteNotificationSubscription' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/api/v1/organizations/",
-        Prelude.toBS organizationId,
+        Core.toBS organizationId,
         "/subscriptions/",
-        Prelude.toBS subscriptionId
+        Core.toBS subscriptionId
       ]
 
-instance
-  Prelude.ToQuery
-    DeleteNotificationSubscription
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteNotificationSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNotificationSubscriptionResponse' smart constructor.
 data DeleteNotificationSubscriptionResponse = DeleteNotificationSubscriptionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationSubscriptionResponse' with all optional fields omitted.
@@ -154,5 +141,5 @@ newDeleteNotificationSubscriptionResponse =
   DeleteNotificationSubscriptionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteNotificationSubscriptionResponse

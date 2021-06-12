@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.Content where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents textual data, plus an optional character set specification.
 --
@@ -33,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newContent' smart constructor.
 data Content = Content'
   { -- | The character set of the content.
-    charset :: Prelude.Maybe Prelude.Text,
+    charset :: Core.Maybe Core.Text,
     -- | The textual data of the content.
-    data' :: Prelude.Text
+    data' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Content' with all optional fields omitted.
@@ -52,26 +51,24 @@ data Content = Content'
 -- 'data'', 'content_data' - The textual data of the content.
 newContent ::
   -- | 'data''
-  Prelude.Text ->
+  Core.Text ->
   Content
 newContent pData_ =
-  Content' {charset = Prelude.Nothing, data' = pData_}
+  Content' {charset = Core.Nothing, data' = pData_}
 
 -- | The character set of the content.
-content_charset :: Lens.Lens' Content (Prelude.Maybe Prelude.Text)
+content_charset :: Lens.Lens' Content (Core.Maybe Core.Text)
 content_charset = Lens.lens (\Content' {charset} -> charset) (\s@Content' {} a -> s {charset = a} :: Content)
 
 -- | The textual data of the content.
-content_data :: Lens.Lens' Content Prelude.Text
+content_data :: Lens.Lens' Content Core.Text
 content_data = Lens.lens (\Content' {data'} -> data') (\s@Content' {} a -> s {data' = a} :: Content)
 
-instance Prelude.Hashable Content
+instance Core.Hashable Content
 
-instance Prelude.NFData Content
+instance Core.NFData Content
 
-instance Prelude.ToQuery Content where
+instance Core.ToQuery Content where
   toQuery Content' {..} =
-    Prelude.mconcat
-      [ "Charset" Prelude.=: charset,
-        "Data" Prelude.=: data'
-      ]
+    Core.mconcat
+      ["Charset" Core.=: charset, "Data" Core.=: data']

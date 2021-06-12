@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SNS.GetSubscriptionAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -51,9 +50,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newGetSubscriptionAttributes' smart constructor.
 data GetSubscriptionAttributes = GetSubscriptionAttributes'
   { -- | The ARN of the subscription whose properties you want to get.
-    subscriptionArn :: Prelude.Text
+    subscriptionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionAttributes' with all optional fields omitted.
@@ -66,7 +65,7 @@ data GetSubscriptionAttributes = GetSubscriptionAttributes'
 -- 'subscriptionArn', 'getSubscriptionAttributes_subscriptionArn' - The ARN of the subscription whose properties you want to get.
 newGetSubscriptionAttributes ::
   -- | 'subscriptionArn'
-  Prelude.Text ->
+  Core.Text ->
   GetSubscriptionAttributes
 newGetSubscriptionAttributes pSubscriptionArn_ =
   GetSubscriptionAttributes'
@@ -75,12 +74,12 @@ newGetSubscriptionAttributes pSubscriptionArn_ =
     }
 
 -- | The ARN of the subscription whose properties you want to get.
-getSubscriptionAttributes_subscriptionArn :: Lens.Lens' GetSubscriptionAttributes Prelude.Text
+getSubscriptionAttributes_subscriptionArn :: Lens.Lens' GetSubscriptionAttributes Core.Text
 getSubscriptionAttributes_subscriptionArn = Lens.lens (\GetSubscriptionAttributes' {subscriptionArn} -> subscriptionArn) (\s@GetSubscriptionAttributes' {} a -> s {subscriptionArn = a} :: GetSubscriptionAttributes)
 
-instance Prelude.AWSRequest GetSubscriptionAttributes where
+instance Core.AWSRequest GetSubscriptionAttributes where
   type
-    Rs GetSubscriptionAttributes =
+    AWSResponse GetSubscriptionAttributes =
       GetSubscriptionAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -88,32 +87,29 @@ instance Prelude.AWSRequest GetSubscriptionAttributes where
       "GetSubscriptionAttributesResult"
       ( \s h x ->
           GetSubscriptionAttributesResponse'
-            Prelude.<$> ( x Prelude..@? "Attributes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLMap "entry" "key" "value")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSubscriptionAttributes
+instance Core.Hashable GetSubscriptionAttributes
 
-instance Prelude.NFData GetSubscriptionAttributes
+instance Core.NFData GetSubscriptionAttributes
 
-instance Prelude.ToHeaders GetSubscriptionAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetSubscriptionAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetSubscriptionAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSubscriptionAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSubscriptionAttributes where
+instance Core.ToQuery GetSubscriptionAttributes where
   toQuery GetSubscriptionAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetSubscriptionAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "SubscriptionArn" Prelude.=: subscriptionArn
+          Core.=: ("GetSubscriptionAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "SubscriptionArn" Core.=: subscriptionArn
       ]
 
 -- | Response for GetSubscriptionAttributes action.
@@ -174,11 +170,11 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     --     see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionAttributesResponse' with all optional fields omitted.
@@ -246,12 +242,12 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 -- 'httpStatus', 'getSubscriptionAttributesResponse_httpStatus' - The response's http status code.
 newGetSubscriptionAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSubscriptionAttributesResponse
 newGetSubscriptionAttributesResponse pHttpStatus_ =
   GetSubscriptionAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -309,13 +305,13 @@ newGetSubscriptionAttributesResponse pHttpStatus_ =
 --     see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
-getSubscriptionAttributesResponse_attributes :: Lens.Lens' GetSubscriptionAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSubscriptionAttributesResponse_attributes = Lens.lens (\GetSubscriptionAttributesResponse' {attributes} -> attributes) (\s@GetSubscriptionAttributesResponse' {} a -> s {attributes = a} :: GetSubscriptionAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSubscriptionAttributesResponse_attributes :: Lens.Lens' GetSubscriptionAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getSubscriptionAttributesResponse_attributes = Lens.lens (\GetSubscriptionAttributesResponse' {attributes} -> attributes) (\s@GetSubscriptionAttributesResponse' {} a -> s {attributes = a} :: GetSubscriptionAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getSubscriptionAttributesResponse_httpStatus :: Lens.Lens' GetSubscriptionAttributesResponse Prelude.Int
+getSubscriptionAttributesResponse_httpStatus :: Lens.Lens' GetSubscriptionAttributesResponse Core.Int
 getSubscriptionAttributesResponse_httpStatus = Lens.lens (\GetSubscriptionAttributesResponse' {httpStatus} -> httpStatus) (\s@GetSubscriptionAttributesResponse' {} a -> s {httpStatus = a} :: GetSubscriptionAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetSubscriptionAttributesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowExecutionTerminatedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause
 
@@ -30,14 +29,14 @@ import Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause
 -- /See:/ 'newWorkflowExecutionTerminatedEventAttributes' smart constructor.
 data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEventAttributes'
   { -- | The details provided for the termination.
-    details :: Prelude.Maybe Prelude.Text,
+    details :: Core.Maybe Core.Text,
     -- | The reason provided for the termination.
-    reason :: Prelude.Maybe Prelude.Text,
+    reason :: Core.Maybe Core.Text,
     -- | If set, indicates that the workflow execution was automatically
     -- terminated, and specifies the cause. This happens if the parent workflow
     -- execution times out or is terminated and the child policy is set to
     -- terminate child executions.
-    cause :: Prelude.Maybe WorkflowExecutionTerminatedCause,
+    cause :: Core.Maybe WorkflowExecutionTerminatedCause,
     -- | The policy used for the child workflow executions of this workflow
     -- execution.
     --
@@ -54,7 +53,7 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
     --     run.
     childPolicy :: ChildPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionTerminatedEventAttributes' with all optional fields omitted.
@@ -95,25 +94,25 @@ newWorkflowExecutionTerminatedEventAttributes
   pChildPolicy_ =
     WorkflowExecutionTerminatedEventAttributes'
       { details =
-          Prelude.Nothing,
-        reason = Prelude.Nothing,
-        cause = Prelude.Nothing,
+          Core.Nothing,
+        reason = Core.Nothing,
+        cause = Core.Nothing,
         childPolicy = pChildPolicy_
       }
 
 -- | The details provided for the termination.
-workflowExecutionTerminatedEventAttributes_details :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionTerminatedEventAttributes_details :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Core.Maybe Core.Text)
 workflowExecutionTerminatedEventAttributes_details = Lens.lens (\WorkflowExecutionTerminatedEventAttributes' {details} -> details) (\s@WorkflowExecutionTerminatedEventAttributes' {} a -> s {details = a} :: WorkflowExecutionTerminatedEventAttributes)
 
 -- | The reason provided for the termination.
-workflowExecutionTerminatedEventAttributes_reason :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionTerminatedEventAttributes_reason :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Core.Maybe Core.Text)
 workflowExecutionTerminatedEventAttributes_reason = Lens.lens (\WorkflowExecutionTerminatedEventAttributes' {reason} -> reason) (\s@WorkflowExecutionTerminatedEventAttributes' {} a -> s {reason = a} :: WorkflowExecutionTerminatedEventAttributes)
 
 -- | If set, indicates that the workflow execution was automatically
 -- terminated, and specifies the cause. This happens if the parent workflow
 -- execution times out or is terminated and the child policy is set to
 -- terminate child executions.
-workflowExecutionTerminatedEventAttributes_cause :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Prelude.Maybe WorkflowExecutionTerminatedCause)
+workflowExecutionTerminatedEventAttributes_cause :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Core.Maybe WorkflowExecutionTerminatedCause)
 workflowExecutionTerminatedEventAttributes_cause = Lens.lens (\WorkflowExecutionTerminatedEventAttributes' {cause} -> cause) (\s@WorkflowExecutionTerminatedEventAttributes' {} a -> s {cause = a} :: WorkflowExecutionTerminatedEventAttributes)
 
 -- | The policy used for the child workflow executions of this workflow
@@ -134,24 +133,24 @@ workflowExecutionTerminatedEventAttributes_childPolicy :: Lens.Lens' WorkflowExe
 workflowExecutionTerminatedEventAttributes_childPolicy = Lens.lens (\WorkflowExecutionTerminatedEventAttributes' {childPolicy} -> childPolicy) (\s@WorkflowExecutionTerminatedEventAttributes' {} a -> s {childPolicy = a} :: WorkflowExecutionTerminatedEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     WorkflowExecutionTerminatedEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowExecutionTerminatedEventAttributes"
       ( \x ->
           WorkflowExecutionTerminatedEventAttributes'
-            Prelude.<$> (x Prelude..:? "details")
-              Prelude.<*> (x Prelude..:? "reason")
-              Prelude.<*> (x Prelude..:? "cause")
-              Prelude.<*> (x Prelude..: "childPolicy")
+            Core.<$> (x Core..:? "details")
+            Core.<*> (x Core..:? "reason")
+            Core.<*> (x Core..:? "cause")
+            Core.<*> (x Core..: "childPolicy")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     WorkflowExecutionTerminatedEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     WorkflowExecutionTerminatedEventAttributes

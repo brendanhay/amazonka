@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.Bias where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MetricsSource
 
 -- | Contains bias metrics for a model.
@@ -29,9 +28,9 @@ import Network.AWS.SageMaker.Types.MetricsSource
 -- /See:/ 'newBias' smart constructor.
 data Bias = Bias'
   { -- | The bias report for a model
-    report :: Prelude.Maybe MetricsSource
+    report :: Core.Maybe MetricsSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Bias' with all optional fields omitted.
@@ -44,25 +43,23 @@ data Bias = Bias'
 -- 'report', 'bias_report' - The bias report for a model
 newBias ::
   Bias
-newBias = Bias' {report = Prelude.Nothing}
+newBias = Bias' {report = Core.Nothing}
 
 -- | The bias report for a model
-bias_report :: Lens.Lens' Bias (Prelude.Maybe MetricsSource)
+bias_report :: Lens.Lens' Bias (Core.Maybe MetricsSource)
 bias_report = Lens.lens (\Bias' {report} -> report) (\s@Bias' {} a -> s {report = a} :: Bias)
 
-instance Prelude.FromJSON Bias where
+instance Core.FromJSON Bias where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Bias"
-      (\x -> Bias' Prelude.<$> (x Prelude..:? "Report"))
+      (\x -> Bias' Core.<$> (x Core..:? "Report"))
 
-instance Prelude.Hashable Bias
+instance Core.Hashable Bias
 
-instance Prelude.NFData Bias
+instance Core.NFData Bias
 
-instance Prelude.ToJSON Bias where
+instance Core.ToJSON Bias where
   toJSON Bias' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Report" Prelude..=) Prelude.<$> report]
-      )
+    Core.object
+      (Core.catMaybes [("Report" Core..=) Core.<$> report])

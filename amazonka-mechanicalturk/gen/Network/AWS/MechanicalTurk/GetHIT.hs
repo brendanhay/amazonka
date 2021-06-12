@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.MechanicalTurk.GetHIT
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetHIT' smart constructor.
 data GetHIT = GetHIT'
   { -- | The ID of the HIT to be retrieved.
-    hITId :: Prelude.Text
+    hITId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetHIT' with all optional fields omitted.
@@ -64,65 +63,61 @@ data GetHIT = GetHIT'
 -- 'hITId', 'getHIT_hITId' - The ID of the HIT to be retrieved.
 newGetHIT ::
   -- | 'hITId'
-  Prelude.Text ->
+  Core.Text ->
   GetHIT
 newGetHIT pHITId_ = GetHIT' {hITId = pHITId_}
 
 -- | The ID of the HIT to be retrieved.
-getHIT_hITId :: Lens.Lens' GetHIT Prelude.Text
+getHIT_hITId :: Lens.Lens' GetHIT Core.Text
 getHIT_hITId = Lens.lens (\GetHIT' {hITId} -> hITId) (\s@GetHIT' {} a -> s {hITId = a} :: GetHIT)
 
-instance Prelude.AWSRequest GetHIT where
-  type Rs GetHIT = GetHITResponse
+instance Core.AWSRequest GetHIT where
+  type AWSResponse GetHIT = GetHITResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetHITResponse'
-            Prelude.<$> (x Prelude..?> "HIT")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "HIT")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetHIT
+instance Core.Hashable GetHIT
 
-instance Prelude.NFData GetHIT
+instance Core.NFData GetHIT
 
-instance Prelude.ToHeaders GetHIT where
+instance Core.ToHeaders GetHIT where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.GetHIT" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.GetHIT" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetHIT where
+instance Core.ToJSON GetHIT where
   toJSON GetHIT' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("HITId" Prelude..= hITId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("HITId" Core..= hITId)])
 
-instance Prelude.ToPath GetHIT where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetHIT where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetHIT where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetHIT where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetHITResponse' smart constructor.
 data GetHITResponse = GetHITResponse'
   { -- | Contains the requested HIT data.
-    hit :: Prelude.Maybe HIT,
+    hit :: Core.Maybe HIT,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetHITResponse' with all optional fields omitted.
@@ -137,20 +132,20 @@ data GetHITResponse = GetHITResponse'
 -- 'httpStatus', 'getHITResponse_httpStatus' - The response's http status code.
 newGetHITResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetHITResponse
 newGetHITResponse pHttpStatus_ =
   GetHITResponse'
-    { hit = Prelude.Nothing,
+    { hit = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the requested HIT data.
-getHITResponse_hit :: Lens.Lens' GetHITResponse (Prelude.Maybe HIT)
+getHITResponse_hit :: Lens.Lens' GetHITResponse (Core.Maybe HIT)
 getHITResponse_hit = Lens.lens (\GetHITResponse' {hit} -> hit) (\s@GetHITResponse' {} a -> s {hit = a} :: GetHITResponse)
 
 -- | The response's http status code.
-getHITResponse_httpStatus :: Lens.Lens' GetHITResponse Prelude.Int
+getHITResponse_httpStatus :: Lens.Lens' GetHITResponse Core.Int
 getHITResponse_httpStatus = Lens.lens (\GetHITResponse' {httpStatus} -> httpStatus) (\s@GetHITResponse' {} a -> s {httpStatus = a} :: GetHITResponse)
 
-instance Prelude.NFData GetHITResponse
+instance Core.NFData GetHITResponse

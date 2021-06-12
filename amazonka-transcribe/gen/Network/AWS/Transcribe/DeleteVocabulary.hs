@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Transcribe.DeleteVocabulary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -45,9 +44,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newDeleteVocabulary' smart constructor.
 data DeleteVocabulary = DeleteVocabulary'
   { -- | The name of the vocabulary to delete.
-    vocabularyName :: Prelude.Text
+    vocabularyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVocabulary' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteVocabulary = DeleteVocabulary'
 -- 'vocabularyName', 'deleteVocabulary_vocabularyName' - The name of the vocabulary to delete.
 newDeleteVocabulary ::
   -- | 'vocabularyName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVocabulary
 newDeleteVocabulary pVocabularyName_ =
   DeleteVocabulary'
@@ -69,54 +68,52 @@ newDeleteVocabulary pVocabularyName_ =
     }
 
 -- | The name of the vocabulary to delete.
-deleteVocabulary_vocabularyName :: Lens.Lens' DeleteVocabulary Prelude.Text
+deleteVocabulary_vocabularyName :: Lens.Lens' DeleteVocabulary Core.Text
 deleteVocabulary_vocabularyName = Lens.lens (\DeleteVocabulary' {vocabularyName} -> vocabularyName) (\s@DeleteVocabulary' {} a -> s {vocabularyName = a} :: DeleteVocabulary)
 
-instance Prelude.AWSRequest DeleteVocabulary where
-  type Rs DeleteVocabulary = DeleteVocabularyResponse
+instance Core.AWSRequest DeleteVocabulary where
+  type
+    AWSResponse DeleteVocabulary =
+      DeleteVocabularyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteVocabularyResponse'
 
-instance Prelude.Hashable DeleteVocabulary
+instance Core.Hashable DeleteVocabulary
 
-instance Prelude.NFData DeleteVocabulary
+instance Core.NFData DeleteVocabulary
 
-instance Prelude.ToHeaders DeleteVocabulary where
+instance Core.ToHeaders DeleteVocabulary where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.DeleteVocabulary" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Transcribe.DeleteVocabulary" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteVocabulary where
+instance Core.ToJSON DeleteVocabulary where
   toJSON DeleteVocabulary' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("VocabularyName" Prelude..= vocabularyName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("VocabularyName" Core..= vocabularyName)
           ]
       )
 
-instance Prelude.ToPath DeleteVocabulary where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVocabulary where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVocabulary where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteVocabulary where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteVocabularyResponse' smart constructor.
 data DeleteVocabularyResponse = DeleteVocabularyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVocabularyResponse' with all optional fields omitted.
@@ -127,4 +124,4 @@ newDeleteVocabularyResponse ::
 newDeleteVocabularyResponse =
   DeleteVocabularyResponse'
 
-instance Prelude.NFData DeleteVocabularyResponse
+instance Core.NFData DeleteVocabularyResponse

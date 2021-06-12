@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.FeatureDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.FeatureType
 
 -- | A list of features. You must include @FeatureName@ and @FeatureType@.
@@ -31,13 +30,13 @@ import Network.AWS.SageMaker.Types.FeatureType
 data FeatureDefinition = FeatureDefinition'
   { -- | The value type of a feature. Valid values are Integral, Fractional, or
     -- String.
-    featureType :: Prelude.Maybe FeatureType,
+    featureType :: Core.Maybe FeatureType,
     -- | The name of a feature. The type must be a string. @FeatureName@ cannot
     -- be any of the following: @is_deleted@, @write_time@,
     -- @api_invocation_time@.
-    featureName :: Prelude.Maybe Prelude.Text
+    featureName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FeatureDefinition' with all optional fields omitted.
@@ -57,40 +56,40 @@ newFeatureDefinition ::
   FeatureDefinition
 newFeatureDefinition =
   FeatureDefinition'
-    { featureType = Prelude.Nothing,
-      featureName = Prelude.Nothing
+    { featureType = Core.Nothing,
+      featureName = Core.Nothing
     }
 
 -- | The value type of a feature. Valid values are Integral, Fractional, or
 -- String.
-featureDefinition_featureType :: Lens.Lens' FeatureDefinition (Prelude.Maybe FeatureType)
+featureDefinition_featureType :: Lens.Lens' FeatureDefinition (Core.Maybe FeatureType)
 featureDefinition_featureType = Lens.lens (\FeatureDefinition' {featureType} -> featureType) (\s@FeatureDefinition' {} a -> s {featureType = a} :: FeatureDefinition)
 
 -- | The name of a feature. The type must be a string. @FeatureName@ cannot
 -- be any of the following: @is_deleted@, @write_time@,
 -- @api_invocation_time@.
-featureDefinition_featureName :: Lens.Lens' FeatureDefinition (Prelude.Maybe Prelude.Text)
+featureDefinition_featureName :: Lens.Lens' FeatureDefinition (Core.Maybe Core.Text)
 featureDefinition_featureName = Lens.lens (\FeatureDefinition' {featureName} -> featureName) (\s@FeatureDefinition' {} a -> s {featureName = a} :: FeatureDefinition)
 
-instance Prelude.FromJSON FeatureDefinition where
+instance Core.FromJSON FeatureDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FeatureDefinition"
       ( \x ->
           FeatureDefinition'
-            Prelude.<$> (x Prelude..:? "FeatureType")
-            Prelude.<*> (x Prelude..:? "FeatureName")
+            Core.<$> (x Core..:? "FeatureType")
+            Core.<*> (x Core..:? "FeatureName")
       )
 
-instance Prelude.Hashable FeatureDefinition
+instance Core.Hashable FeatureDefinition
 
-instance Prelude.NFData FeatureDefinition
+instance Core.NFData FeatureDefinition
 
-instance Prelude.ToJSON FeatureDefinition where
+instance Core.ToJSON FeatureDefinition where
   toJSON FeatureDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FeatureType" Prelude..=) Prelude.<$> featureType,
-            ("FeatureName" Prelude..=) Prelude.<$> featureName
+    Core.object
+      ( Core.catMaybes
+          [ ("FeatureType" Core..=) Core.<$> featureType,
+            ("FeatureName" Core..=) Core.<$> featureName
           ]
       )

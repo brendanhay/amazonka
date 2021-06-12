@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,8 +71,8 @@ module Network.AWS.StorageGateway.CreateNFSFileShare
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -88,28 +87,28 @@ data CreateNFSFileShare = CreateNFSFileShare'
     --
     -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
     -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-    defaultStorageClass :: Prelude.Maybe Prelude.Text,
+    defaultStorageClass :: Core.Maybe Core.Text,
     -- | The name of the file share. Optional.
     --
     -- @FileShareName@ must be set if an S3 prefix name is set in
     -- @LocationARN@.
-    fileShareName :: Prelude.Maybe Prelude.Text,
+    fileShareName :: Core.Maybe Core.Text,
     -- | A value that enables guessing of the MIME type for uploaded objects
     -- based on file extensions. Set this value to @true@ to enable MIME type
     -- guessing, otherwise set to @false@. The default value is @true@.
     --
     -- Valid Values: @true@ | @false@
-    guessMIMETypeEnabled :: Prelude.Maybe Prelude.Bool,
+    guessMIMETypeEnabled :: Core.Maybe Core.Bool,
     -- | A value that sets the write status of a file share. Set this value to
     -- @true@ to set the write status to read-only, otherwise set to @false@.
     --
     -- Valid Values: @true@ | @false@
-    readOnly :: Prelude.Maybe Prelude.Bool,
+    readOnly :: Core.Maybe Core.Bool,
     -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
     -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
-    kmsEncrypted :: Prelude.Maybe Prelude.Bool,
+    kmsEncrypted :: Core.Maybe Core.Bool,
     -- | A value that maps a user to anonymous user.
     --
     -- Valid values are the following:
@@ -119,14 +118,14 @@ data CreateNFSFileShare = CreateNFSFileShare'
     -- -   @NoSquash@: No one is mapped to anonymous user.
     --
     -- -   @AllSquash@: Everyone is mapped to anonymous user.
-    squash :: Prelude.Maybe Prelude.Text,
+    squash :: Core.Maybe Core.Text,
     -- | The notification policy of the file share.
-    notificationPolicy :: Prelude.Maybe Prelude.Text,
+    notificationPolicy :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
     -- used for Amazon S3 server-side encryption. Storage Gateway does not
     -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
     -- is @true@. Optional.
-    kmsKey :: Prelude.Maybe Prelude.Text,
+    kmsKey :: Core.Maybe Core.Text,
     -- | A list of up to 50 tags that can be assigned to the NFS file share. Each
     -- tag is a key-value pair.
     --
@@ -134,18 +133,18 @@ data CreateNFSFileShare = CreateNFSFileShare'
     -- representable in UTF-8 format, and the following special characters: + -
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Refresh cache information.
-    cacheAttributes :: Prelude.Maybe CacheAttributes,
+    cacheAttributes :: Core.Maybe CacheAttributes,
     -- | The list of clients that are allowed to access the file gateway. The
     -- list must contain either valid IP addresses or valid CIDR blocks.
-    clientList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    clientList :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | A value that sets the access control list (ACL) permission for objects
     -- in the S3 bucket that a file gateway puts objects into. The default
     -- value is @private@.
-    objectACL :: Prelude.Maybe ObjectACL,
+    objectACL :: Core.Maybe ObjectACL,
     -- | File share default values. Optional.
-    nFSFileShareDefaults :: Prelude.Maybe NFSFileShareDefaults,
+    nFSFileShareDefaults :: Core.Maybe NFSFileShareDefaults,
     -- | A value that sets who pays the cost of the request and the cost
     -- associated with data download from the S3 bucket. If this value is set
     -- to @true@, the requester pays the costs; otherwise, the S3 bucket owner
@@ -156,21 +155,21 @@ data CreateNFSFileShare = CreateNFSFileShare'
     -- as the S3 bucket configuration.
     --
     -- Valid Values: @true@ | @false@
-    requesterPays :: Prelude.Maybe Prelude.Bool,
+    requesterPays :: Core.Maybe Core.Bool,
     -- | A unique string value that you supply that is used by file gateway to
     -- ensure idempotent file share creation.
-    clientToken :: Prelude.Text,
+    clientToken :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the file gateway on which you want to
     -- create a file share.
-    gatewayARN :: Prelude.Text,
+    gatewayARN :: Core.Text,
     -- | The ARN of the AWS Identity and Access Management (IAM) role that a file
     -- gateway assumes when it accesses the underlying storage.
-    role' :: Prelude.Text,
+    role' :: Core.Text,
     -- | The ARN of the backend storage used for storing file data. A prefix name
     -- can be added to the S3 bucket name. It must end with a \"\/\".
-    locationARN :: Prelude.Text
+    locationARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNFSFileShare' with all optional fields omitted.
@@ -268,13 +267,13 @@ data CreateNFSFileShare = CreateNFSFileShare'
 -- can be added to the S3 bucket name. It must end with a \"\/\".
 newCreateNFSFileShare ::
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'role''
-  Prelude.Text ->
+  Core.Text ->
   -- | 'locationARN'
-  Prelude.Text ->
+  Core.Text ->
   CreateNFSFileShare
 newCreateNFSFileShare
   pClientToken_
@@ -283,20 +282,20 @@ newCreateNFSFileShare
   pLocationARN_ =
     CreateNFSFileShare'
       { defaultStorageClass =
-          Prelude.Nothing,
-        fileShareName = Prelude.Nothing,
-        guessMIMETypeEnabled = Prelude.Nothing,
-        readOnly = Prelude.Nothing,
-        kmsEncrypted = Prelude.Nothing,
-        squash = Prelude.Nothing,
-        notificationPolicy = Prelude.Nothing,
-        kmsKey = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        cacheAttributes = Prelude.Nothing,
-        clientList = Prelude.Nothing,
-        objectACL = Prelude.Nothing,
-        nFSFileShareDefaults = Prelude.Nothing,
-        requesterPays = Prelude.Nothing,
+          Core.Nothing,
+        fileShareName = Core.Nothing,
+        guessMIMETypeEnabled = Core.Nothing,
+        readOnly = Core.Nothing,
+        kmsEncrypted = Core.Nothing,
+        squash = Core.Nothing,
+        notificationPolicy = Core.Nothing,
+        kmsKey = Core.Nothing,
+        tags = Core.Nothing,
+        cacheAttributes = Core.Nothing,
+        clientList = Core.Nothing,
+        objectACL = Core.Nothing,
+        nFSFileShareDefaults = Core.Nothing,
+        requesterPays = Core.Nothing,
         clientToken = pClientToken_,
         gatewayARN = pGatewayARN_,
         role' = pRole_,
@@ -309,14 +308,14 @@ newCreateNFSFileShare
 --
 -- Valid Values: @S3_STANDARD@ | @S3_INTELLIGENT_TIERING@ |
 -- @S3_STANDARD_IA@ | @S3_ONEZONE_IA@
-createNFSFileShare_defaultStorageClass :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_defaultStorageClass :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Text)
 createNFSFileShare_defaultStorageClass = Lens.lens (\CreateNFSFileShare' {defaultStorageClass} -> defaultStorageClass) (\s@CreateNFSFileShare' {} a -> s {defaultStorageClass = a} :: CreateNFSFileShare)
 
 -- | The name of the file share. Optional.
 --
 -- @FileShareName@ must be set if an S3 prefix name is set in
 -- @LocationARN@.
-createNFSFileShare_fileShareName :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_fileShareName :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Text)
 createNFSFileShare_fileShareName = Lens.lens (\CreateNFSFileShare' {fileShareName} -> fileShareName) (\s@CreateNFSFileShare' {} a -> s {fileShareName = a} :: CreateNFSFileShare)
 
 -- | A value that enables guessing of the MIME type for uploaded objects
@@ -324,21 +323,21 @@ createNFSFileShare_fileShareName = Lens.lens (\CreateNFSFileShare' {fileShareNam
 -- guessing, otherwise set to @false@. The default value is @true@.
 --
 -- Valid Values: @true@ | @false@
-createNFSFileShare_guessMIMETypeEnabled :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
+createNFSFileShare_guessMIMETypeEnabled :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
 createNFSFileShare_guessMIMETypeEnabled = Lens.lens (\CreateNFSFileShare' {guessMIMETypeEnabled} -> guessMIMETypeEnabled) (\s@CreateNFSFileShare' {} a -> s {guessMIMETypeEnabled = a} :: CreateNFSFileShare)
 
 -- | A value that sets the write status of a file share. Set this value to
 -- @true@ to set the write status to read-only, otherwise set to @false@.
 --
 -- Valid Values: @true@ | @false@
-createNFSFileShare_readOnly :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
+createNFSFileShare_readOnly :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
 createNFSFileShare_readOnly = Lens.lens (\CreateNFSFileShare' {readOnly} -> readOnly) (\s@CreateNFSFileShare' {} a -> s {readOnly = a} :: CreateNFSFileShare)
 
 -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
 -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
-createNFSFileShare_kmsEncrypted :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
+createNFSFileShare_kmsEncrypted :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
 createNFSFileShare_kmsEncrypted = Lens.lens (\CreateNFSFileShare' {kmsEncrypted} -> kmsEncrypted) (\s@CreateNFSFileShare' {} a -> s {kmsEncrypted = a} :: CreateNFSFileShare)
 
 -- | A value that maps a user to anonymous user.
@@ -350,18 +349,18 @@ createNFSFileShare_kmsEncrypted = Lens.lens (\CreateNFSFileShare' {kmsEncrypted}
 -- -   @NoSquash@: No one is mapped to anonymous user.
 --
 -- -   @AllSquash@: Everyone is mapped to anonymous user.
-createNFSFileShare_squash :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_squash :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Text)
 createNFSFileShare_squash = Lens.lens (\CreateNFSFileShare' {squash} -> squash) (\s@CreateNFSFileShare' {} a -> s {squash = a} :: CreateNFSFileShare)
 
 -- | The notification policy of the file share.
-createNFSFileShare_notificationPolicy :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_notificationPolicy :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Text)
 createNFSFileShare_notificationPolicy = Lens.lens (\CreateNFSFileShare' {notificationPolicy} -> notificationPolicy) (\s@CreateNFSFileShare' {} a -> s {notificationPolicy = a} :: CreateNFSFileShare)
 
 -- | The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
 -- used for Amazon S3 server-side encryption. Storage Gateway does not
 -- support asymmetric CMKs. This value can only be set when @KMSEncrypted@
 -- is @true@. Optional.
-createNFSFileShare_kmsKey :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Text)
+createNFSFileShare_kmsKey :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Text)
 createNFSFileShare_kmsKey = Lens.lens (\CreateNFSFileShare' {kmsKey} -> kmsKey) (\s@CreateNFSFileShare' {} a -> s {kmsKey = a} :: CreateNFSFileShare)
 
 -- | A list of up to 50 tags that can be assigned to the NFS file share. Each
@@ -371,26 +370,26 @@ createNFSFileShare_kmsKey = Lens.lens (\CreateNFSFileShare' {kmsKey} -> kmsKey) 
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
-createNFSFileShare_tags :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe [Tag])
-createNFSFileShare_tags = Lens.lens (\CreateNFSFileShare' {tags} -> tags) (\s@CreateNFSFileShare' {} a -> s {tags = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Prelude._Coerce
+createNFSFileShare_tags :: Lens.Lens' CreateNFSFileShare (Core.Maybe [Tag])
+createNFSFileShare_tags = Lens.lens (\CreateNFSFileShare' {tags} -> tags) (\s@CreateNFSFileShare' {} a -> s {tags = a} :: CreateNFSFileShare) Core.. Lens.mapping Lens._Coerce
 
 -- | Refresh cache information.
-createNFSFileShare_cacheAttributes :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe CacheAttributes)
+createNFSFileShare_cacheAttributes :: Lens.Lens' CreateNFSFileShare (Core.Maybe CacheAttributes)
 createNFSFileShare_cacheAttributes = Lens.lens (\CreateNFSFileShare' {cacheAttributes} -> cacheAttributes) (\s@CreateNFSFileShare' {} a -> s {cacheAttributes = a} :: CreateNFSFileShare)
 
 -- | The list of clients that are allowed to access the file gateway. The
 -- list must contain either valid IP addresses or valid CIDR blocks.
-createNFSFileShare_clientList :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createNFSFileShare_clientList = Lens.lens (\CreateNFSFileShare' {clientList} -> clientList) (\s@CreateNFSFileShare' {} a -> s {clientList = a} :: CreateNFSFileShare) Prelude.. Lens.mapping Prelude._Coerce
+createNFSFileShare_clientList :: Lens.Lens' CreateNFSFileShare (Core.Maybe (Core.NonEmpty Core.Text))
+createNFSFileShare_clientList = Lens.lens (\CreateNFSFileShare' {clientList} -> clientList) (\s@CreateNFSFileShare' {} a -> s {clientList = a} :: CreateNFSFileShare) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that sets the access control list (ACL) permission for objects
 -- in the S3 bucket that a file gateway puts objects into. The default
 -- value is @private@.
-createNFSFileShare_objectACL :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe ObjectACL)
+createNFSFileShare_objectACL :: Lens.Lens' CreateNFSFileShare (Core.Maybe ObjectACL)
 createNFSFileShare_objectACL = Lens.lens (\CreateNFSFileShare' {objectACL} -> objectACL) (\s@CreateNFSFileShare' {} a -> s {objectACL = a} :: CreateNFSFileShare)
 
 -- | File share default values. Optional.
-createNFSFileShare_nFSFileShareDefaults :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe NFSFileShareDefaults)
+createNFSFileShare_nFSFileShareDefaults :: Lens.Lens' CreateNFSFileShare (Core.Maybe NFSFileShareDefaults)
 createNFSFileShare_nFSFileShareDefaults = Lens.lens (\CreateNFSFileShare' {nFSFileShareDefaults} -> nFSFileShareDefaults) (\s@CreateNFSFileShare' {} a -> s {nFSFileShareDefaults = a} :: CreateNFSFileShare)
 
 -- | A value that sets who pays the cost of the request and the cost
@@ -403,109 +402,104 @@ createNFSFileShare_nFSFileShareDefaults = Lens.lens (\CreateNFSFileShare' {nFSFi
 -- as the S3 bucket configuration.
 --
 -- Valid Values: @true@ | @false@
-createNFSFileShare_requesterPays :: Lens.Lens' CreateNFSFileShare (Prelude.Maybe Prelude.Bool)
+createNFSFileShare_requesterPays :: Lens.Lens' CreateNFSFileShare (Core.Maybe Core.Bool)
 createNFSFileShare_requesterPays = Lens.lens (\CreateNFSFileShare' {requesterPays} -> requesterPays) (\s@CreateNFSFileShare' {} a -> s {requesterPays = a} :: CreateNFSFileShare)
 
 -- | A unique string value that you supply that is used by file gateway to
 -- ensure idempotent file share creation.
-createNFSFileShare_clientToken :: Lens.Lens' CreateNFSFileShare Prelude.Text
+createNFSFileShare_clientToken :: Lens.Lens' CreateNFSFileShare Core.Text
 createNFSFileShare_clientToken = Lens.lens (\CreateNFSFileShare' {clientToken} -> clientToken) (\s@CreateNFSFileShare' {} a -> s {clientToken = a} :: CreateNFSFileShare)
 
 -- | The Amazon Resource Name (ARN) of the file gateway on which you want to
 -- create a file share.
-createNFSFileShare_gatewayARN :: Lens.Lens' CreateNFSFileShare Prelude.Text
+createNFSFileShare_gatewayARN :: Lens.Lens' CreateNFSFileShare Core.Text
 createNFSFileShare_gatewayARN = Lens.lens (\CreateNFSFileShare' {gatewayARN} -> gatewayARN) (\s@CreateNFSFileShare' {} a -> s {gatewayARN = a} :: CreateNFSFileShare)
 
 -- | The ARN of the AWS Identity and Access Management (IAM) role that a file
 -- gateway assumes when it accesses the underlying storage.
-createNFSFileShare_role :: Lens.Lens' CreateNFSFileShare Prelude.Text
+createNFSFileShare_role :: Lens.Lens' CreateNFSFileShare Core.Text
 createNFSFileShare_role = Lens.lens (\CreateNFSFileShare' {role'} -> role') (\s@CreateNFSFileShare' {} a -> s {role' = a} :: CreateNFSFileShare)
 
 -- | The ARN of the backend storage used for storing file data. A prefix name
 -- can be added to the S3 bucket name. It must end with a \"\/\".
-createNFSFileShare_locationARN :: Lens.Lens' CreateNFSFileShare Prelude.Text
+createNFSFileShare_locationARN :: Lens.Lens' CreateNFSFileShare Core.Text
 createNFSFileShare_locationARN = Lens.lens (\CreateNFSFileShare' {locationARN} -> locationARN) (\s@CreateNFSFileShare' {} a -> s {locationARN = a} :: CreateNFSFileShare)
 
-instance Prelude.AWSRequest CreateNFSFileShare where
+instance Core.AWSRequest CreateNFSFileShare where
   type
-    Rs CreateNFSFileShare =
+    AWSResponse CreateNFSFileShare =
       CreateNFSFileShareResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateNFSFileShareResponse'
-            Prelude.<$> (x Prelude..?> "FileShareARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FileShareARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNFSFileShare
+instance Core.Hashable CreateNFSFileShare
 
-instance Prelude.NFData CreateNFSFileShare
+instance Core.NFData CreateNFSFileShare
 
-instance Prelude.ToHeaders CreateNFSFileShare where
+instance Core.ToHeaders CreateNFSFileShare where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.CreateNFSFileShare" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.CreateNFSFileShare" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateNFSFileShare where
+instance Core.ToJSON CreateNFSFileShare where
   toJSON CreateNFSFileShare' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultStorageClass" Prelude..=)
-              Prelude.<$> defaultStorageClass,
-            ("FileShareName" Prelude..=)
-              Prelude.<$> fileShareName,
-            ("GuessMIMETypeEnabled" Prelude..=)
-              Prelude.<$> guessMIMETypeEnabled,
-            ("ReadOnly" Prelude..=) Prelude.<$> readOnly,
-            ("KMSEncrypted" Prelude..=) Prelude.<$> kmsEncrypted,
-            ("Squash" Prelude..=) Prelude.<$> squash,
-            ("NotificationPolicy" Prelude..=)
-              Prelude.<$> notificationPolicy,
-            ("KMSKey" Prelude..=) Prelude.<$> kmsKey,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("CacheAttributes" Prelude..=)
-              Prelude.<$> cacheAttributes,
-            ("ClientList" Prelude..=) Prelude.<$> clientList,
-            ("ObjectACL" Prelude..=) Prelude.<$> objectACL,
-            ("NFSFileShareDefaults" Prelude..=)
-              Prelude.<$> nFSFileShareDefaults,
-            ("RequesterPays" Prelude..=)
-              Prelude.<$> requesterPays,
-            Prelude.Just ("ClientToken" Prelude..= clientToken),
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
-            Prelude.Just ("Role" Prelude..= role'),
-            Prelude.Just ("LocationARN" Prelude..= locationARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultStorageClass" Core..=)
+              Core.<$> defaultStorageClass,
+            ("FileShareName" Core..=) Core.<$> fileShareName,
+            ("GuessMIMETypeEnabled" Core..=)
+              Core.<$> guessMIMETypeEnabled,
+            ("ReadOnly" Core..=) Core.<$> readOnly,
+            ("KMSEncrypted" Core..=) Core.<$> kmsEncrypted,
+            ("Squash" Core..=) Core.<$> squash,
+            ("NotificationPolicy" Core..=)
+              Core.<$> notificationPolicy,
+            ("KMSKey" Core..=) Core.<$> kmsKey,
+            ("Tags" Core..=) Core.<$> tags,
+            ("CacheAttributes" Core..=) Core.<$> cacheAttributes,
+            ("ClientList" Core..=) Core.<$> clientList,
+            ("ObjectACL" Core..=) Core.<$> objectACL,
+            ("NFSFileShareDefaults" Core..=)
+              Core.<$> nFSFileShareDefaults,
+            ("RequesterPays" Core..=) Core.<$> requesterPays,
+            Core.Just ("ClientToken" Core..= clientToken),
+            Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("Role" Core..= role'),
+            Core.Just ("LocationARN" Core..= locationARN)
           ]
       )
 
-instance Prelude.ToPath CreateNFSFileShare where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateNFSFileShare where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateNFSFileShare where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateNFSFileShare where
+  toQuery = Core.const Core.mempty
 
 -- | CreateNFSFileShareOutput
 --
 -- /See:/ 'newCreateNFSFileShareResponse' smart constructor.
 data CreateNFSFileShareResponse = CreateNFSFileShareResponse'
   { -- | The Amazon Resource Name (ARN) of the newly created file share.
-    fileShareARN :: Prelude.Maybe Prelude.Text,
+    fileShareARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNFSFileShareResponse' with all optional fields omitted.
@@ -520,21 +514,21 @@ data CreateNFSFileShareResponse = CreateNFSFileShareResponse'
 -- 'httpStatus', 'createNFSFileShareResponse_httpStatus' - The response's http status code.
 newCreateNFSFileShareResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateNFSFileShareResponse
 newCreateNFSFileShareResponse pHttpStatus_ =
   CreateNFSFileShareResponse'
     { fileShareARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the newly created file share.
-createNFSFileShareResponse_fileShareARN :: Lens.Lens' CreateNFSFileShareResponse (Prelude.Maybe Prelude.Text)
+createNFSFileShareResponse_fileShareARN :: Lens.Lens' CreateNFSFileShareResponse (Core.Maybe Core.Text)
 createNFSFileShareResponse_fileShareARN = Lens.lens (\CreateNFSFileShareResponse' {fileShareARN} -> fileShareARN) (\s@CreateNFSFileShareResponse' {} a -> s {fileShareARN = a} :: CreateNFSFileShareResponse)
 
 -- | The response's http status code.
-createNFSFileShareResponse_httpStatus :: Lens.Lens' CreateNFSFileShareResponse Prelude.Int
+createNFSFileShareResponse_httpStatus :: Lens.Lens' CreateNFSFileShareResponse Core.Int
 createNFSFileShareResponse_httpStatus = Lens.lens (\CreateNFSFileShareResponse' {httpStatus} -> httpStatus) (\s@CreateNFSFileShareResponse' {} a -> s {httpStatus = a} :: CreateNFSFileShareResponse)
 
-instance Prelude.NFData CreateNFSFileShareResponse
+instance Core.NFData CreateNFSFileShareResponse

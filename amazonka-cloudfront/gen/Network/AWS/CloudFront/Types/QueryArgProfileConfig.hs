@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.QueryArgProfileConfig where
 
 import Network.AWS.CloudFront.Types.QueryArgProfiles
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration for query argument-profile mapping for field-level
 -- encryption.
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data QueryArgProfileConfig = QueryArgProfileConfig'
   { -- | Profiles specified for query argument-profile mapping for field-level
     -- encryption.
-    queryArgProfiles :: Prelude.Maybe QueryArgProfiles,
+    queryArgProfiles :: Core.Maybe QueryArgProfiles,
     -- | Flag to set if you want a request to be forwarded to the origin even if
     -- the profile specified by the field-level encryption query argument,
     -- fle-profile, is unknown.
-    forwardWhenQueryArgProfileIsUnknown :: Prelude.Bool
+    forwardWhenQueryArgProfileIsUnknown :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryArgProfileConfig' with all optional fields omitted.
@@ -55,42 +54,42 @@ data QueryArgProfileConfig = QueryArgProfileConfig'
 -- fle-profile, is unknown.
 newQueryArgProfileConfig ::
   -- | 'forwardWhenQueryArgProfileIsUnknown'
-  Prelude.Bool ->
+  Core.Bool ->
   QueryArgProfileConfig
 newQueryArgProfileConfig
   pForwardWhenQueryArgProfileIsUnknown_ =
     QueryArgProfileConfig'
       { queryArgProfiles =
-          Prelude.Nothing,
+          Core.Nothing,
         forwardWhenQueryArgProfileIsUnknown =
           pForwardWhenQueryArgProfileIsUnknown_
       }
 
 -- | Profiles specified for query argument-profile mapping for field-level
 -- encryption.
-queryArgProfileConfig_queryArgProfiles :: Lens.Lens' QueryArgProfileConfig (Prelude.Maybe QueryArgProfiles)
+queryArgProfileConfig_queryArgProfiles :: Lens.Lens' QueryArgProfileConfig (Core.Maybe QueryArgProfiles)
 queryArgProfileConfig_queryArgProfiles = Lens.lens (\QueryArgProfileConfig' {queryArgProfiles} -> queryArgProfiles) (\s@QueryArgProfileConfig' {} a -> s {queryArgProfiles = a} :: QueryArgProfileConfig)
 
 -- | Flag to set if you want a request to be forwarded to the origin even if
 -- the profile specified by the field-level encryption query argument,
 -- fle-profile, is unknown.
-queryArgProfileConfig_forwardWhenQueryArgProfileIsUnknown :: Lens.Lens' QueryArgProfileConfig Prelude.Bool
+queryArgProfileConfig_forwardWhenQueryArgProfileIsUnknown :: Lens.Lens' QueryArgProfileConfig Core.Bool
 queryArgProfileConfig_forwardWhenQueryArgProfileIsUnknown = Lens.lens (\QueryArgProfileConfig' {forwardWhenQueryArgProfileIsUnknown} -> forwardWhenQueryArgProfileIsUnknown) (\s@QueryArgProfileConfig' {} a -> s {forwardWhenQueryArgProfileIsUnknown = a} :: QueryArgProfileConfig)
 
-instance Prelude.FromXML QueryArgProfileConfig where
+instance Core.FromXML QueryArgProfileConfig where
   parseXML x =
     QueryArgProfileConfig'
-      Prelude.<$> (x Prelude..@? "QueryArgProfiles")
-      Prelude.<*> (x Prelude..@ "ForwardWhenQueryArgProfileIsUnknown")
+      Core.<$> (x Core..@? "QueryArgProfiles")
+      Core.<*> (x Core..@ "ForwardWhenQueryArgProfileIsUnknown")
 
-instance Prelude.Hashable QueryArgProfileConfig
+instance Core.Hashable QueryArgProfileConfig
 
-instance Prelude.NFData QueryArgProfileConfig
+instance Core.NFData QueryArgProfileConfig
 
-instance Prelude.ToXML QueryArgProfileConfig where
+instance Core.ToXML QueryArgProfileConfig where
   toXML QueryArgProfileConfig' {..} =
-    Prelude.mconcat
-      [ "QueryArgProfiles" Prelude.@= queryArgProfiles,
+    Core.mconcat
+      [ "QueryArgProfiles" Core.@= queryArgProfiles,
         "ForwardWhenQueryArgProfileIsUnknown"
-          Prelude.@= forwardWhenQueryArgProfileIsUnknown
+          Core.@= forwardWhenQueryArgProfileIsUnknown
       ]

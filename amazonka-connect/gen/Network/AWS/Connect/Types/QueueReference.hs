@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.QueueReference where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a queue resource for which metrics are
 -- returned.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newQueueReference' smart constructor.
 data QueueReference = QueueReference'
   { -- | The Amazon Resource Name (ARN) of the queue.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the queue.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueueReference' with all optional fields omitted.
@@ -50,28 +49,27 @@ newQueueReference ::
   QueueReference
 newQueueReference =
   QueueReference'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the queue.
-queueReference_arn :: Lens.Lens' QueueReference (Prelude.Maybe Prelude.Text)
+queueReference_arn :: Lens.Lens' QueueReference (Core.Maybe Core.Text)
 queueReference_arn = Lens.lens (\QueueReference' {arn} -> arn) (\s@QueueReference' {} a -> s {arn = a} :: QueueReference)
 
 -- | The identifier of the queue.
-queueReference_id :: Lens.Lens' QueueReference (Prelude.Maybe Prelude.Text)
+queueReference_id :: Lens.Lens' QueueReference (Core.Maybe Core.Text)
 queueReference_id = Lens.lens (\QueueReference' {id} -> id) (\s@QueueReference' {} a -> s {id = a} :: QueueReference)
 
-instance Prelude.FromJSON QueueReference where
+instance Core.FromJSON QueueReference where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QueueReference"
       ( \x ->
           QueueReference'
-            Prelude.<$> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
+            Core.<$> (x Core..:? "Arn") Core.<*> (x Core..:? "Id")
       )
 
-instance Prelude.Hashable QueueReference
+instance Core.Hashable QueueReference
 
-instance Prelude.NFData QueueReference
+instance Core.NFData QueueReference

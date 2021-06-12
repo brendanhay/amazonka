@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.DeleteAdmChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteAdmChannel = DeleteAdmChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAdmChannel' with all optional fields omitted.
@@ -67,60 +66,60 @@ data DeleteAdmChannel = DeleteAdmChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newDeleteAdmChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAdmChannel
 newDeleteAdmChannel pApplicationId_ =
   DeleteAdmChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-deleteAdmChannel_applicationId :: Lens.Lens' DeleteAdmChannel Prelude.Text
+deleteAdmChannel_applicationId :: Lens.Lens' DeleteAdmChannel Core.Text
 deleteAdmChannel_applicationId = Lens.lens (\DeleteAdmChannel' {applicationId} -> applicationId) (\s@DeleteAdmChannel' {} a -> s {applicationId = a} :: DeleteAdmChannel)
 
-instance Prelude.AWSRequest DeleteAdmChannel where
-  type Rs DeleteAdmChannel = DeleteAdmChannelResponse
+instance Core.AWSRequest DeleteAdmChannel where
+  type
+    AWSResponse DeleteAdmChannel =
+      DeleteAdmChannelResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteAdmChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteAdmChannel
+instance Core.Hashable DeleteAdmChannel
 
-instance Prelude.NFData DeleteAdmChannel
+instance Core.NFData DeleteAdmChannel
 
-instance Prelude.ToHeaders DeleteAdmChannel where
+instance Core.ToHeaders DeleteAdmChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteAdmChannel where
+instance Core.ToPath DeleteAdmChannel where
   toPath DeleteAdmChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/adm"
       ]
 
-instance Prelude.ToQuery DeleteAdmChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAdmChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAdmChannelResponse' smart constructor.
 data DeleteAdmChannelResponse = DeleteAdmChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     aDMChannelResponse :: ADMChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAdmChannelResponse' with all optional fields omitted.
@@ -135,7 +134,7 @@ data DeleteAdmChannelResponse = DeleteAdmChannelResponse'
 -- 'aDMChannelResponse', 'deleteAdmChannelResponse_aDMChannelResponse' - Undocumented member.
 newDeleteAdmChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'aDMChannelResponse'
   ADMChannelResponse ->
   DeleteAdmChannelResponse
@@ -149,11 +148,11 @@ newDeleteAdmChannelResponse
       }
 
 -- | The response's http status code.
-deleteAdmChannelResponse_httpStatus :: Lens.Lens' DeleteAdmChannelResponse Prelude.Int
+deleteAdmChannelResponse_httpStatus :: Lens.Lens' DeleteAdmChannelResponse Core.Int
 deleteAdmChannelResponse_httpStatus = Lens.lens (\DeleteAdmChannelResponse' {httpStatus} -> httpStatus) (\s@DeleteAdmChannelResponse' {} a -> s {httpStatus = a} :: DeleteAdmChannelResponse)
 
 -- | Undocumented member.
 deleteAdmChannelResponse_aDMChannelResponse :: Lens.Lens' DeleteAdmChannelResponse ADMChannelResponse
 deleteAdmChannelResponse_aDMChannelResponse = Lens.lens (\DeleteAdmChannelResponse' {aDMChannelResponse} -> aDMChannelResponse) (\s@DeleteAdmChannelResponse' {} a -> s {aDMChannelResponse = a} :: DeleteAdmChannelResponse)
 
-instance Prelude.NFData DeleteAdmChannelResponse
+instance Core.NFData DeleteAdmChannelResponse

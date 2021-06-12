@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.OnDemandProvisioningSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The launch specification for On-Demand Instances in the instance fleet,
 -- which determines the allocation strategy.
@@ -38,7 +37,7 @@ data OnDemandProvisioningSpecification = OnDemandProvisioningSpecification'
     -- the lowest price first.
     allocationStrategy :: OnDemandProvisioningAllocationStrategy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OnDemandProvisioningSpecification' with all optional fields omitted.
@@ -69,35 +68,33 @@ onDemandProvisioningSpecification_allocationStrategy :: Lens.Lens' OnDemandProvi
 onDemandProvisioningSpecification_allocationStrategy = Lens.lens (\OnDemandProvisioningSpecification' {allocationStrategy} -> allocationStrategy) (\s@OnDemandProvisioningSpecification' {} a -> s {allocationStrategy = a} :: OnDemandProvisioningSpecification)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     OnDemandProvisioningSpecification
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OnDemandProvisioningSpecification"
       ( \x ->
           OnDemandProvisioningSpecification'
-            Prelude.<$> (x Prelude..: "AllocationStrategy")
+            Core.<$> (x Core..: "AllocationStrategy")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     OnDemandProvisioningSpecification
 
 instance
-  Prelude.NFData
+  Core.NFData
     OnDemandProvisioningSpecification
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     OnDemandProvisioningSpecification
   where
   toJSON OnDemandProvisioningSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "AllocationStrategy"
-                  Prelude..= allocationStrategy
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("AllocationStrategy" Core..= allocationStrategy)
           ]
       )

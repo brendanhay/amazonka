@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Types.ServiceSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.DnsConfig
 import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
 import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
@@ -31,19 +30,19 @@ import Network.AWS.Route53AutoNaming.Types.ServiceType
 --
 -- /See:/ 'newServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
-  { dnsConfig :: Prelude.Maybe DnsConfig,
+  { dnsConfig :: Core.Maybe DnsConfig,
     -- | The date and time that the service was created.
-    createDate :: Prelude.Maybe Prelude.POSIX,
+    createDate :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
     -- when you create it.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID that AWS Cloud Map assigned to the service when you created it.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the service.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description that you specify when you create the service.
-    description :: Prelude.Maybe Prelude.Text,
-    healthCheckCustomConfig :: Prelude.Maybe HealthCheckCustomConfig,
+    description :: Core.Maybe Core.Text,
+    healthCheckCustomConfig :: Core.Maybe HealthCheckCustomConfig,
     -- | Describes the systems that can be used to discover the service
     -- instances.
     --
@@ -57,15 +56,15 @@ data ServiceSummary = ServiceSummary'
     --
     -- [DNS]
     --     Reserved.
-    type' :: Prelude.Maybe ServiceType,
-    healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
+    type' :: Core.Maybe ServiceType,
+    healthCheckConfig :: Core.Maybe HealthCheckConfig,
     -- | The number of instances that are currently associated with the service.
     -- Instances that were previously associated with the service but that have
     -- been deleted are not included in the count. The count might not reflect
     -- pending registrations and deregistrations.
-    instanceCount :: Prelude.Maybe Prelude.Int
+    instanceCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceSummary' with all optional fields omitted.
@@ -114,45 +113,45 @@ newServiceSummary ::
   ServiceSummary
 newServiceSummary =
   ServiceSummary'
-    { dnsConfig = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      healthCheckCustomConfig = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      healthCheckConfig = Prelude.Nothing,
-      instanceCount = Prelude.Nothing
+    { dnsConfig = Core.Nothing,
+      createDate = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      healthCheckCustomConfig = Core.Nothing,
+      type' = Core.Nothing,
+      healthCheckConfig = Core.Nothing,
+      instanceCount = Core.Nothing
     }
 
 -- | Undocumented member.
-serviceSummary_dnsConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe DnsConfig)
+serviceSummary_dnsConfig :: Lens.Lens' ServiceSummary (Core.Maybe DnsConfig)
 serviceSummary_dnsConfig = Lens.lens (\ServiceSummary' {dnsConfig} -> dnsConfig) (\s@ServiceSummary' {} a -> s {dnsConfig = a} :: ServiceSummary)
 
 -- | The date and time that the service was created.
-serviceSummary_createDate :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.UTCTime)
-serviceSummary_createDate = Lens.lens (\ServiceSummary' {createDate} -> createDate) (\s@ServiceSummary' {} a -> s {createDate = a} :: ServiceSummary) Prelude.. Lens.mapping Prelude._Time
+serviceSummary_createDate :: Lens.Lens' ServiceSummary (Core.Maybe Core.UTCTime)
+serviceSummary_createDate = Lens.lens (\ServiceSummary' {createDate} -> createDate) (\s@ServiceSummary' {} a -> s {createDate = a} :: ServiceSummary) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
 -- when you create it.
-serviceSummary_arn :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
+serviceSummary_arn :: Lens.Lens' ServiceSummary (Core.Maybe Core.Text)
 serviceSummary_arn = Lens.lens (\ServiceSummary' {arn} -> arn) (\s@ServiceSummary' {} a -> s {arn = a} :: ServiceSummary)
 
 -- | The ID that AWS Cloud Map assigned to the service when you created it.
-serviceSummary_id :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
+serviceSummary_id :: Lens.Lens' ServiceSummary (Core.Maybe Core.Text)
 serviceSummary_id = Lens.lens (\ServiceSummary' {id} -> id) (\s@ServiceSummary' {} a -> s {id = a} :: ServiceSummary)
 
 -- | The name of the service.
-serviceSummary_name :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
+serviceSummary_name :: Lens.Lens' ServiceSummary (Core.Maybe Core.Text)
 serviceSummary_name = Lens.lens (\ServiceSummary' {name} -> name) (\s@ServiceSummary' {} a -> s {name = a} :: ServiceSummary)
 
 -- | The description that you specify when you create the service.
-serviceSummary_description :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
+serviceSummary_description :: Lens.Lens' ServiceSummary (Core.Maybe Core.Text)
 serviceSummary_description = Lens.lens (\ServiceSummary' {description} -> description) (\s@ServiceSummary' {} a -> s {description = a} :: ServiceSummary)
 
 -- | Undocumented member.
-serviceSummary_healthCheckCustomConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe HealthCheckCustomConfig)
+serviceSummary_healthCheckCustomConfig :: Lens.Lens' ServiceSummary (Core.Maybe HealthCheckCustomConfig)
 serviceSummary_healthCheckCustomConfig = Lens.lens (\ServiceSummary' {healthCheckCustomConfig} -> healthCheckCustomConfig) (\s@ServiceSummary' {} a -> s {healthCheckCustomConfig = a} :: ServiceSummary)
 
 -- | Describes the systems that can be used to discover the service
@@ -168,38 +167,38 @@ serviceSummary_healthCheckCustomConfig = Lens.lens (\ServiceSummary' {healthChec
 --
 -- [DNS]
 --     Reserved.
-serviceSummary_type :: Lens.Lens' ServiceSummary (Prelude.Maybe ServiceType)
+serviceSummary_type :: Lens.Lens' ServiceSummary (Core.Maybe ServiceType)
 serviceSummary_type = Lens.lens (\ServiceSummary' {type'} -> type') (\s@ServiceSummary' {} a -> s {type' = a} :: ServiceSummary)
 
 -- | Undocumented member.
-serviceSummary_healthCheckConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe HealthCheckConfig)
+serviceSummary_healthCheckConfig :: Lens.Lens' ServiceSummary (Core.Maybe HealthCheckConfig)
 serviceSummary_healthCheckConfig = Lens.lens (\ServiceSummary' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceSummary' {} a -> s {healthCheckConfig = a} :: ServiceSummary)
 
 -- | The number of instances that are currently associated with the service.
 -- Instances that were previously associated with the service but that have
 -- been deleted are not included in the count. The count might not reflect
 -- pending registrations and deregistrations.
-serviceSummary_instanceCount :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Int)
+serviceSummary_instanceCount :: Lens.Lens' ServiceSummary (Core.Maybe Core.Int)
 serviceSummary_instanceCount = Lens.lens (\ServiceSummary' {instanceCount} -> instanceCount) (\s@ServiceSummary' {} a -> s {instanceCount = a} :: ServiceSummary)
 
-instance Prelude.FromJSON ServiceSummary where
+instance Core.FromJSON ServiceSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceSummary"
       ( \x ->
           ServiceSummary'
-            Prelude.<$> (x Prelude..:? "DnsConfig")
-            Prelude.<*> (x Prelude..:? "CreateDate")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "HealthCheckCustomConfig")
-            Prelude.<*> (x Prelude..:? "Type")
-            Prelude.<*> (x Prelude..:? "HealthCheckConfig")
-            Prelude.<*> (x Prelude..:? "InstanceCount")
+            Core.<$> (x Core..:? "DnsConfig")
+            Core.<*> (x Core..:? "CreateDate")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "HealthCheckCustomConfig")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (x Core..:? "HealthCheckConfig")
+            Core.<*> (x Core..:? "InstanceCount")
       )
 
-instance Prelude.Hashable ServiceSummary
+instance Core.Hashable ServiceSummary
 
-instance Prelude.NFData ServiceSummary
+instance Core.NFData ServiceSummary

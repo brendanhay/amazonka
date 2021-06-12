@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.Connect.DeleteQuickConnect
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteQuickConnect' smart constructor.
 data DeleteQuickConnect = DeleteQuickConnect'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the quick connect.
-    quickConnectId :: Prelude.Text
+    quickConnectId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQuickConnect' with all optional fields omitted.
@@ -68,9 +67,9 @@ data DeleteQuickConnect = DeleteQuickConnect'
 -- 'quickConnectId', 'deleteQuickConnect_quickConnectId' - The identifier for the quick connect.
 newDeleteQuickConnect ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'quickConnectId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteQuickConnect
 newDeleteQuickConnect pInstanceId_ pQuickConnectId_ =
   DeleteQuickConnect'
@@ -79,53 +78,51 @@ newDeleteQuickConnect pInstanceId_ pQuickConnectId_ =
     }
 
 -- | The identifier of the Amazon Connect instance.
-deleteQuickConnect_instanceId :: Lens.Lens' DeleteQuickConnect Prelude.Text
+deleteQuickConnect_instanceId :: Lens.Lens' DeleteQuickConnect Core.Text
 deleteQuickConnect_instanceId = Lens.lens (\DeleteQuickConnect' {instanceId} -> instanceId) (\s@DeleteQuickConnect' {} a -> s {instanceId = a} :: DeleteQuickConnect)
 
 -- | The identifier for the quick connect.
-deleteQuickConnect_quickConnectId :: Lens.Lens' DeleteQuickConnect Prelude.Text
+deleteQuickConnect_quickConnectId :: Lens.Lens' DeleteQuickConnect Core.Text
 deleteQuickConnect_quickConnectId = Lens.lens (\DeleteQuickConnect' {quickConnectId} -> quickConnectId) (\s@DeleteQuickConnect' {} a -> s {quickConnectId = a} :: DeleteQuickConnect)
 
-instance Prelude.AWSRequest DeleteQuickConnect where
+instance Core.AWSRequest DeleteQuickConnect where
   type
-    Rs DeleteQuickConnect =
+    AWSResponse DeleteQuickConnect =
       DeleteQuickConnectResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteQuickConnectResponse'
 
-instance Prelude.Hashable DeleteQuickConnect
+instance Core.Hashable DeleteQuickConnect
 
-instance Prelude.NFData DeleteQuickConnect
+instance Core.NFData DeleteQuickConnect
 
-instance Prelude.ToHeaders DeleteQuickConnect where
+instance Core.ToHeaders DeleteQuickConnect where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteQuickConnect where
+instance Core.ToPath DeleteQuickConnect where
   toPath DeleteQuickConnect' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/quick-connects/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS quickConnectId
+        Core.toBS quickConnectId
       ]
 
-instance Prelude.ToQuery DeleteQuickConnect where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteQuickConnect where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteQuickConnectResponse' smart constructor.
 data DeleteQuickConnectResponse = DeleteQuickConnectResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQuickConnectResponse' with all optional fields omitted.
@@ -136,4 +133,4 @@ newDeleteQuickConnectResponse ::
 newDeleteQuickConnectResponse =
   DeleteQuickConnectResponse'
 
-instance Prelude.NFData DeleteQuickConnectResponse
+instance Core.NFData DeleteQuickConnectResponse

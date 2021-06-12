@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.NodegroupHealth where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.Issue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the health status of the node group.
 --
 -- /See:/ 'newNodegroupHealth' smart constructor.
 data NodegroupHealth = NodegroupHealth'
   { -- | Any issues that are associated with the node group.
-    issues :: Prelude.Maybe [Issue]
+    issues :: Core.Maybe [Issue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NodegroupHealth' with all optional fields omitted.
@@ -45,21 +44,21 @@ data NodegroupHealth = NodegroupHealth'
 newNodegroupHealth ::
   NodegroupHealth
 newNodegroupHealth =
-  NodegroupHealth' {issues = Prelude.Nothing}
+  NodegroupHealth' {issues = Core.Nothing}
 
 -- | Any issues that are associated with the node group.
-nodegroupHealth_issues :: Lens.Lens' NodegroupHealth (Prelude.Maybe [Issue])
-nodegroupHealth_issues = Lens.lens (\NodegroupHealth' {issues} -> issues) (\s@NodegroupHealth' {} a -> s {issues = a} :: NodegroupHealth) Prelude.. Lens.mapping Prelude._Coerce
+nodegroupHealth_issues :: Lens.Lens' NodegroupHealth (Core.Maybe [Issue])
+nodegroupHealth_issues = Lens.lens (\NodegroupHealth' {issues} -> issues) (\s@NodegroupHealth' {} a -> s {issues = a} :: NodegroupHealth) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON NodegroupHealth where
+instance Core.FromJSON NodegroupHealth where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NodegroupHealth"
       ( \x ->
           NodegroupHealth'
-            Prelude.<$> (x Prelude..:? "issues" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "issues" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable NodegroupHealth
+instance Core.Hashable NodegroupHealth
 
-instance Prelude.NFData NodegroupHealth
+instance Core.NFData NodegroupHealth

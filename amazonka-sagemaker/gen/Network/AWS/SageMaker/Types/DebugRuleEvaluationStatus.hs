@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.DebugRuleEvaluationStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.RuleEvaluationStatus
 
 -- | Information about the status of the rule evaluation.
@@ -29,17 +28,17 @@ import Network.AWS.SageMaker.Types.RuleEvaluationStatus
 -- /See:/ 'newDebugRuleEvaluationStatus' smart constructor.
 data DebugRuleEvaluationStatus = DebugRuleEvaluationStatus'
   { -- | The name of the rule configuration.
-    ruleConfigurationName :: Prelude.Maybe Prelude.Text,
+    ruleConfigurationName :: Core.Maybe Core.Text,
     -- | Details from the rule evaluation.
-    statusDetails :: Prelude.Maybe Prelude.Text,
+    statusDetails :: Core.Maybe Core.Text,
     -- | Status of the rule evaluation.
-    ruleEvaluationStatus :: Prelude.Maybe RuleEvaluationStatus,
+    ruleEvaluationStatus :: Core.Maybe RuleEvaluationStatus,
     -- | Timestamp when the rule evaluation status was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the rule evaluation job.
-    ruleEvaluationJobArn :: Prelude.Maybe Prelude.Text
+    ruleEvaluationJobArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DebugRuleEvaluationStatus' with all optional fields omitted.
@@ -63,46 +62,46 @@ newDebugRuleEvaluationStatus ::
 newDebugRuleEvaluationStatus =
   DebugRuleEvaluationStatus'
     { ruleConfigurationName =
-        Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
-      ruleEvaluationStatus = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      ruleEvaluationJobArn = Prelude.Nothing
+        Core.Nothing,
+      statusDetails = Core.Nothing,
+      ruleEvaluationStatus = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      ruleEvaluationJobArn = Core.Nothing
     }
 
 -- | The name of the rule configuration.
-debugRuleEvaluationStatus_ruleConfigurationName :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+debugRuleEvaluationStatus_ruleConfigurationName :: Lens.Lens' DebugRuleEvaluationStatus (Core.Maybe Core.Text)
 debugRuleEvaluationStatus_ruleConfigurationName = Lens.lens (\DebugRuleEvaluationStatus' {ruleConfigurationName} -> ruleConfigurationName) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleConfigurationName = a} :: DebugRuleEvaluationStatus)
 
 -- | Details from the rule evaluation.
-debugRuleEvaluationStatus_statusDetails :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+debugRuleEvaluationStatus_statusDetails :: Lens.Lens' DebugRuleEvaluationStatus (Core.Maybe Core.Text)
 debugRuleEvaluationStatus_statusDetails = Lens.lens (\DebugRuleEvaluationStatus' {statusDetails} -> statusDetails) (\s@DebugRuleEvaluationStatus' {} a -> s {statusDetails = a} :: DebugRuleEvaluationStatus)
 
 -- | Status of the rule evaluation.
-debugRuleEvaluationStatus_ruleEvaluationStatus :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe RuleEvaluationStatus)
+debugRuleEvaluationStatus_ruleEvaluationStatus :: Lens.Lens' DebugRuleEvaluationStatus (Core.Maybe RuleEvaluationStatus)
 debugRuleEvaluationStatus_ruleEvaluationStatus = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationStatus} -> ruleEvaluationStatus) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationStatus = a} :: DebugRuleEvaluationStatus)
 
 -- | Timestamp when the rule evaluation status was last modified.
-debugRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.UTCTime)
-debugRuleEvaluationStatus_lastModifiedTime = Lens.lens (\DebugRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@DebugRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus) Prelude.. Lens.mapping Prelude._Time
+debugRuleEvaluationStatus_lastModifiedTime :: Lens.Lens' DebugRuleEvaluationStatus (Core.Maybe Core.UTCTime)
+debugRuleEvaluationStatus_lastModifiedTime = Lens.lens (\DebugRuleEvaluationStatus' {lastModifiedTime} -> lastModifiedTime) (\s@DebugRuleEvaluationStatus' {} a -> s {lastModifiedTime = a} :: DebugRuleEvaluationStatus) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the rule evaluation job.
-debugRuleEvaluationStatus_ruleEvaluationJobArn :: Lens.Lens' DebugRuleEvaluationStatus (Prelude.Maybe Prelude.Text)
+debugRuleEvaluationStatus_ruleEvaluationJobArn :: Lens.Lens' DebugRuleEvaluationStatus (Core.Maybe Core.Text)
 debugRuleEvaluationStatus_ruleEvaluationJobArn = Lens.lens (\DebugRuleEvaluationStatus' {ruleEvaluationJobArn} -> ruleEvaluationJobArn) (\s@DebugRuleEvaluationStatus' {} a -> s {ruleEvaluationJobArn = a} :: DebugRuleEvaluationStatus)
 
-instance Prelude.FromJSON DebugRuleEvaluationStatus where
+instance Core.FromJSON DebugRuleEvaluationStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DebugRuleEvaluationStatus"
       ( \x ->
           DebugRuleEvaluationStatus'
-            Prelude.<$> (x Prelude..:? "RuleConfigurationName")
-            Prelude.<*> (x Prelude..:? "StatusDetails")
-            Prelude.<*> (x Prelude..:? "RuleEvaluationStatus")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> (x Prelude..:? "RuleEvaluationJobArn")
+            Core.<$> (x Core..:? "RuleConfigurationName")
+            Core.<*> (x Core..:? "StatusDetails")
+            Core.<*> (x Core..:? "RuleEvaluationStatus")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "RuleEvaluationJobArn")
       )
 
-instance Prelude.Hashable DebugRuleEvaluationStatus
+instance Core.Hashable DebugRuleEvaluationStatus
 
-instance Prelude.NFData DebugRuleEvaluationStatus
+instance Core.NFData DebugRuleEvaluationStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.PipelineExecutionStep where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CacheHitResult
 import Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata
 import Network.AWS.SageMaker.Types.StepStatus
@@ -31,22 +30,22 @@ import Network.AWS.SageMaker.Types.StepStatus
 -- /See:/ 'newPipelineExecutionStep' smart constructor.
 data PipelineExecutionStep = PipelineExecutionStep'
   { -- | The time that the step started executing.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The metadata for the step execution.
-    metadata :: Prelude.Maybe PipelineExecutionStepMetadata,
+    metadata :: Core.Maybe PipelineExecutionStepMetadata,
     -- | The time that the step stopped executing.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The reason why the step failed execution. This is only returned if the
     -- step failed its execution.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    failureReason :: Core.Maybe Core.Text,
     -- | The status of the step execution.
-    stepStatus :: Prelude.Maybe StepStatus,
+    stepStatus :: Core.Maybe StepStatus,
     -- | If this pipeline execution step was cached, details on the cache hit.
-    cacheHitResult :: Prelude.Maybe CacheHitResult,
+    cacheHitResult :: Core.Maybe CacheHitResult,
     -- | The name of the step that is executed.
-    stepName :: Prelude.Maybe Prelude.Text
+    stepName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelineExecutionStep' with all optional fields omitted.
@@ -74,59 +73,59 @@ newPipelineExecutionStep ::
   PipelineExecutionStep
 newPipelineExecutionStep =
   PipelineExecutionStep'
-    { startTime = Prelude.Nothing,
-      metadata = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      stepStatus = Prelude.Nothing,
-      cacheHitResult = Prelude.Nothing,
-      stepName = Prelude.Nothing
+    { startTime = Core.Nothing,
+      metadata = Core.Nothing,
+      endTime = Core.Nothing,
+      failureReason = Core.Nothing,
+      stepStatus = Core.Nothing,
+      cacheHitResult = Core.Nothing,
+      stepName = Core.Nothing
     }
 
 -- | The time that the step started executing.
-pipelineExecutionStep_startTime :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionStep_startTime = Lens.lens (\PipelineExecutionStep' {startTime} -> startTime) (\s@PipelineExecutionStep' {} a -> s {startTime = a} :: PipelineExecutionStep) Prelude.. Lens.mapping Prelude._Time
+pipelineExecutionStep_startTime :: Lens.Lens' PipelineExecutionStep (Core.Maybe Core.UTCTime)
+pipelineExecutionStep_startTime = Lens.lens (\PipelineExecutionStep' {startTime} -> startTime) (\s@PipelineExecutionStep' {} a -> s {startTime = a} :: PipelineExecutionStep) Core.. Lens.mapping Core._Time
 
 -- | The metadata for the step execution.
-pipelineExecutionStep_metadata :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe PipelineExecutionStepMetadata)
+pipelineExecutionStep_metadata :: Lens.Lens' PipelineExecutionStep (Core.Maybe PipelineExecutionStepMetadata)
 pipelineExecutionStep_metadata = Lens.lens (\PipelineExecutionStep' {metadata} -> metadata) (\s@PipelineExecutionStep' {} a -> s {metadata = a} :: PipelineExecutionStep)
 
 -- | The time that the step stopped executing.
-pipelineExecutionStep_endTime :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.UTCTime)
-pipelineExecutionStep_endTime = Lens.lens (\PipelineExecutionStep' {endTime} -> endTime) (\s@PipelineExecutionStep' {} a -> s {endTime = a} :: PipelineExecutionStep) Prelude.. Lens.mapping Prelude._Time
+pipelineExecutionStep_endTime :: Lens.Lens' PipelineExecutionStep (Core.Maybe Core.UTCTime)
+pipelineExecutionStep_endTime = Lens.lens (\PipelineExecutionStep' {endTime} -> endTime) (\s@PipelineExecutionStep' {} a -> s {endTime = a} :: PipelineExecutionStep) Core.. Lens.mapping Core._Time
 
 -- | The reason why the step failed execution. This is only returned if the
 -- step failed its execution.
-pipelineExecutionStep_failureReason :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.Text)
+pipelineExecutionStep_failureReason :: Lens.Lens' PipelineExecutionStep (Core.Maybe Core.Text)
 pipelineExecutionStep_failureReason = Lens.lens (\PipelineExecutionStep' {failureReason} -> failureReason) (\s@PipelineExecutionStep' {} a -> s {failureReason = a} :: PipelineExecutionStep)
 
 -- | The status of the step execution.
-pipelineExecutionStep_stepStatus :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe StepStatus)
+pipelineExecutionStep_stepStatus :: Lens.Lens' PipelineExecutionStep (Core.Maybe StepStatus)
 pipelineExecutionStep_stepStatus = Lens.lens (\PipelineExecutionStep' {stepStatus} -> stepStatus) (\s@PipelineExecutionStep' {} a -> s {stepStatus = a} :: PipelineExecutionStep)
 
 -- | If this pipeline execution step was cached, details on the cache hit.
-pipelineExecutionStep_cacheHitResult :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe CacheHitResult)
+pipelineExecutionStep_cacheHitResult :: Lens.Lens' PipelineExecutionStep (Core.Maybe CacheHitResult)
 pipelineExecutionStep_cacheHitResult = Lens.lens (\PipelineExecutionStep' {cacheHitResult} -> cacheHitResult) (\s@PipelineExecutionStep' {} a -> s {cacheHitResult = a} :: PipelineExecutionStep)
 
 -- | The name of the step that is executed.
-pipelineExecutionStep_stepName :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.Text)
+pipelineExecutionStep_stepName :: Lens.Lens' PipelineExecutionStep (Core.Maybe Core.Text)
 pipelineExecutionStep_stepName = Lens.lens (\PipelineExecutionStep' {stepName} -> stepName) (\s@PipelineExecutionStep' {} a -> s {stepName = a} :: PipelineExecutionStep)
 
-instance Prelude.FromJSON PipelineExecutionStep where
+instance Core.FromJSON PipelineExecutionStep where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelineExecutionStep"
       ( \x ->
           PipelineExecutionStep'
-            Prelude.<$> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "Metadata")
-            Prelude.<*> (x Prelude..:? "EndTime")
-            Prelude.<*> (x Prelude..:? "FailureReason")
-            Prelude.<*> (x Prelude..:? "StepStatus")
-            Prelude.<*> (x Prelude..:? "CacheHitResult")
-            Prelude.<*> (x Prelude..:? "StepName")
+            Core.<$> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "Metadata")
+            Core.<*> (x Core..:? "EndTime")
+            Core.<*> (x Core..:? "FailureReason")
+            Core.<*> (x Core..:? "StepStatus")
+            Core.<*> (x Core..:? "CacheHitResult")
+            Core.<*> (x Core..:? "StepName")
       )
 
-instance Prelude.Hashable PipelineExecutionStep
+instance Core.Hashable PipelineExecutionStep
 
-instance Prelude.NFData PipelineExecutionStep
+instance Core.NFData PipelineExecutionStep

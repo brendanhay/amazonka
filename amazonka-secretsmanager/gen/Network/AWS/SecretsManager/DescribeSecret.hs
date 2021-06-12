@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,8 +74,8 @@ module Network.AWS.SecretsManager.DescribeSecret
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -105,9 +104,9 @@ data DescribeSecret = DescribeSecret'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text
+    secretId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSecret' with all optional fields omitted.
@@ -141,7 +140,7 @@ data DescribeSecret = DescribeSecret'
 -- /AccessDeniedException/ error, depending on your permissions.
 newDescribeSecret ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeSecret
 newDescribeSecret pSecretId_ =
   DescribeSecret' {secretId = pSecretId_}
@@ -168,114 +167,110 @@ newDescribeSecret pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-describeSecret_secretId :: Lens.Lens' DescribeSecret Prelude.Text
+describeSecret_secretId :: Lens.Lens' DescribeSecret Core.Text
 describeSecret_secretId = Lens.lens (\DescribeSecret' {secretId} -> secretId) (\s@DescribeSecret' {} a -> s {secretId = a} :: DescribeSecret)
 
-instance Prelude.AWSRequest DescribeSecret where
-  type Rs DescribeSecret = DescribeSecretResponse
+instance Core.AWSRequest DescribeSecret where
+  type
+    AWSResponse DescribeSecret =
+      DescribeSecretResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeSecretResponse'
-            Prelude.<$> (x Prelude..?> "CreatedDate")
-            Prelude.<*> (x Prelude..?> "OwningService")
-            Prelude.<*> (x Prelude..?> "LastRotatedDate")
-            Prelude.<*> ( x Prelude..?> "ReplicationStatus"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "KmsKeyId")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "LastChangedDate")
-            Prelude.<*> (x Prelude..?> "PrimaryRegion")
-            Prelude.<*> (x Prelude..?> "RotationRules")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "RotationEnabled")
-            Prelude.<*> (x Prelude..?> "DeletedDate")
-            Prelude.<*> (x Prelude..?> "RotationLambdaARN")
-            Prelude.<*> (x Prelude..?> "Description")
-            Prelude.<*> (x Prelude..?> "LastAccessedDate")
-            Prelude.<*> ( x Prelude..?> "VersionIdsToStages"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreatedDate")
+            Core.<*> (x Core..?> "OwningService")
+            Core.<*> (x Core..?> "LastRotatedDate")
+            Core.<*> (x Core..?> "ReplicationStatus" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "KmsKeyId")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "LastChangedDate")
+            Core.<*> (x Core..?> "PrimaryRegion")
+            Core.<*> (x Core..?> "RotationRules")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "RotationEnabled")
+            Core.<*> (x Core..?> "DeletedDate")
+            Core.<*> (x Core..?> "RotationLambdaARN")
+            Core.<*> (x Core..?> "Description")
+            Core.<*> (x Core..?> "LastAccessedDate")
+            Core.<*> ( x Core..?> "VersionIdsToStages"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeSecret
+instance Core.Hashable DescribeSecret
 
-instance Prelude.NFData DescribeSecret
+instance Core.NFData DescribeSecret
 
-instance Prelude.ToHeaders DescribeSecret where
+instance Core.ToHeaders DescribeSecret where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.DescribeSecret" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("secretsmanager.DescribeSecret" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeSecret where
+instance Core.ToJSON DescribeSecret where
   toJSON DescribeSecret' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SecretId" Prelude..= secretId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SecretId" Core..= secretId)]
       )
 
-instance Prelude.ToPath DescribeSecret where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSecret where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSecret where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeSecret where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeSecretResponse' smart constructor.
 data DescribeSecretResponse = DescribeSecretResponse'
   { -- | The date you created the secret.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | Returns the name of the service that created this secret.
-    owningService :: Prelude.Maybe Prelude.Text,
+    owningService :: Core.Maybe Core.Text,
     -- | The last date and time that the rotation process for this secret was
     -- invoked.
     --
     -- The most recent date and time that the Secrets Manager rotation process
     -- successfully completed. If the secret doesn\'t rotate, Secrets Manager
     -- returns a null value.
-    lastRotatedDate :: Prelude.Maybe Prelude.POSIX,
+    lastRotatedDate :: Core.Maybe Core.POSIX,
     -- | Describes a list of replication status objects as @InProgress@, @Failed@
     -- or @InSync@.@P@
-    replicationStatus :: Prelude.Maybe [ReplicationStatusType],
+    replicationStatus :: Core.Maybe [ReplicationStatusType],
     -- | The ARN of the secret.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ARN or alias of the AWS KMS customer master key (CMK) that\'s used
     -- to encrypt the @SecretString@ or @SecretBinary@ fields in each version
     -- of the secret. If you don\'t provide a key, then Secrets Manager
     -- defaults to encrypting the secret fields with the default AWS KMS CMK
     -- (the one named @awssecretsmanager@) for this account.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The user-provided friendly name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The last date and time that this secret was modified in any way.
-    lastChangedDate :: Prelude.Maybe Prelude.POSIX,
+    lastChangedDate :: Core.Maybe Core.POSIX,
     -- | Specifies the primary region for secret replication.
-    primaryRegion :: Prelude.Maybe Prelude.Text,
+    primaryRegion :: Core.Maybe Core.Text,
     -- | A structure with the rotation configuration for this secret.
-    rotationRules :: Prelude.Maybe RotationRulesType,
+    rotationRules :: Core.Maybe RotationRulesType,
     -- | The list of user-defined tags that are associated with the secret. To
     -- add tags to a secret, use TagResource. To remove tags, use
     -- UntagResource.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Specifies whether automatic rotation is enabled for this secret.
     --
     -- To enable rotation, use RotateSecret with @AutomaticallyRotateAfterDays@
     -- set to a value greater than 0. To disable rotation, use
     -- CancelRotateSecret.
-    rotationEnabled :: Prelude.Maybe Prelude.Bool,
+    rotationEnabled :: Core.Maybe Core.Bool,
     -- | This value exists if the secret is scheduled for deletion. Some time
     -- after the specified date and time, Secrets Manager deletes the secret
     -- and all of its versions.
@@ -283,16 +278,16 @@ data DescribeSecretResponse = DescribeSecretResponse'
     -- If a secret is scheduled for deletion, then its details, including the
     -- encrypted secret information, is not accessible. To cancel a scheduled
     -- deletion and restore access, use RestoreSecret.
-    deletedDate :: Prelude.Maybe Prelude.POSIX,
+    deletedDate :: Core.Maybe Core.POSIX,
     -- | The ARN of a Lambda function that\'s invoked by Secrets Manager to
     -- rotate the secret either automatically per the schedule or manually by a
     -- call to @RotateSecret@.
-    rotationLambdaARN :: Prelude.Maybe Prelude.Text,
+    rotationLambdaARN :: Core.Maybe Core.Text,
     -- | The user-provided description of the secret.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The last date that this secret was accessed. This value is truncated to
     -- midnight of the date and therefore shows only the date, not the time.
-    lastAccessedDate :: Prelude.Maybe Prelude.POSIX,
+    lastAccessedDate :: Core.Maybe Core.POSIX,
     -- | A list of all of the currently assigned @VersionStage@ staging labels
     -- and the @VersionId@ that each is attached to. Staging labels are used to
     -- keep track of the different versions during the rotation process.
@@ -300,11 +295,11 @@ data DescribeSecretResponse = DescribeSecretResponse'
     -- A version that does not have any staging labels attached is considered
     -- deprecated and subject to deletion. Such versions are not included in
     -- this list.
-    versionIdsToStages :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text)),
+    versionIdsToStages :: Core.Maybe (Core.HashMap Core.Text (Core.NonEmpty Core.Text)),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSecretResponse' with all optional fields omitted.
@@ -382,37 +377,36 @@ data DescribeSecretResponse = DescribeSecretResponse'
 -- 'httpStatus', 'describeSecretResponse_httpStatus' - The response's http status code.
 newDescribeSecretResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSecretResponse
 newDescribeSecretResponse pHttpStatus_ =
   DescribeSecretResponse'
-    { createdDate =
-        Prelude.Nothing,
-      owningService = Prelude.Nothing,
-      lastRotatedDate = Prelude.Nothing,
-      replicationStatus = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      lastChangedDate = Prelude.Nothing,
-      primaryRegion = Prelude.Nothing,
-      rotationRules = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      rotationEnabled = Prelude.Nothing,
-      deletedDate = Prelude.Nothing,
-      rotationLambdaARN = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastAccessedDate = Prelude.Nothing,
-      versionIdsToStages = Prelude.Nothing,
+    { createdDate = Core.Nothing,
+      owningService = Core.Nothing,
+      lastRotatedDate = Core.Nothing,
+      replicationStatus = Core.Nothing,
+      arn = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      name = Core.Nothing,
+      lastChangedDate = Core.Nothing,
+      primaryRegion = Core.Nothing,
+      rotationRules = Core.Nothing,
+      tags = Core.Nothing,
+      rotationEnabled = Core.Nothing,
+      deletedDate = Core.Nothing,
+      rotationLambdaARN = Core.Nothing,
+      description = Core.Nothing,
+      lastAccessedDate = Core.Nothing,
+      versionIdsToStages = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date you created the secret.
-describeSecretResponse_createdDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_createdDate = Lens.lens (\DescribeSecretResponse' {createdDate} -> createdDate) (\s@DescribeSecretResponse' {} a -> s {createdDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Time
+describeSecretResponse_createdDate :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.UTCTime)
+describeSecretResponse_createdDate = Lens.lens (\DescribeSecretResponse' {createdDate} -> createdDate) (\s@DescribeSecretResponse' {} a -> s {createdDate = a} :: DescribeSecretResponse) Core.. Lens.mapping Core._Time
 
 -- | Returns the name of the service that created this secret.
-describeSecretResponse_owningService :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_owningService :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Text)
 describeSecretResponse_owningService = Lens.lens (\DescribeSecretResponse' {owningService} -> owningService) (\s@DescribeSecretResponse' {} a -> s {owningService = a} :: DescribeSecretResponse)
 
 -- | The last date and time that the rotation process for this secret was
@@ -421,16 +415,16 @@ describeSecretResponse_owningService = Lens.lens (\DescribeSecretResponse' {owni
 -- The most recent date and time that the Secrets Manager rotation process
 -- successfully completed. If the secret doesn\'t rotate, Secrets Manager
 -- returns a null value.
-describeSecretResponse_lastRotatedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_lastRotatedDate = Lens.lens (\DescribeSecretResponse' {lastRotatedDate} -> lastRotatedDate) (\s@DescribeSecretResponse' {} a -> s {lastRotatedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Time
+describeSecretResponse_lastRotatedDate :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.UTCTime)
+describeSecretResponse_lastRotatedDate = Lens.lens (\DescribeSecretResponse' {lastRotatedDate} -> lastRotatedDate) (\s@DescribeSecretResponse' {} a -> s {lastRotatedDate = a} :: DescribeSecretResponse) Core.. Lens.mapping Core._Time
 
 -- | Describes a list of replication status objects as @InProgress@, @Failed@
 -- or @InSync@.@P@
-describeSecretResponse_replicationStatus :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe [ReplicationStatusType])
-describeSecretResponse_replicationStatus = Lens.lens (\DescribeSecretResponse' {replicationStatus} -> replicationStatus) (\s@DescribeSecretResponse' {} a -> s {replicationStatus = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSecretResponse_replicationStatus :: Lens.Lens' DescribeSecretResponse (Core.Maybe [ReplicationStatusType])
+describeSecretResponse_replicationStatus = Lens.lens (\DescribeSecretResponse' {replicationStatus} -> replicationStatus) (\s@DescribeSecretResponse' {} a -> s {replicationStatus = a} :: DescribeSecretResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the secret.
-describeSecretResponse_arn :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_arn :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Text)
 describeSecretResponse_arn = Lens.lens (\DescribeSecretResponse' {arn} -> arn) (\s@DescribeSecretResponse' {} a -> s {arn = a} :: DescribeSecretResponse)
 
 -- | The ARN or alias of the AWS KMS customer master key (CMK) that\'s used
@@ -438,37 +432,37 @@ describeSecretResponse_arn = Lens.lens (\DescribeSecretResponse' {arn} -> arn) (
 -- of the secret. If you don\'t provide a key, then Secrets Manager
 -- defaults to encrypting the secret fields with the default AWS KMS CMK
 -- (the one named @awssecretsmanager@) for this account.
-describeSecretResponse_kmsKeyId :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_kmsKeyId :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Text)
 describeSecretResponse_kmsKeyId = Lens.lens (\DescribeSecretResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeSecretResponse' {} a -> s {kmsKeyId = a} :: DescribeSecretResponse)
 
 -- | The user-provided friendly name of the secret.
-describeSecretResponse_name :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_name :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Text)
 describeSecretResponse_name = Lens.lens (\DescribeSecretResponse' {name} -> name) (\s@DescribeSecretResponse' {} a -> s {name = a} :: DescribeSecretResponse)
 
 -- | The last date and time that this secret was modified in any way.
-describeSecretResponse_lastChangedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_lastChangedDate = Lens.lens (\DescribeSecretResponse' {lastChangedDate} -> lastChangedDate) (\s@DescribeSecretResponse' {} a -> s {lastChangedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Time
+describeSecretResponse_lastChangedDate :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.UTCTime)
+describeSecretResponse_lastChangedDate = Lens.lens (\DescribeSecretResponse' {lastChangedDate} -> lastChangedDate) (\s@DescribeSecretResponse' {} a -> s {lastChangedDate = a} :: DescribeSecretResponse) Core.. Lens.mapping Core._Time
 
 -- | Specifies the primary region for secret replication.
-describeSecretResponse_primaryRegion :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_primaryRegion :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Text)
 describeSecretResponse_primaryRegion = Lens.lens (\DescribeSecretResponse' {primaryRegion} -> primaryRegion) (\s@DescribeSecretResponse' {} a -> s {primaryRegion = a} :: DescribeSecretResponse)
 
 -- | A structure with the rotation configuration for this secret.
-describeSecretResponse_rotationRules :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe RotationRulesType)
+describeSecretResponse_rotationRules :: Lens.Lens' DescribeSecretResponse (Core.Maybe RotationRulesType)
 describeSecretResponse_rotationRules = Lens.lens (\DescribeSecretResponse' {rotationRules} -> rotationRules) (\s@DescribeSecretResponse' {} a -> s {rotationRules = a} :: DescribeSecretResponse)
 
 -- | The list of user-defined tags that are associated with the secret. To
 -- add tags to a secret, use TagResource. To remove tags, use
 -- UntagResource.
-describeSecretResponse_tags :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe [Tag])
-describeSecretResponse_tags = Lens.lens (\DescribeSecretResponse' {tags} -> tags) (\s@DescribeSecretResponse' {} a -> s {tags = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSecretResponse_tags :: Lens.Lens' DescribeSecretResponse (Core.Maybe [Tag])
+describeSecretResponse_tags = Lens.lens (\DescribeSecretResponse' {tags} -> tags) (\s@DescribeSecretResponse' {} a -> s {tags = a} :: DescribeSecretResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether automatic rotation is enabled for this secret.
 --
 -- To enable rotation, use RotateSecret with @AutomaticallyRotateAfterDays@
 -- set to a value greater than 0. To disable rotation, use
 -- CancelRotateSecret.
-describeSecretResponse_rotationEnabled :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Bool)
+describeSecretResponse_rotationEnabled :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Bool)
 describeSecretResponse_rotationEnabled = Lens.lens (\DescribeSecretResponse' {rotationEnabled} -> rotationEnabled) (\s@DescribeSecretResponse' {} a -> s {rotationEnabled = a} :: DescribeSecretResponse)
 
 -- | This value exists if the secret is scheduled for deletion. Some time
@@ -478,23 +472,23 @@ describeSecretResponse_rotationEnabled = Lens.lens (\DescribeSecretResponse' {ro
 -- If a secret is scheduled for deletion, then its details, including the
 -- encrypted secret information, is not accessible. To cancel a scheduled
 -- deletion and restore access, use RestoreSecret.
-describeSecretResponse_deletedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_deletedDate = Lens.lens (\DescribeSecretResponse' {deletedDate} -> deletedDate) (\s@DescribeSecretResponse' {} a -> s {deletedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Time
+describeSecretResponse_deletedDate :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.UTCTime)
+describeSecretResponse_deletedDate = Lens.lens (\DescribeSecretResponse' {deletedDate} -> deletedDate) (\s@DescribeSecretResponse' {} a -> s {deletedDate = a} :: DescribeSecretResponse) Core.. Lens.mapping Core._Time
 
 -- | The ARN of a Lambda function that\'s invoked by Secrets Manager to
 -- rotate the secret either automatically per the schedule or manually by a
 -- call to @RotateSecret@.
-describeSecretResponse_rotationLambdaARN :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_rotationLambdaARN :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Text)
 describeSecretResponse_rotationLambdaARN = Lens.lens (\DescribeSecretResponse' {rotationLambdaARN} -> rotationLambdaARN) (\s@DescribeSecretResponse' {} a -> s {rotationLambdaARN = a} :: DescribeSecretResponse)
 
 -- | The user-provided description of the secret.
-describeSecretResponse_description :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
+describeSecretResponse_description :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.Text)
 describeSecretResponse_description = Lens.lens (\DescribeSecretResponse' {description} -> description) (\s@DescribeSecretResponse' {} a -> s {description = a} :: DescribeSecretResponse)
 
 -- | The last date that this secret was accessed. This value is truncated to
 -- midnight of the date and therefore shows only the date, not the time.
-describeSecretResponse_lastAccessedDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecretResponse_lastAccessedDate = Lens.lens (\DescribeSecretResponse' {lastAccessedDate} -> lastAccessedDate) (\s@DescribeSecretResponse' {} a -> s {lastAccessedDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Time
+describeSecretResponse_lastAccessedDate :: Lens.Lens' DescribeSecretResponse (Core.Maybe Core.UTCTime)
+describeSecretResponse_lastAccessedDate = Lens.lens (\DescribeSecretResponse' {lastAccessedDate} -> lastAccessedDate) (\s@DescribeSecretResponse' {} a -> s {lastAccessedDate = a} :: DescribeSecretResponse) Core.. Lens.mapping Core._Time
 
 -- | A list of all of the currently assigned @VersionStage@ staging labels
 -- and the @VersionId@ that each is attached to. Staging labels are used to
@@ -503,11 +497,11 @@ describeSecretResponse_lastAccessedDate = Lens.lens (\DescribeSecretResponse' {l
 -- A version that does not have any staging labels attached is considered
 -- deprecated and subject to deletion. Such versions are not included in
 -- this list.
-describeSecretResponse_versionIdsToStages :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty Prelude.Text)))
-describeSecretResponse_versionIdsToStages = Lens.lens (\DescribeSecretResponse' {versionIdsToStages} -> versionIdsToStages) (\s@DescribeSecretResponse' {} a -> s {versionIdsToStages = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSecretResponse_versionIdsToStages :: Lens.Lens' DescribeSecretResponse (Core.Maybe (Core.HashMap Core.Text (Core.NonEmpty Core.Text)))
+describeSecretResponse_versionIdsToStages = Lens.lens (\DescribeSecretResponse' {versionIdsToStages} -> versionIdsToStages) (\s@DescribeSecretResponse' {} a -> s {versionIdsToStages = a} :: DescribeSecretResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSecretResponse_httpStatus :: Lens.Lens' DescribeSecretResponse Prelude.Int
+describeSecretResponse_httpStatus :: Lens.Lens' DescribeSecretResponse Core.Int
 describeSecretResponse_httpStatus = Lens.lens (\DescribeSecretResponse' {httpStatus} -> httpStatus) (\s@DescribeSecretResponse' {} a -> s {httpStatus = a} :: DescribeSecretResponse)
 
-instance Prelude.NFData DescribeSecretResponse
+instance Core.NFData DescribeSecretResponse

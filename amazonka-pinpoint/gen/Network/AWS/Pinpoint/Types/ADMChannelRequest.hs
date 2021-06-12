@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.ADMChannelRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status and settings of the ADM (Amazon Device Messaging)
 -- channel for an application.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newADMChannelRequest' smart constructor.
 data ADMChannelRequest = ADMChannelRequest'
   { -- | Specifies whether to enable the ADM channel for the application.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The Client Secret that you received from Amazon to send messages by
     -- using ADM.
-    clientSecret :: Prelude.Text,
+    clientSecret :: Core.Text,
     -- | The Client ID that you received from Amazon to send messages by using
     -- ADM.
-    clientId :: Prelude.Text
+    clientId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ADMChannelRequest' with all optional fields omitted.
@@ -56,42 +55,41 @@ data ADMChannelRequest = ADMChannelRequest'
 -- ADM.
 newADMChannelRequest ::
   -- | 'clientSecret'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientId'
-  Prelude.Text ->
+  Core.Text ->
   ADMChannelRequest
 newADMChannelRequest pClientSecret_ pClientId_ =
   ADMChannelRequest'
-    { enabled = Prelude.Nothing,
+    { enabled = Core.Nothing,
       clientSecret = pClientSecret_,
       clientId = pClientId_
     }
 
 -- | Specifies whether to enable the ADM channel for the application.
-aDMChannelRequest_enabled :: Lens.Lens' ADMChannelRequest (Prelude.Maybe Prelude.Bool)
+aDMChannelRequest_enabled :: Lens.Lens' ADMChannelRequest (Core.Maybe Core.Bool)
 aDMChannelRequest_enabled = Lens.lens (\ADMChannelRequest' {enabled} -> enabled) (\s@ADMChannelRequest' {} a -> s {enabled = a} :: ADMChannelRequest)
 
 -- | The Client Secret that you received from Amazon to send messages by
 -- using ADM.
-aDMChannelRequest_clientSecret :: Lens.Lens' ADMChannelRequest Prelude.Text
+aDMChannelRequest_clientSecret :: Lens.Lens' ADMChannelRequest Core.Text
 aDMChannelRequest_clientSecret = Lens.lens (\ADMChannelRequest' {clientSecret} -> clientSecret) (\s@ADMChannelRequest' {} a -> s {clientSecret = a} :: ADMChannelRequest)
 
 -- | The Client ID that you received from Amazon to send messages by using
 -- ADM.
-aDMChannelRequest_clientId :: Lens.Lens' ADMChannelRequest Prelude.Text
+aDMChannelRequest_clientId :: Lens.Lens' ADMChannelRequest Core.Text
 aDMChannelRequest_clientId = Lens.lens (\ADMChannelRequest' {clientId} -> clientId) (\s@ADMChannelRequest' {} a -> s {clientId = a} :: ADMChannelRequest)
 
-instance Prelude.Hashable ADMChannelRequest
+instance Core.Hashable ADMChannelRequest
 
-instance Prelude.NFData ADMChannelRequest
+instance Core.NFData ADMChannelRequest
 
-instance Prelude.ToJSON ADMChannelRequest where
+instance Core.ToJSON ADMChannelRequest where
   toJSON ADMChannelRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Enabled" Prelude..=) Prelude.<$> enabled,
-            Prelude.Just
-              ("ClientSecret" Prelude..= clientSecret),
-            Prelude.Just ("ClientId" Prelude..= clientId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            Core.Just ("ClientSecret" Core..= clientSecret),
+            Core.Just ("ClientId" Core..= clientId)
           ]
       )

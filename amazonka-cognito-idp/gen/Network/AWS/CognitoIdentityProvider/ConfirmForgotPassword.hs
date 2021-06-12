@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CognitoIdentityProvider.ConfirmForgotPassword
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,31 +86,31 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
-    userContextData :: Prelude.Maybe UserContextDataType,
+    userContextData :: Core.Maybe UserContextDataType,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    secretHash :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The Amazon Pinpoint analytics metadata for collecting metrics for
     -- @ConfirmForgotPassword@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    analyticsMetadata :: Core.Maybe AnalyticsMetadataType,
     -- | The app client ID of the app associated with the user pool.
-    clientId :: Prelude.Sensitive Prelude.Text,
+    clientId :: Core.Sensitive Core.Text,
     -- | The user name of the user for whom you want to enter a code to retrieve
     -- a forgotten password.
-    username :: Prelude.Sensitive Prelude.Text,
+    username :: Core.Sensitive Core.Text,
     -- | The confirmation code sent by a user\'s request to retrieve a forgotten
     -- password. For more information, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html ForgotPassword>.
-    confirmationCode :: Prelude.Text,
+    confirmationCode :: Core.Text,
     -- | The password sent by a user\'s request to retrieve a forgotten password.
-    password :: Prelude.Sensitive Prelude.Text
+    password :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmForgotPassword' with all optional fields omitted.
@@ -175,13 +174,13 @@ data ConfirmForgotPassword = ConfirmForgotPassword'
 -- 'password', 'confirmForgotPassword_password' - The password sent by a user\'s request to retrieve a forgotten password.
 newConfirmForgotPassword ::
   -- | 'clientId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'confirmationCode'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'password'
-  Prelude.Text ->
+  Core.Text ->
   ConfirmForgotPassword
 newConfirmForgotPassword
   pClientId_
@@ -190,14 +189,14 @@ newConfirmForgotPassword
   pPassword_ =
     ConfirmForgotPassword'
       { clientMetadata =
-          Prelude.Nothing,
-        userContextData = Prelude.Nothing,
-        secretHash = Prelude.Nothing,
-        analyticsMetadata = Prelude.Nothing,
-        clientId = Prelude._Sensitive Lens.# pClientId_,
-        username = Prelude._Sensitive Lens.# pUsername_,
+          Core.Nothing,
+        userContextData = Core.Nothing,
+        secretHash = Core.Nothing,
+        analyticsMetadata = Core.Nothing,
+        clientId = Core._Sensitive Lens.# pClientId_,
+        username = Core._Sensitive Lens.# pUsername_,
         confirmationCode = pConfirmationCode_,
-        password = Prelude._Sensitive Lens.# pPassword_
+        password = Core._Sensitive Lens.# pPassword_
       }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -230,100 +229,96 @@ newConfirmForgotPassword
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-confirmForgotPassword_clientMetadata :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-confirmForgotPassword_clientMetadata = Lens.lens (\ConfirmForgotPassword' {clientMetadata} -> clientMetadata) (\s@ConfirmForgotPassword' {} a -> s {clientMetadata = a} :: ConfirmForgotPassword) Prelude.. Lens.mapping Prelude._Coerce
+confirmForgotPassword_clientMetadata :: Lens.Lens' ConfirmForgotPassword (Core.Maybe (Core.HashMap Core.Text Core.Text))
+confirmForgotPassword_clientMetadata = Lens.lens (\ConfirmForgotPassword' {clientMetadata} -> clientMetadata) (\s@ConfirmForgotPassword' {} a -> s {clientMetadata = a} :: ConfirmForgotPassword) Core.. Lens.mapping Lens._Coerce
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
-confirmForgotPassword_userContextData :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe UserContextDataType)
+confirmForgotPassword_userContextData :: Lens.Lens' ConfirmForgotPassword (Core.Maybe UserContextDataType)
 confirmForgotPassword_userContextData = Lens.lens (\ConfirmForgotPassword' {userContextData} -> userContextData) (\s@ConfirmForgotPassword' {} a -> s {userContextData = a} :: ConfirmForgotPassword)
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
-confirmForgotPassword_secretHash :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe Prelude.Text)
-confirmForgotPassword_secretHash = Lens.lens (\ConfirmForgotPassword' {secretHash} -> secretHash) (\s@ConfirmForgotPassword' {} a -> s {secretHash = a} :: ConfirmForgotPassword) Prelude.. Lens.mapping Prelude._Sensitive
+confirmForgotPassword_secretHash :: Lens.Lens' ConfirmForgotPassword (Core.Maybe Core.Text)
+confirmForgotPassword_secretHash = Lens.lens (\ConfirmForgotPassword' {secretHash} -> secretHash) (\s@ConfirmForgotPassword' {} a -> s {secretHash = a} :: ConfirmForgotPassword) Core.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for
 -- @ConfirmForgotPassword@ calls.
-confirmForgotPassword_analyticsMetadata :: Lens.Lens' ConfirmForgotPassword (Prelude.Maybe AnalyticsMetadataType)
+confirmForgotPassword_analyticsMetadata :: Lens.Lens' ConfirmForgotPassword (Core.Maybe AnalyticsMetadataType)
 confirmForgotPassword_analyticsMetadata = Lens.lens (\ConfirmForgotPassword' {analyticsMetadata} -> analyticsMetadata) (\s@ConfirmForgotPassword' {} a -> s {analyticsMetadata = a} :: ConfirmForgotPassword)
 
 -- | The app client ID of the app associated with the user pool.
-confirmForgotPassword_clientId :: Lens.Lens' ConfirmForgotPassword Prelude.Text
-confirmForgotPassword_clientId = Lens.lens (\ConfirmForgotPassword' {clientId} -> clientId) (\s@ConfirmForgotPassword' {} a -> s {clientId = a} :: ConfirmForgotPassword) Prelude.. Prelude._Sensitive
+confirmForgotPassword_clientId :: Lens.Lens' ConfirmForgotPassword Core.Text
+confirmForgotPassword_clientId = Lens.lens (\ConfirmForgotPassword' {clientId} -> clientId) (\s@ConfirmForgotPassword' {} a -> s {clientId = a} :: ConfirmForgotPassword) Core.. Core._Sensitive
 
 -- | The user name of the user for whom you want to enter a code to retrieve
 -- a forgotten password.
-confirmForgotPassword_username :: Lens.Lens' ConfirmForgotPassword Prelude.Text
-confirmForgotPassword_username = Lens.lens (\ConfirmForgotPassword' {username} -> username) (\s@ConfirmForgotPassword' {} a -> s {username = a} :: ConfirmForgotPassword) Prelude.. Prelude._Sensitive
+confirmForgotPassword_username :: Lens.Lens' ConfirmForgotPassword Core.Text
+confirmForgotPassword_username = Lens.lens (\ConfirmForgotPassword' {username} -> username) (\s@ConfirmForgotPassword' {} a -> s {username = a} :: ConfirmForgotPassword) Core.. Core._Sensitive
 
 -- | The confirmation code sent by a user\'s request to retrieve a forgotten
 -- password. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html ForgotPassword>.
-confirmForgotPassword_confirmationCode :: Lens.Lens' ConfirmForgotPassword Prelude.Text
+confirmForgotPassword_confirmationCode :: Lens.Lens' ConfirmForgotPassword Core.Text
 confirmForgotPassword_confirmationCode = Lens.lens (\ConfirmForgotPassword' {confirmationCode} -> confirmationCode) (\s@ConfirmForgotPassword' {} a -> s {confirmationCode = a} :: ConfirmForgotPassword)
 
 -- | The password sent by a user\'s request to retrieve a forgotten password.
-confirmForgotPassword_password :: Lens.Lens' ConfirmForgotPassword Prelude.Text
-confirmForgotPassword_password = Lens.lens (\ConfirmForgotPassword' {password} -> password) (\s@ConfirmForgotPassword' {} a -> s {password = a} :: ConfirmForgotPassword) Prelude.. Prelude._Sensitive
+confirmForgotPassword_password :: Lens.Lens' ConfirmForgotPassword Core.Text
+confirmForgotPassword_password = Lens.lens (\ConfirmForgotPassword' {password} -> password) (\s@ConfirmForgotPassword' {} a -> s {password = a} :: ConfirmForgotPassword) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest ConfirmForgotPassword where
+instance Core.AWSRequest ConfirmForgotPassword where
   type
-    Rs ConfirmForgotPassword =
+    AWSResponse ConfirmForgotPassword =
       ConfirmForgotPasswordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ConfirmForgotPasswordResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmForgotPassword
+instance Core.Hashable ConfirmForgotPassword
 
-instance Prelude.NFData ConfirmForgotPassword
+instance Core.NFData ConfirmForgotPassword
 
-instance Prelude.ToHeaders ConfirmForgotPassword where
+instance Core.ToHeaders ConfirmForgotPassword where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.ConfirmForgotPassword" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.ConfirmForgotPassword" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ConfirmForgotPassword where
+instance Core.ToJSON ConfirmForgotPassword where
   toJSON ConfirmForgotPassword' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientMetadata" Prelude..=)
-              Prelude.<$> clientMetadata,
-            ("UserContextData" Prelude..=)
-              Prelude.<$> userContextData,
-            ("SecretHash" Prelude..=) Prelude.<$> secretHash,
-            ("AnalyticsMetadata" Prelude..=)
-              Prelude.<$> analyticsMetadata,
-            Prelude.Just ("ClientId" Prelude..= clientId),
-            Prelude.Just ("Username" Prelude..= username),
-            Prelude.Just
-              ("ConfirmationCode" Prelude..= confirmationCode),
-            Prelude.Just ("Password" Prelude..= password)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            ("UserContextData" Core..=) Core.<$> userContextData,
+            ("SecretHash" Core..=) Core.<$> secretHash,
+            ("AnalyticsMetadata" Core..=)
+              Core.<$> analyticsMetadata,
+            Core.Just ("ClientId" Core..= clientId),
+            Core.Just ("Username" Core..= username),
+            Core.Just
+              ("ConfirmationCode" Core..= confirmationCode),
+            Core.Just ("Password" Core..= password)
           ]
       )
 
-instance Prelude.ToPath ConfirmForgotPassword where
-  toPath = Prelude.const "/"
+instance Core.ToPath ConfirmForgotPassword where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ConfirmForgotPassword where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ConfirmForgotPassword where
+  toQuery = Core.const Core.mempty
 
 -- | The response from the server that results from a user\'s request to
 -- retrieve a forgotten password.
@@ -331,9 +326,9 @@ instance Prelude.ToQuery ConfirmForgotPassword where
 -- /See:/ 'newConfirmForgotPasswordResponse' smart constructor.
 data ConfirmForgotPasswordResponse = ConfirmForgotPasswordResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmForgotPasswordResponse' with all optional fields omitted.
@@ -346,7 +341,7 @@ data ConfirmForgotPasswordResponse = ConfirmForgotPasswordResponse'
 -- 'httpStatus', 'confirmForgotPasswordResponse_httpStatus' - The response's http status code.
 newConfirmForgotPasswordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ConfirmForgotPasswordResponse
 newConfirmForgotPasswordResponse pHttpStatus_ =
   ConfirmForgotPasswordResponse'
@@ -355,7 +350,7 @@ newConfirmForgotPasswordResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-confirmForgotPasswordResponse_httpStatus :: Lens.Lens' ConfirmForgotPasswordResponse Prelude.Int
+confirmForgotPasswordResponse_httpStatus :: Lens.Lens' ConfirmForgotPasswordResponse Core.Int
 confirmForgotPasswordResponse_httpStatus = Lens.lens (\ConfirmForgotPasswordResponse' {httpStatus} -> httpStatus) (\s@ConfirmForgotPasswordResponse' {} a -> s {httpStatus = a} :: ConfirmForgotPasswordResponse)
 
-instance Prelude.NFData ConfirmForgotPasswordResponse
+instance Core.NFData ConfirmForgotPasswordResponse

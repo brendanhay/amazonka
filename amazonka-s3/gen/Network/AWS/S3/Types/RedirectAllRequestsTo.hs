@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.RedirectAllRequestsTo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Protocol
 
@@ -32,11 +31,11 @@ import Network.AWS.S3.Types.Protocol
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
   { -- | Protocol to use when redirecting requests. The default is the protocol
     -- that is used in the original request.
-    protocol :: Prelude.Maybe Protocol,
+    protocol :: Core.Maybe Protocol,
     -- | Name of the host where requests are redirected.
-    hostName :: Prelude.Text
+    hostName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RedirectAllRequestsTo' with all optional fields omitted.
@@ -52,36 +51,36 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo'
 -- 'hostName', 'redirectAllRequestsTo_hostName' - Name of the host where requests are redirected.
 newRedirectAllRequestsTo ::
   -- | 'hostName'
-  Prelude.Text ->
+  Core.Text ->
   RedirectAllRequestsTo
 newRedirectAllRequestsTo pHostName_ =
   RedirectAllRequestsTo'
-    { protocol = Prelude.Nothing,
+    { protocol = Core.Nothing,
       hostName = pHostName_
     }
 
 -- | Protocol to use when redirecting requests. The default is the protocol
 -- that is used in the original request.
-redirectAllRequestsTo_protocol :: Lens.Lens' RedirectAllRequestsTo (Prelude.Maybe Protocol)
+redirectAllRequestsTo_protocol :: Lens.Lens' RedirectAllRequestsTo (Core.Maybe Protocol)
 redirectAllRequestsTo_protocol = Lens.lens (\RedirectAllRequestsTo' {protocol} -> protocol) (\s@RedirectAllRequestsTo' {} a -> s {protocol = a} :: RedirectAllRequestsTo)
 
 -- | Name of the host where requests are redirected.
-redirectAllRequestsTo_hostName :: Lens.Lens' RedirectAllRequestsTo Prelude.Text
+redirectAllRequestsTo_hostName :: Lens.Lens' RedirectAllRequestsTo Core.Text
 redirectAllRequestsTo_hostName = Lens.lens (\RedirectAllRequestsTo' {hostName} -> hostName) (\s@RedirectAllRequestsTo' {} a -> s {hostName = a} :: RedirectAllRequestsTo)
 
-instance Prelude.FromXML RedirectAllRequestsTo where
+instance Core.FromXML RedirectAllRequestsTo where
   parseXML x =
     RedirectAllRequestsTo'
-      Prelude.<$> (x Prelude..@? "Protocol")
-      Prelude.<*> (x Prelude..@ "HostName")
+      Core.<$> (x Core..@? "Protocol")
+      Core.<*> (x Core..@ "HostName")
 
-instance Prelude.Hashable RedirectAllRequestsTo
+instance Core.Hashable RedirectAllRequestsTo
 
-instance Prelude.NFData RedirectAllRequestsTo
+instance Core.NFData RedirectAllRequestsTo
 
-instance Prelude.ToXML RedirectAllRequestsTo where
+instance Core.ToXML RedirectAllRequestsTo where
   toXML RedirectAllRequestsTo' {..} =
-    Prelude.mconcat
-      [ "Protocol" Prelude.@= protocol,
-        "HostName" Prelude.@= hostName
+    Core.mconcat
+      [ "Protocol" Core.@= protocol,
+        "HostName" Core.@= hostName
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.CodeDeploy.DeleteDeploymentConfig
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DeleteDeploymentConfig = DeleteDeploymentConfig'
   { -- | The name of a deployment configuration associated with the IAM user or
     -- AWS account.
-    deploymentConfigName :: Prelude.Text
+    deploymentConfigName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentConfig' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteDeploymentConfig = DeleteDeploymentConfig'
 -- AWS account.
 newDeleteDeploymentConfig ::
   -- | 'deploymentConfigName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDeploymentConfig
 newDeleteDeploymentConfig pDeploymentConfigName_ =
   DeleteDeploymentConfig'
@@ -77,59 +76,57 @@ newDeleteDeploymentConfig pDeploymentConfigName_ =
 
 -- | The name of a deployment configuration associated with the IAM user or
 -- AWS account.
-deleteDeploymentConfig_deploymentConfigName :: Lens.Lens' DeleteDeploymentConfig Prelude.Text
+deleteDeploymentConfig_deploymentConfigName :: Lens.Lens' DeleteDeploymentConfig Core.Text
 deleteDeploymentConfig_deploymentConfigName = Lens.lens (\DeleteDeploymentConfig' {deploymentConfigName} -> deploymentConfigName) (\s@DeleteDeploymentConfig' {} a -> s {deploymentConfigName = a} :: DeleteDeploymentConfig)
 
-instance Prelude.AWSRequest DeleteDeploymentConfig where
+instance Core.AWSRequest DeleteDeploymentConfig where
   type
-    Rs DeleteDeploymentConfig =
+    AWSResponse DeleteDeploymentConfig =
       DeleteDeploymentConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteDeploymentConfigResponse'
 
-instance Prelude.Hashable DeleteDeploymentConfig
+instance Core.Hashable DeleteDeploymentConfig
 
-instance Prelude.NFData DeleteDeploymentConfig
+instance Core.NFData DeleteDeploymentConfig
 
-instance Prelude.ToHeaders DeleteDeploymentConfig where
+instance Core.ToHeaders DeleteDeploymentConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.DeleteDeploymentConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.DeleteDeploymentConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDeploymentConfig where
+instance Core.ToJSON DeleteDeploymentConfig where
   toJSON DeleteDeploymentConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "deploymentConfigName"
-                  Prelude..= deploymentConfigName
+                  Core..= deploymentConfigName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteDeploymentConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDeploymentConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDeploymentConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDeploymentConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDeploymentConfigResponse' smart constructor.
 data DeleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDeploymentConfigResponse' with all optional fields omitted.
@@ -140,6 +137,4 @@ newDeleteDeploymentConfigResponse ::
 newDeleteDeploymentConfigResponse =
   DeleteDeploymentConfigResponse'
 
-instance
-  Prelude.NFData
-    DeleteDeploymentConfigResponse
+instance Core.NFData DeleteDeploymentConfigResponse

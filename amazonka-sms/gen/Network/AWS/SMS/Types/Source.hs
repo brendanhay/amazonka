@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.Source where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.S3Location
 
 -- | Contains the location of a validation script.
 --
 -- /See:/ 'newSource' smart constructor.
 data Source = Source'
-  { s3Location :: Prelude.Maybe S3Location
+  { s3Location :: Core.Maybe S3Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Source' with all optional fields omitted.
@@ -43,27 +42,25 @@ data Source = Source'
 -- 's3Location', 'source_s3Location' - Undocumented member.
 newSource ::
   Source
-newSource = Source' {s3Location = Prelude.Nothing}
+newSource = Source' {s3Location = Core.Nothing}
 
 -- | Undocumented member.
-source_s3Location :: Lens.Lens' Source (Prelude.Maybe S3Location)
+source_s3Location :: Lens.Lens' Source (Core.Maybe S3Location)
 source_s3Location = Lens.lens (\Source' {s3Location} -> s3Location) (\s@Source' {} a -> s {s3Location = a} :: Source)
 
-instance Prelude.FromJSON Source where
+instance Core.FromJSON Source where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Source"
-      ( \x ->
-          Source' Prelude.<$> (x Prelude..:? "s3Location")
-      )
+      (\x -> Source' Core.<$> (x Core..:? "s3Location"))
 
-instance Prelude.Hashable Source
+instance Core.Hashable Source
 
-instance Prelude.NFData Source
+instance Core.NFData Source
 
-instance Prelude.ToJSON Source where
+instance Core.ToJSON Source where
   toJSON Source' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("s3Location" Prelude..=) Prelude.<$> s3Location]
+    Core.object
+      ( Core.catMaybes
+          [("s3Location" Core..=) Core.<$> s3Location]
       )

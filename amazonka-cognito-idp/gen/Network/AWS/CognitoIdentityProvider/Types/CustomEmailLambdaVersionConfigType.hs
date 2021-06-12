@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentityProvider.Types.CustomEmailLambdaVersionConfigType where
 
 import Network.AWS.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom email sender Lambda configuration type.
 --
@@ -34,9 +33,9 @@ data CustomEmailLambdaVersionConfigType = CustomEmailLambdaVersionConfigType'
     lambdaVersion :: CustomEmailSenderLambdaVersionType,
     -- | The Lambda Amazon Resource Name of the Lambda function that Amazon
     -- Cognito triggers to send email notifications to users.
-    lambdaArn :: Prelude.Text
+    lambdaArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CustomEmailLambdaVersionConfigType' with all optional fields omitted.
@@ -56,7 +55,7 @@ newCustomEmailLambdaVersionConfigType ::
   -- | 'lambdaVersion'
   CustomEmailSenderLambdaVersionType ->
   -- | 'lambdaArn'
-  Prelude.Text ->
+  Core.Text ->
   CustomEmailLambdaVersionConfigType
 newCustomEmailLambdaVersionConfigType
   pLambdaVersion_
@@ -75,39 +74,38 @@ customEmailLambdaVersionConfigType_lambdaVersion = Lens.lens (\CustomEmailLambda
 
 -- | The Lambda Amazon Resource Name of the Lambda function that Amazon
 -- Cognito triggers to send email notifications to users.
-customEmailLambdaVersionConfigType_lambdaArn :: Lens.Lens' CustomEmailLambdaVersionConfigType Prelude.Text
+customEmailLambdaVersionConfigType_lambdaArn :: Lens.Lens' CustomEmailLambdaVersionConfigType Core.Text
 customEmailLambdaVersionConfigType_lambdaArn = Lens.lens (\CustomEmailLambdaVersionConfigType' {lambdaArn} -> lambdaArn) (\s@CustomEmailLambdaVersionConfigType' {} a -> s {lambdaArn = a} :: CustomEmailLambdaVersionConfigType)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     CustomEmailLambdaVersionConfigType
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CustomEmailLambdaVersionConfigType"
       ( \x ->
           CustomEmailLambdaVersionConfigType'
-            Prelude.<$> (x Prelude..: "LambdaVersion")
-            Prelude.<*> (x Prelude..: "LambdaArn")
+            Core.<$> (x Core..: "LambdaVersion")
+            Core.<*> (x Core..: "LambdaArn")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CustomEmailLambdaVersionConfigType
 
 instance
-  Prelude.NFData
+  Core.NFData
     CustomEmailLambdaVersionConfigType
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CustomEmailLambdaVersionConfigType
   where
   toJSON CustomEmailLambdaVersionConfigType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("LambdaVersion" Prelude..= lambdaVersion),
-            Prelude.Just ("LambdaArn" Prelude..= lambdaArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("LambdaVersion" Core..= lambdaVersion),
+            Core.Just ("LambdaArn" Core..= lambdaArn)
           ]
       )

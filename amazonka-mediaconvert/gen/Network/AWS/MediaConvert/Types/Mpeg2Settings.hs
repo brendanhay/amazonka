@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.Mpeg2Settings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Mpeg2AdaptiveQuantization
 import Network.AWS.MediaConvert.Types.Mpeg2CodecLevel
@@ -40,7 +40,6 @@ import Network.AWS.MediaConvert.Types.Mpeg2SpatialAdaptiveQuantization
 import Network.AWS.MediaConvert.Types.Mpeg2Syntax
 import Network.AWS.MediaConvert.Types.Mpeg2Telecine
 import Network.AWS.MediaConvert.Types.Mpeg2TemporalAdaptiveQuantization
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value MPEG2.
@@ -49,7 +48,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Mpeg2Settings = Mpeg2Settings'
   { -- | Percentage of the buffer that should initially be filled (HRD buffer
     -- model).
-    hrdBufferInitialFillPercentage :: Prelude.Maybe Prelude.Natural,
+    hrdBufferInitialFillPercentage :: Core.Maybe Core.Natural,
     -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
     -- each frame based on temporal variation of content complexity. When you
     -- enable this feature, the encoder uses fewer bits on areas of the frame
@@ -64,11 +63,11 @@ data Mpeg2Settings = Mpeg2Settings'
     -- might choose to disable this feature. Related setting: When you enable
     -- temporal quantization, adjust the strength of the filter with the
     -- setting Adaptive quantization (adaptiveQuantization).
-    temporalAdaptiveQuantization :: Prelude.Maybe Mpeg2TemporalAdaptiveQuantization,
+    temporalAdaptiveQuantization :: Core.Maybe Mpeg2TemporalAdaptiveQuantization,
     -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
     -- you want to trade off encoding speed for output video quality. The
     -- default behavior is faster, lower quality, single-pass encoding.
-    qualityTuningLevel :: Prelude.Maybe Mpeg2QualityTuningLevel,
+    qualityTuningLevel :: Core.Maybe Mpeg2QualityTuningLevel,
     -- | Choose the scan line type for the output. Keep the default value,
     -- Progressive (PROGRESSIVE) to create a progressive output, regardless of
     -- the scan type of your input. Use Top field first (TOP_FIELD) or Bottom
@@ -82,12 +81,12 @@ data Mpeg2Settings = Mpeg2Settings'
     -- the same polarity as the source. If the source is progressive, the
     -- output will be interlaced with top field bottom field first, depending
     -- on which of the Follow options you choose.
-    interlaceMode :: Prelude.Maybe Mpeg2InterlaceMode,
+    interlaceMode :: Core.Maybe Mpeg2InterlaceMode,
     -- | Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization
     -- precision for intra-block DC coefficients. If you choose the value auto,
     -- the service will automatically select the precision based on the
     -- per-frame compression ratio.
-    intraDcPrecision :: Prelude.Maybe Mpeg2IntraDcPrecision,
+    intraDcPrecision :: Core.Maybe Mpeg2IntraDcPrecision,
     -- | When you do frame rate conversion from 23.976 frames per second (fps) to
     -- 29.97 fps, and your output scan type is interlaced, you can optionally
     -- enable hard or soft telecine to create a smoother picture. Hard telecine
@@ -97,7 +96,7 @@ data Mpeg2Settings = Mpeg2Settings'
     -- (NONE), MediaConvert does a standard frame rate conversion to 29.97
     -- without doing anything with the field polarity to create a smoother
     -- picture.
-    telecine :: Prelude.Maybe Mpeg2Telecine,
+    telecine :: Core.Maybe Mpeg2Telecine,
     -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
     -- each frame based on spatial variation of content complexity. When you
     -- enable this feature, the encoder uses fewer bits on areas that can
@@ -114,7 +113,7 @@ data Mpeg2Settings = Mpeg2Settings'
     -- (adaptiveQuantization) depending on your content. For homogeneous
     -- content, such as cartoons and video games, set it to Low. For content
     -- with a wider variety of textures, set it to High or Higher.
-    spatialAdaptiveQuantization :: Prelude.Maybe Mpeg2SpatialAdaptiveQuantization,
+    spatialAdaptiveQuantization :: Core.Maybe Mpeg2SpatialAdaptiveQuantization,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
@@ -122,20 +121,20 @@ data Mpeg2Settings = Mpeg2Settings'
     -- FramerateNumerator. When you use the console for transcode jobs that use
     -- frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
+    framerateNumerator :: Core.Maybe Core.Natural,
     -- | Use Rate control mode (Mpeg2RateControlMode) to specify whether the
     -- bitrate is variable (vbr) or constant (cbr).
-    rateControlMode :: Prelude.Maybe Mpeg2RateControlMode,
+    rateControlMode :: Core.Maybe Mpeg2RateControlMode,
     -- | Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If
     -- seconds the system will convert the GOP Size into a frame count at run
     -- time.
-    gopSizeUnits :: Prelude.Maybe Mpeg2GopSizeUnits,
+    gopSizeUnits :: Core.Maybe Mpeg2GopSizeUnits,
     -- | Use Profile (Mpeg2CodecProfile) to set the MPEG-2 profile for the video
     -- output.
-    codecProfile :: Prelude.Maybe Mpeg2CodecProfile,
+    codecProfile :: Core.Maybe Mpeg2CodecProfile,
     -- | GOP Length (keyframe interval) in frames or seconds. Must be greater
     -- than zero.
-    gopSize :: Prelude.Maybe Prelude.Double,
+    gopSize :: Core.Maybe Core.Double,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -143,7 +142,7 @@ data Mpeg2Settings = Mpeg2Settings'
     -- FramerateDenominator. When you use the console for transcode jobs that
     -- use frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
-    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    framerateDenominator :: Core.Maybe Core.Natural,
     -- | Ignore this setting unless you need to comply with a specification that
     -- requires a specific value. If you don\'t have a specification
     -- requirement, we recommend that you adjust the softness of your output by
@@ -154,18 +153,18 @@ data Mpeg2Settings = Mpeg2Settings'
     -- a value from 17 to 128 to use planar interpolation. Increasing values
     -- from 17 to 128 result in increasing reduction of high-frequency data.
     -- The value 128 results in the softest video.
-    softness :: Prelude.Maybe Prelude.Natural,
+    softness :: Core.Maybe Core.Natural,
     -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
     -- the console, this corresponds to any value other than Follow source.
     -- When you specify an output pixel aspect ratio (PAR) that is different
     -- from your input video PAR, provide your output PAR as a ratio. For
     -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
     -- In this example, the value for parNumerator is 40.
-    parNumerator :: Prelude.Maybe Prelude.Natural,
+    parNumerator :: Core.Maybe Core.Natural,
     -- | Enable this setting to insert I-frames at scene changes that the service
     -- automatically detects. This improves video quality and is enabled by
     -- default.
-    sceneChangeDetect :: Prelude.Maybe Mpeg2SceneChangeDetect,
+    sceneChangeDetect :: Core.Maybe Mpeg2SceneChangeDetect,
     -- | Enforces separation between repeated (cadence) I-frames and I-frames
     -- inserted by Scene Change Detection. If a scene change I-frame is within
     -- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
@@ -173,7 +172,7 @@ data Mpeg2Settings = Mpeg2Settings'
     -- lookahead as well as setting I-interval. The normal cadence resumes for
     -- the next GOP. This setting is only used when Scene Change Detect is
     -- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-    minIInterval :: Prelude.Maybe Prelude.Natural,
+    minIInterval :: Core.Maybe Core.Natural,
     -- | Use this setting for interlaced outputs, when your output frame rate is
     -- half of your input frame rate. In this situation, choose Optimized
     -- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
@@ -189,7 +188,7 @@ data Mpeg2Settings = Mpeg2Settings'
     -- optimized interlacing for hard telecine outputs. You must also set
     -- Interlace mode (interlaceMode) to a value other than Progressive
     -- (PROGRESSIVE).
-    scanTypeConversionMode :: Prelude.Maybe Mpeg2ScanTypeConversionMode,
+    scanTypeConversionMode :: Core.Maybe Mpeg2ScanTypeConversionMode,
     -- | Optional. Specify how the service determines the pixel aspect ratio
     -- (PAR) for this output. The default behavior, Follow source
     -- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
@@ -198,42 +197,42 @@ data Mpeg2Settings = Mpeg2Settings'
     -- job specification, choose SPECIFIED. When you choose SPECIFIED for this
     -- setting, you must also specify values for the parNumerator and
     -- parDenominator settings.
-    parControl :: Prelude.Maybe Mpeg2ParControl,
+    parControl :: Core.Maybe Mpeg2ParControl,
     -- | Frequency of closed GOPs. In streaming applications, it is recommended
     -- that this be set to 1 so a decoder joining mid-stream will receive an
     -- IDR frame as quickly as possible. Setting this value to 0 will break
     -- output segmenting.
-    gopClosedCadence :: Prelude.Maybe Prelude.Natural,
+    gopClosedCadence :: Core.Maybe Core.Natural,
     -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
     -- the console, this corresponds to any value other than Follow source.
     -- When you specify an output pixel aspect ratio (PAR) that is different
     -- from your input video PAR, provide your output PAR as a ratio. For
     -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
     -- In this example, the value for parDenominator is 33.
-    parDenominator :: Prelude.Maybe Prelude.Natural,
+    parDenominator :: Core.Maybe Core.Natural,
     -- | Maximum bitrate in bits\/second. For example, enter five megabits per
     -- second as 5000000.
-    maxBitrate :: Prelude.Maybe Prelude.Natural,
+    maxBitrate :: Core.Maybe Core.Natural,
     -- | Choose Adaptive to improve subjective video quality for high-motion
     -- content. This will cause the service to use fewer B-frames (which infer
     -- information based on other frames) for high-motion portions of the video
     -- and more B-frames for low-motion portions. The maximum number of
     -- B-frames is limited by the value you provide for the setting B frames
     -- between reference frames (numberBFramesBetweenReferenceFrames).
-    dynamicSubGop :: Prelude.Maybe Mpeg2DynamicSubGop,
+    dynamicSubGop :: Core.Maybe Mpeg2DynamicSubGop,
     -- | Specify whether this output\'s video uses the D10 syntax. Keep the
     -- default value to not use the syntax. Related settings: When you choose
     -- D10 (D_10) for your MXF profile (profile), you must also set this value
     -- to to D10 (D_10).
-    syntax :: Prelude.Maybe Mpeg2Syntax,
+    syntax :: Core.Maybe Mpeg2Syntax,
     -- | Size of buffer (HRD buffer model) in bits. For example, enter five
     -- megabits as 5000000.
-    hrdBufferSize :: Prelude.Maybe Prelude.Natural,
+    hrdBufferSize :: Core.Maybe Core.Natural,
     -- | Specify the strength of any adaptive quantization filters that you
     -- enable. The value that you choose here applies to the following
     -- settings: Spatial adaptive quantization (spatialAdaptiveQuantization),
     -- and Temporal adaptive quantization (temporalAdaptiveQuantization).
-    adaptiveQuantization :: Prelude.Maybe Mpeg2AdaptiveQuantization,
+    adaptiveQuantization :: Core.Maybe Mpeg2AdaptiveQuantization,
     -- | If you are using the console, use the Framerate setting to specify the
     -- frame rate for this output. If you want to keep the same frame rate as
     -- the input video, choose Follow source. If you want to do frame rate
@@ -247,9 +246,9 @@ data Mpeg2Settings = Mpeg2Settings'
     -- from the input. Choose SPECIFIED if you want the service to use the
     -- frame rate you specify in the settings FramerateNumerator and
     -- FramerateDenominator.
-    framerateControl :: Prelude.Maybe Mpeg2FramerateControl,
+    framerateControl :: Core.Maybe Mpeg2FramerateControl,
     -- | Number of B-frames between reference frames.
-    numberBFramesBetweenReferenceFrames :: Prelude.Maybe Prelude.Natural,
+    numberBFramesBetweenReferenceFrames :: Core.Maybe Core.Natural,
     -- | Choose the method that you want MediaConvert to use when increasing or
     -- decreasing the frame rate. We recommend using drop duplicate
     -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -261,14 +260,14 @@ data Mpeg2Settings = Mpeg2Settings'
     -- motion-compensated interpolation. FrameFormer chooses the best
     -- conversion method frame by frame. Note that using FrameFormer increases
     -- the transcoding time and incurs a significant add-on cost.
-    framerateConversionAlgorithm :: Prelude.Maybe Mpeg2FramerateConversionAlgorithm,
+    framerateConversionAlgorithm :: Core.Maybe Mpeg2FramerateConversionAlgorithm,
     -- | Use Level (Mpeg2CodecLevel) to set the MPEG-2 level for the video
     -- output.
-    codecLevel :: Prelude.Maybe Mpeg2CodecLevel,
+    codecLevel :: Core.Maybe Mpeg2CodecLevel,
     -- | Specify the average bitrate in bits per second. Required for VBR and
     -- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
     -- the nearest multiple of 1000.
-    bitrate :: Prelude.Maybe Prelude.Natural,
+    bitrate :: Core.Maybe Core.Natural,
     -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
     -- per second (fps). Enable slow PAL to create a 25 fps output. When you
     -- enable slow PAL, MediaConvert relabels the video frames to 25 fps and
@@ -277,9 +276,9 @@ data Mpeg2Settings = Mpeg2Settings'
     -- Required settings: You must also set Framerate to 25. In your JSON job
     -- specification, set (framerateControl) to (SPECIFIED),
     -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-    slowPal :: Prelude.Maybe Mpeg2SlowPal
+    slowPal :: Core.Maybe Mpeg2SlowPal
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Mpeg2Settings' with all optional fields omitted.
@@ -524,44 +523,43 @@ newMpeg2Settings ::
 newMpeg2Settings =
   Mpeg2Settings'
     { hrdBufferInitialFillPercentage =
-        Prelude.Nothing,
-      temporalAdaptiveQuantization = Prelude.Nothing,
-      qualityTuningLevel = Prelude.Nothing,
-      interlaceMode = Prelude.Nothing,
-      intraDcPrecision = Prelude.Nothing,
-      telecine = Prelude.Nothing,
-      spatialAdaptiveQuantization = Prelude.Nothing,
-      framerateNumerator = Prelude.Nothing,
-      rateControlMode = Prelude.Nothing,
-      gopSizeUnits = Prelude.Nothing,
-      codecProfile = Prelude.Nothing,
-      gopSize = Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing,
-      softness = Prelude.Nothing,
-      parNumerator = Prelude.Nothing,
-      sceneChangeDetect = Prelude.Nothing,
-      minIInterval = Prelude.Nothing,
-      scanTypeConversionMode = Prelude.Nothing,
-      parControl = Prelude.Nothing,
-      gopClosedCadence = Prelude.Nothing,
-      parDenominator = Prelude.Nothing,
-      maxBitrate = Prelude.Nothing,
-      dynamicSubGop = Prelude.Nothing,
-      syntax = Prelude.Nothing,
-      hrdBufferSize = Prelude.Nothing,
-      adaptiveQuantization = Prelude.Nothing,
-      framerateControl = Prelude.Nothing,
-      numberBFramesBetweenReferenceFrames =
-        Prelude.Nothing,
-      framerateConversionAlgorithm = Prelude.Nothing,
-      codecLevel = Prelude.Nothing,
-      bitrate = Prelude.Nothing,
-      slowPal = Prelude.Nothing
+        Core.Nothing,
+      temporalAdaptiveQuantization = Core.Nothing,
+      qualityTuningLevel = Core.Nothing,
+      interlaceMode = Core.Nothing,
+      intraDcPrecision = Core.Nothing,
+      telecine = Core.Nothing,
+      spatialAdaptiveQuantization = Core.Nothing,
+      framerateNumerator = Core.Nothing,
+      rateControlMode = Core.Nothing,
+      gopSizeUnits = Core.Nothing,
+      codecProfile = Core.Nothing,
+      gopSize = Core.Nothing,
+      framerateDenominator = Core.Nothing,
+      softness = Core.Nothing,
+      parNumerator = Core.Nothing,
+      sceneChangeDetect = Core.Nothing,
+      minIInterval = Core.Nothing,
+      scanTypeConversionMode = Core.Nothing,
+      parControl = Core.Nothing,
+      gopClosedCadence = Core.Nothing,
+      parDenominator = Core.Nothing,
+      maxBitrate = Core.Nothing,
+      dynamicSubGop = Core.Nothing,
+      syntax = Core.Nothing,
+      hrdBufferSize = Core.Nothing,
+      adaptiveQuantization = Core.Nothing,
+      framerateControl = Core.Nothing,
+      numberBFramesBetweenReferenceFrames = Core.Nothing,
+      framerateConversionAlgorithm = Core.Nothing,
+      codecLevel = Core.Nothing,
+      bitrate = Core.Nothing,
+      slowPal = Core.Nothing
     }
 
 -- | Percentage of the buffer that should initially be filled (HRD buffer
 -- model).
-mpeg2Settings_hrdBufferInitialFillPercentage :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_hrdBufferInitialFillPercentage :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_hrdBufferInitialFillPercentage = Lens.lens (\Mpeg2Settings' {hrdBufferInitialFillPercentage} -> hrdBufferInitialFillPercentage) (\s@Mpeg2Settings' {} a -> s {hrdBufferInitialFillPercentage = a} :: Mpeg2Settings)
 
 -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
@@ -578,13 +576,13 @@ mpeg2Settings_hrdBufferInitialFillPercentage = Lens.lens (\Mpeg2Settings' {hrdBu
 -- might choose to disable this feature. Related setting: When you enable
 -- temporal quantization, adjust the strength of the filter with the
 -- setting Adaptive quantization (adaptiveQuantization).
-mpeg2Settings_temporalAdaptiveQuantization :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2TemporalAdaptiveQuantization)
+mpeg2Settings_temporalAdaptiveQuantization :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2TemporalAdaptiveQuantization)
 mpeg2Settings_temporalAdaptiveQuantization = Lens.lens (\Mpeg2Settings' {temporalAdaptiveQuantization} -> temporalAdaptiveQuantization) (\s@Mpeg2Settings' {} a -> s {temporalAdaptiveQuantization = a} :: Mpeg2Settings)
 
 -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how
 -- you want to trade off encoding speed for output video quality. The
 -- default behavior is faster, lower quality, single-pass encoding.
-mpeg2Settings_qualityTuningLevel :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2QualityTuningLevel)
+mpeg2Settings_qualityTuningLevel :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2QualityTuningLevel)
 mpeg2Settings_qualityTuningLevel = Lens.lens (\Mpeg2Settings' {qualityTuningLevel} -> qualityTuningLevel) (\s@Mpeg2Settings' {} a -> s {qualityTuningLevel = a} :: Mpeg2Settings)
 
 -- | Choose the scan line type for the output. Keep the default value,
@@ -600,14 +598,14 @@ mpeg2Settings_qualityTuningLevel = Lens.lens (\Mpeg2Settings' {qualityTuningLeve
 -- the same polarity as the source. If the source is progressive, the
 -- output will be interlaced with top field bottom field first, depending
 -- on which of the Follow options you choose.
-mpeg2Settings_interlaceMode :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2InterlaceMode)
+mpeg2Settings_interlaceMode :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2InterlaceMode)
 mpeg2Settings_interlaceMode = Lens.lens (\Mpeg2Settings' {interlaceMode} -> interlaceMode) (\s@Mpeg2Settings' {} a -> s {interlaceMode = a} :: Mpeg2Settings)
 
 -- | Use Intra DC precision (Mpeg2IntraDcPrecision) to set quantization
 -- precision for intra-block DC coefficients. If you choose the value auto,
 -- the service will automatically select the precision based on the
 -- per-frame compression ratio.
-mpeg2Settings_intraDcPrecision :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2IntraDcPrecision)
+mpeg2Settings_intraDcPrecision :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2IntraDcPrecision)
 mpeg2Settings_intraDcPrecision = Lens.lens (\Mpeg2Settings' {intraDcPrecision} -> intraDcPrecision) (\s@Mpeg2Settings' {} a -> s {intraDcPrecision = a} :: Mpeg2Settings)
 
 -- | When you do frame rate conversion from 23.976 frames per second (fps) to
@@ -619,7 +617,7 @@ mpeg2Settings_intraDcPrecision = Lens.lens (\Mpeg2Settings' {intraDcPrecision} -
 -- (NONE), MediaConvert does a standard frame rate conversion to 29.97
 -- without doing anything with the field polarity to create a smoother
 -- picture.
-mpeg2Settings_telecine :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2Telecine)
+mpeg2Settings_telecine :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2Telecine)
 mpeg2Settings_telecine = Lens.lens (\Mpeg2Settings' {telecine} -> telecine) (\s@Mpeg2Settings' {} a -> s {telecine = a} :: Mpeg2Settings)
 
 -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
@@ -638,7 +636,7 @@ mpeg2Settings_telecine = Lens.lens (\Mpeg2Settings' {telecine} -> telecine) (\s@
 -- (adaptiveQuantization) depending on your content. For homogeneous
 -- content, such as cartoons and video games, set it to Low. For content
 -- with a wider variety of textures, set it to High or Higher.
-mpeg2Settings_spatialAdaptiveQuantization :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2SpatialAdaptiveQuantization)
+mpeg2Settings_spatialAdaptiveQuantization :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2SpatialAdaptiveQuantization)
 mpeg2Settings_spatialAdaptiveQuantization = Lens.lens (\Mpeg2Settings' {spatialAdaptiveQuantization} -> spatialAdaptiveQuantization) (\s@Mpeg2Settings' {} a -> s {spatialAdaptiveQuantization = a} :: Mpeg2Settings)
 
 -- | When you use the API for transcode jobs that use frame rate conversion,
@@ -648,28 +646,28 @@ mpeg2Settings_spatialAdaptiveQuantization = Lens.lens (\Mpeg2Settings' {spatialA
 -- FramerateNumerator. When you use the console for transcode jobs that use
 -- frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
-mpeg2Settings_framerateNumerator :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_framerateNumerator :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_framerateNumerator = Lens.lens (\Mpeg2Settings' {framerateNumerator} -> framerateNumerator) (\s@Mpeg2Settings' {} a -> s {framerateNumerator = a} :: Mpeg2Settings)
 
 -- | Use Rate control mode (Mpeg2RateControlMode) to specify whether the
 -- bitrate is variable (vbr) or constant (cbr).
-mpeg2Settings_rateControlMode :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2RateControlMode)
+mpeg2Settings_rateControlMode :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2RateControlMode)
 mpeg2Settings_rateControlMode = Lens.lens (\Mpeg2Settings' {rateControlMode} -> rateControlMode) (\s@Mpeg2Settings' {} a -> s {rateControlMode = a} :: Mpeg2Settings)
 
 -- | Indicates if the GOP Size in MPEG2 is specified in frames or seconds. If
 -- seconds the system will convert the GOP Size into a frame count at run
 -- time.
-mpeg2Settings_gopSizeUnits :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2GopSizeUnits)
+mpeg2Settings_gopSizeUnits :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2GopSizeUnits)
 mpeg2Settings_gopSizeUnits = Lens.lens (\Mpeg2Settings' {gopSizeUnits} -> gopSizeUnits) (\s@Mpeg2Settings' {} a -> s {gopSizeUnits = a} :: Mpeg2Settings)
 
 -- | Use Profile (Mpeg2CodecProfile) to set the MPEG-2 profile for the video
 -- output.
-mpeg2Settings_codecProfile :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2CodecProfile)
+mpeg2Settings_codecProfile :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2CodecProfile)
 mpeg2Settings_codecProfile = Lens.lens (\Mpeg2Settings' {codecProfile} -> codecProfile) (\s@Mpeg2Settings' {} a -> s {codecProfile = a} :: Mpeg2Settings)
 
 -- | GOP Length (keyframe interval) in frames or seconds. Must be greater
 -- than zero.
-mpeg2Settings_gopSize :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Double)
+mpeg2Settings_gopSize :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Double)
 mpeg2Settings_gopSize = Lens.lens (\Mpeg2Settings' {gopSize} -> gopSize) (\s@Mpeg2Settings' {} a -> s {gopSize = a} :: Mpeg2Settings)
 
 -- | When you use the API for transcode jobs that use frame rate conversion,
@@ -679,7 +677,7 @@ mpeg2Settings_gopSize = Lens.lens (\Mpeg2Settings' {gopSize} -> gopSize) (\s@Mpe
 -- FramerateDenominator. When you use the console for transcode jobs that
 -- use frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
-mpeg2Settings_framerateDenominator :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_framerateDenominator :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_framerateDenominator = Lens.lens (\Mpeg2Settings' {framerateDenominator} -> framerateDenominator) (\s@Mpeg2Settings' {} a -> s {framerateDenominator = a} :: Mpeg2Settings)
 
 -- | Ignore this setting unless you need to comply with a specification that
@@ -692,7 +690,7 @@ mpeg2Settings_framerateDenominator = Lens.lens (\Mpeg2Settings' {framerateDenomi
 -- a value from 17 to 128 to use planar interpolation. Increasing values
 -- from 17 to 128 result in increasing reduction of high-frequency data.
 -- The value 128 results in the softest video.
-mpeg2Settings_softness :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_softness :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_softness = Lens.lens (\Mpeg2Settings' {softness} -> softness) (\s@Mpeg2Settings' {} a -> s {softness = a} :: Mpeg2Settings)
 
 -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
@@ -701,13 +699,13 @@ mpeg2Settings_softness = Lens.lens (\Mpeg2Settings' {softness} -> softness) (\s@
 -- from your input video PAR, provide your output PAR as a ratio. For
 -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
 -- In this example, the value for parNumerator is 40.
-mpeg2Settings_parNumerator :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_parNumerator :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_parNumerator = Lens.lens (\Mpeg2Settings' {parNumerator} -> parNumerator) (\s@Mpeg2Settings' {} a -> s {parNumerator = a} :: Mpeg2Settings)
 
 -- | Enable this setting to insert I-frames at scene changes that the service
 -- automatically detects. This improves video quality and is enabled by
 -- default.
-mpeg2Settings_sceneChangeDetect :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2SceneChangeDetect)
+mpeg2Settings_sceneChangeDetect :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2SceneChangeDetect)
 mpeg2Settings_sceneChangeDetect = Lens.lens (\Mpeg2Settings' {sceneChangeDetect} -> sceneChangeDetect) (\s@Mpeg2Settings' {} a -> s {sceneChangeDetect = a} :: Mpeg2Settings)
 
 -- | Enforces separation between repeated (cadence) I-frames and I-frames
@@ -717,7 +715,7 @@ mpeg2Settings_sceneChangeDetect = Lens.lens (\Mpeg2Settings' {sceneChangeDetect}
 -- lookahead as well as setting I-interval. The normal cadence resumes for
 -- the next GOP. This setting is only used when Scene Change Detect is
 -- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-mpeg2Settings_minIInterval :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_minIInterval :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_minIInterval = Lens.lens (\Mpeg2Settings' {minIInterval} -> minIInterval) (\s@Mpeg2Settings' {} a -> s {minIInterval = a} :: Mpeg2Settings)
 
 -- | Use this setting for interlaced outputs, when your output frame rate is
@@ -735,7 +733,7 @@ mpeg2Settings_minIInterval = Lens.lens (\Mpeg2Settings' {minIInterval} -> minIIn
 -- optimized interlacing for hard telecine outputs. You must also set
 -- Interlace mode (interlaceMode) to a value other than Progressive
 -- (PROGRESSIVE).
-mpeg2Settings_scanTypeConversionMode :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ScanTypeConversionMode)
+mpeg2Settings_scanTypeConversionMode :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2ScanTypeConversionMode)
 mpeg2Settings_scanTypeConversionMode = Lens.lens (\Mpeg2Settings' {scanTypeConversionMode} -> scanTypeConversionMode) (\s@Mpeg2Settings' {} a -> s {scanTypeConversionMode = a} :: Mpeg2Settings)
 
 -- | Optional. Specify how the service determines the pixel aspect ratio
@@ -746,14 +744,14 @@ mpeg2Settings_scanTypeConversionMode = Lens.lens (\Mpeg2Settings' {scanTypeConve
 -- job specification, choose SPECIFIED. When you choose SPECIFIED for this
 -- setting, you must also specify values for the parNumerator and
 -- parDenominator settings.
-mpeg2Settings_parControl :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2ParControl)
+mpeg2Settings_parControl :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2ParControl)
 mpeg2Settings_parControl = Lens.lens (\Mpeg2Settings' {parControl} -> parControl) (\s@Mpeg2Settings' {} a -> s {parControl = a} :: Mpeg2Settings)
 
 -- | Frequency of closed GOPs. In streaming applications, it is recommended
 -- that this be set to 1 so a decoder joining mid-stream will receive an
 -- IDR frame as quickly as possible. Setting this value to 0 will break
 -- output segmenting.
-mpeg2Settings_gopClosedCadence :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_gopClosedCadence :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_gopClosedCadence = Lens.lens (\Mpeg2Settings' {gopClosedCadence} -> gopClosedCadence) (\s@Mpeg2Settings' {} a -> s {gopClosedCadence = a} :: Mpeg2Settings)
 
 -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
@@ -762,12 +760,12 @@ mpeg2Settings_gopClosedCadence = Lens.lens (\Mpeg2Settings' {gopClosedCadence} -
 -- from your input video PAR, provide your output PAR as a ratio. For
 -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
 -- In this example, the value for parDenominator is 33.
-mpeg2Settings_parDenominator :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_parDenominator :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_parDenominator = Lens.lens (\Mpeg2Settings' {parDenominator} -> parDenominator) (\s@Mpeg2Settings' {} a -> s {parDenominator = a} :: Mpeg2Settings)
 
 -- | Maximum bitrate in bits\/second. For example, enter five megabits per
 -- second as 5000000.
-mpeg2Settings_maxBitrate :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_maxBitrate :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_maxBitrate = Lens.lens (\Mpeg2Settings' {maxBitrate} -> maxBitrate) (\s@Mpeg2Settings' {} a -> s {maxBitrate = a} :: Mpeg2Settings)
 
 -- | Choose Adaptive to improve subjective video quality for high-motion
@@ -776,26 +774,26 @@ mpeg2Settings_maxBitrate = Lens.lens (\Mpeg2Settings' {maxBitrate} -> maxBitrate
 -- and more B-frames for low-motion portions. The maximum number of
 -- B-frames is limited by the value you provide for the setting B frames
 -- between reference frames (numberBFramesBetweenReferenceFrames).
-mpeg2Settings_dynamicSubGop :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2DynamicSubGop)
+mpeg2Settings_dynamicSubGop :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2DynamicSubGop)
 mpeg2Settings_dynamicSubGop = Lens.lens (\Mpeg2Settings' {dynamicSubGop} -> dynamicSubGop) (\s@Mpeg2Settings' {} a -> s {dynamicSubGop = a} :: Mpeg2Settings)
 
 -- | Specify whether this output\'s video uses the D10 syntax. Keep the
 -- default value to not use the syntax. Related settings: When you choose
 -- D10 (D_10) for your MXF profile (profile), you must also set this value
 -- to to D10 (D_10).
-mpeg2Settings_syntax :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2Syntax)
+mpeg2Settings_syntax :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2Syntax)
 mpeg2Settings_syntax = Lens.lens (\Mpeg2Settings' {syntax} -> syntax) (\s@Mpeg2Settings' {} a -> s {syntax = a} :: Mpeg2Settings)
 
 -- | Size of buffer (HRD buffer model) in bits. For example, enter five
 -- megabits as 5000000.
-mpeg2Settings_hrdBufferSize :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_hrdBufferSize :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_hrdBufferSize = Lens.lens (\Mpeg2Settings' {hrdBufferSize} -> hrdBufferSize) (\s@Mpeg2Settings' {} a -> s {hrdBufferSize = a} :: Mpeg2Settings)
 
 -- | Specify the strength of any adaptive quantization filters that you
 -- enable. The value that you choose here applies to the following
 -- settings: Spatial adaptive quantization (spatialAdaptiveQuantization),
 -- and Temporal adaptive quantization (temporalAdaptiveQuantization).
-mpeg2Settings_adaptiveQuantization :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2AdaptiveQuantization)
+mpeg2Settings_adaptiveQuantization :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2AdaptiveQuantization)
 mpeg2Settings_adaptiveQuantization = Lens.lens (\Mpeg2Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@Mpeg2Settings' {} a -> s {adaptiveQuantization = a} :: Mpeg2Settings)
 
 -- | If you are using the console, use the Framerate setting to specify the
@@ -811,11 +809,11 @@ mpeg2Settings_adaptiveQuantization = Lens.lens (\Mpeg2Settings' {adaptiveQuantiz
 -- from the input. Choose SPECIFIED if you want the service to use the
 -- frame rate you specify in the settings FramerateNumerator and
 -- FramerateDenominator.
-mpeg2Settings_framerateControl :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2FramerateControl)
+mpeg2Settings_framerateControl :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2FramerateControl)
 mpeg2Settings_framerateControl = Lens.lens (\Mpeg2Settings' {framerateControl} -> framerateControl) (\s@Mpeg2Settings' {} a -> s {framerateControl = a} :: Mpeg2Settings)
 
 -- | Number of B-frames between reference frames.
-mpeg2Settings_numberBFramesBetweenReferenceFrames :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_numberBFramesBetweenReferenceFrames :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_numberBFramesBetweenReferenceFrames = Lens.lens (\Mpeg2Settings' {numberBFramesBetweenReferenceFrames} -> numberBFramesBetweenReferenceFrames) (\s@Mpeg2Settings' {} a -> s {numberBFramesBetweenReferenceFrames = a} :: Mpeg2Settings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
@@ -829,18 +827,18 @@ mpeg2Settings_numberBFramesBetweenReferenceFrames = Lens.lens (\Mpeg2Settings' {
 -- motion-compensated interpolation. FrameFormer chooses the best
 -- conversion method frame by frame. Note that using FrameFormer increases
 -- the transcoding time and incurs a significant add-on cost.
-mpeg2Settings_framerateConversionAlgorithm :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2FramerateConversionAlgorithm)
+mpeg2Settings_framerateConversionAlgorithm :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2FramerateConversionAlgorithm)
 mpeg2Settings_framerateConversionAlgorithm = Lens.lens (\Mpeg2Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@Mpeg2Settings' {} a -> s {framerateConversionAlgorithm = a} :: Mpeg2Settings)
 
 -- | Use Level (Mpeg2CodecLevel) to set the MPEG-2 level for the video
 -- output.
-mpeg2Settings_codecLevel :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2CodecLevel)
+mpeg2Settings_codecLevel :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2CodecLevel)
 mpeg2Settings_codecLevel = Lens.lens (\Mpeg2Settings' {codecLevel} -> codecLevel) (\s@Mpeg2Settings' {} a -> s {codecLevel = a} :: Mpeg2Settings)
 
 -- | Specify the average bitrate in bits per second. Required for VBR and
 -- CBR. For MS Smooth outputs, bitrates must be unique when rounded down to
 -- the nearest multiple of 1000.
-mpeg2Settings_bitrate :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
+mpeg2Settings_bitrate :: Lens.Lens' Mpeg2Settings (Core.Maybe Core.Natural)
 mpeg2Settings_bitrate = Lens.lens (\Mpeg2Settings' {bitrate} -> bitrate) (\s@Mpeg2Settings' {} a -> s {bitrate = a} :: Mpeg2Settings)
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
@@ -851,107 +849,102 @@ mpeg2Settings_bitrate = Lens.lens (\Mpeg2Settings' {bitrate} -> bitrate) (\s@Mpe
 -- Required settings: You must also set Framerate to 25. In your JSON job
 -- specification, set (framerateControl) to (SPECIFIED),
 -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-mpeg2Settings_slowPal :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2SlowPal)
+mpeg2Settings_slowPal :: Lens.Lens' Mpeg2Settings (Core.Maybe Mpeg2SlowPal)
 mpeg2Settings_slowPal = Lens.lens (\Mpeg2Settings' {slowPal} -> slowPal) (\s@Mpeg2Settings' {} a -> s {slowPal = a} :: Mpeg2Settings)
 
-instance Prelude.FromJSON Mpeg2Settings where
+instance Core.FromJSON Mpeg2Settings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Mpeg2Settings"
       ( \x ->
           Mpeg2Settings'
-            Prelude.<$> (x Prelude..:? "hrdBufferInitialFillPercentage")
-            Prelude.<*> (x Prelude..:? "temporalAdaptiveQuantization")
-            Prelude.<*> (x Prelude..:? "qualityTuningLevel")
-            Prelude.<*> (x Prelude..:? "interlaceMode")
-            Prelude.<*> (x Prelude..:? "intraDcPrecision")
-            Prelude.<*> (x Prelude..:? "telecine")
-            Prelude.<*> (x Prelude..:? "spatialAdaptiveQuantization")
-            Prelude.<*> (x Prelude..:? "framerateNumerator")
-            Prelude.<*> (x Prelude..:? "rateControlMode")
-            Prelude.<*> (x Prelude..:? "gopSizeUnits")
-            Prelude.<*> (x Prelude..:? "codecProfile")
-            Prelude.<*> (x Prelude..:? "gopSize")
-            Prelude.<*> (x Prelude..:? "framerateDenominator")
-            Prelude.<*> (x Prelude..:? "softness")
-            Prelude.<*> (x Prelude..:? "parNumerator")
-            Prelude.<*> (x Prelude..:? "sceneChangeDetect")
-            Prelude.<*> (x Prelude..:? "minIInterval")
-            Prelude.<*> (x Prelude..:? "scanTypeConversionMode")
-            Prelude.<*> (x Prelude..:? "parControl")
-            Prelude.<*> (x Prelude..:? "gopClosedCadence")
-            Prelude.<*> (x Prelude..:? "parDenominator")
-            Prelude.<*> (x Prelude..:? "maxBitrate")
-            Prelude.<*> (x Prelude..:? "dynamicSubGop")
-            Prelude.<*> (x Prelude..:? "syntax")
-            Prelude.<*> (x Prelude..:? "hrdBufferSize")
-            Prelude.<*> (x Prelude..:? "adaptiveQuantization")
-            Prelude.<*> (x Prelude..:? "framerateControl")
-            Prelude.<*> (x Prelude..:? "numberBFramesBetweenReferenceFrames")
-            Prelude.<*> (x Prelude..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Prelude..:? "codecLevel")
-            Prelude.<*> (x Prelude..:? "bitrate")
-            Prelude.<*> (x Prelude..:? "slowPal")
+            Core.<$> (x Core..:? "hrdBufferInitialFillPercentage")
+            Core.<*> (x Core..:? "temporalAdaptiveQuantization")
+            Core.<*> (x Core..:? "qualityTuningLevel")
+            Core.<*> (x Core..:? "interlaceMode")
+            Core.<*> (x Core..:? "intraDcPrecision")
+            Core.<*> (x Core..:? "telecine")
+            Core.<*> (x Core..:? "spatialAdaptiveQuantization")
+            Core.<*> (x Core..:? "framerateNumerator")
+            Core.<*> (x Core..:? "rateControlMode")
+            Core.<*> (x Core..:? "gopSizeUnits")
+            Core.<*> (x Core..:? "codecProfile")
+            Core.<*> (x Core..:? "gopSize")
+            Core.<*> (x Core..:? "framerateDenominator")
+            Core.<*> (x Core..:? "softness")
+            Core.<*> (x Core..:? "parNumerator")
+            Core.<*> (x Core..:? "sceneChangeDetect")
+            Core.<*> (x Core..:? "minIInterval")
+            Core.<*> (x Core..:? "scanTypeConversionMode")
+            Core.<*> (x Core..:? "parControl")
+            Core.<*> (x Core..:? "gopClosedCadence")
+            Core.<*> (x Core..:? "parDenominator")
+            Core.<*> (x Core..:? "maxBitrate")
+            Core.<*> (x Core..:? "dynamicSubGop")
+            Core.<*> (x Core..:? "syntax")
+            Core.<*> (x Core..:? "hrdBufferSize")
+            Core.<*> (x Core..:? "adaptiveQuantization")
+            Core.<*> (x Core..:? "framerateControl")
+            Core.<*> (x Core..:? "numberBFramesBetweenReferenceFrames")
+            Core.<*> (x Core..:? "framerateConversionAlgorithm")
+            Core.<*> (x Core..:? "codecLevel")
+            Core.<*> (x Core..:? "bitrate")
+            Core.<*> (x Core..:? "slowPal")
       )
 
-instance Prelude.Hashable Mpeg2Settings
+instance Core.Hashable Mpeg2Settings
 
-instance Prelude.NFData Mpeg2Settings
+instance Core.NFData Mpeg2Settings
 
-instance Prelude.ToJSON Mpeg2Settings where
+instance Core.ToJSON Mpeg2Settings where
   toJSON Mpeg2Settings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("hrdBufferInitialFillPercentage" Prelude..=)
-              Prelude.<$> hrdBufferInitialFillPercentage,
-            ("temporalAdaptiveQuantization" Prelude..=)
-              Prelude.<$> temporalAdaptiveQuantization,
-            ("qualityTuningLevel" Prelude..=)
-              Prelude.<$> qualityTuningLevel,
-            ("interlaceMode" Prelude..=)
-              Prelude.<$> interlaceMode,
-            ("intraDcPrecision" Prelude..=)
-              Prelude.<$> intraDcPrecision,
-            ("telecine" Prelude..=) Prelude.<$> telecine,
-            ("spatialAdaptiveQuantization" Prelude..=)
-              Prelude.<$> spatialAdaptiveQuantization,
-            ("framerateNumerator" Prelude..=)
-              Prelude.<$> framerateNumerator,
-            ("rateControlMode" Prelude..=)
-              Prelude.<$> rateControlMode,
-            ("gopSizeUnits" Prelude..=) Prelude.<$> gopSizeUnits,
-            ("codecProfile" Prelude..=) Prelude.<$> codecProfile,
-            ("gopSize" Prelude..=) Prelude.<$> gopSize,
-            ("framerateDenominator" Prelude..=)
-              Prelude.<$> framerateDenominator,
-            ("softness" Prelude..=) Prelude.<$> softness,
-            ("parNumerator" Prelude..=) Prelude.<$> parNumerator,
-            ("sceneChangeDetect" Prelude..=)
-              Prelude.<$> sceneChangeDetect,
-            ("minIInterval" Prelude..=) Prelude.<$> minIInterval,
-            ("scanTypeConversionMode" Prelude..=)
-              Prelude.<$> scanTypeConversionMode,
-            ("parControl" Prelude..=) Prelude.<$> parControl,
-            ("gopClosedCadence" Prelude..=)
-              Prelude.<$> gopClosedCadence,
-            ("parDenominator" Prelude..=)
-              Prelude.<$> parDenominator,
-            ("maxBitrate" Prelude..=) Prelude.<$> maxBitrate,
-            ("dynamicSubGop" Prelude..=)
-              Prelude.<$> dynamicSubGop,
-            ("syntax" Prelude..=) Prelude.<$> syntax,
-            ("hrdBufferSize" Prelude..=)
-              Prelude.<$> hrdBufferSize,
-            ("adaptiveQuantization" Prelude..=)
-              Prelude.<$> adaptiveQuantization,
-            ("framerateControl" Prelude..=)
-              Prelude.<$> framerateControl,
-            ("numberBFramesBetweenReferenceFrames" Prelude..=)
-              Prelude.<$> numberBFramesBetweenReferenceFrames,
-            ("framerateConversionAlgorithm" Prelude..=)
-              Prelude.<$> framerateConversionAlgorithm,
-            ("codecLevel" Prelude..=) Prelude.<$> codecLevel,
-            ("bitrate" Prelude..=) Prelude.<$> bitrate,
-            ("slowPal" Prelude..=) Prelude.<$> slowPal
+    Core.object
+      ( Core.catMaybes
+          [ ("hrdBufferInitialFillPercentage" Core..=)
+              Core.<$> hrdBufferInitialFillPercentage,
+            ("temporalAdaptiveQuantization" Core..=)
+              Core.<$> temporalAdaptiveQuantization,
+            ("qualityTuningLevel" Core..=)
+              Core.<$> qualityTuningLevel,
+            ("interlaceMode" Core..=) Core.<$> interlaceMode,
+            ("intraDcPrecision" Core..=)
+              Core.<$> intraDcPrecision,
+            ("telecine" Core..=) Core.<$> telecine,
+            ("spatialAdaptiveQuantization" Core..=)
+              Core.<$> spatialAdaptiveQuantization,
+            ("framerateNumerator" Core..=)
+              Core.<$> framerateNumerator,
+            ("rateControlMode" Core..=) Core.<$> rateControlMode,
+            ("gopSizeUnits" Core..=) Core.<$> gopSizeUnits,
+            ("codecProfile" Core..=) Core.<$> codecProfile,
+            ("gopSize" Core..=) Core.<$> gopSize,
+            ("framerateDenominator" Core..=)
+              Core.<$> framerateDenominator,
+            ("softness" Core..=) Core.<$> softness,
+            ("parNumerator" Core..=) Core.<$> parNumerator,
+            ("sceneChangeDetect" Core..=)
+              Core.<$> sceneChangeDetect,
+            ("minIInterval" Core..=) Core.<$> minIInterval,
+            ("scanTypeConversionMode" Core..=)
+              Core.<$> scanTypeConversionMode,
+            ("parControl" Core..=) Core.<$> parControl,
+            ("gopClosedCadence" Core..=)
+              Core.<$> gopClosedCadence,
+            ("parDenominator" Core..=) Core.<$> parDenominator,
+            ("maxBitrate" Core..=) Core.<$> maxBitrate,
+            ("dynamicSubGop" Core..=) Core.<$> dynamicSubGop,
+            ("syntax" Core..=) Core.<$> syntax,
+            ("hrdBufferSize" Core..=) Core.<$> hrdBufferSize,
+            ("adaptiveQuantization" Core..=)
+              Core.<$> adaptiveQuantization,
+            ("framerateControl" Core..=)
+              Core.<$> framerateControl,
+            ("numberBFramesBetweenReferenceFrames" Core..=)
+              Core.<$> numberBFramesBetweenReferenceFrames,
+            ("framerateConversionAlgorithm" Core..=)
+              Core.<$> framerateConversionAlgorithm,
+            ("codecLevel" Core..=) Core.<$> codecLevel,
+            ("bitrate" Core..=) Core.<$> bitrate,
+            ("slowPal" Core..=) Core.<$> slowPal
           ]
       )

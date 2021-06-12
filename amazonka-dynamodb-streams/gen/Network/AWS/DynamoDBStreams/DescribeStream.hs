@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.DynamoDBStreams.DescribeStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDBStreams.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,13 +65,13 @@ data DescribeStream = DescribeStream'
   { -- | The shard ID of the first item that this operation will evaluate. Use
     -- the value that was returned for @LastEvaluatedShardId@ in the previous
     -- operation.
-    exclusiveStartShardId :: Prelude.Maybe Prelude.Text,
+    exclusiveStartShardId :: Core.Maybe Core.Text,
     -- | The maximum number of shard objects to return. The upper limit is 100.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) for the stream.
-    streamArn :: Prelude.Text
+    streamArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStream' with all optional fields omitted.
@@ -91,76 +90,76 @@ data DescribeStream = DescribeStream'
 -- 'streamArn', 'describeStream_streamArn' - The Amazon Resource Name (ARN) for the stream.
 newDescribeStream ::
   -- | 'streamArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeStream
 newDescribeStream pStreamArn_ =
   DescribeStream'
     { exclusiveStartShardId =
-        Prelude.Nothing,
-      limit = Prelude.Nothing,
+        Core.Nothing,
+      limit = Core.Nothing,
       streamArn = pStreamArn_
     }
 
 -- | The shard ID of the first item that this operation will evaluate. Use
 -- the value that was returned for @LastEvaluatedShardId@ in the previous
 -- operation.
-describeStream_exclusiveStartShardId :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Text)
+describeStream_exclusiveStartShardId :: Lens.Lens' DescribeStream (Core.Maybe Core.Text)
 describeStream_exclusiveStartShardId = Lens.lens (\DescribeStream' {exclusiveStartShardId} -> exclusiveStartShardId) (\s@DescribeStream' {} a -> s {exclusiveStartShardId = a} :: DescribeStream)
 
 -- | The maximum number of shard objects to return. The upper limit is 100.
-describeStream_limit :: Lens.Lens' DescribeStream (Prelude.Maybe Prelude.Natural)
+describeStream_limit :: Lens.Lens' DescribeStream (Core.Maybe Core.Natural)
 describeStream_limit = Lens.lens (\DescribeStream' {limit} -> limit) (\s@DescribeStream' {} a -> s {limit = a} :: DescribeStream)
 
 -- | The Amazon Resource Name (ARN) for the stream.
-describeStream_streamArn :: Lens.Lens' DescribeStream Prelude.Text
+describeStream_streamArn :: Lens.Lens' DescribeStream Core.Text
 describeStream_streamArn = Lens.lens (\DescribeStream' {streamArn} -> streamArn) (\s@DescribeStream' {} a -> s {streamArn = a} :: DescribeStream)
 
-instance Prelude.AWSRequest DescribeStream where
-  type Rs DescribeStream = DescribeStreamResponse
+instance Core.AWSRequest DescribeStream where
+  type
+    AWSResponse DescribeStream =
+      DescribeStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeStreamResponse'
-            Prelude.<$> (x Prelude..?> "StreamDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StreamDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStream
+instance Core.Hashable DescribeStream
 
-instance Prelude.NFData DescribeStream
+instance Core.NFData DescribeStream
 
-instance Prelude.ToHeaders DescribeStream where
+instance Core.ToHeaders DescribeStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDBStreams_20120810.DescribeStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDBStreams_20120810.DescribeStream" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeStream where
+instance Core.ToJSON DescribeStream where
   toJSON DescribeStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExclusiveStartShardId" Prelude..=)
-              Prelude.<$> exclusiveStartShardId,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("StreamArn" Prelude..= streamArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartShardId" Core..=)
+              Core.<$> exclusiveStartShardId,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("StreamArn" Core..= streamArn)
           ]
       )
 
-instance Prelude.ToPath DescribeStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeStream where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DescribeStream@ operation.
 --
@@ -170,11 +169,11 @@ data DescribeStreamResponse = DescribeStreamResponse'
     -- time, the DynamoDB table associated with the stream, the shard IDs
     -- within the stream, and the beginning and ending sequence numbers of
     -- stream records within the shards.
-    streamDescription :: Prelude.Maybe StreamDescription,
+    streamDescription :: Core.Maybe StreamDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStreamResponse' with all optional fields omitted.
@@ -192,12 +191,12 @@ data DescribeStreamResponse = DescribeStreamResponse'
 -- 'httpStatus', 'describeStreamResponse_httpStatus' - The response's http status code.
 newDescribeStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStreamResponse
 newDescribeStreamResponse pHttpStatus_ =
   DescribeStreamResponse'
     { streamDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -205,11 +204,11 @@ newDescribeStreamResponse pHttpStatus_ =
 -- time, the DynamoDB table associated with the stream, the shard IDs
 -- within the stream, and the beginning and ending sequence numbers of
 -- stream records within the shards.
-describeStreamResponse_streamDescription :: Lens.Lens' DescribeStreamResponse (Prelude.Maybe StreamDescription)
+describeStreamResponse_streamDescription :: Lens.Lens' DescribeStreamResponse (Core.Maybe StreamDescription)
 describeStreamResponse_streamDescription = Lens.lens (\DescribeStreamResponse' {streamDescription} -> streamDescription) (\s@DescribeStreamResponse' {} a -> s {streamDescription = a} :: DescribeStreamResponse)
 
 -- | The response's http status code.
-describeStreamResponse_httpStatus :: Lens.Lens' DescribeStreamResponse Prelude.Int
+describeStreamResponse_httpStatus :: Lens.Lens' DescribeStreamResponse Core.Int
 describeStreamResponse_httpStatus = Lens.lens (\DescribeStreamResponse' {httpStatus} -> httpStatus) (\s@DescribeStreamResponse' {} a -> s {httpStatus = a} :: DescribeStreamResponse)
 
-instance Prelude.NFData DescribeStreamResponse
+instance Core.NFData DescribeStreamResponse

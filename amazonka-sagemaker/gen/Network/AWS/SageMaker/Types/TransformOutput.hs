@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TransformOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AssemblyType
 
 -- | Describes the results of a transform job.
@@ -30,12 +29,12 @@ import Network.AWS.SageMaker.Types.AssemblyType
 data TransformOutput = TransformOutput'
   { -- | The MIME type used to specify the output data. Amazon SageMaker uses the
     -- MIME type with each http call to transfer data from the transform job.
-    accept :: Prelude.Maybe Prelude.Text,
+    accept :: Core.Maybe Core.Text,
     -- | Defines how to assemble the results of the transform job as a single S3
     -- object. Choose a format that is most convenient to you. To concatenate
     -- the results in binary format, specify @None@. To add a newline character
     -- at the end of every transformed record, specify @Line@.
-    assembleWith :: Prelude.Maybe AssemblyType,
+    assembleWith :: Core.Maybe AssemblyType,
     -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt the model artifacts at rest using Amazon S3 server-side
     -- encryption. The @KmsKeyId@ can be any of the following formats:
@@ -60,7 +59,7 @@ data TransformOutput = TransformOutput'
     -- specify in your CreateModel request. For more information, see
     -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
     -- in the /AWS Key Management Service Developer Guide/.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The Amazon S3 path where you want Amazon SageMaker to store the results
     -- of the transform job. For example,
     -- @s3:\/\/bucket-name\/key-name-prefix@.
@@ -79,9 +78,9 @@ data TransformOutput = TransformOutput'
     -- the listed S3 objects and uploads only the output for successfully
     -- processed objects. If any object fails in the transform job batch
     -- transform marks the job as failed to prompt investigation.
-    s3OutputPath :: Prelude.Text
+    s3OutputPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformOutput' with all optional fields omitted.
@@ -144,26 +143,26 @@ data TransformOutput = TransformOutput'
 -- transform marks the job as failed to prompt investigation.
 newTransformOutput ::
   -- | 's3OutputPath'
-  Prelude.Text ->
+  Core.Text ->
   TransformOutput
 newTransformOutput pS3OutputPath_ =
   TransformOutput'
-    { accept = Prelude.Nothing,
-      assembleWith = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
+    { accept = Core.Nothing,
+      assembleWith = Core.Nothing,
+      kmsKeyId = Core.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
 -- | The MIME type used to specify the output data. Amazon SageMaker uses the
 -- MIME type with each http call to transfer data from the transform job.
-transformOutput_accept :: Lens.Lens' TransformOutput (Prelude.Maybe Prelude.Text)
+transformOutput_accept :: Lens.Lens' TransformOutput (Core.Maybe Core.Text)
 transformOutput_accept = Lens.lens (\TransformOutput' {accept} -> accept) (\s@TransformOutput' {} a -> s {accept = a} :: TransformOutput)
 
 -- | Defines how to assemble the results of the transform job as a single S3
 -- object. Choose a format that is most convenient to you. To concatenate
 -- the results in binary format, specify @None@. To add a newline character
 -- at the end of every transformed record, specify @Line@.
-transformOutput_assembleWith :: Lens.Lens' TransformOutput (Prelude.Maybe AssemblyType)
+transformOutput_assembleWith :: Lens.Lens' TransformOutput (Core.Maybe AssemblyType)
 transformOutput_assembleWith = Lens.lens (\TransformOutput' {assembleWith} -> assembleWith) (\s@TransformOutput' {} a -> s {assembleWith = a} :: TransformOutput)
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
@@ -190,7 +189,7 @@ transformOutput_assembleWith = Lens.lens (\TransformOutput' {assembleWith} -> as
 -- specify in your CreateModel request. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
 -- in the /AWS Key Management Service Developer Guide/.
-transformOutput_kmsKeyId :: Lens.Lens' TransformOutput (Prelude.Maybe Prelude.Text)
+transformOutput_kmsKeyId :: Lens.Lens' TransformOutput (Core.Maybe Core.Text)
 transformOutput_kmsKeyId = Lens.lens (\TransformOutput' {kmsKeyId} -> kmsKeyId) (\s@TransformOutput' {} a -> s {kmsKeyId = a} :: TransformOutput)
 
 -- | The Amazon S3 path where you want Amazon SageMaker to store the results
@@ -211,33 +210,32 @@ transformOutput_kmsKeyId = Lens.lens (\TransformOutput' {kmsKeyId} -> kmsKeyId) 
 -- the listed S3 objects and uploads only the output for successfully
 -- processed objects. If any object fails in the transform job batch
 -- transform marks the job as failed to prompt investigation.
-transformOutput_s3OutputPath :: Lens.Lens' TransformOutput Prelude.Text
+transformOutput_s3OutputPath :: Lens.Lens' TransformOutput Core.Text
 transformOutput_s3OutputPath = Lens.lens (\TransformOutput' {s3OutputPath} -> s3OutputPath) (\s@TransformOutput' {} a -> s {s3OutputPath = a} :: TransformOutput)
 
-instance Prelude.FromJSON TransformOutput where
+instance Core.FromJSON TransformOutput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TransformOutput"
       ( \x ->
           TransformOutput'
-            Prelude.<$> (x Prelude..:? "Accept")
-            Prelude.<*> (x Prelude..:? "AssembleWith")
-            Prelude.<*> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "S3OutputPath")
+            Core.<$> (x Core..:? "Accept")
+            Core.<*> (x Core..:? "AssembleWith")
+            Core.<*> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable TransformOutput
+instance Core.Hashable TransformOutput
 
-instance Prelude.NFData TransformOutput
+instance Core.NFData TransformOutput
 
-instance Prelude.ToJSON TransformOutput where
+instance Core.ToJSON TransformOutput where
   toJSON TransformOutput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Accept" Prelude..=) Prelude.<$> accept,
-            ("AssembleWith" Prelude..=) Prelude.<$> assembleWith,
-            ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
-              ("S3OutputPath" Prelude..= s3OutputPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("Accept" Core..=) Core.<$> accept,
+            ("AssembleWith" Core..=) Core.<$> assembleWith,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DhcpOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DhcpConfiguration
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a set of DHCP options.
 --
 -- /See:/ 'newDhcpOptions' smart constructor.
 data DhcpOptions = DhcpOptions'
   { -- | The ID of the AWS account that owns the DHCP options set.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    ownerId :: Core.Maybe Core.Text,
     -- | One or more DHCP options in the set.
-    dhcpConfigurations :: Prelude.Maybe [DhcpConfiguration],
+    dhcpConfigurations :: Core.Maybe [DhcpConfiguration],
     -- | The ID of the set of DHCP options.
-    dhcpOptionsId :: Prelude.Maybe Prelude.Text,
+    dhcpOptionsId :: Core.Maybe Core.Text,
     -- | Any tags assigned to the DHCP options set.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DhcpOptions' with all optional fields omitted.
@@ -60,41 +59,41 @@ newDhcpOptions ::
   DhcpOptions
 newDhcpOptions =
   DhcpOptions'
-    { ownerId = Prelude.Nothing,
-      dhcpConfigurations = Prelude.Nothing,
-      dhcpOptionsId = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { ownerId = Core.Nothing,
+      dhcpConfigurations = Core.Nothing,
+      dhcpOptionsId = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The ID of the AWS account that owns the DHCP options set.
-dhcpOptions_ownerId :: Lens.Lens' DhcpOptions (Prelude.Maybe Prelude.Text)
+dhcpOptions_ownerId :: Lens.Lens' DhcpOptions (Core.Maybe Core.Text)
 dhcpOptions_ownerId = Lens.lens (\DhcpOptions' {ownerId} -> ownerId) (\s@DhcpOptions' {} a -> s {ownerId = a} :: DhcpOptions)
 
 -- | One or more DHCP options in the set.
-dhcpOptions_dhcpConfigurations :: Lens.Lens' DhcpOptions (Prelude.Maybe [DhcpConfiguration])
-dhcpOptions_dhcpConfigurations = Lens.lens (\DhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@DhcpOptions' {} a -> s {dhcpConfigurations = a} :: DhcpOptions) Prelude.. Lens.mapping Prelude._Coerce
+dhcpOptions_dhcpConfigurations :: Lens.Lens' DhcpOptions (Core.Maybe [DhcpConfiguration])
+dhcpOptions_dhcpConfigurations = Lens.lens (\DhcpOptions' {dhcpConfigurations} -> dhcpConfigurations) (\s@DhcpOptions' {} a -> s {dhcpConfigurations = a} :: DhcpOptions) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the set of DHCP options.
-dhcpOptions_dhcpOptionsId :: Lens.Lens' DhcpOptions (Prelude.Maybe Prelude.Text)
+dhcpOptions_dhcpOptionsId :: Lens.Lens' DhcpOptions (Core.Maybe Core.Text)
 dhcpOptions_dhcpOptionsId = Lens.lens (\DhcpOptions' {dhcpOptionsId} -> dhcpOptionsId) (\s@DhcpOptions' {} a -> s {dhcpOptionsId = a} :: DhcpOptions)
 
 -- | Any tags assigned to the DHCP options set.
-dhcpOptions_tags :: Lens.Lens' DhcpOptions (Prelude.Maybe [Tag])
-dhcpOptions_tags = Lens.lens (\DhcpOptions' {tags} -> tags) (\s@DhcpOptions' {} a -> s {tags = a} :: DhcpOptions) Prelude.. Lens.mapping Prelude._Coerce
+dhcpOptions_tags :: Lens.Lens' DhcpOptions (Core.Maybe [Tag])
+dhcpOptions_tags = Lens.lens (\DhcpOptions' {tags} -> tags) (\s@DhcpOptions' {} a -> s {tags = a} :: DhcpOptions) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML DhcpOptions where
+instance Core.FromXML DhcpOptions where
   parseXML x =
     DhcpOptions'
-      Prelude.<$> (x Prelude..@? "ownerId")
-      Prelude.<*> ( x Prelude..@? "dhcpConfigurationSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "dhcpOptionsId")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "ownerId")
+      Core.<*> ( x Core..@? "dhcpConfigurationSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "dhcpOptionsId")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable DhcpOptions
+instance Core.Hashable DhcpOptions
 
-instance Prelude.NFData DhcpOptions
+instance Core.NFData DhcpOptions

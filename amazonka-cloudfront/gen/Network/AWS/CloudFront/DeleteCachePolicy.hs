@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CloudFront.DeleteCachePolicy
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +55,12 @@ data DeleteCachePolicy = DeleteCachePolicy'
   { -- | The version of the cache policy that you are deleting. The version is
     -- the cache policy’s @ETag@ value, which you can get using
     -- @ListCachePolicies@, @GetCachePolicy@, or @GetCachePolicyConfig@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The unique identifier for the cache policy that you are deleting. To get
     -- the identifier, you can use @ListCachePolicies@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCachePolicy' with all optional fields omitted.
@@ -79,52 +78,54 @@ data DeleteCachePolicy = DeleteCachePolicy'
 -- the identifier, you can use @ListCachePolicies@.
 newDeleteCachePolicy ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCachePolicy
 newDeleteCachePolicy pId_ =
   DeleteCachePolicy'
-    { ifMatch = Prelude.Nothing,
+    { ifMatch = Core.Nothing,
       id = pId_
     }
 
 -- | The version of the cache policy that you are deleting. The version is
 -- the cache policy’s @ETag@ value, which you can get using
 -- @ListCachePolicies@, @GetCachePolicy@, or @GetCachePolicyConfig@.
-deleteCachePolicy_ifMatch :: Lens.Lens' DeleteCachePolicy (Prelude.Maybe Prelude.Text)
+deleteCachePolicy_ifMatch :: Lens.Lens' DeleteCachePolicy (Core.Maybe Core.Text)
 deleteCachePolicy_ifMatch = Lens.lens (\DeleteCachePolicy' {ifMatch} -> ifMatch) (\s@DeleteCachePolicy' {} a -> s {ifMatch = a} :: DeleteCachePolicy)
 
 -- | The unique identifier for the cache policy that you are deleting. To get
 -- the identifier, you can use @ListCachePolicies@.
-deleteCachePolicy_id :: Lens.Lens' DeleteCachePolicy Prelude.Text
+deleteCachePolicy_id :: Lens.Lens' DeleteCachePolicy Core.Text
 deleteCachePolicy_id = Lens.lens (\DeleteCachePolicy' {id} -> id) (\s@DeleteCachePolicy' {} a -> s {id = a} :: DeleteCachePolicy)
 
-instance Prelude.AWSRequest DeleteCachePolicy where
-  type Rs DeleteCachePolicy = DeleteCachePolicyResponse
+instance Core.AWSRequest DeleteCachePolicy where
+  type
+    AWSResponse DeleteCachePolicy =
+      DeleteCachePolicyResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteCachePolicyResponse'
 
-instance Prelude.Hashable DeleteCachePolicy
+instance Core.Hashable DeleteCachePolicy
 
-instance Prelude.NFData DeleteCachePolicy
+instance Core.NFData DeleteCachePolicy
 
-instance Prelude.ToHeaders DeleteCachePolicy where
+instance Core.ToHeaders DeleteCachePolicy where
   toHeaders DeleteCachePolicy' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
-instance Prelude.ToPath DeleteCachePolicy where
+instance Core.ToPath DeleteCachePolicy where
   toPath DeleteCachePolicy' {..} =
-    Prelude.mconcat
-      ["/2020-05-31/cache-policy/", Prelude.toBS id]
+    Core.mconcat
+      ["/2020-05-31/cache-policy/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteCachePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCachePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCachePolicyResponse' smart constructor.
 data DeleteCachePolicyResponse = DeleteCachePolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCachePolicyResponse' with all optional fields omitted.
@@ -135,4 +136,4 @@ newDeleteCachePolicyResponse ::
 newDeleteCachePolicyResponse =
   DeleteCachePolicyResponse'
 
-instance Prelude.NFData DeleteCachePolicyResponse
+instance Core.NFData DeleteCachePolicyResponse

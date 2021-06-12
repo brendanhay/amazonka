@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.GetModel
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,13 +58,13 @@ data GetModel = GetModel'
   { -- | A query parameter of a Boolean value to resolve (@true@) all external
     -- model references and returns a flattened model schema or not (@false@)
     -- The default is @false@.
-    flatten :: Prelude.Maybe Prelude.Bool,
+    flatten :: Core.Maybe Core.Bool,
     -- | [Required] The RestApi identifier under which the Model exists.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The name of the model as an identifier.
-    modelName :: Prelude.Text
+    modelName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetModel' with all optional fields omitted.
@@ -84,13 +83,13 @@ data GetModel = GetModel'
 -- 'modelName', 'getModel_modelName' - [Required] The name of the model as an identifier.
 newGetModel ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   GetModel
 newGetModel pRestApiId_ pModelName_ =
   GetModel'
-    { flatten = Prelude.Nothing,
+    { flatten = Core.Nothing,
       restApiId = pRestApiId_,
       modelName = pModelName_
     }
@@ -98,46 +97,46 @@ newGetModel pRestApiId_ pModelName_ =
 -- | A query parameter of a Boolean value to resolve (@true@) all external
 -- model references and returns a flattened model schema or not (@false@)
 -- The default is @false@.
-getModel_flatten :: Lens.Lens' GetModel (Prelude.Maybe Prelude.Bool)
+getModel_flatten :: Lens.Lens' GetModel (Core.Maybe Core.Bool)
 getModel_flatten = Lens.lens (\GetModel' {flatten} -> flatten) (\s@GetModel' {} a -> s {flatten = a} :: GetModel)
 
 -- | [Required] The RestApi identifier under which the Model exists.
-getModel_restApiId :: Lens.Lens' GetModel Prelude.Text
+getModel_restApiId :: Lens.Lens' GetModel Core.Text
 getModel_restApiId = Lens.lens (\GetModel' {restApiId} -> restApiId) (\s@GetModel' {} a -> s {restApiId = a} :: GetModel)
 
 -- | [Required] The name of the model as an identifier.
-getModel_modelName :: Lens.Lens' GetModel Prelude.Text
+getModel_modelName :: Lens.Lens' GetModel Core.Text
 getModel_modelName = Lens.lens (\GetModel' {modelName} -> modelName) (\s@GetModel' {} a -> s {modelName = a} :: GetModel)
 
-instance Prelude.AWSRequest GetModel where
-  type Rs GetModel = Model
+instance Core.AWSRequest GetModel where
+  type AWSResponse GetModel = Model
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetModel
+instance Core.Hashable GetModel
 
-instance Prelude.NFData GetModel
+instance Core.NFData GetModel
 
-instance Prelude.ToHeaders GetModel where
+instance Core.ToHeaders GetModel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetModel where
+instance Core.ToPath GetModel where
   toPath GetModel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/models/",
-        Prelude.toBS modelName
+        Core.toBS modelName
       ]
 
-instance Prelude.ToQuery GetModel where
+instance Core.ToQuery GetModel where
   toQuery GetModel' {..} =
-    Prelude.mconcat ["flatten" Prelude.=: flatten]
+    Core.mconcat ["flatten" Core.=: flatten]

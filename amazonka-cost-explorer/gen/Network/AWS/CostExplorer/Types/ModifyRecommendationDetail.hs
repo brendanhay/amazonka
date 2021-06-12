@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.ModifyRecommendationDetail where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.TargetInstance
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on the modification recommendation.
 --
 -- /See:/ 'newModifyRecommendationDetail' smart constructor.
 data ModifyRecommendationDetail = ModifyRecommendationDetail'
   { -- | Identifies whether this instance type is the AWS default recommendation.
-    targetInstances :: Prelude.Maybe [TargetInstance]
+    targetInstances :: Core.Maybe [TargetInstance]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyRecommendationDetail' with all optional fields omitted.
@@ -47,24 +46,22 @@ newModifyRecommendationDetail ::
 newModifyRecommendationDetail =
   ModifyRecommendationDetail'
     { targetInstances =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Identifies whether this instance type is the AWS default recommendation.
-modifyRecommendationDetail_targetInstances :: Lens.Lens' ModifyRecommendationDetail (Prelude.Maybe [TargetInstance])
-modifyRecommendationDetail_targetInstances = Lens.lens (\ModifyRecommendationDetail' {targetInstances} -> targetInstances) (\s@ModifyRecommendationDetail' {} a -> s {targetInstances = a} :: ModifyRecommendationDetail) Prelude.. Lens.mapping Prelude._Coerce
+modifyRecommendationDetail_targetInstances :: Lens.Lens' ModifyRecommendationDetail (Core.Maybe [TargetInstance])
+modifyRecommendationDetail_targetInstances = Lens.lens (\ModifyRecommendationDetail' {targetInstances} -> targetInstances) (\s@ModifyRecommendationDetail' {} a -> s {targetInstances = a} :: ModifyRecommendationDetail) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ModifyRecommendationDetail where
+instance Core.FromJSON ModifyRecommendationDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModifyRecommendationDetail"
       ( \x ->
           ModifyRecommendationDetail'
-            Prelude.<$> ( x Prelude..:? "TargetInstances"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "TargetInstances" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ModifyRecommendationDetail
+instance Core.Hashable ModifyRecommendationDetail
 
-instance Prelude.NFData ModifyRecommendationDetail
+instance Core.NFData ModifyRecommendationDetail

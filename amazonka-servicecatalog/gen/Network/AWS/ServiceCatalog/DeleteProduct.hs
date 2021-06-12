@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.ServiceCatalog.DeleteProduct
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -60,11 +59,11 @@ data DeleteProduct = DeleteProduct'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The product identifier.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProduct' with all optional fields omitted.
@@ -85,11 +84,11 @@ data DeleteProduct = DeleteProduct'
 -- 'id', 'deleteProduct_id' - The product identifier.
 newDeleteProduct ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteProduct
 newDeleteProduct pId_ =
   DeleteProduct'
-    { acceptLanguage = Prelude.Nothing,
+    { acceptLanguage = Core.Nothing,
       id = pId_
     }
 
@@ -100,64 +99,63 @@ newDeleteProduct pId_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deleteProduct_acceptLanguage :: Lens.Lens' DeleteProduct (Prelude.Maybe Prelude.Text)
+deleteProduct_acceptLanguage :: Lens.Lens' DeleteProduct (Core.Maybe Core.Text)
 deleteProduct_acceptLanguage = Lens.lens (\DeleteProduct' {acceptLanguage} -> acceptLanguage) (\s@DeleteProduct' {} a -> s {acceptLanguage = a} :: DeleteProduct)
 
 -- | The product identifier.
-deleteProduct_id :: Lens.Lens' DeleteProduct Prelude.Text
+deleteProduct_id :: Lens.Lens' DeleteProduct Core.Text
 deleteProduct_id = Lens.lens (\DeleteProduct' {id} -> id) (\s@DeleteProduct' {} a -> s {id = a} :: DeleteProduct)
 
-instance Prelude.AWSRequest DeleteProduct where
-  type Rs DeleteProduct = DeleteProductResponse
+instance Core.AWSRequest DeleteProduct where
+  type
+    AWSResponse DeleteProduct =
+      DeleteProductResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProductResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProduct
+instance Core.Hashable DeleteProduct
 
-instance Prelude.NFData DeleteProduct
+instance Core.NFData DeleteProduct
 
-instance Prelude.ToHeaders DeleteProduct where
+instance Core.ToHeaders DeleteProduct where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DeleteProduct" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DeleteProduct" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteProduct where
+instance Core.ToJSON DeleteProduct where
   toJSON DeleteProduct' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("Id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath DeleteProduct where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteProduct where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteProduct where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteProduct where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteProductResponse' smart constructor.
 data DeleteProductResponse = DeleteProductResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProductResponse' with all optional fields omitted.
@@ -170,13 +168,13 @@ data DeleteProductResponse = DeleteProductResponse'
 -- 'httpStatus', 'deleteProductResponse_httpStatus' - The response's http status code.
 newDeleteProductResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProductResponse
 newDeleteProductResponse pHttpStatus_ =
   DeleteProductResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteProductResponse_httpStatus :: Lens.Lens' DeleteProductResponse Prelude.Int
+deleteProductResponse_httpStatus :: Lens.Lens' DeleteProductResponse Core.Int
 deleteProductResponse_httpStatus = Lens.lens (\DeleteProductResponse' {httpStatus} -> httpStatus) (\s@DeleteProductResponse' {} a -> s {httpStatus = a} :: DeleteProductResponse)
 
-instance Prelude.NFData DeleteProductResponse
+instance Core.NFData DeleteProductResponse

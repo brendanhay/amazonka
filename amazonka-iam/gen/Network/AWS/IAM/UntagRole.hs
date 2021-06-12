@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IAM.UntagRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +53,12 @@ data UntagRole = UntagRole'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Prelude.Text,
+    roleName :: Core.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified role.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagRole' with all optional fields omitted.
@@ -80,12 +79,12 @@ data UntagRole = UntagRole'
 -- keys are removed from the specified role.
 newUntagRole ::
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   UntagRole
 newUntagRole pRoleName_ =
   UntagRole'
     { roleName = pRoleName_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The name of the IAM role from which you want to remove tags.
@@ -94,46 +93,43 @@ newUntagRole pRoleName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-untagRole_roleName :: Lens.Lens' UntagRole Prelude.Text
+untagRole_roleName :: Lens.Lens' UntagRole Core.Text
 untagRole_roleName = Lens.lens (\UntagRole' {roleName} -> roleName) (\s@UntagRole' {} a -> s {roleName = a} :: UntagRole)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified role.
-untagRole_tagKeys :: Lens.Lens' UntagRole [Prelude.Text]
-untagRole_tagKeys = Lens.lens (\UntagRole' {tagKeys} -> tagKeys) (\s@UntagRole' {} a -> s {tagKeys = a} :: UntagRole) Prelude.. Prelude._Coerce
+untagRole_tagKeys :: Lens.Lens' UntagRole [Core.Text]
+untagRole_tagKeys = Lens.lens (\UntagRole' {tagKeys} -> tagKeys) (\s@UntagRole' {} a -> s {tagKeys = a} :: UntagRole) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagRole where
-  type Rs UntagRole = UntagRoleResponse
+instance Core.AWSRequest UntagRole where
+  type AWSResponse UntagRole = UntagRoleResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull UntagRoleResponse'
 
-instance Prelude.Hashable UntagRole
+instance Core.Hashable UntagRole
 
-instance Prelude.NFData UntagRole
+instance Core.NFData UntagRole
 
-instance Prelude.ToHeaders UntagRole where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UntagRole where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UntagRole where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagRole where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagRole where
+instance Core.ToQuery UntagRole where
   toQuery UntagRole' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("UntagRole" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Prelude.=: roleName,
-        "TagKeys"
-          Prelude.=: Prelude.toQueryList "member" tagKeys
+    Core.mconcat
+      [ "Action" Core.=: ("UntagRole" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "RoleName" Core.=: roleName,
+        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagRoleResponse' smart constructor.
 data UntagRoleResponse = UntagRoleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagRoleResponse' with all optional fields omitted.
@@ -143,4 +139,4 @@ newUntagRoleResponse ::
   UntagRoleResponse
 newUntagRoleResponse = UntagRoleResponse'
 
-instance Prelude.NFData UntagRoleResponse
+instance Core.NFData UntagRoleResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CloudFront.GetRealtimeLogConfig
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data GetRealtimeLogConfig = GetRealtimeLogConfig'
   { -- | The Amazon Resource Name (ARN) of the real-time log configuration to
     -- get.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The name of the real-time log configuration to get.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRealtimeLogConfig' with all optional fields omitted.
@@ -78,65 +77,64 @@ newGetRealtimeLogConfig ::
   GetRealtimeLogConfig
 newGetRealtimeLogConfig =
   GetRealtimeLogConfig'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing
+    { arn = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration to
 -- get.
-getRealtimeLogConfig_arn :: Lens.Lens' GetRealtimeLogConfig (Prelude.Maybe Prelude.Text)
+getRealtimeLogConfig_arn :: Lens.Lens' GetRealtimeLogConfig (Core.Maybe Core.Text)
 getRealtimeLogConfig_arn = Lens.lens (\GetRealtimeLogConfig' {arn} -> arn) (\s@GetRealtimeLogConfig' {} a -> s {arn = a} :: GetRealtimeLogConfig)
 
 -- | The name of the real-time log configuration to get.
-getRealtimeLogConfig_name :: Lens.Lens' GetRealtimeLogConfig (Prelude.Maybe Prelude.Text)
+getRealtimeLogConfig_name :: Lens.Lens' GetRealtimeLogConfig (Core.Maybe Core.Text)
 getRealtimeLogConfig_name = Lens.lens (\GetRealtimeLogConfig' {name} -> name) (\s@GetRealtimeLogConfig' {} a -> s {name = a} :: GetRealtimeLogConfig)
 
-instance Prelude.AWSRequest GetRealtimeLogConfig where
+instance Core.AWSRequest GetRealtimeLogConfig where
   type
-    Rs GetRealtimeLogConfig =
+    AWSResponse GetRealtimeLogConfig =
       GetRealtimeLogConfigResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetRealtimeLogConfigResponse'
-            Prelude.<$> (x Prelude..@? "RealtimeLogConfig")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "RealtimeLogConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRealtimeLogConfig
+instance Core.Hashable GetRealtimeLogConfig
 
-instance Prelude.NFData GetRealtimeLogConfig
+instance Core.NFData GetRealtimeLogConfig
 
-instance Prelude.ToElement GetRealtimeLogConfig where
+instance Core.ToElement GetRealtimeLogConfig where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}GetRealtimeLogConfigRequest"
 
-instance Prelude.ToHeaders GetRealtimeLogConfig where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetRealtimeLogConfig where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetRealtimeLogConfig where
+instance Core.ToPath GetRealtimeLogConfig where
   toPath =
-    Prelude.const
-      "/2020-05-31/get-realtime-log-config/"
+    Core.const "/2020-05-31/get-realtime-log-config/"
 
-instance Prelude.ToQuery GetRealtimeLogConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRealtimeLogConfig where
+  toQuery = Core.const Core.mempty
 
-instance Prelude.ToXML GetRealtimeLogConfig where
+instance Core.ToXML GetRealtimeLogConfig where
   toXML GetRealtimeLogConfig' {..} =
-    Prelude.mconcat
-      ["ARN" Prelude.@= arn, "Name" Prelude.@= name]
+    Core.mconcat
+      ["ARN" Core.@= arn, "Name" Core.@= name]
 
 -- | /See:/ 'newGetRealtimeLogConfigResponse' smart constructor.
 data GetRealtimeLogConfigResponse = GetRealtimeLogConfigResponse'
   { -- | A real-time log configuration.
-    realtimeLogConfig :: Prelude.Maybe RealtimeLogConfig,
+    realtimeLogConfig :: Core.Maybe RealtimeLogConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRealtimeLogConfigResponse' with all optional fields omitted.
@@ -151,21 +149,21 @@ data GetRealtimeLogConfigResponse = GetRealtimeLogConfigResponse'
 -- 'httpStatus', 'getRealtimeLogConfigResponse_httpStatus' - The response's http status code.
 newGetRealtimeLogConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRealtimeLogConfigResponse
 newGetRealtimeLogConfigResponse pHttpStatus_ =
   GetRealtimeLogConfigResponse'
     { realtimeLogConfig =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A real-time log configuration.
-getRealtimeLogConfigResponse_realtimeLogConfig :: Lens.Lens' GetRealtimeLogConfigResponse (Prelude.Maybe RealtimeLogConfig)
+getRealtimeLogConfigResponse_realtimeLogConfig :: Lens.Lens' GetRealtimeLogConfigResponse (Core.Maybe RealtimeLogConfig)
 getRealtimeLogConfigResponse_realtimeLogConfig = Lens.lens (\GetRealtimeLogConfigResponse' {realtimeLogConfig} -> realtimeLogConfig) (\s@GetRealtimeLogConfigResponse' {} a -> s {realtimeLogConfig = a} :: GetRealtimeLogConfigResponse)
 
 -- | The response's http status code.
-getRealtimeLogConfigResponse_httpStatus :: Lens.Lens' GetRealtimeLogConfigResponse Prelude.Int
+getRealtimeLogConfigResponse_httpStatus :: Lens.Lens' GetRealtimeLogConfigResponse Core.Int
 getRealtimeLogConfigResponse_httpStatus = Lens.lens (\GetRealtimeLogConfigResponse' {httpStatus} -> httpStatus) (\s@GetRealtimeLogConfigResponse' {} a -> s {httpStatus = a} :: GetRealtimeLogConfigResponse)
 
-instance Prelude.NFData GetRealtimeLogConfigResponse
+instance Core.NFData GetRealtimeLogConfigResponse

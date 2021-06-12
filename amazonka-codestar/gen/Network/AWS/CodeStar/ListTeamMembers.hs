@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.CodeStar.ListTeamMembers
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +54,13 @@ import qualified Network.AWS.Response as Response
 data ListTeamMembers = ListTeamMembers'
   { -- | The continuation token for the next set of results, if the results
     -- cannot be returned in one response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of team members you want returned in a response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the project for which you want to list team members.
-    projectId :: Prelude.Text
+    projectId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTeamMembers' with all optional fields omitted.
@@ -80,107 +78,103 @@ data ListTeamMembers = ListTeamMembers'
 -- 'projectId', 'listTeamMembers_projectId' - The ID of the project for which you want to list team members.
 newListTeamMembers ::
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   ListTeamMembers
 newListTeamMembers pProjectId_ =
   ListTeamMembers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       projectId = pProjectId_
     }
 
 -- | The continuation token for the next set of results, if the results
 -- cannot be returned in one response.
-listTeamMembers_nextToken :: Lens.Lens' ListTeamMembers (Prelude.Maybe Prelude.Text)
+listTeamMembers_nextToken :: Lens.Lens' ListTeamMembers (Core.Maybe Core.Text)
 listTeamMembers_nextToken = Lens.lens (\ListTeamMembers' {nextToken} -> nextToken) (\s@ListTeamMembers' {} a -> s {nextToken = a} :: ListTeamMembers)
 
 -- | The maximum number of team members you want returned in a response.
-listTeamMembers_maxResults :: Lens.Lens' ListTeamMembers (Prelude.Maybe Prelude.Natural)
+listTeamMembers_maxResults :: Lens.Lens' ListTeamMembers (Core.Maybe Core.Natural)
 listTeamMembers_maxResults = Lens.lens (\ListTeamMembers' {maxResults} -> maxResults) (\s@ListTeamMembers' {} a -> s {maxResults = a} :: ListTeamMembers)
 
 -- | The ID of the project for which you want to list team members.
-listTeamMembers_projectId :: Lens.Lens' ListTeamMembers Prelude.Text
+listTeamMembers_projectId :: Lens.Lens' ListTeamMembers Core.Text
 listTeamMembers_projectId = Lens.lens (\ListTeamMembers' {projectId} -> projectId) (\s@ListTeamMembers' {} a -> s {projectId = a} :: ListTeamMembers)
 
-instance Pager.AWSPager ListTeamMembers where
+instance Core.AWSPager ListTeamMembers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTeamMembersResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listTeamMembersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listTeamMembersResponse_teamMembers) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTeamMembers_nextToken
           Lens..~ rs
-          Lens.^? listTeamMembersResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listTeamMembersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTeamMembers where
-  type Rs ListTeamMembers = ListTeamMembersResponse
+instance Core.AWSRequest ListTeamMembers where
+  type
+    AWSResponse ListTeamMembers =
+      ListTeamMembersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTeamMembersResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "teamMembers"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "teamMembers" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListTeamMembers
+instance Core.Hashable ListTeamMembers
 
-instance Prelude.NFData ListTeamMembers
+instance Core.NFData ListTeamMembers
 
-instance Prelude.ToHeaders ListTeamMembers where
+instance Core.ToHeaders ListTeamMembers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.ListTeamMembers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.ListTeamMembers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTeamMembers where
+instance Core.ToJSON ListTeamMembers where
   toJSON ListTeamMembers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("projectId" Prelude..= projectId)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("projectId" Core..= projectId)
           ]
       )
 
-instance Prelude.ToPath ListTeamMembers where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTeamMembers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTeamMembers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTeamMembers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTeamMembersResponse' smart constructor.
 data ListTeamMembersResponse = ListTeamMembersResponse'
   { -- | The continuation token to use when requesting the next set of results,
     -- if there are more results to be returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of team member objects for the project.
     teamMembers :: [TeamMember]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTeamMembersResponse' with all optional fields omitted.
@@ -198,27 +192,26 @@ data ListTeamMembersResponse = ListTeamMembersResponse'
 -- 'teamMembers', 'listTeamMembersResponse_teamMembers' - A list of team member objects for the project.
 newListTeamMembersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTeamMembersResponse
 newListTeamMembersResponse pHttpStatus_ =
   ListTeamMembersResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      teamMembers = Prelude.mempty
+      teamMembers = Core.mempty
     }
 
 -- | The continuation token to use when requesting the next set of results,
 -- if there are more results to be returned.
-listTeamMembersResponse_nextToken :: Lens.Lens' ListTeamMembersResponse (Prelude.Maybe Prelude.Text)
+listTeamMembersResponse_nextToken :: Lens.Lens' ListTeamMembersResponse (Core.Maybe Core.Text)
 listTeamMembersResponse_nextToken = Lens.lens (\ListTeamMembersResponse' {nextToken} -> nextToken) (\s@ListTeamMembersResponse' {} a -> s {nextToken = a} :: ListTeamMembersResponse)
 
 -- | The response's http status code.
-listTeamMembersResponse_httpStatus :: Lens.Lens' ListTeamMembersResponse Prelude.Int
+listTeamMembersResponse_httpStatus :: Lens.Lens' ListTeamMembersResponse Core.Int
 listTeamMembersResponse_httpStatus = Lens.lens (\ListTeamMembersResponse' {httpStatus} -> httpStatus) (\s@ListTeamMembersResponse' {} a -> s {httpStatus = a} :: ListTeamMembersResponse)
 
 -- | A list of team member objects for the project.
 listTeamMembersResponse_teamMembers :: Lens.Lens' ListTeamMembersResponse [TeamMember]
-listTeamMembersResponse_teamMembers = Lens.lens (\ListTeamMembersResponse' {teamMembers} -> teamMembers) (\s@ListTeamMembersResponse' {} a -> s {teamMembers = a} :: ListTeamMembersResponse) Prelude.. Prelude._Coerce
+listTeamMembersResponse_teamMembers = Lens.lens (\ListTeamMembersResponse' {teamMembers} -> teamMembers) (\s@ListTeamMembersResponse' {} a -> s {teamMembers = a} :: ListTeamMembersResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListTeamMembersResponse
+instance Core.NFData ListTeamMembersResponse

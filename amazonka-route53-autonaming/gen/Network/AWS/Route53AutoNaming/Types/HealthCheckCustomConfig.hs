@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about an optional custom health
 -- check. A custom health check, which requires that you use a third-party
@@ -90,9 +89,9 @@ data HealthCheckCustomConfig = HealthCheckCustomConfig'
     -- request with the same value before 30 seconds has passed doesn\'t
     -- accelerate the change. AWS Cloud Map still waits @30@ seconds after the
     -- first request to make the change.
-    failureThreshold :: Prelude.Maybe Prelude.Natural
+    failureThreshold :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HealthCheckCustomConfig' with all optional fields omitted.
@@ -120,7 +119,7 @@ newHealthCheckCustomConfig ::
 newHealthCheckCustomConfig =
   HealthCheckCustomConfig'
     { failureThreshold =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | This parameter has been deprecated and is always set to 1. AWS Cloud Map
@@ -136,27 +135,27 @@ newHealthCheckCustomConfig =
 -- request with the same value before 30 seconds has passed doesn\'t
 -- accelerate the change. AWS Cloud Map still waits @30@ seconds after the
 -- first request to make the change.
-healthCheckCustomConfig_failureThreshold :: Lens.Lens' HealthCheckCustomConfig (Prelude.Maybe Prelude.Natural)
+healthCheckCustomConfig_failureThreshold :: Lens.Lens' HealthCheckCustomConfig (Core.Maybe Core.Natural)
 healthCheckCustomConfig_failureThreshold = Lens.lens (\HealthCheckCustomConfig' {failureThreshold} -> failureThreshold) (\s@HealthCheckCustomConfig' {} a -> s {failureThreshold = a} :: HealthCheckCustomConfig)
 
-instance Prelude.FromJSON HealthCheckCustomConfig where
+instance Core.FromJSON HealthCheckCustomConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HealthCheckCustomConfig"
       ( \x ->
           HealthCheckCustomConfig'
-            Prelude.<$> (x Prelude..:? "FailureThreshold")
+            Core.<$> (x Core..:? "FailureThreshold")
       )
 
-instance Prelude.Hashable HealthCheckCustomConfig
+instance Core.Hashable HealthCheckCustomConfig
 
-instance Prelude.NFData HealthCheckCustomConfig
+instance Core.NFData HealthCheckCustomConfig
 
-instance Prelude.ToJSON HealthCheckCustomConfig where
+instance Core.ToJSON HealthCheckCustomConfig where
   toJSON HealthCheckCustomConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FailureThreshold" Prelude..=)
-              Prelude.<$> failureThreshold
+    Core.object
+      ( Core.catMaybes
+          [ ("FailureThreshold" Core..=)
+              Core.<$> failureThreshold
           ]
       )

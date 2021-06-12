@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.EC2.ReplaceIamInstanceProfileAssociation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data ReplaceIamInstanceProfileAssociation = ReplaceIamInstanceProfileAssociation
   { -- | The IAM instance profile.
     iamInstanceProfile :: IamInstanceProfileSpecification,
     -- | The ID of the existing IAM instance profile association.
-    associationId :: Prelude.Text
+    associationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceIamInstanceProfileAssociation' with all optional fields omitted.
@@ -76,7 +75,7 @@ newReplaceIamInstanceProfileAssociation ::
   -- | 'iamInstanceProfile'
   IamInstanceProfileSpecification ->
   -- | 'associationId'
-  Prelude.Text ->
+  Core.Text ->
   ReplaceIamInstanceProfileAssociation
 newReplaceIamInstanceProfileAssociation
   pIamInstanceProfile_
@@ -92,69 +91,68 @@ replaceIamInstanceProfileAssociation_iamInstanceProfile :: Lens.Lens' ReplaceIam
 replaceIamInstanceProfileAssociation_iamInstanceProfile = Lens.lens (\ReplaceIamInstanceProfileAssociation' {iamInstanceProfile} -> iamInstanceProfile) (\s@ReplaceIamInstanceProfileAssociation' {} a -> s {iamInstanceProfile = a} :: ReplaceIamInstanceProfileAssociation)
 
 -- | The ID of the existing IAM instance profile association.
-replaceIamInstanceProfileAssociation_associationId :: Lens.Lens' ReplaceIamInstanceProfileAssociation Prelude.Text
+replaceIamInstanceProfileAssociation_associationId :: Lens.Lens' ReplaceIamInstanceProfileAssociation Core.Text
 replaceIamInstanceProfileAssociation_associationId = Lens.lens (\ReplaceIamInstanceProfileAssociation' {associationId} -> associationId) (\s@ReplaceIamInstanceProfileAssociation' {} a -> s {associationId = a} :: ReplaceIamInstanceProfileAssociation)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ReplaceIamInstanceProfileAssociation
   where
   type
-    Rs ReplaceIamInstanceProfileAssociation =
+    AWSResponse ReplaceIamInstanceProfileAssociation =
       ReplaceIamInstanceProfileAssociationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ReplaceIamInstanceProfileAssociationResponse'
-            Prelude.<$> (x Prelude..@? "iamInstanceProfileAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "iamInstanceProfileAssociation")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ReplaceIamInstanceProfileAssociation
 
 instance
-  Prelude.NFData
+  Core.NFData
     ReplaceIamInstanceProfileAssociation
 
 instance
-  Prelude.ToHeaders
-    ReplaceIamInstanceProfileAssociation
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ReplaceIamInstanceProfileAssociation
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ReplaceIamInstanceProfileAssociation
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ReplaceIamInstanceProfileAssociation
   where
   toQuery ReplaceIamInstanceProfileAssociation' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ReplaceIamInstanceProfileAssociation" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "IamInstanceProfile" Prelude.=: iamInstanceProfile,
-        "AssociationId" Prelude.=: associationId
+          Core.=: ( "ReplaceIamInstanceProfileAssociation" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "IamInstanceProfile" Core.=: iamInstanceProfile,
+        "AssociationId" Core.=: associationId
       ]
 
 -- | /See:/ 'newReplaceIamInstanceProfileAssociationResponse' smart constructor.
 data ReplaceIamInstanceProfileAssociationResponse = ReplaceIamInstanceProfileAssociationResponse'
   { -- | Information about the IAM instance profile association.
-    iamInstanceProfileAssociation :: Prelude.Maybe IamInstanceProfileAssociation,
+    iamInstanceProfileAssociation :: Core.Maybe IamInstanceProfileAssociation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceIamInstanceProfileAssociationResponse' with all optional fields omitted.
@@ -169,24 +167,24 @@ data ReplaceIamInstanceProfileAssociationResponse = ReplaceIamInstanceProfileAss
 -- 'httpStatus', 'replaceIamInstanceProfileAssociationResponse_httpStatus' - The response's http status code.
 newReplaceIamInstanceProfileAssociationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ReplaceIamInstanceProfileAssociationResponse
 newReplaceIamInstanceProfileAssociationResponse
   pHttpStatus_ =
     ReplaceIamInstanceProfileAssociationResponse'
       { iamInstanceProfileAssociation =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the IAM instance profile association.
-replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation :: Lens.Lens' ReplaceIamInstanceProfileAssociationResponse (Prelude.Maybe IamInstanceProfileAssociation)
+replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation :: Lens.Lens' ReplaceIamInstanceProfileAssociationResponse (Core.Maybe IamInstanceProfileAssociation)
 replaceIamInstanceProfileAssociationResponse_iamInstanceProfileAssociation = Lens.lens (\ReplaceIamInstanceProfileAssociationResponse' {iamInstanceProfileAssociation} -> iamInstanceProfileAssociation) (\s@ReplaceIamInstanceProfileAssociationResponse' {} a -> s {iamInstanceProfileAssociation = a} :: ReplaceIamInstanceProfileAssociationResponse)
 
 -- | The response's http status code.
-replaceIamInstanceProfileAssociationResponse_httpStatus :: Lens.Lens' ReplaceIamInstanceProfileAssociationResponse Prelude.Int
+replaceIamInstanceProfileAssociationResponse_httpStatus :: Lens.Lens' ReplaceIamInstanceProfileAssociationResponse Core.Int
 replaceIamInstanceProfileAssociationResponse_httpStatus = Lens.lens (\ReplaceIamInstanceProfileAssociationResponse' {httpStatus} -> httpStatus) (\s@ReplaceIamInstanceProfileAssociationResponse' {} a -> s {httpStatus = a} :: ReplaceIamInstanceProfileAssociationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ReplaceIamInstanceProfileAssociationResponse

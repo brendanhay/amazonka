@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SNS.Types.Topic where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve
 -- a topic\'s attributes, use @GetTopicAttributes@.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTopic' smart constructor.
 data Topic = Topic'
   { -- | The topic\'s ARN.
-    topicArn :: Prelude.Maybe Prelude.Text
+    topicArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Topic' with all optional fields omitted.
@@ -44,16 +43,15 @@ data Topic = Topic'
 -- 'topicArn', 'topic_topicArn' - The topic\'s ARN.
 newTopic ::
   Topic
-newTopic = Topic' {topicArn = Prelude.Nothing}
+newTopic = Topic' {topicArn = Core.Nothing}
 
 -- | The topic\'s ARN.
-topic_topicArn :: Lens.Lens' Topic (Prelude.Maybe Prelude.Text)
+topic_topicArn :: Lens.Lens' Topic (Core.Maybe Core.Text)
 topic_topicArn = Lens.lens (\Topic' {topicArn} -> topicArn) (\s@Topic' {} a -> s {topicArn = a} :: Topic)
 
-instance Prelude.FromXML Topic where
-  parseXML x =
-    Topic' Prelude.<$> (x Prelude..@? "TopicArn")
+instance Core.FromXML Topic where
+  parseXML x = Topic' Core.<$> (x Core..@? "TopicArn")
 
-instance Prelude.Hashable Topic
+instance Core.Hashable Topic
 
-instance Prelude.NFData Topic
+instance Core.NFData Topic

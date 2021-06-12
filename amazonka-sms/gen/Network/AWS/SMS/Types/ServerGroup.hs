@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.ServerGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.Server
 
 -- | Logical grouping of servers.
@@ -29,13 +28,13 @@ import Network.AWS.SMS.Types.Server
 -- /See:/ 'newServerGroup' smart constructor.
 data ServerGroup = ServerGroup'
   { -- | The ID of a server group.
-    serverGroupId :: Prelude.Maybe Prelude.Text,
+    serverGroupId :: Core.Maybe Core.Text,
     -- | The name of a server group.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The servers that belong to a server group.
-    serverList :: Prelude.Maybe [Server]
+    serverList :: Core.Maybe [Server]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerGroup' with all optional fields omitted.
@@ -54,47 +53,44 @@ newServerGroup ::
   ServerGroup
 newServerGroup =
   ServerGroup'
-    { serverGroupId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      serverList = Prelude.Nothing
+    { serverGroupId = Core.Nothing,
+      name = Core.Nothing,
+      serverList = Core.Nothing
     }
 
 -- | The ID of a server group.
-serverGroup_serverGroupId :: Lens.Lens' ServerGroup (Prelude.Maybe Prelude.Text)
+serverGroup_serverGroupId :: Lens.Lens' ServerGroup (Core.Maybe Core.Text)
 serverGroup_serverGroupId = Lens.lens (\ServerGroup' {serverGroupId} -> serverGroupId) (\s@ServerGroup' {} a -> s {serverGroupId = a} :: ServerGroup)
 
 -- | The name of a server group.
-serverGroup_name :: Lens.Lens' ServerGroup (Prelude.Maybe Prelude.Text)
+serverGroup_name :: Lens.Lens' ServerGroup (Core.Maybe Core.Text)
 serverGroup_name = Lens.lens (\ServerGroup' {name} -> name) (\s@ServerGroup' {} a -> s {name = a} :: ServerGroup)
 
 -- | The servers that belong to a server group.
-serverGroup_serverList :: Lens.Lens' ServerGroup (Prelude.Maybe [Server])
-serverGroup_serverList = Lens.lens (\ServerGroup' {serverList} -> serverList) (\s@ServerGroup' {} a -> s {serverList = a} :: ServerGroup) Prelude.. Lens.mapping Prelude._Coerce
+serverGroup_serverList :: Lens.Lens' ServerGroup (Core.Maybe [Server])
+serverGroup_serverList = Lens.lens (\ServerGroup' {serverList} -> serverList) (\s@ServerGroup' {} a -> s {serverList = a} :: ServerGroup) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ServerGroup where
+instance Core.FromJSON ServerGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServerGroup"
       ( \x ->
           ServerGroup'
-            Prelude.<$> (x Prelude..:? "serverGroupId")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> ( x Prelude..:? "serverList"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "serverGroupId")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "serverList" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ServerGroup
+instance Core.Hashable ServerGroup
 
-instance Prelude.NFData ServerGroup
+instance Core.NFData ServerGroup
 
-instance Prelude.ToJSON ServerGroup where
+instance Core.ToJSON ServerGroup where
   toJSON ServerGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("serverGroupId" Prelude..=)
-              Prelude.<$> serverGroupId,
-            ("name" Prelude..=) Prelude.<$> name,
-            ("serverList" Prelude..=) Prelude.<$> serverList
+    Core.object
+      ( Core.catMaybes
+          [ ("serverGroupId" Core..=) Core.<$> serverGroupId,
+            ("name" Core..=) Core.<$> name,
+            ("serverList" Core..=) Core.<$> serverList
           ]
       )

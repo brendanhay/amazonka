@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputStartingPosition
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the point at which the application reads from the streaming
 -- source.
@@ -41,9 +40,9 @@ data InputStartingPositionConfiguration = InputStartingPositionConfiguration'
     --
     -- -   @LAST_STOPPED_POINT@ - Resume reading from where the application
     --     last stopped reading.
-    inputStartingPosition :: Prelude.Maybe InputStartingPosition
+    inputStartingPosition :: Core.Maybe InputStartingPosition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputStartingPositionConfiguration' with all optional fields omitted.
@@ -70,7 +69,7 @@ newInputStartingPositionConfiguration ::
 newInputStartingPositionConfiguration =
   InputStartingPositionConfiguration'
     { inputStartingPosition =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The starting position on the stream.
@@ -85,37 +84,37 @@ newInputStartingPositionConfiguration =
 --
 -- -   @LAST_STOPPED_POINT@ - Resume reading from where the application
 --     last stopped reading.
-inputStartingPositionConfiguration_inputStartingPosition :: Lens.Lens' InputStartingPositionConfiguration (Prelude.Maybe InputStartingPosition)
+inputStartingPositionConfiguration_inputStartingPosition :: Lens.Lens' InputStartingPositionConfiguration (Core.Maybe InputStartingPosition)
 inputStartingPositionConfiguration_inputStartingPosition = Lens.lens (\InputStartingPositionConfiguration' {inputStartingPosition} -> inputStartingPosition) (\s@InputStartingPositionConfiguration' {} a -> s {inputStartingPosition = a} :: InputStartingPositionConfiguration)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     InputStartingPositionConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputStartingPositionConfiguration"
       ( \x ->
           InputStartingPositionConfiguration'
-            Prelude.<$> (x Prelude..:? "InputStartingPosition")
+            Core.<$> (x Core..:? "InputStartingPosition")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InputStartingPositionConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     InputStartingPositionConfiguration
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     InputStartingPositionConfiguration
   where
   toJSON InputStartingPositionConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InputStartingPosition" Prelude..=)
-              Prelude.<$> inputStartingPosition
+    Core.object
+      ( Core.catMaybes
+          [ ("InputStartingPosition" Core..=)
+              Core.<$> inputStartingPosition
           ]
       )

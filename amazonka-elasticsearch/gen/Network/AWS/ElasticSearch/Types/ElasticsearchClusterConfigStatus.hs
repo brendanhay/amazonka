@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the configuration status for the specified Elasticsearch
 -- domain.
@@ -37,7 +36,7 @@ data ElasticsearchClusterConfigStatus = ElasticsearchClusterConfigStatus'
     -- Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchClusterConfigStatus' with all optional fields omitted.
@@ -78,22 +77,19 @@ elasticsearchClusterConfigStatus_status :: Lens.Lens' ElasticsearchClusterConfig
 elasticsearchClusterConfigStatus_status = Lens.lens (\ElasticsearchClusterConfigStatus' {status} -> status) (\s@ElasticsearchClusterConfigStatus' {} a -> s {status = a} :: ElasticsearchClusterConfigStatus)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ElasticsearchClusterConfigStatus
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ElasticsearchClusterConfigStatus"
       ( \x ->
           ElasticsearchClusterConfigStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ElasticsearchClusterConfigStatus
 
-instance
-  Prelude.NFData
-    ElasticsearchClusterConfigStatus
+instance Core.NFData ElasticsearchClusterConfigStatus

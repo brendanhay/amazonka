@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.ReshardingStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.SlotMigration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status of an online resharding operation.
 --
 -- /See:/ 'newReshardingStatus' smart constructor.
 data ReshardingStatus = ReshardingStatus'
   { -- | Represents the progress of an online resharding operation.
-    slotMigration :: Prelude.Maybe SlotMigration
+    slotMigration :: Core.Maybe SlotMigration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReshardingStatus' with all optional fields omitted.
@@ -45,17 +44,17 @@ data ReshardingStatus = ReshardingStatus'
 newReshardingStatus ::
   ReshardingStatus
 newReshardingStatus =
-  ReshardingStatus' {slotMigration = Prelude.Nothing}
+  ReshardingStatus' {slotMigration = Core.Nothing}
 
 -- | Represents the progress of an online resharding operation.
-reshardingStatus_slotMigration :: Lens.Lens' ReshardingStatus (Prelude.Maybe SlotMigration)
+reshardingStatus_slotMigration :: Lens.Lens' ReshardingStatus (Core.Maybe SlotMigration)
 reshardingStatus_slotMigration = Lens.lens (\ReshardingStatus' {slotMigration} -> slotMigration) (\s@ReshardingStatus' {} a -> s {slotMigration = a} :: ReshardingStatus)
 
-instance Prelude.FromXML ReshardingStatus where
+instance Core.FromXML ReshardingStatus where
   parseXML x =
     ReshardingStatus'
-      Prelude.<$> (x Prelude..@? "SlotMigration")
+      Core.<$> (x Core..@? "SlotMigration")
 
-instance Prelude.Hashable ReshardingStatus
+instance Core.Hashable ReshardingStatus
 
-instance Prelude.NFData ReshardingStatus
+instance Core.NFData ReshardingStatus

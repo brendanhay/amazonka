@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.HttpUrlDestinationProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | HTTP URL destination properties.
 --
 -- /See:/ 'newHttpUrlDestinationProperties' smart constructor.
 data HttpUrlDestinationProperties = HttpUrlDestinationProperties'
   { -- | The URL used to confirm the HTTP topic rule destination URL.
-    confirmationUrl :: Prelude.Maybe Prelude.Text
+    confirmationUrl :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpUrlDestinationProperties' with all optional fields omitted.
@@ -46,27 +45,22 @@ newHttpUrlDestinationProperties ::
 newHttpUrlDestinationProperties =
   HttpUrlDestinationProperties'
     { confirmationUrl =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The URL used to confirm the HTTP topic rule destination URL.
-httpUrlDestinationProperties_confirmationUrl :: Lens.Lens' HttpUrlDestinationProperties (Prelude.Maybe Prelude.Text)
+httpUrlDestinationProperties_confirmationUrl :: Lens.Lens' HttpUrlDestinationProperties (Core.Maybe Core.Text)
 httpUrlDestinationProperties_confirmationUrl = Lens.lens (\HttpUrlDestinationProperties' {confirmationUrl} -> confirmationUrl) (\s@HttpUrlDestinationProperties' {} a -> s {confirmationUrl = a} :: HttpUrlDestinationProperties)
 
-instance
-  Prelude.FromJSON
-    HttpUrlDestinationProperties
-  where
+instance Core.FromJSON HttpUrlDestinationProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpUrlDestinationProperties"
       ( \x ->
           HttpUrlDestinationProperties'
-            Prelude.<$> (x Prelude..:? "confirmationUrl")
+            Core.<$> (x Core..:? "confirmationUrl")
       )
 
-instance
-  Prelude.Hashable
-    HttpUrlDestinationProperties
+instance Core.Hashable HttpUrlDestinationProperties
 
-instance Prelude.NFData HttpUrlDestinationProperties
+instance Core.NFData HttpUrlDestinationProperties

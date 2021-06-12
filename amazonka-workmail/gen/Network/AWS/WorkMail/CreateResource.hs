@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.WorkMail.CreateResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -52,14 +51,14 @@ import Network.AWS.WorkMail.Types
 data CreateResource = CreateResource'
   { -- | The identifier associated with the organization for which the resource
     -- is created.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The name of the new resource.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The type of the new resource. The available types are @equipment@ and
     -- @room@.
     type' :: ResourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateResource' with all optional fields omitted.
@@ -78,9 +77,9 @@ data CreateResource = CreateResource'
 -- @room@.
 newCreateResource ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   ResourceType ->
   CreateResource
@@ -93,11 +92,11 @@ newCreateResource pOrganizationId_ pName_ pType_ =
 
 -- | The identifier associated with the organization for which the resource
 -- is created.
-createResource_organizationId :: Lens.Lens' CreateResource Prelude.Text
+createResource_organizationId :: Lens.Lens' CreateResource Core.Text
 createResource_organizationId = Lens.lens (\CreateResource' {organizationId} -> organizationId) (\s@CreateResource' {} a -> s {organizationId = a} :: CreateResource)
 
 -- | The name of the new resource.
-createResource_name :: Lens.Lens' CreateResource Prelude.Text
+createResource_name :: Lens.Lens' CreateResource Core.Text
 createResource_name = Lens.lens (\CreateResource' {name} -> name) (\s@CreateResource' {} a -> s {name = a} :: CreateResource)
 
 -- | The type of the new resource. The available types are @equipment@ and
@@ -105,61 +104,60 @@ createResource_name = Lens.lens (\CreateResource' {name} -> name) (\s@CreateReso
 createResource_type :: Lens.Lens' CreateResource ResourceType
 createResource_type = Lens.lens (\CreateResource' {type'} -> type') (\s@CreateResource' {} a -> s {type' = a} :: CreateResource)
 
-instance Prelude.AWSRequest CreateResource where
-  type Rs CreateResource = CreateResourceResponse
+instance Core.AWSRequest CreateResource where
+  type
+    AWSResponse CreateResource =
+      CreateResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateResourceResponse'
-            Prelude.<$> (x Prelude..?> "ResourceId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ResourceId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateResource
+instance Core.Hashable CreateResource
 
-instance Prelude.NFData CreateResource
+instance Core.NFData CreateResource
 
-instance Prelude.ToHeaders CreateResource where
+instance Core.ToHeaders CreateResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.CreateResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.CreateResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateResource where
+instance Core.ToJSON CreateResource where
   toJSON CreateResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("OrganizationId" Prelude..= organizationId),
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Type" Core..= type')
           ]
       )
 
-instance Prelude.ToPath CreateResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateResourceResponse' smart constructor.
 data CreateResourceResponse = CreateResourceResponse'
   { -- | The identifier of the new resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateResourceResponse' with all optional fields omitted.
@@ -174,21 +172,20 @@ data CreateResourceResponse = CreateResourceResponse'
 -- 'httpStatus', 'createResourceResponse_httpStatus' - The response's http status code.
 newCreateResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateResourceResponse
 newCreateResourceResponse pHttpStatus_ =
   CreateResourceResponse'
-    { resourceId =
-        Prelude.Nothing,
+    { resourceId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the new resource.
-createResourceResponse_resourceId :: Lens.Lens' CreateResourceResponse (Prelude.Maybe Prelude.Text)
+createResourceResponse_resourceId :: Lens.Lens' CreateResourceResponse (Core.Maybe Core.Text)
 createResourceResponse_resourceId = Lens.lens (\CreateResourceResponse' {resourceId} -> resourceId) (\s@CreateResourceResponse' {} a -> s {resourceId = a} :: CreateResourceResponse)
 
 -- | The response's http status code.
-createResourceResponse_httpStatus :: Lens.Lens' CreateResourceResponse Prelude.Int
+createResourceResponse_httpStatus :: Lens.Lens' CreateResourceResponse Core.Int
 createResourceResponse_httpStatus = Lens.lens (\CreateResourceResponse' {httpStatus} -> httpStatus) (\s@CreateResourceResponse' {} a -> s {httpStatus = a} :: CreateResourceResponse)
 
-instance Prelude.NFData CreateResourceResponse
+instance Core.NFData CreateResourceResponse

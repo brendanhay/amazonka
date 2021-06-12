@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.TagFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to filter the workflow executions in visibility APIs based on a
 -- tag.
@@ -33,9 +32,9 @@ data TagFilter = TagFilter'
     --
     -- Tags may only contain unicode letters, digits, whitespace, or these
     -- symbols: @_ . : \/ = + - \@@.
-    tag :: Prelude.Text
+    tag :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagFilter' with all optional fields omitted.
@@ -52,7 +51,7 @@ data TagFilter = TagFilter'
 -- symbols: @_ . : \/ = + - \@@.
 newTagFilter ::
   -- | 'tag'
-  Prelude.Text ->
+  Core.Text ->
   TagFilter
 newTagFilter pTag_ = TagFilter' {tag = pTag_}
 
@@ -61,16 +60,14 @@ newTagFilter pTag_ = TagFilter' {tag = pTag_}
 --
 -- Tags may only contain unicode letters, digits, whitespace, or these
 -- symbols: @_ . : \/ = + - \@@.
-tagFilter_tag :: Lens.Lens' TagFilter Prelude.Text
+tagFilter_tag :: Lens.Lens' TagFilter Core.Text
 tagFilter_tag = Lens.lens (\TagFilter' {tag} -> tag) (\s@TagFilter' {} a -> s {tag = a} :: TagFilter)
 
-instance Prelude.Hashable TagFilter
+instance Core.Hashable TagFilter
 
-instance Prelude.NFData TagFilter
+instance Core.NFData TagFilter
 
-instance Prelude.ToJSON TagFilter where
+instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("tag" Prelude..= tag)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("tag" Core..= tag)])

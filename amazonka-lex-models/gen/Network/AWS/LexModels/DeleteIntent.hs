@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,18 +50,18 @@ module Network.AWS.LexModels.DeleteIntent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteIntent' smart constructor.
 data DeleteIntent = DeleteIntent'
   { -- | The name of the intent. The name is case sensitive.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIntent' with all optional fields omitted.
@@ -75,46 +74,44 @@ data DeleteIntent = DeleteIntent'
 -- 'name', 'deleteIntent_name' - The name of the intent. The name is case sensitive.
 newDeleteIntent ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteIntent
 newDeleteIntent pName_ = DeleteIntent' {name = pName_}
 
 -- | The name of the intent. The name is case sensitive.
-deleteIntent_name :: Lens.Lens' DeleteIntent Prelude.Text
+deleteIntent_name :: Lens.Lens' DeleteIntent Core.Text
 deleteIntent_name = Lens.lens (\DeleteIntent' {name} -> name) (\s@DeleteIntent' {} a -> s {name = a} :: DeleteIntent)
 
-instance Prelude.AWSRequest DeleteIntent where
-  type Rs DeleteIntent = DeleteIntentResponse
+instance Core.AWSRequest DeleteIntent where
+  type AWSResponse DeleteIntent = DeleteIntentResponse
   request = Request.delete defaultService
   response = Response.receiveNull DeleteIntentResponse'
 
-instance Prelude.Hashable DeleteIntent
+instance Core.Hashable DeleteIntent
 
-instance Prelude.NFData DeleteIntent
+instance Core.NFData DeleteIntent
 
-instance Prelude.ToHeaders DeleteIntent where
+instance Core.ToHeaders DeleteIntent where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteIntent where
+instance Core.ToPath DeleteIntent where
   toPath DeleteIntent' {..} =
-    Prelude.mconcat ["/intents/", Prelude.toBS name]
+    Core.mconcat ["/intents/", Core.toBS name]
 
-instance Prelude.ToQuery DeleteIntent where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteIntent where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteIntentResponse' smart constructor.
 data DeleteIntentResponse = DeleteIntentResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIntentResponse' with all optional fields omitted.
@@ -124,4 +121,4 @@ newDeleteIntentResponse ::
   DeleteIntentResponse
 newDeleteIntentResponse = DeleteIntentResponse'
 
-instance Prelude.NFData DeleteIntentResponse
+instance Core.NFData DeleteIntentResponse

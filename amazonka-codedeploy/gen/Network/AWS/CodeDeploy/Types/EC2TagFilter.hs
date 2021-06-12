@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.CodeDeploy.Types.EC2TagFilter where
 
 import Network.AWS.CodeDeploy.Types.EC2TagFilterType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an EC2 tag filter.
 --
 -- /See:/ 'newEC2TagFilter' smart constructor.
 data EC2TagFilter = EC2TagFilter'
   { -- | The tag filter key.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The tag filter value.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The tag filter type:
     --
     -- -   @KEY_ONLY@: Key only.
@@ -39,9 +38,9 @@ data EC2TagFilter = EC2TagFilter'
     -- -   @VALUE_ONLY@: Value only.
     --
     -- -   @KEY_AND_VALUE@: Key and value.
-    type' :: Prelude.Maybe EC2TagFilterType
+    type' :: Core.Maybe EC2TagFilterType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EC2TagFilter' with all optional fields omitted.
@@ -66,17 +65,17 @@ newEC2TagFilter ::
   EC2TagFilter
 newEC2TagFilter =
   EC2TagFilter'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The tag filter key.
-eC2TagFilter_key :: Lens.Lens' EC2TagFilter (Prelude.Maybe Prelude.Text)
+eC2TagFilter_key :: Lens.Lens' EC2TagFilter (Core.Maybe Core.Text)
 eC2TagFilter_key = Lens.lens (\EC2TagFilter' {key} -> key) (\s@EC2TagFilter' {} a -> s {key = a} :: EC2TagFilter)
 
 -- | The tag filter value.
-eC2TagFilter_value :: Lens.Lens' EC2TagFilter (Prelude.Maybe Prelude.Text)
+eC2TagFilter_value :: Lens.Lens' EC2TagFilter (Core.Maybe Core.Text)
 eC2TagFilter_value = Lens.lens (\EC2TagFilter' {value} -> value) (\s@EC2TagFilter' {} a -> s {value = a} :: EC2TagFilter)
 
 -- | The tag filter type:
@@ -86,30 +85,30 @@ eC2TagFilter_value = Lens.lens (\EC2TagFilter' {value} -> value) (\s@EC2TagFilte
 -- -   @VALUE_ONLY@: Value only.
 --
 -- -   @KEY_AND_VALUE@: Key and value.
-eC2TagFilter_type :: Lens.Lens' EC2TagFilter (Prelude.Maybe EC2TagFilterType)
+eC2TagFilter_type :: Lens.Lens' EC2TagFilter (Core.Maybe EC2TagFilterType)
 eC2TagFilter_type = Lens.lens (\EC2TagFilter' {type'} -> type') (\s@EC2TagFilter' {} a -> s {type' = a} :: EC2TagFilter)
 
-instance Prelude.FromJSON EC2TagFilter where
+instance Core.FromJSON EC2TagFilter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EC2TagFilter"
       ( \x ->
           EC2TagFilter'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "Value")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable EC2TagFilter
+instance Core.Hashable EC2TagFilter
 
-instance Prelude.NFData EC2TagFilter
+instance Core.NFData EC2TagFilter
 
-instance Prelude.ToJSON EC2TagFilter where
+instance Core.ToJSON EC2TagFilter where
   toJSON EC2TagFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Value" Prelude..=) Prelude.<$> value,
-            ("Type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value,
+            ("Type" Core..=) Core.<$> type'
           ]
       )

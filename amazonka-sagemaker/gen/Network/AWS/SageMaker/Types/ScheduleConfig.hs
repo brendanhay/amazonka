@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ScheduleConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration details about the monitoring schedule.
 --
@@ -63,9 +62,9 @@ data ScheduleConfig = ScheduleConfig'
     -- -   We recommend that if you would like a daily schedule, you do not
     --     provide this parameter. Amazon SageMaker will pick a time for
     --     running every day.
-    scheduleExpression :: Prelude.Text
+    scheduleExpression :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduleConfig' with all optional fields omitted.
@@ -113,7 +112,7 @@ data ScheduleConfig = ScheduleConfig'
 --     running every day.
 newScheduleConfig ::
   -- | 'scheduleExpression'
-  Prelude.Text ->
+  Core.Text ->
   ScheduleConfig
 newScheduleConfig pScheduleExpression_ =
   ScheduleConfig'
@@ -157,29 +156,27 @@ newScheduleConfig pScheduleExpression_ =
 -- -   We recommend that if you would like a daily schedule, you do not
 --     provide this parameter. Amazon SageMaker will pick a time for
 --     running every day.
-scheduleConfig_scheduleExpression :: Lens.Lens' ScheduleConfig Prelude.Text
+scheduleConfig_scheduleExpression :: Lens.Lens' ScheduleConfig Core.Text
 scheduleConfig_scheduleExpression = Lens.lens (\ScheduleConfig' {scheduleExpression} -> scheduleExpression) (\s@ScheduleConfig' {} a -> s {scheduleExpression = a} :: ScheduleConfig)
 
-instance Prelude.FromJSON ScheduleConfig where
+instance Core.FromJSON ScheduleConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScheduleConfig"
       ( \x ->
           ScheduleConfig'
-            Prelude.<$> (x Prelude..: "ScheduleExpression")
+            Core.<$> (x Core..: "ScheduleExpression")
       )
 
-instance Prelude.Hashable ScheduleConfig
+instance Core.Hashable ScheduleConfig
 
-instance Prelude.NFData ScheduleConfig
+instance Core.NFData ScheduleConfig
 
-instance Prelude.ToJSON ScheduleConfig where
+instance Core.ToJSON ScheduleConfig where
   toJSON ScheduleConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "ScheduleExpression"
-                  Prelude..= scheduleExpression
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ScheduleExpression" Core..= scheduleExpression)
           ]
       )

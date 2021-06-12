@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.DeleteVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ data DeleteVolume = DeleteVolume'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the volume.
-    volumeId :: Prelude.Text
+    volumeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVolume' with all optional fields omitted.
@@ -78,11 +77,11 @@ data DeleteVolume = DeleteVolume'
 -- 'volumeId', 'deleteVolume_volumeId' - The ID of the volume.
 newDeleteVolume ::
   -- | 'volumeId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVolume
 newDeleteVolume pVolumeId_ =
   DeleteVolume'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -90,44 +89,43 @@ newDeleteVolume pVolumeId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVolume_dryRun :: Lens.Lens' DeleteVolume (Prelude.Maybe Prelude.Bool)
+deleteVolume_dryRun :: Lens.Lens' DeleteVolume (Core.Maybe Core.Bool)
 deleteVolume_dryRun = Lens.lens (\DeleteVolume' {dryRun} -> dryRun) (\s@DeleteVolume' {} a -> s {dryRun = a} :: DeleteVolume)
 
 -- | The ID of the volume.
-deleteVolume_volumeId :: Lens.Lens' DeleteVolume Prelude.Text
+deleteVolume_volumeId :: Lens.Lens' DeleteVolume Core.Text
 deleteVolume_volumeId = Lens.lens (\DeleteVolume' {volumeId} -> volumeId) (\s@DeleteVolume' {} a -> s {volumeId = a} :: DeleteVolume)
 
-instance Prelude.AWSRequest DeleteVolume where
-  type Rs DeleteVolume = DeleteVolumeResponse
+instance Core.AWSRequest DeleteVolume where
+  type AWSResponse DeleteVolume = DeleteVolumeResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteVolumeResponse'
 
-instance Prelude.Hashable DeleteVolume
+instance Core.Hashable DeleteVolume
 
-instance Prelude.NFData DeleteVolume
+instance Core.NFData DeleteVolume
 
-instance Prelude.ToHeaders DeleteVolume where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVolume where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVolume where
+instance Core.ToQuery DeleteVolume where
   toQuery DeleteVolume' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteVolume" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "VolumeId" Prelude.=: volumeId
+          Core.=: ("DeleteVolume" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "VolumeId" Core.=: volumeId
       ]
 
 -- | /See:/ 'newDeleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVolumeResponse' with all optional fields omitted.
@@ -137,4 +135,4 @@ newDeleteVolumeResponse ::
   DeleteVolumeResponse
 newDeleteVolumeResponse = DeleteVolumeResponse'
 
-instance Prelude.NFData DeleteVolumeResponse
+instance Core.NFData DeleteVolumeResponse

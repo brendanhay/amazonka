@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AssociationStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationStatusName
 
 -- | Describes an association status.
@@ -29,15 +28,15 @@ import Network.AWS.SSM.Types.AssociationStatusName
 -- /See:/ 'newAssociationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
   { -- | A user-defined string.
-    additionalInfo :: Prelude.Maybe Prelude.Text,
+    additionalInfo :: Core.Maybe Core.Text,
     -- | The date when the status changed.
-    date :: Prelude.POSIX,
+    date :: Core.POSIX,
     -- | The status.
     name :: AssociationStatusName,
     -- | The reason for the status.
-    message :: Prelude.Text
+    message :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociationStatus' with all optional fields omitted.
@@ -56,61 +55,59 @@ data AssociationStatus = AssociationStatus'
 -- 'message', 'associationStatus_message' - The reason for the status.
 newAssociationStatus ::
   -- | 'date'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'name'
   AssociationStatusName ->
   -- | 'message'
-  Prelude.Text ->
+  Core.Text ->
   AssociationStatus
 newAssociationStatus pDate_ pName_ pMessage_ =
   AssociationStatus'
-    { additionalInfo =
-        Prelude.Nothing,
-      date = Prelude._Time Lens.# pDate_,
+    { additionalInfo = Core.Nothing,
+      date = Core._Time Lens.# pDate_,
       name = pName_,
       message = pMessage_
     }
 
 -- | A user-defined string.
-associationStatus_additionalInfo :: Lens.Lens' AssociationStatus (Prelude.Maybe Prelude.Text)
+associationStatus_additionalInfo :: Lens.Lens' AssociationStatus (Core.Maybe Core.Text)
 associationStatus_additionalInfo = Lens.lens (\AssociationStatus' {additionalInfo} -> additionalInfo) (\s@AssociationStatus' {} a -> s {additionalInfo = a} :: AssociationStatus)
 
 -- | The date when the status changed.
-associationStatus_date :: Lens.Lens' AssociationStatus Prelude.UTCTime
-associationStatus_date = Lens.lens (\AssociationStatus' {date} -> date) (\s@AssociationStatus' {} a -> s {date = a} :: AssociationStatus) Prelude.. Prelude._Time
+associationStatus_date :: Lens.Lens' AssociationStatus Core.UTCTime
+associationStatus_date = Lens.lens (\AssociationStatus' {date} -> date) (\s@AssociationStatus' {} a -> s {date = a} :: AssociationStatus) Core.. Core._Time
 
 -- | The status.
 associationStatus_name :: Lens.Lens' AssociationStatus AssociationStatusName
 associationStatus_name = Lens.lens (\AssociationStatus' {name} -> name) (\s@AssociationStatus' {} a -> s {name = a} :: AssociationStatus)
 
 -- | The reason for the status.
-associationStatus_message :: Lens.Lens' AssociationStatus Prelude.Text
+associationStatus_message :: Lens.Lens' AssociationStatus Core.Text
 associationStatus_message = Lens.lens (\AssociationStatus' {message} -> message) (\s@AssociationStatus' {} a -> s {message = a} :: AssociationStatus)
 
-instance Prelude.FromJSON AssociationStatus where
+instance Core.FromJSON AssociationStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssociationStatus"
       ( \x ->
           AssociationStatus'
-            Prelude.<$> (x Prelude..:? "AdditionalInfo")
-            Prelude.<*> (x Prelude..: "Date")
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Message")
+            Core.<$> (x Core..:? "AdditionalInfo")
+            Core.<*> (x Core..: "Date")
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "Message")
       )
 
-instance Prelude.Hashable AssociationStatus
+instance Core.Hashable AssociationStatus
 
-instance Prelude.NFData AssociationStatus
+instance Core.NFData AssociationStatus
 
-instance Prelude.ToJSON AssociationStatus where
+instance Core.ToJSON AssociationStatus where
   toJSON AssociationStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AdditionalInfo" Prelude..=)
-              Prelude.<$> additionalInfo,
-            Prelude.Just ("Date" Prelude..= date),
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Message" Prelude..= message)
+    Core.object
+      ( Core.catMaybes
+          [ ("AdditionalInfo" Core..=) Core.<$> additionalInfo,
+            Core.Just ("Date" Core..= date),
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Message" Core..= message)
           ]
       )

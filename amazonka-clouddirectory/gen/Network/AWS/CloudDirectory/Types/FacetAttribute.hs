@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CloudDirectory.Types.FacetAttribute where
 import Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
 import Network.AWS.CloudDirectory.Types.FacetAttributeReference
 import Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An attribute that is associated with the Facet.
 --
@@ -33,18 +32,18 @@ data FacetAttribute = FacetAttribute'
   { -- | An attribute reference that is associated with the attribute. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
     -- for more information.
-    attributeReference :: Prelude.Maybe FacetAttributeReference,
+    attributeReference :: Core.Maybe FacetAttributeReference,
     -- | The required behavior of the @FacetAttribute@.
-    requiredBehavior :: Prelude.Maybe RequiredAttributeBehavior,
+    requiredBehavior :: Core.Maybe RequiredAttributeBehavior,
     -- | A facet attribute consists of either a definition or a reference. This
     -- structure contains the attribute definition. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
     -- for more information.
-    attributeDefinition :: Prelude.Maybe FacetAttributeDefinition,
+    attributeDefinition :: Core.Maybe FacetAttributeDefinition,
     -- | The name of the facet attribute.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FacetAttribute' with all optional fields omitted.
@@ -68,64 +67,63 @@ data FacetAttribute = FacetAttribute'
 -- 'name', 'facetAttribute_name' - The name of the facet attribute.
 newFacetAttribute ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   FacetAttribute
 newFacetAttribute pName_ =
   FacetAttribute'
-    { attributeReference =
-        Prelude.Nothing,
-      requiredBehavior = Prelude.Nothing,
-      attributeDefinition = Prelude.Nothing,
+    { attributeReference = Core.Nothing,
+      requiredBehavior = Core.Nothing,
+      attributeDefinition = Core.Nothing,
       name = pName_
     }
 
 -- | An attribute reference that is associated with the attribute. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
 -- for more information.
-facetAttribute_attributeReference :: Lens.Lens' FacetAttribute (Prelude.Maybe FacetAttributeReference)
+facetAttribute_attributeReference :: Lens.Lens' FacetAttribute (Core.Maybe FacetAttributeReference)
 facetAttribute_attributeReference = Lens.lens (\FacetAttribute' {attributeReference} -> attributeReference) (\s@FacetAttribute' {} a -> s {attributeReference = a} :: FacetAttribute)
 
 -- | The required behavior of the @FacetAttribute@.
-facetAttribute_requiredBehavior :: Lens.Lens' FacetAttribute (Prelude.Maybe RequiredAttributeBehavior)
+facetAttribute_requiredBehavior :: Lens.Lens' FacetAttribute (Core.Maybe RequiredAttributeBehavior)
 facetAttribute_requiredBehavior = Lens.lens (\FacetAttribute' {requiredBehavior} -> requiredBehavior) (\s@FacetAttribute' {} a -> s {requiredBehavior = a} :: FacetAttribute)
 
 -- | A facet attribute consists of either a definition or a reference. This
 -- structure contains the attribute definition. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References>
 -- for more information.
-facetAttribute_attributeDefinition :: Lens.Lens' FacetAttribute (Prelude.Maybe FacetAttributeDefinition)
+facetAttribute_attributeDefinition :: Lens.Lens' FacetAttribute (Core.Maybe FacetAttributeDefinition)
 facetAttribute_attributeDefinition = Lens.lens (\FacetAttribute' {attributeDefinition} -> attributeDefinition) (\s@FacetAttribute' {} a -> s {attributeDefinition = a} :: FacetAttribute)
 
 -- | The name of the facet attribute.
-facetAttribute_name :: Lens.Lens' FacetAttribute Prelude.Text
+facetAttribute_name :: Lens.Lens' FacetAttribute Core.Text
 facetAttribute_name = Lens.lens (\FacetAttribute' {name} -> name) (\s@FacetAttribute' {} a -> s {name = a} :: FacetAttribute)
 
-instance Prelude.FromJSON FacetAttribute where
+instance Core.FromJSON FacetAttribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FacetAttribute"
       ( \x ->
           FacetAttribute'
-            Prelude.<$> (x Prelude..:? "AttributeReference")
-            Prelude.<*> (x Prelude..:? "RequiredBehavior")
-            Prelude.<*> (x Prelude..:? "AttributeDefinition")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "AttributeReference")
+            Core.<*> (x Core..:? "RequiredBehavior")
+            Core.<*> (x Core..:? "AttributeDefinition")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable FacetAttribute
+instance Core.Hashable FacetAttribute
 
-instance Prelude.NFData FacetAttribute
+instance Core.NFData FacetAttribute
 
-instance Prelude.ToJSON FacetAttribute where
+instance Core.ToJSON FacetAttribute where
   toJSON FacetAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AttributeReference" Prelude..=)
-              Prelude.<$> attributeReference,
-            ("RequiredBehavior" Prelude..=)
-              Prelude.<$> requiredBehavior,
-            ("AttributeDefinition" Prelude..=)
-              Prelude.<$> attributeDefinition,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeReference" Core..=)
+              Core.<$> attributeReference,
+            ("RequiredBehavior" Core..=)
+              Core.<$> requiredBehavior,
+            ("AttributeDefinition" Core..=)
+              Core.<$> attributeDefinition,
+            Core.Just ("Name" Core..= name)
           ]
       )

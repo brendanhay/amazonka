@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.DataLakePrincipal where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS Lake Formation principal.
 --
 -- /See:/ 'newDataLakePrincipal' smart constructor.
 data DataLakePrincipal = DataLakePrincipal'
   { -- | An identifier for the AWS Lake Formation principal.
-    dataLakePrincipalIdentifier :: Prelude.Maybe Prelude.Text
+    dataLakePrincipalIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataLakePrincipal' with all optional fields omitted.
@@ -46,31 +45,31 @@ newDataLakePrincipal ::
 newDataLakePrincipal =
   DataLakePrincipal'
     { dataLakePrincipalIdentifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | An identifier for the AWS Lake Formation principal.
-dataLakePrincipal_dataLakePrincipalIdentifier :: Lens.Lens' DataLakePrincipal (Prelude.Maybe Prelude.Text)
+dataLakePrincipal_dataLakePrincipalIdentifier :: Lens.Lens' DataLakePrincipal (Core.Maybe Core.Text)
 dataLakePrincipal_dataLakePrincipalIdentifier = Lens.lens (\DataLakePrincipal' {dataLakePrincipalIdentifier} -> dataLakePrincipalIdentifier) (\s@DataLakePrincipal' {} a -> s {dataLakePrincipalIdentifier = a} :: DataLakePrincipal)
 
-instance Prelude.FromJSON DataLakePrincipal where
+instance Core.FromJSON DataLakePrincipal where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DataLakePrincipal"
       ( \x ->
           DataLakePrincipal'
-            Prelude.<$> (x Prelude..:? "DataLakePrincipalIdentifier")
+            Core.<$> (x Core..:? "DataLakePrincipalIdentifier")
       )
 
-instance Prelude.Hashable DataLakePrincipal
+instance Core.Hashable DataLakePrincipal
 
-instance Prelude.NFData DataLakePrincipal
+instance Core.NFData DataLakePrincipal
 
-instance Prelude.ToJSON DataLakePrincipal where
+instance Core.ToJSON DataLakePrincipal where
   toJSON DataLakePrincipal' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DataLakePrincipalIdentifier" Prelude..=)
-              Prelude.<$> dataLakePrincipalIdentifier
+    Core.object
+      ( Core.catMaybes
+          [ ("DataLakePrincipalIdentifier" Core..=)
+              Core.<$> dataLakePrincipalIdentifier
           ]
       )

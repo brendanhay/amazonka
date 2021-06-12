@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ThingAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The properties of the thing, including thing name, thing type name, and
 -- a list of thing attributes.
@@ -29,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newThingAttribute' smart constructor.
 data ThingAttribute = ThingAttribute'
   { -- | The thing ARN.
-    thingArn :: Prelude.Maybe Prelude.Text,
+    thingArn :: Core.Maybe Core.Text,
     -- | The name of the thing.
-    thingName :: Prelude.Maybe Prelude.Text,
+    thingName :: Core.Maybe Core.Text,
     -- | The version of the thing record in the registry.
-    version :: Prelude.Maybe Prelude.Integer,
+    version :: Core.Maybe Core.Integer,
     -- | A list of thing attributes which are name-value pairs.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the thing type, if the thing has been associated with a
     -- type.
-    thingTypeName :: Prelude.Maybe Prelude.Text
+    thingTypeName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ThingAttribute' with all optional fields omitted.
@@ -64,49 +63,47 @@ newThingAttribute ::
   ThingAttribute
 newThingAttribute =
   ThingAttribute'
-    { thingArn = Prelude.Nothing,
-      thingName = Prelude.Nothing,
-      version = Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      thingTypeName = Prelude.Nothing
+    { thingArn = Core.Nothing,
+      thingName = Core.Nothing,
+      version = Core.Nothing,
+      attributes = Core.Nothing,
+      thingTypeName = Core.Nothing
     }
 
 -- | The thing ARN.
-thingAttribute_thingArn :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
+thingAttribute_thingArn :: Lens.Lens' ThingAttribute (Core.Maybe Core.Text)
 thingAttribute_thingArn = Lens.lens (\ThingAttribute' {thingArn} -> thingArn) (\s@ThingAttribute' {} a -> s {thingArn = a} :: ThingAttribute)
 
 -- | The name of the thing.
-thingAttribute_thingName :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
+thingAttribute_thingName :: Lens.Lens' ThingAttribute (Core.Maybe Core.Text)
 thingAttribute_thingName = Lens.lens (\ThingAttribute' {thingName} -> thingName) (\s@ThingAttribute' {} a -> s {thingName = a} :: ThingAttribute)
 
 -- | The version of the thing record in the registry.
-thingAttribute_version :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Integer)
+thingAttribute_version :: Lens.Lens' ThingAttribute (Core.Maybe Core.Integer)
 thingAttribute_version = Lens.lens (\ThingAttribute' {version} -> version) (\s@ThingAttribute' {} a -> s {version = a} :: ThingAttribute)
 
 -- | A list of thing attributes which are name-value pairs.
-thingAttribute_attributes :: Lens.Lens' ThingAttribute (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-thingAttribute_attributes = Lens.lens (\ThingAttribute' {attributes} -> attributes) (\s@ThingAttribute' {} a -> s {attributes = a} :: ThingAttribute) Prelude.. Lens.mapping Prelude._Coerce
+thingAttribute_attributes :: Lens.Lens' ThingAttribute (Core.Maybe (Core.HashMap Core.Text Core.Text))
+thingAttribute_attributes = Lens.lens (\ThingAttribute' {attributes} -> attributes) (\s@ThingAttribute' {} a -> s {attributes = a} :: ThingAttribute) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the thing type, if the thing has been associated with a
 -- type.
-thingAttribute_thingTypeName :: Lens.Lens' ThingAttribute (Prelude.Maybe Prelude.Text)
+thingAttribute_thingTypeName :: Lens.Lens' ThingAttribute (Core.Maybe Core.Text)
 thingAttribute_thingTypeName = Lens.lens (\ThingAttribute' {thingTypeName} -> thingTypeName) (\s@ThingAttribute' {} a -> s {thingTypeName = a} :: ThingAttribute)
 
-instance Prelude.FromJSON ThingAttribute where
+instance Core.FromJSON ThingAttribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ThingAttribute"
       ( \x ->
           ThingAttribute'
-            Prelude.<$> (x Prelude..:? "thingArn")
-            Prelude.<*> (x Prelude..:? "thingName")
-            Prelude.<*> (x Prelude..:? "version")
-            Prelude.<*> ( x Prelude..:? "attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "thingTypeName")
+            Core.<$> (x Core..:? "thingArn")
+            Core.<*> (x Core..:? "thingName")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "thingTypeName")
       )
 
-instance Prelude.Hashable ThingAttribute
+instance Core.Hashable ThingAttribute
 
-instance Prelude.NFData ThingAttribute
+instance Core.NFData ThingAttribute

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.Logging where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.LogSetup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the logging configuration for resources in your
 -- cluster.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLogging' smart constructor.
 data Logging = Logging'
   { -- | The cluster control plane logging configuration for your cluster.
-    clusterLogging :: Prelude.Maybe [LogSetup]
+    clusterLogging :: Core.Maybe [LogSetup]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Logging' with all optional fields omitted.
@@ -45,33 +44,28 @@ data Logging = Logging'
 -- 'clusterLogging', 'logging_clusterLogging' - The cluster control plane logging configuration for your cluster.
 newLogging ::
   Logging
-newLogging =
-  Logging' {clusterLogging = Prelude.Nothing}
+newLogging = Logging' {clusterLogging = Core.Nothing}
 
 -- | The cluster control plane logging configuration for your cluster.
-logging_clusterLogging :: Lens.Lens' Logging (Prelude.Maybe [LogSetup])
-logging_clusterLogging = Lens.lens (\Logging' {clusterLogging} -> clusterLogging) (\s@Logging' {} a -> s {clusterLogging = a} :: Logging) Prelude.. Lens.mapping Prelude._Coerce
+logging_clusterLogging :: Lens.Lens' Logging (Core.Maybe [LogSetup])
+logging_clusterLogging = Lens.lens (\Logging' {clusterLogging} -> clusterLogging) (\s@Logging' {} a -> s {clusterLogging = a} :: Logging) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Logging where
+instance Core.FromJSON Logging where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Logging"
       ( \x ->
           Logging'
-            Prelude.<$> ( x Prelude..:? "clusterLogging"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "clusterLogging" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Logging
+instance Core.Hashable Logging
 
-instance Prelude.NFData Logging
+instance Core.NFData Logging
 
-instance Prelude.ToJSON Logging where
+instance Core.ToJSON Logging where
   toJSON Logging' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("clusterLogging" Prelude..=)
-              Prelude.<$> clusterLogging
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("clusterLogging" Core..=) Core.<$> clusterLogging]
       )

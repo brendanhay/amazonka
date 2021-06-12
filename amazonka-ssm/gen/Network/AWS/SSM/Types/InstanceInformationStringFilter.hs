@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.InstanceInformationStringFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The filters to describe or get information about your managed instances.
 --
@@ -36,11 +35,11 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
     -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
     -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
     -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The filter values.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceInformationStringFilter' with all optional fields omitted.
@@ -63,14 +62,14 @@ data InstanceInformationStringFilter = InstanceInformationStringFilter'
 -- 'values', 'instanceInformationStringFilter_values' - The filter values.
 newInstanceInformationStringFilter ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   InstanceInformationStringFilter
 newInstanceInformationStringFilter pKey_ pValues_ =
   InstanceInformationStringFilter'
     { key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | The filter key name to describe your instances. For example:
@@ -82,29 +81,24 @@ newInstanceInformationStringFilter pKey_ pValues_ =
 -- @tag:keyname@ and a string. Here are some valid examples: tag-key,
 -- tag:123, tag:al!, tag:Windows. Here are some /invalid/ examples:
 -- tag-keys, Tag Key, tag:, tagKey, abc:keyname.
-instanceInformationStringFilter_key :: Lens.Lens' InstanceInformationStringFilter Prelude.Text
+instanceInformationStringFilter_key :: Lens.Lens' InstanceInformationStringFilter Core.Text
 instanceInformationStringFilter_key = Lens.lens (\InstanceInformationStringFilter' {key} -> key) (\s@InstanceInformationStringFilter' {} a -> s {key = a} :: InstanceInformationStringFilter)
 
 -- | The filter values.
-instanceInformationStringFilter_values :: Lens.Lens' InstanceInformationStringFilter (Prelude.NonEmpty Prelude.Text)
-instanceInformationStringFilter_values = Lens.lens (\InstanceInformationStringFilter' {values} -> values) (\s@InstanceInformationStringFilter' {} a -> s {values = a} :: InstanceInformationStringFilter) Prelude.. Prelude._Coerce
+instanceInformationStringFilter_values :: Lens.Lens' InstanceInformationStringFilter (Core.NonEmpty Core.Text)
+instanceInformationStringFilter_values = Lens.lens (\InstanceInformationStringFilter' {values} -> values) (\s@InstanceInformationStringFilter' {} a -> s {values = a} :: InstanceInformationStringFilter) Core.. Lens._Coerce
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InstanceInformationStringFilter
 
-instance
-  Prelude.NFData
-    InstanceInformationStringFilter
+instance Core.NFData InstanceInformationStringFilter
 
-instance
-  Prelude.ToJSON
-    InstanceInformationStringFilter
-  where
+instance Core.ToJSON InstanceInformationStringFilter where
   toJSON InstanceInformationStringFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -109,9 +108,9 @@ module Network.AWS.GameLift.CreateGameServerGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -123,7 +122,7 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- game servers that can immediately accommodate new games and players.
     -- After the Auto Scaling group is created, update this value directly in
     -- the Auto Scaling group using the AWS console or APIs.
-    autoScalingPolicy :: Prelude.Maybe GameServerGroupAutoScalingPolicy,
+    autoScalingPolicy :: Core.Maybe GameServerGroupAutoScalingPolicy,
     -- | A list of labels to assign to the new game server group resource. Tags
     -- are developer-defined key-value pairs. Tagging AWS resources is useful
     -- for resource management, access management, and cost allocation. For
@@ -133,7 +132,7 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
     -- and view tags, respectively. The maximum tag limit may be lower than
     -- stated. See the AWS General Reference for actual tagging limits.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
     -- On-Demand Instances in the game server group. Method options include the
     -- following:
@@ -155,7 +154,7 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game
     --     server group. No Spot Instances are used, even when available, while
     --     this balancing strategy is in force.
-    balancingStrategy :: Prelude.Maybe BalancingStrategy,
+    balancingStrategy :: Core.Maybe BalancingStrategy,
     -- | A flag that indicates whether instances in the game server group are
     -- protected from early termination. Unprotected instances that have active
     -- game servers running might be terminated during a scale-down event,
@@ -165,7 +164,7 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- this is with Spot Instances, which can be terminated by AWS regardless
     -- of protection status. This property is set to @NO_PROTECTION@ by
     -- default.
-    gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
+    gameServerProtectionPolicy :: Core.Maybe GameServerProtectionPolicy,
     -- | A list of virtual private cloud (VPC) subnets to use with instances in
     -- the game server group. By default, all GameLift FleetIQ-supported
     -- Availability Zones are used. You can use this parameter to specify VPCs
@@ -173,29 +172,29 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- server group is created, and the corresponding Auto Scaling group will
     -- always use the property value that is set with this request, even if the
     -- Auto Scaling group is updated directly.
-    vpcSubnets :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    vpcSubnets :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | An identifier for the new game server group. This value is used to
     -- generate unique ARN identifiers for the EC2 Auto Scaling group and the
     -- GameLift FleetIQ game server group. The name must be unique per Region
     -- per AWS account.
-    gameServerGroupName :: Prelude.Text,
+    gameServerGroupName :: Core.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
     -- Scaling groups.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The minimum number of instances allowed in the EC2 Auto Scaling group.
     -- During automatic scaling events, GameLift FleetIQ and EC2 do not scale
     -- down the group below this minimum. In production, this value should be
     -- set to at least 1. After the Auto Scaling group is created, update this
     -- value directly in the Auto Scaling group using the AWS console or APIs.
-    minSize :: Prelude.Natural,
+    minSize :: Core.Natural,
     -- | The maximum number of instances allowed in the EC2 Auto Scaling group.
     -- During automatic scaling events, GameLift FleetIQ and EC2 do not scale
     -- up the group above this maximum. After the Auto Scaling group is
     -- created, update this value directly in the Auto Scaling group using the
     -- AWS console or APIs.
-    maxSize :: Prelude.Natural,
+    maxSize :: Core.Natural,
     -- | The EC2 launch template that contains configuration settings and game
     -- server code to be deployed to all instances in the game server group.
     -- You can specify the template using either the template name or ID. For
@@ -216,9 +215,9 @@ data CreateGameServerGroup = CreateGameServerGroup'
     -- information about capacity weighting, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
     -- in the Amazon EC2 Auto Scaling User Guide.
-    instanceDefinitions :: Prelude.NonEmpty InstanceDefinition
+    instanceDefinitions :: Core.NonEmpty InstanceDefinition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGameServerGroup' with all optional fields omitted.
@@ -329,17 +328,17 @@ data CreateGameServerGroup = CreateGameServerGroup'
 -- in the Amazon EC2 Auto Scaling User Guide.
 newCreateGameServerGroup ::
   -- | 'gameServerGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'minSize'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'maxSize'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'launchTemplate'
   LaunchTemplateSpecification ->
   -- | 'instanceDefinitions'
-  Prelude.NonEmpty InstanceDefinition ->
+  Core.NonEmpty InstanceDefinition ->
   CreateGameServerGroup
 newCreateGameServerGroup
   pGameServerGroupName_
@@ -350,18 +349,18 @@ newCreateGameServerGroup
   pInstanceDefinitions_ =
     CreateGameServerGroup'
       { autoScalingPolicy =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
-        balancingStrategy = Prelude.Nothing,
-        gameServerProtectionPolicy = Prelude.Nothing,
-        vpcSubnets = Prelude.Nothing,
+          Core.Nothing,
+        tags = Core.Nothing,
+        balancingStrategy = Core.Nothing,
+        gameServerProtectionPolicy = Core.Nothing,
+        vpcSubnets = Core.Nothing,
         gameServerGroupName = pGameServerGroupName_,
         roleArn = pRoleArn_,
         minSize = pMinSize_,
         maxSize = pMaxSize_,
         launchTemplate = pLaunchTemplate_,
         instanceDefinitions =
-          Prelude._Coerce Lens.# pInstanceDefinitions_
+          Lens._Coerce Lens.# pInstanceDefinitions_
       }
 
 -- | Configuration settings to define a scaling policy for the Auto Scaling
@@ -370,7 +369,7 @@ newCreateGameServerGroup
 -- game servers that can immediately accommodate new games and players.
 -- After the Auto Scaling group is created, update this value directly in
 -- the Auto Scaling group using the AWS console or APIs.
-createGameServerGroup_autoScalingPolicy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe GameServerGroupAutoScalingPolicy)
+createGameServerGroup_autoScalingPolicy :: Lens.Lens' CreateGameServerGroup (Core.Maybe GameServerGroupAutoScalingPolicy)
 createGameServerGroup_autoScalingPolicy = Lens.lens (\CreateGameServerGroup' {autoScalingPolicy} -> autoScalingPolicy) (\s@CreateGameServerGroup' {} a -> s {autoScalingPolicy = a} :: CreateGameServerGroup)
 
 -- | A list of labels to assign to the new game server group resource. Tags
@@ -382,8 +381,8 @@ createGameServerGroup_autoScalingPolicy = Lens.lens (\CreateGameServerGroup' {au
 -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
 -- and view tags, respectively. The maximum tag limit may be lower than
 -- stated. See the AWS General Reference for actual tagging limits.
-createGameServerGroup_tags :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe [Tag])
-createGameServerGroup_tags = Lens.lens (\CreateGameServerGroup' {tags} -> tags) (\s@CreateGameServerGroup' {} a -> s {tags = a} :: CreateGameServerGroup) Prelude.. Lens.mapping Prelude._Coerce
+createGameServerGroup_tags :: Lens.Lens' CreateGameServerGroup (Core.Maybe [Tag])
+createGameServerGroup_tags = Lens.lens (\CreateGameServerGroup' {tags} -> tags) (\s@CreateGameServerGroup' {} a -> s {tags = a} :: CreateGameServerGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -406,7 +405,7 @@ createGameServerGroup_tags = Lens.lens (\CreateGameServerGroup' {tags} -> tags) 
 -- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game
 --     server group. No Spot Instances are used, even when available, while
 --     this balancing strategy is in force.
-createGameServerGroup_balancingStrategy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe BalancingStrategy)
+createGameServerGroup_balancingStrategy :: Lens.Lens' CreateGameServerGroup (Core.Maybe BalancingStrategy)
 createGameServerGroup_balancingStrategy = Lens.lens (\CreateGameServerGroup' {balancingStrategy} -> balancingStrategy) (\s@CreateGameServerGroup' {} a -> s {balancingStrategy = a} :: CreateGameServerGroup)
 
 -- | A flag that indicates whether instances in the game server group are
@@ -418,7 +417,7 @@ createGameServerGroup_balancingStrategy = Lens.lens (\CreateGameServerGroup' {ba
 -- this is with Spot Instances, which can be terminated by AWS regardless
 -- of protection status. This property is set to @NO_PROTECTION@ by
 -- default.
-createGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
+createGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' CreateGameServerGroup (Core.Maybe GameServerProtectionPolicy)
 createGameServerGroup_gameServerProtectionPolicy = Lens.lens (\CreateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@CreateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: CreateGameServerGroup)
 
 -- | A list of virtual private cloud (VPC) subnets to use with instances in
@@ -428,21 +427,21 @@ createGameServerGroup_gameServerProtectionPolicy = Lens.lens (\CreateGameServerG
 -- server group is created, and the corresponding Auto Scaling group will
 -- always use the property value that is set with this request, even if the
 -- Auto Scaling group is updated directly.
-createGameServerGroup_vpcSubnets :: Lens.Lens' CreateGameServerGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-createGameServerGroup_vpcSubnets = Lens.lens (\CreateGameServerGroup' {vpcSubnets} -> vpcSubnets) (\s@CreateGameServerGroup' {} a -> s {vpcSubnets = a} :: CreateGameServerGroup) Prelude.. Lens.mapping Prelude._Coerce
+createGameServerGroup_vpcSubnets :: Lens.Lens' CreateGameServerGroup (Core.Maybe (Core.NonEmpty Core.Text))
+createGameServerGroup_vpcSubnets = Lens.lens (\CreateGameServerGroup' {vpcSubnets} -> vpcSubnets) (\s@CreateGameServerGroup' {} a -> s {vpcSubnets = a} :: CreateGameServerGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | An identifier for the new game server group. This value is used to
 -- generate unique ARN identifiers for the EC2 Auto Scaling group and the
 -- GameLift FleetIQ game server group. The name must be unique per Region
 -- per AWS account.
-createGameServerGroup_gameServerGroupName :: Lens.Lens' CreateGameServerGroup Prelude.Text
+createGameServerGroup_gameServerGroupName :: Lens.Lens' CreateGameServerGroup Core.Text
 createGameServerGroup_gameServerGroupName = Lens.lens (\CreateGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@CreateGameServerGroup' {} a -> s {gameServerGroupName = a} :: CreateGameServerGroup)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
 -- Scaling groups.
-createGameServerGroup_roleArn :: Lens.Lens' CreateGameServerGroup Prelude.Text
+createGameServerGroup_roleArn :: Lens.Lens' CreateGameServerGroup Core.Text
 createGameServerGroup_roleArn = Lens.lens (\CreateGameServerGroup' {roleArn} -> roleArn) (\s@CreateGameServerGroup' {} a -> s {roleArn = a} :: CreateGameServerGroup)
 
 -- | The minimum number of instances allowed in the EC2 Auto Scaling group.
@@ -450,7 +449,7 @@ createGameServerGroup_roleArn = Lens.lens (\CreateGameServerGroup' {roleArn} -> 
 -- down the group below this minimum. In production, this value should be
 -- set to at least 1. After the Auto Scaling group is created, update this
 -- value directly in the Auto Scaling group using the AWS console or APIs.
-createGameServerGroup_minSize :: Lens.Lens' CreateGameServerGroup Prelude.Natural
+createGameServerGroup_minSize :: Lens.Lens' CreateGameServerGroup Core.Natural
 createGameServerGroup_minSize = Lens.lens (\CreateGameServerGroup' {minSize} -> minSize) (\s@CreateGameServerGroup' {} a -> s {minSize = a} :: CreateGameServerGroup)
 
 -- | The maximum number of instances allowed in the EC2 Auto Scaling group.
@@ -458,7 +457,7 @@ createGameServerGroup_minSize = Lens.lens (\CreateGameServerGroup' {minSize} -> 
 -- up the group above this maximum. After the Auto Scaling group is
 -- created, update this value directly in the Auto Scaling group using the
 -- AWS console or APIs.
-createGameServerGroup_maxSize :: Lens.Lens' CreateGameServerGroup Prelude.Natural
+createGameServerGroup_maxSize :: Lens.Lens' CreateGameServerGroup Core.Natural
 createGameServerGroup_maxSize = Lens.lens (\CreateGameServerGroup' {maxSize} -> maxSize) (\s@CreateGameServerGroup' {} a -> s {maxSize = a} :: CreateGameServerGroup)
 
 -- | The EC2 launch template that contains configuration settings and game
@@ -483,74 +482,67 @@ createGameServerGroup_launchTemplate = Lens.lens (\CreateGameServerGroup' {launc
 -- information about capacity weighting, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting for Amazon EC2 Auto Scaling>
 -- in the Amazon EC2 Auto Scaling User Guide.
-createGameServerGroup_instanceDefinitions :: Lens.Lens' CreateGameServerGroup (Prelude.NonEmpty InstanceDefinition)
-createGameServerGroup_instanceDefinitions = Lens.lens (\CreateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@CreateGameServerGroup' {} a -> s {instanceDefinitions = a} :: CreateGameServerGroup) Prelude.. Prelude._Coerce
+createGameServerGroup_instanceDefinitions :: Lens.Lens' CreateGameServerGroup (Core.NonEmpty InstanceDefinition)
+createGameServerGroup_instanceDefinitions = Lens.lens (\CreateGameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@CreateGameServerGroup' {} a -> s {instanceDefinitions = a} :: CreateGameServerGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateGameServerGroup where
+instance Core.AWSRequest CreateGameServerGroup where
   type
-    Rs CreateGameServerGroup =
+    AWSResponse CreateGameServerGroup =
       CreateGameServerGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateGameServerGroupResponse'
-            Prelude.<$> (x Prelude..?> "GameServerGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GameServerGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGameServerGroup
+instance Core.Hashable CreateGameServerGroup
 
-instance Prelude.NFData CreateGameServerGroup
+instance Core.NFData CreateGameServerGroup
 
-instance Prelude.ToHeaders CreateGameServerGroup where
+instance Core.ToHeaders CreateGameServerGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.CreateGameServerGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.CreateGameServerGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateGameServerGroup where
+instance Core.ToJSON CreateGameServerGroup where
   toJSON CreateGameServerGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AutoScalingPolicy" Prelude..=)
-              Prelude.<$> autoScalingPolicy,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("BalancingStrategy" Prelude..=)
-              Prelude.<$> balancingStrategy,
-            ("GameServerProtectionPolicy" Prelude..=)
-              Prelude.<$> gameServerProtectionPolicy,
-            ("VpcSubnets" Prelude..=) Prelude.<$> vpcSubnets,
-            Prelude.Just
-              ( "GameServerGroupName"
-                  Prelude..= gameServerGroupName
-              ),
-            Prelude.Just ("RoleArn" Prelude..= roleArn),
-            Prelude.Just ("MinSize" Prelude..= minSize),
-            Prelude.Just ("MaxSize" Prelude..= maxSize),
-            Prelude.Just
-              ("LaunchTemplate" Prelude..= launchTemplate),
-            Prelude.Just
-              ( "InstanceDefinitions"
-                  Prelude..= instanceDefinitions
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("AutoScalingPolicy" Core..=)
+              Core.<$> autoScalingPolicy,
+            ("Tags" Core..=) Core.<$> tags,
+            ("BalancingStrategy" Core..=)
+              Core.<$> balancingStrategy,
+            ("GameServerProtectionPolicy" Core..=)
+              Core.<$> gameServerProtectionPolicy,
+            ("VpcSubnets" Core..=) Core.<$> vpcSubnets,
+            Core.Just
+              ("GameServerGroupName" Core..= gameServerGroupName),
+            Core.Just ("RoleArn" Core..= roleArn),
+            Core.Just ("MinSize" Core..= minSize),
+            Core.Just ("MaxSize" Core..= maxSize),
+            Core.Just ("LaunchTemplate" Core..= launchTemplate),
+            Core.Just
+              ("InstanceDefinitions" Core..= instanceDefinitions)
           ]
       )
 
-instance Prelude.ToPath CreateGameServerGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateGameServerGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateGameServerGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateGameServerGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateGameServerGroupResponse' smart constructor.
 data CreateGameServerGroupResponse = CreateGameServerGroupResponse'
@@ -559,11 +551,11 @@ data CreateGameServerGroupResponse = CreateGameServerGroupResponse'
     -- EC2 Auto Scaling group ARN is initially null, since the group has not
     -- yet been created. This value is added once the game server group status
     -- reaches @ACTIVE@.
-    gameServerGroup :: Prelude.Maybe GameServerGroup,
+    gameServerGroup :: Core.Maybe GameServerGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGameServerGroupResponse' with all optional fields omitted.
@@ -582,12 +574,12 @@ data CreateGameServerGroupResponse = CreateGameServerGroupResponse'
 -- 'httpStatus', 'createGameServerGroupResponse_httpStatus' - The response's http status code.
 newCreateGameServerGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateGameServerGroupResponse
 newCreateGameServerGroupResponse pHttpStatus_ =
   CreateGameServerGroupResponse'
     { gameServerGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -596,11 +588,11 @@ newCreateGameServerGroupResponse pHttpStatus_ =
 -- EC2 Auto Scaling group ARN is initially null, since the group has not
 -- yet been created. This value is added once the game server group status
 -- reaches @ACTIVE@.
-createGameServerGroupResponse_gameServerGroup :: Lens.Lens' CreateGameServerGroupResponse (Prelude.Maybe GameServerGroup)
+createGameServerGroupResponse_gameServerGroup :: Lens.Lens' CreateGameServerGroupResponse (Core.Maybe GameServerGroup)
 createGameServerGroupResponse_gameServerGroup = Lens.lens (\CreateGameServerGroupResponse' {gameServerGroup} -> gameServerGroup) (\s@CreateGameServerGroupResponse' {} a -> s {gameServerGroup = a} :: CreateGameServerGroupResponse)
 
 -- | The response's http status code.
-createGameServerGroupResponse_httpStatus :: Lens.Lens' CreateGameServerGroupResponse Prelude.Int
+createGameServerGroupResponse_httpStatus :: Lens.Lens' CreateGameServerGroupResponse Core.Int
 createGameServerGroupResponse_httpStatus = Lens.lens (\CreateGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGameServerGroupResponse' {} a -> s {httpStatus = a} :: CreateGameServerGroupResponse)
 
-instance Prelude.NFData CreateGameServerGroupResponse
+instance Core.NFData CreateGameServerGroupResponse

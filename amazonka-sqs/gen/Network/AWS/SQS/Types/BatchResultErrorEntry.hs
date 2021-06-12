@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SQS.Types.BatchResultErrorEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Gives a detailed description of the result of an action on each entry in
 -- the request.
@@ -29,16 +28,16 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchResultErrorEntry' smart constructor.
 data BatchResultErrorEntry = BatchResultErrorEntry'
   { -- | A message explaining why the action failed on this entry.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The @Id@ of an entry in a batch request.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | Specifies whether the error happened due to the caller of the batch API
     -- action.
-    senderFault :: Prelude.Bool,
+    senderFault :: Core.Bool,
     -- | An error code representing why the action failed on this entry.
-    code :: Prelude.Text
+    code :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchResultErrorEntry' with all optional fields omitted.
@@ -58,45 +57,45 @@ data BatchResultErrorEntry = BatchResultErrorEntry'
 -- 'code', 'batchResultErrorEntry_code' - An error code representing why the action failed on this entry.
 newBatchResultErrorEntry ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'senderFault'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'code'
-  Prelude.Text ->
+  Core.Text ->
   BatchResultErrorEntry
 newBatchResultErrorEntry pId_ pSenderFault_ pCode_ =
   BatchResultErrorEntry'
-    { message = Prelude.Nothing,
+    { message = Core.Nothing,
       id = pId_,
       senderFault = pSenderFault_,
       code = pCode_
     }
 
 -- | A message explaining why the action failed on this entry.
-batchResultErrorEntry_message :: Lens.Lens' BatchResultErrorEntry (Prelude.Maybe Prelude.Text)
+batchResultErrorEntry_message :: Lens.Lens' BatchResultErrorEntry (Core.Maybe Core.Text)
 batchResultErrorEntry_message = Lens.lens (\BatchResultErrorEntry' {message} -> message) (\s@BatchResultErrorEntry' {} a -> s {message = a} :: BatchResultErrorEntry)
 
 -- | The @Id@ of an entry in a batch request.
-batchResultErrorEntry_id :: Lens.Lens' BatchResultErrorEntry Prelude.Text
+batchResultErrorEntry_id :: Lens.Lens' BatchResultErrorEntry Core.Text
 batchResultErrorEntry_id = Lens.lens (\BatchResultErrorEntry' {id} -> id) (\s@BatchResultErrorEntry' {} a -> s {id = a} :: BatchResultErrorEntry)
 
 -- | Specifies whether the error happened due to the caller of the batch API
 -- action.
-batchResultErrorEntry_senderFault :: Lens.Lens' BatchResultErrorEntry Prelude.Bool
+batchResultErrorEntry_senderFault :: Lens.Lens' BatchResultErrorEntry Core.Bool
 batchResultErrorEntry_senderFault = Lens.lens (\BatchResultErrorEntry' {senderFault} -> senderFault) (\s@BatchResultErrorEntry' {} a -> s {senderFault = a} :: BatchResultErrorEntry)
 
 -- | An error code representing why the action failed on this entry.
-batchResultErrorEntry_code :: Lens.Lens' BatchResultErrorEntry Prelude.Text
+batchResultErrorEntry_code :: Lens.Lens' BatchResultErrorEntry Core.Text
 batchResultErrorEntry_code = Lens.lens (\BatchResultErrorEntry' {code} -> code) (\s@BatchResultErrorEntry' {} a -> s {code = a} :: BatchResultErrorEntry)
 
-instance Prelude.FromXML BatchResultErrorEntry where
+instance Core.FromXML BatchResultErrorEntry where
   parseXML x =
     BatchResultErrorEntry'
-      Prelude.<$> (x Prelude..@? "Message")
-      Prelude.<*> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "SenderFault")
-      Prelude.<*> (x Prelude..@ "Code")
+      Core.<$> (x Core..@? "Message")
+      Core.<*> (x Core..@ "Id")
+      Core.<*> (x Core..@ "SenderFault")
+      Core.<*> (x Core..@ "Code")
 
-instance Prelude.Hashable BatchResultErrorEntry
+instance Core.Hashable BatchResultErrorEntry
 
-instance Prelude.NFData BatchResultErrorEntry
+instance Core.NFData BatchResultErrorEntry

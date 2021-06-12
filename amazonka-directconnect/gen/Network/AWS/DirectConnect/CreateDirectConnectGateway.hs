@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.DirectConnect.CreateDirectConnectGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +59,11 @@ data CreateDirectConnectGateway = CreateDirectConnectGateway'
     -- be configured on the Amazon side of the connection. The ASN must be in
     -- the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
     -- The default is 64512.
-    amazonSideAsn :: Prelude.Maybe Prelude.Integer,
+    amazonSideAsn :: Core.Maybe Core.Integer,
     -- | The name of the Direct Connect gateway.
-    directConnectGatewayName :: Prelude.Text
+    directConnectGatewayName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDirectConnectGateway' with all optional fields omitted.
@@ -82,13 +81,13 @@ data CreateDirectConnectGateway = CreateDirectConnectGateway'
 -- 'directConnectGatewayName', 'createDirectConnectGateway_directConnectGatewayName' - The name of the Direct Connect gateway.
 newCreateDirectConnectGateway ::
   -- | 'directConnectGatewayName'
-  Prelude.Text ->
+  Core.Text ->
   CreateDirectConnectGateway
 newCreateDirectConnectGateway
   pDirectConnectGatewayName_ =
     CreateDirectConnectGateway'
       { amazonSideAsn =
-          Prelude.Nothing,
+          Core.Nothing,
         directConnectGatewayName =
           pDirectConnectGatewayName_
       }
@@ -97,75 +96,69 @@ newCreateDirectConnectGateway
 -- be configured on the Amazon side of the connection. The ASN must be in
 -- the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
 -- The default is 64512.
-createDirectConnectGateway_amazonSideAsn :: Lens.Lens' CreateDirectConnectGateway (Prelude.Maybe Prelude.Integer)
+createDirectConnectGateway_amazonSideAsn :: Lens.Lens' CreateDirectConnectGateway (Core.Maybe Core.Integer)
 createDirectConnectGateway_amazonSideAsn = Lens.lens (\CreateDirectConnectGateway' {amazonSideAsn} -> amazonSideAsn) (\s@CreateDirectConnectGateway' {} a -> s {amazonSideAsn = a} :: CreateDirectConnectGateway)
 
 -- | The name of the Direct Connect gateway.
-createDirectConnectGateway_directConnectGatewayName :: Lens.Lens' CreateDirectConnectGateway Prelude.Text
+createDirectConnectGateway_directConnectGatewayName :: Lens.Lens' CreateDirectConnectGateway Core.Text
 createDirectConnectGateway_directConnectGatewayName = Lens.lens (\CreateDirectConnectGateway' {directConnectGatewayName} -> directConnectGatewayName) (\s@CreateDirectConnectGateway' {} a -> s {directConnectGatewayName = a} :: CreateDirectConnectGateway)
 
-instance
-  Prelude.AWSRequest
-    CreateDirectConnectGateway
-  where
+instance Core.AWSRequest CreateDirectConnectGateway where
   type
-    Rs CreateDirectConnectGateway =
+    AWSResponse CreateDirectConnectGateway =
       CreateDirectConnectGatewayResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDirectConnectGatewayResponse'
-            Prelude.<$> (x Prelude..?> "directConnectGateway")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "directConnectGateway")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDirectConnectGateway
+instance Core.Hashable CreateDirectConnectGateway
 
-instance Prelude.NFData CreateDirectConnectGateway
+instance Core.NFData CreateDirectConnectGateway
 
-instance Prelude.ToHeaders CreateDirectConnectGateway where
+instance Core.ToHeaders CreateDirectConnectGateway where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.CreateDirectConnectGateway" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.CreateDirectConnectGateway" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDirectConnectGateway where
+instance Core.ToJSON CreateDirectConnectGateway where
   toJSON CreateDirectConnectGateway' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("amazonSideAsn" Prelude..=)
-              Prelude.<$> amazonSideAsn,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("amazonSideAsn" Core..=) Core.<$> amazonSideAsn,
+            Core.Just
               ( "directConnectGatewayName"
-                  Prelude..= directConnectGatewayName
+                  Core..= directConnectGatewayName
               )
           ]
       )
 
-instance Prelude.ToPath CreateDirectConnectGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDirectConnectGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDirectConnectGateway where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDirectConnectGateway where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateDirectConnectGatewayResponse' smart constructor.
 data CreateDirectConnectGatewayResponse = CreateDirectConnectGatewayResponse'
   { -- | The Direct Connect gateway.
-    directConnectGateway :: Prelude.Maybe DirectConnectGateway,
+    directConnectGateway :: Core.Maybe DirectConnectGateway,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDirectConnectGatewayResponse' with all optional fields omitted.
@@ -180,23 +173,23 @@ data CreateDirectConnectGatewayResponse = CreateDirectConnectGatewayResponse'
 -- 'httpStatus', 'createDirectConnectGatewayResponse_httpStatus' - The response's http status code.
 newCreateDirectConnectGatewayResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDirectConnectGatewayResponse
 newCreateDirectConnectGatewayResponse pHttpStatus_ =
   CreateDirectConnectGatewayResponse'
     { directConnectGateway =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Direct Connect gateway.
-createDirectConnectGatewayResponse_directConnectGateway :: Lens.Lens' CreateDirectConnectGatewayResponse (Prelude.Maybe DirectConnectGateway)
+createDirectConnectGatewayResponse_directConnectGateway :: Lens.Lens' CreateDirectConnectGatewayResponse (Core.Maybe DirectConnectGateway)
 createDirectConnectGatewayResponse_directConnectGateway = Lens.lens (\CreateDirectConnectGatewayResponse' {directConnectGateway} -> directConnectGateway) (\s@CreateDirectConnectGatewayResponse' {} a -> s {directConnectGateway = a} :: CreateDirectConnectGatewayResponse)
 
 -- | The response's http status code.
-createDirectConnectGatewayResponse_httpStatus :: Lens.Lens' CreateDirectConnectGatewayResponse Prelude.Int
+createDirectConnectGatewayResponse_httpStatus :: Lens.Lens' CreateDirectConnectGatewayResponse Core.Int
 createDirectConnectGatewayResponse_httpStatus = Lens.lens (\CreateDirectConnectGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateDirectConnectGatewayResponse' {} a -> s {httpStatus = a} :: CreateDirectConnectGatewayResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateDirectConnectGatewayResponse

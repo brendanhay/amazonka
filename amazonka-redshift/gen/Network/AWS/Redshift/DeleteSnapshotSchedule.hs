@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Redshift.DeleteSnapshotSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -45,9 +44,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteSnapshotSchedule' smart constructor.
 data DeleteSnapshotSchedule = DeleteSnapshotSchedule'
   { -- | A unique identifier of the snapshot schedule to delete.
-    scheduleIdentifier :: Prelude.Text
+    scheduleIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotSchedule' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteSnapshotSchedule = DeleteSnapshotSchedule'
 -- 'scheduleIdentifier', 'deleteSnapshotSchedule_scheduleIdentifier' - A unique identifier of the snapshot schedule to delete.
 newDeleteSnapshotSchedule ::
   -- | 'scheduleIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSnapshotSchedule
 newDeleteSnapshotSchedule pScheduleIdentifier_ =
   DeleteSnapshotSchedule'
@@ -69,43 +68,42 @@ newDeleteSnapshotSchedule pScheduleIdentifier_ =
     }
 
 -- | A unique identifier of the snapshot schedule to delete.
-deleteSnapshotSchedule_scheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Prelude.Text
+deleteSnapshotSchedule_scheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Core.Text
 deleteSnapshotSchedule_scheduleIdentifier = Lens.lens (\DeleteSnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@DeleteSnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: DeleteSnapshotSchedule)
 
-instance Prelude.AWSRequest DeleteSnapshotSchedule where
+instance Core.AWSRequest DeleteSnapshotSchedule where
   type
-    Rs DeleteSnapshotSchedule =
+    AWSResponse DeleteSnapshotSchedule =
       DeleteSnapshotScheduleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteSnapshotScheduleResponse'
 
-instance Prelude.Hashable DeleteSnapshotSchedule
+instance Core.Hashable DeleteSnapshotSchedule
 
-instance Prelude.NFData DeleteSnapshotSchedule
+instance Core.NFData DeleteSnapshotSchedule
 
-instance Prelude.ToHeaders DeleteSnapshotSchedule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteSnapshotSchedule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteSnapshotSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSnapshotSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSnapshotSchedule where
+instance Core.ToQuery DeleteSnapshotSchedule where
   toQuery DeleteSnapshotSchedule' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteSnapshotSchedule" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ScheduleIdentifier" Prelude.=: scheduleIdentifier
+          Core.=: ("DeleteSnapshotSchedule" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ScheduleIdentifier" Core.=: scheduleIdentifier
       ]
 
 -- | /See:/ 'newDeleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotScheduleResponse' with all optional fields omitted.
@@ -116,6 +114,4 @@ newDeleteSnapshotScheduleResponse ::
 newDeleteSnapshotScheduleResponse =
   DeleteSnapshotScheduleResponse'
 
-instance
-  Prelude.NFData
-    DeleteSnapshotScheduleResponse
+instance Core.NFData DeleteSnapshotScheduleResponse

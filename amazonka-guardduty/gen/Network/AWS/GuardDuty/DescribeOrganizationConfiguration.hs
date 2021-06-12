@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.GuardDuty.DescribeOrganizationConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DescribeOrganizationConfiguration = DescribeOrganizationConfiguration'
   { -- | The ID of the detector to retrieve information about the delegated
     -- administrator from.
-    detectorId :: Prelude.Text
+    detectorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationConfiguration' with all optional fields omitted.
@@ -69,7 +68,7 @@ data DescribeOrganizationConfiguration = DescribeOrganizationConfiguration'
 -- administrator from.
 newDescribeOrganizationConfiguration ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeOrganizationConfiguration
 newDescribeOrganizationConfiguration pDetectorId_ =
   DescribeOrganizationConfiguration'
@@ -79,79 +78,77 @@ newDescribeOrganizationConfiguration pDetectorId_ =
 
 -- | The ID of the detector to retrieve information about the delegated
 -- administrator from.
-describeOrganizationConfiguration_detectorId :: Lens.Lens' DescribeOrganizationConfiguration Prelude.Text
+describeOrganizationConfiguration_detectorId :: Lens.Lens' DescribeOrganizationConfiguration Core.Text
 describeOrganizationConfiguration_detectorId = Lens.lens (\DescribeOrganizationConfiguration' {detectorId} -> detectorId) (\s@DescribeOrganizationConfiguration' {} a -> s {detectorId = a} :: DescribeOrganizationConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeOrganizationConfiguration
   where
   type
-    Rs DescribeOrganizationConfiguration =
+    AWSResponse DescribeOrganizationConfiguration =
       DescribeOrganizationConfigurationResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "dataSources")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Prelude..:> "autoEnable")
-              Prelude.<*> (x Prelude..:> "memberAccountLimitReached")
+            Core.<$> (x Core..?> "dataSources")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "autoEnable")
+            Core.<*> (x Core..:> "memberAccountLimitReached")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeOrganizationConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeOrganizationConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeOrganizationConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeOrganizationConfiguration
   where
   toPath DescribeOrganizationConfiguration' {..} =
-    Prelude.mconcat
-      ["/detector/", Prelude.toBS detectorId, "/admin"]
+    Core.mconcat
+      ["/detector/", Core.toBS detectorId, "/admin"]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeOrganizationConfiguration
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeOrganizationConfigurationResponse' smart constructor.
 data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurationResponse'
   { -- | Describes which data sources are enabled automatically for member
     -- accounts.
-    dataSources :: Prelude.Maybe OrganizationDataSourceConfigurationsResult,
+    dataSources :: Core.Maybe OrganizationDataSourceConfigurationsResult,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Indicates whether GuardDuty is automatically enabled for accounts added
     -- to the organization.
-    autoEnable :: Prelude.Bool,
+    autoEnable :: Core.Bool,
     -- | Indicates whether the maximum number of allowed member accounts are
     -- already associated with the delegated administrator account for your
     -- organization.
-    memberAccountLimitReached :: Prelude.Bool
+    memberAccountLimitReached :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationConfigurationResponse' with all optional fields omitted.
@@ -174,11 +171,11 @@ data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurati
 -- organization.
 newDescribeOrganizationConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'autoEnable'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'memberAccountLimitReached'
-  Prelude.Bool ->
+  Core.Bool ->
   DescribeOrganizationConfigurationResponse
 newDescribeOrganizationConfigurationResponse
   pHttpStatus_
@@ -186,7 +183,7 @@ newDescribeOrganizationConfigurationResponse
   pMemberAccountLimitReached_ =
     DescribeOrganizationConfigurationResponse'
       { dataSources =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
         autoEnable = pAutoEnable_,
         memberAccountLimitReached =
@@ -195,24 +192,24 @@ newDescribeOrganizationConfigurationResponse
 
 -- | Describes which data sources are enabled automatically for member
 -- accounts.
-describeOrganizationConfigurationResponse_dataSources :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe OrganizationDataSourceConfigurationsResult)
+describeOrganizationConfigurationResponse_dataSources :: Lens.Lens' DescribeOrganizationConfigurationResponse (Core.Maybe OrganizationDataSourceConfigurationsResult)
 describeOrganizationConfigurationResponse_dataSources = Lens.lens (\DescribeOrganizationConfigurationResponse' {dataSources} -> dataSources) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {dataSources = a} :: DescribeOrganizationConfigurationResponse)
 
 -- | The response's http status code.
-describeOrganizationConfigurationResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigurationResponse Prelude.Int
+describeOrganizationConfigurationResponse_httpStatus :: Lens.Lens' DescribeOrganizationConfigurationResponse Core.Int
 describeOrganizationConfigurationResponse_httpStatus = Lens.lens (\DescribeOrganizationConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationConfigurationResponse)
 
 -- | Indicates whether GuardDuty is automatically enabled for accounts added
 -- to the organization.
-describeOrganizationConfigurationResponse_autoEnable :: Lens.Lens' DescribeOrganizationConfigurationResponse Prelude.Bool
+describeOrganizationConfigurationResponse_autoEnable :: Lens.Lens' DescribeOrganizationConfigurationResponse Core.Bool
 describeOrganizationConfigurationResponse_autoEnable = Lens.lens (\DescribeOrganizationConfigurationResponse' {autoEnable} -> autoEnable) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {autoEnable = a} :: DescribeOrganizationConfigurationResponse)
 
 -- | Indicates whether the maximum number of allowed member accounts are
 -- already associated with the delegated administrator account for your
 -- organization.
-describeOrganizationConfigurationResponse_memberAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse Prelude.Bool
+describeOrganizationConfigurationResponse_memberAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse Core.Bool
 describeOrganizationConfigurationResponse_memberAccountLimitReached = Lens.lens (\DescribeOrganizationConfigurationResponse' {memberAccountLimitReached} -> memberAccountLimitReached) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {memberAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeOrganizationConfigurationResponse

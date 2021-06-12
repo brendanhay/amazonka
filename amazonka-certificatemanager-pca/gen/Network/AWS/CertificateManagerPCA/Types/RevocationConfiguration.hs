@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration where
 
 import Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Certificate revocation information used by the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
@@ -37,9 +36,9 @@ import qualified Network.AWS.Prelude as Prelude
 data RevocationConfiguration = RevocationConfiguration'
   { -- | Configuration of the certificate revocation list (CRL), if any,
     -- maintained by your private CA.
-    crlConfiguration :: Prelude.Maybe CrlConfiguration
+    crlConfiguration :: Core.Maybe CrlConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevocationConfiguration' with all optional fields omitted.
@@ -56,32 +55,32 @@ newRevocationConfiguration ::
 newRevocationConfiguration =
   RevocationConfiguration'
     { crlConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Configuration of the certificate revocation list (CRL), if any,
 -- maintained by your private CA.
-revocationConfiguration_crlConfiguration :: Lens.Lens' RevocationConfiguration (Prelude.Maybe CrlConfiguration)
+revocationConfiguration_crlConfiguration :: Lens.Lens' RevocationConfiguration (Core.Maybe CrlConfiguration)
 revocationConfiguration_crlConfiguration = Lens.lens (\RevocationConfiguration' {crlConfiguration} -> crlConfiguration) (\s@RevocationConfiguration' {} a -> s {crlConfiguration = a} :: RevocationConfiguration)
 
-instance Prelude.FromJSON RevocationConfiguration where
+instance Core.FromJSON RevocationConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RevocationConfiguration"
       ( \x ->
           RevocationConfiguration'
-            Prelude.<$> (x Prelude..:? "CrlConfiguration")
+            Core.<$> (x Core..:? "CrlConfiguration")
       )
 
-instance Prelude.Hashable RevocationConfiguration
+instance Core.Hashable RevocationConfiguration
 
-instance Prelude.NFData RevocationConfiguration
+instance Core.NFData RevocationConfiguration
 
-instance Prelude.ToJSON RevocationConfiguration where
+instance Core.ToJSON RevocationConfiguration where
   toJSON RevocationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CrlConfiguration" Prelude..=)
-              Prelude.<$> crlConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("CrlConfiguration" Core..=)
+              Core.<$> crlConfiguration
           ]
       )

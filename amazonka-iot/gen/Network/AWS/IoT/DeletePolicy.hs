@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.IoT.DeletePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeletePolicy' smart constructor.
 data DeletePolicy = DeletePolicy'
   { -- | The name of the policy to delete.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicy' with all optional fields omitted.
@@ -73,40 +72,39 @@ data DeletePolicy = DeletePolicy'
 -- 'policyName', 'deletePolicy_policyName' - The name of the policy to delete.
 newDeletePolicy ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   DeletePolicy
 newDeletePolicy pPolicyName_ =
   DeletePolicy' {policyName = pPolicyName_}
 
 -- | The name of the policy to delete.
-deletePolicy_policyName :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_policyName :: Lens.Lens' DeletePolicy Core.Text
 deletePolicy_policyName = Lens.lens (\DeletePolicy' {policyName} -> policyName) (\s@DeletePolicy' {} a -> s {policyName = a} :: DeletePolicy)
 
-instance Prelude.AWSRequest DeletePolicy where
-  type Rs DeletePolicy = DeletePolicyResponse
+instance Core.AWSRequest DeletePolicy where
+  type AWSResponse DeletePolicy = DeletePolicyResponse
   request = Request.delete defaultService
   response = Response.receiveNull DeletePolicyResponse'
 
-instance Prelude.Hashable DeletePolicy
+instance Core.Hashable DeletePolicy
 
-instance Prelude.NFData DeletePolicy
+instance Core.NFData DeletePolicy
 
-instance Prelude.ToHeaders DeletePolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeletePolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeletePolicy where
+instance Core.ToPath DeletePolicy where
   toPath DeletePolicy' {..} =
-    Prelude.mconcat
-      ["/policies/", Prelude.toBS policyName]
+    Core.mconcat ["/policies/", Core.toBS policyName]
 
-instance Prelude.ToQuery DeletePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
@@ -116,4 +114,4 @@ newDeletePolicyResponse ::
   DeletePolicyResponse
 newDeletePolicyResponse = DeletePolicyResponse'
 
-instance Prelude.NFData DeletePolicyResponse
+instance Core.NFData DeletePolicyResponse

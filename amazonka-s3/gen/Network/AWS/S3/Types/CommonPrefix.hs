@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.CommonPrefix where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for all (if there are any) keys between Prefix and the next
@@ -33,9 +32,9 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newCommonPrefix' smart constructor.
 data CommonPrefix = CommonPrefix'
   { -- | Container for the specified common prefix.
-    prefix :: Prelude.Maybe Prelude.Text
+    prefix :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CommonPrefix' with all optional fields omitted.
@@ -49,16 +48,16 @@ data CommonPrefix = CommonPrefix'
 newCommonPrefix ::
   CommonPrefix
 newCommonPrefix =
-  CommonPrefix' {prefix = Prelude.Nothing}
+  CommonPrefix' {prefix = Core.Nothing}
 
 -- | Container for the specified common prefix.
-commonPrefix_prefix :: Lens.Lens' CommonPrefix (Prelude.Maybe Prelude.Text)
+commonPrefix_prefix :: Lens.Lens' CommonPrefix (Core.Maybe Core.Text)
 commonPrefix_prefix = Lens.lens (\CommonPrefix' {prefix} -> prefix) (\s@CommonPrefix' {} a -> s {prefix = a} :: CommonPrefix)
 
-instance Prelude.FromXML CommonPrefix where
+instance Core.FromXML CommonPrefix where
   parseXML x =
-    CommonPrefix' Prelude.<$> (x Prelude..@? "Prefix")
+    CommonPrefix' Core.<$> (x Core..@? "Prefix")
 
-instance Prelude.Hashable CommonPrefix
+instance Core.Hashable CommonPrefix
 
-instance Prelude.NFData CommonPrefix
+instance Core.NFData CommonPrefix

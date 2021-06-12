@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.IKEVersionsListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The internet key exchange (IKE) version permitted for the VPN tunnel.
 --
 -- /See:/ 'newIKEVersionsListValue' smart constructor.
 data IKEVersionsListValue = IKEVersionsListValue'
   { -- | The IKE version.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IKEVersionsListValue' with all optional fields omitted.
@@ -45,17 +44,16 @@ data IKEVersionsListValue = IKEVersionsListValue'
 newIKEVersionsListValue ::
   IKEVersionsListValue
 newIKEVersionsListValue =
-  IKEVersionsListValue' {value = Prelude.Nothing}
+  IKEVersionsListValue' {value = Core.Nothing}
 
 -- | The IKE version.
-iKEVersionsListValue_value :: Lens.Lens' IKEVersionsListValue (Prelude.Maybe Prelude.Text)
+iKEVersionsListValue_value :: Lens.Lens' IKEVersionsListValue (Core.Maybe Core.Text)
 iKEVersionsListValue_value = Lens.lens (\IKEVersionsListValue' {value} -> value) (\s@IKEVersionsListValue' {} a -> s {value = a} :: IKEVersionsListValue)
 
-instance Prelude.FromXML IKEVersionsListValue where
+instance Core.FromXML IKEVersionsListValue where
   parseXML x =
-    IKEVersionsListValue'
-      Prelude.<$> (x Prelude..@? "value")
+    IKEVersionsListValue' Core.<$> (x Core..@? "value")
 
-instance Prelude.Hashable IKEVersionsListValue
+instance Core.Hashable IKEVersionsListValue
 
-instance Prelude.NFData IKEVersionsListValue
+instance Core.NFData IKEVersionsListValue

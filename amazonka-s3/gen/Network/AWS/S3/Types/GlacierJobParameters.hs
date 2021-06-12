@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.GlacierJobParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tier
 
@@ -32,7 +31,7 @@ data GlacierJobParameters = GlacierJobParameters'
   { -- | Retrieval tier at which the restore will be processed.
     tier :: Tier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlacierJobParameters' with all optional fields omitted.
@@ -54,10 +53,10 @@ newGlacierJobParameters pTier_ =
 glacierJobParameters_tier :: Lens.Lens' GlacierJobParameters Tier
 glacierJobParameters_tier = Lens.lens (\GlacierJobParameters' {tier} -> tier) (\s@GlacierJobParameters' {} a -> s {tier = a} :: GlacierJobParameters)
 
-instance Prelude.Hashable GlacierJobParameters
+instance Core.Hashable GlacierJobParameters
 
-instance Prelude.NFData GlacierJobParameters
+instance Core.NFData GlacierJobParameters
 
-instance Prelude.ToXML GlacierJobParameters where
+instance Core.ToXML GlacierJobParameters where
   toXML GlacierJobParameters' {..} =
-    Prelude.mconcat ["Tier" Prelude.@= tier]
+    Core.mconcat ["Tier" Core.@= tier]

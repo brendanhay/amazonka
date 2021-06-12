@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.DataPipeline.ListPipelines
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +58,9 @@ data ListPipelines = ListPipelines'
     -- this value should be empty. As long as there are more results, continue
     -- to call @ListPipelines@ with the marker value from the previous call to
     -- retrieve the next set of results.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPipelines' with all optional fields omitted.
@@ -79,79 +77,75 @@ data ListPipelines = ListPipelines'
 newListPipelines ::
   ListPipelines
 newListPipelines =
-  ListPipelines' {marker = Prelude.Nothing}
+  ListPipelines' {marker = Core.Nothing}
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @ListPipelines@ with the marker value from the previous call to
 -- retrieve the next set of results.
-listPipelines_marker :: Lens.Lens' ListPipelines (Prelude.Maybe Prelude.Text)
+listPipelines_marker :: Lens.Lens' ListPipelines (Core.Maybe Core.Text)
 listPipelines_marker = Lens.lens (\ListPipelines' {marker} -> marker) (\s@ListPipelines' {} a -> s {marker = a} :: ListPipelines)
 
-instance Pager.AWSPager ListPipelines where
+instance Core.AWSPager ListPipelines where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listPipelinesResponse_hasMoreResults
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listPipelinesResponse_marker Prelude.. Lens._Just
+            Lens.^? listPipelinesResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listPipelines_marker
           Lens..~ rs
-          Lens.^? listPipelinesResponse_marker Prelude.. Lens._Just
+          Lens.^? listPipelinesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListPipelines where
-  type Rs ListPipelines = ListPipelinesResponse
+instance Core.AWSRequest ListPipelines where
+  type
+    AWSResponse ListPipelines =
+      ListPipelinesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPipelinesResponse'
-            Prelude.<$> (x Prelude..?> "hasMoreResults")
-            Prelude.<*> (x Prelude..?> "marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "pipelineIdList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "hasMoreResults")
+            Core.<*> (x Core..?> "marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "pipelineIdList" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListPipelines
+instance Core.Hashable ListPipelines
 
-instance Prelude.NFData ListPipelines
+instance Core.NFData ListPipelines
 
-instance Prelude.ToHeaders ListPipelines where
+instance Core.ToHeaders ListPipelines where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("DataPipeline.ListPipelines" :: Prelude.ByteString),
+              Core.=# ("DataPipeline.ListPipelines" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListPipelines where
+instance Core.ToJSON ListPipelines where
   toJSON ListPipelines' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("marker" Prelude..=) Prelude.<$> marker]
-      )
+    Core.object
+      (Core.catMaybes [("marker" Core..=) Core.<$> marker])
 
-instance Prelude.ToPath ListPipelines where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListPipelines where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListPipelines where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListPipelines where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of ListPipelines.
 --
@@ -159,19 +153,19 @@ instance Prelude.ToQuery ListPipelines where
 data ListPipelinesResponse = ListPipelinesResponse'
   { -- | Indicates whether there are more results that can be obtained by a
     -- subsequent call.
-    hasMoreResults :: Prelude.Maybe Prelude.Bool,
+    hasMoreResults :: Core.Maybe Core.Bool,
     -- | The starting point for the next page of results. To view the next page
     -- of results, call @ListPipelinesOutput@ again with this marker value. If
     -- the value is null, there are no more results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The pipeline identifiers. If you require additional information about
     -- the pipelines, you can use these identifiers to call DescribePipelines
     -- and GetPipelineDefinition.
     pipelineIdList :: [PipelineIdName]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPipelinesResponse' with all optional fields omitted.
@@ -195,36 +189,36 @@ data ListPipelinesResponse = ListPipelinesResponse'
 -- and GetPipelineDefinition.
 newListPipelinesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPipelinesResponse
 newListPipelinesResponse pHttpStatus_ =
   ListPipelinesResponse'
     { hasMoreResults =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      pipelineIdList = Prelude.mempty
+      pipelineIdList = Core.mempty
     }
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
-listPipelinesResponse_hasMoreResults :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Bool)
+listPipelinesResponse_hasMoreResults :: Lens.Lens' ListPipelinesResponse (Core.Maybe Core.Bool)
 listPipelinesResponse_hasMoreResults = Lens.lens (\ListPipelinesResponse' {hasMoreResults} -> hasMoreResults) (\s@ListPipelinesResponse' {} a -> s {hasMoreResults = a} :: ListPipelinesResponse)
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @ListPipelinesOutput@ again with this marker value. If
 -- the value is null, there are no more results.
-listPipelinesResponse_marker :: Lens.Lens' ListPipelinesResponse (Prelude.Maybe Prelude.Text)
+listPipelinesResponse_marker :: Lens.Lens' ListPipelinesResponse (Core.Maybe Core.Text)
 listPipelinesResponse_marker = Lens.lens (\ListPipelinesResponse' {marker} -> marker) (\s@ListPipelinesResponse' {} a -> s {marker = a} :: ListPipelinesResponse)
 
 -- | The response's http status code.
-listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Prelude.Int
+listPipelinesResponse_httpStatus :: Lens.Lens' ListPipelinesResponse Core.Int
 listPipelinesResponse_httpStatus = Lens.lens (\ListPipelinesResponse' {httpStatus} -> httpStatus) (\s@ListPipelinesResponse' {} a -> s {httpStatus = a} :: ListPipelinesResponse)
 
 -- | The pipeline identifiers. If you require additional information about
 -- the pipelines, you can use these identifiers to call DescribePipelines
 -- and GetPipelineDefinition.
 listPipelinesResponse_pipelineIdList :: Lens.Lens' ListPipelinesResponse [PipelineIdName]
-listPipelinesResponse_pipelineIdList = Lens.lens (\ListPipelinesResponse' {pipelineIdList} -> pipelineIdList) (\s@ListPipelinesResponse' {} a -> s {pipelineIdList = a} :: ListPipelinesResponse) Prelude.. Prelude._Coerce
+listPipelinesResponse_pipelineIdList = Lens.lens (\ListPipelinesResponse' {pipelineIdList} -> pipelineIdList) (\s@ListPipelinesResponse' {} a -> s {pipelineIdList = a} :: ListPipelinesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListPipelinesResponse
+instance Core.NFData ListPipelinesResponse

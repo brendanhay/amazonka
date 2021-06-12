@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,8 @@ module Network.AWS.CloudHSMv2.DescribeBackups
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,14 +62,14 @@ import qualified Network.AWS.Response as Response
 data DescribeBackups = DescribeBackups'
   { -- | The @NextToken@ value that you received in the previous response. Use
     -- this value to get more backups.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of backups to return in the response. When there are
     -- more backups than the number you specify, the response contains a
     -- @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Designates whether or not to sort the return backups by ascending
     -- chronological order of generation.
-    sortAscending :: Prelude.Maybe Prelude.Bool,
+    sortAscending :: Core.Maybe Core.Bool,
     -- | One or more filters to limit the items returned in the response.
     --
     -- Use the @backupIds@ filter to return only the specified backups. Specify
@@ -91,9 +89,9 @@ data DescribeBackups = DescribeBackups'
     -- the @neverExpires@ parameter. @True@ returns all backups exempt from the
     -- backup retention policy. @False@ returns all backups with a backup
     -- retention policy defined at the cluster.
-    filters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    filters :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBackups' with all optional fields omitted.
@@ -136,26 +134,26 @@ newDescribeBackups ::
   DescribeBackups
 newDescribeBackups =
   DescribeBackups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortAscending = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      sortAscending = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The @NextToken@ value that you received in the previous response. Use
 -- this value to get more backups.
-describeBackups_nextToken :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
+describeBackups_nextToken :: Lens.Lens' DescribeBackups (Core.Maybe Core.Text)
 describeBackups_nextToken = Lens.lens (\DescribeBackups' {nextToken} -> nextToken) (\s@DescribeBackups' {} a -> s {nextToken = a} :: DescribeBackups)
 
 -- | The maximum number of backups to return in the response. When there are
 -- more backups than the number you specify, the response contains a
 -- @NextToken@ value.
-describeBackups_maxResults :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Natural)
+describeBackups_maxResults :: Lens.Lens' DescribeBackups (Core.Maybe Core.Natural)
 describeBackups_maxResults = Lens.lens (\DescribeBackups' {maxResults} -> maxResults) (\s@DescribeBackups' {} a -> s {maxResults = a} :: DescribeBackups)
 
 -- | Designates whether or not to sort the return backups by ascending
 -- chronological order of generation.
-describeBackups_sortAscending :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Bool)
+describeBackups_sortAscending :: Lens.Lens' DescribeBackups (Core.Maybe Core.Bool)
 describeBackups_sortAscending = Lens.lens (\DescribeBackups' {sortAscending} -> sortAscending) (\s@DescribeBackups' {} a -> s {sortAscending = a} :: DescribeBackups)
 
 -- | One or more filters to limit the items returned in the response.
@@ -177,91 +175,88 @@ describeBackups_sortAscending = Lens.lens (\DescribeBackups' {sortAscending} -> 
 -- the @neverExpires@ parameter. @True@ returns all backups exempt from the
 -- backup retention policy. @False@ returns all backups with a backup
 -- retention policy defined at the cluster.
-describeBackups_filters :: Lens.Lens' DescribeBackups (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-describeBackups_filters = Lens.lens (\DescribeBackups' {filters} -> filters) (\s@DescribeBackups' {} a -> s {filters = a} :: DescribeBackups) Prelude.. Lens.mapping Prelude._Coerce
+describeBackups_filters :: Lens.Lens' DescribeBackups (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+describeBackups_filters = Lens.lens (\DescribeBackups' {filters} -> filters) (\s@DescribeBackups' {} a -> s {filters = a} :: DescribeBackups) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeBackups where
+instance Core.AWSPager DescribeBackups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeBackupsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeBackupsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeBackupsResponse_backups Prelude.. Lens._Just
+            Lens.^? describeBackupsResponse_backups Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeBackups_nextToken
           Lens..~ rs
-          Lens.^? describeBackupsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeBackupsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeBackups where
-  type Rs DescribeBackups = DescribeBackupsResponse
+instance Core.AWSRequest DescribeBackups where
+  type
+    AWSResponse DescribeBackups =
+      DescribeBackupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeBackupsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Backups" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Backups" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBackups
+instance Core.Hashable DescribeBackups
 
-instance Prelude.NFData DescribeBackups
+instance Core.NFData DescribeBackups
 
-instance Prelude.ToHeaders DescribeBackups where
+instance Core.ToHeaders DescribeBackups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "BaldrApiService.DescribeBackups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "BaldrApiService.DescribeBackups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeBackups where
+instance Core.ToJSON DescribeBackups where
   toJSON DescribeBackups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("SortAscending" Prelude..=)
-              Prelude.<$> sortAscending,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("SortAscending" Core..=) Core.<$> sortAscending,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath DescribeBackups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeBackups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeBackups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeBackups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
   { -- | An opaque string that indicates that the response contains only a subset
     -- of backups. Use this value in a subsequent @DescribeBackups@ request to
     -- get more backups.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of backups.
-    backups :: Prelude.Maybe [Backup],
+    backups :: Core.Maybe [Backup],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBackupsResponse' with all optional fields omitted.
@@ -280,28 +275,27 @@ data DescribeBackupsResponse = DescribeBackupsResponse'
 -- 'httpStatus', 'describeBackupsResponse_httpStatus' - The response's http status code.
 newDescribeBackupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeBackupsResponse
 newDescribeBackupsResponse pHttpStatus_ =
   DescribeBackupsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      backups = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      backups = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An opaque string that indicates that the response contains only a subset
 -- of backups. Use this value in a subsequent @DescribeBackups@ request to
 -- get more backups.
-describeBackupsResponse_nextToken :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe Prelude.Text)
+describeBackupsResponse_nextToken :: Lens.Lens' DescribeBackupsResponse (Core.Maybe Core.Text)
 describeBackupsResponse_nextToken = Lens.lens (\DescribeBackupsResponse' {nextToken} -> nextToken) (\s@DescribeBackupsResponse' {} a -> s {nextToken = a} :: DescribeBackupsResponse)
 
 -- | A list of backups.
-describeBackupsResponse_backups :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe [Backup])
-describeBackupsResponse_backups = Lens.lens (\DescribeBackupsResponse' {backups} -> backups) (\s@DescribeBackupsResponse' {} a -> s {backups = a} :: DescribeBackupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeBackupsResponse_backups :: Lens.Lens' DescribeBackupsResponse (Core.Maybe [Backup])
+describeBackupsResponse_backups = Lens.lens (\DescribeBackupsResponse' {backups} -> backups) (\s@DescribeBackupsResponse' {} a -> s {backups = a} :: DescribeBackupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeBackupsResponse_httpStatus :: Lens.Lens' DescribeBackupsResponse Prelude.Int
+describeBackupsResponse_httpStatus :: Lens.Lens' DescribeBackupsResponse Core.Int
 describeBackupsResponse_httpStatus = Lens.lens (\DescribeBackupsResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupsResponse' {} a -> s {httpStatus = a} :: DescribeBackupsResponse)
 
-instance Prelude.NFData DescribeBackupsResponse
+instance Core.NFData DescribeBackupsResponse

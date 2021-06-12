@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WAFRegional.GetRegexMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -60,9 +59,9 @@ data GetRegexMatchSet = GetRegexMatchSet'
   { -- | The @RegexMatchSetId@ of the RegexMatchSet that you want to get.
     -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
     -- ListRegexMatchSets.
-    regexMatchSetId :: Prelude.Text
+    regexMatchSetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRegexMatchSet' with all optional fields omitted.
@@ -77,7 +76,7 @@ data GetRegexMatchSet = GetRegexMatchSet'
 -- ListRegexMatchSets.
 newGetRegexMatchSet ::
   -- | 'regexMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   GetRegexMatchSet
 newGetRegexMatchSet pRegexMatchSetId_ =
   GetRegexMatchSet'
@@ -88,63 +87,63 @@ newGetRegexMatchSet pRegexMatchSetId_ =
 -- | The @RegexMatchSetId@ of the RegexMatchSet that you want to get.
 -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
 -- ListRegexMatchSets.
-getRegexMatchSet_regexMatchSetId :: Lens.Lens' GetRegexMatchSet Prelude.Text
+getRegexMatchSet_regexMatchSetId :: Lens.Lens' GetRegexMatchSet Core.Text
 getRegexMatchSet_regexMatchSetId = Lens.lens (\GetRegexMatchSet' {regexMatchSetId} -> regexMatchSetId) (\s@GetRegexMatchSet' {} a -> s {regexMatchSetId = a} :: GetRegexMatchSet)
 
-instance Prelude.AWSRequest GetRegexMatchSet where
-  type Rs GetRegexMatchSet = GetRegexMatchSetResponse
+instance Core.AWSRequest GetRegexMatchSet where
+  type
+    AWSResponse GetRegexMatchSet =
+      GetRegexMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRegexMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "RegexMatchSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RegexMatchSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRegexMatchSet
+instance Core.Hashable GetRegexMatchSet
 
-instance Prelude.NFData GetRegexMatchSet
+instance Core.NFData GetRegexMatchSet
 
-instance Prelude.ToHeaders GetRegexMatchSet where
+instance Core.ToHeaders GetRegexMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.GetRegexMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.GetRegexMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRegexMatchSet where
+instance Core.ToJSON GetRegexMatchSet where
   toJSON GetRegexMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("RegexMatchSetId" Prelude..= regexMatchSetId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RegexMatchSetId" Core..= regexMatchSetId)
           ]
       )
 
-instance Prelude.ToPath GetRegexMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRegexMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRegexMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRegexMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRegexMatchSetResponse' smart constructor.
 data GetRegexMatchSetResponse = GetRegexMatchSetResponse'
   { -- | Information about the RegexMatchSet that you specified in the
     -- @GetRegexMatchSet@ request. For more information, see RegexMatchTuple.
-    regexMatchSet :: Prelude.Maybe RegexMatchSet,
+    regexMatchSet :: Core.Maybe RegexMatchSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRegexMatchSetResponse' with all optional fields omitted.
@@ -160,22 +159,22 @@ data GetRegexMatchSetResponse = GetRegexMatchSetResponse'
 -- 'httpStatus', 'getRegexMatchSetResponse_httpStatus' - The response's http status code.
 newGetRegexMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRegexMatchSetResponse
 newGetRegexMatchSetResponse pHttpStatus_ =
   GetRegexMatchSetResponse'
     { regexMatchSet =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the RegexMatchSet that you specified in the
 -- @GetRegexMatchSet@ request. For more information, see RegexMatchTuple.
-getRegexMatchSetResponse_regexMatchSet :: Lens.Lens' GetRegexMatchSetResponse (Prelude.Maybe RegexMatchSet)
+getRegexMatchSetResponse_regexMatchSet :: Lens.Lens' GetRegexMatchSetResponse (Core.Maybe RegexMatchSet)
 getRegexMatchSetResponse_regexMatchSet = Lens.lens (\GetRegexMatchSetResponse' {regexMatchSet} -> regexMatchSet) (\s@GetRegexMatchSetResponse' {} a -> s {regexMatchSet = a} :: GetRegexMatchSetResponse)
 
 -- | The response's http status code.
-getRegexMatchSetResponse_httpStatus :: Lens.Lens' GetRegexMatchSetResponse Prelude.Int
+getRegexMatchSetResponse_httpStatus :: Lens.Lens' GetRegexMatchSetResponse Core.Int
 getRegexMatchSetResponse_httpStatus = Lens.lens (\GetRegexMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetRegexMatchSetResponse' {} a -> s {httpStatus = a} :: GetRegexMatchSetResponse)
 
-instance Prelude.NFData GetRegexMatchSetResponse
+instance Core.NFData GetRegexMatchSetResponse

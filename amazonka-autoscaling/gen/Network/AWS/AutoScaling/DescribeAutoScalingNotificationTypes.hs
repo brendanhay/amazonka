@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutoScalingNotificationTypes' with all optional fields omitted.
@@ -60,11 +59,11 @@ newDescribeAutoScalingNotificationTypes =
   DescribeAutoScalingNotificationTypes'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeAutoScalingNotificationTypes
   where
   type
-    Rs DescribeAutoScalingNotificationTypes =
+    AWSResponse DescribeAutoScalingNotificationTypes =
       DescribeAutoScalingNotificationTypesResponse
   request = Request.postQuery defaultService
   response =
@@ -72,57 +71,56 @@ instance
       "DescribeAutoScalingNotificationTypesResult"
       ( \s h x ->
           DescribeAutoScalingNotificationTypesResponse'
-            Prelude.<$> ( x Prelude..@? "AutoScalingNotificationTypes"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "AutoScalingNotificationTypes"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeAutoScalingNotificationTypes
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAutoScalingNotificationTypes
 
 instance
-  Prelude.ToHeaders
-    DescribeAutoScalingNotificationTypes
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeAutoScalingNotificationTypes
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeAutoScalingNotificationTypes
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeAutoScalingNotificationTypes
   where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ( "DescribeAutoScalingNotificationTypes" ::
-                             Prelude.ByteString
-                         ),
-            "Version"
-              Prelude.=: ("2011-01-01" :: Prelude.ByteString)
+              Core.=: ( "DescribeAutoScalingNotificationTypes" ::
+                          Core.ByteString
+                      ),
+            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
           ]
       )
 
 -- | /See:/ 'newDescribeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
   { -- | The notification types.
-    autoScalingNotificationTypes :: Prelude.Maybe [Prelude.Text],
+    autoScalingNotificationTypes :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutoScalingNotificationTypesResponse' with all optional fields omitted.
@@ -137,24 +135,24 @@ data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificat
 -- 'httpStatus', 'describeAutoScalingNotificationTypesResponse_httpStatus' - The response's http status code.
 newDescribeAutoScalingNotificationTypesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAutoScalingNotificationTypesResponse
 newDescribeAutoScalingNotificationTypesResponse
   pHttpStatus_ =
     DescribeAutoScalingNotificationTypesResponse'
       { autoScalingNotificationTypes =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The notification types.
-describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse (Prelude.Maybe [Prelude.Text])
-describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes = Lens.lens (\DescribeAutoScalingNotificationTypesResponse' {autoScalingNotificationTypes} -> autoScalingNotificationTypes) (\s@DescribeAutoScalingNotificationTypesResponse' {} a -> s {autoScalingNotificationTypes = a} :: DescribeAutoScalingNotificationTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse (Core.Maybe [Core.Text])
+describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes = Lens.lens (\DescribeAutoScalingNotificationTypesResponse' {autoScalingNotificationTypes} -> autoScalingNotificationTypes) (\s@DescribeAutoScalingNotificationTypesResponse' {} a -> s {autoScalingNotificationTypes = a} :: DescribeAutoScalingNotificationTypesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAutoScalingNotificationTypesResponse_httpStatus :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse Prelude.Int
+describeAutoScalingNotificationTypesResponse_httpStatus :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse Core.Int
 describeAutoScalingNotificationTypesResponse_httpStatus = Lens.lens (\DescribeAutoScalingNotificationTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeAutoScalingNotificationTypesResponse' {} a -> s {httpStatus = a} :: DescribeAutoScalingNotificationTypesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAutoScalingNotificationTypesResponse

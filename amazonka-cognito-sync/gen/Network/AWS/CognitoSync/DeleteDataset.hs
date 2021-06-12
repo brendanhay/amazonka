@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.CognitoSync.DeleteDataset
 where
 
 import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,16 +60,16 @@ data DeleteDataset = DeleteDataset'
   { -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Prelude.Text,
+    identityPoolId :: Core.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Prelude.Text,
+    identityId :: Core.Text,
     -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
     -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-    datasetName :: Prelude.Text
+    datasetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDataset' with all optional fields omitted.
@@ -92,11 +91,11 @@ data DeleteDataset = DeleteDataset'
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
 newDeleteDataset ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'datasetName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDataset
 newDeleteDataset
   pIdentityPoolId_
@@ -111,59 +110,59 @@ newDeleteDataset
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-deleteDataset_identityPoolId :: Lens.Lens' DeleteDataset Prelude.Text
+deleteDataset_identityPoolId :: Lens.Lens' DeleteDataset Core.Text
 deleteDataset_identityPoolId = Lens.lens (\DeleteDataset' {identityPoolId} -> identityPoolId) (\s@DeleteDataset' {} a -> s {identityPoolId = a} :: DeleteDataset)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-deleteDataset_identityId :: Lens.Lens' DeleteDataset Prelude.Text
+deleteDataset_identityId :: Lens.Lens' DeleteDataset Core.Text
 deleteDataset_identityId = Lens.lens (\DeleteDataset' {identityId} -> identityId) (\s@DeleteDataset' {} a -> s {identityId = a} :: DeleteDataset)
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-deleteDataset_datasetName :: Lens.Lens' DeleteDataset Prelude.Text
+deleteDataset_datasetName :: Lens.Lens' DeleteDataset Core.Text
 deleteDataset_datasetName = Lens.lens (\DeleteDataset' {datasetName} -> datasetName) (\s@DeleteDataset' {} a -> s {datasetName = a} :: DeleteDataset)
 
-instance Prelude.AWSRequest DeleteDataset where
-  type Rs DeleteDataset = DeleteDatasetResponse
+instance Core.AWSRequest DeleteDataset where
+  type
+    AWSResponse DeleteDataset =
+      DeleteDatasetResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteDatasetResponse'
-            Prelude.<$> (x Prelude..?> "Dataset")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Dataset")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDataset
+instance Core.Hashable DeleteDataset
 
-instance Prelude.NFData DeleteDataset
+instance Core.NFData DeleteDataset
 
-instance Prelude.ToHeaders DeleteDataset where
+instance Core.ToHeaders DeleteDataset where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteDataset where
+instance Core.ToPath DeleteDataset where
   toPath DeleteDataset' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/identitypools/",
-        Prelude.toBS identityPoolId,
+        Core.toBS identityPoolId,
         "/identities/",
-        Prelude.toBS identityId,
+        Core.toBS identityId,
         "/datasets/",
-        Prelude.toBS datasetName
+        Core.toBS datasetName
       ]
 
-instance Prelude.ToQuery DeleteDataset where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDataset where
+  toQuery = Core.const Core.mempty
 
 -- | Response to a successful DeleteDataset request.
 --
@@ -174,11 +173,11 @@ data DeleteDatasetResponse = DeleteDatasetResponse'
     -- associated with a particular entity in an application (like a saved
     -- game). Datasets are automatically created if they don\'t exist. Data is
     -- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
-    dataset :: Prelude.Maybe Dataset,
+    dataset :: Core.Maybe Dataset,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDatasetResponse' with all optional fields omitted.
@@ -197,11 +196,11 @@ data DeleteDatasetResponse = DeleteDatasetResponse'
 -- 'httpStatus', 'deleteDatasetResponse_httpStatus' - The response's http status code.
 newDeleteDatasetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDatasetResponse
 newDeleteDatasetResponse pHttpStatus_ =
   DeleteDatasetResponse'
-    { dataset = Prelude.Nothing,
+    { dataset = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -210,11 +209,11 @@ newDeleteDatasetResponse pHttpStatus_ =
 -- associated with a particular entity in an application (like a saved
 -- game). Datasets are automatically created if they don\'t exist. Data is
 -- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
-deleteDatasetResponse_dataset :: Lens.Lens' DeleteDatasetResponse (Prelude.Maybe Dataset)
+deleteDatasetResponse_dataset :: Lens.Lens' DeleteDatasetResponse (Core.Maybe Dataset)
 deleteDatasetResponse_dataset = Lens.lens (\DeleteDatasetResponse' {dataset} -> dataset) (\s@DeleteDatasetResponse' {} a -> s {dataset = a} :: DeleteDatasetResponse)
 
 -- | The response's http status code.
-deleteDatasetResponse_httpStatus :: Lens.Lens' DeleteDatasetResponse Prelude.Int
+deleteDatasetResponse_httpStatus :: Lens.Lens' DeleteDatasetResponse Core.Int
 deleteDatasetResponse_httpStatus = Lens.lens (\DeleteDatasetResponse' {httpStatus} -> httpStatus) (\s@DeleteDatasetResponse' {} a -> s {httpStatus = a} :: DeleteDatasetResponse)
 
-instance Prelude.NFData DeleteDatasetResponse
+instance Core.NFData DeleteDatasetResponse

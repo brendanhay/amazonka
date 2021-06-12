@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.SqlInjectionMatchSetUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.ChangeAction
 import Network.AWS.WAF.Types.SqlInjectionMatchTuple
 
@@ -50,7 +49,7 @@ data SqlInjectionMatchSetUpdate = SqlInjectionMatchSetUpdate'
     -- header, the name of the header.
     sqlInjectionMatchTuple :: SqlInjectionMatchTuple
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SqlInjectionMatchSetUpdate' with all optional fields omitted.
@@ -94,18 +93,18 @@ sqlInjectionMatchSetUpdate_action = Lens.lens (\SqlInjectionMatchSetUpdate' {act
 sqlInjectionMatchSetUpdate_sqlInjectionMatchTuple :: Lens.Lens' SqlInjectionMatchSetUpdate SqlInjectionMatchTuple
 sqlInjectionMatchSetUpdate_sqlInjectionMatchTuple = Lens.lens (\SqlInjectionMatchSetUpdate' {sqlInjectionMatchTuple} -> sqlInjectionMatchTuple) (\s@SqlInjectionMatchSetUpdate' {} a -> s {sqlInjectionMatchTuple = a} :: SqlInjectionMatchSetUpdate)
 
-instance Prelude.Hashable SqlInjectionMatchSetUpdate
+instance Core.Hashable SqlInjectionMatchSetUpdate
 
-instance Prelude.NFData SqlInjectionMatchSetUpdate
+instance Core.NFData SqlInjectionMatchSetUpdate
 
-instance Prelude.ToJSON SqlInjectionMatchSetUpdate where
+instance Core.ToJSON SqlInjectionMatchSetUpdate where
   toJSON SqlInjectionMatchSetUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just
               ( "SqlInjectionMatchTuple"
-                  Prelude..= sqlInjectionMatchTuple
+                  Core..= sqlInjectionMatchTuple
               )
           ]
       )

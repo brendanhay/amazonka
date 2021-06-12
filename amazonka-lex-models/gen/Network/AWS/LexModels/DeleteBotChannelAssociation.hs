@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,23 +41,23 @@ module Network.AWS.LexModels.DeleteBotChannelAssociation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBotChannelAssociation' smart constructor.
 data DeleteBotChannelAssociation = DeleteBotChannelAssociation'
   { -- | The name of the association. The name is case sensitive.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The name of the Amazon Lex bot.
-    botName :: Prelude.Text,
+    botName :: Core.Text,
     -- | An alias that points to the specific version of the Amazon Lex bot to
     -- which this association is being made.
-    botAlias :: Prelude.Text
+    botAlias :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBotChannelAssociation' with all optional fields omitted.
@@ -76,11 +75,11 @@ data DeleteBotChannelAssociation = DeleteBotChannelAssociation'
 -- which this association is being made.
 newDeleteBotChannelAssociation ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'botName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'botAlias'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBotChannelAssociation
 newDeleteBotChannelAssociation
   pName_
@@ -93,67 +92,59 @@ newDeleteBotChannelAssociation
       }
 
 -- | The name of the association. The name is case sensitive.
-deleteBotChannelAssociation_name :: Lens.Lens' DeleteBotChannelAssociation Prelude.Text
+deleteBotChannelAssociation_name :: Lens.Lens' DeleteBotChannelAssociation Core.Text
 deleteBotChannelAssociation_name = Lens.lens (\DeleteBotChannelAssociation' {name} -> name) (\s@DeleteBotChannelAssociation' {} a -> s {name = a} :: DeleteBotChannelAssociation)
 
 -- | The name of the Amazon Lex bot.
-deleteBotChannelAssociation_botName :: Lens.Lens' DeleteBotChannelAssociation Prelude.Text
+deleteBotChannelAssociation_botName :: Lens.Lens' DeleteBotChannelAssociation Core.Text
 deleteBotChannelAssociation_botName = Lens.lens (\DeleteBotChannelAssociation' {botName} -> botName) (\s@DeleteBotChannelAssociation' {} a -> s {botName = a} :: DeleteBotChannelAssociation)
 
 -- | An alias that points to the specific version of the Amazon Lex bot to
 -- which this association is being made.
-deleteBotChannelAssociation_botAlias :: Lens.Lens' DeleteBotChannelAssociation Prelude.Text
+deleteBotChannelAssociation_botAlias :: Lens.Lens' DeleteBotChannelAssociation Core.Text
 deleteBotChannelAssociation_botAlias = Lens.lens (\DeleteBotChannelAssociation' {botAlias} -> botAlias) (\s@DeleteBotChannelAssociation' {} a -> s {botAlias = a} :: DeleteBotChannelAssociation)
 
-instance
-  Prelude.AWSRequest
-    DeleteBotChannelAssociation
-  where
+instance Core.AWSRequest DeleteBotChannelAssociation where
   type
-    Rs DeleteBotChannelAssociation =
+    AWSResponse DeleteBotChannelAssociation =
       DeleteBotChannelAssociationResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteBotChannelAssociationResponse'
 
-instance Prelude.Hashable DeleteBotChannelAssociation
+instance Core.Hashable DeleteBotChannelAssociation
 
-instance Prelude.NFData DeleteBotChannelAssociation
+instance Core.NFData DeleteBotChannelAssociation
 
-instance
-  Prelude.ToHeaders
-    DeleteBotChannelAssociation
-  where
+instance Core.ToHeaders DeleteBotChannelAssociation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteBotChannelAssociation where
+instance Core.ToPath DeleteBotChannelAssociation where
   toPath DeleteBotChannelAssociation' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/bots/",
-        Prelude.toBS botName,
+        Core.toBS botName,
         "/aliases/",
-        Prelude.toBS botAlias,
+        Core.toBS botAlias,
         "/channels/",
-        Prelude.toBS name
+        Core.toBS name
       ]
 
-instance Prelude.ToQuery DeleteBotChannelAssociation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBotChannelAssociation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteBotChannelAssociationResponse' smart constructor.
 data DeleteBotChannelAssociationResponse = DeleteBotChannelAssociationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBotChannelAssociationResponse' with all optional fields omitted.
@@ -165,5 +156,5 @@ newDeleteBotChannelAssociationResponse =
   DeleteBotChannelAssociationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteBotChannelAssociationResponse

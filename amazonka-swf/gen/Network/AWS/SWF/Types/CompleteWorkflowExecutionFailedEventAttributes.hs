@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause
 
 -- | Provides the details of the @CompleteWorkflowExecutionFailed@ event.
@@ -42,9 +41,9 @@ data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionF
     -- to complete this execution. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Prelude.Integer
+    decisionTaskCompletedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompleteWorkflowExecutionFailedEventAttributes' with all optional fields omitted.
@@ -72,7 +71,7 @@ newCompleteWorkflowExecutionFailedEventAttributes ::
   -- | 'cause'
   CompleteWorkflowExecutionFailedCause ->
   -- | 'decisionTaskCompletedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   CompleteWorkflowExecutionFailedEventAttributes
 newCompleteWorkflowExecutionFailedEventAttributes
   pCause_
@@ -100,26 +99,26 @@ completeWorkflowExecutionFailedEventAttributes_cause = Lens.lens (\CompleteWorkf
 -- to complete this execution. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-completeWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' CompleteWorkflowExecutionFailedEventAttributes Prelude.Integer
+completeWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' CompleteWorkflowExecutionFailedEventAttributes Core.Integer
 completeWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\CompleteWorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@CompleteWorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: CompleteWorkflowExecutionFailedEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     CompleteWorkflowExecutionFailedEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CompleteWorkflowExecutionFailedEventAttributes"
       ( \x ->
           CompleteWorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Prelude..: "cause")
-              Prelude.<*> (x Prelude..: "decisionTaskCompletedEventId")
+            Core.<$> (x Core..: "cause")
+              Core.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CompleteWorkflowExecutionFailedEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     CompleteWorkflowExecutionFailedEventAttributes

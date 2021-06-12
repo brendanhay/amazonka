@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PlacementResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the placement of an instance.
 --
 -- /See:/ 'newPlacementResponse' smart constructor.
 data PlacementResponse = PlacementResponse'
   { -- | The name of the placement group that the instance is in.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlacementResponse' with all optional fields omitted.
@@ -45,17 +44,17 @@ data PlacementResponse = PlacementResponse'
 newPlacementResponse ::
   PlacementResponse
 newPlacementResponse =
-  PlacementResponse' {groupName = Prelude.Nothing}
+  PlacementResponse' {groupName = Core.Nothing}
 
 -- | The name of the placement group that the instance is in.
-placementResponse_groupName :: Lens.Lens' PlacementResponse (Prelude.Maybe Prelude.Text)
+placementResponse_groupName :: Lens.Lens' PlacementResponse (Core.Maybe Core.Text)
 placementResponse_groupName = Lens.lens (\PlacementResponse' {groupName} -> groupName) (\s@PlacementResponse' {} a -> s {groupName = a} :: PlacementResponse)
 
-instance Prelude.FromXML PlacementResponse where
+instance Core.FromXML PlacementResponse where
   parseXML x =
     PlacementResponse'
-      Prelude.<$> (x Prelude..@? "groupName")
+      Core.<$> (x Core..@? "groupName")
 
-instance Prelude.Hashable PlacementResponse
+instance Core.Hashable PlacementResponse
 
-instance Prelude.NFData PlacementResponse
+instance Core.NFData PlacementResponse

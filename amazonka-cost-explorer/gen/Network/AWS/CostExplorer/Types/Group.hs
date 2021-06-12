@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.Group where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.MetricValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | One level of grouped data in the results.
 --
 -- /See:/ 'newGroup' smart constructor.
 data Group = Group'
   { -- | The metrics that are included in this group.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue),
+    metrics :: Core.Maybe (Core.HashMap Core.Text MetricValue),
     -- | The keys that are included in this group.
-    keys :: Prelude.Maybe [Prelude.Text]
+    keys :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Group' with all optional fields omitted.
@@ -49,29 +48,26 @@ data Group = Group'
 newGroup ::
   Group
 newGroup =
-  Group'
-    { metrics = Prelude.Nothing,
-      keys = Prelude.Nothing
-    }
+  Group' {metrics = Core.Nothing, keys = Core.Nothing}
 
 -- | The metrics that are included in this group.
-group_metrics :: Lens.Lens' Group (Prelude.Maybe (Prelude.HashMap Prelude.Text MetricValue))
-group_metrics = Lens.lens (\Group' {metrics} -> metrics) (\s@Group' {} a -> s {metrics = a} :: Group) Prelude.. Lens.mapping Prelude._Coerce
+group_metrics :: Lens.Lens' Group (Core.Maybe (Core.HashMap Core.Text MetricValue))
+group_metrics = Lens.lens (\Group' {metrics} -> metrics) (\s@Group' {} a -> s {metrics = a} :: Group) Core.. Lens.mapping Lens._Coerce
 
 -- | The keys that are included in this group.
-group_keys :: Lens.Lens' Group (Prelude.Maybe [Prelude.Text])
-group_keys = Lens.lens (\Group' {keys} -> keys) (\s@Group' {} a -> s {keys = a} :: Group) Prelude.. Lens.mapping Prelude._Coerce
+group_keys :: Lens.Lens' Group (Core.Maybe [Core.Text])
+group_keys = Lens.lens (\Group' {keys} -> keys) (\s@Group' {} a -> s {keys = a} :: Group) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Group where
+instance Core.FromJSON Group where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Group"
       ( \x ->
           Group'
-            Prelude.<$> (x Prelude..:? "Metrics" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Keys" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Metrics" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Keys" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Group
+instance Core.Hashable Group
 
-instance Prelude.NFData Group
+instance Core.NFData Group

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Stats where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for the stats details.
@@ -29,13 +28,13 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newStats' smart constructor.
 data Stats = Stats'
   { -- | The total number of object bytes scanned.
-    bytesScanned :: Prelude.Maybe Prelude.Integer,
+    bytesScanned :: Core.Maybe Core.Integer,
     -- | The total number of uncompressed object bytes processed.
-    bytesProcessed :: Prelude.Maybe Prelude.Integer,
+    bytesProcessed :: Core.Maybe Core.Integer,
     -- | The total number of bytes of records payload data returned.
-    bytesReturned :: Prelude.Maybe Prelude.Integer
+    bytesReturned :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Stats' with all optional fields omitted.
@@ -54,30 +53,30 @@ newStats ::
   Stats
 newStats =
   Stats'
-    { bytesScanned = Prelude.Nothing,
-      bytesProcessed = Prelude.Nothing,
-      bytesReturned = Prelude.Nothing
+    { bytesScanned = Core.Nothing,
+      bytesProcessed = Core.Nothing,
+      bytesReturned = Core.Nothing
     }
 
 -- | The total number of object bytes scanned.
-stats_bytesScanned :: Lens.Lens' Stats (Prelude.Maybe Prelude.Integer)
+stats_bytesScanned :: Lens.Lens' Stats (Core.Maybe Core.Integer)
 stats_bytesScanned = Lens.lens (\Stats' {bytesScanned} -> bytesScanned) (\s@Stats' {} a -> s {bytesScanned = a} :: Stats)
 
 -- | The total number of uncompressed object bytes processed.
-stats_bytesProcessed :: Lens.Lens' Stats (Prelude.Maybe Prelude.Integer)
+stats_bytesProcessed :: Lens.Lens' Stats (Core.Maybe Core.Integer)
 stats_bytesProcessed = Lens.lens (\Stats' {bytesProcessed} -> bytesProcessed) (\s@Stats' {} a -> s {bytesProcessed = a} :: Stats)
 
 -- | The total number of bytes of records payload data returned.
-stats_bytesReturned :: Lens.Lens' Stats (Prelude.Maybe Prelude.Integer)
+stats_bytesReturned :: Lens.Lens' Stats (Core.Maybe Core.Integer)
 stats_bytesReturned = Lens.lens (\Stats' {bytesReturned} -> bytesReturned) (\s@Stats' {} a -> s {bytesReturned = a} :: Stats)
 
-instance Prelude.FromXML Stats where
+instance Core.FromXML Stats where
   parseXML x =
     Stats'
-      Prelude.<$> (x Prelude..@? "BytesScanned")
-      Prelude.<*> (x Prelude..@? "BytesProcessed")
-      Prelude.<*> (x Prelude..@? "BytesReturned")
+      Core.<$> (x Core..@? "BytesScanned")
+      Core.<*> (x Core..@? "BytesProcessed")
+      Core.<*> (x Core..@? "BytesReturned")
 
-instance Prelude.Hashable Stats
+instance Core.Hashable Stats
 
-instance Prelude.NFData Stats
+instance Core.NFData Stats

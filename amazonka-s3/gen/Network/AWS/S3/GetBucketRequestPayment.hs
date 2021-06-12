@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.S3.GetBucketRequestPayment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -59,12 +58,12 @@ data GetBucketRequestPayment = GetBucketRequestPayment'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket for which to get the payment request
     -- configuration
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketRequestPayment' with all optional fields omitted.
@@ -87,14 +86,14 @@ newGetBucketRequestPayment ::
 newGetBucketRequestPayment pBucket_ =
   GetBucketRequestPayment'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketRequestPayment_expectedBucketOwner :: Lens.Lens' GetBucketRequestPayment (Prelude.Maybe Prelude.Text)
+getBucketRequestPayment_expectedBucketOwner :: Lens.Lens' GetBucketRequestPayment (Core.Maybe Core.Text)
 getBucketRequestPayment_expectedBucketOwner = Lens.lens (\GetBucketRequestPayment' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketRequestPayment' {} a -> s {expectedBucketOwner = a} :: GetBucketRequestPayment)
 
 -- | The name of the bucket for which to get the payment request
@@ -102,46 +101,46 @@ getBucketRequestPayment_expectedBucketOwner = Lens.lens (\GetBucketRequestPaymen
 getBucketRequestPayment_bucket :: Lens.Lens' GetBucketRequestPayment BucketName
 getBucketRequestPayment_bucket = Lens.lens (\GetBucketRequestPayment' {bucket} -> bucket) (\s@GetBucketRequestPayment' {} a -> s {bucket = a} :: GetBucketRequestPayment)
 
-instance Prelude.AWSRequest GetBucketRequestPayment where
+instance Core.AWSRequest GetBucketRequestPayment where
   type
-    Rs GetBucketRequestPayment =
+    AWSResponse GetBucketRequestPayment =
       GetBucketRequestPaymentResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketRequestPaymentResponse'
-            Prelude.<$> (x Prelude..@? "Payer")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Payer")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketRequestPayment
+instance Core.Hashable GetBucketRequestPayment
 
-instance Prelude.NFData GetBucketRequestPayment
+instance Core.NFData GetBucketRequestPayment
 
-instance Prelude.ToHeaders GetBucketRequestPayment where
+instance Core.ToHeaders GetBucketRequestPayment where
   toHeaders GetBucketRequestPayment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetBucketRequestPayment where
+instance Core.ToPath GetBucketRequestPayment where
   toPath GetBucketRequestPayment' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetBucketRequestPayment where
+instance Core.ToQuery GetBucketRequestPayment where
   toQuery =
-    Prelude.const (Prelude.mconcat ["requestPayment"])
+    Core.const (Core.mconcat ["requestPayment"])
 
 -- | /See:/ 'newGetBucketRequestPaymentResponse' smart constructor.
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
   { -- | Specifies who pays for the download and request fees.
-    payer :: Prelude.Maybe Payer,
+    payer :: Core.Maybe Payer,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketRequestPaymentResponse' with all optional fields omitted.
@@ -156,23 +155,21 @@ data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
 -- 'httpStatus', 'getBucketRequestPaymentResponse_httpStatus' - The response's http status code.
 newGetBucketRequestPaymentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBucketRequestPaymentResponse
 newGetBucketRequestPaymentResponse pHttpStatus_ =
   GetBucketRequestPaymentResponse'
     { payer =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Specifies who pays for the download and request fees.
-getBucketRequestPaymentResponse_payer :: Lens.Lens' GetBucketRequestPaymentResponse (Prelude.Maybe Payer)
+getBucketRequestPaymentResponse_payer :: Lens.Lens' GetBucketRequestPaymentResponse (Core.Maybe Payer)
 getBucketRequestPaymentResponse_payer = Lens.lens (\GetBucketRequestPaymentResponse' {payer} -> payer) (\s@GetBucketRequestPaymentResponse' {} a -> s {payer = a} :: GetBucketRequestPaymentResponse)
 
 -- | The response's http status code.
-getBucketRequestPaymentResponse_httpStatus :: Lens.Lens' GetBucketRequestPaymentResponse Prelude.Int
+getBucketRequestPaymentResponse_httpStatus :: Lens.Lens' GetBucketRequestPaymentResponse Core.Int
 getBucketRequestPaymentResponse_httpStatus = Lens.lens (\GetBucketRequestPaymentResponse' {httpStatus} -> httpStatus) (\s@GetBucketRequestPaymentResponse' {} a -> s {httpStatus = a} :: GetBucketRequestPaymentResponse)
 
-instance
-  Prelude.NFData
-    GetBucketRequestPaymentResponse
+instance Core.NFData GetBucketRequestPaymentResponse

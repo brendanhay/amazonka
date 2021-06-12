@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,32 +68,32 @@ module Network.AWS.DirectConnect.AllocateHostedConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAllocateHostedConnection' smart constructor.
 data AllocateHostedConnection = AllocateHostedConnection'
   { -- | The tags associated with the connection.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The ID of the interconnect or LAG.
-    connectionId :: Prelude.Text,
+    connectionId :: Core.Text,
     -- | The ID of the AWS account ID of the customer for the connection.
-    ownerAccount :: Prelude.Text,
+    ownerAccount :: Core.Text,
     -- | The bandwidth of the connection. The possible values are 50Mbps,
     -- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
     -- 10Gbps. Note that only those AWS Direct Connect Partners who have met
     -- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
     -- 10Gbps hosted connection.
-    bandwidth :: Prelude.Text,
+    bandwidth :: Core.Text,
     -- | The name of the hosted connection.
-    connectionName :: Prelude.Text,
+    connectionName :: Core.Text,
     -- | The dedicated VLAN provisioned to the hosted connection.
-    vlan :: Prelude.Int
+    vlan :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AllocateHostedConnection' with all optional fields omitted.
@@ -121,15 +120,15 @@ data AllocateHostedConnection = AllocateHostedConnection'
 -- 'vlan', 'allocateHostedConnection_vlan' - The dedicated VLAN provisioned to the hosted connection.
 newAllocateHostedConnection ::
   -- | 'connectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ownerAccount'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'bandwidth'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'connectionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vlan'
-  Prelude.Int ->
+  Core.Int ->
   AllocateHostedConnection
 newAllocateHostedConnection
   pConnectionId_
@@ -138,7 +137,7 @@ newAllocateHostedConnection
   pConnectionName_
   pVlan_ =
     AllocateHostedConnection'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         connectionId = pConnectionId_,
         ownerAccount = pOwnerAccount_,
         bandwidth = pBandwidth_,
@@ -147,15 +146,15 @@ newAllocateHostedConnection
       }
 
 -- | The tags associated with the connection.
-allocateHostedConnection_tags :: Lens.Lens' AllocateHostedConnection (Prelude.Maybe (Prelude.NonEmpty Tag))
-allocateHostedConnection_tags = Lens.lens (\AllocateHostedConnection' {tags} -> tags) (\s@AllocateHostedConnection' {} a -> s {tags = a} :: AllocateHostedConnection) Prelude.. Lens.mapping Prelude._Coerce
+allocateHostedConnection_tags :: Lens.Lens' AllocateHostedConnection (Core.Maybe (Core.NonEmpty Tag))
+allocateHostedConnection_tags = Lens.lens (\AllocateHostedConnection' {tags} -> tags) (\s@AllocateHostedConnection' {} a -> s {tags = a} :: AllocateHostedConnection) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the interconnect or LAG.
-allocateHostedConnection_connectionId :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_connectionId :: Lens.Lens' AllocateHostedConnection Core.Text
 allocateHostedConnection_connectionId = Lens.lens (\AllocateHostedConnection' {connectionId} -> connectionId) (\s@AllocateHostedConnection' {} a -> s {connectionId = a} :: AllocateHostedConnection)
 
 -- | The ID of the AWS account ID of the customer for the connection.
-allocateHostedConnection_ownerAccount :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_ownerAccount :: Lens.Lens' AllocateHostedConnection Core.Text
 allocateHostedConnection_ownerAccount = Lens.lens (\AllocateHostedConnection' {ownerAccount} -> ownerAccount) (\s@AllocateHostedConnection' {} a -> s {ownerAccount = a} :: AllocateHostedConnection)
 
 -- | The bandwidth of the connection. The possible values are 50Mbps,
@@ -163,61 +162,58 @@ allocateHostedConnection_ownerAccount = Lens.lens (\AllocateHostedConnection' {o
 -- 10Gbps. Note that only those AWS Direct Connect Partners who have met
 -- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
 -- 10Gbps hosted connection.
-allocateHostedConnection_bandwidth :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_bandwidth :: Lens.Lens' AllocateHostedConnection Core.Text
 allocateHostedConnection_bandwidth = Lens.lens (\AllocateHostedConnection' {bandwidth} -> bandwidth) (\s@AllocateHostedConnection' {} a -> s {bandwidth = a} :: AllocateHostedConnection)
 
 -- | The name of the hosted connection.
-allocateHostedConnection_connectionName :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_connectionName :: Lens.Lens' AllocateHostedConnection Core.Text
 allocateHostedConnection_connectionName = Lens.lens (\AllocateHostedConnection' {connectionName} -> connectionName) (\s@AllocateHostedConnection' {} a -> s {connectionName = a} :: AllocateHostedConnection)
 
 -- | The dedicated VLAN provisioned to the hosted connection.
-allocateHostedConnection_vlan :: Lens.Lens' AllocateHostedConnection Prelude.Int
+allocateHostedConnection_vlan :: Lens.Lens' AllocateHostedConnection Core.Int
 allocateHostedConnection_vlan = Lens.lens (\AllocateHostedConnection' {vlan} -> vlan) (\s@AllocateHostedConnection' {} a -> s {vlan = a} :: AllocateHostedConnection)
 
-instance Prelude.AWSRequest AllocateHostedConnection where
-  type Rs AllocateHostedConnection = Connection
+instance Core.AWSRequest AllocateHostedConnection where
+  type
+    AWSResponse AllocateHostedConnection =
+      Connection
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable AllocateHostedConnection
+instance Core.Hashable AllocateHostedConnection
 
-instance Prelude.NFData AllocateHostedConnection
+instance Core.NFData AllocateHostedConnection
 
-instance Prelude.ToHeaders AllocateHostedConnection where
+instance Core.ToHeaders AllocateHostedConnection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.AllocateHostedConnection" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.AllocateHostedConnection" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AllocateHostedConnection where
+instance Core.ToJSON AllocateHostedConnection where
   toJSON AllocateHostedConnection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("connectionId" Prelude..= connectionId),
-            Prelude.Just
-              ("ownerAccount" Prelude..= ownerAccount),
-            Prelude.Just ("bandwidth" Prelude..= bandwidth),
-            Prelude.Just
-              ("connectionName" Prelude..= connectionName),
-            Prelude.Just ("vlan" Prelude..= vlan)
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            Core.Just ("connectionId" Core..= connectionId),
+            Core.Just ("ownerAccount" Core..= ownerAccount),
+            Core.Just ("bandwidth" Core..= bandwidth),
+            Core.Just ("connectionName" Core..= connectionName),
+            Core.Just ("vlan" Core..= vlan)
           ]
       )
 
-instance Prelude.ToPath AllocateHostedConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath AllocateHostedConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AllocateHostedConnection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AllocateHostedConnection where
+  toQuery = Core.const Core.mempty

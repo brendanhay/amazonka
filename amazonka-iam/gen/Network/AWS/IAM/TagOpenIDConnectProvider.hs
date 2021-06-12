@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,9 +66,9 @@ module Network.AWS.IAM.TagOpenIDConnectProvider
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,12 +81,12 @@ data TagOpenIDConnectProvider = TagOpenIDConnectProvider'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    openIDConnectProviderArn :: Prelude.Text,
+    openIDConnectProviderArn :: Core.Text,
     -- | The list of tags that you want to attach to the OIDC identity provider
     -- in IAM. Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagOpenIDConnectProvider' with all optional fields omitted.
@@ -109,14 +108,14 @@ data TagOpenIDConnectProvider = TagOpenIDConnectProvider'
 -- in IAM. Each tag consists of a key name and an associated value.
 newTagOpenIDConnectProvider ::
   -- | 'openIDConnectProviderArn'
-  Prelude.Text ->
+  Core.Text ->
   TagOpenIDConnectProvider
 newTagOpenIDConnectProvider
   pOpenIDConnectProviderArn_ =
     TagOpenIDConnectProvider'
       { openIDConnectProviderArn =
           pOpenIDConnectProviderArn_,
-        tags = Prelude.mempty
+        tags = Core.mempty
       }
 
 -- | The ARN of the OIDC identity provider in IAM to which you want to add
@@ -126,50 +125,49 @@ newTagOpenIDConnectProvider
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' TagOpenIDConnectProvider Prelude.Text
+tagOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' TagOpenIDConnectProvider Core.Text
 tagOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\TagOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@TagOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: TagOpenIDConnectProvider)
 
 -- | The list of tags that you want to attach to the OIDC identity provider
 -- in IAM. Each tag consists of a key name and an associated value.
 tagOpenIDConnectProvider_tags :: Lens.Lens' TagOpenIDConnectProvider [Tag]
-tagOpenIDConnectProvider_tags = Lens.lens (\TagOpenIDConnectProvider' {tags} -> tags) (\s@TagOpenIDConnectProvider' {} a -> s {tags = a} :: TagOpenIDConnectProvider) Prelude.. Prelude._Coerce
+tagOpenIDConnectProvider_tags = Lens.lens (\TagOpenIDConnectProvider' {tags} -> tags) (\s@TagOpenIDConnectProvider' {} a -> s {tags = a} :: TagOpenIDConnectProvider) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagOpenIDConnectProvider where
+instance Core.AWSRequest TagOpenIDConnectProvider where
   type
-    Rs TagOpenIDConnectProvider =
+    AWSResponse TagOpenIDConnectProvider =
       TagOpenIDConnectProviderResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       TagOpenIDConnectProviderResponse'
 
-instance Prelude.Hashable TagOpenIDConnectProvider
+instance Core.Hashable TagOpenIDConnectProvider
 
-instance Prelude.NFData TagOpenIDConnectProvider
+instance Core.NFData TagOpenIDConnectProvider
 
-instance Prelude.ToHeaders TagOpenIDConnectProvider where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagOpenIDConnectProvider where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TagOpenIDConnectProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagOpenIDConnectProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagOpenIDConnectProvider where
+instance Core.ToQuery TagOpenIDConnectProvider where
   toQuery TagOpenIDConnectProvider' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("TagOpenIDConnectProvider" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+          Core.=: ("TagOpenIDConnectProvider" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
         "OpenIDConnectProviderArn"
-          Prelude.=: openIDConnectProviderArn,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+          Core.=: openIDConnectProviderArn,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagOpenIDConnectProviderResponse' smart constructor.
 data TagOpenIDConnectProviderResponse = TagOpenIDConnectProviderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagOpenIDConnectProviderResponse' with all optional fields omitted.
@@ -180,6 +178,4 @@ newTagOpenIDConnectProviderResponse ::
 newTagOpenIDConnectProviderResponse =
   TagOpenIDConnectProviderResponse'
 
-instance
-  Prelude.NFData
-    TagOpenIDConnectProviderResponse
+instance Core.NFData TagOpenIDConnectProviderResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
 import Network.AWS.ResourceGroupsTagging.Types.Tag
 
@@ -31,14 +30,14 @@ import Network.AWS.ResourceGroupsTagging.Types.Tag
 -- /See:/ 'newResourceTagMapping' smart constructor.
 data ResourceTagMapping = ResourceTagMapping'
   { -- | The ARN of the resource.
-    resourceARN :: Prelude.Maybe Prelude.Text,
+    resourceARN :: Core.Maybe Core.Text,
     -- | Information that shows whether a resource is compliant with the
     -- effective tag policy, including details on any noncompliant tag keys.
-    complianceDetails :: Prelude.Maybe ComplianceDetails,
+    complianceDetails :: Core.Maybe ComplianceDetails,
     -- | The tags that have been applied to one or more AWS resources.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceTagMapping' with all optional fields omitted.
@@ -58,35 +57,35 @@ newResourceTagMapping ::
   ResourceTagMapping
 newResourceTagMapping =
   ResourceTagMapping'
-    { resourceARN = Prelude.Nothing,
-      complianceDetails = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { resourceARN = Core.Nothing,
+      complianceDetails = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The ARN of the resource.
-resourceTagMapping_resourceARN :: Lens.Lens' ResourceTagMapping (Prelude.Maybe Prelude.Text)
+resourceTagMapping_resourceARN :: Lens.Lens' ResourceTagMapping (Core.Maybe Core.Text)
 resourceTagMapping_resourceARN = Lens.lens (\ResourceTagMapping' {resourceARN} -> resourceARN) (\s@ResourceTagMapping' {} a -> s {resourceARN = a} :: ResourceTagMapping)
 
 -- | Information that shows whether a resource is compliant with the
 -- effective tag policy, including details on any noncompliant tag keys.
-resourceTagMapping_complianceDetails :: Lens.Lens' ResourceTagMapping (Prelude.Maybe ComplianceDetails)
+resourceTagMapping_complianceDetails :: Lens.Lens' ResourceTagMapping (Core.Maybe ComplianceDetails)
 resourceTagMapping_complianceDetails = Lens.lens (\ResourceTagMapping' {complianceDetails} -> complianceDetails) (\s@ResourceTagMapping' {} a -> s {complianceDetails = a} :: ResourceTagMapping)
 
 -- | The tags that have been applied to one or more AWS resources.
-resourceTagMapping_tags :: Lens.Lens' ResourceTagMapping (Prelude.Maybe [Tag])
-resourceTagMapping_tags = Lens.lens (\ResourceTagMapping' {tags} -> tags) (\s@ResourceTagMapping' {} a -> s {tags = a} :: ResourceTagMapping) Prelude.. Lens.mapping Prelude._Coerce
+resourceTagMapping_tags :: Lens.Lens' ResourceTagMapping (Core.Maybe [Tag])
+resourceTagMapping_tags = Lens.lens (\ResourceTagMapping' {tags} -> tags) (\s@ResourceTagMapping' {} a -> s {tags = a} :: ResourceTagMapping) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ResourceTagMapping where
+instance Core.FromJSON ResourceTagMapping where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceTagMapping"
       ( \x ->
           ResourceTagMapping'
-            Prelude.<$> (x Prelude..:? "ResourceARN")
-            Prelude.<*> (x Prelude..:? "ComplianceDetails")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "ResourceARN")
+            Core.<*> (x Core..:? "ComplianceDetails")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ResourceTagMapping
+instance Core.Hashable ResourceTagMapping
 
-instance Prelude.NFData ResourceTagMapping
+instance Core.NFData ResourceTagMapping

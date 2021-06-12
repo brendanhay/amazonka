@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,39 +47,38 @@ module Network.AWS.EC2.DescribeVpcEndpointServicePermissions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVpcEndpointServicePermissions' smart constructor.
 data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissions'
   { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results of the initial request can be seen by
     -- sending another request with the returned @NextToken@ value. This value
     -- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
     -- 1,000, only 1,000 results are returned.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | One or more filters.
     --
     -- -   @principal@ - The ARN of the principal.
     --
     -- -   @principal-type@ - The principal type (@All@ | @Service@ |
     --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The ID of the service.
-    serviceId :: Prelude.Text
+    serviceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcEndpointServicePermissions' with all optional fields omitted.
@@ -113,27 +111,27 @@ data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissio
 -- 'serviceId', 'describeVpcEndpointServicePermissions_serviceId' - The ID of the service.
 newDescribeVpcEndpointServicePermissions ::
   -- | 'serviceId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeVpcEndpointServicePermissions
 newDescribeVpcEndpointServicePermissions pServiceId_ =
   DescribeVpcEndpointServicePermissions'
     { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
       serviceId = pServiceId_
     }
 
 -- | The token to retrieve the next page of results.
-describeVpcEndpointServicePermissions_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServicePermissions_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissions (Core.Maybe Core.Text)
 describeVpcEndpointServicePermissions_nextToken = Lens.lens (\DescribeVpcEndpointServicePermissions' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {nextToken = a} :: DescribeVpcEndpointServicePermissions)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVpcEndpointServicePermissions_dryRun :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Bool)
+describeVpcEndpointServicePermissions_dryRun :: Lens.Lens' DescribeVpcEndpointServicePermissions (Core.Maybe Core.Bool)
 describeVpcEndpointServicePermissions_dryRun = Lens.lens (\DescribeVpcEndpointServicePermissions' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {dryRun = a} :: DescribeVpcEndpointServicePermissions)
 
 -- | The maximum number of results to return for the request in a single
@@ -141,7 +139,7 @@ describeVpcEndpointServicePermissions_dryRun = Lens.lens (\DescribeVpcEndpointSe
 -- sending another request with the returned @NextToken@ value. This value
 -- can be between 5 and 1,000; if @MaxResults@ is given a value larger than
 -- 1,000, only 1,000 results are returned.
-describeVpcEndpointServicePermissions_maxResults :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Int)
+describeVpcEndpointServicePermissions_maxResults :: Lens.Lens' DescribeVpcEndpointServicePermissions (Core.Maybe Core.Int)
 describeVpcEndpointServicePermissions_maxResults = Lens.lens (\DescribeVpcEndpointServicePermissions' {maxResults} -> maxResults) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {maxResults = a} :: DescribeVpcEndpointServicePermissions)
 
 -- | One or more filters.
@@ -150,109 +148,108 @@ describeVpcEndpointServicePermissions_maxResults = Lens.lens (\DescribeVpcEndpoi
 --
 -- -   @principal-type@ - The principal type (@All@ | @Service@ |
 --     @OrganizationUnit@ | @Account@ | @User@ | @Role@).
-describeVpcEndpointServicePermissions_filters :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe [Filter])
-describeVpcEndpointServicePermissions_filters = Lens.lens (\DescribeVpcEndpointServicePermissions' {filters} -> filters) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {filters = a} :: DescribeVpcEndpointServicePermissions) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcEndpointServicePermissions_filters :: Lens.Lens' DescribeVpcEndpointServicePermissions (Core.Maybe [Filter])
+describeVpcEndpointServicePermissions_filters = Lens.lens (\DescribeVpcEndpointServicePermissions' {filters} -> filters) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {filters = a} :: DescribeVpcEndpointServicePermissions) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the service.
-describeVpcEndpointServicePermissions_serviceId :: Lens.Lens' DescribeVpcEndpointServicePermissions Prelude.Text
+describeVpcEndpointServicePermissions_serviceId :: Lens.Lens' DescribeVpcEndpointServicePermissions Core.Text
 describeVpcEndpointServicePermissions_serviceId = Lens.lens (\DescribeVpcEndpointServicePermissions' {serviceId} -> serviceId) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {serviceId = a} :: DescribeVpcEndpointServicePermissions)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeVpcEndpointServicePermissions
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicePermissionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicePermissionsResponse_allowedPrincipals
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeVpcEndpointServicePermissions_nextToken
           Lens..~ rs
             Lens.^? describeVpcEndpointServicePermissionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeVpcEndpointServicePermissions
   where
   type
-    Rs DescribeVpcEndpointServicePermissions =
+    AWSResponse
+      DescribeVpcEndpointServicePermissions =
       DescribeVpcEndpointServicePermissionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointServicePermissionsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-              Prelude.<*> ( x Prelude..@? "allowedPrincipals"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+              Core.<*> ( x Core..@? "allowedPrincipals" Core..!@ Core.mempty
+                           Core.>>= Core.may (Core.parseXMLList "item")
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeVpcEndpointServicePermissions
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeVpcEndpointServicePermissions
 
 instance
-  Prelude.ToHeaders
-    DescribeVpcEndpointServicePermissions
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeVpcEndpointServicePermissions
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeVpcEndpointServicePermissions
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeVpcEndpointServicePermissions
   where
   toQuery DescribeVpcEndpointServicePermissions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeVpcEndpointServicePermissions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        "ServiceId" Prelude.=: serviceId
+          Core.=: ( "DescribeVpcEndpointServicePermissions" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        "ServiceId" Core.=: serviceId
       ]
 
 -- | /See:/ 'newDescribeVpcEndpointServicePermissionsResponse' smart constructor.
 data DescribeVpcEndpointServicePermissionsResponse = DescribeVpcEndpointServicePermissionsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about one or more allowed principals.
-    allowedPrincipals :: Prelude.Maybe [AllowedPrincipal],
+    allowedPrincipals :: Core.Maybe [AllowedPrincipal],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcEndpointServicePermissionsResponse' with all optional fields omitted.
@@ -270,31 +267,31 @@ data DescribeVpcEndpointServicePermissionsResponse = DescribeVpcEndpointServiceP
 -- 'httpStatus', 'describeVpcEndpointServicePermissionsResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointServicePermissionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVpcEndpointServicePermissionsResponse
 newDescribeVpcEndpointServicePermissionsResponse
   pHttpStatus_ =
     DescribeVpcEndpointServicePermissionsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         allowedPrincipals =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeVpcEndpointServicePermissionsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse (Prelude.Maybe Prelude.Text)
+describeVpcEndpointServicePermissionsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse (Core.Maybe Core.Text)
 describeVpcEndpointServicePermissionsResponse_nextToken = Lens.lens (\DescribeVpcEndpointServicePermissionsResponse' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServicePermissionsResponse' {} a -> s {nextToken = a} :: DescribeVpcEndpointServicePermissionsResponse)
 
 -- | Information about one or more allowed principals.
-describeVpcEndpointServicePermissionsResponse_allowedPrincipals :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse (Prelude.Maybe [AllowedPrincipal])
-describeVpcEndpointServicePermissionsResponse_allowedPrincipals = Lens.lens (\DescribeVpcEndpointServicePermissionsResponse' {allowedPrincipals} -> allowedPrincipals) (\s@DescribeVpcEndpointServicePermissionsResponse' {} a -> s {allowedPrincipals = a} :: DescribeVpcEndpointServicePermissionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcEndpointServicePermissionsResponse_allowedPrincipals :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse (Core.Maybe [AllowedPrincipal])
+describeVpcEndpointServicePermissionsResponse_allowedPrincipals = Lens.lens (\DescribeVpcEndpointServicePermissionsResponse' {allowedPrincipals} -> allowedPrincipals) (\s@DescribeVpcEndpointServicePermissionsResponse' {} a -> s {allowedPrincipals = a} :: DescribeVpcEndpointServicePermissionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpcEndpointServicePermissionsResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse Prelude.Int
+describeVpcEndpointServicePermissionsResponse_httpStatus :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse Core.Int
 describeVpcEndpointServicePermissionsResponse_httpStatus = Lens.lens (\DescribeVpcEndpointServicePermissionsResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcEndpointServicePermissionsResponse' {} a -> s {httpStatus = a} :: DescribeVpcEndpointServicePermissionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeVpcEndpointServicePermissionsResponse

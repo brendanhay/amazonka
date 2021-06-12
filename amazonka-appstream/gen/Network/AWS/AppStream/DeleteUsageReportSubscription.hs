@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.AppStream.DeleteUsageReportSubscription
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -46,7 +45,7 @@ import qualified Network.AWS.Response as Response
 data DeleteUsageReportSubscription = DeleteUsageReportSubscription'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsageReportSubscription' with all optional fields omitted.
@@ -58,63 +57,52 @@ newDeleteUsageReportSubscription =
   DeleteUsageReportSubscription'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteUsageReportSubscription
   where
   type
-    Rs DeleteUsageReportSubscription =
+    AWSResponse DeleteUsageReportSubscription =
       DeleteUsageReportSubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUsageReportSubscriptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DeleteUsageReportSubscription
+instance Core.Hashable DeleteUsageReportSubscription
 
-instance Prelude.NFData DeleteUsageReportSubscription
+instance Core.NFData DeleteUsageReportSubscription
 
-instance
-  Prelude.ToHeaders
-    DeleteUsageReportSubscription
-  where
+instance Core.ToHeaders DeleteUsageReportSubscription where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DeleteUsageReportSubscription" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DeleteUsageReportSubscription" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteUsageReportSubscription where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DeleteUsageReportSubscription where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DeleteUsageReportSubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUsageReportSubscription where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteUsageReportSubscription
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUsageReportSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUsageReportSubscriptionResponse' smart constructor.
 data DeleteUsageReportSubscriptionResponse = DeleteUsageReportSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUsageReportSubscriptionResponse' with all optional fields omitted.
@@ -127,7 +115,7 @@ data DeleteUsageReportSubscriptionResponse = DeleteUsageReportSubscriptionRespon
 -- 'httpStatus', 'deleteUsageReportSubscriptionResponse_httpStatus' - The response's http status code.
 newDeleteUsageReportSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteUsageReportSubscriptionResponse
 newDeleteUsageReportSubscriptionResponse pHttpStatus_ =
   DeleteUsageReportSubscriptionResponse'
@@ -136,9 +124,9 @@ newDeleteUsageReportSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteUsageReportSubscriptionResponse_httpStatus :: Lens.Lens' DeleteUsageReportSubscriptionResponse Prelude.Int
+deleteUsageReportSubscriptionResponse_httpStatus :: Lens.Lens' DeleteUsageReportSubscriptionResponse Core.Int
 deleteUsageReportSubscriptionResponse_httpStatus = Lens.lens (\DeleteUsageReportSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DeleteUsageReportSubscriptionResponse' {} a -> s {httpStatus = a} :: DeleteUsageReportSubscriptionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteUsageReportSubscriptionResponse

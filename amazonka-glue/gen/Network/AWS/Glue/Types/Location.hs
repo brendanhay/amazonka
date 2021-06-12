@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Location where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.CodeGenNodeArg
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location of resources.
 --
 -- /See:/ 'newLocation' smart constructor.
 data Location = Location'
   { -- | A JDBC location.
-    jdbc :: Prelude.Maybe [CodeGenNodeArg],
+    jdbc :: Core.Maybe [CodeGenNodeArg],
     -- | An Amazon DynamoDB table location.
-    dynamoDB :: Prelude.Maybe [CodeGenNodeArg],
+    dynamoDB :: Core.Maybe [CodeGenNodeArg],
     -- | An Amazon Simple Storage Service (Amazon S3) location.
-    s3 :: Prelude.Maybe [CodeGenNodeArg]
+    s3 :: Core.Maybe [CodeGenNodeArg]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Location' with all optional fields omitted.
@@ -54,33 +53,33 @@ newLocation ::
   Location
 newLocation =
   Location'
-    { jdbc = Prelude.Nothing,
-      dynamoDB = Prelude.Nothing,
-      s3 = Prelude.Nothing
+    { jdbc = Core.Nothing,
+      dynamoDB = Core.Nothing,
+      s3 = Core.Nothing
     }
 
 -- | A JDBC location.
-location_jdbc :: Lens.Lens' Location (Prelude.Maybe [CodeGenNodeArg])
-location_jdbc = Lens.lens (\Location' {jdbc} -> jdbc) (\s@Location' {} a -> s {jdbc = a} :: Location) Prelude.. Lens.mapping Prelude._Coerce
+location_jdbc :: Lens.Lens' Location (Core.Maybe [CodeGenNodeArg])
+location_jdbc = Lens.lens (\Location' {jdbc} -> jdbc) (\s@Location' {} a -> s {jdbc = a} :: Location) Core.. Lens.mapping Lens._Coerce
 
 -- | An Amazon DynamoDB table location.
-location_dynamoDB :: Lens.Lens' Location (Prelude.Maybe [CodeGenNodeArg])
-location_dynamoDB = Lens.lens (\Location' {dynamoDB} -> dynamoDB) (\s@Location' {} a -> s {dynamoDB = a} :: Location) Prelude.. Lens.mapping Prelude._Coerce
+location_dynamoDB :: Lens.Lens' Location (Core.Maybe [CodeGenNodeArg])
+location_dynamoDB = Lens.lens (\Location' {dynamoDB} -> dynamoDB) (\s@Location' {} a -> s {dynamoDB = a} :: Location) Core.. Lens.mapping Lens._Coerce
 
 -- | An Amazon Simple Storage Service (Amazon S3) location.
-location_s3 :: Lens.Lens' Location (Prelude.Maybe [CodeGenNodeArg])
-location_s3 = Lens.lens (\Location' {s3} -> s3) (\s@Location' {} a -> s {s3 = a} :: Location) Prelude.. Lens.mapping Prelude._Coerce
+location_s3 :: Lens.Lens' Location (Core.Maybe [CodeGenNodeArg])
+location_s3 = Lens.lens (\Location' {s3} -> s3) (\s@Location' {} a -> s {s3 = a} :: Location) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable Location
+instance Core.Hashable Location
 
-instance Prelude.NFData Location
+instance Core.NFData Location
 
-instance Prelude.ToJSON Location where
+instance Core.ToJSON Location where
   toJSON Location' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Jdbc" Prelude..=) Prelude.<$> jdbc,
-            ("DynamoDB" Prelude..=) Prelude.<$> dynamoDB,
-            ("S3" Prelude..=) Prelude.<$> s3
+    Core.object
+      ( Core.catMaybes
+          [ ("Jdbc" Core..=) Core.<$> jdbc,
+            ("DynamoDB" Core..=) Core.<$> dynamoDB,
+            ("S3" Core..=) Core.<$> s3
           ]
       )

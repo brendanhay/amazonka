@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsItemEventSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsItemIdentity
 
 -- | Summary information about an OpsItem event.
@@ -29,21 +28,21 @@ import Network.AWS.SSM.Types.OpsItemIdentity
 -- /See:/ 'newOpsItemEventSummary' smart constructor.
 data OpsItemEventSummary = OpsItemEventSummary'
   { -- | The ID of the OpsItem event.
-    eventId :: Prelude.Maybe Prelude.Text,
+    eventId :: Core.Maybe Core.Text,
     -- | The type of information provided as a detail.
-    detailType :: Prelude.Maybe Prelude.Text,
+    detailType :: Core.Maybe Core.Text,
     -- | The source of the OpsItem event.
-    source :: Prelude.Maybe Prelude.Text,
+    source :: Core.Maybe Core.Text,
     -- | The date and time the OpsItem event was created.
-    createdTime :: Prelude.Maybe Prelude.POSIX,
+    createdTime :: Core.Maybe Core.POSIX,
     -- | The ID of the OpsItem.
-    opsItemId :: Prelude.Maybe Prelude.Text,
+    opsItemId :: Core.Maybe Core.Text,
     -- | Specific information about the OpsItem event.
-    detail :: Prelude.Maybe Prelude.Text,
+    detail :: Core.Maybe Core.Text,
     -- | Information about the user or resource that created the OpsItem event.
-    createdBy :: Prelude.Maybe OpsItemIdentity
+    createdBy :: Core.Maybe OpsItemIdentity
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsItemEventSummary' with all optional fields omitted.
@@ -70,58 +69,58 @@ newOpsItemEventSummary ::
   OpsItemEventSummary
 newOpsItemEventSummary =
   OpsItemEventSummary'
-    { eventId = Prelude.Nothing,
-      detailType = Prelude.Nothing,
-      source = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      opsItemId = Prelude.Nothing,
-      detail = Prelude.Nothing,
-      createdBy = Prelude.Nothing
+    { eventId = Core.Nothing,
+      detailType = Core.Nothing,
+      source = Core.Nothing,
+      createdTime = Core.Nothing,
+      opsItemId = Core.Nothing,
+      detail = Core.Nothing,
+      createdBy = Core.Nothing
     }
 
 -- | The ID of the OpsItem event.
-opsItemEventSummary_eventId :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
+opsItemEventSummary_eventId :: Lens.Lens' OpsItemEventSummary (Core.Maybe Core.Text)
 opsItemEventSummary_eventId = Lens.lens (\OpsItemEventSummary' {eventId} -> eventId) (\s@OpsItemEventSummary' {} a -> s {eventId = a} :: OpsItemEventSummary)
 
 -- | The type of information provided as a detail.
-opsItemEventSummary_detailType :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
+opsItemEventSummary_detailType :: Lens.Lens' OpsItemEventSummary (Core.Maybe Core.Text)
 opsItemEventSummary_detailType = Lens.lens (\OpsItemEventSummary' {detailType} -> detailType) (\s@OpsItemEventSummary' {} a -> s {detailType = a} :: OpsItemEventSummary)
 
 -- | The source of the OpsItem event.
-opsItemEventSummary_source :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
+opsItemEventSummary_source :: Lens.Lens' OpsItemEventSummary (Core.Maybe Core.Text)
 opsItemEventSummary_source = Lens.lens (\OpsItemEventSummary' {source} -> source) (\s@OpsItemEventSummary' {} a -> s {source = a} :: OpsItemEventSummary)
 
 -- | The date and time the OpsItem event was created.
-opsItemEventSummary_createdTime :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.UTCTime)
-opsItemEventSummary_createdTime = Lens.lens (\OpsItemEventSummary' {createdTime} -> createdTime) (\s@OpsItemEventSummary' {} a -> s {createdTime = a} :: OpsItemEventSummary) Prelude.. Lens.mapping Prelude._Time
+opsItemEventSummary_createdTime :: Lens.Lens' OpsItemEventSummary (Core.Maybe Core.UTCTime)
+opsItemEventSummary_createdTime = Lens.lens (\OpsItemEventSummary' {createdTime} -> createdTime) (\s@OpsItemEventSummary' {} a -> s {createdTime = a} :: OpsItemEventSummary) Core.. Lens.mapping Core._Time
 
 -- | The ID of the OpsItem.
-opsItemEventSummary_opsItemId :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
+opsItemEventSummary_opsItemId :: Lens.Lens' OpsItemEventSummary (Core.Maybe Core.Text)
 opsItemEventSummary_opsItemId = Lens.lens (\OpsItemEventSummary' {opsItemId} -> opsItemId) (\s@OpsItemEventSummary' {} a -> s {opsItemId = a} :: OpsItemEventSummary)
 
 -- | Specific information about the OpsItem event.
-opsItemEventSummary_detail :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
+opsItemEventSummary_detail :: Lens.Lens' OpsItemEventSummary (Core.Maybe Core.Text)
 opsItemEventSummary_detail = Lens.lens (\OpsItemEventSummary' {detail} -> detail) (\s@OpsItemEventSummary' {} a -> s {detail = a} :: OpsItemEventSummary)
 
 -- | Information about the user or resource that created the OpsItem event.
-opsItemEventSummary_createdBy :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe OpsItemIdentity)
+opsItemEventSummary_createdBy :: Lens.Lens' OpsItemEventSummary (Core.Maybe OpsItemIdentity)
 opsItemEventSummary_createdBy = Lens.lens (\OpsItemEventSummary' {createdBy} -> createdBy) (\s@OpsItemEventSummary' {} a -> s {createdBy = a} :: OpsItemEventSummary)
 
-instance Prelude.FromJSON OpsItemEventSummary where
+instance Core.FromJSON OpsItemEventSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OpsItemEventSummary"
       ( \x ->
           OpsItemEventSummary'
-            Prelude.<$> (x Prelude..:? "EventId")
-            Prelude.<*> (x Prelude..:? "DetailType")
-            Prelude.<*> (x Prelude..:? "Source")
-            Prelude.<*> (x Prelude..:? "CreatedTime")
-            Prelude.<*> (x Prelude..:? "OpsItemId")
-            Prelude.<*> (x Prelude..:? "Detail")
-            Prelude.<*> (x Prelude..:? "CreatedBy")
+            Core.<$> (x Core..:? "EventId")
+            Core.<*> (x Core..:? "DetailType")
+            Core.<*> (x Core..:? "Source")
+            Core.<*> (x Core..:? "CreatedTime")
+            Core.<*> (x Core..:? "OpsItemId")
+            Core.<*> (x Core..:? "Detail")
+            Core.<*> (x Core..:? "CreatedBy")
       )
 
-instance Prelude.Hashable OpsItemEventSummary
+instance Core.Hashable OpsItemEventSummary
 
-instance Prelude.NFData OpsItemEventSummary
+instance Core.NFData OpsItemEventSummary

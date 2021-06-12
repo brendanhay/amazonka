@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.SAMLProviderListEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the list of SAML providers for this account.
 --
 -- /See:/ 'newSAMLProviderListEntry' smart constructor.
 data SAMLProviderListEntry = SAMLProviderListEntry'
   { -- | The date and time when the SAML provider was created.
-    createDate :: Prelude.Maybe Prelude.ISO8601,
+    createDate :: Core.Maybe Core.ISO8601,
     -- | The Amazon Resource Name (ARN) of the SAML provider.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The expiration date and time for the SAML provider.
-    validUntil :: Prelude.Maybe Prelude.ISO8601
+    validUntil :: Core.Maybe Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SAMLProviderListEntry' with all optional fields omitted.
@@ -53,31 +52,30 @@ newSAMLProviderListEntry ::
   SAMLProviderListEntry
 newSAMLProviderListEntry =
   SAMLProviderListEntry'
-    { createDate =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      validUntil = Prelude.Nothing
+    { createDate = Core.Nothing,
+      arn = Core.Nothing,
+      validUntil = Core.Nothing
     }
 
 -- | The date and time when the SAML provider was created.
-sAMLProviderListEntry_createDate :: Lens.Lens' SAMLProviderListEntry (Prelude.Maybe Prelude.UTCTime)
-sAMLProviderListEntry_createDate = Lens.lens (\SAMLProviderListEntry' {createDate} -> createDate) (\s@SAMLProviderListEntry' {} a -> s {createDate = a} :: SAMLProviderListEntry) Prelude.. Lens.mapping Prelude._Time
+sAMLProviderListEntry_createDate :: Lens.Lens' SAMLProviderListEntry (Core.Maybe Core.UTCTime)
+sAMLProviderListEntry_createDate = Lens.lens (\SAMLProviderListEntry' {createDate} -> createDate) (\s@SAMLProviderListEntry' {} a -> s {createDate = a} :: SAMLProviderListEntry) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
-sAMLProviderListEntry_arn :: Lens.Lens' SAMLProviderListEntry (Prelude.Maybe Prelude.Text)
+sAMLProviderListEntry_arn :: Lens.Lens' SAMLProviderListEntry (Core.Maybe Core.Text)
 sAMLProviderListEntry_arn = Lens.lens (\SAMLProviderListEntry' {arn} -> arn) (\s@SAMLProviderListEntry' {} a -> s {arn = a} :: SAMLProviderListEntry)
 
 -- | The expiration date and time for the SAML provider.
-sAMLProviderListEntry_validUntil :: Lens.Lens' SAMLProviderListEntry (Prelude.Maybe Prelude.UTCTime)
-sAMLProviderListEntry_validUntil = Lens.lens (\SAMLProviderListEntry' {validUntil} -> validUntil) (\s@SAMLProviderListEntry' {} a -> s {validUntil = a} :: SAMLProviderListEntry) Prelude.. Lens.mapping Prelude._Time
+sAMLProviderListEntry_validUntil :: Lens.Lens' SAMLProviderListEntry (Core.Maybe Core.UTCTime)
+sAMLProviderListEntry_validUntil = Lens.lens (\SAMLProviderListEntry' {validUntil} -> validUntil) (\s@SAMLProviderListEntry' {} a -> s {validUntil = a} :: SAMLProviderListEntry) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromXML SAMLProviderListEntry where
+instance Core.FromXML SAMLProviderListEntry where
   parseXML x =
     SAMLProviderListEntry'
-      Prelude.<$> (x Prelude..@? "CreateDate")
-      Prelude.<*> (x Prelude..@? "Arn")
-      Prelude.<*> (x Prelude..@? "ValidUntil")
+      Core.<$> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "Arn")
+      Core.<*> (x Core..@? "ValidUntil")
 
-instance Prelude.Hashable SAMLProviderListEntry
+instance Core.Hashable SAMLProviderListEntry
 
-instance Prelude.NFData SAMLProviderListEntry
+instance Core.NFData SAMLProviderListEntry

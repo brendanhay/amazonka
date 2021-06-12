@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.OrderableClusterOption where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.AvailabilityZone
 
@@ -30,15 +29,15 @@ import Network.AWS.Redshift.Types.AvailabilityZone
 -- /See:/ 'newOrderableClusterOption' smart constructor.
 data OrderableClusterOption = OrderableClusterOption'
   { -- | A list of availability zones for the orderable cluster.
-    availabilityZones :: Prelude.Maybe [AvailabilityZone],
+    availabilityZones :: Core.Maybe [AvailabilityZone],
     -- | The cluster type, for example @multi-node@.
-    clusterType :: Prelude.Maybe Prelude.Text,
+    clusterType :: Core.Maybe Core.Text,
     -- | The node type for the orderable cluster.
-    nodeType :: Prelude.Maybe Prelude.Text,
+    nodeType :: Core.Maybe Core.Text,
     -- | The version of the orderable cluster.
-    clusterVersion :: Prelude.Maybe Prelude.Text
+    clusterVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrderableClusterOption' with all optional fields omitted.
@@ -60,40 +59,38 @@ newOrderableClusterOption ::
 newOrderableClusterOption =
   OrderableClusterOption'
     { availabilityZones =
-        Prelude.Nothing,
-      clusterType = Prelude.Nothing,
-      nodeType = Prelude.Nothing,
-      clusterVersion = Prelude.Nothing
+        Core.Nothing,
+      clusterType = Core.Nothing,
+      nodeType = Core.Nothing,
+      clusterVersion = Core.Nothing
     }
 
 -- | A list of availability zones for the orderable cluster.
-orderableClusterOption_availabilityZones :: Lens.Lens' OrderableClusterOption (Prelude.Maybe [AvailabilityZone])
-orderableClusterOption_availabilityZones = Lens.lens (\OrderableClusterOption' {availabilityZones} -> availabilityZones) (\s@OrderableClusterOption' {} a -> s {availabilityZones = a} :: OrderableClusterOption) Prelude.. Lens.mapping Prelude._Coerce
+orderableClusterOption_availabilityZones :: Lens.Lens' OrderableClusterOption (Core.Maybe [AvailabilityZone])
+orderableClusterOption_availabilityZones = Lens.lens (\OrderableClusterOption' {availabilityZones} -> availabilityZones) (\s@OrderableClusterOption' {} a -> s {availabilityZones = a} :: OrderableClusterOption) Core.. Lens.mapping Lens._Coerce
 
 -- | The cluster type, for example @multi-node@.
-orderableClusterOption_clusterType :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
+orderableClusterOption_clusterType :: Lens.Lens' OrderableClusterOption (Core.Maybe Core.Text)
 orderableClusterOption_clusterType = Lens.lens (\OrderableClusterOption' {clusterType} -> clusterType) (\s@OrderableClusterOption' {} a -> s {clusterType = a} :: OrderableClusterOption)
 
 -- | The node type for the orderable cluster.
-orderableClusterOption_nodeType :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
+orderableClusterOption_nodeType :: Lens.Lens' OrderableClusterOption (Core.Maybe Core.Text)
 orderableClusterOption_nodeType = Lens.lens (\OrderableClusterOption' {nodeType} -> nodeType) (\s@OrderableClusterOption' {} a -> s {nodeType = a} :: OrderableClusterOption)
 
 -- | The version of the orderable cluster.
-orderableClusterOption_clusterVersion :: Lens.Lens' OrderableClusterOption (Prelude.Maybe Prelude.Text)
+orderableClusterOption_clusterVersion :: Lens.Lens' OrderableClusterOption (Core.Maybe Core.Text)
 orderableClusterOption_clusterVersion = Lens.lens (\OrderableClusterOption' {clusterVersion} -> clusterVersion) (\s@OrderableClusterOption' {} a -> s {clusterVersion = a} :: OrderableClusterOption)
 
-instance Prelude.FromXML OrderableClusterOption where
+instance Core.FromXML OrderableClusterOption where
   parseXML x =
     OrderableClusterOption'
-      Prelude.<$> ( x Prelude..@? "AvailabilityZones"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "AvailabilityZone")
-                  )
-      Prelude.<*> (x Prelude..@? "ClusterType")
-      Prelude.<*> (x Prelude..@? "NodeType")
-      Prelude.<*> (x Prelude..@? "ClusterVersion")
+      Core.<$> ( x Core..@? "AvailabilityZones" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "AvailabilityZone")
+               )
+      Core.<*> (x Core..@? "ClusterType")
+      Core.<*> (x Core..@? "NodeType")
+      Core.<*> (x Core..@? "ClusterVersion")
 
-instance Prelude.Hashable OrderableClusterOption
+instance Core.Hashable OrderableClusterOption
 
-instance Prelude.NFData OrderableClusterOption
+instance Core.NFData OrderableClusterOption

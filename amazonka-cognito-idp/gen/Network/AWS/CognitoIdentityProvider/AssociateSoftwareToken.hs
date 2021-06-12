@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,21 +43,21 @@ module Network.AWS.CognitoIdentityProvider.AssociateSoftwareToken
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateSoftwareToken' smart constructor.
 data AssociateSoftwareToken = AssociateSoftwareToken'
   { -- | The access token.
-    accessToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    accessToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service. This allows authentication of the user as part of the
     -- MFA setup process.
-    session :: Prelude.Maybe Prelude.Text
+    session :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateSoftwareToken' with all optional fields omitted.
@@ -77,82 +76,79 @@ newAssociateSoftwareToken ::
   AssociateSoftwareToken
 newAssociateSoftwareToken =
   AssociateSoftwareToken'
-    { accessToken =
-        Prelude.Nothing,
-      session = Prelude.Nothing
+    { accessToken = Core.Nothing,
+      session = Core.Nothing
     }
 
 -- | The access token.
-associateSoftwareToken_accessToken :: Lens.Lens' AssociateSoftwareToken (Prelude.Maybe Prelude.Text)
-associateSoftwareToken_accessToken = Lens.lens (\AssociateSoftwareToken' {accessToken} -> accessToken) (\s@AssociateSoftwareToken' {} a -> s {accessToken = a} :: AssociateSoftwareToken) Prelude.. Lens.mapping Prelude._Sensitive
+associateSoftwareToken_accessToken :: Lens.Lens' AssociateSoftwareToken (Core.Maybe Core.Text)
+associateSoftwareToken_accessToken = Lens.lens (\AssociateSoftwareToken' {accessToken} -> accessToken) (\s@AssociateSoftwareToken' {} a -> s {accessToken = a} :: AssociateSoftwareToken) Core.. Lens.mapping Core._Sensitive
 
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the
 -- MFA setup process.
-associateSoftwareToken_session :: Lens.Lens' AssociateSoftwareToken (Prelude.Maybe Prelude.Text)
+associateSoftwareToken_session :: Lens.Lens' AssociateSoftwareToken (Core.Maybe Core.Text)
 associateSoftwareToken_session = Lens.lens (\AssociateSoftwareToken' {session} -> session) (\s@AssociateSoftwareToken' {} a -> s {session = a} :: AssociateSoftwareToken)
 
-instance Prelude.AWSRequest AssociateSoftwareToken where
+instance Core.AWSRequest AssociateSoftwareToken where
   type
-    Rs AssociateSoftwareToken =
+    AWSResponse AssociateSoftwareToken =
       AssociateSoftwareTokenResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AssociateSoftwareTokenResponse'
-            Prelude.<$> (x Prelude..?> "SecretCode")
-            Prelude.<*> (x Prelude..?> "Session")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SecretCode")
+            Core.<*> (x Core..?> "Session")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateSoftwareToken
+instance Core.Hashable AssociateSoftwareToken
 
-instance Prelude.NFData AssociateSoftwareToken
+instance Core.NFData AssociateSoftwareToken
 
-instance Prelude.ToHeaders AssociateSoftwareToken where
+instance Core.ToHeaders AssociateSoftwareToken where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AssociateSoftwareToken" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AssociateSoftwareToken" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateSoftwareToken where
+instance Core.ToJSON AssociateSoftwareToken where
   toJSON AssociateSoftwareToken' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AccessToken" Prelude..=) Prelude.<$> accessToken,
-            ("Session" Prelude..=) Prelude.<$> session
+    Core.object
+      ( Core.catMaybes
+          [ ("AccessToken" Core..=) Core.<$> accessToken,
+            ("Session" Core..=) Core.<$> session
           ]
       )
 
-instance Prelude.ToPath AssociateSoftwareToken where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateSoftwareToken where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateSoftwareToken where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateSoftwareToken where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateSoftwareTokenResponse' smart constructor.
 data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
   { -- | A unique generated shared secret code that is used in the TOTP algorithm
     -- to generate a one time code.
-    secretCode :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    secretCode :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The session which should be passed both ways in challenge-response calls
     -- to the service. This allows authentication of the user as part of the
     -- MFA setup process.
-    session :: Prelude.Maybe Prelude.Text,
+    session :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateSoftwareTokenResponse' with all optional fields omitted.
@@ -172,31 +168,29 @@ data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
 -- 'httpStatus', 'associateSoftwareTokenResponse_httpStatus' - The response's http status code.
 newAssociateSoftwareTokenResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateSoftwareTokenResponse
 newAssociateSoftwareTokenResponse pHttpStatus_ =
   AssociateSoftwareTokenResponse'
     { secretCode =
-        Prelude.Nothing,
-      session = Prelude.Nothing,
+        Core.Nothing,
+      session = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique generated shared secret code that is used in the TOTP algorithm
 -- to generate a one time code.
-associateSoftwareTokenResponse_secretCode :: Lens.Lens' AssociateSoftwareTokenResponse (Prelude.Maybe Prelude.Text)
-associateSoftwareTokenResponse_secretCode = Lens.lens (\AssociateSoftwareTokenResponse' {secretCode} -> secretCode) (\s@AssociateSoftwareTokenResponse' {} a -> s {secretCode = a} :: AssociateSoftwareTokenResponse) Prelude.. Lens.mapping Prelude._Sensitive
+associateSoftwareTokenResponse_secretCode :: Lens.Lens' AssociateSoftwareTokenResponse (Core.Maybe Core.Text)
+associateSoftwareTokenResponse_secretCode = Lens.lens (\AssociateSoftwareTokenResponse' {secretCode} -> secretCode) (\s@AssociateSoftwareTokenResponse' {} a -> s {secretCode = a} :: AssociateSoftwareTokenResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | The session which should be passed both ways in challenge-response calls
 -- to the service. This allows authentication of the user as part of the
 -- MFA setup process.
-associateSoftwareTokenResponse_session :: Lens.Lens' AssociateSoftwareTokenResponse (Prelude.Maybe Prelude.Text)
+associateSoftwareTokenResponse_session :: Lens.Lens' AssociateSoftwareTokenResponse (Core.Maybe Core.Text)
 associateSoftwareTokenResponse_session = Lens.lens (\AssociateSoftwareTokenResponse' {session} -> session) (\s@AssociateSoftwareTokenResponse' {} a -> s {session = a} :: AssociateSoftwareTokenResponse)
 
 -- | The response's http status code.
-associateSoftwareTokenResponse_httpStatus :: Lens.Lens' AssociateSoftwareTokenResponse Prelude.Int
+associateSoftwareTokenResponse_httpStatus :: Lens.Lens' AssociateSoftwareTokenResponse Core.Int
 associateSoftwareTokenResponse_httpStatus = Lens.lens (\AssociateSoftwareTokenResponse' {httpStatus} -> httpStatus) (\s@AssociateSoftwareTokenResponse' {} a -> s {httpStatus = a} :: AssociateSoftwareTokenResponse)
 
-instance
-  Prelude.NFData
-    AssociateSoftwareTokenResponse
+instance Core.NFData AssociateSoftwareTokenResponse

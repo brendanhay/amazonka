@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,18 +47,18 @@ module Network.AWS.Kinesis.DescribeStreamSummary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeStreamSummary' smart constructor.
 data DescribeStreamSummary = DescribeStreamSummary'
   { -- | The name of the stream to describe.
-    streamName :: Prelude.Text
+    streamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStreamSummary' with all optional fields omitted.
@@ -72,68 +71,66 @@ data DescribeStreamSummary = DescribeStreamSummary'
 -- 'streamName', 'describeStreamSummary_streamName' - The name of the stream to describe.
 newDescribeStreamSummary ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeStreamSummary
 newDescribeStreamSummary pStreamName_ =
   DescribeStreamSummary' {streamName = pStreamName_}
 
 -- | The name of the stream to describe.
-describeStreamSummary_streamName :: Lens.Lens' DescribeStreamSummary Prelude.Text
+describeStreamSummary_streamName :: Lens.Lens' DescribeStreamSummary Core.Text
 describeStreamSummary_streamName = Lens.lens (\DescribeStreamSummary' {streamName} -> streamName) (\s@DescribeStreamSummary' {} a -> s {streamName = a} :: DescribeStreamSummary)
 
-instance Prelude.AWSRequest DescribeStreamSummary where
+instance Core.AWSRequest DescribeStreamSummary where
   type
-    Rs DescribeStreamSummary =
+    AWSResponse DescribeStreamSummary =
       DescribeStreamSummaryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeStreamSummaryResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "StreamDescriptionSummary")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "StreamDescriptionSummary")
       )
 
-instance Prelude.Hashable DescribeStreamSummary
+instance Core.Hashable DescribeStreamSummary
 
-instance Prelude.NFData DescribeStreamSummary
+instance Core.NFData DescribeStreamSummary
 
-instance Prelude.ToHeaders DescribeStreamSummary where
+instance Core.ToHeaders DescribeStreamSummary where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.DescribeStreamSummary" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.DescribeStreamSummary" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeStreamSummary where
+instance Core.ToJSON DescribeStreamSummary where
   toJSON DescribeStreamSummary' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("StreamName" Prelude..= streamName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("StreamName" Core..= streamName)]
       )
 
-instance Prelude.ToPath DescribeStreamSummary where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStreamSummary where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStreamSummary where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeStreamSummary where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeStreamSummaryResponse' smart constructor.
 data DescribeStreamSummaryResponse = DescribeStreamSummaryResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A StreamDescriptionSummary containing information about the stream.
     streamDescriptionSummary :: StreamDescriptionSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStreamSummaryResponse' with all optional fields omitted.
@@ -148,7 +145,7 @@ data DescribeStreamSummaryResponse = DescribeStreamSummaryResponse'
 -- 'streamDescriptionSummary', 'describeStreamSummaryResponse_streamDescriptionSummary' - A StreamDescriptionSummary containing information about the stream.
 newDescribeStreamSummaryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'streamDescriptionSummary'
   StreamDescriptionSummary ->
   DescribeStreamSummaryResponse
@@ -163,11 +160,11 @@ newDescribeStreamSummaryResponse
       }
 
 -- | The response's http status code.
-describeStreamSummaryResponse_httpStatus :: Lens.Lens' DescribeStreamSummaryResponse Prelude.Int
+describeStreamSummaryResponse_httpStatus :: Lens.Lens' DescribeStreamSummaryResponse Core.Int
 describeStreamSummaryResponse_httpStatus = Lens.lens (\DescribeStreamSummaryResponse' {httpStatus} -> httpStatus) (\s@DescribeStreamSummaryResponse' {} a -> s {httpStatus = a} :: DescribeStreamSummaryResponse)
 
 -- | A StreamDescriptionSummary containing information about the stream.
 describeStreamSummaryResponse_streamDescriptionSummary :: Lens.Lens' DescribeStreamSummaryResponse StreamDescriptionSummary
 describeStreamSummaryResponse_streamDescriptionSummary = Lens.lens (\DescribeStreamSummaryResponse' {streamDescriptionSummary} -> streamDescriptionSummary) (\s@DescribeStreamSummaryResponse' {} a -> s {streamDescriptionSummary = a} :: DescribeStreamSummaryResponse)
 
-instance Prelude.NFData DescribeStreamSummaryResponse
+instance Core.NFData DescribeStreamSummaryResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Suite where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.Counters
 import Network.AWS.DeviceFarm.Types.DeviceMinutes
 import Network.AWS.DeviceFarm.Types.ExecutionResult
 import Network.AWS.DeviceFarm.Types.ExecutionStatus
 import Network.AWS.DeviceFarm.Types.TestType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a collection of one or more tests.
 --
 -- /See:/ 'newSuite' smart constructor.
 data Suite = Suite'
   { -- | The suite\'s result counters.
-    counters :: Prelude.Maybe Counters,
+    counters :: Core.Maybe Counters,
     -- | The suite\'s status.
     --
     -- Allowed values include:
@@ -55,7 +54,7 @@ data Suite = Suite'
     -- -   COMPLETED
     --
     -- -   STOPPING
-    status :: Prelude.Maybe ExecutionStatus,
+    status :: Core.Maybe ExecutionStatus,
     -- | The suite\'s result.
     --
     -- Allowed values include:
@@ -73,19 +72,19 @@ data Suite = Suite'
     -- -   ERRORED
     --
     -- -   STOPPED
-    result :: Prelude.Maybe ExecutionResult,
+    result :: Core.Maybe ExecutionResult,
     -- | The suite\'s start time.
-    started :: Prelude.Maybe Prelude.POSIX,
+    started :: Core.Maybe Core.POSIX,
     -- | A message about the suite\'s result.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The suite\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The suite\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The suite\'s stop time.
-    stopped :: Prelude.Maybe Prelude.POSIX,
+    stopped :: Core.Maybe Core.POSIX,
     -- | When the suite was created.
-    created :: Prelude.Maybe Prelude.POSIX,
+    created :: Core.Maybe Core.POSIX,
     -- | The suite\'s type.
     --
     -- Must be one of the following values:
@@ -129,12 +128,12 @@ data Suite = Suite'
     -- -   XCTEST
     --
     -- -   XCTEST_UI
-    type' :: Prelude.Maybe TestType,
+    type' :: Core.Maybe TestType,
     -- | Represents the total (metered or unmetered) minutes used by the test
     -- suite.
-    deviceMinutes :: Prelude.Maybe DeviceMinutes
+    deviceMinutes :: Core.Maybe DeviceMinutes
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Suite' with all optional fields omitted.
@@ -248,21 +247,21 @@ newSuite ::
   Suite
 newSuite =
   Suite'
-    { counters = Prelude.Nothing,
-      status = Prelude.Nothing,
-      result = Prelude.Nothing,
-      started = Prelude.Nothing,
-      message = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      stopped = Prelude.Nothing,
-      created = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      deviceMinutes = Prelude.Nothing
+    { counters = Core.Nothing,
+      status = Core.Nothing,
+      result = Core.Nothing,
+      started = Core.Nothing,
+      message = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
+      stopped = Core.Nothing,
+      created = Core.Nothing,
+      type' = Core.Nothing,
+      deviceMinutes = Core.Nothing
     }
 
 -- | The suite\'s result counters.
-suite_counters :: Lens.Lens' Suite (Prelude.Maybe Counters)
+suite_counters :: Lens.Lens' Suite (Core.Maybe Counters)
 suite_counters = Lens.lens (\Suite' {counters} -> counters) (\s@Suite' {} a -> s {counters = a} :: Suite)
 
 -- | The suite\'s status.
@@ -286,7 +285,7 @@ suite_counters = Lens.lens (\Suite' {counters} -> counters) (\s@Suite' {} a -> s
 -- -   COMPLETED
 --
 -- -   STOPPING
-suite_status :: Lens.Lens' Suite (Prelude.Maybe ExecutionStatus)
+suite_status :: Lens.Lens' Suite (Core.Maybe ExecutionStatus)
 suite_status = Lens.lens (\Suite' {status} -> status) (\s@Suite' {} a -> s {status = a} :: Suite)
 
 -- | The suite\'s result.
@@ -306,32 +305,32 @@ suite_status = Lens.lens (\Suite' {status} -> status) (\s@Suite' {} a -> s {stat
 -- -   ERRORED
 --
 -- -   STOPPED
-suite_result :: Lens.Lens' Suite (Prelude.Maybe ExecutionResult)
+suite_result :: Lens.Lens' Suite (Core.Maybe ExecutionResult)
 suite_result = Lens.lens (\Suite' {result} -> result) (\s@Suite' {} a -> s {result = a} :: Suite)
 
 -- | The suite\'s start time.
-suite_started :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_started = Lens.lens (\Suite' {started} -> started) (\s@Suite' {} a -> s {started = a} :: Suite) Prelude.. Lens.mapping Prelude._Time
+suite_started :: Lens.Lens' Suite (Core.Maybe Core.UTCTime)
+suite_started = Lens.lens (\Suite' {started} -> started) (\s@Suite' {} a -> s {started = a} :: Suite) Core.. Lens.mapping Core._Time
 
 -- | A message about the suite\'s result.
-suite_message :: Lens.Lens' Suite (Prelude.Maybe Prelude.Text)
+suite_message :: Lens.Lens' Suite (Core.Maybe Core.Text)
 suite_message = Lens.lens (\Suite' {message} -> message) (\s@Suite' {} a -> s {message = a} :: Suite)
 
 -- | The suite\'s ARN.
-suite_arn :: Lens.Lens' Suite (Prelude.Maybe Prelude.Text)
+suite_arn :: Lens.Lens' Suite (Core.Maybe Core.Text)
 suite_arn = Lens.lens (\Suite' {arn} -> arn) (\s@Suite' {} a -> s {arn = a} :: Suite)
 
 -- | The suite\'s name.
-suite_name :: Lens.Lens' Suite (Prelude.Maybe Prelude.Text)
+suite_name :: Lens.Lens' Suite (Core.Maybe Core.Text)
 suite_name = Lens.lens (\Suite' {name} -> name) (\s@Suite' {} a -> s {name = a} :: Suite)
 
 -- | The suite\'s stop time.
-suite_stopped :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_stopped = Lens.lens (\Suite' {stopped} -> stopped) (\s@Suite' {} a -> s {stopped = a} :: Suite) Prelude.. Lens.mapping Prelude._Time
+suite_stopped :: Lens.Lens' Suite (Core.Maybe Core.UTCTime)
+suite_stopped = Lens.lens (\Suite' {stopped} -> stopped) (\s@Suite' {} a -> s {stopped = a} :: Suite) Core.. Lens.mapping Core._Time
 
 -- | When the suite was created.
-suite_created :: Lens.Lens' Suite (Prelude.Maybe Prelude.UTCTime)
-suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {created = a} :: Suite) Prelude.. Lens.mapping Prelude._Time
+suite_created :: Lens.Lens' Suite (Core.Maybe Core.UTCTime)
+suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {created = a} :: Suite) Core.. Lens.mapping Core._Time
 
 -- | The suite\'s type.
 --
@@ -376,33 +375,33 @@ suite_created = Lens.lens (\Suite' {created} -> created) (\s@Suite' {} a -> s {c
 -- -   XCTEST
 --
 -- -   XCTEST_UI
-suite_type :: Lens.Lens' Suite (Prelude.Maybe TestType)
+suite_type :: Lens.Lens' Suite (Core.Maybe TestType)
 suite_type = Lens.lens (\Suite' {type'} -> type') (\s@Suite' {} a -> s {type' = a} :: Suite)
 
 -- | Represents the total (metered or unmetered) minutes used by the test
 -- suite.
-suite_deviceMinutes :: Lens.Lens' Suite (Prelude.Maybe DeviceMinutes)
+suite_deviceMinutes :: Lens.Lens' Suite (Core.Maybe DeviceMinutes)
 suite_deviceMinutes = Lens.lens (\Suite' {deviceMinutes} -> deviceMinutes) (\s@Suite' {} a -> s {deviceMinutes = a} :: Suite)
 
-instance Prelude.FromJSON Suite where
+instance Core.FromJSON Suite where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Suite"
       ( \x ->
           Suite'
-            Prelude.<$> (x Prelude..:? "counters")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "result")
-            Prelude.<*> (x Prelude..:? "started")
-            Prelude.<*> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "stopped")
-            Prelude.<*> (x Prelude..:? "created")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "deviceMinutes")
+            Core.<$> (x Core..:? "counters")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "result")
+            Core.<*> (x Core..:? "started")
+            Core.<*> (x Core..:? "message")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "stopped")
+            Core.<*> (x Core..:? "created")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "deviceMinutes")
       )
 
-instance Prelude.Hashable Suite
+instance Core.Hashable Suite
 
-instance Prelude.NFData Suite
+instance Core.NFData Suite

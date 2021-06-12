@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.Total where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the total usage with the corresponding currency unit for that
 -- value.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTotal' smart constructor.
 data Total = Total'
   { -- | The total usage.
-    amount :: Prelude.Maybe Prelude.Text,
+    amount :: Core.Maybe Core.Text,
     -- | The currency unit that the amount is given in.
-    unit :: Prelude.Maybe Prelude.Text
+    unit :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Total' with all optional fields omitted.
@@ -49,29 +48,25 @@ data Total = Total'
 newTotal ::
   Total
 newTotal =
-  Total'
-    { amount = Prelude.Nothing,
-      unit = Prelude.Nothing
-    }
+  Total' {amount = Core.Nothing, unit = Core.Nothing}
 
 -- | The total usage.
-total_amount :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
+total_amount :: Lens.Lens' Total (Core.Maybe Core.Text)
 total_amount = Lens.lens (\Total' {amount} -> amount) (\s@Total' {} a -> s {amount = a} :: Total)
 
 -- | The currency unit that the amount is given in.
-total_unit :: Lens.Lens' Total (Prelude.Maybe Prelude.Text)
+total_unit :: Lens.Lens' Total (Core.Maybe Core.Text)
 total_unit = Lens.lens (\Total' {unit} -> unit) (\s@Total' {} a -> s {unit = a} :: Total)
 
-instance Prelude.FromJSON Total where
+instance Core.FromJSON Total where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Total"
       ( \x ->
           Total'
-            Prelude.<$> (x Prelude..:? "amount")
-            Prelude.<*> (x Prelude..:? "unit")
+            Core.<$> (x Core..:? "amount") Core.<*> (x Core..:? "unit")
       )
 
-instance Prelude.Hashable Total
+instance Core.Hashable Total
 
-instance Prelude.NFData Total
+instance Core.NFData Total

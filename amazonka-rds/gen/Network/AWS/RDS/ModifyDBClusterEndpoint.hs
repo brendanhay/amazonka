@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.RDS.ModifyDBClusterEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,17 +63,17 @@ data ModifyDBClusterEndpoint = ModifyDBClusterEndpoint'
   { -- | List of DB instance identifiers that aren\'t part of the custom endpoint
     -- group. All other eligible instances are reachable through the custom
     -- endpoint. Only relevant if the list of static members is empty.
-    excludedMembers :: Prelude.Maybe [Prelude.Text],
+    excludedMembers :: Core.Maybe [Core.Text],
     -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-    endpointType :: Prelude.Maybe Prelude.Text,
+    endpointType :: Core.Maybe Core.Text,
     -- | List of DB instance identifiers that are part of the custom endpoint
     -- group.
-    staticMembers :: Prelude.Maybe [Prelude.Text],
+    staticMembers :: Core.Maybe [Core.Text],
     -- | The identifier of the endpoint to modify. This parameter is stored as a
     -- lowercase string.
-    dbClusterEndpointIdentifier :: Prelude.Text
+    dbClusterEndpointIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyDBClusterEndpoint' with all optional fields omitted.
@@ -97,15 +96,15 @@ data ModifyDBClusterEndpoint = ModifyDBClusterEndpoint'
 -- lowercase string.
 newModifyDBClusterEndpoint ::
   -- | 'dbClusterEndpointIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ModifyDBClusterEndpoint
 newModifyDBClusterEndpoint
   pDBClusterEndpointIdentifier_ =
     ModifyDBClusterEndpoint'
       { excludedMembers =
-          Prelude.Nothing,
-        endpointType = Prelude.Nothing,
-        staticMembers = Prelude.Nothing,
+          Core.Nothing,
+        endpointType = Core.Nothing,
+        staticMembers = Core.Nothing,
         dbClusterEndpointIdentifier =
           pDBClusterEndpointIdentifier_
       }
@@ -113,59 +112,56 @@ newModifyDBClusterEndpoint
 -- | List of DB instance identifiers that aren\'t part of the custom endpoint
 -- group. All other eligible instances are reachable through the custom
 -- endpoint. Only relevant if the list of static members is empty.
-modifyDBClusterEndpoint_excludedMembers :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
-modifyDBClusterEndpoint_excludedMembers = Lens.lens (\ModifyDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {excludedMembers = a} :: ModifyDBClusterEndpoint) Prelude.. Lens.mapping Prelude._Coerce
+modifyDBClusterEndpoint_excludedMembers :: Lens.Lens' ModifyDBClusterEndpoint (Core.Maybe [Core.Text])
+modifyDBClusterEndpoint_excludedMembers = Lens.lens (\ModifyDBClusterEndpoint' {excludedMembers} -> excludedMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {excludedMembers = a} :: ModifyDBClusterEndpoint) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of the endpoint. One of: @READER@, @WRITER@, @ANY@.
-modifyDBClusterEndpoint_endpointType :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe Prelude.Text)
+modifyDBClusterEndpoint_endpointType :: Lens.Lens' ModifyDBClusterEndpoint (Core.Maybe Core.Text)
 modifyDBClusterEndpoint_endpointType = Lens.lens (\ModifyDBClusterEndpoint' {endpointType} -> endpointType) (\s@ModifyDBClusterEndpoint' {} a -> s {endpointType = a} :: ModifyDBClusterEndpoint)
 
 -- | List of DB instance identifiers that are part of the custom endpoint
 -- group.
-modifyDBClusterEndpoint_staticMembers :: Lens.Lens' ModifyDBClusterEndpoint (Prelude.Maybe [Prelude.Text])
-modifyDBClusterEndpoint_staticMembers = Lens.lens (\ModifyDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {staticMembers = a} :: ModifyDBClusterEndpoint) Prelude.. Lens.mapping Prelude._Coerce
+modifyDBClusterEndpoint_staticMembers :: Lens.Lens' ModifyDBClusterEndpoint (Core.Maybe [Core.Text])
+modifyDBClusterEndpoint_staticMembers = Lens.lens (\ModifyDBClusterEndpoint' {staticMembers} -> staticMembers) (\s@ModifyDBClusterEndpoint' {} a -> s {staticMembers = a} :: ModifyDBClusterEndpoint) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the endpoint to modify. This parameter is stored as a
 -- lowercase string.
-modifyDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' ModifyDBClusterEndpoint Prelude.Text
+modifyDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' ModifyDBClusterEndpoint Core.Text
 modifyDBClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\ModifyDBClusterEndpoint' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@ModifyDBClusterEndpoint' {} a -> s {dbClusterEndpointIdentifier = a} :: ModifyDBClusterEndpoint)
 
-instance Prelude.AWSRequest ModifyDBClusterEndpoint where
-  type Rs ModifyDBClusterEndpoint = DBClusterEndpoint
+instance Core.AWSRequest ModifyDBClusterEndpoint where
+  type
+    AWSResponse ModifyDBClusterEndpoint =
+      DBClusterEndpoint
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterEndpointResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyDBClusterEndpoint
+instance Core.Hashable ModifyDBClusterEndpoint
 
-instance Prelude.NFData ModifyDBClusterEndpoint
+instance Core.NFData ModifyDBClusterEndpoint
 
-instance Prelude.ToHeaders ModifyDBClusterEndpoint where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyDBClusterEndpoint where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyDBClusterEndpoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyDBClusterEndpoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyDBClusterEndpoint where
+instance Core.ToQuery ModifyDBClusterEndpoint where
   toQuery ModifyDBClusterEndpoint' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyDBClusterEndpoint" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("ModifyDBClusterEndpoint" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "ExcludedMembers"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> excludedMembers
-            ),
-        "EndpointType" Prelude.=: endpointType,
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> excludedMembers),
+        "EndpointType" Core.=: endpointType,
         "StaticMembers"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> staticMembers
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> staticMembers),
         "DBClusterEndpointIdentifier"
-          Prelude.=: dbClusterEndpointIdentifier
+          Core.=: dbClusterEndpointIdentifier
       ]

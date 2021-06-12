@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.AssessmentTargetFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used as the request parameter in the ListAssessmentTargets action.
 --
@@ -31,9 +30,9 @@ data AssessmentTargetFilter = AssessmentTargetFilter'
     -- contains a wildcard that is specified for this data type property must
     -- match the value of the __assessmentTargetName__ property of the
     -- AssessmentTarget data type.
-    assessmentTargetNamePattern :: Prelude.Maybe Prelude.Text
+    assessmentTargetNamePattern :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssessmentTargetFilter' with all optional fields omitted.
@@ -52,25 +51,25 @@ newAssessmentTargetFilter ::
 newAssessmentTargetFilter =
   AssessmentTargetFilter'
     { assessmentTargetNamePattern =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | For a record to match a filter, an explicit value or a string that
 -- contains a wildcard that is specified for this data type property must
 -- match the value of the __assessmentTargetName__ property of the
 -- AssessmentTarget data type.
-assessmentTargetFilter_assessmentTargetNamePattern :: Lens.Lens' AssessmentTargetFilter (Prelude.Maybe Prelude.Text)
+assessmentTargetFilter_assessmentTargetNamePattern :: Lens.Lens' AssessmentTargetFilter (Core.Maybe Core.Text)
 assessmentTargetFilter_assessmentTargetNamePattern = Lens.lens (\AssessmentTargetFilter' {assessmentTargetNamePattern} -> assessmentTargetNamePattern) (\s@AssessmentTargetFilter' {} a -> s {assessmentTargetNamePattern = a} :: AssessmentTargetFilter)
 
-instance Prelude.Hashable AssessmentTargetFilter
+instance Core.Hashable AssessmentTargetFilter
 
-instance Prelude.NFData AssessmentTargetFilter
+instance Core.NFData AssessmentTargetFilter
 
-instance Prelude.ToJSON AssessmentTargetFilter where
+instance Core.ToJSON AssessmentTargetFilter where
   toJSON AssessmentTargetFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("assessmentTargetNamePattern" Prelude..=)
-              Prelude.<$> assessmentTargetNamePattern
+    Core.object
+      ( Core.catMaybes
+          [ ("assessmentTargetNamePattern" Core..=)
+              Core.<$> assessmentTargetNamePattern
           ]
       )

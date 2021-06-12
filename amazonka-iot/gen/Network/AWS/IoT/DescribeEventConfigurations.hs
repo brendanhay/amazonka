@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.IoT.DescribeEventConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data DescribeEventConfigurations = DescribeEventConfigurations'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventConfigurations' with all optional fields omitted.
@@ -60,54 +59,48 @@ newDescribeEventConfigurations ::
 newDescribeEventConfigurations =
   DescribeEventConfigurations'
 
-instance
-  Prelude.AWSRequest
-    DescribeEventConfigurations
-  where
+instance Core.AWSRequest DescribeEventConfigurations where
   type
-    Rs DescribeEventConfigurations =
+    AWSResponse DescribeEventConfigurations =
       DescribeEventConfigurationsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEventConfigurationsResponse'
-            Prelude.<$> (x Prelude..?> "lastModifiedDate")
-            Prelude.<*> (x Prelude..?> "creationDate")
-            Prelude.<*> ( x Prelude..?> "eventConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "lastModifiedDate")
+            Core.<*> (x Core..?> "creationDate")
+            Core.<*> ( x Core..?> "eventConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventConfigurations
+instance Core.Hashable DescribeEventConfigurations
 
-instance Prelude.NFData DescribeEventConfigurations
+instance Core.NFData DescribeEventConfigurations
 
-instance
-  Prelude.ToHeaders
-    DescribeEventConfigurations
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeEventConfigurations where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeEventConfigurations where
-  toPath = Prelude.const "/event-configurations"
+instance Core.ToPath DescribeEventConfigurations where
+  toPath = Core.const "/event-configurations"
 
-instance Prelude.ToQuery DescribeEventConfigurations where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEventConfigurations where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEventConfigurationsResponse' smart constructor.
 data DescribeEventConfigurationsResponse = DescribeEventConfigurationsResponse'
   { -- | The date the event configurations were last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The creation date of the event configuration.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The event configurations.
-    eventConfigurations :: Prelude.Maybe (Prelude.HashMap EventType Configuration),
+    eventConfigurations :: Core.Maybe (Core.HashMap EventType Configuration),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventConfigurationsResponse' with all optional fields omitted.
@@ -126,33 +119,33 @@ data DescribeEventConfigurationsResponse = DescribeEventConfigurationsResponse'
 -- 'httpStatus', 'describeEventConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeEventConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventConfigurationsResponse
 newDescribeEventConfigurationsResponse pHttpStatus_ =
   DescribeEventConfigurationsResponse'
     { lastModifiedDate =
-        Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      eventConfigurations = Prelude.Nothing,
+        Core.Nothing,
+      creationDate = Core.Nothing,
+      eventConfigurations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date the event configurations were last modified.
-describeEventConfigurationsResponse_lastModifiedDate :: Lens.Lens' DescribeEventConfigurationsResponse (Prelude.Maybe Prelude.UTCTime)
-describeEventConfigurationsResponse_lastModifiedDate = Lens.lens (\DescribeEventConfigurationsResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeEventConfigurationsResponse' {} a -> s {lastModifiedDate = a} :: DescribeEventConfigurationsResponse) Prelude.. Lens.mapping Prelude._Time
+describeEventConfigurationsResponse_lastModifiedDate :: Lens.Lens' DescribeEventConfigurationsResponse (Core.Maybe Core.UTCTime)
+describeEventConfigurationsResponse_lastModifiedDate = Lens.lens (\DescribeEventConfigurationsResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeEventConfigurationsResponse' {} a -> s {lastModifiedDate = a} :: DescribeEventConfigurationsResponse) Core.. Lens.mapping Core._Time
 
 -- | The creation date of the event configuration.
-describeEventConfigurationsResponse_creationDate :: Lens.Lens' DescribeEventConfigurationsResponse (Prelude.Maybe Prelude.UTCTime)
-describeEventConfigurationsResponse_creationDate = Lens.lens (\DescribeEventConfigurationsResponse' {creationDate} -> creationDate) (\s@DescribeEventConfigurationsResponse' {} a -> s {creationDate = a} :: DescribeEventConfigurationsResponse) Prelude.. Lens.mapping Prelude._Time
+describeEventConfigurationsResponse_creationDate :: Lens.Lens' DescribeEventConfigurationsResponse (Core.Maybe Core.UTCTime)
+describeEventConfigurationsResponse_creationDate = Lens.lens (\DescribeEventConfigurationsResponse' {creationDate} -> creationDate) (\s@DescribeEventConfigurationsResponse' {} a -> s {creationDate = a} :: DescribeEventConfigurationsResponse) Core.. Lens.mapping Core._Time
 
 -- | The event configurations.
-describeEventConfigurationsResponse_eventConfigurations :: Lens.Lens' DescribeEventConfigurationsResponse (Prelude.Maybe (Prelude.HashMap EventType Configuration))
-describeEventConfigurationsResponse_eventConfigurations = Lens.lens (\DescribeEventConfigurationsResponse' {eventConfigurations} -> eventConfigurations) (\s@DescribeEventConfigurationsResponse' {} a -> s {eventConfigurations = a} :: DescribeEventConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventConfigurationsResponse_eventConfigurations :: Lens.Lens' DescribeEventConfigurationsResponse (Core.Maybe (Core.HashMap EventType Configuration))
+describeEventConfigurationsResponse_eventConfigurations = Lens.lens (\DescribeEventConfigurationsResponse' {eventConfigurations} -> eventConfigurations) (\s@DescribeEventConfigurationsResponse' {} a -> s {eventConfigurations = a} :: DescribeEventConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventConfigurationsResponse_httpStatus :: Lens.Lens' DescribeEventConfigurationsResponse Prelude.Int
+describeEventConfigurationsResponse_httpStatus :: Lens.Lens' DescribeEventConfigurationsResponse Core.Int
 describeEventConfigurationsResponse_httpStatus = Lens.lens (\DescribeEventConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeEventConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEventConfigurationsResponse

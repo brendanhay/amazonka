@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.Shield.AssociateDRTLogBucket
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -56,9 +55,9 @@ import Network.AWS.Shield.Types
 -- | /See:/ 'newAssociateDRTLogBucket' smart constructor.
 data AssociateDRTLogBucket = AssociateDRTLogBucket'
   { -- | The Amazon S3 bucket that contains your AWS WAF logs.
-    logBucket :: Prelude.Text
+    logBucket :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDRTLogBucket' with all optional fields omitted.
@@ -71,65 +70,63 @@ data AssociateDRTLogBucket = AssociateDRTLogBucket'
 -- 'logBucket', 'associateDRTLogBucket_logBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
 newAssociateDRTLogBucket ::
   -- | 'logBucket'
-  Prelude.Text ->
+  Core.Text ->
   AssociateDRTLogBucket
 newAssociateDRTLogBucket pLogBucket_ =
   AssociateDRTLogBucket' {logBucket = pLogBucket_}
 
 -- | The Amazon S3 bucket that contains your AWS WAF logs.
-associateDRTLogBucket_logBucket :: Lens.Lens' AssociateDRTLogBucket Prelude.Text
+associateDRTLogBucket_logBucket :: Lens.Lens' AssociateDRTLogBucket Core.Text
 associateDRTLogBucket_logBucket = Lens.lens (\AssociateDRTLogBucket' {logBucket} -> logBucket) (\s@AssociateDRTLogBucket' {} a -> s {logBucket = a} :: AssociateDRTLogBucket)
 
-instance Prelude.AWSRequest AssociateDRTLogBucket where
+instance Core.AWSRequest AssociateDRTLogBucket where
   type
-    Rs AssociateDRTLogBucket =
+    AWSResponse AssociateDRTLogBucket =
       AssociateDRTLogBucketResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDRTLogBucketResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AssociateDRTLogBucket
+instance Core.Hashable AssociateDRTLogBucket
 
-instance Prelude.NFData AssociateDRTLogBucket
+instance Core.NFData AssociateDRTLogBucket
 
-instance Prelude.ToHeaders AssociateDRTLogBucket where
+instance Core.ToHeaders AssociateDRTLogBucket where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.AssociateDRTLogBucket" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.AssociateDRTLogBucket" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateDRTLogBucket where
+instance Core.ToJSON AssociateDRTLogBucket where
   toJSON AssociateDRTLogBucket' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("LogBucket" Prelude..= logBucket)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LogBucket" Core..= logBucket)]
       )
 
-instance Prelude.ToPath AssociateDRTLogBucket where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateDRTLogBucket where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateDRTLogBucket where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateDRTLogBucket where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateDRTLogBucketResponse' smart constructor.
 data AssociateDRTLogBucketResponse = AssociateDRTLogBucketResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateDRTLogBucketResponse' with all optional fields omitted.
@@ -142,7 +139,7 @@ data AssociateDRTLogBucketResponse = AssociateDRTLogBucketResponse'
 -- 'httpStatus', 'associateDRTLogBucketResponse_httpStatus' - The response's http status code.
 newAssociateDRTLogBucketResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AssociateDRTLogBucketResponse
 newAssociateDRTLogBucketResponse pHttpStatus_ =
   AssociateDRTLogBucketResponse'
@@ -151,7 +148,7 @@ newAssociateDRTLogBucketResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-associateDRTLogBucketResponse_httpStatus :: Lens.Lens' AssociateDRTLogBucketResponse Prelude.Int
+associateDRTLogBucketResponse_httpStatus :: Lens.Lens' AssociateDRTLogBucketResponse Core.Int
 associateDRTLogBucketResponse_httpStatus = Lens.lens (\AssociateDRTLogBucketResponse' {httpStatus} -> httpStatus) (\s@AssociateDRTLogBucketResponse' {} a -> s {httpStatus = a} :: AssociateDRTLogBucketResponse)
 
-instance Prelude.NFData AssociateDRTLogBucketResponse
+instance Core.NFData AssociateDRTLogBucketResponse

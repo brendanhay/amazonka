@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.HttpEndpointBufferingHints where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the buffering options that can be applied before data is
 -- delivered to the HTTP endpoint destination. Kinesis Data Firehose treats
@@ -39,13 +38,13 @@ data HttpEndpointBufferingHints = HttpEndpointBufferingHints'
     -- of data you typically ingest into the delivery stream in 10 seconds. For
     -- example, if you typically ingest data at 1 MB\/sec, the value should be
     -- 10 MB or higher.
-    sizeInMBs :: Prelude.Maybe Prelude.Natural,
+    sizeInMBs :: Core.Maybe Core.Natural,
     -- | Buffer incoming data for the specified period of time, in seconds,
     -- before delivering it to the destination. The default value is 300 (5
     -- minutes).
-    intervalInSeconds :: Prelude.Maybe Prelude.Natural
+    intervalInSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointBufferingHints' with all optional fields omitted.
@@ -71,8 +70,8 @@ newHttpEndpointBufferingHints ::
 newHttpEndpointBufferingHints =
   HttpEndpointBufferingHints'
     { sizeInMBs =
-        Prelude.Nothing,
-      intervalInSeconds = Prelude.Nothing
+        Core.Nothing,
+      intervalInSeconds = Core.Nothing
     }
 
 -- | Buffer incoming data to the specified size, in MBs, before delivering it
@@ -82,35 +81,35 @@ newHttpEndpointBufferingHints =
 -- of data you typically ingest into the delivery stream in 10 seconds. For
 -- example, if you typically ingest data at 1 MB\/sec, the value should be
 -- 10 MB or higher.
-httpEndpointBufferingHints_sizeInMBs :: Lens.Lens' HttpEndpointBufferingHints (Prelude.Maybe Prelude.Natural)
+httpEndpointBufferingHints_sizeInMBs :: Lens.Lens' HttpEndpointBufferingHints (Core.Maybe Core.Natural)
 httpEndpointBufferingHints_sizeInMBs = Lens.lens (\HttpEndpointBufferingHints' {sizeInMBs} -> sizeInMBs) (\s@HttpEndpointBufferingHints' {} a -> s {sizeInMBs = a} :: HttpEndpointBufferingHints)
 
 -- | Buffer incoming data for the specified period of time, in seconds,
 -- before delivering it to the destination. The default value is 300 (5
 -- minutes).
-httpEndpointBufferingHints_intervalInSeconds :: Lens.Lens' HttpEndpointBufferingHints (Prelude.Maybe Prelude.Natural)
+httpEndpointBufferingHints_intervalInSeconds :: Lens.Lens' HttpEndpointBufferingHints (Core.Maybe Core.Natural)
 httpEndpointBufferingHints_intervalInSeconds = Lens.lens (\HttpEndpointBufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@HttpEndpointBufferingHints' {} a -> s {intervalInSeconds = a} :: HttpEndpointBufferingHints)
 
-instance Prelude.FromJSON HttpEndpointBufferingHints where
+instance Core.FromJSON HttpEndpointBufferingHints where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpEndpointBufferingHints"
       ( \x ->
           HttpEndpointBufferingHints'
-            Prelude.<$> (x Prelude..:? "SizeInMBs")
-            Prelude.<*> (x Prelude..:? "IntervalInSeconds")
+            Core.<$> (x Core..:? "SizeInMBs")
+            Core.<*> (x Core..:? "IntervalInSeconds")
       )
 
-instance Prelude.Hashable HttpEndpointBufferingHints
+instance Core.Hashable HttpEndpointBufferingHints
 
-instance Prelude.NFData HttpEndpointBufferingHints
+instance Core.NFData HttpEndpointBufferingHints
 
-instance Prelude.ToJSON HttpEndpointBufferingHints where
+instance Core.ToJSON HttpEndpointBufferingHints where
   toJSON HttpEndpointBufferingHints' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SizeInMBs" Prelude..=) Prelude.<$> sizeInMBs,
-            ("IntervalInSeconds" Prelude..=)
-              Prelude.<$> intervalInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("SizeInMBs" Core..=) Core.<$> sizeInMBs,
+            ("IntervalInSeconds" Core..=)
+              Core.<$> intervalInSeconds
           ]
       )

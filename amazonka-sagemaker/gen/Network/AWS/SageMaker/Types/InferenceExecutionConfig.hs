@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.InferenceExecutionConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.InferenceExecutionMode
 
 -- | Specifies details about how containers in a multi-container endpoint are
@@ -37,7 +36,7 @@ data InferenceExecutionConfig = InferenceExecutionConfig'
     -- -   @DIRECT@ - Only the individual container that you specify is run.
     mode :: InferenceExecutionMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InferenceExecutionConfig' with all optional fields omitted.
@@ -69,22 +68,20 @@ newInferenceExecutionConfig pMode_ =
 inferenceExecutionConfig_mode :: Lens.Lens' InferenceExecutionConfig InferenceExecutionMode
 inferenceExecutionConfig_mode = Lens.lens (\InferenceExecutionConfig' {mode} -> mode) (\s@InferenceExecutionConfig' {} a -> s {mode = a} :: InferenceExecutionConfig)
 
-instance Prelude.FromJSON InferenceExecutionConfig where
+instance Core.FromJSON InferenceExecutionConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InferenceExecutionConfig"
       ( \x ->
           InferenceExecutionConfig'
-            Prelude.<$> (x Prelude..: "Mode")
+            Core.<$> (x Core..: "Mode")
       )
 
-instance Prelude.Hashable InferenceExecutionConfig
+instance Core.Hashable InferenceExecutionConfig
 
-instance Prelude.NFData InferenceExecutionConfig
+instance Core.NFData InferenceExecutionConfig
 
-instance Prelude.ToJSON InferenceExecutionConfig where
+instance Core.ToJSON InferenceExecutionConfig where
   toJSON InferenceExecutionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Mode" Prelude..= mode)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Mode" Core..= mode)])

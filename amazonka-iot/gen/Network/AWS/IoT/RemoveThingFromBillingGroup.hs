@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,24 +41,24 @@ module Network.AWS.IoT.RemoveThingFromBillingGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveThingFromBillingGroup' smart constructor.
 data RemoveThingFromBillingGroup = RemoveThingFromBillingGroup'
   { -- | The ARN of the thing to be removed from the billing group.
-    thingArn :: Prelude.Maybe Prelude.Text,
+    thingArn :: Core.Maybe Core.Text,
     -- | The name of the thing to be removed from the billing group.
-    thingName :: Prelude.Maybe Prelude.Text,
+    thingName :: Core.Maybe Core.Text,
     -- | The ARN of the billing group.
-    billingGroupArn :: Prelude.Maybe Prelude.Text,
+    billingGroupArn :: Core.Maybe Core.Text,
     -- | The name of the billing group.
-    billingGroupName :: Prelude.Maybe Prelude.Text
+    billingGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveThingFromBillingGroup' with all optional fields omitted.
@@ -81,80 +80,73 @@ newRemoveThingFromBillingGroup ::
 newRemoveThingFromBillingGroup =
   RemoveThingFromBillingGroup'
     { thingArn =
-        Prelude.Nothing,
-      thingName = Prelude.Nothing,
-      billingGroupArn = Prelude.Nothing,
-      billingGroupName = Prelude.Nothing
+        Core.Nothing,
+      thingName = Core.Nothing,
+      billingGroupArn = Core.Nothing,
+      billingGroupName = Core.Nothing
     }
 
 -- | The ARN of the thing to be removed from the billing group.
-removeThingFromBillingGroup_thingArn :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
+removeThingFromBillingGroup_thingArn :: Lens.Lens' RemoveThingFromBillingGroup (Core.Maybe Core.Text)
 removeThingFromBillingGroup_thingArn = Lens.lens (\RemoveThingFromBillingGroup' {thingArn} -> thingArn) (\s@RemoveThingFromBillingGroup' {} a -> s {thingArn = a} :: RemoveThingFromBillingGroup)
 
 -- | The name of the thing to be removed from the billing group.
-removeThingFromBillingGroup_thingName :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
+removeThingFromBillingGroup_thingName :: Lens.Lens' RemoveThingFromBillingGroup (Core.Maybe Core.Text)
 removeThingFromBillingGroup_thingName = Lens.lens (\RemoveThingFromBillingGroup' {thingName} -> thingName) (\s@RemoveThingFromBillingGroup' {} a -> s {thingName = a} :: RemoveThingFromBillingGroup)
 
 -- | The ARN of the billing group.
-removeThingFromBillingGroup_billingGroupArn :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
+removeThingFromBillingGroup_billingGroupArn :: Lens.Lens' RemoveThingFromBillingGroup (Core.Maybe Core.Text)
 removeThingFromBillingGroup_billingGroupArn = Lens.lens (\RemoveThingFromBillingGroup' {billingGroupArn} -> billingGroupArn) (\s@RemoveThingFromBillingGroup' {} a -> s {billingGroupArn = a} :: RemoveThingFromBillingGroup)
 
 -- | The name of the billing group.
-removeThingFromBillingGroup_billingGroupName :: Lens.Lens' RemoveThingFromBillingGroup (Prelude.Maybe Prelude.Text)
+removeThingFromBillingGroup_billingGroupName :: Lens.Lens' RemoveThingFromBillingGroup (Core.Maybe Core.Text)
 removeThingFromBillingGroup_billingGroupName = Lens.lens (\RemoveThingFromBillingGroup' {billingGroupName} -> billingGroupName) (\s@RemoveThingFromBillingGroup' {} a -> s {billingGroupName = a} :: RemoveThingFromBillingGroup)
 
-instance
-  Prelude.AWSRequest
-    RemoveThingFromBillingGroup
-  where
+instance Core.AWSRequest RemoveThingFromBillingGroup where
   type
-    Rs RemoveThingFromBillingGroup =
+    AWSResponse RemoveThingFromBillingGroup =
       RemoveThingFromBillingGroupResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveThingFromBillingGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveThingFromBillingGroup
+instance Core.Hashable RemoveThingFromBillingGroup
 
-instance Prelude.NFData RemoveThingFromBillingGroup
+instance Core.NFData RemoveThingFromBillingGroup
 
-instance
-  Prelude.ToHeaders
-    RemoveThingFromBillingGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RemoveThingFromBillingGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON RemoveThingFromBillingGroup where
+instance Core.ToJSON RemoveThingFromBillingGroup where
   toJSON RemoveThingFromBillingGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("thingArn" Prelude..=) Prelude.<$> thingArn,
-            ("thingName" Prelude..=) Prelude.<$> thingName,
-            ("billingGroupArn" Prelude..=)
-              Prelude.<$> billingGroupArn,
-            ("billingGroupName" Prelude..=)
-              Prelude.<$> billingGroupName
+    Core.object
+      ( Core.catMaybes
+          [ ("thingArn" Core..=) Core.<$> thingArn,
+            ("thingName" Core..=) Core.<$> thingName,
+            ("billingGroupArn" Core..=) Core.<$> billingGroupArn,
+            ("billingGroupName" Core..=)
+              Core.<$> billingGroupName
           ]
       )
 
-instance Prelude.ToPath RemoveThingFromBillingGroup where
+instance Core.ToPath RemoveThingFromBillingGroup where
   toPath =
-    Prelude.const
+    Core.const
       "/billing-groups/removeThingFromBillingGroup"
 
-instance Prelude.ToQuery RemoveThingFromBillingGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveThingFromBillingGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveThingFromBillingGroupResponse' smart constructor.
 data RemoveThingFromBillingGroupResponse = RemoveThingFromBillingGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveThingFromBillingGroupResponse' with all optional fields omitted.
@@ -167,7 +159,7 @@ data RemoveThingFromBillingGroupResponse = RemoveThingFromBillingGroupResponse'
 -- 'httpStatus', 'removeThingFromBillingGroupResponse_httpStatus' - The response's http status code.
 newRemoveThingFromBillingGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveThingFromBillingGroupResponse
 newRemoveThingFromBillingGroupResponse pHttpStatus_ =
   RemoveThingFromBillingGroupResponse'
@@ -176,9 +168,9 @@ newRemoveThingFromBillingGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-removeThingFromBillingGroupResponse_httpStatus :: Lens.Lens' RemoveThingFromBillingGroupResponse Prelude.Int
+removeThingFromBillingGroupResponse_httpStatus :: Lens.Lens' RemoveThingFromBillingGroupResponse Core.Int
 removeThingFromBillingGroupResponse_httpStatus = Lens.lens (\RemoveThingFromBillingGroupResponse' {httpStatus} -> httpStatus) (\s@RemoveThingFromBillingGroupResponse' {} a -> s {httpStatus = a} :: RemoveThingFromBillingGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RemoveThingFromBillingGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.SES.SetIdentityNotificationTopic
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -69,7 +68,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
   { -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
     -- is omitted from the request or a null value is passed, @SnsTopic@ is
     -- cleared and publishing is disabled.
-    snsTopic :: Prelude.Maybe Prelude.Text,
+    snsTopic :: Core.Maybe Core.Text,
     -- | The identity (email address or domain) that you want to set the Amazon
     -- SNS topic for.
     --
@@ -79,12 +78,12 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
     -- Resource Name (ARN). The following examples are all valid identities:
     -- @sender\@example.com@, @example.com@,
     -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-    identity :: Prelude.Text,
+    identity :: Core.Text,
     -- | The type of notifications that will be published to the specified Amazon
     -- SNS topic.
     notificationType :: NotificationType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityNotificationTopic' with all optional fields omitted.
@@ -112,7 +111,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
 -- SNS topic.
 newSetIdentityNotificationTopic ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'notificationType'
   NotificationType ->
   SetIdentityNotificationTopic
@@ -121,7 +120,7 @@ newSetIdentityNotificationTopic
   pNotificationType_ =
     SetIdentityNotificationTopic'
       { snsTopic =
-          Prelude.Nothing,
+          Core.Nothing,
         identity = pIdentity_,
         notificationType = pNotificationType_
       }
@@ -129,7 +128,7 @@ newSetIdentityNotificationTopic
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
 -- is omitted from the request or a null value is passed, @SnsTopic@ is
 -- cleared and publishing is disabled.
-setIdentityNotificationTopic_snsTopic :: Lens.Lens' SetIdentityNotificationTopic (Prelude.Maybe Prelude.Text)
+setIdentityNotificationTopic_snsTopic :: Lens.Lens' SetIdentityNotificationTopic (Core.Maybe Core.Text)
 setIdentityNotificationTopic_snsTopic = Lens.lens (\SetIdentityNotificationTopic' {snsTopic} -> snsTopic) (\s@SetIdentityNotificationTopic' {} a -> s {snsTopic = a} :: SetIdentityNotificationTopic)
 
 -- | The identity (email address or domain) that you want to set the Amazon
@@ -141,7 +140,7 @@ setIdentityNotificationTopic_snsTopic = Lens.lens (\SetIdentityNotificationTopic
 -- Resource Name (ARN). The following examples are all valid identities:
 -- @sender\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-setIdentityNotificationTopic_identity :: Lens.Lens' SetIdentityNotificationTopic Prelude.Text
+setIdentityNotificationTopic_identity :: Lens.Lens' SetIdentityNotificationTopic Core.Text
 setIdentityNotificationTopic_identity = Lens.lens (\SetIdentityNotificationTopic' {identity} -> identity) (\s@SetIdentityNotificationTopic' {} a -> s {identity = a} :: SetIdentityNotificationTopic)
 
 -- | The type of notifications that will be published to the specified Amazon
@@ -149,12 +148,9 @@ setIdentityNotificationTopic_identity = Lens.lens (\SetIdentityNotificationTopic
 setIdentityNotificationTopic_notificationType :: Lens.Lens' SetIdentityNotificationTopic NotificationType
 setIdentityNotificationTopic_notificationType = Lens.lens (\SetIdentityNotificationTopic' {notificationType} -> notificationType) (\s@SetIdentityNotificationTopic' {} a -> s {notificationType = a} :: SetIdentityNotificationTopic)
 
-instance
-  Prelude.AWSRequest
-    SetIdentityNotificationTopic
-  where
+instance Core.AWSRequest SetIdentityNotificationTopic where
   type
-    Rs SetIdentityNotificationTopic =
+    AWSResponse SetIdentityNotificationTopic =
       SetIdentityNotificationTopicResponse
   request = Request.postQuery defaultService
   response =
@@ -162,36 +158,28 @@ instance
       "SetIdentityNotificationTopicResult"
       ( \s h x ->
           SetIdentityNotificationTopicResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    SetIdentityNotificationTopic
+instance Core.Hashable SetIdentityNotificationTopic
 
-instance Prelude.NFData SetIdentityNotificationTopic
+instance Core.NFData SetIdentityNotificationTopic
 
-instance
-  Prelude.ToHeaders
-    SetIdentityNotificationTopic
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetIdentityNotificationTopic where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetIdentityNotificationTopic where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetIdentityNotificationTopic where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetIdentityNotificationTopic where
+instance Core.ToQuery SetIdentityNotificationTopic where
   toQuery SetIdentityNotificationTopic' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "SetIdentityNotificationTopic" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "SnsTopic" Prelude.=: snsTopic,
-        "Identity" Prelude.=: identity,
-        "NotificationType" Prelude.=: notificationType
+          Core.=: ("SetIdentityNotificationTopic" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "SnsTopic" Core.=: snsTopic,
+        "Identity" Core.=: identity,
+        "NotificationType" Core.=: notificationType
       ]
 
 -- | An empty element returned on a successful request.
@@ -199,9 +187,9 @@ instance Prelude.ToQuery SetIdentityNotificationTopic where
 -- /See:/ 'newSetIdentityNotificationTopicResponse' smart constructor.
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityNotificationTopicResponse' with all optional fields omitted.
@@ -214,7 +202,7 @@ data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 -- 'httpStatus', 'setIdentityNotificationTopicResponse_httpStatus' - The response's http status code.
 newSetIdentityNotificationTopicResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetIdentityNotificationTopicResponse
 newSetIdentityNotificationTopicResponse pHttpStatus_ =
   SetIdentityNotificationTopicResponse'
@@ -223,9 +211,9 @@ newSetIdentityNotificationTopicResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setIdentityNotificationTopicResponse_httpStatus :: Lens.Lens' SetIdentityNotificationTopicResponse Prelude.Int
+setIdentityNotificationTopicResponse_httpStatus :: Lens.Lens' SetIdentityNotificationTopicResponse Core.Int
 setIdentityNotificationTopicResponse_httpStatus = Lens.lens (\SetIdentityNotificationTopicResponse' {httpStatus} -> httpStatus) (\s@SetIdentityNotificationTopicResponse' {} a -> s {httpStatus = a} :: SetIdentityNotificationTopicResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetIdentityNotificationTopicResponse

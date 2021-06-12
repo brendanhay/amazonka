@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AutoRollbackConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Alarm
 
 -- | Currently, the @AutoRollbackConfig@ API is not supported.
 --
 -- /See:/ 'newAutoRollbackConfig' smart constructor.
 data AutoRollbackConfig = AutoRollbackConfig'
-  { alarms :: Prelude.Maybe (Prelude.NonEmpty Alarm)
+  { alarms :: Core.Maybe (Core.NonEmpty Alarm)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoRollbackConfig' with all optional fields omitted.
@@ -44,28 +43,25 @@ data AutoRollbackConfig = AutoRollbackConfig'
 newAutoRollbackConfig ::
   AutoRollbackConfig
 newAutoRollbackConfig =
-  AutoRollbackConfig' {alarms = Prelude.Nothing}
+  AutoRollbackConfig' {alarms = Core.Nothing}
 
 -- |
-autoRollbackConfig_alarms :: Lens.Lens' AutoRollbackConfig (Prelude.Maybe (Prelude.NonEmpty Alarm))
-autoRollbackConfig_alarms = Lens.lens (\AutoRollbackConfig' {alarms} -> alarms) (\s@AutoRollbackConfig' {} a -> s {alarms = a} :: AutoRollbackConfig) Prelude.. Lens.mapping Prelude._Coerce
+autoRollbackConfig_alarms :: Lens.Lens' AutoRollbackConfig (Core.Maybe (Core.NonEmpty Alarm))
+autoRollbackConfig_alarms = Lens.lens (\AutoRollbackConfig' {alarms} -> alarms) (\s@AutoRollbackConfig' {} a -> s {alarms = a} :: AutoRollbackConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AutoRollbackConfig where
+instance Core.FromJSON AutoRollbackConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoRollbackConfig"
       ( \x ->
-          AutoRollbackConfig'
-            Prelude.<$> (x Prelude..:? "Alarms")
+          AutoRollbackConfig' Core.<$> (x Core..:? "Alarms")
       )
 
-instance Prelude.Hashable AutoRollbackConfig
+instance Core.Hashable AutoRollbackConfig
 
-instance Prelude.NFData AutoRollbackConfig
+instance Core.NFData AutoRollbackConfig
 
-instance Prelude.ToJSON AutoRollbackConfig where
+instance Core.ToJSON AutoRollbackConfig where
   toJSON AutoRollbackConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Alarms" Prelude..=) Prelude.<$> alarms]
-      )
+    Core.object
+      (Core.catMaybes [("Alarms" Core..=) Core.<$> alarms])

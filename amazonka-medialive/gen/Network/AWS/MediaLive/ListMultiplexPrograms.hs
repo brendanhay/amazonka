@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.MediaLive.ListMultiplexPrograms
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +55,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListMultiplexPrograms' smart constructor.
 data ListMultiplexPrograms = ListMultiplexPrograms'
   { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the multiplex that the programs belong to.
-    multiplexId :: Prelude.Text
+    multiplexId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMultiplexPrograms' with all optional fields omitted.
@@ -80,93 +78,89 @@ data ListMultiplexPrograms = ListMultiplexPrograms'
 -- 'multiplexId', 'listMultiplexPrograms_multiplexId' - The ID of the multiplex that the programs belong to.
 newListMultiplexPrograms ::
   -- | 'multiplexId'
-  Prelude.Text ->
+  Core.Text ->
   ListMultiplexPrograms
 newListMultiplexPrograms pMultiplexId_ =
   ListMultiplexPrograms'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       multiplexId = pMultiplexId_
     }
 
 -- | The token to retrieve the next page of results.
-listMultiplexPrograms_nextToken :: Lens.Lens' ListMultiplexPrograms (Prelude.Maybe Prelude.Text)
+listMultiplexPrograms_nextToken :: Lens.Lens' ListMultiplexPrograms (Core.Maybe Core.Text)
 listMultiplexPrograms_nextToken = Lens.lens (\ListMultiplexPrograms' {nextToken} -> nextToken) (\s@ListMultiplexPrograms' {} a -> s {nextToken = a} :: ListMultiplexPrograms)
 
 -- | The maximum number of items to return.
-listMultiplexPrograms_maxResults :: Lens.Lens' ListMultiplexPrograms (Prelude.Maybe Prelude.Natural)
+listMultiplexPrograms_maxResults :: Lens.Lens' ListMultiplexPrograms (Core.Maybe Core.Natural)
 listMultiplexPrograms_maxResults = Lens.lens (\ListMultiplexPrograms' {maxResults} -> maxResults) (\s@ListMultiplexPrograms' {} a -> s {maxResults = a} :: ListMultiplexPrograms)
 
 -- | The ID of the multiplex that the programs belong to.
-listMultiplexPrograms_multiplexId :: Lens.Lens' ListMultiplexPrograms Prelude.Text
+listMultiplexPrograms_multiplexId :: Lens.Lens' ListMultiplexPrograms Core.Text
 listMultiplexPrograms_multiplexId = Lens.lens (\ListMultiplexPrograms' {multiplexId} -> multiplexId) (\s@ListMultiplexPrograms' {} a -> s {multiplexId = a} :: ListMultiplexPrograms)
 
-instance Pager.AWSPager ListMultiplexPrograms where
+instance Core.AWSPager ListMultiplexPrograms where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listMultiplexProgramsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listMultiplexProgramsResponse_multiplexPrograms
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listMultiplexPrograms_nextToken
           Lens..~ rs
           Lens.^? listMultiplexProgramsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListMultiplexPrograms where
+instance Core.AWSRequest ListMultiplexPrograms where
   type
-    Rs ListMultiplexPrograms =
+    AWSResponse ListMultiplexPrograms =
       ListMultiplexProgramsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListMultiplexProgramsResponse'
-            Prelude.<$> ( x Prelude..?> "multiplexPrograms"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "multiplexPrograms" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListMultiplexPrograms
+instance Core.Hashable ListMultiplexPrograms
 
-instance Prelude.NFData ListMultiplexPrograms
+instance Core.NFData ListMultiplexPrograms
 
-instance Prelude.ToHeaders ListMultiplexPrograms where
+instance Core.ToHeaders ListMultiplexPrograms where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListMultiplexPrograms where
+instance Core.ToPath ListMultiplexPrograms where
   toPath ListMultiplexPrograms' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/prod/multiplexes/",
-        Prelude.toBS multiplexId,
+        Core.toBS multiplexId,
         "/programs"
       ]
 
-instance Prelude.ToQuery ListMultiplexPrograms where
+instance Core.ToQuery ListMultiplexPrograms where
   toQuery ListMultiplexPrograms' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | Placeholder documentation for ListMultiplexProgramsResponse
@@ -174,13 +168,13 @@ instance Prelude.ToQuery ListMultiplexPrograms where
 -- /See:/ 'newListMultiplexProgramsResponse' smart constructor.
 data ListMultiplexProgramsResponse = ListMultiplexProgramsResponse'
   { -- | List of multiplex programs.
-    multiplexPrograms :: Prelude.Maybe [MultiplexProgramSummary],
+    multiplexPrograms :: Core.Maybe [MultiplexProgramSummary],
     -- | Token for the next ListMultiplexProgram request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMultiplexProgramsResponse' with all optional fields omitted.
@@ -197,26 +191,26 @@ data ListMultiplexProgramsResponse = ListMultiplexProgramsResponse'
 -- 'httpStatus', 'listMultiplexProgramsResponse_httpStatus' - The response's http status code.
 newListMultiplexProgramsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListMultiplexProgramsResponse
 newListMultiplexProgramsResponse pHttpStatus_ =
   ListMultiplexProgramsResponse'
     { multiplexPrograms =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | List of multiplex programs.
-listMultiplexProgramsResponse_multiplexPrograms :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe [MultiplexProgramSummary])
-listMultiplexProgramsResponse_multiplexPrograms = Lens.lens (\ListMultiplexProgramsResponse' {multiplexPrograms} -> multiplexPrograms) (\s@ListMultiplexProgramsResponse' {} a -> s {multiplexPrograms = a} :: ListMultiplexProgramsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listMultiplexProgramsResponse_multiplexPrograms :: Lens.Lens' ListMultiplexProgramsResponse (Core.Maybe [MultiplexProgramSummary])
+listMultiplexProgramsResponse_multiplexPrograms = Lens.lens (\ListMultiplexProgramsResponse' {multiplexPrograms} -> multiplexPrograms) (\s@ListMultiplexProgramsResponse' {} a -> s {multiplexPrograms = a} :: ListMultiplexProgramsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Token for the next ListMultiplexProgram request.
-listMultiplexProgramsResponse_nextToken :: Lens.Lens' ListMultiplexProgramsResponse (Prelude.Maybe Prelude.Text)
+listMultiplexProgramsResponse_nextToken :: Lens.Lens' ListMultiplexProgramsResponse (Core.Maybe Core.Text)
 listMultiplexProgramsResponse_nextToken = Lens.lens (\ListMultiplexProgramsResponse' {nextToken} -> nextToken) (\s@ListMultiplexProgramsResponse' {} a -> s {nextToken = a} :: ListMultiplexProgramsResponse)
 
 -- | The response's http status code.
-listMultiplexProgramsResponse_httpStatus :: Lens.Lens' ListMultiplexProgramsResponse Prelude.Int
+listMultiplexProgramsResponse_httpStatus :: Lens.Lens' ListMultiplexProgramsResponse Core.Int
 listMultiplexProgramsResponse_httpStatus = Lens.lens (\ListMultiplexProgramsResponse' {httpStatus} -> httpStatus) (\s@ListMultiplexProgramsResponse' {} a -> s {httpStatus = a} :: ListMultiplexProgramsResponse)
 
-instance Prelude.NFData ListMultiplexProgramsResponse
+instance Core.NFData ListMultiplexProgramsResponse

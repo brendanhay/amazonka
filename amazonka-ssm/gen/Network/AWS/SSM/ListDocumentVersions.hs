@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.SSM.ListDocumentVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,15 +54,15 @@ import Network.AWS.SSM.Types
 data ListDocumentVersions = ListDocumentVersions'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The name of the document. You can specify an Amazon Resource Name (ARN).
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDocumentVersions' with all optional fields omitted.
@@ -84,113 +82,111 @@ data ListDocumentVersions = ListDocumentVersions'
 -- 'name', 'listDocumentVersions_name' - The name of the document. You can specify an Amazon Resource Name (ARN).
 newListDocumentVersions ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   ListDocumentVersions
 newListDocumentVersions pName_ =
   ListDocumentVersions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       name = pName_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-listDocumentVersions_nextToken :: Lens.Lens' ListDocumentVersions (Prelude.Maybe Prelude.Text)
+listDocumentVersions_nextToken :: Lens.Lens' ListDocumentVersions (Core.Maybe Core.Text)
 listDocumentVersions_nextToken = Lens.lens (\ListDocumentVersions' {nextToken} -> nextToken) (\s@ListDocumentVersions' {} a -> s {nextToken = a} :: ListDocumentVersions)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-listDocumentVersions_maxResults :: Lens.Lens' ListDocumentVersions (Prelude.Maybe Prelude.Natural)
+listDocumentVersions_maxResults :: Lens.Lens' ListDocumentVersions (Core.Maybe Core.Natural)
 listDocumentVersions_maxResults = Lens.lens (\ListDocumentVersions' {maxResults} -> maxResults) (\s@ListDocumentVersions' {} a -> s {maxResults = a} :: ListDocumentVersions)
 
 -- | The name of the document. You can specify an Amazon Resource Name (ARN).
-listDocumentVersions_name :: Lens.Lens' ListDocumentVersions Prelude.Text
+listDocumentVersions_name :: Lens.Lens' ListDocumentVersions Core.Text
 listDocumentVersions_name = Lens.lens (\ListDocumentVersions' {name} -> name) (\s@ListDocumentVersions' {} a -> s {name = a} :: ListDocumentVersions)
 
-instance Pager.AWSPager ListDocumentVersions where
+instance Core.AWSPager ListDocumentVersions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listDocumentVersionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listDocumentVersionsResponse_documentVersions
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+              Core.. Lens._Just
+              Core.. Lens.to Core.toList
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDocumentVersions_nextToken
           Lens..~ rs
           Lens.^? listDocumentVersionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDocumentVersions where
+instance Core.AWSRequest ListDocumentVersions where
   type
-    Rs ListDocumentVersions =
+    AWSResponse ListDocumentVersions =
       ListDocumentVersionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDocumentVersionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "DocumentVersions")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "DocumentVersions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDocumentVersions
+instance Core.Hashable ListDocumentVersions
 
-instance Prelude.NFData ListDocumentVersions
+instance Core.NFData ListDocumentVersions
 
-instance Prelude.ToHeaders ListDocumentVersions where
+instance Core.ToHeaders ListDocumentVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.ListDocumentVersions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.ListDocumentVersions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListDocumentVersions where
+instance Core.ToJSON ListDocumentVersions where
   toJSON ListDocumentVersions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath ListDocumentVersions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDocumentVersions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListDocumentVersions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDocumentVersions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListDocumentVersionsResponse' smart constructor.
 data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The document versions.
-    documentVersions :: Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo),
+    documentVersions :: Core.Maybe (Core.NonEmpty DocumentVersionInfo),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDocumentVersionsResponse' with all optional fields omitted.
@@ -208,27 +204,27 @@ data ListDocumentVersionsResponse = ListDocumentVersionsResponse'
 -- 'httpStatus', 'listDocumentVersionsResponse_httpStatus' - The response's http status code.
 newListDocumentVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDocumentVersionsResponse
 newListDocumentVersionsResponse pHttpStatus_ =
   ListDocumentVersionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      documentVersions = Prelude.Nothing,
+        Core.Nothing,
+      documentVersions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-listDocumentVersionsResponse_nextToken :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe Prelude.Text)
+listDocumentVersionsResponse_nextToken :: Lens.Lens' ListDocumentVersionsResponse (Core.Maybe Core.Text)
 listDocumentVersionsResponse_nextToken = Lens.lens (\ListDocumentVersionsResponse' {nextToken} -> nextToken) (\s@ListDocumentVersionsResponse' {} a -> s {nextToken = a} :: ListDocumentVersionsResponse)
 
 -- | The document versions.
-listDocumentVersionsResponse_documentVersions :: Lens.Lens' ListDocumentVersionsResponse (Prelude.Maybe (Prelude.NonEmpty DocumentVersionInfo))
-listDocumentVersionsResponse_documentVersions = Lens.lens (\ListDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@ListDocumentVersionsResponse' {} a -> s {documentVersions = a} :: ListDocumentVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDocumentVersionsResponse_documentVersions :: Lens.Lens' ListDocumentVersionsResponse (Core.Maybe (Core.NonEmpty DocumentVersionInfo))
+listDocumentVersionsResponse_documentVersions = Lens.lens (\ListDocumentVersionsResponse' {documentVersions} -> documentVersions) (\s@ListDocumentVersionsResponse' {} a -> s {documentVersions = a} :: ListDocumentVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDocumentVersionsResponse_httpStatus :: Lens.Lens' ListDocumentVersionsResponse Prelude.Int
+listDocumentVersionsResponse_httpStatus :: Lens.Lens' ListDocumentVersionsResponse Core.Int
 listDocumentVersionsResponse_httpStatus = Lens.lens (\ListDocumentVersionsResponse' {httpStatus} -> httpStatus) (\s@ListDocumentVersionsResponse' {} a -> s {httpStatus = a} :: ListDocumentVersionsResponse)
 
-instance Prelude.NFData ListDocumentVersionsResponse
+instance Core.NFData ListDocumentVersionsResponse

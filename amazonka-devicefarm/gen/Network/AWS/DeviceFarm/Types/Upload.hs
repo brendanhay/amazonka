@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Upload where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.UploadCategory
 import Network.AWS.DeviceFarm.Types.UploadStatus
 import Network.AWS.DeviceFarm.Types.UploadType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An app or a set of one or more tests to upload or that have been
 -- uploaded.
@@ -42,30 +41,30 @@ data Upload = Upload'
     -- -   PROCESSING
     --
     -- -   SUCCEEDED
-    status :: Prelude.Maybe UploadStatus,
+    status :: Core.Maybe UploadStatus,
     -- | The upload\'s content type (for example, @application\/octet-stream@).
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | A message about the upload\'s result.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The upload\'s category. Allowed values include:
     --
     -- -   CURATED: An upload managed by AWS Device Farm.
     --
     -- -   PRIVATE: An upload managed by the AWS Device Farm customer.
-    category :: Prelude.Maybe UploadCategory,
+    category :: Core.Maybe UploadCategory,
     -- | The upload\'s metadata. For example, for Android, this contains
     -- information that is parsed from the manifest and is displayed in the AWS
     -- Device Farm console after the associated app is uploaded.
-    metadata :: Prelude.Maybe Prelude.Text,
+    metadata :: Core.Maybe Core.Text,
     -- | The upload\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The upload\'s file name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The presigned Amazon S3 URL that was used to store a file using a PUT
     -- request.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | When the upload was created.
-    created :: Prelude.Maybe Prelude.POSIX,
+    created :: Core.Maybe Core.POSIX,
     -- | The upload\'s type.
     --
     -- Must be one of the following values:
@@ -133,9 +132,9 @@ data Upload = Upload'
     -- -   INSTRUMENTATION_TEST_SPEC
     --
     -- -   XCTEST_UI_TEST_SPEC
-    type' :: Prelude.Maybe UploadType
+    type' :: Core.Maybe UploadType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Upload' with all optional fields omitted.
@@ -251,16 +250,16 @@ newUpload ::
   Upload
 newUpload =
   Upload'
-    { status = Prelude.Nothing,
-      contentType = Prelude.Nothing,
-      message = Prelude.Nothing,
-      category = Prelude.Nothing,
-      metadata = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      url = Prelude.Nothing,
-      created = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { status = Core.Nothing,
+      contentType = Core.Nothing,
+      message = Core.Nothing,
+      category = Core.Nothing,
+      metadata = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
+      url = Core.Nothing,
+      created = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The upload\'s status.
@@ -274,15 +273,15 @@ newUpload =
 -- -   PROCESSING
 --
 -- -   SUCCEEDED
-upload_status :: Lens.Lens' Upload (Prelude.Maybe UploadStatus)
+upload_status :: Lens.Lens' Upload (Core.Maybe UploadStatus)
 upload_status = Lens.lens (\Upload' {status} -> status) (\s@Upload' {} a -> s {status = a} :: Upload)
 
 -- | The upload\'s content type (for example, @application\/octet-stream@).
-upload_contentType :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_contentType :: Lens.Lens' Upload (Core.Maybe Core.Text)
 upload_contentType = Lens.lens (\Upload' {contentType} -> contentType) (\s@Upload' {} a -> s {contentType = a} :: Upload)
 
 -- | A message about the upload\'s result.
-upload_message :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_message :: Lens.Lens' Upload (Core.Maybe Core.Text)
 upload_message = Lens.lens (\Upload' {message} -> message) (\s@Upload' {} a -> s {message = a} :: Upload)
 
 -- | The upload\'s category. Allowed values include:
@@ -290,31 +289,31 @@ upload_message = Lens.lens (\Upload' {message} -> message) (\s@Upload' {} a -> s
 -- -   CURATED: An upload managed by AWS Device Farm.
 --
 -- -   PRIVATE: An upload managed by the AWS Device Farm customer.
-upload_category :: Lens.Lens' Upload (Prelude.Maybe UploadCategory)
+upload_category :: Lens.Lens' Upload (Core.Maybe UploadCategory)
 upload_category = Lens.lens (\Upload' {category} -> category) (\s@Upload' {} a -> s {category = a} :: Upload)
 
 -- | The upload\'s metadata. For example, for Android, this contains
 -- information that is parsed from the manifest and is displayed in the AWS
 -- Device Farm console after the associated app is uploaded.
-upload_metadata :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_metadata :: Lens.Lens' Upload (Core.Maybe Core.Text)
 upload_metadata = Lens.lens (\Upload' {metadata} -> metadata) (\s@Upload' {} a -> s {metadata = a} :: Upload)
 
 -- | The upload\'s ARN.
-upload_arn :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_arn :: Lens.Lens' Upload (Core.Maybe Core.Text)
 upload_arn = Lens.lens (\Upload' {arn} -> arn) (\s@Upload' {} a -> s {arn = a} :: Upload)
 
 -- | The upload\'s file name.
-upload_name :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_name :: Lens.Lens' Upload (Core.Maybe Core.Text)
 upload_name = Lens.lens (\Upload' {name} -> name) (\s@Upload' {} a -> s {name = a} :: Upload)
 
 -- | The presigned Amazon S3 URL that was used to store a file using a PUT
 -- request.
-upload_url :: Lens.Lens' Upload (Prelude.Maybe Prelude.Text)
+upload_url :: Lens.Lens' Upload (Core.Maybe Core.Text)
 upload_url = Lens.lens (\Upload' {url} -> url) (\s@Upload' {} a -> s {url = a} :: Upload)
 
 -- | When the upload was created.
-upload_created :: Lens.Lens' Upload (Prelude.Maybe Prelude.UTCTime)
-upload_created = Lens.lens (\Upload' {created} -> created) (\s@Upload' {} a -> s {created = a} :: Upload) Prelude.. Lens.mapping Prelude._Time
+upload_created :: Lens.Lens' Upload (Core.Maybe Core.UTCTime)
+upload_created = Lens.lens (\Upload' {created} -> created) (\s@Upload' {} a -> s {created = a} :: Upload) Core.. Lens.mapping Core._Time
 
 -- | The upload\'s type.
 --
@@ -383,27 +382,27 @@ upload_created = Lens.lens (\Upload' {created} -> created) (\s@Upload' {} a -> s
 -- -   INSTRUMENTATION_TEST_SPEC
 --
 -- -   XCTEST_UI_TEST_SPEC
-upload_type :: Lens.Lens' Upload (Prelude.Maybe UploadType)
+upload_type :: Lens.Lens' Upload (Core.Maybe UploadType)
 upload_type = Lens.lens (\Upload' {type'} -> type') (\s@Upload' {} a -> s {type' = a} :: Upload)
 
-instance Prelude.FromJSON Upload where
+instance Core.FromJSON Upload where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Upload"
       ( \x ->
           Upload'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "contentType")
-            Prelude.<*> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "category")
-            Prelude.<*> (x Prelude..:? "metadata")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "url")
-            Prelude.<*> (x Prelude..:? "created")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "contentType")
+            Core.<*> (x Core..:? "message")
+            Core.<*> (x Core..:? "category")
+            Core.<*> (x Core..:? "metadata")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "url")
+            Core.<*> (x Core..:? "created")
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable Upload
+instance Core.Hashable Upload
 
-instance Prelude.NFData Upload
+instance Core.NFData Upload

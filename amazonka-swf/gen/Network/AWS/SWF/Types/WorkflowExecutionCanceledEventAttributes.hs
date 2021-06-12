@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowExecutionCanceledEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @WorkflowExecutionCanceled@ event.
 --
 -- /See:/ 'newWorkflowExecutionCanceledEventAttributes' smart constructor.
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes'
   { -- | The details of the cancellation.
-    details :: Prelude.Maybe Prelude.Text,
+    details :: Core.Maybe Core.Text,
     -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
     -- decision task that resulted in the @CancelWorkflowExecution@ decision
     -- for this cancellation request. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Prelude.Integer
+    decisionTaskCompletedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionCanceledEventAttributes' with all optional fields omitted.
@@ -55,19 +54,19 @@ data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAt
 -- this event.
 newWorkflowExecutionCanceledEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   WorkflowExecutionCanceledEventAttributes
 newWorkflowExecutionCanceledEventAttributes
   pDecisionTaskCompletedEventId_ =
     WorkflowExecutionCanceledEventAttributes'
       { details =
-          Prelude.Nothing,
+          Core.Nothing,
         decisionTaskCompletedEventId =
           pDecisionTaskCompletedEventId_
       }
 
 -- | The details of the cancellation.
-workflowExecutionCanceledEventAttributes_details :: Lens.Lens' WorkflowExecutionCanceledEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionCanceledEventAttributes_details :: Lens.Lens' WorkflowExecutionCanceledEventAttributes (Core.Maybe Core.Text)
 workflowExecutionCanceledEventAttributes_details = Lens.lens (\WorkflowExecutionCanceledEventAttributes' {details} -> details) (\s@WorkflowExecutionCanceledEventAttributes' {} a -> s {details = a} :: WorkflowExecutionCanceledEventAttributes)
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the
@@ -75,26 +74,26 @@ workflowExecutionCanceledEventAttributes_details = Lens.lens (\WorkflowExecution
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionCanceledEventAttributes Prelude.Integer
+workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionCanceledEventAttributes Core.Integer
 workflowExecutionCanceledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\WorkflowExecutionCanceledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@WorkflowExecutionCanceledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionCanceledEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     WorkflowExecutionCanceledEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowExecutionCanceledEventAttributes"
       ( \x ->
           WorkflowExecutionCanceledEventAttributes'
-            Prelude.<$> (x Prelude..:? "details")
-            Prelude.<*> (x Prelude..: "decisionTaskCompletedEventId")
+            Core.<$> (x Core..:? "details")
+            Core.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     WorkflowExecutionCanceledEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     WorkflowExecutionCanceledEventAttributes

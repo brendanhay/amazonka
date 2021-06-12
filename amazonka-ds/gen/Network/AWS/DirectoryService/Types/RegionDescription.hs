@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,37 +19,37 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.RegionDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types.DirectoryStage
 import Network.AWS.DirectoryService.Types.DirectoryVpcSettings
 import Network.AWS.DirectoryService.Types.RegionType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The replicated Region information for a directory.
 --
 -- /See:/ 'newRegionDescription' smart constructor.
 data RegionDescription = RegionDescription'
   { -- | The name of the Region. For example, @us-east-1@.
-    regionName :: Prelude.Maybe Prelude.Text,
+    regionName :: Core.Maybe Core.Text,
     -- | The status of the replication process for the specified Region.
-    status :: Prelude.Maybe DirectoryStage,
+    status :: Core.Maybe DirectoryStage,
     -- | The date and time that the Region description was last updated.
-    lastUpdatedDateTime :: Prelude.Maybe Prelude.POSIX,
-    vpcSettings :: Prelude.Maybe DirectoryVpcSettings,
+    lastUpdatedDateTime :: Core.Maybe Core.POSIX,
+    vpcSettings :: Core.Maybe DirectoryVpcSettings,
     -- | Specifies whether the Region is the primary Region or an additional
     -- Region.
-    regionType :: Prelude.Maybe RegionType,
+    regionType :: Core.Maybe RegionType,
     -- | Specifies when the Region replication began.
-    launchTime :: Prelude.Maybe Prelude.POSIX,
+    launchTime :: Core.Maybe Core.POSIX,
     -- | The date and time that the Region status was last updated.
-    statusLastUpdatedDateTime :: Prelude.Maybe Prelude.POSIX,
+    statusLastUpdatedDateTime :: Core.Maybe Core.POSIX,
     -- | The identifier of the directory.
-    directoryId :: Prelude.Maybe Prelude.Text,
+    directoryId :: Core.Maybe Core.Text,
     -- | The desired number of domain controllers in the specified Region for the
     -- specified directory.
-    desiredNumberOfDomainControllers :: Prelude.Maybe Prelude.Natural
+    desiredNumberOfDomainControllers :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegionDescription' with all optional fields omitted.
@@ -83,72 +82,72 @@ newRegionDescription ::
   RegionDescription
 newRegionDescription =
   RegionDescription'
-    { regionName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      lastUpdatedDateTime = Prelude.Nothing,
-      vpcSettings = Prelude.Nothing,
-      regionType = Prelude.Nothing,
-      launchTime = Prelude.Nothing,
-      statusLastUpdatedDateTime = Prelude.Nothing,
-      directoryId = Prelude.Nothing,
-      desiredNumberOfDomainControllers = Prelude.Nothing
+    { regionName = Core.Nothing,
+      status = Core.Nothing,
+      lastUpdatedDateTime = Core.Nothing,
+      vpcSettings = Core.Nothing,
+      regionType = Core.Nothing,
+      launchTime = Core.Nothing,
+      statusLastUpdatedDateTime = Core.Nothing,
+      directoryId = Core.Nothing,
+      desiredNumberOfDomainControllers = Core.Nothing
     }
 
 -- | The name of the Region. For example, @us-east-1@.
-regionDescription_regionName :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.Text)
+regionDescription_regionName :: Lens.Lens' RegionDescription (Core.Maybe Core.Text)
 regionDescription_regionName = Lens.lens (\RegionDescription' {regionName} -> regionName) (\s@RegionDescription' {} a -> s {regionName = a} :: RegionDescription)
 
 -- | The status of the replication process for the specified Region.
-regionDescription_status :: Lens.Lens' RegionDescription (Prelude.Maybe DirectoryStage)
+regionDescription_status :: Lens.Lens' RegionDescription (Core.Maybe DirectoryStage)
 regionDescription_status = Lens.lens (\RegionDescription' {status} -> status) (\s@RegionDescription' {} a -> s {status = a} :: RegionDescription)
 
 -- | The date and time that the Region description was last updated.
-regionDescription_lastUpdatedDateTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
-regionDescription_lastUpdatedDateTime = Lens.lens (\RegionDescription' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RegionDescription' {} a -> s {lastUpdatedDateTime = a} :: RegionDescription) Prelude.. Lens.mapping Prelude._Time
+regionDescription_lastUpdatedDateTime :: Lens.Lens' RegionDescription (Core.Maybe Core.UTCTime)
+regionDescription_lastUpdatedDateTime = Lens.lens (\RegionDescription' {lastUpdatedDateTime} -> lastUpdatedDateTime) (\s@RegionDescription' {} a -> s {lastUpdatedDateTime = a} :: RegionDescription) Core.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-regionDescription_vpcSettings :: Lens.Lens' RegionDescription (Prelude.Maybe DirectoryVpcSettings)
+regionDescription_vpcSettings :: Lens.Lens' RegionDescription (Core.Maybe DirectoryVpcSettings)
 regionDescription_vpcSettings = Lens.lens (\RegionDescription' {vpcSettings} -> vpcSettings) (\s@RegionDescription' {} a -> s {vpcSettings = a} :: RegionDescription)
 
 -- | Specifies whether the Region is the primary Region or an additional
 -- Region.
-regionDescription_regionType :: Lens.Lens' RegionDescription (Prelude.Maybe RegionType)
+regionDescription_regionType :: Lens.Lens' RegionDescription (Core.Maybe RegionType)
 regionDescription_regionType = Lens.lens (\RegionDescription' {regionType} -> regionType) (\s@RegionDescription' {} a -> s {regionType = a} :: RegionDescription)
 
 -- | Specifies when the Region replication began.
-regionDescription_launchTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
-regionDescription_launchTime = Lens.lens (\RegionDescription' {launchTime} -> launchTime) (\s@RegionDescription' {} a -> s {launchTime = a} :: RegionDescription) Prelude.. Lens.mapping Prelude._Time
+regionDescription_launchTime :: Lens.Lens' RegionDescription (Core.Maybe Core.UTCTime)
+regionDescription_launchTime = Lens.lens (\RegionDescription' {launchTime} -> launchTime) (\s@RegionDescription' {} a -> s {launchTime = a} :: RegionDescription) Core.. Lens.mapping Core._Time
 
 -- | The date and time that the Region status was last updated.
-regionDescription_statusLastUpdatedDateTime :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.UTCTime)
-regionDescription_statusLastUpdatedDateTime = Lens.lens (\RegionDescription' {statusLastUpdatedDateTime} -> statusLastUpdatedDateTime) (\s@RegionDescription' {} a -> s {statusLastUpdatedDateTime = a} :: RegionDescription) Prelude.. Lens.mapping Prelude._Time
+regionDescription_statusLastUpdatedDateTime :: Lens.Lens' RegionDescription (Core.Maybe Core.UTCTime)
+regionDescription_statusLastUpdatedDateTime = Lens.lens (\RegionDescription' {statusLastUpdatedDateTime} -> statusLastUpdatedDateTime) (\s@RegionDescription' {} a -> s {statusLastUpdatedDateTime = a} :: RegionDescription) Core.. Lens.mapping Core._Time
 
 -- | The identifier of the directory.
-regionDescription_directoryId :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.Text)
+regionDescription_directoryId :: Lens.Lens' RegionDescription (Core.Maybe Core.Text)
 regionDescription_directoryId = Lens.lens (\RegionDescription' {directoryId} -> directoryId) (\s@RegionDescription' {} a -> s {directoryId = a} :: RegionDescription)
 
 -- | The desired number of domain controllers in the specified Region for the
 -- specified directory.
-regionDescription_desiredNumberOfDomainControllers :: Lens.Lens' RegionDescription (Prelude.Maybe Prelude.Natural)
+regionDescription_desiredNumberOfDomainControllers :: Lens.Lens' RegionDescription (Core.Maybe Core.Natural)
 regionDescription_desiredNumberOfDomainControllers = Lens.lens (\RegionDescription' {desiredNumberOfDomainControllers} -> desiredNumberOfDomainControllers) (\s@RegionDescription' {} a -> s {desiredNumberOfDomainControllers = a} :: RegionDescription)
 
-instance Prelude.FromJSON RegionDescription where
+instance Core.FromJSON RegionDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RegionDescription"
       ( \x ->
           RegionDescription'
-            Prelude.<$> (x Prelude..:? "RegionName")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "LastUpdatedDateTime")
-            Prelude.<*> (x Prelude..:? "VpcSettings")
-            Prelude.<*> (x Prelude..:? "RegionType")
-            Prelude.<*> (x Prelude..:? "LaunchTime")
-            Prelude.<*> (x Prelude..:? "StatusLastUpdatedDateTime")
-            Prelude.<*> (x Prelude..:? "DirectoryId")
-            Prelude.<*> (x Prelude..:? "DesiredNumberOfDomainControllers")
+            Core.<$> (x Core..:? "RegionName")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "LastUpdatedDateTime")
+            Core.<*> (x Core..:? "VpcSettings")
+            Core.<*> (x Core..:? "RegionType")
+            Core.<*> (x Core..:? "LaunchTime")
+            Core.<*> (x Core..:? "StatusLastUpdatedDateTime")
+            Core.<*> (x Core..:? "DirectoryId")
+            Core.<*> (x Core..:? "DesiredNumberOfDomainControllers")
       )
 
-instance Prelude.Hashable RegionDescription
+instance Core.Hashable RegionDescription
 
-instance Prelude.NFData RegionDescription
+instance Core.NFData RegionDescription

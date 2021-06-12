@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AppStream.Types.DirectoryConfig where
 
 import Network.AWS.AppStream.Types.ServiceAccountCredentials
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the configuration information required to join fleets and
 -- image builders to Microsoft Active Directory domains.
@@ -31,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 data DirectoryConfig = DirectoryConfig'
   { -- | The credentials for the service account used by the fleet or image
     -- builder to connect to the directory.
-    serviceAccountCredentials :: Prelude.Maybe ServiceAccountCredentials,
+    serviceAccountCredentials :: Core.Maybe ServiceAccountCredentials,
     -- | The time the directory configuration was created.
-    createdTime :: Prelude.Maybe Prelude.POSIX,
+    createdTime :: Core.Maybe Core.POSIX,
     -- | The distinguished names of the organizational units for computer
     -- accounts.
-    organizationalUnitDistinguishedNames :: Prelude.Maybe [Prelude.Text],
+    organizationalUnitDistinguishedNames :: Core.Maybe [Core.Text],
     -- | The fully qualified name of the directory (for example,
     -- corp.example.com).
-    directoryName :: Prelude.Text
+    directoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DirectoryConfig' with all optional fields omitted.
@@ -63,51 +62,50 @@ data DirectoryConfig = DirectoryConfig'
 -- corp.example.com).
 newDirectoryConfig ::
   -- | 'directoryName'
-  Prelude.Text ->
+  Core.Text ->
   DirectoryConfig
 newDirectoryConfig pDirectoryName_ =
   DirectoryConfig'
     { serviceAccountCredentials =
-        Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      organizationalUnitDistinguishedNames =
-        Prelude.Nothing,
+        Core.Nothing,
+      createdTime = Core.Nothing,
+      organizationalUnitDistinguishedNames = Core.Nothing,
       directoryName = pDirectoryName_
     }
 
 -- | The credentials for the service account used by the fleet or image
 -- builder to connect to the directory.
-directoryConfig_serviceAccountCredentials :: Lens.Lens' DirectoryConfig (Prelude.Maybe ServiceAccountCredentials)
+directoryConfig_serviceAccountCredentials :: Lens.Lens' DirectoryConfig (Core.Maybe ServiceAccountCredentials)
 directoryConfig_serviceAccountCredentials = Lens.lens (\DirectoryConfig' {serviceAccountCredentials} -> serviceAccountCredentials) (\s@DirectoryConfig' {} a -> s {serviceAccountCredentials = a} :: DirectoryConfig)
 
 -- | The time the directory configuration was created.
-directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Prelude.Maybe Prelude.UTCTime)
-directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Prelude.. Lens.mapping Prelude._Time
+directoryConfig_createdTime :: Lens.Lens' DirectoryConfig (Core.Maybe Core.UTCTime)
+directoryConfig_createdTime = Lens.lens (\DirectoryConfig' {createdTime} -> createdTime) (\s@DirectoryConfig' {} a -> s {createdTime = a} :: DirectoryConfig) Core.. Lens.mapping Core._Time
 
 -- | The distinguished names of the organizational units for computer
 -- accounts.
-directoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' DirectoryConfig (Prelude.Maybe [Prelude.Text])
-directoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\DirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@DirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: DirectoryConfig) Prelude.. Lens.mapping Prelude._Coerce
+directoryConfig_organizationalUnitDistinguishedNames :: Lens.Lens' DirectoryConfig (Core.Maybe [Core.Text])
+directoryConfig_organizationalUnitDistinguishedNames = Lens.lens (\DirectoryConfig' {organizationalUnitDistinguishedNames} -> organizationalUnitDistinguishedNames) (\s@DirectoryConfig' {} a -> s {organizationalUnitDistinguishedNames = a} :: DirectoryConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The fully qualified name of the directory (for example,
 -- corp.example.com).
-directoryConfig_directoryName :: Lens.Lens' DirectoryConfig Prelude.Text
+directoryConfig_directoryName :: Lens.Lens' DirectoryConfig Core.Text
 directoryConfig_directoryName = Lens.lens (\DirectoryConfig' {directoryName} -> directoryName) (\s@DirectoryConfig' {} a -> s {directoryName = a} :: DirectoryConfig)
 
-instance Prelude.FromJSON DirectoryConfig where
+instance Core.FromJSON DirectoryConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DirectoryConfig"
       ( \x ->
           DirectoryConfig'
-            Prelude.<$> (x Prelude..:? "ServiceAccountCredentials")
-            Prelude.<*> (x Prelude..:? "CreatedTime")
-            Prelude.<*> ( x Prelude..:? "OrganizationalUnitDistinguishedNames"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "DirectoryName")
+            Core.<$> (x Core..:? "ServiceAccountCredentials")
+            Core.<*> (x Core..:? "CreatedTime")
+            Core.<*> ( x Core..:? "OrganizationalUnitDistinguishedNames"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "DirectoryName")
       )
 
-instance Prelude.Hashable DirectoryConfig
+instance Core.Hashable DirectoryConfig
 
-instance Prelude.NFData DirectoryConfig
+instance Core.NFData DirectoryConfig

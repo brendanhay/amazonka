@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.MediaConvert.CancelJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelJob' smart constructor.
 data CancelJob = CancelJob'
   { -- | The Job ID of the job to be cancelled.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelJob' with all optional fields omitted.
@@ -64,53 +63,50 @@ data CancelJob = CancelJob'
 -- 'id', 'cancelJob_id' - The Job ID of the job to be cancelled.
 newCancelJob ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   CancelJob
 newCancelJob pId_ = CancelJob' {id = pId_}
 
 -- | The Job ID of the job to be cancelled.
-cancelJob_id :: Lens.Lens' CancelJob Prelude.Text
+cancelJob_id :: Lens.Lens' CancelJob Core.Text
 cancelJob_id = Lens.lens (\CancelJob' {id} -> id) (\s@CancelJob' {} a -> s {id = a} :: CancelJob)
 
-instance Prelude.AWSRequest CancelJob where
-  type Rs CancelJob = CancelJobResponse
+instance Core.AWSRequest CancelJob where
+  type AWSResponse CancelJob = CancelJobResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelJob
+instance Core.Hashable CancelJob
 
-instance Prelude.NFData CancelJob
+instance Core.NFData CancelJob
 
-instance Prelude.ToHeaders CancelJob where
+instance Core.ToHeaders CancelJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath CancelJob where
+instance Core.ToPath CancelJob where
   toPath CancelJob' {..} =
-    Prelude.mconcat
-      ["/2017-08-29/jobs/", Prelude.toBS id]
+    Core.mconcat ["/2017-08-29/jobs/", Core.toBS id]
 
-instance Prelude.ToQuery CancelJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelJobResponse' with all optional fields omitted.
@@ -123,13 +119,13 @@ data CancelJobResponse = CancelJobResponse'
 -- 'httpStatus', 'cancelJobResponse_httpStatus' - The response's http status code.
 newCancelJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelJobResponse
 newCancelJobResponse pHttpStatus_ =
   CancelJobResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Prelude.Int
+cancelJobResponse_httpStatus :: Lens.Lens' CancelJobResponse Core.Int
 cancelJobResponse_httpStatus = Lens.lens (\CancelJobResponse' {httpStatus} -> httpStatus) (\s@CancelJobResponse' {} a -> s {httpStatus = a} :: CancelJobResponse)
 
-instance Prelude.NFData CancelJobResponse
+instance Core.NFData CancelJobResponse

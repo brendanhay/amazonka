@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSetting where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A specification identifying an individual configuration option along
 -- with its current value. For a list of possible namespaces and option
@@ -32,17 +31,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConfigurationOptionSetting' smart constructor.
 data ConfigurationOptionSetting = ConfigurationOptionSetting'
   { -- | The name of the configuration option.
-    optionName :: Prelude.Maybe Prelude.Text,
+    optionName :: Core.Maybe Core.Text,
     -- | The current value for the configuration option.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | A unique namespace that identifies the option\'s associated AWS
     -- resource.
-    namespace :: Prelude.Maybe Prelude.Text,
+    namespace :: Core.Maybe Core.Text,
     -- | A unique resource name for the option setting. Use it for a time–based
     -- scaling configuration option.
-    resourceName :: Prelude.Maybe Prelude.Text
+    resourceName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfigurationOptionSetting' with all optional fields omitted.
@@ -66,47 +65,47 @@ newConfigurationOptionSetting ::
 newConfigurationOptionSetting =
   ConfigurationOptionSetting'
     { optionName =
-        Prelude.Nothing,
-      value = Prelude.Nothing,
-      namespace = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+        Core.Nothing,
+      value = Core.Nothing,
+      namespace = Core.Nothing,
+      resourceName = Core.Nothing
     }
 
 -- | The name of the configuration option.
-configurationOptionSetting_optionName :: Lens.Lens' ConfigurationOptionSetting (Prelude.Maybe Prelude.Text)
+configurationOptionSetting_optionName :: Lens.Lens' ConfigurationOptionSetting (Core.Maybe Core.Text)
 configurationOptionSetting_optionName = Lens.lens (\ConfigurationOptionSetting' {optionName} -> optionName) (\s@ConfigurationOptionSetting' {} a -> s {optionName = a} :: ConfigurationOptionSetting)
 
 -- | The current value for the configuration option.
-configurationOptionSetting_value :: Lens.Lens' ConfigurationOptionSetting (Prelude.Maybe Prelude.Text)
+configurationOptionSetting_value :: Lens.Lens' ConfigurationOptionSetting (Core.Maybe Core.Text)
 configurationOptionSetting_value = Lens.lens (\ConfigurationOptionSetting' {value} -> value) (\s@ConfigurationOptionSetting' {} a -> s {value = a} :: ConfigurationOptionSetting)
 
 -- | A unique namespace that identifies the option\'s associated AWS
 -- resource.
-configurationOptionSetting_namespace :: Lens.Lens' ConfigurationOptionSetting (Prelude.Maybe Prelude.Text)
+configurationOptionSetting_namespace :: Lens.Lens' ConfigurationOptionSetting (Core.Maybe Core.Text)
 configurationOptionSetting_namespace = Lens.lens (\ConfigurationOptionSetting' {namespace} -> namespace) (\s@ConfigurationOptionSetting' {} a -> s {namespace = a} :: ConfigurationOptionSetting)
 
 -- | A unique resource name for the option setting. Use it for a time–based
 -- scaling configuration option.
-configurationOptionSetting_resourceName :: Lens.Lens' ConfigurationOptionSetting (Prelude.Maybe Prelude.Text)
+configurationOptionSetting_resourceName :: Lens.Lens' ConfigurationOptionSetting (Core.Maybe Core.Text)
 configurationOptionSetting_resourceName = Lens.lens (\ConfigurationOptionSetting' {resourceName} -> resourceName) (\s@ConfigurationOptionSetting' {} a -> s {resourceName = a} :: ConfigurationOptionSetting)
 
-instance Prelude.FromXML ConfigurationOptionSetting where
+instance Core.FromXML ConfigurationOptionSetting where
   parseXML x =
     ConfigurationOptionSetting'
-      Prelude.<$> (x Prelude..@? "OptionName")
-      Prelude.<*> (x Prelude..@? "Value")
-      Prelude.<*> (x Prelude..@? "Namespace")
-      Prelude.<*> (x Prelude..@? "ResourceName")
+      Core.<$> (x Core..@? "OptionName")
+      Core.<*> (x Core..@? "Value")
+      Core.<*> (x Core..@? "Namespace")
+      Core.<*> (x Core..@? "ResourceName")
 
-instance Prelude.Hashable ConfigurationOptionSetting
+instance Core.Hashable ConfigurationOptionSetting
 
-instance Prelude.NFData ConfigurationOptionSetting
+instance Core.NFData ConfigurationOptionSetting
 
-instance Prelude.ToQuery ConfigurationOptionSetting where
+instance Core.ToQuery ConfigurationOptionSetting where
   toQuery ConfigurationOptionSetting' {..} =
-    Prelude.mconcat
-      [ "OptionName" Prelude.=: optionName,
-        "Value" Prelude.=: value,
-        "Namespace" Prelude.=: namespace,
-        "ResourceName" Prelude.=: resourceName
+    Core.mconcat
+      [ "OptionName" Core.=: optionName,
+        "Value" Core.=: value,
+        "Namespace" Core.=: namespace,
+        "ResourceName" Core.=: resourceName
       ]

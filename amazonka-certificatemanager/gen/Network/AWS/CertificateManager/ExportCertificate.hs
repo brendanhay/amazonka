@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.CertificateManager.ExportCertificate
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,15 +62,15 @@ data ExportCertificate = ExportCertificate'
     -- the form:
     --
     -- @arn:aws:acm:region:account:certificate\/12345678-1234-1234-1234-123456789012@
-    certificateArn :: Prelude.Text,
+    certificateArn :: Core.Text,
     -- | Passphrase to associate with the encrypted exported private key. If you
     -- want to later decrypt the private key, you must have the passphrase. You
     -- can use the following OpenSSL command to decrypt a private key:
     --
     -- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@
-    passphrase :: Prelude.Sensitive Prelude.Base64
+    passphrase :: Core.Sensitive Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportCertificate' with all optional fields omitted.
@@ -97,16 +96,16 @@ data ExportCertificate = ExportCertificate'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newExportCertificate ::
   -- | 'certificateArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'passphrase'
-  Prelude.ByteString ->
+  Core.ByteString ->
   ExportCertificate
 newExportCertificate pCertificateArn_ pPassphrase_ =
   ExportCertificate'
     { certificateArn =
         pCertificateArn_,
       passphrase =
-        Prelude._Sensitive Prelude.. Prelude._Base64
+        Core._Sensitive Core.. Core._Base64
           Lens.# pPassphrase_
     }
 
@@ -114,7 +113,7 @@ newExportCertificate pCertificateArn_ pPassphrase_ =
 -- the form:
 --
 -- @arn:aws:acm:region:account:certificate\/12345678-1234-1234-1234-123456789012@
-exportCertificate_certificateArn :: Lens.Lens' ExportCertificate Prelude.Text
+exportCertificate_certificateArn :: Lens.Lens' ExportCertificate Core.Text
 exportCertificate_certificateArn = Lens.lens (\ExportCertificate' {certificateArn} -> certificateArn) (\s@ExportCertificate' {} a -> s {certificateArn = a} :: ExportCertificate)
 
 -- | Passphrase to associate with the encrypted exported private key. If you
@@ -126,72 +125,71 @@ exportCertificate_certificateArn = Lens.lens (\ExportCertificate' {certificateAr
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-exportCertificate_passphrase :: Lens.Lens' ExportCertificate Prelude.ByteString
-exportCertificate_passphrase = Lens.lens (\ExportCertificate' {passphrase} -> passphrase) (\s@ExportCertificate' {} a -> s {passphrase = a} :: ExportCertificate) Prelude.. Prelude._Sensitive Prelude.. Prelude._Base64
+exportCertificate_passphrase :: Lens.Lens' ExportCertificate Core.ByteString
+exportCertificate_passphrase = Lens.lens (\ExportCertificate' {passphrase} -> passphrase) (\s@ExportCertificate' {} a -> s {passphrase = a} :: ExportCertificate) Core.. Core._Sensitive Core.. Core._Base64
 
-instance Prelude.AWSRequest ExportCertificate where
-  type Rs ExportCertificate = ExportCertificateResponse
+instance Core.AWSRequest ExportCertificate where
+  type
+    AWSResponse ExportCertificate =
+      ExportCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ExportCertificateResponse'
-            Prelude.<$> (x Prelude..?> "PrivateKey")
-            Prelude.<*> (x Prelude..?> "CertificateChain")
-            Prelude.<*> (x Prelude..?> "Certificate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PrivateKey")
+            Core.<*> (x Core..?> "CertificateChain")
+            Core.<*> (x Core..?> "Certificate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ExportCertificate
+instance Core.Hashable ExportCertificate
 
-instance Prelude.NFData ExportCertificate
+instance Core.NFData ExportCertificate
 
-instance Prelude.ToHeaders ExportCertificate where
+instance Core.ToHeaders ExportCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.ExportCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.ExportCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ExportCertificate where
+instance Core.ToJSON ExportCertificate where
   toJSON ExportCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CertificateArn" Prelude..= certificateArn),
-            Prelude.Just ("Passphrase" Prelude..= passphrase)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CertificateArn" Core..= certificateArn),
+            Core.Just ("Passphrase" Core..= passphrase)
           ]
       )
 
-instance Prelude.ToPath ExportCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExportCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ExportCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ExportCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newExportCertificateResponse' smart constructor.
 data ExportCertificateResponse = ExportCertificateResponse'
   { -- | The encrypted private key associated with the public key in the
     -- certificate. The key is output in PKCS #8 format and is base64
     -- PEM-encoded.
-    privateKey :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    privateKey :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The base64 PEM-encoded certificate chain. This does not include the
     -- certificate that you are exporting.
-    certificateChain :: Prelude.Maybe Prelude.Text,
+    certificateChain :: Core.Maybe Core.Text,
     -- | The base64 PEM-encoded certificate.
-    certificate :: Prelude.Maybe Prelude.Text,
+    certificate :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportCertificateResponse' with all optional fields omitted.
@@ -213,34 +211,34 @@ data ExportCertificateResponse = ExportCertificateResponse'
 -- 'httpStatus', 'exportCertificateResponse_httpStatus' - The response's http status code.
 newExportCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExportCertificateResponse
 newExportCertificateResponse pHttpStatus_ =
   ExportCertificateResponse'
     { privateKey =
-        Prelude.Nothing,
-      certificateChain = Prelude.Nothing,
-      certificate = Prelude.Nothing,
+        Core.Nothing,
+      certificateChain = Core.Nothing,
+      certificate = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The encrypted private key associated with the public key in the
 -- certificate. The key is output in PKCS #8 format and is base64
 -- PEM-encoded.
-exportCertificateResponse_privateKey :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
-exportCertificateResponse_privateKey = Lens.lens (\ExportCertificateResponse' {privateKey} -> privateKey) (\s@ExportCertificateResponse' {} a -> s {privateKey = a} :: ExportCertificateResponse) Prelude.. Lens.mapping Prelude._Sensitive
+exportCertificateResponse_privateKey :: Lens.Lens' ExportCertificateResponse (Core.Maybe Core.Text)
+exportCertificateResponse_privateKey = Lens.lens (\ExportCertificateResponse' {privateKey} -> privateKey) (\s@ExportCertificateResponse' {} a -> s {privateKey = a} :: ExportCertificateResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | The base64 PEM-encoded certificate chain. This does not include the
 -- certificate that you are exporting.
-exportCertificateResponse_certificateChain :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
+exportCertificateResponse_certificateChain :: Lens.Lens' ExportCertificateResponse (Core.Maybe Core.Text)
 exportCertificateResponse_certificateChain = Lens.lens (\ExportCertificateResponse' {certificateChain} -> certificateChain) (\s@ExportCertificateResponse' {} a -> s {certificateChain = a} :: ExportCertificateResponse)
 
 -- | The base64 PEM-encoded certificate.
-exportCertificateResponse_certificate :: Lens.Lens' ExportCertificateResponse (Prelude.Maybe Prelude.Text)
+exportCertificateResponse_certificate :: Lens.Lens' ExportCertificateResponse (Core.Maybe Core.Text)
 exportCertificateResponse_certificate = Lens.lens (\ExportCertificateResponse' {certificate} -> certificate) (\s@ExportCertificateResponse' {} a -> s {certificate = a} :: ExportCertificateResponse)
 
 -- | The response's http status code.
-exportCertificateResponse_httpStatus :: Lens.Lens' ExportCertificateResponse Prelude.Int
+exportCertificateResponse_httpStatus :: Lens.Lens' ExportCertificateResponse Core.Int
 exportCertificateResponse_httpStatus = Lens.lens (\ExportCertificateResponse' {httpStatus} -> httpStatus) (\s@ExportCertificateResponse' {} a -> s {httpStatus = a} :: ExportCertificateResponse)
 
-instance Prelude.NFData ExportCertificateResponse
+instance Core.NFData ExportCertificateResponse

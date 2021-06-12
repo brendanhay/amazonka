@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,23 +45,22 @@ module Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSkillsStoreSkillsByCategory' smart constructor.
 data ListSkillsStoreSkillsByCategory = ListSkillsStoreSkillsByCategory'
   { -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of skills returned per paginated calls.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The category ID for which the skills are being retrieved from the skill
     -- store.
-    categoryId :: Prelude.Natural
+    categoryId :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSkillsStoreSkillsByCategory' with all optional fields omitted.
@@ -80,134 +78,119 @@ data ListSkillsStoreSkillsByCategory = ListSkillsStoreSkillsByCategory'
 -- store.
 newListSkillsStoreSkillsByCategory ::
   -- | 'categoryId'
-  Prelude.Natural ->
+  Core.Natural ->
   ListSkillsStoreSkillsByCategory
 newListSkillsStoreSkillsByCategory pCategoryId_ =
   ListSkillsStoreSkillsByCategory'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       categoryId = pCategoryId_
     }
 
 -- | The tokens used for pagination.
-listSkillsStoreSkillsByCategory_nextToken :: Lens.Lens' ListSkillsStoreSkillsByCategory (Prelude.Maybe Prelude.Text)
+listSkillsStoreSkillsByCategory_nextToken :: Lens.Lens' ListSkillsStoreSkillsByCategory (Core.Maybe Core.Text)
 listSkillsStoreSkillsByCategory_nextToken = Lens.lens (\ListSkillsStoreSkillsByCategory' {nextToken} -> nextToken) (\s@ListSkillsStoreSkillsByCategory' {} a -> s {nextToken = a} :: ListSkillsStoreSkillsByCategory)
 
 -- | The maximum number of skills returned per paginated calls.
-listSkillsStoreSkillsByCategory_maxResults :: Lens.Lens' ListSkillsStoreSkillsByCategory (Prelude.Maybe Prelude.Natural)
+listSkillsStoreSkillsByCategory_maxResults :: Lens.Lens' ListSkillsStoreSkillsByCategory (Core.Maybe Core.Natural)
 listSkillsStoreSkillsByCategory_maxResults = Lens.lens (\ListSkillsStoreSkillsByCategory' {maxResults} -> maxResults) (\s@ListSkillsStoreSkillsByCategory' {} a -> s {maxResults = a} :: ListSkillsStoreSkillsByCategory)
 
 -- | The category ID for which the skills are being retrieved from the skill
 -- store.
-listSkillsStoreSkillsByCategory_categoryId :: Lens.Lens' ListSkillsStoreSkillsByCategory Prelude.Natural
+listSkillsStoreSkillsByCategory_categoryId :: Lens.Lens' ListSkillsStoreSkillsByCategory Core.Natural
 listSkillsStoreSkillsByCategory_categoryId = Lens.lens (\ListSkillsStoreSkillsByCategory' {categoryId} -> categoryId) (\s@ListSkillsStoreSkillsByCategory' {} a -> s {categoryId = a} :: ListSkillsStoreSkillsByCategory)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListSkillsStoreSkillsByCategory
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSkillsStoreSkillsByCategoryResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSkillsStoreSkillsByCategory_nextToken
           Lens..~ rs
           Lens.^? listSkillsStoreSkillsByCategoryResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListSkillsStoreSkillsByCategory
   where
   type
-    Rs ListSkillsStoreSkillsByCategory =
+    AWSResponse ListSkillsStoreSkillsByCategory =
       ListSkillsStoreSkillsByCategoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSkillsStoreSkillsByCategoryResponse'
-            Prelude.<$> ( x Prelude..?> "SkillsStoreSkills"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SkillsStoreSkills" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListSkillsStoreSkillsByCategory
 
-instance
-  Prelude.NFData
-    ListSkillsStoreSkillsByCategory
+instance Core.NFData ListSkillsStoreSkillsByCategory
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListSkillsStoreSkillsByCategory
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.ListSkillsStoreSkillsByCategory" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.ListSkillsStoreSkillsByCategory" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    ListSkillsStoreSkillsByCategory
-  where
+instance Core.ToJSON ListSkillsStoreSkillsByCategory where
   toJSON ListSkillsStoreSkillsByCategory' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("CategoryId" Prelude..= categoryId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("CategoryId" Core..= categoryId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListSkillsStoreSkillsByCategory
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSkillsStoreSkillsByCategory where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ListSkillsStoreSkillsByCategory
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListSkillsStoreSkillsByCategory where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListSkillsStoreSkillsByCategoryResponse' smart constructor.
 data ListSkillsStoreSkillsByCategoryResponse = ListSkillsStoreSkillsByCategoryResponse'
   { -- | The skill store skills.
-    skillsStoreSkills :: Prelude.Maybe [SkillsStoreSkill],
+    skillsStoreSkills :: Core.Maybe [SkillsStoreSkill],
     -- | The tokens used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSkillsStoreSkillsByCategoryResponse' with all optional fields omitted.
@@ -224,29 +207,29 @@ data ListSkillsStoreSkillsByCategoryResponse = ListSkillsStoreSkillsByCategoryRe
 -- 'httpStatus', 'listSkillsStoreSkillsByCategoryResponse_httpStatus' - The response's http status code.
 newListSkillsStoreSkillsByCategoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSkillsStoreSkillsByCategoryResponse
 newListSkillsStoreSkillsByCategoryResponse
   pHttpStatus_ =
     ListSkillsStoreSkillsByCategoryResponse'
       { skillsStoreSkills =
-          Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+          Core.Nothing,
+        nextToken = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The skill store skills.
-listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse (Prelude.Maybe [SkillsStoreSkill])
-listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills = Lens.lens (\ListSkillsStoreSkillsByCategoryResponse' {skillsStoreSkills} -> skillsStoreSkills) (\s@ListSkillsStoreSkillsByCategoryResponse' {} a -> s {skillsStoreSkills = a} :: ListSkillsStoreSkillsByCategoryResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse (Core.Maybe [SkillsStoreSkill])
+listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills = Lens.lens (\ListSkillsStoreSkillsByCategoryResponse' {skillsStoreSkills} -> skillsStoreSkills) (\s@ListSkillsStoreSkillsByCategoryResponse' {} a -> s {skillsStoreSkills = a} :: ListSkillsStoreSkillsByCategoryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The tokens used for pagination.
-listSkillsStoreSkillsByCategoryResponse_nextToken :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse (Prelude.Maybe Prelude.Text)
+listSkillsStoreSkillsByCategoryResponse_nextToken :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse (Core.Maybe Core.Text)
 listSkillsStoreSkillsByCategoryResponse_nextToken = Lens.lens (\ListSkillsStoreSkillsByCategoryResponse' {nextToken} -> nextToken) (\s@ListSkillsStoreSkillsByCategoryResponse' {} a -> s {nextToken = a} :: ListSkillsStoreSkillsByCategoryResponse)
 
 -- | The response's http status code.
-listSkillsStoreSkillsByCategoryResponse_httpStatus :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse Prelude.Int
+listSkillsStoreSkillsByCategoryResponse_httpStatus :: Lens.Lens' ListSkillsStoreSkillsByCategoryResponse Core.Int
 listSkillsStoreSkillsByCategoryResponse_httpStatus = Lens.lens (\ListSkillsStoreSkillsByCategoryResponse' {httpStatus} -> httpStatus) (\s@ListSkillsStoreSkillsByCategoryResponse' {} a -> s {httpStatus = a} :: ListSkillsStoreSkillsByCategoryResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListSkillsStoreSkillsByCategoryResponse

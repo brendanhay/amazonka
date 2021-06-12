@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.KinesisStreamingDestinationOutput where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.DestinationStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newKinesisStreamingDestinationOutput' smart constructor.
 data KinesisStreamingDestinationOutput = KinesisStreamingDestinationOutput'
   { -- | The name of the table being modified.
-    tableName :: Prelude.Maybe Prelude.Text,
+    tableName :: Core.Maybe Core.Text,
     -- | The ARN for the specific Kinesis data stream.
-    streamArn :: Prelude.Maybe Prelude.Text,
+    streamArn :: Core.Maybe Core.Text,
     -- | The current status of the replication.
-    destinationStatus :: Prelude.Maybe DestinationStatus
+    destinationStatus :: Core.Maybe DestinationStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisStreamingDestinationOutput' with all optional fields omitted.
@@ -53,41 +52,41 @@ newKinesisStreamingDestinationOutput ::
 newKinesisStreamingDestinationOutput =
   KinesisStreamingDestinationOutput'
     { tableName =
-        Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      destinationStatus = Prelude.Nothing
+        Core.Nothing,
+      streamArn = Core.Nothing,
+      destinationStatus = Core.Nothing
     }
 
 -- | The name of the table being modified.
-kinesisStreamingDestinationOutput_tableName :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe Prelude.Text)
+kinesisStreamingDestinationOutput_tableName :: Lens.Lens' KinesisStreamingDestinationOutput (Core.Maybe Core.Text)
 kinesisStreamingDestinationOutput_tableName = Lens.lens (\KinesisStreamingDestinationOutput' {tableName} -> tableName) (\s@KinesisStreamingDestinationOutput' {} a -> s {tableName = a} :: KinesisStreamingDestinationOutput)
 
 -- | The ARN for the specific Kinesis data stream.
-kinesisStreamingDestinationOutput_streamArn :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe Prelude.Text)
+kinesisStreamingDestinationOutput_streamArn :: Lens.Lens' KinesisStreamingDestinationOutput (Core.Maybe Core.Text)
 kinesisStreamingDestinationOutput_streamArn = Lens.lens (\KinesisStreamingDestinationOutput' {streamArn} -> streamArn) (\s@KinesisStreamingDestinationOutput' {} a -> s {streamArn = a} :: KinesisStreamingDestinationOutput)
 
 -- | The current status of the replication.
-kinesisStreamingDestinationOutput_destinationStatus :: Lens.Lens' KinesisStreamingDestinationOutput (Prelude.Maybe DestinationStatus)
+kinesisStreamingDestinationOutput_destinationStatus :: Lens.Lens' KinesisStreamingDestinationOutput (Core.Maybe DestinationStatus)
 kinesisStreamingDestinationOutput_destinationStatus = Lens.lens (\KinesisStreamingDestinationOutput' {destinationStatus} -> destinationStatus) (\s@KinesisStreamingDestinationOutput' {} a -> s {destinationStatus = a} :: KinesisStreamingDestinationOutput)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     KinesisStreamingDestinationOutput
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KinesisStreamingDestinationOutput"
       ( \x ->
           KinesisStreamingDestinationOutput'
-            Prelude.<$> (x Prelude..:? "TableName")
-            Prelude.<*> (x Prelude..:? "StreamArn")
-            Prelude.<*> (x Prelude..:? "DestinationStatus")
+            Core.<$> (x Core..:? "TableName")
+            Core.<*> (x Core..:? "StreamArn")
+            Core.<*> (x Core..:? "DestinationStatus")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     KinesisStreamingDestinationOutput
 
 instance
-  Prelude.NFData
+  Core.NFData
     KinesisStreamingDestinationOutput

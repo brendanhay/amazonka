@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.MediaLive.DescribeInput
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,9 +65,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeInput' smart constructor.
 data DescribeInput = DescribeInput'
   { -- | Unique ID of the input
-    inputId :: Prelude.Text
+    inputId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInput' with all optional fields omitted.
@@ -81,75 +80,62 @@ data DescribeInput = DescribeInput'
 -- 'inputId', 'describeInput_inputId' - Unique ID of the input
 newDescribeInput ::
   -- | 'inputId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeInput
 newDescribeInput pInputId_ =
   DescribeInput' {inputId = pInputId_}
 
 -- | Unique ID of the input
-describeInput_inputId :: Lens.Lens' DescribeInput Prelude.Text
+describeInput_inputId :: Lens.Lens' DescribeInput Core.Text
 describeInput_inputId = Lens.lens (\DescribeInput' {inputId} -> inputId) (\s@DescribeInput' {} a -> s {inputId = a} :: DescribeInput)
 
-instance Prelude.AWSRequest DescribeInput where
-  type Rs DescribeInput = DescribeInputResponse
+instance Core.AWSRequest DescribeInput where
+  type
+    AWSResponse DescribeInput =
+      DescribeInputResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeInputResponse'
-            Prelude.<$> (x Prelude..?> "roleArn")
-            Prelude.<*> (x Prelude..?> "sources" Prelude..!@ Prelude.mempty)
-            Prelude.<*> ( x Prelude..?> "inputPartnerIds"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "inputSourceType")
-            Prelude.<*> ( x Prelude..?> "mediaConnectFlows"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "arn")
-            Prelude.<*> (x Prelude..?> "id")
-            Prelude.<*> ( x Prelude..?> "securityGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "destinations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "state")
-            Prelude.<*> (x Prelude..?> "name")
-            Prelude.<*> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "type")
-            Prelude.<*> (x Prelude..?> "inputClass")
-            Prelude.<*> ( x Prelude..?> "inputDevices"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "attachedChannels"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "roleArn")
+            Core.<*> (x Core..?> "sources" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "inputPartnerIds" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "inputSourceType")
+            Core.<*> (x Core..?> "mediaConnectFlows" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "arn")
+            Core.<*> (x Core..?> "id")
+            Core.<*> (x Core..?> "securityGroups" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "destinations" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "state")
+            Core.<*> (x Core..?> "name")
+            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "type")
+            Core.<*> (x Core..?> "inputClass")
+            Core.<*> (x Core..?> "inputDevices" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "attachedChannels" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInput
+instance Core.Hashable DescribeInput
 
-instance Prelude.NFData DescribeInput
+instance Core.NFData DescribeInput
 
-instance Prelude.ToHeaders DescribeInput where
+instance Core.ToHeaders DescribeInput where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeInput where
+instance Core.ToPath DescribeInput where
   toPath DescribeInput' {..} =
-    Prelude.mconcat
-      ["/prod/inputs/", Prelude.toBS inputId]
+    Core.mconcat ["/prod/inputs/", Core.toBS inputId]
 
-instance Prelude.ToQuery DescribeInput where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeInput where
+  toQuery = Core.const Core.mempty
 
 -- | Placeholder documentation for DescribeInputResponse
 --
@@ -157,31 +143,31 @@ instance Prelude.ToQuery DescribeInput where
 data DescribeInputResponse = DescribeInputResponse'
   { -- | The Amazon Resource Name (ARN) of the role this input assumes during and
     -- after creation.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | A list of the sources of the input (PULL-type).
-    sources :: Prelude.Maybe [InputSource],
+    sources :: Core.Maybe [InputSource],
     -- | A list of IDs for all Inputs which are partners of this one.
-    inputPartnerIds :: Prelude.Maybe [Prelude.Text],
+    inputPartnerIds :: Core.Maybe [Core.Text],
     -- | Certain pull input sources can be dynamic, meaning that they can have
     -- their URL\'s dynamically changes during input switch actions. Presently,
     -- this functionality only works with MP4_FILE inputs.
-    inputSourceType :: Prelude.Maybe InputSourceType,
+    inputSourceType :: Core.Maybe InputSourceType,
     -- | A list of MediaConnect Flows for this input.
-    mediaConnectFlows :: Prelude.Maybe [MediaConnectFlow],
+    mediaConnectFlows :: Core.Maybe [MediaConnectFlow],
     -- | The Unique ARN of the input (generated, immutable).
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The generated ID of the input (unique for user account, immutable).
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | A list of IDs for all the Input Security Groups attached to the input.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | A list of the destinations of the input (PUSH-type).
-    destinations :: Prelude.Maybe [InputDestination],
-    state :: Prelude.Maybe InputState,
+    destinations :: Core.Maybe [InputDestination],
+    state :: Core.Maybe InputState,
     -- | The user-assigned name (This is a mutable value).
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    type' :: Prelude.Maybe InputType,
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
+    type' :: Core.Maybe InputType,
     -- | STANDARD - MediaLive expects two sources to be connected to this input.
     -- If the channel is also STANDARD, both sources will be ingested. If the
     -- channel is SINGLE_PIPELINE, only the first source will be ingested; the
@@ -190,16 +176,16 @@ data DescribeInputResponse = DescribeInputResponse'
     -- ChannelClass is also SINGLE_PIPELINE, this value is valid. If the
     -- ChannelClass is STANDARD, this value is not valid because the channel
     -- requires two sources in the input.
-    inputClass :: Prelude.Maybe InputClass,
+    inputClass :: Core.Maybe InputClass,
     -- | Settings for the input devices.
-    inputDevices :: Prelude.Maybe [InputDeviceSettings],
+    inputDevices :: Core.Maybe [InputDeviceSettings],
     -- | A list of channel IDs that that input is attached to (currently an input
     -- can only be attached to one channel).
-    attachedChannels :: Prelude.Maybe [Prelude.Text],
+    attachedChannels :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInputResponse' with all optional fields omitted.
@@ -255,82 +241,82 @@ data DescribeInputResponse = DescribeInputResponse'
 -- 'httpStatus', 'describeInputResponse_httpStatus' - The response's http status code.
 newDescribeInputResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeInputResponse
 newDescribeInputResponse pHttpStatus_ =
   DescribeInputResponse'
-    { roleArn = Prelude.Nothing,
-      sources = Prelude.Nothing,
-      inputPartnerIds = Prelude.Nothing,
-      inputSourceType = Prelude.Nothing,
-      mediaConnectFlows = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      inputClass = Prelude.Nothing,
-      inputDevices = Prelude.Nothing,
-      attachedChannels = Prelude.Nothing,
+    { roleArn = Core.Nothing,
+      sources = Core.Nothing,
+      inputPartnerIds = Core.Nothing,
+      inputSourceType = Core.Nothing,
+      mediaConnectFlows = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      securityGroups = Core.Nothing,
+      destinations = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      type' = Core.Nothing,
+      inputClass = Core.Nothing,
+      inputDevices = Core.Nothing,
+      attachedChannels = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the role this input assumes during and
 -- after creation.
-describeInputResponse_roleArn :: Lens.Lens' DescribeInputResponse (Prelude.Maybe Prelude.Text)
+describeInputResponse_roleArn :: Lens.Lens' DescribeInputResponse (Core.Maybe Core.Text)
 describeInputResponse_roleArn = Lens.lens (\DescribeInputResponse' {roleArn} -> roleArn) (\s@DescribeInputResponse' {} a -> s {roleArn = a} :: DescribeInputResponse)
 
 -- | A list of the sources of the input (PULL-type).
-describeInputResponse_sources :: Lens.Lens' DescribeInputResponse (Prelude.Maybe [InputSource])
-describeInputResponse_sources = Lens.lens (\DescribeInputResponse' {sources} -> sources) (\s@DescribeInputResponse' {} a -> s {sources = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_sources :: Lens.Lens' DescribeInputResponse (Core.Maybe [InputSource])
+describeInputResponse_sources = Lens.lens (\DescribeInputResponse' {sources} -> sources) (\s@DescribeInputResponse' {} a -> s {sources = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of IDs for all Inputs which are partners of this one.
-describeInputResponse_inputPartnerIds :: Lens.Lens' DescribeInputResponse (Prelude.Maybe [Prelude.Text])
-describeInputResponse_inputPartnerIds = Lens.lens (\DescribeInputResponse' {inputPartnerIds} -> inputPartnerIds) (\s@DescribeInputResponse' {} a -> s {inputPartnerIds = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_inputPartnerIds :: Lens.Lens' DescribeInputResponse (Core.Maybe [Core.Text])
+describeInputResponse_inputPartnerIds = Lens.lens (\DescribeInputResponse' {inputPartnerIds} -> inputPartnerIds) (\s@DescribeInputResponse' {} a -> s {inputPartnerIds = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Certain pull input sources can be dynamic, meaning that they can have
 -- their URL\'s dynamically changes during input switch actions. Presently,
 -- this functionality only works with MP4_FILE inputs.
-describeInputResponse_inputSourceType :: Lens.Lens' DescribeInputResponse (Prelude.Maybe InputSourceType)
+describeInputResponse_inputSourceType :: Lens.Lens' DescribeInputResponse (Core.Maybe InputSourceType)
 describeInputResponse_inputSourceType = Lens.lens (\DescribeInputResponse' {inputSourceType} -> inputSourceType) (\s@DescribeInputResponse' {} a -> s {inputSourceType = a} :: DescribeInputResponse)
 
 -- | A list of MediaConnect Flows for this input.
-describeInputResponse_mediaConnectFlows :: Lens.Lens' DescribeInputResponse (Prelude.Maybe [MediaConnectFlow])
-describeInputResponse_mediaConnectFlows = Lens.lens (\DescribeInputResponse' {mediaConnectFlows} -> mediaConnectFlows) (\s@DescribeInputResponse' {} a -> s {mediaConnectFlows = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_mediaConnectFlows :: Lens.Lens' DescribeInputResponse (Core.Maybe [MediaConnectFlow])
+describeInputResponse_mediaConnectFlows = Lens.lens (\DescribeInputResponse' {mediaConnectFlows} -> mediaConnectFlows) (\s@DescribeInputResponse' {} a -> s {mediaConnectFlows = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The Unique ARN of the input (generated, immutable).
-describeInputResponse_arn :: Lens.Lens' DescribeInputResponse (Prelude.Maybe Prelude.Text)
+describeInputResponse_arn :: Lens.Lens' DescribeInputResponse (Core.Maybe Core.Text)
 describeInputResponse_arn = Lens.lens (\DescribeInputResponse' {arn} -> arn) (\s@DescribeInputResponse' {} a -> s {arn = a} :: DescribeInputResponse)
 
 -- | The generated ID of the input (unique for user account, immutable).
-describeInputResponse_id :: Lens.Lens' DescribeInputResponse (Prelude.Maybe Prelude.Text)
+describeInputResponse_id :: Lens.Lens' DescribeInputResponse (Core.Maybe Core.Text)
 describeInputResponse_id = Lens.lens (\DescribeInputResponse' {id} -> id) (\s@DescribeInputResponse' {} a -> s {id = a} :: DescribeInputResponse)
 
 -- | A list of IDs for all the Input Security Groups attached to the input.
-describeInputResponse_securityGroups :: Lens.Lens' DescribeInputResponse (Prelude.Maybe [Prelude.Text])
-describeInputResponse_securityGroups = Lens.lens (\DescribeInputResponse' {securityGroups} -> securityGroups) (\s@DescribeInputResponse' {} a -> s {securityGroups = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_securityGroups :: Lens.Lens' DescribeInputResponse (Core.Maybe [Core.Text])
+describeInputResponse_securityGroups = Lens.lens (\DescribeInputResponse' {securityGroups} -> securityGroups) (\s@DescribeInputResponse' {} a -> s {securityGroups = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of the destinations of the input (PUSH-type).
-describeInputResponse_destinations :: Lens.Lens' DescribeInputResponse (Prelude.Maybe [InputDestination])
-describeInputResponse_destinations = Lens.lens (\DescribeInputResponse' {destinations} -> destinations) (\s@DescribeInputResponse' {} a -> s {destinations = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_destinations :: Lens.Lens' DescribeInputResponse (Core.Maybe [InputDestination])
+describeInputResponse_destinations = Lens.lens (\DescribeInputResponse' {destinations} -> destinations) (\s@DescribeInputResponse' {} a -> s {destinations = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-describeInputResponse_state :: Lens.Lens' DescribeInputResponse (Prelude.Maybe InputState)
+describeInputResponse_state :: Lens.Lens' DescribeInputResponse (Core.Maybe InputState)
 describeInputResponse_state = Lens.lens (\DescribeInputResponse' {state} -> state) (\s@DescribeInputResponse' {} a -> s {state = a} :: DescribeInputResponse)
 
 -- | The user-assigned name (This is a mutable value).
-describeInputResponse_name :: Lens.Lens' DescribeInputResponse (Prelude.Maybe Prelude.Text)
+describeInputResponse_name :: Lens.Lens' DescribeInputResponse (Core.Maybe Core.Text)
 describeInputResponse_name = Lens.lens (\DescribeInputResponse' {name} -> name) (\s@DescribeInputResponse' {} a -> s {name = a} :: DescribeInputResponse)
 
 -- | A collection of key-value pairs.
-describeInputResponse_tags :: Lens.Lens' DescribeInputResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeInputResponse_tags = Lens.lens (\DescribeInputResponse' {tags} -> tags) (\s@DescribeInputResponse' {} a -> s {tags = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_tags :: Lens.Lens' DescribeInputResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+describeInputResponse_tags = Lens.lens (\DescribeInputResponse' {tags} -> tags) (\s@DescribeInputResponse' {} a -> s {tags = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-describeInputResponse_type :: Lens.Lens' DescribeInputResponse (Prelude.Maybe InputType)
+describeInputResponse_type :: Lens.Lens' DescribeInputResponse (Core.Maybe InputType)
 describeInputResponse_type = Lens.lens (\DescribeInputResponse' {type'} -> type') (\s@DescribeInputResponse' {} a -> s {type' = a} :: DescribeInputResponse)
 
 -- | STANDARD - MediaLive expects two sources to be connected to this input.
@@ -341,20 +327,20 @@ describeInputResponse_type = Lens.lens (\DescribeInputResponse' {type'} -> type'
 -- ChannelClass is also SINGLE_PIPELINE, this value is valid. If the
 -- ChannelClass is STANDARD, this value is not valid because the channel
 -- requires two sources in the input.
-describeInputResponse_inputClass :: Lens.Lens' DescribeInputResponse (Prelude.Maybe InputClass)
+describeInputResponse_inputClass :: Lens.Lens' DescribeInputResponse (Core.Maybe InputClass)
 describeInputResponse_inputClass = Lens.lens (\DescribeInputResponse' {inputClass} -> inputClass) (\s@DescribeInputResponse' {} a -> s {inputClass = a} :: DescribeInputResponse)
 
 -- | Settings for the input devices.
-describeInputResponse_inputDevices :: Lens.Lens' DescribeInputResponse (Prelude.Maybe [InputDeviceSettings])
-describeInputResponse_inputDevices = Lens.lens (\DescribeInputResponse' {inputDevices} -> inputDevices) (\s@DescribeInputResponse' {} a -> s {inputDevices = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_inputDevices :: Lens.Lens' DescribeInputResponse (Core.Maybe [InputDeviceSettings])
+describeInputResponse_inputDevices = Lens.lens (\DescribeInputResponse' {inputDevices} -> inputDevices) (\s@DescribeInputResponse' {} a -> s {inputDevices = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of channel IDs that that input is attached to (currently an input
 -- can only be attached to one channel).
-describeInputResponse_attachedChannels :: Lens.Lens' DescribeInputResponse (Prelude.Maybe [Prelude.Text])
-describeInputResponse_attachedChannels = Lens.lens (\DescribeInputResponse' {attachedChannels} -> attachedChannels) (\s@DescribeInputResponse' {} a -> s {attachedChannels = a} :: DescribeInputResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInputResponse_attachedChannels :: Lens.Lens' DescribeInputResponse (Core.Maybe [Core.Text])
+describeInputResponse_attachedChannels = Lens.lens (\DescribeInputResponse' {attachedChannels} -> attachedChannels) (\s@DescribeInputResponse' {} a -> s {attachedChannels = a} :: DescribeInputResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeInputResponse_httpStatus :: Lens.Lens' DescribeInputResponse Prelude.Int
+describeInputResponse_httpStatus :: Lens.Lens' DescribeInputResponse Core.Int
 describeInputResponse_httpStatus = Lens.lens (\DescribeInputResponse' {httpStatus} -> httpStatus) (\s@DescribeInputResponse' {} a -> s {httpStatus = a} :: DescribeInputResponse)
 
-instance Prelude.NFData DescribeInputResponse
+instance Core.NFData DescribeInputResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.ResourceLocation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.RegionName
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the resource location.
 --
 -- /See:/ 'newResourceLocation' smart constructor.
 data ResourceLocation = ResourceLocation'
   { -- | The AWS Region name.
-    regionName :: Prelude.Maybe RegionName,
+    regionName :: Core.Maybe RegionName,
     -- | The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
-    availabilityZone :: Prelude.Maybe Prelude.Text
+    availabilityZone :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceLocation' with all optional fields omitted.
@@ -50,28 +49,28 @@ newResourceLocation ::
   ResourceLocation
 newResourceLocation =
   ResourceLocation'
-    { regionName = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing
+    { regionName = Core.Nothing,
+      availabilityZone = Core.Nothing
     }
 
 -- | The AWS Region name.
-resourceLocation_regionName :: Lens.Lens' ResourceLocation (Prelude.Maybe RegionName)
+resourceLocation_regionName :: Lens.Lens' ResourceLocation (Core.Maybe RegionName)
 resourceLocation_regionName = Lens.lens (\ResourceLocation' {regionName} -> regionName) (\s@ResourceLocation' {} a -> s {regionName = a} :: ResourceLocation)
 
 -- | The Availability Zone. Follows the format @us-east-2a@ (case-sensitive).
-resourceLocation_availabilityZone :: Lens.Lens' ResourceLocation (Prelude.Maybe Prelude.Text)
+resourceLocation_availabilityZone :: Lens.Lens' ResourceLocation (Core.Maybe Core.Text)
 resourceLocation_availabilityZone = Lens.lens (\ResourceLocation' {availabilityZone} -> availabilityZone) (\s@ResourceLocation' {} a -> s {availabilityZone = a} :: ResourceLocation)
 
-instance Prelude.FromJSON ResourceLocation where
+instance Core.FromJSON ResourceLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceLocation"
       ( \x ->
           ResourceLocation'
-            Prelude.<$> (x Prelude..:? "regionName")
-            Prelude.<*> (x Prelude..:? "availabilityZone")
+            Core.<$> (x Core..:? "regionName")
+            Core.<*> (x Core..:? "availabilityZone")
       )
 
-instance Prelude.Hashable ResourceLocation
+instance Core.Hashable ResourceLocation
 
-instance Prelude.NFData ResourceLocation
+instance Core.NFData ResourceLocation

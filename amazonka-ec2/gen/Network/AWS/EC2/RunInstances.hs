@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -137,9 +136,9 @@ module Network.AWS.EC2.RunInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -150,27 +149,27 @@ data RunInstances = RunInstances'
     --
     -- If you specify a network interface, you must specify any security groups
     -- as part of the network interface.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | Reserved.
-    additionalInfo :: Prelude.Maybe Prelude.Text,
+    additionalInfo :: Core.Maybe Core.Text,
     -- | The tags to apply to the resources during launch. You can only tag
     -- instances and volumes on launch. The specified tags are applied to all
     -- instances or volumes that are created during launch. To tag a resource
     -- after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | The instance type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
     --
     -- Default: @m1.small@
-    instanceType :: Prelude.Maybe InstanceType,
+    instanceType :: Core.Maybe InstanceType,
     -- | Information about the Capacity Reservation targeting option. If you do
     -- not specify this parameter, the instance\'s Capacity Reservation
     -- preference defaults to @open@, which enables it to run in any open
     -- Capacity Reservation that has matching attributes (instance type,
     -- platform, Availability Zone).
-    capacityReservationSpecification :: Prelude.Maybe CapacityReservationSpecification,
+    capacityReservationSpecification :: Core.Maybe CapacityReservationSpecification,
     -- | Indicates whether the instance is optimized for Amazon EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal Amazon EBS I\/O
@@ -178,7 +177,7 @@ data RunInstances = RunInstances'
     -- Additional usage charges apply when using an EBS-optimized instance.
     --
     -- Default: @false@
-    ebsOptimized :: Prelude.Maybe Prelude.Bool,
+    ebsOptimized :: Core.Maybe Core.Bool,
     -- | The user data to make available to the instance. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running commands on your Linux instance at launch>
@@ -187,9 +186,9 @@ data RunInstances = RunInstances'
     -- (Windows). If you are using a command line tool, base64-encoding is
     -- performed for you, and you can load the text from a file. Otherwise, you
     -- must provide base64-encoded text. User data is limited to 16 KB.
-    userData :: Prelude.Maybe Prelude.Text,
+    userData :: Core.Maybe Core.Text,
     -- | The placement for the instance.
-    placement :: Prelude.Maybe Placement,
+    placement :: Core.Maybe Placement,
     -- | [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
     -- with the primary network interface. You cannot specify this option and
     -- the option to assign a number of IPv6 addresses in the same request. You
@@ -198,12 +197,12 @@ data RunInstances = RunInstances'
     --
     -- You cannot specify this option and the network interfaces option in the
     -- same request.
-    ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address],
+    ipv6Addresses :: Core.Maybe [InstanceIpv6Address],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the RAM disk to select. Some kernels require additional
     -- drivers at launch. Check the kernel requirements for information about
     -- whether you need to specify a RAM disk. To find kernel requirements, go
@@ -213,7 +212,7 @@ data RunInstances = RunInstances'
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB>
     -- in the /Amazon EC2 User Guide/.
-    ramdiskId :: Prelude.Maybe Prelude.Text,
+    ramdiskId :: Core.Maybe Core.Text,
     -- | The credit option for CPU usage of the burstable performance instance.
     -- Valid values are @standard@ and @unlimited@. To change this attribute
     -- after launch, use
@@ -223,29 +222,29 @@ data RunInstances = RunInstances'
     -- in the /Amazon EC2 User Guide/.
     --
     -- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a instances)
-    creditSpecification :: Prelude.Maybe CreditSpecificationRequest,
+    creditSpecification :: Core.Maybe CreditSpecificationRequest,
     -- | The market (purchasing) option for the instances.
     --
     -- For RunInstances, persistent Spot Instance requests are only supported
     -- when __InstanceInterruptionBehavior__ is set to either @hibernate@ or
     -- @stop@.
-    instanceMarketOptions :: Prelude.Maybe InstanceMarketOptionsRequest,
+    instanceMarketOptions :: Core.Maybe InstanceMarketOptionsRequest,
     -- | The launch template to use to launch the instances. Any parameters that
     -- you specify in RunInstances override the same parameters in the launch
     -- template. You can specify either the name or ID of a launch template,
     -- but not both.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+    launchTemplate :: Core.Maybe LaunchTemplateSpecification,
     -- | The license configurations.
-    licenseSpecifications :: Prelude.Maybe [LicenseConfigurationRequest],
+    licenseSpecifications :: Core.Maybe [LicenseConfigurationRequest],
     -- | Indicates whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
     -- system shutdown).
     --
     -- Default: @stop@
-    instanceInitiatedShutdownBehavior :: Prelude.Maybe ShutdownBehavior,
+    instanceInitiatedShutdownBehavior :: Core.Maybe ShutdownBehavior,
     -- | The ID of the AMI. An AMI ID is required to launch an instance and must
     -- be specified here or in a launch template.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | [EC2-Classic, default VPC] The names of the security groups. For a
     -- nondefault VPC, you must use security group IDs instead.
     --
@@ -253,22 +252,22 @@ data RunInstances = RunInstances'
     -- as part of the network interface.
     --
     -- Default: Amazon EC2 uses the default security group.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | An elastic GPU to associate with the instance. An Elastic GPU is a GPU
     -- resource that you can attach to your Windows instance to accelerate the
     -- graphics performance of your applications. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html Amazon EC2 Elastic GPUs>
     -- in the /Amazon EC2 User Guide/.
-    elasticGpuSpecification :: Prelude.Maybe [ElasticGpuSpecification],
+    elasticGpuSpecification :: Core.Maybe [ElasticGpuSpecification],
     -- | An elastic inference accelerator to associate with the instance. Elastic
     -- inference accelerators are a resource you can attach to your Amazon EC2
     -- instances to accelerate your Deep Learning (DL) inference workloads.
     --
     -- You cannot specify accelerators from different generations in the same
     -- request.
-    elasticInferenceAccelerators :: Prelude.Maybe [ElasticInferenceAccelerator],
+    elasticInferenceAccelerators :: Core.Maybe [ElasticInferenceAccelerator],
     -- | The name or Amazon Resource Name (ARN) of an IAM instance profile.
-    iamInstanceProfile :: Prelude.Maybe IamInstanceProfileSpecification,
+    iamInstanceProfile :: Core.Maybe IamInstanceProfileSpecification,
     -- | Indicates whether an instance is enabled for hibernation. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html Hibernate your instance>
@@ -276,7 +275,7 @@ data RunInstances = RunInstances'
     --
     -- You can\'t enable hibernation and AWS Nitro Enclaves on the same
     -- instance.
-    hibernationOptions :: Prelude.Maybe HibernationOptionsRequest,
+    hibernationOptions :: Core.Maybe HibernationOptionsRequest,
     -- | [EC2-VPC] The number of IPv6 addresses to associate with the primary
     -- network interface. Amazon EC2 chooses the IPv6 addresses from the range
     -- of your subnet. You cannot specify this option and the option to assign
@@ -285,16 +284,16 @@ data RunInstances = RunInstances'
     --
     -- You cannot specify this option and the network interfaces option in the
     -- same request.
-    ipv6AddressCount :: Prelude.Maybe Prelude.Int,
+    ipv6AddressCount :: Core.Maybe Core.Int,
     -- | Specifies whether detailed monitoring is enabled for the instance.
-    monitoring :: Prelude.Maybe RunInstancesMonitoringEnabled,
+    monitoring :: Core.Maybe RunInstancesMonitoringEnabled,
     -- | The block device mapping entries.
-    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Core.Maybe [BlockDeviceMapping],
     -- | [EC2-VPC] The ID of the subnet to launch the instance into.
     --
     -- If you specify a network interface, you must specify any subnets as part
     -- of the network interface.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For
     -- more information, see
     -- <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html What is AWS Nitro Enclaves?>
@@ -302,18 +301,18 @@ data RunInstances = RunInstances'
     --
     -- You can\'t enable AWS Nitro Enclaves and hibernation on the same
     -- instance.
-    enclaveOptions :: Prelude.Maybe EnclaveOptionsRequest,
+    enclaveOptions :: Core.Maybe EnclaveOptionsRequest,
     -- | The ID of the kernel.
     --
     -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB>
     -- in the /Amazon EC2 User Guide/.
-    kernelId :: Prelude.Maybe Prelude.Text,
+    kernelId :: Core.Maybe Core.Text,
     -- | The CPU options for the instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU options>
     -- in the /Amazon EC2 User Guide/.
-    cpuOptions :: Prelude.Maybe CpuOptionsRequest,
+    cpuOptions :: Core.Maybe CpuOptionsRequest,
     -- | The name of the key pair. You can create a key pair using
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair>
     -- or
@@ -322,11 +321,11 @@ data RunInstances = RunInstances'
     -- If you do not specify a key pair, you can\'t connect to the instance
     -- unless you choose an AMI that is configured to allow users another way
     -- to log in.
-    keyName :: Prelude.Maybe Prelude.Text,
+    keyName :: Core.Maybe Core.Text,
     -- | The network interfaces to associate with the instance. If you specify a
     -- network interface, you must specify any security groups and subnets as
     -- part of the network interface.
-    networkInterfaces :: Prelude.Maybe [InstanceNetworkInterfaceSpecification],
+    networkInterfaces :: Core.Maybe [InstanceNetworkInterfaceSpecification],
     -- | If you set this parameter to @true@, you can\'t terminate the instance
     -- using the Amazon EC2 console, CLI, or API; otherwise, you can. To change
     -- this attribute after launch, use
@@ -336,10 +335,10 @@ data RunInstances = RunInstances'
     -- command from the instance.
     --
     -- Default: @false@
-    disableApiTermination :: Prelude.Maybe Prelude.Bool,
+    disableApiTermination :: Core.Maybe Core.Bool,
     -- | The metadata options for the instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data>.
-    metadataOptions :: Prelude.Maybe InstanceMetadataOptionsRequest,
+    metadataOptions :: Core.Maybe InstanceMetadataOptionsRequest,
     -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. If you do not specify a client token, a randomly
     -- generated token is used for the request to ensure idempotency.
@@ -348,7 +347,7 @@ data RunInstances = RunInstances'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     --
     -- Constraints: Maximum 64 ASCII characters
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | [EC2-VPC] The primary IPv4 address. You must specify a value from the
     -- IPv4 address range of the subnet.
     --
@@ -360,7 +359,7 @@ data RunInstances = RunInstances'
     --
     -- You cannot specify this option and the network interfaces option in the
     -- same request.
-    privateIpAddress :: Prelude.Maybe Prelude.Text,
+    privateIpAddress :: Core.Maybe Core.Text,
     -- | The maximum number of instances to launch. If you specify more instances
     -- than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
     -- launches the largest possible number of instances above @MinCount@.
@@ -370,7 +369,7 @@ data RunInstances = RunInstances'
     -- and how to request an increase, see
     -- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2>
     -- in the Amazon EC2 FAQ.
-    maxCount :: Prelude.Int,
+    maxCount :: Core.Int,
     -- | The minimum number of instances to launch. If you specify a minimum that
     -- is more instances than Amazon EC2 can launch in the target Availability
     -- Zone, Amazon EC2 launches no instances.
@@ -380,9 +379,9 @@ data RunInstances = RunInstances'
     -- and how to request an increase, see
     -- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2>
     -- in the Amazon EC2 General FAQ.
-    minCount :: Prelude.Int
+    minCount :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunInstances' with all optional fields omitted.
@@ -629,47 +628,47 @@ data RunInstances = RunInstances'
 -- in the Amazon EC2 General FAQ.
 newRunInstances ::
   -- | 'maxCount'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'minCount'
-  Prelude.Int ->
+  Core.Int ->
   RunInstances
 newRunInstances pMaxCount_ pMinCount_ =
   RunInstances'
-    { securityGroupIds = Prelude.Nothing,
-      additionalInfo = Prelude.Nothing,
-      tagSpecifications = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      capacityReservationSpecification = Prelude.Nothing,
-      ebsOptimized = Prelude.Nothing,
-      userData = Prelude.Nothing,
-      placement = Prelude.Nothing,
-      ipv6Addresses = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      ramdiskId = Prelude.Nothing,
-      creditSpecification = Prelude.Nothing,
-      instanceMarketOptions = Prelude.Nothing,
-      launchTemplate = Prelude.Nothing,
-      licenseSpecifications = Prelude.Nothing,
-      instanceInitiatedShutdownBehavior = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      elasticGpuSpecification = Prelude.Nothing,
-      elasticInferenceAccelerators = Prelude.Nothing,
-      iamInstanceProfile = Prelude.Nothing,
-      hibernationOptions = Prelude.Nothing,
-      ipv6AddressCount = Prelude.Nothing,
-      monitoring = Prelude.Nothing,
-      blockDeviceMappings = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      enclaveOptions = Prelude.Nothing,
-      kernelId = Prelude.Nothing,
-      cpuOptions = Prelude.Nothing,
-      keyName = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing,
-      disableApiTermination = Prelude.Nothing,
-      metadataOptions = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      privateIpAddress = Prelude.Nothing,
+    { securityGroupIds = Core.Nothing,
+      additionalInfo = Core.Nothing,
+      tagSpecifications = Core.Nothing,
+      instanceType = Core.Nothing,
+      capacityReservationSpecification = Core.Nothing,
+      ebsOptimized = Core.Nothing,
+      userData = Core.Nothing,
+      placement = Core.Nothing,
+      ipv6Addresses = Core.Nothing,
+      dryRun = Core.Nothing,
+      ramdiskId = Core.Nothing,
+      creditSpecification = Core.Nothing,
+      instanceMarketOptions = Core.Nothing,
+      launchTemplate = Core.Nothing,
+      licenseSpecifications = Core.Nothing,
+      instanceInitiatedShutdownBehavior = Core.Nothing,
+      imageId = Core.Nothing,
+      securityGroups = Core.Nothing,
+      elasticGpuSpecification = Core.Nothing,
+      elasticInferenceAccelerators = Core.Nothing,
+      iamInstanceProfile = Core.Nothing,
+      hibernationOptions = Core.Nothing,
+      ipv6AddressCount = Core.Nothing,
+      monitoring = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      subnetId = Core.Nothing,
+      enclaveOptions = Core.Nothing,
+      kernelId = Core.Nothing,
+      cpuOptions = Core.Nothing,
+      keyName = Core.Nothing,
+      networkInterfaces = Core.Nothing,
+      disableApiTermination = Core.Nothing,
+      metadataOptions = Core.Nothing,
+      clientToken = Core.Nothing,
+      privateIpAddress = Core.Nothing,
       maxCount = pMaxCount_,
       minCount = pMinCount_
     }
@@ -679,11 +678,11 @@ newRunInstances pMaxCount_ pMinCount_ =
 --
 -- If you specify a network interface, you must specify any security groups
 -- as part of the network interface.
-runInstances_securityGroupIds :: Lens.Lens' RunInstances (Prelude.Maybe [Prelude.Text])
-runInstances_securityGroupIds = Lens.lens (\RunInstances' {securityGroupIds} -> securityGroupIds) (\s@RunInstances' {} a -> s {securityGroupIds = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_securityGroupIds :: Lens.Lens' RunInstances (Core.Maybe [Core.Text])
+runInstances_securityGroupIds = Lens.lens (\RunInstances' {securityGroupIds} -> securityGroupIds) (\s@RunInstances' {} a -> s {securityGroupIds = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | Reserved.
-runInstances_additionalInfo :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_additionalInfo :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_additionalInfo = Lens.lens (\RunInstances' {additionalInfo} -> additionalInfo) (\s@RunInstances' {} a -> s {additionalInfo = a} :: RunInstances)
 
 -- | The tags to apply to the resources during launch. You can only tag
@@ -691,15 +690,15 @@ runInstances_additionalInfo = Lens.lens (\RunInstances' {additionalInfo} -> addi
 -- instances or volumes that are created during launch. To tag a resource
 -- after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
-runInstances_tagSpecifications :: Lens.Lens' RunInstances (Prelude.Maybe [TagSpecification])
-runInstances_tagSpecifications = Lens.lens (\RunInstances' {tagSpecifications} -> tagSpecifications) (\s@RunInstances' {} a -> s {tagSpecifications = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_tagSpecifications :: Lens.Lens' RunInstances (Core.Maybe [TagSpecification])
+runInstances_tagSpecifications = Lens.lens (\RunInstances' {tagSpecifications} -> tagSpecifications) (\s@RunInstances' {} a -> s {tagSpecifications = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The instance type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 --
 -- Default: @m1.small@
-runInstances_instanceType :: Lens.Lens' RunInstances (Prelude.Maybe InstanceType)
+runInstances_instanceType :: Lens.Lens' RunInstances (Core.Maybe InstanceType)
 runInstances_instanceType = Lens.lens (\RunInstances' {instanceType} -> instanceType) (\s@RunInstances' {} a -> s {instanceType = a} :: RunInstances)
 
 -- | Information about the Capacity Reservation targeting option. If you do
@@ -707,7 +706,7 @@ runInstances_instanceType = Lens.lens (\RunInstances' {instanceType} -> instance
 -- preference defaults to @open@, which enables it to run in any open
 -- Capacity Reservation that has matching attributes (instance type,
 -- platform, Availability Zone).
-runInstances_capacityReservationSpecification :: Lens.Lens' RunInstances (Prelude.Maybe CapacityReservationSpecification)
+runInstances_capacityReservationSpecification :: Lens.Lens' RunInstances (Core.Maybe CapacityReservationSpecification)
 runInstances_capacityReservationSpecification = Lens.lens (\RunInstances' {capacityReservationSpecification} -> capacityReservationSpecification) (\s@RunInstances' {} a -> s {capacityReservationSpecification = a} :: RunInstances)
 
 -- | Indicates whether the instance is optimized for Amazon EBS I\/O. This
@@ -717,7 +716,7 @@ runInstances_capacityReservationSpecification = Lens.lens (\RunInstances' {capac
 -- Additional usage charges apply when using an EBS-optimized instance.
 --
 -- Default: @false@
-runInstances_ebsOptimized :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Bool)
+runInstances_ebsOptimized :: Lens.Lens' RunInstances (Core.Maybe Core.Bool)
 runInstances_ebsOptimized = Lens.lens (\RunInstances' {ebsOptimized} -> ebsOptimized) (\s@RunInstances' {} a -> s {ebsOptimized = a} :: RunInstances)
 
 -- | The user data to make available to the instance. For more information,
@@ -728,11 +727,11 @@ runInstances_ebsOptimized = Lens.lens (\RunInstances' {ebsOptimized} -> ebsOptim
 -- (Windows). If you are using a command line tool, base64-encoding is
 -- performed for you, and you can load the text from a file. Otherwise, you
 -- must provide base64-encoded text. User data is limited to 16 KB.
-runInstances_userData :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_userData :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_userData = Lens.lens (\RunInstances' {userData} -> userData) (\s@RunInstances' {} a -> s {userData = a} :: RunInstances)
 
 -- | The placement for the instance.
-runInstances_placement :: Lens.Lens' RunInstances (Prelude.Maybe Placement)
+runInstances_placement :: Lens.Lens' RunInstances (Core.Maybe Placement)
 runInstances_placement = Lens.lens (\RunInstances' {placement} -> placement) (\s@RunInstances' {} a -> s {placement = a} :: RunInstances)
 
 -- | [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
@@ -743,14 +742,14 @@ runInstances_placement = Lens.lens (\RunInstances' {placement} -> placement) (\s
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
-runInstances_ipv6Addresses :: Lens.Lens' RunInstances (Prelude.Maybe [InstanceIpv6Address])
-runInstances_ipv6Addresses = Lens.lens (\RunInstances' {ipv6Addresses} -> ipv6Addresses) (\s@RunInstances' {} a -> s {ipv6Addresses = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_ipv6Addresses :: Lens.Lens' RunInstances (Core.Maybe [InstanceIpv6Address])
+runInstances_ipv6Addresses = Lens.lens (\RunInstances' {ipv6Addresses} -> ipv6Addresses) (\s@RunInstances' {} a -> s {ipv6Addresses = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-runInstances_dryRun :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Bool)
+runInstances_dryRun :: Lens.Lens' RunInstances (Core.Maybe Core.Bool)
 runInstances_dryRun = Lens.lens (\RunInstances' {dryRun} -> dryRun) (\s@RunInstances' {} a -> s {dryRun = a} :: RunInstances)
 
 -- | The ID of the RAM disk to select. Some kernels require additional
@@ -762,7 +761,7 @@ runInstances_dryRun = Lens.lens (\RunInstances' {dryRun} -> dryRun) (\s@RunInsta
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB>
 -- in the /Amazon EC2 User Guide/.
-runInstances_ramdiskId :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_ramdiskId :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_ramdiskId = Lens.lens (\RunInstances' {ramdiskId} -> ramdiskId) (\s@RunInstances' {} a -> s {ramdiskId = a} :: RunInstances)
 
 -- | The credit option for CPU usage of the burstable performance instance.
@@ -774,7 +773,7 @@ runInstances_ramdiskId = Lens.lens (\RunInstances' {ramdiskId} -> ramdiskId) (\s
 -- in the /Amazon EC2 User Guide/.
 --
 -- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a instances)
-runInstances_creditSpecification :: Lens.Lens' RunInstances (Prelude.Maybe CreditSpecificationRequest)
+runInstances_creditSpecification :: Lens.Lens' RunInstances (Core.Maybe CreditSpecificationRequest)
 runInstances_creditSpecification = Lens.lens (\RunInstances' {creditSpecification} -> creditSpecification) (\s@RunInstances' {} a -> s {creditSpecification = a} :: RunInstances)
 
 -- | The market (purchasing) option for the instances.
@@ -782,31 +781,31 @@ runInstances_creditSpecification = Lens.lens (\RunInstances' {creditSpecificatio
 -- For RunInstances, persistent Spot Instance requests are only supported
 -- when __InstanceInterruptionBehavior__ is set to either @hibernate@ or
 -- @stop@.
-runInstances_instanceMarketOptions :: Lens.Lens' RunInstances (Prelude.Maybe InstanceMarketOptionsRequest)
+runInstances_instanceMarketOptions :: Lens.Lens' RunInstances (Core.Maybe InstanceMarketOptionsRequest)
 runInstances_instanceMarketOptions = Lens.lens (\RunInstances' {instanceMarketOptions} -> instanceMarketOptions) (\s@RunInstances' {} a -> s {instanceMarketOptions = a} :: RunInstances)
 
 -- | The launch template to use to launch the instances. Any parameters that
 -- you specify in RunInstances override the same parameters in the launch
 -- template. You can specify either the name or ID of a launch template,
 -- but not both.
-runInstances_launchTemplate :: Lens.Lens' RunInstances (Prelude.Maybe LaunchTemplateSpecification)
+runInstances_launchTemplate :: Lens.Lens' RunInstances (Core.Maybe LaunchTemplateSpecification)
 runInstances_launchTemplate = Lens.lens (\RunInstances' {launchTemplate} -> launchTemplate) (\s@RunInstances' {} a -> s {launchTemplate = a} :: RunInstances)
 
 -- | The license configurations.
-runInstances_licenseSpecifications :: Lens.Lens' RunInstances (Prelude.Maybe [LicenseConfigurationRequest])
-runInstances_licenseSpecifications = Lens.lens (\RunInstances' {licenseSpecifications} -> licenseSpecifications) (\s@RunInstances' {} a -> s {licenseSpecifications = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_licenseSpecifications :: Lens.Lens' RunInstances (Core.Maybe [LicenseConfigurationRequest])
+runInstances_licenseSpecifications = Lens.lens (\RunInstances' {licenseSpecifications} -> licenseSpecifications) (\s@RunInstances' {} a -> s {licenseSpecifications = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
 --
 -- Default: @stop@
-runInstances_instanceInitiatedShutdownBehavior :: Lens.Lens' RunInstances (Prelude.Maybe ShutdownBehavior)
+runInstances_instanceInitiatedShutdownBehavior :: Lens.Lens' RunInstances (Core.Maybe ShutdownBehavior)
 runInstances_instanceInitiatedShutdownBehavior = Lens.lens (\RunInstances' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@RunInstances' {} a -> s {instanceInitiatedShutdownBehavior = a} :: RunInstances)
 
 -- | The ID of the AMI. An AMI ID is required to launch an instance and must
 -- be specified here or in a launch template.
-runInstances_imageId :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_imageId :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_imageId = Lens.lens (\RunInstances' {imageId} -> imageId) (\s@RunInstances' {} a -> s {imageId = a} :: RunInstances)
 
 -- | [EC2-Classic, default VPC] The names of the security groups. For a
@@ -816,16 +815,16 @@ runInstances_imageId = Lens.lens (\RunInstances' {imageId} -> imageId) (\s@RunIn
 -- as part of the network interface.
 --
 -- Default: Amazon EC2 uses the default security group.
-runInstances_securityGroups :: Lens.Lens' RunInstances (Prelude.Maybe [Prelude.Text])
-runInstances_securityGroups = Lens.lens (\RunInstances' {securityGroups} -> securityGroups) (\s@RunInstances' {} a -> s {securityGroups = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_securityGroups :: Lens.Lens' RunInstances (Core.Maybe [Core.Text])
+runInstances_securityGroups = Lens.lens (\RunInstances' {securityGroups} -> securityGroups) (\s@RunInstances' {} a -> s {securityGroups = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | An elastic GPU to associate with the instance. An Elastic GPU is a GPU
 -- resource that you can attach to your Windows instance to accelerate the
 -- graphics performance of your applications. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html Amazon EC2 Elastic GPUs>
 -- in the /Amazon EC2 User Guide/.
-runInstances_elasticGpuSpecification :: Lens.Lens' RunInstances (Prelude.Maybe [ElasticGpuSpecification])
-runInstances_elasticGpuSpecification = Lens.lens (\RunInstances' {elasticGpuSpecification} -> elasticGpuSpecification) (\s@RunInstances' {} a -> s {elasticGpuSpecification = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_elasticGpuSpecification :: Lens.Lens' RunInstances (Core.Maybe [ElasticGpuSpecification])
+runInstances_elasticGpuSpecification = Lens.lens (\RunInstances' {elasticGpuSpecification} -> elasticGpuSpecification) (\s@RunInstances' {} a -> s {elasticGpuSpecification = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | An elastic inference accelerator to associate with the instance. Elastic
 -- inference accelerators are a resource you can attach to your Amazon EC2
@@ -833,11 +832,11 @@ runInstances_elasticGpuSpecification = Lens.lens (\RunInstances' {elasticGpuSpec
 --
 -- You cannot specify accelerators from different generations in the same
 -- request.
-runInstances_elasticInferenceAccelerators :: Lens.Lens' RunInstances (Prelude.Maybe [ElasticInferenceAccelerator])
-runInstances_elasticInferenceAccelerators = Lens.lens (\RunInstances' {elasticInferenceAccelerators} -> elasticInferenceAccelerators) (\s@RunInstances' {} a -> s {elasticInferenceAccelerators = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_elasticInferenceAccelerators :: Lens.Lens' RunInstances (Core.Maybe [ElasticInferenceAccelerator])
+runInstances_elasticInferenceAccelerators = Lens.lens (\RunInstances' {elasticInferenceAccelerators} -> elasticInferenceAccelerators) (\s@RunInstances' {} a -> s {elasticInferenceAccelerators = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The name or Amazon Resource Name (ARN) of an IAM instance profile.
-runInstances_iamInstanceProfile :: Lens.Lens' RunInstances (Prelude.Maybe IamInstanceProfileSpecification)
+runInstances_iamInstanceProfile :: Lens.Lens' RunInstances (Core.Maybe IamInstanceProfileSpecification)
 runInstances_iamInstanceProfile = Lens.lens (\RunInstances' {iamInstanceProfile} -> iamInstanceProfile) (\s@RunInstances' {} a -> s {iamInstanceProfile = a} :: RunInstances)
 
 -- | Indicates whether an instance is enabled for hibernation. For more
@@ -847,7 +846,7 @@ runInstances_iamInstanceProfile = Lens.lens (\RunInstances' {iamInstanceProfile}
 --
 -- You can\'t enable hibernation and AWS Nitro Enclaves on the same
 -- instance.
-runInstances_hibernationOptions :: Lens.Lens' RunInstances (Prelude.Maybe HibernationOptionsRequest)
+runInstances_hibernationOptions :: Lens.Lens' RunInstances (Core.Maybe HibernationOptionsRequest)
 runInstances_hibernationOptions = Lens.lens (\RunInstances' {hibernationOptions} -> hibernationOptions) (\s@RunInstances' {} a -> s {hibernationOptions = a} :: RunInstances)
 
 -- | [EC2-VPC] The number of IPv6 addresses to associate with the primary
@@ -858,22 +857,22 @@ runInstances_hibernationOptions = Lens.lens (\RunInstances' {hibernationOptions}
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
-runInstances_ipv6AddressCount :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Int)
+runInstances_ipv6AddressCount :: Lens.Lens' RunInstances (Core.Maybe Core.Int)
 runInstances_ipv6AddressCount = Lens.lens (\RunInstances' {ipv6AddressCount} -> ipv6AddressCount) (\s@RunInstances' {} a -> s {ipv6AddressCount = a} :: RunInstances)
 
 -- | Specifies whether detailed monitoring is enabled for the instance.
-runInstances_monitoring :: Lens.Lens' RunInstances (Prelude.Maybe RunInstancesMonitoringEnabled)
+runInstances_monitoring :: Lens.Lens' RunInstances (Core.Maybe RunInstancesMonitoringEnabled)
 runInstances_monitoring = Lens.lens (\RunInstances' {monitoring} -> monitoring) (\s@RunInstances' {} a -> s {monitoring = a} :: RunInstances)
 
 -- | The block device mapping entries.
-runInstances_blockDeviceMappings :: Lens.Lens' RunInstances (Prelude.Maybe [BlockDeviceMapping])
-runInstances_blockDeviceMappings = Lens.lens (\RunInstances' {blockDeviceMappings} -> blockDeviceMappings) (\s@RunInstances' {} a -> s {blockDeviceMappings = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_blockDeviceMappings :: Lens.Lens' RunInstances (Core.Maybe [BlockDeviceMapping])
+runInstances_blockDeviceMappings = Lens.lens (\RunInstances' {blockDeviceMappings} -> blockDeviceMappings) (\s@RunInstances' {} a -> s {blockDeviceMappings = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
 --
 -- If you specify a network interface, you must specify any subnets as part
 -- of the network interface.
-runInstances_subnetId :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_subnetId :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_subnetId = Lens.lens (\RunInstances' {subnetId} -> subnetId) (\s@RunInstances' {} a -> s {subnetId = a} :: RunInstances)
 
 -- | Indicates whether the instance is enabled for AWS Nitro Enclaves. For
@@ -883,7 +882,7 @@ runInstances_subnetId = Lens.lens (\RunInstances' {subnetId} -> subnetId) (\s@Ru
 --
 -- You can\'t enable AWS Nitro Enclaves and hibernation on the same
 -- instance.
-runInstances_enclaveOptions :: Lens.Lens' RunInstances (Prelude.Maybe EnclaveOptionsRequest)
+runInstances_enclaveOptions :: Lens.Lens' RunInstances (Core.Maybe EnclaveOptionsRequest)
 runInstances_enclaveOptions = Lens.lens (\RunInstances' {enclaveOptions} -> enclaveOptions) (\s@RunInstances' {} a -> s {enclaveOptions = a} :: RunInstances)
 
 -- | The ID of the kernel.
@@ -892,13 +891,13 @@ runInstances_enclaveOptions = Lens.lens (\RunInstances' {enclaveOptions} -> encl
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB>
 -- in the /Amazon EC2 User Guide/.
-runInstances_kernelId :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_kernelId :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_kernelId = Lens.lens (\RunInstances' {kernelId} -> kernelId) (\s@RunInstances' {} a -> s {kernelId = a} :: RunInstances)
 
 -- | The CPU options for the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU options>
 -- in the /Amazon EC2 User Guide/.
-runInstances_cpuOptions :: Lens.Lens' RunInstances (Prelude.Maybe CpuOptionsRequest)
+runInstances_cpuOptions :: Lens.Lens' RunInstances (Core.Maybe CpuOptionsRequest)
 runInstances_cpuOptions = Lens.lens (\RunInstances' {cpuOptions} -> cpuOptions) (\s@RunInstances' {} a -> s {cpuOptions = a} :: RunInstances)
 
 -- | The name of the key pair. You can create a key pair using
@@ -909,14 +908,14 @@ runInstances_cpuOptions = Lens.lens (\RunInstances' {cpuOptions} -> cpuOptions) 
 -- If you do not specify a key pair, you can\'t connect to the instance
 -- unless you choose an AMI that is configured to allow users another way
 -- to log in.
-runInstances_keyName :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_keyName :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_keyName = Lens.lens (\RunInstances' {keyName} -> keyName) (\s@RunInstances' {} a -> s {keyName = a} :: RunInstances)
 
 -- | The network interfaces to associate with the instance. If you specify a
 -- network interface, you must specify any security groups and subnets as
 -- part of the network interface.
-runInstances_networkInterfaces :: Lens.Lens' RunInstances (Prelude.Maybe [InstanceNetworkInterfaceSpecification])
-runInstances_networkInterfaces = Lens.lens (\RunInstances' {networkInterfaces} -> networkInterfaces) (\s@RunInstances' {} a -> s {networkInterfaces = a} :: RunInstances) Prelude.. Lens.mapping Prelude._Coerce
+runInstances_networkInterfaces :: Lens.Lens' RunInstances (Core.Maybe [InstanceNetworkInterfaceSpecification])
+runInstances_networkInterfaces = Lens.lens (\RunInstances' {networkInterfaces} -> networkInterfaces) (\s@RunInstances' {} a -> s {networkInterfaces = a} :: RunInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | If you set this parameter to @true@, you can\'t terminate the instance
 -- using the Amazon EC2 console, CLI, or API; otherwise, you can. To change
@@ -927,12 +926,12 @@ runInstances_networkInterfaces = Lens.lens (\RunInstances' {networkInterfaces} -
 -- command from the instance.
 --
 -- Default: @false@
-runInstances_disableApiTermination :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Bool)
+runInstances_disableApiTermination :: Lens.Lens' RunInstances (Core.Maybe Core.Bool)
 runInstances_disableApiTermination = Lens.lens (\RunInstances' {disableApiTermination} -> disableApiTermination) (\s@RunInstances' {} a -> s {disableApiTermination = a} :: RunInstances)
 
 -- | The metadata options for the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data>.
-runInstances_metadataOptions :: Lens.Lens' RunInstances (Prelude.Maybe InstanceMetadataOptionsRequest)
+runInstances_metadataOptions :: Lens.Lens' RunInstances (Core.Maybe InstanceMetadataOptionsRequest)
 runInstances_metadataOptions = Lens.lens (\RunInstances' {metadataOptions} -> metadataOptions) (\s@RunInstances' {} a -> s {metadataOptions = a} :: RunInstances)
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -943,7 +942,7 @@ runInstances_metadataOptions = Lens.lens (\RunInstances' {metadataOptions} -> me
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraints: Maximum 64 ASCII characters
-runInstances_clientToken :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_clientToken :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_clientToken = Lens.lens (\RunInstances' {clientToken} -> clientToken) (\s@RunInstances' {} a -> s {clientToken = a} :: RunInstances)
 
 -- | [EC2-VPC] The primary IPv4 address. You must specify a value from the
@@ -957,7 +956,7 @@ runInstances_clientToken = Lens.lens (\RunInstances' {clientToken} -> clientToke
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
-runInstances_privateIpAddress :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
+runInstances_privateIpAddress :: Lens.Lens' RunInstances (Core.Maybe Core.Text)
 runInstances_privateIpAddress = Lens.lens (\RunInstances' {privateIpAddress} -> privateIpAddress) (\s@RunInstances' {} a -> s {privateIpAddress = a} :: RunInstances)
 
 -- | The maximum number of instances to launch. If you specify more instances
@@ -969,7 +968,7 @@ runInstances_privateIpAddress = Lens.lens (\RunInstances' {privateIpAddress} -> 
 -- and how to request an increase, see
 -- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2>
 -- in the Amazon EC2 FAQ.
-runInstances_maxCount :: Lens.Lens' RunInstances Prelude.Int
+runInstances_maxCount :: Lens.Lens' RunInstances Core.Int
 runInstances_maxCount = Lens.lens (\RunInstances' {maxCount} -> maxCount) (\s@RunInstances' {} a -> s {maxCount = a} :: RunInstances)
 
 -- | The minimum number of instances to launch. If you specify a minimum that
@@ -981,98 +980,97 @@ runInstances_maxCount = Lens.lens (\RunInstances' {maxCount} -> maxCount) (\s@Ru
 -- and how to request an increase, see
 -- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2>
 -- in the Amazon EC2 General FAQ.
-runInstances_minCount :: Lens.Lens' RunInstances Prelude.Int
+runInstances_minCount :: Lens.Lens' RunInstances Core.Int
 runInstances_minCount = Lens.lens (\RunInstances' {minCount} -> minCount) (\s@RunInstances' {} a -> s {minCount = a} :: RunInstances)
 
-instance Prelude.AWSRequest RunInstances where
-  type Rs RunInstances = Reservation
+instance Core.AWSRequest RunInstances where
+  type AWSResponse RunInstances = Reservation
   request = Request.postQuery defaultService
   response =
-    Response.receiveXML (\s h x -> Prelude.parseXML x)
+    Response.receiveXML (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable RunInstances
+instance Core.Hashable RunInstances
 
-instance Prelude.NFData RunInstances
+instance Core.NFData RunInstances
 
-instance Prelude.ToHeaders RunInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RunInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RunInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath RunInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RunInstances where
+instance Core.ToQuery RunInstances where
   toQuery RunInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RunInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "SecurityGroupId"
-              Prelude.<$> securityGroupIds
+          Core.=: ("RunInstances" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "SecurityGroupId"
+              Core.<$> securityGroupIds
           ),
-        "AdditionalInfo" Prelude.=: additionalInfo,
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+        "AdditionalInfo" Core.=: additionalInfo,
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "InstanceType" Prelude.=: instanceType,
+        "InstanceType" Core.=: instanceType,
         "CapacityReservationSpecification"
-          Prelude.=: capacityReservationSpecification,
-        "EbsOptimized" Prelude.=: ebsOptimized,
-        "UserData" Prelude.=: userData,
-        "Placement" Prelude.=: placement,
-        Prelude.toQuery
-          ( Prelude.toQueryList "Ipv6Address"
-              Prelude.<$> ipv6Addresses
+          Core.=: capacityReservationSpecification,
+        "EbsOptimized" Core.=: ebsOptimized,
+        "UserData" Core.=: userData,
+        "Placement" Core.=: placement,
+        Core.toQuery
+          ( Core.toQueryList "Ipv6Address"
+              Core.<$> ipv6Addresses
           ),
-        "DryRun" Prelude.=: dryRun,
-        "RamdiskId" Prelude.=: ramdiskId,
-        "CreditSpecification" Prelude.=: creditSpecification,
+        "DryRun" Core.=: dryRun,
+        "RamdiskId" Core.=: ramdiskId,
+        "CreditSpecification" Core.=: creditSpecification,
         "InstanceMarketOptions"
-          Prelude.=: instanceMarketOptions,
-        "LaunchTemplate" Prelude.=: launchTemplate,
-        Prelude.toQuery
-          ( Prelude.toQueryList "LicenseSpecification"
-              Prelude.<$> licenseSpecifications
+          Core.=: instanceMarketOptions,
+        "LaunchTemplate" Core.=: launchTemplate,
+        Core.toQuery
+          ( Core.toQueryList "LicenseSpecification"
+              Core.<$> licenseSpecifications
           ),
         "InstanceInitiatedShutdownBehavior"
-          Prelude.=: instanceInitiatedShutdownBehavior,
-        "ImageId" Prelude.=: imageId,
-        Prelude.toQuery
-          ( Prelude.toQueryList "SecurityGroup"
-              Prelude.<$> securityGroups
+          Core.=: instanceInitiatedShutdownBehavior,
+        "ImageId" Core.=: imageId,
+        Core.toQuery
+          ( Core.toQueryList "SecurityGroup"
+              Core.<$> securityGroups
           ),
-        Prelude.toQuery
-          ( Prelude.toQueryList "ElasticGpuSpecification"
-              Prelude.<$> elasticGpuSpecification
+        Core.toQuery
+          ( Core.toQueryList "ElasticGpuSpecification"
+              Core.<$> elasticGpuSpecification
           ),
-        Prelude.toQuery
-          ( Prelude.toQueryList "ElasticInferenceAccelerator"
-              Prelude.<$> elasticInferenceAccelerators
+        Core.toQuery
+          ( Core.toQueryList "ElasticInferenceAccelerator"
+              Core.<$> elasticInferenceAccelerators
           ),
-        "IamInstanceProfile" Prelude.=: iamInstanceProfile,
-        "HibernationOptions" Prelude.=: hibernationOptions,
-        "Ipv6AddressCount" Prelude.=: ipv6AddressCount,
-        "Monitoring" Prelude.=: monitoring,
-        Prelude.toQuery
-          ( Prelude.toQueryList "BlockDeviceMapping"
-              Prelude.<$> blockDeviceMappings
+        "IamInstanceProfile" Core.=: iamInstanceProfile,
+        "HibernationOptions" Core.=: hibernationOptions,
+        "Ipv6AddressCount" Core.=: ipv6AddressCount,
+        "Monitoring" Core.=: monitoring,
+        Core.toQuery
+          ( Core.toQueryList "BlockDeviceMapping"
+              Core.<$> blockDeviceMappings
           ),
-        "SubnetId" Prelude.=: subnetId,
-        "EnclaveOptions" Prelude.=: enclaveOptions,
-        "KernelId" Prelude.=: kernelId,
-        "CpuOptions" Prelude.=: cpuOptions,
-        "KeyName" Prelude.=: keyName,
-        Prelude.toQuery
-          ( Prelude.toQueryList "NetworkInterface"
-              Prelude.<$> networkInterfaces
+        "SubnetId" Core.=: subnetId,
+        "EnclaveOptions" Core.=: enclaveOptions,
+        "KernelId" Core.=: kernelId,
+        "CpuOptions" Core.=: cpuOptions,
+        "KeyName" Core.=: keyName,
+        Core.toQuery
+          ( Core.toQueryList "NetworkInterface"
+              Core.<$> networkInterfaces
           ),
         "DisableApiTermination"
-          Prelude.=: disableApiTermination,
-        "MetadataOptions" Prelude.=: metadataOptions,
-        "ClientToken" Prelude.=: clientToken,
-        "PrivateIpAddress" Prelude.=: privateIpAddress,
-        "MaxCount" Prelude.=: maxCount,
-        "MinCount" Prelude.=: minCount
+          Core.=: disableApiTermination,
+        "MetadataOptions" Core.=: metadataOptions,
+        "ClientToken" Core.=: clientToken,
+        "PrivateIpAddress" Core.=: privateIpAddress,
+        "MaxCount" Core.=: maxCount,
+        "MinCount" Core.=: minCount
       ]

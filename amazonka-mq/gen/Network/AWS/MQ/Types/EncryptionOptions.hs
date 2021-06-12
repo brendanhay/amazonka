@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types.EncryptionOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Encryption options for the broker.
 --
@@ -30,12 +29,12 @@ data EncryptionOptions = EncryptionOptions'
   { -- | The symmetric customer master key (CMK) to use for the AWS Key
     -- Management Service (KMS). This key is used to encrypt your data at rest.
     -- If not provided, Amazon MQ will use a default CMK to encrypt your data.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | Enables the use of an AWS owned CMK using AWS Key Management Service
     -- (KMS).
-    useAwsOwnedKey :: Prelude.Bool
+    useAwsOwnedKey :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionOptions' with all optional fields omitted.
@@ -53,45 +52,44 @@ data EncryptionOptions = EncryptionOptions'
 -- (KMS).
 newEncryptionOptions ::
   -- | 'useAwsOwnedKey'
-  Prelude.Bool ->
+  Core.Bool ->
   EncryptionOptions
 newEncryptionOptions pUseAwsOwnedKey_ =
   EncryptionOptions'
-    { kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
       useAwsOwnedKey = pUseAwsOwnedKey_
     }
 
 -- | The symmetric customer master key (CMK) to use for the AWS Key
 -- Management Service (KMS). This key is used to encrypt your data at rest.
 -- If not provided, Amazon MQ will use a default CMK to encrypt your data.
-encryptionOptions_kmsKeyId :: Lens.Lens' EncryptionOptions (Prelude.Maybe Prelude.Text)
+encryptionOptions_kmsKeyId :: Lens.Lens' EncryptionOptions (Core.Maybe Core.Text)
 encryptionOptions_kmsKeyId = Lens.lens (\EncryptionOptions' {kmsKeyId} -> kmsKeyId) (\s@EncryptionOptions' {} a -> s {kmsKeyId = a} :: EncryptionOptions)
 
 -- | Enables the use of an AWS owned CMK using AWS Key Management Service
 -- (KMS).
-encryptionOptions_useAwsOwnedKey :: Lens.Lens' EncryptionOptions Prelude.Bool
+encryptionOptions_useAwsOwnedKey :: Lens.Lens' EncryptionOptions Core.Bool
 encryptionOptions_useAwsOwnedKey = Lens.lens (\EncryptionOptions' {useAwsOwnedKey} -> useAwsOwnedKey) (\s@EncryptionOptions' {} a -> s {useAwsOwnedKey = a} :: EncryptionOptions)
 
-instance Prelude.FromJSON EncryptionOptions where
+instance Core.FromJSON EncryptionOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionOptions"
       ( \x ->
           EncryptionOptions'
-            Prelude.<$> (x Prelude..:? "kmsKeyId")
-            Prelude.<*> (x Prelude..: "useAwsOwnedKey")
+            Core.<$> (x Core..:? "kmsKeyId")
+            Core.<*> (x Core..: "useAwsOwnedKey")
       )
 
-instance Prelude.Hashable EncryptionOptions
+instance Core.Hashable EncryptionOptions
 
-instance Prelude.NFData EncryptionOptions
+instance Core.NFData EncryptionOptions
 
-instance Prelude.ToJSON EncryptionOptions where
+instance Core.ToJSON EncryptionOptions where
   toJSON EncryptionOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("kmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
-              ("useAwsOwnedKey" Prelude..= useAwsOwnedKey)
+    Core.object
+      ( Core.catMaybes
+          [ ("kmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just ("useAwsOwnedKey" Core..= useAwsOwnedKey)
           ]
       )

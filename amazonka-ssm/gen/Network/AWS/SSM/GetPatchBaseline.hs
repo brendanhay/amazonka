@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.SSM.GetPatchBaseline
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -63,9 +62,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetPatchBaseline' smart constructor.
 data GetPatchBaseline = GetPatchBaseline'
   { -- | The ID of the patch baseline to retrieve.
-    baselineId :: Prelude.Text
+    baselineId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPatchBaseline' with all optional fields omitted.
@@ -78,120 +77,114 @@ data GetPatchBaseline = GetPatchBaseline'
 -- 'baselineId', 'getPatchBaseline_baselineId' - The ID of the patch baseline to retrieve.
 newGetPatchBaseline ::
   -- | 'baselineId'
-  Prelude.Text ->
+  Core.Text ->
   GetPatchBaseline
 newGetPatchBaseline pBaselineId_ =
   GetPatchBaseline' {baselineId = pBaselineId_}
 
 -- | The ID of the patch baseline to retrieve.
-getPatchBaseline_baselineId :: Lens.Lens' GetPatchBaseline Prelude.Text
+getPatchBaseline_baselineId :: Lens.Lens' GetPatchBaseline Core.Text
 getPatchBaseline_baselineId = Lens.lens (\GetPatchBaseline' {baselineId} -> baselineId) (\s@GetPatchBaseline' {} a -> s {baselineId = a} :: GetPatchBaseline)
 
-instance Prelude.AWSRequest GetPatchBaseline where
-  type Rs GetPatchBaseline = GetPatchBaselineResponse
+instance Core.AWSRequest GetPatchBaseline where
+  type
+    AWSResponse GetPatchBaseline =
+      GetPatchBaselineResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPatchBaselineResponse'
-            Prelude.<$> (x Prelude..?> "CreatedDate")
-            Prelude.<*> (x Prelude..?> "BaselineId")
-            Prelude.<*> (x Prelude..?> "Sources" Prelude..!@ Prelude.mempty)
-            Prelude.<*> ( x Prelude..?> "RejectedPatches"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "ApprovedPatchesEnableNonSecurity")
-            Prelude.<*> (x Prelude..?> "ApprovedPatchesComplianceLevel")
-            Prelude.<*> (x Prelude..?> "ModifiedDate")
-            Prelude.<*> ( x Prelude..?> "PatchGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "Description")
-            Prelude.<*> ( x Prelude..?> "ApprovedPatches"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "RejectedPatchesAction")
-            Prelude.<*> (x Prelude..?> "OperatingSystem")
-            Prelude.<*> (x Prelude..?> "GlobalFilters")
-            Prelude.<*> (x Prelude..?> "ApprovalRules")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreatedDate")
+            Core.<*> (x Core..?> "BaselineId")
+            Core.<*> (x Core..?> "Sources" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "RejectedPatches" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ApprovedPatchesEnableNonSecurity")
+            Core.<*> (x Core..?> "ApprovedPatchesComplianceLevel")
+            Core.<*> (x Core..?> "ModifiedDate")
+            Core.<*> (x Core..?> "PatchGroups" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "Description")
+            Core.<*> (x Core..?> "ApprovedPatches" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "RejectedPatchesAction")
+            Core.<*> (x Core..?> "OperatingSystem")
+            Core.<*> (x Core..?> "GlobalFilters")
+            Core.<*> (x Core..?> "ApprovalRules")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPatchBaseline
+instance Core.Hashable GetPatchBaseline
 
-instance Prelude.NFData GetPatchBaseline
+instance Core.NFData GetPatchBaseline
 
-instance Prelude.ToHeaders GetPatchBaseline where
+instance Core.ToHeaders GetPatchBaseline where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.GetPatchBaseline" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.GetPatchBaseline" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetPatchBaseline where
+instance Core.ToJSON GetPatchBaseline where
   toJSON GetPatchBaseline' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("BaselineId" Prelude..= baselineId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("BaselineId" Core..= baselineId)]
       )
 
-instance Prelude.ToPath GetPatchBaseline where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPatchBaseline where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPatchBaseline where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPatchBaseline where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetPatchBaselineResponse' smart constructor.
 data GetPatchBaselineResponse = GetPatchBaselineResponse'
   { -- | The date the patch baseline was created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | The ID of the retrieved patch baseline.
-    baselineId :: Prelude.Maybe Prelude.Text,
+    baselineId :: Core.Maybe Core.Text,
     -- | Information about the patches to use to update the instances, including
     -- target operating systems and source repositories. Applies to Linux
     -- instances only.
-    sources :: Prelude.Maybe [PatchSource],
+    sources :: Core.Maybe [PatchSource],
     -- | A list of explicitly rejected patches for the baseline.
-    rejectedPatches :: Prelude.Maybe [Prelude.Text],
+    rejectedPatches :: Core.Maybe [Core.Text],
     -- | Indicates whether the list of approved patches includes non-security
     -- updates that should be applied to the instances. The default value is
     -- \'false\'. Applies to Linux instances only.
-    approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
+    approvedPatchesEnableNonSecurity :: Core.Maybe Core.Bool,
     -- | Returns the specified compliance severity level for approved patches in
     -- the patch baseline.
-    approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
+    approvedPatchesComplianceLevel :: Core.Maybe PatchComplianceLevel,
     -- | The date the patch baseline was last modified.
-    modifiedDate :: Prelude.Maybe Prelude.POSIX,
+    modifiedDate :: Core.Maybe Core.POSIX,
     -- | Patch groups included in the patch baseline.
-    patchGroups :: Prelude.Maybe [Prelude.Text],
+    patchGroups :: Core.Maybe [Core.Text],
     -- | The name of the patch baseline.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A description of the patch baseline.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | A list of explicitly approved patches for the baseline.
-    approvedPatches :: Prelude.Maybe [Prelude.Text],
+    approvedPatches :: Core.Maybe [Core.Text],
     -- | The action specified to take on patches included in the RejectedPatches
     -- list. A patch can be allowed only if it is a dependency of another
     -- package, or blocked entirely along with packages that include it as a
     -- dependency.
-    rejectedPatchesAction :: Prelude.Maybe PatchAction,
+    rejectedPatchesAction :: Core.Maybe PatchAction,
     -- | Returns the operating system specified for the patch baseline.
-    operatingSystem :: Prelude.Maybe OperatingSystem,
+    operatingSystem :: Core.Maybe OperatingSystem,
     -- | A set of global filters used to exclude patches from the baseline.
-    globalFilters :: Prelude.Maybe PatchFilterGroup,
+    globalFilters :: Core.Maybe PatchFilterGroup,
     -- | A set of rules used to include patches in the baseline.
-    approvalRules :: Prelude.Maybe PatchRuleGroup,
+    approvalRules :: Core.Maybe PatchRuleGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPatchBaselineResponse' with all optional fields omitted.
@@ -242,100 +235,99 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
 -- 'httpStatus', 'getPatchBaselineResponse_httpStatus' - The response's http status code.
 newGetPatchBaselineResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPatchBaselineResponse
 newGetPatchBaselineResponse pHttpStatus_ =
   GetPatchBaselineResponse'
     { createdDate =
-        Prelude.Nothing,
-      baselineId = Prelude.Nothing,
-      sources = Prelude.Nothing,
-      rejectedPatches = Prelude.Nothing,
-      approvedPatchesEnableNonSecurity =
-        Prelude.Nothing,
-      approvedPatchesComplianceLevel = Prelude.Nothing,
-      modifiedDate = Prelude.Nothing,
-      patchGroups = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      approvedPatches = Prelude.Nothing,
-      rejectedPatchesAction = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing,
-      globalFilters = Prelude.Nothing,
-      approvalRules = Prelude.Nothing,
+        Core.Nothing,
+      baselineId = Core.Nothing,
+      sources = Core.Nothing,
+      rejectedPatches = Core.Nothing,
+      approvedPatchesEnableNonSecurity = Core.Nothing,
+      approvedPatchesComplianceLevel = Core.Nothing,
+      modifiedDate = Core.Nothing,
+      patchGroups = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      approvedPatches = Core.Nothing,
+      rejectedPatchesAction = Core.Nothing,
+      operatingSystem = Core.Nothing,
+      globalFilters = Core.Nothing,
+      approvalRules = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date the patch baseline was created.
-getPatchBaselineResponse_createdDate :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.UTCTime)
-getPatchBaselineResponse_createdDate = Lens.lens (\GetPatchBaselineResponse' {createdDate} -> createdDate) (\s@GetPatchBaselineResponse' {} a -> s {createdDate = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Prelude._Time
+getPatchBaselineResponse_createdDate :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.UTCTime)
+getPatchBaselineResponse_createdDate = Lens.lens (\GetPatchBaselineResponse' {createdDate} -> createdDate) (\s@GetPatchBaselineResponse' {} a -> s {createdDate = a} :: GetPatchBaselineResponse) Core.. Lens.mapping Core._Time
 
 -- | The ID of the retrieved patch baseline.
-getPatchBaselineResponse_baselineId :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.Text)
+getPatchBaselineResponse_baselineId :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.Text)
 getPatchBaselineResponse_baselineId = Lens.lens (\GetPatchBaselineResponse' {baselineId} -> baselineId) (\s@GetPatchBaselineResponse' {} a -> s {baselineId = a} :: GetPatchBaselineResponse)
 
 -- | Information about the patches to use to update the instances, including
 -- target operating systems and source repositories. Applies to Linux
 -- instances only.
-getPatchBaselineResponse_sources :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [PatchSource])
-getPatchBaselineResponse_sources = Lens.lens (\GetPatchBaselineResponse' {sources} -> sources) (\s@GetPatchBaselineResponse' {} a -> s {sources = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Prelude._Coerce
+getPatchBaselineResponse_sources :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [PatchSource])
+getPatchBaselineResponse_sources = Lens.lens (\GetPatchBaselineResponse' {sources} -> sources) (\s@GetPatchBaselineResponse' {} a -> s {sources = a} :: GetPatchBaselineResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of explicitly rejected patches for the baseline.
-getPatchBaselineResponse_rejectedPatches :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [Prelude.Text])
-getPatchBaselineResponse_rejectedPatches = Lens.lens (\GetPatchBaselineResponse' {rejectedPatches} -> rejectedPatches) (\s@GetPatchBaselineResponse' {} a -> s {rejectedPatches = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Prelude._Coerce
+getPatchBaselineResponse_rejectedPatches :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [Core.Text])
+getPatchBaselineResponse_rejectedPatches = Lens.lens (\GetPatchBaselineResponse' {rejectedPatches} -> rejectedPatches) (\s@GetPatchBaselineResponse' {} a -> s {rejectedPatches = a} :: GetPatchBaselineResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the list of approved patches includes non-security
 -- updates that should be applied to the instances. The default value is
 -- \'false\'. Applies to Linux instances only.
-getPatchBaselineResponse_approvedPatchesEnableNonSecurity :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.Bool)
+getPatchBaselineResponse_approvedPatchesEnableNonSecurity :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.Bool)
 getPatchBaselineResponse_approvedPatchesEnableNonSecurity = Lens.lens (\GetPatchBaselineResponse' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@GetPatchBaselineResponse' {} a -> s {approvedPatchesEnableNonSecurity = a} :: GetPatchBaselineResponse)
 
 -- | Returns the specified compliance severity level for approved patches in
 -- the patch baseline.
-getPatchBaselineResponse_approvedPatchesComplianceLevel :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe PatchComplianceLevel)
+getPatchBaselineResponse_approvedPatchesComplianceLevel :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe PatchComplianceLevel)
 getPatchBaselineResponse_approvedPatchesComplianceLevel = Lens.lens (\GetPatchBaselineResponse' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@GetPatchBaselineResponse' {} a -> s {approvedPatchesComplianceLevel = a} :: GetPatchBaselineResponse)
 
 -- | The date the patch baseline was last modified.
-getPatchBaselineResponse_modifiedDate :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.UTCTime)
-getPatchBaselineResponse_modifiedDate = Lens.lens (\GetPatchBaselineResponse' {modifiedDate} -> modifiedDate) (\s@GetPatchBaselineResponse' {} a -> s {modifiedDate = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Prelude._Time
+getPatchBaselineResponse_modifiedDate :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.UTCTime)
+getPatchBaselineResponse_modifiedDate = Lens.lens (\GetPatchBaselineResponse' {modifiedDate} -> modifiedDate) (\s@GetPatchBaselineResponse' {} a -> s {modifiedDate = a} :: GetPatchBaselineResponse) Core.. Lens.mapping Core._Time
 
 -- | Patch groups included in the patch baseline.
-getPatchBaselineResponse_patchGroups :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [Prelude.Text])
-getPatchBaselineResponse_patchGroups = Lens.lens (\GetPatchBaselineResponse' {patchGroups} -> patchGroups) (\s@GetPatchBaselineResponse' {} a -> s {patchGroups = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Prelude._Coerce
+getPatchBaselineResponse_patchGroups :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [Core.Text])
+getPatchBaselineResponse_patchGroups = Lens.lens (\GetPatchBaselineResponse' {patchGroups} -> patchGroups) (\s@GetPatchBaselineResponse' {} a -> s {patchGroups = a} :: GetPatchBaselineResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the patch baseline.
-getPatchBaselineResponse_name :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.Text)
+getPatchBaselineResponse_name :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.Text)
 getPatchBaselineResponse_name = Lens.lens (\GetPatchBaselineResponse' {name} -> name) (\s@GetPatchBaselineResponse' {} a -> s {name = a} :: GetPatchBaselineResponse)
 
 -- | A description of the patch baseline.
-getPatchBaselineResponse_description :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.Text)
+getPatchBaselineResponse_description :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe Core.Text)
 getPatchBaselineResponse_description = Lens.lens (\GetPatchBaselineResponse' {description} -> description) (\s@GetPatchBaselineResponse' {} a -> s {description = a} :: GetPatchBaselineResponse)
 
 -- | A list of explicitly approved patches for the baseline.
-getPatchBaselineResponse_approvedPatches :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [Prelude.Text])
-getPatchBaselineResponse_approvedPatches = Lens.lens (\GetPatchBaselineResponse' {approvedPatches} -> approvedPatches) (\s@GetPatchBaselineResponse' {} a -> s {approvedPatches = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Prelude._Coerce
+getPatchBaselineResponse_approvedPatches :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe [Core.Text])
+getPatchBaselineResponse_approvedPatches = Lens.lens (\GetPatchBaselineResponse' {approvedPatches} -> approvedPatches) (\s@GetPatchBaselineResponse' {} a -> s {approvedPatches = a} :: GetPatchBaselineResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The action specified to take on patches included in the RejectedPatches
 -- list. A patch can be allowed only if it is a dependency of another
 -- package, or blocked entirely along with packages that include it as a
 -- dependency.
-getPatchBaselineResponse_rejectedPatchesAction :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe PatchAction)
+getPatchBaselineResponse_rejectedPatchesAction :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe PatchAction)
 getPatchBaselineResponse_rejectedPatchesAction = Lens.lens (\GetPatchBaselineResponse' {rejectedPatchesAction} -> rejectedPatchesAction) (\s@GetPatchBaselineResponse' {} a -> s {rejectedPatchesAction = a} :: GetPatchBaselineResponse)
 
 -- | Returns the operating system specified for the patch baseline.
-getPatchBaselineResponse_operatingSystem :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe OperatingSystem)
+getPatchBaselineResponse_operatingSystem :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe OperatingSystem)
 getPatchBaselineResponse_operatingSystem = Lens.lens (\GetPatchBaselineResponse' {operatingSystem} -> operatingSystem) (\s@GetPatchBaselineResponse' {} a -> s {operatingSystem = a} :: GetPatchBaselineResponse)
 
 -- | A set of global filters used to exclude patches from the baseline.
-getPatchBaselineResponse_globalFilters :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe PatchFilterGroup)
+getPatchBaselineResponse_globalFilters :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe PatchFilterGroup)
 getPatchBaselineResponse_globalFilters = Lens.lens (\GetPatchBaselineResponse' {globalFilters} -> globalFilters) (\s@GetPatchBaselineResponse' {} a -> s {globalFilters = a} :: GetPatchBaselineResponse)
 
 -- | A set of rules used to include patches in the baseline.
-getPatchBaselineResponse_approvalRules :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe PatchRuleGroup)
+getPatchBaselineResponse_approvalRules :: Lens.Lens' GetPatchBaselineResponse (Core.Maybe PatchRuleGroup)
 getPatchBaselineResponse_approvalRules = Lens.lens (\GetPatchBaselineResponse' {approvalRules} -> approvalRules) (\s@GetPatchBaselineResponse' {} a -> s {approvalRules = a} :: GetPatchBaselineResponse)
 
 -- | The response's http status code.
-getPatchBaselineResponse_httpStatus :: Lens.Lens' GetPatchBaselineResponse Prelude.Int
+getPatchBaselineResponse_httpStatus :: Lens.Lens' GetPatchBaselineResponse Core.Int
 getPatchBaselineResponse_httpStatus = Lens.lens (\GetPatchBaselineResponse' {httpStatus} -> httpStatus) (\s@GetPatchBaselineResponse' {} a -> s {httpStatus = a} :: GetPatchBaselineResponse)
 
-instance Prelude.NFData GetPatchBaselineResponse
+instance Core.NFData GetPatchBaselineResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EC2.ModifyVpnTunnelCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +53,13 @@ data ModifyVpnTunnelCertificate = ModifyVpnTunnelCertificate'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the AWS Site-to-Site VPN connection.
-    vpnConnectionId :: Prelude.Text,
+    vpnConnectionId :: Core.Text,
     -- | The external IP address of the VPN tunnel.
-    vpnTunnelOutsideIpAddress :: Prelude.Text
+    vpnTunnelOutsideIpAddress :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelCertificate' with all optional fields omitted.
@@ -80,16 +79,15 @@ data ModifyVpnTunnelCertificate = ModifyVpnTunnelCertificate'
 -- 'vpnTunnelOutsideIpAddress', 'modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress' - The external IP address of the VPN tunnel.
 newModifyVpnTunnelCertificate ::
   -- | 'vpnConnectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpnTunnelOutsideIpAddress'
-  Prelude.Text ->
+  Core.Text ->
   ModifyVpnTunnelCertificate
 newModifyVpnTunnelCertificate
   pVpnConnectionId_
   pVpnTunnelOutsideIpAddress_ =
     ModifyVpnTunnelCertificate'
-      { dryRun =
-          Prelude.Nothing,
+      { dryRun = Core.Nothing,
         vpnConnectionId = pVpnConnectionId_,
         vpnTunnelOutsideIpAddress =
           pVpnTunnelOutsideIpAddress_
@@ -99,63 +97,59 @@ newModifyVpnTunnelCertificate
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpnTunnelCertificate_dryRun :: Lens.Lens' ModifyVpnTunnelCertificate (Prelude.Maybe Prelude.Bool)
+modifyVpnTunnelCertificate_dryRun :: Lens.Lens' ModifyVpnTunnelCertificate (Core.Maybe Core.Bool)
 modifyVpnTunnelCertificate_dryRun = Lens.lens (\ModifyVpnTunnelCertificate' {dryRun} -> dryRun) (\s@ModifyVpnTunnelCertificate' {} a -> s {dryRun = a} :: ModifyVpnTunnelCertificate)
 
 -- | The ID of the AWS Site-to-Site VPN connection.
-modifyVpnTunnelCertificate_vpnConnectionId :: Lens.Lens' ModifyVpnTunnelCertificate Prelude.Text
+modifyVpnTunnelCertificate_vpnConnectionId :: Lens.Lens' ModifyVpnTunnelCertificate Core.Text
 modifyVpnTunnelCertificate_vpnConnectionId = Lens.lens (\ModifyVpnTunnelCertificate' {vpnConnectionId} -> vpnConnectionId) (\s@ModifyVpnTunnelCertificate' {} a -> s {vpnConnectionId = a} :: ModifyVpnTunnelCertificate)
 
 -- | The external IP address of the VPN tunnel.
-modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress :: Lens.Lens' ModifyVpnTunnelCertificate Prelude.Text
+modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress :: Lens.Lens' ModifyVpnTunnelCertificate Core.Text
 modifyVpnTunnelCertificate_vpnTunnelOutsideIpAddress = Lens.lens (\ModifyVpnTunnelCertificate' {vpnTunnelOutsideIpAddress} -> vpnTunnelOutsideIpAddress) (\s@ModifyVpnTunnelCertificate' {} a -> s {vpnTunnelOutsideIpAddress = a} :: ModifyVpnTunnelCertificate)
 
-instance
-  Prelude.AWSRequest
-    ModifyVpnTunnelCertificate
-  where
+instance Core.AWSRequest ModifyVpnTunnelCertificate where
   type
-    Rs ModifyVpnTunnelCertificate =
+    AWSResponse ModifyVpnTunnelCertificate =
       ModifyVpnTunnelCertificateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyVpnTunnelCertificateResponse'
-            Prelude.<$> (x Prelude..@? "vpnConnection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "vpnConnection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVpnTunnelCertificate
+instance Core.Hashable ModifyVpnTunnelCertificate
 
-instance Prelude.NFData ModifyVpnTunnelCertificate
+instance Core.NFData ModifyVpnTunnelCertificate
 
-instance Prelude.ToHeaders ModifyVpnTunnelCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyVpnTunnelCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyVpnTunnelCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyVpnTunnelCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyVpnTunnelCertificate where
+instance Core.ToQuery ModifyVpnTunnelCertificate where
   toQuery ModifyVpnTunnelCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyVpnTunnelCertificate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "VpnConnectionId" Prelude.=: vpnConnectionId,
+          Core.=: ("ModifyVpnTunnelCertificate" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "VpnConnectionId" Core.=: vpnConnectionId,
         "VpnTunnelOutsideIpAddress"
-          Prelude.=: vpnTunnelOutsideIpAddress
+          Core.=: vpnTunnelOutsideIpAddress
       ]
 
 -- | /See:/ 'newModifyVpnTunnelCertificateResponse' smart constructor.
 data ModifyVpnTunnelCertificateResponse = ModifyVpnTunnelCertificateResponse'
-  { vpnConnection :: Prelude.Maybe VpnConnection,
+  { vpnConnection :: Core.Maybe VpnConnection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelCertificateResponse' with all optional fields omitted.
@@ -170,23 +164,23 @@ data ModifyVpnTunnelCertificateResponse = ModifyVpnTunnelCertificateResponse'
 -- 'httpStatus', 'modifyVpnTunnelCertificateResponse_httpStatus' - The response's http status code.
 newModifyVpnTunnelCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyVpnTunnelCertificateResponse
 newModifyVpnTunnelCertificateResponse pHttpStatus_ =
   ModifyVpnTunnelCertificateResponse'
     { vpnConnection =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyVpnTunnelCertificateResponse_vpnConnection :: Lens.Lens' ModifyVpnTunnelCertificateResponse (Prelude.Maybe VpnConnection)
+modifyVpnTunnelCertificateResponse_vpnConnection :: Lens.Lens' ModifyVpnTunnelCertificateResponse (Core.Maybe VpnConnection)
 modifyVpnTunnelCertificateResponse_vpnConnection = Lens.lens (\ModifyVpnTunnelCertificateResponse' {vpnConnection} -> vpnConnection) (\s@ModifyVpnTunnelCertificateResponse' {} a -> s {vpnConnection = a} :: ModifyVpnTunnelCertificateResponse)
 
 -- | The response's http status code.
-modifyVpnTunnelCertificateResponse_httpStatus :: Lens.Lens' ModifyVpnTunnelCertificateResponse Prelude.Int
+modifyVpnTunnelCertificateResponse_httpStatus :: Lens.Lens' ModifyVpnTunnelCertificateResponse Core.Int
 modifyVpnTunnelCertificateResponse_httpStatus = Lens.lens (\ModifyVpnTunnelCertificateResponse' {httpStatus} -> httpStatus) (\s@ModifyVpnTunnelCertificateResponse' {} a -> s {httpStatus = a} :: ModifyVpnTunnelCertificateResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyVpnTunnelCertificateResponse

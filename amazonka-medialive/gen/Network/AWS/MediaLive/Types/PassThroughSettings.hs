@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.PassThroughSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Pass Through Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data PassThroughSettings = PassThroughSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PassThroughSettings' with all optional fields omitted.
@@ -39,16 +38,15 @@ newPassThroughSettings ::
   PassThroughSettings
 newPassThroughSettings = PassThroughSettings'
 
-instance Prelude.FromJSON PassThroughSettings where
+instance Core.FromJSON PassThroughSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PassThroughSettings"
-      (\x -> Prelude.pure PassThroughSettings')
+      (\x -> Core.pure PassThroughSettings')
 
-instance Prelude.Hashable PassThroughSettings
+instance Core.Hashable PassThroughSettings
 
-instance Prelude.NFData PassThroughSettings
+instance Core.NFData PassThroughSettings
 
-instance Prelude.ToJSON PassThroughSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON PassThroughSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

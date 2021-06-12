@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.IoT.UpdateSecurityProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,13 +69,13 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
     -- whenever the security profile is updated. If you specify a value that is
     -- different from the actual version, a @VersionConflictException@ is
     -- thrown.
-    expectedVersion :: Prelude.Maybe Prelude.Integer,
+    expectedVersion :: Core.Maybe Core.Integer,
     -- | Where the alerts are sent. (Alerts are always sent to the console.)
-    alertTargets :: Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget),
+    alertTargets :: Core.Maybe (Core.HashMap AlertTargetType AlertTarget),
     -- | If true, delete all @additionalMetricsToRetain@ defined for this
     -- security profile. If any @additionalMetricsToRetain@ are defined in the
     -- current invocation, an exception occurs.
-    deleteAdditionalMetricsToRetain :: Prelude.Maybe Prelude.Bool,
+    deleteAdditionalMetricsToRetain :: Core.Maybe Core.Bool,
     -- | /Please use UpdateSecurityProfileRequest$additionalMetricsToRetainV2
     -- instead./
     --
@@ -84,29 +83,29 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
     -- retained for any metric used in the profile\'s @behaviors@, but it is
     -- also retained for any metric specified here. Can be used with custom
     -- metrics; cannot be used with dimensions.
-    additionalMetricsToRetain :: Prelude.Maybe [Prelude.Text],
+    additionalMetricsToRetain :: Core.Maybe [Core.Text],
     -- | If true, delete all @alertTargets@ defined for this security profile. If
     -- any @alertTargets@ are defined in the current invocation, an exception
     -- occurs.
-    deleteAlertTargets :: Prelude.Maybe Prelude.Bool,
+    deleteAlertTargets :: Core.Maybe Core.Bool,
     -- | Specifies the behaviors that, when violated by a device (thing), cause
     -- an alert.
-    behaviors :: Prelude.Maybe [Behavior],
+    behaviors :: Core.Maybe [Behavior],
     -- | A list of metrics whose data is retained (stored). By default, data is
     -- retained for any metric used in the profile\'s behaviors, but it is also
     -- retained for any metric specified here. Can be used with custom metrics;
     -- cannot be used with dimensions.
-    additionalMetricsToRetainV2 :: Prelude.Maybe [MetricToRetain],
+    additionalMetricsToRetainV2 :: Core.Maybe [MetricToRetain],
     -- | If true, delete all @behaviors@ defined for this security profile. If
     -- any @behaviors@ are defined in the current invocation, an exception
     -- occurs.
-    deleteBehaviors :: Prelude.Maybe Prelude.Bool,
+    deleteBehaviors :: Core.Maybe Core.Bool,
     -- | A description of the security profile.
-    securityProfileDescription :: Prelude.Maybe Prelude.Text,
+    securityProfileDescription :: Core.Maybe Core.Text,
     -- | The name of the security profile you want to update.
-    securityProfileName :: Prelude.Text
+    securityProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSecurityProfile' with all optional fields omitted.
@@ -156,20 +155,20 @@ data UpdateSecurityProfile = UpdateSecurityProfile'
 -- 'securityProfileName', 'updateSecurityProfile_securityProfileName' - The name of the security profile you want to update.
 newUpdateSecurityProfile ::
   -- | 'securityProfileName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateSecurityProfile
 newUpdateSecurityProfile pSecurityProfileName_ =
   UpdateSecurityProfile'
     { expectedVersion =
-        Prelude.Nothing,
-      alertTargets = Prelude.Nothing,
-      deleteAdditionalMetricsToRetain = Prelude.Nothing,
-      additionalMetricsToRetain = Prelude.Nothing,
-      deleteAlertTargets = Prelude.Nothing,
-      behaviors = Prelude.Nothing,
-      additionalMetricsToRetainV2 = Prelude.Nothing,
-      deleteBehaviors = Prelude.Nothing,
-      securityProfileDescription = Prelude.Nothing,
+        Core.Nothing,
+      alertTargets = Core.Nothing,
+      deleteAdditionalMetricsToRetain = Core.Nothing,
+      additionalMetricsToRetain = Core.Nothing,
+      deleteAlertTargets = Core.Nothing,
+      behaviors = Core.Nothing,
+      additionalMetricsToRetainV2 = Core.Nothing,
+      deleteBehaviors = Core.Nothing,
+      securityProfileDescription = Core.Nothing,
       securityProfileName = pSecurityProfileName_
     }
 
@@ -177,17 +176,17 @@ newUpdateSecurityProfile pSecurityProfileName_ =
 -- whenever the security profile is updated. If you specify a value that is
 -- different from the actual version, a @VersionConflictException@ is
 -- thrown.
-updateSecurityProfile_expectedVersion :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Integer)
+updateSecurityProfile_expectedVersion :: Lens.Lens' UpdateSecurityProfile (Core.Maybe Core.Integer)
 updateSecurityProfile_expectedVersion = Lens.lens (\UpdateSecurityProfile' {expectedVersion} -> expectedVersion) (\s@UpdateSecurityProfile' {} a -> s {expectedVersion = a} :: UpdateSecurityProfile)
 
 -- | Where the alerts are sent. (Alerts are always sent to the console.)
-updateSecurityProfile_alertTargets :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget))
-updateSecurityProfile_alertTargets = Lens.lens (\UpdateSecurityProfile' {alertTargets} -> alertTargets) (\s@UpdateSecurityProfile' {} a -> s {alertTargets = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfile_alertTargets :: Lens.Lens' UpdateSecurityProfile (Core.Maybe (Core.HashMap AlertTargetType AlertTarget))
+updateSecurityProfile_alertTargets = Lens.lens (\UpdateSecurityProfile' {alertTargets} -> alertTargets) (\s@UpdateSecurityProfile' {} a -> s {alertTargets = a} :: UpdateSecurityProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | If true, delete all @additionalMetricsToRetain@ defined for this
 -- security profile. If any @additionalMetricsToRetain@ are defined in the
 -- current invocation, an exception occurs.
-updateSecurityProfile_deleteAdditionalMetricsToRetain :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Bool)
+updateSecurityProfile_deleteAdditionalMetricsToRetain :: Lens.Lens' UpdateSecurityProfile (Core.Maybe Core.Bool)
 updateSecurityProfile_deleteAdditionalMetricsToRetain = Lens.lens (\UpdateSecurityProfile' {deleteAdditionalMetricsToRetain} -> deleteAdditionalMetricsToRetain) (\s@UpdateSecurityProfile' {} a -> s {deleteAdditionalMetricsToRetain = a} :: UpdateSecurityProfile)
 
 -- | /Please use UpdateSecurityProfileRequest$additionalMetricsToRetainV2
@@ -197,147 +196,141 @@ updateSecurityProfile_deleteAdditionalMetricsToRetain = Lens.lens (\UpdateSecuri
 -- retained for any metric used in the profile\'s @behaviors@, but it is
 -- also retained for any metric specified here. Can be used with custom
 -- metrics; cannot be used with dimensions.
-updateSecurityProfile_additionalMetricsToRetain :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe [Prelude.Text])
-updateSecurityProfile_additionalMetricsToRetain = Lens.lens (\UpdateSecurityProfile' {additionalMetricsToRetain} -> additionalMetricsToRetain) (\s@UpdateSecurityProfile' {} a -> s {additionalMetricsToRetain = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfile_additionalMetricsToRetain :: Lens.Lens' UpdateSecurityProfile (Core.Maybe [Core.Text])
+updateSecurityProfile_additionalMetricsToRetain = Lens.lens (\UpdateSecurityProfile' {additionalMetricsToRetain} -> additionalMetricsToRetain) (\s@UpdateSecurityProfile' {} a -> s {additionalMetricsToRetain = a} :: UpdateSecurityProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | If true, delete all @alertTargets@ defined for this security profile. If
 -- any @alertTargets@ are defined in the current invocation, an exception
 -- occurs.
-updateSecurityProfile_deleteAlertTargets :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Bool)
+updateSecurityProfile_deleteAlertTargets :: Lens.Lens' UpdateSecurityProfile (Core.Maybe Core.Bool)
 updateSecurityProfile_deleteAlertTargets = Lens.lens (\UpdateSecurityProfile' {deleteAlertTargets} -> deleteAlertTargets) (\s@UpdateSecurityProfile' {} a -> s {deleteAlertTargets = a} :: UpdateSecurityProfile)
 
 -- | Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.
-updateSecurityProfile_behaviors :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe [Behavior])
-updateSecurityProfile_behaviors = Lens.lens (\UpdateSecurityProfile' {behaviors} -> behaviors) (\s@UpdateSecurityProfile' {} a -> s {behaviors = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfile_behaviors :: Lens.Lens' UpdateSecurityProfile (Core.Maybe [Behavior])
+updateSecurityProfile_behaviors = Lens.lens (\UpdateSecurityProfile' {behaviors} -> behaviors) (\s@UpdateSecurityProfile' {} a -> s {behaviors = a} :: UpdateSecurityProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of metrics whose data is retained (stored). By default, data is
 -- retained for any metric used in the profile\'s behaviors, but it is also
 -- retained for any metric specified here. Can be used with custom metrics;
 -- cannot be used with dimensions.
-updateSecurityProfile_additionalMetricsToRetainV2 :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe [MetricToRetain])
-updateSecurityProfile_additionalMetricsToRetainV2 = Lens.lens (\UpdateSecurityProfile' {additionalMetricsToRetainV2} -> additionalMetricsToRetainV2) (\s@UpdateSecurityProfile' {} a -> s {additionalMetricsToRetainV2 = a} :: UpdateSecurityProfile) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfile_additionalMetricsToRetainV2 :: Lens.Lens' UpdateSecurityProfile (Core.Maybe [MetricToRetain])
+updateSecurityProfile_additionalMetricsToRetainV2 = Lens.lens (\UpdateSecurityProfile' {additionalMetricsToRetainV2} -> additionalMetricsToRetainV2) (\s@UpdateSecurityProfile' {} a -> s {additionalMetricsToRetainV2 = a} :: UpdateSecurityProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | If true, delete all @behaviors@ defined for this security profile. If
 -- any @behaviors@ are defined in the current invocation, an exception
 -- occurs.
-updateSecurityProfile_deleteBehaviors :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Bool)
+updateSecurityProfile_deleteBehaviors :: Lens.Lens' UpdateSecurityProfile (Core.Maybe Core.Bool)
 updateSecurityProfile_deleteBehaviors = Lens.lens (\UpdateSecurityProfile' {deleteBehaviors} -> deleteBehaviors) (\s@UpdateSecurityProfile' {} a -> s {deleteBehaviors = a} :: UpdateSecurityProfile)
 
 -- | A description of the security profile.
-updateSecurityProfile_securityProfileDescription :: Lens.Lens' UpdateSecurityProfile (Prelude.Maybe Prelude.Text)
+updateSecurityProfile_securityProfileDescription :: Lens.Lens' UpdateSecurityProfile (Core.Maybe Core.Text)
 updateSecurityProfile_securityProfileDescription = Lens.lens (\UpdateSecurityProfile' {securityProfileDescription} -> securityProfileDescription) (\s@UpdateSecurityProfile' {} a -> s {securityProfileDescription = a} :: UpdateSecurityProfile)
 
 -- | The name of the security profile you want to update.
-updateSecurityProfile_securityProfileName :: Lens.Lens' UpdateSecurityProfile Prelude.Text
+updateSecurityProfile_securityProfileName :: Lens.Lens' UpdateSecurityProfile Core.Text
 updateSecurityProfile_securityProfileName = Lens.lens (\UpdateSecurityProfile' {securityProfileName} -> securityProfileName) (\s@UpdateSecurityProfile' {} a -> s {securityProfileName = a} :: UpdateSecurityProfile)
 
-instance Prelude.AWSRequest UpdateSecurityProfile where
+instance Core.AWSRequest UpdateSecurityProfile where
   type
-    Rs UpdateSecurityProfile =
+    AWSResponse UpdateSecurityProfile =
       UpdateSecurityProfileResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSecurityProfileResponse'
-            Prelude.<$> (x Prelude..?> "lastModifiedDate")
-            Prelude.<*> ( x Prelude..?> "alertTargets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "additionalMetricsToRetain"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "creationDate")
-            Prelude.<*> (x Prelude..?> "version")
-            Prelude.<*> (x Prelude..?> "securityProfileName")
-            Prelude.<*> ( x Prelude..?> "behaviors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "additionalMetricsToRetainV2"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "securityProfileDescription")
-            Prelude.<*> (x Prelude..?> "securityProfileArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "lastModifiedDate")
+            Core.<*> (x Core..?> "alertTargets" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "additionalMetricsToRetain"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "creationDate")
+            Core.<*> (x Core..?> "version")
+            Core.<*> (x Core..?> "securityProfileName")
+            Core.<*> (x Core..?> "behaviors" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "additionalMetricsToRetainV2"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "securityProfileDescription")
+            Core.<*> (x Core..?> "securityProfileArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSecurityProfile
+instance Core.Hashable UpdateSecurityProfile
 
-instance Prelude.NFData UpdateSecurityProfile
+instance Core.NFData UpdateSecurityProfile
 
-instance Prelude.ToHeaders UpdateSecurityProfile where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateSecurityProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateSecurityProfile where
+instance Core.ToJSON UpdateSecurityProfile where
   toJSON UpdateSecurityProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("alertTargets" Prelude..=)
-              Prelude.<$> alertTargets,
-            ("deleteAdditionalMetricsToRetain" Prelude..=)
-              Prelude.<$> deleteAdditionalMetricsToRetain,
-            ("additionalMetricsToRetain" Prelude..=)
-              Prelude.<$> additionalMetricsToRetain,
-            ("deleteAlertTargets" Prelude..=)
-              Prelude.<$> deleteAlertTargets,
-            ("behaviors" Prelude..=) Prelude.<$> behaviors,
-            ("additionalMetricsToRetainV2" Prelude..=)
-              Prelude.<$> additionalMetricsToRetainV2,
-            ("deleteBehaviors" Prelude..=)
-              Prelude.<$> deleteBehaviors,
-            ("securityProfileDescription" Prelude..=)
-              Prelude.<$> securityProfileDescription
+    Core.object
+      ( Core.catMaybes
+          [ ("alertTargets" Core..=) Core.<$> alertTargets,
+            ("deleteAdditionalMetricsToRetain" Core..=)
+              Core.<$> deleteAdditionalMetricsToRetain,
+            ("additionalMetricsToRetain" Core..=)
+              Core.<$> additionalMetricsToRetain,
+            ("deleteAlertTargets" Core..=)
+              Core.<$> deleteAlertTargets,
+            ("behaviors" Core..=) Core.<$> behaviors,
+            ("additionalMetricsToRetainV2" Core..=)
+              Core.<$> additionalMetricsToRetainV2,
+            ("deleteBehaviors" Core..=) Core.<$> deleteBehaviors,
+            ("securityProfileDescription" Core..=)
+              Core.<$> securityProfileDescription
           ]
       )
 
-instance Prelude.ToPath UpdateSecurityProfile where
+instance Core.ToPath UpdateSecurityProfile where
   toPath UpdateSecurityProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/security-profiles/",
-        Prelude.toBS securityProfileName
+        Core.toBS securityProfileName
       ]
 
-instance Prelude.ToQuery UpdateSecurityProfile where
+instance Core.ToQuery UpdateSecurityProfile where
   toQuery UpdateSecurityProfile' {..} =
-    Prelude.mconcat
-      ["expectedVersion" Prelude.=: expectedVersion]
+    Core.mconcat
+      ["expectedVersion" Core.=: expectedVersion]
 
 -- | /See:/ 'newUpdateSecurityProfileResponse' smart constructor.
 data UpdateSecurityProfileResponse = UpdateSecurityProfileResponse'
   { -- | The time the security profile was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | Where the alerts are sent. (Alerts are always sent to the console.)
-    alertTargets :: Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget),
+    alertTargets :: Core.Maybe (Core.HashMap AlertTargetType AlertTarget),
     -- | /Please use UpdateSecurityProfileResponse$additionalMetricsToRetainV2
     -- instead./
     --
     -- A list of metrics whose data is retained (stored). By default, data is
     -- retained for any metric used in the security profile\'s @behaviors@, but
     -- it is also retained for any metric specified here.
-    additionalMetricsToRetain :: Prelude.Maybe [Prelude.Text],
+    additionalMetricsToRetain :: Core.Maybe [Core.Text],
     -- | The time the security profile was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The updated version of the security profile.
-    version :: Prelude.Maybe Prelude.Integer,
+    version :: Core.Maybe Core.Integer,
     -- | The name of the security profile that was updated.
-    securityProfileName :: Prelude.Maybe Prelude.Text,
+    securityProfileName :: Core.Maybe Core.Text,
     -- | Specifies the behaviors that, when violated by a device (thing), cause
     -- an alert.
-    behaviors :: Prelude.Maybe [Behavior],
+    behaviors :: Core.Maybe [Behavior],
     -- | A list of metrics whose data is retained (stored). By default, data is
     -- retained for any metric used in the profile\'s behaviors, but it is also
     -- retained for any metric specified here. Can be used with custom metrics;
     -- cannot be used with dimensions.
-    additionalMetricsToRetainV2 :: Prelude.Maybe [MetricToRetain],
+    additionalMetricsToRetainV2 :: Core.Maybe [MetricToRetain],
     -- | The description of the security profile.
-    securityProfileDescription :: Prelude.Maybe Prelude.Text,
+    securityProfileDescription :: Core.Maybe Core.Text,
     -- | The ARN of the security profile that was updated.
-    securityProfileArn :: Prelude.Maybe Prelude.Text,
+    securityProfileArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSecurityProfileResponse' with all optional fields omitted.
@@ -379,32 +372,31 @@ data UpdateSecurityProfileResponse = UpdateSecurityProfileResponse'
 -- 'httpStatus', 'updateSecurityProfileResponse_httpStatus' - The response's http status code.
 newUpdateSecurityProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSecurityProfileResponse
 newUpdateSecurityProfileResponse pHttpStatus_ =
   UpdateSecurityProfileResponse'
     { lastModifiedDate =
-        Prelude.Nothing,
-      alertTargets = Prelude.Nothing,
-      additionalMetricsToRetain = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      version = Prelude.Nothing,
-      securityProfileName = Prelude.Nothing,
-      behaviors = Prelude.Nothing,
-      additionalMetricsToRetainV2 =
-        Prelude.Nothing,
-      securityProfileDescription = Prelude.Nothing,
-      securityProfileArn = Prelude.Nothing,
+        Core.Nothing,
+      alertTargets = Core.Nothing,
+      additionalMetricsToRetain = Core.Nothing,
+      creationDate = Core.Nothing,
+      version = Core.Nothing,
+      securityProfileName = Core.Nothing,
+      behaviors = Core.Nothing,
+      additionalMetricsToRetainV2 = Core.Nothing,
+      securityProfileDescription = Core.Nothing,
+      securityProfileArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time the security profile was last modified.
-updateSecurityProfileResponse_lastModifiedDate :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
-updateSecurityProfileResponse_lastModifiedDate = Lens.lens (\UpdateSecurityProfileResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateSecurityProfileResponse' {} a -> s {lastModifiedDate = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Prelude._Time
+updateSecurityProfileResponse_lastModifiedDate :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe Core.UTCTime)
+updateSecurityProfileResponse_lastModifiedDate = Lens.lens (\UpdateSecurityProfileResponse' {lastModifiedDate} -> lastModifiedDate) (\s@UpdateSecurityProfileResponse' {} a -> s {lastModifiedDate = a} :: UpdateSecurityProfileResponse) Core.. Lens.mapping Core._Time
 
 -- | Where the alerts are sent. (Alerts are always sent to the console.)
-updateSecurityProfileResponse_alertTargets :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe (Prelude.HashMap AlertTargetType AlertTarget))
-updateSecurityProfileResponse_alertTargets = Lens.lens (\UpdateSecurityProfileResponse' {alertTargets} -> alertTargets) (\s@UpdateSecurityProfileResponse' {} a -> s {alertTargets = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfileResponse_alertTargets :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe (Core.HashMap AlertTargetType AlertTarget))
+updateSecurityProfileResponse_alertTargets = Lens.lens (\UpdateSecurityProfileResponse' {alertTargets} -> alertTargets) (\s@UpdateSecurityProfileResponse' {} a -> s {alertTargets = a} :: UpdateSecurityProfileResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | /Please use UpdateSecurityProfileResponse$additionalMetricsToRetainV2
 -- instead./
@@ -412,43 +404,43 @@ updateSecurityProfileResponse_alertTargets = Lens.lens (\UpdateSecurityProfileRe
 -- A list of metrics whose data is retained (stored). By default, data is
 -- retained for any metric used in the security profile\'s @behaviors@, but
 -- it is also retained for any metric specified here.
-updateSecurityProfileResponse_additionalMetricsToRetain :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe [Prelude.Text])
-updateSecurityProfileResponse_additionalMetricsToRetain = Lens.lens (\UpdateSecurityProfileResponse' {additionalMetricsToRetain} -> additionalMetricsToRetain) (\s@UpdateSecurityProfileResponse' {} a -> s {additionalMetricsToRetain = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfileResponse_additionalMetricsToRetain :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe [Core.Text])
+updateSecurityProfileResponse_additionalMetricsToRetain = Lens.lens (\UpdateSecurityProfileResponse' {additionalMetricsToRetain} -> additionalMetricsToRetain) (\s@UpdateSecurityProfileResponse' {} a -> s {additionalMetricsToRetain = a} :: UpdateSecurityProfileResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The time the security profile was created.
-updateSecurityProfileResponse_creationDate :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.UTCTime)
-updateSecurityProfileResponse_creationDate = Lens.lens (\UpdateSecurityProfileResponse' {creationDate} -> creationDate) (\s@UpdateSecurityProfileResponse' {} a -> s {creationDate = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Prelude._Time
+updateSecurityProfileResponse_creationDate :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe Core.UTCTime)
+updateSecurityProfileResponse_creationDate = Lens.lens (\UpdateSecurityProfileResponse' {creationDate} -> creationDate) (\s@UpdateSecurityProfileResponse' {} a -> s {creationDate = a} :: UpdateSecurityProfileResponse) Core.. Lens.mapping Core._Time
 
 -- | The updated version of the security profile.
-updateSecurityProfileResponse_version :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.Integer)
+updateSecurityProfileResponse_version :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe Core.Integer)
 updateSecurityProfileResponse_version = Lens.lens (\UpdateSecurityProfileResponse' {version} -> version) (\s@UpdateSecurityProfileResponse' {} a -> s {version = a} :: UpdateSecurityProfileResponse)
 
 -- | The name of the security profile that was updated.
-updateSecurityProfileResponse_securityProfileName :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+updateSecurityProfileResponse_securityProfileName :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe Core.Text)
 updateSecurityProfileResponse_securityProfileName = Lens.lens (\UpdateSecurityProfileResponse' {securityProfileName} -> securityProfileName) (\s@UpdateSecurityProfileResponse' {} a -> s {securityProfileName = a} :: UpdateSecurityProfileResponse)
 
 -- | Specifies the behaviors that, when violated by a device (thing), cause
 -- an alert.
-updateSecurityProfileResponse_behaviors :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe [Behavior])
-updateSecurityProfileResponse_behaviors = Lens.lens (\UpdateSecurityProfileResponse' {behaviors} -> behaviors) (\s@UpdateSecurityProfileResponse' {} a -> s {behaviors = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfileResponse_behaviors :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe [Behavior])
+updateSecurityProfileResponse_behaviors = Lens.lens (\UpdateSecurityProfileResponse' {behaviors} -> behaviors) (\s@UpdateSecurityProfileResponse' {} a -> s {behaviors = a} :: UpdateSecurityProfileResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of metrics whose data is retained (stored). By default, data is
 -- retained for any metric used in the profile\'s behaviors, but it is also
 -- retained for any metric specified here. Can be used with custom metrics;
 -- cannot be used with dimensions.
-updateSecurityProfileResponse_additionalMetricsToRetainV2 :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe [MetricToRetain])
-updateSecurityProfileResponse_additionalMetricsToRetainV2 = Lens.lens (\UpdateSecurityProfileResponse' {additionalMetricsToRetainV2} -> additionalMetricsToRetainV2) (\s@UpdateSecurityProfileResponse' {} a -> s {additionalMetricsToRetainV2 = a} :: UpdateSecurityProfileResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateSecurityProfileResponse_additionalMetricsToRetainV2 :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe [MetricToRetain])
+updateSecurityProfileResponse_additionalMetricsToRetainV2 = Lens.lens (\UpdateSecurityProfileResponse' {additionalMetricsToRetainV2} -> additionalMetricsToRetainV2) (\s@UpdateSecurityProfileResponse' {} a -> s {additionalMetricsToRetainV2 = a} :: UpdateSecurityProfileResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the security profile.
-updateSecurityProfileResponse_securityProfileDescription :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+updateSecurityProfileResponse_securityProfileDescription :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe Core.Text)
 updateSecurityProfileResponse_securityProfileDescription = Lens.lens (\UpdateSecurityProfileResponse' {securityProfileDescription} -> securityProfileDescription) (\s@UpdateSecurityProfileResponse' {} a -> s {securityProfileDescription = a} :: UpdateSecurityProfileResponse)
 
 -- | The ARN of the security profile that was updated.
-updateSecurityProfileResponse_securityProfileArn :: Lens.Lens' UpdateSecurityProfileResponse (Prelude.Maybe Prelude.Text)
+updateSecurityProfileResponse_securityProfileArn :: Lens.Lens' UpdateSecurityProfileResponse (Core.Maybe Core.Text)
 updateSecurityProfileResponse_securityProfileArn = Lens.lens (\UpdateSecurityProfileResponse' {securityProfileArn} -> securityProfileArn) (\s@UpdateSecurityProfileResponse' {} a -> s {securityProfileArn = a} :: UpdateSecurityProfileResponse)
 
 -- | The response's http status code.
-updateSecurityProfileResponse_httpStatus :: Lens.Lens' UpdateSecurityProfileResponse Prelude.Int
+updateSecurityProfileResponse_httpStatus :: Lens.Lens' UpdateSecurityProfileResponse Core.Int
 updateSecurityProfileResponse_httpStatus = Lens.lens (\UpdateSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateSecurityProfileResponse' {} a -> s {httpStatus = a} :: UpdateSecurityProfileResponse)
 
-instance Prelude.NFData UpdateSecurityProfileResponse
+instance Core.NFData UpdateSecurityProfileResponse

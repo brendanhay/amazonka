@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,8 +69,8 @@ module Network.AWS.ApplicationAutoScaling.RegisterScalableTarget
 where
 
 import Network.AWS.ApplicationAutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,7 +85,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- uses a service-linked role, which it creates if it does not yet exist.
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
-    roleARN :: Prelude.Maybe Prelude.Text,
+    roleARN :: Core.Maybe Core.Text,
     -- | The maximum value that you plan to scale out to. When a scaling policy
     -- is in effect, Application Auto Scaling can scale out (expand) as needed
     -- to the maximum capacity limit in response to changing demand. This
@@ -100,7 +99,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- quotas for each service, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
     -- in the /Amazon Web Services General Reference/.
-    maxCapacity :: Prelude.Maybe Prelude.Int,
+    maxCapacity :: Core.Maybe Core.Int,
     -- | An embedded object that contains attributes and attribute values that
     -- are used to suspend and resume automatic scaling. Setting the value of
     -- an attribute to @true@ suspends the specified scaling activities.
@@ -123,7 +122,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
     -- in the /Application Auto Scaling User Guide/.
-    suspendedState :: Prelude.Maybe SuspendedState,
+    suspendedState :: Core.Maybe SuspendedState,
     -- | The minimum value that you plan to scale in to. When a scaling policy is
     -- in effect, Application Auto Scaling can scale in (contract) as needed to
     -- the minimum capacity limit in response to changing demand. This property
@@ -133,7 +132,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
     -- clusters, EMR clusters, and custom resources. For all other resources,
     -- the minimum value allowed is 1.
-    minCapacity :: Prelude.Maybe Prelude.Int,
+    minCapacity :: Core.Maybe Core.Int,
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
@@ -198,7 +197,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
     --
@@ -257,7 +256,7 @@ data RegisterScalableTarget = RegisterScalableTarget'
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: ScalableDimension
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterScalableTarget' with all optional fields omitted.
@@ -449,7 +448,7 @@ newRegisterScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   RegisterScalableTarget
@@ -458,10 +457,10 @@ newRegisterScalableTarget
   pResourceId_
   pScalableDimension_ =
     RegisterScalableTarget'
-      { roleARN = Prelude.Nothing,
-        maxCapacity = Prelude.Nothing,
-        suspendedState = Prelude.Nothing,
-        minCapacity = Prelude.Nothing,
+      { roleARN = Core.Nothing,
+        maxCapacity = Core.Nothing,
+        suspendedState = Core.Nothing,
+        minCapacity = Core.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
         scalableDimension = pScalableDimension_
@@ -476,7 +475,7 @@ newRegisterScalableTarget
 -- uses a service-linked role, which it creates if it does not yet exist.
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles>.
-registerScalableTarget_roleARN :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Text)
+registerScalableTarget_roleARN :: Lens.Lens' RegisterScalableTarget (Core.Maybe Core.Text)
 registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -> roleARN) (\s@RegisterScalableTarget' {} a -> s {roleARN = a} :: RegisterScalableTarget)
 
 -- | The maximum value that you plan to scale out to. When a scaling policy
@@ -492,7 +491,7 @@ registerScalableTarget_roleARN = Lens.lens (\RegisterScalableTarget' {roleARN} -
 -- quotas for each service, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas>
 -- in the /Amazon Web Services General Reference/.
-registerScalableTarget_maxCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
+registerScalableTarget_maxCapacity :: Lens.Lens' RegisterScalableTarget (Core.Maybe Core.Int)
 registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCapacity} -> maxCapacity) (\s@RegisterScalableTarget' {} a -> s {maxCapacity = a} :: RegisterScalableTarget)
 
 -- | An embedded object that contains attributes and attribute values that
@@ -517,7 +516,7 @@ registerScalableTarget_maxCapacity = Lens.lens (\RegisterScalableTarget' {maxCap
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling>
 -- in the /Application Auto Scaling User Guide/.
-registerScalableTarget_suspendedState :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe SuspendedState)
+registerScalableTarget_suspendedState :: Lens.Lens' RegisterScalableTarget (Core.Maybe SuspendedState)
 registerScalableTarget_suspendedState = Lens.lens (\RegisterScalableTarget' {suspendedState} -> suspendedState) (\s@RegisterScalableTarget' {} a -> s {suspendedState = a} :: RegisterScalableTarget)
 
 -- | The minimum value that you plan to scale in to. When a scaling policy is
@@ -529,7 +528,7 @@ registerScalableTarget_suspendedState = Lens.lens (\RegisterScalableTarget' {sus
 -- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB
 -- clusters, EMR clusters, and custom resources. For all other resources,
 -- the minimum value allowed is 1.
-registerScalableTarget_minCapacity :: Lens.Lens' RegisterScalableTarget (Prelude.Maybe Prelude.Int)
+registerScalableTarget_minCapacity :: Lens.Lens' RegisterScalableTarget (Core.Maybe Core.Int)
 registerScalableTarget_minCapacity = Lens.lens (\RegisterScalableTarget' {minCapacity} -> minCapacity) (\s@RegisterScalableTarget' {} a -> s {minCapacity = a} :: RegisterScalableTarget)
 
 -- | The namespace of the AWS service that provides the resource. For a
@@ -598,7 +597,7 @@ registerScalableTarget_serviceNamespace = Lens.lens (\RegisterScalableTarget' {s
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-registerScalableTarget_resourceId :: Lens.Lens' RegisterScalableTarget Prelude.Text
+registerScalableTarget_resourceId :: Lens.Lens' RegisterScalableTarget Core.Text
 registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourceId} -> resourceId) (\s@RegisterScalableTarget' {} a -> s {resourceId = a} :: RegisterScalableTarget)
 
 -- | The scalable dimension associated with the scalable target. This string
@@ -660,66 +659,63 @@ registerScalableTarget_resourceId = Lens.lens (\RegisterScalableTarget' {resourc
 registerScalableTarget_scalableDimension :: Lens.Lens' RegisterScalableTarget ScalableDimension
 registerScalableTarget_scalableDimension = Lens.lens (\RegisterScalableTarget' {scalableDimension} -> scalableDimension) (\s@RegisterScalableTarget' {} a -> s {scalableDimension = a} :: RegisterScalableTarget)
 
-instance Prelude.AWSRequest RegisterScalableTarget where
+instance Core.AWSRequest RegisterScalableTarget where
   type
-    Rs RegisterScalableTarget =
+    AWSResponse RegisterScalableTarget =
       RegisterScalableTargetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterScalableTargetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterScalableTarget
+instance Core.Hashable RegisterScalableTarget
 
-instance Prelude.NFData RegisterScalableTarget
+instance Core.NFData RegisterScalableTarget
 
-instance Prelude.ToHeaders RegisterScalableTarget where
+instance Core.ToHeaders RegisterScalableTarget where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleFrontendService.RegisterScalableTarget" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleFrontendService.RegisterScalableTarget" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterScalableTarget where
+instance Core.ToJSON RegisterScalableTarget where
   toJSON RegisterScalableTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoleARN" Prelude..=) Prelude.<$> roleARN,
-            ("MaxCapacity" Prelude..=) Prelude.<$> maxCapacity,
-            ("SuspendedState" Prelude..=)
-              Prelude.<$> suspendedState,
-            ("MinCapacity" Prelude..=) Prelude.<$> minCapacity,
-            Prelude.Just
-              ("ServiceNamespace" Prelude..= serviceNamespace),
-            Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just
-              ("ScalableDimension" Prelude..= scalableDimension)
+    Core.object
+      ( Core.catMaybes
+          [ ("RoleARN" Core..=) Core.<$> roleARN,
+            ("MaxCapacity" Core..=) Core.<$> maxCapacity,
+            ("SuspendedState" Core..=) Core.<$> suspendedState,
+            ("MinCapacity" Core..=) Core.<$> minCapacity,
+            Core.Just
+              ("ServiceNamespace" Core..= serviceNamespace),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just
+              ("ScalableDimension" Core..= scalableDimension)
           ]
       )
 
-instance Prelude.ToPath RegisterScalableTarget where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterScalableTarget where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterScalableTarget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterScalableTarget where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterScalableTargetResponse' smart constructor.
 data RegisterScalableTargetResponse = RegisterScalableTargetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterScalableTargetResponse' with all optional fields omitted.
@@ -732,7 +728,7 @@ data RegisterScalableTargetResponse = RegisterScalableTargetResponse'
 -- 'httpStatus', 'registerScalableTargetResponse_httpStatus' - The response's http status code.
 newRegisterScalableTargetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterScalableTargetResponse
 newRegisterScalableTargetResponse pHttpStatus_ =
   RegisterScalableTargetResponse'
@@ -741,9 +737,7 @@ newRegisterScalableTargetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-registerScalableTargetResponse_httpStatus :: Lens.Lens' RegisterScalableTargetResponse Prelude.Int
+registerScalableTargetResponse_httpStatus :: Lens.Lens' RegisterScalableTargetResponse Core.Int
 registerScalableTargetResponse_httpStatus = Lens.lens (\RegisterScalableTargetResponse' {httpStatus} -> httpStatus) (\s@RegisterScalableTargetResponse' {} a -> s {httpStatus = a} :: RegisterScalableTargetResponse)
 
-instance
-  Prelude.NFData
-    RegisterScalableTargetResponse
+instance Core.NFData RegisterScalableTargetResponse

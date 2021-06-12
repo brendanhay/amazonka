@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +57,11 @@ data GetPipelineDefinition = GetPipelineDefinition'
   { -- | The version of the pipeline definition to retrieve. Set this parameter
     -- to @latest@ (default) to use the last definition saved to the pipeline
     -- or @active@ to use the last definition that was activated.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The ID of the pipeline.
-    pipelineId :: Prelude.Text
+    pipelineId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPipelineDefinition' with all optional fields omitted.
@@ -79,93 +78,85 @@ data GetPipelineDefinition = GetPipelineDefinition'
 -- 'pipelineId', 'getPipelineDefinition_pipelineId' - The ID of the pipeline.
 newGetPipelineDefinition ::
   -- | 'pipelineId'
-  Prelude.Text ->
+  Core.Text ->
   GetPipelineDefinition
 newGetPipelineDefinition pPipelineId_ =
   GetPipelineDefinition'
-    { version = Prelude.Nothing,
+    { version = Core.Nothing,
       pipelineId = pPipelineId_
     }
 
 -- | The version of the pipeline definition to retrieve. Set this parameter
 -- to @latest@ (default) to use the last definition saved to the pipeline
 -- or @active@ to use the last definition that was activated.
-getPipelineDefinition_version :: Lens.Lens' GetPipelineDefinition (Prelude.Maybe Prelude.Text)
+getPipelineDefinition_version :: Lens.Lens' GetPipelineDefinition (Core.Maybe Core.Text)
 getPipelineDefinition_version = Lens.lens (\GetPipelineDefinition' {version} -> version) (\s@GetPipelineDefinition' {} a -> s {version = a} :: GetPipelineDefinition)
 
 -- | The ID of the pipeline.
-getPipelineDefinition_pipelineId :: Lens.Lens' GetPipelineDefinition Prelude.Text
+getPipelineDefinition_pipelineId :: Lens.Lens' GetPipelineDefinition Core.Text
 getPipelineDefinition_pipelineId = Lens.lens (\GetPipelineDefinition' {pipelineId} -> pipelineId) (\s@GetPipelineDefinition' {} a -> s {pipelineId = a} :: GetPipelineDefinition)
 
-instance Prelude.AWSRequest GetPipelineDefinition where
+instance Core.AWSRequest GetPipelineDefinition where
   type
-    Rs GetPipelineDefinition =
+    AWSResponse GetPipelineDefinition =
       GetPipelineDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPipelineDefinitionResponse'
-            Prelude.<$> ( x Prelude..?> "parameterValues"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "parameterObjects"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "pipelineObjects"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "parameterValues" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "parameterObjects" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "pipelineObjects" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPipelineDefinition
+instance Core.Hashable GetPipelineDefinition
 
-instance Prelude.NFData GetPipelineDefinition
+instance Core.NFData GetPipelineDefinition
 
-instance Prelude.ToHeaders GetPipelineDefinition where
+instance Core.ToHeaders GetPipelineDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DataPipeline.GetPipelineDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DataPipeline.GetPipelineDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetPipelineDefinition where
+instance Core.ToJSON GetPipelineDefinition where
   toJSON GetPipelineDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("version" Prelude..=) Prelude.<$> version,
-            Prelude.Just ("pipelineId" Prelude..= pipelineId)
+    Core.object
+      ( Core.catMaybes
+          [ ("version" Core..=) Core.<$> version,
+            Core.Just ("pipelineId" Core..= pipelineId)
           ]
       )
 
-instance Prelude.ToPath GetPipelineDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPipelineDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPipelineDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPipelineDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of GetPipelineDefinition.
 --
 -- /See:/ 'newGetPipelineDefinitionResponse' smart constructor.
 data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
   { -- | The parameter values used in the pipeline definition.
-    parameterValues :: Prelude.Maybe [ParameterValue],
+    parameterValues :: Core.Maybe [ParameterValue],
     -- | The parameter objects used in the pipeline definition.
-    parameterObjects :: Prelude.Maybe [ParameterObject],
+    parameterObjects :: Core.Maybe [ParameterObject],
     -- | The objects defined in the pipeline.
-    pipelineObjects :: Prelude.Maybe [PipelineObject],
+    pipelineObjects :: Core.Maybe [PipelineObject],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPipelineDefinitionResponse' with all optional fields omitted.
@@ -184,31 +175,31 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
 -- 'httpStatus', 'getPipelineDefinitionResponse_httpStatus' - The response's http status code.
 newGetPipelineDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPipelineDefinitionResponse
 newGetPipelineDefinitionResponse pHttpStatus_ =
   GetPipelineDefinitionResponse'
     { parameterValues =
-        Prelude.Nothing,
-      parameterObjects = Prelude.Nothing,
-      pipelineObjects = Prelude.Nothing,
+        Core.Nothing,
+      parameterObjects = Core.Nothing,
+      pipelineObjects = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The parameter values used in the pipeline definition.
-getPipelineDefinitionResponse_parameterValues :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [ParameterValue])
-getPipelineDefinitionResponse_parameterValues = Lens.lens (\GetPipelineDefinitionResponse' {parameterValues} -> parameterValues) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterValues = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getPipelineDefinitionResponse_parameterValues :: Lens.Lens' GetPipelineDefinitionResponse (Core.Maybe [ParameterValue])
+getPipelineDefinitionResponse_parameterValues = Lens.lens (\GetPipelineDefinitionResponse' {parameterValues} -> parameterValues) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterValues = a} :: GetPipelineDefinitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The parameter objects used in the pipeline definition.
-getPipelineDefinitionResponse_parameterObjects :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [ParameterObject])
-getPipelineDefinitionResponse_parameterObjects = Lens.lens (\GetPipelineDefinitionResponse' {parameterObjects} -> parameterObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterObjects = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getPipelineDefinitionResponse_parameterObjects :: Lens.Lens' GetPipelineDefinitionResponse (Core.Maybe [ParameterObject])
+getPipelineDefinitionResponse_parameterObjects = Lens.lens (\GetPipelineDefinitionResponse' {parameterObjects} -> parameterObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {parameterObjects = a} :: GetPipelineDefinitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The objects defined in the pipeline.
-getPipelineDefinitionResponse_pipelineObjects :: Lens.Lens' GetPipelineDefinitionResponse (Prelude.Maybe [PipelineObject])
-getPipelineDefinitionResponse_pipelineObjects = Lens.lens (\GetPipelineDefinitionResponse' {pipelineObjects} -> pipelineObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {pipelineObjects = a} :: GetPipelineDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getPipelineDefinitionResponse_pipelineObjects :: Lens.Lens' GetPipelineDefinitionResponse (Core.Maybe [PipelineObject])
+getPipelineDefinitionResponse_pipelineObjects = Lens.lens (\GetPipelineDefinitionResponse' {pipelineObjects} -> pipelineObjects) (\s@GetPipelineDefinitionResponse' {} a -> s {pipelineObjects = a} :: GetPipelineDefinitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getPipelineDefinitionResponse_httpStatus :: Lens.Lens' GetPipelineDefinitionResponse Prelude.Int
+getPipelineDefinitionResponse_httpStatus :: Lens.Lens' GetPipelineDefinitionResponse Core.Int
 getPipelineDefinitionResponse_httpStatus = Lens.lens (\GetPipelineDefinitionResponse' {httpStatus} -> httpStatus) (\s@GetPipelineDefinitionResponse' {} a -> s {httpStatus = a} :: GetPipelineDefinitionResponse)
 
-instance Prelude.NFData GetPipelineDefinitionResponse
+instance Core.NFData GetPipelineDefinitionResponse

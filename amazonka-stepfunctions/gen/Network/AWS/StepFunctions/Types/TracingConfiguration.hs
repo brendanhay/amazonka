@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.TracingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Selects whether or not the state machine\'s AWS X-Ray tracing is
 -- enabled. Default is @false@
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTracingConfiguration' smart constructor.
 data TracingConfiguration = TracingConfiguration'
   { -- | When set to @true@, AWS X-Ray tracing is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TracingConfiguration' with all optional fields omitted.
@@ -45,28 +44,28 @@ data TracingConfiguration = TracingConfiguration'
 newTracingConfiguration ::
   TracingConfiguration
 newTracingConfiguration =
-  TracingConfiguration' {enabled = Prelude.Nothing}
+  TracingConfiguration' {enabled = Core.Nothing}
 
 -- | When set to @true@, AWS X-Ray tracing is enabled.
-tracingConfiguration_enabled :: Lens.Lens' TracingConfiguration (Prelude.Maybe Prelude.Bool)
+tracingConfiguration_enabled :: Lens.Lens' TracingConfiguration (Core.Maybe Core.Bool)
 tracingConfiguration_enabled = Lens.lens (\TracingConfiguration' {enabled} -> enabled) (\s@TracingConfiguration' {} a -> s {enabled = a} :: TracingConfiguration)
 
-instance Prelude.FromJSON TracingConfiguration where
+instance Core.FromJSON TracingConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TracingConfiguration"
       ( \x ->
           TracingConfiguration'
-            Prelude.<$> (x Prelude..:? "enabled")
+            Core.<$> (x Core..:? "enabled")
       )
 
-instance Prelude.Hashable TracingConfiguration
+instance Core.Hashable TracingConfiguration
 
-instance Prelude.NFData TracingConfiguration
+instance Core.NFData TracingConfiguration
 
-instance Prelude.ToJSON TracingConfiguration where
+instance Core.ToJSON TracingConfiguration where
   toJSON TracingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("enabled" Prelude..=) Prelude.<$> enabled]
+    Core.object
+      ( Core.catMaybes
+          [("enabled" Core..=) Core.<$> enabled]
       )

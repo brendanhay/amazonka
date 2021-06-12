@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.QLDB.GetBlock
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -71,16 +70,16 @@ data GetBlock = GetBlock'
     -- @strandId@ and @sequenceNo@.
     --
     -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
-    digestTipAddress :: Prelude.Maybe (Prelude.Sensitive ValueHolder),
+    digestTipAddress :: Core.Maybe (Core.Sensitive ValueHolder),
     -- | The name of the ledger.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The location of the block that you want to request. An address is an
     -- Amazon Ion structure that has two fields: @strandId@ and @sequenceNo@.
     --
     -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
-    blockAddress :: Prelude.Sensitive ValueHolder
+    blockAddress :: Core.Sensitive ValueHolder
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBlock' with all optional fields omitted.
@@ -104,16 +103,15 @@ data GetBlock = GetBlock'
 -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
 newGetBlock ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'blockAddress'
   ValueHolder ->
   GetBlock
 newGetBlock pName_ pBlockAddress_ =
   GetBlock'
-    { digestTipAddress = Prelude.Nothing,
+    { digestTipAddress = Core.Nothing,
       name = pName_,
-      blockAddress =
-        Prelude._Sensitive Lens.# pBlockAddress_
+      blockAddress = Core._Sensitive Lens.# pBlockAddress_
     }
 
 -- | The latest block location covered by the digest for which to request a
@@ -121,11 +119,11 @@ newGetBlock pName_ pBlockAddress_ =
 -- @strandId@ and @sequenceNo@.
 --
 -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
-getBlock_digestTipAddress :: Lens.Lens' GetBlock (Prelude.Maybe ValueHolder)
-getBlock_digestTipAddress = Lens.lens (\GetBlock' {digestTipAddress} -> digestTipAddress) (\s@GetBlock' {} a -> s {digestTipAddress = a} :: GetBlock) Prelude.. Lens.mapping Prelude._Sensitive
+getBlock_digestTipAddress :: Lens.Lens' GetBlock (Core.Maybe ValueHolder)
+getBlock_digestTipAddress = Lens.lens (\GetBlock' {digestTipAddress} -> digestTipAddress) (\s@GetBlock' {} a -> s {digestTipAddress = a} :: GetBlock) Core.. Lens.mapping Core._Sensitive
 
 -- | The name of the ledger.
-getBlock_name :: Lens.Lens' GetBlock Prelude.Text
+getBlock_name :: Lens.Lens' GetBlock Core.Text
 getBlock_name = Lens.lens (\GetBlock' {name} -> name) (\s@GetBlock' {} a -> s {name = a} :: GetBlock)
 
 -- | The location of the block that you want to request. An address is an
@@ -133,66 +131,63 @@ getBlock_name = Lens.lens (\GetBlock' {name} -> name) (\s@GetBlock' {} a -> s {n
 --
 -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
 getBlock_blockAddress :: Lens.Lens' GetBlock ValueHolder
-getBlock_blockAddress = Lens.lens (\GetBlock' {blockAddress} -> blockAddress) (\s@GetBlock' {} a -> s {blockAddress = a} :: GetBlock) Prelude.. Prelude._Sensitive
+getBlock_blockAddress = Lens.lens (\GetBlock' {blockAddress} -> blockAddress) (\s@GetBlock' {} a -> s {blockAddress = a} :: GetBlock) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest GetBlock where
-  type Rs GetBlock = GetBlockResponse
+instance Core.AWSRequest GetBlock where
+  type AWSResponse GetBlock = GetBlockResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBlockResponse'
-            Prelude.<$> (x Prelude..?> "Proof")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Block")
+            Core.<$> (x Core..?> "Proof")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Block")
       )
 
-instance Prelude.Hashable GetBlock
+instance Core.Hashable GetBlock
 
-instance Prelude.NFData GetBlock
+instance Core.NFData GetBlock
 
-instance Prelude.ToHeaders GetBlock where
+instance Core.ToHeaders GetBlock where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetBlock where
+instance Core.ToJSON GetBlock where
   toJSON GetBlock' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DigestTipAddress" Prelude..=)
-              Prelude.<$> digestTipAddress,
-            Prelude.Just
-              ("BlockAddress" Prelude..= blockAddress)
+    Core.object
+      ( Core.catMaybes
+          [ ("DigestTipAddress" Core..=)
+              Core.<$> digestTipAddress,
+            Core.Just ("BlockAddress" Core..= blockAddress)
           ]
       )
 
-instance Prelude.ToPath GetBlock where
+instance Core.ToPath GetBlock where
   toPath GetBlock' {..} =
-    Prelude.mconcat
-      ["/ledgers/", Prelude.toBS name, "/block"]
+    Core.mconcat
+      ["/ledgers/", Core.toBS name, "/block"]
 
-instance Prelude.ToQuery GetBlock where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetBlock where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetBlockResponse' smart constructor.
 data GetBlockResponse = GetBlockResponse'
   { -- | The proof object in Amazon Ion format returned by a @GetBlock@ request.
     -- A proof contains the list of hash values required to recalculate the
     -- specified digest using a Merkle tree, starting with the specified block.
-    proof :: Prelude.Maybe (Prelude.Sensitive ValueHolder),
+    proof :: Core.Maybe (Core.Sensitive ValueHolder),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The block data object in Amazon Ion format.
-    block :: Prelude.Sensitive ValueHolder
+    block :: Core.Sensitive ValueHolder
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBlockResponse' with all optional fields omitted.
@@ -211,29 +206,29 @@ data GetBlockResponse = GetBlockResponse'
 -- 'block', 'getBlockResponse_block' - The block data object in Amazon Ion format.
 newGetBlockResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'block'
   ValueHolder ->
   GetBlockResponse
 newGetBlockResponse pHttpStatus_ pBlock_ =
   GetBlockResponse'
-    { proof = Prelude.Nothing,
+    { proof = Core.Nothing,
       httpStatus = pHttpStatus_,
-      block = Prelude._Sensitive Lens.# pBlock_
+      block = Core._Sensitive Lens.# pBlock_
     }
 
 -- | The proof object in Amazon Ion format returned by a @GetBlock@ request.
 -- A proof contains the list of hash values required to recalculate the
 -- specified digest using a Merkle tree, starting with the specified block.
-getBlockResponse_proof :: Lens.Lens' GetBlockResponse (Prelude.Maybe ValueHolder)
-getBlockResponse_proof = Lens.lens (\GetBlockResponse' {proof} -> proof) (\s@GetBlockResponse' {} a -> s {proof = a} :: GetBlockResponse) Prelude.. Lens.mapping Prelude._Sensitive
+getBlockResponse_proof :: Lens.Lens' GetBlockResponse (Core.Maybe ValueHolder)
+getBlockResponse_proof = Lens.lens (\GetBlockResponse' {proof} -> proof) (\s@GetBlockResponse' {} a -> s {proof = a} :: GetBlockResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
-getBlockResponse_httpStatus :: Lens.Lens' GetBlockResponse Prelude.Int
+getBlockResponse_httpStatus :: Lens.Lens' GetBlockResponse Core.Int
 getBlockResponse_httpStatus = Lens.lens (\GetBlockResponse' {httpStatus} -> httpStatus) (\s@GetBlockResponse' {} a -> s {httpStatus = a} :: GetBlockResponse)
 
 -- | The block data object in Amazon Ion format.
 getBlockResponse_block :: Lens.Lens' GetBlockResponse ValueHolder
-getBlockResponse_block = Lens.lens (\GetBlockResponse' {block} -> block) (\s@GetBlockResponse' {} a -> s {block = a} :: GetBlockResponse) Prelude.. Prelude._Sensitive
+getBlockResponse_block = Lens.lens (\GetBlockResponse' {block} -> block) (\s@GetBlockResponse' {} a -> s {block = a} :: GetBlockResponse) Core.. Core._Sensitive
 
-instance Prelude.NFData GetBlockResponse
+instance Core.NFData GetBlockResponse

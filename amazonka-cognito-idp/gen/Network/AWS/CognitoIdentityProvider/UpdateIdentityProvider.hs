@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CognitoIdentityProvider.UpdateIdentityProvider
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,17 +53,17 @@ import qualified Network.AWS.Response as Response
 data UpdateIdentityProvider = UpdateIdentityProvider'
   { -- | The identity provider details to be updated, such as @MetadataURL@ and
     -- @MetadataFile@.
-    providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    providerDetails :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A list of identity provider identifiers.
-    idpIdentifiers :: Prelude.Maybe [Prelude.Text],
+    idpIdentifiers :: Core.Maybe [Core.Text],
     -- | The identity provider attribute mapping to be changed.
-    attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributeMapping :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The identity provider name.
-    providerName :: Prelude.Text
+    providerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateIdentityProvider' with all optional fields omitted.
@@ -86,103 +85,99 @@ data UpdateIdentityProvider = UpdateIdentityProvider'
 -- 'providerName', 'updateIdentityProvider_providerName' - The identity provider name.
 newUpdateIdentityProvider ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'providerName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateIdentityProvider
 newUpdateIdentityProvider pUserPoolId_ pProviderName_ =
   UpdateIdentityProvider'
     { providerDetails =
-        Prelude.Nothing,
-      idpIdentifiers = Prelude.Nothing,
-      attributeMapping = Prelude.Nothing,
+        Core.Nothing,
+      idpIdentifiers = Core.Nothing,
+      attributeMapping = Core.Nothing,
       userPoolId = pUserPoolId_,
       providerName = pProviderName_
     }
 
 -- | The identity provider details to be updated, such as @MetadataURL@ and
 -- @MetadataFile@.
-updateIdentityProvider_providerDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityProvider_providerDetails = Lens.lens (\UpdateIdentityProvider' {providerDetails} -> providerDetails) (\s@UpdateIdentityProvider' {} a -> s {providerDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityProvider_providerDetails :: Lens.Lens' UpdateIdentityProvider (Core.Maybe (Core.HashMap Core.Text Core.Text))
+updateIdentityProvider_providerDetails = Lens.lens (\UpdateIdentityProvider' {providerDetails} -> providerDetails) (\s@UpdateIdentityProvider' {} a -> s {providerDetails = a} :: UpdateIdentityProvider) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of identity provider identifiers.
-updateIdentityProvider_idpIdentifiers :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe [Prelude.Text])
-updateIdentityProvider_idpIdentifiers = Lens.lens (\UpdateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@UpdateIdentityProvider' {} a -> s {idpIdentifiers = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityProvider_idpIdentifiers :: Lens.Lens' UpdateIdentityProvider (Core.Maybe [Core.Text])
+updateIdentityProvider_idpIdentifiers = Lens.lens (\UpdateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@UpdateIdentityProvider' {} a -> s {idpIdentifiers = a} :: UpdateIdentityProvider) Core.. Lens.mapping Lens._Coerce
 
 -- | The identity provider attribute mapping to be changed.
-updateIdentityProvider_attributeMapping :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityProvider_attributeMapping = Lens.lens (\UpdateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@UpdateIdentityProvider' {} a -> s {attributeMapping = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityProvider_attributeMapping :: Lens.Lens' UpdateIdentityProvider (Core.Maybe (Core.HashMap Core.Text Core.Text))
+updateIdentityProvider_attributeMapping = Lens.lens (\UpdateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@UpdateIdentityProvider' {} a -> s {attributeMapping = a} :: UpdateIdentityProvider) Core.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID.
-updateIdentityProvider_userPoolId :: Lens.Lens' UpdateIdentityProvider Prelude.Text
+updateIdentityProvider_userPoolId :: Lens.Lens' UpdateIdentityProvider Core.Text
 updateIdentityProvider_userPoolId = Lens.lens (\UpdateIdentityProvider' {userPoolId} -> userPoolId) (\s@UpdateIdentityProvider' {} a -> s {userPoolId = a} :: UpdateIdentityProvider)
 
 -- | The identity provider name.
-updateIdentityProvider_providerName :: Lens.Lens' UpdateIdentityProvider Prelude.Text
+updateIdentityProvider_providerName :: Lens.Lens' UpdateIdentityProvider Core.Text
 updateIdentityProvider_providerName = Lens.lens (\UpdateIdentityProvider' {providerName} -> providerName) (\s@UpdateIdentityProvider' {} a -> s {providerName = a} :: UpdateIdentityProvider)
 
-instance Prelude.AWSRequest UpdateIdentityProvider where
+instance Core.AWSRequest UpdateIdentityProvider where
   type
-    Rs UpdateIdentityProvider =
+    AWSResponse UpdateIdentityProvider =
       UpdateIdentityProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateIdentityProviderResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "IdentityProvider")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "IdentityProvider")
       )
 
-instance Prelude.Hashable UpdateIdentityProvider
+instance Core.Hashable UpdateIdentityProvider
 
-instance Prelude.NFData UpdateIdentityProvider
+instance Core.NFData UpdateIdentityProvider
 
-instance Prelude.ToHeaders UpdateIdentityProvider where
+instance Core.ToHeaders UpdateIdentityProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.UpdateIdentityProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.UpdateIdentityProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateIdentityProvider where
+instance Core.ToJSON UpdateIdentityProvider where
   toJSON UpdateIdentityProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ProviderDetails" Prelude..=)
-              Prelude.<$> providerDetails,
-            ("IdpIdentifiers" Prelude..=)
-              Prelude.<$> idpIdentifiers,
-            ("AttributeMapping" Prelude..=)
-              Prelude.<$> attributeMapping,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just
-              ("ProviderName" Prelude..= providerName)
+    Core.object
+      ( Core.catMaybes
+          [ ("ProviderDetails" Core..=)
+              Core.<$> providerDetails,
+            ("IdpIdentifiers" Core..=) Core.<$> idpIdentifiers,
+            ("AttributeMapping" Core..=)
+              Core.<$> attributeMapping,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("ProviderName" Core..= providerName)
           ]
       )
 
-instance Prelude.ToPath UpdateIdentityProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateIdentityProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateIdentityProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateIdentityProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateIdentityProviderResponse' smart constructor.
 data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The identity provider object.
     identityProvider :: IdentityProviderType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateIdentityProviderResponse' with all optional fields omitted.
@@ -197,7 +192,7 @@ data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
 -- 'identityProvider', 'updateIdentityProviderResponse_identityProvider' - The identity provider object.
 newUpdateIdentityProviderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'identityProvider'
   IdentityProviderType ->
   UpdateIdentityProviderResponse
@@ -211,13 +206,11 @@ newUpdateIdentityProviderResponse
       }
 
 -- | The response's http status code.
-updateIdentityProviderResponse_httpStatus :: Lens.Lens' UpdateIdentityProviderResponse Prelude.Int
+updateIdentityProviderResponse_httpStatus :: Lens.Lens' UpdateIdentityProviderResponse Core.Int
 updateIdentityProviderResponse_httpStatus = Lens.lens (\UpdateIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@UpdateIdentityProviderResponse' {} a -> s {httpStatus = a} :: UpdateIdentityProviderResponse)
 
 -- | The identity provider object.
 updateIdentityProviderResponse_identityProvider :: Lens.Lens' UpdateIdentityProviderResponse IdentityProviderType
 updateIdentityProviderResponse_identityProvider = Lens.lens (\UpdateIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@UpdateIdentityProviderResponse' {} a -> s {identityProvider = a} :: UpdateIdentityProviderResponse)
 
-instance
-  Prelude.NFData
-    UpdateIdentityProviderResponse
+instance Core.NFData UpdateIdentityProviderResponse

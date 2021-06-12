@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.AccountModification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
 import Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
 
@@ -31,23 +30,23 @@ import Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum
 -- /See:/ 'newAccountModification' smart constructor.
 data AccountModification = AccountModification'
   { -- | The status of BYOL (whether BYOL is being enabled or disabled).
-    dedicatedTenancySupport :: Prelude.Maybe DedicatedTenancySupportResultEnum,
+    dedicatedTenancySupport :: Core.Maybe DedicatedTenancySupportResultEnum,
     -- | The timestamp when the modification of the BYOL configuration was
     -- started.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The IP address range, specified as an IPv4 CIDR block, for the
     -- management network interface used for the account.
-    dedicatedTenancyManagementCidrRange :: Prelude.Maybe Prelude.Text,
+    dedicatedTenancyManagementCidrRange :: Core.Maybe Core.Text,
     -- | The state of the modification to the configuration of BYOL.
-    modificationState :: Prelude.Maybe DedicatedTenancyModificationStateEnum,
+    modificationState :: Core.Maybe DedicatedTenancyModificationStateEnum,
     -- | The text of the error message that is returned if the configuration of
     -- BYOL cannot be modified.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code that is returned if the configuration of BYOL cannot be
     -- modified.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountModification' with all optional fields omitted.
@@ -77,57 +76,56 @@ newAccountModification ::
 newAccountModification =
   AccountModification'
     { dedicatedTenancySupport =
-        Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      dedicatedTenancyManagementCidrRange =
-        Prelude.Nothing,
-      modificationState = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Core.Nothing,
+      startTime = Core.Nothing,
+      dedicatedTenancyManagementCidrRange = Core.Nothing,
+      modificationState = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The status of BYOL (whether BYOL is being enabled or disabled).
-accountModification_dedicatedTenancySupport :: Lens.Lens' AccountModification (Prelude.Maybe DedicatedTenancySupportResultEnum)
+accountModification_dedicatedTenancySupport :: Lens.Lens' AccountModification (Core.Maybe DedicatedTenancySupportResultEnum)
 accountModification_dedicatedTenancySupport = Lens.lens (\AccountModification' {dedicatedTenancySupport} -> dedicatedTenancySupport) (\s@AccountModification' {} a -> s {dedicatedTenancySupport = a} :: AccountModification)
 
 -- | The timestamp when the modification of the BYOL configuration was
 -- started.
-accountModification_startTime :: Lens.Lens' AccountModification (Prelude.Maybe Prelude.UTCTime)
-accountModification_startTime = Lens.lens (\AccountModification' {startTime} -> startTime) (\s@AccountModification' {} a -> s {startTime = a} :: AccountModification) Prelude.. Lens.mapping Prelude._Time
+accountModification_startTime :: Lens.Lens' AccountModification (Core.Maybe Core.UTCTime)
+accountModification_startTime = Lens.lens (\AccountModification' {startTime} -> startTime) (\s@AccountModification' {} a -> s {startTime = a} :: AccountModification) Core.. Lens.mapping Core._Time
 
 -- | The IP address range, specified as an IPv4 CIDR block, for the
 -- management network interface used for the account.
-accountModification_dedicatedTenancyManagementCidrRange :: Lens.Lens' AccountModification (Prelude.Maybe Prelude.Text)
+accountModification_dedicatedTenancyManagementCidrRange :: Lens.Lens' AccountModification (Core.Maybe Core.Text)
 accountModification_dedicatedTenancyManagementCidrRange = Lens.lens (\AccountModification' {dedicatedTenancyManagementCidrRange} -> dedicatedTenancyManagementCidrRange) (\s@AccountModification' {} a -> s {dedicatedTenancyManagementCidrRange = a} :: AccountModification)
 
 -- | The state of the modification to the configuration of BYOL.
-accountModification_modificationState :: Lens.Lens' AccountModification (Prelude.Maybe DedicatedTenancyModificationStateEnum)
+accountModification_modificationState :: Lens.Lens' AccountModification (Core.Maybe DedicatedTenancyModificationStateEnum)
 accountModification_modificationState = Lens.lens (\AccountModification' {modificationState} -> modificationState) (\s@AccountModification' {} a -> s {modificationState = a} :: AccountModification)
 
 -- | The text of the error message that is returned if the configuration of
 -- BYOL cannot be modified.
-accountModification_errorMessage :: Lens.Lens' AccountModification (Prelude.Maybe Prelude.Text)
+accountModification_errorMessage :: Lens.Lens' AccountModification (Core.Maybe Core.Text)
 accountModification_errorMessage = Lens.lens (\AccountModification' {errorMessage} -> errorMessage) (\s@AccountModification' {} a -> s {errorMessage = a} :: AccountModification)
 
 -- | The error code that is returned if the configuration of BYOL cannot be
 -- modified.
-accountModification_errorCode :: Lens.Lens' AccountModification (Prelude.Maybe Prelude.Text)
+accountModification_errorCode :: Lens.Lens' AccountModification (Core.Maybe Core.Text)
 accountModification_errorCode = Lens.lens (\AccountModification' {errorCode} -> errorCode) (\s@AccountModification' {} a -> s {errorCode = a} :: AccountModification)
 
-instance Prelude.FromJSON AccountModification where
+instance Core.FromJSON AccountModification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountModification"
       ( \x ->
           AccountModification'
-            Prelude.<$> (x Prelude..:? "DedicatedTenancySupport")
-            Prelude.<*> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "DedicatedTenancyManagementCidrRange")
-            Prelude.<*> (x Prelude..:? "ModificationState")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "DedicatedTenancySupport")
+            Core.<*> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "DedicatedTenancyManagementCidrRange")
+            Core.<*> (x Core..:? "ModificationState")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable AccountModification
+instance Core.Hashable AccountModification
 
-instance Prelude.NFData AccountModification
+instance Core.NFData AccountModification

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks where
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
 import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns a paginated list of all the outgoing TypedLinkSpecifier
 -- information for an object inside a BatchRead operation. For more
@@ -33,22 +32,22 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchListOutgoingTypedLinks' smart constructor.
 data BatchListOutgoingTypedLinks = BatchListOutgoingTypedLinks'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Filters are interpreted in the order of the attributes defined on the
     -- typed link facet, not the order they are supplied to any API calls.
-    filterTypedLink :: Prelude.Maybe TypedLinkSchemaAndFacetName,
+    filterTypedLink :: Core.Maybe TypedLinkSchemaAndFacetName,
     -- | The maximum number of results to retrieve.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Provides range filters for multiple attributes. When providing ranges to
     -- typed link selection, any inexact ranges must be specified at the end.
     -- Any attributes that do not have a range specified are presumed to match
     -- the entire range.
-    filterAttributeRanges :: Prelude.Maybe [TypedLinkAttributeRange],
+    filterAttributeRanges :: Core.Maybe [TypedLinkAttributeRange],
     -- | The reference that identifies the object whose attributes will be
     -- listed.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListOutgoingTypedLinks' with all optional fields omitted.
@@ -79,53 +78,52 @@ newBatchListOutgoingTypedLinks ::
 newBatchListOutgoingTypedLinks pObjectReference_ =
   BatchListOutgoingTypedLinks'
     { nextToken =
-        Prelude.Nothing,
-      filterTypedLink = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filterAttributeRanges = Prelude.Nothing,
+        Core.Nothing,
+      filterTypedLink = Core.Nothing,
+      maxResults = Core.Nothing,
+      filterAttributeRanges = Core.Nothing,
       objectReference = pObjectReference_
     }
 
 -- | The pagination token.
-batchListOutgoingTypedLinks_nextToken :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe Prelude.Text)
+batchListOutgoingTypedLinks_nextToken :: Lens.Lens' BatchListOutgoingTypedLinks (Core.Maybe Core.Text)
 batchListOutgoingTypedLinks_nextToken = Lens.lens (\BatchListOutgoingTypedLinks' {nextToken} -> nextToken) (\s@BatchListOutgoingTypedLinks' {} a -> s {nextToken = a} :: BatchListOutgoingTypedLinks)
 
 -- | Filters are interpreted in the order of the attributes defined on the
 -- typed link facet, not the order they are supplied to any API calls.
-batchListOutgoingTypedLinks_filterTypedLink :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe TypedLinkSchemaAndFacetName)
+batchListOutgoingTypedLinks_filterTypedLink :: Lens.Lens' BatchListOutgoingTypedLinks (Core.Maybe TypedLinkSchemaAndFacetName)
 batchListOutgoingTypedLinks_filterTypedLink = Lens.lens (\BatchListOutgoingTypedLinks' {filterTypedLink} -> filterTypedLink) (\s@BatchListOutgoingTypedLinks' {} a -> s {filterTypedLink = a} :: BatchListOutgoingTypedLinks)
 
 -- | The maximum number of results to retrieve.
-batchListOutgoingTypedLinks_maxResults :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe Prelude.Natural)
+batchListOutgoingTypedLinks_maxResults :: Lens.Lens' BatchListOutgoingTypedLinks (Core.Maybe Core.Natural)
 batchListOutgoingTypedLinks_maxResults = Lens.lens (\BatchListOutgoingTypedLinks' {maxResults} -> maxResults) (\s@BatchListOutgoingTypedLinks' {} a -> s {maxResults = a} :: BatchListOutgoingTypedLinks)
 
 -- | Provides range filters for multiple attributes. When providing ranges to
 -- typed link selection, any inexact ranges must be specified at the end.
 -- Any attributes that do not have a range specified are presumed to match
 -- the entire range.
-batchListOutgoingTypedLinks_filterAttributeRanges :: Lens.Lens' BatchListOutgoingTypedLinks (Prelude.Maybe [TypedLinkAttributeRange])
-batchListOutgoingTypedLinks_filterAttributeRanges = Lens.lens (\BatchListOutgoingTypedLinks' {filterAttributeRanges} -> filterAttributeRanges) (\s@BatchListOutgoingTypedLinks' {} a -> s {filterAttributeRanges = a} :: BatchListOutgoingTypedLinks) Prelude.. Lens.mapping Prelude._Coerce
+batchListOutgoingTypedLinks_filterAttributeRanges :: Lens.Lens' BatchListOutgoingTypedLinks (Core.Maybe [TypedLinkAttributeRange])
+batchListOutgoingTypedLinks_filterAttributeRanges = Lens.lens (\BatchListOutgoingTypedLinks' {filterAttributeRanges} -> filterAttributeRanges) (\s@BatchListOutgoingTypedLinks' {} a -> s {filterAttributeRanges = a} :: BatchListOutgoingTypedLinks) Core.. Lens.mapping Lens._Coerce
 
 -- | The reference that identifies the object whose attributes will be
 -- listed.
 batchListOutgoingTypedLinks_objectReference :: Lens.Lens' BatchListOutgoingTypedLinks ObjectReference
 batchListOutgoingTypedLinks_objectReference = Lens.lens (\BatchListOutgoingTypedLinks' {objectReference} -> objectReference) (\s@BatchListOutgoingTypedLinks' {} a -> s {objectReference = a} :: BatchListOutgoingTypedLinks)
 
-instance Prelude.Hashable BatchListOutgoingTypedLinks
+instance Core.Hashable BatchListOutgoingTypedLinks
 
-instance Prelude.NFData BatchListOutgoingTypedLinks
+instance Core.NFData BatchListOutgoingTypedLinks
 
-instance Prelude.ToJSON BatchListOutgoingTypedLinks where
+instance Core.ToJSON BatchListOutgoingTypedLinks where
   toJSON BatchListOutgoingTypedLinks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("FilterTypedLink" Prelude..=)
-              Prelude.<$> filterTypedLink,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("FilterAttributeRanges" Prelude..=)
-              Prelude.<$> filterAttributeRanges,
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("FilterTypedLink" Core..=) Core.<$> filterTypedLink,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("FilterAttributeRanges" Core..=)
+              Core.<$> filterAttributeRanges,
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )

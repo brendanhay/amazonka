@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.StaticValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The static value of the resource.
 --
 -- /See:/ 'newStaticValue' smart constructor.
 data StaticValue = StaticValue'
   { -- | A list of values. For example, the ARN of the assumed role.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StaticValue' with all optional fields omitted.
@@ -43,29 +42,28 @@ data StaticValue = StaticValue'
 -- 'values', 'staticValue_values' - A list of values. For example, the ARN of the assumed role.
 newStaticValue ::
   StaticValue
-newStaticValue =
-  StaticValue' {values = Prelude.mempty}
+newStaticValue = StaticValue' {values = Core.mempty}
 
 -- | A list of values. For example, the ARN of the assumed role.
-staticValue_values :: Lens.Lens' StaticValue [Prelude.Text]
-staticValue_values = Lens.lens (\StaticValue' {values} -> values) (\s@StaticValue' {} a -> s {values = a} :: StaticValue) Prelude.. Prelude._Coerce
+staticValue_values :: Lens.Lens' StaticValue [Core.Text]
+staticValue_values = Lens.lens (\StaticValue' {values} -> values) (\s@StaticValue' {} a -> s {values = a} :: StaticValue) Core.. Lens._Coerce
 
-instance Prelude.FromJSON StaticValue where
+instance Core.FromJSON StaticValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StaticValue"
       ( \x ->
           StaticValue'
-            Prelude.<$> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Values" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable StaticValue
+instance Core.Hashable StaticValue
 
-instance Prelude.NFData StaticValue
+instance Core.NFData StaticValue
 
-instance Prelude.ToJSON StaticValue where
+instance Core.ToJSON StaticValue where
   toJSON StaticValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Values" Prelude..= values)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Values" Core..= values)]
       )

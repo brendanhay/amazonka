@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Elasticsearch data source configuration.
 --
 -- /See:/ 'newElasticsearchDataSourceConfig' smart constructor.
 data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
   { -- | The endpoint.
-    endpoint :: Prelude.Text,
+    endpoint :: Core.Text,
     -- | The AWS Region.
-    awsRegion :: Prelude.Text
+    awsRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchDataSourceConfig' with all optional fields omitted.
@@ -47,9 +46,9 @@ data ElasticsearchDataSourceConfig = ElasticsearchDataSourceConfig'
 -- 'awsRegion', 'elasticsearchDataSourceConfig_awsRegion' - The AWS Region.
 newElasticsearchDataSourceConfig ::
   -- | 'endpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'awsRegion'
-  Prelude.Text ->
+  Core.Text ->
   ElasticsearchDataSourceConfig
 newElasticsearchDataSourceConfig
   pEndpoint_
@@ -61,37 +60,32 @@ newElasticsearchDataSourceConfig
       }
 
 -- | The endpoint.
-elasticsearchDataSourceConfig_endpoint :: Lens.Lens' ElasticsearchDataSourceConfig Prelude.Text
+elasticsearchDataSourceConfig_endpoint :: Lens.Lens' ElasticsearchDataSourceConfig Core.Text
 elasticsearchDataSourceConfig_endpoint = Lens.lens (\ElasticsearchDataSourceConfig' {endpoint} -> endpoint) (\s@ElasticsearchDataSourceConfig' {} a -> s {endpoint = a} :: ElasticsearchDataSourceConfig)
 
 -- | The AWS Region.
-elasticsearchDataSourceConfig_awsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Prelude.Text
+elasticsearchDataSourceConfig_awsRegion :: Lens.Lens' ElasticsearchDataSourceConfig Core.Text
 elasticsearchDataSourceConfig_awsRegion = Lens.lens (\ElasticsearchDataSourceConfig' {awsRegion} -> awsRegion) (\s@ElasticsearchDataSourceConfig' {} a -> s {awsRegion = a} :: ElasticsearchDataSourceConfig)
 
-instance
-  Prelude.FromJSON
-    ElasticsearchDataSourceConfig
-  where
+instance Core.FromJSON ElasticsearchDataSourceConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ElasticsearchDataSourceConfig"
       ( \x ->
           ElasticsearchDataSourceConfig'
-            Prelude.<$> (x Prelude..: "endpoint")
-            Prelude.<*> (x Prelude..: "awsRegion")
+            Core.<$> (x Core..: "endpoint")
+            Core.<*> (x Core..: "awsRegion")
       )
 
-instance
-  Prelude.Hashable
-    ElasticsearchDataSourceConfig
+instance Core.Hashable ElasticsearchDataSourceConfig
 
-instance Prelude.NFData ElasticsearchDataSourceConfig
+instance Core.NFData ElasticsearchDataSourceConfig
 
-instance Prelude.ToJSON ElasticsearchDataSourceConfig where
+instance Core.ToJSON ElasticsearchDataSourceConfig where
   toJSON ElasticsearchDataSourceConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("endpoint" Prelude..= endpoint),
-            Prelude.Just ("awsRegion" Prelude..= awsRegion)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("endpoint" Core..= endpoint),
+            Core.Just ("awsRegion" Core..= awsRegion)
           ]
       )

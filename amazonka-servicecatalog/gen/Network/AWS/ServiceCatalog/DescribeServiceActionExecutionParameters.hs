@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.ServiceCatalog.DescribeServiceActionExecutionParameters
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -59,13 +58,13 @@ data DescribeServiceActionExecutionParameters = DescribeServiceActionExecutionPa
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The identifier of the provisioned product.
-    provisionedProductId :: Prelude.Text,
+    provisionedProductId :: Core.Text,
     -- | The self-service action identifier.
-    serviceActionId :: Prelude.Text
+    serviceActionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeServiceActionExecutionParameters' with all optional fields omitted.
@@ -88,16 +87,16 @@ data DescribeServiceActionExecutionParameters = DescribeServiceActionExecutionPa
 -- 'serviceActionId', 'describeServiceActionExecutionParameters_serviceActionId' - The self-service action identifier.
 newDescribeServiceActionExecutionParameters ::
   -- | 'provisionedProductId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceActionId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeServiceActionExecutionParameters
 newDescribeServiceActionExecutionParameters
   pProvisionedProductId_
   pServiceActionId_ =
     DescribeServiceActionExecutionParameters'
       { acceptLanguage =
-          Prelude.Nothing,
+          Core.Nothing,
         provisionedProductId =
           pProvisionedProductId_,
         serviceActionId =
@@ -111,99 +110,97 @@ newDescribeServiceActionExecutionParameters
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-describeServiceActionExecutionParameters_acceptLanguage :: Lens.Lens' DescribeServiceActionExecutionParameters (Prelude.Maybe Prelude.Text)
+describeServiceActionExecutionParameters_acceptLanguage :: Lens.Lens' DescribeServiceActionExecutionParameters (Core.Maybe Core.Text)
 describeServiceActionExecutionParameters_acceptLanguage = Lens.lens (\DescribeServiceActionExecutionParameters' {acceptLanguage} -> acceptLanguage) (\s@DescribeServiceActionExecutionParameters' {} a -> s {acceptLanguage = a} :: DescribeServiceActionExecutionParameters)
 
 -- | The identifier of the provisioned product.
-describeServiceActionExecutionParameters_provisionedProductId :: Lens.Lens' DescribeServiceActionExecutionParameters Prelude.Text
+describeServiceActionExecutionParameters_provisionedProductId :: Lens.Lens' DescribeServiceActionExecutionParameters Core.Text
 describeServiceActionExecutionParameters_provisionedProductId = Lens.lens (\DescribeServiceActionExecutionParameters' {provisionedProductId} -> provisionedProductId) (\s@DescribeServiceActionExecutionParameters' {} a -> s {provisionedProductId = a} :: DescribeServiceActionExecutionParameters)
 
 -- | The self-service action identifier.
-describeServiceActionExecutionParameters_serviceActionId :: Lens.Lens' DescribeServiceActionExecutionParameters Prelude.Text
+describeServiceActionExecutionParameters_serviceActionId :: Lens.Lens' DescribeServiceActionExecutionParameters Core.Text
 describeServiceActionExecutionParameters_serviceActionId = Lens.lens (\DescribeServiceActionExecutionParameters' {serviceActionId} -> serviceActionId) (\s@DescribeServiceActionExecutionParameters' {} a -> s {serviceActionId = a} :: DescribeServiceActionExecutionParameters)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeServiceActionExecutionParameters
   where
   type
-    Rs DescribeServiceActionExecutionParameters =
+    AWSResponse
+      DescribeServiceActionExecutionParameters =
       DescribeServiceActionExecutionParametersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeServiceActionExecutionParametersResponse'
-            Prelude.<$> ( x Prelude..?> "ServiceActionParameters"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "ServiceActionParameters"
+                         Core..!@ Core.mempty
+                     )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeServiceActionExecutionParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeServiceActionExecutionParameters
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeServiceActionExecutionParameters
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeServiceActionExecutionParameters
   where
   toJSON DescribeServiceActionExecutionParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just
               ( "ProvisionedProductId"
-                  Prelude..= provisionedProductId
+                  Core..= provisionedProductId
               ),
-            Prelude.Just
-              ("ServiceActionId" Prelude..= serviceActionId)
+            Core.Just
+              ("ServiceActionId" Core..= serviceActionId)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeServiceActionExecutionParameters
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeServiceActionExecutionParameters
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeServiceActionExecutionParametersResponse' smart constructor.
 data DescribeServiceActionExecutionParametersResponse = DescribeServiceActionExecutionParametersResponse'
   { -- | The parameters of the self-service action.
-    serviceActionParameters :: Prelude.Maybe [ExecutionParameter],
+    serviceActionParameters :: Core.Maybe [ExecutionParameter],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeServiceActionExecutionParametersResponse' with all optional fields omitted.
@@ -218,24 +215,24 @@ data DescribeServiceActionExecutionParametersResponse = DescribeServiceActionExe
 -- 'httpStatus', 'describeServiceActionExecutionParametersResponse_httpStatus' - The response's http status code.
 newDescribeServiceActionExecutionParametersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeServiceActionExecutionParametersResponse
 newDescribeServiceActionExecutionParametersResponse
   pHttpStatus_ =
     DescribeServiceActionExecutionParametersResponse'
       { serviceActionParameters =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The parameters of the self-service action.
-describeServiceActionExecutionParametersResponse_serviceActionParameters :: Lens.Lens' DescribeServiceActionExecutionParametersResponse (Prelude.Maybe [ExecutionParameter])
-describeServiceActionExecutionParametersResponse_serviceActionParameters = Lens.lens (\DescribeServiceActionExecutionParametersResponse' {serviceActionParameters} -> serviceActionParameters) (\s@DescribeServiceActionExecutionParametersResponse' {} a -> s {serviceActionParameters = a} :: DescribeServiceActionExecutionParametersResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeServiceActionExecutionParametersResponse_serviceActionParameters :: Lens.Lens' DescribeServiceActionExecutionParametersResponse (Core.Maybe [ExecutionParameter])
+describeServiceActionExecutionParametersResponse_serviceActionParameters = Lens.lens (\DescribeServiceActionExecutionParametersResponse' {serviceActionParameters} -> serviceActionParameters) (\s@DescribeServiceActionExecutionParametersResponse' {} a -> s {serviceActionParameters = a} :: DescribeServiceActionExecutionParametersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeServiceActionExecutionParametersResponse_httpStatus :: Lens.Lens' DescribeServiceActionExecutionParametersResponse Prelude.Int
+describeServiceActionExecutionParametersResponse_httpStatus :: Lens.Lens' DescribeServiceActionExecutionParametersResponse Core.Int
 describeServiceActionExecutionParametersResponse_httpStatus = Lens.lens (\DescribeServiceActionExecutionParametersResponse' {httpStatus} -> httpStatus) (\s@DescribeServiceActionExecutionParametersResponse' {} a -> s {httpStatus = a} :: DescribeServiceActionExecutionParametersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeServiceActionExecutionParametersResponse

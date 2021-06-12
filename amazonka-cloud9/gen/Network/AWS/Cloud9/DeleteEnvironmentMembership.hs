@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.Cloud9.DeleteEnvironmentMembership
 where
 
 import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteEnvironmentMembership' smart constructor.
 data DeleteEnvironmentMembership = DeleteEnvironmentMembership'
   { -- | The ID of the environment to delete the environment member from.
-    environmentId :: Prelude.Text,
+    environmentId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the environment member to delete from
     -- the environment.
-    userArn :: Prelude.Text
+    userArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEnvironmentMembership' with all optional fields omitted.
@@ -71,9 +70,9 @@ data DeleteEnvironmentMembership = DeleteEnvironmentMembership'
 -- the environment.
 newDeleteEnvironmentMembership ::
   -- | 'environmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEnvironmentMembership
 newDeleteEnvironmentMembership
   pEnvironmentId_
@@ -85,73 +84,64 @@ newDeleteEnvironmentMembership
       }
 
 -- | The ID of the environment to delete the environment member from.
-deleteEnvironmentMembership_environmentId :: Lens.Lens' DeleteEnvironmentMembership Prelude.Text
+deleteEnvironmentMembership_environmentId :: Lens.Lens' DeleteEnvironmentMembership Core.Text
 deleteEnvironmentMembership_environmentId = Lens.lens (\DeleteEnvironmentMembership' {environmentId} -> environmentId) (\s@DeleteEnvironmentMembership' {} a -> s {environmentId = a} :: DeleteEnvironmentMembership)
 
 -- | The Amazon Resource Name (ARN) of the environment member to delete from
 -- the environment.
-deleteEnvironmentMembership_userArn :: Lens.Lens' DeleteEnvironmentMembership Prelude.Text
+deleteEnvironmentMembership_userArn :: Lens.Lens' DeleteEnvironmentMembership Core.Text
 deleteEnvironmentMembership_userArn = Lens.lens (\DeleteEnvironmentMembership' {userArn} -> userArn) (\s@DeleteEnvironmentMembership' {} a -> s {userArn = a} :: DeleteEnvironmentMembership)
 
-instance
-  Prelude.AWSRequest
-    DeleteEnvironmentMembership
-  where
+instance Core.AWSRequest DeleteEnvironmentMembership where
   type
-    Rs DeleteEnvironmentMembership =
+    AWSResponse DeleteEnvironmentMembership =
       DeleteEnvironmentMembershipResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEnvironmentMembershipResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEnvironmentMembership
+instance Core.Hashable DeleteEnvironmentMembership
 
-instance Prelude.NFData DeleteEnvironmentMembership
+instance Core.NFData DeleteEnvironmentMembership
 
-instance
-  Prelude.ToHeaders
-    DeleteEnvironmentMembership
-  where
+instance Core.ToHeaders DeleteEnvironmentMembership where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteEnvironmentMembership where
+instance Core.ToJSON DeleteEnvironmentMembership where
   toJSON DeleteEnvironmentMembership' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("environmentId" Prelude..= environmentId),
-            Prelude.Just ("userArn" Prelude..= userArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("environmentId" Core..= environmentId),
+            Core.Just ("userArn" Core..= userArn)
           ]
       )
 
-instance Prelude.ToPath DeleteEnvironmentMembership where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteEnvironmentMembership where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteEnvironmentMembership where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteEnvironmentMembership where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteEnvironmentMembershipResponse' smart constructor.
 data DeleteEnvironmentMembershipResponse = DeleteEnvironmentMembershipResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEnvironmentMembershipResponse' with all optional fields omitted.
@@ -164,7 +154,7 @@ data DeleteEnvironmentMembershipResponse = DeleteEnvironmentMembershipResponse'
 -- 'httpStatus', 'deleteEnvironmentMembershipResponse_httpStatus' - The response's http status code.
 newDeleteEnvironmentMembershipResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteEnvironmentMembershipResponse
 newDeleteEnvironmentMembershipResponse pHttpStatus_ =
   DeleteEnvironmentMembershipResponse'
@@ -173,9 +163,9 @@ newDeleteEnvironmentMembershipResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteEnvironmentMembershipResponse_httpStatus :: Lens.Lens' DeleteEnvironmentMembershipResponse Prelude.Int
+deleteEnvironmentMembershipResponse_httpStatus :: Lens.Lens' DeleteEnvironmentMembershipResponse Core.Int
 deleteEnvironmentMembershipResponse_httpStatus = Lens.lens (\DeleteEnvironmentMembershipResponse' {httpStatus} -> httpStatus) (\s@DeleteEnvironmentMembershipResponse' {} a -> s {httpStatus = a} :: DeleteEnvironmentMembershipResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteEnvironmentMembershipResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,9 @@ module Network.AWS.GameLift.DescribeVpcPeeringConnections
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,9 +71,9 @@ import qualified Network.AWS.Response as Response
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections'
   { -- | A unique identifier for a fleet. You can use either the fleet ID or ARN
     -- value.
-    fleetId :: Prelude.Maybe Prelude.Text
+    fleetId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcPeeringConnections' with all optional fields omitted.
@@ -91,82 +90,72 @@ newDescribeVpcPeeringConnections ::
 newDescribeVpcPeeringConnections =
   DescribeVpcPeeringConnections'
     { fleetId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A unique identifier for a fleet. You can use either the fleet ID or ARN
 -- value.
-describeVpcPeeringConnections_fleetId :: Lens.Lens' DescribeVpcPeeringConnections (Prelude.Maybe Prelude.Text)
+describeVpcPeeringConnections_fleetId :: Lens.Lens' DescribeVpcPeeringConnections (Core.Maybe Core.Text)
 describeVpcPeeringConnections_fleetId = Lens.lens (\DescribeVpcPeeringConnections' {fleetId} -> fleetId) (\s@DescribeVpcPeeringConnections' {} a -> s {fleetId = a} :: DescribeVpcPeeringConnections)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeVpcPeeringConnections
   where
   type
-    Rs DescribeVpcPeeringConnections =
+    AWSResponse DescribeVpcPeeringConnections =
       DescribeVpcPeeringConnectionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeVpcPeeringConnectionsResponse'
-            Prelude.<$> ( x Prelude..?> "VpcPeeringConnections"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "VpcPeeringConnections"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeVpcPeeringConnections
+instance Core.Hashable DescribeVpcPeeringConnections
 
-instance Prelude.NFData DescribeVpcPeeringConnections
+instance Core.NFData DescribeVpcPeeringConnections
 
-instance
-  Prelude.ToHeaders
-    DescribeVpcPeeringConnections
-  where
+instance Core.ToHeaders DescribeVpcPeeringConnections where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DescribeVpcPeeringConnections" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DescribeVpcPeeringConnections" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeVpcPeeringConnections where
+instance Core.ToJSON DescribeVpcPeeringConnections where
   toJSON DescribeVpcPeeringConnections' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("FleetId" Prelude..=) Prelude.<$> fleetId]
+    Core.object
+      ( Core.catMaybes
+          [("FleetId" Core..=) Core.<$> fleetId]
       )
 
-instance Prelude.ToPath DescribeVpcPeeringConnections where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeVpcPeeringConnections where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeVpcPeeringConnections
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeVpcPeeringConnections where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newDescribeVpcPeeringConnectionsResponse' smart constructor.
 data DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse'
   { -- | A collection of VPC peering connection records that match the request.
-    vpcPeeringConnections :: Prelude.Maybe [VpcPeeringConnection],
+    vpcPeeringConnections :: Core.Maybe [VpcPeeringConnection],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcPeeringConnectionsResponse' with all optional fields omitted.
@@ -181,23 +170,23 @@ data DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRespon
 -- 'httpStatus', 'describeVpcPeeringConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeVpcPeeringConnectionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVpcPeeringConnectionsResponse
 newDescribeVpcPeeringConnectionsResponse pHttpStatus_ =
   DescribeVpcPeeringConnectionsResponse'
     { vpcPeeringConnections =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A collection of VPC peering connection records that match the request.
-describeVpcPeeringConnectionsResponse_vpcPeeringConnections :: Lens.Lens' DescribeVpcPeeringConnectionsResponse (Prelude.Maybe [VpcPeeringConnection])
-describeVpcPeeringConnectionsResponse_vpcPeeringConnections = Lens.lens (\DescribeVpcPeeringConnectionsResponse' {vpcPeeringConnections} -> vpcPeeringConnections) (\s@DescribeVpcPeeringConnectionsResponse' {} a -> s {vpcPeeringConnections = a} :: DescribeVpcPeeringConnectionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcPeeringConnectionsResponse_vpcPeeringConnections :: Lens.Lens' DescribeVpcPeeringConnectionsResponse (Core.Maybe [VpcPeeringConnection])
+describeVpcPeeringConnectionsResponse_vpcPeeringConnections = Lens.lens (\DescribeVpcPeeringConnectionsResponse' {vpcPeeringConnections} -> vpcPeeringConnections) (\s@DescribeVpcPeeringConnectionsResponse' {} a -> s {vpcPeeringConnections = a} :: DescribeVpcPeeringConnectionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpcPeeringConnectionsResponse_httpStatus :: Lens.Lens' DescribeVpcPeeringConnectionsResponse Prelude.Int
+describeVpcPeeringConnectionsResponse_httpStatus :: Lens.Lens' DescribeVpcPeeringConnectionsResponse Core.Int
 describeVpcPeeringConnectionsResponse_httpStatus = Lens.lens (\DescribeVpcPeeringConnectionsResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcPeeringConnectionsResponse' {} a -> s {httpStatus = a} :: DescribeVpcPeeringConnectionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeVpcPeeringConnectionsResponse

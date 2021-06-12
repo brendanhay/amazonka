@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,35 +19,35 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.MultiplexSettingsSummary
 import Network.AWS.MediaLive.Types.MultiplexState
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for MultiplexSummary
 --
 -- /See:/ 'newMultiplexSummary' smart constructor.
 data MultiplexSummary = MultiplexSummary'
   { -- | A list of availability zones for the multiplex.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The unique arn of the multiplex.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique id of the multiplex.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Prelude.Maybe Prelude.Int,
+    pipelinesRunningCount :: Core.Maybe Core.Int,
     -- | The number of programs in the multiplex.
-    programCount :: Prelude.Maybe Prelude.Int,
+    programCount :: Core.Maybe Core.Int,
     -- | The current state of the multiplex.
-    state :: Prelude.Maybe MultiplexState,
+    state :: Core.Maybe MultiplexState,
     -- | The name of the multiplex.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A collection of key-value pairs.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Configuration for a multiplex event.
-    multiplexSettings :: Prelude.Maybe MultiplexSettingsSummary
+    multiplexSettings :: Core.Maybe MultiplexSettingsSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexSummary' with all optional fields omitted.
@@ -79,73 +78,70 @@ newMultiplexSummary ::
   MultiplexSummary
 newMultiplexSummary =
   MultiplexSummary'
-    { availabilityZones =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      pipelinesRunningCount = Prelude.Nothing,
-      programCount = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      multiplexSettings = Prelude.Nothing
+    { availabilityZones = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      pipelinesRunningCount = Core.Nothing,
+      programCount = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      multiplexSettings = Core.Nothing
     }
 
 -- | A list of availability zones for the multiplex.
-multiplexSummary_availabilityZones :: Lens.Lens' MultiplexSummary (Prelude.Maybe [Prelude.Text])
-multiplexSummary_availabilityZones = Lens.lens (\MultiplexSummary' {availabilityZones} -> availabilityZones) (\s@MultiplexSummary' {} a -> s {availabilityZones = a} :: MultiplexSummary) Prelude.. Lens.mapping Prelude._Coerce
+multiplexSummary_availabilityZones :: Lens.Lens' MultiplexSummary (Core.Maybe [Core.Text])
+multiplexSummary_availabilityZones = Lens.lens (\MultiplexSummary' {availabilityZones} -> availabilityZones) (\s@MultiplexSummary' {} a -> s {availabilityZones = a} :: MultiplexSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique arn of the multiplex.
-multiplexSummary_arn :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Text)
+multiplexSummary_arn :: Lens.Lens' MultiplexSummary (Core.Maybe Core.Text)
 multiplexSummary_arn = Lens.lens (\MultiplexSummary' {arn} -> arn) (\s@MultiplexSummary' {} a -> s {arn = a} :: MultiplexSummary)
 
 -- | The unique id of the multiplex.
-multiplexSummary_id :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Text)
+multiplexSummary_id :: Lens.Lens' MultiplexSummary (Core.Maybe Core.Text)
 multiplexSummary_id = Lens.lens (\MultiplexSummary' {id} -> id) (\s@MultiplexSummary' {} a -> s {id = a} :: MultiplexSummary)
 
 -- | The number of currently healthy pipelines.
-multiplexSummary_pipelinesRunningCount :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Int)
+multiplexSummary_pipelinesRunningCount :: Lens.Lens' MultiplexSummary (Core.Maybe Core.Int)
 multiplexSummary_pipelinesRunningCount = Lens.lens (\MultiplexSummary' {pipelinesRunningCount} -> pipelinesRunningCount) (\s@MultiplexSummary' {} a -> s {pipelinesRunningCount = a} :: MultiplexSummary)
 
 -- | The number of programs in the multiplex.
-multiplexSummary_programCount :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Int)
+multiplexSummary_programCount :: Lens.Lens' MultiplexSummary (Core.Maybe Core.Int)
 multiplexSummary_programCount = Lens.lens (\MultiplexSummary' {programCount} -> programCount) (\s@MultiplexSummary' {} a -> s {programCount = a} :: MultiplexSummary)
 
 -- | The current state of the multiplex.
-multiplexSummary_state :: Lens.Lens' MultiplexSummary (Prelude.Maybe MultiplexState)
+multiplexSummary_state :: Lens.Lens' MultiplexSummary (Core.Maybe MultiplexState)
 multiplexSummary_state = Lens.lens (\MultiplexSummary' {state} -> state) (\s@MultiplexSummary' {} a -> s {state = a} :: MultiplexSummary)
 
 -- | The name of the multiplex.
-multiplexSummary_name :: Lens.Lens' MultiplexSummary (Prelude.Maybe Prelude.Text)
+multiplexSummary_name :: Lens.Lens' MultiplexSummary (Core.Maybe Core.Text)
 multiplexSummary_name = Lens.lens (\MultiplexSummary' {name} -> name) (\s@MultiplexSummary' {} a -> s {name = a} :: MultiplexSummary)
 
 -- | A collection of key-value pairs.
-multiplexSummary_tags :: Lens.Lens' MultiplexSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-multiplexSummary_tags = Lens.lens (\MultiplexSummary' {tags} -> tags) (\s@MultiplexSummary' {} a -> s {tags = a} :: MultiplexSummary) Prelude.. Lens.mapping Prelude._Coerce
+multiplexSummary_tags :: Lens.Lens' MultiplexSummary (Core.Maybe (Core.HashMap Core.Text Core.Text))
+multiplexSummary_tags = Lens.lens (\MultiplexSummary' {tags} -> tags) (\s@MultiplexSummary' {} a -> s {tags = a} :: MultiplexSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | Configuration for a multiplex event.
-multiplexSummary_multiplexSettings :: Lens.Lens' MultiplexSummary (Prelude.Maybe MultiplexSettingsSummary)
+multiplexSummary_multiplexSettings :: Lens.Lens' MultiplexSummary (Core.Maybe MultiplexSettingsSummary)
 multiplexSummary_multiplexSettings = Lens.lens (\MultiplexSummary' {multiplexSettings} -> multiplexSettings) (\s@MultiplexSummary' {} a -> s {multiplexSettings = a} :: MultiplexSummary)
 
-instance Prelude.FromJSON MultiplexSummary where
+instance Core.FromJSON MultiplexSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexSummary"
       ( \x ->
           MultiplexSummary'
-            Prelude.<$> ( x Prelude..:? "availabilityZones"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "pipelinesRunningCount")
-            Prelude.<*> (x Prelude..:? "programCount")
-            Prelude.<*> (x Prelude..:? "state")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "multiplexSettings")
+            Core.<$> (x Core..:? "availabilityZones" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "pipelinesRunningCount")
+            Core.<*> (x Core..:? "programCount")
+            Core.<*> (x Core..:? "state")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "multiplexSettings")
       )
 
-instance Prelude.Hashable MultiplexSummary
+instance Core.Hashable MultiplexSummary
 
-instance Prelude.NFData MultiplexSummary
+instance Core.NFData MultiplexSummary

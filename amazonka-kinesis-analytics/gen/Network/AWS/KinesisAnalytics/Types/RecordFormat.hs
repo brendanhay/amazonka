@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.RecordFormat where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.MappingParameters
 import Network.AWS.KinesisAnalytics.Types.RecordFormatType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the record format and relevant mapping information that should
 -- be applied to schematize the records on the stream.
@@ -34,11 +33,11 @@ data RecordFormat = RecordFormat'
     -- an application, provides additional mapping information specific to the
     -- record format (such as JSON, CSV, or record fields delimited by some
     -- delimiter) on the streaming source.
-    mappingParameters :: Prelude.Maybe MappingParameters,
+    mappingParameters :: Core.Maybe MappingParameters,
     -- | The type of record format.
     recordFormatType :: RecordFormatType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordFormat' with all optional fields omitted.
@@ -60,7 +59,7 @@ newRecordFormat ::
   RecordFormat
 newRecordFormat pRecordFormatType_ =
   RecordFormat'
-    { mappingParameters = Prelude.Nothing,
+    { mappingParameters = Core.Nothing,
       recordFormatType = pRecordFormatType_
     }
 
@@ -68,34 +67,34 @@ newRecordFormat pRecordFormatType_ =
 -- an application, provides additional mapping information specific to the
 -- record format (such as JSON, CSV, or record fields delimited by some
 -- delimiter) on the streaming source.
-recordFormat_mappingParameters :: Lens.Lens' RecordFormat (Prelude.Maybe MappingParameters)
+recordFormat_mappingParameters :: Lens.Lens' RecordFormat (Core.Maybe MappingParameters)
 recordFormat_mappingParameters = Lens.lens (\RecordFormat' {mappingParameters} -> mappingParameters) (\s@RecordFormat' {} a -> s {mappingParameters = a} :: RecordFormat)
 
 -- | The type of record format.
 recordFormat_recordFormatType :: Lens.Lens' RecordFormat RecordFormatType
 recordFormat_recordFormatType = Lens.lens (\RecordFormat' {recordFormatType} -> recordFormatType) (\s@RecordFormat' {} a -> s {recordFormatType = a} :: RecordFormat)
 
-instance Prelude.FromJSON RecordFormat where
+instance Core.FromJSON RecordFormat where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RecordFormat"
       ( \x ->
           RecordFormat'
-            Prelude.<$> (x Prelude..:? "MappingParameters")
-            Prelude.<*> (x Prelude..: "RecordFormatType")
+            Core.<$> (x Core..:? "MappingParameters")
+            Core.<*> (x Core..: "RecordFormatType")
       )
 
-instance Prelude.Hashable RecordFormat
+instance Core.Hashable RecordFormat
 
-instance Prelude.NFData RecordFormat
+instance Core.NFData RecordFormat
 
-instance Prelude.ToJSON RecordFormat where
+instance Core.ToJSON RecordFormat where
   toJSON RecordFormat' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MappingParameters" Prelude..=)
-              Prelude.<$> mappingParameters,
-            Prelude.Just
-              ("RecordFormatType" Prelude..= recordFormatType)
+    Core.object
+      ( Core.catMaybes
+          [ ("MappingParameters" Core..=)
+              Core.<$> mappingParameters,
+            Core.Just
+              ("RecordFormatType" Core..= recordFormatType)
           ]
       )

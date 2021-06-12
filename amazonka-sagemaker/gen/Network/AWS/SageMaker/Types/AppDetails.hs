@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AppDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AppStatus
 import Network.AWS.SageMaker.Types.AppType
 
@@ -30,19 +29,19 @@ import Network.AWS.SageMaker.Types.AppType
 -- /See:/ 'newAppDetails' smart constructor.
 data AppDetails = AppDetails'
   { -- | The status.
-    status :: Prelude.Maybe AppStatus,
+    status :: Core.Maybe AppStatus,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The type of app.
-    appType :: Prelude.Maybe AppType,
+    appType :: Core.Maybe AppType,
     -- | The name of the app.
-    appName :: Prelude.Maybe Prelude.Text,
+    appName :: Core.Maybe Core.Text,
     -- | The user profile name.
-    userProfileName :: Prelude.Maybe Prelude.Text,
+    userProfileName :: Core.Maybe Core.Text,
     -- | The domain ID.
-    domainId :: Prelude.Maybe Prelude.Text
+    domainId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AppDetails' with all optional fields omitted.
@@ -67,52 +66,52 @@ newAppDetails ::
   AppDetails
 newAppDetails =
   AppDetails'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      appType = Prelude.Nothing,
-      appName = Prelude.Nothing,
-      userProfileName = Prelude.Nothing,
-      domainId = Prelude.Nothing
+    { status = Core.Nothing,
+      creationTime = Core.Nothing,
+      appType = Core.Nothing,
+      appName = Core.Nothing,
+      userProfileName = Core.Nothing,
+      domainId = Core.Nothing
     }
 
 -- | The status.
-appDetails_status :: Lens.Lens' AppDetails (Prelude.Maybe AppStatus)
+appDetails_status :: Lens.Lens' AppDetails (Core.Maybe AppStatus)
 appDetails_status = Lens.lens (\AppDetails' {status} -> status) (\s@AppDetails' {} a -> s {status = a} :: AppDetails)
 
 -- | The creation time.
-appDetails_creationTime :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.UTCTime)
-appDetails_creationTime = Lens.lens (\AppDetails' {creationTime} -> creationTime) (\s@AppDetails' {} a -> s {creationTime = a} :: AppDetails) Prelude.. Lens.mapping Prelude._Time
+appDetails_creationTime :: Lens.Lens' AppDetails (Core.Maybe Core.UTCTime)
+appDetails_creationTime = Lens.lens (\AppDetails' {creationTime} -> creationTime) (\s@AppDetails' {} a -> s {creationTime = a} :: AppDetails) Core.. Lens.mapping Core._Time
 
 -- | The type of app.
-appDetails_appType :: Lens.Lens' AppDetails (Prelude.Maybe AppType)
+appDetails_appType :: Lens.Lens' AppDetails (Core.Maybe AppType)
 appDetails_appType = Lens.lens (\AppDetails' {appType} -> appType) (\s@AppDetails' {} a -> s {appType = a} :: AppDetails)
 
 -- | The name of the app.
-appDetails_appName :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
+appDetails_appName :: Lens.Lens' AppDetails (Core.Maybe Core.Text)
 appDetails_appName = Lens.lens (\AppDetails' {appName} -> appName) (\s@AppDetails' {} a -> s {appName = a} :: AppDetails)
 
 -- | The user profile name.
-appDetails_userProfileName :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
+appDetails_userProfileName :: Lens.Lens' AppDetails (Core.Maybe Core.Text)
 appDetails_userProfileName = Lens.lens (\AppDetails' {userProfileName} -> userProfileName) (\s@AppDetails' {} a -> s {userProfileName = a} :: AppDetails)
 
 -- | The domain ID.
-appDetails_domainId :: Lens.Lens' AppDetails (Prelude.Maybe Prelude.Text)
+appDetails_domainId :: Lens.Lens' AppDetails (Core.Maybe Core.Text)
 appDetails_domainId = Lens.lens (\AppDetails' {domainId} -> domainId) (\s@AppDetails' {} a -> s {domainId = a} :: AppDetails)
 
-instance Prelude.FromJSON AppDetails where
+instance Core.FromJSON AppDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AppDetails"
       ( \x ->
           AppDetails'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "AppType")
-            Prelude.<*> (x Prelude..:? "AppName")
-            Prelude.<*> (x Prelude..:? "UserProfileName")
-            Prelude.<*> (x Prelude..:? "DomainId")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "AppType")
+            Core.<*> (x Core..:? "AppName")
+            Core.<*> (x Core..:? "UserProfileName")
+            Core.<*> (x Core..:? "DomainId")
       )
 
-instance Prelude.Hashable AppDetails
+instance Core.Hashable AppDetails
 
-instance Prelude.NFData AppDetails
+instance Core.NFData AppDetails

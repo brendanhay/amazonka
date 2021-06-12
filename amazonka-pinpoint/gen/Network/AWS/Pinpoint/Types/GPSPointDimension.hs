@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.GPSPointDimension where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.GPSCoordinates
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies GPS-based criteria for including or excluding endpoints from a
 -- segment.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGPSPointDimension' smart constructor.
 data GPSPointDimension = GPSPointDimension'
   { -- | The range, in kilometers, from the GPS coordinates.
-    rangeInKilometers :: Prelude.Maybe Prelude.Double,
+    rangeInKilometers :: Core.Maybe Core.Double,
     -- | The GPS coordinates to measure distance from.
     coordinates :: GPSCoordinates
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GPSPointDimension' with all optional fields omitted.
@@ -54,38 +53,38 @@ newGPSPointDimension ::
 newGPSPointDimension pCoordinates_ =
   GPSPointDimension'
     { rangeInKilometers =
-        Prelude.Nothing,
+        Core.Nothing,
       coordinates = pCoordinates_
     }
 
 -- | The range, in kilometers, from the GPS coordinates.
-gPSPointDimension_rangeInKilometers :: Lens.Lens' GPSPointDimension (Prelude.Maybe Prelude.Double)
+gPSPointDimension_rangeInKilometers :: Lens.Lens' GPSPointDimension (Core.Maybe Core.Double)
 gPSPointDimension_rangeInKilometers = Lens.lens (\GPSPointDimension' {rangeInKilometers} -> rangeInKilometers) (\s@GPSPointDimension' {} a -> s {rangeInKilometers = a} :: GPSPointDimension)
 
 -- | The GPS coordinates to measure distance from.
 gPSPointDimension_coordinates :: Lens.Lens' GPSPointDimension GPSCoordinates
 gPSPointDimension_coordinates = Lens.lens (\GPSPointDimension' {coordinates} -> coordinates) (\s@GPSPointDimension' {} a -> s {coordinates = a} :: GPSPointDimension)
 
-instance Prelude.FromJSON GPSPointDimension where
+instance Core.FromJSON GPSPointDimension where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GPSPointDimension"
       ( \x ->
           GPSPointDimension'
-            Prelude.<$> (x Prelude..:? "RangeInKilometers")
-            Prelude.<*> (x Prelude..: "Coordinates")
+            Core.<$> (x Core..:? "RangeInKilometers")
+            Core.<*> (x Core..: "Coordinates")
       )
 
-instance Prelude.Hashable GPSPointDimension
+instance Core.Hashable GPSPointDimension
 
-instance Prelude.NFData GPSPointDimension
+instance Core.NFData GPSPointDimension
 
-instance Prelude.ToJSON GPSPointDimension where
+instance Core.ToJSON GPSPointDimension where
   toJSON GPSPointDimension' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RangeInKilometers" Prelude..=)
-              Prelude.<$> rangeInKilometers,
-            Prelude.Just ("Coordinates" Prelude..= coordinates)
+    Core.object
+      ( Core.catMaybes
+          [ ("RangeInKilometers" Core..=)
+              Core.<$> rangeInKilometers,
+            Core.Just ("Coordinates" Core..= coordinates)
           ]
       )

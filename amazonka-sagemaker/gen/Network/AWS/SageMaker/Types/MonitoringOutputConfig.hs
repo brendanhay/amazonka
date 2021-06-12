@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringOutputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringOutput
 
 -- | The output configuration for monitoring jobs.
@@ -31,12 +30,12 @@ data MonitoringOutputConfig = MonitoringOutputConfig'
   { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt the model artifacts at rest using Amazon S3 server-side
     -- encryption.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | Monitoring outputs for monitoring jobs. This is where the output of the
     -- periodic monitoring jobs is uploaded.
-    monitoringOutputs :: Prelude.NonEmpty MonitoringOutput
+    monitoringOutputs :: Core.NonEmpty MonitoringOutput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringOutputConfig' with all optional fields omitted.
@@ -54,46 +53,46 @@ data MonitoringOutputConfig = MonitoringOutputConfig'
 -- periodic monitoring jobs is uploaded.
 newMonitoringOutputConfig ::
   -- | 'monitoringOutputs'
-  Prelude.NonEmpty MonitoringOutput ->
+  Core.NonEmpty MonitoringOutput ->
   MonitoringOutputConfig
 newMonitoringOutputConfig pMonitoringOutputs_ =
   MonitoringOutputConfig'
-    { kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
       monitoringOutputs =
-        Prelude._Coerce Lens.# pMonitoringOutputs_
+        Lens._Coerce Lens.# pMonitoringOutputs_
     }
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt the model artifacts at rest using Amazon S3 server-side
 -- encryption.
-monitoringOutputConfig_kmsKeyId :: Lens.Lens' MonitoringOutputConfig (Prelude.Maybe Prelude.Text)
+monitoringOutputConfig_kmsKeyId :: Lens.Lens' MonitoringOutputConfig (Core.Maybe Core.Text)
 monitoringOutputConfig_kmsKeyId = Lens.lens (\MonitoringOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@MonitoringOutputConfig' {} a -> s {kmsKeyId = a} :: MonitoringOutputConfig)
 
 -- | Monitoring outputs for monitoring jobs. This is where the output of the
 -- periodic monitoring jobs is uploaded.
-monitoringOutputConfig_monitoringOutputs :: Lens.Lens' MonitoringOutputConfig (Prelude.NonEmpty MonitoringOutput)
-monitoringOutputConfig_monitoringOutputs = Lens.lens (\MonitoringOutputConfig' {monitoringOutputs} -> monitoringOutputs) (\s@MonitoringOutputConfig' {} a -> s {monitoringOutputs = a} :: MonitoringOutputConfig) Prelude.. Prelude._Coerce
+monitoringOutputConfig_monitoringOutputs :: Lens.Lens' MonitoringOutputConfig (Core.NonEmpty MonitoringOutput)
+monitoringOutputConfig_monitoringOutputs = Lens.lens (\MonitoringOutputConfig' {monitoringOutputs} -> monitoringOutputs) (\s@MonitoringOutputConfig' {} a -> s {monitoringOutputs = a} :: MonitoringOutputConfig) Core.. Lens._Coerce
 
-instance Prelude.FromJSON MonitoringOutputConfig where
+instance Core.FromJSON MonitoringOutputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringOutputConfig"
       ( \x ->
           MonitoringOutputConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "MonitoringOutputs")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..: "MonitoringOutputs")
       )
 
-instance Prelude.Hashable MonitoringOutputConfig
+instance Core.Hashable MonitoringOutputConfig
 
-instance Prelude.NFData MonitoringOutputConfig
+instance Core.NFData MonitoringOutputConfig
 
-instance Prelude.ToJSON MonitoringOutputConfig where
+instance Core.ToJSON MonitoringOutputConfig where
   toJSON MonitoringOutputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
-              ("MonitoringOutputs" Prelude..= monitoringOutputs)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just
+              ("MonitoringOutputs" Core..= monitoringOutputs)
           ]
       )

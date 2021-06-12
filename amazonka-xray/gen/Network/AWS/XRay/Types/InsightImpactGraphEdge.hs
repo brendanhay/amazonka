@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.InsightImpactGraphEdge where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The connection between two service in an insight impact graph.
 --
 -- /See:/ 'newInsightImpactGraphEdge' smart constructor.
 data InsightImpactGraphEdge = InsightImpactGraphEdge'
   { -- | Identifier of the edge. Unique within a service map.
-    referenceId :: Prelude.Maybe Prelude.Int
+    referenceId :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InsightImpactGraphEdge' with all optional fields omitted.
@@ -44,24 +43,21 @@ data InsightImpactGraphEdge = InsightImpactGraphEdge'
 newInsightImpactGraphEdge ::
   InsightImpactGraphEdge
 newInsightImpactGraphEdge =
-  InsightImpactGraphEdge'
-    { referenceId =
-        Prelude.Nothing
-    }
+  InsightImpactGraphEdge' {referenceId = Core.Nothing}
 
 -- | Identifier of the edge. Unique within a service map.
-insightImpactGraphEdge_referenceId :: Lens.Lens' InsightImpactGraphEdge (Prelude.Maybe Prelude.Int)
+insightImpactGraphEdge_referenceId :: Lens.Lens' InsightImpactGraphEdge (Core.Maybe Core.Int)
 insightImpactGraphEdge_referenceId = Lens.lens (\InsightImpactGraphEdge' {referenceId} -> referenceId) (\s@InsightImpactGraphEdge' {} a -> s {referenceId = a} :: InsightImpactGraphEdge)
 
-instance Prelude.FromJSON InsightImpactGraphEdge where
+instance Core.FromJSON InsightImpactGraphEdge where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InsightImpactGraphEdge"
       ( \x ->
           InsightImpactGraphEdge'
-            Prelude.<$> (x Prelude..:? "ReferenceId")
+            Core.<$> (x Core..:? "ReferenceId")
       )
 
-instance Prelude.Hashable InsightImpactGraphEdge
+instance Core.Hashable InsightImpactGraphEdge
 
-instance Prelude.NFData InsightImpactGraphEdge
+instance Core.NFData InsightImpactGraphEdge

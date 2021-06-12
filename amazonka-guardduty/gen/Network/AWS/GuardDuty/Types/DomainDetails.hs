@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.DomainDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the domain.
 --
 -- /See:/ 'newDomainDetails' smart constructor.
 data DomainDetails = DomainDetails'
   { -- | The domain information for the AWS API call.
-    domain :: Prelude.Maybe Prelude.Text
+    domain :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DomainDetails' with all optional fields omitted.
@@ -44,20 +43,20 @@ data DomainDetails = DomainDetails'
 newDomainDetails ::
   DomainDetails
 newDomainDetails =
-  DomainDetails' {domain = Prelude.Nothing}
+  DomainDetails' {domain = Core.Nothing}
 
 -- | The domain information for the AWS API call.
-domainDetails_domain :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
+domainDetails_domain :: Lens.Lens' DomainDetails (Core.Maybe Core.Text)
 domainDetails_domain = Lens.lens (\DomainDetails' {domain} -> domain) (\s@DomainDetails' {} a -> s {domain = a} :: DomainDetails)
 
-instance Prelude.FromJSON DomainDetails where
+instance Core.FromJSON DomainDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DomainDetails"
       ( \x ->
-          DomainDetails' Prelude.<$> (x Prelude..:? "domain")
+          DomainDetails' Core.<$> (x Core..:? "domain")
       )
 
-instance Prelude.Hashable DomainDetails
+instance Core.Hashable DomainDetails
 
-instance Prelude.NFData DomainDetails
+instance Core.NFData DomainDetails

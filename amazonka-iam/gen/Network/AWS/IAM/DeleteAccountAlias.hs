@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.IAM.DeleteAccountAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ data DeleteAccountAlias = DeleteAccountAlias'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of lowercase letters, digits, and dashes. You cannot start or
     -- finish with a dash, nor can you have two dashes in a row.
-    accountAlias :: Prelude.Text
+    accountAlias :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountAlias' with all optional fields omitted.
@@ -73,7 +72,7 @@ data DeleteAccountAlias = DeleteAccountAlias'
 -- finish with a dash, nor can you have two dashes in a row.
 newDeleteAccountAlias ::
   -- | 'accountAlias'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAccountAlias
 newDeleteAccountAlias pAccountAlias_ =
   DeleteAccountAlias' {accountAlias = pAccountAlias_}
@@ -84,42 +83,41 @@ newDeleteAccountAlias pAccountAlias_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of lowercase letters, digits, and dashes. You cannot start or
 -- finish with a dash, nor can you have two dashes in a row.
-deleteAccountAlias_accountAlias :: Lens.Lens' DeleteAccountAlias Prelude.Text
+deleteAccountAlias_accountAlias :: Lens.Lens' DeleteAccountAlias Core.Text
 deleteAccountAlias_accountAlias = Lens.lens (\DeleteAccountAlias' {accountAlias} -> accountAlias) (\s@DeleteAccountAlias' {} a -> s {accountAlias = a} :: DeleteAccountAlias)
 
-instance Prelude.AWSRequest DeleteAccountAlias where
+instance Core.AWSRequest DeleteAccountAlias where
   type
-    Rs DeleteAccountAlias =
+    AWSResponse DeleteAccountAlias =
       DeleteAccountAliasResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteAccountAliasResponse'
 
-instance Prelude.Hashable DeleteAccountAlias
+instance Core.Hashable DeleteAccountAlias
 
-instance Prelude.NFData DeleteAccountAlias
+instance Core.NFData DeleteAccountAlias
 
-instance Prelude.ToHeaders DeleteAccountAlias where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteAccountAlias where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteAccountAlias where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAccountAlias where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAccountAlias where
+instance Core.ToQuery DeleteAccountAlias where
   toQuery DeleteAccountAlias' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteAccountAlias" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "AccountAlias" Prelude.=: accountAlias
+          Core.=: ("DeleteAccountAlias" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "AccountAlias" Core.=: accountAlias
       ]
 
 -- | /See:/ 'newDeleteAccountAliasResponse' smart constructor.
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccountAliasResponse' with all optional fields omitted.
@@ -130,4 +128,4 @@ newDeleteAccountAliasResponse ::
 newDeleteAccountAliasResponse =
   DeleteAccountAliasResponse'
 
-instance Prelude.NFData DeleteAccountAliasResponse
+instance Core.NFData DeleteAccountAliasResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.Credentials where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains credentials to use for federation.
 --
 -- /See:/ 'newCredentials' smart constructor.
 data Credentials = Credentials'
   { -- | Renews the expiration timer for a generated token.
-    refreshTokenExpiration :: Prelude.Maybe Prelude.POSIX,
+    refreshTokenExpiration :: Core.Maybe Core.POSIX,
     -- | An access token generated for a federated user to access Amazon Connect.
-    accessToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    accessToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | A token generated with an expiration time for the session a user is
     -- logged in to Amazon Connect.
-    accessTokenExpiration :: Prelude.Maybe Prelude.POSIX,
+    accessTokenExpiration :: Core.Maybe Core.POSIX,
     -- | Renews a token generated for a user to access the Amazon Connect
     -- instance.
-    refreshToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    refreshToken :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Credentials' with all optional fields omitted.
@@ -61,43 +60,42 @@ newCredentials ::
   Credentials
 newCredentials =
   Credentials'
-    { refreshTokenExpiration =
-        Prelude.Nothing,
-      accessToken = Prelude.Nothing,
-      accessTokenExpiration = Prelude.Nothing,
-      refreshToken = Prelude.Nothing
+    { refreshTokenExpiration = Core.Nothing,
+      accessToken = Core.Nothing,
+      accessTokenExpiration = Core.Nothing,
+      refreshToken = Core.Nothing
     }
 
 -- | Renews the expiration timer for a generated token.
-credentials_refreshTokenExpiration :: Lens.Lens' Credentials (Prelude.Maybe Prelude.UTCTime)
-credentials_refreshTokenExpiration = Lens.lens (\Credentials' {refreshTokenExpiration} -> refreshTokenExpiration) (\s@Credentials' {} a -> s {refreshTokenExpiration = a} :: Credentials) Prelude.. Lens.mapping Prelude._Time
+credentials_refreshTokenExpiration :: Lens.Lens' Credentials (Core.Maybe Core.UTCTime)
+credentials_refreshTokenExpiration = Lens.lens (\Credentials' {refreshTokenExpiration} -> refreshTokenExpiration) (\s@Credentials' {} a -> s {refreshTokenExpiration = a} :: Credentials) Core.. Lens.mapping Core._Time
 
 -- | An access token generated for a federated user to access Amazon Connect.
-credentials_accessToken :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
-credentials_accessToken = Lens.lens (\Credentials' {accessToken} -> accessToken) (\s@Credentials' {} a -> s {accessToken = a} :: Credentials) Prelude.. Lens.mapping Prelude._Sensitive
+credentials_accessToken :: Lens.Lens' Credentials (Core.Maybe Core.Text)
+credentials_accessToken = Lens.lens (\Credentials' {accessToken} -> accessToken) (\s@Credentials' {} a -> s {accessToken = a} :: Credentials) Core.. Lens.mapping Core._Sensitive
 
 -- | A token generated with an expiration time for the session a user is
 -- logged in to Amazon Connect.
-credentials_accessTokenExpiration :: Lens.Lens' Credentials (Prelude.Maybe Prelude.UTCTime)
-credentials_accessTokenExpiration = Lens.lens (\Credentials' {accessTokenExpiration} -> accessTokenExpiration) (\s@Credentials' {} a -> s {accessTokenExpiration = a} :: Credentials) Prelude.. Lens.mapping Prelude._Time
+credentials_accessTokenExpiration :: Lens.Lens' Credentials (Core.Maybe Core.UTCTime)
+credentials_accessTokenExpiration = Lens.lens (\Credentials' {accessTokenExpiration} -> accessTokenExpiration) (\s@Credentials' {} a -> s {accessTokenExpiration = a} :: Credentials) Core.. Lens.mapping Core._Time
 
 -- | Renews a token generated for a user to access the Amazon Connect
 -- instance.
-credentials_refreshToken :: Lens.Lens' Credentials (Prelude.Maybe Prelude.Text)
-credentials_refreshToken = Lens.lens (\Credentials' {refreshToken} -> refreshToken) (\s@Credentials' {} a -> s {refreshToken = a} :: Credentials) Prelude.. Lens.mapping Prelude._Sensitive
+credentials_refreshToken :: Lens.Lens' Credentials (Core.Maybe Core.Text)
+credentials_refreshToken = Lens.lens (\Credentials' {refreshToken} -> refreshToken) (\s@Credentials' {} a -> s {refreshToken = a} :: Credentials) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromJSON Credentials where
+instance Core.FromJSON Credentials where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Credentials"
       ( \x ->
           Credentials'
-            Prelude.<$> (x Prelude..:? "RefreshTokenExpiration")
-            Prelude.<*> (x Prelude..:? "AccessToken")
-            Prelude.<*> (x Prelude..:? "AccessTokenExpiration")
-            Prelude.<*> (x Prelude..:? "RefreshToken")
+            Core.<$> (x Core..:? "RefreshTokenExpiration")
+            Core.<*> (x Core..:? "AccessToken")
+            Core.<*> (x Core..:? "AccessTokenExpiration")
+            Core.<*> (x Core..:? "RefreshToken")
       )
 
-instance Prelude.Hashable Credentials
+instance Core.Hashable Credentials
 
-instance Prelude.NFData Credentials
+instance Core.NFData Credentials

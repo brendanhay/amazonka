@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.JobExecutionSummaryForThing where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.JobExecutionSummary
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The job execution summary for a thing.
 --
 -- /See:/ 'newJobExecutionSummaryForThing' smart constructor.
 data JobExecutionSummaryForThing = JobExecutionSummaryForThing'
   { -- | Contains a subset of information about a job execution.
-    jobExecutionSummary :: Prelude.Maybe JobExecutionSummary,
+    jobExecutionSummary :: Core.Maybe JobExecutionSummary,
     -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobExecutionSummaryForThing' with all optional fields omitted.
@@ -51,28 +50,28 @@ newJobExecutionSummaryForThing ::
 newJobExecutionSummaryForThing =
   JobExecutionSummaryForThing'
     { jobExecutionSummary =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing
+        Core.Nothing,
+      jobId = Core.Nothing
     }
 
 -- | Contains a subset of information about a job execution.
-jobExecutionSummaryForThing_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForThing (Prelude.Maybe JobExecutionSummary)
+jobExecutionSummaryForThing_jobExecutionSummary :: Lens.Lens' JobExecutionSummaryForThing (Core.Maybe JobExecutionSummary)
 jobExecutionSummaryForThing_jobExecutionSummary = Lens.lens (\JobExecutionSummaryForThing' {jobExecutionSummary} -> jobExecutionSummary) (\s@JobExecutionSummaryForThing' {} a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForThing)
 
 -- | The unique identifier you assigned to this job when it was created.
-jobExecutionSummaryForThing_jobId :: Lens.Lens' JobExecutionSummaryForThing (Prelude.Maybe Prelude.Text)
+jobExecutionSummaryForThing_jobId :: Lens.Lens' JobExecutionSummaryForThing (Core.Maybe Core.Text)
 jobExecutionSummaryForThing_jobId = Lens.lens (\JobExecutionSummaryForThing' {jobId} -> jobId) (\s@JobExecutionSummaryForThing' {} a -> s {jobId = a} :: JobExecutionSummaryForThing)
 
-instance Prelude.FromJSON JobExecutionSummaryForThing where
+instance Core.FromJSON JobExecutionSummaryForThing where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobExecutionSummaryForThing"
       ( \x ->
           JobExecutionSummaryForThing'
-            Prelude.<$> (x Prelude..:? "jobExecutionSummary")
-            Prelude.<*> (x Prelude..:? "jobId")
+            Core.<$> (x Core..:? "jobExecutionSummary")
+            Core.<*> (x Core..:? "jobId")
       )
 
-instance Prelude.Hashable JobExecutionSummaryForThing
+instance Core.Hashable JobExecutionSummaryForThing
 
-instance Prelude.NFData JobExecutionSummaryForThing
+instance Core.NFData JobExecutionSummaryForThing

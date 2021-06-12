@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SageMaker.StartPipelineExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -53,19 +52,19 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStartPipelineExecution' smart constructor.
 data StartPipelineExecution = StartPipelineExecution'
   { -- | The description of the pipeline execution.
-    pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
+    pipelineExecutionDescription :: Core.Maybe Core.Text,
     -- | Contains a list of pipeline parameters. This list can be empty.
-    pipelineParameters :: Prelude.Maybe [Parameter],
+    pipelineParameters :: Core.Maybe [Parameter],
     -- | The display name of the pipeline execution.
-    pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
+    pipelineExecutionDisplayName :: Core.Maybe Core.Text,
     -- | The name of the pipeline.
-    pipelineName :: Prelude.Text,
+    pipelineName :: Core.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
     -- than one time.
-    clientRequestToken :: Prelude.Text
+    clientRequestToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartPipelineExecution' with all optional fields omitted.
@@ -88,109 +87,104 @@ data StartPipelineExecution = StartPipelineExecution'
 -- than one time.
 newStartPipelineExecution ::
   -- | 'pipelineName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientRequestToken'
-  Prelude.Text ->
+  Core.Text ->
   StartPipelineExecution
 newStartPipelineExecution
   pPipelineName_
   pClientRequestToken_ =
     StartPipelineExecution'
       { pipelineExecutionDescription =
-          Prelude.Nothing,
-        pipelineParameters = Prelude.Nothing,
-        pipelineExecutionDisplayName = Prelude.Nothing,
+          Core.Nothing,
+        pipelineParameters = Core.Nothing,
+        pipelineExecutionDisplayName = Core.Nothing,
         pipelineName = pPipelineName_,
         clientRequestToken = pClientRequestToken_
       }
 
 -- | The description of the pipeline execution.
-startPipelineExecution_pipelineExecutionDescription :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
+startPipelineExecution_pipelineExecutionDescription :: Lens.Lens' StartPipelineExecution (Core.Maybe Core.Text)
 startPipelineExecution_pipelineExecutionDescription = Lens.lens (\StartPipelineExecution' {pipelineExecutionDescription} -> pipelineExecutionDescription) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDescription = a} :: StartPipelineExecution)
 
 -- | Contains a list of pipeline parameters. This list can be empty.
-startPipelineExecution_pipelineParameters :: Lens.Lens' StartPipelineExecution (Prelude.Maybe [Parameter])
-startPipelineExecution_pipelineParameters = Lens.lens (\StartPipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@StartPipelineExecution' {} a -> s {pipelineParameters = a} :: StartPipelineExecution) Prelude.. Lens.mapping Prelude._Coerce
+startPipelineExecution_pipelineParameters :: Lens.Lens' StartPipelineExecution (Core.Maybe [Parameter])
+startPipelineExecution_pipelineParameters = Lens.lens (\StartPipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@StartPipelineExecution' {} a -> s {pipelineParameters = a} :: StartPipelineExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The display name of the pipeline execution.
-startPipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' StartPipelineExecution (Prelude.Maybe Prelude.Text)
+startPipelineExecution_pipelineExecutionDisplayName :: Lens.Lens' StartPipelineExecution (Core.Maybe Core.Text)
 startPipelineExecution_pipelineExecutionDisplayName = Lens.lens (\StartPipelineExecution' {pipelineExecutionDisplayName} -> pipelineExecutionDisplayName) (\s@StartPipelineExecution' {} a -> s {pipelineExecutionDisplayName = a} :: StartPipelineExecution)
 
 -- | The name of the pipeline.
-startPipelineExecution_pipelineName :: Lens.Lens' StartPipelineExecution Prelude.Text
+startPipelineExecution_pipelineName :: Lens.Lens' StartPipelineExecution Core.Text
 startPipelineExecution_pipelineName = Lens.lens (\StartPipelineExecution' {pipelineName} -> pipelineName) (\s@StartPipelineExecution' {} a -> s {pipelineName = a} :: StartPipelineExecution)
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
 -- than one time.
-startPipelineExecution_clientRequestToken :: Lens.Lens' StartPipelineExecution Prelude.Text
+startPipelineExecution_clientRequestToken :: Lens.Lens' StartPipelineExecution Core.Text
 startPipelineExecution_clientRequestToken = Lens.lens (\StartPipelineExecution' {clientRequestToken} -> clientRequestToken) (\s@StartPipelineExecution' {} a -> s {clientRequestToken = a} :: StartPipelineExecution)
 
-instance Prelude.AWSRequest StartPipelineExecution where
+instance Core.AWSRequest StartPipelineExecution where
   type
-    Rs StartPipelineExecution =
+    AWSResponse StartPipelineExecution =
       StartPipelineExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartPipelineExecutionResponse'
-            Prelude.<$> (x Prelude..?> "PipelineExecutionArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PipelineExecutionArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartPipelineExecution
+instance Core.Hashable StartPipelineExecution
 
-instance Prelude.NFData StartPipelineExecution
+instance Core.NFData StartPipelineExecution
 
-instance Prelude.ToHeaders StartPipelineExecution where
+instance Core.ToHeaders StartPipelineExecution where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StartPipelineExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.StartPipelineExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartPipelineExecution where
+instance Core.ToJSON StartPipelineExecution where
   toJSON StartPipelineExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PipelineExecutionDescription" Prelude..=)
-              Prelude.<$> pipelineExecutionDescription,
-            ("PipelineParameters" Prelude..=)
-              Prelude.<$> pipelineParameters,
-            ("PipelineExecutionDisplayName" Prelude..=)
-              Prelude.<$> pipelineExecutionDisplayName,
-            Prelude.Just
-              ("PipelineName" Prelude..= pipelineName),
-            Prelude.Just
-              ( "ClientRequestToken"
-                  Prelude..= clientRequestToken
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("PipelineExecutionDescription" Core..=)
+              Core.<$> pipelineExecutionDescription,
+            ("PipelineParameters" Core..=)
+              Core.<$> pipelineParameters,
+            ("PipelineExecutionDisplayName" Core..=)
+              Core.<$> pipelineExecutionDisplayName,
+            Core.Just ("PipelineName" Core..= pipelineName),
+            Core.Just
+              ("ClientRequestToken" Core..= clientRequestToken)
           ]
       )
 
-instance Prelude.ToPath StartPipelineExecution where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartPipelineExecution where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartPipelineExecution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartPipelineExecution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartPipelineExecutionResponse' smart constructor.
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
   { -- | The Amazon Resource Name (ARN) of the pipeline execution.
-    pipelineExecutionArn :: Prelude.Maybe Prelude.Text,
+    pipelineExecutionArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartPipelineExecutionResponse' with all optional fields omitted.
@@ -205,23 +199,21 @@ data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
 -- 'httpStatus', 'startPipelineExecutionResponse_httpStatus' - The response's http status code.
 newStartPipelineExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartPipelineExecutionResponse
 newStartPipelineExecutionResponse pHttpStatus_ =
   StartPipelineExecutionResponse'
     { pipelineExecutionArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
-startPipelineExecutionResponse_pipelineExecutionArn :: Lens.Lens' StartPipelineExecutionResponse (Prelude.Maybe Prelude.Text)
+startPipelineExecutionResponse_pipelineExecutionArn :: Lens.Lens' StartPipelineExecutionResponse (Core.Maybe Core.Text)
 startPipelineExecutionResponse_pipelineExecutionArn = Lens.lens (\StartPipelineExecutionResponse' {pipelineExecutionArn} -> pipelineExecutionArn) (\s@StartPipelineExecutionResponse' {} a -> s {pipelineExecutionArn = a} :: StartPipelineExecutionResponse)
 
 -- | The response's http status code.
-startPipelineExecutionResponse_httpStatus :: Lens.Lens' StartPipelineExecutionResponse Prelude.Int
+startPipelineExecutionResponse_httpStatus :: Lens.Lens' StartPipelineExecutionResponse Core.Int
 startPipelineExecutionResponse_httpStatus = Lens.lens (\StartPipelineExecutionResponse' {httpStatus} -> httpStatus) (\s@StartPipelineExecutionResponse' {} a -> s {httpStatus = a} :: StartPipelineExecutionResponse)
 
-instance
-  Prelude.NFData
-    StartPipelineExecutionResponse
+instance Core.NFData StartPipelineExecutionResponse

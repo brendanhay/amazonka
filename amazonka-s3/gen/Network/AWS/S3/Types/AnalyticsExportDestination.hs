@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.AnalyticsExportDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AnalyticsS3BucketDestination
 
@@ -32,7 +31,7 @@ data AnalyticsExportDestination = AnalyticsExportDestination'
   { -- | A destination signifying output to an S3 bucket.
     s3BucketDestination :: AnalyticsS3BucketDestination
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalyticsExportDestination' with all optional fields omitted.
@@ -57,18 +56,16 @@ newAnalyticsExportDestination pS3BucketDestination_ =
 analyticsExportDestination_s3BucketDestination :: Lens.Lens' AnalyticsExportDestination AnalyticsS3BucketDestination
 analyticsExportDestination_s3BucketDestination = Lens.lens (\AnalyticsExportDestination' {s3BucketDestination} -> s3BucketDestination) (\s@AnalyticsExportDestination' {} a -> s {s3BucketDestination = a} :: AnalyticsExportDestination)
 
-instance Prelude.FromXML AnalyticsExportDestination where
+instance Core.FromXML AnalyticsExportDestination where
   parseXML x =
     AnalyticsExportDestination'
-      Prelude.<$> (x Prelude..@ "S3BucketDestination")
+      Core.<$> (x Core..@ "S3BucketDestination")
 
-instance Prelude.Hashable AnalyticsExportDestination
+instance Core.Hashable AnalyticsExportDestination
 
-instance Prelude.NFData AnalyticsExportDestination
+instance Core.NFData AnalyticsExportDestination
 
-instance Prelude.ToXML AnalyticsExportDestination where
+instance Core.ToXML AnalyticsExportDestination where
   toXML AnalyticsExportDestination' {..} =
-    Prelude.mconcat
-      [ "S3BucketDestination"
-          Prelude.@= s3BucketDestination
-      ]
+    Core.mconcat
+      ["S3BucketDestination" Core.@= s3BucketDestination]

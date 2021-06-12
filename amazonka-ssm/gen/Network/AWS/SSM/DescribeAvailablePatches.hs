@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.SSM.DescribeAvailablePatches
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -56,13 +54,13 @@ import Network.AWS.SSM.Types
 data DescribeAvailablePatches = DescribeAvailablePatches'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of patches to return (per page).
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Filters used to scope down the returned patches.
-    filters :: Prelude.Maybe [PatchOrchestratorFilter]
+    filters :: Core.Maybe [PatchOrchestratorFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAvailablePatches' with all optional fields omitted.
@@ -82,107 +80,104 @@ newDescribeAvailablePatches ::
   DescribeAvailablePatches
 newDescribeAvailablePatches =
   DescribeAvailablePatches'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeAvailablePatches_nextToken :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Text)
+describeAvailablePatches_nextToken :: Lens.Lens' DescribeAvailablePatches (Core.Maybe Core.Text)
 describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {nextToken} -> nextToken) (\s@DescribeAvailablePatches' {} a -> s {nextToken = a} :: DescribeAvailablePatches)
 
 -- | The maximum number of patches to return (per page).
-describeAvailablePatches_maxResults :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Natural)
+describeAvailablePatches_maxResults :: Lens.Lens' DescribeAvailablePatches (Core.Maybe Core.Natural)
 describeAvailablePatches_maxResults = Lens.lens (\DescribeAvailablePatches' {maxResults} -> maxResults) (\s@DescribeAvailablePatches' {} a -> s {maxResults = a} :: DescribeAvailablePatches)
 
 -- | Filters used to scope down the returned patches.
-describeAvailablePatches_filters :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe [PatchOrchestratorFilter])
-describeAvailablePatches_filters = Lens.lens (\DescribeAvailablePatches' {filters} -> filters) (\s@DescribeAvailablePatches' {} a -> s {filters = a} :: DescribeAvailablePatches) Prelude.. Lens.mapping Prelude._Coerce
+describeAvailablePatches_filters :: Lens.Lens' DescribeAvailablePatches (Core.Maybe [PatchOrchestratorFilter])
+describeAvailablePatches_filters = Lens.lens (\DescribeAvailablePatches' {filters} -> filters) (\s@DescribeAvailablePatches' {} a -> s {filters = a} :: DescribeAvailablePatches) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeAvailablePatches where
+instance Core.AWSPager DescribeAvailablePatches where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAvailablePatchesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAvailablePatchesResponse_patches
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAvailablePatches_nextToken
           Lens..~ rs
           Lens.^? describeAvailablePatchesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeAvailablePatches where
+instance Core.AWSRequest DescribeAvailablePatches where
   type
-    Rs DescribeAvailablePatches =
+    AWSResponse DescribeAvailablePatches =
       DescribeAvailablePatchesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAvailablePatchesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Patches" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Patches" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAvailablePatches
+instance Core.Hashable DescribeAvailablePatches
 
-instance Prelude.NFData DescribeAvailablePatches
+instance Core.NFData DescribeAvailablePatches
 
-instance Prelude.ToHeaders DescribeAvailablePatches where
+instance Core.ToHeaders DescribeAvailablePatches where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribeAvailablePatches" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DescribeAvailablePatches" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAvailablePatches where
+instance Core.ToJSON DescribeAvailablePatches where
   toJSON DescribeAvailablePatches' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath DescribeAvailablePatches where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAvailablePatches where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAvailablePatches where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAvailablePatches where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAvailablePatchesResponse' smart constructor.
 data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of patches. Each entry in the array is a patch structure.
-    patches :: Prelude.Maybe [Patch],
+    patches :: Core.Maybe [Patch],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAvailablePatchesResponse' with all optional fields omitted.
@@ -200,29 +195,27 @@ data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
 -- 'httpStatus', 'describeAvailablePatchesResponse_httpStatus' - The response's http status code.
 newDescribeAvailablePatchesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAvailablePatchesResponse
 newDescribeAvailablePatchesResponse pHttpStatus_ =
   DescribeAvailablePatchesResponse'
     { nextToken =
-        Prelude.Nothing,
-      patches = Prelude.Nothing,
+        Core.Nothing,
+      patches = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describeAvailablePatchesResponse_nextToken :: Lens.Lens' DescribeAvailablePatchesResponse (Prelude.Maybe Prelude.Text)
+describeAvailablePatchesResponse_nextToken :: Lens.Lens' DescribeAvailablePatchesResponse (Core.Maybe Core.Text)
 describeAvailablePatchesResponse_nextToken = Lens.lens (\DescribeAvailablePatchesResponse' {nextToken} -> nextToken) (\s@DescribeAvailablePatchesResponse' {} a -> s {nextToken = a} :: DescribeAvailablePatchesResponse)
 
 -- | An array of patches. Each entry in the array is a patch structure.
-describeAvailablePatchesResponse_patches :: Lens.Lens' DescribeAvailablePatchesResponse (Prelude.Maybe [Patch])
-describeAvailablePatchesResponse_patches = Lens.lens (\DescribeAvailablePatchesResponse' {patches} -> patches) (\s@DescribeAvailablePatchesResponse' {} a -> s {patches = a} :: DescribeAvailablePatchesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAvailablePatchesResponse_patches :: Lens.Lens' DescribeAvailablePatchesResponse (Core.Maybe [Patch])
+describeAvailablePatchesResponse_patches = Lens.lens (\DescribeAvailablePatchesResponse' {patches} -> patches) (\s@DescribeAvailablePatchesResponse' {} a -> s {patches = a} :: DescribeAvailablePatchesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAvailablePatchesResponse_httpStatus :: Lens.Lens' DescribeAvailablePatchesResponse Prelude.Int
+describeAvailablePatchesResponse_httpStatus :: Lens.Lens' DescribeAvailablePatchesResponse Core.Int
 describeAvailablePatchesResponse_httpStatus = Lens.lens (\DescribeAvailablePatchesResponse' {httpStatus} -> httpStatus) (\s@DescribeAvailablePatchesResponse' {} a -> s {httpStatus = a} :: DescribeAvailablePatchesResponse)
 
-instance
-  Prelude.NFData
-    DescribeAvailablePatchesResponse
+instance Core.NFData DescribeAvailablePatchesResponse

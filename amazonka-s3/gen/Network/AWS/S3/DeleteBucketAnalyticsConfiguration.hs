@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.S3.DeleteBucketAnalyticsConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -70,13 +69,13 @@ data DeleteBucketAnalyticsConfiguration = DeleteBucketAnalyticsConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket from which an analytics configuration is deleted.
     bucket :: BucketName,
     -- | The ID that identifies the analytics configuration.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketAnalyticsConfiguration' with all optional fields omitted.
@@ -97,12 +96,12 @@ newDeleteBucketAnalyticsConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBucketAnalyticsConfiguration
 newDeleteBucketAnalyticsConfiguration pBucket_ pId_ =
   DeleteBucketAnalyticsConfiguration'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_,
       id = pId_
     }
@@ -110,7 +109,7 @@ newDeleteBucketAnalyticsConfiguration pBucket_ pId_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' DeleteBucketAnalyticsConfiguration (Prelude.Maybe Prelude.Text)
+deleteBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' DeleteBucketAnalyticsConfiguration (Core.Maybe Core.Text)
 deleteBucketAnalyticsConfiguration_expectedBucketOwner = Lens.lens (\DeleteBucketAnalyticsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketAnalyticsConfiguration' {} a -> s {expectedBucketOwner = a} :: DeleteBucketAnalyticsConfiguration)
 
 -- | The name of the bucket from which an analytics configuration is deleted.
@@ -118,15 +117,15 @@ deleteBucketAnalyticsConfiguration_bucket :: Lens.Lens' DeleteBucketAnalyticsCon
 deleteBucketAnalyticsConfiguration_bucket = Lens.lens (\DeleteBucketAnalyticsConfiguration' {bucket} -> bucket) (\s@DeleteBucketAnalyticsConfiguration' {} a -> s {bucket = a} :: DeleteBucketAnalyticsConfiguration)
 
 -- | The ID that identifies the analytics configuration.
-deleteBucketAnalyticsConfiguration_id :: Lens.Lens' DeleteBucketAnalyticsConfiguration Prelude.Text
+deleteBucketAnalyticsConfiguration_id :: Lens.Lens' DeleteBucketAnalyticsConfiguration Core.Text
 deleteBucketAnalyticsConfiguration_id = Lens.lens (\DeleteBucketAnalyticsConfiguration' {id} -> id) (\s@DeleteBucketAnalyticsConfiguration' {} a -> s {id = a} :: DeleteBucketAnalyticsConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteBucketAnalyticsConfiguration
   where
   type
-    Rs DeleteBucketAnalyticsConfiguration =
+    AWSResponse DeleteBucketAnalyticsConfiguration =
       DeleteBucketAnalyticsConfigurationResponse
   request = Request.delete defaultService
   response =
@@ -134,42 +133,42 @@ instance
       DeleteBucketAnalyticsConfigurationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteBucketAnalyticsConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteBucketAnalyticsConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteBucketAnalyticsConfiguration
   where
   toHeaders DeleteBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteBucketAnalyticsConfiguration
   where
   toPath DeleteBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteBucketAnalyticsConfiguration
   where
   toQuery DeleteBucketAnalyticsConfiguration' {..} =
-    Prelude.mconcat ["id" Prelude.=: id, "analytics"]
+    Core.mconcat ["id" Core.=: id, "analytics"]
 
 -- | /See:/ 'newDeleteBucketAnalyticsConfigurationResponse' smart constructor.
 data DeleteBucketAnalyticsConfigurationResponse = DeleteBucketAnalyticsConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketAnalyticsConfigurationResponse' with all optional fields omitted.
@@ -181,5 +180,5 @@ newDeleteBucketAnalyticsConfigurationResponse =
   DeleteBucketAnalyticsConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteBucketAnalyticsConfigurationResponse

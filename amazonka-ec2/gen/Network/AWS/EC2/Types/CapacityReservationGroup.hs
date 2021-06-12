@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CapacityReservationGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a resource group to which a Capacity Reservation has been
 -- added.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCapacityReservationGroup' smart constructor.
 data CapacityReservationGroup = CapacityReservationGroup'
   { -- | The ID of the AWS account that owns the resource group.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    ownerId :: Core.Maybe Core.Text,
     -- | The ARN of the resource group.
-    groupArn :: Prelude.Maybe Prelude.Text
+    groupArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CapacityReservationGroup' with all optional fields omitted.
@@ -51,25 +50,24 @@ newCapacityReservationGroup ::
   CapacityReservationGroup
 newCapacityReservationGroup =
   CapacityReservationGroup'
-    { ownerId =
-        Prelude.Nothing,
-      groupArn = Prelude.Nothing
+    { ownerId = Core.Nothing,
+      groupArn = Core.Nothing
     }
 
 -- | The ID of the AWS account that owns the resource group.
-capacityReservationGroup_ownerId :: Lens.Lens' CapacityReservationGroup (Prelude.Maybe Prelude.Text)
+capacityReservationGroup_ownerId :: Lens.Lens' CapacityReservationGroup (Core.Maybe Core.Text)
 capacityReservationGroup_ownerId = Lens.lens (\CapacityReservationGroup' {ownerId} -> ownerId) (\s@CapacityReservationGroup' {} a -> s {ownerId = a} :: CapacityReservationGroup)
 
 -- | The ARN of the resource group.
-capacityReservationGroup_groupArn :: Lens.Lens' CapacityReservationGroup (Prelude.Maybe Prelude.Text)
+capacityReservationGroup_groupArn :: Lens.Lens' CapacityReservationGroup (Core.Maybe Core.Text)
 capacityReservationGroup_groupArn = Lens.lens (\CapacityReservationGroup' {groupArn} -> groupArn) (\s@CapacityReservationGroup' {} a -> s {groupArn = a} :: CapacityReservationGroup)
 
-instance Prelude.FromXML CapacityReservationGroup where
+instance Core.FromXML CapacityReservationGroup where
   parseXML x =
     CapacityReservationGroup'
-      Prelude.<$> (x Prelude..@? "ownerId")
-      Prelude.<*> (x Prelude..@? "groupArn")
+      Core.<$> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "groupArn")
 
-instance Prelude.Hashable CapacityReservationGroup
+instance Core.Hashable CapacityReservationGroup
 
-instance Prelude.NFData CapacityReservationGroup
+instance Core.NFData CapacityReservationGroup

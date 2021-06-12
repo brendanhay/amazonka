@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.SSM.DeleteOpsMetadata
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -48,9 +47,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteOpsMetadata' smart constructor.
 data DeleteOpsMetadata = DeleteOpsMetadata'
   { -- | The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.
-    opsMetadataArn :: Prelude.Text
+    opsMetadataArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOpsMetadata' with all optional fields omitted.
@@ -63,7 +62,7 @@ data DeleteOpsMetadata = DeleteOpsMetadata'
 -- 'opsMetadataArn', 'deleteOpsMetadata_opsMetadataArn' - The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.
 newDeleteOpsMetadata ::
   -- | 'opsMetadataArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteOpsMetadata
 newDeleteOpsMetadata pOpsMetadataArn_ =
   DeleteOpsMetadata'
@@ -72,59 +71,57 @@ newDeleteOpsMetadata pOpsMetadataArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of an OpsMetadata Object to delete.
-deleteOpsMetadata_opsMetadataArn :: Lens.Lens' DeleteOpsMetadata Prelude.Text
+deleteOpsMetadata_opsMetadataArn :: Lens.Lens' DeleteOpsMetadata Core.Text
 deleteOpsMetadata_opsMetadataArn = Lens.lens (\DeleteOpsMetadata' {opsMetadataArn} -> opsMetadataArn) (\s@DeleteOpsMetadata' {} a -> s {opsMetadataArn = a} :: DeleteOpsMetadata)
 
-instance Prelude.AWSRequest DeleteOpsMetadata where
-  type Rs DeleteOpsMetadata = DeleteOpsMetadataResponse
+instance Core.AWSRequest DeleteOpsMetadata where
+  type
+    AWSResponse DeleteOpsMetadata =
+      DeleteOpsMetadataResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteOpsMetadataResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOpsMetadata
+instance Core.Hashable DeleteOpsMetadata
 
-instance Prelude.NFData DeleteOpsMetadata
+instance Core.NFData DeleteOpsMetadata
 
-instance Prelude.ToHeaders DeleteOpsMetadata where
+instance Core.ToHeaders DeleteOpsMetadata where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DeleteOpsMetadata" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonSSM.DeleteOpsMetadata" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteOpsMetadata where
+instance Core.ToJSON DeleteOpsMetadata where
   toJSON DeleteOpsMetadata' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("OpsMetadataArn" Prelude..= opsMetadataArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("OpsMetadataArn" Core..= opsMetadataArn)
           ]
       )
 
-instance Prelude.ToPath DeleteOpsMetadata where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteOpsMetadata where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteOpsMetadata where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteOpsMetadata where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteOpsMetadataResponse' smart constructor.
 data DeleteOpsMetadataResponse = DeleteOpsMetadataResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOpsMetadataResponse' with all optional fields omitted.
@@ -137,7 +134,7 @@ data DeleteOpsMetadataResponse = DeleteOpsMetadataResponse'
 -- 'httpStatus', 'deleteOpsMetadataResponse_httpStatus' - The response's http status code.
 newDeleteOpsMetadataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteOpsMetadataResponse
 newDeleteOpsMetadataResponse pHttpStatus_ =
   DeleteOpsMetadataResponse'
@@ -146,7 +143,7 @@ newDeleteOpsMetadataResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteOpsMetadataResponse_httpStatus :: Lens.Lens' DeleteOpsMetadataResponse Prelude.Int
+deleteOpsMetadataResponse_httpStatus :: Lens.Lens' DeleteOpsMetadataResponse Core.Int
 deleteOpsMetadataResponse_httpStatus = Lens.lens (\DeleteOpsMetadataResponse' {httpStatus} -> httpStatus) (\s@DeleteOpsMetadataResponse' {} a -> s {httpStatus = a} :: DeleteOpsMetadataResponse)
 
-instance Prelude.NFData DeleteOpsMetadataResponse
+instance Core.NFData DeleteOpsMetadataResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.WorkDocs.CreateLabels
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -52,13 +51,13 @@ import Network.AWS.WorkDocs.Types
 data CreateLabels = CreateLabels'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The ID of the resource.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | List of labels to add to the resource.
-    labels :: [Prelude.Text]
+    labels :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLabels' with all optional fields omitted.
@@ -76,75 +75,74 @@ data CreateLabels = CreateLabels'
 -- 'labels', 'createLabels_labels' - List of labels to add to the resource.
 newCreateLabels ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   CreateLabels
 newCreateLabels pResourceId_ =
   CreateLabels'
-    { authenticationToken =
-        Prelude.Nothing,
+    { authenticationToken = Core.Nothing,
       resourceId = pResourceId_,
-      labels = Prelude.mempty
+      labels = Core.mempty
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-createLabels_authenticationToken :: Lens.Lens' CreateLabels (Prelude.Maybe Prelude.Text)
-createLabels_authenticationToken = Lens.lens (\CreateLabels' {authenticationToken} -> authenticationToken) (\s@CreateLabels' {} a -> s {authenticationToken = a} :: CreateLabels) Prelude.. Lens.mapping Prelude._Sensitive
+createLabels_authenticationToken :: Lens.Lens' CreateLabels (Core.Maybe Core.Text)
+createLabels_authenticationToken = Lens.lens (\CreateLabels' {authenticationToken} -> authenticationToken) (\s@CreateLabels' {} a -> s {authenticationToken = a} :: CreateLabels) Core.. Lens.mapping Core._Sensitive
 
 -- | The ID of the resource.
-createLabels_resourceId :: Lens.Lens' CreateLabels Prelude.Text
+createLabels_resourceId :: Lens.Lens' CreateLabels Core.Text
 createLabels_resourceId = Lens.lens (\CreateLabels' {resourceId} -> resourceId) (\s@CreateLabels' {} a -> s {resourceId = a} :: CreateLabels)
 
 -- | List of labels to add to the resource.
-createLabels_labels :: Lens.Lens' CreateLabels [Prelude.Text]
-createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLabels' {} a -> s {labels = a} :: CreateLabels) Prelude.. Prelude._Coerce
+createLabels_labels :: Lens.Lens' CreateLabels [Core.Text]
+createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLabels' {} a -> s {labels = a} :: CreateLabels) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateLabels where
-  type Rs CreateLabels = CreateLabelsResponse
+instance Core.AWSRequest CreateLabels where
+  type AWSResponse CreateLabels = CreateLabelsResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateLabelsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLabels
+instance Core.Hashable CreateLabels
 
-instance Prelude.NFData CreateLabels
+instance Core.NFData CreateLabels
 
-instance Prelude.ToHeaders CreateLabels where
+instance Core.ToHeaders CreateLabels where
   toHeaders CreateLabels' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToJSON CreateLabels where
+instance Core.ToJSON CreateLabels where
   toJSON CreateLabels' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Labels" Prelude..= labels)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Labels" Core..= labels)]
       )
 
-instance Prelude.ToPath CreateLabels where
+instance Core.ToPath CreateLabels where
   toPath CreateLabels' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/api/v1/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/labels"
       ]
 
-instance Prelude.ToQuery CreateLabels where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateLabels where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateLabelsResponse' smart constructor.
 data CreateLabelsResponse = CreateLabelsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLabelsResponse' with all optional fields omitted.
@@ -157,13 +155,13 @@ data CreateLabelsResponse = CreateLabelsResponse'
 -- 'httpStatus', 'createLabelsResponse_httpStatus' - The response's http status code.
 newCreateLabelsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateLabelsResponse
 newCreateLabelsResponse pHttpStatus_ =
   CreateLabelsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createLabelsResponse_httpStatus :: Lens.Lens' CreateLabelsResponse Prelude.Int
+createLabelsResponse_httpStatus :: Lens.Lens' CreateLabelsResponse Core.Int
 createLabelsResponse_httpStatus = Lens.lens (\CreateLabelsResponse' {httpStatus} -> httpStatus) (\s@CreateLabelsResponse' {} a -> s {httpStatus = a} :: CreateLabelsResponse)
 
-instance Prelude.NFData CreateLabelsResponse
+instance Core.NFData CreateLabelsResponse

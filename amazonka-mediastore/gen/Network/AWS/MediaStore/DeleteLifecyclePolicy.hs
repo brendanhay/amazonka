@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.MediaStore.DeleteLifecyclePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLifecyclePolicy' smart constructor.
 data DeleteLifecyclePolicy = DeleteLifecyclePolicy'
   { -- | The name of the container that holds the object lifecycle policy.
-    containerName :: Prelude.Text
+    containerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLifecyclePolicy' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DeleteLifecyclePolicy = DeleteLifecyclePolicy'
 -- 'containerName', 'deleteLifecyclePolicy_containerName' - The name of the container that holds the object lifecycle policy.
 newDeleteLifecyclePolicy ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLifecyclePolicy
 newDeleteLifecyclePolicy pContainerName_ =
   DeleteLifecyclePolicy'
@@ -73,61 +72,57 @@ newDeleteLifecyclePolicy pContainerName_ =
     }
 
 -- | The name of the container that holds the object lifecycle policy.
-deleteLifecyclePolicy_containerName :: Lens.Lens' DeleteLifecyclePolicy Prelude.Text
+deleteLifecyclePolicy_containerName :: Lens.Lens' DeleteLifecyclePolicy Core.Text
 deleteLifecyclePolicy_containerName = Lens.lens (\DeleteLifecyclePolicy' {containerName} -> containerName) (\s@DeleteLifecyclePolicy' {} a -> s {containerName = a} :: DeleteLifecyclePolicy)
 
-instance Prelude.AWSRequest DeleteLifecyclePolicy where
+instance Core.AWSRequest DeleteLifecyclePolicy where
   type
-    Rs DeleteLifecyclePolicy =
+    AWSResponse DeleteLifecyclePolicy =
       DeleteLifecyclePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLifecyclePolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLifecyclePolicy
+instance Core.Hashable DeleteLifecyclePolicy
 
-instance Prelude.NFData DeleteLifecyclePolicy
+instance Core.NFData DeleteLifecyclePolicy
 
-instance Prelude.ToHeaders DeleteLifecyclePolicy where
+instance Core.ToHeaders DeleteLifecyclePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.DeleteLifecyclePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.DeleteLifecyclePolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteLifecyclePolicy where
+instance Core.ToJSON DeleteLifecyclePolicy where
   toJSON DeleteLifecyclePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ContainerName" Prelude..= containerName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
       )
 
-instance Prelude.ToPath DeleteLifecyclePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLifecyclePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLifecyclePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLifecyclePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLifecyclePolicyResponse' smart constructor.
 data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLifecyclePolicyResponse' with all optional fields omitted.
@@ -140,7 +135,7 @@ data DeleteLifecyclePolicyResponse = DeleteLifecyclePolicyResponse'
 -- 'httpStatus', 'deleteLifecyclePolicyResponse_httpStatus' - The response's http status code.
 newDeleteLifecyclePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteLifecyclePolicyResponse
 newDeleteLifecyclePolicyResponse pHttpStatus_ =
   DeleteLifecyclePolicyResponse'
@@ -149,7 +144,7 @@ newDeleteLifecyclePolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLifecyclePolicyResponse_httpStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Prelude.Int
+deleteLifecyclePolicyResponse_httpStatus :: Lens.Lens' DeleteLifecyclePolicyResponse Core.Int
 deleteLifecyclePolicyResponse_httpStatus = Lens.lens (\DeleteLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: DeleteLifecyclePolicyResponse)
 
-instance Prelude.NFData DeleteLifecyclePolicyResponse
+instance Core.NFData DeleteLifecyclePolicyResponse

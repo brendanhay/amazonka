@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.VersionInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Docker and Amazon ECS container agent version information about a
 -- container instance.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newVersionInfo' smart constructor.
 data VersionInfo = VersionInfo'
   { -- | The version number of the Amazon ECS container agent.
-    agentVersion :: Prelude.Maybe Prelude.Text,
+    agentVersion :: Core.Maybe Core.Text,
     -- | The Docker version running on the container instance.
-    dockerVersion :: Prelude.Maybe Prelude.Text,
+    dockerVersion :: Core.Maybe Core.Text,
     -- | The Git commit hash for the Amazon ECS container agent build on the
     -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
     -- GitHub repository.
-    agentHash :: Prelude.Maybe Prelude.Text
+    agentHash :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VersionInfo' with all optional fields omitted.
@@ -58,48 +57,46 @@ newVersionInfo ::
   VersionInfo
 newVersionInfo =
   VersionInfo'
-    { agentVersion = Prelude.Nothing,
-      dockerVersion = Prelude.Nothing,
-      agentHash = Prelude.Nothing
+    { agentVersion = Core.Nothing,
+      dockerVersion = Core.Nothing,
+      agentHash = Core.Nothing
     }
 
 -- | The version number of the Amazon ECS container agent.
-versionInfo_agentVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
+versionInfo_agentVersion :: Lens.Lens' VersionInfo (Core.Maybe Core.Text)
 versionInfo_agentVersion = Lens.lens (\VersionInfo' {agentVersion} -> agentVersion) (\s@VersionInfo' {} a -> s {agentVersion = a} :: VersionInfo)
 
 -- | The Docker version running on the container instance.
-versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
+versionInfo_dockerVersion :: Lens.Lens' VersionInfo (Core.Maybe Core.Text)
 versionInfo_dockerVersion = Lens.lens (\VersionInfo' {dockerVersion} -> dockerVersion) (\s@VersionInfo' {} a -> s {dockerVersion = a} :: VersionInfo)
 
 -- | The Git commit hash for the Amazon ECS container agent build on the
 -- <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent>
 -- GitHub repository.
-versionInfo_agentHash :: Lens.Lens' VersionInfo (Prelude.Maybe Prelude.Text)
+versionInfo_agentHash :: Lens.Lens' VersionInfo (Core.Maybe Core.Text)
 versionInfo_agentHash = Lens.lens (\VersionInfo' {agentHash} -> agentHash) (\s@VersionInfo' {} a -> s {agentHash = a} :: VersionInfo)
 
-instance Prelude.FromJSON VersionInfo where
+instance Core.FromJSON VersionInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VersionInfo"
       ( \x ->
           VersionInfo'
-            Prelude.<$> (x Prelude..:? "agentVersion")
-            Prelude.<*> (x Prelude..:? "dockerVersion")
-            Prelude.<*> (x Prelude..:? "agentHash")
+            Core.<$> (x Core..:? "agentVersion")
+            Core.<*> (x Core..:? "dockerVersion")
+            Core.<*> (x Core..:? "agentHash")
       )
 
-instance Prelude.Hashable VersionInfo
+instance Core.Hashable VersionInfo
 
-instance Prelude.NFData VersionInfo
+instance Core.NFData VersionInfo
 
-instance Prelude.ToJSON VersionInfo where
+instance Core.ToJSON VersionInfo where
   toJSON VersionInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("agentVersion" Prelude..=)
-              Prelude.<$> agentVersion,
-            ("dockerVersion" Prelude..=)
-              Prelude.<$> dockerVersion,
-            ("agentHash" Prelude..=) Prelude.<$> agentHash
+    Core.object
+      ( Core.catMaybes
+          [ ("agentVersion" Core..=) Core.<$> agentVersion,
+            ("dockerVersion" Core..=) Core.<$> dockerVersion,
+            ("agentHash" Core..=) Core.<$> agentHash
           ]
       )

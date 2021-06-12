@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,8 +63,8 @@ module Network.AWS.CognitoSync.UpdateRecords
 where
 
 import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,29 +74,29 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateRecords' smart constructor.
 data UpdateRecords = UpdateRecords'
   { -- | A list of patch operations.
-    recordPatches :: Prelude.Maybe [RecordPatch],
+    recordPatches :: Core.Maybe [RecordPatch],
     -- | The unique ID generated for this device by Cognito.
-    deviceId :: Prelude.Maybe Prelude.Text,
+    deviceId :: Core.Maybe Core.Text,
     -- | Intended to supply a device ID that will populate the lastModifiedBy
     -- field referenced in other methods. The ClientContext field is not yet
     -- implemented.
-    clientContext :: Prelude.Maybe Prelude.Text,
+    clientContext :: Core.Maybe Core.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityPoolId :: Prelude.Text,
+    identityPoolId :: Core.Text,
     -- | A name-spaced GUID (for example,
     -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
     -- Cognito. GUID generation is unique within a region.
-    identityId :: Prelude.Text,
+    identityId :: Core.Text,
     -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
     -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-    datasetName :: Prelude.Text,
+    datasetName :: Core.Text,
     -- | The SyncSessionToken returned by a previous call to ListRecords for this
     -- dataset and identity.
-    syncSessionToken :: Prelude.Text
+    syncSessionToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRecords' with all optional fields omitted.
@@ -130,13 +129,13 @@ data UpdateRecords = UpdateRecords'
 -- dataset and identity.
 newUpdateRecords ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'datasetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'syncSessionToken'
-  Prelude.Text ->
+  Core.Text ->
   UpdateRecords
 newUpdateRecords
   pIdentityPoolId_
@@ -144,9 +143,9 @@ newUpdateRecords
   pDatasetName_
   pSyncSessionToken_ =
     UpdateRecords'
-      { recordPatches = Prelude.Nothing,
-        deviceId = Prelude.Nothing,
-        clientContext = Prelude.Nothing,
+      { recordPatches = Core.Nothing,
+        deviceId = Core.Nothing,
+        clientContext = Core.Nothing,
         identityPoolId = pIdentityPoolId_,
         identityId = pIdentityId_,
         datasetName = pDatasetName_,
@@ -154,100 +153,101 @@ newUpdateRecords
       }
 
 -- | A list of patch operations.
-updateRecords_recordPatches :: Lens.Lens' UpdateRecords (Prelude.Maybe [RecordPatch])
-updateRecords_recordPatches = Lens.lens (\UpdateRecords' {recordPatches} -> recordPatches) (\s@UpdateRecords' {} a -> s {recordPatches = a} :: UpdateRecords) Prelude.. Lens.mapping Prelude._Coerce
+updateRecords_recordPatches :: Lens.Lens' UpdateRecords (Core.Maybe [RecordPatch])
+updateRecords_recordPatches = Lens.lens (\UpdateRecords' {recordPatches} -> recordPatches) (\s@UpdateRecords' {} a -> s {recordPatches = a} :: UpdateRecords) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique ID generated for this device by Cognito.
-updateRecords_deviceId :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
+updateRecords_deviceId :: Lens.Lens' UpdateRecords (Core.Maybe Core.Text)
 updateRecords_deviceId = Lens.lens (\UpdateRecords' {deviceId} -> deviceId) (\s@UpdateRecords' {} a -> s {deviceId = a} :: UpdateRecords)
 
 -- | Intended to supply a device ID that will populate the lastModifiedBy
 -- field referenced in other methods. The ClientContext field is not yet
 -- implemented.
-updateRecords_clientContext :: Lens.Lens' UpdateRecords (Prelude.Maybe Prelude.Text)
+updateRecords_clientContext :: Lens.Lens' UpdateRecords (Core.Maybe Core.Text)
 updateRecords_clientContext = Lens.lens (\UpdateRecords' {clientContext} -> clientContext) (\s@UpdateRecords' {} a -> s {clientContext = a} :: UpdateRecords)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-updateRecords_identityPoolId :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_identityPoolId :: Lens.Lens' UpdateRecords Core.Text
 updateRecords_identityPoolId = Lens.lens (\UpdateRecords' {identityPoolId} -> identityPoolId) (\s@UpdateRecords' {} a -> s {identityPoolId = a} :: UpdateRecords)
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-updateRecords_identityId :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_identityId :: Lens.Lens' UpdateRecords Core.Text
 updateRecords_identityId = Lens.lens (\UpdateRecords' {identityId} -> identityId) (\s@UpdateRecords' {} a -> s {identityId = a} :: UpdateRecords)
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-updateRecords_datasetName :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_datasetName :: Lens.Lens' UpdateRecords Core.Text
 updateRecords_datasetName = Lens.lens (\UpdateRecords' {datasetName} -> datasetName) (\s@UpdateRecords' {} a -> s {datasetName = a} :: UpdateRecords)
 
 -- | The SyncSessionToken returned by a previous call to ListRecords for this
 -- dataset and identity.
-updateRecords_syncSessionToken :: Lens.Lens' UpdateRecords Prelude.Text
+updateRecords_syncSessionToken :: Lens.Lens' UpdateRecords Core.Text
 updateRecords_syncSessionToken = Lens.lens (\UpdateRecords' {syncSessionToken} -> syncSessionToken) (\s@UpdateRecords' {} a -> s {syncSessionToken = a} :: UpdateRecords)
 
-instance Prelude.AWSRequest UpdateRecords where
-  type Rs UpdateRecords = UpdateRecordsResponse
+instance Core.AWSRequest UpdateRecords where
+  type
+    AWSResponse UpdateRecords =
+      UpdateRecordsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRecordsResponse'
-            Prelude.<$> (x Prelude..?> "Records" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Records" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRecords
+instance Core.Hashable UpdateRecords
 
-instance Prelude.NFData UpdateRecords
+instance Core.NFData UpdateRecords
 
-instance Prelude.ToHeaders UpdateRecords where
+instance Core.ToHeaders UpdateRecords where
   toHeaders UpdateRecords' {..} =
-    Prelude.mconcat
-      [ "x-amz-Client-Context" Prelude.=# clientContext,
+    Core.mconcat
+      [ "x-amz-Client-Context" Core.=# clientContext,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToJSON UpdateRecords where
+instance Core.ToJSON UpdateRecords where
   toJSON UpdateRecords' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RecordPatches" Prelude..=)
-              Prelude.<$> recordPatches,
-            ("DeviceId" Prelude..=) Prelude.<$> deviceId,
-            Prelude.Just
-              ("SyncSessionToken" Prelude..= syncSessionToken)
+    Core.object
+      ( Core.catMaybes
+          [ ("RecordPatches" Core..=) Core.<$> recordPatches,
+            ("DeviceId" Core..=) Core.<$> deviceId,
+            Core.Just
+              ("SyncSessionToken" Core..= syncSessionToken)
           ]
       )
 
-instance Prelude.ToPath UpdateRecords where
+instance Core.ToPath UpdateRecords where
   toPath UpdateRecords' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/identitypools/",
-        Prelude.toBS identityPoolId,
+        Core.toBS identityPoolId,
         "/identities/",
-        Prelude.toBS identityId,
+        Core.toBS identityId,
         "/datasets/",
-        Prelude.toBS datasetName
+        Core.toBS datasetName
       ]
 
-instance Prelude.ToQuery UpdateRecords where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRecords where
+  toQuery = Core.const Core.mempty
 
 -- | Returned for a successful UpdateRecordsRequest.
 --
 -- /See:/ 'newUpdateRecordsResponse' smart constructor.
 data UpdateRecordsResponse = UpdateRecordsResponse'
   { -- | A list of records that have been updated.
-    records :: Prelude.Maybe [Record],
+    records :: Core.Maybe [Record],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRecordsResponse' with all optional fields omitted.
@@ -262,20 +262,20 @@ data UpdateRecordsResponse = UpdateRecordsResponse'
 -- 'httpStatus', 'updateRecordsResponse_httpStatus' - The response's http status code.
 newUpdateRecordsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateRecordsResponse
 newUpdateRecordsResponse pHttpStatus_ =
   UpdateRecordsResponse'
-    { records = Prelude.Nothing,
+    { records = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of records that have been updated.
-updateRecordsResponse_records :: Lens.Lens' UpdateRecordsResponse (Prelude.Maybe [Record])
-updateRecordsResponse_records = Lens.lens (\UpdateRecordsResponse' {records} -> records) (\s@UpdateRecordsResponse' {} a -> s {records = a} :: UpdateRecordsResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateRecordsResponse_records :: Lens.Lens' UpdateRecordsResponse (Core.Maybe [Record])
+updateRecordsResponse_records = Lens.lens (\UpdateRecordsResponse' {records} -> records) (\s@UpdateRecordsResponse' {} a -> s {records = a} :: UpdateRecordsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-updateRecordsResponse_httpStatus :: Lens.Lens' UpdateRecordsResponse Prelude.Int
+updateRecordsResponse_httpStatus :: Lens.Lens' UpdateRecordsResponse Core.Int
 updateRecordsResponse_httpStatus = Lens.lens (\UpdateRecordsResponse' {httpStatus} -> httpStatus) (\s@UpdateRecordsResponse' {} a -> s {httpStatus = a} :: UpdateRecordsResponse)
 
-instance Prelude.NFData UpdateRecordsResponse
+instance Core.NFData UpdateRecordsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PricingDetail where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Reserved Instance offering.
 --
 -- /See:/ 'newPricingDetail' smart constructor.
 data PricingDetail = PricingDetail'
   { -- | The number of reservations available for the price.
-    count :: Prelude.Maybe Prelude.Int,
+    count :: Core.Maybe Core.Int,
     -- | The price per instance.
-    price :: Prelude.Maybe Prelude.Double
+    price :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PricingDetail' with all optional fields omitted.
@@ -50,24 +49,23 @@ newPricingDetail ::
   PricingDetail
 newPricingDetail =
   PricingDetail'
-    { count = Prelude.Nothing,
-      price = Prelude.Nothing
+    { count = Core.Nothing,
+      price = Core.Nothing
     }
 
 -- | The number of reservations available for the price.
-pricingDetail_count :: Lens.Lens' PricingDetail (Prelude.Maybe Prelude.Int)
+pricingDetail_count :: Lens.Lens' PricingDetail (Core.Maybe Core.Int)
 pricingDetail_count = Lens.lens (\PricingDetail' {count} -> count) (\s@PricingDetail' {} a -> s {count = a} :: PricingDetail)
 
 -- | The price per instance.
-pricingDetail_price :: Lens.Lens' PricingDetail (Prelude.Maybe Prelude.Double)
+pricingDetail_price :: Lens.Lens' PricingDetail (Core.Maybe Core.Double)
 pricingDetail_price = Lens.lens (\PricingDetail' {price} -> price) (\s@PricingDetail' {} a -> s {price = a} :: PricingDetail)
 
-instance Prelude.FromXML PricingDetail where
+instance Core.FromXML PricingDetail where
   parseXML x =
     PricingDetail'
-      Prelude.<$> (x Prelude..@? "count")
-      Prelude.<*> (x Prelude..@? "price")
+      Core.<$> (x Core..@? "count") Core.<*> (x Core..@? "price")
 
-instance Prelude.Hashable PricingDetail
+instance Core.Hashable PricingDetail
 
-instance Prelude.NFData PricingDetail
+instance Core.NFData PricingDetail

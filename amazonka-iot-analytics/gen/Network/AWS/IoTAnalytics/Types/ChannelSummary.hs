@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.ChannelSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.ChannelStatus
 import Network.AWS.IoTAnalytics.Types.ChannelStorageSummary
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A summary of information about a channel.
 --
@@ -36,19 +35,19 @@ data ChannelSummary = ChannelSummary'
     --
     -- This feature only applies to messages that arrived in the data store
     -- after October 23, 2020.
-    lastMessageArrivalTime :: Prelude.Maybe Prelude.POSIX,
+    lastMessageArrivalTime :: Core.Maybe Core.POSIX,
     -- | The name of the channel.
-    channelName :: Prelude.Maybe Prelude.Text,
+    channelName :: Core.Maybe Core.Text,
     -- | The status of the channel.
-    status :: Prelude.Maybe ChannelStatus,
+    status :: Core.Maybe ChannelStatus,
     -- | When the channel was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The last time the channel was updated.
-    lastUpdateTime :: Prelude.Maybe Prelude.POSIX,
+    lastUpdateTime :: Core.Maybe Core.POSIX,
     -- | Where channel data is stored.
-    channelStorage :: Prelude.Maybe ChannelStorageSummary
+    channelStorage :: Core.Maybe ChannelStorageSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChannelSummary' with all optional fields omitted.
@@ -80,12 +79,12 @@ newChannelSummary ::
 newChannelSummary =
   ChannelSummary'
     { lastMessageArrivalTime =
-        Prelude.Nothing,
-      channelName = Prelude.Nothing,
-      status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      lastUpdateTime = Prelude.Nothing,
-      channelStorage = Prelude.Nothing
+        Core.Nothing,
+      channelName = Core.Nothing,
+      status = Core.Nothing,
+      creationTime = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      channelStorage = Core.Nothing
     }
 
 -- | The last time when a new message arrived in the channel.
@@ -95,43 +94,43 @@ newChannelSummary =
 --
 -- This feature only applies to messages that arrived in the data store
 -- after October 23, 2020.
-channelSummary_lastMessageArrivalTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_lastMessageArrivalTime = Lens.lens (\ChannelSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@ChannelSummary' {} a -> s {lastMessageArrivalTime = a} :: ChannelSummary) Prelude.. Lens.mapping Prelude._Time
+channelSummary_lastMessageArrivalTime :: Lens.Lens' ChannelSummary (Core.Maybe Core.UTCTime)
+channelSummary_lastMessageArrivalTime = Lens.lens (\ChannelSummary' {lastMessageArrivalTime} -> lastMessageArrivalTime) (\s@ChannelSummary' {} a -> s {lastMessageArrivalTime = a} :: ChannelSummary) Core.. Lens.mapping Core._Time
 
 -- | The name of the channel.
-channelSummary_channelName :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
+channelSummary_channelName :: Lens.Lens' ChannelSummary (Core.Maybe Core.Text)
 channelSummary_channelName = Lens.lens (\ChannelSummary' {channelName} -> channelName) (\s@ChannelSummary' {} a -> s {channelName = a} :: ChannelSummary)
 
 -- | The status of the channel.
-channelSummary_status :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStatus)
+channelSummary_status :: Lens.Lens' ChannelSummary (Core.Maybe ChannelStatus)
 channelSummary_status = Lens.lens (\ChannelSummary' {status} -> status) (\s@ChannelSummary' {} a -> s {status = a} :: ChannelSummary)
 
 -- | When the channel was created.
-channelSummary_creationTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_creationTime = Lens.lens (\ChannelSummary' {creationTime} -> creationTime) (\s@ChannelSummary' {} a -> s {creationTime = a} :: ChannelSummary) Prelude.. Lens.mapping Prelude._Time
+channelSummary_creationTime :: Lens.Lens' ChannelSummary (Core.Maybe Core.UTCTime)
+channelSummary_creationTime = Lens.lens (\ChannelSummary' {creationTime} -> creationTime) (\s@ChannelSummary' {} a -> s {creationTime = a} :: ChannelSummary) Core.. Lens.mapping Core._Time
 
 -- | The last time the channel was updated.
-channelSummary_lastUpdateTime :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
-channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Prelude.. Lens.mapping Prelude._Time
+channelSummary_lastUpdateTime :: Lens.Lens' ChannelSummary (Core.Maybe Core.UTCTime)
+channelSummary_lastUpdateTime = Lens.lens (\ChannelSummary' {lastUpdateTime} -> lastUpdateTime) (\s@ChannelSummary' {} a -> s {lastUpdateTime = a} :: ChannelSummary) Core.. Lens.mapping Core._Time
 
 -- | Where channel data is stored.
-channelSummary_channelStorage :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelStorageSummary)
+channelSummary_channelStorage :: Lens.Lens' ChannelSummary (Core.Maybe ChannelStorageSummary)
 channelSummary_channelStorage = Lens.lens (\ChannelSummary' {channelStorage} -> channelStorage) (\s@ChannelSummary' {} a -> s {channelStorage = a} :: ChannelSummary)
 
-instance Prelude.FromJSON ChannelSummary where
+instance Core.FromJSON ChannelSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ChannelSummary"
       ( \x ->
           ChannelSummary'
-            Prelude.<$> (x Prelude..:? "lastMessageArrivalTime")
-            Prelude.<*> (x Prelude..:? "channelName")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "creationTime")
-            Prelude.<*> (x Prelude..:? "lastUpdateTime")
-            Prelude.<*> (x Prelude..:? "channelStorage")
+            Core.<$> (x Core..:? "lastMessageArrivalTime")
+            Core.<*> (x Core..:? "channelName")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "lastUpdateTime")
+            Core.<*> (x Core..:? "channelStorage")
       )
 
-instance Prelude.Hashable ChannelSummary
+instance Core.Hashable ChannelSummary
 
-instance Prelude.NFData ChannelSummary
+instance Core.NFData ChannelSummary

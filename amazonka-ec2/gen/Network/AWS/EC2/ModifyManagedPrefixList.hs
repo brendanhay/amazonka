@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,31 +51,31 @@ module Network.AWS.EC2.ModifyManagedPrefixList
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyManagedPrefixList' smart constructor.
 data ModifyManagedPrefixList = ModifyManagedPrefixList'
   { -- | One or more entries to remove from the prefix list.
-    removeEntries :: Prelude.Maybe [RemovePrefixListEntry],
+    removeEntries :: Core.Maybe [RemovePrefixListEntry],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The current version of the prefix list.
-    currentVersion :: Prelude.Maybe Prelude.Integer,
+    currentVersion :: Core.Maybe Core.Integer,
     -- | A name for the prefix list.
-    prefixListName :: Prelude.Maybe Prelude.Text,
+    prefixListName :: Core.Maybe Core.Text,
     -- | One or more entries to add to the prefix list.
-    addEntries :: Prelude.Maybe [AddPrefixListEntry],
+    addEntries :: Core.Maybe [AddPrefixListEntry],
     -- | The ID of the prefix list.
-    prefixListId :: Prelude.Text
+    prefixListId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyManagedPrefixList' with all optional fields omitted.
@@ -102,98 +101,95 @@ data ModifyManagedPrefixList = ModifyManagedPrefixList'
 -- 'prefixListId', 'modifyManagedPrefixList_prefixListId' - The ID of the prefix list.
 newModifyManagedPrefixList ::
   -- | 'prefixListId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyManagedPrefixList
 newModifyManagedPrefixList pPrefixListId_ =
   ModifyManagedPrefixList'
     { removeEntries =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      currentVersion = Prelude.Nothing,
-      prefixListName = Prelude.Nothing,
-      addEntries = Prelude.Nothing,
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      currentVersion = Core.Nothing,
+      prefixListName = Core.Nothing,
+      addEntries = Core.Nothing,
       prefixListId = pPrefixListId_
     }
 
 -- | One or more entries to remove from the prefix list.
-modifyManagedPrefixList_removeEntries :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe [RemovePrefixListEntry])
-modifyManagedPrefixList_removeEntries = Lens.lens (\ModifyManagedPrefixList' {removeEntries} -> removeEntries) (\s@ModifyManagedPrefixList' {} a -> s {removeEntries = a} :: ModifyManagedPrefixList) Prelude.. Lens.mapping Prelude._Coerce
+modifyManagedPrefixList_removeEntries :: Lens.Lens' ModifyManagedPrefixList (Core.Maybe [RemovePrefixListEntry])
+modifyManagedPrefixList_removeEntries = Lens.lens (\ModifyManagedPrefixList' {removeEntries} -> removeEntries) (\s@ModifyManagedPrefixList' {} a -> s {removeEntries = a} :: ModifyManagedPrefixList) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyManagedPrefixList_dryRun :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Bool)
+modifyManagedPrefixList_dryRun :: Lens.Lens' ModifyManagedPrefixList (Core.Maybe Core.Bool)
 modifyManagedPrefixList_dryRun = Lens.lens (\ModifyManagedPrefixList' {dryRun} -> dryRun) (\s@ModifyManagedPrefixList' {} a -> s {dryRun = a} :: ModifyManagedPrefixList)
 
 -- | The current version of the prefix list.
-modifyManagedPrefixList_currentVersion :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Integer)
+modifyManagedPrefixList_currentVersion :: Lens.Lens' ModifyManagedPrefixList (Core.Maybe Core.Integer)
 modifyManagedPrefixList_currentVersion = Lens.lens (\ModifyManagedPrefixList' {currentVersion} -> currentVersion) (\s@ModifyManagedPrefixList' {} a -> s {currentVersion = a} :: ModifyManagedPrefixList)
 
 -- | A name for the prefix list.
-modifyManagedPrefixList_prefixListName :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe Prelude.Text)
+modifyManagedPrefixList_prefixListName :: Lens.Lens' ModifyManagedPrefixList (Core.Maybe Core.Text)
 modifyManagedPrefixList_prefixListName = Lens.lens (\ModifyManagedPrefixList' {prefixListName} -> prefixListName) (\s@ModifyManagedPrefixList' {} a -> s {prefixListName = a} :: ModifyManagedPrefixList)
 
 -- | One or more entries to add to the prefix list.
-modifyManagedPrefixList_addEntries :: Lens.Lens' ModifyManagedPrefixList (Prelude.Maybe [AddPrefixListEntry])
-modifyManagedPrefixList_addEntries = Lens.lens (\ModifyManagedPrefixList' {addEntries} -> addEntries) (\s@ModifyManagedPrefixList' {} a -> s {addEntries = a} :: ModifyManagedPrefixList) Prelude.. Lens.mapping Prelude._Coerce
+modifyManagedPrefixList_addEntries :: Lens.Lens' ModifyManagedPrefixList (Core.Maybe [AddPrefixListEntry])
+modifyManagedPrefixList_addEntries = Lens.lens (\ModifyManagedPrefixList' {addEntries} -> addEntries) (\s@ModifyManagedPrefixList' {} a -> s {addEntries = a} :: ModifyManagedPrefixList) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the prefix list.
-modifyManagedPrefixList_prefixListId :: Lens.Lens' ModifyManagedPrefixList Prelude.Text
+modifyManagedPrefixList_prefixListId :: Lens.Lens' ModifyManagedPrefixList Core.Text
 modifyManagedPrefixList_prefixListId = Lens.lens (\ModifyManagedPrefixList' {prefixListId} -> prefixListId) (\s@ModifyManagedPrefixList' {} a -> s {prefixListId = a} :: ModifyManagedPrefixList)
 
-instance Prelude.AWSRequest ModifyManagedPrefixList where
+instance Core.AWSRequest ModifyManagedPrefixList where
   type
-    Rs ModifyManagedPrefixList =
+    AWSResponse ModifyManagedPrefixList =
       ModifyManagedPrefixListResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyManagedPrefixListResponse'
-            Prelude.<$> (x Prelude..@? "prefixList")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "prefixList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyManagedPrefixList
+instance Core.Hashable ModifyManagedPrefixList
 
-instance Prelude.NFData ModifyManagedPrefixList
+instance Core.NFData ModifyManagedPrefixList
 
-instance Prelude.ToHeaders ModifyManagedPrefixList where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyManagedPrefixList where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyManagedPrefixList where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyManagedPrefixList where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyManagedPrefixList where
+instance Core.ToQuery ModifyManagedPrefixList where
   toQuery ModifyManagedPrefixList' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyManagedPrefixList" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "RemoveEntry"
-              Prelude.<$> removeEntries
+          Core.=: ("ModifyManagedPrefixList" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "RemoveEntry"
+              Core.<$> removeEntries
           ),
-        "DryRun" Prelude.=: dryRun,
-        "CurrentVersion" Prelude.=: currentVersion,
-        "PrefixListName" Prelude.=: prefixListName,
-        Prelude.toQuery
-          ( Prelude.toQueryList "AddEntry"
-              Prelude.<$> addEntries
-          ),
-        "PrefixListId" Prelude.=: prefixListId
+        "DryRun" Core.=: dryRun,
+        "CurrentVersion" Core.=: currentVersion,
+        "PrefixListName" Core.=: prefixListName,
+        Core.toQuery
+          (Core.toQueryList "AddEntry" Core.<$> addEntries),
+        "PrefixListId" Core.=: prefixListId
       ]
 
 -- | /See:/ 'newModifyManagedPrefixListResponse' smart constructor.
 data ModifyManagedPrefixListResponse = ModifyManagedPrefixListResponse'
   { -- | Information about the prefix list.
-    prefixList :: Prelude.Maybe ManagedPrefixList,
+    prefixList :: Core.Maybe ManagedPrefixList,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyManagedPrefixListResponse' with all optional fields omitted.
@@ -208,23 +204,21 @@ data ModifyManagedPrefixListResponse = ModifyManagedPrefixListResponse'
 -- 'httpStatus', 'modifyManagedPrefixListResponse_httpStatus' - The response's http status code.
 newModifyManagedPrefixListResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyManagedPrefixListResponse
 newModifyManagedPrefixListResponse pHttpStatus_ =
   ModifyManagedPrefixListResponse'
     { prefixList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the prefix list.
-modifyManagedPrefixListResponse_prefixList :: Lens.Lens' ModifyManagedPrefixListResponse (Prelude.Maybe ManagedPrefixList)
+modifyManagedPrefixListResponse_prefixList :: Lens.Lens' ModifyManagedPrefixListResponse (Core.Maybe ManagedPrefixList)
 modifyManagedPrefixListResponse_prefixList = Lens.lens (\ModifyManagedPrefixListResponse' {prefixList} -> prefixList) (\s@ModifyManagedPrefixListResponse' {} a -> s {prefixList = a} :: ModifyManagedPrefixListResponse)
 
 -- | The response's http status code.
-modifyManagedPrefixListResponse_httpStatus :: Lens.Lens' ModifyManagedPrefixListResponse Prelude.Int
+modifyManagedPrefixListResponse_httpStatus :: Lens.Lens' ModifyManagedPrefixListResponse Core.Int
 modifyManagedPrefixListResponse_httpStatus = Lens.lens (\ModifyManagedPrefixListResponse' {httpStatus} -> httpStatus) (\s@ModifyManagedPrefixListResponse' {} a -> s {httpStatus = a} :: ModifyManagedPrefixListResponse)
 
-instance
-  Prelude.NFData
-    ModifyManagedPrefixListResponse
+instance Core.NFData ModifyManagedPrefixListResponse

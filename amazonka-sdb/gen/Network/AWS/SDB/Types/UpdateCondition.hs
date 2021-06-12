@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SDB.Types.UpdateCondition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the conditions under which data should be updated. If an
 -- update condition is specified for a request, the data will only be
@@ -36,14 +35,14 @@ data UpdateCondition = UpdateCondition'
     -- satisfied. Specify @true@ if the attribute must exist for the update
     -- condition to be satisfied. Specify @false@ if the attribute should not
     -- exist in order for the update condition to be satisfied.
-    exists :: Prelude.Maybe Prelude.Bool,
+    exists :: Core.Maybe Core.Bool,
     -- | The name of the attribute involved in the condition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The value of an attribute. This value can only be specified when the
     -- @Exists@ parameter is equal to @true@.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCondition' with all optional fields omitted.
@@ -67,9 +66,9 @@ newUpdateCondition ::
   UpdateCondition
 newUpdateCondition =
   UpdateCondition'
-    { exists = Prelude.Nothing,
-      name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { exists = Core.Nothing,
+      name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | A value specifying whether or not the specified attribute must exist
@@ -77,26 +76,26 @@ newUpdateCondition =
 -- satisfied. Specify @true@ if the attribute must exist for the update
 -- condition to be satisfied. Specify @false@ if the attribute should not
 -- exist in order for the update condition to be satisfied.
-updateCondition_exists :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Bool)
+updateCondition_exists :: Lens.Lens' UpdateCondition (Core.Maybe Core.Bool)
 updateCondition_exists = Lens.lens (\UpdateCondition' {exists} -> exists) (\s@UpdateCondition' {} a -> s {exists = a} :: UpdateCondition)
 
 -- | The name of the attribute involved in the condition.
-updateCondition_name :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
+updateCondition_name :: Lens.Lens' UpdateCondition (Core.Maybe Core.Text)
 updateCondition_name = Lens.lens (\UpdateCondition' {name} -> name) (\s@UpdateCondition' {} a -> s {name = a} :: UpdateCondition)
 
 -- | The value of an attribute. This value can only be specified when the
 -- @Exists@ parameter is equal to @true@.
-updateCondition_value :: Lens.Lens' UpdateCondition (Prelude.Maybe Prelude.Text)
+updateCondition_value :: Lens.Lens' UpdateCondition (Core.Maybe Core.Text)
 updateCondition_value = Lens.lens (\UpdateCondition' {value} -> value) (\s@UpdateCondition' {} a -> s {value = a} :: UpdateCondition)
 
-instance Prelude.Hashable UpdateCondition
+instance Core.Hashable UpdateCondition
 
-instance Prelude.NFData UpdateCondition
+instance Core.NFData UpdateCondition
 
-instance Prelude.ToQuery UpdateCondition where
+instance Core.ToQuery UpdateCondition where
   toQuery UpdateCondition' {..} =
-    Prelude.mconcat
-      [ "Exists" Prelude.=: exists,
-        "Name" Prelude.=: name,
-        "Value" Prelude.=: value
+    Core.mconcat
+      [ "Exists" Core.=: exists,
+        "Name" Core.=: name,
+        "Value" Core.=: value
       ]

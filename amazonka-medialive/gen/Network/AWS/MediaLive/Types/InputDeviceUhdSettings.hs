@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputDeviceUhdSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputDeviceActiveInput
 import Network.AWS.MediaLive.Types.InputDeviceConfiguredInput
 import Network.AWS.MediaLive.Types.InputDeviceScanType
 import Network.AWS.MediaLive.Types.InputDeviceState
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings that describe the active source from the input device, and the
 -- video characteristics of that source.
@@ -33,26 +32,26 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInputDeviceUhdSettings' smart constructor.
 data InputDeviceUhdSettings = InputDeviceUhdSettings'
   { -- | The height of the video source, in pixels.
-    height :: Prelude.Maybe Prelude.Int,
+    height :: Core.Maybe Core.Int,
     -- | The scan type of the video source.
-    scanType :: Prelude.Maybe InputDeviceScanType,
+    scanType :: Core.Maybe InputDeviceScanType,
     -- | The width of the video source, in pixels.
-    width :: Prelude.Maybe Prelude.Int,
+    width :: Core.Maybe Core.Int,
     -- | The source at the input device that is currently active. You can specify
     -- this source.
-    configuredInput :: Prelude.Maybe InputDeviceConfiguredInput,
+    configuredInput :: Core.Maybe InputDeviceConfiguredInput,
     -- | The frame rate of the video source.
-    framerate :: Prelude.Maybe Prelude.Double,
+    framerate :: Core.Maybe Core.Double,
     -- | The state of the input device.
-    deviceState :: Prelude.Maybe InputDeviceState,
+    deviceState :: Core.Maybe InputDeviceState,
     -- | The current maximum bitrate for ingesting this source, in bits per
     -- second. You can specify this maximum.
-    maxBitrate :: Prelude.Maybe Prelude.Int,
+    maxBitrate :: Core.Maybe Core.Int,
     -- | If you specified Auto as the configured input, specifies which of the
     -- sources is currently active (SDI or HDMI).
-    activeInput :: Prelude.Maybe InputDeviceActiveInput
+    activeInput :: Core.Maybe InputDeviceActiveInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputDeviceUhdSettings' with all optional fields omitted.
@@ -84,67 +83,67 @@ newInputDeviceUhdSettings ::
   InputDeviceUhdSettings
 newInputDeviceUhdSettings =
   InputDeviceUhdSettings'
-    { height = Prelude.Nothing,
-      scanType = Prelude.Nothing,
-      width = Prelude.Nothing,
-      configuredInput = Prelude.Nothing,
-      framerate = Prelude.Nothing,
-      deviceState = Prelude.Nothing,
-      maxBitrate = Prelude.Nothing,
-      activeInput = Prelude.Nothing
+    { height = Core.Nothing,
+      scanType = Core.Nothing,
+      width = Core.Nothing,
+      configuredInput = Core.Nothing,
+      framerate = Core.Nothing,
+      deviceState = Core.Nothing,
+      maxBitrate = Core.Nothing,
+      activeInput = Core.Nothing
     }
 
 -- | The height of the video source, in pixels.
-inputDeviceUhdSettings_height :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe Prelude.Int)
+inputDeviceUhdSettings_height :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe Core.Int)
 inputDeviceUhdSettings_height = Lens.lens (\InputDeviceUhdSettings' {height} -> height) (\s@InputDeviceUhdSettings' {} a -> s {height = a} :: InputDeviceUhdSettings)
 
 -- | The scan type of the video source.
-inputDeviceUhdSettings_scanType :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe InputDeviceScanType)
+inputDeviceUhdSettings_scanType :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe InputDeviceScanType)
 inputDeviceUhdSettings_scanType = Lens.lens (\InputDeviceUhdSettings' {scanType} -> scanType) (\s@InputDeviceUhdSettings' {} a -> s {scanType = a} :: InputDeviceUhdSettings)
 
 -- | The width of the video source, in pixels.
-inputDeviceUhdSettings_width :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe Prelude.Int)
+inputDeviceUhdSettings_width :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe Core.Int)
 inputDeviceUhdSettings_width = Lens.lens (\InputDeviceUhdSettings' {width} -> width) (\s@InputDeviceUhdSettings' {} a -> s {width = a} :: InputDeviceUhdSettings)
 
 -- | The source at the input device that is currently active. You can specify
 -- this source.
-inputDeviceUhdSettings_configuredInput :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe InputDeviceConfiguredInput)
+inputDeviceUhdSettings_configuredInput :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe InputDeviceConfiguredInput)
 inputDeviceUhdSettings_configuredInput = Lens.lens (\InputDeviceUhdSettings' {configuredInput} -> configuredInput) (\s@InputDeviceUhdSettings' {} a -> s {configuredInput = a} :: InputDeviceUhdSettings)
 
 -- | The frame rate of the video source.
-inputDeviceUhdSettings_framerate :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe Prelude.Double)
+inputDeviceUhdSettings_framerate :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe Core.Double)
 inputDeviceUhdSettings_framerate = Lens.lens (\InputDeviceUhdSettings' {framerate} -> framerate) (\s@InputDeviceUhdSettings' {} a -> s {framerate = a} :: InputDeviceUhdSettings)
 
 -- | The state of the input device.
-inputDeviceUhdSettings_deviceState :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe InputDeviceState)
+inputDeviceUhdSettings_deviceState :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe InputDeviceState)
 inputDeviceUhdSettings_deviceState = Lens.lens (\InputDeviceUhdSettings' {deviceState} -> deviceState) (\s@InputDeviceUhdSettings' {} a -> s {deviceState = a} :: InputDeviceUhdSettings)
 
 -- | The current maximum bitrate for ingesting this source, in bits per
 -- second. You can specify this maximum.
-inputDeviceUhdSettings_maxBitrate :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe Prelude.Int)
+inputDeviceUhdSettings_maxBitrate :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe Core.Int)
 inputDeviceUhdSettings_maxBitrate = Lens.lens (\InputDeviceUhdSettings' {maxBitrate} -> maxBitrate) (\s@InputDeviceUhdSettings' {} a -> s {maxBitrate = a} :: InputDeviceUhdSettings)
 
 -- | If you specified Auto as the configured input, specifies which of the
 -- sources is currently active (SDI or HDMI).
-inputDeviceUhdSettings_activeInput :: Lens.Lens' InputDeviceUhdSettings (Prelude.Maybe InputDeviceActiveInput)
+inputDeviceUhdSettings_activeInput :: Lens.Lens' InputDeviceUhdSettings (Core.Maybe InputDeviceActiveInput)
 inputDeviceUhdSettings_activeInput = Lens.lens (\InputDeviceUhdSettings' {activeInput} -> activeInput) (\s@InputDeviceUhdSettings' {} a -> s {activeInput = a} :: InputDeviceUhdSettings)
 
-instance Prelude.FromJSON InputDeviceUhdSettings where
+instance Core.FromJSON InputDeviceUhdSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputDeviceUhdSettings"
       ( \x ->
           InputDeviceUhdSettings'
-            Prelude.<$> (x Prelude..:? "height")
-            Prelude.<*> (x Prelude..:? "scanType")
-            Prelude.<*> (x Prelude..:? "width")
-            Prelude.<*> (x Prelude..:? "configuredInput")
-            Prelude.<*> (x Prelude..:? "framerate")
-            Prelude.<*> (x Prelude..:? "deviceState")
-            Prelude.<*> (x Prelude..:? "maxBitrate")
-            Prelude.<*> (x Prelude..:? "activeInput")
+            Core.<$> (x Core..:? "height")
+            Core.<*> (x Core..:? "scanType")
+            Core.<*> (x Core..:? "width")
+            Core.<*> (x Core..:? "configuredInput")
+            Core.<*> (x Core..:? "framerate")
+            Core.<*> (x Core..:? "deviceState")
+            Core.<*> (x Core..:? "maxBitrate")
+            Core.<*> (x Core..:? "activeInput")
       )
 
-instance Prelude.Hashable InputDeviceUhdSettings
+instance Core.Hashable InputDeviceUhdSettings
 
-instance Prelude.NFData InputDeviceUhdSettings
+instance Core.NFData InputDeviceUhdSettings

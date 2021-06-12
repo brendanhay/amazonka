@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.ShutdownEventConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Shutdown event configuration.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
   { -- | The time, in seconds, that AWS OpsWorks Stacks will wait after
     -- triggering a Shutdown event before shutting down an instance.
-    executionTimeout :: Prelude.Maybe Prelude.Int,
+    executionTimeout :: Core.Maybe Core.Int,
     -- | Whether to enable Elastic Load Balancing connection draining. For more
     -- information, see
     -- <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
-    delayUntilElbConnectionsDrained :: Prelude.Maybe Prelude.Bool
+    delayUntilElbConnectionsDrained :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShutdownEventConfiguration' with all optional fields omitted.
@@ -56,43 +55,42 @@ newShutdownEventConfiguration ::
 newShutdownEventConfiguration =
   ShutdownEventConfiguration'
     { executionTimeout =
-        Prelude.Nothing,
-      delayUntilElbConnectionsDrained =
-        Prelude.Nothing
+        Core.Nothing,
+      delayUntilElbConnectionsDrained = Core.Nothing
     }
 
 -- | The time, in seconds, that AWS OpsWorks Stacks will wait after
 -- triggering a Shutdown event before shutting down an instance.
-shutdownEventConfiguration_executionTimeout :: Lens.Lens' ShutdownEventConfiguration (Prelude.Maybe Prelude.Int)
+shutdownEventConfiguration_executionTimeout :: Lens.Lens' ShutdownEventConfiguration (Core.Maybe Core.Int)
 shutdownEventConfiguration_executionTimeout = Lens.lens (\ShutdownEventConfiguration' {executionTimeout} -> executionTimeout) (\s@ShutdownEventConfiguration' {} a -> s {executionTimeout = a} :: ShutdownEventConfiguration)
 
 -- | Whether to enable Elastic Load Balancing connection draining. For more
 -- information, see
 -- <https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining>
-shutdownEventConfiguration_delayUntilElbConnectionsDrained :: Lens.Lens' ShutdownEventConfiguration (Prelude.Maybe Prelude.Bool)
+shutdownEventConfiguration_delayUntilElbConnectionsDrained :: Lens.Lens' ShutdownEventConfiguration (Core.Maybe Core.Bool)
 shutdownEventConfiguration_delayUntilElbConnectionsDrained = Lens.lens (\ShutdownEventConfiguration' {delayUntilElbConnectionsDrained} -> delayUntilElbConnectionsDrained) (\s@ShutdownEventConfiguration' {} a -> s {delayUntilElbConnectionsDrained = a} :: ShutdownEventConfiguration)
 
-instance Prelude.FromJSON ShutdownEventConfiguration where
+instance Core.FromJSON ShutdownEventConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ShutdownEventConfiguration"
       ( \x ->
           ShutdownEventConfiguration'
-            Prelude.<$> (x Prelude..:? "ExecutionTimeout")
-            Prelude.<*> (x Prelude..:? "DelayUntilElbConnectionsDrained")
+            Core.<$> (x Core..:? "ExecutionTimeout")
+            Core.<*> (x Core..:? "DelayUntilElbConnectionsDrained")
       )
 
-instance Prelude.Hashable ShutdownEventConfiguration
+instance Core.Hashable ShutdownEventConfiguration
 
-instance Prelude.NFData ShutdownEventConfiguration
+instance Core.NFData ShutdownEventConfiguration
 
-instance Prelude.ToJSON ShutdownEventConfiguration where
+instance Core.ToJSON ShutdownEventConfiguration where
   toJSON ShutdownEventConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExecutionTimeout" Prelude..=)
-              Prelude.<$> executionTimeout,
-            ("DelayUntilElbConnectionsDrained" Prelude..=)
-              Prelude.<$> delayUntilElbConnectionsDrained
+    Core.object
+      ( Core.catMaybes
+          [ ("ExecutionTimeout" Core..=)
+              Core.<$> executionTimeout,
+            ("DelayUntilElbConnectionsDrained" Core..=)
+              Core.<$> delayUntilElbConnectionsDrained
           ]
       )

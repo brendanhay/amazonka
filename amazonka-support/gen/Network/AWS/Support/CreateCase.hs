@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,8 +80,8 @@ module Network.AWS.Support.CreateCase
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -91,22 +90,22 @@ import Network.AWS.Support.Types
 data CreateCase = CreateCase'
   { -- | The code for the AWS service. You can use the DescribeServices operation
     -- to get the possible @serviceCode@ values.
-    serviceCode :: Prelude.Maybe Prelude.Text,
+    serviceCode :: Core.Maybe Core.Text,
     -- | The category of problem for the AWS Support case. You also use the
     -- DescribeServices operation to get the category code for a service. Each
     -- AWS service defines its own set of category codes.
-    categoryCode :: Prelude.Maybe Prelude.Text,
+    categoryCode :: Core.Maybe Core.Text,
     -- | A list of email addresses that AWS Support copies on case
     -- correspondence. AWS Support identifies the account that creates the case
     -- when you specify your AWS credentials in an HTTP POST method or use the
     -- <http://aws.amazon.com/tools/ AWS SDKs>.
-    ccEmailAddresses :: Prelude.Maybe [Prelude.Text],
+    ccEmailAddresses :: Core.Maybe [Core.Text],
     -- | The type of issue for the case. You can specify @customer-service@ or
     -- @technical@. If you don\'t specify a value, the default is @technical@.
-    issueType :: Prelude.Maybe Prelude.Text,
+    issueType :: Core.Maybe Core.Text,
     -- | The ID of a set of one or more attachments for the case. Create the set
     -- by using the AddAttachmentsToSet operation.
-    attachmentSetId :: Prelude.Maybe Prelude.Text,
+    attachmentSetId :: Core.Maybe Core.Text,
     -- | A value that indicates the urgency of the case. This value determines
     -- the response time according to your service level agreement with AWS
     -- Support. You can use the DescribeSeverityLevels operation to get the
@@ -118,24 +117,24 @@ data CreateCase = CreateCase'
     --
     -- The availability of severity levels depends on the support plan for the
     -- AWS account.
-    severityCode :: Prelude.Maybe Prelude.Text,
+    severityCode :: Core.Maybe Core.Text,
     -- | The language in which AWS Support handles the case. You must specify the
     -- ISO 639-1 code for the @language@ parameter if you want support in that
     -- language. Currently, English (\"en\") and Japanese (\"ja\") are
     -- supported.
-    language :: Prelude.Maybe Prelude.Text,
+    language :: Core.Maybe Core.Text,
     -- | The title of the AWS Support case. The title appears in the __Subject__
     -- field on the AWS Support Center
     -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
     -- page.
-    subject :: Prelude.Text,
+    subject :: Core.Text,
     -- | The communication body text that describes the issue. This text appears
     -- in the __Description__ field on the AWS Support Center
     -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
     -- page.
-    communicationBody :: Prelude.Text
+    communicationBody :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCase' with all optional fields omitted.
@@ -191,49 +190,49 @@ data CreateCase = CreateCase'
 -- page.
 newCreateCase ::
   -- | 'subject'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'communicationBody'
-  Prelude.Text ->
+  Core.Text ->
   CreateCase
 newCreateCase pSubject_ pCommunicationBody_ =
   CreateCase'
-    { serviceCode = Prelude.Nothing,
-      categoryCode = Prelude.Nothing,
-      ccEmailAddresses = Prelude.Nothing,
-      issueType = Prelude.Nothing,
-      attachmentSetId = Prelude.Nothing,
-      severityCode = Prelude.Nothing,
-      language = Prelude.Nothing,
+    { serviceCode = Core.Nothing,
+      categoryCode = Core.Nothing,
+      ccEmailAddresses = Core.Nothing,
+      issueType = Core.Nothing,
+      attachmentSetId = Core.Nothing,
+      severityCode = Core.Nothing,
+      language = Core.Nothing,
       subject = pSubject_,
       communicationBody = pCommunicationBody_
     }
 
 -- | The code for the AWS service. You can use the DescribeServices operation
 -- to get the possible @serviceCode@ values.
-createCase_serviceCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_serviceCode :: Lens.Lens' CreateCase (Core.Maybe Core.Text)
 createCase_serviceCode = Lens.lens (\CreateCase' {serviceCode} -> serviceCode) (\s@CreateCase' {} a -> s {serviceCode = a} :: CreateCase)
 
 -- | The category of problem for the AWS Support case. You also use the
 -- DescribeServices operation to get the category code for a service. Each
 -- AWS service defines its own set of category codes.
-createCase_categoryCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_categoryCode :: Lens.Lens' CreateCase (Core.Maybe Core.Text)
 createCase_categoryCode = Lens.lens (\CreateCase' {categoryCode} -> categoryCode) (\s@CreateCase' {} a -> s {categoryCode = a} :: CreateCase)
 
 -- | A list of email addresses that AWS Support copies on case
 -- correspondence. AWS Support identifies the account that creates the case
 -- when you specify your AWS credentials in an HTTP POST method or use the
 -- <http://aws.amazon.com/tools/ AWS SDKs>.
-createCase_ccEmailAddresses :: Lens.Lens' CreateCase (Prelude.Maybe [Prelude.Text])
-createCase_ccEmailAddresses = Lens.lens (\CreateCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@CreateCase' {} a -> s {ccEmailAddresses = a} :: CreateCase) Prelude.. Lens.mapping Prelude._Coerce
+createCase_ccEmailAddresses :: Lens.Lens' CreateCase (Core.Maybe [Core.Text])
+createCase_ccEmailAddresses = Lens.lens (\CreateCase' {ccEmailAddresses} -> ccEmailAddresses) (\s@CreateCase' {} a -> s {ccEmailAddresses = a} :: CreateCase) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of issue for the case. You can specify @customer-service@ or
 -- @technical@. If you don\'t specify a value, the default is @technical@.
-createCase_issueType :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_issueType :: Lens.Lens' CreateCase (Core.Maybe Core.Text)
 createCase_issueType = Lens.lens (\CreateCase' {issueType} -> issueType) (\s@CreateCase' {} a -> s {issueType = a} :: CreateCase)
 
 -- | The ID of a set of one or more attachments for the case. Create the set
 -- by using the AddAttachmentsToSet operation.
-createCase_attachmentSetId :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_attachmentSetId :: Lens.Lens' CreateCase (Core.Maybe Core.Text)
 createCase_attachmentSetId = Lens.lens (\CreateCase' {attachmentSetId} -> attachmentSetId) (\s@CreateCase' {} a -> s {attachmentSetId = a} :: CreateCase)
 
 -- | A value that indicates the urgency of the case. This value determines
@@ -247,84 +246,81 @@ createCase_attachmentSetId = Lens.lens (\CreateCase' {attachmentSetId} -> attach
 --
 -- The availability of severity levels depends on the support plan for the
 -- AWS account.
-createCase_severityCode :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_severityCode :: Lens.Lens' CreateCase (Core.Maybe Core.Text)
 createCase_severityCode = Lens.lens (\CreateCase' {severityCode} -> severityCode) (\s@CreateCase' {} a -> s {severityCode = a} :: CreateCase)
 
 -- | The language in which AWS Support handles the case. You must specify the
 -- ISO 639-1 code for the @language@ parameter if you want support in that
 -- language. Currently, English (\"en\") and Japanese (\"ja\") are
 -- supported.
-createCase_language :: Lens.Lens' CreateCase (Prelude.Maybe Prelude.Text)
+createCase_language :: Lens.Lens' CreateCase (Core.Maybe Core.Text)
 createCase_language = Lens.lens (\CreateCase' {language} -> language) (\s@CreateCase' {} a -> s {language = a} :: CreateCase)
 
 -- | The title of the AWS Support case. The title appears in the __Subject__
 -- field on the AWS Support Center
 -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
 -- page.
-createCase_subject :: Lens.Lens' CreateCase Prelude.Text
+createCase_subject :: Lens.Lens' CreateCase Core.Text
 createCase_subject = Lens.lens (\CreateCase' {subject} -> subject) (\s@CreateCase' {} a -> s {subject = a} :: CreateCase)
 
 -- | The communication body text that describes the issue. This text appears
 -- in the __Description__ field on the AWS Support Center
 -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
 -- page.
-createCase_communicationBody :: Lens.Lens' CreateCase Prelude.Text
+createCase_communicationBody :: Lens.Lens' CreateCase Core.Text
 createCase_communicationBody = Lens.lens (\CreateCase' {communicationBody} -> communicationBody) (\s@CreateCase' {} a -> s {communicationBody = a} :: CreateCase)
 
-instance Prelude.AWSRequest CreateCase where
-  type Rs CreateCase = CreateCaseResponse
+instance Core.AWSRequest CreateCase where
+  type AWSResponse CreateCase = CreateCaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCaseResponse'
-            Prelude.<$> (x Prelude..?> "caseId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "caseId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCase
+instance Core.Hashable CreateCase
 
-instance Prelude.NFData CreateCase
+instance Core.NFData CreateCase
 
-instance Prelude.ToHeaders CreateCase where
+instance Core.ToHeaders CreateCase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSSupport_20130415.CreateCase" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSSupport_20130415.CreateCase" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCase where
+instance Core.ToJSON CreateCase where
   toJSON CreateCase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("serviceCode" Prelude..=) Prelude.<$> serviceCode,
-            ("categoryCode" Prelude..=) Prelude.<$> categoryCode,
-            ("ccEmailAddresses" Prelude..=)
-              Prelude.<$> ccEmailAddresses,
-            ("issueType" Prelude..=) Prelude.<$> issueType,
-            ("attachmentSetId" Prelude..=)
-              Prelude.<$> attachmentSetId,
-            ("severityCode" Prelude..=) Prelude.<$> severityCode,
-            ("language" Prelude..=) Prelude.<$> language,
-            Prelude.Just ("subject" Prelude..= subject),
-            Prelude.Just
-              ("communicationBody" Prelude..= communicationBody)
+    Core.object
+      ( Core.catMaybes
+          [ ("serviceCode" Core..=) Core.<$> serviceCode,
+            ("categoryCode" Core..=) Core.<$> categoryCode,
+            ("ccEmailAddresses" Core..=)
+              Core.<$> ccEmailAddresses,
+            ("issueType" Core..=) Core.<$> issueType,
+            ("attachmentSetId" Core..=) Core.<$> attachmentSetId,
+            ("severityCode" Core..=) Core.<$> severityCode,
+            ("language" Core..=) Core.<$> language,
+            Core.Just ("subject" Core..= subject),
+            Core.Just
+              ("communicationBody" Core..= communicationBody)
           ]
       )
 
-instance Prelude.ToPath CreateCase where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCase where
+  toQuery = Core.const Core.mempty
 
 -- | The AWS Support case ID returned by a successful completion of the
 -- CreateCase operation.
@@ -334,11 +330,11 @@ data CreateCaseResponse = CreateCaseResponse'
   { -- | The AWS Support case ID requested or returned in the call. The case ID
     -- is an alphanumeric string in the following format:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-    caseId :: Prelude.Maybe Prelude.Text,
+    caseId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCaseResponse' with all optional fields omitted.
@@ -355,22 +351,22 @@ data CreateCaseResponse = CreateCaseResponse'
 -- 'httpStatus', 'createCaseResponse_httpStatus' - The response's http status code.
 newCreateCaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCaseResponse
 newCreateCaseResponse pHttpStatus_ =
   CreateCaseResponse'
-    { caseId = Prelude.Nothing,
+    { caseId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string in the following format:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-createCaseResponse_caseId :: Lens.Lens' CreateCaseResponse (Prelude.Maybe Prelude.Text)
+createCaseResponse_caseId :: Lens.Lens' CreateCaseResponse (Core.Maybe Core.Text)
 createCaseResponse_caseId = Lens.lens (\CreateCaseResponse' {caseId} -> caseId) (\s@CreateCaseResponse' {} a -> s {caseId = a} :: CreateCaseResponse)
 
 -- | The response's http status code.
-createCaseResponse_httpStatus :: Lens.Lens' CreateCaseResponse Prelude.Int
+createCaseResponse_httpStatus :: Lens.Lens' CreateCaseResponse Core.Int
 createCaseResponse_httpStatus = Lens.lens (\CreateCaseResponse' {httpStatus} -> httpStatus) (\s@CreateCaseResponse' {} a -> s {httpStatus = a} :: CreateCaseResponse)
 
-instance Prelude.NFData CreateCaseResponse
+instance Core.NFData CreateCaseResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +56,14 @@ import qualified Network.AWS.Response as Response
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection'
   { -- | The ID of the VPC peering connection. You must specify this parameter in
     -- the request.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
+    vpcPeeringConnectionId :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptVpcPeeringConnection' with all optional fields omitted.
@@ -86,68 +85,64 @@ newAcceptVpcPeeringConnection ::
 newAcceptVpcPeeringConnection =
   AcceptVpcPeeringConnection'
     { vpcPeeringConnectionId =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing
     }
 
 -- | The ID of the VPC peering connection. You must specify this parameter in
 -- the request.
-acceptVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' AcceptVpcPeeringConnection (Prelude.Maybe Prelude.Text)
+acceptVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' AcceptVpcPeeringConnection (Core.Maybe Core.Text)
 acceptVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\AcceptVpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AcceptVpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: AcceptVpcPeeringConnection)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-acceptVpcPeeringConnection_dryRun :: Lens.Lens' AcceptVpcPeeringConnection (Prelude.Maybe Prelude.Bool)
+acceptVpcPeeringConnection_dryRun :: Lens.Lens' AcceptVpcPeeringConnection (Core.Maybe Core.Bool)
 acceptVpcPeeringConnection_dryRun = Lens.lens (\AcceptVpcPeeringConnection' {dryRun} -> dryRun) (\s@AcceptVpcPeeringConnection' {} a -> s {dryRun = a} :: AcceptVpcPeeringConnection)
 
-instance
-  Prelude.AWSRequest
-    AcceptVpcPeeringConnection
-  where
+instance Core.AWSRequest AcceptVpcPeeringConnection where
   type
-    Rs AcceptVpcPeeringConnection =
+    AWSResponse AcceptVpcPeeringConnection =
       AcceptVpcPeeringConnectionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           AcceptVpcPeeringConnectionResponse'
-            Prelude.<$> (x Prelude..@? "vpcPeeringConnection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "vpcPeeringConnection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AcceptVpcPeeringConnection
+instance Core.Hashable AcceptVpcPeeringConnection
 
-instance Prelude.NFData AcceptVpcPeeringConnection
+instance Core.NFData AcceptVpcPeeringConnection
 
-instance Prelude.ToHeaders AcceptVpcPeeringConnection where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AcceptVpcPeeringConnection where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AcceptVpcPeeringConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath AcceptVpcPeeringConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AcceptVpcPeeringConnection where
+instance Core.ToQuery AcceptVpcPeeringConnection where
   toQuery AcceptVpcPeeringConnection' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AcceptVpcPeeringConnection" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+          Core.=: ("AcceptVpcPeeringConnection" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
         "VpcPeeringConnectionId"
-          Prelude.=: vpcPeeringConnectionId,
-        "DryRun" Prelude.=: dryRun
+          Core.=: vpcPeeringConnectionId,
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newAcceptVpcPeeringConnectionResponse' smart constructor.
 data AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse'
   { -- | Information about the VPC peering connection.
-    vpcPeeringConnection :: Prelude.Maybe VpcPeeringConnection,
+    vpcPeeringConnection :: Core.Maybe VpcPeeringConnection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptVpcPeeringConnectionResponse' with all optional fields omitted.
@@ -162,23 +157,23 @@ data AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse'
 -- 'httpStatus', 'acceptVpcPeeringConnectionResponse_httpStatus' - The response's http status code.
 newAcceptVpcPeeringConnectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AcceptVpcPeeringConnectionResponse
 newAcceptVpcPeeringConnectionResponse pHttpStatus_ =
   AcceptVpcPeeringConnectionResponse'
     { vpcPeeringConnection =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the VPC peering connection.
-acceptVpcPeeringConnectionResponse_vpcPeeringConnection :: Lens.Lens' AcceptVpcPeeringConnectionResponse (Prelude.Maybe VpcPeeringConnection)
+acceptVpcPeeringConnectionResponse_vpcPeeringConnection :: Lens.Lens' AcceptVpcPeeringConnectionResponse (Core.Maybe VpcPeeringConnection)
 acceptVpcPeeringConnectionResponse_vpcPeeringConnection = Lens.lens (\AcceptVpcPeeringConnectionResponse' {vpcPeeringConnection} -> vpcPeeringConnection) (\s@AcceptVpcPeeringConnectionResponse' {} a -> s {vpcPeeringConnection = a} :: AcceptVpcPeeringConnectionResponse)
 
 -- | The response's http status code.
-acceptVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' AcceptVpcPeeringConnectionResponse Prelude.Int
+acceptVpcPeeringConnectionResponse_httpStatus :: Lens.Lens' AcceptVpcPeeringConnectionResponse Core.Int
 acceptVpcPeeringConnectionResponse_httpStatus = Lens.lens (\AcceptVpcPeeringConnectionResponse' {httpStatus} -> httpStatus) (\s@AcceptVpcPeeringConnectionResponse' {} a -> s {httpStatus = a} :: AcceptVpcPeeringConnectionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AcceptVpcPeeringConnectionResponse

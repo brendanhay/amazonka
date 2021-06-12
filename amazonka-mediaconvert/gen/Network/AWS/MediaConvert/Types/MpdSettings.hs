@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.MpdSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MpdAccessibilityCaptionHints
 import Network.AWS.MediaConvert.Types.MpdAudioDuration
 import Network.AWS.MediaConvert.Types.MpdCaptionContainerType
 import Network.AWS.MediaConvert.Types.MpdScte35Esam
 import Network.AWS.MediaConvert.Types.MpdScte35Source
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for MP4 segments in DASH
 --
@@ -38,7 +37,7 @@ data MpdSettings = MpdSettings'
     -- and play embedded 608 captions. Keep the default value, Exclude
     -- (EXCLUDE), to leave these elements out. When you enable this setting,
     -- this is the markup that MediaConvert includes in your manifest:
-    accessibilityCaptionHints :: Prelude.Maybe MpdAccessibilityCaptionHints,
+    accessibilityCaptionHints :: Core.Maybe MpdAccessibilityCaptionHints,
     -- | Use this setting only in DASH output groups that include sidecar TTML or
     -- IMSC captions. You specify sidecar captions in a separate output from
     -- your audio and video. Choose Raw (RAW) for captions in a single XML file
@@ -46,7 +45,7 @@ data MpdSettings = MpdSettings'
     -- captions in XML format contained within fragmented MP4 files. This set
     -- of fragmented MP4 files is separate from your video and audio fragmented
     -- MP4 files.
-    captionContainerType :: Prelude.Maybe MpdCaptionContainerType,
+    captionContainerType :: Core.Maybe MpdCaptionContainerType,
     -- | Specify this setting only when your output will be consumed by a
     -- downstream repackaging workflow that is sensitive to very small duration
     -- differences between video and audio. For this situation, choose Match
@@ -61,19 +60,19 @@ data MpdSettings = MpdSettings'
     -- For unsegmented outputs, MediaConvert adds padding only to the end of
     -- the file. When you keep the default value, any minor discrepancies
     -- between audio and video duration will depend on your output audio codec.
-    audioDuration :: Prelude.Maybe MpdAudioDuration,
+    audioDuration :: Core.Maybe MpdAudioDuration,
     -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
     -- INSERT to put SCTE-35 markers in this output at the insertion points
     -- that you specify in an ESAM XML document. Provide the document in the
     -- setting SCC XML (sccXml).
-    scte35Esam :: Prelude.Maybe MpdScte35Esam,
+    scte35Esam :: Core.Maybe MpdScte35Esam,
     -- | Ignore this setting unless you have SCTE-35 markers in your input video
     -- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
     -- appear in your input to also appear in this output. Choose None (NONE)
     -- if you don\'t want those SCTE-35 markers in this output.
-    scte35Source :: Prelude.Maybe MpdScte35Source
+    scte35Source :: Core.Maybe MpdScte35Source
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MpdSettings' with all optional fields omitted.
@@ -127,11 +126,11 @@ newMpdSettings ::
 newMpdSettings =
   MpdSettings'
     { accessibilityCaptionHints =
-        Prelude.Nothing,
-      captionContainerType = Prelude.Nothing,
-      audioDuration = Prelude.Nothing,
-      scte35Esam = Prelude.Nothing,
-      scte35Source = Prelude.Nothing
+        Core.Nothing,
+      captionContainerType = Core.Nothing,
+      audioDuration = Core.Nothing,
+      scte35Esam = Core.Nothing,
+      scte35Source = Core.Nothing
     }
 
 -- | Optional. Choose Include (INCLUDE) to have MediaConvert mark up your
@@ -140,7 +139,7 @@ newMpdSettings =
 -- and play embedded 608 captions. Keep the default value, Exclude
 -- (EXCLUDE), to leave these elements out. When you enable this setting,
 -- this is the markup that MediaConvert includes in your manifest:
-mpdSettings_accessibilityCaptionHints :: Lens.Lens' MpdSettings (Prelude.Maybe MpdAccessibilityCaptionHints)
+mpdSettings_accessibilityCaptionHints :: Lens.Lens' MpdSettings (Core.Maybe MpdAccessibilityCaptionHints)
 mpdSettings_accessibilityCaptionHints = Lens.lens (\MpdSettings' {accessibilityCaptionHints} -> accessibilityCaptionHints) (\s@MpdSettings' {} a -> s {accessibilityCaptionHints = a} :: MpdSettings)
 
 -- | Use this setting only in DASH output groups that include sidecar TTML or
@@ -150,7 +149,7 @@ mpdSettings_accessibilityCaptionHints = Lens.lens (\MpdSettings' {accessibilityC
 -- captions in XML format contained within fragmented MP4 files. This set
 -- of fragmented MP4 files is separate from your video and audio fragmented
 -- MP4 files.
-mpdSettings_captionContainerType :: Lens.Lens' MpdSettings (Prelude.Maybe MpdCaptionContainerType)
+mpdSettings_captionContainerType :: Lens.Lens' MpdSettings (Core.Maybe MpdCaptionContainerType)
 mpdSettings_captionContainerType = Lens.lens (\MpdSettings' {captionContainerType} -> captionContainerType) (\s@MpdSettings' {} a -> s {captionContainerType = a} :: MpdSettings)
 
 -- | Specify this setting only when your output will be consumed by a
@@ -167,52 +166,50 @@ mpdSettings_captionContainerType = Lens.lens (\MpdSettings' {captionContainerTyp
 -- For unsegmented outputs, MediaConvert adds padding only to the end of
 -- the file. When you keep the default value, any minor discrepancies
 -- between audio and video duration will depend on your output audio codec.
-mpdSettings_audioDuration :: Lens.Lens' MpdSettings (Prelude.Maybe MpdAudioDuration)
+mpdSettings_audioDuration :: Lens.Lens' MpdSettings (Core.Maybe MpdAudioDuration)
 mpdSettings_audioDuration = Lens.lens (\MpdSettings' {audioDuration} -> audioDuration) (\s@MpdSettings' {} a -> s {audioDuration = a} :: MpdSettings)
 
 -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose
 -- INSERT to put SCTE-35 markers in this output at the insertion points
 -- that you specify in an ESAM XML document. Provide the document in the
 -- setting SCC XML (sccXml).
-mpdSettings_scte35Esam :: Lens.Lens' MpdSettings (Prelude.Maybe MpdScte35Esam)
+mpdSettings_scte35Esam :: Lens.Lens' MpdSettings (Core.Maybe MpdScte35Esam)
 mpdSettings_scte35Esam = Lens.lens (\MpdSettings' {scte35Esam} -> scte35Esam) (\s@MpdSettings' {} a -> s {scte35Esam = a} :: MpdSettings)
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video
 -- file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that
 -- appear in your input to also appear in this output. Choose None (NONE)
 -- if you don\'t want those SCTE-35 markers in this output.
-mpdSettings_scte35Source :: Lens.Lens' MpdSettings (Prelude.Maybe MpdScte35Source)
+mpdSettings_scte35Source :: Lens.Lens' MpdSettings (Core.Maybe MpdScte35Source)
 mpdSettings_scte35Source = Lens.lens (\MpdSettings' {scte35Source} -> scte35Source) (\s@MpdSettings' {} a -> s {scte35Source = a} :: MpdSettings)
 
-instance Prelude.FromJSON MpdSettings where
+instance Core.FromJSON MpdSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MpdSettings"
       ( \x ->
           MpdSettings'
-            Prelude.<$> (x Prelude..:? "accessibilityCaptionHints")
-            Prelude.<*> (x Prelude..:? "captionContainerType")
-            Prelude.<*> (x Prelude..:? "audioDuration")
-            Prelude.<*> (x Prelude..:? "scte35Esam")
-            Prelude.<*> (x Prelude..:? "scte35Source")
+            Core.<$> (x Core..:? "accessibilityCaptionHints")
+            Core.<*> (x Core..:? "captionContainerType")
+            Core.<*> (x Core..:? "audioDuration")
+            Core.<*> (x Core..:? "scte35Esam")
+            Core.<*> (x Core..:? "scte35Source")
       )
 
-instance Prelude.Hashable MpdSettings
+instance Core.Hashable MpdSettings
 
-instance Prelude.NFData MpdSettings
+instance Core.NFData MpdSettings
 
-instance Prelude.ToJSON MpdSettings where
+instance Core.ToJSON MpdSettings where
   toJSON MpdSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("accessibilityCaptionHints" Prelude..=)
-              Prelude.<$> accessibilityCaptionHints,
-            ("captionContainerType" Prelude..=)
-              Prelude.<$> captionContainerType,
-            ("audioDuration" Prelude..=)
-              Prelude.<$> audioDuration,
-            ("scte35Esam" Prelude..=) Prelude.<$> scte35Esam,
-            ("scte35Source" Prelude..=)
-              Prelude.<$> scte35Source
+    Core.object
+      ( Core.catMaybes
+          [ ("accessibilityCaptionHints" Core..=)
+              Core.<$> accessibilityCaptionHints,
+            ("captionContainerType" Core..=)
+              Core.<$> captionContainerType,
+            ("audioDuration" Core..=) Core.<$> audioDuration,
+            ("scte35Esam" Core..=) Core.<$> scte35Esam,
+            ("scte35Source" Core..=) Core.<$> scte35Source
           ]
       )

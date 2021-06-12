@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EndpointSendConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the content, including message variables and attributes, to
 -- use in a message that\'s sent directly to an endpoint.
@@ -34,22 +33,22 @@ data EndpointSendConfiguration = EndpointSendConfiguration'
     -- For a push notification, this payload is added to the data.pinpoint
     -- object. For an email or text message, this payload is added to
     -- email\/SMS delivery receipt event attributes.
-    context :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    context :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A map of the message variables to merge with the variables specified for
     -- the default message (DefaultMessage.Substitutions). The variables
     -- specified in this map take precedence over all other variables.
-    substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The title or subject line of the message. If specified, this value
     -- overrides the default message title or subject line.
-    titleOverride :: Prelude.Maybe Prelude.Text,
+    titleOverride :: Core.Maybe Core.Text,
     -- | The body of the message. If specified, this value overrides the default
     -- message body.
-    bodyOverride :: Prelude.Maybe Prelude.Text,
+    bodyOverride :: Core.Maybe Core.Text,
     -- | The raw, JSON-formatted string to use as the payload for the message. If
     -- specified, this value overrides all other values for the message.
-    rawContent :: Prelude.Maybe Prelude.Text
+    rawContent :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndpointSendConfiguration' with all optional fields omitted.
@@ -82,12 +81,11 @@ newEndpointSendConfiguration ::
   EndpointSendConfiguration
 newEndpointSendConfiguration =
   EndpointSendConfiguration'
-    { context =
-        Prelude.Nothing,
-      substitutions = Prelude.Nothing,
-      titleOverride = Prelude.Nothing,
-      bodyOverride = Prelude.Nothing,
-      rawContent = Prelude.Nothing
+    { context = Core.Nothing,
+      substitutions = Core.Nothing,
+      titleOverride = Core.Nothing,
+      bodyOverride = Core.Nothing,
+      rawContent = Core.Nothing
     }
 
 -- | A map of custom attributes to attach to the message for the address.
@@ -96,44 +94,42 @@ newEndpointSendConfiguration =
 -- For a push notification, this payload is added to the data.pinpoint
 -- object. For an email or text message, this payload is added to
 -- email\/SMS delivery receipt event attributes.
-endpointSendConfiguration_context :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-endpointSendConfiguration_context = Lens.lens (\EndpointSendConfiguration' {context} -> context) (\s@EndpointSendConfiguration' {} a -> s {context = a} :: EndpointSendConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+endpointSendConfiguration_context :: Lens.Lens' EndpointSendConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+endpointSendConfiguration_context = Lens.lens (\EndpointSendConfiguration' {context} -> context) (\s@EndpointSendConfiguration' {} a -> s {context = a} :: EndpointSendConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | A map of the message variables to merge with the variables specified for
 -- the default message (DefaultMessage.Substitutions). The variables
 -- specified in this map take precedence over all other variables.
-endpointSendConfiguration_substitutions :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-endpointSendConfiguration_substitutions = Lens.lens (\EndpointSendConfiguration' {substitutions} -> substitutions) (\s@EndpointSendConfiguration' {} a -> s {substitutions = a} :: EndpointSendConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+endpointSendConfiguration_substitutions :: Lens.Lens' EndpointSendConfiguration (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+endpointSendConfiguration_substitutions = Lens.lens (\EndpointSendConfiguration' {substitutions} -> substitutions) (\s@EndpointSendConfiguration' {} a -> s {substitutions = a} :: EndpointSendConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The title or subject line of the message. If specified, this value
 -- overrides the default message title or subject line.
-endpointSendConfiguration_titleOverride :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe Prelude.Text)
+endpointSendConfiguration_titleOverride :: Lens.Lens' EndpointSendConfiguration (Core.Maybe Core.Text)
 endpointSendConfiguration_titleOverride = Lens.lens (\EndpointSendConfiguration' {titleOverride} -> titleOverride) (\s@EndpointSendConfiguration' {} a -> s {titleOverride = a} :: EndpointSendConfiguration)
 
 -- | The body of the message. If specified, this value overrides the default
 -- message body.
-endpointSendConfiguration_bodyOverride :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe Prelude.Text)
+endpointSendConfiguration_bodyOverride :: Lens.Lens' EndpointSendConfiguration (Core.Maybe Core.Text)
 endpointSendConfiguration_bodyOverride = Lens.lens (\EndpointSendConfiguration' {bodyOverride} -> bodyOverride) (\s@EndpointSendConfiguration' {} a -> s {bodyOverride = a} :: EndpointSendConfiguration)
 
 -- | The raw, JSON-formatted string to use as the payload for the message. If
 -- specified, this value overrides all other values for the message.
-endpointSendConfiguration_rawContent :: Lens.Lens' EndpointSendConfiguration (Prelude.Maybe Prelude.Text)
+endpointSendConfiguration_rawContent :: Lens.Lens' EndpointSendConfiguration (Core.Maybe Core.Text)
 endpointSendConfiguration_rawContent = Lens.lens (\EndpointSendConfiguration' {rawContent} -> rawContent) (\s@EndpointSendConfiguration' {} a -> s {rawContent = a} :: EndpointSendConfiguration)
 
-instance Prelude.Hashable EndpointSendConfiguration
+instance Core.Hashable EndpointSendConfiguration
 
-instance Prelude.NFData EndpointSendConfiguration
+instance Core.NFData EndpointSendConfiguration
 
-instance Prelude.ToJSON EndpointSendConfiguration where
+instance Core.ToJSON EndpointSendConfiguration where
   toJSON EndpointSendConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Context" Prelude..=) Prelude.<$> context,
-            ("Substitutions" Prelude..=)
-              Prelude.<$> substitutions,
-            ("TitleOverride" Prelude..=)
-              Prelude.<$> titleOverride,
-            ("BodyOverride" Prelude..=) Prelude.<$> bodyOverride,
-            ("RawContent" Prelude..=) Prelude.<$> rawContent
+    Core.object
+      ( Core.catMaybes
+          [ ("Context" Core..=) Core.<$> context,
+            ("Substitutions" Core..=) Core.<$> substitutions,
+            ("TitleOverride" Core..=) Core.<$> titleOverride,
+            ("BodyOverride" Core..=) Core.<$> bodyOverride,
+            ("RawContent" Core..=) Core.<$> rawContent
           ]
       )

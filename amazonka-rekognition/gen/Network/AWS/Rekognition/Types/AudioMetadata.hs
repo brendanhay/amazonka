@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.AudioMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata information about an audio stream. An array of @AudioMetadata@
 -- objects for the audio streams found in a stored video is returned by
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAudioMetadata' smart constructor.
 data AudioMetadata = AudioMetadata'
   { -- | The audio codec used to encode or decode the audio stream.
-    codec :: Prelude.Maybe Prelude.Text,
+    codec :: Core.Maybe Core.Text,
     -- | The sample rate for the audio stream.
-    sampleRate :: Prelude.Maybe Prelude.Natural,
+    sampleRate :: Core.Maybe Core.Natural,
     -- | The duration of the audio stream in milliseconds.
-    durationMillis :: Prelude.Maybe Prelude.Natural,
+    durationMillis :: Core.Maybe Core.Natural,
     -- | The number of audio channels in the segment.
-    numberOfChannels :: Prelude.Maybe Prelude.Natural
+    numberOfChannels :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioMetadata' with all optional fields omitted.
@@ -59,40 +58,40 @@ newAudioMetadata ::
   AudioMetadata
 newAudioMetadata =
   AudioMetadata'
-    { codec = Prelude.Nothing,
-      sampleRate = Prelude.Nothing,
-      durationMillis = Prelude.Nothing,
-      numberOfChannels = Prelude.Nothing
+    { codec = Core.Nothing,
+      sampleRate = Core.Nothing,
+      durationMillis = Core.Nothing,
+      numberOfChannels = Core.Nothing
     }
 
 -- | The audio codec used to encode or decode the audio stream.
-audioMetadata_codec :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Text)
+audioMetadata_codec :: Lens.Lens' AudioMetadata (Core.Maybe Core.Text)
 audioMetadata_codec = Lens.lens (\AudioMetadata' {codec} -> codec) (\s@AudioMetadata' {} a -> s {codec = a} :: AudioMetadata)
 
 -- | The sample rate for the audio stream.
-audioMetadata_sampleRate :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Natural)
+audioMetadata_sampleRate :: Lens.Lens' AudioMetadata (Core.Maybe Core.Natural)
 audioMetadata_sampleRate = Lens.lens (\AudioMetadata' {sampleRate} -> sampleRate) (\s@AudioMetadata' {} a -> s {sampleRate = a} :: AudioMetadata)
 
 -- | The duration of the audio stream in milliseconds.
-audioMetadata_durationMillis :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Natural)
+audioMetadata_durationMillis :: Lens.Lens' AudioMetadata (Core.Maybe Core.Natural)
 audioMetadata_durationMillis = Lens.lens (\AudioMetadata' {durationMillis} -> durationMillis) (\s@AudioMetadata' {} a -> s {durationMillis = a} :: AudioMetadata)
 
 -- | The number of audio channels in the segment.
-audioMetadata_numberOfChannels :: Lens.Lens' AudioMetadata (Prelude.Maybe Prelude.Natural)
+audioMetadata_numberOfChannels :: Lens.Lens' AudioMetadata (Core.Maybe Core.Natural)
 audioMetadata_numberOfChannels = Lens.lens (\AudioMetadata' {numberOfChannels} -> numberOfChannels) (\s@AudioMetadata' {} a -> s {numberOfChannels = a} :: AudioMetadata)
 
-instance Prelude.FromJSON AudioMetadata where
+instance Core.FromJSON AudioMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioMetadata"
       ( \x ->
           AudioMetadata'
-            Prelude.<$> (x Prelude..:? "Codec")
-            Prelude.<*> (x Prelude..:? "SampleRate")
-            Prelude.<*> (x Prelude..:? "DurationMillis")
-            Prelude.<*> (x Prelude..:? "NumberOfChannels")
+            Core.<$> (x Core..:? "Codec")
+            Core.<*> (x Core..:? "SampleRate")
+            Core.<*> (x Core..:? "DurationMillis")
+            Core.<*> (x Core..:? "NumberOfChannels")
       )
 
-instance Prelude.Hashable AudioMetadata
+instance Core.Hashable AudioMetadata
 
-instance Prelude.NFData AudioMetadata
+instance Core.NFData AudioMetadata

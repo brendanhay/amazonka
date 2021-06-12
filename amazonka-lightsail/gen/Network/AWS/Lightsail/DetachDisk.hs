@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Lightsail.DetachDisk
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data DetachDisk = DetachDisk'
   { -- | The unique name of the disk you want to detach from your instance (e.g.,
     -- @my-disk@).
-    diskName :: Prelude.Text
+    diskName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachDisk' with all optional fields omitted.
@@ -73,71 +72,65 @@ data DetachDisk = DetachDisk'
 -- @my-disk@).
 newDetachDisk ::
   -- | 'diskName'
-  Prelude.Text ->
+  Core.Text ->
   DetachDisk
 newDetachDisk pDiskName_ =
   DetachDisk' {diskName = pDiskName_}
 
 -- | The unique name of the disk you want to detach from your instance (e.g.,
 -- @my-disk@).
-detachDisk_diskName :: Lens.Lens' DetachDisk Prelude.Text
+detachDisk_diskName :: Lens.Lens' DetachDisk Core.Text
 detachDisk_diskName = Lens.lens (\DetachDisk' {diskName} -> diskName) (\s@DetachDisk' {} a -> s {diskName = a} :: DetachDisk)
 
-instance Prelude.AWSRequest DetachDisk where
-  type Rs DetachDisk = DetachDiskResponse
+instance Core.AWSRequest DetachDisk where
+  type AWSResponse DetachDisk = DetachDiskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DetachDiskResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetachDisk
+instance Core.Hashable DetachDisk
 
-instance Prelude.NFData DetachDisk
+instance Core.NFData DetachDisk
 
-instance Prelude.ToHeaders DetachDisk where
+instance Core.ToHeaders DetachDisk where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DetachDisk" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.DetachDisk" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DetachDisk where
+instance Core.ToJSON DetachDisk where
   toJSON DetachDisk' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("diskName" Prelude..= diskName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("diskName" Core..= diskName)]
       )
 
-instance Prelude.ToPath DetachDisk where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetachDisk where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetachDisk where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetachDisk where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDetachDiskResponse' smart constructor.
 data DetachDiskResponse = DetachDiskResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachDiskResponse' with all optional fields omitted.
@@ -154,22 +147,22 @@ data DetachDiskResponse = DetachDiskResponse'
 -- 'httpStatus', 'detachDiskResponse_httpStatus' - The response's http status code.
 newDetachDiskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetachDiskResponse
 newDetachDiskResponse pHttpStatus_ =
   DetachDiskResponse'
-    { operations = Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-detachDiskResponse_operations :: Lens.Lens' DetachDiskResponse (Prelude.Maybe [Operation])
-detachDiskResponse_operations = Lens.lens (\DetachDiskResponse' {operations} -> operations) (\s@DetachDiskResponse' {} a -> s {operations = a} :: DetachDiskResponse) Prelude.. Lens.mapping Prelude._Coerce
+detachDiskResponse_operations :: Lens.Lens' DetachDiskResponse (Core.Maybe [Operation])
+detachDiskResponse_operations = Lens.lens (\DetachDiskResponse' {operations} -> operations) (\s@DetachDiskResponse' {} a -> s {operations = a} :: DetachDiskResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detachDiskResponse_httpStatus :: Lens.Lens' DetachDiskResponse Prelude.Int
+detachDiskResponse_httpStatus :: Lens.Lens' DetachDiskResponse Core.Int
 detachDiskResponse_httpStatus = Lens.lens (\DetachDiskResponse' {httpStatus} -> httpStatus) (\s@DetachDiskResponse' {} a -> s {httpStatus = a} :: DetachDiskResponse)
 
-instance Prelude.NFData DetachDiskResponse
+instance Core.NFData DetachDiskResponse

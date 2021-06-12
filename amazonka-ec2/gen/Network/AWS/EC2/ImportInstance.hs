@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,29 +50,29 @@ module Network.AWS.EC2.ImportInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newImportInstance' smart constructor.
 data ImportInstance = ImportInstance'
   { -- | The disk image.
-    diskImages :: Prelude.Maybe [DiskImage],
+    diskImages :: Core.Maybe [DiskImage],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | A description for the instance being imported.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The launch specification.
-    launchSpecification :: Prelude.Maybe ImportInstanceLaunchSpecification,
+    launchSpecification :: Core.Maybe ImportInstanceLaunchSpecification,
     -- | The instance operating system.
     platform :: PlatformValues
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportInstance' with all optional fields omitted.
@@ -101,82 +100,81 @@ newImportInstance ::
   ImportInstance
 newImportInstance pPlatform_ =
   ImportInstance'
-    { diskImages = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      description = Prelude.Nothing,
-      launchSpecification = Prelude.Nothing,
+    { diskImages = Core.Nothing,
+      dryRun = Core.Nothing,
+      description = Core.Nothing,
+      launchSpecification = Core.Nothing,
       platform = pPlatform_
     }
 
 -- | The disk image.
-importInstance_diskImages :: Lens.Lens' ImportInstance (Prelude.Maybe [DiskImage])
-importInstance_diskImages = Lens.lens (\ImportInstance' {diskImages} -> diskImages) (\s@ImportInstance' {} a -> s {diskImages = a} :: ImportInstance) Prelude.. Lens.mapping Prelude._Coerce
+importInstance_diskImages :: Lens.Lens' ImportInstance (Core.Maybe [DiskImage])
+importInstance_diskImages = Lens.lens (\ImportInstance' {diskImages} -> diskImages) (\s@ImportInstance' {} a -> s {diskImages = a} :: ImportInstance) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-importInstance_dryRun :: Lens.Lens' ImportInstance (Prelude.Maybe Prelude.Bool)
+importInstance_dryRun :: Lens.Lens' ImportInstance (Core.Maybe Core.Bool)
 importInstance_dryRun = Lens.lens (\ImportInstance' {dryRun} -> dryRun) (\s@ImportInstance' {} a -> s {dryRun = a} :: ImportInstance)
 
 -- | A description for the instance being imported.
-importInstance_description :: Lens.Lens' ImportInstance (Prelude.Maybe Prelude.Text)
+importInstance_description :: Lens.Lens' ImportInstance (Core.Maybe Core.Text)
 importInstance_description = Lens.lens (\ImportInstance' {description} -> description) (\s@ImportInstance' {} a -> s {description = a} :: ImportInstance)
 
 -- | The launch specification.
-importInstance_launchSpecification :: Lens.Lens' ImportInstance (Prelude.Maybe ImportInstanceLaunchSpecification)
+importInstance_launchSpecification :: Lens.Lens' ImportInstance (Core.Maybe ImportInstanceLaunchSpecification)
 importInstance_launchSpecification = Lens.lens (\ImportInstance' {launchSpecification} -> launchSpecification) (\s@ImportInstance' {} a -> s {launchSpecification = a} :: ImportInstance)
 
 -- | The instance operating system.
 importInstance_platform :: Lens.Lens' ImportInstance PlatformValues
 importInstance_platform = Lens.lens (\ImportInstance' {platform} -> platform) (\s@ImportInstance' {} a -> s {platform = a} :: ImportInstance)
 
-instance Prelude.AWSRequest ImportInstance where
-  type Rs ImportInstance = ImportInstanceResponse
+instance Core.AWSRequest ImportInstance where
+  type
+    AWSResponse ImportInstance =
+      ImportInstanceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ImportInstanceResponse'
-            Prelude.<$> (x Prelude..@? "conversionTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "conversionTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ImportInstance
+instance Core.Hashable ImportInstance
 
-instance Prelude.NFData ImportInstance
+instance Core.NFData ImportInstance
 
-instance Prelude.ToHeaders ImportInstance where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ImportInstance where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ImportInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportInstance where
+instance Core.ToQuery ImportInstance where
   toQuery ImportInstance' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ImportInstance" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "DiskImage"
-              Prelude.<$> diskImages
-          ),
-        "DryRun" Prelude.=: dryRun,
-        "Description" Prelude.=: description,
-        "LaunchSpecification" Prelude.=: launchSpecification,
-        "Platform" Prelude.=: platform
+          Core.=: ("ImportInstance" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          (Core.toQueryList "DiskImage" Core.<$> diskImages),
+        "DryRun" Core.=: dryRun,
+        "Description" Core.=: description,
+        "LaunchSpecification" Core.=: launchSpecification,
+        "Platform" Core.=: platform
       ]
 
 -- | /See:/ 'newImportInstanceResponse' smart constructor.
 data ImportInstanceResponse = ImportInstanceResponse'
   { -- | Information about the conversion task.
-    conversionTask :: Prelude.Maybe ConversionTask,
+    conversionTask :: Core.Maybe ConversionTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportInstanceResponse' with all optional fields omitted.
@@ -191,21 +189,21 @@ data ImportInstanceResponse = ImportInstanceResponse'
 -- 'httpStatus', 'importInstanceResponse_httpStatus' - The response's http status code.
 newImportInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ImportInstanceResponse
 newImportInstanceResponse pHttpStatus_ =
   ImportInstanceResponse'
     { conversionTask =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the conversion task.
-importInstanceResponse_conversionTask :: Lens.Lens' ImportInstanceResponse (Prelude.Maybe ConversionTask)
+importInstanceResponse_conversionTask :: Lens.Lens' ImportInstanceResponse (Core.Maybe ConversionTask)
 importInstanceResponse_conversionTask = Lens.lens (\ImportInstanceResponse' {conversionTask} -> conversionTask) (\s@ImportInstanceResponse' {} a -> s {conversionTask = a} :: ImportInstanceResponse)
 
 -- | The response's http status code.
-importInstanceResponse_httpStatus :: Lens.Lens' ImportInstanceResponse Prelude.Int
+importInstanceResponse_httpStatus :: Lens.Lens' ImportInstanceResponse Core.Int
 importInstanceResponse_httpStatus = Lens.lens (\ImportInstanceResponse' {httpStatus} -> httpStatus) (\s@ImportInstanceResponse' {} a -> s {httpStatus = a} :: ImportInstanceResponse)
 
-instance Prelude.NFData ImportInstanceResponse
+instance Core.NFData ImportInstanceResponse

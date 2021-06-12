@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.ScheduledActionType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.PauseClusterMessage
 import Network.AWS.Redshift.Types.ResizeClusterMessage
@@ -33,13 +32,13 @@ import Network.AWS.Redshift.Types.ResumeClusterMessage
 -- /See:/ 'newScheduledActionType' smart constructor.
 data ScheduledActionType = ScheduledActionType'
   { -- | An action that runs a @ResumeCluster@ API operation.
-    resumeCluster :: Prelude.Maybe ResumeClusterMessage,
+    resumeCluster :: Core.Maybe ResumeClusterMessage,
     -- | An action that runs a @ResizeCluster@ API operation.
-    resizeCluster :: Prelude.Maybe ResizeClusterMessage,
+    resizeCluster :: Core.Maybe ResizeClusterMessage,
     -- | An action that runs a @PauseCluster@ API operation.
-    pauseCluster :: Prelude.Maybe PauseClusterMessage
+    pauseCluster :: Core.Maybe PauseClusterMessage
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledActionType' with all optional fields omitted.
@@ -58,39 +57,38 @@ newScheduledActionType ::
   ScheduledActionType
 newScheduledActionType =
   ScheduledActionType'
-    { resumeCluster =
-        Prelude.Nothing,
-      resizeCluster = Prelude.Nothing,
-      pauseCluster = Prelude.Nothing
+    { resumeCluster = Core.Nothing,
+      resizeCluster = Core.Nothing,
+      pauseCluster = Core.Nothing
     }
 
 -- | An action that runs a @ResumeCluster@ API operation.
-scheduledActionType_resumeCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe ResumeClusterMessage)
+scheduledActionType_resumeCluster :: Lens.Lens' ScheduledActionType (Core.Maybe ResumeClusterMessage)
 scheduledActionType_resumeCluster = Lens.lens (\ScheduledActionType' {resumeCluster} -> resumeCluster) (\s@ScheduledActionType' {} a -> s {resumeCluster = a} :: ScheduledActionType)
 
 -- | An action that runs a @ResizeCluster@ API operation.
-scheduledActionType_resizeCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe ResizeClusterMessage)
+scheduledActionType_resizeCluster :: Lens.Lens' ScheduledActionType (Core.Maybe ResizeClusterMessage)
 scheduledActionType_resizeCluster = Lens.lens (\ScheduledActionType' {resizeCluster} -> resizeCluster) (\s@ScheduledActionType' {} a -> s {resizeCluster = a} :: ScheduledActionType)
 
 -- | An action that runs a @PauseCluster@ API operation.
-scheduledActionType_pauseCluster :: Lens.Lens' ScheduledActionType (Prelude.Maybe PauseClusterMessage)
+scheduledActionType_pauseCluster :: Lens.Lens' ScheduledActionType (Core.Maybe PauseClusterMessage)
 scheduledActionType_pauseCluster = Lens.lens (\ScheduledActionType' {pauseCluster} -> pauseCluster) (\s@ScheduledActionType' {} a -> s {pauseCluster = a} :: ScheduledActionType)
 
-instance Prelude.FromXML ScheduledActionType where
+instance Core.FromXML ScheduledActionType where
   parseXML x =
     ScheduledActionType'
-      Prelude.<$> (x Prelude..@? "ResumeCluster")
-      Prelude.<*> (x Prelude..@? "ResizeCluster")
-      Prelude.<*> (x Prelude..@? "PauseCluster")
+      Core.<$> (x Core..@? "ResumeCluster")
+      Core.<*> (x Core..@? "ResizeCluster")
+      Core.<*> (x Core..@? "PauseCluster")
 
-instance Prelude.Hashable ScheduledActionType
+instance Core.Hashable ScheduledActionType
 
-instance Prelude.NFData ScheduledActionType
+instance Core.NFData ScheduledActionType
 
-instance Prelude.ToQuery ScheduledActionType where
+instance Core.ToQuery ScheduledActionType where
   toQuery ScheduledActionType' {..} =
-    Prelude.mconcat
-      [ "ResumeCluster" Prelude.=: resumeCluster,
-        "ResizeCluster" Prelude.=: resizeCluster,
-        "PauseCluster" Prelude.=: pauseCluster
+    Core.mconcat
+      [ "ResumeCluster" Core.=: resumeCluster,
+        "ResizeCluster" Core.=: resizeCluster,
+        "PauseCluster" Core.=: pauseCluster
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.ClusterAssociatedToSchedule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.ScheduleState
 
@@ -29,10 +28,10 @@ import Network.AWS.Redshift.Types.ScheduleState
 --
 -- /See:/ 'newClusterAssociatedToSchedule' smart constructor.
 data ClusterAssociatedToSchedule = ClusterAssociatedToSchedule'
-  { scheduleAssociationState :: Prelude.Maybe ScheduleState,
-    clusterIdentifier :: Prelude.Maybe Prelude.Text
+  { scheduleAssociationState :: Core.Maybe ScheduleState,
+    clusterIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClusterAssociatedToSchedule' with all optional fields omitted.
@@ -50,24 +49,24 @@ newClusterAssociatedToSchedule ::
 newClusterAssociatedToSchedule =
   ClusterAssociatedToSchedule'
     { scheduleAssociationState =
-        Prelude.Nothing,
-      clusterIdentifier = Prelude.Nothing
+        Core.Nothing,
+      clusterIdentifier = Core.Nothing
     }
 
 -- |
-clusterAssociatedToSchedule_scheduleAssociationState :: Lens.Lens' ClusterAssociatedToSchedule (Prelude.Maybe ScheduleState)
+clusterAssociatedToSchedule_scheduleAssociationState :: Lens.Lens' ClusterAssociatedToSchedule (Core.Maybe ScheduleState)
 clusterAssociatedToSchedule_scheduleAssociationState = Lens.lens (\ClusterAssociatedToSchedule' {scheduleAssociationState} -> scheduleAssociationState) (\s@ClusterAssociatedToSchedule' {} a -> s {scheduleAssociationState = a} :: ClusterAssociatedToSchedule)
 
 -- |
-clusterAssociatedToSchedule_clusterIdentifier :: Lens.Lens' ClusterAssociatedToSchedule (Prelude.Maybe Prelude.Text)
+clusterAssociatedToSchedule_clusterIdentifier :: Lens.Lens' ClusterAssociatedToSchedule (Core.Maybe Core.Text)
 clusterAssociatedToSchedule_clusterIdentifier = Lens.lens (\ClusterAssociatedToSchedule' {clusterIdentifier} -> clusterIdentifier) (\s@ClusterAssociatedToSchedule' {} a -> s {clusterIdentifier = a} :: ClusterAssociatedToSchedule)
 
-instance Prelude.FromXML ClusterAssociatedToSchedule where
+instance Core.FromXML ClusterAssociatedToSchedule where
   parseXML x =
     ClusterAssociatedToSchedule'
-      Prelude.<$> (x Prelude..@? "ScheduleAssociationState")
-      Prelude.<*> (x Prelude..@? "ClusterIdentifier")
+      Core.<$> (x Core..@? "ScheduleAssociationState")
+      Core.<*> (x Core..@? "ClusterIdentifier")
 
-instance Prelude.Hashable ClusterAssociatedToSchedule
+instance Core.Hashable ClusterAssociatedToSchedule
 
-instance Prelude.NFData ClusterAssociatedToSchedule
+instance Core.NFData ClusterAssociatedToSchedule

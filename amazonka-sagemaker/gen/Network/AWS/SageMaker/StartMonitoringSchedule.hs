@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.SageMaker.StartMonitoringSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -48,9 +47,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStartMonitoringSchedule' smart constructor.
 data StartMonitoringSchedule = StartMonitoringSchedule'
   { -- | The name of the schedule to start.
-    monitoringScheduleName :: Prelude.Text
+    monitoringScheduleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMonitoringSchedule' with all optional fields omitted.
@@ -63,7 +62,7 @@ data StartMonitoringSchedule = StartMonitoringSchedule'
 -- 'monitoringScheduleName', 'startMonitoringSchedule_monitoringScheduleName' - The name of the schedule to start.
 newStartMonitoringSchedule ::
   -- | 'monitoringScheduleName'
-  Prelude.Text ->
+  Core.Text ->
   StartMonitoringSchedule
 newStartMonitoringSchedule pMonitoringScheduleName_ =
   StartMonitoringSchedule'
@@ -72,59 +71,57 @@ newStartMonitoringSchedule pMonitoringScheduleName_ =
     }
 
 -- | The name of the schedule to start.
-startMonitoringSchedule_monitoringScheduleName :: Lens.Lens' StartMonitoringSchedule Prelude.Text
+startMonitoringSchedule_monitoringScheduleName :: Lens.Lens' StartMonitoringSchedule Core.Text
 startMonitoringSchedule_monitoringScheduleName = Lens.lens (\StartMonitoringSchedule' {monitoringScheduleName} -> monitoringScheduleName) (\s@StartMonitoringSchedule' {} a -> s {monitoringScheduleName = a} :: StartMonitoringSchedule)
 
-instance Prelude.AWSRequest StartMonitoringSchedule where
+instance Core.AWSRequest StartMonitoringSchedule where
   type
-    Rs StartMonitoringSchedule =
+    AWSResponse StartMonitoringSchedule =
       StartMonitoringScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       StartMonitoringScheduleResponse'
 
-instance Prelude.Hashable StartMonitoringSchedule
+instance Core.Hashable StartMonitoringSchedule
 
-instance Prelude.NFData StartMonitoringSchedule
+instance Core.NFData StartMonitoringSchedule
 
-instance Prelude.ToHeaders StartMonitoringSchedule where
+instance Core.ToHeaders StartMonitoringSchedule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StartMonitoringSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.StartMonitoringSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartMonitoringSchedule where
+instance Core.ToJSON StartMonitoringSchedule where
   toJSON StartMonitoringSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "MonitoringScheduleName"
-                  Prelude..= monitoringScheduleName
+                  Core..= monitoringScheduleName
               )
           ]
       )
 
-instance Prelude.ToPath StartMonitoringSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartMonitoringSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartMonitoringSchedule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartMonitoringSchedule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartMonitoringScheduleResponse' smart constructor.
 data StartMonitoringScheduleResponse = StartMonitoringScheduleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMonitoringScheduleResponse' with all optional fields omitted.
@@ -135,6 +132,4 @@ newStartMonitoringScheduleResponse ::
 newStartMonitoringScheduleResponse =
   StartMonitoringScheduleResponse'
 
-instance
-  Prelude.NFData
-    StartMonitoringScheduleResponse
+instance Core.NFData StartMonitoringScheduleResponse

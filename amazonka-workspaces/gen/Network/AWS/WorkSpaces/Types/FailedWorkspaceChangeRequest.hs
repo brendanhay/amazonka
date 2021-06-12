@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.FailedWorkspaceChangeRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a WorkSpace that could not be rebooted. (RebootWorkspaces),
 -- rebuilt (RebuildWorkspaces), restored (RestoreWorkspace), terminated
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newFailedWorkspaceChangeRequest' smart constructor.
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Maybe Prelude.Text,
+    workspaceId :: Core.Maybe Core.Text,
     -- | The text of the error message that is returned if the WorkSpace cannot
     -- be rebooted.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code that is returned if the WorkSpace cannot be rebooted.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailedWorkspaceChangeRequest' with all optional fields omitted.
@@ -59,40 +58,35 @@ newFailedWorkspaceChangeRequest ::
 newFailedWorkspaceChangeRequest =
   FailedWorkspaceChangeRequest'
     { workspaceId =
-        Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The identifier of the WorkSpace.
-failedWorkspaceChangeRequest_workspaceId :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
+failedWorkspaceChangeRequest_workspaceId :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Core.Text)
 failedWorkspaceChangeRequest_workspaceId = Lens.lens (\FailedWorkspaceChangeRequest' {workspaceId} -> workspaceId) (\s@FailedWorkspaceChangeRequest' {} a -> s {workspaceId = a} :: FailedWorkspaceChangeRequest)
 
 -- | The text of the error message that is returned if the WorkSpace cannot
 -- be rebooted.
-failedWorkspaceChangeRequest_errorMessage :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
+failedWorkspaceChangeRequest_errorMessage :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Core.Text)
 failedWorkspaceChangeRequest_errorMessage = Lens.lens (\FailedWorkspaceChangeRequest' {errorMessage} -> errorMessage) (\s@FailedWorkspaceChangeRequest' {} a -> s {errorMessage = a} :: FailedWorkspaceChangeRequest)
 
 -- | The error code that is returned if the WorkSpace cannot be rebooted.
-failedWorkspaceChangeRequest_errorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Prelude.Maybe Prelude.Text)
+failedWorkspaceChangeRequest_errorCode :: Lens.Lens' FailedWorkspaceChangeRequest (Core.Maybe Core.Text)
 failedWorkspaceChangeRequest_errorCode = Lens.lens (\FailedWorkspaceChangeRequest' {errorCode} -> errorCode) (\s@FailedWorkspaceChangeRequest' {} a -> s {errorCode = a} :: FailedWorkspaceChangeRequest)
 
-instance
-  Prelude.FromJSON
-    FailedWorkspaceChangeRequest
-  where
+instance Core.FromJSON FailedWorkspaceChangeRequest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailedWorkspaceChangeRequest"
       ( \x ->
           FailedWorkspaceChangeRequest'
-            Prelude.<$> (x Prelude..:? "WorkspaceId")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "WorkspaceId")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance
-  Prelude.Hashable
-    FailedWorkspaceChangeRequest
+instance Core.Hashable FailedWorkspaceChangeRequest
 
-instance Prelude.NFData FailedWorkspaceChangeRequest
+instance Core.NFData FailedWorkspaceChangeRequest

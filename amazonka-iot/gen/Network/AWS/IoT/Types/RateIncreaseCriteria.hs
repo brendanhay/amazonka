@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.RateIncreaseCriteria where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Allows you to define a criteria to initiate the increase in rate of
 -- rollout for a job.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data RateIncreaseCriteria = RateIncreaseCriteria'
   { -- | The threshold for number of notified things that will initiate the
     -- increase in rate of rollout.
-    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural,
+    numberOfNotifiedThings :: Core.Maybe Core.Natural,
     -- | The threshold for number of succeeded things that will initiate the
     -- increase in rate of rollout.
-    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural
+    numberOfSucceededThings :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RateIncreaseCriteria' with all optional fields omitted.
@@ -55,41 +54,41 @@ newRateIncreaseCriteria ::
 newRateIncreaseCriteria =
   RateIncreaseCriteria'
     { numberOfNotifiedThings =
-        Prelude.Nothing,
-      numberOfSucceededThings = Prelude.Nothing
+        Core.Nothing,
+      numberOfSucceededThings = Core.Nothing
     }
 
 -- | The threshold for number of notified things that will initiate the
 -- increase in rate of rollout.
-rateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
+rateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' RateIncreaseCriteria (Core.Maybe Core.Natural)
 rateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\RateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: RateIncreaseCriteria)
 
 -- | The threshold for number of succeeded things that will initiate the
 -- increase in rate of rollout.
-rateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' RateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
+rateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' RateIncreaseCriteria (Core.Maybe Core.Natural)
 rateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\RateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@RateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: RateIncreaseCriteria)
 
-instance Prelude.FromJSON RateIncreaseCriteria where
+instance Core.FromJSON RateIncreaseCriteria where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RateIncreaseCriteria"
       ( \x ->
           RateIncreaseCriteria'
-            Prelude.<$> (x Prelude..:? "numberOfNotifiedThings")
-            Prelude.<*> (x Prelude..:? "numberOfSucceededThings")
+            Core.<$> (x Core..:? "numberOfNotifiedThings")
+            Core.<*> (x Core..:? "numberOfSucceededThings")
       )
 
-instance Prelude.Hashable RateIncreaseCriteria
+instance Core.Hashable RateIncreaseCriteria
 
-instance Prelude.NFData RateIncreaseCriteria
+instance Core.NFData RateIncreaseCriteria
 
-instance Prelude.ToJSON RateIncreaseCriteria where
+instance Core.ToJSON RateIncreaseCriteria where
   toJSON RateIncreaseCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("numberOfNotifiedThings" Prelude..=)
-              Prelude.<$> numberOfNotifiedThings,
-            ("numberOfSucceededThings" Prelude..=)
-              Prelude.<$> numberOfSucceededThings
+    Core.object
+      ( Core.catMaybes
+          [ ("numberOfNotifiedThings" Core..=)
+              Core.<$> numberOfNotifiedThings,
+            ("numberOfSucceededThings" Core..=)
+              Core.<$> numberOfSucceededThings
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Comprehend.StartDocumentClassificationJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +60,7 @@ data StartDocumentClassificationJob = StartDocumentClassificationJob'
     -- (VPC) containing the resources you are using for your document
     -- classification job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+    vpcConfig :: Core.Maybe VpcConfig,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -71,24 +70,24 @@ data StartDocumentClassificationJob = StartDocumentClassificationJob'
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    volumeKmsKeyId :: Core.Maybe Core.Text,
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
+    jobName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the document classifier to use to
     -- process the job.
-    documentClassifierArn :: Prelude.Text,
+    documentClassifierArn :: Core.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleArn :: Prelude.Text
+    dataAccessRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDocumentClassificationJob' with all optional fields omitted.
@@ -129,13 +128,13 @@ data StartDocumentClassificationJob = StartDocumentClassificationJob'
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
 newStartDocumentClassificationJob ::
   -- | 'documentClassifierArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'inputDataConfig'
   InputDataConfig ->
   -- | 'outputDataConfig'
   OutputDataConfig ->
   -- | 'dataAccessRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   StartDocumentClassificationJob
 newStartDocumentClassificationJob
   pDocumentClassifierArn_
@@ -144,10 +143,10 @@ newStartDocumentClassificationJob
   pDataAccessRoleArn_ =
     StartDocumentClassificationJob'
       { vpcConfig =
-          Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        jobName = Prelude.Nothing,
+          Core.Nothing,
+        volumeKmsKeyId = Core.Nothing,
+        clientRequestToken = Core.Nothing,
+        jobName = Core.Nothing,
         documentClassifierArn =
           pDocumentClassifierArn_,
         inputDataConfig = pInputDataConfig_,
@@ -159,7 +158,7 @@ newStartDocumentClassificationJob
 -- (VPC) containing the resources you are using for your document
 -- classification job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-startDocumentClassificationJob_vpcConfig :: Lens.Lens' StartDocumentClassificationJob (Prelude.Maybe VpcConfig)
+startDocumentClassificationJob_vpcConfig :: Lens.Lens' StartDocumentClassificationJob (Core.Maybe VpcConfig)
 startDocumentClassificationJob_vpcConfig = Lens.lens (\StartDocumentClassificationJob' {vpcConfig} -> vpcConfig) (\s@StartDocumentClassificationJob' {} a -> s {vpcConfig = a} :: StartDocumentClassificationJob)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -171,21 +170,21 @@ startDocumentClassificationJob_vpcConfig = Lens.lens (\StartDocumentClassificati
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-startDocumentClassificationJob_volumeKmsKeyId :: Lens.Lens' StartDocumentClassificationJob (Prelude.Maybe Prelude.Text)
+startDocumentClassificationJob_volumeKmsKeyId :: Lens.Lens' StartDocumentClassificationJob (Core.Maybe Core.Text)
 startDocumentClassificationJob_volumeKmsKeyId = Lens.lens (\StartDocumentClassificationJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartDocumentClassificationJob' {} a -> s {volumeKmsKeyId = a} :: StartDocumentClassificationJob)
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Comprehend generates one.
-startDocumentClassificationJob_clientRequestToken :: Lens.Lens' StartDocumentClassificationJob (Prelude.Maybe Prelude.Text)
+startDocumentClassificationJob_clientRequestToken :: Lens.Lens' StartDocumentClassificationJob (Core.Maybe Core.Text)
 startDocumentClassificationJob_clientRequestToken = Lens.lens (\StartDocumentClassificationJob' {clientRequestToken} -> clientRequestToken) (\s@StartDocumentClassificationJob' {} a -> s {clientRequestToken = a} :: StartDocumentClassificationJob)
 
 -- | The identifier of the job.
-startDocumentClassificationJob_jobName :: Lens.Lens' StartDocumentClassificationJob (Prelude.Maybe Prelude.Text)
+startDocumentClassificationJob_jobName :: Lens.Lens' StartDocumentClassificationJob (Core.Maybe Core.Text)
 startDocumentClassificationJob_jobName = Lens.lens (\StartDocumentClassificationJob' {jobName} -> jobName) (\s@StartDocumentClassificationJob' {} a -> s {jobName = a} :: StartDocumentClassificationJob)
 
 -- | The Amazon Resource Name (ARN) of the document classifier to use to
 -- process the job.
-startDocumentClassificationJob_documentClassifierArn :: Lens.Lens' StartDocumentClassificationJob Prelude.Text
+startDocumentClassificationJob_documentClassifierArn :: Lens.Lens' StartDocumentClassificationJob Core.Text
 startDocumentClassificationJob_documentClassifierArn = Lens.lens (\StartDocumentClassificationJob' {documentClassifierArn} -> documentClassifierArn) (\s@StartDocumentClassificationJob' {} a -> s {documentClassifierArn = a} :: StartDocumentClassificationJob)
 
 -- | Specifies the format and location of the input data for the job.
@@ -198,89 +197,73 @@ startDocumentClassificationJob_outputDataConfig = Lens.lens (\StartDocumentClass
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
-startDocumentClassificationJob_dataAccessRoleArn :: Lens.Lens' StartDocumentClassificationJob Prelude.Text
+startDocumentClassificationJob_dataAccessRoleArn :: Lens.Lens' StartDocumentClassificationJob Core.Text
 startDocumentClassificationJob_dataAccessRoleArn = Lens.lens (\StartDocumentClassificationJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartDocumentClassificationJob' {} a -> s {dataAccessRoleArn = a} :: StartDocumentClassificationJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StartDocumentClassificationJob
   where
   type
-    Rs StartDocumentClassificationJob =
+    AWSResponse StartDocumentClassificationJob =
       StartDocumentClassificationJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartDocumentClassificationJobResponse'
-            Prelude.<$> (x Prelude..?> "JobStatus")
-            Prelude.<*> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StartDocumentClassificationJob
+instance Core.Hashable StartDocumentClassificationJob
+
+instance Core.NFData StartDocumentClassificationJob
 
 instance
-  Prelude.NFData
-    StartDocumentClassificationJob
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     StartDocumentClassificationJob
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StartDocumentClassificationJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StartDocumentClassificationJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    StartDocumentClassificationJob
-  where
+instance Core.ToJSON StartDocumentClassificationJob where
   toJSON StartDocumentClassificationJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VpcConfig" Prelude..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Prelude..=)
-              Prelude.<$> volumeKmsKeyId,
-            ("ClientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            ("JobName" Prelude..=) Prelude.<$> jobName,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("VpcConfig" Core..=) Core.<$> vpcConfig,
+            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            ("ClientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            ("JobName" Core..=) Core.<$> jobName,
+            Core.Just
               ( "DocumentClassifierArn"
-                  Prelude..= documentClassifierArn
+                  Core..= documentClassifierArn
               ),
-            Prelude.Just
-              ("InputDataConfig" Prelude..= inputDataConfig),
-            Prelude.Just
-              ("OutputDataConfig" Prelude..= outputDataConfig),
-            Prelude.Just
-              ("DataAccessRoleArn" Prelude..= dataAccessRoleArn)
+            Core.Just
+              ("InputDataConfig" Core..= inputDataConfig),
+            Core.Just
+              ("OutputDataConfig" Core..= outputDataConfig),
+            Core.Just
+              ("DataAccessRoleArn" Core..= dataAccessRoleArn)
           ]
       )
 
-instance
-  Prelude.ToPath
-    StartDocumentClassificationJob
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartDocumentClassificationJob where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    StartDocumentClassificationJob
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartDocumentClassificationJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartDocumentClassificationJobResponse' smart constructor.
 data StartDocumentClassificationJobResponse = StartDocumentClassificationJobResponse'
@@ -299,14 +282,14 @@ data StartDocumentClassificationJobResponse = StartDocumentClassificationJobResp
     --     the job and is processing the request.
     --
     -- -   STOPPED - The job was successfully stopped without completing.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The identifier generated for the job. To get the status of the job, use
     -- this identifier with the operation.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDocumentClassificationJobResponse' with all optional fields omitted.
@@ -338,14 +321,14 @@ data StartDocumentClassificationJobResponse = StartDocumentClassificationJobResp
 -- 'httpStatus', 'startDocumentClassificationJobResponse_httpStatus' - The response's http status code.
 newStartDocumentClassificationJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartDocumentClassificationJobResponse
 newStartDocumentClassificationJobResponse
   pHttpStatus_ =
     StartDocumentClassificationJobResponse'
       { jobStatus =
-          Prelude.Nothing,
-        jobId = Prelude.Nothing,
+          Core.Nothing,
+        jobId = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -364,18 +347,18 @@ newStartDocumentClassificationJobResponse
 --     the job and is processing the request.
 --
 -- -   STOPPED - The job was successfully stopped without completing.
-startDocumentClassificationJobResponse_jobStatus :: Lens.Lens' StartDocumentClassificationJobResponse (Prelude.Maybe JobStatus)
+startDocumentClassificationJobResponse_jobStatus :: Lens.Lens' StartDocumentClassificationJobResponse (Core.Maybe JobStatus)
 startDocumentClassificationJobResponse_jobStatus = Lens.lens (\StartDocumentClassificationJobResponse' {jobStatus} -> jobStatus) (\s@StartDocumentClassificationJobResponse' {} a -> s {jobStatus = a} :: StartDocumentClassificationJobResponse)
 
 -- | The identifier generated for the job. To get the status of the job, use
 -- this identifier with the operation.
-startDocumentClassificationJobResponse_jobId :: Lens.Lens' StartDocumentClassificationJobResponse (Prelude.Maybe Prelude.Text)
+startDocumentClassificationJobResponse_jobId :: Lens.Lens' StartDocumentClassificationJobResponse (Core.Maybe Core.Text)
 startDocumentClassificationJobResponse_jobId = Lens.lens (\StartDocumentClassificationJobResponse' {jobId} -> jobId) (\s@StartDocumentClassificationJobResponse' {} a -> s {jobId = a} :: StartDocumentClassificationJobResponse)
 
 -- | The response's http status code.
-startDocumentClassificationJobResponse_httpStatus :: Lens.Lens' StartDocumentClassificationJobResponse Prelude.Int
+startDocumentClassificationJobResponse_httpStatus :: Lens.Lens' StartDocumentClassificationJobResponse Core.Int
 startDocumentClassificationJobResponse_httpStatus = Lens.lens (\StartDocumentClassificationJobResponse' {httpStatus} -> httpStatus) (\s@StartDocumentClassificationJobResponse' {} a -> s {httpStatus = a} :: StartDocumentClassificationJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartDocumentClassificationJobResponse

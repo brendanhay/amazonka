@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,23 +42,23 @@ module Network.AWS.Pinpoint.GetCampaignVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCampaignVersion' smart constructor.
 data GetCampaignVersion = GetCampaignVersion'
   { -- | The unique version number (Version property) for the campaign version.
-    version :: Prelude.Text,
+    version :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The unique identifier for the campaign.
-    campaignId :: Prelude.Text
+    campaignId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaignVersion' with all optional fields omitted.
@@ -77,11 +76,11 @@ data GetCampaignVersion = GetCampaignVersion'
 -- 'campaignId', 'getCampaignVersion_campaignId' - The unique identifier for the campaign.
 newGetCampaignVersion ::
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'campaignId'
-  Prelude.Text ->
+  Core.Text ->
   GetCampaignVersion
 newGetCampaignVersion
   pVersion_
@@ -94,67 +93,65 @@ newGetCampaignVersion
       }
 
 -- | The unique version number (Version property) for the campaign version.
-getCampaignVersion_version :: Lens.Lens' GetCampaignVersion Prelude.Text
+getCampaignVersion_version :: Lens.Lens' GetCampaignVersion Core.Text
 getCampaignVersion_version = Lens.lens (\GetCampaignVersion' {version} -> version) (\s@GetCampaignVersion' {} a -> s {version = a} :: GetCampaignVersion)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getCampaignVersion_applicationId :: Lens.Lens' GetCampaignVersion Prelude.Text
+getCampaignVersion_applicationId :: Lens.Lens' GetCampaignVersion Core.Text
 getCampaignVersion_applicationId = Lens.lens (\GetCampaignVersion' {applicationId} -> applicationId) (\s@GetCampaignVersion' {} a -> s {applicationId = a} :: GetCampaignVersion)
 
 -- | The unique identifier for the campaign.
-getCampaignVersion_campaignId :: Lens.Lens' GetCampaignVersion Prelude.Text
+getCampaignVersion_campaignId :: Lens.Lens' GetCampaignVersion Core.Text
 getCampaignVersion_campaignId = Lens.lens (\GetCampaignVersion' {campaignId} -> campaignId) (\s@GetCampaignVersion' {} a -> s {campaignId = a} :: GetCampaignVersion)
 
-instance Prelude.AWSRequest GetCampaignVersion where
+instance Core.AWSRequest GetCampaignVersion where
   type
-    Rs GetCampaignVersion =
+    AWSResponse GetCampaignVersion =
       GetCampaignVersionResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCampaignVersionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetCampaignVersion
+instance Core.Hashable GetCampaignVersion
 
-instance Prelude.NFData GetCampaignVersion
+instance Core.NFData GetCampaignVersion
 
-instance Prelude.ToHeaders GetCampaignVersion where
+instance Core.ToHeaders GetCampaignVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetCampaignVersion where
+instance Core.ToPath GetCampaignVersion where
   toPath GetCampaignVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/campaigns/",
-        Prelude.toBS campaignId,
+        Core.toBS campaignId,
         "/versions/",
-        Prelude.toBS version
+        Core.toBS version
       ]
 
-instance Prelude.ToQuery GetCampaignVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCampaignVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCampaignVersionResponse' smart constructor.
 data GetCampaignVersionResponse = GetCampaignVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     campaignResponse :: CampaignResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaignVersionResponse' with all optional fields omitted.
@@ -169,7 +166,7 @@ data GetCampaignVersionResponse = GetCampaignVersionResponse'
 -- 'campaignResponse', 'getCampaignVersionResponse_campaignResponse' - Undocumented member.
 newGetCampaignVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
   GetCampaignVersionResponse
@@ -183,11 +180,11 @@ newGetCampaignVersionResponse
       }
 
 -- | The response's http status code.
-getCampaignVersionResponse_httpStatus :: Lens.Lens' GetCampaignVersionResponse Prelude.Int
+getCampaignVersionResponse_httpStatus :: Lens.Lens' GetCampaignVersionResponse Core.Int
 getCampaignVersionResponse_httpStatus = Lens.lens (\GetCampaignVersionResponse' {httpStatus} -> httpStatus) (\s@GetCampaignVersionResponse' {} a -> s {httpStatus = a} :: GetCampaignVersionResponse)
 
 -- | Undocumented member.
 getCampaignVersionResponse_campaignResponse :: Lens.Lens' GetCampaignVersionResponse CampaignResponse
 getCampaignVersionResponse_campaignResponse = Lens.lens (\GetCampaignVersionResponse' {campaignResponse} -> campaignResponse) (\s@GetCampaignVersionResponse' {} a -> s {campaignResponse = a} :: GetCampaignVersionResponse)
 
-instance Prelude.NFData GetCampaignVersionResponse
+instance Core.NFData GetCampaignVersionResponse

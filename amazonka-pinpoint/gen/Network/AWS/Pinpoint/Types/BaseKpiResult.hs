@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.BaseKpiResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ResultRow
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the results of a query that retrieved the data for a standard
 -- metric that applies to an application, campaign, or journey.
@@ -34,7 +33,7 @@ data BaseKpiResult = BaseKpiResult'
     -- or journey.
     rows :: [ResultRow]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BaseKpiResult' with all optional fields omitted.
@@ -49,24 +48,23 @@ data BaseKpiResult = BaseKpiResult'
 -- or journey.
 newBaseKpiResult ::
   BaseKpiResult
-newBaseKpiResult =
-  BaseKpiResult' {rows = Prelude.mempty}
+newBaseKpiResult = BaseKpiResult' {rows = Core.mempty}
 
 -- | An array of objects that provides the results of a query that retrieved
 -- the data for a standard metric that applies to an application, campaign,
 -- or journey.
 baseKpiResult_rows :: Lens.Lens' BaseKpiResult [ResultRow]
-baseKpiResult_rows = Lens.lens (\BaseKpiResult' {rows} -> rows) (\s@BaseKpiResult' {} a -> s {rows = a} :: BaseKpiResult) Prelude.. Prelude._Coerce
+baseKpiResult_rows = Lens.lens (\BaseKpiResult' {rows} -> rows) (\s@BaseKpiResult' {} a -> s {rows = a} :: BaseKpiResult) Core.. Lens._Coerce
 
-instance Prelude.FromJSON BaseKpiResult where
+instance Core.FromJSON BaseKpiResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BaseKpiResult"
       ( \x ->
           BaseKpiResult'
-            Prelude.<$> (x Prelude..:? "Rows" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Rows" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable BaseKpiResult
+instance Core.Hashable BaseKpiResult
 
-instance Prelude.NFData BaseKpiResult
+instance Core.NFData BaseKpiResult

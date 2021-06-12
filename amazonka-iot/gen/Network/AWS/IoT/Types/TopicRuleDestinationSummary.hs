@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.TopicRuleDestinationSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.HttpUrlDestinationSummary
 import Network.AWS.IoT.Types.TopicRuleDestinationStatus
 import Network.AWS.IoT.Types.VpcDestinationSummary
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the topic rule destination.
 --
 -- /See:/ 'newTopicRuleDestinationSummary' smart constructor.
 data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
   { -- | Information about the HTTP URL.
-    httpUrlSummary :: Prelude.Maybe HttpUrlDestinationSummary,
+    httpUrlSummary :: Core.Maybe HttpUrlDestinationSummary,
     -- | The status of the topic rule destination. Valid values are:
     --
     -- [IN_PROGRESS]
@@ -58,19 +57,19 @@ data TopicRuleDestinationSummary = TopicRuleDestinationSummary'
     --     @UpdateTopicRuleDestination@. Calling @UpdateTopicRuleDestination@
     --     causes a new confirmation challenge to be sent to your confirmation
     --     endpoint.
-    status :: Prelude.Maybe TopicRuleDestinationStatus,
+    status :: Core.Maybe TopicRuleDestinationStatus,
     -- | The date and time when the topic rule destination was created.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The topic rule destination ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The reason the topic rule destination is in the current status.
-    statusReason :: Prelude.Maybe Prelude.Text,
+    statusReason :: Core.Maybe Core.Text,
     -- | Information about the virtual private cloud (VPC) connection.
-    vpcDestinationSummary :: Prelude.Maybe VpcDestinationSummary,
+    vpcDestinationSummary :: Core.Maybe VpcDestinationSummary,
     -- | The date and time when the topic rule destination was last updated.
-    lastUpdatedAt :: Prelude.Maybe Prelude.POSIX
+    lastUpdatedAt :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TopicRuleDestinationSummary' with all optional fields omitted.
@@ -123,17 +122,17 @@ newTopicRuleDestinationSummary ::
 newTopicRuleDestinationSummary =
   TopicRuleDestinationSummary'
     { httpUrlSummary =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      vpcDestinationSummary = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+        Core.Nothing,
+      status = Core.Nothing,
+      createdAt = Core.Nothing,
+      arn = Core.Nothing,
+      statusReason = Core.Nothing,
+      vpcDestinationSummary = Core.Nothing,
+      lastUpdatedAt = Core.Nothing
     }
 
 -- | Information about the HTTP URL.
-topicRuleDestinationSummary_httpUrlSummary :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe HttpUrlDestinationSummary)
+topicRuleDestinationSummary_httpUrlSummary :: Lens.Lens' TopicRuleDestinationSummary (Core.Maybe HttpUrlDestinationSummary)
 topicRuleDestinationSummary_httpUrlSummary = Lens.lens (\TopicRuleDestinationSummary' {httpUrlSummary} -> httpUrlSummary) (\s@TopicRuleDestinationSummary' {} a -> s {httpUrlSummary = a} :: TopicRuleDestinationSummary)
 
 -- | The status of the topic rule destination. Valid values are:
@@ -162,44 +161,44 @@ topicRuleDestinationSummary_httpUrlSummary = Lens.lens (\TopicRuleDestinationSum
 --     @UpdateTopicRuleDestination@. Calling @UpdateTopicRuleDestination@
 --     causes a new confirmation challenge to be sent to your confirmation
 --     endpoint.
-topicRuleDestinationSummary_status :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe TopicRuleDestinationStatus)
+topicRuleDestinationSummary_status :: Lens.Lens' TopicRuleDestinationSummary (Core.Maybe TopicRuleDestinationStatus)
 topicRuleDestinationSummary_status = Lens.lens (\TopicRuleDestinationSummary' {status} -> status) (\s@TopicRuleDestinationSummary' {} a -> s {status = a} :: TopicRuleDestinationSummary)
 
 -- | The date and time when the topic rule destination was created.
-topicRuleDestinationSummary_createdAt :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestinationSummary_createdAt = Lens.lens (\TopicRuleDestinationSummary' {createdAt} -> createdAt) (\s@TopicRuleDestinationSummary' {} a -> s {createdAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Prelude._Time
+topicRuleDestinationSummary_createdAt :: Lens.Lens' TopicRuleDestinationSummary (Core.Maybe Core.UTCTime)
+topicRuleDestinationSummary_createdAt = Lens.lens (\TopicRuleDestinationSummary' {createdAt} -> createdAt) (\s@TopicRuleDestinationSummary' {} a -> s {createdAt = a} :: TopicRuleDestinationSummary) Core.. Lens.mapping Core._Time
 
 -- | The topic rule destination ARN.
-topicRuleDestinationSummary_arn :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.Text)
+topicRuleDestinationSummary_arn :: Lens.Lens' TopicRuleDestinationSummary (Core.Maybe Core.Text)
 topicRuleDestinationSummary_arn = Lens.lens (\TopicRuleDestinationSummary' {arn} -> arn) (\s@TopicRuleDestinationSummary' {} a -> s {arn = a} :: TopicRuleDestinationSummary)
 
 -- | The reason the topic rule destination is in the current status.
-topicRuleDestinationSummary_statusReason :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.Text)
+topicRuleDestinationSummary_statusReason :: Lens.Lens' TopicRuleDestinationSummary (Core.Maybe Core.Text)
 topicRuleDestinationSummary_statusReason = Lens.lens (\TopicRuleDestinationSummary' {statusReason} -> statusReason) (\s@TopicRuleDestinationSummary' {} a -> s {statusReason = a} :: TopicRuleDestinationSummary)
 
 -- | Information about the virtual private cloud (VPC) connection.
-topicRuleDestinationSummary_vpcDestinationSummary :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe VpcDestinationSummary)
+topicRuleDestinationSummary_vpcDestinationSummary :: Lens.Lens' TopicRuleDestinationSummary (Core.Maybe VpcDestinationSummary)
 topicRuleDestinationSummary_vpcDestinationSummary = Lens.lens (\TopicRuleDestinationSummary' {vpcDestinationSummary} -> vpcDestinationSummary) (\s@TopicRuleDestinationSummary' {} a -> s {vpcDestinationSummary = a} :: TopicRuleDestinationSummary)
 
 -- | The date and time when the topic rule destination was last updated.
-topicRuleDestinationSummary_lastUpdatedAt :: Lens.Lens' TopicRuleDestinationSummary (Prelude.Maybe Prelude.UTCTime)
-topicRuleDestinationSummary_lastUpdatedAt = Lens.lens (\TopicRuleDestinationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestinationSummary' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestinationSummary) Prelude.. Lens.mapping Prelude._Time
+topicRuleDestinationSummary_lastUpdatedAt :: Lens.Lens' TopicRuleDestinationSummary (Core.Maybe Core.UTCTime)
+topicRuleDestinationSummary_lastUpdatedAt = Lens.lens (\TopicRuleDestinationSummary' {lastUpdatedAt} -> lastUpdatedAt) (\s@TopicRuleDestinationSummary' {} a -> s {lastUpdatedAt = a} :: TopicRuleDestinationSummary) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON TopicRuleDestinationSummary where
+instance Core.FromJSON TopicRuleDestinationSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TopicRuleDestinationSummary"
       ( \x ->
           TopicRuleDestinationSummary'
-            Prelude.<$> (x Prelude..:? "httpUrlSummary")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "statusReason")
-            Prelude.<*> (x Prelude..:? "vpcDestinationSummary")
-            Prelude.<*> (x Prelude..:? "lastUpdatedAt")
+            Core.<$> (x Core..:? "httpUrlSummary")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "statusReason")
+            Core.<*> (x Core..:? "vpcDestinationSummary")
+            Core.<*> (x Core..:? "lastUpdatedAt")
       )
 
-instance Prelude.Hashable TopicRuleDestinationSummary
+instance Core.Hashable TopicRuleDestinationSummary
 
-instance Prelude.NFData TopicRuleDestinationSummary
+instance Core.NFData TopicRuleDestinationSummary

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.EnvironmentResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.EnvironmentError
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The results of an operation to update or read environment variables. If
 -- the operation is successful, the response contains the environment
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEnvironmentResponse' smart constructor.
 data EnvironmentResponse = EnvironmentResponse'
   { -- | Environment variable key-value pairs.
-    variables :: Prelude.Maybe (Prelude.Sensitive (Prelude.HashMap Prelude.Text (Prelude.Sensitive Prelude.Text))),
+    variables :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text (Core.Sensitive Core.Text))),
     -- | Error messages for environment variables that couldn\'t be applied.
-    error :: Prelude.Maybe EnvironmentError
+    error :: Core.Maybe EnvironmentError
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentResponse' with all optional fields omitted.
@@ -52,30 +51,28 @@ newEnvironmentResponse ::
   EnvironmentResponse
 newEnvironmentResponse =
   EnvironmentResponse'
-    { variables = Prelude.Nothing,
-      error = Prelude.Nothing
+    { variables = Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | Environment variable key-value pairs.
-environmentResponse_variables :: Lens.Lens' EnvironmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-environmentResponse_variables = Lens.lens (\EnvironmentResponse' {variables} -> variables) (\s@EnvironmentResponse' {} a -> s {variables = a} :: EnvironmentResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+environmentResponse_variables :: Lens.Lens' EnvironmentResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+environmentResponse_variables = Lens.lens (\EnvironmentResponse' {variables} -> variables) (\s@EnvironmentResponse' {} a -> s {variables = a} :: EnvironmentResponse) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | Error messages for environment variables that couldn\'t be applied.
-environmentResponse_error :: Lens.Lens' EnvironmentResponse (Prelude.Maybe EnvironmentError)
+environmentResponse_error :: Lens.Lens' EnvironmentResponse (Core.Maybe EnvironmentError)
 environmentResponse_error = Lens.lens (\EnvironmentResponse' {error} -> error) (\s@EnvironmentResponse' {} a -> s {error = a} :: EnvironmentResponse)
 
-instance Prelude.FromJSON EnvironmentResponse where
+instance Core.FromJSON EnvironmentResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EnvironmentResponse"
       ( \x ->
           EnvironmentResponse'
-            Prelude.<$> ( x Prelude..:? "Variables"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Error")
+            Core.<$> (x Core..:? "Variables" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Error")
       )
 
-instance Prelude.Hashable EnvironmentResponse
+instance Core.Hashable EnvironmentResponse
 
-instance Prelude.NFData EnvironmentResponse
+instance Core.NFData EnvironmentResponse

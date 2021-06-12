@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.DocumentKeyValuesFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- documents.
@@ -98,11 +97,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDocumentKeyValuesFilter' smart constructor.
 data DocumentKeyValuesFilter = DocumentKeyValuesFilter'
   { -- | The name of the filter key.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value for the filter key.
-    values :: Prelude.Maybe [Prelude.Text]
+    values :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentKeyValuesFilter' with all optional fields omitted.
@@ -119,27 +118,27 @@ newDocumentKeyValuesFilter ::
   DocumentKeyValuesFilter
 newDocumentKeyValuesFilter =
   DocumentKeyValuesFilter'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | The name of the filter key.
-documentKeyValuesFilter_key :: Lens.Lens' DocumentKeyValuesFilter (Prelude.Maybe Prelude.Text)
+documentKeyValuesFilter_key :: Lens.Lens' DocumentKeyValuesFilter (Core.Maybe Core.Text)
 documentKeyValuesFilter_key = Lens.lens (\DocumentKeyValuesFilter' {key} -> key) (\s@DocumentKeyValuesFilter' {} a -> s {key = a} :: DocumentKeyValuesFilter)
 
 -- | The value for the filter key.
-documentKeyValuesFilter_values :: Lens.Lens' DocumentKeyValuesFilter (Prelude.Maybe [Prelude.Text])
-documentKeyValuesFilter_values = Lens.lens (\DocumentKeyValuesFilter' {values} -> values) (\s@DocumentKeyValuesFilter' {} a -> s {values = a} :: DocumentKeyValuesFilter) Prelude.. Lens.mapping Prelude._Coerce
+documentKeyValuesFilter_values :: Lens.Lens' DocumentKeyValuesFilter (Core.Maybe [Core.Text])
+documentKeyValuesFilter_values = Lens.lens (\DocumentKeyValuesFilter' {values} -> values) (\s@DocumentKeyValuesFilter' {} a -> s {values = a} :: DocumentKeyValuesFilter) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable DocumentKeyValuesFilter
+instance Core.Hashable DocumentKeyValuesFilter
 
-instance Prelude.NFData DocumentKeyValuesFilter
+instance Core.NFData DocumentKeyValuesFilter
 
-instance Prelude.ToJSON DocumentKeyValuesFilter where
+instance Core.ToJSON DocumentKeyValuesFilter where
   toJSON DocumentKeyValuesFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Values" Prelude..=) Prelude.<$> values
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Values" Core..=) Core.<$> values
           ]
       )

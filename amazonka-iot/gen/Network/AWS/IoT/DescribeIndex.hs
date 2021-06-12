@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.IoT.DescribeIndex
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeIndex' smart constructor.
 data DescribeIndex = DescribeIndex'
   { -- | The index name.
-    indexName :: Prelude.Text
+    indexName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIndex' with all optional fields omitted.
@@ -66,47 +65,48 @@ data DescribeIndex = DescribeIndex'
 -- 'indexName', 'describeIndex_indexName' - The index name.
 newDescribeIndex ::
   -- | 'indexName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeIndex
 newDescribeIndex pIndexName_ =
   DescribeIndex' {indexName = pIndexName_}
 
 -- | The index name.
-describeIndex_indexName :: Lens.Lens' DescribeIndex Prelude.Text
+describeIndex_indexName :: Lens.Lens' DescribeIndex Core.Text
 describeIndex_indexName = Lens.lens (\DescribeIndex' {indexName} -> indexName) (\s@DescribeIndex' {} a -> s {indexName = a} :: DescribeIndex)
 
-instance Prelude.AWSRequest DescribeIndex where
-  type Rs DescribeIndex = DescribeIndexResponse
+instance Core.AWSRequest DescribeIndex where
+  type
+    AWSResponse DescribeIndex =
+      DescribeIndexResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeIndexResponse'
-            Prelude.<$> (x Prelude..?> "indexName")
-            Prelude.<*> (x Prelude..?> "schema")
-            Prelude.<*> (x Prelude..?> "indexStatus")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "indexName")
+            Core.<*> (x Core..?> "schema")
+            Core.<*> (x Core..?> "indexStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIndex
+instance Core.Hashable DescribeIndex
 
-instance Prelude.NFData DescribeIndex
+instance Core.NFData DescribeIndex
 
-instance Prelude.ToHeaders DescribeIndex where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeIndex where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeIndex where
+instance Core.ToPath DescribeIndex where
   toPath DescribeIndex' {..} =
-    Prelude.mconcat
-      ["/indices/", Prelude.toBS indexName]
+    Core.mconcat ["/indices/", Core.toBS indexName]
 
-instance Prelude.ToQuery DescribeIndex where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeIndex where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeIndexResponse' smart constructor.
 data DescribeIndexResponse = DescribeIndexResponse'
   { -- | The index name.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | Contains a value that specifies the type of indexing performed. Valid
     -- values are:
     --
@@ -121,13 +121,13 @@ data DescribeIndexResponse = DescribeIndexResponse'
     -- -   REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index
     --     contains registry data, shadow data, and thing connectivity status
     --     data.
-    schema :: Prelude.Maybe Prelude.Text,
+    schema :: Core.Maybe Core.Text,
     -- | The index status.
-    indexStatus :: Prelude.Maybe IndexStatus,
+    indexStatus :: Core.Maybe IndexStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIndexResponse' with all optional fields omitted.
@@ -159,18 +159,18 @@ data DescribeIndexResponse = DescribeIndexResponse'
 -- 'httpStatus', 'describeIndexResponse_httpStatus' - The response's http status code.
 newDescribeIndexResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeIndexResponse
 newDescribeIndexResponse pHttpStatus_ =
   DescribeIndexResponse'
-    { indexName = Prelude.Nothing,
-      schema = Prelude.Nothing,
-      indexStatus = Prelude.Nothing,
+    { indexName = Core.Nothing,
+      schema = Core.Nothing,
+      indexStatus = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The index name.
-describeIndexResponse_indexName :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_indexName :: Lens.Lens' DescribeIndexResponse (Core.Maybe Core.Text)
 describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName} -> indexName) (\s@DescribeIndexResponse' {} a -> s {indexName = a} :: DescribeIndexResponse)
 
 -- | Contains a value that specifies the type of indexing performed. Valid
@@ -187,15 +187,15 @@ describeIndexResponse_indexName = Lens.lens (\DescribeIndexResponse' {indexName}
 -- -   REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index
 --     contains registry data, shadow data, and thing connectivity status
 --     data.
-describeIndexResponse_schema :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
+describeIndexResponse_schema :: Lens.Lens' DescribeIndexResponse (Core.Maybe Core.Text)
 describeIndexResponse_schema = Lens.lens (\DescribeIndexResponse' {schema} -> schema) (\s@DescribeIndexResponse' {} a -> s {schema = a} :: DescribeIndexResponse)
 
 -- | The index status.
-describeIndexResponse_indexStatus :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe IndexStatus)
+describeIndexResponse_indexStatus :: Lens.Lens' DescribeIndexResponse (Core.Maybe IndexStatus)
 describeIndexResponse_indexStatus = Lens.lens (\DescribeIndexResponse' {indexStatus} -> indexStatus) (\s@DescribeIndexResponse' {} a -> s {indexStatus = a} :: DescribeIndexResponse)
 
 -- | The response's http status code.
-describeIndexResponse_httpStatus :: Lens.Lens' DescribeIndexResponse Prelude.Int
+describeIndexResponse_httpStatus :: Lens.Lens' DescribeIndexResponse Core.Int
 describeIndexResponse_httpStatus = Lens.lens (\DescribeIndexResponse' {httpStatus} -> httpStatus) (\s@DescribeIndexResponse' {} a -> s {httpStatus = a} :: DescribeIndexResponse)
 
-instance Prelude.NFData DescribeIndexResponse
+instance Core.NFData DescribeIndexResponse

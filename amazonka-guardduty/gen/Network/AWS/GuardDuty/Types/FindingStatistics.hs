@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.FindingStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about finding statistics.
 --
 -- /See:/ 'newFindingStatistics' smart constructor.
 data FindingStatistics = FindingStatistics'
   { -- | Represents a map of severity to count statistics for a set of findings.
-    countBySeverity :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int)
+    countBySeverity :: Core.Maybe (Core.HashMap Core.Text Core.Int)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FindingStatistics' with all optional fields omitted.
@@ -44,26 +43,21 @@ data FindingStatistics = FindingStatistics'
 newFindingStatistics ::
   FindingStatistics
 newFindingStatistics =
-  FindingStatistics'
-    { countBySeverity =
-        Prelude.Nothing
-    }
+  FindingStatistics' {countBySeverity = Core.Nothing}
 
 -- | Represents a map of severity to count statistics for a set of findings.
-findingStatistics_countBySeverity :: Lens.Lens' FindingStatistics (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
-findingStatistics_countBySeverity = Lens.lens (\FindingStatistics' {countBySeverity} -> countBySeverity) (\s@FindingStatistics' {} a -> s {countBySeverity = a} :: FindingStatistics) Prelude.. Lens.mapping Prelude._Coerce
+findingStatistics_countBySeverity :: Lens.Lens' FindingStatistics (Core.Maybe (Core.HashMap Core.Text Core.Int))
+findingStatistics_countBySeverity = Lens.lens (\FindingStatistics' {countBySeverity} -> countBySeverity) (\s@FindingStatistics' {} a -> s {countBySeverity = a} :: FindingStatistics) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON FindingStatistics where
+instance Core.FromJSON FindingStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FindingStatistics"
       ( \x ->
           FindingStatistics'
-            Prelude.<$> ( x Prelude..:? "countBySeverity"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "countBySeverity" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable FindingStatistics
+instance Core.Hashable FindingStatistics
 
-instance Prelude.NFData FindingStatistics
+instance Core.NFData FindingStatistics

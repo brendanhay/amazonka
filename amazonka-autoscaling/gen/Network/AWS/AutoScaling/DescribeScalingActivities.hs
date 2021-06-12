@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,8 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,23 +64,23 @@ import qualified Network.AWS.Response as Response
 data DescribeScalingActivities = DescribeScalingActivities'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The activity IDs of the desired scaling activities. You can specify up
     -- to 50 IDs. If you omit this parameter, all activities for the past six
     -- weeks are described. If unknown activities are requested, they are
     -- ignored with no error. If you specify an Auto Scaling group, the results
     -- are limited to that group.
-    activityIds :: Prelude.Maybe [Prelude.Text],
+    activityIds :: Core.Maybe [Core.Text],
     -- | Indicates whether to include scaling activity from deleted Auto Scaling
     -- groups.
-    includeDeletedGroups :: Prelude.Maybe Prelude.Bool,
+    includeDeletedGroups :: Core.Maybe Core.Bool,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
+    autoScalingGroupName :: Core.Maybe Core.Text,
     -- | The maximum number of items to return with this call. The default value
     -- is @100@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingActivities' with all optional fields omitted.
@@ -113,16 +111,16 @@ newDescribeScalingActivities ::
 newDescribeScalingActivities =
   DescribeScalingActivities'
     { nextToken =
-        Prelude.Nothing,
-      activityIds = Prelude.Nothing,
-      includeDeletedGroups = Prelude.Nothing,
-      autoScalingGroupName = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      activityIds = Core.Nothing,
+      includeDeletedGroups = Core.Nothing,
+      autoScalingGroupName = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeScalingActivities_nextToken :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
+describeScalingActivities_nextToken :: Lens.Lens' DescribeScalingActivities (Core.Maybe Core.Text)
 describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {nextToken} -> nextToken) (\s@DescribeScalingActivities' {} a -> s {nextToken = a} :: DescribeScalingActivities)
 
 -- | The activity IDs of the desired scaling activities. You can specify up
@@ -130,47 +128,47 @@ describeScalingActivities_nextToken = Lens.lens (\DescribeScalingActivities' {ne
 -- weeks are described. If unknown activities are requested, they are
 -- ignored with no error. If you specify an Auto Scaling group, the results
 -- are limited to that group.
-describeScalingActivities_activityIds :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe [Prelude.Text])
-describeScalingActivities_activityIds = Lens.lens (\DescribeScalingActivities' {activityIds} -> activityIds) (\s@DescribeScalingActivities' {} a -> s {activityIds = a} :: DescribeScalingActivities) Prelude.. Lens.mapping Prelude._Coerce
+describeScalingActivities_activityIds :: Lens.Lens' DescribeScalingActivities (Core.Maybe [Core.Text])
+describeScalingActivities_activityIds = Lens.lens (\DescribeScalingActivities' {activityIds} -> activityIds) (\s@DescribeScalingActivities' {} a -> s {activityIds = a} :: DescribeScalingActivities) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether to include scaling activity from deleted Auto Scaling
 -- groups.
-describeScalingActivities_includeDeletedGroups :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Bool)
+describeScalingActivities_includeDeletedGroups :: Lens.Lens' DescribeScalingActivities (Core.Maybe Core.Bool)
 describeScalingActivities_includeDeletedGroups = Lens.lens (\DescribeScalingActivities' {includeDeletedGroups} -> includeDeletedGroups) (\s@DescribeScalingActivities' {} a -> s {includeDeletedGroups = a} :: DescribeScalingActivities)
 
 -- | The name of the Auto Scaling group.
-describeScalingActivities_autoScalingGroupName :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Text)
+describeScalingActivities_autoScalingGroupName :: Lens.Lens' DescribeScalingActivities (Core.Maybe Core.Text)
 describeScalingActivities_autoScalingGroupName = Lens.lens (\DescribeScalingActivities' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScalingActivities' {} a -> s {autoScalingGroupName = a} :: DescribeScalingActivities)
 
 -- | The maximum number of items to return with this call. The default value
 -- is @100@ and the maximum value is @100@.
-describeScalingActivities_maxRecords :: Lens.Lens' DescribeScalingActivities (Prelude.Maybe Prelude.Int)
+describeScalingActivities_maxRecords :: Lens.Lens' DescribeScalingActivities (Core.Maybe Core.Int)
 describeScalingActivities_maxRecords = Lens.lens (\DescribeScalingActivities' {maxRecords} -> maxRecords) (\s@DescribeScalingActivities' {} a -> s {maxRecords = a} :: DescribeScalingActivities)
 
-instance Pager.AWSPager DescribeScalingActivities where
+instance Core.AWSPager DescribeScalingActivities where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeScalingActivitiesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. describeScalingActivitiesResponse_activities
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeScalingActivities_nextToken
           Lens..~ rs
           Lens.^? describeScalingActivitiesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeScalingActivities where
+instance Core.AWSRequest DescribeScalingActivities where
   type
-    Rs DescribeScalingActivities =
+    AWSResponse DescribeScalingActivities =
       DescribeScalingActivitiesResponse
   request = Request.postQuery defaultService
   response =
@@ -178,42 +176,36 @@ instance Prelude.AWSRequest DescribeScalingActivities where
       "DescribeScalingActivitiesResult"
       ( \s h x ->
           DescribeScalingActivitiesResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "Activities"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "Activities" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable DescribeScalingActivities
+instance Core.Hashable DescribeScalingActivities
 
-instance Prelude.NFData DescribeScalingActivities
+instance Core.NFData DescribeScalingActivities
 
-instance Prelude.ToHeaders DescribeScalingActivities where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeScalingActivities where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeScalingActivities where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeScalingActivities where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeScalingActivities where
+instance Core.ToQuery DescribeScalingActivities where
   toQuery DescribeScalingActivities' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeScalingActivities" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
+          Core.=: ("DescribeScalingActivities" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
         "ActivityIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> activityIds
-            ),
-        "IncludeDeletedGroups"
-          Prelude.=: includeDeletedGroups,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> activityIds),
+        "IncludeDeletedGroups" Core.=: includeDeletedGroups,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeScalingActivitiesResponse' smart constructor.
@@ -222,14 +214,14 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The scaling activities. Activities are sorted by start time. Activities
     -- still in progress are described first.
     activities :: [Activity]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingActivitiesResponse' with all optional fields omitted.
@@ -250,32 +242,32 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 -- still in progress are described first.
 newDescribeScalingActivitiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeScalingActivitiesResponse
 newDescribeScalingActivitiesResponse pHttpStatus_ =
   DescribeScalingActivitiesResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      activities = Prelude.mempty
+      activities = Core.mempty
     }
 
 -- | A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
-describeScalingActivitiesResponse_nextToken :: Lens.Lens' DescribeScalingActivitiesResponse (Prelude.Maybe Prelude.Text)
+describeScalingActivitiesResponse_nextToken :: Lens.Lens' DescribeScalingActivitiesResponse (Core.Maybe Core.Text)
 describeScalingActivitiesResponse_nextToken = Lens.lens (\DescribeScalingActivitiesResponse' {nextToken} -> nextToken) (\s@DescribeScalingActivitiesResponse' {} a -> s {nextToken = a} :: DescribeScalingActivitiesResponse)
 
 -- | The response's http status code.
-describeScalingActivitiesResponse_httpStatus :: Lens.Lens' DescribeScalingActivitiesResponse Prelude.Int
+describeScalingActivitiesResponse_httpStatus :: Lens.Lens' DescribeScalingActivitiesResponse Core.Int
 describeScalingActivitiesResponse_httpStatus = Lens.lens (\DescribeScalingActivitiesResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingActivitiesResponse' {} a -> s {httpStatus = a} :: DescribeScalingActivitiesResponse)
 
 -- | The scaling activities. Activities are sorted by start time. Activities
 -- still in progress are described first.
 describeScalingActivitiesResponse_activities :: Lens.Lens' DescribeScalingActivitiesResponse [Activity]
-describeScalingActivitiesResponse_activities = Lens.lens (\DescribeScalingActivitiesResponse' {activities} -> activities) (\s@DescribeScalingActivitiesResponse' {} a -> s {activities = a} :: DescribeScalingActivitiesResponse) Prelude.. Prelude._Coerce
+describeScalingActivitiesResponse_activities = Lens.lens (\DescribeScalingActivitiesResponse' {activities} -> activities) (\s@DescribeScalingActivitiesResponse' {} a -> s {activities = a} :: DescribeScalingActivitiesResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeScalingActivitiesResponse

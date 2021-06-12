@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.PolicyUser where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a user that a managed policy is attached to.
 --
@@ -38,11 +37,11 @@ data PolicyUser = PolicyUser'
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    userId :: Prelude.Maybe Prelude.Text,
+    userId :: Core.Maybe Core.Text,
     -- | The name (friendly name, not ARN) identifying the user.
-    userName :: Prelude.Maybe Prelude.Text
+    userName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyUser' with all optional fields omitted.
@@ -62,27 +61,27 @@ newPolicyUser ::
   PolicyUser
 newPolicyUser =
   PolicyUser'
-    { userId = Prelude.Nothing,
-      userName = Prelude.Nothing
+    { userId = Core.Nothing,
+      userName = Core.Nothing
     }
 
 -- | The stable and unique string identifying the user. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-policyUser_userId :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
+policyUser_userId :: Lens.Lens' PolicyUser (Core.Maybe Core.Text)
 policyUser_userId = Lens.lens (\PolicyUser' {userId} -> userId) (\s@PolicyUser' {} a -> s {userId = a} :: PolicyUser)
 
 -- | The name (friendly name, not ARN) identifying the user.
-policyUser_userName :: Lens.Lens' PolicyUser (Prelude.Maybe Prelude.Text)
+policyUser_userName :: Lens.Lens' PolicyUser (Core.Maybe Core.Text)
 policyUser_userName = Lens.lens (\PolicyUser' {userName} -> userName) (\s@PolicyUser' {} a -> s {userName = a} :: PolicyUser)
 
-instance Prelude.FromXML PolicyUser where
+instance Core.FromXML PolicyUser where
   parseXML x =
     PolicyUser'
-      Prelude.<$> (x Prelude..@? "UserId")
-      Prelude.<*> (x Prelude..@? "UserName")
+      Core.<$> (x Core..@? "UserId")
+      Core.<*> (x Core..@? "UserName")
 
-instance Prelude.Hashable PolicyUser
+instance Core.Hashable PolicyUser
 
-instance Prelude.NFData PolicyUser
+instance Core.NFData PolicyUser

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,14 +54,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyClusterSubnetGroup' smart constructor.
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
   { -- | A text description of the subnet group to be modified.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the subnet group to be modified.
-    clusterSubnetGroupName :: Prelude.Text,
+    clusterSubnetGroupName :: Core.Text,
     -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
     -- single request.
-    subnetIds :: [Prelude.Text]
+    subnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterSubnetGroup' with all optional fields omitted.
@@ -80,32 +79,32 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
 -- single request.
 newModifyClusterSubnetGroup ::
   -- | 'clusterSubnetGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ModifyClusterSubnetGroup
 newModifyClusterSubnetGroup pClusterSubnetGroupName_ =
   ModifyClusterSubnetGroup'
     { description =
-        Prelude.Nothing,
+        Core.Nothing,
       clusterSubnetGroupName = pClusterSubnetGroupName_,
-      subnetIds = Prelude.mempty
+      subnetIds = Core.mempty
     }
 
 -- | A text description of the subnet group to be modified.
-modifyClusterSubnetGroup_description :: Lens.Lens' ModifyClusterSubnetGroup (Prelude.Maybe Prelude.Text)
+modifyClusterSubnetGroup_description :: Lens.Lens' ModifyClusterSubnetGroup (Core.Maybe Core.Text)
 modifyClusterSubnetGroup_description = Lens.lens (\ModifyClusterSubnetGroup' {description} -> description) (\s@ModifyClusterSubnetGroup' {} a -> s {description = a} :: ModifyClusterSubnetGroup)
 
 -- | The name of the subnet group to be modified.
-modifyClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' ModifyClusterSubnetGroup Prelude.Text
+modifyClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' ModifyClusterSubnetGroup Core.Text
 modifyClusterSubnetGroup_clusterSubnetGroupName = Lens.lens (\ModifyClusterSubnetGroup' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@ModifyClusterSubnetGroup' {} a -> s {clusterSubnetGroupName = a} :: ModifyClusterSubnetGroup)
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-modifyClusterSubnetGroup_subnetIds :: Lens.Lens' ModifyClusterSubnetGroup [Prelude.Text]
-modifyClusterSubnetGroup_subnetIds = Lens.lens (\ModifyClusterSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyClusterSubnetGroup' {} a -> s {subnetIds = a} :: ModifyClusterSubnetGroup) Prelude.. Prelude._Coerce
+modifyClusterSubnetGroup_subnetIds :: Lens.Lens' ModifyClusterSubnetGroup [Core.Text]
+modifyClusterSubnetGroup_subnetIds = Lens.lens (\ModifyClusterSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyClusterSubnetGroup' {} a -> s {subnetIds = a} :: ModifyClusterSubnetGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest ModifyClusterSubnetGroup where
+instance Core.AWSRequest ModifyClusterSubnetGroup where
   type
-    Rs ModifyClusterSubnetGroup =
+    AWSResponse ModifyClusterSubnetGroup =
       ModifyClusterSubnetGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -113,41 +112,40 @@ instance Prelude.AWSRequest ModifyClusterSubnetGroup where
       "ModifyClusterSubnetGroupResult"
       ( \s h x ->
           ModifyClusterSubnetGroupResponse'
-            Prelude.<$> (x Prelude..@? "ClusterSubnetGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ClusterSubnetGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyClusterSubnetGroup
+instance Core.Hashable ModifyClusterSubnetGroup
 
-instance Prelude.NFData ModifyClusterSubnetGroup
+instance Core.NFData ModifyClusterSubnetGroup
 
-instance Prelude.ToHeaders ModifyClusterSubnetGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyClusterSubnetGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyClusterSubnetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyClusterSubnetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyClusterSubnetGroup where
+instance Core.ToQuery ModifyClusterSubnetGroup where
   toQuery ModifyClusterSubnetGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyClusterSubnetGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "Description" Prelude.=: description,
+          Core.=: ("ModifyClusterSubnetGroup" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "Description" Core.=: description,
         "ClusterSubnetGroupName"
-          Prelude.=: clusterSubnetGroupName,
+          Core.=: clusterSubnetGroupName,
         "SubnetIds"
-          Prelude.=: Prelude.toQueryList "SubnetIdentifier" subnetIds
+          Core.=: Core.toQueryList "SubnetIdentifier" subnetIds
       ]
 
 -- | /See:/ 'newModifyClusterSubnetGroupResponse' smart constructor.
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
-  { clusterSubnetGroup :: Prelude.Maybe ClusterSubnetGroup,
+  { clusterSubnetGroup :: Core.Maybe ClusterSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyClusterSubnetGroupResponse' with all optional fields omitted.
@@ -162,23 +160,21 @@ data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
 -- 'httpStatus', 'modifyClusterSubnetGroupResponse_httpStatus' - The response's http status code.
 newModifyClusterSubnetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyClusterSubnetGroupResponse
 newModifyClusterSubnetGroupResponse pHttpStatus_ =
   ModifyClusterSubnetGroupResponse'
     { clusterSubnetGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyClusterSubnetGroupResponse_clusterSubnetGroup :: Lens.Lens' ModifyClusterSubnetGroupResponse (Prelude.Maybe ClusterSubnetGroup)
+modifyClusterSubnetGroupResponse_clusterSubnetGroup :: Lens.Lens' ModifyClusterSubnetGroupResponse (Core.Maybe ClusterSubnetGroup)
 modifyClusterSubnetGroupResponse_clusterSubnetGroup = Lens.lens (\ModifyClusterSubnetGroupResponse' {clusterSubnetGroup} -> clusterSubnetGroup) (\s@ModifyClusterSubnetGroupResponse' {} a -> s {clusterSubnetGroup = a} :: ModifyClusterSubnetGroupResponse)
 
 -- | The response's http status code.
-modifyClusterSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyClusterSubnetGroupResponse Prelude.Int
+modifyClusterSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyClusterSubnetGroupResponse Core.Int
 modifyClusterSubnetGroupResponse_httpStatus = Lens.lens (\ModifyClusterSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyClusterSubnetGroupResponse' {} a -> s {httpStatus = a} :: ModifyClusterSubnetGroupResponse)
 
-instance
-  Prelude.NFData
-    ModifyClusterSubnetGroupResponse
+instance Core.NFData ModifyClusterSubnetGroupResponse

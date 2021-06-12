@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.Event where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.EventCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Log entry describing an event that involves Amazon GameLift resources
 -- (such as a fleet). In addition to tracking activity, event codes and
@@ -32,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
   { -- | A unique identifier for an event resource, such as a fleet ID.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The type of event being logged.
     --
     -- __Fleet creation events (ordered by fleet creation activity):__
@@ -135,21 +134,21 @@ data Event = Event'
     -- -   FLEET_DELETED -- A request to delete a fleet was initiated.
     --
     -- -   GENERIC_EVENT -- An unspecified event has occurred.
-    eventCode :: Prelude.Maybe EventCode,
+    eventCode :: Core.Maybe EventCode,
     -- | A unique identifier for a fleet event.
-    eventId :: Prelude.Maybe Prelude.Text,
+    eventId :: Core.Maybe Core.Text,
     -- | Additional information related to the event.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | Time stamp indicating when this event occurred. Format is a number
     -- expressed in Unix time as milliseconds (for example \"1469498468.057\").
-    eventTime :: Prelude.Maybe Prelude.POSIX,
+    eventTime :: Core.Maybe Core.POSIX,
     -- | Location of stored logs with additional detail that is related to the
     -- event. This is useful for debugging issues. The URL is valid for 15
     -- minutes. You can also access fleet creation logs through the Amazon
     -- GameLift console.
-    preSignedLogUrl :: Prelude.Maybe Prelude.Text
+    preSignedLogUrl :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Event' with all optional fields omitted.
@@ -279,16 +278,16 @@ newEvent ::
   Event
 newEvent =
   Event'
-    { resourceId = Prelude.Nothing,
-      eventCode = Prelude.Nothing,
-      eventId = Prelude.Nothing,
-      message = Prelude.Nothing,
-      eventTime = Prelude.Nothing,
-      preSignedLogUrl = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      eventCode = Core.Nothing,
+      eventId = Core.Nothing,
+      message = Core.Nothing,
+      eventTime = Core.Nothing,
+      preSignedLogUrl = Core.Nothing
     }
 
 -- | A unique identifier for an event resource, such as a fleet ID.
-event_resourceId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_resourceId :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} a -> s {resourceId = a} :: Event)
 
 -- | The type of event being logged.
@@ -393,43 +392,43 @@ event_resourceId = Lens.lens (\Event' {resourceId} -> resourceId) (\s@Event' {} 
 -- -   FLEET_DELETED -- A request to delete a fleet was initiated.
 --
 -- -   GENERIC_EVENT -- An unspecified event has occurred.
-event_eventCode :: Lens.Lens' Event (Prelude.Maybe EventCode)
+event_eventCode :: Lens.Lens' Event (Core.Maybe EventCode)
 event_eventCode = Lens.lens (\Event' {eventCode} -> eventCode) (\s@Event' {} a -> s {eventCode = a} :: Event)
 
 -- | A unique identifier for a fleet event.
-event_eventId :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_eventId :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_eventId = Lens.lens (\Event' {eventId} -> eventId) (\s@Event' {} a -> s {eventId = a} :: Event)
 
 -- | Additional information related to the event.
-event_message :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_message :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_message = Lens.lens (\Event' {message} -> message) (\s@Event' {} a -> s {message = a} :: Event)
 
 -- | Time stamp indicating when this event occurred. Format is a number
 -- expressed in Unix time as milliseconds (for example \"1469498468.057\").
-event_eventTime :: Lens.Lens' Event (Prelude.Maybe Prelude.UTCTime)
-event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Prelude.. Lens.mapping Prelude._Time
+event_eventTime :: Lens.Lens' Event (Core.Maybe Core.UTCTime)
+event_eventTime = Lens.lens (\Event' {eventTime} -> eventTime) (\s@Event' {} a -> s {eventTime = a} :: Event) Core.. Lens.mapping Core._Time
 
 -- | Location of stored logs with additional detail that is related to the
 -- event. This is useful for debugging issues. The URL is valid for 15
 -- minutes. You can also access fleet creation logs through the Amazon
 -- GameLift console.
-event_preSignedLogUrl :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_preSignedLogUrl :: Lens.Lens' Event (Core.Maybe Core.Text)
 event_preSignedLogUrl = Lens.lens (\Event' {preSignedLogUrl} -> preSignedLogUrl) (\s@Event' {} a -> s {preSignedLogUrl = a} :: Event)
 
-instance Prelude.FromJSON Event where
+instance Core.FromJSON Event where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Event"
       ( \x ->
           Event'
-            Prelude.<$> (x Prelude..:? "ResourceId")
-            Prelude.<*> (x Prelude..:? "EventCode")
-            Prelude.<*> (x Prelude..:? "EventId")
-            Prelude.<*> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "EventTime")
-            Prelude.<*> (x Prelude..:? "PreSignedLogUrl")
+            Core.<$> (x Core..:? "ResourceId")
+            Core.<*> (x Core..:? "EventCode")
+            Core.<*> (x Core..:? "EventId")
+            Core.<*> (x Core..:? "Message")
+            Core.<*> (x Core..:? "EventTime")
+            Core.<*> (x Core..:? "PreSignedLogUrl")
       )
 
-instance Prelude.Hashable Event
+instance Core.Hashable Event
 
-instance Prelude.NFData Event
+instance Core.NFData Event

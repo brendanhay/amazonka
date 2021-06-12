@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.ResourceRecord where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the domain name system (DNS) records to add to your domain\'s
 -- DNS to validate it for an Amazon Lightsail certificate.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceRecord' smart constructor.
 data ResourceRecord = ResourceRecord'
   { -- | The name of the record.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The value for the DNS record.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The DNS record type.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceRecord' with all optional fields omitted.
@@ -54,34 +53,34 @@ newResourceRecord ::
   ResourceRecord
 newResourceRecord =
   ResourceRecord'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The name of the record.
-resourceRecord_name :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
+resourceRecord_name :: Lens.Lens' ResourceRecord (Core.Maybe Core.Text)
 resourceRecord_name = Lens.lens (\ResourceRecord' {name} -> name) (\s@ResourceRecord' {} a -> s {name = a} :: ResourceRecord)
 
 -- | The value for the DNS record.
-resourceRecord_value :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
+resourceRecord_value :: Lens.Lens' ResourceRecord (Core.Maybe Core.Text)
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
 -- | The DNS record type.
-resourceRecord_type :: Lens.Lens' ResourceRecord (Prelude.Maybe Prelude.Text)
+resourceRecord_type :: Lens.Lens' ResourceRecord (Core.Maybe Core.Text)
 resourceRecord_type = Lens.lens (\ResourceRecord' {type'} -> type') (\s@ResourceRecord' {} a -> s {type' = a} :: ResourceRecord)
 
-instance Prelude.FromJSON ResourceRecord where
+instance Core.FromJSON ResourceRecord where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceRecord"
       ( \x ->
           ResourceRecord'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "value")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "name")
+            Core.<*> (x Core..:? "value")
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable ResourceRecord
+instance Core.Hashable ResourceRecord
 
-instance Prelude.NFData ResourceRecord
+instance Core.NFData ResourceRecord

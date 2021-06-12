@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +52,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyCacheParameterGroup' smart constructor.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
   { -- | The name of the cache parameter group to modify.
-    cacheParameterGroupName :: Prelude.Text,
+    cacheParameterGroupName :: Core.Text,
     -- | An array of parameter names and values for the parameter update. You
     -- must supply at least one parameter name and value; subsequent arguments
     -- are optional. A maximum of 20 parameters may be modified per request.
     parameterNameValues :: [ParameterNameValue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyCacheParameterGroup' with all optional fields omitted.
@@ -76,57 +75,56 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
 -- are optional. A maximum of 20 parameters may be modified per request.
 newModifyCacheParameterGroup ::
   -- | 'cacheParameterGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ModifyCacheParameterGroup
 newModifyCacheParameterGroup
   pCacheParameterGroupName_ =
     ModifyCacheParameterGroup'
       { cacheParameterGroupName =
           pCacheParameterGroupName_,
-        parameterNameValues = Prelude.mempty
+        parameterNameValues = Core.mempty
       }
 
 -- | The name of the cache parameter group to modify.
-modifyCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' ModifyCacheParameterGroup Prelude.Text
+modifyCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' ModifyCacheParameterGroup Core.Text
 modifyCacheParameterGroup_cacheParameterGroupName = Lens.lens (\ModifyCacheParameterGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@ModifyCacheParameterGroup' {} a -> s {cacheParameterGroupName = a} :: ModifyCacheParameterGroup)
 
 -- | An array of parameter names and values for the parameter update. You
 -- must supply at least one parameter name and value; subsequent arguments
 -- are optional. A maximum of 20 parameters may be modified per request.
 modifyCacheParameterGroup_parameterNameValues :: Lens.Lens' ModifyCacheParameterGroup [ParameterNameValue]
-modifyCacheParameterGroup_parameterNameValues = Lens.lens (\ModifyCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ModifyCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ModifyCacheParameterGroup) Prelude.. Prelude._Coerce
+modifyCacheParameterGroup_parameterNameValues = Lens.lens (\ModifyCacheParameterGroup' {parameterNameValues} -> parameterNameValues) (\s@ModifyCacheParameterGroup' {} a -> s {parameterNameValues = a} :: ModifyCacheParameterGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest ModifyCacheParameterGroup where
+instance Core.AWSRequest ModifyCacheParameterGroup where
   type
-    Rs ModifyCacheParameterGroup =
+    AWSResponse ModifyCacheParameterGroup =
       CacheParameterGroupNameMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ModifyCacheParameterGroupResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyCacheParameterGroup
+instance Core.Hashable ModifyCacheParameterGroup
 
-instance Prelude.NFData ModifyCacheParameterGroup
+instance Core.NFData ModifyCacheParameterGroup
 
-instance Prelude.ToHeaders ModifyCacheParameterGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyCacheParameterGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyCacheParameterGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyCacheParameterGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyCacheParameterGroup where
+instance Core.ToQuery ModifyCacheParameterGroup where
   toQuery ModifyCacheParameterGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyCacheParameterGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("ModifyCacheParameterGroup" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "CacheParameterGroupName"
-          Prelude.=: cacheParameterGroupName,
+          Core.=: cacheParameterGroupName,
         "ParameterNameValues"
-          Prelude.=: Prelude.toQueryList
+          Core.=: Core.toQueryList
             "ParameterNameValue"
             parameterNameValues
       ]

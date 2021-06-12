@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types.FailedResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A resource that failed to be added to or removed from a group.
 --
 -- /See:/ 'newFailedResource' smart constructor.
 data FailedResource = FailedResource'
   { -- | The ARN of the resource that failed to be added or removed.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+    resourceArn :: Core.Maybe Core.Text,
     -- | The error message text associated with the failure.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code associated with the failure.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailedResource' with all optional fields omitted.
@@ -53,34 +52,34 @@ newFailedResource ::
   FailedResource
 newFailedResource =
   FailedResource'
-    { resourceArn = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { resourceArn = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The ARN of the resource that failed to be added or removed.
-failedResource_resourceArn :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
+failedResource_resourceArn :: Lens.Lens' FailedResource (Core.Maybe Core.Text)
 failedResource_resourceArn = Lens.lens (\FailedResource' {resourceArn} -> resourceArn) (\s@FailedResource' {} a -> s {resourceArn = a} :: FailedResource)
 
 -- | The error message text associated with the failure.
-failedResource_errorMessage :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
+failedResource_errorMessage :: Lens.Lens' FailedResource (Core.Maybe Core.Text)
 failedResource_errorMessage = Lens.lens (\FailedResource' {errorMessage} -> errorMessage) (\s@FailedResource' {} a -> s {errorMessage = a} :: FailedResource)
 
 -- | The error code associated with the failure.
-failedResource_errorCode :: Lens.Lens' FailedResource (Prelude.Maybe Prelude.Text)
+failedResource_errorCode :: Lens.Lens' FailedResource (Core.Maybe Core.Text)
 failedResource_errorCode = Lens.lens (\FailedResource' {errorCode} -> errorCode) (\s@FailedResource' {} a -> s {errorCode = a} :: FailedResource)
 
-instance Prelude.FromJSON FailedResource where
+instance Core.FromJSON FailedResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailedResource"
       ( \x ->
           FailedResource'
-            Prelude.<$> (x Prelude..:? "ResourceArn")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "ResourceArn")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable FailedResource
+instance Core.Hashable FailedResource
 
-instance Prelude.NFData FailedResource
+instance Core.NFData FailedResource

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.GameSessionQueue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.GameSessionQueueDestination
 import Network.AWS.GameLift.Types.PlayerLatencyPolicy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration of a queue that is used to process game session placement
 -- requests. The queue configuration identifies several game features:
@@ -62,26 +61,26 @@ data GameSessionQueue = GameSessionQueue'
     -- duration period. For example, a queue might enforce a 60-second policy
     -- followed by a 120-second policy, and then no policy for the remainder of
     -- the placement.
-    playerLatencyPolicies :: Prelude.Maybe [PlayerLatencyPolicy],
+    playerLatencyPolicies :: Core.Maybe [PlayerLatencyPolicy],
     -- | The maximum time, in seconds, that a new game session placement request
     -- remains in the queue. When a request exceeds this time, the game session
     -- placement changes to a @TIMED_OUT@ status.
-    timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
+    timeoutInSeconds :: Core.Maybe Core.Natural,
     -- | A list of fleets that can be used to fulfill game session placement
     -- requests in the queue. Fleets are identified by either a fleet ARN or a
     -- fleet alias ARN. Destinations are listed in default preference order.
-    destinations :: Prelude.Maybe [GameSessionQueueDestination],
+    destinations :: Core.Maybe [GameSessionQueueDestination],
     -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Amazon Resource Name
     -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
     -- that is assigned to a GameLift game session queue resource and uniquely
     -- identifies it. ARNs are unique across all Regions. In a GameLift game
     -- session queue ARN, the resource ID matches the /Name/ value.
-    gameSessionQueueArn :: Prelude.Maybe Prelude.Text
+    gameSessionQueueArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GameSessionQueue' with all optional fields omitted.
@@ -122,11 +121,11 @@ newGameSessionQueue ::
 newGameSessionQueue =
   GameSessionQueue'
     { playerLatencyPolicies =
-        Prelude.Nothing,
-      timeoutInSeconds = Prelude.Nothing,
-      destinations = Prelude.Nothing,
-      name = Prelude.Nothing,
-      gameSessionQueueArn = Prelude.Nothing
+        Core.Nothing,
+      timeoutInSeconds = Core.Nothing,
+      destinations = Core.Nothing,
+      name = Core.Nothing,
+      gameSessionQueueArn = Core.Nothing
     }
 
 -- | A collection of latency policies to apply when processing game sessions
@@ -138,24 +137,24 @@ newGameSessionQueue =
 -- duration period. For example, a queue might enforce a 60-second policy
 -- followed by a 120-second policy, and then no policy for the remainder of
 -- the placement.
-gameSessionQueue_playerLatencyPolicies :: Lens.Lens' GameSessionQueue (Prelude.Maybe [PlayerLatencyPolicy])
-gameSessionQueue_playerLatencyPolicies = Lens.lens (\GameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@GameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: GameSessionQueue) Prelude.. Lens.mapping Prelude._Coerce
+gameSessionQueue_playerLatencyPolicies :: Lens.Lens' GameSessionQueue (Core.Maybe [PlayerLatencyPolicy])
+gameSessionQueue_playerLatencyPolicies = Lens.lens (\GameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@GameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: GameSessionQueue) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
 -- placement changes to a @TIMED_OUT@ status.
-gameSessionQueue_timeoutInSeconds :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Natural)
+gameSessionQueue_timeoutInSeconds :: Lens.Lens' GameSessionQueue (Core.Maybe Core.Natural)
 gameSessionQueue_timeoutInSeconds = Lens.lens (\GameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@GameSessionQueue' {} a -> s {timeoutInSeconds = a} :: GameSessionQueue)
 
 -- | A list of fleets that can be used to fulfill game session placement
 -- requests in the queue. Fleets are identified by either a fleet ARN or a
 -- fleet alias ARN. Destinations are listed in default preference order.
-gameSessionQueue_destinations :: Lens.Lens' GameSessionQueue (Prelude.Maybe [GameSessionQueueDestination])
-gameSessionQueue_destinations = Lens.lens (\GameSessionQueue' {destinations} -> destinations) (\s@GameSessionQueue' {} a -> s {destinations = a} :: GameSessionQueue) Prelude.. Lens.mapping Prelude._Coerce
+gameSessionQueue_destinations :: Lens.Lens' GameSessionQueue (Core.Maybe [GameSessionQueueDestination])
+gameSessionQueue_destinations = Lens.lens (\GameSessionQueue' {destinations} -> destinations) (\s@GameSessionQueue' {} a -> s {destinations = a} :: GameSessionQueue) Core.. Lens.mapping Lens._Coerce
 
 -- | A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region.
-gameSessionQueue_name :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
+gameSessionQueue_name :: Lens.Lens' GameSessionQueue (Core.Maybe Core.Text)
 gameSessionQueue_name = Lens.lens (\GameSessionQueue' {name} -> name) (\s@GameSessionQueue' {} a -> s {name = a} :: GameSessionQueue)
 
 -- | Amazon Resource Name
@@ -163,26 +162,24 @@ gameSessionQueue_name = Lens.lens (\GameSessionQueue' {name} -> name) (\s@GameSe
 -- that is assigned to a GameLift game session queue resource and uniquely
 -- identifies it. ARNs are unique across all Regions. In a GameLift game
 -- session queue ARN, the resource ID matches the /Name/ value.
-gameSessionQueue_gameSessionQueueArn :: Lens.Lens' GameSessionQueue (Prelude.Maybe Prelude.Text)
+gameSessionQueue_gameSessionQueueArn :: Lens.Lens' GameSessionQueue (Core.Maybe Core.Text)
 gameSessionQueue_gameSessionQueueArn = Lens.lens (\GameSessionQueue' {gameSessionQueueArn} -> gameSessionQueueArn) (\s@GameSessionQueue' {} a -> s {gameSessionQueueArn = a} :: GameSessionQueue)
 
-instance Prelude.FromJSON GameSessionQueue where
+instance Core.FromJSON GameSessionQueue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GameSessionQueue"
       ( \x ->
           GameSessionQueue'
-            Prelude.<$> ( x Prelude..:? "PlayerLatencyPolicies"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "TimeoutInSeconds")
-            Prelude.<*> ( x Prelude..:? "Destinations"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "GameSessionQueueArn")
+            Core.<$> ( x Core..:? "PlayerLatencyPolicies"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "TimeoutInSeconds")
+            Core.<*> (x Core..:? "Destinations" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "GameSessionQueueArn")
       )
 
-instance Prelude.Hashable GameSessionQueue
+instance Core.Hashable GameSessionQueue
 
-instance Prelude.NFData GameSessionQueue
+instance Core.NFData GameSessionQueue

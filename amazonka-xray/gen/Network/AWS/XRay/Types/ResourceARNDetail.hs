@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.ResourceARNDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of resources ARNs corresponding to the segments in a trace.
 --
 -- /See:/ 'newResourceARNDetail' smart constructor.
 data ResourceARNDetail = ResourceARNDetail'
   { -- | The ARN of a corresponding resource.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceARNDetail' with all optional fields omitted.
@@ -44,20 +43,20 @@ data ResourceARNDetail = ResourceARNDetail'
 newResourceARNDetail ::
   ResourceARNDetail
 newResourceARNDetail =
-  ResourceARNDetail' {arn = Prelude.Nothing}
+  ResourceARNDetail' {arn = Core.Nothing}
 
 -- | The ARN of a corresponding resource.
-resourceARNDetail_arn :: Lens.Lens' ResourceARNDetail (Prelude.Maybe Prelude.Text)
+resourceARNDetail_arn :: Lens.Lens' ResourceARNDetail (Core.Maybe Core.Text)
 resourceARNDetail_arn = Lens.lens (\ResourceARNDetail' {arn} -> arn) (\s@ResourceARNDetail' {} a -> s {arn = a} :: ResourceARNDetail)
 
-instance Prelude.FromJSON ResourceARNDetail where
+instance Core.FromJSON ResourceARNDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceARNDetail"
       ( \x ->
-          ResourceARNDetail' Prelude.<$> (x Prelude..:? "ARN")
+          ResourceARNDetail' Core.<$> (x Core..:? "ARN")
       )
 
-instance Prelude.Hashable ResourceARNDetail
+instance Core.Hashable ResourceARNDetail
 
-instance Prelude.NFData ResourceARNDetail
+instance Core.NFData ResourceARNDetail

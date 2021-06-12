@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.STS.Types.PolicyDescriptorType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A reference to the IAM managed policy that is passed as a session policy
 -- for a role session or a federated user session.
@@ -32,9 +31,9 @@ data PolicyDescriptorType = PolicyDescriptorType'
     -- session policy for the role. For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
     -- in the /AWS General Reference/.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyDescriptorType' with all optional fields omitted.
@@ -51,19 +50,19 @@ data PolicyDescriptorType = PolicyDescriptorType'
 newPolicyDescriptorType ::
   PolicyDescriptorType
 newPolicyDescriptorType =
-  PolicyDescriptorType' {arn = Prelude.Nothing}
+  PolicyDescriptorType' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the IAM managed policy to use as a
 -- session policy for the role. For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
-policyDescriptorType_arn :: Lens.Lens' PolicyDescriptorType (Prelude.Maybe Prelude.Text)
+policyDescriptorType_arn :: Lens.Lens' PolicyDescriptorType (Core.Maybe Core.Text)
 policyDescriptorType_arn = Lens.lens (\PolicyDescriptorType' {arn} -> arn) (\s@PolicyDescriptorType' {} a -> s {arn = a} :: PolicyDescriptorType)
 
-instance Prelude.Hashable PolicyDescriptorType
+instance Core.Hashable PolicyDescriptorType
 
-instance Prelude.NFData PolicyDescriptorType
+instance Core.NFData PolicyDescriptorType
 
-instance Prelude.ToQuery PolicyDescriptorType where
+instance Core.ToQuery PolicyDescriptorType where
   toQuery PolicyDescriptorType' {..} =
-    Prelude.mconcat ["arn" Prelude.=: arn]
+    Core.mconcat ["arn" Core.=: arn]

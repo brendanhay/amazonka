@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.PatchSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the patches to use to update the instances, including
 -- target operating systems and source repository. Applies to Linux
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPatchSource' smart constructor.
 data PatchSource = PatchSource'
   { -- | The name specified to identify the patch source.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The specific operating system versions a patch repository applies to,
     -- such as \"Ubuntu16.04\", \"AmazonLinux2016.09\",
     -- \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported
     -- product values, see PatchFilter.
-    products :: Prelude.NonEmpty Prelude.Text,
+    products :: Core.NonEmpty Core.Text,
     -- | The value of the yum repo configuration. For example:
     --
     -- @[main]@
@@ -49,9 +48,9 @@ data PatchSource = PatchSource'
     -- For information about other options available for your yum repository
     -- configuration, see
     -- <https://man7.org/linux/man-pages/man5/dnf.conf.5.html dnf.conf(5)>.
-    configuration :: Prelude.Sensitive Prelude.Text
+    configuration :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PatchSource' with all optional fields omitted.
@@ -83,30 +82,30 @@ data PatchSource = PatchSource'
 -- <https://man7.org/linux/man-pages/man5/dnf.conf.5.html dnf.conf(5)>.
 newPatchSource ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'products'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   -- | 'configuration'
-  Prelude.Text ->
+  Core.Text ->
   PatchSource
 newPatchSource pName_ pProducts_ pConfiguration_ =
   PatchSource'
     { name = pName_,
-      products = Prelude._Coerce Lens.# pProducts_,
+      products = Lens._Coerce Lens.# pProducts_,
       configuration =
-        Prelude._Sensitive Lens.# pConfiguration_
+        Core._Sensitive Lens.# pConfiguration_
     }
 
 -- | The name specified to identify the patch source.
-patchSource_name :: Lens.Lens' PatchSource Prelude.Text
+patchSource_name :: Lens.Lens' PatchSource Core.Text
 patchSource_name = Lens.lens (\PatchSource' {name} -> name) (\s@PatchSource' {} a -> s {name = a} :: PatchSource)
 
 -- | The specific operating system versions a patch repository applies to,
 -- such as \"Ubuntu16.04\", \"AmazonLinux2016.09\",
 -- \"RedhatEnterpriseLinux7.2\" or \"Suse12.7\". For lists of supported
 -- product values, see PatchFilter.
-patchSource_products :: Lens.Lens' PatchSource (Prelude.NonEmpty Prelude.Text)
-patchSource_products = Lens.lens (\PatchSource' {products} -> products) (\s@PatchSource' {} a -> s {products = a} :: PatchSource) Prelude.. Prelude._Coerce
+patchSource_products :: Lens.Lens' PatchSource (Core.NonEmpty Core.Text)
+patchSource_products = Lens.lens (\PatchSource' {products} -> products) (\s@PatchSource' {} a -> s {products = a} :: PatchSource) Core.. Lens._Coerce
 
 -- | The value of the yum repo configuration. For example:
 --
@@ -121,31 +120,30 @@ patchSource_products = Lens.lens (\PatchSource' {products} -> products) (\s@Patc
 -- For information about other options available for your yum repository
 -- configuration, see
 -- <https://man7.org/linux/man-pages/man5/dnf.conf.5.html dnf.conf(5)>.
-patchSource_configuration :: Lens.Lens' PatchSource Prelude.Text
-patchSource_configuration = Lens.lens (\PatchSource' {configuration} -> configuration) (\s@PatchSource' {} a -> s {configuration = a} :: PatchSource) Prelude.. Prelude._Sensitive
+patchSource_configuration :: Lens.Lens' PatchSource Core.Text
+patchSource_configuration = Lens.lens (\PatchSource' {configuration} -> configuration) (\s@PatchSource' {} a -> s {configuration = a} :: PatchSource) Core.. Core._Sensitive
 
-instance Prelude.FromJSON PatchSource where
+instance Core.FromJSON PatchSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PatchSource"
       ( \x ->
           PatchSource'
-            Prelude.<$> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Products")
-            Prelude.<*> (x Prelude..: "Configuration")
+            Core.<$> (x Core..: "Name")
+            Core.<*> (x Core..: "Products")
+            Core.<*> (x Core..: "Configuration")
       )
 
-instance Prelude.Hashable PatchSource
+instance Core.Hashable PatchSource
 
-instance Prelude.NFData PatchSource
+instance Core.NFData PatchSource
 
-instance Prelude.ToJSON PatchSource where
+instance Core.ToJSON PatchSource where
   toJSON PatchSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Products" Prelude..= products),
-            Prelude.Just
-              ("Configuration" Prelude..= configuration)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Products" Core..= products),
+            Core.Just ("Configuration" Core..= configuration)
           ]
       )

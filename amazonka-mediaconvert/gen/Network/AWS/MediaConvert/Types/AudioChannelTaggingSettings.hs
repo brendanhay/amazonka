@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.AudioChannelTaggingSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.AudioChannelTag
-import qualified Network.AWS.Prelude as Prelude
 
 -- | When you mimic a multi-channel audio layout with multiple mono-channel
 -- tracks, you can tag each channel layout manually. For example, you would
@@ -38,9 +37,9 @@ data AudioChannelTaggingSettings = AudioChannelTaggingSettings'
   { -- | You can add a tag for this mono-channel audio track to mimic its
     -- placement in a multi-channel layout. For example, if this track is the
     -- left surround channel, choose Left surround (LS).
-    channelTag :: Prelude.Maybe AudioChannelTag
+    channelTag :: Core.Maybe AudioChannelTag
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioChannelTaggingSettings' with all optional fields omitted.
@@ -58,31 +57,31 @@ newAudioChannelTaggingSettings ::
 newAudioChannelTaggingSettings =
   AudioChannelTaggingSettings'
     { channelTag =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | You can add a tag for this mono-channel audio track to mimic its
 -- placement in a multi-channel layout. For example, if this track is the
 -- left surround channel, choose Left surround (LS).
-audioChannelTaggingSettings_channelTag :: Lens.Lens' AudioChannelTaggingSettings (Prelude.Maybe AudioChannelTag)
+audioChannelTaggingSettings_channelTag :: Lens.Lens' AudioChannelTaggingSettings (Core.Maybe AudioChannelTag)
 audioChannelTaggingSettings_channelTag = Lens.lens (\AudioChannelTaggingSettings' {channelTag} -> channelTag) (\s@AudioChannelTaggingSettings' {} a -> s {channelTag = a} :: AudioChannelTaggingSettings)
 
-instance Prelude.FromJSON AudioChannelTaggingSettings where
+instance Core.FromJSON AudioChannelTaggingSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioChannelTaggingSettings"
       ( \x ->
           AudioChannelTaggingSettings'
-            Prelude.<$> (x Prelude..:? "channelTag")
+            Core.<$> (x Core..:? "channelTag")
       )
 
-instance Prelude.Hashable AudioChannelTaggingSettings
+instance Core.Hashable AudioChannelTaggingSettings
 
-instance Prelude.NFData AudioChannelTaggingSettings
+instance Core.NFData AudioChannelTaggingSettings
 
-instance Prelude.ToJSON AudioChannelTaggingSettings where
+instance Core.ToJSON AudioChannelTaggingSettings where
   toJSON AudioChannelTaggingSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("channelTag" Prelude..=) Prelude.<$> channelTag]
+    Core.object
+      ( Core.catMaybes
+          [("channelTag" Core..=) Core.<$> channelTag]
       )

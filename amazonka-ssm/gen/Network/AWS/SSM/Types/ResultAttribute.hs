@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ResultAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The inventory item result attribute.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ResultAttribute = ResultAttribute'
   { -- | Name of the inventory item type. Valid value: AWS:InstanceInformation.
     -- Default Value: AWS:InstanceInformation.
-    typeName :: Prelude.Text
+    typeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResultAttribute' with all optional fields omitted.
@@ -45,23 +44,23 @@ data ResultAttribute = ResultAttribute'
 -- Default Value: AWS:InstanceInformation.
 newResultAttribute ::
   -- | 'typeName'
-  Prelude.Text ->
+  Core.Text ->
   ResultAttribute
 newResultAttribute pTypeName_ =
   ResultAttribute' {typeName = pTypeName_}
 
 -- | Name of the inventory item type. Valid value: AWS:InstanceInformation.
 -- Default Value: AWS:InstanceInformation.
-resultAttribute_typeName :: Lens.Lens' ResultAttribute Prelude.Text
+resultAttribute_typeName :: Lens.Lens' ResultAttribute Core.Text
 resultAttribute_typeName = Lens.lens (\ResultAttribute' {typeName} -> typeName) (\s@ResultAttribute' {} a -> s {typeName = a} :: ResultAttribute)
 
-instance Prelude.Hashable ResultAttribute
+instance Core.Hashable ResultAttribute
 
-instance Prelude.NFData ResultAttribute
+instance Core.NFData ResultAttribute
 
-instance Prelude.ToJSON ResultAttribute where
+instance Core.ToJSON ResultAttribute where
   toJSON ResultAttribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TypeName" Prelude..= typeName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TypeName" Core..= typeName)]
       )

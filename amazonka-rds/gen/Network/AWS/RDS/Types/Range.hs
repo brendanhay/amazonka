@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.Range where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of integer values.
 --
 -- /See:/ 'newRange' smart constructor.
 data Range = Range'
   { -- | The maximum value in the range.
-    to :: Prelude.Maybe Prelude.Int,
+    to :: Core.Maybe Core.Int,
     -- | The minimum value in the range.
-    from :: Prelude.Maybe Prelude.Int,
+    from :: Core.Maybe Core.Int,
     -- | The step value for the range. For example, if you have a range of 5,000
     -- to 10,000, with a step value of 1,000, the valid values start at 5,000
     -- and step up by 1,000. Even though 7,500 is within the range, it isn\'t a
     -- valid value for the range. The valid values are 5,000, 6,000, 7,000,
     -- 8,000...
-    step :: Prelude.Maybe Prelude.Int
+    step :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Range' with all optional fields omitted.
@@ -61,17 +60,17 @@ newRange ::
   Range
 newRange =
   Range'
-    { to = Prelude.Nothing,
-      from = Prelude.Nothing,
-      step = Prelude.Nothing
+    { to = Core.Nothing,
+      from = Core.Nothing,
+      step = Core.Nothing
     }
 
 -- | The maximum value in the range.
-range_to :: Lens.Lens' Range (Prelude.Maybe Prelude.Int)
+range_to :: Lens.Lens' Range (Core.Maybe Core.Int)
 range_to = Lens.lens (\Range' {to} -> to) (\s@Range' {} a -> s {to = a} :: Range)
 
 -- | The minimum value in the range.
-range_from :: Lens.Lens' Range (Prelude.Maybe Prelude.Int)
+range_from :: Lens.Lens' Range (Core.Maybe Core.Int)
 range_from = Lens.lens (\Range' {from} -> from) (\s@Range' {} a -> s {from = a} :: Range)
 
 -- | The step value for the range. For example, if you have a range of 5,000
@@ -79,16 +78,16 @@ range_from = Lens.lens (\Range' {from} -> from) (\s@Range' {} a -> s {from = a} 
 -- and step up by 1,000. Even though 7,500 is within the range, it isn\'t a
 -- valid value for the range. The valid values are 5,000, 6,000, 7,000,
 -- 8,000...
-range_step :: Lens.Lens' Range (Prelude.Maybe Prelude.Int)
+range_step :: Lens.Lens' Range (Core.Maybe Core.Int)
 range_step = Lens.lens (\Range' {step} -> step) (\s@Range' {} a -> s {step = a} :: Range)
 
-instance Prelude.FromXML Range where
+instance Core.FromXML Range where
   parseXML x =
     Range'
-      Prelude.<$> (x Prelude..@? "To")
-      Prelude.<*> (x Prelude..@? "From")
-      Prelude.<*> (x Prelude..@? "Step")
+      Core.<$> (x Core..@? "To")
+      Core.<*> (x Core..@? "From")
+      Core.<*> (x Core..@? "Step")
 
-instance Prelude.Hashable Range
+instance Core.Hashable Range
 
-instance Prelude.NFData Range
+instance Core.NFData Range

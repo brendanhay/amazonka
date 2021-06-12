@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
   { -- | The name of the cache security group to delete.
     --
     -- You cannot delete the default security group.
-    cacheSecurityGroupName :: Prelude.Text
+    cacheSecurityGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCacheSecurityGroup' with all optional fields omitted.
@@ -69,7 +68,7 @@ data DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
 -- You cannot delete the default security group.
 newDeleteCacheSecurityGroup ::
   -- | 'cacheSecurityGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCacheSecurityGroup
 newDeleteCacheSecurityGroup pCacheSecurityGroupName_ =
   DeleteCacheSecurityGroup'
@@ -80,44 +79,43 @@ newDeleteCacheSecurityGroup pCacheSecurityGroupName_ =
 -- | The name of the cache security group to delete.
 --
 -- You cannot delete the default security group.
-deleteCacheSecurityGroup_cacheSecurityGroupName :: Lens.Lens' DeleteCacheSecurityGroup Prelude.Text
+deleteCacheSecurityGroup_cacheSecurityGroupName :: Lens.Lens' DeleteCacheSecurityGroup Core.Text
 deleteCacheSecurityGroup_cacheSecurityGroupName = Lens.lens (\DeleteCacheSecurityGroup' {cacheSecurityGroupName} -> cacheSecurityGroupName) (\s@DeleteCacheSecurityGroup' {} a -> s {cacheSecurityGroupName = a} :: DeleteCacheSecurityGroup)
 
-instance Prelude.AWSRequest DeleteCacheSecurityGroup where
+instance Core.AWSRequest DeleteCacheSecurityGroup where
   type
-    Rs DeleteCacheSecurityGroup =
+    AWSResponse DeleteCacheSecurityGroup =
       DeleteCacheSecurityGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteCacheSecurityGroupResponse'
 
-instance Prelude.Hashable DeleteCacheSecurityGroup
+instance Core.Hashable DeleteCacheSecurityGroup
 
-instance Prelude.NFData DeleteCacheSecurityGroup
+instance Core.NFData DeleteCacheSecurityGroup
 
-instance Prelude.ToHeaders DeleteCacheSecurityGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteCacheSecurityGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteCacheSecurityGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCacheSecurityGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCacheSecurityGroup where
+instance Core.ToQuery DeleteCacheSecurityGroup where
   toQuery DeleteCacheSecurityGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteCacheSecurityGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("DeleteCacheSecurityGroup" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "CacheSecurityGroupName"
-          Prelude.=: cacheSecurityGroupName
+          Core.=: cacheSecurityGroupName
       ]
 
 -- | /See:/ 'newDeleteCacheSecurityGroupResponse' smart constructor.
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCacheSecurityGroupResponse' with all optional fields omitted.
@@ -128,6 +126,4 @@ newDeleteCacheSecurityGroupResponse ::
 newDeleteCacheSecurityGroupResponse =
   DeleteCacheSecurityGroupResponse'
 
-instance
-  Prelude.NFData
-    DeleteCacheSecurityGroupResponse
+instance Core.NFData DeleteCacheSecurityGroupResponse

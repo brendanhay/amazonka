@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.UpdateDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,11 +49,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateDomain' smart constructor.
 data UpdateDomain = UpdateDomain'
   { -- | A collection of settings.
-    defaultUserSettings :: Prelude.Maybe UserSettings,
+    defaultUserSettings :: Core.Maybe UserSettings,
     -- | The ID of the domain to be updated.
-    domainId :: Prelude.Text
+    domainId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDomain' with all optional fields omitted.
@@ -69,75 +68,72 @@ data UpdateDomain = UpdateDomain'
 -- 'domainId', 'updateDomain_domainId' - The ID of the domain to be updated.
 newUpdateDomain ::
   -- | 'domainId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDomain
 newUpdateDomain pDomainId_ =
   UpdateDomain'
-    { defaultUserSettings =
-        Prelude.Nothing,
+    { defaultUserSettings = Core.Nothing,
       domainId = pDomainId_
     }
 
 -- | A collection of settings.
-updateDomain_defaultUserSettings :: Lens.Lens' UpdateDomain (Prelude.Maybe UserSettings)
+updateDomain_defaultUserSettings :: Lens.Lens' UpdateDomain (Core.Maybe UserSettings)
 updateDomain_defaultUserSettings = Lens.lens (\UpdateDomain' {defaultUserSettings} -> defaultUserSettings) (\s@UpdateDomain' {} a -> s {defaultUserSettings = a} :: UpdateDomain)
 
 -- | The ID of the domain to be updated.
-updateDomain_domainId :: Lens.Lens' UpdateDomain Prelude.Text
+updateDomain_domainId :: Lens.Lens' UpdateDomain Core.Text
 updateDomain_domainId = Lens.lens (\UpdateDomain' {domainId} -> domainId) (\s@UpdateDomain' {} a -> s {domainId = a} :: UpdateDomain)
 
-instance Prelude.AWSRequest UpdateDomain where
-  type Rs UpdateDomain = UpdateDomainResponse
+instance Core.AWSRequest UpdateDomain where
+  type AWSResponse UpdateDomain = UpdateDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainResponse'
-            Prelude.<$> (x Prelude..?> "DomainArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DomainArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDomain
+instance Core.Hashable UpdateDomain
 
-instance Prelude.NFData UpdateDomain
+instance Core.NFData UpdateDomain
 
-instance Prelude.ToHeaders UpdateDomain where
+instance Core.ToHeaders UpdateDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.UpdateDomain" :: Prelude.ByteString),
+              Core.=# ("SageMaker.UpdateDomain" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDomain where
+instance Core.ToJSON UpdateDomain where
   toJSON UpdateDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultUserSettings" Prelude..=)
-              Prelude.<$> defaultUserSettings,
-            Prelude.Just ("DomainId" Prelude..= domainId)
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultUserSettings" Core..=)
+              Core.<$> defaultUserSettings,
+            Core.Just ("DomainId" Core..= domainId)
           ]
       )
 
-instance Prelude.ToPath UpdateDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDomain where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDomainResponse' smart constructor.
 data UpdateDomainResponse = UpdateDomainResponse'
   { -- | The Amazon Resource Name (ARN) of the domain.
-    domainArn :: Prelude.Maybe Prelude.Text,
+    domainArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainResponse' with all optional fields omitted.
@@ -152,20 +148,20 @@ data UpdateDomainResponse = UpdateDomainResponse'
 -- 'httpStatus', 'updateDomainResponse_httpStatus' - The response's http status code.
 newUpdateDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDomainResponse
 newUpdateDomainResponse pHttpStatus_ =
   UpdateDomainResponse'
-    { domainArn = Prelude.Nothing,
+    { domainArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the domain.
-updateDomainResponse_domainArn :: Lens.Lens' UpdateDomainResponse (Prelude.Maybe Prelude.Text)
+updateDomainResponse_domainArn :: Lens.Lens' UpdateDomainResponse (Core.Maybe Core.Text)
 updateDomainResponse_domainArn = Lens.lens (\UpdateDomainResponse' {domainArn} -> domainArn) (\s@UpdateDomainResponse' {} a -> s {domainArn = a} :: UpdateDomainResponse)
 
 -- | The response's http status code.
-updateDomainResponse_httpStatus :: Lens.Lens' UpdateDomainResponse Prelude.Int
+updateDomainResponse_httpStatus :: Lens.Lens' UpdateDomainResponse Core.Int
 updateDomainResponse_httpStatus = Lens.lens (\UpdateDomainResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainResponse' {} a -> s {httpStatus = a} :: UpdateDomainResponse)
 
-instance Prelude.NFData UpdateDomainResponse
+instance Core.NFData UpdateDomainResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the AWS resources in use by this environment. This data is not
 -- live data.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEnvironmentResourcesDescription' smart constructor.
 data EnvironmentResourcesDescription = EnvironmentResourcesDescription'
   { -- | Describes the LoadBalancer.
-    loadBalancer :: Prelude.Maybe LoadBalancerDescription
+    loadBalancer :: Core.Maybe LoadBalancerDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentResourcesDescription' with all optional fields omitted.
@@ -48,25 +47,20 @@ newEnvironmentResourcesDescription ::
 newEnvironmentResourcesDescription =
   EnvironmentResourcesDescription'
     { loadBalancer =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Describes the LoadBalancer.
-environmentResourcesDescription_loadBalancer :: Lens.Lens' EnvironmentResourcesDescription (Prelude.Maybe LoadBalancerDescription)
+environmentResourcesDescription_loadBalancer :: Lens.Lens' EnvironmentResourcesDescription (Core.Maybe LoadBalancerDescription)
 environmentResourcesDescription_loadBalancer = Lens.lens (\EnvironmentResourcesDescription' {loadBalancer} -> loadBalancer) (\s@EnvironmentResourcesDescription' {} a -> s {loadBalancer = a} :: EnvironmentResourcesDescription)
 
-instance
-  Prelude.FromXML
-    EnvironmentResourcesDescription
-  where
+instance Core.FromXML EnvironmentResourcesDescription where
   parseXML x =
     EnvironmentResourcesDescription'
-      Prelude.<$> (x Prelude..@? "LoadBalancer")
+      Core.<$> (x Core..@? "LoadBalancer")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EnvironmentResourcesDescription
 
-instance
-  Prelude.NFData
-    EnvironmentResourcesDescription
+instance Core.NFData EnvironmentResourcesDescription

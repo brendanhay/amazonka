@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.BouncedRecipientInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.BounceType
 import Network.AWS.SES.Types.RecipientDsnFields
 
@@ -39,18 +38,18 @@ data BouncedRecipientInfo = BouncedRecipientInfo'
     -- that permits you to receive email for the recipient of the bounced
     -- email. For more information about sending authorization, see the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-    recipientArn :: Prelude.Maybe Prelude.Text,
+    recipientArn :: Core.Maybe Core.Text,
     -- | Recipient-related DSN fields, most of which would normally be filled in
     -- automatically when provided with a @BounceType@. You must provide either
     -- this parameter or @BounceType@.
-    recipientDsnFields :: Prelude.Maybe RecipientDsnFields,
+    recipientDsnFields :: Core.Maybe RecipientDsnFields,
     -- | The reason for the bounce. You must provide either this parameter or
     -- @RecipientDsnFields@.
-    bounceType :: Prelude.Maybe BounceType,
+    bounceType :: Core.Maybe BounceType,
     -- | The email address of the recipient of the bounced email.
-    recipient :: Prelude.Text
+    recipient :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BouncedRecipientInfo' with all optional fields omitted.
@@ -76,14 +75,13 @@ data BouncedRecipientInfo = BouncedRecipientInfo'
 -- 'recipient', 'bouncedRecipientInfo_recipient' - The email address of the recipient of the bounced email.
 newBouncedRecipientInfo ::
   -- | 'recipient'
-  Prelude.Text ->
+  Core.Text ->
   BouncedRecipientInfo
 newBouncedRecipientInfo pRecipient_ =
   BouncedRecipientInfo'
-    { recipientArn =
-        Prelude.Nothing,
-      recipientDsnFields = Prelude.Nothing,
-      bounceType = Prelude.Nothing,
+    { recipientArn = Core.Nothing,
+      recipientDsnFields = Core.Nothing,
+      bounceType = Core.Nothing,
       recipient = pRecipient_
     }
 
@@ -92,33 +90,33 @@ newBouncedRecipientInfo pRecipient_ =
 -- that permits you to receive email for the recipient of the bounced
 -- email. For more information about sending authorization, see the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-bouncedRecipientInfo_recipientArn :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe Prelude.Text)
+bouncedRecipientInfo_recipientArn :: Lens.Lens' BouncedRecipientInfo (Core.Maybe Core.Text)
 bouncedRecipientInfo_recipientArn = Lens.lens (\BouncedRecipientInfo' {recipientArn} -> recipientArn) (\s@BouncedRecipientInfo' {} a -> s {recipientArn = a} :: BouncedRecipientInfo)
 
 -- | Recipient-related DSN fields, most of which would normally be filled in
 -- automatically when provided with a @BounceType@. You must provide either
 -- this parameter or @BounceType@.
-bouncedRecipientInfo_recipientDsnFields :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe RecipientDsnFields)
+bouncedRecipientInfo_recipientDsnFields :: Lens.Lens' BouncedRecipientInfo (Core.Maybe RecipientDsnFields)
 bouncedRecipientInfo_recipientDsnFields = Lens.lens (\BouncedRecipientInfo' {recipientDsnFields} -> recipientDsnFields) (\s@BouncedRecipientInfo' {} a -> s {recipientDsnFields = a} :: BouncedRecipientInfo)
 
 -- | The reason for the bounce. You must provide either this parameter or
 -- @RecipientDsnFields@.
-bouncedRecipientInfo_bounceType :: Lens.Lens' BouncedRecipientInfo (Prelude.Maybe BounceType)
+bouncedRecipientInfo_bounceType :: Lens.Lens' BouncedRecipientInfo (Core.Maybe BounceType)
 bouncedRecipientInfo_bounceType = Lens.lens (\BouncedRecipientInfo' {bounceType} -> bounceType) (\s@BouncedRecipientInfo' {} a -> s {bounceType = a} :: BouncedRecipientInfo)
 
 -- | The email address of the recipient of the bounced email.
-bouncedRecipientInfo_recipient :: Lens.Lens' BouncedRecipientInfo Prelude.Text
+bouncedRecipientInfo_recipient :: Lens.Lens' BouncedRecipientInfo Core.Text
 bouncedRecipientInfo_recipient = Lens.lens (\BouncedRecipientInfo' {recipient} -> recipient) (\s@BouncedRecipientInfo' {} a -> s {recipient = a} :: BouncedRecipientInfo)
 
-instance Prelude.Hashable BouncedRecipientInfo
+instance Core.Hashable BouncedRecipientInfo
 
-instance Prelude.NFData BouncedRecipientInfo
+instance Core.NFData BouncedRecipientInfo
 
-instance Prelude.ToQuery BouncedRecipientInfo where
+instance Core.ToQuery BouncedRecipientInfo where
   toQuery BouncedRecipientInfo' {..} =
-    Prelude.mconcat
-      [ "RecipientArn" Prelude.=: recipientArn,
-        "RecipientDsnFields" Prelude.=: recipientDsnFields,
-        "BounceType" Prelude.=: bounceType,
-        "Recipient" Prelude.=: recipient
+    Core.mconcat
+      [ "RecipientArn" Core.=: recipientArn,
+        "RecipientDsnFields" Core.=: recipientDsnFields,
+        "BounceType" Core.=: bounceType,
+        "Recipient" Core.=: recipient
       ]

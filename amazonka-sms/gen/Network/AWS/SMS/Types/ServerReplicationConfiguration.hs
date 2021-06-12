@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.ServerReplicationConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.Server
 import Network.AWS.SMS.Types.ServerReplicationParameters
 
@@ -31,11 +30,11 @@ import Network.AWS.SMS.Types.ServerReplicationParameters
 data ServerReplicationConfiguration = ServerReplicationConfiguration'
   { -- | The ID of the server with which this replication configuration is
     -- associated.
-    server :: Prelude.Maybe Server,
+    server :: Core.Maybe Server,
     -- | The parameters for replicating the server.
-    serverReplicationParameters :: Prelude.Maybe ServerReplicationParameters
+    serverReplicationParameters :: Core.Maybe ServerReplicationParameters
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerReplicationConfiguration' with all optional fields omitted.
@@ -54,50 +53,39 @@ newServerReplicationConfiguration ::
 newServerReplicationConfiguration =
   ServerReplicationConfiguration'
     { server =
-        Prelude.Nothing,
-      serverReplicationParameters =
-        Prelude.Nothing
+        Core.Nothing,
+      serverReplicationParameters = Core.Nothing
     }
 
 -- | The ID of the server with which this replication configuration is
 -- associated.
-serverReplicationConfiguration_server :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe Server)
+serverReplicationConfiguration_server :: Lens.Lens' ServerReplicationConfiguration (Core.Maybe Server)
 serverReplicationConfiguration_server = Lens.lens (\ServerReplicationConfiguration' {server} -> server) (\s@ServerReplicationConfiguration' {} a -> s {server = a} :: ServerReplicationConfiguration)
 
 -- | The parameters for replicating the server.
-serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Prelude.Maybe ServerReplicationParameters)
+serverReplicationConfiguration_serverReplicationParameters :: Lens.Lens' ServerReplicationConfiguration (Core.Maybe ServerReplicationParameters)
 serverReplicationConfiguration_serverReplicationParameters = Lens.lens (\ServerReplicationConfiguration' {serverReplicationParameters} -> serverReplicationParameters) (\s@ServerReplicationConfiguration' {} a -> s {serverReplicationParameters = a} :: ServerReplicationConfiguration)
 
-instance
-  Prelude.FromJSON
-    ServerReplicationConfiguration
-  where
+instance Core.FromJSON ServerReplicationConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServerReplicationConfiguration"
       ( \x ->
           ServerReplicationConfiguration'
-            Prelude.<$> (x Prelude..:? "server")
-            Prelude.<*> (x Prelude..:? "serverReplicationParameters")
+            Core.<$> (x Core..:? "server")
+            Core.<*> (x Core..:? "serverReplicationParameters")
       )
 
-instance
-  Prelude.Hashable
-    ServerReplicationConfiguration
+instance Core.Hashable ServerReplicationConfiguration
 
-instance
-  Prelude.NFData
-    ServerReplicationConfiguration
+instance Core.NFData ServerReplicationConfiguration
 
-instance
-  Prelude.ToJSON
-    ServerReplicationConfiguration
-  where
+instance Core.ToJSON ServerReplicationConfiguration where
   toJSON ServerReplicationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("server" Prelude..=) Prelude.<$> server,
-            ("serverReplicationParameters" Prelude..=)
-              Prelude.<$> serverReplicationParameters
+    Core.object
+      ( Core.catMaybes
+          [ ("server" Core..=) Core.<$> server,
+            ("serverReplicationParameters" Core..=)
+              Core.<$> serverReplicationParameters
           ]
       )

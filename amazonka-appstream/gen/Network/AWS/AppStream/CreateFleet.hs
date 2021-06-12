@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.AppStream.CreateFleet
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,7 +71,7 @@ data CreateFleet = CreateFleet'
     -- instance is terminated and replaced by a new instance.
     --
     -- Specify a value between 600 and 360000.
-    maxUserDurationInSeconds :: Prelude.Maybe Prelude.Int,
+    maxUserDurationInSeconds :: Core.Maybe Core.Int,
     -- | The amount of time that a streaming session remains active after users
     -- disconnect. If users try to reconnect to the streaming session after a
     -- disconnection or network interruption within this time interval, they
@@ -80,9 +79,9 @@ data CreateFleet = CreateFleet'
     -- to a new session with a new streaming instance.
     --
     -- Specify a value between 60 and 360000.
-    disconnectTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
+    disconnectTimeoutInSeconds :: Core.Maybe Core.Int,
     -- | The VPC configuration for the fleet.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+    vpcConfig :: Core.Maybe VpcConfig,
     -- | The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
     -- assume a role, a fleet instance calls the AWS Security Token Service
     -- (STS) @AssumeRole@ API operation and passes the ARN of the role to use.
@@ -93,10 +92,10 @@ data CreateFleet = CreateFleet'
     -- For more information, see
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
-    iamRoleArn :: Prelude.Maybe Prelude.Text,
+    iamRoleArn :: Core.Maybe Core.Text,
     -- | The name of the directory and organizational unit (OU) to use to join
     -- the fleet to a Microsoft Active Directory domain.
-    domainJoinInfo :: Prelude.Maybe DomainJoinInfo,
+    domainJoinInfo :: Core.Maybe DomainJoinInfo,
     -- | The fleet type.
     --
     -- [ALWAYS_ON]
@@ -109,7 +108,7 @@ data CreateFleet = CreateFleet'
     --     takes one to two minutes. You are charged for instance streaming
     --     when users are connected and a small hourly fee for instances that
     --     are not streaming apps.
-    fleetType :: Prelude.Maybe FleetType,
+    fleetType :: Core.Maybe FleetType,
     -- | The amount of time that users can be idle (inactive) before they are
     -- disconnected from their streaming session and the
     -- @DisconnectTimeoutInSeconds@ time interval begins. Users are notified
@@ -134,9 +133,9 @@ data CreateFleet = CreateFleet'
     -- is at the midpoint between two different minutes, the value is rounded
     -- up. For example, if you specify a value of 90, users are disconnected
     -- after 2 minutes of inactivity.
-    idleDisconnectTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
+    idleDisconnectTimeoutInSeconds :: Core.Maybe Core.Int,
     -- | The name of the image used to create the fleet.
-    imageName :: Prelude.Maybe Prelude.Text,
+    imageName :: Core.Maybe Core.Text,
     -- | The tags to associate with the fleet. A tag is a key-value pair, and the
     -- value is optional. For example, Environment=Test. If you do not specify
     -- a value, Environment=.
@@ -151,24 +150,24 @@ data CreateFleet = CreateFleet'
     -- For more information, see
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The AppStream 2.0 view that is displayed to your users when they stream
     -- from the fleet. When @APP@ is specified, only the windows of
     -- applications opened by users display. When @DESKTOP@ is specified, the
     -- standard desktop that is provided by the operating system displays.
     --
     -- The default value is @APP@.
-    streamView :: Prelude.Maybe StreamView,
+    streamView :: Core.Maybe StreamView,
     -- | The description to display.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The fleet name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Core.Maybe Core.Text,
     -- | Enables or disables default internet access for the fleet.
-    enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
+    enableDefaultInternetAccess :: Core.Maybe Core.Bool,
     -- | The ARN of the public, private, or shared image to use.
-    imageArn :: Prelude.Maybe Prelude.Text,
+    imageArn :: Core.Maybe Core.Text,
     -- | A unique name for the fleet.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The instance type to use when launching fleet instances. The following
     -- instance types are available:
     --
@@ -237,11 +236,11 @@ data CreateFleet = CreateFleet'
     -- -   stream.graphics-pro.8xlarge
     --
     -- -   stream.graphics-pro.16xlarge
-    instanceType :: Prelude.Text,
+    instanceType :: Core.Text,
     -- | The desired capacity for the fleet.
     computeCapacity :: ComputeCapacity
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateFleet' with all optional fields omitted.
@@ -427,9 +426,9 @@ data CreateFleet = CreateFleet'
 -- 'computeCapacity', 'createFleet_computeCapacity' - The desired capacity for the fleet.
 newCreateFleet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'computeCapacity'
   ComputeCapacity ->
   CreateFleet
@@ -439,20 +438,20 @@ newCreateFleet
   pComputeCapacity_ =
     CreateFleet'
       { maxUserDurationInSeconds =
-          Prelude.Nothing,
-        disconnectTimeoutInSeconds = Prelude.Nothing,
-        vpcConfig = Prelude.Nothing,
-        iamRoleArn = Prelude.Nothing,
-        domainJoinInfo = Prelude.Nothing,
-        fleetType = Prelude.Nothing,
-        idleDisconnectTimeoutInSeconds = Prelude.Nothing,
-        imageName = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        streamView = Prelude.Nothing,
-        description = Prelude.Nothing,
-        displayName = Prelude.Nothing,
-        enableDefaultInternetAccess = Prelude.Nothing,
-        imageArn = Prelude.Nothing,
+          Core.Nothing,
+        disconnectTimeoutInSeconds = Core.Nothing,
+        vpcConfig = Core.Nothing,
+        iamRoleArn = Core.Nothing,
+        domainJoinInfo = Core.Nothing,
+        fleetType = Core.Nothing,
+        idleDisconnectTimeoutInSeconds = Core.Nothing,
+        imageName = Core.Nothing,
+        tags = Core.Nothing,
+        streamView = Core.Nothing,
+        description = Core.Nothing,
+        displayName = Core.Nothing,
+        enableDefaultInternetAccess = Core.Nothing,
+        imageArn = Core.Nothing,
         name = pName_,
         instanceType = pInstanceType_,
         computeCapacity = pComputeCapacity_
@@ -465,7 +464,7 @@ newCreateFleet
 -- instance is terminated and replaced by a new instance.
 --
 -- Specify a value between 600 and 360000.
-createFleet_maxUserDurationInSeconds :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Int)
+createFleet_maxUserDurationInSeconds :: Lens.Lens' CreateFleet (Core.Maybe Core.Int)
 createFleet_maxUserDurationInSeconds = Lens.lens (\CreateFleet' {maxUserDurationInSeconds} -> maxUserDurationInSeconds) (\s@CreateFleet' {} a -> s {maxUserDurationInSeconds = a} :: CreateFleet)
 
 -- | The amount of time that a streaming session remains active after users
@@ -475,11 +474,11 @@ createFleet_maxUserDurationInSeconds = Lens.lens (\CreateFleet' {maxUserDuration
 -- to a new session with a new streaming instance.
 --
 -- Specify a value between 60 and 360000.
-createFleet_disconnectTimeoutInSeconds :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Int)
+createFleet_disconnectTimeoutInSeconds :: Lens.Lens' CreateFleet (Core.Maybe Core.Int)
 createFleet_disconnectTimeoutInSeconds = Lens.lens (\CreateFleet' {disconnectTimeoutInSeconds} -> disconnectTimeoutInSeconds) (\s@CreateFleet' {} a -> s {disconnectTimeoutInSeconds = a} :: CreateFleet)
 
 -- | The VPC configuration for the fleet.
-createFleet_vpcConfig :: Lens.Lens' CreateFleet (Prelude.Maybe VpcConfig)
+createFleet_vpcConfig :: Lens.Lens' CreateFleet (Core.Maybe VpcConfig)
 createFleet_vpcConfig = Lens.lens (\CreateFleet' {vpcConfig} -> vpcConfig) (\s@CreateFleet' {} a -> s {vpcConfig = a} :: CreateFleet)
 
 -- | The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
@@ -492,12 +491,12 @@ createFleet_vpcConfig = Lens.lens (\CreateFleet' {vpcConfig} -> vpcConfig) (\s@C
 -- For more information, see
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
-createFleet_iamRoleArn :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
+createFleet_iamRoleArn :: Lens.Lens' CreateFleet (Core.Maybe Core.Text)
 createFleet_iamRoleArn = Lens.lens (\CreateFleet' {iamRoleArn} -> iamRoleArn) (\s@CreateFleet' {} a -> s {iamRoleArn = a} :: CreateFleet)
 
 -- | The name of the directory and organizational unit (OU) to use to join
 -- the fleet to a Microsoft Active Directory domain.
-createFleet_domainJoinInfo :: Lens.Lens' CreateFleet (Prelude.Maybe DomainJoinInfo)
+createFleet_domainJoinInfo :: Lens.Lens' CreateFleet (Core.Maybe DomainJoinInfo)
 createFleet_domainJoinInfo = Lens.lens (\CreateFleet' {domainJoinInfo} -> domainJoinInfo) (\s@CreateFleet' {} a -> s {domainJoinInfo = a} :: CreateFleet)
 
 -- | The fleet type.
@@ -512,7 +511,7 @@ createFleet_domainJoinInfo = Lens.lens (\CreateFleet' {domainJoinInfo} -> domain
 --     takes one to two minutes. You are charged for instance streaming
 --     when users are connected and a small hourly fee for instances that
 --     are not streaming apps.
-createFleet_fleetType :: Lens.Lens' CreateFleet (Prelude.Maybe FleetType)
+createFleet_fleetType :: Lens.Lens' CreateFleet (Core.Maybe FleetType)
 createFleet_fleetType = Lens.lens (\CreateFleet' {fleetType} -> fleetType) (\s@CreateFleet' {} a -> s {fleetType = a} :: CreateFleet)
 
 -- | The amount of time that users can be idle (inactive) before they are
@@ -539,11 +538,11 @@ createFleet_fleetType = Lens.lens (\CreateFleet' {fleetType} -> fleetType) (\s@C
 -- is at the midpoint between two different minutes, the value is rounded
 -- up. For example, if you specify a value of 90, users are disconnected
 -- after 2 minutes of inactivity.
-createFleet_idleDisconnectTimeoutInSeconds :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Int)
+createFleet_idleDisconnectTimeoutInSeconds :: Lens.Lens' CreateFleet (Core.Maybe Core.Int)
 createFleet_idleDisconnectTimeoutInSeconds = Lens.lens (\CreateFleet' {idleDisconnectTimeoutInSeconds} -> idleDisconnectTimeoutInSeconds) (\s@CreateFleet' {} a -> s {idleDisconnectTimeoutInSeconds = a} :: CreateFleet)
 
 -- | The name of the image used to create the fleet.
-createFleet_imageName :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
+createFleet_imageName :: Lens.Lens' CreateFleet (Core.Maybe Core.Text)
 createFleet_imageName = Lens.lens (\CreateFleet' {imageName} -> imageName) (\s@CreateFleet' {} a -> s {imageName = a} :: CreateFleet)
 
 -- | The tags to associate with the fleet. A tag is a key-value pair, and the
@@ -560,8 +559,8 @@ createFleet_imageName = Lens.lens (\CreateFleet' {imageName} -> imageName) (\s@C
 -- For more information, see
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
-createFleet_tags :: Lens.Lens' CreateFleet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} a -> s {tags = a} :: CreateFleet) Prelude.. Lens.mapping Prelude._Coerce
+createFleet_tags :: Lens.Lens' CreateFleet (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} a -> s {tags = a} :: CreateFleet) Core.. Lens.mapping Lens._Coerce
 
 -- | The AppStream 2.0 view that is displayed to your users when they stream
 -- from the fleet. When @APP@ is specified, only the windows of
@@ -569,27 +568,27 @@ createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} 
 -- standard desktop that is provided by the operating system displays.
 --
 -- The default value is @APP@.
-createFleet_streamView :: Lens.Lens' CreateFleet (Prelude.Maybe StreamView)
+createFleet_streamView :: Lens.Lens' CreateFleet (Core.Maybe StreamView)
 createFleet_streamView = Lens.lens (\CreateFleet' {streamView} -> streamView) (\s@CreateFleet' {} a -> s {streamView = a} :: CreateFleet)
 
 -- | The description to display.
-createFleet_description :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
+createFleet_description :: Lens.Lens' CreateFleet (Core.Maybe Core.Text)
 createFleet_description = Lens.lens (\CreateFleet' {description} -> description) (\s@CreateFleet' {} a -> s {description = a} :: CreateFleet)
 
 -- | The fleet name to display.
-createFleet_displayName :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
+createFleet_displayName :: Lens.Lens' CreateFleet (Core.Maybe Core.Text)
 createFleet_displayName = Lens.lens (\CreateFleet' {displayName} -> displayName) (\s@CreateFleet' {} a -> s {displayName = a} :: CreateFleet)
 
 -- | Enables or disables default internet access for the fleet.
-createFleet_enableDefaultInternetAccess :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Bool)
+createFleet_enableDefaultInternetAccess :: Lens.Lens' CreateFleet (Core.Maybe Core.Bool)
 createFleet_enableDefaultInternetAccess = Lens.lens (\CreateFleet' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@CreateFleet' {} a -> s {enableDefaultInternetAccess = a} :: CreateFleet)
 
 -- | The ARN of the public, private, or shared image to use.
-createFleet_imageArn :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
+createFleet_imageArn :: Lens.Lens' CreateFleet (Core.Maybe Core.Text)
 createFleet_imageArn = Lens.lens (\CreateFleet' {imageArn} -> imageArn) (\s@CreateFleet' {} a -> s {imageArn = a} :: CreateFleet)
 
 -- | A unique name for the fleet.
-createFleet_name :: Lens.Lens' CreateFleet Prelude.Text
+createFleet_name :: Lens.Lens' CreateFleet Core.Text
 createFleet_name = Lens.lens (\CreateFleet' {name} -> name) (\s@CreateFleet' {} a -> s {name = a} :: CreateFleet)
 
 -- | The instance type to use when launching fleet instances. The following
@@ -660,88 +659,84 @@ createFleet_name = Lens.lens (\CreateFleet' {name} -> name) (\s@CreateFleet' {} 
 -- -   stream.graphics-pro.8xlarge
 --
 -- -   stream.graphics-pro.16xlarge
-createFleet_instanceType :: Lens.Lens' CreateFleet Prelude.Text
+createFleet_instanceType :: Lens.Lens' CreateFleet Core.Text
 createFleet_instanceType = Lens.lens (\CreateFleet' {instanceType} -> instanceType) (\s@CreateFleet' {} a -> s {instanceType = a} :: CreateFleet)
 
 -- | The desired capacity for the fleet.
 createFleet_computeCapacity :: Lens.Lens' CreateFleet ComputeCapacity
 createFleet_computeCapacity = Lens.lens (\CreateFleet' {computeCapacity} -> computeCapacity) (\s@CreateFleet' {} a -> s {computeCapacity = a} :: CreateFleet)
 
-instance Prelude.AWSRequest CreateFleet where
-  type Rs CreateFleet = CreateFleetResponse
+instance Core.AWSRequest CreateFleet where
+  type AWSResponse CreateFleet = CreateFleetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> (x Prelude..?> "Fleet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Fleet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFleet
+instance Core.Hashable CreateFleet
 
-instance Prelude.NFData CreateFleet
+instance Core.NFData CreateFleet
 
-instance Prelude.ToHeaders CreateFleet where
+instance Core.ToHeaders CreateFleet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.CreateFleet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.CreateFleet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateFleet where
+instance Core.ToJSON CreateFleet where
   toJSON CreateFleet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxUserDurationInSeconds" Prelude..=)
-              Prelude.<$> maxUserDurationInSeconds,
-            ("DisconnectTimeoutInSeconds" Prelude..=)
-              Prelude.<$> disconnectTimeoutInSeconds,
-            ("VpcConfig" Prelude..=) Prelude.<$> vpcConfig,
-            ("IamRoleArn" Prelude..=) Prelude.<$> iamRoleArn,
-            ("DomainJoinInfo" Prelude..=)
-              Prelude.<$> domainJoinInfo,
-            ("FleetType" Prelude..=) Prelude.<$> fleetType,
-            ("IdleDisconnectTimeoutInSeconds" Prelude..=)
-              Prelude.<$> idleDisconnectTimeoutInSeconds,
-            ("ImageName" Prelude..=) Prelude.<$> imageName,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("StreamView" Prelude..=) Prelude.<$> streamView,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("DisplayName" Prelude..=) Prelude.<$> displayName,
-            ("EnableDefaultInternetAccess" Prelude..=)
-              Prelude.<$> enableDefaultInternetAccess,
-            ("ImageArn" Prelude..=) Prelude.<$> imageArn,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("InstanceType" Prelude..= instanceType),
-            Prelude.Just
-              ("ComputeCapacity" Prelude..= computeCapacity)
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxUserDurationInSeconds" Core..=)
+              Core.<$> maxUserDurationInSeconds,
+            ("DisconnectTimeoutInSeconds" Core..=)
+              Core.<$> disconnectTimeoutInSeconds,
+            ("VpcConfig" Core..=) Core.<$> vpcConfig,
+            ("IamRoleArn" Core..=) Core.<$> iamRoleArn,
+            ("DomainJoinInfo" Core..=) Core.<$> domainJoinInfo,
+            ("FleetType" Core..=) Core.<$> fleetType,
+            ("IdleDisconnectTimeoutInSeconds" Core..=)
+              Core.<$> idleDisconnectTimeoutInSeconds,
+            ("ImageName" Core..=) Core.<$> imageName,
+            ("Tags" Core..=) Core.<$> tags,
+            ("StreamView" Core..=) Core.<$> streamView,
+            ("Description" Core..=) Core.<$> description,
+            ("DisplayName" Core..=) Core.<$> displayName,
+            ("EnableDefaultInternetAccess" Core..=)
+              Core.<$> enableDefaultInternetAccess,
+            ("ImageArn" Core..=) Core.<$> imageArn,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("InstanceType" Core..= instanceType),
+            Core.Just
+              ("ComputeCapacity" Core..= computeCapacity)
           ]
       )
 
-instance Prelude.ToPath CreateFleet where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateFleet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateFleet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateFleet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateFleetResponse' smart constructor.
 data CreateFleetResponse = CreateFleetResponse'
   { -- | Information about the fleet.
-    fleet :: Prelude.Maybe Fleet,
+    fleet :: Core.Maybe Fleet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateFleetResponse' with all optional fields omitted.
@@ -756,20 +751,20 @@ data CreateFleetResponse = CreateFleetResponse'
 -- 'httpStatus', 'createFleetResponse_httpStatus' - The response's http status code.
 newCreateFleetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateFleetResponse
 newCreateFleetResponse pHttpStatus_ =
   CreateFleetResponse'
-    { fleet = Prelude.Nothing,
+    { fleet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the fleet.
-createFleetResponse_fleet :: Lens.Lens' CreateFleetResponse (Prelude.Maybe Fleet)
+createFleetResponse_fleet :: Lens.Lens' CreateFleetResponse (Core.Maybe Fleet)
 createFleetResponse_fleet = Lens.lens (\CreateFleetResponse' {fleet} -> fleet) (\s@CreateFleetResponse' {} a -> s {fleet = a} :: CreateFleetResponse)
 
 -- | The response's http status code.
-createFleetResponse_httpStatus :: Lens.Lens' CreateFleetResponse Prelude.Int
+createFleetResponse_httpStatus :: Lens.Lens' CreateFleetResponse Core.Int
 createFleetResponse_httpStatus = Lens.lens (\CreateFleetResponse' {httpStatus} -> httpStatus) (\s@CreateFleetResponse' {} a -> s {httpStatus = a} :: CreateFleetResponse)
 
-instance Prelude.NFData CreateFleetResponse
+instance Core.NFData CreateFleetResponse

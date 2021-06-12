@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.VideoBlackFailoverSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for VideoBlackFailoverSettings
 --
@@ -37,12 +36,12 @@ data VideoBlackFailoverSettings = VideoBlackFailoverSettings'
     -- \'black\'. If you set this field to .1 in an 8-bit color depth:
     -- (255*0.1=25.5), which means a pixel value of 25 or less is \'black\'.
     -- The range is 0.0 to 1.0, with any number of decimal places.
-    blackDetectThreshold :: Prelude.Maybe Prelude.Double,
+    blackDetectThreshold :: Core.Maybe Core.Double,
     -- | The amount of time (in milliseconds) that the active input must be black
     -- before automatic input failover occurs.
-    videoBlackThresholdMsec :: Prelude.Maybe Prelude.Natural
+    videoBlackThresholdMsec :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VideoBlackFailoverSettings' with all optional fields omitted.
@@ -70,8 +69,8 @@ newVideoBlackFailoverSettings ::
 newVideoBlackFailoverSettings =
   VideoBlackFailoverSettings'
     { blackDetectThreshold =
-        Prelude.Nothing,
-      videoBlackThresholdMsec = Prelude.Nothing
+        Core.Nothing,
+      videoBlackThresholdMsec = Core.Nothing
     }
 
 -- | A value used in calculating the threshold below which MediaLive
@@ -84,35 +83,35 @@ newVideoBlackFailoverSettings =
 -- \'black\'. If you set this field to .1 in an 8-bit color depth:
 -- (255*0.1=25.5), which means a pixel value of 25 or less is \'black\'.
 -- The range is 0.0 to 1.0, with any number of decimal places.
-videoBlackFailoverSettings_blackDetectThreshold :: Lens.Lens' VideoBlackFailoverSettings (Prelude.Maybe Prelude.Double)
+videoBlackFailoverSettings_blackDetectThreshold :: Lens.Lens' VideoBlackFailoverSettings (Core.Maybe Core.Double)
 videoBlackFailoverSettings_blackDetectThreshold = Lens.lens (\VideoBlackFailoverSettings' {blackDetectThreshold} -> blackDetectThreshold) (\s@VideoBlackFailoverSettings' {} a -> s {blackDetectThreshold = a} :: VideoBlackFailoverSettings)
 
 -- | The amount of time (in milliseconds) that the active input must be black
 -- before automatic input failover occurs.
-videoBlackFailoverSettings_videoBlackThresholdMsec :: Lens.Lens' VideoBlackFailoverSettings (Prelude.Maybe Prelude.Natural)
+videoBlackFailoverSettings_videoBlackThresholdMsec :: Lens.Lens' VideoBlackFailoverSettings (Core.Maybe Core.Natural)
 videoBlackFailoverSettings_videoBlackThresholdMsec = Lens.lens (\VideoBlackFailoverSettings' {videoBlackThresholdMsec} -> videoBlackThresholdMsec) (\s@VideoBlackFailoverSettings' {} a -> s {videoBlackThresholdMsec = a} :: VideoBlackFailoverSettings)
 
-instance Prelude.FromJSON VideoBlackFailoverSettings where
+instance Core.FromJSON VideoBlackFailoverSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VideoBlackFailoverSettings"
       ( \x ->
           VideoBlackFailoverSettings'
-            Prelude.<$> (x Prelude..:? "blackDetectThreshold")
-            Prelude.<*> (x Prelude..:? "videoBlackThresholdMsec")
+            Core.<$> (x Core..:? "blackDetectThreshold")
+            Core.<*> (x Core..:? "videoBlackThresholdMsec")
       )
 
-instance Prelude.Hashable VideoBlackFailoverSettings
+instance Core.Hashable VideoBlackFailoverSettings
 
-instance Prelude.NFData VideoBlackFailoverSettings
+instance Core.NFData VideoBlackFailoverSettings
 
-instance Prelude.ToJSON VideoBlackFailoverSettings where
+instance Core.ToJSON VideoBlackFailoverSettings where
   toJSON VideoBlackFailoverSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("blackDetectThreshold" Prelude..=)
-              Prelude.<$> blackDetectThreshold,
-            ("videoBlackThresholdMsec" Prelude..=)
-              Prelude.<$> videoBlackThresholdMsec
+    Core.object
+      ( Core.catMaybes
+          [ ("blackDetectThreshold" Core..=)
+              Core.<$> blackDetectThreshold,
+            ("videoBlackThresholdMsec" Core..=)
+              Core.<$> videoBlackThresholdMsec
           ]
       )

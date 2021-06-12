@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.DynamoDB.BatchExecuteStatement
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchExecuteStatement' smart constructor.
 data BatchExecuteStatement = BatchExecuteStatement'
   { -- | The list of PartiQL statements representing the batch to run.
-    statements :: Prelude.NonEmpty BatchStatementRequest
+    statements :: Core.NonEmpty BatchStatementRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchExecuteStatement' with all optional fields omitted.
@@ -65,73 +64,69 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- 'statements', 'batchExecuteStatement_statements' - The list of PartiQL statements representing the batch to run.
 newBatchExecuteStatement ::
   -- | 'statements'
-  Prelude.NonEmpty BatchStatementRequest ->
+  Core.NonEmpty BatchStatementRequest ->
   BatchExecuteStatement
 newBatchExecuteStatement pStatements_ =
   BatchExecuteStatement'
     { statements =
-        Prelude._Coerce Lens.# pStatements_
+        Lens._Coerce Lens.# pStatements_
     }
 
 -- | The list of PartiQL statements representing the batch to run.
-batchExecuteStatement_statements :: Lens.Lens' BatchExecuteStatement (Prelude.NonEmpty BatchStatementRequest)
-batchExecuteStatement_statements = Lens.lens (\BatchExecuteStatement' {statements} -> statements) (\s@BatchExecuteStatement' {} a -> s {statements = a} :: BatchExecuteStatement) Prelude.. Prelude._Coerce
+batchExecuteStatement_statements :: Lens.Lens' BatchExecuteStatement (Core.NonEmpty BatchStatementRequest)
+batchExecuteStatement_statements = Lens.lens (\BatchExecuteStatement' {statements} -> statements) (\s@BatchExecuteStatement' {} a -> s {statements = a} :: BatchExecuteStatement) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchExecuteStatement where
+instance Core.AWSRequest BatchExecuteStatement where
   type
-    Rs BatchExecuteStatement =
+    AWSResponse BatchExecuteStatement =
       BatchExecuteStatementResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchExecuteStatementResponse'
-            Prelude.<$> ( x Prelude..?> "Responses"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Responses" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchExecuteStatement
+instance Core.Hashable BatchExecuteStatement
 
-instance Prelude.NFData BatchExecuteStatement
+instance Core.NFData BatchExecuteStatement
 
-instance Prelude.ToHeaders BatchExecuteStatement where
+instance Core.ToHeaders BatchExecuteStatement where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.BatchExecuteStatement" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.BatchExecuteStatement" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchExecuteStatement where
+instance Core.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Statements" Prelude..= statements)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Statements" Core..= statements)]
       )
 
-instance Prelude.ToPath BatchExecuteStatement where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchExecuteStatement where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchExecuteStatement where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchExecuteStatement where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchExecuteStatementResponse' smart constructor.
 data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
   { -- | The response to each PartiQL statement in the batch.
-    responses :: Prelude.Maybe [BatchStatementResponse],
+    responses :: Core.Maybe [BatchStatementResponse],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchExecuteStatementResponse' with all optional fields omitted.
@@ -146,21 +141,21 @@ data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
 -- 'httpStatus', 'batchExecuteStatementResponse_httpStatus' - The response's http status code.
 newBatchExecuteStatementResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchExecuteStatementResponse
 newBatchExecuteStatementResponse pHttpStatus_ =
   BatchExecuteStatementResponse'
     { responses =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The response to each PartiQL statement in the batch.
-batchExecuteStatementResponse_responses :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe [BatchStatementResponse])
-batchExecuteStatementResponse_responses = Lens.lens (\BatchExecuteStatementResponse' {responses} -> responses) (\s@BatchExecuteStatementResponse' {} a -> s {responses = a} :: BatchExecuteStatementResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchExecuteStatementResponse_responses :: Lens.Lens' BatchExecuteStatementResponse (Core.Maybe [BatchStatementResponse])
+batchExecuteStatementResponse_responses = Lens.lens (\BatchExecuteStatementResponse' {responses} -> responses) (\s@BatchExecuteStatementResponse' {} a -> s {responses = a} :: BatchExecuteStatementResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Prelude.Int
+batchExecuteStatementResponse_httpStatus :: Lens.Lens' BatchExecuteStatementResponse Core.Int
 batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResponse' {httpStatus} -> httpStatus) (\s@BatchExecuteStatementResponse' {} a -> s {httpStatus = a} :: BatchExecuteStatementResponse)
 
-instance Prelude.NFData BatchExecuteStatementResponse
+instance Core.NFData BatchExecuteStatementResponse

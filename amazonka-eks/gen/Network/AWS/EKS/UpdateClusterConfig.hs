@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,15 +71,15 @@ module Network.AWS.EKS.UpdateClusterConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateClusterConfig' smart constructor.
 data UpdateClusterConfig = UpdateClusterConfig'
-  { resourcesVpcConfig :: Prelude.Maybe VpcConfigRequest,
+  { resourcesVpcConfig :: Core.Maybe VpcConfigRequest,
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
@@ -90,14 +89,14 @@ data UpdateClusterConfig = UpdateClusterConfig'
     -- CloudWatch Logs ingestion, archive storage, and data scanning rates
     -- apply to exported control plane logs. For more information, see
     -- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
-    logging :: Prelude.Maybe Logging,
+    logging :: Core.Maybe Logging,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name of the Amazon EKS cluster to update.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateClusterConfig' with all optional fields omitted.
@@ -125,19 +124,19 @@ data UpdateClusterConfig = UpdateClusterConfig'
 -- 'name', 'updateClusterConfig_name' - The name of the Amazon EKS cluster to update.
 newUpdateClusterConfig ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateClusterConfig
 newUpdateClusterConfig pName_ =
   UpdateClusterConfig'
     { resourcesVpcConfig =
-        Prelude.Nothing,
-      logging = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+        Core.Nothing,
+      logging = Core.Nothing,
+      clientRequestToken = Core.Nothing,
       name = pName_
     }
 
 -- | Undocumented member.
-updateClusterConfig_resourcesVpcConfig :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe VpcConfigRequest)
+updateClusterConfig_resourcesVpcConfig :: Lens.Lens' UpdateClusterConfig (Core.Maybe VpcConfigRequest)
 updateClusterConfig_resourcesVpcConfig = Lens.lens (\UpdateClusterConfig' {resourcesVpcConfig} -> resourcesVpcConfig) (\s@UpdateClusterConfig' {} a -> s {resourcesVpcConfig = a} :: UpdateClusterConfig)
 
 -- | Enable or disable exporting the Kubernetes control plane logs for your
@@ -149,73 +148,71 @@ updateClusterConfig_resourcesVpcConfig = Lens.lens (\UpdateClusterConfig' {resou
 -- CloudWatch Logs ingestion, archive storage, and data scanning rates
 -- apply to exported control plane logs. For more information, see
 -- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
-updateClusterConfig_logging :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe Logging)
+updateClusterConfig_logging :: Lens.Lens' UpdateClusterConfig (Core.Maybe Logging)
 updateClusterConfig_logging = Lens.lens (\UpdateClusterConfig' {logging} -> logging) (\s@UpdateClusterConfig' {} a -> s {logging = a} :: UpdateClusterConfig)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-updateClusterConfig_clientRequestToken :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe Prelude.Text)
+updateClusterConfig_clientRequestToken :: Lens.Lens' UpdateClusterConfig (Core.Maybe Core.Text)
 updateClusterConfig_clientRequestToken = Lens.lens (\UpdateClusterConfig' {clientRequestToken} -> clientRequestToken) (\s@UpdateClusterConfig' {} a -> s {clientRequestToken = a} :: UpdateClusterConfig)
 
 -- | The name of the Amazon EKS cluster to update.
-updateClusterConfig_name :: Lens.Lens' UpdateClusterConfig Prelude.Text
+updateClusterConfig_name :: Lens.Lens' UpdateClusterConfig Core.Text
 updateClusterConfig_name = Lens.lens (\UpdateClusterConfig' {name} -> name) (\s@UpdateClusterConfig' {} a -> s {name = a} :: UpdateClusterConfig)
 
-instance Prelude.AWSRequest UpdateClusterConfig where
+instance Core.AWSRequest UpdateClusterConfig where
   type
-    Rs UpdateClusterConfig =
+    AWSResponse UpdateClusterConfig =
       UpdateClusterConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateClusterConfigResponse'
-            Prelude.<$> (x Prelude..?> "update")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "update")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateClusterConfig
+instance Core.Hashable UpdateClusterConfig
 
-instance Prelude.NFData UpdateClusterConfig
+instance Core.NFData UpdateClusterConfig
 
-instance Prelude.ToHeaders UpdateClusterConfig where
+instance Core.ToHeaders UpdateClusterConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateClusterConfig where
+instance Core.ToJSON UpdateClusterConfig where
   toJSON UpdateClusterConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resourcesVpcConfig" Prelude..=)
-              Prelude.<$> resourcesVpcConfig,
-            ("logging" Prelude..=) Prelude.<$> logging,
-            ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken
+    Core.object
+      ( Core.catMaybes
+          [ ("resourcesVpcConfig" Core..=)
+              Core.<$> resourcesVpcConfig,
+            ("logging" Core..=) Core.<$> logging,
+            ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken
           ]
       )
 
-instance Prelude.ToPath UpdateClusterConfig where
+instance Core.ToPath UpdateClusterConfig where
   toPath UpdateClusterConfig' {..} =
-    Prelude.mconcat
-      ["/clusters/", Prelude.toBS name, "/update-config"]
+    Core.mconcat
+      ["/clusters/", Core.toBS name, "/update-config"]
 
-instance Prelude.ToQuery UpdateClusterConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateClusterConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateClusterConfigResponse' smart constructor.
 data UpdateClusterConfigResponse = UpdateClusterConfigResponse'
-  { update :: Prelude.Maybe Update,
+  { update :: Core.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateClusterConfigResponse' with all optional fields omitted.
@@ -230,21 +227,20 @@ data UpdateClusterConfigResponse = UpdateClusterConfigResponse'
 -- 'httpStatus', 'updateClusterConfigResponse_httpStatus' - The response's http status code.
 newUpdateClusterConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateClusterConfigResponse
 newUpdateClusterConfigResponse pHttpStatus_ =
   UpdateClusterConfigResponse'
-    { update =
-        Prelude.Nothing,
+    { update = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateClusterConfigResponse_update :: Lens.Lens' UpdateClusterConfigResponse (Prelude.Maybe Update)
+updateClusterConfigResponse_update :: Lens.Lens' UpdateClusterConfigResponse (Core.Maybe Update)
 updateClusterConfigResponse_update = Lens.lens (\UpdateClusterConfigResponse' {update} -> update) (\s@UpdateClusterConfigResponse' {} a -> s {update = a} :: UpdateClusterConfigResponse)
 
 -- | The response's http status code.
-updateClusterConfigResponse_httpStatus :: Lens.Lens' UpdateClusterConfigResponse Prelude.Int
+updateClusterConfigResponse_httpStatus :: Lens.Lens' UpdateClusterConfigResponse Core.Int
 updateClusterConfigResponse_httpStatus = Lens.lens (\UpdateClusterConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterConfigResponse' {} a -> s {httpStatus = a} :: UpdateClusterConfigResponse)
 
-instance Prelude.NFData UpdateClusterConfigResponse
+instance Core.NFData UpdateClusterConfigResponse

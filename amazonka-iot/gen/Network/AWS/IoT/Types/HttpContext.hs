@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.HttpContext where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the HTTP context to use for the test authorizer request.
 --
 -- /See:/ 'newHttpContext' smart constructor.
 data HttpContext = HttpContext'
   { -- | The query string keys and values in an HTTP authorization request.
-    queryString :: Prelude.Maybe Prelude.Text,
+    queryString :: Core.Maybe Core.Text,
     -- | The header keys and values in an HTTP authorization request.
-    headers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    headers :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpContext' with all optional fields omitted.
@@ -49,27 +48,27 @@ newHttpContext ::
   HttpContext
 newHttpContext =
   HttpContext'
-    { queryString = Prelude.Nothing,
-      headers = Prelude.Nothing
+    { queryString = Core.Nothing,
+      headers = Core.Nothing
     }
 
 -- | The query string keys and values in an HTTP authorization request.
-httpContext_queryString :: Lens.Lens' HttpContext (Prelude.Maybe Prelude.Text)
+httpContext_queryString :: Lens.Lens' HttpContext (Core.Maybe Core.Text)
 httpContext_queryString = Lens.lens (\HttpContext' {queryString} -> queryString) (\s@HttpContext' {} a -> s {queryString = a} :: HttpContext)
 
 -- | The header keys and values in an HTTP authorization request.
-httpContext_headers :: Lens.Lens' HttpContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-httpContext_headers = Lens.lens (\HttpContext' {headers} -> headers) (\s@HttpContext' {} a -> s {headers = a} :: HttpContext) Prelude.. Lens.mapping Prelude._Coerce
+httpContext_headers :: Lens.Lens' HttpContext (Core.Maybe (Core.HashMap Core.Text Core.Text))
+httpContext_headers = Lens.lens (\HttpContext' {headers} -> headers) (\s@HttpContext' {} a -> s {headers = a} :: HttpContext) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable HttpContext
+instance Core.Hashable HttpContext
 
-instance Prelude.NFData HttpContext
+instance Core.NFData HttpContext
 
-instance Prelude.ToJSON HttpContext where
+instance Core.ToJSON HttpContext where
   toJSON HttpContext' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("queryString" Prelude..=) Prelude.<$> queryString,
-            ("headers" Prelude..=) Prelude.<$> headers
+    Core.object
+      ( Core.catMaybes
+          [ ("queryString" Core..=) Core.<$> queryString,
+            ("headers" Core..=) Core.<$> headers
           ]
       )

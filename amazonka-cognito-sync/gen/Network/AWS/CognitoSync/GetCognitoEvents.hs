@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CognitoSync.GetCognitoEvents
 where
 
 import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetCognitoEvents' smart constructor.
 data GetCognitoEvents = GetCognitoEvents'
   { -- | The Cognito Identity Pool ID for the request
-    identityPoolId :: Prelude.Text
+    identityPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCognitoEvents' with all optional fields omitted.
@@ -71,7 +70,7 @@ data GetCognitoEvents = GetCognitoEvents'
 -- 'identityPoolId', 'getCognitoEvents_identityPoolId' - The Cognito Identity Pool ID for the request
 newGetCognitoEvents ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetCognitoEvents
 newGetCognitoEvents pIdentityPoolId_ =
   GetCognitoEvents'
@@ -80,56 +79,56 @@ newGetCognitoEvents pIdentityPoolId_ =
     }
 
 -- | The Cognito Identity Pool ID for the request
-getCognitoEvents_identityPoolId :: Lens.Lens' GetCognitoEvents Prelude.Text
+getCognitoEvents_identityPoolId :: Lens.Lens' GetCognitoEvents Core.Text
 getCognitoEvents_identityPoolId = Lens.lens (\GetCognitoEvents' {identityPoolId} -> identityPoolId) (\s@GetCognitoEvents' {} a -> s {identityPoolId = a} :: GetCognitoEvents)
 
-instance Prelude.AWSRequest GetCognitoEvents where
-  type Rs GetCognitoEvents = GetCognitoEventsResponse
+instance Core.AWSRequest GetCognitoEvents where
+  type
+    AWSResponse GetCognitoEvents =
+      GetCognitoEventsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCognitoEventsResponse'
-            Prelude.<$> (x Prelude..?> "Events" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Events" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCognitoEvents
+instance Core.Hashable GetCognitoEvents
 
-instance Prelude.NFData GetCognitoEvents
+instance Core.NFData GetCognitoEvents
 
-instance Prelude.ToHeaders GetCognitoEvents where
+instance Core.ToHeaders GetCognitoEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetCognitoEvents where
+instance Core.ToPath GetCognitoEvents where
   toPath GetCognitoEvents' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/identitypools/",
-        Prelude.toBS identityPoolId,
+        Core.toBS identityPoolId,
         "/events"
       ]
 
-instance Prelude.ToQuery GetCognitoEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCognitoEvents where
+  toQuery = Core.const Core.mempty
 
 -- | The response from the GetCognitoEvents request
 --
 -- /See:/ 'newGetCognitoEventsResponse' smart constructor.
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
   { -- | The Cognito Events returned from the GetCognitoEvents request
-    events :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    events :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCognitoEventsResponse' with all optional fields omitted.
@@ -144,20 +143,20 @@ data GetCognitoEventsResponse = GetCognitoEventsResponse'
 -- 'httpStatus', 'getCognitoEventsResponse_httpStatus' - The response's http status code.
 newGetCognitoEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCognitoEventsResponse
 newGetCognitoEventsResponse pHttpStatus_ =
   GetCognitoEventsResponse'
-    { events = Prelude.Nothing,
+    { events = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Cognito Events returned from the GetCognitoEvents request
-getCognitoEventsResponse_events :: Lens.Lens' GetCognitoEventsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getCognitoEventsResponse_events = Lens.lens (\GetCognitoEventsResponse' {events} -> events) (\s@GetCognitoEventsResponse' {} a -> s {events = a} :: GetCognitoEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getCognitoEventsResponse_events :: Lens.Lens' GetCognitoEventsResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getCognitoEventsResponse_events = Lens.lens (\GetCognitoEventsResponse' {events} -> events) (\s@GetCognitoEventsResponse' {} a -> s {events = a} :: GetCognitoEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getCognitoEventsResponse_httpStatus :: Lens.Lens' GetCognitoEventsResponse Prelude.Int
+getCognitoEventsResponse_httpStatus :: Lens.Lens' GetCognitoEventsResponse Core.Int
 getCognitoEventsResponse_httpStatus = Lens.lens (\GetCognitoEventsResponse' {httpStatus} -> httpStatus) (\s@GetCognitoEventsResponse' {} a -> s {httpStatus = a} :: GetCognitoEventsResponse)
 
-instance Prelude.NFData GetCognitoEventsResponse
+instance Core.NFData GetCognitoEventsResponse

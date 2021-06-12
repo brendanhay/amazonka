@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudWatchEvents.Types.NetworkConfiguration where
 
 import Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure specifies the network configuration for an ECS task.
 --
@@ -31,9 +30,9 @@ data NetworkConfiguration = NetworkConfiguration'
   { -- | Use this structure to specify the VPC subnets and security groups for
     -- the task, and whether a public IP address is to be used. This structure
     -- is relevant only for ECS tasks that use the @awsvpc@ network mode.
-    awsvpcConfiguration :: Prelude.Maybe AwsVpcConfiguration
+    awsvpcConfiguration :: Core.Maybe AwsVpcConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkConfiguration' with all optional fields omitted.
@@ -51,33 +50,33 @@ newNetworkConfiguration ::
 newNetworkConfiguration =
   NetworkConfiguration'
     { awsvpcConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Use this structure to specify the VPC subnets and security groups for
 -- the task, and whether a public IP address is to be used. This structure
 -- is relevant only for ECS tasks that use the @awsvpc@ network mode.
-networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AwsVpcConfiguration)
+networkConfiguration_awsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Core.Maybe AwsVpcConfiguration)
 networkConfiguration_awsvpcConfiguration = Lens.lens (\NetworkConfiguration' {awsvpcConfiguration} -> awsvpcConfiguration) (\s@NetworkConfiguration' {} a -> s {awsvpcConfiguration = a} :: NetworkConfiguration)
 
-instance Prelude.FromJSON NetworkConfiguration where
+instance Core.FromJSON NetworkConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Prelude..:? "awsvpcConfiguration")
+            Core.<$> (x Core..:? "awsvpcConfiguration")
       )
 
-instance Prelude.Hashable NetworkConfiguration
+instance Core.Hashable NetworkConfiguration
 
-instance Prelude.NFData NetworkConfiguration
+instance Core.NFData NetworkConfiguration
 
-instance Prelude.ToJSON NetworkConfiguration where
+instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("awsvpcConfiguration" Prelude..=)
-              Prelude.<$> awsvpcConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("awsvpcConfiguration" Core..=)
+              Core.<$> awsvpcConfiguration
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.DescribePipelineDefinitionForExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,9 +49,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribePipelineDefinitionForExecution' smart constructor.
 data DescribePipelineDefinitionForExecution = DescribePipelineDefinitionForExecution'
   { -- | The Amazon Resource Name (ARN) of the pipeline execution.
-    pipelineExecutionArn :: Prelude.Text
+    pipelineExecutionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePipelineDefinitionForExecution' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DescribePipelineDefinitionForExecution = DescribePipelineDefinitionForExecu
 -- 'pipelineExecutionArn', 'describePipelineDefinitionForExecution_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.
 newDescribePipelineDefinitionForExecution ::
   -- | 'pipelineExecutionArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribePipelineDefinitionForExecution
 newDescribePipelineDefinitionForExecution
   pPipelineExecutionArn_ =
@@ -75,88 +74,87 @@ newDescribePipelineDefinitionForExecution
       }
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
-describePipelineDefinitionForExecution_pipelineExecutionArn :: Lens.Lens' DescribePipelineDefinitionForExecution Prelude.Text
+describePipelineDefinitionForExecution_pipelineExecutionArn :: Lens.Lens' DescribePipelineDefinitionForExecution Core.Text
 describePipelineDefinitionForExecution_pipelineExecutionArn = Lens.lens (\DescribePipelineDefinitionForExecution' {pipelineExecutionArn} -> pipelineExecutionArn) (\s@DescribePipelineDefinitionForExecution' {} a -> s {pipelineExecutionArn = a} :: DescribePipelineDefinitionForExecution)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribePipelineDefinitionForExecution
   where
   type
-    Rs DescribePipelineDefinitionForExecution =
+    AWSResponse
+      DescribePipelineDefinitionForExecution =
       DescribePipelineDefinitionForExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePipelineDefinitionForExecutionResponse'
-            Prelude.<$> (x Prelude..?> "CreationTime")
-              Prelude.<*> (x Prelude..?> "PipelineDefinition")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreationTime")
+              Core.<*> (x Core..?> "PipelineDefinition")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribePipelineDefinitionForExecution
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribePipelineDefinitionForExecution
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribePipelineDefinitionForExecution
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribePipelineDefinitionForExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DescribePipelineDefinitionForExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribePipelineDefinitionForExecution
   where
   toJSON DescribePipelineDefinitionForExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "PipelineExecutionArn"
-                  Prelude..= pipelineExecutionArn
+                  Core..= pipelineExecutionArn
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribePipelineDefinitionForExecution
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribePipelineDefinitionForExecution
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePipelineDefinitionForExecutionResponse' smart constructor.
 data DescribePipelineDefinitionForExecutionResponse = DescribePipelineDefinitionForExecutionResponse'
   { -- | The time when the pipeline was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The JSON pipeline definition.
-    pipelineDefinition :: Prelude.Maybe Prelude.Text,
+    pipelineDefinition :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePipelineDefinitionForExecutionResponse' with all optional fields omitted.
@@ -173,30 +171,30 @@ data DescribePipelineDefinitionForExecutionResponse = DescribePipelineDefinition
 -- 'httpStatus', 'describePipelineDefinitionForExecutionResponse_httpStatus' - The response's http status code.
 newDescribePipelineDefinitionForExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePipelineDefinitionForExecutionResponse
 newDescribePipelineDefinitionForExecutionResponse
   pHttpStatus_ =
     DescribePipelineDefinitionForExecutionResponse'
       { creationTime =
-          Prelude.Nothing,
+          Core.Nothing,
         pipelineDefinition =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The time when the pipeline was created.
-describePipelineDefinitionForExecutionResponse_creationTime :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Prelude.Maybe Prelude.UTCTime)
-describePipelineDefinitionForExecutionResponse_creationTime = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {creationTime} -> creationTime) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {creationTime = a} :: DescribePipelineDefinitionForExecutionResponse) Prelude.. Lens.mapping Prelude._Time
+describePipelineDefinitionForExecutionResponse_creationTime :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Core.Maybe Core.UTCTime)
+describePipelineDefinitionForExecutionResponse_creationTime = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {creationTime} -> creationTime) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {creationTime = a} :: DescribePipelineDefinitionForExecutionResponse) Core.. Lens.mapping Core._Time
 
 -- | The JSON pipeline definition.
-describePipelineDefinitionForExecutionResponse_pipelineDefinition :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Prelude.Maybe Prelude.Text)
+describePipelineDefinitionForExecutionResponse_pipelineDefinition :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse (Core.Maybe Core.Text)
 describePipelineDefinitionForExecutionResponse_pipelineDefinition = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {pipelineDefinition} -> pipelineDefinition) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {pipelineDefinition = a} :: DescribePipelineDefinitionForExecutionResponse)
 
 -- | The response's http status code.
-describePipelineDefinitionForExecutionResponse_httpStatus :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse Prelude.Int
+describePipelineDefinitionForExecutionResponse_httpStatus :: Lens.Lens' DescribePipelineDefinitionForExecutionResponse Core.Int
 describePipelineDefinitionForExecutionResponse_httpStatus = Lens.lens (\DescribePipelineDefinitionForExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribePipelineDefinitionForExecutionResponse' {} a -> s {httpStatus = a} :: DescribePipelineDefinitionForExecutionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribePipelineDefinitionForExecutionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the Encryption At Rest Options.
 --
 -- /See:/ 'newEncryptionAtRestOptions' smart constructor.
 data EncryptionAtRestOptions = EncryptionAtRestOptions'
   { -- | Specifies the option to enable Encryption At Rest.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | Specifies the KMS Key ID for Encryption At Rest options.
-    kmsKeyId :: Prelude.Maybe Prelude.Text
+    kmsKeyId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionAtRestOptions' with all optional fields omitted.
@@ -49,37 +48,37 @@ newEncryptionAtRestOptions ::
   EncryptionAtRestOptions
 newEncryptionAtRestOptions =
   EncryptionAtRestOptions'
-    { enabled = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing
+    { enabled = Core.Nothing,
+      kmsKeyId = Core.Nothing
     }
 
 -- | Specifies the option to enable Encryption At Rest.
-encryptionAtRestOptions_enabled :: Lens.Lens' EncryptionAtRestOptions (Prelude.Maybe Prelude.Bool)
+encryptionAtRestOptions_enabled :: Lens.Lens' EncryptionAtRestOptions (Core.Maybe Core.Bool)
 encryptionAtRestOptions_enabled = Lens.lens (\EncryptionAtRestOptions' {enabled} -> enabled) (\s@EncryptionAtRestOptions' {} a -> s {enabled = a} :: EncryptionAtRestOptions)
 
 -- | Specifies the KMS Key ID for Encryption At Rest options.
-encryptionAtRestOptions_kmsKeyId :: Lens.Lens' EncryptionAtRestOptions (Prelude.Maybe Prelude.Text)
+encryptionAtRestOptions_kmsKeyId :: Lens.Lens' EncryptionAtRestOptions (Core.Maybe Core.Text)
 encryptionAtRestOptions_kmsKeyId = Lens.lens (\EncryptionAtRestOptions' {kmsKeyId} -> kmsKeyId) (\s@EncryptionAtRestOptions' {} a -> s {kmsKeyId = a} :: EncryptionAtRestOptions)
 
-instance Prelude.FromJSON EncryptionAtRestOptions where
+instance Core.FromJSON EncryptionAtRestOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionAtRestOptions"
       ( \x ->
           EncryptionAtRestOptions'
-            Prelude.<$> (x Prelude..:? "Enabled")
-            Prelude.<*> (x Prelude..:? "KmsKeyId")
+            Core.<$> (x Core..:? "Enabled")
+            Core.<*> (x Core..:? "KmsKeyId")
       )
 
-instance Prelude.Hashable EncryptionAtRestOptions
+instance Core.Hashable EncryptionAtRestOptions
 
-instance Prelude.NFData EncryptionAtRestOptions
+instance Core.NFData EncryptionAtRestOptions
 
-instance Prelude.ToJSON EncryptionAtRestOptions where
+instance Core.ToJSON EncryptionAtRestOptions where
   toJSON EncryptionAtRestOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Enabled" Prelude..=) Prelude.<$> enabled,
-            ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId
           ]
       )

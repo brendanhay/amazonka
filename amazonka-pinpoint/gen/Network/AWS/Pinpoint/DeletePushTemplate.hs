@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.DeletePushTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,14 +71,14 @@ data DeletePushTemplate = DeletePushTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePushTemplate' with all optional fields omitted.
@@ -118,11 +117,11 @@ data DeletePushTemplate = DeletePushTemplate'
 -- (-). Template names are case sensitive.
 newDeletePushTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   DeletePushTemplate
 newDeletePushTemplate pTemplateName_ =
   DeletePushTemplate'
-    { version = Prelude.Nothing,
+    { version = Core.Nothing,
       templateName = pTemplateName_
     }
 
@@ -148,63 +147,58 @@ newDeletePushTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-deletePushTemplate_version :: Lens.Lens' DeletePushTemplate (Prelude.Maybe Prelude.Text)
+deletePushTemplate_version :: Lens.Lens' DeletePushTemplate (Core.Maybe Core.Text)
 deletePushTemplate_version = Lens.lens (\DeletePushTemplate' {version} -> version) (\s@DeletePushTemplate' {} a -> s {version = a} :: DeletePushTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-deletePushTemplate_templateName :: Lens.Lens' DeletePushTemplate Prelude.Text
+deletePushTemplate_templateName :: Lens.Lens' DeletePushTemplate Core.Text
 deletePushTemplate_templateName = Lens.lens (\DeletePushTemplate' {templateName} -> templateName) (\s@DeletePushTemplate' {} a -> s {templateName = a} :: DeletePushTemplate)
 
-instance Prelude.AWSRequest DeletePushTemplate where
+instance Core.AWSRequest DeletePushTemplate where
   type
-    Rs DeletePushTemplate =
+    AWSResponse DeletePushTemplate =
       DeletePushTemplateResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeletePushTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeletePushTemplate
+instance Core.Hashable DeletePushTemplate
 
-instance Prelude.NFData DeletePushTemplate
+instance Core.NFData DeletePushTemplate
 
-instance Prelude.ToHeaders DeletePushTemplate where
+instance Core.ToHeaders DeletePushTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeletePushTemplate where
+instance Core.ToPath DeletePushTemplate where
   toPath DeletePushTemplate' {..} =
-    Prelude.mconcat
-      [ "/v1/templates/",
-        Prelude.toBS templateName,
-        "/push"
-      ]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/push"]
 
-instance Prelude.ToQuery DeletePushTemplate where
+instance Core.ToQuery DeletePushTemplate where
   toQuery DeletePushTemplate' {..} =
-    Prelude.mconcat ["version" Prelude.=: version]
+    Core.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newDeletePushTemplateResponse' smart constructor.
 data DeletePushTemplateResponse = DeletePushTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     messageBody :: MessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePushTemplateResponse' with all optional fields omitted.
@@ -219,7 +213,7 @@ data DeletePushTemplateResponse = DeletePushTemplateResponse'
 -- 'messageBody', 'deletePushTemplateResponse_messageBody' - Undocumented member.
 newDeletePushTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'messageBody'
   MessageBody ->
   DeletePushTemplateResponse
@@ -233,11 +227,11 @@ newDeletePushTemplateResponse
       }
 
 -- | The response's http status code.
-deletePushTemplateResponse_httpStatus :: Lens.Lens' DeletePushTemplateResponse Prelude.Int
+deletePushTemplateResponse_httpStatus :: Lens.Lens' DeletePushTemplateResponse Core.Int
 deletePushTemplateResponse_httpStatus = Lens.lens (\DeletePushTemplateResponse' {httpStatus} -> httpStatus) (\s@DeletePushTemplateResponse' {} a -> s {httpStatus = a} :: DeletePushTemplateResponse)
 
 -- | Undocumented member.
 deletePushTemplateResponse_messageBody :: Lens.Lens' DeletePushTemplateResponse MessageBody
 deletePushTemplateResponse_messageBody = Lens.lens (\DeletePushTemplateResponse' {messageBody} -> messageBody) (\s@DeletePushTemplateResponse' {} a -> s {messageBody = a} :: DeletePushTemplateResponse)
 
-instance Prelude.NFData DeletePushTemplateResponse
+instance Core.NFData DeletePushTemplateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ObjectLockRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.DefaultRetention
 
@@ -31,9 +30,9 @@ import Network.AWS.S3.Types.DefaultRetention
 data ObjectLockRule = ObjectLockRule'
   { -- | The default retention period that you want to apply to new objects
     -- placed in the specified bucket.
-    defaultRetention :: Prelude.Maybe DefaultRetention
+    defaultRetention :: Core.Maybe DefaultRetention
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ObjectLockRule' with all optional fields omitted.
@@ -48,23 +47,23 @@ data ObjectLockRule = ObjectLockRule'
 newObjectLockRule ::
   ObjectLockRule
 newObjectLockRule =
-  ObjectLockRule' {defaultRetention = Prelude.Nothing}
+  ObjectLockRule' {defaultRetention = Core.Nothing}
 
 -- | The default retention period that you want to apply to new objects
 -- placed in the specified bucket.
-objectLockRule_defaultRetention :: Lens.Lens' ObjectLockRule (Prelude.Maybe DefaultRetention)
+objectLockRule_defaultRetention :: Lens.Lens' ObjectLockRule (Core.Maybe DefaultRetention)
 objectLockRule_defaultRetention = Lens.lens (\ObjectLockRule' {defaultRetention} -> defaultRetention) (\s@ObjectLockRule' {} a -> s {defaultRetention = a} :: ObjectLockRule)
 
-instance Prelude.FromXML ObjectLockRule where
+instance Core.FromXML ObjectLockRule where
   parseXML x =
     ObjectLockRule'
-      Prelude.<$> (x Prelude..@? "DefaultRetention")
+      Core.<$> (x Core..@? "DefaultRetention")
 
-instance Prelude.Hashable ObjectLockRule
+instance Core.Hashable ObjectLockRule
 
-instance Prelude.NFData ObjectLockRule
+instance Core.NFData ObjectLockRule
 
-instance Prelude.ToXML ObjectLockRule where
+instance Core.ToXML ObjectLockRule where
   toXML ObjectLockRule' {..} =
-    Prelude.mconcat
-      ["DefaultRetention" Prelude.@= defaultRetention]
+    Core.mconcat
+      ["DefaultRetention" Core.@= defaultRetention]

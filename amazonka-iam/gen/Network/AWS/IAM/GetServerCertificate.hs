@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.IAM.GetServerCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +60,9 @@ data GetServerCertificate = GetServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    serverCertificateName :: Prelude.Text
+    serverCertificateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServerCertificate' with all optional fields omitted.
@@ -82,7 +81,7 @@ data GetServerCertificate = GetServerCertificate'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetServerCertificate ::
   -- | 'serverCertificateName'
-  Prelude.Text ->
+  Core.Text ->
   GetServerCertificate
 newGetServerCertificate pServerCertificateName_ =
   GetServerCertificate'
@@ -97,12 +96,12 @@ newGetServerCertificate pServerCertificateName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getServerCertificate_serverCertificateName :: Lens.Lens' GetServerCertificate Prelude.Text
+getServerCertificate_serverCertificateName :: Lens.Lens' GetServerCertificate Core.Text
 getServerCertificate_serverCertificateName = Lens.lens (\GetServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@GetServerCertificate' {} a -> s {serverCertificateName = a} :: GetServerCertificate)
 
-instance Prelude.AWSRequest GetServerCertificate where
+instance Core.AWSRequest GetServerCertificate where
   type
-    Rs GetServerCertificate =
+    AWSResponse GetServerCertificate =
       GetServerCertificateResponse
   request = Request.postQuery defaultService
   response =
@@ -110,29 +109,28 @@ instance Prelude.AWSRequest GetServerCertificate where
       "GetServerCertificateResult"
       ( \s h x ->
           GetServerCertificateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ServerCertificate")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ServerCertificate")
       )
 
-instance Prelude.Hashable GetServerCertificate
+instance Core.Hashable GetServerCertificate
 
-instance Prelude.NFData GetServerCertificate
+instance Core.NFData GetServerCertificate
 
-instance Prelude.ToHeaders GetServerCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetServerCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetServerCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetServerCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetServerCertificate where
+instance Core.ToQuery GetServerCertificate where
   toQuery GetServerCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetServerCertificate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+          Core.=: ("GetServerCertificate" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
         "ServerCertificateName"
-          Prelude.=: serverCertificateName
+          Core.=: serverCertificateName
       ]
 
 -- | Contains the response to a successful GetServerCertificate request.
@@ -140,11 +138,11 @@ instance Prelude.ToQuery GetServerCertificate where
 -- /See:/ 'newGetServerCertificateResponse' smart constructor.
 data GetServerCertificateResponse = GetServerCertificateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A structure containing details about the server certificate.
     serverCertificate :: ServerCertificate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServerCertificateResponse' with all optional fields omitted.
@@ -159,7 +157,7 @@ data GetServerCertificateResponse = GetServerCertificateResponse'
 -- 'serverCertificate', 'getServerCertificateResponse_serverCertificate' - A structure containing details about the server certificate.
 newGetServerCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'serverCertificate'
   ServerCertificate ->
   GetServerCertificateResponse
@@ -173,11 +171,11 @@ newGetServerCertificateResponse
       }
 
 -- | The response's http status code.
-getServerCertificateResponse_httpStatus :: Lens.Lens' GetServerCertificateResponse Prelude.Int
+getServerCertificateResponse_httpStatus :: Lens.Lens' GetServerCertificateResponse Core.Int
 getServerCertificateResponse_httpStatus = Lens.lens (\GetServerCertificateResponse' {httpStatus} -> httpStatus) (\s@GetServerCertificateResponse' {} a -> s {httpStatus = a} :: GetServerCertificateResponse)
 
 -- | A structure containing details about the server certificate.
 getServerCertificateResponse_serverCertificate :: Lens.Lens' GetServerCertificateResponse ServerCertificate
 getServerCertificateResponse_serverCertificate = Lens.lens (\GetServerCertificateResponse' {serverCertificate} -> serverCertificate) (\s@GetServerCertificateResponse' {} a -> s {serverCertificate = a} :: GetServerCertificateResponse)
 
-instance Prelude.NFData GetServerCertificateResponse
+instance Core.NFData GetServerCertificateResponse

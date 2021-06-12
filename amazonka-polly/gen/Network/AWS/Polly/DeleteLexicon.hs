@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.Polly.DeleteLexicon
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 data DeleteLexicon = DeleteLexicon'
   { -- | The name of the lexicon to delete. Must be an existing lexicon in the
     -- region.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLexicon' with all optional fields omitted.
@@ -71,47 +70,48 @@ data DeleteLexicon = DeleteLexicon'
 -- region.
 newDeleteLexicon ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLexicon
 newDeleteLexicon pName_ =
   DeleteLexicon' {name = pName_}
 
 -- | The name of the lexicon to delete. Must be an existing lexicon in the
 -- region.
-deleteLexicon_name :: Lens.Lens' DeleteLexicon Prelude.Text
+deleteLexicon_name :: Lens.Lens' DeleteLexicon Core.Text
 deleteLexicon_name = Lens.lens (\DeleteLexicon' {name} -> name) (\s@DeleteLexicon' {} a -> s {name = a} :: DeleteLexicon)
 
-instance Prelude.AWSRequest DeleteLexicon where
-  type Rs DeleteLexicon = DeleteLexiconResponse
+instance Core.AWSRequest DeleteLexicon where
+  type
+    AWSResponse DeleteLexicon =
+      DeleteLexiconResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLexiconResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLexicon
+instance Core.Hashable DeleteLexicon
 
-instance Prelude.NFData DeleteLexicon
+instance Core.NFData DeleteLexicon
 
-instance Prelude.ToHeaders DeleteLexicon where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteLexicon where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteLexicon where
+instance Core.ToPath DeleteLexicon where
   toPath DeleteLexicon' {..} =
-    Prelude.mconcat
-      ["/v1/lexicons/", Prelude.toBS name]
+    Core.mconcat ["/v1/lexicons/", Core.toBS name]
 
-instance Prelude.ToQuery DeleteLexicon where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLexicon where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLexiconResponse' smart constructor.
 data DeleteLexiconResponse = DeleteLexiconResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLexiconResponse' with all optional fields omitted.
@@ -124,13 +124,13 @@ data DeleteLexiconResponse = DeleteLexiconResponse'
 -- 'httpStatus', 'deleteLexiconResponse_httpStatus' - The response's http status code.
 newDeleteLexiconResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteLexiconResponse
 newDeleteLexiconResponse pHttpStatus_ =
   DeleteLexiconResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteLexiconResponse_httpStatus :: Lens.Lens' DeleteLexiconResponse Prelude.Int
+deleteLexiconResponse_httpStatus :: Lens.Lens' DeleteLexiconResponse Core.Int
 deleteLexiconResponse_httpStatus = Lens.lens (\DeleteLexiconResponse' {httpStatus} -> httpStatus) (\s@DeleteLexiconResponse' {} a -> s {httpStatus = a} :: DeleteLexiconResponse)
 
-instance Prelude.NFData DeleteLexiconResponse
+instance Core.NFData DeleteLexiconResponse

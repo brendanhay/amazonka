@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.DescribeSubscribedWorkteam
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,9 +49,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeSubscribedWorkteam' smart constructor.
 data DescribeSubscribedWorkteam = DescribeSubscribedWorkteam'
   { -- | The Amazon Resource Name (ARN) of the subscribed work team to describe.
-    workteamArn :: Prelude.Text
+    workteamArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscribedWorkteam' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DescribeSubscribedWorkteam = DescribeSubscribedWorkteam'
 -- 'workteamArn', 'describeSubscribedWorkteam_workteamArn' - The Amazon Resource Name (ARN) of the subscribed work team to describe.
 newDescribeSubscribedWorkteam ::
   -- | 'workteamArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeSubscribedWorkteam
 newDescribeSubscribedWorkteam pWorkteamArn_ =
   DescribeSubscribedWorkteam'
@@ -74,67 +73,60 @@ newDescribeSubscribedWorkteam pWorkteamArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the subscribed work team to describe.
-describeSubscribedWorkteam_workteamArn :: Lens.Lens' DescribeSubscribedWorkteam Prelude.Text
+describeSubscribedWorkteam_workteamArn :: Lens.Lens' DescribeSubscribedWorkteam Core.Text
 describeSubscribedWorkteam_workteamArn = Lens.lens (\DescribeSubscribedWorkteam' {workteamArn} -> workteamArn) (\s@DescribeSubscribedWorkteam' {} a -> s {workteamArn = a} :: DescribeSubscribedWorkteam)
 
-instance
-  Prelude.AWSRequest
-    DescribeSubscribedWorkteam
-  where
+instance Core.AWSRequest DescribeSubscribedWorkteam where
   type
-    Rs DescribeSubscribedWorkteam =
+    AWSResponse DescribeSubscribedWorkteam =
       DescribeSubscribedWorkteamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeSubscribedWorkteamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "SubscribedWorkteam")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "SubscribedWorkteam")
       )
 
-instance Prelude.Hashable DescribeSubscribedWorkteam
+instance Core.Hashable DescribeSubscribedWorkteam
 
-instance Prelude.NFData DescribeSubscribedWorkteam
+instance Core.NFData DescribeSubscribedWorkteam
 
-instance Prelude.ToHeaders DescribeSubscribedWorkteam where
+instance Core.ToHeaders DescribeSubscribedWorkteam where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeSubscribedWorkteam" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DescribeSubscribedWorkteam" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeSubscribedWorkteam where
+instance Core.ToJSON DescribeSubscribedWorkteam where
   toJSON DescribeSubscribedWorkteam' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WorkteamArn" Prelude..= workteamArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkteamArn" Core..= workteamArn)]
       )
 
-instance Prelude.ToPath DescribeSubscribedWorkteam where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSubscribedWorkteam where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSubscribedWorkteam where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeSubscribedWorkteam where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeSubscribedWorkteamResponse' smart constructor.
 data DescribeSubscribedWorkteamResponse = DescribeSubscribedWorkteamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A @Workteam@ instance that contains information about the work team.
     subscribedWorkteam :: SubscribedWorkteam
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSubscribedWorkteamResponse' with all optional fields omitted.
@@ -149,7 +141,7 @@ data DescribeSubscribedWorkteamResponse = DescribeSubscribedWorkteamResponse'
 -- 'subscribedWorkteam', 'describeSubscribedWorkteamResponse_subscribedWorkteam' - A @Workteam@ instance that contains information about the work team.
 newDescribeSubscribedWorkteamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'subscribedWorkteam'
   SubscribedWorkteam ->
   DescribeSubscribedWorkteamResponse
@@ -164,7 +156,7 @@ newDescribeSubscribedWorkteamResponse
       }
 
 -- | The response's http status code.
-describeSubscribedWorkteamResponse_httpStatus :: Lens.Lens' DescribeSubscribedWorkteamResponse Prelude.Int
+describeSubscribedWorkteamResponse_httpStatus :: Lens.Lens' DescribeSubscribedWorkteamResponse Core.Int
 describeSubscribedWorkteamResponse_httpStatus = Lens.lens (\DescribeSubscribedWorkteamResponse' {httpStatus} -> httpStatus) (\s@DescribeSubscribedWorkteamResponse' {} a -> s {httpStatus = a} :: DescribeSubscribedWorkteamResponse)
 
 -- | A @Workteam@ instance that contains information about the work team.
@@ -172,5 +164,5 @@ describeSubscribedWorkteamResponse_subscribedWorkteam :: Lens.Lens' DescribeSubs
 describeSubscribedWorkteamResponse_subscribedWorkteam = Lens.lens (\DescribeSubscribedWorkteamResponse' {subscribedWorkteam} -> subscribedWorkteam) (\s@DescribeSubscribedWorkteamResponse' {} a -> s {subscribedWorkteam = a} :: DescribeSubscribedWorkteamResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeSubscribedWorkteamResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.DomainInformation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newDomainInformation' smart constructor.
 data DomainInformation = DomainInformation'
-  { ownerId :: Prelude.Maybe Prelude.Text,
-    region :: Prelude.Maybe Prelude.Text,
-    domainName :: Prelude.Text
+  { ownerId :: Core.Maybe Core.Text,
+    region :: Core.Maybe Core.Text,
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DomainInformation' with all optional fields omitted.
@@ -46,48 +45,48 @@ data DomainInformation = DomainInformation'
 -- 'domainName', 'domainInformation_domainName' - Undocumented member.
 newDomainInformation ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DomainInformation
 newDomainInformation pDomainName_ =
   DomainInformation'
-    { ownerId = Prelude.Nothing,
-      region = Prelude.Nothing,
+    { ownerId = Core.Nothing,
+      region = Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | Undocumented member.
-domainInformation_ownerId :: Lens.Lens' DomainInformation (Prelude.Maybe Prelude.Text)
+domainInformation_ownerId :: Lens.Lens' DomainInformation (Core.Maybe Core.Text)
 domainInformation_ownerId = Lens.lens (\DomainInformation' {ownerId} -> ownerId) (\s@DomainInformation' {} a -> s {ownerId = a} :: DomainInformation)
 
 -- | Undocumented member.
-domainInformation_region :: Lens.Lens' DomainInformation (Prelude.Maybe Prelude.Text)
+domainInformation_region :: Lens.Lens' DomainInformation (Core.Maybe Core.Text)
 domainInformation_region = Lens.lens (\DomainInformation' {region} -> region) (\s@DomainInformation' {} a -> s {region = a} :: DomainInformation)
 
 -- | Undocumented member.
-domainInformation_domainName :: Lens.Lens' DomainInformation Prelude.Text
+domainInformation_domainName :: Lens.Lens' DomainInformation Core.Text
 domainInformation_domainName = Lens.lens (\DomainInformation' {domainName} -> domainName) (\s@DomainInformation' {} a -> s {domainName = a} :: DomainInformation)
 
-instance Prelude.FromJSON DomainInformation where
+instance Core.FromJSON DomainInformation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DomainInformation"
       ( \x ->
           DomainInformation'
-            Prelude.<$> (x Prelude..:? "OwnerId")
-            Prelude.<*> (x Prelude..:? "Region")
-            Prelude.<*> (x Prelude..: "DomainName")
+            Core.<$> (x Core..:? "OwnerId")
+            Core.<*> (x Core..:? "Region")
+            Core.<*> (x Core..: "DomainName")
       )
 
-instance Prelude.Hashable DomainInformation
+instance Core.Hashable DomainInformation
 
-instance Prelude.NFData DomainInformation
+instance Core.NFData DomainInformation
 
-instance Prelude.ToJSON DomainInformation where
+instance Core.ToJSON DomainInformation where
   toJSON DomainInformation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("OwnerId" Prelude..=) Prelude.<$> ownerId,
-            ("Region" Prelude..=) Prelude.<$> region,
-            Prelude.Just ("DomainName" Prelude..= domainName)
+    Core.object
+      ( Core.catMaybes
+          [ ("OwnerId" Core..=) Core.<$> ownerId,
+            ("Region" Core..=) Core.<$> region,
+            Core.Just ("DomainName" Core..= domainName)
           ]
       )

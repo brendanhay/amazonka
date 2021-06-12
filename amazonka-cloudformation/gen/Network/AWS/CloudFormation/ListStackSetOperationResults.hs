@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.CloudFormation.ListStackSetOperationResults
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,12 +60,12 @@ data ListStackSetOperationResults = ListStackSetOperationResults'
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If there are no remaining results, the previous response
     -- object\'s @NextToken@ parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | [Service-managed permissions] Specifies whether you are acting as an
     -- account administrator in the organization\'s management account or as a
     -- delegated administrator in a member account.
@@ -84,14 +82,14 @@ data ListStackSetOperationResults = ListStackSetOperationResults'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs,
+    callAs :: Core.Maybe CallAs,
     -- | The name or unique ID of the stack set that you want to get operation
     -- results for.
-    stackSetName :: Prelude.Text,
+    stackSetName :: Core.Text,
     -- | The ID of the stack set operation.
-    operationId :: Prelude.Text
+    operationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStackSetOperationResults' with all optional fields omitted.
@@ -136,18 +134,18 @@ data ListStackSetOperationResults = ListStackSetOperationResults'
 -- 'operationId', 'listStackSetOperationResults_operationId' - The ID of the stack set operation.
 newListStackSetOperationResults ::
   -- | 'stackSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'operationId'
-  Prelude.Text ->
+  Core.Text ->
   ListStackSetOperationResults
 newListStackSetOperationResults
   pStackSetName_
   pOperationId_ =
     ListStackSetOperationResults'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        callAs = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
+        callAs = Core.Nothing,
         stackSetName = pStackSetName_,
         operationId = pOperationId_
       }
@@ -158,14 +156,14 @@ newListStackSetOperationResults
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If there are no remaining results, the previous response
 -- object\'s @NextToken@ parameter is set to @null@.
-listStackSetOperationResults_nextToken :: Lens.Lens' ListStackSetOperationResults (Prelude.Maybe Prelude.Text)
+listStackSetOperationResults_nextToken :: Lens.Lens' ListStackSetOperationResults (Core.Maybe Core.Text)
 listStackSetOperationResults_nextToken = Lens.lens (\ListStackSetOperationResults' {nextToken} -> nextToken) (\s@ListStackSetOperationResults' {} a -> s {nextToken = a} :: ListStackSetOperationResults)
 
 -- | The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
-listStackSetOperationResults_maxResults :: Lens.Lens' ListStackSetOperationResults (Prelude.Maybe Prelude.Natural)
+listStackSetOperationResults_maxResults :: Lens.Lens' ListStackSetOperationResults (Core.Maybe Core.Natural)
 listStackSetOperationResults_maxResults = Lens.lens (\ListStackSetOperationResults' {maxResults} -> maxResults) (\s@ListStackSetOperationResults' {} a -> s {maxResults = a} :: ListStackSetOperationResults)
 
 -- | [Service-managed permissions] Specifies whether you are acting as an
@@ -184,46 +182,43 @@ listStackSetOperationResults_maxResults = Lens.lens (\ListStackSetOperationResul
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-listStackSetOperationResults_callAs :: Lens.Lens' ListStackSetOperationResults (Prelude.Maybe CallAs)
+listStackSetOperationResults_callAs :: Lens.Lens' ListStackSetOperationResults (Core.Maybe CallAs)
 listStackSetOperationResults_callAs = Lens.lens (\ListStackSetOperationResults' {callAs} -> callAs) (\s@ListStackSetOperationResults' {} a -> s {callAs = a} :: ListStackSetOperationResults)
 
 -- | The name or unique ID of the stack set that you want to get operation
 -- results for.
-listStackSetOperationResults_stackSetName :: Lens.Lens' ListStackSetOperationResults Prelude.Text
+listStackSetOperationResults_stackSetName :: Lens.Lens' ListStackSetOperationResults Core.Text
 listStackSetOperationResults_stackSetName = Lens.lens (\ListStackSetOperationResults' {stackSetName} -> stackSetName) (\s@ListStackSetOperationResults' {} a -> s {stackSetName = a} :: ListStackSetOperationResults)
 
 -- | The ID of the stack set operation.
-listStackSetOperationResults_operationId :: Lens.Lens' ListStackSetOperationResults Prelude.Text
+listStackSetOperationResults_operationId :: Lens.Lens' ListStackSetOperationResults Core.Text
 listStackSetOperationResults_operationId = Lens.lens (\ListStackSetOperationResults' {operationId} -> operationId) (\s@ListStackSetOperationResults' {} a -> s {operationId = a} :: ListStackSetOperationResults)
 
-instance Pager.AWSPager ListStackSetOperationResults where
+instance Core.AWSPager ListStackSetOperationResults where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listStackSetOperationResultsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listStackSetOperationResultsResponse_summaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listStackSetOperationResults_nextToken
           Lens..~ rs
           Lens.^? listStackSetOperationResultsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListStackSetOperationResults
-  where
+instance Core.AWSRequest ListStackSetOperationResults where
   type
-    Rs ListStackSetOperationResults =
+    AWSResponse ListStackSetOperationResults =
       ListStackSetOperationResultsResponse
   request = Request.postQuery defaultService
   response =
@@ -231,42 +226,34 @@ instance
       "ListStackSetOperationResultsResult"
       ( \s h x ->
           ListStackSetOperationResultsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "Summaries" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "Summaries" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListStackSetOperationResults
+instance Core.Hashable ListStackSetOperationResults
 
-instance Prelude.NFData ListStackSetOperationResults
+instance Core.NFData ListStackSetOperationResults
 
-instance
-  Prelude.ToHeaders
-    ListStackSetOperationResults
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListStackSetOperationResults where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListStackSetOperationResults where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListStackSetOperationResults where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListStackSetOperationResults where
+instance Core.ToQuery ListStackSetOperationResults where
   toQuery ListStackSetOperationResults' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ListStackSetOperationResults" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults,
-        "CallAs" Prelude.=: callAs,
-        "StackSetName" Prelude.=: stackSetName,
-        "OperationId" Prelude.=: operationId
+          Core.=: ("ListStackSetOperationResults" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
+        "CallAs" Core.=: callAs,
+        "StackSetName" Core.=: stackSetName,
+        "OperationId" Core.=: operationId
       ]
 
 -- | /See:/ 'newListStackSetOperationResultsResponse' smart constructor.
@@ -276,15 +263,15 @@ data ListStackSetOperationResultsResponse = ListStackSetOperationResultsResponse
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If there are no remaining results, @NextToken@ is set to
     -- @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @StackSetOperationResultSummary@ structures that contain
     -- information about the specified operation results, for accounts and
     -- Regions that are included in the operation.
-    summaries :: Prelude.Maybe [StackSetOperationResultSummary],
+    summaries :: Core.Maybe [StackSetOperationResultSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStackSetOperationResultsResponse' with all optional fields omitted.
@@ -307,13 +294,13 @@ data ListStackSetOperationResultsResponse = ListStackSetOperationResultsResponse
 -- 'httpStatus', 'listStackSetOperationResultsResponse_httpStatus' - The response's http status code.
 newListStackSetOperationResultsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListStackSetOperationResultsResponse
 newListStackSetOperationResultsResponse pHttpStatus_ =
   ListStackSetOperationResultsResponse'
     { nextToken =
-        Prelude.Nothing,
-      summaries = Prelude.Nothing,
+        Core.Nothing,
+      summaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -322,19 +309,19 @@ newListStackSetOperationResultsResponse pHttpStatus_ =
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If there are no remaining results, @NextToken@ is set to
 -- @null@.
-listStackSetOperationResultsResponse_nextToken :: Lens.Lens' ListStackSetOperationResultsResponse (Prelude.Maybe Prelude.Text)
+listStackSetOperationResultsResponse_nextToken :: Lens.Lens' ListStackSetOperationResultsResponse (Core.Maybe Core.Text)
 listStackSetOperationResultsResponse_nextToken = Lens.lens (\ListStackSetOperationResultsResponse' {nextToken} -> nextToken) (\s@ListStackSetOperationResultsResponse' {} a -> s {nextToken = a} :: ListStackSetOperationResultsResponse)
 
 -- | A list of @StackSetOperationResultSummary@ structures that contain
 -- information about the specified operation results, for accounts and
 -- Regions that are included in the operation.
-listStackSetOperationResultsResponse_summaries :: Lens.Lens' ListStackSetOperationResultsResponse (Prelude.Maybe [StackSetOperationResultSummary])
-listStackSetOperationResultsResponse_summaries = Lens.lens (\ListStackSetOperationResultsResponse' {summaries} -> summaries) (\s@ListStackSetOperationResultsResponse' {} a -> s {summaries = a} :: ListStackSetOperationResultsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listStackSetOperationResultsResponse_summaries :: Lens.Lens' ListStackSetOperationResultsResponse (Core.Maybe [StackSetOperationResultSummary])
+listStackSetOperationResultsResponse_summaries = Lens.lens (\ListStackSetOperationResultsResponse' {summaries} -> summaries) (\s@ListStackSetOperationResultsResponse' {} a -> s {summaries = a} :: ListStackSetOperationResultsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStackSetOperationResultsResponse_httpStatus :: Lens.Lens' ListStackSetOperationResultsResponse Prelude.Int
+listStackSetOperationResultsResponse_httpStatus :: Lens.Lens' ListStackSetOperationResultsResponse Core.Int
 listStackSetOperationResultsResponse_httpStatus = Lens.lens (\ListStackSetOperationResultsResponse' {httpStatus} -> httpStatus) (\s@ListStackSetOperationResultsResponse' {} a -> s {httpStatus = a} :: ListStackSetOperationResultsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListStackSetOperationResultsResponse

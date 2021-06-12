@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.WorkSpaces.DisassociateIpGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -50,11 +49,11 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newDisassociateIpGroups' smart constructor.
 data DisassociateIpGroups = DisassociateIpGroups'
   { -- | The identifier of the directory.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The identifiers of one or more IP access control groups.
-    groupIds :: [Prelude.Text]
+    groupIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateIpGroups' with all optional fields omitted.
@@ -69,74 +68,72 @@ data DisassociateIpGroups = DisassociateIpGroups'
 -- 'groupIds', 'disassociateIpGroups_groupIds' - The identifiers of one or more IP access control groups.
 newDisassociateIpGroups ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateIpGroups
 newDisassociateIpGroups pDirectoryId_ =
   DisassociateIpGroups'
     { directoryId = pDirectoryId_,
-      groupIds = Prelude.mempty
+      groupIds = Core.mempty
     }
 
 -- | The identifier of the directory.
-disassociateIpGroups_directoryId :: Lens.Lens' DisassociateIpGroups Prelude.Text
+disassociateIpGroups_directoryId :: Lens.Lens' DisassociateIpGroups Core.Text
 disassociateIpGroups_directoryId = Lens.lens (\DisassociateIpGroups' {directoryId} -> directoryId) (\s@DisassociateIpGroups' {} a -> s {directoryId = a} :: DisassociateIpGroups)
 
 -- | The identifiers of one or more IP access control groups.
-disassociateIpGroups_groupIds :: Lens.Lens' DisassociateIpGroups [Prelude.Text]
-disassociateIpGroups_groupIds = Lens.lens (\DisassociateIpGroups' {groupIds} -> groupIds) (\s@DisassociateIpGroups' {} a -> s {groupIds = a} :: DisassociateIpGroups) Prelude.. Prelude._Coerce
+disassociateIpGroups_groupIds :: Lens.Lens' DisassociateIpGroups [Core.Text]
+disassociateIpGroups_groupIds = Lens.lens (\DisassociateIpGroups' {groupIds} -> groupIds) (\s@DisassociateIpGroups' {} a -> s {groupIds = a} :: DisassociateIpGroups) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DisassociateIpGroups where
+instance Core.AWSRequest DisassociateIpGroups where
   type
-    Rs DisassociateIpGroups =
+    AWSResponse DisassociateIpGroups =
       DisassociateIpGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateIpGroupsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateIpGroups
+instance Core.Hashable DisassociateIpGroups
 
-instance Prelude.NFData DisassociateIpGroups
+instance Core.NFData DisassociateIpGroups
 
-instance Prelude.ToHeaders DisassociateIpGroups where
+instance Core.ToHeaders DisassociateIpGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.DisassociateIpGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.DisassociateIpGroups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateIpGroups where
+instance Core.ToJSON DisassociateIpGroups where
   toJSON DisassociateIpGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("GroupIds" Prelude..= groupIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("GroupIds" Core..= groupIds)
           ]
       )
 
-instance Prelude.ToPath DisassociateIpGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateIpGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateIpGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateIpGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateIpGroupsResponse' smart constructor.
 data DisassociateIpGroupsResponse = DisassociateIpGroupsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateIpGroupsResponse' with all optional fields omitted.
@@ -149,7 +146,7 @@ data DisassociateIpGroupsResponse = DisassociateIpGroupsResponse'
 -- 'httpStatus', 'disassociateIpGroupsResponse_httpStatus' - The response's http status code.
 newDisassociateIpGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateIpGroupsResponse
 newDisassociateIpGroupsResponse pHttpStatus_ =
   DisassociateIpGroupsResponse'
@@ -158,7 +155,7 @@ newDisassociateIpGroupsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateIpGroupsResponse_httpStatus :: Lens.Lens' DisassociateIpGroupsResponse Prelude.Int
+disassociateIpGroupsResponse_httpStatus :: Lens.Lens' DisassociateIpGroupsResponse Core.Int
 disassociateIpGroupsResponse_httpStatus = Lens.lens (\DisassociateIpGroupsResponse' {httpStatus} -> httpStatus) (\s@DisassociateIpGroupsResponse' {} a -> s {httpStatus = a} :: DisassociateIpGroupsResponse)
 
-instance Prelude.NFData DisassociateIpGroupsResponse
+instance Core.NFData DisassociateIpGroupsResponse

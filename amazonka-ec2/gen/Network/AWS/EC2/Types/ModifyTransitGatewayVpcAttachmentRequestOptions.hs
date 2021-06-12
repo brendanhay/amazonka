@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ApplianceModeSupportValue
 import Network.AWS.EC2.Types.DnsSupportValue
 import Network.AWS.EC2.Types.Ipv6SupportValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the options for a VPC attachment.
 --
@@ -34,13 +33,13 @@ data ModifyTransitGatewayVpcAttachmentRequestOptions = ModifyTransitGatewayVpcAt
   { -- | Enable or disable support for appliance mode. If enabled, a traffic flow
     -- between a source and destination uses the same Availability Zone for the
     -- VPC attachment for the lifetime of that flow. The default is @disable@.
-    applianceModeSupport :: Prelude.Maybe ApplianceModeSupportValue,
+    applianceModeSupport :: Core.Maybe ApplianceModeSupportValue,
     -- | Enable or disable DNS support. The default is @enable@.
-    dnsSupport :: Prelude.Maybe DnsSupportValue,
+    dnsSupport :: Core.Maybe DnsSupportValue,
     -- | Enable or disable IPv6 support. The default is @enable@.
-    ipv6Support :: Prelude.Maybe Ipv6SupportValue
+    ipv6Support :: Core.Maybe Ipv6SupportValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyTransitGatewayVpcAttachmentRequestOptions' with all optional fields omitted.
@@ -62,44 +61,41 @@ newModifyTransitGatewayVpcAttachmentRequestOptions ::
 newModifyTransitGatewayVpcAttachmentRequestOptions =
   ModifyTransitGatewayVpcAttachmentRequestOptions'
     { applianceModeSupport =
-        Prelude.Nothing,
-      dnsSupport =
-        Prelude.Nothing,
-      ipv6Support =
-        Prelude.Nothing
+        Core.Nothing,
+      dnsSupport = Core.Nothing,
+      ipv6Support = Core.Nothing
     }
 
 -- | Enable or disable support for appliance mode. If enabled, a traffic flow
 -- between a source and destination uses the same Availability Zone for the
 -- VPC attachment for the lifetime of that flow. The default is @disable@.
-modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe ApplianceModeSupportValue)
+modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Core.Maybe ApplianceModeSupportValue)
 modifyTransitGatewayVpcAttachmentRequestOptions_applianceModeSupport = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {applianceModeSupport} -> applianceModeSupport) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {applianceModeSupport = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
 
 -- | Enable or disable DNS support. The default is @enable@.
-modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe DnsSupportValue)
+modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Core.Maybe DnsSupportValue)
 modifyTransitGatewayVpcAttachmentRequestOptions_dnsSupport = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {dnsSupport} -> dnsSupport) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {dnsSupport = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
 
 -- | Enable or disable IPv6 support. The default is @enable@.
-modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Prelude.Maybe Ipv6SupportValue)
+modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support :: Lens.Lens' ModifyTransitGatewayVpcAttachmentRequestOptions (Core.Maybe Ipv6SupportValue)
 modifyTransitGatewayVpcAttachmentRequestOptions_ipv6Support = Lens.lens (\ModifyTransitGatewayVpcAttachmentRequestOptions' {ipv6Support} -> ipv6Support) (\s@ModifyTransitGatewayVpcAttachmentRequestOptions' {} a -> s {ipv6Support = a} :: ModifyTransitGatewayVpcAttachmentRequestOptions)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyTransitGatewayVpcAttachmentRequestOptions
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyTransitGatewayVpcAttachmentRequestOptions
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ModifyTransitGatewayVpcAttachmentRequestOptions
   where
   toQuery
     ModifyTransitGatewayVpcAttachmentRequestOptions' {..} =
-      Prelude.mconcat
-        [ "ApplianceModeSupport"
-            Prelude.=: applianceModeSupport,
-          "DnsSupport" Prelude.=: dnsSupport,
-          "Ipv6Support" Prelude.=: ipv6Support
+      Core.mconcat
+        [ "ApplianceModeSupport" Core.=: applianceModeSupport,
+          "DnsSupport" Core.=: dnsSupport,
+          "Ipv6Support" Core.=: ipv6Support
         ]

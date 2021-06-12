@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeDeploy.Types.TargetInstances where
 
 import Network.AWS.CodeDeploy.Types.EC2TagFilter
 import Network.AWS.CodeDeploy.Types.EC2TagSet
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the instances to be used in the replacement
 -- environment in a blue\/green deployment.
@@ -33,17 +32,17 @@ data TargetInstances = TargetInstances'
   { -- | The tag filter key, type, and value used to identify Amazon EC2
     -- instances in a replacement environment for a blue\/green deployment.
     -- Cannot be used in the same call as @ec2TagSet@.
-    tagFilters :: Prelude.Maybe [EC2TagFilter],
+    tagFilters :: Core.Maybe [EC2TagFilter],
     -- | Information about the groups of EC2 instance tags that an instance must
     -- be identified by in order for it to be included in the replacement
     -- environment for a blue\/green deployment. Cannot be used in the same
     -- call as @tagFilters@.
-    ec2TagSet :: Prelude.Maybe EC2TagSet,
+    ec2TagSet :: Core.Maybe EC2TagSet,
     -- | The names of one or more Auto Scaling groups to identify a replacement
     -- environment for a blue\/green deployment.
-    autoScalingGroups :: Prelude.Maybe [Prelude.Text]
+    autoScalingGroups :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetInstances' with all optional fields omitted.
@@ -68,55 +67,53 @@ newTargetInstances ::
   TargetInstances
 newTargetInstances =
   TargetInstances'
-    { tagFilters = Prelude.Nothing,
-      ec2TagSet = Prelude.Nothing,
-      autoScalingGroups = Prelude.Nothing
+    { tagFilters = Core.Nothing,
+      ec2TagSet = Core.Nothing,
+      autoScalingGroups = Core.Nothing
     }
 
 -- | The tag filter key, type, and value used to identify Amazon EC2
 -- instances in a replacement environment for a blue\/green deployment.
 -- Cannot be used in the same call as @ec2TagSet@.
-targetInstances_tagFilters :: Lens.Lens' TargetInstances (Prelude.Maybe [EC2TagFilter])
-targetInstances_tagFilters = Lens.lens (\TargetInstances' {tagFilters} -> tagFilters) (\s@TargetInstances' {} a -> s {tagFilters = a} :: TargetInstances) Prelude.. Lens.mapping Prelude._Coerce
+targetInstances_tagFilters :: Lens.Lens' TargetInstances (Core.Maybe [EC2TagFilter])
+targetInstances_tagFilters = Lens.lens (\TargetInstances' {tagFilters} -> tagFilters) (\s@TargetInstances' {} a -> s {tagFilters = a} :: TargetInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the groups of EC2 instance tags that an instance must
 -- be identified by in order for it to be included in the replacement
 -- environment for a blue\/green deployment. Cannot be used in the same
 -- call as @tagFilters@.
-targetInstances_ec2TagSet :: Lens.Lens' TargetInstances (Prelude.Maybe EC2TagSet)
+targetInstances_ec2TagSet :: Lens.Lens' TargetInstances (Core.Maybe EC2TagSet)
 targetInstances_ec2TagSet = Lens.lens (\TargetInstances' {ec2TagSet} -> ec2TagSet) (\s@TargetInstances' {} a -> s {ec2TagSet = a} :: TargetInstances)
 
 -- | The names of one or more Auto Scaling groups to identify a replacement
 -- environment for a blue\/green deployment.
-targetInstances_autoScalingGroups :: Lens.Lens' TargetInstances (Prelude.Maybe [Prelude.Text])
-targetInstances_autoScalingGroups = Lens.lens (\TargetInstances' {autoScalingGroups} -> autoScalingGroups) (\s@TargetInstances' {} a -> s {autoScalingGroups = a} :: TargetInstances) Prelude.. Lens.mapping Prelude._Coerce
+targetInstances_autoScalingGroups :: Lens.Lens' TargetInstances (Core.Maybe [Core.Text])
+targetInstances_autoScalingGroups = Lens.lens (\TargetInstances' {autoScalingGroups} -> autoScalingGroups) (\s@TargetInstances' {} a -> s {autoScalingGroups = a} :: TargetInstances) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON TargetInstances where
+instance Core.FromJSON TargetInstances where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TargetInstances"
       ( \x ->
           TargetInstances'
-            Prelude.<$> ( x Prelude..:? "tagFilters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ec2TagSet")
-            Prelude.<*> ( x Prelude..:? "autoScalingGroups"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "tagFilters" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ec2TagSet")
+            Core.<*> ( x Core..:? "autoScalingGroups"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable TargetInstances
+instance Core.Hashable TargetInstances
 
-instance Prelude.NFData TargetInstances
+instance Core.NFData TargetInstances
 
-instance Prelude.ToJSON TargetInstances where
+instance Core.ToJSON TargetInstances where
   toJSON TargetInstances' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tagFilters" Prelude..=) Prelude.<$> tagFilters,
-            ("ec2TagSet" Prelude..=) Prelude.<$> ec2TagSet,
-            ("autoScalingGroups" Prelude..=)
-              Prelude.<$> autoScalingGroups
+    Core.object
+      ( Core.catMaybes
+          [ ("tagFilters" Core..=) Core.<$> tagFilters,
+            ("ec2TagSet" Core..=) Core.<$> ec2TagSet,
+            ("autoScalingGroups" Core..=)
+              Core.<$> autoScalingGroups
           ]
       )

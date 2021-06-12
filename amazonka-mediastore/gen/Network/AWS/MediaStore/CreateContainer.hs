@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.MediaStore.CreateContainer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +56,15 @@ data CreateContainer = CreateContainer'
     -- \"production\"). You can add up to 50 tags to each container. For more
     -- information about tagging, including naming and usage conventions, see
     -- <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore>.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The name for the container. The name must be from 1 to 255 characters.
     -- Container names must be unique to your AWS account within a specific
     -- region. As an example, you could create a container named @movies@ in
     -- every region, as long as you don’t have an existing container with that
     -- name.
-    containerName :: Prelude.Text
+    containerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContainer' with all optional fields omitted.
@@ -90,11 +89,11 @@ data CreateContainer = CreateContainer'
 -- name.
 newCreateContainer ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   CreateContainer
 newCreateContainer pContainerName_ =
   CreateContainer'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       containerName = pContainerName_
     }
 
@@ -105,67 +104,66 @@ newCreateContainer pContainerName_ =
 -- \"production\"). You can add up to 50 tags to each container. For more
 -- information about tagging, including naming and usage conventions, see
 -- <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore>.
-createContainer_tags :: Lens.Lens' CreateContainer (Prelude.Maybe (Prelude.NonEmpty Tag))
-createContainer_tags = Lens.lens (\CreateContainer' {tags} -> tags) (\s@CreateContainer' {} a -> s {tags = a} :: CreateContainer) Prelude.. Lens.mapping Prelude._Coerce
+createContainer_tags :: Lens.Lens' CreateContainer (Core.Maybe (Core.NonEmpty Tag))
+createContainer_tags = Lens.lens (\CreateContainer' {tags} -> tags) (\s@CreateContainer' {} a -> s {tags = a} :: CreateContainer) Core.. Lens.mapping Lens._Coerce
 
 -- | The name for the container. The name must be from 1 to 255 characters.
 -- Container names must be unique to your AWS account within a specific
 -- region. As an example, you could create a container named @movies@ in
 -- every region, as long as you don’t have an existing container with that
 -- name.
-createContainer_containerName :: Lens.Lens' CreateContainer Prelude.Text
+createContainer_containerName :: Lens.Lens' CreateContainer Core.Text
 createContainer_containerName = Lens.lens (\CreateContainer' {containerName} -> containerName) (\s@CreateContainer' {} a -> s {containerName = a} :: CreateContainer)
 
-instance Prelude.AWSRequest CreateContainer where
-  type Rs CreateContainer = CreateContainerResponse
+instance Core.AWSRequest CreateContainer where
+  type
+    AWSResponse CreateContainer =
+      CreateContainerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateContainerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Container")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Container")
       )
 
-instance Prelude.Hashable CreateContainer
+instance Core.Hashable CreateContainer
 
-instance Prelude.NFData CreateContainer
+instance Core.NFData CreateContainer
 
-instance Prelude.ToHeaders CreateContainer where
+instance Core.ToHeaders CreateContainer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.CreateContainer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.CreateContainer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateContainer where
+instance Core.ToJSON CreateContainer where
   toJSON CreateContainer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
-              ("ContainerName" Prelude..= containerName)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("ContainerName" Core..= containerName)
           ]
       )
 
-instance Prelude.ToPath CreateContainer where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateContainer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateContainer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateContainer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateContainerResponse' smart constructor.
 data CreateContainerResponse = CreateContainerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | ContainerARN: The Amazon Resource Name (ARN) of the newly created
     -- container. The ARN has the following format: arn:aws:\<region>:\<account
     -- that owns this container>:container\/\<name of container>. For example:
@@ -185,7 +183,7 @@ data CreateContainerResponse = CreateContainerResponse'
     -- DescribeContainer or ListContainers.
     container :: Container
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContainerResponse' with all optional fields omitted.
@@ -216,7 +214,7 @@ data CreateContainerResponse = CreateContainerResponse'
 -- DescribeContainer or ListContainers.
 newCreateContainerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'container'
   Container ->
   CreateContainerResponse
@@ -227,7 +225,7 @@ newCreateContainerResponse pHttpStatus_ pContainer_ =
     }
 
 -- | The response's http status code.
-createContainerResponse_httpStatus :: Lens.Lens' CreateContainerResponse Prelude.Int
+createContainerResponse_httpStatus :: Lens.Lens' CreateContainerResponse Core.Int
 createContainerResponse_httpStatus = Lens.lens (\CreateContainerResponse' {httpStatus} -> httpStatus) (\s@CreateContainerResponse' {} a -> s {httpStatus = a} :: CreateContainerResponse)
 
 -- | ContainerARN: The Amazon Resource Name (ARN) of the newly created
@@ -250,4 +248,4 @@ createContainerResponse_httpStatus = Lens.lens (\CreateContainerResponse' {httpS
 createContainerResponse_container :: Lens.Lens' CreateContainerResponse Container
 createContainerResponse_container = Lens.lens (\CreateContainerResponse' {container} -> container) (\s@CreateContainerResponse' {} a -> s {container = a} :: CreateContainerResponse)
 
-instance Prelude.NFData CreateContainerResponse
+instance Core.NFData CreateContainerResponse

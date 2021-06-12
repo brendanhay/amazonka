@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.APIGateway.Types.PatchOperation where
 
 import Network.AWS.APIGateway.Types.Op
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A single patch operation to apply to the specified resource. Please
 -- refer to http:\/\/tools.ietf.org\/html\/rfc6902#section-4 for an
@@ -35,7 +34,7 @@ data PatchOperation = PatchOperation'
     -- operations are supported for a given resource. Support of the operations
     -- depends on specific operational contexts. Attempts to apply an
     -- unsupported operation on a resource will return an error message.
-    op :: Prelude.Maybe Op,
+    op :: Core.Maybe Op,
     -- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
     -- value referencing the location within the targeted resource to copy the
     -- value from. For example, to promote a canary deployment, you copy the
@@ -43,13 +42,13 @@ data PatchOperation = PatchOperation'
     -- request on a Stage resource with @\"op\":\"copy\"@,
     -- @\"from\":\"\/canarySettings\/deploymentId\"@ and
     -- @\"path\":\"\/deploymentId\"@.
-    from :: Prelude.Maybe Prelude.Text,
+    from :: Core.Maybe Core.Text,
     -- | The new target value of the update operation. It is applicable for the
     -- @add@ or @replace@ operation. When using AWS CLI to update a property of
     -- a JSON value, enclose the JSON object with a pair of single quotes in a
     -- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The @op@ operation\'s target, as identified by a
     -- <https://tools.ietf.org/html/draft-ietf-appsawg-json-pointer-08 JSON Pointer>
     -- value that references a location within the targeted resource. For
@@ -61,9 +60,9 @@ data PatchOperation = PatchOperation'
     -- character appearing in path names must be escaped with \"~1\", as shown
     -- in the example above. Each @op@ operation can have only one @path@
     -- associated with it.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PatchOperation' with all optional fields omitted.
@@ -108,10 +107,10 @@ newPatchOperation ::
   PatchOperation
 newPatchOperation =
   PatchOperation'
-    { op = Prelude.Nothing,
-      from = Prelude.Nothing,
-      value = Prelude.Nothing,
-      path = Prelude.Nothing
+    { op = Core.Nothing,
+      from = Core.Nothing,
+      value = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | An update operation to be performed with this PATCH request. The valid
@@ -119,7 +118,7 @@ newPatchOperation =
 -- operations are supported for a given resource. Support of the operations
 -- depends on specific operational contexts. Attempts to apply an
 -- unsupported operation on a resource will return an error message.
-patchOperation_op :: Lens.Lens' PatchOperation (Prelude.Maybe Op)
+patchOperation_op :: Lens.Lens' PatchOperation (Core.Maybe Op)
 patchOperation_op = Lens.lens (\PatchOperation' {op} -> op) (\s@PatchOperation' {} a -> s {op = a} :: PatchOperation)
 
 -- | The @copy@ update operation\'s source as identified by a @JSON-Pointer@
@@ -129,7 +128,7 @@ patchOperation_op = Lens.lens (\PatchOperation' {op} -> op) (\s@PatchOperation' 
 -- request on a Stage resource with @\"op\":\"copy\"@,
 -- @\"from\":\"\/canarySettings\/deploymentId\"@ and
 -- @\"path\":\"\/deploymentId\"@.
-patchOperation_from :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
+patchOperation_from :: Lens.Lens' PatchOperation (Core.Maybe Core.Text)
 patchOperation_from = Lens.lens (\PatchOperation' {from} -> from) (\s@PatchOperation' {} a -> s {from = a} :: PatchOperation)
 
 -- | The new target value of the update operation. It is applicable for the
@@ -137,7 +136,7 @@ patchOperation_from = Lens.lens (\PatchOperation' {from} -> from) (\s@PatchOpera
 -- a JSON value, enclose the JSON object with a pair of single quotes in a
 -- Linux shell, e.g., \'{\"a\": ...}\'. In a Windows shell, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>.
-patchOperation_value :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
+patchOperation_value :: Lens.Lens' PatchOperation (Core.Maybe Core.Text)
 patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOperation' {} a -> s {value = a} :: PatchOperation)
 
 -- | The @op@ operation\'s target, as identified by a
@@ -151,20 +150,20 @@ patchOperation_value = Lens.lens (\PatchOperation' {value} -> value) (\s@PatchOp
 -- character appearing in path names must be escaped with \"~1\", as shown
 -- in the example above. Each @op@ operation can have only one @path@
 -- associated with it.
-patchOperation_path :: Lens.Lens' PatchOperation (Prelude.Maybe Prelude.Text)
+patchOperation_path :: Lens.Lens' PatchOperation (Core.Maybe Core.Text)
 patchOperation_path = Lens.lens (\PatchOperation' {path} -> path) (\s@PatchOperation' {} a -> s {path = a} :: PatchOperation)
 
-instance Prelude.Hashable PatchOperation
+instance Core.Hashable PatchOperation
 
-instance Prelude.NFData PatchOperation
+instance Core.NFData PatchOperation
 
-instance Prelude.ToJSON PatchOperation where
+instance Core.ToJSON PatchOperation where
   toJSON PatchOperation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("op" Prelude..=) Prelude.<$> op,
-            ("from" Prelude..=) Prelude.<$> from,
-            ("value" Prelude..=) Prelude.<$> value,
-            ("path" Prelude..=) Prelude.<$> path
+    Core.object
+      ( Core.catMaybes
+          [ ("op" Core..=) Core.<$> op,
+            ("from" Core..=) Core.<$> from,
+            ("value" Core..=) Core.<$> value,
+            ("path" Core..=) Core.<$> path
           ]
       )

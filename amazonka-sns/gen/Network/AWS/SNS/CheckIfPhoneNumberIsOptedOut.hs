@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -56,9 +55,9 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newCheckIfPhoneNumberIsOptedOut' smart constructor.
 data CheckIfPhoneNumberIsOptedOut = CheckIfPhoneNumberIsOptedOut'
   { -- | The phone number for which you want to check the opt out status.
-    phoneNumber :: Prelude.Text
+    phoneNumber :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CheckIfPhoneNumberIsOptedOut' with all optional fields omitted.
@@ -71,7 +70,7 @@ data CheckIfPhoneNumberIsOptedOut = CheckIfPhoneNumberIsOptedOut'
 -- 'phoneNumber', 'checkIfPhoneNumberIsOptedOut_phoneNumber' - The phone number for which you want to check the opt out status.
 newCheckIfPhoneNumberIsOptedOut ::
   -- | 'phoneNumber'
-  Prelude.Text ->
+  Core.Text ->
   CheckIfPhoneNumberIsOptedOut
 newCheckIfPhoneNumberIsOptedOut pPhoneNumber_ =
   CheckIfPhoneNumberIsOptedOut'
@@ -80,15 +79,12 @@ newCheckIfPhoneNumberIsOptedOut pPhoneNumber_ =
     }
 
 -- | The phone number for which you want to check the opt out status.
-checkIfPhoneNumberIsOptedOut_phoneNumber :: Lens.Lens' CheckIfPhoneNumberIsOptedOut Prelude.Text
+checkIfPhoneNumberIsOptedOut_phoneNumber :: Lens.Lens' CheckIfPhoneNumberIsOptedOut Core.Text
 checkIfPhoneNumberIsOptedOut_phoneNumber = Lens.lens (\CheckIfPhoneNumberIsOptedOut' {phoneNumber} -> phoneNumber) (\s@CheckIfPhoneNumberIsOptedOut' {} a -> s {phoneNumber = a} :: CheckIfPhoneNumberIsOptedOut)
 
-instance
-  Prelude.AWSRequest
-    CheckIfPhoneNumberIsOptedOut
-  where
+instance Core.AWSRequest CheckIfPhoneNumberIsOptedOut where
   type
-    Rs CheckIfPhoneNumberIsOptedOut =
+    AWSResponse CheckIfPhoneNumberIsOptedOut =
       CheckIfPhoneNumberIsOptedOutResponse
   request = Request.postQuery defaultService
   response =
@@ -96,35 +92,27 @@ instance
       "CheckIfPhoneNumberIsOptedOutResult"
       ( \s h x ->
           CheckIfPhoneNumberIsOptedOutResponse'
-            Prelude.<$> (x Prelude..@? "isOptedOut")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "isOptedOut")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CheckIfPhoneNumberIsOptedOut
+instance Core.Hashable CheckIfPhoneNumberIsOptedOut
 
-instance Prelude.NFData CheckIfPhoneNumberIsOptedOut
+instance Core.NFData CheckIfPhoneNumberIsOptedOut
 
-instance
-  Prelude.ToHeaders
-    CheckIfPhoneNumberIsOptedOut
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CheckIfPhoneNumberIsOptedOut where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CheckIfPhoneNumberIsOptedOut where
-  toPath = Prelude.const "/"
+instance Core.ToPath CheckIfPhoneNumberIsOptedOut where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CheckIfPhoneNumberIsOptedOut where
+instance Core.ToQuery CheckIfPhoneNumberIsOptedOut where
   toQuery CheckIfPhoneNumberIsOptedOut' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CheckIfPhoneNumberIsOptedOut" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "phoneNumber" Prelude.=: phoneNumber
+          Core.=: ("CheckIfPhoneNumberIsOptedOut" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "phoneNumber" Core.=: phoneNumber
       ]
 
 -- | The response from the @CheckIfPhoneNumberIsOptedOut@ action.
@@ -138,11 +126,11 @@ data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse
     --
     -- -   @false@ – The phone number is opted in, meaning you can publish SMS
     --     messages to it.
-    isOptedOut :: Prelude.Maybe Prelude.Bool,
+    isOptedOut :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CheckIfPhoneNumberIsOptedOutResponse' with all optional fields omitted.
@@ -163,12 +151,12 @@ data CheckIfPhoneNumberIsOptedOutResponse = CheckIfPhoneNumberIsOptedOutResponse
 -- 'httpStatus', 'checkIfPhoneNumberIsOptedOutResponse_httpStatus' - The response's http status code.
 newCheckIfPhoneNumberIsOptedOutResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CheckIfPhoneNumberIsOptedOutResponse
 newCheckIfPhoneNumberIsOptedOutResponse pHttpStatus_ =
   CheckIfPhoneNumberIsOptedOutResponse'
     { isOptedOut =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -179,13 +167,13 @@ newCheckIfPhoneNumberIsOptedOutResponse pHttpStatus_ =
 --
 -- -   @false@ – The phone number is opted in, meaning you can publish SMS
 --     messages to it.
-checkIfPhoneNumberIsOptedOutResponse_isOptedOut :: Lens.Lens' CheckIfPhoneNumberIsOptedOutResponse (Prelude.Maybe Prelude.Bool)
+checkIfPhoneNumberIsOptedOutResponse_isOptedOut :: Lens.Lens' CheckIfPhoneNumberIsOptedOutResponse (Core.Maybe Core.Bool)
 checkIfPhoneNumberIsOptedOutResponse_isOptedOut = Lens.lens (\CheckIfPhoneNumberIsOptedOutResponse' {isOptedOut} -> isOptedOut) (\s@CheckIfPhoneNumberIsOptedOutResponse' {} a -> s {isOptedOut = a} :: CheckIfPhoneNumberIsOptedOutResponse)
 
 -- | The response's http status code.
-checkIfPhoneNumberIsOptedOutResponse_httpStatus :: Lens.Lens' CheckIfPhoneNumberIsOptedOutResponse Prelude.Int
+checkIfPhoneNumberIsOptedOutResponse_httpStatus :: Lens.Lens' CheckIfPhoneNumberIsOptedOutResponse Core.Int
 checkIfPhoneNumberIsOptedOutResponse_httpStatus = Lens.lens (\CheckIfPhoneNumberIsOptedOutResponse' {httpStatus} -> httpStatus) (\s@CheckIfPhoneNumberIsOptedOutResponse' {} a -> s {httpStatus = a} :: CheckIfPhoneNumberIsOptedOutResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CheckIfPhoneNumberIsOptedOutResponse

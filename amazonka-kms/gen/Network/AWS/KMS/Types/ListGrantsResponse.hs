@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KMS.Types.ListGrantsResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types.GrantListEntry
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newListGrantsResponse' smart constructor.
 data ListGrantsResponse = ListGrantsResponse'
   { -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | A list of grants.
-    grants :: Prelude.Maybe [GrantListEntry],
+    grants :: Core.Maybe [GrantListEntry],
     -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
-    truncated :: Prelude.Maybe Prelude.Bool
+    truncated :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGrantsResponse' with all optional fields omitted.
@@ -60,38 +59,38 @@ newListGrantsResponse ::
   ListGrantsResponse
 newListGrantsResponse =
   ListGrantsResponse'
-    { nextMarker = Prelude.Nothing,
-      grants = Prelude.Nothing,
-      truncated = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      grants = Core.Nothing,
+      truncated = Core.Nothing
     }
 
 -- | When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
-listGrantsResponse_nextMarker :: Lens.Lens' ListGrantsResponse (Prelude.Maybe Prelude.Text)
+listGrantsResponse_nextMarker :: Lens.Lens' ListGrantsResponse (Core.Maybe Core.Text)
 listGrantsResponse_nextMarker = Lens.lens (\ListGrantsResponse' {nextMarker} -> nextMarker) (\s@ListGrantsResponse' {} a -> s {nextMarker = a} :: ListGrantsResponse)
 
 -- | A list of grants.
-listGrantsResponse_grants :: Lens.Lens' ListGrantsResponse (Prelude.Maybe [GrantListEntry])
-listGrantsResponse_grants = Lens.lens (\ListGrantsResponse' {grants} -> grants) (\s@ListGrantsResponse' {} a -> s {grants = a} :: ListGrantsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listGrantsResponse_grants :: Lens.Lens' ListGrantsResponse (Core.Maybe [GrantListEntry])
+listGrantsResponse_grants = Lens.lens (\ListGrantsResponse' {grants} -> grants) (\s@ListGrantsResponse' {} a -> s {grants = a} :: ListGrantsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
-listGrantsResponse_truncated :: Lens.Lens' ListGrantsResponse (Prelude.Maybe Prelude.Bool)
+listGrantsResponse_truncated :: Lens.Lens' ListGrantsResponse (Core.Maybe Core.Bool)
 listGrantsResponse_truncated = Lens.lens (\ListGrantsResponse' {truncated} -> truncated) (\s@ListGrantsResponse' {} a -> s {truncated = a} :: ListGrantsResponse)
 
-instance Prelude.FromJSON ListGrantsResponse where
+instance Core.FromJSON ListGrantsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ListGrantsResponse"
       ( \x ->
           ListGrantsResponse'
-            Prelude.<$> (x Prelude..:? "NextMarker")
-            Prelude.<*> (x Prelude..:? "Grants" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Truncated")
+            Core.<$> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "Grants" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Truncated")
       )
 
-instance Prelude.Hashable ListGrantsResponse
+instance Core.Hashable ListGrantsResponse
 
-instance Prelude.NFData ListGrantsResponse
+instance Core.NFData ListGrantsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -174,9 +173,9 @@ module Network.AWS.ECS.CreateService
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -184,14 +183,14 @@ import qualified Network.AWS.Response as Response
 data CreateService = CreateService'
   { -- | Optional deployment parameters that control how many tasks run during
     -- the deployment and the ordering of stopping and starting tasks.
-    deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
+    deploymentConfiguration :: Core.Maybe DeploymentConfiguration,
     -- | The network configuration for the service. This parameter is required
     -- for task definitions that use the @awsvpc@ network mode to receive their
     -- own elastic network interface, and it is not supported for other network
     -- modes. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
+    networkConfiguration :: Core.Maybe NetworkConfiguration,
     -- | The capacity provider strategy to use for the service.
     --
     -- A capacity provider strategy consists of one or more capacity providers
@@ -218,43 +217,43 @@ data CreateService = CreateService'
     -- The PutClusterCapacityProviders API operation is used to update the list
     -- of available capacity providers for a cluster after the cluster is
     -- created.
-    capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
+    capacityProviderStrategy :: Core.Maybe [CapacityProviderStrategyItem],
     -- | The number of instantiations of the specified task definition to place
     -- and keep running on your cluster.
     --
     -- This is required if @schedulingStrategy@ is @REPLICA@ or is not
     -- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
     -- required.
-    desiredCount :: Prelude.Maybe Prelude.Int,
+    desiredCount :: Core.Maybe Core.Int,
     -- | Specifies whether to enable Amazon ECS managed tags for the tasks within
     -- the service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
+    enableECSManagedTags :: Core.Maybe Core.Bool,
     -- | The launch type on which to run your service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     --
     -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
     -- must be omitted.
-    launchType :: Prelude.Maybe LaunchType,
+    launchType :: Core.Maybe LaunchType,
     -- | The platform version that your tasks in the service are running on. A
     -- platform version is specified only for tasks using the Fargate launch
     -- type. If one isn\'t specified, the @LATEST@ platform version is used by
     -- default. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    platformVersion :: Prelude.Maybe Prelude.Text,
+    platformVersion :: Core.Maybe Core.Text,
     -- | The deployment controller to use for the service.
-    deploymentController :: Prelude.Maybe DeploymentController,
+    deploymentController :: Core.Maybe DeploymentController,
     -- | The placement strategy objects to use for tasks in your service. You can
     -- specify a maximum of five strategy rules per service.
-    placementStrategy :: Prelude.Maybe [PlacementStrategy],
+    placementStrategy :: Core.Maybe [PlacementStrategy],
     -- | An array of placement constraint objects to use for tasks in your
     -- service. You can specify a maximum of 10 constraints per task (this
     -- limit includes constraints in the task definition and those specified at
     -- runtime).
-    placementConstraints :: Prelude.Maybe [PlacementConstraint],
+    placementConstraints :: Core.Maybe [PlacementConstraint],
     -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
     -- Amazon ECS to make calls to your load balancer on your behalf. This
     -- parameter is only permitted if you are using a load balancer with your
@@ -279,7 +278,7 @@ data CreateService = CreateService'
     -- information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths>
     -- in the /IAM User Guide/.
-    role' :: Prelude.Maybe Prelude.Text,
+    role' :: Core.Maybe Core.Text,
     -- | A load balancer object representing the load balancers to use with your
     -- service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html Service Load Balancing>
@@ -333,7 +332,7 @@ data CreateService = CreateService'
     -- you must choose @ip@ as the target type, not @instance@, because tasks
     -- that use the @awsvpc@ network mode are associated with an elastic
     -- network interface, not an Amazon EC2 instance.
-    loadBalancers :: Prelude.Maybe [LoadBalancer],
+    loadBalancers :: Core.Maybe [LoadBalancer],
     -- | The metadata that you apply to the service to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define. When a service is deleted, the tags are deleted as
@@ -363,7 +362,7 @@ data CreateService = CreateService'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The details of the service discovery registries to assign to this
     -- service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
@@ -371,7 +370,7 @@ data CreateService = CreateService'
     -- Service discovery is supported for Fargate tasks if you are using
     -- platform version v1.1.0 or later. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>.
-    serviceRegistries :: Prelude.Maybe [ServiceRegistry],
+    serviceRegistries :: Core.Maybe [ServiceRegistry],
     -- | The period of time, in seconds, that the Amazon ECS service scheduler
     -- should ignore unhealthy Elastic Load Balancing target health checks
     -- after a task has first started. This is only used when your service is
@@ -385,7 +384,7 @@ data CreateService = CreateService'
     -- service scheduler ignores health check status. This grace period can
     -- prevent the service scheduler from marking tasks as unhealthy and
     -- stopping them before they have time to come up.
-    healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
+    healthCheckGracePeriodSeconds :: Core.Maybe Core.Int,
     -- | The scheduling strategy to use for the service. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
@@ -411,34 +410,34 @@ data CreateService = CreateService'
     --     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
     --     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
     --     scheduling strategy.
-    schedulingStrategy :: Prelude.Maybe SchedulingStrategy,
+    schedulingStrategy :: Core.Maybe SchedulingStrategy,
     -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
     -- definition to run in your service. If a @revision@ is not specified, the
     -- latest @ACTIVE@ revision is used.
     --
     -- A task definition must be specified if the service is using either the
     -- @ECS@ or @CODE_DEPLOY@ deployment controllers.
-    taskDefinition :: Prelude.Maybe Prelude.Text,
+    taskDefinition :: Core.Maybe Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster on
     -- which to run your service. If you do not specify a cluster, the default
     -- cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
+    cluster :: Core.Maybe Core.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. Up to 32 ASCII characters are allowed.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | Specifies whether to propagate the tags from the task definition or the
     -- service to the tasks in the service. If no value is specified, the tags
     -- are not propagated. Tags can only be propagated to the tasks within the
     -- service during service creation. To add tags to a task after service
     -- creation, use the TagResource API action.
-    propagateTags :: Prelude.Maybe PropagateTags,
+    propagateTags :: Core.Maybe PropagateTags,
     -- | The name of your service. Up to 255 letters (uppercase and lowercase),
     -- numbers, and hyphens are allowed. Service names must be unique within a
     -- cluster, but you can have similarly named services in multiple clusters
     -- within a Region or across multiple Regions.
-    serviceName :: Prelude.Text
+    serviceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateService' with all optional fields omitted.
@@ -704,37 +703,37 @@ data CreateService = CreateService'
 -- within a Region or across multiple Regions.
 newCreateService ::
   -- | 'serviceName'
-  Prelude.Text ->
+  Core.Text ->
   CreateService
 newCreateService pServiceName_ =
   CreateService'
     { deploymentConfiguration =
-        Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
-      capacityProviderStrategy = Prelude.Nothing,
-      desiredCount = Prelude.Nothing,
-      enableECSManagedTags = Prelude.Nothing,
-      launchType = Prelude.Nothing,
-      platformVersion = Prelude.Nothing,
-      deploymentController = Prelude.Nothing,
-      placementStrategy = Prelude.Nothing,
-      placementConstraints = Prelude.Nothing,
-      role' = Prelude.Nothing,
-      loadBalancers = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      serviceRegistries = Prelude.Nothing,
-      healthCheckGracePeriodSeconds = Prelude.Nothing,
-      schedulingStrategy = Prelude.Nothing,
-      taskDefinition = Prelude.Nothing,
-      cluster = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
-      propagateTags = Prelude.Nothing,
+        Core.Nothing,
+      networkConfiguration = Core.Nothing,
+      capacityProviderStrategy = Core.Nothing,
+      desiredCount = Core.Nothing,
+      enableECSManagedTags = Core.Nothing,
+      launchType = Core.Nothing,
+      platformVersion = Core.Nothing,
+      deploymentController = Core.Nothing,
+      placementStrategy = Core.Nothing,
+      placementConstraints = Core.Nothing,
+      role' = Core.Nothing,
+      loadBalancers = Core.Nothing,
+      tags = Core.Nothing,
+      serviceRegistries = Core.Nothing,
+      healthCheckGracePeriodSeconds = Core.Nothing,
+      schedulingStrategy = Core.Nothing,
+      taskDefinition = Core.Nothing,
+      cluster = Core.Nothing,
+      clientToken = Core.Nothing,
+      propagateTags = Core.Nothing,
       serviceName = pServiceName_
     }
 
 -- | Optional deployment parameters that control how many tasks run during
 -- the deployment and the ordering of stopping and starting tasks.
-createService_deploymentConfiguration :: Lens.Lens' CreateService (Prelude.Maybe DeploymentConfiguration)
+createService_deploymentConfiguration :: Lens.Lens' CreateService (Core.Maybe DeploymentConfiguration)
 createService_deploymentConfiguration = Lens.lens (\CreateService' {deploymentConfiguration} -> deploymentConfiguration) (\s@CreateService' {} a -> s {deploymentConfiguration = a} :: CreateService)
 
 -- | The network configuration for the service. This parameter is required
@@ -743,7 +742,7 @@ createService_deploymentConfiguration = Lens.lens (\CreateService' {deploymentCo
 -- modes. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Task Networking>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-createService_networkConfiguration :: Lens.Lens' CreateService (Prelude.Maybe NetworkConfiguration)
+createService_networkConfiguration :: Lens.Lens' CreateService (Core.Maybe NetworkConfiguration)
 createService_networkConfiguration = Lens.lens (\CreateService' {networkConfiguration} -> networkConfiguration) (\s@CreateService' {} a -> s {networkConfiguration = a} :: CreateService)
 
 -- | The capacity provider strategy to use for the service.
@@ -772,8 +771,8 @@ createService_networkConfiguration = Lens.lens (\CreateService' {networkConfigur
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
-createService_capacityProviderStrategy :: Lens.Lens' CreateService (Prelude.Maybe [CapacityProviderStrategyItem])
-createService_capacityProviderStrategy = Lens.lens (\CreateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateService' {} a -> s {capacityProviderStrategy = a} :: CreateService) Prelude.. Lens.mapping Prelude._Coerce
+createService_capacityProviderStrategy :: Lens.Lens' CreateService (Core.Maybe [CapacityProviderStrategyItem])
+createService_capacityProviderStrategy = Lens.lens (\CreateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@CreateService' {} a -> s {capacityProviderStrategy = a} :: CreateService) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of instantiations of the specified task definition to place
 -- and keep running on your cluster.
@@ -781,14 +780,14 @@ createService_capacityProviderStrategy = Lens.lens (\CreateService' {capacityPro
 -- This is required if @schedulingStrategy@ is @REPLICA@ or is not
 -- specified. If @schedulingStrategy@ is @DAEMON@ then this is not
 -- required.
-createService_desiredCount :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Int)
+createService_desiredCount :: Lens.Lens' CreateService (Core.Maybe Core.Int)
 createService_desiredCount = Lens.lens (\CreateService' {desiredCount} -> desiredCount) (\s@CreateService' {} a -> s {desiredCount = a} :: CreateService)
 
 -- | Specifies whether to enable Amazon ECS managed tags for the tasks within
 -- the service. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-createService_enableECSManagedTags :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Bool)
+createService_enableECSManagedTags :: Lens.Lens' CreateService (Core.Maybe Core.Bool)
 createService_enableECSManagedTags = Lens.lens (\CreateService' {enableECSManagedTags} -> enableECSManagedTags) (\s@CreateService' {} a -> s {enableECSManagedTags = a} :: CreateService)
 
 -- | The launch type on which to run your service. For more information, see
@@ -797,7 +796,7 @@ createService_enableECSManagedTags = Lens.lens (\CreateService' {enableECSManage
 --
 -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
 -- must be omitted.
-createService_launchType :: Lens.Lens' CreateService (Prelude.Maybe LaunchType)
+createService_launchType :: Lens.Lens' CreateService (Core.Maybe LaunchType)
 createService_launchType = Lens.lens (\CreateService' {launchType} -> launchType) (\s@CreateService' {} a -> s {launchType = a} :: CreateService)
 
 -- | The platform version that your tasks in the service are running on. A
@@ -806,24 +805,24 @@ createService_launchType = Lens.lens (\CreateService' {launchType} -> launchType
 -- default. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-createService_platformVersion :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_platformVersion :: Lens.Lens' CreateService (Core.Maybe Core.Text)
 createService_platformVersion = Lens.lens (\CreateService' {platformVersion} -> platformVersion) (\s@CreateService' {} a -> s {platformVersion = a} :: CreateService)
 
 -- | The deployment controller to use for the service.
-createService_deploymentController :: Lens.Lens' CreateService (Prelude.Maybe DeploymentController)
+createService_deploymentController :: Lens.Lens' CreateService (Core.Maybe DeploymentController)
 createService_deploymentController = Lens.lens (\CreateService' {deploymentController} -> deploymentController) (\s@CreateService' {} a -> s {deploymentController = a} :: CreateService)
 
 -- | The placement strategy objects to use for tasks in your service. You can
 -- specify a maximum of five strategy rules per service.
-createService_placementStrategy :: Lens.Lens' CreateService (Prelude.Maybe [PlacementStrategy])
-createService_placementStrategy = Lens.lens (\CreateService' {placementStrategy} -> placementStrategy) (\s@CreateService' {} a -> s {placementStrategy = a} :: CreateService) Prelude.. Lens.mapping Prelude._Coerce
+createService_placementStrategy :: Lens.Lens' CreateService (Core.Maybe [PlacementStrategy])
+createService_placementStrategy = Lens.lens (\CreateService' {placementStrategy} -> placementStrategy) (\s@CreateService' {} a -> s {placementStrategy = a} :: CreateService) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of placement constraint objects to use for tasks in your
 -- service. You can specify a maximum of 10 constraints per task (this
 -- limit includes constraints in the task definition and those specified at
 -- runtime).
-createService_placementConstraints :: Lens.Lens' CreateService (Prelude.Maybe [PlacementConstraint])
-createService_placementConstraints = Lens.lens (\CreateService' {placementConstraints} -> placementConstraints) (\s@CreateService' {} a -> s {placementConstraints = a} :: CreateService) Prelude.. Lens.mapping Prelude._Coerce
+createService_placementConstraints :: Lens.Lens' CreateService (Core.Maybe [PlacementConstraint])
+createService_placementConstraints = Lens.lens (\CreateService' {placementConstraints} -> placementConstraints) (\s@CreateService' {} a -> s {placementConstraints = a} :: CreateService) Core.. Lens.mapping Lens._Coerce
 
 -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
 -- Amazon ECS to make calls to your load balancer on your behalf. This
@@ -849,7 +848,7 @@ createService_placementConstraints = Lens.lens (\CreateService' {placementConstr
 -- information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names Friendly Names and Paths>
 -- in the /IAM User Guide/.
-createService_role :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_role :: Lens.Lens' CreateService (Core.Maybe Core.Text)
 createService_role = Lens.lens (\CreateService' {role'} -> role') (\s@CreateService' {} a -> s {role' = a} :: CreateService)
 
 -- | A load balancer object representing the load balancers to use with your
@@ -905,8 +904,8 @@ createService_role = Lens.lens (\CreateService' {role'} -> role') (\s@CreateServ
 -- you must choose @ip@ as the target type, not @instance@, because tasks
 -- that use the @awsvpc@ network mode are associated with an elastic
 -- network interface, not an Amazon EC2 instance.
-createService_loadBalancers :: Lens.Lens' CreateService (Prelude.Maybe [LoadBalancer])
-createService_loadBalancers = Lens.lens (\CreateService' {loadBalancers} -> loadBalancers) (\s@CreateService' {} a -> s {loadBalancers = a} :: CreateService) Prelude.. Lens.mapping Prelude._Coerce
+createService_loadBalancers :: Lens.Lens' CreateService (Core.Maybe [LoadBalancer])
+createService_loadBalancers = Lens.lens (\CreateService' {loadBalancers} -> loadBalancers) (\s@CreateService' {} a -> s {loadBalancers = a} :: CreateService) Core.. Lens.mapping Lens._Coerce
 
 -- | The metadata that you apply to the service to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
@@ -937,8 +936,8 @@ createService_loadBalancers = Lens.lens (\CreateService' {loadBalancers} -> load
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-createService_tags :: Lens.Lens' CreateService (Prelude.Maybe [Tag])
-createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping Prelude._Coerce
+createService_tags :: Lens.Lens' CreateService (Core.Maybe [Tag])
+createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Core.. Lens.mapping Lens._Coerce
 
 -- | The details of the service discovery registries to assign to this
 -- service. For more information, see
@@ -947,8 +946,8 @@ createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateServic
 -- Service discovery is supported for Fargate tasks if you are using
 -- platform version v1.1.0 or later. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>.
-createService_serviceRegistries :: Lens.Lens' CreateService (Prelude.Maybe [ServiceRegistry])
-createService_serviceRegistries = Lens.lens (\CreateService' {serviceRegistries} -> serviceRegistries) (\s@CreateService' {} a -> s {serviceRegistries = a} :: CreateService) Prelude.. Lens.mapping Prelude._Coerce
+createService_serviceRegistries :: Lens.Lens' CreateService (Core.Maybe [ServiceRegistry])
+createService_serviceRegistries = Lens.lens (\CreateService' {serviceRegistries} -> serviceRegistries) (\s@CreateService' {} a -> s {serviceRegistries = a} :: CreateService) Core.. Lens.mapping Lens._Coerce
 
 -- | The period of time, in seconds, that the Amazon ECS service scheduler
 -- should ignore unhealthy Elastic Load Balancing target health checks
@@ -963,7 +962,7 @@ createService_serviceRegistries = Lens.lens (\CreateService' {serviceRegistries}
 -- service scheduler ignores health check status. This grace period can
 -- prevent the service scheduler from marking tasks as unhealthy and
 -- stopping them before they have time to come up.
-createService_healthCheckGracePeriodSeconds :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Int)
+createService_healthCheckGracePeriodSeconds :: Lens.Lens' CreateService (Core.Maybe Core.Int)
 createService_healthCheckGracePeriodSeconds = Lens.lens (\CreateService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@CreateService' {} a -> s {healthCheckGracePeriodSeconds = a} :: CreateService)
 
 -- | The scheduling strategy to use for the service. For more information,
@@ -991,7 +990,7 @@ createService_healthCheckGracePeriodSeconds = Lens.lens (\CreateService' {health
 --     Tasks using the Fargate launch type or the @CODE_DEPLOY@ or
 --     @EXTERNAL@ deployment controller types don\'t support the @DAEMON@
 --     scheduling strategy.
-createService_schedulingStrategy :: Lens.Lens' CreateService (Prelude.Maybe SchedulingStrategy)
+createService_schedulingStrategy :: Lens.Lens' CreateService (Core.Maybe SchedulingStrategy)
 createService_schedulingStrategy = Lens.lens (\CreateService' {schedulingStrategy} -> schedulingStrategy) (\s@CreateService' {} a -> s {schedulingStrategy = a} :: CreateService)
 
 -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
@@ -1000,18 +999,18 @@ createService_schedulingStrategy = Lens.lens (\CreateService' {schedulingStrateg
 --
 -- A task definition must be specified if the service is using either the
 -- @ECS@ or @CODE_DEPLOY@ deployment controllers.
-createService_taskDefinition :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_taskDefinition :: Lens.Lens' CreateService (Core.Maybe Core.Text)
 createService_taskDefinition = Lens.lens (\CreateService' {taskDefinition} -> taskDefinition) (\s@CreateService' {} a -> s {taskDefinition = a} :: CreateService)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster on
 -- which to run your service. If you do not specify a cluster, the default
 -- cluster is assumed.
-createService_cluster :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_cluster :: Lens.Lens' CreateService (Core.Maybe Core.Text)
 createService_cluster = Lens.lens (\CreateService' {cluster} -> cluster) (\s@CreateService' {} a -> s {cluster = a} :: CreateService)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. Up to 32 ASCII characters are allowed.
-createService_clientToken :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
+createService_clientToken :: Lens.Lens' CreateService (Core.Maybe Core.Text)
 createService_clientToken = Lens.lens (\CreateService' {clientToken} -> clientToken) (\s@CreateService' {} a -> s {clientToken = a} :: CreateService)
 
 -- | Specifies whether to propagate the tags from the task definition or the
@@ -1019,93 +1018,89 @@ createService_clientToken = Lens.lens (\CreateService' {clientToken} -> clientTo
 -- are not propagated. Tags can only be propagated to the tasks within the
 -- service during service creation. To add tags to a task after service
 -- creation, use the TagResource API action.
-createService_propagateTags :: Lens.Lens' CreateService (Prelude.Maybe PropagateTags)
+createService_propagateTags :: Lens.Lens' CreateService (Core.Maybe PropagateTags)
 createService_propagateTags = Lens.lens (\CreateService' {propagateTags} -> propagateTags) (\s@CreateService' {} a -> s {propagateTags = a} :: CreateService)
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, and hyphens are allowed. Service names must be unique within a
 -- cluster, but you can have similarly named services in multiple clusters
 -- within a Region or across multiple Regions.
-createService_serviceName :: Lens.Lens' CreateService Prelude.Text
+createService_serviceName :: Lens.Lens' CreateService Core.Text
 createService_serviceName = Lens.lens (\CreateService' {serviceName} -> serviceName) (\s@CreateService' {} a -> s {serviceName = a} :: CreateService)
 
-instance Prelude.AWSRequest CreateService where
-  type Rs CreateService = CreateServiceResponse
+instance Core.AWSRequest CreateService where
+  type
+    AWSResponse CreateService =
+      CreateServiceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateServiceResponse'
-            Prelude.<$> (x Prelude..?> "service")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "service")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateService
+instance Core.Hashable CreateService
 
-instance Prelude.NFData CreateService
+instance Core.NFData CreateService
 
-instance Prelude.ToHeaders CreateService where
+instance Core.ToHeaders CreateService where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.CreateService" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.CreateService" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateService where
+instance Core.ToJSON CreateService where
   toJSON CreateService' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deploymentConfiguration" Prelude..=)
-              Prelude.<$> deploymentConfiguration,
-            ("networkConfiguration" Prelude..=)
-              Prelude.<$> networkConfiguration,
-            ("capacityProviderStrategy" Prelude..=)
-              Prelude.<$> capacityProviderStrategy,
-            ("desiredCount" Prelude..=) Prelude.<$> desiredCount,
-            ("enableECSManagedTags" Prelude..=)
-              Prelude.<$> enableECSManagedTags,
-            ("launchType" Prelude..=) Prelude.<$> launchType,
-            ("platformVersion" Prelude..=)
-              Prelude.<$> platformVersion,
-            ("deploymentController" Prelude..=)
-              Prelude.<$> deploymentController,
-            ("placementStrategy" Prelude..=)
-              Prelude.<$> placementStrategy,
-            ("placementConstraints" Prelude..=)
-              Prelude.<$> placementConstraints,
-            ("role" Prelude..=) Prelude.<$> role',
-            ("loadBalancers" Prelude..=)
-              Prelude.<$> loadBalancers,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("serviceRegistries" Prelude..=)
-              Prelude.<$> serviceRegistries,
-            ("healthCheckGracePeriodSeconds" Prelude..=)
-              Prelude.<$> healthCheckGracePeriodSeconds,
-            ("schedulingStrategy" Prelude..=)
-              Prelude.<$> schedulingStrategy,
-            ("taskDefinition" Prelude..=)
-              Prelude.<$> taskDefinition,
-            ("cluster" Prelude..=) Prelude.<$> cluster,
-            ("clientToken" Prelude..=) Prelude.<$> clientToken,
-            ("propagateTags" Prelude..=)
-              Prelude.<$> propagateTags,
-            Prelude.Just ("serviceName" Prelude..= serviceName)
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentConfiguration" Core..=)
+              Core.<$> deploymentConfiguration,
+            ("networkConfiguration" Core..=)
+              Core.<$> networkConfiguration,
+            ("capacityProviderStrategy" Core..=)
+              Core.<$> capacityProviderStrategy,
+            ("desiredCount" Core..=) Core.<$> desiredCount,
+            ("enableECSManagedTags" Core..=)
+              Core.<$> enableECSManagedTags,
+            ("launchType" Core..=) Core.<$> launchType,
+            ("platformVersion" Core..=) Core.<$> platformVersion,
+            ("deploymentController" Core..=)
+              Core.<$> deploymentController,
+            ("placementStrategy" Core..=)
+              Core.<$> placementStrategy,
+            ("placementConstraints" Core..=)
+              Core.<$> placementConstraints,
+            ("role" Core..=) Core.<$> role',
+            ("loadBalancers" Core..=) Core.<$> loadBalancers,
+            ("tags" Core..=) Core.<$> tags,
+            ("serviceRegistries" Core..=)
+              Core.<$> serviceRegistries,
+            ("healthCheckGracePeriodSeconds" Core..=)
+              Core.<$> healthCheckGracePeriodSeconds,
+            ("schedulingStrategy" Core..=)
+              Core.<$> schedulingStrategy,
+            ("taskDefinition" Core..=) Core.<$> taskDefinition,
+            ("cluster" Core..=) Core.<$> cluster,
+            ("clientToken" Core..=) Core.<$> clientToken,
+            ("propagateTags" Core..=) Core.<$> propagateTags,
+            Core.Just ("serviceName" Core..= serviceName)
           ]
       )
 
-instance Prelude.ToPath CreateService where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateService where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateService where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateService where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateServiceResponse' smart constructor.
 data CreateServiceResponse = CreateServiceResponse'
@@ -1117,11 +1112,11 @@ data CreateServiceResponse = CreateServiceResponse'
     -- If the service is using the @CODE_DEPLOY@ deployment controller, the
     -- @deploymentController@, @taskSets@ and @deployments@ parameters will be
     -- returned, however the @deployments@ parameter will be an empty list.
-    service :: Prelude.Maybe ContainerService,
+    service :: Core.Maybe ContainerService,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateServiceResponse' with all optional fields omitted.
@@ -1143,11 +1138,11 @@ data CreateServiceResponse = CreateServiceResponse'
 -- 'httpStatus', 'createServiceResponse_httpStatus' - The response's http status code.
 newCreateServiceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateServiceResponse
 newCreateServiceResponse pHttpStatus_ =
   CreateServiceResponse'
-    { service = Prelude.Nothing,
+    { service = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -1159,11 +1154,11 @@ newCreateServiceResponse pHttpStatus_ =
 -- If the service is using the @CODE_DEPLOY@ deployment controller, the
 -- @deploymentController@, @taskSets@ and @deployments@ parameters will be
 -- returned, however the @deployments@ parameter will be an empty list.
-createServiceResponse_service :: Lens.Lens' CreateServiceResponse (Prelude.Maybe ContainerService)
+createServiceResponse_service :: Lens.Lens' CreateServiceResponse (Core.Maybe ContainerService)
 createServiceResponse_service = Lens.lens (\CreateServiceResponse' {service} -> service) (\s@CreateServiceResponse' {} a -> s {service = a} :: CreateServiceResponse)
 
 -- | The response's http status code.
-createServiceResponse_httpStatus :: Lens.Lens' CreateServiceResponse Prelude.Int
+createServiceResponse_httpStatus :: Lens.Lens' CreateServiceResponse Core.Int
 createServiceResponse_httpStatus = Lens.lens (\CreateServiceResponse' {httpStatus} -> httpStatus) (\s@CreateServiceResponse' {} a -> s {httpStatus = a} :: CreateServiceResponse)
 
-instance Prelude.NFData CreateServiceResponse
+instance Core.NFData CreateServiceResponse

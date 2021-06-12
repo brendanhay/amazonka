@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.IAM.AddUserToGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,16 +50,16 @@ data AddUserToGroup = AddUserToGroup'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | The name of the user to add.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text
+    userName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddUserToGroup' with all optional fields omitted.
@@ -85,9 +84,9 @@ data AddUserToGroup = AddUserToGroup'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newAddUserToGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   AddUserToGroup
 newAddUserToGroup pGroupName_ pUserName_ =
   AddUserToGroup'
@@ -101,7 +100,7 @@ newAddUserToGroup pGroupName_ pUserName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-addUserToGroup_groupName :: Lens.Lens' AddUserToGroup Prelude.Text
+addUserToGroup_groupName :: Lens.Lens' AddUserToGroup Core.Text
 addUserToGroup_groupName = Lens.lens (\AddUserToGroup' {groupName} -> groupName) (\s@AddUserToGroup' {} a -> s {groupName = a} :: AddUserToGroup)
 
 -- | The name of the user to add.
@@ -110,41 +109,42 @@ addUserToGroup_groupName = Lens.lens (\AddUserToGroup' {groupName} -> groupName)
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-addUserToGroup_userName :: Lens.Lens' AddUserToGroup Prelude.Text
+addUserToGroup_userName :: Lens.Lens' AddUserToGroup Core.Text
 addUserToGroup_userName = Lens.lens (\AddUserToGroup' {userName} -> userName) (\s@AddUserToGroup' {} a -> s {userName = a} :: AddUserToGroup)
 
-instance Prelude.AWSRequest AddUserToGroup where
-  type Rs AddUserToGroup = AddUserToGroupResponse
+instance Core.AWSRequest AddUserToGroup where
+  type
+    AWSResponse AddUserToGroup =
+      AddUserToGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull AddUserToGroupResponse'
 
-instance Prelude.Hashable AddUserToGroup
+instance Core.Hashable AddUserToGroup
 
-instance Prelude.NFData AddUserToGroup
+instance Core.NFData AddUserToGroup
 
-instance Prelude.ToHeaders AddUserToGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AddUserToGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AddUserToGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddUserToGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddUserToGroup where
+instance Core.ToQuery AddUserToGroup where
   toQuery AddUserToGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AddUserToGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Prelude.=: groupName,
-        "UserName" Prelude.=: userName
+          Core.=: ("AddUserToGroup" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "GroupName" Core.=: groupName,
+        "UserName" Core.=: userName
       ]
 
 -- | /See:/ 'newAddUserToGroupResponse' smart constructor.
 data AddUserToGroupResponse = AddUserToGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddUserToGroupResponse' with all optional fields omitted.
@@ -154,4 +154,4 @@ newAddUserToGroupResponse ::
   AddUserToGroupResponse
 newAddUserToGroupResponse = AddUserToGroupResponse'
 
-instance Prelude.NFData AddUserToGroupResponse
+instance Core.NFData AddUserToGroupResponse

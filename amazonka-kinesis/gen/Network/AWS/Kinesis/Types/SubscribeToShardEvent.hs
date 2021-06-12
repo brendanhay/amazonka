@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,31 +19,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Kinesis.Types.SubscribeToShardEvent where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.ChildShard
 import Network.AWS.Kinesis.Types.Record
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | After you call SubscribeToShard, Kinesis Data Streams sends events of
 -- this type over an HTTP\/2 connection to your consumer.
 --
 -- /See:/ 'newSubscribeToShardEvent' smart constructor.
 data SubscribeToShardEvent = SubscribeToShardEvent'
-  { childShards :: Prelude.Maybe [ChildShard],
+  { childShards :: Core.Maybe [ChildShard],
     records :: [Record],
     -- | Use this as @SequenceNumber@ in the next call to SubscribeToShard, with
     -- @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or
     -- @AFTER_SEQUENCE_NUMBER@. Use @ContinuationSequenceNumber@ for
     -- checkpointing because it captures your shard progress even when no data
     -- is written to the shard.
-    continuationSequenceNumber :: Prelude.Text,
+    continuationSequenceNumber :: Core.Text,
     -- | The number of milliseconds the read records are from the tip of the
     -- stream, indicating how far behind current time the consumer is. A value
     -- of zero indicates that record processing is caught up, and there are no
     -- new records to process at this moment.
-    millisBehindLatest :: Prelude.Natural
+    millisBehindLatest :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubscribeToShardEvent' with all optional fields omitted.
@@ -70,59 +69,56 @@ data SubscribeToShardEvent = SubscribeToShardEvent'
 -- new records to process at this moment.
 newSubscribeToShardEvent ::
   -- | 'continuationSequenceNumber'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'millisBehindLatest'
-  Prelude.Natural ->
+  Core.Natural ->
   SubscribeToShardEvent
 newSubscribeToShardEvent
   pContinuationSequenceNumber_
   pMillisBehindLatest_ =
     SubscribeToShardEvent'
-      { childShards =
-          Prelude.Nothing,
-        records = Prelude.mempty,
+      { childShards = Core.Nothing,
+        records = Core.mempty,
         continuationSequenceNumber =
           pContinuationSequenceNumber_,
         millisBehindLatest = pMillisBehindLatest_
       }
 
 -- | Undocumented member.
-subscribeToShardEvent_childShards :: Lens.Lens' SubscribeToShardEvent (Prelude.Maybe [ChildShard])
-subscribeToShardEvent_childShards = Lens.lens (\SubscribeToShardEvent' {childShards} -> childShards) (\s@SubscribeToShardEvent' {} a -> s {childShards = a} :: SubscribeToShardEvent) Prelude.. Lens.mapping Prelude._Coerce
+subscribeToShardEvent_childShards :: Lens.Lens' SubscribeToShardEvent (Core.Maybe [ChildShard])
+subscribeToShardEvent_childShards = Lens.lens (\SubscribeToShardEvent' {childShards} -> childShards) (\s@SubscribeToShardEvent' {} a -> s {childShards = a} :: SubscribeToShardEvent) Core.. Lens.mapping Lens._Coerce
 
 -- |
 subscribeToShardEvent_records :: Lens.Lens' SubscribeToShardEvent [Record]
-subscribeToShardEvent_records = Lens.lens (\SubscribeToShardEvent' {records} -> records) (\s@SubscribeToShardEvent' {} a -> s {records = a} :: SubscribeToShardEvent) Prelude.. Prelude._Coerce
+subscribeToShardEvent_records = Lens.lens (\SubscribeToShardEvent' {records} -> records) (\s@SubscribeToShardEvent' {} a -> s {records = a} :: SubscribeToShardEvent) Core.. Lens._Coerce
 
 -- | Use this as @SequenceNumber@ in the next call to SubscribeToShard, with
 -- @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or
 -- @AFTER_SEQUENCE_NUMBER@. Use @ContinuationSequenceNumber@ for
 -- checkpointing because it captures your shard progress even when no data
 -- is written to the shard.
-subscribeToShardEvent_continuationSequenceNumber :: Lens.Lens' SubscribeToShardEvent Prelude.Text
+subscribeToShardEvent_continuationSequenceNumber :: Lens.Lens' SubscribeToShardEvent Core.Text
 subscribeToShardEvent_continuationSequenceNumber = Lens.lens (\SubscribeToShardEvent' {continuationSequenceNumber} -> continuationSequenceNumber) (\s@SubscribeToShardEvent' {} a -> s {continuationSequenceNumber = a} :: SubscribeToShardEvent)
 
 -- | The number of milliseconds the read records are from the tip of the
 -- stream, indicating how far behind current time the consumer is. A value
 -- of zero indicates that record processing is caught up, and there are no
 -- new records to process at this moment.
-subscribeToShardEvent_millisBehindLatest :: Lens.Lens' SubscribeToShardEvent Prelude.Natural
+subscribeToShardEvent_millisBehindLatest :: Lens.Lens' SubscribeToShardEvent Core.Natural
 subscribeToShardEvent_millisBehindLatest = Lens.lens (\SubscribeToShardEvent' {millisBehindLatest} -> millisBehindLatest) (\s@SubscribeToShardEvent' {} a -> s {millisBehindLatest = a} :: SubscribeToShardEvent)
 
-instance Prelude.FromJSON SubscribeToShardEvent where
+instance Core.FromJSON SubscribeToShardEvent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SubscribeToShardEvent"
       ( \x ->
           SubscribeToShardEvent'
-            Prelude.<$> ( x Prelude..:? "ChildShards"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Records" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "ContinuationSequenceNumber")
-            Prelude.<*> (x Prelude..: "MillisBehindLatest")
+            Core.<$> (x Core..:? "ChildShards" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Records" Core..!= Core.mempty)
+            Core.<*> (x Core..: "ContinuationSequenceNumber")
+            Core.<*> (x Core..: "MillisBehindLatest")
       )
 
-instance Prelude.Hashable SubscribeToShardEvent
+instance Core.Hashable SubscribeToShardEvent
 
-instance Prelude.NFData SubscribeToShardEvent
+instance Core.NFData SubscribeToShardEvent

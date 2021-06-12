@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.ElastiCache.RebalanceSlotsInGlobalReplicationGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebalanceSlotsInGlobalReplicationGroup' smart constructor.
 data RebalanceSlotsInGlobalReplicationGroup = RebalanceSlotsInGlobalReplicationGroup'
   { -- | The name of the Global Datastore
-    globalReplicationGroupId :: Prelude.Text,
+    globalReplicationGroupId :: Core.Text,
     -- | If @True@, redistribution is applied immediately.
-    applyImmediately :: Prelude.Bool
+    applyImmediately :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebalanceSlotsInGlobalReplicationGroup' with all optional fields omitted.
@@ -70,9 +69,9 @@ data RebalanceSlotsInGlobalReplicationGroup = RebalanceSlotsInGlobalReplicationG
 -- 'applyImmediately', 'rebalanceSlotsInGlobalReplicationGroup_applyImmediately' - If @True@, redistribution is applied immediately.
 newRebalanceSlotsInGlobalReplicationGroup ::
   -- | 'globalReplicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applyImmediately'
-  Prelude.Bool ->
+  Core.Bool ->
   RebalanceSlotsInGlobalReplicationGroup
 newRebalanceSlotsInGlobalReplicationGroup
   pGlobalReplicationGroupId_
@@ -85,19 +84,20 @@ newRebalanceSlotsInGlobalReplicationGroup
       }
 
 -- | The name of the Global Datastore
-rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Prelude.Text
+rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Core.Text
 rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\RebalanceSlotsInGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@RebalanceSlotsInGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: RebalanceSlotsInGlobalReplicationGroup)
 
 -- | If @True@, redistribution is applied immediately.
-rebalanceSlotsInGlobalReplicationGroup_applyImmediately :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Prelude.Bool
+rebalanceSlotsInGlobalReplicationGroup_applyImmediately :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Core.Bool
 rebalanceSlotsInGlobalReplicationGroup_applyImmediately = Lens.lens (\RebalanceSlotsInGlobalReplicationGroup' {applyImmediately} -> applyImmediately) (\s@RebalanceSlotsInGlobalReplicationGroup' {} a -> s {applyImmediately = a} :: RebalanceSlotsInGlobalReplicationGroup)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RebalanceSlotsInGlobalReplicationGroup
   where
   type
-    Rs RebalanceSlotsInGlobalReplicationGroup =
+    AWSResponse
+      RebalanceSlotsInGlobalReplicationGroup =
       RebalanceSlotsInGlobalReplicationGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -105,54 +105,53 @@ instance
       "RebalanceSlotsInGlobalReplicationGroupResult"
       ( \s h x ->
           RebalanceSlotsInGlobalReplicationGroupResponse'
-            Prelude.<$> (x Prelude..@? "GlobalReplicationGroup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalReplicationGroup")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RebalanceSlotsInGlobalReplicationGroup
 
 instance
-  Prelude.NFData
+  Core.NFData
     RebalanceSlotsInGlobalReplicationGroup
 
 instance
-  Prelude.ToHeaders
-    RebalanceSlotsInGlobalReplicationGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     RebalanceSlotsInGlobalReplicationGroup
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    RebalanceSlotsInGlobalReplicationGroup
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     RebalanceSlotsInGlobalReplicationGroup
   where
   toQuery RebalanceSlotsInGlobalReplicationGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "RebalanceSlotsInGlobalReplicationGroup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ( "RebalanceSlotsInGlobalReplicationGroup" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "GlobalReplicationGroupId"
-          Prelude.=: globalReplicationGroupId,
-        "ApplyImmediately" Prelude.=: applyImmediately
+          Core.=: globalReplicationGroupId,
+        "ApplyImmediately" Core.=: applyImmediately
       ]
 
 -- | /See:/ 'newRebalanceSlotsInGlobalReplicationGroupResponse' smart constructor.
 data RebalanceSlotsInGlobalReplicationGroupResponse = RebalanceSlotsInGlobalReplicationGroupResponse'
-  { globalReplicationGroup :: Prelude.Maybe GlobalReplicationGroup,
+  { globalReplicationGroup :: Core.Maybe GlobalReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebalanceSlotsInGlobalReplicationGroupResponse' with all optional fields omitted.
@@ -167,24 +166,24 @@ data RebalanceSlotsInGlobalReplicationGroupResponse = RebalanceSlotsInGlobalRepl
 -- 'httpStatus', 'rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus' - The response's http status code.
 newRebalanceSlotsInGlobalReplicationGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RebalanceSlotsInGlobalReplicationGroupResponse
 newRebalanceSlotsInGlobalReplicationGroupResponse
   pHttpStatus_ =
     RebalanceSlotsInGlobalReplicationGroupResponse'
       { globalReplicationGroup =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-rebalanceSlotsInGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse (Prelude.Maybe GlobalReplicationGroup)
+rebalanceSlotsInGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse (Core.Maybe GlobalReplicationGroup)
 rebalanceSlotsInGlobalReplicationGroupResponse_globalReplicationGroup = Lens.lens (\RebalanceSlotsInGlobalReplicationGroupResponse' {globalReplicationGroup} -> globalReplicationGroup) (\s@RebalanceSlotsInGlobalReplicationGroupResponse' {} a -> s {globalReplicationGroup = a} :: RebalanceSlotsInGlobalReplicationGroupResponse)
 
 -- | The response's http status code.
-rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse Prelude.Int
+rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroupResponse Core.Int
 rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus = Lens.lens (\RebalanceSlotsInGlobalReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@RebalanceSlotsInGlobalReplicationGroupResponse' {} a -> s {httpStatus = a} :: RebalanceSlotsInGlobalReplicationGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RebalanceSlotsInGlobalReplicationGroupResponse

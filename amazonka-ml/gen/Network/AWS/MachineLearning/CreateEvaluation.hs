@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,28 +59,28 @@ module Network.AWS.MachineLearning.CreateEvaluation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateEvaluation' smart constructor.
 data CreateEvaluation = CreateEvaluation'
   { -- | A user-supplied name or description of the @Evaluation@.
-    evaluationName :: Prelude.Maybe Prelude.Text,
+    evaluationName :: Core.Maybe Core.Text,
     -- | A user-supplied ID that uniquely identifies the @Evaluation@.
-    evaluationId :: Prelude.Text,
+    evaluationId :: Core.Text,
     -- | The ID of the @MLModel@ to evaluate.
     --
     -- The schema used in creating the @MLModel@ must match the schema of the
     -- @DataSource@ used in the @Evaluation@.
-    mLModelId :: Prelude.Text,
+    mLModelId :: Core.Text,
     -- | The ID of the @DataSource@ for the evaluation. The schema of the
     -- @DataSource@ must match the schema used to create the @MLModel@.
-    evaluationDataSourceId :: Prelude.Text
+    evaluationDataSourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEvaluation' with all optional fields omitted.
@@ -104,94 +103,92 @@ data CreateEvaluation = CreateEvaluation'
 -- @DataSource@ must match the schema used to create the @MLModel@.
 newCreateEvaluation ::
   -- | 'evaluationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'mLModelId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'evaluationDataSourceId'
-  Prelude.Text ->
+  Core.Text ->
   CreateEvaluation
 newCreateEvaluation
   pEvaluationId_
   pMLModelId_
   pEvaluationDataSourceId_ =
     CreateEvaluation'
-      { evaluationName = Prelude.Nothing,
+      { evaluationName = Core.Nothing,
         evaluationId = pEvaluationId_,
         mLModelId = pMLModelId_,
         evaluationDataSourceId = pEvaluationDataSourceId_
       }
 
 -- | A user-supplied name or description of the @Evaluation@.
-createEvaluation_evaluationName :: Lens.Lens' CreateEvaluation (Prelude.Maybe Prelude.Text)
+createEvaluation_evaluationName :: Lens.Lens' CreateEvaluation (Core.Maybe Core.Text)
 createEvaluation_evaluationName = Lens.lens (\CreateEvaluation' {evaluationName} -> evaluationName) (\s@CreateEvaluation' {} a -> s {evaluationName = a} :: CreateEvaluation)
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@.
-createEvaluation_evaluationId :: Lens.Lens' CreateEvaluation Prelude.Text
+createEvaluation_evaluationId :: Lens.Lens' CreateEvaluation Core.Text
 createEvaluation_evaluationId = Lens.lens (\CreateEvaluation' {evaluationId} -> evaluationId) (\s@CreateEvaluation' {} a -> s {evaluationId = a} :: CreateEvaluation)
 
 -- | The ID of the @MLModel@ to evaluate.
 --
 -- The schema used in creating the @MLModel@ must match the schema of the
 -- @DataSource@ used in the @Evaluation@.
-createEvaluation_mLModelId :: Lens.Lens' CreateEvaluation Prelude.Text
+createEvaluation_mLModelId :: Lens.Lens' CreateEvaluation Core.Text
 createEvaluation_mLModelId = Lens.lens (\CreateEvaluation' {mLModelId} -> mLModelId) (\s@CreateEvaluation' {} a -> s {mLModelId = a} :: CreateEvaluation)
 
 -- | The ID of the @DataSource@ for the evaluation. The schema of the
 -- @DataSource@ must match the schema used to create the @MLModel@.
-createEvaluation_evaluationDataSourceId :: Lens.Lens' CreateEvaluation Prelude.Text
+createEvaluation_evaluationDataSourceId :: Lens.Lens' CreateEvaluation Core.Text
 createEvaluation_evaluationDataSourceId = Lens.lens (\CreateEvaluation' {evaluationDataSourceId} -> evaluationDataSourceId) (\s@CreateEvaluation' {} a -> s {evaluationDataSourceId = a} :: CreateEvaluation)
 
-instance Prelude.AWSRequest CreateEvaluation where
-  type Rs CreateEvaluation = CreateEvaluationResponse
+instance Core.AWSRequest CreateEvaluation where
+  type
+    AWSResponse CreateEvaluation =
+      CreateEvaluationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateEvaluationResponse'
-            Prelude.<$> (x Prelude..?> "EvaluationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EvaluationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEvaluation
+instance Core.Hashable CreateEvaluation
 
-instance Prelude.NFData CreateEvaluation
+instance Core.NFData CreateEvaluation
 
-instance Prelude.ToHeaders CreateEvaluation where
+instance Core.ToHeaders CreateEvaluation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.CreateEvaluation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.CreateEvaluation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateEvaluation where
+instance Core.ToJSON CreateEvaluation where
   toJSON CreateEvaluation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EvaluationName" Prelude..=)
-              Prelude.<$> evaluationName,
-            Prelude.Just
-              ("EvaluationId" Prelude..= evaluationId),
-            Prelude.Just ("MLModelId" Prelude..= mLModelId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("EvaluationName" Core..=) Core.<$> evaluationName,
+            Core.Just ("EvaluationId" Core..= evaluationId),
+            Core.Just ("MLModelId" Core..= mLModelId),
+            Core.Just
               ( "EvaluationDataSourceId"
-                  Prelude..= evaluationDataSourceId
+                  Core..= evaluationDataSourceId
               )
           ]
       )
 
-instance Prelude.ToPath CreateEvaluation where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateEvaluation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateEvaluation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateEvaluation where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @CreateEvaluation@ operation, and is an
 -- acknowledgement that Amazon ML received the request.
@@ -205,11 +202,11 @@ data CreateEvaluationResponse = CreateEvaluationResponse'
   { -- | The user-supplied ID that uniquely identifies the @Evaluation@. This
     -- value should be identical to the value of the @EvaluationId@ in the
     -- request.
-    evaluationId :: Prelude.Maybe Prelude.Text,
+    evaluationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEvaluationResponse' with all optional fields omitted.
@@ -226,23 +223,23 @@ data CreateEvaluationResponse = CreateEvaluationResponse'
 -- 'httpStatus', 'createEvaluationResponse_httpStatus' - The response's http status code.
 newCreateEvaluationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateEvaluationResponse
 newCreateEvaluationResponse pHttpStatus_ =
   CreateEvaluationResponse'
     { evaluationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@. This
 -- value should be identical to the value of the @EvaluationId@ in the
 -- request.
-createEvaluationResponse_evaluationId :: Lens.Lens' CreateEvaluationResponse (Prelude.Maybe Prelude.Text)
+createEvaluationResponse_evaluationId :: Lens.Lens' CreateEvaluationResponse (Core.Maybe Core.Text)
 createEvaluationResponse_evaluationId = Lens.lens (\CreateEvaluationResponse' {evaluationId} -> evaluationId) (\s@CreateEvaluationResponse' {} a -> s {evaluationId = a} :: CreateEvaluationResponse)
 
 -- | The response's http status code.
-createEvaluationResponse_httpStatus :: Lens.Lens' CreateEvaluationResponse Prelude.Int
+createEvaluationResponse_httpStatus :: Lens.Lens' CreateEvaluationResponse Core.Int
 createEvaluationResponse_httpStatus = Lens.lens (\CreateEvaluationResponse' {httpStatus} -> httpStatus) (\s@CreateEvaluationResponse' {} a -> s {httpStatus = a} :: CreateEvaluationResponse)
 
-instance Prelude.NFData CreateEvaluationResponse
+instance Core.NFData CreateEvaluationResponse

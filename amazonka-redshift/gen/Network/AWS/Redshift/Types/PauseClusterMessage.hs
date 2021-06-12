@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.PauseClusterMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a pause cluster operation. For example, a scheduled action to
@@ -30,9 +29,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newPauseClusterMessage' smart constructor.
 data PauseClusterMessage = PauseClusterMessage'
   { -- | The identifier of the cluster to be paused.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PauseClusterMessage' with all optional fields omitted.
@@ -45,7 +44,7 @@ data PauseClusterMessage = PauseClusterMessage'
 -- 'clusterIdentifier', 'pauseClusterMessage_clusterIdentifier' - The identifier of the cluster to be paused.
 newPauseClusterMessage ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   PauseClusterMessage
 newPauseClusterMessage pClusterIdentifier_ =
   PauseClusterMessage'
@@ -54,19 +53,19 @@ newPauseClusterMessage pClusterIdentifier_ =
     }
 
 -- | The identifier of the cluster to be paused.
-pauseClusterMessage_clusterIdentifier :: Lens.Lens' PauseClusterMessage Prelude.Text
+pauseClusterMessage_clusterIdentifier :: Lens.Lens' PauseClusterMessage Core.Text
 pauseClusterMessage_clusterIdentifier = Lens.lens (\PauseClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@PauseClusterMessage' {} a -> s {clusterIdentifier = a} :: PauseClusterMessage)
 
-instance Prelude.FromXML PauseClusterMessage where
+instance Core.FromXML PauseClusterMessage where
   parseXML x =
     PauseClusterMessage'
-      Prelude.<$> (x Prelude..@ "ClusterIdentifier")
+      Core.<$> (x Core..@ "ClusterIdentifier")
 
-instance Prelude.Hashable PauseClusterMessage
+instance Core.Hashable PauseClusterMessage
 
-instance Prelude.NFData PauseClusterMessage
+instance Core.NFData PauseClusterMessage
 
-instance Prelude.ToQuery PauseClusterMessage where
+instance Core.ToQuery PauseClusterMessage where
   toQuery PauseClusterMessage' {..} =
-    Prelude.mconcat
-      ["ClusterIdentifier" Prelude.=: clusterIdentifier]
+    Core.mconcat
+      ["ClusterIdentifier" Core.=: clusterIdentifier]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.Vc3Settings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.Vc3Class
 import Network.AWS.MediaConvert.Types.Vc3FramerateControl
@@ -28,7 +28,6 @@ import Network.AWS.MediaConvert.Types.Vc3InterlaceMode
 import Network.AWS.MediaConvert.Types.Vc3ScanTypeConversionMode
 import Network.AWS.MediaConvert.Types.Vc3SlowPal
 import Network.AWS.MediaConvert.Types.Vc3Telecine
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Required when you set (Codec) under (VideoDescription)>(CodecSettings)
 -- to the value VC3
@@ -37,14 +36,14 @@ import qualified Network.AWS.Prelude as Prelude
 data Vc3Settings = Vc3Settings'
   { -- | Optional. Choose the scan line type for this output. If you don\'t
     -- specify a value, MediaConvert will create a progressive output.
-    interlaceMode :: Prelude.Maybe Vc3InterlaceMode,
+    interlaceMode :: Core.Maybe Vc3InterlaceMode,
     -- | When you do frame rate conversion from 23.976 frames per second (fps) to
     -- 29.97 fps, and your output scan type is interlaced, you can optionally
     -- enable hard telecine (HARD) to create a smoother picture. When you keep
     -- the default value, None (NONE), MediaConvert does a standard frame rate
     -- conversion to 29.97 without doing anything with the field polarity to
     -- create a smoother picture.
-    telecine :: Prelude.Maybe Vc3Telecine,
+    telecine :: Core.Maybe Vc3Telecine,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateNumerator to specify the numerator of this
@@ -52,7 +51,7 @@ data Vc3Settings = Vc3Settings'
     -- FramerateNumerator. When you use the console for transcode jobs that use
     -- frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
-    framerateNumerator :: Prelude.Maybe Prelude.Natural,
+    framerateNumerator :: Core.Maybe Core.Natural,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -60,7 +59,7 @@ data Vc3Settings = Vc3Settings'
     -- FramerateDenominator. When you use the console for transcode jobs that
     -- use frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
-    framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    framerateDenominator :: Core.Maybe Core.Natural,
     -- | Use this setting for interlaced outputs, when your output frame rate is
     -- half of your input frame rate. In this situation, choose Optimized
     -- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
@@ -76,7 +75,7 @@ data Vc3Settings = Vc3Settings'
     -- optimized interlacing for hard telecine outputs. You must also set
     -- Interlace mode (interlaceMode) to a value other than Progressive
     -- (PROGRESSIVE).
-    scanTypeConversionMode :: Prelude.Maybe Vc3ScanTypeConversionMode,
+    scanTypeConversionMode :: Core.Maybe Vc3ScanTypeConversionMode,
     -- | If you are using the console, use the Framerate setting to specify the
     -- frame rate for this output. If you want to keep the same frame rate as
     -- the input video, choose Follow source. If you want to do frame rate
@@ -90,7 +89,7 @@ data Vc3Settings = Vc3Settings'
     -- from the input. Choose SPECIFIED if you want the service to use the
     -- frame rate you specify in the settings FramerateNumerator and
     -- FramerateDenominator.
-    framerateControl :: Prelude.Maybe Vc3FramerateControl,
+    framerateControl :: Core.Maybe Vc3FramerateControl,
     -- | Choose the method that you want MediaConvert to use when increasing or
     -- decreasing the frame rate. We recommend using drop duplicate
     -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -102,7 +101,7 @@ data Vc3Settings = Vc3Settings'
     -- motion-compensated interpolation. FrameFormer chooses the best
     -- conversion method frame by frame. Note that using FrameFormer increases
     -- the transcoding time and incurs a significant add-on cost.
-    framerateConversionAlgorithm :: Prelude.Maybe Vc3FramerateConversionAlgorithm,
+    framerateConversionAlgorithm :: Core.Maybe Vc3FramerateConversionAlgorithm,
     -- | Specify the VC3 class to choose the quality characteristics for this
     -- output. VC3 class, together with the settings Framerate
     -- (framerateNumerator and framerateDenominator) and Resolution (height and
@@ -112,7 +111,7 @@ data Vc3Settings = Vc3Settings'
     -- and Class 220 (CLASS_220) gives you and output with a bitrate of
     -- approximately 220 Mbps. VC3 class also specifies the color bit depth of
     -- your output.
-    vc3Class :: Prelude.Maybe Vc3Class,
+    vc3Class :: Core.Maybe Vc3Class,
     -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
     -- per second (fps). Enable slow PAL to create a 25 fps output by
     -- relabeling the video frames and resampling your audio. Note that
@@ -120,9 +119,9 @@ data Vc3Settings = Vc3Settings'
     -- Related settings: You must also set Framerate to 25. In your JSON job
     -- specification, set (framerateControl) to (SPECIFIED),
     -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-    slowPal :: Prelude.Maybe Vc3SlowPal
+    slowPal :: Core.Maybe Vc3SlowPal
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Vc3Settings' with all optional fields omitted.
@@ -221,20 +220,20 @@ newVc3Settings ::
   Vc3Settings
 newVc3Settings =
   Vc3Settings'
-    { interlaceMode = Prelude.Nothing,
-      telecine = Prelude.Nothing,
-      framerateNumerator = Prelude.Nothing,
-      framerateDenominator = Prelude.Nothing,
-      scanTypeConversionMode = Prelude.Nothing,
-      framerateControl = Prelude.Nothing,
-      framerateConversionAlgorithm = Prelude.Nothing,
-      vc3Class = Prelude.Nothing,
-      slowPal = Prelude.Nothing
+    { interlaceMode = Core.Nothing,
+      telecine = Core.Nothing,
+      framerateNumerator = Core.Nothing,
+      framerateDenominator = Core.Nothing,
+      scanTypeConversionMode = Core.Nothing,
+      framerateControl = Core.Nothing,
+      framerateConversionAlgorithm = Core.Nothing,
+      vc3Class = Core.Nothing,
+      slowPal = Core.Nothing
     }
 
 -- | Optional. Choose the scan line type for this output. If you don\'t
 -- specify a value, MediaConvert will create a progressive output.
-vc3Settings_interlaceMode :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3InterlaceMode)
+vc3Settings_interlaceMode :: Lens.Lens' Vc3Settings (Core.Maybe Vc3InterlaceMode)
 vc3Settings_interlaceMode = Lens.lens (\Vc3Settings' {interlaceMode} -> interlaceMode) (\s@Vc3Settings' {} a -> s {interlaceMode = a} :: Vc3Settings)
 
 -- | When you do frame rate conversion from 23.976 frames per second (fps) to
@@ -243,7 +242,7 @@ vc3Settings_interlaceMode = Lens.lens (\Vc3Settings' {interlaceMode} -> interlac
 -- the default value, None (NONE), MediaConvert does a standard frame rate
 -- conversion to 29.97 without doing anything with the field polarity to
 -- create a smoother picture.
-vc3Settings_telecine :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3Telecine)
+vc3Settings_telecine :: Lens.Lens' Vc3Settings (Core.Maybe Vc3Telecine)
 vc3Settings_telecine = Lens.lens (\Vc3Settings' {telecine} -> telecine) (\s@Vc3Settings' {} a -> s {telecine = a} :: Vc3Settings)
 
 -- | When you use the API for transcode jobs that use frame rate conversion,
@@ -253,7 +252,7 @@ vc3Settings_telecine = Lens.lens (\Vc3Settings' {telecine} -> telecine) (\s@Vc3S
 -- FramerateNumerator. When you use the console for transcode jobs that use
 -- frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
-vc3Settings_framerateNumerator :: Lens.Lens' Vc3Settings (Prelude.Maybe Prelude.Natural)
+vc3Settings_framerateNumerator :: Lens.Lens' Vc3Settings (Core.Maybe Core.Natural)
 vc3Settings_framerateNumerator = Lens.lens (\Vc3Settings' {framerateNumerator} -> framerateNumerator) (\s@Vc3Settings' {} a -> s {framerateNumerator = a} :: Vc3Settings)
 
 -- | When you use the API for transcode jobs that use frame rate conversion,
@@ -263,7 +262,7 @@ vc3Settings_framerateNumerator = Lens.lens (\Vc3Settings' {framerateNumerator} -
 -- FramerateDenominator. When you use the console for transcode jobs that
 -- use frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
-vc3Settings_framerateDenominator :: Lens.Lens' Vc3Settings (Prelude.Maybe Prelude.Natural)
+vc3Settings_framerateDenominator :: Lens.Lens' Vc3Settings (Core.Maybe Core.Natural)
 vc3Settings_framerateDenominator = Lens.lens (\Vc3Settings' {framerateDenominator} -> framerateDenominator) (\s@Vc3Settings' {} a -> s {framerateDenominator = a} :: Vc3Settings)
 
 -- | Use this setting for interlaced outputs, when your output frame rate is
@@ -281,7 +280,7 @@ vc3Settings_framerateDenominator = Lens.lens (\Vc3Settings' {framerateDenominato
 -- optimized interlacing for hard telecine outputs. You must also set
 -- Interlace mode (interlaceMode) to a value other than Progressive
 -- (PROGRESSIVE).
-vc3Settings_scanTypeConversionMode :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3ScanTypeConversionMode)
+vc3Settings_scanTypeConversionMode :: Lens.Lens' Vc3Settings (Core.Maybe Vc3ScanTypeConversionMode)
 vc3Settings_scanTypeConversionMode = Lens.lens (\Vc3Settings' {scanTypeConversionMode} -> scanTypeConversionMode) (\s@Vc3Settings' {} a -> s {scanTypeConversionMode = a} :: Vc3Settings)
 
 -- | If you are using the console, use the Framerate setting to specify the
@@ -297,7 +296,7 @@ vc3Settings_scanTypeConversionMode = Lens.lens (\Vc3Settings' {scanTypeConversio
 -- from the input. Choose SPECIFIED if you want the service to use the
 -- frame rate you specify in the settings FramerateNumerator and
 -- FramerateDenominator.
-vc3Settings_framerateControl :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3FramerateControl)
+vc3Settings_framerateControl :: Lens.Lens' Vc3Settings (Core.Maybe Vc3FramerateControl)
 vc3Settings_framerateControl = Lens.lens (\Vc3Settings' {framerateControl} -> framerateControl) (\s@Vc3Settings' {} a -> s {framerateControl = a} :: Vc3Settings)
 
 -- | Choose the method that you want MediaConvert to use when increasing or
@@ -311,7 +310,7 @@ vc3Settings_framerateControl = Lens.lens (\Vc3Settings' {framerateControl} -> fr
 -- motion-compensated interpolation. FrameFormer chooses the best
 -- conversion method frame by frame. Note that using FrameFormer increases
 -- the transcoding time and incurs a significant add-on cost.
-vc3Settings_framerateConversionAlgorithm :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3FramerateConversionAlgorithm)
+vc3Settings_framerateConversionAlgorithm :: Lens.Lens' Vc3Settings (Core.Maybe Vc3FramerateConversionAlgorithm)
 vc3Settings_framerateConversionAlgorithm = Lens.lens (\Vc3Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@Vc3Settings' {} a -> s {framerateConversionAlgorithm = a} :: Vc3Settings)
 
 -- | Specify the VC3 class to choose the quality characteristics for this
@@ -323,7 +322,7 @@ vc3Settings_framerateConversionAlgorithm = Lens.lens (\Vc3Settings' {framerateCo
 -- and Class 220 (CLASS_220) gives you and output with a bitrate of
 -- approximately 220 Mbps. VC3 class also specifies the color bit depth of
 -- your output.
-vc3Settings_vc3Class :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3Class)
+vc3Settings_vc3Class :: Lens.Lens' Vc3Settings (Core.Maybe Vc3Class)
 vc3Settings_vc3Class = Lens.lens (\Vc3Settings' {vc3Class} -> vc3Class) (\s@Vc3Settings' {} a -> s {vc3Class = a} :: Vc3Settings)
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
@@ -333,48 +332,47 @@ vc3Settings_vc3Class = Lens.lens (\Vc3Settings' {vc3Class} -> vc3Class) (\s@Vc3S
 -- Related settings: You must also set Framerate to 25. In your JSON job
 -- specification, set (framerateControl) to (SPECIFIED),
 -- (framerateNumerator) to 25 and (framerateDenominator) to 1.
-vc3Settings_slowPal :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3SlowPal)
+vc3Settings_slowPal :: Lens.Lens' Vc3Settings (Core.Maybe Vc3SlowPal)
 vc3Settings_slowPal = Lens.lens (\Vc3Settings' {slowPal} -> slowPal) (\s@Vc3Settings' {} a -> s {slowPal = a} :: Vc3Settings)
 
-instance Prelude.FromJSON Vc3Settings where
+instance Core.FromJSON Vc3Settings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Vc3Settings"
       ( \x ->
           Vc3Settings'
-            Prelude.<$> (x Prelude..:? "interlaceMode")
-            Prelude.<*> (x Prelude..:? "telecine")
-            Prelude.<*> (x Prelude..:? "framerateNumerator")
-            Prelude.<*> (x Prelude..:? "framerateDenominator")
-            Prelude.<*> (x Prelude..:? "scanTypeConversionMode")
-            Prelude.<*> (x Prelude..:? "framerateControl")
-            Prelude.<*> (x Prelude..:? "framerateConversionAlgorithm")
-            Prelude.<*> (x Prelude..:? "vc3Class")
-            Prelude.<*> (x Prelude..:? "slowPal")
+            Core.<$> (x Core..:? "interlaceMode")
+            Core.<*> (x Core..:? "telecine")
+            Core.<*> (x Core..:? "framerateNumerator")
+            Core.<*> (x Core..:? "framerateDenominator")
+            Core.<*> (x Core..:? "scanTypeConversionMode")
+            Core.<*> (x Core..:? "framerateControl")
+            Core.<*> (x Core..:? "framerateConversionAlgorithm")
+            Core.<*> (x Core..:? "vc3Class")
+            Core.<*> (x Core..:? "slowPal")
       )
 
-instance Prelude.Hashable Vc3Settings
+instance Core.Hashable Vc3Settings
 
-instance Prelude.NFData Vc3Settings
+instance Core.NFData Vc3Settings
 
-instance Prelude.ToJSON Vc3Settings where
+instance Core.ToJSON Vc3Settings where
   toJSON Vc3Settings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("interlaceMode" Prelude..=)
-              Prelude.<$> interlaceMode,
-            ("telecine" Prelude..=) Prelude.<$> telecine,
-            ("framerateNumerator" Prelude..=)
-              Prelude.<$> framerateNumerator,
-            ("framerateDenominator" Prelude..=)
-              Prelude.<$> framerateDenominator,
-            ("scanTypeConversionMode" Prelude..=)
-              Prelude.<$> scanTypeConversionMode,
-            ("framerateControl" Prelude..=)
-              Prelude.<$> framerateControl,
-            ("framerateConversionAlgorithm" Prelude..=)
-              Prelude.<$> framerateConversionAlgorithm,
-            ("vc3Class" Prelude..=) Prelude.<$> vc3Class,
-            ("slowPal" Prelude..=) Prelude.<$> slowPal
+    Core.object
+      ( Core.catMaybes
+          [ ("interlaceMode" Core..=) Core.<$> interlaceMode,
+            ("telecine" Core..=) Core.<$> telecine,
+            ("framerateNumerator" Core..=)
+              Core.<$> framerateNumerator,
+            ("framerateDenominator" Core..=)
+              Core.<$> framerateDenominator,
+            ("scanTypeConversionMode" Core..=)
+              Core.<$> scanTypeConversionMode,
+            ("framerateControl" Core..=)
+              Core.<$> framerateControl,
+            ("framerateConversionAlgorithm" Core..=)
+              Core.<$> framerateConversionAlgorithm,
+            ("vc3Class" Core..=) Core.<$> vc3Class,
+            ("slowPal" Core..=) Core.<$> slowPal
           ]
       )

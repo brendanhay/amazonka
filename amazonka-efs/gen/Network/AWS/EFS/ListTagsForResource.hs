@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EFS.ListTagsForResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,16 +56,16 @@ import qualified Network.AWS.Response as Response
 data ListTagsForResource = ListTagsForResource'
   { -- | You can use @NextToken@ in a subsequent request to fetch the next page
     -- of access point descriptions if the response payload was paginated.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | (Optional) Specifies the maximum number of tag objects to return in the
     -- response. The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Specifies the EFS resource you want to retrieve tags for. You can
     -- retrieve tags for EFS file systems and access points using this API
     -- endpoint.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -87,64 +86,62 @@ data ListTagsForResource = ListTagsForResource'
 -- endpoint.
 newListTagsForResource ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   ListTagsForResource
 newListTagsForResource pResourceId_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       resourceId = pResourceId_
     }
 
 -- | You can use @NextToken@ in a subsequent request to fetch the next page
 -- of access point descriptions if the response payload was paginated.
-listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | (Optional) Specifies the maximum number of tag objects to return in the
 -- response. The default value is 100.
-listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
+listTagsForResource_maxResults :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Natural)
 listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -> maxResults) (\s@ListTagsForResource' {} a -> s {maxResults = a} :: ListTagsForResource)
 
 -- | Specifies the EFS resource you want to retrieve tags for. You can
 -- retrieve tags for EFS file systems and access points using this API
 -- endpoint.
-listTagsForResource_resourceId :: Lens.Lens' ListTagsForResource Prelude.Text
+listTagsForResource_resourceId :: Lens.Lens' ListTagsForResource Core.Text
 listTagsForResource_resourceId = Lens.lens (\ListTagsForResource' {resourceId} -> resourceId) (\s@ListTagsForResource' {} a -> s {resourceId = a} :: ListTagsForResource)
 
-instance Prelude.AWSRequest ListTagsForResource where
+instance Core.AWSRequest ListTagsForResource where
   type
-    Rs ListTagsForResource =
+    AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Core.Hashable ListTagsForResource
 
-instance Prelude.NFData ListTagsForResource
+instance Core.NFData ListTagsForResource
 
-instance Prelude.ToHeaders ListTagsForResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTagsForResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTagsForResource where
+instance Core.ToPath ListTagsForResource where
   toPath ListTagsForResource' {..} =
-    Prelude.mconcat
-      [ "/2015-02-01/resource-tags/",
-        Prelude.toBS resourceId
-      ]
+    Core.mconcat
+      ["/2015-02-01/resource-tags/", Core.toBS resourceId]
 
-instance Prelude.ToQuery ListTagsForResource where
+instance Core.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
@@ -152,13 +149,13 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | @NextToken@ is present if the response payload is paginated. You can use
     -- @NextToken@ in a subsequent request to fetch the next page of access
     -- point descriptions.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of the tags for the specified EFS resource.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -177,28 +174,28 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
     { nextToken =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | @NextToken@ is present if the response payload is paginated. You can use
 -- @NextToken@ in a subsequent request to fetch the next page of access
 -- point descriptions.
-listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Core.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
 -- | An array of the tags for the specified EFS resource.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe [Tag])
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Core.NFData ListTagsForResourceResponse

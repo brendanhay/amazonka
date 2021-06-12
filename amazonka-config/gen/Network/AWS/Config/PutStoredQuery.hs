@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,15 +43,15 @@ module Network.AWS.Config.PutStoredQuery
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutStoredQuery' smart constructor.
 data PutStoredQuery = PutStoredQuery'
   { -- | A list of @Tags@ object.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A list of @StoredQuery@ objects. The mandatory fields are @QueryName@
     -- and @Expression@.
     --
@@ -61,7 +60,7 @@ data PutStoredQuery = PutStoredQuery'
     -- but updating the description is optional.
     storedQuery :: StoredQuery
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutStoredQuery' with all optional fields omitted.
@@ -85,13 +84,13 @@ newPutStoredQuery ::
   PutStoredQuery
 newPutStoredQuery pStoredQuery_ =
   PutStoredQuery'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       storedQuery = pStoredQuery_
     }
 
 -- | A list of @Tags@ object.
-putStoredQuery_tags :: Lens.Lens' PutStoredQuery (Prelude.Maybe [Tag])
-putStoredQuery_tags = Lens.lens (\PutStoredQuery' {tags} -> tags) (\s@PutStoredQuery' {} a -> s {tags = a} :: PutStoredQuery) Prelude.. Lens.mapping Prelude._Coerce
+putStoredQuery_tags :: Lens.Lens' PutStoredQuery (Core.Maybe [Tag])
+putStoredQuery_tags = Lens.lens (\PutStoredQuery' {tags} -> tags) (\s@PutStoredQuery' {} a -> s {tags = a} :: PutStoredQuery) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of @StoredQuery@ objects. The mandatory fields are @QueryName@
 -- and @Expression@.
@@ -102,60 +101,60 @@ putStoredQuery_tags = Lens.lens (\PutStoredQuery' {tags} -> tags) (\s@PutStoredQ
 putStoredQuery_storedQuery :: Lens.Lens' PutStoredQuery StoredQuery
 putStoredQuery_storedQuery = Lens.lens (\PutStoredQuery' {storedQuery} -> storedQuery) (\s@PutStoredQuery' {} a -> s {storedQuery = a} :: PutStoredQuery)
 
-instance Prelude.AWSRequest PutStoredQuery where
-  type Rs PutStoredQuery = PutStoredQueryResponse
+instance Core.AWSRequest PutStoredQuery where
+  type
+    AWSResponse PutStoredQuery =
+      PutStoredQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutStoredQueryResponse'
-            Prelude.<$> (x Prelude..?> "QueryArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "QueryArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutStoredQuery
+instance Core.Hashable PutStoredQuery
 
-instance Prelude.NFData PutStoredQuery
+instance Core.NFData PutStoredQuery
 
-instance Prelude.ToHeaders PutStoredQuery where
+instance Core.ToHeaders PutStoredQuery where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.PutStoredQuery" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.PutStoredQuery" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutStoredQuery where
+instance Core.ToJSON PutStoredQuery where
   toJSON PutStoredQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("StoredQuery" Prelude..= storedQuery)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("StoredQuery" Core..= storedQuery)
           ]
       )
 
-instance Prelude.ToPath PutStoredQuery where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutStoredQuery where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutStoredQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutStoredQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutStoredQueryResponse' smart constructor.
 data PutStoredQueryResponse = PutStoredQueryResponse'
   { -- | Amazon Resource Name (ARN) of the query. For example,
     -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
-    queryArn :: Prelude.Maybe Prelude.Text,
+    queryArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutStoredQueryResponse' with all optional fields omitted.
@@ -171,21 +170,21 @@ data PutStoredQueryResponse = PutStoredQueryResponse'
 -- 'httpStatus', 'putStoredQueryResponse_httpStatus' - The response's http status code.
 newPutStoredQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutStoredQueryResponse
 newPutStoredQueryResponse pHttpStatus_ =
   PutStoredQueryResponse'
-    { queryArn = Prelude.Nothing,
+    { queryArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Amazon Resource Name (ARN) of the query. For example,
 -- arn:partition:service:region:account-id:resource-type\/resource-name\/resource-id.
-putStoredQueryResponse_queryArn :: Lens.Lens' PutStoredQueryResponse (Prelude.Maybe Prelude.Text)
+putStoredQueryResponse_queryArn :: Lens.Lens' PutStoredQueryResponse (Core.Maybe Core.Text)
 putStoredQueryResponse_queryArn = Lens.lens (\PutStoredQueryResponse' {queryArn} -> queryArn) (\s@PutStoredQueryResponse' {} a -> s {queryArn = a} :: PutStoredQueryResponse)
 
 -- | The response's http status code.
-putStoredQueryResponse_httpStatus :: Lens.Lens' PutStoredQueryResponse Prelude.Int
+putStoredQueryResponse_httpStatus :: Lens.Lens' PutStoredQueryResponse Core.Int
 putStoredQueryResponse_httpStatus = Lens.lens (\PutStoredQueryResponse' {httpStatus} -> httpStatus) (\s@PutStoredQueryResponse' {} a -> s {httpStatus = a} :: PutStoredQueryResponse)
 
-instance Prelude.NFData PutStoredQueryResponse
+instance Core.NFData PutStoredQueryResponse

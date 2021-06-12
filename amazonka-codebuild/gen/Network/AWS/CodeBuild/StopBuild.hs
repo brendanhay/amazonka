@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.CodeBuild.StopBuild
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopBuild' smart constructor.
 data StopBuild = StopBuild'
   { -- | The ID of the build.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopBuild' with all optional fields omitted.
@@ -64,65 +63,59 @@ data StopBuild = StopBuild'
 -- 'id', 'stopBuild_id' - The ID of the build.
 newStopBuild ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   StopBuild
 newStopBuild pId_ = StopBuild' {id = pId_}
 
 -- | The ID of the build.
-stopBuild_id :: Lens.Lens' StopBuild Prelude.Text
+stopBuild_id :: Lens.Lens' StopBuild Core.Text
 stopBuild_id = Lens.lens (\StopBuild' {id} -> id) (\s@StopBuild' {} a -> s {id = a} :: StopBuild)
 
-instance Prelude.AWSRequest StopBuild where
-  type Rs StopBuild = StopBuildResponse
+instance Core.AWSRequest StopBuild where
+  type AWSResponse StopBuild = StopBuildResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopBuildResponse'
-            Prelude.<$> (x Prelude..?> "build")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "build")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopBuild
+instance Core.Hashable StopBuild
 
-instance Prelude.NFData StopBuild
+instance Core.NFData StopBuild
 
-instance Prelude.ToHeaders StopBuild where
+instance Core.ToHeaders StopBuild where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.StopBuild" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("CodeBuild_20161006.StopBuild" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopBuild where
+instance Core.ToJSON StopBuild where
   toJSON StopBuild' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("id" Prelude..= id)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("id" Core..= id)])
 
-instance Prelude.ToPath StopBuild where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopBuild where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopBuild where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopBuild where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopBuildResponse' smart constructor.
 data StopBuildResponse = StopBuildResponse'
   { -- | Information about the build.
-    build :: Prelude.Maybe Build,
+    build :: Core.Maybe Build,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopBuildResponse' with all optional fields omitted.
@@ -137,20 +130,20 @@ data StopBuildResponse = StopBuildResponse'
 -- 'httpStatus', 'stopBuildResponse_httpStatus' - The response's http status code.
 newStopBuildResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopBuildResponse
 newStopBuildResponse pHttpStatus_ =
   StopBuildResponse'
-    { build = Prelude.Nothing,
+    { build = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the build.
-stopBuildResponse_build :: Lens.Lens' StopBuildResponse (Prelude.Maybe Build)
+stopBuildResponse_build :: Lens.Lens' StopBuildResponse (Core.Maybe Build)
 stopBuildResponse_build = Lens.lens (\StopBuildResponse' {build} -> build) (\s@StopBuildResponse' {} a -> s {build = a} :: StopBuildResponse)
 
 -- | The response's http status code.
-stopBuildResponse_httpStatus :: Lens.Lens' StopBuildResponse Prelude.Int
+stopBuildResponse_httpStatus :: Lens.Lens' StopBuildResponse Core.Int
 stopBuildResponse_httpStatus = Lens.lens (\StopBuildResponse' {httpStatus} -> httpStatus) (\s@StopBuildResponse' {} a -> s {httpStatus = a} :: StopBuildResponse)
 
-instance Prelude.NFData StopBuildResponse
+instance Core.NFData StopBuildResponse

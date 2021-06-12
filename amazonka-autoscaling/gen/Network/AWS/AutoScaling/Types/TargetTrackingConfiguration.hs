@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AutoScaling.Types.TargetTrackingConfiguration where
 
 import Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
 import Network.AWS.AutoScaling.Types.PredefinedMetricSpecification
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a target tracking scaling policy configuration to use with
 -- Amazon EC2 Auto Scaling.
@@ -35,17 +34,17 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
     -- doesn\'t remove instances from the Auto Scaling group. Otherwise, the
     -- target tracking scaling policy can remove instances from the Auto
     -- Scaling group. The default is @false@.
-    disableScaleIn :: Prelude.Maybe Prelude.Bool,
+    disableScaleIn :: Core.Maybe Core.Bool,
     -- | A predefined metric. You must specify either a predefined metric or a
     -- customized metric.
-    predefinedMetricSpecification :: Prelude.Maybe PredefinedMetricSpecification,
+    predefinedMetricSpecification :: Core.Maybe PredefinedMetricSpecification,
     -- | A customized metric. You must specify either a predefined metric or a
     -- customized metric.
-    customizedMetricSpecification :: Prelude.Maybe CustomizedMetricSpecification,
+    customizedMetricSpecification :: Core.Maybe CustomizedMetricSpecification,
     -- | The target value for the metric.
-    targetValue :: Prelude.Double
+    targetValue :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetTrackingConfiguration' with all optional fields omitted.
@@ -70,16 +69,14 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- 'targetValue', 'targetTrackingConfiguration_targetValue' - The target value for the metric.
 newTargetTrackingConfiguration ::
   -- | 'targetValue'
-  Prelude.Double ->
+  Core.Double ->
   TargetTrackingConfiguration
 newTargetTrackingConfiguration pTargetValue_ =
   TargetTrackingConfiguration'
     { disableScaleIn =
-        Prelude.Nothing,
-      predefinedMetricSpecification =
-        Prelude.Nothing,
-      customizedMetricSpecification =
-        Prelude.Nothing,
+        Core.Nothing,
+      predefinedMetricSpecification = Core.Nothing,
+      customizedMetricSpecification = Core.Nothing,
       targetValue = pTargetValue_
     }
 
@@ -88,42 +85,42 @@ newTargetTrackingConfiguration pTargetValue_ =
 -- doesn\'t remove instances from the Auto Scaling group. Otherwise, the
 -- target tracking scaling policy can remove instances from the Auto
 -- Scaling group. The default is @false@.
-targetTrackingConfiguration_disableScaleIn :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe Prelude.Bool)
+targetTrackingConfiguration_disableScaleIn :: Lens.Lens' TargetTrackingConfiguration (Core.Maybe Core.Bool)
 targetTrackingConfiguration_disableScaleIn = Lens.lens (\TargetTrackingConfiguration' {disableScaleIn} -> disableScaleIn) (\s@TargetTrackingConfiguration' {} a -> s {disableScaleIn = a} :: TargetTrackingConfiguration)
 
 -- | A predefined metric. You must specify either a predefined metric or a
 -- customized metric.
-targetTrackingConfiguration_predefinedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe PredefinedMetricSpecification)
+targetTrackingConfiguration_predefinedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Core.Maybe PredefinedMetricSpecification)
 targetTrackingConfiguration_predefinedMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {predefinedMetricSpecification} -> predefinedMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {predefinedMetricSpecification = a} :: TargetTrackingConfiguration)
 
 -- | A customized metric. You must specify either a predefined metric or a
 -- customized metric.
-targetTrackingConfiguration_customizedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Prelude.Maybe CustomizedMetricSpecification)
+targetTrackingConfiguration_customizedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Core.Maybe CustomizedMetricSpecification)
 targetTrackingConfiguration_customizedMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {customizedMetricSpecification} -> customizedMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {customizedMetricSpecification = a} :: TargetTrackingConfiguration)
 
 -- | The target value for the metric.
-targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Prelude.Double
+targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Core.Double
 targetTrackingConfiguration_targetValue = Lens.lens (\TargetTrackingConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingConfiguration' {} a -> s {targetValue = a} :: TargetTrackingConfiguration)
 
-instance Prelude.FromXML TargetTrackingConfiguration where
+instance Core.FromXML TargetTrackingConfiguration where
   parseXML x =
     TargetTrackingConfiguration'
-      Prelude.<$> (x Prelude..@? "DisableScaleIn")
-      Prelude.<*> (x Prelude..@? "PredefinedMetricSpecification")
-      Prelude.<*> (x Prelude..@? "CustomizedMetricSpecification")
-      Prelude.<*> (x Prelude..@ "TargetValue")
+      Core.<$> (x Core..@? "DisableScaleIn")
+      Core.<*> (x Core..@? "PredefinedMetricSpecification")
+      Core.<*> (x Core..@? "CustomizedMetricSpecification")
+      Core.<*> (x Core..@ "TargetValue")
 
-instance Prelude.Hashable TargetTrackingConfiguration
+instance Core.Hashable TargetTrackingConfiguration
 
-instance Prelude.NFData TargetTrackingConfiguration
+instance Core.NFData TargetTrackingConfiguration
 
-instance Prelude.ToQuery TargetTrackingConfiguration where
+instance Core.ToQuery TargetTrackingConfiguration where
   toQuery TargetTrackingConfiguration' {..} =
-    Prelude.mconcat
-      [ "DisableScaleIn" Prelude.=: disableScaleIn,
+    Core.mconcat
+      [ "DisableScaleIn" Core.=: disableScaleIn,
         "PredefinedMetricSpecification"
-          Prelude.=: predefinedMetricSpecification,
+          Core.=: predefinedMetricSpecification,
         "CustomizedMetricSpecification"
-          Prelude.=: customizedMetricSpecification,
-        "TargetValue" Prelude.=: targetValue
+          Core.=: customizedMetricSpecification,
+        "TargetValue" Core.=: targetValue
       ]

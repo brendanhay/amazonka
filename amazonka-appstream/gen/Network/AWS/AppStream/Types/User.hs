@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AppStream.Types.User where
 
 import Network.AWS.AppStream.Types.AuthenticationType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a user in the user pool.
 --
@@ -41,25 +40,25 @@ data User = User'
     --     threat.
     --
     -- -   UNKNOWN – The user status is not known.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The ARN of the user.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | Specifies whether the user in the user pool is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The date and time the user was created in the user pool.
-    createdTime :: Prelude.Maybe Prelude.POSIX,
+    createdTime :: Core.Maybe Core.POSIX,
     -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    userName :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The first name, or given name, of the user.
-    firstName :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    firstName :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The last name, or surname, of the user.
-    lastName :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    lastName :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The authentication type for the user.
     authenticationType :: AuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'User' with all optional fields omitted.
@@ -104,13 +103,13 @@ newUser ::
   User
 newUser pAuthenticationType_ =
   User'
-    { status = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      userName = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      lastName = Prelude.Nothing,
+    { status = Core.Nothing,
+      arn = Core.Nothing,
+      enabled = Core.Nothing,
+      createdTime = Core.Nothing,
+      userName = Core.Nothing,
+      firstName = Core.Nothing,
+      lastName = Core.Nothing,
       authenticationType = pAuthenticationType_
     }
 
@@ -127,55 +126,55 @@ newUser pAuthenticationType_ =
 --     threat.
 --
 -- -   UNKNOWN – The user status is not known.
-user_status :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_status :: Lens.Lens' User (Core.Maybe Core.Text)
 user_status = Lens.lens (\User' {status} -> status) (\s@User' {} a -> s {status = a} :: User)
 
 -- | The ARN of the user.
-user_arn :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_arn :: Lens.Lens' User (Core.Maybe Core.Text)
 user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
 
 -- | Specifies whether the user in the user pool is enabled.
-user_enabled :: Lens.Lens' User (Prelude.Maybe Prelude.Bool)
+user_enabled :: Lens.Lens' User (Core.Maybe Core.Bool)
 user_enabled = Lens.lens (\User' {enabled} -> enabled) (\s@User' {} a -> s {enabled = a} :: User)
 
 -- | The date and time the user was created in the user pool.
-user_createdTime :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_createdTime = Lens.lens (\User' {createdTime} -> createdTime) (\s@User' {} a -> s {createdTime = a} :: User) Prelude.. Lens.mapping Prelude._Time
+user_createdTime :: Lens.Lens' User (Core.Maybe Core.UTCTime)
+user_createdTime = Lens.lens (\User' {createdTime} -> createdTime) (\s@User' {} a -> s {createdTime = a} :: User) Core.. Lens.mapping Core._Time
 
 -- | The email address of the user.
 --
 -- Users\' email addresses are case-sensitive.
-user_userName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Prelude.. Lens.mapping Prelude._Sensitive
+user_userName :: Lens.Lens' User (Core.Maybe Core.Text)
+user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User) Core.. Lens.mapping Core._Sensitive
 
 -- | The first name, or given name, of the user.
-user_firstName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_firstName = Lens.lens (\User' {firstName} -> firstName) (\s@User' {} a -> s {firstName = a} :: User) Prelude.. Lens.mapping Prelude._Sensitive
+user_firstName :: Lens.Lens' User (Core.Maybe Core.Text)
+user_firstName = Lens.lens (\User' {firstName} -> firstName) (\s@User' {} a -> s {firstName = a} :: User) Core.. Lens.mapping Core._Sensitive
 
 -- | The last name, or surname, of the user.
-user_lastName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_lastName = Lens.lens (\User' {lastName} -> lastName) (\s@User' {} a -> s {lastName = a} :: User) Prelude.. Lens.mapping Prelude._Sensitive
+user_lastName :: Lens.Lens' User (Core.Maybe Core.Text)
+user_lastName = Lens.lens (\User' {lastName} -> lastName) (\s@User' {} a -> s {lastName = a} :: User) Core.. Lens.mapping Core._Sensitive
 
 -- | The authentication type for the user.
 user_authenticationType :: Lens.Lens' User AuthenticationType
 user_authenticationType = Lens.lens (\User' {authenticationType} -> authenticationType) (\s@User' {} a -> s {authenticationType = a} :: User)
 
-instance Prelude.FromJSON User where
+instance Core.FromJSON User where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Enabled")
-            Prelude.<*> (x Prelude..:? "CreatedTime")
-            Prelude.<*> (x Prelude..:? "UserName")
-            Prelude.<*> (x Prelude..:? "FirstName")
-            Prelude.<*> (x Prelude..:? "LastName")
-            Prelude.<*> (x Prelude..: "AuthenticationType")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Enabled")
+            Core.<*> (x Core..:? "CreatedTime")
+            Core.<*> (x Core..:? "UserName")
+            Core.<*> (x Core..:? "FirstName")
+            Core.<*> (x Core..:? "LastName")
+            Core.<*> (x Core..: "AuthenticationType")
       )
 
-instance Prelude.Hashable User
+instance Core.Hashable User
 
-instance Prelude.NFData User
+instance Core.NFData User

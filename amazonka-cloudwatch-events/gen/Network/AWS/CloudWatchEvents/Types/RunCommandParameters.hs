@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudWatchEvents.Types.RunCommandParameters where
 
 import Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This parameter contains the criteria (either InstanceIds or a tag) used
 -- to specify which EC2 instances are to be sent the command.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data RunCommandParameters = RunCommandParameters'
   { -- | Currently, we support including only one RunCommandTarget block, which
     -- specifies either an array of InstanceIds or a tag.
-    runCommandTargets :: Prelude.NonEmpty RunCommandTarget
+    runCommandTargets :: Core.NonEmpty RunCommandTarget
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunCommandParameters' with all optional fields omitted.
@@ -47,37 +46,37 @@ data RunCommandParameters = RunCommandParameters'
 -- specifies either an array of InstanceIds or a tag.
 newRunCommandParameters ::
   -- | 'runCommandTargets'
-  Prelude.NonEmpty RunCommandTarget ->
+  Core.NonEmpty RunCommandTarget ->
   RunCommandParameters
 newRunCommandParameters pRunCommandTargets_ =
   RunCommandParameters'
     { runCommandTargets =
-        Prelude._Coerce Lens.# pRunCommandTargets_
+        Lens._Coerce Lens.# pRunCommandTargets_
     }
 
 -- | Currently, we support including only one RunCommandTarget block, which
 -- specifies either an array of InstanceIds or a tag.
-runCommandParameters_runCommandTargets :: Lens.Lens' RunCommandParameters (Prelude.NonEmpty RunCommandTarget)
-runCommandParameters_runCommandTargets = Lens.lens (\RunCommandParameters' {runCommandTargets} -> runCommandTargets) (\s@RunCommandParameters' {} a -> s {runCommandTargets = a} :: RunCommandParameters) Prelude.. Prelude._Coerce
+runCommandParameters_runCommandTargets :: Lens.Lens' RunCommandParameters (Core.NonEmpty RunCommandTarget)
+runCommandParameters_runCommandTargets = Lens.lens (\RunCommandParameters' {runCommandTargets} -> runCommandTargets) (\s@RunCommandParameters' {} a -> s {runCommandTargets = a} :: RunCommandParameters) Core.. Lens._Coerce
 
-instance Prelude.FromJSON RunCommandParameters where
+instance Core.FromJSON RunCommandParameters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RunCommandParameters"
       ( \x ->
           RunCommandParameters'
-            Prelude.<$> (x Prelude..: "RunCommandTargets")
+            Core.<$> (x Core..: "RunCommandTargets")
       )
 
-instance Prelude.Hashable RunCommandParameters
+instance Core.Hashable RunCommandParameters
 
-instance Prelude.NFData RunCommandParameters
+instance Core.NFData RunCommandParameters
 
-instance Prelude.ToJSON RunCommandParameters where
+instance Core.ToJSON RunCommandParameters where
   toJSON RunCommandParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("RunCommandTargets" Prelude..= runCommandTargets)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("RunCommandTargets" Core..= runCommandTargets)
           ]
       )

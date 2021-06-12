@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.ELB.ConfigureHealthCheck
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,11 +56,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newConfigureHealthCheck' smart constructor.
 data ConfigureHealthCheck = ConfigureHealthCheck'
   { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The configuration information.
     healthCheck :: HealthCheck
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfigureHealthCheck' with all optional fields omitted.
@@ -76,7 +75,7 @@ data ConfigureHealthCheck = ConfigureHealthCheck'
 -- 'healthCheck', 'configureHealthCheck_healthCheck' - The configuration information.
 newConfigureHealthCheck ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'healthCheck'
   HealthCheck ->
   ConfigureHealthCheck
@@ -90,16 +89,16 @@ newConfigureHealthCheck
       }
 
 -- | The name of the load balancer.
-configureHealthCheck_loadBalancerName :: Lens.Lens' ConfigureHealthCheck Prelude.Text
+configureHealthCheck_loadBalancerName :: Lens.Lens' ConfigureHealthCheck Core.Text
 configureHealthCheck_loadBalancerName = Lens.lens (\ConfigureHealthCheck' {loadBalancerName} -> loadBalancerName) (\s@ConfigureHealthCheck' {} a -> s {loadBalancerName = a} :: ConfigureHealthCheck)
 
 -- | The configuration information.
 configureHealthCheck_healthCheck :: Lens.Lens' ConfigureHealthCheck HealthCheck
 configureHealthCheck_healthCheck = Lens.lens (\ConfigureHealthCheck' {healthCheck} -> healthCheck) (\s@ConfigureHealthCheck' {} a -> s {healthCheck = a} :: ConfigureHealthCheck)
 
-instance Prelude.AWSRequest ConfigureHealthCheck where
+instance Core.AWSRequest ConfigureHealthCheck where
   type
-    Rs ConfigureHealthCheck =
+    AWSResponse ConfigureHealthCheck =
       ConfigureHealthCheckResponse
   request = Request.postQuery defaultService
   response =
@@ -107,29 +106,28 @@ instance Prelude.AWSRequest ConfigureHealthCheck where
       "ConfigureHealthCheckResult"
       ( \s h x ->
           ConfigureHealthCheckResponse'
-            Prelude.<$> (x Prelude..@? "HealthCheck")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "HealthCheck")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ConfigureHealthCheck
+instance Core.Hashable ConfigureHealthCheck
 
-instance Prelude.NFData ConfigureHealthCheck
+instance Core.NFData ConfigureHealthCheck
 
-instance Prelude.ToHeaders ConfigureHealthCheck where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ConfigureHealthCheck where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ConfigureHealthCheck where
-  toPath = Prelude.const "/"
+instance Core.ToPath ConfigureHealthCheck where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ConfigureHealthCheck where
+instance Core.ToQuery ConfigureHealthCheck where
   toQuery ConfigureHealthCheck' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ConfigureHealthCheck" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
-        "HealthCheck" Prelude.=: healthCheck
+          Core.=: ("ConfigureHealthCheck" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
+        "HealthCheck" Core.=: healthCheck
       ]
 
 -- | Contains the output of ConfigureHealthCheck.
@@ -137,11 +135,11 @@ instance Prelude.ToQuery ConfigureHealthCheck where
 -- /See:/ 'newConfigureHealthCheckResponse' smart constructor.
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
   { -- | The updated health check.
-    healthCheck :: Prelude.Maybe HealthCheck,
+    healthCheck :: Core.Maybe HealthCheck,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfigureHealthCheckResponse' with all optional fields omitted.
@@ -156,21 +154,21 @@ data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
 -- 'httpStatus', 'configureHealthCheckResponse_httpStatus' - The response's http status code.
 newConfigureHealthCheckResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ConfigureHealthCheckResponse
 newConfigureHealthCheckResponse pHttpStatus_ =
   ConfigureHealthCheckResponse'
     { healthCheck =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated health check.
-configureHealthCheckResponse_healthCheck :: Lens.Lens' ConfigureHealthCheckResponse (Prelude.Maybe HealthCheck)
+configureHealthCheckResponse_healthCheck :: Lens.Lens' ConfigureHealthCheckResponse (Core.Maybe HealthCheck)
 configureHealthCheckResponse_healthCheck = Lens.lens (\ConfigureHealthCheckResponse' {healthCheck} -> healthCheck) (\s@ConfigureHealthCheckResponse' {} a -> s {healthCheck = a} :: ConfigureHealthCheckResponse)
 
 -- | The response's http status code.
-configureHealthCheckResponse_httpStatus :: Lens.Lens' ConfigureHealthCheckResponse Prelude.Int
+configureHealthCheckResponse_httpStatus :: Lens.Lens' ConfigureHealthCheckResponse Core.Int
 configureHealthCheckResponse_httpStatus = Lens.lens (\ConfigureHealthCheckResponse' {httpStatus} -> httpStatus) (\s@ConfigureHealthCheckResponse' {} a -> s {httpStatus = a} :: ConfigureHealthCheckResponse)
 
-instance Prelude.NFData ConfigureHealthCheckResponse
+instance Core.NFData ConfigureHealthCheckResponse

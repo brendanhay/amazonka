@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CloudFront.GetCachePolicyConfig
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +59,9 @@ data GetCachePolicyConfig = GetCachePolicyConfig'
     -- identifier using @ListDistributions@ or @GetDistribution@. If the cache
     -- policy is not attached to a cache behavior, you can get the identifier
     -- using @ListCachePolicies@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCachePolicyConfig' with all optional fields omitted.
@@ -79,7 +78,7 @@ data GetCachePolicyConfig = GetCachePolicyConfig'
 -- using @ListCachePolicies@.
 newGetCachePolicyConfig ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetCachePolicyConfig
 newGetCachePolicyConfig pId_ =
   GetCachePolicyConfig' {id = pId_}
@@ -89,51 +88,51 @@ newGetCachePolicyConfig pId_ =
 -- identifier using @ListDistributions@ or @GetDistribution@. If the cache
 -- policy is not attached to a cache behavior, you can get the identifier
 -- using @ListCachePolicies@.
-getCachePolicyConfig_id :: Lens.Lens' GetCachePolicyConfig Prelude.Text
+getCachePolicyConfig_id :: Lens.Lens' GetCachePolicyConfig Core.Text
 getCachePolicyConfig_id = Lens.lens (\GetCachePolicyConfig' {id} -> id) (\s@GetCachePolicyConfig' {} a -> s {id = a} :: GetCachePolicyConfig)
 
-instance Prelude.AWSRequest GetCachePolicyConfig where
+instance Core.AWSRequest GetCachePolicyConfig where
   type
-    Rs GetCachePolicyConfig =
+    AWSResponse GetCachePolicyConfig =
       GetCachePolicyConfigResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetCachePolicyConfigResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCachePolicyConfig
+instance Core.Hashable GetCachePolicyConfig
 
-instance Prelude.NFData GetCachePolicyConfig
+instance Core.NFData GetCachePolicyConfig
 
-instance Prelude.ToHeaders GetCachePolicyConfig where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetCachePolicyConfig where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetCachePolicyConfig where
+instance Core.ToPath GetCachePolicyConfig where
   toPath GetCachePolicyConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/cache-policy/",
-        Prelude.toBS id,
+        Core.toBS id,
         "/config"
       ]
 
-instance Prelude.ToQuery GetCachePolicyConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCachePolicyConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCachePolicyConfigResponse' smart constructor.
 data GetCachePolicyConfigResponse = GetCachePolicyConfigResponse'
   { -- | The current version of the cache policy.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The cache policy configuration.
-    cachePolicyConfig :: Prelude.Maybe CachePolicyConfig,
+    cachePolicyConfig :: Core.Maybe CachePolicyConfig,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCachePolicyConfigResponse' with all optional fields omitted.
@@ -150,26 +149,25 @@ data GetCachePolicyConfigResponse = GetCachePolicyConfigResponse'
 -- 'httpStatus', 'getCachePolicyConfigResponse_httpStatus' - The response's http status code.
 newGetCachePolicyConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCachePolicyConfigResponse
 newGetCachePolicyConfigResponse pHttpStatus_ =
   GetCachePolicyConfigResponse'
-    { eTag =
-        Prelude.Nothing,
-      cachePolicyConfig = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      cachePolicyConfig = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the cache policy.
-getCachePolicyConfigResponse_eTag :: Lens.Lens' GetCachePolicyConfigResponse (Prelude.Maybe Prelude.Text)
+getCachePolicyConfigResponse_eTag :: Lens.Lens' GetCachePolicyConfigResponse (Core.Maybe Core.Text)
 getCachePolicyConfigResponse_eTag = Lens.lens (\GetCachePolicyConfigResponse' {eTag} -> eTag) (\s@GetCachePolicyConfigResponse' {} a -> s {eTag = a} :: GetCachePolicyConfigResponse)
 
 -- | The cache policy configuration.
-getCachePolicyConfigResponse_cachePolicyConfig :: Lens.Lens' GetCachePolicyConfigResponse (Prelude.Maybe CachePolicyConfig)
+getCachePolicyConfigResponse_cachePolicyConfig :: Lens.Lens' GetCachePolicyConfigResponse (Core.Maybe CachePolicyConfig)
 getCachePolicyConfigResponse_cachePolicyConfig = Lens.lens (\GetCachePolicyConfigResponse' {cachePolicyConfig} -> cachePolicyConfig) (\s@GetCachePolicyConfigResponse' {} a -> s {cachePolicyConfig = a} :: GetCachePolicyConfigResponse)
 
 -- | The response's http status code.
-getCachePolicyConfigResponse_httpStatus :: Lens.Lens' GetCachePolicyConfigResponse Prelude.Int
+getCachePolicyConfigResponse_httpStatus :: Lens.Lens' GetCachePolicyConfigResponse Core.Int
 getCachePolicyConfigResponse_httpStatus = Lens.lens (\GetCachePolicyConfigResponse' {httpStatus} -> httpStatus) (\s@GetCachePolicyConfigResponse' {} a -> s {httpStatus = a} :: GetCachePolicyConfigResponse)
 
-instance Prelude.NFData GetCachePolicyConfigResponse
+instance Core.NFData GetCachePolicyConfigResponse

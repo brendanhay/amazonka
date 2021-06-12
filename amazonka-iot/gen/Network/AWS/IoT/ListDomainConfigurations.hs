@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,23 +48,22 @@ module Network.AWS.IoT.ListDomainConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDomainConfigurations' smart constructor.
 data ListDomainConfigurations = ListDomainConfigurations'
   { -- | The result page size.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The type of service delivered by the endpoint.
-    serviceType :: Prelude.Maybe ServiceType,
+    serviceType :: Core.Maybe ServiceType,
     -- | The marker for the next set of results.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomainConfigurations' with all optional fields omitted.
@@ -84,91 +82,90 @@ newListDomainConfigurations ::
   ListDomainConfigurations
 newListDomainConfigurations =
   ListDomainConfigurations'
-    { pageSize =
-        Prelude.Nothing,
-      serviceType = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { pageSize = Core.Nothing,
+      serviceType = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The result page size.
-listDomainConfigurations_pageSize :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Natural)
+listDomainConfigurations_pageSize :: Lens.Lens' ListDomainConfigurations (Core.Maybe Core.Natural)
 listDomainConfigurations_pageSize = Lens.lens (\ListDomainConfigurations' {pageSize} -> pageSize) (\s@ListDomainConfigurations' {} a -> s {pageSize = a} :: ListDomainConfigurations)
 
 -- | The type of service delivered by the endpoint.
-listDomainConfigurations_serviceType :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe ServiceType)
+listDomainConfigurations_serviceType :: Lens.Lens' ListDomainConfigurations (Core.Maybe ServiceType)
 listDomainConfigurations_serviceType = Lens.lens (\ListDomainConfigurations' {serviceType} -> serviceType) (\s@ListDomainConfigurations' {} a -> s {serviceType = a} :: ListDomainConfigurations)
 
 -- | The marker for the next set of results.
-listDomainConfigurations_marker :: Lens.Lens' ListDomainConfigurations (Prelude.Maybe Prelude.Text)
+listDomainConfigurations_marker :: Lens.Lens' ListDomainConfigurations (Core.Maybe Core.Text)
 listDomainConfigurations_marker = Lens.lens (\ListDomainConfigurations' {marker} -> marker) (\s@ListDomainConfigurations' {} a -> s {marker = a} :: ListDomainConfigurations)
 
-instance Pager.AWSPager ListDomainConfigurations where
+instance Core.AWSPager ListDomainConfigurations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listDomainConfigurationsResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listDomainConfigurationsResponse_domainConfigurations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDomainConfigurations_marker
           Lens..~ rs
           Lens.^? listDomainConfigurationsResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDomainConfigurations where
+instance Core.AWSRequest ListDomainConfigurations where
   type
-    Rs ListDomainConfigurations =
+    AWSResponse ListDomainConfigurations =
       ListDomainConfigurationsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDomainConfigurationsResponse'
-            Prelude.<$> ( x Prelude..?> "domainConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "domainConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "nextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDomainConfigurations
+instance Core.Hashable ListDomainConfigurations
 
-instance Prelude.NFData ListDomainConfigurations
+instance Core.NFData ListDomainConfigurations
 
-instance Prelude.ToHeaders ListDomainConfigurations where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListDomainConfigurations where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListDomainConfigurations where
-  toPath = Prelude.const "/domainConfigurations"
+instance Core.ToPath ListDomainConfigurations where
+  toPath = Core.const "/domainConfigurations"
 
-instance Prelude.ToQuery ListDomainConfigurations where
+instance Core.ToQuery ListDomainConfigurations where
   toQuery ListDomainConfigurations' {..} =
-    Prelude.mconcat
-      [ "pageSize" Prelude.=: pageSize,
-        "serviceType" Prelude.=: serviceType,
-        "marker" Prelude.=: marker
+    Core.mconcat
+      [ "pageSize" Core.=: pageSize,
+        "serviceType" Core.=: serviceType,
+        "marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListDomainConfigurationsResponse' smart constructor.
 data ListDomainConfigurationsResponse = ListDomainConfigurationsResponse'
   { -- | A list of objects that contain summary information about the user\'s
     -- domain configurations.
-    domainConfigurations :: Prelude.Maybe [DomainConfigurationSummary],
+    domainConfigurations :: Core.Maybe [DomainConfigurationSummary],
     -- | The marker for the next set of results.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDomainConfigurationsResponse' with all optional fields omitted.
@@ -186,29 +183,27 @@ data ListDomainConfigurationsResponse = ListDomainConfigurationsResponse'
 -- 'httpStatus', 'listDomainConfigurationsResponse_httpStatus' - The response's http status code.
 newListDomainConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDomainConfigurationsResponse
 newListDomainConfigurationsResponse pHttpStatus_ =
   ListDomainConfigurationsResponse'
     { domainConfigurations =
-        Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+        Core.Nothing,
+      nextMarker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of objects that contain summary information about the user\'s
 -- domain configurations.
-listDomainConfigurationsResponse_domainConfigurations :: Lens.Lens' ListDomainConfigurationsResponse (Prelude.Maybe [DomainConfigurationSummary])
-listDomainConfigurationsResponse_domainConfigurations = Lens.lens (\ListDomainConfigurationsResponse' {domainConfigurations} -> domainConfigurations) (\s@ListDomainConfigurationsResponse' {} a -> s {domainConfigurations = a} :: ListDomainConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDomainConfigurationsResponse_domainConfigurations :: Lens.Lens' ListDomainConfigurationsResponse (Core.Maybe [DomainConfigurationSummary])
+listDomainConfigurationsResponse_domainConfigurations = Lens.lens (\ListDomainConfigurationsResponse' {domainConfigurations} -> domainConfigurations) (\s@ListDomainConfigurationsResponse' {} a -> s {domainConfigurations = a} :: ListDomainConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The marker for the next set of results.
-listDomainConfigurationsResponse_nextMarker :: Lens.Lens' ListDomainConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listDomainConfigurationsResponse_nextMarker :: Lens.Lens' ListDomainConfigurationsResponse (Core.Maybe Core.Text)
 listDomainConfigurationsResponse_nextMarker = Lens.lens (\ListDomainConfigurationsResponse' {nextMarker} -> nextMarker) (\s@ListDomainConfigurationsResponse' {} a -> s {nextMarker = a} :: ListDomainConfigurationsResponse)
 
 -- | The response's http status code.
-listDomainConfigurationsResponse_httpStatus :: Lens.Lens' ListDomainConfigurationsResponse Prelude.Int
+listDomainConfigurationsResponse_httpStatus :: Lens.Lens' ListDomainConfigurationsResponse Core.Int
 listDomainConfigurationsResponse_httpStatus = Lens.lens (\ListDomainConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListDomainConfigurationsResponse' {} a -> s {httpStatus = a} :: ListDomainConfigurationsResponse)
 
-instance
-  Prelude.NFData
-    ListDomainConfigurationsResponse
+instance Core.NFData ListDomainConfigurationsResponse

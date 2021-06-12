@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,9 +61,9 @@ module Network.AWS.GameLift.StopGameSessionPlacement
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,9 +72,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStopGameSessionPlacement' smart constructor.
 data StopGameSessionPlacement = StopGameSessionPlacement'
   { -- | A unique identifier for a game session placement to cancel.
-    placementId :: Prelude.Text
+    placementId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopGameSessionPlacement' with all optional fields omitted.
@@ -88,7 +87,7 @@ data StopGameSessionPlacement = StopGameSessionPlacement'
 -- 'placementId', 'stopGameSessionPlacement_placementId' - A unique identifier for a game session placement to cancel.
 newStopGameSessionPlacement ::
   -- | 'placementId'
-  Prelude.Text ->
+  Core.Text ->
   StopGameSessionPlacement
 newStopGameSessionPlacement pPlacementId_ =
   StopGameSessionPlacement'
@@ -97,55 +96,51 @@ newStopGameSessionPlacement pPlacementId_ =
     }
 
 -- | A unique identifier for a game session placement to cancel.
-stopGameSessionPlacement_placementId :: Lens.Lens' StopGameSessionPlacement Prelude.Text
+stopGameSessionPlacement_placementId :: Lens.Lens' StopGameSessionPlacement Core.Text
 stopGameSessionPlacement_placementId = Lens.lens (\StopGameSessionPlacement' {placementId} -> placementId) (\s@StopGameSessionPlacement' {} a -> s {placementId = a} :: StopGameSessionPlacement)
 
-instance Prelude.AWSRequest StopGameSessionPlacement where
+instance Core.AWSRequest StopGameSessionPlacement where
   type
-    Rs StopGameSessionPlacement =
+    AWSResponse StopGameSessionPlacement =
       StopGameSessionPlacementResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopGameSessionPlacementResponse'
-            Prelude.<$> (x Prelude..?> "GameSessionPlacement")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GameSessionPlacement")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopGameSessionPlacement
+instance Core.Hashable StopGameSessionPlacement
 
-instance Prelude.NFData StopGameSessionPlacement
+instance Core.NFData StopGameSessionPlacement
 
-instance Prelude.ToHeaders StopGameSessionPlacement where
+instance Core.ToHeaders StopGameSessionPlacement where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.StopGameSessionPlacement" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.StopGameSessionPlacement" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopGameSessionPlacement where
+instance Core.ToJSON StopGameSessionPlacement where
   toJSON StopGameSessionPlacement' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("PlacementId" Prelude..= placementId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("PlacementId" Core..= placementId)]
       )
 
-instance Prelude.ToPath StopGameSessionPlacement where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopGameSessionPlacement where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopGameSessionPlacement where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopGameSessionPlacement where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -153,11 +148,11 @@ instance Prelude.ToQuery StopGameSessionPlacement where
 data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
   { -- | Object that describes the canceled game session placement, with
     -- @CANCELLED@ status and an end time stamp.
-    gameSessionPlacement :: Prelude.Maybe GameSessionPlacement,
+    gameSessionPlacement :: Core.Maybe GameSessionPlacement,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopGameSessionPlacementResponse' with all optional fields omitted.
@@ -173,24 +168,22 @@ data StopGameSessionPlacementResponse = StopGameSessionPlacementResponse'
 -- 'httpStatus', 'stopGameSessionPlacementResponse_httpStatus' - The response's http status code.
 newStopGameSessionPlacementResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopGameSessionPlacementResponse
 newStopGameSessionPlacementResponse pHttpStatus_ =
   StopGameSessionPlacementResponse'
     { gameSessionPlacement =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the canceled game session placement, with
 -- @CANCELLED@ status and an end time stamp.
-stopGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' StopGameSessionPlacementResponse (Prelude.Maybe GameSessionPlacement)
+stopGameSessionPlacementResponse_gameSessionPlacement :: Lens.Lens' StopGameSessionPlacementResponse (Core.Maybe GameSessionPlacement)
 stopGameSessionPlacementResponse_gameSessionPlacement = Lens.lens (\StopGameSessionPlacementResponse' {gameSessionPlacement} -> gameSessionPlacement) (\s@StopGameSessionPlacementResponse' {} a -> s {gameSessionPlacement = a} :: StopGameSessionPlacementResponse)
 
 -- | The response's http status code.
-stopGameSessionPlacementResponse_httpStatus :: Lens.Lens' StopGameSessionPlacementResponse Prelude.Int
+stopGameSessionPlacementResponse_httpStatus :: Lens.Lens' StopGameSessionPlacementResponse Core.Int
 stopGameSessionPlacementResponse_httpStatus = Lens.lens (\StopGameSessionPlacementResponse' {httpStatus} -> httpStatus) (\s@StopGameSessionPlacementResponse' {} a -> s {httpStatus = a} :: StopGameSessionPlacementResponse)
 
-instance
-  Prelude.NFData
-    StopGameSessionPlacementResponse
+instance Core.NFData StopGameSessionPlacementResponse

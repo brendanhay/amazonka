@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringStatisticsResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The statistics resource for a monitoring job.
 --
 -- /See:/ 'newMonitoringStatisticsResource' smart constructor.
 data MonitoringStatisticsResource = MonitoringStatisticsResource'
   { -- | The Amazon S3 URI for the statistics resource.
-    s3Uri :: Prelude.Maybe Prelude.Text
+    s3Uri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringStatisticsResource' with all optional fields omitted.
@@ -44,36 +43,26 @@ data MonitoringStatisticsResource = MonitoringStatisticsResource'
 newMonitoringStatisticsResource ::
   MonitoringStatisticsResource
 newMonitoringStatisticsResource =
-  MonitoringStatisticsResource'
-    { s3Uri =
-        Prelude.Nothing
-    }
+  MonitoringStatisticsResource' {s3Uri = Core.Nothing}
 
 -- | The Amazon S3 URI for the statistics resource.
-monitoringStatisticsResource_s3Uri :: Lens.Lens' MonitoringStatisticsResource (Prelude.Maybe Prelude.Text)
+monitoringStatisticsResource_s3Uri :: Lens.Lens' MonitoringStatisticsResource (Core.Maybe Core.Text)
 monitoringStatisticsResource_s3Uri = Lens.lens (\MonitoringStatisticsResource' {s3Uri} -> s3Uri) (\s@MonitoringStatisticsResource' {} a -> s {s3Uri = a} :: MonitoringStatisticsResource)
 
-instance
-  Prelude.FromJSON
-    MonitoringStatisticsResource
-  where
+instance Core.FromJSON MonitoringStatisticsResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringStatisticsResource"
       ( \x ->
           MonitoringStatisticsResource'
-            Prelude.<$> (x Prelude..:? "S3Uri")
+            Core.<$> (x Core..:? "S3Uri")
       )
 
-instance
-  Prelude.Hashable
-    MonitoringStatisticsResource
+instance Core.Hashable MonitoringStatisticsResource
 
-instance Prelude.NFData MonitoringStatisticsResource
+instance Core.NFData MonitoringStatisticsResource
 
-instance Prelude.ToJSON MonitoringStatisticsResource where
+instance Core.ToJSON MonitoringStatisticsResource where
   toJSON MonitoringStatisticsResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("S3Uri" Prelude..=) Prelude.<$> s3Uri]
-      )
+    Core.object
+      (Core.catMaybes [("S3Uri" Core..=) Core.<$> s3Uri])

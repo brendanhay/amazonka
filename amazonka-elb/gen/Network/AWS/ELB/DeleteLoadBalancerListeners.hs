@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteLoadBalancerListeners' smart constructor.
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
   { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The client port numbers of the listeners.
-    loadBalancerPorts :: [Prelude.Int]
+    loadBalancerPorts :: [Core.Int]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerListeners' with all optional fields omitted.
@@ -70,29 +69,26 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
 -- 'loadBalancerPorts', 'deleteLoadBalancerListeners_loadBalancerPorts' - The client port numbers of the listeners.
 newDeleteLoadBalancerListeners ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLoadBalancerListeners
 newDeleteLoadBalancerListeners pLoadBalancerName_ =
   DeleteLoadBalancerListeners'
     { loadBalancerName =
         pLoadBalancerName_,
-      loadBalancerPorts = Prelude.mempty
+      loadBalancerPorts = Core.mempty
     }
 
 -- | The name of the load balancer.
-deleteLoadBalancerListeners_loadBalancerName :: Lens.Lens' DeleteLoadBalancerListeners Prelude.Text
+deleteLoadBalancerListeners_loadBalancerName :: Lens.Lens' DeleteLoadBalancerListeners Core.Text
 deleteLoadBalancerListeners_loadBalancerName = Lens.lens (\DeleteLoadBalancerListeners' {loadBalancerName} -> loadBalancerName) (\s@DeleteLoadBalancerListeners' {} a -> s {loadBalancerName = a} :: DeleteLoadBalancerListeners)
 
 -- | The client port numbers of the listeners.
-deleteLoadBalancerListeners_loadBalancerPorts :: Lens.Lens' DeleteLoadBalancerListeners [Prelude.Int]
-deleteLoadBalancerListeners_loadBalancerPorts = Lens.lens (\DeleteLoadBalancerListeners' {loadBalancerPorts} -> loadBalancerPorts) (\s@DeleteLoadBalancerListeners' {} a -> s {loadBalancerPorts = a} :: DeleteLoadBalancerListeners) Prelude.. Prelude._Coerce
+deleteLoadBalancerListeners_loadBalancerPorts :: Lens.Lens' DeleteLoadBalancerListeners [Core.Int]
+deleteLoadBalancerListeners_loadBalancerPorts = Lens.lens (\DeleteLoadBalancerListeners' {loadBalancerPorts} -> loadBalancerPorts) (\s@DeleteLoadBalancerListeners' {} a -> s {loadBalancerPorts = a} :: DeleteLoadBalancerListeners) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    DeleteLoadBalancerListeners
-  where
+instance Core.AWSRequest DeleteLoadBalancerListeners where
   type
-    Rs DeleteLoadBalancerListeners =
+    AWSResponse DeleteLoadBalancerListeners =
       DeleteLoadBalancerListenersResponse
   request = Request.postQuery defaultService
   response =
@@ -100,34 +96,28 @@ instance
       "DeleteLoadBalancerListenersResult"
       ( \s h x ->
           DeleteLoadBalancerListenersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLoadBalancerListeners
+instance Core.Hashable DeleteLoadBalancerListeners
 
-instance Prelude.NFData DeleteLoadBalancerListeners
+instance Core.NFData DeleteLoadBalancerListeners
 
-instance
-  Prelude.ToHeaders
-    DeleteLoadBalancerListeners
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteLoadBalancerListeners where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteLoadBalancerListeners where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLoadBalancerListeners where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLoadBalancerListeners where
+instance Core.ToQuery DeleteLoadBalancerListeners where
   toQuery DeleteLoadBalancerListeners' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteLoadBalancerListeners" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
+          Core.=: ("DeleteLoadBalancerListeners" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
         "LoadBalancerPorts"
-          Prelude.=: Prelude.toQueryList "member" loadBalancerPorts
+          Core.=: Core.toQueryList "member" loadBalancerPorts
       ]
 
 -- | Contains the output of DeleteLoadBalancerListeners.
@@ -135,9 +125,9 @@ instance Prelude.ToQuery DeleteLoadBalancerListeners where
 -- /See:/ 'newDeleteLoadBalancerListenersResponse' smart constructor.
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLoadBalancerListenersResponse' with all optional fields omitted.
@@ -150,7 +140,7 @@ data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
 -- 'httpStatus', 'deleteLoadBalancerListenersResponse_httpStatus' - The response's http status code.
 newDeleteLoadBalancerListenersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteLoadBalancerListenersResponse
 newDeleteLoadBalancerListenersResponse pHttpStatus_ =
   DeleteLoadBalancerListenersResponse'
@@ -159,9 +149,9 @@ newDeleteLoadBalancerListenersResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLoadBalancerListenersResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerListenersResponse Prelude.Int
+deleteLoadBalancerListenersResponse_httpStatus :: Lens.Lens' DeleteLoadBalancerListenersResponse Core.Int
 deleteLoadBalancerListenersResponse_httpStatus = Lens.lens (\DeleteLoadBalancerListenersResponse' {httpStatus} -> httpStatus) (\s@DeleteLoadBalancerListenersResponse' {} a -> s {httpStatus = a} :: DeleteLoadBalancerListenersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteLoadBalancerListenersResponse

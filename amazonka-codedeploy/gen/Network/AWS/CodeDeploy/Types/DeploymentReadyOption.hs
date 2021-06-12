@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeDeploy.Types.DeploymentReadyOption where
 
 import Network.AWS.CodeDeploy.Types.DeploymentReadyAction
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about how traffic is rerouted to instances in a replacement
 -- environment in a blue\/green deployment.
@@ -32,7 +31,7 @@ data DeploymentReadyOption = DeploymentReadyOption'
   { -- | The number of minutes to wait before the status of a blue\/green
     -- deployment is changed to Stopped if rerouting is not started manually.
     -- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
-    waitTimeInMinutes :: Prelude.Maybe Prelude.Int,
+    waitTimeInMinutes :: Core.Maybe Core.Int,
     -- | Information about when to reroute traffic from an original environment
     -- to a replacement environment in a blue\/green deployment.
     --
@@ -44,9 +43,9 @@ data DeploymentReadyOption = DeploymentReadyOption'
     --     unless traffic rerouting is started using ContinueDeployment. If
     --     traffic rerouting is not started before the end of the specified
     --     wait period, the deployment status is changed to Stopped.
-    actionOnTimeout :: Prelude.Maybe DeploymentReadyAction
+    actionOnTimeout :: Core.Maybe DeploymentReadyAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeploymentReadyOption' with all optional fields omitted.
@@ -76,14 +75,14 @@ newDeploymentReadyOption ::
 newDeploymentReadyOption =
   DeploymentReadyOption'
     { waitTimeInMinutes =
-        Prelude.Nothing,
-      actionOnTimeout = Prelude.Nothing
+        Core.Nothing,
+      actionOnTimeout = Core.Nothing
     }
 
 -- | The number of minutes to wait before the status of a blue\/green
 -- deployment is changed to Stopped if rerouting is not started manually.
 -- Applies only to the @STOP_DEPLOYMENT@ option for @actionOnTimeout@.
-deploymentReadyOption_waitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe Prelude.Int)
+deploymentReadyOption_waitTimeInMinutes :: Lens.Lens' DeploymentReadyOption (Core.Maybe Core.Int)
 deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {waitTimeInMinutes} -> waitTimeInMinutes) (\s@DeploymentReadyOption' {} a -> s {waitTimeInMinutes = a} :: DeploymentReadyOption)
 
 -- | Information about when to reroute traffic from an original environment
@@ -97,30 +96,30 @@ deploymentReadyOption_waitTimeInMinutes = Lens.lens (\DeploymentReadyOption' {wa
 --     unless traffic rerouting is started using ContinueDeployment. If
 --     traffic rerouting is not started before the end of the specified
 --     wait period, the deployment status is changed to Stopped.
-deploymentReadyOption_actionOnTimeout :: Lens.Lens' DeploymentReadyOption (Prelude.Maybe DeploymentReadyAction)
+deploymentReadyOption_actionOnTimeout :: Lens.Lens' DeploymentReadyOption (Core.Maybe DeploymentReadyAction)
 deploymentReadyOption_actionOnTimeout = Lens.lens (\DeploymentReadyOption' {actionOnTimeout} -> actionOnTimeout) (\s@DeploymentReadyOption' {} a -> s {actionOnTimeout = a} :: DeploymentReadyOption)
 
-instance Prelude.FromJSON DeploymentReadyOption where
+instance Core.FromJSON DeploymentReadyOption where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeploymentReadyOption"
       ( \x ->
           DeploymentReadyOption'
-            Prelude.<$> (x Prelude..:? "waitTimeInMinutes")
-            Prelude.<*> (x Prelude..:? "actionOnTimeout")
+            Core.<$> (x Core..:? "waitTimeInMinutes")
+            Core.<*> (x Core..:? "actionOnTimeout")
       )
 
-instance Prelude.Hashable DeploymentReadyOption
+instance Core.Hashable DeploymentReadyOption
 
-instance Prelude.NFData DeploymentReadyOption
+instance Core.NFData DeploymentReadyOption
 
-instance Prelude.ToJSON DeploymentReadyOption where
+instance Core.ToJSON DeploymentReadyOption where
   toJSON DeploymentReadyOption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("waitTimeInMinutes" Prelude..=)
-              Prelude.<$> waitTimeInMinutes,
-            ("actionOnTimeout" Prelude..=)
-              Prelude.<$> actionOnTimeout
+    Core.object
+      ( Core.catMaybes
+          [ ("waitTimeInMinutes" Core..=)
+              Core.<$> waitTimeInMinutes,
+            ("actionOnTimeout" Core..=)
+              Core.<$> actionOnTimeout
           ]
       )

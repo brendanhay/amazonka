@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatastoreActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The datastore activity that specifies where to store the processed data.
 --
 -- /See:/ 'newDatastoreActivity' smart constructor.
 data DatastoreActivity = DatastoreActivity'
   { -- | The name of the datastore activity.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The name of the data store where processed messages are stored.
-    datastoreName :: Prelude.Text
+    datastoreName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatastoreActivity' with all optional fields omitted.
@@ -47,9 +46,9 @@ data DatastoreActivity = DatastoreActivity'
 -- 'datastoreName', 'datastoreActivity_datastoreName' - The name of the data store where processed messages are stored.
 newDatastoreActivity ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'datastoreName'
-  Prelude.Text ->
+  Core.Text ->
   DatastoreActivity
 newDatastoreActivity pName_ pDatastoreName_ =
   DatastoreActivity'
@@ -58,33 +57,32 @@ newDatastoreActivity pName_ pDatastoreName_ =
     }
 
 -- | The name of the datastore activity.
-datastoreActivity_name :: Lens.Lens' DatastoreActivity Prelude.Text
+datastoreActivity_name :: Lens.Lens' DatastoreActivity Core.Text
 datastoreActivity_name = Lens.lens (\DatastoreActivity' {name} -> name) (\s@DatastoreActivity' {} a -> s {name = a} :: DatastoreActivity)
 
 -- | The name of the data store where processed messages are stored.
-datastoreActivity_datastoreName :: Lens.Lens' DatastoreActivity Prelude.Text
+datastoreActivity_datastoreName :: Lens.Lens' DatastoreActivity Core.Text
 datastoreActivity_datastoreName = Lens.lens (\DatastoreActivity' {datastoreName} -> datastoreName) (\s@DatastoreActivity' {} a -> s {datastoreName = a} :: DatastoreActivity)
 
-instance Prelude.FromJSON DatastoreActivity where
+instance Core.FromJSON DatastoreActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatastoreActivity"
       ( \x ->
           DatastoreActivity'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "datastoreName")
+            Core.<$> (x Core..: "name")
+            Core.<*> (x Core..: "datastoreName")
       )
 
-instance Prelude.Hashable DatastoreActivity
+instance Core.Hashable DatastoreActivity
 
-instance Prelude.NFData DatastoreActivity
+instance Core.NFData DatastoreActivity
 
-instance Prelude.ToJSON DatastoreActivity where
+instance Core.ToJSON DatastoreActivity where
   toJSON DatastoreActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just
-              ("datastoreName" Prelude..= datastoreName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("datastoreName" Core..= datastoreName)
           ]
       )

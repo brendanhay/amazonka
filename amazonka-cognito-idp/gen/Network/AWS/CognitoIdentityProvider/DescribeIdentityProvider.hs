@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,19 +41,19 @@ module Network.AWS.CognitoIdentityProvider.DescribeIdentityProvider
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeIdentityProvider' smart constructor.
 data DescribeIdentityProvider = DescribeIdentityProvider'
   { -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The identity provider name.
-    providerName :: Prelude.Text
+    providerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityProvider' with all optional fields omitted.
@@ -69,9 +68,9 @@ data DescribeIdentityProvider = DescribeIdentityProvider'
 -- 'providerName', 'describeIdentityProvider_providerName' - The identity provider name.
 newDescribeIdentityProvider ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'providerName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeIdentityProvider
 newDescribeIdentityProvider
   pUserPoolId_
@@ -83,69 +82,66 @@ newDescribeIdentityProvider
       }
 
 -- | The user pool ID.
-describeIdentityProvider_userPoolId :: Lens.Lens' DescribeIdentityProvider Prelude.Text
+describeIdentityProvider_userPoolId :: Lens.Lens' DescribeIdentityProvider Core.Text
 describeIdentityProvider_userPoolId = Lens.lens (\DescribeIdentityProvider' {userPoolId} -> userPoolId) (\s@DescribeIdentityProvider' {} a -> s {userPoolId = a} :: DescribeIdentityProvider)
 
 -- | The identity provider name.
-describeIdentityProvider_providerName :: Lens.Lens' DescribeIdentityProvider Prelude.Text
+describeIdentityProvider_providerName :: Lens.Lens' DescribeIdentityProvider Core.Text
 describeIdentityProvider_providerName = Lens.lens (\DescribeIdentityProvider' {providerName} -> providerName) (\s@DescribeIdentityProvider' {} a -> s {providerName = a} :: DescribeIdentityProvider)
 
-instance Prelude.AWSRequest DescribeIdentityProvider where
+instance Core.AWSRequest DescribeIdentityProvider where
   type
-    Rs DescribeIdentityProvider =
+    AWSResponse DescribeIdentityProvider =
       DescribeIdentityProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeIdentityProviderResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "IdentityProvider")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "IdentityProvider")
       )
 
-instance Prelude.Hashable DescribeIdentityProvider
+instance Core.Hashable DescribeIdentityProvider
 
-instance Prelude.NFData DescribeIdentityProvider
+instance Core.NFData DescribeIdentityProvider
 
-instance Prelude.ToHeaders DescribeIdentityProvider where
+instance Core.ToHeaders DescribeIdentityProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.DescribeIdentityProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.DescribeIdentityProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeIdentityProvider where
+instance Core.ToJSON DescribeIdentityProvider where
   toJSON DescribeIdentityProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just
-              ("ProviderName" Prelude..= providerName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("ProviderName" Core..= providerName)
           ]
       )
 
-instance Prelude.ToPath DescribeIdentityProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeIdentityProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeIdentityProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeIdentityProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeIdentityProviderResponse' smart constructor.
 data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The identity provider that was deleted.
     identityProvider :: IdentityProviderType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityProviderResponse' with all optional fields omitted.
@@ -160,7 +156,7 @@ data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
 -- 'identityProvider', 'describeIdentityProviderResponse_identityProvider' - The identity provider that was deleted.
 newDescribeIdentityProviderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'identityProvider'
   IdentityProviderType ->
   DescribeIdentityProviderResponse
@@ -174,13 +170,11 @@ newDescribeIdentityProviderResponse
       }
 
 -- | The response's http status code.
-describeIdentityProviderResponse_httpStatus :: Lens.Lens' DescribeIdentityProviderResponse Prelude.Int
+describeIdentityProviderResponse_httpStatus :: Lens.Lens' DescribeIdentityProviderResponse Core.Int
 describeIdentityProviderResponse_httpStatus = Lens.lens (\DescribeIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityProviderResponse' {} a -> s {httpStatus = a} :: DescribeIdentityProviderResponse)
 
 -- | The identity provider that was deleted.
 describeIdentityProviderResponse_identityProvider :: Lens.Lens' DescribeIdentityProviderResponse IdentityProviderType
 describeIdentityProviderResponse_identityProvider = Lens.lens (\DescribeIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@DescribeIdentityProviderResponse' {} a -> s {identityProvider = a} :: DescribeIdentityProviderResponse)
 
-instance
-  Prelude.NFData
-    DescribeIdentityProviderResponse
+instance Core.NFData DescribeIdentityProviderResponse

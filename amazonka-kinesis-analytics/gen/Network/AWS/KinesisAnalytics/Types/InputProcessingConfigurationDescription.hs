@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration information about an input processor. Currently,
 -- the only input processor available is
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data InputProcessingConfigurationDescription = InputProcessingConfigurationDescription'
   { -- | Provides configuration information about the associated
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html InputLambdaProcessorDescription>.
-    inputLambdaProcessorDescription :: Prelude.Maybe InputLambdaProcessorDescription
+    inputLambdaProcessorDescription :: Core.Maybe InputLambdaProcessorDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputProcessingConfigurationDescription' with all optional fields omitted.
@@ -51,30 +50,30 @@ newInputProcessingConfigurationDescription ::
 newInputProcessingConfigurationDescription =
   InputProcessingConfigurationDescription'
     { inputLambdaProcessorDescription =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Provides configuration information about the associated
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html InputLambdaProcessorDescription>.
-inputProcessingConfigurationDescription_inputLambdaProcessorDescription :: Lens.Lens' InputProcessingConfigurationDescription (Prelude.Maybe InputLambdaProcessorDescription)
+inputProcessingConfigurationDescription_inputLambdaProcessorDescription :: Lens.Lens' InputProcessingConfigurationDescription (Core.Maybe InputLambdaProcessorDescription)
 inputProcessingConfigurationDescription_inputLambdaProcessorDescription = Lens.lens (\InputProcessingConfigurationDescription' {inputLambdaProcessorDescription} -> inputLambdaProcessorDescription) (\s@InputProcessingConfigurationDescription' {} a -> s {inputLambdaProcessorDescription = a} :: InputProcessingConfigurationDescription)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     InputProcessingConfigurationDescription
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputProcessingConfigurationDescription"
       ( \x ->
           InputProcessingConfigurationDescription'
-            Prelude.<$> (x Prelude..:? "InputLambdaProcessorDescription")
+            Core.<$> (x Core..:? "InputLambdaProcessorDescription")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InputProcessingConfigurationDescription
 
 instance
-  Prelude.NFData
+  Core.NFData
     InputProcessingConfigurationDescription

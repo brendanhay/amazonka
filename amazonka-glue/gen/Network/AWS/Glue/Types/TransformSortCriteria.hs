@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.TransformSortCriteria where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.SortDirectionType
 import Network.AWS.Glue.Types.TransformSortColumnType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The sorting criteria that are associated with the machine learning
 -- transform.
@@ -37,7 +36,7 @@ data TransformSortCriteria = TransformSortCriteria'
     -- associated with the machine learning transform.
     sortDirection :: SortDirectionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformSortCriteria' with all optional fields omitted.
@@ -74,16 +73,15 @@ transformSortCriteria_column = Lens.lens (\TransformSortCriteria' {column} -> co
 transformSortCriteria_sortDirection :: Lens.Lens' TransformSortCriteria SortDirectionType
 transformSortCriteria_sortDirection = Lens.lens (\TransformSortCriteria' {sortDirection} -> sortDirection) (\s@TransformSortCriteria' {} a -> s {sortDirection = a} :: TransformSortCriteria)
 
-instance Prelude.Hashable TransformSortCriteria
+instance Core.Hashable TransformSortCriteria
 
-instance Prelude.NFData TransformSortCriteria
+instance Core.NFData TransformSortCriteria
 
-instance Prelude.ToJSON TransformSortCriteria where
+instance Core.ToJSON TransformSortCriteria where
   toJSON TransformSortCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Column" Prelude..= column),
-            Prelude.Just
-              ("SortDirection" Prelude..= sortDirection)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Column" Core..= column),
+            Core.Just ("SortDirection" Core..= sortDirection)
           ]
       )

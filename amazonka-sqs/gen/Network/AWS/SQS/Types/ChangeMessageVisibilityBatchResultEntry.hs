@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Encloses the @Id@ of an entry in @ ChangeMessageVisibilityBatch.@
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
   { -- | Represents a message whose visibility timeout has been changed
     -- successfully.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChangeMessageVisibilityBatchResultEntry' with all optional fields omitted.
@@ -45,28 +44,28 @@ data ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResul
 -- successfully.
 newChangeMessageVisibilityBatchResultEntry ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   ChangeMessageVisibilityBatchResultEntry
 newChangeMessageVisibilityBatchResultEntry pId_ =
   ChangeMessageVisibilityBatchResultEntry' {id = pId_}
 
 -- | Represents a message whose visibility timeout has been changed
 -- successfully.
-changeMessageVisibilityBatchResultEntry_id :: Lens.Lens' ChangeMessageVisibilityBatchResultEntry Prelude.Text
+changeMessageVisibilityBatchResultEntry_id :: Lens.Lens' ChangeMessageVisibilityBatchResultEntry Core.Text
 changeMessageVisibilityBatchResultEntry_id = Lens.lens (\ChangeMessageVisibilityBatchResultEntry' {id} -> id) (\s@ChangeMessageVisibilityBatchResultEntry' {} a -> s {id = a} :: ChangeMessageVisibilityBatchResultEntry)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ChangeMessageVisibilityBatchResultEntry
   where
   parseXML x =
     ChangeMessageVisibilityBatchResultEntry'
-      Prelude.<$> (x Prelude..@ "Id")
+      Core.<$> (x Core..@ "Id")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ChangeMessageVisibilityBatchResultEntry
 
 instance
-  Prelude.NFData
+  Core.NFData
     ChangeMessageVisibilityBatchResultEntry

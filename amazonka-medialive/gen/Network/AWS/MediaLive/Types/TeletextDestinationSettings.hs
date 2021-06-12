@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.TeletextDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Teletext Destination Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data TeletextDestinationSettings = TeletextDestinationSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TeletextDestinationSettings' with all optional fields omitted.
@@ -40,16 +39,15 @@ newTeletextDestinationSettings ::
 newTeletextDestinationSettings =
   TeletextDestinationSettings'
 
-instance Prelude.FromJSON TeletextDestinationSettings where
+instance Core.FromJSON TeletextDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TeletextDestinationSettings"
-      (\x -> Prelude.pure TeletextDestinationSettings')
+      (\x -> Core.pure TeletextDestinationSettings')
 
-instance Prelude.Hashable TeletextDestinationSettings
+instance Core.Hashable TeletextDestinationSettings
 
-instance Prelude.NFData TeletextDestinationSettings
+instance Core.NFData TeletextDestinationSettings
 
-instance Prelude.ToJSON TeletextDestinationSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON TeletextDestinationSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

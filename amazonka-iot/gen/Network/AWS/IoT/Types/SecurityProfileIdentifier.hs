@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.SecurityProfileIdentifier where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifying information for a Device Defender security profile.
 --
 -- /See:/ 'newSecurityProfileIdentifier' smart constructor.
 data SecurityProfileIdentifier = SecurityProfileIdentifier'
   { -- | The name you\'ve given to the security profile.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ARN of the security profile.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityProfileIdentifier' with all optional fields omitted.
@@ -47,9 +46,9 @@ data SecurityProfileIdentifier = SecurityProfileIdentifier'
 -- 'arn', 'securityProfileIdentifier_arn' - The ARN of the security profile.
 newSecurityProfileIdentifier ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   SecurityProfileIdentifier
 newSecurityProfileIdentifier pName_ pArn_ =
   SecurityProfileIdentifier'
@@ -58,23 +57,22 @@ newSecurityProfileIdentifier pName_ pArn_ =
     }
 
 -- | The name you\'ve given to the security profile.
-securityProfileIdentifier_name :: Lens.Lens' SecurityProfileIdentifier Prelude.Text
+securityProfileIdentifier_name :: Lens.Lens' SecurityProfileIdentifier Core.Text
 securityProfileIdentifier_name = Lens.lens (\SecurityProfileIdentifier' {name} -> name) (\s@SecurityProfileIdentifier' {} a -> s {name = a} :: SecurityProfileIdentifier)
 
 -- | The ARN of the security profile.
-securityProfileIdentifier_arn :: Lens.Lens' SecurityProfileIdentifier Prelude.Text
+securityProfileIdentifier_arn :: Lens.Lens' SecurityProfileIdentifier Core.Text
 securityProfileIdentifier_arn = Lens.lens (\SecurityProfileIdentifier' {arn} -> arn) (\s@SecurityProfileIdentifier' {} a -> s {arn = a} :: SecurityProfileIdentifier)
 
-instance Prelude.FromJSON SecurityProfileIdentifier where
+instance Core.FromJSON SecurityProfileIdentifier where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SecurityProfileIdentifier"
       ( \x ->
           SecurityProfileIdentifier'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "arn")
+            Core.<$> (x Core..: "name") Core.<*> (x Core..: "arn")
       )
 
-instance Prelude.Hashable SecurityProfileIdentifier
+instance Core.Hashable SecurityProfileIdentifier
 
-instance Prelude.NFData SecurityProfileIdentifier
+instance Core.NFData SecurityProfileIdentifier

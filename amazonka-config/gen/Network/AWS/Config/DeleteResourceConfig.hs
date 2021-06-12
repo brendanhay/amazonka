@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.Config.DeleteResourceConfig
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResourceConfig' smart constructor.
 data DeleteResourceConfig = DeleteResourceConfig'
   { -- | The type of the resource.
-    resourceType :: Prelude.Text,
+    resourceType :: Core.Text,
     -- | Unique identifier of the resource.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceConfig' with all optional fields omitted.
@@ -68,9 +67,9 @@ data DeleteResourceConfig = DeleteResourceConfig'
 -- 'resourceId', 'deleteResourceConfig_resourceId' - Unique identifier of the resource.
 newDeleteResourceConfig ::
   -- | 'resourceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteResourceConfig
 newDeleteResourceConfig pResourceType_ pResourceId_ =
   DeleteResourceConfig'
@@ -80,61 +79,58 @@ newDeleteResourceConfig pResourceType_ pResourceId_ =
     }
 
 -- | The type of the resource.
-deleteResourceConfig_resourceType :: Lens.Lens' DeleteResourceConfig Prelude.Text
+deleteResourceConfig_resourceType :: Lens.Lens' DeleteResourceConfig Core.Text
 deleteResourceConfig_resourceType = Lens.lens (\DeleteResourceConfig' {resourceType} -> resourceType) (\s@DeleteResourceConfig' {} a -> s {resourceType = a} :: DeleteResourceConfig)
 
 -- | Unique identifier of the resource.
-deleteResourceConfig_resourceId :: Lens.Lens' DeleteResourceConfig Prelude.Text
+deleteResourceConfig_resourceId :: Lens.Lens' DeleteResourceConfig Core.Text
 deleteResourceConfig_resourceId = Lens.lens (\DeleteResourceConfig' {resourceId} -> resourceId) (\s@DeleteResourceConfig' {} a -> s {resourceId = a} :: DeleteResourceConfig)
 
-instance Prelude.AWSRequest DeleteResourceConfig where
+instance Core.AWSRequest DeleteResourceConfig where
   type
-    Rs DeleteResourceConfig =
+    AWSResponse DeleteResourceConfig =
       DeleteResourceConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteResourceConfigResponse'
 
-instance Prelude.Hashable DeleteResourceConfig
+instance Core.Hashable DeleteResourceConfig
 
-instance Prelude.NFData DeleteResourceConfig
+instance Core.NFData DeleteResourceConfig
 
-instance Prelude.ToHeaders DeleteResourceConfig where
+instance Core.ToHeaders DeleteResourceConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeleteResourceConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeleteResourceConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteResourceConfig where
+instance Core.ToJSON DeleteResourceConfig where
   toJSON DeleteResourceConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceType" Prelude..= resourceType),
-            Prelude.Just ("ResourceId" Prelude..= resourceId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceType" Core..= resourceType),
+            Core.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
-instance Prelude.ToPath DeleteResourceConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteResourceConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteResourceConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResourceConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResourceConfigResponse' smart constructor.
 data DeleteResourceConfigResponse = DeleteResourceConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceConfigResponse' with all optional fields omitted.
@@ -145,4 +141,4 @@ newDeleteResourceConfigResponse ::
 newDeleteResourceConfigResponse =
   DeleteResourceConfigResponse'
 
-instance Prelude.NFData DeleteResourceConfigResponse
+instance Core.NFData DeleteResourceConfigResponse

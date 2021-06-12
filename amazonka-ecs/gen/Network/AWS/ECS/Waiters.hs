@@ -15,115 +15,112 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.DescribeServices
 import Network.AWS.ECS.DescribeTasks
 import Network.AWS.ECS.Lens
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.
-newTasksRunning :: Waiter.Wait DescribeTasks
+newTasksRunning :: Core.Wait DescribeTasks
 newTasksRunning =
-  Waiter.Wait
-    { Waiter._waitName = "TasksRunning",
-      Waiter._waitAttempts = 100,
-      Waiter._waitDelay = 6,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAny
+  Core.Wait
+    { Core._waitName = "TasksRunning",
+      Core._waitAttempts = 100,
+      Core._waitDelay = 6,
+      Core._waitAcceptors =
+        [ Core.matchAny
             "STOPPED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeTasksResponse_tasks Prelude.. Lens._Just)
+                    (describeTasksResponse_tasks Core.. Lens._Just)
                 )
-                Prelude.. task_lastStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. task_lastStatus
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "MISSING"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeTasksResponse_failures
-                        Prelude.. Lens._Just
-                    )
+                    (describeTasksResponse_failures Core.. Lens._Just)
                 )
-                Prelude.. failure_reason
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. failure_reason
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "RUNNING"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeTasksResponse_tasks Prelude.. Lens._Just)
+                    (describeTasksResponse_tasks Core.. Lens._Just)
                 )
-                Prelude.. task_lastStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. task_lastStatus
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ECS.DescribeTasks' every 6 seconds until a successful state is reached. An error is returned after 100 failed checks.
-newTasksStopped :: Waiter.Wait DescribeTasks
+newTasksStopped :: Core.Wait DescribeTasks
 newTasksStopped =
-  Waiter.Wait
-    { Waiter._waitName = "TasksStopped",
-      Waiter._waitAttempts = 100,
-      Waiter._waitDelay = 6,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "TasksStopped",
+      Core._waitAttempts = 100,
+      Core._waitDelay = 6,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "STOPPED"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeTasksResponse_tasks Prelude.. Lens._Just)
+                    (describeTasksResponse_tasks Core.. Lens._Just)
                 )
-                Prelude.. task_lastStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. task_lastStatus
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ECS.DescribeServices' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newServicesInactive :: Waiter.Wait DescribeServices
+newServicesInactive :: Core.Wait DescribeServices
 newServicesInactive =
-  Waiter.Wait
-    { Waiter._waitName = "ServicesInactive",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAny
+  Core.Wait
+    { Core._waitName = "ServicesInactive",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAny
             "MISSING"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeServicesResponse_failures
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. failure_reason
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. failure_reason
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "INACTIVE"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeServicesResponse_services
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. containerService_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. containerService_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

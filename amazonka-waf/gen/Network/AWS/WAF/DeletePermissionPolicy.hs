@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.WAF.DeletePermissionPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -62,9 +61,9 @@ data DeletePermissionPolicy = DeletePermissionPolicy'
     -- delete the policy.
     --
     -- The user making the request must be the owner of the RuleGroup.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePermissionPolicy' with all optional fields omitted.
@@ -80,7 +79,7 @@ data DeletePermissionPolicy = DeletePermissionPolicy'
 -- The user making the request must be the owner of the RuleGroup.
 newDeletePermissionPolicy ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   DeletePermissionPolicy
 newDeletePermissionPolicy pResourceArn_ =
   DeletePermissionPolicy'
@@ -92,61 +91,57 @@ newDeletePermissionPolicy pResourceArn_ =
 -- delete the policy.
 --
 -- The user making the request must be the owner of the RuleGroup.
-deletePermissionPolicy_resourceArn :: Lens.Lens' DeletePermissionPolicy Prelude.Text
+deletePermissionPolicy_resourceArn :: Lens.Lens' DeletePermissionPolicy Core.Text
 deletePermissionPolicy_resourceArn = Lens.lens (\DeletePermissionPolicy' {resourceArn} -> resourceArn) (\s@DeletePermissionPolicy' {} a -> s {resourceArn = a} :: DeletePermissionPolicy)
 
-instance Prelude.AWSRequest DeletePermissionPolicy where
+instance Core.AWSRequest DeletePermissionPolicy where
   type
-    Rs DeletePermissionPolicy =
+    AWSResponse DeletePermissionPolicy =
       DeletePermissionPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePermissionPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePermissionPolicy
+instance Core.Hashable DeletePermissionPolicy
 
-instance Prelude.NFData DeletePermissionPolicy
+instance Core.NFData DeletePermissionPolicy
 
-instance Prelude.ToHeaders DeletePermissionPolicy where
+instance Core.ToHeaders DeletePermissionPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.DeletePermissionPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.DeletePermissionPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeletePermissionPolicy where
+instance Core.ToJSON DeletePermissionPolicy where
   toJSON DeletePermissionPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceArn" Prelude..= resourceArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ResourceArn" Core..= resourceArn)]
       )
 
-instance Prelude.ToPath DeletePermissionPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePermissionPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePermissionPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePermissionPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePermissionPolicyResponse' smart constructor.
 data DeletePermissionPolicyResponse = DeletePermissionPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePermissionPolicyResponse' with all optional fields omitted.
@@ -159,7 +154,7 @@ data DeletePermissionPolicyResponse = DeletePermissionPolicyResponse'
 -- 'httpStatus', 'deletePermissionPolicyResponse_httpStatus' - The response's http status code.
 newDeletePermissionPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeletePermissionPolicyResponse
 newDeletePermissionPolicyResponse pHttpStatus_ =
   DeletePermissionPolicyResponse'
@@ -168,9 +163,7 @@ newDeletePermissionPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deletePermissionPolicyResponse_httpStatus :: Lens.Lens' DeletePermissionPolicyResponse Prelude.Int
+deletePermissionPolicyResponse_httpStatus :: Lens.Lens' DeletePermissionPolicyResponse Core.Int
 deletePermissionPolicyResponse_httpStatus = Lens.lens (\DeletePermissionPolicyResponse' {httpStatus} -> httpStatus) (\s@DeletePermissionPolicyResponse' {} a -> s {httpStatus = a} :: DeletePermissionPolicyResponse)
 
-instance
-  Prelude.NFData
-    DeletePermissionPolicyResponse
+instance Core.NFData DeletePermissionPolicyResponse

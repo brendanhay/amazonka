@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.SES.ReorderReceiptRuleSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -63,12 +62,12 @@ import Network.AWS.SES.Types
 -- /See:/ 'newReorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
   { -- | The name of the receipt rule set to reorder.
-    ruleSetName :: Prelude.Text,
+    ruleSetName :: Core.Text,
     -- | A list of the specified receipt rule set\'s receipt rules in the order
     -- that you want to put them.
-    ruleNames :: [Prelude.Text]
+    ruleNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReorderReceiptRuleSet' with all optional fields omitted.
@@ -84,26 +83,26 @@ data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
 -- that you want to put them.
 newReorderReceiptRuleSet ::
   -- | 'ruleSetName'
-  Prelude.Text ->
+  Core.Text ->
   ReorderReceiptRuleSet
 newReorderReceiptRuleSet pRuleSetName_ =
   ReorderReceiptRuleSet'
     { ruleSetName = pRuleSetName_,
-      ruleNames = Prelude.mempty
+      ruleNames = Core.mempty
     }
 
 -- | The name of the receipt rule set to reorder.
-reorderReceiptRuleSet_ruleSetName :: Lens.Lens' ReorderReceiptRuleSet Prelude.Text
+reorderReceiptRuleSet_ruleSetName :: Lens.Lens' ReorderReceiptRuleSet Core.Text
 reorderReceiptRuleSet_ruleSetName = Lens.lens (\ReorderReceiptRuleSet' {ruleSetName} -> ruleSetName) (\s@ReorderReceiptRuleSet' {} a -> s {ruleSetName = a} :: ReorderReceiptRuleSet)
 
 -- | A list of the specified receipt rule set\'s receipt rules in the order
 -- that you want to put them.
-reorderReceiptRuleSet_ruleNames :: Lens.Lens' ReorderReceiptRuleSet [Prelude.Text]
-reorderReceiptRuleSet_ruleNames = Lens.lens (\ReorderReceiptRuleSet' {ruleNames} -> ruleNames) (\s@ReorderReceiptRuleSet' {} a -> s {ruleNames = a} :: ReorderReceiptRuleSet) Prelude.. Prelude._Coerce
+reorderReceiptRuleSet_ruleNames :: Lens.Lens' ReorderReceiptRuleSet [Core.Text]
+reorderReceiptRuleSet_ruleNames = Lens.lens (\ReorderReceiptRuleSet' {ruleNames} -> ruleNames) (\s@ReorderReceiptRuleSet' {} a -> s {ruleNames = a} :: ReorderReceiptRuleSet) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest ReorderReceiptRuleSet where
+instance Core.AWSRequest ReorderReceiptRuleSet where
   type
-    Rs ReorderReceiptRuleSet =
+    AWSResponse ReorderReceiptRuleSet =
       ReorderReceiptRuleSetResponse
   request = Request.postQuery defaultService
   response =
@@ -111,29 +110,28 @@ instance Prelude.AWSRequest ReorderReceiptRuleSet where
       "ReorderReceiptRuleSetResult"
       ( \s h x ->
           ReorderReceiptRuleSetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ReorderReceiptRuleSet
+instance Core.Hashable ReorderReceiptRuleSet
 
-instance Prelude.NFData ReorderReceiptRuleSet
+instance Core.NFData ReorderReceiptRuleSet
 
-instance Prelude.ToHeaders ReorderReceiptRuleSet where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ReorderReceiptRuleSet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ReorderReceiptRuleSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath ReorderReceiptRuleSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ReorderReceiptRuleSet where
+instance Core.ToQuery ReorderReceiptRuleSet where
   toQuery ReorderReceiptRuleSet' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ReorderReceiptRuleSet" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "RuleSetName" Prelude.=: ruleSetName,
+          Core.=: ("ReorderReceiptRuleSet" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "RuleSetName" Core.=: ruleSetName,
         "RuleNames"
-          Prelude.=: Prelude.toQueryList "member" ruleNames
+          Core.=: Core.toQueryList "member" ruleNames
       ]
 
 -- | An empty element returned on a successful request.
@@ -141,9 +139,9 @@ instance Prelude.ToQuery ReorderReceiptRuleSet where
 -- /See:/ 'newReorderReceiptRuleSetResponse' smart constructor.
 data ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReorderReceiptRuleSetResponse' with all optional fields omitted.
@@ -156,7 +154,7 @@ data ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
 -- 'httpStatus', 'reorderReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newReorderReceiptRuleSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ReorderReceiptRuleSetResponse
 newReorderReceiptRuleSetResponse pHttpStatus_ =
   ReorderReceiptRuleSetResponse'
@@ -165,7 +163,7 @@ newReorderReceiptRuleSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-reorderReceiptRuleSetResponse_httpStatus :: Lens.Lens' ReorderReceiptRuleSetResponse Prelude.Int
+reorderReceiptRuleSetResponse_httpStatus :: Lens.Lens' ReorderReceiptRuleSetResponse Core.Int
 reorderReceiptRuleSetResponse_httpStatus = Lens.lens (\ReorderReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@ReorderReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: ReorderReceiptRuleSetResponse)
 
-instance Prelude.NFData ReorderReceiptRuleSetResponse
+instance Core.NFData ReorderReceiptRuleSetResponse

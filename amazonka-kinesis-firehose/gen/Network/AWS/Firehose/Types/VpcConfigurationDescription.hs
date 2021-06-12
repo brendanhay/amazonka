@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.VpcConfigurationDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of the VPC of the Amazon ES destination.
 --
@@ -44,7 +43,7 @@ data VpcConfigurationDescription = VpcConfigurationDescription'
     -- here. For more information about ENI quota, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis Network Interfaces>
     -- in the Amazon VPC Quotas topic.
-    subnetIds :: Prelude.NonEmpty Prelude.Text,
+    subnetIds :: Core.NonEmpty Core.Text,
     -- | The ARN of the IAM role that the delivery stream uses to create
     -- endpoints in the destination VPC. You can use your existing Kinesis Data
     -- Firehose delivery role or you can specify a new role. In either case,
@@ -70,7 +69,7 @@ data VpcConfigurationDescription = VpcConfigurationDescription'
     -- If you revoke these permissions after you create the delivery stream,
     -- Kinesis Data Firehose can\'t scale out by creating more ENIs when
     -- necessary. You might therefore see a degradation in performance.
-    roleARN :: Prelude.Text,
+    roleARN :: Core.Text,
     -- | The IDs of the security groups that Kinesis Data Firehose uses when it
     -- creates ENIs in the VPC of the Amazon ES destination. You can use the
     -- same security group that the Amazon ES domain uses or different ones. If
@@ -83,11 +82,11 @@ data VpcConfigurationDescription = VpcConfigurationDescription'
     -- about security group rules, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules Security group rules>
     -- in the Amazon VPC documentation.
-    securityGroupIds :: Prelude.NonEmpty Prelude.Text,
+    securityGroupIds :: Core.NonEmpty Core.Text,
     -- | The ID of the Amazon ES destination\'s VPC.
-    vpcId :: Prelude.Text
+    vpcId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcConfigurationDescription' with all optional fields omitted.
@@ -157,13 +156,13 @@ data VpcConfigurationDescription = VpcConfigurationDescription'
 -- 'vpcId', 'vpcConfigurationDescription_vpcId' - The ID of the Amazon ES destination\'s VPC.
 newVpcConfigurationDescription ::
   -- | 'subnetIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   -- | 'roleARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'securityGroupIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   VpcConfigurationDescription
 newVpcConfigurationDescription
   pSubnetIds_
@@ -172,10 +171,10 @@ newVpcConfigurationDescription
   pVpcId_ =
     VpcConfigurationDescription'
       { subnetIds =
-          Prelude._Coerce Lens.# pSubnetIds_,
+          Lens._Coerce Lens.# pSubnetIds_,
         roleARN = pRoleARN_,
         securityGroupIds =
-          Prelude._Coerce Lens.# pSecurityGroupIds_,
+          Lens._Coerce Lens.# pSecurityGroupIds_,
         vpcId = pVpcId_
       }
 
@@ -196,8 +195,8 @@ newVpcConfigurationDescription
 -- here. For more information about ENI quota, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis Network Interfaces>
 -- in the Amazon VPC Quotas topic.
-vpcConfigurationDescription_subnetIds :: Lens.Lens' VpcConfigurationDescription (Prelude.NonEmpty Prelude.Text)
-vpcConfigurationDescription_subnetIds = Lens.lens (\VpcConfigurationDescription' {subnetIds} -> subnetIds) (\s@VpcConfigurationDescription' {} a -> s {subnetIds = a} :: VpcConfigurationDescription) Prelude.. Prelude._Coerce
+vpcConfigurationDescription_subnetIds :: Lens.Lens' VpcConfigurationDescription (Core.NonEmpty Core.Text)
+vpcConfigurationDescription_subnetIds = Lens.lens (\VpcConfigurationDescription' {subnetIds} -> subnetIds) (\s@VpcConfigurationDescription' {} a -> s {subnetIds = a} :: VpcConfigurationDescription) Core.. Lens._Coerce
 
 -- | The ARN of the IAM role that the delivery stream uses to create
 -- endpoints in the destination VPC. You can use your existing Kinesis Data
@@ -224,7 +223,7 @@ vpcConfigurationDescription_subnetIds = Lens.lens (\VpcConfigurationDescription'
 -- If you revoke these permissions after you create the delivery stream,
 -- Kinesis Data Firehose can\'t scale out by creating more ENIs when
 -- necessary. You might therefore see a degradation in performance.
-vpcConfigurationDescription_roleARN :: Lens.Lens' VpcConfigurationDescription Prelude.Text
+vpcConfigurationDescription_roleARN :: Lens.Lens' VpcConfigurationDescription Core.Text
 vpcConfigurationDescription_roleARN = Lens.lens (\VpcConfigurationDescription' {roleARN} -> roleARN) (\s@VpcConfigurationDescription' {} a -> s {roleARN = a} :: VpcConfigurationDescription)
 
 -- | The IDs of the security groups that Kinesis Data Firehose uses when it
@@ -239,25 +238,25 @@ vpcConfigurationDescription_roleARN = Lens.lens (\VpcConfigurationDescription' {
 -- about security group rules, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules Security group rules>
 -- in the Amazon VPC documentation.
-vpcConfigurationDescription_securityGroupIds :: Lens.Lens' VpcConfigurationDescription (Prelude.NonEmpty Prelude.Text)
-vpcConfigurationDescription_securityGroupIds = Lens.lens (\VpcConfigurationDescription' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigurationDescription' {} a -> s {securityGroupIds = a} :: VpcConfigurationDescription) Prelude.. Prelude._Coerce
+vpcConfigurationDescription_securityGroupIds :: Lens.Lens' VpcConfigurationDescription (Core.NonEmpty Core.Text)
+vpcConfigurationDescription_securityGroupIds = Lens.lens (\VpcConfigurationDescription' {securityGroupIds} -> securityGroupIds) (\s@VpcConfigurationDescription' {} a -> s {securityGroupIds = a} :: VpcConfigurationDescription) Core.. Lens._Coerce
 
 -- | The ID of the Amazon ES destination\'s VPC.
-vpcConfigurationDescription_vpcId :: Lens.Lens' VpcConfigurationDescription Prelude.Text
+vpcConfigurationDescription_vpcId :: Lens.Lens' VpcConfigurationDescription Core.Text
 vpcConfigurationDescription_vpcId = Lens.lens (\VpcConfigurationDescription' {vpcId} -> vpcId) (\s@VpcConfigurationDescription' {} a -> s {vpcId = a} :: VpcConfigurationDescription)
 
-instance Prelude.FromJSON VpcConfigurationDescription where
+instance Core.FromJSON VpcConfigurationDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VpcConfigurationDescription"
       ( \x ->
           VpcConfigurationDescription'
-            Prelude.<$> (x Prelude..: "SubnetIds")
-            Prelude.<*> (x Prelude..: "RoleARN")
-            Prelude.<*> (x Prelude..: "SecurityGroupIds")
-            Prelude.<*> (x Prelude..: "VpcId")
+            Core.<$> (x Core..: "SubnetIds")
+            Core.<*> (x Core..: "RoleARN")
+            Core.<*> (x Core..: "SecurityGroupIds")
+            Core.<*> (x Core..: "VpcId")
       )
 
-instance Prelude.Hashable VpcConfigurationDescription
+instance Core.Hashable VpcConfigurationDescription
 
-instance Prelude.NFData VpcConfigurationDescription
+instance Core.NFData VpcConfigurationDescription

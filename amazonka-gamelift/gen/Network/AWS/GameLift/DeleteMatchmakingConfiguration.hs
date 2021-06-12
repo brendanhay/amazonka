@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.GameLift.DeleteMatchmakingConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,9 +70,9 @@ import qualified Network.AWS.Response as Response
 data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
   { -- | A unique identifier for a matchmaking configuration. You can use either
     -- the configuration name or ARN value.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMatchmakingConfiguration' with all optional fields omitted.
@@ -87,85 +86,68 @@ data DeleteMatchmakingConfiguration = DeleteMatchmakingConfiguration'
 -- the configuration name or ARN value.
 newDeleteMatchmakingConfiguration ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMatchmakingConfiguration
 newDeleteMatchmakingConfiguration pName_ =
   DeleteMatchmakingConfiguration' {name = pName_}
 
 -- | A unique identifier for a matchmaking configuration. You can use either
 -- the configuration name or ARN value.
-deleteMatchmakingConfiguration_name :: Lens.Lens' DeleteMatchmakingConfiguration Prelude.Text
+deleteMatchmakingConfiguration_name :: Lens.Lens' DeleteMatchmakingConfiguration Core.Text
 deleteMatchmakingConfiguration_name = Lens.lens (\DeleteMatchmakingConfiguration' {name} -> name) (\s@DeleteMatchmakingConfiguration' {} a -> s {name = a} :: DeleteMatchmakingConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteMatchmakingConfiguration
   where
   type
-    Rs DeleteMatchmakingConfiguration =
+    AWSResponse DeleteMatchmakingConfiguration =
       DeleteMatchmakingConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMatchmakingConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DeleteMatchmakingConfiguration
+instance Core.Hashable DeleteMatchmakingConfiguration
+
+instance Core.NFData DeleteMatchmakingConfiguration
 
 instance
-  Prelude.NFData
-    DeleteMatchmakingConfiguration
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteMatchmakingConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DeleteMatchmakingConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DeleteMatchmakingConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DeleteMatchmakingConfiguration
-  where
+instance Core.ToJSON DeleteMatchmakingConfiguration where
   toJSON DeleteMatchmakingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance
-  Prelude.ToPath
-    DeleteMatchmakingConfiguration
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteMatchmakingConfiguration where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteMatchmakingConfiguration
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMatchmakingConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteMatchmakingConfigurationResponse' smart constructor.
 data DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMatchmakingConfigurationResponse' with all optional fields omitted.
@@ -178,7 +160,7 @@ data DeleteMatchmakingConfigurationResponse = DeleteMatchmakingConfigurationResp
 -- 'httpStatus', 'deleteMatchmakingConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteMatchmakingConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteMatchmakingConfigurationResponse
 newDeleteMatchmakingConfigurationResponse
   pHttpStatus_ =
@@ -188,9 +170,9 @@ newDeleteMatchmakingConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteMatchmakingConfigurationResponse_httpStatus :: Lens.Lens' DeleteMatchmakingConfigurationResponse Prelude.Int
+deleteMatchmakingConfigurationResponse_httpStatus :: Lens.Lens' DeleteMatchmakingConfigurationResponse Core.Int
 deleteMatchmakingConfigurationResponse_httpStatus = Lens.lens (\DeleteMatchmakingConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteMatchmakingConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteMatchmakingConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteMatchmakingConfigurationResponse

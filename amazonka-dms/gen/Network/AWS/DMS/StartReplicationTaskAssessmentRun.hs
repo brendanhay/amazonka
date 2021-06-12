@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.DMS.StartReplicationTaskAssessmentRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,7 +67,7 @@ import qualified Network.AWS.Response as Response
 data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
   { -- | ARN of a custom KMS encryption key that you specify when you set
     -- @ResultEncryptionMode@ to @\"SSE_KMS@\".
-    resultKmsKeyArn :: Prelude.Maybe Prelude.Text,
+    resultKmsKeyArn :: Core.Maybe Core.Text,
     -- | Encryption mode that you can specify to encrypt the results of this
     -- assessment run. If you don\'t specify this request parameter, AWS DMS
     -- stores the assessment run results without encryption. You can specify
@@ -80,7 +79,7 @@ data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
     -- -   @\"SSE_KMS\"@ – AWS Key Management Service (AWS KMS) encryption.
     --     This encryption can use either a custom KMS encryption key that you
     --     specify or the default KMS encryption key that DMS provides.
-    resultEncryptionMode :: Prelude.Maybe Prelude.Text,
+    resultEncryptionMode :: Core.Maybe Core.Text,
     -- | Space-separated list of names for specific individual assessments that
     -- you want to exclude. These names come from the default list of
     -- individual assessments that AWS DMS supports for the associated
@@ -93,7 +92,7 @@ data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
     -- supports for the associated migration task, run the
     -- @DescribeApplicableIndividualAssessments@ operation using its own
     -- @ReplicationTaskArn@ request parameter.
-    exclude :: Prelude.Maybe [Prelude.Text],
+    exclude :: Core.Maybe [Core.Text],
     -- | Space-separated list of names for specific individual assessments that
     -- you want to include. These names come from the default list of
     -- individual assessments that AWS DMS supports for the associated
@@ -106,22 +105,22 @@ data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
     -- supports for the associated migration task, run the
     -- @DescribeApplicableIndividualAssessments@ operation using its own
     -- @ReplicationTaskArn@ request parameter.
-    includeOnly :: Prelude.Maybe [Prelude.Text],
+    includeOnly :: Core.Maybe [Core.Text],
     -- | Folder within an Amazon S3 bucket where you want AWS DMS to store the
     -- results of this assessment run.
-    resultLocationFolder :: Prelude.Maybe Prelude.Text,
+    resultLocationFolder :: Core.Maybe Core.Text,
     -- | Amazon Resource Name (ARN) of the migration task associated with the
     -- premigration assessment run that you want to start.
-    replicationTaskArn :: Prelude.Text,
+    replicationTaskArn :: Core.Text,
     -- | ARN of a service role needed to start the assessment run.
-    serviceAccessRoleArn :: Prelude.Text,
+    serviceAccessRoleArn :: Core.Text,
     -- | Amazon S3 bucket where you want AWS DMS to store the results of this
     -- assessment run.
-    resultLocationBucket :: Prelude.Text,
+    resultLocationBucket :: Core.Text,
     -- | Unique name to identify the assessment run.
-    assessmentRunName :: Prelude.Text
+    assessmentRunName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartReplicationTaskAssessmentRun' with all optional fields omitted.
@@ -186,13 +185,13 @@ data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
 -- 'assessmentRunName', 'startReplicationTaskAssessmentRun_assessmentRunName' - Unique name to identify the assessment run.
 newStartReplicationTaskAssessmentRun ::
   -- | 'replicationTaskArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceAccessRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resultLocationBucket'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'assessmentRunName'
-  Prelude.Text ->
+  Core.Text ->
   StartReplicationTaskAssessmentRun
 newStartReplicationTaskAssessmentRun
   pReplicationTaskArn_
@@ -201,11 +200,11 @@ newStartReplicationTaskAssessmentRun
   pAssessmentRunName_ =
     StartReplicationTaskAssessmentRun'
       { resultKmsKeyArn =
-          Prelude.Nothing,
-        resultEncryptionMode = Prelude.Nothing,
-        exclude = Prelude.Nothing,
-        includeOnly = Prelude.Nothing,
-        resultLocationFolder = Prelude.Nothing,
+          Core.Nothing,
+        resultEncryptionMode = Core.Nothing,
+        exclude = Core.Nothing,
+        includeOnly = Core.Nothing,
+        resultLocationFolder = Core.Nothing,
         replicationTaskArn =
           pReplicationTaskArn_,
         serviceAccessRoleArn =
@@ -217,7 +216,7 @@ newStartReplicationTaskAssessmentRun
 
 -- | ARN of a custom KMS encryption key that you specify when you set
 -- @ResultEncryptionMode@ to @\"SSE_KMS@\".
-startReplicationTaskAssessmentRun_resultKmsKeyArn :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe Prelude.Text)
+startReplicationTaskAssessmentRun_resultKmsKeyArn :: Lens.Lens' StartReplicationTaskAssessmentRun (Core.Maybe Core.Text)
 startReplicationTaskAssessmentRun_resultKmsKeyArn = Lens.lens (\StartReplicationTaskAssessmentRun' {resultKmsKeyArn} -> resultKmsKeyArn) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultKmsKeyArn = a} :: StartReplicationTaskAssessmentRun)
 
 -- | Encryption mode that you can specify to encrypt the results of this
@@ -231,7 +230,7 @@ startReplicationTaskAssessmentRun_resultKmsKeyArn = Lens.lens (\StartReplication
 -- -   @\"SSE_KMS\"@ – AWS Key Management Service (AWS KMS) encryption.
 --     This encryption can use either a custom KMS encryption key that you
 --     specify or the default KMS encryption key that DMS provides.
-startReplicationTaskAssessmentRun_resultEncryptionMode :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe Prelude.Text)
+startReplicationTaskAssessmentRun_resultEncryptionMode :: Lens.Lens' StartReplicationTaskAssessmentRun (Core.Maybe Core.Text)
 startReplicationTaskAssessmentRun_resultEncryptionMode = Lens.lens (\StartReplicationTaskAssessmentRun' {resultEncryptionMode} -> resultEncryptionMode) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultEncryptionMode = a} :: StartReplicationTaskAssessmentRun)
 
 -- | Space-separated list of names for specific individual assessments that
@@ -246,8 +245,8 @@ startReplicationTaskAssessmentRun_resultEncryptionMode = Lens.lens (\StartReplic
 -- supports for the associated migration task, run the
 -- @DescribeApplicableIndividualAssessments@ operation using its own
 -- @ReplicationTaskArn@ request parameter.
-startReplicationTaskAssessmentRun_exclude :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe [Prelude.Text])
-startReplicationTaskAssessmentRun_exclude = Lens.lens (\StartReplicationTaskAssessmentRun' {exclude} -> exclude) (\s@StartReplicationTaskAssessmentRun' {} a -> s {exclude = a} :: StartReplicationTaskAssessmentRun) Prelude.. Lens.mapping Prelude._Coerce
+startReplicationTaskAssessmentRun_exclude :: Lens.Lens' StartReplicationTaskAssessmentRun (Core.Maybe [Core.Text])
+startReplicationTaskAssessmentRun_exclude = Lens.lens (\StartReplicationTaskAssessmentRun' {exclude} -> exclude) (\s@StartReplicationTaskAssessmentRun' {} a -> s {exclude = a} :: StartReplicationTaskAssessmentRun) Core.. Lens.mapping Lens._Coerce
 
 -- | Space-separated list of names for specific individual assessments that
 -- you want to include. These names come from the default list of
@@ -261,126 +260,124 @@ startReplicationTaskAssessmentRun_exclude = Lens.lens (\StartReplicationTaskAsse
 -- supports for the associated migration task, run the
 -- @DescribeApplicableIndividualAssessments@ operation using its own
 -- @ReplicationTaskArn@ request parameter.
-startReplicationTaskAssessmentRun_includeOnly :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe [Prelude.Text])
-startReplicationTaskAssessmentRun_includeOnly = Lens.lens (\StartReplicationTaskAssessmentRun' {includeOnly} -> includeOnly) (\s@StartReplicationTaskAssessmentRun' {} a -> s {includeOnly = a} :: StartReplicationTaskAssessmentRun) Prelude.. Lens.mapping Prelude._Coerce
+startReplicationTaskAssessmentRun_includeOnly :: Lens.Lens' StartReplicationTaskAssessmentRun (Core.Maybe [Core.Text])
+startReplicationTaskAssessmentRun_includeOnly = Lens.lens (\StartReplicationTaskAssessmentRun' {includeOnly} -> includeOnly) (\s@StartReplicationTaskAssessmentRun' {} a -> s {includeOnly = a} :: StartReplicationTaskAssessmentRun) Core.. Lens.mapping Lens._Coerce
 
 -- | Folder within an Amazon S3 bucket where you want AWS DMS to store the
 -- results of this assessment run.
-startReplicationTaskAssessmentRun_resultLocationFolder :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe Prelude.Text)
+startReplicationTaskAssessmentRun_resultLocationFolder :: Lens.Lens' StartReplicationTaskAssessmentRun (Core.Maybe Core.Text)
 startReplicationTaskAssessmentRun_resultLocationFolder = Lens.lens (\StartReplicationTaskAssessmentRun' {resultLocationFolder} -> resultLocationFolder) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultLocationFolder = a} :: StartReplicationTaskAssessmentRun)
 
 -- | Amazon Resource Name (ARN) of the migration task associated with the
 -- premigration assessment run that you want to start.
-startReplicationTaskAssessmentRun_replicationTaskArn :: Lens.Lens' StartReplicationTaskAssessmentRun Prelude.Text
+startReplicationTaskAssessmentRun_replicationTaskArn :: Lens.Lens' StartReplicationTaskAssessmentRun Core.Text
 startReplicationTaskAssessmentRun_replicationTaskArn = Lens.lens (\StartReplicationTaskAssessmentRun' {replicationTaskArn} -> replicationTaskArn) (\s@StartReplicationTaskAssessmentRun' {} a -> s {replicationTaskArn = a} :: StartReplicationTaskAssessmentRun)
 
 -- | ARN of a service role needed to start the assessment run.
-startReplicationTaskAssessmentRun_serviceAccessRoleArn :: Lens.Lens' StartReplicationTaskAssessmentRun Prelude.Text
+startReplicationTaskAssessmentRun_serviceAccessRoleArn :: Lens.Lens' StartReplicationTaskAssessmentRun Core.Text
 startReplicationTaskAssessmentRun_serviceAccessRoleArn = Lens.lens (\StartReplicationTaskAssessmentRun' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@StartReplicationTaskAssessmentRun' {} a -> s {serviceAccessRoleArn = a} :: StartReplicationTaskAssessmentRun)
 
 -- | Amazon S3 bucket where you want AWS DMS to store the results of this
 -- assessment run.
-startReplicationTaskAssessmentRun_resultLocationBucket :: Lens.Lens' StartReplicationTaskAssessmentRun Prelude.Text
+startReplicationTaskAssessmentRun_resultLocationBucket :: Lens.Lens' StartReplicationTaskAssessmentRun Core.Text
 startReplicationTaskAssessmentRun_resultLocationBucket = Lens.lens (\StartReplicationTaskAssessmentRun' {resultLocationBucket} -> resultLocationBucket) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultLocationBucket = a} :: StartReplicationTaskAssessmentRun)
 
 -- | Unique name to identify the assessment run.
-startReplicationTaskAssessmentRun_assessmentRunName :: Lens.Lens' StartReplicationTaskAssessmentRun Prelude.Text
+startReplicationTaskAssessmentRun_assessmentRunName :: Lens.Lens' StartReplicationTaskAssessmentRun Core.Text
 startReplicationTaskAssessmentRun_assessmentRunName = Lens.lens (\StartReplicationTaskAssessmentRun' {assessmentRunName} -> assessmentRunName) (\s@StartReplicationTaskAssessmentRun' {} a -> s {assessmentRunName = a} :: StartReplicationTaskAssessmentRun)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StartReplicationTaskAssessmentRun
   where
   type
-    Rs StartReplicationTaskAssessmentRun =
+    AWSResponse StartReplicationTaskAssessmentRun =
       StartReplicationTaskAssessmentRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartReplicationTaskAssessmentRunResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationTaskAssessmentRun")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationTaskAssessmentRun")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     StartReplicationTaskAssessmentRun
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartReplicationTaskAssessmentRun
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     StartReplicationTaskAssessmentRun
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.StartReplicationTaskAssessmentRun" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     StartReplicationTaskAssessmentRun
   where
   toJSON StartReplicationTaskAssessmentRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResultKmsKeyArn" Prelude..=)
-              Prelude.<$> resultKmsKeyArn,
-            ("ResultEncryptionMode" Prelude..=)
-              Prelude.<$> resultEncryptionMode,
-            ("Exclude" Prelude..=) Prelude.<$> exclude,
-            ("IncludeOnly" Prelude..=) Prelude.<$> includeOnly,
-            ("ResultLocationFolder" Prelude..=)
-              Prelude.<$> resultLocationFolder,
-            Prelude.Just
-              ("ReplicationTaskArn" Prelude..= replicationTaskArn),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("ResultKmsKeyArn" Core..=)
+              Core.<$> resultKmsKeyArn,
+            ("ResultEncryptionMode" Core..=)
+              Core.<$> resultEncryptionMode,
+            ("Exclude" Core..=) Core.<$> exclude,
+            ("IncludeOnly" Core..=) Core.<$> includeOnly,
+            ("ResultLocationFolder" Core..=)
+              Core.<$> resultLocationFolder,
+            Core.Just
+              ("ReplicationTaskArn" Core..= replicationTaskArn),
+            Core.Just
               ( "ServiceAccessRoleArn"
-                  Prelude..= serviceAccessRoleArn
+                  Core..= serviceAccessRoleArn
               ),
-            Prelude.Just
+            Core.Just
               ( "ResultLocationBucket"
-                  Prelude..= resultLocationBucket
+                  Core..= resultLocationBucket
               ),
-            Prelude.Just
-              ("AssessmentRunName" Prelude..= assessmentRunName)
+            Core.Just
+              ("AssessmentRunName" Core..= assessmentRunName)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     StartReplicationTaskAssessmentRun
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     StartReplicationTaskAssessmentRun
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newStartReplicationTaskAssessmentRunResponse' smart constructor.
 data StartReplicationTaskAssessmentRunResponse = StartReplicationTaskAssessmentRunResponse'
   { -- | The premigration assessment run that was started.
-    replicationTaskAssessmentRun :: Prelude.Maybe ReplicationTaskAssessmentRun,
+    replicationTaskAssessmentRun :: Core.Maybe ReplicationTaskAssessmentRun,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartReplicationTaskAssessmentRunResponse' with all optional fields omitted.
@@ -395,24 +392,24 @@ data StartReplicationTaskAssessmentRunResponse = StartReplicationTaskAssessmentR
 -- 'httpStatus', 'startReplicationTaskAssessmentRunResponse_httpStatus' - The response's http status code.
 newStartReplicationTaskAssessmentRunResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartReplicationTaskAssessmentRunResponse
 newStartReplicationTaskAssessmentRunResponse
   pHttpStatus_ =
     StartReplicationTaskAssessmentRunResponse'
       { replicationTaskAssessmentRun =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The premigration assessment run that was started.
-startReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun :: Lens.Lens' StartReplicationTaskAssessmentRunResponse (Prelude.Maybe ReplicationTaskAssessmentRun)
+startReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun :: Lens.Lens' StartReplicationTaskAssessmentRunResponse (Core.Maybe ReplicationTaskAssessmentRun)
 startReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun = Lens.lens (\StartReplicationTaskAssessmentRunResponse' {replicationTaskAssessmentRun} -> replicationTaskAssessmentRun) (\s@StartReplicationTaskAssessmentRunResponse' {} a -> s {replicationTaskAssessmentRun = a} :: StartReplicationTaskAssessmentRunResponse)
 
 -- | The response's http status code.
-startReplicationTaskAssessmentRunResponse_httpStatus :: Lens.Lens' StartReplicationTaskAssessmentRunResponse Prelude.Int
+startReplicationTaskAssessmentRunResponse_httpStatus :: Lens.Lens' StartReplicationTaskAssessmentRunResponse Core.Int
 startReplicationTaskAssessmentRunResponse_httpStatus = Lens.lens (\StartReplicationTaskAssessmentRunResponse' {httpStatus} -> httpStatus) (\s@StartReplicationTaskAssessmentRunResponse' {} a -> s {httpStatus = a} :: StartReplicationTaskAssessmentRunResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartReplicationTaskAssessmentRunResponse

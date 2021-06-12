@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.TraceUser where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.ServiceId
 
 -- | Information about a user recorded in segment documents.
@@ -29,11 +28,11 @@ import Network.AWS.XRay.Types.ServiceId
 -- /See:/ 'newTraceUser' smart constructor.
 data TraceUser = TraceUser'
   { -- | Services that the user\'s request hit.
-    serviceIds :: Prelude.Maybe [ServiceId],
+    serviceIds :: Core.Maybe [ServiceId],
     -- | The user\'s name.
-    userName :: Prelude.Maybe Prelude.Text
+    userName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TraceUser' with all optional fields omitted.
@@ -50,30 +49,28 @@ newTraceUser ::
   TraceUser
 newTraceUser =
   TraceUser'
-    { serviceIds = Prelude.Nothing,
-      userName = Prelude.Nothing
+    { serviceIds = Core.Nothing,
+      userName = Core.Nothing
     }
 
 -- | Services that the user\'s request hit.
-traceUser_serviceIds :: Lens.Lens' TraceUser (Prelude.Maybe [ServiceId])
-traceUser_serviceIds = Lens.lens (\TraceUser' {serviceIds} -> serviceIds) (\s@TraceUser' {} a -> s {serviceIds = a} :: TraceUser) Prelude.. Lens.mapping Prelude._Coerce
+traceUser_serviceIds :: Lens.Lens' TraceUser (Core.Maybe [ServiceId])
+traceUser_serviceIds = Lens.lens (\TraceUser' {serviceIds} -> serviceIds) (\s@TraceUser' {} a -> s {serviceIds = a} :: TraceUser) Core.. Lens.mapping Lens._Coerce
 
 -- | The user\'s name.
-traceUser_userName :: Lens.Lens' TraceUser (Prelude.Maybe Prelude.Text)
+traceUser_userName :: Lens.Lens' TraceUser (Core.Maybe Core.Text)
 traceUser_userName = Lens.lens (\TraceUser' {userName} -> userName) (\s@TraceUser' {} a -> s {userName = a} :: TraceUser)
 
-instance Prelude.FromJSON TraceUser where
+instance Core.FromJSON TraceUser where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TraceUser"
       ( \x ->
           TraceUser'
-            Prelude.<$> ( x Prelude..:? "ServiceIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "UserName")
+            Core.<$> (x Core..:? "ServiceIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "UserName")
       )
 
-instance Prelude.Hashable TraceUser
+instance Core.Hashable TraceUser
 
-instance Prelude.NFData TraceUser
+instance Core.NFData TraceUser

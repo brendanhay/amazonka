@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ExecutionParameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of an execution parameter value that is passed to a self-service
 -- action when executed on a provisioned product.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newExecutionParameter' smart constructor.
 data ExecutionParameter = ExecutionParameter'
   { -- | The name of the execution parameter.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The default values for the execution parameter.
-    defaultValues :: Prelude.Maybe [Prelude.Text],
+    defaultValues :: Core.Maybe [Core.Text],
     -- | The execution parameter type.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutionParameter' with all optional fields omitted.
@@ -54,36 +53,34 @@ newExecutionParameter ::
   ExecutionParameter
 newExecutionParameter =
   ExecutionParameter'
-    { name = Prelude.Nothing,
-      defaultValues = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { name = Core.Nothing,
+      defaultValues = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The name of the execution parameter.
-executionParameter_name :: Lens.Lens' ExecutionParameter (Prelude.Maybe Prelude.Text)
+executionParameter_name :: Lens.Lens' ExecutionParameter (Core.Maybe Core.Text)
 executionParameter_name = Lens.lens (\ExecutionParameter' {name} -> name) (\s@ExecutionParameter' {} a -> s {name = a} :: ExecutionParameter)
 
 -- | The default values for the execution parameter.
-executionParameter_defaultValues :: Lens.Lens' ExecutionParameter (Prelude.Maybe [Prelude.Text])
-executionParameter_defaultValues = Lens.lens (\ExecutionParameter' {defaultValues} -> defaultValues) (\s@ExecutionParameter' {} a -> s {defaultValues = a} :: ExecutionParameter) Prelude.. Lens.mapping Prelude._Coerce
+executionParameter_defaultValues :: Lens.Lens' ExecutionParameter (Core.Maybe [Core.Text])
+executionParameter_defaultValues = Lens.lens (\ExecutionParameter' {defaultValues} -> defaultValues) (\s@ExecutionParameter' {} a -> s {defaultValues = a} :: ExecutionParameter) Core.. Lens.mapping Lens._Coerce
 
 -- | The execution parameter type.
-executionParameter_type :: Lens.Lens' ExecutionParameter (Prelude.Maybe Prelude.Text)
+executionParameter_type :: Lens.Lens' ExecutionParameter (Core.Maybe Core.Text)
 executionParameter_type = Lens.lens (\ExecutionParameter' {type'} -> type') (\s@ExecutionParameter' {} a -> s {type' = a} :: ExecutionParameter)
 
-instance Prelude.FromJSON ExecutionParameter where
+instance Core.FromJSON ExecutionParameter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExecutionParameter"
       ( \x ->
           ExecutionParameter'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> ( x Prelude..:? "DefaultValues"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..:? "DefaultValues" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ExecutionParameter
+instance Core.Hashable ExecutionParameter
 
-instance Prelude.NFData ExecutionParameter
+instance Core.NFData ExecutionParameter

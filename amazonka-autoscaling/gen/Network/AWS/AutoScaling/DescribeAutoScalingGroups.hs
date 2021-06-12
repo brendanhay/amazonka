@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,18 +54,18 @@ import qualified Network.AWS.Response as Response
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The names of the Auto Scaling groups. By default, you can only specify
     -- up to 50 names. You can optionally increase this limit using the
     -- @MaxRecords@ parameter.
     --
     -- If you omit this parameter, all Auto Scaling groups are described.
-    autoScalingGroupNames :: Prelude.Maybe [Prelude.Text],
+    autoScalingGroupNames :: Core.Maybe [Core.Text],
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutoScalingGroups' with all optional fields omitted.
@@ -93,14 +91,14 @@ newDescribeAutoScalingGroups ::
 newDescribeAutoScalingGroups =
   DescribeAutoScalingGroups'
     { nextToken =
-        Prelude.Nothing,
-      autoScalingGroupNames = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      autoScalingGroupNames = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeAutoScalingGroups_nextToken :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe Prelude.Text)
+describeAutoScalingGroups_nextToken :: Lens.Lens' DescribeAutoScalingGroups (Core.Maybe Core.Text)
 describeAutoScalingGroups_nextToken = Lens.lens (\DescribeAutoScalingGroups' {nextToken} -> nextToken) (\s@DescribeAutoScalingGroups' {} a -> s {nextToken = a} :: DescribeAutoScalingGroups)
 
 -- | The names of the Auto Scaling groups. By default, you can only specify
@@ -108,38 +106,38 @@ describeAutoScalingGroups_nextToken = Lens.lens (\DescribeAutoScalingGroups' {ne
 -- @MaxRecords@ parameter.
 --
 -- If you omit this parameter, all Auto Scaling groups are described.
-describeAutoScalingGroups_autoScalingGroupNames :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe [Prelude.Text])
-describeAutoScalingGroups_autoScalingGroupNames = Lens.lens (\DescribeAutoScalingGroups' {autoScalingGroupNames} -> autoScalingGroupNames) (\s@DescribeAutoScalingGroups' {} a -> s {autoScalingGroupNames = a} :: DescribeAutoScalingGroups) Prelude.. Lens.mapping Prelude._Coerce
+describeAutoScalingGroups_autoScalingGroupNames :: Lens.Lens' DescribeAutoScalingGroups (Core.Maybe [Core.Text])
+describeAutoScalingGroups_autoScalingGroupNames = Lens.lens (\DescribeAutoScalingGroups' {autoScalingGroupNames} -> autoScalingGroupNames) (\s@DescribeAutoScalingGroups' {} a -> s {autoScalingGroupNames = a} :: DescribeAutoScalingGroups) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
-describeAutoScalingGroups_maxRecords :: Lens.Lens' DescribeAutoScalingGroups (Prelude.Maybe Prelude.Int)
+describeAutoScalingGroups_maxRecords :: Lens.Lens' DescribeAutoScalingGroups (Core.Maybe Core.Int)
 describeAutoScalingGroups_maxRecords = Lens.lens (\DescribeAutoScalingGroups' {maxRecords} -> maxRecords) (\s@DescribeAutoScalingGroups' {} a -> s {maxRecords = a} :: DescribeAutoScalingGroups)
 
-instance Pager.AWSPager DescribeAutoScalingGroups where
+instance Core.AWSPager DescribeAutoScalingGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAutoScalingGroupsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. describeAutoScalingGroupsResponse_autoScalingGroups
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAutoScalingGroups_nextToken
           Lens..~ rs
           Lens.^? describeAutoScalingGroupsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeAutoScalingGroups where
+instance Core.AWSRequest DescribeAutoScalingGroups where
   type
-    Rs DescribeAutoScalingGroups =
+    AWSResponse DescribeAutoScalingGroups =
       DescribeAutoScalingGroupsResponse
   request = Request.postQuery defaultService
   response =
@@ -147,38 +145,36 @@ instance Prelude.AWSRequest DescribeAutoScalingGroups where
       "DescribeAutoScalingGroupsResult"
       ( \s h x ->
           DescribeAutoScalingGroupsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "AutoScalingGroups"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "AutoScalingGroups" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable DescribeAutoScalingGroups
+instance Core.Hashable DescribeAutoScalingGroups
 
-instance Prelude.NFData DescribeAutoScalingGroups
+instance Core.NFData DescribeAutoScalingGroups
 
-instance Prelude.ToHeaders DescribeAutoScalingGroups where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAutoScalingGroups where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAutoScalingGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAutoScalingGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAutoScalingGroups where
+instance Core.ToQuery DescribeAutoScalingGroups where
   toQuery DescribeAutoScalingGroups' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeAutoScalingGroups" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
+          Core.=: ("DescribeAutoScalingGroups" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
         "AutoScalingGroupNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> autoScalingGroupNames
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> autoScalingGroupNames
             ),
-        "MaxRecords" Prelude.=: maxRecords
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeAutoScalingGroupsResponse' smart constructor.
@@ -187,13 +183,13 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The groups.
     autoScalingGroups :: [AutoScalingGroup]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutoScalingGroupsResponse' with all optional fields omitted.
@@ -213,31 +209,31 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
 -- 'autoScalingGroups', 'describeAutoScalingGroupsResponse_autoScalingGroups' - The groups.
 newDescribeAutoScalingGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAutoScalingGroupsResponse
 newDescribeAutoScalingGroupsResponse pHttpStatus_ =
   DescribeAutoScalingGroupsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      autoScalingGroups = Prelude.mempty
+      autoScalingGroups = Core.mempty
     }
 
 -- | A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
-describeAutoScalingGroupsResponse_nextToken :: Lens.Lens' DescribeAutoScalingGroupsResponse (Prelude.Maybe Prelude.Text)
+describeAutoScalingGroupsResponse_nextToken :: Lens.Lens' DescribeAutoScalingGroupsResponse (Core.Maybe Core.Text)
 describeAutoScalingGroupsResponse_nextToken = Lens.lens (\DescribeAutoScalingGroupsResponse' {nextToken} -> nextToken) (\s@DescribeAutoScalingGroupsResponse' {} a -> s {nextToken = a} :: DescribeAutoScalingGroupsResponse)
 
 -- | The response's http status code.
-describeAutoScalingGroupsResponse_httpStatus :: Lens.Lens' DescribeAutoScalingGroupsResponse Prelude.Int
+describeAutoScalingGroupsResponse_httpStatus :: Lens.Lens' DescribeAutoScalingGroupsResponse Core.Int
 describeAutoScalingGroupsResponse_httpStatus = Lens.lens (\DescribeAutoScalingGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeAutoScalingGroupsResponse' {} a -> s {httpStatus = a} :: DescribeAutoScalingGroupsResponse)
 
 -- | The groups.
 describeAutoScalingGroupsResponse_autoScalingGroups :: Lens.Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
-describeAutoScalingGroupsResponse_autoScalingGroups = Lens.lens (\DescribeAutoScalingGroupsResponse' {autoScalingGroups} -> autoScalingGroups) (\s@DescribeAutoScalingGroupsResponse' {} a -> s {autoScalingGroups = a} :: DescribeAutoScalingGroupsResponse) Prelude.. Prelude._Coerce
+describeAutoScalingGroupsResponse_autoScalingGroups = Lens.lens (\DescribeAutoScalingGroupsResponse' {autoScalingGroups} -> autoScalingGroups) (\s@DescribeAutoScalingGroupsResponse' {} a -> s {autoScalingGroups = a} :: DescribeAutoScalingGroupsResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAutoScalingGroupsResponse

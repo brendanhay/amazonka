@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,19 +58,19 @@ module Network.AWS.CloudHSM.ModifyLunaClient
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyLunaClient' smart constructor.
 data ModifyLunaClient = ModifyLunaClient'
   { -- | The ARN of the client.
-    clientArn :: Prelude.Text,
+    clientArn :: Core.Text,
     -- | The new certificate for the client.
-    certificate :: Prelude.Text
+    certificate :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyLunaClient' with all optional fields omitted.
@@ -86,9 +85,9 @@ data ModifyLunaClient = ModifyLunaClient'
 -- 'certificate', 'modifyLunaClient_certificate' - The new certificate for the client.
 newModifyLunaClient ::
   -- | 'clientArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificate'
-  Prelude.Text ->
+  Core.Text ->
   ModifyLunaClient
 newModifyLunaClient pClientArn_ pCertificate_ =
   ModifyLunaClient'
@@ -97,66 +96,66 @@ newModifyLunaClient pClientArn_ pCertificate_ =
     }
 
 -- | The ARN of the client.
-modifyLunaClient_clientArn :: Lens.Lens' ModifyLunaClient Prelude.Text
+modifyLunaClient_clientArn :: Lens.Lens' ModifyLunaClient Core.Text
 modifyLunaClient_clientArn = Lens.lens (\ModifyLunaClient' {clientArn} -> clientArn) (\s@ModifyLunaClient' {} a -> s {clientArn = a} :: ModifyLunaClient)
 
 -- | The new certificate for the client.
-modifyLunaClient_certificate :: Lens.Lens' ModifyLunaClient Prelude.Text
+modifyLunaClient_certificate :: Lens.Lens' ModifyLunaClient Core.Text
 modifyLunaClient_certificate = Lens.lens (\ModifyLunaClient' {certificate} -> certificate) (\s@ModifyLunaClient' {} a -> s {certificate = a} :: ModifyLunaClient)
 
-instance Prelude.AWSRequest ModifyLunaClient where
-  type Rs ModifyLunaClient = ModifyLunaClientResponse
+instance Core.AWSRequest ModifyLunaClient where
+  type
+    AWSResponse ModifyLunaClient =
+      ModifyLunaClientResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ModifyLunaClientResponse'
-            Prelude.<$> (x Prelude..?> "ClientArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ClientArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyLunaClient
+instance Core.Hashable ModifyLunaClient
 
-instance Prelude.NFData ModifyLunaClient
+instance Core.NFData ModifyLunaClient
 
-instance Prelude.ToHeaders ModifyLunaClient where
+instance Core.ToHeaders ModifyLunaClient where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.ModifyLunaClient" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.ModifyLunaClient" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ModifyLunaClient where
+instance Core.ToJSON ModifyLunaClient where
   toJSON ModifyLunaClient' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ClientArn" Prelude..= clientArn),
-            Prelude.Just ("Certificate" Prelude..= certificate)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClientArn" Core..= clientArn),
+            Core.Just ("Certificate" Core..= certificate)
           ]
       )
 
-instance Prelude.ToPath ModifyLunaClient where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyLunaClient where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyLunaClient where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ModifyLunaClient where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newModifyLunaClientResponse' smart constructor.
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
   { -- | The ARN of the client.
-    clientArn :: Prelude.Maybe Prelude.Text,
+    clientArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyLunaClientResponse' with all optional fields omitted.
@@ -171,21 +170,20 @@ data ModifyLunaClientResponse = ModifyLunaClientResponse'
 -- 'httpStatus', 'modifyLunaClientResponse_httpStatus' - The response's http status code.
 newModifyLunaClientResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyLunaClientResponse
 newModifyLunaClientResponse pHttpStatus_ =
   ModifyLunaClientResponse'
-    { clientArn =
-        Prelude.Nothing,
+    { clientArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the client.
-modifyLunaClientResponse_clientArn :: Lens.Lens' ModifyLunaClientResponse (Prelude.Maybe Prelude.Text)
+modifyLunaClientResponse_clientArn :: Lens.Lens' ModifyLunaClientResponse (Core.Maybe Core.Text)
 modifyLunaClientResponse_clientArn = Lens.lens (\ModifyLunaClientResponse' {clientArn} -> clientArn) (\s@ModifyLunaClientResponse' {} a -> s {clientArn = a} :: ModifyLunaClientResponse)
 
 -- | The response's http status code.
-modifyLunaClientResponse_httpStatus :: Lens.Lens' ModifyLunaClientResponse Prelude.Int
+modifyLunaClientResponse_httpStatus :: Lens.Lens' ModifyLunaClientResponse Core.Int
 modifyLunaClientResponse_httpStatus = Lens.lens (\ModifyLunaClientResponse' {httpStatus} -> httpStatus) (\s@ModifyLunaClientResponse' {} a -> s {httpStatus = a} :: ModifyLunaClientResponse)
 
-instance Prelude.NFData ModifyLunaClientResponse
+instance Core.NFData ModifyLunaClientResponse

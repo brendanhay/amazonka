@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Batch.Types.NetworkConfiguration where
 
 import Network.AWS.Batch.Types.AssignPublicIp
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The network configuration for jobs running on Fargate resources. Jobs
 -- running on EC2 resources must not specify this parameter.
@@ -36,9 +35,9 @@ data NetworkConfiguration = NetworkConfiguration'
     -- requests to the internet. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>.
     -- The default value is \"DISABLED\".
-    assignPublicIp :: Prelude.Maybe AssignPublicIp
+    assignPublicIp :: Core.Maybe AssignPublicIp
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkConfiguration' with all optional fields omitted.
@@ -60,7 +59,7 @@ newNetworkConfiguration ::
 newNetworkConfiguration =
   NetworkConfiguration'
     { assignPublicIp =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Indicates whether the job should have a public IP address. For a job
@@ -70,27 +69,25 @@ newNetworkConfiguration =
 -- requests to the internet. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html Amazon ECS task networking>.
 -- The default value is \"DISABLED\".
-networkConfiguration_assignPublicIp :: Lens.Lens' NetworkConfiguration (Prelude.Maybe AssignPublicIp)
+networkConfiguration_assignPublicIp :: Lens.Lens' NetworkConfiguration (Core.Maybe AssignPublicIp)
 networkConfiguration_assignPublicIp = Lens.lens (\NetworkConfiguration' {assignPublicIp} -> assignPublicIp) (\s@NetworkConfiguration' {} a -> s {assignPublicIp = a} :: NetworkConfiguration)
 
-instance Prelude.FromJSON NetworkConfiguration where
+instance Core.FromJSON NetworkConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkConfiguration"
       ( \x ->
           NetworkConfiguration'
-            Prelude.<$> (x Prelude..:? "assignPublicIp")
+            Core.<$> (x Core..:? "assignPublicIp")
       )
 
-instance Prelude.Hashable NetworkConfiguration
+instance Core.Hashable NetworkConfiguration
 
-instance Prelude.NFData NetworkConfiguration
+instance Core.NFData NetworkConfiguration
 
-instance Prelude.ToJSON NetworkConfiguration where
+instance Core.ToJSON NetworkConfiguration where
   toJSON NetworkConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("assignPublicIp" Prelude..=)
-              Prelude.<$> assignPublicIp
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("assignPublicIp" Core..=) Core.<$> assignPublicIp]
       )

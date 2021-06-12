@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.AppCookieStickinessPolicy where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy for application-controlled session
 -- stickiness.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
   { -- | The mnemonic name for the policy being created. The name must be unique
     -- within a set of policies for this load balancer.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | The name of the application cookie used for stickiness.
-    cookieName :: Prelude.Maybe Prelude.Text
+    cookieName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AppCookieStickinessPolicy' with all optional fields omitted.
@@ -54,25 +53,25 @@ newAppCookieStickinessPolicy ::
 newAppCookieStickinessPolicy =
   AppCookieStickinessPolicy'
     { policyName =
-        Prelude.Nothing,
-      cookieName = Prelude.Nothing
+        Core.Nothing,
+      cookieName = Core.Nothing
     }
 
 -- | The mnemonic name for the policy being created. The name must be unique
 -- within a set of policies for this load balancer.
-appCookieStickinessPolicy_policyName :: Lens.Lens' AppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
+appCookieStickinessPolicy_policyName :: Lens.Lens' AppCookieStickinessPolicy (Core.Maybe Core.Text)
 appCookieStickinessPolicy_policyName = Lens.lens (\AppCookieStickinessPolicy' {policyName} -> policyName) (\s@AppCookieStickinessPolicy' {} a -> s {policyName = a} :: AppCookieStickinessPolicy)
 
 -- | The name of the application cookie used for stickiness.
-appCookieStickinessPolicy_cookieName :: Lens.Lens' AppCookieStickinessPolicy (Prelude.Maybe Prelude.Text)
+appCookieStickinessPolicy_cookieName :: Lens.Lens' AppCookieStickinessPolicy (Core.Maybe Core.Text)
 appCookieStickinessPolicy_cookieName = Lens.lens (\AppCookieStickinessPolicy' {cookieName} -> cookieName) (\s@AppCookieStickinessPolicy' {} a -> s {cookieName = a} :: AppCookieStickinessPolicy)
 
-instance Prelude.FromXML AppCookieStickinessPolicy where
+instance Core.FromXML AppCookieStickinessPolicy where
   parseXML x =
     AppCookieStickinessPolicy'
-      Prelude.<$> (x Prelude..@? "PolicyName")
-      Prelude.<*> (x Prelude..@? "CookieName")
+      Core.<$> (x Core..@? "PolicyName")
+      Core.<*> (x Core..@? "CookieName")
 
-instance Prelude.Hashable AppCookieStickinessPolicy
+instance Core.Hashable AppCookieStickinessPolicy
 
-instance Prelude.NFData AppCookieStickinessPolicy
+instance Core.NFData AppCookieStickinessPolicy

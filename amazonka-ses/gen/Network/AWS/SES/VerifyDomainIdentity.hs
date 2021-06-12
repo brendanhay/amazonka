@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SES.VerifyDomainIdentity
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -61,9 +60,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newVerifyDomainIdentity' smart constructor.
 data VerifyDomainIdentity = VerifyDomainIdentity'
   { -- | The domain to be verified.
-    domain :: Prelude.Text
+    domain :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyDomainIdentity' with all optional fields omitted.
@@ -76,18 +75,18 @@ data VerifyDomainIdentity = VerifyDomainIdentity'
 -- 'domain', 'verifyDomainIdentity_domain' - The domain to be verified.
 newVerifyDomainIdentity ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   VerifyDomainIdentity
 newVerifyDomainIdentity pDomain_ =
   VerifyDomainIdentity' {domain = pDomain_}
 
 -- | The domain to be verified.
-verifyDomainIdentity_domain :: Lens.Lens' VerifyDomainIdentity Prelude.Text
+verifyDomainIdentity_domain :: Lens.Lens' VerifyDomainIdentity Core.Text
 verifyDomainIdentity_domain = Lens.lens (\VerifyDomainIdentity' {domain} -> domain) (\s@VerifyDomainIdentity' {} a -> s {domain = a} :: VerifyDomainIdentity)
 
-instance Prelude.AWSRequest VerifyDomainIdentity where
+instance Core.AWSRequest VerifyDomainIdentity where
   type
-    Rs VerifyDomainIdentity =
+    AWSResponse VerifyDomainIdentity =
       VerifyDomainIdentityResponse
   request = Request.postQuery defaultService
   response =
@@ -95,28 +94,27 @@ instance Prelude.AWSRequest VerifyDomainIdentity where
       "VerifyDomainIdentityResult"
       ( \s h x ->
           VerifyDomainIdentityResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "VerificationToken")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "VerificationToken")
       )
 
-instance Prelude.Hashable VerifyDomainIdentity
+instance Core.Hashable VerifyDomainIdentity
 
-instance Prelude.NFData VerifyDomainIdentity
+instance Core.NFData VerifyDomainIdentity
 
-instance Prelude.ToHeaders VerifyDomainIdentity where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders VerifyDomainIdentity where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath VerifyDomainIdentity where
-  toPath = Prelude.const "/"
+instance Core.ToPath VerifyDomainIdentity where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery VerifyDomainIdentity where
+instance Core.ToQuery VerifyDomainIdentity where
   toQuery VerifyDomainIdentity' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("VerifyDomainIdentity" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Domain" Prelude.=: domain
+          Core.=: ("VerifyDomainIdentity" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Domain" Core.=: domain
       ]
 
 -- | Returns a TXT record that you must publish to the DNS server of your
@@ -125,7 +123,7 @@ instance Prelude.ToQuery VerifyDomainIdentity where
 -- /See:/ 'newVerifyDomainIdentityResponse' smart constructor.
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A TXT record that you must place in the DNS settings of the domain to
     -- complete domain verification with Amazon SES.
     --
@@ -135,9 +133,9 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     -- detect the record within 72 hours, the domain\'s verification status
     -- changes to \"Failed.\" In that case, if you still want to verify the
     -- domain, you must restart the verification process from the beginning.
-    verificationToken :: Prelude.Text
+    verificationToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyDomainIdentityResponse' with all optional fields omitted.
@@ -160,9 +158,9 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
 -- domain, you must restart the verification process from the beginning.
 newVerifyDomainIdentityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'verificationToken'
-  Prelude.Text ->
+  Core.Text ->
   VerifyDomainIdentityResponse
 newVerifyDomainIdentityResponse
   pHttpStatus_
@@ -174,7 +172,7 @@ newVerifyDomainIdentityResponse
       }
 
 -- | The response's http status code.
-verifyDomainIdentityResponse_httpStatus :: Lens.Lens' VerifyDomainIdentityResponse Prelude.Int
+verifyDomainIdentityResponse_httpStatus :: Lens.Lens' VerifyDomainIdentityResponse Core.Int
 verifyDomainIdentityResponse_httpStatus = Lens.lens (\VerifyDomainIdentityResponse' {httpStatus} -> httpStatus) (\s@VerifyDomainIdentityResponse' {} a -> s {httpStatus = a} :: VerifyDomainIdentityResponse)
 
 -- | A TXT record that you must place in the DNS settings of the domain to
@@ -186,7 +184,7 @@ verifyDomainIdentityResponse_httpStatus = Lens.lens (\VerifyDomainIdentityRespon
 -- detect the record within 72 hours, the domain\'s verification status
 -- changes to \"Failed.\" In that case, if you still want to verify the
 -- domain, you must restart the verification process from the beginning.
-verifyDomainIdentityResponse_verificationToken :: Lens.Lens' VerifyDomainIdentityResponse Prelude.Text
+verifyDomainIdentityResponse_verificationToken :: Lens.Lens' VerifyDomainIdentityResponse Core.Text
 verifyDomainIdentityResponse_verificationToken = Lens.lens (\VerifyDomainIdentityResponse' {verificationToken} -> verificationToken) (\s@VerifyDomainIdentityResponse' {} a -> s {verificationToken = a} :: VerifyDomainIdentityResponse)
 
-instance Prelude.NFData VerifyDomainIdentityResponse
+instance Core.NFData VerifyDomainIdentityResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InferenceAcceleratorInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InferenceDeviceInfo
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Inference accelerators for the instance type.
 --
 -- /See:/ 'newInferenceAcceleratorInfo' smart constructor.
 data InferenceAcceleratorInfo = InferenceAcceleratorInfo'
   { -- | Describes the Inference accelerators for the instance type.
-    accelerators :: Prelude.Maybe [InferenceDeviceInfo]
+    accelerators :: Core.Maybe [InferenceDeviceInfo]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InferenceAcceleratorInfo' with all optional fields omitted.
@@ -48,21 +47,20 @@ newInferenceAcceleratorInfo ::
 newInferenceAcceleratorInfo =
   InferenceAcceleratorInfo'
     { accelerators =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Describes the Inference accelerators for the instance type.
-inferenceAcceleratorInfo_accelerators :: Lens.Lens' InferenceAcceleratorInfo (Prelude.Maybe [InferenceDeviceInfo])
-inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {accelerators} -> accelerators) (\s@InferenceAcceleratorInfo' {} a -> s {accelerators = a} :: InferenceAcceleratorInfo) Prelude.. Lens.mapping Prelude._Coerce
+inferenceAcceleratorInfo_accelerators :: Lens.Lens' InferenceAcceleratorInfo (Core.Maybe [InferenceDeviceInfo])
+inferenceAcceleratorInfo_accelerators = Lens.lens (\InferenceAcceleratorInfo' {accelerators} -> accelerators) (\s@InferenceAcceleratorInfo' {} a -> s {accelerators = a} :: InferenceAcceleratorInfo) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML InferenceAcceleratorInfo where
+instance Core.FromXML InferenceAcceleratorInfo where
   parseXML x =
     InferenceAcceleratorInfo'
-      Prelude.<$> ( x Prelude..@? "accelerators"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "accelerators" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable InferenceAcceleratorInfo
+instance Core.Hashable InferenceAcceleratorInfo
 
-instance Prelude.NFData InferenceAcceleratorInfo
+instance Core.NFData InferenceAcceleratorInfo

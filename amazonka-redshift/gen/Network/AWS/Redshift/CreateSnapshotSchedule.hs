@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,29 +50,29 @@ module Network.AWS.Redshift.CreateSnapshotSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateSnapshotSchedule' smart constructor.
 data CreateSnapshotSchedule = CreateSnapshotSchedule'
-  { nextInvocations :: Prelude.Maybe Prelude.Int,
-    dryRun :: Prelude.Maybe Prelude.Bool,
+  { nextInvocations :: Core.Maybe Core.Int,
+    dryRun :: Core.Maybe Core.Bool,
     -- | A unique identifier for a snapshot schedule. Only alphanumeric
     -- characters are allowed for the identifier.
-    scheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    scheduleIdentifier :: Core.Maybe Core.Text,
     -- | The description of the snapshot schedule.
-    scheduleDescription :: Prelude.Maybe Prelude.Text,
+    scheduleDescription :: Core.Maybe Core.Text,
     -- | The definition of the snapshot schedule. The definition is made up of
     -- schedule expressions, for example \"cron(30 12 *)\" or \"rate(12
     -- hours)\".
-    scheduleDefinitions :: Prelude.Maybe [Prelude.Text],
+    scheduleDefinitions :: Core.Maybe [Core.Text],
     -- | An optional set of tags you can use to search for the schedule.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSnapshotSchedule' with all optional fields omitted.
@@ -102,76 +101,76 @@ newCreateSnapshotSchedule ::
 newCreateSnapshotSchedule =
   CreateSnapshotSchedule'
     { nextInvocations =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      scheduleIdentifier = Prelude.Nothing,
-      scheduleDescription = Prelude.Nothing,
-      scheduleDefinitions = Prelude.Nothing,
-      tags = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      scheduleIdentifier = Core.Nothing,
+      scheduleDescription = Core.Nothing,
+      scheduleDefinitions = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- |
-createSnapshotSchedule_nextInvocations :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Int)
+createSnapshotSchedule_nextInvocations :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Core.Int)
 createSnapshotSchedule_nextInvocations = Lens.lens (\CreateSnapshotSchedule' {nextInvocations} -> nextInvocations) (\s@CreateSnapshotSchedule' {} a -> s {nextInvocations = a} :: CreateSnapshotSchedule)
 
 -- |
-createSnapshotSchedule_dryRun :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Bool)
+createSnapshotSchedule_dryRun :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Core.Bool)
 createSnapshotSchedule_dryRun = Lens.lens (\CreateSnapshotSchedule' {dryRun} -> dryRun) (\s@CreateSnapshotSchedule' {} a -> s {dryRun = a} :: CreateSnapshotSchedule)
 
 -- | A unique identifier for a snapshot schedule. Only alphanumeric
 -- characters are allowed for the identifier.
-createSnapshotSchedule_scheduleIdentifier :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Text)
+createSnapshotSchedule_scheduleIdentifier :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Core.Text)
 createSnapshotSchedule_scheduleIdentifier = Lens.lens (\CreateSnapshotSchedule' {scheduleIdentifier} -> scheduleIdentifier) (\s@CreateSnapshotSchedule' {} a -> s {scheduleIdentifier = a} :: CreateSnapshotSchedule)
 
 -- | The description of the snapshot schedule.
-createSnapshotSchedule_scheduleDescription :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe Prelude.Text)
+createSnapshotSchedule_scheduleDescription :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe Core.Text)
 createSnapshotSchedule_scheduleDescription = Lens.lens (\CreateSnapshotSchedule' {scheduleDescription} -> scheduleDescription) (\s@CreateSnapshotSchedule' {} a -> s {scheduleDescription = a} :: CreateSnapshotSchedule)
 
 -- | The definition of the snapshot schedule. The definition is made up of
 -- schedule expressions, for example \"cron(30 12 *)\" or \"rate(12
 -- hours)\".
-createSnapshotSchedule_scheduleDefinitions :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe [Prelude.Text])
-createSnapshotSchedule_scheduleDefinitions = Lens.lens (\CreateSnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@CreateSnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: CreateSnapshotSchedule) Prelude.. Lens.mapping Prelude._Coerce
+createSnapshotSchedule_scheduleDefinitions :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe [Core.Text])
+createSnapshotSchedule_scheduleDefinitions = Lens.lens (\CreateSnapshotSchedule' {scheduleDefinitions} -> scheduleDefinitions) (\s@CreateSnapshotSchedule' {} a -> s {scheduleDefinitions = a} :: CreateSnapshotSchedule) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional set of tags you can use to search for the schedule.
-createSnapshotSchedule_tags :: Lens.Lens' CreateSnapshotSchedule (Prelude.Maybe [Tag])
-createSnapshotSchedule_tags = Lens.lens (\CreateSnapshotSchedule' {tags} -> tags) (\s@CreateSnapshotSchedule' {} a -> s {tags = a} :: CreateSnapshotSchedule) Prelude.. Lens.mapping Prelude._Coerce
+createSnapshotSchedule_tags :: Lens.Lens' CreateSnapshotSchedule (Core.Maybe [Tag])
+createSnapshotSchedule_tags = Lens.lens (\CreateSnapshotSchedule' {tags} -> tags) (\s@CreateSnapshotSchedule' {} a -> s {tags = a} :: CreateSnapshotSchedule) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest CreateSnapshotSchedule where
-  type Rs CreateSnapshotSchedule = SnapshotSchedule
+instance Core.AWSRequest CreateSnapshotSchedule where
+  type
+    AWSResponse CreateSnapshotSchedule =
+      SnapshotSchedule
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateSnapshotScheduleResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CreateSnapshotSchedule
+instance Core.Hashable CreateSnapshotSchedule
 
-instance Prelude.NFData CreateSnapshotSchedule
+instance Core.NFData CreateSnapshotSchedule
 
-instance Prelude.ToHeaders CreateSnapshotSchedule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateSnapshotSchedule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateSnapshotSchedule where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateSnapshotSchedule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateSnapshotSchedule where
+instance Core.ToQuery CreateSnapshotSchedule where
   toQuery CreateSnapshotSchedule' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateSnapshotSchedule" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "NextInvocations" Prelude.=: nextInvocations,
-        "DryRun" Prelude.=: dryRun,
-        "ScheduleIdentifier" Prelude.=: scheduleIdentifier,
-        "ScheduleDescription" Prelude.=: scheduleDescription,
+          Core.=: ("CreateSnapshotSchedule" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "NextInvocations" Core.=: nextInvocations,
+        "DryRun" Core.=: dryRun,
+        "ScheduleIdentifier" Core.=: scheduleIdentifier,
+        "ScheduleDescription" Core.=: scheduleDescription,
         "ScheduleDefinitions"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "ScheduleDefinition"
-                Prelude.<$> scheduleDefinitions
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ScheduleDefinition"
+                Core.<$> scheduleDefinitions
             ),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags)
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags)
       ]

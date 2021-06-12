@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.VolumeStatusAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a volume status operation code.
 --
 -- /See:/ 'newVolumeStatusAction' smart constructor.
 data VolumeStatusAction = VolumeStatusAction'
   { -- | The event type associated with this operation.
-    eventType :: Prelude.Maybe Prelude.Text,
+    eventType :: Core.Maybe Core.Text,
     -- | The ID of the event associated with this operation.
-    eventId :: Prelude.Maybe Prelude.Text,
+    eventId :: Core.Maybe Core.Text,
     -- | The code identifying the operation, for example, @enable-volume-io@.
-    code :: Prelude.Maybe Prelude.Text,
+    code :: Core.Maybe Core.Text,
     -- | A description of the operation.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VolumeStatusAction' with all optional fields omitted.
@@ -58,36 +57,36 @@ newVolumeStatusAction ::
   VolumeStatusAction
 newVolumeStatusAction =
   VolumeStatusAction'
-    { eventType = Prelude.Nothing,
-      eventId = Prelude.Nothing,
-      code = Prelude.Nothing,
-      description = Prelude.Nothing
+    { eventType = Core.Nothing,
+      eventId = Core.Nothing,
+      code = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The event type associated with this operation.
-volumeStatusAction_eventType :: Lens.Lens' VolumeStatusAction (Prelude.Maybe Prelude.Text)
+volumeStatusAction_eventType :: Lens.Lens' VolumeStatusAction (Core.Maybe Core.Text)
 volumeStatusAction_eventType = Lens.lens (\VolumeStatusAction' {eventType} -> eventType) (\s@VolumeStatusAction' {} a -> s {eventType = a} :: VolumeStatusAction)
 
 -- | The ID of the event associated with this operation.
-volumeStatusAction_eventId :: Lens.Lens' VolumeStatusAction (Prelude.Maybe Prelude.Text)
+volumeStatusAction_eventId :: Lens.Lens' VolumeStatusAction (Core.Maybe Core.Text)
 volumeStatusAction_eventId = Lens.lens (\VolumeStatusAction' {eventId} -> eventId) (\s@VolumeStatusAction' {} a -> s {eventId = a} :: VolumeStatusAction)
 
 -- | The code identifying the operation, for example, @enable-volume-io@.
-volumeStatusAction_code :: Lens.Lens' VolumeStatusAction (Prelude.Maybe Prelude.Text)
+volumeStatusAction_code :: Lens.Lens' VolumeStatusAction (Core.Maybe Core.Text)
 volumeStatusAction_code = Lens.lens (\VolumeStatusAction' {code} -> code) (\s@VolumeStatusAction' {} a -> s {code = a} :: VolumeStatusAction)
 
 -- | A description of the operation.
-volumeStatusAction_description :: Lens.Lens' VolumeStatusAction (Prelude.Maybe Prelude.Text)
+volumeStatusAction_description :: Lens.Lens' VolumeStatusAction (Core.Maybe Core.Text)
 volumeStatusAction_description = Lens.lens (\VolumeStatusAction' {description} -> description) (\s@VolumeStatusAction' {} a -> s {description = a} :: VolumeStatusAction)
 
-instance Prelude.FromXML VolumeStatusAction where
+instance Core.FromXML VolumeStatusAction where
   parseXML x =
     VolumeStatusAction'
-      Prelude.<$> (x Prelude..@? "eventType")
-      Prelude.<*> (x Prelude..@? "eventId")
-      Prelude.<*> (x Prelude..@? "code")
-      Prelude.<*> (x Prelude..@? "description")
+      Core.<$> (x Core..@? "eventType")
+      Core.<*> (x Core..@? "eventId")
+      Core.<*> (x Core..@? "code")
+      Core.<*> (x Core..@? "description")
 
-instance Prelude.Hashable VolumeStatusAction
+instance Core.Hashable VolumeStatusAction
 
-instance Prelude.NFData VolumeStatusAction
+instance Core.NFData VolumeStatusAction

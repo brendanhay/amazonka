@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AutoTuneDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneDetails
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies details of the Auto-Tune action. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAutoTuneDetails' smart constructor.
 data AutoTuneDetails = AutoTuneDetails'
-  { scheduledAutoTuneDetails :: Prelude.Maybe ScheduledAutoTuneDetails
+  { scheduledAutoTuneDetails :: Core.Maybe ScheduledAutoTuneDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoTuneDetails' with all optional fields omitted.
@@ -48,22 +47,22 @@ newAutoTuneDetails ::
 newAutoTuneDetails =
   AutoTuneDetails'
     { scheduledAutoTuneDetails =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Undocumented member.
-autoTuneDetails_scheduledAutoTuneDetails :: Lens.Lens' AutoTuneDetails (Prelude.Maybe ScheduledAutoTuneDetails)
+autoTuneDetails_scheduledAutoTuneDetails :: Lens.Lens' AutoTuneDetails (Core.Maybe ScheduledAutoTuneDetails)
 autoTuneDetails_scheduledAutoTuneDetails = Lens.lens (\AutoTuneDetails' {scheduledAutoTuneDetails} -> scheduledAutoTuneDetails) (\s@AutoTuneDetails' {} a -> s {scheduledAutoTuneDetails = a} :: AutoTuneDetails)
 
-instance Prelude.FromJSON AutoTuneDetails where
+instance Core.FromJSON AutoTuneDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoTuneDetails"
       ( \x ->
           AutoTuneDetails'
-            Prelude.<$> (x Prelude..:? "ScheduledAutoTuneDetails")
+            Core.<$> (x Core..:? "ScheduledAutoTuneDetails")
       )
 
-instance Prelude.Hashable AutoTuneDetails
+instance Core.Hashable AutoTuneDetails
 
-instance Prelude.NFData AutoTuneDetails
+instance Core.NFData AutoTuneDetails

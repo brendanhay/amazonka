@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.APIGateway.TagResource
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,13 +47,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | [Required] The ARN of a resource that can be tagged.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | [Required] The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Prelude.HashMap Prelude.Text Prelude.Text
+    tags :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -71,62 +70,59 @@ data TagResource = TagResource'
 -- start with @aws:@. The tag value can be up to 256 characters.
 newTagResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   TagResource
 newTagResource pResourceArn_ =
   TagResource'
     { resourceArn = pResourceArn_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | [Required] The ARN of a resource that can be tagged.
-tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
+tagResource_resourceArn :: Lens.Lens' TagResource Core.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | [Required] The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
-tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Prelude._Coerce
+tagResource_tags :: Lens.Lens' TagResource (Core.HashMap Core.Text Core.Text)
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
+instance Core.AWSRequest TagResource where
+  type AWSResponse TagResource = TagResourceResponse
   request = Request.putJSON defaultService
   response = Response.receiveNull TagResourceResponse'
 
-instance Prelude.Hashable TagResource
+instance Core.Hashable TagResource
 
-instance Prelude.NFData TagResource
+instance Core.NFData TagResource
 
-instance Prelude.ToHeaders TagResource where
+instance Core.ToHeaders TagResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TagResource where
+instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("tags" Prelude..= tags)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("tags" Core..= tags)])
 
-instance Prelude.ToPath TagResource where
+instance Core.ToPath TagResource where
   toPath TagResource' {..} =
-    Prelude.mconcat
-      ["/tags/", Prelude.toBS resourceArn]
+    Core.mconcat ["/tags/", Core.toBS resourceArn]
 
-instance Prelude.ToQuery TagResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -136,4 +132,4 @@ newTagResourceResponse ::
   TagResourceResponse
 newTagResourceResponse = TagResourceResponse'
 
-instance Prelude.NFData TagResourceResponse
+instance Core.NFData TagResourceResponse

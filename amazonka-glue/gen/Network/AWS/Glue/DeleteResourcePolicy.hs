@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Glue.DeleteResourcePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResourcePolicy' smart constructor.
 data DeleteResourcePolicy = DeleteResourcePolicy'
   { -- | The ARN of the AWS Glue resource for the resource policy to be deleted.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+    resourceArn :: Core.Maybe Core.Text,
     -- | The hash value returned when this policy was set.
-    policyHashCondition :: Prelude.Maybe Prelude.Text
+    policyHashCondition :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourcePolicy' with all optional fields omitted.
@@ -70,72 +69,67 @@ newDeleteResourcePolicy ::
   DeleteResourcePolicy
 newDeleteResourcePolicy =
   DeleteResourcePolicy'
-    { resourceArn =
-        Prelude.Nothing,
-      policyHashCondition = Prelude.Nothing
+    { resourceArn = Core.Nothing,
+      policyHashCondition = Core.Nothing
     }
 
 -- | The ARN of the AWS Glue resource for the resource policy to be deleted.
-deleteResourcePolicy_resourceArn :: Lens.Lens' DeleteResourcePolicy (Prelude.Maybe Prelude.Text)
+deleteResourcePolicy_resourceArn :: Lens.Lens' DeleteResourcePolicy (Core.Maybe Core.Text)
 deleteResourcePolicy_resourceArn = Lens.lens (\DeleteResourcePolicy' {resourceArn} -> resourceArn) (\s@DeleteResourcePolicy' {} a -> s {resourceArn = a} :: DeleteResourcePolicy)
 
 -- | The hash value returned when this policy was set.
-deleteResourcePolicy_policyHashCondition :: Lens.Lens' DeleteResourcePolicy (Prelude.Maybe Prelude.Text)
+deleteResourcePolicy_policyHashCondition :: Lens.Lens' DeleteResourcePolicy (Core.Maybe Core.Text)
 deleteResourcePolicy_policyHashCondition = Lens.lens (\DeleteResourcePolicy' {policyHashCondition} -> policyHashCondition) (\s@DeleteResourcePolicy' {} a -> s {policyHashCondition = a} :: DeleteResourcePolicy)
 
-instance Prelude.AWSRequest DeleteResourcePolicy where
+instance Core.AWSRequest DeleteResourcePolicy where
   type
-    Rs DeleteResourcePolicy =
+    AWSResponse DeleteResourcePolicy =
       DeleteResourcePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourcePolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourcePolicy
+instance Core.Hashable DeleteResourcePolicy
 
-instance Prelude.NFData DeleteResourcePolicy
+instance Core.NFData DeleteResourcePolicy
 
-instance Prelude.ToHeaders DeleteResourcePolicy where
+instance Core.ToHeaders DeleteResourcePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.DeleteResourcePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.DeleteResourcePolicy" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteResourcePolicy where
+instance Core.ToJSON DeleteResourcePolicy where
   toJSON DeleteResourcePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceArn" Prelude..=) Prelude.<$> resourceArn,
-            ("PolicyHashCondition" Prelude..=)
-              Prelude.<$> policyHashCondition
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceArn" Core..=) Core.<$> resourceArn,
+            ("PolicyHashCondition" Core..=)
+              Core.<$> policyHashCondition
           ]
       )
 
-instance Prelude.ToPath DeleteResourcePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteResourcePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteResourcePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResourcePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.
 data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourcePolicyResponse' with all optional fields omitted.
@@ -148,7 +142,7 @@ data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
 -- 'httpStatus', 'deleteResourcePolicyResponse_httpStatus' - The response's http status code.
 newDeleteResourcePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteResourcePolicyResponse
 newDeleteResourcePolicyResponse pHttpStatus_ =
   DeleteResourcePolicyResponse'
@@ -157,7 +151,7 @@ newDeleteResourcePolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteResourcePolicyResponse_httpStatus :: Lens.Lens' DeleteResourcePolicyResponse Prelude.Int
+deleteResourcePolicyResponse_httpStatus :: Lens.Lens' DeleteResourcePolicyResponse Core.Int
 deleteResourcePolicyResponse_httpStatus = Lens.lens (\DeleteResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteResourcePolicyResponse' {} a -> s {httpStatus = a} :: DeleteResourcePolicyResponse)
 
-instance Prelude.NFData DeleteResourcePolicyResponse
+instance Core.NFData DeleteResourcePolicyResponse

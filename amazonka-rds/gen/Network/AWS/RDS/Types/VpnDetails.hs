@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.VpnDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the virtual private network (VPN) between the VMware
 -- vSphere cluster and the AWS website.
@@ -33,20 +32,20 @@ import qualified Network.AWS.Prelude as Prelude
 data VpnDetails = VpnDetails'
   { -- | The IP address of network traffic from your on-premises data center. A
     -- custom AZ receives the network traffic.
-    vpnTunnelOriginatorIP :: Prelude.Maybe Prelude.Text,
+    vpnTunnelOriginatorIP :: Core.Maybe Core.Text,
     -- | The ID of the VPN.
-    vpnId :: Prelude.Maybe Prelude.Text,
+    vpnId :: Core.Maybe Core.Text,
     -- | The name of the VPN.
-    vpnName :: Prelude.Maybe Prelude.Text,
+    vpnName :: Core.Maybe Core.Text,
     -- | The state of the VPN.
-    vpnState :: Prelude.Maybe Prelude.Text,
+    vpnState :: Core.Maybe Core.Text,
     -- | The IP address of network traffic from AWS to your on-premises data
     -- center.
-    vpnGatewayIp :: Prelude.Maybe Prelude.Text,
+    vpnGatewayIp :: Core.Maybe Core.Text,
     -- | The preshared key (PSK) for the VPN.
-    vpnPSK :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    vpnPSK :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpnDetails' with all optional fields omitted.
@@ -73,51 +72,50 @@ newVpnDetails ::
   VpnDetails
 newVpnDetails =
   VpnDetails'
-    { vpnTunnelOriginatorIP =
-        Prelude.Nothing,
-      vpnId = Prelude.Nothing,
-      vpnName = Prelude.Nothing,
-      vpnState = Prelude.Nothing,
-      vpnGatewayIp = Prelude.Nothing,
-      vpnPSK = Prelude.Nothing
+    { vpnTunnelOriginatorIP = Core.Nothing,
+      vpnId = Core.Nothing,
+      vpnName = Core.Nothing,
+      vpnState = Core.Nothing,
+      vpnGatewayIp = Core.Nothing,
+      vpnPSK = Core.Nothing
     }
 
 -- | The IP address of network traffic from your on-premises data center. A
 -- custom AZ receives the network traffic.
-vpnDetails_vpnTunnelOriginatorIP :: Lens.Lens' VpnDetails (Prelude.Maybe Prelude.Text)
+vpnDetails_vpnTunnelOriginatorIP :: Lens.Lens' VpnDetails (Core.Maybe Core.Text)
 vpnDetails_vpnTunnelOriginatorIP = Lens.lens (\VpnDetails' {vpnTunnelOriginatorIP} -> vpnTunnelOriginatorIP) (\s@VpnDetails' {} a -> s {vpnTunnelOriginatorIP = a} :: VpnDetails)
 
 -- | The ID of the VPN.
-vpnDetails_vpnId :: Lens.Lens' VpnDetails (Prelude.Maybe Prelude.Text)
+vpnDetails_vpnId :: Lens.Lens' VpnDetails (Core.Maybe Core.Text)
 vpnDetails_vpnId = Lens.lens (\VpnDetails' {vpnId} -> vpnId) (\s@VpnDetails' {} a -> s {vpnId = a} :: VpnDetails)
 
 -- | The name of the VPN.
-vpnDetails_vpnName :: Lens.Lens' VpnDetails (Prelude.Maybe Prelude.Text)
+vpnDetails_vpnName :: Lens.Lens' VpnDetails (Core.Maybe Core.Text)
 vpnDetails_vpnName = Lens.lens (\VpnDetails' {vpnName} -> vpnName) (\s@VpnDetails' {} a -> s {vpnName = a} :: VpnDetails)
 
 -- | The state of the VPN.
-vpnDetails_vpnState :: Lens.Lens' VpnDetails (Prelude.Maybe Prelude.Text)
+vpnDetails_vpnState :: Lens.Lens' VpnDetails (Core.Maybe Core.Text)
 vpnDetails_vpnState = Lens.lens (\VpnDetails' {vpnState} -> vpnState) (\s@VpnDetails' {} a -> s {vpnState = a} :: VpnDetails)
 
 -- | The IP address of network traffic from AWS to your on-premises data
 -- center.
-vpnDetails_vpnGatewayIp :: Lens.Lens' VpnDetails (Prelude.Maybe Prelude.Text)
+vpnDetails_vpnGatewayIp :: Lens.Lens' VpnDetails (Core.Maybe Core.Text)
 vpnDetails_vpnGatewayIp = Lens.lens (\VpnDetails' {vpnGatewayIp} -> vpnGatewayIp) (\s@VpnDetails' {} a -> s {vpnGatewayIp = a} :: VpnDetails)
 
 -- | The preshared key (PSK) for the VPN.
-vpnDetails_vpnPSK :: Lens.Lens' VpnDetails (Prelude.Maybe Prelude.Text)
-vpnDetails_vpnPSK = Lens.lens (\VpnDetails' {vpnPSK} -> vpnPSK) (\s@VpnDetails' {} a -> s {vpnPSK = a} :: VpnDetails) Prelude.. Lens.mapping Prelude._Sensitive
+vpnDetails_vpnPSK :: Lens.Lens' VpnDetails (Core.Maybe Core.Text)
+vpnDetails_vpnPSK = Lens.lens (\VpnDetails' {vpnPSK} -> vpnPSK) (\s@VpnDetails' {} a -> s {vpnPSK = a} :: VpnDetails) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromXML VpnDetails where
+instance Core.FromXML VpnDetails where
   parseXML x =
     VpnDetails'
-      Prelude.<$> (x Prelude..@? "VpnTunnelOriginatorIP")
-      Prelude.<*> (x Prelude..@? "VpnId")
-      Prelude.<*> (x Prelude..@? "VpnName")
-      Prelude.<*> (x Prelude..@? "VpnState")
-      Prelude.<*> (x Prelude..@? "VpnGatewayIp")
-      Prelude.<*> (x Prelude..@? "VpnPSK")
+      Core.<$> (x Core..@? "VpnTunnelOriginatorIP")
+      Core.<*> (x Core..@? "VpnId")
+      Core.<*> (x Core..@? "VpnName")
+      Core.<*> (x Core..@? "VpnState")
+      Core.<*> (x Core..@? "VpnGatewayIp")
+      Core.<*> (x Core..@? "VpnPSK")
 
-instance Prelude.Hashable VpnDetails
+instance Core.Hashable VpnDetails
 
-instance Prelude.NFData VpnDetails
+instance Core.NFData VpnDetails

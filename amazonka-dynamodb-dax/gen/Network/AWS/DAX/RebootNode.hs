@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,20 +45,20 @@ module Network.AWS.DAX.RebootNode
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebootNode' smart constructor.
 data RebootNode = RebootNode'
   { -- | The name of the DAX cluster containing the node to be rebooted.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The system-assigned ID of the node to be rebooted.
-    nodeId :: Prelude.Text
+    nodeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootNode' with all optional fields omitted.
@@ -74,9 +73,9 @@ data RebootNode = RebootNode'
 -- 'nodeId', 'rebootNode_nodeId' - The system-assigned ID of the node to be rebooted.
 newRebootNode ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'nodeId'
-  Prelude.Text ->
+  Core.Text ->
   RebootNode
 newRebootNode pClusterName_ pNodeId_ =
   RebootNode'
@@ -85,64 +84,62 @@ newRebootNode pClusterName_ pNodeId_ =
     }
 
 -- | The name of the DAX cluster containing the node to be rebooted.
-rebootNode_clusterName :: Lens.Lens' RebootNode Prelude.Text
+rebootNode_clusterName :: Lens.Lens' RebootNode Core.Text
 rebootNode_clusterName = Lens.lens (\RebootNode' {clusterName} -> clusterName) (\s@RebootNode' {} a -> s {clusterName = a} :: RebootNode)
 
 -- | The system-assigned ID of the node to be rebooted.
-rebootNode_nodeId :: Lens.Lens' RebootNode Prelude.Text
+rebootNode_nodeId :: Lens.Lens' RebootNode Core.Text
 rebootNode_nodeId = Lens.lens (\RebootNode' {nodeId} -> nodeId) (\s@RebootNode' {} a -> s {nodeId = a} :: RebootNode)
 
-instance Prelude.AWSRequest RebootNode where
-  type Rs RebootNode = RebootNodeResponse
+instance Core.AWSRequest RebootNode where
+  type AWSResponse RebootNode = RebootNodeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RebootNodeResponse'
-            Prelude.<$> (x Prelude..?> "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RebootNode
+instance Core.Hashable RebootNode
 
-instance Prelude.NFData RebootNode
+instance Core.NFData RebootNode
 
-instance Prelude.ToHeaders RebootNode where
+instance Core.ToHeaders RebootNode where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonDAXV3.RebootNode" :: Prelude.ByteString),
+              Core.=# ("AmazonDAXV3.RebootNode" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RebootNode where
+instance Core.ToJSON RebootNode where
   toJSON RebootNode' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ClusterName" Prelude..= clusterName),
-            Prelude.Just ("NodeId" Prelude..= nodeId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterName" Core..= clusterName),
+            Core.Just ("NodeId" Core..= nodeId)
           ]
       )
 
-instance Prelude.ToPath RebootNode where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebootNode where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebootNode where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RebootNode where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRebootNodeResponse' smart constructor.
 data RebootNodeResponse = RebootNodeResponse'
   { -- | A description of the DAX cluster after a node has been rebooted.
-    cluster :: Prelude.Maybe Cluster,
+    cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootNodeResponse' with all optional fields omitted.
@@ -157,20 +154,20 @@ data RebootNodeResponse = RebootNodeResponse'
 -- 'httpStatus', 'rebootNodeResponse_httpStatus' - The response's http status code.
 newRebootNodeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RebootNodeResponse
 newRebootNodeResponse pHttpStatus_ =
   RebootNodeResponse'
-    { cluster = Prelude.Nothing,
+    { cluster = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A description of the DAX cluster after a node has been rebooted.
-rebootNodeResponse_cluster :: Lens.Lens' RebootNodeResponse (Prelude.Maybe Cluster)
+rebootNodeResponse_cluster :: Lens.Lens' RebootNodeResponse (Core.Maybe Cluster)
 rebootNodeResponse_cluster = Lens.lens (\RebootNodeResponse' {cluster} -> cluster) (\s@RebootNodeResponse' {} a -> s {cluster = a} :: RebootNodeResponse)
 
 -- | The response's http status code.
-rebootNodeResponse_httpStatus :: Lens.Lens' RebootNodeResponse Prelude.Int
+rebootNodeResponse_httpStatus :: Lens.Lens' RebootNodeResponse Core.Int
 rebootNodeResponse_httpStatus = Lens.lens (\RebootNodeResponse' {httpStatus} -> httpStatus) (\s@RebootNodeResponse' {} a -> s {httpStatus = a} :: RebootNodeResponse)
 
-instance Prelude.NFData RebootNodeResponse
+instance Core.NFData RebootNodeResponse

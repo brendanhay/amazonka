@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IAM.DetachRolePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +56,15 @@ data DetachRolePolicy = DetachRolePolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Prelude.Text,
+    roleName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Prelude.Text
+    policyArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachRolePolicy' with all optional fields omitted.
@@ -90,9 +89,9 @@ data DetachRolePolicy = DetachRolePolicy'
 -- in the /AWS General Reference/.
 newDetachRolePolicy ::
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   DetachRolePolicy
 newDetachRolePolicy pRoleName_ pPolicyArn_ =
   DetachRolePolicy'
@@ -107,7 +106,7 @@ newDetachRolePolicy pRoleName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-detachRolePolicy_roleName :: Lens.Lens' DetachRolePolicy Prelude.Text
+detachRolePolicy_roleName :: Lens.Lens' DetachRolePolicy Core.Text
 detachRolePolicy_roleName = Lens.lens (\DetachRolePolicy' {roleName} -> roleName) (\s@DetachRolePolicy' {} a -> s {roleName = a} :: DetachRolePolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
@@ -115,41 +114,42 @@ detachRolePolicy_roleName = Lens.lens (\DetachRolePolicy' {roleName} -> roleName
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-detachRolePolicy_policyArn :: Lens.Lens' DetachRolePolicy Prelude.Text
+detachRolePolicy_policyArn :: Lens.Lens' DetachRolePolicy Core.Text
 detachRolePolicy_policyArn = Lens.lens (\DetachRolePolicy' {policyArn} -> policyArn) (\s@DetachRolePolicy' {} a -> s {policyArn = a} :: DetachRolePolicy)
 
-instance Prelude.AWSRequest DetachRolePolicy where
-  type Rs DetachRolePolicy = DetachRolePolicyResponse
+instance Core.AWSRequest DetachRolePolicy where
+  type
+    AWSResponse DetachRolePolicy =
+      DetachRolePolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DetachRolePolicyResponse'
 
-instance Prelude.Hashable DetachRolePolicy
+instance Core.Hashable DetachRolePolicy
 
-instance Prelude.NFData DetachRolePolicy
+instance Core.NFData DetachRolePolicy
 
-instance Prelude.ToHeaders DetachRolePolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DetachRolePolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DetachRolePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetachRolePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetachRolePolicy where
+instance Core.ToQuery DetachRolePolicy where
   toQuery DetachRolePolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DetachRolePolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Prelude.=: roleName,
-        "PolicyArn" Prelude.=: policyArn
+          Core.=: ("DetachRolePolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "RoleName" Core.=: roleName,
+        "PolicyArn" Core.=: policyArn
       ]
 
 -- | /See:/ 'newDetachRolePolicyResponse' smart constructor.
 data DetachRolePolicyResponse = DetachRolePolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachRolePolicyResponse' with all optional fields omitted.
@@ -160,4 +160,4 @@ newDetachRolePolicyResponse ::
 newDetachRolePolicyResponse =
   DetachRolePolicyResponse'
 
-instance Prelude.NFData DetachRolePolicyResponse
+instance Core.NFData DetachRolePolicyResponse

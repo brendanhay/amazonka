@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.Provider where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the AWS Key Management Service (AWS KMS) customer master key
 -- (CMK) used to encrypt the secrets.
@@ -34,9 +33,9 @@ data Provider = Provider'
     -- access to the CMK. For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html Allowing Users in Other Accounts to Use a CMK>
     -- in the /AWS Key Management Service Developer Guide/.
-    keyArn :: Prelude.Maybe Prelude.Text
+    keyArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Provider' with all optional fields omitted.
@@ -54,7 +53,7 @@ data Provider = Provider'
 -- in the /AWS Key Management Service Developer Guide/.
 newProvider ::
   Provider
-newProvider = Provider' {keyArn = Prelude.Nothing}
+newProvider = Provider' {keyArn = Core.Nothing}
 
 -- | Amazon Resource Name (ARN) or alias of the customer master key (CMK).
 -- The CMK must be symmetric, created in the same region as the cluster,
@@ -62,24 +61,20 @@ newProvider = Provider' {keyArn = Prelude.Nothing}
 -- access to the CMK. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html Allowing Users in Other Accounts to Use a CMK>
 -- in the /AWS Key Management Service Developer Guide/.
-provider_keyArn :: Lens.Lens' Provider (Prelude.Maybe Prelude.Text)
+provider_keyArn :: Lens.Lens' Provider (Core.Maybe Core.Text)
 provider_keyArn = Lens.lens (\Provider' {keyArn} -> keyArn) (\s@Provider' {} a -> s {keyArn = a} :: Provider)
 
-instance Prelude.FromJSON Provider where
+instance Core.FromJSON Provider where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Provider"
-      ( \x ->
-          Provider' Prelude.<$> (x Prelude..:? "keyArn")
-      )
+      (\x -> Provider' Core.<$> (x Core..:? "keyArn"))
 
-instance Prelude.Hashable Provider
+instance Core.Hashable Provider
 
-instance Prelude.NFData Provider
+instance Core.NFData Provider
 
-instance Prelude.ToJSON Provider where
+instance Core.ToJSON Provider where
   toJSON Provider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("keyArn" Prelude..=) Prelude.<$> keyArn]
-      )
+    Core.object
+      (Core.catMaybes [("keyArn" Core..=) Core.<$> keyArn])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.TotalImpactFilter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.NumericOperator
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters cost anomalies based on the total impact.
 --
 -- /See:/ 'newTotalImpactFilter' smart constructor.
 data TotalImpactFilter = TotalImpactFilter'
   { -- | The upper bound dollar value used in the filter.
-    endValue :: Prelude.Maybe Prelude.Double,
+    endValue :: Core.Maybe Core.Double,
     -- | The comparing value used in the filter.
     numericOperator :: NumericOperator,
     -- | The lower bound dollar value used in the filter.
-    startValue :: Prelude.Double
+    startValue :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TotalImpactFilter' with all optional fields omitted.
@@ -54,17 +53,17 @@ newTotalImpactFilter ::
   -- | 'numericOperator'
   NumericOperator ->
   -- | 'startValue'
-  Prelude.Double ->
+  Core.Double ->
   TotalImpactFilter
 newTotalImpactFilter pNumericOperator_ pStartValue_ =
   TotalImpactFilter'
-    { endValue = Prelude.Nothing,
+    { endValue = Core.Nothing,
       numericOperator = pNumericOperator_,
       startValue = pStartValue_
     }
 
 -- | The upper bound dollar value used in the filter.
-totalImpactFilter_endValue :: Lens.Lens' TotalImpactFilter (Prelude.Maybe Prelude.Double)
+totalImpactFilter_endValue :: Lens.Lens' TotalImpactFilter (Core.Maybe Core.Double)
 totalImpactFilter_endValue = Lens.lens (\TotalImpactFilter' {endValue} -> endValue) (\s@TotalImpactFilter' {} a -> s {endValue = a} :: TotalImpactFilter)
 
 -- | The comparing value used in the filter.
@@ -72,20 +71,20 @@ totalImpactFilter_numericOperator :: Lens.Lens' TotalImpactFilter NumericOperato
 totalImpactFilter_numericOperator = Lens.lens (\TotalImpactFilter' {numericOperator} -> numericOperator) (\s@TotalImpactFilter' {} a -> s {numericOperator = a} :: TotalImpactFilter)
 
 -- | The lower bound dollar value used in the filter.
-totalImpactFilter_startValue :: Lens.Lens' TotalImpactFilter Prelude.Double
+totalImpactFilter_startValue :: Lens.Lens' TotalImpactFilter Core.Double
 totalImpactFilter_startValue = Lens.lens (\TotalImpactFilter' {startValue} -> startValue) (\s@TotalImpactFilter' {} a -> s {startValue = a} :: TotalImpactFilter)
 
-instance Prelude.Hashable TotalImpactFilter
+instance Core.Hashable TotalImpactFilter
 
-instance Prelude.NFData TotalImpactFilter
+instance Core.NFData TotalImpactFilter
 
-instance Prelude.ToJSON TotalImpactFilter where
+instance Core.ToJSON TotalImpactFilter where
   toJSON TotalImpactFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EndValue" Prelude..=) Prelude.<$> endValue,
-            Prelude.Just
-              ("NumericOperator" Prelude..= numericOperator),
-            Prelude.Just ("StartValue" Prelude..= startValue)
+    Core.object
+      ( Core.catMaybes
+          [ ("EndValue" Core..=) Core.<$> endValue,
+            Core.Just
+              ("NumericOperator" Core..= numericOperator),
+            Core.Just ("StartValue" Core..= startValue)
           ]
       )

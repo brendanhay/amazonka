@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,18 +51,18 @@ module Network.AWS.MechanicalTurk.DeleteQualificationType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteQualificationType' smart constructor.
 data DeleteQualificationType = DeleteQualificationType'
   { -- | The ID of the QualificationType to dispose.
-    qualificationTypeId :: Prelude.Text
+    qualificationTypeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQualificationType' with all optional fields omitted.
@@ -76,7 +75,7 @@ data DeleteQualificationType = DeleteQualificationType'
 -- 'qualificationTypeId', 'deleteQualificationType_qualificationTypeId' - The ID of the QualificationType to dispose.
 newDeleteQualificationType ::
   -- | 'qualificationTypeId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteQualificationType
 newDeleteQualificationType pQualificationTypeId_ =
   DeleteQualificationType'
@@ -85,63 +84,59 @@ newDeleteQualificationType pQualificationTypeId_ =
     }
 
 -- | The ID of the QualificationType to dispose.
-deleteQualificationType_qualificationTypeId :: Lens.Lens' DeleteQualificationType Prelude.Text
+deleteQualificationType_qualificationTypeId :: Lens.Lens' DeleteQualificationType Core.Text
 deleteQualificationType_qualificationTypeId = Lens.lens (\DeleteQualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@DeleteQualificationType' {} a -> s {qualificationTypeId = a} :: DeleteQualificationType)
 
-instance Prelude.AWSRequest DeleteQualificationType where
+instance Core.AWSRequest DeleteQualificationType where
   type
-    Rs DeleteQualificationType =
+    AWSResponse DeleteQualificationType =
       DeleteQualificationTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteQualificationTypeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQualificationType
+instance Core.Hashable DeleteQualificationType
 
-instance Prelude.NFData DeleteQualificationType
+instance Core.NFData DeleteQualificationType
 
-instance Prelude.ToHeaders DeleteQualificationType where
+instance Core.ToHeaders DeleteQualificationType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.DeleteQualificationType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.DeleteQualificationType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteQualificationType where
+instance Core.ToJSON DeleteQualificationType where
   toJSON DeleteQualificationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "QualificationTypeId"
-                  Prelude..= qualificationTypeId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("QualificationTypeId" Core..= qualificationTypeId)
           ]
       )
 
-instance Prelude.ToPath DeleteQualificationType where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteQualificationType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteQualificationType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteQualificationType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteQualificationTypeResponse' smart constructor.
 data DeleteQualificationTypeResponse = DeleteQualificationTypeResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQualificationTypeResponse' with all optional fields omitted.
@@ -154,7 +149,7 @@ data DeleteQualificationTypeResponse = DeleteQualificationTypeResponse'
 -- 'httpStatus', 'deleteQualificationTypeResponse_httpStatus' - The response's http status code.
 newDeleteQualificationTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteQualificationTypeResponse
 newDeleteQualificationTypeResponse pHttpStatus_ =
   DeleteQualificationTypeResponse'
@@ -163,9 +158,7 @@ newDeleteQualificationTypeResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteQualificationTypeResponse_httpStatus :: Lens.Lens' DeleteQualificationTypeResponse Prelude.Int
+deleteQualificationTypeResponse_httpStatus :: Lens.Lens' DeleteQualificationTypeResponse Core.Int
 deleteQualificationTypeResponse_httpStatus = Lens.lens (\DeleteQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@DeleteQualificationTypeResponse' {} a -> s {httpStatus = a} :: DeleteQualificationTypeResponse)
 
-instance
-  Prelude.NFData
-    DeleteQualificationTypeResponse
+instance Core.NFData DeleteQualificationTypeResponse

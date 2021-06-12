@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaStore.Types.Container where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types.ContainerStatus
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This section describes operations that you can perform on an AWS
 -- Elemental MediaStore container.
@@ -33,9 +32,9 @@ data Container = Container'
     -- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is
     -- creating the container, the status is @CREATING@. When the endpoint is
     -- available, the status changes to @ACTIVE@.
-    status :: Prelude.Maybe ContainerStatus,
+    status :: Core.Maybe ContainerStatus,
     -- | Unix timestamp.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the container. The ARN has the
     -- following format:
     --
@@ -43,23 +42,23 @@ data Container = Container'
     -- of container>
     --
     -- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The state of access logging on the container. This value is @false@ by
     -- default, indicating that AWS Elemental MediaStore does not send access
     -- logs to Amazon CloudWatch Logs. When you enable access logging on the
     -- container, MediaStore changes this value to @true@, indicating that the
     -- service delivers access logs for objects stored in that container to
     -- CloudWatch Logs.
-    accessLoggingEnabled :: Prelude.Maybe Prelude.Bool,
+    accessLoggingEnabled :: Core.Maybe Core.Bool,
     -- | The name of the container.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The DNS endpoint of the container. Use the endpoint to identify the
     -- specific container when sending requests to the data plane. The service
     -- assigns this value when the container is created. Once the value has
     -- been assigned, it does not change.
-    endpoint :: Prelude.Maybe Prelude.Text
+    endpoint :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Container' with all optional fields omitted.
@@ -101,24 +100,24 @@ newContainer ::
   Container
 newContainer =
   Container'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      accessLoggingEnabled = Prelude.Nothing,
-      name = Prelude.Nothing,
-      endpoint = Prelude.Nothing
+    { status = Core.Nothing,
+      creationTime = Core.Nothing,
+      arn = Core.Nothing,
+      accessLoggingEnabled = Core.Nothing,
+      name = Core.Nothing,
+      endpoint = Core.Nothing
     }
 
 -- | The status of container creation or deletion. The status is one of the
 -- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is
 -- creating the container, the status is @CREATING@. When the endpoint is
 -- available, the status changes to @ACTIVE@.
-container_status :: Lens.Lens' Container (Prelude.Maybe ContainerStatus)
+container_status :: Lens.Lens' Container (Core.Maybe ContainerStatus)
 container_status = Lens.lens (\Container' {status} -> status) (\s@Container' {} a -> s {status = a} :: Container)
 
 -- | Unix timestamp.
-container_creationTime :: Lens.Lens' Container (Prelude.Maybe Prelude.UTCTime)
-container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) (\s@Container' {} a -> s {creationTime = a} :: Container) Prelude.. Lens.mapping Prelude._Time
+container_creationTime :: Lens.Lens' Container (Core.Maybe Core.UTCTime)
+container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) (\s@Container' {} a -> s {creationTime = a} :: Container) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 -- following format:
@@ -127,7 +126,7 @@ container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) 
 -- of container>
 --
 -- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies
-container_arn :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
+container_arn :: Lens.Lens' Container (Core.Maybe Core.Text)
 container_arn = Lens.lens (\Container' {arn} -> arn) (\s@Container' {} a -> s {arn = a} :: Container)
 
 -- | The state of access logging on the container. This value is @false@ by
@@ -136,34 +135,34 @@ container_arn = Lens.lens (\Container' {arn} -> arn) (\s@Container' {} a -> s {a
 -- container, MediaStore changes this value to @true@, indicating that the
 -- service delivers access logs for objects stored in that container to
 -- CloudWatch Logs.
-container_accessLoggingEnabled :: Lens.Lens' Container (Prelude.Maybe Prelude.Bool)
+container_accessLoggingEnabled :: Lens.Lens' Container (Core.Maybe Core.Bool)
 container_accessLoggingEnabled = Lens.lens (\Container' {accessLoggingEnabled} -> accessLoggingEnabled) (\s@Container' {} a -> s {accessLoggingEnabled = a} :: Container)
 
 -- | The name of the container.
-container_name :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
+container_name :: Lens.Lens' Container (Core.Maybe Core.Text)
 container_name = Lens.lens (\Container' {name} -> name) (\s@Container' {} a -> s {name = a} :: Container)
 
 -- | The DNS endpoint of the container. Use the endpoint to identify the
 -- specific container when sending requests to the data plane. The service
 -- assigns this value when the container is created. Once the value has
 -- been assigned, it does not change.
-container_endpoint :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
+container_endpoint :: Lens.Lens' Container (Core.Maybe Core.Text)
 container_endpoint = Lens.lens (\Container' {endpoint} -> endpoint) (\s@Container' {} a -> s {endpoint = a} :: Container)
 
-instance Prelude.FromJSON Container where
+instance Core.FromJSON Container where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ARN")
-            Prelude.<*> (x Prelude..:? "AccessLoggingEnabled")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Endpoint")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ARN")
+            Core.<*> (x Core..:? "AccessLoggingEnabled")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Endpoint")
       )
 
-instance Prelude.Hashable Container
+instance Core.Hashable Container
 
-instance Prelude.NFData Container
+instance Core.NFData Container

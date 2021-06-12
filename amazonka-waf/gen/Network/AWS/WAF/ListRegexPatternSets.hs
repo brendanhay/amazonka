@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.WAF.ListRegexPatternSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -69,15 +67,15 @@ data ListRegexPatternSets = ListRegexPatternSets'
     -- @ListRegexPatternSets@ requests, specify the value of @NextMarker@ from
     -- the previous response to get information about another batch of
     -- @RegexPatternSet@ objects.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
     -- to return for this request. If you have more @RegexPatternSet@ objects
     -- than the number you specify for @Limit@, the response includes a
     -- @NextMarker@ value that you can use to get another batch of
     -- @RegexPatternSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRegexPatternSets' with all optional fields omitted.
@@ -104,8 +102,8 @@ newListRegexPatternSets ::
   ListRegexPatternSets
 newListRegexPatternSets =
   ListRegexPatternSets'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @RegexPatternSet@
@@ -115,7 +113,7 @@ newListRegexPatternSets =
 -- @ListRegexPatternSets@ requests, specify the value of @NextMarker@ from
 -- the previous response to get information about another batch of
 -- @RegexPatternSet@ objects.
-listRegexPatternSets_nextMarker :: Lens.Lens' ListRegexPatternSets (Prelude.Maybe Prelude.Text)
+listRegexPatternSets_nextMarker :: Lens.Lens' ListRegexPatternSets (Core.Maybe Core.Text)
 listRegexPatternSets_nextMarker = Lens.lens (\ListRegexPatternSets' {nextMarker} -> nextMarker) (\s@ListRegexPatternSets' {} a -> s {nextMarker = a} :: ListRegexPatternSets)
 
 -- | Specifies the number of @RegexPatternSet@ objects that you want AWS WAF
@@ -123,95 +121,91 @@ listRegexPatternSets_nextMarker = Lens.lens (\ListRegexPatternSets' {nextMarker}
 -- than the number you specify for @Limit@, the response includes a
 -- @NextMarker@ value that you can use to get another batch of
 -- @RegexPatternSet@ objects.
-listRegexPatternSets_limit :: Lens.Lens' ListRegexPatternSets (Prelude.Maybe Prelude.Natural)
+listRegexPatternSets_limit :: Lens.Lens' ListRegexPatternSets (Core.Maybe Core.Natural)
 listRegexPatternSets_limit = Lens.lens (\ListRegexPatternSets' {limit} -> limit) (\s@ListRegexPatternSets' {} a -> s {limit = a} :: ListRegexPatternSets)
 
-instance Pager.AWSPager ListRegexPatternSets where
+instance Core.AWSPager ListRegexPatternSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listRegexPatternSetsResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listRegexPatternSetsResponse_regexPatternSets
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listRegexPatternSets_nextMarker
           Lens..~ rs
           Lens.^? listRegexPatternSetsResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListRegexPatternSets where
+instance Core.AWSRequest ListRegexPatternSets where
   type
-    Rs ListRegexPatternSets =
+    AWSResponse ListRegexPatternSets =
       ListRegexPatternSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListRegexPatternSetsResponse'
-            Prelude.<$> ( x Prelude..?> "RegexPatternSets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RegexPatternSets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListRegexPatternSets
+instance Core.Hashable ListRegexPatternSets
 
-instance Prelude.NFData ListRegexPatternSets
+instance Core.NFData ListRegexPatternSets
 
-instance Prelude.ToHeaders ListRegexPatternSets where
+instance Core.ToHeaders ListRegexPatternSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.ListRegexPatternSets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.ListRegexPatternSets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListRegexPatternSets where
+instance Core.ToJSON ListRegexPatternSets where
   toJSON ListRegexPatternSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListRegexPatternSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListRegexPatternSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListRegexPatternSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListRegexPatternSets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListRegexPatternSetsResponse' smart constructor.
 data ListRegexPatternSetsResponse = ListRegexPatternSetsResponse'
   { -- | An array of RegexPatternSetSummary objects.
-    regexPatternSets :: Prelude.Maybe [RegexPatternSetSummary],
+    regexPatternSets :: Core.Maybe [RegexPatternSetSummary],
     -- | If you have more @RegexPatternSet@ objects than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @RegexPatternSet@ objects, submit
     -- another @ListRegexPatternSets@ request, and specify the @NextMarker@
     -- value from the response in the @NextMarker@ value in the next request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRegexPatternSetsResponse' with all optional fields omitted.
@@ -232,30 +226,30 @@ data ListRegexPatternSetsResponse = ListRegexPatternSetsResponse'
 -- 'httpStatus', 'listRegexPatternSetsResponse_httpStatus' - The response's http status code.
 newListRegexPatternSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListRegexPatternSetsResponse
 newListRegexPatternSetsResponse pHttpStatus_ =
   ListRegexPatternSetsResponse'
     { regexPatternSets =
-        Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+        Core.Nothing,
+      nextMarker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of RegexPatternSetSummary objects.
-listRegexPatternSetsResponse_regexPatternSets :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe [RegexPatternSetSummary])
-listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listRegexPatternSetsResponse_regexPatternSets :: Lens.Lens' ListRegexPatternSetsResponse (Core.Maybe [RegexPatternSetSummary])
+listRegexPatternSetsResponse_regexPatternSets = Lens.lens (\ListRegexPatternSetsResponse' {regexPatternSets} -> regexPatternSets) (\s@ListRegexPatternSetsResponse' {} a -> s {regexPatternSets = a} :: ListRegexPatternSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If you have more @RegexPatternSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
 -- @NextMarker@ value. To list more @RegexPatternSet@ objects, submit
 -- another @ListRegexPatternSets@ request, and specify the @NextMarker@
 -- value from the response in the @NextMarker@ value in the next request.
-listRegexPatternSetsResponse_nextMarker :: Lens.Lens' ListRegexPatternSetsResponse (Prelude.Maybe Prelude.Text)
+listRegexPatternSetsResponse_nextMarker :: Lens.Lens' ListRegexPatternSetsResponse (Core.Maybe Core.Text)
 listRegexPatternSetsResponse_nextMarker = Lens.lens (\ListRegexPatternSetsResponse' {nextMarker} -> nextMarker) (\s@ListRegexPatternSetsResponse' {} a -> s {nextMarker = a} :: ListRegexPatternSetsResponse)
 
 -- | The response's http status code.
-listRegexPatternSetsResponse_httpStatus :: Lens.Lens' ListRegexPatternSetsResponse Prelude.Int
+listRegexPatternSetsResponse_httpStatus :: Lens.Lens' ListRegexPatternSetsResponse Core.Int
 listRegexPatternSetsResponse_httpStatus = Lens.lens (\ListRegexPatternSetsResponse' {httpStatus} -> httpStatus) (\s@ListRegexPatternSetsResponse' {} a -> s {httpStatus = a} :: ListRegexPatternSetsResponse)
 
-instance Prelude.NFData ListRegexPatternSetsResponse
+instance Core.NFData ListRegexPatternSetsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Rekognition.DeleteFaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteFaces' smart constructor.
 data DeleteFaces = DeleteFaces'
   { -- | Collection from which to remove the specific faces.
-    collectionId :: Prelude.Text,
+    collectionId :: Core.Text,
     -- | An array of face IDs to delete.
-    faceIds :: Prelude.NonEmpty Prelude.Text
+    faceIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFaces' with all optional fields omitted.
@@ -73,78 +72,75 @@ data DeleteFaces = DeleteFaces'
 -- 'faceIds', 'deleteFaces_faceIds' - An array of face IDs to delete.
 newDeleteFaces ::
   -- | 'collectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'faceIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   DeleteFaces
 newDeleteFaces pCollectionId_ pFaceIds_ =
   DeleteFaces'
     { collectionId = pCollectionId_,
-      faceIds = Prelude._Coerce Lens.# pFaceIds_
+      faceIds = Lens._Coerce Lens.# pFaceIds_
     }
 
 -- | Collection from which to remove the specific faces.
-deleteFaces_collectionId :: Lens.Lens' DeleteFaces Prelude.Text
+deleteFaces_collectionId :: Lens.Lens' DeleteFaces Core.Text
 deleteFaces_collectionId = Lens.lens (\DeleteFaces' {collectionId} -> collectionId) (\s@DeleteFaces' {} a -> s {collectionId = a} :: DeleteFaces)
 
 -- | An array of face IDs to delete.
-deleteFaces_faceIds :: Lens.Lens' DeleteFaces (Prelude.NonEmpty Prelude.Text)
-deleteFaces_faceIds = Lens.lens (\DeleteFaces' {faceIds} -> faceIds) (\s@DeleteFaces' {} a -> s {faceIds = a} :: DeleteFaces) Prelude.. Prelude._Coerce
+deleteFaces_faceIds :: Lens.Lens' DeleteFaces (Core.NonEmpty Core.Text)
+deleteFaces_faceIds = Lens.lens (\DeleteFaces' {faceIds} -> faceIds) (\s@DeleteFaces' {} a -> s {faceIds = a} :: DeleteFaces) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteFaces where
-  type Rs DeleteFaces = DeleteFacesResponse
+instance Core.AWSRequest DeleteFaces where
+  type AWSResponse DeleteFaces = DeleteFacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteFacesResponse'
-            Prelude.<$> (x Prelude..?> "DeletedFaces")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DeletedFaces")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFaces
+instance Core.Hashable DeleteFaces
 
-instance Prelude.NFData DeleteFaces
+instance Core.NFData DeleteFaces
 
-instance Prelude.ToHeaders DeleteFaces where
+instance Core.ToHeaders DeleteFaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.DeleteFaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.DeleteFaces" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteFaces where
+instance Core.ToJSON DeleteFaces where
   toJSON DeleteFaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CollectionId" Prelude..= collectionId),
-            Prelude.Just ("FaceIds" Prelude..= faceIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CollectionId" Core..= collectionId),
+            Core.Just ("FaceIds" Core..= faceIds)
           ]
       )
 
-instance Prelude.ToPath DeleteFaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteFaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteFaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteFaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFacesResponse' smart constructor.
 data DeleteFacesResponse = DeleteFacesResponse'
   { -- | An array of strings (face IDs) of the faces that were deleted.
-    deletedFaces :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    deletedFaces :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFacesResponse' with all optional fields omitted.
@@ -159,21 +155,20 @@ data DeleteFacesResponse = DeleteFacesResponse'
 -- 'httpStatus', 'deleteFacesResponse_httpStatus' - The response's http status code.
 newDeleteFacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteFacesResponse
 newDeleteFacesResponse pHttpStatus_ =
   DeleteFacesResponse'
-    { deletedFaces =
-        Prelude.Nothing,
+    { deletedFaces = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of strings (face IDs) of the faces that were deleted.
-deleteFacesResponse_deletedFaces :: Lens.Lens' DeleteFacesResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-deleteFacesResponse_deletedFaces = Lens.lens (\DeleteFacesResponse' {deletedFaces} -> deletedFaces) (\s@DeleteFacesResponse' {} a -> s {deletedFaces = a} :: DeleteFacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteFacesResponse_deletedFaces :: Lens.Lens' DeleteFacesResponse (Core.Maybe (Core.NonEmpty Core.Text))
+deleteFacesResponse_deletedFaces = Lens.lens (\DeleteFacesResponse' {deletedFaces} -> deletedFaces) (\s@DeleteFacesResponse' {} a -> s {deletedFaces = a} :: DeleteFacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteFacesResponse_httpStatus :: Lens.Lens' DeleteFacesResponse Prelude.Int
+deleteFacesResponse_httpStatus :: Lens.Lens' DeleteFacesResponse Core.Int
 deleteFacesResponse_httpStatus = Lens.lens (\DeleteFacesResponse' {httpStatus} -> httpStatus) (\s@DeleteFacesResponse' {} a -> s {httpStatus = a} :: DeleteFacesResponse)
 
-instance Prelude.NFData DeleteFacesResponse
+instance Core.NFData DeleteFacesResponse

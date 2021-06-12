@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.APIGateway.Types.MethodSnapshot where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a summary of a Method resource, given a particular date and
 -- time.
@@ -29,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMethodSnapshot' smart constructor.
 data MethodSnapshot = MethodSnapshot'
   { -- | Specifies whether the method requires a valid ApiKey.
-    apiKeyRequired :: Prelude.Maybe Prelude.Bool,
+    apiKeyRequired :: Core.Maybe Core.Bool,
     -- | The method\'s authorization type. Valid values are @NONE@ for open
     -- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
     -- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
     -- pool.
-    authorizationType :: Prelude.Maybe Prelude.Text
+    authorizationType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MethodSnapshot' with all optional fields omitted.
@@ -56,31 +55,31 @@ newMethodSnapshot ::
   MethodSnapshot
 newMethodSnapshot =
   MethodSnapshot'
-    { apiKeyRequired = Prelude.Nothing,
-      authorizationType = Prelude.Nothing
+    { apiKeyRequired = Core.Nothing,
+      authorizationType = Core.Nothing
     }
 
 -- | Specifies whether the method requires a valid ApiKey.
-methodSnapshot_apiKeyRequired :: Lens.Lens' MethodSnapshot (Prelude.Maybe Prelude.Bool)
+methodSnapshot_apiKeyRequired :: Lens.Lens' MethodSnapshot (Core.Maybe Core.Bool)
 methodSnapshot_apiKeyRequired = Lens.lens (\MethodSnapshot' {apiKeyRequired} -> apiKeyRequired) (\s@MethodSnapshot' {} a -> s {apiKeyRequired = a} :: MethodSnapshot)
 
 -- | The method\'s authorization type. Valid values are @NONE@ for open
 -- access, @AWS_IAM@ for using AWS IAM permissions, @CUSTOM@ for using a
 -- custom authorizer, or @COGNITO_USER_POOLS@ for using a Cognito user
 -- pool.
-methodSnapshot_authorizationType :: Lens.Lens' MethodSnapshot (Prelude.Maybe Prelude.Text)
+methodSnapshot_authorizationType :: Lens.Lens' MethodSnapshot (Core.Maybe Core.Text)
 methodSnapshot_authorizationType = Lens.lens (\MethodSnapshot' {authorizationType} -> authorizationType) (\s@MethodSnapshot' {} a -> s {authorizationType = a} :: MethodSnapshot)
 
-instance Prelude.FromJSON MethodSnapshot where
+instance Core.FromJSON MethodSnapshot where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MethodSnapshot"
       ( \x ->
           MethodSnapshot'
-            Prelude.<$> (x Prelude..:? "apiKeyRequired")
-            Prelude.<*> (x Prelude..:? "authorizationType")
+            Core.<$> (x Core..:? "apiKeyRequired")
+            Core.<*> (x Core..:? "authorizationType")
       )
 
-instance Prelude.Hashable MethodSnapshot
+instance Core.Hashable MethodSnapshot
 
-instance Prelude.NFData MethodSnapshot
+instance Core.NFData MethodSnapshot

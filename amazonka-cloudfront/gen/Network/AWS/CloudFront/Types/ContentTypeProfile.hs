@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.ContentTypeProfile where
 
 import Network.AWS.CloudFront.Types.Format
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A field-level encryption content type profile.
 --
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ContentTypeProfile = ContentTypeProfile'
   { -- | The profile ID for a field-level encryption content type-profile
     -- mapping.
-    profileId :: Prelude.Maybe Prelude.Text,
+    profileId :: Core.Maybe Core.Text,
     -- | The format for a field-level encryption content type-profile mapping.
     format :: Format,
     -- | The content type for a field-level encryption content type-profile
     -- mapping.
-    contentType :: Prelude.Text
+    contentType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContentTypeProfile' with all optional fields omitted.
@@ -58,18 +57,18 @@ newContentTypeProfile ::
   -- | 'format'
   Format ->
   -- | 'contentType'
-  Prelude.Text ->
+  Core.Text ->
   ContentTypeProfile
 newContentTypeProfile pFormat_ pContentType_ =
   ContentTypeProfile'
-    { profileId = Prelude.Nothing,
+    { profileId = Core.Nothing,
       format = pFormat_,
       contentType = pContentType_
     }
 
 -- | The profile ID for a field-level encryption content type-profile
 -- mapping.
-contentTypeProfile_profileId :: Lens.Lens' ContentTypeProfile (Prelude.Maybe Prelude.Text)
+contentTypeProfile_profileId :: Lens.Lens' ContentTypeProfile (Core.Maybe Core.Text)
 contentTypeProfile_profileId = Lens.lens (\ContentTypeProfile' {profileId} -> profileId) (\s@ContentTypeProfile' {} a -> s {profileId = a} :: ContentTypeProfile)
 
 -- | The format for a field-level encryption content type-profile mapping.
@@ -78,24 +77,24 @@ contentTypeProfile_format = Lens.lens (\ContentTypeProfile' {format} -> format) 
 
 -- | The content type for a field-level encryption content type-profile
 -- mapping.
-contentTypeProfile_contentType :: Lens.Lens' ContentTypeProfile Prelude.Text
+contentTypeProfile_contentType :: Lens.Lens' ContentTypeProfile Core.Text
 contentTypeProfile_contentType = Lens.lens (\ContentTypeProfile' {contentType} -> contentType) (\s@ContentTypeProfile' {} a -> s {contentType = a} :: ContentTypeProfile)
 
-instance Prelude.FromXML ContentTypeProfile where
+instance Core.FromXML ContentTypeProfile where
   parseXML x =
     ContentTypeProfile'
-      Prelude.<$> (x Prelude..@? "ProfileId")
-      Prelude.<*> (x Prelude..@ "Format")
-      Prelude.<*> (x Prelude..@ "ContentType")
+      Core.<$> (x Core..@? "ProfileId")
+      Core.<*> (x Core..@ "Format")
+      Core.<*> (x Core..@ "ContentType")
 
-instance Prelude.Hashable ContentTypeProfile
+instance Core.Hashable ContentTypeProfile
 
-instance Prelude.NFData ContentTypeProfile
+instance Core.NFData ContentTypeProfile
 
-instance Prelude.ToXML ContentTypeProfile where
+instance Core.ToXML ContentTypeProfile where
   toXML ContentTypeProfile' {..} =
-    Prelude.mconcat
-      [ "ProfileId" Prelude.@= profileId,
-        "Format" Prelude.@= format,
-        "ContentType" Prelude.@= contentType
+    Core.mconcat
+      [ "ProfileId" Core.@= profileId,
+        "Format" Core.@= format,
+        "ContentType" Core.@= contentType
       ]

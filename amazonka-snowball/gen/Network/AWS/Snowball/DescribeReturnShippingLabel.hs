@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Snowball.DescribeReturnShippingLabel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -52,9 +51,9 @@ import Network.AWS.Snowball.Types
 data DescribeReturnShippingLabel = DescribeReturnShippingLabel'
   { -- | The automatically generated ID for a job, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReturnShippingLabel' with all optional fields omitted.
@@ -69,79 +68,66 @@ data DescribeReturnShippingLabel = DescribeReturnShippingLabel'
 newDescribeReturnShippingLabel ::
   DescribeReturnShippingLabel
 newDescribeReturnShippingLabel =
-  DescribeReturnShippingLabel'
-    { jobId =
-        Prelude.Nothing
-    }
+  DescribeReturnShippingLabel' {jobId = Core.Nothing}
 
 -- | The automatically generated ID for a job, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
-describeReturnShippingLabel_jobId :: Lens.Lens' DescribeReturnShippingLabel (Prelude.Maybe Prelude.Text)
+describeReturnShippingLabel_jobId :: Lens.Lens' DescribeReturnShippingLabel (Core.Maybe Core.Text)
 describeReturnShippingLabel_jobId = Lens.lens (\DescribeReturnShippingLabel' {jobId} -> jobId) (\s@DescribeReturnShippingLabel' {} a -> s {jobId = a} :: DescribeReturnShippingLabel)
 
-instance
-  Prelude.AWSRequest
-    DescribeReturnShippingLabel
-  where
+instance Core.AWSRequest DescribeReturnShippingLabel where
   type
-    Rs DescribeReturnShippingLabel =
+    AWSResponse DescribeReturnShippingLabel =
       DescribeReturnShippingLabelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeReturnShippingLabelResponse'
-            Prelude.<$> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "ExpirationDate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Status")
+            Core.<*> (x Core..?> "ExpirationDate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReturnShippingLabel
+instance Core.Hashable DescribeReturnShippingLabel
 
-instance Prelude.NFData DescribeReturnShippingLabel
+instance Core.NFData DescribeReturnShippingLabel
 
-instance
-  Prelude.ToHeaders
-    DescribeReturnShippingLabel
-  where
+instance Core.ToHeaders DescribeReturnShippingLabel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSIESnowballJobManagementService.DescribeReturnShippingLabel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSIESnowballJobManagementService.DescribeReturnShippingLabel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeReturnShippingLabel where
+instance Core.ToJSON DescribeReturnShippingLabel where
   toJSON DescribeReturnShippingLabel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("JobId" Prelude..=) Prelude.<$> jobId]
-      )
+    Core.object
+      (Core.catMaybes [("JobId" Core..=) Core.<$> jobId])
 
-instance Prelude.ToPath DescribeReturnShippingLabel where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeReturnShippingLabel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeReturnShippingLabel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeReturnShippingLabel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeReturnShippingLabelResponse' smart constructor.
 data DescribeReturnShippingLabelResponse = DescribeReturnShippingLabelResponse'
   { -- | The status information of the task on a Snow device that is being
     -- returned to AWS.
-    status :: Prelude.Maybe ShippingLabelStatus,
+    status :: Core.Maybe ShippingLabelStatus,
     -- | The expiration date of the current return shipping label.
-    expirationDate :: Prelude.Maybe Prelude.POSIX,
+    expirationDate :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReturnShippingLabelResponse' with all optional fields omitted.
@@ -159,29 +145,29 @@ data DescribeReturnShippingLabelResponse = DescribeReturnShippingLabelResponse'
 -- 'httpStatus', 'describeReturnShippingLabelResponse_httpStatus' - The response's http status code.
 newDescribeReturnShippingLabelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReturnShippingLabelResponse
 newDescribeReturnShippingLabelResponse pHttpStatus_ =
   DescribeReturnShippingLabelResponse'
     { status =
-        Prelude.Nothing,
-      expirationDate = Prelude.Nothing,
+        Core.Nothing,
+      expirationDate = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status information of the task on a Snow device that is being
 -- returned to AWS.
-describeReturnShippingLabelResponse_status :: Lens.Lens' DescribeReturnShippingLabelResponse (Prelude.Maybe ShippingLabelStatus)
+describeReturnShippingLabelResponse_status :: Lens.Lens' DescribeReturnShippingLabelResponse (Core.Maybe ShippingLabelStatus)
 describeReturnShippingLabelResponse_status = Lens.lens (\DescribeReturnShippingLabelResponse' {status} -> status) (\s@DescribeReturnShippingLabelResponse' {} a -> s {status = a} :: DescribeReturnShippingLabelResponse)
 
 -- | The expiration date of the current return shipping label.
-describeReturnShippingLabelResponse_expirationDate :: Lens.Lens' DescribeReturnShippingLabelResponse (Prelude.Maybe Prelude.UTCTime)
-describeReturnShippingLabelResponse_expirationDate = Lens.lens (\DescribeReturnShippingLabelResponse' {expirationDate} -> expirationDate) (\s@DescribeReturnShippingLabelResponse' {} a -> s {expirationDate = a} :: DescribeReturnShippingLabelResponse) Prelude.. Lens.mapping Prelude._Time
+describeReturnShippingLabelResponse_expirationDate :: Lens.Lens' DescribeReturnShippingLabelResponse (Core.Maybe Core.UTCTime)
+describeReturnShippingLabelResponse_expirationDate = Lens.lens (\DescribeReturnShippingLabelResponse' {expirationDate} -> expirationDate) (\s@DescribeReturnShippingLabelResponse' {} a -> s {expirationDate = a} :: DescribeReturnShippingLabelResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeReturnShippingLabelResponse_httpStatus :: Lens.Lens' DescribeReturnShippingLabelResponse Prelude.Int
+describeReturnShippingLabelResponse_httpStatus :: Lens.Lens' DescribeReturnShippingLabelResponse Core.Int
 describeReturnShippingLabelResponse_httpStatus = Lens.lens (\DescribeReturnShippingLabelResponse' {httpStatus} -> httpStatus) (\s@DescribeReturnShippingLabelResponse' {} a -> s {httpStatus = a} :: DescribeReturnShippingLabelResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReturnShippingLabelResponse

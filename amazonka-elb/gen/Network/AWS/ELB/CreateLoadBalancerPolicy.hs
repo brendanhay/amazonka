@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,17 +57,17 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateLoadBalancerPolicy' smart constructor.
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
   { -- | The policy attributes.
-    policyAttributes :: Prelude.Maybe [PolicyAttribute],
+    policyAttributes :: Core.Maybe [PolicyAttribute],
     -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The name of the load balancer policy to be created. This name must be
     -- unique within the set of policies for this load balancer.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The name of the base policy type. To get the list of policy types, use
     -- DescribeLoadBalancerPolicyTypes.
-    policyTypeName :: Prelude.Text
+    policyTypeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerPolicy' with all optional fields omitted.
@@ -89,11 +88,11 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
 -- DescribeLoadBalancerPolicyTypes.
 newCreateLoadBalancerPolicy ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyTypeName'
-  Prelude.Text ->
+  Core.Text ->
   CreateLoadBalancerPolicy
 newCreateLoadBalancerPolicy
   pLoadBalancerName_
@@ -101,33 +100,33 @@ newCreateLoadBalancerPolicy
   pPolicyTypeName_ =
     CreateLoadBalancerPolicy'
       { policyAttributes =
-          Prelude.Nothing,
+          Core.Nothing,
         loadBalancerName = pLoadBalancerName_,
         policyName = pPolicyName_,
         policyTypeName = pPolicyTypeName_
       }
 
 -- | The policy attributes.
-createLoadBalancerPolicy_policyAttributes :: Lens.Lens' CreateLoadBalancerPolicy (Prelude.Maybe [PolicyAttribute])
-createLoadBalancerPolicy_policyAttributes = Lens.lens (\CreateLoadBalancerPolicy' {policyAttributes} -> policyAttributes) (\s@CreateLoadBalancerPolicy' {} a -> s {policyAttributes = a} :: CreateLoadBalancerPolicy) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancerPolicy_policyAttributes :: Lens.Lens' CreateLoadBalancerPolicy (Core.Maybe [PolicyAttribute])
+createLoadBalancerPolicy_policyAttributes = Lens.lens (\CreateLoadBalancerPolicy' {policyAttributes} -> policyAttributes) (\s@CreateLoadBalancerPolicy' {} a -> s {policyAttributes = a} :: CreateLoadBalancerPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the load balancer.
-createLoadBalancerPolicy_loadBalancerName :: Lens.Lens' CreateLoadBalancerPolicy Prelude.Text
+createLoadBalancerPolicy_loadBalancerName :: Lens.Lens' CreateLoadBalancerPolicy Core.Text
 createLoadBalancerPolicy_loadBalancerName = Lens.lens (\CreateLoadBalancerPolicy' {loadBalancerName} -> loadBalancerName) (\s@CreateLoadBalancerPolicy' {} a -> s {loadBalancerName = a} :: CreateLoadBalancerPolicy)
 
 -- | The name of the load balancer policy to be created. This name must be
 -- unique within the set of policies for this load balancer.
-createLoadBalancerPolicy_policyName :: Lens.Lens' CreateLoadBalancerPolicy Prelude.Text
+createLoadBalancerPolicy_policyName :: Lens.Lens' CreateLoadBalancerPolicy Core.Text
 createLoadBalancerPolicy_policyName = Lens.lens (\CreateLoadBalancerPolicy' {policyName} -> policyName) (\s@CreateLoadBalancerPolicy' {} a -> s {policyName = a} :: CreateLoadBalancerPolicy)
 
 -- | The name of the base policy type. To get the list of policy types, use
 -- DescribeLoadBalancerPolicyTypes.
-createLoadBalancerPolicy_policyTypeName :: Lens.Lens' CreateLoadBalancerPolicy Prelude.Text
+createLoadBalancerPolicy_policyTypeName :: Lens.Lens' CreateLoadBalancerPolicy Core.Text
 createLoadBalancerPolicy_policyTypeName = Lens.lens (\CreateLoadBalancerPolicy' {policyTypeName} -> policyTypeName) (\s@CreateLoadBalancerPolicy' {} a -> s {policyTypeName = a} :: CreateLoadBalancerPolicy)
 
-instance Prelude.AWSRequest CreateLoadBalancerPolicy where
+instance Core.AWSRequest CreateLoadBalancerPolicy where
   type
-    Rs CreateLoadBalancerPolicy =
+    AWSResponse CreateLoadBalancerPolicy =
       CreateLoadBalancerPolicyResponse
   request = Request.postQuery defaultService
   response =
@@ -135,34 +134,33 @@ instance Prelude.AWSRequest CreateLoadBalancerPolicy where
       "CreateLoadBalancerPolicyResult"
       ( \s h x ->
           CreateLoadBalancerPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoadBalancerPolicy
+instance Core.Hashable CreateLoadBalancerPolicy
 
-instance Prelude.NFData CreateLoadBalancerPolicy
+instance Core.NFData CreateLoadBalancerPolicy
 
-instance Prelude.ToHeaders CreateLoadBalancerPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateLoadBalancerPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateLoadBalancerPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateLoadBalancerPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateLoadBalancerPolicy where
+instance Core.ToQuery CreateLoadBalancerPolicy where
   toQuery CreateLoadBalancerPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateLoadBalancerPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
+          Core.=: ("CreateLoadBalancerPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
         "PolicyAttributes"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> policyAttributes
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> policyAttributes
             ),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
-        "PolicyName" Prelude.=: policyName,
-        "PolicyTypeName" Prelude.=: policyTypeName
+        "LoadBalancerName" Core.=: loadBalancerName,
+        "PolicyName" Core.=: policyName,
+        "PolicyTypeName" Core.=: policyTypeName
       ]
 
 -- | Contains the output of CreateLoadBalancerPolicy.
@@ -170,9 +168,9 @@ instance Prelude.ToQuery CreateLoadBalancerPolicy where
 -- /See:/ 'newCreateLoadBalancerPolicyResponse' smart constructor.
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerPolicyResponse' with all optional fields omitted.
@@ -185,7 +183,7 @@ data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
 -- 'httpStatus', 'createLoadBalancerPolicyResponse_httpStatus' - The response's http status code.
 newCreateLoadBalancerPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateLoadBalancerPolicyResponse
 newCreateLoadBalancerPolicyResponse pHttpStatus_ =
   CreateLoadBalancerPolicyResponse'
@@ -194,9 +192,7 @@ newCreateLoadBalancerPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createLoadBalancerPolicyResponse_httpStatus :: Lens.Lens' CreateLoadBalancerPolicyResponse Prelude.Int
+createLoadBalancerPolicyResponse_httpStatus :: Lens.Lens' CreateLoadBalancerPolicyResponse Core.Int
 createLoadBalancerPolicyResponse_httpStatus = Lens.lens (\CreateLoadBalancerPolicyResponse' {httpStatus} -> httpStatus) (\s@CreateLoadBalancerPolicyResponse' {} a -> s {httpStatus = a} :: CreateLoadBalancerPolicyResponse)
 
-instance
-  Prelude.NFData
-    CreateLoadBalancerPolicyResponse
+instance Core.NFData CreateLoadBalancerPolicyResponse

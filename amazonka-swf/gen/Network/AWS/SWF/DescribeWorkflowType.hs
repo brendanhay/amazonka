@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,8 +70,8 @@ module Network.AWS.SWF.DescribeWorkflowType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -80,11 +79,11 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newDescribeWorkflowType' smart constructor.
 data DescribeWorkflowType = DescribeWorkflowType'
   { -- | The name of the domain in which this workflow type is registered.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The workflow type to describe.
     workflowType :: WorkflowType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkflowType' with all optional fields omitted.
@@ -99,7 +98,7 @@ data DescribeWorkflowType = DescribeWorkflowType'
 -- 'workflowType', 'describeWorkflowType_workflowType' - The workflow type to describe.
 newDescribeWorkflowType ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workflowType'
   WorkflowType ->
   DescribeWorkflowType
@@ -110,68 +109,65 @@ newDescribeWorkflowType pDomain_ pWorkflowType_ =
     }
 
 -- | The name of the domain in which this workflow type is registered.
-describeWorkflowType_domain :: Lens.Lens' DescribeWorkflowType Prelude.Text
+describeWorkflowType_domain :: Lens.Lens' DescribeWorkflowType Core.Text
 describeWorkflowType_domain = Lens.lens (\DescribeWorkflowType' {domain} -> domain) (\s@DescribeWorkflowType' {} a -> s {domain = a} :: DescribeWorkflowType)
 
 -- | The workflow type to describe.
 describeWorkflowType_workflowType :: Lens.Lens' DescribeWorkflowType WorkflowType
 describeWorkflowType_workflowType = Lens.lens (\DescribeWorkflowType' {workflowType} -> workflowType) (\s@DescribeWorkflowType' {} a -> s {workflowType = a} :: DescribeWorkflowType)
 
-instance Prelude.AWSRequest DescribeWorkflowType where
+instance Core.AWSRequest DescribeWorkflowType where
   type
-    Rs DescribeWorkflowType =
+    AWSResponse DescribeWorkflowType =
       DescribeWorkflowTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkflowTypeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "typeInfo")
-            Prelude.<*> (x Prelude..:> "configuration")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "typeInfo")
+            Core.<*> (x Core..:> "configuration")
       )
 
-instance Prelude.Hashable DescribeWorkflowType
+instance Core.Hashable DescribeWorkflowType
 
-instance Prelude.NFData DescribeWorkflowType
+instance Core.NFData DescribeWorkflowType
 
-instance Prelude.ToHeaders DescribeWorkflowType where
+instance Core.ToHeaders DescribeWorkflowType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.DescribeWorkflowType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.DescribeWorkflowType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeWorkflowType where
+instance Core.ToJSON DescribeWorkflowType where
   toJSON DescribeWorkflowType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just
-              ("workflowType" Prelude..= workflowType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowType" Core..= workflowType)
           ]
       )
 
-instance Prelude.ToPath DescribeWorkflowType where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeWorkflowType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeWorkflowType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeWorkflowType where
+  toQuery = Core.const Core.mempty
 
 -- | Contains details about a workflow type.
 --
 -- /See:/ 'newDescribeWorkflowTypeResponse' smart constructor.
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | General information about the workflow type.
     --
     -- The status of the workflow type (returned in the WorkflowTypeInfo
@@ -188,7 +184,7 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
     -- RegisterWorkflowType
     configuration :: WorkflowTypeConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkflowTypeResponse' with all optional fields omitted.
@@ -216,7 +212,7 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
 -- RegisterWorkflowType
 newDescribeWorkflowTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'typeInfo'
   WorkflowTypeInfo ->
   -- | 'configuration'
@@ -234,7 +230,7 @@ newDescribeWorkflowTypeResponse
       }
 
 -- | The response's http status code.
-describeWorkflowTypeResponse_httpStatus :: Lens.Lens' DescribeWorkflowTypeResponse Prelude.Int
+describeWorkflowTypeResponse_httpStatus :: Lens.Lens' DescribeWorkflowTypeResponse Core.Int
 describeWorkflowTypeResponse_httpStatus = Lens.lens (\DescribeWorkflowTypeResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkflowTypeResponse' {} a -> s {httpStatus = a} :: DescribeWorkflowTypeResponse)
 
 -- | General information about the workflow type.
@@ -256,4 +252,4 @@ describeWorkflowTypeResponse_typeInfo = Lens.lens (\DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse_configuration :: Lens.Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
 describeWorkflowTypeResponse_configuration = Lens.lens (\DescribeWorkflowTypeResponse' {configuration} -> configuration) (\s@DescribeWorkflowTypeResponse' {} a -> s {configuration = a} :: DescribeWorkflowTypeResponse)
 
-instance Prelude.NFData DescribeWorkflowTypeResponse
+instance Core.NFData DescribeWorkflowTypeResponse

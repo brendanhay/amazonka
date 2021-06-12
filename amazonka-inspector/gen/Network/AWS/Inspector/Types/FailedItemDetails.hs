@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.FailedItemDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.FailedItemErrorCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Includes details about the failed items.
 --
@@ -32,9 +31,9 @@ data FailedItemDetails = FailedItemDetails'
     failureCode :: FailedItemErrorCode,
     -- | Indicates whether you can immediately retry a request for this item for
     -- a specified resource.
-    retryable :: Prelude.Bool
+    retryable :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailedItemDetails' with all optional fields omitted.
@@ -52,7 +51,7 @@ newFailedItemDetails ::
   -- | 'failureCode'
   FailedItemErrorCode ->
   -- | 'retryable'
-  Prelude.Bool ->
+  Core.Bool ->
   FailedItemDetails
 newFailedItemDetails pFailureCode_ pRetryable_ =
   FailedItemDetails'
@@ -66,19 +65,19 @@ failedItemDetails_failureCode = Lens.lens (\FailedItemDetails' {failureCode} -> 
 
 -- | Indicates whether you can immediately retry a request for this item for
 -- a specified resource.
-failedItemDetails_retryable :: Lens.Lens' FailedItemDetails Prelude.Bool
+failedItemDetails_retryable :: Lens.Lens' FailedItemDetails Core.Bool
 failedItemDetails_retryable = Lens.lens (\FailedItemDetails' {retryable} -> retryable) (\s@FailedItemDetails' {} a -> s {retryable = a} :: FailedItemDetails)
 
-instance Prelude.FromJSON FailedItemDetails where
+instance Core.FromJSON FailedItemDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailedItemDetails"
       ( \x ->
           FailedItemDetails'
-            Prelude.<$> (x Prelude..: "failureCode")
-            Prelude.<*> (x Prelude..: "retryable")
+            Core.<$> (x Core..: "failureCode")
+            Core.<*> (x Core..: "retryable")
       )
 
-instance Prelude.Hashable FailedItemDetails
+instance Core.Hashable FailedItemDetails
 
-instance Prelude.NFData FailedItemDetails
+instance Core.NFData FailedItemDetails

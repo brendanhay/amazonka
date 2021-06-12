@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScalingPlans.Types.Datapoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a single value in the forecast data used for predictive
 -- scaling.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDatapoint' smart constructor.
 data Datapoint = Datapoint'
   { -- | The time stamp for the data point in UTC format.
-    timestamp :: Prelude.Maybe Prelude.POSIX,
+    timestamp :: Core.Maybe Core.POSIX,
     -- | The value of the data point.
-    value :: Prelude.Maybe Prelude.Double
+    value :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Datapoint' with all optional fields omitted.
@@ -50,28 +49,28 @@ newDatapoint ::
   Datapoint
 newDatapoint =
   Datapoint'
-    { timestamp = Prelude.Nothing,
-      value = Prelude.Nothing
+    { timestamp = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The time stamp for the data point in UTC format.
-datapoint_timestamp :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.UTCTime)
-datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Prelude.. Lens.mapping Prelude._Time
+datapoint_timestamp :: Lens.Lens' Datapoint (Core.Maybe Core.UTCTime)
+datapoint_timestamp = Lens.lens (\Datapoint' {timestamp} -> timestamp) (\s@Datapoint' {} a -> s {timestamp = a} :: Datapoint) Core.. Lens.mapping Core._Time
 
 -- | The value of the data point.
-datapoint_value :: Lens.Lens' Datapoint (Prelude.Maybe Prelude.Double)
+datapoint_value :: Lens.Lens' Datapoint (Core.Maybe Core.Double)
 datapoint_value = Lens.lens (\Datapoint' {value} -> value) (\s@Datapoint' {} a -> s {value = a} :: Datapoint)
 
-instance Prelude.FromJSON Datapoint where
+instance Core.FromJSON Datapoint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Datapoint"
       ( \x ->
           Datapoint'
-            Prelude.<$> (x Prelude..:? "Timestamp")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Timestamp")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Datapoint
+instance Core.Hashable Datapoint
 
-instance Prelude.NFData Datapoint
+instance Core.NFData Datapoint

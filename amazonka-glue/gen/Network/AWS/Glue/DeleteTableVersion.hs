@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Glue.DeleteTableVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,18 +51,18 @@ import qualified Network.AWS.Response as Response
 data DeleteTableVersion = DeleteTableVersion'
   { -- | The ID of the Data Catalog where the tables reside. If none is provided,
     -- the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The database in the catalog in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the table. For Hive compatibility, this name is entirely
     -- lowercase.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | The ID of the table version to be deleted. A @VersionID@ is a string
     -- representation of an integer. Each version is incremented by 1.
-    versionId :: Prelude.Text
+    versionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTableVersion' with all optional fields omitted.
@@ -86,18 +85,18 @@ data DeleteTableVersion = DeleteTableVersion'
 -- representation of an integer. Each version is incremented by 1.
 newDeleteTableVersion ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTableVersion
 newDeleteTableVersion
   pDatabaseName_
   pTableName_
   pVersionId_ =
     DeleteTableVersion'
-      { catalogId = Prelude.Nothing,
+      { catalogId = Core.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
         versionId = pVersionId_
@@ -105,77 +104,74 @@ newDeleteTableVersion
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided,
 -- the AWS account ID is used by default.
-deleteTableVersion_catalogId :: Lens.Lens' DeleteTableVersion (Prelude.Maybe Prelude.Text)
+deleteTableVersion_catalogId :: Lens.Lens' DeleteTableVersion (Core.Maybe Core.Text)
 deleteTableVersion_catalogId = Lens.lens (\DeleteTableVersion' {catalogId} -> catalogId) (\s@DeleteTableVersion' {} a -> s {catalogId = a} :: DeleteTableVersion)
 
 -- | The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
-deleteTableVersion_databaseName :: Lens.Lens' DeleteTableVersion Prelude.Text
+deleteTableVersion_databaseName :: Lens.Lens' DeleteTableVersion Core.Text
 deleteTableVersion_databaseName = Lens.lens (\DeleteTableVersion' {databaseName} -> databaseName) (\s@DeleteTableVersion' {} a -> s {databaseName = a} :: DeleteTableVersion)
 
 -- | The name of the table. For Hive compatibility, this name is entirely
 -- lowercase.
-deleteTableVersion_tableName :: Lens.Lens' DeleteTableVersion Prelude.Text
+deleteTableVersion_tableName :: Lens.Lens' DeleteTableVersion Core.Text
 deleteTableVersion_tableName = Lens.lens (\DeleteTableVersion' {tableName} -> tableName) (\s@DeleteTableVersion' {} a -> s {tableName = a} :: DeleteTableVersion)
 
 -- | The ID of the table version to be deleted. A @VersionID@ is a string
 -- representation of an integer. Each version is incremented by 1.
-deleteTableVersion_versionId :: Lens.Lens' DeleteTableVersion Prelude.Text
+deleteTableVersion_versionId :: Lens.Lens' DeleteTableVersion Core.Text
 deleteTableVersion_versionId = Lens.lens (\DeleteTableVersion' {versionId} -> versionId) (\s@DeleteTableVersion' {} a -> s {versionId = a} :: DeleteTableVersion)
 
-instance Prelude.AWSRequest DeleteTableVersion where
+instance Core.AWSRequest DeleteTableVersion where
   type
-    Rs DeleteTableVersion =
+    AWSResponse DeleteTableVersion =
       DeleteTableVersionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTableVersionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTableVersion
+instance Core.Hashable DeleteTableVersion
 
-instance Prelude.NFData DeleteTableVersion
+instance Core.NFData DeleteTableVersion
 
-instance Prelude.ToHeaders DeleteTableVersion where
+instance Core.ToHeaders DeleteTableVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.DeleteTableVersion" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.DeleteTableVersion" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTableVersion where
+instance Core.ToJSON DeleteTableVersion where
   toJSON DeleteTableVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just ("VersionId" Prelude..= versionId)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("VersionId" Core..= versionId)
           ]
       )
 
-instance Prelude.ToPath DeleteTableVersion where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTableVersion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTableVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTableVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTableVersionResponse' smart constructor.
 data DeleteTableVersionResponse = DeleteTableVersionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTableVersionResponse' with all optional fields omitted.
@@ -188,7 +184,7 @@ data DeleteTableVersionResponse = DeleteTableVersionResponse'
 -- 'httpStatus', 'deleteTableVersionResponse_httpStatus' - The response's http status code.
 newDeleteTableVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTableVersionResponse
 newDeleteTableVersionResponse pHttpStatus_ =
   DeleteTableVersionResponse'
@@ -197,7 +193,7 @@ newDeleteTableVersionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTableVersionResponse_httpStatus :: Lens.Lens' DeleteTableVersionResponse Prelude.Int
+deleteTableVersionResponse_httpStatus :: Lens.Lens' DeleteTableVersionResponse Core.Int
 deleteTableVersionResponse_httpStatus = Lens.lens (\DeleteTableVersionResponse' {httpStatus} -> httpStatus) (\s@DeleteTableVersionResponse' {} a -> s {httpStatus = a} :: DeleteTableVersionResponse)
 
-instance Prelude.NFData DeleteTableVersionResponse
+instance Core.NFData DeleteTableVersionResponse

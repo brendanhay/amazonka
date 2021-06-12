@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,18 +66,18 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateCacheParameterGroup' smart constructor.
 data CreateCacheParameterGroup = CreateCacheParameterGroup'
   { -- | A user-specified name for the cache parameter group.
-    cacheParameterGroupName :: Prelude.Text,
+    cacheParameterGroupName :: Core.Text,
     -- | The name of the cache parameter group family that the cache parameter
     -- group can be used with.
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
     -- @redis6.x@ |
-    cacheParameterGroupFamily :: Prelude.Text,
+    cacheParameterGroupFamily :: Core.Text,
     -- | A user-specified description for the cache parameter group.
-    description :: Prelude.Text
+    description :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCacheParameterGroup' with all optional fields omitted.
@@ -100,11 +99,11 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
 -- 'description', 'createCacheParameterGroup_description' - A user-specified description for the cache parameter group.
 newCreateCacheParameterGroup ::
   -- | 'cacheParameterGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'cacheParameterGroupFamily'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   CreateCacheParameterGroup
 newCreateCacheParameterGroup
   pCacheParameterGroupName_
@@ -119,7 +118,7 @@ newCreateCacheParameterGroup
       }
 
 -- | A user-specified name for the cache parameter group.
-createCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' CreateCacheParameterGroup Prelude.Text
+createCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' CreateCacheParameterGroup Core.Text
 createCacheParameterGroup_cacheParameterGroupName = Lens.lens (\CreateCacheParameterGroup' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@CreateCacheParameterGroup' {} a -> s {cacheParameterGroupName = a} :: CreateCacheParameterGroup)
 
 -- | The name of the cache parameter group family that the cache parameter
@@ -128,16 +127,16 @@ createCacheParameterGroup_cacheParameterGroupName = Lens.lens (\CreateCacheParam
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
 -- @redis6.x@ |
-createCacheParameterGroup_cacheParameterGroupFamily :: Lens.Lens' CreateCacheParameterGroup Prelude.Text
+createCacheParameterGroup_cacheParameterGroupFamily :: Lens.Lens' CreateCacheParameterGroup Core.Text
 createCacheParameterGroup_cacheParameterGroupFamily = Lens.lens (\CreateCacheParameterGroup' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@CreateCacheParameterGroup' {} a -> s {cacheParameterGroupFamily = a} :: CreateCacheParameterGroup)
 
 -- | A user-specified description for the cache parameter group.
-createCacheParameterGroup_description :: Lens.Lens' CreateCacheParameterGroup Prelude.Text
+createCacheParameterGroup_description :: Lens.Lens' CreateCacheParameterGroup Core.Text
 createCacheParameterGroup_description = Lens.lens (\CreateCacheParameterGroup' {description} -> description) (\s@CreateCacheParameterGroup' {} a -> s {description = a} :: CreateCacheParameterGroup)
 
-instance Prelude.AWSRequest CreateCacheParameterGroup where
+instance Core.AWSRequest CreateCacheParameterGroup where
   type
-    Rs CreateCacheParameterGroup =
+    AWSResponse CreateCacheParameterGroup =
       CreateCacheParameterGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -145,41 +144,40 @@ instance Prelude.AWSRequest CreateCacheParameterGroup where
       "CreateCacheParameterGroupResult"
       ( \s h x ->
           CreateCacheParameterGroupResponse'
-            Prelude.<$> (x Prelude..@? "CacheParameterGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "CacheParameterGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCacheParameterGroup
+instance Core.Hashable CreateCacheParameterGroup
 
-instance Prelude.NFData CreateCacheParameterGroup
+instance Core.NFData CreateCacheParameterGroup
 
-instance Prelude.ToHeaders CreateCacheParameterGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateCacheParameterGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateCacheParameterGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCacheParameterGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCacheParameterGroup where
+instance Core.ToQuery CreateCacheParameterGroup where
   toQuery CreateCacheParameterGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateCacheParameterGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("CreateCacheParameterGroup" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "CacheParameterGroupName"
-          Prelude.=: cacheParameterGroupName,
+          Core.=: cacheParameterGroupName,
         "CacheParameterGroupFamily"
-          Prelude.=: cacheParameterGroupFamily,
-        "Description" Prelude.=: description
+          Core.=: cacheParameterGroupFamily,
+        "Description" Core.=: description
       ]
 
 -- | /See:/ 'newCreateCacheParameterGroupResponse' smart constructor.
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
-  { cacheParameterGroup :: Prelude.Maybe CacheParameterGroup,
+  { cacheParameterGroup :: Core.Maybe CacheParameterGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCacheParameterGroupResponse' with all optional fields omitted.
@@ -194,23 +192,23 @@ data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
 -- 'httpStatus', 'createCacheParameterGroupResponse_httpStatus' - The response's http status code.
 newCreateCacheParameterGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCacheParameterGroupResponse
 newCreateCacheParameterGroupResponse pHttpStatus_ =
   CreateCacheParameterGroupResponse'
     { cacheParameterGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createCacheParameterGroupResponse_cacheParameterGroup :: Lens.Lens' CreateCacheParameterGroupResponse (Prelude.Maybe CacheParameterGroup)
+createCacheParameterGroupResponse_cacheParameterGroup :: Lens.Lens' CreateCacheParameterGroupResponse (Core.Maybe CacheParameterGroup)
 createCacheParameterGroupResponse_cacheParameterGroup = Lens.lens (\CreateCacheParameterGroupResponse' {cacheParameterGroup} -> cacheParameterGroup) (\s@CreateCacheParameterGroupResponse' {} a -> s {cacheParameterGroup = a} :: CreateCacheParameterGroupResponse)
 
 -- | The response's http status code.
-createCacheParameterGroupResponse_httpStatus :: Lens.Lens' CreateCacheParameterGroupResponse Prelude.Int
+createCacheParameterGroupResponse_httpStatus :: Lens.Lens' CreateCacheParameterGroupResponse Core.Int
 createCacheParameterGroupResponse_httpStatus = Lens.lens (\CreateCacheParameterGroupResponse' {httpStatus} -> httpStatus) (\s@CreateCacheParameterGroupResponse' {} a -> s {httpStatus = a} :: CreateCacheParameterGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateCacheParameterGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.CaptureOption where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CaptureMode
 
 -- |
@@ -30,7 +29,7 @@ import Network.AWS.SageMaker.Types.CaptureMode
 data CaptureOption = CaptureOption'
   { captureMode :: CaptureMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CaptureOption' with all optional fields omitted.
@@ -52,24 +51,21 @@ newCaptureOption pCaptureMode_ =
 captureOption_captureMode :: Lens.Lens' CaptureOption CaptureMode
 captureOption_captureMode = Lens.lens (\CaptureOption' {captureMode} -> captureMode) (\s@CaptureOption' {} a -> s {captureMode = a} :: CaptureOption)
 
-instance Prelude.FromJSON CaptureOption where
+instance Core.FromJSON CaptureOption where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CaptureOption"
       ( \x ->
-          CaptureOption'
-            Prelude.<$> (x Prelude..: "CaptureMode")
+          CaptureOption' Core.<$> (x Core..: "CaptureMode")
       )
 
-instance Prelude.Hashable CaptureOption
+instance Core.Hashable CaptureOption
 
-instance Prelude.NFData CaptureOption
+instance Core.NFData CaptureOption
 
-instance Prelude.ToJSON CaptureOption where
+instance Core.ToJSON CaptureOption where
   toJSON CaptureOption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CaptureMode" Prelude..= captureMode)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CaptureMode" Core..= captureMode)]
       )

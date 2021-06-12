@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -189,8 +188,8 @@ module Network.AWS.S3.PutObjectAcl
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -200,14 +199,14 @@ data PutObjectAcl = PutObjectAcl'
   { -- | Allows grantee to list the objects in the bucket.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantRead :: Prelude.Maybe Prelude.Text,
+    grantRead :: Core.Maybe Core.Text,
     -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | Contains the elements that set the ACL permissions for an object per
     -- grantee.
-    accessControlPolicy :: Prelude.Maybe AccessControlPolicy,
+    accessControlPolicy :: Core.Maybe AccessControlPolicy,
     -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
     -- used as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, go to
@@ -215,29 +214,29 @@ data PutObjectAcl = PutObjectAcl'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | VersionId used to reference a specific version of the object.
-    versionId :: Prelude.Maybe ObjectVersionId,
+    versionId :: Core.Maybe ObjectVersionId,
     -- | Allows grantee to write the ACL for the applicable bucket.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantWriteACP :: Prelude.Maybe Prelude.Text,
+    grantWriteACP :: Core.Maybe Core.Text,
     -- | Allows grantee to read the bucket ACL.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantReadACP :: Prelude.Maybe Prelude.Text,
+    grantReadACP :: Core.Maybe Core.Text,
     -- | The canned ACL to apply to the object. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
-    acl :: Prelude.Maybe ObjectCannedACL,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    acl :: Core.Maybe ObjectCannedACL,
+    requestPayer :: Core.Maybe RequestPayer,
     -- | Allows grantee to create, overwrite, and delete any object in the
     -- bucket.
-    grantWrite :: Prelude.Maybe Prelude.Text,
+    grantWrite :: Core.Maybe Core.Text,
     -- | Allows grantee the read, write, read ACP, and write ACP permissions on
     -- the bucket.
     --
     -- This action is not supported by Amazon S3 on Outposts.
-    grantFullControl :: Prelude.Maybe Prelude.Text,
+    grantFullControl :: Core.Maybe Core.Text,
     -- | The bucket name that contains the object to which you want to attach the
     -- ACL.
     --
@@ -272,7 +271,7 @@ data PutObjectAcl = PutObjectAcl'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     key :: ObjectKey
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutObjectAcl' with all optional fields omitted.
@@ -364,17 +363,17 @@ newPutObjectAcl ::
   PutObjectAcl
 newPutObjectAcl pBucket_ pKey_ =
   PutObjectAcl'
-    { grantRead = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
-      accessControlPolicy = Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      grantWriteACP = Prelude.Nothing,
-      grantReadACP = Prelude.Nothing,
-      acl = Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
-      grantWrite = Prelude.Nothing,
-      grantFullControl = Prelude.Nothing,
+    { grantRead = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      accessControlPolicy = Core.Nothing,
+      contentMD5 = Core.Nothing,
+      versionId = Core.Nothing,
+      grantWriteACP = Core.Nothing,
+      grantReadACP = Core.Nothing,
+      acl = Core.Nothing,
+      requestPayer = Core.Nothing,
+      grantWrite = Core.Nothing,
+      grantFullControl = Core.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -382,18 +381,18 @@ newPutObjectAcl pBucket_ pKey_ =
 -- | Allows grantee to list the objects in the bucket.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObjectAcl_grantRead :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantRead :: Lens.Lens' PutObjectAcl (Core.Maybe Core.Text)
 putObjectAcl_grantRead = Lens.lens (\PutObjectAcl' {grantRead} -> grantRead) (\s@PutObjectAcl' {} a -> s {grantRead = a} :: PutObjectAcl)
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putObjectAcl_expectedBucketOwner :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_expectedBucketOwner :: Lens.Lens' PutObjectAcl (Core.Maybe Core.Text)
 putObjectAcl_expectedBucketOwner = Lens.lens (\PutObjectAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectAcl' {} a -> s {expectedBucketOwner = a} :: PutObjectAcl)
 
 -- | Contains the elements that set the ACL permissions for an object per
 -- grantee.
-putObjectAcl_accessControlPolicy :: Lens.Lens' PutObjectAcl (Prelude.Maybe AccessControlPolicy)
+putObjectAcl_accessControlPolicy :: Lens.Lens' PutObjectAcl (Core.Maybe AccessControlPolicy)
 putObjectAcl_accessControlPolicy = Lens.lens (\PutObjectAcl' {accessControlPolicy} -> accessControlPolicy) (\s@PutObjectAcl' {} a -> s {accessControlPolicy = a} :: PutObjectAcl)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
@@ -403,44 +402,44 @@ putObjectAcl_accessControlPolicy = Lens.lens (\PutObjectAcl' {accessControlPolic
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putObjectAcl_contentMD5 :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_contentMD5 :: Lens.Lens' PutObjectAcl (Core.Maybe Core.Text)
 putObjectAcl_contentMD5 = Lens.lens (\PutObjectAcl' {contentMD5} -> contentMD5) (\s@PutObjectAcl' {} a -> s {contentMD5 = a} :: PutObjectAcl)
 
 -- | VersionId used to reference a specific version of the object.
-putObjectAcl_versionId :: Lens.Lens' PutObjectAcl (Prelude.Maybe ObjectVersionId)
+putObjectAcl_versionId :: Lens.Lens' PutObjectAcl (Core.Maybe ObjectVersionId)
 putObjectAcl_versionId = Lens.lens (\PutObjectAcl' {versionId} -> versionId) (\s@PutObjectAcl' {} a -> s {versionId = a} :: PutObjectAcl)
 
 -- | Allows grantee to write the ACL for the applicable bucket.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObjectAcl_grantWriteACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantWriteACP :: Lens.Lens' PutObjectAcl (Core.Maybe Core.Text)
 putObjectAcl_grantWriteACP = Lens.lens (\PutObjectAcl' {grantWriteACP} -> grantWriteACP) (\s@PutObjectAcl' {} a -> s {grantWriteACP = a} :: PutObjectAcl)
 
 -- | Allows grantee to read the bucket ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObjectAcl_grantReadACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantReadACP :: Lens.Lens' PutObjectAcl (Core.Maybe Core.Text)
 putObjectAcl_grantReadACP = Lens.lens (\PutObjectAcl' {grantReadACP} -> grantReadACP) (\s@PutObjectAcl' {} a -> s {grantReadACP = a} :: PutObjectAcl)
 
 -- | The canned ACL to apply to the object. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
-putObjectAcl_acl :: Lens.Lens' PutObjectAcl (Prelude.Maybe ObjectCannedACL)
+putObjectAcl_acl :: Lens.Lens' PutObjectAcl (Core.Maybe ObjectCannedACL)
 putObjectAcl_acl = Lens.lens (\PutObjectAcl' {acl} -> acl) (\s@PutObjectAcl' {} a -> s {acl = a} :: PutObjectAcl)
 
 -- | Undocumented member.
-putObjectAcl_requestPayer :: Lens.Lens' PutObjectAcl (Prelude.Maybe RequestPayer)
+putObjectAcl_requestPayer :: Lens.Lens' PutObjectAcl (Core.Maybe RequestPayer)
 putObjectAcl_requestPayer = Lens.lens (\PutObjectAcl' {requestPayer} -> requestPayer) (\s@PutObjectAcl' {} a -> s {requestPayer = a} :: PutObjectAcl)
 
 -- | Allows grantee to create, overwrite, and delete any object in the
 -- bucket.
-putObjectAcl_grantWrite :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantWrite :: Lens.Lens' PutObjectAcl (Core.Maybe Core.Text)
 putObjectAcl_grantWrite = Lens.lens (\PutObjectAcl' {grantWrite} -> grantWrite) (\s@PutObjectAcl' {} a -> s {grantWrite = a} :: PutObjectAcl)
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
 --
 -- This action is not supported by Amazon S3 on Outposts.
-putObjectAcl_grantFullControl :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
+putObjectAcl_grantFullControl :: Lens.Lens' PutObjectAcl (Core.Maybe Core.Text)
 putObjectAcl_grantFullControl = Lens.lens (\PutObjectAcl' {grantFullControl} -> grantFullControl) (\s@PutObjectAcl' {} a -> s {grantFullControl = a} :: PutObjectAcl)
 
 -- | The bucket name that contains the object to which you want to attach the
@@ -480,60 +479,58 @@ putObjectAcl_bucket = Lens.lens (\PutObjectAcl' {bucket} -> bucket) (\s@PutObjec
 putObjectAcl_key :: Lens.Lens' PutObjectAcl ObjectKey
 putObjectAcl_key = Lens.lens (\PutObjectAcl' {key} -> key) (\s@PutObjectAcl' {} a -> s {key = a} :: PutObjectAcl)
 
-instance Prelude.AWSRequest PutObjectAcl where
-  type Rs PutObjectAcl = PutObjectAclResponse
+instance Core.AWSRequest PutObjectAcl where
+  type AWSResponse PutObjectAcl = PutObjectAclResponse
   request = Request.putXML defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutObjectAclResponse'
-            Prelude.<$> (h Prelude..#? "x-amz-request-charged")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "x-amz-request-charged")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutObjectAcl
+instance Core.Hashable PutObjectAcl
 
-instance Prelude.NFData PutObjectAcl
+instance Core.NFData PutObjectAcl
 
-instance Prelude.ToElement PutObjectAcl where
+instance Core.ToElement PutObjectAcl where
   toElement PutObjectAcl' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AccessControlPolicy"
       accessControlPolicy
 
-instance Prelude.ToHeaders PutObjectAcl where
+instance Core.ToHeaders PutObjectAcl where
   toHeaders PutObjectAcl' {..} =
-    Prelude.mconcat
-      [ "x-amz-grant-read" Prelude.=# grantRead,
+    Core.mconcat
+      [ "x-amz-grant-read" Core.=# grantRead,
         "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5,
-        "x-amz-grant-write-acp" Prelude.=# grantWriteACP,
-        "x-amz-grant-read-acp" Prelude.=# grantReadACP,
-        "x-amz-acl" Prelude.=# acl,
-        "x-amz-request-payer" Prelude.=# requestPayer,
-        "x-amz-grant-write" Prelude.=# grantWrite,
-        "x-amz-grant-full-control"
-          Prelude.=# grantFullControl
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5,
+        "x-amz-grant-write-acp" Core.=# grantWriteACP,
+        "x-amz-grant-read-acp" Core.=# grantReadACP,
+        "x-amz-acl" Core.=# acl,
+        "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-grant-write" Core.=# grantWrite,
+        "x-amz-grant-full-control" Core.=# grantFullControl
       ]
 
-instance Prelude.ToPath PutObjectAcl where
+instance Core.ToPath PutObjectAcl where
   toPath PutObjectAcl' {..} =
-    Prelude.mconcat
-      ["/", Prelude.toBS bucket, "/", Prelude.toBS key]
+    Core.mconcat
+      ["/", Core.toBS bucket, "/", Core.toBS key]
 
-instance Prelude.ToQuery PutObjectAcl where
+instance Core.ToQuery PutObjectAcl where
   toQuery PutObjectAcl' {..} =
-    Prelude.mconcat
-      ["versionId" Prelude.=: versionId, "acl"]
+    Core.mconcat ["versionId" Core.=: versionId, "acl"]
 
 -- | /See:/ 'newPutObjectAclResponse' smart constructor.
 data PutObjectAclResponse = PutObjectAclResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
+  { requestCharged :: Core.Maybe RequestCharged,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutObjectAclResponse' with all optional fields omitted.
@@ -548,21 +545,21 @@ data PutObjectAclResponse = PutObjectAclResponse'
 -- 'httpStatus', 'putObjectAclResponse_httpStatus' - The response's http status code.
 newPutObjectAclResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutObjectAclResponse
 newPutObjectAclResponse pHttpStatus_ =
   PutObjectAclResponse'
     { requestCharged =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-putObjectAclResponse_requestCharged :: Lens.Lens' PutObjectAclResponse (Prelude.Maybe RequestCharged)
+putObjectAclResponse_requestCharged :: Lens.Lens' PutObjectAclResponse (Core.Maybe RequestCharged)
 putObjectAclResponse_requestCharged = Lens.lens (\PutObjectAclResponse' {requestCharged} -> requestCharged) (\s@PutObjectAclResponse' {} a -> s {requestCharged = a} :: PutObjectAclResponse)
 
 -- | The response's http status code.
-putObjectAclResponse_httpStatus :: Lens.Lens' PutObjectAclResponse Prelude.Int
+putObjectAclResponse_httpStatus :: Lens.Lens' PutObjectAclResponse Core.Int
 putObjectAclResponse_httpStatus = Lens.lens (\PutObjectAclResponse' {httpStatus} -> httpStatus) (\s@PutObjectAclResponse' {} a -> s {httpStatus = a} :: PutObjectAclResponse)
 
-instance Prelude.NFData PutObjectAclResponse
+instance Core.NFData PutObjectAclResponse

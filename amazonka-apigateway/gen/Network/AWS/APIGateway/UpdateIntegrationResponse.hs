@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.APIGateway.UpdateIntegrationResponse
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,20 +58,20 @@ import qualified Network.AWS.Response as Response
 data UpdateIntegrationResponse = UpdateIntegrationResponse'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] Specifies an update integration response request\'s resource
     -- identifier.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] Specifies an update integration response request\'s HTTP
     -- method.
-    httpMethod :: Prelude.Text,
+    httpMethod :: Core.Text,
     -- | [Required] Specifies an update integration response request\'s status
     -- code.
-    statusCode :: Prelude.Text
+    statusCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateIntegrationResponse' with all optional fields omitted.
@@ -97,13 +96,13 @@ data UpdateIntegrationResponse = UpdateIntegrationResponse'
 -- code.
 newUpdateIntegrationResponse ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'statusCode'
-  Prelude.Text ->
+  Core.Text ->
   UpdateIntegrationResponse
 newUpdateIntegrationResponse
   pRestApiId_
@@ -112,7 +111,7 @@ newUpdateIntegrationResponse
   pStatusCode_ =
     UpdateIntegrationResponse'
       { patchOperations =
-          Prelude.Nothing,
+          Core.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_,
@@ -121,71 +120,71 @@ newUpdateIntegrationResponse
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateIntegrationResponse_patchOperations :: Lens.Lens' UpdateIntegrationResponse (Prelude.Maybe [PatchOperation])
-updateIntegrationResponse_patchOperations = Lens.lens (\UpdateIntegrationResponse' {patchOperations} -> patchOperations) (\s@UpdateIntegrationResponse' {} a -> s {patchOperations = a} :: UpdateIntegrationResponse) Prelude.. Lens.mapping Prelude._Coerce
+updateIntegrationResponse_patchOperations :: Lens.Lens' UpdateIntegrationResponse (Core.Maybe [PatchOperation])
+updateIntegrationResponse_patchOperations = Lens.lens (\UpdateIntegrationResponse' {patchOperations} -> patchOperations) (\s@UpdateIntegrationResponse' {} a -> s {patchOperations = a} :: UpdateIntegrationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateIntegrationResponse_restApiId :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
+updateIntegrationResponse_restApiId :: Lens.Lens' UpdateIntegrationResponse Core.Text
 updateIntegrationResponse_restApiId = Lens.lens (\UpdateIntegrationResponse' {restApiId} -> restApiId) (\s@UpdateIntegrationResponse' {} a -> s {restApiId = a} :: UpdateIntegrationResponse)
 
 -- | [Required] Specifies an update integration response request\'s resource
 -- identifier.
-updateIntegrationResponse_resourceId :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
+updateIntegrationResponse_resourceId :: Lens.Lens' UpdateIntegrationResponse Core.Text
 updateIntegrationResponse_resourceId = Lens.lens (\UpdateIntegrationResponse' {resourceId} -> resourceId) (\s@UpdateIntegrationResponse' {} a -> s {resourceId = a} :: UpdateIntegrationResponse)
 
 -- | [Required] Specifies an update integration response request\'s HTTP
 -- method.
-updateIntegrationResponse_httpMethod :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
+updateIntegrationResponse_httpMethod :: Lens.Lens' UpdateIntegrationResponse Core.Text
 updateIntegrationResponse_httpMethod = Lens.lens (\UpdateIntegrationResponse' {httpMethod} -> httpMethod) (\s@UpdateIntegrationResponse' {} a -> s {httpMethod = a} :: UpdateIntegrationResponse)
 
 -- | [Required] Specifies an update integration response request\'s status
 -- code.
-updateIntegrationResponse_statusCode :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
+updateIntegrationResponse_statusCode :: Lens.Lens' UpdateIntegrationResponse Core.Text
 updateIntegrationResponse_statusCode = Lens.lens (\UpdateIntegrationResponse' {statusCode} -> statusCode) (\s@UpdateIntegrationResponse' {} a -> s {statusCode = a} :: UpdateIntegrationResponse)
 
-instance Prelude.AWSRequest UpdateIntegrationResponse where
+instance Core.AWSRequest UpdateIntegrationResponse where
   type
-    Rs UpdateIntegrationResponse =
+    AWSResponse UpdateIntegrationResponse =
       IntegrationResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateIntegrationResponse
+instance Core.Hashable UpdateIntegrationResponse
 
-instance Prelude.NFData UpdateIntegrationResponse
+instance Core.NFData UpdateIntegrationResponse
 
-instance Prelude.ToHeaders UpdateIntegrationResponse where
+instance Core.ToHeaders UpdateIntegrationResponse where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateIntegrationResponse where
+instance Core.ToJSON UpdateIntegrationResponse where
   toJSON UpdateIntegrationResponse' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateIntegrationResponse where
+instance Core.ToPath UpdateIntegrationResponse where
   toPath UpdateIntegrationResponse' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod,
+        Core.toBS httpMethod,
         "/integration/responses/",
-        Prelude.toBS statusCode
+        Core.toBS statusCode
       ]
 
-instance Prelude.ToQuery UpdateIntegrationResponse where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateIntegrationResponse where
+  toQuery = Core.const Core.mempty

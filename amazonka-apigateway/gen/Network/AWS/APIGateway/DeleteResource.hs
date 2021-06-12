@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.APIGateway.DeleteResource
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,11 +47,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteResource' smart constructor.
 data DeleteResource = DeleteResource'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The identifier of the Resource resource.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResource' with all optional fields omitted.
@@ -67,9 +66,9 @@ data DeleteResource = DeleteResource'
 -- 'resourceId', 'deleteResource_resourceId' - [Required] The identifier of the Resource resource.
 newDeleteResource ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteResource
 newDeleteResource pRestApiId_ pResourceId_ =
   DeleteResource'
@@ -78,49 +77,51 @@ newDeleteResource pRestApiId_ pResourceId_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteResource_restApiId :: Lens.Lens' DeleteResource Prelude.Text
+deleteResource_restApiId :: Lens.Lens' DeleteResource Core.Text
 deleteResource_restApiId = Lens.lens (\DeleteResource' {restApiId} -> restApiId) (\s@DeleteResource' {} a -> s {restApiId = a} :: DeleteResource)
 
 -- | [Required] The identifier of the Resource resource.
-deleteResource_resourceId :: Lens.Lens' DeleteResource Prelude.Text
+deleteResource_resourceId :: Lens.Lens' DeleteResource Core.Text
 deleteResource_resourceId = Lens.lens (\DeleteResource' {resourceId} -> resourceId) (\s@DeleteResource' {} a -> s {resourceId = a} :: DeleteResource)
 
-instance Prelude.AWSRequest DeleteResource where
-  type Rs DeleteResource = DeleteResourceResponse
+instance Core.AWSRequest DeleteResource where
+  type
+    AWSResponse DeleteResource =
+      DeleteResourceResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteResourceResponse'
 
-instance Prelude.Hashable DeleteResource
+instance Core.Hashable DeleteResource
 
-instance Prelude.NFData DeleteResource
+instance Core.NFData DeleteResource
 
-instance Prelude.ToHeaders DeleteResource where
+instance Core.ToHeaders DeleteResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteResource where
+instance Core.ToPath DeleteResource where
   toPath DeleteResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId
+        Core.toBS resourceId
       ]
 
-instance Prelude.ToQuery DeleteResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResourceResponse' smart constructor.
 data DeleteResourceResponse = DeleteResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceResponse' with all optional fields omitted.
@@ -130,4 +131,4 @@ newDeleteResourceResponse ::
   DeleteResourceResponse
 newDeleteResourceResponse = DeleteResourceResponse'
 
-instance Prelude.NFData DeleteResourceResponse
+instance Core.NFData DeleteResourceResponse

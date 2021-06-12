@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CognitoIdentityProvider.AdminConfirmSignUp
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,13 +83,13 @@ data AdminConfirmSignUp = AdminConfirmSignUp'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The user pool ID for which you want to confirm user registration.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user name for which you want to confirm user registration.
-    username :: Prelude.Sensitive Prelude.Text
+    username :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminConfirmSignUp' with all optional fields omitted.
@@ -136,16 +135,15 @@ data AdminConfirmSignUp = AdminConfirmSignUp'
 -- 'username', 'adminConfirmSignUp_username' - The user name for which you want to confirm user registration.
 newAdminConfirmSignUp ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminConfirmSignUp
 newAdminConfirmSignUp pUserPoolId_ pUsername_ =
   AdminConfirmSignUp'
-    { clientMetadata =
-        Prelude.Nothing,
+    { clientMetadata = Core.Nothing,
       userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_
+      username = Core._Sensitive Lens.# pUsername_
     }
 
 -- | A map of custom key-value pairs that you can provide as input for any
@@ -178,64 +176,61 @@ newAdminConfirmSignUp pUserPoolId_ pUsername_ =
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-adminConfirmSignUp_clientMetadata :: Lens.Lens' AdminConfirmSignUp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-adminConfirmSignUp_clientMetadata = Lens.lens (\AdminConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@AdminConfirmSignUp' {} a -> s {clientMetadata = a} :: AdminConfirmSignUp) Prelude.. Lens.mapping Prelude._Coerce
+adminConfirmSignUp_clientMetadata :: Lens.Lens' AdminConfirmSignUp (Core.Maybe (Core.HashMap Core.Text Core.Text))
+adminConfirmSignUp_clientMetadata = Lens.lens (\AdminConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@AdminConfirmSignUp' {} a -> s {clientMetadata = a} :: AdminConfirmSignUp) Core.. Lens.mapping Lens._Coerce
 
 -- | The user pool ID for which you want to confirm user registration.
-adminConfirmSignUp_userPoolId :: Lens.Lens' AdminConfirmSignUp Prelude.Text
+adminConfirmSignUp_userPoolId :: Lens.Lens' AdminConfirmSignUp Core.Text
 adminConfirmSignUp_userPoolId = Lens.lens (\AdminConfirmSignUp' {userPoolId} -> userPoolId) (\s@AdminConfirmSignUp' {} a -> s {userPoolId = a} :: AdminConfirmSignUp)
 
 -- | The user name for which you want to confirm user registration.
-adminConfirmSignUp_username :: Lens.Lens' AdminConfirmSignUp Prelude.Text
-adminConfirmSignUp_username = Lens.lens (\AdminConfirmSignUp' {username} -> username) (\s@AdminConfirmSignUp' {} a -> s {username = a} :: AdminConfirmSignUp) Prelude.. Prelude._Sensitive
+adminConfirmSignUp_username :: Lens.Lens' AdminConfirmSignUp Core.Text
+adminConfirmSignUp_username = Lens.lens (\AdminConfirmSignUp' {username} -> username) (\s@AdminConfirmSignUp' {} a -> s {username = a} :: AdminConfirmSignUp) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest AdminConfirmSignUp where
+instance Core.AWSRequest AdminConfirmSignUp where
   type
-    Rs AdminConfirmSignUp =
+    AWSResponse AdminConfirmSignUp =
       AdminConfirmSignUpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminConfirmSignUpResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminConfirmSignUp
+instance Core.Hashable AdminConfirmSignUp
 
-instance Prelude.NFData AdminConfirmSignUp
+instance Core.NFData AdminConfirmSignUp
 
-instance Prelude.ToHeaders AdminConfirmSignUp where
+instance Core.ToHeaders AdminConfirmSignUp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminConfirmSignUp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminConfirmSignUp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminConfirmSignUp where
+instance Core.ToJSON AdminConfirmSignUp where
   toJSON AdminConfirmSignUp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientMetadata" Prelude..=)
-              Prelude.<$> clientMetadata,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
           ]
       )
 
-instance Prelude.ToPath AdminConfirmSignUp where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminConfirmSignUp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminConfirmSignUp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminConfirmSignUp where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server for the request to confirm
 -- registration.
@@ -243,9 +238,9 @@ instance Prelude.ToQuery AdminConfirmSignUp where
 -- /See:/ 'newAdminConfirmSignUpResponse' smart constructor.
 data AdminConfirmSignUpResponse = AdminConfirmSignUpResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminConfirmSignUpResponse' with all optional fields omitted.
@@ -258,7 +253,7 @@ data AdminConfirmSignUpResponse = AdminConfirmSignUpResponse'
 -- 'httpStatus', 'adminConfirmSignUpResponse_httpStatus' - The response's http status code.
 newAdminConfirmSignUpResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminConfirmSignUpResponse
 newAdminConfirmSignUpResponse pHttpStatus_ =
   AdminConfirmSignUpResponse'
@@ -267,7 +262,7 @@ newAdminConfirmSignUpResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminConfirmSignUpResponse_httpStatus :: Lens.Lens' AdminConfirmSignUpResponse Prelude.Int
+adminConfirmSignUpResponse_httpStatus :: Lens.Lens' AdminConfirmSignUpResponse Core.Int
 adminConfirmSignUpResponse_httpStatus = Lens.lens (\AdminConfirmSignUpResponse' {httpStatus} -> httpStatus) (\s@AdminConfirmSignUpResponse' {} a -> s {httpStatus = a} :: AdminConfirmSignUpResponse)
 
-instance Prelude.NFData AdminConfirmSignUpResponse
+instance Core.NFData AdminConfirmSignUpResponse

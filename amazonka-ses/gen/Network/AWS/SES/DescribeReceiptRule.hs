@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SES.DescribeReceiptRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -60,11 +59,11 @@ import Network.AWS.SES.Types
 -- /See:/ 'newDescribeReceiptRule' smart constructor.
 data DescribeReceiptRule = DescribeReceiptRule'
   { -- | The name of the receipt rule set that the receipt rule belongs to.
-    ruleSetName :: Prelude.Text,
+    ruleSetName :: Core.Text,
     -- | The name of the receipt rule.
-    ruleName :: Prelude.Text
+    ruleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReceiptRule' with all optional fields omitted.
@@ -79,9 +78,9 @@ data DescribeReceiptRule = DescribeReceiptRule'
 -- 'ruleName', 'describeReceiptRule_ruleName' - The name of the receipt rule.
 newDescribeReceiptRule ::
   -- | 'ruleSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeReceiptRule
 newDescribeReceiptRule pRuleSetName_ pRuleName_ =
   DescribeReceiptRule'
@@ -90,16 +89,16 @@ newDescribeReceiptRule pRuleSetName_ pRuleName_ =
     }
 
 -- | The name of the receipt rule set that the receipt rule belongs to.
-describeReceiptRule_ruleSetName :: Lens.Lens' DescribeReceiptRule Prelude.Text
+describeReceiptRule_ruleSetName :: Lens.Lens' DescribeReceiptRule Core.Text
 describeReceiptRule_ruleSetName = Lens.lens (\DescribeReceiptRule' {ruleSetName} -> ruleSetName) (\s@DescribeReceiptRule' {} a -> s {ruleSetName = a} :: DescribeReceiptRule)
 
 -- | The name of the receipt rule.
-describeReceiptRule_ruleName :: Lens.Lens' DescribeReceiptRule Prelude.Text
+describeReceiptRule_ruleName :: Lens.Lens' DescribeReceiptRule Core.Text
 describeReceiptRule_ruleName = Lens.lens (\DescribeReceiptRule' {ruleName} -> ruleName) (\s@DescribeReceiptRule' {} a -> s {ruleName = a} :: DescribeReceiptRule)
 
-instance Prelude.AWSRequest DescribeReceiptRule where
+instance Core.AWSRequest DescribeReceiptRule where
   type
-    Rs DescribeReceiptRule =
+    AWSResponse DescribeReceiptRule =
       DescribeReceiptRuleResponse
   request = Request.postQuery defaultService
   response =
@@ -107,29 +106,28 @@ instance Prelude.AWSRequest DescribeReceiptRule where
       "DescribeReceiptRuleResult"
       ( \s h x ->
           DescribeReceiptRuleResponse'
-            Prelude.<$> (x Prelude..@? "Rule")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Rule")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReceiptRule
+instance Core.Hashable DescribeReceiptRule
 
-instance Prelude.NFData DescribeReceiptRule
+instance Core.NFData DescribeReceiptRule
 
-instance Prelude.ToHeaders DescribeReceiptRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeReceiptRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeReceiptRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeReceiptRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeReceiptRule where
+instance Core.ToQuery DescribeReceiptRule where
   toQuery DescribeReceiptRule' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeReceiptRule" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "RuleSetName" Prelude.=: ruleSetName,
-        "RuleName" Prelude.=: ruleName
+          Core.=: ("DescribeReceiptRule" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "RuleSetName" Core.=: ruleSetName,
+        "RuleName" Core.=: ruleName
       ]
 
 -- | Represents the details of a receipt rule.
@@ -139,11 +137,11 @@ data DescribeReceiptRuleResponse = DescribeReceiptRuleResponse'
   { -- | A data structure that contains the specified receipt rule\'s name,
     -- actions, recipients, domains, enabled status, scan status, and Transport
     -- Layer Security (TLS) policy.
-    rule :: Prelude.Maybe ReceiptRule,
+    rule :: Core.Maybe ReceiptRule,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReceiptRuleResponse' with all optional fields omitted.
@@ -160,23 +158,22 @@ data DescribeReceiptRuleResponse = DescribeReceiptRuleResponse'
 -- 'httpStatus', 'describeReceiptRuleResponse_httpStatus' - The response's http status code.
 newDescribeReceiptRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReceiptRuleResponse
 newDescribeReceiptRuleResponse pHttpStatus_ =
   DescribeReceiptRuleResponse'
-    { rule =
-        Prelude.Nothing,
+    { rule = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A data structure that contains the specified receipt rule\'s name,
 -- actions, recipients, domains, enabled status, scan status, and Transport
 -- Layer Security (TLS) policy.
-describeReceiptRuleResponse_rule :: Lens.Lens' DescribeReceiptRuleResponse (Prelude.Maybe ReceiptRule)
+describeReceiptRuleResponse_rule :: Lens.Lens' DescribeReceiptRuleResponse (Core.Maybe ReceiptRule)
 describeReceiptRuleResponse_rule = Lens.lens (\DescribeReceiptRuleResponse' {rule} -> rule) (\s@DescribeReceiptRuleResponse' {} a -> s {rule = a} :: DescribeReceiptRuleResponse)
 
 -- | The response's http status code.
-describeReceiptRuleResponse_httpStatus :: Lens.Lens' DescribeReceiptRuleResponse Prelude.Int
+describeReceiptRuleResponse_httpStatus :: Lens.Lens' DescribeReceiptRuleResponse Core.Int
 describeReceiptRuleResponse_httpStatus = Lens.lens (\DescribeReceiptRuleResponse' {httpStatus} -> httpStatus) (\s@DescribeReceiptRuleResponse' {} a -> s {httpStatus = a} :: DescribeReceiptRuleResponse)
 
-instance Prelude.NFData DescribeReceiptRuleResponse
+instance Core.NFData DescribeReceiptRuleResponse

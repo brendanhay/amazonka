@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -98,9 +97,9 @@ module Network.AWS.IAM.GenerateServiceLastAccessedDetails
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -112,13 +111,13 @@ data GenerateServiceLastAccessedDetails = GenerateServiceLastAccessedDetails'
     -- operation generates only service data. If you specify action-level
     -- granularity, it generates service and action data. If you don\'t include
     -- this optional parameter, the operation generates service data.
-    granularity :: Prelude.Maybe AccessAdvisorUsageGranularityType,
+    granularity :: Core.Maybe AccessAdvisorUsageGranularityType,
     -- | The ARN of the IAM resource (user, group, role, or managed policy) used
     -- to generate information about when the resource was last used in an
     -- attempt to access an AWS service.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateServiceLastAccessedDetails' with all optional fields omitted.
@@ -140,12 +139,12 @@ data GenerateServiceLastAccessedDetails = GenerateServiceLastAccessedDetails'
 -- attempt to access an AWS service.
 newGenerateServiceLastAccessedDetails ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GenerateServiceLastAccessedDetails
 newGenerateServiceLastAccessedDetails pArn_ =
   GenerateServiceLastAccessedDetails'
     { granularity =
-        Prelude.Nothing,
+        Core.Nothing,
       arn = pArn_
     }
 
@@ -155,21 +154,21 @@ newGenerateServiceLastAccessedDetails pArn_ =
 -- operation generates only service data. If you specify action-level
 -- granularity, it generates service and action data. If you don\'t include
 -- this optional parameter, the operation generates service data.
-generateServiceLastAccessedDetails_granularity :: Lens.Lens' GenerateServiceLastAccessedDetails (Prelude.Maybe AccessAdvisorUsageGranularityType)
+generateServiceLastAccessedDetails_granularity :: Lens.Lens' GenerateServiceLastAccessedDetails (Core.Maybe AccessAdvisorUsageGranularityType)
 generateServiceLastAccessedDetails_granularity = Lens.lens (\GenerateServiceLastAccessedDetails' {granularity} -> granularity) (\s@GenerateServiceLastAccessedDetails' {} a -> s {granularity = a} :: GenerateServiceLastAccessedDetails)
 
 -- | The ARN of the IAM resource (user, group, role, or managed policy) used
 -- to generate information about when the resource was last used in an
 -- attempt to access an AWS service.
-generateServiceLastAccessedDetails_arn :: Lens.Lens' GenerateServiceLastAccessedDetails Prelude.Text
+generateServiceLastAccessedDetails_arn :: Lens.Lens' GenerateServiceLastAccessedDetails Core.Text
 generateServiceLastAccessedDetails_arn = Lens.lens (\GenerateServiceLastAccessedDetails' {arn} -> arn) (\s@GenerateServiceLastAccessedDetails' {} a -> s {arn = a} :: GenerateServiceLastAccessedDetails)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GenerateServiceLastAccessedDetails
   where
   type
-    Rs GenerateServiceLastAccessedDetails =
+    AWSResponse GenerateServiceLastAccessedDetails =
       GenerateServiceLastAccessedDetailsResponse
   request = Request.postQuery defaultService
   response =
@@ -177,44 +176,43 @@ instance
       "GenerateServiceLastAccessedDetailsResult"
       ( \s h x ->
           GenerateServiceLastAccessedDetailsResponse'
-            Prelude.<$> (x Prelude..@? "JobId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GenerateServiceLastAccessedDetails
 
 instance
-  Prelude.NFData
+  Core.NFData
     GenerateServiceLastAccessedDetails
 
 instance
-  Prelude.ToHeaders
-    GenerateServiceLastAccessedDetails
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     GenerateServiceLastAccessedDetails
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    GenerateServiceLastAccessedDetails
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     GenerateServiceLastAccessedDetails
   where
   toQuery GenerateServiceLastAccessedDetails' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GenerateServiceLastAccessedDetails" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "Granularity" Prelude.=: granularity,
-        "Arn" Prelude.=: arn
+          Core.=: ( "GenerateServiceLastAccessedDetails" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Granularity" Core.=: granularity,
+        "Arn" Core.=: arn
       ]
 
 -- | /See:/ 'newGenerateServiceLastAccessedDetailsResponse' smart constructor.
@@ -224,11 +222,11 @@ data GenerateServiceLastAccessedDetailsResponse = GenerateServiceLastAccessedDet
     -- returned by @GenerateServiceLastAccessedDetail@ must be used by the same
     -- role within a session, or by the same user when used to call
     -- @GetServiceLastAccessedDetail@.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateServiceLastAccessedDetailsResponse' with all optional fields omitted.
@@ -247,13 +245,13 @@ data GenerateServiceLastAccessedDetailsResponse = GenerateServiceLastAccessedDet
 -- 'httpStatus', 'generateServiceLastAccessedDetailsResponse_httpStatus' - The response's http status code.
 newGenerateServiceLastAccessedDetailsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GenerateServiceLastAccessedDetailsResponse
 newGenerateServiceLastAccessedDetailsResponse
   pHttpStatus_ =
     GenerateServiceLastAccessedDetailsResponse'
       { jobId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -262,13 +260,13 @@ newGenerateServiceLastAccessedDetailsResponse
 -- returned by @GenerateServiceLastAccessedDetail@ must be used by the same
 -- role within a session, or by the same user when used to call
 -- @GetServiceLastAccessedDetail@.
-generateServiceLastAccessedDetailsResponse_jobId :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse (Prelude.Maybe Prelude.Text)
+generateServiceLastAccessedDetailsResponse_jobId :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse (Core.Maybe Core.Text)
 generateServiceLastAccessedDetailsResponse_jobId = Lens.lens (\GenerateServiceLastAccessedDetailsResponse' {jobId} -> jobId) (\s@GenerateServiceLastAccessedDetailsResponse' {} a -> s {jobId = a} :: GenerateServiceLastAccessedDetailsResponse)
 
 -- | The response's http status code.
-generateServiceLastAccessedDetailsResponse_httpStatus :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse Prelude.Int
+generateServiceLastAccessedDetailsResponse_httpStatus :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse Core.Int
 generateServiceLastAccessedDetailsResponse_httpStatus = Lens.lens (\GenerateServiceLastAccessedDetailsResponse' {httpStatus} -> httpStatus) (\s@GenerateServiceLastAccessedDetailsResponse' {} a -> s {httpStatus = a} :: GenerateServiceLastAccessedDetailsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GenerateServiceLastAccessedDetailsResponse

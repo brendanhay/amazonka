@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the settings used to enable point in time recovery.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data PointInTimeRecoverySpecification = PointInTimeRecoverySpecification'
   { -- | Indicates whether point in time recovery is enabled (true) or disabled
     -- (false) on the table.
-    pointInTimeRecoveryEnabled :: Prelude.Bool
+    pointInTimeRecoveryEnabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PointInTimeRecoverySpecification' with all optional fields omitted.
@@ -45,7 +44,7 @@ data PointInTimeRecoverySpecification = PointInTimeRecoverySpecification'
 -- (false) on the table.
 newPointInTimeRecoverySpecification ::
   -- | 'pointInTimeRecoveryEnabled'
-  Prelude.Bool ->
+  Core.Bool ->
   PointInTimeRecoverySpecification
 newPointInTimeRecoverySpecification
   pPointInTimeRecoveryEnabled_ =
@@ -56,27 +55,22 @@ newPointInTimeRecoverySpecification
 
 -- | Indicates whether point in time recovery is enabled (true) or disabled
 -- (false) on the table.
-pointInTimeRecoverySpecification_pointInTimeRecoveryEnabled :: Lens.Lens' PointInTimeRecoverySpecification Prelude.Bool
+pointInTimeRecoverySpecification_pointInTimeRecoveryEnabled :: Lens.Lens' PointInTimeRecoverySpecification Core.Bool
 pointInTimeRecoverySpecification_pointInTimeRecoveryEnabled = Lens.lens (\PointInTimeRecoverySpecification' {pointInTimeRecoveryEnabled} -> pointInTimeRecoveryEnabled) (\s@PointInTimeRecoverySpecification' {} a -> s {pointInTimeRecoveryEnabled = a} :: PointInTimeRecoverySpecification)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PointInTimeRecoverySpecification
 
-instance
-  Prelude.NFData
-    PointInTimeRecoverySpecification
+instance Core.NFData PointInTimeRecoverySpecification
 
-instance
-  Prelude.ToJSON
-    PointInTimeRecoverySpecification
-  where
+instance Core.ToJSON PointInTimeRecoverySpecification where
   toJSON PointInTimeRecoverySpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "PointInTimeRecoveryEnabled"
-                  Prelude..= pointInTimeRecoveryEnabled
+                  Core..= pointInTimeRecoveryEnabled
               )
           ]
       )

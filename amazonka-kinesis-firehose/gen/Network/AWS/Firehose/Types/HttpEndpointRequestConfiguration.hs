@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.HttpEndpointRequestConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.ContentEncoding
 import Network.AWS.Firehose.Types.HttpEndpointCommonAttribute
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration of the HTTP endpoint request.
 --
@@ -34,11 +33,11 @@ data HttpEndpointRequestConfiguration = HttpEndpointRequestConfiguration'
     -- information, see
     -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding Content-Encoding>
     -- in MDN Web Docs, the official Mozilla documentation.
-    contentEncoding :: Prelude.Maybe ContentEncoding,
+    contentEncoding :: Core.Maybe ContentEncoding,
     -- | Describes the metadata sent to the HTTP endpoint destination.
-    commonAttributes :: Prelude.Maybe [HttpEndpointCommonAttribute]
+    commonAttributes :: Core.Maybe [HttpEndpointCommonAttribute]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointRequestConfiguration' with all optional fields omitted.
@@ -60,8 +59,8 @@ newHttpEndpointRequestConfiguration ::
 newHttpEndpointRequestConfiguration =
   HttpEndpointRequestConfiguration'
     { contentEncoding =
-        Prelude.Nothing,
-      commonAttributes = Prelude.Nothing
+        Core.Nothing,
+      commonAttributes = Core.Nothing
     }
 
 -- | Kinesis Data Firehose uses the content encoding to compress the body of
@@ -69,46 +68,39 @@ newHttpEndpointRequestConfiguration =
 -- information, see
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding Content-Encoding>
 -- in MDN Web Docs, the official Mozilla documentation.
-httpEndpointRequestConfiguration_contentEncoding :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe ContentEncoding)
+httpEndpointRequestConfiguration_contentEncoding :: Lens.Lens' HttpEndpointRequestConfiguration (Core.Maybe ContentEncoding)
 httpEndpointRequestConfiguration_contentEncoding = Lens.lens (\HttpEndpointRequestConfiguration' {contentEncoding} -> contentEncoding) (\s@HttpEndpointRequestConfiguration' {} a -> s {contentEncoding = a} :: HttpEndpointRequestConfiguration)
 
 -- | Describes the metadata sent to the HTTP endpoint destination.
-httpEndpointRequestConfiguration_commonAttributes :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe [HttpEndpointCommonAttribute])
-httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+httpEndpointRequestConfiguration_commonAttributes :: Lens.Lens' HttpEndpointRequestConfiguration (Core.Maybe [HttpEndpointCommonAttribute])
+httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     HttpEndpointRequestConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpEndpointRequestConfiguration"
       ( \x ->
           HttpEndpointRequestConfiguration'
-            Prelude.<$> (x Prelude..:? "ContentEncoding")
-            Prelude.<*> ( x Prelude..:? "CommonAttributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ContentEncoding")
+            Core.<*> (x Core..:? "CommonAttributes" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     HttpEndpointRequestConfiguration
 
-instance
-  Prelude.NFData
-    HttpEndpointRequestConfiguration
+instance Core.NFData HttpEndpointRequestConfiguration
 
-instance
-  Prelude.ToJSON
-    HttpEndpointRequestConfiguration
-  where
+instance Core.ToJSON HttpEndpointRequestConfiguration where
   toJSON HttpEndpointRequestConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ContentEncoding" Prelude..=)
-              Prelude.<$> contentEncoding,
-            ("CommonAttributes" Prelude..=)
-              Prelude.<$> commonAttributes
+    Core.object
+      ( Core.catMaybes
+          [ ("ContentEncoding" Core..=)
+              Core.<$> contentEncoding,
+            ("CommonAttributes" Core..=)
+              Core.<$> commonAttributes
           ]
       )

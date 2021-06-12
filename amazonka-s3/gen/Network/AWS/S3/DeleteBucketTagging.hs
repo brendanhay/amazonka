@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.S3.DeleteBucketTagging
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -58,11 +57,11 @@ data DeleteBucketTagging = DeleteBucketTagging'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket that has the tag set to be removed.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketTagging' with all optional fields omitted.
@@ -84,51 +83,51 @@ newDeleteBucketTagging ::
 newDeleteBucketTagging pBucket_ =
   DeleteBucketTagging'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketTagging_expectedBucketOwner :: Lens.Lens' DeleteBucketTagging (Prelude.Maybe Prelude.Text)
+deleteBucketTagging_expectedBucketOwner :: Lens.Lens' DeleteBucketTagging (Core.Maybe Core.Text)
 deleteBucketTagging_expectedBucketOwner = Lens.lens (\DeleteBucketTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketTagging' {} a -> s {expectedBucketOwner = a} :: DeleteBucketTagging)
 
 -- | The bucket that has the tag set to be removed.
 deleteBucketTagging_bucket :: Lens.Lens' DeleteBucketTagging BucketName
 deleteBucketTagging_bucket = Lens.lens (\DeleteBucketTagging' {bucket} -> bucket) (\s@DeleteBucketTagging' {} a -> s {bucket = a} :: DeleteBucketTagging)
 
-instance Prelude.AWSRequest DeleteBucketTagging where
+instance Core.AWSRequest DeleteBucketTagging where
   type
-    Rs DeleteBucketTagging =
+    AWSResponse DeleteBucketTagging =
       DeleteBucketTaggingResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteBucketTaggingResponse'
 
-instance Prelude.Hashable DeleteBucketTagging
+instance Core.Hashable DeleteBucketTagging
 
-instance Prelude.NFData DeleteBucketTagging
+instance Core.NFData DeleteBucketTagging
 
-instance Prelude.ToHeaders DeleteBucketTagging where
+instance Core.ToHeaders DeleteBucketTagging where
   toHeaders DeleteBucketTagging' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath DeleteBucketTagging where
+instance Core.ToPath DeleteBucketTagging where
   toPath DeleteBucketTagging' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery DeleteBucketTagging where
-  toQuery = Prelude.const (Prelude.mconcat ["tagging"])
+instance Core.ToQuery DeleteBucketTagging where
+  toQuery = Core.const (Core.mconcat ["tagging"])
 
 -- | /See:/ 'newDeleteBucketTaggingResponse' smart constructor.
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketTaggingResponse' with all optional fields omitted.
@@ -139,4 +138,4 @@ newDeleteBucketTaggingResponse ::
 newDeleteBucketTaggingResponse =
   DeleteBucketTaggingResponse'
 
-instance Prelude.NFData DeleteBucketTaggingResponse
+instance Core.NFData DeleteBucketTaggingResponse

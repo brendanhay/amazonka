@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatusCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of an authorization rule.
 --
 -- /See:/ 'newClientVpnAuthorizationRuleStatus' smart constructor.
 data ClientVpnAuthorizationRuleStatus = ClientVpnAuthorizationRuleStatus'
   { -- | A message about the status of the authorization rule, if applicable.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The state of the authorization rule.
-    code :: Prelude.Maybe ClientVpnAuthorizationRuleStatusCode
+    code :: Core.Maybe ClientVpnAuthorizationRuleStatusCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClientVpnAuthorizationRuleStatus' with all optional fields omitted.
@@ -52,31 +51,28 @@ newClientVpnAuthorizationRuleStatus ::
 newClientVpnAuthorizationRuleStatus =
   ClientVpnAuthorizationRuleStatus'
     { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+        Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | A message about the status of the authorization rule, if applicable.
-clientVpnAuthorizationRuleStatus_message :: Lens.Lens' ClientVpnAuthorizationRuleStatus (Prelude.Maybe Prelude.Text)
+clientVpnAuthorizationRuleStatus_message :: Lens.Lens' ClientVpnAuthorizationRuleStatus (Core.Maybe Core.Text)
 clientVpnAuthorizationRuleStatus_message = Lens.lens (\ClientVpnAuthorizationRuleStatus' {message} -> message) (\s@ClientVpnAuthorizationRuleStatus' {} a -> s {message = a} :: ClientVpnAuthorizationRuleStatus)
 
 -- | The state of the authorization rule.
-clientVpnAuthorizationRuleStatus_code :: Lens.Lens' ClientVpnAuthorizationRuleStatus (Prelude.Maybe ClientVpnAuthorizationRuleStatusCode)
+clientVpnAuthorizationRuleStatus_code :: Lens.Lens' ClientVpnAuthorizationRuleStatus (Core.Maybe ClientVpnAuthorizationRuleStatusCode)
 clientVpnAuthorizationRuleStatus_code = Lens.lens (\ClientVpnAuthorizationRuleStatus' {code} -> code) (\s@ClientVpnAuthorizationRuleStatus' {} a -> s {code = a} :: ClientVpnAuthorizationRuleStatus)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ClientVpnAuthorizationRuleStatus
   where
   parseXML x =
     ClientVpnAuthorizationRuleStatus'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ClientVpnAuthorizationRuleStatus
 
-instance
-  Prelude.NFData
-    ClientVpnAuthorizationRuleStatus
+instance Core.NFData ClientVpnAuthorizationRuleStatus

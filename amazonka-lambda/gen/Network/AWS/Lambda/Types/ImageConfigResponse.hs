@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.ImageConfigResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.ImageConfig
 import Network.AWS.Lambda.Types.ImageConfigError
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Response to GetFunctionConfiguration request.
 --
 -- /See:/ 'newImageConfigResponse' smart constructor.
 data ImageConfigResponse = ImageConfigResponse'
   { -- | Configuration values that override the container image Dockerfile.
-    imageConfig :: Prelude.Maybe ImageConfig,
+    imageConfig :: Core.Maybe ImageConfig,
     -- | Error response to GetFunctionConfiguration.
-    error :: Prelude.Maybe ImageConfigError
+    error :: Core.Maybe ImageConfigError
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageConfigResponse' with all optional fields omitted.
@@ -51,28 +50,28 @@ newImageConfigResponse ::
   ImageConfigResponse
 newImageConfigResponse =
   ImageConfigResponse'
-    { imageConfig = Prelude.Nothing,
-      error = Prelude.Nothing
+    { imageConfig = Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | Configuration values that override the container image Dockerfile.
-imageConfigResponse_imageConfig :: Lens.Lens' ImageConfigResponse (Prelude.Maybe ImageConfig)
+imageConfigResponse_imageConfig :: Lens.Lens' ImageConfigResponse (Core.Maybe ImageConfig)
 imageConfigResponse_imageConfig = Lens.lens (\ImageConfigResponse' {imageConfig} -> imageConfig) (\s@ImageConfigResponse' {} a -> s {imageConfig = a} :: ImageConfigResponse)
 
 -- | Error response to GetFunctionConfiguration.
-imageConfigResponse_error :: Lens.Lens' ImageConfigResponse (Prelude.Maybe ImageConfigError)
+imageConfigResponse_error :: Lens.Lens' ImageConfigResponse (Core.Maybe ImageConfigError)
 imageConfigResponse_error = Lens.lens (\ImageConfigResponse' {error} -> error) (\s@ImageConfigResponse' {} a -> s {error = a} :: ImageConfigResponse)
 
-instance Prelude.FromJSON ImageConfigResponse where
+instance Core.FromJSON ImageConfigResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageConfigResponse"
       ( \x ->
           ImageConfigResponse'
-            Prelude.<$> (x Prelude..:? "ImageConfig")
-            Prelude.<*> (x Prelude..:? "Error")
+            Core.<$> (x Core..:? "ImageConfig")
+            Core.<*> (x Core..:? "Error")
       )
 
-instance Prelude.Hashable ImageConfigResponse
+instance Core.Hashable ImageConfigResponse
 
-instance Prelude.NFData ImageConfigResponse
+instance Core.NFData ImageConfigResponse

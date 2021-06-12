@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeBuild.Types.RegistryCredential where
 
 import Network.AWS.CodeBuild.Types.CredentialProviderType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about credentials that provide access to a private Docker
 -- registry. When this is set:
@@ -41,12 +40,12 @@ data RegistryCredential = RegistryCredential'
     --
     -- The @credential@ can use the name of the credentials only if they exist
     -- in your current AWS Region.
-    credential :: Prelude.Text,
+    credential :: Core.Text,
     -- | The service that created the credentials to access a private Docker
     -- registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
     credentialProvider :: CredentialProviderType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegistryCredential' with all optional fields omitted.
@@ -66,7 +65,7 @@ data RegistryCredential = RegistryCredential'
 -- registry. The valid value, SECRETS_MANAGER, is for AWS Secrets Manager.
 newRegistryCredential ::
   -- | 'credential'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'credentialProvider'
   CredentialProviderType ->
   RegistryCredential
@@ -83,7 +82,7 @@ newRegistryCredential
 --
 -- The @credential@ can use the name of the credentials only if they exist
 -- in your current AWS Region.
-registryCredential_credential :: Lens.Lens' RegistryCredential Prelude.Text
+registryCredential_credential :: Lens.Lens' RegistryCredential Core.Text
 registryCredential_credential = Lens.lens (\RegistryCredential' {credential} -> credential) (\s@RegistryCredential' {} a -> s {credential = a} :: RegistryCredential)
 
 -- | The service that created the credentials to access a private Docker
@@ -91,28 +90,26 @@ registryCredential_credential = Lens.lens (\RegistryCredential' {credential} -> 
 registryCredential_credentialProvider :: Lens.Lens' RegistryCredential CredentialProviderType
 registryCredential_credentialProvider = Lens.lens (\RegistryCredential' {credentialProvider} -> credentialProvider) (\s@RegistryCredential' {} a -> s {credentialProvider = a} :: RegistryCredential)
 
-instance Prelude.FromJSON RegistryCredential where
+instance Core.FromJSON RegistryCredential where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RegistryCredential"
       ( \x ->
           RegistryCredential'
-            Prelude.<$> (x Prelude..: "credential")
-            Prelude.<*> (x Prelude..: "credentialProvider")
+            Core.<$> (x Core..: "credential")
+            Core.<*> (x Core..: "credentialProvider")
       )
 
-instance Prelude.Hashable RegistryCredential
+instance Core.Hashable RegistryCredential
 
-instance Prelude.NFData RegistryCredential
+instance Core.NFData RegistryCredential
 
-instance Prelude.ToJSON RegistryCredential where
+instance Core.ToJSON RegistryCredential where
   toJSON RegistryCredential' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("credential" Prelude..= credential),
-            Prelude.Just
-              ( "credentialProvider"
-                  Prelude..= credentialProvider
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("credential" Core..= credential),
+            Core.Just
+              ("credentialProvider" Core..= credentialProvider)
           ]
       )

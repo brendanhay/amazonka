@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the coonection status of an inbound cross-cluster search
 -- connection.
@@ -30,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInboundCrossClusterSearchConnectionStatus' smart constructor.
 data InboundCrossClusterSearchConnectionStatus = InboundCrossClusterSearchConnectionStatus'
   { -- | Specifies verbose information for the inbound connection status.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The state code for inbound connection. This can be one of the following:
     --
     -- -   PENDING_ACCEPTANCE: Inbound connection is not yet accepted by
@@ -41,9 +40,9 @@ data InboundCrossClusterSearchConnectionStatus = InboundCrossClusterSearchConnec
     -- -   REJECTED: Inbound connection is rejected.
     -- -   DELETING: Inbound connection deletion is in progress.
     -- -   DELETED: Inbound connection is deleted and cannot be used further.
-    statusCode :: Prelude.Maybe InboundCrossClusterSearchConnectionStatusCode
+    statusCode :: Core.Maybe InboundCrossClusterSearchConnectionStatusCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InboundCrossClusterSearchConnectionStatus' with all optional fields omitted.
@@ -70,12 +69,12 @@ newInboundCrossClusterSearchConnectionStatus ::
 newInboundCrossClusterSearchConnectionStatus =
   InboundCrossClusterSearchConnectionStatus'
     { message =
-        Prelude.Nothing,
-      statusCode = Prelude.Nothing
+        Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | Specifies verbose information for the inbound connection status.
-inboundCrossClusterSearchConnectionStatus_message :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Prelude.Maybe Prelude.Text)
+inboundCrossClusterSearchConnectionStatus_message :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Core.Maybe Core.Text)
 inboundCrossClusterSearchConnectionStatus_message = Lens.lens (\InboundCrossClusterSearchConnectionStatus' {message} -> message) (\s@InboundCrossClusterSearchConnectionStatus' {} a -> s {message = a} :: InboundCrossClusterSearchConnectionStatus)
 
 -- | The state code for inbound connection. This can be one of the following:
@@ -88,26 +87,26 @@ inboundCrossClusterSearchConnectionStatus_message = Lens.lens (\InboundCrossClus
 -- -   REJECTED: Inbound connection is rejected.
 -- -   DELETING: Inbound connection deletion is in progress.
 -- -   DELETED: Inbound connection is deleted and cannot be used further.
-inboundCrossClusterSearchConnectionStatus_statusCode :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Prelude.Maybe InboundCrossClusterSearchConnectionStatusCode)
+inboundCrossClusterSearchConnectionStatus_statusCode :: Lens.Lens' InboundCrossClusterSearchConnectionStatus (Core.Maybe InboundCrossClusterSearchConnectionStatusCode)
 inboundCrossClusterSearchConnectionStatus_statusCode = Lens.lens (\InboundCrossClusterSearchConnectionStatus' {statusCode} -> statusCode) (\s@InboundCrossClusterSearchConnectionStatus' {} a -> s {statusCode = a} :: InboundCrossClusterSearchConnectionStatus)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     InboundCrossClusterSearchConnectionStatus
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InboundCrossClusterSearchConnectionStatus"
       ( \x ->
           InboundCrossClusterSearchConnectionStatus'
-            Prelude.<$> (x Prelude..:? "Message")
-              Prelude.<*> (x Prelude..:? "StatusCode")
+            Core.<$> (x Core..:? "Message")
+            Core.<*> (x Core..:? "StatusCode")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InboundCrossClusterSearchConnectionStatus
 
 instance
-  Prelude.NFData
+  Core.NFData
     InboundCrossClusterSearchConnectionStatus

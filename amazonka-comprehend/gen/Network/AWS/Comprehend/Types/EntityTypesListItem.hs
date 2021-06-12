@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.EntityTypesListItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An entity type within a labeled training dataset that Amazon Comprehend
 -- uses to train a custom entity recognizer.
@@ -35,9 +34,9 @@ data EntityTypesListItem = EntityTypesListItem'
     -- (line break), \\\\n (escaped line break, \\r (carriage return), \\\\r
     -- (escaped carriage return), \\t (tab), \\\\t (escaped tab), space, and ,
     -- (comma).
-    type' :: Prelude.Text
+    type' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EntityTypesListItem' with all optional fields omitted.
@@ -56,7 +55,7 @@ data EntityTypesListItem = EntityTypesListItem'
 -- (comma).
 newEntityTypesListItem ::
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   EntityTypesListItem
 newEntityTypesListItem pType_ =
   EntityTypesListItem' {type' = pType_}
@@ -68,25 +67,22 @@ newEntityTypesListItem pType_ =
 -- (line break), \\\\n (escaped line break, \\r (carriage return), \\\\r
 -- (escaped carriage return), \\t (tab), \\\\t (escaped tab), space, and ,
 -- (comma).
-entityTypesListItem_type :: Lens.Lens' EntityTypesListItem Prelude.Text
+entityTypesListItem_type :: Lens.Lens' EntityTypesListItem Core.Text
 entityTypesListItem_type = Lens.lens (\EntityTypesListItem' {type'} -> type') (\s@EntityTypesListItem' {} a -> s {type' = a} :: EntityTypesListItem)
 
-instance Prelude.FromJSON EntityTypesListItem where
+instance Core.FromJSON EntityTypesListItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EntityTypesListItem"
       ( \x ->
-          EntityTypesListItem'
-            Prelude.<$> (x Prelude..: "Type")
+          EntityTypesListItem' Core.<$> (x Core..: "Type")
       )
 
-instance Prelude.Hashable EntityTypesListItem
+instance Core.Hashable EntityTypesListItem
 
-instance Prelude.NFData EntityTypesListItem
+instance Core.NFData EntityTypesListItem
 
-instance Prelude.ToJSON EntityTypesListItem where
+instance Core.ToJSON EntityTypesListItem where
   toJSON EntityTypesListItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Type" Prelude..= type')]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Type" Core..= type')])

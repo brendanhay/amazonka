@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.APIGateway.CreateDocumentationVersion
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,15 +54,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateDocumentationVersion' smart constructor.
 data CreateDocumentationVersion = CreateDocumentationVersion'
   { -- | The stage name to be associated with the new documentation snapshot.
-    stageName :: Prelude.Maybe Prelude.Text,
+    stageName :: Core.Maybe Core.Text,
     -- | A description about the new documentation snapshot.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The version identifier of the new snapshot.
-    documentationVersion :: Prelude.Text
+    documentationVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDocumentationVersion' with all optional fields omitted.
@@ -82,82 +81,79 @@ data CreateDocumentationVersion = CreateDocumentationVersion'
 -- 'documentationVersion', 'createDocumentationVersion_documentationVersion' - [Required] The version identifier of the new snapshot.
 newCreateDocumentationVersion ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'documentationVersion'
-  Prelude.Text ->
+  Core.Text ->
   CreateDocumentationVersion
 newCreateDocumentationVersion
   pRestApiId_
   pDocumentationVersion_ =
     CreateDocumentationVersion'
       { stageName =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
+          Core.Nothing,
+        description = Core.Nothing,
         restApiId = pRestApiId_,
         documentationVersion = pDocumentationVersion_
       }
 
 -- | The stage name to be associated with the new documentation snapshot.
-createDocumentationVersion_stageName :: Lens.Lens' CreateDocumentationVersion (Prelude.Maybe Prelude.Text)
+createDocumentationVersion_stageName :: Lens.Lens' CreateDocumentationVersion (Core.Maybe Core.Text)
 createDocumentationVersion_stageName = Lens.lens (\CreateDocumentationVersion' {stageName} -> stageName) (\s@CreateDocumentationVersion' {} a -> s {stageName = a} :: CreateDocumentationVersion)
 
 -- | A description about the new documentation snapshot.
-createDocumentationVersion_description :: Lens.Lens' CreateDocumentationVersion (Prelude.Maybe Prelude.Text)
+createDocumentationVersion_description :: Lens.Lens' CreateDocumentationVersion (Core.Maybe Core.Text)
 createDocumentationVersion_description = Lens.lens (\CreateDocumentationVersion' {description} -> description) (\s@CreateDocumentationVersion' {} a -> s {description = a} :: CreateDocumentationVersion)
 
 -- | [Required] The string identifier of the associated RestApi.
-createDocumentationVersion_restApiId :: Lens.Lens' CreateDocumentationVersion Prelude.Text
+createDocumentationVersion_restApiId :: Lens.Lens' CreateDocumentationVersion Core.Text
 createDocumentationVersion_restApiId = Lens.lens (\CreateDocumentationVersion' {restApiId} -> restApiId) (\s@CreateDocumentationVersion' {} a -> s {restApiId = a} :: CreateDocumentationVersion)
 
 -- | [Required] The version identifier of the new snapshot.
-createDocumentationVersion_documentationVersion :: Lens.Lens' CreateDocumentationVersion Prelude.Text
+createDocumentationVersion_documentationVersion :: Lens.Lens' CreateDocumentationVersion Core.Text
 createDocumentationVersion_documentationVersion = Lens.lens (\CreateDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@CreateDocumentationVersion' {} a -> s {documentationVersion = a} :: CreateDocumentationVersion)
 
-instance
-  Prelude.AWSRequest
-    CreateDocumentationVersion
-  where
+instance Core.AWSRequest CreateDocumentationVersion where
   type
-    Rs CreateDocumentationVersion =
+    AWSResponse CreateDocumentationVersion =
       DocumentationVersion
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateDocumentationVersion
+instance Core.Hashable CreateDocumentationVersion
 
-instance Prelude.NFData CreateDocumentationVersion
+instance Core.NFData CreateDocumentationVersion
 
-instance Prelude.ToHeaders CreateDocumentationVersion where
+instance Core.ToHeaders CreateDocumentationVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDocumentationVersion where
+instance Core.ToJSON CreateDocumentationVersion where
   toJSON CreateDocumentationVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("stageName" Prelude..=) Prelude.<$> stageName,
-            ("description" Prelude..=) Prelude.<$> description,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("stageName" Core..=) Core.<$> stageName,
+            ("description" Core..=) Core.<$> description,
+            Core.Just
               ( "documentationVersion"
-                  Prelude..= documentationVersion
+                  Core..= documentationVersion
               )
           ]
       )
 
-instance Prelude.ToPath CreateDocumentationVersion where
+instance Core.ToPath CreateDocumentationVersion where
   toPath CreateDocumentationVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/documentation/versions"
       ]
 
-instance Prelude.ToQuery CreateDocumentationVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDocumentationVersion where
+  toQuery = Core.const Core.mempty

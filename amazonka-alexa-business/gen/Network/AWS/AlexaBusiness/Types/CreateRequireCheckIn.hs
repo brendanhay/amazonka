@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Creates settings for the require check in feature that are applied to a
 -- room profile. Require check in allows a meeting room’s Alexa or AVS
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 data CreateRequireCheckIn = CreateRequireCheckIn'
   { -- | Duration between 5 and 20 minutes to determine when to release the room
     -- if it\'s not checked into.
-    releaseAfterMinutes :: Prelude.Int,
+    releaseAfterMinutes :: Core.Int,
     -- | Whether require check in is enabled or not.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateRequireCheckIn' with all optional fields omitted.
@@ -52,9 +51,9 @@ data CreateRequireCheckIn = CreateRequireCheckIn'
 -- 'enabled', 'createRequireCheckIn_enabled' - Whether require check in is enabled or not.
 newCreateRequireCheckIn ::
   -- | 'releaseAfterMinutes'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   CreateRequireCheckIn
 newCreateRequireCheckIn
   pReleaseAfterMinutes_
@@ -67,25 +66,23 @@ newCreateRequireCheckIn
 
 -- | Duration between 5 and 20 minutes to determine when to release the room
 -- if it\'s not checked into.
-createRequireCheckIn_releaseAfterMinutes :: Lens.Lens' CreateRequireCheckIn Prelude.Int
+createRequireCheckIn_releaseAfterMinutes :: Lens.Lens' CreateRequireCheckIn Core.Int
 createRequireCheckIn_releaseAfterMinutes = Lens.lens (\CreateRequireCheckIn' {releaseAfterMinutes} -> releaseAfterMinutes) (\s@CreateRequireCheckIn' {} a -> s {releaseAfterMinutes = a} :: CreateRequireCheckIn)
 
 -- | Whether require check in is enabled or not.
-createRequireCheckIn_enabled :: Lens.Lens' CreateRequireCheckIn Prelude.Bool
+createRequireCheckIn_enabled :: Lens.Lens' CreateRequireCheckIn Core.Bool
 createRequireCheckIn_enabled = Lens.lens (\CreateRequireCheckIn' {enabled} -> enabled) (\s@CreateRequireCheckIn' {} a -> s {enabled = a} :: CreateRequireCheckIn)
 
-instance Prelude.Hashable CreateRequireCheckIn
+instance Core.Hashable CreateRequireCheckIn
 
-instance Prelude.NFData CreateRequireCheckIn
+instance Core.NFData CreateRequireCheckIn
 
-instance Prelude.ToJSON CreateRequireCheckIn where
+instance Core.ToJSON CreateRequireCheckIn where
   toJSON CreateRequireCheckIn' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "ReleaseAfterMinutes"
-                  Prelude..= releaseAfterMinutes
-              ),
-            Prelude.Just ("Enabled" Prelude..= enabled)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ReleaseAfterMinutes" Core..= releaseAfterMinutes),
+            Core.Just ("Enabled" Core..= enabled)
           ]
       )

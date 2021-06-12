@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.FMS.GetNotificationChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data GetNotificationChannel = GetNotificationChannel'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetNotificationChannel' with all optional fields omitted.
@@ -59,60 +58,57 @@ newGetNotificationChannel ::
   GetNotificationChannel
 newGetNotificationChannel = GetNotificationChannel'
 
-instance Prelude.AWSRequest GetNotificationChannel where
+instance Core.AWSRequest GetNotificationChannel where
   type
-    Rs GetNotificationChannel =
+    AWSResponse GetNotificationChannel =
       GetNotificationChannelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetNotificationChannelResponse'
-            Prelude.<$> (x Prelude..?> "SnsRoleName")
-            Prelude.<*> (x Prelude..?> "SnsTopicArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SnsRoleName")
+            Core.<*> (x Core..?> "SnsTopicArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetNotificationChannel
+instance Core.Hashable GetNotificationChannel
 
-instance Prelude.NFData GetNotificationChannel
+instance Core.NFData GetNotificationChannel
 
-instance Prelude.ToHeaders GetNotificationChannel where
+instance Core.ToHeaders GetNotificationChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.GetNotificationChannel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.GetNotificationChannel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetNotificationChannel where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetNotificationChannel where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetNotificationChannel where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetNotificationChannel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetNotificationChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetNotificationChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetNotificationChannelResponse' smart constructor.
 data GetNotificationChannelResponse = GetNotificationChannelResponse'
   { -- | The IAM role that is used by AWS Firewall Manager to record activity to
     -- SNS.
-    snsRoleName :: Prelude.Maybe Prelude.Text,
+    snsRoleName :: Core.Maybe Core.Text,
     -- | The SNS topic that records AWS Firewall Manager activity.
-    snsTopicArn :: Prelude.Maybe Prelude.Text,
+    snsTopicArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetNotificationChannelResponse' with all optional fields omitted.
@@ -130,29 +126,27 @@ data GetNotificationChannelResponse = GetNotificationChannelResponse'
 -- 'httpStatus', 'getNotificationChannelResponse_httpStatus' - The response's http status code.
 newGetNotificationChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetNotificationChannelResponse
 newGetNotificationChannelResponse pHttpStatus_ =
   GetNotificationChannelResponse'
     { snsRoleName =
-        Prelude.Nothing,
-      snsTopicArn = Prelude.Nothing,
+        Core.Nothing,
+      snsTopicArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IAM role that is used by AWS Firewall Manager to record activity to
 -- SNS.
-getNotificationChannelResponse_snsRoleName :: Lens.Lens' GetNotificationChannelResponse (Prelude.Maybe Prelude.Text)
+getNotificationChannelResponse_snsRoleName :: Lens.Lens' GetNotificationChannelResponse (Core.Maybe Core.Text)
 getNotificationChannelResponse_snsRoleName = Lens.lens (\GetNotificationChannelResponse' {snsRoleName} -> snsRoleName) (\s@GetNotificationChannelResponse' {} a -> s {snsRoleName = a} :: GetNotificationChannelResponse)
 
 -- | The SNS topic that records AWS Firewall Manager activity.
-getNotificationChannelResponse_snsTopicArn :: Lens.Lens' GetNotificationChannelResponse (Prelude.Maybe Prelude.Text)
+getNotificationChannelResponse_snsTopicArn :: Lens.Lens' GetNotificationChannelResponse (Core.Maybe Core.Text)
 getNotificationChannelResponse_snsTopicArn = Lens.lens (\GetNotificationChannelResponse' {snsTopicArn} -> snsTopicArn) (\s@GetNotificationChannelResponse' {} a -> s {snsTopicArn = a} :: GetNotificationChannelResponse)
 
 -- | The response's http status code.
-getNotificationChannelResponse_httpStatus :: Lens.Lens' GetNotificationChannelResponse Prelude.Int
+getNotificationChannelResponse_httpStatus :: Lens.Lens' GetNotificationChannelResponse Core.Int
 getNotificationChannelResponse_httpStatus = Lens.lens (\GetNotificationChannelResponse' {httpStatus} -> httpStatus) (\s@GetNotificationChannelResponse' {} a -> s {httpStatus = a} :: GetNotificationChannelResponse)
 
-instance
-  Prelude.NFData
-    GetNotificationChannelResponse
+instance Core.NFData GetNotificationChannelResponse

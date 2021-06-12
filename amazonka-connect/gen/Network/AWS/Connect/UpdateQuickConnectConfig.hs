@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.Connect.UpdateQuickConnectConfig
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQuickConnectConfig' smart constructor.
 data UpdateQuickConnectConfig = UpdateQuickConnectConfig'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the quick connect.
-    quickConnectId :: Prelude.Text,
+    quickConnectId :: Core.Text,
     -- | Information about the configuration settings for the quick connect.
     quickConnectConfig :: QuickConnectConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQuickConnectConfig' with all optional fields omitted.
@@ -73,9 +72,9 @@ data UpdateQuickConnectConfig = UpdateQuickConnectConfig'
 -- 'quickConnectConfig', 'updateQuickConnectConfig_quickConnectConfig' - Information about the configuration settings for the quick connect.
 newUpdateQuickConnectConfig ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'quickConnectId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'quickConnectConfig'
   QuickConnectConfig ->
   UpdateQuickConnectConfig
@@ -91,70 +90,66 @@ newUpdateQuickConnectConfig
       }
 
 -- | The identifier of the Amazon Connect instance.
-updateQuickConnectConfig_instanceId :: Lens.Lens' UpdateQuickConnectConfig Prelude.Text
+updateQuickConnectConfig_instanceId :: Lens.Lens' UpdateQuickConnectConfig Core.Text
 updateQuickConnectConfig_instanceId = Lens.lens (\UpdateQuickConnectConfig' {instanceId} -> instanceId) (\s@UpdateQuickConnectConfig' {} a -> s {instanceId = a} :: UpdateQuickConnectConfig)
 
 -- | The identifier for the quick connect.
-updateQuickConnectConfig_quickConnectId :: Lens.Lens' UpdateQuickConnectConfig Prelude.Text
+updateQuickConnectConfig_quickConnectId :: Lens.Lens' UpdateQuickConnectConfig Core.Text
 updateQuickConnectConfig_quickConnectId = Lens.lens (\UpdateQuickConnectConfig' {quickConnectId} -> quickConnectId) (\s@UpdateQuickConnectConfig' {} a -> s {quickConnectId = a} :: UpdateQuickConnectConfig)
 
 -- | Information about the configuration settings for the quick connect.
 updateQuickConnectConfig_quickConnectConfig :: Lens.Lens' UpdateQuickConnectConfig QuickConnectConfig
 updateQuickConnectConfig_quickConnectConfig = Lens.lens (\UpdateQuickConnectConfig' {quickConnectConfig} -> quickConnectConfig) (\s@UpdateQuickConnectConfig' {} a -> s {quickConnectConfig = a} :: UpdateQuickConnectConfig)
 
-instance Prelude.AWSRequest UpdateQuickConnectConfig where
+instance Core.AWSRequest UpdateQuickConnectConfig where
   type
-    Rs UpdateQuickConnectConfig =
+    AWSResponse UpdateQuickConnectConfig =
       UpdateQuickConnectConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateQuickConnectConfigResponse'
 
-instance Prelude.Hashable UpdateQuickConnectConfig
+instance Core.Hashable UpdateQuickConnectConfig
 
-instance Prelude.NFData UpdateQuickConnectConfig
+instance Core.NFData UpdateQuickConnectConfig
 
-instance Prelude.ToHeaders UpdateQuickConnectConfig where
+instance Core.ToHeaders UpdateQuickConnectConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateQuickConnectConfig where
+instance Core.ToJSON UpdateQuickConnectConfig where
   toJSON UpdateQuickConnectConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "QuickConnectConfig"
-                  Prelude..= quickConnectConfig
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("QuickConnectConfig" Core..= quickConnectConfig)
           ]
       )
 
-instance Prelude.ToPath UpdateQuickConnectConfig where
+instance Core.ToPath UpdateQuickConnectConfig where
   toPath UpdateQuickConnectConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/quick-connects/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS quickConnectId,
+        Core.toBS quickConnectId,
         "/config"
       ]
 
-instance Prelude.ToQuery UpdateQuickConnectConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateQuickConnectConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateQuickConnectConfigResponse' smart constructor.
 data UpdateQuickConnectConfigResponse = UpdateQuickConnectConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQuickConnectConfigResponse' with all optional fields omitted.
@@ -165,6 +160,4 @@ newUpdateQuickConnectConfigResponse ::
 newUpdateQuickConnectConfigResponse =
   UpdateQuickConnectConfigResponse'
 
-instance
-  Prelude.NFData
-    UpdateQuickConnectConfigResponse
+instance Core.NFData UpdateQuickConnectConfigResponse

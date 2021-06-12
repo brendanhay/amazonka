@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.GameServerGroup where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.BalancingStrategy
 import Network.AWS.GameLift.Types.GameServerGroupAction
 import Network.AWS.GameLift.Types.GameServerGroupStatus
 import Network.AWS.GameLift.Types.GameServerProtectionPolicy
 import Network.AWS.GameLift.Types.InstanceDefinition
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game
 -- server groups.__
@@ -81,31 +80,31 @@ data GameServerGroup = GameServerGroup'
     --
     -- -   @ERROR@ - The asynchronous processes of activating or deleting a
     --     game server group has failed, resulting in an error state.
-    status :: Prelude.Maybe GameServerGroupStatus,
+    status :: Core.Maybe GameServerGroupStatus,
     -- | A timestamp that indicates when this data object was created. Format is
     -- a number expressed in Unix time as milliseconds (for example
     -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
     -- Scaling groups.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | A generated unique ID for the EC2 Auto Scaling group that is associated
     -- with this game server group.
-    autoScalingGroupArn :: Prelude.Maybe Prelude.Text,
+    autoScalingGroupArn :: Core.Maybe Core.Text,
     -- | The set of EC2 instance types that GameLift FleetIQ can use when
     -- balancing and automatically scaling instances in the corresponding Auto
     -- Scaling group.
-    instanceDefinitions :: Prelude.Maybe (Prelude.NonEmpty InstanceDefinition),
+    instanceDefinitions :: Core.Maybe (Core.NonEmpty InstanceDefinition),
     -- | A generated unique ID for the game server group.
-    gameServerGroupArn :: Prelude.Maybe Prelude.Text,
+    gameServerGroupArn :: Core.Maybe Core.Text,
     -- | A list of activities that are currently suspended for this game server
     -- group. If this property is empty, all activities are occurring.
-    suspendedActions :: Prelude.Maybe (Prelude.NonEmpty GameServerGroupAction),
+    suspendedActions :: Core.Maybe (Core.NonEmpty GameServerGroupAction),
     -- | A developer-defined identifier for the game server group. The name is
     -- unique for each Region in each AWS account.
-    gameServerGroupName :: Prelude.Maybe Prelude.Text,
+    gameServerGroupName :: Core.Maybe Core.Text,
     -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
     -- On-Demand Instances in the game server group. Method options include the
     -- following:
@@ -127,7 +126,7 @@ data GameServerGroup = GameServerGroup'
     -- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game
     --     server group. No Spot Instances are used, even when available, while
     --     this balancing strategy is in force.
-    balancingStrategy :: Prelude.Maybe BalancingStrategy,
+    balancingStrategy :: Core.Maybe BalancingStrategy,
     -- | A flag that indicates whether instances in the game server group are
     -- protected from early termination. Unprotected instances that have active
     -- game servers running might be terminated during a scale-down event,
@@ -136,15 +135,15 @@ data GameServerGroup = GameServerGroup'
     -- event of a forced game server group deletion (see ). An exception to
     -- this is with Spot Instances, which can be terminated by AWS regardless
     -- of protection status.
-    gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
+    gameServerProtectionPolicy :: Core.Maybe GameServerProtectionPolicy,
     -- | Additional information about the current game server group status. This
     -- information might provide additional insight on groups that are in
     -- @ERROR@ status.
-    statusReason :: Prelude.Maybe Prelude.Text,
+    statusReason :: Core.Maybe Core.Text,
     -- | A timestamp that indicates when this game server group was last updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.POSIX
+    lastUpdatedTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GameServerGroup' with all optional fields omitted.
@@ -241,18 +240,18 @@ newGameServerGroup ::
   GameServerGroup
 newGameServerGroup =
   GameServerGroup'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      autoScalingGroupArn = Prelude.Nothing,
-      instanceDefinitions = Prelude.Nothing,
-      gameServerGroupArn = Prelude.Nothing,
-      suspendedActions = Prelude.Nothing,
-      gameServerGroupName = Prelude.Nothing,
-      balancingStrategy = Prelude.Nothing,
-      gameServerProtectionPolicy = Prelude.Nothing,
-      statusReason = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+    { status = Core.Nothing,
+      creationTime = Core.Nothing,
+      roleArn = Core.Nothing,
+      autoScalingGroupArn = Core.Nothing,
+      instanceDefinitions = Core.Nothing,
+      gameServerGroupArn = Core.Nothing,
+      suspendedActions = Core.Nothing,
+      gameServerGroupName = Core.Nothing,
+      balancingStrategy = Core.Nothing,
+      gameServerProtectionPolicy = Core.Nothing,
+      statusReason = Core.Nothing,
+      lastUpdatedTime = Core.Nothing
     }
 
 -- | The current status of the game server group. Possible statuses include:
@@ -277,45 +276,45 @@ newGameServerGroup =
 --
 -- -   @ERROR@ - The asynchronous processes of activating or deleting a
 --     game server group has failed, resulting in an error state.
-gameServerGroup_status :: Lens.Lens' GameServerGroup (Prelude.Maybe GameServerGroupStatus)
+gameServerGroup_status :: Lens.Lens' GameServerGroup (Core.Maybe GameServerGroupStatus)
 gameServerGroup_status = Lens.lens (\GameServerGroup' {status} -> status) (\s@GameServerGroup' {} a -> s {status = a} :: GameServerGroup)
 
 -- | A timestamp that indicates when this data object was created. Format is
 -- a number expressed in Unix time as milliseconds (for example
 -- @\"1469498468.057\"@).
-gameServerGroup_creationTime :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.UTCTime)
-gameServerGroup_creationTime = Lens.lens (\GameServerGroup' {creationTime} -> creationTime) (\s@GameServerGroup' {} a -> s {creationTime = a} :: GameServerGroup) Prelude.. Lens.mapping Prelude._Time
+gameServerGroup_creationTime :: Lens.Lens' GameServerGroup (Core.Maybe Core.UTCTime)
+gameServerGroup_creationTime = Lens.lens (\GameServerGroup' {creationTime} -> creationTime) (\s@GameServerGroup' {} a -> s {creationTime = a} :: GameServerGroup) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
 -- Scaling groups.
-gameServerGroup_roleArn :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
+gameServerGroup_roleArn :: Lens.Lens' GameServerGroup (Core.Maybe Core.Text)
 gameServerGroup_roleArn = Lens.lens (\GameServerGroup' {roleArn} -> roleArn) (\s@GameServerGroup' {} a -> s {roleArn = a} :: GameServerGroup)
 
 -- | A generated unique ID for the EC2 Auto Scaling group that is associated
 -- with this game server group.
-gameServerGroup_autoScalingGroupArn :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
+gameServerGroup_autoScalingGroupArn :: Lens.Lens' GameServerGroup (Core.Maybe Core.Text)
 gameServerGroup_autoScalingGroupArn = Lens.lens (\GameServerGroup' {autoScalingGroupArn} -> autoScalingGroupArn) (\s@GameServerGroup' {} a -> s {autoScalingGroupArn = a} :: GameServerGroup)
 
 -- | The set of EC2 instance types that GameLift FleetIQ can use when
 -- balancing and automatically scaling instances in the corresponding Auto
 -- Scaling group.
-gameServerGroup_instanceDefinitions :: Lens.Lens' GameServerGroup (Prelude.Maybe (Prelude.NonEmpty InstanceDefinition))
-gameServerGroup_instanceDefinitions = Lens.lens (\GameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@GameServerGroup' {} a -> s {instanceDefinitions = a} :: GameServerGroup) Prelude.. Lens.mapping Prelude._Coerce
+gameServerGroup_instanceDefinitions :: Lens.Lens' GameServerGroup (Core.Maybe (Core.NonEmpty InstanceDefinition))
+gameServerGroup_instanceDefinitions = Lens.lens (\GameServerGroup' {instanceDefinitions} -> instanceDefinitions) (\s@GameServerGroup' {} a -> s {instanceDefinitions = a} :: GameServerGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | A generated unique ID for the game server group.
-gameServerGroup_gameServerGroupArn :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
+gameServerGroup_gameServerGroupArn :: Lens.Lens' GameServerGroup (Core.Maybe Core.Text)
 gameServerGroup_gameServerGroupArn = Lens.lens (\GameServerGroup' {gameServerGroupArn} -> gameServerGroupArn) (\s@GameServerGroup' {} a -> s {gameServerGroupArn = a} :: GameServerGroup)
 
 -- | A list of activities that are currently suspended for this game server
 -- group. If this property is empty, all activities are occurring.
-gameServerGroup_suspendedActions :: Lens.Lens' GameServerGroup (Prelude.Maybe (Prelude.NonEmpty GameServerGroupAction))
-gameServerGroup_suspendedActions = Lens.lens (\GameServerGroup' {suspendedActions} -> suspendedActions) (\s@GameServerGroup' {} a -> s {suspendedActions = a} :: GameServerGroup) Prelude.. Lens.mapping Prelude._Coerce
+gameServerGroup_suspendedActions :: Lens.Lens' GameServerGroup (Core.Maybe (Core.NonEmpty GameServerGroupAction))
+gameServerGroup_suspendedActions = Lens.lens (\GameServerGroup' {suspendedActions} -> suspendedActions) (\s@GameServerGroup' {} a -> s {suspendedActions = a} :: GameServerGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | A developer-defined identifier for the game server group. The name is
 -- unique for each Region in each AWS account.
-gameServerGroup_gameServerGroupName :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
+gameServerGroup_gameServerGroupName :: Lens.Lens' GameServerGroup (Core.Maybe Core.Text)
 gameServerGroup_gameServerGroupName = Lens.lens (\GameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@GameServerGroup' {} a -> s {gameServerGroupName = a} :: GameServerGroup)
 
 -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
@@ -339,7 +338,7 @@ gameServerGroup_gameServerGroupName = Lens.lens (\GameServerGroup' {gameServerGr
 -- -   @ON_DEMAND_ONLY@ - Only On-Demand Instances are used in the game
 --     server group. No Spot Instances are used, even when available, while
 --     this balancing strategy is in force.
-gameServerGroup_balancingStrategy :: Lens.Lens' GameServerGroup (Prelude.Maybe BalancingStrategy)
+gameServerGroup_balancingStrategy :: Lens.Lens' GameServerGroup (Core.Maybe BalancingStrategy)
 gameServerGroup_balancingStrategy = Lens.lens (\GameServerGroup' {balancingStrategy} -> balancingStrategy) (\s@GameServerGroup' {} a -> s {balancingStrategy = a} :: GameServerGroup)
 
 -- | A flag that indicates whether instances in the game server group are
@@ -350,39 +349,39 @@ gameServerGroup_balancingStrategy = Lens.lens (\GameServerGroup' {balancingStrat
 -- event of a forced game server group deletion (see ). An exception to
 -- this is with Spot Instances, which can be terminated by AWS regardless
 -- of protection status.
-gameServerGroup_gameServerProtectionPolicy :: Lens.Lens' GameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
+gameServerGroup_gameServerProtectionPolicy :: Lens.Lens' GameServerGroup (Core.Maybe GameServerProtectionPolicy)
 gameServerGroup_gameServerProtectionPolicy = Lens.lens (\GameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@GameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: GameServerGroup)
 
 -- | Additional information about the current game server group status. This
 -- information might provide additional insight on groups that are in
 -- @ERROR@ status.
-gameServerGroup_statusReason :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
+gameServerGroup_statusReason :: Lens.Lens' GameServerGroup (Core.Maybe Core.Text)
 gameServerGroup_statusReason = Lens.lens (\GameServerGroup' {statusReason} -> statusReason) (\s@GameServerGroup' {} a -> s {statusReason = a} :: GameServerGroup)
 
 -- | A timestamp that indicates when this game server group was last updated.
-gameServerGroup_lastUpdatedTime :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.UTCTime)
-gameServerGroup_lastUpdatedTime = Lens.lens (\GameServerGroup' {lastUpdatedTime} -> lastUpdatedTime) (\s@GameServerGroup' {} a -> s {lastUpdatedTime = a} :: GameServerGroup) Prelude.. Lens.mapping Prelude._Time
+gameServerGroup_lastUpdatedTime :: Lens.Lens' GameServerGroup (Core.Maybe Core.UTCTime)
+gameServerGroup_lastUpdatedTime = Lens.lens (\GameServerGroup' {lastUpdatedTime} -> lastUpdatedTime) (\s@GameServerGroup' {} a -> s {lastUpdatedTime = a} :: GameServerGroup) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON GameServerGroup where
+instance Core.FromJSON GameServerGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GameServerGroup"
       ( \x ->
           GameServerGroup'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "RoleArn")
-            Prelude.<*> (x Prelude..:? "AutoScalingGroupArn")
-            Prelude.<*> (x Prelude..:? "InstanceDefinitions")
-            Prelude.<*> (x Prelude..:? "GameServerGroupArn")
-            Prelude.<*> (x Prelude..:? "SuspendedActions")
-            Prelude.<*> (x Prelude..:? "GameServerGroupName")
-            Prelude.<*> (x Prelude..:? "BalancingStrategy")
-            Prelude.<*> (x Prelude..:? "GameServerProtectionPolicy")
-            Prelude.<*> (x Prelude..:? "StatusReason")
-            Prelude.<*> (x Prelude..:? "LastUpdatedTime")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "RoleArn")
+            Core.<*> (x Core..:? "AutoScalingGroupArn")
+            Core.<*> (x Core..:? "InstanceDefinitions")
+            Core.<*> (x Core..:? "GameServerGroupArn")
+            Core.<*> (x Core..:? "SuspendedActions")
+            Core.<*> (x Core..:? "GameServerGroupName")
+            Core.<*> (x Core..:? "BalancingStrategy")
+            Core.<*> (x Core..:? "GameServerProtectionPolicy")
+            Core.<*> (x Core..:? "StatusReason")
+            Core.<*> (x Core..:? "LastUpdatedTime")
       )
 
-instance Prelude.Hashable GameServerGroup
+instance Core.Hashable GameServerGroup
 
-instance Prelude.NFData GameServerGroup
+instance Core.NFData GameServerGroup

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.CodeBuild.DeleteSourceCredentials
 where
 
 import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSourceCredentials' smart constructor.
 data DeleteSourceCredentials = DeleteSourceCredentials'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSourceCredentials' with all optional fields omitted.
@@ -65,68 +64,64 @@ data DeleteSourceCredentials = DeleteSourceCredentials'
 -- 'arn', 'deleteSourceCredentials_arn' - The Amazon Resource Name (ARN) of the token.
 newDeleteSourceCredentials ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSourceCredentials
 newDeleteSourceCredentials pArn_ =
   DeleteSourceCredentials' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the token.
-deleteSourceCredentials_arn :: Lens.Lens' DeleteSourceCredentials Prelude.Text
+deleteSourceCredentials_arn :: Lens.Lens' DeleteSourceCredentials Core.Text
 deleteSourceCredentials_arn = Lens.lens (\DeleteSourceCredentials' {arn} -> arn) (\s@DeleteSourceCredentials' {} a -> s {arn = a} :: DeleteSourceCredentials)
 
-instance Prelude.AWSRequest DeleteSourceCredentials where
+instance Core.AWSRequest DeleteSourceCredentials where
   type
-    Rs DeleteSourceCredentials =
+    AWSResponse DeleteSourceCredentials =
       DeleteSourceCredentialsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSourceCredentialsResponse'
-            Prelude.<$> (x Prelude..?> "arn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "arn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSourceCredentials
+instance Core.Hashable DeleteSourceCredentials
 
-instance Prelude.NFData DeleteSourceCredentials
+instance Core.NFData DeleteSourceCredentials
 
-instance Prelude.ToHeaders DeleteSourceCredentials where
+instance Core.ToHeaders DeleteSourceCredentials where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeBuild_20161006.DeleteSourceCredentials" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeBuild_20161006.DeleteSourceCredentials" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteSourceCredentials where
+instance Core.ToJSON DeleteSourceCredentials where
   toJSON DeleteSourceCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath DeleteSourceCredentials where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSourceCredentials where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSourceCredentials where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSourceCredentials where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteSourceCredentialsResponse' smart constructor.
 data DeleteSourceCredentialsResponse = DeleteSourceCredentialsResponse'
   { -- | The Amazon Resource Name (ARN) of the token.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSourceCredentialsResponse' with all optional fields omitted.
@@ -141,23 +136,21 @@ data DeleteSourceCredentialsResponse = DeleteSourceCredentialsResponse'
 -- 'httpStatus', 'deleteSourceCredentialsResponse_httpStatus' - The response's http status code.
 newDeleteSourceCredentialsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSourceCredentialsResponse
 newDeleteSourceCredentialsResponse pHttpStatus_ =
   DeleteSourceCredentialsResponse'
     { arn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the token.
-deleteSourceCredentialsResponse_arn :: Lens.Lens' DeleteSourceCredentialsResponse (Prelude.Maybe Prelude.Text)
+deleteSourceCredentialsResponse_arn :: Lens.Lens' DeleteSourceCredentialsResponse (Core.Maybe Core.Text)
 deleteSourceCredentialsResponse_arn = Lens.lens (\DeleteSourceCredentialsResponse' {arn} -> arn) (\s@DeleteSourceCredentialsResponse' {} a -> s {arn = a} :: DeleteSourceCredentialsResponse)
 
 -- | The response's http status code.
-deleteSourceCredentialsResponse_httpStatus :: Lens.Lens' DeleteSourceCredentialsResponse Prelude.Int
+deleteSourceCredentialsResponse_httpStatus :: Lens.Lens' DeleteSourceCredentialsResponse Core.Int
 deleteSourceCredentialsResponse_httpStatus = Lens.lens (\DeleteSourceCredentialsResponse' {httpStatus} -> httpStatus) (\s@DeleteSourceCredentialsResponse' {} a -> s {httpStatus = a} :: DeleteSourceCredentialsResponse)
 
-instance
-  Prelude.NFData
-    DeleteSourceCredentialsResponse
+instance Core.NFData DeleteSourceCredentialsResponse

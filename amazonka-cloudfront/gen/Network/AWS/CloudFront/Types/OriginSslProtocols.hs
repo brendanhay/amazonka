@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.OriginSslProtocols where
 
 import Network.AWS.CloudFront.Types.SslProtocol
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains information about the SSL\/TLS protocols
 -- that CloudFront can use when establishing an HTTPS connection with your
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 data OriginSslProtocols = OriginSslProtocols'
   { -- | The number of SSL\/TLS protocols that you want to allow CloudFront to
     -- use when establishing an HTTPS connection with this origin.
-    quantity :: Prelude.Int,
+    quantity :: Core.Int,
     -- | A list that contains allowed SSL\/TLS protocols for this distribution.
     items :: [SslProtocol]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginSslProtocols' with all optional fields omitted.
@@ -52,39 +51,38 @@ data OriginSslProtocols = OriginSslProtocols'
 -- 'items', 'originSslProtocols_items' - A list that contains allowed SSL\/TLS protocols for this distribution.
 newOriginSslProtocols ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   OriginSslProtocols
 newOriginSslProtocols pQuantity_ =
   OriginSslProtocols'
     { quantity = pQuantity_,
-      items = Prelude.mempty
+      items = Core.mempty
     }
 
 -- | The number of SSL\/TLS protocols that you want to allow CloudFront to
 -- use when establishing an HTTPS connection with this origin.
-originSslProtocols_quantity :: Lens.Lens' OriginSslProtocols Prelude.Int
+originSslProtocols_quantity :: Lens.Lens' OriginSslProtocols Core.Int
 originSslProtocols_quantity = Lens.lens (\OriginSslProtocols' {quantity} -> quantity) (\s@OriginSslProtocols' {} a -> s {quantity = a} :: OriginSslProtocols)
 
 -- | A list that contains allowed SSL\/TLS protocols for this distribution.
 originSslProtocols_items :: Lens.Lens' OriginSslProtocols [SslProtocol]
-originSslProtocols_items = Lens.lens (\OriginSslProtocols' {items} -> items) (\s@OriginSslProtocols' {} a -> s {items = a} :: OriginSslProtocols) Prelude.. Prelude._Coerce
+originSslProtocols_items = Lens.lens (\OriginSslProtocols' {items} -> items) (\s@OriginSslProtocols' {} a -> s {items = a} :: OriginSslProtocols) Core.. Lens._Coerce
 
-instance Prelude.FromXML OriginSslProtocols where
+instance Core.FromXML OriginSslProtocols where
   parseXML x =
     OriginSslProtocols'
-      Prelude.<$> (x Prelude..@ "Quantity")
-      Prelude.<*> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList "SslProtocol"
-                  )
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList "SslProtocol"
+               )
 
-instance Prelude.Hashable OriginSslProtocols
+instance Core.Hashable OriginSslProtocols
 
-instance Prelude.NFData OriginSslProtocols
+instance Core.NFData OriginSslProtocols
 
-instance Prelude.ToXML OriginSslProtocols where
+instance Core.ToXML OriginSslProtocols where
   toXML OriginSslProtocols' {..} =
-    Prelude.mconcat
-      [ "Quantity" Prelude.@= quantity,
-        "Items"
-          Prelude.@= Prelude.toXMLList "SslProtocol" items
+    Core.mconcat
+      [ "Quantity" Core.@= quantity,
+        "Items" Core.@= Core.toXMLList "SslProtocol" items
       ]

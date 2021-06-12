@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.ImageScanFindings where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.FindingSeverity
 import Network.AWS.ECR.Types.ImageScanFinding
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of an image scan.
 --
 -- /See:/ 'newImageScanFindings' smart constructor.
 data ImageScanFindings = ImageScanFindings'
   { -- | The findings from the image scan.
-    findings :: Prelude.Maybe [ImageScanFinding],
+    findings :: Core.Maybe [ImageScanFinding],
     -- | The time of the last completed image scan.
-    imageScanCompletedAt :: Prelude.Maybe Prelude.POSIX,
+    imageScanCompletedAt :: Core.Maybe Core.POSIX,
     -- | The time when the vulnerability data was last scanned.
-    vulnerabilitySourceUpdatedAt :: Prelude.Maybe Prelude.POSIX,
+    vulnerabilitySourceUpdatedAt :: Core.Maybe Core.POSIX,
     -- | The image vulnerability counts, sorted by severity.
-    findingSeverityCounts :: Prelude.Maybe (Prelude.HashMap FindingSeverity Prelude.Natural)
+    findingSeverityCounts :: Core.Maybe (Core.HashMap FindingSeverity Core.Natural)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageScanFindings' with all optional fields omitted.
@@ -59,42 +58,42 @@ newImageScanFindings ::
   ImageScanFindings
 newImageScanFindings =
   ImageScanFindings'
-    { findings = Prelude.Nothing,
-      imageScanCompletedAt = Prelude.Nothing,
-      vulnerabilitySourceUpdatedAt = Prelude.Nothing,
-      findingSeverityCounts = Prelude.Nothing
+    { findings = Core.Nothing,
+      imageScanCompletedAt = Core.Nothing,
+      vulnerabilitySourceUpdatedAt = Core.Nothing,
+      findingSeverityCounts = Core.Nothing
     }
 
 -- | The findings from the image scan.
-imageScanFindings_findings :: Lens.Lens' ImageScanFindings (Prelude.Maybe [ImageScanFinding])
-imageScanFindings_findings = Lens.lens (\ImageScanFindings' {findings} -> findings) (\s@ImageScanFindings' {} a -> s {findings = a} :: ImageScanFindings) Prelude.. Lens.mapping Prelude._Coerce
+imageScanFindings_findings :: Lens.Lens' ImageScanFindings (Core.Maybe [ImageScanFinding])
+imageScanFindings_findings = Lens.lens (\ImageScanFindings' {findings} -> findings) (\s@ImageScanFindings' {} a -> s {findings = a} :: ImageScanFindings) Core.. Lens.mapping Lens._Coerce
 
 -- | The time of the last completed image scan.
-imageScanFindings_imageScanCompletedAt :: Lens.Lens' ImageScanFindings (Prelude.Maybe Prelude.UTCTime)
-imageScanFindings_imageScanCompletedAt = Lens.lens (\ImageScanFindings' {imageScanCompletedAt} -> imageScanCompletedAt) (\s@ImageScanFindings' {} a -> s {imageScanCompletedAt = a} :: ImageScanFindings) Prelude.. Lens.mapping Prelude._Time
+imageScanFindings_imageScanCompletedAt :: Lens.Lens' ImageScanFindings (Core.Maybe Core.UTCTime)
+imageScanFindings_imageScanCompletedAt = Lens.lens (\ImageScanFindings' {imageScanCompletedAt} -> imageScanCompletedAt) (\s@ImageScanFindings' {} a -> s {imageScanCompletedAt = a} :: ImageScanFindings) Core.. Lens.mapping Core._Time
 
 -- | The time when the vulnerability data was last scanned.
-imageScanFindings_vulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindings (Prelude.Maybe Prelude.UTCTime)
-imageScanFindings_vulnerabilitySourceUpdatedAt = Lens.lens (\ImageScanFindings' {vulnerabilitySourceUpdatedAt} -> vulnerabilitySourceUpdatedAt) (\s@ImageScanFindings' {} a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindings) Prelude.. Lens.mapping Prelude._Time
+imageScanFindings_vulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindings (Core.Maybe Core.UTCTime)
+imageScanFindings_vulnerabilitySourceUpdatedAt = Lens.lens (\ImageScanFindings' {vulnerabilitySourceUpdatedAt} -> vulnerabilitySourceUpdatedAt) (\s@ImageScanFindings' {} a -> s {vulnerabilitySourceUpdatedAt = a} :: ImageScanFindings) Core.. Lens.mapping Core._Time
 
 -- | The image vulnerability counts, sorted by severity.
-imageScanFindings_findingSeverityCounts :: Lens.Lens' ImageScanFindings (Prelude.Maybe (Prelude.HashMap FindingSeverity Prelude.Natural))
-imageScanFindings_findingSeverityCounts = Lens.lens (\ImageScanFindings' {findingSeverityCounts} -> findingSeverityCounts) (\s@ImageScanFindings' {} a -> s {findingSeverityCounts = a} :: ImageScanFindings) Prelude.. Lens.mapping Prelude._Coerce
+imageScanFindings_findingSeverityCounts :: Lens.Lens' ImageScanFindings (Core.Maybe (Core.HashMap FindingSeverity Core.Natural))
+imageScanFindings_findingSeverityCounts = Lens.lens (\ImageScanFindings' {findingSeverityCounts} -> findingSeverityCounts) (\s@ImageScanFindings' {} a -> s {findingSeverityCounts = a} :: ImageScanFindings) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ImageScanFindings where
+instance Core.FromJSON ImageScanFindings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageScanFindings"
       ( \x ->
           ImageScanFindings'
-            Prelude.<$> (x Prelude..:? "findings" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "imageScanCompletedAt")
-            Prelude.<*> (x Prelude..:? "vulnerabilitySourceUpdatedAt")
-            Prelude.<*> ( x Prelude..:? "findingSeverityCounts"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "findings" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "imageScanCompletedAt")
+            Core.<*> (x Core..:? "vulnerabilitySourceUpdatedAt")
+            Core.<*> ( x Core..:? "findingSeverityCounts"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ImageScanFindings
+instance Core.Hashable ImageScanFindings
 
-instance Prelude.NFData ImageScanFindings
+instance Core.NFData ImageScanFindings

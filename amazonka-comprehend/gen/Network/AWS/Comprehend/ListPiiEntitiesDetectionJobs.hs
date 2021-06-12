@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,23 +43,23 @@ module Network.AWS.Comprehend.ListPiiEntitiesDetectionJobs
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListPiiEntitiesDetectionJobs' smart constructor.
 data ListPiiEntitiesDetectionJobs = ListPiiEntitiesDetectionJobs'
   { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in each page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Filters the jobs that are returned. You can filter jobs on their name,
     -- status, or the date and time that they were submitted. You can only set
     -- one filter at a time.
-    filter' :: Prelude.Maybe PiiEntitiesDetectionJobFilter
+    filter' :: Core.Maybe PiiEntitiesDetectionJobFilter
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPiiEntitiesDetectionJobs' with all optional fields omitted.
@@ -82,95 +81,84 @@ newListPiiEntitiesDetectionJobs ::
 newListPiiEntitiesDetectionJobs =
   ListPiiEntitiesDetectionJobs'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filter' = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      filter' = Core.Nothing
     }
 
 -- | Identifies the next page of results to return.
-listPiiEntitiesDetectionJobs_nextToken :: Lens.Lens' ListPiiEntitiesDetectionJobs (Prelude.Maybe Prelude.Text)
+listPiiEntitiesDetectionJobs_nextToken :: Lens.Lens' ListPiiEntitiesDetectionJobs (Core.Maybe Core.Text)
 listPiiEntitiesDetectionJobs_nextToken = Lens.lens (\ListPiiEntitiesDetectionJobs' {nextToken} -> nextToken) (\s@ListPiiEntitiesDetectionJobs' {} a -> s {nextToken = a} :: ListPiiEntitiesDetectionJobs)
 
 -- | The maximum number of results to return in each page.
-listPiiEntitiesDetectionJobs_maxResults :: Lens.Lens' ListPiiEntitiesDetectionJobs (Prelude.Maybe Prelude.Natural)
+listPiiEntitiesDetectionJobs_maxResults :: Lens.Lens' ListPiiEntitiesDetectionJobs (Core.Maybe Core.Natural)
 listPiiEntitiesDetectionJobs_maxResults = Lens.lens (\ListPiiEntitiesDetectionJobs' {maxResults} -> maxResults) (\s@ListPiiEntitiesDetectionJobs' {} a -> s {maxResults = a} :: ListPiiEntitiesDetectionJobs)
 
 -- | Filters the jobs that are returned. You can filter jobs on their name,
 -- status, or the date and time that they were submitted. You can only set
 -- one filter at a time.
-listPiiEntitiesDetectionJobs_filter :: Lens.Lens' ListPiiEntitiesDetectionJobs (Prelude.Maybe PiiEntitiesDetectionJobFilter)
+listPiiEntitiesDetectionJobs_filter :: Lens.Lens' ListPiiEntitiesDetectionJobs (Core.Maybe PiiEntitiesDetectionJobFilter)
 listPiiEntitiesDetectionJobs_filter = Lens.lens (\ListPiiEntitiesDetectionJobs' {filter'} -> filter') (\s@ListPiiEntitiesDetectionJobs' {} a -> s {filter' = a} :: ListPiiEntitiesDetectionJobs)
 
-instance
-  Prelude.AWSRequest
-    ListPiiEntitiesDetectionJobs
-  where
+instance Core.AWSRequest ListPiiEntitiesDetectionJobs where
   type
-    Rs ListPiiEntitiesDetectionJobs =
+    AWSResponse ListPiiEntitiesDetectionJobs =
       ListPiiEntitiesDetectionJobsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPiiEntitiesDetectionJobsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x
-                            Prelude..?> "PiiEntitiesDetectionJobPropertiesList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "PiiEntitiesDetectionJobPropertiesList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListPiiEntitiesDetectionJobs
+instance Core.Hashable ListPiiEntitiesDetectionJobs
 
-instance Prelude.NFData ListPiiEntitiesDetectionJobs
+instance Core.NFData ListPiiEntitiesDetectionJobs
 
-instance
-  Prelude.ToHeaders
-    ListPiiEntitiesDetectionJobs
-  where
+instance Core.ToHeaders ListPiiEntitiesDetectionJobs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.ListPiiEntitiesDetectionJobs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.ListPiiEntitiesDetectionJobs" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListPiiEntitiesDetectionJobs where
+instance Core.ToJSON ListPiiEntitiesDetectionJobs where
   toJSON ListPiiEntitiesDetectionJobs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filter" Prelude..=) Prelude.<$> filter'
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filter" Core..=) Core.<$> filter'
           ]
       )
 
-instance Prelude.ToPath ListPiiEntitiesDetectionJobs where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListPiiEntitiesDetectionJobs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListPiiEntitiesDetectionJobs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListPiiEntitiesDetectionJobs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListPiiEntitiesDetectionJobsResponse' smart constructor.
 data ListPiiEntitiesDetectionJobsResponse = ListPiiEntitiesDetectionJobsResponse'
   { -- | Identifies the next page of results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list containing the properties of each job that is returned.
-    piiEntitiesDetectionJobPropertiesList :: Prelude.Maybe [PiiEntitiesDetectionJobProperties],
+    piiEntitiesDetectionJobPropertiesList :: Core.Maybe [PiiEntitiesDetectionJobProperties],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPiiEntitiesDetectionJobsResponse' with all optional fields omitted.
@@ -187,29 +175,29 @@ data ListPiiEntitiesDetectionJobsResponse = ListPiiEntitiesDetectionJobsResponse
 -- 'httpStatus', 'listPiiEntitiesDetectionJobsResponse_httpStatus' - The response's http status code.
 newListPiiEntitiesDetectionJobsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPiiEntitiesDetectionJobsResponse
 newListPiiEntitiesDetectionJobsResponse pHttpStatus_ =
   ListPiiEntitiesDetectionJobsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       piiEntitiesDetectionJobPropertiesList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Identifies the next page of results to return.
-listPiiEntitiesDetectionJobsResponse_nextToken :: Lens.Lens' ListPiiEntitiesDetectionJobsResponse (Prelude.Maybe Prelude.Text)
+listPiiEntitiesDetectionJobsResponse_nextToken :: Lens.Lens' ListPiiEntitiesDetectionJobsResponse (Core.Maybe Core.Text)
 listPiiEntitiesDetectionJobsResponse_nextToken = Lens.lens (\ListPiiEntitiesDetectionJobsResponse' {nextToken} -> nextToken) (\s@ListPiiEntitiesDetectionJobsResponse' {} a -> s {nextToken = a} :: ListPiiEntitiesDetectionJobsResponse)
 
 -- | A list containing the properties of each job that is returned.
-listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList :: Lens.Lens' ListPiiEntitiesDetectionJobsResponse (Prelude.Maybe [PiiEntitiesDetectionJobProperties])
-listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList = Lens.lens (\ListPiiEntitiesDetectionJobsResponse' {piiEntitiesDetectionJobPropertiesList} -> piiEntitiesDetectionJobPropertiesList) (\s@ListPiiEntitiesDetectionJobsResponse' {} a -> s {piiEntitiesDetectionJobPropertiesList = a} :: ListPiiEntitiesDetectionJobsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList :: Lens.Lens' ListPiiEntitiesDetectionJobsResponse (Core.Maybe [PiiEntitiesDetectionJobProperties])
+listPiiEntitiesDetectionJobsResponse_piiEntitiesDetectionJobPropertiesList = Lens.lens (\ListPiiEntitiesDetectionJobsResponse' {piiEntitiesDetectionJobPropertiesList} -> piiEntitiesDetectionJobPropertiesList) (\s@ListPiiEntitiesDetectionJobsResponse' {} a -> s {piiEntitiesDetectionJobPropertiesList = a} :: ListPiiEntitiesDetectionJobsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPiiEntitiesDetectionJobsResponse_httpStatus :: Lens.Lens' ListPiiEntitiesDetectionJobsResponse Prelude.Int
+listPiiEntitiesDetectionJobsResponse_httpStatus :: Lens.Lens' ListPiiEntitiesDetectionJobsResponse Core.Int
 listPiiEntitiesDetectionJobsResponse_httpStatus = Lens.lens (\ListPiiEntitiesDetectionJobsResponse' {httpStatus} -> httpStatus) (\s@ListPiiEntitiesDetectionJobsResponse' {} a -> s {httpStatus = a} :: ListPiiEntitiesDetectionJobsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPiiEntitiesDetectionJobsResponse

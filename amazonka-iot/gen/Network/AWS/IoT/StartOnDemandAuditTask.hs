@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IoT.StartOnDemandAuditTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ data StartOnDemandAuditTask = StartOnDemandAuditTask'
     -- @DescribeAccountAuditConfiguration@ to see the list of all checks,
     -- including those that are enabled or @UpdateAccountAuditConfiguration@ to
     -- select which checks are enabled.
-    targetCheckNames :: [Prelude.Text]
+    targetCheckNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartOnDemandAuditTask' with all optional fields omitted.
@@ -75,7 +74,7 @@ newStartOnDemandAuditTask ::
 newStartOnDemandAuditTask =
   StartOnDemandAuditTask'
     { targetCheckNames =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | Which checks are performed during the audit. The checks you specify must
@@ -83,52 +82,52 @@ newStartOnDemandAuditTask =
 -- @DescribeAccountAuditConfiguration@ to see the list of all checks,
 -- including those that are enabled or @UpdateAccountAuditConfiguration@ to
 -- select which checks are enabled.
-startOnDemandAuditTask_targetCheckNames :: Lens.Lens' StartOnDemandAuditTask [Prelude.Text]
-startOnDemandAuditTask_targetCheckNames = Lens.lens (\StartOnDemandAuditTask' {targetCheckNames} -> targetCheckNames) (\s@StartOnDemandAuditTask' {} a -> s {targetCheckNames = a} :: StartOnDemandAuditTask) Prelude.. Prelude._Coerce
+startOnDemandAuditTask_targetCheckNames :: Lens.Lens' StartOnDemandAuditTask [Core.Text]
+startOnDemandAuditTask_targetCheckNames = Lens.lens (\StartOnDemandAuditTask' {targetCheckNames} -> targetCheckNames) (\s@StartOnDemandAuditTask' {} a -> s {targetCheckNames = a} :: StartOnDemandAuditTask) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartOnDemandAuditTask where
+instance Core.AWSRequest StartOnDemandAuditTask where
   type
-    Rs StartOnDemandAuditTask =
+    AWSResponse StartOnDemandAuditTask =
       StartOnDemandAuditTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartOnDemandAuditTaskResponse'
-            Prelude.<$> (x Prelude..?> "taskId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "taskId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartOnDemandAuditTask
+instance Core.Hashable StartOnDemandAuditTask
 
-instance Prelude.NFData StartOnDemandAuditTask
+instance Core.NFData StartOnDemandAuditTask
 
-instance Prelude.ToHeaders StartOnDemandAuditTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders StartOnDemandAuditTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON StartOnDemandAuditTask where
+instance Core.ToJSON StartOnDemandAuditTask where
   toJSON StartOnDemandAuditTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("targetCheckNames" Prelude..= targetCheckNames)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("targetCheckNames" Core..= targetCheckNames)
           ]
       )
 
-instance Prelude.ToPath StartOnDemandAuditTask where
-  toPath = Prelude.const "/audit/tasks"
+instance Core.ToPath StartOnDemandAuditTask where
+  toPath = Core.const "/audit/tasks"
 
-instance Prelude.ToQuery StartOnDemandAuditTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartOnDemandAuditTask where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartOnDemandAuditTaskResponse' smart constructor.
 data StartOnDemandAuditTaskResponse = StartOnDemandAuditTaskResponse'
   { -- | The ID of the on-demand audit you started.
-    taskId :: Prelude.Maybe Prelude.Text,
+    taskId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartOnDemandAuditTaskResponse' with all optional fields omitted.
@@ -143,23 +142,21 @@ data StartOnDemandAuditTaskResponse = StartOnDemandAuditTaskResponse'
 -- 'httpStatus', 'startOnDemandAuditTaskResponse_httpStatus' - The response's http status code.
 newStartOnDemandAuditTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartOnDemandAuditTaskResponse
 newStartOnDemandAuditTaskResponse pHttpStatus_ =
   StartOnDemandAuditTaskResponse'
     { taskId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the on-demand audit you started.
-startOnDemandAuditTaskResponse_taskId :: Lens.Lens' StartOnDemandAuditTaskResponse (Prelude.Maybe Prelude.Text)
+startOnDemandAuditTaskResponse_taskId :: Lens.Lens' StartOnDemandAuditTaskResponse (Core.Maybe Core.Text)
 startOnDemandAuditTaskResponse_taskId = Lens.lens (\StartOnDemandAuditTaskResponse' {taskId} -> taskId) (\s@StartOnDemandAuditTaskResponse' {} a -> s {taskId = a} :: StartOnDemandAuditTaskResponse)
 
 -- | The response's http status code.
-startOnDemandAuditTaskResponse_httpStatus :: Lens.Lens' StartOnDemandAuditTaskResponse Prelude.Int
+startOnDemandAuditTaskResponse_httpStatus :: Lens.Lens' StartOnDemandAuditTaskResponse Core.Int
 startOnDemandAuditTaskResponse_httpStatus = Lens.lens (\StartOnDemandAuditTaskResponse' {httpStatus} -> httpStatus) (\s@StartOnDemandAuditTaskResponse' {} a -> s {httpStatus = a} :: StartOnDemandAuditTaskResponse)
 
-instance
-  Prelude.NFData
-    StartOnDemandAuditTaskResponse
+instance Core.NFData StartOnDemandAuditTaskResponse

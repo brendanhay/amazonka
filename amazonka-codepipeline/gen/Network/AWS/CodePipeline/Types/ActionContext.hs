@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ActionContext where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the context of an action in the stage of a pipeline to a job
 -- worker.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ActionContext = ActionContext'
   { -- | The system-generated unique ID that corresponds to an action\'s
     -- execution.
-    actionExecutionId :: Prelude.Maybe Prelude.Text,
+    actionExecutionId :: Core.Maybe Core.Text,
     -- | The name of the action in the context of a job.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionContext' with all optional fields omitted.
@@ -52,29 +51,29 @@ newActionContext ::
   ActionContext
 newActionContext =
   ActionContext'
-    { actionExecutionId = Prelude.Nothing,
-      name = Prelude.Nothing
+    { actionExecutionId = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The system-generated unique ID that corresponds to an action\'s
 -- execution.
-actionContext_actionExecutionId :: Lens.Lens' ActionContext (Prelude.Maybe Prelude.Text)
+actionContext_actionExecutionId :: Lens.Lens' ActionContext (Core.Maybe Core.Text)
 actionContext_actionExecutionId = Lens.lens (\ActionContext' {actionExecutionId} -> actionExecutionId) (\s@ActionContext' {} a -> s {actionExecutionId = a} :: ActionContext)
 
 -- | The name of the action in the context of a job.
-actionContext_name :: Lens.Lens' ActionContext (Prelude.Maybe Prelude.Text)
+actionContext_name :: Lens.Lens' ActionContext (Core.Maybe Core.Text)
 actionContext_name = Lens.lens (\ActionContext' {name} -> name) (\s@ActionContext' {} a -> s {name = a} :: ActionContext)
 
-instance Prelude.FromJSON ActionContext where
+instance Core.FromJSON ActionContext where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionContext"
       ( \x ->
           ActionContext'
-            Prelude.<$> (x Prelude..:? "actionExecutionId")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "actionExecutionId")
+            Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable ActionContext
+instance Core.Hashable ActionContext
 
-instance Prelude.NFData ActionContext
+instance Core.NFData ActionContext

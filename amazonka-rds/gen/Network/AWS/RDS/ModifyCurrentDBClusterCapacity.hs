@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,8 +68,8 @@ module Network.AWS.RDS.ModifyCurrentDBClusterCapacity
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -85,7 +84,7 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
     --
     -- @RollbackCapacityChange@ ignores the capacity change if a scaling point
     -- isn\'t found in the timeout period.
-    timeoutAction :: Prelude.Maybe Prelude.Text,
+    timeoutAction :: Core.Maybe Core.Text,
     -- | The DB cluster capacity.
     --
     -- When you change the capacity of a paused Aurora Serverless DB cluster,
@@ -98,22 +97,22 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
     --
     -- -   For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@,
     --     @16@, @32@, @64@, @192@, and @384@.
-    capacity :: Prelude.Maybe Prelude.Int,
+    capacity :: Core.Maybe Core.Int,
     -- | The amount of time, in seconds, that Aurora Serverless tries to find a
     -- scaling point to perform seamless scaling before enforcing the timeout
     -- action. The default is 300.
     --
     -- -   Value must be from 10 through 600.
-    secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
+    secondsBeforeTimeout :: Core.Maybe Core.Int,
     -- | The DB cluster identifier for the cluster being modified. This parameter
     -- isn\'t case-sensitive.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing DB cluster.
-    dbClusterIdentifier :: Prelude.Text
+    dbClusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyCurrentDBClusterCapacity' with all optional fields omitted.
@@ -159,15 +158,15 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
 -- -   Must match the identifier of an existing DB cluster.
 newModifyCurrentDBClusterCapacity ::
   -- | 'dbClusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ModifyCurrentDBClusterCapacity
 newModifyCurrentDBClusterCapacity
   pDBClusterIdentifier_ =
     ModifyCurrentDBClusterCapacity'
       { timeoutAction =
-          Prelude.Nothing,
-        capacity = Prelude.Nothing,
-        secondsBeforeTimeout = Prelude.Nothing,
+          Core.Nothing,
+        capacity = Core.Nothing,
+        secondsBeforeTimeout = Core.Nothing,
         dbClusterIdentifier = pDBClusterIdentifier_
       }
 
@@ -179,7 +178,7 @@ newModifyCurrentDBClusterCapacity
 --
 -- @RollbackCapacityChange@ ignores the capacity change if a scaling point
 -- isn\'t found in the timeout period.
-modifyCurrentDBClusterCapacity_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Text)
+modifyCurrentDBClusterCapacity_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacity (Core.Maybe Core.Text)
 modifyCurrentDBClusterCapacity_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacity' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacity)
 
 -- | The DB cluster capacity.
@@ -194,7 +193,7 @@ modifyCurrentDBClusterCapacity_timeoutAction = Lens.lens (\ModifyCurrentDBCluste
 --
 -- -   For Aurora PostgreSQL, valid capacity values are @2@, @4@, @8@,
 --     @16@, @32@, @64@, @192@, and @384@.
-modifyCurrentDBClusterCapacity_capacity :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacity_capacity :: Lens.Lens' ModifyCurrentDBClusterCapacity (Core.Maybe Core.Int)
 modifyCurrentDBClusterCapacity_capacity = Lens.lens (\ModifyCurrentDBClusterCapacity' {capacity} -> capacity) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {capacity = a} :: ModifyCurrentDBClusterCapacity)
 
 -- | The amount of time, in seconds, that Aurora Serverless tries to find a
@@ -202,7 +201,7 @@ modifyCurrentDBClusterCapacity_capacity = Lens.lens (\ModifyCurrentDBClusterCapa
 -- action. The default is 300.
 --
 -- -   Value must be from 10 through 600.
-modifyCurrentDBClusterCapacity_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacity_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacity (Core.Maybe Core.Int)
 modifyCurrentDBClusterCapacity_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacity' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacity)
 
 -- | The DB cluster identifier for the cluster being modified. This parameter
@@ -211,15 +210,15 @@ modifyCurrentDBClusterCapacity_secondsBeforeTimeout = Lens.lens (\ModifyCurrentD
 -- Constraints:
 --
 -- -   Must match the identifier of an existing DB cluster.
-modifyCurrentDBClusterCapacity_dbClusterIdentifier :: Lens.Lens' ModifyCurrentDBClusterCapacity Prelude.Text
+modifyCurrentDBClusterCapacity_dbClusterIdentifier :: Lens.Lens' ModifyCurrentDBClusterCapacity Core.Text
 modifyCurrentDBClusterCapacity_dbClusterIdentifier = Lens.lens (\ModifyCurrentDBClusterCapacity' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {dbClusterIdentifier = a} :: ModifyCurrentDBClusterCapacity)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyCurrentDBClusterCapacity
   where
   type
-    Rs ModifyCurrentDBClusterCapacity =
+    AWSResponse ModifyCurrentDBClusterCapacity =
       ModifyCurrentDBClusterCapacityResponse
   request = Request.postQuery defaultService
   response =
@@ -227,72 +226,60 @@ instance
       "ModifyCurrentDBClusterCapacityResult"
       ( \s h x ->
           ModifyCurrentDBClusterCapacityResponse'
-            Prelude.<$> (x Prelude..@? "PendingCapacity")
-            Prelude.<*> (x Prelude..@? "TimeoutAction")
-            Prelude.<*> (x Prelude..@? "DBClusterIdentifier")
-            Prelude.<*> (x Prelude..@? "SecondsBeforeTimeout")
-            Prelude.<*> (x Prelude..@? "CurrentCapacity")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "PendingCapacity")
+            Core.<*> (x Core..@? "TimeoutAction")
+            Core.<*> (x Core..@? "DBClusterIdentifier")
+            Core.<*> (x Core..@? "SecondsBeforeTimeout")
+            Core.<*> (x Core..@? "CurrentCapacity")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ModifyCurrentDBClusterCapacity
+instance Core.Hashable ModifyCurrentDBClusterCapacity
+
+instance Core.NFData ModifyCurrentDBClusterCapacity
 
 instance
-  Prelude.NFData
-    ModifyCurrentDBClusterCapacity
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ModifyCurrentDBClusterCapacity
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    ModifyCurrentDBClusterCapacity
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyCurrentDBClusterCapacity where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ModifyCurrentDBClusterCapacity
-  where
+instance Core.ToQuery ModifyCurrentDBClusterCapacity where
   toQuery ModifyCurrentDBClusterCapacity' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyCurrentDBClusterCapacity" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "TimeoutAction" Prelude.=: timeoutAction,
-        "Capacity" Prelude.=: capacity,
-        "SecondsBeforeTimeout"
-          Prelude.=: secondsBeforeTimeout,
-        "DBClusterIdentifier" Prelude.=: dbClusterIdentifier
+          Core.=: ( "ModifyCurrentDBClusterCapacity" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "TimeoutAction" Core.=: timeoutAction,
+        "Capacity" Core.=: capacity,
+        "SecondsBeforeTimeout" Core.=: secondsBeforeTimeout,
+        "DBClusterIdentifier" Core.=: dbClusterIdentifier
       ]
 
 -- | /See:/ 'newModifyCurrentDBClusterCapacityResponse' smart constructor.
 data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResponse'
   { -- | A value that specifies the capacity that the DB cluster scales to next.
-    pendingCapacity :: Prelude.Maybe Prelude.Int,
+    pendingCapacity :: Core.Maybe Core.Int,
     -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
     -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-    timeoutAction :: Prelude.Maybe Prelude.Text,
+    timeoutAction :: Core.Maybe Core.Text,
     -- | A user-supplied DB cluster identifier. This identifier is the unique key
     -- that identifies a DB cluster.
-    dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    dbClusterIdentifier :: Core.Maybe Core.Text,
     -- | The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
     -- times out.
-    secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
+    secondsBeforeTimeout :: Core.Maybe Core.Int,
     -- | The current capacity of the DB cluster.
-    currentCapacity :: Prelude.Maybe Prelude.Int,
+    currentCapacity :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyCurrentDBClusterCapacityResponse' with all optional fields omitted.
@@ -318,49 +305,47 @@ data ModifyCurrentDBClusterCapacityResponse = ModifyCurrentDBClusterCapacityResp
 -- 'httpStatus', 'modifyCurrentDBClusterCapacityResponse_httpStatus' - The response's http status code.
 newModifyCurrentDBClusterCapacityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyCurrentDBClusterCapacityResponse
 newModifyCurrentDBClusterCapacityResponse
   pHttpStatus_ =
     ModifyCurrentDBClusterCapacityResponse'
       { pendingCapacity =
-          Prelude.Nothing,
-        timeoutAction = Prelude.Nothing,
-        dbClusterIdentifier =
-          Prelude.Nothing,
-        secondsBeforeTimeout =
-          Prelude.Nothing,
-        currentCapacity = Prelude.Nothing,
+          Core.Nothing,
+        timeoutAction = Core.Nothing,
+        dbClusterIdentifier = Core.Nothing,
+        secondsBeforeTimeout = Core.Nothing,
+        currentCapacity = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A value that specifies the capacity that the DB cluster scales to next.
-modifyCurrentDBClusterCapacityResponse_pendingCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacityResponse_pendingCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Core.Maybe Core.Int)
 modifyCurrentDBClusterCapacityResponse_pendingCapacity = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {pendingCapacity} -> pendingCapacity) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {pendingCapacity = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | The timeout action of a call to @ModifyCurrentDBClusterCapacity@, either
 -- @ForceApplyCapacityChange@ or @RollbackCapacityChange@.
-modifyCurrentDBClusterCapacityResponse_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Text)
+modifyCurrentDBClusterCapacityResponse_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Core.Maybe Core.Text)
 modifyCurrentDBClusterCapacityResponse_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | A user-supplied DB cluster identifier. This identifier is the unique key
 -- that identifies a DB cluster.
-modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Text)
+modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Core.Maybe Core.Text)
 modifyCurrentDBClusterCapacityResponse_dbClusterIdentifier = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {dbClusterIdentifier} -> dbClusterIdentifier) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {dbClusterIdentifier = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | The number of seconds before a call to @ModifyCurrentDBClusterCapacity@
 -- times out.
-modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Core.Maybe Core.Int)
 modifyCurrentDBClusterCapacityResponse_secondsBeforeTimeout = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {secondsBeforeTimeout} -> secondsBeforeTimeout) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {secondsBeforeTimeout = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | The current capacity of the DB cluster.
-modifyCurrentDBClusterCapacityResponse_currentCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Prelude.Maybe Prelude.Int)
+modifyCurrentDBClusterCapacityResponse_currentCapacity :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse (Core.Maybe Core.Int)
 modifyCurrentDBClusterCapacityResponse_currentCapacity = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {currentCapacity} -> currentCapacity) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {currentCapacity = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 -- | The response's http status code.
-modifyCurrentDBClusterCapacityResponse_httpStatus :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse Prelude.Int
+modifyCurrentDBClusterCapacityResponse_httpStatus :: Lens.Lens' ModifyCurrentDBClusterCapacityResponse Core.Int
 modifyCurrentDBClusterCapacityResponse_httpStatus = Lens.lens (\ModifyCurrentDBClusterCapacityResponse' {httpStatus} -> httpStatus) (\s@ModifyCurrentDBClusterCapacityResponse' {} a -> s {httpStatus = a} :: ModifyCurrentDBClusterCapacityResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyCurrentDBClusterCapacityResponse

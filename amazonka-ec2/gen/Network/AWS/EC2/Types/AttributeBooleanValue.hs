@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AttributeBooleanValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a value for a resource attribute that is a Boolean value.
 --
 -- /See:/ 'newAttributeBooleanValue' smart constructor.
 data AttributeBooleanValue = AttributeBooleanValue'
   { -- | The attribute value. The valid values are @true@ or @false@.
-    value :: Prelude.Maybe Prelude.Bool
+    value :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeBooleanValue' with all optional fields omitted.
@@ -45,21 +44,21 @@ data AttributeBooleanValue = AttributeBooleanValue'
 newAttributeBooleanValue ::
   AttributeBooleanValue
 newAttributeBooleanValue =
-  AttributeBooleanValue' {value = Prelude.Nothing}
+  AttributeBooleanValue' {value = Core.Nothing}
 
 -- | The attribute value. The valid values are @true@ or @false@.
-attributeBooleanValue_value :: Lens.Lens' AttributeBooleanValue (Prelude.Maybe Prelude.Bool)
+attributeBooleanValue_value :: Lens.Lens' AttributeBooleanValue (Core.Maybe Core.Bool)
 attributeBooleanValue_value = Lens.lens (\AttributeBooleanValue' {value} -> value) (\s@AttributeBooleanValue' {} a -> s {value = a} :: AttributeBooleanValue)
 
-instance Prelude.FromXML AttributeBooleanValue where
+instance Core.FromXML AttributeBooleanValue where
   parseXML x =
     AttributeBooleanValue'
-      Prelude.<$> (x Prelude..@? "value")
+      Core.<$> (x Core..@? "value")
 
-instance Prelude.Hashable AttributeBooleanValue
+instance Core.Hashable AttributeBooleanValue
 
-instance Prelude.NFData AttributeBooleanValue
+instance Core.NFData AttributeBooleanValue
 
-instance Prelude.ToQuery AttributeBooleanValue where
+instance Core.ToQuery AttributeBooleanValue where
   toQuery AttributeBooleanValue' {..} =
-    Prelude.mconcat ["Value" Prelude.=: value]
+    Core.mconcat ["Value" Core.=: value]

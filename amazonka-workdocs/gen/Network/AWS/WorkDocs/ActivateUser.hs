@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.WorkDocs.ActivateUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -52,11 +51,11 @@ import Network.AWS.WorkDocs.Types
 data ActivateUser = ActivateUser'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The ID of the user.
-    userId :: Prelude.Text
+    userId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivateUser' with all optional fields omitted.
@@ -72,70 +71,65 @@ data ActivateUser = ActivateUser'
 -- 'userId', 'activateUser_userId' - The ID of the user.
 newActivateUser ::
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   ActivateUser
 newActivateUser pUserId_ =
   ActivateUser'
-    { authenticationToken =
-        Prelude.Nothing,
+    { authenticationToken = Core.Nothing,
       userId = pUserId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-activateUser_authenticationToken :: Lens.Lens' ActivateUser (Prelude.Maybe Prelude.Text)
-activateUser_authenticationToken = Lens.lens (\ActivateUser' {authenticationToken} -> authenticationToken) (\s@ActivateUser' {} a -> s {authenticationToken = a} :: ActivateUser) Prelude.. Lens.mapping Prelude._Sensitive
+activateUser_authenticationToken :: Lens.Lens' ActivateUser (Core.Maybe Core.Text)
+activateUser_authenticationToken = Lens.lens (\ActivateUser' {authenticationToken} -> authenticationToken) (\s@ActivateUser' {} a -> s {authenticationToken = a} :: ActivateUser) Core.. Lens.mapping Core._Sensitive
 
 -- | The ID of the user.
-activateUser_userId :: Lens.Lens' ActivateUser Prelude.Text
+activateUser_userId :: Lens.Lens' ActivateUser Core.Text
 activateUser_userId = Lens.lens (\ActivateUser' {userId} -> userId) (\s@ActivateUser' {} a -> s {userId = a} :: ActivateUser)
 
-instance Prelude.AWSRequest ActivateUser where
-  type Rs ActivateUser = ActivateUserResponse
+instance Core.AWSRequest ActivateUser where
+  type AWSResponse ActivateUser = ActivateUserResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ActivateUserResponse'
-            Prelude.<$> (x Prelude..?> "User")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "User")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ActivateUser
+instance Core.Hashable ActivateUser
 
-instance Prelude.NFData ActivateUser
+instance Core.NFData ActivateUser
 
-instance Prelude.ToHeaders ActivateUser where
+instance Core.ToHeaders ActivateUser where
   toHeaders ActivateUser' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToJSON ActivateUser where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON ActivateUser where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath ActivateUser where
+instance Core.ToPath ActivateUser where
   toPath ActivateUser' {..} =
-    Prelude.mconcat
-      [ "/api/v1/users/",
-        Prelude.toBS userId,
-        "/activation"
-      ]
+    Core.mconcat
+      ["/api/v1/users/", Core.toBS userId, "/activation"]
 
-instance Prelude.ToQuery ActivateUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ActivateUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newActivateUserResponse' smart constructor.
 data ActivateUserResponse = ActivateUserResponse'
   { -- | The user information.
-    user :: Prelude.Maybe User,
+    user :: Core.Maybe User,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActivateUserResponse' with all optional fields omitted.
@@ -150,20 +144,20 @@ data ActivateUserResponse = ActivateUserResponse'
 -- 'httpStatus', 'activateUserResponse_httpStatus' - The response's http status code.
 newActivateUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ActivateUserResponse
 newActivateUserResponse pHttpStatus_ =
   ActivateUserResponse'
-    { user = Prelude.Nothing,
+    { user = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user information.
-activateUserResponse_user :: Lens.Lens' ActivateUserResponse (Prelude.Maybe User)
+activateUserResponse_user :: Lens.Lens' ActivateUserResponse (Core.Maybe User)
 activateUserResponse_user = Lens.lens (\ActivateUserResponse' {user} -> user) (\s@ActivateUserResponse' {} a -> s {user = a} :: ActivateUserResponse)
 
 -- | The response's http status code.
-activateUserResponse_httpStatus :: Lens.Lens' ActivateUserResponse Prelude.Int
+activateUserResponse_httpStatus :: Lens.Lens' ActivateUserResponse Core.Int
 activateUserResponse_httpStatus = Lens.lens (\ActivateUserResponse' {httpStatus} -> httpStatus) (\s@ActivateUserResponse' {} a -> s {httpStatus = a} :: ActivateUserResponse)
 
-instance Prelude.NFData ActivateUserResponse
+instance Core.NFData ActivateUserResponse

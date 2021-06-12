@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,24 +47,23 @@ module Network.AWS.CognitoIdentityProvider.AdminListUserAuthEvents
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminListUserAuthEvents' smart constructor.
 data AdminListUserAuthEvents = AdminListUserAuthEvents'
   { -- | A pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of authentication events to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user pool username or an alias.
-    username :: Prelude.Sensitive Prelude.Text
+    username :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminListUserAuthEvents' with all optional fields omitted.
@@ -84,120 +82,115 @@ data AdminListUserAuthEvents = AdminListUserAuthEvents'
 -- 'username', 'adminListUserAuthEvents_username' - The user pool username or an alias.
 newAdminListUserAuthEvents ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminListUserAuthEvents
 newAdminListUserAuthEvents pUserPoolId_ pUsername_ =
   AdminListUserAuthEvents'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_
+      username = Core._Sensitive Lens.# pUsername_
     }
 
 -- | A pagination token.
-adminListUserAuthEvents_nextToken :: Lens.Lens' AdminListUserAuthEvents (Prelude.Maybe Prelude.Text)
+adminListUserAuthEvents_nextToken :: Lens.Lens' AdminListUserAuthEvents (Core.Maybe Core.Text)
 adminListUserAuthEvents_nextToken = Lens.lens (\AdminListUserAuthEvents' {nextToken} -> nextToken) (\s@AdminListUserAuthEvents' {} a -> s {nextToken = a} :: AdminListUserAuthEvents)
 
 -- | The maximum number of authentication events to return.
-adminListUserAuthEvents_maxResults :: Lens.Lens' AdminListUserAuthEvents (Prelude.Maybe Prelude.Natural)
+adminListUserAuthEvents_maxResults :: Lens.Lens' AdminListUserAuthEvents (Core.Maybe Core.Natural)
 adminListUserAuthEvents_maxResults = Lens.lens (\AdminListUserAuthEvents' {maxResults} -> maxResults) (\s@AdminListUserAuthEvents' {} a -> s {maxResults = a} :: AdminListUserAuthEvents)
 
 -- | The user pool ID.
-adminListUserAuthEvents_userPoolId :: Lens.Lens' AdminListUserAuthEvents Prelude.Text
+adminListUserAuthEvents_userPoolId :: Lens.Lens' AdminListUserAuthEvents Core.Text
 adminListUserAuthEvents_userPoolId = Lens.lens (\AdminListUserAuthEvents' {userPoolId} -> userPoolId) (\s@AdminListUserAuthEvents' {} a -> s {userPoolId = a} :: AdminListUserAuthEvents)
 
 -- | The user pool username or an alias.
-adminListUserAuthEvents_username :: Lens.Lens' AdminListUserAuthEvents Prelude.Text
-adminListUserAuthEvents_username = Lens.lens (\AdminListUserAuthEvents' {username} -> username) (\s@AdminListUserAuthEvents' {} a -> s {username = a} :: AdminListUserAuthEvents) Prelude.. Prelude._Sensitive
+adminListUserAuthEvents_username :: Lens.Lens' AdminListUserAuthEvents Core.Text
+adminListUserAuthEvents_username = Lens.lens (\AdminListUserAuthEvents' {username} -> username) (\s@AdminListUserAuthEvents' {} a -> s {username = a} :: AdminListUserAuthEvents) Core.. Core._Sensitive
 
-instance Pager.AWSPager AdminListUserAuthEvents where
+instance Core.AWSPager AdminListUserAuthEvents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? adminListUserAuthEventsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? adminListUserAuthEventsResponse_authEvents
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& adminListUserAuthEvents_nextToken
           Lens..~ rs
           Lens.^? adminListUserAuthEventsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest AdminListUserAuthEvents where
+instance Core.AWSRequest AdminListUserAuthEvents where
   type
-    Rs AdminListUserAuthEvents =
+    AWSResponse AdminListUserAuthEvents =
       AdminListUserAuthEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AdminListUserAuthEventsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "AuthEvents"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "AuthEvents" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminListUserAuthEvents
+instance Core.Hashable AdminListUserAuthEvents
 
-instance Prelude.NFData AdminListUserAuthEvents
+instance Core.NFData AdminListUserAuthEvents
 
-instance Prelude.ToHeaders AdminListUserAuthEvents where
+instance Core.ToHeaders AdminListUserAuthEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminListUserAuthEvents" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminListUserAuthEvents where
+instance Core.ToJSON AdminListUserAuthEvents where
   toJSON AdminListUserAuthEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
           ]
       )
 
-instance Prelude.ToPath AdminListUserAuthEvents where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminListUserAuthEvents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminListUserAuthEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminListUserAuthEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAdminListUserAuthEventsResponse' smart constructor.
 data AdminListUserAuthEventsResponse = AdminListUserAuthEventsResponse'
   { -- | A pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response object. It includes the @EventID@, @EventType@,
     -- @CreationDate@, @EventRisk@, and @EventResponse@.
-    authEvents :: Prelude.Maybe [AuthEventType],
+    authEvents :: Core.Maybe [AuthEventType],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminListUserAuthEventsResponse' with all optional fields omitted.
@@ -215,29 +208,27 @@ data AdminListUserAuthEventsResponse = AdminListUserAuthEventsResponse'
 -- 'httpStatus', 'adminListUserAuthEventsResponse_httpStatus' - The response's http status code.
 newAdminListUserAuthEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminListUserAuthEventsResponse
 newAdminListUserAuthEventsResponse pHttpStatus_ =
   AdminListUserAuthEventsResponse'
     { nextToken =
-        Prelude.Nothing,
-      authEvents = Prelude.Nothing,
+        Core.Nothing,
+      authEvents = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A pagination token.
-adminListUserAuthEventsResponse_nextToken :: Lens.Lens' AdminListUserAuthEventsResponse (Prelude.Maybe Prelude.Text)
+adminListUserAuthEventsResponse_nextToken :: Lens.Lens' AdminListUserAuthEventsResponse (Core.Maybe Core.Text)
 adminListUserAuthEventsResponse_nextToken = Lens.lens (\AdminListUserAuthEventsResponse' {nextToken} -> nextToken) (\s@AdminListUserAuthEventsResponse' {} a -> s {nextToken = a} :: AdminListUserAuthEventsResponse)
 
 -- | The response object. It includes the @EventID@, @EventType@,
 -- @CreationDate@, @EventRisk@, and @EventResponse@.
-adminListUserAuthEventsResponse_authEvents :: Lens.Lens' AdminListUserAuthEventsResponse (Prelude.Maybe [AuthEventType])
-adminListUserAuthEventsResponse_authEvents = Lens.lens (\AdminListUserAuthEventsResponse' {authEvents} -> authEvents) (\s@AdminListUserAuthEventsResponse' {} a -> s {authEvents = a} :: AdminListUserAuthEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+adminListUserAuthEventsResponse_authEvents :: Lens.Lens' AdminListUserAuthEventsResponse (Core.Maybe [AuthEventType])
+adminListUserAuthEventsResponse_authEvents = Lens.lens (\AdminListUserAuthEventsResponse' {authEvents} -> authEvents) (\s@AdminListUserAuthEventsResponse' {} a -> s {authEvents = a} :: AdminListUserAuthEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-adminListUserAuthEventsResponse_httpStatus :: Lens.Lens' AdminListUserAuthEventsResponse Prelude.Int
+adminListUserAuthEventsResponse_httpStatus :: Lens.Lens' AdminListUserAuthEventsResponse Core.Int
 adminListUserAuthEventsResponse_httpStatus = Lens.lens (\AdminListUserAuthEventsResponse' {httpStatus} -> httpStatus) (\s@AdminListUserAuthEventsResponse' {} a -> s {httpStatus = a} :: AdminListUserAuthEventsResponse)
 
-instance
-  Prelude.NFData
-    AdminListUserAuthEventsResponse
+instance Core.NFData AdminListUserAuthEventsResponse

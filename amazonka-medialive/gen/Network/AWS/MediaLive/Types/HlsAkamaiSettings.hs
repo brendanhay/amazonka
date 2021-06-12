@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,35 +19,35 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.HlsAkamaiSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.HlsAkamaiHttpTransferMode
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Hls Akamai Settings
 --
 -- /See:/ 'newHlsAkamaiSettings' smart constructor.
 data HlsAkamaiSettings = HlsAkamaiSettings'
   { -- | Size in seconds of file cache for streaming outputs.
-    filecacheDuration :: Prelude.Maybe Prelude.Natural,
+    filecacheDuration :: Core.Maybe Core.Natural,
     -- | Number of retry attempts that will be made before the Live Event is put
     -- into an error state.
-    numRetries :: Prelude.Maybe Prelude.Natural,
+    numRetries :: Core.Maybe Core.Natural,
     -- | Specify whether or not to use chunked transfer encoding to Akamai. User
     -- should contact Akamai to enable this feature.
-    httpTransferMode :: Prelude.Maybe HlsAkamaiHttpTransferMode,
+    httpTransferMode :: Core.Maybe HlsAkamaiHttpTransferMode,
     -- | Number of seconds to wait before retrying connection to the CDN if the
     -- connection is lost.
-    connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
+    connectionRetryInterval :: Core.Maybe Core.Natural,
     -- | Token parameter for authenticated akamai. If not specified, _gda_ is
     -- used.
-    token :: Prelude.Maybe Prelude.Text,
+    token :: Core.Maybe Core.Text,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
-    restartDelay :: Prelude.Maybe Prelude.Natural,
+    restartDelay :: Core.Maybe Core.Natural,
     -- | Salt for authenticated Akamai.
-    salt :: Prelude.Maybe Prelude.Text
+    salt :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HlsAkamaiSettings' with all optional fields omitted.
@@ -81,80 +80,80 @@ newHlsAkamaiSettings ::
 newHlsAkamaiSettings =
   HlsAkamaiSettings'
     { filecacheDuration =
-        Prelude.Nothing,
-      numRetries = Prelude.Nothing,
-      httpTransferMode = Prelude.Nothing,
-      connectionRetryInterval = Prelude.Nothing,
-      token = Prelude.Nothing,
-      restartDelay = Prelude.Nothing,
-      salt = Prelude.Nothing
+        Core.Nothing,
+      numRetries = Core.Nothing,
+      httpTransferMode = Core.Nothing,
+      connectionRetryInterval = Core.Nothing,
+      token = Core.Nothing,
+      restartDelay = Core.Nothing,
+      salt = Core.Nothing
     }
 
 -- | Size in seconds of file cache for streaming outputs.
-hlsAkamaiSettings_filecacheDuration :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
+hlsAkamaiSettings_filecacheDuration :: Lens.Lens' HlsAkamaiSettings (Core.Maybe Core.Natural)
 hlsAkamaiSettings_filecacheDuration = Lens.lens (\HlsAkamaiSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsAkamaiSettings' {} a -> s {filecacheDuration = a} :: HlsAkamaiSettings)
 
 -- | Number of retry attempts that will be made before the Live Event is put
 -- into an error state.
-hlsAkamaiSettings_numRetries :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
+hlsAkamaiSettings_numRetries :: Lens.Lens' HlsAkamaiSettings (Core.Maybe Core.Natural)
 hlsAkamaiSettings_numRetries = Lens.lens (\HlsAkamaiSettings' {numRetries} -> numRetries) (\s@HlsAkamaiSettings' {} a -> s {numRetries = a} :: HlsAkamaiSettings)
 
 -- | Specify whether or not to use chunked transfer encoding to Akamai. User
 -- should contact Akamai to enable this feature.
-hlsAkamaiSettings_httpTransferMode :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe HlsAkamaiHttpTransferMode)
+hlsAkamaiSettings_httpTransferMode :: Lens.Lens' HlsAkamaiSettings (Core.Maybe HlsAkamaiHttpTransferMode)
 hlsAkamaiSettings_httpTransferMode = Lens.lens (\HlsAkamaiSettings' {httpTransferMode} -> httpTransferMode) (\s@HlsAkamaiSettings' {} a -> s {httpTransferMode = a} :: HlsAkamaiSettings)
 
 -- | Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
-hlsAkamaiSettings_connectionRetryInterval :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
+hlsAkamaiSettings_connectionRetryInterval :: Lens.Lens' HlsAkamaiSettings (Core.Maybe Core.Natural)
 hlsAkamaiSettings_connectionRetryInterval = Lens.lens (\HlsAkamaiSettings' {connectionRetryInterval} -> connectionRetryInterval) (\s@HlsAkamaiSettings' {} a -> s {connectionRetryInterval = a} :: HlsAkamaiSettings)
 
 -- | Token parameter for authenticated akamai. If not specified, _gda_ is
 -- used.
-hlsAkamaiSettings_token :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Text)
+hlsAkamaiSettings_token :: Lens.Lens' HlsAkamaiSettings (Core.Maybe Core.Text)
 hlsAkamaiSettings_token = Lens.lens (\HlsAkamaiSettings' {token} -> token) (\s@HlsAkamaiSettings' {} a -> s {token = a} :: HlsAkamaiSettings)
 
 -- | If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
-hlsAkamaiSettings_restartDelay :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
+hlsAkamaiSettings_restartDelay :: Lens.Lens' HlsAkamaiSettings (Core.Maybe Core.Natural)
 hlsAkamaiSettings_restartDelay = Lens.lens (\HlsAkamaiSettings' {restartDelay} -> restartDelay) (\s@HlsAkamaiSettings' {} a -> s {restartDelay = a} :: HlsAkamaiSettings)
 
 -- | Salt for authenticated Akamai.
-hlsAkamaiSettings_salt :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Text)
+hlsAkamaiSettings_salt :: Lens.Lens' HlsAkamaiSettings (Core.Maybe Core.Text)
 hlsAkamaiSettings_salt = Lens.lens (\HlsAkamaiSettings' {salt} -> salt) (\s@HlsAkamaiSettings' {} a -> s {salt = a} :: HlsAkamaiSettings)
 
-instance Prelude.FromJSON HlsAkamaiSettings where
+instance Core.FromJSON HlsAkamaiSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HlsAkamaiSettings"
       ( \x ->
           HlsAkamaiSettings'
-            Prelude.<$> (x Prelude..:? "filecacheDuration")
-            Prelude.<*> (x Prelude..:? "numRetries")
-            Prelude.<*> (x Prelude..:? "httpTransferMode")
-            Prelude.<*> (x Prelude..:? "connectionRetryInterval")
-            Prelude.<*> (x Prelude..:? "token")
-            Prelude.<*> (x Prelude..:? "restartDelay")
-            Prelude.<*> (x Prelude..:? "salt")
+            Core.<$> (x Core..:? "filecacheDuration")
+            Core.<*> (x Core..:? "numRetries")
+            Core.<*> (x Core..:? "httpTransferMode")
+            Core.<*> (x Core..:? "connectionRetryInterval")
+            Core.<*> (x Core..:? "token")
+            Core.<*> (x Core..:? "restartDelay")
+            Core.<*> (x Core..:? "salt")
       )
 
-instance Prelude.Hashable HlsAkamaiSettings
+instance Core.Hashable HlsAkamaiSettings
 
-instance Prelude.NFData HlsAkamaiSettings
+instance Core.NFData HlsAkamaiSettings
 
-instance Prelude.ToJSON HlsAkamaiSettings where
+instance Core.ToJSON HlsAkamaiSettings where
   toJSON HlsAkamaiSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("filecacheDuration" Prelude..=)
-              Prelude.<$> filecacheDuration,
-            ("numRetries" Prelude..=) Prelude.<$> numRetries,
-            ("httpTransferMode" Prelude..=)
-              Prelude.<$> httpTransferMode,
-            ("connectionRetryInterval" Prelude..=)
-              Prelude.<$> connectionRetryInterval,
-            ("token" Prelude..=) Prelude.<$> token,
-            ("restartDelay" Prelude..=) Prelude.<$> restartDelay,
-            ("salt" Prelude..=) Prelude.<$> salt
+    Core.object
+      ( Core.catMaybes
+          [ ("filecacheDuration" Core..=)
+              Core.<$> filecacheDuration,
+            ("numRetries" Core..=) Core.<$> numRetries,
+            ("httpTransferMode" Core..=)
+              Core.<$> httpTransferMode,
+            ("connectionRetryInterval" Core..=)
+              Core.<$> connectionRetryInterval,
+            ("token" Core..=) Core.<$> token,
+            ("restartDelay" Core..=) Core.<$> restartDelay,
+            ("salt" Core..=) Core.<$> salt
           ]
       )

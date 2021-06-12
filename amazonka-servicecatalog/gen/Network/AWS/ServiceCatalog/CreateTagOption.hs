@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.ServiceCatalog.CreateTagOption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -50,11 +49,11 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newCreateTagOption' smart constructor.
 data CreateTagOption = CreateTagOption'
   { -- | The TagOption key.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The TagOption value.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTagOption' with all optional fields omitted.
@@ -69,74 +68,74 @@ data CreateTagOption = CreateTagOption'
 -- 'value', 'createTagOption_value' - The TagOption value.
 newCreateTagOption ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   CreateTagOption
 newCreateTagOption pKey_ pValue_ =
   CreateTagOption' {key = pKey_, value = pValue_}
 
 -- | The TagOption key.
-createTagOption_key :: Lens.Lens' CreateTagOption Prelude.Text
+createTagOption_key :: Lens.Lens' CreateTagOption Core.Text
 createTagOption_key = Lens.lens (\CreateTagOption' {key} -> key) (\s@CreateTagOption' {} a -> s {key = a} :: CreateTagOption)
 
 -- | The TagOption value.
-createTagOption_value :: Lens.Lens' CreateTagOption Prelude.Text
+createTagOption_value :: Lens.Lens' CreateTagOption Core.Text
 createTagOption_value = Lens.lens (\CreateTagOption' {value} -> value) (\s@CreateTagOption' {} a -> s {value = a} :: CreateTagOption)
 
-instance Prelude.AWSRequest CreateTagOption where
-  type Rs CreateTagOption = CreateTagOptionResponse
+instance Core.AWSRequest CreateTagOption where
+  type
+    AWSResponse CreateTagOption =
+      CreateTagOptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateTagOptionResponse'
-            Prelude.<$> (x Prelude..?> "TagOptionDetail")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TagOptionDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTagOption
+instance Core.Hashable CreateTagOption
 
-instance Prelude.NFData CreateTagOption
+instance Core.NFData CreateTagOption
 
-instance Prelude.ToHeaders CreateTagOption where
+instance Core.ToHeaders CreateTagOption where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.CreateTagOption" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.CreateTagOption" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateTagOption where
+instance Core.ToJSON CreateTagOption where
   toJSON CreateTagOption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Value" Core..= value)
           ]
       )
 
-instance Prelude.ToPath CreateTagOption where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTagOption where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTagOption where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateTagOption where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTagOptionResponse' smart constructor.
 data CreateTagOptionResponse = CreateTagOptionResponse'
   { -- | Information about the TagOption.
-    tagOptionDetail :: Prelude.Maybe TagOptionDetail,
+    tagOptionDetail :: Core.Maybe TagOptionDetail,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTagOptionResponse' with all optional fields omitted.
@@ -151,21 +150,21 @@ data CreateTagOptionResponse = CreateTagOptionResponse'
 -- 'httpStatus', 'createTagOptionResponse_httpStatus' - The response's http status code.
 newCreateTagOptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTagOptionResponse
 newCreateTagOptionResponse pHttpStatus_ =
   CreateTagOptionResponse'
     { tagOptionDetail =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the TagOption.
-createTagOptionResponse_tagOptionDetail :: Lens.Lens' CreateTagOptionResponse (Prelude.Maybe TagOptionDetail)
+createTagOptionResponse_tagOptionDetail :: Lens.Lens' CreateTagOptionResponse (Core.Maybe TagOptionDetail)
 createTagOptionResponse_tagOptionDetail = Lens.lens (\CreateTagOptionResponse' {tagOptionDetail} -> tagOptionDetail) (\s@CreateTagOptionResponse' {} a -> s {tagOptionDetail = a} :: CreateTagOptionResponse)
 
 -- | The response's http status code.
-createTagOptionResponse_httpStatus :: Lens.Lens' CreateTagOptionResponse Prelude.Int
+createTagOptionResponse_httpStatus :: Lens.Lens' CreateTagOptionResponse Core.Int
 createTagOptionResponse_httpStatus = Lens.lens (\CreateTagOptionResponse' {httpStatus} -> httpStatus) (\s@CreateTagOptionResponse' {} a -> s {httpStatus = a} :: CreateTagOptionResponse)
 
-instance Prelude.NFData CreateTagOptionResponse
+instance Core.NFData CreateTagOptionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputDestinationVpc
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The settings for a PUSH type input.
 --
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data InputDestination = InputDestination'
   { -- | The system-generated static IP address of endpoint. It remains fixed for
     -- the lifetime of the input.
-    ip :: Prelude.Maybe Prelude.Text,
+    ip :: Core.Maybe Core.Text,
     -- | The port number for the input.
-    port :: Prelude.Maybe Prelude.Text,
+    port :: Core.Maybe Core.Text,
     -- | This represents the endpoint that the customer stream will be pushed to.
-    url :: Prelude.Maybe Prelude.Text,
-    vpc :: Prelude.Maybe InputDestinationVpc
+    url :: Core.Maybe Core.Text,
+    vpc :: Core.Maybe InputDestinationVpc
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputDestination' with all optional fields omitted.
@@ -59,41 +58,41 @@ newInputDestination ::
   InputDestination
 newInputDestination =
   InputDestination'
-    { ip = Prelude.Nothing,
-      port = Prelude.Nothing,
-      url = Prelude.Nothing,
-      vpc = Prelude.Nothing
+    { ip = Core.Nothing,
+      port = Core.Nothing,
+      url = Core.Nothing,
+      vpc = Core.Nothing
     }
 
 -- | The system-generated static IP address of endpoint. It remains fixed for
 -- the lifetime of the input.
-inputDestination_ip :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
+inputDestination_ip :: Lens.Lens' InputDestination (Core.Maybe Core.Text)
 inputDestination_ip = Lens.lens (\InputDestination' {ip} -> ip) (\s@InputDestination' {} a -> s {ip = a} :: InputDestination)
 
 -- | The port number for the input.
-inputDestination_port :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
+inputDestination_port :: Lens.Lens' InputDestination (Core.Maybe Core.Text)
 inputDestination_port = Lens.lens (\InputDestination' {port} -> port) (\s@InputDestination' {} a -> s {port = a} :: InputDestination)
 
 -- | This represents the endpoint that the customer stream will be pushed to.
-inputDestination_url :: Lens.Lens' InputDestination (Prelude.Maybe Prelude.Text)
+inputDestination_url :: Lens.Lens' InputDestination (Core.Maybe Core.Text)
 inputDestination_url = Lens.lens (\InputDestination' {url} -> url) (\s@InputDestination' {} a -> s {url = a} :: InputDestination)
 
 -- | Undocumented member.
-inputDestination_vpc :: Lens.Lens' InputDestination (Prelude.Maybe InputDestinationVpc)
+inputDestination_vpc :: Lens.Lens' InputDestination (Core.Maybe InputDestinationVpc)
 inputDestination_vpc = Lens.lens (\InputDestination' {vpc} -> vpc) (\s@InputDestination' {} a -> s {vpc = a} :: InputDestination)
 
-instance Prelude.FromJSON InputDestination where
+instance Core.FromJSON InputDestination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputDestination"
       ( \x ->
           InputDestination'
-            Prelude.<$> (x Prelude..:? "ip")
-            Prelude.<*> (x Prelude..:? "port")
-            Prelude.<*> (x Prelude..:? "url")
-            Prelude.<*> (x Prelude..:? "vpc")
+            Core.<$> (x Core..:? "ip")
+            Core.<*> (x Core..:? "port")
+            Core.<*> (x Core..:? "url")
+            Core.<*> (x Core..:? "vpc")
       )
 
-instance Prelude.Hashable InputDestination
+instance Core.Hashable InputDestination
 
-instance Prelude.NFData InputDestination
+instance Core.NFData InputDestination

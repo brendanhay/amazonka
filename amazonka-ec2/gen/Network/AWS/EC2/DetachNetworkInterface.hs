@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.EC2.DetachNetworkInterface
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ data DetachNetworkInterface = DetachNetworkInterface'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Specifies whether to force a detachment.
     --
     -- -   Use the @Force@ parameter only as a last resort to detach a network
@@ -69,11 +68,11 @@ data DetachNetworkInterface = DetachNetworkInterface'
     --     with the detached network interface might still be visible. The
     --     instance metadata will get updated when you stop and start the
     --     instance.
-    force :: Prelude.Maybe Prelude.Bool,
+    force :: Core.Maybe Core.Bool,
     -- | The ID of the attachment.
-    attachmentId :: Prelude.Text
+    attachmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachNetworkInterface' with all optional fields omitted.
@@ -108,12 +107,12 @@ data DetachNetworkInterface = DetachNetworkInterface'
 -- 'attachmentId', 'detachNetworkInterface_attachmentId' - The ID of the attachment.
 newDetachNetworkInterface ::
   -- | 'attachmentId'
-  Prelude.Text ->
+  Core.Text ->
   DetachNetworkInterface
 newDetachNetworkInterface pAttachmentId_ =
   DetachNetworkInterface'
-    { dryRun = Prelude.Nothing,
-      force = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      force = Core.Nothing,
       attachmentId = pAttachmentId_
     }
 
@@ -121,7 +120,7 @@ newDetachNetworkInterface pAttachmentId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-detachNetworkInterface_dryRun :: Lens.Lens' DetachNetworkInterface (Prelude.Maybe Prelude.Bool)
+detachNetworkInterface_dryRun :: Lens.Lens' DetachNetworkInterface (Core.Maybe Core.Bool)
 detachNetworkInterface_dryRun = Lens.lens (\DetachNetworkInterface' {dryRun} -> dryRun) (\s@DetachNetworkInterface' {} a -> s {dryRun = a} :: DetachNetworkInterface)
 
 -- | Specifies whether to force a detachment.
@@ -140,49 +139,48 @@ detachNetworkInterface_dryRun = Lens.lens (\DetachNetworkInterface' {dryRun} -> 
 --     with the detached network interface might still be visible. The
 --     instance metadata will get updated when you stop and start the
 --     instance.
-detachNetworkInterface_force :: Lens.Lens' DetachNetworkInterface (Prelude.Maybe Prelude.Bool)
+detachNetworkInterface_force :: Lens.Lens' DetachNetworkInterface (Core.Maybe Core.Bool)
 detachNetworkInterface_force = Lens.lens (\DetachNetworkInterface' {force} -> force) (\s@DetachNetworkInterface' {} a -> s {force = a} :: DetachNetworkInterface)
 
 -- | The ID of the attachment.
-detachNetworkInterface_attachmentId :: Lens.Lens' DetachNetworkInterface Prelude.Text
+detachNetworkInterface_attachmentId :: Lens.Lens' DetachNetworkInterface Core.Text
 detachNetworkInterface_attachmentId = Lens.lens (\DetachNetworkInterface' {attachmentId} -> attachmentId) (\s@DetachNetworkInterface' {} a -> s {attachmentId = a} :: DetachNetworkInterface)
 
-instance Prelude.AWSRequest DetachNetworkInterface where
+instance Core.AWSRequest DetachNetworkInterface where
   type
-    Rs DetachNetworkInterface =
+    AWSResponse DetachNetworkInterface =
       DetachNetworkInterfaceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DetachNetworkInterfaceResponse'
 
-instance Prelude.Hashable DetachNetworkInterface
+instance Core.Hashable DetachNetworkInterface
 
-instance Prelude.NFData DetachNetworkInterface
+instance Core.NFData DetachNetworkInterface
 
-instance Prelude.ToHeaders DetachNetworkInterface where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DetachNetworkInterface where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DetachNetworkInterface where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetachNetworkInterface where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetachNetworkInterface where
+instance Core.ToQuery DetachNetworkInterface where
   toQuery DetachNetworkInterface' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DetachNetworkInterface" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Force" Prelude.=: force,
-        "AttachmentId" Prelude.=: attachmentId
+          Core.=: ("DetachNetworkInterface" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Force" Core.=: force,
+        "AttachmentId" Core.=: attachmentId
       ]
 
 -- | /See:/ 'newDetachNetworkInterfaceResponse' smart constructor.
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachNetworkInterfaceResponse' with all optional fields omitted.
@@ -193,6 +191,4 @@ newDetachNetworkInterfaceResponse ::
 newDetachNetworkInterfaceResponse =
   DetachNetworkInterfaceResponse'
 
-instance
-  Prelude.NFData
-    DetachNetworkInterfaceResponse
+instance Core.NFData DetachNetworkInterfaceResponse

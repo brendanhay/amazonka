@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ExistingObjectReplication where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ExistingObjectReplicationStatus
 
@@ -34,7 +33,7 @@ import Network.AWS.S3.Types.ExistingObjectReplicationStatus
 data ExistingObjectReplication = ExistingObjectReplication'
   { status :: ExistingObjectReplicationStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExistingObjectReplication' with all optional fields omitted.
@@ -56,15 +55,15 @@ newExistingObjectReplication pStatus_ =
 existingObjectReplication_status :: Lens.Lens' ExistingObjectReplication ExistingObjectReplicationStatus
 existingObjectReplication_status = Lens.lens (\ExistingObjectReplication' {status} -> status) (\s@ExistingObjectReplication' {} a -> s {status = a} :: ExistingObjectReplication)
 
-instance Prelude.FromXML ExistingObjectReplication where
+instance Core.FromXML ExistingObjectReplication where
   parseXML x =
     ExistingObjectReplication'
-      Prelude.<$> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Status")
 
-instance Prelude.Hashable ExistingObjectReplication
+instance Core.Hashable ExistingObjectReplication
 
-instance Prelude.NFData ExistingObjectReplication
+instance Core.NFData ExistingObjectReplication
 
-instance Prelude.ToXML ExistingObjectReplication where
+instance Core.ToXML ExistingObjectReplication where
   toXML ExistingObjectReplication' {..} =
-    Prelude.mconcat ["Status" Prelude.@= status]
+    Core.mconcat ["Status" Core.@= status]

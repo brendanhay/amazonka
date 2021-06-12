@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,20 +20,20 @@
 module Network.AWS.CodeCommit.Types.Approval where
 
 import Network.AWS.CodeCommit.Types.ApprovalState
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about a specific approval on a pull request.
 --
 -- /See:/ 'newApproval' smart constructor.
 data Approval = Approval'
   { -- | The Amazon Resource Name (ARN) of the user.
-    userArn :: Prelude.Maybe Prelude.Text,
+    userArn :: Core.Maybe Core.Text,
     -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not
     -- stored.
-    approvalState :: Prelude.Maybe ApprovalState
+    approvalState :: Core.Maybe ApprovalState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Approval' with all optional fields omitted.
@@ -52,29 +51,29 @@ newApproval ::
   Approval
 newApproval =
   Approval'
-    { userArn = Prelude.Nothing,
-      approvalState = Prelude.Nothing
+    { userArn = Core.Nothing,
+      approvalState = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user.
-approval_userArn :: Lens.Lens' Approval (Prelude.Maybe Prelude.Text)
+approval_userArn :: Lens.Lens' Approval (Core.Maybe Core.Text)
 approval_userArn = Lens.lens (\Approval' {userArn} -> userArn) (\s@Approval' {} a -> s {userArn = a} :: Approval)
 
 -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not
 -- stored.
-approval_approvalState :: Lens.Lens' Approval (Prelude.Maybe ApprovalState)
+approval_approvalState :: Lens.Lens' Approval (Core.Maybe ApprovalState)
 approval_approvalState = Lens.lens (\Approval' {approvalState} -> approvalState) (\s@Approval' {} a -> s {approvalState = a} :: Approval)
 
-instance Prelude.FromJSON Approval where
+instance Core.FromJSON Approval where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Approval"
       ( \x ->
           Approval'
-            Prelude.<$> (x Prelude..:? "userArn")
-            Prelude.<*> (x Prelude..:? "approvalState")
+            Core.<$> (x Core..:? "userArn")
+            Core.<*> (x Core..:? "approvalState")
       )
 
-instance Prelude.Hashable Approval
+instance Core.Hashable Approval
 
-instance Prelude.NFData Approval
+instance Core.NFData Approval

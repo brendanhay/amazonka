@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode
-import qualified Network.AWS.Prelude as Prelude
 
 -- | When MTurk encounters an issue with notifying the Workers you specified,
 -- it returns back this object with failure details.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNotifyWorkersFailureStatus' smart constructor.
 data NotifyWorkersFailureStatus = NotifyWorkersFailureStatus'
   { -- | The ID of the Worker.
-    workerId :: Prelude.Maybe Prelude.Text,
+    workerId :: Core.Maybe Core.Text,
     -- | Encoded value for the failure type.
-    notifyWorkersFailureCode :: Prelude.Maybe NotifyWorkersFailureCode,
+    notifyWorkersFailureCode :: Core.Maybe NotifyWorkersFailureCode,
     -- | A message detailing the reason the Worker could not be notified.
-    notifyWorkersFailureMessage :: Prelude.Maybe Prelude.Text
+    notifyWorkersFailureMessage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NotifyWorkersFailureStatus' with all optional fields omitted.
@@ -56,34 +55,34 @@ newNotifyWorkersFailureStatus ::
 newNotifyWorkersFailureStatus =
   NotifyWorkersFailureStatus'
     { workerId =
-        Prelude.Nothing,
-      notifyWorkersFailureCode = Prelude.Nothing,
-      notifyWorkersFailureMessage = Prelude.Nothing
+        Core.Nothing,
+      notifyWorkersFailureCode = Core.Nothing,
+      notifyWorkersFailureMessage = Core.Nothing
     }
 
 -- | The ID of the Worker.
-notifyWorkersFailureStatus_workerId :: Lens.Lens' NotifyWorkersFailureStatus (Prelude.Maybe Prelude.Text)
+notifyWorkersFailureStatus_workerId :: Lens.Lens' NotifyWorkersFailureStatus (Core.Maybe Core.Text)
 notifyWorkersFailureStatus_workerId = Lens.lens (\NotifyWorkersFailureStatus' {workerId} -> workerId) (\s@NotifyWorkersFailureStatus' {} a -> s {workerId = a} :: NotifyWorkersFailureStatus)
 
 -- | Encoded value for the failure type.
-notifyWorkersFailureStatus_notifyWorkersFailureCode :: Lens.Lens' NotifyWorkersFailureStatus (Prelude.Maybe NotifyWorkersFailureCode)
+notifyWorkersFailureStatus_notifyWorkersFailureCode :: Lens.Lens' NotifyWorkersFailureStatus (Core.Maybe NotifyWorkersFailureCode)
 notifyWorkersFailureStatus_notifyWorkersFailureCode = Lens.lens (\NotifyWorkersFailureStatus' {notifyWorkersFailureCode} -> notifyWorkersFailureCode) (\s@NotifyWorkersFailureStatus' {} a -> s {notifyWorkersFailureCode = a} :: NotifyWorkersFailureStatus)
 
 -- | A message detailing the reason the Worker could not be notified.
-notifyWorkersFailureStatus_notifyWorkersFailureMessage :: Lens.Lens' NotifyWorkersFailureStatus (Prelude.Maybe Prelude.Text)
+notifyWorkersFailureStatus_notifyWorkersFailureMessage :: Lens.Lens' NotifyWorkersFailureStatus (Core.Maybe Core.Text)
 notifyWorkersFailureStatus_notifyWorkersFailureMessage = Lens.lens (\NotifyWorkersFailureStatus' {notifyWorkersFailureMessage} -> notifyWorkersFailureMessage) (\s@NotifyWorkersFailureStatus' {} a -> s {notifyWorkersFailureMessage = a} :: NotifyWorkersFailureStatus)
 
-instance Prelude.FromJSON NotifyWorkersFailureStatus where
+instance Core.FromJSON NotifyWorkersFailureStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NotifyWorkersFailureStatus"
       ( \x ->
           NotifyWorkersFailureStatus'
-            Prelude.<$> (x Prelude..:? "WorkerId")
-            Prelude.<*> (x Prelude..:? "NotifyWorkersFailureCode")
-            Prelude.<*> (x Prelude..:? "NotifyWorkersFailureMessage")
+            Core.<$> (x Core..:? "WorkerId")
+            Core.<*> (x Core..:? "NotifyWorkersFailureCode")
+            Core.<*> (x Core..:? "NotifyWorkersFailureMessage")
       )
 
-instance Prelude.Hashable NotifyWorkersFailureStatus
+instance Core.Hashable NotifyWorkersFailureStatus
 
-instance Prelude.NFData NotifyWorkersFailureStatus
+instance Core.NFData NotifyWorkersFailureStatus

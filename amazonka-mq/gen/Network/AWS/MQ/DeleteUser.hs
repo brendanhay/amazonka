@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.MQ.DeleteUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ data DeleteUser = DeleteUser'
   { -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
-    username :: Prelude.Text,
+    username :: Core.Text,
     -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Text
+    brokerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -72,9 +71,9 @@ data DeleteUser = DeleteUser'
 -- 'brokerId', 'deleteUser_brokerId' - The unique ID that Amazon MQ generates for the broker.
 newDeleteUser ::
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'brokerId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUser
 newDeleteUser pUsername_ pBrokerId_ =
   DeleteUser'
@@ -85,56 +84,54 @@ newDeleteUser pUsername_ pBrokerId_ =
 -- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
-deleteUser_username :: Lens.Lens' DeleteUser Prelude.Text
+deleteUser_username :: Lens.Lens' DeleteUser Core.Text
 deleteUser_username = Lens.lens (\DeleteUser' {username} -> username) (\s@DeleteUser' {} a -> s {username = a} :: DeleteUser)
 
 -- | The unique ID that Amazon MQ generates for the broker.
-deleteUser_brokerId :: Lens.Lens' DeleteUser Prelude.Text
+deleteUser_brokerId :: Lens.Lens' DeleteUser Core.Text
 deleteUser_brokerId = Lens.lens (\DeleteUser' {brokerId} -> brokerId) (\s@DeleteUser' {} a -> s {brokerId = a} :: DeleteUser)
 
-instance Prelude.AWSRequest DeleteUser where
-  type Rs DeleteUser = DeleteUserResponse
+instance Core.AWSRequest DeleteUser where
+  type AWSResponse DeleteUser = DeleteUserResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUser
+instance Core.Hashable DeleteUser
 
-instance Prelude.NFData DeleteUser
+instance Core.NFData DeleteUser
 
-instance Prelude.ToHeaders DeleteUser where
+instance Core.ToHeaders DeleteUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteUser where
+instance Core.ToPath DeleteUser where
   toPath DeleteUser' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/brokers/",
-        Prelude.toBS brokerId,
+        Core.toBS brokerId,
         "/users/",
-        Prelude.toBS username
+        Core.toBS username
       ]
 
-instance Prelude.ToQuery DeleteUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -147,13 +144,13 @@ data DeleteUserResponse = DeleteUserResponse'
 -- 'httpStatus', 'deleteUserResponse_httpStatus' - The response's http status code.
 newDeleteUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteUserResponse
 newDeleteUserResponse pHttpStatus_ =
   DeleteUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Prelude.Int
+deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Core.Int
 deleteUserResponse_httpStatus = Lens.lens (\DeleteUserResponse' {httpStatus} -> httpStatus) (\s@DeleteUserResponse' {} a -> s {httpStatus = a} :: DeleteUserResponse)
 
-instance Prelude.NFData DeleteUserResponse
+instance Core.NFData DeleteUserResponse

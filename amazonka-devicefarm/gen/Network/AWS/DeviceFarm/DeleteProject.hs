@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DeviceFarm.DeleteProject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DeleteProject = DeleteProject'
   { -- | Represents the Amazon Resource Name (ARN) of the Device Farm project to
     -- delete.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProject' with all optional fields omitted.
@@ -69,65 +68,63 @@ data DeleteProject = DeleteProject'
 -- delete.
 newDeleteProject ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteProject
 newDeleteProject pArn_ = DeleteProject' {arn = pArn_}
 
 -- | Represents the Amazon Resource Name (ARN) of the Device Farm project to
 -- delete.
-deleteProject_arn :: Lens.Lens' DeleteProject Prelude.Text
+deleteProject_arn :: Lens.Lens' DeleteProject Core.Text
 deleteProject_arn = Lens.lens (\DeleteProject' {arn} -> arn) (\s@DeleteProject' {} a -> s {arn = a} :: DeleteProject)
 
-instance Prelude.AWSRequest DeleteProject where
-  type Rs DeleteProject = DeleteProjectResponse
+instance Core.AWSRequest DeleteProject where
+  type
+    AWSResponse DeleteProject =
+      DeleteProjectResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProjectResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProject
+instance Core.Hashable DeleteProject
 
-instance Prelude.NFData DeleteProject
+instance Core.NFData DeleteProject
 
-instance Prelude.ToHeaders DeleteProject where
+instance Core.ToHeaders DeleteProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.DeleteProject" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.DeleteProject" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteProject where
+instance Core.ToJSON DeleteProject where
   toJSON DeleteProject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath DeleteProject where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteProject where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteProject where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a delete project request.
 --
 -- /See:/ 'newDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProjectResponse' with all optional fields omitted.
@@ -140,13 +137,13 @@ data DeleteProjectResponse = DeleteProjectResponse'
 -- 'httpStatus', 'deleteProjectResponse_httpStatus' - The response's http status code.
 newDeleteProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProjectResponse
 newDeleteProjectResponse pHttpStatus_ =
   DeleteProjectResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Prelude.Int
+deleteProjectResponse_httpStatus :: Lens.Lens' DeleteProjectResponse Core.Int
 deleteProjectResponse_httpStatus = Lens.lens (\DeleteProjectResponse' {httpStatus} -> httpStatus) (\s@DeleteProjectResponse' {} a -> s {httpStatus = a} :: DeleteProjectResponse)
 
-instance Prelude.NFData DeleteProjectResponse
+instance Core.NFData DeleteProjectResponse

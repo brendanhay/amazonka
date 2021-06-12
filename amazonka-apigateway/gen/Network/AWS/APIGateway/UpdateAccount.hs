@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.APIGateway.UpdateAccount
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 data UpdateAccount = UpdateAccount'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation]
+    patchOperations :: Core.Maybe [PatchOperation]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAccount' with all optional fields omitted.
@@ -72,44 +71,44 @@ data UpdateAccount = UpdateAccount'
 newUpdateAccount ::
   UpdateAccount
 newUpdateAccount =
-  UpdateAccount' {patchOperations = Prelude.Nothing}
+  UpdateAccount' {patchOperations = Core.Nothing}
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateAccount_patchOperations :: Lens.Lens' UpdateAccount (Prelude.Maybe [PatchOperation])
-updateAccount_patchOperations = Lens.lens (\UpdateAccount' {patchOperations} -> patchOperations) (\s@UpdateAccount' {} a -> s {patchOperations = a} :: UpdateAccount) Prelude.. Lens.mapping Prelude._Coerce
+updateAccount_patchOperations :: Lens.Lens' UpdateAccount (Core.Maybe [PatchOperation])
+updateAccount_patchOperations = Lens.lens (\UpdateAccount' {patchOperations} -> patchOperations) (\s@UpdateAccount' {} a -> s {patchOperations = a} :: UpdateAccount) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest UpdateAccount where
-  type Rs UpdateAccount = Account
+instance Core.AWSRequest UpdateAccount where
+  type AWSResponse UpdateAccount = Account
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateAccount
+instance Core.Hashable UpdateAccount
 
-instance Prelude.NFData UpdateAccount
+instance Core.NFData UpdateAccount
 
-instance Prelude.ToHeaders UpdateAccount where
+instance Core.ToHeaders UpdateAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateAccount where
+instance Core.ToJSON UpdateAccount where
   toJSON UpdateAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateAccount where
-  toPath = Prelude.const "/account"
+instance Core.ToPath UpdateAccount where
+  toPath = Core.const "/account"
 
-instance Prelude.ToQuery UpdateAccount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateAccount where
+  toQuery = Core.const Core.mempty

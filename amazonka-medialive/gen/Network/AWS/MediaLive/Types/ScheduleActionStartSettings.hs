@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.ScheduleActionStartSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings
 import Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
 import Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to specify when an action should occur. Only one of the options
 -- must be selected.
@@ -32,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newScheduleActionStartSettings' smart constructor.
 data ScheduleActionStartSettings = ScheduleActionStartSettings'
   { -- | Option for specifying an action as relative to another action.
-    followModeScheduleActionStartSettings :: Prelude.Maybe FollowModeScheduleActionStartSettings,
+    followModeScheduleActionStartSettings :: Core.Maybe FollowModeScheduleActionStartSettings,
     -- | Option for specifying an action that should be applied immediately.
-    immediateModeScheduleActionStartSettings :: Prelude.Maybe ImmediateModeScheduleActionStartSettings,
+    immediateModeScheduleActionStartSettings :: Core.Maybe ImmediateModeScheduleActionStartSettings,
     -- | Option for specifying the start time for an action.
-    fixedModeScheduleActionStartSettings :: Prelude.Maybe FixedModeScheduleActionStartSettings
+    fixedModeScheduleActionStartSettings :: Core.Maybe FixedModeScheduleActionStartSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduleActionStartSettings' with all optional fields omitted.
@@ -58,57 +57,51 @@ newScheduleActionStartSettings ::
 newScheduleActionStartSettings =
   ScheduleActionStartSettings'
     { followModeScheduleActionStartSettings =
-        Prelude.Nothing,
+        Core.Nothing,
       immediateModeScheduleActionStartSettings =
-        Prelude.Nothing,
+        Core.Nothing,
       fixedModeScheduleActionStartSettings =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Option for specifying an action as relative to another action.
-scheduleActionStartSettings_followModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe FollowModeScheduleActionStartSettings)
+scheduleActionStartSettings_followModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Core.Maybe FollowModeScheduleActionStartSettings)
 scheduleActionStartSettings_followModeScheduleActionStartSettings = Lens.lens (\ScheduleActionStartSettings' {followModeScheduleActionStartSettings} -> followModeScheduleActionStartSettings) (\s@ScheduleActionStartSettings' {} a -> s {followModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
 
 -- | Option for specifying an action that should be applied immediately.
-scheduleActionStartSettings_immediateModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe ImmediateModeScheduleActionStartSettings)
+scheduleActionStartSettings_immediateModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Core.Maybe ImmediateModeScheduleActionStartSettings)
 scheduleActionStartSettings_immediateModeScheduleActionStartSettings = Lens.lens (\ScheduleActionStartSettings' {immediateModeScheduleActionStartSettings} -> immediateModeScheduleActionStartSettings) (\s@ScheduleActionStartSettings' {} a -> s {immediateModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
 
 -- | Option for specifying the start time for an action.
-scheduleActionStartSettings_fixedModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Prelude.Maybe FixedModeScheduleActionStartSettings)
+scheduleActionStartSettings_fixedModeScheduleActionStartSettings :: Lens.Lens' ScheduleActionStartSettings (Core.Maybe FixedModeScheduleActionStartSettings)
 scheduleActionStartSettings_fixedModeScheduleActionStartSettings = Lens.lens (\ScheduleActionStartSettings' {fixedModeScheduleActionStartSettings} -> fixedModeScheduleActionStartSettings) (\s@ScheduleActionStartSettings' {} a -> s {fixedModeScheduleActionStartSettings = a} :: ScheduleActionStartSettings)
 
-instance Prelude.FromJSON ScheduleActionStartSettings where
+instance Core.FromJSON ScheduleActionStartSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScheduleActionStartSettings"
       ( \x ->
           ScheduleActionStartSettings'
-            Prelude.<$> ( x
-                            Prelude..:? "followModeScheduleActionStartSettings"
-                        )
-            Prelude.<*> ( x
-                            Prelude..:? "immediateModeScheduleActionStartSettings"
-                        )
-            Prelude.<*> ( x
-                            Prelude..:? "fixedModeScheduleActionStartSettings"
-                        )
+            Core.<$> (x Core..:? "followModeScheduleActionStartSettings")
+            Core.<*> ( x
+                         Core..:? "immediateModeScheduleActionStartSettings"
+                     )
+            Core.<*> (x Core..:? "fixedModeScheduleActionStartSettings")
       )
 
-instance Prelude.Hashable ScheduleActionStartSettings
+instance Core.Hashable ScheduleActionStartSettings
 
-instance Prelude.NFData ScheduleActionStartSettings
+instance Core.NFData ScheduleActionStartSettings
 
-instance Prelude.ToJSON ScheduleActionStartSettings where
+instance Core.ToJSON ScheduleActionStartSettings where
   toJSON ScheduleActionStartSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("followModeScheduleActionStartSettings" Prelude..=)
-              Prelude.<$> followModeScheduleActionStartSettings,
-            ( "immediateModeScheduleActionStartSettings"
-                Prelude..=
-            )
-              Prelude.<$> immediateModeScheduleActionStartSettings,
-            ("fixedModeScheduleActionStartSettings" Prelude..=)
-              Prelude.<$> fixedModeScheduleActionStartSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("followModeScheduleActionStartSettings" Core..=)
+              Core.<$> followModeScheduleActionStartSettings,
+            ("immediateModeScheduleActionStartSettings" Core..=)
+              Core.<$> immediateModeScheduleActionStartSettings,
+            ("fixedModeScheduleActionStartSettings" Core..=)
+              Core.<$> fixedModeScheduleActionStartSettings
           ]
       )

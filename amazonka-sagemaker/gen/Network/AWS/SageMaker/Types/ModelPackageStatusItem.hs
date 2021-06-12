@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelPackageStatusItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.DetailedModelPackageStatus
 
 -- | Represents the overall status of a model package.
@@ -29,14 +28,14 @@ import Network.AWS.SageMaker.Types.DetailedModelPackageStatus
 -- /See:/ 'newModelPackageStatusItem' smart constructor.
 data ModelPackageStatusItem = ModelPackageStatusItem'
   { -- | if the overall status is @Failed@, the reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    failureReason :: Core.Maybe Core.Text,
     -- | The name of the model package for which the overall status is being
     -- reported.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The current status.
     status :: DetailedModelPackageStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelPackageStatusItem' with all optional fields omitted.
@@ -54,42 +53,42 @@ data ModelPackageStatusItem = ModelPackageStatusItem'
 -- 'status', 'modelPackageStatusItem_status' - The current status.
 newModelPackageStatusItem ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   DetailedModelPackageStatus ->
   ModelPackageStatusItem
 newModelPackageStatusItem pName_ pStatus_ =
   ModelPackageStatusItem'
     { failureReason =
-        Prelude.Nothing,
+        Core.Nothing,
       name = pName_,
       status = pStatus_
     }
 
 -- | if the overall status is @Failed@, the reason for the failure.
-modelPackageStatusItem_failureReason :: Lens.Lens' ModelPackageStatusItem (Prelude.Maybe Prelude.Text)
+modelPackageStatusItem_failureReason :: Lens.Lens' ModelPackageStatusItem (Core.Maybe Core.Text)
 modelPackageStatusItem_failureReason = Lens.lens (\ModelPackageStatusItem' {failureReason} -> failureReason) (\s@ModelPackageStatusItem' {} a -> s {failureReason = a} :: ModelPackageStatusItem)
 
 -- | The name of the model package for which the overall status is being
 -- reported.
-modelPackageStatusItem_name :: Lens.Lens' ModelPackageStatusItem Prelude.Text
+modelPackageStatusItem_name :: Lens.Lens' ModelPackageStatusItem Core.Text
 modelPackageStatusItem_name = Lens.lens (\ModelPackageStatusItem' {name} -> name) (\s@ModelPackageStatusItem' {} a -> s {name = a} :: ModelPackageStatusItem)
 
 -- | The current status.
 modelPackageStatusItem_status :: Lens.Lens' ModelPackageStatusItem DetailedModelPackageStatus
 modelPackageStatusItem_status = Lens.lens (\ModelPackageStatusItem' {status} -> status) (\s@ModelPackageStatusItem' {} a -> s {status = a} :: ModelPackageStatusItem)
 
-instance Prelude.FromJSON ModelPackageStatusItem where
+instance Core.FromJSON ModelPackageStatusItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelPackageStatusItem"
       ( \x ->
           ModelPackageStatusItem'
-            Prelude.<$> (x Prelude..:? "FailureReason")
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..:? "FailureReason")
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable ModelPackageStatusItem
+instance Core.Hashable ModelPackageStatusItem
 
-instance Prelude.NFData ModelPackageStatusItem
+instance Core.NFData ModelPackageStatusItem

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.BackupDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.BackupStatus
 import Network.AWS.DynamoDB.Types.BackupType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the details of the backup created for the table.
 --
@@ -32,13 +31,13 @@ data BackupDetails = BackupDetails'
   { -- | Time at which the automatic on-demand backup created by DynamoDB will
     -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
     -- after its creation.
-    backupExpiryDateTime :: Prelude.Maybe Prelude.POSIX,
+    backupExpiryDateTime :: Core.Maybe Core.POSIX,
     -- | Size of the backup in bytes.
-    backupSizeBytes :: Prelude.Maybe Prelude.Natural,
+    backupSizeBytes :: Core.Maybe Core.Natural,
     -- | ARN associated with the backup.
-    backupArn :: Prelude.Text,
+    backupArn :: Core.Text,
     -- | Name of the requested backup.
-    backupName :: Prelude.Text,
+    backupName :: Core.Text,
     -- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
     backupStatus :: BackupStatus,
     -- | BackupType:
@@ -57,9 +56,9 @@ data BackupDetails = BackupDetails'
     backupType :: BackupType,
     -- | Time at which the backup was created. This is the request time of the
     -- backup.
-    backupCreationDateTime :: Prelude.POSIX
+    backupCreationDateTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BackupDetails' with all optional fields omitted.
@@ -99,15 +98,15 @@ data BackupDetails = BackupDetails'
 -- backup.
 newBackupDetails ::
   -- | 'backupArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'backupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'backupStatus'
   BackupStatus ->
   -- | 'backupType'
   BackupType ->
   -- | 'backupCreationDateTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   BackupDetails
 newBackupDetails
   pBackupArn_
@@ -116,33 +115,32 @@ newBackupDetails
   pBackupType_
   pBackupCreationDateTime_ =
     BackupDetails'
-      { backupExpiryDateTime =
-          Prelude.Nothing,
-        backupSizeBytes = Prelude.Nothing,
+      { backupExpiryDateTime = Core.Nothing,
+        backupSizeBytes = Core.Nothing,
         backupArn = pBackupArn_,
         backupName = pBackupName_,
         backupStatus = pBackupStatus_,
         backupType = pBackupType_,
         backupCreationDateTime =
-          Prelude._Time Lens.# pBackupCreationDateTime_
+          Core._Time Lens.# pBackupCreationDateTime_
       }
 
 -- | Time at which the automatic on-demand backup created by DynamoDB will
 -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
 -- after its creation.
-backupDetails_backupExpiryDateTime :: Lens.Lens' BackupDetails (Prelude.Maybe Prelude.UTCTime)
-backupDetails_backupExpiryDateTime = Lens.lens (\BackupDetails' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupDetails' {} a -> s {backupExpiryDateTime = a} :: BackupDetails) Prelude.. Lens.mapping Prelude._Time
+backupDetails_backupExpiryDateTime :: Lens.Lens' BackupDetails (Core.Maybe Core.UTCTime)
+backupDetails_backupExpiryDateTime = Lens.lens (\BackupDetails' {backupExpiryDateTime} -> backupExpiryDateTime) (\s@BackupDetails' {} a -> s {backupExpiryDateTime = a} :: BackupDetails) Core.. Lens.mapping Core._Time
 
 -- | Size of the backup in bytes.
-backupDetails_backupSizeBytes :: Lens.Lens' BackupDetails (Prelude.Maybe Prelude.Natural)
+backupDetails_backupSizeBytes :: Lens.Lens' BackupDetails (Core.Maybe Core.Natural)
 backupDetails_backupSizeBytes = Lens.lens (\BackupDetails' {backupSizeBytes} -> backupSizeBytes) (\s@BackupDetails' {} a -> s {backupSizeBytes = a} :: BackupDetails)
 
 -- | ARN associated with the backup.
-backupDetails_backupArn :: Lens.Lens' BackupDetails Prelude.Text
+backupDetails_backupArn :: Lens.Lens' BackupDetails Core.Text
 backupDetails_backupArn = Lens.lens (\BackupDetails' {backupArn} -> backupArn) (\s@BackupDetails' {} a -> s {backupArn = a} :: BackupDetails)
 
 -- | Name of the requested backup.
-backupDetails_backupName :: Lens.Lens' BackupDetails Prelude.Text
+backupDetails_backupName :: Lens.Lens' BackupDetails Core.Text
 backupDetails_backupName = Lens.lens (\BackupDetails' {backupName} -> backupName) (\s@BackupDetails' {} a -> s {backupName = a} :: BackupDetails)
 
 -- | Backup can be in one of the following states: CREATING, ACTIVE, DELETED.
@@ -167,24 +165,24 @@ backupDetails_backupType = Lens.lens (\BackupDetails' {backupType} -> backupType
 
 -- | Time at which the backup was created. This is the request time of the
 -- backup.
-backupDetails_backupCreationDateTime :: Lens.Lens' BackupDetails Prelude.UTCTime
-backupDetails_backupCreationDateTime = Lens.lens (\BackupDetails' {backupCreationDateTime} -> backupCreationDateTime) (\s@BackupDetails' {} a -> s {backupCreationDateTime = a} :: BackupDetails) Prelude.. Prelude._Time
+backupDetails_backupCreationDateTime :: Lens.Lens' BackupDetails Core.UTCTime
+backupDetails_backupCreationDateTime = Lens.lens (\BackupDetails' {backupCreationDateTime} -> backupCreationDateTime) (\s@BackupDetails' {} a -> s {backupCreationDateTime = a} :: BackupDetails) Core.. Core._Time
 
-instance Prelude.FromJSON BackupDetails where
+instance Core.FromJSON BackupDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BackupDetails"
       ( \x ->
           BackupDetails'
-            Prelude.<$> (x Prelude..:? "BackupExpiryDateTime")
-            Prelude.<*> (x Prelude..:? "BackupSizeBytes")
-            Prelude.<*> (x Prelude..: "BackupArn")
-            Prelude.<*> (x Prelude..: "BackupName")
-            Prelude.<*> (x Prelude..: "BackupStatus")
-            Prelude.<*> (x Prelude..: "BackupType")
-            Prelude.<*> (x Prelude..: "BackupCreationDateTime")
+            Core.<$> (x Core..:? "BackupExpiryDateTime")
+            Core.<*> (x Core..:? "BackupSizeBytes")
+            Core.<*> (x Core..: "BackupArn")
+            Core.<*> (x Core..: "BackupName")
+            Core.<*> (x Core..: "BackupStatus")
+            Core.<*> (x Core..: "BackupType")
+            Core.<*> (x Core..: "BackupCreationDateTime")
       )
 
-instance Prelude.Hashable BackupDetails
+instance Core.Hashable BackupDetails
 
-instance Prelude.NFData BackupDetails
+instance Core.NFData BackupDetails

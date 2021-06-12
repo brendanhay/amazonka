@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.IoT.UpdateEventConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateEventConfigurations' smart constructor.
 data UpdateEventConfigurations = UpdateEventConfigurations'
   { -- | The new event configuration values.
-    eventConfigurations :: Prelude.Maybe (Prelude.HashMap EventType Configuration)
+    eventConfigurations :: Core.Maybe (Core.HashMap EventType Configuration)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEventConfigurations' with all optional fields omitted.
@@ -66,53 +65,53 @@ newUpdateEventConfigurations ::
 newUpdateEventConfigurations =
   UpdateEventConfigurations'
     { eventConfigurations =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The new event configuration values.
-updateEventConfigurations_eventConfigurations :: Lens.Lens' UpdateEventConfigurations (Prelude.Maybe (Prelude.HashMap EventType Configuration))
-updateEventConfigurations_eventConfigurations = Lens.lens (\UpdateEventConfigurations' {eventConfigurations} -> eventConfigurations) (\s@UpdateEventConfigurations' {} a -> s {eventConfigurations = a} :: UpdateEventConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+updateEventConfigurations_eventConfigurations :: Lens.Lens' UpdateEventConfigurations (Core.Maybe (Core.HashMap EventType Configuration))
+updateEventConfigurations_eventConfigurations = Lens.lens (\UpdateEventConfigurations' {eventConfigurations} -> eventConfigurations) (\s@UpdateEventConfigurations' {} a -> s {eventConfigurations = a} :: UpdateEventConfigurations) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest UpdateEventConfigurations where
+instance Core.AWSRequest UpdateEventConfigurations where
   type
-    Rs UpdateEventConfigurations =
+    AWSResponse UpdateEventConfigurations =
       UpdateEventConfigurationsResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEventConfigurationsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateEventConfigurations
+instance Core.Hashable UpdateEventConfigurations
 
-instance Prelude.NFData UpdateEventConfigurations
+instance Core.NFData UpdateEventConfigurations
 
-instance Prelude.ToHeaders UpdateEventConfigurations where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateEventConfigurations where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateEventConfigurations where
+instance Core.ToJSON UpdateEventConfigurations where
   toJSON UpdateEventConfigurations' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("eventConfigurations" Prelude..=)
-              Prelude.<$> eventConfigurations
+    Core.object
+      ( Core.catMaybes
+          [ ("eventConfigurations" Core..=)
+              Core.<$> eventConfigurations
           ]
       )
 
-instance Prelude.ToPath UpdateEventConfigurations where
-  toPath = Prelude.const "/event-configurations"
+instance Core.ToPath UpdateEventConfigurations where
+  toPath = Core.const "/event-configurations"
 
-instance Prelude.ToQuery UpdateEventConfigurations where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateEventConfigurations where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateEventConfigurationsResponse' smart constructor.
 data UpdateEventConfigurationsResponse = UpdateEventConfigurationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEventConfigurationsResponse' with all optional fields omitted.
@@ -125,7 +124,7 @@ data UpdateEventConfigurationsResponse = UpdateEventConfigurationsResponse'
 -- 'httpStatus', 'updateEventConfigurationsResponse_httpStatus' - The response's http status code.
 newUpdateEventConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateEventConfigurationsResponse
 newUpdateEventConfigurationsResponse pHttpStatus_ =
   UpdateEventConfigurationsResponse'
@@ -134,9 +133,9 @@ newUpdateEventConfigurationsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateEventConfigurationsResponse_httpStatus :: Lens.Lens' UpdateEventConfigurationsResponse Prelude.Int
+updateEventConfigurationsResponse_httpStatus :: Lens.Lens' UpdateEventConfigurationsResponse Core.Int
 updateEventConfigurationsResponse_httpStatus = Lens.lens (\UpdateEventConfigurationsResponse' {httpStatus} -> httpStatus) (\s@UpdateEventConfigurationsResponse' {} a -> s {httpStatus = a} :: UpdateEventConfigurationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateEventConfigurationsResponse

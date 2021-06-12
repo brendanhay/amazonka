@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -76,8 +75,8 @@ module Network.AWS.S3.PutBucketAccelerateConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -87,13 +86,13 @@ data PutBucketAccelerateConfiguration = PutBucketAccelerateConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket for which the accelerate configuration is set.
     bucket :: BucketName,
     -- | Container for setting the transfer acceleration state.
     accelerateConfiguration :: AccelerateConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketAccelerateConfiguration' with all optional fields omitted.
@@ -121,7 +120,7 @@ newPutBucketAccelerateConfiguration
   pAccelerateConfiguration_ =
     PutBucketAccelerateConfiguration'
       { expectedBucketOwner =
-          Prelude.Nothing,
+          Core.Nothing,
         bucket = pBucket_,
         accelerateConfiguration =
           pAccelerateConfiguration_
@@ -130,7 +129,7 @@ newPutBucketAccelerateConfiguration
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketAccelerateConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketAccelerateConfiguration (Prelude.Maybe Prelude.Text)
+putBucketAccelerateConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketAccelerateConfiguration (Core.Maybe Core.Text)
 putBucketAccelerateConfiguration_expectedBucketOwner = Lens.lens (\PutBucketAccelerateConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketAccelerateConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketAccelerateConfiguration)
 
 -- | The name of the bucket for which the accelerate configuration is set.
@@ -142,11 +141,11 @@ putBucketAccelerateConfiguration_accelerateConfiguration :: Lens.Lens' PutBucket
 putBucketAccelerateConfiguration_accelerateConfiguration = Lens.lens (\PutBucketAccelerateConfiguration' {accelerateConfiguration} -> accelerateConfiguration) (\s@PutBucketAccelerateConfiguration' {} a -> s {accelerateConfiguration = a} :: PutBucketAccelerateConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutBucketAccelerateConfiguration
   where
   type
-    Rs PutBucketAccelerateConfiguration =
+    AWSResponse PutBucketAccelerateConfiguration =
       PutBucketAccelerateConfigurationResponse
   request = Request.putXML defaultService
   response =
@@ -154,51 +153,45 @@ instance
       PutBucketAccelerateConfigurationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutBucketAccelerateConfiguration
 
-instance
-  Prelude.NFData
-    PutBucketAccelerateConfiguration
+instance Core.NFData PutBucketAccelerateConfiguration
 
 instance
-  Prelude.ToElement
+  Core.ToElement
     PutBucketAccelerateConfiguration
   where
   toElement PutBucketAccelerateConfiguration' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AccelerateConfiguration"
       accelerateConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     PutBucketAccelerateConfiguration
   where
   toHeaders PutBucketAccelerateConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance
-  Prelude.ToPath
-    PutBucketAccelerateConfiguration
-  where
+instance Core.ToPath PutBucketAccelerateConfiguration where
   toPath PutBucketAccelerateConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     PutBucketAccelerateConfiguration
   where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["accelerate"])
+  toQuery = Core.const (Core.mconcat ["accelerate"])
 
 -- | /See:/ 'newPutBucketAccelerateConfigurationResponse' smart constructor.
 data PutBucketAccelerateConfigurationResponse = PutBucketAccelerateConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketAccelerateConfigurationResponse' with all optional fields omitted.
@@ -210,5 +203,5 @@ newPutBucketAccelerateConfigurationResponse =
   PutBucketAccelerateConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBucketAccelerateConfigurationResponse

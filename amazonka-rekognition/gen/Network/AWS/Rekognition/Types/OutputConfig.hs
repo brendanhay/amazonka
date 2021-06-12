@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.OutputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The S3 bucket and folder location where training output is placed.
 --
 -- /See:/ 'newOutputConfig' smart constructor.
 data OutputConfig = OutputConfig'
   { -- | The S3 bucket where training output is placed.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
+    s3Bucket :: Core.Maybe Core.Text,
     -- | The prefix applied to the training output files.
-    s3KeyPrefix :: Prelude.Maybe Prelude.Text
+    s3KeyPrefix :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputConfig' with all optional fields omitted.
@@ -49,37 +48,37 @@ newOutputConfig ::
   OutputConfig
 newOutputConfig =
   OutputConfig'
-    { s3Bucket = Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing
+    { s3Bucket = Core.Nothing,
+      s3KeyPrefix = Core.Nothing
     }
 
 -- | The S3 bucket where training output is placed.
-outputConfig_s3Bucket :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
+outputConfig_s3Bucket :: Lens.Lens' OutputConfig (Core.Maybe Core.Text)
 outputConfig_s3Bucket = Lens.lens (\OutputConfig' {s3Bucket} -> s3Bucket) (\s@OutputConfig' {} a -> s {s3Bucket = a} :: OutputConfig)
 
 -- | The prefix applied to the training output files.
-outputConfig_s3KeyPrefix :: Lens.Lens' OutputConfig (Prelude.Maybe Prelude.Text)
+outputConfig_s3KeyPrefix :: Lens.Lens' OutputConfig (Core.Maybe Core.Text)
 outputConfig_s3KeyPrefix = Lens.lens (\OutputConfig' {s3KeyPrefix} -> s3KeyPrefix) (\s@OutputConfig' {} a -> s {s3KeyPrefix = a} :: OutputConfig)
 
-instance Prelude.FromJSON OutputConfig where
+instance Core.FromJSON OutputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputConfig"
       ( \x ->
           OutputConfig'
-            Prelude.<$> (x Prelude..:? "S3Bucket")
-            Prelude.<*> (x Prelude..:? "S3KeyPrefix")
+            Core.<$> (x Core..:? "S3Bucket")
+            Core.<*> (x Core..:? "S3KeyPrefix")
       )
 
-instance Prelude.Hashable OutputConfig
+instance Core.Hashable OutputConfig
 
-instance Prelude.NFData OutputConfig
+instance Core.NFData OutputConfig
 
-instance Prelude.ToJSON OutputConfig where
+instance Core.ToJSON OutputConfig where
   toJSON OutputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("S3Bucket" Prelude..=) Prelude.<$> s3Bucket,
-            ("S3KeyPrefix" Prelude..=) Prelude.<$> s3KeyPrefix
+    Core.object
+      ( Core.catMaybes
+          [ ("S3Bucket" Core..=) Core.<$> s3Bucket,
+            ("S3KeyPrefix" Core..=) Core.<$> s3KeyPrefix
           ]
       )

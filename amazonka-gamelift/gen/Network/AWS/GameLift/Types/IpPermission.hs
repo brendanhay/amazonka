@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.IpPermission where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.IpProtocol
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of IP addresses and port settings that allow inbound traffic to
 -- connect to server processes on an Amazon GameLift hosting resource. New
@@ -36,18 +35,18 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newIpPermission' smart constructor.
 data IpPermission = IpPermission'
   { -- | A starting value for a range of allowed port numbers.
-    fromPort :: Prelude.Natural,
+    fromPort :: Core.Natural,
     -- | An ending value for a range of allowed port numbers. Port numbers are
     -- end-inclusive. This value must be higher than @FromPort@.
-    toPort :: Prelude.Natural,
+    toPort :: Core.Natural,
     -- | A range of allowed IP addresses. This value must be expressed in CIDR
     -- notation. Example: \"@000.000.000.000\/[subnet mask]@\" or optionally
     -- the shortened version \"@0.0.0.0\/[subnet mask]@\".
-    ipRange :: Prelude.Text,
+    ipRange :: Core.Text,
     -- | The network communication protocol used by the fleet.
     protocol :: IpProtocol
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IpPermission' with all optional fields omitted.
@@ -69,11 +68,11 @@ data IpPermission = IpPermission'
 -- 'protocol', 'ipPermission_protocol' - The network communication protocol used by the fleet.
 newIpPermission ::
   -- | 'fromPort'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'toPort'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'ipRange'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'protocol'
   IpProtocol ->
   IpPermission
@@ -90,47 +89,47 @@ newIpPermission
       }
 
 -- | A starting value for a range of allowed port numbers.
-ipPermission_fromPort :: Lens.Lens' IpPermission Prelude.Natural
+ipPermission_fromPort :: Lens.Lens' IpPermission Core.Natural
 ipPermission_fromPort = Lens.lens (\IpPermission' {fromPort} -> fromPort) (\s@IpPermission' {} a -> s {fromPort = a} :: IpPermission)
 
 -- | An ending value for a range of allowed port numbers. Port numbers are
 -- end-inclusive. This value must be higher than @FromPort@.
-ipPermission_toPort :: Lens.Lens' IpPermission Prelude.Natural
+ipPermission_toPort :: Lens.Lens' IpPermission Core.Natural
 ipPermission_toPort = Lens.lens (\IpPermission' {toPort} -> toPort) (\s@IpPermission' {} a -> s {toPort = a} :: IpPermission)
 
 -- | A range of allowed IP addresses. This value must be expressed in CIDR
 -- notation. Example: \"@000.000.000.000\/[subnet mask]@\" or optionally
 -- the shortened version \"@0.0.0.0\/[subnet mask]@\".
-ipPermission_ipRange :: Lens.Lens' IpPermission Prelude.Text
+ipPermission_ipRange :: Lens.Lens' IpPermission Core.Text
 ipPermission_ipRange = Lens.lens (\IpPermission' {ipRange} -> ipRange) (\s@IpPermission' {} a -> s {ipRange = a} :: IpPermission)
 
 -- | The network communication protocol used by the fleet.
 ipPermission_protocol :: Lens.Lens' IpPermission IpProtocol
 ipPermission_protocol = Lens.lens (\IpPermission' {protocol} -> protocol) (\s@IpPermission' {} a -> s {protocol = a} :: IpPermission)
 
-instance Prelude.FromJSON IpPermission where
+instance Core.FromJSON IpPermission where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IpPermission"
       ( \x ->
           IpPermission'
-            Prelude.<$> (x Prelude..: "FromPort")
-            Prelude.<*> (x Prelude..: "ToPort")
-            Prelude.<*> (x Prelude..: "IpRange")
-            Prelude.<*> (x Prelude..: "Protocol")
+            Core.<$> (x Core..: "FromPort")
+            Core.<*> (x Core..: "ToPort")
+            Core.<*> (x Core..: "IpRange")
+            Core.<*> (x Core..: "Protocol")
       )
 
-instance Prelude.Hashable IpPermission
+instance Core.Hashable IpPermission
 
-instance Prelude.NFData IpPermission
+instance Core.NFData IpPermission
 
-instance Prelude.ToJSON IpPermission where
+instance Core.ToJSON IpPermission where
   toJSON IpPermission' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("FromPort" Prelude..= fromPort),
-            Prelude.Just ("ToPort" Prelude..= toPort),
-            Prelude.Just ("IpRange" Prelude..= ipRange),
-            Prelude.Just ("Protocol" Prelude..= protocol)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FromPort" Core..= fromPort),
+            Core.Just ("ToPort" Core..= toPort),
+            Core.Just ("IpRange" Core..= ipRange),
+            Core.Just ("Protocol" Core..= protocol)
           ]
       )

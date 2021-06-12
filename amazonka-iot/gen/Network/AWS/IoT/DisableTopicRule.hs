@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.IoT.DisableTopicRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDisableTopicRule' smart constructor.
 data DisableTopicRule = DisableTopicRule'
   { -- | The name of the rule to disable.
-    ruleName :: Prelude.Text
+    ruleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableTopicRule' with all optional fields omitted.
@@ -62,45 +61,46 @@ data DisableTopicRule = DisableTopicRule'
 -- 'ruleName', 'disableTopicRule_ruleName' - The name of the rule to disable.
 newDisableTopicRule ::
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   DisableTopicRule
 newDisableTopicRule pRuleName_ =
   DisableTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the rule to disable.
-disableTopicRule_ruleName :: Lens.Lens' DisableTopicRule Prelude.Text
+disableTopicRule_ruleName :: Lens.Lens' DisableTopicRule Core.Text
 disableTopicRule_ruleName = Lens.lens (\DisableTopicRule' {ruleName} -> ruleName) (\s@DisableTopicRule' {} a -> s {ruleName = a} :: DisableTopicRule)
 
-instance Prelude.AWSRequest DisableTopicRule where
-  type Rs DisableTopicRule = DisableTopicRuleResponse
+instance Core.AWSRequest DisableTopicRule where
+  type
+    AWSResponse DisableTopicRule =
+      DisableTopicRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DisableTopicRuleResponse'
 
-instance Prelude.Hashable DisableTopicRule
+instance Core.Hashable DisableTopicRule
 
-instance Prelude.NFData DisableTopicRule
+instance Core.NFData DisableTopicRule
 
-instance Prelude.ToHeaders DisableTopicRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DisableTopicRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON DisableTopicRule where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DisableTopicRule where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DisableTopicRule where
+instance Core.ToPath DisableTopicRule where
   toPath DisableTopicRule' {..} =
-    Prelude.mconcat
-      ["/rules/", Prelude.toBS ruleName, "/disable"]
+    Core.mconcat
+      ["/rules/", Core.toBS ruleName, "/disable"]
 
-instance Prelude.ToQuery DisableTopicRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableTopicRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableTopicRuleResponse' smart constructor.
 data DisableTopicRuleResponse = DisableTopicRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableTopicRuleResponse' with all optional fields omitted.
@@ -111,4 +111,4 @@ newDisableTopicRuleResponse ::
 newDisableTopicRuleResponse =
   DisableTopicRuleResponse'
 
-instance Prelude.NFData DisableTopicRuleResponse
+instance Core.NFData DisableTopicRuleResponse

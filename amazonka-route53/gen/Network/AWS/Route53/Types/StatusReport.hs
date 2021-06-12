@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.StatusReport where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | A complex type that contains the status that one Amazon Route 53 health
@@ -31,14 +30,14 @@ import Network.AWS.Route53.Internal
 data StatusReport = StatusReport'
   { -- | A description of the status of the health check endpoint as reported by
     -- one of the Amazon Route 53 health checkers.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The date and time that the health checker performed the health check in
     -- <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated
     -- Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@
     -- represents March 27, 2017 at 17:48:16.751 UTC.
-    checkedTime :: Prelude.Maybe Prelude.ISO8601
+    checkedTime :: Core.Maybe Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StatusReport' with all optional fields omitted.
@@ -59,28 +58,28 @@ newStatusReport ::
   StatusReport
 newStatusReport =
   StatusReport'
-    { status = Prelude.Nothing,
-      checkedTime = Prelude.Nothing
+    { status = Core.Nothing,
+      checkedTime = Core.Nothing
     }
 
 -- | A description of the status of the health check endpoint as reported by
 -- one of the Amazon Route 53 health checkers.
-statusReport_status :: Lens.Lens' StatusReport (Prelude.Maybe Prelude.Text)
+statusReport_status :: Lens.Lens' StatusReport (Core.Maybe Core.Text)
 statusReport_status = Lens.lens (\StatusReport' {status} -> status) (\s@StatusReport' {} a -> s {status = a} :: StatusReport)
 
 -- | The date and time that the health checker performed the health check in
 -- <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format> and Coordinated
 -- Universal Time (UTC). For example, the value @2017-03-27T17:48:16.751Z@
 -- represents March 27, 2017 at 17:48:16.751 UTC.
-statusReport_checkedTime :: Lens.Lens' StatusReport (Prelude.Maybe Prelude.UTCTime)
-statusReport_checkedTime = Lens.lens (\StatusReport' {checkedTime} -> checkedTime) (\s@StatusReport' {} a -> s {checkedTime = a} :: StatusReport) Prelude.. Lens.mapping Prelude._Time
+statusReport_checkedTime :: Lens.Lens' StatusReport (Core.Maybe Core.UTCTime)
+statusReport_checkedTime = Lens.lens (\StatusReport' {checkedTime} -> checkedTime) (\s@StatusReport' {} a -> s {checkedTime = a} :: StatusReport) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromXML StatusReport where
+instance Core.FromXML StatusReport where
   parseXML x =
     StatusReport'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "CheckedTime")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "CheckedTime")
 
-instance Prelude.Hashable StatusReport
+instance Core.Hashable StatusReport
 
-instance Prelude.NFData StatusReport
+instance Core.NFData StatusReport

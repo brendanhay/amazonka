@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,20 +53,20 @@ module Network.AWS.LexModels.GetSlotType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSlotType' smart constructor.
 data GetSlotType = GetSlotType'
   { -- | The name of the slot type. The name is case sensitive.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version of the slot type.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSlotType' with all optional fields omitted.
@@ -82,101 +81,97 @@ data GetSlotType = GetSlotType'
 -- 'version', 'getSlotType_version' - The version of the slot type.
 newGetSlotType ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   GetSlotType
 newGetSlotType pName_ pVersion_ =
   GetSlotType' {name = pName_, version = pVersion_}
 
 -- | The name of the slot type. The name is case sensitive.
-getSlotType_name :: Lens.Lens' GetSlotType Prelude.Text
+getSlotType_name :: Lens.Lens' GetSlotType Core.Text
 getSlotType_name = Lens.lens (\GetSlotType' {name} -> name) (\s@GetSlotType' {} a -> s {name = a} :: GetSlotType)
 
 -- | The version of the slot type.
-getSlotType_version :: Lens.Lens' GetSlotType Prelude.Text
+getSlotType_version :: Lens.Lens' GetSlotType Core.Text
 getSlotType_version = Lens.lens (\GetSlotType' {version} -> version) (\s@GetSlotType' {} a -> s {version = a} :: GetSlotType)
 
-instance Prelude.AWSRequest GetSlotType where
-  type Rs GetSlotType = GetSlotTypeResponse
+instance Core.AWSRequest GetSlotType where
+  type AWSResponse GetSlotType = GetSlotTypeResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSlotTypeResponse'
-            Prelude.<$> ( x Prelude..?> "slotTypeConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "createdDate")
-            Prelude.<*> ( x Prelude..?> "enumerationValues"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "lastUpdatedDate")
-            Prelude.<*> (x Prelude..?> "valueSelectionStrategy")
-            Prelude.<*> (x Prelude..?> "version")
-            Prelude.<*> (x Prelude..?> "name")
-            Prelude.<*> (x Prelude..?> "parentSlotTypeSignature")
-            Prelude.<*> (x Prelude..?> "description")
-            Prelude.<*> (x Prelude..?> "checksum")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "slotTypeConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "createdDate")
+            Core.<*> (x Core..?> "enumerationValues" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "lastUpdatedDate")
+            Core.<*> (x Core..?> "valueSelectionStrategy")
+            Core.<*> (x Core..?> "version")
+            Core.<*> (x Core..?> "name")
+            Core.<*> (x Core..?> "parentSlotTypeSignature")
+            Core.<*> (x Core..?> "description")
+            Core.<*> (x Core..?> "checksum")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSlotType
+instance Core.Hashable GetSlotType
 
-instance Prelude.NFData GetSlotType
+instance Core.NFData GetSlotType
 
-instance Prelude.ToHeaders GetSlotType where
+instance Core.ToHeaders GetSlotType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetSlotType where
+instance Core.ToPath GetSlotType where
   toPath GetSlotType' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/slottypes/",
-        Prelude.toBS name,
+        Core.toBS name,
         "/versions/",
-        Prelude.toBS version
+        Core.toBS version
       ]
 
-instance Prelude.ToQuery GetSlotType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSlotType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSlotTypeResponse' smart constructor.
 data GetSlotTypeResponse = GetSlotTypeResponse'
   { -- | Configuration information that extends the parent built-in slot type.
-    slotTypeConfigurations :: Prelude.Maybe [SlotTypeConfiguration],
+    slotTypeConfigurations :: Core.Maybe [SlotTypeConfiguration],
     -- | The date that the slot type was created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | A list of @EnumerationValue@ objects that defines the values that the
     -- slot type can take.
-    enumerationValues :: Prelude.Maybe [EnumerationValue],
+    enumerationValues :: Core.Maybe [EnumerationValue],
     -- | The date that the slot type was updated. When you create a resource, the
     -- creation date and last update date are the same.
-    lastUpdatedDate :: Prelude.Maybe Prelude.POSIX,
+    lastUpdatedDate :: Core.Maybe Core.POSIX,
     -- | The strategy that Amazon Lex uses to determine the value of the slot.
     -- For more information, see PutSlotType.
-    valueSelectionStrategy :: Prelude.Maybe SlotValueSelectionStrategy,
+    valueSelectionStrategy :: Core.Maybe SlotValueSelectionStrategy,
     -- | The version of the slot type.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the slot type.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The built-in slot type used as a parent for the slot type.
-    parentSlotTypeSignature :: Prelude.Maybe Prelude.Text,
+    parentSlotTypeSignature :: Core.Maybe Core.Text,
     -- | A description of the slot type.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Checksum of the @$LATEST@ version of the slot type.
-    checksum :: Prelude.Maybe Prelude.Text,
+    checksum :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSlotTypeResponse' with all optional fields omitted.
@@ -212,69 +207,69 @@ data GetSlotTypeResponse = GetSlotTypeResponse'
 -- 'httpStatus', 'getSlotTypeResponse_httpStatus' - The response's http status code.
 newGetSlotTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSlotTypeResponse
 newGetSlotTypeResponse pHttpStatus_ =
   GetSlotTypeResponse'
     { slotTypeConfigurations =
-        Prelude.Nothing,
-      createdDate = Prelude.Nothing,
-      enumerationValues = Prelude.Nothing,
-      lastUpdatedDate = Prelude.Nothing,
-      valueSelectionStrategy = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      parentSlotTypeSignature = Prelude.Nothing,
-      description = Prelude.Nothing,
-      checksum = Prelude.Nothing,
+        Core.Nothing,
+      createdDate = Core.Nothing,
+      enumerationValues = Core.Nothing,
+      lastUpdatedDate = Core.Nothing,
+      valueSelectionStrategy = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing,
+      parentSlotTypeSignature = Core.Nothing,
+      description = Core.Nothing,
+      checksum = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Configuration information that extends the parent built-in slot type.
-getSlotTypeResponse_slotTypeConfigurations :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe [SlotTypeConfiguration])
-getSlotTypeResponse_slotTypeConfigurations = Lens.lens (\GetSlotTypeResponse' {slotTypeConfigurations} -> slotTypeConfigurations) (\s@GetSlotTypeResponse' {} a -> s {slotTypeConfigurations = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSlotTypeResponse_slotTypeConfigurations :: Lens.Lens' GetSlotTypeResponse (Core.Maybe [SlotTypeConfiguration])
+getSlotTypeResponse_slotTypeConfigurations = Lens.lens (\GetSlotTypeResponse' {slotTypeConfigurations} -> slotTypeConfigurations) (\s@GetSlotTypeResponse' {} a -> s {slotTypeConfigurations = a} :: GetSlotTypeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The date that the slot type was created.
-getSlotTypeResponse_createdDate :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getSlotTypeResponse_createdDate = Lens.lens (\GetSlotTypeResponse' {createdDate} -> createdDate) (\s@GetSlotTypeResponse' {} a -> s {createdDate = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Prelude._Time
+getSlotTypeResponse_createdDate :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.UTCTime)
+getSlotTypeResponse_createdDate = Lens.lens (\GetSlotTypeResponse' {createdDate} -> createdDate) (\s@GetSlotTypeResponse' {} a -> s {createdDate = a} :: GetSlotTypeResponse) Core.. Lens.mapping Core._Time
 
 -- | A list of @EnumerationValue@ objects that defines the values that the
 -- slot type can take.
-getSlotTypeResponse_enumerationValues :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe [EnumerationValue])
-getSlotTypeResponse_enumerationValues = Lens.lens (\GetSlotTypeResponse' {enumerationValues} -> enumerationValues) (\s@GetSlotTypeResponse' {} a -> s {enumerationValues = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSlotTypeResponse_enumerationValues :: Lens.Lens' GetSlotTypeResponse (Core.Maybe [EnumerationValue])
+getSlotTypeResponse_enumerationValues = Lens.lens (\GetSlotTypeResponse' {enumerationValues} -> enumerationValues) (\s@GetSlotTypeResponse' {} a -> s {enumerationValues = a} :: GetSlotTypeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The date that the slot type was updated. When you create a resource, the
 -- creation date and last update date are the same.
-getSlotTypeResponse_lastUpdatedDate :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.UTCTime)
-getSlotTypeResponse_lastUpdatedDate = Lens.lens (\GetSlotTypeResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetSlotTypeResponse' {} a -> s {lastUpdatedDate = a} :: GetSlotTypeResponse) Prelude.. Lens.mapping Prelude._Time
+getSlotTypeResponse_lastUpdatedDate :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.UTCTime)
+getSlotTypeResponse_lastUpdatedDate = Lens.lens (\GetSlotTypeResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetSlotTypeResponse' {} a -> s {lastUpdatedDate = a} :: GetSlotTypeResponse) Core.. Lens.mapping Core._Time
 
 -- | The strategy that Amazon Lex uses to determine the value of the slot.
 -- For more information, see PutSlotType.
-getSlotTypeResponse_valueSelectionStrategy :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe SlotValueSelectionStrategy)
+getSlotTypeResponse_valueSelectionStrategy :: Lens.Lens' GetSlotTypeResponse (Core.Maybe SlotValueSelectionStrategy)
 getSlotTypeResponse_valueSelectionStrategy = Lens.lens (\GetSlotTypeResponse' {valueSelectionStrategy} -> valueSelectionStrategy) (\s@GetSlotTypeResponse' {} a -> s {valueSelectionStrategy = a} :: GetSlotTypeResponse)
 
 -- | The version of the slot type.
-getSlotTypeResponse_version :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.Text)
+getSlotTypeResponse_version :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.Text)
 getSlotTypeResponse_version = Lens.lens (\GetSlotTypeResponse' {version} -> version) (\s@GetSlotTypeResponse' {} a -> s {version = a} :: GetSlotTypeResponse)
 
 -- | The name of the slot type.
-getSlotTypeResponse_name :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.Text)
+getSlotTypeResponse_name :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.Text)
 getSlotTypeResponse_name = Lens.lens (\GetSlotTypeResponse' {name} -> name) (\s@GetSlotTypeResponse' {} a -> s {name = a} :: GetSlotTypeResponse)
 
 -- | The built-in slot type used as a parent for the slot type.
-getSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.Text)
+getSlotTypeResponse_parentSlotTypeSignature :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.Text)
 getSlotTypeResponse_parentSlotTypeSignature = Lens.lens (\GetSlotTypeResponse' {parentSlotTypeSignature} -> parentSlotTypeSignature) (\s@GetSlotTypeResponse' {} a -> s {parentSlotTypeSignature = a} :: GetSlotTypeResponse)
 
 -- | A description of the slot type.
-getSlotTypeResponse_description :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.Text)
+getSlotTypeResponse_description :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.Text)
 getSlotTypeResponse_description = Lens.lens (\GetSlotTypeResponse' {description} -> description) (\s@GetSlotTypeResponse' {} a -> s {description = a} :: GetSlotTypeResponse)
 
 -- | Checksum of the @$LATEST@ version of the slot type.
-getSlotTypeResponse_checksum :: Lens.Lens' GetSlotTypeResponse (Prelude.Maybe Prelude.Text)
+getSlotTypeResponse_checksum :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.Text)
 getSlotTypeResponse_checksum = Lens.lens (\GetSlotTypeResponse' {checksum} -> checksum) (\s@GetSlotTypeResponse' {} a -> s {checksum = a} :: GetSlotTypeResponse)
 
 -- | The response's http status code.
-getSlotTypeResponse_httpStatus :: Lens.Lens' GetSlotTypeResponse Prelude.Int
+getSlotTypeResponse_httpStatus :: Lens.Lens' GetSlotTypeResponse Core.Int
 getSlotTypeResponse_httpStatus = Lens.lens (\GetSlotTypeResponse' {httpStatus} -> httpStatus) (\s@GetSlotTypeResponse' {} a -> s {httpStatus = a} :: GetSlotTypeResponse)
 
-instance Prelude.NFData GetSlotTypeResponse
+instance Core.NFData GetSlotTypeResponse

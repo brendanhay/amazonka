@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,23 +20,23 @@
 module Network.AWS.APIGateway.Types.SdkType where
 
 import Network.AWS.APIGateway.Types.SdkConfigurationProperty
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A type of SDK that API Gateway can generate.
 --
 -- /See:/ 'newSdkType' smart constructor.
 data SdkType = SdkType'
   { -- | The user-friendly name of an SdkType instance.
-    friendlyName :: Prelude.Maybe Prelude.Text,
+    friendlyName :: Core.Maybe Core.Text,
     -- | The identifier of an SdkType instance.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | A list of configuration properties of an SdkType.
-    configurationProperties :: Prelude.Maybe [SdkConfigurationProperty],
+    configurationProperties :: Core.Maybe [SdkConfigurationProperty],
     -- | The description of an SdkType.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SdkType' with all optional fields omitted.
@@ -58,42 +57,42 @@ newSdkType ::
   SdkType
 newSdkType =
   SdkType'
-    { friendlyName = Prelude.Nothing,
-      id = Prelude.Nothing,
-      configurationProperties = Prelude.Nothing,
-      description = Prelude.Nothing
+    { friendlyName = Core.Nothing,
+      id = Core.Nothing,
+      configurationProperties = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The user-friendly name of an SdkType instance.
-sdkType_friendlyName :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
+sdkType_friendlyName :: Lens.Lens' SdkType (Core.Maybe Core.Text)
 sdkType_friendlyName = Lens.lens (\SdkType' {friendlyName} -> friendlyName) (\s@SdkType' {} a -> s {friendlyName = a} :: SdkType)
 
 -- | The identifier of an SdkType instance.
-sdkType_id :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
+sdkType_id :: Lens.Lens' SdkType (Core.Maybe Core.Text)
 sdkType_id = Lens.lens (\SdkType' {id} -> id) (\s@SdkType' {} a -> s {id = a} :: SdkType)
 
 -- | A list of configuration properties of an SdkType.
-sdkType_configurationProperties :: Lens.Lens' SdkType (Prelude.Maybe [SdkConfigurationProperty])
-sdkType_configurationProperties = Lens.lens (\SdkType' {configurationProperties} -> configurationProperties) (\s@SdkType' {} a -> s {configurationProperties = a} :: SdkType) Prelude.. Lens.mapping Prelude._Coerce
+sdkType_configurationProperties :: Lens.Lens' SdkType (Core.Maybe [SdkConfigurationProperty])
+sdkType_configurationProperties = Lens.lens (\SdkType' {configurationProperties} -> configurationProperties) (\s@SdkType' {} a -> s {configurationProperties = a} :: SdkType) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of an SdkType.
-sdkType_description :: Lens.Lens' SdkType (Prelude.Maybe Prelude.Text)
+sdkType_description :: Lens.Lens' SdkType (Core.Maybe Core.Text)
 sdkType_description = Lens.lens (\SdkType' {description} -> description) (\s@SdkType' {} a -> s {description = a} :: SdkType)
 
-instance Prelude.FromJSON SdkType where
+instance Core.FromJSON SdkType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SdkType"
       ( \x ->
           SdkType'
-            Prelude.<$> (x Prelude..:? "friendlyName")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> ( x Prelude..:? "configurationProperties"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "description")
+            Core.<$> (x Core..:? "friendlyName")
+            Core.<*> (x Core..:? "id")
+            Core.<*> ( x Core..:? "configurationProperties"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable SdkType
+instance Core.Hashable SdkType
 
-instance Prelude.NFData SdkType
+instance Core.NFData SdkType

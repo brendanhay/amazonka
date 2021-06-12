@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SES.PutConfigurationSetDeliveryOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -52,12 +51,12 @@ import Network.AWS.SES.Types
 data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
   { -- | Specifies whether messages that use the configuration set are required
     -- to use Transport Layer Security (TLS).
-    deliveryOptions :: Prelude.Maybe DeliveryOptions,
+    deliveryOptions :: Core.Maybe DeliveryOptions,
     -- | The name of the configuration set that you want to specify the delivery
     -- options for.
-    configurationSetName :: Prelude.Text
+    configurationSetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutConfigurationSetDeliveryOptions' with all optional fields omitted.
@@ -74,33 +73,33 @@ data PutConfigurationSetDeliveryOptions = PutConfigurationSetDeliveryOptions'
 -- options for.
 newPutConfigurationSetDeliveryOptions ::
   -- | 'configurationSetName'
-  Prelude.Text ->
+  Core.Text ->
   PutConfigurationSetDeliveryOptions
 newPutConfigurationSetDeliveryOptions
   pConfigurationSetName_ =
     PutConfigurationSetDeliveryOptions'
       { deliveryOptions =
-          Prelude.Nothing,
+          Core.Nothing,
         configurationSetName =
           pConfigurationSetName_
       }
 
 -- | Specifies whether messages that use the configuration set are required
 -- to use Transport Layer Security (TLS).
-putConfigurationSetDeliveryOptions_deliveryOptions :: Lens.Lens' PutConfigurationSetDeliveryOptions (Prelude.Maybe DeliveryOptions)
+putConfigurationSetDeliveryOptions_deliveryOptions :: Lens.Lens' PutConfigurationSetDeliveryOptions (Core.Maybe DeliveryOptions)
 putConfigurationSetDeliveryOptions_deliveryOptions = Lens.lens (\PutConfigurationSetDeliveryOptions' {deliveryOptions} -> deliveryOptions) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {deliveryOptions = a} :: PutConfigurationSetDeliveryOptions)
 
 -- | The name of the configuration set that you want to specify the delivery
 -- options for.
-putConfigurationSetDeliveryOptions_configurationSetName :: Lens.Lens' PutConfigurationSetDeliveryOptions Prelude.Text
+putConfigurationSetDeliveryOptions_configurationSetName :: Lens.Lens' PutConfigurationSetDeliveryOptions Core.Text
 putConfigurationSetDeliveryOptions_configurationSetName = Lens.lens (\PutConfigurationSetDeliveryOptions' {configurationSetName} -> configurationSetName) (\s@PutConfigurationSetDeliveryOptions' {} a -> s {configurationSetName = a} :: PutConfigurationSetDeliveryOptions)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutConfigurationSetDeliveryOptions
   where
   type
-    Rs PutConfigurationSetDeliveryOptions =
+    AWSResponse PutConfigurationSetDeliveryOptions =
       PutConfigurationSetDeliveryOptionsResponse
   request = Request.postQuery defaultService
   response =
@@ -108,44 +107,42 @@ instance
       "PutConfigurationSetDeliveryOptionsResult"
       ( \s h x ->
           PutConfigurationSetDeliveryOptionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutConfigurationSetDeliveryOptions
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutConfigurationSetDeliveryOptions
 
 instance
-  Prelude.ToHeaders
-    PutConfigurationSetDeliveryOptions
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     PutConfigurationSetDeliveryOptions
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    PutConfigurationSetDeliveryOptions
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     PutConfigurationSetDeliveryOptions
   where
   toQuery PutConfigurationSetDeliveryOptions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "PutConfigurationSetDeliveryOptions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "DeliveryOptions" Prelude.=: deliveryOptions,
-        "ConfigurationSetName"
-          Prelude.=: configurationSetName
+          Core.=: ( "PutConfigurationSetDeliveryOptions" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "DeliveryOptions" Core.=: deliveryOptions,
+        "ConfigurationSetName" Core.=: configurationSetName
       ]
 
 -- | An HTTP 200 response if the request succeeds, or an error message if the
@@ -154,9 +151,9 @@ instance
 -- /See:/ 'newPutConfigurationSetDeliveryOptionsResponse' smart constructor.
 data PutConfigurationSetDeliveryOptionsResponse = PutConfigurationSetDeliveryOptionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutConfigurationSetDeliveryOptionsResponse' with all optional fields omitted.
@@ -169,7 +166,7 @@ data PutConfigurationSetDeliveryOptionsResponse = PutConfigurationSetDeliveryOpt
 -- 'httpStatus', 'putConfigurationSetDeliveryOptionsResponse_httpStatus' - The response's http status code.
 newPutConfigurationSetDeliveryOptionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutConfigurationSetDeliveryOptionsResponse
 newPutConfigurationSetDeliveryOptionsResponse
   pHttpStatus_ =
@@ -179,9 +176,9 @@ newPutConfigurationSetDeliveryOptionsResponse
       }
 
 -- | The response's http status code.
-putConfigurationSetDeliveryOptionsResponse_httpStatus :: Lens.Lens' PutConfigurationSetDeliveryOptionsResponse Prelude.Int
+putConfigurationSetDeliveryOptionsResponse_httpStatus :: Lens.Lens' PutConfigurationSetDeliveryOptionsResponse Core.Int
 putConfigurationSetDeliveryOptionsResponse_httpStatus = Lens.lens (\PutConfigurationSetDeliveryOptionsResponse' {httpStatus} -> httpStatus) (\s@PutConfigurationSetDeliveryOptionsResponse' {} a -> s {httpStatus = a} :: PutConfigurationSetDeliveryOptionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutConfigurationSetDeliveryOptionsResponse

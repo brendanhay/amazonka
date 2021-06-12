@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,10 +52,9 @@ module Network.AWS.IAM.ListMFADevices
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,7 +66,7 @@ data ListMFADevices = ListMFADevices'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -78,14 +76,14 @@ data ListMFADevices = ListMFADevices'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMFADevices' with all optional fields omitted.
@@ -120,9 +118,9 @@ newListMFADevices ::
   ListMFADevices
 newListMFADevices =
   ListMFADevices'
-    { userName = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { userName = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The name of the user whose MFA devices you want to list.
@@ -131,7 +129,7 @@ newListMFADevices =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listMFADevices_userName :: Lens.Lens' ListMFADevices (Prelude.Maybe Prelude.Text)
+listMFADevices_userName :: Lens.Lens' ListMFADevices (Core.Maybe Core.Text)
 listMFADevices_userName = Lens.lens (\ListMFADevices' {userName} -> userName) (\s@ListMFADevices' {} a -> s {userName = a} :: ListMFADevices)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -143,73 +141,72 @@ listMFADevices_userName = Lens.lens (\ListMFADevices' {userName} -> userName) (\
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listMFADevices_maxItems :: Lens.Lens' ListMFADevices (Prelude.Maybe Prelude.Natural)
+listMFADevices_maxItems :: Lens.Lens' ListMFADevices (Core.Maybe Core.Natural)
 listMFADevices_maxItems = Lens.lens (\ListMFADevices' {maxItems} -> maxItems) (\s@ListMFADevices' {} a -> s {maxItems = a} :: ListMFADevices)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listMFADevices_marker :: Lens.Lens' ListMFADevices (Prelude.Maybe Prelude.Text)
+listMFADevices_marker :: Lens.Lens' ListMFADevices (Core.Maybe Core.Text)
 listMFADevices_marker = Lens.lens (\ListMFADevices' {marker} -> marker) (\s@ListMFADevices' {} a -> s {marker = a} :: ListMFADevices)
 
-instance Pager.AWSPager ListMFADevices where
+instance Core.AWSPager ListMFADevices where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listMFADevicesResponse_isTruncated
-              Prelude.. Lens._Just
+            Lens.^? listMFADevicesResponse_isTruncated Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listMFADevicesResponse_marker Prelude.. Lens._Just
+            Lens.^? listMFADevicesResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listMFADevices_marker
           Lens..~ rs
-          Lens.^? listMFADevicesResponse_marker Prelude.. Lens._Just
+          Lens.^? listMFADevicesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListMFADevices where
-  type Rs ListMFADevices = ListMFADevicesResponse
+instance Core.AWSRequest ListMFADevices where
+  type
+    AWSResponse ListMFADevices =
+      ListMFADevicesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListMFADevicesResult"
       ( \s h x ->
           ListMFADevicesResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "MFADevices"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "MFADevices" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListMFADevices
+instance Core.Hashable ListMFADevices
 
-instance Prelude.NFData ListMFADevices
+instance Core.NFData ListMFADevices
 
-instance Prelude.ToHeaders ListMFADevices where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListMFADevices where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListMFADevices where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListMFADevices where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListMFADevices where
+instance Core.ToQuery ListMFADevices where
   toQuery ListMFADevices' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListMFADevices" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+          Core.=: ("ListMFADevices" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the response to a successful ListMFADevices request.
@@ -223,17 +220,17 @@ data ListMFADevicesResponse = ListMFADevicesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of MFA devices.
     mfaDevices :: [MFADevice]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListMFADevicesResponse' with all optional fields omitted.
@@ -260,15 +257,14 @@ data ListMFADevicesResponse = ListMFADevicesResponse'
 -- 'mfaDevices', 'listMFADevicesResponse_mfaDevices' - A list of MFA devices.
 newListMFADevicesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListMFADevicesResponse
 newListMFADevicesResponse pHttpStatus_ =
   ListMFADevicesResponse'
-    { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { isTruncated = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      mfaDevices = Prelude.mempty
+      mfaDevices = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -278,21 +274,21 @@ newListMFADevicesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listMFADevicesResponse_isTruncated :: Lens.Lens' ListMFADevicesResponse (Prelude.Maybe Prelude.Bool)
+listMFADevicesResponse_isTruncated :: Lens.Lens' ListMFADevicesResponse (Core.Maybe Core.Bool)
 listMFADevicesResponse_isTruncated = Lens.lens (\ListMFADevicesResponse' {isTruncated} -> isTruncated) (\s@ListMFADevicesResponse' {} a -> s {isTruncated = a} :: ListMFADevicesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listMFADevicesResponse_marker :: Lens.Lens' ListMFADevicesResponse (Prelude.Maybe Prelude.Text)
+listMFADevicesResponse_marker :: Lens.Lens' ListMFADevicesResponse (Core.Maybe Core.Text)
 listMFADevicesResponse_marker = Lens.lens (\ListMFADevicesResponse' {marker} -> marker) (\s@ListMFADevicesResponse' {} a -> s {marker = a} :: ListMFADevicesResponse)
 
 -- | The response's http status code.
-listMFADevicesResponse_httpStatus :: Lens.Lens' ListMFADevicesResponse Prelude.Int
+listMFADevicesResponse_httpStatus :: Lens.Lens' ListMFADevicesResponse Core.Int
 listMFADevicesResponse_httpStatus = Lens.lens (\ListMFADevicesResponse' {httpStatus} -> httpStatus) (\s@ListMFADevicesResponse' {} a -> s {httpStatus = a} :: ListMFADevicesResponse)
 
 -- | A list of MFA devices.
 listMFADevicesResponse_mfaDevices :: Lens.Lens' ListMFADevicesResponse [MFADevice]
-listMFADevicesResponse_mfaDevices = Lens.lens (\ListMFADevicesResponse' {mfaDevices} -> mfaDevices) (\s@ListMFADevicesResponse' {} a -> s {mfaDevices = a} :: ListMFADevicesResponse) Prelude.. Prelude._Coerce
+listMFADevicesResponse_mfaDevices = Lens.lens (\ListMFADevicesResponse' {mfaDevices} -> mfaDevices) (\s@ListMFADevicesResponse' {} a -> s {mfaDevices = a} :: ListMFADevicesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListMFADevicesResponse
+instance Core.NFData ListMFADevicesResponse

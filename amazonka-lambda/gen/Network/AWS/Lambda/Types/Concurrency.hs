@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.Concurrency where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newConcurrency' smart constructor.
 data Concurrency = Concurrency'
   { -- | The number of concurrent executions that are reserved for this function.
     -- For more information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency>.
-    reservedConcurrentExecutions :: Prelude.Maybe Prelude.Natural
+    reservedConcurrentExecutions :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Concurrency' with all optional fields omitted.
@@ -48,24 +47,24 @@ newConcurrency ::
 newConcurrency =
   Concurrency'
     { reservedConcurrentExecutions =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The number of concurrent executions that are reserved for this function.
 -- For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency>.
-concurrency_reservedConcurrentExecutions :: Lens.Lens' Concurrency (Prelude.Maybe Prelude.Natural)
+concurrency_reservedConcurrentExecutions :: Lens.Lens' Concurrency (Core.Maybe Core.Natural)
 concurrency_reservedConcurrentExecutions = Lens.lens (\Concurrency' {reservedConcurrentExecutions} -> reservedConcurrentExecutions) (\s@Concurrency' {} a -> s {reservedConcurrentExecutions = a} :: Concurrency)
 
-instance Prelude.FromJSON Concurrency where
+instance Core.FromJSON Concurrency where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Concurrency"
       ( \x ->
           Concurrency'
-            Prelude.<$> (x Prelude..:? "ReservedConcurrentExecutions")
+            Core.<$> (x Core..:? "ReservedConcurrentExecutions")
       )
 
-instance Prelude.Hashable Concurrency
+instance Core.Hashable Concurrency
 
-instance Prelude.NFData Concurrency
+instance Core.NFData Concurrency

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.FindMatchesTaskRunProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies configuration properties for a Find Matches task run.
 --
 -- /See:/ 'newFindMatchesTaskRunProperties' smart constructor.
 data FindMatchesTaskRunProperties = FindMatchesTaskRunProperties'
   { -- | The job run ID for the Find Matches task run.
-    jobRunId :: Prelude.Maybe Prelude.Text,
+    jobRunId :: Core.Maybe Core.Text,
     -- | The name assigned to the job for the Find Matches task run.
-    jobName :: Prelude.Maybe Prelude.Text,
+    jobName :: Core.Maybe Core.Text,
     -- | The job ID for the Find Matches task run.
-    jobId :: Prelude.Maybe Prelude.Text
+    jobId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FindMatchesTaskRunProperties' with all optional fields omitted.
@@ -54,39 +53,34 @@ newFindMatchesTaskRunProperties ::
 newFindMatchesTaskRunProperties =
   FindMatchesTaskRunProperties'
     { jobRunId =
-        Prelude.Nothing,
-      jobName = Prelude.Nothing,
-      jobId = Prelude.Nothing
+        Core.Nothing,
+      jobName = Core.Nothing,
+      jobId = Core.Nothing
     }
 
 -- | The job run ID for the Find Matches task run.
-findMatchesTaskRunProperties_jobRunId :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
+findMatchesTaskRunProperties_jobRunId :: Lens.Lens' FindMatchesTaskRunProperties (Core.Maybe Core.Text)
 findMatchesTaskRunProperties_jobRunId = Lens.lens (\FindMatchesTaskRunProperties' {jobRunId} -> jobRunId) (\s@FindMatchesTaskRunProperties' {} a -> s {jobRunId = a} :: FindMatchesTaskRunProperties)
 
 -- | The name assigned to the job for the Find Matches task run.
-findMatchesTaskRunProperties_jobName :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
+findMatchesTaskRunProperties_jobName :: Lens.Lens' FindMatchesTaskRunProperties (Core.Maybe Core.Text)
 findMatchesTaskRunProperties_jobName = Lens.lens (\FindMatchesTaskRunProperties' {jobName} -> jobName) (\s@FindMatchesTaskRunProperties' {} a -> s {jobName = a} :: FindMatchesTaskRunProperties)
 
 -- | The job ID for the Find Matches task run.
-findMatchesTaskRunProperties_jobId :: Lens.Lens' FindMatchesTaskRunProperties (Prelude.Maybe Prelude.Text)
+findMatchesTaskRunProperties_jobId :: Lens.Lens' FindMatchesTaskRunProperties (Core.Maybe Core.Text)
 findMatchesTaskRunProperties_jobId = Lens.lens (\FindMatchesTaskRunProperties' {jobId} -> jobId) (\s@FindMatchesTaskRunProperties' {} a -> s {jobId = a} :: FindMatchesTaskRunProperties)
 
-instance
-  Prelude.FromJSON
-    FindMatchesTaskRunProperties
-  where
+instance Core.FromJSON FindMatchesTaskRunProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FindMatchesTaskRunProperties"
       ( \x ->
           FindMatchesTaskRunProperties'
-            Prelude.<$> (x Prelude..:? "JobRunId")
-            Prelude.<*> (x Prelude..:? "JobName")
-            Prelude.<*> (x Prelude..:? "JobId")
+            Core.<$> (x Core..:? "JobRunId")
+            Core.<*> (x Core..:? "JobName")
+            Core.<*> (x Core..:? "JobId")
       )
 
-instance
-  Prelude.Hashable
-    FindMatchesTaskRunProperties
+instance Core.Hashable FindMatchesTaskRunProperties
 
-instance Prelude.NFData FindMatchesTaskRunProperties
+instance Core.NFData FindMatchesTaskRunProperties

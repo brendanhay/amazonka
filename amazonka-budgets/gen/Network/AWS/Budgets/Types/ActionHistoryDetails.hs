@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,18 +20,18 @@
 module Network.AWS.Budgets.Types.ActionHistoryDetails where
 
 import Network.AWS.Budgets.Types.Action
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of details of the event.
 --
 -- /See:/ 'newActionHistoryDetails' smart constructor.
 data ActionHistoryDetails = ActionHistoryDetails'
-  { message :: Prelude.Text,
+  { message :: Core.Text,
     -- | The budget action resource.
     action :: Action
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionHistoryDetails' with all optional fields omitted.
@@ -47,7 +46,7 @@ data ActionHistoryDetails = ActionHistoryDetails'
 -- 'action', 'actionHistoryDetails_action' - The budget action resource.
 newActionHistoryDetails ::
   -- | 'message'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'action'
   Action ->
   ActionHistoryDetails
@@ -58,23 +57,22 @@ newActionHistoryDetails pMessage_ pAction_ =
     }
 
 -- | Undocumented member.
-actionHistoryDetails_message :: Lens.Lens' ActionHistoryDetails Prelude.Text
+actionHistoryDetails_message :: Lens.Lens' ActionHistoryDetails Core.Text
 actionHistoryDetails_message = Lens.lens (\ActionHistoryDetails' {message} -> message) (\s@ActionHistoryDetails' {} a -> s {message = a} :: ActionHistoryDetails)
 
 -- | The budget action resource.
 actionHistoryDetails_action :: Lens.Lens' ActionHistoryDetails Action
 actionHistoryDetails_action = Lens.lens (\ActionHistoryDetails' {action} -> action) (\s@ActionHistoryDetails' {} a -> s {action = a} :: ActionHistoryDetails)
 
-instance Prelude.FromJSON ActionHistoryDetails where
+instance Core.FromJSON ActionHistoryDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionHistoryDetails"
       ( \x ->
           ActionHistoryDetails'
-            Prelude.<$> (x Prelude..: "Message")
-            Prelude.<*> (x Prelude..: "Action")
+            Core.<$> (x Core..: "Message") Core.<*> (x Core..: "Action")
       )
 
-instance Prelude.Hashable ActionHistoryDetails
+instance Core.Hashable ActionHistoryDetails
 
-instance Prelude.NFData ActionHistoryDetails
+instance Core.NFData ActionHistoryDetails

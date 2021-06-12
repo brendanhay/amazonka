@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,9 +68,9 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,50 +78,50 @@ import qualified Network.AWS.Response as Response
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
   { -- | The start of port range for the TCP and UDP protocols, or an ICMP type
     -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
-    fromPort :: Prelude.Maybe Prelude.Int,
+    fromPort :: Core.Maybe Core.Int,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | [EC2-Classic, default VPC] The name of the source security group. You
     -- can\'t specify this parameter in combination with the following
     -- parameters: the CIDR IP address range, the start of the port range, the
     -- IP protocol, and the end of the port range. For EC2-VPC, the source
     -- security group must be in the same VPC. To revoke a specific rule for an
     -- IP protocol and port range, use a set of IP permissions instead.
-    sourceSecurityGroupName :: Prelude.Maybe Prelude.Text,
+    sourceSecurityGroupName :: Core.Maybe Core.Text,
     -- | [EC2-Classic, default VPC] The name of the security group. You must
     -- specify either the security group ID or the security group name in the
     -- request.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The CIDR IP address range. You can\'t specify this parameter when
     -- specifying a source security group.
-    cidrIp :: Prelude.Maybe Prelude.Text,
+    cidrIp :: Core.Maybe Core.Text,
     -- | The ID of the security group. You must specify either the security group
     -- ID or the security group name in the request. For security groups in a
     -- nondefault VPC, you must specify the security group ID.
-    groupId :: Prelude.Maybe Prelude.Text,
+    groupId :: Core.Maybe Core.Text,
     -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
     -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
     -- Use @-1@ to specify all.
-    ipProtocol :: Prelude.Maybe Prelude.Text,
+    ipProtocol :: Core.Maybe Core.Text,
     -- | The sets of IP permissions. You can\'t specify a source security group
     -- and a CIDR IP address range in the same set of permissions.
-    ipPermissions :: Prelude.Maybe [IpPermission],
+    ipPermissions :: Core.Maybe [IpPermission],
     -- | [EC2-Classic] The AWS account ID of the source security group, if the
     -- source security group is in a different account. You can\'t specify this
     -- parameter in combination with the following parameters: the CIDR IP
     -- address range, the IP protocol, the start of the port range, and the end
     -- of the port range. To revoke a specific rule for an IP protocol and port
     -- range, use a set of IP permissions instead.
-    sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
+    sourceSecurityGroupOwnerId :: Core.Maybe Core.Text,
     -- | The end of port range for the TCP and UDP protocols, or an ICMP code
     -- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
     -- the ICMP type.
-    toPort :: Prelude.Maybe Prelude.Int
+    toPort :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeSecurityGroupIngress' with all optional fields omitted.
@@ -180,28 +179,28 @@ newRevokeSecurityGroupIngress ::
 newRevokeSecurityGroupIngress =
   RevokeSecurityGroupIngress'
     { fromPort =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      sourceSecurityGroupName = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      cidrIp = Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      ipProtocol = Prelude.Nothing,
-      ipPermissions = Prelude.Nothing,
-      sourceSecurityGroupOwnerId = Prelude.Nothing,
-      toPort = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      sourceSecurityGroupName = Core.Nothing,
+      groupName = Core.Nothing,
+      cidrIp = Core.Nothing,
+      groupId = Core.Nothing,
+      ipProtocol = Core.Nothing,
+      ipPermissions = Core.Nothing,
+      sourceSecurityGroupOwnerId = Core.Nothing,
+      toPort = Core.Nothing
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
-revokeSecurityGroupIngress_fromPort :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
+revokeSecurityGroupIngress_fromPort :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Int)
 revokeSecurityGroupIngress_fromPort = Lens.lens (\RevokeSecurityGroupIngress' {fromPort} -> fromPort) (\s@RevokeSecurityGroupIngress' {} a -> s {fromPort = a} :: RevokeSecurityGroupIngress)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-revokeSecurityGroupIngress_dryRun :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Bool)
+revokeSecurityGroupIngress_dryRun :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Bool)
 revokeSecurityGroupIngress_dryRun = Lens.lens (\RevokeSecurityGroupIngress' {dryRun} -> dryRun) (\s@RevokeSecurityGroupIngress' {} a -> s {dryRun = a} :: RevokeSecurityGroupIngress)
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
@@ -210,36 +209,36 @@ revokeSecurityGroupIngress_dryRun = Lens.lens (\RevokeSecurityGroupIngress' {dry
 -- IP protocol, and the end of the port range. For EC2-VPC, the source
 -- security group must be in the same VPC. To revoke a specific rule for an
 -- IP protocol and port range, use a set of IP permissions instead.
-revokeSecurityGroupIngress_sourceSecurityGroupName :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupIngress_sourceSecurityGroupName :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Text)
 revokeSecurityGroupIngress_sourceSecurityGroupName = Lens.lens (\RevokeSecurityGroupIngress' {sourceSecurityGroupName} -> sourceSecurityGroupName) (\s@RevokeSecurityGroupIngress' {} a -> s {sourceSecurityGroupName = a} :: RevokeSecurityGroupIngress)
 
 -- | [EC2-Classic, default VPC] The name of the security group. You must
 -- specify either the security group ID or the security group name in the
 -- request.
-revokeSecurityGroupIngress_groupName :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupIngress_groupName :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Text)
 revokeSecurityGroupIngress_groupName = Lens.lens (\RevokeSecurityGroupIngress' {groupName} -> groupName) (\s@RevokeSecurityGroupIngress' {} a -> s {groupName = a} :: RevokeSecurityGroupIngress)
 
 -- | The CIDR IP address range. You can\'t specify this parameter when
 -- specifying a source security group.
-revokeSecurityGroupIngress_cidrIp :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupIngress_cidrIp :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Text)
 revokeSecurityGroupIngress_cidrIp = Lens.lens (\RevokeSecurityGroupIngress' {cidrIp} -> cidrIp) (\s@RevokeSecurityGroupIngress' {} a -> s {cidrIp = a} :: RevokeSecurityGroupIngress)
 
 -- | The ID of the security group. You must specify either the security group
 -- ID or the security group name in the request. For security groups in a
 -- nondefault VPC, you must specify the security group ID.
-revokeSecurityGroupIngress_groupId :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupIngress_groupId :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Text)
 revokeSecurityGroupIngress_groupId = Lens.lens (\RevokeSecurityGroupIngress' {groupId} -> groupId) (\s@RevokeSecurityGroupIngress' {} a -> s {groupId = a} :: RevokeSecurityGroupIngress)
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
 -- Use @-1@ to specify all.
-revokeSecurityGroupIngress_ipProtocol :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupIngress_ipProtocol :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Text)
 revokeSecurityGroupIngress_ipProtocol = Lens.lens (\RevokeSecurityGroupIngress' {ipProtocol} -> ipProtocol) (\s@RevokeSecurityGroupIngress' {} a -> s {ipProtocol = a} :: RevokeSecurityGroupIngress)
 
 -- | The sets of IP permissions. You can\'t specify a source security group
 -- and a CIDR IP address range in the same set of permissions.
-revokeSecurityGroupIngress_ipPermissions :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe [IpPermission])
-revokeSecurityGroupIngress_ipPermissions = Lens.lens (\RevokeSecurityGroupIngress' {ipPermissions} -> ipPermissions) (\s@RevokeSecurityGroupIngress' {} a -> s {ipPermissions = a} :: RevokeSecurityGroupIngress) Prelude.. Lens.mapping Prelude._Coerce
+revokeSecurityGroupIngress_ipPermissions :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe [IpPermission])
+revokeSecurityGroupIngress_ipPermissions = Lens.lens (\RevokeSecurityGroupIngress' {ipPermissions} -> ipPermissions) (\s@RevokeSecurityGroupIngress' {} a -> s {ipPermissions = a} :: RevokeSecurityGroupIngress) Core.. Lens.mapping Lens._Coerce
 
 -- | [EC2-Classic] The AWS account ID of the source security group, if the
 -- source security group is in a different account. You can\'t specify this
@@ -247,67 +246,63 @@ revokeSecurityGroupIngress_ipPermissions = Lens.lens (\RevokeSecurityGroupIngres
 -- address range, the IP protocol, the start of the port range, and the end
 -- of the port range. To revoke a specific rule for an IP protocol and port
 -- range, use a set of IP permissions instead.
-revokeSecurityGroupIngress_sourceSecurityGroupOwnerId :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+revokeSecurityGroupIngress_sourceSecurityGroupOwnerId :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Text)
 revokeSecurityGroupIngress_sourceSecurityGroupOwnerId = Lens.lens (\RevokeSecurityGroupIngress' {sourceSecurityGroupOwnerId} -> sourceSecurityGroupOwnerId) (\s@RevokeSecurityGroupIngress' {} a -> s {sourceSecurityGroupOwnerId = a} :: RevokeSecurityGroupIngress)
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
 -- the ICMP type.
-revokeSecurityGroupIngress_toPort :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
+revokeSecurityGroupIngress_toPort :: Lens.Lens' RevokeSecurityGroupIngress (Core.Maybe Core.Int)
 revokeSecurityGroupIngress_toPort = Lens.lens (\RevokeSecurityGroupIngress' {toPort} -> toPort) (\s@RevokeSecurityGroupIngress' {} a -> s {toPort = a} :: RevokeSecurityGroupIngress)
 
-instance
-  Prelude.AWSRequest
-    RevokeSecurityGroupIngress
-  where
+instance Core.AWSRequest RevokeSecurityGroupIngress where
   type
-    Rs RevokeSecurityGroupIngress =
+    AWSResponse RevokeSecurityGroupIngress =
       RevokeSecurityGroupIngressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           RevokeSecurityGroupIngressResponse'
-            Prelude.<$> ( x Prelude..@? "unknownIpPermissionSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (x Prelude..@? "return")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "unknownIpPermissionSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "return")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeSecurityGroupIngress
+instance Core.Hashable RevokeSecurityGroupIngress
 
-instance Prelude.NFData RevokeSecurityGroupIngress
+instance Core.NFData RevokeSecurityGroupIngress
 
-instance Prelude.ToHeaders RevokeSecurityGroupIngress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RevokeSecurityGroupIngress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RevokeSecurityGroupIngress where
-  toPath = Prelude.const "/"
+instance Core.ToPath RevokeSecurityGroupIngress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RevokeSecurityGroupIngress where
+instance Core.ToQuery RevokeSecurityGroupIngress where
   toQuery RevokeSecurityGroupIngress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RevokeSecurityGroupIngress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "FromPort" Prelude.=: fromPort,
-        "DryRun" Prelude.=: dryRun,
+          Core.=: ("RevokeSecurityGroupIngress" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "FromPort" Core.=: fromPort,
+        "DryRun" Core.=: dryRun,
         "SourceSecurityGroupName"
-          Prelude.=: sourceSecurityGroupName,
-        "GroupName" Prelude.=: groupName,
-        "CidrIp" Prelude.=: cidrIp,
-        "GroupId" Prelude.=: groupId,
-        "IpProtocol" Prelude.=: ipProtocol,
-        Prelude.toQuery
-          ( Prelude.toQueryList "IpPermissions"
-              Prelude.<$> ipPermissions
+          Core.=: sourceSecurityGroupName,
+        "GroupName" Core.=: groupName,
+        "CidrIp" Core.=: cidrIp,
+        "GroupId" Core.=: groupId,
+        "IpProtocol" Core.=: ipProtocol,
+        Core.toQuery
+          ( Core.toQueryList "IpPermissions"
+              Core.<$> ipPermissions
           ),
         "SourceSecurityGroupOwnerId"
-          Prelude.=: sourceSecurityGroupOwnerId,
-        "ToPort" Prelude.=: toPort
+          Core.=: sourceSecurityGroupOwnerId,
+        "ToPort" Core.=: toPort
       ]
 
 -- | /See:/ 'newRevokeSecurityGroupIngressResponse' smart constructor.
@@ -315,13 +310,13 @@ data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'
   { -- | The inbound rules that were unknown to the service. In some cases,
     -- @unknownIpPermissionSet@ might be in a different format from the request
     -- parameter.
-    unknownIpPermissions :: Prelude.Maybe [IpPermission],
+    unknownIpPermissions :: Core.Maybe [IpPermission],
     -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeSecurityGroupIngressResponse' with all optional fields omitted.
@@ -340,30 +335,30 @@ data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'
 -- 'httpStatus', 'revokeSecurityGroupIngressResponse_httpStatus' - The response's http status code.
 newRevokeSecurityGroupIngressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RevokeSecurityGroupIngressResponse
 newRevokeSecurityGroupIngressResponse pHttpStatus_ =
   RevokeSecurityGroupIngressResponse'
     { unknownIpPermissions =
-        Prelude.Nothing,
-      return' = Prelude.Nothing,
+        Core.Nothing,
+      return' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The inbound rules that were unknown to the service. In some cases,
 -- @unknownIpPermissionSet@ might be in a different format from the request
 -- parameter.
-revokeSecurityGroupIngressResponse_unknownIpPermissions :: Lens.Lens' RevokeSecurityGroupIngressResponse (Prelude.Maybe [IpPermission])
-revokeSecurityGroupIngressResponse_unknownIpPermissions = Lens.lens (\RevokeSecurityGroupIngressResponse' {unknownIpPermissions} -> unknownIpPermissions) (\s@RevokeSecurityGroupIngressResponse' {} a -> s {unknownIpPermissions = a} :: RevokeSecurityGroupIngressResponse) Prelude.. Lens.mapping Prelude._Coerce
+revokeSecurityGroupIngressResponse_unknownIpPermissions :: Lens.Lens' RevokeSecurityGroupIngressResponse (Core.Maybe [IpPermission])
+revokeSecurityGroupIngressResponse_unknownIpPermissions = Lens.lens (\RevokeSecurityGroupIngressResponse' {unknownIpPermissions} -> unknownIpPermissions) (\s@RevokeSecurityGroupIngressResponse' {} a -> s {unknownIpPermissions = a} :: RevokeSecurityGroupIngressResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-revokeSecurityGroupIngressResponse_return :: Lens.Lens' RevokeSecurityGroupIngressResponse (Prelude.Maybe Prelude.Bool)
+revokeSecurityGroupIngressResponse_return :: Lens.Lens' RevokeSecurityGroupIngressResponse (Core.Maybe Core.Bool)
 revokeSecurityGroupIngressResponse_return = Lens.lens (\RevokeSecurityGroupIngressResponse' {return'} -> return') (\s@RevokeSecurityGroupIngressResponse' {} a -> s {return' = a} :: RevokeSecurityGroupIngressResponse)
 
 -- | The response's http status code.
-revokeSecurityGroupIngressResponse_httpStatus :: Lens.Lens' RevokeSecurityGroupIngressResponse Prelude.Int
+revokeSecurityGroupIngressResponse_httpStatus :: Lens.Lens' RevokeSecurityGroupIngressResponse Core.Int
 revokeSecurityGroupIngressResponse_httpStatus = Lens.lens (\RevokeSecurityGroupIngressResponse' {httpStatus} -> httpStatus) (\s@RevokeSecurityGroupIngressResponse' {} a -> s {httpStatus = a} :: RevokeSecurityGroupIngressResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RevokeSecurityGroupIngressResponse

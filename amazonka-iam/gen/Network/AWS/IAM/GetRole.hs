@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.IAM.GetRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +63,9 @@ data GetRole = GetRole'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    roleName :: Prelude.Text
+    roleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRole' with all optional fields omitted.
@@ -84,7 +83,7 @@ data GetRole = GetRole'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetRole ::
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   GetRole
 newGetRole pRoleName_ =
   GetRole' {roleName = pRoleName_}
@@ -95,39 +94,37 @@ newGetRole pRoleName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getRole_roleName :: Lens.Lens' GetRole Prelude.Text
+getRole_roleName :: Lens.Lens' GetRole Core.Text
 getRole_roleName = Lens.lens (\GetRole' {roleName} -> roleName) (\s@GetRole' {} a -> s {roleName = a} :: GetRole)
 
-instance Prelude.AWSRequest GetRole where
-  type Rs GetRole = GetRoleResponse
+instance Core.AWSRequest GetRole where
+  type AWSResponse GetRole = GetRoleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetRoleResult"
       ( \s h x ->
           GetRoleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "Role")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "Role")
       )
 
-instance Prelude.Hashable GetRole
+instance Core.Hashable GetRole
 
-instance Prelude.NFData GetRole
+instance Core.NFData GetRole
 
-instance Prelude.ToHeaders GetRole where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetRole where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetRole where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRole where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRole where
+instance Core.ToQuery GetRole where
   toQuery GetRole' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("GetRole" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Prelude.=: roleName
+    Core.mconcat
+      [ "Action" Core.=: ("GetRole" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "RoleName" Core.=: roleName
       ]
 
 -- | Contains the response to a successful GetRole request.
@@ -135,11 +132,11 @@ instance Prelude.ToQuery GetRole where
 -- /See:/ 'newGetRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A structure containing details about the IAM role.
     role' :: Role
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRoleResponse' with all optional fields omitted.
@@ -154,7 +151,7 @@ data GetRoleResponse = GetRoleResponse'
 -- 'role'', 'getRoleResponse_role' - A structure containing details about the IAM role.
 newGetRoleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'role''
   Role ->
   GetRoleResponse
@@ -165,11 +162,11 @@ newGetRoleResponse pHttpStatus_ pRole_ =
     }
 
 -- | The response's http status code.
-getRoleResponse_httpStatus :: Lens.Lens' GetRoleResponse Prelude.Int
+getRoleResponse_httpStatus :: Lens.Lens' GetRoleResponse Core.Int
 getRoleResponse_httpStatus = Lens.lens (\GetRoleResponse' {httpStatus} -> httpStatus) (\s@GetRoleResponse' {} a -> s {httpStatus = a} :: GetRoleResponse)
 
 -- | A structure containing details about the IAM role.
 getRoleResponse_role :: Lens.Lens' GetRoleResponse Role
 getRoleResponse_role = Lens.lens (\GetRoleResponse' {role'} -> role') (\s@GetRoleResponse' {} a -> s {role' = a} :: GetRoleResponse)
 
-instance Prelude.NFData GetRoleResponse
+instance Core.NFData GetRoleResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBClusterSnapshotAttributesResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.DBClusterSnapshotAttribute
 
 -- | Contains the results of a successful call to the
@@ -34,12 +33,12 @@ import Network.AWS.RDS.Types.DBClusterSnapshotAttribute
 -- /See:/ 'newDBClusterSnapshotAttributesResult' smart constructor.
 data DBClusterSnapshotAttributesResult = DBClusterSnapshotAttributesResult'
   { -- | The list of attributes and values for the manual DB cluster snapshot.
-    dbClusterSnapshotAttributes :: Prelude.Maybe [DBClusterSnapshotAttribute],
+    dbClusterSnapshotAttributes :: Core.Maybe [DBClusterSnapshotAttribute],
     -- | The identifier of the manual DB cluster snapshot that the attributes
     -- apply to.
-    dbClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text
+    dbClusterSnapshotIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBClusterSnapshotAttributesResult' with all optional fields omitted.
@@ -58,37 +57,37 @@ newDBClusterSnapshotAttributesResult ::
 newDBClusterSnapshotAttributesResult =
   DBClusterSnapshotAttributesResult'
     { dbClusterSnapshotAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       dbClusterSnapshotIdentifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The list of attributes and values for the manual DB cluster snapshot.
-dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: Lens.Lens' DBClusterSnapshotAttributesResult (Prelude.Maybe [DBClusterSnapshotAttribute])
-dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotAttributes} -> dbClusterSnapshotAttributes) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotAttributes = a} :: DBClusterSnapshotAttributesResult) Prelude.. Lens.mapping Prelude._Coerce
+dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes :: Lens.Lens' DBClusterSnapshotAttributesResult (Core.Maybe [DBClusterSnapshotAttribute])
+dbClusterSnapshotAttributesResult_dbClusterSnapshotAttributes = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotAttributes} -> dbClusterSnapshotAttributes) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotAttributes = a} :: DBClusterSnapshotAttributesResult) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the manual DB cluster snapshot that the attributes
 -- apply to.
-dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
+dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier :: Lens.Lens' DBClusterSnapshotAttributesResult (Core.Maybe Core.Text)
 dbClusterSnapshotAttributesResult_dbClusterSnapshotIdentifier = Lens.lens (\DBClusterSnapshotAttributesResult' {dbClusterSnapshotIdentifier} -> dbClusterSnapshotIdentifier) (\s@DBClusterSnapshotAttributesResult' {} a -> s {dbClusterSnapshotIdentifier = a} :: DBClusterSnapshotAttributesResult)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     DBClusterSnapshotAttributesResult
   where
   parseXML x =
     DBClusterSnapshotAttributesResult'
-      Prelude.<$> ( x Prelude..@? "DBClusterSnapshotAttributes"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "DBClusterSnapshotAttribute")
-                  )
-      Prelude.<*> (x Prelude..@? "DBClusterSnapshotIdentifier")
+      Core.<$> ( x Core..@? "DBClusterSnapshotAttributes"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may
+                     (Core.parseXMLList "DBClusterSnapshotAttribute")
+               )
+      Core.<*> (x Core..@? "DBClusterSnapshotIdentifier")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DBClusterSnapshotAttributesResult
 
 instance
-  Prelude.NFData
+  Core.NFData
     DBClusterSnapshotAttributesResult

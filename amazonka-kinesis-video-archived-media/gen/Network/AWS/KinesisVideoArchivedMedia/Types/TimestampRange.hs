@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The range of timestamps for which to return fragments.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data TimestampRange = TimestampRange'
   { -- | The starting timestamp in the range of timestamps for which to return
     -- fragments.
-    startTimestamp :: Prelude.POSIX,
+    startTimestamp :: Core.POSIX,
     -- | The ending timestamp in the range of timestamps for which to return
     -- fragments.
-    endTimestamp :: Prelude.POSIX
+    endTimestamp :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimestampRange' with all optional fields omitted.
@@ -51,38 +50,36 @@ data TimestampRange = TimestampRange'
 -- fragments.
 newTimestampRange ::
   -- | 'startTimestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'endTimestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   TimestampRange
 newTimestampRange pStartTimestamp_ pEndTimestamp_ =
   TimestampRange'
     { startTimestamp =
-        Prelude._Time Lens.# pStartTimestamp_,
-      endTimestamp = Prelude._Time Lens.# pEndTimestamp_
+        Core._Time Lens.# pStartTimestamp_,
+      endTimestamp = Core._Time Lens.# pEndTimestamp_
     }
 
 -- | The starting timestamp in the range of timestamps for which to return
 -- fragments.
-timestampRange_startTimestamp :: Lens.Lens' TimestampRange Prelude.UTCTime
-timestampRange_startTimestamp = Lens.lens (\TimestampRange' {startTimestamp} -> startTimestamp) (\s@TimestampRange' {} a -> s {startTimestamp = a} :: TimestampRange) Prelude.. Prelude._Time
+timestampRange_startTimestamp :: Lens.Lens' TimestampRange Core.UTCTime
+timestampRange_startTimestamp = Lens.lens (\TimestampRange' {startTimestamp} -> startTimestamp) (\s@TimestampRange' {} a -> s {startTimestamp = a} :: TimestampRange) Core.. Core._Time
 
 -- | The ending timestamp in the range of timestamps for which to return
 -- fragments.
-timestampRange_endTimestamp :: Lens.Lens' TimestampRange Prelude.UTCTime
-timestampRange_endTimestamp = Lens.lens (\TimestampRange' {endTimestamp} -> endTimestamp) (\s@TimestampRange' {} a -> s {endTimestamp = a} :: TimestampRange) Prelude.. Prelude._Time
+timestampRange_endTimestamp :: Lens.Lens' TimestampRange Core.UTCTime
+timestampRange_endTimestamp = Lens.lens (\TimestampRange' {endTimestamp} -> endTimestamp) (\s@TimestampRange' {} a -> s {endTimestamp = a} :: TimestampRange) Core.. Core._Time
 
-instance Prelude.Hashable TimestampRange
+instance Core.Hashable TimestampRange
 
-instance Prelude.NFData TimestampRange
+instance Core.NFData TimestampRange
 
-instance Prelude.ToJSON TimestampRange where
+instance Core.ToJSON TimestampRange where
   toJSON TimestampRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("StartTimestamp" Prelude..= startTimestamp),
-            Prelude.Just
-              ("EndTimestamp" Prelude..= endTimestamp)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StartTimestamp" Core..= startTimestamp),
+            Core.Just ("EndTimestamp" Core..= endTimestamp)
           ]
       )

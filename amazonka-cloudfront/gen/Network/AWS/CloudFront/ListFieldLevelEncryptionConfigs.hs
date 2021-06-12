@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,15 +51,15 @@ import qualified Network.AWS.Response as Response
 data ListFieldLevelEncryptionConfigs = ListFieldLevelEncryptionConfigs'
   { -- | The maximum number of field-level encryption configurations you want in
     -- the response body.
-    maxItems :: Prelude.Maybe Prelude.Text,
+    maxItems :: Core.Maybe Core.Text,
     -- | Use this when paginating results to indicate where to begin in your list
     -- of configurations. The results include configurations in the list that
     -- occur after the marker. To get the next page of results, set the
     -- @Marker@ to the value of the @NextMarker@ from the current page\'s
     -- response (which is also the ID of the last configuration on that page).
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFieldLevelEncryptionConfigs' with all optional fields omitted.
@@ -83,13 +82,13 @@ newListFieldLevelEncryptionConfigs ::
 newListFieldLevelEncryptionConfigs =
   ListFieldLevelEncryptionConfigs'
     { maxItems =
-        Prelude.Nothing,
-      marker = Prelude.Nothing
+        Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The maximum number of field-level encryption configurations you want in
 -- the response body.
-listFieldLevelEncryptionConfigs_maxItems :: Lens.Lens' ListFieldLevelEncryptionConfigs (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionConfigs_maxItems :: Lens.Lens' ListFieldLevelEncryptionConfigs (Core.Maybe Core.Text)
 listFieldLevelEncryptionConfigs_maxItems = Lens.lens (\ListFieldLevelEncryptionConfigs' {maxItems} -> maxItems) (\s@ListFieldLevelEncryptionConfigs' {} a -> s {maxItems = a} :: ListFieldLevelEncryptionConfigs)
 
 -- | Use this when paginating results to indicate where to begin in your list
@@ -97,65 +96,57 @@ listFieldLevelEncryptionConfigs_maxItems = Lens.lens (\ListFieldLevelEncryptionC
 -- occur after the marker. To get the next page of results, set the
 -- @Marker@ to the value of the @NextMarker@ from the current page\'s
 -- response (which is also the ID of the last configuration on that page).
-listFieldLevelEncryptionConfigs_marker :: Lens.Lens' ListFieldLevelEncryptionConfigs (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionConfigs_marker :: Lens.Lens' ListFieldLevelEncryptionConfigs (Core.Maybe Core.Text)
 listFieldLevelEncryptionConfigs_marker = Lens.lens (\ListFieldLevelEncryptionConfigs' {marker} -> marker) (\s@ListFieldLevelEncryptionConfigs' {} a -> s {marker = a} :: ListFieldLevelEncryptionConfigs)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListFieldLevelEncryptionConfigs
   where
   type
-    Rs ListFieldLevelEncryptionConfigs =
+    AWSResponse ListFieldLevelEncryptionConfigs =
       ListFieldLevelEncryptionConfigsResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListFieldLevelEncryptionConfigsResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListFieldLevelEncryptionConfigs
 
-instance
-  Prelude.NFData
-    ListFieldLevelEncryptionConfigs
+instance Core.NFData ListFieldLevelEncryptionConfigs
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListFieldLevelEncryptionConfigs
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    ListFieldLevelEncryptionConfigs
-  where
+instance Core.ToPath ListFieldLevelEncryptionConfigs where
   toPath =
-    Prelude.const "/2020-05-31/field-level-encryption"
+    Core.const "/2020-05-31/field-level-encryption"
 
-instance
-  Prelude.ToQuery
-    ListFieldLevelEncryptionConfigs
-  where
+instance Core.ToQuery ListFieldLevelEncryptionConfigs where
   toQuery ListFieldLevelEncryptionConfigs' {..} =
-    Prelude.mconcat
-      [ "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListFieldLevelEncryptionConfigsResponse' smart constructor.
 data ListFieldLevelEncryptionConfigsResponse = ListFieldLevelEncryptionConfigsResponse'
   { -- | Returns a list of all field-level encryption configurations that have
     -- been created in CloudFront for this account.
-    fieldLevelEncryptionList :: Prelude.Maybe FieldLevelEncryptionList,
+    fieldLevelEncryptionList :: Core.Maybe FieldLevelEncryptionList,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFieldLevelEncryptionConfigsResponse' with all optional fields omitted.
@@ -171,25 +162,25 @@ data ListFieldLevelEncryptionConfigsResponse = ListFieldLevelEncryptionConfigsRe
 -- 'httpStatus', 'listFieldLevelEncryptionConfigsResponse_httpStatus' - The response's http status code.
 newListFieldLevelEncryptionConfigsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListFieldLevelEncryptionConfigsResponse
 newListFieldLevelEncryptionConfigsResponse
   pHttpStatus_ =
     ListFieldLevelEncryptionConfigsResponse'
       { fieldLevelEncryptionList =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns a list of all field-level encryption configurations that have
 -- been created in CloudFront for this account.
-listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse (Prelude.Maybe FieldLevelEncryptionList)
+listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse (Core.Maybe FieldLevelEncryptionList)
 listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList = Lens.lens (\ListFieldLevelEncryptionConfigsResponse' {fieldLevelEncryptionList} -> fieldLevelEncryptionList) (\s@ListFieldLevelEncryptionConfigsResponse' {} a -> s {fieldLevelEncryptionList = a} :: ListFieldLevelEncryptionConfigsResponse)
 
 -- | The response's http status code.
-listFieldLevelEncryptionConfigsResponse_httpStatus :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse Prelude.Int
+listFieldLevelEncryptionConfigsResponse_httpStatus :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse Core.Int
 listFieldLevelEncryptionConfigsResponse_httpStatus = Lens.lens (\ListFieldLevelEncryptionConfigsResponse' {httpStatus} -> httpStatus) (\s@ListFieldLevelEncryptionConfigsResponse' {} a -> s {httpStatus = a} :: ListFieldLevelEncryptionConfigsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListFieldLevelEncryptionConfigsResponse

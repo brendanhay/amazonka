@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.VirtualGateway where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a virtual private gateway for a private virtual
 -- interface.
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newVirtualGateway' smart constructor.
 data VirtualGateway = VirtualGateway'
   { -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Prelude.Maybe Prelude.Text,
+    virtualGatewayId :: Core.Maybe Core.Text,
     -- | The state of the virtual private gateway. The following are the possible
     -- values:
     --
@@ -42,9 +41,9 @@ data VirtualGateway = VirtualGateway'
     --
     -- -   @deleted@: The virtual private gateway is deleted. The private
     --     virtual interface is unable to send traffic over this gateway.
-    virtualGatewayState :: Prelude.Maybe Prelude.Text
+    virtualGatewayState :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VirtualGateway' with all optional fields omitted.
@@ -72,12 +71,12 @@ newVirtualGateway ::
   VirtualGateway
 newVirtualGateway =
   VirtualGateway'
-    { virtualGatewayId = Prelude.Nothing,
-      virtualGatewayState = Prelude.Nothing
+    { virtualGatewayId = Core.Nothing,
+      virtualGatewayState = Core.Nothing
     }
 
 -- | The ID of the virtual private gateway.
-virtualGateway_virtualGatewayId :: Lens.Lens' VirtualGateway (Prelude.Maybe Prelude.Text)
+virtualGateway_virtualGatewayId :: Lens.Lens' VirtualGateway (Core.Maybe Core.Text)
 virtualGateway_virtualGatewayId = Lens.lens (\VirtualGateway' {virtualGatewayId} -> virtualGatewayId) (\s@VirtualGateway' {} a -> s {virtualGatewayId = a} :: VirtualGateway)
 
 -- | The state of the virtual private gateway. The following are the possible
@@ -92,19 +91,19 @@ virtualGateway_virtualGatewayId = Lens.lens (\VirtualGateway' {virtualGatewayId}
 --
 -- -   @deleted@: The virtual private gateway is deleted. The private
 --     virtual interface is unable to send traffic over this gateway.
-virtualGateway_virtualGatewayState :: Lens.Lens' VirtualGateway (Prelude.Maybe Prelude.Text)
+virtualGateway_virtualGatewayState :: Lens.Lens' VirtualGateway (Core.Maybe Core.Text)
 virtualGateway_virtualGatewayState = Lens.lens (\VirtualGateway' {virtualGatewayState} -> virtualGatewayState) (\s@VirtualGateway' {} a -> s {virtualGatewayState = a} :: VirtualGateway)
 
-instance Prelude.FromJSON VirtualGateway where
+instance Core.FromJSON VirtualGateway where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VirtualGateway"
       ( \x ->
           VirtualGateway'
-            Prelude.<$> (x Prelude..:? "virtualGatewayId")
-            Prelude.<*> (x Prelude..:? "virtualGatewayState")
+            Core.<$> (x Core..:? "virtualGatewayId")
+            Core.<*> (x Core..:? "virtualGatewayState")
       )
 
-instance Prelude.Hashable VirtualGateway
+instance Core.Hashable VirtualGateway
 
-instance Prelude.NFData VirtualGateway
+instance Core.NFData VirtualGateway

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Bucket where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | In terms of implementation, a Bucket is a resource. An Amazon S3 bucket
@@ -32,11 +31,11 @@ import Network.AWS.S3.Internal
 data Bucket = Bucket'
   { -- | Date the bucket was created. This date can change when making changes to
     -- your bucket, such as editing its bucket policy.
-    creationDate :: Prelude.ISO8601,
+    creationDate :: Core.ISO8601,
     -- | The name of the bucket.
     name :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Bucket' with all optional fields omitted.
@@ -52,32 +51,32 @@ data Bucket = Bucket'
 -- 'name', 'bucket_name' - The name of the bucket.
 newBucket ::
   -- | 'creationDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'name'
   BucketName ->
   Bucket
 newBucket pCreationDate_ pName_ =
   Bucket'
     { creationDate =
-        Prelude._Time Lens.# pCreationDate_,
+        Core._Time Lens.# pCreationDate_,
       name = pName_
     }
 
 -- | Date the bucket was created. This date can change when making changes to
 -- your bucket, such as editing its bucket policy.
-bucket_creationDate :: Lens.Lens' Bucket Prelude.UTCTime
-bucket_creationDate = Lens.lens (\Bucket' {creationDate} -> creationDate) (\s@Bucket' {} a -> s {creationDate = a} :: Bucket) Prelude.. Prelude._Time
+bucket_creationDate :: Lens.Lens' Bucket Core.UTCTime
+bucket_creationDate = Lens.lens (\Bucket' {creationDate} -> creationDate) (\s@Bucket' {} a -> s {creationDate = a} :: Bucket) Core.. Core._Time
 
 -- | The name of the bucket.
 bucket_name :: Lens.Lens' Bucket BucketName
 bucket_name = Lens.lens (\Bucket' {name} -> name) (\s@Bucket' {} a -> s {name = a} :: Bucket)
 
-instance Prelude.FromXML Bucket where
+instance Core.FromXML Bucket where
   parseXML x =
     Bucket'
-      Prelude.<$> (x Prelude..@ "CreationDate")
-      Prelude.<*> (x Prelude..@ "Name")
+      Core.<$> (x Core..@ "CreationDate")
+      Core.<*> (x Core..@ "Name")
 
-instance Prelude.Hashable Bucket
+instance Core.Hashable Bucket
 
-instance Prelude.NFData Bucket
+instance Core.NFData Bucket

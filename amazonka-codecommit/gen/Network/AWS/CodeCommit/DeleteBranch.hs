@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CodeCommit.DeleteBranch
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteBranch' smart constructor.
 data DeleteBranch = DeleteBranch'
   { -- | The name of the repository that contains the branch to be deleted.
-    repositoryName :: Prelude.Text,
+    repositoryName :: Core.Text,
     -- | The name of the branch to delete.
-    branchName :: Prelude.Text
+    branchName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBranch' with all optional fields omitted.
@@ -72,9 +71,9 @@ data DeleteBranch = DeleteBranch'
 -- 'branchName', 'deleteBranch_branchName' - The name of the branch to delete.
 newDeleteBranch ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'branchName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBranch
 newDeleteBranch pRepositoryName_ pBranchName_ =
   DeleteBranch'
@@ -83,58 +82,55 @@ newDeleteBranch pRepositoryName_ pBranchName_ =
     }
 
 -- | The name of the repository that contains the branch to be deleted.
-deleteBranch_repositoryName :: Lens.Lens' DeleteBranch Prelude.Text
+deleteBranch_repositoryName :: Lens.Lens' DeleteBranch Core.Text
 deleteBranch_repositoryName = Lens.lens (\DeleteBranch' {repositoryName} -> repositoryName) (\s@DeleteBranch' {} a -> s {repositoryName = a} :: DeleteBranch)
 
 -- | The name of the branch to delete.
-deleteBranch_branchName :: Lens.Lens' DeleteBranch Prelude.Text
+deleteBranch_branchName :: Lens.Lens' DeleteBranch Core.Text
 deleteBranch_branchName = Lens.lens (\DeleteBranch' {branchName} -> branchName) (\s@DeleteBranch' {} a -> s {branchName = a} :: DeleteBranch)
 
-instance Prelude.AWSRequest DeleteBranch where
-  type Rs DeleteBranch = DeleteBranchResponse
+instance Core.AWSRequest DeleteBranch where
+  type AWSResponse DeleteBranch = DeleteBranchResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteBranchResponse'
-            Prelude.<$> (x Prelude..?> "deletedBranch")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "deletedBranch")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBranch
+instance Core.Hashable DeleteBranch
 
-instance Prelude.NFData DeleteBranch
+instance Core.NFData DeleteBranch
 
-instance Prelude.ToHeaders DeleteBranch where
+instance Core.ToHeaders DeleteBranch where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.DeleteBranch" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.DeleteBranch" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteBranch where
+instance Core.ToJSON DeleteBranch where
   toJSON DeleteBranch' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("repositoryName" Prelude..= repositoryName),
-            Prelude.Just ("branchName" Prelude..= branchName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("branchName" Core..= branchName)
           ]
       )
 
-instance Prelude.ToPath DeleteBranch where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteBranch where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteBranch where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBranch where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a delete branch operation.
 --
@@ -142,11 +138,11 @@ instance Prelude.ToQuery DeleteBranch where
 data DeleteBranchResponse = DeleteBranchResponse'
   { -- | Information about the branch deleted by the operation, including the
     -- branch name and the commit ID that was the tip of the branch.
-    deletedBranch :: Prelude.Maybe BranchInfo,
+    deletedBranch :: Core.Maybe BranchInfo,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBranchResponse' with all optional fields omitted.
@@ -162,22 +158,21 @@ data DeleteBranchResponse = DeleteBranchResponse'
 -- 'httpStatus', 'deleteBranchResponse_httpStatus' - The response's http status code.
 newDeleteBranchResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteBranchResponse
 newDeleteBranchResponse pHttpStatus_ =
   DeleteBranchResponse'
-    { deletedBranch =
-        Prelude.Nothing,
+    { deletedBranch = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the branch deleted by the operation, including the
 -- branch name and the commit ID that was the tip of the branch.
-deleteBranchResponse_deletedBranch :: Lens.Lens' DeleteBranchResponse (Prelude.Maybe BranchInfo)
+deleteBranchResponse_deletedBranch :: Lens.Lens' DeleteBranchResponse (Core.Maybe BranchInfo)
 deleteBranchResponse_deletedBranch = Lens.lens (\DeleteBranchResponse' {deletedBranch} -> deletedBranch) (\s@DeleteBranchResponse' {} a -> s {deletedBranch = a} :: DeleteBranchResponse)
 
 -- | The response's http status code.
-deleteBranchResponse_httpStatus :: Lens.Lens' DeleteBranchResponse Prelude.Int
+deleteBranchResponse_httpStatus :: Lens.Lens' DeleteBranchResponse Core.Int
 deleteBranchResponse_httpStatus = Lens.lens (\DeleteBranchResponse' {httpStatus} -> httpStatus) (\s@DeleteBranchResponse' {} a -> s {httpStatus = a} :: DeleteBranchResponse)
 
-instance Prelude.NFData DeleteBranchResponse
+instance Core.NFData DeleteBranchResponse

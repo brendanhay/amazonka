@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.UserData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.S3Location
 
 -- | A script that runs on first launch of an Amazon EC2 instance. Used for
@@ -30,9 +29,9 @@ import Network.AWS.SMS.Types.S3Location
 -- /See:/ 'newUserData' smart constructor.
 data UserData = UserData'
   { -- | Amazon S3 location of the user-data script.
-    s3Location :: Prelude.Maybe S3Location
+    s3Location :: Core.Maybe S3Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserData' with all optional fields omitted.
@@ -45,27 +44,25 @@ data UserData = UserData'
 -- 's3Location', 'userData_s3Location' - Amazon S3 location of the user-data script.
 newUserData ::
   UserData
-newUserData = UserData' {s3Location = Prelude.Nothing}
+newUserData = UserData' {s3Location = Core.Nothing}
 
 -- | Amazon S3 location of the user-data script.
-userData_s3Location :: Lens.Lens' UserData (Prelude.Maybe S3Location)
+userData_s3Location :: Lens.Lens' UserData (Core.Maybe S3Location)
 userData_s3Location = Lens.lens (\UserData' {s3Location} -> s3Location) (\s@UserData' {} a -> s {s3Location = a} :: UserData)
 
-instance Prelude.FromJSON UserData where
+instance Core.FromJSON UserData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserData"
-      ( \x ->
-          UserData' Prelude.<$> (x Prelude..:? "s3Location")
-      )
+      (\x -> UserData' Core.<$> (x Core..:? "s3Location"))
 
-instance Prelude.Hashable UserData
+instance Core.Hashable UserData
 
-instance Prelude.NFData UserData
+instance Core.NFData UserData
 
-instance Prelude.ToJSON UserData where
+instance Core.ToJSON UserData where
   toJSON UserData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("s3Location" Prelude..=) Prelude.<$> s3Location]
+    Core.object
+      ( Core.catMaybes
+          [("s3Location" Core..=) Core.<$> s3Location]
       )

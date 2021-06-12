@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -107,8 +106,8 @@ module Network.AWS.S3.PutBucketWebsite
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -118,7 +117,7 @@ data PutBucketWebsite = PutBucketWebsite'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
@@ -126,13 +125,13 @@ data PutBucketWebsite = PutBucketWebsite'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | The bucket name.
     bucket :: BucketName,
     -- | Container for the request.
     websiteConfiguration :: WebsiteConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketWebsite' with all optional fields omitted.
@@ -166,8 +165,8 @@ newPutBucketWebsite ::
 newPutBucketWebsite pBucket_ pWebsiteConfiguration_ =
   PutBucketWebsite'
     { expectedBucketOwner =
-        Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
+        Core.Nothing,
+      contentMD5 = Core.Nothing,
       bucket = pBucket_,
       websiteConfiguration = pWebsiteConfiguration_
     }
@@ -175,7 +174,7 @@ newPutBucketWebsite pBucket_ pWebsiteConfiguration_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
+putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Core.Maybe Core.Text)
 putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketWebsite' {} a -> s {expectedBucketOwner = a} :: PutBucketWebsite)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
@@ -185,7 +184,7 @@ putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBu
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketWebsite_contentMD5 :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
+putBucketWebsite_contentMD5 :: Lens.Lens' PutBucketWebsite (Core.Maybe Core.Text)
 putBucketWebsite_contentMD5 = Lens.lens (\PutBucketWebsite' {contentMD5} -> contentMD5) (\s@PutBucketWebsite' {} a -> s {contentMD5 = a} :: PutBucketWebsite)
 
 -- | The bucket name.
@@ -196,42 +195,44 @@ putBucketWebsite_bucket = Lens.lens (\PutBucketWebsite' {bucket} -> bucket) (\s@
 putBucketWebsite_websiteConfiguration :: Lens.Lens' PutBucketWebsite WebsiteConfiguration
 putBucketWebsite_websiteConfiguration = Lens.lens (\PutBucketWebsite' {websiteConfiguration} -> websiteConfiguration) (\s@PutBucketWebsite' {} a -> s {websiteConfiguration = a} :: PutBucketWebsite)
 
-instance Prelude.AWSRequest PutBucketWebsite where
-  type Rs PutBucketWebsite = PutBucketWebsiteResponse
+instance Core.AWSRequest PutBucketWebsite where
+  type
+    AWSResponse PutBucketWebsite =
+      PutBucketWebsiteResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull PutBucketWebsiteResponse'
 
-instance Prelude.Hashable PutBucketWebsite
+instance Core.Hashable PutBucketWebsite
 
-instance Prelude.NFData PutBucketWebsite
+instance Core.NFData PutBucketWebsite
 
-instance Prelude.ToElement PutBucketWebsite where
+instance Core.ToElement PutBucketWebsite where
   toElement PutBucketWebsite' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}WebsiteConfiguration"
       websiteConfiguration
 
-instance Prelude.ToHeaders PutBucketWebsite where
+instance Core.ToHeaders PutBucketWebsite where
   toHeaders PutBucketWebsite' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5
       ]
 
-instance Prelude.ToPath PutBucketWebsite where
+instance Core.ToPath PutBucketWebsite where
   toPath PutBucketWebsite' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutBucketWebsite where
-  toQuery = Prelude.const (Prelude.mconcat ["website"])
+instance Core.ToQuery PutBucketWebsite where
+  toQuery = Core.const (Core.mconcat ["website"])
 
 -- | /See:/ 'newPutBucketWebsiteResponse' smart constructor.
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketWebsiteResponse' with all optional fields omitted.
@@ -242,4 +243,4 @@ newPutBucketWebsiteResponse ::
 newPutBucketWebsiteResponse =
   PutBucketWebsiteResponse'
 
-instance Prelude.NFData PutBucketWebsiteResponse
+instance Core.NFData PutBucketWebsiteResponse

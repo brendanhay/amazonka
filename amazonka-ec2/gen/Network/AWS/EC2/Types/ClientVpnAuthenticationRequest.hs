@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClientVpnAuthenticationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CertificateAuthenticationRequest
 import Network.AWS.EC2.Types.ClientVpnAuthenticationType
 import Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest
 import Network.AWS.EC2.Types.FederatedAuthenticationRequest
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the authentication method to be used by a Client VPN endpoint.
 -- For more information, see
@@ -38,19 +37,19 @@ data ClientVpnAuthenticationRequest = ClientVpnAuthenticationRequest'
   { -- | Information about the IAM SAML identity provider to be used, if
     -- applicable. You must provide this information if __Type__ is
     -- @federated-authentication@.
-    federatedAuthentication :: Prelude.Maybe FederatedAuthenticationRequest,
+    federatedAuthentication :: Core.Maybe FederatedAuthenticationRequest,
     -- | Information about the Active Directory to be used, if applicable. You
     -- must provide this information if __Type__ is
     -- @directory-service-authentication@.
-    activeDirectory :: Prelude.Maybe DirectoryServiceAuthenticationRequest,
+    activeDirectory :: Core.Maybe DirectoryServiceAuthenticationRequest,
     -- | Information about the authentication certificates to be used, if
     -- applicable. You must provide this information if __Type__ is
     -- @certificate-authentication@.
-    mutualAuthentication :: Prelude.Maybe CertificateAuthenticationRequest,
+    mutualAuthentication :: Core.Maybe CertificateAuthenticationRequest,
     -- | The type of client authentication to be used.
-    type' :: Prelude.Maybe ClientVpnAuthenticationType
+    type' :: Core.Maybe ClientVpnAuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClientVpnAuthenticationRequest' with all optional fields omitted.
@@ -78,52 +77,44 @@ newClientVpnAuthenticationRequest ::
 newClientVpnAuthenticationRequest =
   ClientVpnAuthenticationRequest'
     { federatedAuthentication =
-        Prelude.Nothing,
-      activeDirectory = Prelude.Nothing,
-      mutualAuthentication = Prelude.Nothing,
-      type' = Prelude.Nothing
+        Core.Nothing,
+      activeDirectory = Core.Nothing,
+      mutualAuthentication = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Information about the IAM SAML identity provider to be used, if
 -- applicable. You must provide this information if __Type__ is
 -- @federated-authentication@.
-clientVpnAuthenticationRequest_federatedAuthentication :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe FederatedAuthenticationRequest)
+clientVpnAuthenticationRequest_federatedAuthentication :: Lens.Lens' ClientVpnAuthenticationRequest (Core.Maybe FederatedAuthenticationRequest)
 clientVpnAuthenticationRequest_federatedAuthentication = Lens.lens (\ClientVpnAuthenticationRequest' {federatedAuthentication} -> federatedAuthentication) (\s@ClientVpnAuthenticationRequest' {} a -> s {federatedAuthentication = a} :: ClientVpnAuthenticationRequest)
 
 -- | Information about the Active Directory to be used, if applicable. You
 -- must provide this information if __Type__ is
 -- @directory-service-authentication@.
-clientVpnAuthenticationRequest_activeDirectory :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe DirectoryServiceAuthenticationRequest)
+clientVpnAuthenticationRequest_activeDirectory :: Lens.Lens' ClientVpnAuthenticationRequest (Core.Maybe DirectoryServiceAuthenticationRequest)
 clientVpnAuthenticationRequest_activeDirectory = Lens.lens (\ClientVpnAuthenticationRequest' {activeDirectory} -> activeDirectory) (\s@ClientVpnAuthenticationRequest' {} a -> s {activeDirectory = a} :: ClientVpnAuthenticationRequest)
 
 -- | Information about the authentication certificates to be used, if
 -- applicable. You must provide this information if __Type__ is
 -- @certificate-authentication@.
-clientVpnAuthenticationRequest_mutualAuthentication :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe CertificateAuthenticationRequest)
+clientVpnAuthenticationRequest_mutualAuthentication :: Lens.Lens' ClientVpnAuthenticationRequest (Core.Maybe CertificateAuthenticationRequest)
 clientVpnAuthenticationRequest_mutualAuthentication = Lens.lens (\ClientVpnAuthenticationRequest' {mutualAuthentication} -> mutualAuthentication) (\s@ClientVpnAuthenticationRequest' {} a -> s {mutualAuthentication = a} :: ClientVpnAuthenticationRequest)
 
 -- | The type of client authentication to be used.
-clientVpnAuthenticationRequest_type :: Lens.Lens' ClientVpnAuthenticationRequest (Prelude.Maybe ClientVpnAuthenticationType)
+clientVpnAuthenticationRequest_type :: Lens.Lens' ClientVpnAuthenticationRequest (Core.Maybe ClientVpnAuthenticationType)
 clientVpnAuthenticationRequest_type = Lens.lens (\ClientVpnAuthenticationRequest' {type'} -> type') (\s@ClientVpnAuthenticationRequest' {} a -> s {type' = a} :: ClientVpnAuthenticationRequest)
 
-instance
-  Prelude.Hashable
-    ClientVpnAuthenticationRequest
+instance Core.Hashable ClientVpnAuthenticationRequest
 
-instance
-  Prelude.NFData
-    ClientVpnAuthenticationRequest
+instance Core.NFData ClientVpnAuthenticationRequest
 
-instance
-  Prelude.ToQuery
-    ClientVpnAuthenticationRequest
-  where
+instance Core.ToQuery ClientVpnAuthenticationRequest where
   toQuery ClientVpnAuthenticationRequest' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "FederatedAuthentication"
-          Prelude.=: federatedAuthentication,
-        "ActiveDirectory" Prelude.=: activeDirectory,
-        "MutualAuthentication"
-          Prelude.=: mutualAuthentication,
-        "Type" Prelude.=: type'
+          Core.=: federatedAuthentication,
+        "ActiveDirectory" Core.=: activeDirectory,
+        "MutualAuthentication" Core.=: mutualAuthentication,
+        "Type" Core.=: type'
       ]

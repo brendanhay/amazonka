@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.PasswordData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The password data for the Windows Server-based instance, including the
 -- ciphertext and the key pair name.
@@ -36,7 +35,7 @@ data PasswordData = PasswordData'
     -- decrypting your password using the @ciphertext@. Lightsail creates the
     -- ciphertext by encrypting your password with the public key part of this
     -- key pair.
-    keyPairName :: Prelude.Maybe Prelude.Text,
+    keyPairName :: Core.Maybe Core.Text,
     -- | The encrypted password. Ciphertext will be an empty string if access to
     -- your new instance is not ready yet. When you create an instance, it can
     -- take up to 15 minutes for the instance to be ready.
@@ -51,9 +50,9 @@ data PasswordData = PasswordData'
     -- continue to return the original ciphertext value. When accessing the
     -- instance using RDP, you need to manually enter the Administrator
     -- password after changing it from the default.
-    ciphertext :: Prelude.Maybe Prelude.Text
+    ciphertext :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PasswordData' with all optional fields omitted.
@@ -90,8 +89,8 @@ newPasswordData ::
   PasswordData
 newPasswordData =
   PasswordData'
-    { keyPairName = Prelude.Nothing,
-      ciphertext = Prelude.Nothing
+    { keyPairName = Core.Nothing,
+      ciphertext = Core.Nothing
     }
 
 -- | The name of the key pair that you used when creating your instance. If
@@ -102,7 +101,7 @@ newPasswordData =
 -- decrypting your password using the @ciphertext@. Lightsail creates the
 -- ciphertext by encrypting your password with the public key part of this
 -- key pair.
-passwordData_keyPairName :: Lens.Lens' PasswordData (Prelude.Maybe Prelude.Text)
+passwordData_keyPairName :: Lens.Lens' PasswordData (Core.Maybe Core.Text)
 passwordData_keyPairName = Lens.lens (\PasswordData' {keyPairName} -> keyPairName) (\s@PasswordData' {} a -> s {keyPairName = a} :: PasswordData)
 
 -- | The encrypted password. Ciphertext will be an empty string if access to
@@ -119,19 +118,19 @@ passwordData_keyPairName = Lens.lens (\PasswordData' {keyPairName} -> keyPairNam
 -- continue to return the original ciphertext value. When accessing the
 -- instance using RDP, you need to manually enter the Administrator
 -- password after changing it from the default.
-passwordData_ciphertext :: Lens.Lens' PasswordData (Prelude.Maybe Prelude.Text)
+passwordData_ciphertext :: Lens.Lens' PasswordData (Core.Maybe Core.Text)
 passwordData_ciphertext = Lens.lens (\PasswordData' {ciphertext} -> ciphertext) (\s@PasswordData' {} a -> s {ciphertext = a} :: PasswordData)
 
-instance Prelude.FromJSON PasswordData where
+instance Core.FromJSON PasswordData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PasswordData"
       ( \x ->
           PasswordData'
-            Prelude.<$> (x Prelude..:? "keyPairName")
-            Prelude.<*> (x Prelude..:? "ciphertext")
+            Core.<$> (x Core..:? "keyPairName")
+            Core.<*> (x Core..:? "ciphertext")
       )
 
-instance Prelude.Hashable PasswordData
+instance Core.Hashable PasswordData
 
-instance Prelude.NFData PasswordData
+instance Core.NFData PasswordData

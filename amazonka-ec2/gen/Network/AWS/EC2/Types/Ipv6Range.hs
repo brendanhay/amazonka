@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Ipv6Range where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | [EC2-VPC only] Describes an IPv6 range.
 --
@@ -31,15 +30,15 @@ data Ipv6Range = Ipv6Range'
   { -- | The IPv6 CIDR range. You can either specify a CIDR range or a source
     -- security group, not both. To specify a single IPv6 address, use the
     -- \/128 prefix length.
-    cidrIpv6 :: Prelude.Maybe Prelude.Text,
+    cidrIpv6 :: Core.Maybe Core.Text,
     -- | A description for the security group rule that references this IPv6
     -- address range.
     --
     -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
     -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=&;{}!$*
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Ipv6Range' with all optional fields omitted.
@@ -62,14 +61,14 @@ newIpv6Range ::
   Ipv6Range
 newIpv6Range =
   Ipv6Range'
-    { cidrIpv6 = Prelude.Nothing,
-      description = Prelude.Nothing
+    { cidrIpv6 = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The IPv6 CIDR range. You can either specify a CIDR range or a source
 -- security group, not both. To specify a single IPv6 address, use the
 -- \/128 prefix length.
-ipv6Range_cidrIpv6 :: Lens.Lens' Ipv6Range (Prelude.Maybe Prelude.Text)
+ipv6Range_cidrIpv6 :: Lens.Lens' Ipv6Range (Core.Maybe Core.Text)
 ipv6Range_cidrIpv6 = Lens.lens (\Ipv6Range' {cidrIpv6} -> cidrIpv6) (\s@Ipv6Range' {} a -> s {cidrIpv6 = a} :: Ipv6Range)
 
 -- | A description for the security group rule that references this IPv6
@@ -77,22 +76,22 @@ ipv6Range_cidrIpv6 = Lens.lens (\Ipv6Range' {cidrIpv6} -> cidrIpv6) (\s@Ipv6Rang
 --
 -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
 -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=&;{}!$*
-ipv6Range_description :: Lens.Lens' Ipv6Range (Prelude.Maybe Prelude.Text)
+ipv6Range_description :: Lens.Lens' Ipv6Range (Core.Maybe Core.Text)
 ipv6Range_description = Lens.lens (\Ipv6Range' {description} -> description) (\s@Ipv6Range' {} a -> s {description = a} :: Ipv6Range)
 
-instance Prelude.FromXML Ipv6Range where
+instance Core.FromXML Ipv6Range where
   parseXML x =
     Ipv6Range'
-      Prelude.<$> (x Prelude..@? "cidrIpv6")
-      Prelude.<*> (x Prelude..@? "description")
+      Core.<$> (x Core..@? "cidrIpv6")
+      Core.<*> (x Core..@? "description")
 
-instance Prelude.Hashable Ipv6Range
+instance Core.Hashable Ipv6Range
 
-instance Prelude.NFData Ipv6Range
+instance Core.NFData Ipv6Range
 
-instance Prelude.ToQuery Ipv6Range where
+instance Core.ToQuery Ipv6Range where
   toQuery Ipv6Range' {..} =
-    Prelude.mconcat
-      [ "CidrIpv6" Prelude.=: cidrIpv6,
-        "Description" Prelude.=: description
+    Core.mconcat
+      [ "CidrIpv6" Core.=: cidrIpv6,
+        "Description" Core.=: description
       ]

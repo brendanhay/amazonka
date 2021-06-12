@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Discovery.Types.TagFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The tag filter. Valid names are: @tagKey@, @tagValue@,
 -- @configurationId@.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTagFilter' smart constructor.
 data TagFilter = TagFilter'
   { -- | A name of the tag filter.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | Values for the tag filter.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagFilter' with all optional fields omitted.
@@ -48,28 +47,28 @@ data TagFilter = TagFilter'
 -- 'values', 'tagFilter_values' - Values for the tag filter.
 newTagFilter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   TagFilter
 newTagFilter pName_ =
-  TagFilter' {name = pName_, values = Prelude.mempty}
+  TagFilter' {name = pName_, values = Core.mempty}
 
 -- | A name of the tag filter.
-tagFilter_name :: Lens.Lens' TagFilter Prelude.Text
+tagFilter_name :: Lens.Lens' TagFilter Core.Text
 tagFilter_name = Lens.lens (\TagFilter' {name} -> name) (\s@TagFilter' {} a -> s {name = a} :: TagFilter)
 
 -- | Values for the tag filter.
-tagFilter_values :: Lens.Lens' TagFilter [Prelude.Text]
-tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Prelude.. Prelude._Coerce
+tagFilter_values :: Lens.Lens' TagFilter [Core.Text]
+tagFilter_values = Lens.lens (\TagFilter' {values} -> values) (\s@TagFilter' {} a -> s {values = a} :: TagFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable TagFilter
+instance Core.Hashable TagFilter
 
-instance Prelude.NFData TagFilter
+instance Core.NFData TagFilter
 
-instance Prelude.ToJSON TagFilter where
+instance Core.ToJSON TagFilter where
   toJSON TagFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("values" Core..= values)
           ]
       )

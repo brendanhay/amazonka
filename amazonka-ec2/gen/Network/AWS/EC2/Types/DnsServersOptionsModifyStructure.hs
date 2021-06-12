@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DnsServersOptionsModifyStructure where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the DNS server to be used.
 --
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data DnsServersOptionsModifyStructure = DnsServersOptionsModifyStructure'
   { -- | Indicates whether DNS servers should be used. Specify @False@ to delete
     -- the existing DNS servers.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used.
     -- You can specify up to two DNS servers. Ensure that the DNS servers can
     -- be reached by the clients. The specified values overwrite the existing
     -- values.
-    customDnsServers :: Prelude.Maybe [Prelude.Text]
+    customDnsServers :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DnsServersOptionsModifyStructure' with all optional fields omitted.
@@ -59,39 +58,37 @@ newDnsServersOptionsModifyStructure ::
 newDnsServersOptionsModifyStructure =
   DnsServersOptionsModifyStructure'
     { enabled =
-        Prelude.Nothing,
-      customDnsServers = Prelude.Nothing
+        Core.Nothing,
+      customDnsServers = Core.Nothing
     }
 
 -- | Indicates whether DNS servers should be used. Specify @False@ to delete
 -- the existing DNS servers.
-dnsServersOptionsModifyStructure_enabled :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe Prelude.Bool)
+dnsServersOptionsModifyStructure_enabled :: Lens.Lens' DnsServersOptionsModifyStructure (Core.Maybe Core.Bool)
 dnsServersOptionsModifyStructure_enabled = Lens.lens (\DnsServersOptionsModifyStructure' {enabled} -> enabled) (\s@DnsServersOptionsModifyStructure' {} a -> s {enabled = a} :: DnsServersOptionsModifyStructure)
 
 -- | The IPv4 address range, in CIDR notation, of the DNS servers to be used.
 -- You can specify up to two DNS servers. Ensure that the DNS servers can
 -- be reached by the clients. The specified values overwrite the existing
 -- values.
-dnsServersOptionsModifyStructure_customDnsServers :: Lens.Lens' DnsServersOptionsModifyStructure (Prelude.Maybe [Prelude.Text])
-dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOptionsModifyStructure' {customDnsServers} -> customDnsServers) (\s@DnsServersOptionsModifyStructure' {} a -> s {customDnsServers = a} :: DnsServersOptionsModifyStructure) Prelude.. Lens.mapping Prelude._Coerce
+dnsServersOptionsModifyStructure_customDnsServers :: Lens.Lens' DnsServersOptionsModifyStructure (Core.Maybe [Core.Text])
+dnsServersOptionsModifyStructure_customDnsServers = Lens.lens (\DnsServersOptionsModifyStructure' {customDnsServers} -> customDnsServers) (\s@DnsServersOptionsModifyStructure' {} a -> s {customDnsServers = a} :: DnsServersOptionsModifyStructure) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DnsServersOptionsModifyStructure
 
-instance
-  Prelude.NFData
-    DnsServersOptionsModifyStructure
+instance Core.NFData DnsServersOptionsModifyStructure
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DnsServersOptionsModifyStructure
   where
   toQuery DnsServersOptionsModifyStructure' {..} =
-    Prelude.mconcat
-      [ "Enabled" Prelude.=: enabled,
-        Prelude.toQuery
-          ( Prelude.toQueryList "CustomDnsServers"
-              Prelude.<$> customDnsServers
+    Core.mconcat
+      [ "Enabled" Core.=: enabled,
+        Core.toQuery
+          ( Core.toQueryList "CustomDnsServers"
+              Core.<$> customDnsServers
           )
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.SDB.DeleteAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
@@ -60,17 +59,17 @@ data DeleteAttributes = DeleteAttributes'
     -- specified attributes will be deleted or not. The update condition must
     -- be satisfied in order for this request to be processed and the
     -- attributes to be deleted.
-    expected :: Prelude.Maybe UpdateCondition,
+    expected :: Core.Maybe UpdateCondition,
     -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
     -- represent categories of data that can be assigned to items.
-    attributes :: Prelude.Maybe [Attribute],
+    attributes :: Core.Maybe [Attribute],
     -- | The name of the domain in which to perform the operation.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | The name of the item. Similar to rows on a spreadsheet, items represent
     -- individual objects that contain one or more value-attribute pairs.
-    itemName :: Prelude.Text
+    itemName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAttributes' with all optional fields omitted.
@@ -94,14 +93,14 @@ data DeleteAttributes = DeleteAttributes'
 -- individual objects that contain one or more value-attribute pairs.
 newDeleteAttributes ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'itemName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAttributes
 newDeleteAttributes pDomainName_ pItemName_ =
   DeleteAttributes'
-    { expected = Prelude.Nothing,
-      attributes = Prelude.Nothing,
+    { expected = Core.Nothing,
+      attributes = Core.Nothing,
       domainName = pDomainName_,
       itemName = pItemName_
     }
@@ -110,60 +109,59 @@ newDeleteAttributes pDomainName_ pItemName_ =
 -- specified attributes will be deleted or not. The update condition must
 -- be satisfied in order for this request to be processed and the
 -- attributes to be deleted.
-deleteAttributes_expected :: Lens.Lens' DeleteAttributes (Prelude.Maybe UpdateCondition)
+deleteAttributes_expected :: Lens.Lens' DeleteAttributes (Core.Maybe UpdateCondition)
 deleteAttributes_expected = Lens.lens (\DeleteAttributes' {expected} -> expected) (\s@DeleteAttributes' {} a -> s {expected = a} :: DeleteAttributes)
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
-deleteAttributes_attributes :: Lens.Lens' DeleteAttributes (Prelude.Maybe [Attribute])
-deleteAttributes_attributes = Lens.lens (\DeleteAttributes' {attributes} -> attributes) (\s@DeleteAttributes' {} a -> s {attributes = a} :: DeleteAttributes) Prelude.. Lens.mapping Prelude._Coerce
+deleteAttributes_attributes :: Lens.Lens' DeleteAttributes (Core.Maybe [Attribute])
+deleteAttributes_attributes = Lens.lens (\DeleteAttributes' {attributes} -> attributes) (\s@DeleteAttributes' {} a -> s {attributes = a} :: DeleteAttributes) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain in which to perform the operation.
-deleteAttributes_domainName :: Lens.Lens' DeleteAttributes Prelude.Text
+deleteAttributes_domainName :: Lens.Lens' DeleteAttributes Core.Text
 deleteAttributes_domainName = Lens.lens (\DeleteAttributes' {domainName} -> domainName) (\s@DeleteAttributes' {} a -> s {domainName = a} :: DeleteAttributes)
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent
 -- individual objects that contain one or more value-attribute pairs.
-deleteAttributes_itemName :: Lens.Lens' DeleteAttributes Prelude.Text
+deleteAttributes_itemName :: Lens.Lens' DeleteAttributes Core.Text
 deleteAttributes_itemName = Lens.lens (\DeleteAttributes' {itemName} -> itemName) (\s@DeleteAttributes' {} a -> s {itemName = a} :: DeleteAttributes)
 
-instance Prelude.AWSRequest DeleteAttributes where
-  type Rs DeleteAttributes = DeleteAttributesResponse
+instance Core.AWSRequest DeleteAttributes where
+  type
+    AWSResponse DeleteAttributes =
+      DeleteAttributesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteAttributesResponse'
 
-instance Prelude.Hashable DeleteAttributes
+instance Core.Hashable DeleteAttributes
 
-instance Prelude.NFData DeleteAttributes
+instance Core.NFData DeleteAttributes
 
-instance Prelude.ToHeaders DeleteAttributes where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteAttributes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAttributes where
+instance Core.ToQuery DeleteAttributes where
   toQuery DeleteAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteAttributes" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2009-04-15" :: Prelude.ByteString),
-        "Expected" Prelude.=: expected,
-        Prelude.toQuery
-          ( Prelude.toQueryList "Attribute"
-              Prelude.<$> attributes
-          ),
-        "DomainName" Prelude.=: domainName,
-        "ItemName" Prelude.=: itemName
+          Core.=: ("DeleteAttributes" :: Core.ByteString),
+        "Version" Core.=: ("2009-04-15" :: Core.ByteString),
+        "Expected" Core.=: expected,
+        Core.toQuery
+          (Core.toQueryList "Attribute" Core.<$> attributes),
+        "DomainName" Core.=: domainName,
+        "ItemName" Core.=: itemName
       ]
 
 -- | /See:/ 'newDeleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse = DeleteAttributesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAttributesResponse' with all optional fields omitted.
@@ -174,4 +172,4 @@ newDeleteAttributesResponse ::
 newDeleteAttributesResponse =
   DeleteAttributesResponse'
 
-instance Prelude.NFData DeleteAttributesResponse
+instance Core.NFData DeleteAttributesResponse

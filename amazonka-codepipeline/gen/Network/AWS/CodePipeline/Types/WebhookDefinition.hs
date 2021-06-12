@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,20 +22,20 @@ module Network.AWS.CodePipeline.Types.WebhookDefinition where
 import Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
 import Network.AWS.CodePipeline.Types.WebhookAuthenticationType
 import Network.AWS.CodePipeline.Types.WebhookFilterRule
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about a webhook and its definition.
 --
 -- /See:/ 'newWebhookDefinition' smart constructor.
 data WebhookDefinition = WebhookDefinition'
   { -- | The name of the webhook.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The name of the pipeline you want to connect to the webhook.
-    targetPipeline :: Prelude.Text,
+    targetPipeline :: Core.Text,
     -- | The name of the action in a pipeline you want to connect to the webhook.
     -- The action must be from the source (first) stage of the pipeline.
-    targetAction :: Prelude.Text,
+    targetAction :: Core.Text,
     -- | A list of rules applied to the body\/payload sent in the POST request to
     -- a webhook URL. All defined rules must pass for the request to be
     -- accepted and the pipeline started.
@@ -62,7 +61,7 @@ data WebhookDefinition = WebhookDefinition'
     -- range. For UNAUTHENTICATED, no properties can be set.
     authenticationConfiguration :: WebhookAuthConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WebhookDefinition' with all optional fields omitted.
@@ -104,11 +103,11 @@ data WebhookDefinition = WebhookDefinition'
 -- range. For UNAUTHENTICATED, no properties can be set.
 newWebhookDefinition ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetPipeline'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetAction'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authentication'
   WebhookAuthenticationType ->
   -- | 'authenticationConfiguration'
@@ -124,30 +123,30 @@ newWebhookDefinition
       { name = pName_,
         targetPipeline = pTargetPipeline_,
         targetAction = pTargetAction_,
-        filters = Prelude.mempty,
+        filters = Core.mempty,
         authentication = pAuthentication_,
         authenticationConfiguration =
           pAuthenticationConfiguration_
       }
 
 -- | The name of the webhook.
-webhookDefinition_name :: Lens.Lens' WebhookDefinition Prelude.Text
+webhookDefinition_name :: Lens.Lens' WebhookDefinition Core.Text
 webhookDefinition_name = Lens.lens (\WebhookDefinition' {name} -> name) (\s@WebhookDefinition' {} a -> s {name = a} :: WebhookDefinition)
 
 -- | The name of the pipeline you want to connect to the webhook.
-webhookDefinition_targetPipeline :: Lens.Lens' WebhookDefinition Prelude.Text
+webhookDefinition_targetPipeline :: Lens.Lens' WebhookDefinition Core.Text
 webhookDefinition_targetPipeline = Lens.lens (\WebhookDefinition' {targetPipeline} -> targetPipeline) (\s@WebhookDefinition' {} a -> s {targetPipeline = a} :: WebhookDefinition)
 
 -- | The name of the action in a pipeline you want to connect to the webhook.
 -- The action must be from the source (first) stage of the pipeline.
-webhookDefinition_targetAction :: Lens.Lens' WebhookDefinition Prelude.Text
+webhookDefinition_targetAction :: Lens.Lens' WebhookDefinition Core.Text
 webhookDefinition_targetAction = Lens.lens (\WebhookDefinition' {targetAction} -> targetAction) (\s@WebhookDefinition' {} a -> s {targetAction = a} :: WebhookDefinition)
 
 -- | A list of rules applied to the body\/payload sent in the POST request to
 -- a webhook URL. All defined rules must pass for the request to be
 -- accepted and the pipeline started.
 webhookDefinition_filters :: Lens.Lens' WebhookDefinition [WebhookFilterRule]
-webhookDefinition_filters = Lens.lens (\WebhookDefinition' {filters} -> filters) (\s@WebhookDefinition' {} a -> s {filters = a} :: WebhookDefinition) Prelude.. Prelude._Coerce
+webhookDefinition_filters = Lens.lens (\WebhookDefinition' {filters} -> filters) (\s@WebhookDefinition' {} a -> s {filters = a} :: WebhookDefinition) Core.. Lens._Coerce
 
 -- | Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.
 --
@@ -173,39 +172,36 @@ webhookDefinition_authentication = Lens.lens (\WebhookDefinition' {authenticatio
 webhookDefinition_authenticationConfiguration :: Lens.Lens' WebhookDefinition WebhookAuthConfiguration
 webhookDefinition_authenticationConfiguration = Lens.lens (\WebhookDefinition' {authenticationConfiguration} -> authenticationConfiguration) (\s@WebhookDefinition' {} a -> s {authenticationConfiguration = a} :: WebhookDefinition)
 
-instance Prelude.FromJSON WebhookDefinition where
+instance Core.FromJSON WebhookDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WebhookDefinition"
       ( \x ->
           WebhookDefinition'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "targetPipeline")
-            Prelude.<*> (x Prelude..: "targetAction")
-            Prelude.<*> (x Prelude..:? "filters" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "authentication")
-            Prelude.<*> (x Prelude..: "authenticationConfiguration")
+            Core.<$> (x Core..: "name")
+            Core.<*> (x Core..: "targetPipeline")
+            Core.<*> (x Core..: "targetAction")
+            Core.<*> (x Core..:? "filters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "authentication")
+            Core.<*> (x Core..: "authenticationConfiguration")
       )
 
-instance Prelude.Hashable WebhookDefinition
+instance Core.Hashable WebhookDefinition
 
-instance Prelude.NFData WebhookDefinition
+instance Core.NFData WebhookDefinition
 
-instance Prelude.ToJSON WebhookDefinition where
+instance Core.ToJSON WebhookDefinition where
   toJSON WebhookDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just
-              ("targetPipeline" Prelude..= targetPipeline),
-            Prelude.Just
-              ("targetAction" Prelude..= targetAction),
-            Prelude.Just ("filters" Prelude..= filters),
-            Prelude.Just
-              ("authentication" Prelude..= authentication),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("targetPipeline" Core..= targetPipeline),
+            Core.Just ("targetAction" Core..= targetAction),
+            Core.Just ("filters" Core..= filters),
+            Core.Just ("authentication" Core..= authentication),
+            Core.Just
               ( "authenticationConfiguration"
-                  Prelude..= authenticationConfiguration
+                  Core..= authenticationConfiguration
               )
           ]
       )

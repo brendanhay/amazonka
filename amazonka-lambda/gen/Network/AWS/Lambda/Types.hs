@@ -406,6 +406,7 @@ module Network.AWS.Lambda.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.AccountLimit
 import Network.AWS.Lambda.Types.AccountUsage
 import Network.AWS.Lambda.Types.AliasConfiguration
@@ -460,377 +461,374 @@ import Network.AWS.Lambda.Types.TracingMode
 import Network.AWS.Lambda.Types.VpcConfig
 import Network.AWS.Lambda.Types.VpcConfigResponse
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-03-31@ of the Amazon Lambda SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Lambda",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "lambda",
-      Prelude._svcSigningName = "lambda",
-      Prelude._svcVersion = "2015-03-31",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "Lambda",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Lambda",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "lambda",
+      Core._serviceSigningName = "lambda",
+      Core._serviceVersion = "2015-03-31",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Lambda",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The code signature failed the integrity check. Lambda always blocks
 -- deployment if the integrity check fails, even if code signing policy is
 -- set to WARN.
-_InvalidCodeSignatureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCodeSignatureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCodeSignatureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCodeSignatureException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Lambda was unable to decrypt the environment variables because the KMS
 -- key used is in an invalid state for Decrypt. Check the function\'s KMS
 -- key settings.
-_KMSInvalidStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSInvalidStateException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | Lambda was unable to decrypt the environment variables because the KMS
 -- key was not found. Check the function\'s KMS key settings.
-_KMSNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSNotFoundException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | AWS Lambda received an unexpected EC2 client exception while setting up
 -- for the Lambda function.
-_EC2UnexpectedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EC2UnexpectedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EC2UnexpectedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EC2UnexpectedException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The content type of the @Invoke@ request body is not JSON.
-_UnsupportedMediaTypeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedMediaTypeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedMediaTypeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedMediaTypeException"
-    Prelude.. Prelude.hasStatus 415
+    Core.. Core.hasStatus 415
 
 -- | AWS Lambda could not unzip the deployment package.
-_InvalidZipFileException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidZipFileException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidZipFileException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidZipFileException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The function is inactive and its VPC connection is no longer available.
 -- Wait for the VPC connection to reestablish and try again.
-_ResourceNotReadyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotReadyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotReadyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotReadyException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The resource already exists, or another operation is in progress.
-_ResourceConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceConflictException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The specified configuration does not exist.
-_ProvisionedConcurrencyConfigNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ProvisionedConcurrencyConfigNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ProvisionedConcurrencyConfigNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ProvisionedConcurrencyConfigNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Need additional permissions to configure VPC settings.
-_EC2AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EC2AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EC2AccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EC2AccessDeniedException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The Subnet ID provided in the Lambda function VPC configuration is
 -- invalid.
-_InvalidSubnetIDException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubnetIDException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSubnetIDException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSubnetIDException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The function couldn\'t mount the configured file system due to a
 -- permission or configuration issue.
-_EFSMountFailureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EFSMountFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EFSMountFailureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EFSMountFailureException"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | The Security Group ID provided in the Lambda function VPC configuration
 -- is invalid.
-_InvalidSecurityGroupIDException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSecurityGroupIDException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSecurityGroupIDException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSecurityGroupIDException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | AWS Lambda was throttled by Amazon EC2 during Lambda function
 -- initialization using the execution role provided for the Lambda
 -- function.
-_EC2ThrottledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EC2ThrottledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EC2ThrottledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EC2ThrottledException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The request payload exceeded the @Invoke@ request body JSON input limit.
 -- For more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Limits>.
-_RequestTooLargeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RequestTooLargeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RequestTooLargeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RequestTooLargeException"
-    Prelude.. Prelude.hasStatus 413
+    Core.. Core.hasStatus 413
 
 -- | The function couldn\'t make a network connection to the configured file
 -- system.
-_EFSMountConnectivityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EFSMountConnectivityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EFSMountConnectivityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EFSMountConnectivityException"
-    Prelude.. Prelude.hasStatus 408
+    Core.. Core.hasStatus 408
 
 -- | One of the parameters in the request is invalid.
-_InvalidParameterValueException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValueException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterValueException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | AWS Lambda was not able to create an elastic network interface in the
 -- VPC, specified as part of Lambda function configuration, because the
 -- limit for network interfaces has been reached.
-_ENILimitReachedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ENILimitReachedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ENILimitReachedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ENILimitReachedException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The operation conflicts with the resource\'s availability. For example,
 -- you attempted to update an EventSource Mapping in CREATING, or tried to
 -- delete a EventSource mapping currently in the UPDATING state.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUseException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The function was able to make a network connection to the configured
 -- file system, but the mount operation timed out.
-_EFSMountTimeoutException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EFSMountTimeoutException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EFSMountTimeoutException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EFSMountTimeoutException"
-    Prelude.. Prelude.hasStatus 408
+    Core.. Core.hasStatus 408
 
 -- | An error occured when reading from or writing to a connected file
 -- system.
-_EFSIOException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EFSIOException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EFSIOException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EFSIOException"
-    Prelude.. Prelude.hasStatus 410
+    Core.. Core.hasStatus 410
 
 -- | Lambda was unable to decrypt the environment variables because KMS
 -- access was denied. Check the Lambda function\'s KMS permissions.
-_KMSAccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSAccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSAccessDeniedException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The request body could not be parsed as JSON.
-_InvalidRequestContentException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRequestContentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestContentException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRequestContentException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The resource specified in the request does not exist.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The permissions policy for the resource is too large.
 -- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Learn more>
-_PolicyLengthExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyLengthExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyLengthExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyLengthExceededException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified code signing configuration does not exist.
-_CodeSigningConfigNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CodeSigningConfigNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CodeSigningConfigNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CodeSigningConfigNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The code signature failed one or more of the validation checks for
 -- signature mismatch or expiry, and the code signing policy is set to
 -- ENFORCE. Lambda blocks the deployment.
-_CodeVerificationFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CodeVerificationFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CodeVerificationFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CodeVerificationFailedException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You have exceeded your maximum total code size per account.
 -- <https://docs.aws.amazon.com/lambda/latest/dg/limits.html Learn more>
-_CodeStorageExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CodeStorageExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CodeStorageExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CodeStorageExceededException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The RevisionId provided does not match the latest RevisionId for the
 -- Lambda function or alias. Call the @GetFunction@ or the @GetAlias@ API
 -- to retrieve the latest RevisionId for your resource.
-_PreconditionFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PreconditionFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PreconditionFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PreconditionFailedException"
-    Prelude.. Prelude.hasStatus 412
+    Core.. Core.hasStatus 412
 
 -- | Lambda was unable to decrypt the environment variables because the KMS
 -- key used is disabled. Check the Lambda function\'s KMS key settings.
-_KMSDisabledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSDisabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSDisabledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSDisabledException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | AWS Lambda was not able to set up VPC access for the Lambda function
 -- because one or more configured subnets has no available IP addresses.
-_SubnetIPAddressLimitReachedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetIPAddressLimitReachedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetIPAddressLimitReachedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetIPAddressLimitReachedException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502
 
 -- | The request throughput limit was exceeded.
-_TooManyRequestsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyRequestsException"
-    Prelude.. Prelude.hasStatus 429
+    Core.. Core.hasStatus 429
 
 -- | The AWS Lambda service encountered an internal error.
-_ServiceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceException"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The runtime or runtime version specified is not supported.
-_InvalidRuntimeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRuntimeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRuntimeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRuntimeException"
-    Prelude.. Prelude.hasStatus 502
+    Core.. Core.hasStatus 502

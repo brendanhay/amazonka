@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.DeviceFarm.ListSuites
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +56,11 @@ data ListSuites = ListSuites'
   { -- | An identifier that was returned from the previous call to this
     -- operation, which can be used to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The job\'s Amazon Resource Name (ARN).
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSuites' with all optional fields omitted.
@@ -79,88 +77,83 @@ data ListSuites = ListSuites'
 -- 'arn', 'listSuites_arn' - The job\'s Amazon Resource Name (ARN).
 newListSuites ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   ListSuites
 newListSuites pArn_ =
-  ListSuites'
-    { nextToken = Prelude.Nothing,
-      arn = pArn_
-    }
+  ListSuites' {nextToken = Core.Nothing, arn = pArn_}
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-listSuites_nextToken :: Lens.Lens' ListSuites (Prelude.Maybe Prelude.Text)
+listSuites_nextToken :: Lens.Lens' ListSuites (Core.Maybe Core.Text)
 listSuites_nextToken = Lens.lens (\ListSuites' {nextToken} -> nextToken) (\s@ListSuites' {} a -> s {nextToken = a} :: ListSuites)
 
 -- | The job\'s Amazon Resource Name (ARN).
-listSuites_arn :: Lens.Lens' ListSuites Prelude.Text
+listSuites_arn :: Lens.Lens' ListSuites Core.Text
 listSuites_arn = Lens.lens (\ListSuites' {arn} -> arn) (\s@ListSuites' {} a -> s {arn = a} :: ListSuites)
 
-instance Pager.AWSPager ListSuites where
+instance Core.AWSPager ListSuites where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listSuitesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSuitesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listSuitesResponse_suites Prelude.. Lens._Just
+            Lens.^? listSuitesResponse_suites Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSuites_nextToken
           Lens..~ rs
-          Lens.^? listSuitesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSuitesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSuites where
-  type Rs ListSuites = ListSuitesResponse
+instance Core.AWSRequest ListSuites where
+  type AWSResponse ListSuites = ListSuitesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSuitesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "suites" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "suites" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSuites
+instance Core.Hashable ListSuites
 
-instance Prelude.NFData ListSuites
+instance Core.NFData ListSuites
 
-instance Prelude.ToHeaders ListSuites where
+instance Core.ToHeaders ListSuites where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.ListSuites" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.ListSuites" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListSuites where
+instance Core.ToJSON ListSuites where
   toJSON ListSuites' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath ListSuites where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSuites where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSuites where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListSuites where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a list suites request.
 --
@@ -169,13 +162,13 @@ data ListSuitesResponse = ListSuitesResponse'
   { -- | If the number of items that are returned is significantly large, this is
     -- an identifier that is also returned. It can be used in a subsequent call
     -- to this operation to return the next set of items in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the suites.
-    suites :: Prelude.Maybe [Suite],
+    suites :: Core.Maybe [Suite],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSuitesResponse' with all optional fields omitted.
@@ -194,27 +187,27 @@ data ListSuitesResponse = ListSuitesResponse'
 -- 'httpStatus', 'listSuitesResponse_httpStatus' - The response's http status code.
 newListSuitesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSuitesResponse
 newListSuitesResponse pHttpStatus_ =
   ListSuitesResponse'
-    { nextToken = Prelude.Nothing,
-      suites = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      suites = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned. It can be used in a subsequent call
 -- to this operation to return the next set of items in the list.
-listSuitesResponse_nextToken :: Lens.Lens' ListSuitesResponse (Prelude.Maybe Prelude.Text)
+listSuitesResponse_nextToken :: Lens.Lens' ListSuitesResponse (Core.Maybe Core.Text)
 listSuitesResponse_nextToken = Lens.lens (\ListSuitesResponse' {nextToken} -> nextToken) (\s@ListSuitesResponse' {} a -> s {nextToken = a} :: ListSuitesResponse)
 
 -- | Information about the suites.
-listSuitesResponse_suites :: Lens.Lens' ListSuitesResponse (Prelude.Maybe [Suite])
-listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) (\s@ListSuitesResponse' {} a -> s {suites = a} :: ListSuitesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSuitesResponse_suites :: Lens.Lens' ListSuitesResponse (Core.Maybe [Suite])
+listSuitesResponse_suites = Lens.lens (\ListSuitesResponse' {suites} -> suites) (\s@ListSuitesResponse' {} a -> s {suites = a} :: ListSuitesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSuitesResponse_httpStatus :: Lens.Lens' ListSuitesResponse Prelude.Int
+listSuitesResponse_httpStatus :: Lens.Lens' ListSuitesResponse Core.Int
 listSuitesResponse_httpStatus = Lens.lens (\ListSuitesResponse' {httpStatus} -> httpStatus) (\s@ListSuitesResponse' {} a -> s {httpStatus = a} :: ListSuitesResponse)
 
-instance Prelude.NFData ListSuitesResponse
+instance Core.NFData ListSuitesResponse

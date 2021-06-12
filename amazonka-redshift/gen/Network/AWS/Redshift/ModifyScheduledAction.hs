@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.Redshift.ModifyScheduledAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,28 +63,28 @@ import qualified Network.AWS.Response as Response
 data ModifyScheduledAction = ModifyScheduledAction'
   { -- | A modified JSON format of the scheduled action. For more information
     -- about this parameter, see ScheduledAction.
-    targetAction :: Prelude.Maybe ScheduledActionType,
+    targetAction :: Core.Maybe ScheduledActionType,
     -- | A modified enable flag of the scheduled action. If true, the scheduled
     -- action is active. If false, the scheduled action is disabled.
-    enable :: Prelude.Maybe Prelude.Bool,
+    enable :: Core.Maybe Core.Bool,
     -- | A different IAM role to assume to run the target action. For more
     -- information about this parameter, see ScheduledAction.
-    iamRole :: Prelude.Maybe Prelude.Text,
+    iamRole :: Core.Maybe Core.Text,
     -- | A modified description of the scheduled action.
-    scheduledActionDescription :: Prelude.Maybe Prelude.Text,
+    scheduledActionDescription :: Core.Maybe Core.Text,
     -- | A modified start time of the scheduled action. For more information
     -- about this parameter, see ScheduledAction.
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | A modified end time of the scheduled action. For more information about
     -- this parameter, see ScheduledAction.
-    endTime :: Prelude.Maybe Prelude.ISO8601,
+    endTime :: Core.Maybe Core.ISO8601,
     -- | A modified schedule in either @at( )@ or @cron( )@ format. For more
     -- information about this parameter, see ScheduledAction.
-    schedule :: Prelude.Maybe Prelude.Text,
+    schedule :: Core.Maybe Core.Text,
     -- | The name of the scheduled action to modify.
-    scheduledActionName :: Prelude.Text
+    scheduledActionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyScheduledAction' with all optional fields omitted.
@@ -118,91 +117,91 @@ data ModifyScheduledAction = ModifyScheduledAction'
 -- 'scheduledActionName', 'modifyScheduledAction_scheduledActionName' - The name of the scheduled action to modify.
 newModifyScheduledAction ::
   -- | 'scheduledActionName'
-  Prelude.Text ->
+  Core.Text ->
   ModifyScheduledAction
 newModifyScheduledAction pScheduledActionName_ =
   ModifyScheduledAction'
-    { targetAction =
-        Prelude.Nothing,
-      enable = Prelude.Nothing,
-      iamRole = Prelude.Nothing,
-      scheduledActionDescription = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      schedule = Prelude.Nothing,
+    { targetAction = Core.Nothing,
+      enable = Core.Nothing,
+      iamRole = Core.Nothing,
+      scheduledActionDescription = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      schedule = Core.Nothing,
       scheduledActionName = pScheduledActionName_
     }
 
 -- | A modified JSON format of the scheduled action. For more information
 -- about this parameter, see ScheduledAction.
-modifyScheduledAction_targetAction :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe ScheduledActionType)
+modifyScheduledAction_targetAction :: Lens.Lens' ModifyScheduledAction (Core.Maybe ScheduledActionType)
 modifyScheduledAction_targetAction = Lens.lens (\ModifyScheduledAction' {targetAction} -> targetAction) (\s@ModifyScheduledAction' {} a -> s {targetAction = a} :: ModifyScheduledAction)
 
 -- | A modified enable flag of the scheduled action. If true, the scheduled
 -- action is active. If false, the scheduled action is disabled.
-modifyScheduledAction_enable :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Bool)
+modifyScheduledAction_enable :: Lens.Lens' ModifyScheduledAction (Core.Maybe Core.Bool)
 modifyScheduledAction_enable = Lens.lens (\ModifyScheduledAction' {enable} -> enable) (\s@ModifyScheduledAction' {} a -> s {enable = a} :: ModifyScheduledAction)
 
 -- | A different IAM role to assume to run the target action. For more
 -- information about this parameter, see ScheduledAction.
-modifyScheduledAction_iamRole :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Text)
+modifyScheduledAction_iamRole :: Lens.Lens' ModifyScheduledAction (Core.Maybe Core.Text)
 modifyScheduledAction_iamRole = Lens.lens (\ModifyScheduledAction' {iamRole} -> iamRole) (\s@ModifyScheduledAction' {} a -> s {iamRole = a} :: ModifyScheduledAction)
 
 -- | A modified description of the scheduled action.
-modifyScheduledAction_scheduledActionDescription :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Text)
+modifyScheduledAction_scheduledActionDescription :: Lens.Lens' ModifyScheduledAction (Core.Maybe Core.Text)
 modifyScheduledAction_scheduledActionDescription = Lens.lens (\ModifyScheduledAction' {scheduledActionDescription} -> scheduledActionDescription) (\s@ModifyScheduledAction' {} a -> s {scheduledActionDescription = a} :: ModifyScheduledAction)
 
 -- | A modified start time of the scheduled action. For more information
 -- about this parameter, see ScheduledAction.
-modifyScheduledAction_startTime :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.UTCTime)
-modifyScheduledAction_startTime = Lens.lens (\ModifyScheduledAction' {startTime} -> startTime) (\s@ModifyScheduledAction' {} a -> s {startTime = a} :: ModifyScheduledAction) Prelude.. Lens.mapping Prelude._Time
+modifyScheduledAction_startTime :: Lens.Lens' ModifyScheduledAction (Core.Maybe Core.UTCTime)
+modifyScheduledAction_startTime = Lens.lens (\ModifyScheduledAction' {startTime} -> startTime) (\s@ModifyScheduledAction' {} a -> s {startTime = a} :: ModifyScheduledAction) Core.. Lens.mapping Core._Time
 
 -- | A modified end time of the scheduled action. For more information about
 -- this parameter, see ScheduledAction.
-modifyScheduledAction_endTime :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.UTCTime)
-modifyScheduledAction_endTime = Lens.lens (\ModifyScheduledAction' {endTime} -> endTime) (\s@ModifyScheduledAction' {} a -> s {endTime = a} :: ModifyScheduledAction) Prelude.. Lens.mapping Prelude._Time
+modifyScheduledAction_endTime :: Lens.Lens' ModifyScheduledAction (Core.Maybe Core.UTCTime)
+modifyScheduledAction_endTime = Lens.lens (\ModifyScheduledAction' {endTime} -> endTime) (\s@ModifyScheduledAction' {} a -> s {endTime = a} :: ModifyScheduledAction) Core.. Lens.mapping Core._Time
 
 -- | A modified schedule in either @at( )@ or @cron( )@ format. For more
 -- information about this parameter, see ScheduledAction.
-modifyScheduledAction_schedule :: Lens.Lens' ModifyScheduledAction (Prelude.Maybe Prelude.Text)
+modifyScheduledAction_schedule :: Lens.Lens' ModifyScheduledAction (Core.Maybe Core.Text)
 modifyScheduledAction_schedule = Lens.lens (\ModifyScheduledAction' {schedule} -> schedule) (\s@ModifyScheduledAction' {} a -> s {schedule = a} :: ModifyScheduledAction)
 
 -- | The name of the scheduled action to modify.
-modifyScheduledAction_scheduledActionName :: Lens.Lens' ModifyScheduledAction Prelude.Text
+modifyScheduledAction_scheduledActionName :: Lens.Lens' ModifyScheduledAction Core.Text
 modifyScheduledAction_scheduledActionName = Lens.lens (\ModifyScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@ModifyScheduledAction' {} a -> s {scheduledActionName = a} :: ModifyScheduledAction)
 
-instance Prelude.AWSRequest ModifyScheduledAction where
-  type Rs ModifyScheduledAction = ScheduledAction
+instance Core.AWSRequest ModifyScheduledAction where
+  type
+    AWSResponse ModifyScheduledAction =
+      ScheduledAction
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ModifyScheduledActionResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ModifyScheduledAction
+instance Core.Hashable ModifyScheduledAction
 
-instance Prelude.NFData ModifyScheduledAction
+instance Core.NFData ModifyScheduledAction
 
-instance Prelude.ToHeaders ModifyScheduledAction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyScheduledAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyScheduledAction where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyScheduledAction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyScheduledAction where
+instance Core.ToQuery ModifyScheduledAction where
   toQuery ModifyScheduledAction' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyScheduledAction" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "TargetAction" Prelude.=: targetAction,
-        "Enable" Prelude.=: enable,
-        "IamRole" Prelude.=: iamRole,
+          Core.=: ("ModifyScheduledAction" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "TargetAction" Core.=: targetAction,
+        "Enable" Core.=: enable,
+        "IamRole" Core.=: iamRole,
         "ScheduledActionDescription"
-          Prelude.=: scheduledActionDescription,
-        "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime,
-        "Schedule" Prelude.=: schedule,
-        "ScheduledActionName" Prelude.=: scheduledActionName
+          Core.=: scheduledActionDescription,
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "Schedule" Core.=: schedule,
+        "ScheduledActionName" Core.=: scheduledActionName
       ]

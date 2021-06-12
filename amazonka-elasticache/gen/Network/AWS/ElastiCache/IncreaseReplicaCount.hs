@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.ElastiCache.IncreaseReplicaCount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,19 +58,19 @@ data IncreaseReplicaCount = IncreaseReplicaCount'
     -- the number of replica nodes in the replication group. For Redis (cluster
     -- mode enabled) replication groups, this is the number of replica nodes in
     -- each of the replication group\'s node groups.
-    newReplicaCount' :: Prelude.Maybe Prelude.Int,
+    newReplicaCount' :: Core.Maybe Core.Int,
     -- | A list of @ConfigureShard@ objects that can be used to configure each
     -- shard in a Redis (cluster mode enabled) replication group. The
     -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
     -- and @PreferredAvailabilityZones@.
-    replicaConfiguration :: Prelude.Maybe [ConfigureShard],
+    replicaConfiguration :: Core.Maybe [ConfigureShard],
     -- | The id of the replication group to which you want to add replica nodes.
-    replicationGroupId :: Prelude.Text,
+    replicationGroupId :: Core.Text,
     -- | If @True@, the number of replica nodes is increased immediately.
     -- @ApplyImmediately=False@ is not currently supported.
-    applyImmediately :: Prelude.Bool
+    applyImmediately :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IncreaseReplicaCount' with all optional fields omitted.
@@ -98,17 +97,17 @@ data IncreaseReplicaCount = IncreaseReplicaCount'
 -- @ApplyImmediately=False@ is not currently supported.
 newIncreaseReplicaCount ::
   -- | 'replicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applyImmediately'
-  Prelude.Bool ->
+  Core.Bool ->
   IncreaseReplicaCount
 newIncreaseReplicaCount
   pReplicationGroupId_
   pApplyImmediately_ =
     IncreaseReplicaCount'
       { newReplicaCount' =
-          Prelude.Nothing,
-        replicaConfiguration = Prelude.Nothing,
+          Core.Nothing,
+        replicaConfiguration = Core.Nothing,
         replicationGroupId = pReplicationGroupId_,
         applyImmediately = pApplyImmediately_
       }
@@ -118,28 +117,28 @@ newIncreaseReplicaCount
 -- the number of replica nodes in the replication group. For Redis (cluster
 -- mode enabled) replication groups, this is the number of replica nodes in
 -- each of the replication group\'s node groups.
-increaseReplicaCount_newReplicaCount :: Lens.Lens' IncreaseReplicaCount (Prelude.Maybe Prelude.Int)
+increaseReplicaCount_newReplicaCount :: Lens.Lens' IncreaseReplicaCount (Core.Maybe Core.Int)
 increaseReplicaCount_newReplicaCount = Lens.lens (\IncreaseReplicaCount' {newReplicaCount'} -> newReplicaCount') (\s@IncreaseReplicaCount' {} a -> s {newReplicaCount' = a} :: IncreaseReplicaCount)
 
 -- | A list of @ConfigureShard@ objects that can be used to configure each
 -- shard in a Redis (cluster mode enabled) replication group. The
 -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
 -- and @PreferredAvailabilityZones@.
-increaseReplicaCount_replicaConfiguration :: Lens.Lens' IncreaseReplicaCount (Prelude.Maybe [ConfigureShard])
-increaseReplicaCount_replicaConfiguration = Lens.lens (\IncreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@IncreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: IncreaseReplicaCount) Prelude.. Lens.mapping Prelude._Coerce
+increaseReplicaCount_replicaConfiguration :: Lens.Lens' IncreaseReplicaCount (Core.Maybe [ConfigureShard])
+increaseReplicaCount_replicaConfiguration = Lens.lens (\IncreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@IncreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: IncreaseReplicaCount) Core.. Lens.mapping Lens._Coerce
 
 -- | The id of the replication group to which you want to add replica nodes.
-increaseReplicaCount_replicationGroupId :: Lens.Lens' IncreaseReplicaCount Prelude.Text
+increaseReplicaCount_replicationGroupId :: Lens.Lens' IncreaseReplicaCount Core.Text
 increaseReplicaCount_replicationGroupId = Lens.lens (\IncreaseReplicaCount' {replicationGroupId} -> replicationGroupId) (\s@IncreaseReplicaCount' {} a -> s {replicationGroupId = a} :: IncreaseReplicaCount)
 
 -- | If @True@, the number of replica nodes is increased immediately.
 -- @ApplyImmediately=False@ is not currently supported.
-increaseReplicaCount_applyImmediately :: Lens.Lens' IncreaseReplicaCount Prelude.Bool
+increaseReplicaCount_applyImmediately :: Lens.Lens' IncreaseReplicaCount Core.Bool
 increaseReplicaCount_applyImmediately = Lens.lens (\IncreaseReplicaCount' {applyImmediately} -> applyImmediately) (\s@IncreaseReplicaCount' {} a -> s {applyImmediately = a} :: IncreaseReplicaCount)
 
-instance Prelude.AWSRequest IncreaseReplicaCount where
+instance Core.AWSRequest IncreaseReplicaCount where
   type
-    Rs IncreaseReplicaCount =
+    AWSResponse IncreaseReplicaCount =
       IncreaseReplicaCountResponse
   request = Request.postQuery defaultService
   response =
@@ -147,44 +146,43 @@ instance Prelude.AWSRequest IncreaseReplicaCount where
       "IncreaseReplicaCountResult"
       ( \s h x ->
           IncreaseReplicaCountResponse'
-            Prelude.<$> (x Prelude..@? "ReplicationGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable IncreaseReplicaCount
+instance Core.Hashable IncreaseReplicaCount
 
-instance Prelude.NFData IncreaseReplicaCount
+instance Core.NFData IncreaseReplicaCount
 
-instance Prelude.ToHeaders IncreaseReplicaCount where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders IncreaseReplicaCount where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath IncreaseReplicaCount where
-  toPath = Prelude.const "/"
+instance Core.ToPath IncreaseReplicaCount where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery IncreaseReplicaCount where
+instance Core.ToQuery IncreaseReplicaCount where
   toQuery IncreaseReplicaCount' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("IncreaseReplicaCount" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "NewReplicaCount" Prelude.=: newReplicaCount',
+          Core.=: ("IncreaseReplicaCount" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "NewReplicaCount" Core.=: newReplicaCount',
         "ReplicaConfiguration"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "ConfigureShard"
-                Prelude.<$> replicaConfiguration
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ConfigureShard"
+                Core.<$> replicaConfiguration
             ),
-        "ReplicationGroupId" Prelude.=: replicationGroupId,
-        "ApplyImmediately" Prelude.=: applyImmediately
+        "ReplicationGroupId" Core.=: replicationGroupId,
+        "ApplyImmediately" Core.=: applyImmediately
       ]
 
 -- | /See:/ 'newIncreaseReplicaCountResponse' smart constructor.
 data IncreaseReplicaCountResponse = IncreaseReplicaCountResponse'
-  { replicationGroup :: Prelude.Maybe ReplicationGroup,
+  { replicationGroup :: Core.Maybe ReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IncreaseReplicaCountResponse' with all optional fields omitted.
@@ -199,21 +197,21 @@ data IncreaseReplicaCountResponse = IncreaseReplicaCountResponse'
 -- 'httpStatus', 'increaseReplicaCountResponse_httpStatus' - The response's http status code.
 newIncreaseReplicaCountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   IncreaseReplicaCountResponse
 newIncreaseReplicaCountResponse pHttpStatus_ =
   IncreaseReplicaCountResponse'
     { replicationGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-increaseReplicaCountResponse_replicationGroup :: Lens.Lens' IncreaseReplicaCountResponse (Prelude.Maybe ReplicationGroup)
+increaseReplicaCountResponse_replicationGroup :: Lens.Lens' IncreaseReplicaCountResponse (Core.Maybe ReplicationGroup)
 increaseReplicaCountResponse_replicationGroup = Lens.lens (\IncreaseReplicaCountResponse' {replicationGroup} -> replicationGroup) (\s@IncreaseReplicaCountResponse' {} a -> s {replicationGroup = a} :: IncreaseReplicaCountResponse)
 
 -- | The response's http status code.
-increaseReplicaCountResponse_httpStatus :: Lens.Lens' IncreaseReplicaCountResponse Prelude.Int
+increaseReplicaCountResponse_httpStatus :: Lens.Lens' IncreaseReplicaCountResponse Core.Int
 increaseReplicaCountResponse_httpStatus = Lens.lens (\IncreaseReplicaCountResponse' {httpStatus} -> httpStatus) (\s@IncreaseReplicaCountResponse' {} a -> s {httpStatus = a} :: IncreaseReplicaCountResponse)
 
-instance Prelude.NFData IncreaseReplicaCountResponse
+instance Core.NFData IncreaseReplicaCountResponse

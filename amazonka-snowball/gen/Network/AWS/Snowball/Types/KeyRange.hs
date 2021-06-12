@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.KeyRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a key range. For export jobs, a @S3Resource@ object can have an
 -- optional @KeyRange@ value. The length of the range is defined at job
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data KeyRange = KeyRange'
   { -- | The key that ends an optional key range for an export job. Ranges are
     -- inclusive and UTF-8 binary sorted.
-    endMarker :: Prelude.Maybe Prelude.Text,
+    endMarker :: Core.Maybe Core.Text,
     -- | The key that starts an optional key range for an export job. Ranges are
     -- inclusive and UTF-8 binary sorted.
-    beginMarker :: Prelude.Maybe Prelude.Text
+    beginMarker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyRange' with all optional fields omitted.
@@ -56,39 +55,39 @@ newKeyRange ::
   KeyRange
 newKeyRange =
   KeyRange'
-    { endMarker = Prelude.Nothing,
-      beginMarker = Prelude.Nothing
+    { endMarker = Core.Nothing,
+      beginMarker = Core.Nothing
     }
 
 -- | The key that ends an optional key range for an export job. Ranges are
 -- inclusive and UTF-8 binary sorted.
-keyRange_endMarker :: Lens.Lens' KeyRange (Prelude.Maybe Prelude.Text)
+keyRange_endMarker :: Lens.Lens' KeyRange (Core.Maybe Core.Text)
 keyRange_endMarker = Lens.lens (\KeyRange' {endMarker} -> endMarker) (\s@KeyRange' {} a -> s {endMarker = a} :: KeyRange)
 
 -- | The key that starts an optional key range for an export job. Ranges are
 -- inclusive and UTF-8 binary sorted.
-keyRange_beginMarker :: Lens.Lens' KeyRange (Prelude.Maybe Prelude.Text)
+keyRange_beginMarker :: Lens.Lens' KeyRange (Core.Maybe Core.Text)
 keyRange_beginMarker = Lens.lens (\KeyRange' {beginMarker} -> beginMarker) (\s@KeyRange' {} a -> s {beginMarker = a} :: KeyRange)
 
-instance Prelude.FromJSON KeyRange where
+instance Core.FromJSON KeyRange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyRange"
       ( \x ->
           KeyRange'
-            Prelude.<$> (x Prelude..:? "EndMarker")
-            Prelude.<*> (x Prelude..:? "BeginMarker")
+            Core.<$> (x Core..:? "EndMarker")
+            Core.<*> (x Core..:? "BeginMarker")
       )
 
-instance Prelude.Hashable KeyRange
+instance Core.Hashable KeyRange
 
-instance Prelude.NFData KeyRange
+instance Core.NFData KeyRange
 
-instance Prelude.ToJSON KeyRange where
+instance Core.ToJSON KeyRange where
   toJSON KeyRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EndMarker" Prelude..=) Prelude.<$> endMarker,
-            ("BeginMarker" Prelude..=) Prelude.<$> beginMarker
+    Core.object
+      ( Core.catMaybes
+          [ ("EndMarker" Core..=) Core.<$> endMarker,
+            ("BeginMarker" Core..=) Core.<$> beginMarker
           ]
       )

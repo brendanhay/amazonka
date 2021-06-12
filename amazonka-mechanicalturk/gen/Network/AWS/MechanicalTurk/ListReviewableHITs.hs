@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,10 +48,9 @@ module Network.AWS.MechanicalTurk.ListReviewableHITs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,16 +58,16 @@ import qualified Network.AWS.Response as Response
 data ListReviewableHITs = ListReviewableHITs'
   { -- | Can be either @Reviewable@ or @Reviewing@. Reviewable is the default
     -- value.
-    status :: Prelude.Maybe ReviewableHITStatus,
+    status :: Core.Maybe ReviewableHITStatus,
     -- | Pagination Token
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Limit the number of results returned.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the HIT type of the HITs to consider for the query. If not
     -- specified, all HITs for the Reviewer are considered
-    hITTypeId :: Prelude.Maybe Prelude.Text
+    hITTypeId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListReviewableHITs' with all optional fields omitted.
@@ -92,114 +90,112 @@ newListReviewableHITs ::
   ListReviewableHITs
 newListReviewableHITs =
   ListReviewableHITs'
-    { status = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      hITTypeId = Prelude.Nothing
+    { status = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      hITTypeId = Core.Nothing
     }
 
 -- | Can be either @Reviewable@ or @Reviewing@. Reviewable is the default
 -- value.
-listReviewableHITs_status :: Lens.Lens' ListReviewableHITs (Prelude.Maybe ReviewableHITStatus)
+listReviewableHITs_status :: Lens.Lens' ListReviewableHITs (Core.Maybe ReviewableHITStatus)
 listReviewableHITs_status = Lens.lens (\ListReviewableHITs' {status} -> status) (\s@ListReviewableHITs' {} a -> s {status = a} :: ListReviewableHITs)
 
 -- | Pagination Token
-listReviewableHITs_nextToken :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Text)
+listReviewableHITs_nextToken :: Lens.Lens' ListReviewableHITs (Core.Maybe Core.Text)
 listReviewableHITs_nextToken = Lens.lens (\ListReviewableHITs' {nextToken} -> nextToken) (\s@ListReviewableHITs' {} a -> s {nextToken = a} :: ListReviewableHITs)
 
 -- | Limit the number of results returned.
-listReviewableHITs_maxResults :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Natural)
+listReviewableHITs_maxResults :: Lens.Lens' ListReviewableHITs (Core.Maybe Core.Natural)
 listReviewableHITs_maxResults = Lens.lens (\ListReviewableHITs' {maxResults} -> maxResults) (\s@ListReviewableHITs' {} a -> s {maxResults = a} :: ListReviewableHITs)
 
 -- | The ID of the HIT type of the HITs to consider for the query. If not
 -- specified, all HITs for the Reviewer are considered
-listReviewableHITs_hITTypeId :: Lens.Lens' ListReviewableHITs (Prelude.Maybe Prelude.Text)
+listReviewableHITs_hITTypeId :: Lens.Lens' ListReviewableHITs (Core.Maybe Core.Text)
 listReviewableHITs_hITTypeId = Lens.lens (\ListReviewableHITs' {hITTypeId} -> hITTypeId) (\s@ListReviewableHITs' {} a -> s {hITTypeId = a} :: ListReviewableHITs)
 
-instance Pager.AWSPager ListReviewableHITs where
+instance Core.AWSPager ListReviewableHITs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listReviewableHITsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listReviewableHITsResponse_hITs Prelude.. Lens._Just
+            Lens.^? listReviewableHITsResponse_hITs Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listReviewableHITs_nextToken
           Lens..~ rs
           Lens.^? listReviewableHITsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListReviewableHITs where
+instance Core.AWSRequest ListReviewableHITs where
   type
-    Rs ListReviewableHITs =
+    AWSResponse ListReviewableHITs =
       ListReviewableHITsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListReviewableHITsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "HITs" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "NumResults")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "HITs" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NumResults")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListReviewableHITs
+instance Core.Hashable ListReviewableHITs
 
-instance Prelude.NFData ListReviewableHITs
+instance Core.NFData ListReviewableHITs
 
-instance Prelude.ToHeaders ListReviewableHITs where
+instance Core.ToHeaders ListReviewableHITs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.ListReviewableHITs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.ListReviewableHITs" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListReviewableHITs where
+instance Core.ToJSON ListReviewableHITs where
   toJSON ListReviewableHITs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Status" Prelude..=) Prelude.<$> status,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("HITTypeId" Prelude..=) Prelude.<$> hITTypeId
+    Core.object
+      ( Core.catMaybes
+          [ ("Status" Core..=) Core.<$> status,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("HITTypeId" Core..=) Core.<$> hITTypeId
           ]
       )
 
-instance Prelude.ToPath ListReviewableHITs where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListReviewableHITs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListReviewableHITs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListReviewableHITs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListReviewableHITsResponse' smart constructor.
 data ListReviewableHITsResponse = ListReviewableHITsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The list of HIT elements returned by the query.
-    hITs :: Prelude.Maybe [HIT],
+    hITs :: Core.Maybe [HIT],
     -- | The number of HITs on this page in the filtered results list, equivalent
     -- to the number of HITs being returned by this call.
-    numResults :: Prelude.Maybe Prelude.Int,
+    numResults :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListReviewableHITsResponse' with all optional fields omitted.
@@ -219,32 +215,32 @@ data ListReviewableHITsResponse = ListReviewableHITsResponse'
 -- 'httpStatus', 'listReviewableHITsResponse_httpStatus' - The response's http status code.
 newListReviewableHITsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListReviewableHITsResponse
 newListReviewableHITsResponse pHttpStatus_ =
   ListReviewableHITsResponse'
     { nextToken =
-        Prelude.Nothing,
-      hITs = Prelude.Nothing,
-      numResults = Prelude.Nothing,
+        Core.Nothing,
+      hITs = Core.Nothing,
+      numResults = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listReviewableHITsResponse_nextToken :: Lens.Lens' ListReviewableHITsResponse (Prelude.Maybe Prelude.Text)
+listReviewableHITsResponse_nextToken :: Lens.Lens' ListReviewableHITsResponse (Core.Maybe Core.Text)
 listReviewableHITsResponse_nextToken = Lens.lens (\ListReviewableHITsResponse' {nextToken} -> nextToken) (\s@ListReviewableHITsResponse' {} a -> s {nextToken = a} :: ListReviewableHITsResponse)
 
 -- | The list of HIT elements returned by the query.
-listReviewableHITsResponse_hITs :: Lens.Lens' ListReviewableHITsResponse (Prelude.Maybe [HIT])
-listReviewableHITsResponse_hITs = Lens.lens (\ListReviewableHITsResponse' {hITs} -> hITs) (\s@ListReviewableHITsResponse' {} a -> s {hITs = a} :: ListReviewableHITsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listReviewableHITsResponse_hITs :: Lens.Lens' ListReviewableHITsResponse (Core.Maybe [HIT])
+listReviewableHITsResponse_hITs = Lens.lens (\ListReviewableHITsResponse' {hITs} -> hITs) (\s@ListReviewableHITsResponse' {} a -> s {hITs = a} :: ListReviewableHITsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of HITs on this page in the filtered results list, equivalent
 -- to the number of HITs being returned by this call.
-listReviewableHITsResponse_numResults :: Lens.Lens' ListReviewableHITsResponse (Prelude.Maybe Prelude.Int)
+listReviewableHITsResponse_numResults :: Lens.Lens' ListReviewableHITsResponse (Core.Maybe Core.Int)
 listReviewableHITsResponse_numResults = Lens.lens (\ListReviewableHITsResponse' {numResults} -> numResults) (\s@ListReviewableHITsResponse' {} a -> s {numResults = a} :: ListReviewableHITsResponse)
 
 -- | The response's http status code.
-listReviewableHITsResponse_httpStatus :: Lens.Lens' ListReviewableHITsResponse Prelude.Int
+listReviewableHITsResponse_httpStatus :: Lens.Lens' ListReviewableHITsResponse Core.Int
 listReviewableHITsResponse_httpStatus = Lens.lens (\ListReviewableHITsResponse' {httpStatus} -> httpStatus) (\s@ListReviewableHITsResponse' {} a -> s {httpStatus = a} :: ListReviewableHITsResponse)
 
-instance Prelude.NFData ListReviewableHITsResponse
+instance Core.NFData ListReviewableHITsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.GetAdmChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetAdmChannel = GetAdmChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAdmChannel' with all optional fields omitted.
@@ -67,60 +66,60 @@ data GetAdmChannel = GetAdmChannel'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetAdmChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   GetAdmChannel
 newGetAdmChannel pApplicationId_ =
   GetAdmChannel' {applicationId = pApplicationId_}
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getAdmChannel_applicationId :: Lens.Lens' GetAdmChannel Prelude.Text
+getAdmChannel_applicationId :: Lens.Lens' GetAdmChannel Core.Text
 getAdmChannel_applicationId = Lens.lens (\GetAdmChannel' {applicationId} -> applicationId) (\s@GetAdmChannel' {} a -> s {applicationId = a} :: GetAdmChannel)
 
-instance Prelude.AWSRequest GetAdmChannel where
-  type Rs GetAdmChannel = GetAdmChannelResponse
+instance Core.AWSRequest GetAdmChannel where
+  type
+    AWSResponse GetAdmChannel =
+      GetAdmChannelResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAdmChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetAdmChannel
+instance Core.Hashable GetAdmChannel
 
-instance Prelude.NFData GetAdmChannel
+instance Core.NFData GetAdmChannel
 
-instance Prelude.ToHeaders GetAdmChannel where
+instance Core.ToHeaders GetAdmChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetAdmChannel where
+instance Core.ToPath GetAdmChannel where
   toPath GetAdmChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/adm"
       ]
 
-instance Prelude.ToQuery GetAdmChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAdmChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAdmChannelResponse' smart constructor.
 data GetAdmChannelResponse = GetAdmChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     aDMChannelResponse :: ADMChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAdmChannelResponse' with all optional fields omitted.
@@ -135,7 +134,7 @@ data GetAdmChannelResponse = GetAdmChannelResponse'
 -- 'aDMChannelResponse', 'getAdmChannelResponse_aDMChannelResponse' - Undocumented member.
 newGetAdmChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'aDMChannelResponse'
   ADMChannelResponse ->
   GetAdmChannelResponse
@@ -148,11 +147,11 @@ newGetAdmChannelResponse
       }
 
 -- | The response's http status code.
-getAdmChannelResponse_httpStatus :: Lens.Lens' GetAdmChannelResponse Prelude.Int
+getAdmChannelResponse_httpStatus :: Lens.Lens' GetAdmChannelResponse Core.Int
 getAdmChannelResponse_httpStatus = Lens.lens (\GetAdmChannelResponse' {httpStatus} -> httpStatus) (\s@GetAdmChannelResponse' {} a -> s {httpStatus = a} :: GetAdmChannelResponse)
 
 -- | Undocumented member.
 getAdmChannelResponse_aDMChannelResponse :: Lens.Lens' GetAdmChannelResponse ADMChannelResponse
 getAdmChannelResponse_aDMChannelResponse = Lens.lens (\GetAdmChannelResponse' {aDMChannelResponse} -> aDMChannelResponse) (\s@GetAdmChannelResponse' {} a -> s {aDMChannelResponse = a} :: GetAdmChannelResponse)
 
-instance Prelude.NFData GetAdmChannelResponse
+instance Core.NFData GetAdmChannelResponse

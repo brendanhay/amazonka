@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,25 +50,25 @@ module Network.AWS.LexModels.DeleteUtterances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUtterances' smart constructor.
 data DeleteUtterances = DeleteUtterances'
   { -- | The name of the bot that stored the utterances.
-    botName :: Prelude.Text,
+    botName :: Core.Text,
     -- | The unique identifier for the user that made the utterances. This is the
     -- user ID that was sent in the
     -- <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html PostContent>
     -- or
     -- <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText>
     -- operation request that contained the utterance.
-    userId :: Prelude.Text
+    userId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUtterances' with all optional fields omitted.
@@ -89,9 +88,9 @@ data DeleteUtterances = DeleteUtterances'
 -- operation request that contained the utterance.
 newDeleteUtterances ::
   -- | 'botName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUtterances
 newDeleteUtterances pBotName_ pUserId_ =
   DeleteUtterances'
@@ -100,7 +99,7 @@ newDeleteUtterances pBotName_ pUserId_ =
     }
 
 -- | The name of the bot that stored the utterances.
-deleteUtterances_botName :: Lens.Lens' DeleteUtterances Prelude.Text
+deleteUtterances_botName :: Lens.Lens' DeleteUtterances Core.Text
 deleteUtterances_botName = Lens.lens (\DeleteUtterances' {botName} -> botName) (\s@DeleteUtterances' {} a -> s {botName = a} :: DeleteUtterances)
 
 -- | The unique identifier for the user that made the utterances. This is the
@@ -109,47 +108,47 @@ deleteUtterances_botName = Lens.lens (\DeleteUtterances' {botName} -> botName) (
 -- or
 -- <http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html PostText>
 -- operation request that contained the utterance.
-deleteUtterances_userId :: Lens.Lens' DeleteUtterances Prelude.Text
+deleteUtterances_userId :: Lens.Lens' DeleteUtterances Core.Text
 deleteUtterances_userId = Lens.lens (\DeleteUtterances' {userId} -> userId) (\s@DeleteUtterances' {} a -> s {userId = a} :: DeleteUtterances)
 
-instance Prelude.AWSRequest DeleteUtterances where
-  type Rs DeleteUtterances = DeleteUtterancesResponse
+instance Core.AWSRequest DeleteUtterances where
+  type
+    AWSResponse DeleteUtterances =
+      DeleteUtterancesResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteUtterancesResponse'
 
-instance Prelude.Hashable DeleteUtterances
+instance Core.Hashable DeleteUtterances
 
-instance Prelude.NFData DeleteUtterances
+instance Core.NFData DeleteUtterances
 
-instance Prelude.ToHeaders DeleteUtterances where
+instance Core.ToHeaders DeleteUtterances where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteUtterances where
+instance Core.ToPath DeleteUtterances where
   toPath DeleteUtterances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/bots/",
-        Prelude.toBS botName,
+        Core.toBS botName,
         "/utterances/",
-        Prelude.toBS userId
+        Core.toBS userId
       ]
 
-instance Prelude.ToQuery DeleteUtterances where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUtterances where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUtterancesResponse' smart constructor.
 data DeleteUtterancesResponse = DeleteUtterancesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUtterancesResponse' with all optional fields omitted.
@@ -160,4 +159,4 @@ newDeleteUtterancesResponse ::
 newDeleteUtterancesResponse =
   DeleteUtterancesResponse'
 
-instance Prelude.NFData DeleteUtterancesResponse
+instance Core.NFData DeleteUtterancesResponse

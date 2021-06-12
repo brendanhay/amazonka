@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,9 +53,8 @@ module Network.AWS.SageMaker.Search
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -65,27 +63,27 @@ import Network.AWS.SageMaker.Types
 data Search = Search'
   { -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
     -- @Descending@. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SearchSortOrder,
+    sortOrder :: Core.Maybe SearchSortOrder,
     -- | If more than @MaxResults@ resources match the specified
     -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
     -- can be passed to the next @SearchRequest@ to continue retrieving
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A Boolean conditional statement. Resources must satisfy this condition
     -- to be included in search results. You must provide at least one
     -- subexpression, filter, or nested filter. The maximum number of recursive
     -- @SubExpressions@, @NestedFilters@, and @Filters@ that can be included in
     -- a @SearchExpression@ object is 50.
-    searchExpression :: Prelude.Maybe SearchExpression,
+    searchExpression :: Core.Maybe SearchExpression,
     -- | The name of the resource property used to sort the @SearchResults@. The
     -- default is @LastModifiedTime@.
-    sortBy :: Prelude.Maybe Prelude.Text,
+    sortBy :: Core.Maybe Core.Text,
     -- | The name of the Amazon SageMaker resource to search for.
     resource :: ResourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Search' with all optional fields omitted.
@@ -121,28 +119,28 @@ newSearch ::
   Search
 newSearch pResource_ =
   Search'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      searchExpression = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
+    { sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      searchExpression = Core.Nothing,
+      sortBy = Core.Nothing,
       resource = pResource_
     }
 
 -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
 -- @Descending@. The default is @Descending@.
-search_sortOrder :: Lens.Lens' Search (Prelude.Maybe SearchSortOrder)
+search_sortOrder :: Lens.Lens' Search (Core.Maybe SearchSortOrder)
 search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} a -> s {sortOrder = a} :: Search)
 
 -- | If more than @MaxResults@ resources match the specified
 -- @SearchExpression@, the response includes a @NextToken@. The @NextToken@
 -- can be passed to the next @SearchRequest@ to continue retrieving
 -- results.
-search_nextToken :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_nextToken :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_nextToken = Lens.lens (\Search' {nextToken} -> nextToken) (\s@Search' {} a -> s {nextToken = a} :: Search)
 
 -- | The maximum number of results to return.
-search_maxResults :: Lens.Lens' Search (Prelude.Maybe Prelude.Natural)
+search_maxResults :: Lens.Lens' Search (Core.Maybe Core.Natural)
 search_maxResults = Lens.lens (\Search' {maxResults} -> maxResults) (\s@Search' {} a -> s {maxResults = a} :: Search)
 
 -- | A Boolean conditional statement. Resources must satisfy this condition
@@ -150,98 +148,93 @@ search_maxResults = Lens.lens (\Search' {maxResults} -> maxResults) (\s@Search' 
 -- subexpression, filter, or nested filter. The maximum number of recursive
 -- @SubExpressions@, @NestedFilters@, and @Filters@ that can be included in
 -- a @SearchExpression@ object is 50.
-search_searchExpression :: Lens.Lens' Search (Prelude.Maybe SearchExpression)
+search_searchExpression :: Lens.Lens' Search (Core.Maybe SearchExpression)
 search_searchExpression = Lens.lens (\Search' {searchExpression} -> searchExpression) (\s@Search' {} a -> s {searchExpression = a} :: Search)
 
 -- | The name of the resource property used to sort the @SearchResults@. The
 -- default is @LastModifiedTime@.
-search_sortBy :: Lens.Lens' Search (Prelude.Maybe Prelude.Text)
+search_sortBy :: Lens.Lens' Search (Core.Maybe Core.Text)
 search_sortBy = Lens.lens (\Search' {sortBy} -> sortBy) (\s@Search' {} a -> s {sortBy = a} :: Search)
 
 -- | The name of the Amazon SageMaker resource to search for.
 search_resource :: Lens.Lens' Search ResourceType
 search_resource = Lens.lens (\Search' {resource} -> resource) (\s@Search' {} a -> s {resource = a} :: Search)
 
-instance Pager.AWSPager Search where
+instance Core.AWSPager Search where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? searchResponse_nextToken Prelude.. Lens._Just
+            Lens.^? searchResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
-        ( rs
-            Lens.^? searchResponse_results Prelude.. Lens._Just
-        ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.stop
+        (rs Lens.^? searchResponse_results Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& search_nextToken
-          Lens..~ rs
-          Lens.^? searchResponse_nextToken Prelude.. Lens._Just
+          Lens..~ rs Lens.^? searchResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest Search where
-  type Rs Search = SearchResponse
+instance Core.AWSRequest Search where
+  type AWSResponse Search = SearchResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SearchResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Results" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Results" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Search
+instance Core.Hashable Search
 
-instance Prelude.NFData Search
+instance Core.NFData Search
 
-instance Prelude.ToHeaders Search where
+instance Core.ToHeaders Search where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.Search" :: Prelude.ByteString),
+              Core.=# ("SageMaker.Search" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON Search where
+instance Core.ToJSON Search where
   toJSON Search' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("SearchExpression" Prelude..=)
-              Prelude.<$> searchExpression,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            Prelude.Just ("Resource" Prelude..= resource)
+    Core.object
+      ( Core.catMaybes
+          [ ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("SearchExpression" Core..=)
+              Core.<$> searchExpression,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            Core.Just ("Resource" Core..= resource)
           ]
       )
 
-instance Prelude.ToPath Search where
-  toPath = Prelude.const "/"
+instance Core.ToPath Search where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery Search where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery Search where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSearchResponse' smart constructor.
 data SearchResponse = SearchResponse'
   { -- | If the result of the previous @Search@ request was truncated, the
     -- response includes a NextToken. To retrieve the next set of results, use
     -- the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @SearchRecord@ objects.
-    results :: Prelude.Maybe [SearchRecord],
+    results :: Core.Maybe [SearchRecord],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchResponse' with all optional fields omitted.
@@ -260,27 +253,27 @@ data SearchResponse = SearchResponse'
 -- 'httpStatus', 'searchResponse_httpStatus' - The response's http status code.
 newSearchResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SearchResponse
 newSearchResponse pHttpStatus_ =
   SearchResponse'
-    { nextToken = Prelude.Nothing,
-      results = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      results = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the result of the previous @Search@ request was truncated, the
 -- response includes a NextToken. To retrieve the next set of results, use
 -- the token in the next request.
-searchResponse_nextToken :: Lens.Lens' SearchResponse (Prelude.Maybe Prelude.Text)
+searchResponse_nextToken :: Lens.Lens' SearchResponse (Core.Maybe Core.Text)
 searchResponse_nextToken = Lens.lens (\SearchResponse' {nextToken} -> nextToken) (\s@SearchResponse' {} a -> s {nextToken = a} :: SearchResponse)
 
 -- | A list of @SearchRecord@ objects.
-searchResponse_results :: Lens.Lens' SearchResponse (Prelude.Maybe [SearchRecord])
-searchResponse_results = Lens.lens (\SearchResponse' {results} -> results) (\s@SearchResponse' {} a -> s {results = a} :: SearchResponse) Prelude.. Lens.mapping Prelude._Coerce
+searchResponse_results :: Lens.Lens' SearchResponse (Core.Maybe [SearchRecord])
+searchResponse_results = Lens.lens (\SearchResponse' {results} -> results) (\s@SearchResponse' {} a -> s {results = a} :: SearchResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-searchResponse_httpStatus :: Lens.Lens' SearchResponse Prelude.Int
+searchResponse_httpStatus :: Lens.Lens' SearchResponse Core.Int
 searchResponse_httpStatus = Lens.lens (\SearchResponse' {httpStatus} -> httpStatus) (\s@SearchResponse' {} a -> s {httpStatus = a} :: SearchResponse)
 
-instance Prelude.NFData SearchResponse
+instance Core.NFData SearchResponse

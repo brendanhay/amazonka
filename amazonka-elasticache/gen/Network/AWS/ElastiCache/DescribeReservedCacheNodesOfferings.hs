@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,10 +48,9 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,12 +64,12 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     -- identifier.
     --
     -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
-    reservedCacheNodesOfferingId :: Prelude.Maybe Prelude.Text,
+    reservedCacheNodesOfferingId :: Core.Maybe Core.Text,
     -- | Duration filter value, specified in years or seconds. Use this parameter
     -- to show only reservations for a given duration.
     --
     -- Valid Values: @1 | 3 | 31536000 | 94608000@
-    duration :: Prelude.Maybe Prelude.Text,
+    duration :: Core.Maybe Core.Text,
     -- | The cache node type filter value. Use this parameter to show only the
     -- available offerings matching the specified cache node type.
     --
@@ -166,21 +164,21 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     --
     -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
     --     supported on Redis version 2.8.22 and later.
-    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    cacheNodeType :: Core.Maybe Core.Text,
     -- | The offering type filter value. Use this parameter to show only the
     -- available offerings matching the specified offering type.
     --
     -- Valid Values:
     -- @\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\" |\"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"@
-    offeringType :: Prelude.Maybe Prelude.Text,
+    offeringType :: Core.Maybe Core.Text,
     -- | The product description filter value. Use this parameter to show only
     -- the available offerings matching the specified product description.
-    productDescription :: Prelude.Maybe Prelude.Text,
+    productDescription :: Core.Maybe Core.Text,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -188,9 +186,9 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedCacheNodesOfferings' with all optional fields omitted.
@@ -332,13 +330,13 @@ newDescribeReservedCacheNodesOfferings ::
 newDescribeReservedCacheNodesOfferings =
   DescribeReservedCacheNodesOfferings'
     { reservedCacheNodesOfferingId =
-        Prelude.Nothing,
-      duration = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing,
-      offeringType = Prelude.Nothing,
-      productDescription = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      duration = Core.Nothing,
+      cacheNodeType = Core.Nothing,
+      offeringType = Core.Nothing,
+      productDescription = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The offering identifier filter value. Use this parameter to show only
@@ -346,14 +344,14 @@ newDescribeReservedCacheNodesOfferings =
 -- identifier.
 --
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
-describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId :: Lens.Lens' DescribeReservedCacheNodesOfferings (Core.Maybe Core.Text)
 describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId = Lens.lens (\DescribeReservedCacheNodesOfferings' {reservedCacheNodesOfferingId} -> reservedCacheNodesOfferingId) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {reservedCacheNodesOfferingId = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | Duration filter value, specified in years or seconds. Use this parameter
 -- to show only reservations for a given duration.
 --
 -- Valid Values: @1 | 3 | 31536000 | 94608000@
-describeReservedCacheNodesOfferings_duration :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_duration :: Lens.Lens' DescribeReservedCacheNodesOfferings (Core.Maybe Core.Text)
 describeReservedCacheNodesOfferings_duration = Lens.lens (\DescribeReservedCacheNodesOfferings' {duration} -> duration) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {duration = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | The cache node type filter value. Use this parameter to show only the
@@ -450,7 +448,7 @@ describeReservedCacheNodesOfferings_duration = Lens.lens (\DescribeReservedCache
 --
 -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
 --     supported on Redis version 2.8.22 and later.
-describeReservedCacheNodesOfferings_cacheNodeType :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_cacheNodeType :: Lens.Lens' DescribeReservedCacheNodesOfferings (Core.Maybe Core.Text)
 describeReservedCacheNodesOfferings_cacheNodeType = Lens.lens (\DescribeReservedCacheNodesOfferings' {cacheNodeType} -> cacheNodeType) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {cacheNodeType = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | The offering type filter value. Use this parameter to show only the
@@ -458,19 +456,19 @@ describeReservedCacheNodesOfferings_cacheNodeType = Lens.lens (\DescribeReserved
 --
 -- Valid Values:
 -- @\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\" |\"All Upfront\"|\"Partial Upfront\"| \"No Upfront\"@
-describeReservedCacheNodesOfferings_offeringType :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_offeringType :: Lens.Lens' DescribeReservedCacheNodesOfferings (Core.Maybe Core.Text)
 describeReservedCacheNodesOfferings_offeringType = Lens.lens (\DescribeReservedCacheNodesOfferings' {offeringType} -> offeringType) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {offeringType = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | The product description filter value. Use this parameter to show only
 -- the available offerings matching the specified product description.
-describeReservedCacheNodesOfferings_productDescription :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_productDescription :: Lens.Lens' DescribeReservedCacheNodesOfferings (Core.Maybe Core.Text)
 describeReservedCacheNodesOfferings_productDescription = Lens.lens (\DescribeReservedCacheNodesOfferings' {productDescription} -> productDescription) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {productDescription = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeReservedCacheNodesOfferings_marker :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferings_marker :: Lens.Lens' DescribeReservedCacheNodesOfferings (Core.Maybe Core.Text)
 describeReservedCacheNodesOfferings_marker = Lens.lens (\DescribeReservedCacheNodesOfferings' {marker} -> marker) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {marker = a} :: DescribeReservedCacheNodesOfferings)
 
 -- | The maximum number of records to include in the response. If more
@@ -480,40 +478,40 @@ describeReservedCacheNodesOfferings_marker = Lens.lens (\DescribeReservedCacheNo
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeReservedCacheNodesOfferings_maxRecords :: Lens.Lens' DescribeReservedCacheNodesOfferings (Prelude.Maybe Prelude.Int)
+describeReservedCacheNodesOfferings_maxRecords :: Lens.Lens' DescribeReservedCacheNodesOfferings (Core.Maybe Core.Int)
 describeReservedCacheNodesOfferings_maxRecords = Lens.lens (\DescribeReservedCacheNodesOfferings' {maxRecords} -> maxRecords) (\s@DescribeReservedCacheNodesOfferings' {} a -> s {maxRecords = a} :: DescribeReservedCacheNodesOfferings)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeReservedCacheNodesOfferings
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeReservedCacheNodesOfferingsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeReservedCacheNodesOfferingsResponse_reservedCacheNodesOfferings
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeReservedCacheNodesOfferings_marker
           Lens..~ rs
           Lens.^? describeReservedCacheNodesOfferingsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeReservedCacheNodesOfferings
   where
   type
-    Rs DescribeReservedCacheNodesOfferings =
+    AWSResponse DescribeReservedCacheNodesOfferings =
       DescribeReservedCacheNodesOfferingsResponse
   request = Request.postQuery defaultService
   response =
@@ -521,55 +519,54 @@ instance
       "DescribeReservedCacheNodesOfferingsResult"
       ( \s h x ->
           DescribeReservedCacheNodesOfferingsResponse'
-            Prelude.<$> ( x Prelude..@? "ReservedCacheNodesOfferings"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "ReservedCacheNodesOffering")
-                        )
-              Prelude.<*> (x Prelude..@? "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "ReservedCacheNodesOfferings"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may
+                           (Core.parseXMLList "ReservedCacheNodesOffering")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeReservedCacheNodesOfferings
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReservedCacheNodesOfferings
 
 instance
-  Prelude.ToHeaders
-    DescribeReservedCacheNodesOfferings
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeReservedCacheNodesOfferings
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeReservedCacheNodesOfferings
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeReservedCacheNodesOfferings
   where
   toQuery DescribeReservedCacheNodesOfferings' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeReservedCacheNodesOfferings" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ( "DescribeReservedCacheNodesOfferings" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "ReservedCacheNodesOfferingId"
-          Prelude.=: reservedCacheNodesOfferingId,
-        "Duration" Prelude.=: duration,
-        "CacheNodeType" Prelude.=: cacheNodeType,
-        "OfferingType" Prelude.=: offeringType,
-        "ProductDescription" Prelude.=: productDescription,
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: reservedCacheNodesOfferingId,
+        "Duration" Core.=: duration,
+        "CacheNodeType" Core.=: cacheNodeType,
+        "OfferingType" Core.=: offeringType,
+        "ProductDescription" Core.=: productDescription,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeReservedCacheNodesOfferings@
@@ -579,13 +576,13 @@ instance
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
   { -- | A list of reserved cache node offerings. Each element in the list
     -- contains detailed information about one offering.
-    reservedCacheNodesOfferings :: Prelude.Maybe [ReservedCacheNodesOffering],
+    reservedCacheNodesOfferings :: Core.Maybe [ReservedCacheNodesOffering],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedCacheNodesOfferingsResponse' with all optional fields omitted.
@@ -603,30 +600,30 @@ data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOff
 -- 'httpStatus', 'describeReservedCacheNodesOfferingsResponse_httpStatus' - The response's http status code.
 newDescribeReservedCacheNodesOfferingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReservedCacheNodesOfferingsResponse
 newDescribeReservedCacheNodesOfferingsResponse
   pHttpStatus_ =
     DescribeReservedCacheNodesOfferingsResponse'
       { reservedCacheNodesOfferings =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of reserved cache node offerings. Each element in the list
 -- contains detailed information about one offering.
-describeReservedCacheNodesOfferingsResponse_reservedCacheNodesOfferings :: Lens.Lens' DescribeReservedCacheNodesOfferingsResponse (Prelude.Maybe [ReservedCacheNodesOffering])
-describeReservedCacheNodesOfferingsResponse_reservedCacheNodesOfferings = Lens.lens (\DescribeReservedCacheNodesOfferingsResponse' {reservedCacheNodesOfferings} -> reservedCacheNodesOfferings) (\s@DescribeReservedCacheNodesOfferingsResponse' {} a -> s {reservedCacheNodesOfferings = a} :: DescribeReservedCacheNodesOfferingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeReservedCacheNodesOfferingsResponse_reservedCacheNodesOfferings :: Lens.Lens' DescribeReservedCacheNodesOfferingsResponse (Core.Maybe [ReservedCacheNodesOffering])
+describeReservedCacheNodesOfferingsResponse_reservedCacheNodesOfferings = Lens.lens (\DescribeReservedCacheNodesOfferingsResponse' {reservedCacheNodesOfferings} -> reservedCacheNodesOfferings) (\s@DescribeReservedCacheNodesOfferingsResponse' {} a -> s {reservedCacheNodesOfferings = a} :: DescribeReservedCacheNodesOfferingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeReservedCacheNodesOfferingsResponse_marker :: Lens.Lens' DescribeReservedCacheNodesOfferingsResponse (Prelude.Maybe Prelude.Text)
+describeReservedCacheNodesOfferingsResponse_marker :: Lens.Lens' DescribeReservedCacheNodesOfferingsResponse (Core.Maybe Core.Text)
 describeReservedCacheNodesOfferingsResponse_marker = Lens.lens (\DescribeReservedCacheNodesOfferingsResponse' {marker} -> marker) (\s@DescribeReservedCacheNodesOfferingsResponse' {} a -> s {marker = a} :: DescribeReservedCacheNodesOfferingsResponse)
 
 -- | The response's http status code.
-describeReservedCacheNodesOfferingsResponse_httpStatus :: Lens.Lens' DescribeReservedCacheNodesOfferingsResponse Prelude.Int
+describeReservedCacheNodesOfferingsResponse_httpStatus :: Lens.Lens' DescribeReservedCacheNodesOfferingsResponse Core.Int
 describeReservedCacheNodesOfferingsResponse_httpStatus = Lens.lens (\DescribeReservedCacheNodesOfferingsResponse' {httpStatus} -> httpStatus) (\s@DescribeReservedCacheNodesOfferingsResponse' {} a -> s {httpStatus = a} :: DescribeReservedCacheNodesOfferingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReservedCacheNodesOfferingsResponse

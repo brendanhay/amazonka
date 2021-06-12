@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,24 +42,24 @@ module Network.AWS.AppSync.CreateType
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateType' smart constructor.
 data CreateType = CreateType'
   { -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The type definition, in GraphQL Schema Definition Language (SDL) format.
     --
     -- For more information, see the
     -- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
-    definition :: Prelude.Text,
+    definition :: Core.Text,
     -- | The type format: SDL or JSON.
     format :: TypeDefinitionFormat
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateType' with all optional fields omitted.
@@ -80,9 +79,9 @@ data CreateType = CreateType'
 -- 'format', 'createType_format' - The type format: SDL or JSON.
 newCreateType ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'definition'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'format'
   TypeDefinitionFormat ->
   CreateType
@@ -94,71 +93,69 @@ newCreateType pApiId_ pDefinition_ pFormat_ =
     }
 
 -- | The API ID.
-createType_apiId :: Lens.Lens' CreateType Prelude.Text
+createType_apiId :: Lens.Lens' CreateType Core.Text
 createType_apiId = Lens.lens (\CreateType' {apiId} -> apiId) (\s@CreateType' {} a -> s {apiId = a} :: CreateType)
 
 -- | The type definition, in GraphQL Schema Definition Language (SDL) format.
 --
 -- For more information, see the
 -- <http://graphql.org/learn/schema/ GraphQL SDL documentation>.
-createType_definition :: Lens.Lens' CreateType Prelude.Text
+createType_definition :: Lens.Lens' CreateType Core.Text
 createType_definition = Lens.lens (\CreateType' {definition} -> definition) (\s@CreateType' {} a -> s {definition = a} :: CreateType)
 
 -- | The type format: SDL or JSON.
 createType_format :: Lens.Lens' CreateType TypeDefinitionFormat
 createType_format = Lens.lens (\CreateType' {format} -> format) (\s@CreateType' {} a -> s {format = a} :: CreateType)
 
-instance Prelude.AWSRequest CreateType where
-  type Rs CreateType = CreateTypeResponse
+instance Core.AWSRequest CreateType where
+  type AWSResponse CreateType = CreateTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateTypeResponse'
-            Prelude.<$> (x Prelude..?> "type")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "type")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateType
+instance Core.Hashable CreateType
 
-instance Prelude.NFData CreateType
+instance Core.NFData CreateType
 
-instance Prelude.ToHeaders CreateType where
+instance Core.ToHeaders CreateType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateType where
+instance Core.ToJSON CreateType where
   toJSON CreateType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("definition" Prelude..= definition),
-            Prelude.Just ("format" Prelude..= format)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("definition" Core..= definition),
+            Core.Just ("format" Core..= format)
           ]
       )
 
-instance Prelude.ToPath CreateType where
+instance Core.ToPath CreateType where
   toPath CreateType' {..} =
-    Prelude.mconcat
-      ["/v1/apis/", Prelude.toBS apiId, "/types"]
+    Core.mconcat
+      ["/v1/apis/", Core.toBS apiId, "/types"]
 
-instance Prelude.ToQuery CreateType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateTypeResponse' smart constructor.
 data CreateTypeResponse = CreateTypeResponse'
   { -- | The @Type@ object.
-    type' :: Prelude.Maybe Type,
+    type' :: Core.Maybe Type,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTypeResponse' with all optional fields omitted.
@@ -173,20 +170,20 @@ data CreateTypeResponse = CreateTypeResponse'
 -- 'httpStatus', 'createTypeResponse_httpStatus' - The response's http status code.
 newCreateTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTypeResponse
 newCreateTypeResponse pHttpStatus_ =
   CreateTypeResponse'
-    { type' = Prelude.Nothing,
+    { type' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @Type@ object.
-createTypeResponse_type :: Lens.Lens' CreateTypeResponse (Prelude.Maybe Type)
+createTypeResponse_type :: Lens.Lens' CreateTypeResponse (Core.Maybe Type)
 createTypeResponse_type = Lens.lens (\CreateTypeResponse' {type'} -> type') (\s@CreateTypeResponse' {} a -> s {type' = a} :: CreateTypeResponse)
 
 -- | The response's http status code.
-createTypeResponse_httpStatus :: Lens.Lens' CreateTypeResponse Prelude.Int
+createTypeResponse_httpStatus :: Lens.Lens' CreateTypeResponse Core.Int
 createTypeResponse_httpStatus = Lens.lens (\CreateTypeResponse' {httpStatus} -> httpStatus) (\s@CreateTypeResponse' {} a -> s {httpStatus = a} :: CreateTypeResponse)
 
-instance Prelude.NFData CreateTypeResponse
+instance Core.NFData CreateTypeResponse

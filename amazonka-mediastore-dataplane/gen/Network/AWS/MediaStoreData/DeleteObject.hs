@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.MediaStoreData.DeleteObject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data DeleteObject = DeleteObject'
   { -- | The path (including the file name) where the object is stored in the
     -- container. Format: \<folder name>\/\<folder name>\/\<file name>
-    path :: Prelude.Text
+    path :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteObject' with all optional fields omitted.
@@ -65,45 +64,45 @@ data DeleteObject = DeleteObject'
 -- container. Format: \<folder name>\/\<folder name>\/\<file name>
 newDeleteObject ::
   -- | 'path'
-  Prelude.Text ->
+  Core.Text ->
   DeleteObject
 newDeleteObject pPath_ = DeleteObject' {path = pPath_}
 
 -- | The path (including the file name) where the object is stored in the
 -- container. Format: \<folder name>\/\<folder name>\/\<file name>
-deleteObject_path :: Lens.Lens' DeleteObject Prelude.Text
+deleteObject_path :: Lens.Lens' DeleteObject Core.Text
 deleteObject_path = Lens.lens (\DeleteObject' {path} -> path) (\s@DeleteObject' {} a -> s {path = a} :: DeleteObject)
 
-instance Prelude.AWSRequest DeleteObject where
-  type Rs DeleteObject = DeleteObjectResponse
+instance Core.AWSRequest DeleteObject where
+  type AWSResponse DeleteObject = DeleteObjectResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteObject
+instance Core.Hashable DeleteObject
 
-instance Prelude.NFData DeleteObject
+instance Core.NFData DeleteObject
 
-instance Prelude.ToHeaders DeleteObject where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteObject where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteObject where
+instance Core.ToPath DeleteObject where
   toPath DeleteObject' {..} =
-    Prelude.mconcat ["/", Prelude.toBS path]
+    Core.mconcat ["/", Core.toBS path]
 
-instance Prelude.ToQuery DeleteObject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteObject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteObjectResponse' smart constructor.
 data DeleteObjectResponse = DeleteObjectResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteObjectResponse' with all optional fields omitted.
@@ -116,13 +115,13 @@ data DeleteObjectResponse = DeleteObjectResponse'
 -- 'httpStatus', 'deleteObjectResponse_httpStatus' - The response's http status code.
 newDeleteObjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteObjectResponse
 newDeleteObjectResponse pHttpStatus_ =
   DeleteObjectResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteObjectResponse_httpStatus :: Lens.Lens' DeleteObjectResponse Prelude.Int
+deleteObjectResponse_httpStatus :: Lens.Lens' DeleteObjectResponse Core.Int
 deleteObjectResponse_httpStatus = Lens.lens (\DeleteObjectResponse' {httpStatus} -> httpStatus) (\s@DeleteObjectResponse' {} a -> s {httpStatus = a} :: DeleteObjectResponse)
 
-instance Prelude.NFData DeleteObjectResponse
+instance Core.NFData DeleteObjectResponse

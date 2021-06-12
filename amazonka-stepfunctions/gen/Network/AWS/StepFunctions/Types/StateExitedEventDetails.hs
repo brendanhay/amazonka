@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.StateExitedEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about an exit from a state during an execution.
@@ -30,9 +29,9 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 data StateExitedEventDetails = StateExitedEventDetails'
   { -- | The JSON output data of the state. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    output :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails,
+    outputDetails :: Core.Maybe HistoryEventExecutionDataDetails,
     -- | The name of the state.
     --
     -- A name must /not/ contain:
@@ -49,9 +48,9 @@ data StateExitedEventDetails = StateExitedEventDetails'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StateExitedEventDetails' with all optional fields omitted.
@@ -84,22 +83,22 @@ data StateExitedEventDetails = StateExitedEventDetails'
 -- 0-9, A-Z, a-z, - and _.
 newStateExitedEventDetails ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   StateExitedEventDetails
 newStateExitedEventDetails pName_ =
   StateExitedEventDetails'
-    { output = Prelude.Nothing,
-      outputDetails = Prelude.Nothing,
+    { output = Core.Nothing,
+      outputDetails = Core.Nothing,
       name = pName_
     }
 
 -- | The JSON output data of the state. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
-stateExitedEventDetails_output :: Lens.Lens' StateExitedEventDetails (Prelude.Maybe Prelude.Text)
-stateExitedEventDetails_output = Lens.lens (\StateExitedEventDetails' {output} -> output) (\s@StateExitedEventDetails' {} a -> s {output = a} :: StateExitedEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+stateExitedEventDetails_output :: Lens.Lens' StateExitedEventDetails (Core.Maybe Core.Text)
+stateExitedEventDetails_output = Lens.lens (\StateExitedEventDetails' {output} -> output) (\s@StateExitedEventDetails' {} a -> s {output = a} :: StateExitedEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | Contains details about the output of an execution history event.
-stateExitedEventDetails_outputDetails :: Lens.Lens' StateExitedEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+stateExitedEventDetails_outputDetails :: Lens.Lens' StateExitedEventDetails (Core.Maybe HistoryEventExecutionDataDetails)
 stateExitedEventDetails_outputDetails = Lens.lens (\StateExitedEventDetails' {outputDetails} -> outputDetails) (\s@StateExitedEventDetails' {} a -> s {outputDetails = a} :: StateExitedEventDetails)
 
 -- | The name of the state.
@@ -118,20 +117,20 @@ stateExitedEventDetails_outputDetails = Lens.lens (\StateExitedEventDetails' {ou
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-stateExitedEventDetails_name :: Lens.Lens' StateExitedEventDetails Prelude.Text
+stateExitedEventDetails_name :: Lens.Lens' StateExitedEventDetails Core.Text
 stateExitedEventDetails_name = Lens.lens (\StateExitedEventDetails' {name} -> name) (\s@StateExitedEventDetails' {} a -> s {name = a} :: StateExitedEventDetails)
 
-instance Prelude.FromJSON StateExitedEventDetails where
+instance Core.FromJSON StateExitedEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StateExitedEventDetails"
       ( \x ->
           StateExitedEventDetails'
-            Prelude.<$> (x Prelude..:? "output")
-            Prelude.<*> (x Prelude..:? "outputDetails")
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..:? "output")
+            Core.<*> (x Core..:? "outputDetails")
+            Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable StateExitedEventDetails
+instance Core.Hashable StateExitedEventDetails
 
-instance Prelude.NFData StateExitedEventDetails
+instance Core.NFData StateExitedEventDetails

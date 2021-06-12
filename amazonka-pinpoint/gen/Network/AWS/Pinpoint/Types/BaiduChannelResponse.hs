@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.BaiduChannelResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the status and settings of the Baidu (Baidu
 -- Cloud Push) channel for an application.
@@ -29,33 +28,33 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBaiduChannelResponse' smart constructor.
 data BaiduChannelResponse = BaiduChannelResponse'
   { -- | The date and time when the Baidu channel was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    lastModifiedDate :: Core.Maybe Core.Text,
     -- | The unique identifier for the application that the Baidu channel applies
     -- to.
-    applicationId :: Prelude.Maybe Prelude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Prelude.Maybe Prelude.Bool,
+    hasCredential :: Core.Maybe Core.Bool,
     -- | (Deprecated) An identifier for the Baidu channel. This property is
     -- retained only for backward compatibility.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The date and time when the Baidu channel was enabled.
-    creationDate :: Prelude.Maybe Prelude.Text,
+    creationDate :: Core.Maybe Core.Text,
     -- | Specifies whether the Baidu channel is enabled for the application.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The current version of the Baidu channel.
-    version :: Prelude.Maybe Prelude.Int,
+    version :: Core.Maybe Core.Int,
     -- | Specifies whether the Baidu channel is archived.
-    isArchived :: Prelude.Maybe Prelude.Bool,
+    isArchived :: Core.Maybe Core.Bool,
     -- | The user who last modified the Baidu channel.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    lastModifiedBy :: Core.Maybe Core.Text,
     -- | The API key that you received from the Baidu Cloud Push service to
     -- communicate with the service.
-    credential :: Prelude.Text,
+    credential :: Core.Text,
     -- | The type of messaging or notification platform for the channel. For the
     -- Baidu channel, this value is BAIDU.
-    platform :: Prelude.Text
+    platform :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BaiduChannelResponse' with all optional fields omitted.
@@ -92,93 +91,93 @@ data BaiduChannelResponse = BaiduChannelResponse'
 -- Baidu channel, this value is BAIDU.
 newBaiduChannelResponse ::
   -- | 'credential'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'platform'
-  Prelude.Text ->
+  Core.Text ->
   BaiduChannelResponse
 newBaiduChannelResponse pCredential_ pPlatform_ =
   BaiduChannelResponse'
     { lastModifiedDate =
-        Prelude.Nothing,
-      applicationId = Prelude.Nothing,
-      hasCredential = Prelude.Nothing,
-      id = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      version = Prelude.Nothing,
-      isArchived = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
+        Core.Nothing,
+      applicationId = Core.Nothing,
+      hasCredential = Core.Nothing,
+      id = Core.Nothing,
+      creationDate = Core.Nothing,
+      enabled = Core.Nothing,
+      version = Core.Nothing,
+      isArchived = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
       credential = pCredential_,
       platform = pPlatform_
     }
 
 -- | The date and time when the Baidu channel was last modified.
-baiduChannelResponse_lastModifiedDate :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Text)
+baiduChannelResponse_lastModifiedDate :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Text)
 baiduChannelResponse_lastModifiedDate = Lens.lens (\BaiduChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@BaiduChannelResponse' {} a -> s {lastModifiedDate = a} :: BaiduChannelResponse)
 
 -- | The unique identifier for the application that the Baidu channel applies
 -- to.
-baiduChannelResponse_applicationId :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Text)
+baiduChannelResponse_applicationId :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Text)
 baiduChannelResponse_applicationId = Lens.lens (\BaiduChannelResponse' {applicationId} -> applicationId) (\s@BaiduChannelResponse' {} a -> s {applicationId = a} :: BaiduChannelResponse)
 
 -- | (Not used) This property is retained only for backward compatibility.
-baiduChannelResponse_hasCredential :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Bool)
+baiduChannelResponse_hasCredential :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Bool)
 baiduChannelResponse_hasCredential = Lens.lens (\BaiduChannelResponse' {hasCredential} -> hasCredential) (\s@BaiduChannelResponse' {} a -> s {hasCredential = a} :: BaiduChannelResponse)
 
 -- | (Deprecated) An identifier for the Baidu channel. This property is
 -- retained only for backward compatibility.
-baiduChannelResponse_id :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Text)
+baiduChannelResponse_id :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Text)
 baiduChannelResponse_id = Lens.lens (\BaiduChannelResponse' {id} -> id) (\s@BaiduChannelResponse' {} a -> s {id = a} :: BaiduChannelResponse)
 
 -- | The date and time when the Baidu channel was enabled.
-baiduChannelResponse_creationDate :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Text)
+baiduChannelResponse_creationDate :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Text)
 baiduChannelResponse_creationDate = Lens.lens (\BaiduChannelResponse' {creationDate} -> creationDate) (\s@BaiduChannelResponse' {} a -> s {creationDate = a} :: BaiduChannelResponse)
 
 -- | Specifies whether the Baidu channel is enabled for the application.
-baiduChannelResponse_enabled :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Bool)
+baiduChannelResponse_enabled :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Bool)
 baiduChannelResponse_enabled = Lens.lens (\BaiduChannelResponse' {enabled} -> enabled) (\s@BaiduChannelResponse' {} a -> s {enabled = a} :: BaiduChannelResponse)
 
 -- | The current version of the Baidu channel.
-baiduChannelResponse_version :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Int)
+baiduChannelResponse_version :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Int)
 baiduChannelResponse_version = Lens.lens (\BaiduChannelResponse' {version} -> version) (\s@BaiduChannelResponse' {} a -> s {version = a} :: BaiduChannelResponse)
 
 -- | Specifies whether the Baidu channel is archived.
-baiduChannelResponse_isArchived :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Bool)
+baiduChannelResponse_isArchived :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Bool)
 baiduChannelResponse_isArchived = Lens.lens (\BaiduChannelResponse' {isArchived} -> isArchived) (\s@BaiduChannelResponse' {} a -> s {isArchived = a} :: BaiduChannelResponse)
 
 -- | The user who last modified the Baidu channel.
-baiduChannelResponse_lastModifiedBy :: Lens.Lens' BaiduChannelResponse (Prelude.Maybe Prelude.Text)
+baiduChannelResponse_lastModifiedBy :: Lens.Lens' BaiduChannelResponse (Core.Maybe Core.Text)
 baiduChannelResponse_lastModifiedBy = Lens.lens (\BaiduChannelResponse' {lastModifiedBy} -> lastModifiedBy) (\s@BaiduChannelResponse' {} a -> s {lastModifiedBy = a} :: BaiduChannelResponse)
 
 -- | The API key that you received from the Baidu Cloud Push service to
 -- communicate with the service.
-baiduChannelResponse_credential :: Lens.Lens' BaiduChannelResponse Prelude.Text
+baiduChannelResponse_credential :: Lens.Lens' BaiduChannelResponse Core.Text
 baiduChannelResponse_credential = Lens.lens (\BaiduChannelResponse' {credential} -> credential) (\s@BaiduChannelResponse' {} a -> s {credential = a} :: BaiduChannelResponse)
 
 -- | The type of messaging or notification platform for the channel. For the
 -- Baidu channel, this value is BAIDU.
-baiduChannelResponse_platform :: Lens.Lens' BaiduChannelResponse Prelude.Text
+baiduChannelResponse_platform :: Lens.Lens' BaiduChannelResponse Core.Text
 baiduChannelResponse_platform = Lens.lens (\BaiduChannelResponse' {platform} -> platform) (\s@BaiduChannelResponse' {} a -> s {platform = a} :: BaiduChannelResponse)
 
-instance Prelude.FromJSON BaiduChannelResponse where
+instance Core.FromJSON BaiduChannelResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BaiduChannelResponse"
       ( \x ->
           BaiduChannelResponse'
-            Prelude.<$> (x Prelude..:? "LastModifiedDate")
-            Prelude.<*> (x Prelude..:? "ApplicationId")
-            Prelude.<*> (x Prelude..:? "HasCredential")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "CreationDate")
-            Prelude.<*> (x Prelude..:? "Enabled")
-            Prelude.<*> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "IsArchived")
-            Prelude.<*> (x Prelude..:? "LastModifiedBy")
-            Prelude.<*> (x Prelude..: "Credential")
-            Prelude.<*> (x Prelude..: "Platform")
+            Core.<$> (x Core..:? "LastModifiedDate")
+            Core.<*> (x Core..:? "ApplicationId")
+            Core.<*> (x Core..:? "HasCredential")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "CreationDate")
+            Core.<*> (x Core..:? "Enabled")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (x Core..:? "IsArchived")
+            Core.<*> (x Core..:? "LastModifiedBy")
+            Core.<*> (x Core..: "Credential")
+            Core.<*> (x Core..: "Platform")
       )
 
-instance Prelude.Hashable BaiduChannelResponse
+instance Core.Hashable BaiduChannelResponse
 
-instance Prelude.NFData BaiduChannelResponse
+instance Core.NFData BaiduChannelResponse

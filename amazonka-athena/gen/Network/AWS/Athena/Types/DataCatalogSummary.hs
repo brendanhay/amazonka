@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Athena.Types.DataCatalogSummary where
 
 import Network.AWS.Athena.Types.DataCatalogType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The summary information for the data catalog, which includes its name
 -- and type.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDataCatalogSummary' smart constructor.
 data DataCatalogSummary = DataCatalogSummary'
   { -- | The name of the data catalog.
-    catalogName :: Prelude.Maybe Prelude.Text,
+    catalogName :: Core.Maybe Core.Text,
     -- | The data catalog type.
-    type' :: Prelude.Maybe DataCatalogType
+    type' :: Core.Maybe DataCatalogType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DataCatalogSummary' with all optional fields omitted.
@@ -51,28 +50,28 @@ newDataCatalogSummary ::
   DataCatalogSummary
 newDataCatalogSummary =
   DataCatalogSummary'
-    { catalogName = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { catalogName = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The name of the data catalog.
-dataCatalogSummary_catalogName :: Lens.Lens' DataCatalogSummary (Prelude.Maybe Prelude.Text)
+dataCatalogSummary_catalogName :: Lens.Lens' DataCatalogSummary (Core.Maybe Core.Text)
 dataCatalogSummary_catalogName = Lens.lens (\DataCatalogSummary' {catalogName} -> catalogName) (\s@DataCatalogSummary' {} a -> s {catalogName = a} :: DataCatalogSummary)
 
 -- | The data catalog type.
-dataCatalogSummary_type :: Lens.Lens' DataCatalogSummary (Prelude.Maybe DataCatalogType)
+dataCatalogSummary_type :: Lens.Lens' DataCatalogSummary (Core.Maybe DataCatalogType)
 dataCatalogSummary_type = Lens.lens (\DataCatalogSummary' {type'} -> type') (\s@DataCatalogSummary' {} a -> s {type' = a} :: DataCatalogSummary)
 
-instance Prelude.FromJSON DataCatalogSummary where
+instance Core.FromJSON DataCatalogSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DataCatalogSummary"
       ( \x ->
           DataCatalogSummary'
-            Prelude.<$> (x Prelude..:? "CatalogName")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "CatalogName")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable DataCatalogSummary
+instance Core.Hashable DataCatalogSummary
 
-instance Prelude.NFData DataCatalogSummary
+instance Core.NFData DataCatalogSummary

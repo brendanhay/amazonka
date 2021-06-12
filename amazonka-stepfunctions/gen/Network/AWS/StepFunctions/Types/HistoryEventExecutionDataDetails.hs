@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides details about input or output in an execution history event.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data HistoryEventExecutionDataDetails = HistoryEventExecutionDataDetails'
   { -- | Indicates whether input or output was truncated in the response. Always
     -- @false@ for API calls.
-    truncated :: Prelude.Maybe Prelude.Bool
+    truncated :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HistoryEventExecutionDataDetails' with all optional fields omitted.
@@ -48,30 +47,28 @@ newHistoryEventExecutionDataDetails ::
 newHistoryEventExecutionDataDetails =
   HistoryEventExecutionDataDetails'
     { truncated =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Indicates whether input or output was truncated in the response. Always
 -- @false@ for API calls.
-historyEventExecutionDataDetails_truncated :: Lens.Lens' HistoryEventExecutionDataDetails (Prelude.Maybe Prelude.Bool)
+historyEventExecutionDataDetails_truncated :: Lens.Lens' HistoryEventExecutionDataDetails (Core.Maybe Core.Bool)
 historyEventExecutionDataDetails_truncated = Lens.lens (\HistoryEventExecutionDataDetails' {truncated} -> truncated) (\s@HistoryEventExecutionDataDetails' {} a -> s {truncated = a} :: HistoryEventExecutionDataDetails)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     HistoryEventExecutionDataDetails
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HistoryEventExecutionDataDetails"
       ( \x ->
           HistoryEventExecutionDataDetails'
-            Prelude.<$> (x Prelude..:? "truncated")
+            Core.<$> (x Core..:? "truncated")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     HistoryEventExecutionDataDetails
 
-instance
-  Prelude.NFData
-    HistoryEventExecutionDataDetails
+instance Core.NFData HistoryEventExecutionDataDetails

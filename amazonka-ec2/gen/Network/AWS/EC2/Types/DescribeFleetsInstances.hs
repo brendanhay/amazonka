@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,34 +19,34 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DescribeFleetsInstances where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceLifecycle
 import Network.AWS.EC2.Types.InstanceType
 import Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse
 import Network.AWS.EC2.Types.PlatformValues
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the instances that were launched by the fleet.
 --
 -- /See:/ 'newDescribeFleetsInstances' smart constructor.
 data DescribeFleetsInstances = DescribeFleetsInstances'
   { -- | The IDs of the instances.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
+    instanceIds :: Core.Maybe [Core.Text],
     -- | The value is @Windows@ for Windows instances. Otherwise, the value is
     -- blank.
-    platform :: Prelude.Maybe PlatformValues,
+    platform :: Core.Maybe PlatformValues,
     -- | The instance type.
-    instanceType :: Prelude.Maybe InstanceType,
+    instanceType :: Core.Maybe InstanceType,
     -- | The launch templates and overrides that were used for launching the
     -- instances. The values that you specify in the Overrides replace the
     -- values in the launch template.
-    launchTemplateAndOverrides :: Prelude.Maybe LaunchTemplateAndOverridesResponse,
+    launchTemplateAndOverrides :: Core.Maybe LaunchTemplateAndOverridesResponse,
     -- | Indicates if the instance that was launched is a Spot Instance or
     -- On-Demand Instance.
-    lifecycle :: Prelude.Maybe InstanceLifecycle
+    lifecycle :: Core.Maybe InstanceLifecycle
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFleetsInstances' with all optional fields omitted.
@@ -75,49 +74,48 @@ newDescribeFleetsInstances ::
 newDescribeFleetsInstances =
   DescribeFleetsInstances'
     { instanceIds =
-        Prelude.Nothing,
-      platform = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      launchTemplateAndOverrides = Prelude.Nothing,
-      lifecycle = Prelude.Nothing
+        Core.Nothing,
+      platform = Core.Nothing,
+      instanceType = Core.Nothing,
+      launchTemplateAndOverrides = Core.Nothing,
+      lifecycle = Core.Nothing
     }
 
 -- | The IDs of the instances.
-describeFleetsInstances_instanceIds :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe [Prelude.Text])
-describeFleetsInstances_instanceIds = Lens.lens (\DescribeFleetsInstances' {instanceIds} -> instanceIds) (\s@DescribeFleetsInstances' {} a -> s {instanceIds = a} :: DescribeFleetsInstances) Prelude.. Lens.mapping Prelude._Coerce
+describeFleetsInstances_instanceIds :: Lens.Lens' DescribeFleetsInstances (Core.Maybe [Core.Text])
+describeFleetsInstances_instanceIds = Lens.lens (\DescribeFleetsInstances' {instanceIds} -> instanceIds) (\s@DescribeFleetsInstances' {} a -> s {instanceIds = a} :: DescribeFleetsInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The value is @Windows@ for Windows instances. Otherwise, the value is
 -- blank.
-describeFleetsInstances_platform :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe PlatformValues)
+describeFleetsInstances_platform :: Lens.Lens' DescribeFleetsInstances (Core.Maybe PlatformValues)
 describeFleetsInstances_platform = Lens.lens (\DescribeFleetsInstances' {platform} -> platform) (\s@DescribeFleetsInstances' {} a -> s {platform = a} :: DescribeFleetsInstances)
 
 -- | The instance type.
-describeFleetsInstances_instanceType :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe InstanceType)
+describeFleetsInstances_instanceType :: Lens.Lens' DescribeFleetsInstances (Core.Maybe InstanceType)
 describeFleetsInstances_instanceType = Lens.lens (\DescribeFleetsInstances' {instanceType} -> instanceType) (\s@DescribeFleetsInstances' {} a -> s {instanceType = a} :: DescribeFleetsInstances)
 
 -- | The launch templates and overrides that were used for launching the
 -- instances. The values that you specify in the Overrides replace the
 -- values in the launch template.
-describeFleetsInstances_launchTemplateAndOverrides :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe LaunchTemplateAndOverridesResponse)
+describeFleetsInstances_launchTemplateAndOverrides :: Lens.Lens' DescribeFleetsInstances (Core.Maybe LaunchTemplateAndOverridesResponse)
 describeFleetsInstances_launchTemplateAndOverrides = Lens.lens (\DescribeFleetsInstances' {launchTemplateAndOverrides} -> launchTemplateAndOverrides) (\s@DescribeFleetsInstances' {} a -> s {launchTemplateAndOverrides = a} :: DescribeFleetsInstances)
 
 -- | Indicates if the instance that was launched is a Spot Instance or
 -- On-Demand Instance.
-describeFleetsInstances_lifecycle :: Lens.Lens' DescribeFleetsInstances (Prelude.Maybe InstanceLifecycle)
+describeFleetsInstances_lifecycle :: Lens.Lens' DescribeFleetsInstances (Core.Maybe InstanceLifecycle)
 describeFleetsInstances_lifecycle = Lens.lens (\DescribeFleetsInstances' {lifecycle} -> lifecycle) (\s@DescribeFleetsInstances' {} a -> s {lifecycle = a} :: DescribeFleetsInstances)
 
-instance Prelude.FromXML DescribeFleetsInstances where
+instance Core.FromXML DescribeFleetsInstances where
   parseXML x =
     DescribeFleetsInstances'
-      Prelude.<$> ( x Prelude..@? "instanceIds"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "platform")
-      Prelude.<*> (x Prelude..@? "instanceType")
-      Prelude.<*> (x Prelude..@? "launchTemplateAndOverrides")
-      Prelude.<*> (x Prelude..@? "lifecycle")
+      Core.<$> ( x Core..@? "instanceIds" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "platform")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "launchTemplateAndOverrides")
+      Core.<*> (x Core..@? "lifecycle")
 
-instance Prelude.Hashable DescribeFleetsInstances
+instance Core.Hashable DescribeFleetsInstances
 
-instance Prelude.NFData DescribeFleetsInstances
+instance Core.NFData DescribeFleetsInstances

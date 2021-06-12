@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,7 +64,7 @@ data CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
   { -- | The current configuration information for the identity.
     cloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCloudFrontOriginAccessIdentity' with all optional fields omitted.
@@ -92,74 +91,73 @@ createCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig :: Len
 createCloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig = Lens.lens (\CreateCloudFrontOriginAccessIdentity' {cloudFrontOriginAccessIdentityConfig} -> cloudFrontOriginAccessIdentityConfig) (\s@CreateCloudFrontOriginAccessIdentity' {} a -> s {cloudFrontOriginAccessIdentityConfig = a} :: CreateCloudFrontOriginAccessIdentity)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateCloudFrontOriginAccessIdentity
   where
   type
-    Rs CreateCloudFrontOriginAccessIdentity =
+    AWSResponse CreateCloudFrontOriginAccessIdentity =
       CreateCloudFrontOriginAccessIdentityResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateCloudFrontOriginAccessIdentityResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-              Prelude.<*> (Prelude.parseXML x)
-              Prelude.<*> (h Prelude..#? "Location")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag") Core.<*> (Core.parseXML x)
+              Core.<*> (h Core..#? "Location")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateCloudFrontOriginAccessIdentity
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateCloudFrontOriginAccessIdentity
 
 instance
-  Prelude.ToElement
+  Core.ToElement
     CreateCloudFrontOriginAccessIdentity
   where
   toElement CreateCloudFrontOriginAccessIdentity' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}CloudFrontOriginAccessIdentityConfig"
       cloudFrontOriginAccessIdentityConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreateCloudFrontOriginAccessIdentity
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     CreateCloudFrontOriginAccessIdentity
   where
   toPath =
-    Prelude.const
+    Core.const
       "/2020-05-31/origin-access-identity/cloudfront"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     CreateCloudFrontOriginAccessIdentity
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newCreateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
   { -- | The current version of the origin access identity created.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The origin access identity\'s information.
-    cloudFrontOriginAccessIdentity :: Prelude.Maybe CloudFrontOriginAccessIdentity,
+    cloudFrontOriginAccessIdentity :: Core.Maybe CloudFrontOriginAccessIdentity,
     -- | The fully qualified URI of the new origin access identity just created.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCloudFrontOriginAccessIdentityResponse' with all optional fields omitted.
@@ -178,35 +176,35 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 -- 'httpStatus', 'createCloudFrontOriginAccessIdentityResponse_httpStatus' - The response's http status code.
 newCreateCloudFrontOriginAccessIdentityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCloudFrontOriginAccessIdentityResponse
 newCreateCloudFrontOriginAccessIdentityResponse
   pHttpStatus_ =
     CreateCloudFrontOriginAccessIdentityResponse'
       { eTag =
-          Prelude.Nothing,
+          Core.Nothing,
         cloudFrontOriginAccessIdentity =
-          Prelude.Nothing,
-        location = Prelude.Nothing,
+          Core.Nothing,
+        location = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The current version of the origin access identity created.
-createCloudFrontOriginAccessIdentityResponse_eTag :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
+createCloudFrontOriginAccessIdentityResponse_eTag :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Core.Maybe Core.Text)
 createCloudFrontOriginAccessIdentityResponse_eTag = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {eTag} -> eTag) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {eTag = a} :: CreateCloudFrontOriginAccessIdentityResponse)
 
 -- | The origin access identity\'s information.
-createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe CloudFrontOriginAccessIdentity)
+createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Core.Maybe CloudFrontOriginAccessIdentity)
 createCloudFrontOriginAccessIdentityResponse_cloudFrontOriginAccessIdentity = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {cloudFrontOriginAccessIdentity} -> cloudFrontOriginAccessIdentity) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {cloudFrontOriginAccessIdentity = a} :: CreateCloudFrontOriginAccessIdentityResponse)
 
 -- | The fully qualified URI of the new origin access identity just created.
-createCloudFrontOriginAccessIdentityResponse_location :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Prelude.Maybe Prelude.Text)
+createCloudFrontOriginAccessIdentityResponse_location :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse (Core.Maybe Core.Text)
 createCloudFrontOriginAccessIdentityResponse_location = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {location} -> location) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {location = a} :: CreateCloudFrontOriginAccessIdentityResponse)
 
 -- | The response's http status code.
-createCloudFrontOriginAccessIdentityResponse_httpStatus :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse Prelude.Int
+createCloudFrontOriginAccessIdentityResponse_httpStatus :: Lens.Lens' CreateCloudFrontOriginAccessIdentityResponse Core.Int
 createCloudFrontOriginAccessIdentityResponse_httpStatus = Lens.lens (\CreateCloudFrontOriginAccessIdentityResponse' {httpStatus} -> httpStatus) (\s@CreateCloudFrontOriginAccessIdentityResponse' {} a -> s {httpStatus = a} :: CreateCloudFrontOriginAccessIdentityResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateCloudFrontOriginAccessIdentityResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DAX.Types.SSEDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types.SSEStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The description of the server-side encryption status on the specified
 -- DAX cluster.
@@ -38,9 +37,9 @@ data SSEDescription = SSEDescription'
     -- -   @DISABLING@ - Server-side encryption is being disabled.
     --
     -- -   @DISABLED@ - Server-side encryption is disabled.
-    status :: Prelude.Maybe SSEStatus
+    status :: Core.Maybe SSEStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SSEDescription' with all optional fields omitted.
@@ -62,7 +61,7 @@ data SSEDescription = SSEDescription'
 newSSEDescription ::
   SSEDescription
 newSSEDescription =
-  SSEDescription' {status = Prelude.Nothing}
+  SSEDescription' {status = Core.Nothing}
 
 -- | The current state of server-side encryption:
 --
@@ -73,17 +72,17 @@ newSSEDescription =
 -- -   @DISABLING@ - Server-side encryption is being disabled.
 --
 -- -   @DISABLED@ - Server-side encryption is disabled.
-sSEDescription_status :: Lens.Lens' SSEDescription (Prelude.Maybe SSEStatus)
+sSEDescription_status :: Lens.Lens' SSEDescription (Core.Maybe SSEStatus)
 sSEDescription_status = Lens.lens (\SSEDescription' {status} -> status) (\s@SSEDescription' {} a -> s {status = a} :: SSEDescription)
 
-instance Prelude.FromJSON SSEDescription where
+instance Core.FromJSON SSEDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SSEDescription"
       ( \x ->
-          SSEDescription' Prelude.<$> (x Prelude..:? "Status")
+          SSEDescription' Core.<$> (x Core..:? "Status")
       )
 
-instance Prelude.Hashable SSEDescription
+instance Core.Hashable SSEDescription
 
-instance Prelude.NFData SSEDescription
+instance Core.NFData SSEDescription

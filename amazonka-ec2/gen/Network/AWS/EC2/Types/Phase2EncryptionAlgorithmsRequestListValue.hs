@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
 -- negotiations.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPhase2EncryptionAlgorithmsRequestListValue' smart constructor.
 data Phase2EncryptionAlgorithmsRequestListValue = Phase2EncryptionAlgorithmsRequestListValue'
   { -- | The encryption algorithm.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Phase2EncryptionAlgorithmsRequestListValue' with all optional fields omitted.
@@ -48,25 +47,25 @@ newPhase2EncryptionAlgorithmsRequestListValue ::
 newPhase2EncryptionAlgorithmsRequestListValue =
   Phase2EncryptionAlgorithmsRequestListValue'
     { value =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The encryption algorithm.
-phase2EncryptionAlgorithmsRequestListValue_value :: Lens.Lens' Phase2EncryptionAlgorithmsRequestListValue (Prelude.Maybe Prelude.Text)
+phase2EncryptionAlgorithmsRequestListValue_value :: Lens.Lens' Phase2EncryptionAlgorithmsRequestListValue (Core.Maybe Core.Text)
 phase2EncryptionAlgorithmsRequestListValue_value = Lens.lens (\Phase2EncryptionAlgorithmsRequestListValue' {value} -> value) (\s@Phase2EncryptionAlgorithmsRequestListValue' {} a -> s {value = a} :: Phase2EncryptionAlgorithmsRequestListValue)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Phase2EncryptionAlgorithmsRequestListValue
 
 instance
-  Prelude.NFData
+  Core.NFData
     Phase2EncryptionAlgorithmsRequestListValue
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     Phase2EncryptionAlgorithmsRequestListValue
   where
   toQuery
     Phase2EncryptionAlgorithmsRequestListValue' {..} =
-      Prelude.mconcat ["Value" Prelude.=: value]
+      Core.mconcat ["Value" Core.=: value]

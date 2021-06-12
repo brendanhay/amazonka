@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Kinesis.Types.EnhancedMetrics where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types.MetricsName
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents enhanced metrics types.
 --
@@ -52,9 +51,9 @@ data EnhancedMetrics = EnhancedMetrics'
     -- For more information, see
     -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
     -- in the /Amazon Kinesis Data Streams Developer Guide/.
-    shardLevelMetrics :: Prelude.Maybe [MetricsName]
+    shardLevelMetrics :: Core.Maybe [MetricsName]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnhancedMetrics' with all optional fields omitted.
@@ -91,10 +90,7 @@ data EnhancedMetrics = EnhancedMetrics'
 newEnhancedMetrics ::
   EnhancedMetrics
 newEnhancedMetrics =
-  EnhancedMetrics'
-    { shardLevelMetrics =
-        Prelude.Nothing
-    }
+  EnhancedMetrics' {shardLevelMetrics = Core.Nothing}
 
 -- | List of shard-level metrics.
 --
@@ -120,20 +116,20 @@ newEnhancedMetrics =
 -- For more information, see
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
-enhancedMetrics_shardLevelMetrics :: Lens.Lens' EnhancedMetrics (Prelude.Maybe [MetricsName])
-enhancedMetrics_shardLevelMetrics = Lens.lens (\EnhancedMetrics' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnhancedMetrics' {} a -> s {shardLevelMetrics = a} :: EnhancedMetrics) Prelude.. Lens.mapping Prelude._Coerce
+enhancedMetrics_shardLevelMetrics :: Lens.Lens' EnhancedMetrics (Core.Maybe [MetricsName])
+enhancedMetrics_shardLevelMetrics = Lens.lens (\EnhancedMetrics' {shardLevelMetrics} -> shardLevelMetrics) (\s@EnhancedMetrics' {} a -> s {shardLevelMetrics = a} :: EnhancedMetrics) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON EnhancedMetrics where
+instance Core.FromJSON EnhancedMetrics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EnhancedMetrics"
       ( \x ->
           EnhancedMetrics'
-            Prelude.<$> ( x Prelude..:? "ShardLevelMetrics"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "ShardLevelMetrics"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable EnhancedMetrics
+instance Core.Hashable EnhancedMetrics
 
-instance Prelude.NFData EnhancedMetrics
+instance Core.NFData EnhancedMetrics

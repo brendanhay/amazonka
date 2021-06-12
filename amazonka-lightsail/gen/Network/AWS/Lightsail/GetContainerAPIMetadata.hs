@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.Lightsail.GetContainerAPIMetadata
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data GetContainerAPIMetadata = GetContainerAPIMetadata'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerAPIMetadata' with all optional fields omitted.
@@ -58,57 +57,54 @@ newGetContainerAPIMetadata ::
   GetContainerAPIMetadata
 newGetContainerAPIMetadata = GetContainerAPIMetadata'
 
-instance Prelude.AWSRequest GetContainerAPIMetadata where
+instance Core.AWSRequest GetContainerAPIMetadata where
   type
-    Rs GetContainerAPIMetadata =
+    AWSResponse GetContainerAPIMetadata =
       GetContainerAPIMetadataResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetContainerAPIMetadataResponse'
-            Prelude.<$> (x Prelude..?> "metadata" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "metadata" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerAPIMetadata
+instance Core.Hashable GetContainerAPIMetadata
 
-instance Prelude.NFData GetContainerAPIMetadata
+instance Core.NFData GetContainerAPIMetadata
 
-instance Prelude.ToHeaders GetContainerAPIMetadata where
+instance Core.ToHeaders GetContainerAPIMetadata where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetContainerAPIMetadata" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetContainerAPIMetadata" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetContainerAPIMetadata where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetContainerAPIMetadata where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetContainerAPIMetadata where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetContainerAPIMetadata where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetContainerAPIMetadata where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetContainerAPIMetadata where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetContainerAPIMetadataResponse' smart constructor.
 data GetContainerAPIMetadataResponse = GetContainerAPIMetadataResponse'
   { -- | Metadata about Lightsail containers, such as the current version of the
     -- Lightsail Control (lightsailctl) plugin.
-    metadata :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
+    metadata :: Core.Maybe [Core.HashMap Core.Text Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerAPIMetadataResponse' with all optional fields omitted.
@@ -124,24 +120,22 @@ data GetContainerAPIMetadataResponse = GetContainerAPIMetadataResponse'
 -- 'httpStatus', 'getContainerAPIMetadataResponse_httpStatus' - The response's http status code.
 newGetContainerAPIMetadataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetContainerAPIMetadataResponse
 newGetContainerAPIMetadataResponse pHttpStatus_ =
   GetContainerAPIMetadataResponse'
     { metadata =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Metadata about Lightsail containers, such as the current version of the
 -- Lightsail Control (lightsailctl) plugin.
-getContainerAPIMetadataResponse_metadata :: Lens.Lens' GetContainerAPIMetadataResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
-getContainerAPIMetadataResponse_metadata = Lens.lens (\GetContainerAPIMetadataResponse' {metadata} -> metadata) (\s@GetContainerAPIMetadataResponse' {} a -> s {metadata = a} :: GetContainerAPIMetadataResponse) Prelude.. Lens.mapping Prelude._Coerce
+getContainerAPIMetadataResponse_metadata :: Lens.Lens' GetContainerAPIMetadataResponse (Core.Maybe [Core.HashMap Core.Text Core.Text])
+getContainerAPIMetadataResponse_metadata = Lens.lens (\GetContainerAPIMetadataResponse' {metadata} -> metadata) (\s@GetContainerAPIMetadataResponse' {} a -> s {metadata = a} :: GetContainerAPIMetadataResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContainerAPIMetadataResponse_httpStatus :: Lens.Lens' GetContainerAPIMetadataResponse Prelude.Int
+getContainerAPIMetadataResponse_httpStatus :: Lens.Lens' GetContainerAPIMetadataResponse Core.Int
 getContainerAPIMetadataResponse_httpStatus = Lens.lens (\GetContainerAPIMetadataResponse' {httpStatus} -> httpStatus) (\s@GetContainerAPIMetadataResponse' {} a -> s {httpStatus = a} :: GetContainerAPIMetadataResponse)
 
-instance
-  Prelude.NFData
-    GetContainerAPIMetadataResponse
+instance Core.NFData GetContainerAPIMetadataResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.DAX.DescribeParameterGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,17 +58,17 @@ data DescribeParameterGroups = DescribeParameterGroups'
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The names of the parameter groups.
-    parameterGroupNames :: Prelude.Maybe [Prelude.Text]
+    parameterGroupNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeParameterGroups' with all optional fields omitted.
@@ -96,17 +94,16 @@ newDescribeParameterGroups ::
   DescribeParameterGroups
 newDescribeParameterGroups =
   DescribeParameterGroups'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      parameterGroupNames = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      parameterGroupNames = Core.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
-describeParameterGroups_nextToken :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Text)
+describeParameterGroups_nextToken :: Lens.Lens' DescribeParameterGroups (Core.Maybe Core.Text)
 describeParameterGroups_nextToken = Lens.lens (\DescribeParameterGroups' {nextToken} -> nextToken) (\s@DescribeParameterGroups' {} a -> s {nextToken = a} :: DescribeParameterGroups)
 
 -- | The maximum number of results to include in the response. If more
@@ -114,98 +111,94 @@ describeParameterGroups_nextToken = Lens.lens (\DescribeParameterGroups' {nextTo
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
-describeParameterGroups_maxResults :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe Prelude.Int)
+describeParameterGroups_maxResults :: Lens.Lens' DescribeParameterGroups (Core.Maybe Core.Int)
 describeParameterGroups_maxResults = Lens.lens (\DescribeParameterGroups' {maxResults} -> maxResults) (\s@DescribeParameterGroups' {} a -> s {maxResults = a} :: DescribeParameterGroups)
 
 -- | The names of the parameter groups.
-describeParameterGroups_parameterGroupNames :: Lens.Lens' DescribeParameterGroups (Prelude.Maybe [Prelude.Text])
-describeParameterGroups_parameterGroupNames = Lens.lens (\DescribeParameterGroups' {parameterGroupNames} -> parameterGroupNames) (\s@DescribeParameterGroups' {} a -> s {parameterGroupNames = a} :: DescribeParameterGroups) Prelude.. Lens.mapping Prelude._Coerce
+describeParameterGroups_parameterGroupNames :: Lens.Lens' DescribeParameterGroups (Core.Maybe [Core.Text])
+describeParameterGroups_parameterGroupNames = Lens.lens (\DescribeParameterGroups' {parameterGroupNames} -> parameterGroupNames) (\s@DescribeParameterGroups' {} a -> s {parameterGroupNames = a} :: DescribeParameterGroups) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeParameterGroups where
+instance Core.AWSPager DescribeParameterGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeParameterGroupsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeParameterGroupsResponse_parameterGroups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeParameterGroups_nextToken
           Lens..~ rs
           Lens.^? describeParameterGroupsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeParameterGroups where
+instance Core.AWSRequest DescribeParameterGroups where
   type
-    Rs DescribeParameterGroups =
+    AWSResponse DescribeParameterGroups =
       DescribeParameterGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeParameterGroupsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ParameterGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "ParameterGroups" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeParameterGroups
+instance Core.Hashable DescribeParameterGroups
 
-instance Prelude.NFData DescribeParameterGroups
+instance Core.NFData DescribeParameterGroups
 
-instance Prelude.ToHeaders DescribeParameterGroups where
+instance Core.ToHeaders DescribeParameterGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDAXV3.DescribeParameterGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDAXV3.DescribeParameterGroups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeParameterGroups where
+instance Core.ToJSON DescribeParameterGroups where
   toJSON DescribeParameterGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("ParameterGroupNames" Prelude..=)
-              Prelude.<$> parameterGroupNames
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("ParameterGroupNames" Core..=)
+              Core.<$> parameterGroupNames
           ]
       )
 
-instance Prelude.ToPath DescribeParameterGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeParameterGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeParameterGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeParameterGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeParameterGroupsResponse' smart constructor.
 data DescribeParameterGroupsResponse = DescribeParameterGroupsResponse'
   { -- | Provides an identifier to allow retrieval of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of parameter groups. Each element in the array represents one
     -- parameter group.
-    parameterGroups :: Prelude.Maybe [ParameterGroup],
+    parameterGroups :: Core.Maybe [ParameterGroup],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeParameterGroupsResponse' with all optional fields omitted.
@@ -223,29 +216,27 @@ data DescribeParameterGroupsResponse = DescribeParameterGroupsResponse'
 -- 'httpStatus', 'describeParameterGroupsResponse_httpStatus' - The response's http status code.
 newDescribeParameterGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeParameterGroupsResponse
 newDescribeParameterGroupsResponse pHttpStatus_ =
   DescribeParameterGroupsResponse'
     { nextToken =
-        Prelude.Nothing,
-      parameterGroups = Prelude.Nothing,
+        Core.Nothing,
+      parameterGroups = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeParameterGroupsResponse_nextToken :: Lens.Lens' DescribeParameterGroupsResponse (Prelude.Maybe Prelude.Text)
+describeParameterGroupsResponse_nextToken :: Lens.Lens' DescribeParameterGroupsResponse (Core.Maybe Core.Text)
 describeParameterGroupsResponse_nextToken = Lens.lens (\DescribeParameterGroupsResponse' {nextToken} -> nextToken) (\s@DescribeParameterGroupsResponse' {} a -> s {nextToken = a} :: DescribeParameterGroupsResponse)
 
 -- | An array of parameter groups. Each element in the array represents one
 -- parameter group.
-describeParameterGroupsResponse_parameterGroups :: Lens.Lens' DescribeParameterGroupsResponse (Prelude.Maybe [ParameterGroup])
-describeParameterGroupsResponse_parameterGroups = Lens.lens (\DescribeParameterGroupsResponse' {parameterGroups} -> parameterGroups) (\s@DescribeParameterGroupsResponse' {} a -> s {parameterGroups = a} :: DescribeParameterGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeParameterGroupsResponse_parameterGroups :: Lens.Lens' DescribeParameterGroupsResponse (Core.Maybe [ParameterGroup])
+describeParameterGroupsResponse_parameterGroups = Lens.lens (\DescribeParameterGroupsResponse' {parameterGroups} -> parameterGroups) (\s@DescribeParameterGroupsResponse' {} a -> s {parameterGroups = a} :: DescribeParameterGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeParameterGroupsResponse Prelude.Int
+describeParameterGroupsResponse_httpStatus :: Lens.Lens' DescribeParameterGroupsResponse Core.Int
 describeParameterGroupsResponse_httpStatus = Lens.lens (\DescribeParameterGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeParameterGroupsResponse' {} a -> s {httpStatus = a} :: DescribeParameterGroupsResponse)
 
-instance
-  Prelude.NFData
-    DescribeParameterGroupsResponse
+instance Core.NFData DescribeParameterGroupsResponse

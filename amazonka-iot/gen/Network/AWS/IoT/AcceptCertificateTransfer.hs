@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IoT.AcceptCertificateTransfer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +51,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAcceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
   { -- | Specifies whether the certificate is active.
-    setAsActive :: Prelude.Maybe Prelude.Bool,
+    setAsActive :: Core.Maybe Core.Bool,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Prelude.Text
+    certificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptCertificateTransfer' with all optional fields omitted.
@@ -73,61 +72,59 @@ data AcceptCertificateTransfer = AcceptCertificateTransfer'
 -- contains the certificate ID.)
 newAcceptCertificateTransfer ::
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   AcceptCertificateTransfer
 newAcceptCertificateTransfer pCertificateId_ =
   AcceptCertificateTransfer'
     { setAsActive =
-        Prelude.Nothing,
+        Core.Nothing,
       certificateId = pCertificateId_
     }
 
 -- | Specifies whether the certificate is active.
-acceptCertificateTransfer_setAsActive :: Lens.Lens' AcceptCertificateTransfer (Prelude.Maybe Prelude.Bool)
+acceptCertificateTransfer_setAsActive :: Lens.Lens' AcceptCertificateTransfer (Core.Maybe Core.Bool)
 acceptCertificateTransfer_setAsActive = Lens.lens (\AcceptCertificateTransfer' {setAsActive} -> setAsActive) (\s@AcceptCertificateTransfer' {} a -> s {setAsActive = a} :: AcceptCertificateTransfer)
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-acceptCertificateTransfer_certificateId :: Lens.Lens' AcceptCertificateTransfer Prelude.Text
+acceptCertificateTransfer_certificateId :: Lens.Lens' AcceptCertificateTransfer Core.Text
 acceptCertificateTransfer_certificateId = Lens.lens (\AcceptCertificateTransfer' {certificateId} -> certificateId) (\s@AcceptCertificateTransfer' {} a -> s {certificateId = a} :: AcceptCertificateTransfer)
 
-instance Prelude.AWSRequest AcceptCertificateTransfer where
+instance Core.AWSRequest AcceptCertificateTransfer where
   type
-    Rs AcceptCertificateTransfer =
+    AWSResponse AcceptCertificateTransfer =
       AcceptCertificateTransferResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveNull
       AcceptCertificateTransferResponse'
 
-instance Prelude.Hashable AcceptCertificateTransfer
+instance Core.Hashable AcceptCertificateTransfer
 
-instance Prelude.NFData AcceptCertificateTransfer
+instance Core.NFData AcceptCertificateTransfer
 
-instance Prelude.ToHeaders AcceptCertificateTransfer where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AcceptCertificateTransfer where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON AcceptCertificateTransfer where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON AcceptCertificateTransfer where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath AcceptCertificateTransfer where
+instance Core.ToPath AcceptCertificateTransfer where
   toPath AcceptCertificateTransfer' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/accept-certificate-transfer/",
-        Prelude.toBS certificateId
+        Core.toBS certificateId
       ]
 
-instance Prelude.ToQuery AcceptCertificateTransfer where
+instance Core.ToQuery AcceptCertificateTransfer where
   toQuery AcceptCertificateTransfer' {..} =
-    Prelude.mconcat
-      ["setAsActive" Prelude.=: setAsActive]
+    Core.mconcat ["setAsActive" Core.=: setAsActive]
 
 -- | /See:/ 'newAcceptCertificateTransferResponse' smart constructor.
 data AcceptCertificateTransferResponse = AcceptCertificateTransferResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AcceptCertificateTransferResponse' with all optional fields omitted.
@@ -139,5 +136,5 @@ newAcceptCertificateTransferResponse =
   AcceptCertificateTransferResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     AcceptCertificateTransferResponse

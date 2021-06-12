@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,8 @@ module Network.AWS.SageMaker.ListTrialComponents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -70,34 +68,34 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListTrialComponents' smart constructor.
 data ListTrialComponents = ListTrialComponents'
   { -- | A filter that returns only components created after the specified time.
-    createdAfter :: Prelude.Maybe Prelude.POSIX,
+    createdAfter :: Core.Maybe Core.POSIX,
     -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+    sortOrder :: Core.Maybe SortOrder,
     -- | If the previous call to @ListTrialComponents@ didn\'t return the full
     -- set of components, the call returns a token for getting the next set of
     -- components.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A filter that returns only components created before the specified time.
-    createdBefore :: Prelude.Maybe Prelude.POSIX,
+    createdBefore :: Core.Maybe Core.POSIX,
     -- | The maximum number of components to return in the response. The default
     -- value is 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The property used to sort results. The default value is @CreationTime@.
-    sortBy :: Prelude.Maybe SortTrialComponentsBy,
+    sortBy :: Core.Maybe SortTrialComponentsBy,
     -- | A filter that returns only components that are part of the specified
     -- experiment. If you specify @ExperimentName@, you can\'t filter by
     -- @SourceArn@ or @TrialName@.
-    experimentName :: Prelude.Maybe Prelude.Text,
+    experimentName :: Core.Maybe Core.Text,
     -- | A filter that returns only components that have the specified source
     -- Amazon Resource Name (ARN). If you specify @SourceArn@, you can\'t
     -- filter by @ExperimentName@ or @TrialName@.
-    sourceArn :: Prelude.Maybe Prelude.Text,
+    sourceArn :: Core.Maybe Core.Text,
     -- | A filter that returns only components that are part of the specified
     -- trial. If you specify @TrialName@, you can\'t filter by @ExperimentName@
     -- or @SourceArn@.
-    trialName :: Prelude.Maybe Prelude.Text
+    trialName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTrialComponents' with all optional fields omitted.
@@ -137,155 +135,147 @@ newListTrialComponents ::
   ListTrialComponents
 newListTrialComponents =
   ListTrialComponents'
-    { createdAfter =
-        Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      createdBefore = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      experimentName = Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
-      trialName = Prelude.Nothing
+    { createdAfter = Core.Nothing,
+      sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      createdBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      sortBy = Core.Nothing,
+      experimentName = Core.Nothing,
+      sourceArn = Core.Nothing,
+      trialName = Core.Nothing
     }
 
 -- | A filter that returns only components created after the specified time.
-listTrialComponents_createdAfter :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.UTCTime)
-listTrialComponents_createdAfter = Lens.lens (\ListTrialComponents' {createdAfter} -> createdAfter) (\s@ListTrialComponents' {} a -> s {createdAfter = a} :: ListTrialComponents) Prelude.. Lens.mapping Prelude._Time
+listTrialComponents_createdAfter :: Lens.Lens' ListTrialComponents (Core.Maybe Core.UTCTime)
+listTrialComponents_createdAfter = Lens.lens (\ListTrialComponents' {createdAfter} -> createdAfter) (\s@ListTrialComponents' {} a -> s {createdAfter = a} :: ListTrialComponents) Core.. Lens.mapping Core._Time
 
 -- | The sort order. The default value is @Descending@.
-listTrialComponents_sortOrder :: Lens.Lens' ListTrialComponents (Prelude.Maybe SortOrder)
+listTrialComponents_sortOrder :: Lens.Lens' ListTrialComponents (Core.Maybe SortOrder)
 listTrialComponents_sortOrder = Lens.lens (\ListTrialComponents' {sortOrder} -> sortOrder) (\s@ListTrialComponents' {} a -> s {sortOrder = a} :: ListTrialComponents)
 
 -- | If the previous call to @ListTrialComponents@ didn\'t return the full
 -- set of components, the call returns a token for getting the next set of
 -- components.
-listTrialComponents_nextToken :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.Text)
+listTrialComponents_nextToken :: Lens.Lens' ListTrialComponents (Core.Maybe Core.Text)
 listTrialComponents_nextToken = Lens.lens (\ListTrialComponents' {nextToken} -> nextToken) (\s@ListTrialComponents' {} a -> s {nextToken = a} :: ListTrialComponents)
 
 -- | A filter that returns only components created before the specified time.
-listTrialComponents_createdBefore :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.UTCTime)
-listTrialComponents_createdBefore = Lens.lens (\ListTrialComponents' {createdBefore} -> createdBefore) (\s@ListTrialComponents' {} a -> s {createdBefore = a} :: ListTrialComponents) Prelude.. Lens.mapping Prelude._Time
+listTrialComponents_createdBefore :: Lens.Lens' ListTrialComponents (Core.Maybe Core.UTCTime)
+listTrialComponents_createdBefore = Lens.lens (\ListTrialComponents' {createdBefore} -> createdBefore) (\s@ListTrialComponents' {} a -> s {createdBefore = a} :: ListTrialComponents) Core.. Lens.mapping Core._Time
 
 -- | The maximum number of components to return in the response. The default
 -- value is 10.
-listTrialComponents_maxResults :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.Natural)
+listTrialComponents_maxResults :: Lens.Lens' ListTrialComponents (Core.Maybe Core.Natural)
 listTrialComponents_maxResults = Lens.lens (\ListTrialComponents' {maxResults} -> maxResults) (\s@ListTrialComponents' {} a -> s {maxResults = a} :: ListTrialComponents)
 
 -- | The property used to sort results. The default value is @CreationTime@.
-listTrialComponents_sortBy :: Lens.Lens' ListTrialComponents (Prelude.Maybe SortTrialComponentsBy)
+listTrialComponents_sortBy :: Lens.Lens' ListTrialComponents (Core.Maybe SortTrialComponentsBy)
 listTrialComponents_sortBy = Lens.lens (\ListTrialComponents' {sortBy} -> sortBy) (\s@ListTrialComponents' {} a -> s {sortBy = a} :: ListTrialComponents)
 
 -- | A filter that returns only components that are part of the specified
 -- experiment. If you specify @ExperimentName@, you can\'t filter by
 -- @SourceArn@ or @TrialName@.
-listTrialComponents_experimentName :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.Text)
+listTrialComponents_experimentName :: Lens.Lens' ListTrialComponents (Core.Maybe Core.Text)
 listTrialComponents_experimentName = Lens.lens (\ListTrialComponents' {experimentName} -> experimentName) (\s@ListTrialComponents' {} a -> s {experimentName = a} :: ListTrialComponents)
 
 -- | A filter that returns only components that have the specified source
 -- Amazon Resource Name (ARN). If you specify @SourceArn@, you can\'t
 -- filter by @ExperimentName@ or @TrialName@.
-listTrialComponents_sourceArn :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.Text)
+listTrialComponents_sourceArn :: Lens.Lens' ListTrialComponents (Core.Maybe Core.Text)
 listTrialComponents_sourceArn = Lens.lens (\ListTrialComponents' {sourceArn} -> sourceArn) (\s@ListTrialComponents' {} a -> s {sourceArn = a} :: ListTrialComponents)
 
 -- | A filter that returns only components that are part of the specified
 -- trial. If you specify @TrialName@, you can\'t filter by @ExperimentName@
 -- or @SourceArn@.
-listTrialComponents_trialName :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.Text)
+listTrialComponents_trialName :: Lens.Lens' ListTrialComponents (Core.Maybe Core.Text)
 listTrialComponents_trialName = Lens.lens (\ListTrialComponents' {trialName} -> trialName) (\s@ListTrialComponents' {} a -> s {trialName = a} :: ListTrialComponents)
 
-instance Pager.AWSPager ListTrialComponents where
+instance Core.AWSPager ListTrialComponents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTrialComponentsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTrialComponentsResponse_trialComponentSummaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTrialComponents_nextToken
           Lens..~ rs
           Lens.^? listTrialComponentsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTrialComponents where
+instance Core.AWSRequest ListTrialComponents where
   type
-    Rs ListTrialComponents =
+    AWSResponse ListTrialComponents =
       ListTrialComponentsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTrialComponentsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "TrialComponentSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "TrialComponentSummaries"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTrialComponents
+instance Core.Hashable ListTrialComponents
 
-instance Prelude.NFData ListTrialComponents
+instance Core.NFData ListTrialComponents
 
-instance Prelude.ToHeaders ListTrialComponents where
+instance Core.ToHeaders ListTrialComponents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.ListTrialComponents" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.ListTrialComponents" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTrialComponents where
+instance Core.ToJSON ListTrialComponents where
   toJSON ListTrialComponents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CreatedAfter" Prelude..=)
-              Prelude.<$> createdAfter,
-            ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("CreatedBefore" Prelude..=)
-              Prelude.<$> createdBefore,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            ("ExperimentName" Prelude..=)
-              Prelude.<$> experimentName,
-            ("SourceArn" Prelude..=) Prelude.<$> sourceArn,
-            ("TrialName" Prelude..=) Prelude.<$> trialName
+    Core.object
+      ( Core.catMaybes
+          [ ("CreatedAfter" Core..=) Core.<$> createdAfter,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("CreatedBefore" Core..=) Core.<$> createdBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("ExperimentName" Core..=) Core.<$> experimentName,
+            ("SourceArn" Core..=) Core.<$> sourceArn,
+            ("TrialName" Core..=) Core.<$> trialName
           ]
       )
 
-instance Prelude.ToPath ListTrialComponents where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTrialComponents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTrialComponents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTrialComponents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTrialComponentsResponse' smart constructor.
 data ListTrialComponentsResponse = ListTrialComponentsResponse'
   { -- | A token for getting the next set of components, if there are any.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of the summaries of your trial components.
-    trialComponentSummaries :: Prelude.Maybe [TrialComponentSummary],
+    trialComponentSummaries :: Core.Maybe [TrialComponentSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTrialComponentsResponse' with all optional fields omitted.
@@ -302,26 +292,26 @@ data ListTrialComponentsResponse = ListTrialComponentsResponse'
 -- 'httpStatus', 'listTrialComponentsResponse_httpStatus' - The response's http status code.
 newListTrialComponentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTrialComponentsResponse
 newListTrialComponentsResponse pHttpStatus_ =
   ListTrialComponentsResponse'
     { nextToken =
-        Prelude.Nothing,
-      trialComponentSummaries = Prelude.Nothing,
+        Core.Nothing,
+      trialComponentSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token for getting the next set of components, if there are any.
-listTrialComponentsResponse_nextToken :: Lens.Lens' ListTrialComponentsResponse (Prelude.Maybe Prelude.Text)
+listTrialComponentsResponse_nextToken :: Lens.Lens' ListTrialComponentsResponse (Core.Maybe Core.Text)
 listTrialComponentsResponse_nextToken = Lens.lens (\ListTrialComponentsResponse' {nextToken} -> nextToken) (\s@ListTrialComponentsResponse' {} a -> s {nextToken = a} :: ListTrialComponentsResponse)
 
 -- | A list of the summaries of your trial components.
-listTrialComponentsResponse_trialComponentSummaries :: Lens.Lens' ListTrialComponentsResponse (Prelude.Maybe [TrialComponentSummary])
-listTrialComponentsResponse_trialComponentSummaries = Lens.lens (\ListTrialComponentsResponse' {trialComponentSummaries} -> trialComponentSummaries) (\s@ListTrialComponentsResponse' {} a -> s {trialComponentSummaries = a} :: ListTrialComponentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTrialComponentsResponse_trialComponentSummaries :: Lens.Lens' ListTrialComponentsResponse (Core.Maybe [TrialComponentSummary])
+listTrialComponentsResponse_trialComponentSummaries = Lens.lens (\ListTrialComponentsResponse' {trialComponentSummaries} -> trialComponentSummaries) (\s@ListTrialComponentsResponse' {} a -> s {trialComponentSummaries = a} :: ListTrialComponentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTrialComponentsResponse_httpStatus :: Lens.Lens' ListTrialComponentsResponse Prelude.Int
+listTrialComponentsResponse_httpStatus :: Lens.Lens' ListTrialComponentsResponse Core.Int
 listTrialComponentsResponse_httpStatus = Lens.lens (\ListTrialComponentsResponse' {httpStatus} -> httpStatus) (\s@ListTrialComponentsResponse' {} a -> s {httpStatus = a} :: ListTrialComponentsResponse)
 
-instance Prelude.NFData ListTrialComponentsResponse
+instance Core.NFData ListTrialComponentsResponse

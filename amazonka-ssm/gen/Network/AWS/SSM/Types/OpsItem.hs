@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsItemDataValue
 import Network.AWS.SSM.Types.OpsItemNotification
 import Network.AWS.SSM.Types.OpsItemStatus
@@ -39,18 +38,18 @@ data OpsItem = OpsItem'
     -- For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details>
     -- in the /AWS Systems Manager User Guide/.
-    status :: Prelude.Maybe OpsItemStatus,
+    status :: Core.Maybe OpsItemStatus,
     -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedEndTime :: Prelude.Maybe Prelude.POSIX,
+    plannedEndTime :: Core.Maybe Core.POSIX,
     -- | The severity of the OpsItem. Severity options range from 1 to 4.
-    severity :: Prelude.Maybe Prelude.Text,
+    severity :: Core.Maybe Core.Text,
     -- | The time a runbook workflow started. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualStartTime :: Prelude.Maybe Prelude.POSIX,
+    actualStartTime :: Core.Maybe Core.POSIX,
     -- | An OpsItem category. Category options include: Availability, Cost,
     -- Performance, Recovery, Security.
-    category :: Prelude.Maybe Prelude.Text,
+    category :: Core.Maybe Core.Text,
     -- | Operational data is custom data that provides useful reference details
     -- about the OpsItem. For example, you can specify log files, error
     -- strings, license keys, troubleshooting tips, or other relevant data. You
@@ -73,50 +72,50 @@ data OpsItem = OpsItem'
     -- view AWS CLI example commands that use these keys, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
     -- in the /AWS Systems Manager User Guide/.
-    operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
+    operationalData :: Core.Maybe (Core.HashMap Core.Text OpsItemDataValue),
     -- | A short heading that describes the nature of the OpsItem and the
     -- impacted resource.
-    title :: Prelude.Maybe Prelude.Text,
+    title :: Core.Maybe Core.Text,
     -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager. The
     -- impacted resource is a subset of source.
-    source :: Prelude.Maybe Prelude.Text,
+    source :: Core.Maybe Core.Text,
     -- | The date and time the OpsItem was created.
-    createdTime :: Prelude.Maybe Prelude.POSIX,
+    createdTime :: Core.Maybe Core.POSIX,
     -- | The version of this OpsItem. Each time the OpsItem is edited the version
     -- number increments by one.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The importance of this OpsItem in relation to other OpsItems in the
     -- system.
-    priority :: Prelude.Maybe Prelude.Natural,
+    priority :: Core.Maybe Core.Natural,
     -- | The time a runbook workflow ended. Currently reported only for the
     -- OpsItem type @\/aws\/changerequest@.
-    actualEndTime :: Prelude.Maybe Prelude.POSIX,
+    actualEndTime :: Core.Maybe Core.POSIX,
     -- | The ID of the OpsItem.
-    opsItemId :: Prelude.Maybe Prelude.Text,
+    opsItemId :: Core.Maybe Core.Text,
     -- | The type of OpsItem. Currently, the only valid values are
     -- @\/aws\/changerequest@ and @\/aws\/issue@.
-    opsItemType :: Prelude.Maybe Prelude.Text,
+    opsItemType :: Core.Maybe Core.Text,
     -- | The time specified in a change request for a runbook workflow to start.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-    plannedStartTime :: Prelude.Maybe Prelude.POSIX,
+    plannedStartTime :: Core.Maybe Core.POSIX,
     -- | The date and time the OpsItem was last updated.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
     -- sent when this OpsItem is edited or changed.
-    notifications :: Prelude.Maybe [OpsItemNotification],
+    notifications :: Core.Maybe [OpsItemNotification],
     -- | The OpsItem description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ARN of the AWS account that created the OpsItem.
-    createdBy :: Prelude.Maybe Prelude.Text,
+    createdBy :: Core.Maybe Core.Text,
     -- | The ARN of the AWS account that last updated the OpsItem.
-    lastModifiedBy :: Prelude.Maybe Prelude.Text,
+    lastModifiedBy :: Core.Maybe Core.Text,
     -- | One or more OpsItems that share something in common with the current
     -- OpsItem. For example, related OpsItems can include OpsItems with similar
     -- error messages, impacted resources, or statuses for the impacted
     -- resource.
-    relatedOpsItems :: Prelude.Maybe [RelatedOpsItem]
+    relatedOpsItems :: Core.Maybe [RelatedOpsItem]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsItem' with all optional fields omitted.
@@ -209,53 +208,53 @@ newOpsItem ::
   OpsItem
 newOpsItem =
   OpsItem'
-    { status = Prelude.Nothing,
-      plannedEndTime = Prelude.Nothing,
-      severity = Prelude.Nothing,
-      actualStartTime = Prelude.Nothing,
-      category = Prelude.Nothing,
-      operationalData = Prelude.Nothing,
-      title = Prelude.Nothing,
-      source = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      version = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      actualEndTime = Prelude.Nothing,
-      opsItemId = Prelude.Nothing,
-      opsItemType = Prelude.Nothing,
-      plannedStartTime = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      notifications = Prelude.Nothing,
-      description = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      relatedOpsItems = Prelude.Nothing
+    { status = Core.Nothing,
+      plannedEndTime = Core.Nothing,
+      severity = Core.Nothing,
+      actualStartTime = Core.Nothing,
+      category = Core.Nothing,
+      operationalData = Core.Nothing,
+      title = Core.Nothing,
+      source = Core.Nothing,
+      createdTime = Core.Nothing,
+      version = Core.Nothing,
+      priority = Core.Nothing,
+      actualEndTime = Core.Nothing,
+      opsItemId = Core.Nothing,
+      opsItemType = Core.Nothing,
+      plannedStartTime = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      notifications = Core.Nothing,
+      description = Core.Nothing,
+      createdBy = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      relatedOpsItems = Core.Nothing
     }
 
 -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details>
 -- in the /AWS Systems Manager User Guide/.
-opsItem_status :: Lens.Lens' OpsItem (Prelude.Maybe OpsItemStatus)
+opsItem_status :: Lens.Lens' OpsItem (Core.Maybe OpsItemStatus)
 opsItem_status = Lens.lens (\OpsItem' {status} -> status) (\s@OpsItem' {} a -> s {status = a} :: OpsItem)
 
 -- | The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-opsItem_plannedEndTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
-opsItem_plannedEndTime = Lens.lens (\OpsItem' {plannedEndTime} -> plannedEndTime) (\s@OpsItem' {} a -> s {plannedEndTime = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Time
+opsItem_plannedEndTime :: Lens.Lens' OpsItem (Core.Maybe Core.UTCTime)
+opsItem_plannedEndTime = Lens.lens (\OpsItem' {plannedEndTime} -> plannedEndTime) (\s@OpsItem' {} a -> s {plannedEndTime = a} :: OpsItem) Core.. Lens.mapping Core._Time
 
 -- | The severity of the OpsItem. Severity options range from 1 to 4.
-opsItem_severity :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_severity :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_severity = Lens.lens (\OpsItem' {severity} -> severity) (\s@OpsItem' {} a -> s {severity = a} :: OpsItem)
 
 -- | The time a runbook workflow started. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
-opsItem_actualStartTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
-opsItem_actualStartTime = Lens.lens (\OpsItem' {actualStartTime} -> actualStartTime) (\s@OpsItem' {} a -> s {actualStartTime = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Time
+opsItem_actualStartTime :: Lens.Lens' OpsItem (Core.Maybe Core.UTCTime)
+opsItem_actualStartTime = Lens.lens (\OpsItem' {actualStartTime} -> actualStartTime) (\s@OpsItem' {} a -> s {actualStartTime = a} :: OpsItem) Core.. Lens.mapping Core._Time
 
 -- | An OpsItem category. Category options include: Availability, Cost,
 -- Performance, Recovery, Security.
-opsItem_category :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_category :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_category = Lens.lens (\OpsItem' {category} -> category) (\s@OpsItem' {} a -> s {category = a} :: OpsItem)
 
 -- | Operational data is custom data that provides useful reference details
@@ -280,115 +279,109 @@ opsItem_category = Lens.lens (\OpsItem' {category} -> category) (\s@OpsItem' {} 
 -- view AWS CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
 -- in the /AWS Systems Manager User Guide/.
-opsItem_operationalData :: Lens.Lens' OpsItem (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue))
-opsItem_operationalData = Lens.lens (\OpsItem' {operationalData} -> operationalData) (\s@OpsItem' {} a -> s {operationalData = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Coerce
+opsItem_operationalData :: Lens.Lens' OpsItem (Core.Maybe (Core.HashMap Core.Text OpsItemDataValue))
+opsItem_operationalData = Lens.lens (\OpsItem' {operationalData} -> operationalData) (\s@OpsItem' {} a -> s {operationalData = a} :: OpsItem) Core.. Lens.mapping Lens._Coerce
 
 -- | A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
-opsItem_title :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_title :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_title = Lens.lens (\OpsItem' {title} -> title) (\s@OpsItem' {} a -> s {title = a} :: OpsItem)
 
 -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager. The
 -- impacted resource is a subset of source.
-opsItem_source :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_source :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_source = Lens.lens (\OpsItem' {source} -> source) (\s@OpsItem' {} a -> s {source = a} :: OpsItem)
 
 -- | The date and time the OpsItem was created.
-opsItem_createdTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
-opsItem_createdTime = Lens.lens (\OpsItem' {createdTime} -> createdTime) (\s@OpsItem' {} a -> s {createdTime = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Time
+opsItem_createdTime :: Lens.Lens' OpsItem (Core.Maybe Core.UTCTime)
+opsItem_createdTime = Lens.lens (\OpsItem' {createdTime} -> createdTime) (\s@OpsItem' {} a -> s {createdTime = a} :: OpsItem) Core.. Lens.mapping Core._Time
 
 -- | The version of this OpsItem. Each time the OpsItem is edited the version
 -- number increments by one.
-opsItem_version :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_version :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_version = Lens.lens (\OpsItem' {version} -> version) (\s@OpsItem' {} a -> s {version = a} :: OpsItem)
 
 -- | The importance of this OpsItem in relation to other OpsItems in the
 -- system.
-opsItem_priority :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Natural)
+opsItem_priority :: Lens.Lens' OpsItem (Core.Maybe Core.Natural)
 opsItem_priority = Lens.lens (\OpsItem' {priority} -> priority) (\s@OpsItem' {} a -> s {priority = a} :: OpsItem)
 
 -- | The time a runbook workflow ended. Currently reported only for the
 -- OpsItem type @\/aws\/changerequest@.
-opsItem_actualEndTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
-opsItem_actualEndTime = Lens.lens (\OpsItem' {actualEndTime} -> actualEndTime) (\s@OpsItem' {} a -> s {actualEndTime = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Time
+opsItem_actualEndTime :: Lens.Lens' OpsItem (Core.Maybe Core.UTCTime)
+opsItem_actualEndTime = Lens.lens (\OpsItem' {actualEndTime} -> actualEndTime) (\s@OpsItem' {} a -> s {actualEndTime = a} :: OpsItem) Core.. Lens.mapping Core._Time
 
 -- | The ID of the OpsItem.
-opsItem_opsItemId :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_opsItemId :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_opsItemId = Lens.lens (\OpsItem' {opsItemId} -> opsItemId) (\s@OpsItem' {} a -> s {opsItemId = a} :: OpsItem)
 
 -- | The type of OpsItem. Currently, the only valid values are
 -- @\/aws\/changerequest@ and @\/aws\/issue@.
-opsItem_opsItemType :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_opsItemType :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_opsItemType = Lens.lens (\OpsItem' {opsItemType} -> opsItemType) (\s@OpsItem' {} a -> s {opsItemType = a} :: OpsItem)
 
 -- | The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
-opsItem_plannedStartTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
-opsItem_plannedStartTime = Lens.lens (\OpsItem' {plannedStartTime} -> plannedStartTime) (\s@OpsItem' {} a -> s {plannedStartTime = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Time
+opsItem_plannedStartTime :: Lens.Lens' OpsItem (Core.Maybe Core.UTCTime)
+opsItem_plannedStartTime = Lens.lens (\OpsItem' {plannedStartTime} -> plannedStartTime) (\s@OpsItem' {} a -> s {plannedStartTime = a} :: OpsItem) Core.. Lens.mapping Core._Time
 
 -- | The date and time the OpsItem was last updated.
-opsItem_lastModifiedTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
-opsItem_lastModifiedTime = Lens.lens (\OpsItem' {lastModifiedTime} -> lastModifiedTime) (\s@OpsItem' {} a -> s {lastModifiedTime = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Time
+opsItem_lastModifiedTime :: Lens.Lens' OpsItem (Core.Maybe Core.UTCTime)
+opsItem_lastModifiedTime = Lens.lens (\OpsItem' {lastModifiedTime} -> lastModifiedTime) (\s@OpsItem' {} a -> s {lastModifiedTime = a} :: OpsItem) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
-opsItem_notifications :: Lens.Lens' OpsItem (Prelude.Maybe [OpsItemNotification])
-opsItem_notifications = Lens.lens (\OpsItem' {notifications} -> notifications) (\s@OpsItem' {} a -> s {notifications = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Coerce
+opsItem_notifications :: Lens.Lens' OpsItem (Core.Maybe [OpsItemNotification])
+opsItem_notifications = Lens.lens (\OpsItem' {notifications} -> notifications) (\s@OpsItem' {} a -> s {notifications = a} :: OpsItem) Core.. Lens.mapping Lens._Coerce
 
 -- | The OpsItem description.
-opsItem_description :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_description :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_description = Lens.lens (\OpsItem' {description} -> description) (\s@OpsItem' {} a -> s {description = a} :: OpsItem)
 
 -- | The ARN of the AWS account that created the OpsItem.
-opsItem_createdBy :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_createdBy :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_createdBy = Lens.lens (\OpsItem' {createdBy} -> createdBy) (\s@OpsItem' {} a -> s {createdBy = a} :: OpsItem)
 
 -- | The ARN of the AWS account that last updated the OpsItem.
-opsItem_lastModifiedBy :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_lastModifiedBy :: Lens.Lens' OpsItem (Core.Maybe Core.Text)
 opsItem_lastModifiedBy = Lens.lens (\OpsItem' {lastModifiedBy} -> lastModifiedBy) (\s@OpsItem' {} a -> s {lastModifiedBy = a} :: OpsItem)
 
 -- | One or more OpsItems that share something in common with the current
 -- OpsItem. For example, related OpsItems can include OpsItems with similar
 -- error messages, impacted resources, or statuses for the impacted
 -- resource.
-opsItem_relatedOpsItems :: Lens.Lens' OpsItem (Prelude.Maybe [RelatedOpsItem])
-opsItem_relatedOpsItems = Lens.lens (\OpsItem' {relatedOpsItems} -> relatedOpsItems) (\s@OpsItem' {} a -> s {relatedOpsItems = a} :: OpsItem) Prelude.. Lens.mapping Prelude._Coerce
+opsItem_relatedOpsItems :: Lens.Lens' OpsItem (Core.Maybe [RelatedOpsItem])
+opsItem_relatedOpsItems = Lens.lens (\OpsItem' {relatedOpsItems} -> relatedOpsItems) (\s@OpsItem' {} a -> s {relatedOpsItems = a} :: OpsItem) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON OpsItem where
+instance Core.FromJSON OpsItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OpsItem"
       ( \x ->
           OpsItem'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "PlannedEndTime")
-            Prelude.<*> (x Prelude..:? "Severity")
-            Prelude.<*> (x Prelude..:? "ActualStartTime")
-            Prelude.<*> (x Prelude..:? "Category")
-            Prelude.<*> ( x Prelude..:? "OperationalData"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Title")
-            Prelude.<*> (x Prelude..:? "Source")
-            Prelude.<*> (x Prelude..:? "CreatedTime")
-            Prelude.<*> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "Priority")
-            Prelude.<*> (x Prelude..:? "ActualEndTime")
-            Prelude.<*> (x Prelude..:? "OpsItemId")
-            Prelude.<*> (x Prelude..:? "OpsItemType")
-            Prelude.<*> (x Prelude..:? "PlannedStartTime")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> ( x Prelude..:? "Notifications"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "CreatedBy")
-            Prelude.<*> (x Prelude..:? "LastModifiedBy")
-            Prelude.<*> ( x Prelude..:? "RelatedOpsItems"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "PlannedEndTime")
+            Core.<*> (x Core..:? "Severity")
+            Core.<*> (x Core..:? "ActualStartTime")
+            Core.<*> (x Core..:? "Category")
+            Core.<*> (x Core..:? "OperationalData" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Title")
+            Core.<*> (x Core..:? "Source")
+            Core.<*> (x Core..:? "CreatedTime")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (x Core..:? "Priority")
+            Core.<*> (x Core..:? "ActualEndTime")
+            Core.<*> (x Core..:? "OpsItemId")
+            Core.<*> (x Core..:? "OpsItemType")
+            Core.<*> (x Core..:? "PlannedStartTime")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "Notifications" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "CreatedBy")
+            Core.<*> (x Core..:? "LastModifiedBy")
+            Core.<*> (x Core..:? "RelatedOpsItems" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable OpsItem
+instance Core.Hashable OpsItem
 
-instance Prelude.NFData OpsItem
+instance Core.NFData OpsItem

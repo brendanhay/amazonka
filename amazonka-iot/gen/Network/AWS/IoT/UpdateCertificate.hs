@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.IoT.UpdateCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +57,7 @@ import qualified Network.AWS.Response as Response
 data UpdateCertificate = UpdateCertificate'
   { -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Prelude.Text,
+    certificateId :: Core.Text,
     -- | The new status.
     --
     -- __Note:__ Setting the status to PENDING_TRANSFER or PENDING_ACTIVATION
@@ -70,7 +69,7 @@ data UpdateCertificate = UpdateCertificate'
     -- not be used.
     newStatus' :: CertificateStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCertificate' with all optional fields omitted.
@@ -94,7 +93,7 @@ data UpdateCertificate = UpdateCertificate'
 -- not be used.
 newUpdateCertificate ::
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newStatus''
   CertificateStatus ->
   UpdateCertificate
@@ -106,7 +105,7 @@ newUpdateCertificate pCertificateId_ pNewStatus_ =
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-updateCertificate_certificateId :: Lens.Lens' UpdateCertificate Prelude.Text
+updateCertificate_certificateId :: Lens.Lens' UpdateCertificate Core.Text
 updateCertificate_certificateId = Lens.lens (\UpdateCertificate' {certificateId} -> certificateId) (\s@UpdateCertificate' {} a -> s {certificateId = a} :: UpdateCertificate)
 
 -- | The new status.
@@ -121,37 +120,38 @@ updateCertificate_certificateId = Lens.lens (\UpdateCertificate' {certificateId}
 updateCertificate_newStatus :: Lens.Lens' UpdateCertificate CertificateStatus
 updateCertificate_newStatus = Lens.lens (\UpdateCertificate' {newStatus'} -> newStatus') (\s@UpdateCertificate' {} a -> s {newStatus' = a} :: UpdateCertificate)
 
-instance Prelude.AWSRequest UpdateCertificate where
-  type Rs UpdateCertificate = UpdateCertificateResponse
+instance Core.AWSRequest UpdateCertificate where
+  type
+    AWSResponse UpdateCertificate =
+      UpdateCertificateResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveNull UpdateCertificateResponse'
 
-instance Prelude.Hashable UpdateCertificate
+instance Core.Hashable UpdateCertificate
 
-instance Prelude.NFData UpdateCertificate
+instance Core.NFData UpdateCertificate
 
-instance Prelude.ToHeaders UpdateCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateCertificate where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON UpdateCertificate where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath UpdateCertificate where
+instance Core.ToPath UpdateCertificate where
   toPath UpdateCertificate' {..} =
-    Prelude.mconcat
-      ["/certificates/", Prelude.toBS certificateId]
+    Core.mconcat
+      ["/certificates/", Core.toBS certificateId]
 
-instance Prelude.ToQuery UpdateCertificate where
+instance Core.ToQuery UpdateCertificate where
   toQuery UpdateCertificate' {..} =
-    Prelude.mconcat ["newStatus" Prelude.=: newStatus']
+    Core.mconcat ["newStatus" Core.=: newStatus']
 
 -- | /See:/ 'newUpdateCertificateResponse' smart constructor.
 data UpdateCertificateResponse = UpdateCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCertificateResponse' with all optional fields omitted.
@@ -162,4 +162,4 @@ newUpdateCertificateResponse ::
 newUpdateCertificateResponse =
   UpdateCertificateResponse'
 
-instance Prelude.NFData UpdateCertificateResponse
+instance Core.NFData UpdateCertificateResponse

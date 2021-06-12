@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.CustomErrorResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that controls:
 --
@@ -47,7 +46,7 @@ data CustomErrorResponse = CustomErrorResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html Customizing Error Responses>
     -- in the /Amazon CloudFront Developer Guide/.
-    errorCachingMinTTL :: Prelude.Maybe Prelude.Integer,
+    errorCachingMinTTL :: Core.Maybe Core.Integer,
     -- | The HTTP status code that you want CloudFront to return to the viewer
     -- along with the custom error page. There are a variety of reasons that
     -- you might want CloudFront to return a status code different from the
@@ -67,7 +66,7 @@ data CustomErrorResponse = CustomErrorResponse'
     --
     -- If you specify a value for @ResponseCode@, you must also specify a value
     -- for @ResponsePagePath@.
-    responseCode :: Prelude.Maybe Prelude.Text,
+    responseCode :: Core.Maybe Core.Text,
     -- | The path to the custom error page that you want CloudFront to return to
     -- a viewer when your origin returns the HTTP status code specified by
     -- @ErrorCode@, for example, @\/4xx-errors\/403-forbidden.html@. If you
@@ -92,12 +91,12 @@ data CustomErrorResponse = CustomErrorResponse'
     -- If you store custom error pages on an HTTP server and the server starts
     -- to return 5xx errors, CloudFront can\'t get the files that you want to
     -- return to viewers because the origin server is unavailable.
-    responsePagePath :: Prelude.Maybe Prelude.Text,
+    responsePagePath :: Core.Maybe Core.Text,
     -- | The HTTP status code for which you want to specify a custom error page
     -- and\/or a caching duration.
-    errorCode :: Prelude.Int
+    errorCode :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CustomErrorResponse' with all optional fields omitted.
@@ -166,14 +165,14 @@ data CustomErrorResponse = CustomErrorResponse'
 -- and\/or a caching duration.
 newCustomErrorResponse ::
   -- | 'errorCode'
-  Prelude.Int ->
+  Core.Int ->
   CustomErrorResponse
 newCustomErrorResponse pErrorCode_ =
   CustomErrorResponse'
     { errorCachingMinTTL =
-        Prelude.Nothing,
-      responseCode = Prelude.Nothing,
-      responsePagePath = Prelude.Nothing,
+        Core.Nothing,
+      responseCode = Core.Nothing,
+      responsePagePath = Core.Nothing,
       errorCode = pErrorCode_
     }
 
@@ -186,7 +185,7 @@ newCustomErrorResponse pErrorCode_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html Customizing Error Responses>
 -- in the /Amazon CloudFront Developer Guide/.
-customErrorResponse_errorCachingMinTTL :: Lens.Lens' CustomErrorResponse (Prelude.Maybe Prelude.Integer)
+customErrorResponse_errorCachingMinTTL :: Lens.Lens' CustomErrorResponse (Core.Maybe Core.Integer)
 customErrorResponse_errorCachingMinTTL = Lens.lens (\CustomErrorResponse' {errorCachingMinTTL} -> errorCachingMinTTL) (\s@CustomErrorResponse' {} a -> s {errorCachingMinTTL = a} :: CustomErrorResponse)
 
 -- | The HTTP status code that you want CloudFront to return to the viewer
@@ -208,7 +207,7 @@ customErrorResponse_errorCachingMinTTL = Lens.lens (\CustomErrorResponse' {error
 --
 -- If you specify a value for @ResponseCode@, you must also specify a value
 -- for @ResponsePagePath@.
-customErrorResponse_responseCode :: Lens.Lens' CustomErrorResponse (Prelude.Maybe Prelude.Text)
+customErrorResponse_responseCode :: Lens.Lens' CustomErrorResponse (Core.Maybe Core.Text)
 customErrorResponse_responseCode = Lens.lens (\CustomErrorResponse' {responseCode} -> responseCode) (\s@CustomErrorResponse' {} a -> s {responseCode = a} :: CustomErrorResponse)
 
 -- | The path to the custom error page that you want CloudFront to return to
@@ -235,31 +234,31 @@ customErrorResponse_responseCode = Lens.lens (\CustomErrorResponse' {responseCod
 -- If you store custom error pages on an HTTP server and the server starts
 -- to return 5xx errors, CloudFront can\'t get the files that you want to
 -- return to viewers because the origin server is unavailable.
-customErrorResponse_responsePagePath :: Lens.Lens' CustomErrorResponse (Prelude.Maybe Prelude.Text)
+customErrorResponse_responsePagePath :: Lens.Lens' CustomErrorResponse (Core.Maybe Core.Text)
 customErrorResponse_responsePagePath = Lens.lens (\CustomErrorResponse' {responsePagePath} -> responsePagePath) (\s@CustomErrorResponse' {} a -> s {responsePagePath = a} :: CustomErrorResponse)
 
 -- | The HTTP status code for which you want to specify a custom error page
 -- and\/or a caching duration.
-customErrorResponse_errorCode :: Lens.Lens' CustomErrorResponse Prelude.Int
+customErrorResponse_errorCode :: Lens.Lens' CustomErrorResponse Core.Int
 customErrorResponse_errorCode = Lens.lens (\CustomErrorResponse' {errorCode} -> errorCode) (\s@CustomErrorResponse' {} a -> s {errorCode = a} :: CustomErrorResponse)
 
-instance Prelude.FromXML CustomErrorResponse where
+instance Core.FromXML CustomErrorResponse where
   parseXML x =
     CustomErrorResponse'
-      Prelude.<$> (x Prelude..@? "ErrorCachingMinTTL")
-      Prelude.<*> (x Prelude..@? "ResponseCode")
-      Prelude.<*> (x Prelude..@? "ResponsePagePath")
-      Prelude.<*> (x Prelude..@ "ErrorCode")
+      Core.<$> (x Core..@? "ErrorCachingMinTTL")
+      Core.<*> (x Core..@? "ResponseCode")
+      Core.<*> (x Core..@? "ResponsePagePath")
+      Core.<*> (x Core..@ "ErrorCode")
 
-instance Prelude.Hashable CustomErrorResponse
+instance Core.Hashable CustomErrorResponse
 
-instance Prelude.NFData CustomErrorResponse
+instance Core.NFData CustomErrorResponse
 
-instance Prelude.ToXML CustomErrorResponse where
+instance Core.ToXML CustomErrorResponse where
   toXML CustomErrorResponse' {..} =
-    Prelude.mconcat
-      [ "ErrorCachingMinTTL" Prelude.@= errorCachingMinTTL,
-        "ResponseCode" Prelude.@= responseCode,
-        "ResponsePagePath" Prelude.@= responsePagePath,
-        "ErrorCode" Prelude.@= errorCode
+    Core.mconcat
+      [ "ErrorCachingMinTTL" Core.@= errorCachingMinTTL,
+        "ResponseCode" Core.@= responseCode,
+        "ResponsePagePath" Core.@= responsePagePath,
+        "ErrorCode" Core.@= errorCode
       ]

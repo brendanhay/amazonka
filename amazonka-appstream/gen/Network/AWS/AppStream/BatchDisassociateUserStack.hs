@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AppStream.BatchDisassociateUserStack
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newBatchDisassociateUserStack' smart constructor.
 data BatchDisassociateUserStack = BatchDisassociateUserStack'
   { -- | The list of UserStackAssociation objects.
-    userStackAssociations :: Prelude.NonEmpty UserStackAssociation
+    userStackAssociations :: Core.NonEmpty UserStackAssociation
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDisassociateUserStack' with all optional fields omitted.
@@ -64,79 +63,73 @@ data BatchDisassociateUserStack = BatchDisassociateUserStack'
 -- 'userStackAssociations', 'batchDisassociateUserStack_userStackAssociations' - The list of UserStackAssociation objects.
 newBatchDisassociateUserStack ::
   -- | 'userStackAssociations'
-  Prelude.NonEmpty UserStackAssociation ->
+  Core.NonEmpty UserStackAssociation ->
   BatchDisassociateUserStack
 newBatchDisassociateUserStack pUserStackAssociations_ =
   BatchDisassociateUserStack'
     { userStackAssociations =
-        Prelude._Coerce
-          Lens.# pUserStackAssociations_
+        Lens._Coerce Lens.# pUserStackAssociations_
     }
 
 -- | The list of UserStackAssociation objects.
-batchDisassociateUserStack_userStackAssociations :: Lens.Lens' BatchDisassociateUserStack (Prelude.NonEmpty UserStackAssociation)
-batchDisassociateUserStack_userStackAssociations = Lens.lens (\BatchDisassociateUserStack' {userStackAssociations} -> userStackAssociations) (\s@BatchDisassociateUserStack' {} a -> s {userStackAssociations = a} :: BatchDisassociateUserStack) Prelude.. Prelude._Coerce
+batchDisassociateUserStack_userStackAssociations :: Lens.Lens' BatchDisassociateUserStack (Core.NonEmpty UserStackAssociation)
+batchDisassociateUserStack_userStackAssociations = Lens.lens (\BatchDisassociateUserStack' {userStackAssociations} -> userStackAssociations) (\s@BatchDisassociateUserStack' {} a -> s {userStackAssociations = a} :: BatchDisassociateUserStack) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    BatchDisassociateUserStack
-  where
+instance Core.AWSRequest BatchDisassociateUserStack where
   type
-    Rs BatchDisassociateUserStack =
+    AWSResponse BatchDisassociateUserStack =
       BatchDisassociateUserStackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateUserStackResponse'
-            Prelude.<$> (x Prelude..?> "errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDisassociateUserStack
+instance Core.Hashable BatchDisassociateUserStack
 
-instance Prelude.NFData BatchDisassociateUserStack
+instance Core.NFData BatchDisassociateUserStack
 
-instance Prelude.ToHeaders BatchDisassociateUserStack where
+instance Core.ToHeaders BatchDisassociateUserStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.BatchDisassociateUserStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.BatchDisassociateUserStack" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchDisassociateUserStack where
+instance Core.ToJSON BatchDisassociateUserStack where
   toJSON BatchDisassociateUserStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "UserStackAssociations"
-                  Prelude..= userStackAssociations
+                  Core..= userStackAssociations
               )
           ]
       )
 
-instance Prelude.ToPath BatchDisassociateUserStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchDisassociateUserStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchDisassociateUserStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchDisassociateUserStack where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchDisassociateUserStackResponse' smart constructor.
 data BatchDisassociateUserStackResponse = BatchDisassociateUserStackResponse'
   { -- | The list of UserStackAssociationError objects.
-    errors :: Prelude.Maybe [UserStackAssociationError],
+    errors :: Core.Maybe [UserStackAssociationError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDisassociateUserStackResponse' with all optional fields omitted.
@@ -151,23 +144,23 @@ data BatchDisassociateUserStackResponse = BatchDisassociateUserStackResponse'
 -- 'httpStatus', 'batchDisassociateUserStackResponse_httpStatus' - The response's http status code.
 newBatchDisassociateUserStackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchDisassociateUserStackResponse
 newBatchDisassociateUserStackResponse pHttpStatus_ =
   BatchDisassociateUserStackResponse'
     { errors =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of UserStackAssociationError objects.
-batchDisassociateUserStackResponse_errors :: Lens.Lens' BatchDisassociateUserStackResponse (Prelude.Maybe [UserStackAssociationError])
-batchDisassociateUserStackResponse_errors = Lens.lens (\BatchDisassociateUserStackResponse' {errors} -> errors) (\s@BatchDisassociateUserStackResponse' {} a -> s {errors = a} :: BatchDisassociateUserStackResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchDisassociateUserStackResponse_errors :: Lens.Lens' BatchDisassociateUserStackResponse (Core.Maybe [UserStackAssociationError])
+batchDisassociateUserStackResponse_errors = Lens.lens (\BatchDisassociateUserStackResponse' {errors} -> errors) (\s@BatchDisassociateUserStackResponse' {} a -> s {errors = a} :: BatchDisassociateUserStackResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDisassociateUserStackResponse_httpStatus :: Lens.Lens' BatchDisassociateUserStackResponse Prelude.Int
+batchDisassociateUserStackResponse_httpStatus :: Lens.Lens' BatchDisassociateUserStackResponse Core.Int
 batchDisassociateUserStackResponse_httpStatus = Lens.lens (\BatchDisassociateUserStackResponse' {httpStatus} -> httpStatus) (\s@BatchDisassociateUserStackResponse' {} a -> s {httpStatus = a} :: BatchDisassociateUserStackResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchDisassociateUserStackResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,17 +47,17 @@ module Network.AWS.Config.DeleteOrganizationConformancePack
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteOrganizationConformancePack' smart constructor.
 data DeleteOrganizationConformancePack = DeleteOrganizationConformancePack'
   { -- | The name of organization conformance pack that you want to delete.
-    organizationConformancePackName :: Prelude.Text
+    organizationConformancePackName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationConformancePack' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DeleteOrganizationConformancePack = DeleteOrganizationConformancePack'
 -- 'organizationConformancePackName', 'deleteOrganizationConformancePack_organizationConformancePackName' - The name of organization conformance pack that you want to delete.
 newDeleteOrganizationConformancePack ::
   -- | 'organizationConformancePackName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteOrganizationConformancePack
 newDeleteOrganizationConformancePack
   pOrganizationConformancePackName_ =
@@ -81,15 +80,15 @@ newDeleteOrganizationConformancePack
       }
 
 -- | The name of organization conformance pack that you want to delete.
-deleteOrganizationConformancePack_organizationConformancePackName :: Lens.Lens' DeleteOrganizationConformancePack Prelude.Text
+deleteOrganizationConformancePack_organizationConformancePackName :: Lens.Lens' DeleteOrganizationConformancePack Core.Text
 deleteOrganizationConformancePack_organizationConformancePackName = Lens.lens (\DeleteOrganizationConformancePack' {organizationConformancePackName} -> organizationConformancePackName) (\s@DeleteOrganizationConformancePack' {} a -> s {organizationConformancePackName = a} :: DeleteOrganizationConformancePack)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteOrganizationConformancePack
   where
   type
-    Rs DeleteOrganizationConformancePack =
+    AWSResponse DeleteOrganizationConformancePack =
       DeleteOrganizationConformancePackResponse
   request = Request.postJSON defaultService
   response =
@@ -97,62 +96,60 @@ instance
       DeleteOrganizationConformancePackResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteOrganizationConformancePack
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteOrganizationConformancePack
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteOrganizationConformancePack
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeleteOrganizationConformancePack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeleteOrganizationConformancePack" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteOrganizationConformancePack
   where
   toJSON DeleteOrganizationConformancePack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "OrganizationConformancePackName"
-                  Prelude..= organizationConformancePackName
+                  Core..= organizationConformancePackName
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteOrganizationConformancePack
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteOrganizationConformancePack
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteOrganizationConformancePackResponse' smart constructor.
 data DeleteOrganizationConformancePackResponse = DeleteOrganizationConformancePackResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOrganizationConformancePackResponse' with all optional fields omitted.
@@ -164,5 +161,5 @@ newDeleteOrganizationConformancePackResponse =
   DeleteOrganizationConformancePackResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteOrganizationConformancePackResponse

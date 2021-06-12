@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,8 +74,8 @@ module Network.AWS.Rekognition.DetectText
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -85,7 +84,7 @@ import qualified Network.AWS.Response as Response
 data DetectText = DetectText'
   { -- | Optional parameters that let you set the criteria that the text must
     -- meet to be included in your response.
-    filters :: Prelude.Maybe DetectTextFilters,
+    filters :: Core.Maybe DetectTextFilters,
     -- | The input image as base64-encoded bytes or an Amazon S3 object. If you
     -- use the AWS CLI to call Amazon Rekognition operations, you can\'t pass
     -- image bytes.
@@ -95,7 +94,7 @@ data DetectText = DetectText'
     -- more information, see Images in the Amazon Rekognition developer guide.
     image :: Image
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectText' with all optional fields omitted.
@@ -121,13 +120,13 @@ newDetectText ::
   DetectText
 newDetectText pImage_ =
   DetectText'
-    { filters = Prelude.Nothing,
+    { filters = Core.Nothing,
       image = pImage_
     }
 
 -- | Optional parameters that let you set the criteria that the text must
 -- meet to be included in your response.
-detectText_filters :: Lens.Lens' DetectText (Prelude.Maybe DetectTextFilters)
+detectText_filters :: Lens.Lens' DetectText (Core.Maybe DetectTextFilters)
 detectText_filters = Lens.lens (\DetectText' {filters} -> filters) (\s@DetectText' {} a -> s {filters = a} :: DetectText)
 
 -- | The input image as base64-encoded bytes or an Amazon S3 object. If you
@@ -140,64 +139,58 @@ detectText_filters = Lens.lens (\DetectText' {filters} -> filters) (\s@DetectTex
 detectText_image :: Lens.Lens' DetectText Image
 detectText_image = Lens.lens (\DetectText' {image} -> image) (\s@DetectText' {} a -> s {image = a} :: DetectText)
 
-instance Prelude.AWSRequest DetectText where
-  type Rs DetectText = DetectTextResponse
+instance Core.AWSRequest DetectText where
+  type AWSResponse DetectText = DetectTextResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DetectTextResponse'
-            Prelude.<$> ( x Prelude..?> "TextDetections"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "TextModelVersion")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TextDetections" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "TextModelVersion")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetectText
+instance Core.Hashable DetectText
 
-instance Prelude.NFData DetectText
+instance Core.NFData DetectText
 
-instance Prelude.ToHeaders DetectText where
+instance Core.ToHeaders DetectText where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.DetectText" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("RekognitionService.DetectText" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DetectText where
+instance Core.ToJSON DetectText where
   toJSON DetectText' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Filters" Prelude..=) Prelude.<$> filters,
-            Prelude.Just ("Image" Prelude..= image)
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            Core.Just ("Image" Core..= image)
           ]
       )
 
-instance Prelude.ToPath DetectText where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetectText where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetectText where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetectText where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDetectTextResponse' smart constructor.
 data DetectTextResponse = DetectTextResponse'
   { -- | An array of text that was detected in the input image.
-    textDetections :: Prelude.Maybe [TextDetection],
+    textDetections :: Core.Maybe [TextDetection],
     -- | The model version used to detect text.
-    textModelVersion :: Prelude.Maybe Prelude.Text,
+    textModelVersion :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectTextResponse' with all optional fields omitted.
@@ -214,26 +207,25 @@ data DetectTextResponse = DetectTextResponse'
 -- 'httpStatus', 'detectTextResponse_httpStatus' - The response's http status code.
 newDetectTextResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetectTextResponse
 newDetectTextResponse pHttpStatus_ =
   DetectTextResponse'
-    { textDetections =
-        Prelude.Nothing,
-      textModelVersion = Prelude.Nothing,
+    { textDetections = Core.Nothing,
+      textModelVersion = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of text that was detected in the input image.
-detectTextResponse_textDetections :: Lens.Lens' DetectTextResponse (Prelude.Maybe [TextDetection])
-detectTextResponse_textDetections = Lens.lens (\DetectTextResponse' {textDetections} -> textDetections) (\s@DetectTextResponse' {} a -> s {textDetections = a} :: DetectTextResponse) Prelude.. Lens.mapping Prelude._Coerce
+detectTextResponse_textDetections :: Lens.Lens' DetectTextResponse (Core.Maybe [TextDetection])
+detectTextResponse_textDetections = Lens.lens (\DetectTextResponse' {textDetections} -> textDetections) (\s@DetectTextResponse' {} a -> s {textDetections = a} :: DetectTextResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The model version used to detect text.
-detectTextResponse_textModelVersion :: Lens.Lens' DetectTextResponse (Prelude.Maybe Prelude.Text)
+detectTextResponse_textModelVersion :: Lens.Lens' DetectTextResponse (Core.Maybe Core.Text)
 detectTextResponse_textModelVersion = Lens.lens (\DetectTextResponse' {textModelVersion} -> textModelVersion) (\s@DetectTextResponse' {} a -> s {textModelVersion = a} :: DetectTextResponse)
 
 -- | The response's http status code.
-detectTextResponse_httpStatus :: Lens.Lens' DetectTextResponse Prelude.Int
+detectTextResponse_httpStatus :: Lens.Lens' DetectTextResponse Core.Int
 detectTextResponse_httpStatus = Lens.lens (\DetectTextResponse' {httpStatus} -> httpStatus) (\s@DetectTextResponse' {} a -> s {httpStatus = a} :: DetectTextResponse)
 
-instance Prelude.NFData DetectTextResponse
+instance Core.NFData DetectTextResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.HostedZoneLimit where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.HostedZoneLimitType
 
@@ -39,9 +38,9 @@ data HostedZoneLimit = HostedZoneLimit'
     --     that you can associate with the specified private hosted zone.
     type' :: HostedZoneLimitType,
     -- | The current value for the limit that is specified by @Type@.
-    value :: Prelude.Natural
+    value :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HostedZoneLimit' with all optional fields omitted.
@@ -64,7 +63,7 @@ newHostedZoneLimit ::
   -- | 'type''
   HostedZoneLimitType ->
   -- | 'value'
-  Prelude.Natural ->
+  Core.Natural ->
   HostedZoneLimit
 newHostedZoneLimit pType_ pValue_ =
   HostedZoneLimit' {type' = pType_, value = pValue_}
@@ -80,15 +79,14 @@ hostedZoneLimit_type :: Lens.Lens' HostedZoneLimit HostedZoneLimitType
 hostedZoneLimit_type = Lens.lens (\HostedZoneLimit' {type'} -> type') (\s@HostedZoneLimit' {} a -> s {type' = a} :: HostedZoneLimit)
 
 -- | The current value for the limit that is specified by @Type@.
-hostedZoneLimit_value :: Lens.Lens' HostedZoneLimit Prelude.Natural
+hostedZoneLimit_value :: Lens.Lens' HostedZoneLimit Core.Natural
 hostedZoneLimit_value = Lens.lens (\HostedZoneLimit' {value} -> value) (\s@HostedZoneLimit' {} a -> s {value = a} :: HostedZoneLimit)
 
-instance Prelude.FromXML HostedZoneLimit where
+instance Core.FromXML HostedZoneLimit where
   parseXML x =
     HostedZoneLimit'
-      Prelude.<$> (x Prelude..@ "Type")
-      Prelude.<*> (x Prelude..@ "Value")
+      Core.<$> (x Core..@ "Type") Core.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable HostedZoneLimit
+instance Core.Hashable HostedZoneLimit
 
-instance Prelude.NFData HostedZoneLimit
+instance Core.NFData HostedZoneLimit

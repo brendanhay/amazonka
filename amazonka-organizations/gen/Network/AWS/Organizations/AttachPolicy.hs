@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.Organizations.AttachPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,7 +65,7 @@ data AttachPolicy = AttachPolicy'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
     -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
     -- letters, digits, or the underscore character (_).
-    policyId :: Prelude.Text,
+    policyId :: Core.Text,
     -- | The unique identifier (ID) of the root, OU, or account that you want to
     -- attach the policy to. You can get the ID by calling the ListRoots,
     -- ListOrganizationalUnitsForParent, or ListAccounts operations.
@@ -83,9 +82,9 @@ data AttachPolicy = AttachPolicy'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    targetId :: Prelude.Text
+    targetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachPolicy' with all optional fields omitted.
@@ -121,9 +120,9 @@ data AttachPolicy = AttachPolicy'
 --     dash and from 8 to 32 additional lowercase letters or digits.
 newAttachPolicy ::
   -- | 'policyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetId'
-  Prelude.Text ->
+  Core.Text ->
   AttachPolicy
 newAttachPolicy pPolicyId_ pTargetId_ =
   AttachPolicy'
@@ -138,7 +137,7 @@ newAttachPolicy pPolicyId_ pTargetId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
 -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
 -- letters, digits, or the underscore character (_).
-attachPolicy_policyId :: Lens.Lens' AttachPolicy Prelude.Text
+attachPolicy_policyId :: Lens.Lens' AttachPolicy Core.Text
 attachPolicy_policyId = Lens.lens (\AttachPolicy' {policyId} -> policyId) (\s@AttachPolicy' {} a -> s {policyId = a} :: AttachPolicy)
 
 -- | The unique identifier (ID) of the root, OU, or account that you want to
@@ -157,53 +156,51 @@ attachPolicy_policyId = Lens.lens (\AttachPolicy' {policyId} -> policyId) (\s@At
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-attachPolicy_targetId :: Lens.Lens' AttachPolicy Prelude.Text
+attachPolicy_targetId :: Lens.Lens' AttachPolicy Core.Text
 attachPolicy_targetId = Lens.lens (\AttachPolicy' {targetId} -> targetId) (\s@AttachPolicy' {} a -> s {targetId = a} :: AttachPolicy)
 
-instance Prelude.AWSRequest AttachPolicy where
-  type Rs AttachPolicy = AttachPolicyResponse
+instance Core.AWSRequest AttachPolicy where
+  type AWSResponse AttachPolicy = AttachPolicyResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull AttachPolicyResponse'
 
-instance Prelude.Hashable AttachPolicy
+instance Core.Hashable AttachPolicy
 
-instance Prelude.NFData AttachPolicy
+instance Core.NFData AttachPolicy
 
-instance Prelude.ToHeaders AttachPolicy where
+instance Core.ToHeaders AttachPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.AttachPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.AttachPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AttachPolicy where
+instance Core.ToJSON AttachPolicy where
   toJSON AttachPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("PolicyId" Prelude..= policyId),
-            Prelude.Just ("TargetId" Prelude..= targetId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyId" Core..= policyId),
+            Core.Just ("TargetId" Core..= targetId)
           ]
       )
 
-instance Prelude.ToPath AttachPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AttachPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAttachPolicyResponse' smart constructor.
 data AttachPolicyResponse = AttachPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachPolicyResponse' with all optional fields omitted.
@@ -213,4 +210,4 @@ newAttachPolicyResponse ::
   AttachPolicyResponse
 newAttachPolicyResponse = AttachPolicyResponse'
 
-instance Prelude.NFData AttachPolicyResponse
+instance Core.NFData AttachPolicyResponse

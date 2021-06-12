@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.CloudWatch.GetMetricWidgetImage
 where
 
 import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,7 +92,7 @@ data GetMetricWidgetImage = GetMetricWidgetImage'
     -- most use cases, and all actions using an AWS SDK, you should use @png@.
     -- If you specify @image\/png@, the HTTP response has a content-type set to
     -- @image\/png@, and the body of the response is a PNG image.
-    outputFormat :: Prelude.Maybe Prelude.Text,
+    outputFormat :: Core.Maybe Core.Text,
     -- | A JSON string that defines the bitmap graph to be retrieved. The string
     -- includes the metrics to include in the graph, statistics, annotations,
     -- title, axis limits, and so on. You can include only one @MetricWidget@
@@ -105,9 +104,9 @@ data GetMetricWidgetImage = GetMetricWidgetImage'
     -- If any metric on the graph could not load all the requested data points,
     -- an orange triangle with an exclamation point appears next to the graph
     -- legend.
-    metricWidget :: Prelude.Text
+    metricWidget :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMetricWidgetImage' with all optional fields omitted.
@@ -161,12 +160,11 @@ data GetMetricWidgetImage = GetMetricWidgetImage'
 -- legend.
 newGetMetricWidgetImage ::
   -- | 'metricWidget'
-  Prelude.Text ->
+  Core.Text ->
   GetMetricWidgetImage
 newGetMetricWidgetImage pMetricWidget_ =
   GetMetricWidgetImage'
-    { outputFormat =
-        Prelude.Nothing,
+    { outputFormat = Core.Nothing,
       metricWidget = pMetricWidget_
     }
 
@@ -200,7 +198,7 @@ newGetMetricWidgetImage pMetricWidget_ =
 -- most use cases, and all actions using an AWS SDK, you should use @png@.
 -- If you specify @image\/png@, the HTTP response has a content-type set to
 -- @image\/png@, and the body of the response is a PNG image.
-getMetricWidgetImage_outputFormat :: Lens.Lens' GetMetricWidgetImage (Prelude.Maybe Prelude.Text)
+getMetricWidgetImage_outputFormat :: Lens.Lens' GetMetricWidgetImage (Core.Maybe Core.Text)
 getMetricWidgetImage_outputFormat = Lens.lens (\GetMetricWidgetImage' {outputFormat} -> outputFormat) (\s@GetMetricWidgetImage' {} a -> s {outputFormat = a} :: GetMetricWidgetImage)
 
 -- | A JSON string that defines the bitmap graph to be retrieved. The string
@@ -214,12 +212,12 @@ getMetricWidgetImage_outputFormat = Lens.lens (\GetMetricWidgetImage' {outputFor
 -- If any metric on the graph could not load all the requested data points,
 -- an orange triangle with an exclamation point appears next to the graph
 -- legend.
-getMetricWidgetImage_metricWidget :: Lens.Lens' GetMetricWidgetImage Prelude.Text
+getMetricWidgetImage_metricWidget :: Lens.Lens' GetMetricWidgetImage Core.Text
 getMetricWidgetImage_metricWidget = Lens.lens (\GetMetricWidgetImage' {metricWidget} -> metricWidget) (\s@GetMetricWidgetImage' {} a -> s {metricWidget = a} :: GetMetricWidgetImage)
 
-instance Prelude.AWSRequest GetMetricWidgetImage where
+instance Core.AWSRequest GetMetricWidgetImage where
   type
-    Rs GetMetricWidgetImage =
+    AWSResponse GetMetricWidgetImage =
       GetMetricWidgetImageResponse
   request = Request.postQuery defaultService
   response =
@@ -227,40 +225,39 @@ instance Prelude.AWSRequest GetMetricWidgetImage where
       "GetMetricWidgetImageResult"
       ( \s h x ->
           GetMetricWidgetImageResponse'
-            Prelude.<$> (x Prelude..@? "MetricWidgetImage")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "MetricWidgetImage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetMetricWidgetImage
+instance Core.Hashable GetMetricWidgetImage
 
-instance Prelude.NFData GetMetricWidgetImage
+instance Core.NFData GetMetricWidgetImage
 
-instance Prelude.ToHeaders GetMetricWidgetImage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetMetricWidgetImage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetMetricWidgetImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetMetricWidgetImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetMetricWidgetImage where
+instance Core.ToQuery GetMetricWidgetImage where
   toQuery GetMetricWidgetImage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetMetricWidgetImage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
-        "OutputFormat" Prelude.=: outputFormat,
-        "MetricWidget" Prelude.=: metricWidget
+          Core.=: ("GetMetricWidgetImage" :: Core.ByteString),
+        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
+        "OutputFormat" Core.=: outputFormat,
+        "MetricWidget" Core.=: metricWidget
       ]
 
 -- | /See:/ 'newGetMetricWidgetImageResponse' smart constructor.
 data GetMetricWidgetImageResponse = GetMetricWidgetImageResponse'
   { -- | The image of the graph, in the output format specified. The output is
     -- base64-encoded.
-    metricWidgetImage :: Prelude.Maybe Prelude.Base64,
+    metricWidgetImage :: Core.Maybe Core.Base64,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMetricWidgetImageResponse' with all optional fields omitted.
@@ -280,12 +277,12 @@ data GetMetricWidgetImageResponse = GetMetricWidgetImageResponse'
 -- 'httpStatus', 'getMetricWidgetImageResponse_httpStatus' - The response's http status code.
 newGetMetricWidgetImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetMetricWidgetImageResponse
 newGetMetricWidgetImageResponse pHttpStatus_ =
   GetMetricWidgetImageResponse'
     { metricWidgetImage =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -295,11 +292,11 @@ newGetMetricWidgetImageResponse pHttpStatus_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getMetricWidgetImageResponse_metricWidgetImage :: Lens.Lens' GetMetricWidgetImageResponse (Prelude.Maybe Prelude.ByteString)
-getMetricWidgetImageResponse_metricWidgetImage = Lens.lens (\GetMetricWidgetImageResponse' {metricWidgetImage} -> metricWidgetImage) (\s@GetMetricWidgetImageResponse' {} a -> s {metricWidgetImage = a} :: GetMetricWidgetImageResponse) Prelude.. Lens.mapping Prelude._Base64
+getMetricWidgetImageResponse_metricWidgetImage :: Lens.Lens' GetMetricWidgetImageResponse (Core.Maybe Core.ByteString)
+getMetricWidgetImageResponse_metricWidgetImage = Lens.lens (\GetMetricWidgetImageResponse' {metricWidgetImage} -> metricWidgetImage) (\s@GetMetricWidgetImageResponse' {} a -> s {metricWidgetImage = a} :: GetMetricWidgetImageResponse) Core.. Lens.mapping Core._Base64
 
 -- | The response's http status code.
-getMetricWidgetImageResponse_httpStatus :: Lens.Lens' GetMetricWidgetImageResponse Prelude.Int
+getMetricWidgetImageResponse_httpStatus :: Lens.Lens' GetMetricWidgetImageResponse Core.Int
 getMetricWidgetImageResponse_httpStatus = Lens.lens (\GetMetricWidgetImageResponse' {httpStatus} -> httpStatus) (\s@GetMetricWidgetImageResponse' {} a -> s {httpStatus = a} :: GetMetricWidgetImageResponse)
 
-instance Prelude.NFData GetMetricWidgetImageResponse
+instance Core.NFData GetMetricWidgetImageResponse

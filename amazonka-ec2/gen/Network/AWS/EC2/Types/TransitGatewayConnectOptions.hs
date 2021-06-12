@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayConnectOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ProtocolValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Connect attachment options.
 --
 -- /See:/ 'newTransitGatewayConnectOptions' smart constructor.
 data TransitGatewayConnectOptions = TransitGatewayConnectOptions'
   { -- | The tunnel protocol.
-    protocol :: Prelude.Maybe ProtocolValue
+    protocol :: Core.Maybe ProtocolValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayConnectOptions' with all optional fields omitted.
@@ -48,20 +47,18 @@ newTransitGatewayConnectOptions ::
 newTransitGatewayConnectOptions =
   TransitGatewayConnectOptions'
     { protocol =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The tunnel protocol.
-transitGatewayConnectOptions_protocol :: Lens.Lens' TransitGatewayConnectOptions (Prelude.Maybe ProtocolValue)
+transitGatewayConnectOptions_protocol :: Lens.Lens' TransitGatewayConnectOptions (Core.Maybe ProtocolValue)
 transitGatewayConnectOptions_protocol = Lens.lens (\TransitGatewayConnectOptions' {protocol} -> protocol) (\s@TransitGatewayConnectOptions' {} a -> s {protocol = a} :: TransitGatewayConnectOptions)
 
-instance Prelude.FromXML TransitGatewayConnectOptions where
+instance Core.FromXML TransitGatewayConnectOptions where
   parseXML x =
     TransitGatewayConnectOptions'
-      Prelude.<$> (x Prelude..@? "protocol")
+      Core.<$> (x Core..@? "protocol")
 
-instance
-  Prelude.Hashable
-    TransitGatewayConnectOptions
+instance Core.Hashable TransitGatewayConnectOptions
 
-instance Prelude.NFData TransitGatewayConnectOptions
+instance Core.NFData TransitGatewayConnectOptions

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,17 +41,17 @@ module Network.AWS.Comprehend.DescribeEntityRecognizer
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeEntityRecognizer' smart constructor.
 data DescribeEntityRecognizer = DescribeEntityRecognizer'
   { -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-    entityRecognizerArn :: Prelude.Text
+    entityRecognizerArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEntityRecognizer' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DescribeEntityRecognizer = DescribeEntityRecognizer'
 -- 'entityRecognizerArn', 'describeEntityRecognizer_entityRecognizerArn' - The Amazon Resource Name (ARN) that identifies the entity recognizer.
 newDescribeEntityRecognizer ::
   -- | 'entityRecognizerArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeEntityRecognizer
 newDescribeEntityRecognizer pEntityRecognizerArn_ =
   DescribeEntityRecognizer'
@@ -74,66 +73,62 @@ newDescribeEntityRecognizer pEntityRecognizerArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer.
-describeEntityRecognizer_entityRecognizerArn :: Lens.Lens' DescribeEntityRecognizer Prelude.Text
+describeEntityRecognizer_entityRecognizerArn :: Lens.Lens' DescribeEntityRecognizer Core.Text
 describeEntityRecognizer_entityRecognizerArn = Lens.lens (\DescribeEntityRecognizer' {entityRecognizerArn} -> entityRecognizerArn) (\s@DescribeEntityRecognizer' {} a -> s {entityRecognizerArn = a} :: DescribeEntityRecognizer)
 
-instance Prelude.AWSRequest DescribeEntityRecognizer where
+instance Core.AWSRequest DescribeEntityRecognizer where
   type
-    Rs DescribeEntityRecognizer =
+    AWSResponse DescribeEntityRecognizer =
       DescribeEntityRecognizerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEntityRecognizerResponse'
-            Prelude.<$> (x Prelude..?> "EntityRecognizerProperties")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EntityRecognizerProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEntityRecognizer
+instance Core.Hashable DescribeEntityRecognizer
 
-instance Prelude.NFData DescribeEntityRecognizer
+instance Core.NFData DescribeEntityRecognizer
 
-instance Prelude.ToHeaders DescribeEntityRecognizer where
+instance Core.ToHeaders DescribeEntityRecognizer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DescribeEntityRecognizer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DescribeEntityRecognizer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEntityRecognizer where
+instance Core.ToJSON DescribeEntityRecognizer where
   toJSON DescribeEntityRecognizer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "EntityRecognizerArn"
-                  Prelude..= entityRecognizerArn
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("EntityRecognizerArn" Core..= entityRecognizerArn)
           ]
       )
 
-instance Prelude.ToPath DescribeEntityRecognizer where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEntityRecognizer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEntityRecognizer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEntityRecognizer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEntityRecognizerResponse' smart constructor.
 data DescribeEntityRecognizerResponse = DescribeEntityRecognizerResponse'
   { -- | Describes information associated with an entity recognizer.
-    entityRecognizerProperties :: Prelude.Maybe EntityRecognizerProperties,
+    entityRecognizerProperties :: Core.Maybe EntityRecognizerProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEntityRecognizerResponse' with all optional fields omitted.
@@ -148,23 +143,21 @@ data DescribeEntityRecognizerResponse = DescribeEntityRecognizerResponse'
 -- 'httpStatus', 'describeEntityRecognizerResponse_httpStatus' - The response's http status code.
 newDescribeEntityRecognizerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEntityRecognizerResponse
 newDescribeEntityRecognizerResponse pHttpStatus_ =
   DescribeEntityRecognizerResponse'
     { entityRecognizerProperties =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Describes information associated with an entity recognizer.
-describeEntityRecognizerResponse_entityRecognizerProperties :: Lens.Lens' DescribeEntityRecognizerResponse (Prelude.Maybe EntityRecognizerProperties)
+describeEntityRecognizerResponse_entityRecognizerProperties :: Lens.Lens' DescribeEntityRecognizerResponse (Core.Maybe EntityRecognizerProperties)
 describeEntityRecognizerResponse_entityRecognizerProperties = Lens.lens (\DescribeEntityRecognizerResponse' {entityRecognizerProperties} -> entityRecognizerProperties) (\s@DescribeEntityRecognizerResponse' {} a -> s {entityRecognizerProperties = a} :: DescribeEntityRecognizerResponse)
 
 -- | The response's http status code.
-describeEntityRecognizerResponse_httpStatus :: Lens.Lens' DescribeEntityRecognizerResponse Prelude.Int
+describeEntityRecognizerResponse_httpStatus :: Lens.Lens' DescribeEntityRecognizerResponse Core.Int
 describeEntityRecognizerResponse_httpStatus = Lens.lens (\DescribeEntityRecognizerResponse' {httpStatus} -> httpStatus) (\s@DescribeEntityRecognizerResponse' {} a -> s {httpStatus = a} :: DescribeEntityRecognizerResponse)
 
-instance
-  Prelude.NFData
-    DescribeEntityRecognizerResponse
+instance Core.NFData DescribeEntityRecognizerResponse

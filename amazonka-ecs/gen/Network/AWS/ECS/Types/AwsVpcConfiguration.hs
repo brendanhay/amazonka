@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.AwsVpcConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.AssignPublicIp
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the networking details for a task or service.
 --
@@ -30,21 +29,21 @@ import qualified Network.AWS.Prelude as Prelude
 data AwsVpcConfiguration = AwsVpcConfiguration'
   { -- | Whether the task\'s elastic network interface receives a public IP
     -- address. The default value is @DISABLED@.
-    assignPublicIp :: Prelude.Maybe AssignPublicIp,
+    assignPublicIp :: Core.Maybe AssignPublicIp,
     -- | The IDs of the security groups associated with the task or service. If
     -- you do not specify a security group, the default security group for the
     -- VPC is used. There is a limit of 5 security groups that can be specified
     -- per @AwsVpcConfiguration@.
     --
     -- All specified security groups must be from the same VPC.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | The IDs of the subnets associated with the task or service. There is a
     -- limit of 16 subnets that can be specified per @AwsVpcConfiguration@.
     --
     -- All specified subnets must be from the same VPC.
-    subnets :: [Prelude.Text]
+    subnets :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AwsVpcConfiguration' with all optional fields omitted.
@@ -72,15 +71,14 @@ newAwsVpcConfiguration ::
   AwsVpcConfiguration
 newAwsVpcConfiguration =
   AwsVpcConfiguration'
-    { assignPublicIp =
-        Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      subnets = Prelude.mempty
+    { assignPublicIp = Core.Nothing,
+      securityGroups = Core.Nothing,
+      subnets = Core.mempty
     }
 
 -- | Whether the task\'s elastic network interface receives a public IP
 -- address. The default value is @DISABLED@.
-awsVpcConfiguration_assignPublicIp :: Lens.Lens' AwsVpcConfiguration (Prelude.Maybe AssignPublicIp)
+awsVpcConfiguration_assignPublicIp :: Lens.Lens' AwsVpcConfiguration (Core.Maybe AssignPublicIp)
 awsVpcConfiguration_assignPublicIp = Lens.lens (\AwsVpcConfiguration' {assignPublicIp} -> assignPublicIp) (\s@AwsVpcConfiguration' {} a -> s {assignPublicIp = a} :: AwsVpcConfiguration)
 
 -- | The IDs of the security groups associated with the task or service. If
@@ -89,41 +87,37 @@ awsVpcConfiguration_assignPublicIp = Lens.lens (\AwsVpcConfiguration' {assignPub
 -- per @AwsVpcConfiguration@.
 --
 -- All specified security groups must be from the same VPC.
-awsVpcConfiguration_securityGroups :: Lens.Lens' AwsVpcConfiguration (Prelude.Maybe [Prelude.Text])
-awsVpcConfiguration_securityGroups = Lens.lens (\AwsVpcConfiguration' {securityGroups} -> securityGroups) (\s@AwsVpcConfiguration' {} a -> s {securityGroups = a} :: AwsVpcConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+awsVpcConfiguration_securityGroups :: Lens.Lens' AwsVpcConfiguration (Core.Maybe [Core.Text])
+awsVpcConfiguration_securityGroups = Lens.lens (\AwsVpcConfiguration' {securityGroups} -> securityGroups) (\s@AwsVpcConfiguration' {} a -> s {securityGroups = a} :: AwsVpcConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the subnets associated with the task or service. There is a
 -- limit of 16 subnets that can be specified per @AwsVpcConfiguration@.
 --
 -- All specified subnets must be from the same VPC.
-awsVpcConfiguration_subnets :: Lens.Lens' AwsVpcConfiguration [Prelude.Text]
-awsVpcConfiguration_subnets = Lens.lens (\AwsVpcConfiguration' {subnets} -> subnets) (\s@AwsVpcConfiguration' {} a -> s {subnets = a} :: AwsVpcConfiguration) Prelude.. Prelude._Coerce
+awsVpcConfiguration_subnets :: Lens.Lens' AwsVpcConfiguration [Core.Text]
+awsVpcConfiguration_subnets = Lens.lens (\AwsVpcConfiguration' {subnets} -> subnets) (\s@AwsVpcConfiguration' {} a -> s {subnets = a} :: AwsVpcConfiguration) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AwsVpcConfiguration where
+instance Core.FromJSON AwsVpcConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AwsVpcConfiguration"
       ( \x ->
           AwsVpcConfiguration'
-            Prelude.<$> (x Prelude..:? "assignPublicIp")
-            Prelude.<*> ( x Prelude..:? "securityGroups"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "subnets" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "assignPublicIp")
+            Core.<*> (x Core..:? "securityGroups" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "subnets" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AwsVpcConfiguration
+instance Core.Hashable AwsVpcConfiguration
 
-instance Prelude.NFData AwsVpcConfiguration
+instance Core.NFData AwsVpcConfiguration
 
-instance Prelude.ToJSON AwsVpcConfiguration where
+instance Core.ToJSON AwsVpcConfiguration where
   toJSON AwsVpcConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("assignPublicIp" Prelude..=)
-              Prelude.<$> assignPublicIp,
-            ("securityGroups" Prelude..=)
-              Prelude.<$> securityGroups,
-            Prelude.Just ("subnets" Prelude..= subnets)
+    Core.object
+      ( Core.catMaybes
+          [ ("assignPublicIp" Core..=) Core.<$> assignPublicIp,
+            ("securityGroups" Core..=) Core.<$> securityGroups,
+            Core.Just ("subnets" Core..= subnets)
           ]
       )

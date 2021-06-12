@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MarketplaceEntitlement.Types.Entitlement where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceEntitlement.Types.EntitlementValue
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An entitlement represents capacity in a product owned by the customer.
 -- For example, a customer might own some number of users or seats in an
@@ -37,23 +36,23 @@ data Entitlement = Entitlement'
     -- customer will renew or cancel their contract. Customers who are opting
     -- to renew their contract will still have entitlements with an expiration
     -- date.
-    expirationDate :: Prelude.Maybe Prelude.POSIX,
+    expirationDate :: Core.Maybe Core.POSIX,
     -- | The customer identifier is a handle to each unique customer in an
     -- application. Customer identifiers are obtained through the
     -- ResolveCustomer operation in AWS Marketplace Metering Service.
-    customerIdentifier :: Prelude.Maybe Prelude.Text,
+    customerIdentifier :: Core.Maybe Core.Text,
     -- | The product code for which the given entitlement applies. Product codes
     -- are provided by AWS Marketplace when the product listing is created.
-    productCode :: Prelude.Maybe Prelude.Text,
+    productCode :: Core.Maybe Core.Text,
     -- | The EntitlementValue represents the amount of capacity that the customer
     -- is entitled to for the product.
-    value :: Prelude.Maybe EntitlementValue,
+    value :: Core.Maybe EntitlementValue,
     -- | The dimension for which the given entitlement applies. Dimensions
     -- represent categories of capacity in a product and are specified when the
     -- product is listed in AWS Marketplace.
-    dimension :: Prelude.Maybe Prelude.Text
+    dimension :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Entitlement' with all optional fields omitted.
@@ -87,11 +86,11 @@ newEntitlement ::
   Entitlement
 newEntitlement =
   Entitlement'
-    { expirationDate = Prelude.Nothing,
-      customerIdentifier = Prelude.Nothing,
-      productCode = Prelude.Nothing,
-      value = Prelude.Nothing,
-      dimension = Prelude.Nothing
+    { expirationDate = Core.Nothing,
+      customerIdentifier = Core.Nothing,
+      productCode = Core.Nothing,
+      value = Core.Nothing,
+      dimension = Core.Nothing
     }
 
 -- | The expiration date represents the minimum date through which this
@@ -100,44 +99,44 @@ newEntitlement =
 -- customer will renew or cancel their contract. Customers who are opting
 -- to renew their contract will still have entitlements with an expiration
 -- date.
-entitlement_expirationDate :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.UTCTime)
-entitlement_expirationDate = Lens.lens (\Entitlement' {expirationDate} -> expirationDate) (\s@Entitlement' {} a -> s {expirationDate = a} :: Entitlement) Prelude.. Lens.mapping Prelude._Time
+entitlement_expirationDate :: Lens.Lens' Entitlement (Core.Maybe Core.UTCTime)
+entitlement_expirationDate = Lens.lens (\Entitlement' {expirationDate} -> expirationDate) (\s@Entitlement' {} a -> s {expirationDate = a} :: Entitlement) Core.. Lens.mapping Core._Time
 
 -- | The customer identifier is a handle to each unique customer in an
 -- application. Customer identifiers are obtained through the
 -- ResolveCustomer operation in AWS Marketplace Metering Service.
-entitlement_customerIdentifier :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
+entitlement_customerIdentifier :: Lens.Lens' Entitlement (Core.Maybe Core.Text)
 entitlement_customerIdentifier = Lens.lens (\Entitlement' {customerIdentifier} -> customerIdentifier) (\s@Entitlement' {} a -> s {customerIdentifier = a} :: Entitlement)
 
 -- | The product code for which the given entitlement applies. Product codes
 -- are provided by AWS Marketplace when the product listing is created.
-entitlement_productCode :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
+entitlement_productCode :: Lens.Lens' Entitlement (Core.Maybe Core.Text)
 entitlement_productCode = Lens.lens (\Entitlement' {productCode} -> productCode) (\s@Entitlement' {} a -> s {productCode = a} :: Entitlement)
 
 -- | The EntitlementValue represents the amount of capacity that the customer
 -- is entitled to for the product.
-entitlement_value :: Lens.Lens' Entitlement (Prelude.Maybe EntitlementValue)
+entitlement_value :: Lens.Lens' Entitlement (Core.Maybe EntitlementValue)
 entitlement_value = Lens.lens (\Entitlement' {value} -> value) (\s@Entitlement' {} a -> s {value = a} :: Entitlement)
 
 -- | The dimension for which the given entitlement applies. Dimensions
 -- represent categories of capacity in a product and are specified when the
 -- product is listed in AWS Marketplace.
-entitlement_dimension :: Lens.Lens' Entitlement (Prelude.Maybe Prelude.Text)
+entitlement_dimension :: Lens.Lens' Entitlement (Core.Maybe Core.Text)
 entitlement_dimension = Lens.lens (\Entitlement' {dimension} -> dimension) (\s@Entitlement' {} a -> s {dimension = a} :: Entitlement)
 
-instance Prelude.FromJSON Entitlement where
+instance Core.FromJSON Entitlement where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Entitlement"
       ( \x ->
           Entitlement'
-            Prelude.<$> (x Prelude..:? "ExpirationDate")
-            Prelude.<*> (x Prelude..:? "CustomerIdentifier")
-            Prelude.<*> (x Prelude..:? "ProductCode")
-            Prelude.<*> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "Dimension")
+            Core.<$> (x Core..:? "ExpirationDate")
+            Core.<*> (x Core..:? "CustomerIdentifier")
+            Core.<*> (x Core..:? "ProductCode")
+            Core.<*> (x Core..:? "Value")
+            Core.<*> (x Core..:? "Dimension")
       )
 
-instance Prelude.Hashable Entitlement
+instance Core.Hashable Entitlement
 
-instance Prelude.NFData Entitlement
+instance Core.NFData Entitlement

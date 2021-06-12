@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteIdentityPool' smart constructor.
 data DeleteIdentityPool = DeleteIdentityPool'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text
+    identityPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityPool' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DeleteIdentityPool = DeleteIdentityPool'
 -- 'identityPoolId', 'deleteIdentityPool_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newDeleteIdentityPool ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteIdentityPool
 newDeleteIdentityPool pIdentityPoolId_ =
   DeleteIdentityPool'
@@ -74,56 +73,54 @@ newDeleteIdentityPool pIdentityPoolId_ =
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-deleteIdentityPool_identityPoolId :: Lens.Lens' DeleteIdentityPool Prelude.Text
+deleteIdentityPool_identityPoolId :: Lens.Lens' DeleteIdentityPool Core.Text
 deleteIdentityPool_identityPoolId = Lens.lens (\DeleteIdentityPool' {identityPoolId} -> identityPoolId) (\s@DeleteIdentityPool' {} a -> s {identityPoolId = a} :: DeleteIdentityPool)
 
-instance Prelude.AWSRequest DeleteIdentityPool where
+instance Core.AWSRequest DeleteIdentityPool where
   type
-    Rs DeleteIdentityPool =
+    AWSResponse DeleteIdentityPool =
       DeleteIdentityPoolResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteIdentityPoolResponse'
 
-instance Prelude.Hashable DeleteIdentityPool
+instance Core.Hashable DeleteIdentityPool
 
-instance Prelude.NFData DeleteIdentityPool
+instance Core.NFData DeleteIdentityPool
 
-instance Prelude.ToHeaders DeleteIdentityPool where
+instance Core.ToHeaders DeleteIdentityPool where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.DeleteIdentityPool" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.DeleteIdentityPool" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteIdentityPool where
+instance Core.ToJSON DeleteIdentityPool where
   toJSON DeleteIdentityPool' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("IdentityPoolId" Core..= identityPoolId)
           ]
       )
 
-instance Prelude.ToPath DeleteIdentityPool where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteIdentityPool where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteIdentityPool where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteIdentityPool where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityPoolResponse' with all optional fields omitted.
@@ -134,4 +131,4 @@ newDeleteIdentityPoolResponse ::
 newDeleteIdentityPoolResponse =
   DeleteIdentityPoolResponse'
 
-instance Prelude.NFData DeleteIdentityPoolResponse
+instance Core.NFData DeleteIdentityPoolResponse

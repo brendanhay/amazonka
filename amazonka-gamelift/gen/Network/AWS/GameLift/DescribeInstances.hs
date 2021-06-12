@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,10 +64,9 @@ module Network.AWS.GameLift.DescribeInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,18 +77,18 @@ data DescribeInstances = DescribeInstances'
   { -- | Token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A unique identifier for an instance to retrieve. Specify an instance ID
     -- or leave blank to retrieve all instances in the fleet.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | A unique identifier for a fleet to retrieve instance information for.
     -- You can use either the fleet ID or ARN value.
-    fleetId :: Prelude.Text
+    fleetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstances' with all optional fields omitted.
@@ -114,106 +112,103 @@ data DescribeInstances = DescribeInstances'
 -- You can use either the fleet ID or ARN value.
 newDescribeInstances ::
   -- | 'fleetId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeInstances
 newDescribeInstances pFleetId_ =
   DescribeInstances'
-    { nextToken = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      instanceId = Core.Nothing,
+      limit = Core.Nothing,
       fleetId = pFleetId_
     }
 
 -- | Token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_nextToken :: Lens.Lens' DescribeInstances (Core.Maybe Core.Text)
 describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
 
 -- | A unique identifier for an instance to retrieve. Specify an instance ID
 -- or leave blank to retrieve all instances in the fleet.
-describeInstances_instanceId :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
+describeInstances_instanceId :: Lens.Lens' DescribeInstances (Core.Maybe Core.Text)
 describeInstances_instanceId = Lens.lens (\DescribeInstances' {instanceId} -> instanceId) (\s@DescribeInstances' {} a -> s {instanceId = a} :: DescribeInstances)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
-describeInstances_limit :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Natural)
+describeInstances_limit :: Lens.Lens' DescribeInstances (Core.Maybe Core.Natural)
 describeInstances_limit = Lens.lens (\DescribeInstances' {limit} -> limit) (\s@DescribeInstances' {} a -> s {limit = a} :: DescribeInstances)
 
 -- | A unique identifier for a fleet to retrieve instance information for.
 -- You can use either the fleet ID or ARN value.
-describeInstances_fleetId :: Lens.Lens' DescribeInstances Prelude.Text
+describeInstances_fleetId :: Lens.Lens' DescribeInstances Core.Text
 describeInstances_fleetId = Lens.lens (\DescribeInstances' {fleetId} -> fleetId) (\s@DescribeInstances' {} a -> s {fleetId = a} :: DescribeInstances)
 
-instance Pager.AWSPager DescribeInstances where
+instance Core.AWSPager DescribeInstances where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_instances
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeInstances_nextToken
           Lens..~ rs
-          Lens.^? describeInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeInstancesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeInstances where
-  type Rs DescribeInstances = DescribeInstancesResponse
+instance Core.AWSRequest DescribeInstances where
+  type
+    AWSResponse DescribeInstances =
+      DescribeInstancesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeInstancesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Instances"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Instances" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeInstances
+instance Core.Hashable DescribeInstances
 
-instance Prelude.NFData DescribeInstances
+instance Core.NFData DescribeInstances
 
-instance Prelude.ToHeaders DescribeInstances where
+instance Core.ToHeaders DescribeInstances where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.DescribeInstances" :: Prelude.ByteString),
+              Core.=# ("GameLift.DescribeInstances" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeInstances where
+instance Core.ToJSON DescribeInstances where
   toJSON DescribeInstances' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("InstanceId" Prelude..=) Prelude.<$> instanceId,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("FleetId" Prelude..= fleetId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("InstanceId" Core..=) Core.<$> instanceId,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("FleetId" Core..= fleetId)
           ]
       )
 
-instance Prelude.ToPath DescribeInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeInstances where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeInstances where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -222,14 +217,14 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
   { -- | Token that indicates where to resume retrieving results on the next call
     -- to this operation. If no token is returned, these results represent the
     -- end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A collection of objects containing properties for each instance
     -- returned.
-    instances :: Prelude.Maybe [Instance],
+    instances :: Core.Maybe [Instance],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeInstancesResponse' with all optional fields omitted.
@@ -249,29 +244,29 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 -- 'httpStatus', 'describeInstancesResponse_httpStatus' - The response's http status code.
 newDescribeInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeInstancesResponse
 newDescribeInstancesResponse pHttpStatus_ =
   DescribeInstancesResponse'
     { nextToken =
-        Prelude.Nothing,
-      instances = Prelude.Nothing,
+        Core.Nothing,
+      instances = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Token that indicates where to resume retrieving results on the next call
 -- to this operation. If no token is returned, these results represent the
 -- end of the list.
-describeInstancesResponse_nextToken :: Lens.Lens' DescribeInstancesResponse (Prelude.Maybe Prelude.Text)
+describeInstancesResponse_nextToken :: Lens.Lens' DescribeInstancesResponse (Core.Maybe Core.Text)
 describeInstancesResponse_nextToken = Lens.lens (\DescribeInstancesResponse' {nextToken} -> nextToken) (\s@DescribeInstancesResponse' {} a -> s {nextToken = a} :: DescribeInstancesResponse)
 
 -- | A collection of objects containing properties for each instance
 -- returned.
-describeInstancesResponse_instances :: Lens.Lens' DescribeInstancesResponse (Prelude.Maybe [Instance])
-describeInstancesResponse_instances = Lens.lens (\DescribeInstancesResponse' {instances} -> instances) (\s@DescribeInstancesResponse' {} a -> s {instances = a} :: DescribeInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeInstancesResponse_instances :: Lens.Lens' DescribeInstancesResponse (Core.Maybe [Instance])
+describeInstancesResponse_instances = Lens.lens (\DescribeInstancesResponse' {instances} -> instances) (\s@DescribeInstancesResponse' {} a -> s {instances = a} :: DescribeInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeInstancesResponse_httpStatus :: Lens.Lens' DescribeInstancesResponse Prelude.Int
+describeInstancesResponse_httpStatus :: Lens.Lens' DescribeInstancesResponse Core.Int
 describeInstancesResponse_httpStatus = Lens.lens (\DescribeInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeInstancesResponse' {} a -> s {httpStatus = a} :: DescribeInstancesResponse)
 
-instance Prelude.NFData DescribeInstancesResponse
+instance Core.NFData DescribeInstancesResponse

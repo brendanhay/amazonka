@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,20 +42,20 @@ module Network.AWS.MachineLearning.DescribeTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
   { -- | The ID of the ML object. For example, @exampleModelId@.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The type of the ML object.
     resourceType :: TaggableResourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTags' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DescribeTags = DescribeTags'
 -- 'resourceType', 'describeTags_resourceType' - The type of the ML object.
 newDescribeTags ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceType'
   TaggableResourceType ->
   DescribeTags
@@ -82,75 +81,72 @@ newDescribeTags pResourceId_ pResourceType_ =
     }
 
 -- | The ID of the ML object. For example, @exampleModelId@.
-describeTags_resourceId :: Lens.Lens' DescribeTags Prelude.Text
+describeTags_resourceId :: Lens.Lens' DescribeTags Core.Text
 describeTags_resourceId = Lens.lens (\DescribeTags' {resourceId} -> resourceId) (\s@DescribeTags' {} a -> s {resourceId = a} :: DescribeTags)
 
 -- | The type of the ML object.
 describeTags_resourceType :: Lens.Lens' DescribeTags TaggableResourceType
 describeTags_resourceType = Lens.lens (\DescribeTags' {resourceType} -> resourceType) (\s@DescribeTags' {} a -> s {resourceType = a} :: DescribeTags)
 
-instance Prelude.AWSRequest DescribeTags where
-  type Rs DescribeTags = DescribeTagsResponse
+instance Core.AWSRequest DescribeTags where
+  type AWSResponse DescribeTags = DescribeTagsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTagsResponse'
-            Prelude.<$> (x Prelude..?> "ResourceId")
-            Prelude.<*> (x Prelude..?> "ResourceType")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ResourceId")
+            Core.<*> (x Core..?> "ResourceType")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTags
+instance Core.Hashable DescribeTags
 
-instance Prelude.NFData DescribeTags
+instance Core.NFData DescribeTags
 
-instance Prelude.ToHeaders DescribeTags where
+instance Core.ToHeaders DescribeTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.DescribeTags" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.DescribeTags" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTags where
+instance Core.ToJSON DescribeTags where
   toJSON DescribeTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just
-              ("ResourceType" Prelude..= resourceType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("ResourceType" Core..= resourceType)
           ]
       )
 
-instance Prelude.ToPath DescribeTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTags where
+  toQuery = Core.const Core.mempty
 
 -- | Amazon ML returns the following elements.
 --
 -- /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | The ID of the tagged ML object.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The type of the tagged ML object.
-    resourceType :: Prelude.Maybe TaggableResourceType,
+    resourceType :: Core.Maybe TaggableResourceType,
     -- | A list of tags associated with the ML object.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTagsResponse' with all optional fields omitted.
@@ -169,30 +165,30 @@ data DescribeTagsResponse = DescribeTagsResponse'
 -- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
 newDescribeTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTagsResponse
 newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
-    { resourceId = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the tagged ML object.
-describeTagsResponse_resourceId :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe Prelude.Text)
+describeTagsResponse_resourceId :: Lens.Lens' DescribeTagsResponse (Core.Maybe Core.Text)
 describeTagsResponse_resourceId = Lens.lens (\DescribeTagsResponse' {resourceId} -> resourceId) (\s@DescribeTagsResponse' {} a -> s {resourceId = a} :: DescribeTagsResponse)
 
 -- | The type of the tagged ML object.
-describeTagsResponse_resourceType :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe TaggableResourceType)
+describeTagsResponse_resourceType :: Lens.Lens' DescribeTagsResponse (Core.Maybe TaggableResourceType)
 describeTagsResponse_resourceType = Lens.lens (\DescribeTagsResponse' {resourceType} -> resourceType) (\s@DescribeTagsResponse' {} a -> s {resourceType = a} :: DescribeTagsResponse)
 
 -- | A list of tags associated with the ML object.
-describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [Tag])
-describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTagsResponse_tags :: Lens.Lens' DescribeTagsResponse (Core.Maybe [Tag])
+describeTagsResponse_tags = Lens.lens (\DescribeTagsResponse' {tags} -> tags) (\s@DescribeTagsResponse' {} a -> s {tags = a} :: DescribeTagsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
+describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Core.Int
 describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance Prelude.NFData DescribeTagsResponse
+instance Core.NFData DescribeTagsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.CancelConversionTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +56,13 @@ data CancelConversionTask = CancelConversionTask'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The reason for canceling the conversion task.
-    reasonMessage :: Prelude.Maybe Prelude.Text,
+    reasonMessage :: Core.Maybe Core.Text,
     -- | The ID of the conversion task.
-    conversionTaskId :: Prelude.Text
+    conversionTaskId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelConversionTask' with all optional fields omitted.
@@ -83,12 +82,12 @@ data CancelConversionTask = CancelConversionTask'
 -- 'conversionTaskId', 'cancelConversionTask_conversionTaskId' - The ID of the conversion task.
 newCancelConversionTask ::
   -- | 'conversionTaskId'
-  Prelude.Text ->
+  Core.Text ->
   CancelConversionTask
 newCancelConversionTask pConversionTaskId_ =
   CancelConversionTask'
-    { dryRun = Prelude.Nothing,
-      reasonMessage = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      reasonMessage = Core.Nothing,
       conversionTaskId = pConversionTaskId_
     }
 
@@ -96,52 +95,51 @@ newCancelConversionTask pConversionTaskId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cancelConversionTask_dryRun :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Bool)
+cancelConversionTask_dryRun :: Lens.Lens' CancelConversionTask (Core.Maybe Core.Bool)
 cancelConversionTask_dryRun = Lens.lens (\CancelConversionTask' {dryRun} -> dryRun) (\s@CancelConversionTask' {} a -> s {dryRun = a} :: CancelConversionTask)
 
 -- | The reason for canceling the conversion task.
-cancelConversionTask_reasonMessage :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Text)
+cancelConversionTask_reasonMessage :: Lens.Lens' CancelConversionTask (Core.Maybe Core.Text)
 cancelConversionTask_reasonMessage = Lens.lens (\CancelConversionTask' {reasonMessage} -> reasonMessage) (\s@CancelConversionTask' {} a -> s {reasonMessage = a} :: CancelConversionTask)
 
 -- | The ID of the conversion task.
-cancelConversionTask_conversionTaskId :: Lens.Lens' CancelConversionTask Prelude.Text
+cancelConversionTask_conversionTaskId :: Lens.Lens' CancelConversionTask Core.Text
 cancelConversionTask_conversionTaskId = Lens.lens (\CancelConversionTask' {conversionTaskId} -> conversionTaskId) (\s@CancelConversionTask' {} a -> s {conversionTaskId = a} :: CancelConversionTask)
 
-instance Prelude.AWSRequest CancelConversionTask where
+instance Core.AWSRequest CancelConversionTask where
   type
-    Rs CancelConversionTask =
+    AWSResponse CancelConversionTask =
       CancelConversionTaskResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull CancelConversionTaskResponse'
 
-instance Prelude.Hashable CancelConversionTask
+instance Core.Hashable CancelConversionTask
 
-instance Prelude.NFData CancelConversionTask
+instance Core.NFData CancelConversionTask
 
-instance Prelude.ToHeaders CancelConversionTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelConversionTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelConversionTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelConversionTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelConversionTask where
+instance Core.ToQuery CancelConversionTask where
   toQuery CancelConversionTask' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelConversionTask" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "ReasonMessage" Prelude.=: reasonMessage,
-        "ConversionTaskId" Prelude.=: conversionTaskId
+          Core.=: ("CancelConversionTask" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "ReasonMessage" Core.=: reasonMessage,
+        "ConversionTaskId" Core.=: conversionTaskId
       ]
 
 -- | /See:/ 'newCancelConversionTaskResponse' smart constructor.
 data CancelConversionTaskResponse = CancelConversionTaskResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelConversionTaskResponse' with all optional fields omitted.
@@ -152,4 +150,4 @@ newCancelConversionTaskResponse ::
 newCancelConversionTaskResponse =
   CancelConversionTaskResponse'
 
-instance Prelude.NFData CancelConversionTaskResponse
+instance Core.NFData CancelConversionTaskResponse

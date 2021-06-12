@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,17 +47,17 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newListVolumeRecoveryPoints' smart constructor.
 data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
-  { gatewayARN :: Prelude.Text
+  { gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListVolumeRecoveryPoints' with all optional fields omitted.
@@ -71,7 +70,7 @@ data ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
 -- 'gatewayARN', 'listVolumeRecoveryPoints_gatewayARN' - Undocumented member.
 newListVolumeRecoveryPoints ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   ListVolumeRecoveryPoints
 newListVolumeRecoveryPoints pGatewayARN_ =
   ListVolumeRecoveryPoints'
@@ -80,66 +79,64 @@ newListVolumeRecoveryPoints pGatewayARN_ =
     }
 
 -- | Undocumented member.
-listVolumeRecoveryPoints_gatewayARN :: Lens.Lens' ListVolumeRecoveryPoints Prelude.Text
+listVolumeRecoveryPoints_gatewayARN :: Lens.Lens' ListVolumeRecoveryPoints Core.Text
 listVolumeRecoveryPoints_gatewayARN = Lens.lens (\ListVolumeRecoveryPoints' {gatewayARN} -> gatewayARN) (\s@ListVolumeRecoveryPoints' {} a -> s {gatewayARN = a} :: ListVolumeRecoveryPoints)
 
-instance Prelude.AWSRequest ListVolumeRecoveryPoints where
+instance Core.AWSRequest ListVolumeRecoveryPoints where
   type
-    Rs ListVolumeRecoveryPoints =
+    AWSResponse ListVolumeRecoveryPoints =
       ListVolumeRecoveryPointsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListVolumeRecoveryPointsResponse'
-            Prelude.<$> ( x Prelude..?> "VolumeRecoveryPointInfos"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "VolumeRecoveryPointInfos"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListVolumeRecoveryPoints
+instance Core.Hashable ListVolumeRecoveryPoints
 
-instance Prelude.NFData ListVolumeRecoveryPoints
+instance Core.NFData ListVolumeRecoveryPoints
 
-instance Prelude.ToHeaders ListVolumeRecoveryPoints where
+instance Core.ToHeaders ListVolumeRecoveryPoints where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.ListVolumeRecoveryPoints" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.ListVolumeRecoveryPoints" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListVolumeRecoveryPoints where
+instance Core.ToJSON ListVolumeRecoveryPoints where
   toJSON ListVolumeRecoveryPoints' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("GatewayARN" Prelude..= gatewayARN)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("GatewayARN" Core..= gatewayARN)]
       )
 
-instance Prelude.ToPath ListVolumeRecoveryPoints where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListVolumeRecoveryPoints where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListVolumeRecoveryPoints where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListVolumeRecoveryPoints where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListVolumeRecoveryPointsResponse' smart constructor.
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
   { -- | An array of VolumeRecoveryPointInfo objects.
-    volumeRecoveryPointInfos :: Prelude.Maybe [VolumeRecoveryPointInfo],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    volumeRecoveryPointInfos :: Core.Maybe [VolumeRecoveryPointInfo],
+    gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListVolumeRecoveryPointsResponse' with all optional fields omitted.
@@ -156,28 +153,26 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
 -- 'httpStatus', 'listVolumeRecoveryPointsResponse_httpStatus' - The response's http status code.
 newListVolumeRecoveryPointsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListVolumeRecoveryPointsResponse
 newListVolumeRecoveryPointsResponse pHttpStatus_ =
   ListVolumeRecoveryPointsResponse'
     { volumeRecoveryPointInfos =
-        Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+        Core.Nothing,
+      gatewayARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of VolumeRecoveryPointInfo objects.
-listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos :: Lens.Lens' ListVolumeRecoveryPointsResponse (Prelude.Maybe [VolumeRecoveryPointInfo])
-listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos = Lens.lens (\ListVolumeRecoveryPointsResponse' {volumeRecoveryPointInfos} -> volumeRecoveryPointInfos) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {volumeRecoveryPointInfos = a} :: ListVolumeRecoveryPointsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos :: Lens.Lens' ListVolumeRecoveryPointsResponse (Core.Maybe [VolumeRecoveryPointInfo])
+listVolumeRecoveryPointsResponse_volumeRecoveryPointInfos = Lens.lens (\ListVolumeRecoveryPointsResponse' {volumeRecoveryPointInfos} -> volumeRecoveryPointInfos) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {volumeRecoveryPointInfos = a} :: ListVolumeRecoveryPointsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-listVolumeRecoveryPointsResponse_gatewayARN :: Lens.Lens' ListVolumeRecoveryPointsResponse (Prelude.Maybe Prelude.Text)
+listVolumeRecoveryPointsResponse_gatewayARN :: Lens.Lens' ListVolumeRecoveryPointsResponse (Core.Maybe Core.Text)
 listVolumeRecoveryPointsResponse_gatewayARN = Lens.lens (\ListVolumeRecoveryPointsResponse' {gatewayARN} -> gatewayARN) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {gatewayARN = a} :: ListVolumeRecoveryPointsResponse)
 
 -- | The response's http status code.
-listVolumeRecoveryPointsResponse_httpStatus :: Lens.Lens' ListVolumeRecoveryPointsResponse Prelude.Int
+listVolumeRecoveryPointsResponse_httpStatus :: Lens.Lens' ListVolumeRecoveryPointsResponse Core.Int
 listVolumeRecoveryPointsResponse_httpStatus = Lens.lens (\ListVolumeRecoveryPointsResponse' {httpStatus} -> httpStatus) (\s@ListVolumeRecoveryPointsResponse' {} a -> s {httpStatus = a} :: ListVolumeRecoveryPointsResponse)
 
-instance
-  Prelude.NFData
-    ListVolumeRecoveryPointsResponse
+instance Core.NFData ListVolumeRecoveryPointsResponse

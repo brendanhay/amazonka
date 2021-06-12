@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ImageConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.RepositoryAccessMode
 
 -- | Specifies whether the model container is in Amazon ECR or a private
@@ -37,7 +36,7 @@ data ImageConfig = ImageConfig'
     --     your VPC.
     repositoryAccessMode :: RepositoryAccessMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageConfig' with all optional fields omitted.
@@ -72,26 +71,26 @@ newImageConfig pRepositoryAccessMode_ =
 imageConfig_repositoryAccessMode :: Lens.Lens' ImageConfig RepositoryAccessMode
 imageConfig_repositoryAccessMode = Lens.lens (\ImageConfig' {repositoryAccessMode} -> repositoryAccessMode) (\s@ImageConfig' {} a -> s {repositoryAccessMode = a} :: ImageConfig)
 
-instance Prelude.FromJSON ImageConfig where
+instance Core.FromJSON ImageConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageConfig"
       ( \x ->
           ImageConfig'
-            Prelude.<$> (x Prelude..: "RepositoryAccessMode")
+            Core.<$> (x Core..: "RepositoryAccessMode")
       )
 
-instance Prelude.Hashable ImageConfig
+instance Core.Hashable ImageConfig
 
-instance Prelude.NFData ImageConfig
+instance Core.NFData ImageConfig
 
-instance Prelude.ToJSON ImageConfig where
+instance Core.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "RepositoryAccessMode"
-                  Prelude..= repositoryAccessMode
+                  Core..= repositoryAccessMode
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,18 +42,18 @@ module Network.AWS.EMR.DescribeSecurityConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeSecurityConfiguration' smart constructor.
 data DescribeSecurityConfiguration = DescribeSecurityConfiguration'
   { -- | The name of the security configuration.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSecurityConfiguration' with all optional fields omitted.
@@ -67,85 +66,73 @@ data DescribeSecurityConfiguration = DescribeSecurityConfiguration'
 -- 'name', 'describeSecurityConfiguration_name' - The name of the security configuration.
 newDescribeSecurityConfiguration ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DescribeSecurityConfiguration
 newDescribeSecurityConfiguration pName_ =
   DescribeSecurityConfiguration' {name = pName_}
 
 -- | The name of the security configuration.
-describeSecurityConfiguration_name :: Lens.Lens' DescribeSecurityConfiguration Prelude.Text
+describeSecurityConfiguration_name :: Lens.Lens' DescribeSecurityConfiguration Core.Text
 describeSecurityConfiguration_name = Lens.lens (\DescribeSecurityConfiguration' {name} -> name) (\s@DescribeSecurityConfiguration' {} a -> s {name = a} :: DescribeSecurityConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeSecurityConfiguration
   where
   type
-    Rs DescribeSecurityConfiguration =
+    AWSResponse DescribeSecurityConfiguration =
       DescribeSecurityConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeSecurityConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "SecurityConfiguration")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "CreationDateTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SecurityConfiguration")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "CreationDateTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeSecurityConfiguration
+instance Core.Hashable DescribeSecurityConfiguration
 
-instance Prelude.NFData DescribeSecurityConfiguration
+instance Core.NFData DescribeSecurityConfiguration
 
-instance
-  Prelude.ToHeaders
-    DescribeSecurityConfiguration
-  where
+instance Core.ToHeaders DescribeSecurityConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.DescribeSecurityConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ElasticMapReduce.DescribeSecurityConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeSecurityConfiguration where
+instance Core.ToJSON DescribeSecurityConfiguration where
   toJSON DescribeSecurityConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DescribeSecurityConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSecurityConfiguration where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeSecurityConfiguration
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeSecurityConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeSecurityConfigurationResponse' smart constructor.
 data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationResponse'
   { -- | The security configuration details in JSON format.
-    securityConfiguration :: Prelude.Maybe Prelude.Text,
+    securityConfiguration :: Core.Maybe Core.Text,
     -- | The name of the security configuration.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time the security configuration was created
-    creationDateTime :: Prelude.Maybe Prelude.POSIX,
+    creationDateTime :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSecurityConfigurationResponse' with all optional fields omitted.
@@ -164,33 +151,33 @@ data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationRespon
 -- 'httpStatus', 'describeSecurityConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeSecurityConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSecurityConfigurationResponse
 newDescribeSecurityConfigurationResponse pHttpStatus_ =
   DescribeSecurityConfigurationResponse'
     { securityConfiguration =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      creationDateTime = Prelude.Nothing,
+        Core.Nothing,
+      name = Core.Nothing,
+      creationDateTime = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The security configuration details in JSON format.
-describeSecurityConfigurationResponse_securityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeSecurityConfigurationResponse_securityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Core.Maybe Core.Text)
 describeSecurityConfigurationResponse_securityConfiguration = Lens.lens (\DescribeSecurityConfigurationResponse' {securityConfiguration} -> securityConfiguration) (\s@DescribeSecurityConfigurationResponse' {} a -> s {securityConfiguration = a} :: DescribeSecurityConfigurationResponse)
 
 -- | The name of the security configuration.
-describeSecurityConfigurationResponse_name :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeSecurityConfigurationResponse_name :: Lens.Lens' DescribeSecurityConfigurationResponse (Core.Maybe Core.Text)
 describeSecurityConfigurationResponse_name = Lens.lens (\DescribeSecurityConfigurationResponse' {name} -> name) (\s@DescribeSecurityConfigurationResponse' {} a -> s {name = a} :: DescribeSecurityConfigurationResponse)
 
 -- | The date and time the security configuration was created
-describeSecurityConfigurationResponse_creationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
-describeSecurityConfigurationResponse_creationDateTime = Lens.lens (\DescribeSecurityConfigurationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSecurityConfigurationResponse' {} a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse) Prelude.. Lens.mapping Prelude._Time
+describeSecurityConfigurationResponse_creationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Core.Maybe Core.UTCTime)
+describeSecurityConfigurationResponse_creationDateTime = Lens.lens (\DescribeSecurityConfigurationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSecurityConfigurationResponse' {} a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeSecurityConfigurationResponse_httpStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Prelude.Int
+describeSecurityConfigurationResponse_httpStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Core.Int
 describeSecurityConfigurationResponse_httpStatus = Lens.lens (\DescribeSecurityConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeSecurityConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeSecurityConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeSecurityConfigurationResponse

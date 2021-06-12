@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.OpsWorksCM.TagResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ data TagResource = TagResource'
   { -- | The Amazon Resource Number (ARN) of a resource to which you want to
     -- apply tags. For example,
     -- @arn:aws:opsworks-cm:us-west-2:123456789012:server\/test-owcm-server\/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE@.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | A map that contains tag keys and tag values to attach to AWS OpsWorks-CM
     -- servers or backups.
     --
@@ -73,7 +72,7 @@ data TagResource = TagResource'
     --     server or backup.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -107,18 +106,18 @@ data TagResource = TagResource'
 --     server or backup.
 newTagResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   TagResource
 newTagResource pResourceArn_ =
   TagResource'
     { resourceArn = pResourceArn_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The Amazon Resource Number (ARN) of a resource to which you want to
 -- apply tags. For example,
 -- @arn:aws:opsworks-cm:us-west-2:123456789012:server\/test-owcm-server\/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE@.
-tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
+tagResource_resourceArn :: Lens.Lens' TagResource Core.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | A map that contains tag keys and tag values to attach to AWS OpsWorks-CM
@@ -140,58 +139,56 @@ tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn)
 -- -   A maximum of 50 user-applied tags is allowed for any AWS OpsWorks-CM
 --     server or backup.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Prelude._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
+instance Core.AWSRequest TagResource where
+  type AWSResponse TagResource = TagResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           TagResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TagResource
+instance Core.Hashable TagResource
 
-instance Prelude.NFData TagResource
+instance Core.NFData TagResource
 
-instance Prelude.ToHeaders TagResource where
+instance Core.ToHeaders TagResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.TagResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.TagResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TagResource where
+instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Prelude..= resourceArn),
-            Prelude.Just ("Tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("Tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath TagResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -204,13 +201,13 @@ data TagResourceResponse = TagResourceResponse'
 -- 'httpStatus', 'tagResourceResponse_httpStatus' - The response's http status code.
 newTagResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TagResourceResponse
 newTagResourceResponse pHttpStatus_ =
   TagResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
+tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Core.Int
 tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
-instance Prelude.NFData TagResourceResponse
+instance Core.NFData TagResourceResponse

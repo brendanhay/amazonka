@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SES.VerifyEmailIdentity
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -57,9 +56,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newVerifyEmailIdentity' smart constructor.
 data VerifyEmailIdentity = VerifyEmailIdentity'
   { -- | The email address to be verified.
-    emailAddress :: Prelude.Text
+    emailAddress :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailIdentity' with all optional fields omitted.
@@ -72,18 +71,18 @@ data VerifyEmailIdentity = VerifyEmailIdentity'
 -- 'emailAddress', 'verifyEmailIdentity_emailAddress' - The email address to be verified.
 newVerifyEmailIdentity ::
   -- | 'emailAddress'
-  Prelude.Text ->
+  Core.Text ->
   VerifyEmailIdentity
 newVerifyEmailIdentity pEmailAddress_ =
   VerifyEmailIdentity' {emailAddress = pEmailAddress_}
 
 -- | The email address to be verified.
-verifyEmailIdentity_emailAddress :: Lens.Lens' VerifyEmailIdentity Prelude.Text
+verifyEmailIdentity_emailAddress :: Lens.Lens' VerifyEmailIdentity Core.Text
 verifyEmailIdentity_emailAddress = Lens.lens (\VerifyEmailIdentity' {emailAddress} -> emailAddress) (\s@VerifyEmailIdentity' {} a -> s {emailAddress = a} :: VerifyEmailIdentity)
 
-instance Prelude.AWSRequest VerifyEmailIdentity where
+instance Core.AWSRequest VerifyEmailIdentity where
   type
-    Rs VerifyEmailIdentity =
+    AWSResponse VerifyEmailIdentity =
       VerifyEmailIdentityResponse
   request = Request.postQuery defaultService
   response =
@@ -91,27 +90,26 @@ instance Prelude.AWSRequest VerifyEmailIdentity where
       "VerifyEmailIdentityResult"
       ( \s h x ->
           VerifyEmailIdentityResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable VerifyEmailIdentity
+instance Core.Hashable VerifyEmailIdentity
 
-instance Prelude.NFData VerifyEmailIdentity
+instance Core.NFData VerifyEmailIdentity
 
-instance Prelude.ToHeaders VerifyEmailIdentity where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders VerifyEmailIdentity where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath VerifyEmailIdentity where
-  toPath = Prelude.const "/"
+instance Core.ToPath VerifyEmailIdentity where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery VerifyEmailIdentity where
+instance Core.ToQuery VerifyEmailIdentity where
   toQuery VerifyEmailIdentity' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("VerifyEmailIdentity" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EmailAddress" Prelude.=: emailAddress
+          Core.=: ("VerifyEmailIdentity" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EmailAddress" Core.=: emailAddress
       ]
 
 -- | An empty element returned on a successful request.
@@ -119,9 +117,9 @@ instance Prelude.ToQuery VerifyEmailIdentity where
 -- /See:/ 'newVerifyEmailIdentityResponse' smart constructor.
 data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailIdentityResponse' with all optional fields omitted.
@@ -134,7 +132,7 @@ data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
 -- 'httpStatus', 'verifyEmailIdentityResponse_httpStatus' - The response's http status code.
 newVerifyEmailIdentityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   VerifyEmailIdentityResponse
 newVerifyEmailIdentityResponse pHttpStatus_ =
   VerifyEmailIdentityResponse'
@@ -143,7 +141,7 @@ newVerifyEmailIdentityResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-verifyEmailIdentityResponse_httpStatus :: Lens.Lens' VerifyEmailIdentityResponse Prelude.Int
+verifyEmailIdentityResponse_httpStatus :: Lens.Lens' VerifyEmailIdentityResponse Core.Int
 verifyEmailIdentityResponse_httpStatus = Lens.lens (\VerifyEmailIdentityResponse' {httpStatus} -> httpStatus) (\s@VerifyEmailIdentityResponse' {} a -> s {httpStatus = a} :: VerifyEmailIdentityResponse)
 
-instance Prelude.NFData VerifyEmailIdentityResponse
+instance Core.NFData VerifyEmailIdentityResponse

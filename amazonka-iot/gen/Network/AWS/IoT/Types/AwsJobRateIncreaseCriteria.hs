@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AwsJobRateIncreaseCriteria where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria to initiate the increase in rate of rollout for a job.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data AwsJobRateIncreaseCriteria = AwsJobRateIncreaseCriteria'
   { -- | When this number of things have been notified, it will initiate an
     -- increase in the rollout rate.
-    numberOfNotifiedThings :: Prelude.Maybe Prelude.Natural,
+    numberOfNotifiedThings :: Core.Maybe Core.Natural,
     -- | When this number of things have succeeded in their job execution, it
     -- will initiate an increase in the rollout rate.
-    numberOfSucceededThings :: Prelude.Maybe Prelude.Natural
+    numberOfSucceededThings :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AwsJobRateIncreaseCriteria' with all optional fields omitted.
@@ -54,41 +53,41 @@ newAwsJobRateIncreaseCriteria ::
 newAwsJobRateIncreaseCriteria =
   AwsJobRateIncreaseCriteria'
     { numberOfNotifiedThings =
-        Prelude.Nothing,
-      numberOfSucceededThings = Prelude.Nothing
+        Core.Nothing,
+      numberOfSucceededThings = Core.Nothing
     }
 
 -- | When this number of things have been notified, it will initiate an
 -- increase in the rollout rate.
-awsJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
+awsJobRateIncreaseCriteria_numberOfNotifiedThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Core.Maybe Core.Natural)
 awsJobRateIncreaseCriteria_numberOfNotifiedThings = Lens.lens (\AwsJobRateIncreaseCriteria' {numberOfNotifiedThings} -> numberOfNotifiedThings) (\s@AwsJobRateIncreaseCriteria' {} a -> s {numberOfNotifiedThings = a} :: AwsJobRateIncreaseCriteria)
 
 -- | When this number of things have succeeded in their job execution, it
 -- will initiate an increase in the rollout rate.
-awsJobRateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Prelude.Maybe Prelude.Natural)
+awsJobRateIncreaseCriteria_numberOfSucceededThings :: Lens.Lens' AwsJobRateIncreaseCriteria (Core.Maybe Core.Natural)
 awsJobRateIncreaseCriteria_numberOfSucceededThings = Lens.lens (\AwsJobRateIncreaseCriteria' {numberOfSucceededThings} -> numberOfSucceededThings) (\s@AwsJobRateIncreaseCriteria' {} a -> s {numberOfSucceededThings = a} :: AwsJobRateIncreaseCriteria)
 
-instance Prelude.FromJSON AwsJobRateIncreaseCriteria where
+instance Core.FromJSON AwsJobRateIncreaseCriteria where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AwsJobRateIncreaseCriteria"
       ( \x ->
           AwsJobRateIncreaseCriteria'
-            Prelude.<$> (x Prelude..:? "numberOfNotifiedThings")
-            Prelude.<*> (x Prelude..:? "numberOfSucceededThings")
+            Core.<$> (x Core..:? "numberOfNotifiedThings")
+            Core.<*> (x Core..:? "numberOfSucceededThings")
       )
 
-instance Prelude.Hashable AwsJobRateIncreaseCriteria
+instance Core.Hashable AwsJobRateIncreaseCriteria
 
-instance Prelude.NFData AwsJobRateIncreaseCriteria
+instance Core.NFData AwsJobRateIncreaseCriteria
 
-instance Prelude.ToJSON AwsJobRateIncreaseCriteria where
+instance Core.ToJSON AwsJobRateIncreaseCriteria where
   toJSON AwsJobRateIncreaseCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("numberOfNotifiedThings" Prelude..=)
-              Prelude.<$> numberOfNotifiedThings,
-            ("numberOfSucceededThings" Prelude..=)
-              Prelude.<$> numberOfSucceededThings
+    Core.object
+      ( Core.catMaybes
+          [ ("numberOfNotifiedThings" Core..=)
+              Core.<$> numberOfNotifiedThings,
+            ("numberOfSucceededThings" Core..=)
+              Core.<$> numberOfSucceededThings
           ]
       )

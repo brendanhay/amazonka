@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Owner where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for the owner\'s display name and ID.
@@ -29,11 +28,11 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newOwner' smart constructor.
 data Owner = Owner'
   { -- | Container for the ID of the owner.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Container for the display name of the owner.
-    displayName :: Prelude.Maybe Prelude.Text
+    displayName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Owner' with all optional fields omitted.
@@ -50,31 +49,28 @@ newOwner ::
   Owner
 newOwner =
   Owner'
-    { id = Prelude.Nothing,
-      displayName = Prelude.Nothing
+    { id = Core.Nothing,
+      displayName = Core.Nothing
     }
 
 -- | Container for the ID of the owner.
-owner_id :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
+owner_id :: Lens.Lens' Owner (Core.Maybe Core.Text)
 owner_id = Lens.lens (\Owner' {id} -> id) (\s@Owner' {} a -> s {id = a} :: Owner)
 
 -- | Container for the display name of the owner.
-owner_displayName :: Lens.Lens' Owner (Prelude.Maybe Prelude.Text)
+owner_displayName :: Lens.Lens' Owner (Core.Maybe Core.Text)
 owner_displayName = Lens.lens (\Owner' {displayName} -> displayName) (\s@Owner' {} a -> s {displayName = a} :: Owner)
 
-instance Prelude.FromXML Owner where
+instance Core.FromXML Owner where
   parseXML x =
     Owner'
-      Prelude.<$> (x Prelude..@? "ID")
-      Prelude.<*> (x Prelude..@? "DisplayName")
+      Core.<$> (x Core..@? "ID") Core.<*> (x Core..@? "DisplayName")
 
-instance Prelude.Hashable Owner
+instance Core.Hashable Owner
 
-instance Prelude.NFData Owner
+instance Core.NFData Owner
 
-instance Prelude.ToXML Owner where
+instance Core.ToXML Owner where
   toXML Owner' {..} =
-    Prelude.mconcat
-      [ "ID" Prelude.@= id,
-        "DisplayName" Prelude.@= displayName
-      ]
+    Core.mconcat
+      ["ID" Core.@= id, "DisplayName" Core.@= displayName]

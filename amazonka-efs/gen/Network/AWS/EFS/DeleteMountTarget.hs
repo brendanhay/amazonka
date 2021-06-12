@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,9 +60,9 @@ module Network.AWS.EFS.DeleteMountTarget
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,9 +71,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteMountTarget' smart constructor.
 data DeleteMountTarget = DeleteMountTarget'
   { -- | The ID of the mount target to delete (String).
-    mountTargetId :: Prelude.Text
+    mountTargetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMountTarget' with all optional fields omitted.
@@ -87,43 +86,45 @@ data DeleteMountTarget = DeleteMountTarget'
 -- 'mountTargetId', 'deleteMountTarget_mountTargetId' - The ID of the mount target to delete (String).
 newDeleteMountTarget ::
   -- | 'mountTargetId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMountTarget
 newDeleteMountTarget pMountTargetId_ =
   DeleteMountTarget' {mountTargetId = pMountTargetId_}
 
 -- | The ID of the mount target to delete (String).
-deleteMountTarget_mountTargetId :: Lens.Lens' DeleteMountTarget Prelude.Text
+deleteMountTarget_mountTargetId :: Lens.Lens' DeleteMountTarget Core.Text
 deleteMountTarget_mountTargetId = Lens.lens (\DeleteMountTarget' {mountTargetId} -> mountTargetId) (\s@DeleteMountTarget' {} a -> s {mountTargetId = a} :: DeleteMountTarget)
 
-instance Prelude.AWSRequest DeleteMountTarget where
-  type Rs DeleteMountTarget = DeleteMountTargetResponse
+instance Core.AWSRequest DeleteMountTarget where
+  type
+    AWSResponse DeleteMountTarget =
+      DeleteMountTargetResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteMountTargetResponse'
 
-instance Prelude.Hashable DeleteMountTarget
+instance Core.Hashable DeleteMountTarget
 
-instance Prelude.NFData DeleteMountTarget
+instance Core.NFData DeleteMountTarget
 
-instance Prelude.ToHeaders DeleteMountTarget where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteMountTarget where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteMountTarget where
+instance Core.ToPath DeleteMountTarget where
   toPath DeleteMountTarget' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/mount-targets/",
-        Prelude.toBS mountTargetId
+        Core.toBS mountTargetId
       ]
 
-instance Prelude.ToQuery DeleteMountTarget where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMountTarget where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteMountTargetResponse' smart constructor.
 data DeleteMountTargetResponse = DeleteMountTargetResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMountTargetResponse' with all optional fields omitted.
@@ -134,4 +135,4 @@ newDeleteMountTargetResponse ::
 newDeleteMountTargetResponse =
   DeleteMountTargetResponse'
 
-instance Prelude.NFData DeleteMountTargetResponse
+instance Core.NFData DeleteMountTargetResponse

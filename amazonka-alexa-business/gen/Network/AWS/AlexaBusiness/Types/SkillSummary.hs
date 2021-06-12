@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,26 +21,26 @@ module Network.AWS.AlexaBusiness.Types.SkillSummary where
 
 import Network.AWS.AlexaBusiness.Types.EnablementType
 import Network.AWS.AlexaBusiness.Types.SkillType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The summary of skills.
 --
 -- /See:/ 'newSkillSummary' smart constructor.
 data SkillSummary = SkillSummary'
   { -- | The ARN of the skill summary.
-    skillId :: Prelude.Maybe Prelude.Text,
+    skillId :: Core.Maybe Core.Text,
     -- | Linking support for a skill.
-    supportsLinking :: Prelude.Maybe Prelude.Bool,
+    supportsLinking :: Core.Maybe Core.Bool,
     -- | Whether the skill is publicly available or is a private skill.
-    skillType :: Prelude.Maybe SkillType,
+    skillType :: Core.Maybe SkillType,
     -- | The name of the skill.
-    skillName :: Prelude.Maybe Prelude.Text,
+    skillName :: Core.Maybe Core.Text,
     -- | Whether the skill is enabled under the user\'s account, or if it
     -- requires linking to be used.
-    enablementType :: Prelude.Maybe EnablementType
+    enablementType :: Core.Maybe EnablementType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SkillSummary' with all optional fields omitted.
@@ -65,47 +64,47 @@ newSkillSummary ::
   SkillSummary
 newSkillSummary =
   SkillSummary'
-    { skillId = Prelude.Nothing,
-      supportsLinking = Prelude.Nothing,
-      skillType = Prelude.Nothing,
-      skillName = Prelude.Nothing,
-      enablementType = Prelude.Nothing
+    { skillId = Core.Nothing,
+      supportsLinking = Core.Nothing,
+      skillType = Core.Nothing,
+      skillName = Core.Nothing,
+      enablementType = Core.Nothing
     }
 
 -- | The ARN of the skill summary.
-skillSummary_skillId :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
+skillSummary_skillId :: Lens.Lens' SkillSummary (Core.Maybe Core.Text)
 skillSummary_skillId = Lens.lens (\SkillSummary' {skillId} -> skillId) (\s@SkillSummary' {} a -> s {skillId = a} :: SkillSummary)
 
 -- | Linking support for a skill.
-skillSummary_supportsLinking :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Bool)
+skillSummary_supportsLinking :: Lens.Lens' SkillSummary (Core.Maybe Core.Bool)
 skillSummary_supportsLinking = Lens.lens (\SkillSummary' {supportsLinking} -> supportsLinking) (\s@SkillSummary' {} a -> s {supportsLinking = a} :: SkillSummary)
 
 -- | Whether the skill is publicly available or is a private skill.
-skillSummary_skillType :: Lens.Lens' SkillSummary (Prelude.Maybe SkillType)
+skillSummary_skillType :: Lens.Lens' SkillSummary (Core.Maybe SkillType)
 skillSummary_skillType = Lens.lens (\SkillSummary' {skillType} -> skillType) (\s@SkillSummary' {} a -> s {skillType = a} :: SkillSummary)
 
 -- | The name of the skill.
-skillSummary_skillName :: Lens.Lens' SkillSummary (Prelude.Maybe Prelude.Text)
+skillSummary_skillName :: Lens.Lens' SkillSummary (Core.Maybe Core.Text)
 skillSummary_skillName = Lens.lens (\SkillSummary' {skillName} -> skillName) (\s@SkillSummary' {} a -> s {skillName = a} :: SkillSummary)
 
 -- | Whether the skill is enabled under the user\'s account, or if it
 -- requires linking to be used.
-skillSummary_enablementType :: Lens.Lens' SkillSummary (Prelude.Maybe EnablementType)
+skillSummary_enablementType :: Lens.Lens' SkillSummary (Core.Maybe EnablementType)
 skillSummary_enablementType = Lens.lens (\SkillSummary' {enablementType} -> enablementType) (\s@SkillSummary' {} a -> s {enablementType = a} :: SkillSummary)
 
-instance Prelude.FromJSON SkillSummary where
+instance Core.FromJSON SkillSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SkillSummary"
       ( \x ->
           SkillSummary'
-            Prelude.<$> (x Prelude..:? "SkillId")
-            Prelude.<*> (x Prelude..:? "SupportsLinking")
-            Prelude.<*> (x Prelude..:? "SkillType")
-            Prelude.<*> (x Prelude..:? "SkillName")
-            Prelude.<*> (x Prelude..:? "EnablementType")
+            Core.<$> (x Core..:? "SkillId")
+            Core.<*> (x Core..:? "SupportsLinking")
+            Core.<*> (x Core..:? "SkillType")
+            Core.<*> (x Core..:? "SkillName")
+            Core.<*> (x Core..:? "EnablementType")
       )
 
-instance Prelude.Hashable SkillSummary
+instance Core.Hashable SkillSummary
 
-instance Prelude.NFData SkillSummary
+instance Core.NFData SkillSummary

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.RuleCondition where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.HostHeaderConditionConfig
 import Network.AWS.ELBv2.Types.HttpHeaderConditionConfig
 import Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig
@@ -27,7 +27,6 @@ import Network.AWS.ELBv2.Types.PathPatternConditionConfig
 import Network.AWS.ELBv2.Types.QueryStringConditionConfig
 import Network.AWS.ELBv2.Types.SourceIpConditionConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a condition for a rule.
 --
@@ -40,10 +39,10 @@ import qualified Network.AWS.Prelude as Prelude
 data RuleCondition = RuleCondition'
   { -- | Information for a path pattern condition. Specify only when @Field@ is
     -- @path-pattern@.
-    pathPatternConfig :: Prelude.Maybe PathPatternConditionConfig,
+    pathPatternConfig :: Core.Maybe PathPatternConditionConfig,
     -- | Information for an HTTP method condition. Specify only when @Field@ is
     -- @http-request-method@.
-    httpRequestMethodConfig :: Prelude.Maybe HttpRequestMethodConditionConfig,
+    httpRequestMethodConfig :: Core.Maybe HttpRequestMethodConditionConfig,
     -- | The condition value. Specify only when @Field@ is @host-header@ or
     -- @path-pattern@. Alternatively, to specify multiple host names or
     -- multiple path patterns, use @HostHeaderConfig@ or @PathPatternConfig@.
@@ -75,19 +74,19 @@ data RuleCondition = RuleCondition'
     -- -   * (matches 0 or more characters)
     --
     -- -   ? (matches exactly 1 character)
-    values :: Prelude.Maybe [Prelude.Text],
+    values :: Core.Maybe [Core.Text],
     -- | Information for a source IP condition. Specify only when @Field@ is
     -- @source-ip@.
-    sourceIpConfig :: Prelude.Maybe SourceIpConditionConfig,
+    sourceIpConfig :: Core.Maybe SourceIpConditionConfig,
     -- | Information for an HTTP header condition. Specify only when @Field@ is
     -- @http-header@.
-    httpHeaderConfig :: Prelude.Maybe HttpHeaderConditionConfig,
+    httpHeaderConfig :: Core.Maybe HttpHeaderConditionConfig,
     -- | Information for a host header condition. Specify only when @Field@ is
     -- @host-header@.
-    hostHeaderConfig :: Prelude.Maybe HostHeaderConditionConfig,
+    hostHeaderConfig :: Core.Maybe HostHeaderConditionConfig,
     -- | Information for a query string condition. Specify only when @Field@ is
     -- @query-string@.
-    queryStringConfig :: Prelude.Maybe QueryStringConditionConfig,
+    queryStringConfig :: Core.Maybe QueryStringConditionConfig,
     -- | The field in the HTTP request. The following are the possible values:
     --
     -- -   @http-header@
@@ -101,9 +100,9 @@ data RuleCondition = RuleCondition'
     -- -   @query-string@
     --
     -- -   @source-ip@
-    field :: Prelude.Maybe Prelude.Text
+    field :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RuleCondition' with all optional fields omitted.
@@ -180,24 +179,24 @@ newRuleCondition ::
   RuleCondition
 newRuleCondition =
   RuleCondition'
-    { pathPatternConfig = Prelude.Nothing,
-      httpRequestMethodConfig = Prelude.Nothing,
-      values = Prelude.Nothing,
-      sourceIpConfig = Prelude.Nothing,
-      httpHeaderConfig = Prelude.Nothing,
-      hostHeaderConfig = Prelude.Nothing,
-      queryStringConfig = Prelude.Nothing,
-      field = Prelude.Nothing
+    { pathPatternConfig = Core.Nothing,
+      httpRequestMethodConfig = Core.Nothing,
+      values = Core.Nothing,
+      sourceIpConfig = Core.Nothing,
+      httpHeaderConfig = Core.Nothing,
+      hostHeaderConfig = Core.Nothing,
+      queryStringConfig = Core.Nothing,
+      field = Core.Nothing
     }
 
 -- | Information for a path pattern condition. Specify only when @Field@ is
 -- @path-pattern@.
-ruleCondition_pathPatternConfig :: Lens.Lens' RuleCondition (Prelude.Maybe PathPatternConditionConfig)
+ruleCondition_pathPatternConfig :: Lens.Lens' RuleCondition (Core.Maybe PathPatternConditionConfig)
 ruleCondition_pathPatternConfig = Lens.lens (\RuleCondition' {pathPatternConfig} -> pathPatternConfig) (\s@RuleCondition' {} a -> s {pathPatternConfig = a} :: RuleCondition)
 
 -- | Information for an HTTP method condition. Specify only when @Field@ is
 -- @http-request-method@.
-ruleCondition_httpRequestMethodConfig :: Lens.Lens' RuleCondition (Prelude.Maybe HttpRequestMethodConditionConfig)
+ruleCondition_httpRequestMethodConfig :: Lens.Lens' RuleCondition (Core.Maybe HttpRequestMethodConditionConfig)
 ruleCondition_httpRequestMethodConfig = Lens.lens (\RuleCondition' {httpRequestMethodConfig} -> httpRequestMethodConfig) (\s@RuleCondition' {} a -> s {httpRequestMethodConfig = a} :: RuleCondition)
 
 -- | The condition value. Specify only when @Field@ is @host-header@ or
@@ -231,27 +230,27 @@ ruleCondition_httpRequestMethodConfig = Lens.lens (\RuleCondition' {httpRequestM
 -- -   * (matches 0 or more characters)
 --
 -- -   ? (matches exactly 1 character)
-ruleCondition_values :: Lens.Lens' RuleCondition (Prelude.Maybe [Prelude.Text])
-ruleCondition_values = Lens.lens (\RuleCondition' {values} -> values) (\s@RuleCondition' {} a -> s {values = a} :: RuleCondition) Prelude.. Lens.mapping Prelude._Coerce
+ruleCondition_values :: Lens.Lens' RuleCondition (Core.Maybe [Core.Text])
+ruleCondition_values = Lens.lens (\RuleCondition' {values} -> values) (\s@RuleCondition' {} a -> s {values = a} :: RuleCondition) Core.. Lens.mapping Lens._Coerce
 
 -- | Information for a source IP condition. Specify only when @Field@ is
 -- @source-ip@.
-ruleCondition_sourceIpConfig :: Lens.Lens' RuleCondition (Prelude.Maybe SourceIpConditionConfig)
+ruleCondition_sourceIpConfig :: Lens.Lens' RuleCondition (Core.Maybe SourceIpConditionConfig)
 ruleCondition_sourceIpConfig = Lens.lens (\RuleCondition' {sourceIpConfig} -> sourceIpConfig) (\s@RuleCondition' {} a -> s {sourceIpConfig = a} :: RuleCondition)
 
 -- | Information for an HTTP header condition. Specify only when @Field@ is
 -- @http-header@.
-ruleCondition_httpHeaderConfig :: Lens.Lens' RuleCondition (Prelude.Maybe HttpHeaderConditionConfig)
+ruleCondition_httpHeaderConfig :: Lens.Lens' RuleCondition (Core.Maybe HttpHeaderConditionConfig)
 ruleCondition_httpHeaderConfig = Lens.lens (\RuleCondition' {httpHeaderConfig} -> httpHeaderConfig) (\s@RuleCondition' {} a -> s {httpHeaderConfig = a} :: RuleCondition)
 
 -- | Information for a host header condition. Specify only when @Field@ is
 -- @host-header@.
-ruleCondition_hostHeaderConfig :: Lens.Lens' RuleCondition (Prelude.Maybe HostHeaderConditionConfig)
+ruleCondition_hostHeaderConfig :: Lens.Lens' RuleCondition (Core.Maybe HostHeaderConditionConfig)
 ruleCondition_hostHeaderConfig = Lens.lens (\RuleCondition' {hostHeaderConfig} -> hostHeaderConfig) (\s@RuleCondition' {} a -> s {hostHeaderConfig = a} :: RuleCondition)
 
 -- | Information for a query string condition. Specify only when @Field@ is
 -- @query-string@.
-ruleCondition_queryStringConfig :: Lens.Lens' RuleCondition (Prelude.Maybe QueryStringConditionConfig)
+ruleCondition_queryStringConfig :: Lens.Lens' RuleCondition (Core.Maybe QueryStringConditionConfig)
 ruleCondition_queryStringConfig = Lens.lens (\RuleCondition' {queryStringConfig} -> queryStringConfig) (\s@RuleCondition' {} a -> s {queryStringConfig = a} :: RuleCondition)
 
 -- | The field in the HTTP request. The following are the possible values:
@@ -267,39 +266,39 @@ ruleCondition_queryStringConfig = Lens.lens (\RuleCondition' {queryStringConfig}
 -- -   @query-string@
 --
 -- -   @source-ip@
-ruleCondition_field :: Lens.Lens' RuleCondition (Prelude.Maybe Prelude.Text)
+ruleCondition_field :: Lens.Lens' RuleCondition (Core.Maybe Core.Text)
 ruleCondition_field = Lens.lens (\RuleCondition' {field} -> field) (\s@RuleCondition' {} a -> s {field = a} :: RuleCondition)
 
-instance Prelude.FromXML RuleCondition where
+instance Core.FromXML RuleCondition where
   parseXML x =
     RuleCondition'
-      Prelude.<$> (x Prelude..@? "PathPatternConfig")
-      Prelude.<*> (x Prelude..@? "HttpRequestMethodConfig")
-      Prelude.<*> ( x Prelude..@? "Values" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "SourceIpConfig")
-      Prelude.<*> (x Prelude..@? "HttpHeaderConfig")
-      Prelude.<*> (x Prelude..@? "HostHeaderConfig")
-      Prelude.<*> (x Prelude..@? "QueryStringConfig")
-      Prelude.<*> (x Prelude..@? "Field")
+      Core.<$> (x Core..@? "PathPatternConfig")
+      Core.<*> (x Core..@? "HttpRequestMethodConfig")
+      Core.<*> ( x Core..@? "Values" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "SourceIpConfig")
+      Core.<*> (x Core..@? "HttpHeaderConfig")
+      Core.<*> (x Core..@? "HostHeaderConfig")
+      Core.<*> (x Core..@? "QueryStringConfig")
+      Core.<*> (x Core..@? "Field")
 
-instance Prelude.Hashable RuleCondition
+instance Core.Hashable RuleCondition
 
-instance Prelude.NFData RuleCondition
+instance Core.NFData RuleCondition
 
-instance Prelude.ToQuery RuleCondition where
+instance Core.ToQuery RuleCondition where
   toQuery RuleCondition' {..} =
-    Prelude.mconcat
-      [ "PathPatternConfig" Prelude.=: pathPatternConfig,
+    Core.mconcat
+      [ "PathPatternConfig" Core.=: pathPatternConfig,
         "HttpRequestMethodConfig"
-          Prelude.=: httpRequestMethodConfig,
+          Core.=: httpRequestMethodConfig,
         "Values"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> values),
-        "SourceIpConfig" Prelude.=: sourceIpConfig,
-        "HttpHeaderConfig" Prelude.=: httpHeaderConfig,
-        "HostHeaderConfig" Prelude.=: hostHeaderConfig,
-        "QueryStringConfig" Prelude.=: queryStringConfig,
-        "Field" Prelude.=: field
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> values),
+        "SourceIpConfig" Core.=: sourceIpConfig,
+        "HttpHeaderConfig" Core.=: httpHeaderConfig,
+        "HostHeaderConfig" Core.=: hostHeaderConfig,
+        "QueryStringConfig" Core.=: queryStringConfig,
+        "Field" Core.=: field
       ]

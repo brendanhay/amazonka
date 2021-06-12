@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,10 +49,9 @@ module Network.AWS.Organizations.ListDelegatedServicesForAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +62,7 @@ data ListDelegatedServicesForAccount = ListDelegatedServicesForAccount'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -75,12 +73,12 @@ data ListDelegatedServicesForAccount = ListDelegatedServicesForAccount'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The account ID number of a delegated administrator account in the
     -- organization.
-    accountId :: Prelude.Text
+    accountId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDelegatedServicesForAccount' with all optional fields omitted.
@@ -111,13 +109,13 @@ data ListDelegatedServicesForAccount = ListDelegatedServicesForAccount'
 -- organization.
 newListDelegatedServicesForAccount ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   ListDelegatedServicesForAccount
 newListDelegatedServicesForAccount pAccountId_ =
   ListDelegatedServicesForAccount'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       accountId = pAccountId_
     }
 
@@ -126,7 +124,7 @@ newListDelegatedServicesForAccount pAccountId_ =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listDelegatedServicesForAccount_nextToken :: Lens.Lens' ListDelegatedServicesForAccount (Prelude.Maybe Prelude.Text)
+listDelegatedServicesForAccount_nextToken :: Lens.Lens' ListDelegatedServicesForAccount (Core.Maybe Core.Text)
 listDelegatedServicesForAccount_nextToken = Lens.lens (\ListDelegatedServicesForAccount' {nextToken} -> nextToken) (\s@ListDelegatedServicesForAccount' {} a -> s {nextToken = a} :: ListDelegatedServicesForAccount)
 
 -- | The total number of results that you want included on each page of the
@@ -139,108 +137,93 @@ listDelegatedServicesForAccount_nextToken = Lens.lens (\ListDelegatedServicesFor
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listDelegatedServicesForAccount_maxResults :: Lens.Lens' ListDelegatedServicesForAccount (Prelude.Maybe Prelude.Natural)
+listDelegatedServicesForAccount_maxResults :: Lens.Lens' ListDelegatedServicesForAccount (Core.Maybe Core.Natural)
 listDelegatedServicesForAccount_maxResults = Lens.lens (\ListDelegatedServicesForAccount' {maxResults} -> maxResults) (\s@ListDelegatedServicesForAccount' {} a -> s {maxResults = a} :: ListDelegatedServicesForAccount)
 
 -- | The account ID number of a delegated administrator account in the
 -- organization.
-listDelegatedServicesForAccount_accountId :: Lens.Lens' ListDelegatedServicesForAccount Prelude.Text
+listDelegatedServicesForAccount_accountId :: Lens.Lens' ListDelegatedServicesForAccount Core.Text
 listDelegatedServicesForAccount_accountId = Lens.lens (\ListDelegatedServicesForAccount' {accountId} -> accountId) (\s@ListDelegatedServicesForAccount' {} a -> s {accountId = a} :: ListDelegatedServicesForAccount)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListDelegatedServicesForAccount
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listDelegatedServicesForAccountResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listDelegatedServicesForAccountResponse_delegatedServices
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDelegatedServicesForAccount_nextToken
           Lens..~ rs
           Lens.^? listDelegatedServicesForAccountResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListDelegatedServicesForAccount
   where
   type
-    Rs ListDelegatedServicesForAccount =
+    AWSResponse ListDelegatedServicesForAccount =
       ListDelegatedServicesForAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedServicesForAccountResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "DelegatedServices"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "DelegatedServices" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListDelegatedServicesForAccount
 
-instance
-  Prelude.NFData
-    ListDelegatedServicesForAccount
+instance Core.NFData ListDelegatedServicesForAccount
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListDelegatedServicesForAccount
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.ListDelegatedServicesForAccount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.ListDelegatedServicesForAccount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    ListDelegatedServicesForAccount
-  where
+instance Core.ToJSON ListDelegatedServicesForAccount where
   toJSON ListDelegatedServicesForAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("AccountId" Prelude..= accountId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("AccountId" Core..= accountId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListDelegatedServicesForAccount
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDelegatedServicesForAccount where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ListDelegatedServicesForAccount
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDelegatedServicesForAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListDelegatedServicesForAccountResponse' smart constructor.
 data ListDelegatedServicesForAccountResponse = ListDelegatedServicesForAccountResponse'
@@ -249,13 +232,13 @@ data ListDelegatedServicesForAccountResponse = ListDelegatedServicesForAccountRe
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The services for which the account is a delegated administrator.
-    delegatedServices :: Prelude.Maybe [DelegatedService],
+    delegatedServices :: Core.Maybe [DelegatedService],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDelegatedServicesForAccountResponse' with all optional fields omitted.
@@ -276,15 +259,14 @@ data ListDelegatedServicesForAccountResponse = ListDelegatedServicesForAccountRe
 -- 'httpStatus', 'listDelegatedServicesForAccountResponse_httpStatus' - The response's http status code.
 newListDelegatedServicesForAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDelegatedServicesForAccountResponse
 newListDelegatedServicesForAccountResponse
   pHttpStatus_ =
     ListDelegatedServicesForAccountResponse'
       { nextToken =
-          Prelude.Nothing,
-        delegatedServices =
-          Prelude.Nothing,
+          Core.Nothing,
+        delegatedServices = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -293,17 +275,17 @@ newListDelegatedServicesForAccountResponse
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listDelegatedServicesForAccountResponse_nextToken :: Lens.Lens' ListDelegatedServicesForAccountResponse (Prelude.Maybe Prelude.Text)
+listDelegatedServicesForAccountResponse_nextToken :: Lens.Lens' ListDelegatedServicesForAccountResponse (Core.Maybe Core.Text)
 listDelegatedServicesForAccountResponse_nextToken = Lens.lens (\ListDelegatedServicesForAccountResponse' {nextToken} -> nextToken) (\s@ListDelegatedServicesForAccountResponse' {} a -> s {nextToken = a} :: ListDelegatedServicesForAccountResponse)
 
 -- | The services for which the account is a delegated administrator.
-listDelegatedServicesForAccountResponse_delegatedServices :: Lens.Lens' ListDelegatedServicesForAccountResponse (Prelude.Maybe [DelegatedService])
-listDelegatedServicesForAccountResponse_delegatedServices = Lens.lens (\ListDelegatedServicesForAccountResponse' {delegatedServices} -> delegatedServices) (\s@ListDelegatedServicesForAccountResponse' {} a -> s {delegatedServices = a} :: ListDelegatedServicesForAccountResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDelegatedServicesForAccountResponse_delegatedServices :: Lens.Lens' ListDelegatedServicesForAccountResponse (Core.Maybe [DelegatedService])
+listDelegatedServicesForAccountResponse_delegatedServices = Lens.lens (\ListDelegatedServicesForAccountResponse' {delegatedServices} -> delegatedServices) (\s@ListDelegatedServicesForAccountResponse' {} a -> s {delegatedServices = a} :: ListDelegatedServicesForAccountResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listDelegatedServicesForAccountResponse_httpStatus :: Lens.Lens' ListDelegatedServicesForAccountResponse Prelude.Int
+listDelegatedServicesForAccountResponse_httpStatus :: Lens.Lens' ListDelegatedServicesForAccountResponse Core.Int
 listDelegatedServicesForAccountResponse_httpStatus = Lens.lens (\ListDelegatedServicesForAccountResponse' {httpStatus} -> httpStatus) (\s@ListDelegatedServicesForAccountResponse' {} a -> s {httpStatus = a} :: ListDelegatedServicesForAccountResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListDelegatedServicesForAccountResponse

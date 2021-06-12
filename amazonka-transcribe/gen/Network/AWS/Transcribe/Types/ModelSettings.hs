@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.ModelSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The object used to call your custom language model to your transcription
 -- job.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newModelSettings' smart constructor.
 data ModelSettings = ModelSettings'
   { -- | The name of your custom language model.
-    languageModelName :: Prelude.Maybe Prelude.Text
+    languageModelName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelSettings' with all optional fields omitted.
@@ -45,30 +44,30 @@ data ModelSettings = ModelSettings'
 newModelSettings ::
   ModelSettings
 newModelSettings =
-  ModelSettings' {languageModelName = Prelude.Nothing}
+  ModelSettings' {languageModelName = Core.Nothing}
 
 -- | The name of your custom language model.
-modelSettings_languageModelName :: Lens.Lens' ModelSettings (Prelude.Maybe Prelude.Text)
+modelSettings_languageModelName :: Lens.Lens' ModelSettings (Core.Maybe Core.Text)
 modelSettings_languageModelName = Lens.lens (\ModelSettings' {languageModelName} -> languageModelName) (\s@ModelSettings' {} a -> s {languageModelName = a} :: ModelSettings)
 
-instance Prelude.FromJSON ModelSettings where
+instance Core.FromJSON ModelSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelSettings"
       ( \x ->
           ModelSettings'
-            Prelude.<$> (x Prelude..:? "LanguageModelName")
+            Core.<$> (x Core..:? "LanguageModelName")
       )
 
-instance Prelude.Hashable ModelSettings
+instance Core.Hashable ModelSettings
 
-instance Prelude.NFData ModelSettings
+instance Core.NFData ModelSettings
 
-instance Prelude.ToJSON ModelSettings where
+instance Core.ToJSON ModelSettings where
   toJSON ModelSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LanguageModelName" Prelude..=)
-              Prelude.<$> languageModelName
+    Core.object
+      ( Core.catMaybes
+          [ ("LanguageModelName" Core..=)
+              Core.<$> languageModelName
           ]
       )

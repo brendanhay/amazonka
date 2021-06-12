@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AutoMLContainerDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of container definitions that describe the different containers
 -- that make up one AutoML candidate. Refer to ContainerDefinition for more
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 data AutoMLContainerDefinition = AutoMLContainerDefinition'
   { -- | Environment variables to set in the container. Refer to
     -- ContainerDefinition for more details.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The ECR path of the container. Refer to ContainerDefinition for more
     -- details.
-    image :: Prelude.Text,
+    image :: Core.Text,
     -- | The location of the model artifacts. Refer to ContainerDefinition for
     -- more details.
-    modelDataUrl :: Prelude.Text
+    modelDataUrl :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoMLContainerDefinition' with all optional fields omitted.
@@ -59,46 +58,44 @@ data AutoMLContainerDefinition = AutoMLContainerDefinition'
 -- more details.
 newAutoMLContainerDefinition ::
   -- | 'image'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelDataUrl'
-  Prelude.Text ->
+  Core.Text ->
   AutoMLContainerDefinition
 newAutoMLContainerDefinition pImage_ pModelDataUrl_ =
   AutoMLContainerDefinition'
     { environment =
-        Prelude.Nothing,
+        Core.Nothing,
       image = pImage_,
       modelDataUrl = pModelDataUrl_
     }
 
 -- | Environment variables to set in the container. Refer to
 -- ContainerDefinition for more details.
-autoMLContainerDefinition_environment :: Lens.Lens' AutoMLContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-autoMLContainerDefinition_environment = Lens.lens (\AutoMLContainerDefinition' {environment} -> environment) (\s@AutoMLContainerDefinition' {} a -> s {environment = a} :: AutoMLContainerDefinition) Prelude.. Lens.mapping Prelude._Coerce
+autoMLContainerDefinition_environment :: Lens.Lens' AutoMLContainerDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
+autoMLContainerDefinition_environment = Lens.lens (\AutoMLContainerDefinition' {environment} -> environment) (\s@AutoMLContainerDefinition' {} a -> s {environment = a} :: AutoMLContainerDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The ECR path of the container. Refer to ContainerDefinition for more
 -- details.
-autoMLContainerDefinition_image :: Lens.Lens' AutoMLContainerDefinition Prelude.Text
+autoMLContainerDefinition_image :: Lens.Lens' AutoMLContainerDefinition Core.Text
 autoMLContainerDefinition_image = Lens.lens (\AutoMLContainerDefinition' {image} -> image) (\s@AutoMLContainerDefinition' {} a -> s {image = a} :: AutoMLContainerDefinition)
 
 -- | The location of the model artifacts. Refer to ContainerDefinition for
 -- more details.
-autoMLContainerDefinition_modelDataUrl :: Lens.Lens' AutoMLContainerDefinition Prelude.Text
+autoMLContainerDefinition_modelDataUrl :: Lens.Lens' AutoMLContainerDefinition Core.Text
 autoMLContainerDefinition_modelDataUrl = Lens.lens (\AutoMLContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@AutoMLContainerDefinition' {} a -> s {modelDataUrl = a} :: AutoMLContainerDefinition)
 
-instance Prelude.FromJSON AutoMLContainerDefinition where
+instance Core.FromJSON AutoMLContainerDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoMLContainerDefinition"
       ( \x ->
           AutoMLContainerDefinition'
-            Prelude.<$> ( x Prelude..:? "Environment"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "Image")
-            Prelude.<*> (x Prelude..: "ModelDataUrl")
+            Core.<$> (x Core..:? "Environment" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Image")
+            Core.<*> (x Core..: "ModelDataUrl")
       )
 
-instance Prelude.Hashable AutoMLContainerDefinition
+instance Core.Hashable AutoMLContainerDefinition
 
-instance Prelude.NFData AutoMLContainerDefinition
+instance Core.NFData AutoMLContainerDefinition

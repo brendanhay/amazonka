@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Discovery.Types.BatchDeleteImportDataError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Error messages returned for each import task that you deleted as a
 -- response for this command.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchDeleteImportDataError' smart constructor.
 data BatchDeleteImportDataError = BatchDeleteImportDataError'
   { -- | The description of the error that occurred for a specific import task.
-    errorDescription :: Prelude.Maybe Prelude.Text,
+    errorDescription :: Core.Maybe Core.Text,
     -- | The unique import ID associated with the error that occurred.
-    importTaskId :: Prelude.Maybe Prelude.Text,
+    importTaskId :: Core.Maybe Core.Text,
     -- | The type of error that occurred for a specific import task.
-    errorCode :: Prelude.Maybe BatchDeleteImportDataErrorCode
+    errorCode :: Core.Maybe BatchDeleteImportDataErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeleteImportDataError' with all optional fields omitted.
@@ -56,34 +55,34 @@ newBatchDeleteImportDataError ::
 newBatchDeleteImportDataError =
   BatchDeleteImportDataError'
     { errorDescription =
-        Prelude.Nothing,
-      importTaskId = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Core.Nothing,
+      importTaskId = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The description of the error that occurred for a specific import task.
-batchDeleteImportDataError_errorDescription :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe Prelude.Text)
+batchDeleteImportDataError_errorDescription :: Lens.Lens' BatchDeleteImportDataError (Core.Maybe Core.Text)
 batchDeleteImportDataError_errorDescription = Lens.lens (\BatchDeleteImportDataError' {errorDescription} -> errorDescription) (\s@BatchDeleteImportDataError' {} a -> s {errorDescription = a} :: BatchDeleteImportDataError)
 
 -- | The unique import ID associated with the error that occurred.
-batchDeleteImportDataError_importTaskId :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe Prelude.Text)
+batchDeleteImportDataError_importTaskId :: Lens.Lens' BatchDeleteImportDataError (Core.Maybe Core.Text)
 batchDeleteImportDataError_importTaskId = Lens.lens (\BatchDeleteImportDataError' {importTaskId} -> importTaskId) (\s@BatchDeleteImportDataError' {} a -> s {importTaskId = a} :: BatchDeleteImportDataError)
 
 -- | The type of error that occurred for a specific import task.
-batchDeleteImportDataError_errorCode :: Lens.Lens' BatchDeleteImportDataError (Prelude.Maybe BatchDeleteImportDataErrorCode)
+batchDeleteImportDataError_errorCode :: Lens.Lens' BatchDeleteImportDataError (Core.Maybe BatchDeleteImportDataErrorCode)
 batchDeleteImportDataError_errorCode = Lens.lens (\BatchDeleteImportDataError' {errorCode} -> errorCode) (\s@BatchDeleteImportDataError' {} a -> s {errorCode = a} :: BatchDeleteImportDataError)
 
-instance Prelude.FromJSON BatchDeleteImportDataError where
+instance Core.FromJSON BatchDeleteImportDataError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDeleteImportDataError"
       ( \x ->
           BatchDeleteImportDataError'
-            Prelude.<$> (x Prelude..:? "errorDescription")
-            Prelude.<*> (x Prelude..:? "importTaskId")
-            Prelude.<*> (x Prelude..:? "errorCode")
+            Core.<$> (x Core..:? "errorDescription")
+            Core.<*> (x Core..:? "importTaskId")
+            Core.<*> (x Core..:? "errorCode")
       )
 
-instance Prelude.Hashable BatchDeleteImportDataError
+instance Core.Hashable BatchDeleteImportDataError
 
-instance Prelude.NFData BatchDeleteImportDataError
+instance Core.NFData BatchDeleteImportDataError

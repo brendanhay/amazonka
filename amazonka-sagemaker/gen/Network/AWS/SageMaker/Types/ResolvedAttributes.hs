@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ResolvedAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLJobCompletionCriteria
 import Network.AWS.SageMaker.Types.AutoMLJobObjective
 import Network.AWS.SageMaker.Types.ProblemType
@@ -30,12 +29,12 @@ import Network.AWS.SageMaker.Types.ProblemType
 --
 -- /See:/ 'newResolvedAttributes' smart constructor.
 data ResolvedAttributes = ResolvedAttributes'
-  { completionCriteria :: Prelude.Maybe AutoMLJobCompletionCriteria,
-    autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
+  { completionCriteria :: Core.Maybe AutoMLJobCompletionCriteria,
+    autoMLJobObjective :: Core.Maybe AutoMLJobObjective,
     -- | The problem type.
-    problemType :: Prelude.Maybe ProblemType
+    problemType :: Core.Maybe ProblemType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResolvedAttributes' with all optional fields omitted.
@@ -55,34 +54,34 @@ newResolvedAttributes ::
 newResolvedAttributes =
   ResolvedAttributes'
     { completionCriteria =
-        Prelude.Nothing,
-      autoMLJobObjective = Prelude.Nothing,
-      problemType = Prelude.Nothing
+        Core.Nothing,
+      autoMLJobObjective = Core.Nothing,
+      problemType = Core.Nothing
     }
 
 -- | Undocumented member.
-resolvedAttributes_completionCriteria :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobCompletionCriteria)
+resolvedAttributes_completionCriteria :: Lens.Lens' ResolvedAttributes (Core.Maybe AutoMLJobCompletionCriteria)
 resolvedAttributes_completionCriteria = Lens.lens (\ResolvedAttributes' {completionCriteria} -> completionCriteria) (\s@ResolvedAttributes' {} a -> s {completionCriteria = a} :: ResolvedAttributes)
 
 -- | Undocumented member.
-resolvedAttributes_autoMLJobObjective :: Lens.Lens' ResolvedAttributes (Prelude.Maybe AutoMLJobObjective)
+resolvedAttributes_autoMLJobObjective :: Lens.Lens' ResolvedAttributes (Core.Maybe AutoMLJobObjective)
 resolvedAttributes_autoMLJobObjective = Lens.lens (\ResolvedAttributes' {autoMLJobObjective} -> autoMLJobObjective) (\s@ResolvedAttributes' {} a -> s {autoMLJobObjective = a} :: ResolvedAttributes)
 
 -- | The problem type.
-resolvedAttributes_problemType :: Lens.Lens' ResolvedAttributes (Prelude.Maybe ProblemType)
+resolvedAttributes_problemType :: Lens.Lens' ResolvedAttributes (Core.Maybe ProblemType)
 resolvedAttributes_problemType = Lens.lens (\ResolvedAttributes' {problemType} -> problemType) (\s@ResolvedAttributes' {} a -> s {problemType = a} :: ResolvedAttributes)
 
-instance Prelude.FromJSON ResolvedAttributes where
+instance Core.FromJSON ResolvedAttributes where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResolvedAttributes"
       ( \x ->
           ResolvedAttributes'
-            Prelude.<$> (x Prelude..:? "CompletionCriteria")
-            Prelude.<*> (x Prelude..:? "AutoMLJobObjective")
-            Prelude.<*> (x Prelude..:? "ProblemType")
+            Core.<$> (x Core..:? "CompletionCriteria")
+            Core.<*> (x Core..:? "AutoMLJobObjective")
+            Core.<*> (x Core..:? "ProblemType")
       )
 
-instance Prelude.Hashable ResolvedAttributes
+instance Core.Hashable ResolvedAttributes
 
-instance Prelude.NFData ResolvedAttributes
+instance Core.NFData ResolvedAttributes

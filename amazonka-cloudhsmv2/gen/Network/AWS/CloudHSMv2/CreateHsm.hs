@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CloudHSMv2.CreateHsm
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,15 +54,15 @@ data CreateHsm = CreateHsm'
     -- address from the subnet that maps to the Availability Zone where you are
     -- creating the HSM. If you don\'t specify an IP address, one is chosen for
     -- you from that subnet.
-    ipAddress :: Prelude.Maybe Prelude.Text,
+    ipAddress :: Core.Maybe Core.Text,
     -- | The identifier (ID) of the HSM\'s cluster. To find the cluster ID, use
     -- DescribeClusters.
-    clusterId :: Prelude.Text,
+    clusterId :: Core.Text,
     -- | The Availability Zone where you are creating the HSM. To find the
     -- cluster\'s Availability Zones, use DescribeClusters.
-    availabilityZone :: Prelude.Text
+    availabilityZone :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHsm' with all optional fields omitted.
@@ -85,13 +84,13 @@ data CreateHsm = CreateHsm'
 -- cluster\'s Availability Zones, use DescribeClusters.
 newCreateHsm ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   CreateHsm
 newCreateHsm pClusterId_ pAvailabilityZone_ =
   CreateHsm'
-    { ipAddress = Prelude.Nothing,
+    { ipAddress = Core.Nothing,
       clusterId = pClusterId_,
       availabilityZone = pAvailabilityZone_
     }
@@ -100,72 +99,70 @@ newCreateHsm pClusterId_ pAvailabilityZone_ =
 -- address from the subnet that maps to the Availability Zone where you are
 -- creating the HSM. If you don\'t specify an IP address, one is chosen for
 -- you from that subnet.
-createHsm_ipAddress :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_ipAddress :: Lens.Lens' CreateHsm (Core.Maybe Core.Text)
 createHsm_ipAddress = Lens.lens (\CreateHsm' {ipAddress} -> ipAddress) (\s@CreateHsm' {} a -> s {ipAddress = a} :: CreateHsm)
 
 -- | The identifier (ID) of the HSM\'s cluster. To find the cluster ID, use
 -- DescribeClusters.
-createHsm_clusterId :: Lens.Lens' CreateHsm Prelude.Text
+createHsm_clusterId :: Lens.Lens' CreateHsm Core.Text
 createHsm_clusterId = Lens.lens (\CreateHsm' {clusterId} -> clusterId) (\s@CreateHsm' {} a -> s {clusterId = a} :: CreateHsm)
 
 -- | The Availability Zone where you are creating the HSM. To find the
 -- cluster\'s Availability Zones, use DescribeClusters.
-createHsm_availabilityZone :: Lens.Lens' CreateHsm Prelude.Text
+createHsm_availabilityZone :: Lens.Lens' CreateHsm Core.Text
 createHsm_availabilityZone = Lens.lens (\CreateHsm' {availabilityZone} -> availabilityZone) (\s@CreateHsm' {} a -> s {availabilityZone = a} :: CreateHsm)
 
-instance Prelude.AWSRequest CreateHsm where
-  type Rs CreateHsm = CreateHsmResponse
+instance Core.AWSRequest CreateHsm where
+  type AWSResponse CreateHsm = CreateHsmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateHsmResponse'
-            Prelude.<$> (x Prelude..?> "Hsm")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Hsm")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHsm
+instance Core.Hashable CreateHsm
 
-instance Prelude.NFData CreateHsm
+instance Core.NFData CreateHsm
 
-instance Prelude.ToHeaders CreateHsm where
+instance Core.ToHeaders CreateHsm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("BaldrApiService.CreateHsm" :: Prelude.ByteString),
+              Core.=# ("BaldrApiService.CreateHsm" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateHsm where
+instance Core.ToJSON CreateHsm where
   toJSON CreateHsm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IpAddress" Prelude..=) Prelude.<$> ipAddress,
-            Prelude.Just ("ClusterId" Prelude..= clusterId),
-            Prelude.Just
-              ("AvailabilityZone" Prelude..= availabilityZone)
+    Core.object
+      ( Core.catMaybes
+          [ ("IpAddress" Core..=) Core.<$> ipAddress,
+            Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just
+              ("AvailabilityZone" Core..= availabilityZone)
           ]
       )
 
-instance Prelude.ToPath CreateHsm where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateHsm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateHsm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateHsm where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateHsmResponse' smart constructor.
 data CreateHsmResponse = CreateHsmResponse'
   { -- | Information about the HSM that was created.
-    hsm :: Prelude.Maybe Hsm,
+    hsm :: Core.Maybe Hsm,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHsmResponse' with all optional fields omitted.
@@ -180,20 +177,20 @@ data CreateHsmResponse = CreateHsmResponse'
 -- 'httpStatus', 'createHsmResponse_httpStatus' - The response's http status code.
 newCreateHsmResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateHsmResponse
 newCreateHsmResponse pHttpStatus_ =
   CreateHsmResponse'
-    { hsm = Prelude.Nothing,
+    { hsm = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the HSM that was created.
-createHsmResponse_hsm :: Lens.Lens' CreateHsmResponse (Prelude.Maybe Hsm)
+createHsmResponse_hsm :: Lens.Lens' CreateHsmResponse (Core.Maybe Hsm)
 createHsmResponse_hsm = Lens.lens (\CreateHsmResponse' {hsm} -> hsm) (\s@CreateHsmResponse' {} a -> s {hsm = a} :: CreateHsmResponse)
 
 -- | The response's http status code.
-createHsmResponse_httpStatus :: Lens.Lens' CreateHsmResponse Prelude.Int
+createHsmResponse_httpStatus :: Lens.Lens' CreateHsmResponse Core.Int
 createHsmResponse_httpStatus = Lens.lens (\CreateHsmResponse' {httpStatus} -> httpStatus) (\s@CreateHsmResponse' {} a -> s {httpStatus = a} :: CreateHsmResponse)
 
-instance Prelude.NFData CreateHsmResponse
+instance Core.NFData CreateHsmResponse

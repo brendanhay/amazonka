@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudSearch.Types.AnalysisSchemeStatus where
 
 import Network.AWS.CloudSearch.Types.AnalysisScheme
 import Network.AWS.CloudSearch.Types.OptionStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The status and configuration of an @AnalysisScheme@.
 --
@@ -32,7 +31,7 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus'
   { options :: AnalysisScheme,
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalysisSchemeStatus' with all optional fields omitted.
@@ -65,12 +64,11 @@ analysisSchemeStatus_options = Lens.lens (\AnalysisSchemeStatus' {options} -> op
 analysisSchemeStatus_status :: Lens.Lens' AnalysisSchemeStatus OptionStatus
 analysisSchemeStatus_status = Lens.lens (\AnalysisSchemeStatus' {status} -> status) (\s@AnalysisSchemeStatus' {} a -> s {status = a} :: AnalysisSchemeStatus)
 
-instance Prelude.FromXML AnalysisSchemeStatus where
+instance Core.FromXML AnalysisSchemeStatus where
   parseXML x =
     AnalysisSchemeStatus'
-      Prelude.<$> (x Prelude..@ "Options")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable AnalysisSchemeStatus
+instance Core.Hashable AnalysisSchemeStatus
 
-instance Prelude.NFData AnalysisSchemeStatus
+instance Core.NFData AnalysisSchemeStatus

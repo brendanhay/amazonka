@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -87,9 +86,9 @@ module Network.AWS.Firehose.StartDeliveryStreamEncryption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -97,12 +96,12 @@ import qualified Network.AWS.Response as Response
 data StartDeliveryStreamEncryption = StartDeliveryStreamEncryption'
   { -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key
     -- needed for Server-Side Encryption (SSE).
-    deliveryStreamEncryptionConfigurationInput :: Prelude.Maybe DeliveryStreamEncryptionConfigurationInput,
+    deliveryStreamEncryptionConfigurationInput :: Core.Maybe DeliveryStreamEncryptionConfigurationInput,
     -- | The name of the delivery stream for which you want to enable server-side
     -- encryption (SSE).
-    deliveryStreamName :: Prelude.Text
+    deliveryStreamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDeliveryStreamEncryption' with all optional fields omitted.
@@ -119,94 +118,82 @@ data StartDeliveryStreamEncryption = StartDeliveryStreamEncryption'
 -- encryption (SSE).
 newStartDeliveryStreamEncryption ::
   -- | 'deliveryStreamName'
-  Prelude.Text ->
+  Core.Text ->
   StartDeliveryStreamEncryption
 newStartDeliveryStreamEncryption pDeliveryStreamName_ =
   StartDeliveryStreamEncryption'
     { deliveryStreamEncryptionConfigurationInput =
-        Prelude.Nothing,
+        Core.Nothing,
       deliveryStreamName = pDeliveryStreamName_
     }
 
 -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key
 -- needed for Server-Side Encryption (SSE).
-startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput :: Lens.Lens' StartDeliveryStreamEncryption (Prelude.Maybe DeliveryStreamEncryptionConfigurationInput)
+startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput :: Lens.Lens' StartDeliveryStreamEncryption (Core.Maybe DeliveryStreamEncryptionConfigurationInput)
 startDeliveryStreamEncryption_deliveryStreamEncryptionConfigurationInput = Lens.lens (\StartDeliveryStreamEncryption' {deliveryStreamEncryptionConfigurationInput} -> deliveryStreamEncryptionConfigurationInput) (\s@StartDeliveryStreamEncryption' {} a -> s {deliveryStreamEncryptionConfigurationInput = a} :: StartDeliveryStreamEncryption)
 
 -- | The name of the delivery stream for which you want to enable server-side
 -- encryption (SSE).
-startDeliveryStreamEncryption_deliveryStreamName :: Lens.Lens' StartDeliveryStreamEncryption Prelude.Text
+startDeliveryStreamEncryption_deliveryStreamName :: Lens.Lens' StartDeliveryStreamEncryption Core.Text
 startDeliveryStreamEncryption_deliveryStreamName = Lens.lens (\StartDeliveryStreamEncryption' {deliveryStreamName} -> deliveryStreamName) (\s@StartDeliveryStreamEncryption' {} a -> s {deliveryStreamName = a} :: StartDeliveryStreamEncryption)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StartDeliveryStreamEncryption
   where
   type
-    Rs StartDeliveryStreamEncryption =
+    AWSResponse StartDeliveryStreamEncryption =
       StartDeliveryStreamEncryptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartDeliveryStreamEncryptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StartDeliveryStreamEncryption
+instance Core.Hashable StartDeliveryStreamEncryption
 
-instance Prelude.NFData StartDeliveryStreamEncryption
+instance Core.NFData StartDeliveryStreamEncryption
 
-instance
-  Prelude.ToHeaders
-    StartDeliveryStreamEncryption
-  where
+instance Core.ToHeaders StartDeliveryStreamEncryption where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Firehose_20150804.StartDeliveryStreamEncryption" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Firehose_20150804.StartDeliveryStreamEncryption" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartDeliveryStreamEncryption where
+instance Core.ToJSON StartDeliveryStreamEncryption where
   toJSON StartDeliveryStreamEncryption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
+    Core.object
+      ( Core.catMaybes
           [ ( "DeliveryStreamEncryptionConfigurationInput"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> deliveryStreamEncryptionConfigurationInput,
-            Prelude.Just
-              ( "DeliveryStreamName"
-                  Prelude..= deliveryStreamName
-              )
+              Core.<$> deliveryStreamEncryptionConfigurationInput,
+            Core.Just
+              ("DeliveryStreamName" Core..= deliveryStreamName)
           ]
       )
 
-instance Prelude.ToPath StartDeliveryStreamEncryption where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartDeliveryStreamEncryption where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    StartDeliveryStreamEncryption
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartDeliveryStreamEncryption where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartDeliveryStreamEncryptionResponse' smart constructor.
 data StartDeliveryStreamEncryptionResponse = StartDeliveryStreamEncryptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDeliveryStreamEncryptionResponse' with all optional fields omitted.
@@ -219,7 +206,7 @@ data StartDeliveryStreamEncryptionResponse = StartDeliveryStreamEncryptionRespon
 -- 'httpStatus', 'startDeliveryStreamEncryptionResponse_httpStatus' - The response's http status code.
 newStartDeliveryStreamEncryptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartDeliveryStreamEncryptionResponse
 newStartDeliveryStreamEncryptionResponse pHttpStatus_ =
   StartDeliveryStreamEncryptionResponse'
@@ -228,9 +215,9 @@ newStartDeliveryStreamEncryptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startDeliveryStreamEncryptionResponse_httpStatus :: Lens.Lens' StartDeliveryStreamEncryptionResponse Prelude.Int
+startDeliveryStreamEncryptionResponse_httpStatus :: Lens.Lens' StartDeliveryStreamEncryptionResponse Core.Int
 startDeliveryStreamEncryptionResponse_httpStatus = Lens.lens (\StartDeliveryStreamEncryptionResponse' {httpStatus} -> httpStatus) (\s@StartDeliveryStreamEncryptionResponse' {} a -> s {httpStatus = a} :: StartDeliveryStreamEncryptionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartDeliveryStreamEncryptionResponse

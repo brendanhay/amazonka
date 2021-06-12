@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -88,9 +87,9 @@ module Network.AWS.Kinesis.SplitShard
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -99,9 +98,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newSplitShard' smart constructor.
 data SplitShard = SplitShard'
   { -- | The name of the stream for the shard split.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The shard ID of the shard to split.
-    shardToSplit :: Prelude.Text,
+    shardToSplit :: Core.Text,
     -- | A hash key value for the starting hash key of one of the child shards
     -- created by the split. The hash key range for a given shard constitutes a
     -- set of ordered contiguous positive integers. The value for
@@ -110,9 +109,9 @@ data SplitShard = SplitShard'
     -- key values in hash key range are distributed to one of the child shards.
     -- All the lower hash key values in the range are distributed to the other
     -- child shard.
-    newStartingHashKey' :: Prelude.Text
+    newStartingHashKey' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SplitShard' with all optional fields omitted.
@@ -136,11 +135,11 @@ data SplitShard = SplitShard'
 -- child shard.
 newSplitShard ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shardToSplit'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newStartingHashKey''
-  Prelude.Text ->
+  Core.Text ->
   SplitShard
 newSplitShard
   pStreamName_
@@ -153,11 +152,11 @@ newSplitShard
       }
 
 -- | The name of the stream for the shard split.
-splitShard_streamName :: Lens.Lens' SplitShard Prelude.Text
+splitShard_streamName :: Lens.Lens' SplitShard Core.Text
 splitShard_streamName = Lens.lens (\SplitShard' {streamName} -> streamName) (\s@SplitShard' {} a -> s {streamName = a} :: SplitShard)
 
 -- | The shard ID of the shard to split.
-splitShard_shardToSplit :: Lens.Lens' SplitShard Prelude.Text
+splitShard_shardToSplit :: Lens.Lens' SplitShard Core.Text
 splitShard_shardToSplit = Lens.lens (\SplitShard' {shardToSplit} -> shardToSplit) (\s@SplitShard' {} a -> s {shardToSplit = a} :: SplitShard)
 
 -- | A hash key value for the starting hash key of one of the child shards
@@ -168,58 +167,51 @@ splitShard_shardToSplit = Lens.lens (\SplitShard' {shardToSplit} -> shardToSplit
 -- key values in hash key range are distributed to one of the child shards.
 -- All the lower hash key values in the range are distributed to the other
 -- child shard.
-splitShard_newStartingHashKey :: Lens.Lens' SplitShard Prelude.Text
+splitShard_newStartingHashKey :: Lens.Lens' SplitShard Core.Text
 splitShard_newStartingHashKey = Lens.lens (\SplitShard' {newStartingHashKey'} -> newStartingHashKey') (\s@SplitShard' {} a -> s {newStartingHashKey' = a} :: SplitShard)
 
-instance Prelude.AWSRequest SplitShard where
-  type Rs SplitShard = SplitShardResponse
+instance Core.AWSRequest SplitShard where
+  type AWSResponse SplitShard = SplitShardResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull SplitShardResponse'
 
-instance Prelude.Hashable SplitShard
+instance Core.Hashable SplitShard
 
-instance Prelude.NFData SplitShard
+instance Core.NFData SplitShard
 
-instance Prelude.ToHeaders SplitShard where
+instance Core.ToHeaders SplitShard where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.SplitShard" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Kinesis_20131202.SplitShard" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SplitShard where
+instance Core.ToJSON SplitShard where
   toJSON SplitShard' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
-              ("ShardToSplit" Prelude..= shardToSplit),
-            Prelude.Just
-              ( "NewStartingHashKey"
-                  Prelude..= newStartingHashKey'
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardToSplit" Core..= shardToSplit),
+            Core.Just
+              ("NewStartingHashKey" Core..= newStartingHashKey')
           ]
       )
 
-instance Prelude.ToPath SplitShard where
-  toPath = Prelude.const "/"
+instance Core.ToPath SplitShard where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SplitShard where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SplitShard where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSplitShardResponse' smart constructor.
 data SplitShardResponse = SplitShardResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SplitShardResponse' with all optional fields omitted.
@@ -229,4 +221,4 @@ newSplitShardResponse ::
   SplitShardResponse
 newSplitShardResponse = SplitShardResponse'
 
-instance Prelude.NFData SplitShardResponse
+instance Core.NFData SplitShardResponse

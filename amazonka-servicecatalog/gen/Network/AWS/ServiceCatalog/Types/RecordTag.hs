@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.RecordTag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a tag, which is a key-value pair.
 --
 -- /See:/ 'newRecordTag' smart constructor.
 data RecordTag = RecordTag'
   { -- | The key for this tag.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value for this tag.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordTag' with all optional fields omitted.
@@ -49,28 +48,27 @@ newRecordTag ::
   RecordTag
 newRecordTag =
   RecordTag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The key for this tag.
-recordTag_key :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
+recordTag_key :: Lens.Lens' RecordTag (Core.Maybe Core.Text)
 recordTag_key = Lens.lens (\RecordTag' {key} -> key) (\s@RecordTag' {} a -> s {key = a} :: RecordTag)
 
 -- | The value for this tag.
-recordTag_value :: Lens.Lens' RecordTag (Prelude.Maybe Prelude.Text)
+recordTag_value :: Lens.Lens' RecordTag (Core.Maybe Core.Text)
 recordTag_value = Lens.lens (\RecordTag' {value} -> value) (\s@RecordTag' {} a -> s {value = a} :: RecordTag)
 
-instance Prelude.FromJSON RecordTag where
+instance Core.FromJSON RecordTag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RecordTag"
       ( \x ->
           RecordTag'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable RecordTag
+instance Core.Hashable RecordTag
 
-instance Prelude.NFData RecordTag
+instance Core.NFData RecordTag

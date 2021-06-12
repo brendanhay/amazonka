@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.EC2.DeleteVpnGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ data DeleteVpnGateway = DeleteVpnGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the virtual private gateway.
-    vpnGatewayId :: Prelude.Text
+    vpnGatewayId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnGateway' with all optional fields omitted.
@@ -76,11 +75,11 @@ data DeleteVpnGateway = DeleteVpnGateway'
 -- 'vpnGatewayId', 'deleteVpnGateway_vpnGatewayId' - The ID of the virtual private gateway.
 newDeleteVpnGateway ::
   -- | 'vpnGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVpnGateway
 newDeleteVpnGateway pVpnGatewayId_ =
   DeleteVpnGateway'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       vpnGatewayId = pVpnGatewayId_
     }
 
@@ -88,45 +87,46 @@ newDeleteVpnGateway pVpnGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpnGateway_dryRun :: Lens.Lens' DeleteVpnGateway (Prelude.Maybe Prelude.Bool)
+deleteVpnGateway_dryRun :: Lens.Lens' DeleteVpnGateway (Core.Maybe Core.Bool)
 deleteVpnGateway_dryRun = Lens.lens (\DeleteVpnGateway' {dryRun} -> dryRun) (\s@DeleteVpnGateway' {} a -> s {dryRun = a} :: DeleteVpnGateway)
 
 -- | The ID of the virtual private gateway.
-deleteVpnGateway_vpnGatewayId :: Lens.Lens' DeleteVpnGateway Prelude.Text
+deleteVpnGateway_vpnGatewayId :: Lens.Lens' DeleteVpnGateway Core.Text
 deleteVpnGateway_vpnGatewayId = Lens.lens (\DeleteVpnGateway' {vpnGatewayId} -> vpnGatewayId) (\s@DeleteVpnGateway' {} a -> s {vpnGatewayId = a} :: DeleteVpnGateway)
 
-instance Prelude.AWSRequest DeleteVpnGateway where
-  type Rs DeleteVpnGateway = DeleteVpnGatewayResponse
+instance Core.AWSRequest DeleteVpnGateway where
+  type
+    AWSResponse DeleteVpnGateway =
+      DeleteVpnGatewayResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteVpnGatewayResponse'
 
-instance Prelude.Hashable DeleteVpnGateway
+instance Core.Hashable DeleteVpnGateway
 
-instance Prelude.NFData DeleteVpnGateway
+instance Core.NFData DeleteVpnGateway
 
-instance Prelude.ToHeaders DeleteVpnGateway where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVpnGateway where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVpnGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVpnGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVpnGateway where
+instance Core.ToQuery DeleteVpnGateway where
   toQuery DeleteVpnGateway' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteVpnGateway" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "VpnGatewayId" Prelude.=: vpnGatewayId
+          Core.=: ("DeleteVpnGateway" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "VpnGatewayId" Core.=: vpnGatewayId
       ]
 
 -- | /See:/ 'newDeleteVpnGatewayResponse' smart constructor.
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnGatewayResponse' with all optional fields omitted.
@@ -137,4 +137,4 @@ newDeleteVpnGatewayResponse ::
 newDeleteVpnGatewayResponse =
   DeleteVpnGatewayResponse'
 
-instance Prelude.NFData DeleteVpnGatewayResponse
+instance Core.NFData DeleteVpnGatewayResponse

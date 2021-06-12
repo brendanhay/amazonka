@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PriceSchedule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the price for a Reserved Instance.
 --
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data PriceSchedule = PriceSchedule'
   { -- | The currency for transacting the Reserved Instance resale. At this time,
     -- the only supported currency is @USD@.
-    currencyCode :: Prelude.Maybe CurrencyCodeValues,
+    currencyCode :: Core.Maybe CurrencyCodeValues,
     -- | The current price schedule, as determined by the term remaining for the
     -- Reserved Instance in the listing.
     --
@@ -42,14 +41,14 @@ data PriceSchedule = PriceSchedule'
     -- schedule 1, covering the first three months of the remaining term, will
     -- be active during months 5, 4, and 3. Then schedule 2, covering the last
     -- two months of the term, will be active for months 2 and 1.
-    active :: Prelude.Maybe Prelude.Bool,
+    active :: Core.Maybe Core.Bool,
     -- | The number of months remaining in the reservation. For example, 2 is the
     -- second to the last month before the capacity reservation expires.
-    term :: Prelude.Maybe Prelude.Integer,
+    term :: Core.Maybe Core.Integer,
     -- | The fixed price for the term.
-    price :: Prelude.Maybe Prelude.Double
+    price :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PriceSchedule' with all optional fields omitted.
@@ -81,15 +80,15 @@ newPriceSchedule ::
   PriceSchedule
 newPriceSchedule =
   PriceSchedule'
-    { currencyCode = Prelude.Nothing,
-      active = Prelude.Nothing,
-      term = Prelude.Nothing,
-      price = Prelude.Nothing
+    { currencyCode = Core.Nothing,
+      active = Core.Nothing,
+      term = Core.Nothing,
+      price = Core.Nothing
     }
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
 -- the only supported currency is @USD@.
-priceSchedule_currencyCode :: Lens.Lens' PriceSchedule (Prelude.Maybe CurrencyCodeValues)
+priceSchedule_currencyCode :: Lens.Lens' PriceSchedule (Core.Maybe CurrencyCodeValues)
 priceSchedule_currencyCode = Lens.lens (\PriceSchedule' {currencyCode} -> currencyCode) (\s@PriceSchedule' {} a -> s {currencyCode = a} :: PriceSchedule)
 
 -- | The current price schedule, as determined by the term remaining for the
@@ -102,26 +101,26 @@ priceSchedule_currencyCode = Lens.lens (\PriceSchedule' {currencyCode} -> curren
 -- schedule 1, covering the first three months of the remaining term, will
 -- be active during months 5, 4, and 3. Then schedule 2, covering the last
 -- two months of the term, will be active for months 2 and 1.
-priceSchedule_active :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Bool)
+priceSchedule_active :: Lens.Lens' PriceSchedule (Core.Maybe Core.Bool)
 priceSchedule_active = Lens.lens (\PriceSchedule' {active} -> active) (\s@PriceSchedule' {} a -> s {active = a} :: PriceSchedule)
 
 -- | The number of months remaining in the reservation. For example, 2 is the
 -- second to the last month before the capacity reservation expires.
-priceSchedule_term :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Integer)
+priceSchedule_term :: Lens.Lens' PriceSchedule (Core.Maybe Core.Integer)
 priceSchedule_term = Lens.lens (\PriceSchedule' {term} -> term) (\s@PriceSchedule' {} a -> s {term = a} :: PriceSchedule)
 
 -- | The fixed price for the term.
-priceSchedule_price :: Lens.Lens' PriceSchedule (Prelude.Maybe Prelude.Double)
+priceSchedule_price :: Lens.Lens' PriceSchedule (Core.Maybe Core.Double)
 priceSchedule_price = Lens.lens (\PriceSchedule' {price} -> price) (\s@PriceSchedule' {} a -> s {price = a} :: PriceSchedule)
 
-instance Prelude.FromXML PriceSchedule where
+instance Core.FromXML PriceSchedule where
   parseXML x =
     PriceSchedule'
-      Prelude.<$> (x Prelude..@? "currencyCode")
-      Prelude.<*> (x Prelude..@? "active")
-      Prelude.<*> (x Prelude..@? "term")
-      Prelude.<*> (x Prelude..@? "price")
+      Core.<$> (x Core..@? "currencyCode")
+      Core.<*> (x Core..@? "active")
+      Core.<*> (x Core..@? "term")
+      Core.<*> (x Core..@? "price")
 
-instance Prelude.Hashable PriceSchedule
+instance Core.Hashable PriceSchedule
 
-instance Prelude.NFData PriceSchedule
+instance Core.NFData PriceSchedule

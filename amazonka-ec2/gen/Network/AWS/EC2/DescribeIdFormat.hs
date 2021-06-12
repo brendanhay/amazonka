@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,9 +62,9 @@ module Network.AWS.EC2.DescribeIdFormat
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,9 +80,9 @@ data DescribeIdFormat = DescribeIdFormat'
     -- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
     -- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
     -- | @vpn-connection@ | @vpn-gateway@
-    resource :: Prelude.Maybe Prelude.Text
+    resource :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdFormat' with all optional fields omitted.
@@ -106,7 +105,7 @@ data DescribeIdFormat = DescribeIdFormat'
 newDescribeIdFormat ::
   DescribeIdFormat
 newDescribeIdFormat =
-  DescribeIdFormat' {resource = Prelude.Nothing}
+  DescribeIdFormat' {resource = Core.Nothing}
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
 -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
@@ -118,50 +117,51 @@ newDescribeIdFormat =
 -- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
 -- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
 -- | @vpn-connection@ | @vpn-gateway@
-describeIdFormat_resource :: Lens.Lens' DescribeIdFormat (Prelude.Maybe Prelude.Text)
+describeIdFormat_resource :: Lens.Lens' DescribeIdFormat (Core.Maybe Core.Text)
 describeIdFormat_resource = Lens.lens (\DescribeIdFormat' {resource} -> resource) (\s@DescribeIdFormat' {} a -> s {resource = a} :: DescribeIdFormat)
 
-instance Prelude.AWSRequest DescribeIdFormat where
-  type Rs DescribeIdFormat = DescribeIdFormatResponse
+instance Core.AWSRequest DescribeIdFormat where
+  type
+    AWSResponse DescribeIdFormat =
+      DescribeIdFormatResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeIdFormatResponse'
-            Prelude.<$> ( x Prelude..@? "statusSet" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "statusSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIdFormat
+instance Core.Hashable DescribeIdFormat
 
-instance Prelude.NFData DescribeIdFormat
+instance Core.NFData DescribeIdFormat
 
-instance Prelude.ToHeaders DescribeIdFormat where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeIdFormat where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeIdFormat where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeIdFormat where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeIdFormat where
+instance Core.ToQuery DescribeIdFormat where
   toQuery DescribeIdFormat' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeIdFormat" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "Resource" Prelude.=: resource
+          Core.=: ("DescribeIdFormat" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Resource" Core.=: resource
       ]
 
 -- | /See:/ 'newDescribeIdFormatResponse' smart constructor.
 data DescribeIdFormatResponse = DescribeIdFormatResponse'
   { -- | Information about the ID format for the resource.
-    statuses :: Prelude.Maybe [IdFormat],
+    statuses :: Core.Maybe [IdFormat],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdFormatResponse' with all optional fields omitted.
@@ -176,21 +176,20 @@ data DescribeIdFormatResponse = DescribeIdFormatResponse'
 -- 'httpStatus', 'describeIdFormatResponse_httpStatus' - The response's http status code.
 newDescribeIdFormatResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeIdFormatResponse
 newDescribeIdFormatResponse pHttpStatus_ =
   DescribeIdFormatResponse'
-    { statuses =
-        Prelude.Nothing,
+    { statuses = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the ID format for the resource.
-describeIdFormatResponse_statuses :: Lens.Lens' DescribeIdFormatResponse (Prelude.Maybe [IdFormat])
-describeIdFormatResponse_statuses = Lens.lens (\DescribeIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdFormatResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeIdFormatResponse_statuses :: Lens.Lens' DescribeIdFormatResponse (Core.Maybe [IdFormat])
+describeIdFormatResponse_statuses = Lens.lens (\DescribeIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdFormatResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeIdFormatResponse_httpStatus :: Lens.Lens' DescribeIdFormatResponse Prelude.Int
+describeIdFormatResponse_httpStatus :: Lens.Lens' DescribeIdFormatResponse Core.Int
 describeIdFormatResponse_httpStatus = Lens.lens (\DescribeIdFormatResponse' {httpStatus} -> httpStatus) (\s@DescribeIdFormatResponse' {} a -> s {httpStatus = a} :: DescribeIdFormatResponse)
 
-instance Prelude.NFData DescribeIdFormatResponse
+instance Core.NFData DescribeIdFormatResponse

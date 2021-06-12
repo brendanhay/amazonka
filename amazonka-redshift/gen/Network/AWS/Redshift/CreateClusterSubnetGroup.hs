@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -60,7 +59,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateClusterSubnetGroup' smart constructor.
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
   { -- | A list of tag instances.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name for the subnet group. Amazon Redshift stores the value as a
     -- lowercase string.
     --
@@ -74,14 +73,14 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
     --     account.
     --
     -- Example: @examplesubnetgroup@
-    clusterSubnetGroupName :: Prelude.Text,
+    clusterSubnetGroupName :: Core.Text,
     -- | A description for the subnet group.
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
     -- single request.
-    subnetIds :: [Prelude.Text]
+    subnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateClusterSubnetGroup' with all optional fields omitted.
@@ -113,23 +112,23 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
 -- single request.
 newCreateClusterSubnetGroup ::
   -- | 'clusterSubnetGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   CreateClusterSubnetGroup
 newCreateClusterSubnetGroup
   pClusterSubnetGroupName_
   pDescription_ =
     CreateClusterSubnetGroup'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         clusterSubnetGroupName = pClusterSubnetGroupName_,
         description = pDescription_,
-        subnetIds = Prelude.mempty
+        subnetIds = Core.mempty
       }
 
 -- | A list of tag instances.
-createClusterSubnetGroup_tags :: Lens.Lens' CreateClusterSubnetGroup (Prelude.Maybe [Tag])
-createClusterSubnetGroup_tags = Lens.lens (\CreateClusterSubnetGroup' {tags} -> tags) (\s@CreateClusterSubnetGroup' {} a -> s {tags = a} :: CreateClusterSubnetGroup) Prelude.. Lens.mapping Prelude._Coerce
+createClusterSubnetGroup_tags :: Lens.Lens' CreateClusterSubnetGroup (Core.Maybe [Tag])
+createClusterSubnetGroup_tags = Lens.lens (\CreateClusterSubnetGroup' {tags} -> tags) (\s@CreateClusterSubnetGroup' {} a -> s {tags = a} :: CreateClusterSubnetGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -144,21 +143,21 @@ createClusterSubnetGroup_tags = Lens.lens (\CreateClusterSubnetGroup' {tags} -> 
 --     account.
 --
 -- Example: @examplesubnetgroup@
-createClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' CreateClusterSubnetGroup Prelude.Text
+createClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' CreateClusterSubnetGroup Core.Text
 createClusterSubnetGroup_clusterSubnetGroupName = Lens.lens (\CreateClusterSubnetGroup' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@CreateClusterSubnetGroup' {} a -> s {clusterSubnetGroupName = a} :: CreateClusterSubnetGroup)
 
 -- | A description for the subnet group.
-createClusterSubnetGroup_description :: Lens.Lens' CreateClusterSubnetGroup Prelude.Text
+createClusterSubnetGroup_description :: Lens.Lens' CreateClusterSubnetGroup Core.Text
 createClusterSubnetGroup_description = Lens.lens (\CreateClusterSubnetGroup' {description} -> description) (\s@CreateClusterSubnetGroup' {} a -> s {description = a} :: CreateClusterSubnetGroup)
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-createClusterSubnetGroup_subnetIds :: Lens.Lens' CreateClusterSubnetGroup [Prelude.Text]
-createClusterSubnetGroup_subnetIds = Lens.lens (\CreateClusterSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateClusterSubnetGroup' {} a -> s {subnetIds = a} :: CreateClusterSubnetGroup) Prelude.. Prelude._Coerce
+createClusterSubnetGroup_subnetIds :: Lens.Lens' CreateClusterSubnetGroup [Core.Text]
+createClusterSubnetGroup_subnetIds = Lens.lens (\CreateClusterSubnetGroup' {subnetIds} -> subnetIds) (\s@CreateClusterSubnetGroup' {} a -> s {subnetIds = a} :: CreateClusterSubnetGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateClusterSubnetGroup where
+instance Core.AWSRequest CreateClusterSubnetGroup where
   type
-    Rs CreateClusterSubnetGroup =
+    AWSResponse CreateClusterSubnetGroup =
       CreateClusterSubnetGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -166,44 +165,42 @@ instance Prelude.AWSRequest CreateClusterSubnetGroup where
       "CreateClusterSubnetGroupResult"
       ( \s h x ->
           CreateClusterSubnetGroupResponse'
-            Prelude.<$> (x Prelude..@? "ClusterSubnetGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ClusterSubnetGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClusterSubnetGroup
+instance Core.Hashable CreateClusterSubnetGroup
 
-instance Prelude.NFData CreateClusterSubnetGroup
+instance Core.NFData CreateClusterSubnetGroup
 
-instance Prelude.ToHeaders CreateClusterSubnetGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateClusterSubnetGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateClusterSubnetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateClusterSubnetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateClusterSubnetGroup where
+instance Core.ToQuery CreateClusterSubnetGroup where
   toQuery CreateClusterSubnetGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateClusterSubnetGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("CreateClusterSubnetGroup" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
         "ClusterSubnetGroupName"
-          Prelude.=: clusterSubnetGroupName,
-        "Description" Prelude.=: description,
+          Core.=: clusterSubnetGroupName,
+        "Description" Core.=: description,
         "SubnetIds"
-          Prelude.=: Prelude.toQueryList "SubnetIdentifier" subnetIds
+          Core.=: Core.toQueryList "SubnetIdentifier" subnetIds
       ]
 
 -- | /See:/ 'newCreateClusterSubnetGroupResponse' smart constructor.
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
-  { clusterSubnetGroup :: Prelude.Maybe ClusterSubnetGroup,
+  { clusterSubnetGroup :: Core.Maybe ClusterSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateClusterSubnetGroupResponse' with all optional fields omitted.
@@ -218,23 +215,21 @@ data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
 -- 'httpStatus', 'createClusterSubnetGroupResponse_httpStatus' - The response's http status code.
 newCreateClusterSubnetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateClusterSubnetGroupResponse
 newCreateClusterSubnetGroupResponse pHttpStatus_ =
   CreateClusterSubnetGroupResponse'
     { clusterSubnetGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createClusterSubnetGroupResponse_clusterSubnetGroup :: Lens.Lens' CreateClusterSubnetGroupResponse (Prelude.Maybe ClusterSubnetGroup)
+createClusterSubnetGroupResponse_clusterSubnetGroup :: Lens.Lens' CreateClusterSubnetGroupResponse (Core.Maybe ClusterSubnetGroup)
 createClusterSubnetGroupResponse_clusterSubnetGroup = Lens.lens (\CreateClusterSubnetGroupResponse' {clusterSubnetGroup} -> clusterSubnetGroup) (\s@CreateClusterSubnetGroupResponse' {} a -> s {clusterSubnetGroup = a} :: CreateClusterSubnetGroupResponse)
 
 -- | The response's http status code.
-createClusterSubnetGroupResponse_httpStatus :: Lens.Lens' CreateClusterSubnetGroupResponse Prelude.Int
+createClusterSubnetGroupResponse_httpStatus :: Lens.Lens' CreateClusterSubnetGroupResponse Core.Int
 createClusterSubnetGroupResponse_httpStatus = Lens.lens (\CreateClusterSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@CreateClusterSubnetGroupResponse' {} a -> s {httpStatus = a} :: CreateClusterSubnetGroupResponse)
 
-instance
-  Prelude.NFData
-    CreateClusterSubnetGroupResponse
+instance Core.NFData CreateClusterSubnetGroupResponse

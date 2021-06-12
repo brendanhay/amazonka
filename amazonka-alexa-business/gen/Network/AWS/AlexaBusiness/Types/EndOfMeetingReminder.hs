@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AlexaBusiness.Types.EndOfMeetingReminder where
 
 import Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for the end of meeting reminder feature that are applied to a
 -- room profile. The end of meeting reminder enables Alexa to remind users
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEndOfMeetingReminder' smart constructor.
 data EndOfMeetingReminder = EndOfMeetingReminder'
   { -- | The type of sound that users hear during the end of meeting reminder.
-    reminderType :: Prelude.Maybe EndOfMeetingReminderType,
+    reminderType :: Core.Maybe EndOfMeetingReminderType,
     -- | A range of 3 to 15 minutes that determines when the reminder begins.
-    reminderAtMinutes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int),
+    reminderAtMinutes :: Core.Maybe (Core.NonEmpty Core.Int),
     -- | Whether an end of meeting reminder is enabled or not.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndOfMeetingReminder' with all optional fields omitted.
@@ -56,35 +55,34 @@ newEndOfMeetingReminder ::
   EndOfMeetingReminder
 newEndOfMeetingReminder =
   EndOfMeetingReminder'
-    { reminderType =
-        Prelude.Nothing,
-      reminderAtMinutes = Prelude.Nothing,
-      enabled = Prelude.Nothing
+    { reminderType = Core.Nothing,
+      reminderAtMinutes = Core.Nothing,
+      enabled = Core.Nothing
     }
 
 -- | The type of sound that users hear during the end of meeting reminder.
-endOfMeetingReminder_reminderType :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
+endOfMeetingReminder_reminderType :: Lens.Lens' EndOfMeetingReminder (Core.Maybe EndOfMeetingReminderType)
 endOfMeetingReminder_reminderType = Lens.lens (\EndOfMeetingReminder' {reminderType} -> reminderType) (\s@EndOfMeetingReminder' {} a -> s {reminderType = a} :: EndOfMeetingReminder)
 
 -- | A range of 3 to 15 minutes that determines when the reminder begins.
-endOfMeetingReminder_reminderAtMinutes :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe (Prelude.NonEmpty Prelude.Int))
-endOfMeetingReminder_reminderAtMinutes = Lens.lens (\EndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@EndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: EndOfMeetingReminder) Prelude.. Lens.mapping Prelude._Coerce
+endOfMeetingReminder_reminderAtMinutes :: Lens.Lens' EndOfMeetingReminder (Core.Maybe (Core.NonEmpty Core.Int))
+endOfMeetingReminder_reminderAtMinutes = Lens.lens (\EndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@EndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: EndOfMeetingReminder) Core.. Lens.mapping Lens._Coerce
 
 -- | Whether an end of meeting reminder is enabled or not.
-endOfMeetingReminder_enabled :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe Prelude.Bool)
+endOfMeetingReminder_enabled :: Lens.Lens' EndOfMeetingReminder (Core.Maybe Core.Bool)
 endOfMeetingReminder_enabled = Lens.lens (\EndOfMeetingReminder' {enabled} -> enabled) (\s@EndOfMeetingReminder' {} a -> s {enabled = a} :: EndOfMeetingReminder)
 
-instance Prelude.FromJSON EndOfMeetingReminder where
+instance Core.FromJSON EndOfMeetingReminder where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EndOfMeetingReminder"
       ( \x ->
           EndOfMeetingReminder'
-            Prelude.<$> (x Prelude..:? "ReminderType")
-            Prelude.<*> (x Prelude..:? "ReminderAtMinutes")
-            Prelude.<*> (x Prelude..:? "Enabled")
+            Core.<$> (x Core..:? "ReminderType")
+            Core.<*> (x Core..:? "ReminderAtMinutes")
+            Core.<*> (x Core..:? "Enabled")
       )
 
-instance Prelude.Hashable EndOfMeetingReminder
+instance Core.Hashable EndOfMeetingReminder
 
-instance Prelude.NFData EndOfMeetingReminder
+instance Core.NFData EndOfMeetingReminder

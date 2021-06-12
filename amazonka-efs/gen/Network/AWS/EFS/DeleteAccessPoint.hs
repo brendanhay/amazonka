@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.EFS.DeleteAccessPoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAccessPoint' smart constructor.
 data DeleteAccessPoint = DeleteAccessPoint'
   { -- | The ID of the access point that you want to delete.
-    accessPointId :: Prelude.Text
+    accessPointId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccessPoint' with all optional fields omitted.
@@ -66,43 +65,45 @@ data DeleteAccessPoint = DeleteAccessPoint'
 -- 'accessPointId', 'deleteAccessPoint_accessPointId' - The ID of the access point that you want to delete.
 newDeleteAccessPoint ::
   -- | 'accessPointId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAccessPoint
 newDeleteAccessPoint pAccessPointId_ =
   DeleteAccessPoint' {accessPointId = pAccessPointId_}
 
 -- | The ID of the access point that you want to delete.
-deleteAccessPoint_accessPointId :: Lens.Lens' DeleteAccessPoint Prelude.Text
+deleteAccessPoint_accessPointId :: Lens.Lens' DeleteAccessPoint Core.Text
 deleteAccessPoint_accessPointId = Lens.lens (\DeleteAccessPoint' {accessPointId} -> accessPointId) (\s@DeleteAccessPoint' {} a -> s {accessPointId = a} :: DeleteAccessPoint)
 
-instance Prelude.AWSRequest DeleteAccessPoint where
-  type Rs DeleteAccessPoint = DeleteAccessPointResponse
+instance Core.AWSRequest DeleteAccessPoint where
+  type
+    AWSResponse DeleteAccessPoint =
+      DeleteAccessPointResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteAccessPointResponse'
 
-instance Prelude.Hashable DeleteAccessPoint
+instance Core.Hashable DeleteAccessPoint
 
-instance Prelude.NFData DeleteAccessPoint
+instance Core.NFData DeleteAccessPoint
 
-instance Prelude.ToHeaders DeleteAccessPoint where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteAccessPoint where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteAccessPoint where
+instance Core.ToPath DeleteAccessPoint where
   toPath DeleteAccessPoint' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/access-points/",
-        Prelude.toBS accessPointId
+        Core.toBS accessPointId
       ]
 
-instance Prelude.ToQuery DeleteAccessPoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAccessPoint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAccessPointResponse' smart constructor.
 data DeleteAccessPointResponse = DeleteAccessPointResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAccessPointResponse' with all optional fields omitted.
@@ -113,4 +114,4 @@ newDeleteAccessPointResponse ::
 newDeleteAccessPointResponse =
   DeleteAccessPointResponse'
 
-instance Prelude.NFData DeleteAccessPointResponse
+instance Core.NFData DeleteAccessPointResponse

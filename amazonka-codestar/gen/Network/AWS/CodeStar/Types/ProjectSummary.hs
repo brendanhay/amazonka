@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeStar.Types.ProjectSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the metadata for a project.
 --
 -- /See:/ 'newProjectSummary' smart constructor.
 data ProjectSummary = ProjectSummary'
   { -- | The ID of the project.
-    projectId :: Prelude.Maybe Prelude.Text,
+    projectId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the project.
-    projectArn :: Prelude.Maybe Prelude.Text
+    projectArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectSummary' with all optional fields omitted.
@@ -49,28 +48,28 @@ newProjectSummary ::
   ProjectSummary
 newProjectSummary =
   ProjectSummary'
-    { projectId = Prelude.Nothing,
-      projectArn = Prelude.Nothing
+    { projectId = Core.Nothing,
+      projectArn = Core.Nothing
     }
 
 -- | The ID of the project.
-projectSummary_projectId :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
+projectSummary_projectId :: Lens.Lens' ProjectSummary (Core.Maybe Core.Text)
 projectSummary_projectId = Lens.lens (\ProjectSummary' {projectId} -> projectId) (\s@ProjectSummary' {} a -> s {projectId = a} :: ProjectSummary)
 
 -- | The Amazon Resource Name (ARN) of the project.
-projectSummary_projectArn :: Lens.Lens' ProjectSummary (Prelude.Maybe Prelude.Text)
+projectSummary_projectArn :: Lens.Lens' ProjectSummary (Core.Maybe Core.Text)
 projectSummary_projectArn = Lens.lens (\ProjectSummary' {projectArn} -> projectArn) (\s@ProjectSummary' {} a -> s {projectArn = a} :: ProjectSummary)
 
-instance Prelude.FromJSON ProjectSummary where
+instance Core.FromJSON ProjectSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectSummary"
       ( \x ->
           ProjectSummary'
-            Prelude.<$> (x Prelude..:? "projectId")
-            Prelude.<*> (x Prelude..:? "projectArn")
+            Core.<$> (x Core..:? "projectId")
+            Core.<*> (x Core..:? "projectArn")
       )
 
-instance Prelude.Hashable ProjectSummary
+instance Core.Hashable ProjectSummary
 
-instance Prelude.NFData ProjectSummary
+instance Core.NFData ProjectSummary

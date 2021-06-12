@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,8 @@ module Network.AWS.XRay.GetSamplingStatisticSummaries
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -54,9 +52,9 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newGetSamplingStatisticSummaries' smart constructor.
 data GetSamplingStatisticSummaries = GetSamplingStatisticSummaries'
   { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSamplingStatisticSummaries' with all optional fields omitted.
@@ -72,93 +70,85 @@ newGetSamplingStatisticSummaries ::
 newGetSamplingStatisticSummaries =
   GetSamplingStatisticSummaries'
     { nextToken =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Pagination token.
-getSamplingStatisticSummaries_nextToken :: Lens.Lens' GetSamplingStatisticSummaries (Prelude.Maybe Prelude.Text)
+getSamplingStatisticSummaries_nextToken :: Lens.Lens' GetSamplingStatisticSummaries (Core.Maybe Core.Text)
 getSamplingStatisticSummaries_nextToken = Lens.lens (\GetSamplingStatisticSummaries' {nextToken} -> nextToken) (\s@GetSamplingStatisticSummaries' {} a -> s {nextToken = a} :: GetSamplingStatisticSummaries)
 
-instance Pager.AWSPager GetSamplingStatisticSummaries where
+instance Core.AWSPager GetSamplingStatisticSummaries where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getSamplingStatisticSummariesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getSamplingStatisticSummariesResponse_samplingStatisticSummaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getSamplingStatisticSummaries_nextToken
           Lens..~ rs
           Lens.^? getSamplingStatisticSummariesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetSamplingStatisticSummaries
   where
   type
-    Rs GetSamplingStatisticSummaries =
+    AWSResponse GetSamplingStatisticSummaries =
       GetSamplingStatisticSummariesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSamplingStatisticSummariesResponse'
-            Prelude.<$> ( x Prelude..?> "SamplingStatisticSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "SamplingStatisticSummaries"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetSamplingStatisticSummaries
+instance Core.Hashable GetSamplingStatisticSummaries
 
-instance Prelude.NFData GetSamplingStatisticSummaries
+instance Core.NFData GetSamplingStatisticSummaries
 
-instance
-  Prelude.ToHeaders
-    GetSamplingStatisticSummaries
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetSamplingStatisticSummaries where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetSamplingStatisticSummaries where
+instance Core.ToJSON GetSamplingStatisticSummaries where
   toJSON GetSamplingStatisticSummaries' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("NextToken" Prelude..=) Prelude.<$> nextToken]
+    Core.object
+      ( Core.catMaybes
+          [("NextToken" Core..=) Core.<$> nextToken]
       )
 
-instance Prelude.ToPath GetSamplingStatisticSummaries where
-  toPath = Prelude.const "/SamplingStatisticSummaries"
+instance Core.ToPath GetSamplingStatisticSummaries where
+  toPath = Core.const "/SamplingStatisticSummaries"
 
-instance
-  Prelude.ToQuery
-    GetSamplingStatisticSummaries
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSamplingStatisticSummaries where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSamplingStatisticSummariesResponse' smart constructor.
 data GetSamplingStatisticSummariesResponse = GetSamplingStatisticSummariesResponse'
   { -- | Information about the number of requests instrumented for each sampling
     -- rule.
-    samplingStatisticSummaries :: Prelude.Maybe [SamplingStatisticSummary],
+    samplingStatisticSummaries :: Core.Maybe [SamplingStatisticSummary],
     -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSamplingStatisticSummariesResponse' with all optional fields omitted.
@@ -176,29 +166,29 @@ data GetSamplingStatisticSummariesResponse = GetSamplingStatisticSummariesRespon
 -- 'httpStatus', 'getSamplingStatisticSummariesResponse_httpStatus' - The response's http status code.
 newGetSamplingStatisticSummariesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSamplingStatisticSummariesResponse
 newGetSamplingStatisticSummariesResponse pHttpStatus_ =
   GetSamplingStatisticSummariesResponse'
     { samplingStatisticSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the number of requests instrumented for each sampling
 -- rule.
-getSamplingStatisticSummariesResponse_samplingStatisticSummaries :: Lens.Lens' GetSamplingStatisticSummariesResponse (Prelude.Maybe [SamplingStatisticSummary])
-getSamplingStatisticSummariesResponse_samplingStatisticSummaries = Lens.lens (\GetSamplingStatisticSummariesResponse' {samplingStatisticSummaries} -> samplingStatisticSummaries) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {samplingStatisticSummaries = a} :: GetSamplingStatisticSummariesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSamplingStatisticSummariesResponse_samplingStatisticSummaries :: Lens.Lens' GetSamplingStatisticSummariesResponse (Core.Maybe [SamplingStatisticSummary])
+getSamplingStatisticSummariesResponse_samplingStatisticSummaries = Lens.lens (\GetSamplingStatisticSummariesResponse' {samplingStatisticSummaries} -> samplingStatisticSummaries) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {samplingStatisticSummaries = a} :: GetSamplingStatisticSummariesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Pagination token.
-getSamplingStatisticSummariesResponse_nextToken :: Lens.Lens' GetSamplingStatisticSummariesResponse (Prelude.Maybe Prelude.Text)
+getSamplingStatisticSummariesResponse_nextToken :: Lens.Lens' GetSamplingStatisticSummariesResponse (Core.Maybe Core.Text)
 getSamplingStatisticSummariesResponse_nextToken = Lens.lens (\GetSamplingStatisticSummariesResponse' {nextToken} -> nextToken) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {nextToken = a} :: GetSamplingStatisticSummariesResponse)
 
 -- | The response's http status code.
-getSamplingStatisticSummariesResponse_httpStatus :: Lens.Lens' GetSamplingStatisticSummariesResponse Prelude.Int
+getSamplingStatisticSummariesResponse_httpStatus :: Lens.Lens' GetSamplingStatisticSummariesResponse Core.Int
 getSamplingStatisticSummariesResponse_httpStatus = Lens.lens (\GetSamplingStatisticSummariesResponse' {httpStatus} -> httpStatus) (\s@GetSamplingStatisticSummariesResponse' {} a -> s {httpStatus = a} :: GetSamplingStatisticSummariesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetSamplingStatisticSummariesResponse

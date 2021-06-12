@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.CodePipeline.UpdateActionType
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateActionType' smart constructor.
 data UpdateActionType = UpdateActionType'
   { -- | The action type definition for the action type to be updated.
-    actionType :: Prelude.Maybe ActionTypeDeclaration
+    actionType :: Core.Maybe ActionTypeDeclaration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateActionType' with all optional fields omitted.
@@ -64,55 +63,55 @@ data UpdateActionType = UpdateActionType'
 newUpdateActionType ::
   UpdateActionType
 newUpdateActionType =
-  UpdateActionType' {actionType = Prelude.Nothing}
+  UpdateActionType' {actionType = Core.Nothing}
 
 -- | The action type definition for the action type to be updated.
-updateActionType_actionType :: Lens.Lens' UpdateActionType (Prelude.Maybe ActionTypeDeclaration)
+updateActionType_actionType :: Lens.Lens' UpdateActionType (Core.Maybe ActionTypeDeclaration)
 updateActionType_actionType = Lens.lens (\UpdateActionType' {actionType} -> actionType) (\s@UpdateActionType' {} a -> s {actionType = a} :: UpdateActionType)
 
-instance Prelude.AWSRequest UpdateActionType where
-  type Rs UpdateActionType = UpdateActionTypeResponse
+instance Core.AWSRequest UpdateActionType where
+  type
+    AWSResponse UpdateActionType =
+      UpdateActionTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateActionTypeResponse'
 
-instance Prelude.Hashable UpdateActionType
+instance Core.Hashable UpdateActionType
 
-instance Prelude.NFData UpdateActionType
+instance Core.NFData UpdateActionType
 
-instance Prelude.ToHeaders UpdateActionType where
+instance Core.ToHeaders UpdateActionType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.UpdateActionType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.UpdateActionType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateActionType where
+instance Core.ToJSON UpdateActionType where
   toJSON UpdateActionType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("actionType" Prelude..=) Prelude.<$> actionType]
+    Core.object
+      ( Core.catMaybes
+          [("actionType" Core..=) Core.<$> actionType]
       )
 
-instance Prelude.ToPath UpdateActionType where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateActionType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateActionType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateActionType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateActionTypeResponse' smart constructor.
 data UpdateActionTypeResponse = UpdateActionTypeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateActionTypeResponse' with all optional fields omitted.
@@ -123,4 +122,4 @@ newUpdateActionTypeResponse ::
 newUpdateActionTypeResponse =
   UpdateActionTypeResponse'
 
-instance Prelude.NFData UpdateActionTypeResponse
+instance Core.NFData UpdateActionTypeResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFormation.Types.ResourceToImport where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the target resource of an import operation.
 --
@@ -31,16 +30,16 @@ data ResourceToImport = ResourceToImport'
     -- @AWS::S3::Bucket@. For a list of supported resource types, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html Resources that support import operations>
     -- in the AWS CloudFormation User Guide.
-    resourceType :: Prelude.Text,
+    resourceType :: Core.Text,
     -- | The logical ID of the target resource as specified in the template.
-    logicalResourceId :: Prelude.Text,
+    logicalResourceId :: Core.Text,
     -- | A key-value pair that identifies the target resource. The key is an
     -- identifier property (for example, @BucketName@ for @AWS::S3::Bucket@
     -- resources) and the value is the actual property value (for example,
     -- @MyS3Bucket@).
-    resourceIdentifier :: Prelude.HashMap Prelude.Text Prelude.Text
+    resourceIdentifier :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceToImport' with all optional fields omitted.
@@ -63,9 +62,9 @@ data ResourceToImport = ResourceToImport'
 -- @MyS3Bucket@).
 newResourceToImport ::
   -- | 'resourceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logicalResourceId'
-  Prelude.Text ->
+  Core.Text ->
   ResourceToImport
 newResourceToImport
   pResourceType_
@@ -73,38 +72,38 @@ newResourceToImport
     ResourceToImport'
       { resourceType = pResourceType_,
         logicalResourceId = pLogicalResourceId_,
-        resourceIdentifier = Prelude.mempty
+        resourceIdentifier = Core.mempty
       }
 
 -- | The type of resource to import into your stack, such as
 -- @AWS::S3::Bucket@. For a list of supported resource types, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html Resources that support import operations>
 -- in the AWS CloudFormation User Guide.
-resourceToImport_resourceType :: Lens.Lens' ResourceToImport Prelude.Text
+resourceToImport_resourceType :: Lens.Lens' ResourceToImport Core.Text
 resourceToImport_resourceType = Lens.lens (\ResourceToImport' {resourceType} -> resourceType) (\s@ResourceToImport' {} a -> s {resourceType = a} :: ResourceToImport)
 
 -- | The logical ID of the target resource as specified in the template.
-resourceToImport_logicalResourceId :: Lens.Lens' ResourceToImport Prelude.Text
+resourceToImport_logicalResourceId :: Lens.Lens' ResourceToImport Core.Text
 resourceToImport_logicalResourceId = Lens.lens (\ResourceToImport' {logicalResourceId} -> logicalResourceId) (\s@ResourceToImport' {} a -> s {logicalResourceId = a} :: ResourceToImport)
 
 -- | A key-value pair that identifies the target resource. The key is an
 -- identifier property (for example, @BucketName@ for @AWS::S3::Bucket@
 -- resources) and the value is the actual property value (for example,
 -- @MyS3Bucket@).
-resourceToImport_resourceIdentifier :: Lens.Lens' ResourceToImport (Prelude.HashMap Prelude.Text Prelude.Text)
-resourceToImport_resourceIdentifier = Lens.lens (\ResourceToImport' {resourceIdentifier} -> resourceIdentifier) (\s@ResourceToImport' {} a -> s {resourceIdentifier = a} :: ResourceToImport) Prelude.. Prelude._Coerce
+resourceToImport_resourceIdentifier :: Lens.Lens' ResourceToImport (Core.HashMap Core.Text Core.Text)
+resourceToImport_resourceIdentifier = Lens.lens (\ResourceToImport' {resourceIdentifier} -> resourceIdentifier) (\s@ResourceToImport' {} a -> s {resourceIdentifier = a} :: ResourceToImport) Core.. Lens._Coerce
 
-instance Prelude.Hashable ResourceToImport
+instance Core.Hashable ResourceToImport
 
-instance Prelude.NFData ResourceToImport
+instance Core.NFData ResourceToImport
 
-instance Prelude.ToQuery ResourceToImport where
+instance Core.ToQuery ResourceToImport where
   toQuery ResourceToImport' {..} =
-    Prelude.mconcat
-      [ "ResourceType" Prelude.=: resourceType,
-        "LogicalResourceId" Prelude.=: logicalResourceId,
+    Core.mconcat
+      [ "ResourceType" Core.=: resourceType,
+        "LogicalResourceId" Core.=: logicalResourceId,
         "ResourceIdentifier"
-          Prelude.=: Prelude.toQueryMap
+          Core.=: Core.toQueryMap
             "entry"
             "key"
             "value"

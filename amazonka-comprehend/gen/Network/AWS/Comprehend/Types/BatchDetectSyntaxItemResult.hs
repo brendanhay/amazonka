@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Comprehend.Types.BatchDetectSyntaxItemResult where
 
 import Network.AWS.Comprehend.Types.SyntaxToken
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
 -- that is successfully processed by the operation.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchDetectSyntaxItemResult = BatchDetectSyntaxItemResult'
   { -- | The syntax tokens for the words in the document, one token for each
     -- word.
-    syntaxTokens :: Prelude.Maybe [SyntaxToken],
+    syntaxTokens :: Core.Maybe [SyntaxToken],
     -- | The zero-based index of the document in the input list.
-    index :: Prelude.Maybe Prelude.Int
+    index :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetectSyntaxItemResult' with all optional fields omitted.
@@ -54,31 +53,29 @@ newBatchDetectSyntaxItemResult ::
 newBatchDetectSyntaxItemResult =
   BatchDetectSyntaxItemResult'
     { syntaxTokens =
-        Prelude.Nothing,
-      index = Prelude.Nothing
+        Core.Nothing,
+      index = Core.Nothing
     }
 
 -- | The syntax tokens for the words in the document, one token for each
 -- word.
-batchDetectSyntaxItemResult_syntaxTokens :: Lens.Lens' BatchDetectSyntaxItemResult (Prelude.Maybe [SyntaxToken])
-batchDetectSyntaxItemResult_syntaxTokens = Lens.lens (\BatchDetectSyntaxItemResult' {syntaxTokens} -> syntaxTokens) (\s@BatchDetectSyntaxItemResult' {} a -> s {syntaxTokens = a} :: BatchDetectSyntaxItemResult) Prelude.. Lens.mapping Prelude._Coerce
+batchDetectSyntaxItemResult_syntaxTokens :: Lens.Lens' BatchDetectSyntaxItemResult (Core.Maybe [SyntaxToken])
+batchDetectSyntaxItemResult_syntaxTokens = Lens.lens (\BatchDetectSyntaxItemResult' {syntaxTokens} -> syntaxTokens) (\s@BatchDetectSyntaxItemResult' {} a -> s {syntaxTokens = a} :: BatchDetectSyntaxItemResult) Core.. Lens.mapping Lens._Coerce
 
 -- | The zero-based index of the document in the input list.
-batchDetectSyntaxItemResult_index :: Lens.Lens' BatchDetectSyntaxItemResult (Prelude.Maybe Prelude.Int)
+batchDetectSyntaxItemResult_index :: Lens.Lens' BatchDetectSyntaxItemResult (Core.Maybe Core.Int)
 batchDetectSyntaxItemResult_index = Lens.lens (\BatchDetectSyntaxItemResult' {index} -> index) (\s@BatchDetectSyntaxItemResult' {} a -> s {index = a} :: BatchDetectSyntaxItemResult)
 
-instance Prelude.FromJSON BatchDetectSyntaxItemResult where
+instance Core.FromJSON BatchDetectSyntaxItemResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDetectSyntaxItemResult"
       ( \x ->
           BatchDetectSyntaxItemResult'
-            Prelude.<$> ( x Prelude..:? "SyntaxTokens"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Index")
+            Core.<$> (x Core..:? "SyntaxTokens" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Index")
       )
 
-instance Prelude.Hashable BatchDetectSyntaxItemResult
+instance Core.Hashable BatchDetectSyntaxItemResult
 
-instance Prelude.NFData BatchDetectSyntaxItemResult
+instance Core.NFData BatchDetectSyntaxItemResult

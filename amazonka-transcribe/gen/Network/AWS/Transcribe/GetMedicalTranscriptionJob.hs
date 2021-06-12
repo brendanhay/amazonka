@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Transcribe.GetMedicalTranscriptionJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -53,9 +52,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newGetMedicalTranscriptionJob' smart constructor.
 data GetMedicalTranscriptionJob = GetMedicalTranscriptionJob'
   { -- | The name of the medical transcription job.
-    medicalTranscriptionJobName :: Prelude.Text
+    medicalTranscriptionJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMedicalTranscriptionJob' with all optional fields omitted.
@@ -68,7 +67,7 @@ data GetMedicalTranscriptionJob = GetMedicalTranscriptionJob'
 -- 'medicalTranscriptionJobName', 'getMedicalTranscriptionJob_medicalTranscriptionJobName' - The name of the medical transcription job.
 newGetMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
-  Prelude.Text ->
+  Core.Text ->
   GetMedicalTranscriptionJob
 newGetMedicalTranscriptionJob
   pMedicalTranscriptionJobName_ =
@@ -78,69 +77,64 @@ newGetMedicalTranscriptionJob
       }
 
 -- | The name of the medical transcription job.
-getMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' GetMedicalTranscriptionJob Prelude.Text
+getMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' GetMedicalTranscriptionJob Core.Text
 getMedicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\GetMedicalTranscriptionJob' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@GetMedicalTranscriptionJob' {} a -> s {medicalTranscriptionJobName = a} :: GetMedicalTranscriptionJob)
 
-instance
-  Prelude.AWSRequest
-    GetMedicalTranscriptionJob
-  where
+instance Core.AWSRequest GetMedicalTranscriptionJob where
   type
-    Rs GetMedicalTranscriptionJob =
+    AWSResponse GetMedicalTranscriptionJob =
       GetMedicalTranscriptionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetMedicalTranscriptionJobResponse'
-            Prelude.<$> (x Prelude..?> "MedicalTranscriptionJob")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "MedicalTranscriptionJob")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetMedicalTranscriptionJob
+instance Core.Hashable GetMedicalTranscriptionJob
 
-instance Prelude.NFData GetMedicalTranscriptionJob
+instance Core.NFData GetMedicalTranscriptionJob
 
-instance Prelude.ToHeaders GetMedicalTranscriptionJob where
+instance Core.ToHeaders GetMedicalTranscriptionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.GetMedicalTranscriptionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.GetMedicalTranscriptionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetMedicalTranscriptionJob where
+instance Core.ToJSON GetMedicalTranscriptionJob where
   toJSON GetMedicalTranscriptionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "MedicalTranscriptionJobName"
-                  Prelude..= medicalTranscriptionJobName
+                  Core..= medicalTranscriptionJobName
               )
           ]
       )
 
-instance Prelude.ToPath GetMedicalTranscriptionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetMedicalTranscriptionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetMedicalTranscriptionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMedicalTranscriptionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetMedicalTranscriptionJobResponse' smart constructor.
 data GetMedicalTranscriptionJobResponse = GetMedicalTranscriptionJobResponse'
   { -- | An object that contains the results of the medical transcription job.
-    medicalTranscriptionJob :: Prelude.Maybe MedicalTranscriptionJob,
+    medicalTranscriptionJob :: Core.Maybe MedicalTranscriptionJob,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMedicalTranscriptionJobResponse' with all optional fields omitted.
@@ -155,23 +149,23 @@ data GetMedicalTranscriptionJobResponse = GetMedicalTranscriptionJobResponse'
 -- 'httpStatus', 'getMedicalTranscriptionJobResponse_httpStatus' - The response's http status code.
 newGetMedicalTranscriptionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetMedicalTranscriptionJobResponse
 newGetMedicalTranscriptionJobResponse pHttpStatus_ =
   GetMedicalTranscriptionJobResponse'
     { medicalTranscriptionJob =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the results of the medical transcription job.
-getMedicalTranscriptionJobResponse_medicalTranscriptionJob :: Lens.Lens' GetMedicalTranscriptionJobResponse (Prelude.Maybe MedicalTranscriptionJob)
+getMedicalTranscriptionJobResponse_medicalTranscriptionJob :: Lens.Lens' GetMedicalTranscriptionJobResponse (Core.Maybe MedicalTranscriptionJob)
 getMedicalTranscriptionJobResponse_medicalTranscriptionJob = Lens.lens (\GetMedicalTranscriptionJobResponse' {medicalTranscriptionJob} -> medicalTranscriptionJob) (\s@GetMedicalTranscriptionJobResponse' {} a -> s {medicalTranscriptionJob = a} :: GetMedicalTranscriptionJobResponse)
 
 -- | The response's http status code.
-getMedicalTranscriptionJobResponse_httpStatus :: Lens.Lens' GetMedicalTranscriptionJobResponse Prelude.Int
+getMedicalTranscriptionJobResponse_httpStatus :: Lens.Lens' GetMedicalTranscriptionJobResponse Core.Int
 getMedicalTranscriptionJobResponse_httpStatus = Lens.lens (\GetMedicalTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@GetMedicalTranscriptionJobResponse' {} a -> s {httpStatus = a} :: GetMedicalTranscriptionJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetMedicalTranscriptionJobResponse

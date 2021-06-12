@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProductionVariantSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.DeployedImage
 
 -- | Describes weight and capacities for a production variant associated with
@@ -34,21 +33,21 @@ data ProductionVariantSummary = ProductionVariantSummary'
   { -- | An array of @DeployedImage@ objects that specify the Amazon EC2
     -- Container Registry paths of the inference images deployed on instances
     -- of this @ProductionVariant@.
-    deployedImages :: Prelude.Maybe [DeployedImage],
+    deployedImages :: Core.Maybe [DeployedImage],
     -- | The number of instances requested in the
     -- @UpdateEndpointWeightsAndCapacities@ request.
-    desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
+    desiredInstanceCount :: Core.Maybe Core.Natural,
     -- | The weight associated with the variant.
-    currentWeight :: Prelude.Maybe Prelude.Double,
+    currentWeight :: Core.Maybe Core.Double,
     -- | The number of instances associated with the variant.
-    currentInstanceCount :: Prelude.Maybe Prelude.Natural,
+    currentInstanceCount :: Core.Maybe Core.Natural,
     -- | The requested weight, as specified in the
     -- @UpdateEndpointWeightsAndCapacities@ request.
-    desiredWeight :: Prelude.Maybe Prelude.Double,
+    desiredWeight :: Core.Maybe Core.Double,
     -- | The name of the variant.
-    variantName :: Prelude.Text
+    variantName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProductionVariantSummary' with all optional fields omitted.
@@ -75,63 +74,61 @@ data ProductionVariantSummary = ProductionVariantSummary'
 -- 'variantName', 'productionVariantSummary_variantName' - The name of the variant.
 newProductionVariantSummary ::
   -- | 'variantName'
-  Prelude.Text ->
+  Core.Text ->
   ProductionVariantSummary
 newProductionVariantSummary pVariantName_ =
   ProductionVariantSummary'
     { deployedImages =
-        Prelude.Nothing,
-      desiredInstanceCount = Prelude.Nothing,
-      currentWeight = Prelude.Nothing,
-      currentInstanceCount = Prelude.Nothing,
-      desiredWeight = Prelude.Nothing,
+        Core.Nothing,
+      desiredInstanceCount = Core.Nothing,
+      currentWeight = Core.Nothing,
+      currentInstanceCount = Core.Nothing,
+      desiredWeight = Core.Nothing,
       variantName = pVariantName_
     }
 
 -- | An array of @DeployedImage@ objects that specify the Amazon EC2
 -- Container Registry paths of the inference images deployed on instances
 -- of this @ProductionVariant@.
-productionVariantSummary_deployedImages :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe [DeployedImage])
-productionVariantSummary_deployedImages = Lens.lens (\ProductionVariantSummary' {deployedImages} -> deployedImages) (\s@ProductionVariantSummary' {} a -> s {deployedImages = a} :: ProductionVariantSummary) Prelude.. Lens.mapping Prelude._Coerce
+productionVariantSummary_deployedImages :: Lens.Lens' ProductionVariantSummary (Core.Maybe [DeployedImage])
+productionVariantSummary_deployedImages = Lens.lens (\ProductionVariantSummary' {deployedImages} -> deployedImages) (\s@ProductionVariantSummary' {} a -> s {deployedImages = a} :: ProductionVariantSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of instances requested in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
-productionVariantSummary_desiredInstanceCount :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Natural)
+productionVariantSummary_desiredInstanceCount :: Lens.Lens' ProductionVariantSummary (Core.Maybe Core.Natural)
 productionVariantSummary_desiredInstanceCount = Lens.lens (\ProductionVariantSummary' {desiredInstanceCount} -> desiredInstanceCount) (\s@ProductionVariantSummary' {} a -> s {desiredInstanceCount = a} :: ProductionVariantSummary)
 
 -- | The weight associated with the variant.
-productionVariantSummary_currentWeight :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Double)
+productionVariantSummary_currentWeight :: Lens.Lens' ProductionVariantSummary (Core.Maybe Core.Double)
 productionVariantSummary_currentWeight = Lens.lens (\ProductionVariantSummary' {currentWeight} -> currentWeight) (\s@ProductionVariantSummary' {} a -> s {currentWeight = a} :: ProductionVariantSummary)
 
 -- | The number of instances associated with the variant.
-productionVariantSummary_currentInstanceCount :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Natural)
+productionVariantSummary_currentInstanceCount :: Lens.Lens' ProductionVariantSummary (Core.Maybe Core.Natural)
 productionVariantSummary_currentInstanceCount = Lens.lens (\ProductionVariantSummary' {currentInstanceCount} -> currentInstanceCount) (\s@ProductionVariantSummary' {} a -> s {currentInstanceCount = a} :: ProductionVariantSummary)
 
 -- | The requested weight, as specified in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
-productionVariantSummary_desiredWeight :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Double)
+productionVariantSummary_desiredWeight :: Lens.Lens' ProductionVariantSummary (Core.Maybe Core.Double)
 productionVariantSummary_desiredWeight = Lens.lens (\ProductionVariantSummary' {desiredWeight} -> desiredWeight) (\s@ProductionVariantSummary' {} a -> s {desiredWeight = a} :: ProductionVariantSummary)
 
 -- | The name of the variant.
-productionVariantSummary_variantName :: Lens.Lens' ProductionVariantSummary Prelude.Text
+productionVariantSummary_variantName :: Lens.Lens' ProductionVariantSummary Core.Text
 productionVariantSummary_variantName = Lens.lens (\ProductionVariantSummary' {variantName} -> variantName) (\s@ProductionVariantSummary' {} a -> s {variantName = a} :: ProductionVariantSummary)
 
-instance Prelude.FromJSON ProductionVariantSummary where
+instance Core.FromJSON ProductionVariantSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProductionVariantSummary"
       ( \x ->
           ProductionVariantSummary'
-            Prelude.<$> ( x Prelude..:? "DeployedImages"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "DesiredInstanceCount")
-            Prelude.<*> (x Prelude..:? "CurrentWeight")
-            Prelude.<*> (x Prelude..:? "CurrentInstanceCount")
-            Prelude.<*> (x Prelude..:? "DesiredWeight")
-            Prelude.<*> (x Prelude..: "VariantName")
+            Core.<$> (x Core..:? "DeployedImages" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "DesiredInstanceCount")
+            Core.<*> (x Core..:? "CurrentWeight")
+            Core.<*> (x Core..:? "CurrentInstanceCount")
+            Core.<*> (x Core..:? "DesiredWeight")
+            Core.<*> (x Core..: "VariantName")
       )
 
-instance Prelude.Hashable ProductionVariantSummary
+instance Core.Hashable ProductionVariantSummary
 
-instance Prelude.NFData ProductionVariantSummary
+instance Core.NFData ProductionVariantSummary

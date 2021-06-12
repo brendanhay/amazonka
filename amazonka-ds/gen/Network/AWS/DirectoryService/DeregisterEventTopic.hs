@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DirectoryService.DeregisterEventTopic
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data DeregisterEventTopic = DeregisterEventTopic'
   { -- | The Directory ID to remove as a publisher. This directory will no longer
     -- send messages to the specified SNS topic.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The name of the SNS topic from which to remove the directory as a
     -- publisher.
-    topicName :: Prelude.Text
+    topicName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterEventTopic' with all optional fields omitted.
@@ -76,9 +75,9 @@ data DeregisterEventTopic = DeregisterEventTopic'
 -- publisher.
 newDeregisterEventTopic ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'topicName'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterEventTopic
 newDeregisterEventTopic pDirectoryId_ pTopicName_ =
   DeregisterEventTopic'
@@ -88,68 +87,66 @@ newDeregisterEventTopic pDirectoryId_ pTopicName_ =
 
 -- | The Directory ID to remove as a publisher. This directory will no longer
 -- send messages to the specified SNS topic.
-deregisterEventTopic_directoryId :: Lens.Lens' DeregisterEventTopic Prelude.Text
+deregisterEventTopic_directoryId :: Lens.Lens' DeregisterEventTopic Core.Text
 deregisterEventTopic_directoryId = Lens.lens (\DeregisterEventTopic' {directoryId} -> directoryId) (\s@DeregisterEventTopic' {} a -> s {directoryId = a} :: DeregisterEventTopic)
 
 -- | The name of the SNS topic from which to remove the directory as a
 -- publisher.
-deregisterEventTopic_topicName :: Lens.Lens' DeregisterEventTopic Prelude.Text
+deregisterEventTopic_topicName :: Lens.Lens' DeregisterEventTopic Core.Text
 deregisterEventTopic_topicName = Lens.lens (\DeregisterEventTopic' {topicName} -> topicName) (\s@DeregisterEventTopic' {} a -> s {topicName = a} :: DeregisterEventTopic)
 
-instance Prelude.AWSRequest DeregisterEventTopic where
+instance Core.AWSRequest DeregisterEventTopic where
   type
-    Rs DeregisterEventTopic =
+    AWSResponse DeregisterEventTopic =
       DeregisterEventTopicResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterEventTopicResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeregisterEventTopic
+instance Core.Hashable DeregisterEventTopic
 
-instance Prelude.NFData DeregisterEventTopic
+instance Core.NFData DeregisterEventTopic
 
-instance Prelude.ToHeaders DeregisterEventTopic where
+instance Core.ToHeaders DeregisterEventTopic where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DeregisterEventTopic" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DeregisterEventTopic" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterEventTopic where
+instance Core.ToJSON DeregisterEventTopic where
   toJSON DeregisterEventTopic' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("TopicName" Prelude..= topicName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("TopicName" Core..= topicName)
           ]
       )
 
-instance Prelude.ToPath DeregisterEventTopic where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterEventTopic where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterEventTopic where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterEventTopic where
+  toQuery = Core.const Core.mempty
 
 -- | The result of a DeregisterEventTopic request.
 --
 -- /See:/ 'newDeregisterEventTopicResponse' smart constructor.
 data DeregisterEventTopicResponse = DeregisterEventTopicResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterEventTopicResponse' with all optional fields omitted.
@@ -162,7 +159,7 @@ data DeregisterEventTopicResponse = DeregisterEventTopicResponse'
 -- 'httpStatus', 'deregisterEventTopicResponse_httpStatus' - The response's http status code.
 newDeregisterEventTopicResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeregisterEventTopicResponse
 newDeregisterEventTopicResponse pHttpStatus_ =
   DeregisterEventTopicResponse'
@@ -171,7 +168,7 @@ newDeregisterEventTopicResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deregisterEventTopicResponse_httpStatus :: Lens.Lens' DeregisterEventTopicResponse Prelude.Int
+deregisterEventTopicResponse_httpStatus :: Lens.Lens' DeregisterEventTopicResponse Core.Int
 deregisterEventTopicResponse_httpStatus = Lens.lens (\DeregisterEventTopicResponse' {httpStatus} -> httpStatus) (\s@DeregisterEventTopicResponse' {} a -> s {httpStatus = a} :: DeregisterEventTopicResponse)
 
-instance Prelude.NFData DeregisterEventTopicResponse
+instance Core.NFData DeregisterEventTopicResponse

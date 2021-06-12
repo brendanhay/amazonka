@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowTypeConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.TaskList
 
@@ -37,7 +36,7 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultExecutionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    defaultExecutionStartToCloseTimeout :: Core.Maybe Core.Text,
     -- | The default task priority, specified when registering the workflow type,
     -- for all decision tasks of this workflow type. This default can be
     -- overridden when starting a workflow execution using the
@@ -51,13 +50,13 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
     -- For more information about setting task priority, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
-    defaultTaskPriority :: Prelude.Maybe Prelude.Text,
+    defaultTaskPriority :: Core.Maybe Core.Text,
     -- | The default task list, specified when registering the workflow type, for
     -- decisions tasks scheduled for workflow executions of this type. This
     -- default can be overridden when starting a workflow execution using the
     -- StartWorkflowExecution action or the @StartChildWorkflowExecution@
     -- Decision.
-    defaultTaskList :: Prelude.Maybe TaskList,
+    defaultTaskList :: Core.Maybe TaskList,
     -- | The default policy to use for the child workflow executions when a
     -- workflow execution of this type is terminated, by calling the
     -- TerminateWorkflowExecution action explicitly or due to an expired
@@ -76,7 +75,7 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
     --
     -- -   @ABANDON@ – No action is taken. The child executions continue to
     --     run.
-    defaultChildPolicy :: Prelude.Maybe ChildPolicy,
+    defaultChildPolicy :: Core.Maybe ChildPolicy,
     -- | The default IAM role attached to this workflow type.
     --
     -- Executions of this workflow type need IAM roles to invoke Lambda
@@ -85,7 +84,7 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
     -- information, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
     -- in the /Amazon SWF Developer Guide/.
-    defaultLambdaRole :: Prelude.Maybe Prelude.Text,
+    defaultLambdaRole :: Core.Maybe Core.Text,
     -- | The default maximum duration, specified when registering the workflow
     -- type, that a decision task for executions of this workflow type might
     -- take before returning completion or failure. If the task doesn\'tdo
@@ -97,9 +96,9 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration'
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskStartToCloseTimeout :: Prelude.Maybe Prelude.Text
+    defaultTaskStartToCloseTimeout :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowTypeConfiguration' with all optional fields omitted.
@@ -182,12 +181,12 @@ newWorkflowTypeConfiguration ::
 newWorkflowTypeConfiguration =
   WorkflowTypeConfiguration'
     { defaultExecutionStartToCloseTimeout =
-        Prelude.Nothing,
-      defaultTaskPriority = Prelude.Nothing,
-      defaultTaskList = Prelude.Nothing,
-      defaultChildPolicy = Prelude.Nothing,
-      defaultLambdaRole = Prelude.Nothing,
-      defaultTaskStartToCloseTimeout = Prelude.Nothing
+        Core.Nothing,
+      defaultTaskPriority = Core.Nothing,
+      defaultTaskList = Core.Nothing,
+      defaultChildPolicy = Core.Nothing,
+      defaultLambdaRole = Core.Nothing,
+      defaultTaskStartToCloseTimeout = Core.Nothing
     }
 
 -- | The default maximum duration, specified when registering the workflow
@@ -198,7 +197,7 @@ newWorkflowTypeConfiguration =
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowTypeConfiguration_defaultExecutionStartToCloseTimeout :: Lens.Lens' WorkflowTypeConfiguration (Prelude.Maybe Prelude.Text)
+workflowTypeConfiguration_defaultExecutionStartToCloseTimeout :: Lens.Lens' WorkflowTypeConfiguration (Core.Maybe Core.Text)
 workflowTypeConfiguration_defaultExecutionStartToCloseTimeout = Lens.lens (\WorkflowTypeConfiguration' {defaultExecutionStartToCloseTimeout} -> defaultExecutionStartToCloseTimeout) (\s@WorkflowTypeConfiguration' {} a -> s {defaultExecutionStartToCloseTimeout = a} :: WorkflowTypeConfiguration)
 
 -- | The default task priority, specified when registering the workflow type,
@@ -214,7 +213,7 @@ workflowTypeConfiguration_defaultExecutionStartToCloseTimeout = Lens.lens (\Work
 -- For more information about setting task priority, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
-workflowTypeConfiguration_defaultTaskPriority :: Lens.Lens' WorkflowTypeConfiguration (Prelude.Maybe Prelude.Text)
+workflowTypeConfiguration_defaultTaskPriority :: Lens.Lens' WorkflowTypeConfiguration (Core.Maybe Core.Text)
 workflowTypeConfiguration_defaultTaskPriority = Lens.lens (\WorkflowTypeConfiguration' {defaultTaskPriority} -> defaultTaskPriority) (\s@WorkflowTypeConfiguration' {} a -> s {defaultTaskPriority = a} :: WorkflowTypeConfiguration)
 
 -- | The default task list, specified when registering the workflow type, for
@@ -222,7 +221,7 @@ workflowTypeConfiguration_defaultTaskPriority = Lens.lens (\WorkflowTypeConfigur
 -- default can be overridden when starting a workflow execution using the
 -- StartWorkflowExecution action or the @StartChildWorkflowExecution@
 -- Decision.
-workflowTypeConfiguration_defaultTaskList :: Lens.Lens' WorkflowTypeConfiguration (Prelude.Maybe TaskList)
+workflowTypeConfiguration_defaultTaskList :: Lens.Lens' WorkflowTypeConfiguration (Core.Maybe TaskList)
 workflowTypeConfiguration_defaultTaskList = Lens.lens (\WorkflowTypeConfiguration' {defaultTaskList} -> defaultTaskList) (\s@WorkflowTypeConfiguration' {} a -> s {defaultTaskList = a} :: WorkflowTypeConfiguration)
 
 -- | The default policy to use for the child workflow executions when a
@@ -243,7 +242,7 @@ workflowTypeConfiguration_defaultTaskList = Lens.lens (\WorkflowTypeConfiguratio
 --
 -- -   @ABANDON@ – No action is taken. The child executions continue to
 --     run.
-workflowTypeConfiguration_defaultChildPolicy :: Lens.Lens' WorkflowTypeConfiguration (Prelude.Maybe ChildPolicy)
+workflowTypeConfiguration_defaultChildPolicy :: Lens.Lens' WorkflowTypeConfiguration (Core.Maybe ChildPolicy)
 workflowTypeConfiguration_defaultChildPolicy = Lens.lens (\WorkflowTypeConfiguration' {defaultChildPolicy} -> defaultChildPolicy) (\s@WorkflowTypeConfiguration' {} a -> s {defaultChildPolicy = a} :: WorkflowTypeConfiguration)
 
 -- | The default IAM role attached to this workflow type.
@@ -254,7 +253,7 @@ workflowTypeConfiguration_defaultChildPolicy = Lens.lens (\WorkflowTypeConfigura
 -- information, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
 -- in the /Amazon SWF Developer Guide/.
-workflowTypeConfiguration_defaultLambdaRole :: Lens.Lens' WorkflowTypeConfiguration (Prelude.Maybe Prelude.Text)
+workflowTypeConfiguration_defaultLambdaRole :: Lens.Lens' WorkflowTypeConfiguration (Core.Maybe Core.Text)
 workflowTypeConfiguration_defaultLambdaRole = Lens.lens (\WorkflowTypeConfiguration' {defaultLambdaRole} -> defaultLambdaRole) (\s@WorkflowTypeConfiguration' {} a -> s {defaultLambdaRole = a} :: WorkflowTypeConfiguration)
 
 -- | The default maximum duration, specified when registering the workflow
@@ -268,23 +267,23 @@ workflowTypeConfiguration_defaultLambdaRole = Lens.lens (\WorkflowTypeConfigurat
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-workflowTypeConfiguration_defaultTaskStartToCloseTimeout :: Lens.Lens' WorkflowTypeConfiguration (Prelude.Maybe Prelude.Text)
+workflowTypeConfiguration_defaultTaskStartToCloseTimeout :: Lens.Lens' WorkflowTypeConfiguration (Core.Maybe Core.Text)
 workflowTypeConfiguration_defaultTaskStartToCloseTimeout = Lens.lens (\WorkflowTypeConfiguration' {defaultTaskStartToCloseTimeout} -> defaultTaskStartToCloseTimeout) (\s@WorkflowTypeConfiguration' {} a -> s {defaultTaskStartToCloseTimeout = a} :: WorkflowTypeConfiguration)
 
-instance Prelude.FromJSON WorkflowTypeConfiguration where
+instance Core.FromJSON WorkflowTypeConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowTypeConfiguration"
       ( \x ->
           WorkflowTypeConfiguration'
-            Prelude.<$> (x Prelude..:? "defaultExecutionStartToCloseTimeout")
-            Prelude.<*> (x Prelude..:? "defaultTaskPriority")
-            Prelude.<*> (x Prelude..:? "defaultTaskList")
-            Prelude.<*> (x Prelude..:? "defaultChildPolicy")
-            Prelude.<*> (x Prelude..:? "defaultLambdaRole")
-            Prelude.<*> (x Prelude..:? "defaultTaskStartToCloseTimeout")
+            Core.<$> (x Core..:? "defaultExecutionStartToCloseTimeout")
+            Core.<*> (x Core..:? "defaultTaskPriority")
+            Core.<*> (x Core..:? "defaultTaskList")
+            Core.<*> (x Core..:? "defaultChildPolicy")
+            Core.<*> (x Core..:? "defaultLambdaRole")
+            Core.<*> (x Core..:? "defaultTaskStartToCloseTimeout")
       )
 
-instance Prelude.Hashable WorkflowTypeConfiguration
+instance Core.Hashable WorkflowTypeConfiguration
 
-instance Prelude.NFData WorkflowTypeConfiguration
+instance Core.NFData WorkflowTypeConfiguration

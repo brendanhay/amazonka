@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.ProjectDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.ProjectStatus
 
 -- | A description of a Amazon Rekognition Custom Labels project.
@@ -29,13 +28,13 @@ import Network.AWS.Rekognition.Types.ProjectStatus
 -- /See:/ 'newProjectDescription' smart constructor.
 data ProjectDescription = ProjectDescription'
   { -- | The Unix timestamp for the date and time that the project was created.
-    creationTimestamp :: Prelude.Maybe Prelude.POSIX,
+    creationTimestamp :: Core.Maybe Core.POSIX,
     -- | The current status of the project.
-    status :: Prelude.Maybe ProjectStatus,
+    status :: Core.Maybe ProjectStatus,
     -- | The Amazon Resource Name (ARN) of the project.
-    projectArn :: Prelude.Maybe Prelude.Text
+    projectArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectDescription' with all optional fields omitted.
@@ -55,34 +54,34 @@ newProjectDescription ::
 newProjectDescription =
   ProjectDescription'
     { creationTimestamp =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      projectArn = Prelude.Nothing
+        Core.Nothing,
+      status = Core.Nothing,
+      projectArn = Core.Nothing
     }
 
 -- | The Unix timestamp for the date and time that the project was created.
-projectDescription_creationTimestamp :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.UTCTime)
-projectDescription_creationTimestamp = Lens.lens (\ProjectDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectDescription' {} a -> s {creationTimestamp = a} :: ProjectDescription) Prelude.. Lens.mapping Prelude._Time
+projectDescription_creationTimestamp :: Lens.Lens' ProjectDescription (Core.Maybe Core.UTCTime)
+projectDescription_creationTimestamp = Lens.lens (\ProjectDescription' {creationTimestamp} -> creationTimestamp) (\s@ProjectDescription' {} a -> s {creationTimestamp = a} :: ProjectDescription) Core.. Lens.mapping Core._Time
 
 -- | The current status of the project.
-projectDescription_status :: Lens.Lens' ProjectDescription (Prelude.Maybe ProjectStatus)
+projectDescription_status :: Lens.Lens' ProjectDescription (Core.Maybe ProjectStatus)
 projectDescription_status = Lens.lens (\ProjectDescription' {status} -> status) (\s@ProjectDescription' {} a -> s {status = a} :: ProjectDescription)
 
 -- | The Amazon Resource Name (ARN) of the project.
-projectDescription_projectArn :: Lens.Lens' ProjectDescription (Prelude.Maybe Prelude.Text)
+projectDescription_projectArn :: Lens.Lens' ProjectDescription (Core.Maybe Core.Text)
 projectDescription_projectArn = Lens.lens (\ProjectDescription' {projectArn} -> projectArn) (\s@ProjectDescription' {} a -> s {projectArn = a} :: ProjectDescription)
 
-instance Prelude.FromJSON ProjectDescription where
+instance Core.FromJSON ProjectDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectDescription"
       ( \x ->
           ProjectDescription'
-            Prelude.<$> (x Prelude..:? "CreationTimestamp")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "ProjectArn")
+            Core.<$> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "ProjectArn")
       )
 
-instance Prelude.Hashable ProjectDescription
+instance Core.Hashable ProjectDescription
 
-instance Prelude.NFData ProjectDescription
+instance Core.NFData ProjectDescription

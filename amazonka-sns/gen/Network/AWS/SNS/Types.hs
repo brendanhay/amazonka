@@ -82,8 +82,8 @@ module Network.AWS.SNS.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SNS.Types.Endpoint
 import Network.AWS.SNS.Types.MessageAttributeValue
 import Network.AWS.SNS.Types.PlatformApplication
@@ -93,276 +93,266 @@ import Network.AWS.SNS.Types.Topic
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2010-03-31@ of the Amazon Simple Notification Service SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "SNS",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "sns",
-      Prelude._svcSigningName = "sns",
-      Prelude._svcVersion = "2010-03-31",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseXMLError "SNS",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "SNS",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "sns",
+      Core._serviceSigningName = "sns",
+      Core._serviceVersion = "2010-03-31",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseXMLError "SNS",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The request was denied due to request throttling. For more information
 -- about throttling, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
 -- in the /AWS Key Management Service Developer Guide./
-_KMSThrottlingException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSThrottlingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSThrottlingException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSThrottling"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates that the requested resource does not exist.
-_NotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NotFoundException =
-  Prelude._MatchServiceError
-    defaultService
-    "NotFound"
-    Prelude.. Prelude.hasStatus 404
+  Core._MatchServiceError defaultService "NotFound"
+    Core.. Core.hasStatus 404
 
 -- | The request was rejected because the state of the specified resource
 -- isn\'t valid for this request. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
 -- in the /AWS Key Management Service Developer Guide/.
-_KMSInvalidStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSInvalidState"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request was rejected because the specified entity or resource can\'t
 -- be found.
-_KMSNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates that the rate at which requests have been submitted for this
 -- action exceeds the limit for your account.
-_ThrottledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ThrottledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ThrottledException =
-  Prelude._MatchServiceError
-    defaultService
-    "Throttled"
-    Prelude.. Prelude.hasStatus 429
+  Core._MatchServiceError defaultService "Throttled"
+    Core.. Core.hasStatus 429
 
 -- | Can\'t add more than 50 tags to a topic.
-_TagLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TagLimitExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates an internal service error.
-_InternalErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalErrorException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalError"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- topics.
-_TopicLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TopicLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TopicLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TopicLimitExceeded"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | The AWS access key ID needs a subscription for the service.
-_KMSOptInRequired :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSOptInRequired :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSOptInRequired =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSOptInRequired"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | Can\'t perform multiple operations on a tag simultaneously. Perform the
 -- operations sequentially.
-_ConcurrentAccessException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentAccessException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConcurrentAccessException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConcurrentAccess"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request doesn\'t comply with the IAM tag policy. Correct your
 -- request and then retry it.
-_TagPolicyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TagPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TagPolicyException =
-  Prelude._MatchServiceError
-    defaultService
-    "TagPolicy"
-    Prelude.. Prelude.hasStatus 400
+  Core._MatchServiceError defaultService "TagPolicy"
+    Core.. Core.hasStatus 400
 
 -- | Exception error indicating platform application disabled.
-_PlatformApplicationDisabledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PlatformApplicationDisabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PlatformApplicationDisabledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PlatformApplicationDisabled"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates that the customer already owns the maximum allowed number of
 -- subscriptions.
-_SubscriptionLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubscriptionLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubscriptionLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubscriptionLimitExceeded"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | A tag has been added to a resource with the same ARN as a deleted
 -- resource. Wait a short while and then retry the operation.
-_StaleTagException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_StaleTagException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _StaleTagException =
-  Prelude._MatchServiceError
-    defaultService
-    "StaleTag"
-    Prelude.. Prelude.hasStatus 400
+  Core._MatchServiceError defaultService "StaleTag"
+    Core.. Core.hasStatus 400
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameter"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Exception error indicating endpoint disabled.
-_EndpointDisabledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EndpointDisabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EndpointDisabledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EndpointDisabled"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates that a request parameter does not comply with the associated
 -- constraints.
-_InvalidParameterValueException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterValueException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValueException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ParameterValueInvalid"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Indicates that the user has been denied access to the requested
 -- resource.
-_AuthorizationErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AuthorizationErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AuthorizationErrorException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AuthorizationError"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | Indicates that the number of filter polices in your AWS account exceeds
 -- the limit. To add more filter polices, submit an SNS Limit Increase case
 -- in the AWS Support Center.
-_FilterPolicyLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_FilterPolicyLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _FilterPolicyLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "FilterPolicyLimitExceeded"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | The ciphertext references a key that doesn\'t exist or that you don\'t
 -- have access to.
-_KMSAccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSAccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSAccessDeniedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSAccessDenied"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Can\'t tag resource. Verify that the topic exists.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The credential signature isn\'t valid. You must use an HTTPS endpoint
 -- and sign your request using Signature Version 4.
-_InvalidSecurityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSecurityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSecurityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSecurity"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | The request was rejected because the specified customer master key (CMK)
 -- isn\'t enabled.
-_KMSDisabledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSDisabledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSDisabledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSDisabled"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -85,9 +84,9 @@ module Network.AWS.EC2.ModifyVpnConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -97,18 +96,18 @@ data ModifyVpnConnection = ModifyVpnConnection'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the customer gateway at your end of the VPN connection.
-    customerGatewayId :: Prelude.Maybe Prelude.Text,
+    customerGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the virtual private gateway at the AWS side of the VPN
     -- connection.
-    vpnGatewayId :: Prelude.Maybe Prelude.Text,
+    vpnGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Prelude.Maybe Prelude.Text,
+    transitGatewayId :: Core.Maybe Core.Text,
     -- | The ID of the VPN connection.
-    vpnConnectionId :: Prelude.Text
+    vpnConnectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnConnection' with all optional fields omitted.
@@ -133,14 +132,14 @@ data ModifyVpnConnection = ModifyVpnConnection'
 -- 'vpnConnectionId', 'modifyVpnConnection_vpnConnectionId' - The ID of the VPN connection.
 newModifyVpnConnection ::
   -- | 'vpnConnectionId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyVpnConnection
 newModifyVpnConnection pVpnConnectionId_ =
   ModifyVpnConnection'
-    { dryRun = Prelude.Nothing,
-      customerGatewayId = Prelude.Nothing,
-      vpnGatewayId = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      customerGatewayId = Core.Nothing,
+      vpnGatewayId = Core.Nothing,
+      transitGatewayId = Core.Nothing,
       vpnConnectionId = pVpnConnectionId_
     }
 
@@ -148,70 +147,69 @@ newModifyVpnConnection pVpnConnectionId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpnConnection_dryRun :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Bool)
+modifyVpnConnection_dryRun :: Lens.Lens' ModifyVpnConnection (Core.Maybe Core.Bool)
 modifyVpnConnection_dryRun = Lens.lens (\ModifyVpnConnection' {dryRun} -> dryRun) (\s@ModifyVpnConnection' {} a -> s {dryRun = a} :: ModifyVpnConnection)
 
 -- | The ID of the customer gateway at your end of the VPN connection.
-modifyVpnConnection_customerGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
+modifyVpnConnection_customerGatewayId :: Lens.Lens' ModifyVpnConnection (Core.Maybe Core.Text)
 modifyVpnConnection_customerGatewayId = Lens.lens (\ModifyVpnConnection' {customerGatewayId} -> customerGatewayId) (\s@ModifyVpnConnection' {} a -> s {customerGatewayId = a} :: ModifyVpnConnection)
 
 -- | The ID of the virtual private gateway at the AWS side of the VPN
 -- connection.
-modifyVpnConnection_vpnGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
+modifyVpnConnection_vpnGatewayId :: Lens.Lens' ModifyVpnConnection (Core.Maybe Core.Text)
 modifyVpnConnection_vpnGatewayId = Lens.lens (\ModifyVpnConnection' {vpnGatewayId} -> vpnGatewayId) (\s@ModifyVpnConnection' {} a -> s {vpnGatewayId = a} :: ModifyVpnConnection)
 
 -- | The ID of the transit gateway.
-modifyVpnConnection_transitGatewayId :: Lens.Lens' ModifyVpnConnection (Prelude.Maybe Prelude.Text)
+modifyVpnConnection_transitGatewayId :: Lens.Lens' ModifyVpnConnection (Core.Maybe Core.Text)
 modifyVpnConnection_transitGatewayId = Lens.lens (\ModifyVpnConnection' {transitGatewayId} -> transitGatewayId) (\s@ModifyVpnConnection' {} a -> s {transitGatewayId = a} :: ModifyVpnConnection)
 
 -- | The ID of the VPN connection.
-modifyVpnConnection_vpnConnectionId :: Lens.Lens' ModifyVpnConnection Prelude.Text
+modifyVpnConnection_vpnConnectionId :: Lens.Lens' ModifyVpnConnection Core.Text
 modifyVpnConnection_vpnConnectionId = Lens.lens (\ModifyVpnConnection' {vpnConnectionId} -> vpnConnectionId) (\s@ModifyVpnConnection' {} a -> s {vpnConnectionId = a} :: ModifyVpnConnection)
 
-instance Prelude.AWSRequest ModifyVpnConnection where
+instance Core.AWSRequest ModifyVpnConnection where
   type
-    Rs ModifyVpnConnection =
+    AWSResponse ModifyVpnConnection =
       ModifyVpnConnectionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyVpnConnectionResponse'
-            Prelude.<$> (x Prelude..@? "vpnConnection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "vpnConnection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyVpnConnection
+instance Core.Hashable ModifyVpnConnection
 
-instance Prelude.NFData ModifyVpnConnection
+instance Core.NFData ModifyVpnConnection
 
-instance Prelude.ToHeaders ModifyVpnConnection where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyVpnConnection where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyVpnConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyVpnConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyVpnConnection where
+instance Core.ToQuery ModifyVpnConnection where
   toQuery ModifyVpnConnection' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyVpnConnection" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "CustomerGatewayId" Prelude.=: customerGatewayId,
-        "VpnGatewayId" Prelude.=: vpnGatewayId,
-        "TransitGatewayId" Prelude.=: transitGatewayId,
-        "VpnConnectionId" Prelude.=: vpnConnectionId
+          Core.=: ("ModifyVpnConnection" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "CustomerGatewayId" Core.=: customerGatewayId,
+        "VpnGatewayId" Core.=: vpnGatewayId,
+        "TransitGatewayId" Core.=: transitGatewayId,
+        "VpnConnectionId" Core.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newModifyVpnConnectionResponse' smart constructor.
 data ModifyVpnConnectionResponse = ModifyVpnConnectionResponse'
-  { vpnConnection :: Prelude.Maybe VpnConnection,
+  { vpnConnection :: Core.Maybe VpnConnection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnConnectionResponse' with all optional fields omitted.
@@ -226,21 +224,21 @@ data ModifyVpnConnectionResponse = ModifyVpnConnectionResponse'
 -- 'httpStatus', 'modifyVpnConnectionResponse_httpStatus' - The response's http status code.
 newModifyVpnConnectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyVpnConnectionResponse
 newModifyVpnConnectionResponse pHttpStatus_ =
   ModifyVpnConnectionResponse'
     { vpnConnection =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyVpnConnectionResponse_vpnConnection :: Lens.Lens' ModifyVpnConnectionResponse (Prelude.Maybe VpnConnection)
+modifyVpnConnectionResponse_vpnConnection :: Lens.Lens' ModifyVpnConnectionResponse (Core.Maybe VpnConnection)
 modifyVpnConnectionResponse_vpnConnection = Lens.lens (\ModifyVpnConnectionResponse' {vpnConnection} -> vpnConnection) (\s@ModifyVpnConnectionResponse' {} a -> s {vpnConnection = a} :: ModifyVpnConnectionResponse)
 
 -- | The response's http status code.
-modifyVpnConnectionResponse_httpStatus :: Lens.Lens' ModifyVpnConnectionResponse Prelude.Int
+modifyVpnConnectionResponse_httpStatus :: Lens.Lens' ModifyVpnConnectionResponse Core.Int
 modifyVpnConnectionResponse_httpStatus = Lens.lens (\ModifyVpnConnectionResponse' {httpStatus} -> httpStatus) (\s@ModifyVpnConnectionResponse' {} a -> s {httpStatus = a} :: ModifyVpnConnectionResponse)
 
-instance Prelude.NFData ModifyVpnConnectionResponse
+instance Core.NFData ModifyVpnConnectionResponse

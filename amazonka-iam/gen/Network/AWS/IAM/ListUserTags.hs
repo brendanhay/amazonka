@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.IAM.ListUserTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,21 +65,21 @@ data ListUserTags = ListUserTags'
     -- that case, the @IsTruncated@ response element returns @true@, and
     -- @Marker@ contains a value to include in the subsequent call that tells
     -- the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The name of the IAM user whose tags you want to see.
     --
     -- This parameter accepts (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    userName :: Prelude.Text
+    userName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUserTags' with all optional fields omitted.
@@ -114,12 +113,12 @@ data ListUserTags = ListUserTags'
 -- spaces. You can also include any of the following characters: =,.\@-
 newListUserTags ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   ListUserTags
 newListUserTags pUserName_ =
   ListUserTags'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { maxItems = Core.Nothing,
+      marker = Core.Nothing,
       userName = pUserName_
     }
 
@@ -133,14 +132,14 @@ newListUserTags pUserName_ =
 -- that case, the @IsTruncated@ response element returns @true@, and
 -- @Marker@ contains a value to include in the subsequent call that tells
 -- the service where to continue from.
-listUserTags_maxItems :: Lens.Lens' ListUserTags (Prelude.Maybe Prelude.Natural)
+listUserTags_maxItems :: Lens.Lens' ListUserTags (Core.Maybe Core.Natural)
 listUserTags_maxItems = Lens.lens (\ListUserTags' {maxItems} -> maxItems) (\s@ListUserTags' {} a -> s {maxItems = a} :: ListUserTags)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listUserTags_marker :: Lens.Lens' ListUserTags (Prelude.Maybe Prelude.Text)
+listUserTags_marker :: Lens.Lens' ListUserTags (Core.Maybe Core.Text)
 listUserTags_marker = Lens.lens (\ListUserTags' {marker} -> marker) (\s@ListUserTags' {} a -> s {marker = a} :: ListUserTags)
 
 -- | The name of the IAM user whose tags you want to see.
@@ -149,45 +148,44 @@ listUserTags_marker = Lens.lens (\ListUserTags' {marker} -> marker) (\s@ListUser
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-listUserTags_userName :: Lens.Lens' ListUserTags Prelude.Text
+listUserTags_userName :: Lens.Lens' ListUserTags Core.Text
 listUserTags_userName = Lens.lens (\ListUserTags' {userName} -> userName) (\s@ListUserTags' {} a -> s {userName = a} :: ListUserTags)
 
-instance Prelude.AWSRequest ListUserTags where
-  type Rs ListUserTags = ListUserTagsResponse
+instance Core.AWSRequest ListUserTags where
+  type AWSResponse ListUserTags = ListUserTagsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListUserTagsResult"
       ( \s h x ->
           ListUserTagsResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "Tags" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListUserTags
+instance Core.Hashable ListUserTags
 
-instance Prelude.NFData ListUserTags
+instance Core.NFData ListUserTags
 
-instance Prelude.ToHeaders ListUserTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListUserTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListUserTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListUserTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListUserTags where
+instance Core.ToQuery ListUserTags where
   toQuery ListUserTags' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListUserTags" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker,
-        "UserName" Prelude.=: userName
+          Core.=: ("ListUserTags" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker,
+        "UserName" Core.=: userName
       ]
 
 -- | /See:/ 'newListUserTagsResponse' smart constructor.
@@ -198,19 +196,19 @@ data ListUserTagsResponse = ListUserTagsResponse'
     -- that IAM might return fewer than the @MaxItems@ number of results even
     -- when more results are available. Check @IsTruncated@ after every call to
     -- ensure that you receive all of your results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The list of tags that are currently attached to the user. Each tag
     -- consists of a key name and an associated value. If no tags are attached
     -- to the specified resource, the response contains an empty list.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListUserTagsResponse' with all optional fields omitted.
@@ -238,15 +236,14 @@ data ListUserTagsResponse = ListUserTagsResponse'
 -- to the specified resource, the response contains an empty list.
 newListUserTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListUserTagsResponse
 newListUserTagsResponse pHttpStatus_ =
   ListUserTagsResponse'
-    { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { isTruncated = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -255,23 +252,23 @@ newListUserTagsResponse pHttpStatus_ =
 -- that IAM might return fewer than the @MaxItems@ number of results even
 -- when more results are available. Check @IsTruncated@ after every call to
 -- ensure that you receive all of your results.
-listUserTagsResponse_isTruncated :: Lens.Lens' ListUserTagsResponse (Prelude.Maybe Prelude.Bool)
+listUserTagsResponse_isTruncated :: Lens.Lens' ListUserTagsResponse (Core.Maybe Core.Bool)
 listUserTagsResponse_isTruncated = Lens.lens (\ListUserTagsResponse' {isTruncated} -> isTruncated) (\s@ListUserTagsResponse' {} a -> s {isTruncated = a} :: ListUserTagsResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listUserTagsResponse_marker :: Lens.Lens' ListUserTagsResponse (Prelude.Maybe Prelude.Text)
+listUserTagsResponse_marker :: Lens.Lens' ListUserTagsResponse (Core.Maybe Core.Text)
 listUserTagsResponse_marker = Lens.lens (\ListUserTagsResponse' {marker} -> marker) (\s@ListUserTagsResponse' {} a -> s {marker = a} :: ListUserTagsResponse)
 
 -- | The response's http status code.
-listUserTagsResponse_httpStatus :: Lens.Lens' ListUserTagsResponse Prelude.Int
+listUserTagsResponse_httpStatus :: Lens.Lens' ListUserTagsResponse Core.Int
 listUserTagsResponse_httpStatus = Lens.lens (\ListUserTagsResponse' {httpStatus} -> httpStatus) (\s@ListUserTagsResponse' {} a -> s {httpStatus = a} :: ListUserTagsResponse)
 
 -- | The list of tags that are currently attached to the user. Each tag
 -- consists of a key name and an associated value. If no tags are attached
 -- to the specified resource, the response contains an empty list.
 listUserTagsResponse_tags :: Lens.Lens' ListUserTagsResponse [Tag]
-listUserTagsResponse_tags = Lens.lens (\ListUserTagsResponse' {tags} -> tags) (\s@ListUserTagsResponse' {} a -> s {tags = a} :: ListUserTagsResponse) Prelude.. Prelude._Coerce
+listUserTagsResponse_tags = Lens.lens (\ListUserTagsResponse' {tags} -> tags) (\s@ListUserTagsResponse' {} a -> s {tags = a} :: ListUserTagsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListUserTagsResponse
+instance Core.NFData ListUserTagsResponse

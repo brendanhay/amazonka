@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.ExternalEvaluation where
 
 import Network.AWS.Config.Types.ComplianceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies an AWS resource and indicates whether it complies with the
 -- AWS Config rule that it was evaluated against.
@@ -31,20 +30,20 @@ import qualified Network.AWS.Prelude as Prelude
 data ExternalEvaluation = ExternalEvaluation'
   { -- | Supplementary information about the reason of compliance. For example,
     -- this task was completed on a specific date.
-    annotation :: Prelude.Maybe Prelude.Text,
+    annotation :: Core.Maybe Core.Text,
     -- | The evaluated compliance resource type. AWS Config accepts
     -- @AWS::::Account@ resource type.
-    complianceResourceType :: Prelude.Text,
+    complianceResourceType :: Core.Text,
     -- | The evaluated compliance resource ID. AWS Config accepts only AWS
     -- account ID.
-    complianceResourceId :: Prelude.Text,
+    complianceResourceId :: Core.Text,
     -- | The compliance of the AWS resource. The valid values are
     -- @COMPLIANT, NON_COMPLIANT, @ and @NOT_APPLICABLE@.
     complianceType :: ComplianceType,
     -- | The time when the compliance was recorded.
-    orderingTimestamp :: Prelude.POSIX
+    orderingTimestamp :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExternalEvaluation' with all optional fields omitted.
@@ -69,13 +68,13 @@ data ExternalEvaluation = ExternalEvaluation'
 -- 'orderingTimestamp', 'externalEvaluation_orderingTimestamp' - The time when the compliance was recorded.
 newExternalEvaluation ::
   -- | 'complianceResourceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'complianceResourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'complianceType'
   ComplianceType ->
   -- | 'orderingTimestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ExternalEvaluation
 newExternalEvaluation
   pComplianceResourceType_
@@ -83,27 +82,27 @@ newExternalEvaluation
   pComplianceType_
   pOrderingTimestamp_ =
     ExternalEvaluation'
-      { annotation = Prelude.Nothing,
+      { annotation = Core.Nothing,
         complianceResourceType = pComplianceResourceType_,
         complianceResourceId = pComplianceResourceId_,
         complianceType = pComplianceType_,
         orderingTimestamp =
-          Prelude._Time Lens.# pOrderingTimestamp_
+          Core._Time Lens.# pOrderingTimestamp_
       }
 
 -- | Supplementary information about the reason of compliance. For example,
 -- this task was completed on a specific date.
-externalEvaluation_annotation :: Lens.Lens' ExternalEvaluation (Prelude.Maybe Prelude.Text)
+externalEvaluation_annotation :: Lens.Lens' ExternalEvaluation (Core.Maybe Core.Text)
 externalEvaluation_annotation = Lens.lens (\ExternalEvaluation' {annotation} -> annotation) (\s@ExternalEvaluation' {} a -> s {annotation = a} :: ExternalEvaluation)
 
 -- | The evaluated compliance resource type. AWS Config accepts
 -- @AWS::::Account@ resource type.
-externalEvaluation_complianceResourceType :: Lens.Lens' ExternalEvaluation Prelude.Text
+externalEvaluation_complianceResourceType :: Lens.Lens' ExternalEvaluation Core.Text
 externalEvaluation_complianceResourceType = Lens.lens (\ExternalEvaluation' {complianceResourceType} -> complianceResourceType) (\s@ExternalEvaluation' {} a -> s {complianceResourceType = a} :: ExternalEvaluation)
 
 -- | The evaluated compliance resource ID. AWS Config accepts only AWS
 -- account ID.
-externalEvaluation_complianceResourceId :: Lens.Lens' ExternalEvaluation Prelude.Text
+externalEvaluation_complianceResourceId :: Lens.Lens' ExternalEvaluation Core.Text
 externalEvaluation_complianceResourceId = Lens.lens (\ExternalEvaluation' {complianceResourceId} -> complianceResourceId) (\s@ExternalEvaluation' {} a -> s {complianceResourceId = a} :: ExternalEvaluation)
 
 -- | The compliance of the AWS resource. The valid values are
@@ -112,29 +111,28 @@ externalEvaluation_complianceType :: Lens.Lens' ExternalEvaluation ComplianceTyp
 externalEvaluation_complianceType = Lens.lens (\ExternalEvaluation' {complianceType} -> complianceType) (\s@ExternalEvaluation' {} a -> s {complianceType = a} :: ExternalEvaluation)
 
 -- | The time when the compliance was recorded.
-externalEvaluation_orderingTimestamp :: Lens.Lens' ExternalEvaluation Prelude.UTCTime
-externalEvaluation_orderingTimestamp = Lens.lens (\ExternalEvaluation' {orderingTimestamp} -> orderingTimestamp) (\s@ExternalEvaluation' {} a -> s {orderingTimestamp = a} :: ExternalEvaluation) Prelude.. Prelude._Time
+externalEvaluation_orderingTimestamp :: Lens.Lens' ExternalEvaluation Core.UTCTime
+externalEvaluation_orderingTimestamp = Lens.lens (\ExternalEvaluation' {orderingTimestamp} -> orderingTimestamp) (\s@ExternalEvaluation' {} a -> s {orderingTimestamp = a} :: ExternalEvaluation) Core.. Core._Time
 
-instance Prelude.Hashable ExternalEvaluation
+instance Core.Hashable ExternalEvaluation
 
-instance Prelude.NFData ExternalEvaluation
+instance Core.NFData ExternalEvaluation
 
-instance Prelude.ToJSON ExternalEvaluation where
+instance Core.ToJSON ExternalEvaluation where
   toJSON ExternalEvaluation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Annotation" Prelude..=) Prelude.<$> annotation,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("Annotation" Core..=) Core.<$> annotation,
+            Core.Just
               ( "ComplianceResourceType"
-                  Prelude..= complianceResourceType
+                  Core..= complianceResourceType
               ),
-            Prelude.Just
+            Core.Just
               ( "ComplianceResourceId"
-                  Prelude..= complianceResourceId
+                  Core..= complianceResourceId
               ),
-            Prelude.Just
-              ("ComplianceType" Prelude..= complianceType),
-            Prelude.Just
-              ("OrderingTimestamp" Prelude..= orderingTimestamp)
+            Core.Just ("ComplianceType" Core..= complianceType),
+            Core.Just
+              ("OrderingTimestamp" Core..= orderingTimestamp)
           ]
       )

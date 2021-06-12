@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.AWSHealth.DescribeEntityAggregates
 where
 
 import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DescribeEntityAggregates = DescribeEntityAggregates'
   { -- | A list of event ARNs (unique identifiers). For example:
     -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
-    eventArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    eventArns :: Core.Maybe (Core.NonEmpty Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEntityAggregates' with all optional fields omitted.
@@ -69,72 +68,65 @@ data DescribeEntityAggregates = DescribeEntityAggregates'
 newDescribeEntityAggregates ::
   DescribeEntityAggregates
 newDescribeEntityAggregates =
-  DescribeEntityAggregates'
-    { eventArns =
-        Prelude.Nothing
-    }
+  DescribeEntityAggregates' {eventArns = Core.Nothing}
 
 -- | A list of event ARNs (unique identifiers). For example:
 -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
-describeEntityAggregates_eventArns :: Lens.Lens' DescribeEntityAggregates (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeEntityAggregates_eventArns = Lens.lens (\DescribeEntityAggregates' {eventArns} -> eventArns) (\s@DescribeEntityAggregates' {} a -> s {eventArns = a} :: DescribeEntityAggregates) Prelude.. Lens.mapping Prelude._Coerce
+describeEntityAggregates_eventArns :: Lens.Lens' DescribeEntityAggregates (Core.Maybe (Core.NonEmpty Core.Text))
+describeEntityAggregates_eventArns = Lens.lens (\DescribeEntityAggregates' {eventArns} -> eventArns) (\s@DescribeEntityAggregates' {} a -> s {eventArns = a} :: DescribeEntityAggregates) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeEntityAggregates where
+instance Core.AWSRequest DescribeEntityAggregates where
   type
-    Rs DescribeEntityAggregates =
+    AWSResponse DescribeEntityAggregates =
       DescribeEntityAggregatesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEntityAggregatesResponse'
-            Prelude.<$> ( x Prelude..?> "entityAggregates"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "entityAggregates" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEntityAggregates
+instance Core.Hashable DescribeEntityAggregates
 
-instance Prelude.NFData DescribeEntityAggregates
+instance Core.NFData DescribeEntityAggregates
 
-instance Prelude.ToHeaders DescribeEntityAggregates where
+instance Core.ToHeaders DescribeEntityAggregates where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSHealth_20160804.DescribeEntityAggregates" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSHealth_20160804.DescribeEntityAggregates" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEntityAggregates where
+instance Core.ToJSON DescribeEntityAggregates where
   toJSON DescribeEntityAggregates' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("eventArns" Prelude..=) Prelude.<$> eventArns]
+    Core.object
+      ( Core.catMaybes
+          [("eventArns" Core..=) Core.<$> eventArns]
       )
 
-instance Prelude.ToPath DescribeEntityAggregates where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEntityAggregates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEntityAggregates where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEntityAggregates where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEntityAggregatesResponse' smart constructor.
 data DescribeEntityAggregatesResponse = DescribeEntityAggregatesResponse'
   { -- | The number of entities that are affected by each of the specified
     -- events.
-    entityAggregates :: Prelude.Maybe [EntityAggregate],
+    entityAggregates :: Core.Maybe [EntityAggregate],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEntityAggregatesResponse' with all optional fields omitted.
@@ -150,24 +142,22 @@ data DescribeEntityAggregatesResponse = DescribeEntityAggregatesResponse'
 -- 'httpStatus', 'describeEntityAggregatesResponse_httpStatus' - The response's http status code.
 newDescribeEntityAggregatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEntityAggregatesResponse
 newDescribeEntityAggregatesResponse pHttpStatus_ =
   DescribeEntityAggregatesResponse'
     { entityAggregates =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of entities that are affected by each of the specified
 -- events.
-describeEntityAggregatesResponse_entityAggregates :: Lens.Lens' DescribeEntityAggregatesResponse (Prelude.Maybe [EntityAggregate])
-describeEntityAggregatesResponse_entityAggregates = Lens.lens (\DescribeEntityAggregatesResponse' {entityAggregates} -> entityAggregates) (\s@DescribeEntityAggregatesResponse' {} a -> s {entityAggregates = a} :: DescribeEntityAggregatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEntityAggregatesResponse_entityAggregates :: Lens.Lens' DescribeEntityAggregatesResponse (Core.Maybe [EntityAggregate])
+describeEntityAggregatesResponse_entityAggregates = Lens.lens (\DescribeEntityAggregatesResponse' {entityAggregates} -> entityAggregates) (\s@DescribeEntityAggregatesResponse' {} a -> s {entityAggregates = a} :: DescribeEntityAggregatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEntityAggregatesResponse_httpStatus :: Lens.Lens' DescribeEntityAggregatesResponse Prelude.Int
+describeEntityAggregatesResponse_httpStatus :: Lens.Lens' DescribeEntityAggregatesResponse Core.Int
 describeEntityAggregatesResponse_httpStatus = Lens.lens (\DescribeEntityAggregatesResponse' {httpStatus} -> httpStatus) (\s@DescribeEntityAggregatesResponse' {} a -> s {httpStatus = a} :: DescribeEntityAggregatesResponse)
 
-instance
-  Prelude.NFData
-    DescribeEntityAggregatesResponse
+instance Core.NFData DescribeEntityAggregatesResponse

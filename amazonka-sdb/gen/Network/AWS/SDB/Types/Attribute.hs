@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SDB.Types.Attribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
-  { alternateNameEncoding :: Prelude.Maybe Prelude.Text,
-    alternateValueEncoding :: Prelude.Maybe Prelude.Text,
+  { alternateNameEncoding :: Core.Maybe Core.Text,
+    alternateValueEncoding :: Core.Maybe Core.Text,
     -- | The name of the attribute.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The value of the attribute.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -53,53 +52,53 @@ data Attribute = Attribute'
 -- 'value', 'attribute_value' - The value of the attribute.
 newAttribute ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Attribute
 newAttribute pName_ pValue_ =
   Attribute'
-    { alternateNameEncoding = Prelude.Nothing,
-      alternateValueEncoding = Prelude.Nothing,
+    { alternateNameEncoding = Core.Nothing,
+      alternateValueEncoding = Core.Nothing,
       name = pName_,
       value = pValue_
     }
 
 -- |
-attribute_alternateNameEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_alternateNameEncoding :: Lens.Lens' Attribute (Core.Maybe Core.Text)
 attribute_alternateNameEncoding = Lens.lens (\Attribute' {alternateNameEncoding} -> alternateNameEncoding) (\s@Attribute' {} a -> s {alternateNameEncoding = a} :: Attribute)
 
 -- |
-attribute_alternateValueEncoding :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_alternateValueEncoding :: Lens.Lens' Attribute (Core.Maybe Core.Text)
 attribute_alternateValueEncoding = Lens.lens (\Attribute' {alternateValueEncoding} -> alternateValueEncoding) (\s@Attribute' {} a -> s {alternateValueEncoding = a} :: Attribute)
 
 -- | The name of the attribute.
-attribute_name :: Lens.Lens' Attribute Prelude.Text
+attribute_name :: Lens.Lens' Attribute Core.Text
 attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s {name = a} :: Attribute)
 
 -- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute Prelude.Text
+attribute_value :: Lens.Lens' Attribute Core.Text
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
-instance Prelude.FromXML Attribute where
+instance Core.FromXML Attribute where
   parseXML x =
     Attribute'
-      Prelude.<$> (x Prelude..@? "AlternateNameEncoding")
-      Prelude.<*> (x Prelude..@? "AlternateValueEncoding")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "Value")
+      Core.<$> (x Core..@? "AlternateNameEncoding")
+      Core.<*> (x Core..@? "AlternateValueEncoding")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable Attribute
+instance Core.Hashable Attribute
 
-instance Prelude.NFData Attribute
+instance Core.NFData Attribute
 
-instance Prelude.ToQuery Attribute where
+instance Core.ToQuery Attribute where
   toQuery Attribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "AlternateNameEncoding"
-          Prelude.=: alternateNameEncoding,
+          Core.=: alternateNameEncoding,
         "AlternateValueEncoding"
-          Prelude.=: alternateValueEncoding,
-        "Name" Prelude.=: name,
-        "Value" Prelude.=: value
+          Core.=: alternateValueEncoding,
+        "Name" Core.=: name,
+        "Value" Core.=: value
       ]

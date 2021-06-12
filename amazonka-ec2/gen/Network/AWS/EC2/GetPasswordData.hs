@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,9 +64,9 @@ module Network.AWS.EC2.GetPasswordData
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,11 +76,11 @@ data GetPasswordData = GetPasswordData'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the Windows instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPasswordData' with all optional fields omitted.
@@ -99,11 +98,11 @@ data GetPasswordData = GetPasswordData'
 -- 'instanceId', 'getPasswordData_instanceId' - The ID of the Windows instance.
 newGetPasswordData ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   GetPasswordData
 newGetPasswordData pInstanceId_ =
   GetPasswordData'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -111,60 +110,61 @@ newGetPasswordData pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getPasswordData_dryRun :: Lens.Lens' GetPasswordData (Prelude.Maybe Prelude.Bool)
+getPasswordData_dryRun :: Lens.Lens' GetPasswordData (Core.Maybe Core.Bool)
 getPasswordData_dryRun = Lens.lens (\GetPasswordData' {dryRun} -> dryRun) (\s@GetPasswordData' {} a -> s {dryRun = a} :: GetPasswordData)
 
 -- | The ID of the Windows instance.
-getPasswordData_instanceId :: Lens.Lens' GetPasswordData Prelude.Text
+getPasswordData_instanceId :: Lens.Lens' GetPasswordData Core.Text
 getPasswordData_instanceId = Lens.lens (\GetPasswordData' {instanceId} -> instanceId) (\s@GetPasswordData' {} a -> s {instanceId = a} :: GetPasswordData)
 
-instance Prelude.AWSRequest GetPasswordData where
-  type Rs GetPasswordData = GetPasswordDataResponse
+instance Core.AWSRequest GetPasswordData where
+  type
+    AWSResponse GetPasswordData =
+      GetPasswordDataResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetPasswordDataResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "instanceId")
-            Prelude.<*> (x Prelude..@ "passwordData")
-            Prelude.<*> (x Prelude..@ "timestamp")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "instanceId")
+            Core.<*> (x Core..@ "passwordData")
+            Core.<*> (x Core..@ "timestamp")
       )
 
-instance Prelude.Hashable GetPasswordData
+instance Core.Hashable GetPasswordData
 
-instance Prelude.NFData GetPasswordData
+instance Core.NFData GetPasswordData
 
-instance Prelude.ToHeaders GetPasswordData where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetPasswordData where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetPasswordData where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPasswordData where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPasswordData where
+instance Core.ToQuery GetPasswordData where
   toQuery GetPasswordData' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetPasswordData" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "InstanceId" Prelude.=: instanceId
+          Core.=: ("GetPasswordData" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InstanceId" Core.=: instanceId
       ]
 
 -- | /See:/ 'newGetPasswordDataResponse' smart constructor.
 data GetPasswordDataResponse = GetPasswordDataResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ID of the Windows instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The password of the instance. Returns an empty string if the password is
     -- not available.
-    passwordData :: Prelude.Text,
+    passwordData :: Core.Text,
     -- | The time the data was last updated.
-    timestamp :: Prelude.ISO8601
+    timestamp :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPasswordDataResponse' with all optional fields omitted.
@@ -184,13 +184,13 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
 -- 'timestamp', 'getPasswordDataResponse_timestamp' - The time the data was last updated.
 newGetPasswordDataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'passwordData'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'timestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   GetPasswordDataResponse
 newGetPasswordDataResponse
   pHttpStatus_
@@ -201,24 +201,24 @@ newGetPasswordDataResponse
       { httpStatus = pHttpStatus_,
         instanceId = pInstanceId_,
         passwordData = pPasswordData_,
-        timestamp = Prelude._Time Lens.# pTimestamp_
+        timestamp = Core._Time Lens.# pTimestamp_
       }
 
 -- | The response's http status code.
-getPasswordDataResponse_httpStatus :: Lens.Lens' GetPasswordDataResponse Prelude.Int
+getPasswordDataResponse_httpStatus :: Lens.Lens' GetPasswordDataResponse Core.Int
 getPasswordDataResponse_httpStatus = Lens.lens (\GetPasswordDataResponse' {httpStatus} -> httpStatus) (\s@GetPasswordDataResponse' {} a -> s {httpStatus = a} :: GetPasswordDataResponse)
 
 -- | The ID of the Windows instance.
-getPasswordDataResponse_instanceId :: Lens.Lens' GetPasswordDataResponse Prelude.Text
+getPasswordDataResponse_instanceId :: Lens.Lens' GetPasswordDataResponse Core.Text
 getPasswordDataResponse_instanceId = Lens.lens (\GetPasswordDataResponse' {instanceId} -> instanceId) (\s@GetPasswordDataResponse' {} a -> s {instanceId = a} :: GetPasswordDataResponse)
 
 -- | The password of the instance. Returns an empty string if the password is
 -- not available.
-getPasswordDataResponse_passwordData :: Lens.Lens' GetPasswordDataResponse Prelude.Text
+getPasswordDataResponse_passwordData :: Lens.Lens' GetPasswordDataResponse Core.Text
 getPasswordDataResponse_passwordData = Lens.lens (\GetPasswordDataResponse' {passwordData} -> passwordData) (\s@GetPasswordDataResponse' {} a -> s {passwordData = a} :: GetPasswordDataResponse)
 
 -- | The time the data was last updated.
-getPasswordDataResponse_timestamp :: Lens.Lens' GetPasswordDataResponse Prelude.UTCTime
-getPasswordDataResponse_timestamp = Lens.lens (\GetPasswordDataResponse' {timestamp} -> timestamp) (\s@GetPasswordDataResponse' {} a -> s {timestamp = a} :: GetPasswordDataResponse) Prelude.. Prelude._Time
+getPasswordDataResponse_timestamp :: Lens.Lens' GetPasswordDataResponse Core.UTCTime
+getPasswordDataResponse_timestamp = Lens.lens (\GetPasswordDataResponse' {timestamp} -> timestamp) (\s@GetPasswordDataResponse' {} a -> s {timestamp = a} :: GetPasswordDataResponse) Core.. Core._Time
 
-instance Prelude.NFData GetPasswordDataResponse
+instance Core.NFData GetPasswordDataResponse

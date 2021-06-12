@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Support.Types.TrustedAdvisorCheckSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
 import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
 
@@ -31,20 +30,20 @@ import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
 -- /See:/ 'newTrustedAdvisorCheckSummary' smart constructor.
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
   { -- | Specifies whether the Trusted Advisor check has flagged resources.
-    hasFlaggedResources :: Prelude.Maybe Prelude.Bool,
+    hasFlaggedResources :: Core.Maybe Core.Bool,
     -- | The unique identifier for the Trusted Advisor check.
-    checkId :: Prelude.Text,
+    checkId :: Core.Text,
     -- | The time of the last refresh of the check.
-    timestamp :: Prelude.Text,
+    timestamp :: Core.Text,
     -- | The alert status of the check: \"ok\" (green), \"warning\" (yellow),
     -- \"error\" (red), or \"not_available\".
-    status :: Prelude.Text,
+    status :: Core.Text,
     resourcesSummary :: TrustedAdvisorResourcesSummary,
     -- | Summary information that relates to the category of the check. Cost
     -- Optimizing is the only category that is currently supported.
     categorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrustedAdvisorCheckSummary' with all optional fields omitted.
@@ -69,11 +68,11 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
 -- Optimizing is the only category that is currently supported.
 newTrustedAdvisorCheckSummary ::
   -- | 'checkId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'timestamp'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourcesSummary'
   TrustedAdvisorResourcesSummary ->
   -- | 'categorySpecificSummary'
@@ -87,7 +86,7 @@ newTrustedAdvisorCheckSummary
   pCategorySpecificSummary_ =
     TrustedAdvisorCheckSummary'
       { hasFlaggedResources =
-          Prelude.Nothing,
+          Core.Nothing,
         checkId = pCheckId_,
         timestamp = pTimestamp_,
         status = pStatus_,
@@ -97,20 +96,20 @@ newTrustedAdvisorCheckSummary
       }
 
 -- | Specifies whether the Trusted Advisor check has flagged resources.
-trustedAdvisorCheckSummary_hasFlaggedResources :: Lens.Lens' TrustedAdvisorCheckSummary (Prelude.Maybe Prelude.Bool)
+trustedAdvisorCheckSummary_hasFlaggedResources :: Lens.Lens' TrustedAdvisorCheckSummary (Core.Maybe Core.Bool)
 trustedAdvisorCheckSummary_hasFlaggedResources = Lens.lens (\TrustedAdvisorCheckSummary' {hasFlaggedResources} -> hasFlaggedResources) (\s@TrustedAdvisorCheckSummary' {} a -> s {hasFlaggedResources = a} :: TrustedAdvisorCheckSummary)
 
 -- | The unique identifier for the Trusted Advisor check.
-trustedAdvisorCheckSummary_checkId :: Lens.Lens' TrustedAdvisorCheckSummary Prelude.Text
+trustedAdvisorCheckSummary_checkId :: Lens.Lens' TrustedAdvisorCheckSummary Core.Text
 trustedAdvisorCheckSummary_checkId = Lens.lens (\TrustedAdvisorCheckSummary' {checkId} -> checkId) (\s@TrustedAdvisorCheckSummary' {} a -> s {checkId = a} :: TrustedAdvisorCheckSummary)
 
 -- | The time of the last refresh of the check.
-trustedAdvisorCheckSummary_timestamp :: Lens.Lens' TrustedAdvisorCheckSummary Prelude.Text
+trustedAdvisorCheckSummary_timestamp :: Lens.Lens' TrustedAdvisorCheckSummary Core.Text
 trustedAdvisorCheckSummary_timestamp = Lens.lens (\TrustedAdvisorCheckSummary' {timestamp} -> timestamp) (\s@TrustedAdvisorCheckSummary' {} a -> s {timestamp = a} :: TrustedAdvisorCheckSummary)
 
 -- | The alert status of the check: \"ok\" (green), \"warning\" (yellow),
 -- \"error\" (red), or \"not_available\".
-trustedAdvisorCheckSummary_status :: Lens.Lens' TrustedAdvisorCheckSummary Prelude.Text
+trustedAdvisorCheckSummary_status :: Lens.Lens' TrustedAdvisorCheckSummary Core.Text
 trustedAdvisorCheckSummary_status = Lens.lens (\TrustedAdvisorCheckSummary' {status} -> status) (\s@TrustedAdvisorCheckSummary' {} a -> s {status = a} :: TrustedAdvisorCheckSummary)
 
 -- | Undocumented member.
@@ -122,20 +121,20 @@ trustedAdvisorCheckSummary_resourcesSummary = Lens.lens (\TrustedAdvisorCheckSum
 trustedAdvisorCheckSummary_categorySpecificSummary :: Lens.Lens' TrustedAdvisorCheckSummary TrustedAdvisorCategorySpecificSummary
 trustedAdvisorCheckSummary_categorySpecificSummary = Lens.lens (\TrustedAdvisorCheckSummary' {categorySpecificSummary} -> categorySpecificSummary) (\s@TrustedAdvisorCheckSummary' {} a -> s {categorySpecificSummary = a} :: TrustedAdvisorCheckSummary)
 
-instance Prelude.FromJSON TrustedAdvisorCheckSummary where
+instance Core.FromJSON TrustedAdvisorCheckSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrustedAdvisorCheckSummary"
       ( \x ->
           TrustedAdvisorCheckSummary'
-            Prelude.<$> (x Prelude..:? "hasFlaggedResources")
-            Prelude.<*> (x Prelude..: "checkId")
-            Prelude.<*> (x Prelude..: "timestamp")
-            Prelude.<*> (x Prelude..: "status")
-            Prelude.<*> (x Prelude..: "resourcesSummary")
-            Prelude.<*> (x Prelude..: "categorySpecificSummary")
+            Core.<$> (x Core..:? "hasFlaggedResources")
+            Core.<*> (x Core..: "checkId")
+            Core.<*> (x Core..: "timestamp")
+            Core.<*> (x Core..: "status")
+            Core.<*> (x Core..: "resourcesSummary")
+            Core.<*> (x Core..: "categorySpecificSummary")
       )
 
-instance Prelude.Hashable TrustedAdvisorCheckSummary
+instance Core.Hashable TrustedAdvisorCheckSummary
 
-instance Prelude.NFData TrustedAdvisorCheckSummary
+instance Core.NFData TrustedAdvisorCheckSummary

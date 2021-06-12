@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,24 +44,24 @@ module Network.AWS.OpsWorks.RegisterRdsDbInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRegisterRdsDbInstance' smart constructor.
 data RegisterRdsDbInstance = RegisterRdsDbInstance'
   { -- | The stack ID.
-    stackId :: Prelude.Text,
+    stackId :: Core.Text,
     -- | The Amazon RDS instance\'s ARN.
-    rdsDbInstanceArn :: Prelude.Text,
+    rdsDbInstanceArn :: Core.Text,
     -- | The database\'s master user name.
-    dbUser :: Prelude.Text,
+    dbUser :: Core.Text,
     -- | The database password.
-    dbPassword :: Prelude.Text
+    dbPassword :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterRdsDbInstance' with all optional fields omitted.
@@ -81,13 +80,13 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance'
 -- 'dbPassword', 'registerRdsDbInstance_dbPassword' - The database password.
 newRegisterRdsDbInstance ::
   -- | 'stackId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'rdsDbInstanceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dbUser'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dbPassword'
-  Prelude.Text ->
+  Core.Text ->
   RegisterRdsDbInstance
 newRegisterRdsDbInstance
   pStackId_
@@ -102,71 +101,69 @@ newRegisterRdsDbInstance
       }
 
 -- | The stack ID.
-registerRdsDbInstance_stackId :: Lens.Lens' RegisterRdsDbInstance Prelude.Text
+registerRdsDbInstance_stackId :: Lens.Lens' RegisterRdsDbInstance Core.Text
 registerRdsDbInstance_stackId = Lens.lens (\RegisterRdsDbInstance' {stackId} -> stackId) (\s@RegisterRdsDbInstance' {} a -> s {stackId = a} :: RegisterRdsDbInstance)
 
 -- | The Amazon RDS instance\'s ARN.
-registerRdsDbInstance_rdsDbInstanceArn :: Lens.Lens' RegisterRdsDbInstance Prelude.Text
+registerRdsDbInstance_rdsDbInstanceArn :: Lens.Lens' RegisterRdsDbInstance Core.Text
 registerRdsDbInstance_rdsDbInstanceArn = Lens.lens (\RegisterRdsDbInstance' {rdsDbInstanceArn} -> rdsDbInstanceArn) (\s@RegisterRdsDbInstance' {} a -> s {rdsDbInstanceArn = a} :: RegisterRdsDbInstance)
 
 -- | The database\'s master user name.
-registerRdsDbInstance_dbUser :: Lens.Lens' RegisterRdsDbInstance Prelude.Text
+registerRdsDbInstance_dbUser :: Lens.Lens' RegisterRdsDbInstance Core.Text
 registerRdsDbInstance_dbUser = Lens.lens (\RegisterRdsDbInstance' {dbUser} -> dbUser) (\s@RegisterRdsDbInstance' {} a -> s {dbUser = a} :: RegisterRdsDbInstance)
 
 -- | The database password.
-registerRdsDbInstance_dbPassword :: Lens.Lens' RegisterRdsDbInstance Prelude.Text
+registerRdsDbInstance_dbPassword :: Lens.Lens' RegisterRdsDbInstance Core.Text
 registerRdsDbInstance_dbPassword = Lens.lens (\RegisterRdsDbInstance' {dbPassword} -> dbPassword) (\s@RegisterRdsDbInstance' {} a -> s {dbPassword = a} :: RegisterRdsDbInstance)
 
-instance Prelude.AWSRequest RegisterRdsDbInstance where
+instance Core.AWSRequest RegisterRdsDbInstance where
   type
-    Rs RegisterRdsDbInstance =
+    AWSResponse RegisterRdsDbInstance =
       RegisterRdsDbInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull RegisterRdsDbInstanceResponse'
 
-instance Prelude.Hashable RegisterRdsDbInstance
+instance Core.Hashable RegisterRdsDbInstance
 
-instance Prelude.NFData RegisterRdsDbInstance
+instance Core.NFData RegisterRdsDbInstance
 
-instance Prelude.ToHeaders RegisterRdsDbInstance where
+instance Core.ToHeaders RegisterRdsDbInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.RegisterRdsDbInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.RegisterRdsDbInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterRdsDbInstance where
+instance Core.ToJSON RegisterRdsDbInstance where
   toJSON RegisterRdsDbInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StackId" Prelude..= stackId),
-            Prelude.Just
-              ("RdsDbInstanceArn" Prelude..= rdsDbInstanceArn),
-            Prelude.Just ("DbUser" Prelude..= dbUser),
-            Prelude.Just ("DbPassword" Prelude..= dbPassword)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StackId" Core..= stackId),
+            Core.Just
+              ("RdsDbInstanceArn" Core..= rdsDbInstanceArn),
+            Core.Just ("DbUser" Core..= dbUser),
+            Core.Just ("DbPassword" Core..= dbPassword)
           ]
       )
 
-instance Prelude.ToPath RegisterRdsDbInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterRdsDbInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterRdsDbInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterRdsDbInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterRdsDbInstanceResponse' smart constructor.
 data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterRdsDbInstanceResponse' with all optional fields omitted.
@@ -177,4 +174,4 @@ newRegisterRdsDbInstanceResponse ::
 newRegisterRdsDbInstanceResponse =
   RegisterRdsDbInstanceResponse'
 
-instance Prelude.NFData RegisterRdsDbInstanceResponse
+instance Core.NFData RegisterRdsDbInstanceResponse

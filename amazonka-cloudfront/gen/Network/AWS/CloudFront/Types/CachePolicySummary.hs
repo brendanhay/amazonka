@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.CachePolicySummary where
 
 import Network.AWS.CloudFront.Types.CachePolicy
 import Network.AWS.CloudFront.Types.CachePolicyType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a cache policy.
 --
@@ -35,7 +34,7 @@ data CachePolicySummary = CachePolicySummary'
     -- | The cache policy.
     cachePolicy :: CachePolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CachePolicySummary' with all optional fields omitted.
@@ -70,12 +69,11 @@ cachePolicySummary_type = Lens.lens (\CachePolicySummary' {type'} -> type') (\s@
 cachePolicySummary_cachePolicy :: Lens.Lens' CachePolicySummary CachePolicy
 cachePolicySummary_cachePolicy = Lens.lens (\CachePolicySummary' {cachePolicy} -> cachePolicy) (\s@CachePolicySummary' {} a -> s {cachePolicy = a} :: CachePolicySummary)
 
-instance Prelude.FromXML CachePolicySummary where
+instance Core.FromXML CachePolicySummary where
   parseXML x =
     CachePolicySummary'
-      Prelude.<$> (x Prelude..@ "Type")
-      Prelude.<*> (x Prelude..@ "CachePolicy")
+      Core.<$> (x Core..@ "Type") Core.<*> (x Core..@ "CachePolicy")
 
-instance Prelude.Hashable CachePolicySummary
+instance Core.Hashable CachePolicySummary
 
-instance Prelude.NFData CachePolicySummary
+instance Core.NFData CachePolicySummary

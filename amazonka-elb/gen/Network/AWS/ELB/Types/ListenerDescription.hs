@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.ListenerDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.Listener
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The policies enabled for a listener.
 --
 -- /See:/ 'newListenerDescription' smart constructor.
 data ListenerDescription = ListenerDescription'
   { -- | The listener.
-    listener :: Prelude.Maybe Listener,
+    listener :: Core.Maybe Listener,
     -- | The policies. If there are no policies enabled, the list is empty.
-    policyNames :: Prelude.Maybe [Prelude.Text]
+    policyNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListenerDescription' with all optional fields omitted.
@@ -51,27 +50,26 @@ newListenerDescription ::
   ListenerDescription
 newListenerDescription =
   ListenerDescription'
-    { listener = Prelude.Nothing,
-      policyNames = Prelude.Nothing
+    { listener = Core.Nothing,
+      policyNames = Core.Nothing
     }
 
 -- | The listener.
-listenerDescription_listener :: Lens.Lens' ListenerDescription (Prelude.Maybe Listener)
+listenerDescription_listener :: Lens.Lens' ListenerDescription (Core.Maybe Listener)
 listenerDescription_listener = Lens.lens (\ListenerDescription' {listener} -> listener) (\s@ListenerDescription' {} a -> s {listener = a} :: ListenerDescription)
 
 -- | The policies. If there are no policies enabled, the list is empty.
-listenerDescription_policyNames :: Lens.Lens' ListenerDescription (Prelude.Maybe [Prelude.Text])
-listenerDescription_policyNames = Lens.lens (\ListenerDescription' {policyNames} -> policyNames) (\s@ListenerDescription' {} a -> s {policyNames = a} :: ListenerDescription) Prelude.. Lens.mapping Prelude._Coerce
+listenerDescription_policyNames :: Lens.Lens' ListenerDescription (Core.Maybe [Core.Text])
+listenerDescription_policyNames = Lens.lens (\ListenerDescription' {policyNames} -> policyNames) (\s@ListenerDescription' {} a -> s {policyNames = a} :: ListenerDescription) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML ListenerDescription where
+instance Core.FromXML ListenerDescription where
   parseXML x =
     ListenerDescription'
-      Prelude.<$> (x Prelude..@? "Listener")
-      Prelude.<*> ( x Prelude..@? "PolicyNames"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "Listener")
+      Core.<*> ( x Core..@? "PolicyNames" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable ListenerDescription
+instance Core.Hashable ListenerDescription
 
-instance Prelude.NFData ListenerDescription
+instance Core.NFData ListenerDescription

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IoT.DeleteThingType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteThingType' smart constructor.
 data DeleteThingType = DeleteThingType'
   { -- | The name of the thing type.
-    thingTypeName :: Prelude.Text
+    thingTypeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteThingType' with all optional fields omitted.
@@ -69,48 +68,50 @@ data DeleteThingType = DeleteThingType'
 -- 'thingTypeName', 'deleteThingType_thingTypeName' - The name of the thing type.
 newDeleteThingType ::
   -- | 'thingTypeName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteThingType
 newDeleteThingType pThingTypeName_ =
   DeleteThingType' {thingTypeName = pThingTypeName_}
 
 -- | The name of the thing type.
-deleteThingType_thingTypeName :: Lens.Lens' DeleteThingType Prelude.Text
+deleteThingType_thingTypeName :: Lens.Lens' DeleteThingType Core.Text
 deleteThingType_thingTypeName = Lens.lens (\DeleteThingType' {thingTypeName} -> thingTypeName) (\s@DeleteThingType' {} a -> s {thingTypeName = a} :: DeleteThingType)
 
-instance Prelude.AWSRequest DeleteThingType where
-  type Rs DeleteThingType = DeleteThingTypeResponse
+instance Core.AWSRequest DeleteThingType where
+  type
+    AWSResponse DeleteThingType =
+      DeleteThingTypeResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteThingTypeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteThingType
+instance Core.Hashable DeleteThingType
 
-instance Prelude.NFData DeleteThingType
+instance Core.NFData DeleteThingType
 
-instance Prelude.ToHeaders DeleteThingType where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteThingType where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteThingType where
+instance Core.ToPath DeleteThingType where
   toPath DeleteThingType' {..} =
-    Prelude.mconcat
-      ["/thing-types/", Prelude.toBS thingTypeName]
+    Core.mconcat
+      ["/thing-types/", Core.toBS thingTypeName]
 
-instance Prelude.ToQuery DeleteThingType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteThingType where
+  toQuery = Core.const Core.mempty
 
 -- | The output for the DeleteThingType operation.
 --
 -- /See:/ 'newDeleteThingTypeResponse' smart constructor.
 data DeleteThingTypeResponse = DeleteThingTypeResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteThingTypeResponse' with all optional fields omitted.
@@ -123,13 +124,13 @@ data DeleteThingTypeResponse = DeleteThingTypeResponse'
 -- 'httpStatus', 'deleteThingTypeResponse_httpStatus' - The response's http status code.
 newDeleteThingTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteThingTypeResponse
 newDeleteThingTypeResponse pHttpStatus_ =
   DeleteThingTypeResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteThingTypeResponse_httpStatus :: Lens.Lens' DeleteThingTypeResponse Prelude.Int
+deleteThingTypeResponse_httpStatus :: Lens.Lens' DeleteThingTypeResponse Core.Int
 deleteThingTypeResponse_httpStatus = Lens.lens (\DeleteThingTypeResponse' {httpStatus} -> httpStatus) (\s@DeleteThingTypeResponse' {} a -> s {httpStatus = a} :: DeleteThingTypeResponse)
 
-instance Prelude.NFData DeleteThingTypeResponse
+instance Core.NFData DeleteThingTypeResponse

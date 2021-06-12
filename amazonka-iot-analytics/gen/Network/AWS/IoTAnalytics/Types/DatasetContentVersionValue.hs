@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The dataset whose latest contents are used as input to the notebook or
 -- application.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data DatasetContentVersionValue = DatasetContentVersionValue'
   { -- | The name of the dataset whose latest contents are used as input to the
     -- notebook or application.
-    datasetName :: Prelude.Text
+    datasetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetContentVersionValue' with all optional fields omitted.
@@ -46,7 +45,7 @@ data DatasetContentVersionValue = DatasetContentVersionValue'
 -- notebook or application.
 newDatasetContentVersionValue ::
   -- | 'datasetName'
-  Prelude.Text ->
+  Core.Text ->
   DatasetContentVersionValue
 newDatasetContentVersionValue pDatasetName_ =
   DatasetContentVersionValue'
@@ -56,27 +55,25 @@ newDatasetContentVersionValue pDatasetName_ =
 
 -- | The name of the dataset whose latest contents are used as input to the
 -- notebook or application.
-datasetContentVersionValue_datasetName :: Lens.Lens' DatasetContentVersionValue Prelude.Text
+datasetContentVersionValue_datasetName :: Lens.Lens' DatasetContentVersionValue Core.Text
 datasetContentVersionValue_datasetName = Lens.lens (\DatasetContentVersionValue' {datasetName} -> datasetName) (\s@DatasetContentVersionValue' {} a -> s {datasetName = a} :: DatasetContentVersionValue)
 
-instance Prelude.FromJSON DatasetContentVersionValue where
+instance Core.FromJSON DatasetContentVersionValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetContentVersionValue"
       ( \x ->
           DatasetContentVersionValue'
-            Prelude.<$> (x Prelude..: "datasetName")
+            Core.<$> (x Core..: "datasetName")
       )
 
-instance Prelude.Hashable DatasetContentVersionValue
+instance Core.Hashable DatasetContentVersionValue
 
-instance Prelude.NFData DatasetContentVersionValue
+instance Core.NFData DatasetContentVersionValue
 
-instance Prelude.ToJSON DatasetContentVersionValue where
+instance Core.ToJSON DatasetContentVersionValue where
   toJSON DatasetContentVersionValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("datasetName" Prelude..= datasetName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("datasetName" Core..= datasetName)]
       )

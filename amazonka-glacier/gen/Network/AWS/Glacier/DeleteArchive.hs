@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.Glacier.DeleteArchive
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,13 +79,13 @@ data DeleteArchive = DeleteArchive'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text,
+    vaultName :: Core.Text,
     -- | The ID of the archive to delete.
-    archiveId :: Prelude.Text
+    archiveId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteArchive' with all optional fields omitted.
@@ -107,11 +106,11 @@ data DeleteArchive = DeleteArchive'
 -- 'archiveId', 'deleteArchive_archiveId' - The ID of the archive to delete.
 newDeleteArchive ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'archiveId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteArchive
 newDeleteArchive pAccountId_ pVaultName_ pArchiveId_ =
   DeleteArchive'
@@ -125,51 +124,53 @@ newDeleteArchive pAccountId_ pVaultName_ pArchiveId_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-deleteArchive_accountId :: Lens.Lens' DeleteArchive Prelude.Text
+deleteArchive_accountId :: Lens.Lens' DeleteArchive Core.Text
 deleteArchive_accountId = Lens.lens (\DeleteArchive' {accountId} -> accountId) (\s@DeleteArchive' {} a -> s {accountId = a} :: DeleteArchive)
 
 -- | The name of the vault.
-deleteArchive_vaultName :: Lens.Lens' DeleteArchive Prelude.Text
+deleteArchive_vaultName :: Lens.Lens' DeleteArchive Core.Text
 deleteArchive_vaultName = Lens.lens (\DeleteArchive' {vaultName} -> vaultName) (\s@DeleteArchive' {} a -> s {vaultName = a} :: DeleteArchive)
 
 -- | The ID of the archive to delete.
-deleteArchive_archiveId :: Lens.Lens' DeleteArchive Prelude.Text
+deleteArchive_archiveId :: Lens.Lens' DeleteArchive Core.Text
 deleteArchive_archiveId = Lens.lens (\DeleteArchive' {archiveId} -> archiveId) (\s@DeleteArchive' {} a -> s {archiveId = a} :: DeleteArchive)
 
-instance Prelude.AWSRequest DeleteArchive where
-  type Rs DeleteArchive = DeleteArchiveResponse
+instance Core.AWSRequest DeleteArchive where
+  type
+    AWSResponse DeleteArchive =
+      DeleteArchiveResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.delete defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.delete defaultService
   response =
     Response.receiveNull DeleteArchiveResponse'
 
-instance Prelude.Hashable DeleteArchive
+instance Core.Hashable DeleteArchive
 
-instance Prelude.NFData DeleteArchive
+instance Core.NFData DeleteArchive
 
-instance Prelude.ToHeaders DeleteArchive where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteArchive where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteArchive where
+instance Core.ToPath DeleteArchive where
   toPath DeleteArchive' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/archives/",
-        Prelude.toBS archiveId
+        Core.toBS archiveId
       ]
 
-instance Prelude.ToQuery DeleteArchive where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteArchive where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteArchiveResponse' smart constructor.
 data DeleteArchiveResponse = DeleteArchiveResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteArchiveResponse' with all optional fields omitted.
@@ -179,4 +180,4 @@ newDeleteArchiveResponse ::
   DeleteArchiveResponse
 newDeleteArchiveResponse = DeleteArchiveResponse'
 
-instance Prelude.NFData DeleteArchiveResponse
+instance Core.NFData DeleteArchiveResponse

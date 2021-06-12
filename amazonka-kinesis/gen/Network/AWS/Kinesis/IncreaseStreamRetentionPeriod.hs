@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +58,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newIncreaseStreamRetentionPeriod' smart constructor.
 data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
   { -- | The name of the stream to modify.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The new retention period of the stream, in hours. Must be more than the
     -- current retention period.
-    retentionPeriodHours :: Prelude.Int
+    retentionPeriodHours :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IncreaseStreamRetentionPeriod' with all optional fields omitted.
@@ -80,9 +79,9 @@ data IncreaseStreamRetentionPeriod = IncreaseStreamRetentionPeriod'
 -- current retention period.
 newIncreaseStreamRetentionPeriod ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'retentionPeriodHours'
-  Prelude.Int ->
+  Core.Int ->
   IncreaseStreamRetentionPeriod
 newIncreaseStreamRetentionPeriod
   pStreamName_
@@ -95,76 +94,66 @@ newIncreaseStreamRetentionPeriod
       }
 
 -- | The name of the stream to modify.
-increaseStreamRetentionPeriod_streamName :: Lens.Lens' IncreaseStreamRetentionPeriod Prelude.Text
+increaseStreamRetentionPeriod_streamName :: Lens.Lens' IncreaseStreamRetentionPeriod Core.Text
 increaseStreamRetentionPeriod_streamName = Lens.lens (\IncreaseStreamRetentionPeriod' {streamName} -> streamName) (\s@IncreaseStreamRetentionPeriod' {} a -> s {streamName = a} :: IncreaseStreamRetentionPeriod)
 
 -- | The new retention period of the stream, in hours. Must be more than the
 -- current retention period.
-increaseStreamRetentionPeriod_retentionPeriodHours :: Lens.Lens' IncreaseStreamRetentionPeriod Prelude.Int
+increaseStreamRetentionPeriod_retentionPeriodHours :: Lens.Lens' IncreaseStreamRetentionPeriod Core.Int
 increaseStreamRetentionPeriod_retentionPeriodHours = Lens.lens (\IncreaseStreamRetentionPeriod' {retentionPeriodHours} -> retentionPeriodHours) (\s@IncreaseStreamRetentionPeriod' {} a -> s {retentionPeriodHours = a} :: IncreaseStreamRetentionPeriod)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     IncreaseStreamRetentionPeriod
   where
   type
-    Rs IncreaseStreamRetentionPeriod =
+    AWSResponse IncreaseStreamRetentionPeriod =
       IncreaseStreamRetentionPeriodResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       IncreaseStreamRetentionPeriodResponse'
 
-instance
-  Prelude.Hashable
-    IncreaseStreamRetentionPeriod
+instance Core.Hashable IncreaseStreamRetentionPeriod
 
-instance Prelude.NFData IncreaseStreamRetentionPeriod
+instance Core.NFData IncreaseStreamRetentionPeriod
 
-instance
-  Prelude.ToHeaders
-    IncreaseStreamRetentionPeriod
-  where
+instance Core.ToHeaders IncreaseStreamRetentionPeriod where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.IncreaseStreamRetentionPeriod" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.IncreaseStreamRetentionPeriod" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON IncreaseStreamRetentionPeriod where
+instance Core.ToJSON IncreaseStreamRetentionPeriod where
   toJSON IncreaseStreamRetentionPeriod' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just
               ( "RetentionPeriodHours"
-                  Prelude..= retentionPeriodHours
+                  Core..= retentionPeriodHours
               )
           ]
       )
 
-instance Prelude.ToPath IncreaseStreamRetentionPeriod where
-  toPath = Prelude.const "/"
+instance Core.ToPath IncreaseStreamRetentionPeriod where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    IncreaseStreamRetentionPeriod
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery IncreaseStreamRetentionPeriod where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newIncreaseStreamRetentionPeriodResponse' smart constructor.
 data IncreaseStreamRetentionPeriodResponse = IncreaseStreamRetentionPeriodResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IncreaseStreamRetentionPeriodResponse' with all optional fields omitted.
@@ -176,5 +165,5 @@ newIncreaseStreamRetentionPeriodResponse =
   IncreaseStreamRetentionPeriodResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     IncreaseStreamRetentionPeriodResponse

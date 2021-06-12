@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.ELBv2.DescribeTargetHealth
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
   { -- | The targets.
-    targets :: Prelude.Maybe [TargetDescription],
+    targets :: Core.Maybe [TargetDescription],
     -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupArn :: Prelude.Text
+    targetGroupArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTargetHealth' with all optional fields omitted.
@@ -69,25 +68,25 @@ data DescribeTargetHealth = DescribeTargetHealth'
 -- 'targetGroupArn', 'describeTargetHealth_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
 newDescribeTargetHealth ::
   -- | 'targetGroupArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTargetHealth
 newDescribeTargetHealth pTargetGroupArn_ =
   DescribeTargetHealth'
-    { targets = Prelude.Nothing,
+    { targets = Core.Nothing,
       targetGroupArn = pTargetGroupArn_
     }
 
 -- | The targets.
-describeTargetHealth_targets :: Lens.Lens' DescribeTargetHealth (Prelude.Maybe [TargetDescription])
-describeTargetHealth_targets = Lens.lens (\DescribeTargetHealth' {targets} -> targets) (\s@DescribeTargetHealth' {} a -> s {targets = a} :: DescribeTargetHealth) Prelude.. Lens.mapping Prelude._Coerce
+describeTargetHealth_targets :: Lens.Lens' DescribeTargetHealth (Core.Maybe [TargetDescription])
+describeTargetHealth_targets = Lens.lens (\DescribeTargetHealth' {targets} -> targets) (\s@DescribeTargetHealth' {} a -> s {targets = a} :: DescribeTargetHealth) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the target group.
-describeTargetHealth_targetGroupArn :: Lens.Lens' DescribeTargetHealth Prelude.Text
+describeTargetHealth_targetGroupArn :: Lens.Lens' DescribeTargetHealth Core.Text
 describeTargetHealth_targetGroupArn = Lens.lens (\DescribeTargetHealth' {targetGroupArn} -> targetGroupArn) (\s@DescribeTargetHealth' {} a -> s {targetGroupArn = a} :: DescribeTargetHealth)
 
-instance Prelude.AWSRequest DescribeTargetHealth where
+instance Core.AWSRequest DescribeTargetHealth where
   type
-    Rs DescribeTargetHealth =
+    AWSResponse DescribeTargetHealth =
       DescribeTargetHealthResponse
   request = Request.postQuery defaultService
   response =
@@ -95,44 +94,43 @@ instance Prelude.AWSRequest DescribeTargetHealth where
       "DescribeTargetHealthResult"
       ( \s h x ->
           DescribeTargetHealthResponse'
-            Prelude.<$> ( x Prelude..@? "TargetHealthDescriptions"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "TargetHealthDescriptions"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTargetHealth
+instance Core.Hashable DescribeTargetHealth
 
-instance Prelude.NFData DescribeTargetHealth
+instance Core.NFData DescribeTargetHealth
 
-instance Prelude.ToHeaders DescribeTargetHealth where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeTargetHealth where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeTargetHealth where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTargetHealth where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTargetHealth where
+instance Core.ToQuery DescribeTargetHealth where
   toQuery DescribeTargetHealth' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeTargetHealth" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+          Core.=: ("DescribeTargetHealth" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
         "Targets"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> targets),
-        "TargetGroupArn" Prelude.=: targetGroupArn
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> targets),
+        "TargetGroupArn" Core.=: targetGroupArn
       ]
 
 -- | /See:/ 'newDescribeTargetHealthResponse' smart constructor.
 data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
   { -- | Information about the health of the targets.
-    targetHealthDescriptions :: Prelude.Maybe [TargetHealthDescription],
+    targetHealthDescriptions :: Core.Maybe [TargetHealthDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTargetHealthResponse' with all optional fields omitted.
@@ -147,21 +145,21 @@ data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
 -- 'httpStatus', 'describeTargetHealthResponse_httpStatus' - The response's http status code.
 newDescribeTargetHealthResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTargetHealthResponse
 newDescribeTargetHealthResponse pHttpStatus_ =
   DescribeTargetHealthResponse'
     { targetHealthDescriptions =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the health of the targets.
-describeTargetHealthResponse_targetHealthDescriptions :: Lens.Lens' DescribeTargetHealthResponse (Prelude.Maybe [TargetHealthDescription])
-describeTargetHealthResponse_targetHealthDescriptions = Lens.lens (\DescribeTargetHealthResponse' {targetHealthDescriptions} -> targetHealthDescriptions) (\s@DescribeTargetHealthResponse' {} a -> s {targetHealthDescriptions = a} :: DescribeTargetHealthResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTargetHealthResponse_targetHealthDescriptions :: Lens.Lens' DescribeTargetHealthResponse (Core.Maybe [TargetHealthDescription])
+describeTargetHealthResponse_targetHealthDescriptions = Lens.lens (\DescribeTargetHealthResponse' {targetHealthDescriptions} -> targetHealthDescriptions) (\s@DescribeTargetHealthResponse' {} a -> s {targetHealthDescriptions = a} :: DescribeTargetHealthResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTargetHealthResponse_httpStatus :: Lens.Lens' DescribeTargetHealthResponse Prelude.Int
+describeTargetHealthResponse_httpStatus :: Lens.Lens' DescribeTargetHealthResponse Core.Int
 describeTargetHealthResponse_httpStatus = Lens.lens (\DescribeTargetHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeTargetHealthResponse' {} a -> s {httpStatus = a} :: DescribeTargetHealthResponse)
 
-instance Prelude.NFData DescribeTargetHealthResponse
+instance Core.NFData DescribeTargetHealthResponse

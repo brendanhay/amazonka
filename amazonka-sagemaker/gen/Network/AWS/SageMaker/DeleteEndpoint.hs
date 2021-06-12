@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SageMaker.DeleteEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,9 +50,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteEndpoint' smart constructor.
 data DeleteEndpoint = DeleteEndpoint'
   { -- | The name of the endpoint that you want to delete.
-    endpointName :: Prelude.Text
+    endpointName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpoint' with all optional fields omitted.
@@ -66,58 +65,56 @@ data DeleteEndpoint = DeleteEndpoint'
 -- 'endpointName', 'deleteEndpoint_endpointName' - The name of the endpoint that you want to delete.
 newDeleteEndpoint ::
   -- | 'endpointName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEndpoint
 newDeleteEndpoint pEndpointName_ =
   DeleteEndpoint' {endpointName = pEndpointName_}
 
 -- | The name of the endpoint that you want to delete.
-deleteEndpoint_endpointName :: Lens.Lens' DeleteEndpoint Prelude.Text
+deleteEndpoint_endpointName :: Lens.Lens' DeleteEndpoint Core.Text
 deleteEndpoint_endpointName = Lens.lens (\DeleteEndpoint' {endpointName} -> endpointName) (\s@DeleteEndpoint' {} a -> s {endpointName = a} :: DeleteEndpoint)
 
-instance Prelude.AWSRequest DeleteEndpoint where
-  type Rs DeleteEndpoint = DeleteEndpointResponse
+instance Core.AWSRequest DeleteEndpoint where
+  type
+    AWSResponse DeleteEndpoint =
+      DeleteEndpointResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteEndpointResponse'
 
-instance Prelude.Hashable DeleteEndpoint
+instance Core.Hashable DeleteEndpoint
 
-instance Prelude.NFData DeleteEndpoint
+instance Core.NFData DeleteEndpoint
 
-instance Prelude.ToHeaders DeleteEndpoint where
+instance Core.ToHeaders DeleteEndpoint where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.DeleteEndpoint" :: Prelude.ByteString),
+              Core.=# ("SageMaker.DeleteEndpoint" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteEndpoint where
+instance Core.ToJSON DeleteEndpoint where
   toJSON DeleteEndpoint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointName" Prelude..= endpointName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointName" Core..= endpointName)]
       )
 
-instance Prelude.ToPath DeleteEndpoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteEndpoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteEndpoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteEndpoint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEndpointResponse' with all optional fields omitted.
@@ -127,4 +124,4 @@ newDeleteEndpointResponse ::
   DeleteEndpointResponse
 newDeleteEndpointResponse = DeleteEndpointResponse'
 
-instance Prelude.NFData DeleteEndpointResponse
+instance Core.NFData DeleteEndpointResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.EbuTtDDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.EbuTtDDestinationStyleControl
 import Network.AWS.MediaLive.Types.EbuTtDFillLineGapControl
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Ebu Tt DDestination Settings
 --
@@ -32,7 +31,7 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
   { -- | Specifies how to handle the gap between the lines (in multi-line
     -- captions). - enabled: Fill with the captions background color (as
     -- specified in the input captions). - disabled: Leave the gap unfilled.
-    fillLineGap :: Prelude.Maybe EbuTtDFillLineGapControl,
+    fillLineGap :: Core.Maybe EbuTtDFillLineGapControl,
     -- | Specifies the style information (font color, font position, and so on)
     -- to include in the font data that is attached to the EBU-TT captions. -
     -- include: Take the style information (font color, font position, and so
@@ -41,7 +40,7 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
     -- source captions are Embedded or Teletext. - exclude: In the font data
     -- attached to the EBU-TT captions, set the font family to \"monospaced\".
     -- Do not include any other style information.
-    styleControl :: Prelude.Maybe EbuTtDDestinationStyleControl,
+    styleControl :: Core.Maybe EbuTtDDestinationStyleControl,
     -- | Specifies the font family to include in the font data attached to the
     -- EBU-TT captions. Valid only if styleControl is set to include. If you
     -- leave this field empty, the font family is set to \"monospaced\". (If
@@ -54,9 +53,9 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
     -- be a font family (such as “Arial”), or a generic font family (such as
     -- “serif”), or “default” (to let the downstream player choose the font). -
     -- Leave blank to set the family to “monospace”.
-    fontFamily :: Prelude.Maybe Prelude.Text
+    fontFamily :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EbuTtDDestinationSettings' with all optional fields omitted.
@@ -96,15 +95,15 @@ newEbuTtDDestinationSettings ::
 newEbuTtDDestinationSettings =
   EbuTtDDestinationSettings'
     { fillLineGap =
-        Prelude.Nothing,
-      styleControl = Prelude.Nothing,
-      fontFamily = Prelude.Nothing
+        Core.Nothing,
+      styleControl = Core.Nothing,
+      fontFamily = Core.Nothing
     }
 
 -- | Specifies how to handle the gap between the lines (in multi-line
 -- captions). - enabled: Fill with the captions background color (as
 -- specified in the input captions). - disabled: Leave the gap unfilled.
-ebuTtDDestinationSettings_fillLineGap :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe EbuTtDFillLineGapControl)
+ebuTtDDestinationSettings_fillLineGap :: Lens.Lens' EbuTtDDestinationSettings (Core.Maybe EbuTtDFillLineGapControl)
 ebuTtDDestinationSettings_fillLineGap = Lens.lens (\EbuTtDDestinationSettings' {fillLineGap} -> fillLineGap) (\s@EbuTtDDestinationSettings' {} a -> s {fillLineGap = a} :: EbuTtDDestinationSettings)
 
 -- | Specifies the style information (font color, font position, and so on)
@@ -115,7 +114,7 @@ ebuTtDDestinationSettings_fillLineGap = Lens.lens (\EbuTtDDestinationSettings' {
 -- source captions are Embedded or Teletext. - exclude: In the font data
 -- attached to the EBU-TT captions, set the font family to \"monospaced\".
 -- Do not include any other style information.
-ebuTtDDestinationSettings_styleControl :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe EbuTtDDestinationStyleControl)
+ebuTtDDestinationSettings_styleControl :: Lens.Lens' EbuTtDDestinationSettings (Core.Maybe EbuTtDDestinationStyleControl)
 ebuTtDDestinationSettings_styleControl = Lens.lens (\EbuTtDDestinationSettings' {styleControl} -> styleControl) (\s@EbuTtDDestinationSettings' {} a -> s {styleControl = a} :: EbuTtDDestinationSettings)
 
 -- | Specifies the font family to include in the font data attached to the
@@ -130,30 +129,30 @@ ebuTtDDestinationSettings_styleControl = Lens.lens (\EbuTtDDestinationSettings' 
 -- be a font family (such as “Arial”), or a generic font family (such as
 -- “serif”), or “default” (to let the downstream player choose the font). -
 -- Leave blank to set the family to “monospace”.
-ebuTtDDestinationSettings_fontFamily :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
+ebuTtDDestinationSettings_fontFamily :: Lens.Lens' EbuTtDDestinationSettings (Core.Maybe Core.Text)
 ebuTtDDestinationSettings_fontFamily = Lens.lens (\EbuTtDDestinationSettings' {fontFamily} -> fontFamily) (\s@EbuTtDDestinationSettings' {} a -> s {fontFamily = a} :: EbuTtDDestinationSettings)
 
-instance Prelude.FromJSON EbuTtDDestinationSettings where
+instance Core.FromJSON EbuTtDDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EbuTtDDestinationSettings"
       ( \x ->
           EbuTtDDestinationSettings'
-            Prelude.<$> (x Prelude..:? "fillLineGap")
-            Prelude.<*> (x Prelude..:? "styleControl")
-            Prelude.<*> (x Prelude..:? "fontFamily")
+            Core.<$> (x Core..:? "fillLineGap")
+            Core.<*> (x Core..:? "styleControl")
+            Core.<*> (x Core..:? "fontFamily")
       )
 
-instance Prelude.Hashable EbuTtDDestinationSettings
+instance Core.Hashable EbuTtDDestinationSettings
 
-instance Prelude.NFData EbuTtDDestinationSettings
+instance Core.NFData EbuTtDDestinationSettings
 
-instance Prelude.ToJSON EbuTtDDestinationSettings where
+instance Core.ToJSON EbuTtDDestinationSettings where
   toJSON EbuTtDDestinationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("fillLineGap" Prelude..=) Prelude.<$> fillLineGap,
-            ("styleControl" Prelude..=) Prelude.<$> styleControl,
-            ("fontFamily" Prelude..=) Prelude.<$> fontFamily
+    Core.object
+      ( Core.catMaybes
+          [ ("fillLineGap" Core..=) Core.<$> fillLineGap,
+            ("styleControl" Core..=) Core.<$> styleControl,
+            ("fontFamily" Core..=) Core.<$> fontFamily
           ]
       )

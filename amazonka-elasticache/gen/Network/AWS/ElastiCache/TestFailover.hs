@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -88,9 +87,9 @@ module Network.AWS.ElastiCache.TestFailover
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,14 +97,14 @@ import qualified Network.AWS.Response as Response
 data TestFailover = TestFailover'
   { -- | The name of the replication group (console: cluster) whose automatic
     -- failover is being tested by this operation.
-    replicationGroupId :: Prelude.Text,
+    replicationGroupId :: Core.Text,
     -- | The name of the node group (called shard in the console) in this
     -- replication group on which automatic failover is to be tested. You may
     -- test automatic failover on up to 5 node groups in any rolling 24-hour
     -- period.
-    nodeGroupId :: Prelude.Text
+    nodeGroupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestFailover' with all optional fields omitted.
@@ -124,9 +123,9 @@ data TestFailover = TestFailover'
 -- period.
 newTestFailover ::
   -- | 'replicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'nodeGroupId'
-  Prelude.Text ->
+  Core.Text ->
   TestFailover
 newTestFailover pReplicationGroupId_ pNodeGroupId_ =
   TestFailover'
@@ -137,56 +136,55 @@ newTestFailover pReplicationGroupId_ pNodeGroupId_ =
 
 -- | The name of the replication group (console: cluster) whose automatic
 -- failover is being tested by this operation.
-testFailover_replicationGroupId :: Lens.Lens' TestFailover Prelude.Text
+testFailover_replicationGroupId :: Lens.Lens' TestFailover Core.Text
 testFailover_replicationGroupId = Lens.lens (\TestFailover' {replicationGroupId} -> replicationGroupId) (\s@TestFailover' {} a -> s {replicationGroupId = a} :: TestFailover)
 
 -- | The name of the node group (called shard in the console) in this
 -- replication group on which automatic failover is to be tested. You may
 -- test automatic failover on up to 5 node groups in any rolling 24-hour
 -- period.
-testFailover_nodeGroupId :: Lens.Lens' TestFailover Prelude.Text
+testFailover_nodeGroupId :: Lens.Lens' TestFailover Core.Text
 testFailover_nodeGroupId = Lens.lens (\TestFailover' {nodeGroupId} -> nodeGroupId) (\s@TestFailover' {} a -> s {nodeGroupId = a} :: TestFailover)
 
-instance Prelude.AWSRequest TestFailover where
-  type Rs TestFailover = TestFailoverResponse
+instance Core.AWSRequest TestFailover where
+  type AWSResponse TestFailover = TestFailoverResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "TestFailoverResult"
       ( \s h x ->
           TestFailoverResponse'
-            Prelude.<$> (x Prelude..@? "ReplicationGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TestFailover
+instance Core.Hashable TestFailover
 
-instance Prelude.NFData TestFailover
+instance Core.NFData TestFailover
 
-instance Prelude.ToHeaders TestFailover where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TestFailover where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TestFailover where
-  toPath = Prelude.const "/"
+instance Core.ToPath TestFailover where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TestFailover where
+instance Core.ToQuery TestFailover where
   toQuery TestFailover' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("TestFailover" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "ReplicationGroupId" Prelude.=: replicationGroupId,
-        "NodeGroupId" Prelude.=: nodeGroupId
+          Core.=: ("TestFailover" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "ReplicationGroupId" Core.=: replicationGroupId,
+        "NodeGroupId" Core.=: nodeGroupId
       ]
 
 -- | /See:/ 'newTestFailoverResponse' smart constructor.
 data TestFailoverResponse = TestFailoverResponse'
-  { replicationGroup :: Prelude.Maybe ReplicationGroup,
+  { replicationGroup :: Core.Maybe ReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestFailoverResponse' with all optional fields omitted.
@@ -201,21 +199,21 @@ data TestFailoverResponse = TestFailoverResponse'
 -- 'httpStatus', 'testFailoverResponse_httpStatus' - The response's http status code.
 newTestFailoverResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TestFailoverResponse
 newTestFailoverResponse pHttpStatus_ =
   TestFailoverResponse'
     { replicationGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-testFailoverResponse_replicationGroup :: Lens.Lens' TestFailoverResponse (Prelude.Maybe ReplicationGroup)
+testFailoverResponse_replicationGroup :: Lens.Lens' TestFailoverResponse (Core.Maybe ReplicationGroup)
 testFailoverResponse_replicationGroup = Lens.lens (\TestFailoverResponse' {replicationGroup} -> replicationGroup) (\s@TestFailoverResponse' {} a -> s {replicationGroup = a} :: TestFailoverResponse)
 
 -- | The response's http status code.
-testFailoverResponse_httpStatus :: Lens.Lens' TestFailoverResponse Prelude.Int
+testFailoverResponse_httpStatus :: Lens.Lens' TestFailoverResponse Core.Int
 testFailoverResponse_httpStatus = Lens.lens (\TestFailoverResponse' {httpStatus} -> httpStatus) (\s@TestFailoverResponse' {} a -> s {httpStatus = a} :: TestFailoverResponse)
 
-instance Prelude.NFData TestFailoverResponse
+instance Core.NFData TestFailoverResponse

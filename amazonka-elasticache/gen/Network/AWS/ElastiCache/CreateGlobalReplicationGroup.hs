@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,16 +53,16 @@ module Network.AWS.ElastiCache.CreateGlobalReplicationGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGlobalReplicationGroup' smart constructor.
 data CreateGlobalReplicationGroup = CreateGlobalReplicationGroup'
   { -- | Provides details of the Global Datastore
-    globalReplicationGroupDescription :: Prelude.Maybe Prelude.Text,
+    globalReplicationGroupDescription :: Core.Maybe Core.Text,
     -- | The suffix name of a Global Datastore. Amazon ElastiCache automatically
     -- applies a prefix to the Global Datastore ID when it is created. Each AWS
     -- Region has its own prefix. For instance, a Global Datastore ID created
@@ -76,12 +75,12 @@ data CreateGlobalReplicationGroup = CreateGlobalReplicationGroup'
     -- prefixes, see
     -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html Using the AWS CLI with Global Datastores>
     -- .
-    globalReplicationGroupIdSuffix :: Prelude.Text,
+    globalReplicationGroupIdSuffix :: Core.Text,
     -- | The name of the primary cluster that accepts writes and will replicate
     -- updates to the secondary cluster.
-    primaryReplicationGroupId :: Prelude.Text
+    primaryReplicationGroupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGlobalReplicationGroup' with all optional fields omitted.
@@ -110,16 +109,16 @@ data CreateGlobalReplicationGroup = CreateGlobalReplicationGroup'
 -- updates to the secondary cluster.
 newCreateGlobalReplicationGroup ::
   -- | 'globalReplicationGroupIdSuffix'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'primaryReplicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   CreateGlobalReplicationGroup
 newCreateGlobalReplicationGroup
   pGlobalReplicationGroupIdSuffix_
   pPrimaryReplicationGroupId_ =
     CreateGlobalReplicationGroup'
       { globalReplicationGroupDescription =
-          Prelude.Nothing,
+          Core.Nothing,
         globalReplicationGroupIdSuffix =
           pGlobalReplicationGroupIdSuffix_,
         primaryReplicationGroupId =
@@ -127,7 +126,7 @@ newCreateGlobalReplicationGroup
       }
 
 -- | Provides details of the Global Datastore
-createGlobalReplicationGroup_globalReplicationGroupDescription :: Lens.Lens' CreateGlobalReplicationGroup (Prelude.Maybe Prelude.Text)
+createGlobalReplicationGroup_globalReplicationGroupDescription :: Lens.Lens' CreateGlobalReplicationGroup (Core.Maybe Core.Text)
 createGlobalReplicationGroup_globalReplicationGroupDescription = Lens.lens (\CreateGlobalReplicationGroup' {globalReplicationGroupDescription} -> globalReplicationGroupDescription) (\s@CreateGlobalReplicationGroup' {} a -> s {globalReplicationGroupDescription = a} :: CreateGlobalReplicationGroup)
 
 -- | The suffix name of a Global Datastore. Amazon ElastiCache automatically
@@ -142,20 +141,17 @@ createGlobalReplicationGroup_globalReplicationGroupDescription = Lens.lens (\Cre
 -- prefixes, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html Using the AWS CLI with Global Datastores>
 -- .
-createGlobalReplicationGroup_globalReplicationGroupIdSuffix :: Lens.Lens' CreateGlobalReplicationGroup Prelude.Text
+createGlobalReplicationGroup_globalReplicationGroupIdSuffix :: Lens.Lens' CreateGlobalReplicationGroup Core.Text
 createGlobalReplicationGroup_globalReplicationGroupIdSuffix = Lens.lens (\CreateGlobalReplicationGroup' {globalReplicationGroupIdSuffix} -> globalReplicationGroupIdSuffix) (\s@CreateGlobalReplicationGroup' {} a -> s {globalReplicationGroupIdSuffix = a} :: CreateGlobalReplicationGroup)
 
 -- | The name of the primary cluster that accepts writes and will replicate
 -- updates to the secondary cluster.
-createGlobalReplicationGroup_primaryReplicationGroupId :: Lens.Lens' CreateGlobalReplicationGroup Prelude.Text
+createGlobalReplicationGroup_primaryReplicationGroupId :: Lens.Lens' CreateGlobalReplicationGroup Core.Text
 createGlobalReplicationGroup_primaryReplicationGroupId = Lens.lens (\CreateGlobalReplicationGroup' {primaryReplicationGroupId} -> primaryReplicationGroupId) (\s@CreateGlobalReplicationGroup' {} a -> s {primaryReplicationGroupId = a} :: CreateGlobalReplicationGroup)
 
-instance
-  Prelude.AWSRequest
-    CreateGlobalReplicationGroup
-  where
+instance Core.AWSRequest CreateGlobalReplicationGroup where
   type
-    Rs CreateGlobalReplicationGroup =
+    AWSResponse CreateGlobalReplicationGroup =
       CreateGlobalReplicationGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -163,49 +159,41 @@ instance
       "CreateGlobalReplicationGroupResult"
       ( \s h x ->
           CreateGlobalReplicationGroupResponse'
-            Prelude.<$> (x Prelude..@? "GlobalReplicationGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateGlobalReplicationGroup
+instance Core.Hashable CreateGlobalReplicationGroup
 
-instance Prelude.NFData CreateGlobalReplicationGroup
+instance Core.NFData CreateGlobalReplicationGroup
 
-instance
-  Prelude.ToHeaders
-    CreateGlobalReplicationGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateGlobalReplicationGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateGlobalReplicationGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateGlobalReplicationGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateGlobalReplicationGroup where
+instance Core.ToQuery CreateGlobalReplicationGroup where
   toQuery CreateGlobalReplicationGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateGlobalReplicationGroup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("CreateGlobalReplicationGroup" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "GlobalReplicationGroupDescription"
-          Prelude.=: globalReplicationGroupDescription,
+          Core.=: globalReplicationGroupDescription,
         "GlobalReplicationGroupIdSuffix"
-          Prelude.=: globalReplicationGroupIdSuffix,
+          Core.=: globalReplicationGroupIdSuffix,
         "PrimaryReplicationGroupId"
-          Prelude.=: primaryReplicationGroupId
+          Core.=: primaryReplicationGroupId
       ]
 
 -- | /See:/ 'newCreateGlobalReplicationGroupResponse' smart constructor.
 data CreateGlobalReplicationGroupResponse = CreateGlobalReplicationGroupResponse'
-  { globalReplicationGroup :: Prelude.Maybe GlobalReplicationGroup,
+  { globalReplicationGroup :: Core.Maybe GlobalReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGlobalReplicationGroupResponse' with all optional fields omitted.
@@ -220,23 +208,23 @@ data CreateGlobalReplicationGroupResponse = CreateGlobalReplicationGroupResponse
 -- 'httpStatus', 'createGlobalReplicationGroupResponse_httpStatus' - The response's http status code.
 newCreateGlobalReplicationGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateGlobalReplicationGroupResponse
 newCreateGlobalReplicationGroupResponse pHttpStatus_ =
   CreateGlobalReplicationGroupResponse'
     { globalReplicationGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' CreateGlobalReplicationGroupResponse (Prelude.Maybe GlobalReplicationGroup)
+createGlobalReplicationGroupResponse_globalReplicationGroup :: Lens.Lens' CreateGlobalReplicationGroupResponse (Core.Maybe GlobalReplicationGroup)
 createGlobalReplicationGroupResponse_globalReplicationGroup = Lens.lens (\CreateGlobalReplicationGroupResponse' {globalReplicationGroup} -> globalReplicationGroup) (\s@CreateGlobalReplicationGroupResponse' {} a -> s {globalReplicationGroup = a} :: CreateGlobalReplicationGroupResponse)
 
 -- | The response's http status code.
-createGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' CreateGlobalReplicationGroupResponse Prelude.Int
+createGlobalReplicationGroupResponse_httpStatus :: Lens.Lens' CreateGlobalReplicationGroupResponse Core.Int
 createGlobalReplicationGroupResponse_httpStatus = Lens.lens (\CreateGlobalReplicationGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGlobalReplicationGroupResponse' {} a -> s {httpStatus = a} :: CreateGlobalReplicationGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateGlobalReplicationGroupResponse

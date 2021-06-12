@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.DestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.S3DestinationSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings associated with the destination. Will vary based on the type of
 -- destination
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDestinationSettings' smart constructor.
 data DestinationSettings = DestinationSettings'
   { -- | Settings associated with S3 destination
-    s3Settings :: Prelude.Maybe S3DestinationSettings
+    s3Settings :: Core.Maybe S3DestinationSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DestinationSettings' with all optional fields omitted.
@@ -46,28 +45,28 @@ data DestinationSettings = DestinationSettings'
 newDestinationSettings ::
   DestinationSettings
 newDestinationSettings =
-  DestinationSettings' {s3Settings = Prelude.Nothing}
+  DestinationSettings' {s3Settings = Core.Nothing}
 
 -- | Settings associated with S3 destination
-destinationSettings_s3Settings :: Lens.Lens' DestinationSettings (Prelude.Maybe S3DestinationSettings)
+destinationSettings_s3Settings :: Lens.Lens' DestinationSettings (Core.Maybe S3DestinationSettings)
 destinationSettings_s3Settings = Lens.lens (\DestinationSettings' {s3Settings} -> s3Settings) (\s@DestinationSettings' {} a -> s {s3Settings = a} :: DestinationSettings)
 
-instance Prelude.FromJSON DestinationSettings where
+instance Core.FromJSON DestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DestinationSettings"
       ( \x ->
           DestinationSettings'
-            Prelude.<$> (x Prelude..:? "s3Settings")
+            Core.<$> (x Core..:? "s3Settings")
       )
 
-instance Prelude.Hashable DestinationSettings
+instance Core.Hashable DestinationSettings
 
-instance Prelude.NFData DestinationSettings
+instance Core.NFData DestinationSettings
 
-instance Prelude.ToJSON DestinationSettings where
+instance Core.ToJSON DestinationSettings where
   toJSON DestinationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("s3Settings" Prelude..=) Prelude.<$> s3Settings]
+    Core.object
+      ( Core.catMaybes
+          [("s3Settings" Core..=) Core.<$> s3Settings]
       )

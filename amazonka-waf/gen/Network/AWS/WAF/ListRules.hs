@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.WAF.ListRules
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -67,14 +65,14 @@ data ListRules = ListRules'
     -- that allows you to list another group of @Rules@. For the second and
     -- subsequent @ListRules@ requests, specify the value of @NextMarker@ from
     -- the previous response to get information about another batch of @Rules@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of @Rules@ that you want AWS WAF to return for this
     -- request. If you have more @Rules@ than the number that you specify for
     -- @Limit@, the response includes a @NextMarker@ value that you can use to
     -- get another batch of @Rules@.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRules' with all optional fields omitted.
@@ -98,8 +96,8 @@ newListRules ::
   ListRules
 newListRules =
   ListRules'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @Rules@ than the
@@ -107,78 +105,76 @@ newListRules =
 -- that allows you to list another group of @Rules@. For the second and
 -- subsequent @ListRules@ requests, specify the value of @NextMarker@ from
 -- the previous response to get information about another batch of @Rules@.
-listRules_nextMarker :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Text)
+listRules_nextMarker :: Lens.Lens' ListRules (Core.Maybe Core.Text)
 listRules_nextMarker = Lens.lens (\ListRules' {nextMarker} -> nextMarker) (\s@ListRules' {} a -> s {nextMarker = a} :: ListRules)
 
 -- | Specifies the number of @Rules@ that you want AWS WAF to return for this
 -- request. If you have more @Rules@ than the number that you specify for
 -- @Limit@, the response includes a @NextMarker@ value that you can use to
 -- get another batch of @Rules@.
-listRules_limit :: Lens.Lens' ListRules (Prelude.Maybe Prelude.Natural)
+listRules_limit :: Lens.Lens' ListRules (Core.Maybe Core.Natural)
 listRules_limit = Lens.lens (\ListRules' {limit} -> limit) (\s@ListRules' {} a -> s {limit = a} :: ListRules)
 
-instance Pager.AWSPager ListRules where
+instance Core.AWSPager ListRules where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listRulesResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listRulesResponse_nextMarker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listRulesResponse_rules Prelude.. Lens._Just
+            Lens.^? listRulesResponse_rules Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listRules_nextMarker
           Lens..~ rs
-          Lens.^? listRulesResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listRulesResponse_nextMarker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListRules where
-  type Rs ListRules = ListRulesResponse
+instance Core.AWSRequest ListRules where
+  type AWSResponse ListRules = ListRulesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListRulesResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> (x Prelude..?> "Rules" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "Rules" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListRules
+instance Core.Hashable ListRules
 
-instance Prelude.NFData ListRules
+instance Core.NFData ListRules
 
-instance Prelude.ToHeaders ListRules where
+instance Core.ToHeaders ListRules where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSWAF_20150824.ListRules" :: Prelude.ByteString),
+              Core.=# ("AWSWAF_20150824.ListRules" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListRules where
+instance Core.ToJSON ListRules where
   toJSON ListRules' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListRules where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListRules where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListRules where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListRules where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
@@ -187,13 +183,13 @@ data ListRulesResponse = ListRulesResponse'
     -- @Rules@, submit another @ListRules@ request, and specify the
     -- @NextMarker@ value from the response in the @NextMarker@ value in the
     -- next request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | An array of RuleSummary objects.
-    rules :: Prelude.Maybe [RuleSummary],
+    rules :: Core.Maybe [RuleSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRulesResponse' with all optional fields omitted.
@@ -214,12 +210,12 @@ data ListRulesResponse = ListRulesResponse'
 -- 'httpStatus', 'listRulesResponse_httpStatus' - The response's http status code.
 newListRulesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListRulesResponse
 newListRulesResponse pHttpStatus_ =
   ListRulesResponse'
-    { nextMarker = Prelude.Nothing,
-      rules = Prelude.Nothing,
+    { nextMarker = Core.Nothing,
+      rules = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -228,15 +224,15 @@ newListRulesResponse pHttpStatus_ =
 -- @Rules@, submit another @ListRules@ request, and specify the
 -- @NextMarker@ value from the response in the @NextMarker@ value in the
 -- next request.
-listRulesResponse_nextMarker :: Lens.Lens' ListRulesResponse (Prelude.Maybe Prelude.Text)
+listRulesResponse_nextMarker :: Lens.Lens' ListRulesResponse (Core.Maybe Core.Text)
 listRulesResponse_nextMarker = Lens.lens (\ListRulesResponse' {nextMarker} -> nextMarker) (\s@ListRulesResponse' {} a -> s {nextMarker = a} :: ListRulesResponse)
 
 -- | An array of RuleSummary objects.
-listRulesResponse_rules :: Lens.Lens' ListRulesResponse (Prelude.Maybe [RuleSummary])
-listRulesResponse_rules = Lens.lens (\ListRulesResponse' {rules} -> rules) (\s@ListRulesResponse' {} a -> s {rules = a} :: ListRulesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listRulesResponse_rules :: Lens.Lens' ListRulesResponse (Core.Maybe [RuleSummary])
+listRulesResponse_rules = Lens.lens (\ListRulesResponse' {rules} -> rules) (\s@ListRulesResponse' {} a -> s {rules = a} :: ListRulesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRulesResponse_httpStatus :: Lens.Lens' ListRulesResponse Prelude.Int
+listRulesResponse_httpStatus :: Lens.Lens' ListRulesResponse Core.Int
 listRulesResponse_httpStatus = Lens.lens (\ListRulesResponse' {httpStatus} -> httpStatus) (\s@ListRulesResponse' {} a -> s {httpStatus = a} :: ListRulesResponse)
 
-instance Prelude.NFData ListRulesResponse
+instance Core.NFData ListRulesResponse

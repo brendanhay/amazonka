@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.ResourceViolation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types.AwsEc2InstanceViolation
 import Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
 import Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
@@ -28,7 +28,6 @@ import Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
 import Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
 import Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Violation detail based on resource type.
 --
@@ -37,28 +36,28 @@ data ResourceViolation = ResourceViolation'
   { -- | Violation detail for an Network Firewall policy that indicates that an
     -- Availability Zone is missing the expected Firewall Manager managed
     -- subnet.
-    networkFirewallMissingSubnetViolation :: Prelude.Maybe NetworkFirewallMissingSubnetViolation,
+    networkFirewallMissingSubnetViolation :: Core.Maybe NetworkFirewallMissingSubnetViolation,
     -- | Violation details for network interface.
-    awsEc2NetworkInterfaceViolation :: Prelude.Maybe AwsEc2NetworkInterfaceViolation,
+    awsEc2NetworkInterfaceViolation :: Core.Maybe AwsEc2NetworkInterfaceViolation,
     -- | Violation detail for an Network Firewall policy that indicates that a
     -- subnet is not associated with the expected Firewall Manager managed
     -- route table.
-    networkFirewallMissingExpectedRTViolation :: Prelude.Maybe NetworkFirewallMissingExpectedRTViolation,
+    networkFirewallMissingExpectedRTViolation :: Core.Maybe NetworkFirewallMissingExpectedRTViolation,
     -- | Violation details for an EC2 instance.
-    awsEc2InstanceViolation :: Prelude.Maybe AwsEc2InstanceViolation,
+    awsEc2InstanceViolation :: Core.Maybe AwsEc2InstanceViolation,
     -- | Violation detail for an Network Firewall policy that indicates that a
     -- subnet has no Firewall Manager managed firewall in its VPC.
-    networkFirewallMissingFirewallViolation :: Prelude.Maybe NetworkFirewallMissingFirewallViolation,
+    networkFirewallMissingFirewallViolation :: Core.Maybe NetworkFirewallMissingFirewallViolation,
     -- | Violation detail for an Network Firewall policy that indicates that a
     -- firewall policy in an individual account has been modified in a way that
     -- makes it noncompliant. For example, the individual account owner might
     -- have deleted a rule group, changed the priority of a stateless rule
     -- group, or changed a policy default action.
-    networkFirewallPolicyModifiedViolation :: Prelude.Maybe NetworkFirewallPolicyModifiedViolation,
+    networkFirewallPolicyModifiedViolation :: Core.Maybe NetworkFirewallPolicyModifiedViolation,
     -- | Violation details for security groups.
-    awsVPCSecurityGroupViolation :: Prelude.Maybe AwsVPCSecurityGroupViolation
+    awsVPCSecurityGroupViolation :: Core.Maybe AwsVPCSecurityGroupViolation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceViolation' with all optional fields omitted.
@@ -95,41 +94,41 @@ newResourceViolation ::
 newResourceViolation =
   ResourceViolation'
     { networkFirewallMissingSubnetViolation =
-        Prelude.Nothing,
-      awsEc2NetworkInterfaceViolation = Prelude.Nothing,
+        Core.Nothing,
+      awsEc2NetworkInterfaceViolation = Core.Nothing,
       networkFirewallMissingExpectedRTViolation =
-        Prelude.Nothing,
-      awsEc2InstanceViolation = Prelude.Nothing,
+        Core.Nothing,
+      awsEc2InstanceViolation = Core.Nothing,
       networkFirewallMissingFirewallViolation =
-        Prelude.Nothing,
+        Core.Nothing,
       networkFirewallPolicyModifiedViolation =
-        Prelude.Nothing,
-      awsVPCSecurityGroupViolation = Prelude.Nothing
+        Core.Nothing,
+      awsVPCSecurityGroupViolation = Core.Nothing
     }
 
 -- | Violation detail for an Network Firewall policy that indicates that an
 -- Availability Zone is missing the expected Firewall Manager managed
 -- subnet.
-resourceViolation_networkFirewallMissingSubnetViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallMissingSubnetViolation)
+resourceViolation_networkFirewallMissingSubnetViolation :: Lens.Lens' ResourceViolation (Core.Maybe NetworkFirewallMissingSubnetViolation)
 resourceViolation_networkFirewallMissingSubnetViolation = Lens.lens (\ResourceViolation' {networkFirewallMissingSubnetViolation} -> networkFirewallMissingSubnetViolation) (\s@ResourceViolation' {} a -> s {networkFirewallMissingSubnetViolation = a} :: ResourceViolation)
 
 -- | Violation details for network interface.
-resourceViolation_awsEc2NetworkInterfaceViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe AwsEc2NetworkInterfaceViolation)
+resourceViolation_awsEc2NetworkInterfaceViolation :: Lens.Lens' ResourceViolation (Core.Maybe AwsEc2NetworkInterfaceViolation)
 resourceViolation_awsEc2NetworkInterfaceViolation = Lens.lens (\ResourceViolation' {awsEc2NetworkInterfaceViolation} -> awsEc2NetworkInterfaceViolation) (\s@ResourceViolation' {} a -> s {awsEc2NetworkInterfaceViolation = a} :: ResourceViolation)
 
 -- | Violation detail for an Network Firewall policy that indicates that a
 -- subnet is not associated with the expected Firewall Manager managed
 -- route table.
-resourceViolation_networkFirewallMissingExpectedRTViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallMissingExpectedRTViolation)
+resourceViolation_networkFirewallMissingExpectedRTViolation :: Lens.Lens' ResourceViolation (Core.Maybe NetworkFirewallMissingExpectedRTViolation)
 resourceViolation_networkFirewallMissingExpectedRTViolation = Lens.lens (\ResourceViolation' {networkFirewallMissingExpectedRTViolation} -> networkFirewallMissingExpectedRTViolation) (\s@ResourceViolation' {} a -> s {networkFirewallMissingExpectedRTViolation = a} :: ResourceViolation)
 
 -- | Violation details for an EC2 instance.
-resourceViolation_awsEc2InstanceViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe AwsEc2InstanceViolation)
+resourceViolation_awsEc2InstanceViolation :: Lens.Lens' ResourceViolation (Core.Maybe AwsEc2InstanceViolation)
 resourceViolation_awsEc2InstanceViolation = Lens.lens (\ResourceViolation' {awsEc2InstanceViolation} -> awsEc2InstanceViolation) (\s@ResourceViolation' {} a -> s {awsEc2InstanceViolation = a} :: ResourceViolation)
 
 -- | Violation detail for an Network Firewall policy that indicates that a
 -- subnet has no Firewall Manager managed firewall in its VPC.
-resourceViolation_networkFirewallMissingFirewallViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallMissingFirewallViolation)
+resourceViolation_networkFirewallMissingFirewallViolation :: Lens.Lens' ResourceViolation (Core.Maybe NetworkFirewallMissingFirewallViolation)
 resourceViolation_networkFirewallMissingFirewallViolation = Lens.lens (\ResourceViolation' {networkFirewallMissingFirewallViolation} -> networkFirewallMissingFirewallViolation) (\s@ResourceViolation' {} a -> s {networkFirewallMissingFirewallViolation = a} :: ResourceViolation)
 
 -- | Violation detail for an Network Firewall policy that indicates that a
@@ -137,36 +136,32 @@ resourceViolation_networkFirewallMissingFirewallViolation = Lens.lens (\Resource
 -- makes it noncompliant. For example, the individual account owner might
 -- have deleted a rule group, changed the priority of a stateless rule
 -- group, or changed a policy default action.
-resourceViolation_networkFirewallPolicyModifiedViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe NetworkFirewallPolicyModifiedViolation)
+resourceViolation_networkFirewallPolicyModifiedViolation :: Lens.Lens' ResourceViolation (Core.Maybe NetworkFirewallPolicyModifiedViolation)
 resourceViolation_networkFirewallPolicyModifiedViolation = Lens.lens (\ResourceViolation' {networkFirewallPolicyModifiedViolation} -> networkFirewallPolicyModifiedViolation) (\s@ResourceViolation' {} a -> s {networkFirewallPolicyModifiedViolation = a} :: ResourceViolation)
 
 -- | Violation details for security groups.
-resourceViolation_awsVPCSecurityGroupViolation :: Lens.Lens' ResourceViolation (Prelude.Maybe AwsVPCSecurityGroupViolation)
+resourceViolation_awsVPCSecurityGroupViolation :: Lens.Lens' ResourceViolation (Core.Maybe AwsVPCSecurityGroupViolation)
 resourceViolation_awsVPCSecurityGroupViolation = Lens.lens (\ResourceViolation' {awsVPCSecurityGroupViolation} -> awsVPCSecurityGroupViolation) (\s@ResourceViolation' {} a -> s {awsVPCSecurityGroupViolation = a} :: ResourceViolation)
 
-instance Prelude.FromJSON ResourceViolation where
+instance Core.FromJSON ResourceViolation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceViolation"
       ( \x ->
           ResourceViolation'
-            Prelude.<$> ( x
-                            Prelude..:? "NetworkFirewallMissingSubnetViolation"
-                        )
-            Prelude.<*> (x Prelude..:? "AwsEc2NetworkInterfaceViolation")
-            Prelude.<*> ( x
-                            Prelude..:? "NetworkFirewallMissingExpectedRTViolation"
-                        )
-            Prelude.<*> (x Prelude..:? "AwsEc2InstanceViolation")
-            Prelude.<*> ( x
-                            Prelude..:? "NetworkFirewallMissingFirewallViolation"
-                        )
-            Prelude.<*> ( x
-                            Prelude..:? "NetworkFirewallPolicyModifiedViolation"
-                        )
-            Prelude.<*> (x Prelude..:? "AwsVPCSecurityGroupViolation")
+            Core.<$> (x Core..:? "NetworkFirewallMissingSubnetViolation")
+            Core.<*> (x Core..:? "AwsEc2NetworkInterfaceViolation")
+            Core.<*> ( x
+                         Core..:? "NetworkFirewallMissingExpectedRTViolation"
+                     )
+            Core.<*> (x Core..:? "AwsEc2InstanceViolation")
+            Core.<*> ( x
+                         Core..:? "NetworkFirewallMissingFirewallViolation"
+                     )
+            Core.<*> (x Core..:? "NetworkFirewallPolicyModifiedViolation")
+            Core.<*> (x Core..:? "AwsVPCSecurityGroupViolation")
       )
 
-instance Prelude.Hashable ResourceViolation
+instance Core.Hashable ResourceViolation
 
-instance Prelude.NFData ResourceViolation
+instance Core.NFData ResourceViolation

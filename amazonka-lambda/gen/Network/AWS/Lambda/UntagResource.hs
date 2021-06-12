@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,20 +37,20 @@ module Network.AWS.Lambda.UntagResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The function\'s Amazon Resource Name (ARN).
-    resource :: Prelude.Text,
+    resource :: Core.Text,
     -- | A list of tag keys to remove from the function.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -66,52 +65,52 @@ data UntagResource = UntagResource'
 -- 'tagKeys', 'untagResource_tagKeys' - A list of tag keys to remove from the function.
 newUntagResource ::
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   UntagResource
 newUntagResource pResource_ =
   UntagResource'
     { resource = pResource_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The function\'s Amazon Resource Name (ARN).
-untagResource_resource :: Lens.Lens' UntagResource Prelude.Text
+untagResource_resource :: Lens.Lens' UntagResource Core.Text
 untagResource_resource = Lens.lens (\UntagResource' {resource} -> resource) (\s@UntagResource' {} a -> s {resource = a} :: UntagResource)
 
 -- | A list of tag keys to remove from the function.
-untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Prelude._Coerce
+untagResource_tagKeys :: Lens.Lens' UntagResource [Core.Text]
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagResource where
-  type Rs UntagResource = UntagResourceResponse
+instance Core.AWSRequest UntagResource where
+  type
+    AWSResponse UntagResource =
+      UntagResourceResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull UntagResourceResponse'
 
-instance Prelude.Hashable UntagResource
+instance Core.Hashable UntagResource
 
-instance Prelude.NFData UntagResource
+instance Core.NFData UntagResource
 
-instance Prelude.ToHeaders UntagResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UntagResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UntagResource where
+instance Core.ToPath UntagResource where
   toPath UntagResource' {..} =
-    Prelude.mconcat
-      ["/2017-03-31/tags/", Prelude.toBS resource]
+    Core.mconcat
+      ["/2017-03-31/tags/", Core.toBS resource]
 
-instance Prelude.ToQuery UntagResource where
+instance Core.ToQuery UntagResource where
   toQuery UntagResource' {..} =
-    Prelude.mconcat
-      [ "tagKeys"
-          Prelude.=: Prelude.toQueryList "member" tagKeys
-      ]
+    Core.mconcat
+      ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -121,4 +120,4 @@ newUntagResourceResponse ::
   UntagResourceResponse
 newUntagResourceResponse = UntagResourceResponse'
 
-instance Prelude.NFData UntagResourceResponse
+instance Core.NFData UntagResourceResponse

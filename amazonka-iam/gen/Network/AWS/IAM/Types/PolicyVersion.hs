@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.PolicyVersion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a version of a managed policy.
 --
@@ -38,12 +37,12 @@ data PolicyVersion = PolicyVersion'
   { -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- policy version was created.
-    createDate :: Prelude.Maybe Prelude.ISO8601,
+    createDate :: Core.Maybe Core.ISO8601,
     -- | The identifier for the policy version.
     --
     -- Policy version identifiers always begin with @v@ (always lowercase).
     -- When a policy is created, the first policy version is @v1@.
-    versionId :: Prelude.Maybe Prelude.Text,
+    versionId :: Core.Maybe Core.Text,
     -- | The policy document.
     --
     -- The policy document is returned in the response to the GetPolicyVersion
@@ -56,12 +55,12 @@ data PolicyVersion = PolicyVersion'
     -- example, if you use Java, you can use the @decode@ method of the
     -- @java.net.URLDecoder@ utility class in the Java SDK. Other languages and
     -- SDKs provide similar functionality.
-    document :: Prelude.Maybe Prelude.Text,
+    document :: Core.Maybe Core.Text,
     -- | Specifies whether the policy version is set as the policy\'s default
     -- version.
-    isDefaultVersion :: Prelude.Maybe Prelude.Bool
+    isDefaultVersion :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyVersion' with all optional fields omitted.
@@ -99,23 +98,23 @@ newPolicyVersion ::
   PolicyVersion
 newPolicyVersion =
   PolicyVersion'
-    { createDate = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      document = Prelude.Nothing,
-      isDefaultVersion = Prelude.Nothing
+    { createDate = Core.Nothing,
+      versionId = Core.Nothing,
+      document = Core.Nothing,
+      isDefaultVersion = Core.Nothing
     }
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy version was created.
-policyVersion_createDate :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.UTCTime)
-policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Prelude.. Lens.mapping Prelude._Time
+policyVersion_createDate :: Lens.Lens' PolicyVersion (Core.Maybe Core.UTCTime)
+policyVersion_createDate = Lens.lens (\PolicyVersion' {createDate} -> createDate) (\s@PolicyVersion' {} a -> s {createDate = a} :: PolicyVersion) Core.. Lens.mapping Core._Time
 
 -- | The identifier for the policy version.
 --
 -- Policy version identifiers always begin with @v@ (always lowercase).
 -- When a policy is created, the first policy version is @v1@.
-policyVersion_versionId :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
+policyVersion_versionId :: Lens.Lens' PolicyVersion (Core.Maybe Core.Text)
 policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (\s@PolicyVersion' {} a -> s {versionId = a} :: PolicyVersion)
 
 -- | The policy document.
@@ -130,22 +129,22 @@ policyVersion_versionId = Lens.lens (\PolicyVersion' {versionId} -> versionId) (
 -- example, if you use Java, you can use the @decode@ method of the
 -- @java.net.URLDecoder@ utility class in the Java SDK. Other languages and
 -- SDKs provide similar functionality.
-policyVersion_document :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Text)
+policyVersion_document :: Lens.Lens' PolicyVersion (Core.Maybe Core.Text)
 policyVersion_document = Lens.lens (\PolicyVersion' {document} -> document) (\s@PolicyVersion' {} a -> s {document = a} :: PolicyVersion)
 
 -- | Specifies whether the policy version is set as the policy\'s default
 -- version.
-policyVersion_isDefaultVersion :: Lens.Lens' PolicyVersion (Prelude.Maybe Prelude.Bool)
+policyVersion_isDefaultVersion :: Lens.Lens' PolicyVersion (Core.Maybe Core.Bool)
 policyVersion_isDefaultVersion = Lens.lens (\PolicyVersion' {isDefaultVersion} -> isDefaultVersion) (\s@PolicyVersion' {} a -> s {isDefaultVersion = a} :: PolicyVersion)
 
-instance Prelude.FromXML PolicyVersion where
+instance Core.FromXML PolicyVersion where
   parseXML x =
     PolicyVersion'
-      Prelude.<$> (x Prelude..@? "CreateDate")
-      Prelude.<*> (x Prelude..@? "VersionId")
-      Prelude.<*> (x Prelude..@? "Document")
-      Prelude.<*> (x Prelude..@? "IsDefaultVersion")
+      Core.<$> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "VersionId")
+      Core.<*> (x Core..@? "Document")
+      Core.<*> (x Core..@? "IsDefaultVersion")
 
-instance Prelude.Hashable PolicyVersion
+instance Core.Hashable PolicyVersion
 
-instance Prelude.NFData PolicyVersion
+instance Core.NFData PolicyVersion

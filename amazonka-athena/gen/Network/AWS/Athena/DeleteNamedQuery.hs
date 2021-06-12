@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,17 +44,17 @@ module Network.AWS.Athena.DeleteNamedQuery
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteNamedQuery' smart constructor.
 data DeleteNamedQuery = DeleteNamedQuery'
   { -- | The unique ID of the query to delete.
-    namedQueryId :: Prelude.Text
+    namedQueryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNamedQuery' with all optional fields omitted.
@@ -68,65 +67,61 @@ data DeleteNamedQuery = DeleteNamedQuery'
 -- 'namedQueryId', 'deleteNamedQuery_namedQueryId' - The unique ID of the query to delete.
 newDeleteNamedQuery ::
   -- | 'namedQueryId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNamedQuery
 newDeleteNamedQuery pNamedQueryId_ =
   DeleteNamedQuery' {namedQueryId = pNamedQueryId_}
 
 -- | The unique ID of the query to delete.
-deleteNamedQuery_namedQueryId :: Lens.Lens' DeleteNamedQuery Prelude.Text
+deleteNamedQuery_namedQueryId :: Lens.Lens' DeleteNamedQuery Core.Text
 deleteNamedQuery_namedQueryId = Lens.lens (\DeleteNamedQuery' {namedQueryId} -> namedQueryId) (\s@DeleteNamedQuery' {} a -> s {namedQueryId = a} :: DeleteNamedQuery)
 
-instance Prelude.AWSRequest DeleteNamedQuery where
-  type Rs DeleteNamedQuery = DeleteNamedQueryResponse
+instance Core.AWSRequest DeleteNamedQuery where
+  type
+    AWSResponse DeleteNamedQuery =
+      DeleteNamedQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteNamedQueryResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteNamedQuery
+instance Core.Hashable DeleteNamedQuery
 
-instance Prelude.NFData DeleteNamedQuery
+instance Core.NFData DeleteNamedQuery
 
-instance Prelude.ToHeaders DeleteNamedQuery where
+instance Core.ToHeaders DeleteNamedQuery where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonAthena.DeleteNamedQuery" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonAthena.DeleteNamedQuery" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteNamedQuery where
+instance Core.ToJSON DeleteNamedQuery where
   toJSON DeleteNamedQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("NamedQueryId" Prelude..= namedQueryId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("NamedQueryId" Core..= namedQueryId)]
       )
 
-instance Prelude.ToPath DeleteNamedQuery where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNamedQuery where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteNamedQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteNamedQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNamedQueryResponse' smart constructor.
 data DeleteNamedQueryResponse = DeleteNamedQueryResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNamedQueryResponse' with all optional fields omitted.
@@ -139,7 +134,7 @@ data DeleteNamedQueryResponse = DeleteNamedQueryResponse'
 -- 'httpStatus', 'deleteNamedQueryResponse_httpStatus' - The response's http status code.
 newDeleteNamedQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteNamedQueryResponse
 newDeleteNamedQueryResponse pHttpStatus_ =
   DeleteNamedQueryResponse'
@@ -148,7 +143,7 @@ newDeleteNamedQueryResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteNamedQueryResponse_httpStatus :: Lens.Lens' DeleteNamedQueryResponse Prelude.Int
+deleteNamedQueryResponse_httpStatus :: Lens.Lens' DeleteNamedQueryResponse Core.Int
 deleteNamedQueryResponse_httpStatus = Lens.lens (\DeleteNamedQueryResponse' {httpStatus} -> httpStatus) (\s@DeleteNamedQueryResponse' {} a -> s {httpStatus = a} :: DeleteNamedQueryResponse)
 
-instance Prelude.NFData DeleteNamedQueryResponse
+instance Core.NFData DeleteNamedQueryResponse

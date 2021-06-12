@@ -15,6 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.DescribeBatchPredictions
 import Network.AWS.MachineLearning.DescribeDataSources
@@ -22,156 +23,148 @@ import Network.AWS.MachineLearning.DescribeEvaluations
 import Network.AWS.MachineLearning.DescribeMLModels
 import Network.AWS.MachineLearning.Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeMLModels' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newMLModelAvailable :: Waiter.Wait DescribeMLModels
+newMLModelAvailable :: Core.Wait DescribeMLModels
 newMLModelAvailable =
-  Waiter.Wait
-    { Waiter._waitName = "MLModelAvailable",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "MLModelAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "COMPLETED"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeMLModelsResponse_results
-                        Prelude.. Lens._Just
-                    )
+                    (describeMLModelsResponse_results Core.. Lens._Just)
                 )
-                Prelude.. mLModel_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. mLModel_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeMLModelsResponse_results
-                        Prelude.. Lens._Just
-                    )
+                    (describeMLModelsResponse_results Core.. Lens._Just)
                 )
-                Prelude.. mLModel_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. mLModel_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeEvaluations' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newEvaluationAvailable :: Waiter.Wait DescribeEvaluations
+newEvaluationAvailable :: Core.Wait DescribeEvaluations
 newEvaluationAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
-        "EvaluationAvailable",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "EvaluationAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "COMPLETED"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeEvaluationsResponse_results
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. evaluation_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. evaluation_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeEvaluationsResponse_results
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. evaluation_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. evaluation_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeDataSources' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newDataSourceAvailable :: Waiter.Wait DescribeDataSources
+newDataSourceAvailable :: Core.Wait DescribeDataSources
 newDataSourceAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
-        "DataSourceAvailable",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "DataSourceAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "COMPLETED"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDataSourcesResponse_results
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. dataSource_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. dataSource_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeDataSourcesResponse_results
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. dataSource_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. dataSource_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.MachineLearning.DescribeBatchPredictions' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newBatchPredictionAvailable :: Waiter.Wait DescribeBatchPredictions
+newBatchPredictionAvailable :: Core.Wait DescribeBatchPredictions
 newBatchPredictionAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "BatchPredictionAvailable",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "COMPLETED"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBatchPredictionsResponse_results
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. batchPrediction_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. batchPrediction_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBatchPredictionsResponse_results
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. batchPrediction_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. batchPrediction_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.DeploymentCommand where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.DeploymentCommandName
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Used to specify a stack or deployment command.
 --
@@ -49,7 +48,7 @@ data DeploymentCommand = DeploymentCommand'
     -- to the following.
     --
     -- @ { \"upgrade_os_to\":[\"Amazon Linux 2016.09\"], \"allow_reboot\":[\"true\"] } @
-    args :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    args :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | Specifies the operation. You can specify only one command.
     --
     -- For stacks, the following commands are available:
@@ -90,7 +89,7 @@ data DeploymentCommand = DeploymentCommand'
     -- -   @undeploy@: Undeploy the app.
     name :: DeploymentCommandName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeploymentCommand' with all optional fields omitted.
@@ -166,7 +165,7 @@ newDeploymentCommand ::
   DeploymentCommand
 newDeploymentCommand pName_ =
   DeploymentCommand'
-    { args = Prelude.Nothing,
+    { args = Core.Nothing,
       name = pName_
     }
 
@@ -191,8 +190,8 @@ newDeploymentCommand pName_ =
 -- to the following.
 --
 -- @ { \"upgrade_os_to\":[\"Amazon Linux 2016.09\"], \"allow_reboot\":[\"true\"] } @
-deploymentCommand_args :: Lens.Lens' DeploymentCommand (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@DeploymentCommand' {} a -> s {args = a} :: DeploymentCommand) Prelude.. Lens.mapping Prelude._Coerce
+deploymentCommand_args :: Lens.Lens' DeploymentCommand (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@DeploymentCommand' {} a -> s {args = a} :: DeploymentCommand) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the operation. You can specify only one command.
 --
@@ -235,25 +234,25 @@ deploymentCommand_args = Lens.lens (\DeploymentCommand' {args} -> args) (\s@Depl
 deploymentCommand_name :: Lens.Lens' DeploymentCommand DeploymentCommandName
 deploymentCommand_name = Lens.lens (\DeploymentCommand' {name} -> name) (\s@DeploymentCommand' {} a -> s {name = a} :: DeploymentCommand)
 
-instance Prelude.FromJSON DeploymentCommand where
+instance Core.FromJSON DeploymentCommand where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeploymentCommand"
       ( \x ->
           DeploymentCommand'
-            Prelude.<$> (x Prelude..:? "Args" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "Args" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable DeploymentCommand
+instance Core.Hashable DeploymentCommand
 
-instance Prelude.NFData DeploymentCommand
+instance Core.NFData DeploymentCommand
 
-instance Prelude.ToJSON DeploymentCommand where
+instance Core.ToJSON DeploymentCommand where
   toJSON DeploymentCommand' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Args" Prelude..=) Prelude.<$> args,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("Args" Core..=) Core.<$> args,
+            Core.Just ("Name" Core..= name)
           ]
       )

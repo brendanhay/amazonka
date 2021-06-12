@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.OpsWorks.StopInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,11 +61,11 @@ data StopInstance = StopInstance'
     -- You must also delete the formerly-associated instance in EC2 after
     -- troubleshooting and replacing the AWS OpsWorks Stacks instance with a
     -- new one.
-    force :: Prelude.Maybe Prelude.Bool,
+    force :: Core.Maybe Core.Bool,
     -- | The instance ID.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopInstance' with all optional fields omitted.
@@ -87,11 +86,11 @@ data StopInstance = StopInstance'
 -- 'instanceId', 'stopInstance_instanceId' - The instance ID.
 newStopInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   StopInstance
 newStopInstance pInstanceId_ =
   StopInstance'
-    { force = Prelude.Nothing,
+    { force = Core.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -102,57 +101,55 @@ newStopInstance pInstanceId_ =
 -- You must also delete the formerly-associated instance in EC2 after
 -- troubleshooting and replacing the AWS OpsWorks Stacks instance with a
 -- new one.
-stopInstance_force :: Lens.Lens' StopInstance (Prelude.Maybe Prelude.Bool)
+stopInstance_force :: Lens.Lens' StopInstance (Core.Maybe Core.Bool)
 stopInstance_force = Lens.lens (\StopInstance' {force} -> force) (\s@StopInstance' {} a -> s {force = a} :: StopInstance)
 
 -- | The instance ID.
-stopInstance_instanceId :: Lens.Lens' StopInstance Prelude.Text
+stopInstance_instanceId :: Lens.Lens' StopInstance Core.Text
 stopInstance_instanceId = Lens.lens (\StopInstance' {instanceId} -> instanceId) (\s@StopInstance' {} a -> s {instanceId = a} :: StopInstance)
 
-instance Prelude.AWSRequest StopInstance where
-  type Rs StopInstance = StopInstanceResponse
+instance Core.AWSRequest StopInstance where
+  type AWSResponse StopInstance = StopInstanceResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull StopInstanceResponse'
 
-instance Prelude.Hashable StopInstance
+instance Core.Hashable StopInstance
 
-instance Prelude.NFData StopInstance
+instance Core.NFData StopInstance
 
-instance Prelude.ToHeaders StopInstance where
+instance Core.ToHeaders StopInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.StopInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.StopInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopInstance where
+instance Core.ToJSON StopInstance where
   toJSON StopInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Force" Prelude..=) Prelude.<$> force,
-            Prelude.Just ("InstanceId" Prelude..= instanceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Force" Core..=) Core.<$> force,
+            Core.Just ("InstanceId" Core..= instanceId)
           ]
       )
 
-instance Prelude.ToPath StopInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopInstanceResponse' with all optional fields omitted.
@@ -162,4 +159,4 @@ newStopInstanceResponse ::
   StopInstanceResponse
 newStopInstanceResponse = StopInstanceResponse'
 
-instance Prelude.NFData StopInstanceResponse
+instance Core.NFData StopInstanceResponse

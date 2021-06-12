@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.GetContextKeysForPolicyResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the response to a successful GetContextKeysForPrincipalPolicy
 -- or GetContextKeysForCustomPolicy request.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGetContextKeysForPolicyResponse' smart constructor.
 data GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
   { -- | The list of context keys that are referenced in the input policies.
-    contextKeyNames :: Prelude.Maybe [Prelude.Text]
+    contextKeyNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContextKeysForPolicyResponse' with all optional fields omitted.
@@ -47,28 +46,22 @@ newGetContextKeysForPolicyResponse ::
 newGetContextKeysForPolicyResponse =
   GetContextKeysForPolicyResponse'
     { contextKeyNames =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The list of context keys that are referenced in the input policies.
-getContextKeysForPolicyResponse_contextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Prelude.Maybe [Prelude.Text])
-getContextKeysForPolicyResponse_contextKeyNames = Lens.lens (\GetContextKeysForPolicyResponse' {contextKeyNames} -> contextKeyNames) (\s@GetContextKeysForPolicyResponse' {} a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse) Prelude.. Lens.mapping Prelude._Coerce
+getContextKeysForPolicyResponse_contextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Core.Maybe [Core.Text])
+getContextKeysForPolicyResponse_contextKeyNames = Lens.lens (\GetContextKeysForPolicyResponse' {contextKeyNames} -> contextKeyNames) (\s@GetContextKeysForPolicyResponse' {} a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromXML
-    GetContextKeysForPolicyResponse
-  where
+instance Core.FromXML GetContextKeysForPolicyResponse where
   parseXML x =
     GetContextKeysForPolicyResponse'
-      Prelude.<$> ( x Prelude..@? "ContextKeyNames"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "ContextKeyNames" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetContextKeysForPolicyResponse
 
-instance
-  Prelude.NFData
-    GetContextKeysForPolicyResponse
+instance Core.NFData GetContextKeysForPolicyResponse

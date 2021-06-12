@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,19 +74,19 @@ module Network.AWS.CognitoIdentityProvider.AdminDisableProviderForUser
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAdminDisableProviderForUser' smart constructor.
 data AdminDisableProviderForUser = AdminDisableProviderForUser'
   { -- | The user pool ID for the user pool.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user to be disabled.
     user :: ProviderUserIdentifierType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminDisableProviderForUser' with all optional fields omitted.
@@ -102,7 +101,7 @@ data AdminDisableProviderForUser = AdminDisableProviderForUser'
 -- 'user', 'adminDisableProviderForUser_user' - The user to be disabled.
 newAdminDisableProviderForUser ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'user'
   ProviderUserIdentifierType ->
   AdminDisableProviderForUser
@@ -114,71 +113,63 @@ newAdminDisableProviderForUser pUserPoolId_ pUser_ =
     }
 
 -- | The user pool ID for the user pool.
-adminDisableProviderForUser_userPoolId :: Lens.Lens' AdminDisableProviderForUser Prelude.Text
+adminDisableProviderForUser_userPoolId :: Lens.Lens' AdminDisableProviderForUser Core.Text
 adminDisableProviderForUser_userPoolId = Lens.lens (\AdminDisableProviderForUser' {userPoolId} -> userPoolId) (\s@AdminDisableProviderForUser' {} a -> s {userPoolId = a} :: AdminDisableProviderForUser)
 
 -- | The user to be disabled.
 adminDisableProviderForUser_user :: Lens.Lens' AdminDisableProviderForUser ProviderUserIdentifierType
 adminDisableProviderForUser_user = Lens.lens (\AdminDisableProviderForUser' {user} -> user) (\s@AdminDisableProviderForUser' {} a -> s {user = a} :: AdminDisableProviderForUser)
 
-instance
-  Prelude.AWSRequest
-    AdminDisableProviderForUser
-  where
+instance Core.AWSRequest AdminDisableProviderForUser where
   type
-    Rs AdminDisableProviderForUser =
+    AWSResponse AdminDisableProviderForUser =
       AdminDisableProviderForUserResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminDisableProviderForUserResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminDisableProviderForUser
+instance Core.Hashable AdminDisableProviderForUser
 
-instance Prelude.NFData AdminDisableProviderForUser
+instance Core.NFData AdminDisableProviderForUser
 
-instance
-  Prelude.ToHeaders
-    AdminDisableProviderForUser
-  where
+instance Core.ToHeaders AdminDisableProviderForUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminDisableProviderForUser" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminDisableProviderForUser where
+instance Core.ToJSON AdminDisableProviderForUser where
   toJSON AdminDisableProviderForUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("User" Prelude..= user)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("User" Core..= user)
           ]
       )
 
-instance Prelude.ToPath AdminDisableProviderForUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminDisableProviderForUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminDisableProviderForUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminDisableProviderForUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAdminDisableProviderForUserResponse' smart constructor.
 data AdminDisableProviderForUserResponse = AdminDisableProviderForUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminDisableProviderForUserResponse' with all optional fields omitted.
@@ -191,7 +182,7 @@ data AdminDisableProviderForUserResponse = AdminDisableProviderForUserResponse'
 -- 'httpStatus', 'adminDisableProviderForUserResponse_httpStatus' - The response's http status code.
 newAdminDisableProviderForUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminDisableProviderForUserResponse
 newAdminDisableProviderForUserResponse pHttpStatus_ =
   AdminDisableProviderForUserResponse'
@@ -200,9 +191,9 @@ newAdminDisableProviderForUserResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminDisableProviderForUserResponse_httpStatus :: Lens.Lens' AdminDisableProviderForUserResponse Prelude.Int
+adminDisableProviderForUserResponse_httpStatus :: Lens.Lens' AdminDisableProviderForUserResponse Core.Int
 adminDisableProviderForUserResponse_httpStatus = Lens.lens (\AdminDisableProviderForUserResponse' {httpStatus} -> httpStatus) (\s@AdminDisableProviderForUserResponse' {} a -> s {httpStatus = a} :: AdminDisableProviderForUserResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AdminDisableProviderForUserResponse

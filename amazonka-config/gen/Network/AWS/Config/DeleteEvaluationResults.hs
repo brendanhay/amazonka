@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Config.DeleteEvaluationResults
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 data DeleteEvaluationResults = DeleteEvaluationResults'
   { -- | The name of the AWS Config rule for which you want to delete the
     -- evaluation results.
-    configRuleName :: Prelude.Text
+    configRuleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEvaluationResults' with all optional fields omitted.
@@ -70,7 +69,7 @@ data DeleteEvaluationResults = DeleteEvaluationResults'
 -- evaluation results.
 newDeleteEvaluationResults ::
   -- | 'configRuleName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEvaluationResults
 newDeleteEvaluationResults pConfigRuleName_ =
   DeleteEvaluationResults'
@@ -80,54 +79,52 @@ newDeleteEvaluationResults pConfigRuleName_ =
 
 -- | The name of the AWS Config rule for which you want to delete the
 -- evaluation results.
-deleteEvaluationResults_configRuleName :: Lens.Lens' DeleteEvaluationResults Prelude.Text
+deleteEvaluationResults_configRuleName :: Lens.Lens' DeleteEvaluationResults Core.Text
 deleteEvaluationResults_configRuleName = Lens.lens (\DeleteEvaluationResults' {configRuleName} -> configRuleName) (\s@DeleteEvaluationResults' {} a -> s {configRuleName = a} :: DeleteEvaluationResults)
 
-instance Prelude.AWSRequest DeleteEvaluationResults where
+instance Core.AWSRequest DeleteEvaluationResults where
   type
-    Rs DeleteEvaluationResults =
+    AWSResponse DeleteEvaluationResults =
       DeleteEvaluationResultsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEvaluationResultsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteEvaluationResults
+instance Core.Hashable DeleteEvaluationResults
 
-instance Prelude.NFData DeleteEvaluationResults
+instance Core.NFData DeleteEvaluationResults
 
-instance Prelude.ToHeaders DeleteEvaluationResults where
+instance Core.ToHeaders DeleteEvaluationResults where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DeleteEvaluationResults" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DeleteEvaluationResults" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteEvaluationResults where
+instance Core.ToJSON DeleteEvaluationResults where
   toJSON DeleteEvaluationResults' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ConfigRuleName" Prelude..= configRuleName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ConfigRuleName" Core..= configRuleName)
           ]
       )
 
-instance Prelude.ToPath DeleteEvaluationResults where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteEvaluationResults where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteEvaluationResults where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteEvaluationResults where
+  toQuery = Core.const Core.mempty
 
 -- | The output when you delete the evaluation results for the specified AWS
 -- Config rule.
@@ -135,9 +132,9 @@ instance Prelude.ToQuery DeleteEvaluationResults where
 -- /See:/ 'newDeleteEvaluationResultsResponse' smart constructor.
 data DeleteEvaluationResultsResponse = DeleteEvaluationResultsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEvaluationResultsResponse' with all optional fields omitted.
@@ -150,7 +147,7 @@ data DeleteEvaluationResultsResponse = DeleteEvaluationResultsResponse'
 -- 'httpStatus', 'deleteEvaluationResultsResponse_httpStatus' - The response's http status code.
 newDeleteEvaluationResultsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteEvaluationResultsResponse
 newDeleteEvaluationResultsResponse pHttpStatus_ =
   DeleteEvaluationResultsResponse'
@@ -159,9 +156,7 @@ newDeleteEvaluationResultsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteEvaluationResultsResponse_httpStatus :: Lens.Lens' DeleteEvaluationResultsResponse Prelude.Int
+deleteEvaluationResultsResponse_httpStatus :: Lens.Lens' DeleteEvaluationResultsResponse Core.Int
 deleteEvaluationResultsResponse_httpStatus = Lens.lens (\DeleteEvaluationResultsResponse' {httpStatus} -> httpStatus) (\s@DeleteEvaluationResultsResponse' {} a -> s {httpStatus = a} :: DeleteEvaluationResultsResponse)
 
-instance
-  Prelude.NFData
-    DeleteEvaluationResultsResponse
+instance Core.NFData DeleteEvaluationResultsResponse

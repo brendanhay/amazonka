@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.Shield.ListAttacks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -59,7 +57,7 @@ import Network.AWS.Shield.Types
 data ListAttacks = ListAttacks'
   { -- | The @ListAttacksRequest.NextMarker@ value from a previous call to
     -- @ListAttacksRequest@. Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of AttackSummary objects to return. If you leave this
     -- blank, Shield Advanced returns the first 20 results.
     --
@@ -69,25 +67,25 @@ data ListAttacks = ListAttacks'
     -- If there are more objects to return, Shield Advanced returns a value in
     -- @NextToken@ that you can use in your next request, to get the next batch
     -- of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The start of the time period for the attacks. This is a @timestamp@
     -- type. The sample request above indicates a @number@ type because the
     -- default used by WAF is Unix time in seconds. However any valid
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
     -- is allowed.
-    startTime :: Prelude.Maybe TimeRange,
+    startTime :: Core.Maybe TimeRange,
     -- | The end of the time period for the attacks. This is a @timestamp@ type.
     -- The sample request above indicates a @number@ type because the default
     -- used by WAF is Unix time in seconds. However any valid
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
     -- is allowed.
-    endTime :: Prelude.Maybe TimeRange,
+    endTime :: Core.Maybe TimeRange,
     -- | The ARN (Amazon Resource Name) of the resource that was attacked. If
     -- this is left blank, all applicable resources for this account will be
     -- included.
-    resourceArns :: Prelude.Maybe [Prelude.Text]
+    resourceArns :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAttacks' with all optional fields omitted.
@@ -129,16 +127,16 @@ newListAttacks ::
   ListAttacks
 newListAttacks =
   ListAttacks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      resourceArns = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      resourceArns = Core.Nothing
     }
 
 -- | The @ListAttacksRequest.NextMarker@ value from a previous call to
 -- @ListAttacksRequest@. Pass null if this is the first call.
-listAttacks_nextToken :: Lens.Lens' ListAttacks (Prelude.Maybe Prelude.Text)
+listAttacks_nextToken :: Lens.Lens' ListAttacks (Core.Maybe Core.Text)
 listAttacks_nextToken = Lens.lens (\ListAttacks' {nextToken} -> nextToken) (\s@ListAttacks' {} a -> s {nextToken = a} :: ListAttacks)
 
 -- | The maximum number of AttackSummary objects to return. If you leave this
@@ -150,7 +148,7 @@ listAttacks_nextToken = Lens.lens (\ListAttacks' {nextToken} -> nextToken) (\s@L
 -- If there are more objects to return, Shield Advanced returns a value in
 -- @NextToken@ that you can use in your next request, to get the next batch
 -- of objects.
-listAttacks_maxResults :: Lens.Lens' ListAttacks (Prelude.Maybe Prelude.Natural)
+listAttacks_maxResults :: Lens.Lens' ListAttacks (Core.Maybe Core.Natural)
 listAttacks_maxResults = Lens.lens (\ListAttacks' {maxResults} -> maxResults) (\s@ListAttacks' {} a -> s {maxResults = a} :: ListAttacks)
 
 -- | The start of the time period for the attacks. This is a @timestamp@
@@ -158,7 +156,7 @@ listAttacks_maxResults = Lens.lens (\ListAttacks' {maxResults} -> maxResults) (\
 -- default used by WAF is Unix time in seconds. However any valid
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
 -- is allowed.
-listAttacks_startTime :: Lens.Lens' ListAttacks (Prelude.Maybe TimeRange)
+listAttacks_startTime :: Lens.Lens' ListAttacks (Core.Maybe TimeRange)
 listAttacks_startTime = Lens.lens (\ListAttacks' {startTime} -> startTime) (\s@ListAttacks' {} a -> s {startTime = a} :: ListAttacks)
 
 -- | The end of the time period for the attacks. This is a @timestamp@ type.
@@ -166,86 +164,81 @@ listAttacks_startTime = Lens.lens (\ListAttacks' {startTime} -> startTime) (\s@L
 -- used by WAF is Unix time in seconds. However any valid
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
 -- is allowed.
-listAttacks_endTime :: Lens.Lens' ListAttacks (Prelude.Maybe TimeRange)
+listAttacks_endTime :: Lens.Lens' ListAttacks (Core.Maybe TimeRange)
 listAttacks_endTime = Lens.lens (\ListAttacks' {endTime} -> endTime) (\s@ListAttacks' {} a -> s {endTime = a} :: ListAttacks)
 
 -- | The ARN (Amazon Resource Name) of the resource that was attacked. If
 -- this is left blank, all applicable resources for this account will be
 -- included.
-listAttacks_resourceArns :: Lens.Lens' ListAttacks (Prelude.Maybe [Prelude.Text])
-listAttacks_resourceArns = Lens.lens (\ListAttacks' {resourceArns} -> resourceArns) (\s@ListAttacks' {} a -> s {resourceArns = a} :: ListAttacks) Prelude.. Lens.mapping Prelude._Coerce
+listAttacks_resourceArns :: Lens.Lens' ListAttacks (Core.Maybe [Core.Text])
+listAttacks_resourceArns = Lens.lens (\ListAttacks' {resourceArns} -> resourceArns) (\s@ListAttacks' {} a -> s {resourceArns = a} :: ListAttacks) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager ListAttacks where
+instance Core.AWSPager ListAttacks where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listAttacksResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAttacksResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listAttacksResponse_attackSummaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAttacks_nextToken
           Lens..~ rs
-          Lens.^? listAttacksResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAttacksResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAttacks where
-  type Rs ListAttacks = ListAttacksResponse
+instance Core.AWSRequest ListAttacks where
+  type AWSResponse ListAttacks = ListAttacksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAttacksResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "AttackSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "AttackSummaries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAttacks
+instance Core.Hashable ListAttacks
 
-instance Prelude.NFData ListAttacks
+instance Core.NFData ListAttacks
 
-instance Prelude.ToHeaders ListAttacks where
+instance Core.ToHeaders ListAttacks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.ListAttacks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.ListAttacks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAttacks where
+instance Core.ToJSON ListAttacks where
   toJSON ListAttacks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("StartTime" Prelude..=) Prelude.<$> startTime,
-            ("EndTime" Prelude..=) Prelude.<$> endTime,
-            ("ResourceArns" Prelude..=)
-              Prelude.<$> resourceArns
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("StartTime" Core..=) Core.<$> startTime,
+            ("EndTime" Core..=) Core.<$> endTime,
+            ("ResourceArns" Core..=) Core.<$> resourceArns
           ]
       )
 
-instance Prelude.ToPath ListAttacks where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAttacks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAttacks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAttacks where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAttacksResponse' smart constructor.
 data ListAttacksResponse = ListAttacksResponse'
@@ -258,13 +251,13 @@ data ListAttacksResponse = ListAttacksResponse'
     -- batches smaller than the number specified by MaxResults. If there are
     -- more attack summary objects to return, Shield Advanced will always also
     -- return a @NextToken@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The attack information for the specified time range.
-    attackSummaries :: Prelude.Maybe [AttackSummary],
+    attackSummaries :: Core.Maybe [AttackSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAttacksResponse' with all optional fields omitted.
@@ -289,12 +282,12 @@ data ListAttacksResponse = ListAttacksResponse'
 -- 'httpStatus', 'listAttacksResponse_httpStatus' - The response's http status code.
 newListAttacksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAttacksResponse
 newListAttacksResponse pHttpStatus_ =
   ListAttacksResponse'
-    { nextToken = Prelude.Nothing,
-      attackSummaries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      attackSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -307,15 +300,15 @@ newListAttacksResponse pHttpStatus_ =
 -- batches smaller than the number specified by MaxResults. If there are
 -- more attack summary objects to return, Shield Advanced will always also
 -- return a @NextToken@.
-listAttacksResponse_nextToken :: Lens.Lens' ListAttacksResponse (Prelude.Maybe Prelude.Text)
+listAttacksResponse_nextToken :: Lens.Lens' ListAttacksResponse (Core.Maybe Core.Text)
 listAttacksResponse_nextToken = Lens.lens (\ListAttacksResponse' {nextToken} -> nextToken) (\s@ListAttacksResponse' {} a -> s {nextToken = a} :: ListAttacksResponse)
 
 -- | The attack information for the specified time range.
-listAttacksResponse_attackSummaries :: Lens.Lens' ListAttacksResponse (Prelude.Maybe [AttackSummary])
-listAttacksResponse_attackSummaries = Lens.lens (\ListAttacksResponse' {attackSummaries} -> attackSummaries) (\s@ListAttacksResponse' {} a -> s {attackSummaries = a} :: ListAttacksResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAttacksResponse_attackSummaries :: Lens.Lens' ListAttacksResponse (Core.Maybe [AttackSummary])
+listAttacksResponse_attackSummaries = Lens.lens (\ListAttacksResponse' {attackSummaries} -> attackSummaries) (\s@ListAttacksResponse' {} a -> s {attackSummaries = a} :: ListAttacksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAttacksResponse_httpStatus :: Lens.Lens' ListAttacksResponse Prelude.Int
+listAttacksResponse_httpStatus :: Lens.Lens' ListAttacksResponse Core.Int
 listAttacksResponse_httpStatus = Lens.lens (\ListAttacksResponse' {httpStatus} -> httpStatus) (\s@ListAttacksResponse' {} a -> s {httpStatus = a} :: ListAttacksResponse)
 
-instance Prelude.NFData ListAttacksResponse
+instance Core.NFData ListAttacksResponse

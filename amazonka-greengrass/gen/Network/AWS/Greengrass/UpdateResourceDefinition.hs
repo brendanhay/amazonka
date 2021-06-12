@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Greengrass.UpdateResourceDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateResourceDefinition' smart constructor.
 data UpdateResourceDefinition = UpdateResourceDefinition'
   { -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID of the resource definition.
-    resourceDefinitionId :: Prelude.Text
+    resourceDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceDefinition' with all optional fields omitted.
@@ -68,72 +67,68 @@ data UpdateResourceDefinition = UpdateResourceDefinition'
 -- 'resourceDefinitionId', 'updateResourceDefinition_resourceDefinitionId' - The ID of the resource definition.
 newUpdateResourceDefinition ::
   -- | 'resourceDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateResourceDefinition
 newUpdateResourceDefinition pResourceDefinitionId_ =
   UpdateResourceDefinition'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       resourceDefinitionId = pResourceDefinitionId_
     }
 
 -- | The name of the definition.
-updateResourceDefinition_name :: Lens.Lens' UpdateResourceDefinition (Prelude.Maybe Prelude.Text)
+updateResourceDefinition_name :: Lens.Lens' UpdateResourceDefinition (Core.Maybe Core.Text)
 updateResourceDefinition_name = Lens.lens (\UpdateResourceDefinition' {name} -> name) (\s@UpdateResourceDefinition' {} a -> s {name = a} :: UpdateResourceDefinition)
 
 -- | The ID of the resource definition.
-updateResourceDefinition_resourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Prelude.Text
+updateResourceDefinition_resourceDefinitionId :: Lens.Lens' UpdateResourceDefinition Core.Text
 updateResourceDefinition_resourceDefinitionId = Lens.lens (\UpdateResourceDefinition' {resourceDefinitionId} -> resourceDefinitionId) (\s@UpdateResourceDefinition' {} a -> s {resourceDefinitionId = a} :: UpdateResourceDefinition)
 
-instance Prelude.AWSRequest UpdateResourceDefinition where
+instance Core.AWSRequest UpdateResourceDefinition where
   type
-    Rs UpdateResourceDefinition =
+    AWSResponse UpdateResourceDefinition =
       UpdateResourceDefinitionResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResourceDefinition
+instance Core.Hashable UpdateResourceDefinition
 
-instance Prelude.NFData UpdateResourceDefinition
+instance Core.NFData UpdateResourceDefinition
 
-instance Prelude.ToHeaders UpdateResourceDefinition where
+instance Core.ToHeaders UpdateResourceDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateResourceDefinition where
+instance Core.ToJSON UpdateResourceDefinition where
   toJSON UpdateResourceDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Name" Prelude..=) Prelude.<$> name]
-      )
+    Core.object
+      (Core.catMaybes [("Name" Core..=) Core.<$> name])
 
-instance Prelude.ToPath UpdateResourceDefinition where
+instance Core.ToPath UpdateResourceDefinition where
   toPath UpdateResourceDefinition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/resources/",
-        Prelude.toBS resourceDefinitionId
+        Core.toBS resourceDefinitionId
       ]
 
-instance Prelude.ToQuery UpdateResourceDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateResourceDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateResourceDefinitionResponse' smart constructor.
 data UpdateResourceDefinitionResponse = UpdateResourceDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceDefinitionResponse' with all optional fields omitted.
@@ -146,7 +141,7 @@ data UpdateResourceDefinitionResponse = UpdateResourceDefinitionResponse'
 -- 'httpStatus', 'updateResourceDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateResourceDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateResourceDefinitionResponse
 newUpdateResourceDefinitionResponse pHttpStatus_ =
   UpdateResourceDefinitionResponse'
@@ -155,9 +150,7 @@ newUpdateResourceDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateResourceDefinitionResponse_httpStatus :: Lens.Lens' UpdateResourceDefinitionResponse Prelude.Int
+updateResourceDefinitionResponse_httpStatus :: Lens.Lens' UpdateResourceDefinitionResponse Core.Int
 updateResourceDefinitionResponse_httpStatus = Lens.lens (\UpdateResourceDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateResourceDefinitionResponse)
 
-instance
-  Prelude.NFData
-    UpdateResourceDefinitionResponse
+instance Core.NFData UpdateResourceDefinitionResponse

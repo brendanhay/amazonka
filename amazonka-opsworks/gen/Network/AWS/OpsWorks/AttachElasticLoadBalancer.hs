@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,21 +51,21 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAttachElasticLoadBalancer' smart constructor.
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
   { -- | The Elastic Load Balancing instance\'s name.
-    elasticLoadBalancerName :: Prelude.Text,
+    elasticLoadBalancerName :: Core.Text,
     -- | The ID of the layer to which the Elastic Load Balancing instance is to
     -- be attached.
-    layerId :: Prelude.Text
+    layerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachElasticLoadBalancer' with all optional fields omitted.
@@ -82,9 +81,9 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
 -- be attached.
 newAttachElasticLoadBalancer ::
   -- | 'elasticLoadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'layerId'
-  Prelude.Text ->
+  Core.Text ->
   AttachElasticLoadBalancer
 newAttachElasticLoadBalancer
   pElasticLoadBalancerName_
@@ -96,65 +95,63 @@ newAttachElasticLoadBalancer
       }
 
 -- | The Elastic Load Balancing instance\'s name.
-attachElasticLoadBalancer_elasticLoadBalancerName :: Lens.Lens' AttachElasticLoadBalancer Prelude.Text
+attachElasticLoadBalancer_elasticLoadBalancerName :: Lens.Lens' AttachElasticLoadBalancer Core.Text
 attachElasticLoadBalancer_elasticLoadBalancerName = Lens.lens (\AttachElasticLoadBalancer' {elasticLoadBalancerName} -> elasticLoadBalancerName) (\s@AttachElasticLoadBalancer' {} a -> s {elasticLoadBalancerName = a} :: AttachElasticLoadBalancer)
 
 -- | The ID of the layer to which the Elastic Load Balancing instance is to
 -- be attached.
-attachElasticLoadBalancer_layerId :: Lens.Lens' AttachElasticLoadBalancer Prelude.Text
+attachElasticLoadBalancer_layerId :: Lens.Lens' AttachElasticLoadBalancer Core.Text
 attachElasticLoadBalancer_layerId = Lens.lens (\AttachElasticLoadBalancer' {layerId} -> layerId) (\s@AttachElasticLoadBalancer' {} a -> s {layerId = a} :: AttachElasticLoadBalancer)
 
-instance Prelude.AWSRequest AttachElasticLoadBalancer where
+instance Core.AWSRequest AttachElasticLoadBalancer where
   type
-    Rs AttachElasticLoadBalancer =
+    AWSResponse AttachElasticLoadBalancer =
       AttachElasticLoadBalancerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       AttachElasticLoadBalancerResponse'
 
-instance Prelude.Hashable AttachElasticLoadBalancer
+instance Core.Hashable AttachElasticLoadBalancer
 
-instance Prelude.NFData AttachElasticLoadBalancer
+instance Core.NFData AttachElasticLoadBalancer
 
-instance Prelude.ToHeaders AttachElasticLoadBalancer where
+instance Core.ToHeaders AttachElasticLoadBalancer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.AttachElasticLoadBalancer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.AttachElasticLoadBalancer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AttachElasticLoadBalancer where
+instance Core.ToJSON AttachElasticLoadBalancer where
   toJSON AttachElasticLoadBalancer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ElasticLoadBalancerName"
-                  Prelude..= elasticLoadBalancerName
+                  Core..= elasticLoadBalancerName
               ),
-            Prelude.Just ("LayerId" Prelude..= layerId)
+            Core.Just ("LayerId" Core..= layerId)
           ]
       )
 
-instance Prelude.ToPath AttachElasticLoadBalancer where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachElasticLoadBalancer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachElasticLoadBalancer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AttachElasticLoadBalancer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAttachElasticLoadBalancerResponse' smart constructor.
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachElasticLoadBalancerResponse' with all optional fields omitted.
@@ -166,5 +163,5 @@ newAttachElasticLoadBalancerResponse =
   AttachElasticLoadBalancerResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     AttachElasticLoadBalancerResponse

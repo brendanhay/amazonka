@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.IdentityMailFromDomainAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.BehaviorOnMXFailure
 import Network.AWS.SES.Types.CustomMailFromStatus
 
@@ -31,7 +30,7 @@ import Network.AWS.SES.Types.CustomMailFromStatus
 -- /See:/ 'newIdentityMailFromDomainAttributes' smart constructor.
 data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
   { -- | The custom MAIL FROM domain that the identity is configured to use.
-    mailFromDomain :: Prelude.Text,
+    mailFromDomain :: Core.Text,
     -- | The state that indicates whether Amazon SES has successfully read the MX
     -- record required for custom MAIL FROM domain setup. If the state is
     -- @Success@, Amazon SES uses the specified custom MAIL FROM domain when
@@ -50,7 +49,7 @@ data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
     -- @Pending@, @Failed@, and @TemporaryFailure@.
     behaviorOnMXFailure :: BehaviorOnMXFailure
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityMailFromDomainAttributes' with all optional fields omitted.
@@ -80,7 +79,7 @@ data IdentityMailFromDomainAttributes = IdentityMailFromDomainAttributes'
 -- @Pending@, @Failed@, and @TemporaryFailure@.
 newIdentityMailFromDomainAttributes ::
   -- | 'mailFromDomain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'mailFromDomainStatus'
   CustomMailFromStatus ->
   -- | 'behaviorOnMXFailure'
@@ -100,7 +99,7 @@ newIdentityMailFromDomainAttributes
       }
 
 -- | The custom MAIL FROM domain that the identity is configured to use.
-identityMailFromDomainAttributes_mailFromDomain :: Lens.Lens' IdentityMailFromDomainAttributes Prelude.Text
+identityMailFromDomainAttributes_mailFromDomain :: Lens.Lens' IdentityMailFromDomainAttributes Core.Text
 identityMailFromDomainAttributes_mailFromDomain = Lens.lens (\IdentityMailFromDomainAttributes' {mailFromDomain} -> mailFromDomain) (\s@IdentityMailFromDomainAttributes' {} a -> s {mailFromDomain = a} :: IdentityMailFromDomainAttributes)
 
 -- | The state that indicates whether Amazon SES has successfully read the MX
@@ -125,19 +124,17 @@ identityMailFromDomainAttributes_behaviorOnMXFailure :: Lens.Lens' IdentityMailF
 identityMailFromDomainAttributes_behaviorOnMXFailure = Lens.lens (\IdentityMailFromDomainAttributes' {behaviorOnMXFailure} -> behaviorOnMXFailure) (\s@IdentityMailFromDomainAttributes' {} a -> s {behaviorOnMXFailure = a} :: IdentityMailFromDomainAttributes)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     IdentityMailFromDomainAttributes
   where
   parseXML x =
     IdentityMailFromDomainAttributes'
-      Prelude.<$> (x Prelude..@ "MailFromDomain")
-      Prelude.<*> (x Prelude..@ "MailFromDomainStatus")
-      Prelude.<*> (x Prelude..@ "BehaviorOnMXFailure")
+      Core.<$> (x Core..@ "MailFromDomain")
+      Core.<*> (x Core..@ "MailFromDomainStatus")
+      Core.<*> (x Core..@ "BehaviorOnMXFailure")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     IdentityMailFromDomainAttributes
 
-instance
-  Prelude.NFData
-    IdentityMailFromDomainAttributes
+instance Core.NFData IdentityMailFromDomainAttributes

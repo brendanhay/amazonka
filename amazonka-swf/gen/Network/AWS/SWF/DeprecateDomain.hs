@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,8 +63,8 @@ module Network.AWS.SWF.DeprecateDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -73,9 +72,9 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newDeprecateDomain' smart constructor.
 data DeprecateDomain = DeprecateDomain'
   { -- | The name of the domain to deprecate.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeprecateDomain' with all optional fields omitted.
@@ -88,58 +87,56 @@ data DeprecateDomain = DeprecateDomain'
 -- 'name', 'deprecateDomain_name' - The name of the domain to deprecate.
 newDeprecateDomain ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeprecateDomain
 newDeprecateDomain pName_ =
   DeprecateDomain' {name = pName_}
 
 -- | The name of the domain to deprecate.
-deprecateDomain_name :: Lens.Lens' DeprecateDomain Prelude.Text
+deprecateDomain_name :: Lens.Lens' DeprecateDomain Core.Text
 deprecateDomain_name = Lens.lens (\DeprecateDomain' {name} -> name) (\s@DeprecateDomain' {} a -> s {name = a} :: DeprecateDomain)
 
-instance Prelude.AWSRequest DeprecateDomain where
-  type Rs DeprecateDomain = DeprecateDomainResponse
+instance Core.AWSRequest DeprecateDomain where
+  type
+    AWSResponse DeprecateDomain =
+      DeprecateDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeprecateDomainResponse'
 
-instance Prelude.Hashable DeprecateDomain
+instance Core.Hashable DeprecateDomain
 
-instance Prelude.NFData DeprecateDomain
+instance Core.NFData DeprecateDomain
 
-instance Prelude.ToHeaders DeprecateDomain where
+instance Core.ToHeaders DeprecateDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.DeprecateDomain" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.DeprecateDomain" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeprecateDomain where
+instance Core.ToJSON DeprecateDomain where
   toJSON DeprecateDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])
 
-instance Prelude.ToPath DeprecateDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeprecateDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeprecateDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeprecateDomain where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeprecateDomainResponse' smart constructor.
 data DeprecateDomainResponse = DeprecateDomainResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeprecateDomainResponse' with all optional fields omitted.
@@ -149,4 +146,4 @@ newDeprecateDomainResponse ::
   DeprecateDomainResponse
 newDeprecateDomainResponse = DeprecateDomainResponse'
 
-instance Prelude.NFData DeprecateDomainResponse
+instance Core.NFData DeprecateDomainResponse

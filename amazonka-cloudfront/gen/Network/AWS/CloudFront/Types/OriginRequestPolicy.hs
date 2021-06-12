@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.OriginRequestPolicy where
 
 import Network.AWS.CloudFront.Types.OriginRequestPolicyConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An origin request policy.
 --
@@ -49,13 +48,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOriginRequestPolicy' smart constructor.
 data OriginRequestPolicy = OriginRequestPolicy'
   { -- | The unique identifier for the origin request policy.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The date and time when the origin request policy was last modified.
-    lastModifiedTime :: Prelude.ISO8601,
+    lastModifiedTime :: Core.ISO8601,
     -- | The origin request policy configuration.
     originRequestPolicyConfig :: OriginRequestPolicyConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicy' with all optional fields omitted.
@@ -72,9 +71,9 @@ data OriginRequestPolicy = OriginRequestPolicy'
 -- 'originRequestPolicyConfig', 'originRequestPolicy_originRequestPolicyConfig' - The origin request policy configuration.
 newOriginRequestPolicy ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lastModifiedTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'originRequestPolicyConfig'
   OriginRequestPolicyConfig ->
   OriginRequestPolicy
@@ -85,30 +84,30 @@ newOriginRequestPolicy
     OriginRequestPolicy'
       { id = pId_,
         lastModifiedTime =
-          Prelude._Time Lens.# pLastModifiedTime_,
+          Core._Time Lens.# pLastModifiedTime_,
         originRequestPolicyConfig =
           pOriginRequestPolicyConfig_
       }
 
 -- | The unique identifier for the origin request policy.
-originRequestPolicy_id :: Lens.Lens' OriginRequestPolicy Prelude.Text
+originRequestPolicy_id :: Lens.Lens' OriginRequestPolicy Core.Text
 originRequestPolicy_id = Lens.lens (\OriginRequestPolicy' {id} -> id) (\s@OriginRequestPolicy' {} a -> s {id = a} :: OriginRequestPolicy)
 
 -- | The date and time when the origin request policy was last modified.
-originRequestPolicy_lastModifiedTime :: Lens.Lens' OriginRequestPolicy Prelude.UTCTime
-originRequestPolicy_lastModifiedTime = Lens.lens (\OriginRequestPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@OriginRequestPolicy' {} a -> s {lastModifiedTime = a} :: OriginRequestPolicy) Prelude.. Prelude._Time
+originRequestPolicy_lastModifiedTime :: Lens.Lens' OriginRequestPolicy Core.UTCTime
+originRequestPolicy_lastModifiedTime = Lens.lens (\OriginRequestPolicy' {lastModifiedTime} -> lastModifiedTime) (\s@OriginRequestPolicy' {} a -> s {lastModifiedTime = a} :: OriginRequestPolicy) Core.. Core._Time
 
 -- | The origin request policy configuration.
 originRequestPolicy_originRequestPolicyConfig :: Lens.Lens' OriginRequestPolicy OriginRequestPolicyConfig
 originRequestPolicy_originRequestPolicyConfig = Lens.lens (\OriginRequestPolicy' {originRequestPolicyConfig} -> originRequestPolicyConfig) (\s@OriginRequestPolicy' {} a -> s {originRequestPolicyConfig = a} :: OriginRequestPolicy)
 
-instance Prelude.FromXML OriginRequestPolicy where
+instance Core.FromXML OriginRequestPolicy where
   parseXML x =
     OriginRequestPolicy'
-      Prelude.<$> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "LastModifiedTime")
-      Prelude.<*> (x Prelude..@ "OriginRequestPolicyConfig")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@ "OriginRequestPolicyConfig")
 
-instance Prelude.Hashable OriginRequestPolicy
+instance Core.Hashable OriginRequestPolicy
 
-instance Prelude.NFData OriginRequestPolicy
+instance Core.NFData OriginRequestPolicy

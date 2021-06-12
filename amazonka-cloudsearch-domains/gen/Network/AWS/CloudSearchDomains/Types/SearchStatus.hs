@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearchDomains.Types.SearchStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the resource id (@rid@) and the time it took to process the
 -- request (@timems@).
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSearchStatus' smart constructor.
 data SearchStatus = SearchStatus'
   { -- | How long it took to process the request, in milliseconds.
-    timems :: Prelude.Maybe Prelude.Integer,
+    timems :: Core.Maybe Core.Integer,
     -- | The encrypted resource ID for the request.
-    rid :: Prelude.Maybe Prelude.Text
+    rid :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchStatus' with all optional fields omitted.
@@ -50,28 +49,27 @@ newSearchStatus ::
   SearchStatus
 newSearchStatus =
   SearchStatus'
-    { timems = Prelude.Nothing,
-      rid = Prelude.Nothing
+    { timems = Core.Nothing,
+      rid = Core.Nothing
     }
 
 -- | How long it took to process the request, in milliseconds.
-searchStatus_timems :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Integer)
+searchStatus_timems :: Lens.Lens' SearchStatus (Core.Maybe Core.Integer)
 searchStatus_timems = Lens.lens (\SearchStatus' {timems} -> timems) (\s@SearchStatus' {} a -> s {timems = a} :: SearchStatus)
 
 -- | The encrypted resource ID for the request.
-searchStatus_rid :: Lens.Lens' SearchStatus (Prelude.Maybe Prelude.Text)
+searchStatus_rid :: Lens.Lens' SearchStatus (Core.Maybe Core.Text)
 searchStatus_rid = Lens.lens (\SearchStatus' {rid} -> rid) (\s@SearchStatus' {} a -> s {rid = a} :: SearchStatus)
 
-instance Prelude.FromJSON SearchStatus where
+instance Core.FromJSON SearchStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SearchStatus"
       ( \x ->
           SearchStatus'
-            Prelude.<$> (x Prelude..:? "timems")
-            Prelude.<*> (x Prelude..:? "rid")
+            Core.<$> (x Core..:? "timems") Core.<*> (x Core..:? "rid")
       )
 
-instance Prelude.Hashable SearchStatus
+instance Core.Hashable SearchStatus
 
-instance Prelude.NFData SearchStatus
+instance Core.NFData SearchStatus

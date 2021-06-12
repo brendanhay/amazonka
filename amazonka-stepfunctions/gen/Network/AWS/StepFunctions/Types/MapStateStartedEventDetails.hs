@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.MapStateStartedEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about a Map state that was started.
 --
 -- /See:/ 'newMapStateStartedEventDetails' smart constructor.
 data MapStateStartedEventDetails = MapStateStartedEventDetails'
   { -- | The size of the array for Map state iterations.
-    length :: Prelude.Maybe Prelude.Natural
+    length :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MapStateStartedEventDetails' with all optional fields omitted.
@@ -44,24 +43,21 @@ data MapStateStartedEventDetails = MapStateStartedEventDetails'
 newMapStateStartedEventDetails ::
   MapStateStartedEventDetails
 newMapStateStartedEventDetails =
-  MapStateStartedEventDetails'
-    { length =
-        Prelude.Nothing
-    }
+  MapStateStartedEventDetails' {length = Core.Nothing}
 
 -- | The size of the array for Map state iterations.
-mapStateStartedEventDetails_length :: Lens.Lens' MapStateStartedEventDetails (Prelude.Maybe Prelude.Natural)
+mapStateStartedEventDetails_length :: Lens.Lens' MapStateStartedEventDetails (Core.Maybe Core.Natural)
 mapStateStartedEventDetails_length = Lens.lens (\MapStateStartedEventDetails' {length} -> length) (\s@MapStateStartedEventDetails' {} a -> s {length = a} :: MapStateStartedEventDetails)
 
-instance Prelude.FromJSON MapStateStartedEventDetails where
+instance Core.FromJSON MapStateStartedEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MapStateStartedEventDetails"
       ( \x ->
           MapStateStartedEventDetails'
-            Prelude.<$> (x Prelude..:? "length")
+            Core.<$> (x Core..:? "length")
       )
 
-instance Prelude.Hashable MapStateStartedEventDetails
+instance Core.Hashable MapStateStartedEventDetails
 
-instance Prelude.NFData MapStateStartedEventDetails
+instance Core.NFData MapStateStartedEventDetails

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EFS.Types.BackupPolicy where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.BackupStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The backup policy for the file system, showing the curent status. If
 -- @ENABLED@, the file system is being backed up.
@@ -43,7 +42,7 @@ data BackupPolicy = BackupPolicy'
     --     system./
     status :: BackupStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BackupPolicy' with all optional fields omitted.
@@ -87,21 +86,19 @@ newBackupPolicy pStatus_ =
 backupPolicy_status :: Lens.Lens' BackupPolicy BackupStatus
 backupPolicy_status = Lens.lens (\BackupPolicy' {status} -> status) (\s@BackupPolicy' {} a -> s {status = a} :: BackupPolicy)
 
-instance Prelude.FromJSON BackupPolicy where
+instance Core.FromJSON BackupPolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BackupPolicy"
-      ( \x ->
-          BackupPolicy' Prelude.<$> (x Prelude..: "Status")
-      )
+      (\x -> BackupPolicy' Core.<$> (x Core..: "Status"))
 
-instance Prelude.Hashable BackupPolicy
+instance Core.Hashable BackupPolicy
 
-instance Prelude.NFData BackupPolicy
+instance Core.NFData BackupPolicy
 
-instance Prelude.ToJSON BackupPolicy where
+instance Core.ToJSON BackupPolicy where
   toJSON BackupPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Status" Prelude..= status)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Status" Core..= status)]
       )

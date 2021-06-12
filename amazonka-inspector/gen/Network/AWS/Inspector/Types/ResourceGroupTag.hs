@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.ResourceGroupTag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used as one of the elements of the ResourceGroup data
 -- type.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceGroupTag' smart constructor.
 data ResourceGroupTag = ResourceGroupTag'
   { -- | The value assigned to a tag key.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | A tag key.
-    key :: Prelude.Text
+    key :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceGroupTag' with all optional fields omitted.
@@ -48,41 +47,40 @@ data ResourceGroupTag = ResourceGroupTag'
 -- 'key', 'resourceGroupTag_key' - A tag key.
 newResourceGroupTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   ResourceGroupTag
 newResourceGroupTag pKey_ =
   ResourceGroupTag'
-    { value = Prelude.Nothing,
+    { value = Core.Nothing,
       key = pKey_
     }
 
 -- | The value assigned to a tag key.
-resourceGroupTag_value :: Lens.Lens' ResourceGroupTag (Prelude.Maybe Prelude.Text)
+resourceGroupTag_value :: Lens.Lens' ResourceGroupTag (Core.Maybe Core.Text)
 resourceGroupTag_value = Lens.lens (\ResourceGroupTag' {value} -> value) (\s@ResourceGroupTag' {} a -> s {value = a} :: ResourceGroupTag)
 
 -- | A tag key.
-resourceGroupTag_key :: Lens.Lens' ResourceGroupTag Prelude.Text
+resourceGroupTag_key :: Lens.Lens' ResourceGroupTag Core.Text
 resourceGroupTag_key = Lens.lens (\ResourceGroupTag' {key} -> key) (\s@ResourceGroupTag' {} a -> s {key = a} :: ResourceGroupTag)
 
-instance Prelude.FromJSON ResourceGroupTag where
+instance Core.FromJSON ResourceGroupTag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceGroupTag"
       ( \x ->
           ResourceGroupTag'
-            Prelude.<$> (x Prelude..:? "value")
-            Prelude.<*> (x Prelude..: "key")
+            Core.<$> (x Core..:? "value") Core.<*> (x Core..: "key")
       )
 
-instance Prelude.Hashable ResourceGroupTag
+instance Core.Hashable ResourceGroupTag
 
-instance Prelude.NFData ResourceGroupTag
+instance Core.NFData ResourceGroupTag
 
-instance Prelude.ToJSON ResourceGroupTag where
+instance Core.ToJSON ResourceGroupTag where
   toJSON ResourceGroupTag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("key" Prelude..= key)
+    Core.object
+      ( Core.catMaybes
+          [ ("value" Core..=) Core.<$> value,
+            Core.Just ("key" Core..= key)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.Filter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Operator
 
 -- | A conditional statement for a search expression that includes a resource
@@ -142,19 +141,19 @@ data Filter = Filter'
     --     @Contains@ operators in the @SearchExpression@, the result is the
     --     following error message:
     --     \"@\'CONTAINS\' operator usage limit of 1 exceeded.@\"
-    operator :: Prelude.Maybe Operator,
+    operator :: Core.Maybe Operator,
     -- | A value used with @Name@ and @Operator@ to determine which resources
     -- satisfy the filter\'s condition. For numerical properties, @Value@ must
     -- be an integer or floating-point decimal. For timestamp properties,
     -- @Value@ must be an ISO 8601 date-time string of the following format:
     -- @YYYY-mm-dd\'T\'HH:MM:SS@.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | A resource property name. For example, @TrainingJobName@. For valid
     -- property names, see SearchRecord. You must specify a valid property for
     -- the resource.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -245,12 +244,12 @@ data Filter = Filter'
 -- the resource.
 newFilter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Filter
 newFilter pName_ =
   Filter'
-    { operator = Prelude.Nothing,
-      value = Prelude.Nothing,
+    { operator = Core.Nothing,
+      value = Core.Nothing,
       name = pName_
     }
 
@@ -323,7 +322,7 @@ newFilter pName_ =
 --     @Contains@ operators in the @SearchExpression@, the result is the
 --     following error message:
 --     \"@\'CONTAINS\' operator usage limit of 1 exceeded.@\"
-filter_operator :: Lens.Lens' Filter (Prelude.Maybe Operator)
+filter_operator :: Lens.Lens' Filter (Core.Maybe Operator)
 filter_operator = Lens.lens (\Filter' {operator} -> operator) (\s@Filter' {} a -> s {operator = a} :: Filter)
 
 -- | A value used with @Name@ and @Operator@ to determine which resources
@@ -331,25 +330,25 @@ filter_operator = Lens.lens (\Filter' {operator} -> operator) (\s@Filter' {} a -
 -- be an integer or floating-point decimal. For timestamp properties,
 -- @Value@ must be an ISO 8601 date-time string of the following format:
 -- @YYYY-mm-dd\'T\'HH:MM:SS@.
-filter_value :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
+filter_value :: Lens.Lens' Filter (Core.Maybe Core.Text)
 filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {value = a} :: Filter)
 
 -- | A resource property name. For example, @TrainingJobName@. For valid
 -- property names, see SearchRecord. You must specify a valid property for
 -- the resource.
-filter_name :: Lens.Lens' Filter Prelude.Text
+filter_name :: Lens.Lens' Filter Core.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
-instance Prelude.Hashable Filter
+instance Core.Hashable Filter
 
-instance Prelude.NFData Filter
+instance Core.NFData Filter
 
-instance Prelude.ToJSON Filter where
+instance Core.ToJSON Filter where
   toJSON Filter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Operator" Prelude..=) Prelude.<$> operator,
-            ("Value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("Operator" Core..=) Core.<$> operator,
+            ("Value" Core..=) Core.<$> value,
+            Core.Just ("Name" Core..= name)
           ]
       )

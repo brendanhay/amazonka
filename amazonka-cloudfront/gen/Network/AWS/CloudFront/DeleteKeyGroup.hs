@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CloudFront.DeleteKeyGroup
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +55,12 @@ data DeleteKeyGroup = DeleteKeyGroup'
   { -- | The version of the key group that you are deleting. The version is the
     -- key group’s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
     -- @GetKeyGroupConfig@.
-    ifMatch :: Prelude.Maybe Prelude.Text,
+    ifMatch :: Core.Maybe Core.Text,
     -- | The identifier of the key group that you are deleting. To get the
     -- identifier, use @ListKeyGroups@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyGroup' with all optional fields omitted.
@@ -79,52 +78,51 @@ data DeleteKeyGroup = DeleteKeyGroup'
 -- identifier, use @ListKeyGroups@.
 newDeleteKeyGroup ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteKeyGroup
 newDeleteKeyGroup pId_ =
-  DeleteKeyGroup'
-    { ifMatch = Prelude.Nothing,
-      id = pId_
-    }
+  DeleteKeyGroup' {ifMatch = Core.Nothing, id = pId_}
 
 -- | The version of the key group that you are deleting. The version is the
 -- key group’s @ETag@ value. To get the @ETag@, use @GetKeyGroup@ or
 -- @GetKeyGroupConfig@.
-deleteKeyGroup_ifMatch :: Lens.Lens' DeleteKeyGroup (Prelude.Maybe Prelude.Text)
+deleteKeyGroup_ifMatch :: Lens.Lens' DeleteKeyGroup (Core.Maybe Core.Text)
 deleteKeyGroup_ifMatch = Lens.lens (\DeleteKeyGroup' {ifMatch} -> ifMatch) (\s@DeleteKeyGroup' {} a -> s {ifMatch = a} :: DeleteKeyGroup)
 
 -- | The identifier of the key group that you are deleting. To get the
 -- identifier, use @ListKeyGroups@.
-deleteKeyGroup_id :: Lens.Lens' DeleteKeyGroup Prelude.Text
+deleteKeyGroup_id :: Lens.Lens' DeleteKeyGroup Core.Text
 deleteKeyGroup_id = Lens.lens (\DeleteKeyGroup' {id} -> id) (\s@DeleteKeyGroup' {} a -> s {id = a} :: DeleteKeyGroup)
 
-instance Prelude.AWSRequest DeleteKeyGroup where
-  type Rs DeleteKeyGroup = DeleteKeyGroupResponse
+instance Core.AWSRequest DeleteKeyGroup where
+  type
+    AWSResponse DeleteKeyGroup =
+      DeleteKeyGroupResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteKeyGroupResponse'
 
-instance Prelude.Hashable DeleteKeyGroup
+instance Core.Hashable DeleteKeyGroup
 
-instance Prelude.NFData DeleteKeyGroup
+instance Core.NFData DeleteKeyGroup
 
-instance Prelude.ToHeaders DeleteKeyGroup where
+instance Core.ToHeaders DeleteKeyGroup where
   toHeaders DeleteKeyGroup' {..} =
-    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
+    Core.mconcat ["If-Match" Core.=# ifMatch]
 
-instance Prelude.ToPath DeleteKeyGroup where
+instance Core.ToPath DeleteKeyGroup where
   toPath DeleteKeyGroup' {..} =
-    Prelude.mconcat
-      ["/2020-05-31/key-group/", Prelude.toBS id]
+    Core.mconcat
+      ["/2020-05-31/key-group/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteKeyGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteKeyGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteKeyGroupResponse' smart constructor.
 data DeleteKeyGroupResponse = DeleteKeyGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteKeyGroupResponse' with all optional fields omitted.
@@ -134,4 +132,4 @@ newDeleteKeyGroupResponse ::
   DeleteKeyGroupResponse
 newDeleteKeyGroupResponse = DeleteKeyGroupResponse'
 
-instance Prelude.NFData DeleteKeyGroupResponse
+instance Core.NFData DeleteKeyGroupResponse

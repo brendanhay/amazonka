@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.DebugSession where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the debug session for a build. For more
 -- information, see
@@ -32,11 +31,11 @@ data DebugSession = DebugSession'
   { -- | Contains the identifier of the Session Manager session used for the
     -- build. To work with the paused build, you open this session to examine,
     -- control, and resume the build.
-    sessionTarget :: Prelude.Maybe Prelude.Text,
+    sessionTarget :: Core.Maybe Core.Text,
     -- | Specifies if session debugging is enabled for this build.
-    sessionEnabled :: Prelude.Maybe Prelude.Bool
+    sessionEnabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DebugSession' with all optional fields omitted.
@@ -55,30 +54,30 @@ newDebugSession ::
   DebugSession
 newDebugSession =
   DebugSession'
-    { sessionTarget = Prelude.Nothing,
-      sessionEnabled = Prelude.Nothing
+    { sessionTarget = Core.Nothing,
+      sessionEnabled = Core.Nothing
     }
 
 -- | Contains the identifier of the Session Manager session used for the
 -- build. To work with the paused build, you open this session to examine,
 -- control, and resume the build.
-debugSession_sessionTarget :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Text)
+debugSession_sessionTarget :: Lens.Lens' DebugSession (Core.Maybe Core.Text)
 debugSession_sessionTarget = Lens.lens (\DebugSession' {sessionTarget} -> sessionTarget) (\s@DebugSession' {} a -> s {sessionTarget = a} :: DebugSession)
 
 -- | Specifies if session debugging is enabled for this build.
-debugSession_sessionEnabled :: Lens.Lens' DebugSession (Prelude.Maybe Prelude.Bool)
+debugSession_sessionEnabled :: Lens.Lens' DebugSession (Core.Maybe Core.Bool)
 debugSession_sessionEnabled = Lens.lens (\DebugSession' {sessionEnabled} -> sessionEnabled) (\s@DebugSession' {} a -> s {sessionEnabled = a} :: DebugSession)
 
-instance Prelude.FromJSON DebugSession where
+instance Core.FromJSON DebugSession where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DebugSession"
       ( \x ->
           DebugSession'
-            Prelude.<$> (x Prelude..:? "sessionTarget")
-            Prelude.<*> (x Prelude..:? "sessionEnabled")
+            Core.<$> (x Core..:? "sessionTarget")
+            Core.<*> (x Core..:? "sessionEnabled")
       )
 
-instance Prelude.Hashable DebugSession
+instance Core.Hashable DebugSession
 
-instance Prelude.NFData DebugSession
+instance Core.NFData DebugSession

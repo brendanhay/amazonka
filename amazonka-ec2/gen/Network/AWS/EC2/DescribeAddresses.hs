@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.EC2.DescribeAddresses
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +60,13 @@ data DescribeAddresses = DescribeAddresses'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | [EC2-VPC] Information about the allocation IDs.
-    allocationIds :: Prelude.Maybe [Prelude.Text],
+    allocationIds :: Core.Maybe [Core.Text],
     -- | One or more Elastic IP addresses.
     --
     -- Default: Describes all your Elastic IP addresses.
-    publicIps :: Prelude.Maybe [Prelude.Text],
+    publicIps :: Core.Maybe [Core.Text],
     -- | One or more filters. Filter names and values are case-sensitive.
     --
     -- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
@@ -102,9 +101,9 @@ data DescribeAddresses = DescribeAddresses'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddresses' with all optional fields omitted.
@@ -163,28 +162,28 @@ newDescribeAddresses ::
   DescribeAddresses
 newDescribeAddresses =
   DescribeAddresses'
-    { dryRun = Prelude.Nothing,
-      allocationIds = Prelude.Nothing,
-      publicIps = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      allocationIds = Core.Nothing,
+      publicIps = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeAddresses_dryRun :: Lens.Lens' DescribeAddresses (Prelude.Maybe Prelude.Bool)
+describeAddresses_dryRun :: Lens.Lens' DescribeAddresses (Core.Maybe Core.Bool)
 describeAddresses_dryRun = Lens.lens (\DescribeAddresses' {dryRun} -> dryRun) (\s@DescribeAddresses' {} a -> s {dryRun = a} :: DescribeAddresses)
 
 -- | [EC2-VPC] Information about the allocation IDs.
-describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
-describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Prelude.. Lens.mapping Prelude._Coerce
+describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Core.Maybe [Core.Text])
+describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more Elastic IP addresses.
 --
 -- Default: Describes all your Elastic IP addresses.
-describeAddresses_publicIps :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
-describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publicIps) (\s@DescribeAddresses' {} a -> s {publicIps = a} :: DescribeAddresses) Prelude.. Lens.mapping Prelude._Coerce
+describeAddresses_publicIps :: Lens.Lens' DescribeAddresses (Core.Maybe [Core.Text])
+describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publicIps) (\s@DescribeAddresses' {} a -> s {publicIps = a} :: DescribeAddresses) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -220,61 +219,59 @@ describeAddresses_publicIps = Lens.lens (\DescribeAddresses' {publicIps} -> publ
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeAddresses_filters :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Filter])
-describeAddresses_filters = Lens.lens (\DescribeAddresses' {filters} -> filters) (\s@DescribeAddresses' {} a -> s {filters = a} :: DescribeAddresses) Prelude.. Lens.mapping Prelude._Coerce
+describeAddresses_filters :: Lens.Lens' DescribeAddresses (Core.Maybe [Filter])
+describeAddresses_filters = Lens.lens (\DescribeAddresses' {filters} -> filters) (\s@DescribeAddresses' {} a -> s {filters = a} :: DescribeAddresses) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeAddresses where
-  type Rs DescribeAddresses = DescribeAddressesResponse
+instance Core.AWSRequest DescribeAddresses where
+  type
+    AWSResponse DescribeAddresses =
+      DescribeAddressesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesResponse'
-            Prelude.<$> ( x Prelude..@? "addressesSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "addressesSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddresses
+instance Core.Hashable DescribeAddresses
 
-instance Prelude.NFData DescribeAddresses
+instance Core.NFData DescribeAddresses
 
-instance Prelude.ToHeaders DescribeAddresses where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAddresses where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAddresses where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAddresses where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAddresses where
+instance Core.ToQuery DescribeAddresses where
   toQuery DescribeAddresses' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeAddresses" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "AllocationId"
-              Prelude.<$> allocationIds
+          Core.=: ("DescribeAddresses" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "AllocationId"
+              Core.<$> allocationIds
           ),
-        Prelude.toQuery
-          ( Prelude.toQueryList "PublicIp"
-              Prelude.<$> publicIps
-          ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "PublicIp" Core.<$> publicIps),
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
   { -- | Information about the Elastic IP addresses.
-    addresses :: Prelude.Maybe [Address],
+    addresses :: Core.Maybe [Address],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddressesResponse' with all optional fields omitted.
@@ -289,21 +286,21 @@ data DescribeAddressesResponse = DescribeAddressesResponse'
 -- 'httpStatus', 'describeAddressesResponse_httpStatus' - The response's http status code.
 newDescribeAddressesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAddressesResponse
 newDescribeAddressesResponse pHttpStatus_ =
   DescribeAddressesResponse'
     { addresses =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Elastic IP addresses.
-describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Prelude.Maybe [Address])
-describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAddressesResponse_addresses :: Lens.Lens' DescribeAddressesResponse (Core.Maybe [Address])
+describeAddressesResponse_addresses = Lens.lens (\DescribeAddressesResponse' {addresses} -> addresses) (\s@DescribeAddressesResponse' {} a -> s {addresses = a} :: DescribeAddressesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAddressesResponse_httpStatus :: Lens.Lens' DescribeAddressesResponse Prelude.Int
+describeAddressesResponse_httpStatus :: Lens.Lens' DescribeAddressesResponse Core.Int
 describeAddressesResponse_httpStatus = Lens.lens (\DescribeAddressesResponse' {httpStatus} -> httpStatus) (\s@DescribeAddressesResponse' {} a -> s {httpStatus = a} :: DescribeAddressesResponse)
 
-instance Prelude.NFData DescribeAddressesResponse
+instance Core.NFData DescribeAddressesResponse

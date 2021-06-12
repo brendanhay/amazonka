@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.MQ.DeleteBroker
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBroker' smart constructor.
 data DeleteBroker = DeleteBroker'
   { -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Text
+    brokerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBroker' with all optional fields omitted.
@@ -64,57 +63,54 @@ data DeleteBroker = DeleteBroker'
 -- 'brokerId', 'deleteBroker_brokerId' - The unique ID that Amazon MQ generates for the broker.
 newDeleteBroker ::
   -- | 'brokerId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBroker
 newDeleteBroker pBrokerId_ =
   DeleteBroker' {brokerId = pBrokerId_}
 
 -- | The unique ID that Amazon MQ generates for the broker.
-deleteBroker_brokerId :: Lens.Lens' DeleteBroker Prelude.Text
+deleteBroker_brokerId :: Lens.Lens' DeleteBroker Core.Text
 deleteBroker_brokerId = Lens.lens (\DeleteBroker' {brokerId} -> brokerId) (\s@DeleteBroker' {} a -> s {brokerId = a} :: DeleteBroker)
 
-instance Prelude.AWSRequest DeleteBroker where
-  type Rs DeleteBroker = DeleteBrokerResponse
+instance Core.AWSRequest DeleteBroker where
+  type AWSResponse DeleteBroker = DeleteBrokerResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteBrokerResponse'
-            Prelude.<$> (x Prelude..?> "brokerId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "brokerId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteBroker
+instance Core.Hashable DeleteBroker
 
-instance Prelude.NFData DeleteBroker
+instance Core.NFData DeleteBroker
 
-instance Prelude.ToHeaders DeleteBroker where
+instance Core.ToHeaders DeleteBroker where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteBroker where
+instance Core.ToPath DeleteBroker where
   toPath DeleteBroker' {..} =
-    Prelude.mconcat
-      ["/v1/brokers/", Prelude.toBS brokerId]
+    Core.mconcat ["/v1/brokers/", Core.toBS brokerId]
 
-instance Prelude.ToQuery DeleteBroker where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBroker where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteBrokerResponse' smart constructor.
 data DeleteBrokerResponse = DeleteBrokerResponse'
   { -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Maybe Prelude.Text,
+    brokerId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBrokerResponse' with all optional fields omitted.
@@ -129,20 +125,20 @@ data DeleteBrokerResponse = DeleteBrokerResponse'
 -- 'httpStatus', 'deleteBrokerResponse_httpStatus' - The response's http status code.
 newDeleteBrokerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteBrokerResponse
 newDeleteBrokerResponse pHttpStatus_ =
   DeleteBrokerResponse'
-    { brokerId = Prelude.Nothing,
+    { brokerId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID that Amazon MQ generates for the broker.
-deleteBrokerResponse_brokerId :: Lens.Lens' DeleteBrokerResponse (Prelude.Maybe Prelude.Text)
+deleteBrokerResponse_brokerId :: Lens.Lens' DeleteBrokerResponse (Core.Maybe Core.Text)
 deleteBrokerResponse_brokerId = Lens.lens (\DeleteBrokerResponse' {brokerId} -> brokerId) (\s@DeleteBrokerResponse' {} a -> s {brokerId = a} :: DeleteBrokerResponse)
 
 -- | The response's http status code.
-deleteBrokerResponse_httpStatus :: Lens.Lens' DeleteBrokerResponse Prelude.Int
+deleteBrokerResponse_httpStatus :: Lens.Lens' DeleteBrokerResponse Core.Int
 deleteBrokerResponse_httpStatus = Lens.lens (\DeleteBrokerResponse' {httpStatus} -> httpStatus) (\s@DeleteBrokerResponse' {} a -> s {httpStatus = a} :: DeleteBrokerResponse)
 
-instance Prelude.NFData DeleteBrokerResponse
+instance Core.NFData DeleteBrokerResponse

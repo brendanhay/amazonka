@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,26 +47,26 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationInputProcessingConfiguratio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApplicationInputProcessingConfiguration' smart constructor.
 data DeleteApplicationInputProcessingConfiguration = DeleteApplicationInputProcessingConfiguration'
   { -- | The Kinesis Analytics application name.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | The version ID of the Kinesis Analytics application.
-    currentApplicationVersionId :: Prelude.Natural,
+    currentApplicationVersionId :: Core.Natural,
     -- | The ID of the input configuration from which to delete the input
     -- processing configuration. You can get a list of the input IDs for an
     -- application by using the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation.
-    inputId :: Prelude.Text
+    inputId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationInputProcessingConfiguration' with all optional fields omitted.
@@ -88,11 +87,11 @@ data DeleteApplicationInputProcessingConfiguration = DeleteApplicationInputProce
 -- operation.
 newDeleteApplicationInputProcessingConfiguration ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'currentApplicationVersionId'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'inputId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApplicationInputProcessingConfiguration
 newDeleteApplicationInputProcessingConfiguration
   pApplicationName_
@@ -107,11 +106,11 @@ newDeleteApplicationInputProcessingConfiguration
       }
 
 -- | The Kinesis Analytics application name.
-deleteApplicationInputProcessingConfiguration_applicationName :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Prelude.Text
+deleteApplicationInputProcessingConfiguration_applicationName :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Core.Text
 deleteApplicationInputProcessingConfiguration_applicationName = Lens.lens (\DeleteApplicationInputProcessingConfiguration' {applicationName} -> applicationName) (\s@DeleteApplicationInputProcessingConfiguration' {} a -> s {applicationName = a} :: DeleteApplicationInputProcessingConfiguration)
 
 -- | The version ID of the Kinesis Analytics application.
-deleteApplicationInputProcessingConfiguration_currentApplicationVersionId :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Prelude.Natural
+deleteApplicationInputProcessingConfiguration_currentApplicationVersionId :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Core.Natural
 deleteApplicationInputProcessingConfiguration_currentApplicationVersionId = Lens.lens (\DeleteApplicationInputProcessingConfiguration' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@DeleteApplicationInputProcessingConfiguration' {} a -> s {currentApplicationVersionId = a} :: DeleteApplicationInputProcessingConfiguration)
 
 -- | The ID of the input configuration from which to delete the input
@@ -119,86 +118,85 @@ deleteApplicationInputProcessingConfiguration_currentApplicationVersionId = Lens
 -- application by using the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation.
-deleteApplicationInputProcessingConfiguration_inputId :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Prelude.Text
+deleteApplicationInputProcessingConfiguration_inputId :: Lens.Lens' DeleteApplicationInputProcessingConfiguration Core.Text
 deleteApplicationInputProcessingConfiguration_inputId = Lens.lens (\DeleteApplicationInputProcessingConfiguration' {inputId} -> inputId) (\s@DeleteApplicationInputProcessingConfiguration' {} a -> s {inputId = a} :: DeleteApplicationInputProcessingConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteApplicationInputProcessingConfiguration
   where
   type
-    Rs DeleteApplicationInputProcessingConfiguration =
+    AWSResponse
+      DeleteApplicationInputProcessingConfiguration =
       DeleteApplicationInputProcessingConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationInputProcessingConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteApplicationInputProcessingConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteApplicationInputProcessingConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteApplicationInputProcessingConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.DeleteApplicationInputProcessingConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.DeleteApplicationInputProcessingConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteApplicationInputProcessingConfiguration
   where
   toJSON
     DeleteApplicationInputProcessingConfiguration' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just
-                ("ApplicationName" Prelude..= applicationName),
-              Prelude.Just
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just
+                ("ApplicationName" Core..= applicationName),
+              Core.Just
                 ( "CurrentApplicationVersionId"
-                    Prelude..= currentApplicationVersionId
+                    Core..= currentApplicationVersionId
                 ),
-              Prelude.Just ("InputId" Prelude..= inputId)
+              Core.Just ("InputId" Core..= inputId)
             ]
         )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteApplicationInputProcessingConfiguration
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteApplicationInputProcessingConfiguration
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApplicationInputProcessingConfigurationResponse' smart constructor.
 data DeleteApplicationInputProcessingConfigurationResponse = DeleteApplicationInputProcessingConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationInputProcessingConfigurationResponse' with all optional fields omitted.
@@ -211,7 +209,7 @@ data DeleteApplicationInputProcessingConfigurationResponse = DeleteApplicationIn
 -- 'httpStatus', 'deleteApplicationInputProcessingConfigurationResponse_httpStatus' - The response's http status code.
 newDeleteApplicationInputProcessingConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteApplicationInputProcessingConfigurationResponse
 newDeleteApplicationInputProcessingConfigurationResponse
   pHttpStatus_ =
@@ -221,9 +219,9 @@ newDeleteApplicationInputProcessingConfigurationResponse
       }
 
 -- | The response's http status code.
-deleteApplicationInputProcessingConfigurationResponse_httpStatus :: Lens.Lens' DeleteApplicationInputProcessingConfigurationResponse Prelude.Int
+deleteApplicationInputProcessingConfigurationResponse_httpStatus :: Lens.Lens' DeleteApplicationInputProcessingConfigurationResponse Core.Int
 deleteApplicationInputProcessingConfigurationResponse_httpStatus = Lens.lens (\DeleteApplicationInputProcessingConfigurationResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationInputProcessingConfigurationResponse' {} a -> s {httpStatus = a} :: DeleteApplicationInputProcessingConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteApplicationInputProcessingConfigurationResponse

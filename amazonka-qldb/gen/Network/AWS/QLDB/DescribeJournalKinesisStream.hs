@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.QLDB.DescribeJournalKinesisStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDescribeJournalKinesisStream' smart constructor.
 data DescribeJournalKinesisStream = DescribeJournalKinesisStream'
   { -- | The name of the ledger.
-    ledgerName :: Prelude.Text,
+    ledgerName :: Core.Text,
     -- | The unique ID that QLDB assigns to each QLDB journal stream.
-    streamId :: Prelude.Text
+    streamId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeJournalKinesisStream' with all optional fields omitted.
@@ -72,9 +71,9 @@ data DescribeJournalKinesisStream = DescribeJournalKinesisStream'
 -- 'streamId', 'describeJournalKinesisStream_streamId' - The unique ID that QLDB assigns to each QLDB journal stream.
 newDescribeJournalKinesisStream ::
   -- | 'ledgerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'streamId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeJournalKinesisStream
 newDescribeJournalKinesisStream
   pLedgerName_
@@ -86,70 +85,60 @@ newDescribeJournalKinesisStream
       }
 
 -- | The name of the ledger.
-describeJournalKinesisStream_ledgerName :: Lens.Lens' DescribeJournalKinesisStream Prelude.Text
+describeJournalKinesisStream_ledgerName :: Lens.Lens' DescribeJournalKinesisStream Core.Text
 describeJournalKinesisStream_ledgerName = Lens.lens (\DescribeJournalKinesisStream' {ledgerName} -> ledgerName) (\s@DescribeJournalKinesisStream' {} a -> s {ledgerName = a} :: DescribeJournalKinesisStream)
 
 -- | The unique ID that QLDB assigns to each QLDB journal stream.
-describeJournalKinesisStream_streamId :: Lens.Lens' DescribeJournalKinesisStream Prelude.Text
+describeJournalKinesisStream_streamId :: Lens.Lens' DescribeJournalKinesisStream Core.Text
 describeJournalKinesisStream_streamId = Lens.lens (\DescribeJournalKinesisStream' {streamId} -> streamId) (\s@DescribeJournalKinesisStream' {} a -> s {streamId = a} :: DescribeJournalKinesisStream)
 
-instance
-  Prelude.AWSRequest
-    DescribeJournalKinesisStream
-  where
+instance Core.AWSRequest DescribeJournalKinesisStream where
   type
-    Rs DescribeJournalKinesisStream =
+    AWSResponse DescribeJournalKinesisStream =
       DescribeJournalKinesisStreamResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeJournalKinesisStreamResponse'
-            Prelude.<$> (x Prelude..?> "Stream")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Stream")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeJournalKinesisStream
+instance Core.Hashable DescribeJournalKinesisStream
 
-instance Prelude.NFData DescribeJournalKinesisStream
+instance Core.NFData DescribeJournalKinesisStream
 
-instance
-  Prelude.ToHeaders
-    DescribeJournalKinesisStream
-  where
+instance Core.ToHeaders DescribeJournalKinesisStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeJournalKinesisStream where
+instance Core.ToPath DescribeJournalKinesisStream where
   toPath DescribeJournalKinesisStream' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/ledgers/",
-        Prelude.toBS ledgerName,
+        Core.toBS ledgerName,
         "/journal-kinesis-streams/",
-        Prelude.toBS streamId
+        Core.toBS streamId
       ]
 
-instance Prelude.ToQuery DescribeJournalKinesisStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeJournalKinesisStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeJournalKinesisStreamResponse' smart constructor.
 data DescribeJournalKinesisStreamResponse = DescribeJournalKinesisStreamResponse'
   { -- | Information about the QLDB journal stream returned by a
     -- @DescribeJournalS3Export@ request.
-    stream :: Prelude.Maybe JournalKinesisStreamDescription,
+    stream :: Core.Maybe JournalKinesisStreamDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeJournalKinesisStreamResponse' with all optional fields omitted.
@@ -165,24 +154,24 @@ data DescribeJournalKinesisStreamResponse = DescribeJournalKinesisStreamResponse
 -- 'httpStatus', 'describeJournalKinesisStreamResponse_httpStatus' - The response's http status code.
 newDescribeJournalKinesisStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeJournalKinesisStreamResponse
 newDescribeJournalKinesisStreamResponse pHttpStatus_ =
   DescribeJournalKinesisStreamResponse'
     { stream =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the QLDB journal stream returned by a
 -- @DescribeJournalS3Export@ request.
-describeJournalKinesisStreamResponse_stream :: Lens.Lens' DescribeJournalKinesisStreamResponse (Prelude.Maybe JournalKinesisStreamDescription)
+describeJournalKinesisStreamResponse_stream :: Lens.Lens' DescribeJournalKinesisStreamResponse (Core.Maybe JournalKinesisStreamDescription)
 describeJournalKinesisStreamResponse_stream = Lens.lens (\DescribeJournalKinesisStreamResponse' {stream} -> stream) (\s@DescribeJournalKinesisStreamResponse' {} a -> s {stream = a} :: DescribeJournalKinesisStreamResponse)
 
 -- | The response's http status code.
-describeJournalKinesisStreamResponse_httpStatus :: Lens.Lens' DescribeJournalKinesisStreamResponse Prelude.Int
+describeJournalKinesisStreamResponse_httpStatus :: Lens.Lens' DescribeJournalKinesisStreamResponse Core.Int
 describeJournalKinesisStreamResponse_httpStatus = Lens.lens (\DescribeJournalKinesisStreamResponse' {httpStatus} -> httpStatus) (\s@DescribeJournalKinesisStreamResponse' {} a -> s {httpStatus = a} :: DescribeJournalKinesisStreamResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeJournalKinesisStreamResponse

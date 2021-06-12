@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.QueryStringKeyValuePair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a key\/value pair.
 --
 -- /See:/ 'newQueryStringKeyValuePair' smart constructor.
 data QueryStringKeyValuePair = QueryStringKeyValuePair'
   { -- | The key. You can omit the key.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryStringKeyValuePair' with all optional fields omitted.
@@ -49,29 +48,28 @@ newQueryStringKeyValuePair ::
   QueryStringKeyValuePair
 newQueryStringKeyValuePair =
   QueryStringKeyValuePair'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The key. You can omit the key.
-queryStringKeyValuePair_key :: Lens.Lens' QueryStringKeyValuePair (Prelude.Maybe Prelude.Text)
+queryStringKeyValuePair_key :: Lens.Lens' QueryStringKeyValuePair (Core.Maybe Core.Text)
 queryStringKeyValuePair_key = Lens.lens (\QueryStringKeyValuePair' {key} -> key) (\s@QueryStringKeyValuePair' {} a -> s {key = a} :: QueryStringKeyValuePair)
 
 -- | The value.
-queryStringKeyValuePair_value :: Lens.Lens' QueryStringKeyValuePair (Prelude.Maybe Prelude.Text)
+queryStringKeyValuePair_value :: Lens.Lens' QueryStringKeyValuePair (Core.Maybe Core.Text)
 queryStringKeyValuePair_value = Lens.lens (\QueryStringKeyValuePair' {value} -> value) (\s@QueryStringKeyValuePair' {} a -> s {value = a} :: QueryStringKeyValuePair)
 
-instance Prelude.FromXML QueryStringKeyValuePair where
+instance Core.FromXML QueryStringKeyValuePair where
   parseXML x =
     QueryStringKeyValuePair'
-      Prelude.<$> (x Prelude..@? "Key")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable QueryStringKeyValuePair
+instance Core.Hashable QueryStringKeyValuePair
 
-instance Prelude.NFData QueryStringKeyValuePair
+instance Core.NFData QueryStringKeyValuePair
 
-instance Prelude.ToQuery QueryStringKeyValuePair where
+instance Core.ToQuery QueryStringKeyValuePair where
   toQuery QueryStringKeyValuePair' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Key" Core.=: key, "Value" Core.=: value]

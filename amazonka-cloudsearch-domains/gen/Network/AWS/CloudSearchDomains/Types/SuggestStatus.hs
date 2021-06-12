@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearchDomains.Types.SuggestStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the resource id (@rid@) and the time it took to process the
 -- request (@timems@).
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSuggestStatus' smart constructor.
 data SuggestStatus = SuggestStatus'
   { -- | How long it took to process the request, in milliseconds.
-    timems :: Prelude.Maybe Prelude.Integer,
+    timems :: Core.Maybe Core.Integer,
     -- | The encrypted resource ID for the request.
-    rid :: Prelude.Maybe Prelude.Text
+    rid :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuggestStatus' with all optional fields omitted.
@@ -50,28 +49,27 @@ newSuggestStatus ::
   SuggestStatus
 newSuggestStatus =
   SuggestStatus'
-    { timems = Prelude.Nothing,
-      rid = Prelude.Nothing
+    { timems = Core.Nothing,
+      rid = Core.Nothing
     }
 
 -- | How long it took to process the request, in milliseconds.
-suggestStatus_timems :: Lens.Lens' SuggestStatus (Prelude.Maybe Prelude.Integer)
+suggestStatus_timems :: Lens.Lens' SuggestStatus (Core.Maybe Core.Integer)
 suggestStatus_timems = Lens.lens (\SuggestStatus' {timems} -> timems) (\s@SuggestStatus' {} a -> s {timems = a} :: SuggestStatus)
 
 -- | The encrypted resource ID for the request.
-suggestStatus_rid :: Lens.Lens' SuggestStatus (Prelude.Maybe Prelude.Text)
+suggestStatus_rid :: Lens.Lens' SuggestStatus (Core.Maybe Core.Text)
 suggestStatus_rid = Lens.lens (\SuggestStatus' {rid} -> rid) (\s@SuggestStatus' {} a -> s {rid = a} :: SuggestStatus)
 
-instance Prelude.FromJSON SuggestStatus where
+instance Core.FromJSON SuggestStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SuggestStatus"
       ( \x ->
           SuggestStatus'
-            Prelude.<$> (x Prelude..:? "timems")
-            Prelude.<*> (x Prelude..:? "rid")
+            Core.<$> (x Core..:? "timems") Core.<*> (x Core..:? "rid")
       )
 
-instance Prelude.Hashable SuggestStatus
+instance Core.Hashable SuggestStatus
 
-instance Prelude.NFData SuggestStatus
+instance Core.NFData SuggestStatus

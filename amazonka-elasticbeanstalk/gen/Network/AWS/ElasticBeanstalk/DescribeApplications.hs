@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DescribeApplications = DescribeApplications'
   { -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
     -- to only include those with the specified names.
-    applicationNames :: Prelude.Maybe [Prelude.Text]
+    applicationNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeApplications' with all optional fields omitted.
@@ -71,17 +70,17 @@ newDescribeApplications ::
 newDescribeApplications =
   DescribeApplications'
     { applicationNames =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
-describeApplications_applicationNames :: Lens.Lens' DescribeApplications (Prelude.Maybe [Prelude.Text])
-describeApplications_applicationNames = Lens.lens (\DescribeApplications' {applicationNames} -> applicationNames) (\s@DescribeApplications' {} a -> s {applicationNames = a} :: DescribeApplications) Prelude.. Lens.mapping Prelude._Coerce
+describeApplications_applicationNames :: Lens.Lens' DescribeApplications (Core.Maybe [Core.Text])
+describeApplications_applicationNames = Lens.lens (\DescribeApplications' {applicationNames} -> applicationNames) (\s@DescribeApplications' {} a -> s {applicationNames = a} :: DescribeApplications) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeApplications where
+instance Core.AWSRequest DescribeApplications where
   type
-    Rs DescribeApplications =
+    AWSResponse DescribeApplications =
       DescribeApplicationsResponse
   request = Request.postQuery defaultService
   response =
@@ -89,34 +88,32 @@ instance Prelude.AWSRequest DescribeApplications where
       "DescribeApplicationsResult"
       ( \s h x ->
           DescribeApplicationsResponse'
-            Prelude.<$> ( x Prelude..@? "Applications"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Applications" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApplications
+instance Core.Hashable DescribeApplications
 
-instance Prelude.NFData DescribeApplications
+instance Core.NFData DescribeApplications
 
-instance Prelude.ToHeaders DescribeApplications where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeApplications where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeApplications where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeApplications where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeApplications where
+instance Core.ToQuery DescribeApplications where
   toQuery DescribeApplications' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeApplications" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+          Core.=: ("DescribeApplications" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
         "ApplicationNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> applicationNames
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> applicationNames
             )
       ]
 
@@ -125,11 +122,11 @@ instance Prelude.ToQuery DescribeApplications where
 -- /See:/ 'newDescribeApplicationsResponse' smart constructor.
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
   { -- | This parameter contains a list of ApplicationDescription.
-    applications :: Prelude.Maybe [ApplicationDescription],
+    applications :: Core.Maybe [ApplicationDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeApplicationsResponse' with all optional fields omitted.
@@ -144,21 +141,21 @@ data DescribeApplicationsResponse = DescribeApplicationsResponse'
 -- 'httpStatus', 'describeApplicationsResponse_httpStatus' - The response's http status code.
 newDescribeApplicationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeApplicationsResponse
 newDescribeApplicationsResponse pHttpStatus_ =
   DescribeApplicationsResponse'
     { applications =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | This parameter contains a list of ApplicationDescription.
-describeApplicationsResponse_applications :: Lens.Lens' DescribeApplicationsResponse (Prelude.Maybe [ApplicationDescription])
-describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResponse' {applications} -> applications) (\s@DescribeApplicationsResponse' {} a -> s {applications = a} :: DescribeApplicationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeApplicationsResponse_applications :: Lens.Lens' DescribeApplicationsResponse (Core.Maybe [ApplicationDescription])
+describeApplicationsResponse_applications = Lens.lens (\DescribeApplicationsResponse' {applications} -> applications) (\s@DescribeApplicationsResponse' {} a -> s {applications = a} :: DescribeApplicationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeApplicationsResponse_httpStatus :: Lens.Lens' DescribeApplicationsResponse Prelude.Int
+describeApplicationsResponse_httpStatus :: Lens.Lens' DescribeApplicationsResponse Core.Int
 describeApplicationsResponse_httpStatus = Lens.lens (\DescribeApplicationsResponse' {httpStatus} -> httpStatus) (\s@DescribeApplicationsResponse' {} a -> s {httpStatus = a} :: DescribeApplicationsResponse)
 
-instance Prelude.NFData DescribeApplicationsResponse
+instance Core.NFData DescribeApplicationsResponse

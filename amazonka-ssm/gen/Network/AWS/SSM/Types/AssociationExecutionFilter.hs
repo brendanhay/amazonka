@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AssociationExecutionFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AssociationExecutionFilterKey
 import Network.AWS.SSM.Types.AssociationFilterOperatorType
 
@@ -32,11 +31,11 @@ data AssociationExecutionFilter = AssociationExecutionFilter'
   { -- | The key value used in the request.
     key :: AssociationExecutionFilterKey,
     -- | The value specified for the key.
-    value :: Prelude.Text,
+    value :: Core.Text,
     -- | The filter type specified in the request.
     type' :: AssociationFilterOperatorType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociationExecutionFilter' with all optional fields omitted.
@@ -55,7 +54,7 @@ newAssociationExecutionFilter ::
   -- | 'key'
   AssociationExecutionFilterKey ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   AssociationFilterOperatorType ->
   AssociationExecutionFilter
@@ -71,23 +70,23 @@ associationExecutionFilter_key :: Lens.Lens' AssociationExecutionFilter Associat
 associationExecutionFilter_key = Lens.lens (\AssociationExecutionFilter' {key} -> key) (\s@AssociationExecutionFilter' {} a -> s {key = a} :: AssociationExecutionFilter)
 
 -- | The value specified for the key.
-associationExecutionFilter_value :: Lens.Lens' AssociationExecutionFilter Prelude.Text
+associationExecutionFilter_value :: Lens.Lens' AssociationExecutionFilter Core.Text
 associationExecutionFilter_value = Lens.lens (\AssociationExecutionFilter' {value} -> value) (\s@AssociationExecutionFilter' {} a -> s {value = a} :: AssociationExecutionFilter)
 
 -- | The filter type specified in the request.
 associationExecutionFilter_type :: Lens.Lens' AssociationExecutionFilter AssociationFilterOperatorType
 associationExecutionFilter_type = Lens.lens (\AssociationExecutionFilter' {type'} -> type') (\s@AssociationExecutionFilter' {} a -> s {type' = a} :: AssociationExecutionFilter)
 
-instance Prelude.Hashable AssociationExecutionFilter
+instance Core.Hashable AssociationExecutionFilter
 
-instance Prelude.NFData AssociationExecutionFilter
+instance Core.NFData AssociationExecutionFilter
 
-instance Prelude.ToJSON AssociationExecutionFilter where
+instance Core.ToJSON AssociationExecutionFilter where
   toJSON AssociationExecutionFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Value" Prelude..= value),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Value" Core..= value),
+            Core.Just ("Type" Core..= type')
           ]
       )

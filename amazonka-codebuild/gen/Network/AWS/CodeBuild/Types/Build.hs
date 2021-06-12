@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -33,8 +32,8 @@ import Network.AWS.CodeBuild.Types.ProjectSource
 import Network.AWS.CodeBuild.Types.ProjectSourceVersion
 import Network.AWS.CodeBuild.Types.StatusType
 import Network.AWS.CodeBuild.Types.VpcConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a build.
 --
@@ -45,10 +44,10 @@ data Build = Build'
     -- security group IDs and subnet IDs. The security groups and subnets must
     -- belong to the same VPC. You must provide at least one security group and
     -- one subnet ID.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+    vpcConfig :: Core.Maybe VpcConfig,
     -- | The ARN of the batch build that this build is a member of, if
     -- applicable.
-    buildBatchArn :: Prelude.Maybe Prelude.Text,
+    buildBatchArn :: Core.Maybe Core.Text,
     -- | An identifier for the version of this build\'s source code.
     --
     -- -   For AWS CodeCommit, GitHub, GitHub Enterprise, and BitBucket, the
@@ -58,9 +57,9 @@ data Build = Build'
     --     CodePipeline.
     --
     -- -   For Amazon S3, this does not apply.
-    resolvedSourceVersion :: Prelude.Maybe Prelude.Text,
+    resolvedSourceVersion :: Core.Maybe Core.Text,
     -- | An array of @ProjectArtifacts@ objects.
-    secondaryArtifacts :: Prelude.Maybe [BuildArtifacts],
+    secondaryArtifacts :: Core.Maybe [BuildArtifacts],
     -- | Any version identifier for the version of the source code to be built.
     -- If @sourceVersion@ is specified at the project level, then this
     -- @sourceVersion@ (at the build level) takes precedence.
@@ -68,14 +67,14 @@ data Build = Build'
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
     -- in the /AWS CodeBuild User Guide/.
-    sourceVersion :: Prelude.Maybe Prelude.Text,
+    sourceVersion :: Core.Maybe Core.Text,
     -- | Information about all previous build phases that are complete and
     -- information about any current build phase that is not yet complete.
-    phases :: Prelude.Maybe [BuildPhase],
+    phases :: Core.Maybe [BuildPhase],
     -- | Information about the cache for the build.
-    cache :: Prelude.Maybe ProjectCache,
+    cache :: Core.Maybe ProjectCache,
     -- | The name of a service role used for this build.
-    serviceRole :: Prelude.Maybe Prelude.Text,
+    serviceRole :: Core.Maybe Core.Text,
     -- | An array of @ProjectSourceVersion@ objects. Each @ProjectSourceVersion@
     -- must be one of:
     --
@@ -95,9 +94,9 @@ data Build = Build'
     --
     -- -   For Amazon S3: the version ID of the object that represents the
     --     build input ZIP file to use.
-    secondarySourceVersions :: Prelude.Maybe [ProjectSourceVersion],
+    secondarySourceVersions :: Core.Maybe [ProjectSourceVersion],
     -- | Describes a network interface.
-    networkInterface :: Prelude.Maybe NetworkInterface,
+    networkInterface :: Core.Maybe NetworkInterface,
     -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
     -- used for encrypting the build output artifacts.
     --
@@ -106,28 +105,28 @@ data Build = Build'
     --
     -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
     -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-    encryptionKey :: Prelude.Maybe Prelude.Text,
+    encryptionKey :: Core.Maybe Core.Text,
     -- | Information about the output artifacts for the build.
-    artifacts :: Prelude.Maybe BuildArtifacts,
+    artifacts :: Core.Maybe BuildArtifacts,
     -- | The number of the build. For each project, the @buildNumber@ of its
     -- first build is @1@. The @buildNumber@ of each subsequent build is
     -- incremented by @1@. If a build is deleted, the @buildNumber@ of other
     -- builds does not change.
-    buildNumber :: Prelude.Maybe Prelude.Integer,
+    buildNumber :: Core.Maybe Core.Integer,
     -- | When the build process started, expressed in Unix time format.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The unique ID for the build.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Information about the build environment for this build.
-    environment :: Prelude.Maybe ProjectEnvironment,
+    environment :: Core.Maybe ProjectEnvironment,
     -- | Information about the source code to be built.
-    source :: Prelude.Maybe ProjectSource,
+    source :: Core.Maybe ProjectSource,
     -- | The Amazon Resource Name (ARN) of the build.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The name of the AWS CodeBuild project.
-    projectName :: Prelude.Maybe Prelude.Text,
+    projectName :: Core.Maybe Core.Text,
     -- | When the build process ended, expressed in Unix time format.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The current status of the build. Valid values include:
     --
     -- -   @FAILED@: The build failed.
@@ -141,23 +140,23 @@ data Build = Build'
     -- -   @SUCCEEDED@: The build succeeded.
     --
     -- -   @TIMED_OUT@: The build timed out.
-    buildStatus :: Prelude.Maybe StatusType,
+    buildStatus :: Core.Maybe StatusType,
     -- | Information about the build\'s logs in Amazon CloudWatch Logs.
-    logs :: Prelude.Maybe LogsLocation,
+    logs :: Core.Maybe LogsLocation,
     -- | Whether the build is complete. True if complete; otherwise, false.
-    buildComplete :: Prelude.Maybe Prelude.Bool,
+    buildComplete :: Core.Maybe Core.Bool,
     -- | Contains information about the debug session for this build.
-    debugSession :: Prelude.Maybe DebugSession,
+    debugSession :: Core.Maybe DebugSession,
     -- | The number of minutes a build is allowed to be queued before it times
     -- out.
-    queuedTimeoutInMinutes :: Prelude.Maybe Prelude.Int,
+    queuedTimeoutInMinutes :: Core.Maybe Core.Int,
     -- | An array of @ProjectSource@ objects.
-    secondarySources :: Prelude.Maybe [ProjectSource],
+    secondarySources :: Core.Maybe [ProjectSource],
     -- | How long, in minutes, for AWS CodeBuild to wait before timing out this
     -- build if it does not get marked as completed.
-    timeoutInMinutes :: Prelude.Maybe Prelude.Int,
+    timeoutInMinutes :: Core.Maybe Core.Int,
     -- | The current build phase.
-    currentPhase :: Prelude.Maybe Prelude.Text,
+    currentPhase :: Core.Maybe Core.Text,
     -- | The entity that started the build. Valid values include:
     --
     -- -   If AWS CodePipeline started the build, the pipeline\'s name (for
@@ -168,18 +167,18 @@ data Build = Build'
     --
     -- -   If the Jenkins plugin for AWS CodeBuild started the build, the
     --     string @CodeBuild-Jenkins-Plugin@.
-    initiator :: Prelude.Maybe Prelude.Text,
+    initiator :: Core.Maybe Core.Text,
     -- | An array of the ARNs associated with this build\'s reports.
-    reportArns :: Prelude.Maybe [Prelude.Text],
+    reportArns :: Core.Maybe [Core.Text],
     -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
     -- project. A @ProjectFileSystemLocation@ object specifies the
     -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
     -- file system created using Amazon Elastic File System.
-    fileSystemLocations :: Prelude.Maybe [ProjectFileSystemLocation],
+    fileSystemLocations :: Core.Maybe [ProjectFileSystemLocation],
     -- | A list of exported environment variables for this build.
-    exportedEnvironmentVariables :: Prelude.Maybe [ExportedEnvironmentVariable]
+    exportedEnvironmentVariables :: Core.Maybe [ExportedEnvironmentVariable]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Build' with all optional fields omitted.
@@ -330,38 +329,38 @@ newBuild ::
   Build
 newBuild =
   Build'
-    { vpcConfig = Prelude.Nothing,
-      buildBatchArn = Prelude.Nothing,
-      resolvedSourceVersion = Prelude.Nothing,
-      secondaryArtifacts = Prelude.Nothing,
-      sourceVersion = Prelude.Nothing,
-      phases = Prelude.Nothing,
-      cache = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
-      secondarySourceVersions = Prelude.Nothing,
-      networkInterface = Prelude.Nothing,
-      encryptionKey = Prelude.Nothing,
-      artifacts = Prelude.Nothing,
-      buildNumber = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      id = Prelude.Nothing,
-      environment = Prelude.Nothing,
-      source = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      projectName = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      buildStatus = Prelude.Nothing,
-      logs = Prelude.Nothing,
-      buildComplete = Prelude.Nothing,
-      debugSession = Prelude.Nothing,
-      queuedTimeoutInMinutes = Prelude.Nothing,
-      secondarySources = Prelude.Nothing,
-      timeoutInMinutes = Prelude.Nothing,
-      currentPhase = Prelude.Nothing,
-      initiator = Prelude.Nothing,
-      reportArns = Prelude.Nothing,
-      fileSystemLocations = Prelude.Nothing,
-      exportedEnvironmentVariables = Prelude.Nothing
+    { vpcConfig = Core.Nothing,
+      buildBatchArn = Core.Nothing,
+      resolvedSourceVersion = Core.Nothing,
+      secondaryArtifacts = Core.Nothing,
+      sourceVersion = Core.Nothing,
+      phases = Core.Nothing,
+      cache = Core.Nothing,
+      serviceRole = Core.Nothing,
+      secondarySourceVersions = Core.Nothing,
+      networkInterface = Core.Nothing,
+      encryptionKey = Core.Nothing,
+      artifacts = Core.Nothing,
+      buildNumber = Core.Nothing,
+      startTime = Core.Nothing,
+      id = Core.Nothing,
+      environment = Core.Nothing,
+      source = Core.Nothing,
+      arn = Core.Nothing,
+      projectName = Core.Nothing,
+      endTime = Core.Nothing,
+      buildStatus = Core.Nothing,
+      logs = Core.Nothing,
+      buildComplete = Core.Nothing,
+      debugSession = Core.Nothing,
+      queuedTimeoutInMinutes = Core.Nothing,
+      secondarySources = Core.Nothing,
+      timeoutInMinutes = Core.Nothing,
+      currentPhase = Core.Nothing,
+      initiator = Core.Nothing,
+      reportArns = Core.Nothing,
+      fileSystemLocations = Core.Nothing,
+      exportedEnvironmentVariables = Core.Nothing
     }
 
 -- | If your AWS CodeBuild project accesses resources in an Amazon VPC, you
@@ -369,12 +368,12 @@ newBuild =
 -- security group IDs and subnet IDs. The security groups and subnets must
 -- belong to the same VPC. You must provide at least one security group and
 -- one subnet ID.
-build_vpcConfig :: Lens.Lens' Build (Prelude.Maybe VpcConfig)
+build_vpcConfig :: Lens.Lens' Build (Core.Maybe VpcConfig)
 build_vpcConfig = Lens.lens (\Build' {vpcConfig} -> vpcConfig) (\s@Build' {} a -> s {vpcConfig = a} :: Build)
 
 -- | The ARN of the batch build that this build is a member of, if
 -- applicable.
-build_buildBatchArn :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_buildBatchArn :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_buildBatchArn = Lens.lens (\Build' {buildBatchArn} -> buildBatchArn) (\s@Build' {} a -> s {buildBatchArn = a} :: Build)
 
 -- | An identifier for the version of this build\'s source code.
@@ -386,12 +385,12 @@ build_buildBatchArn = Lens.lens (\Build' {buildBatchArn} -> buildBatchArn) (\s@B
 --     CodePipeline.
 --
 -- -   For Amazon S3, this does not apply.
-build_resolvedSourceVersion :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_resolvedSourceVersion :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_resolvedSourceVersion = Lens.lens (\Build' {resolvedSourceVersion} -> resolvedSourceVersion) (\s@Build' {} a -> s {resolvedSourceVersion = a} :: Build)
 
 -- | An array of @ProjectArtifacts@ objects.
-build_secondaryArtifacts :: Lens.Lens' Build (Prelude.Maybe [BuildArtifacts])
-build_secondaryArtifacts = Lens.lens (\Build' {secondaryArtifacts} -> secondaryArtifacts) (\s@Build' {} a -> s {secondaryArtifacts = a} :: Build) Prelude.. Lens.mapping Prelude._Coerce
+build_secondaryArtifacts :: Lens.Lens' Build (Core.Maybe [BuildArtifacts])
+build_secondaryArtifacts = Lens.lens (\Build' {secondaryArtifacts} -> secondaryArtifacts) (\s@Build' {} a -> s {secondaryArtifacts = a} :: Build) Core.. Lens.mapping Lens._Coerce
 
 -- | Any version identifier for the version of the source code to be built.
 -- If @sourceVersion@ is specified at the project level, then this
@@ -400,20 +399,20 @@ build_secondaryArtifacts = Lens.lens (\Build' {secondaryArtifacts} -> secondaryA
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
 -- in the /AWS CodeBuild User Guide/.
-build_sourceVersion :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_sourceVersion :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_sourceVersion = Lens.lens (\Build' {sourceVersion} -> sourceVersion) (\s@Build' {} a -> s {sourceVersion = a} :: Build)
 
 -- | Information about all previous build phases that are complete and
 -- information about any current build phase that is not yet complete.
-build_phases :: Lens.Lens' Build (Prelude.Maybe [BuildPhase])
-build_phases = Lens.lens (\Build' {phases} -> phases) (\s@Build' {} a -> s {phases = a} :: Build) Prelude.. Lens.mapping Prelude._Coerce
+build_phases :: Lens.Lens' Build (Core.Maybe [BuildPhase])
+build_phases = Lens.lens (\Build' {phases} -> phases) (\s@Build' {} a -> s {phases = a} :: Build) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the cache for the build.
-build_cache :: Lens.Lens' Build (Prelude.Maybe ProjectCache)
+build_cache :: Lens.Lens' Build (Core.Maybe ProjectCache)
 build_cache = Lens.lens (\Build' {cache} -> cache) (\s@Build' {} a -> s {cache = a} :: Build)
 
 -- | The name of a service role used for this build.
-build_serviceRole :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_serviceRole :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_serviceRole = Lens.lens (\Build' {serviceRole} -> serviceRole) (\s@Build' {} a -> s {serviceRole = a} :: Build)
 
 -- | An array of @ProjectSourceVersion@ objects. Each @ProjectSourceVersion@
@@ -435,11 +434,11 @@ build_serviceRole = Lens.lens (\Build' {serviceRole} -> serviceRole) (\s@Build' 
 --
 -- -   For Amazon S3: the version ID of the object that represents the
 --     build input ZIP file to use.
-build_secondarySourceVersions :: Lens.Lens' Build (Prelude.Maybe [ProjectSourceVersion])
-build_secondarySourceVersions = Lens.lens (\Build' {secondarySourceVersions} -> secondarySourceVersions) (\s@Build' {} a -> s {secondarySourceVersions = a} :: Build) Prelude.. Lens.mapping Prelude._Coerce
+build_secondarySourceVersions :: Lens.Lens' Build (Core.Maybe [ProjectSourceVersion])
+build_secondarySourceVersions = Lens.lens (\Build' {secondarySourceVersions} -> secondarySourceVersions) (\s@Build' {} a -> s {secondarySourceVersions = a} :: Build) Core.. Lens.mapping Lens._Coerce
 
 -- | Describes a network interface.
-build_networkInterface :: Lens.Lens' Build (Prelude.Maybe NetworkInterface)
+build_networkInterface :: Lens.Lens' Build (Core.Maybe NetworkInterface)
 build_networkInterface = Lens.lens (\Build' {networkInterface} -> networkInterface) (\s@Build' {} a -> s {networkInterface = a} :: Build)
 
 -- | The AWS Key Management Service (AWS KMS) customer master key (CMK) to be
@@ -450,47 +449,47 @@ build_networkInterface = Lens.lens (\Build' {networkInterface} -> networkInterfa
 --
 -- You can specify either the Amazon Resource Name (ARN) of the CMK or, if
 -- available, the CMK\'s alias (using the format @alias\/\<alias-name>@).
-build_encryptionKey :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_encryptionKey :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_encryptionKey = Lens.lens (\Build' {encryptionKey} -> encryptionKey) (\s@Build' {} a -> s {encryptionKey = a} :: Build)
 
 -- | Information about the output artifacts for the build.
-build_artifacts :: Lens.Lens' Build (Prelude.Maybe BuildArtifacts)
+build_artifacts :: Lens.Lens' Build (Core.Maybe BuildArtifacts)
 build_artifacts = Lens.lens (\Build' {artifacts} -> artifacts) (\s@Build' {} a -> s {artifacts = a} :: Build)
 
 -- | The number of the build. For each project, the @buildNumber@ of its
 -- first build is @1@. The @buildNumber@ of each subsequent build is
 -- incremented by @1@. If a build is deleted, the @buildNumber@ of other
 -- builds does not change.
-build_buildNumber :: Lens.Lens' Build (Prelude.Maybe Prelude.Integer)
+build_buildNumber :: Lens.Lens' Build (Core.Maybe Core.Integer)
 build_buildNumber = Lens.lens (\Build' {buildNumber} -> buildNumber) (\s@Build' {} a -> s {buildNumber = a} :: Build)
 
 -- | When the build process started, expressed in Unix time format.
-build_startTime :: Lens.Lens' Build (Prelude.Maybe Prelude.UTCTime)
-build_startTime = Lens.lens (\Build' {startTime} -> startTime) (\s@Build' {} a -> s {startTime = a} :: Build) Prelude.. Lens.mapping Prelude._Time
+build_startTime :: Lens.Lens' Build (Core.Maybe Core.UTCTime)
+build_startTime = Lens.lens (\Build' {startTime} -> startTime) (\s@Build' {} a -> s {startTime = a} :: Build) Core.. Lens.mapping Core._Time
 
 -- | The unique ID for the build.
-build_id :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_id :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_id = Lens.lens (\Build' {id} -> id) (\s@Build' {} a -> s {id = a} :: Build)
 
 -- | Information about the build environment for this build.
-build_environment :: Lens.Lens' Build (Prelude.Maybe ProjectEnvironment)
+build_environment :: Lens.Lens' Build (Core.Maybe ProjectEnvironment)
 build_environment = Lens.lens (\Build' {environment} -> environment) (\s@Build' {} a -> s {environment = a} :: Build)
 
 -- | Information about the source code to be built.
-build_source :: Lens.Lens' Build (Prelude.Maybe ProjectSource)
+build_source :: Lens.Lens' Build (Core.Maybe ProjectSource)
 build_source = Lens.lens (\Build' {source} -> source) (\s@Build' {} a -> s {source = a} :: Build)
 
 -- | The Amazon Resource Name (ARN) of the build.
-build_arn :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_arn :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_arn = Lens.lens (\Build' {arn} -> arn) (\s@Build' {} a -> s {arn = a} :: Build)
 
 -- | The name of the AWS CodeBuild project.
-build_projectName :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_projectName :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_projectName = Lens.lens (\Build' {projectName} -> projectName) (\s@Build' {} a -> s {projectName = a} :: Build)
 
 -- | When the build process ended, expressed in Unix time format.
-build_endTime :: Lens.Lens' Build (Prelude.Maybe Prelude.UTCTime)
-build_endTime = Lens.lens (\Build' {endTime} -> endTime) (\s@Build' {} a -> s {endTime = a} :: Build) Prelude.. Lens.mapping Prelude._Time
+build_endTime :: Lens.Lens' Build (Core.Maybe Core.UTCTime)
+build_endTime = Lens.lens (\Build' {endTime} -> endTime) (\s@Build' {} a -> s {endTime = a} :: Build) Core.. Lens.mapping Core._Time
 
 -- | The current status of the build. Valid values include:
 --
@@ -505,37 +504,37 @@ build_endTime = Lens.lens (\Build' {endTime} -> endTime) (\s@Build' {} a -> s {e
 -- -   @SUCCEEDED@: The build succeeded.
 --
 -- -   @TIMED_OUT@: The build timed out.
-build_buildStatus :: Lens.Lens' Build (Prelude.Maybe StatusType)
+build_buildStatus :: Lens.Lens' Build (Core.Maybe StatusType)
 build_buildStatus = Lens.lens (\Build' {buildStatus} -> buildStatus) (\s@Build' {} a -> s {buildStatus = a} :: Build)
 
 -- | Information about the build\'s logs in Amazon CloudWatch Logs.
-build_logs :: Lens.Lens' Build (Prelude.Maybe LogsLocation)
+build_logs :: Lens.Lens' Build (Core.Maybe LogsLocation)
 build_logs = Lens.lens (\Build' {logs} -> logs) (\s@Build' {} a -> s {logs = a} :: Build)
 
 -- | Whether the build is complete. True if complete; otherwise, false.
-build_buildComplete :: Lens.Lens' Build (Prelude.Maybe Prelude.Bool)
+build_buildComplete :: Lens.Lens' Build (Core.Maybe Core.Bool)
 build_buildComplete = Lens.lens (\Build' {buildComplete} -> buildComplete) (\s@Build' {} a -> s {buildComplete = a} :: Build)
 
 -- | Contains information about the debug session for this build.
-build_debugSession :: Lens.Lens' Build (Prelude.Maybe DebugSession)
+build_debugSession :: Lens.Lens' Build (Core.Maybe DebugSession)
 build_debugSession = Lens.lens (\Build' {debugSession} -> debugSession) (\s@Build' {} a -> s {debugSession = a} :: Build)
 
 -- | The number of minutes a build is allowed to be queued before it times
 -- out.
-build_queuedTimeoutInMinutes :: Lens.Lens' Build (Prelude.Maybe Prelude.Int)
+build_queuedTimeoutInMinutes :: Lens.Lens' Build (Core.Maybe Core.Int)
 build_queuedTimeoutInMinutes = Lens.lens (\Build' {queuedTimeoutInMinutes} -> queuedTimeoutInMinutes) (\s@Build' {} a -> s {queuedTimeoutInMinutes = a} :: Build)
 
 -- | An array of @ProjectSource@ objects.
-build_secondarySources :: Lens.Lens' Build (Prelude.Maybe [ProjectSource])
-build_secondarySources = Lens.lens (\Build' {secondarySources} -> secondarySources) (\s@Build' {} a -> s {secondarySources = a} :: Build) Prelude.. Lens.mapping Prelude._Coerce
+build_secondarySources :: Lens.Lens' Build (Core.Maybe [ProjectSource])
+build_secondarySources = Lens.lens (\Build' {secondarySources} -> secondarySources) (\s@Build' {} a -> s {secondarySources = a} :: Build) Core.. Lens.mapping Lens._Coerce
 
 -- | How long, in minutes, for AWS CodeBuild to wait before timing out this
 -- build if it does not get marked as completed.
-build_timeoutInMinutes :: Lens.Lens' Build (Prelude.Maybe Prelude.Int)
+build_timeoutInMinutes :: Lens.Lens' Build (Core.Maybe Core.Int)
 build_timeoutInMinutes = Lens.lens (\Build' {timeoutInMinutes} -> timeoutInMinutes) (\s@Build' {} a -> s {timeoutInMinutes = a} :: Build)
 
 -- | The current build phase.
-build_currentPhase :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_currentPhase :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_currentPhase = Lens.lens (\Build' {currentPhase} -> currentPhase) (\s@Build' {} a -> s {currentPhase = a} :: Build)
 
 -- | The entity that started the build. Valid values include:
@@ -548,76 +547,72 @@ build_currentPhase = Lens.lens (\Build' {currentPhase} -> currentPhase) (\s@Buil
 --
 -- -   If the Jenkins plugin for AWS CodeBuild started the build, the
 --     string @CodeBuild-Jenkins-Plugin@.
-build_initiator :: Lens.Lens' Build (Prelude.Maybe Prelude.Text)
+build_initiator :: Lens.Lens' Build (Core.Maybe Core.Text)
 build_initiator = Lens.lens (\Build' {initiator} -> initiator) (\s@Build' {} a -> s {initiator = a} :: Build)
 
 -- | An array of the ARNs associated with this build\'s reports.
-build_reportArns :: Lens.Lens' Build (Prelude.Maybe [Prelude.Text])
-build_reportArns = Lens.lens (\Build' {reportArns} -> reportArns) (\s@Build' {} a -> s {reportArns = a} :: Build) Prelude.. Lens.mapping Prelude._Coerce
+build_reportArns :: Lens.Lens' Build (Core.Maybe [Core.Text])
+build_reportArns = Lens.lens (\Build' {reportArns} -> reportArns) (\s@Build' {} a -> s {reportArns = a} :: Build) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of @ProjectFileSystemLocation@ objects for a CodeBuild build
 -- project. A @ProjectFileSystemLocation@ object specifies the
 -- @identifier@, @location@, @mountOptions@, @mountPoint@, and @type@ of a
 -- file system created using Amazon Elastic File System.
-build_fileSystemLocations :: Lens.Lens' Build (Prelude.Maybe [ProjectFileSystemLocation])
-build_fileSystemLocations = Lens.lens (\Build' {fileSystemLocations} -> fileSystemLocations) (\s@Build' {} a -> s {fileSystemLocations = a} :: Build) Prelude.. Lens.mapping Prelude._Coerce
+build_fileSystemLocations :: Lens.Lens' Build (Core.Maybe [ProjectFileSystemLocation])
+build_fileSystemLocations = Lens.lens (\Build' {fileSystemLocations} -> fileSystemLocations) (\s@Build' {} a -> s {fileSystemLocations = a} :: Build) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of exported environment variables for this build.
-build_exportedEnvironmentVariables :: Lens.Lens' Build (Prelude.Maybe [ExportedEnvironmentVariable])
-build_exportedEnvironmentVariables = Lens.lens (\Build' {exportedEnvironmentVariables} -> exportedEnvironmentVariables) (\s@Build' {} a -> s {exportedEnvironmentVariables = a} :: Build) Prelude.. Lens.mapping Prelude._Coerce
+build_exportedEnvironmentVariables :: Lens.Lens' Build (Core.Maybe [ExportedEnvironmentVariable])
+build_exportedEnvironmentVariables = Lens.lens (\Build' {exportedEnvironmentVariables} -> exportedEnvironmentVariables) (\s@Build' {} a -> s {exportedEnvironmentVariables = a} :: Build) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Build where
+instance Core.FromJSON Build where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Build"
       ( \x ->
           Build'
-            Prelude.<$> (x Prelude..:? "vpcConfig")
-            Prelude.<*> (x Prelude..:? "buildBatchArn")
-            Prelude.<*> (x Prelude..:? "resolvedSourceVersion")
-            Prelude.<*> ( x Prelude..:? "secondaryArtifacts"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "sourceVersion")
-            Prelude.<*> (x Prelude..:? "phases" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "cache")
-            Prelude.<*> (x Prelude..:? "serviceRole")
-            Prelude.<*> ( x Prelude..:? "secondarySourceVersions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "networkInterface")
-            Prelude.<*> (x Prelude..:? "encryptionKey")
-            Prelude.<*> (x Prelude..:? "artifacts")
-            Prelude.<*> (x Prelude..:? "buildNumber")
-            Prelude.<*> (x Prelude..:? "startTime")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "environment")
-            Prelude.<*> (x Prelude..:? "source")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "projectName")
-            Prelude.<*> (x Prelude..:? "endTime")
-            Prelude.<*> (x Prelude..:? "buildStatus")
-            Prelude.<*> (x Prelude..:? "logs")
-            Prelude.<*> (x Prelude..:? "buildComplete")
-            Prelude.<*> (x Prelude..:? "debugSession")
-            Prelude.<*> (x Prelude..:? "queuedTimeoutInMinutes")
-            Prelude.<*> ( x Prelude..:? "secondarySources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "timeoutInMinutes")
-            Prelude.<*> (x Prelude..:? "currentPhase")
-            Prelude.<*> (x Prelude..:? "initiator")
-            Prelude.<*> ( x Prelude..:? "reportArns"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "fileSystemLocations"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "exportedEnvironmentVariables"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "vpcConfig")
+            Core.<*> (x Core..:? "buildBatchArn")
+            Core.<*> (x Core..:? "resolvedSourceVersion")
+            Core.<*> ( x Core..:? "secondaryArtifacts"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "sourceVersion")
+            Core.<*> (x Core..:? "phases" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "cache")
+            Core.<*> (x Core..:? "serviceRole")
+            Core.<*> ( x Core..:? "secondarySourceVersions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "networkInterface")
+            Core.<*> (x Core..:? "encryptionKey")
+            Core.<*> (x Core..:? "artifacts")
+            Core.<*> (x Core..:? "buildNumber")
+            Core.<*> (x Core..:? "startTime")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "environment")
+            Core.<*> (x Core..:? "source")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "projectName")
+            Core.<*> (x Core..:? "endTime")
+            Core.<*> (x Core..:? "buildStatus")
+            Core.<*> (x Core..:? "logs")
+            Core.<*> (x Core..:? "buildComplete")
+            Core.<*> (x Core..:? "debugSession")
+            Core.<*> (x Core..:? "queuedTimeoutInMinutes")
+            Core.<*> (x Core..:? "secondarySources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "timeoutInMinutes")
+            Core.<*> (x Core..:? "currentPhase")
+            Core.<*> (x Core..:? "initiator")
+            Core.<*> (x Core..:? "reportArns" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "fileSystemLocations"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> ( x Core..:? "exportedEnvironmentVariables"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable Build
+instance Core.Hashable Build
 
-instance Prelude.NFData Build
+instance Core.NFData Build

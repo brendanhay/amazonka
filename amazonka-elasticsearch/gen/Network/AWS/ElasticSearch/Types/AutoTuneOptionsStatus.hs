@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AutoTuneOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.AutoTuneOptions
 import Network.AWS.ElasticSearch.Types.AutoTuneStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the status of Auto-Tune options for the specified
 -- Elasticsearch domain.
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 data AutoTuneOptionsStatus = AutoTuneOptionsStatus'
   { -- | Specifies Status of the Auto-Tune options for the specified
     -- Elasticsearch domain.
-    status :: Prelude.Maybe AutoTuneStatus,
+    status :: Core.Maybe AutoTuneStatus,
     -- | Specifies Auto-Tune options for the specified Elasticsearch domain.
-    options :: Prelude.Maybe AutoTuneOptions
+    options :: Core.Maybe AutoTuneOptions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoTuneOptionsStatus' with all optional fields omitted.
@@ -54,29 +53,29 @@ newAutoTuneOptionsStatus ::
   AutoTuneOptionsStatus
 newAutoTuneOptionsStatus =
   AutoTuneOptionsStatus'
-    { status = Prelude.Nothing,
-      options = Prelude.Nothing
+    { status = Core.Nothing,
+      options = Core.Nothing
     }
 
 -- | Specifies Status of the Auto-Tune options for the specified
 -- Elasticsearch domain.
-autoTuneOptionsStatus_status :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneStatus)
+autoTuneOptionsStatus_status :: Lens.Lens' AutoTuneOptionsStatus (Core.Maybe AutoTuneStatus)
 autoTuneOptionsStatus_status = Lens.lens (\AutoTuneOptionsStatus' {status} -> status) (\s@AutoTuneOptionsStatus' {} a -> s {status = a} :: AutoTuneOptionsStatus)
 
 -- | Specifies Auto-Tune options for the specified Elasticsearch domain.
-autoTuneOptionsStatus_options :: Lens.Lens' AutoTuneOptionsStatus (Prelude.Maybe AutoTuneOptions)
+autoTuneOptionsStatus_options :: Lens.Lens' AutoTuneOptionsStatus (Core.Maybe AutoTuneOptions)
 autoTuneOptionsStatus_options = Lens.lens (\AutoTuneOptionsStatus' {options} -> options) (\s@AutoTuneOptionsStatus' {} a -> s {options = a} :: AutoTuneOptionsStatus)
 
-instance Prelude.FromJSON AutoTuneOptionsStatus where
+instance Core.FromJSON AutoTuneOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoTuneOptionsStatus"
       ( \x ->
           AutoTuneOptionsStatus'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Options")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "Options")
       )
 
-instance Prelude.Hashable AutoTuneOptionsStatus
+instance Core.Hashable AutoTuneOptionsStatus
 
-instance Prelude.NFData AutoTuneOptionsStatus
+instance Core.NFData AutoTuneOptionsStatus

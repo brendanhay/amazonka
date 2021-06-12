@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.EC2.ModifyDefaultCreditSpecification
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,15 +70,15 @@ data ModifyDefaultCreditSpecification = ModifyDefaultCreditSpecification'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The instance family.
     instanceFamily :: UnlimitedSupportedInstanceFamily,
     -- | The credit option for CPU usage of the instance family.
     --
     -- Valid Values: @standard@ | @unlimited@
-    cpuCredits :: Prelude.Text
+    cpuCredits :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyDefaultCreditSpecification' with all optional fields omitted.
@@ -103,14 +102,14 @@ newModifyDefaultCreditSpecification ::
   -- | 'instanceFamily'
   UnlimitedSupportedInstanceFamily ->
   -- | 'cpuCredits'
-  Prelude.Text ->
+  Core.Text ->
   ModifyDefaultCreditSpecification
 newModifyDefaultCreditSpecification
   pInstanceFamily_
   pCpuCredits_ =
     ModifyDefaultCreditSpecification'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         instanceFamily = pInstanceFamily_,
         cpuCredits = pCpuCredits_
       }
@@ -119,7 +118,7 @@ newModifyDefaultCreditSpecification
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyDefaultCreditSpecification_dryRun :: Lens.Lens' ModifyDefaultCreditSpecification (Prelude.Maybe Prelude.Bool)
+modifyDefaultCreditSpecification_dryRun :: Lens.Lens' ModifyDefaultCreditSpecification (Core.Maybe Core.Bool)
 modifyDefaultCreditSpecification_dryRun = Lens.lens (\ModifyDefaultCreditSpecification' {dryRun} -> dryRun) (\s@ModifyDefaultCreditSpecification' {} a -> s {dryRun = a} :: ModifyDefaultCreditSpecification)
 
 -- | The instance family.
@@ -129,70 +128,64 @@ modifyDefaultCreditSpecification_instanceFamily = Lens.lens (\ModifyDefaultCredi
 -- | The credit option for CPU usage of the instance family.
 --
 -- Valid Values: @standard@ | @unlimited@
-modifyDefaultCreditSpecification_cpuCredits :: Lens.Lens' ModifyDefaultCreditSpecification Prelude.Text
+modifyDefaultCreditSpecification_cpuCredits :: Lens.Lens' ModifyDefaultCreditSpecification Core.Text
 modifyDefaultCreditSpecification_cpuCredits = Lens.lens (\ModifyDefaultCreditSpecification' {cpuCredits} -> cpuCredits) (\s@ModifyDefaultCreditSpecification' {} a -> s {cpuCredits = a} :: ModifyDefaultCreditSpecification)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyDefaultCreditSpecification
   where
   type
-    Rs ModifyDefaultCreditSpecification =
+    AWSResponse ModifyDefaultCreditSpecification =
       ModifyDefaultCreditSpecificationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyDefaultCreditSpecificationResponse'
-            Prelude.<$> (x Prelude..@? "instanceFamilyCreditSpecification")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "instanceFamilyCreditSpecification")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyDefaultCreditSpecification
 
-instance
-  Prelude.NFData
-    ModifyDefaultCreditSpecification
+instance Core.NFData ModifyDefaultCreditSpecification
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ModifyDefaultCreditSpecification
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
+
+instance Core.ToPath ModifyDefaultCreditSpecification where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
-    ModifyDefaultCreditSpecification
-  where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
+  Core.ToQuery
     ModifyDefaultCreditSpecification
   where
   toQuery ModifyDefaultCreditSpecification' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyDefaultCreditSpecification" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "InstanceFamily" Prelude.=: instanceFamily,
-        "CpuCredits" Prelude.=: cpuCredits
+          Core.=: ( "ModifyDefaultCreditSpecification" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InstanceFamily" Core.=: instanceFamily,
+        "CpuCredits" Core.=: cpuCredits
       ]
 
 -- | /See:/ 'newModifyDefaultCreditSpecificationResponse' smart constructor.
 data ModifyDefaultCreditSpecificationResponse = ModifyDefaultCreditSpecificationResponse'
   { -- | The default credit option for CPU usage of the instance family.
-    instanceFamilyCreditSpecification :: Prelude.Maybe InstanceFamilyCreditSpecification,
+    instanceFamilyCreditSpecification :: Core.Maybe InstanceFamilyCreditSpecification,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyDefaultCreditSpecificationResponse' with all optional fields omitted.
@@ -207,24 +200,24 @@ data ModifyDefaultCreditSpecificationResponse = ModifyDefaultCreditSpecification
 -- 'httpStatus', 'modifyDefaultCreditSpecificationResponse_httpStatus' - The response's http status code.
 newModifyDefaultCreditSpecificationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyDefaultCreditSpecificationResponse
 newModifyDefaultCreditSpecificationResponse
   pHttpStatus_ =
     ModifyDefaultCreditSpecificationResponse'
       { instanceFamilyCreditSpecification =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The default credit option for CPU usage of the instance family.
-modifyDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification :: Lens.Lens' ModifyDefaultCreditSpecificationResponse (Prelude.Maybe InstanceFamilyCreditSpecification)
+modifyDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification :: Lens.Lens' ModifyDefaultCreditSpecificationResponse (Core.Maybe InstanceFamilyCreditSpecification)
 modifyDefaultCreditSpecificationResponse_instanceFamilyCreditSpecification = Lens.lens (\ModifyDefaultCreditSpecificationResponse' {instanceFamilyCreditSpecification} -> instanceFamilyCreditSpecification) (\s@ModifyDefaultCreditSpecificationResponse' {} a -> s {instanceFamilyCreditSpecification = a} :: ModifyDefaultCreditSpecificationResponse)
 
 -- | The response's http status code.
-modifyDefaultCreditSpecificationResponse_httpStatus :: Lens.Lens' ModifyDefaultCreditSpecificationResponse Prelude.Int
+modifyDefaultCreditSpecificationResponse_httpStatus :: Lens.Lens' ModifyDefaultCreditSpecificationResponse Core.Int
 modifyDefaultCreditSpecificationResponse_httpStatus = Lens.lens (\ModifyDefaultCreditSpecificationResponse' {httpStatus} -> httpStatus) (\s@ModifyDefaultCreditSpecificationResponse' {} a -> s {httpStatus = a} :: ModifyDefaultCreditSpecificationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyDefaultCreditSpecificationResponse

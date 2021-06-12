@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,24 +43,24 @@ module Network.AWS.CertificateManager.PutAccountConfiguration
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutAccountConfiguration' smart constructor.
 data PutAccountConfiguration = PutAccountConfiguration'
   { -- | Specifies expiration events associated with an account.
-    expiryEvents :: Prelude.Maybe ExpiryEventsConfiguration,
+    expiryEvents :: Core.Maybe ExpiryEventsConfiguration,
     -- | Customer-chosen string used to distinguish between calls to
     -- @PutAccountConfiguration@. Idempotency tokens time out after one hour.
     -- If you call @PutAccountConfiguration@ multiple times with the same
     -- unexpired idempotency token, ACM treats it as the same request and
     -- returns the original result. If you change the idempotency token for
     -- each call, ACM treats each call as a new request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAccountConfiguration' with all optional fields omitted.
@@ -81,17 +80,17 @@ data PutAccountConfiguration = PutAccountConfiguration'
 -- each call, ACM treats each call as a new request.
 newPutAccountConfiguration ::
   -- | 'idempotencyToken'
-  Prelude.Text ->
+  Core.Text ->
   PutAccountConfiguration
 newPutAccountConfiguration pIdempotencyToken_ =
   PutAccountConfiguration'
     { expiryEvents =
-        Prelude.Nothing,
+        Core.Nothing,
       idempotencyToken = pIdempotencyToken_
     }
 
 -- | Specifies expiration events associated with an account.
-putAccountConfiguration_expiryEvents :: Lens.Lens' PutAccountConfiguration (Prelude.Maybe ExpiryEventsConfiguration)
+putAccountConfiguration_expiryEvents :: Lens.Lens' PutAccountConfiguration (Core.Maybe ExpiryEventsConfiguration)
 putAccountConfiguration_expiryEvents = Lens.lens (\PutAccountConfiguration' {expiryEvents} -> expiryEvents) (\s@PutAccountConfiguration' {} a -> s {expiryEvents = a} :: PutAccountConfiguration)
 
 -- | Customer-chosen string used to distinguish between calls to
@@ -100,59 +99,56 @@ putAccountConfiguration_expiryEvents = Lens.lens (\PutAccountConfiguration' {exp
 -- unexpired idempotency token, ACM treats it as the same request and
 -- returns the original result. If you change the idempotency token for
 -- each call, ACM treats each call as a new request.
-putAccountConfiguration_idempotencyToken :: Lens.Lens' PutAccountConfiguration Prelude.Text
+putAccountConfiguration_idempotencyToken :: Lens.Lens' PutAccountConfiguration Core.Text
 putAccountConfiguration_idempotencyToken = Lens.lens (\PutAccountConfiguration' {idempotencyToken} -> idempotencyToken) (\s@PutAccountConfiguration' {} a -> s {idempotencyToken = a} :: PutAccountConfiguration)
 
-instance Prelude.AWSRequest PutAccountConfiguration where
+instance Core.AWSRequest PutAccountConfiguration where
   type
-    Rs PutAccountConfiguration =
+    AWSResponse PutAccountConfiguration =
       PutAccountConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       PutAccountConfigurationResponse'
 
-instance Prelude.Hashable PutAccountConfiguration
+instance Core.Hashable PutAccountConfiguration
 
-instance Prelude.NFData PutAccountConfiguration
+instance Core.NFData PutAccountConfiguration
 
-instance Prelude.ToHeaders PutAccountConfiguration where
+instance Core.ToHeaders PutAccountConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.PutAccountConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.PutAccountConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutAccountConfiguration where
+instance Core.ToJSON PutAccountConfiguration where
   toJSON PutAccountConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExpiryEvents" Prelude..=)
-              Prelude.<$> expiryEvents,
-            Prelude.Just
-              ("IdempotencyToken" Prelude..= idempotencyToken)
+    Core.object
+      ( Core.catMaybes
+          [ ("ExpiryEvents" Core..=) Core.<$> expiryEvents,
+            Core.Just
+              ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
-instance Prelude.ToPath PutAccountConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutAccountConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutAccountConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutAccountConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutAccountConfigurationResponse' smart constructor.
 data PutAccountConfigurationResponse = PutAccountConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAccountConfigurationResponse' with all optional fields omitted.
@@ -163,6 +159,4 @@ newPutAccountConfigurationResponse ::
 newPutAccountConfigurationResponse =
   PutAccountConfigurationResponse'
 
-instance
-  Prelude.NFData
-    PutAccountConfigurationResponse
+instance Core.NFData PutAccountConfigurationResponse

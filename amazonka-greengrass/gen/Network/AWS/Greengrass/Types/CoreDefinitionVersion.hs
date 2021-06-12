@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.CoreDefinitionVersion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a core definition version.
 --
 -- /See:/ 'newCoreDefinitionVersion' smart constructor.
 data CoreDefinitionVersion = CoreDefinitionVersion'
   { -- | A list of cores in the core definition version.
-    cores :: Prelude.Maybe [Core]
+    cores :: Core.Maybe [Core]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CoreDefinitionVersion' with all optional fields omitted.
@@ -45,28 +44,26 @@ data CoreDefinitionVersion = CoreDefinitionVersion'
 newCoreDefinitionVersion ::
   CoreDefinitionVersion
 newCoreDefinitionVersion =
-  CoreDefinitionVersion' {cores = Prelude.Nothing}
+  CoreDefinitionVersion' {cores = Core.Nothing}
 
 -- | A list of cores in the core definition version.
-coreDefinitionVersion_cores :: Lens.Lens' CoreDefinitionVersion (Prelude.Maybe [Core])
-coreDefinitionVersion_cores = Lens.lens (\CoreDefinitionVersion' {cores} -> cores) (\s@CoreDefinitionVersion' {} a -> s {cores = a} :: CoreDefinitionVersion) Prelude.. Lens.mapping Prelude._Coerce
+coreDefinitionVersion_cores :: Lens.Lens' CoreDefinitionVersion (Core.Maybe [Core])
+coreDefinitionVersion_cores = Lens.lens (\CoreDefinitionVersion' {cores} -> cores) (\s@CoreDefinitionVersion' {} a -> s {cores = a} :: CoreDefinitionVersion) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON CoreDefinitionVersion where
+instance Core.FromJSON CoreDefinitionVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CoreDefinitionVersion"
       ( \x ->
           CoreDefinitionVersion'
-            Prelude.<$> (x Prelude..:? "Cores" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Cores" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable CoreDefinitionVersion
+instance Core.Hashable CoreDefinitionVersion
 
-instance Prelude.NFData CoreDefinitionVersion
+instance Core.NFData CoreDefinitionVersion
 
-instance Prelude.ToJSON CoreDefinitionVersion where
+instance Core.ToJSON CoreDefinitionVersion where
   toJSON CoreDefinitionVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Cores" Prelude..=) Prelude.<$> cores]
-      )
+    Core.object
+      (Core.catMaybes [("Cores" Core..=) Core.<$> cores])

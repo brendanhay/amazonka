@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.CostExplorer.DeleteAnomalyMonitor
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data DeleteAnomalyMonitor = DeleteAnomalyMonitor'
   { -- | The unique identifier of the cost anomaly monitor that you want to
     -- delete.
-    monitorArn :: Prelude.Text
+    monitorArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAnomalyMonitor' with all optional fields omitted.
@@ -65,66 +64,64 @@ data DeleteAnomalyMonitor = DeleteAnomalyMonitor'
 -- delete.
 newDeleteAnomalyMonitor ::
   -- | 'monitorArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAnomalyMonitor
 newDeleteAnomalyMonitor pMonitorArn_ =
   DeleteAnomalyMonitor' {monitorArn = pMonitorArn_}
 
 -- | The unique identifier of the cost anomaly monitor that you want to
 -- delete.
-deleteAnomalyMonitor_monitorArn :: Lens.Lens' DeleteAnomalyMonitor Prelude.Text
+deleteAnomalyMonitor_monitorArn :: Lens.Lens' DeleteAnomalyMonitor Core.Text
 deleteAnomalyMonitor_monitorArn = Lens.lens (\DeleteAnomalyMonitor' {monitorArn} -> monitorArn) (\s@DeleteAnomalyMonitor' {} a -> s {monitorArn = a} :: DeleteAnomalyMonitor)
 
-instance Prelude.AWSRequest DeleteAnomalyMonitor where
+instance Core.AWSRequest DeleteAnomalyMonitor where
   type
-    Rs DeleteAnomalyMonitor =
+    AWSResponse DeleteAnomalyMonitor =
       DeleteAnomalyMonitorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAnomalyMonitorResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAnomalyMonitor
+instance Core.Hashable DeleteAnomalyMonitor
 
-instance Prelude.NFData DeleteAnomalyMonitor
+instance Core.NFData DeleteAnomalyMonitor
 
-instance Prelude.ToHeaders DeleteAnomalyMonitor where
+instance Core.ToHeaders DeleteAnomalyMonitor where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.DeleteAnomalyMonitor" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.DeleteAnomalyMonitor" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAnomalyMonitor where
+instance Core.ToJSON DeleteAnomalyMonitor where
   toJSON DeleteAnomalyMonitor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("MonitorArn" Prelude..= monitorArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("MonitorArn" Core..= monitorArn)]
       )
 
-instance Prelude.ToPath DeleteAnomalyMonitor where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAnomalyMonitor where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAnomalyMonitor where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAnomalyMonitor where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAnomalyMonitorResponse' smart constructor.
 data DeleteAnomalyMonitorResponse = DeleteAnomalyMonitorResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAnomalyMonitorResponse' with all optional fields omitted.
@@ -137,7 +134,7 @@ data DeleteAnomalyMonitorResponse = DeleteAnomalyMonitorResponse'
 -- 'httpStatus', 'deleteAnomalyMonitorResponse_httpStatus' - The response's http status code.
 newDeleteAnomalyMonitorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteAnomalyMonitorResponse
 newDeleteAnomalyMonitorResponse pHttpStatus_ =
   DeleteAnomalyMonitorResponse'
@@ -146,7 +143,7 @@ newDeleteAnomalyMonitorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteAnomalyMonitorResponse_httpStatus :: Lens.Lens' DeleteAnomalyMonitorResponse Prelude.Int
+deleteAnomalyMonitorResponse_httpStatus :: Lens.Lens' DeleteAnomalyMonitorResponse Core.Int
 deleteAnomalyMonitorResponse_httpStatus = Lens.lens (\DeleteAnomalyMonitorResponse' {httpStatus} -> httpStatus) (\s@DeleteAnomalyMonitorResponse' {} a -> s {httpStatus = a} :: DeleteAnomalyMonitorResponse)
 
-instance Prelude.NFData DeleteAnomalyMonitorResponse
+instance Core.NFData DeleteAnomalyMonitorResponse

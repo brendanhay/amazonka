@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.StorageGateway.DetachVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -62,11 +61,11 @@ data DetachVolume = DetachVolume'
     -- the target volume.
     --
     -- Valid Values: @true@ | @false@
-    forceDetach :: Prelude.Maybe Prelude.Bool,
+    forceDetach :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.
-    volumeARN :: Prelude.Text
+    volumeARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachVolume' with all optional fields omitted.
@@ -86,11 +85,11 @@ data DetachVolume = DetachVolume'
 -- 'volumeARN', 'detachVolume_volumeARN' - The Amazon Resource Name (ARN) of the volume to detach from the gateway.
 newDetachVolume ::
   -- | 'volumeARN'
-  Prelude.Text ->
+  Core.Text ->
   DetachVolume
 newDetachVolume pVolumeARN_ =
   DetachVolume'
-    { forceDetach = Prelude.Nothing,
+    { forceDetach = Core.Nothing,
       volumeARN = pVolumeARN_
     }
 
@@ -100,68 +99,66 @@ newDetachVolume pVolumeARN_ =
 -- the target volume.
 --
 -- Valid Values: @true@ | @false@
-detachVolume_forceDetach :: Lens.Lens' DetachVolume (Prelude.Maybe Prelude.Bool)
+detachVolume_forceDetach :: Lens.Lens' DetachVolume (Core.Maybe Core.Bool)
 detachVolume_forceDetach = Lens.lens (\DetachVolume' {forceDetach} -> forceDetach) (\s@DetachVolume' {} a -> s {forceDetach = a} :: DetachVolume)
 
 -- | The Amazon Resource Name (ARN) of the volume to detach from the gateway.
-detachVolume_volumeARN :: Lens.Lens' DetachVolume Prelude.Text
+detachVolume_volumeARN :: Lens.Lens' DetachVolume Core.Text
 detachVolume_volumeARN = Lens.lens (\DetachVolume' {volumeARN} -> volumeARN) (\s@DetachVolume' {} a -> s {volumeARN = a} :: DetachVolume)
 
-instance Prelude.AWSRequest DetachVolume where
-  type Rs DetachVolume = DetachVolumeResponse
+instance Core.AWSRequest DetachVolume where
+  type AWSResponse DetachVolume = DetachVolumeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DetachVolumeResponse'
-            Prelude.<$> (x Prelude..?> "VolumeARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VolumeARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetachVolume
+instance Core.Hashable DetachVolume
 
-instance Prelude.NFData DetachVolume
+instance Core.NFData DetachVolume
 
-instance Prelude.ToHeaders DetachVolume where
+instance Core.ToHeaders DetachVolume where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.DetachVolume" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.DetachVolume" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DetachVolume where
+instance Core.ToJSON DetachVolume where
   toJSON DetachVolume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ForceDetach" Prelude..=) Prelude.<$> forceDetach,
-            Prelude.Just ("VolumeARN" Prelude..= volumeARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("ForceDetach" Core..=) Core.<$> forceDetach,
+            Core.Just ("VolumeARN" Core..= volumeARN)
           ]
       )
 
-instance Prelude.ToPath DetachVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetachVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetachVolume where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetachVolume where
+  toQuery = Core.const Core.mempty
 
 -- | AttachVolumeOutput
 --
 -- /See:/ 'newDetachVolumeResponse' smart constructor.
 data DetachVolumeResponse = DetachVolumeResponse'
   { -- | The Amazon Resource Name (ARN) of the volume that was detached.
-    volumeARN :: Prelude.Maybe Prelude.Text,
+    volumeARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachVolumeResponse' with all optional fields omitted.
@@ -176,20 +173,20 @@ data DetachVolumeResponse = DetachVolumeResponse'
 -- 'httpStatus', 'detachVolumeResponse_httpStatus' - The response's http status code.
 newDetachVolumeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetachVolumeResponse
 newDetachVolumeResponse pHttpStatus_ =
   DetachVolumeResponse'
-    { volumeARN = Prelude.Nothing,
+    { volumeARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume that was detached.
-detachVolumeResponse_volumeARN :: Lens.Lens' DetachVolumeResponse (Prelude.Maybe Prelude.Text)
+detachVolumeResponse_volumeARN :: Lens.Lens' DetachVolumeResponse (Core.Maybe Core.Text)
 detachVolumeResponse_volumeARN = Lens.lens (\DetachVolumeResponse' {volumeARN} -> volumeARN) (\s@DetachVolumeResponse' {} a -> s {volumeARN = a} :: DetachVolumeResponse)
 
 -- | The response's http status code.
-detachVolumeResponse_httpStatus :: Lens.Lens' DetachVolumeResponse Prelude.Int
+detachVolumeResponse_httpStatus :: Lens.Lens' DetachVolumeResponse Core.Int
 detachVolumeResponse_httpStatus = Lens.lens (\DetachVolumeResponse' {httpStatus} -> httpStatus) (\s@DetachVolumeResponse' {} a -> s {httpStatus = a} :: DetachVolumeResponse)
 
-instance Prelude.NFData DetachVolumeResponse
+instance Core.NFData DetachVolumeResponse

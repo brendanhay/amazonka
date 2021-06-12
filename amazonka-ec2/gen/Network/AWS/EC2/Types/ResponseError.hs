@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ResponseError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LaunchTemplateErrorCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the error that\'s returned when you cannot delete a launch
 -- template version.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResponseError' smart constructor.
 data ResponseError = ResponseError'
   { -- | The error message, if applicable.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The error code.
-    code :: Prelude.Maybe LaunchTemplateErrorCode
+    code :: Core.Maybe LaunchTemplateErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResponseError' with all optional fields omitted.
@@ -52,24 +51,23 @@ newResponseError ::
   ResponseError
 newResponseError =
   ResponseError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The error message, if applicable.
-responseError_message :: Lens.Lens' ResponseError (Prelude.Maybe Prelude.Text)
+responseError_message :: Lens.Lens' ResponseError (Core.Maybe Core.Text)
 responseError_message = Lens.lens (\ResponseError' {message} -> message) (\s@ResponseError' {} a -> s {message = a} :: ResponseError)
 
 -- | The error code.
-responseError_code :: Lens.Lens' ResponseError (Prelude.Maybe LaunchTemplateErrorCode)
+responseError_code :: Lens.Lens' ResponseError (Core.Maybe LaunchTemplateErrorCode)
 responseError_code = Lens.lens (\ResponseError' {code} -> code) (\s@ResponseError' {} a -> s {code = a} :: ResponseError)
 
-instance Prelude.FromXML ResponseError where
+instance Core.FromXML ResponseError where
   parseXML x =
     ResponseError'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
-instance Prelude.Hashable ResponseError
+instance Core.Hashable ResponseError
 
-instance Prelude.NFData ResponseError
+instance Core.NFData ResponseError

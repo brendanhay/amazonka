@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AppStream.StopImageBuilder
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopImageBuilder' smart constructor.
 data StopImageBuilder = StopImageBuilder'
   { -- | The name of the image builder.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopImageBuilder' with all optional fields omitted.
@@ -64,66 +63,64 @@ data StopImageBuilder = StopImageBuilder'
 -- 'name', 'stopImageBuilder_name' - The name of the image builder.
 newStopImageBuilder ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   StopImageBuilder
 newStopImageBuilder pName_ =
   StopImageBuilder' {name = pName_}
 
 -- | The name of the image builder.
-stopImageBuilder_name :: Lens.Lens' StopImageBuilder Prelude.Text
+stopImageBuilder_name :: Lens.Lens' StopImageBuilder Core.Text
 stopImageBuilder_name = Lens.lens (\StopImageBuilder' {name} -> name) (\s@StopImageBuilder' {} a -> s {name = a} :: StopImageBuilder)
 
-instance Prelude.AWSRequest StopImageBuilder where
-  type Rs StopImageBuilder = StopImageBuilderResponse
+instance Core.AWSRequest StopImageBuilder where
+  type
+    AWSResponse StopImageBuilder =
+      StopImageBuilderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopImageBuilderResponse'
-            Prelude.<$> (x Prelude..?> "ImageBuilder")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ImageBuilder")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopImageBuilder
+instance Core.Hashable StopImageBuilder
 
-instance Prelude.NFData StopImageBuilder
+instance Core.NFData StopImageBuilder
 
-instance Prelude.ToHeaders StopImageBuilder where
+instance Core.ToHeaders StopImageBuilder where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.StopImageBuilder" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.StopImageBuilder" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopImageBuilder where
+instance Core.ToJSON StopImageBuilder where
   toJSON StopImageBuilder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath StopImageBuilder where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopImageBuilder where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopImageBuilder where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopImageBuilder where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopImageBuilderResponse' smart constructor.
 data StopImageBuilderResponse = StopImageBuilderResponse'
   { -- | Information about the image builder.
-    imageBuilder :: Prelude.Maybe ImageBuilder,
+    imageBuilder :: Core.Maybe ImageBuilder,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopImageBuilderResponse' with all optional fields omitted.
@@ -138,21 +135,21 @@ data StopImageBuilderResponse = StopImageBuilderResponse'
 -- 'httpStatus', 'stopImageBuilderResponse_httpStatus' - The response's http status code.
 newStopImageBuilderResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopImageBuilderResponse
 newStopImageBuilderResponse pHttpStatus_ =
   StopImageBuilderResponse'
     { imageBuilder =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the image builder.
-stopImageBuilderResponse_imageBuilder :: Lens.Lens' StopImageBuilderResponse (Prelude.Maybe ImageBuilder)
+stopImageBuilderResponse_imageBuilder :: Lens.Lens' StopImageBuilderResponse (Core.Maybe ImageBuilder)
 stopImageBuilderResponse_imageBuilder = Lens.lens (\StopImageBuilderResponse' {imageBuilder} -> imageBuilder) (\s@StopImageBuilderResponse' {} a -> s {imageBuilder = a} :: StopImageBuilderResponse)
 
 -- | The response's http status code.
-stopImageBuilderResponse_httpStatus :: Lens.Lens' StopImageBuilderResponse Prelude.Int
+stopImageBuilderResponse_httpStatus :: Lens.Lens' StopImageBuilderResponse Core.Int
 stopImageBuilderResponse_httpStatus = Lens.lens (\StopImageBuilderResponse' {httpStatus} -> httpStatus) (\s@StopImageBuilderResponse' {} a -> s {httpStatus = a} :: StopImageBuilderResponse)
 
-instance Prelude.NFData StopImageBuilderResponse
+instance Core.NFData StopImageBuilderResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,9 +67,9 @@ module Network.AWS.EFS.PutLifecycleConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,14 +77,14 @@ import qualified Network.AWS.Response as Response
 data PutLifecycleConfiguration = PutLifecycleConfiguration'
   { -- | The ID of the file system for which you are creating the
     -- @LifecycleConfiguration@ object (String).
-    fileSystemId :: Prelude.Text,
+    fileSystemId :: Core.Text,
     -- | An array of @LifecyclePolicy@ objects that define the file system\'s
     -- @LifecycleConfiguration@ object. A @LifecycleConfiguration@ object tells
     -- lifecycle management when to transition files from the Standard storage
     -- class to the Infrequent Access storage class.
     lifecyclePolicies :: [LifecyclePolicy]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLifecycleConfiguration' with all optional fields omitted.
@@ -104,18 +103,18 @@ data PutLifecycleConfiguration = PutLifecycleConfiguration'
 -- class to the Infrequent Access storage class.
 newPutLifecycleConfiguration ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   PutLifecycleConfiguration
 newPutLifecycleConfiguration pFileSystemId_ =
   PutLifecycleConfiguration'
     { fileSystemId =
         pFileSystemId_,
-      lifecyclePolicies = Prelude.mempty
+      lifecyclePolicies = Core.mempty
     }
 
 -- | The ID of the file system for which you are creating the
 -- @LifecycleConfiguration@ object (String).
-putLifecycleConfiguration_fileSystemId :: Lens.Lens' PutLifecycleConfiguration Prelude.Text
+putLifecycleConfiguration_fileSystemId :: Lens.Lens' PutLifecycleConfiguration Core.Text
 putLifecycleConfiguration_fileSystemId = Lens.lens (\PutLifecycleConfiguration' {fileSystemId} -> fileSystemId) (\s@PutLifecycleConfiguration' {} a -> s {fileSystemId = a} :: PutLifecycleConfiguration)
 
 -- | An array of @LifecyclePolicy@ objects that define the file system\'s
@@ -123,40 +122,40 @@ putLifecycleConfiguration_fileSystemId = Lens.lens (\PutLifecycleConfiguration' 
 -- lifecycle management when to transition files from the Standard storage
 -- class to the Infrequent Access storage class.
 putLifecycleConfiguration_lifecyclePolicies :: Lens.Lens' PutLifecycleConfiguration [LifecyclePolicy]
-putLifecycleConfiguration_lifecyclePolicies = Lens.lens (\PutLifecycleConfiguration' {lifecyclePolicies} -> lifecyclePolicies) (\s@PutLifecycleConfiguration' {} a -> s {lifecyclePolicies = a} :: PutLifecycleConfiguration) Prelude.. Prelude._Coerce
+putLifecycleConfiguration_lifecyclePolicies = Lens.lens (\PutLifecycleConfiguration' {lifecyclePolicies} -> lifecyclePolicies) (\s@PutLifecycleConfiguration' {} a -> s {lifecyclePolicies = a} :: PutLifecycleConfiguration) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutLifecycleConfiguration where
+instance Core.AWSRequest PutLifecycleConfiguration where
   type
-    Rs PutLifecycleConfiguration =
+    AWSResponse PutLifecycleConfiguration =
       LifecycleConfigurationDescription
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutLifecycleConfiguration
+instance Core.Hashable PutLifecycleConfiguration
 
-instance Prelude.NFData PutLifecycleConfiguration
+instance Core.NFData PutLifecycleConfiguration
 
-instance Prelude.ToHeaders PutLifecycleConfiguration where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutLifecycleConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutLifecycleConfiguration where
+instance Core.ToJSON PutLifecycleConfiguration where
   toJSON PutLifecycleConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("LifecyclePolicies" Prelude..= lifecyclePolicies)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("LifecyclePolicies" Core..= lifecyclePolicies)
           ]
       )
 
-instance Prelude.ToPath PutLifecycleConfiguration where
+instance Core.ToPath PutLifecycleConfiguration where
   toPath PutLifecycleConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/file-systems/",
-        Prelude.toBS fileSystemId,
+        Core.toBS fileSystemId,
         "/lifecycle-configuration"
       ]
 
-instance Prelude.ToQuery PutLifecycleConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutLifecycleConfiguration where
+  toQuery = Core.const Core.mempty

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -30,8 +29,8 @@ import Network.AWS.Batch.Types.NodeDetails
 import Network.AWS.Batch.Types.NodeProperties
 import Network.AWS.Batch.Types.PlatformCapability
 import Network.AWS.Batch.Types.RetryStrategy
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an AWS Batch job.
 --
@@ -39,68 +38,68 @@ import qualified Network.AWS.Prelude as Prelude
 data JobDetail = JobDetail'
   { -- | An object representing the details of the container that\'s associated
     -- with the job.
-    container :: Prelude.Maybe ContainerDetail,
+    container :: Core.Maybe ContainerDetail,
     -- | The Unix timestamp (in milliseconds) for when the job was started (when
     -- the job transitioned from the @STARTING@ state to the @RUNNING@ state).
     -- This parameter isn\'t provided for child jobs of array jobs or
     -- multi-node parallel jobs.
-    startedAt :: Prelude.Maybe Prelude.Integer,
+    startedAt :: Core.Maybe Core.Integer,
     -- | A list of job IDs that this job depends on.
-    dependsOn :: Prelude.Maybe [JobDependency],
+    dependsOn :: Core.Maybe [JobDependency],
     -- | The platform capabilities required by the job definition. If no value is
     -- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
     -- @FARGATE@.
-    platformCapabilities :: Prelude.Maybe [PlatformCapability],
+    platformCapabilities :: Core.Maybe [PlatformCapability],
     -- | The timeout configuration for the job.
-    timeout :: Prelude.Maybe JobTimeout,
+    timeout :: Core.Maybe JobTimeout,
     -- | The array properties of the job, if it is an array job.
-    arrayProperties :: Prelude.Maybe ArrayPropertiesDetail,
+    arrayProperties :: Core.Maybe ArrayPropertiesDetail,
     -- | The Unix timestamp (in milliseconds) for when the job was created. For
     -- non-array jobs and parent array jobs, this is when the job entered the
     -- @SUBMITTED@ state (at the time SubmitJob was called). For array child
     -- jobs, this is when the child job was spawned by its parent and entered
     -- the @PENDING@ state.
-    createdAt :: Prelude.Maybe Prelude.Integer,
+    createdAt :: Core.Maybe Core.Integer,
     -- | The Amazon Resource Name (ARN) of the job.
-    jobArn :: Prelude.Maybe Prelude.Text,
+    jobArn :: Core.Maybe Core.Text,
     -- | An object representing the details of a node that\'s associated with a
     -- multi-node parallel job.
-    nodeDetails :: Prelude.Maybe NodeDetails,
+    nodeDetails :: Core.Maybe NodeDetails,
     -- | The Unix timestamp (in milliseconds) for when the job was stopped (when
     -- the job transitioned from the @RUNNING@ state to a terminal state, such
     -- as @SUCCEEDED@ or @FAILED@).
-    stoppedAt :: Prelude.Maybe Prelude.Integer,
+    stoppedAt :: Core.Maybe Core.Integer,
     -- | An object representing the node properties of a multi-node parallel job.
     --
     -- This isn\'t applicable to jobs running on Fargate resources.
-    nodeProperties :: Prelude.Maybe NodeProperties,
+    nodeProperties :: Core.Maybe NodeProperties,
     -- | The tags applied to the job.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A list of job attempts associated with this job.
-    attempts :: Prelude.Maybe [AttemptDetail],
+    attempts :: Core.Maybe [AttemptDetail],
     -- | The retry strategy to use for this job if an attempt fails.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
+    retryStrategy :: Core.Maybe RetryStrategy,
     -- | A short, human-readable string to provide additional details about the
     -- current status of the job.
-    statusReason :: Prelude.Maybe Prelude.Text,
+    statusReason :: Core.Maybe Core.Text,
     -- | Additional parameters passed to the job that replace parameter
     -- substitution placeholders or override any corresponding parameter
     -- defaults from the job definition.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
     -- are not propagated. Tags can only be propagated to the tasks during task
     -- creation. For tags with the same name, job tags are given priority over
     -- job definitions tags. If the total number of combined tags from the job
     -- and job definition is over 50, the job is moved to the @FAILED@ state.
-    propagateTags :: Prelude.Maybe Prelude.Bool,
+    propagateTags :: Core.Maybe Core.Bool,
     -- | The name of the job.
-    jobName :: Prelude.Text,
+    jobName :: Core.Text,
     -- | The ID for the job.
-    jobId :: Prelude.Text,
+    jobId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the job queue that the job is
     -- associated with.
-    jobQueue :: Prelude.Text,
+    jobQueue :: Core.Text,
     -- | The current status for the job.
     --
     -- If your jobs don\'t progress to @STARTING@, see
@@ -108,9 +107,9 @@ data JobDetail = JobDetail'
     -- in the troubleshooting section of the /AWS Batch User Guide/.
     status :: JobStatus,
     -- | The job definition that\'s used by this job.
-    jobDefinition :: Prelude.Text
+    jobDefinition :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobDetail' with all optional fields omitted.
@@ -193,15 +192,15 @@ data JobDetail = JobDetail'
 -- 'jobDefinition', 'jobDetail_jobDefinition' - The job definition that\'s used by this job.
 newJobDetail ::
   -- | 'jobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobQueue'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   JobStatus ->
   -- | 'jobDefinition'
-  Prelude.Text ->
+  Core.Text ->
   JobDetail
 newJobDetail
   pJobName_
@@ -210,23 +209,23 @@ newJobDetail
   pStatus_
   pJobDefinition_ =
     JobDetail'
-      { container = Prelude.Nothing,
-        startedAt = Prelude.Nothing,
-        dependsOn = Prelude.Nothing,
-        platformCapabilities = Prelude.Nothing,
-        timeout = Prelude.Nothing,
-        arrayProperties = Prelude.Nothing,
-        createdAt = Prelude.Nothing,
-        jobArn = Prelude.Nothing,
-        nodeDetails = Prelude.Nothing,
-        stoppedAt = Prelude.Nothing,
-        nodeProperties = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        attempts = Prelude.Nothing,
-        retryStrategy = Prelude.Nothing,
-        statusReason = Prelude.Nothing,
-        parameters = Prelude.Nothing,
-        propagateTags = Prelude.Nothing,
+      { container = Core.Nothing,
+        startedAt = Core.Nothing,
+        dependsOn = Core.Nothing,
+        platformCapabilities = Core.Nothing,
+        timeout = Core.Nothing,
+        arrayProperties = Core.Nothing,
+        createdAt = Core.Nothing,
+        jobArn = Core.Nothing,
+        nodeDetails = Core.Nothing,
+        stoppedAt = Core.Nothing,
+        nodeProperties = Core.Nothing,
+        tags = Core.Nothing,
+        attempts = Core.Nothing,
+        retryStrategy = Core.Nothing,
+        statusReason = Core.Nothing,
+        parameters = Core.Nothing,
+        propagateTags = Core.Nothing,
         jobName = pJobName_,
         jobId = pJobId_,
         jobQueue = pJobQueue_,
@@ -236,32 +235,32 @@ newJobDetail
 
 -- | An object representing the details of the container that\'s associated
 -- with the job.
-jobDetail_container :: Lens.Lens' JobDetail (Prelude.Maybe ContainerDetail)
+jobDetail_container :: Lens.Lens' JobDetail (Core.Maybe ContainerDetail)
 jobDetail_container = Lens.lens (\JobDetail' {container} -> container) (\s@JobDetail' {} a -> s {container = a} :: JobDetail)
 
 -- | The Unix timestamp (in milliseconds) for when the job was started (when
 -- the job transitioned from the @STARTING@ state to the @RUNNING@ state).
 -- This parameter isn\'t provided for child jobs of array jobs or
 -- multi-node parallel jobs.
-jobDetail_startedAt :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Integer)
+jobDetail_startedAt :: Lens.Lens' JobDetail (Core.Maybe Core.Integer)
 jobDetail_startedAt = Lens.lens (\JobDetail' {startedAt} -> startedAt) (\s@JobDetail' {} a -> s {startedAt = a} :: JobDetail)
 
 -- | A list of job IDs that this job depends on.
-jobDetail_dependsOn :: Lens.Lens' JobDetail (Prelude.Maybe [JobDependency])
-jobDetail_dependsOn = Lens.lens (\JobDetail' {dependsOn} -> dependsOn) (\s@JobDetail' {} a -> s {dependsOn = a} :: JobDetail) Prelude.. Lens.mapping Prelude._Coerce
+jobDetail_dependsOn :: Lens.Lens' JobDetail (Core.Maybe [JobDependency])
+jobDetail_dependsOn = Lens.lens (\JobDetail' {dependsOn} -> dependsOn) (\s@JobDetail' {} a -> s {dependsOn = a} :: JobDetail) Core.. Lens.mapping Lens._Coerce
 
 -- | The platform capabilities required by the job definition. If no value is
 -- specified, it defaults to @EC2@. Jobs run on Fargate resources specify
 -- @FARGATE@.
-jobDetail_platformCapabilities :: Lens.Lens' JobDetail (Prelude.Maybe [PlatformCapability])
-jobDetail_platformCapabilities = Lens.lens (\JobDetail' {platformCapabilities} -> platformCapabilities) (\s@JobDetail' {} a -> s {platformCapabilities = a} :: JobDetail) Prelude.. Lens.mapping Prelude._Coerce
+jobDetail_platformCapabilities :: Lens.Lens' JobDetail (Core.Maybe [PlatformCapability])
+jobDetail_platformCapabilities = Lens.lens (\JobDetail' {platformCapabilities} -> platformCapabilities) (\s@JobDetail' {} a -> s {platformCapabilities = a} :: JobDetail) Core.. Lens.mapping Lens._Coerce
 
 -- | The timeout configuration for the job.
-jobDetail_timeout :: Lens.Lens' JobDetail (Prelude.Maybe JobTimeout)
+jobDetail_timeout :: Lens.Lens' JobDetail (Core.Maybe JobTimeout)
 jobDetail_timeout = Lens.lens (\JobDetail' {timeout} -> timeout) (\s@JobDetail' {} a -> s {timeout = a} :: JobDetail)
 
 -- | The array properties of the job, if it is an array job.
-jobDetail_arrayProperties :: Lens.Lens' JobDetail (Prelude.Maybe ArrayPropertiesDetail)
+jobDetail_arrayProperties :: Lens.Lens' JobDetail (Core.Maybe ArrayPropertiesDetail)
 jobDetail_arrayProperties = Lens.lens (\JobDetail' {arrayProperties} -> arrayProperties) (\s@JobDetail' {} a -> s {arrayProperties = a} :: JobDetail)
 
 -- | The Unix timestamp (in milliseconds) for when the job was created. For
@@ -269,52 +268,52 @@ jobDetail_arrayProperties = Lens.lens (\JobDetail' {arrayProperties} -> arrayPro
 -- @SUBMITTED@ state (at the time SubmitJob was called). For array child
 -- jobs, this is when the child job was spawned by its parent and entered
 -- the @PENDING@ state.
-jobDetail_createdAt :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Integer)
+jobDetail_createdAt :: Lens.Lens' JobDetail (Core.Maybe Core.Integer)
 jobDetail_createdAt = Lens.lens (\JobDetail' {createdAt} -> createdAt) (\s@JobDetail' {} a -> s {createdAt = a} :: JobDetail)
 
 -- | The Amazon Resource Name (ARN) of the job.
-jobDetail_jobArn :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Text)
+jobDetail_jobArn :: Lens.Lens' JobDetail (Core.Maybe Core.Text)
 jobDetail_jobArn = Lens.lens (\JobDetail' {jobArn} -> jobArn) (\s@JobDetail' {} a -> s {jobArn = a} :: JobDetail)
 
 -- | An object representing the details of a node that\'s associated with a
 -- multi-node parallel job.
-jobDetail_nodeDetails :: Lens.Lens' JobDetail (Prelude.Maybe NodeDetails)
+jobDetail_nodeDetails :: Lens.Lens' JobDetail (Core.Maybe NodeDetails)
 jobDetail_nodeDetails = Lens.lens (\JobDetail' {nodeDetails} -> nodeDetails) (\s@JobDetail' {} a -> s {nodeDetails = a} :: JobDetail)
 
 -- | The Unix timestamp (in milliseconds) for when the job was stopped (when
 -- the job transitioned from the @RUNNING@ state to a terminal state, such
 -- as @SUCCEEDED@ or @FAILED@).
-jobDetail_stoppedAt :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Integer)
+jobDetail_stoppedAt :: Lens.Lens' JobDetail (Core.Maybe Core.Integer)
 jobDetail_stoppedAt = Lens.lens (\JobDetail' {stoppedAt} -> stoppedAt) (\s@JobDetail' {} a -> s {stoppedAt = a} :: JobDetail)
 
 -- | An object representing the node properties of a multi-node parallel job.
 --
 -- This isn\'t applicable to jobs running on Fargate resources.
-jobDetail_nodeProperties :: Lens.Lens' JobDetail (Prelude.Maybe NodeProperties)
+jobDetail_nodeProperties :: Lens.Lens' JobDetail (Core.Maybe NodeProperties)
 jobDetail_nodeProperties = Lens.lens (\JobDetail' {nodeProperties} -> nodeProperties) (\s@JobDetail' {} a -> s {nodeProperties = a} :: JobDetail)
 
 -- | The tags applied to the job.
-jobDetail_tags :: Lens.Lens' JobDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobDetail_tags = Lens.lens (\JobDetail' {tags} -> tags) (\s@JobDetail' {} a -> s {tags = a} :: JobDetail) Prelude.. Lens.mapping Prelude._Coerce
+jobDetail_tags :: Lens.Lens' JobDetail (Core.Maybe (Core.HashMap Core.Text Core.Text))
+jobDetail_tags = Lens.lens (\JobDetail' {tags} -> tags) (\s@JobDetail' {} a -> s {tags = a} :: JobDetail) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of job attempts associated with this job.
-jobDetail_attempts :: Lens.Lens' JobDetail (Prelude.Maybe [AttemptDetail])
-jobDetail_attempts = Lens.lens (\JobDetail' {attempts} -> attempts) (\s@JobDetail' {} a -> s {attempts = a} :: JobDetail) Prelude.. Lens.mapping Prelude._Coerce
+jobDetail_attempts :: Lens.Lens' JobDetail (Core.Maybe [AttemptDetail])
+jobDetail_attempts = Lens.lens (\JobDetail' {attempts} -> attempts) (\s@JobDetail' {} a -> s {attempts = a} :: JobDetail) Core.. Lens.mapping Lens._Coerce
 
 -- | The retry strategy to use for this job if an attempt fails.
-jobDetail_retryStrategy :: Lens.Lens' JobDetail (Prelude.Maybe RetryStrategy)
+jobDetail_retryStrategy :: Lens.Lens' JobDetail (Core.Maybe RetryStrategy)
 jobDetail_retryStrategy = Lens.lens (\JobDetail' {retryStrategy} -> retryStrategy) (\s@JobDetail' {} a -> s {retryStrategy = a} :: JobDetail)
 
 -- | A short, human-readable string to provide additional details about the
 -- current status of the job.
-jobDetail_statusReason :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Text)
+jobDetail_statusReason :: Lens.Lens' JobDetail (Core.Maybe Core.Text)
 jobDetail_statusReason = Lens.lens (\JobDetail' {statusReason} -> statusReason) (\s@JobDetail' {} a -> s {statusReason = a} :: JobDetail)
 
 -- | Additional parameters passed to the job that replace parameter
 -- substitution placeholders or override any corresponding parameter
 -- defaults from the job definition.
-jobDetail_parameters :: Lens.Lens' JobDetail (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobDetail_parameters = Lens.lens (\JobDetail' {parameters} -> parameters) (\s@JobDetail' {} a -> s {parameters = a} :: JobDetail) Prelude.. Lens.mapping Prelude._Coerce
+jobDetail_parameters :: Lens.Lens' JobDetail (Core.Maybe (Core.HashMap Core.Text Core.Text))
+jobDetail_parameters = Lens.lens (\JobDetail' {parameters} -> parameters) (\s@JobDetail' {} a -> s {parameters = a} :: JobDetail) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -322,20 +321,20 @@ jobDetail_parameters = Lens.lens (\JobDetail' {parameters} -> parameters) (\s@Jo
 -- creation. For tags with the same name, job tags are given priority over
 -- job definitions tags. If the total number of combined tags from the job
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
-jobDetail_propagateTags :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Bool)
+jobDetail_propagateTags :: Lens.Lens' JobDetail (Core.Maybe Core.Bool)
 jobDetail_propagateTags = Lens.lens (\JobDetail' {propagateTags} -> propagateTags) (\s@JobDetail' {} a -> s {propagateTags = a} :: JobDetail)
 
 -- | The name of the job.
-jobDetail_jobName :: Lens.Lens' JobDetail Prelude.Text
+jobDetail_jobName :: Lens.Lens' JobDetail Core.Text
 jobDetail_jobName = Lens.lens (\JobDetail' {jobName} -> jobName) (\s@JobDetail' {} a -> s {jobName = a} :: JobDetail)
 
 -- | The ID for the job.
-jobDetail_jobId :: Lens.Lens' JobDetail Prelude.Text
+jobDetail_jobId :: Lens.Lens' JobDetail Core.Text
 jobDetail_jobId = Lens.lens (\JobDetail' {jobId} -> jobId) (\s@JobDetail' {} a -> s {jobId = a} :: JobDetail)
 
 -- | The Amazon Resource Name (ARN) of the job queue that the job is
 -- associated with.
-jobDetail_jobQueue :: Lens.Lens' JobDetail Prelude.Text
+jobDetail_jobQueue :: Lens.Lens' JobDetail Core.Text
 jobDetail_jobQueue = Lens.lens (\JobDetail' {jobQueue} -> jobQueue) (\s@JobDetail' {} a -> s {jobQueue = a} :: JobDetail)
 
 -- | The current status for the job.
@@ -347,45 +346,41 @@ jobDetail_status :: Lens.Lens' JobDetail JobStatus
 jobDetail_status = Lens.lens (\JobDetail' {status} -> status) (\s@JobDetail' {} a -> s {status = a} :: JobDetail)
 
 -- | The job definition that\'s used by this job.
-jobDetail_jobDefinition :: Lens.Lens' JobDetail Prelude.Text
+jobDetail_jobDefinition :: Lens.Lens' JobDetail Core.Text
 jobDetail_jobDefinition = Lens.lens (\JobDetail' {jobDefinition} -> jobDefinition) (\s@JobDetail' {} a -> s {jobDefinition = a} :: JobDetail)
 
-instance Prelude.FromJSON JobDetail where
+instance Core.FromJSON JobDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobDetail"
       ( \x ->
           JobDetail'
-            Prelude.<$> (x Prelude..:? "container")
-            Prelude.<*> (x Prelude..:? "startedAt")
-            Prelude.<*> ( x Prelude..:? "dependsOn"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "platformCapabilities"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "timeout")
-            Prelude.<*> (x Prelude..:? "arrayProperties")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "jobArn")
-            Prelude.<*> (x Prelude..:? "nodeDetails")
-            Prelude.<*> (x Prelude..:? "stoppedAt")
-            Prelude.<*> (x Prelude..:? "nodeProperties")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "attempts" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "retryStrategy")
-            Prelude.<*> (x Prelude..:? "statusReason")
-            Prelude.<*> ( x Prelude..:? "parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "propagateTags")
-            Prelude.<*> (x Prelude..: "jobName")
-            Prelude.<*> (x Prelude..: "jobId")
-            Prelude.<*> (x Prelude..: "jobQueue")
-            Prelude.<*> (x Prelude..: "status")
-            Prelude.<*> (x Prelude..: "jobDefinition")
+            Core.<$> (x Core..:? "container")
+            Core.<*> (x Core..:? "startedAt")
+            Core.<*> (x Core..:? "dependsOn" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "platformCapabilities"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "timeout")
+            Core.<*> (x Core..:? "arrayProperties")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "jobArn")
+            Core.<*> (x Core..:? "nodeDetails")
+            Core.<*> (x Core..:? "stoppedAt")
+            Core.<*> (x Core..:? "nodeProperties")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "attempts" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "retryStrategy")
+            Core.<*> (x Core..:? "statusReason")
+            Core.<*> (x Core..:? "parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "propagateTags")
+            Core.<*> (x Core..: "jobName")
+            Core.<*> (x Core..: "jobId")
+            Core.<*> (x Core..: "jobQueue")
+            Core.<*> (x Core..: "status")
+            Core.<*> (x Core..: "jobDefinition")
       )
 
-instance Prelude.Hashable JobDetail
+instance Core.Hashable JobDetail
 
-instance Prelude.NFData JobDetail
+instance Core.NFData JobDetail

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.XRay.PutTelemetryRecords
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
 
 -- | /See:/ 'newPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { resourceARN :: Prelude.Maybe Prelude.Text,
-    hostname :: Prelude.Maybe Prelude.Text,
-    eC2InstanceId :: Prelude.Maybe Prelude.Text,
+  { resourceARN :: Core.Maybe Core.Text,
+    hostname :: Core.Maybe Core.Text,
+    eC2InstanceId :: Core.Maybe Core.Text,
     telemetryRecords :: [TelemetryRecord]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutTelemetryRecords' with all optional fields omitted.
@@ -76,72 +75,71 @@ newPutTelemetryRecords ::
   PutTelemetryRecords
 newPutTelemetryRecords =
   PutTelemetryRecords'
-    { resourceARN = Prelude.Nothing,
-      hostname = Prelude.Nothing,
-      eC2InstanceId = Prelude.Nothing,
-      telemetryRecords = Prelude.mempty
+    { resourceARN = Core.Nothing,
+      hostname = Core.Nothing,
+      eC2InstanceId = Core.Nothing,
+      telemetryRecords = Core.mempty
     }
 
 -- |
-putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Core.Maybe Core.Text)
 putTelemetryRecords_resourceARN = Lens.lens (\PutTelemetryRecords' {resourceARN} -> resourceARN) (\s@PutTelemetryRecords' {} a -> s {resourceARN = a} :: PutTelemetryRecords)
 
 -- |
-putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Core.Maybe Core.Text)
 putTelemetryRecords_hostname = Lens.lens (\PutTelemetryRecords' {hostname} -> hostname) (\s@PutTelemetryRecords' {} a -> s {hostname = a} :: PutTelemetryRecords)
 
 -- |
-putTelemetryRecords_eC2InstanceId :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_eC2InstanceId :: Lens.Lens' PutTelemetryRecords (Core.Maybe Core.Text)
 putTelemetryRecords_eC2InstanceId = Lens.lens (\PutTelemetryRecords' {eC2InstanceId} -> eC2InstanceId) (\s@PutTelemetryRecords' {} a -> s {eC2InstanceId = a} :: PutTelemetryRecords)
 
 -- |
 putTelemetryRecords_telemetryRecords :: Lens.Lens' PutTelemetryRecords [TelemetryRecord]
-putTelemetryRecords_telemetryRecords = Lens.lens (\PutTelemetryRecords' {telemetryRecords} -> telemetryRecords) (\s@PutTelemetryRecords' {} a -> s {telemetryRecords = a} :: PutTelemetryRecords) Prelude.. Prelude._Coerce
+putTelemetryRecords_telemetryRecords = Lens.lens (\PutTelemetryRecords' {telemetryRecords} -> telemetryRecords) (\s@PutTelemetryRecords' {} a -> s {telemetryRecords = a} :: PutTelemetryRecords) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutTelemetryRecords where
+instance Core.AWSRequest PutTelemetryRecords where
   type
-    Rs PutTelemetryRecords =
+    AWSResponse PutTelemetryRecords =
       PutTelemetryRecordsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutTelemetryRecordsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutTelemetryRecords
+instance Core.Hashable PutTelemetryRecords
 
-instance Prelude.NFData PutTelemetryRecords
+instance Core.NFData PutTelemetryRecords
 
-instance Prelude.ToHeaders PutTelemetryRecords where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutTelemetryRecords where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutTelemetryRecords where
+instance Core.ToJSON PutTelemetryRecords where
   toJSON PutTelemetryRecords' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceARN" Prelude..=) Prelude.<$> resourceARN,
-            ("Hostname" Prelude..=) Prelude.<$> hostname,
-            ("EC2InstanceId" Prelude..=)
-              Prelude.<$> eC2InstanceId,
-            Prelude.Just
-              ("TelemetryRecords" Prelude..= telemetryRecords)
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceARN" Core..=) Core.<$> resourceARN,
+            ("Hostname" Core..=) Core.<$> hostname,
+            ("EC2InstanceId" Core..=) Core.<$> eC2InstanceId,
+            Core.Just
+              ("TelemetryRecords" Core..= telemetryRecords)
           ]
       )
 
-instance Prelude.ToPath PutTelemetryRecords where
-  toPath = Prelude.const "/TelemetryRecords"
+instance Core.ToPath PutTelemetryRecords where
+  toPath = Core.const "/TelemetryRecords"
 
-instance Prelude.ToQuery PutTelemetryRecords where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutTelemetryRecords where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutTelemetryRecordsResponse' smart constructor.
 data PutTelemetryRecordsResponse = PutTelemetryRecordsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutTelemetryRecordsResponse' with all optional fields omitted.
@@ -154,7 +152,7 @@ data PutTelemetryRecordsResponse = PutTelemetryRecordsResponse'
 -- 'httpStatus', 'putTelemetryRecordsResponse_httpStatus' - The response's http status code.
 newPutTelemetryRecordsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutTelemetryRecordsResponse
 newPutTelemetryRecordsResponse pHttpStatus_ =
   PutTelemetryRecordsResponse'
@@ -163,7 +161,7 @@ newPutTelemetryRecordsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putTelemetryRecordsResponse_httpStatus :: Lens.Lens' PutTelemetryRecordsResponse Prelude.Int
+putTelemetryRecordsResponse_httpStatus :: Lens.Lens' PutTelemetryRecordsResponse Core.Int
 putTelemetryRecordsResponse_httpStatus = Lens.lens (\PutTelemetryRecordsResponse' {httpStatus} -> httpStatus) (\s@PutTelemetryRecordsResponse' {} a -> s {httpStatus = a} :: PutTelemetryRecordsResponse)
 
-instance Prelude.NFData PutTelemetryRecordsResponse
+instance Core.NFData PutTelemetryRecordsResponse

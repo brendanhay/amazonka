@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Inspector.DescribeAssessmentTargets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DescribeAssessmentTargets = DescribeAssessmentTargets'
   { -- | The ARNs that specifies the assessment targets that you want to
     -- describe.
-    assessmentTargetArns :: Prelude.NonEmpty Prelude.Text
+    assessmentTargetArns :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAssessmentTargets' with all optional fields omitted.
@@ -68,84 +67,78 @@ data DescribeAssessmentTargets = DescribeAssessmentTargets'
 -- describe.
 newDescribeAssessmentTargets ::
   -- | 'assessmentTargetArns'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   DescribeAssessmentTargets
 newDescribeAssessmentTargets pAssessmentTargetArns_ =
   DescribeAssessmentTargets'
     { assessmentTargetArns =
-        Prelude._Coerce Lens.# pAssessmentTargetArns_
+        Lens._Coerce Lens.# pAssessmentTargetArns_
     }
 
 -- | The ARNs that specifies the assessment targets that you want to
 -- describe.
-describeAssessmentTargets_assessmentTargetArns :: Lens.Lens' DescribeAssessmentTargets (Prelude.NonEmpty Prelude.Text)
-describeAssessmentTargets_assessmentTargetArns = Lens.lens (\DescribeAssessmentTargets' {assessmentTargetArns} -> assessmentTargetArns) (\s@DescribeAssessmentTargets' {} a -> s {assessmentTargetArns = a} :: DescribeAssessmentTargets) Prelude.. Prelude._Coerce
+describeAssessmentTargets_assessmentTargetArns :: Lens.Lens' DescribeAssessmentTargets (Core.NonEmpty Core.Text)
+describeAssessmentTargets_assessmentTargetArns = Lens.lens (\DescribeAssessmentTargets' {assessmentTargetArns} -> assessmentTargetArns) (\s@DescribeAssessmentTargets' {} a -> s {assessmentTargetArns = a} :: DescribeAssessmentTargets) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DescribeAssessmentTargets where
+instance Core.AWSRequest DescribeAssessmentTargets where
   type
-    Rs DescribeAssessmentTargets =
+    AWSResponse DescribeAssessmentTargets =
       DescribeAssessmentTargetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAssessmentTargetsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "assessmentTargets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "failedItems"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "assessmentTargets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "failedItems" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable DescribeAssessmentTargets
+instance Core.Hashable DescribeAssessmentTargets
 
-instance Prelude.NFData DescribeAssessmentTargets
+instance Core.NFData DescribeAssessmentTargets
 
-instance Prelude.ToHeaders DescribeAssessmentTargets where
+instance Core.ToHeaders DescribeAssessmentTargets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.DescribeAssessmentTargets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.DescribeAssessmentTargets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAssessmentTargets where
+instance Core.ToJSON DescribeAssessmentTargets where
   toJSON DescribeAssessmentTargets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "assessmentTargetArns"
-                  Prelude..= assessmentTargetArns
+                  Core..= assessmentTargetArns
               )
           ]
       )
 
-instance Prelude.ToPath DescribeAssessmentTargets where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAssessmentTargets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAssessmentTargets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAssessmentTargets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAssessmentTargetsResponse' smart constructor.
 data DescribeAssessmentTargetsResponse = DescribeAssessmentTargetsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Information about the assessment targets.
     assessmentTargets :: [AssessmentTarget],
     -- | Assessment target details that cannot be described. An error code is
     -- provided for each failed item.
-    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
+    failedItems :: Core.HashMap Core.Text FailedItemDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAssessmentTargetsResponse' with all optional fields omitted.
@@ -163,29 +156,29 @@ data DescribeAssessmentTargetsResponse = DescribeAssessmentTargetsResponse'
 -- provided for each failed item.
 newDescribeAssessmentTargetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAssessmentTargetsResponse
 newDescribeAssessmentTargetsResponse pHttpStatus_ =
   DescribeAssessmentTargetsResponse'
     { httpStatus =
         pHttpStatus_,
-      assessmentTargets = Prelude.mempty,
-      failedItems = Prelude.mempty
+      assessmentTargets = Core.mempty,
+      failedItems = Core.mempty
     }
 
 -- | The response's http status code.
-describeAssessmentTargetsResponse_httpStatus :: Lens.Lens' DescribeAssessmentTargetsResponse Prelude.Int
+describeAssessmentTargetsResponse_httpStatus :: Lens.Lens' DescribeAssessmentTargetsResponse Core.Int
 describeAssessmentTargetsResponse_httpStatus = Lens.lens (\DescribeAssessmentTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeAssessmentTargetsResponse' {} a -> s {httpStatus = a} :: DescribeAssessmentTargetsResponse)
 
 -- | Information about the assessment targets.
 describeAssessmentTargetsResponse_assessmentTargets :: Lens.Lens' DescribeAssessmentTargetsResponse [AssessmentTarget]
-describeAssessmentTargetsResponse_assessmentTargets = Lens.lens (\DescribeAssessmentTargetsResponse' {assessmentTargets} -> assessmentTargets) (\s@DescribeAssessmentTargetsResponse' {} a -> s {assessmentTargets = a} :: DescribeAssessmentTargetsResponse) Prelude.. Prelude._Coerce
+describeAssessmentTargetsResponse_assessmentTargets = Lens.lens (\DescribeAssessmentTargetsResponse' {assessmentTargets} -> assessmentTargets) (\s@DescribeAssessmentTargetsResponse' {} a -> s {assessmentTargets = a} :: DescribeAssessmentTargetsResponse) Core.. Lens._Coerce
 
 -- | Assessment target details that cannot be described. An error code is
 -- provided for each failed item.
-describeAssessmentTargetsResponse_failedItems :: Lens.Lens' DescribeAssessmentTargetsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeAssessmentTargetsResponse_failedItems = Lens.lens (\DescribeAssessmentTargetsResponse' {failedItems} -> failedItems) (\s@DescribeAssessmentTargetsResponse' {} a -> s {failedItems = a} :: DescribeAssessmentTargetsResponse) Prelude.. Prelude._Coerce
+describeAssessmentTargetsResponse_failedItems :: Lens.Lens' DescribeAssessmentTargetsResponse (Core.HashMap Core.Text FailedItemDetails)
+describeAssessmentTargetsResponse_failedItems = Lens.lens (\DescribeAssessmentTargetsResponse' {failedItems} -> failedItems) (\s@DescribeAssessmentTargetsResponse' {} a -> s {failedItems = a} :: DescribeAssessmentTargetsResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAssessmentTargetsResponse

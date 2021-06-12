@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.ElasticSearch.CreatePackage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,15 +53,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreatePackage' smart constructor.
 data CreatePackage = CreatePackage'
   { -- | Description of the package.
-    packageDescription :: Prelude.Maybe Prelude.Text,
+    packageDescription :: Core.Maybe Core.Text,
     -- | Unique identifier for the package.
-    packageName :: Prelude.Text,
+    packageName :: Core.Text,
     -- | Type of package. Currently supports only TXT-DICTIONARY.
     packageType :: PackageType,
     -- | The customer S3 location @PackageSource@ for importing the package.
     packageSource :: PackageSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePackage' with all optional fields omitted.
@@ -81,7 +80,7 @@ data CreatePackage = CreatePackage'
 -- 'packageSource', 'createPackage_packageSource' - The customer S3 location @PackageSource@ for importing the package.
 newCreatePackage ::
   -- | 'packageName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'packageType'
   PackageType ->
   -- | 'packageSource'
@@ -92,19 +91,18 @@ newCreatePackage
   pPackageType_
   pPackageSource_ =
     CreatePackage'
-      { packageDescription =
-          Prelude.Nothing,
+      { packageDescription = Core.Nothing,
         packageName = pPackageName_,
         packageType = pPackageType_,
         packageSource = pPackageSource_
       }
 
 -- | Description of the package.
-createPackage_packageDescription :: Lens.Lens' CreatePackage (Prelude.Maybe Prelude.Text)
+createPackage_packageDescription :: Lens.Lens' CreatePackage (Core.Maybe Core.Text)
 createPackage_packageDescription = Lens.lens (\CreatePackage' {packageDescription} -> packageDescription) (\s@CreatePackage' {} a -> s {packageDescription = a} :: CreatePackage)
 
 -- | Unique identifier for the package.
-createPackage_packageName :: Lens.Lens' CreatePackage Prelude.Text
+createPackage_packageName :: Lens.Lens' CreatePackage Core.Text
 createPackage_packageName = Lens.lens (\CreatePackage' {packageName} -> packageName) (\s@CreatePackage' {} a -> s {packageName = a} :: CreatePackage)
 
 -- | Type of package. Currently supports only TXT-DICTIONARY.
@@ -115,53 +113,54 @@ createPackage_packageType = Lens.lens (\CreatePackage' {packageType} -> packageT
 createPackage_packageSource :: Lens.Lens' CreatePackage PackageSource
 createPackage_packageSource = Lens.lens (\CreatePackage' {packageSource} -> packageSource) (\s@CreatePackage' {} a -> s {packageSource = a} :: CreatePackage)
 
-instance Prelude.AWSRequest CreatePackage where
-  type Rs CreatePackage = CreatePackageResponse
+instance Core.AWSRequest CreatePackage where
+  type
+    AWSResponse CreatePackage =
+      CreatePackageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePackageResponse'
-            Prelude.<$> (x Prelude..?> "PackageDetails")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "PackageDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePackage
+instance Core.Hashable CreatePackage
 
-instance Prelude.NFData CreatePackage
+instance Core.NFData CreatePackage
 
-instance Prelude.ToHeaders CreatePackage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreatePackage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreatePackage where
+instance Core.ToJSON CreatePackage where
   toJSON CreatePackage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PackageDescription" Prelude..=)
-              Prelude.<$> packageDescription,
-            Prelude.Just ("PackageName" Prelude..= packageName),
-            Prelude.Just ("PackageType" Prelude..= packageType),
-            Prelude.Just
-              ("PackageSource" Prelude..= packageSource)
+    Core.object
+      ( Core.catMaybes
+          [ ("PackageDescription" Core..=)
+              Core.<$> packageDescription,
+            Core.Just ("PackageName" Core..= packageName),
+            Core.Just ("PackageType" Core..= packageType),
+            Core.Just ("PackageSource" Core..= packageSource)
           ]
       )
 
-instance Prelude.ToPath CreatePackage where
-  toPath = Prelude.const "/2015-01-01/packages"
+instance Core.ToPath CreatePackage where
+  toPath = Core.const "/2015-01-01/packages"
 
-instance Prelude.ToQuery CreatePackage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePackage where
+  toQuery = Core.const Core.mempty
 
 -- | Container for response returned by @ CreatePackage @ operation.
 --
 -- /See:/ 'newCreatePackageResponse' smart constructor.
 data CreatePackageResponse = CreatePackageResponse'
   { -- | Information about the package @PackageDetails@.
-    packageDetails :: Prelude.Maybe PackageDetails,
+    packageDetails :: Core.Maybe PackageDetails,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePackageResponse' with all optional fields omitted.
@@ -176,21 +175,21 @@ data CreatePackageResponse = CreatePackageResponse'
 -- 'httpStatus', 'createPackageResponse_httpStatus' - The response's http status code.
 newCreatePackageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePackageResponse
 newCreatePackageResponse pHttpStatus_ =
   CreatePackageResponse'
     { packageDetails =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the package @PackageDetails@.
-createPackageResponse_packageDetails :: Lens.Lens' CreatePackageResponse (Prelude.Maybe PackageDetails)
+createPackageResponse_packageDetails :: Lens.Lens' CreatePackageResponse (Core.Maybe PackageDetails)
 createPackageResponse_packageDetails = Lens.lens (\CreatePackageResponse' {packageDetails} -> packageDetails) (\s@CreatePackageResponse' {} a -> s {packageDetails = a} :: CreatePackageResponse)
 
 -- | The response's http status code.
-createPackageResponse_httpStatus :: Lens.Lens' CreatePackageResponse Prelude.Int
+createPackageResponse_httpStatus :: Lens.Lens' CreatePackageResponse Core.Int
 createPackageResponse_httpStatus = Lens.lens (\CreatePackageResponse' {httpStatus} -> httpStatus) (\s@CreatePackageResponse' {} a -> s {httpStatus = a} :: CreatePackageResponse)
 
-instance Prelude.NFData CreatePackageResponse
+instance Core.NFData CreatePackageResponse

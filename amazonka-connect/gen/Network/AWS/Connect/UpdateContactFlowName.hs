@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,23 +42,23 @@ module Network.AWS.Connect.UpdateContactFlowName
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateContactFlowName' smart constructor.
 data UpdateContactFlowName = UpdateContactFlowName'
   { -- | The name of the contact flow.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description of the contact flow.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier of the contact flow.
-    contactFlowId :: Prelude.Text
+    contactFlowId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContactFlowName' with all optional fields omitted.
@@ -78,84 +77,82 @@ data UpdateContactFlowName = UpdateContactFlowName'
 -- 'contactFlowId', 'updateContactFlowName_contactFlowId' - The identifier of the contact flow.
 newUpdateContactFlowName ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'contactFlowId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateContactFlowName
 newUpdateContactFlowName pInstanceId_ pContactFlowId_ =
   UpdateContactFlowName'
-    { name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { name = Core.Nothing,
+      description = Core.Nothing,
       instanceId = pInstanceId_,
       contactFlowId = pContactFlowId_
     }
 
 -- | The name of the contact flow.
-updateContactFlowName_name :: Lens.Lens' UpdateContactFlowName (Prelude.Maybe Prelude.Text)
+updateContactFlowName_name :: Lens.Lens' UpdateContactFlowName (Core.Maybe Core.Text)
 updateContactFlowName_name = Lens.lens (\UpdateContactFlowName' {name} -> name) (\s@UpdateContactFlowName' {} a -> s {name = a} :: UpdateContactFlowName)
 
 -- | The description of the contact flow.
-updateContactFlowName_description :: Lens.Lens' UpdateContactFlowName (Prelude.Maybe Prelude.Text)
+updateContactFlowName_description :: Lens.Lens' UpdateContactFlowName (Core.Maybe Core.Text)
 updateContactFlowName_description = Lens.lens (\UpdateContactFlowName' {description} -> description) (\s@UpdateContactFlowName' {} a -> s {description = a} :: UpdateContactFlowName)
 
 -- | The identifier of the Amazon Connect instance.
-updateContactFlowName_instanceId :: Lens.Lens' UpdateContactFlowName Prelude.Text
+updateContactFlowName_instanceId :: Lens.Lens' UpdateContactFlowName Core.Text
 updateContactFlowName_instanceId = Lens.lens (\UpdateContactFlowName' {instanceId} -> instanceId) (\s@UpdateContactFlowName' {} a -> s {instanceId = a} :: UpdateContactFlowName)
 
 -- | The identifier of the contact flow.
-updateContactFlowName_contactFlowId :: Lens.Lens' UpdateContactFlowName Prelude.Text
+updateContactFlowName_contactFlowId :: Lens.Lens' UpdateContactFlowName Core.Text
 updateContactFlowName_contactFlowId = Lens.lens (\UpdateContactFlowName' {contactFlowId} -> contactFlowId) (\s@UpdateContactFlowName' {} a -> s {contactFlowId = a} :: UpdateContactFlowName)
 
-instance Prelude.AWSRequest UpdateContactFlowName where
+instance Core.AWSRequest UpdateContactFlowName where
   type
-    Rs UpdateContactFlowName =
+    AWSResponse UpdateContactFlowName =
       UpdateContactFlowNameResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UpdateContactFlowNameResponse'
 
-instance Prelude.Hashable UpdateContactFlowName
+instance Core.Hashable UpdateContactFlowName
 
-instance Prelude.NFData UpdateContactFlowName
+instance Core.NFData UpdateContactFlowName
 
-instance Prelude.ToHeaders UpdateContactFlowName where
+instance Core.ToHeaders UpdateContactFlowName where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateContactFlowName where
+instance Core.ToJSON UpdateContactFlowName where
   toJSON UpdateContactFlowName' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("Description" Prelude..=) Prelude.<$> description
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("Description" Core..=) Core.<$> description
           ]
       )
 
-instance Prelude.ToPath UpdateContactFlowName where
+instance Core.ToPath UpdateContactFlowName where
   toPath UpdateContactFlowName' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/contact-flows/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS contactFlowId,
+        Core.toBS contactFlowId,
         "/name"
       ]
 
-instance Prelude.ToQuery UpdateContactFlowName where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateContactFlowName where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateContactFlowNameResponse' smart constructor.
 data UpdateContactFlowNameResponse = UpdateContactFlowNameResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContactFlowNameResponse' with all optional fields omitted.
@@ -166,4 +163,4 @@ newUpdateContactFlowNameResponse ::
 newUpdateContactFlowNameResponse =
   UpdateContactFlowNameResponse'
 
-instance Prelude.NFData UpdateContactFlowNameResponse
+instance Core.NFData UpdateContactFlowNameResponse

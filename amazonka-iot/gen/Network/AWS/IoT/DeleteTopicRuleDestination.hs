@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.IoT.DeleteTopicRuleDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteTopicRuleDestination' smart constructor.
 data DeleteTopicRuleDestination = DeleteTopicRuleDestination'
   { -- | The ARN of the topic rule destination to delete.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicRuleDestination' with all optional fields omitted.
@@ -63,51 +62,47 @@ data DeleteTopicRuleDestination = DeleteTopicRuleDestination'
 -- 'arn', 'deleteTopicRuleDestination_arn' - The ARN of the topic rule destination to delete.
 newDeleteTopicRuleDestination ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTopicRuleDestination
 newDeleteTopicRuleDestination pArn_ =
   DeleteTopicRuleDestination' {arn = pArn_}
 
 -- | The ARN of the topic rule destination to delete.
-deleteTopicRuleDestination_arn :: Lens.Lens' DeleteTopicRuleDestination Prelude.Text
+deleteTopicRuleDestination_arn :: Lens.Lens' DeleteTopicRuleDestination Core.Text
 deleteTopicRuleDestination_arn = Lens.lens (\DeleteTopicRuleDestination' {arn} -> arn) (\s@DeleteTopicRuleDestination' {} a -> s {arn = a} :: DeleteTopicRuleDestination)
 
-instance
-  Prelude.AWSRequest
-    DeleteTopicRuleDestination
-  where
+instance Core.AWSRequest DeleteTopicRuleDestination where
   type
-    Rs DeleteTopicRuleDestination =
+    AWSResponse DeleteTopicRuleDestination =
       DeleteTopicRuleDestinationResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTopicRuleDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTopicRuleDestination
+instance Core.Hashable DeleteTopicRuleDestination
 
-instance Prelude.NFData DeleteTopicRuleDestination
+instance Core.NFData DeleteTopicRuleDestination
 
-instance Prelude.ToHeaders DeleteTopicRuleDestination where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTopicRuleDestination where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTopicRuleDestination where
+instance Core.ToPath DeleteTopicRuleDestination where
   toPath DeleteTopicRuleDestination' {..} =
-    Prelude.mconcat
-      ["/destinations/", Prelude.toBS arn]
+    Core.mconcat ["/destinations/", Core.toBS arn]
 
-instance Prelude.ToQuery DeleteTopicRuleDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTopicRuleDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTopicRuleDestinationResponse' smart constructor.
 data DeleteTopicRuleDestinationResponse = DeleteTopicRuleDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTopicRuleDestinationResponse' with all optional fields omitted.
@@ -120,7 +115,7 @@ data DeleteTopicRuleDestinationResponse = DeleteTopicRuleDestinationResponse'
 -- 'httpStatus', 'deleteTopicRuleDestinationResponse_httpStatus' - The response's http status code.
 newDeleteTopicRuleDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTopicRuleDestinationResponse
 newDeleteTopicRuleDestinationResponse pHttpStatus_ =
   DeleteTopicRuleDestinationResponse'
@@ -129,9 +124,9 @@ newDeleteTopicRuleDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteTopicRuleDestinationResponse_httpStatus :: Lens.Lens' DeleteTopicRuleDestinationResponse Prelude.Int
+deleteTopicRuleDestinationResponse_httpStatus :: Lens.Lens' DeleteTopicRuleDestinationResponse Core.Int
 deleteTopicRuleDestinationResponse_httpStatus = Lens.lens (\DeleteTopicRuleDestinationResponse' {httpStatus} -> httpStatus) (\s@DeleteTopicRuleDestinationResponse' {} a -> s {httpStatus = a} :: DeleteTopicRuleDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteTopicRuleDestinationResponse

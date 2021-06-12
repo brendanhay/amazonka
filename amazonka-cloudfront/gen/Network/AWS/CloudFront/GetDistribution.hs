@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CloudFront.GetDistribution
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data GetDistribution = GetDistribution'
   { -- | The distribution\'s ID. If the ID is empty, an empty distribution
     -- configuration is returned.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistribution' with all optional fields omitted.
@@ -69,41 +68,43 @@ data GetDistribution = GetDistribution'
 -- configuration is returned.
 newGetDistribution ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetDistribution
 newGetDistribution pId_ = GetDistribution' {id = pId_}
 
 -- | The distribution\'s ID. If the ID is empty, an empty distribution
 -- configuration is returned.
-getDistribution_id :: Lens.Lens' GetDistribution Prelude.Text
+getDistribution_id :: Lens.Lens' GetDistribution Core.Text
 getDistribution_id = Lens.lens (\GetDistribution' {id} -> id) (\s@GetDistribution' {} a -> s {id = a} :: GetDistribution)
 
-instance Prelude.AWSRequest GetDistribution where
-  type Rs GetDistribution = GetDistributionResponse
+instance Core.AWSRequest GetDistribution where
+  type
+    AWSResponse GetDistribution =
+      GetDistributionResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetDistributionResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDistribution
+instance Core.Hashable GetDistribution
 
-instance Prelude.NFData GetDistribution
+instance Core.NFData GetDistribution
 
-instance Prelude.ToHeaders GetDistribution where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetDistribution where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetDistribution where
+instance Core.ToPath GetDistribution where
   toPath GetDistribution' {..} =
-    Prelude.mconcat
-      ["/2020-05-31/distribution/", Prelude.toBS id]
+    Core.mconcat
+      ["/2020-05-31/distribution/", Core.toBS id]
 
-instance Prelude.ToQuery GetDistribution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDistribution where
+  toQuery = Core.const Core.mempty
 
 -- | The returned result of the corresponding request.
 --
@@ -111,13 +112,13 @@ instance Prelude.ToQuery GetDistribution where
 data GetDistributionResponse = GetDistributionResponse'
   { -- | The current version of the distribution\'s information. For example:
     -- @E2QWRUHAPOMQZL@.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The distribution\'s information.
-    distribution :: Prelude.Maybe Distribution,
+    distribution :: Core.Maybe Distribution,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDistributionResponse' with all optional fields omitted.
@@ -135,26 +136,26 @@ data GetDistributionResponse = GetDistributionResponse'
 -- 'httpStatus', 'getDistributionResponse_httpStatus' - The response's http status code.
 newGetDistributionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDistributionResponse
 newGetDistributionResponse pHttpStatus_ =
   GetDistributionResponse'
-    { eTag = Prelude.Nothing,
-      distribution = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      distribution = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the distribution\'s information. For example:
 -- @E2QWRUHAPOMQZL@.
-getDistributionResponse_eTag :: Lens.Lens' GetDistributionResponse (Prelude.Maybe Prelude.Text)
+getDistributionResponse_eTag :: Lens.Lens' GetDistributionResponse (Core.Maybe Core.Text)
 getDistributionResponse_eTag = Lens.lens (\GetDistributionResponse' {eTag} -> eTag) (\s@GetDistributionResponse' {} a -> s {eTag = a} :: GetDistributionResponse)
 
 -- | The distribution\'s information.
-getDistributionResponse_distribution :: Lens.Lens' GetDistributionResponse (Prelude.Maybe Distribution)
+getDistributionResponse_distribution :: Lens.Lens' GetDistributionResponse (Core.Maybe Distribution)
 getDistributionResponse_distribution = Lens.lens (\GetDistributionResponse' {distribution} -> distribution) (\s@GetDistributionResponse' {} a -> s {distribution = a} :: GetDistributionResponse)
 
 -- | The response's http status code.
-getDistributionResponse_httpStatus :: Lens.Lens' GetDistributionResponse Prelude.Int
+getDistributionResponse_httpStatus :: Lens.Lens' GetDistributionResponse Core.Int
 getDistributionResponse_httpStatus = Lens.lens (\GetDistributionResponse' {httpStatus} -> httpStatus) (\s@GetDistributionResponse' {} a -> s {httpStatus = a} :: GetDistributionResponse)
 
-instance Prelude.NFData GetDistributionResponse
+instance Core.NFData GetDistributionResponse

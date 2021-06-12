@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.WorkDocs.GetCurrentUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -57,9 +56,9 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newGetCurrentUser' smart constructor.
 data GetCurrentUser = GetCurrentUser'
   { -- | Amazon WorkDocs authentication token.
-    authenticationToken :: Prelude.Sensitive Prelude.Text
+    authenticationToken :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCurrentUser' with all optional fields omitted.
@@ -72,55 +71,57 @@ data GetCurrentUser = GetCurrentUser'
 -- 'authenticationToken', 'getCurrentUser_authenticationToken' - Amazon WorkDocs authentication token.
 newGetCurrentUser ::
   -- | 'authenticationToken'
-  Prelude.Text ->
+  Core.Text ->
   GetCurrentUser
 newGetCurrentUser pAuthenticationToken_ =
   GetCurrentUser'
     { authenticationToken =
-        Prelude._Sensitive Lens.# pAuthenticationToken_
+        Core._Sensitive Lens.# pAuthenticationToken_
     }
 
 -- | Amazon WorkDocs authentication token.
-getCurrentUser_authenticationToken :: Lens.Lens' GetCurrentUser Prelude.Text
-getCurrentUser_authenticationToken = Lens.lens (\GetCurrentUser' {authenticationToken} -> authenticationToken) (\s@GetCurrentUser' {} a -> s {authenticationToken = a} :: GetCurrentUser) Prelude.. Prelude._Sensitive
+getCurrentUser_authenticationToken :: Lens.Lens' GetCurrentUser Core.Text
+getCurrentUser_authenticationToken = Lens.lens (\GetCurrentUser' {authenticationToken} -> authenticationToken) (\s@GetCurrentUser' {} a -> s {authenticationToken = a} :: GetCurrentUser) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest GetCurrentUser where
-  type Rs GetCurrentUser = GetCurrentUserResponse
+instance Core.AWSRequest GetCurrentUser where
+  type
+    AWSResponse GetCurrentUser =
+      GetCurrentUserResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCurrentUserResponse'
-            Prelude.<$> (x Prelude..?> "User")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "User")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCurrentUser
+instance Core.Hashable GetCurrentUser
 
-instance Prelude.NFData GetCurrentUser
+instance Core.NFData GetCurrentUser
 
-instance Prelude.ToHeaders GetCurrentUser where
+instance Core.ToHeaders GetCurrentUser where
   toHeaders GetCurrentUser' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToPath GetCurrentUser where
-  toPath = Prelude.const "/api/v1/me"
+instance Core.ToPath GetCurrentUser where
+  toPath = Core.const "/api/v1/me"
 
-instance Prelude.ToQuery GetCurrentUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCurrentUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCurrentUserResponse' smart constructor.
 data GetCurrentUserResponse = GetCurrentUserResponse'
   { -- | Metadata of the user.
-    user :: Prelude.Maybe User,
+    user :: Core.Maybe User,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCurrentUserResponse' with all optional fields omitted.
@@ -135,20 +136,20 @@ data GetCurrentUserResponse = GetCurrentUserResponse'
 -- 'httpStatus', 'getCurrentUserResponse_httpStatus' - The response's http status code.
 newGetCurrentUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCurrentUserResponse
 newGetCurrentUserResponse pHttpStatus_ =
   GetCurrentUserResponse'
-    { user = Prelude.Nothing,
+    { user = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Metadata of the user.
-getCurrentUserResponse_user :: Lens.Lens' GetCurrentUserResponse (Prelude.Maybe User)
+getCurrentUserResponse_user :: Lens.Lens' GetCurrentUserResponse (Core.Maybe User)
 getCurrentUserResponse_user = Lens.lens (\GetCurrentUserResponse' {user} -> user) (\s@GetCurrentUserResponse' {} a -> s {user = a} :: GetCurrentUserResponse)
 
 -- | The response's http status code.
-getCurrentUserResponse_httpStatus :: Lens.Lens' GetCurrentUserResponse Prelude.Int
+getCurrentUserResponse_httpStatus :: Lens.Lens' GetCurrentUserResponse Core.Int
 getCurrentUserResponse_httpStatus = Lens.lens (\GetCurrentUserResponse' {httpStatus} -> httpStatus) (\s@GetCurrentUserResponse' {} a -> s {httpStatus = a} :: GetCurrentUserResponse)
 
-instance Prelude.NFData GetCurrentUserResponse
+instance Core.NFData GetCurrentUserResponse

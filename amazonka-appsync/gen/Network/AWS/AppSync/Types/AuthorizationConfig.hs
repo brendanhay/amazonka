@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AppSync.Types.AuthorizationConfig where
 
 import Network.AWS.AppSync.Types.AuthorizationType
 import Network.AWS.AppSync.Types.AwsIamConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The authorization config in case the HTTP endpoint requires
 -- authorization.
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAuthorizationConfig' smart constructor.
 data AuthorizationConfig = AuthorizationConfig'
   { -- | The AWS IAM settings.
-    awsIamConfig :: Prelude.Maybe AwsIamConfig,
+    awsIamConfig :: Core.Maybe AwsIamConfig,
     -- | The authorization type required by the HTTP endpoint.
     --
     -- -   __AWS_IAM__: The authorization type is Sigv4.
     authorizationType :: AuthorizationType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizationConfig' with all optional fields omitted.
@@ -58,13 +57,12 @@ newAuthorizationConfig ::
   AuthorizationConfig
 newAuthorizationConfig pAuthorizationType_ =
   AuthorizationConfig'
-    { awsIamConfig =
-        Prelude.Nothing,
+    { awsIamConfig = Core.Nothing,
       authorizationType = pAuthorizationType_
     }
 
 -- | The AWS IAM settings.
-authorizationConfig_awsIamConfig :: Lens.Lens' AuthorizationConfig (Prelude.Maybe AwsIamConfig)
+authorizationConfig_awsIamConfig :: Lens.Lens' AuthorizationConfig (Core.Maybe AwsIamConfig)
 authorizationConfig_awsIamConfig = Lens.lens (\AuthorizationConfig' {awsIamConfig} -> awsIamConfig) (\s@AuthorizationConfig' {} a -> s {awsIamConfig = a} :: AuthorizationConfig)
 
 -- | The authorization type required by the HTTP endpoint.
@@ -73,27 +71,26 @@ authorizationConfig_awsIamConfig = Lens.lens (\AuthorizationConfig' {awsIamConfi
 authorizationConfig_authorizationType :: Lens.Lens' AuthorizationConfig AuthorizationType
 authorizationConfig_authorizationType = Lens.lens (\AuthorizationConfig' {authorizationType} -> authorizationType) (\s@AuthorizationConfig' {} a -> s {authorizationType = a} :: AuthorizationConfig)
 
-instance Prelude.FromJSON AuthorizationConfig where
+instance Core.FromJSON AuthorizationConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AuthorizationConfig"
       ( \x ->
           AuthorizationConfig'
-            Prelude.<$> (x Prelude..:? "awsIamConfig")
-            Prelude.<*> (x Prelude..: "authorizationType")
+            Core.<$> (x Core..:? "awsIamConfig")
+            Core.<*> (x Core..: "authorizationType")
       )
 
-instance Prelude.Hashable AuthorizationConfig
+instance Core.Hashable AuthorizationConfig
 
-instance Prelude.NFData AuthorizationConfig
+instance Core.NFData AuthorizationConfig
 
-instance Prelude.ToJSON AuthorizationConfig where
+instance Core.ToJSON AuthorizationConfig where
   toJSON AuthorizationConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("awsIamConfig" Prelude..=)
-              Prelude.<$> awsIamConfig,
-            Prelude.Just
-              ("authorizationType" Prelude..= authorizationType)
+    Core.object
+      ( Core.catMaybes
+          [ ("awsIamConfig" Core..=) Core.<$> awsIamConfig,
+            Core.Just
+              ("authorizationType" Core..= authorizationType)
           ]
       )

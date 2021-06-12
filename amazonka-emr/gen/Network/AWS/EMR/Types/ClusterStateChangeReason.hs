@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ClusterStateChangeReason where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ClusterStateChangeReasonCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The reason that the cluster changed to its current state.
 --
 -- /See:/ 'newClusterStateChangeReason' smart constructor.
 data ClusterStateChangeReason = ClusterStateChangeReason'
   { -- | The descriptive message for the state change reason.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The programmatic code for the state change reason.
-    code :: Prelude.Maybe ClusterStateChangeReasonCode
+    code :: Core.Maybe ClusterStateChangeReasonCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClusterStateChangeReason' with all optional fields omitted.
@@ -50,29 +49,27 @@ newClusterStateChangeReason ::
   ClusterStateChangeReason
 newClusterStateChangeReason =
   ClusterStateChangeReason'
-    { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The descriptive message for the state change reason.
-clusterStateChangeReason_message :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe Prelude.Text)
+clusterStateChangeReason_message :: Lens.Lens' ClusterStateChangeReason (Core.Maybe Core.Text)
 clusterStateChangeReason_message = Lens.lens (\ClusterStateChangeReason' {message} -> message) (\s@ClusterStateChangeReason' {} a -> s {message = a} :: ClusterStateChangeReason)
 
 -- | The programmatic code for the state change reason.
-clusterStateChangeReason_code :: Lens.Lens' ClusterStateChangeReason (Prelude.Maybe ClusterStateChangeReasonCode)
+clusterStateChangeReason_code :: Lens.Lens' ClusterStateChangeReason (Core.Maybe ClusterStateChangeReasonCode)
 clusterStateChangeReason_code = Lens.lens (\ClusterStateChangeReason' {code} -> code) (\s@ClusterStateChangeReason' {} a -> s {code = a} :: ClusterStateChangeReason)
 
-instance Prelude.FromJSON ClusterStateChangeReason where
+instance Core.FromJSON ClusterStateChangeReason where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ClusterStateChangeReason"
       ( \x ->
           ClusterStateChangeReason'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "Code")
+            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Code")
       )
 
-instance Prelude.Hashable ClusterStateChangeReason
+instance Core.Hashable ClusterStateChangeReason
 
-instance Prelude.NFData ClusterStateChangeReason
+instance Core.NFData ClusterStateChangeReason

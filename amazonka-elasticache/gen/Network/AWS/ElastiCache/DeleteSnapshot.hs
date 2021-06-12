@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.ElastiCache.DeleteSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteSnapshot' smart constructor.
 data DeleteSnapshot = DeleteSnapshot'
   { -- | The name of the snapshot to be deleted.
-    snapshotName :: Prelude.Text
+    snapshotName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshot' with all optional fields omitted.
@@ -70,54 +69,55 @@ data DeleteSnapshot = DeleteSnapshot'
 -- 'snapshotName', 'deleteSnapshot_snapshotName' - The name of the snapshot to be deleted.
 newDeleteSnapshot ::
   -- | 'snapshotName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSnapshot
 newDeleteSnapshot pSnapshotName_ =
   DeleteSnapshot' {snapshotName = pSnapshotName_}
 
 -- | The name of the snapshot to be deleted.
-deleteSnapshot_snapshotName :: Lens.Lens' DeleteSnapshot Prelude.Text
+deleteSnapshot_snapshotName :: Lens.Lens' DeleteSnapshot Core.Text
 deleteSnapshot_snapshotName = Lens.lens (\DeleteSnapshot' {snapshotName} -> snapshotName) (\s@DeleteSnapshot' {} a -> s {snapshotName = a} :: DeleteSnapshot)
 
-instance Prelude.AWSRequest DeleteSnapshot where
-  type Rs DeleteSnapshot = DeleteSnapshotResponse
+instance Core.AWSRequest DeleteSnapshot where
+  type
+    AWSResponse DeleteSnapshot =
+      DeleteSnapshotResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteSnapshotResult"
       ( \s h x ->
           DeleteSnapshotResponse'
-            Prelude.<$> (x Prelude..@? "Snapshot")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Snapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSnapshot
+instance Core.Hashable DeleteSnapshot
 
-instance Prelude.NFData DeleteSnapshot
+instance Core.NFData DeleteSnapshot
 
-instance Prelude.ToHeaders DeleteSnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteSnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSnapshot where
+instance Core.ToQuery DeleteSnapshot where
   toQuery DeleteSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteSnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "SnapshotName" Prelude.=: snapshotName
+          Core.=: ("DeleteSnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "SnapshotName" Core.=: snapshotName
       ]
 
 -- | /See:/ 'newDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-  { snapshot :: Prelude.Maybe Snapshot,
+  { snapshot :: Core.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSnapshotResponse' with all optional fields omitted.
@@ -132,20 +132,20 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse'
 -- 'httpStatus', 'deleteSnapshotResponse_httpStatus' - The response's http status code.
 newDeleteSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSnapshotResponse
 newDeleteSnapshotResponse pHttpStatus_ =
   DeleteSnapshotResponse'
-    { snapshot = Prelude.Nothing,
+    { snapshot = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteSnapshotResponse_snapshot :: Lens.Lens' DeleteSnapshotResponse (Prelude.Maybe Snapshot)
+deleteSnapshotResponse_snapshot :: Lens.Lens' DeleteSnapshotResponse (Core.Maybe Snapshot)
 deleteSnapshotResponse_snapshot = Lens.lens (\DeleteSnapshotResponse' {snapshot} -> snapshot) (\s@DeleteSnapshotResponse' {} a -> s {snapshot = a} :: DeleteSnapshotResponse)
 
 -- | The response's http status code.
-deleteSnapshotResponse_httpStatus :: Lens.Lens' DeleteSnapshotResponse Prelude.Int
+deleteSnapshotResponse_httpStatus :: Lens.Lens' DeleteSnapshotResponse Core.Int
 deleteSnapshotResponse_httpStatus = Lens.lens (\DeleteSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteSnapshotResponse)
 
-instance Prelude.NFData DeleteSnapshotResponse
+instance Core.NFData DeleteSnapshotResponse

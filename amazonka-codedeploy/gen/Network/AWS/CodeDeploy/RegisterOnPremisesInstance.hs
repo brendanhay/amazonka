@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +51,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRegisterOnPremisesInstance' smart constructor.
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
   { -- | The ARN of the IAM user to associate with the on-premises instance.
-    iamUserArn :: Prelude.Maybe Prelude.Text,
+    iamUserArn :: Core.Maybe Core.Text,
     -- | The ARN of the IAM session to associate with the on-premises instance.
-    iamSessionArn :: Prelude.Maybe Prelude.Text,
+    iamSessionArn :: Core.Maybe Core.Text,
     -- | The name of the on-premises instance to register.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterOnPremisesInstance' with all optional fields omitted.
@@ -75,82 +74,75 @@ data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
 -- 'instanceName', 'registerOnPremisesInstance_instanceName' - The name of the on-premises instance to register.
 newRegisterOnPremisesInstance ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   RegisterOnPremisesInstance
 newRegisterOnPremisesInstance pInstanceName_ =
   RegisterOnPremisesInstance'
     { iamUserArn =
-        Prelude.Nothing,
-      iamSessionArn = Prelude.Nothing,
+        Core.Nothing,
+      iamSessionArn = Core.Nothing,
       instanceName = pInstanceName_
     }
 
 -- | The ARN of the IAM user to associate with the on-premises instance.
-registerOnPremisesInstance_iamUserArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
+registerOnPremisesInstance_iamUserArn :: Lens.Lens' RegisterOnPremisesInstance (Core.Maybe Core.Text)
 registerOnPremisesInstance_iamUserArn = Lens.lens (\RegisterOnPremisesInstance' {iamUserArn} -> iamUserArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamUserArn = a} :: RegisterOnPremisesInstance)
 
 -- | The ARN of the IAM session to associate with the on-premises instance.
-registerOnPremisesInstance_iamSessionArn :: Lens.Lens' RegisterOnPremisesInstance (Prelude.Maybe Prelude.Text)
+registerOnPremisesInstance_iamSessionArn :: Lens.Lens' RegisterOnPremisesInstance (Core.Maybe Core.Text)
 registerOnPremisesInstance_iamSessionArn = Lens.lens (\RegisterOnPremisesInstance' {iamSessionArn} -> iamSessionArn) (\s@RegisterOnPremisesInstance' {} a -> s {iamSessionArn = a} :: RegisterOnPremisesInstance)
 
 -- | The name of the on-premises instance to register.
-registerOnPremisesInstance_instanceName :: Lens.Lens' RegisterOnPremisesInstance Prelude.Text
+registerOnPremisesInstance_instanceName :: Lens.Lens' RegisterOnPremisesInstance Core.Text
 registerOnPremisesInstance_instanceName = Lens.lens (\RegisterOnPremisesInstance' {instanceName} -> instanceName) (\s@RegisterOnPremisesInstance' {} a -> s {instanceName = a} :: RegisterOnPremisesInstance)
 
-instance
-  Prelude.AWSRequest
-    RegisterOnPremisesInstance
-  where
+instance Core.AWSRequest RegisterOnPremisesInstance where
   type
-    Rs RegisterOnPremisesInstance =
+    AWSResponse RegisterOnPremisesInstance =
       RegisterOnPremisesInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       RegisterOnPremisesInstanceResponse'
 
-instance Prelude.Hashable RegisterOnPremisesInstance
+instance Core.Hashable RegisterOnPremisesInstance
 
-instance Prelude.NFData RegisterOnPremisesInstance
+instance Core.NFData RegisterOnPremisesInstance
 
-instance Prelude.ToHeaders RegisterOnPremisesInstance where
+instance Core.ToHeaders RegisterOnPremisesInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.RegisterOnPremisesInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.RegisterOnPremisesInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterOnPremisesInstance where
+instance Core.ToJSON RegisterOnPremisesInstance where
   toJSON RegisterOnPremisesInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("iamUserArn" Prelude..=) Prelude.<$> iamUserArn,
-            ("iamSessionArn" Prelude..=)
-              Prelude.<$> iamSessionArn,
-            Prelude.Just
-              ("instanceName" Prelude..= instanceName)
+    Core.object
+      ( Core.catMaybes
+          [ ("iamUserArn" Core..=) Core.<$> iamUserArn,
+            ("iamSessionArn" Core..=) Core.<$> iamSessionArn,
+            Core.Just ("instanceName" Core..= instanceName)
           ]
       )
 
-instance Prelude.ToPath RegisterOnPremisesInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterOnPremisesInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterOnPremisesInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterOnPremisesInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterOnPremisesInstanceResponse' smart constructor.
 data RegisterOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterOnPremisesInstanceResponse' with all optional fields omitted.
@@ -162,5 +154,5 @@ newRegisterOnPremisesInstanceResponse =
   RegisterOnPremisesInstanceResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     RegisterOnPremisesInstanceResponse

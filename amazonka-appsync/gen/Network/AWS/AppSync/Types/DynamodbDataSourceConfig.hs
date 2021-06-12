@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,26 +20,26 @@
 module Network.AWS.AppSync.Types.DynamodbDataSourceConfig where
 
 import Network.AWS.AppSync.Types.DeltaSyncConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Amazon DynamoDB data source configuration.
 --
 -- /See:/ 'newDynamodbDataSourceConfig' smart constructor.
 data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
   { -- | Set to TRUE to use Amazon Cognito credentials with this data source.
-    useCallerCredentials :: Prelude.Maybe Prelude.Bool,
+    useCallerCredentials :: Core.Maybe Core.Bool,
     -- | Set to TRUE to use Conflict Detection and Resolution with this data
     -- source.
-    versioned :: Prelude.Maybe Prelude.Bool,
+    versioned :: Core.Maybe Core.Bool,
     -- | The @DeltaSyncConfig@ for a versioned datasource.
-    deltaSyncConfig :: Prelude.Maybe DeltaSyncConfig,
+    deltaSyncConfig :: Core.Maybe DeltaSyncConfig,
     -- | The table name.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | The AWS Region.
-    awsRegion :: Prelude.Text
+    awsRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DynamodbDataSourceConfig' with all optional fields omitted.
@@ -62,68 +61,67 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
 -- 'awsRegion', 'dynamodbDataSourceConfig_awsRegion' - The AWS Region.
 newDynamodbDataSourceConfig ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'awsRegion'
-  Prelude.Text ->
+  Core.Text ->
   DynamodbDataSourceConfig
 newDynamodbDataSourceConfig pTableName_ pAwsRegion_ =
   DynamodbDataSourceConfig'
     { useCallerCredentials =
-        Prelude.Nothing,
-      versioned = Prelude.Nothing,
-      deltaSyncConfig = Prelude.Nothing,
+        Core.Nothing,
+      versioned = Core.Nothing,
+      deltaSyncConfig = Core.Nothing,
       tableName = pTableName_,
       awsRegion = pAwsRegion_
     }
 
 -- | Set to TRUE to use Amazon Cognito credentials with this data source.
-dynamodbDataSourceConfig_useCallerCredentials :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
+dynamodbDataSourceConfig_useCallerCredentials :: Lens.Lens' DynamodbDataSourceConfig (Core.Maybe Core.Bool)
 dynamodbDataSourceConfig_useCallerCredentials = Lens.lens (\DynamodbDataSourceConfig' {useCallerCredentials} -> useCallerCredentials) (\s@DynamodbDataSourceConfig' {} a -> s {useCallerCredentials = a} :: DynamodbDataSourceConfig)
 
 -- | Set to TRUE to use Conflict Detection and Resolution with this data
 -- source.
-dynamodbDataSourceConfig_versioned :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
+dynamodbDataSourceConfig_versioned :: Lens.Lens' DynamodbDataSourceConfig (Core.Maybe Core.Bool)
 dynamodbDataSourceConfig_versioned = Lens.lens (\DynamodbDataSourceConfig' {versioned} -> versioned) (\s@DynamodbDataSourceConfig' {} a -> s {versioned = a} :: DynamodbDataSourceConfig)
 
 -- | The @DeltaSyncConfig@ for a versioned datasource.
-dynamodbDataSourceConfig_deltaSyncConfig :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe DeltaSyncConfig)
+dynamodbDataSourceConfig_deltaSyncConfig :: Lens.Lens' DynamodbDataSourceConfig (Core.Maybe DeltaSyncConfig)
 dynamodbDataSourceConfig_deltaSyncConfig = Lens.lens (\DynamodbDataSourceConfig' {deltaSyncConfig} -> deltaSyncConfig) (\s@DynamodbDataSourceConfig' {} a -> s {deltaSyncConfig = a} :: DynamodbDataSourceConfig)
 
 -- | The table name.
-dynamodbDataSourceConfig_tableName :: Lens.Lens' DynamodbDataSourceConfig Prelude.Text
+dynamodbDataSourceConfig_tableName :: Lens.Lens' DynamodbDataSourceConfig Core.Text
 dynamodbDataSourceConfig_tableName = Lens.lens (\DynamodbDataSourceConfig' {tableName} -> tableName) (\s@DynamodbDataSourceConfig' {} a -> s {tableName = a} :: DynamodbDataSourceConfig)
 
 -- | The AWS Region.
-dynamodbDataSourceConfig_awsRegion :: Lens.Lens' DynamodbDataSourceConfig Prelude.Text
+dynamodbDataSourceConfig_awsRegion :: Lens.Lens' DynamodbDataSourceConfig Core.Text
 dynamodbDataSourceConfig_awsRegion = Lens.lens (\DynamodbDataSourceConfig' {awsRegion} -> awsRegion) (\s@DynamodbDataSourceConfig' {} a -> s {awsRegion = a} :: DynamodbDataSourceConfig)
 
-instance Prelude.FromJSON DynamodbDataSourceConfig where
+instance Core.FromJSON DynamodbDataSourceConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DynamodbDataSourceConfig"
       ( \x ->
           DynamodbDataSourceConfig'
-            Prelude.<$> (x Prelude..:? "useCallerCredentials")
-            Prelude.<*> (x Prelude..:? "versioned")
-            Prelude.<*> (x Prelude..:? "deltaSyncConfig")
-            Prelude.<*> (x Prelude..: "tableName")
-            Prelude.<*> (x Prelude..: "awsRegion")
+            Core.<$> (x Core..:? "useCallerCredentials")
+            Core.<*> (x Core..:? "versioned")
+            Core.<*> (x Core..:? "deltaSyncConfig")
+            Core.<*> (x Core..: "tableName")
+            Core.<*> (x Core..: "awsRegion")
       )
 
-instance Prelude.Hashable DynamodbDataSourceConfig
+instance Core.Hashable DynamodbDataSourceConfig
 
-instance Prelude.NFData DynamodbDataSourceConfig
+instance Core.NFData DynamodbDataSourceConfig
 
-instance Prelude.ToJSON DynamodbDataSourceConfig where
+instance Core.ToJSON DynamodbDataSourceConfig where
   toJSON DynamodbDataSourceConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("useCallerCredentials" Prelude..=)
-              Prelude.<$> useCallerCredentials,
-            ("versioned" Prelude..=) Prelude.<$> versioned,
-            ("deltaSyncConfig" Prelude..=)
-              Prelude.<$> deltaSyncConfig,
-            Prelude.Just ("tableName" Prelude..= tableName),
-            Prelude.Just ("awsRegion" Prelude..= awsRegion)
+    Core.object
+      ( Core.catMaybes
+          [ ("useCallerCredentials" Core..=)
+              Core.<$> useCallerCredentials,
+            ("versioned" Core..=) Core.<$> versioned,
+            ("deltaSyncConfig" Core..=) Core.<$> deltaSyncConfig,
+            Core.Just ("tableName" Core..= tableName),
+            Core.Just ("awsRegion" Core..= awsRegion)
           ]
       )

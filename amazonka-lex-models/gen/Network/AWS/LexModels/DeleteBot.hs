@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,18 +52,18 @@ module Network.AWS.LexModels.DeleteBot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteBot' smart constructor.
 data DeleteBot = DeleteBot'
   { -- | The name of the bot. The name is case sensitive.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBot' with all optional fields omitted.
@@ -77,46 +76,44 @@ data DeleteBot = DeleteBot'
 -- 'name', 'deleteBot_name' - The name of the bot. The name is case sensitive.
 newDeleteBot ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBot
 newDeleteBot pName_ = DeleteBot' {name = pName_}
 
 -- | The name of the bot. The name is case sensitive.
-deleteBot_name :: Lens.Lens' DeleteBot Prelude.Text
+deleteBot_name :: Lens.Lens' DeleteBot Core.Text
 deleteBot_name = Lens.lens (\DeleteBot' {name} -> name) (\s@DeleteBot' {} a -> s {name = a} :: DeleteBot)
 
-instance Prelude.AWSRequest DeleteBot where
-  type Rs DeleteBot = DeleteBotResponse
+instance Core.AWSRequest DeleteBot where
+  type AWSResponse DeleteBot = DeleteBotResponse
   request = Request.delete defaultService
   response = Response.receiveNull DeleteBotResponse'
 
-instance Prelude.Hashable DeleteBot
+instance Core.Hashable DeleteBot
 
-instance Prelude.NFData DeleteBot
+instance Core.NFData DeleteBot
 
-instance Prelude.ToHeaders DeleteBot where
+instance Core.ToHeaders DeleteBot where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteBot where
+instance Core.ToPath DeleteBot where
   toPath DeleteBot' {..} =
-    Prelude.mconcat ["/bots/", Prelude.toBS name]
+    Core.mconcat ["/bots/", Core.toBS name]
 
-instance Prelude.ToQuery DeleteBot where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteBot where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteBotResponse' smart constructor.
 data DeleteBotResponse = DeleteBotResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBotResponse' with all optional fields omitted.
@@ -126,4 +123,4 @@ newDeleteBotResponse ::
   DeleteBotResponse
 newDeleteBotResponse = DeleteBotResponse'
 
-instance Prelude.NFData DeleteBotResponse
+instance Core.NFData DeleteBotResponse

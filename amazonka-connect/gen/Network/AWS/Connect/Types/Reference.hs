@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Connect.Types.Reference where
 
 import Network.AWS.Connect.Types.ReferenceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A link that an agent selects to complete a given task. You can have up
 -- to 4,096 UTF-8 bytes across all references for a contact.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data Reference = Reference'
   { -- | A formatted URL that displays to an agent in the Contact Control Panel
     -- (CCP)
-    value :: Prelude.Text,
+    value :: Core.Text,
     -- | A valid URL.
     type' :: ReferenceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Reference' with all optional fields omitted.
@@ -51,7 +50,7 @@ data Reference = Reference'
 -- 'type'', 'reference_type' - A valid URL.
 newReference ::
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   ReferenceType ->
   Reference
@@ -60,22 +59,22 @@ newReference pValue_ pType_ =
 
 -- | A formatted URL that displays to an agent in the Contact Control Panel
 -- (CCP)
-reference_value :: Lens.Lens' Reference Prelude.Text
+reference_value :: Lens.Lens' Reference Core.Text
 reference_value = Lens.lens (\Reference' {value} -> value) (\s@Reference' {} a -> s {value = a} :: Reference)
 
 -- | A valid URL.
 reference_type :: Lens.Lens' Reference ReferenceType
 reference_type = Lens.lens (\Reference' {type'} -> type') (\s@Reference' {} a -> s {type' = a} :: Reference)
 
-instance Prelude.Hashable Reference
+instance Core.Hashable Reference
 
-instance Prelude.NFData Reference
+instance Core.NFData Reference
 
-instance Prelude.ToJSON Reference where
+instance Core.ToJSON Reference where
   toJSON Reference' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Value" Prelude..= value),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Value" Core..= value),
+            Core.Just ("Type" Core..= type')
           ]
       )

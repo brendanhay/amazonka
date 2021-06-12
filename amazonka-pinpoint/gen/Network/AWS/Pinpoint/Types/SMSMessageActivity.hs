@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.SMSMessageActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.JourneySMSMessage
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for an SMS activity in a journey. This type of
 -- activity sends a text message to participants.
@@ -32,13 +31,13 @@ data SMSMessageActivity = SMSMessageActivity'
   { -- | The name of the SMS message template to use for the message. If
     -- specified, this value must match the name of an existing message
     -- template.
-    templateName :: Prelude.Maybe Prelude.Text,
+    templateName :: Core.Maybe Core.Text,
     -- | Specifies the sender ID and message type for an SMS message that\'s sent
     -- to participants in a journey.
-    messageConfig :: Prelude.Maybe JourneySMSMessage,
+    messageConfig :: Core.Maybe JourneySMSMessage,
     -- | The unique identifier for the next activity to perform, after the
     -- message is sent.
-    nextActivity :: Prelude.Maybe Prelude.Text,
+    nextActivity :: Core.Maybe Core.Text,
     -- | The unique identifier for the version of the SMS template to use for the
     -- message. If specified, this value must match the identifier for an
     -- existing template version. To retrieve a list of versions and version
@@ -49,9 +48,9 @@ data SMSMessageActivity = SMSMessageActivity'
     -- the version of a template that\'s been most recently reviewed and
     -- approved for use, depending on your workflow. It isn\'t necessarily the
     -- latest version of a template.
-    templateVersion :: Prelude.Maybe Prelude.Text
+    templateVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SMSMessageActivity' with all optional fields omitted.
@@ -85,26 +84,26 @@ newSMSMessageActivity ::
   SMSMessageActivity
 newSMSMessageActivity =
   SMSMessageActivity'
-    { templateName = Prelude.Nothing,
-      messageConfig = Prelude.Nothing,
-      nextActivity = Prelude.Nothing,
-      templateVersion = Prelude.Nothing
+    { templateName = Core.Nothing,
+      messageConfig = Core.Nothing,
+      nextActivity = Core.Nothing,
+      templateVersion = Core.Nothing
     }
 
 -- | The name of the SMS message template to use for the message. If
 -- specified, this value must match the name of an existing message
 -- template.
-sMSMessageActivity_templateName :: Lens.Lens' SMSMessageActivity (Prelude.Maybe Prelude.Text)
+sMSMessageActivity_templateName :: Lens.Lens' SMSMessageActivity (Core.Maybe Core.Text)
 sMSMessageActivity_templateName = Lens.lens (\SMSMessageActivity' {templateName} -> templateName) (\s@SMSMessageActivity' {} a -> s {templateName = a} :: SMSMessageActivity)
 
 -- | Specifies the sender ID and message type for an SMS message that\'s sent
 -- to participants in a journey.
-sMSMessageActivity_messageConfig :: Lens.Lens' SMSMessageActivity (Prelude.Maybe JourneySMSMessage)
+sMSMessageActivity_messageConfig :: Lens.Lens' SMSMessageActivity (Core.Maybe JourneySMSMessage)
 sMSMessageActivity_messageConfig = Lens.lens (\SMSMessageActivity' {messageConfig} -> messageConfig) (\s@SMSMessageActivity' {} a -> s {messageConfig = a} :: SMSMessageActivity)
 
 -- | The unique identifier for the next activity to perform, after the
 -- message is sent.
-sMSMessageActivity_nextActivity :: Lens.Lens' SMSMessageActivity (Prelude.Maybe Prelude.Text)
+sMSMessageActivity_nextActivity :: Lens.Lens' SMSMessageActivity (Core.Maybe Core.Text)
 sMSMessageActivity_nextActivity = Lens.lens (\SMSMessageActivity' {nextActivity} -> nextActivity) (\s@SMSMessageActivity' {} a -> s {nextActivity = a} :: SMSMessageActivity)
 
 -- | The unique identifier for the version of the SMS template to use for the
@@ -117,35 +116,33 @@ sMSMessageActivity_nextActivity = Lens.lens (\SMSMessageActivity' {nextActivity}
 -- the version of a template that\'s been most recently reviewed and
 -- approved for use, depending on your workflow. It isn\'t necessarily the
 -- latest version of a template.
-sMSMessageActivity_templateVersion :: Lens.Lens' SMSMessageActivity (Prelude.Maybe Prelude.Text)
+sMSMessageActivity_templateVersion :: Lens.Lens' SMSMessageActivity (Core.Maybe Core.Text)
 sMSMessageActivity_templateVersion = Lens.lens (\SMSMessageActivity' {templateVersion} -> templateVersion) (\s@SMSMessageActivity' {} a -> s {templateVersion = a} :: SMSMessageActivity)
 
-instance Prelude.FromJSON SMSMessageActivity where
+instance Core.FromJSON SMSMessageActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SMSMessageActivity"
       ( \x ->
           SMSMessageActivity'
-            Prelude.<$> (x Prelude..:? "TemplateName")
-            Prelude.<*> (x Prelude..:? "MessageConfig")
-            Prelude.<*> (x Prelude..:? "NextActivity")
-            Prelude.<*> (x Prelude..:? "TemplateVersion")
+            Core.<$> (x Core..:? "TemplateName")
+            Core.<*> (x Core..:? "MessageConfig")
+            Core.<*> (x Core..:? "NextActivity")
+            Core.<*> (x Core..:? "TemplateVersion")
       )
 
-instance Prelude.Hashable SMSMessageActivity
+instance Core.Hashable SMSMessageActivity
 
-instance Prelude.NFData SMSMessageActivity
+instance Core.NFData SMSMessageActivity
 
-instance Prelude.ToJSON SMSMessageActivity where
+instance Core.ToJSON SMSMessageActivity where
   toJSON SMSMessageActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TemplateName" Prelude..=)
-              Prelude.<$> templateName,
-            ("MessageConfig" Prelude..=)
-              Prelude.<$> messageConfig,
-            ("NextActivity" Prelude..=) Prelude.<$> nextActivity,
-            ("TemplateVersion" Prelude..=)
-              Prelude.<$> templateVersion
+    Core.object
+      ( Core.catMaybes
+          [ ("TemplateName" Core..=) Core.<$> templateName,
+            ("MessageConfig" Core..=) Core.<$> messageConfig,
+            ("NextActivity" Core..=) Core.<$> nextActivity,
+            ("TemplateVersion" Core..=)
+              Core.<$> templateVersion
           ]
       )

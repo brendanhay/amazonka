@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,9 +68,9 @@ module Network.AWS.ElastiCache.CreateCacheCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,7 +82,7 @@ data CreateCacheCluster = CreateCacheCluster'
     --
     -- Use this parameter only when you are creating a cluster in an Amazon
     -- Virtual Private Cloud (Amazon VPC).
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | A list of the Availability Zones in which cache nodes are created. The
     -- order of the zones in the list is not important.
     --
@@ -101,7 +100,7 @@ data CreateCacheCluster = CreateCacheCluster'
     -- multiple times in the list.
     --
     -- Default: System chosen Availability Zones.
-    preferredAvailabilityZones :: Prelude.Maybe [Prelude.Text],
+    preferredAvailabilityZones :: Core.Maybe [Core.Text],
     -- | The initial number of cache nodes that the cluster has.
     --
     -- For clusters running Redis, this value must be 1. For clusters running
@@ -110,12 +109,12 @@ data CreateCacheCluster = CreateCacheCluster'
     -- If you need more than 20 nodes for your Memcached cluster, please fill
     -- out the ElastiCache Limit Increase Request form at
     -- <http://aws.amazon.com/contact-us/elasticache-node-limit-request/>.
-    numCacheNodes :: Prelude.Maybe Prelude.Int,
+    numCacheNodes :: Core.Maybe Core.Int,
     -- | A list of security group names to associate with this cluster.
     --
     -- Use this parameter only when you are creating a cluster outside of an
     -- Amazon Virtual Private Cloud (Amazon VPC).
-    cacheSecurityGroupNames :: Prelude.Maybe [Prelude.Text],
+    cacheSecurityGroupNames :: Core.Maybe [Core.Text],
     -- | The ID of the replication group to which this cluster should belong. If
     -- this parameter is specified, the cluster is added to the specified
     -- replication group as a read replica; otherwise, the cluster is a
@@ -127,7 +126,7 @@ data CreateCacheCluster = CreateCacheCluster'
     -- Availability Zones.
     --
     -- This parameter is only valid if the @Engine@ parameter is @redis@.
-    replicationGroupId :: Prelude.Maybe Prelude.Text,
+    replicationGroupId :: Core.Maybe Core.Text,
     -- | The daily time range (in UTC) during which ElastiCache begins taking a
     -- daily snapshot of your node group (shard).
     --
@@ -137,17 +136,17 @@ data CreateCacheCluster = CreateCacheCluster'
     -- an appropriate time range.
     --
     -- This parameter is only valid if the @Engine@ parameter is @redis@.
-    snapshotWindow :: Prelude.Maybe Prelude.Text,
+    snapshotWindow :: Core.Maybe Core.Text,
     -- | The outpost ARNs in which the cache cluster is created.
-    preferredOutpostArns :: Prelude.Maybe [Prelude.Text],
+    preferredOutpostArns :: Core.Maybe [Core.Text],
     -- | Specifies whether the nodes in the cluster are created in a single
     -- outpost or across multiple outposts.
-    outpostMode :: Prelude.Maybe OutpostMode,
+    outpostMode :: Core.Maybe OutpostMode,
     -- | The name of the parameter group to associate with this cluster. If this
     -- argument is omitted, the default parameter group for the specified
     -- engine is used. You cannot use any parameter group which has
     -- @cluster-enabled=\'yes\'@ when creating a cluster.
-    cacheParameterGroupName :: Prelude.Maybe Prelude.Text,
+    cacheParameterGroupName :: Core.Maybe Core.Text,
     -- | The number of days for which ElastiCache retains automatic snapshots
     -- before deleting them. For example, if you set @SnapshotRetentionLimit@
     -- to 5, a snapshot taken today is retained for 5 days before being
@@ -157,7 +156,7 @@ data CreateCacheCluster = CreateCacheCluster'
     --
     -- Default: 0 (i.e., automatic backups are disabled for this cache
     -- cluster).
-    snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
+    snapshotRetentionLimit :: Core.Maybe Core.Int,
     -- | A single-element string list containing an Amazon Resource Name (ARN)
     -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
     -- The snapshot file is used to populate the node group (shard). The Amazon
@@ -166,7 +165,7 @@ data CreateCacheCluster = CreateCacheCluster'
     -- This parameter is only valid if the @Engine@ parameter is @redis@.
     --
     -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
-    snapshotArns :: Prelude.Maybe [Prelude.Text],
+    snapshotArns :: Core.Maybe [Core.Text],
     -- | The EC2 Availability Zone in which the cluster is created.
     --
     -- All nodes belonging to this cluster are placed in the preferred
@@ -174,7 +173,7 @@ data CreateCacheCluster = CreateCacheCluster'
     -- Availability Zones, use @PreferredAvailabilityZones@.
     --
     -- Default: System chosen Availability Zone.
-    preferredAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    preferredAvailabilityZone :: Core.Maybe Core.Text,
     -- | The name of the subnet group to be used for the cluster.
     --
     -- Use this parameter only when you are creating a cluster in an Amazon
@@ -184,7 +183,7 @@ data CreateCacheCluster = CreateCacheCluster'
     -- create a subnet group before you start creating a cluster. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups>.
-    cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    cacheSubnetGroupName :: Core.Maybe Core.Text,
     -- | The version number of the cache engine to be used for this cluster. To
     -- view the supported cache engine versions, use the
     -- DescribeCacheEngineVersions operation.
@@ -194,12 +193,12 @@ data CreateCacheCluster = CreateCacheCluster'
     -- but you cannot downgrade to an earlier engine version. If you want to
     -- use an earlier engine version, you must delete the existing cluster or
     -- replication group and create it anew with the earlier engine version.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    engineVersion :: Core.Maybe Core.Text,
     -- | Specifies the weekly time range during which maintenance on the cluster
     -- is performed. It is specified as a range in the format
     -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
     -- is a 60 minute period. Valid values for @ddd@ are:
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    preferredMaintenanceWindow :: Core.Maybe Core.Text,
     -- | The compute and memory capacity of the nodes in the node group (shard).
     --
     -- The following node types are supported by ElastiCache. Generally
@@ -293,28 +292,28 @@ data CreateCacheCluster = CreateCacheCluster'
     --
     -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
     --     supported on Redis version 2.8.22 and later.
-    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    cacheNodeType :: Core.Maybe Core.Text,
     -- | A list of cost allocation tags to be added to this resource.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- (SNS) topic to which notifications are sent.
     --
     -- The Amazon SNS topic owner must be the same as the cluster owner.
-    notificationTopicArn :: Prelude.Maybe Prelude.Text,
+    notificationTopicArn :: Core.Maybe Core.Text,
     -- | The port number on which each of the cache nodes accepts connections.
-    port :: Prelude.Maybe Prelude.Int,
+    port :: Core.Maybe Core.Int,
     -- | The name of the cache engine to be used for this cluster.
     --
     -- Valid values for this parameter are: @memcached@ | @redis@
-    engine :: Prelude.Maybe Prelude.Text,
+    engine :: Core.Maybe Core.Text,
     -- | The outpost ARN in which the cache cluster is created.
-    preferredOutpostArn :: Prelude.Maybe Prelude.Text,
+    preferredOutpostArn :: Core.Maybe Core.Text,
     -- | The name of a Redis snapshot from which to restore data into the new
     -- node group (shard). The snapshot status changes to @restoring@ while the
     -- new node group (shard) is being created.
     --
     -- This parameter is only valid if the @Engine@ parameter is @redis@.
-    snapshotName :: Prelude.Maybe Prelude.Text,
+    snapshotName :: Core.Maybe Core.Text,
     -- | __Reserved parameter.__ The password used to access a password protected
     -- server.
     --
@@ -331,7 +330,7 @@ data CreateCacheCluster = CreateCacheCluster'
     --
     -- For more information, see <http://redis.io/commands/AUTH AUTH password>
     -- at http:\/\/redis.io\/commands\/AUTH.
-    authToken :: Prelude.Maybe Prelude.Text,
+    authToken :: Core.Maybe Core.Text,
     -- | Specifies whether the nodes in this Memcached cluster are created in a
     -- single Availability Zone or created across multiple Availability Zones
     -- in the cluster\'s region.
@@ -340,9 +339,9 @@ data CreateCacheCluster = CreateCacheCluster'
     --
     -- If the @AZMode@ and @PreferredAvailabilityZones@ are not specified,
     -- ElastiCache assumes @single-az@ mode.
-    aZMode :: Prelude.Maybe AZMode,
+    aZMode :: Core.Maybe AZMode,
     -- | This parameter is currently disabled.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
     -- | The node group (shard) identifier. This parameter is stored as a
     -- lowercase string.
     --
@@ -353,9 +352,9 @@ data CreateCacheCluster = CreateCacheCluster'
     -- -   The first character must be a letter.
     --
     -- -   A name cannot end with a hyphen or contain two consecutive hyphens.
-    cacheClusterId :: Prelude.Text
+    cacheClusterId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCacheCluster' with all optional fields omitted.
@@ -641,36 +640,36 @@ data CreateCacheCluster = CreateCacheCluster'
 -- -   A name cannot end with a hyphen or contain two consecutive hyphens.
 newCreateCacheCluster ::
   -- | 'cacheClusterId'
-  Prelude.Text ->
+  Core.Text ->
   CreateCacheCluster
 newCreateCacheCluster pCacheClusterId_ =
   CreateCacheCluster'
     { securityGroupIds =
-        Prelude.Nothing,
-      preferredAvailabilityZones = Prelude.Nothing,
-      numCacheNodes = Prelude.Nothing,
-      cacheSecurityGroupNames = Prelude.Nothing,
-      replicationGroupId = Prelude.Nothing,
-      snapshotWindow = Prelude.Nothing,
-      preferredOutpostArns = Prelude.Nothing,
-      outpostMode = Prelude.Nothing,
-      cacheParameterGroupName = Prelude.Nothing,
-      snapshotRetentionLimit = Prelude.Nothing,
-      snapshotArns = Prelude.Nothing,
-      preferredAvailabilityZone = Prelude.Nothing,
-      cacheSubnetGroupName = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      notificationTopicArn = Prelude.Nothing,
-      port = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      preferredOutpostArn = Prelude.Nothing,
-      snapshotName = Prelude.Nothing,
-      authToken = Prelude.Nothing,
-      aZMode = Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
+        Core.Nothing,
+      preferredAvailabilityZones = Core.Nothing,
+      numCacheNodes = Core.Nothing,
+      cacheSecurityGroupNames = Core.Nothing,
+      replicationGroupId = Core.Nothing,
+      snapshotWindow = Core.Nothing,
+      preferredOutpostArns = Core.Nothing,
+      outpostMode = Core.Nothing,
+      cacheParameterGroupName = Core.Nothing,
+      snapshotRetentionLimit = Core.Nothing,
+      snapshotArns = Core.Nothing,
+      preferredAvailabilityZone = Core.Nothing,
+      cacheSubnetGroupName = Core.Nothing,
+      engineVersion = Core.Nothing,
+      preferredMaintenanceWindow = Core.Nothing,
+      cacheNodeType = Core.Nothing,
+      tags = Core.Nothing,
+      notificationTopicArn = Core.Nothing,
+      port = Core.Nothing,
+      engine = Core.Nothing,
+      preferredOutpostArn = Core.Nothing,
+      snapshotName = Core.Nothing,
+      authToken = Core.Nothing,
+      aZMode = Core.Nothing,
+      autoMinorVersionUpgrade = Core.Nothing,
       cacheClusterId = pCacheClusterId_
     }
 
@@ -678,8 +677,8 @@ newCreateCacheCluster pCacheClusterId_ =
 --
 -- Use this parameter only when you are creating a cluster in an Amazon
 -- Virtual Private Cloud (Amazon VPC).
-createCacheCluster_securityGroupIds :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Prelude.Text])
-createCacheCluster_securityGroupIds = Lens.lens (\CreateCacheCluster' {securityGroupIds} -> securityGroupIds) (\s@CreateCacheCluster' {} a -> s {securityGroupIds = a} :: CreateCacheCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCacheCluster_securityGroupIds :: Lens.Lens' CreateCacheCluster (Core.Maybe [Core.Text])
+createCacheCluster_securityGroupIds = Lens.lens (\CreateCacheCluster' {securityGroupIds} -> securityGroupIds) (\s@CreateCacheCluster' {} a -> s {securityGroupIds = a} :: CreateCacheCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of the Availability Zones in which cache nodes are created. The
 -- order of the zones in the list is not important.
@@ -698,8 +697,8 @@ createCacheCluster_securityGroupIds = Lens.lens (\CreateCacheCluster' {securityG
 -- multiple times in the list.
 --
 -- Default: System chosen Availability Zones.
-createCacheCluster_preferredAvailabilityZones :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Prelude.Text])
-createCacheCluster_preferredAvailabilityZones = Lens.lens (\CreateCacheCluster' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@CreateCacheCluster' {} a -> s {preferredAvailabilityZones = a} :: CreateCacheCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCacheCluster_preferredAvailabilityZones :: Lens.Lens' CreateCacheCluster (Core.Maybe [Core.Text])
+createCacheCluster_preferredAvailabilityZones = Lens.lens (\CreateCacheCluster' {preferredAvailabilityZones} -> preferredAvailabilityZones) (\s@CreateCacheCluster' {} a -> s {preferredAvailabilityZones = a} :: CreateCacheCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The initial number of cache nodes that the cluster has.
 --
@@ -709,15 +708,15 @@ createCacheCluster_preferredAvailabilityZones = Lens.lens (\CreateCacheCluster' 
 -- If you need more than 20 nodes for your Memcached cluster, please fill
 -- out the ElastiCache Limit Increase Request form at
 -- <http://aws.amazon.com/contact-us/elasticache-node-limit-request/>.
-createCacheCluster_numCacheNodes :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Int)
+createCacheCluster_numCacheNodes :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Int)
 createCacheCluster_numCacheNodes = Lens.lens (\CreateCacheCluster' {numCacheNodes} -> numCacheNodes) (\s@CreateCacheCluster' {} a -> s {numCacheNodes = a} :: CreateCacheCluster)
 
 -- | A list of security group names to associate with this cluster.
 --
 -- Use this parameter only when you are creating a cluster outside of an
 -- Amazon Virtual Private Cloud (Amazon VPC).
-createCacheCluster_cacheSecurityGroupNames :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Prelude.Text])
-createCacheCluster_cacheSecurityGroupNames = Lens.lens (\CreateCacheCluster' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@CreateCacheCluster' {} a -> s {cacheSecurityGroupNames = a} :: CreateCacheCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCacheCluster_cacheSecurityGroupNames :: Lens.Lens' CreateCacheCluster (Core.Maybe [Core.Text])
+createCacheCluster_cacheSecurityGroupNames = Lens.lens (\CreateCacheCluster' {cacheSecurityGroupNames} -> cacheSecurityGroupNames) (\s@CreateCacheCluster' {} a -> s {cacheSecurityGroupNames = a} :: CreateCacheCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the replication group to which this cluster should belong. If
 -- this parameter is specified, the cluster is added to the specified
@@ -730,7 +729,7 @@ createCacheCluster_cacheSecurityGroupNames = Lens.lens (\CreateCacheCluster' {ca
 -- Availability Zones.
 --
 -- This parameter is only valid if the @Engine@ parameter is @redis@.
-createCacheCluster_replicationGroupId :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_replicationGroupId :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_replicationGroupId = Lens.lens (\CreateCacheCluster' {replicationGroupId} -> replicationGroupId) (\s@CreateCacheCluster' {} a -> s {replicationGroupId = a} :: CreateCacheCluster)
 
 -- | The daily time range (in UTC) during which ElastiCache begins taking a
@@ -742,23 +741,23 @@ createCacheCluster_replicationGroupId = Lens.lens (\CreateCacheCluster' {replica
 -- an appropriate time range.
 --
 -- This parameter is only valid if the @Engine@ parameter is @redis@.
-createCacheCluster_snapshotWindow :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_snapshotWindow :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_snapshotWindow = Lens.lens (\CreateCacheCluster' {snapshotWindow} -> snapshotWindow) (\s@CreateCacheCluster' {} a -> s {snapshotWindow = a} :: CreateCacheCluster)
 
 -- | The outpost ARNs in which the cache cluster is created.
-createCacheCluster_preferredOutpostArns :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Prelude.Text])
-createCacheCluster_preferredOutpostArns = Lens.lens (\CreateCacheCluster' {preferredOutpostArns} -> preferredOutpostArns) (\s@CreateCacheCluster' {} a -> s {preferredOutpostArns = a} :: CreateCacheCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCacheCluster_preferredOutpostArns :: Lens.Lens' CreateCacheCluster (Core.Maybe [Core.Text])
+createCacheCluster_preferredOutpostArns = Lens.lens (\CreateCacheCluster' {preferredOutpostArns} -> preferredOutpostArns) (\s@CreateCacheCluster' {} a -> s {preferredOutpostArns = a} :: CreateCacheCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the nodes in the cluster are created in a single
 -- outpost or across multiple outposts.
-createCacheCluster_outpostMode :: Lens.Lens' CreateCacheCluster (Prelude.Maybe OutpostMode)
+createCacheCluster_outpostMode :: Lens.Lens' CreateCacheCluster (Core.Maybe OutpostMode)
 createCacheCluster_outpostMode = Lens.lens (\CreateCacheCluster' {outpostMode} -> outpostMode) (\s@CreateCacheCluster' {} a -> s {outpostMode = a} :: CreateCacheCluster)
 
 -- | The name of the parameter group to associate with this cluster. If this
 -- argument is omitted, the default parameter group for the specified
 -- engine is used. You cannot use any parameter group which has
 -- @cluster-enabled=\'yes\'@ when creating a cluster.
-createCacheCluster_cacheParameterGroupName :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_cacheParameterGroupName :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_cacheParameterGroupName = Lens.lens (\CreateCacheCluster' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@CreateCacheCluster' {} a -> s {cacheParameterGroupName = a} :: CreateCacheCluster)
 
 -- | The number of days for which ElastiCache retains automatic snapshots
@@ -770,7 +769,7 @@ createCacheCluster_cacheParameterGroupName = Lens.lens (\CreateCacheCluster' {ca
 --
 -- Default: 0 (i.e., automatic backups are disabled for this cache
 -- cluster).
-createCacheCluster_snapshotRetentionLimit :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Int)
+createCacheCluster_snapshotRetentionLimit :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Int)
 createCacheCluster_snapshotRetentionLimit = Lens.lens (\CreateCacheCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@CreateCacheCluster' {} a -> s {snapshotRetentionLimit = a} :: CreateCacheCluster)
 
 -- | A single-element string list containing an Amazon Resource Name (ARN)
@@ -781,8 +780,8 @@ createCacheCluster_snapshotRetentionLimit = Lens.lens (\CreateCacheCluster' {sna
 -- This parameter is only valid if the @Engine@ parameter is @redis@.
 --
 -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
-createCacheCluster_snapshotArns :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Prelude.Text])
-createCacheCluster_snapshotArns = Lens.lens (\CreateCacheCluster' {snapshotArns} -> snapshotArns) (\s@CreateCacheCluster' {} a -> s {snapshotArns = a} :: CreateCacheCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCacheCluster_snapshotArns :: Lens.Lens' CreateCacheCluster (Core.Maybe [Core.Text])
+createCacheCluster_snapshotArns = Lens.lens (\CreateCacheCluster' {snapshotArns} -> snapshotArns) (\s@CreateCacheCluster' {} a -> s {snapshotArns = a} :: CreateCacheCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The EC2 Availability Zone in which the cluster is created.
 --
@@ -791,7 +790,7 @@ createCacheCluster_snapshotArns = Lens.lens (\CreateCacheCluster' {snapshotArns}
 -- Availability Zones, use @PreferredAvailabilityZones@.
 --
 -- Default: System chosen Availability Zone.
-createCacheCluster_preferredAvailabilityZone :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_preferredAvailabilityZone :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_preferredAvailabilityZone = Lens.lens (\CreateCacheCluster' {preferredAvailabilityZone} -> preferredAvailabilityZone) (\s@CreateCacheCluster' {} a -> s {preferredAvailabilityZone = a} :: CreateCacheCluster)
 
 -- | The name of the subnet group to be used for the cluster.
@@ -803,7 +802,7 @@ createCacheCluster_preferredAvailabilityZone = Lens.lens (\CreateCacheCluster' {
 -- create a subnet group before you start creating a cluster. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups>.
-createCacheCluster_cacheSubnetGroupName :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_cacheSubnetGroupName :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_cacheSubnetGroupName = Lens.lens (\CreateCacheCluster' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@CreateCacheCluster' {} a -> s {cacheSubnetGroupName = a} :: CreateCacheCluster)
 
 -- | The version number of the cache engine to be used for this cluster. To
@@ -815,14 +814,14 @@ createCacheCluster_cacheSubnetGroupName = Lens.lens (\CreateCacheCluster' {cache
 -- but you cannot downgrade to an earlier engine version. If you want to
 -- use an earlier engine version, you must delete the existing cluster or
 -- replication group and create it anew with the earlier engine version.
-createCacheCluster_engineVersion :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_engineVersion :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_engineVersion = Lens.lens (\CreateCacheCluster' {engineVersion} -> engineVersion) (\s@CreateCacheCluster' {} a -> s {engineVersion = a} :: CreateCacheCluster)
 
 -- | Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
 -- is a 60 minute period. Valid values for @ddd@ are:
-createCacheCluster_preferredMaintenanceWindow :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_preferredMaintenanceWindow :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_preferredMaintenanceWindow = Lens.lens (\CreateCacheCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateCacheCluster' {} a -> s {preferredMaintenanceWindow = a} :: CreateCacheCluster)
 
 -- | The compute and memory capacity of the nodes in the node group (shard).
@@ -918,32 +917,32 @@ createCacheCluster_preferredMaintenanceWindow = Lens.lens (\CreateCacheCluster' 
 --
 -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
 --     supported on Redis version 2.8.22 and later.
-createCacheCluster_cacheNodeType :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_cacheNodeType :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_cacheNodeType = Lens.lens (\CreateCacheCluster' {cacheNodeType} -> cacheNodeType) (\s@CreateCacheCluster' {} a -> s {cacheNodeType = a} :: CreateCacheCluster)
 
 -- | A list of cost allocation tags to be added to this resource.
-createCacheCluster_tags :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Tag])
-createCacheCluster_tags = Lens.lens (\CreateCacheCluster' {tags} -> tags) (\s@CreateCacheCluster' {} a -> s {tags = a} :: CreateCacheCluster) Prelude.. Lens.mapping Prelude._Coerce
+createCacheCluster_tags :: Lens.Lens' CreateCacheCluster (Core.Maybe [Tag])
+createCacheCluster_tags = Lens.lens (\CreateCacheCluster' {tags} -> tags) (\s@CreateCacheCluster' {} a -> s {tags = a} :: CreateCacheCluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications are sent.
 --
 -- The Amazon SNS topic owner must be the same as the cluster owner.
-createCacheCluster_notificationTopicArn :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_notificationTopicArn :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_notificationTopicArn = Lens.lens (\CreateCacheCluster' {notificationTopicArn} -> notificationTopicArn) (\s@CreateCacheCluster' {} a -> s {notificationTopicArn = a} :: CreateCacheCluster)
 
 -- | The port number on which each of the cache nodes accepts connections.
-createCacheCluster_port :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Int)
+createCacheCluster_port :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Int)
 createCacheCluster_port = Lens.lens (\CreateCacheCluster' {port} -> port) (\s@CreateCacheCluster' {} a -> s {port = a} :: CreateCacheCluster)
 
 -- | The name of the cache engine to be used for this cluster.
 --
 -- Valid values for this parameter are: @memcached@ | @redis@
-createCacheCluster_engine :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_engine :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_engine = Lens.lens (\CreateCacheCluster' {engine} -> engine) (\s@CreateCacheCluster' {} a -> s {engine = a} :: CreateCacheCluster)
 
 -- | The outpost ARN in which the cache cluster is created.
-createCacheCluster_preferredOutpostArn :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_preferredOutpostArn :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_preferredOutpostArn = Lens.lens (\CreateCacheCluster' {preferredOutpostArn} -> preferredOutpostArn) (\s@CreateCacheCluster' {} a -> s {preferredOutpostArn = a} :: CreateCacheCluster)
 
 -- | The name of a Redis snapshot from which to restore data into the new
@@ -951,7 +950,7 @@ createCacheCluster_preferredOutpostArn = Lens.lens (\CreateCacheCluster' {prefer
 -- new node group (shard) is being created.
 --
 -- This parameter is only valid if the @Engine@ parameter is @redis@.
-createCacheCluster_snapshotName :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_snapshotName :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_snapshotName = Lens.lens (\CreateCacheCluster' {snapshotName} -> snapshotName) (\s@CreateCacheCluster' {} a -> s {snapshotName = a} :: CreateCacheCluster)
 
 -- | __Reserved parameter.__ The password used to access a password protected
@@ -970,7 +969,7 @@ createCacheCluster_snapshotName = Lens.lens (\CreateCacheCluster' {snapshotName}
 --
 -- For more information, see <http://redis.io/commands/AUTH AUTH password>
 -- at http:\/\/redis.io\/commands\/AUTH.
-createCacheCluster_authToken :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
+createCacheCluster_authToken :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Text)
 createCacheCluster_authToken = Lens.lens (\CreateCacheCluster' {authToken} -> authToken) (\s@CreateCacheCluster' {} a -> s {authToken = a} :: CreateCacheCluster)
 
 -- | Specifies whether the nodes in this Memcached cluster are created in a
@@ -981,11 +980,11 @@ createCacheCluster_authToken = Lens.lens (\CreateCacheCluster' {authToken} -> au
 --
 -- If the @AZMode@ and @PreferredAvailabilityZones@ are not specified,
 -- ElastiCache assumes @single-az@ mode.
-createCacheCluster_aZMode :: Lens.Lens' CreateCacheCluster (Prelude.Maybe AZMode)
+createCacheCluster_aZMode :: Lens.Lens' CreateCacheCluster (Core.Maybe AZMode)
 createCacheCluster_aZMode = Lens.lens (\CreateCacheCluster' {aZMode} -> aZMode) (\s@CreateCacheCluster' {} a -> s {aZMode = a} :: CreateCacheCluster)
 
 -- | This parameter is currently disabled.
-createCacheCluster_autoMinorVersionUpgrade :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Bool)
+createCacheCluster_autoMinorVersionUpgrade :: Lens.Lens' CreateCacheCluster (Core.Maybe Core.Bool)
 createCacheCluster_autoMinorVersionUpgrade = Lens.lens (\CreateCacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateCacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CreateCacheCluster)
 
 -- | The node group (shard) identifier. This parameter is stored as a
@@ -998,12 +997,12 @@ createCacheCluster_autoMinorVersionUpgrade = Lens.lens (\CreateCacheCluster' {au
 -- -   The first character must be a letter.
 --
 -- -   A name cannot end with a hyphen or contain two consecutive hyphens.
-createCacheCluster_cacheClusterId :: Lens.Lens' CreateCacheCluster Prelude.Text
+createCacheCluster_cacheClusterId :: Lens.Lens' CreateCacheCluster Core.Text
 createCacheCluster_cacheClusterId = Lens.lens (\CreateCacheCluster' {cacheClusterId} -> cacheClusterId) (\s@CreateCacheCluster' {} a -> s {cacheClusterId = a} :: CreateCacheCluster)
 
-instance Prelude.AWSRequest CreateCacheCluster where
+instance Core.AWSRequest CreateCacheCluster where
   type
-    Rs CreateCacheCluster =
+    AWSResponse CreateCacheCluster =
       CreateCacheClusterResponse
   request = Request.postQuery defaultService
   response =
@@ -1011,91 +1010,87 @@ instance Prelude.AWSRequest CreateCacheCluster where
       "CreateCacheClusterResult"
       ( \s h x ->
           CreateCacheClusterResponse'
-            Prelude.<$> (x Prelude..@? "CacheCluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "CacheCluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCacheCluster
+instance Core.Hashable CreateCacheCluster
 
-instance Prelude.NFData CreateCacheCluster
+instance Core.NFData CreateCacheCluster
 
-instance Prelude.ToHeaders CreateCacheCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateCacheCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateCacheCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCacheCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCacheCluster where
+instance Core.ToQuery CreateCacheCluster where
   toQuery CreateCacheCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateCacheCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+          Core.=: ("CreateCacheCluster" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
         "SecurityGroupIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "SecurityGroupId"
-                Prelude.<$> securityGroupIds
+          Core.=: Core.toQuery
+            ( Core.toQueryList "SecurityGroupId"
+                Core.<$> securityGroupIds
             ),
         "PreferredAvailabilityZones"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "PreferredAvailabilityZone"
-                Prelude.<$> preferredAvailabilityZones
+          Core.=: Core.toQuery
+            ( Core.toQueryList "PreferredAvailabilityZone"
+                Core.<$> preferredAvailabilityZones
             ),
-        "NumCacheNodes" Prelude.=: numCacheNodes,
+        "NumCacheNodes" Core.=: numCacheNodes,
         "CacheSecurityGroupNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "CacheSecurityGroupName"
-                Prelude.<$> cacheSecurityGroupNames
+          Core.=: Core.toQuery
+            ( Core.toQueryList "CacheSecurityGroupName"
+                Core.<$> cacheSecurityGroupNames
             ),
-        "ReplicationGroupId" Prelude.=: replicationGroupId,
-        "SnapshotWindow" Prelude.=: snapshotWindow,
+        "ReplicationGroupId" Core.=: replicationGroupId,
+        "SnapshotWindow" Core.=: snapshotWindow,
         "PreferredOutpostArns"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "PreferredOutpostArn"
-                Prelude.<$> preferredOutpostArns
+          Core.=: Core.toQuery
+            ( Core.toQueryList "PreferredOutpostArn"
+                Core.<$> preferredOutpostArns
             ),
-        "OutpostMode" Prelude.=: outpostMode,
+        "OutpostMode" Core.=: outpostMode,
         "CacheParameterGroupName"
-          Prelude.=: cacheParameterGroupName,
+          Core.=: cacheParameterGroupName,
         "SnapshotRetentionLimit"
-          Prelude.=: snapshotRetentionLimit,
+          Core.=: snapshotRetentionLimit,
         "SnapshotArns"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "SnapshotArn"
-                Prelude.<$> snapshotArns
+          Core.=: Core.toQuery
+            ( Core.toQueryList "SnapshotArn"
+                Core.<$> snapshotArns
             ),
         "PreferredAvailabilityZone"
-          Prelude.=: preferredAvailabilityZone,
-        "CacheSubnetGroupName"
-          Prelude.=: cacheSubnetGroupName,
-        "EngineVersion" Prelude.=: engineVersion,
+          Core.=: preferredAvailabilityZone,
+        "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
+        "EngineVersion" Core.=: engineVersion,
         "PreferredMaintenanceWindow"
-          Prelude.=: preferredMaintenanceWindow,
-        "CacheNodeType" Prelude.=: cacheNodeType,
+          Core.=: preferredMaintenanceWindow,
+        "CacheNodeType" Core.=: cacheNodeType,
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
-        "NotificationTopicArn"
-          Prelude.=: notificationTopicArn,
-        "Port" Prelude.=: port,
-        "Engine" Prelude.=: engine,
-        "PreferredOutpostArn" Prelude.=: preferredOutpostArn,
-        "SnapshotName" Prelude.=: snapshotName,
-        "AuthToken" Prelude.=: authToken,
-        "AZMode" Prelude.=: aZMode,
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+        "NotificationTopicArn" Core.=: notificationTopicArn,
+        "Port" Core.=: port,
+        "Engine" Core.=: engine,
+        "PreferredOutpostArn" Core.=: preferredOutpostArn,
+        "SnapshotName" Core.=: snapshotName,
+        "AuthToken" Core.=: authToken,
+        "AZMode" Core.=: aZMode,
         "AutoMinorVersionUpgrade"
-          Prelude.=: autoMinorVersionUpgrade,
-        "CacheClusterId" Prelude.=: cacheClusterId
+          Core.=: autoMinorVersionUpgrade,
+        "CacheClusterId" Core.=: cacheClusterId
       ]
 
 -- | /See:/ 'newCreateCacheClusterResponse' smart constructor.
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
-  { cacheCluster :: Prelude.Maybe CacheCluster,
+  { cacheCluster :: Core.Maybe CacheCluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCacheClusterResponse' with all optional fields omitted.
@@ -1110,21 +1105,21 @@ data CreateCacheClusterResponse = CreateCacheClusterResponse'
 -- 'httpStatus', 'createCacheClusterResponse_httpStatus' - The response's http status code.
 newCreateCacheClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCacheClusterResponse
 newCreateCacheClusterResponse pHttpStatus_ =
   CreateCacheClusterResponse'
     { cacheCluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createCacheClusterResponse_cacheCluster :: Lens.Lens' CreateCacheClusterResponse (Prelude.Maybe CacheCluster)
+createCacheClusterResponse_cacheCluster :: Lens.Lens' CreateCacheClusterResponse (Core.Maybe CacheCluster)
 createCacheClusterResponse_cacheCluster = Lens.lens (\CreateCacheClusterResponse' {cacheCluster} -> cacheCluster) (\s@CreateCacheClusterResponse' {} a -> s {cacheCluster = a} :: CreateCacheClusterResponse)
 
 -- | The response's http status code.
-createCacheClusterResponse_httpStatus :: Lens.Lens' CreateCacheClusterResponse Prelude.Int
+createCacheClusterResponse_httpStatus :: Lens.Lens' CreateCacheClusterResponse Core.Int
 createCacheClusterResponse_httpStatus = Lens.lens (\CreateCacheClusterResponse' {httpStatus} -> httpStatus) (\s@CreateCacheClusterResponse' {} a -> s {httpStatus = a} :: CreateCacheClusterResponse)
 
-instance Prelude.NFData CreateCacheClusterResponse
+instance Core.NFData CreateCacheClusterResponse

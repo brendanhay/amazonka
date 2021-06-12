@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.GroupCertificateAuthorityProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a certificate authority for a group.
 --
 -- /See:/ 'newGroupCertificateAuthorityProperties' smart constructor.
 data GroupCertificateAuthorityProperties = GroupCertificateAuthorityProperties'
   { -- | The ARN of the certificate authority for the group.
-    groupCertificateAuthorityArn :: Prelude.Maybe Prelude.Text,
+    groupCertificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The ID of the certificate authority for the group.
-    groupCertificateAuthorityId :: Prelude.Maybe Prelude.Text
+    groupCertificateAuthorityId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupCertificateAuthorityProperties' with all optional fields omitted.
@@ -50,36 +49,36 @@ newGroupCertificateAuthorityProperties ::
 newGroupCertificateAuthorityProperties =
   GroupCertificateAuthorityProperties'
     { groupCertificateAuthorityArn =
-        Prelude.Nothing,
+        Core.Nothing,
       groupCertificateAuthorityId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ARN of the certificate authority for the group.
-groupCertificateAuthorityProperties_groupCertificateAuthorityArn :: Lens.Lens' GroupCertificateAuthorityProperties (Prelude.Maybe Prelude.Text)
+groupCertificateAuthorityProperties_groupCertificateAuthorityArn :: Lens.Lens' GroupCertificateAuthorityProperties (Core.Maybe Core.Text)
 groupCertificateAuthorityProperties_groupCertificateAuthorityArn = Lens.lens (\GroupCertificateAuthorityProperties' {groupCertificateAuthorityArn} -> groupCertificateAuthorityArn) (\s@GroupCertificateAuthorityProperties' {} a -> s {groupCertificateAuthorityArn = a} :: GroupCertificateAuthorityProperties)
 
 -- | The ID of the certificate authority for the group.
-groupCertificateAuthorityProperties_groupCertificateAuthorityId :: Lens.Lens' GroupCertificateAuthorityProperties (Prelude.Maybe Prelude.Text)
+groupCertificateAuthorityProperties_groupCertificateAuthorityId :: Lens.Lens' GroupCertificateAuthorityProperties (Core.Maybe Core.Text)
 groupCertificateAuthorityProperties_groupCertificateAuthorityId = Lens.lens (\GroupCertificateAuthorityProperties' {groupCertificateAuthorityId} -> groupCertificateAuthorityId) (\s@GroupCertificateAuthorityProperties' {} a -> s {groupCertificateAuthorityId = a} :: GroupCertificateAuthorityProperties)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     GroupCertificateAuthorityProperties
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupCertificateAuthorityProperties"
       ( \x ->
           GroupCertificateAuthorityProperties'
-            Prelude.<$> (x Prelude..:? "GroupCertificateAuthorityArn")
-            Prelude.<*> (x Prelude..:? "GroupCertificateAuthorityId")
+            Core.<$> (x Core..:? "GroupCertificateAuthorityArn")
+            Core.<*> (x Core..:? "GroupCertificateAuthorityId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GroupCertificateAuthorityProperties
 
 instance
-  Prelude.NFData
+  Core.NFData
     GroupCertificateAuthorityProperties

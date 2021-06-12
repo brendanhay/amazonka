@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WAF.GetXssMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -62,9 +61,9 @@ data GetXssMatchSet = GetXssMatchSet'
   { -- | The @XssMatchSetId@ of the XssMatchSet that you want to get.
     -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
     -- ListXssMatchSets.
-    xssMatchSetId :: Prelude.Text
+    xssMatchSetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetXssMatchSet' with all optional fields omitted.
@@ -79,7 +78,7 @@ data GetXssMatchSet = GetXssMatchSet'
 -- ListXssMatchSets.
 newGetXssMatchSet ::
   -- | 'xssMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   GetXssMatchSet
 newGetXssMatchSet pXssMatchSetId_ =
   GetXssMatchSet' {xssMatchSetId = pXssMatchSetId_}
@@ -87,53 +86,51 @@ newGetXssMatchSet pXssMatchSetId_ =
 -- | The @XssMatchSetId@ of the XssMatchSet that you want to get.
 -- @XssMatchSetId@ is returned by CreateXssMatchSet and by
 -- ListXssMatchSets.
-getXssMatchSet_xssMatchSetId :: Lens.Lens' GetXssMatchSet Prelude.Text
+getXssMatchSet_xssMatchSetId :: Lens.Lens' GetXssMatchSet Core.Text
 getXssMatchSet_xssMatchSetId = Lens.lens (\GetXssMatchSet' {xssMatchSetId} -> xssMatchSetId) (\s@GetXssMatchSet' {} a -> s {xssMatchSetId = a} :: GetXssMatchSet)
 
-instance Prelude.AWSRequest GetXssMatchSet where
-  type Rs GetXssMatchSet = GetXssMatchSetResponse
+instance Core.AWSRequest GetXssMatchSet where
+  type
+    AWSResponse GetXssMatchSet =
+      GetXssMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetXssMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "XssMatchSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "XssMatchSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetXssMatchSet
+instance Core.Hashable GetXssMatchSet
 
-instance Prelude.NFData GetXssMatchSet
+instance Core.NFData GetXssMatchSet
 
-instance Prelude.ToHeaders GetXssMatchSet where
+instance Core.ToHeaders GetXssMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.GetXssMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.GetXssMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetXssMatchSet where
+instance Core.ToJSON GetXssMatchSet where
   toJSON GetXssMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("XssMatchSetId" Prelude..= xssMatchSetId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("XssMatchSetId" Core..= xssMatchSetId)]
       )
 
-instance Prelude.ToPath GetXssMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetXssMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetXssMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetXssMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | The response to a GetXssMatchSet request.
 --
@@ -150,11 +147,11 @@ data GetXssMatchSetResponse = GetXssMatchSetResponse'
     --     and @TextTransformation@
     --
     -- -   FieldToMatch: Contains @Data@ and @Type@
-    xssMatchSet :: Prelude.Maybe XssMatchSet,
+    xssMatchSet :: Core.Maybe XssMatchSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetXssMatchSetResponse' with all optional fields omitted.
@@ -179,12 +176,11 @@ data GetXssMatchSetResponse = GetXssMatchSetResponse'
 -- 'httpStatus', 'getXssMatchSetResponse_httpStatus' - The response's http status code.
 newGetXssMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetXssMatchSetResponse
 newGetXssMatchSetResponse pHttpStatus_ =
   GetXssMatchSetResponse'
-    { xssMatchSet =
-        Prelude.Nothing,
+    { xssMatchSet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -199,11 +195,11 @@ newGetXssMatchSetResponse pHttpStatus_ =
 --     and @TextTransformation@
 --
 -- -   FieldToMatch: Contains @Data@ and @Type@
-getXssMatchSetResponse_xssMatchSet :: Lens.Lens' GetXssMatchSetResponse (Prelude.Maybe XssMatchSet)
+getXssMatchSetResponse_xssMatchSet :: Lens.Lens' GetXssMatchSetResponse (Core.Maybe XssMatchSet)
 getXssMatchSetResponse_xssMatchSet = Lens.lens (\GetXssMatchSetResponse' {xssMatchSet} -> xssMatchSet) (\s@GetXssMatchSetResponse' {} a -> s {xssMatchSet = a} :: GetXssMatchSetResponse)
 
 -- | The response's http status code.
-getXssMatchSetResponse_httpStatus :: Lens.Lens' GetXssMatchSetResponse Prelude.Int
+getXssMatchSetResponse_httpStatus :: Lens.Lens' GetXssMatchSetResponse Core.Int
 getXssMatchSetResponse_httpStatus = Lens.lens (\GetXssMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetXssMatchSetResponse' {} a -> s {httpStatus = a} :: GetXssMatchSetResponse)
 
-instance Prelude.NFData GetXssMatchSetResponse
+instance Core.NFData GetXssMatchSetResponse

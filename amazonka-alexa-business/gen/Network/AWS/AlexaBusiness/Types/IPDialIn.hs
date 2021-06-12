@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.AlexaBusiness.Types.IPDialIn where
 
 import Network.AWS.AlexaBusiness.Types.CommsProtocol
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The IP endpoint and protocol for calling.
 --
 -- /See:/ 'newIPDialIn' smart constructor.
 data IPDialIn = IPDialIn'
   { -- | The IP address.
-    endpoint :: Prelude.Text,
+    endpoint :: Core.Text,
     -- | The protocol, including SIP, SIPS, and H323.
     commsProtocol :: CommsProtocol
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IPDialIn' with all optional fields omitted.
@@ -48,7 +47,7 @@ data IPDialIn = IPDialIn'
 -- 'commsProtocol', 'iPDialIn_commsProtocol' - The protocol, including SIP, SIPS, and H323.
 newIPDialIn ::
   -- | 'endpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'commsProtocol'
   CommsProtocol ->
   IPDialIn
@@ -59,33 +58,32 @@ newIPDialIn pEndpoint_ pCommsProtocol_ =
     }
 
 -- | The IP address.
-iPDialIn_endpoint :: Lens.Lens' IPDialIn Prelude.Text
+iPDialIn_endpoint :: Lens.Lens' IPDialIn Core.Text
 iPDialIn_endpoint = Lens.lens (\IPDialIn' {endpoint} -> endpoint) (\s@IPDialIn' {} a -> s {endpoint = a} :: IPDialIn)
 
 -- | The protocol, including SIP, SIPS, and H323.
 iPDialIn_commsProtocol :: Lens.Lens' IPDialIn CommsProtocol
 iPDialIn_commsProtocol = Lens.lens (\IPDialIn' {commsProtocol} -> commsProtocol) (\s@IPDialIn' {} a -> s {commsProtocol = a} :: IPDialIn)
 
-instance Prelude.FromJSON IPDialIn where
+instance Core.FromJSON IPDialIn where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IPDialIn"
       ( \x ->
           IPDialIn'
-            Prelude.<$> (x Prelude..: "Endpoint")
-            Prelude.<*> (x Prelude..: "CommsProtocol")
+            Core.<$> (x Core..: "Endpoint")
+            Core.<*> (x Core..: "CommsProtocol")
       )
 
-instance Prelude.Hashable IPDialIn
+instance Core.Hashable IPDialIn
 
-instance Prelude.NFData IPDialIn
+instance Core.NFData IPDialIn
 
-instance Prelude.ToJSON IPDialIn where
+instance Core.ToJSON IPDialIn where
   toJSON IPDialIn' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Endpoint" Prelude..= endpoint),
-            Prelude.Just
-              ("CommsProtocol" Prelude..= commsProtocol)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Endpoint" Core..= endpoint),
+            Core.Just ("CommsProtocol" Core..= commsProtocol)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IAM.GetInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ data GetInstanceProfile = GetInstanceProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    instanceProfileName :: Prelude.Text
+    instanceProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceProfile' with all optional fields omitted.
@@ -78,7 +77,7 @@ data GetInstanceProfile = GetInstanceProfile'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetInstanceProfile ::
   -- | 'instanceProfileName'
-  Prelude.Text ->
+  Core.Text ->
   GetInstanceProfile
 newGetInstanceProfile pInstanceProfileName_ =
   GetInstanceProfile'
@@ -92,12 +91,12 @@ newGetInstanceProfile pInstanceProfileName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getInstanceProfile_instanceProfileName :: Lens.Lens' GetInstanceProfile Prelude.Text
+getInstanceProfile_instanceProfileName :: Lens.Lens' GetInstanceProfile Core.Text
 getInstanceProfile_instanceProfileName = Lens.lens (\GetInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@GetInstanceProfile' {} a -> s {instanceProfileName = a} :: GetInstanceProfile)
 
-instance Prelude.AWSRequest GetInstanceProfile where
+instance Core.AWSRequest GetInstanceProfile where
   type
-    Rs GetInstanceProfile =
+    AWSResponse GetInstanceProfile =
       GetInstanceProfileResponse
   request = Request.postQuery defaultService
   response =
@@ -105,28 +104,27 @@ instance Prelude.AWSRequest GetInstanceProfile where
       "GetInstanceProfileResult"
       ( \s h x ->
           GetInstanceProfileResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "InstanceProfile")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "InstanceProfile")
       )
 
-instance Prelude.Hashable GetInstanceProfile
+instance Core.Hashable GetInstanceProfile
 
-instance Prelude.NFData GetInstanceProfile
+instance Core.NFData GetInstanceProfile
 
-instance Prelude.ToHeaders GetInstanceProfile where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetInstanceProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInstanceProfile where
+instance Core.ToQuery GetInstanceProfile where
   toQuery GetInstanceProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetInstanceProfile" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "InstanceProfileName" Prelude.=: instanceProfileName
+          Core.=: ("GetInstanceProfile" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "InstanceProfileName" Core.=: instanceProfileName
       ]
 
 -- | Contains the response to a successful GetInstanceProfile request.
@@ -134,11 +132,11 @@ instance Prelude.ToQuery GetInstanceProfile where
 -- /See:/ 'newGetInstanceProfileResponse' smart constructor.
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A structure containing details about the instance profile.
     instanceProfile :: InstanceProfile
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceProfileResponse' with all optional fields omitted.
@@ -153,7 +151,7 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse'
 -- 'instanceProfile', 'getInstanceProfileResponse_instanceProfile' - A structure containing details about the instance profile.
 newGetInstanceProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'instanceProfile'
   InstanceProfile ->
   GetInstanceProfileResponse
@@ -167,11 +165,11 @@ newGetInstanceProfileResponse
       }
 
 -- | The response's http status code.
-getInstanceProfileResponse_httpStatus :: Lens.Lens' GetInstanceProfileResponse Prelude.Int
+getInstanceProfileResponse_httpStatus :: Lens.Lens' GetInstanceProfileResponse Core.Int
 getInstanceProfileResponse_httpStatus = Lens.lens (\GetInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@GetInstanceProfileResponse' {} a -> s {httpStatus = a} :: GetInstanceProfileResponse)
 
 -- | A structure containing details about the instance profile.
 getInstanceProfileResponse_instanceProfile :: Lens.Lens' GetInstanceProfileResponse InstanceProfile
 getInstanceProfileResponse_instanceProfile = Lens.lens (\GetInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@GetInstanceProfileResponse' {} a -> s {instanceProfile = a} :: GetInstanceProfileResponse)
 
-instance Prelude.NFData GetInstanceProfileResponse
+instance Core.NFData GetInstanceProfileResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.FileSystemDataSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.FileSystemAccessMode
 import Network.AWS.SageMaker.Types.FileSystemType
 
@@ -30,7 +29,7 @@ import Network.AWS.SageMaker.Types.FileSystemType
 -- /See:/ 'newFileSystemDataSource' smart constructor.
 data FileSystemDataSource = FileSystemDataSource'
   { -- | The file system id.
-    fileSystemId :: Prelude.Text,
+    fileSystemId :: Core.Text,
     -- | The access mode of the mount of the directory associated with the
     -- channel. A directory can be mounted either in @ro@ (read-only) or @rw@
     -- (read-write) mode.
@@ -38,9 +37,9 @@ data FileSystemDataSource = FileSystemDataSource'
     -- | The file system type.
     fileSystemType :: FileSystemType,
     -- | The full path to the directory to associate with the channel.
-    directoryPath :: Prelude.Text
+    directoryPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FileSystemDataSource' with all optional fields omitted.
@@ -61,13 +60,13 @@ data FileSystemDataSource = FileSystemDataSource'
 -- 'directoryPath', 'fileSystemDataSource_directoryPath' - The full path to the directory to associate with the channel.
 newFileSystemDataSource ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fileSystemAccessMode'
   FileSystemAccessMode ->
   -- | 'fileSystemType'
   FileSystemType ->
   -- | 'directoryPath'
-  Prelude.Text ->
+  Core.Text ->
   FileSystemDataSource
 newFileSystemDataSource
   pFileSystemId_
@@ -83,7 +82,7 @@ newFileSystemDataSource
       }
 
 -- | The file system id.
-fileSystemDataSource_fileSystemId :: Lens.Lens' FileSystemDataSource Prelude.Text
+fileSystemDataSource_fileSystemId :: Lens.Lens' FileSystemDataSource Core.Text
 fileSystemDataSource_fileSystemId = Lens.lens (\FileSystemDataSource' {fileSystemId} -> fileSystemId) (\s@FileSystemDataSource' {} a -> s {fileSystemId = a} :: FileSystemDataSource)
 
 -- | The access mode of the mount of the directory associated with the
@@ -97,38 +96,35 @@ fileSystemDataSource_fileSystemType :: Lens.Lens' FileSystemDataSource FileSyste
 fileSystemDataSource_fileSystemType = Lens.lens (\FileSystemDataSource' {fileSystemType} -> fileSystemType) (\s@FileSystemDataSource' {} a -> s {fileSystemType = a} :: FileSystemDataSource)
 
 -- | The full path to the directory to associate with the channel.
-fileSystemDataSource_directoryPath :: Lens.Lens' FileSystemDataSource Prelude.Text
+fileSystemDataSource_directoryPath :: Lens.Lens' FileSystemDataSource Core.Text
 fileSystemDataSource_directoryPath = Lens.lens (\FileSystemDataSource' {directoryPath} -> directoryPath) (\s@FileSystemDataSource' {} a -> s {directoryPath = a} :: FileSystemDataSource)
 
-instance Prelude.FromJSON FileSystemDataSource where
+instance Core.FromJSON FileSystemDataSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FileSystemDataSource"
       ( \x ->
           FileSystemDataSource'
-            Prelude.<$> (x Prelude..: "FileSystemId")
-            Prelude.<*> (x Prelude..: "FileSystemAccessMode")
-            Prelude.<*> (x Prelude..: "FileSystemType")
-            Prelude.<*> (x Prelude..: "DirectoryPath")
+            Core.<$> (x Core..: "FileSystemId")
+            Core.<*> (x Core..: "FileSystemAccessMode")
+            Core.<*> (x Core..: "FileSystemType")
+            Core.<*> (x Core..: "DirectoryPath")
       )
 
-instance Prelude.Hashable FileSystemDataSource
+instance Core.Hashable FileSystemDataSource
 
-instance Prelude.NFData FileSystemDataSource
+instance Core.NFData FileSystemDataSource
 
-instance Prelude.ToJSON FileSystemDataSource where
+instance Core.ToJSON FileSystemDataSource where
   toJSON FileSystemDataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("FileSystemId" Prelude..= fileSystemId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FileSystemId" Core..= fileSystemId),
+            Core.Just
               ( "FileSystemAccessMode"
-                  Prelude..= fileSystemAccessMode
+                  Core..= fileSystemAccessMode
               ),
-            Prelude.Just
-              ("FileSystemType" Prelude..= fileSystemType),
-            Prelude.Just
-              ("DirectoryPath" Prelude..= directoryPath)
+            Core.Just ("FileSystemType" Core..= fileSystemType),
+            Core.Just ("DirectoryPath" Core..= directoryPath)
           ]
       )

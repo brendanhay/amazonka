@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -115,9 +114,8 @@ module Network.AWS.Route53.ListResourceRecordSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -131,7 +129,7 @@ data ListResourceRecordSets = ListResourceRecordSets'
     -- results were truncated for a given DNS name and type, specify the value
     -- of @NextRecordIdentifier@ from the previous response to get the next
     -- resource record set that has the current DNS name and type.
-    startRecordIdentifier :: Prelude.Maybe Prelude.Text,
+    startRecordIdentifier :: Core.Maybe Core.Text,
     -- | The type of resource record set to begin the record listing from.
     --
     -- Valid values for basic resource record sets: @A@ | @AAAA@ | @CAA@ |
@@ -161,24 +159,24 @@ data ListResourceRecordSets = ListResourceRecordSets'
     --
     -- Constraint: Specifying @type@ without specifying @name@ returns an
     -- @InvalidInput@ error.
-    startRecordType :: Prelude.Maybe RRType,
+    startRecordType :: Core.Maybe RRType,
     -- | (Optional) The maximum number of resource records sets to include in the
     -- response body for this request. If the response includes more than
     -- @maxitems@ resource record sets, the value of the @IsTruncated@ element
     -- in the response is @true@, and the values of the @NextRecordName@ and
     -- @NextRecordType@ elements in the response identify the first resource
     -- record set in the next group of @maxitems@ resource record sets.
-    maxItems :: Prelude.Maybe Prelude.Text,
+    maxItems :: Core.Maybe Core.Text,
     -- | The first name in the lexicographic ordering of resource record sets
     -- that you want to list. If the specified record name doesn\'t exist, the
     -- results begin with the first resource record set that has a name greater
     -- than the value of @name@.
-    startRecordName :: Prelude.Maybe Prelude.Text,
+    startRecordName :: Core.Maybe Core.Text,
     -- | The ID of the hosted zone that contains the resource record sets that
     -- you want to list.
     hostedZoneId :: ResourceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResourceRecordSets' with all optional fields omitted.
@@ -244,10 +242,10 @@ newListResourceRecordSets ::
 newListResourceRecordSets pHostedZoneId_ =
   ListResourceRecordSets'
     { startRecordIdentifier =
-        Prelude.Nothing,
-      startRecordType = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      startRecordName = Prelude.Nothing,
+        Core.Nothing,
+      startRecordType = Core.Nothing,
+      maxItems = Core.Nothing,
+      startRecordName = Core.Nothing,
       hostedZoneId = pHostedZoneId_
     }
 
@@ -255,7 +253,7 @@ newListResourceRecordSets pHostedZoneId_ =
 -- results were truncated for a given DNS name and type, specify the value
 -- of @NextRecordIdentifier@ from the previous response to get the next
 -- resource record set that has the current DNS name and type.
-listResourceRecordSets_startRecordIdentifier :: Lens.Lens' ListResourceRecordSets (Prelude.Maybe Prelude.Text)
+listResourceRecordSets_startRecordIdentifier :: Lens.Lens' ListResourceRecordSets (Core.Maybe Core.Text)
 listResourceRecordSets_startRecordIdentifier = Lens.lens (\ListResourceRecordSets' {startRecordIdentifier} -> startRecordIdentifier) (\s@ListResourceRecordSets' {} a -> s {startRecordIdentifier = a} :: ListResourceRecordSets)
 
 -- | The type of resource record set to begin the record listing from.
@@ -287,7 +285,7 @@ listResourceRecordSets_startRecordIdentifier = Lens.lens (\ListResourceRecordSet
 --
 -- Constraint: Specifying @type@ without specifying @name@ returns an
 -- @InvalidInput@ error.
-listResourceRecordSets_startRecordType :: Lens.Lens' ListResourceRecordSets (Prelude.Maybe RRType)
+listResourceRecordSets_startRecordType :: Lens.Lens' ListResourceRecordSets (Core.Maybe RRType)
 listResourceRecordSets_startRecordType = Lens.lens (\ListResourceRecordSets' {startRecordType} -> startRecordType) (\s@ListResourceRecordSets' {} a -> s {startRecordType = a} :: ListResourceRecordSets)
 
 -- | (Optional) The maximum number of resource records sets to include in the
@@ -296,14 +294,14 @@ listResourceRecordSets_startRecordType = Lens.lens (\ListResourceRecordSets' {st
 -- in the response is @true@, and the values of the @NextRecordName@ and
 -- @NextRecordType@ elements in the response identify the first resource
 -- record set in the next group of @maxitems@ resource record sets.
-listResourceRecordSets_maxItems :: Lens.Lens' ListResourceRecordSets (Prelude.Maybe Prelude.Text)
+listResourceRecordSets_maxItems :: Lens.Lens' ListResourceRecordSets (Core.Maybe Core.Text)
 listResourceRecordSets_maxItems = Lens.lens (\ListResourceRecordSets' {maxItems} -> maxItems) (\s@ListResourceRecordSets' {} a -> s {maxItems = a} :: ListResourceRecordSets)
 
 -- | The first name in the lexicographic ordering of resource record sets
 -- that you want to list. If the specified record name doesn\'t exist, the
 -- results begin with the first resource record set that has a name greater
 -- than the value of @name@.
-listResourceRecordSets_startRecordName :: Lens.Lens' ListResourceRecordSets (Prelude.Maybe Prelude.Text)
+listResourceRecordSets_startRecordName :: Lens.Lens' ListResourceRecordSets (Core.Maybe Core.Text)
 listResourceRecordSets_startRecordName = Lens.lens (\ListResourceRecordSets' {startRecordName} -> startRecordName) (\s@ListResourceRecordSets' {} a -> s {startRecordName = a} :: ListResourceRecordSets)
 
 -- | The ID of the hosted zone that contains the resource record sets that
@@ -311,88 +309,87 @@ listResourceRecordSets_startRecordName = Lens.lens (\ListResourceRecordSets' {st
 listResourceRecordSets_hostedZoneId :: Lens.Lens' ListResourceRecordSets ResourceId
 listResourceRecordSets_hostedZoneId = Lens.lens (\ListResourceRecordSets' {hostedZoneId} -> hostedZoneId) (\s@ListResourceRecordSets' {} a -> s {hostedZoneId = a} :: ListResourceRecordSets)
 
-instance Pager.AWSPager ListResourceRecordSets where
+instance Core.AWSPager ListResourceRecordSets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^. listResourceRecordSetsResponse_isTruncated
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
             Lens.^? listResourceRecordSetsResponse_nextRecordName
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         )
-        Prelude.&& Prelude.isNothing
+        Core.&& Core.isNothing
           ( rs
               Lens.^? listResourceRecordSetsResponse_nextRecordType
-                Prelude.. Lens._Just
+                Core.. Lens._Just
           )
-        Prelude.&& Prelude.isNothing
+        Core.&& Core.isNothing
           ( rs
               Lens.^? listResourceRecordSetsResponse_nextRecordIdentifier
-                Prelude.. Lens._Just
+                Core.. Lens._Just
           ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listResourceRecordSets_startRecordName
           Lens..~ rs
           Lens.^? listResourceRecordSetsResponse_nextRecordName
-            Prelude.. Lens._Just
+            Core.. Lens._Just
           Lens.& listResourceRecordSets_startRecordType
           Lens..~ rs
           Lens.^? listResourceRecordSetsResponse_nextRecordType
-            Prelude.. Lens._Just
+            Core.. Lens._Just
           Lens.& listResourceRecordSets_startRecordIdentifier
           Lens..~ rs
           Lens.^? listResourceRecordSetsResponse_nextRecordIdentifier
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListResourceRecordSets where
+instance Core.AWSRequest ListResourceRecordSets where
   type
-    Rs ListResourceRecordSets =
+    AWSResponse ListResourceRecordSets =
       ListResourceRecordSetsResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListResourceRecordSetsResponse'
-            Prelude.<$> (x Prelude..@? "NextRecordType")
-            Prelude.<*> (x Prelude..@? "NextRecordIdentifier")
-            Prelude.<*> (x Prelude..@? "NextRecordName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "ResourceRecordSets"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "ResourceRecordSet"
-                        )
-            Prelude.<*> (x Prelude..@ "IsTruncated")
-            Prelude.<*> (x Prelude..@ "MaxItems")
+            Core.<$> (x Core..@? "NextRecordType")
+            Core.<*> (x Core..@? "NextRecordIdentifier")
+            Core.<*> (x Core..@? "NextRecordName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "ResourceRecordSets" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "ResourceRecordSet"
+                     )
+            Core.<*> (x Core..@ "IsTruncated")
+            Core.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListResourceRecordSets
+instance Core.Hashable ListResourceRecordSets
 
-instance Prelude.NFData ListResourceRecordSets
+instance Core.NFData ListResourceRecordSets
 
-instance Prelude.ToHeaders ListResourceRecordSets where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListResourceRecordSets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListResourceRecordSets where
+instance Core.ToPath ListResourceRecordSets where
   toPath ListResourceRecordSets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/hostedzone/",
-        Prelude.toBS hostedZoneId,
+        Core.toBS hostedZoneId,
         "/rrset"
       ]
 
-instance Prelude.ToQuery ListResourceRecordSets where
+instance Core.ToQuery ListResourceRecordSets where
   toQuery ListResourceRecordSets' {..} =
-    Prelude.mconcat
-      [ "identifier" Prelude.=: startRecordIdentifier,
-        "type" Prelude.=: startRecordType,
-        "maxitems" Prelude.=: maxItems,
-        "name" Prelude.=: startRecordName
+    Core.mconcat
+      [ "identifier" Core.=: startRecordIdentifier,
+        "type" Core.=: startRecordType,
+        "maxitems" Core.=: maxItems,
+        "name" Core.=: startRecordName
       ]
 
 -- | A complex type that contains list information for the resource record
@@ -403,7 +400,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
   { -- | If the results were truncated, the type of the next record in the list.
     --
     -- This element is present only if @IsTruncated@ is true.
-    nextRecordType :: Prelude.Maybe RRType,
+    nextRecordType :: Core.Maybe RRType,
     -- | /Resource record sets that have a routing policy other than simple:/ If
     -- results were truncated for a given DNS name and type, the value of
     -- @SetIdentifier@ for the next resource record set that has the current
@@ -412,23 +409,23 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
     -- For information about routing policies, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
     -- in the /Amazon Route 53 Developer Guide/.
-    nextRecordIdentifier :: Prelude.Maybe Prelude.Text,
+    nextRecordIdentifier :: Core.Maybe Core.Text,
     -- | If the results were truncated, the name of the next record in the list.
     --
     -- This element is present only if @IsTruncated@ is true.
-    nextRecordName :: Prelude.Maybe Prelude.Text,
+    nextRecordName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Information about multiple resource record sets.
     resourceRecordSets :: [ResourceRecordSet],
     -- | A flag that indicates whether more resource record sets remain to be
     -- listed. If your results were truncated, you can make a follow-up
     -- pagination request by using the @NextRecordName@ element.
-    isTruncated :: Prelude.Bool,
+    isTruncated :: Core.Bool,
     -- | The maximum number of records you requested.
-    maxItems :: Prelude.Text
+    maxItems :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListResourceRecordSetsResponse' with all optional fields omitted.
@@ -466,11 +463,11 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
 -- 'maxItems', 'listResourceRecordSetsResponse_maxItems' - The maximum number of records you requested.
 newListResourceRecordSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'isTruncated'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'maxItems'
-  Prelude.Text ->
+  Core.Text ->
   ListResourceRecordSetsResponse
 newListResourceRecordSetsResponse
   pHttpStatus_
@@ -478,11 +475,11 @@ newListResourceRecordSetsResponse
   pMaxItems_ =
     ListResourceRecordSetsResponse'
       { nextRecordType =
-          Prelude.Nothing,
-        nextRecordIdentifier = Prelude.Nothing,
-        nextRecordName = Prelude.Nothing,
+          Core.Nothing,
+        nextRecordIdentifier = Core.Nothing,
+        nextRecordName = Core.Nothing,
         httpStatus = pHttpStatus_,
-        resourceRecordSets = Prelude.mempty,
+        resourceRecordSets = Core.mempty,
         isTruncated = pIsTruncated_,
         maxItems = pMaxItems_
       }
@@ -490,7 +487,7 @@ newListResourceRecordSetsResponse
 -- | If the results were truncated, the type of the next record in the list.
 --
 -- This element is present only if @IsTruncated@ is true.
-listResourceRecordSetsResponse_nextRecordType :: Lens.Lens' ListResourceRecordSetsResponse (Prelude.Maybe RRType)
+listResourceRecordSetsResponse_nextRecordType :: Lens.Lens' ListResourceRecordSetsResponse (Core.Maybe RRType)
 listResourceRecordSetsResponse_nextRecordType = Lens.lens (\ListResourceRecordSetsResponse' {nextRecordType} -> nextRecordType) (\s@ListResourceRecordSetsResponse' {} a -> s {nextRecordType = a} :: ListResourceRecordSetsResponse)
 
 -- | /Resource record sets that have a routing policy other than simple:/ If
@@ -501,33 +498,31 @@ listResourceRecordSetsResponse_nextRecordType = Lens.lens (\ListResourceRecordSe
 -- For information about routing policies, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
 -- in the /Amazon Route 53 Developer Guide/.
-listResourceRecordSetsResponse_nextRecordIdentifier :: Lens.Lens' ListResourceRecordSetsResponse (Prelude.Maybe Prelude.Text)
+listResourceRecordSetsResponse_nextRecordIdentifier :: Lens.Lens' ListResourceRecordSetsResponse (Core.Maybe Core.Text)
 listResourceRecordSetsResponse_nextRecordIdentifier = Lens.lens (\ListResourceRecordSetsResponse' {nextRecordIdentifier} -> nextRecordIdentifier) (\s@ListResourceRecordSetsResponse' {} a -> s {nextRecordIdentifier = a} :: ListResourceRecordSetsResponse)
 
 -- | If the results were truncated, the name of the next record in the list.
 --
 -- This element is present only if @IsTruncated@ is true.
-listResourceRecordSetsResponse_nextRecordName :: Lens.Lens' ListResourceRecordSetsResponse (Prelude.Maybe Prelude.Text)
+listResourceRecordSetsResponse_nextRecordName :: Lens.Lens' ListResourceRecordSetsResponse (Core.Maybe Core.Text)
 listResourceRecordSetsResponse_nextRecordName = Lens.lens (\ListResourceRecordSetsResponse' {nextRecordName} -> nextRecordName) (\s@ListResourceRecordSetsResponse' {} a -> s {nextRecordName = a} :: ListResourceRecordSetsResponse)
 
 -- | The response's http status code.
-listResourceRecordSetsResponse_httpStatus :: Lens.Lens' ListResourceRecordSetsResponse Prelude.Int
+listResourceRecordSetsResponse_httpStatus :: Lens.Lens' ListResourceRecordSetsResponse Core.Int
 listResourceRecordSetsResponse_httpStatus = Lens.lens (\ListResourceRecordSetsResponse' {httpStatus} -> httpStatus) (\s@ListResourceRecordSetsResponse' {} a -> s {httpStatus = a} :: ListResourceRecordSetsResponse)
 
 -- | Information about multiple resource record sets.
 listResourceRecordSetsResponse_resourceRecordSets :: Lens.Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
-listResourceRecordSetsResponse_resourceRecordSets = Lens.lens (\ListResourceRecordSetsResponse' {resourceRecordSets} -> resourceRecordSets) (\s@ListResourceRecordSetsResponse' {} a -> s {resourceRecordSets = a} :: ListResourceRecordSetsResponse) Prelude.. Prelude._Coerce
+listResourceRecordSetsResponse_resourceRecordSets = Lens.lens (\ListResourceRecordSetsResponse' {resourceRecordSets} -> resourceRecordSets) (\s@ListResourceRecordSetsResponse' {} a -> s {resourceRecordSets = a} :: ListResourceRecordSetsResponse) Core.. Lens._Coerce
 
 -- | A flag that indicates whether more resource record sets remain to be
 -- listed. If your results were truncated, you can make a follow-up
 -- pagination request by using the @NextRecordName@ element.
-listResourceRecordSetsResponse_isTruncated :: Lens.Lens' ListResourceRecordSetsResponse Prelude.Bool
+listResourceRecordSetsResponse_isTruncated :: Lens.Lens' ListResourceRecordSetsResponse Core.Bool
 listResourceRecordSetsResponse_isTruncated = Lens.lens (\ListResourceRecordSetsResponse' {isTruncated} -> isTruncated) (\s@ListResourceRecordSetsResponse' {} a -> s {isTruncated = a} :: ListResourceRecordSetsResponse)
 
 -- | The maximum number of records you requested.
-listResourceRecordSetsResponse_maxItems :: Lens.Lens' ListResourceRecordSetsResponse Prelude.Text
+listResourceRecordSetsResponse_maxItems :: Lens.Lens' ListResourceRecordSetsResponse Core.Text
 listResourceRecordSetsResponse_maxItems = Lens.lens (\ListResourceRecordSetsResponse' {maxItems} -> maxItems) (\s@ListResourceRecordSetsResponse' {} a -> s {maxItems = a} :: ListResourceRecordSetsResponse)
 
-instance
-  Prelude.NFData
-    ListResourceRecordSetsResponse
+instance Core.NFData ListResourceRecordSetsResponse

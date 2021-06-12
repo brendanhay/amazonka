@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.SelfManagedEventSource where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.EndPointType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Self-Managed Apache Kafka cluster for your event source.
 --
@@ -31,9 +30,9 @@ data SelfManagedEventSource = SelfManagedEventSource'
   { -- | The list of bootstrap servers for your Kafka brokers in the following
     -- format:
     -- @\"KAFKA_BOOTSTRAP_SERVERS\": [\"abc.xyz.com:xxxx\",\"abc2.xyz.com:xxxx\"]@.
-    endpoints :: Prelude.Maybe (Prelude.HashMap EndPointType (Prelude.NonEmpty Prelude.Text))
+    endpoints :: Core.Maybe (Core.HashMap EndPointType (Core.NonEmpty Core.Text))
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SelfManagedEventSource' with all optional fields omitted.
@@ -49,35 +48,30 @@ data SelfManagedEventSource = SelfManagedEventSource'
 newSelfManagedEventSource ::
   SelfManagedEventSource
 newSelfManagedEventSource =
-  SelfManagedEventSource'
-    { endpoints =
-        Prelude.Nothing
-    }
+  SelfManagedEventSource' {endpoints = Core.Nothing}
 
 -- | The list of bootstrap servers for your Kafka brokers in the following
 -- format:
 -- @\"KAFKA_BOOTSTRAP_SERVERS\": [\"abc.xyz.com:xxxx\",\"abc2.xyz.com:xxxx\"]@.
-selfManagedEventSource_endpoints :: Lens.Lens' SelfManagedEventSource (Prelude.Maybe (Prelude.HashMap EndPointType (Prelude.NonEmpty Prelude.Text)))
-selfManagedEventSource_endpoints = Lens.lens (\SelfManagedEventSource' {endpoints} -> endpoints) (\s@SelfManagedEventSource' {} a -> s {endpoints = a} :: SelfManagedEventSource) Prelude.. Lens.mapping Prelude._Coerce
+selfManagedEventSource_endpoints :: Lens.Lens' SelfManagedEventSource (Core.Maybe (Core.HashMap EndPointType (Core.NonEmpty Core.Text)))
+selfManagedEventSource_endpoints = Lens.lens (\SelfManagedEventSource' {endpoints} -> endpoints) (\s@SelfManagedEventSource' {} a -> s {endpoints = a} :: SelfManagedEventSource) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON SelfManagedEventSource where
+instance Core.FromJSON SelfManagedEventSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SelfManagedEventSource"
       ( \x ->
           SelfManagedEventSource'
-            Prelude.<$> ( x Prelude..:? "Endpoints"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Endpoints" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable SelfManagedEventSource
+instance Core.Hashable SelfManagedEventSource
 
-instance Prelude.NFData SelfManagedEventSource
+instance Core.NFData SelfManagedEventSource
 
-instance Prelude.ToJSON SelfManagedEventSource where
+instance Core.ToJSON SelfManagedEventSource where
   toJSON SelfManagedEventSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Endpoints" Prelude..=) Prelude.<$> endpoints]
+    Core.object
+      ( Core.catMaybes
+          [("Endpoints" Core..=) Core.<$> endpoints]
       )

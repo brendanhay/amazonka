@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.CacheParameterGroupNameMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of one of the following operations:
 --
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCacheParameterGroupNameMessage' smart constructor.
 data CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
   { -- | The name of the cache parameter group.
-    cacheParameterGroupName :: Prelude.Maybe Prelude.Text
+    cacheParameterGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CacheParameterGroupNameMessage' with all optional fields omitted.
@@ -50,25 +49,18 @@ newCacheParameterGroupNameMessage ::
 newCacheParameterGroupNameMessage =
   CacheParameterGroupNameMessage'
     { cacheParameterGroupName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the cache parameter group.
-cacheParameterGroupNameMessage_cacheParameterGroupName :: Lens.Lens' CacheParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
+cacheParameterGroupNameMessage_cacheParameterGroupName :: Lens.Lens' CacheParameterGroupNameMessage (Core.Maybe Core.Text)
 cacheParameterGroupNameMessage_cacheParameterGroupName = Lens.lens (\CacheParameterGroupNameMessage' {cacheParameterGroupName} -> cacheParameterGroupName) (\s@CacheParameterGroupNameMessage' {} a -> s {cacheParameterGroupName = a} :: CacheParameterGroupNameMessage)
 
-instance
-  Prelude.FromXML
-    CacheParameterGroupNameMessage
-  where
+instance Core.FromXML CacheParameterGroupNameMessage where
   parseXML x =
     CacheParameterGroupNameMessage'
-      Prelude.<$> (x Prelude..@? "CacheParameterGroupName")
+      Core.<$> (x Core..@? "CacheParameterGroupName")
 
-instance
-  Prelude.Hashable
-    CacheParameterGroupNameMessage
+instance Core.Hashable CacheParameterGroupNameMessage
 
-instance
-  Prelude.NFData
-    CacheParameterGroupNameMessage
+instance Core.NFData CacheParameterGroupNameMessage

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.Rule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DeviceAttribute
 import Network.AWS.DeviceFarm.Types.RuleOperator
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a condition for a device pool.
 --
@@ -32,7 +31,7 @@ data Rule = Rule'
   { -- | Specifies how Device Farm compares the rule\'s attribute to the value.
     -- For the operators that are supported by each attribute, see the
     -- attribute descriptions.
-    operator :: Prelude.Maybe RuleOperator,
+    operator :: Core.Maybe RuleOperator,
     -- | The rule\'s stringified attribute. For example, specify the value as
     -- @\"\\\"abc\\\"\"@.
     --
@@ -113,11 +112,11 @@ data Rule = Rule'
     --     Because remote debugging is
     --     <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>,
     --     this filter is ignored.
-    attribute :: Prelude.Maybe DeviceAttribute,
+    attribute :: Core.Maybe DeviceAttribute,
     -- | The rule\'s value.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Rule' with all optional fields omitted.
@@ -217,15 +216,15 @@ newRule ::
   Rule
 newRule =
   Rule'
-    { operator = Prelude.Nothing,
-      attribute = Prelude.Nothing,
-      value = Prelude.Nothing
+    { operator = Core.Nothing,
+      attribute = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Specifies how Device Farm compares the rule\'s attribute to the value.
 -- For the operators that are supported by each attribute, see the
 -- attribute descriptions.
-rule_operator :: Lens.Lens' Rule (Prelude.Maybe RuleOperator)
+rule_operator :: Lens.Lens' Rule (Core.Maybe RuleOperator)
 rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {operator = a} :: Rule)
 
 -- | The rule\'s stringified attribute. For example, specify the value as
@@ -308,34 +307,34 @@ rule_operator = Lens.lens (\Rule' {operator} -> operator) (\s@Rule' {} a -> s {o
 --     Because remote debugging is
 --     <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported>,
 --     this filter is ignored.
-rule_attribute :: Lens.Lens' Rule (Prelude.Maybe DeviceAttribute)
+rule_attribute :: Lens.Lens' Rule (Core.Maybe DeviceAttribute)
 rule_attribute = Lens.lens (\Rule' {attribute} -> attribute) (\s@Rule' {} a -> s {attribute = a} :: Rule)
 
 -- | The rule\'s value.
-rule_value :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_value :: Lens.Lens' Rule (Core.Maybe Core.Text)
 rule_value = Lens.lens (\Rule' {value} -> value) (\s@Rule' {} a -> s {value = a} :: Rule)
 
-instance Prelude.FromJSON Rule where
+instance Core.FromJSON Rule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Prelude..:? "operator")
-            Prelude.<*> (x Prelude..:? "attribute")
-            Prelude.<*> (x Prelude..:? "value")
+            Core.<$> (x Core..:? "operator")
+            Core.<*> (x Core..:? "attribute")
+            Core.<*> (x Core..:? "value")
       )
 
-instance Prelude.Hashable Rule
+instance Core.Hashable Rule
 
-instance Prelude.NFData Rule
+instance Core.NFData Rule
 
-instance Prelude.ToJSON Rule where
+instance Core.ToJSON Rule where
   toJSON Rule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("operator" Prelude..=) Prelude.<$> operator,
-            ("attribute" Prelude..=) Prelude.<$> attribute,
-            ("value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("operator" Core..=) Core.<$> operator,
+            ("attribute" Core..=) Core.<$> attribute,
+            ("value" Core..=) Core.<$> value
           ]
       )

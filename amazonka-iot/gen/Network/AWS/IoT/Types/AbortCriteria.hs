@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AbortCriteria where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AbortAction
 import Network.AWS.IoT.Types.JobExecutionFailureType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria that determine when and how a job abort takes place.
 --
@@ -38,12 +37,12 @@ data AbortCriteria = AbortCriteria'
     --
     -- AWS IoT supports up to two digits after the decimal (for example, 10.9
     -- and 10.99, but not 10.999).
-    thresholdPercentage :: Prelude.Double,
+    thresholdPercentage :: Core.Double,
     -- | The minimum number of things which must receive job execution
     -- notifications before the job can be aborted.
-    minNumberOfExecutedThings :: Prelude.Natural
+    minNumberOfExecutedThings :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AbortCriteria' with all optional fields omitted.
@@ -71,9 +70,9 @@ newAbortCriteria ::
   -- | 'action'
   AbortAction ->
   -- | 'thresholdPercentage'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'minNumberOfExecutedThings'
-  Prelude.Natural ->
+  Core.Natural ->
   AbortCriteria
 newAbortCriteria
   pFailureType_
@@ -101,43 +100,41 @@ abortCriteria_action = Lens.lens (\AbortCriteria' {action} -> action) (\s@AbortC
 --
 -- AWS IoT supports up to two digits after the decimal (for example, 10.9
 -- and 10.99, but not 10.999).
-abortCriteria_thresholdPercentage :: Lens.Lens' AbortCriteria Prelude.Double
+abortCriteria_thresholdPercentage :: Lens.Lens' AbortCriteria Core.Double
 abortCriteria_thresholdPercentage = Lens.lens (\AbortCriteria' {thresholdPercentage} -> thresholdPercentage) (\s@AbortCriteria' {} a -> s {thresholdPercentage = a} :: AbortCriteria)
 
 -- | The minimum number of things which must receive job execution
 -- notifications before the job can be aborted.
-abortCriteria_minNumberOfExecutedThings :: Lens.Lens' AbortCriteria Prelude.Natural
+abortCriteria_minNumberOfExecutedThings :: Lens.Lens' AbortCriteria Core.Natural
 abortCriteria_minNumberOfExecutedThings = Lens.lens (\AbortCriteria' {minNumberOfExecutedThings} -> minNumberOfExecutedThings) (\s@AbortCriteria' {} a -> s {minNumberOfExecutedThings = a} :: AbortCriteria)
 
-instance Prelude.FromJSON AbortCriteria where
+instance Core.FromJSON AbortCriteria where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AbortCriteria"
       ( \x ->
           AbortCriteria'
-            Prelude.<$> (x Prelude..: "failureType")
-            Prelude.<*> (x Prelude..: "action")
-            Prelude.<*> (x Prelude..: "thresholdPercentage")
-            Prelude.<*> (x Prelude..: "minNumberOfExecutedThings")
+            Core.<$> (x Core..: "failureType")
+            Core.<*> (x Core..: "action")
+            Core.<*> (x Core..: "thresholdPercentage")
+            Core.<*> (x Core..: "minNumberOfExecutedThings")
       )
 
-instance Prelude.Hashable AbortCriteria
+instance Core.Hashable AbortCriteria
 
-instance Prelude.NFData AbortCriteria
+instance Core.NFData AbortCriteria
 
-instance Prelude.ToJSON AbortCriteria where
+instance Core.ToJSON AbortCriteria where
   toJSON AbortCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("failureType" Prelude..= failureType),
-            Prelude.Just ("action" Prelude..= action),
-            Prelude.Just
-              ( "thresholdPercentage"
-                  Prelude..= thresholdPercentage
-              ),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("failureType" Core..= failureType),
+            Core.Just ("action" Core..= action),
+            Core.Just
+              ("thresholdPercentage" Core..= thresholdPercentage),
+            Core.Just
               ( "minNumberOfExecutedThings"
-                  Prelude..= minNumberOfExecutedThings
+                  Core..= minNumberOfExecutedThings
               )
           ]
       )

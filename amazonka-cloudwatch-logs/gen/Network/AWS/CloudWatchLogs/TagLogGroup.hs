@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,19 +46,19 @@ module Network.AWS.CloudWatchLogs.TagLogGroup
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTagLogGroup' smart constructor.
 data TagLogGroup = TagLogGroup'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text,
+    logGroupName :: Core.Text,
     -- | The key-value pairs to use for the tags.
-    tags :: Prelude.HashMap Prelude.Text Prelude.Text
+    tags :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagLogGroup' with all optional fields omitted.
@@ -74,65 +73,62 @@ data TagLogGroup = TagLogGroup'
 -- 'tags', 'tagLogGroup_tags' - The key-value pairs to use for the tags.
 newTagLogGroup ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   TagLogGroup
 newTagLogGroup pLogGroupName_ =
   TagLogGroup'
     { logGroupName = pLogGroupName_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The name of the log group.
-tagLogGroup_logGroupName :: Lens.Lens' TagLogGroup Prelude.Text
+tagLogGroup_logGroupName :: Lens.Lens' TagLogGroup Core.Text
 tagLogGroup_logGroupName = Lens.lens (\TagLogGroup' {logGroupName} -> logGroupName) (\s@TagLogGroup' {} a -> s {logGroupName = a} :: TagLogGroup)
 
 -- | The key-value pairs to use for the tags.
-tagLogGroup_tags :: Lens.Lens' TagLogGroup (Prelude.HashMap Prelude.Text Prelude.Text)
-tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} a -> s {tags = a} :: TagLogGroup) Prelude.. Prelude._Coerce
+tagLogGroup_tags :: Lens.Lens' TagLogGroup (Core.HashMap Core.Text Core.Text)
+tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} a -> s {tags = a} :: TagLogGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagLogGroup where
-  type Rs TagLogGroup = TagLogGroupResponse
+instance Core.AWSRequest TagLogGroup where
+  type AWSResponse TagLogGroup = TagLogGroupResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull TagLogGroupResponse'
 
-instance Prelude.Hashable TagLogGroup
+instance Core.Hashable TagLogGroup
 
-instance Prelude.NFData TagLogGroup
+instance Core.NFData TagLogGroup
 
-instance Prelude.ToHeaders TagLogGroup where
+instance Core.ToHeaders TagLogGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("Logs_20140328.TagLogGroup" :: Prelude.ByteString),
+              Core.=# ("Logs_20140328.TagLogGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TagLogGroup where
+instance Core.ToJSON TagLogGroup where
   toJSON TagLogGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName),
-            Prelude.Just ("tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath TagLogGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagLogGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagLogGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagLogGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagLogGroupResponse' smart constructor.
 data TagLogGroupResponse = TagLogGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagLogGroupResponse' with all optional fields omitted.
@@ -142,4 +138,4 @@ newTagLogGroupResponse ::
   TagLogGroupResponse
 newTagLogGroupResponse = TagLogGroupResponse'
 
-instance Prelude.NFData TagLogGroupResponse
+instance Core.NFData TagLogGroupResponse

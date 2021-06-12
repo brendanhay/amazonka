@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.WorkSpaces.RebootWorkspaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -55,9 +54,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newRebootWorkspaces' smart constructor.
 data RebootWorkspaces = RebootWorkspaces'
   { -- | The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.
-    rebootWorkspaceRequests :: Prelude.NonEmpty RebootRequest
+    rebootWorkspaceRequests :: Core.NonEmpty RebootRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootWorkspaces' with all optional fields omitted.
@@ -70,75 +69,73 @@ data RebootWorkspaces = RebootWorkspaces'
 -- 'rebootWorkspaceRequests', 'rebootWorkspaces_rebootWorkspaceRequests' - The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.
 newRebootWorkspaces ::
   -- | 'rebootWorkspaceRequests'
-  Prelude.NonEmpty RebootRequest ->
+  Core.NonEmpty RebootRequest ->
   RebootWorkspaces
 newRebootWorkspaces pRebootWorkspaceRequests_ =
   RebootWorkspaces'
     { rebootWorkspaceRequests =
-        Prelude._Coerce Lens.# pRebootWorkspaceRequests_
+        Lens._Coerce Lens.# pRebootWorkspaceRequests_
     }
 
 -- | The WorkSpaces to reboot. You can specify up to 25 WorkSpaces.
-rebootWorkspaces_rebootWorkspaceRequests :: Lens.Lens' RebootWorkspaces (Prelude.NonEmpty RebootRequest)
-rebootWorkspaces_rebootWorkspaceRequests = Lens.lens (\RebootWorkspaces' {rebootWorkspaceRequests} -> rebootWorkspaceRequests) (\s@RebootWorkspaces' {} a -> s {rebootWorkspaceRequests = a} :: RebootWorkspaces) Prelude.. Prelude._Coerce
+rebootWorkspaces_rebootWorkspaceRequests :: Lens.Lens' RebootWorkspaces (Core.NonEmpty RebootRequest)
+rebootWorkspaces_rebootWorkspaceRequests = Lens.lens (\RebootWorkspaces' {rebootWorkspaceRequests} -> rebootWorkspaceRequests) (\s@RebootWorkspaces' {} a -> s {rebootWorkspaceRequests = a} :: RebootWorkspaces) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RebootWorkspaces where
-  type Rs RebootWorkspaces = RebootWorkspacesResponse
+instance Core.AWSRequest RebootWorkspaces where
+  type
+    AWSResponse RebootWorkspaces =
+      RebootWorkspacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RebootWorkspacesResponse'
-            Prelude.<$> ( x Prelude..?> "FailedRequests"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FailedRequests" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RebootWorkspaces
+instance Core.Hashable RebootWorkspaces
 
-instance Prelude.NFData RebootWorkspaces
+instance Core.NFData RebootWorkspaces
 
-instance Prelude.ToHeaders RebootWorkspaces where
+instance Core.ToHeaders RebootWorkspaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.RebootWorkspaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.RebootWorkspaces" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RebootWorkspaces where
+instance Core.ToJSON RebootWorkspaces where
   toJSON RebootWorkspaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "RebootWorkspaceRequests"
-                  Prelude..= rebootWorkspaceRequests
+                  Core..= rebootWorkspaceRequests
               )
           ]
       )
 
-instance Prelude.ToPath RebootWorkspaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebootWorkspaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebootWorkspaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RebootWorkspaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRebootWorkspacesResponse' smart constructor.
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
   { -- | Information about the WorkSpaces that could not be rebooted.
-    failedRequests :: Prelude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [FailedWorkspaceChangeRequest],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootWorkspacesResponse' with all optional fields omitted.
@@ -153,21 +150,21 @@ data RebootWorkspacesResponse = RebootWorkspacesResponse'
 -- 'httpStatus', 'rebootWorkspacesResponse_httpStatus' - The response's http status code.
 newRebootWorkspacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RebootWorkspacesResponse
 newRebootWorkspacesResponse pHttpStatus_ =
   RebootWorkspacesResponse'
     { failedRequests =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the WorkSpaces that could not be rebooted.
-rebootWorkspacesResponse_failedRequests :: Lens.Lens' RebootWorkspacesResponse (Prelude.Maybe [FailedWorkspaceChangeRequest])
-rebootWorkspacesResponse_failedRequests = Lens.lens (\RebootWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebootWorkspacesResponse' {} a -> s {failedRequests = a} :: RebootWorkspacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+rebootWorkspacesResponse_failedRequests :: Lens.Lens' RebootWorkspacesResponse (Core.Maybe [FailedWorkspaceChangeRequest])
+rebootWorkspacesResponse_failedRequests = Lens.lens (\RebootWorkspacesResponse' {failedRequests} -> failedRequests) (\s@RebootWorkspacesResponse' {} a -> s {failedRequests = a} :: RebootWorkspacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-rebootWorkspacesResponse_httpStatus :: Lens.Lens' RebootWorkspacesResponse Prelude.Int
+rebootWorkspacesResponse_httpStatus :: Lens.Lens' RebootWorkspacesResponse Core.Int
 rebootWorkspacesResponse_httpStatus = Lens.lens (\RebootWorkspacesResponse' {httpStatus} -> httpStatus) (\s@RebootWorkspacesResponse' {} a -> s {httpStatus = a} :: RebootWorkspacesResponse)
 
-instance Prelude.NFData RebootWorkspacesResponse
+instance Core.NFData RebootWorkspacesResponse

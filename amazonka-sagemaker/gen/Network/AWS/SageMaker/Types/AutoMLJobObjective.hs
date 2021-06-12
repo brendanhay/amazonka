@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AutoMLJobObjective where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLMetricEnum
 
 -- | Specifies a metric to minimize or maximize as the objective of a job.
@@ -102,7 +101,7 @@ data AutoMLJobObjective = AutoMLJobObjective'
     -- -   @Accuracy@: for multiclass classification.
     metricName :: AutoMLMetricEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoMLJobObjective' with all optional fields omitted.
@@ -266,22 +265,22 @@ newAutoMLJobObjective pMetricName_ =
 autoMLJobObjective_metricName :: Lens.Lens' AutoMLJobObjective AutoMLMetricEnum
 autoMLJobObjective_metricName = Lens.lens (\AutoMLJobObjective' {metricName} -> metricName) (\s@AutoMLJobObjective' {} a -> s {metricName = a} :: AutoMLJobObjective)
 
-instance Prelude.FromJSON AutoMLJobObjective where
+instance Core.FromJSON AutoMLJobObjective where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutoMLJobObjective"
       ( \x ->
           AutoMLJobObjective'
-            Prelude.<$> (x Prelude..: "MetricName")
+            Core.<$> (x Core..: "MetricName")
       )
 
-instance Prelude.Hashable AutoMLJobObjective
+instance Core.Hashable AutoMLJobObjective
 
-instance Prelude.NFData AutoMLJobObjective
+instance Core.NFData AutoMLJobObjective
 
-instance Prelude.ToJSON AutoMLJobObjective where
+instance Core.ToJSON AutoMLJobObjective where
   toJSON AutoMLJobObjective' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("MetricName" Prelude..= metricName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("MetricName" Core..= metricName)]
       )

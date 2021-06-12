@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.LogSettingsRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types.Destination
 import Network.AWS.LexModels.Types.LogType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings used to configure delivery mode and destination for
 -- conversation logs.
@@ -33,7 +32,7 @@ data LogSettingsRequest = LogSettingsRequest'
   { -- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for
     -- encrypting audio logs delivered to an S3 bucket. The key does not apply
     -- to CloudWatch Logs and is optional for S3 buckets.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text,
+    kmsKeyArn :: Core.Maybe Core.Text,
     -- | The type of logging to enable. Text logs are delivered to a CloudWatch
     -- Logs log group. Audio logs are delivered to an S3 bucket.
     logType :: LogType,
@@ -42,9 +41,9 @@ data LogSettingsRequest = LogSettingsRequest'
     destination :: Destination,
     -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3
     -- bucket where the logs should be delivered.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogSettingsRequest' with all optional fields omitted.
@@ -72,14 +71,14 @@ newLogSettingsRequest ::
   -- | 'destination'
   Destination ->
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   LogSettingsRequest
 newLogSettingsRequest
   pLogType_
   pDestination_
   pResourceArn_ =
     LogSettingsRequest'
-      { kmsKeyArn = Prelude.Nothing,
+      { kmsKeyArn = Core.Nothing,
         logType = pLogType_,
         destination = pDestination_,
         resourceArn = pResourceArn_
@@ -88,7 +87,7 @@ newLogSettingsRequest
 -- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for
 -- encrypting audio logs delivered to an S3 bucket. The key does not apply
 -- to CloudWatch Logs and is optional for S3 buckets.
-logSettingsRequest_kmsKeyArn :: Lens.Lens' LogSettingsRequest (Prelude.Maybe Prelude.Text)
+logSettingsRequest_kmsKeyArn :: Lens.Lens' LogSettingsRequest (Core.Maybe Core.Text)
 logSettingsRequest_kmsKeyArn = Lens.lens (\LogSettingsRequest' {kmsKeyArn} -> kmsKeyArn) (\s@LogSettingsRequest' {} a -> s {kmsKeyArn = a} :: LogSettingsRequest)
 
 -- | The type of logging to enable. Text logs are delivered to a CloudWatch
@@ -103,20 +102,20 @@ logSettingsRequest_destination = Lens.lens (\LogSettingsRequest' {destination} -
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3
 -- bucket where the logs should be delivered.
-logSettingsRequest_resourceArn :: Lens.Lens' LogSettingsRequest Prelude.Text
+logSettingsRequest_resourceArn :: Lens.Lens' LogSettingsRequest Core.Text
 logSettingsRequest_resourceArn = Lens.lens (\LogSettingsRequest' {resourceArn} -> resourceArn) (\s@LogSettingsRequest' {} a -> s {resourceArn = a} :: LogSettingsRequest)
 
-instance Prelude.Hashable LogSettingsRequest
+instance Core.Hashable LogSettingsRequest
 
-instance Prelude.NFData LogSettingsRequest
+instance Core.NFData LogSettingsRequest
 
-instance Prelude.ToJSON LogSettingsRequest where
+instance Core.ToJSON LogSettingsRequest where
   toJSON LogSettingsRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("kmsKeyArn" Prelude..=) Prelude.<$> kmsKeyArn,
-            Prelude.Just ("logType" Prelude..= logType),
-            Prelude.Just ("destination" Prelude..= destination),
-            Prelude.Just ("resourceArn" Prelude..= resourceArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("kmsKeyArn" Core..=) Core.<$> kmsKeyArn,
+            Core.Just ("logType" Core..= logType),
+            Core.Just ("destination" Core..= destination),
+            Core.Just ("resourceArn" Core..= resourceArn)
           ]
       )

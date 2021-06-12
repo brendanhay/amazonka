@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ProductViewSummary
 import Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
 
@@ -31,12 +30,12 @@ import Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
 -- /See:/ 'newProvisioningArtifactView' smart constructor.
 data ProvisioningArtifactView = ProvisioningArtifactView'
   { -- | Summary information about a product view.
-    productViewSummary :: Prelude.Maybe ProductViewSummary,
+    productViewSummary :: Core.Maybe ProductViewSummary,
     -- | Information about a provisioning artifact. A provisioning artifact is
     -- also known as a product version.
-    provisioningArtifact :: Prelude.Maybe ProvisioningArtifact
+    provisioningArtifact :: Core.Maybe ProvisioningArtifact
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvisioningArtifactView' with all optional fields omitted.
@@ -55,29 +54,29 @@ newProvisioningArtifactView ::
 newProvisioningArtifactView =
   ProvisioningArtifactView'
     { productViewSummary =
-        Prelude.Nothing,
-      provisioningArtifact = Prelude.Nothing
+        Core.Nothing,
+      provisioningArtifact = Core.Nothing
     }
 
 -- | Summary information about a product view.
-provisioningArtifactView_productViewSummary :: Lens.Lens' ProvisioningArtifactView (Prelude.Maybe ProductViewSummary)
+provisioningArtifactView_productViewSummary :: Lens.Lens' ProvisioningArtifactView (Core.Maybe ProductViewSummary)
 provisioningArtifactView_productViewSummary = Lens.lens (\ProvisioningArtifactView' {productViewSummary} -> productViewSummary) (\s@ProvisioningArtifactView' {} a -> s {productViewSummary = a} :: ProvisioningArtifactView)
 
 -- | Information about a provisioning artifact. A provisioning artifact is
 -- also known as a product version.
-provisioningArtifactView_provisioningArtifact :: Lens.Lens' ProvisioningArtifactView (Prelude.Maybe ProvisioningArtifact)
+provisioningArtifactView_provisioningArtifact :: Lens.Lens' ProvisioningArtifactView (Core.Maybe ProvisioningArtifact)
 provisioningArtifactView_provisioningArtifact = Lens.lens (\ProvisioningArtifactView' {provisioningArtifact} -> provisioningArtifact) (\s@ProvisioningArtifactView' {} a -> s {provisioningArtifact = a} :: ProvisioningArtifactView)
 
-instance Prelude.FromJSON ProvisioningArtifactView where
+instance Core.FromJSON ProvisioningArtifactView where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProvisioningArtifactView"
       ( \x ->
           ProvisioningArtifactView'
-            Prelude.<$> (x Prelude..:? "ProductViewSummary")
-            Prelude.<*> (x Prelude..:? "ProvisioningArtifact")
+            Core.<$> (x Core..:? "ProductViewSummary")
+            Core.<*> (x Core..:? "ProvisioningArtifact")
       )
 
-instance Prelude.Hashable ProvisioningArtifactView
+instance Core.Hashable ProvisioningArtifactView
 
-instance Prelude.NFData ProvisioningArtifactView
+instance Core.NFData ProvisioningArtifactView

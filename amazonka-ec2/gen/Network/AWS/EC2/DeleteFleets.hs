@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,9 +68,9 @@ module Network.AWS.EC2.DeleteFleets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,9 +80,9 @@ data DeleteFleets = DeleteFleets'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The IDs of the EC2 Fleets.
-    fleetIds :: [Prelude.Text],
+    fleetIds :: [Core.Text],
     -- | Indicates whether to terminate the instances when the EC2 Fleet is
     -- deleted. The default is to terminate the instances.
     --
@@ -93,9 +92,9 @@ data DeleteFleets = DeleteFleets'
     --
     -- For @instant@ fleets, you cannot specify @NoTerminateInstances@. A
     -- deleted @instant@ fleet with running instances is not supported.
-    terminateInstances :: Prelude.Bool
+    terminateInstances :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFleets' with all optional fields omitted.
@@ -123,12 +122,12 @@ data DeleteFleets = DeleteFleets'
 -- deleted @instant@ fleet with running instances is not supported.
 newDeleteFleets ::
   -- | 'terminateInstances'
-  Prelude.Bool ->
+  Core.Bool ->
   DeleteFleets
 newDeleteFleets pTerminateInstances_ =
   DeleteFleets'
-    { dryRun = Prelude.Nothing,
-      fleetIds = Prelude.mempty,
+    { dryRun = Core.Nothing,
+      fleetIds = Core.mempty,
       terminateInstances = pTerminateInstances_
     }
 
@@ -136,12 +135,12 @@ newDeleteFleets pTerminateInstances_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteFleets_dryRun :: Lens.Lens' DeleteFleets (Prelude.Maybe Prelude.Bool)
+deleteFleets_dryRun :: Lens.Lens' DeleteFleets (Core.Maybe Core.Bool)
 deleteFleets_dryRun = Lens.lens (\DeleteFleets' {dryRun} -> dryRun) (\s@DeleteFleets' {} a -> s {dryRun = a} :: DeleteFleets)
 
 -- | The IDs of the EC2 Fleets.
-deleteFleets_fleetIds :: Lens.Lens' DeleteFleets [Prelude.Text]
-deleteFleets_fleetIds = Lens.lens (\DeleteFleets' {fleetIds} -> fleetIds) (\s@DeleteFleets' {} a -> s {fleetIds = a} :: DeleteFleets) Prelude.. Prelude._Coerce
+deleteFleets_fleetIds :: Lens.Lens' DeleteFleets [Core.Text]
+deleteFleets_fleetIds = Lens.lens (\DeleteFleets' {fleetIds} -> fleetIds) (\s@DeleteFleets' {} a -> s {fleetIds = a} :: DeleteFleets) Core.. Lens._Coerce
 
 -- | Indicates whether to terminate the instances when the EC2 Fleet is
 -- deleted. The default is to terminate the instances.
@@ -152,59 +151,58 @@ deleteFleets_fleetIds = Lens.lens (\DeleteFleets' {fleetIds} -> fleetIds) (\s@De
 --
 -- For @instant@ fleets, you cannot specify @NoTerminateInstances@. A
 -- deleted @instant@ fleet with running instances is not supported.
-deleteFleets_terminateInstances :: Lens.Lens' DeleteFleets Prelude.Bool
+deleteFleets_terminateInstances :: Lens.Lens' DeleteFleets Core.Bool
 deleteFleets_terminateInstances = Lens.lens (\DeleteFleets' {terminateInstances} -> terminateInstances) (\s@DeleteFleets' {} a -> s {terminateInstances = a} :: DeleteFleets)
 
-instance Prelude.AWSRequest DeleteFleets where
-  type Rs DeleteFleets = DeleteFleetsResponse
+instance Core.AWSRequest DeleteFleets where
+  type AWSResponse DeleteFleets = DeleteFleetsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteFleetsResponse'
-            Prelude.<$> ( x Prelude..@? "unsuccessfulFleetDeletionSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> ( x Prelude..@? "successfulFleetDeletionSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "unsuccessfulFleetDeletionSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> ( x Core..@? "successfulFleetDeletionSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFleets
+instance Core.Hashable DeleteFleets
 
-instance Prelude.NFData DeleteFleets
+instance Core.NFData DeleteFleets
 
-instance Prelude.ToHeaders DeleteFleets where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteFleets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteFleets where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteFleets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteFleets where
+instance Core.ToQuery DeleteFleets where
   toQuery DeleteFleets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteFleets" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQueryList "FleetId" fleetIds,
-        "TerminateInstances" Prelude.=: terminateInstances
+          Core.=: ("DeleteFleets" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList "FleetId" fleetIds,
+        "TerminateInstances" Core.=: terminateInstances
       ]
 
 -- | /See:/ 'newDeleteFleetsResponse' smart constructor.
 data DeleteFleetsResponse = DeleteFleetsResponse'
   { -- | Information about the EC2 Fleets that are not successfully deleted.
-    unsuccessfulFleetDeletions :: Prelude.Maybe [DeleteFleetErrorItem],
+    unsuccessfulFleetDeletions :: Core.Maybe [DeleteFleetErrorItem],
     -- | Information about the EC2 Fleets that are successfully deleted.
-    successfulFleetDeletions :: Prelude.Maybe [DeleteFleetSuccessItem],
+    successfulFleetDeletions :: Core.Maybe [DeleteFleetSuccessItem],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFleetsResponse' with all optional fields omitted.
@@ -221,26 +219,26 @@ data DeleteFleetsResponse = DeleteFleetsResponse'
 -- 'httpStatus', 'deleteFleetsResponse_httpStatus' - The response's http status code.
 newDeleteFleetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteFleetsResponse
 newDeleteFleetsResponse pHttpStatus_ =
   DeleteFleetsResponse'
     { unsuccessfulFleetDeletions =
-        Prelude.Nothing,
-      successfulFleetDeletions = Prelude.Nothing,
+        Core.Nothing,
+      successfulFleetDeletions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the EC2 Fleets that are not successfully deleted.
-deleteFleetsResponse_unsuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Prelude.Maybe [DeleteFleetErrorItem])
-deleteFleetsResponse_unsuccessfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {unsuccessfulFleetDeletions} -> unsuccessfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {unsuccessfulFleetDeletions = a} :: DeleteFleetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteFleetsResponse_unsuccessfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Core.Maybe [DeleteFleetErrorItem])
+deleteFleetsResponse_unsuccessfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {unsuccessfulFleetDeletions} -> unsuccessfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {unsuccessfulFleetDeletions = a} :: DeleteFleetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Information about the EC2 Fleets that are successfully deleted.
-deleteFleetsResponse_successfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Prelude.Maybe [DeleteFleetSuccessItem])
-deleteFleetsResponse_successfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {successfulFleetDeletions} -> successfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {successfulFleetDeletions = a} :: DeleteFleetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteFleetsResponse_successfulFleetDeletions :: Lens.Lens' DeleteFleetsResponse (Core.Maybe [DeleteFleetSuccessItem])
+deleteFleetsResponse_successfulFleetDeletions = Lens.lens (\DeleteFleetsResponse' {successfulFleetDeletions} -> successfulFleetDeletions) (\s@DeleteFleetsResponse' {} a -> s {successfulFleetDeletions = a} :: DeleteFleetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteFleetsResponse_httpStatus :: Lens.Lens' DeleteFleetsResponse Prelude.Int
+deleteFleetsResponse_httpStatus :: Lens.Lens' DeleteFleetsResponse Core.Int
 deleteFleetsResponse_httpStatus = Lens.lens (\DeleteFleetsResponse' {httpStatus} -> httpStatus) (\s@DeleteFleetsResponse' {} a -> s {httpStatus = a} :: DeleteFleetsResponse)
 
-instance Prelude.NFData DeleteFleetsResponse
+instance Core.NFData DeleteFleetsResponse

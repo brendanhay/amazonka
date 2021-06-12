@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.SES.PutIdentityPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -72,20 +71,20 @@ data PutIdentityPolicy = PutIdentityPolicy'
     -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
     --
     -- To successfully call this API, you must own the identity.
-    identity :: Prelude.Text,
+    identity :: Core.Text,
     -- | The name of the policy.
     --
     -- The policy name cannot exceed 64 characters and can only include
     -- alphanumeric characters, dashes, and underscores.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The text of the policy in JSON format. The policy cannot exceed 4 KB.
     --
     -- For information about the syntax of sending authorization policies, see
     -- the
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.
-    policy :: Prelude.Text
+    policy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutIdentityPolicy' with all optional fields omitted.
@@ -114,11 +113,11 @@ data PutIdentityPolicy = PutIdentityPolicy'
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.
 newPutIdentityPolicy ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policy'
-  Prelude.Text ->
+  Core.Text ->
   PutIdentityPolicy
 newPutIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
   PutIdentityPolicy'
@@ -133,14 +132,14 @@ newPutIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-putIdentityPolicy_identity :: Lens.Lens' PutIdentityPolicy Prelude.Text
+putIdentityPolicy_identity :: Lens.Lens' PutIdentityPolicy Core.Text
 putIdentityPolicy_identity = Lens.lens (\PutIdentityPolicy' {identity} -> identity) (\s@PutIdentityPolicy' {} a -> s {identity = a} :: PutIdentityPolicy)
 
 -- | The name of the policy.
 --
 -- The policy name cannot exceed 64 characters and can only include
 -- alphanumeric characters, dashes, and underscores.
-putIdentityPolicy_policyName :: Lens.Lens' PutIdentityPolicy Prelude.Text
+putIdentityPolicy_policyName :: Lens.Lens' PutIdentityPolicy Core.Text
 putIdentityPolicy_policyName = Lens.lens (\PutIdentityPolicy' {policyName} -> policyName) (\s@PutIdentityPolicy' {} a -> s {policyName = a} :: PutIdentityPolicy)
 
 -- | The text of the policy in JSON format. The policy cannot exceed 4 KB.
@@ -148,40 +147,41 @@ putIdentityPolicy_policyName = Lens.lens (\PutIdentityPolicy' {policyName} -> po
 -- For information about the syntax of sending authorization policies, see
 -- the
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.
-putIdentityPolicy_policy :: Lens.Lens' PutIdentityPolicy Prelude.Text
+putIdentityPolicy_policy :: Lens.Lens' PutIdentityPolicy Core.Text
 putIdentityPolicy_policy = Lens.lens (\PutIdentityPolicy' {policy} -> policy) (\s@PutIdentityPolicy' {} a -> s {policy = a} :: PutIdentityPolicy)
 
-instance Prelude.AWSRequest PutIdentityPolicy where
-  type Rs PutIdentityPolicy = PutIdentityPolicyResponse
+instance Core.AWSRequest PutIdentityPolicy where
+  type
+    AWSResponse PutIdentityPolicy =
+      PutIdentityPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "PutIdentityPolicyResult"
       ( \s h x ->
           PutIdentityPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutIdentityPolicy
+instance Core.Hashable PutIdentityPolicy
 
-instance Prelude.NFData PutIdentityPolicy
+instance Core.NFData PutIdentityPolicy
 
-instance Prelude.ToHeaders PutIdentityPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutIdentityPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutIdentityPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutIdentityPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutIdentityPolicy where
+instance Core.ToQuery PutIdentityPolicy where
   toQuery PutIdentityPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutIdentityPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Prelude.=: identity,
-        "PolicyName" Prelude.=: policyName,
-        "Policy" Prelude.=: policy
+          Core.=: ("PutIdentityPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Identity" Core.=: identity,
+        "PolicyName" Core.=: policyName,
+        "Policy" Core.=: policy
       ]
 
 -- | An empty element returned on a successful request.
@@ -189,9 +189,9 @@ instance Prelude.ToQuery PutIdentityPolicy where
 -- /See:/ 'newPutIdentityPolicyResponse' smart constructor.
 data PutIdentityPolicyResponse = PutIdentityPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutIdentityPolicyResponse' with all optional fields omitted.
@@ -204,7 +204,7 @@ data PutIdentityPolicyResponse = PutIdentityPolicyResponse'
 -- 'httpStatus', 'putIdentityPolicyResponse_httpStatus' - The response's http status code.
 newPutIdentityPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutIdentityPolicyResponse
 newPutIdentityPolicyResponse pHttpStatus_ =
   PutIdentityPolicyResponse'
@@ -213,7 +213,7 @@ newPutIdentityPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putIdentityPolicyResponse_httpStatus :: Lens.Lens' PutIdentityPolicyResponse Prelude.Int
+putIdentityPolicyResponse_httpStatus :: Lens.Lens' PutIdentityPolicyResponse Core.Int
 putIdentityPolicyResponse_httpStatus = Lens.lens (\PutIdentityPolicyResponse' {httpStatus} -> httpStatus) (\s@PutIdentityPolicyResponse' {} a -> s {httpStatus = a} :: PutIdentityPolicyResponse)
 
-instance Prelude.NFData PutIdentityPolicyResponse
+instance Core.NFData PutIdentityPolicyResponse

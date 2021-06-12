@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.FailedRemediationBatch where
 
 import Network.AWS.Config.Types.RemediationConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | List of each of the failed remediations with specific reasons.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data FailedRemediationBatch = FailedRemediationBatch'
   { -- | Returns a failure message. For example, the resource is already
     -- compliant.
-    failureMessage :: Prelude.Maybe Prelude.Text,
+    failureMessage :: Core.Maybe Core.Text,
     -- | Returns remediation configurations of the failed items.
-    failedItems :: Prelude.Maybe [RemediationConfiguration]
+    failedItems :: Core.Maybe [RemediationConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailedRemediationBatch' with all optional fields omitted.
@@ -53,31 +52,29 @@ newFailedRemediationBatch ::
 newFailedRemediationBatch =
   FailedRemediationBatch'
     { failureMessage =
-        Prelude.Nothing,
-      failedItems = Prelude.Nothing
+        Core.Nothing,
+      failedItems = Core.Nothing
     }
 
 -- | Returns a failure message. For example, the resource is already
 -- compliant.
-failedRemediationBatch_failureMessage :: Lens.Lens' FailedRemediationBatch (Prelude.Maybe Prelude.Text)
+failedRemediationBatch_failureMessage :: Lens.Lens' FailedRemediationBatch (Core.Maybe Core.Text)
 failedRemediationBatch_failureMessage = Lens.lens (\FailedRemediationBatch' {failureMessage} -> failureMessage) (\s@FailedRemediationBatch' {} a -> s {failureMessage = a} :: FailedRemediationBatch)
 
 -- | Returns remediation configurations of the failed items.
-failedRemediationBatch_failedItems :: Lens.Lens' FailedRemediationBatch (Prelude.Maybe [RemediationConfiguration])
-failedRemediationBatch_failedItems = Lens.lens (\FailedRemediationBatch' {failedItems} -> failedItems) (\s@FailedRemediationBatch' {} a -> s {failedItems = a} :: FailedRemediationBatch) Prelude.. Lens.mapping Prelude._Coerce
+failedRemediationBatch_failedItems :: Lens.Lens' FailedRemediationBatch (Core.Maybe [RemediationConfiguration])
+failedRemediationBatch_failedItems = Lens.lens (\FailedRemediationBatch' {failedItems} -> failedItems) (\s@FailedRemediationBatch' {} a -> s {failedItems = a} :: FailedRemediationBatch) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON FailedRemediationBatch where
+instance Core.FromJSON FailedRemediationBatch where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailedRemediationBatch"
       ( \x ->
           FailedRemediationBatch'
-            Prelude.<$> (x Prelude..:? "FailureMessage")
-            Prelude.<*> ( x Prelude..:? "FailedItems"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "FailureMessage")
+            Core.<*> (x Core..:? "FailedItems" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable FailedRemediationBatch
+instance Core.Hashable FailedRemediationBatch
 
-instance Prelude.NFData FailedRemediationBatch
+instance Core.NFData FailedRemediationBatch

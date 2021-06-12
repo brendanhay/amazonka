@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.RouteFilterPrefix where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a route filter prefix that a customer can advertise
 -- through Border Gateway Protocol (BGP) over a public virtual interface.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data RouteFilterPrefix = RouteFilterPrefix'
   { -- | The CIDR block for the advertised route. Separate multiple routes using
     -- commas. An IPv6 CIDR must use \/64 or shorter.
-    cidr :: Prelude.Maybe Prelude.Text
+    cidr :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RouteFilterPrefix' with all optional fields omitted.
@@ -47,29 +46,26 @@ data RouteFilterPrefix = RouteFilterPrefix'
 newRouteFilterPrefix ::
   RouteFilterPrefix
 newRouteFilterPrefix =
-  RouteFilterPrefix' {cidr = Prelude.Nothing}
+  RouteFilterPrefix' {cidr = Core.Nothing}
 
 -- | The CIDR block for the advertised route. Separate multiple routes using
 -- commas. An IPv6 CIDR must use \/64 or shorter.
-routeFilterPrefix_cidr :: Lens.Lens' RouteFilterPrefix (Prelude.Maybe Prelude.Text)
+routeFilterPrefix_cidr :: Lens.Lens' RouteFilterPrefix (Core.Maybe Core.Text)
 routeFilterPrefix_cidr = Lens.lens (\RouteFilterPrefix' {cidr} -> cidr) (\s@RouteFilterPrefix' {} a -> s {cidr = a} :: RouteFilterPrefix)
 
-instance Prelude.FromJSON RouteFilterPrefix where
+instance Core.FromJSON RouteFilterPrefix where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RouteFilterPrefix"
       ( \x ->
-          RouteFilterPrefix'
-            Prelude.<$> (x Prelude..:? "cidr")
+          RouteFilterPrefix' Core.<$> (x Core..:? "cidr")
       )
 
-instance Prelude.Hashable RouteFilterPrefix
+instance Core.Hashable RouteFilterPrefix
 
-instance Prelude.NFData RouteFilterPrefix
+instance Core.NFData RouteFilterPrefix
 
-instance Prelude.ToJSON RouteFilterPrefix where
+instance Core.ToJSON RouteFilterPrefix where
   toJSON RouteFilterPrefix' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("cidr" Prelude..=) Prelude.<$> cidr]
-      )
+    Core.object
+      (Core.catMaybes [("cidr" Core..=) Core.<$> cidr])

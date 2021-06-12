@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Comprehend.DescribeDocumentClassificationJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DescribeDocumentClassificationJob = DescribeDocumentClassificationJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
     -- operation returns this identifier in its response.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDocumentClassificationJob' with all optional fields omitted.
@@ -67,89 +66,85 @@ data DescribeDocumentClassificationJob = DescribeDocumentClassificationJob'
 -- operation returns this identifier in its response.
 newDescribeDocumentClassificationJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeDocumentClassificationJob
 newDescribeDocumentClassificationJob pJobId_ =
   DescribeDocumentClassificationJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
 -- operation returns this identifier in its response.
-describeDocumentClassificationJob_jobId :: Lens.Lens' DescribeDocumentClassificationJob Prelude.Text
+describeDocumentClassificationJob_jobId :: Lens.Lens' DescribeDocumentClassificationJob Core.Text
 describeDocumentClassificationJob_jobId = Lens.lens (\DescribeDocumentClassificationJob' {jobId} -> jobId) (\s@DescribeDocumentClassificationJob' {} a -> s {jobId = a} :: DescribeDocumentClassificationJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeDocumentClassificationJob
   where
   type
-    Rs DescribeDocumentClassificationJob =
+    AWSResponse DescribeDocumentClassificationJob =
       DescribeDocumentClassificationJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentClassificationJobResponse'
-            Prelude.<$> (x Prelude..?> "DocumentClassificationJobProperties")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DocumentClassificationJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeDocumentClassificationJob
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDocumentClassificationJob
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeDocumentClassificationJob
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DescribeDocumentClassificationJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DescribeDocumentClassificationJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeDocumentClassificationJob
   where
   toJSON DescribeDocumentClassificationJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeDocumentClassificationJob
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeDocumentClassificationJob
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeDocumentClassificationJobResponse' smart constructor.
 data DescribeDocumentClassificationJobResponse = DescribeDocumentClassificationJobResponse'
   { -- | An object that describes the properties associated with the document
     -- classification job.
-    documentClassificationJobProperties :: Prelude.Maybe DocumentClassificationJobProperties,
+    documentClassificationJobProperties :: Core.Maybe DocumentClassificationJobProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDocumentClassificationJobResponse' with all optional fields omitted.
@@ -165,25 +160,25 @@ data DescribeDocumentClassificationJobResponse = DescribeDocumentClassificationJ
 -- 'httpStatus', 'describeDocumentClassificationJobResponse_httpStatus' - The response's http status code.
 newDescribeDocumentClassificationJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDocumentClassificationJobResponse
 newDescribeDocumentClassificationJobResponse
   pHttpStatus_ =
     DescribeDocumentClassificationJobResponse'
       { documentClassificationJobProperties =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object that describes the properties associated with the document
 -- classification job.
-describeDocumentClassificationJobResponse_documentClassificationJobProperties :: Lens.Lens' DescribeDocumentClassificationJobResponse (Prelude.Maybe DocumentClassificationJobProperties)
+describeDocumentClassificationJobResponse_documentClassificationJobProperties :: Lens.Lens' DescribeDocumentClassificationJobResponse (Core.Maybe DocumentClassificationJobProperties)
 describeDocumentClassificationJobResponse_documentClassificationJobProperties = Lens.lens (\DescribeDocumentClassificationJobResponse' {documentClassificationJobProperties} -> documentClassificationJobProperties) (\s@DescribeDocumentClassificationJobResponse' {} a -> s {documentClassificationJobProperties = a} :: DescribeDocumentClassificationJobResponse)
 
 -- | The response's http status code.
-describeDocumentClassificationJobResponse_httpStatus :: Lens.Lens' DescribeDocumentClassificationJobResponse Prelude.Int
+describeDocumentClassificationJobResponse_httpStatus :: Lens.Lens' DescribeDocumentClassificationJobResponse Core.Int
 describeDocumentClassificationJobResponse_httpStatus = Lens.lens (\DescribeDocumentClassificationJobResponse' {httpStatus} -> httpStatus) (\s@DescribeDocumentClassificationJobResponse' {} a -> s {httpStatus = a} :: DescribeDocumentClassificationJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDocumentClassificationJobResponse

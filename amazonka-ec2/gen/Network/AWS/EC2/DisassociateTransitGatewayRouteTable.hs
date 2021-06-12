@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EC2.DisassociateTransitGatewayRouteTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,13 +53,13 @@ data DisassociateTransitGatewayRouteTable = DisassociateTransitGatewayRouteTable
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Prelude.Text,
+    transitGatewayRouteTableId :: Core.Text,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Prelude.Text
+    transitGatewayAttachmentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTransitGatewayRouteTable' with all optional fields omitted.
@@ -80,16 +79,16 @@ data DisassociateTransitGatewayRouteTable = DisassociateTransitGatewayRouteTable
 -- 'transitGatewayAttachmentId', 'disassociateTransitGatewayRouteTable_transitGatewayAttachmentId' - The ID of the attachment.
 newDisassociateTransitGatewayRouteTable ::
   -- | 'transitGatewayRouteTableId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transitGatewayAttachmentId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateTransitGatewayRouteTable
 newDisassociateTransitGatewayRouteTable
   pTransitGatewayRouteTableId_
   pTransitGatewayAttachmentId_ =
     DisassociateTransitGatewayRouteTable'
       { dryRun =
-          Prelude.Nothing,
+          Core.Nothing,
         transitGatewayRouteTableId =
           pTransitGatewayRouteTableId_,
         transitGatewayAttachmentId =
@@ -100,80 +99,79 @@ newDisassociateTransitGatewayRouteTable
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateTransitGatewayRouteTable_dryRun :: Lens.Lens' DisassociateTransitGatewayRouteTable (Prelude.Maybe Prelude.Bool)
+disassociateTransitGatewayRouteTable_dryRun :: Lens.Lens' DisassociateTransitGatewayRouteTable (Core.Maybe Core.Bool)
 disassociateTransitGatewayRouteTable_dryRun = Lens.lens (\DisassociateTransitGatewayRouteTable' {dryRun} -> dryRun) (\s@DisassociateTransitGatewayRouteTable' {} a -> s {dryRun = a} :: DisassociateTransitGatewayRouteTable)
 
 -- | The ID of the transit gateway route table.
-disassociateTransitGatewayRouteTable_transitGatewayRouteTableId :: Lens.Lens' DisassociateTransitGatewayRouteTable Prelude.Text
+disassociateTransitGatewayRouteTable_transitGatewayRouteTableId :: Lens.Lens' DisassociateTransitGatewayRouteTable Core.Text
 disassociateTransitGatewayRouteTable_transitGatewayRouteTableId = Lens.lens (\DisassociateTransitGatewayRouteTable' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@DisassociateTransitGatewayRouteTable' {} a -> s {transitGatewayRouteTableId = a} :: DisassociateTransitGatewayRouteTable)
 
 -- | The ID of the attachment.
-disassociateTransitGatewayRouteTable_transitGatewayAttachmentId :: Lens.Lens' DisassociateTransitGatewayRouteTable Prelude.Text
+disassociateTransitGatewayRouteTable_transitGatewayAttachmentId :: Lens.Lens' DisassociateTransitGatewayRouteTable Core.Text
 disassociateTransitGatewayRouteTable_transitGatewayAttachmentId = Lens.lens (\DisassociateTransitGatewayRouteTable' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@DisassociateTransitGatewayRouteTable' {} a -> s {transitGatewayAttachmentId = a} :: DisassociateTransitGatewayRouteTable)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateTransitGatewayRouteTable
   where
   type
-    Rs DisassociateTransitGatewayRouteTable =
+    AWSResponse DisassociateTransitGatewayRouteTable =
       DisassociateTransitGatewayRouteTableResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DisassociateTransitGatewayRouteTableResponse'
-            Prelude.<$> (x Prelude..@? "association")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "association")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateTransitGatewayRouteTable
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateTransitGatewayRouteTable
 
 instance
-  Prelude.ToHeaders
-    DisassociateTransitGatewayRouteTable
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DisassociateTransitGatewayRouteTable
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DisassociateTransitGatewayRouteTable
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DisassociateTransitGatewayRouteTable
   where
   toQuery DisassociateTransitGatewayRouteTable' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DisassociateTransitGatewayRouteTable" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
+          Core.=: ( "DisassociateTransitGatewayRouteTable" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
         "TransitGatewayRouteTableId"
-          Prelude.=: transitGatewayRouteTableId,
+          Core.=: transitGatewayRouteTableId,
         "TransitGatewayAttachmentId"
-          Prelude.=: transitGatewayAttachmentId
+          Core.=: transitGatewayAttachmentId
       ]
 
 -- | /See:/ 'newDisassociateTransitGatewayRouteTableResponse' smart constructor.
 data DisassociateTransitGatewayRouteTableResponse = DisassociateTransitGatewayRouteTableResponse'
   { -- | Information about the association.
-    association :: Prelude.Maybe TransitGatewayAssociation,
+    association :: Core.Maybe TransitGatewayAssociation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTransitGatewayRouteTableResponse' with all optional fields omitted.
@@ -188,24 +186,24 @@ data DisassociateTransitGatewayRouteTableResponse = DisassociateTransitGatewayRo
 -- 'httpStatus', 'disassociateTransitGatewayRouteTableResponse_httpStatus' - The response's http status code.
 newDisassociateTransitGatewayRouteTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateTransitGatewayRouteTableResponse
 newDisassociateTransitGatewayRouteTableResponse
   pHttpStatus_ =
     DisassociateTransitGatewayRouteTableResponse'
       { association =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the association.
-disassociateTransitGatewayRouteTableResponse_association :: Lens.Lens' DisassociateTransitGatewayRouteTableResponse (Prelude.Maybe TransitGatewayAssociation)
+disassociateTransitGatewayRouteTableResponse_association :: Lens.Lens' DisassociateTransitGatewayRouteTableResponse (Core.Maybe TransitGatewayAssociation)
 disassociateTransitGatewayRouteTableResponse_association = Lens.lens (\DisassociateTransitGatewayRouteTableResponse' {association} -> association) (\s@DisassociateTransitGatewayRouteTableResponse' {} a -> s {association = a} :: DisassociateTransitGatewayRouteTableResponse)
 
 -- | The response's http status code.
-disassociateTransitGatewayRouteTableResponse_httpStatus :: Lens.Lens' DisassociateTransitGatewayRouteTableResponse Prelude.Int
+disassociateTransitGatewayRouteTableResponse_httpStatus :: Lens.Lens' DisassociateTransitGatewayRouteTableResponse Core.Int
 disassociateTransitGatewayRouteTableResponse_httpStatus = Lens.lens (\DisassociateTransitGatewayRouteTableResponse' {httpStatus} -> httpStatus) (\s@DisassociateTransitGatewayRouteTableResponse' {} a -> s {httpStatus = a} :: DisassociateTransitGatewayRouteTableResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateTransitGatewayRouteTableResponse

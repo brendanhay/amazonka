@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.TransactWriteItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ConditionCheck
 import Network.AWS.DynamoDB.Types.Delete
 import Network.AWS.DynamoDB.Types.Put
 import Network.AWS.DynamoDB.Types.Update
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of requests that can perform update, put, delete, or check
 -- operations on multiple items in one or more tables atomically.
@@ -33,15 +32,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTransactWriteItem' smart constructor.
 data TransactWriteItem = TransactWriteItem'
   { -- | A request to perform a @PutItem@ operation.
-    put :: Prelude.Maybe Put,
+    put :: Core.Maybe Put,
     -- | A request to perform a check item operation.
-    conditionCheck :: Prelude.Maybe ConditionCheck,
+    conditionCheck :: Core.Maybe ConditionCheck,
     -- | A request to perform an @UpdateItem@ operation.
-    update :: Prelude.Maybe Update,
+    update :: Core.Maybe Update,
     -- | A request to perform a @DeleteItem@ operation.
-    delete' :: Prelude.Maybe Delete
+    delete' :: Core.Maybe Delete
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransactWriteItem' with all optional fields omitted.
@@ -62,40 +61,39 @@ newTransactWriteItem ::
   TransactWriteItem
 newTransactWriteItem =
   TransactWriteItem'
-    { put = Prelude.Nothing,
-      conditionCheck = Prelude.Nothing,
-      update = Prelude.Nothing,
-      delete' = Prelude.Nothing
+    { put = Core.Nothing,
+      conditionCheck = Core.Nothing,
+      update = Core.Nothing,
+      delete' = Core.Nothing
     }
 
 -- | A request to perform a @PutItem@ operation.
-transactWriteItem_put :: Lens.Lens' TransactWriteItem (Prelude.Maybe Put)
+transactWriteItem_put :: Lens.Lens' TransactWriteItem (Core.Maybe Put)
 transactWriteItem_put = Lens.lens (\TransactWriteItem' {put} -> put) (\s@TransactWriteItem' {} a -> s {put = a} :: TransactWriteItem)
 
 -- | A request to perform a check item operation.
-transactWriteItem_conditionCheck :: Lens.Lens' TransactWriteItem (Prelude.Maybe ConditionCheck)
+transactWriteItem_conditionCheck :: Lens.Lens' TransactWriteItem (Core.Maybe ConditionCheck)
 transactWriteItem_conditionCheck = Lens.lens (\TransactWriteItem' {conditionCheck} -> conditionCheck) (\s@TransactWriteItem' {} a -> s {conditionCheck = a} :: TransactWriteItem)
 
 -- | A request to perform an @UpdateItem@ operation.
-transactWriteItem_update :: Lens.Lens' TransactWriteItem (Prelude.Maybe Update)
+transactWriteItem_update :: Lens.Lens' TransactWriteItem (Core.Maybe Update)
 transactWriteItem_update = Lens.lens (\TransactWriteItem' {update} -> update) (\s@TransactWriteItem' {} a -> s {update = a} :: TransactWriteItem)
 
 -- | A request to perform a @DeleteItem@ operation.
-transactWriteItem_delete :: Lens.Lens' TransactWriteItem (Prelude.Maybe Delete)
+transactWriteItem_delete :: Lens.Lens' TransactWriteItem (Core.Maybe Delete)
 transactWriteItem_delete = Lens.lens (\TransactWriteItem' {delete'} -> delete') (\s@TransactWriteItem' {} a -> s {delete' = a} :: TransactWriteItem)
 
-instance Prelude.Hashable TransactWriteItem
+instance Core.Hashable TransactWriteItem
 
-instance Prelude.NFData TransactWriteItem
+instance Core.NFData TransactWriteItem
 
-instance Prelude.ToJSON TransactWriteItem where
+instance Core.ToJSON TransactWriteItem where
   toJSON TransactWriteItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Put" Prelude..=) Prelude.<$> put,
-            ("ConditionCheck" Prelude..=)
-              Prelude.<$> conditionCheck,
-            ("Update" Prelude..=) Prelude.<$> update,
-            ("Delete" Prelude..=) Prelude.<$> delete'
+    Core.object
+      ( Core.catMaybes
+          [ ("Put" Core..=) Core.<$> put,
+            ("ConditionCheck" Core..=) Core.<$> conditionCheck,
+            ("Update" Core..=) Core.<$> update,
+            ("Delete" Core..=) Core.<$> delete'
           ]
       )

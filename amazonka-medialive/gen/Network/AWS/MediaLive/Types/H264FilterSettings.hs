@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.H264FilterSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TemporalFilterSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | H264 Filter Settings
 --
 -- /See:/ 'newH264FilterSettings' smart constructor.
 data H264FilterSettings = H264FilterSettings'
-  { temporalFilterSettings :: Prelude.Maybe TemporalFilterSettings
+  { temporalFilterSettings :: Core.Maybe TemporalFilterSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'H264FilterSettings' with all optional fields omitted.
@@ -46,31 +45,31 @@ newH264FilterSettings ::
 newH264FilterSettings =
   H264FilterSettings'
     { temporalFilterSettings =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Undocumented member.
-h264FilterSettings_temporalFilterSettings :: Lens.Lens' H264FilterSettings (Prelude.Maybe TemporalFilterSettings)
+h264FilterSettings_temporalFilterSettings :: Lens.Lens' H264FilterSettings (Core.Maybe TemporalFilterSettings)
 h264FilterSettings_temporalFilterSettings = Lens.lens (\H264FilterSettings' {temporalFilterSettings} -> temporalFilterSettings) (\s@H264FilterSettings' {} a -> s {temporalFilterSettings = a} :: H264FilterSettings)
 
-instance Prelude.FromJSON H264FilterSettings where
+instance Core.FromJSON H264FilterSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "H264FilterSettings"
       ( \x ->
           H264FilterSettings'
-            Prelude.<$> (x Prelude..:? "temporalFilterSettings")
+            Core.<$> (x Core..:? "temporalFilterSettings")
       )
 
-instance Prelude.Hashable H264FilterSettings
+instance Core.Hashable H264FilterSettings
 
-instance Prelude.NFData H264FilterSettings
+instance Core.NFData H264FilterSettings
 
-instance Prelude.ToJSON H264FilterSettings where
+instance Core.ToJSON H264FilterSettings where
   toJSON H264FilterSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("temporalFilterSettings" Prelude..=)
-              Prelude.<$> temporalFilterSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("temporalFilterSettings" Core..=)
+              Core.<$> temporalFilterSettings
           ]
       )

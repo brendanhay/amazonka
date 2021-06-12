@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.JourneyExecutionActivityMetricsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the results of a query that retrieved the data for a standard
 -- execution metric that applies to a journey activity, and provides
@@ -33,15 +32,15 @@ data JourneyExecutionActivityMetricsResponse = JourneyExecutionActivityMetricsRe
     -- depending on the type of activity (ActivityType). For information about
     -- the structure and contents of the results, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-    metrics :: Prelude.HashMap Prelude.Text Prelude.Text,
+    metrics :: Core.HashMap Core.Text Core.Text,
     -- | The unique identifier for the journey that the metric applies to.
-    journeyId :: Prelude.Text,
+    journeyId :: Core.Text,
     -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last
     -- evaluated the execution status of the activity and updated the data for
     -- the metric.
-    lastEvaluatedTime :: Prelude.Text,
+    lastEvaluatedTime :: Core.Text,
     -- | The unique identifier for the activity that the metric applies to.
-    journeyActivityId :: Prelude.Text,
+    journeyActivityId :: Core.Text,
     -- | The type of activity that the metric applies to. Possible values are:
     --
     -- -   CONDITIONAL_SPLIT - For a yes\/no split activity, which is an
@@ -64,11 +63,11 @@ data JourneyExecutionActivityMetricsResponse = JourneyExecutionActivityMetricsRe
     -- -   WAIT - For a wait activity, which is an activity that waits for a
     --     certain amount of time or until a specific date and time before
     --     moving participants to the next activity in a journey.
-    activityType :: Prelude.Text,
+    activityType :: Core.Text,
     -- | The unique identifier for the application that the metric applies to.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JourneyExecutionActivityMetricsResponse' with all optional fields omitted.
@@ -117,15 +116,15 @@ data JourneyExecutionActivityMetricsResponse = JourneyExecutionActivityMetricsRe
 -- 'applicationId', 'journeyExecutionActivityMetricsResponse_applicationId' - The unique identifier for the application that the metric applies to.
 newJourneyExecutionActivityMetricsResponse ::
   -- | 'journeyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lastEvaluatedTime'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'journeyActivityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'activityType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   JourneyExecutionActivityMetricsResponse
 newJourneyExecutionActivityMetricsResponse
   pJourneyId_
@@ -135,7 +134,7 @@ newJourneyExecutionActivityMetricsResponse
   pApplicationId_ =
     JourneyExecutionActivityMetricsResponse'
       { metrics =
-          Prelude.mempty,
+          Core.mempty,
         journeyId = pJourneyId_,
         lastEvaluatedTime =
           pLastEvaluatedTime_,
@@ -149,21 +148,21 @@ newJourneyExecutionActivityMetricsResponse
 -- depending on the type of activity (ActivityType). For information about
 -- the structure and contents of the results, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-journeyExecutionActivityMetricsResponse_metrics :: Lens.Lens' JourneyExecutionActivityMetricsResponse (Prelude.HashMap Prelude.Text Prelude.Text)
-journeyExecutionActivityMetricsResponse_metrics = Lens.lens (\JourneyExecutionActivityMetricsResponse' {metrics} -> metrics) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {metrics = a} :: JourneyExecutionActivityMetricsResponse) Prelude.. Prelude._Coerce
+journeyExecutionActivityMetricsResponse_metrics :: Lens.Lens' JourneyExecutionActivityMetricsResponse (Core.HashMap Core.Text Core.Text)
+journeyExecutionActivityMetricsResponse_metrics = Lens.lens (\JourneyExecutionActivityMetricsResponse' {metrics} -> metrics) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {metrics = a} :: JourneyExecutionActivityMetricsResponse) Core.. Lens._Coerce
 
 -- | The unique identifier for the journey that the metric applies to.
-journeyExecutionActivityMetricsResponse_journeyId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Prelude.Text
+journeyExecutionActivityMetricsResponse_journeyId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Core.Text
 journeyExecutionActivityMetricsResponse_journeyId = Lens.lens (\JourneyExecutionActivityMetricsResponse' {journeyId} -> journeyId) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {journeyId = a} :: JourneyExecutionActivityMetricsResponse)
 
 -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last
 -- evaluated the execution status of the activity and updated the data for
 -- the metric.
-journeyExecutionActivityMetricsResponse_lastEvaluatedTime :: Lens.Lens' JourneyExecutionActivityMetricsResponse Prelude.Text
+journeyExecutionActivityMetricsResponse_lastEvaluatedTime :: Lens.Lens' JourneyExecutionActivityMetricsResponse Core.Text
 journeyExecutionActivityMetricsResponse_lastEvaluatedTime = Lens.lens (\JourneyExecutionActivityMetricsResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {lastEvaluatedTime = a} :: JourneyExecutionActivityMetricsResponse)
 
 -- | The unique identifier for the activity that the metric applies to.
-journeyExecutionActivityMetricsResponse_journeyActivityId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Prelude.Text
+journeyExecutionActivityMetricsResponse_journeyActivityId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Core.Text
 journeyExecutionActivityMetricsResponse_journeyActivityId = Lens.lens (\JourneyExecutionActivityMetricsResponse' {journeyActivityId} -> journeyActivityId) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {journeyActivityId = a} :: JourneyExecutionActivityMetricsResponse)
 
 -- | The type of activity that the metric applies to. Possible values are:
@@ -188,34 +187,34 @@ journeyExecutionActivityMetricsResponse_journeyActivityId = Lens.lens (\JourneyE
 -- -   WAIT - For a wait activity, which is an activity that waits for a
 --     certain amount of time or until a specific date and time before
 --     moving participants to the next activity in a journey.
-journeyExecutionActivityMetricsResponse_activityType :: Lens.Lens' JourneyExecutionActivityMetricsResponse Prelude.Text
+journeyExecutionActivityMetricsResponse_activityType :: Lens.Lens' JourneyExecutionActivityMetricsResponse Core.Text
 journeyExecutionActivityMetricsResponse_activityType = Lens.lens (\JourneyExecutionActivityMetricsResponse' {activityType} -> activityType) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {activityType = a} :: JourneyExecutionActivityMetricsResponse)
 
 -- | The unique identifier for the application that the metric applies to.
-journeyExecutionActivityMetricsResponse_applicationId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Prelude.Text
+journeyExecutionActivityMetricsResponse_applicationId :: Lens.Lens' JourneyExecutionActivityMetricsResponse Core.Text
 journeyExecutionActivityMetricsResponse_applicationId = Lens.lens (\JourneyExecutionActivityMetricsResponse' {applicationId} -> applicationId) (\s@JourneyExecutionActivityMetricsResponse' {} a -> s {applicationId = a} :: JourneyExecutionActivityMetricsResponse)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     JourneyExecutionActivityMetricsResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JourneyExecutionActivityMetricsResponse"
       ( \x ->
           JourneyExecutionActivityMetricsResponse'
-            Prelude.<$> (x Prelude..:? "Metrics" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "JourneyId")
-            Prelude.<*> (x Prelude..: "LastEvaluatedTime")
-            Prelude.<*> (x Prelude..: "JourneyActivityId")
-            Prelude.<*> (x Prelude..: "ActivityType")
-            Prelude.<*> (x Prelude..: "ApplicationId")
+            Core.<$> (x Core..:? "Metrics" Core..!= Core.mempty)
+            Core.<*> (x Core..: "JourneyId")
+            Core.<*> (x Core..: "LastEvaluatedTime")
+            Core.<*> (x Core..: "JourneyActivityId")
+            Core.<*> (x Core..: "ActivityType")
+            Core.<*> (x Core..: "ApplicationId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     JourneyExecutionActivityMetricsResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     JourneyExecutionActivityMetricsResponse

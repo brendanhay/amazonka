@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,10 +48,9 @@ module Network.AWS.LexModels.GetBuiltinIntents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,19 +62,19 @@ data GetBuiltinIntents = GetBuiltinIntents'
     -- signature for an intent, see
     -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
     -- in the /Alexa Skills Kit/.
-    signatureContains :: Prelude.Maybe Prelude.Text,
+    signatureContains :: Core.Maybe Core.Text,
     -- | A pagination token that fetches the next page of intents. If this API
     -- call is truncated, Amazon Lex returns a pagination token in the
     -- response. To fetch the next page of intents, use the pagination token in
     -- the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of intents to return in the response. The default is
     -- 10.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A list of locales that the intent supports.
-    locale :: Prelude.Maybe Locale
+    locale :: Core.Maybe Locale
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBuiltinIntents' with all optional fields omitted.
@@ -107,10 +105,10 @@ newGetBuiltinIntents ::
 newGetBuiltinIntents =
   GetBuiltinIntents'
     { signatureContains =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      locale = Prelude.Nothing
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      locale = Core.Nothing
     }
 
 -- | Substring to match in built-in intent signatures. An intent will be
@@ -119,84 +117,82 @@ newGetBuiltinIntents =
 -- signature for an intent, see
 -- <https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents>
 -- in the /Alexa Skills Kit/.
-getBuiltinIntents_signatureContains :: Lens.Lens' GetBuiltinIntents (Prelude.Maybe Prelude.Text)
+getBuiltinIntents_signatureContains :: Lens.Lens' GetBuiltinIntents (Core.Maybe Core.Text)
 getBuiltinIntents_signatureContains = Lens.lens (\GetBuiltinIntents' {signatureContains} -> signatureContains) (\s@GetBuiltinIntents' {} a -> s {signatureContains = a} :: GetBuiltinIntents)
 
 -- | A pagination token that fetches the next page of intents. If this API
 -- call is truncated, Amazon Lex returns a pagination token in the
 -- response. To fetch the next page of intents, use the pagination token in
 -- the next request.
-getBuiltinIntents_nextToken :: Lens.Lens' GetBuiltinIntents (Prelude.Maybe Prelude.Text)
+getBuiltinIntents_nextToken :: Lens.Lens' GetBuiltinIntents (Core.Maybe Core.Text)
 getBuiltinIntents_nextToken = Lens.lens (\GetBuiltinIntents' {nextToken} -> nextToken) (\s@GetBuiltinIntents' {} a -> s {nextToken = a} :: GetBuiltinIntents)
 
 -- | The maximum number of intents to return in the response. The default is
 -- 10.
-getBuiltinIntents_maxResults :: Lens.Lens' GetBuiltinIntents (Prelude.Maybe Prelude.Natural)
+getBuiltinIntents_maxResults :: Lens.Lens' GetBuiltinIntents (Core.Maybe Core.Natural)
 getBuiltinIntents_maxResults = Lens.lens (\GetBuiltinIntents' {maxResults} -> maxResults) (\s@GetBuiltinIntents' {} a -> s {maxResults = a} :: GetBuiltinIntents)
 
 -- | A list of locales that the intent supports.
-getBuiltinIntents_locale :: Lens.Lens' GetBuiltinIntents (Prelude.Maybe Locale)
+getBuiltinIntents_locale :: Lens.Lens' GetBuiltinIntents (Core.Maybe Locale)
 getBuiltinIntents_locale = Lens.lens (\GetBuiltinIntents' {locale} -> locale) (\s@GetBuiltinIntents' {} a -> s {locale = a} :: GetBuiltinIntents)
 
-instance Pager.AWSPager GetBuiltinIntents where
+instance Core.AWSPager GetBuiltinIntents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getBuiltinIntentsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getBuiltinIntentsResponse_intents
-              Prelude.. Lens._Just
+            Lens.^? getBuiltinIntentsResponse_intents Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getBuiltinIntents_nextToken
           Lens..~ rs
-          Lens.^? getBuiltinIntentsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? getBuiltinIntentsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest GetBuiltinIntents where
-  type Rs GetBuiltinIntents = GetBuiltinIntentsResponse
+instance Core.AWSRequest GetBuiltinIntents where
+  type
+    AWSResponse GetBuiltinIntents =
+      GetBuiltinIntentsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBuiltinIntentsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "intents" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "intents" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBuiltinIntents
+instance Core.Hashable GetBuiltinIntents
 
-instance Prelude.NFData GetBuiltinIntents
+instance Core.NFData GetBuiltinIntents
 
-instance Prelude.ToHeaders GetBuiltinIntents where
+instance Core.ToHeaders GetBuiltinIntents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetBuiltinIntents where
-  toPath = Prelude.const "/builtins/intents/"
+instance Core.ToPath GetBuiltinIntents where
+  toPath = Core.const "/builtins/intents/"
 
-instance Prelude.ToQuery GetBuiltinIntents where
+instance Core.ToQuery GetBuiltinIntents where
   toQuery GetBuiltinIntents' {..} =
-    Prelude.mconcat
-      [ "signatureContains" Prelude.=: signatureContains,
-        "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults,
-        "locale" Prelude.=: locale
+    Core.mconcat
+      [ "signatureContains" Core.=: signatureContains,
+        "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "locale" Core.=: locale
       ]
 
 -- | /See:/ 'newGetBuiltinIntentsResponse' smart constructor.
@@ -205,14 +201,14 @@ data GetBuiltinIntentsResponse = GetBuiltinIntentsResponse'
     -- response to this API call is truncated, Amazon Lex returns a pagination
     -- token in the response. To fetch the next page of intents, specify the
     -- pagination token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of @builtinIntentMetadata@ objects, one for each intent in the
     -- response.
-    intents :: Prelude.Maybe [BuiltinIntentMetadata],
+    intents :: Core.Maybe [BuiltinIntentMetadata],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBuiltinIntentsResponse' with all optional fields omitted.
@@ -233,13 +229,13 @@ data GetBuiltinIntentsResponse = GetBuiltinIntentsResponse'
 -- 'httpStatus', 'getBuiltinIntentsResponse_httpStatus' - The response's http status code.
 newGetBuiltinIntentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBuiltinIntentsResponse
 newGetBuiltinIntentsResponse pHttpStatus_ =
   GetBuiltinIntentsResponse'
     { nextToken =
-        Prelude.Nothing,
-      intents = Prelude.Nothing,
+        Core.Nothing,
+      intents = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -247,16 +243,16 @@ newGetBuiltinIntentsResponse pHttpStatus_ =
 -- response to this API call is truncated, Amazon Lex returns a pagination
 -- token in the response. To fetch the next page of intents, specify the
 -- pagination token in the next request.
-getBuiltinIntentsResponse_nextToken :: Lens.Lens' GetBuiltinIntentsResponse (Prelude.Maybe Prelude.Text)
+getBuiltinIntentsResponse_nextToken :: Lens.Lens' GetBuiltinIntentsResponse (Core.Maybe Core.Text)
 getBuiltinIntentsResponse_nextToken = Lens.lens (\GetBuiltinIntentsResponse' {nextToken} -> nextToken) (\s@GetBuiltinIntentsResponse' {} a -> s {nextToken = a} :: GetBuiltinIntentsResponse)
 
 -- | An array of @builtinIntentMetadata@ objects, one for each intent in the
 -- response.
-getBuiltinIntentsResponse_intents :: Lens.Lens' GetBuiltinIntentsResponse (Prelude.Maybe [BuiltinIntentMetadata])
-getBuiltinIntentsResponse_intents = Lens.lens (\GetBuiltinIntentsResponse' {intents} -> intents) (\s@GetBuiltinIntentsResponse' {} a -> s {intents = a} :: GetBuiltinIntentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getBuiltinIntentsResponse_intents :: Lens.Lens' GetBuiltinIntentsResponse (Core.Maybe [BuiltinIntentMetadata])
+getBuiltinIntentsResponse_intents = Lens.lens (\GetBuiltinIntentsResponse' {intents} -> intents) (\s@GetBuiltinIntentsResponse' {} a -> s {intents = a} :: GetBuiltinIntentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getBuiltinIntentsResponse_httpStatus :: Lens.Lens' GetBuiltinIntentsResponse Prelude.Int
+getBuiltinIntentsResponse_httpStatus :: Lens.Lens' GetBuiltinIntentsResponse Core.Int
 getBuiltinIntentsResponse_httpStatus = Lens.lens (\GetBuiltinIntentsResponse' {httpStatus} -> httpStatus) (\s@GetBuiltinIntentsResponse' {} a -> s {httpStatus = a} :: GetBuiltinIntentsResponse)
 
-instance Prelude.NFData GetBuiltinIntentsResponse
+instance Core.NFData GetBuiltinIntentsResponse

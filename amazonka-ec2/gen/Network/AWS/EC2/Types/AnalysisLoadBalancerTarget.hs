@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AnalysisLoadBalancerTarget where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AnalysisComponent
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a load balancer target.
 --
 -- /See:/ 'newAnalysisLoadBalancerTarget' smart constructor.
 data AnalysisLoadBalancerTarget = AnalysisLoadBalancerTarget'
   { -- | The IP address.
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | The Availability Zone.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | Information about the instance.
-    instance' :: Prelude.Maybe AnalysisComponent,
+    instance' :: Core.Maybe AnalysisComponent,
     -- | The port on which the target is listening.
-    port :: Prelude.Maybe Prelude.Natural
+    port :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalysisLoadBalancerTarget' with all optional fields omitted.
@@ -59,37 +58,36 @@ newAnalysisLoadBalancerTarget ::
   AnalysisLoadBalancerTarget
 newAnalysisLoadBalancerTarget =
   AnalysisLoadBalancerTarget'
-    { address =
-        Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      instance' = Prelude.Nothing,
-      port = Prelude.Nothing
+    { address = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      instance' = Core.Nothing,
+      port = Core.Nothing
     }
 
 -- | The IP address.
-analysisLoadBalancerTarget_address :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
+analysisLoadBalancerTarget_address :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe Core.Text)
 analysisLoadBalancerTarget_address = Lens.lens (\AnalysisLoadBalancerTarget' {address} -> address) (\s@AnalysisLoadBalancerTarget' {} a -> s {address = a} :: AnalysisLoadBalancerTarget)
 
 -- | The Availability Zone.
-analysisLoadBalancerTarget_availabilityZone :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Text)
+analysisLoadBalancerTarget_availabilityZone :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe Core.Text)
 analysisLoadBalancerTarget_availabilityZone = Lens.lens (\AnalysisLoadBalancerTarget' {availabilityZone} -> availabilityZone) (\s@AnalysisLoadBalancerTarget' {} a -> s {availabilityZone = a} :: AnalysisLoadBalancerTarget)
 
 -- | Information about the instance.
-analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe AnalysisComponent)
+analysisLoadBalancerTarget_instance :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe AnalysisComponent)
 analysisLoadBalancerTarget_instance = Lens.lens (\AnalysisLoadBalancerTarget' {instance'} -> instance') (\s@AnalysisLoadBalancerTarget' {} a -> s {instance' = a} :: AnalysisLoadBalancerTarget)
 
 -- | The port on which the target is listening.
-analysisLoadBalancerTarget_port :: Lens.Lens' AnalysisLoadBalancerTarget (Prelude.Maybe Prelude.Natural)
+analysisLoadBalancerTarget_port :: Lens.Lens' AnalysisLoadBalancerTarget (Core.Maybe Core.Natural)
 analysisLoadBalancerTarget_port = Lens.lens (\AnalysisLoadBalancerTarget' {port} -> port) (\s@AnalysisLoadBalancerTarget' {} a -> s {port = a} :: AnalysisLoadBalancerTarget)
 
-instance Prelude.FromXML AnalysisLoadBalancerTarget where
+instance Core.FromXML AnalysisLoadBalancerTarget where
   parseXML x =
     AnalysisLoadBalancerTarget'
-      Prelude.<$> (x Prelude..@? "address")
-      Prelude.<*> (x Prelude..@? "availabilityZone")
-      Prelude.<*> (x Prelude..@? "instance")
-      Prelude.<*> (x Prelude..@? "port")
+      Core.<$> (x Core..@? "address")
+      Core.<*> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "instance")
+      Core.<*> (x Core..@? "port")
 
-instance Prelude.Hashable AnalysisLoadBalancerTarget
+instance Core.Hashable AnalysisLoadBalancerTarget
 
-instance Prelude.NFData AnalysisLoadBalancerTarget
+instance Core.NFData AnalysisLoadBalancerTarget

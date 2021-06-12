@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Pinpoint.GetCampaignVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,17 +54,17 @@ data GetCampaignVersions = GetCampaignVersions'
   { -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
+    pageSize :: Core.Maybe Core.Text,
     -- | The NextToken string that specifies which page of results to return in a
     -- paginated response.
-    token :: Prelude.Maybe Prelude.Text,
+    token :: Core.Maybe Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The unique identifier for the campaign.
-    campaignId :: Prelude.Text
+    campaignId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaignVersions' with all optional fields omitted.
@@ -88,14 +87,14 @@ data GetCampaignVersions = GetCampaignVersions'
 -- 'campaignId', 'getCampaignVersions_campaignId' - The unique identifier for the campaign.
 newGetCampaignVersions ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'campaignId'
-  Prelude.Text ->
+  Core.Text ->
   GetCampaignVersions
 newGetCampaignVersions pApplicationId_ pCampaignId_ =
   GetCampaignVersions'
-    { pageSize = Prelude.Nothing,
-      token = Prelude.Nothing,
+    { pageSize = Core.Nothing,
+      token = Core.Nothing,
       applicationId = pApplicationId_,
       campaignId = pCampaignId_
     }
@@ -103,75 +102,71 @@ newGetCampaignVersions pApplicationId_ pCampaignId_ =
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getCampaignVersions_pageSize :: Lens.Lens' GetCampaignVersions (Prelude.Maybe Prelude.Text)
+getCampaignVersions_pageSize :: Lens.Lens' GetCampaignVersions (Core.Maybe Core.Text)
 getCampaignVersions_pageSize = Lens.lens (\GetCampaignVersions' {pageSize} -> pageSize) (\s@GetCampaignVersions' {} a -> s {pageSize = a} :: GetCampaignVersions)
 
 -- | The NextToken string that specifies which page of results to return in a
 -- paginated response.
-getCampaignVersions_token :: Lens.Lens' GetCampaignVersions (Prelude.Maybe Prelude.Text)
+getCampaignVersions_token :: Lens.Lens' GetCampaignVersions (Core.Maybe Core.Text)
 getCampaignVersions_token = Lens.lens (\GetCampaignVersions' {token} -> token) (\s@GetCampaignVersions' {} a -> s {token = a} :: GetCampaignVersions)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getCampaignVersions_applicationId :: Lens.Lens' GetCampaignVersions Prelude.Text
+getCampaignVersions_applicationId :: Lens.Lens' GetCampaignVersions Core.Text
 getCampaignVersions_applicationId = Lens.lens (\GetCampaignVersions' {applicationId} -> applicationId) (\s@GetCampaignVersions' {} a -> s {applicationId = a} :: GetCampaignVersions)
 
 -- | The unique identifier for the campaign.
-getCampaignVersions_campaignId :: Lens.Lens' GetCampaignVersions Prelude.Text
+getCampaignVersions_campaignId :: Lens.Lens' GetCampaignVersions Core.Text
 getCampaignVersions_campaignId = Lens.lens (\GetCampaignVersions' {campaignId} -> campaignId) (\s@GetCampaignVersions' {} a -> s {campaignId = a} :: GetCampaignVersions)
 
-instance Prelude.AWSRequest GetCampaignVersions where
+instance Core.AWSRequest GetCampaignVersions where
   type
-    Rs GetCampaignVersions =
+    AWSResponse GetCampaignVersions =
       GetCampaignVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCampaignVersionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetCampaignVersions
+instance Core.Hashable GetCampaignVersions
 
-instance Prelude.NFData GetCampaignVersions
+instance Core.NFData GetCampaignVersions
 
-instance Prelude.ToHeaders GetCampaignVersions where
+instance Core.ToHeaders GetCampaignVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetCampaignVersions where
+instance Core.ToPath GetCampaignVersions where
   toPath GetCampaignVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/campaigns/",
-        Prelude.toBS campaignId,
+        Core.toBS campaignId,
         "/versions"
       ]
 
-instance Prelude.ToQuery GetCampaignVersions where
+instance Core.ToQuery GetCampaignVersions where
   toQuery GetCampaignVersions' {..} =
-    Prelude.mconcat
-      [ "page-size" Prelude.=: pageSize,
-        "token" Prelude.=: token
-      ]
+    Core.mconcat
+      ["page-size" Core.=: pageSize, "token" Core.=: token]
 
 -- | /See:/ 'newGetCampaignVersionsResponse' smart constructor.
 data GetCampaignVersionsResponse = GetCampaignVersionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     campaignsResponse :: CampaignsResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaignVersionsResponse' with all optional fields omitted.
@@ -186,7 +181,7 @@ data GetCampaignVersionsResponse = GetCampaignVersionsResponse'
 -- 'campaignsResponse', 'getCampaignVersionsResponse_campaignsResponse' - Undocumented member.
 newGetCampaignVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'campaignsResponse'
   CampaignsResponse ->
   GetCampaignVersionsResponse
@@ -200,11 +195,11 @@ newGetCampaignVersionsResponse
       }
 
 -- | The response's http status code.
-getCampaignVersionsResponse_httpStatus :: Lens.Lens' GetCampaignVersionsResponse Prelude.Int
+getCampaignVersionsResponse_httpStatus :: Lens.Lens' GetCampaignVersionsResponse Core.Int
 getCampaignVersionsResponse_httpStatus = Lens.lens (\GetCampaignVersionsResponse' {httpStatus} -> httpStatus) (\s@GetCampaignVersionsResponse' {} a -> s {httpStatus = a} :: GetCampaignVersionsResponse)
 
 -- | Undocumented member.
 getCampaignVersionsResponse_campaignsResponse :: Lens.Lens' GetCampaignVersionsResponse CampaignsResponse
 getCampaignVersionsResponse_campaignsResponse = Lens.lens (\GetCampaignVersionsResponse' {campaignsResponse} -> campaignsResponse) (\s@GetCampaignVersionsResponse' {} a -> s {campaignsResponse = a} :: GetCampaignVersionsResponse)
 
-instance Prelude.NFData GetCampaignVersionsResponse
+instance Core.NFData GetCampaignVersionsResponse

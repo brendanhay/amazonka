@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,15 +53,15 @@ data RebuildEnvironment = RebuildEnvironment'
     -- Condition: You must specify either this or an EnvironmentName, or both.
     -- If you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentId :: Prelude.Maybe Prelude.Text,
+    environmentId :: Core.Maybe Core.Text,
     -- | The name of the environment to rebuild.
     --
     -- Condition: You must specify either this or an EnvironmentId, or both. If
     -- you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
-    environmentName :: Prelude.Maybe Prelude.Text
+    environmentName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebuildEnvironment' with all optional fields omitted.
@@ -87,9 +86,8 @@ newRebuildEnvironment ::
   RebuildEnvironment
 newRebuildEnvironment =
   RebuildEnvironment'
-    { environmentId =
-        Prelude.Nothing,
-      environmentName = Prelude.Nothing
+    { environmentId = Core.Nothing,
+      environmentName = Core.Nothing
     }
 
 -- | The ID of the environment to rebuild.
@@ -97,7 +95,7 @@ newRebuildEnvironment =
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-rebuildEnvironment_environmentId :: Lens.Lens' RebuildEnvironment (Prelude.Maybe Prelude.Text)
+rebuildEnvironment_environmentId :: Lens.Lens' RebuildEnvironment (Core.Maybe Core.Text)
 rebuildEnvironment_environmentId = Lens.lens (\RebuildEnvironment' {environmentId} -> environmentId) (\s@RebuildEnvironment' {} a -> s {environmentId = a} :: RebuildEnvironment)
 
 -- | The name of the environment to rebuild.
@@ -105,43 +103,42 @@ rebuildEnvironment_environmentId = Lens.lens (\RebuildEnvironment' {environmentI
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-rebuildEnvironment_environmentName :: Lens.Lens' RebuildEnvironment (Prelude.Maybe Prelude.Text)
+rebuildEnvironment_environmentName :: Lens.Lens' RebuildEnvironment (Core.Maybe Core.Text)
 rebuildEnvironment_environmentName = Lens.lens (\RebuildEnvironment' {environmentName} -> environmentName) (\s@RebuildEnvironment' {} a -> s {environmentName = a} :: RebuildEnvironment)
 
-instance Prelude.AWSRequest RebuildEnvironment where
+instance Core.AWSRequest RebuildEnvironment where
   type
-    Rs RebuildEnvironment =
+    AWSResponse RebuildEnvironment =
       RebuildEnvironmentResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull RebuildEnvironmentResponse'
 
-instance Prelude.Hashable RebuildEnvironment
+instance Core.Hashable RebuildEnvironment
 
-instance Prelude.NFData RebuildEnvironment
+instance Core.NFData RebuildEnvironment
 
-instance Prelude.ToHeaders RebuildEnvironment where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RebuildEnvironment where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RebuildEnvironment where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebuildEnvironment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebuildEnvironment where
+instance Core.ToQuery RebuildEnvironment where
   toQuery RebuildEnvironment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RebuildEnvironment" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentId" Prelude.=: environmentId,
-        "EnvironmentName" Prelude.=: environmentName
+          Core.=: ("RebuildEnvironment" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EnvironmentId" Core.=: environmentId,
+        "EnvironmentName" Core.=: environmentName
       ]
 
 -- | /See:/ 'newRebuildEnvironmentResponse' smart constructor.
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebuildEnvironmentResponse' with all optional fields omitted.
@@ -152,4 +149,4 @@ newRebuildEnvironmentResponse ::
 newRebuildEnvironmentResponse =
   RebuildEnvironmentResponse'
 
-instance Prelude.NFData RebuildEnvironmentResponse
+instance Core.NFData RebuildEnvironmentResponse

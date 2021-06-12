@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AwsJobExponentialRolloutRate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AwsJobRateIncreaseCriteria
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The rate of increase for a job rollout. This parameter allows you to
 -- define an exponential rate increase for a job rollout.
@@ -32,17 +31,17 @@ data AwsJobExponentialRolloutRate = AwsJobExponentialRolloutRate'
   { -- | The minimum number of things that will be notified of a pending job, per
     -- minute, at the start of the job rollout. This is the initial rate of the
     -- rollout.
-    baseRatePerMinute :: Prelude.Natural,
+    baseRatePerMinute :: Core.Natural,
     -- | The rate of increase for a job rollout. The number of things notified is
     -- multiplied by this factor.
-    incrementFactor :: Prelude.Double,
+    incrementFactor :: Core.Double,
     -- | The criteria to initiate the increase in rate of rollout for a job.
     --
     -- AWS IoT supports up to one digit after the decimal (for example, 1.5,
     -- but not 1.55).
     rateIncreaseCriteria :: AwsJobRateIncreaseCriteria
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AwsJobExponentialRolloutRate' with all optional fields omitted.
@@ -65,9 +64,9 @@ data AwsJobExponentialRolloutRate = AwsJobExponentialRolloutRate'
 -- but not 1.55).
 newAwsJobExponentialRolloutRate ::
   -- | 'baseRatePerMinute'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'incrementFactor'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'rateIncreaseCriteria'
   AwsJobRateIncreaseCriteria ->
   AwsJobExponentialRolloutRate
@@ -85,12 +84,12 @@ newAwsJobExponentialRolloutRate
 -- | The minimum number of things that will be notified of a pending job, per
 -- minute, at the start of the job rollout. This is the initial rate of the
 -- rollout.
-awsJobExponentialRolloutRate_baseRatePerMinute :: Lens.Lens' AwsJobExponentialRolloutRate Prelude.Natural
+awsJobExponentialRolloutRate_baseRatePerMinute :: Lens.Lens' AwsJobExponentialRolloutRate Core.Natural
 awsJobExponentialRolloutRate_baseRatePerMinute = Lens.lens (\AwsJobExponentialRolloutRate' {baseRatePerMinute} -> baseRatePerMinute) (\s@AwsJobExponentialRolloutRate' {} a -> s {baseRatePerMinute = a} :: AwsJobExponentialRolloutRate)
 
 -- | The rate of increase for a job rollout. The number of things notified is
 -- multiplied by this factor.
-awsJobExponentialRolloutRate_incrementFactor :: Lens.Lens' AwsJobExponentialRolloutRate Prelude.Double
+awsJobExponentialRolloutRate_incrementFactor :: Lens.Lens' AwsJobExponentialRolloutRate Core.Double
 awsJobExponentialRolloutRate_incrementFactor = Lens.lens (\AwsJobExponentialRolloutRate' {incrementFactor} -> incrementFactor) (\s@AwsJobExponentialRolloutRate' {} a -> s {incrementFactor = a} :: AwsJobExponentialRolloutRate)
 
 -- | The criteria to initiate the increase in rate of rollout for a job.
@@ -100,37 +99,32 @@ awsJobExponentialRolloutRate_incrementFactor = Lens.lens (\AwsJobExponentialRoll
 awsJobExponentialRolloutRate_rateIncreaseCriteria :: Lens.Lens' AwsJobExponentialRolloutRate AwsJobRateIncreaseCriteria
 awsJobExponentialRolloutRate_rateIncreaseCriteria = Lens.lens (\AwsJobExponentialRolloutRate' {rateIncreaseCriteria} -> rateIncreaseCriteria) (\s@AwsJobExponentialRolloutRate' {} a -> s {rateIncreaseCriteria = a} :: AwsJobExponentialRolloutRate)
 
-instance
-  Prelude.FromJSON
-    AwsJobExponentialRolloutRate
-  where
+instance Core.FromJSON AwsJobExponentialRolloutRate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AwsJobExponentialRolloutRate"
       ( \x ->
           AwsJobExponentialRolloutRate'
-            Prelude.<$> (x Prelude..: "baseRatePerMinute")
-            Prelude.<*> (x Prelude..: "incrementFactor")
-            Prelude.<*> (x Prelude..: "rateIncreaseCriteria")
+            Core.<$> (x Core..: "baseRatePerMinute")
+            Core.<*> (x Core..: "incrementFactor")
+            Core.<*> (x Core..: "rateIncreaseCriteria")
       )
 
-instance
-  Prelude.Hashable
-    AwsJobExponentialRolloutRate
+instance Core.Hashable AwsJobExponentialRolloutRate
 
-instance Prelude.NFData AwsJobExponentialRolloutRate
+instance Core.NFData AwsJobExponentialRolloutRate
 
-instance Prelude.ToJSON AwsJobExponentialRolloutRate where
+instance Core.ToJSON AwsJobExponentialRolloutRate where
   toJSON AwsJobExponentialRolloutRate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("baseRatePerMinute" Prelude..= baseRatePerMinute),
-            Prelude.Just
-              ("incrementFactor" Prelude..= incrementFactor),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("baseRatePerMinute" Core..= baseRatePerMinute),
+            Core.Just
+              ("incrementFactor" Core..= incrementFactor),
+            Core.Just
               ( "rateIncreaseCriteria"
-                  Prelude..= rateIncreaseCriteria
+                  Core..= rateIncreaseCriteria
               )
           ]
       )

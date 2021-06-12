@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.DeviceFarm.UpdateInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,21 +57,21 @@ data UpdateInstanceProfile = UpdateInstanceProfile'
     --
     -- The list of packages is only considered if you set @packageCleanup@ to
     -- @true@.
-    excludeAppPackagesFromCleanup :: Prelude.Maybe [Prelude.Text],
+    excludeAppPackagesFromCleanup :: Core.Maybe [Core.Text],
     -- | The updated name for your instance profile.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The updated description for your instance profile.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The updated choice for whether you want to reboot the device after use.
     -- The default value is @true@.
-    rebootAfterUse :: Prelude.Maybe Prelude.Bool,
+    rebootAfterUse :: Core.Maybe Core.Bool,
     -- | The updated choice for whether you want to specify package cleanup. The
     -- default value is @false@ for private devices.
-    packageCleanup :: Prelude.Maybe Prelude.Bool,
+    packageCleanup :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the instance profile.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceProfile' with all optional fields omitted.
@@ -101,16 +100,16 @@ data UpdateInstanceProfile = UpdateInstanceProfile'
 -- 'arn', 'updateInstanceProfile_arn' - The Amazon Resource Name (ARN) of the instance profile.
 newUpdateInstanceProfile ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   UpdateInstanceProfile
 newUpdateInstanceProfile pArn_ =
   UpdateInstanceProfile'
     { excludeAppPackagesFromCleanup =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      rebootAfterUse = Prelude.Nothing,
-      packageCleanup = Prelude.Nothing,
+        Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      rebootAfterUse = Core.Nothing,
+      packageCleanup = Core.Nothing,
       arn = pArn_
     }
 
@@ -119,93 +118,89 @@ newUpdateInstanceProfile pArn_ =
 --
 -- The list of packages is only considered if you set @packageCleanup@ to
 -- @true@.
-updateInstanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe [Prelude.Text])
-updateInstanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\UpdateInstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@UpdateInstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: UpdateInstanceProfile) Prelude.. Lens.mapping Prelude._Coerce
+updateInstanceProfile_excludeAppPackagesFromCleanup :: Lens.Lens' UpdateInstanceProfile (Core.Maybe [Core.Text])
+updateInstanceProfile_excludeAppPackagesFromCleanup = Lens.lens (\UpdateInstanceProfile' {excludeAppPackagesFromCleanup} -> excludeAppPackagesFromCleanup) (\s@UpdateInstanceProfile' {} a -> s {excludeAppPackagesFromCleanup = a} :: UpdateInstanceProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The updated name for your instance profile.
-updateInstanceProfile_name :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Text)
+updateInstanceProfile_name :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Core.Text)
 updateInstanceProfile_name = Lens.lens (\UpdateInstanceProfile' {name} -> name) (\s@UpdateInstanceProfile' {} a -> s {name = a} :: UpdateInstanceProfile)
 
 -- | The updated description for your instance profile.
-updateInstanceProfile_description :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Text)
+updateInstanceProfile_description :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Core.Text)
 updateInstanceProfile_description = Lens.lens (\UpdateInstanceProfile' {description} -> description) (\s@UpdateInstanceProfile' {} a -> s {description = a} :: UpdateInstanceProfile)
 
 -- | The updated choice for whether you want to reboot the device after use.
 -- The default value is @true@.
-updateInstanceProfile_rebootAfterUse :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Bool)
+updateInstanceProfile_rebootAfterUse :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Core.Bool)
 updateInstanceProfile_rebootAfterUse = Lens.lens (\UpdateInstanceProfile' {rebootAfterUse} -> rebootAfterUse) (\s@UpdateInstanceProfile' {} a -> s {rebootAfterUse = a} :: UpdateInstanceProfile)
 
 -- | The updated choice for whether you want to specify package cleanup. The
 -- default value is @false@ for private devices.
-updateInstanceProfile_packageCleanup :: Lens.Lens' UpdateInstanceProfile (Prelude.Maybe Prelude.Bool)
+updateInstanceProfile_packageCleanup :: Lens.Lens' UpdateInstanceProfile (Core.Maybe Core.Bool)
 updateInstanceProfile_packageCleanup = Lens.lens (\UpdateInstanceProfile' {packageCleanup} -> packageCleanup) (\s@UpdateInstanceProfile' {} a -> s {packageCleanup = a} :: UpdateInstanceProfile)
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-updateInstanceProfile_arn :: Lens.Lens' UpdateInstanceProfile Prelude.Text
+updateInstanceProfile_arn :: Lens.Lens' UpdateInstanceProfile Core.Text
 updateInstanceProfile_arn = Lens.lens (\UpdateInstanceProfile' {arn} -> arn) (\s@UpdateInstanceProfile' {} a -> s {arn = a} :: UpdateInstanceProfile)
 
-instance Prelude.AWSRequest UpdateInstanceProfile where
+instance Core.AWSRequest UpdateInstanceProfile where
   type
-    Rs UpdateInstanceProfile =
+    AWSResponse UpdateInstanceProfile =
       UpdateInstanceProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateInstanceProfileResponse'
-            Prelude.<$> (x Prelude..?> "instanceProfile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "instanceProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateInstanceProfile
+instance Core.Hashable UpdateInstanceProfile
 
-instance Prelude.NFData UpdateInstanceProfile
+instance Core.NFData UpdateInstanceProfile
 
-instance Prelude.ToHeaders UpdateInstanceProfile where
+instance Core.ToHeaders UpdateInstanceProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.UpdateInstanceProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.UpdateInstanceProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateInstanceProfile where
+instance Core.ToJSON UpdateInstanceProfile where
   toJSON UpdateInstanceProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("excludeAppPackagesFromCleanup" Prelude..=)
-              Prelude.<$> excludeAppPackagesFromCleanup,
-            ("name" Prelude..=) Prelude.<$> name,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("rebootAfterUse" Prelude..=)
-              Prelude.<$> rebootAfterUse,
-            ("packageCleanup" Prelude..=)
-              Prelude.<$> packageCleanup,
-            Prelude.Just ("arn" Prelude..= arn)
+    Core.object
+      ( Core.catMaybes
+          [ ("excludeAppPackagesFromCleanup" Core..=)
+              Core.<$> excludeAppPackagesFromCleanup,
+            ("name" Core..=) Core.<$> name,
+            ("description" Core..=) Core.<$> description,
+            ("rebootAfterUse" Core..=) Core.<$> rebootAfterUse,
+            ("packageCleanup" Core..=) Core.<$> packageCleanup,
+            Core.Just ("arn" Core..= arn)
           ]
       )
 
-instance Prelude.ToPath UpdateInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateInstanceProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateInstanceProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateInstanceProfileResponse' smart constructor.
 data UpdateInstanceProfileResponse = UpdateInstanceProfileResponse'
   { -- | An object that contains information about your instance profile.
-    instanceProfile :: Prelude.Maybe InstanceProfile,
+    instanceProfile :: Core.Maybe InstanceProfile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateInstanceProfileResponse' with all optional fields omitted.
@@ -220,21 +215,21 @@ data UpdateInstanceProfileResponse = UpdateInstanceProfileResponse'
 -- 'httpStatus', 'updateInstanceProfileResponse_httpStatus' - The response's http status code.
 newUpdateInstanceProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateInstanceProfileResponse
 newUpdateInstanceProfileResponse pHttpStatus_ =
   UpdateInstanceProfileResponse'
     { instanceProfile =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about your instance profile.
-updateInstanceProfileResponse_instanceProfile :: Lens.Lens' UpdateInstanceProfileResponse (Prelude.Maybe InstanceProfile)
+updateInstanceProfileResponse_instanceProfile :: Lens.Lens' UpdateInstanceProfileResponse (Core.Maybe InstanceProfile)
 updateInstanceProfileResponse_instanceProfile = Lens.lens (\UpdateInstanceProfileResponse' {instanceProfile} -> instanceProfile) (\s@UpdateInstanceProfileResponse' {} a -> s {instanceProfile = a} :: UpdateInstanceProfileResponse)
 
 -- | The response's http status code.
-updateInstanceProfileResponse_httpStatus :: Lens.Lens' UpdateInstanceProfileResponse Prelude.Int
+updateInstanceProfileResponse_httpStatus :: Lens.Lens' UpdateInstanceProfileResponse Core.Int
 updateInstanceProfileResponse_httpStatus = Lens.lens (\UpdateInstanceProfileResponse' {httpStatus} -> httpStatus) (\s@UpdateInstanceProfileResponse' {} a -> s {httpStatus = a} :: UpdateInstanceProfileResponse)
 
-instance Prelude.NFData UpdateInstanceProfileResponse
+instance Core.NFData UpdateInstanceProfileResponse

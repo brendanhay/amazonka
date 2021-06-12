@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.HttpEndpointDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the HTTP endpoint selected as the destination.
 --
 -- /See:/ 'newHttpEndpointDescription' smart constructor.
 data HttpEndpointDescription = HttpEndpointDescription'
   { -- | The name of the HTTP endpoint selected as the destination.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The URL of the HTTP endpoint selected as the destination.
-    url :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    url :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HttpEndpointDescription' with all optional fields omitted.
@@ -49,28 +48,27 @@ newHttpEndpointDescription ::
   HttpEndpointDescription
 newHttpEndpointDescription =
   HttpEndpointDescription'
-    { name = Prelude.Nothing,
-      url = Prelude.Nothing
+    { name = Core.Nothing,
+      url = Core.Nothing
     }
 
 -- | The name of the HTTP endpoint selected as the destination.
-httpEndpointDescription_name :: Lens.Lens' HttpEndpointDescription (Prelude.Maybe Prelude.Text)
+httpEndpointDescription_name :: Lens.Lens' HttpEndpointDescription (Core.Maybe Core.Text)
 httpEndpointDescription_name = Lens.lens (\HttpEndpointDescription' {name} -> name) (\s@HttpEndpointDescription' {} a -> s {name = a} :: HttpEndpointDescription)
 
 -- | The URL of the HTTP endpoint selected as the destination.
-httpEndpointDescription_url :: Lens.Lens' HttpEndpointDescription (Prelude.Maybe Prelude.Text)
-httpEndpointDescription_url = Lens.lens (\HttpEndpointDescription' {url} -> url) (\s@HttpEndpointDescription' {} a -> s {url = a} :: HttpEndpointDescription) Prelude.. Lens.mapping Prelude._Sensitive
+httpEndpointDescription_url :: Lens.Lens' HttpEndpointDescription (Core.Maybe Core.Text)
+httpEndpointDescription_url = Lens.lens (\HttpEndpointDescription' {url} -> url) (\s@HttpEndpointDescription' {} a -> s {url = a} :: HttpEndpointDescription) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromJSON HttpEndpointDescription where
+instance Core.FromJSON HttpEndpointDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HttpEndpointDescription"
       ( \x ->
           HttpEndpointDescription'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Url")
+            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Url")
       )
 
-instance Prelude.Hashable HttpEndpointDescription
+instance Core.Hashable HttpEndpointDescription
 
-instance Prelude.NFData HttpEndpointDescription
+instance Core.NFData HttpEndpointDescription

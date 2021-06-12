@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.IoT.DeleteAuditSuppression
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAuditSuppression' smart constructor.
 data DeleteAuditSuppression = DeleteAuditSuppression'
-  { checkName :: Prelude.Text,
+  { checkName :: Core.Text,
     resourceIdentifier :: ResourceIdentifier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAuditSuppression' with all optional fields omitted.
@@ -66,7 +65,7 @@ data DeleteAuditSuppression = DeleteAuditSuppression'
 -- 'resourceIdentifier', 'deleteAuditSuppression_resourceIdentifier' - Undocumented member.
 newDeleteAuditSuppression ::
   -- | 'checkName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceIdentifier'
   ResourceIdentifier ->
   DeleteAuditSuppression
@@ -79,56 +78,54 @@ newDeleteAuditSuppression
       }
 
 -- | Undocumented member.
-deleteAuditSuppression_checkName :: Lens.Lens' DeleteAuditSuppression Prelude.Text
+deleteAuditSuppression_checkName :: Lens.Lens' DeleteAuditSuppression Core.Text
 deleteAuditSuppression_checkName = Lens.lens (\DeleteAuditSuppression' {checkName} -> checkName) (\s@DeleteAuditSuppression' {} a -> s {checkName = a} :: DeleteAuditSuppression)
 
 -- | Undocumented member.
 deleteAuditSuppression_resourceIdentifier :: Lens.Lens' DeleteAuditSuppression ResourceIdentifier
 deleteAuditSuppression_resourceIdentifier = Lens.lens (\DeleteAuditSuppression' {resourceIdentifier} -> resourceIdentifier) (\s@DeleteAuditSuppression' {} a -> s {resourceIdentifier = a} :: DeleteAuditSuppression)
 
-instance Prelude.AWSRequest DeleteAuditSuppression where
+instance Core.AWSRequest DeleteAuditSuppression where
   type
-    Rs DeleteAuditSuppression =
+    AWSResponse DeleteAuditSuppression =
       DeleteAuditSuppressionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAuditSuppressionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteAuditSuppression
+instance Core.Hashable DeleteAuditSuppression
 
-instance Prelude.NFData DeleteAuditSuppression
+instance Core.NFData DeleteAuditSuppression
 
-instance Prelude.ToHeaders DeleteAuditSuppression where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteAuditSuppression where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON DeleteAuditSuppression where
+instance Core.ToJSON DeleteAuditSuppression where
   toJSON DeleteAuditSuppression' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("checkName" Prelude..= checkName),
-            Prelude.Just
-              ( "resourceIdentifier"
-                  Prelude..= resourceIdentifier
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("checkName" Core..= checkName),
+            Core.Just
+              ("resourceIdentifier" Core..= resourceIdentifier)
           ]
       )
 
-instance Prelude.ToPath DeleteAuditSuppression where
-  toPath = Prelude.const "/audit/suppressions/delete"
+instance Core.ToPath DeleteAuditSuppression where
+  toPath = Core.const "/audit/suppressions/delete"
 
-instance Prelude.ToQuery DeleteAuditSuppression where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAuditSuppression where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAuditSuppressionResponse' smart constructor.
 data DeleteAuditSuppressionResponse = DeleteAuditSuppressionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAuditSuppressionResponse' with all optional fields omitted.
@@ -141,7 +138,7 @@ data DeleteAuditSuppressionResponse = DeleteAuditSuppressionResponse'
 -- 'httpStatus', 'deleteAuditSuppressionResponse_httpStatus' - The response's http status code.
 newDeleteAuditSuppressionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteAuditSuppressionResponse
 newDeleteAuditSuppressionResponse pHttpStatus_ =
   DeleteAuditSuppressionResponse'
@@ -150,9 +147,7 @@ newDeleteAuditSuppressionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteAuditSuppressionResponse_httpStatus :: Lens.Lens' DeleteAuditSuppressionResponse Prelude.Int
+deleteAuditSuppressionResponse_httpStatus :: Lens.Lens' DeleteAuditSuppressionResponse Core.Int
 deleteAuditSuppressionResponse_httpStatus = Lens.lens (\DeleteAuditSuppressionResponse' {httpStatus} -> httpStatus) (\s@DeleteAuditSuppressionResponse' {} a -> s {httpStatus = a} :: DeleteAuditSuppressionResponse)
 
-instance
-  Prelude.NFData
-    DeleteAuditSuppressionResponse
+instance Core.NFData DeleteAuditSuppressionResponse

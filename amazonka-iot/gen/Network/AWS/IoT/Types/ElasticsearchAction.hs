@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ElasticsearchAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action that writes data to an Amazon Elasticsearch Service
 -- domain.
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newElasticsearchAction' smart constructor.
 data ElasticsearchAction = ElasticsearchAction'
   { -- | The IAM role ARN that has access to Elasticsearch.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The endpoint of your Elasticsearch domain.
-    endpoint :: Prelude.Text,
+    endpoint :: Core.Text,
     -- | The Elasticsearch index where you want to store your data.
-    index :: Prelude.Text,
+    index :: Core.Text,
     -- | The type of document you are storing.
-    type' :: Prelude.Text,
+    type' :: Core.Text,
     -- | The unique identifier for the document you are storing.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchAction' with all optional fields omitted.
@@ -60,15 +59,15 @@ data ElasticsearchAction = ElasticsearchAction'
 -- 'id', 'elasticsearchAction_id' - The unique identifier for the document you are storing.
 newElasticsearchAction ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'index'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   ElasticsearchAction
 newElasticsearchAction
   pRoleArn_
@@ -85,50 +84,50 @@ newElasticsearchAction
       }
 
 -- | The IAM role ARN that has access to Elasticsearch.
-elasticsearchAction_roleArn :: Lens.Lens' ElasticsearchAction Prelude.Text
+elasticsearchAction_roleArn :: Lens.Lens' ElasticsearchAction Core.Text
 elasticsearchAction_roleArn = Lens.lens (\ElasticsearchAction' {roleArn} -> roleArn) (\s@ElasticsearchAction' {} a -> s {roleArn = a} :: ElasticsearchAction)
 
 -- | The endpoint of your Elasticsearch domain.
-elasticsearchAction_endpoint :: Lens.Lens' ElasticsearchAction Prelude.Text
+elasticsearchAction_endpoint :: Lens.Lens' ElasticsearchAction Core.Text
 elasticsearchAction_endpoint = Lens.lens (\ElasticsearchAction' {endpoint} -> endpoint) (\s@ElasticsearchAction' {} a -> s {endpoint = a} :: ElasticsearchAction)
 
 -- | The Elasticsearch index where you want to store your data.
-elasticsearchAction_index :: Lens.Lens' ElasticsearchAction Prelude.Text
+elasticsearchAction_index :: Lens.Lens' ElasticsearchAction Core.Text
 elasticsearchAction_index = Lens.lens (\ElasticsearchAction' {index} -> index) (\s@ElasticsearchAction' {} a -> s {index = a} :: ElasticsearchAction)
 
 -- | The type of document you are storing.
-elasticsearchAction_type :: Lens.Lens' ElasticsearchAction Prelude.Text
+elasticsearchAction_type :: Lens.Lens' ElasticsearchAction Core.Text
 elasticsearchAction_type = Lens.lens (\ElasticsearchAction' {type'} -> type') (\s@ElasticsearchAction' {} a -> s {type' = a} :: ElasticsearchAction)
 
 -- | The unique identifier for the document you are storing.
-elasticsearchAction_id :: Lens.Lens' ElasticsearchAction Prelude.Text
+elasticsearchAction_id :: Lens.Lens' ElasticsearchAction Core.Text
 elasticsearchAction_id = Lens.lens (\ElasticsearchAction' {id} -> id) (\s@ElasticsearchAction' {} a -> s {id = a} :: ElasticsearchAction)
 
-instance Prelude.FromJSON ElasticsearchAction where
+instance Core.FromJSON ElasticsearchAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ElasticsearchAction"
       ( \x ->
           ElasticsearchAction'
-            Prelude.<$> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..: "endpoint")
-            Prelude.<*> (x Prelude..: "index")
-            Prelude.<*> (x Prelude..: "type")
-            Prelude.<*> (x Prelude..: "id")
+            Core.<$> (x Core..: "roleArn")
+            Core.<*> (x Core..: "endpoint")
+            Core.<*> (x Core..: "index")
+            Core.<*> (x Core..: "type")
+            Core.<*> (x Core..: "id")
       )
 
-instance Prelude.Hashable ElasticsearchAction
+instance Core.Hashable ElasticsearchAction
 
-instance Prelude.NFData ElasticsearchAction
+instance Core.NFData ElasticsearchAction
 
-instance Prelude.ToJSON ElasticsearchAction where
+instance Core.ToJSON ElasticsearchAction where
   toJSON ElasticsearchAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just ("endpoint" Prelude..= endpoint),
-            Prelude.Just ("index" Prelude..= index),
-            Prelude.Just ("type" Prelude..= type'),
-            Prelude.Just ("id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("endpoint" Core..= endpoint),
+            Core.Just ("index" Core..= index),
+            Core.Just ("type" Core..= type'),
+            Core.Just ("id" Core..= id)
           ]
       )

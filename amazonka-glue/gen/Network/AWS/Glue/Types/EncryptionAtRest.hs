@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.EncryptionAtRest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.CatalogEncryptionMode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the encryption-at-rest configuration for the Data Catalog.
 --
 -- /See:/ 'newEncryptionAtRest' smart constructor.
 data EncryptionAtRest = EncryptionAtRest'
   { -- | The ID of the AWS KMS key to use for encryption at rest.
-    sseAwsKmsKeyId :: Prelude.Maybe Prelude.Text,
+    sseAwsKmsKeyId :: Core.Maybe Core.Text,
     -- | The encryption-at-rest mode for encrypting Data Catalog data.
     catalogEncryptionMode :: CatalogEncryptionMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionAtRest' with all optional fields omitted.
@@ -52,41 +51,40 @@ newEncryptionAtRest ::
   EncryptionAtRest
 newEncryptionAtRest pCatalogEncryptionMode_ =
   EncryptionAtRest'
-    { sseAwsKmsKeyId = Prelude.Nothing,
+    { sseAwsKmsKeyId = Core.Nothing,
       catalogEncryptionMode = pCatalogEncryptionMode_
     }
 
 -- | The ID of the AWS KMS key to use for encryption at rest.
-encryptionAtRest_sseAwsKmsKeyId :: Lens.Lens' EncryptionAtRest (Prelude.Maybe Prelude.Text)
+encryptionAtRest_sseAwsKmsKeyId :: Lens.Lens' EncryptionAtRest (Core.Maybe Core.Text)
 encryptionAtRest_sseAwsKmsKeyId = Lens.lens (\EncryptionAtRest' {sseAwsKmsKeyId} -> sseAwsKmsKeyId) (\s@EncryptionAtRest' {} a -> s {sseAwsKmsKeyId = a} :: EncryptionAtRest)
 
 -- | The encryption-at-rest mode for encrypting Data Catalog data.
 encryptionAtRest_catalogEncryptionMode :: Lens.Lens' EncryptionAtRest CatalogEncryptionMode
 encryptionAtRest_catalogEncryptionMode = Lens.lens (\EncryptionAtRest' {catalogEncryptionMode} -> catalogEncryptionMode) (\s@EncryptionAtRest' {} a -> s {catalogEncryptionMode = a} :: EncryptionAtRest)
 
-instance Prelude.FromJSON EncryptionAtRest where
+instance Core.FromJSON EncryptionAtRest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionAtRest"
       ( \x ->
           EncryptionAtRest'
-            Prelude.<$> (x Prelude..:? "SseAwsKmsKeyId")
-            Prelude.<*> (x Prelude..: "CatalogEncryptionMode")
+            Core.<$> (x Core..:? "SseAwsKmsKeyId")
+            Core.<*> (x Core..: "CatalogEncryptionMode")
       )
 
-instance Prelude.Hashable EncryptionAtRest
+instance Core.Hashable EncryptionAtRest
 
-instance Prelude.NFData EncryptionAtRest
+instance Core.NFData EncryptionAtRest
 
-instance Prelude.ToJSON EncryptionAtRest where
+instance Core.ToJSON EncryptionAtRest where
   toJSON EncryptionAtRest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SseAwsKmsKeyId" Prelude..=)
-              Prelude.<$> sseAwsKmsKeyId,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("SseAwsKmsKeyId" Core..=) Core.<$> sseAwsKmsKeyId,
+            Core.Just
               ( "CatalogEncryptionMode"
-                  Prelude..= catalogEncryptionMode
+                  Core..= catalogEncryptionMode
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SNS.Types.PlatformApplication where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Platform application object.
 --
 -- /See:/ 'newPlatformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
   { -- | PlatformApplicationArn for platform application object.
-    platformApplicationArn :: Prelude.Maybe Prelude.Text,
+    platformApplicationArn :: Core.Maybe Core.Text,
     -- | Attributes for platform application object.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlatformApplication' with all optional fields omitted.
@@ -50,28 +49,26 @@ newPlatformApplication ::
 newPlatformApplication =
   PlatformApplication'
     { platformApplicationArn =
-        Prelude.Nothing,
-      attributes = Prelude.Nothing
+        Core.Nothing,
+      attributes = Core.Nothing
     }
 
 -- | PlatformApplicationArn for platform application object.
-platformApplication_platformApplicationArn :: Lens.Lens' PlatformApplication (Prelude.Maybe Prelude.Text)
+platformApplication_platformApplicationArn :: Lens.Lens' PlatformApplication (Core.Maybe Core.Text)
 platformApplication_platformApplicationArn = Lens.lens (\PlatformApplication' {platformApplicationArn} -> platformApplicationArn) (\s@PlatformApplication' {} a -> s {platformApplicationArn = a} :: PlatformApplication)
 
 -- | Attributes for platform application object.
-platformApplication_attributes :: Lens.Lens' PlatformApplication (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Prelude.. Lens.mapping Prelude._Coerce
+platformApplication_attributes :: Lens.Lens' PlatformApplication (Core.Maybe (Core.HashMap Core.Text Core.Text))
+platformApplication_attributes = Lens.lens (\PlatformApplication' {attributes} -> attributes) (\s@PlatformApplication' {} a -> s {attributes = a} :: PlatformApplication) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML PlatformApplication where
+instance Core.FromXML PlatformApplication where
   parseXML x =
     PlatformApplication'
-      Prelude.<$> (x Prelude..@? "PlatformApplicationArn")
-      Prelude.<*> ( x Prelude..@? "Attributes"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLMap "entry" "key" "value")
-                  )
+      Core.<$> (x Core..@? "PlatformApplicationArn")
+      Core.<*> ( x Core..@? "Attributes" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+               )
 
-instance Prelude.Hashable PlatformApplication
+instance Core.Hashable PlatformApplication
 
-instance Prelude.NFData PlatformApplication
+instance Core.NFData PlatformApplication

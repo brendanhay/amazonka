@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType where
 
 import Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The policy associated with a user pool.
 --
 -- /See:/ 'newUserPoolPolicyType' smart constructor.
 data UserPoolPolicyType = UserPoolPolicyType'
   { -- | The password policy.
-    passwordPolicy :: Prelude.Maybe PasswordPolicyType
+    passwordPolicy :: Core.Maybe PasswordPolicyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserPoolPolicyType' with all optional fields omitted.
@@ -45,33 +44,28 @@ data UserPoolPolicyType = UserPoolPolicyType'
 newUserPoolPolicyType ::
   UserPoolPolicyType
 newUserPoolPolicyType =
-  UserPoolPolicyType'
-    { passwordPolicy =
-        Prelude.Nothing
-    }
+  UserPoolPolicyType' {passwordPolicy = Core.Nothing}
 
 -- | The password policy.
-userPoolPolicyType_passwordPolicy :: Lens.Lens' UserPoolPolicyType (Prelude.Maybe PasswordPolicyType)
+userPoolPolicyType_passwordPolicy :: Lens.Lens' UserPoolPolicyType (Core.Maybe PasswordPolicyType)
 userPoolPolicyType_passwordPolicy = Lens.lens (\UserPoolPolicyType' {passwordPolicy} -> passwordPolicy) (\s@UserPoolPolicyType' {} a -> s {passwordPolicy = a} :: UserPoolPolicyType)
 
-instance Prelude.FromJSON UserPoolPolicyType where
+instance Core.FromJSON UserPoolPolicyType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserPoolPolicyType"
       ( \x ->
           UserPoolPolicyType'
-            Prelude.<$> (x Prelude..:? "PasswordPolicy")
+            Core.<$> (x Core..:? "PasswordPolicy")
       )
 
-instance Prelude.Hashable UserPoolPolicyType
+instance Core.Hashable UserPoolPolicyType
 
-instance Prelude.NFData UserPoolPolicyType
+instance Core.NFData UserPoolPolicyType
 
-instance Prelude.ToJSON UserPoolPolicyType where
+instance Core.ToJSON UserPoolPolicyType where
   toJSON UserPoolPolicyType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PasswordPolicy" Prelude..=)
-              Prelude.<$> passwordPolicy
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("PasswordPolicy" Core..=) Core.<$> passwordPolicy]
       )

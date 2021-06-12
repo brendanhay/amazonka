@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMetricCollectionTypes' with all optional fields omitted.
@@ -64,11 +63,11 @@ newDescribeMetricCollectionTypes =
   DescribeMetricCollectionTypes'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeMetricCollectionTypes
   where
   type
-    Rs DescribeMetricCollectionTypes =
+    AWSResponse DescribeMetricCollectionTypes =
       DescribeMetricCollectionTypesResponse
   request = Request.postQuery defaultService
   response =
@@ -76,57 +75,45 @@ instance
       "DescribeMetricCollectionTypesResult"
       ( \s h x ->
           DescribeMetricCollectionTypesResponse'
-            Prelude.<$> ( x Prelude..@? "Metrics" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> ( x Prelude..@? "Granularities"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Metrics" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> ( x Core..@? "Granularities" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeMetricCollectionTypes
+instance Core.Hashable DescribeMetricCollectionTypes
 
-instance Prelude.NFData DescribeMetricCollectionTypes
+instance Core.NFData DescribeMetricCollectionTypes
 
-instance
-  Prelude.ToHeaders
-    DescribeMetricCollectionTypes
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeMetricCollectionTypes where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeMetricCollectionTypes where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMetricCollectionTypes where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeMetricCollectionTypes
-  where
+instance Core.ToQuery DescribeMetricCollectionTypes where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ( "DescribeMetricCollectionTypes" ::
-                             Prelude.ByteString
-                         ),
-            "Version"
-              Prelude.=: ("2011-01-01" :: Prelude.ByteString)
+              Core.=: ("DescribeMetricCollectionTypes" :: Core.ByteString),
+            "Version" Core.=: ("2011-01-01" :: Core.ByteString)
           ]
       )
 
 -- | /See:/ 'newDescribeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
   { -- | One or more metrics.
-    metrics :: Prelude.Maybe [MetricCollectionType],
+    metrics :: Core.Maybe [MetricCollectionType],
     -- | The granularities for the metrics.
-    granularities :: Prelude.Maybe [MetricGranularityType],
+    granularities :: Core.Maybe [MetricGranularityType],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMetricCollectionTypesResponse' with all optional fields omitted.
@@ -143,28 +130,28 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- 'httpStatus', 'describeMetricCollectionTypesResponse_httpStatus' - The response's http status code.
 newDescribeMetricCollectionTypesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMetricCollectionTypesResponse
 newDescribeMetricCollectionTypesResponse pHttpStatus_ =
   DescribeMetricCollectionTypesResponse'
     { metrics =
-        Prelude.Nothing,
-      granularities = Prelude.Nothing,
+        Core.Nothing,
+      granularities = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | One or more metrics.
-describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricCollectionType])
-describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Core.Maybe [MetricCollectionType])
+describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The granularities for the metrics.
-describeMetricCollectionTypesResponse_granularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricGranularityType])
-describeMetricCollectionTypesResponse_granularities = Lens.lens (\DescribeMetricCollectionTypesResponse' {granularities} -> granularities) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMetricCollectionTypesResponse_granularities :: Lens.Lens' DescribeMetricCollectionTypesResponse (Core.Maybe [MetricGranularityType])
+describeMetricCollectionTypesResponse_granularities = Lens.lens (\DescribeMetricCollectionTypesResponse' {granularities} -> granularities) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {granularities = a} :: DescribeMetricCollectionTypesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMetricCollectionTypesResponse_httpStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Prelude.Int
+describeMetricCollectionTypesResponse_httpStatus :: Lens.Lens' DescribeMetricCollectionTypesResponse Core.Int
 describeMetricCollectionTypesResponse_httpStatus = Lens.lens (\DescribeMetricCollectionTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {httpStatus = a} :: DescribeMetricCollectionTypesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeMetricCollectionTypesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,31 +19,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.StepSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ActionOnFailure
 import Network.AWS.EMR.Types.HadoopStepConfig
 import Network.AWS.EMR.Types.StepStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The summary of the cluster step.
 --
 -- /See:/ 'newStepSummary' smart constructor.
 data StepSummary = StepSummary'
   { -- | The current execution status details of the cluster step.
-    status :: Prelude.Maybe StepStatus,
+    status :: Core.Maybe StepStatus,
     -- | The identifier of the cluster step.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The Hadoop job configuration of the cluster step.
-    config :: Prelude.Maybe HadoopStepConfig,
+    config :: Core.Maybe HadoopStepConfig,
     -- | The action to take when the cluster step fails. Possible values are
     -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
     -- available for backward compatibility. We recommend using
     -- TERMINATE_CLUSTER instead.
-    actionOnFailure :: Prelude.Maybe ActionOnFailure,
+    actionOnFailure :: Core.Maybe ActionOnFailure,
     -- | The name of the cluster step.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StepSummary' with all optional fields omitted.
@@ -70,49 +69,49 @@ newStepSummary ::
   StepSummary
 newStepSummary =
   StepSummary'
-    { status = Prelude.Nothing,
-      id = Prelude.Nothing,
-      config = Prelude.Nothing,
-      actionOnFailure = Prelude.Nothing,
-      name = Prelude.Nothing
+    { status = Core.Nothing,
+      id = Core.Nothing,
+      config = Core.Nothing,
+      actionOnFailure = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The current execution status details of the cluster step.
-stepSummary_status :: Lens.Lens' StepSummary (Prelude.Maybe StepStatus)
+stepSummary_status :: Lens.Lens' StepSummary (Core.Maybe StepStatus)
 stepSummary_status = Lens.lens (\StepSummary' {status} -> status) (\s@StepSummary' {} a -> s {status = a} :: StepSummary)
 
 -- | The identifier of the cluster step.
-stepSummary_id :: Lens.Lens' StepSummary (Prelude.Maybe Prelude.Text)
+stepSummary_id :: Lens.Lens' StepSummary (Core.Maybe Core.Text)
 stepSummary_id = Lens.lens (\StepSummary' {id} -> id) (\s@StepSummary' {} a -> s {id = a} :: StepSummary)
 
 -- | The Hadoop job configuration of the cluster step.
-stepSummary_config :: Lens.Lens' StepSummary (Prelude.Maybe HadoopStepConfig)
+stepSummary_config :: Lens.Lens' StepSummary (Core.Maybe HadoopStepConfig)
 stepSummary_config = Lens.lens (\StepSummary' {config} -> config) (\s@StepSummary' {} a -> s {config = a} :: StepSummary)
 
 -- | The action to take when the cluster step fails. Possible values are
 -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
 -- available for backward compatibility. We recommend using
 -- TERMINATE_CLUSTER instead.
-stepSummary_actionOnFailure :: Lens.Lens' StepSummary (Prelude.Maybe ActionOnFailure)
+stepSummary_actionOnFailure :: Lens.Lens' StepSummary (Core.Maybe ActionOnFailure)
 stepSummary_actionOnFailure = Lens.lens (\StepSummary' {actionOnFailure} -> actionOnFailure) (\s@StepSummary' {} a -> s {actionOnFailure = a} :: StepSummary)
 
 -- | The name of the cluster step.
-stepSummary_name :: Lens.Lens' StepSummary (Prelude.Maybe Prelude.Text)
+stepSummary_name :: Lens.Lens' StepSummary (Core.Maybe Core.Text)
 stepSummary_name = Lens.lens (\StepSummary' {name} -> name) (\s@StepSummary' {} a -> s {name = a} :: StepSummary)
 
-instance Prelude.FromJSON StepSummary where
+instance Core.FromJSON StepSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StepSummary"
       ( \x ->
           StepSummary'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Config")
-            Prelude.<*> (x Prelude..:? "ActionOnFailure")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Config")
+            Core.<*> (x Core..:? "ActionOnFailure")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable StepSummary
+instance Core.Hashable StepSummary
 
-instance Prelude.NFData StepSummary
+instance Core.NFData StepSummary

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.InputProcessingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessor
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides a description of a processor that is used to preprocess the
 -- records in the stream before being processed by your application code.
@@ -37,7 +36,7 @@ data InputProcessingConfiguration = InputProcessingConfiguration'
     -- processed by your application code.
     inputLambdaProcessor :: InputLambdaProcessor
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputProcessingConfiguration' with all optional fields omitted.
@@ -69,19 +68,17 @@ newInputProcessingConfiguration
 inputProcessingConfiguration_inputLambdaProcessor :: Lens.Lens' InputProcessingConfiguration InputLambdaProcessor
 inputProcessingConfiguration_inputLambdaProcessor = Lens.lens (\InputProcessingConfiguration' {inputLambdaProcessor} -> inputLambdaProcessor) (\s@InputProcessingConfiguration' {} a -> s {inputLambdaProcessor = a} :: InputProcessingConfiguration)
 
-instance
-  Prelude.Hashable
-    InputProcessingConfiguration
+instance Core.Hashable InputProcessingConfiguration
 
-instance Prelude.NFData InputProcessingConfiguration
+instance Core.NFData InputProcessingConfiguration
 
-instance Prelude.ToJSON InputProcessingConfiguration where
+instance Core.ToJSON InputProcessingConfiguration where
   toJSON InputProcessingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "InputLambdaProcessor"
-                  Prelude..= inputLambdaProcessor
+                  Core..= inputLambdaProcessor
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,21 +45,20 @@ module Network.AWS.EC2.DescribePublicIpv4Pools
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribePublicIpv4Pools' smart constructor.
 data DescribePublicIpv4Pools = DescribePublicIpv4Pools'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
@@ -72,11 +70,11 @@ data DescribePublicIpv4Pools = DescribePublicIpv4Pools'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The IDs of the address pools.
-    poolIds :: Prelude.Maybe [Prelude.Text]
+    poolIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePublicIpv4Pools' with all optional fields omitted.
@@ -109,21 +107,20 @@ newDescribePublicIpv4Pools ::
   DescribePublicIpv4Pools
 newDescribePublicIpv4Pools =
   DescribePublicIpv4Pools'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      poolIds = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
+      poolIds = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describePublicIpv4Pools_nextToken :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe Prelude.Text)
+describePublicIpv4Pools_nextToken :: Lens.Lens' DescribePublicIpv4Pools (Core.Maybe Core.Text)
 describePublicIpv4Pools_nextToken = Lens.lens (\DescribePublicIpv4Pools' {nextToken} -> nextToken) (\s@DescribePublicIpv4Pools' {} a -> s {nextToken = a} :: DescribePublicIpv4Pools)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describePublicIpv4Pools_maxResults :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe Prelude.Natural)
+describePublicIpv4Pools_maxResults :: Lens.Lens' DescribePublicIpv4Pools (Core.Maybe Core.Natural)
 describePublicIpv4Pools_maxResults = Lens.lens (\DescribePublicIpv4Pools' {maxResults} -> maxResults) (\s@DescribePublicIpv4Pools' {} a -> s {maxResults = a} :: DescribePublicIpv4Pools)
 
 -- | One or more filters.
@@ -137,88 +134,86 @@ describePublicIpv4Pools_maxResults = Lens.lens (\DescribePublicIpv4Pools' {maxRe
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describePublicIpv4Pools_filters :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe [Filter])
-describePublicIpv4Pools_filters = Lens.lens (\DescribePublicIpv4Pools' {filters} -> filters) (\s@DescribePublicIpv4Pools' {} a -> s {filters = a} :: DescribePublicIpv4Pools) Prelude.. Lens.mapping Prelude._Coerce
+describePublicIpv4Pools_filters :: Lens.Lens' DescribePublicIpv4Pools (Core.Maybe [Filter])
+describePublicIpv4Pools_filters = Lens.lens (\DescribePublicIpv4Pools' {filters} -> filters) (\s@DescribePublicIpv4Pools' {} a -> s {filters = a} :: DescribePublicIpv4Pools) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the address pools.
-describePublicIpv4Pools_poolIds :: Lens.Lens' DescribePublicIpv4Pools (Prelude.Maybe [Prelude.Text])
-describePublicIpv4Pools_poolIds = Lens.lens (\DescribePublicIpv4Pools' {poolIds} -> poolIds) (\s@DescribePublicIpv4Pools' {} a -> s {poolIds = a} :: DescribePublicIpv4Pools) Prelude.. Lens.mapping Prelude._Coerce
+describePublicIpv4Pools_poolIds :: Lens.Lens' DescribePublicIpv4Pools (Core.Maybe [Core.Text])
+describePublicIpv4Pools_poolIds = Lens.lens (\DescribePublicIpv4Pools' {poolIds} -> poolIds) (\s@DescribePublicIpv4Pools' {} a -> s {poolIds = a} :: DescribePublicIpv4Pools) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribePublicIpv4Pools where
+instance Core.AWSPager DescribePublicIpv4Pools where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describePublicIpv4PoolsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describePublicIpv4PoolsResponse_publicIpv4Pools
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describePublicIpv4Pools_nextToken
           Lens..~ rs
           Lens.^? describePublicIpv4PoolsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribePublicIpv4Pools where
+instance Core.AWSRequest DescribePublicIpv4Pools where
   type
-    Rs DescribePublicIpv4Pools =
+    AWSResponse DescribePublicIpv4Pools =
       DescribePublicIpv4PoolsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribePublicIpv4PoolsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "publicIpv4PoolSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "publicIpv4PoolSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePublicIpv4Pools
+instance Core.Hashable DescribePublicIpv4Pools
 
-instance Prelude.NFData DescribePublicIpv4Pools
+instance Core.NFData DescribePublicIpv4Pools
 
-instance Prelude.ToHeaders DescribePublicIpv4Pools where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribePublicIpv4Pools where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribePublicIpv4Pools where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribePublicIpv4Pools where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribePublicIpv4Pools where
+instance Core.ToQuery DescribePublicIpv4Pools where
   toQuery DescribePublicIpv4Pools' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribePublicIpv4Pools" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        Prelude.toQuery
-          (Prelude.toQueryList "PoolId" Prelude.<$> poolIds)
+          Core.=: ("DescribePublicIpv4Pools" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "PoolId" Core.<$> poolIds)
       ]
 
 -- | /See:/ 'newDescribePublicIpv4PoolsResponse' smart constructor.
 data DescribePublicIpv4PoolsResponse = DescribePublicIpv4PoolsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the address pools.
-    publicIpv4Pools :: Prelude.Maybe [PublicIpv4Pool],
+    publicIpv4Pools :: Core.Maybe [PublicIpv4Pool],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePublicIpv4PoolsResponse' with all optional fields omitted.
@@ -236,29 +231,27 @@ data DescribePublicIpv4PoolsResponse = DescribePublicIpv4PoolsResponse'
 -- 'httpStatus', 'describePublicIpv4PoolsResponse_httpStatus' - The response's http status code.
 newDescribePublicIpv4PoolsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePublicIpv4PoolsResponse
 newDescribePublicIpv4PoolsResponse pHttpStatus_ =
   DescribePublicIpv4PoolsResponse'
     { nextToken =
-        Prelude.Nothing,
-      publicIpv4Pools = Prelude.Nothing,
+        Core.Nothing,
+      publicIpv4Pools = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describePublicIpv4PoolsResponse_nextToken :: Lens.Lens' DescribePublicIpv4PoolsResponse (Prelude.Maybe Prelude.Text)
+describePublicIpv4PoolsResponse_nextToken :: Lens.Lens' DescribePublicIpv4PoolsResponse (Core.Maybe Core.Text)
 describePublicIpv4PoolsResponse_nextToken = Lens.lens (\DescribePublicIpv4PoolsResponse' {nextToken} -> nextToken) (\s@DescribePublicIpv4PoolsResponse' {} a -> s {nextToken = a} :: DescribePublicIpv4PoolsResponse)
 
 -- | Information about the address pools.
-describePublicIpv4PoolsResponse_publicIpv4Pools :: Lens.Lens' DescribePublicIpv4PoolsResponse (Prelude.Maybe [PublicIpv4Pool])
-describePublicIpv4PoolsResponse_publicIpv4Pools = Lens.lens (\DescribePublicIpv4PoolsResponse' {publicIpv4Pools} -> publicIpv4Pools) (\s@DescribePublicIpv4PoolsResponse' {} a -> s {publicIpv4Pools = a} :: DescribePublicIpv4PoolsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePublicIpv4PoolsResponse_publicIpv4Pools :: Lens.Lens' DescribePublicIpv4PoolsResponse (Core.Maybe [PublicIpv4Pool])
+describePublicIpv4PoolsResponse_publicIpv4Pools = Lens.lens (\DescribePublicIpv4PoolsResponse' {publicIpv4Pools} -> publicIpv4Pools) (\s@DescribePublicIpv4PoolsResponse' {} a -> s {publicIpv4Pools = a} :: DescribePublicIpv4PoolsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePublicIpv4PoolsResponse_httpStatus :: Lens.Lens' DescribePublicIpv4PoolsResponse Prelude.Int
+describePublicIpv4PoolsResponse_httpStatus :: Lens.Lens' DescribePublicIpv4PoolsResponse Core.Int
 describePublicIpv4PoolsResponse_httpStatus = Lens.lens (\DescribePublicIpv4PoolsResponse' {httpStatus} -> httpStatus) (\s@DescribePublicIpv4PoolsResponse' {} a -> s {httpStatus = a} :: DescribePublicIpv4PoolsResponse)
 
-instance
-  Prelude.NFData
-    DescribePublicIpv4PoolsResponse
+instance Core.NFData DescribePublicIpv4PoolsResponse

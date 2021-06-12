@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.IoT.RegisterThing
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ data RegisterThing = RegisterThing'
   { -- | The parameters for provisioning a thing. See
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates>
     -- for more information.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The provisioning template. See
     -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates>
     -- for more information.
-    templateBody :: Prelude.Text
+    templateBody :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterThing' with all optional fields omitted.
@@ -83,73 +82,72 @@ data RegisterThing = RegisterThing'
 -- for more information.
 newRegisterThing ::
   -- | 'templateBody'
-  Prelude.Text ->
+  Core.Text ->
   RegisterThing
 newRegisterThing pTemplateBody_ =
   RegisterThing'
-    { parameters = Prelude.Nothing,
+    { parameters = Core.Nothing,
       templateBody = pTemplateBody_
     }
 
 -- | The parameters for provisioning a thing. See
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html Provisioning Templates>
 -- for more information.
-registerThing_parameters :: Lens.Lens' RegisterThing (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerThing_parameters = Lens.lens (\RegisterThing' {parameters} -> parameters) (\s@RegisterThing' {} a -> s {parameters = a} :: RegisterThing) Prelude.. Lens.mapping Prelude._Coerce
+registerThing_parameters :: Lens.Lens' RegisterThing (Core.Maybe (Core.HashMap Core.Text Core.Text))
+registerThing_parameters = Lens.lens (\RegisterThing' {parameters} -> parameters) (\s@RegisterThing' {} a -> s {parameters = a} :: RegisterThing) Core.. Lens.mapping Lens._Coerce
 
 -- | The provisioning template. See
 -- <https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html Provisioning Devices That Have Device Certificates>
 -- for more information.
-registerThing_templateBody :: Lens.Lens' RegisterThing Prelude.Text
+registerThing_templateBody :: Lens.Lens' RegisterThing Core.Text
 registerThing_templateBody = Lens.lens (\RegisterThing' {templateBody} -> templateBody) (\s@RegisterThing' {} a -> s {templateBody = a} :: RegisterThing)
 
-instance Prelude.AWSRequest RegisterThing where
-  type Rs RegisterThing = RegisterThingResponse
+instance Core.AWSRequest RegisterThing where
+  type
+    AWSResponse RegisterThing =
+      RegisterThingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterThingResponse'
-            Prelude.<$> ( x Prelude..?> "resourceArns"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "certificatePem")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "resourceArns" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "certificatePem")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterThing
+instance Core.Hashable RegisterThing
 
-instance Prelude.NFData RegisterThing
+instance Core.NFData RegisterThing
 
-instance Prelude.ToHeaders RegisterThing where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RegisterThing where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON RegisterThing where
+instance Core.ToJSON RegisterThing where
   toJSON RegisterThing' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("parameters" Prelude..=) Prelude.<$> parameters,
-            Prelude.Just
-              ("templateBody" Prelude..= templateBody)
+    Core.object
+      ( Core.catMaybes
+          [ ("parameters" Core..=) Core.<$> parameters,
+            Core.Just ("templateBody" Core..= templateBody)
           ]
       )
 
-instance Prelude.ToPath RegisterThing where
-  toPath = Prelude.const "/things"
+instance Core.ToPath RegisterThing where
+  toPath = Core.const "/things"
 
-instance Prelude.ToQuery RegisterThing where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterThing where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterThingResponse' smart constructor.
 data RegisterThingResponse = RegisterThingResponse'
   { -- | ARNs for the generated resources.
-    resourceArns :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    resourceArns :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The certificate data, in PEM format.
-    certificatePem :: Prelude.Maybe Prelude.Text,
+    certificatePem :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterThingResponse' with all optional fields omitted.
@@ -166,26 +164,25 @@ data RegisterThingResponse = RegisterThingResponse'
 -- 'httpStatus', 'registerThingResponse_httpStatus' - The response's http status code.
 newRegisterThingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterThingResponse
 newRegisterThingResponse pHttpStatus_ =
   RegisterThingResponse'
-    { resourceArns =
-        Prelude.Nothing,
-      certificatePem = Prelude.Nothing,
+    { resourceArns = Core.Nothing,
+      certificatePem = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | ARNs for the generated resources.
-registerThingResponse_resourceArns :: Lens.Lens' RegisterThingResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerThingResponse_resourceArns = Lens.lens (\RegisterThingResponse' {resourceArns} -> resourceArns) (\s@RegisterThingResponse' {} a -> s {resourceArns = a} :: RegisterThingResponse) Prelude.. Lens.mapping Prelude._Coerce
+registerThingResponse_resourceArns :: Lens.Lens' RegisterThingResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+registerThingResponse_resourceArns = Lens.lens (\RegisterThingResponse' {resourceArns} -> resourceArns) (\s@RegisterThingResponse' {} a -> s {resourceArns = a} :: RegisterThingResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The certificate data, in PEM format.
-registerThingResponse_certificatePem :: Lens.Lens' RegisterThingResponse (Prelude.Maybe Prelude.Text)
+registerThingResponse_certificatePem :: Lens.Lens' RegisterThingResponse (Core.Maybe Core.Text)
 registerThingResponse_certificatePem = Lens.lens (\RegisterThingResponse' {certificatePem} -> certificatePem) (\s@RegisterThingResponse' {} a -> s {certificatePem = a} :: RegisterThingResponse)
 
 -- | The response's http status code.
-registerThingResponse_httpStatus :: Lens.Lens' RegisterThingResponse Prelude.Int
+registerThingResponse_httpStatus :: Lens.Lens' RegisterThingResponse Core.Int
 registerThingResponse_httpStatus = Lens.lens (\RegisterThingResponse' {httpStatus} -> httpStatus) (\s@RegisterThingResponse' {} a -> s {httpStatus = a} :: RegisterThingResponse)
 
-instance Prelude.NFData RegisterThingResponse
+instance Core.NFData RegisterThingResponse

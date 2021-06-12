@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IAM.DetachGroupPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +57,15 @@ data DetachGroupPolicy = DetachGroupPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policyArn :: Prelude.Text
+    policyArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachGroupPolicy' with all optional fields omitted.
@@ -91,9 +90,9 @@ data DetachGroupPolicy = DetachGroupPolicy'
 -- in the /AWS General Reference/.
 newDetachGroupPolicy ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   DetachGroupPolicy
 newDetachGroupPolicy pGroupName_ pPolicyArn_ =
   DetachGroupPolicy'
@@ -108,7 +107,7 @@ newDetachGroupPolicy pGroupName_ pPolicyArn_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-detachGroupPolicy_groupName :: Lens.Lens' DetachGroupPolicy Prelude.Text
+detachGroupPolicy_groupName :: Lens.Lens' DetachGroupPolicy Core.Text
 detachGroupPolicy_groupName = Lens.lens (\DetachGroupPolicy' {groupName} -> groupName) (\s@DetachGroupPolicy' {} a -> s {groupName = a} :: DetachGroupPolicy)
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
@@ -116,41 +115,42 @@ detachGroupPolicy_groupName = Lens.lens (\DetachGroupPolicy' {groupName} -> grou
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-detachGroupPolicy_policyArn :: Lens.Lens' DetachGroupPolicy Prelude.Text
+detachGroupPolicy_policyArn :: Lens.Lens' DetachGroupPolicy Core.Text
 detachGroupPolicy_policyArn = Lens.lens (\DetachGroupPolicy' {policyArn} -> policyArn) (\s@DetachGroupPolicy' {} a -> s {policyArn = a} :: DetachGroupPolicy)
 
-instance Prelude.AWSRequest DetachGroupPolicy where
-  type Rs DetachGroupPolicy = DetachGroupPolicyResponse
+instance Core.AWSRequest DetachGroupPolicy where
+  type
+    AWSResponse DetachGroupPolicy =
+      DetachGroupPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DetachGroupPolicyResponse'
 
-instance Prelude.Hashable DetachGroupPolicy
+instance Core.Hashable DetachGroupPolicy
 
-instance Prelude.NFData DetachGroupPolicy
+instance Core.NFData DetachGroupPolicy
 
-instance Prelude.ToHeaders DetachGroupPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DetachGroupPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DetachGroupPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetachGroupPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetachGroupPolicy where
+instance Core.ToQuery DetachGroupPolicy where
   toQuery DetachGroupPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DetachGroupPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Prelude.=: groupName,
-        "PolicyArn" Prelude.=: policyArn
+          Core.=: ("DetachGroupPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "GroupName" Core.=: groupName,
+        "PolicyArn" Core.=: policyArn
       ]
 
 -- | /See:/ 'newDetachGroupPolicyResponse' smart constructor.
 data DetachGroupPolicyResponse = DetachGroupPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachGroupPolicyResponse' with all optional fields omitted.
@@ -161,4 +161,4 @@ newDetachGroupPolicyResponse ::
 newDetachGroupPolicyResponse =
   DetachGroupPolicyResponse'
 
-instance Prelude.NFData DetachGroupPolicyResponse
+instance Core.NFData DetachGroupPolicyResponse

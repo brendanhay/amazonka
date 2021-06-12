@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.MediaPackage.DeleteOriginEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteOriginEndpoint' smart constructor.
 data DeleteOriginEndpoint = DeleteOriginEndpoint'
   { -- | The ID of the OriginEndpoint to delete.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOriginEndpoint' with all optional fields omitted.
@@ -63,56 +62,53 @@ data DeleteOriginEndpoint = DeleteOriginEndpoint'
 -- 'id', 'deleteOriginEndpoint_id' - The ID of the OriginEndpoint to delete.
 newDeleteOriginEndpoint ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteOriginEndpoint
 newDeleteOriginEndpoint pId_ =
   DeleteOriginEndpoint' {id = pId_}
 
 -- | The ID of the OriginEndpoint to delete.
-deleteOriginEndpoint_id :: Lens.Lens' DeleteOriginEndpoint Prelude.Text
+deleteOriginEndpoint_id :: Lens.Lens' DeleteOriginEndpoint Core.Text
 deleteOriginEndpoint_id = Lens.lens (\DeleteOriginEndpoint' {id} -> id) (\s@DeleteOriginEndpoint' {} a -> s {id = a} :: DeleteOriginEndpoint)
 
-instance Prelude.AWSRequest DeleteOriginEndpoint where
+instance Core.AWSRequest DeleteOriginEndpoint where
   type
-    Rs DeleteOriginEndpoint =
+    AWSResponse DeleteOriginEndpoint =
       DeleteOriginEndpointResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteOriginEndpointResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteOriginEndpoint
+instance Core.Hashable DeleteOriginEndpoint
 
-instance Prelude.NFData DeleteOriginEndpoint
+instance Core.NFData DeleteOriginEndpoint
 
-instance Prelude.ToHeaders DeleteOriginEndpoint where
+instance Core.ToHeaders DeleteOriginEndpoint where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteOriginEndpoint where
+instance Core.ToPath DeleteOriginEndpoint where
   toPath DeleteOriginEndpoint' {..} =
-    Prelude.mconcat
-      ["/origin_endpoints/", Prelude.toBS id]
+    Core.mconcat ["/origin_endpoints/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteOriginEndpoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteOriginEndpoint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteOriginEndpointResponse' smart constructor.
 data DeleteOriginEndpointResponse = DeleteOriginEndpointResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteOriginEndpointResponse' with all optional fields omitted.
@@ -125,7 +121,7 @@ data DeleteOriginEndpointResponse = DeleteOriginEndpointResponse'
 -- 'httpStatus', 'deleteOriginEndpointResponse_httpStatus' - The response's http status code.
 newDeleteOriginEndpointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteOriginEndpointResponse
 newDeleteOriginEndpointResponse pHttpStatus_ =
   DeleteOriginEndpointResponse'
@@ -134,7 +130,7 @@ newDeleteOriginEndpointResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteOriginEndpointResponse_httpStatus :: Lens.Lens' DeleteOriginEndpointResponse Prelude.Int
+deleteOriginEndpointResponse_httpStatus :: Lens.Lens' DeleteOriginEndpointResponse Core.Int
 deleteOriginEndpointResponse_httpStatus = Lens.lens (\DeleteOriginEndpointResponse' {httpStatus} -> httpStatus) (\s@DeleteOriginEndpointResponse' {} a -> s {httpStatus = a} :: DeleteOriginEndpointResponse)
 
-instance Prelude.NFData DeleteOriginEndpointResponse
+instance Core.NFData DeleteOriginEndpointResponse

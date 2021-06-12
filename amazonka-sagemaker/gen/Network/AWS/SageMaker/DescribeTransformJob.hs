@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.SageMaker.DescribeTransformJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -68,9 +67,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeTransformJob' smart constructor.
 data DescribeTransformJob = DescribeTransformJob'
   { -- | The name of the transform job that you want to view details of.
-    transformJobName :: Prelude.Text
+    transformJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTransformJob' with all optional fields omitted.
@@ -83,7 +82,7 @@ data DescribeTransformJob = DescribeTransformJob'
 -- 'transformJobName', 'describeTransformJob_transformJobName' - The name of the transform job that you want to view details of.
 newDescribeTransformJob ::
   -- | 'transformJobName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTransformJob
 newDescribeTransformJob pTransformJobName_ =
   DescribeTransformJob'
@@ -92,98 +91,94 @@ newDescribeTransformJob pTransformJobName_ =
     }
 
 -- | The name of the transform job that you want to view details of.
-describeTransformJob_transformJobName :: Lens.Lens' DescribeTransformJob Prelude.Text
+describeTransformJob_transformJobName :: Lens.Lens' DescribeTransformJob Core.Text
 describeTransformJob_transformJobName = Lens.lens (\DescribeTransformJob' {transformJobName} -> transformJobName) (\s@DescribeTransformJob' {} a -> s {transformJobName = a} :: DescribeTransformJob)
 
-instance Prelude.AWSRequest DescribeTransformJob where
+instance Core.AWSRequest DescribeTransformJob where
   type
-    Rs DescribeTransformJob =
+    AWSResponse DescribeTransformJob =
       DescribeTransformJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTransformJobResponse'
-            Prelude.<$> (x Prelude..?> "LabelingJobArn")
-            Prelude.<*> (x Prelude..?> "TransformStartTime")
-            Prelude.<*> (x Prelude..?> "TransformOutput")
-            Prelude.<*> (x Prelude..?> "ExperimentConfig")
-            Prelude.<*> (x Prelude..?> "MaxConcurrentTransforms")
-            Prelude.<*> ( x Prelude..?> "Environment"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "MaxPayloadInMB")
-            Prelude.<*> (x Prelude..?> "BatchStrategy")
-            Prelude.<*> (x Prelude..?> "AutoMLJobArn")
-            Prelude.<*> (x Prelude..?> "FailureReason")
-            Prelude.<*> (x Prelude..?> "ModelClientConfig")
-            Prelude.<*> (x Prelude..?> "TransformEndTime")
-            Prelude.<*> (x Prelude..?> "DataProcessing")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "TransformJobName")
-            Prelude.<*> (x Prelude..:> "TransformJobArn")
-            Prelude.<*> (x Prelude..:> "TransformJobStatus")
-            Prelude.<*> (x Prelude..:> "ModelName")
-            Prelude.<*> (x Prelude..:> "TransformInput")
-            Prelude.<*> (x Prelude..:> "TransformResources")
-            Prelude.<*> (x Prelude..:> "CreationTime")
+            Core.<$> (x Core..?> "LabelingJobArn")
+            Core.<*> (x Core..?> "TransformStartTime")
+            Core.<*> (x Core..?> "TransformOutput")
+            Core.<*> (x Core..?> "ExperimentConfig")
+            Core.<*> (x Core..?> "MaxConcurrentTransforms")
+            Core.<*> (x Core..?> "Environment" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "MaxPayloadInMB")
+            Core.<*> (x Core..?> "BatchStrategy")
+            Core.<*> (x Core..?> "AutoMLJobArn")
+            Core.<*> (x Core..?> "FailureReason")
+            Core.<*> (x Core..?> "ModelClientConfig")
+            Core.<*> (x Core..?> "TransformEndTime")
+            Core.<*> (x Core..?> "DataProcessing")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "TransformJobName")
+            Core.<*> (x Core..:> "TransformJobArn")
+            Core.<*> (x Core..:> "TransformJobStatus")
+            Core.<*> (x Core..:> "ModelName")
+            Core.<*> (x Core..:> "TransformInput")
+            Core.<*> (x Core..:> "TransformResources")
+            Core.<*> (x Core..:> "CreationTime")
       )
 
-instance Prelude.Hashable DescribeTransformJob
+instance Core.Hashable DescribeTransformJob
 
-instance Prelude.NFData DescribeTransformJob
+instance Core.NFData DescribeTransformJob
 
-instance Prelude.ToHeaders DescribeTransformJob where
+instance Core.ToHeaders DescribeTransformJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeTransformJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DescribeTransformJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTransformJob where
+instance Core.ToJSON DescribeTransformJob where
   toJSON DescribeTransformJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TransformJobName" Prelude..= transformJobName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TransformJobName" Core..= transformJobName)
           ]
       )
 
-instance Prelude.ToPath DescribeTransformJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTransformJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTransformJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTransformJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTransformJobResponse' smart constructor.
 data DescribeTransformJobResponse = DescribeTransformJobResponse'
   { -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
     -- labeling job that created the transform or training job.
-    labelingJobArn :: Prelude.Maybe Prelude.Text,
+    labelingJobArn :: Core.Maybe Core.Text,
     -- | Indicates when the transform job starts on ML instances. You are billed
     -- for the time interval between this time and the value of
     -- @TransformEndTime@.
-    transformStartTime :: Prelude.Maybe Prelude.POSIX,
+    transformStartTime :: Core.Maybe Core.POSIX,
     -- | Identifies the Amazon S3 location where you want Amazon SageMaker to
     -- save the results from the transform job.
-    transformOutput :: Prelude.Maybe TransformOutput,
-    experimentConfig :: Prelude.Maybe ExperimentConfig,
+    transformOutput :: Core.Maybe TransformOutput,
+    experimentConfig :: Core.Maybe ExperimentConfig,
     -- | The maximum number of parallel requests on each instance node that can
     -- be launched in a transform job. The default value is 1.
-    maxConcurrentTransforms :: Prelude.Maybe Prelude.Natural,
+    maxConcurrentTransforms :: Core.Maybe Core.Natural,
     -- | The environment variables to set in the Docker container. We support up
     -- to 16 key and values entries in the map.
-    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    environment :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The maximum payload size, in MB, used in the transform job.
-    maxPayloadInMB :: Prelude.Maybe Prelude.Natural,
+    maxPayloadInMB :: Core.Maybe Core.Natural,
     -- | Specifies the number of records to include in a mini-batch for an HTTP
     -- inference request. A /record/ // is a single unit of input data that
     -- inference can be made on. For example, a single line in a CSV file is a
@@ -191,33 +186,33 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
     --
     -- To enable the batch strategy, you must set @SplitType@ to @Line@,
     -- @RecordIO@, or @TFRecord@.
-    batchStrategy :: Prelude.Maybe BatchStrategy,
+    batchStrategy :: Core.Maybe BatchStrategy,
     -- | The Amazon Resource Name (ARN) of the AutoML transform job.
-    autoMLJobArn :: Prelude.Maybe Prelude.Text,
+    autoMLJobArn :: Core.Maybe Core.Text,
     -- | If the transform job failed, @FailureReason@ describes why it failed. A
     -- transform job creates a log file, which includes error messages, and
     -- stores it as an Amazon S3 object. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html Log Amazon SageMaker Events with Amazon CloudWatch>.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    failureReason :: Core.Maybe Core.Text,
     -- | The timeout and maximum number of retries for processing a transform job
     -- invocation.
-    modelClientConfig :: Prelude.Maybe ModelClientConfig,
+    modelClientConfig :: Core.Maybe ModelClientConfig,
     -- | Indicates when the transform job has been completed, or has stopped or
     -- failed. You are billed for the time interval between this time and the
     -- value of @TransformStartTime@.
-    transformEndTime :: Prelude.Maybe Prelude.POSIX,
-    dataProcessing :: Prelude.Maybe DataProcessing,
+    transformEndTime :: Core.Maybe Core.POSIX,
+    dataProcessing :: Core.Maybe DataProcessing,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The name of the transform job.
-    transformJobName :: Prelude.Text,
+    transformJobName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the transform job.
-    transformJobArn :: Prelude.Text,
+    transformJobArn :: Core.Text,
     -- | The status of the transform job. If the transform job failed, the reason
     -- is returned in the @FailureReason@ field.
     transformJobStatus :: TransformJobStatus,
     -- | The name of the model used in the transform job.
-    modelName :: Prelude.Text,
+    modelName :: Core.Text,
     -- | Describes the dataset to be transformed and the Amazon S3 location where
     -- it is stored.
     transformInput :: TransformInput,
@@ -225,9 +220,9 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
     -- count, to use for the transform job.
     transformResources :: TransformResources,
     -- | A timestamp that shows when the transform Job was created.
-    creationTime :: Prelude.POSIX
+    creationTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTransformJobResponse' with all optional fields omitted.
@@ -301,21 +296,21 @@ data DescribeTransformJobResponse = DescribeTransformJobResponse'
 -- 'creationTime', 'describeTransformJobResponse_creationTime' - A timestamp that shows when the transform Job was created.
 newDescribeTransformJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'transformJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transformJobArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transformJobStatus'
   TransformJobStatus ->
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transformInput'
   TransformInput ->
   -- | 'transformResources'
   TransformResources ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   DescribeTransformJobResponse
 newDescribeTransformJobResponse
   pHttpStatus_
@@ -328,19 +323,19 @@ newDescribeTransformJobResponse
   pCreationTime_ =
     DescribeTransformJobResponse'
       { labelingJobArn =
-          Prelude.Nothing,
-        transformStartTime = Prelude.Nothing,
-        transformOutput = Prelude.Nothing,
-        experimentConfig = Prelude.Nothing,
-        maxConcurrentTransforms = Prelude.Nothing,
-        environment = Prelude.Nothing,
-        maxPayloadInMB = Prelude.Nothing,
-        batchStrategy = Prelude.Nothing,
-        autoMLJobArn = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
-        modelClientConfig = Prelude.Nothing,
-        transformEndTime = Prelude.Nothing,
-        dataProcessing = Prelude.Nothing,
+          Core.Nothing,
+        transformStartTime = Core.Nothing,
+        transformOutput = Core.Nothing,
+        experimentConfig = Core.Nothing,
+        maxConcurrentTransforms = Core.Nothing,
+        environment = Core.Nothing,
+        maxPayloadInMB = Core.Nothing,
+        batchStrategy = Core.Nothing,
+        autoMLJobArn = Core.Nothing,
+        failureReason = Core.Nothing,
+        modelClientConfig = Core.Nothing,
+        transformEndTime = Core.Nothing,
+        dataProcessing = Core.Nothing,
         httpStatus = pHttpStatus_,
         transformJobName = pTransformJobName_,
         transformJobArn = pTransformJobArn_,
@@ -349,41 +344,41 @@ newDescribeTransformJobResponse
         transformInput = pTransformInput_,
         transformResources = pTransformResources_,
         creationTime =
-          Prelude._Time Lens.# pCreationTime_
+          Core._Time Lens.# pCreationTime_
       }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
 -- labeling job that created the transform or training job.
-describeTransformJobResponse_labelingJobArn :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.Text)
+describeTransformJobResponse_labelingJobArn :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe Core.Text)
 describeTransformJobResponse_labelingJobArn = Lens.lens (\DescribeTransformJobResponse' {labelingJobArn} -> labelingJobArn) (\s@DescribeTransformJobResponse' {} a -> s {labelingJobArn = a} :: DescribeTransformJobResponse)
 
 -- | Indicates when the transform job starts on ML instances. You are billed
 -- for the time interval between this time and the value of
 -- @TransformEndTime@.
-describeTransformJobResponse_transformStartTime :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTransformJobResponse_transformStartTime = Lens.lens (\DescribeTransformJobResponse' {transformStartTime} -> transformStartTime) (\s@DescribeTransformJobResponse' {} a -> s {transformStartTime = a} :: DescribeTransformJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeTransformJobResponse_transformStartTime :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe Core.UTCTime)
+describeTransformJobResponse_transformStartTime = Lens.lens (\DescribeTransformJobResponse' {transformStartTime} -> transformStartTime) (\s@DescribeTransformJobResponse' {} a -> s {transformStartTime = a} :: DescribeTransformJobResponse) Core.. Lens.mapping Core._Time
 
 -- | Identifies the Amazon S3 location where you want Amazon SageMaker to
 -- save the results from the transform job.
-describeTransformJobResponse_transformOutput :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe TransformOutput)
+describeTransformJobResponse_transformOutput :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe TransformOutput)
 describeTransformJobResponse_transformOutput = Lens.lens (\DescribeTransformJobResponse' {transformOutput} -> transformOutput) (\s@DescribeTransformJobResponse' {} a -> s {transformOutput = a} :: DescribeTransformJobResponse)
 
 -- | Undocumented member.
-describeTransformJobResponse_experimentConfig :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe ExperimentConfig)
+describeTransformJobResponse_experimentConfig :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe ExperimentConfig)
 describeTransformJobResponse_experimentConfig = Lens.lens (\DescribeTransformJobResponse' {experimentConfig} -> experimentConfig) (\s@DescribeTransformJobResponse' {} a -> s {experimentConfig = a} :: DescribeTransformJobResponse)
 
 -- | The maximum number of parallel requests on each instance node that can
 -- be launched in a transform job. The default value is 1.
-describeTransformJobResponse_maxConcurrentTransforms :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.Natural)
+describeTransformJobResponse_maxConcurrentTransforms :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe Core.Natural)
 describeTransformJobResponse_maxConcurrentTransforms = Lens.lens (\DescribeTransformJobResponse' {maxConcurrentTransforms} -> maxConcurrentTransforms) (\s@DescribeTransformJobResponse' {} a -> s {maxConcurrentTransforms = a} :: DescribeTransformJobResponse)
 
 -- | The environment variables to set in the Docker container. We support up
 -- to 16 key and values entries in the map.
-describeTransformJobResponse_environment :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeTransformJobResponse_environment = Lens.lens (\DescribeTransformJobResponse' {environment} -> environment) (\s@DescribeTransformJobResponse' {} a -> s {environment = a} :: DescribeTransformJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTransformJobResponse_environment :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+describeTransformJobResponse_environment = Lens.lens (\DescribeTransformJobResponse' {environment} -> environment) (\s@DescribeTransformJobResponse' {} a -> s {environment = a} :: DescribeTransformJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum payload size, in MB, used in the transform job.
-describeTransformJobResponse_maxPayloadInMB :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.Natural)
+describeTransformJobResponse_maxPayloadInMB :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe Core.Natural)
 describeTransformJobResponse_maxPayloadInMB = Lens.lens (\DescribeTransformJobResponse' {maxPayloadInMB} -> maxPayloadInMB) (\s@DescribeTransformJobResponse' {} a -> s {maxPayloadInMB = a} :: DescribeTransformJobResponse)
 
 -- | Specifies the number of records to include in a mini-batch for an HTTP
@@ -393,45 +388,45 @@ describeTransformJobResponse_maxPayloadInMB = Lens.lens (\DescribeTransformJobRe
 --
 -- To enable the batch strategy, you must set @SplitType@ to @Line@,
 -- @RecordIO@, or @TFRecord@.
-describeTransformJobResponse_batchStrategy :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe BatchStrategy)
+describeTransformJobResponse_batchStrategy :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe BatchStrategy)
 describeTransformJobResponse_batchStrategy = Lens.lens (\DescribeTransformJobResponse' {batchStrategy} -> batchStrategy) (\s@DescribeTransformJobResponse' {} a -> s {batchStrategy = a} :: DescribeTransformJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the AutoML transform job.
-describeTransformJobResponse_autoMLJobArn :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.Text)
+describeTransformJobResponse_autoMLJobArn :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe Core.Text)
 describeTransformJobResponse_autoMLJobArn = Lens.lens (\DescribeTransformJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@DescribeTransformJobResponse' {} a -> s {autoMLJobArn = a} :: DescribeTransformJobResponse)
 
 -- | If the transform job failed, @FailureReason@ describes why it failed. A
 -- transform job creates a log file, which includes error messages, and
 -- stores it as an Amazon S3 object. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html Log Amazon SageMaker Events with Amazon CloudWatch>.
-describeTransformJobResponse_failureReason :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.Text)
+describeTransformJobResponse_failureReason :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe Core.Text)
 describeTransformJobResponse_failureReason = Lens.lens (\DescribeTransformJobResponse' {failureReason} -> failureReason) (\s@DescribeTransformJobResponse' {} a -> s {failureReason = a} :: DescribeTransformJobResponse)
 
 -- | The timeout and maximum number of retries for processing a transform job
 -- invocation.
-describeTransformJobResponse_modelClientConfig :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe ModelClientConfig)
+describeTransformJobResponse_modelClientConfig :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe ModelClientConfig)
 describeTransformJobResponse_modelClientConfig = Lens.lens (\DescribeTransformJobResponse' {modelClientConfig} -> modelClientConfig) (\s@DescribeTransformJobResponse' {} a -> s {modelClientConfig = a} :: DescribeTransformJobResponse)
 
 -- | Indicates when the transform job has been completed, or has stopped or
 -- failed. You are billed for the time interval between this time and the
 -- value of @TransformStartTime@.
-describeTransformJobResponse_transformEndTime :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTransformJobResponse_transformEndTime = Lens.lens (\DescribeTransformJobResponse' {transformEndTime} -> transformEndTime) (\s@DescribeTransformJobResponse' {} a -> s {transformEndTime = a} :: DescribeTransformJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeTransformJobResponse_transformEndTime :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe Core.UTCTime)
+describeTransformJobResponse_transformEndTime = Lens.lens (\DescribeTransformJobResponse' {transformEndTime} -> transformEndTime) (\s@DescribeTransformJobResponse' {} a -> s {transformEndTime = a} :: DescribeTransformJobResponse) Core.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-describeTransformJobResponse_dataProcessing :: Lens.Lens' DescribeTransformJobResponse (Prelude.Maybe DataProcessing)
+describeTransformJobResponse_dataProcessing :: Lens.Lens' DescribeTransformJobResponse (Core.Maybe DataProcessing)
 describeTransformJobResponse_dataProcessing = Lens.lens (\DescribeTransformJobResponse' {dataProcessing} -> dataProcessing) (\s@DescribeTransformJobResponse' {} a -> s {dataProcessing = a} :: DescribeTransformJobResponse)
 
 -- | The response's http status code.
-describeTransformJobResponse_httpStatus :: Lens.Lens' DescribeTransformJobResponse Prelude.Int
+describeTransformJobResponse_httpStatus :: Lens.Lens' DescribeTransformJobResponse Core.Int
 describeTransformJobResponse_httpStatus = Lens.lens (\DescribeTransformJobResponse' {httpStatus} -> httpStatus) (\s@DescribeTransformJobResponse' {} a -> s {httpStatus = a} :: DescribeTransformJobResponse)
 
 -- | The name of the transform job.
-describeTransformJobResponse_transformJobName :: Lens.Lens' DescribeTransformJobResponse Prelude.Text
+describeTransformJobResponse_transformJobName :: Lens.Lens' DescribeTransformJobResponse Core.Text
 describeTransformJobResponse_transformJobName = Lens.lens (\DescribeTransformJobResponse' {transformJobName} -> transformJobName) (\s@DescribeTransformJobResponse' {} a -> s {transformJobName = a} :: DescribeTransformJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the transform job.
-describeTransformJobResponse_transformJobArn :: Lens.Lens' DescribeTransformJobResponse Prelude.Text
+describeTransformJobResponse_transformJobArn :: Lens.Lens' DescribeTransformJobResponse Core.Text
 describeTransformJobResponse_transformJobArn = Lens.lens (\DescribeTransformJobResponse' {transformJobArn} -> transformJobArn) (\s@DescribeTransformJobResponse' {} a -> s {transformJobArn = a} :: DescribeTransformJobResponse)
 
 -- | The status of the transform job. If the transform job failed, the reason
@@ -440,7 +435,7 @@ describeTransformJobResponse_transformJobStatus :: Lens.Lens' DescribeTransformJ
 describeTransformJobResponse_transformJobStatus = Lens.lens (\DescribeTransformJobResponse' {transformJobStatus} -> transformJobStatus) (\s@DescribeTransformJobResponse' {} a -> s {transformJobStatus = a} :: DescribeTransformJobResponse)
 
 -- | The name of the model used in the transform job.
-describeTransformJobResponse_modelName :: Lens.Lens' DescribeTransformJobResponse Prelude.Text
+describeTransformJobResponse_modelName :: Lens.Lens' DescribeTransformJobResponse Core.Text
 describeTransformJobResponse_modelName = Lens.lens (\DescribeTransformJobResponse' {modelName} -> modelName) (\s@DescribeTransformJobResponse' {} a -> s {modelName = a} :: DescribeTransformJobResponse)
 
 -- | Describes the dataset to be transformed and the Amazon S3 location where
@@ -454,7 +449,7 @@ describeTransformJobResponse_transformResources :: Lens.Lens' DescribeTransformJ
 describeTransformJobResponse_transformResources = Lens.lens (\DescribeTransformJobResponse' {transformResources} -> transformResources) (\s@DescribeTransformJobResponse' {} a -> s {transformResources = a} :: DescribeTransformJobResponse)
 
 -- | A timestamp that shows when the transform Job was created.
-describeTransformJobResponse_creationTime :: Lens.Lens' DescribeTransformJobResponse Prelude.UTCTime
-describeTransformJobResponse_creationTime = Lens.lens (\DescribeTransformJobResponse' {creationTime} -> creationTime) (\s@DescribeTransformJobResponse' {} a -> s {creationTime = a} :: DescribeTransformJobResponse) Prelude.. Prelude._Time
+describeTransformJobResponse_creationTime :: Lens.Lens' DescribeTransformJobResponse Core.UTCTime
+describeTransformJobResponse_creationTime = Lens.lens (\DescribeTransformJobResponse' {creationTime} -> creationTime) (\s@DescribeTransformJobResponse' {} a -> s {creationTime = a} :: DescribeTransformJobResponse) Core.. Core._Time
 
-instance Prelude.NFData DescribeTransformJobResponse
+instance Core.NFData DescribeTransformJobResponse

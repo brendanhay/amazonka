@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.APIGateway.GetModelTemplate
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The name of the model for which to generate a template.
-    modelName :: Prelude.Text
+    modelName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetModelTemplate' with all optional fields omitted.
@@ -73,9 +72,9 @@ data GetModelTemplate = GetModelTemplate'
 -- 'modelName', 'getModelTemplate_modelName' - [Required] The name of the model for which to generate a template.
 newGetModelTemplate ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   GetModelTemplate
 newGetModelTemplate pRestApiId_ pModelName_ =
   GetModelTemplate'
@@ -84,49 +83,51 @@ newGetModelTemplate pRestApiId_ pModelName_ =
     }
 
 -- | [Required] The string identifier of the associated RestApi.
-getModelTemplate_restApiId :: Lens.Lens' GetModelTemplate Prelude.Text
+getModelTemplate_restApiId :: Lens.Lens' GetModelTemplate Core.Text
 getModelTemplate_restApiId = Lens.lens (\GetModelTemplate' {restApiId} -> restApiId) (\s@GetModelTemplate' {} a -> s {restApiId = a} :: GetModelTemplate)
 
 -- | [Required] The name of the model for which to generate a template.
-getModelTemplate_modelName :: Lens.Lens' GetModelTemplate Prelude.Text
+getModelTemplate_modelName :: Lens.Lens' GetModelTemplate Core.Text
 getModelTemplate_modelName = Lens.lens (\GetModelTemplate' {modelName} -> modelName) (\s@GetModelTemplate' {} a -> s {modelName = a} :: GetModelTemplate)
 
-instance Prelude.AWSRequest GetModelTemplate where
-  type Rs GetModelTemplate = GetModelTemplateResponse
+instance Core.AWSRequest GetModelTemplate where
+  type
+    AWSResponse GetModelTemplate =
+      GetModelTemplateResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetModelTemplateResponse'
-            Prelude.<$> (x Prelude..?> "value")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "value")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetModelTemplate
+instance Core.Hashable GetModelTemplate
 
-instance Prelude.NFData GetModelTemplate
+instance Core.NFData GetModelTemplate
 
-instance Prelude.ToHeaders GetModelTemplate where
+instance Core.ToHeaders GetModelTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetModelTemplate where
+instance Core.ToPath GetModelTemplate where
   toPath GetModelTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/models/",
-        Prelude.toBS modelName,
+        Core.toBS modelName,
         "/default_template"
       ]
 
-instance Prelude.ToQuery GetModelTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetModelTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | Represents a mapping template used to transform a payload.
 --
@@ -137,11 +138,11 @@ data GetModelTemplateResponse = GetModelTemplateResponse'
   { -- | The Apache
     -- <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)>
     -- template content used for the template resource.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetModelTemplateResponse' with all optional fields omitted.
@@ -158,22 +159,22 @@ data GetModelTemplateResponse = GetModelTemplateResponse'
 -- 'httpStatus', 'getModelTemplateResponse_httpStatus' - The response's http status code.
 newGetModelTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetModelTemplateResponse
 newGetModelTemplateResponse pHttpStatus_ =
   GetModelTemplateResponse'
-    { value = Prelude.Nothing,
+    { value = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Apache
 -- <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)>
 -- template content used for the template resource.
-getModelTemplateResponse_value :: Lens.Lens' GetModelTemplateResponse (Prelude.Maybe Prelude.Text)
+getModelTemplateResponse_value :: Lens.Lens' GetModelTemplateResponse (Core.Maybe Core.Text)
 getModelTemplateResponse_value = Lens.lens (\GetModelTemplateResponse' {value} -> value) (\s@GetModelTemplateResponse' {} a -> s {value = a} :: GetModelTemplateResponse)
 
 -- | The response's http status code.
-getModelTemplateResponse_httpStatus :: Lens.Lens' GetModelTemplateResponse Prelude.Int
+getModelTemplateResponse_httpStatus :: Lens.Lens' GetModelTemplateResponse Core.Int
 getModelTemplateResponse_httpStatus = Lens.lens (\GetModelTemplateResponse' {httpStatus} -> httpStatus) (\s@GetModelTemplateResponse' {} a -> s {httpStatus = a} :: GetModelTemplateResponse)
 
-instance Prelude.NFData GetModelTemplateResponse
+instance Core.NFData GetModelTemplateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,26 +50,26 @@ module Network.AWS.CloudFront.ListDistributionsByKeyGroup
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDistributionsByKeyGroup' smart constructor.
 data ListDistributionsByKeyGroup = ListDistributionsByKeyGroup'
   { -- | The maximum number of distribution IDs that you want in the response.
-    maxItems :: Prelude.Maybe Prelude.Text,
+    maxItems :: Core.Maybe Core.Text,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of distribution IDs. The response includes distribution IDs in
     -- the list that occur after the marker. To get the next page of the list,
     -- set this field’s value to the value of @NextMarker@ from the current
     -- page’s response.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The ID of the key group whose associated distribution IDs you are
     -- listing.
-    keyGroupId :: Prelude.Text
+    keyGroupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByKeyGroup' with all optional fields omitted.
@@ -92,18 +91,18 @@ data ListDistributionsByKeyGroup = ListDistributionsByKeyGroup'
 -- listing.
 newListDistributionsByKeyGroup ::
   -- | 'keyGroupId'
-  Prelude.Text ->
+  Core.Text ->
   ListDistributionsByKeyGroup
 newListDistributionsByKeyGroup pKeyGroupId_ =
   ListDistributionsByKeyGroup'
     { maxItems =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       keyGroupId = pKeyGroupId_
     }
 
 -- | The maximum number of distribution IDs that you want in the response.
-listDistributionsByKeyGroup_maxItems :: Lens.Lens' ListDistributionsByKeyGroup (Prelude.Maybe Prelude.Text)
+listDistributionsByKeyGroup_maxItems :: Lens.Lens' ListDistributionsByKeyGroup (Core.Maybe Core.Text)
 listDistributionsByKeyGroup_maxItems = Lens.lens (\ListDistributionsByKeyGroup' {maxItems} -> maxItems) (\s@ListDistributionsByKeyGroup' {} a -> s {maxItems = a} :: ListDistributionsByKeyGroup)
 
 -- | Use this field when paginating results to indicate where to begin in
@@ -111,61 +110,55 @@ listDistributionsByKeyGroup_maxItems = Lens.lens (\ListDistributionsByKeyGroup' 
 -- the list that occur after the marker. To get the next page of the list,
 -- set this field’s value to the value of @NextMarker@ from the current
 -- page’s response.
-listDistributionsByKeyGroup_marker :: Lens.Lens' ListDistributionsByKeyGroup (Prelude.Maybe Prelude.Text)
+listDistributionsByKeyGroup_marker :: Lens.Lens' ListDistributionsByKeyGroup (Core.Maybe Core.Text)
 listDistributionsByKeyGroup_marker = Lens.lens (\ListDistributionsByKeyGroup' {marker} -> marker) (\s@ListDistributionsByKeyGroup' {} a -> s {marker = a} :: ListDistributionsByKeyGroup)
 
 -- | The ID of the key group whose associated distribution IDs you are
 -- listing.
-listDistributionsByKeyGroup_keyGroupId :: Lens.Lens' ListDistributionsByKeyGroup Prelude.Text
+listDistributionsByKeyGroup_keyGroupId :: Lens.Lens' ListDistributionsByKeyGroup Core.Text
 listDistributionsByKeyGroup_keyGroupId = Lens.lens (\ListDistributionsByKeyGroup' {keyGroupId} -> keyGroupId) (\s@ListDistributionsByKeyGroup' {} a -> s {keyGroupId = a} :: ListDistributionsByKeyGroup)
 
-instance
-  Prelude.AWSRequest
-    ListDistributionsByKeyGroup
-  where
+instance Core.AWSRequest ListDistributionsByKeyGroup where
   type
-    Rs ListDistributionsByKeyGroup =
+    AWSResponse ListDistributionsByKeyGroup =
       ListDistributionsByKeyGroupResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListDistributionsByKeyGroupResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDistributionsByKeyGroup
+instance Core.Hashable ListDistributionsByKeyGroup
 
-instance Prelude.NFData ListDistributionsByKeyGroup
+instance Core.NFData ListDistributionsByKeyGroup
 
-instance
-  Prelude.ToHeaders
-    ListDistributionsByKeyGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListDistributionsByKeyGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListDistributionsByKeyGroup where
+instance Core.ToPath ListDistributionsByKeyGroup where
   toPath ListDistributionsByKeyGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/distributionsByKeyGroupId/",
-        Prelude.toBS keyGroupId
+        Core.toBS keyGroupId
       ]
 
-instance Prelude.ToQuery ListDistributionsByKeyGroup where
+instance Core.ToQuery ListDistributionsByKeyGroup where
   toQuery ListDistributionsByKeyGroup' {..} =
-    Prelude.mconcat
-      [ "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListDistributionsByKeyGroupResponse' smart constructor.
 data ListDistributionsByKeyGroupResponse = ListDistributionsByKeyGroupResponse'
-  { distributionIdList :: Prelude.Maybe DistributionIdList,
+  { distributionIdList :: Core.Maybe DistributionIdList,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsByKeyGroupResponse' with all optional fields omitted.
@@ -180,23 +173,23 @@ data ListDistributionsByKeyGroupResponse = ListDistributionsByKeyGroupResponse'
 -- 'httpStatus', 'listDistributionsByKeyGroupResponse_httpStatus' - The response's http status code.
 newListDistributionsByKeyGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDistributionsByKeyGroupResponse
 newListDistributionsByKeyGroupResponse pHttpStatus_ =
   ListDistributionsByKeyGroupResponse'
     { distributionIdList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listDistributionsByKeyGroupResponse_distributionIdList :: Lens.Lens' ListDistributionsByKeyGroupResponse (Prelude.Maybe DistributionIdList)
+listDistributionsByKeyGroupResponse_distributionIdList :: Lens.Lens' ListDistributionsByKeyGroupResponse (Core.Maybe DistributionIdList)
 listDistributionsByKeyGroupResponse_distributionIdList = Lens.lens (\ListDistributionsByKeyGroupResponse' {distributionIdList} -> distributionIdList) (\s@ListDistributionsByKeyGroupResponse' {} a -> s {distributionIdList = a} :: ListDistributionsByKeyGroupResponse)
 
 -- | The response's http status code.
-listDistributionsByKeyGroupResponse_httpStatus :: Lens.Lens' ListDistributionsByKeyGroupResponse Prelude.Int
+listDistributionsByKeyGroupResponse_httpStatus :: Lens.Lens' ListDistributionsByKeyGroupResponse Core.Int
 listDistributionsByKeyGroupResponse_httpStatus = Lens.lens (\ListDistributionsByKeyGroupResponse' {httpStatus} -> httpStatus) (\s@ListDistributionsByKeyGroupResponse' {} a -> s {httpStatus = a} :: ListDistributionsByKeyGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListDistributionsByKeyGroupResponse

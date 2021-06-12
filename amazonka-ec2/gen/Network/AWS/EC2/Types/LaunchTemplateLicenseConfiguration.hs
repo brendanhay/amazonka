@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLaunchTemplateLicenseConfiguration' smart constructor.
 data LaunchTemplateLicenseConfiguration = LaunchTemplateLicenseConfiguration'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
+    licenseConfigurationArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateLicenseConfiguration' with all optional fields omitted.
@@ -47,25 +46,25 @@ newLaunchTemplateLicenseConfiguration ::
 newLaunchTemplateLicenseConfiguration =
   LaunchTemplateLicenseConfiguration'
     { licenseConfigurationArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-launchTemplateLicenseConfiguration_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfiguration (Prelude.Maybe Prelude.Text)
+launchTemplateLicenseConfiguration_licenseConfigurationArn :: Lens.Lens' LaunchTemplateLicenseConfiguration (Core.Maybe Core.Text)
 launchTemplateLicenseConfiguration_licenseConfigurationArn = Lens.lens (\LaunchTemplateLicenseConfiguration' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LaunchTemplateLicenseConfiguration' {} a -> s {licenseConfigurationArn = a} :: LaunchTemplateLicenseConfiguration)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     LaunchTemplateLicenseConfiguration
   where
   parseXML x =
     LaunchTemplateLicenseConfiguration'
-      Prelude.<$> (x Prelude..@? "licenseConfigurationArn")
+      Core.<$> (x Core..@? "licenseConfigurationArn")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateLicenseConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateLicenseConfiguration

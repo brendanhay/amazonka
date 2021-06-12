@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.S3.DeleteBucketInventoryConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -69,13 +68,13 @@ data DeleteBucketInventoryConfiguration = DeleteBucketInventoryConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket containing the inventory configuration to delete.
     bucket :: BucketName,
     -- | The ID used to identify the inventory configuration.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketInventoryConfiguration' with all optional fields omitted.
@@ -96,12 +95,12 @@ newDeleteBucketInventoryConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteBucketInventoryConfiguration
 newDeleteBucketInventoryConfiguration pBucket_ pId_ =
   DeleteBucketInventoryConfiguration'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_,
       id = pId_
     }
@@ -109,7 +108,7 @@ newDeleteBucketInventoryConfiguration pBucket_ pId_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-deleteBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' DeleteBucketInventoryConfiguration (Prelude.Maybe Prelude.Text)
+deleteBucketInventoryConfiguration_expectedBucketOwner :: Lens.Lens' DeleteBucketInventoryConfiguration (Core.Maybe Core.Text)
 deleteBucketInventoryConfiguration_expectedBucketOwner = Lens.lens (\DeleteBucketInventoryConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketInventoryConfiguration' {} a -> s {expectedBucketOwner = a} :: DeleteBucketInventoryConfiguration)
 
 -- | The name of the bucket containing the inventory configuration to delete.
@@ -117,15 +116,15 @@ deleteBucketInventoryConfiguration_bucket :: Lens.Lens' DeleteBucketInventoryCon
 deleteBucketInventoryConfiguration_bucket = Lens.lens (\DeleteBucketInventoryConfiguration' {bucket} -> bucket) (\s@DeleteBucketInventoryConfiguration' {} a -> s {bucket = a} :: DeleteBucketInventoryConfiguration)
 
 -- | The ID used to identify the inventory configuration.
-deleteBucketInventoryConfiguration_id :: Lens.Lens' DeleteBucketInventoryConfiguration Prelude.Text
+deleteBucketInventoryConfiguration_id :: Lens.Lens' DeleteBucketInventoryConfiguration Core.Text
 deleteBucketInventoryConfiguration_id = Lens.lens (\DeleteBucketInventoryConfiguration' {id} -> id) (\s@DeleteBucketInventoryConfiguration' {} a -> s {id = a} :: DeleteBucketInventoryConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteBucketInventoryConfiguration
   where
   type
-    Rs DeleteBucketInventoryConfiguration =
+    AWSResponse DeleteBucketInventoryConfiguration =
       DeleteBucketInventoryConfigurationResponse
   request = Request.delete defaultService
   response =
@@ -133,42 +132,42 @@ instance
       DeleteBucketInventoryConfigurationResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteBucketInventoryConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteBucketInventoryConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteBucketInventoryConfiguration
   where
   toHeaders DeleteBucketInventoryConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteBucketInventoryConfiguration
   where
   toPath DeleteBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteBucketInventoryConfiguration
   where
   toQuery DeleteBucketInventoryConfiguration' {..} =
-    Prelude.mconcat ["id" Prelude.=: id, "inventory"]
+    Core.mconcat ["id" Core.=: id, "inventory"]
 
 -- | /See:/ 'newDeleteBucketInventoryConfigurationResponse' smart constructor.
 data DeleteBucketInventoryConfigurationResponse = DeleteBucketInventoryConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteBucketInventoryConfigurationResponse' with all optional fields omitted.
@@ -180,5 +179,5 @@ newDeleteBucketInventoryConfigurationResponse =
   DeleteBucketInventoryConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteBucketInventoryConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.Clip where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.TimeSpan
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for one clip in a composition. All jobs in a playlist must have
 -- the same clip settings.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newClip' smart constructor.
 data Clip = Clip'
   { -- | Settings that determine when a clip begins and how long it lasts.
-    timeSpan :: Prelude.Maybe TimeSpan
+    timeSpan :: Core.Maybe TimeSpan
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Clip' with all optional fields omitted.
@@ -45,25 +44,25 @@ data Clip = Clip'
 -- 'timeSpan', 'clip_timeSpan' - Settings that determine when a clip begins and how long it lasts.
 newClip ::
   Clip
-newClip = Clip' {timeSpan = Prelude.Nothing}
+newClip = Clip' {timeSpan = Core.Nothing}
 
 -- | Settings that determine when a clip begins and how long it lasts.
-clip_timeSpan :: Lens.Lens' Clip (Prelude.Maybe TimeSpan)
+clip_timeSpan :: Lens.Lens' Clip (Core.Maybe TimeSpan)
 clip_timeSpan = Lens.lens (\Clip' {timeSpan} -> timeSpan) (\s@Clip' {} a -> s {timeSpan = a} :: Clip)
 
-instance Prelude.FromJSON Clip where
+instance Core.FromJSON Clip where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Clip"
-      (\x -> Clip' Prelude.<$> (x Prelude..:? "TimeSpan"))
+      (\x -> Clip' Core.<$> (x Core..:? "TimeSpan"))
 
-instance Prelude.Hashable Clip
+instance Core.Hashable Clip
 
-instance Prelude.NFData Clip
+instance Core.NFData Clip
 
-instance Prelude.ToJSON Clip where
+instance Core.ToJSON Clip where
   toJSON Clip' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("TimeSpan" Prelude..=) Prelude.<$> timeSpan]
+    Core.object
+      ( Core.catMaybes
+          [("TimeSpan" Core..=) Core.<$> timeSpan]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.VpcOutputSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The properties for a private VPC Output When this property is specified,
 -- the output egress addresses will be created in a user specified VPC
@@ -31,16 +30,16 @@ data VpcOutputSettings = VpcOutputSettings'
   { -- | A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
     -- network interfaces. If none are specified then the VPC default security
     -- group will be used
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | List of public address allocation ids to associate with ENIs that will
     -- be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for
     -- STANDARD channels
-    publicAddressAllocationIds :: Prelude.Maybe [Prelude.Text],
+    publicAddressAllocationIds :: Core.Maybe [Core.Text],
     -- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
     -- IDs must be mapped to two unique availability zones (AZ).
-    subnetIds :: [Prelude.Text]
+    subnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcOutputSettings' with all optional fields omitted.
@@ -64,58 +63,53 @@ newVpcOutputSettings ::
   VpcOutputSettings
 newVpcOutputSettings =
   VpcOutputSettings'
-    { securityGroupIds =
-        Prelude.Nothing,
-      publicAddressAllocationIds = Prelude.Nothing,
-      subnetIds = Prelude.mempty
+    { securityGroupIds = Core.Nothing,
+      publicAddressAllocationIds = Core.Nothing,
+      subnetIds = Core.mempty
     }
 
 -- | A list of up to 5 EC2 VPC security group IDs to attach to the Output VPC
 -- network interfaces. If none are specified then the VPC default security
 -- group will be used
-vpcOutputSettings_securityGroupIds :: Lens.Lens' VpcOutputSettings (Prelude.Maybe [Prelude.Text])
-vpcOutputSettings_securityGroupIds = Lens.lens (\VpcOutputSettings' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettings' {} a -> s {securityGroupIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Prelude._Coerce
+vpcOutputSettings_securityGroupIds :: Lens.Lens' VpcOutputSettings (Core.Maybe [Core.Text])
+vpcOutputSettings_securityGroupIds = Lens.lens (\VpcOutputSettings' {securityGroupIds} -> securityGroupIds) (\s@VpcOutputSettings' {} a -> s {securityGroupIds = a} :: VpcOutputSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | List of public address allocation ids to associate with ENIs that will
 -- be created in Output VPC. Must specify one for SINGLE_PIPELINE, two for
 -- STANDARD channels
-vpcOutputSettings_publicAddressAllocationIds :: Lens.Lens' VpcOutputSettings (Prelude.Maybe [Prelude.Text])
-vpcOutputSettings_publicAddressAllocationIds = Lens.lens (\VpcOutputSettings' {publicAddressAllocationIds} -> publicAddressAllocationIds) (\s@VpcOutputSettings' {} a -> s {publicAddressAllocationIds = a} :: VpcOutputSettings) Prelude.. Lens.mapping Prelude._Coerce
+vpcOutputSettings_publicAddressAllocationIds :: Lens.Lens' VpcOutputSettings (Core.Maybe [Core.Text])
+vpcOutputSettings_publicAddressAllocationIds = Lens.lens (\VpcOutputSettings' {publicAddressAllocationIds} -> publicAddressAllocationIds) (\s@VpcOutputSettings' {} a -> s {publicAddressAllocationIds = a} :: VpcOutputSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of VPC subnet IDs from the same VPC. If STANDARD channel, subnet
 -- IDs must be mapped to two unique availability zones (AZ).
-vpcOutputSettings_subnetIds :: Lens.Lens' VpcOutputSettings [Prelude.Text]
-vpcOutputSettings_subnetIds = Lens.lens (\VpcOutputSettings' {subnetIds} -> subnetIds) (\s@VpcOutputSettings' {} a -> s {subnetIds = a} :: VpcOutputSettings) Prelude.. Prelude._Coerce
+vpcOutputSettings_subnetIds :: Lens.Lens' VpcOutputSettings [Core.Text]
+vpcOutputSettings_subnetIds = Lens.lens (\VpcOutputSettings' {subnetIds} -> subnetIds) (\s@VpcOutputSettings' {} a -> s {subnetIds = a} :: VpcOutputSettings) Core.. Lens._Coerce
 
-instance Prelude.FromJSON VpcOutputSettings where
+instance Core.FromJSON VpcOutputSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VpcOutputSettings"
       ( \x ->
           VpcOutputSettings'
-            Prelude.<$> ( x Prelude..:? "securityGroupIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "publicAddressAllocationIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "subnetIds"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "securityGroupIds" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "publicAddressAllocationIds"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "subnetIds" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable VpcOutputSettings
+instance Core.Hashable VpcOutputSettings
 
-instance Prelude.NFData VpcOutputSettings
+instance Core.NFData VpcOutputSettings
 
-instance Prelude.ToJSON VpcOutputSettings where
+instance Core.ToJSON VpcOutputSettings where
   toJSON VpcOutputSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("securityGroupIds" Prelude..=)
-              Prelude.<$> securityGroupIds,
-            ("publicAddressAllocationIds" Prelude..=)
-              Prelude.<$> publicAddressAllocationIds,
-            Prelude.Just ("subnetIds" Prelude..= subnetIds)
+    Core.object
+      ( Core.catMaybes
+          [ ("securityGroupIds" Core..=)
+              Core.<$> securityGroupIds,
+            ("publicAddressAllocationIds" Core..=)
+              Core.<$> publicAddressAllocationIds,
+            Core.Just ("subnetIds" Core..= subnetIds)
           ]
       )

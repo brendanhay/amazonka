@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DirectoryService.DisableRadius
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDisableRadius' smart constructor.
 data DisableRadius = DisableRadius'
   { -- | The identifier of the directory for which to disable MFA.
-    directoryId :: Prelude.Text
+    directoryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableRadius' with all optional fields omitted.
@@ -67,67 +66,65 @@ data DisableRadius = DisableRadius'
 -- 'directoryId', 'disableRadius_directoryId' - The identifier of the directory for which to disable MFA.
 newDisableRadius ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   DisableRadius
 newDisableRadius pDirectoryId_ =
   DisableRadius' {directoryId = pDirectoryId_}
 
 -- | The identifier of the directory for which to disable MFA.
-disableRadius_directoryId :: Lens.Lens' DisableRadius Prelude.Text
+disableRadius_directoryId :: Lens.Lens' DisableRadius Core.Text
 disableRadius_directoryId = Lens.lens (\DisableRadius' {directoryId} -> directoryId) (\s@DisableRadius' {} a -> s {directoryId = a} :: DisableRadius)
 
-instance Prelude.AWSRequest DisableRadius where
-  type Rs DisableRadius = DisableRadiusResponse
+instance Core.AWSRequest DisableRadius where
+  type
+    AWSResponse DisableRadius =
+      DisableRadiusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableRadiusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisableRadius
+instance Core.Hashable DisableRadius
 
-instance Prelude.NFData DisableRadius
+instance Core.NFData DisableRadius
 
-instance Prelude.ToHeaders DisableRadius where
+instance Core.ToHeaders DisableRadius where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DisableRadius" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DisableRadius" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableRadius where
+instance Core.ToJSON DisableRadius where
   toJSON DisableRadius' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DirectoryId" Prelude..= directoryId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DirectoryId" Core..= directoryId)]
       )
 
-instance Prelude.ToPath DisableRadius where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableRadius where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableRadius where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableRadius where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the results of the DisableRadius operation.
 --
 -- /See:/ 'newDisableRadiusResponse' smart constructor.
 data DisableRadiusResponse = DisableRadiusResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableRadiusResponse' with all optional fields omitted.
@@ -140,13 +137,13 @@ data DisableRadiusResponse = DisableRadiusResponse'
 -- 'httpStatus', 'disableRadiusResponse_httpStatus' - The response's http status code.
 newDisableRadiusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableRadiusResponse
 newDisableRadiusResponse pHttpStatus_ =
   DisableRadiusResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-disableRadiusResponse_httpStatus :: Lens.Lens' DisableRadiusResponse Prelude.Int
+disableRadiusResponse_httpStatus :: Lens.Lens' DisableRadiusResponse Core.Int
 disableRadiusResponse_httpStatus = Lens.lens (\DisableRadiusResponse' {httpStatus} -> httpStatus) (\s@DisableRadiusResponse' {} a -> s {httpStatus = a} :: DisableRadiusResponse)
 
-instance Prelude.NFData DisableRadiusResponse
+instance Core.NFData DisableRadiusResponse

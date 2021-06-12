@@ -689,206 +689,204 @@ import Network.AWS.Connect.Types.UserQuickConnectConfig
 import Network.AWS.Connect.Types.UserSummary
 import Network.AWS.Connect.Types.VoiceRecordingConfiguration
 import Network.AWS.Connect.Types.VoiceRecordingTrack
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-08-08@ of the Amazon Connect Service SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Connect",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "connect",
-      Prelude._svcSigningName = "connect",
-      Prelude._svcVersion = "2017-08-08",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "Connect",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Connect",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "connect",
+      Core._serviceSigningName = "connect",
+      Core._serviceVersion = "2017-08-08",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Connect",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The service quota has been exceeded.
-_ServiceQuotaExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceQuotaExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
-    Prelude.. Prelude.hasStatus 402
+    Core.. Core.hasStatus 402
 
 -- | The contact is not permitted.
-_OutboundContactNotPermittedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OutboundContactNotPermittedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OutboundContactNotPermittedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OutboundContactNotPermittedException"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | A resource already has that name.
-_ResourceConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceConflictException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The contact flow has not been published.
-_ContactFlowNotPublishedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ContactFlowNotPublishedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ContactFlowNotPublishedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ContactFlowNotPublishedException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Request processing failed because of an error or failure with the
 -- service.
-_InternalServiceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServiceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServiceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServiceException"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | No user with the specified credentials was found in the Amazon Connect
 -- instance.
-_UserNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UserNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UserNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UserNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | A resource with the specified name already exists.
-_DuplicateResourceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateResourceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateResourceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateResourceException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The throttling limit has been exceeded.
-_ThrottlingException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ThrottlingException"
-    Prelude.. Prelude.hasStatus 429
+    Core.. Core.hasStatus 429
 
 -- | The request is not valid.
-_InvalidRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRequestException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | One or more of the specified parameters are not valid.
-_InvalidParameterException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidParameterException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The contact with the specified ID is not active or does not exist.
-_ContactNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ContactNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ContactNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ContactNotFoundException"
-    Prelude.. Prelude.hasStatus 410
+    Core.. Core.hasStatus 410
 
 -- | The contact flow is not valid.
-_InvalidContactFlowException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidContactFlowException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidContactFlowException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidContactFlowException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | That resource is already in use. Please try another.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUseException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The allowed limit for the resource has been exceeded.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
-    Prelude.. Prelude.hasStatus 429
+    Core.. Core.hasStatus 429
 
 -- | Outbound calls to the destination number are not allowed.
-_DestinationNotAllowedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DestinationNotAllowedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DestinationNotAllowedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DestinationNotAllowedException"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404

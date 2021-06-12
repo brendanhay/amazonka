@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.ProxyConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.KeyValuePair
 import Network.AWS.ECS.Types.ProxyConfigurationType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration details for the App Mesh proxy.
 --
@@ -67,13 +66,13 @@ data ProxyConfiguration = ProxyConfiguration'
     -- -   @EgressIgnoredIPs@ - (Required) The egress traffic going to the
     --     specified IP addresses is ignored and not redirected to the
     --     @ProxyEgressPort@. It can be an empty list.
-    properties :: Prelude.Maybe [KeyValuePair],
+    properties :: Core.Maybe [KeyValuePair],
     -- | The proxy type. The only supported value is @APPMESH@.
-    type' :: Prelude.Maybe ProxyConfigurationType,
+    type' :: Core.Maybe ProxyConfigurationType,
     -- | The name of the container that will serve as the App Mesh proxy.
-    containerName :: Prelude.Text
+    containerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProxyConfiguration' with all optional fields omitted.
@@ -119,12 +118,12 @@ data ProxyConfiguration = ProxyConfiguration'
 -- 'containerName', 'proxyConfiguration_containerName' - The name of the container that will serve as the App Mesh proxy.
 newProxyConfiguration ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   ProxyConfiguration
 newProxyConfiguration pContainerName_ =
   ProxyConfiguration'
-    { properties = Prelude.Nothing,
-      type' = Prelude.Nothing,
+    { properties = Core.Nothing,
+      type' = Core.Nothing,
       containerName = pContainerName_
     }
 
@@ -158,41 +157,38 @@ newProxyConfiguration pContainerName_ =
 -- -   @EgressIgnoredIPs@ - (Required) The egress traffic going to the
 --     specified IP addresses is ignored and not redirected to the
 --     @ProxyEgressPort@. It can be an empty list.
-proxyConfiguration_properties :: Lens.Lens' ProxyConfiguration (Prelude.Maybe [KeyValuePair])
-proxyConfiguration_properties = Lens.lens (\ProxyConfiguration' {properties} -> properties) (\s@ProxyConfiguration' {} a -> s {properties = a} :: ProxyConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+proxyConfiguration_properties :: Lens.Lens' ProxyConfiguration (Core.Maybe [KeyValuePair])
+proxyConfiguration_properties = Lens.lens (\ProxyConfiguration' {properties} -> properties) (\s@ProxyConfiguration' {} a -> s {properties = a} :: ProxyConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The proxy type. The only supported value is @APPMESH@.
-proxyConfiguration_type :: Lens.Lens' ProxyConfiguration (Prelude.Maybe ProxyConfigurationType)
+proxyConfiguration_type :: Lens.Lens' ProxyConfiguration (Core.Maybe ProxyConfigurationType)
 proxyConfiguration_type = Lens.lens (\ProxyConfiguration' {type'} -> type') (\s@ProxyConfiguration' {} a -> s {type' = a} :: ProxyConfiguration)
 
 -- | The name of the container that will serve as the App Mesh proxy.
-proxyConfiguration_containerName :: Lens.Lens' ProxyConfiguration Prelude.Text
+proxyConfiguration_containerName :: Lens.Lens' ProxyConfiguration Core.Text
 proxyConfiguration_containerName = Lens.lens (\ProxyConfiguration' {containerName} -> containerName) (\s@ProxyConfiguration' {} a -> s {containerName = a} :: ProxyConfiguration)
 
-instance Prelude.FromJSON ProxyConfiguration where
+instance Core.FromJSON ProxyConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProxyConfiguration"
       ( \x ->
           ProxyConfiguration'
-            Prelude.<$> ( x Prelude..:? "properties"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..: "containerName")
+            Core.<$> (x Core..:? "properties" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..: "containerName")
       )
 
-instance Prelude.Hashable ProxyConfiguration
+instance Core.Hashable ProxyConfiguration
 
-instance Prelude.NFData ProxyConfiguration
+instance Core.NFData ProxyConfiguration
 
-instance Prelude.ToJSON ProxyConfiguration where
+instance Core.ToJSON ProxyConfiguration where
   toJSON ProxyConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("properties" Prelude..=) Prelude.<$> properties,
-            ("type" Prelude..=) Prelude.<$> type',
-            Prelude.Just
-              ("containerName" Prelude..= containerName)
+    Core.object
+      ( Core.catMaybes
+          [ ("properties" Core..=) Core.<$> properties,
+            ("type" Core..=) Core.<$> type',
+            Core.Just ("containerName" Core..= containerName)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.FleetSpotMaintenanceStrategiesRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data FleetSpotMaintenanceStrategiesRequest = FleetSpotMaintenanceStrategiesRequest'
   { -- | The strategy to use when Amazon EC2 emits a signal that your Spot
     -- Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Prelude.Maybe FleetSpotCapacityRebalanceRequest
+    capacityRebalance :: Core.Maybe FleetSpotCapacityRebalanceRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FleetSpotMaintenanceStrategiesRequest' with all optional fields omitted.
@@ -51,26 +50,26 @@ newFleetSpotMaintenanceStrategiesRequest ::
 newFleetSpotMaintenanceStrategiesRequest =
   FleetSpotMaintenanceStrategiesRequest'
     { capacityRebalance =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot
 -- Instance is at an elevated risk of being interrupted.
-fleetSpotMaintenanceStrategiesRequest_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategiesRequest (Prelude.Maybe FleetSpotCapacityRebalanceRequest)
+fleetSpotMaintenanceStrategiesRequest_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategiesRequest (Core.Maybe FleetSpotCapacityRebalanceRequest)
 fleetSpotMaintenanceStrategiesRequest_capacityRebalance = Lens.lens (\FleetSpotMaintenanceStrategiesRequest' {capacityRebalance} -> capacityRebalance) (\s@FleetSpotMaintenanceStrategiesRequest' {} a -> s {capacityRebalance = a} :: FleetSpotMaintenanceStrategiesRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     FleetSpotMaintenanceStrategiesRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     FleetSpotMaintenanceStrategiesRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     FleetSpotMaintenanceStrategiesRequest
   where
   toQuery FleetSpotMaintenanceStrategiesRequest' {..} =
-    Prelude.mconcat
-      ["CapacityRebalance" Prelude.=: capacityRebalance]
+    Core.mconcat
+      ["CapacityRebalance" Core.=: capacityRebalance]

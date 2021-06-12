@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SSM.UpdateDocumentDefaultVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,12 +50,12 @@ import Network.AWS.SSM.Types
 data UpdateDocumentDefaultVersion = UpdateDocumentDefaultVersion'
   { -- | The name of a custom document that you want to set as the default
     -- version.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version of a custom document that you want to set as the default
     -- version.
-    documentVersion :: Prelude.Text
+    documentVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentDefaultVersion' with all optional fields omitted.
@@ -73,9 +72,9 @@ data UpdateDocumentDefaultVersion = UpdateDocumentDefaultVersion'
 -- version.
 newUpdateDocumentDefaultVersion ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'documentVersion'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDocumentDefaultVersion
 newUpdateDocumentDefaultVersion
   pName_
@@ -87,79 +86,69 @@ newUpdateDocumentDefaultVersion
 
 -- | The name of a custom document that you want to set as the default
 -- version.
-updateDocumentDefaultVersion_name :: Lens.Lens' UpdateDocumentDefaultVersion Prelude.Text
+updateDocumentDefaultVersion_name :: Lens.Lens' UpdateDocumentDefaultVersion Core.Text
 updateDocumentDefaultVersion_name = Lens.lens (\UpdateDocumentDefaultVersion' {name} -> name) (\s@UpdateDocumentDefaultVersion' {} a -> s {name = a} :: UpdateDocumentDefaultVersion)
 
 -- | The version of a custom document that you want to set as the default
 -- version.
-updateDocumentDefaultVersion_documentVersion :: Lens.Lens' UpdateDocumentDefaultVersion Prelude.Text
+updateDocumentDefaultVersion_documentVersion :: Lens.Lens' UpdateDocumentDefaultVersion Core.Text
 updateDocumentDefaultVersion_documentVersion = Lens.lens (\UpdateDocumentDefaultVersion' {documentVersion} -> documentVersion) (\s@UpdateDocumentDefaultVersion' {} a -> s {documentVersion = a} :: UpdateDocumentDefaultVersion)
 
-instance
-  Prelude.AWSRequest
-    UpdateDocumentDefaultVersion
-  where
+instance Core.AWSRequest UpdateDocumentDefaultVersion where
   type
-    Rs UpdateDocumentDefaultVersion =
+    AWSResponse UpdateDocumentDefaultVersion =
       UpdateDocumentDefaultVersionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateDocumentDefaultVersionResponse'
-            Prelude.<$> (x Prelude..?> "Description")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Description")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    UpdateDocumentDefaultVersion
+instance Core.Hashable UpdateDocumentDefaultVersion
 
-instance Prelude.NFData UpdateDocumentDefaultVersion
+instance Core.NFData UpdateDocumentDefaultVersion
 
-instance
-  Prelude.ToHeaders
-    UpdateDocumentDefaultVersion
-  where
+instance Core.ToHeaders UpdateDocumentDefaultVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.UpdateDocumentDefaultVersion" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.UpdateDocumentDefaultVersion" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDocumentDefaultVersion where
+instance Core.ToJSON UpdateDocumentDefaultVersion where
   toJSON UpdateDocumentDefaultVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("DocumentVersion" Prelude..= documentVersion)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just
+              ("DocumentVersion" Core..= documentVersion)
           ]
       )
 
-instance Prelude.ToPath UpdateDocumentDefaultVersion where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateDocumentDefaultVersion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateDocumentDefaultVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDocumentDefaultVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDocumentDefaultVersionResponse' smart constructor.
 data UpdateDocumentDefaultVersionResponse = UpdateDocumentDefaultVersionResponse'
   { -- | The description of a custom document that you want to set as the default
     -- version.
-    description :: Prelude.Maybe DocumentDefaultVersionDescription,
+    description :: Core.Maybe DocumentDefaultVersionDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentDefaultVersionResponse' with all optional fields omitted.
@@ -175,24 +164,24 @@ data UpdateDocumentDefaultVersionResponse = UpdateDocumentDefaultVersionResponse
 -- 'httpStatus', 'updateDocumentDefaultVersionResponse_httpStatus' - The response's http status code.
 newUpdateDocumentDefaultVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDocumentDefaultVersionResponse
 newUpdateDocumentDefaultVersionResponse pHttpStatus_ =
   UpdateDocumentDefaultVersionResponse'
     { description =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The description of a custom document that you want to set as the default
 -- version.
-updateDocumentDefaultVersionResponse_description :: Lens.Lens' UpdateDocumentDefaultVersionResponse (Prelude.Maybe DocumentDefaultVersionDescription)
+updateDocumentDefaultVersionResponse_description :: Lens.Lens' UpdateDocumentDefaultVersionResponse (Core.Maybe DocumentDefaultVersionDescription)
 updateDocumentDefaultVersionResponse_description = Lens.lens (\UpdateDocumentDefaultVersionResponse' {description} -> description) (\s@UpdateDocumentDefaultVersionResponse' {} a -> s {description = a} :: UpdateDocumentDefaultVersionResponse)
 
 -- | The response's http status code.
-updateDocumentDefaultVersionResponse_httpStatus :: Lens.Lens' UpdateDocumentDefaultVersionResponse Prelude.Int
+updateDocumentDefaultVersionResponse_httpStatus :: Lens.Lens' UpdateDocumentDefaultVersionResponse Core.Int
 updateDocumentDefaultVersionResponse_httpStatus = Lens.lens (\UpdateDocumentDefaultVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateDocumentDefaultVersionResponse' {} a -> s {httpStatus = a} :: UpdateDocumentDefaultVersionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateDocumentDefaultVersionResponse

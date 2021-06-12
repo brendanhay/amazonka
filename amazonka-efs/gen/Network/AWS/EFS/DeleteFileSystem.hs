@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.EFS.DeleteFileSystem
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +62,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteFileSystem' smart constructor.
 data DeleteFileSystem = DeleteFileSystem'
   { -- | The ID of the file system you want to delete.
-    fileSystemId :: Prelude.Text
+    fileSystemId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystem' with all optional fields omitted.
@@ -78,43 +77,43 @@ data DeleteFileSystem = DeleteFileSystem'
 -- 'fileSystemId', 'deleteFileSystem_fileSystemId' - The ID of the file system you want to delete.
 newDeleteFileSystem ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFileSystem
 newDeleteFileSystem pFileSystemId_ =
   DeleteFileSystem' {fileSystemId = pFileSystemId_}
 
 -- | The ID of the file system you want to delete.
-deleteFileSystem_fileSystemId :: Lens.Lens' DeleteFileSystem Prelude.Text
+deleteFileSystem_fileSystemId :: Lens.Lens' DeleteFileSystem Core.Text
 deleteFileSystem_fileSystemId = Lens.lens (\DeleteFileSystem' {fileSystemId} -> fileSystemId) (\s@DeleteFileSystem' {} a -> s {fileSystemId = a} :: DeleteFileSystem)
 
-instance Prelude.AWSRequest DeleteFileSystem where
-  type Rs DeleteFileSystem = DeleteFileSystemResponse
+instance Core.AWSRequest DeleteFileSystem where
+  type
+    AWSResponse DeleteFileSystem =
+      DeleteFileSystemResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteFileSystemResponse'
 
-instance Prelude.Hashable DeleteFileSystem
+instance Core.Hashable DeleteFileSystem
 
-instance Prelude.NFData DeleteFileSystem
+instance Core.NFData DeleteFileSystem
 
-instance Prelude.ToHeaders DeleteFileSystem where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteFileSystem where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteFileSystem where
+instance Core.ToPath DeleteFileSystem where
   toPath DeleteFileSystem' {..} =
-    Prelude.mconcat
-      [ "/2015-02-01/file-systems/",
-        Prelude.toBS fileSystemId
-      ]
+    Core.mconcat
+      ["/2015-02-01/file-systems/", Core.toBS fileSystemId]
 
-instance Prelude.ToQuery DeleteFileSystem where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteFileSystem where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFileSystemResponse' smart constructor.
 data DeleteFileSystemResponse = DeleteFileSystemResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystemResponse' with all optional fields omitted.
@@ -125,4 +124,4 @@ newDeleteFileSystemResponse ::
 newDeleteFileSystemResponse =
   DeleteFileSystemResponse'
 
-instance Prelude.NFData DeleteFileSystemResponse
+instance Core.NFData DeleteFileSystemResponse

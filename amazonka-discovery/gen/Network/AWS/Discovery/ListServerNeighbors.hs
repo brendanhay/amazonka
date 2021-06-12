@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Discovery.ListServerNeighbors
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,18 +60,18 @@ data ListServerNeighbors = ListServerNeighbors'
     -- @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10
     -- results along with a token. Use that token in this query to get the next
     -- set of 10.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Maximum number of results to return in a single page of output.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | Flag to indicate if port and protocol information is needed as part of
     -- the response.
-    portInformationNeeded :: Prelude.Maybe Prelude.Bool,
+    portInformationNeeded :: Core.Maybe Core.Bool,
     -- | List of configuration IDs to test for one-hop-away.
-    neighborConfigurationIds :: Prelude.Maybe [Prelude.Text],
+    neighborConfigurationIds :: Core.Maybe [Core.Text],
     -- | Configuration ID of the server for which neighbors are being listed.
-    configurationId :: Prelude.Text
+    configurationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListServerNeighbors' with all optional fields omitted.
@@ -99,14 +98,14 @@ data ListServerNeighbors = ListServerNeighbors'
 -- 'configurationId', 'listServerNeighbors_configurationId' - Configuration ID of the server for which neighbors are being listed.
 newListServerNeighbors ::
   -- | 'configurationId'
-  Prelude.Text ->
+  Core.Text ->
   ListServerNeighbors
 newListServerNeighbors pConfigurationId_ =
   ListServerNeighbors'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      portInformationNeeded = Prelude.Nothing,
-      neighborConfigurationIds = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      portInformationNeeded = Core.Nothing,
+      neighborConfigurationIds = Core.Nothing,
       configurationId = pConfigurationId_
     }
 
@@ -116,82 +115,78 @@ newListServerNeighbors pConfigurationId_ =
 -- @ListServerNeighborsRequest$maxResults@ to 10, you received a set of 10
 -- results along with a token. Use that token in this query to get the next
 -- set of 10.
-listServerNeighbors_nextToken :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Text)
+listServerNeighbors_nextToken :: Lens.Lens' ListServerNeighbors (Core.Maybe Core.Text)
 listServerNeighbors_nextToken = Lens.lens (\ListServerNeighbors' {nextToken} -> nextToken) (\s@ListServerNeighbors' {} a -> s {nextToken = a} :: ListServerNeighbors)
 
 -- | Maximum number of results to return in a single page of output.
-listServerNeighbors_maxResults :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Int)
+listServerNeighbors_maxResults :: Lens.Lens' ListServerNeighbors (Core.Maybe Core.Int)
 listServerNeighbors_maxResults = Lens.lens (\ListServerNeighbors' {maxResults} -> maxResults) (\s@ListServerNeighbors' {} a -> s {maxResults = a} :: ListServerNeighbors)
 
 -- | Flag to indicate if port and protocol information is needed as part of
 -- the response.
-listServerNeighbors_portInformationNeeded :: Lens.Lens' ListServerNeighbors (Prelude.Maybe Prelude.Bool)
+listServerNeighbors_portInformationNeeded :: Lens.Lens' ListServerNeighbors (Core.Maybe Core.Bool)
 listServerNeighbors_portInformationNeeded = Lens.lens (\ListServerNeighbors' {portInformationNeeded} -> portInformationNeeded) (\s@ListServerNeighbors' {} a -> s {portInformationNeeded = a} :: ListServerNeighbors)
 
 -- | List of configuration IDs to test for one-hop-away.
-listServerNeighbors_neighborConfigurationIds :: Lens.Lens' ListServerNeighbors (Prelude.Maybe [Prelude.Text])
-listServerNeighbors_neighborConfigurationIds = Lens.lens (\ListServerNeighbors' {neighborConfigurationIds} -> neighborConfigurationIds) (\s@ListServerNeighbors' {} a -> s {neighborConfigurationIds = a} :: ListServerNeighbors) Prelude.. Lens.mapping Prelude._Coerce
+listServerNeighbors_neighborConfigurationIds :: Lens.Lens' ListServerNeighbors (Core.Maybe [Core.Text])
+listServerNeighbors_neighborConfigurationIds = Lens.lens (\ListServerNeighbors' {neighborConfigurationIds} -> neighborConfigurationIds) (\s@ListServerNeighbors' {} a -> s {neighborConfigurationIds = a} :: ListServerNeighbors) Core.. Lens.mapping Lens._Coerce
 
 -- | Configuration ID of the server for which neighbors are being listed.
-listServerNeighbors_configurationId :: Lens.Lens' ListServerNeighbors Prelude.Text
+listServerNeighbors_configurationId :: Lens.Lens' ListServerNeighbors Core.Text
 listServerNeighbors_configurationId = Lens.lens (\ListServerNeighbors' {configurationId} -> configurationId) (\s@ListServerNeighbors' {} a -> s {configurationId = a} :: ListServerNeighbors)
 
-instance Prelude.AWSRequest ListServerNeighbors where
+instance Core.AWSRequest ListServerNeighbors where
   type
-    Rs ListServerNeighbors =
+    AWSResponse ListServerNeighbors =
       ListServerNeighborsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListServerNeighborsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "knownDependencyCount")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "neighbors"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "knownDependencyCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "neighbors" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListServerNeighbors
+instance Core.Hashable ListServerNeighbors
 
-instance Prelude.NFData ListServerNeighbors
+instance Core.NFData ListServerNeighbors
 
-instance Prelude.ToHeaders ListServerNeighbors where
+instance Core.ToHeaders ListServerNeighbors where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.ListServerNeighbors" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.ListServerNeighbors" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListServerNeighbors where
+instance Core.ToJSON ListServerNeighbors where
   toJSON ListServerNeighbors' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("portInformationNeeded" Prelude..=)
-              Prelude.<$> portInformationNeeded,
-            ("neighborConfigurationIds" Prelude..=)
-              Prelude.<$> neighborConfigurationIds,
-            Prelude.Just
-              ("configurationId" Prelude..= configurationId)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("portInformationNeeded" Core..=)
+              Core.<$> portInformationNeeded,
+            ("neighborConfigurationIds" Core..=)
+              Core.<$> neighborConfigurationIds,
+            Core.Just
+              ("configurationId" Core..= configurationId)
           ]
       )
 
-instance Prelude.ToPath ListServerNeighbors where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListServerNeighbors where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListServerNeighbors where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListServerNeighbors where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListServerNeighborsResponse' smart constructor.
 data ListServerNeighborsResponse = ListServerNeighborsResponse'
@@ -200,15 +195,15 @@ data ListServerNeighborsResponse = ListServerNeighborsResponse'
     -- set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of
     -- 10 results along with this token. Use this token in the next query to
     -- retrieve the next set of 10.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Count of distinct servers that are one hop away from the given server.
-    knownDependencyCount :: Prelude.Maybe Prelude.Integer,
+    knownDependencyCount :: Core.Maybe Core.Integer,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | List of distinct servers that are one hop away from the given server.
     neighbors :: [NeighborConnectionDetail]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListServerNeighborsResponse' with all optional fields omitted.
@@ -231,15 +226,15 @@ data ListServerNeighborsResponse = ListServerNeighborsResponse'
 -- 'neighbors', 'listServerNeighborsResponse_neighbors' - List of distinct servers that are one hop away from the given server.
 newListServerNeighborsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListServerNeighborsResponse
 newListServerNeighborsResponse pHttpStatus_ =
   ListServerNeighborsResponse'
     { nextToken =
-        Prelude.Nothing,
-      knownDependencyCount = Prelude.Nothing,
+        Core.Nothing,
+      knownDependencyCount = Core.Nothing,
       httpStatus = pHttpStatus_,
-      neighbors = Prelude.mempty
+      neighbors = Core.mempty
     }
 
 -- | Token to retrieve the next set of results. For example, if you specified
@@ -247,19 +242,19 @@ newListServerNeighborsResponse pHttpStatus_ =
 -- set @ListServerNeighborsRequest$maxResults@ to 10, you received a set of
 -- 10 results along with this token. Use this token in the next query to
 -- retrieve the next set of 10.
-listServerNeighborsResponse_nextToken :: Lens.Lens' ListServerNeighborsResponse (Prelude.Maybe Prelude.Text)
+listServerNeighborsResponse_nextToken :: Lens.Lens' ListServerNeighborsResponse (Core.Maybe Core.Text)
 listServerNeighborsResponse_nextToken = Lens.lens (\ListServerNeighborsResponse' {nextToken} -> nextToken) (\s@ListServerNeighborsResponse' {} a -> s {nextToken = a} :: ListServerNeighborsResponse)
 
 -- | Count of distinct servers that are one hop away from the given server.
-listServerNeighborsResponse_knownDependencyCount :: Lens.Lens' ListServerNeighborsResponse (Prelude.Maybe Prelude.Integer)
+listServerNeighborsResponse_knownDependencyCount :: Lens.Lens' ListServerNeighborsResponse (Core.Maybe Core.Integer)
 listServerNeighborsResponse_knownDependencyCount = Lens.lens (\ListServerNeighborsResponse' {knownDependencyCount} -> knownDependencyCount) (\s@ListServerNeighborsResponse' {} a -> s {knownDependencyCount = a} :: ListServerNeighborsResponse)
 
 -- | The response's http status code.
-listServerNeighborsResponse_httpStatus :: Lens.Lens' ListServerNeighborsResponse Prelude.Int
+listServerNeighborsResponse_httpStatus :: Lens.Lens' ListServerNeighborsResponse Core.Int
 listServerNeighborsResponse_httpStatus = Lens.lens (\ListServerNeighborsResponse' {httpStatus} -> httpStatus) (\s@ListServerNeighborsResponse' {} a -> s {httpStatus = a} :: ListServerNeighborsResponse)
 
 -- | List of distinct servers that are one hop away from the given server.
 listServerNeighborsResponse_neighbors :: Lens.Lens' ListServerNeighborsResponse [NeighborConnectionDetail]
-listServerNeighborsResponse_neighbors = Lens.lens (\ListServerNeighborsResponse' {neighbors} -> neighbors) (\s@ListServerNeighborsResponse' {} a -> s {neighbors = a} :: ListServerNeighborsResponse) Prelude.. Prelude._Coerce
+listServerNeighborsResponse_neighbors = Lens.lens (\ListServerNeighborsResponse' {neighbors} -> neighbors) (\s@ListServerNeighborsResponse' {} a -> s {neighbors = a} :: ListServerNeighborsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListServerNeighborsResponse
+instance Core.NFData ListServerNeighborsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,20 +45,19 @@ module Network.AWS.CodeDeploy.ListDeploymentTargets
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListDeploymentTargets' smart constructor.
 data ListDeploymentTargets = ListDeploymentTargets'
   { -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    deploymentId :: Core.Maybe Core.Text,
     -- | A token identifier returned from the previous @ListDeploymentTargets@
     -- call. It can be used to return the next set of deployment targets in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A key used to filter the returned targets. The two valid values are:
     --
     -- -   @TargetStatus@ - A @TargetStatus@ filter string can be @Failed@,
@@ -68,9 +66,9 @@ data ListDeploymentTargets = ListDeploymentTargets'
     --
     -- -   @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be
     --     @Blue@ or @Green@.
-    targetFilters :: Prelude.Maybe (Prelude.HashMap TargetFilterName [Prelude.Text])
+    targetFilters :: Core.Maybe (Core.HashMap TargetFilterName [Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDeploymentTargets' with all optional fields omitted.
@@ -98,20 +96,19 @@ newListDeploymentTargets ::
   ListDeploymentTargets
 newListDeploymentTargets =
   ListDeploymentTargets'
-    { deploymentId =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      targetFilters = Prelude.Nothing
+    { deploymentId = Core.Nothing,
+      nextToken = Core.Nothing,
+      targetFilters = Core.Nothing
     }
 
 -- | The unique ID of a deployment.
-listDeploymentTargets_deploymentId :: Lens.Lens' ListDeploymentTargets (Prelude.Maybe Prelude.Text)
+listDeploymentTargets_deploymentId :: Lens.Lens' ListDeploymentTargets (Core.Maybe Core.Text)
 listDeploymentTargets_deploymentId = Lens.lens (\ListDeploymentTargets' {deploymentId} -> deploymentId) (\s@ListDeploymentTargets' {} a -> s {deploymentId = a} :: ListDeploymentTargets)
 
 -- | A token identifier returned from the previous @ListDeploymentTargets@
 -- call. It can be used to return the next set of deployment targets in the
 -- list.
-listDeploymentTargets_nextToken :: Lens.Lens' ListDeploymentTargets (Prelude.Maybe Prelude.Text)
+listDeploymentTargets_nextToken :: Lens.Lens' ListDeploymentTargets (Core.Maybe Core.Text)
 listDeploymentTargets_nextToken = Lens.lens (\ListDeploymentTargets' {nextToken} -> nextToken) (\s@ListDeploymentTargets' {} a -> s {nextToken = a} :: ListDeploymentTargets)
 
 -- | A key used to filter the returned targets. The two valid values are:
@@ -122,96 +119,90 @@ listDeploymentTargets_nextToken = Lens.lens (\ListDeploymentTargets' {nextToken}
 --
 -- -   @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be
 --     @Blue@ or @Green@.
-listDeploymentTargets_targetFilters :: Lens.Lens' ListDeploymentTargets (Prelude.Maybe (Prelude.HashMap TargetFilterName [Prelude.Text]))
-listDeploymentTargets_targetFilters = Lens.lens (\ListDeploymentTargets' {targetFilters} -> targetFilters) (\s@ListDeploymentTargets' {} a -> s {targetFilters = a} :: ListDeploymentTargets) Prelude.. Lens.mapping Prelude._Coerce
+listDeploymentTargets_targetFilters :: Lens.Lens' ListDeploymentTargets (Core.Maybe (Core.HashMap TargetFilterName [Core.Text]))
+listDeploymentTargets_targetFilters = Lens.lens (\ListDeploymentTargets' {targetFilters} -> targetFilters) (\s@ListDeploymentTargets' {} a -> s {targetFilters = a} :: ListDeploymentTargets) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager ListDeploymentTargets where
+instance Core.AWSPager ListDeploymentTargets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listDeploymentTargetsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listDeploymentTargetsResponse_targetIds
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listDeploymentTargets_nextToken
           Lens..~ rs
           Lens.^? listDeploymentTargetsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListDeploymentTargets where
+instance Core.AWSRequest ListDeploymentTargets where
   type
-    Rs ListDeploymentTargets =
+    AWSResponse ListDeploymentTargets =
       ListDeploymentTargetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListDeploymentTargetsResponse'
-            Prelude.<$> ( x Prelude..?> "targetIds"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "targetIds" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListDeploymentTargets
+instance Core.Hashable ListDeploymentTargets
 
-instance Prelude.NFData ListDeploymentTargets
+instance Core.NFData ListDeploymentTargets
 
-instance Prelude.ToHeaders ListDeploymentTargets where
+instance Core.ToHeaders ListDeploymentTargets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.ListDeploymentTargets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.ListDeploymentTargets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListDeploymentTargets where
+instance Core.ToJSON ListDeploymentTargets where
   toJSON ListDeploymentTargets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deploymentId" Prelude..=)
-              Prelude.<$> deploymentId,
-            ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("targetFilters" Prelude..=)
-              Prelude.<$> targetFilters
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentId" Core..=) Core.<$> deploymentId,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("targetFilters" Core..=) Core.<$> targetFilters
           ]
       )
 
-instance Prelude.ToPath ListDeploymentTargets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListDeploymentTargets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListDeploymentTargets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListDeploymentTargets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListDeploymentTargetsResponse' smart constructor.
 data ListDeploymentTargetsResponse = ListDeploymentTargetsResponse'
   { -- | The unique IDs of deployment targets.
-    targetIds :: Prelude.Maybe [Prelude.Text],
+    targetIds :: Core.Maybe [Core.Text],
     -- | If a large amount of information is returned, a token identifier is also
     -- returned. It can be used in a subsequent @ListDeploymentTargets@ call to
     -- return the next set of deployment targets in the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListDeploymentTargetsResponse' with all optional fields omitted.
@@ -230,28 +221,28 @@ data ListDeploymentTargetsResponse = ListDeploymentTargetsResponse'
 -- 'httpStatus', 'listDeploymentTargetsResponse_httpStatus' - The response's http status code.
 newListDeploymentTargetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListDeploymentTargetsResponse
 newListDeploymentTargetsResponse pHttpStatus_ =
   ListDeploymentTargetsResponse'
     { targetIds =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique IDs of deployment targets.
-listDeploymentTargetsResponse_targetIds :: Lens.Lens' ListDeploymentTargetsResponse (Prelude.Maybe [Prelude.Text])
-listDeploymentTargetsResponse_targetIds = Lens.lens (\ListDeploymentTargetsResponse' {targetIds} -> targetIds) (\s@ListDeploymentTargetsResponse' {} a -> s {targetIds = a} :: ListDeploymentTargetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listDeploymentTargetsResponse_targetIds :: Lens.Lens' ListDeploymentTargetsResponse (Core.Maybe [Core.Text])
+listDeploymentTargetsResponse_targetIds = Lens.lens (\ListDeploymentTargetsResponse' {targetIds} -> targetIds) (\s@ListDeploymentTargetsResponse' {} a -> s {targetIds = a} :: ListDeploymentTargetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If a large amount of information is returned, a token identifier is also
 -- returned. It can be used in a subsequent @ListDeploymentTargets@ call to
 -- return the next set of deployment targets in the list.
-listDeploymentTargetsResponse_nextToken :: Lens.Lens' ListDeploymentTargetsResponse (Prelude.Maybe Prelude.Text)
+listDeploymentTargetsResponse_nextToken :: Lens.Lens' ListDeploymentTargetsResponse (Core.Maybe Core.Text)
 listDeploymentTargetsResponse_nextToken = Lens.lens (\ListDeploymentTargetsResponse' {nextToken} -> nextToken) (\s@ListDeploymentTargetsResponse' {} a -> s {nextToken = a} :: ListDeploymentTargetsResponse)
 
 -- | The response's http status code.
-listDeploymentTargetsResponse_httpStatus :: Lens.Lens' ListDeploymentTargetsResponse Prelude.Int
+listDeploymentTargetsResponse_httpStatus :: Lens.Lens' ListDeploymentTargetsResponse Core.Int
 listDeploymentTargetsResponse_httpStatus = Lens.lens (\ListDeploymentTargetsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentTargetsResponse' {} a -> s {httpStatus = a} :: ListDeploymentTargetsResponse)
 
-instance Prelude.NFData ListDeploymentTargetsResponse
+instance Core.NFData ListDeploymentTargetsResponse

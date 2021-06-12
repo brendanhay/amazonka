@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.Comprehend.StopTrainingDocumentClassifier
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 data StopTrainingDocumentClassifier = StopTrainingDocumentClassifier'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier
     -- currently being trained.
-    documentClassifierArn :: Prelude.Text
+    documentClassifierArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTrainingDocumentClassifier' with all optional fields omitted.
@@ -71,7 +70,7 @@ data StopTrainingDocumentClassifier = StopTrainingDocumentClassifier'
 -- currently being trained.
 newStopTrainingDocumentClassifier ::
   -- | 'documentClassifierArn'
-  Prelude.Text ->
+  Core.Text ->
   StopTrainingDocumentClassifier
 newStopTrainingDocumentClassifier
   pDocumentClassifierArn_ =
@@ -82,82 +81,67 @@ newStopTrainingDocumentClassifier
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier
 -- currently being trained.
-stopTrainingDocumentClassifier_documentClassifierArn :: Lens.Lens' StopTrainingDocumentClassifier Prelude.Text
+stopTrainingDocumentClassifier_documentClassifierArn :: Lens.Lens' StopTrainingDocumentClassifier Core.Text
 stopTrainingDocumentClassifier_documentClassifierArn = Lens.lens (\StopTrainingDocumentClassifier' {documentClassifierArn} -> documentClassifierArn) (\s@StopTrainingDocumentClassifier' {} a -> s {documentClassifierArn = a} :: StopTrainingDocumentClassifier)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StopTrainingDocumentClassifier
   where
   type
-    Rs StopTrainingDocumentClassifier =
+    AWSResponse StopTrainingDocumentClassifier =
       StopTrainingDocumentClassifierResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopTrainingDocumentClassifierResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StopTrainingDocumentClassifier
+instance Core.Hashable StopTrainingDocumentClassifier
+
+instance Core.NFData StopTrainingDocumentClassifier
 
 instance
-  Prelude.NFData
-    StopTrainingDocumentClassifier
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     StopTrainingDocumentClassifier
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StopTrainingDocumentClassifier" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    StopTrainingDocumentClassifier
-  where
+instance Core.ToJSON StopTrainingDocumentClassifier where
   toJSON StopTrainingDocumentClassifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "DocumentClassifierArn"
-                  Prelude..= documentClassifierArn
+                  Core..= documentClassifierArn
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    StopTrainingDocumentClassifier
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopTrainingDocumentClassifier where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    StopTrainingDocumentClassifier
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopTrainingDocumentClassifier where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopTrainingDocumentClassifierResponse' smart constructor.
 data StopTrainingDocumentClassifierResponse = StopTrainingDocumentClassifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTrainingDocumentClassifierResponse' with all optional fields omitted.
@@ -170,7 +154,7 @@ data StopTrainingDocumentClassifierResponse = StopTrainingDocumentClassifierResp
 -- 'httpStatus', 'stopTrainingDocumentClassifierResponse_httpStatus' - The response's http status code.
 newStopTrainingDocumentClassifierResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopTrainingDocumentClassifierResponse
 newStopTrainingDocumentClassifierResponse
   pHttpStatus_ =
@@ -180,9 +164,9 @@ newStopTrainingDocumentClassifierResponse
       }
 
 -- | The response's http status code.
-stopTrainingDocumentClassifierResponse_httpStatus :: Lens.Lens' StopTrainingDocumentClassifierResponse Prelude.Int
+stopTrainingDocumentClassifierResponse_httpStatus :: Lens.Lens' StopTrainingDocumentClassifierResponse Core.Int
 stopTrainingDocumentClassifierResponse_httpStatus = Lens.lens (\StopTrainingDocumentClassifierResponse' {httpStatus} -> httpStatus) (\s@StopTrainingDocumentClassifierResponse' {} a -> s {httpStatus = a} :: StopTrainingDocumentClassifierResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StopTrainingDocumentClassifierResponse

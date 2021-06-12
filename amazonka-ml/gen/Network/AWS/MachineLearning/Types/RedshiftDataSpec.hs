@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.RedshiftDataSpec where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types.RedshiftDatabase
 import Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the data specification of an Amazon Redshift @DataSource@.
 --
@@ -115,7 +114,7 @@ data RedshiftDataSpec = RedshiftDataSpec'
     --
     --     Datasource for training:
     --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
-    dataRearrangement :: Prelude.Maybe Prelude.Text,
+    dataRearrangement :: Core.Maybe Core.Text,
     -- | A JSON string that represents the schema for an Amazon Redshift
     -- @DataSource@. The @DataSchema@ defines the structure of the observation
     -- data in the data file(s) referenced in the @DataSource@.
@@ -149,23 +148,23 @@ data RedshiftDataSpec = RedshiftDataSpec'
     -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
     --
     -- \"excludedVariableNames\": [ \"F6\" ] }
-    dataSchema :: Prelude.Maybe Prelude.Text,
+    dataSchema :: Core.Maybe Core.Text,
     -- | Describes the schema location for an Amazon Redshift @DataSource@.
-    dataSchemaUri :: Prelude.Maybe Prelude.Text,
+    dataSchemaUri :: Core.Maybe Core.Text,
     -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
     -- Redshift @DataSource@.
     databaseInformation :: RedshiftDatabase,
     -- | Describes the SQL Query to execute on an Amazon Redshift database for an
     -- Amazon Redshift @DataSource@.
-    selectSqlQuery :: Prelude.Text,
+    selectSqlQuery :: Core.Text,
     -- | Describes AWS Identity and Access Management (IAM) credentials that are
     -- used connect to the Amazon Redshift database.
     databaseCredentials :: RedshiftDatabaseCredentials,
     -- | Describes an Amazon S3 location to store the result set of the
     -- @SelectSqlQuery@ query.
-    s3StagingLocation :: Prelude.Text
+    s3StagingLocation :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RedshiftDataSpec' with all optional fields omitted.
@@ -313,11 +312,11 @@ newRedshiftDataSpec ::
   -- | 'databaseInformation'
   RedshiftDatabase ->
   -- | 'selectSqlQuery'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'databaseCredentials'
   RedshiftDatabaseCredentials ->
   -- | 's3StagingLocation'
-  Prelude.Text ->
+  Core.Text ->
   RedshiftDataSpec
 newRedshiftDataSpec
   pDatabaseInformation_
@@ -325,10 +324,9 @@ newRedshiftDataSpec
   pDatabaseCredentials_
   pS3StagingLocation_ =
     RedshiftDataSpec'
-      { dataRearrangement =
-          Prelude.Nothing,
-        dataSchema = Prelude.Nothing,
-        dataSchemaUri = Prelude.Nothing,
+      { dataRearrangement = Core.Nothing,
+        dataSchema = Core.Nothing,
+        dataSchemaUri = Core.Nothing,
         databaseInformation = pDatabaseInformation_,
         selectSqlQuery = pSelectSqlQuery_,
         databaseCredentials = pDatabaseCredentials_,
@@ -421,7 +419,7 @@ newRedshiftDataSpec
 --
 --     Datasource for training:
 --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
-redshiftDataSpec_dataRearrangement :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
+redshiftDataSpec_dataRearrangement :: Lens.Lens' RedshiftDataSpec (Core.Maybe Core.Text)
 redshiftDataSpec_dataRearrangement = Lens.lens (\RedshiftDataSpec' {dataRearrangement} -> dataRearrangement) (\s@RedshiftDataSpec' {} a -> s {dataRearrangement = a} :: RedshiftDataSpec)
 
 -- | A JSON string that represents the schema for an Amazon Redshift
@@ -457,11 +455,11 @@ redshiftDataSpec_dataRearrangement = Lens.lens (\RedshiftDataSpec' {dataRearrang
 -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
 --
 -- \"excludedVariableNames\": [ \"F6\" ] }
-redshiftDataSpec_dataSchema :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
+redshiftDataSpec_dataSchema :: Lens.Lens' RedshiftDataSpec (Core.Maybe Core.Text)
 redshiftDataSpec_dataSchema = Lens.lens (\RedshiftDataSpec' {dataSchema} -> dataSchema) (\s@RedshiftDataSpec' {} a -> s {dataSchema = a} :: RedshiftDataSpec)
 
 -- | Describes the schema location for an Amazon Redshift @DataSource@.
-redshiftDataSpec_dataSchemaUri :: Lens.Lens' RedshiftDataSpec (Prelude.Maybe Prelude.Text)
+redshiftDataSpec_dataSchemaUri :: Lens.Lens' RedshiftDataSpec (Core.Maybe Core.Text)
 redshiftDataSpec_dataSchemaUri = Lens.lens (\RedshiftDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RedshiftDataSpec' {} a -> s {dataSchemaUri = a} :: RedshiftDataSpec)
 
 -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
@@ -471,7 +469,7 @@ redshiftDataSpec_databaseInformation = Lens.lens (\RedshiftDataSpec' {databaseIn
 
 -- | Describes the SQL Query to execute on an Amazon Redshift database for an
 -- Amazon Redshift @DataSource@.
-redshiftDataSpec_selectSqlQuery :: Lens.Lens' RedshiftDataSpec Prelude.Text
+redshiftDataSpec_selectSqlQuery :: Lens.Lens' RedshiftDataSpec Core.Text
 redshiftDataSpec_selectSqlQuery = Lens.lens (\RedshiftDataSpec' {selectSqlQuery} -> selectSqlQuery) (\s@RedshiftDataSpec' {} a -> s {selectSqlQuery = a} :: RedshiftDataSpec)
 
 -- | Describes AWS Identity and Access Management (IAM) credentials that are
@@ -481,33 +479,27 @@ redshiftDataSpec_databaseCredentials = Lens.lens (\RedshiftDataSpec' {databaseCr
 
 -- | Describes an Amazon S3 location to store the result set of the
 -- @SelectSqlQuery@ query.
-redshiftDataSpec_s3StagingLocation :: Lens.Lens' RedshiftDataSpec Prelude.Text
+redshiftDataSpec_s3StagingLocation :: Lens.Lens' RedshiftDataSpec Core.Text
 redshiftDataSpec_s3StagingLocation = Lens.lens (\RedshiftDataSpec' {s3StagingLocation} -> s3StagingLocation) (\s@RedshiftDataSpec' {} a -> s {s3StagingLocation = a} :: RedshiftDataSpec)
 
-instance Prelude.Hashable RedshiftDataSpec
+instance Core.Hashable RedshiftDataSpec
 
-instance Prelude.NFData RedshiftDataSpec
+instance Core.NFData RedshiftDataSpec
 
-instance Prelude.ToJSON RedshiftDataSpec where
+instance Core.ToJSON RedshiftDataSpec where
   toJSON RedshiftDataSpec' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DataRearrangement" Prelude..=)
-              Prelude.<$> dataRearrangement,
-            ("DataSchema" Prelude..=) Prelude.<$> dataSchema,
-            ("DataSchemaUri" Prelude..=)
-              Prelude.<$> dataSchemaUri,
-            Prelude.Just
-              ( "DatabaseInformation"
-                  Prelude..= databaseInformation
-              ),
-            Prelude.Just
-              ("SelectSqlQuery" Prelude..= selectSqlQuery),
-            Prelude.Just
-              ( "DatabaseCredentials"
-                  Prelude..= databaseCredentials
-              ),
-            Prelude.Just
-              ("S3StagingLocation" Prelude..= s3StagingLocation)
+    Core.object
+      ( Core.catMaybes
+          [ ("DataRearrangement" Core..=)
+              Core.<$> dataRearrangement,
+            ("DataSchema" Core..=) Core.<$> dataSchema,
+            ("DataSchemaUri" Core..=) Core.<$> dataSchemaUri,
+            Core.Just
+              ("DatabaseInformation" Core..= databaseInformation),
+            Core.Just ("SelectSqlQuery" Core..= selectSqlQuery),
+            Core.Just
+              ("DatabaseCredentials" Core..= databaseCredentials),
+            Core.Just
+              ("S3StagingLocation" Core..= s3StagingLocation)
           ]
       )

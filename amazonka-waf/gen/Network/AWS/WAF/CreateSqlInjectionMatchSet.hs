@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,8 +72,8 @@ module Network.AWS.WAF.CreateSqlInjectionMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -86,11 +85,11 @@ data CreateSqlInjectionMatchSet = CreateSqlInjectionMatchSet'
   { -- | A friendly name or description for the SqlInjectionMatchSet that you\'re
     -- creating. You can\'t change @Name@ after you create the
     -- @SqlInjectionMatchSet@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text
+    changeToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSqlInjectionMatchSet' with all optional fields omitted.
@@ -107,9 +106,9 @@ data CreateSqlInjectionMatchSet = CreateSqlInjectionMatchSet'
 -- 'changeToken', 'createSqlInjectionMatchSet_changeToken' - The value returned by the most recent call to GetChangeToken.
 newCreateSqlInjectionMatchSet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateSqlInjectionMatchSet
 newCreateSqlInjectionMatchSet pName_ pChangeToken_ =
   CreateSqlInjectionMatchSet'
@@ -120,79 +119,74 @@ newCreateSqlInjectionMatchSet pName_ pChangeToken_ =
 -- | A friendly name or description for the SqlInjectionMatchSet that you\'re
 -- creating. You can\'t change @Name@ after you create the
 -- @SqlInjectionMatchSet@.
-createSqlInjectionMatchSet_name :: Lens.Lens' CreateSqlInjectionMatchSet Prelude.Text
+createSqlInjectionMatchSet_name :: Lens.Lens' CreateSqlInjectionMatchSet Core.Text
 createSqlInjectionMatchSet_name = Lens.lens (\CreateSqlInjectionMatchSet' {name} -> name) (\s@CreateSqlInjectionMatchSet' {} a -> s {name = a} :: CreateSqlInjectionMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-createSqlInjectionMatchSet_changeToken :: Lens.Lens' CreateSqlInjectionMatchSet Prelude.Text
+createSqlInjectionMatchSet_changeToken :: Lens.Lens' CreateSqlInjectionMatchSet Core.Text
 createSqlInjectionMatchSet_changeToken = Lens.lens (\CreateSqlInjectionMatchSet' {changeToken} -> changeToken) (\s@CreateSqlInjectionMatchSet' {} a -> s {changeToken = a} :: CreateSqlInjectionMatchSet)
 
-instance
-  Prelude.AWSRequest
-    CreateSqlInjectionMatchSet
-  where
+instance Core.AWSRequest CreateSqlInjectionMatchSet where
   type
-    Rs CreateSqlInjectionMatchSet =
+    AWSResponse CreateSqlInjectionMatchSet =
       CreateSqlInjectionMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateSqlInjectionMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "SqlInjectionMatchSet")
-            Prelude.<*> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SqlInjectionMatchSet")
+            Core.<*> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSqlInjectionMatchSet
+instance Core.Hashable CreateSqlInjectionMatchSet
 
-instance Prelude.NFData CreateSqlInjectionMatchSet
+instance Core.NFData CreateSqlInjectionMatchSet
 
-instance Prelude.ToHeaders CreateSqlInjectionMatchSet where
+instance Core.ToHeaders CreateSqlInjectionMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.CreateSqlInjectionMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.CreateSqlInjectionMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateSqlInjectionMatchSet where
+instance Core.ToJSON CreateSqlInjectionMatchSet where
   toJSON CreateSqlInjectionMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ChangeToken" Core..= changeToken)
           ]
       )
 
-instance Prelude.ToPath CreateSqlInjectionMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateSqlInjectionMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateSqlInjectionMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateSqlInjectionMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | The response to a @CreateSqlInjectionMatchSet@ request.
 --
 -- /See:/ 'newCreateSqlInjectionMatchSetResponse' smart constructor.
 data CreateSqlInjectionMatchSetResponse = CreateSqlInjectionMatchSetResponse'
   { -- | A SqlInjectionMatchSet.
-    sqlInjectionMatchSet :: Prelude.Maybe SqlInjectionMatchSet,
+    sqlInjectionMatchSet :: Core.Maybe SqlInjectionMatchSet,
     -- | The @ChangeToken@ that you used to submit the
     -- @CreateSqlInjectionMatchSet@ request. You can also use this value to
     -- query the status of the request. For more information, see
     -- GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSqlInjectionMatchSetResponse' with all optional fields omitted.
@@ -212,31 +206,31 @@ data CreateSqlInjectionMatchSetResponse = CreateSqlInjectionMatchSetResponse'
 -- 'httpStatus', 'createSqlInjectionMatchSetResponse_httpStatus' - The response's http status code.
 newCreateSqlInjectionMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateSqlInjectionMatchSetResponse
 newCreateSqlInjectionMatchSetResponse pHttpStatus_ =
   CreateSqlInjectionMatchSetResponse'
     { sqlInjectionMatchSet =
-        Prelude.Nothing,
-      changeToken = Prelude.Nothing,
+        Core.Nothing,
+      changeToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A SqlInjectionMatchSet.
-createSqlInjectionMatchSetResponse_sqlInjectionMatchSet :: Lens.Lens' CreateSqlInjectionMatchSetResponse (Prelude.Maybe SqlInjectionMatchSet)
+createSqlInjectionMatchSetResponse_sqlInjectionMatchSet :: Lens.Lens' CreateSqlInjectionMatchSetResponse (Core.Maybe SqlInjectionMatchSet)
 createSqlInjectionMatchSetResponse_sqlInjectionMatchSet = Lens.lens (\CreateSqlInjectionMatchSetResponse' {sqlInjectionMatchSet} -> sqlInjectionMatchSet) (\s@CreateSqlInjectionMatchSetResponse' {} a -> s {sqlInjectionMatchSet = a} :: CreateSqlInjectionMatchSetResponse)
 
 -- | The @ChangeToken@ that you used to submit the
 -- @CreateSqlInjectionMatchSet@ request. You can also use this value to
 -- query the status of the request. For more information, see
 -- GetChangeTokenStatus.
-createSqlInjectionMatchSetResponse_changeToken :: Lens.Lens' CreateSqlInjectionMatchSetResponse (Prelude.Maybe Prelude.Text)
+createSqlInjectionMatchSetResponse_changeToken :: Lens.Lens' CreateSqlInjectionMatchSetResponse (Core.Maybe Core.Text)
 createSqlInjectionMatchSetResponse_changeToken = Lens.lens (\CreateSqlInjectionMatchSetResponse' {changeToken} -> changeToken) (\s@CreateSqlInjectionMatchSetResponse' {} a -> s {changeToken = a} :: CreateSqlInjectionMatchSetResponse)
 
 -- | The response's http status code.
-createSqlInjectionMatchSetResponse_httpStatus :: Lens.Lens' CreateSqlInjectionMatchSetResponse Prelude.Int
+createSqlInjectionMatchSetResponse_httpStatus :: Lens.Lens' CreateSqlInjectionMatchSetResponse Core.Int
 createSqlInjectionMatchSetResponse_httpStatus = Lens.lens (\CreateSqlInjectionMatchSetResponse' {httpStatus} -> httpStatus) (\s@CreateSqlInjectionMatchSetResponse' {} a -> s {httpStatus = a} :: CreateSqlInjectionMatchSetResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateSqlInjectionMatchSetResponse

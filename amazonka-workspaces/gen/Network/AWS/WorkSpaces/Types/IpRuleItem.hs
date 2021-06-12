@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.IpRuleItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a rule for an IP access control group.
 --
 -- /See:/ 'newIpRuleItem' smart constructor.
 data IpRuleItem = IpRuleItem'
   { -- | The description.
-    ruleDesc :: Prelude.Maybe Prelude.Text,
+    ruleDesc :: Core.Maybe Core.Text,
     -- | The IP address range, in CIDR notation.
-    ipRule :: Prelude.Maybe Prelude.Text
+    ipRule :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IpRuleItem' with all optional fields omitted.
@@ -49,37 +48,37 @@ newIpRuleItem ::
   IpRuleItem
 newIpRuleItem =
   IpRuleItem'
-    { ruleDesc = Prelude.Nothing,
-      ipRule = Prelude.Nothing
+    { ruleDesc = Core.Nothing,
+      ipRule = Core.Nothing
     }
 
 -- | The description.
-ipRuleItem_ruleDesc :: Lens.Lens' IpRuleItem (Prelude.Maybe Prelude.Text)
+ipRuleItem_ruleDesc :: Lens.Lens' IpRuleItem (Core.Maybe Core.Text)
 ipRuleItem_ruleDesc = Lens.lens (\IpRuleItem' {ruleDesc} -> ruleDesc) (\s@IpRuleItem' {} a -> s {ruleDesc = a} :: IpRuleItem)
 
 -- | The IP address range, in CIDR notation.
-ipRuleItem_ipRule :: Lens.Lens' IpRuleItem (Prelude.Maybe Prelude.Text)
+ipRuleItem_ipRule :: Lens.Lens' IpRuleItem (Core.Maybe Core.Text)
 ipRuleItem_ipRule = Lens.lens (\IpRuleItem' {ipRule} -> ipRule) (\s@IpRuleItem' {} a -> s {ipRule = a} :: IpRuleItem)
 
-instance Prelude.FromJSON IpRuleItem where
+instance Core.FromJSON IpRuleItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IpRuleItem"
       ( \x ->
           IpRuleItem'
-            Prelude.<$> (x Prelude..:? "ruleDesc")
-            Prelude.<*> (x Prelude..:? "ipRule")
+            Core.<$> (x Core..:? "ruleDesc")
+            Core.<*> (x Core..:? "ipRule")
       )
 
-instance Prelude.Hashable IpRuleItem
+instance Core.Hashable IpRuleItem
 
-instance Prelude.NFData IpRuleItem
+instance Core.NFData IpRuleItem
 
-instance Prelude.ToJSON IpRuleItem where
+instance Core.ToJSON IpRuleItem where
   toJSON IpRuleItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ruleDesc" Prelude..=) Prelude.<$> ruleDesc,
-            ("ipRule" Prelude..=) Prelude.<$> ipRule
+    Core.object
+      ( Core.catMaybes
+          [ ("ruleDesc" Core..=) Core.<$> ruleDesc,
+            ("ipRule" Core..=) Core.<$> ipRule
           ]
       )

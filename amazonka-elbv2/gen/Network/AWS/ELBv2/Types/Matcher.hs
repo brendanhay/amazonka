@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.Matcher where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The codes to use when checking for a successful response from a target.
 -- If the protocol version is gRPC, these are gRPC codes. Otherwise, these
@@ -32,16 +31,16 @@ data Matcher = Matcher'
   { -- | You can specify values between 0 and 99. You can specify multiple values
     -- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
     -- default value is 12.
-    grpcCode :: Prelude.Maybe Prelude.Text,
+    grpcCode :: Core.Maybe Core.Text,
     -- | For Application Load Balancers, you can specify values between 200 and
     -- 499, and the default value is 200. You can specify multiple values (for
     -- example, \"200,202\") or a range of values (for example, \"200-299\").
     --
     -- For Network Load Balancers and Gateway Load Balancers, this must be
     -- \"200–399\".
-    httpCode :: Prelude.Maybe Prelude.Text
+    httpCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Matcher' with all optional fields omitted.
@@ -65,14 +64,14 @@ newMatcher ::
   Matcher
 newMatcher =
   Matcher'
-    { grpcCode = Prelude.Nothing,
-      httpCode = Prelude.Nothing
+    { grpcCode = Core.Nothing,
+      httpCode = Core.Nothing
     }
 
 -- | You can specify values between 0 and 99. You can specify multiple values
 -- (for example, \"0,1\") or a range of values (for example, \"0-5\"). The
 -- default value is 12.
-matcher_grpcCode :: Lens.Lens' Matcher (Prelude.Maybe Prelude.Text)
+matcher_grpcCode :: Lens.Lens' Matcher (Core.Maybe Core.Text)
 matcher_grpcCode = Lens.lens (\Matcher' {grpcCode} -> grpcCode) (\s@Matcher' {} a -> s {grpcCode = a} :: Matcher)
 
 -- | For Application Load Balancers, you can specify values between 200 and
@@ -81,22 +80,22 @@ matcher_grpcCode = Lens.lens (\Matcher' {grpcCode} -> grpcCode) (\s@Matcher' {} 
 --
 -- For Network Load Balancers and Gateway Load Balancers, this must be
 -- \"200–399\".
-matcher_httpCode :: Lens.Lens' Matcher (Prelude.Maybe Prelude.Text)
+matcher_httpCode :: Lens.Lens' Matcher (Core.Maybe Core.Text)
 matcher_httpCode = Lens.lens (\Matcher' {httpCode} -> httpCode) (\s@Matcher' {} a -> s {httpCode = a} :: Matcher)
 
-instance Prelude.FromXML Matcher where
+instance Core.FromXML Matcher where
   parseXML x =
     Matcher'
-      Prelude.<$> (x Prelude..@? "GrpcCode")
-      Prelude.<*> (x Prelude..@? "HttpCode")
+      Core.<$> (x Core..@? "GrpcCode")
+      Core.<*> (x Core..@? "HttpCode")
 
-instance Prelude.Hashable Matcher
+instance Core.Hashable Matcher
 
-instance Prelude.NFData Matcher
+instance Core.NFData Matcher
 
-instance Prelude.ToQuery Matcher where
+instance Core.ToQuery Matcher where
   toQuery Matcher' {..} =
-    Prelude.mconcat
-      [ "GrpcCode" Prelude.=: grpcCode,
-        "HttpCode" Prelude.=: httpCode
+    Core.mconcat
+      [ "GrpcCode" Core.=: grpcCode,
+        "HttpCode" Core.=: httpCode
       ]

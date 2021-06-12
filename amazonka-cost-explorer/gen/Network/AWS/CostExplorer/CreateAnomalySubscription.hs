@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.CostExplorer.CreateAnomalySubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ data CreateAnomalySubscription = CreateAnomalySubscription'
   { -- | The cost anomaly subscription object that you want to create.
     anomalySubscription :: AnomalySubscription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAnomalySubscription' with all optional fields omitted.
@@ -79,63 +78,59 @@ newCreateAnomalySubscription pAnomalySubscription_ =
 createAnomalySubscription_anomalySubscription :: Lens.Lens' CreateAnomalySubscription AnomalySubscription
 createAnomalySubscription_anomalySubscription = Lens.lens (\CreateAnomalySubscription' {anomalySubscription} -> anomalySubscription) (\s@CreateAnomalySubscription' {} a -> s {anomalySubscription = a} :: CreateAnomalySubscription)
 
-instance Prelude.AWSRequest CreateAnomalySubscription where
+instance Core.AWSRequest CreateAnomalySubscription where
   type
-    Rs CreateAnomalySubscription =
+    AWSResponse CreateAnomalySubscription =
       CreateAnomalySubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateAnomalySubscriptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "SubscriptionArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "SubscriptionArn")
       )
 
-instance Prelude.Hashable CreateAnomalySubscription
+instance Core.Hashable CreateAnomalySubscription
 
-instance Prelude.NFData CreateAnomalySubscription
+instance Core.NFData CreateAnomalySubscription
 
-instance Prelude.ToHeaders CreateAnomalySubscription where
+instance Core.ToHeaders CreateAnomalySubscription where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.CreateAnomalySubscription" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.CreateAnomalySubscription" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAnomalySubscription where
+instance Core.ToJSON CreateAnomalySubscription where
   toJSON CreateAnomalySubscription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "AnomalySubscription"
-                  Prelude..= anomalySubscription
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("AnomalySubscription" Core..= anomalySubscription)
           ]
       )
 
-instance Prelude.ToPath CreateAnomalySubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateAnomalySubscription where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateAnomalySubscription where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAnomalySubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAnomalySubscriptionResponse' smart constructor.
 data CreateAnomalySubscriptionResponse = CreateAnomalySubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The unique identifier of your newly created cost anomaly subscription.
-    subscriptionArn :: Prelude.Text
+    subscriptionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAnomalySubscriptionResponse' with all optional fields omitted.
@@ -150,9 +145,9 @@ data CreateAnomalySubscriptionResponse = CreateAnomalySubscriptionResponse'
 -- 'subscriptionArn', 'createAnomalySubscriptionResponse_subscriptionArn' - The unique identifier of your newly created cost anomaly subscription.
 newCreateAnomalySubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'subscriptionArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateAnomalySubscriptionResponse
 newCreateAnomalySubscriptionResponse
   pHttpStatus_
@@ -164,13 +159,13 @@ newCreateAnomalySubscriptionResponse
       }
 
 -- | The response's http status code.
-createAnomalySubscriptionResponse_httpStatus :: Lens.Lens' CreateAnomalySubscriptionResponse Prelude.Int
+createAnomalySubscriptionResponse_httpStatus :: Lens.Lens' CreateAnomalySubscriptionResponse Core.Int
 createAnomalySubscriptionResponse_httpStatus = Lens.lens (\CreateAnomalySubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateAnomalySubscriptionResponse' {} a -> s {httpStatus = a} :: CreateAnomalySubscriptionResponse)
 
 -- | The unique identifier of your newly created cost anomaly subscription.
-createAnomalySubscriptionResponse_subscriptionArn :: Lens.Lens' CreateAnomalySubscriptionResponse Prelude.Text
+createAnomalySubscriptionResponse_subscriptionArn :: Lens.Lens' CreateAnomalySubscriptionResponse Core.Text
 createAnomalySubscriptionResponse_subscriptionArn = Lens.lens (\CreateAnomalySubscriptionResponse' {subscriptionArn} -> subscriptionArn) (\s@CreateAnomalySubscriptionResponse' {} a -> s {subscriptionArn = a} :: CreateAnomalySubscriptionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateAnomalySubscriptionResponse

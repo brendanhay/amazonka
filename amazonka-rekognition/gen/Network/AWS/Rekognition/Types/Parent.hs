@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Parent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A parent label for a label. A label can have 0, 1, or more parents.
 --
 -- /See:/ 'newParent' smart constructor.
 data Parent = Parent'
   { -- | The name of the parent label.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Parent' with all optional fields omitted.
@@ -43,18 +42,18 @@ data Parent = Parent'
 -- 'name', 'parent_name' - The name of the parent label.
 newParent ::
   Parent
-newParent = Parent' {name = Prelude.Nothing}
+newParent = Parent' {name = Core.Nothing}
 
 -- | The name of the parent label.
-parent_name :: Lens.Lens' Parent (Prelude.Maybe Prelude.Text)
+parent_name :: Lens.Lens' Parent (Core.Maybe Core.Text)
 parent_name = Lens.lens (\Parent' {name} -> name) (\s@Parent' {} a -> s {name = a} :: Parent)
 
-instance Prelude.FromJSON Parent where
+instance Core.FromJSON Parent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Parent"
-      (\x -> Parent' Prelude.<$> (x Prelude..:? "Name"))
+      (\x -> Parent' Core.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable Parent
+instance Core.Hashable Parent
 
-instance Prelude.NFData Parent
+instance Core.NFData Parent

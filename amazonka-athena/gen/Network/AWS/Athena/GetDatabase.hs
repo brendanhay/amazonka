@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,19 +41,19 @@ module Network.AWS.Athena.GetDatabase
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDatabase' smart constructor.
 data GetDatabase = GetDatabase'
   { -- | The name of the data catalog that contains the database to return.
-    catalogName :: Prelude.Text,
+    catalogName :: Core.Text,
     -- | The name of the database to return.
-    databaseName :: Prelude.Text
+    databaseName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDatabase' with all optional fields omitted.
@@ -69,9 +68,9 @@ data GetDatabase = GetDatabase'
 -- 'databaseName', 'getDatabase_databaseName' - The name of the database to return.
 newGetDatabase ::
   -- | 'catalogName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   GetDatabase
 newGetDatabase pCatalogName_ pDatabaseName_ =
   GetDatabase'
@@ -80,65 +79,62 @@ newGetDatabase pCatalogName_ pDatabaseName_ =
     }
 
 -- | The name of the data catalog that contains the database to return.
-getDatabase_catalogName :: Lens.Lens' GetDatabase Prelude.Text
+getDatabase_catalogName :: Lens.Lens' GetDatabase Core.Text
 getDatabase_catalogName = Lens.lens (\GetDatabase' {catalogName} -> catalogName) (\s@GetDatabase' {} a -> s {catalogName = a} :: GetDatabase)
 
 -- | The name of the database to return.
-getDatabase_databaseName :: Lens.Lens' GetDatabase Prelude.Text
+getDatabase_databaseName :: Lens.Lens' GetDatabase Core.Text
 getDatabase_databaseName = Lens.lens (\GetDatabase' {databaseName} -> databaseName) (\s@GetDatabase' {} a -> s {databaseName = a} :: GetDatabase)
 
-instance Prelude.AWSRequest GetDatabase where
-  type Rs GetDatabase = GetDatabaseResponse
+instance Core.AWSRequest GetDatabase where
+  type AWSResponse GetDatabase = GetDatabaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDatabaseResponse'
-            Prelude.<$> (x Prelude..?> "Database")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Database")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDatabase
+instance Core.Hashable GetDatabase
 
-instance Prelude.NFData GetDatabase
+instance Core.NFData GetDatabase
 
-instance Prelude.ToHeaders GetDatabase where
+instance Core.ToHeaders GetDatabase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonAthena.GetDatabase" :: Prelude.ByteString),
+              Core.=# ("AmazonAthena.GetDatabase" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDatabase where
+instance Core.ToJSON GetDatabase where
   toJSON GetDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("CatalogName" Prelude..= catalogName),
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CatalogName" Core..= catalogName),
+            Core.Just ("DatabaseName" Core..= databaseName)
           ]
       )
 
-instance Prelude.ToPath GetDatabase where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDatabase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDatabase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDatabase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDatabaseResponse' smart constructor.
 data GetDatabaseResponse = GetDatabaseResponse'
   { -- | The database returned.
-    database :: Prelude.Maybe Database,
+    database :: Core.Maybe Database,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDatabaseResponse' with all optional fields omitted.
@@ -153,20 +149,20 @@ data GetDatabaseResponse = GetDatabaseResponse'
 -- 'httpStatus', 'getDatabaseResponse_httpStatus' - The response's http status code.
 newGetDatabaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDatabaseResponse
 newGetDatabaseResponse pHttpStatus_ =
   GetDatabaseResponse'
-    { database = Prelude.Nothing,
+    { database = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The database returned.
-getDatabaseResponse_database :: Lens.Lens' GetDatabaseResponse (Prelude.Maybe Database)
+getDatabaseResponse_database :: Lens.Lens' GetDatabaseResponse (Core.Maybe Database)
 getDatabaseResponse_database = Lens.lens (\GetDatabaseResponse' {database} -> database) (\s@GetDatabaseResponse' {} a -> s {database = a} :: GetDatabaseResponse)
 
 -- | The response's http status code.
-getDatabaseResponse_httpStatus :: Lens.Lens' GetDatabaseResponse Prelude.Int
+getDatabaseResponse_httpStatus :: Lens.Lens' GetDatabaseResponse Core.Int
 getDatabaseResponse_httpStatus = Lens.lens (\GetDatabaseResponse' {httpStatus} -> httpStatus) (\s@GetDatabaseResponse' {} a -> s {httpStatus = a} :: GetDatabaseResponse)
 
-instance Prelude.NFData GetDatabaseResponse
+instance Core.NFData GetDatabaseResponse

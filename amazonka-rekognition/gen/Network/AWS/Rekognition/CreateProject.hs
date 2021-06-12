@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Rekognition.CreateProject
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
   { -- | The name of the project to create.
-    projectName :: Prelude.Text
+    projectName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProject' with all optional fields omitted.
@@ -69,69 +68,67 @@ data CreateProject = CreateProject'
 -- 'projectName', 'createProject_projectName' - The name of the project to create.
 newCreateProject ::
   -- | 'projectName'
-  Prelude.Text ->
+  Core.Text ->
   CreateProject
 newCreateProject pProjectName_ =
   CreateProject' {projectName = pProjectName_}
 
 -- | The name of the project to create.
-createProject_projectName :: Lens.Lens' CreateProject Prelude.Text
+createProject_projectName :: Lens.Lens' CreateProject Core.Text
 createProject_projectName = Lens.lens (\CreateProject' {projectName} -> projectName) (\s@CreateProject' {} a -> s {projectName = a} :: CreateProject)
 
-instance Prelude.AWSRequest CreateProject where
-  type Rs CreateProject = CreateProjectResponse
+instance Core.AWSRequest CreateProject where
+  type
+    AWSResponse CreateProject =
+      CreateProjectResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateProjectResponse'
-            Prelude.<$> (x Prelude..?> "ProjectArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ProjectArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProject
+instance Core.Hashable CreateProject
 
-instance Prelude.NFData CreateProject
+instance Core.NFData CreateProject
 
-instance Prelude.ToHeaders CreateProject where
+instance Core.ToHeaders CreateProject where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.CreateProject" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.CreateProject" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateProject where
+instance Core.ToJSON CreateProject where
   toJSON CreateProject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ProjectName" Prelude..= projectName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ProjectName" Core..= projectName)]
       )
 
-instance Prelude.ToPath CreateProject where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateProject where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateProject where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateProject where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
   { -- | The Amazon Resource Name (ARN) of the new project. You can use the ARN
     -- to configure IAM access to the project.
-    projectArn :: Prelude.Maybe Prelude.Text,
+    projectArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProjectResponse' with all optional fields omitted.
@@ -147,22 +144,21 @@ data CreateProjectResponse = CreateProjectResponse'
 -- 'httpStatus', 'createProjectResponse_httpStatus' - The response's http status code.
 newCreateProjectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateProjectResponse
 newCreateProjectResponse pHttpStatus_ =
   CreateProjectResponse'
-    { projectArn =
-        Prelude.Nothing,
+    { projectArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the new project. You can use the ARN
 -- to configure IAM access to the project.
-createProjectResponse_projectArn :: Lens.Lens' CreateProjectResponse (Prelude.Maybe Prelude.Text)
+createProjectResponse_projectArn :: Lens.Lens' CreateProjectResponse (Core.Maybe Core.Text)
 createProjectResponse_projectArn = Lens.lens (\CreateProjectResponse' {projectArn} -> projectArn) (\s@CreateProjectResponse' {} a -> s {projectArn = a} :: CreateProjectResponse)
 
 -- | The response's http status code.
-createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Prelude.Int
+createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Core.Int
 createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatus} -> httpStatus) (\s@CreateProjectResponse' {} a -> s {httpStatus = a} :: CreateProjectResponse)
 
-instance Prelude.NFData CreateProjectResponse
+instance Core.NFData CreateProjectResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CognitoIdentity.DeleteIdentities
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,9 +53,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteIdentities' smart constructor.
 data DeleteIdentities = DeleteIdentities'
   { -- | A list of 1-60 identities that you want to delete.
-    identityIdsToDelete :: Prelude.NonEmpty Prelude.Text
+    identityIdsToDelete :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentities' with all optional fields omitted.
@@ -69,66 +68,64 @@ data DeleteIdentities = DeleteIdentities'
 -- 'identityIdsToDelete', 'deleteIdentities_identityIdsToDelete' - A list of 1-60 identities that you want to delete.
 newDeleteIdentities ::
   -- | 'identityIdsToDelete'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   DeleteIdentities
 newDeleteIdentities pIdentityIdsToDelete_ =
   DeleteIdentities'
     { identityIdsToDelete =
-        Prelude._Coerce Lens.# pIdentityIdsToDelete_
+        Lens._Coerce Lens.# pIdentityIdsToDelete_
     }
 
 -- | A list of 1-60 identities that you want to delete.
-deleteIdentities_identityIdsToDelete :: Lens.Lens' DeleteIdentities (Prelude.NonEmpty Prelude.Text)
-deleteIdentities_identityIdsToDelete = Lens.lens (\DeleteIdentities' {identityIdsToDelete} -> identityIdsToDelete) (\s@DeleteIdentities' {} a -> s {identityIdsToDelete = a} :: DeleteIdentities) Prelude.. Prelude._Coerce
+deleteIdentities_identityIdsToDelete :: Lens.Lens' DeleteIdentities (Core.NonEmpty Core.Text)
+deleteIdentities_identityIdsToDelete = Lens.lens (\DeleteIdentities' {identityIdsToDelete} -> identityIdsToDelete) (\s@DeleteIdentities' {} a -> s {identityIdsToDelete = a} :: DeleteIdentities) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteIdentities where
-  type Rs DeleteIdentities = DeleteIdentitiesResponse
+instance Core.AWSRequest DeleteIdentities where
+  type
+    AWSResponse DeleteIdentities =
+      DeleteIdentitiesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteIdentitiesResponse'
-            Prelude.<$> ( x Prelude..?> "UnprocessedIdentityIds"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "UnprocessedIdentityIds"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteIdentities
+instance Core.Hashable DeleteIdentities
 
-instance Prelude.NFData DeleteIdentities
+instance Core.NFData DeleteIdentities
 
-instance Prelude.ToHeaders DeleteIdentities where
+instance Core.ToHeaders DeleteIdentities where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.DeleteIdentities" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.DeleteIdentities" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteIdentities where
+instance Core.ToJSON DeleteIdentities where
   toJSON DeleteIdentities' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "IdentityIdsToDelete"
-                  Prelude..= identityIdsToDelete
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("IdentityIdsToDelete" Core..= identityIdsToDelete)
           ]
       )
 
-instance Prelude.ToPath DeleteIdentities where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteIdentities where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteIdentities where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteIdentities where
+  toQuery = Core.const Core.mempty
 
 -- | Returned in response to a successful @DeleteIdentities@ operation.
 --
@@ -136,11 +133,11 @@ instance Prelude.ToQuery DeleteIdentities where
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
   { -- | An array of UnprocessedIdentityId objects, each of which contains an
     -- ErrorCode and IdentityId.
-    unprocessedIdentityIds :: Prelude.Maybe [UnprocessedIdentityId],
+    unprocessedIdentityIds :: Core.Maybe [UnprocessedIdentityId],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentitiesResponse' with all optional fields omitted.
@@ -156,22 +153,22 @@ data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
 -- 'httpStatus', 'deleteIdentitiesResponse_httpStatus' - The response's http status code.
 newDeleteIdentitiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteIdentitiesResponse
 newDeleteIdentitiesResponse pHttpStatus_ =
   DeleteIdentitiesResponse'
     { unprocessedIdentityIds =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
-deleteIdentitiesResponse_unprocessedIdentityIds :: Lens.Lens' DeleteIdentitiesResponse (Prelude.Maybe [UnprocessedIdentityId])
-deleteIdentitiesResponse_unprocessedIdentityIds = Lens.lens (\DeleteIdentitiesResponse' {unprocessedIdentityIds} -> unprocessedIdentityIds) (\s@DeleteIdentitiesResponse' {} a -> s {unprocessedIdentityIds = a} :: DeleteIdentitiesResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteIdentitiesResponse_unprocessedIdentityIds :: Lens.Lens' DeleteIdentitiesResponse (Core.Maybe [UnprocessedIdentityId])
+deleteIdentitiesResponse_unprocessedIdentityIds = Lens.lens (\DeleteIdentitiesResponse' {unprocessedIdentityIds} -> unprocessedIdentityIds) (\s@DeleteIdentitiesResponse' {} a -> s {unprocessedIdentityIds = a} :: DeleteIdentitiesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteIdentitiesResponse_httpStatus :: Lens.Lens' DeleteIdentitiesResponse Prelude.Int
+deleteIdentitiesResponse_httpStatus :: Lens.Lens' DeleteIdentitiesResponse Core.Int
 deleteIdentitiesResponse_httpStatus = Lens.lens (\DeleteIdentitiesResponse' {httpStatus} -> httpStatus) (\s@DeleteIdentitiesResponse' {} a -> s {httpStatus = a} :: DeleteIdentitiesResponse)
 
-instance Prelude.NFData DeleteIdentitiesResponse
+instance Core.NFData DeleteIdentitiesResponse

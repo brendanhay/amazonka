@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.Replica where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a replica.
 --
 -- /See:/ 'newReplica' smart constructor.
 data Replica = Replica'
   { -- | The Region where the replica needs to be created.
-    regionName :: Prelude.Maybe Prelude.Text
+    regionName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Replica' with all optional fields omitted.
@@ -43,27 +42,25 @@ data Replica = Replica'
 -- 'regionName', 'replica_regionName' - The Region where the replica needs to be created.
 newReplica ::
   Replica
-newReplica = Replica' {regionName = Prelude.Nothing}
+newReplica = Replica' {regionName = Core.Nothing}
 
 -- | The Region where the replica needs to be created.
-replica_regionName :: Lens.Lens' Replica (Prelude.Maybe Prelude.Text)
+replica_regionName :: Lens.Lens' Replica (Core.Maybe Core.Text)
 replica_regionName = Lens.lens (\Replica' {regionName} -> regionName) (\s@Replica' {} a -> s {regionName = a} :: Replica)
 
-instance Prelude.FromJSON Replica where
+instance Core.FromJSON Replica where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Replica"
-      ( \x ->
-          Replica' Prelude.<$> (x Prelude..:? "RegionName")
-      )
+      (\x -> Replica' Core.<$> (x Core..:? "RegionName"))
 
-instance Prelude.Hashable Replica
+instance Core.Hashable Replica
 
-instance Prelude.NFData Replica
+instance Core.NFData Replica
 
-instance Prelude.ToJSON Replica where
+instance Core.ToJSON Replica where
   toJSON Replica' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("RegionName" Prelude..=) Prelude.<$> regionName]
+    Core.object
+      ( Core.catMaybes
+          [("RegionName" Core..=) Core.<$> regionName]
       )

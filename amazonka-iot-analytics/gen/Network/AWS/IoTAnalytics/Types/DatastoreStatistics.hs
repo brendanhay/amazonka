@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatastoreStatistics where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Statistical information about the data store.
 --
 -- /See:/ 'newDatastoreStatistics' smart constructor.
 data DatastoreStatistics = DatastoreStatistics'
   { -- | The estimated size of the data store.
-    size :: Prelude.Maybe EstimatedResourceSize
+    size :: Core.Maybe EstimatedResourceSize
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatastoreStatistics' with all optional fields omitted.
@@ -45,21 +44,20 @@ data DatastoreStatistics = DatastoreStatistics'
 newDatastoreStatistics ::
   DatastoreStatistics
 newDatastoreStatistics =
-  DatastoreStatistics' {size = Prelude.Nothing}
+  DatastoreStatistics' {size = Core.Nothing}
 
 -- | The estimated size of the data store.
-datastoreStatistics_size :: Lens.Lens' DatastoreStatistics (Prelude.Maybe EstimatedResourceSize)
+datastoreStatistics_size :: Lens.Lens' DatastoreStatistics (Core.Maybe EstimatedResourceSize)
 datastoreStatistics_size = Lens.lens (\DatastoreStatistics' {size} -> size) (\s@DatastoreStatistics' {} a -> s {size = a} :: DatastoreStatistics)
 
-instance Prelude.FromJSON DatastoreStatistics where
+instance Core.FromJSON DatastoreStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatastoreStatistics"
       ( \x ->
-          DatastoreStatistics'
-            Prelude.<$> (x Prelude..:? "size")
+          DatastoreStatistics' Core.<$> (x Core..:? "size")
       )
 
-instance Prelude.Hashable DatastoreStatistics
+instance Core.Hashable DatastoreStatistics
 
-instance Prelude.NFData DatastoreStatistics
+instance Core.NFData DatastoreStatistics

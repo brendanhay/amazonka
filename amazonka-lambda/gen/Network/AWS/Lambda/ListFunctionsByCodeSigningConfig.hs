@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,24 +46,23 @@ module Network.AWS.Lambda.ListFunctionsByCodeSigningConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListFunctionsByCodeSigningConfig' smart constructor.
 data ListFunctionsByCodeSigningConfig = ListFunctionsByCodeSigningConfig'
   { -- | Maximum number of items to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigArn :: Prelude.Text
+    codeSigningConfigArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFunctionsByCodeSigningConfig' with all optional fields omitted.
@@ -82,120 +80,113 @@ data ListFunctionsByCodeSigningConfig = ListFunctionsByCodeSigningConfig'
 -- 'codeSigningConfigArn', 'listFunctionsByCodeSigningConfig_codeSigningConfigArn' - The The Amazon Resource Name (ARN) of the code signing configuration.
 newListFunctionsByCodeSigningConfig ::
   -- | 'codeSigningConfigArn'
-  Prelude.Text ->
+  Core.Text ->
   ListFunctionsByCodeSigningConfig
 newListFunctionsByCodeSigningConfig
   pCodeSigningConfigArn_ =
     ListFunctionsByCodeSigningConfig'
       { maxItems =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         codeSigningConfigArn =
           pCodeSigningConfigArn_
       }
 
 -- | Maximum number of items to return.
-listFunctionsByCodeSigningConfig_maxItems :: Lens.Lens' ListFunctionsByCodeSigningConfig (Prelude.Maybe Prelude.Natural)
+listFunctionsByCodeSigningConfig_maxItems :: Lens.Lens' ListFunctionsByCodeSigningConfig (Core.Maybe Core.Natural)
 listFunctionsByCodeSigningConfig_maxItems = Lens.lens (\ListFunctionsByCodeSigningConfig' {maxItems} -> maxItems) (\s@ListFunctionsByCodeSigningConfig' {} a -> s {maxItems = a} :: ListFunctionsByCodeSigningConfig)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
-listFunctionsByCodeSigningConfig_marker :: Lens.Lens' ListFunctionsByCodeSigningConfig (Prelude.Maybe Prelude.Text)
+listFunctionsByCodeSigningConfig_marker :: Lens.Lens' ListFunctionsByCodeSigningConfig (Core.Maybe Core.Text)
 listFunctionsByCodeSigningConfig_marker = Lens.lens (\ListFunctionsByCodeSigningConfig' {marker} -> marker) (\s@ListFunctionsByCodeSigningConfig' {} a -> s {marker = a} :: ListFunctionsByCodeSigningConfig)
 
 -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-listFunctionsByCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' ListFunctionsByCodeSigningConfig Prelude.Text
+listFunctionsByCodeSigningConfig_codeSigningConfigArn :: Lens.Lens' ListFunctionsByCodeSigningConfig Core.Text
 listFunctionsByCodeSigningConfig_codeSigningConfigArn = Lens.lens (\ListFunctionsByCodeSigningConfig' {codeSigningConfigArn} -> codeSigningConfigArn) (\s@ListFunctionsByCodeSigningConfig' {} a -> s {codeSigningConfigArn = a} :: ListFunctionsByCodeSigningConfig)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListFunctionsByCodeSigningConfig
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listFunctionsByCodeSigningConfigResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listFunctionsByCodeSigningConfigResponse_functionArns
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listFunctionsByCodeSigningConfig_marker
           Lens..~ rs
           Lens.^? listFunctionsByCodeSigningConfigResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListFunctionsByCodeSigningConfig
   where
   type
-    Rs ListFunctionsByCodeSigningConfig =
+    AWSResponse ListFunctionsByCodeSigningConfig =
       ListFunctionsByCodeSigningConfigResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListFunctionsByCodeSigningConfigResponse'
-            Prelude.<$> ( x Prelude..?> "FunctionArns"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FunctionArns" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListFunctionsByCodeSigningConfig
 
-instance
-  Prelude.NFData
-    ListFunctionsByCodeSigningConfig
+instance Core.NFData ListFunctionsByCodeSigningConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListFunctionsByCodeSigningConfig
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    ListFunctionsByCodeSigningConfig
-  where
+instance Core.ToPath ListFunctionsByCodeSigningConfig where
   toPath ListFunctionsByCodeSigningConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-04-22/code-signing-configs/",
-        Prelude.toBS codeSigningConfigArn,
+        Core.toBS codeSigningConfigArn,
         "/functions"
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListFunctionsByCodeSigningConfig
   where
   toQuery ListFunctionsByCodeSigningConfig' {..} =
-    Prelude.mconcat
-      [ "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListFunctionsByCodeSigningConfigResponse' smart constructor.
 data ListFunctionsByCodeSigningConfigResponse = ListFunctionsByCodeSigningConfigResponse'
   { -- | The function ARNs.
-    functionArns :: Prelude.Maybe [Prelude.Text],
+    functionArns :: Core.Maybe [Core.Text],
     -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFunctionsByCodeSigningConfigResponse' with all optional fields omitted.
@@ -212,29 +203,29 @@ data ListFunctionsByCodeSigningConfigResponse = ListFunctionsByCodeSigningConfig
 -- 'httpStatus', 'listFunctionsByCodeSigningConfigResponse_httpStatus' - The response's http status code.
 newListFunctionsByCodeSigningConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListFunctionsByCodeSigningConfigResponse
 newListFunctionsByCodeSigningConfigResponse
   pHttpStatus_ =
     ListFunctionsByCodeSigningConfigResponse'
       { functionArns =
-          Prelude.Nothing,
-        nextMarker = Prelude.Nothing,
+          Core.Nothing,
+        nextMarker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The function ARNs.
-listFunctionsByCodeSigningConfigResponse_functionArns :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Prelude.Maybe [Prelude.Text])
-listFunctionsByCodeSigningConfigResponse_functionArns = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {functionArns} -> functionArns) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {functionArns = a} :: ListFunctionsByCodeSigningConfigResponse) Prelude.. Lens.mapping Prelude._Coerce
+listFunctionsByCodeSigningConfigResponse_functionArns :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Core.Maybe [Core.Text])
+listFunctionsByCodeSigningConfigResponse_functionArns = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {functionArns} -> functionArns) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {functionArns = a} :: ListFunctionsByCodeSigningConfigResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The pagination token that\'s included if more results are available.
-listFunctionsByCodeSigningConfigResponse_nextMarker :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Prelude.Maybe Prelude.Text)
+listFunctionsByCodeSigningConfigResponse_nextMarker :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse (Core.Maybe Core.Text)
 listFunctionsByCodeSigningConfigResponse_nextMarker = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {nextMarker} -> nextMarker) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {nextMarker = a} :: ListFunctionsByCodeSigningConfigResponse)
 
 -- | The response's http status code.
-listFunctionsByCodeSigningConfigResponse_httpStatus :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse Prelude.Int
+listFunctionsByCodeSigningConfigResponse_httpStatus :: Lens.Lens' ListFunctionsByCodeSigningConfigResponse Core.Int
 listFunctionsByCodeSigningConfigResponse_httpStatus = Lens.lens (\ListFunctionsByCodeSigningConfigResponse' {httpStatus} -> httpStatus) (\s@ListFunctionsByCodeSigningConfigResponse' {} a -> s {httpStatus = a} :: ListFunctionsByCodeSigningConfigResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListFunctionsByCodeSigningConfigResponse

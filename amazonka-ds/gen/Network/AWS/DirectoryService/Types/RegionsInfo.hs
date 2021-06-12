@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.RegionsInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about the Regions that are configured for
 -- multi-Region replication.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data RegionsInfo = RegionsInfo'
   { -- | Lists the Regions where the directory has been replicated, excluding the
     -- primary Region.
-    additionalRegions :: Prelude.Maybe [Prelude.Text],
+    additionalRegions :: Core.Maybe [Core.Text],
     -- | The Region where the AWS Managed Microsoft AD directory was originally
     -- created.
-    primaryRegion :: Prelude.Maybe Prelude.Text
+    primaryRegion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegionsInfo' with all optional fields omitted.
@@ -54,32 +53,30 @@ newRegionsInfo ::
   RegionsInfo
 newRegionsInfo =
   RegionsInfo'
-    { additionalRegions = Prelude.Nothing,
-      primaryRegion = Prelude.Nothing
+    { additionalRegions = Core.Nothing,
+      primaryRegion = Core.Nothing
     }
 
 -- | Lists the Regions where the directory has been replicated, excluding the
 -- primary Region.
-regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Prelude.Maybe [Prelude.Text])
-regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Prelude.. Lens.mapping Prelude._Coerce
+regionsInfo_additionalRegions :: Lens.Lens' RegionsInfo (Core.Maybe [Core.Text])
+regionsInfo_additionalRegions = Lens.lens (\RegionsInfo' {additionalRegions} -> additionalRegions) (\s@RegionsInfo' {} a -> s {additionalRegions = a} :: RegionsInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The Region where the AWS Managed Microsoft AD directory was originally
 -- created.
-regionsInfo_primaryRegion :: Lens.Lens' RegionsInfo (Prelude.Maybe Prelude.Text)
+regionsInfo_primaryRegion :: Lens.Lens' RegionsInfo (Core.Maybe Core.Text)
 regionsInfo_primaryRegion = Lens.lens (\RegionsInfo' {primaryRegion} -> primaryRegion) (\s@RegionsInfo' {} a -> s {primaryRegion = a} :: RegionsInfo)
 
-instance Prelude.FromJSON RegionsInfo where
+instance Core.FromJSON RegionsInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RegionsInfo"
       ( \x ->
           RegionsInfo'
-            Prelude.<$> ( x Prelude..:? "AdditionalRegions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "PrimaryRegion")
+            Core.<$> (x Core..:? "AdditionalRegions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "PrimaryRegion")
       )
 
-instance Prelude.Hashable RegionsInfo
+instance Core.Hashable RegionsInfo
 
-instance Prelude.NFData RegionsInfo
+instance Core.NFData RegionsInfo

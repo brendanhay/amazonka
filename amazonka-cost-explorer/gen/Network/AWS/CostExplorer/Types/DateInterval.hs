@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.DateInterval where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The time period of the request.
 --
@@ -31,13 +30,13 @@ data DateInterval = DateInterval'
     -- example, if @start@ is @2017-01-01@, AWS retrieves cost and usage data
     -- starting at @2017-01-01@ up to the end date. The start date must be
     -- equal to or no later than the current date to avoid a validation error.
-    start :: Prelude.Text,
+    start :: Core.Text,
     -- | The end of the time period. The end date is exclusive. For example, if
     -- @end@ is @2017-05-01@, AWS retrieves cost and usage data from the start
     -- date up to, but not including, @2017-05-01@.
-    end :: Prelude.Text
+    end :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DateInterval' with all optional fields omitted.
@@ -57,9 +56,9 @@ data DateInterval = DateInterval'
 -- date up to, but not including, @2017-05-01@.
 newDateInterval ::
   -- | 'start'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'end'
-  Prelude.Text ->
+  Core.Text ->
   DateInterval
 newDateInterval pStart_ pEnd_ =
   DateInterval' {start = pStart_, end = pEnd_}
@@ -68,34 +67,33 @@ newDateInterval pStart_ pEnd_ =
 -- example, if @start@ is @2017-01-01@, AWS retrieves cost and usage data
 -- starting at @2017-01-01@ up to the end date. The start date must be
 -- equal to or no later than the current date to avoid a validation error.
-dateInterval_start :: Lens.Lens' DateInterval Prelude.Text
+dateInterval_start :: Lens.Lens' DateInterval Core.Text
 dateInterval_start = Lens.lens (\DateInterval' {start} -> start) (\s@DateInterval' {} a -> s {start = a} :: DateInterval)
 
 -- | The end of the time period. The end date is exclusive. For example, if
 -- @end@ is @2017-05-01@, AWS retrieves cost and usage data from the start
 -- date up to, but not including, @2017-05-01@.
-dateInterval_end :: Lens.Lens' DateInterval Prelude.Text
+dateInterval_end :: Lens.Lens' DateInterval Core.Text
 dateInterval_end = Lens.lens (\DateInterval' {end} -> end) (\s@DateInterval' {} a -> s {end = a} :: DateInterval)
 
-instance Prelude.FromJSON DateInterval where
+instance Core.FromJSON DateInterval where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DateInterval"
       ( \x ->
           DateInterval'
-            Prelude.<$> (x Prelude..: "Start")
-            Prelude.<*> (x Prelude..: "End")
+            Core.<$> (x Core..: "Start") Core.<*> (x Core..: "End")
       )
 
-instance Prelude.Hashable DateInterval
+instance Core.Hashable DateInterval
 
-instance Prelude.NFData DateInterval
+instance Core.NFData DateInterval
 
-instance Prelude.ToJSON DateInterval where
+instance Core.ToJSON DateInterval where
   toJSON DateInterval' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Start" Prelude..= start),
-            Prelude.Just ("End" Prelude..= end)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Start" Core..= start),
+            Core.Just ("End" Core..= end)
           ]
       )

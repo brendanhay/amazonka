@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,21 +39,21 @@ module Network.AWS.IoTAnalytics.CancelPipelineReprocessing
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelPipelineReprocessing' smart constructor.
 data CancelPipelineReprocessing = CancelPipelineReprocessing'
   { -- | The name of pipeline for which data reprocessing is canceled.
-    pipelineName :: Prelude.Text,
+    pipelineName :: Core.Text,
     -- | The ID of the reprocessing task (returned by
     -- @StartPipelineReprocessing@).
-    reprocessingId :: Prelude.Text
+    reprocessingId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelPipelineReprocessing' with all optional fields omitted.
@@ -70,9 +69,9 @@ data CancelPipelineReprocessing = CancelPipelineReprocessing'
 -- @StartPipelineReprocessing@).
 newCancelPipelineReprocessing ::
   -- | 'pipelineName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'reprocessingId'
-  Prelude.Text ->
+  Core.Text ->
   CancelPipelineReprocessing
 newCancelPipelineReprocessing
   pPipelineName_
@@ -84,54 +83,51 @@ newCancelPipelineReprocessing
       }
 
 -- | The name of pipeline for which data reprocessing is canceled.
-cancelPipelineReprocessing_pipelineName :: Lens.Lens' CancelPipelineReprocessing Prelude.Text
+cancelPipelineReprocessing_pipelineName :: Lens.Lens' CancelPipelineReprocessing Core.Text
 cancelPipelineReprocessing_pipelineName = Lens.lens (\CancelPipelineReprocessing' {pipelineName} -> pipelineName) (\s@CancelPipelineReprocessing' {} a -> s {pipelineName = a} :: CancelPipelineReprocessing)
 
 -- | The ID of the reprocessing task (returned by
 -- @StartPipelineReprocessing@).
-cancelPipelineReprocessing_reprocessingId :: Lens.Lens' CancelPipelineReprocessing Prelude.Text
+cancelPipelineReprocessing_reprocessingId :: Lens.Lens' CancelPipelineReprocessing Core.Text
 cancelPipelineReprocessing_reprocessingId = Lens.lens (\CancelPipelineReprocessing' {reprocessingId} -> reprocessingId) (\s@CancelPipelineReprocessing' {} a -> s {reprocessingId = a} :: CancelPipelineReprocessing)
 
-instance
-  Prelude.AWSRequest
-    CancelPipelineReprocessing
-  where
+instance Core.AWSRequest CancelPipelineReprocessing where
   type
-    Rs CancelPipelineReprocessing =
+    AWSResponse CancelPipelineReprocessing =
       CancelPipelineReprocessingResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelPipelineReprocessingResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelPipelineReprocessing
+instance Core.Hashable CancelPipelineReprocessing
 
-instance Prelude.NFData CancelPipelineReprocessing
+instance Core.NFData CancelPipelineReprocessing
 
-instance Prelude.ToHeaders CancelPipelineReprocessing where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelPipelineReprocessing where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelPipelineReprocessing where
+instance Core.ToPath CancelPipelineReprocessing where
   toPath CancelPipelineReprocessing' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/pipelines/",
-        Prelude.toBS pipelineName,
+        Core.toBS pipelineName,
         "/reprocessing/",
-        Prelude.toBS reprocessingId
+        Core.toBS reprocessingId
       ]
 
-instance Prelude.ToQuery CancelPipelineReprocessing where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelPipelineReprocessing where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelPipelineReprocessingResponse' smart constructor.
 data CancelPipelineReprocessingResponse = CancelPipelineReprocessingResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelPipelineReprocessingResponse' with all optional fields omitted.
@@ -144,7 +140,7 @@ data CancelPipelineReprocessingResponse = CancelPipelineReprocessingResponse'
 -- 'httpStatus', 'cancelPipelineReprocessingResponse_httpStatus' - The response's http status code.
 newCancelPipelineReprocessingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelPipelineReprocessingResponse
 newCancelPipelineReprocessingResponse pHttpStatus_ =
   CancelPipelineReprocessingResponse'
@@ -153,9 +149,9 @@ newCancelPipelineReprocessingResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-cancelPipelineReprocessingResponse_httpStatus :: Lens.Lens' CancelPipelineReprocessingResponse Prelude.Int
+cancelPipelineReprocessingResponse_httpStatus :: Lens.Lens' CancelPipelineReprocessingResponse Core.Int
 cancelPipelineReprocessingResponse_httpStatus = Lens.lens (\CancelPipelineReprocessingResponse' {httpStatus} -> httpStatus) (\s@CancelPipelineReprocessingResponse' {} a -> s {httpStatus = a} :: CancelPipelineReprocessingResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CancelPipelineReprocessingResponse

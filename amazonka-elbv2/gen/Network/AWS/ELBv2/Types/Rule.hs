@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,32 +19,32 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.Rule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.Action
 import Network.AWS.ELBv2.Types.RuleCondition
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a rule.
 --
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
   { -- | Indicates whether this is the default rule.
-    isDefault :: Prelude.Maybe Prelude.Bool,
+    isDefault :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the rule.
-    ruleArn :: Prelude.Maybe Prelude.Text,
+    ruleArn :: Core.Maybe Core.Text,
     -- | The actions. Each rule must include exactly one of the following types
     -- of actions: @forward@, @redirect@, or @fixed-response@, and it must be
     -- the last action to be performed.
-    actions :: Prelude.Maybe [Action],
+    actions :: Core.Maybe [Action],
     -- | The priority.
-    priority :: Prelude.Maybe Prelude.Text,
+    priority :: Core.Maybe Core.Text,
     -- | The conditions. Each rule can include zero or one of the following
     -- conditions: @http-request-method@, @host-header@, @path-pattern@, and
     -- @source-ip@, and zero or more of the following conditions: @http-header@
     -- and @query-string@.
-    conditions :: Prelude.Maybe [RuleCondition]
+    conditions :: Core.Maybe [RuleCondition]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Rule' with all optional fields omitted.
@@ -73,52 +72,51 @@ newRule ::
   Rule
 newRule =
   Rule'
-    { isDefault = Prelude.Nothing,
-      ruleArn = Prelude.Nothing,
-      actions = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      conditions = Prelude.Nothing
+    { isDefault = Core.Nothing,
+      ruleArn = Core.Nothing,
+      actions = Core.Nothing,
+      priority = Core.Nothing,
+      conditions = Core.Nothing
     }
 
 -- | Indicates whether this is the default rule.
-rule_isDefault :: Lens.Lens' Rule (Prelude.Maybe Prelude.Bool)
+rule_isDefault :: Lens.Lens' Rule (Core.Maybe Core.Bool)
 rule_isDefault = Lens.lens (\Rule' {isDefault} -> isDefault) (\s@Rule' {} a -> s {isDefault = a} :: Rule)
 
 -- | The Amazon Resource Name (ARN) of the rule.
-rule_ruleArn :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_ruleArn :: Lens.Lens' Rule (Core.Maybe Core.Text)
 rule_ruleArn = Lens.lens (\Rule' {ruleArn} -> ruleArn) (\s@Rule' {} a -> s {ruleArn = a} :: Rule)
 
 -- | The actions. Each rule must include exactly one of the following types
 -- of actions: @forward@, @redirect@, or @fixed-response@, and it must be
 -- the last action to be performed.
-rule_actions :: Lens.Lens' Rule (Prelude.Maybe [Action])
-rule_actions = Lens.lens (\Rule' {actions} -> actions) (\s@Rule' {} a -> s {actions = a} :: Rule) Prelude.. Lens.mapping Prelude._Coerce
+rule_actions :: Lens.Lens' Rule (Core.Maybe [Action])
+rule_actions = Lens.lens (\Rule' {actions} -> actions) (\s@Rule' {} a -> s {actions = a} :: Rule) Core.. Lens.mapping Lens._Coerce
 
 -- | The priority.
-rule_priority :: Lens.Lens' Rule (Prelude.Maybe Prelude.Text)
+rule_priority :: Lens.Lens' Rule (Core.Maybe Core.Text)
 rule_priority = Lens.lens (\Rule' {priority} -> priority) (\s@Rule' {} a -> s {priority = a} :: Rule)
 
 -- | The conditions. Each rule can include zero or one of the following
 -- conditions: @http-request-method@, @host-header@, @path-pattern@, and
 -- @source-ip@, and zero or more of the following conditions: @http-header@
 -- and @query-string@.
-rule_conditions :: Lens.Lens' Rule (Prelude.Maybe [RuleCondition])
-rule_conditions = Lens.lens (\Rule' {conditions} -> conditions) (\s@Rule' {} a -> s {conditions = a} :: Rule) Prelude.. Lens.mapping Prelude._Coerce
+rule_conditions :: Lens.Lens' Rule (Core.Maybe [RuleCondition])
+rule_conditions = Lens.lens (\Rule' {conditions} -> conditions) (\s@Rule' {} a -> s {conditions = a} :: Rule) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML Rule where
+instance Core.FromXML Rule where
   parseXML x =
     Rule'
-      Prelude.<$> (x Prelude..@? "IsDefault")
-      Prelude.<*> (x Prelude..@? "RuleArn")
-      Prelude.<*> ( x Prelude..@? "Actions" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "Priority")
-      Prelude.<*> ( x Prelude..@? "Conditions"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "IsDefault")
+      Core.<*> (x Core..@? "RuleArn")
+      Core.<*> ( x Core..@? "Actions" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "Priority")
+      Core.<*> ( x Core..@? "Conditions" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable Rule
+instance Core.Hashable Rule
 
-instance Prelude.NFData Rule
+instance Core.NFData Rule

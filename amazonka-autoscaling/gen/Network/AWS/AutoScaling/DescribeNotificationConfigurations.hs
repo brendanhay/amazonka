@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,8 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +55,14 @@ import qualified Network.AWS.Response as Response
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupNames :: Prelude.Maybe [Prelude.Text],
+    autoScalingGroupNames :: Core.Maybe [Core.Text],
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeNotificationConfigurations' with all optional fields omitted.
@@ -86,55 +84,55 @@ newDescribeNotificationConfigurations ::
 newDescribeNotificationConfigurations =
   DescribeNotificationConfigurations'
     { nextToken =
-        Prelude.Nothing,
-      autoScalingGroupNames = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      autoScalingGroupNames = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeNotificationConfigurations_nextToken :: Lens.Lens' DescribeNotificationConfigurations (Prelude.Maybe Prelude.Text)
+describeNotificationConfigurations_nextToken :: Lens.Lens' DescribeNotificationConfigurations (Core.Maybe Core.Text)
 describeNotificationConfigurations_nextToken = Lens.lens (\DescribeNotificationConfigurations' {nextToken} -> nextToken) (\s@DescribeNotificationConfigurations' {} a -> s {nextToken = a} :: DescribeNotificationConfigurations)
 
 -- | The name of the Auto Scaling group.
-describeNotificationConfigurations_autoScalingGroupNames :: Lens.Lens' DescribeNotificationConfigurations (Prelude.Maybe [Prelude.Text])
-describeNotificationConfigurations_autoScalingGroupNames = Lens.lens (\DescribeNotificationConfigurations' {autoScalingGroupNames} -> autoScalingGroupNames) (\s@DescribeNotificationConfigurations' {} a -> s {autoScalingGroupNames = a} :: DescribeNotificationConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+describeNotificationConfigurations_autoScalingGroupNames :: Lens.Lens' DescribeNotificationConfigurations (Core.Maybe [Core.Text])
+describeNotificationConfigurations_autoScalingGroupNames = Lens.lens (\DescribeNotificationConfigurations' {autoScalingGroupNames} -> autoScalingGroupNames) (\s@DescribeNotificationConfigurations' {} a -> s {autoScalingGroupNames = a} :: DescribeNotificationConfigurations) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
-describeNotificationConfigurations_maxRecords :: Lens.Lens' DescribeNotificationConfigurations (Prelude.Maybe Prelude.Int)
+describeNotificationConfigurations_maxRecords :: Lens.Lens' DescribeNotificationConfigurations (Core.Maybe Core.Int)
 describeNotificationConfigurations_maxRecords = Lens.lens (\DescribeNotificationConfigurations' {maxRecords} -> maxRecords) (\s@DescribeNotificationConfigurations' {} a -> s {maxRecords = a} :: DescribeNotificationConfigurations)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeNotificationConfigurations
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeNotificationConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. describeNotificationConfigurationsResponse_notificationConfigurations
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeNotificationConfigurations_nextToken
           Lens..~ rs
           Lens.^? describeNotificationConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeNotificationConfigurations
   where
   type
-    Rs DescribeNotificationConfigurations =
+    AWSResponse DescribeNotificationConfigurations =
       DescribeNotificationConfigurationsResponse
   request = Request.postQuery defaultService
   response =
@@ -142,53 +140,52 @@ instance
       "DescribeNotificationConfigurationsResult"
       ( \s h x ->
           DescribeNotificationConfigurationsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Prelude..@? "NotificationConfigurations"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.parseXMLList "member"
-                          )
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "NotificationConfigurations"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeNotificationConfigurations
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeNotificationConfigurations
 
 instance
-  Prelude.ToHeaders
-    DescribeNotificationConfigurations
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeNotificationConfigurations
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeNotificationConfigurations
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeNotificationConfigurations
   where
   toQuery DescribeNotificationConfigurations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeNotificationConfigurations" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
+          Core.=: ( "DescribeNotificationConfigurations" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
         "AutoScalingGroupNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> autoScalingGroupNames
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> autoScalingGroupNames
             ),
-        "MaxRecords" Prelude.=: maxRecords
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeNotificationConfigurationsResponse' smart constructor.
@@ -197,13 +194,13 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The notification configurations.
     notificationConfigurations :: [NotificationConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeNotificationConfigurationsResponse' with all optional fields omitted.
@@ -223,33 +220,33 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 -- 'notificationConfigurations', 'describeNotificationConfigurationsResponse_notificationConfigurations' - The notification configurations.
 newDescribeNotificationConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeNotificationConfigurationsResponse
 newDescribeNotificationConfigurationsResponse
   pHttpStatus_ =
     DescribeNotificationConfigurationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
         notificationConfigurations =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
-describeNotificationConfigurationsResponse_nextToken :: Lens.Lens' DescribeNotificationConfigurationsResponse (Prelude.Maybe Prelude.Text)
+describeNotificationConfigurationsResponse_nextToken :: Lens.Lens' DescribeNotificationConfigurationsResponse (Core.Maybe Core.Text)
 describeNotificationConfigurationsResponse_nextToken = Lens.lens (\DescribeNotificationConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeNotificationConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeNotificationConfigurationsResponse)
 
 -- | The response's http status code.
-describeNotificationConfigurationsResponse_httpStatus :: Lens.Lens' DescribeNotificationConfigurationsResponse Prelude.Int
+describeNotificationConfigurationsResponse_httpStatus :: Lens.Lens' DescribeNotificationConfigurationsResponse Core.Int
 describeNotificationConfigurationsResponse_httpStatus = Lens.lens (\DescribeNotificationConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeNotificationConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeNotificationConfigurationsResponse)
 
 -- | The notification configurations.
 describeNotificationConfigurationsResponse_notificationConfigurations :: Lens.Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
-describeNotificationConfigurationsResponse_notificationConfigurations = Lens.lens (\DescribeNotificationConfigurationsResponse' {notificationConfigurations} -> notificationConfigurations) (\s@DescribeNotificationConfigurationsResponse' {} a -> s {notificationConfigurations = a} :: DescribeNotificationConfigurationsResponse) Prelude.. Prelude._Coerce
+describeNotificationConfigurationsResponse_notificationConfigurations = Lens.lens (\DescribeNotificationConfigurationsResponse' {notificationConfigurations} -> notificationConfigurations) (\s@DescribeNotificationConfigurationsResponse' {} a -> s {notificationConfigurations = a} :: DescribeNotificationConfigurationsResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeNotificationConfigurationsResponse

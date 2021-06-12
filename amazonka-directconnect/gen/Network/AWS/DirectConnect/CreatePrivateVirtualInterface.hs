@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,20 +77,20 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePrivateVirtualInterface' smart constructor.
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
   { -- | The ID of the connection.
-    connectionId :: Prelude.Text,
+    connectionId :: Core.Text,
     -- | Information about the private virtual interface.
     newPrivateVirtualInterface' :: NewPrivateVirtualInterface
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePrivateVirtualInterface' with all optional fields omitted.
@@ -106,7 +105,7 @@ data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
 -- 'newPrivateVirtualInterface'', 'createPrivateVirtualInterface_newPrivateVirtualInterface' - Information about the private virtual interface.
 newCreatePrivateVirtualInterface ::
   -- | 'connectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newPrivateVirtualInterface''
   NewPrivateVirtualInterface ->
   CreatePrivateVirtualInterface
@@ -121,7 +120,7 @@ newCreatePrivateVirtualInterface
       }
 
 -- | The ID of the connection.
-createPrivateVirtualInterface_connectionId :: Lens.Lens' CreatePrivateVirtualInterface Prelude.Text
+createPrivateVirtualInterface_connectionId :: Lens.Lens' CreatePrivateVirtualInterface Core.Text
 createPrivateVirtualInterface_connectionId = Lens.lens (\CreatePrivateVirtualInterface' {connectionId} -> connectionId) (\s@CreatePrivateVirtualInterface' {} a -> s {connectionId = a} :: CreatePrivateVirtualInterface)
 
 -- | Information about the private virtual interface.
@@ -129,59 +128,48 @@ createPrivateVirtualInterface_newPrivateVirtualInterface :: Lens.Lens' CreatePri
 createPrivateVirtualInterface_newPrivateVirtualInterface = Lens.lens (\CreatePrivateVirtualInterface' {newPrivateVirtualInterface'} -> newPrivateVirtualInterface') (\s@CreatePrivateVirtualInterface' {} a -> s {newPrivateVirtualInterface' = a} :: CreatePrivateVirtualInterface)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreatePrivateVirtualInterface
   where
   type
-    Rs CreatePrivateVirtualInterface =
+    AWSResponse CreatePrivateVirtualInterface =
       VirtualInterface
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance
-  Prelude.Hashable
-    CreatePrivateVirtualInterface
+instance Core.Hashable CreatePrivateVirtualInterface
 
-instance Prelude.NFData CreatePrivateVirtualInterface
+instance Core.NFData CreatePrivateVirtualInterface
 
-instance
-  Prelude.ToHeaders
-    CreatePrivateVirtualInterface
-  where
+instance Core.ToHeaders CreatePrivateVirtualInterface where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.CreatePrivateVirtualInterface" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.CreatePrivateVirtualInterface" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePrivateVirtualInterface where
+instance Core.ToJSON CreatePrivateVirtualInterface where
   toJSON CreatePrivateVirtualInterface' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("connectionId" Prelude..= connectionId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just
               ( "newPrivateVirtualInterface"
-                  Prelude..= newPrivateVirtualInterface'
+                  Core..= newPrivateVirtualInterface'
               )
           ]
       )
 
-instance Prelude.ToPath CreatePrivateVirtualInterface where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePrivateVirtualInterface where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    CreatePrivateVirtualInterface
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePrivateVirtualInterface where
+  toQuery = Core.const Core.mempty

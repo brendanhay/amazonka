@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Translate.Types.TerminologyDataLocation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location of the custom terminology data.
 --
 -- /See:/ 'newTerminologyDataLocation' smart constructor.
 data TerminologyDataLocation = TerminologyDataLocation'
   { -- | The repository type for the custom terminology data.
-    repositoryType :: Prelude.Text,
+    repositoryType :: Core.Text,
     -- | The location of the custom terminology data.
-    location :: Prelude.Text
+    location :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminologyDataLocation' with all optional fields omitted.
@@ -47,9 +46,9 @@ data TerminologyDataLocation = TerminologyDataLocation'
 -- 'location', 'terminologyDataLocation_location' - The location of the custom terminology data.
 newTerminologyDataLocation ::
   -- | 'repositoryType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'location'
-  Prelude.Text ->
+  Core.Text ->
   TerminologyDataLocation
 newTerminologyDataLocation
   pRepositoryType_
@@ -61,23 +60,23 @@ newTerminologyDataLocation
       }
 
 -- | The repository type for the custom terminology data.
-terminologyDataLocation_repositoryType :: Lens.Lens' TerminologyDataLocation Prelude.Text
+terminologyDataLocation_repositoryType :: Lens.Lens' TerminologyDataLocation Core.Text
 terminologyDataLocation_repositoryType = Lens.lens (\TerminologyDataLocation' {repositoryType} -> repositoryType) (\s@TerminologyDataLocation' {} a -> s {repositoryType = a} :: TerminologyDataLocation)
 
 -- | The location of the custom terminology data.
-terminologyDataLocation_location :: Lens.Lens' TerminologyDataLocation Prelude.Text
+terminologyDataLocation_location :: Lens.Lens' TerminologyDataLocation Core.Text
 terminologyDataLocation_location = Lens.lens (\TerminologyDataLocation' {location} -> location) (\s@TerminologyDataLocation' {} a -> s {location = a} :: TerminologyDataLocation)
 
-instance Prelude.FromJSON TerminologyDataLocation where
+instance Core.FromJSON TerminologyDataLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TerminologyDataLocation"
       ( \x ->
           TerminologyDataLocation'
-            Prelude.<$> (x Prelude..: "RepositoryType")
-            Prelude.<*> (x Prelude..: "Location")
+            Core.<$> (x Core..: "RepositoryType")
+            Core.<*> (x Core..: "Location")
       )
 
-instance Prelude.Hashable TerminologyDataLocation
+instance Core.Hashable TerminologyDataLocation
 
-instance Prelude.NFData TerminologyDataLocation
+instance Core.NFData TerminologyDataLocation

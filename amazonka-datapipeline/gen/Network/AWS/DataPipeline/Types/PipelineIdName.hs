@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DataPipeline.Types.PipelineIdName where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the name and identifier of a pipeline.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data PipelineIdName = PipelineIdName'
   { -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
     -- string of the form @df-297EG78HU43EEXAMPLE@.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the pipeline.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelineIdName' with all optional fields omitted.
@@ -51,29 +50,28 @@ newPipelineIdName ::
   PipelineIdName
 newPipelineIdName =
   PipelineIdName'
-    { id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
 -- string of the form @df-297EG78HU43EEXAMPLE@.
-pipelineIdName_id :: Lens.Lens' PipelineIdName (Prelude.Maybe Prelude.Text)
+pipelineIdName_id :: Lens.Lens' PipelineIdName (Core.Maybe Core.Text)
 pipelineIdName_id = Lens.lens (\PipelineIdName' {id} -> id) (\s@PipelineIdName' {} a -> s {id = a} :: PipelineIdName)
 
 -- | The name of the pipeline.
-pipelineIdName_name :: Lens.Lens' PipelineIdName (Prelude.Maybe Prelude.Text)
+pipelineIdName_name :: Lens.Lens' PipelineIdName (Core.Maybe Core.Text)
 pipelineIdName_name = Lens.lens (\PipelineIdName' {name} -> name) (\s@PipelineIdName' {} a -> s {name = a} :: PipelineIdName)
 
-instance Prelude.FromJSON PipelineIdName where
+instance Core.FromJSON PipelineIdName where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelineIdName"
       ( \x ->
           PipelineIdName'
-            Prelude.<$> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "name")
+            Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "name")
       )
 
-instance Prelude.Hashable PipelineIdName
+instance Core.Hashable PipelineIdName
 
-instance Prelude.NFData PipelineIdName
+instance Core.NFData PipelineIdName

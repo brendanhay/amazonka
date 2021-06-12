@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.Lightsail.CreateInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,7 +66,7 @@ data CreateInstances = CreateInstances'
     -- and IPv6.
     --
     -- The default value is @dualstack@.
-    ipAddressType :: Prelude.Maybe IpAddressType,
+    ipAddressType :: Core.Maybe IpAddressType,
     -- | A launch script you can create that configures a server with additional
     -- user data. For example, you might want to run @apt-get -y update@.
     --
@@ -76,32 +75,32 @@ data CreateInstances = CreateInstances'
     -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
     -- the
     -- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
-    userData :: Prelude.Maybe Prelude.Text,
+    userData :: Core.Maybe Core.Text,
     -- | An array of objects representing the add-ons to enable for the new
     -- instance.
-    addOns :: Prelude.Maybe [AddOnRequest],
+    addOns :: Core.Maybe [AddOnRequest],
     -- | The name of your key pair.
-    keyPairName :: Prelude.Maybe Prelude.Text,
+    keyPairName :: Core.Maybe Core.Text,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | (Deprecated) The name for your custom image.
     --
     -- In releases prior to June 12, 2017, this parameter was ignored by the
     -- API. It is now deprecated.
-    customImageName :: Prelude.Maybe Prelude.Text,
+    customImageName :: Core.Maybe Core.Text,
     -- | The names to use for your new Lightsail instances. Separate multiple
     -- values using quotation marks and commas, for example:
     -- @[\"MyFirstInstance\",\"MySecondInstance\"]@
-    instanceNames :: [Prelude.Text],
+    instanceNames :: [Core.Text],
     -- | The Availability Zone in which to create your instance. Use the
     -- following format: @us-east-2a@ (case sensitive). You can get a list of
     -- Availability Zones by using the
     -- <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions>
     -- operation. Be sure to add the @include Availability Zones@ parameter to
     -- your request.
-    availabilityZone :: Prelude.Text,
+    availabilityZone :: Core.Text,
     -- | The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or
     -- @app_lamp_7_0@). Use the @get blueprints@ operation to return a list of
     -- available images (or /blueprints/).
@@ -111,12 +110,12 @@ data CreateInstances = CreateInstances'
     -- necessarily available to create new instances. Blueprints are marked
     -- inactive when they become outdated due to operating system updates or
     -- new application releases.
-    blueprintId :: Prelude.Text,
+    blueprintId :: Core.Text,
     -- | The bundle of specification information for your virtual private server
     -- (or /instance/), including the pricing plan (e.g., @micro_1_0@).
-    bundleId :: Prelude.Text
+    bundleId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstances' with all optional fields omitted.
@@ -181,24 +180,24 @@ data CreateInstances = CreateInstances'
 -- (or /instance/), including the pricing plan (e.g., @micro_1_0@).
 newCreateInstances ::
   -- | 'availabilityZone'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'blueprintId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'bundleId'
-  Prelude.Text ->
+  Core.Text ->
   CreateInstances
 newCreateInstances
   pAvailabilityZone_
   pBlueprintId_
   pBundleId_ =
     CreateInstances'
-      { ipAddressType = Prelude.Nothing,
-        userData = Prelude.Nothing,
-        addOns = Prelude.Nothing,
-        keyPairName = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        customImageName = Prelude.Nothing,
-        instanceNames = Prelude.mempty,
+      { ipAddressType = Core.Nothing,
+        userData = Core.Nothing,
+        addOns = Core.Nothing,
+        keyPairName = Core.Nothing,
+        tags = Core.Nothing,
+        customImageName = Core.Nothing,
+        instanceNames = Core.mempty,
         availabilityZone = pAvailabilityZone_,
         blueprintId = pBlueprintId_,
         bundleId = pBundleId_
@@ -210,7 +209,7 @@ newCreateInstances
 -- and IPv6.
 --
 -- The default value is @dualstack@.
-createInstances_ipAddressType :: Lens.Lens' CreateInstances (Prelude.Maybe IpAddressType)
+createInstances_ipAddressType :: Lens.Lens' CreateInstances (Core.Maybe IpAddressType)
 createInstances_ipAddressType = Lens.lens (\CreateInstances' {ipAddressType} -> ipAddressType) (\s@CreateInstances' {} a -> s {ipAddressType = a} :: CreateInstances)
 
 -- | A launch script you can create that configures a server with additional
@@ -221,36 +220,36 @@ createInstances_ipAddressType = Lens.lens (\CreateInstances' {ipAddressType} -> 
 -- Ubuntu use @apt-get@, and FreeBSD uses @pkg@. For a complete list, see
 -- the
 -- <https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image Dev Guide>.
-createInstances_userData :: Lens.Lens' CreateInstances (Prelude.Maybe Prelude.Text)
+createInstances_userData :: Lens.Lens' CreateInstances (Core.Maybe Core.Text)
 createInstances_userData = Lens.lens (\CreateInstances' {userData} -> userData) (\s@CreateInstances' {} a -> s {userData = a} :: CreateInstances)
 
 -- | An array of objects representing the add-ons to enable for the new
 -- instance.
-createInstances_addOns :: Lens.Lens' CreateInstances (Prelude.Maybe [AddOnRequest])
-createInstances_addOns = Lens.lens (\CreateInstances' {addOns} -> addOns) (\s@CreateInstances' {} a -> s {addOns = a} :: CreateInstances) Prelude.. Lens.mapping Prelude._Coerce
+createInstances_addOns :: Lens.Lens' CreateInstances (Core.Maybe [AddOnRequest])
+createInstances_addOns = Lens.lens (\CreateInstances' {addOns} -> addOns) (\s@CreateInstances' {} a -> s {addOns = a} :: CreateInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of your key pair.
-createInstances_keyPairName :: Lens.Lens' CreateInstances (Prelude.Maybe Prelude.Text)
+createInstances_keyPairName :: Lens.Lens' CreateInstances (Core.Maybe Core.Text)
 createInstances_keyPairName = Lens.lens (\CreateInstances' {keyPairName} -> keyPairName) (\s@CreateInstances' {} a -> s {keyPairName = a} :: CreateInstances)
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createInstances_tags :: Lens.Lens' CreateInstances (Prelude.Maybe [Tag])
-createInstances_tags = Lens.lens (\CreateInstances' {tags} -> tags) (\s@CreateInstances' {} a -> s {tags = a} :: CreateInstances) Prelude.. Lens.mapping Prelude._Coerce
+createInstances_tags :: Lens.Lens' CreateInstances (Core.Maybe [Tag])
+createInstances_tags = Lens.lens (\CreateInstances' {tags} -> tags) (\s@CreateInstances' {} a -> s {tags = a} :: CreateInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | (Deprecated) The name for your custom image.
 --
 -- In releases prior to June 12, 2017, this parameter was ignored by the
 -- API. It is now deprecated.
-createInstances_customImageName :: Lens.Lens' CreateInstances (Prelude.Maybe Prelude.Text)
+createInstances_customImageName :: Lens.Lens' CreateInstances (Core.Maybe Core.Text)
 createInstances_customImageName = Lens.lens (\CreateInstances' {customImageName} -> customImageName) (\s@CreateInstances' {} a -> s {customImageName = a} :: CreateInstances)
 
 -- | The names to use for your new Lightsail instances. Separate multiple
 -- values using quotation marks and commas, for example:
 -- @[\"MyFirstInstance\",\"MySecondInstance\"]@
-createInstances_instanceNames :: Lens.Lens' CreateInstances [Prelude.Text]
-createInstances_instanceNames = Lens.lens (\CreateInstances' {instanceNames} -> instanceNames) (\s@CreateInstances' {} a -> s {instanceNames = a} :: CreateInstances) Prelude.. Prelude._Coerce
+createInstances_instanceNames :: Lens.Lens' CreateInstances [Core.Text]
+createInstances_instanceNames = Lens.lens (\CreateInstances' {instanceNames} -> instanceNames) (\s@CreateInstances' {} a -> s {instanceNames = a} :: CreateInstances) Core.. Lens._Coerce
 
 -- | The Availability Zone in which to create your instance. Use the
 -- following format: @us-east-2a@ (case sensitive). You can get a list of
@@ -258,7 +257,7 @@ createInstances_instanceNames = Lens.lens (\CreateInstances' {instanceNames} -> 
 -- <http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html get regions>
 -- operation. Be sure to add the @include Availability Zones@ parameter to
 -- your request.
-createInstances_availabilityZone :: Lens.Lens' CreateInstances Prelude.Text
+createInstances_availabilityZone :: Lens.Lens' CreateInstances Core.Text
 createInstances_availabilityZone = Lens.lens (\CreateInstances' {availabilityZone} -> availabilityZone) (\s@CreateInstances' {} a -> s {availabilityZone = a} :: CreateInstances)
 
 -- | The ID for a virtual private server image (e.g., @app_wordpress_4_4@ or
@@ -270,83 +269,78 @@ createInstances_availabilityZone = Lens.lens (\CreateInstances' {availabilityZon
 -- necessarily available to create new instances. Blueprints are marked
 -- inactive when they become outdated due to operating system updates or
 -- new application releases.
-createInstances_blueprintId :: Lens.Lens' CreateInstances Prelude.Text
+createInstances_blueprintId :: Lens.Lens' CreateInstances Core.Text
 createInstances_blueprintId = Lens.lens (\CreateInstances' {blueprintId} -> blueprintId) (\s@CreateInstances' {} a -> s {blueprintId = a} :: CreateInstances)
 
 -- | The bundle of specification information for your virtual private server
 -- (or /instance/), including the pricing plan (e.g., @micro_1_0@).
-createInstances_bundleId :: Lens.Lens' CreateInstances Prelude.Text
+createInstances_bundleId :: Lens.Lens' CreateInstances Core.Text
 createInstances_bundleId = Lens.lens (\CreateInstances' {bundleId} -> bundleId) (\s@CreateInstances' {} a -> s {bundleId = a} :: CreateInstances)
 
-instance Prelude.AWSRequest CreateInstances where
-  type Rs CreateInstances = CreateInstancesResponse
+instance Core.AWSRequest CreateInstances where
+  type
+    AWSResponse CreateInstances =
+      CreateInstancesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateInstancesResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstances
+instance Core.Hashable CreateInstances
 
-instance Prelude.NFData CreateInstances
+instance Core.NFData CreateInstances
 
-instance Prelude.ToHeaders CreateInstances where
+instance Core.ToHeaders CreateInstances where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateInstances" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateInstances" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateInstances where
+instance Core.ToJSON CreateInstances where
   toJSON CreateInstances' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ipAddressType" Prelude..=)
-              Prelude.<$> ipAddressType,
-            ("userData" Prelude..=) Prelude.<$> userData,
-            ("addOns" Prelude..=) Prelude.<$> addOns,
-            ("keyPairName" Prelude..=) Prelude.<$> keyPairName,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("customImageName" Prelude..=)
-              Prelude.<$> customImageName,
-            Prelude.Just
-              ("instanceNames" Prelude..= instanceNames),
-            Prelude.Just
-              ("availabilityZone" Prelude..= availabilityZone),
-            Prelude.Just ("blueprintId" Prelude..= blueprintId),
-            Prelude.Just ("bundleId" Prelude..= bundleId)
+    Core.object
+      ( Core.catMaybes
+          [ ("ipAddressType" Core..=) Core.<$> ipAddressType,
+            ("userData" Core..=) Core.<$> userData,
+            ("addOns" Core..=) Core.<$> addOns,
+            ("keyPairName" Core..=) Core.<$> keyPairName,
+            ("tags" Core..=) Core.<$> tags,
+            ("customImageName" Core..=) Core.<$> customImageName,
+            Core.Just ("instanceNames" Core..= instanceNames),
+            Core.Just
+              ("availabilityZone" Core..= availabilityZone),
+            Core.Just ("blueprintId" Core..= blueprintId),
+            Core.Just ("bundleId" Core..= bundleId)
           ]
       )
 
-instance Prelude.ToPath CreateInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateInstances where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateInstances where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateInstancesResponse' smart constructor.
 data CreateInstancesResponse = CreateInstancesResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstancesResponse' with all optional fields omitted.
@@ -363,23 +357,22 @@ data CreateInstancesResponse = CreateInstancesResponse'
 -- 'httpStatus', 'createInstancesResponse_httpStatus' - The response's http status code.
 newCreateInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateInstancesResponse
 newCreateInstancesResponse pHttpStatus_ =
   CreateInstancesResponse'
-    { operations =
-        Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createInstancesResponse_operations :: Lens.Lens' CreateInstancesResponse (Prelude.Maybe [Operation])
-createInstancesResponse_operations = Lens.lens (\CreateInstancesResponse' {operations} -> operations) (\s@CreateInstancesResponse' {} a -> s {operations = a} :: CreateInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+createInstancesResponse_operations :: Lens.Lens' CreateInstancesResponse (Core.Maybe [Operation])
+createInstancesResponse_operations = Lens.lens (\CreateInstancesResponse' {operations} -> operations) (\s@CreateInstancesResponse' {} a -> s {operations = a} :: CreateInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-createInstancesResponse_httpStatus :: Lens.Lens' CreateInstancesResponse Prelude.Int
+createInstancesResponse_httpStatus :: Lens.Lens' CreateInstancesResponse Core.Int
 createInstancesResponse_httpStatus = Lens.lens (\CreateInstancesResponse' {httpStatus} -> httpStatus) (\s@CreateInstancesResponse' {} a -> s {httpStatus = a} :: CreateInstancesResponse)
 
-instance Prelude.NFData CreateInstancesResponse
+instance Core.NFData CreateInstancesResponse

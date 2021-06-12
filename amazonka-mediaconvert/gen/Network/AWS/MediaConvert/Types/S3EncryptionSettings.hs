@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.S3EncryptionSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for how your job outputs are encrypted as they are uploaded to
 -- Amazon S3.
@@ -41,7 +40,7 @@ data S3EncryptionSettings = S3EncryptionSettings'
     -- to encrypt your data keys. You can optionally choose to specify a
     -- different, customer managed CMK. Do so by specifying the Amazon Resource
     -- Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
-    encryptionType :: Prelude.Maybe S3ServerSideEncryptionType,
+    encryptionType :: Core.Maybe S3ServerSideEncryptionType,
     -- | Optionally, specify the customer master key (CMK) that you want to use
     -- to encrypt the data key that AWS uses to encrypt your output content.
     -- Enter the Amazon Resource Name (ARN) of the CMK. To use this setting,
@@ -49,9 +48,9 @@ data S3EncryptionSettings = S3EncryptionSettings'
     -- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
     -- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
     -- associated with Amazon S3.
-    kmsKeyArn :: Prelude.Maybe Prelude.Text
+    kmsKeyArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3EncryptionSettings' with all optional fields omitted.
@@ -86,8 +85,8 @@ newS3EncryptionSettings ::
 newS3EncryptionSettings =
   S3EncryptionSettings'
     { encryptionType =
-        Prelude.Nothing,
-      kmsKeyArn = Prelude.Nothing
+        Core.Nothing,
+      kmsKeyArn = Core.Nothing
     }
 
 -- | Specify how you want your data keys managed. AWS uses data keys to
@@ -102,7 +101,7 @@ newS3EncryptionSettings =
 -- to encrypt your data keys. You can optionally choose to specify a
 -- different, customer managed CMK. Do so by specifying the Amazon Resource
 -- Name (ARN) of the key for the setting KMS ARN (kmsKeyArn).
-s3EncryptionSettings_encryptionType :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe S3ServerSideEncryptionType)
+s3EncryptionSettings_encryptionType :: Lens.Lens' S3EncryptionSettings (Core.Maybe S3ServerSideEncryptionType)
 s3EncryptionSettings_encryptionType = Lens.lens (\S3EncryptionSettings' {encryptionType} -> encryptionType) (\s@S3EncryptionSettings' {} a -> s {encryptionType = a} :: S3EncryptionSettings)
 
 -- | Optionally, specify the customer master key (CMK) that you want to use
@@ -112,29 +111,28 @@ s3EncryptionSettings_encryptionType = Lens.lens (\S3EncryptionSettings' {encrypt
 -- AWS KMS (SERVER_SIDE_ENCRYPTION_KMS). If you set Server-side encryption
 -- to AWS KMS but don\'t specify a CMK here, AWS uses the AWS managed CMK
 -- associated with Amazon S3.
-s3EncryptionSettings_kmsKeyArn :: Lens.Lens' S3EncryptionSettings (Prelude.Maybe Prelude.Text)
+s3EncryptionSettings_kmsKeyArn :: Lens.Lens' S3EncryptionSettings (Core.Maybe Core.Text)
 s3EncryptionSettings_kmsKeyArn = Lens.lens (\S3EncryptionSettings' {kmsKeyArn} -> kmsKeyArn) (\s@S3EncryptionSettings' {} a -> s {kmsKeyArn = a} :: S3EncryptionSettings)
 
-instance Prelude.FromJSON S3EncryptionSettings where
+instance Core.FromJSON S3EncryptionSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3EncryptionSettings"
       ( \x ->
           S3EncryptionSettings'
-            Prelude.<$> (x Prelude..:? "encryptionType")
-            Prelude.<*> (x Prelude..:? "kmsKeyArn")
+            Core.<$> (x Core..:? "encryptionType")
+            Core.<*> (x Core..:? "kmsKeyArn")
       )
 
-instance Prelude.Hashable S3EncryptionSettings
+instance Core.Hashable S3EncryptionSettings
 
-instance Prelude.NFData S3EncryptionSettings
+instance Core.NFData S3EncryptionSettings
 
-instance Prelude.ToJSON S3EncryptionSettings where
+instance Core.ToJSON S3EncryptionSettings where
   toJSON S3EncryptionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("encryptionType" Prelude..=)
-              Prelude.<$> encryptionType,
-            ("kmsKeyArn" Prelude..=) Prelude.<$> kmsKeyArn
+    Core.object
+      ( Core.catMaybes
+          [ ("encryptionType" Core..=) Core.<$> encryptionType,
+            ("kmsKeyArn" Core..=) Core.<$> kmsKeyArn
           ]
       )

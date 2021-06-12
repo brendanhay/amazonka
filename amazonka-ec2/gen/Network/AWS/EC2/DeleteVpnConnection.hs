@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.EC2.DeleteVpnConnection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,11 +64,11 @@ data DeleteVpnConnection = DeleteVpnConnection'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the VPN connection.
-    vpnConnectionId :: Prelude.Text
+    vpnConnectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnConnection' with all optional fields omitted.
@@ -87,11 +86,11 @@ data DeleteVpnConnection = DeleteVpnConnection'
 -- 'vpnConnectionId', 'deleteVpnConnection_vpnConnectionId' - The ID of the VPN connection.
 newDeleteVpnConnection ::
   -- | 'vpnConnectionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVpnConnection
 newDeleteVpnConnection pVpnConnectionId_ =
   DeleteVpnConnection'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       vpnConnectionId = pVpnConnectionId_
     }
 
@@ -99,47 +98,46 @@ newDeleteVpnConnection pVpnConnectionId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteVpnConnection_dryRun :: Lens.Lens' DeleteVpnConnection (Prelude.Maybe Prelude.Bool)
+deleteVpnConnection_dryRun :: Lens.Lens' DeleteVpnConnection (Core.Maybe Core.Bool)
 deleteVpnConnection_dryRun = Lens.lens (\DeleteVpnConnection' {dryRun} -> dryRun) (\s@DeleteVpnConnection' {} a -> s {dryRun = a} :: DeleteVpnConnection)
 
 -- | The ID of the VPN connection.
-deleteVpnConnection_vpnConnectionId :: Lens.Lens' DeleteVpnConnection Prelude.Text
+deleteVpnConnection_vpnConnectionId :: Lens.Lens' DeleteVpnConnection Core.Text
 deleteVpnConnection_vpnConnectionId = Lens.lens (\DeleteVpnConnection' {vpnConnectionId} -> vpnConnectionId) (\s@DeleteVpnConnection' {} a -> s {vpnConnectionId = a} :: DeleteVpnConnection)
 
-instance Prelude.AWSRequest DeleteVpnConnection where
+instance Core.AWSRequest DeleteVpnConnection where
   type
-    Rs DeleteVpnConnection =
+    AWSResponse DeleteVpnConnection =
       DeleteVpnConnectionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteVpnConnectionResponse'
 
-instance Prelude.Hashable DeleteVpnConnection
+instance Core.Hashable DeleteVpnConnection
 
-instance Prelude.NFData DeleteVpnConnection
+instance Core.NFData DeleteVpnConnection
 
-instance Prelude.ToHeaders DeleteVpnConnection where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVpnConnection where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVpnConnection where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteVpnConnection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteVpnConnection where
+instance Core.ToQuery DeleteVpnConnection where
   toQuery DeleteVpnConnection' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteVpnConnection" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "VpnConnectionId" Prelude.=: vpnConnectionId
+          Core.=: ("DeleteVpnConnection" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "VpnConnectionId" Core.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newDeleteVpnConnectionResponse' smart constructor.
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpnConnectionResponse' with all optional fields omitted.
@@ -150,4 +148,4 @@ newDeleteVpnConnectionResponse ::
 newDeleteVpnConnectionResponse =
   DeleteVpnConnectionResponse'
 
-instance Prelude.NFData DeleteVpnConnectionResponse
+instance Core.NFData DeleteVpnConnectionResponse

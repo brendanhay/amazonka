@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.WorkspaceAccessProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.AccessPropertyValue
 
 -- | The device types and operating systems that can be used to access a
@@ -35,28 +34,28 @@ data WorkspaceAccessProperties = WorkspaceAccessProperties'
     -- as managed devices) with valid certificates, specify a value of @TRUST@.
     -- For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
-    deviceTypeOsx :: Prelude.Maybe AccessPropertyValue,
+    deviceTypeOsx :: Core.Maybe AccessPropertyValue,
     -- | Indicates whether users can use Windows clients to access their
     -- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known
     -- as managed devices) with valid certificates, specify a value of @TRUST@.
     -- For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
-    deviceTypeWindows :: Prelude.Maybe AccessPropertyValue,
+    deviceTypeWindows :: Core.Maybe AccessPropertyValue,
     -- | Indicates whether users can use Android devices to access their
     -- WorkSpaces.
-    deviceTypeAndroid :: Prelude.Maybe AccessPropertyValue,
+    deviceTypeAndroid :: Core.Maybe AccessPropertyValue,
     -- | Indicates whether users can use zero client devices to access their
     -- WorkSpaces.
-    deviceTypeZeroClient :: Prelude.Maybe AccessPropertyValue,
+    deviceTypeZeroClient :: Core.Maybe AccessPropertyValue,
     -- | Indicates whether users can access their WorkSpaces through a web
     -- browser.
-    deviceTypeWeb :: Prelude.Maybe AccessPropertyValue,
+    deviceTypeWeb :: Core.Maybe AccessPropertyValue,
     -- | Indicates whether users can use iOS devices to access their WorkSpaces.
-    deviceTypeIos :: Prelude.Maybe AccessPropertyValue,
+    deviceTypeIos :: Core.Maybe AccessPropertyValue,
     -- | Indicates whether users can use Chromebooks to access their WorkSpaces.
-    deviceTypeChromeOs :: Prelude.Maybe AccessPropertyValue
+    deviceTypeChromeOs :: Core.Maybe AccessPropertyValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkspaceAccessProperties' with all optional fields omitted.
@@ -95,13 +94,13 @@ newWorkspaceAccessProperties ::
 newWorkspaceAccessProperties =
   WorkspaceAccessProperties'
     { deviceTypeOsx =
-        Prelude.Nothing,
-      deviceTypeWindows = Prelude.Nothing,
-      deviceTypeAndroid = Prelude.Nothing,
-      deviceTypeZeroClient = Prelude.Nothing,
-      deviceTypeWeb = Prelude.Nothing,
-      deviceTypeIos = Prelude.Nothing,
-      deviceTypeChromeOs = Prelude.Nothing
+        Core.Nothing,
+      deviceTypeWindows = Core.Nothing,
+      deviceTypeAndroid = Core.Nothing,
+      deviceTypeZeroClient = Core.Nothing,
+      deviceTypeWeb = Core.Nothing,
+      deviceTypeIos = Core.Nothing,
+      deviceTypeChromeOs = Core.Nothing
     }
 
 -- | Indicates whether users can use macOS clients to access their
@@ -109,7 +108,7 @@ newWorkspaceAccessProperties =
 -- as managed devices) with valid certificates, specify a value of @TRUST@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
-workspaceAccessProperties_deviceTypeOsx :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeOsx :: Lens.Lens' WorkspaceAccessProperties (Core.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeOsx = Lens.lens (\WorkspaceAccessProperties' {deviceTypeOsx} -> deviceTypeOsx) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeOsx = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can use Windows clients to access their
@@ -117,68 +116,65 @@ workspaceAccessProperties_deviceTypeOsx = Lens.lens (\WorkspaceAccessProperties'
 -- as managed devices) with valid certificates, specify a value of @TRUST@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
-workspaceAccessProperties_deviceTypeWindows :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeWindows :: Lens.Lens' WorkspaceAccessProperties (Core.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeWindows = Lens.lens (\WorkspaceAccessProperties' {deviceTypeWindows} -> deviceTypeWindows) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeWindows = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can use Android devices to access their
 -- WorkSpaces.
-workspaceAccessProperties_deviceTypeAndroid :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeAndroid :: Lens.Lens' WorkspaceAccessProperties (Core.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeAndroid = Lens.lens (\WorkspaceAccessProperties' {deviceTypeAndroid} -> deviceTypeAndroid) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeAndroid = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can use zero client devices to access their
 -- WorkSpaces.
-workspaceAccessProperties_deviceTypeZeroClient :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeZeroClient :: Lens.Lens' WorkspaceAccessProperties (Core.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeZeroClient = Lens.lens (\WorkspaceAccessProperties' {deviceTypeZeroClient} -> deviceTypeZeroClient) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeZeroClient = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can access their WorkSpaces through a web
 -- browser.
-workspaceAccessProperties_deviceTypeWeb :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeWeb :: Lens.Lens' WorkspaceAccessProperties (Core.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeWeb = Lens.lens (\WorkspaceAccessProperties' {deviceTypeWeb} -> deviceTypeWeb) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeWeb = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can use iOS devices to access their WorkSpaces.
-workspaceAccessProperties_deviceTypeIos :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeIos :: Lens.Lens' WorkspaceAccessProperties (Core.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeIos = Lens.lens (\WorkspaceAccessProperties' {deviceTypeIos} -> deviceTypeIos) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeIos = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can use Chromebooks to access their WorkSpaces.
-workspaceAccessProperties_deviceTypeChromeOs :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeChromeOs :: Lens.Lens' WorkspaceAccessProperties (Core.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeChromeOs = Lens.lens (\WorkspaceAccessProperties' {deviceTypeChromeOs} -> deviceTypeChromeOs) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeChromeOs = a} :: WorkspaceAccessProperties)
 
-instance Prelude.FromJSON WorkspaceAccessProperties where
+instance Core.FromJSON WorkspaceAccessProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkspaceAccessProperties"
       ( \x ->
           WorkspaceAccessProperties'
-            Prelude.<$> (x Prelude..:? "DeviceTypeOsx")
-            Prelude.<*> (x Prelude..:? "DeviceTypeWindows")
-            Prelude.<*> (x Prelude..:? "DeviceTypeAndroid")
-            Prelude.<*> (x Prelude..:? "DeviceTypeZeroClient")
-            Prelude.<*> (x Prelude..:? "DeviceTypeWeb")
-            Prelude.<*> (x Prelude..:? "DeviceTypeIos")
-            Prelude.<*> (x Prelude..:? "DeviceTypeChromeOs")
+            Core.<$> (x Core..:? "DeviceTypeOsx")
+            Core.<*> (x Core..:? "DeviceTypeWindows")
+            Core.<*> (x Core..:? "DeviceTypeAndroid")
+            Core.<*> (x Core..:? "DeviceTypeZeroClient")
+            Core.<*> (x Core..:? "DeviceTypeWeb")
+            Core.<*> (x Core..:? "DeviceTypeIos")
+            Core.<*> (x Core..:? "DeviceTypeChromeOs")
       )
 
-instance Prelude.Hashable WorkspaceAccessProperties
+instance Core.Hashable WorkspaceAccessProperties
 
-instance Prelude.NFData WorkspaceAccessProperties
+instance Core.NFData WorkspaceAccessProperties
 
-instance Prelude.ToJSON WorkspaceAccessProperties where
+instance Core.ToJSON WorkspaceAccessProperties where
   toJSON WorkspaceAccessProperties' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeviceTypeOsx" Prelude..=)
-              Prelude.<$> deviceTypeOsx,
-            ("DeviceTypeWindows" Prelude..=)
-              Prelude.<$> deviceTypeWindows,
-            ("DeviceTypeAndroid" Prelude..=)
-              Prelude.<$> deviceTypeAndroid,
-            ("DeviceTypeZeroClient" Prelude..=)
-              Prelude.<$> deviceTypeZeroClient,
-            ("DeviceTypeWeb" Prelude..=)
-              Prelude.<$> deviceTypeWeb,
-            ("DeviceTypeIos" Prelude..=)
-              Prelude.<$> deviceTypeIos,
-            ("DeviceTypeChromeOs" Prelude..=)
-              Prelude.<$> deviceTypeChromeOs
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceTypeOsx" Core..=) Core.<$> deviceTypeOsx,
+            ("DeviceTypeWindows" Core..=)
+              Core.<$> deviceTypeWindows,
+            ("DeviceTypeAndroid" Core..=)
+              Core.<$> deviceTypeAndroid,
+            ("DeviceTypeZeroClient" Core..=)
+              Core.<$> deviceTypeZeroClient,
+            ("DeviceTypeWeb" Core..=) Core.<$> deviceTypeWeb,
+            ("DeviceTypeIos" Core..=) Core.<$> deviceTypeIos,
+            ("DeviceTypeChromeOs" Core..=)
+              Core.<$> deviceTypeChromeOs
           ]
       )

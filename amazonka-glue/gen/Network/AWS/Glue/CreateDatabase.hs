@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Glue.CreateDatabase
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +49,11 @@ import qualified Network.AWS.Response as Response
 data CreateDatabase = CreateDatabase'
   { -- | The ID of the Data Catalog in which to create the database. If none is
     -- provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The metadata for the database.
     databaseInput :: DatabaseInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDatabase' with all optional fields omitted.
@@ -74,68 +73,67 @@ newCreateDatabase ::
   CreateDatabase
 newCreateDatabase pDatabaseInput_ =
   CreateDatabase'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       databaseInput = pDatabaseInput_
     }
 
 -- | The ID of the Data Catalog in which to create the database. If none is
 -- provided, the AWS account ID is used by default.
-createDatabase_catalogId :: Lens.Lens' CreateDatabase (Prelude.Maybe Prelude.Text)
+createDatabase_catalogId :: Lens.Lens' CreateDatabase (Core.Maybe Core.Text)
 createDatabase_catalogId = Lens.lens (\CreateDatabase' {catalogId} -> catalogId) (\s@CreateDatabase' {} a -> s {catalogId = a} :: CreateDatabase)
 
 -- | The metadata for the database.
 createDatabase_databaseInput :: Lens.Lens' CreateDatabase DatabaseInput
 createDatabase_databaseInput = Lens.lens (\CreateDatabase' {databaseInput} -> databaseInput) (\s@CreateDatabase' {} a -> s {databaseInput = a} :: CreateDatabase)
 
-instance Prelude.AWSRequest CreateDatabase where
-  type Rs CreateDatabase = CreateDatabaseResponse
+instance Core.AWSRequest CreateDatabase where
+  type
+    AWSResponse CreateDatabase =
+      CreateDatabaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateDatabaseResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDatabase
+instance Core.Hashable CreateDatabase
 
-instance Prelude.NFData CreateDatabase
+instance Core.NFData CreateDatabase
 
-instance Prelude.ToHeaders CreateDatabase where
+instance Core.ToHeaders CreateDatabase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.CreateDatabase" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.CreateDatabase" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDatabase where
+instance Core.ToJSON CreateDatabase where
   toJSON CreateDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseInput" Prelude..= databaseInput)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseInput" Core..= databaseInput)
           ]
       )
 
-instance Prelude.ToPath CreateDatabase where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDatabase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDatabase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDatabase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateDatabaseResponse' smart constructor.
 data CreateDatabaseResponse = CreateDatabaseResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDatabaseResponse' with all optional fields omitted.
@@ -148,13 +146,13 @@ data CreateDatabaseResponse = CreateDatabaseResponse'
 -- 'httpStatus', 'createDatabaseResponse_httpStatus' - The response's http status code.
 newCreateDatabaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDatabaseResponse
 newCreateDatabaseResponse pHttpStatus_ =
   CreateDatabaseResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createDatabaseResponse_httpStatus :: Lens.Lens' CreateDatabaseResponse Prelude.Int
+createDatabaseResponse_httpStatus :: Lens.Lens' CreateDatabaseResponse Core.Int
 createDatabaseResponse_httpStatus = Lens.lens (\CreateDatabaseResponse' {httpStatus} -> httpStatus) (\s@CreateDatabaseResponse' {} a -> s {httpStatus = a} :: CreateDatabaseResponse)
 
-instance Prelude.NFData CreateDatabaseResponse
+instance Core.NFData CreateDatabaseResponse

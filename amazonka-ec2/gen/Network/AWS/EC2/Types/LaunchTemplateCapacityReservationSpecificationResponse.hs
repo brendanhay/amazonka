@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CapacityReservationPreference
 import Network.AWS.EC2.Types.CapacityReservationTargetResponse
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Capacity Reservation targeting option.
 --
@@ -39,12 +38,12 @@ data LaunchTemplateCapacityReservationSpecificationResponse = LaunchTemplateCapa
     --
     -- -   @none@ - The instance avoids running in a Capacity Reservation even
     --     if one is available. The instance runs in On-Demand capacity.
-    capacityReservationPreference :: Prelude.Maybe CapacityReservationPreference,
+    capacityReservationPreference :: Core.Maybe CapacityReservationPreference,
     -- | Information about the target Capacity Reservation or Capacity
     -- Reservation group.
-    capacityReservationTarget :: Prelude.Maybe CapacityReservationTargetResponse
+    capacityReservationTarget :: Core.Maybe CapacityReservationTargetResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateCapacityReservationSpecificationResponse' with all optional fields omitted.
@@ -71,9 +70,9 @@ newLaunchTemplateCapacityReservationSpecificationResponse ::
 newLaunchTemplateCapacityReservationSpecificationResponse =
   LaunchTemplateCapacityReservationSpecificationResponse'
     { capacityReservationPreference =
-        Prelude.Nothing,
+        Core.Nothing,
       capacityReservationTarget =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Indicates the instance\'s Capacity Reservation preferences. Possible
@@ -85,27 +84,27 @@ newLaunchTemplateCapacityReservationSpecificationResponse =
 --
 -- -   @none@ - The instance avoids running in a Capacity Reservation even
 --     if one is available. The instance runs in On-Demand capacity.
-launchTemplateCapacityReservationSpecificationResponse_capacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Prelude.Maybe CapacityReservationPreference)
+launchTemplateCapacityReservationSpecificationResponse_capacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Core.Maybe CapacityReservationPreference)
 launchTemplateCapacityReservationSpecificationResponse_capacityReservationPreference = Lens.lens (\LaunchTemplateCapacityReservationSpecificationResponse' {capacityReservationPreference} -> capacityReservationPreference) (\s@LaunchTemplateCapacityReservationSpecificationResponse' {} a -> s {capacityReservationPreference = a} :: LaunchTemplateCapacityReservationSpecificationResponse)
 
 -- | Information about the target Capacity Reservation or Capacity
 -- Reservation group.
-launchTemplateCapacityReservationSpecificationResponse_capacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Prelude.Maybe CapacityReservationTargetResponse)
+launchTemplateCapacityReservationSpecificationResponse_capacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationResponse (Core.Maybe CapacityReservationTargetResponse)
 launchTemplateCapacityReservationSpecificationResponse_capacityReservationTarget = Lens.lens (\LaunchTemplateCapacityReservationSpecificationResponse' {capacityReservationTarget} -> capacityReservationTarget) (\s@LaunchTemplateCapacityReservationSpecificationResponse' {} a -> s {capacityReservationTarget = a} :: LaunchTemplateCapacityReservationSpecificationResponse)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     LaunchTemplateCapacityReservationSpecificationResponse
   where
   parseXML x =
     LaunchTemplateCapacityReservationSpecificationResponse'
-      Prelude.<$> (x Prelude..@? "capacityReservationPreference")
-        Prelude.<*> (x Prelude..@? "capacityReservationTarget")
+      Core.<$> (x Core..@? "capacityReservationPreference")
+        Core.<*> (x Core..@? "capacityReservationTarget")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateCapacityReservationSpecificationResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateCapacityReservationSpecificationResponse

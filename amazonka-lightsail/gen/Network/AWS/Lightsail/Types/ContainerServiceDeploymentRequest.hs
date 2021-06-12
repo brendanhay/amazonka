@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.Container
 import Network.AWS.Lightsail.Types.EndpointRequest
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a container deployment configuration of an Amazon Lightsail
 -- container service.
@@ -34,12 +33,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newContainerServiceDeploymentRequest' smart constructor.
 data ContainerServiceDeploymentRequest = ContainerServiceDeploymentRequest'
   { -- | An object that describes the endpoint of the deployment.
-    publicEndpoint :: Prelude.Maybe EndpointRequest,
+    publicEndpoint :: Core.Maybe EndpointRequest,
     -- | An object that describes the configuration for the containers of the
     -- deployment.
-    containers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Container)
+    containers :: Core.Maybe (Core.HashMap Core.Text Container)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContainerServiceDeploymentRequest' with all optional fields omitted.
@@ -58,36 +57,35 @@ newContainerServiceDeploymentRequest ::
 newContainerServiceDeploymentRequest =
   ContainerServiceDeploymentRequest'
     { publicEndpoint =
-        Prelude.Nothing,
-      containers = Prelude.Nothing
+        Core.Nothing,
+      containers = Core.Nothing
     }
 
 -- | An object that describes the endpoint of the deployment.
-containerServiceDeploymentRequest_publicEndpoint :: Lens.Lens' ContainerServiceDeploymentRequest (Prelude.Maybe EndpointRequest)
+containerServiceDeploymentRequest_publicEndpoint :: Lens.Lens' ContainerServiceDeploymentRequest (Core.Maybe EndpointRequest)
 containerServiceDeploymentRequest_publicEndpoint = Lens.lens (\ContainerServiceDeploymentRequest' {publicEndpoint} -> publicEndpoint) (\s@ContainerServiceDeploymentRequest' {} a -> s {publicEndpoint = a} :: ContainerServiceDeploymentRequest)
 
 -- | An object that describes the configuration for the containers of the
 -- deployment.
-containerServiceDeploymentRequest_containers :: Lens.Lens' ContainerServiceDeploymentRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Container))
-containerServiceDeploymentRequest_containers = Lens.lens (\ContainerServiceDeploymentRequest' {containers} -> containers) (\s@ContainerServiceDeploymentRequest' {} a -> s {containers = a} :: ContainerServiceDeploymentRequest) Prelude.. Lens.mapping Prelude._Coerce
+containerServiceDeploymentRequest_containers :: Lens.Lens' ContainerServiceDeploymentRequest (Core.Maybe (Core.HashMap Core.Text Container))
+containerServiceDeploymentRequest_containers = Lens.lens (\ContainerServiceDeploymentRequest' {containers} -> containers) (\s@ContainerServiceDeploymentRequest' {} a -> s {containers = a} :: ContainerServiceDeploymentRequest) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ContainerServiceDeploymentRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     ContainerServiceDeploymentRequest
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ContainerServiceDeploymentRequest
   where
   toJSON ContainerServiceDeploymentRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("publicEndpoint" Prelude..=)
-              Prelude.<$> publicEndpoint,
-            ("containers" Prelude..=) Prelude.<$> containers
+    Core.object
+      ( Core.catMaybes
+          [ ("publicEndpoint" Core..=) Core.<$> publicEndpoint,
+            ("containers" Core..=) Core.<$> containers
           ]
       )

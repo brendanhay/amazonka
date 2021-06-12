@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
 import Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the timestamp range and timestamp origin of a range of
 -- fragments.
@@ -52,7 +51,7 @@ data FragmentSelector = FragmentSelector'
     -- | The range of timestamps to return.
     timestampRange :: TimestampRange
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FragmentSelector' with all optional fields omitted.
@@ -88,19 +87,18 @@ fragmentSelector_fragmentSelectorType = Lens.lens (\FragmentSelector' {fragmentS
 fragmentSelector_timestampRange :: Lens.Lens' FragmentSelector TimestampRange
 fragmentSelector_timestampRange = Lens.lens (\FragmentSelector' {timestampRange} -> timestampRange) (\s@FragmentSelector' {} a -> s {timestampRange = a} :: FragmentSelector)
 
-instance Prelude.Hashable FragmentSelector
+instance Core.Hashable FragmentSelector
 
-instance Prelude.NFData FragmentSelector
+instance Core.NFData FragmentSelector
 
-instance Prelude.ToJSON FragmentSelector where
+instance Core.ToJSON FragmentSelector where
   toJSON FragmentSelector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "FragmentSelectorType"
-                  Prelude..= fragmentSelectorType
+                  Core..= fragmentSelectorType
               ),
-            Prelude.Just
-              ("TimestampRange" Prelude..= timestampRange)
+            Core.Just ("TimestampRange" Core..= timestampRange)
           ]
       )

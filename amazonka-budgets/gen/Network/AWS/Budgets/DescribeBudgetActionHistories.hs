@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,23 +48,22 @@ module Network.AWS.Budgets.DescribeBudgetActionHistories
 where
 
 import Network.AWS.Budgets.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBudgetActionHistories' smart constructor.
 data DescribeBudgetActionHistories = DescribeBudgetActionHistories'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural,
-    timePeriod :: Prelude.Maybe TimePeriod,
-    accountId :: Prelude.Text,
-    budgetName :: Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
+    maxResults :: Core.Maybe Core.Natural,
+    timePeriod :: Core.Maybe TimePeriod,
+    accountId :: Core.Text,
+    budgetName :: Core.Text,
     -- | A system-generated universally unique identifier (UUID) for the action.
-    actionId :: Prelude.Text
+    actionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBudgetActionHistories' with all optional fields omitted.
@@ -88,11 +86,11 @@ data DescribeBudgetActionHistories = DescribeBudgetActionHistories'
 -- 'actionId', 'describeBudgetActionHistories_actionId' - A system-generated universally unique identifier (UUID) for the action.
 newDescribeBudgetActionHistories ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'actionId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeBudgetActionHistories
 newDescribeBudgetActionHistories
   pAccountId_
@@ -100,133 +98,121 @@ newDescribeBudgetActionHistories
   pActionId_ =
     DescribeBudgetActionHistories'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        timePeriod = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
+        timePeriod = Core.Nothing,
         accountId = pAccountId_,
         budgetName = pBudgetName_,
         actionId = pActionId_
       }
 
 -- | Undocumented member.
-describeBudgetActionHistories_nextToken :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe Prelude.Text)
+describeBudgetActionHistories_nextToken :: Lens.Lens' DescribeBudgetActionHistories (Core.Maybe Core.Text)
 describeBudgetActionHistories_nextToken = Lens.lens (\DescribeBudgetActionHistories' {nextToken} -> nextToken) (\s@DescribeBudgetActionHistories' {} a -> s {nextToken = a} :: DescribeBudgetActionHistories)
 
 -- | Undocumented member.
-describeBudgetActionHistories_maxResults :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe Prelude.Natural)
+describeBudgetActionHistories_maxResults :: Lens.Lens' DescribeBudgetActionHistories (Core.Maybe Core.Natural)
 describeBudgetActionHistories_maxResults = Lens.lens (\DescribeBudgetActionHistories' {maxResults} -> maxResults) (\s@DescribeBudgetActionHistories' {} a -> s {maxResults = a} :: DescribeBudgetActionHistories)
 
 -- | Undocumented member.
-describeBudgetActionHistories_timePeriod :: Lens.Lens' DescribeBudgetActionHistories (Prelude.Maybe TimePeriod)
+describeBudgetActionHistories_timePeriod :: Lens.Lens' DescribeBudgetActionHistories (Core.Maybe TimePeriod)
 describeBudgetActionHistories_timePeriod = Lens.lens (\DescribeBudgetActionHistories' {timePeriod} -> timePeriod) (\s@DescribeBudgetActionHistories' {} a -> s {timePeriod = a} :: DescribeBudgetActionHistories)
 
 -- | Undocumented member.
-describeBudgetActionHistories_accountId :: Lens.Lens' DescribeBudgetActionHistories Prelude.Text
+describeBudgetActionHistories_accountId :: Lens.Lens' DescribeBudgetActionHistories Core.Text
 describeBudgetActionHistories_accountId = Lens.lens (\DescribeBudgetActionHistories' {accountId} -> accountId) (\s@DescribeBudgetActionHistories' {} a -> s {accountId = a} :: DescribeBudgetActionHistories)
 
 -- | Undocumented member.
-describeBudgetActionHistories_budgetName :: Lens.Lens' DescribeBudgetActionHistories Prelude.Text
+describeBudgetActionHistories_budgetName :: Lens.Lens' DescribeBudgetActionHistories Core.Text
 describeBudgetActionHistories_budgetName = Lens.lens (\DescribeBudgetActionHistories' {budgetName} -> budgetName) (\s@DescribeBudgetActionHistories' {} a -> s {budgetName = a} :: DescribeBudgetActionHistories)
 
 -- | A system-generated universally unique identifier (UUID) for the action.
-describeBudgetActionHistories_actionId :: Lens.Lens' DescribeBudgetActionHistories Prelude.Text
+describeBudgetActionHistories_actionId :: Lens.Lens' DescribeBudgetActionHistories Core.Text
 describeBudgetActionHistories_actionId = Lens.lens (\DescribeBudgetActionHistories' {actionId} -> actionId) (\s@DescribeBudgetActionHistories' {} a -> s {actionId = a} :: DescribeBudgetActionHistories)
 
-instance Pager.AWSPager DescribeBudgetActionHistories where
+instance Core.AWSPager DescribeBudgetActionHistories where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeBudgetActionHistoriesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. describeBudgetActionHistoriesResponse_actionHistories
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeBudgetActionHistories_nextToken
           Lens..~ rs
           Lens.^? describeBudgetActionHistoriesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeBudgetActionHistories
   where
   type
-    Rs DescribeBudgetActionHistories =
+    AWSResponse DescribeBudgetActionHistories =
       DescribeBudgetActionHistoriesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeBudgetActionHistoriesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "ActionHistories"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "ActionHistories" Core..!@ Core.mempty)
       )
 
-instance
-  Prelude.Hashable
-    DescribeBudgetActionHistories
+instance Core.Hashable DescribeBudgetActionHistories
 
-instance Prelude.NFData DescribeBudgetActionHistories
+instance Core.NFData DescribeBudgetActionHistories
 
-instance
-  Prelude.ToHeaders
-    DescribeBudgetActionHistories
-  where
+instance Core.ToHeaders DescribeBudgetActionHistories where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSBudgetServiceGateway.DescribeBudgetActionHistories" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSBudgetServiceGateway.DescribeBudgetActionHistories" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeBudgetActionHistories where
+instance Core.ToJSON DescribeBudgetActionHistories where
   toJSON DescribeBudgetActionHistories' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("TimePeriod" Prelude..=) Prelude.<$> timePeriod,
-            Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just ("BudgetName" Prelude..= budgetName),
-            Prelude.Just ("ActionId" Prelude..= actionId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("TimePeriod" Core..=) Core.<$> timePeriod,
+            Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("ActionId" Core..= actionId)
           ]
       )
 
-instance Prelude.ToPath DescribeBudgetActionHistories where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeBudgetActionHistories where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeBudgetActionHistories
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeBudgetActionHistories where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeBudgetActionHistoriesResponse' smart constructor.
 data DescribeBudgetActionHistoriesResponse = DescribeBudgetActionHistoriesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The historical record of the budget action resource.
     actionHistories :: [ActionHistory]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBudgetActionHistoriesResponse' with all optional fields omitted.
@@ -243,28 +229,28 @@ data DescribeBudgetActionHistoriesResponse = DescribeBudgetActionHistoriesRespon
 -- 'actionHistories', 'describeBudgetActionHistoriesResponse_actionHistories' - The historical record of the budget action resource.
 newDescribeBudgetActionHistoriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeBudgetActionHistoriesResponse
 newDescribeBudgetActionHistoriesResponse pHttpStatus_ =
   DescribeBudgetActionHistoriesResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      actionHistories = Prelude.mempty
+      actionHistories = Core.mempty
     }
 
 -- | Undocumented member.
-describeBudgetActionHistoriesResponse_nextToken :: Lens.Lens' DescribeBudgetActionHistoriesResponse (Prelude.Maybe Prelude.Text)
+describeBudgetActionHistoriesResponse_nextToken :: Lens.Lens' DescribeBudgetActionHistoriesResponse (Core.Maybe Core.Text)
 describeBudgetActionHistoriesResponse_nextToken = Lens.lens (\DescribeBudgetActionHistoriesResponse' {nextToken} -> nextToken) (\s@DescribeBudgetActionHistoriesResponse' {} a -> s {nextToken = a} :: DescribeBudgetActionHistoriesResponse)
 
 -- | The response's http status code.
-describeBudgetActionHistoriesResponse_httpStatus :: Lens.Lens' DescribeBudgetActionHistoriesResponse Prelude.Int
+describeBudgetActionHistoriesResponse_httpStatus :: Lens.Lens' DescribeBudgetActionHistoriesResponse Core.Int
 describeBudgetActionHistoriesResponse_httpStatus = Lens.lens (\DescribeBudgetActionHistoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeBudgetActionHistoriesResponse' {} a -> s {httpStatus = a} :: DescribeBudgetActionHistoriesResponse)
 
 -- | The historical record of the budget action resource.
 describeBudgetActionHistoriesResponse_actionHistories :: Lens.Lens' DescribeBudgetActionHistoriesResponse [ActionHistory]
-describeBudgetActionHistoriesResponse_actionHistories = Lens.lens (\DescribeBudgetActionHistoriesResponse' {actionHistories} -> actionHistories) (\s@DescribeBudgetActionHistoriesResponse' {} a -> s {actionHistories = a} :: DescribeBudgetActionHistoriesResponse) Prelude.. Prelude._Coerce
+describeBudgetActionHistoriesResponse_actionHistories = Lens.lens (\DescribeBudgetActionHistoriesResponse' {actionHistories} -> actionHistories) (\s@DescribeBudgetActionHistoriesResponse' {} a -> s {actionHistories = a} :: DescribeBudgetActionHistoriesResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeBudgetActionHistoriesResponse

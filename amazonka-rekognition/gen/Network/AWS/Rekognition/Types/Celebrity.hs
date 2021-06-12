@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Celebrity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.ComparedFace
 
 -- | Provides information about a celebrity recognized by the
@@ -32,19 +31,19 @@ data Celebrity = Celebrity'
   { -- | An array of URLs pointing to additional information about the celebrity.
     -- If there is no additional information about the celebrity, this list is
     -- empty.
-    urls :: Prelude.Maybe [Prelude.Text],
+    urls :: Core.Maybe [Core.Text],
     -- | A unique identifier for the celebrity.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The confidence, in percentage, that Amazon Rekognition has that the
     -- recognized face is the celebrity.
-    matchConfidence :: Prelude.Maybe Prelude.Double,
+    matchConfidence :: Core.Maybe Core.Double,
     -- | The name of the celebrity.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Provides information about the celebrity\'s face, such as its location
     -- on the image.
-    face :: Prelude.Maybe ComparedFace
+    face :: Core.Maybe ComparedFace
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Celebrity' with all optional fields omitted.
@@ -71,50 +70,50 @@ newCelebrity ::
   Celebrity
 newCelebrity =
   Celebrity'
-    { urls = Prelude.Nothing,
-      id = Prelude.Nothing,
-      matchConfidence = Prelude.Nothing,
-      name = Prelude.Nothing,
-      face = Prelude.Nothing
+    { urls = Core.Nothing,
+      id = Core.Nothing,
+      matchConfidence = Core.Nothing,
+      name = Core.Nothing,
+      face = Core.Nothing
     }
 
 -- | An array of URLs pointing to additional information about the celebrity.
 -- If there is no additional information about the celebrity, this list is
 -- empty.
-celebrity_urls :: Lens.Lens' Celebrity (Prelude.Maybe [Prelude.Text])
-celebrity_urls = Lens.lens (\Celebrity' {urls} -> urls) (\s@Celebrity' {} a -> s {urls = a} :: Celebrity) Prelude.. Lens.mapping Prelude._Coerce
+celebrity_urls :: Lens.Lens' Celebrity (Core.Maybe [Core.Text])
+celebrity_urls = Lens.lens (\Celebrity' {urls} -> urls) (\s@Celebrity' {} a -> s {urls = a} :: Celebrity) Core.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for the celebrity.
-celebrity_id :: Lens.Lens' Celebrity (Prelude.Maybe Prelude.Text)
+celebrity_id :: Lens.Lens' Celebrity (Core.Maybe Core.Text)
 celebrity_id = Lens.lens (\Celebrity' {id} -> id) (\s@Celebrity' {} a -> s {id = a} :: Celebrity)
 
 -- | The confidence, in percentage, that Amazon Rekognition has that the
 -- recognized face is the celebrity.
-celebrity_matchConfidence :: Lens.Lens' Celebrity (Prelude.Maybe Prelude.Double)
+celebrity_matchConfidence :: Lens.Lens' Celebrity (Core.Maybe Core.Double)
 celebrity_matchConfidence = Lens.lens (\Celebrity' {matchConfidence} -> matchConfidence) (\s@Celebrity' {} a -> s {matchConfidence = a} :: Celebrity)
 
 -- | The name of the celebrity.
-celebrity_name :: Lens.Lens' Celebrity (Prelude.Maybe Prelude.Text)
+celebrity_name :: Lens.Lens' Celebrity (Core.Maybe Core.Text)
 celebrity_name = Lens.lens (\Celebrity' {name} -> name) (\s@Celebrity' {} a -> s {name = a} :: Celebrity)
 
 -- | Provides information about the celebrity\'s face, such as its location
 -- on the image.
-celebrity_face :: Lens.Lens' Celebrity (Prelude.Maybe ComparedFace)
+celebrity_face :: Lens.Lens' Celebrity (Core.Maybe ComparedFace)
 celebrity_face = Lens.lens (\Celebrity' {face} -> face) (\s@Celebrity' {} a -> s {face = a} :: Celebrity)
 
-instance Prelude.FromJSON Celebrity where
+instance Core.FromJSON Celebrity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Celebrity"
       ( \x ->
           Celebrity'
-            Prelude.<$> (x Prelude..:? "Urls" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "MatchConfidence")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Face")
+            Core.<$> (x Core..:? "Urls" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "MatchConfidence")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Face")
       )
 
-instance Prelude.Hashable Celebrity
+instance Core.Hashable Celebrity
 
-instance Prelude.NFData Celebrity
+instance Core.NFData Celebrity

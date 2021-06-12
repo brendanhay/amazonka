@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ReservedInstanceLimitPrice where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CurrencyCodeValues
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the limit price of a Reserved Instance offering.
 --
@@ -31,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
   { -- | Used for Reserved Instance Marketplace offerings. Specifies the limit
     -- price on the total order (instanceCount * price).
-    amount :: Prelude.Maybe Prelude.Double,
+    amount :: Core.Maybe Core.Double,
     -- | The currency in which the @limitPrice@ amount is specified. At this
     -- time, the only supported currency is @USD@.
-    currencyCode :: Prelude.Maybe CurrencyCodeValues
+    currencyCode :: Core.Maybe CurrencyCodeValues
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReservedInstanceLimitPrice' with all optional fields omitted.
@@ -55,28 +54,27 @@ newReservedInstanceLimitPrice ::
   ReservedInstanceLimitPrice
 newReservedInstanceLimitPrice =
   ReservedInstanceLimitPrice'
-    { amount =
-        Prelude.Nothing,
-      currencyCode = Prelude.Nothing
+    { amount = Core.Nothing,
+      currencyCode = Core.Nothing
     }
 
 -- | Used for Reserved Instance Marketplace offerings. Specifies the limit
 -- price on the total order (instanceCount * price).
-reservedInstanceLimitPrice_amount :: Lens.Lens' ReservedInstanceLimitPrice (Prelude.Maybe Prelude.Double)
+reservedInstanceLimitPrice_amount :: Lens.Lens' ReservedInstanceLimitPrice (Core.Maybe Core.Double)
 reservedInstanceLimitPrice_amount = Lens.lens (\ReservedInstanceLimitPrice' {amount} -> amount) (\s@ReservedInstanceLimitPrice' {} a -> s {amount = a} :: ReservedInstanceLimitPrice)
 
 -- | The currency in which the @limitPrice@ amount is specified. At this
 -- time, the only supported currency is @USD@.
-reservedInstanceLimitPrice_currencyCode :: Lens.Lens' ReservedInstanceLimitPrice (Prelude.Maybe CurrencyCodeValues)
+reservedInstanceLimitPrice_currencyCode :: Lens.Lens' ReservedInstanceLimitPrice (Core.Maybe CurrencyCodeValues)
 reservedInstanceLimitPrice_currencyCode = Lens.lens (\ReservedInstanceLimitPrice' {currencyCode} -> currencyCode) (\s@ReservedInstanceLimitPrice' {} a -> s {currencyCode = a} :: ReservedInstanceLimitPrice)
 
-instance Prelude.Hashable ReservedInstanceLimitPrice
+instance Core.Hashable ReservedInstanceLimitPrice
 
-instance Prelude.NFData ReservedInstanceLimitPrice
+instance Core.NFData ReservedInstanceLimitPrice
 
-instance Prelude.ToQuery ReservedInstanceLimitPrice where
+instance Core.ToQuery ReservedInstanceLimitPrice where
   toQuery ReservedInstanceLimitPrice' {..} =
-    Prelude.mconcat
-      [ "Amount" Prelude.=: amount,
-        "CurrencyCode" Prelude.=: currencyCode
+    Core.mconcat
+      [ "Amount" Core.=: amount,
+        "CurrencyCode" Core.=: currencyCode
       ]

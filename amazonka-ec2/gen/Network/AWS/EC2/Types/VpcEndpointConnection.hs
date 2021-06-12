@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,36 +19,36 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.VpcEndpointConnection where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.DnsEntry
 import Network.AWS.EC2.Types.State
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a VPC endpoint connection to a service.
 --
 -- /See:/ 'newVpcEndpointConnection' smart constructor.
 data VpcEndpointConnection = VpcEndpointConnection'
   { -- | The date and time that the VPC endpoint was created.
-    creationTimestamp :: Prelude.Maybe Prelude.ISO8601,
+    creationTimestamp :: Core.Maybe Core.ISO8601,
     -- | The AWS account ID of the owner of the VPC endpoint.
-    vpcEndpointOwner :: Prelude.Maybe Prelude.Text,
+    vpcEndpointOwner :: Core.Maybe Core.Text,
     -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
     -- service.
-    gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    gatewayLoadBalancerArns :: Core.Maybe [Core.Text],
     -- | The state of the VPC endpoint.
-    vpcEndpointState :: Prelude.Maybe State,
+    vpcEndpointState :: Core.Maybe State,
     -- | The DNS entries for the VPC endpoint.
-    dnsEntries :: Prelude.Maybe [DnsEntry],
+    dnsEntries :: Core.Maybe [DnsEntry],
     -- | The ID of the VPC endpoint.
-    vpcEndpointId :: Prelude.Maybe Prelude.Text,
+    vpcEndpointId :: Core.Maybe Core.Text,
     -- | The ID of the service to which the endpoint is connected.
-    serviceId :: Prelude.Maybe Prelude.Text,
+    serviceId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Names (ARNs) of the network load balancers for the
     -- service.
-    networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text]
+    networkLoadBalancerArns :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcEndpointConnection' with all optional fields omitted.
@@ -81,71 +80,70 @@ newVpcEndpointConnection ::
 newVpcEndpointConnection =
   VpcEndpointConnection'
     { creationTimestamp =
-        Prelude.Nothing,
-      vpcEndpointOwner = Prelude.Nothing,
-      gatewayLoadBalancerArns = Prelude.Nothing,
-      vpcEndpointState = Prelude.Nothing,
-      dnsEntries = Prelude.Nothing,
-      vpcEndpointId = Prelude.Nothing,
-      serviceId = Prelude.Nothing,
-      networkLoadBalancerArns = Prelude.Nothing
+        Core.Nothing,
+      vpcEndpointOwner = Core.Nothing,
+      gatewayLoadBalancerArns = Core.Nothing,
+      vpcEndpointState = Core.Nothing,
+      dnsEntries = Core.Nothing,
+      vpcEndpointId = Core.Nothing,
+      serviceId = Core.Nothing,
+      networkLoadBalancerArns = Core.Nothing
     }
 
 -- | The date and time that the VPC endpoint was created.
-vpcEndpointConnection_creationTimestamp :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.UTCTime)
-vpcEndpointConnection_creationTimestamp = Lens.lens (\VpcEndpointConnection' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpointConnection' {} a -> s {creationTimestamp = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Prelude._Time
+vpcEndpointConnection_creationTimestamp :: Lens.Lens' VpcEndpointConnection (Core.Maybe Core.UTCTime)
+vpcEndpointConnection_creationTimestamp = Lens.lens (\VpcEndpointConnection' {creationTimestamp} -> creationTimestamp) (\s@VpcEndpointConnection' {} a -> s {creationTimestamp = a} :: VpcEndpointConnection) Core.. Lens.mapping Core._Time
 
 -- | The AWS account ID of the owner of the VPC endpoint.
-vpcEndpointConnection_vpcEndpointOwner :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.Text)
+vpcEndpointConnection_vpcEndpointOwner :: Lens.Lens' VpcEndpointConnection (Core.Maybe Core.Text)
 vpcEndpointConnection_vpcEndpointOwner = Lens.lens (\VpcEndpointConnection' {vpcEndpointOwner} -> vpcEndpointOwner) (\s@VpcEndpointConnection' {} a -> s {vpcEndpointOwner = a} :: VpcEndpointConnection)
 
 -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the
 -- service.
-vpcEndpointConnection_gatewayLoadBalancerArns :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe [Prelude.Text])
-vpcEndpointConnection_gatewayLoadBalancerArns = Lens.lens (\VpcEndpointConnection' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@VpcEndpointConnection' {} a -> s {gatewayLoadBalancerArns = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Prelude._Coerce
+vpcEndpointConnection_gatewayLoadBalancerArns :: Lens.Lens' VpcEndpointConnection (Core.Maybe [Core.Text])
+vpcEndpointConnection_gatewayLoadBalancerArns = Lens.lens (\VpcEndpointConnection' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@VpcEndpointConnection' {} a -> s {gatewayLoadBalancerArns = a} :: VpcEndpointConnection) Core.. Lens.mapping Lens._Coerce
 
 -- | The state of the VPC endpoint.
-vpcEndpointConnection_vpcEndpointState :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe State)
+vpcEndpointConnection_vpcEndpointState :: Lens.Lens' VpcEndpointConnection (Core.Maybe State)
 vpcEndpointConnection_vpcEndpointState = Lens.lens (\VpcEndpointConnection' {vpcEndpointState} -> vpcEndpointState) (\s@VpcEndpointConnection' {} a -> s {vpcEndpointState = a} :: VpcEndpointConnection)
 
 -- | The DNS entries for the VPC endpoint.
-vpcEndpointConnection_dnsEntries :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe [DnsEntry])
-vpcEndpointConnection_dnsEntries = Lens.lens (\VpcEndpointConnection' {dnsEntries} -> dnsEntries) (\s@VpcEndpointConnection' {} a -> s {dnsEntries = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Prelude._Coerce
+vpcEndpointConnection_dnsEntries :: Lens.Lens' VpcEndpointConnection (Core.Maybe [DnsEntry])
+vpcEndpointConnection_dnsEntries = Lens.lens (\VpcEndpointConnection' {dnsEntries} -> dnsEntries) (\s@VpcEndpointConnection' {} a -> s {dnsEntries = a} :: VpcEndpointConnection) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC endpoint.
-vpcEndpointConnection_vpcEndpointId :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.Text)
+vpcEndpointConnection_vpcEndpointId :: Lens.Lens' VpcEndpointConnection (Core.Maybe Core.Text)
 vpcEndpointConnection_vpcEndpointId = Lens.lens (\VpcEndpointConnection' {vpcEndpointId} -> vpcEndpointId) (\s@VpcEndpointConnection' {} a -> s {vpcEndpointId = a} :: VpcEndpointConnection)
 
 -- | The ID of the service to which the endpoint is connected.
-vpcEndpointConnection_serviceId :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe Prelude.Text)
+vpcEndpointConnection_serviceId :: Lens.Lens' VpcEndpointConnection (Core.Maybe Core.Text)
 vpcEndpointConnection_serviceId = Lens.lens (\VpcEndpointConnection' {serviceId} -> serviceId) (\s@VpcEndpointConnection' {} a -> s {serviceId = a} :: VpcEndpointConnection)
 
 -- | The Amazon Resource Names (ARNs) of the network load balancers for the
 -- service.
-vpcEndpointConnection_networkLoadBalancerArns :: Lens.Lens' VpcEndpointConnection (Prelude.Maybe [Prelude.Text])
-vpcEndpointConnection_networkLoadBalancerArns = Lens.lens (\VpcEndpointConnection' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@VpcEndpointConnection' {} a -> s {networkLoadBalancerArns = a} :: VpcEndpointConnection) Prelude.. Lens.mapping Prelude._Coerce
+vpcEndpointConnection_networkLoadBalancerArns :: Lens.Lens' VpcEndpointConnection (Core.Maybe [Core.Text])
+vpcEndpointConnection_networkLoadBalancerArns = Lens.lens (\VpcEndpointConnection' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@VpcEndpointConnection' {} a -> s {networkLoadBalancerArns = a} :: VpcEndpointConnection) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML VpcEndpointConnection where
+instance Core.FromXML VpcEndpointConnection where
   parseXML x =
     VpcEndpointConnection'
-      Prelude.<$> (x Prelude..@? "creationTimestamp")
-      Prelude.<*> (x Prelude..@? "vpcEndpointOwner")
-      Prelude.<*> ( x Prelude..@? "gatewayLoadBalancerArnSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "vpcEndpointState")
-      Prelude.<*> ( x Prelude..@? "dnsEntrySet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "vpcEndpointId")
-      Prelude.<*> (x Prelude..@? "serviceId")
-      Prelude.<*> ( x Prelude..@? "networkLoadBalancerArnSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "creationTimestamp")
+      Core.<*> (x Core..@? "vpcEndpointOwner")
+      Core.<*> ( x Core..@? "gatewayLoadBalancerArnSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "vpcEndpointState")
+      Core.<*> ( x Core..@? "dnsEntrySet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "vpcEndpointId")
+      Core.<*> (x Core..@? "serviceId")
+      Core.<*> ( x Core..@? "networkLoadBalancerArnSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable VpcEndpointConnection
+instance Core.Hashable VpcEndpointConnection
 
-instance Prelude.NFData VpcEndpointConnection
+instance Core.NFData VpcEndpointConnection

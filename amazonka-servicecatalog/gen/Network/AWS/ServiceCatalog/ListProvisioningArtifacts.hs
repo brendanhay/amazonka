@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.ServiceCatalog.ListProvisioningArtifacts
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -58,11 +57,11 @@ data ListProvisioningArtifacts = ListProvisioningArtifacts'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The product identifier.
-    productId :: Prelude.Text
+    productId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProvisioningArtifacts' with all optional fields omitted.
@@ -83,12 +82,12 @@ data ListProvisioningArtifacts = ListProvisioningArtifacts'
 -- 'productId', 'listProvisioningArtifacts_productId' - The product identifier.
 newListProvisioningArtifacts ::
   -- | 'productId'
-  Prelude.Text ->
+  Core.Text ->
   ListProvisioningArtifacts
 newListProvisioningArtifacts pProductId_ =
   ListProvisioningArtifacts'
     { acceptLanguage =
-        Prelude.Nothing,
+        Core.Nothing,
       productId = pProductId_
     }
 
@@ -99,75 +98,72 @@ newListProvisioningArtifacts pProductId_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-listProvisioningArtifacts_acceptLanguage :: Lens.Lens' ListProvisioningArtifacts (Prelude.Maybe Prelude.Text)
+listProvisioningArtifacts_acceptLanguage :: Lens.Lens' ListProvisioningArtifacts (Core.Maybe Core.Text)
 listProvisioningArtifacts_acceptLanguage = Lens.lens (\ListProvisioningArtifacts' {acceptLanguage} -> acceptLanguage) (\s@ListProvisioningArtifacts' {} a -> s {acceptLanguage = a} :: ListProvisioningArtifacts)
 
 -- | The product identifier.
-listProvisioningArtifacts_productId :: Lens.Lens' ListProvisioningArtifacts Prelude.Text
+listProvisioningArtifacts_productId :: Lens.Lens' ListProvisioningArtifacts Core.Text
 listProvisioningArtifacts_productId = Lens.lens (\ListProvisioningArtifacts' {productId} -> productId) (\s@ListProvisioningArtifacts' {} a -> s {productId = a} :: ListProvisioningArtifacts)
 
-instance Prelude.AWSRequest ListProvisioningArtifacts where
+instance Core.AWSRequest ListProvisioningArtifacts where
   type
-    Rs ListProvisioningArtifacts =
+    AWSResponse ListProvisioningArtifacts =
       ListProvisioningArtifactsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListProvisioningArtifactsResponse'
-            Prelude.<$> (x Prelude..?> "NextPageToken")
-            Prelude.<*> ( x Prelude..?> "ProvisioningArtifactDetails"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextPageToken")
+            Core.<*> ( x Core..?> "ProvisioningArtifactDetails"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListProvisioningArtifacts
+instance Core.Hashable ListProvisioningArtifacts
 
-instance Prelude.NFData ListProvisioningArtifacts
+instance Core.NFData ListProvisioningArtifacts
 
-instance Prelude.ToHeaders ListProvisioningArtifacts where
+instance Core.ToHeaders ListProvisioningArtifacts where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.ListProvisioningArtifacts" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.ListProvisioningArtifacts" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListProvisioningArtifacts where
+instance Core.ToJSON ListProvisioningArtifacts where
   toJSON ListProvisioningArtifacts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("ProductId" Prelude..= productId)
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("ProductId" Core..= productId)
           ]
       )
 
-instance Prelude.ToPath ListProvisioningArtifacts where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListProvisioningArtifacts where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListProvisioningArtifacts where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListProvisioningArtifacts where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListProvisioningArtifactsResponse' smart constructor.
 data ListProvisioningArtifactsResponse = ListProvisioningArtifactsResponse'
   { -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | Information about the provisioning artifacts.
-    provisioningArtifactDetails :: Prelude.Maybe [ProvisioningArtifactDetail],
+    provisioningArtifactDetails :: Core.Maybe [ProvisioningArtifactDetail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListProvisioningArtifactsResponse' with all optional fields omitted.
@@ -185,30 +181,30 @@ data ListProvisioningArtifactsResponse = ListProvisioningArtifactsResponse'
 -- 'httpStatus', 'listProvisioningArtifactsResponse_httpStatus' - The response's http status code.
 newListProvisioningArtifactsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListProvisioningArtifactsResponse
 newListProvisioningArtifactsResponse pHttpStatus_ =
   ListProvisioningArtifactsResponse'
     { nextPageToken =
-        Prelude.Nothing,
+        Core.Nothing,
       provisioningArtifactDetails =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-listProvisioningArtifactsResponse_nextPageToken :: Lens.Lens' ListProvisioningArtifactsResponse (Prelude.Maybe Prelude.Text)
+listProvisioningArtifactsResponse_nextPageToken :: Lens.Lens' ListProvisioningArtifactsResponse (Core.Maybe Core.Text)
 listProvisioningArtifactsResponse_nextPageToken = Lens.lens (\ListProvisioningArtifactsResponse' {nextPageToken} -> nextPageToken) (\s@ListProvisioningArtifactsResponse' {} a -> s {nextPageToken = a} :: ListProvisioningArtifactsResponse)
 
 -- | Information about the provisioning artifacts.
-listProvisioningArtifactsResponse_provisioningArtifactDetails :: Lens.Lens' ListProvisioningArtifactsResponse (Prelude.Maybe [ProvisioningArtifactDetail])
-listProvisioningArtifactsResponse_provisioningArtifactDetails = Lens.lens (\ListProvisioningArtifactsResponse' {provisioningArtifactDetails} -> provisioningArtifactDetails) (\s@ListProvisioningArtifactsResponse' {} a -> s {provisioningArtifactDetails = a} :: ListProvisioningArtifactsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listProvisioningArtifactsResponse_provisioningArtifactDetails :: Lens.Lens' ListProvisioningArtifactsResponse (Core.Maybe [ProvisioningArtifactDetail])
+listProvisioningArtifactsResponse_provisioningArtifactDetails = Lens.lens (\ListProvisioningArtifactsResponse' {provisioningArtifactDetails} -> provisioningArtifactDetails) (\s@ListProvisioningArtifactsResponse' {} a -> s {provisioningArtifactDetails = a} :: ListProvisioningArtifactsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listProvisioningArtifactsResponse_httpStatus :: Lens.Lens' ListProvisioningArtifactsResponse Prelude.Int
+listProvisioningArtifactsResponse_httpStatus :: Lens.Lens' ListProvisioningArtifactsResponse Core.Int
 listProvisioningArtifactsResponse_httpStatus = Lens.lens (\ListProvisioningArtifactsResponse' {httpStatus} -> httpStatus) (\s@ListProvisioningArtifactsResponse' {} a -> s {httpStatus = a} :: ListProvisioningArtifactsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListProvisioningArtifactsResponse

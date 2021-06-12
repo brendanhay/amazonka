@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.SecurityProfileTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A target to which an alert is sent when a security profile behavior is
 -- violated.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSecurityProfileTarget' smart constructor.
 data SecurityProfileTarget = SecurityProfileTarget'
   { -- | The ARN of the security profile.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityProfileTarget' with all optional fields omitted.
@@ -44,24 +43,23 @@ data SecurityProfileTarget = SecurityProfileTarget'
 -- 'arn', 'securityProfileTarget_arn' - The ARN of the security profile.
 newSecurityProfileTarget ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   SecurityProfileTarget
 newSecurityProfileTarget pArn_ =
   SecurityProfileTarget' {arn = pArn_}
 
 -- | The ARN of the security profile.
-securityProfileTarget_arn :: Lens.Lens' SecurityProfileTarget Prelude.Text
+securityProfileTarget_arn :: Lens.Lens' SecurityProfileTarget Core.Text
 securityProfileTarget_arn = Lens.lens (\SecurityProfileTarget' {arn} -> arn) (\s@SecurityProfileTarget' {} a -> s {arn = a} :: SecurityProfileTarget)
 
-instance Prelude.FromJSON SecurityProfileTarget where
+instance Core.FromJSON SecurityProfileTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SecurityProfileTarget"
       ( \x ->
-          SecurityProfileTarget'
-            Prelude.<$> (x Prelude..: "arn")
+          SecurityProfileTarget' Core.<$> (x Core..: "arn")
       )
 
-instance Prelude.Hashable SecurityProfileTarget
+instance Core.Hashable SecurityProfileTarget
 
-instance Prelude.NFData SecurityProfileTarget
+instance Core.NFData SecurityProfileTarget

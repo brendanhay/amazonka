@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An activity that adds data from the AWS IoT device registry to your
 -- message.
@@ -29,19 +28,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDeviceRegistryEnrichActivity' smart constructor.
 data DeviceRegistryEnrichActivity = DeviceRegistryEnrichActivity'
   { -- | The next activity in the pipeline.
-    next :: Prelude.Maybe Prelude.Text,
+    next :: Core.Maybe Core.Text,
     -- | The name of the @deviceRegistryEnrich@ activity.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The name of the attribute that is added to the message.
-    attribute :: Prelude.Text,
+    attribute :: Core.Text,
     -- | The name of the IoT device whose registry information is added to the
     -- message.
-    thingName :: Prelude.Text,
+    thingName :: Core.Text,
     -- | The ARN of the role that allows access to the device\'s registry
     -- information.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceRegistryEnrichActivity' with all optional fields omitted.
@@ -64,13 +63,13 @@ data DeviceRegistryEnrichActivity = DeviceRegistryEnrichActivity'
 -- information.
 newDeviceRegistryEnrichActivity ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attribute'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'thingName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   DeviceRegistryEnrichActivity
 newDeviceRegistryEnrichActivity
   pName_
@@ -78,8 +77,7 @@ newDeviceRegistryEnrichActivity
   pThingName_
   pRoleArn_ =
     DeviceRegistryEnrichActivity'
-      { next =
-          Prelude.Nothing,
+      { next = Core.Nothing,
         name = pName_,
         attribute = pAttribute_,
         thingName = pThingName_,
@@ -87,57 +85,52 @@ newDeviceRegistryEnrichActivity
       }
 
 -- | The next activity in the pipeline.
-deviceRegistryEnrichActivity_next :: Lens.Lens' DeviceRegistryEnrichActivity (Prelude.Maybe Prelude.Text)
+deviceRegistryEnrichActivity_next :: Lens.Lens' DeviceRegistryEnrichActivity (Core.Maybe Core.Text)
 deviceRegistryEnrichActivity_next = Lens.lens (\DeviceRegistryEnrichActivity' {next} -> next) (\s@DeviceRegistryEnrichActivity' {} a -> s {next = a} :: DeviceRegistryEnrichActivity)
 
 -- | The name of the @deviceRegistryEnrich@ activity.
-deviceRegistryEnrichActivity_name :: Lens.Lens' DeviceRegistryEnrichActivity Prelude.Text
+deviceRegistryEnrichActivity_name :: Lens.Lens' DeviceRegistryEnrichActivity Core.Text
 deviceRegistryEnrichActivity_name = Lens.lens (\DeviceRegistryEnrichActivity' {name} -> name) (\s@DeviceRegistryEnrichActivity' {} a -> s {name = a} :: DeviceRegistryEnrichActivity)
 
 -- | The name of the attribute that is added to the message.
-deviceRegistryEnrichActivity_attribute :: Lens.Lens' DeviceRegistryEnrichActivity Prelude.Text
+deviceRegistryEnrichActivity_attribute :: Lens.Lens' DeviceRegistryEnrichActivity Core.Text
 deviceRegistryEnrichActivity_attribute = Lens.lens (\DeviceRegistryEnrichActivity' {attribute} -> attribute) (\s@DeviceRegistryEnrichActivity' {} a -> s {attribute = a} :: DeviceRegistryEnrichActivity)
 
 -- | The name of the IoT device whose registry information is added to the
 -- message.
-deviceRegistryEnrichActivity_thingName :: Lens.Lens' DeviceRegistryEnrichActivity Prelude.Text
+deviceRegistryEnrichActivity_thingName :: Lens.Lens' DeviceRegistryEnrichActivity Core.Text
 deviceRegistryEnrichActivity_thingName = Lens.lens (\DeviceRegistryEnrichActivity' {thingName} -> thingName) (\s@DeviceRegistryEnrichActivity' {} a -> s {thingName = a} :: DeviceRegistryEnrichActivity)
 
 -- | The ARN of the role that allows access to the device\'s registry
 -- information.
-deviceRegistryEnrichActivity_roleArn :: Lens.Lens' DeviceRegistryEnrichActivity Prelude.Text
+deviceRegistryEnrichActivity_roleArn :: Lens.Lens' DeviceRegistryEnrichActivity Core.Text
 deviceRegistryEnrichActivity_roleArn = Lens.lens (\DeviceRegistryEnrichActivity' {roleArn} -> roleArn) (\s@DeviceRegistryEnrichActivity' {} a -> s {roleArn = a} :: DeviceRegistryEnrichActivity)
 
-instance
-  Prelude.FromJSON
-    DeviceRegistryEnrichActivity
-  where
+instance Core.FromJSON DeviceRegistryEnrichActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceRegistryEnrichActivity"
       ( \x ->
           DeviceRegistryEnrichActivity'
-            Prelude.<$> (x Prelude..:? "next")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "attribute")
-            Prelude.<*> (x Prelude..: "thingName")
-            Prelude.<*> (x Prelude..: "roleArn")
+            Core.<$> (x Core..:? "next")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "attribute")
+            Core.<*> (x Core..: "thingName")
+            Core.<*> (x Core..: "roleArn")
       )
 
-instance
-  Prelude.Hashable
-    DeviceRegistryEnrichActivity
+instance Core.Hashable DeviceRegistryEnrichActivity
 
-instance Prelude.NFData DeviceRegistryEnrichActivity
+instance Core.NFData DeviceRegistryEnrichActivity
 
-instance Prelude.ToJSON DeviceRegistryEnrichActivity where
+instance Core.ToJSON DeviceRegistryEnrichActivity where
   toJSON DeviceRegistryEnrichActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("next" Prelude..=) Prelude.<$> next,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("attribute" Prelude..= attribute),
-            Prelude.Just ("thingName" Prelude..= thingName),
-            Prelude.Just ("roleArn" Prelude..= roleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("next" Core..=) Core.<$> next,
+            Core.Just ("name" Core..= name),
+            Core.Just ("attribute" Core..= attribute),
+            Core.Just ("thingName" Core..= thingName),
+            Core.Just ("roleArn" Core..= roleArn)
           ]
       )

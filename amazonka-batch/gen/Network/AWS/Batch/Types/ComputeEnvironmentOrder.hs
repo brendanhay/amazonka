@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.ComputeEnvironmentOrder where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The order in which compute environments are tried for job placement
 -- within a queue. Compute environments are tried in ascending order. For
@@ -43,11 +42,11 @@ data ComputeEnvironmentOrder = ComputeEnvironmentOrder'
     -- ascending order. For example, if two compute environments are associated
     -- with a job queue, the compute environment with a lower @order@ integer
     -- value is tried for job placement first.
-    order :: Prelude.Int,
+    order :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironment :: Prelude.Text
+    computeEnvironment :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComputeEnvironmentOrder' with all optional fields omitted.
@@ -65,9 +64,9 @@ data ComputeEnvironmentOrder = ComputeEnvironmentOrder'
 -- 'computeEnvironment', 'computeEnvironmentOrder_computeEnvironment' - The Amazon Resource Name (ARN) of the compute environment.
 newComputeEnvironmentOrder ::
   -- | 'order'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'computeEnvironment'
-  Prelude.Text ->
+  Core.Text ->
   ComputeEnvironmentOrder
 newComputeEnvironmentOrder
   pOrder_
@@ -81,35 +80,33 @@ newComputeEnvironmentOrder
 -- ascending order. For example, if two compute environments are associated
 -- with a job queue, the compute environment with a lower @order@ integer
 -- value is tried for job placement first.
-computeEnvironmentOrder_order :: Lens.Lens' ComputeEnvironmentOrder Prelude.Int
+computeEnvironmentOrder_order :: Lens.Lens' ComputeEnvironmentOrder Core.Int
 computeEnvironmentOrder_order = Lens.lens (\ComputeEnvironmentOrder' {order} -> order) (\s@ComputeEnvironmentOrder' {} a -> s {order = a} :: ComputeEnvironmentOrder)
 
 -- | The Amazon Resource Name (ARN) of the compute environment.
-computeEnvironmentOrder_computeEnvironment :: Lens.Lens' ComputeEnvironmentOrder Prelude.Text
+computeEnvironmentOrder_computeEnvironment :: Lens.Lens' ComputeEnvironmentOrder Core.Text
 computeEnvironmentOrder_computeEnvironment = Lens.lens (\ComputeEnvironmentOrder' {computeEnvironment} -> computeEnvironment) (\s@ComputeEnvironmentOrder' {} a -> s {computeEnvironment = a} :: ComputeEnvironmentOrder)
 
-instance Prelude.FromJSON ComputeEnvironmentOrder where
+instance Core.FromJSON ComputeEnvironmentOrder where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComputeEnvironmentOrder"
       ( \x ->
           ComputeEnvironmentOrder'
-            Prelude.<$> (x Prelude..: "order")
-            Prelude.<*> (x Prelude..: "computeEnvironment")
+            Core.<$> (x Core..: "order")
+            Core.<*> (x Core..: "computeEnvironment")
       )
 
-instance Prelude.Hashable ComputeEnvironmentOrder
+instance Core.Hashable ComputeEnvironmentOrder
 
-instance Prelude.NFData ComputeEnvironmentOrder
+instance Core.NFData ComputeEnvironmentOrder
 
-instance Prelude.ToJSON ComputeEnvironmentOrder where
+instance Core.ToJSON ComputeEnvironmentOrder where
   toJSON ComputeEnvironmentOrder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("order" Prelude..= order),
-            Prelude.Just
-              ( "computeEnvironment"
-                  Prelude..= computeEnvironment
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("order" Core..= order),
+            Core.Just
+              ("computeEnvironment" Core..= computeEnvironment)
           ]
       )

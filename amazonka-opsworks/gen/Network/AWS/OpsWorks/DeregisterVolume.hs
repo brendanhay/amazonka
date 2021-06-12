@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.OpsWorks.DeregisterVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ data DeregisterVolume = DeregisterVolume'
   { -- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks
     -- Stacks assigned to the instance when you registered the volume with the
     -- stack, not the Amazon EC2 volume ID.
-    volumeId :: Prelude.Text
+    volumeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterVolume' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DeregisterVolume = DeregisterVolume'
 -- stack, not the Amazon EC2 volume ID.
 newDeregisterVolume ::
   -- | 'volumeId'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterVolume
 newDeregisterVolume pVolumeId_ =
   DeregisterVolume' {volumeId = pVolumeId_}
@@ -80,52 +79,52 @@ newDeregisterVolume pVolumeId_ =
 -- | The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks
 -- Stacks assigned to the instance when you registered the volume with the
 -- stack, not the Amazon EC2 volume ID.
-deregisterVolume_volumeId :: Lens.Lens' DeregisterVolume Prelude.Text
+deregisterVolume_volumeId :: Lens.Lens' DeregisterVolume Core.Text
 deregisterVolume_volumeId = Lens.lens (\DeregisterVolume' {volumeId} -> volumeId) (\s@DeregisterVolume' {} a -> s {volumeId = a} :: DeregisterVolume)
 
-instance Prelude.AWSRequest DeregisterVolume where
-  type Rs DeregisterVolume = DeregisterVolumeResponse
+instance Core.AWSRequest DeregisterVolume where
+  type
+    AWSResponse DeregisterVolume =
+      DeregisterVolumeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeregisterVolumeResponse'
 
-instance Prelude.Hashable DeregisterVolume
+instance Core.Hashable DeregisterVolume
 
-instance Prelude.NFData DeregisterVolume
+instance Core.NFData DeregisterVolume
 
-instance Prelude.ToHeaders DeregisterVolume where
+instance Core.ToHeaders DeregisterVolume where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DeregisterVolume" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DeregisterVolume" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterVolume where
+instance Core.ToJSON DeregisterVolume where
   toJSON DeregisterVolume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("VolumeId" Prelude..= volumeId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("VolumeId" Core..= volumeId)]
       )
 
-instance Prelude.ToPath DeregisterVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterVolume where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterVolume where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterVolumeResponse' smart constructor.
 data DeregisterVolumeResponse = DeregisterVolumeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterVolumeResponse' with all optional fields omitted.
@@ -136,4 +135,4 @@ newDeregisterVolumeResponse ::
 newDeregisterVolumeResponse =
   DeregisterVolumeResponse'
 
-instance Prelude.NFData DeregisterVolumeResponse
+instance Core.NFData DeregisterVolumeResponse

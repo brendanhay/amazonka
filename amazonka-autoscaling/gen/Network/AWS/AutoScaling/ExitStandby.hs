@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,19 +48,19 @@ module Network.AWS.AutoScaling.ExitStandby
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newExitStandby' smart constructor.
 data ExitStandby = ExitStandby'
   { -- | The IDs of the instances. You can specify up to 20 instances.
-    instanceIds :: Prelude.Maybe [Prelude.Text],
+    instanceIds :: Core.Maybe [Core.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExitStandby' with all optional fields omitted.
@@ -76,71 +75,65 @@ data ExitStandby = ExitStandby'
 -- 'autoScalingGroupName', 'exitStandby_autoScalingGroupName' - The name of the Auto Scaling group.
 newExitStandby ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ExitStandby
 newExitStandby pAutoScalingGroupName_ =
   ExitStandby'
-    { instanceIds = Prelude.Nothing,
+    { instanceIds = Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The IDs of the instances. You can specify up to 20 instances.
-exitStandby_instanceIds :: Lens.Lens' ExitStandby (Prelude.Maybe [Prelude.Text])
-exitStandby_instanceIds = Lens.lens (\ExitStandby' {instanceIds} -> instanceIds) (\s@ExitStandby' {} a -> s {instanceIds = a} :: ExitStandby) Prelude.. Lens.mapping Prelude._Coerce
+exitStandby_instanceIds :: Lens.Lens' ExitStandby (Core.Maybe [Core.Text])
+exitStandby_instanceIds = Lens.lens (\ExitStandby' {instanceIds} -> instanceIds) (\s@ExitStandby' {} a -> s {instanceIds = a} :: ExitStandby) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-exitStandby_autoScalingGroupName :: Lens.Lens' ExitStandby Prelude.Text
+exitStandby_autoScalingGroupName :: Lens.Lens' ExitStandby Core.Text
 exitStandby_autoScalingGroupName = Lens.lens (\ExitStandby' {autoScalingGroupName} -> autoScalingGroupName) (\s@ExitStandby' {} a -> s {autoScalingGroupName = a} :: ExitStandby)
 
-instance Prelude.AWSRequest ExitStandby where
-  type Rs ExitStandby = ExitStandbyResponse
+instance Core.AWSRequest ExitStandby where
+  type AWSResponse ExitStandby = ExitStandbyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ExitStandbyResult"
       ( \s h x ->
           ExitStandbyResponse'
-            Prelude.<$> ( x Prelude..@? "Activities"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Activities" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ExitStandby
+instance Core.Hashable ExitStandby
 
-instance Prelude.NFData ExitStandby
+instance Core.NFData ExitStandby
 
-instance Prelude.ToHeaders ExitStandby where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ExitStandby where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ExitStandby where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExitStandby where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ExitStandby where
+instance Core.ToQuery ExitStandby where
   toQuery ExitStandby' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("ExitStandby" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+    Core.mconcat
+      [ "Action" Core.=: ("ExitStandby" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
         "InstanceIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> instanceIds
-            ),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> instanceIds),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newExitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
   { -- | The activities related to moving instances out of @Standby@ mode.
-    activities :: Prelude.Maybe [Activity],
+    activities :: Core.Maybe [Activity],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExitStandbyResponse' with all optional fields omitted.
@@ -155,20 +148,20 @@ data ExitStandbyResponse = ExitStandbyResponse'
 -- 'httpStatus', 'exitStandbyResponse_httpStatus' - The response's http status code.
 newExitStandbyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ExitStandbyResponse
 newExitStandbyResponse pHttpStatus_ =
   ExitStandbyResponse'
-    { activities = Prelude.Nothing,
+    { activities = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The activities related to moving instances out of @Standby@ mode.
-exitStandbyResponse_activities :: Lens.Lens' ExitStandbyResponse (Prelude.Maybe [Activity])
-exitStandbyResponse_activities = Lens.lens (\ExitStandbyResponse' {activities} -> activities) (\s@ExitStandbyResponse' {} a -> s {activities = a} :: ExitStandbyResponse) Prelude.. Lens.mapping Prelude._Coerce
+exitStandbyResponse_activities :: Lens.Lens' ExitStandbyResponse (Core.Maybe [Activity])
+exitStandbyResponse_activities = Lens.lens (\ExitStandbyResponse' {activities} -> activities) (\s@ExitStandbyResponse' {} a -> s {activities = a} :: ExitStandbyResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-exitStandbyResponse_httpStatus :: Lens.Lens' ExitStandbyResponse Prelude.Int
+exitStandbyResponse_httpStatus :: Lens.Lens' ExitStandbyResponse Core.Int
 exitStandbyResponse_httpStatus = Lens.lens (\ExitStandbyResponse' {httpStatus} -> httpStatus) (\s@ExitStandbyResponse' {} a -> s {httpStatus = a} :: ExitStandbyResponse)
 
-instance Prelude.NFData ExitStandbyResponse
+instance Core.NFData ExitStandbyResponse

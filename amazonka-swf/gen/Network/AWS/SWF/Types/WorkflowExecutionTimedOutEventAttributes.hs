@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.ChildPolicy
 import Network.AWS.SWF.Types.WorkflowExecutionTimeoutType
 
@@ -47,7 +46,7 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
     --     run.
     childPolicy :: ChildPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionTimedOutEventAttributes' with all optional fields omitted.
@@ -110,22 +109,22 @@ workflowExecutionTimedOutEventAttributes_childPolicy :: Lens.Lens' WorkflowExecu
 workflowExecutionTimedOutEventAttributes_childPolicy = Lens.lens (\WorkflowExecutionTimedOutEventAttributes' {childPolicy} -> childPolicy) (\s@WorkflowExecutionTimedOutEventAttributes' {} a -> s {childPolicy = a} :: WorkflowExecutionTimedOutEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     WorkflowExecutionTimedOutEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowExecutionTimedOutEventAttributes"
       ( \x ->
           WorkflowExecutionTimedOutEventAttributes'
-            Prelude.<$> (x Prelude..: "timeoutType")
-            Prelude.<*> (x Prelude..: "childPolicy")
+            Core.<$> (x Core..: "timeoutType")
+            Core.<*> (x Core..: "childPolicy")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     WorkflowExecutionTimedOutEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     WorkflowExecutionTimedOutEventAttributes

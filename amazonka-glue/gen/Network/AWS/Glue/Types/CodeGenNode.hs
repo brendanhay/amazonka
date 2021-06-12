@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.CodeGenNode where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.CodeGenNodeArg
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a node in a directed acyclic graph (DAG)
 --
 -- /See:/ 'newCodeGenNode' smart constructor.
 data CodeGenNode = CodeGenNode'
   { -- | The line number of the node.
-    lineNumber :: Prelude.Maybe Prelude.Int,
+    lineNumber :: Core.Maybe Core.Int,
     -- | A node identifier that is unique within the node\'s graph.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The type of node that this is.
-    nodeType :: Prelude.Text,
+    nodeType :: Core.Text,
     -- | Properties of the node, in the form of name-value pairs.
     args :: [CodeGenNodeArg]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CodeGenNode' with all optional fields omitted.
@@ -56,57 +55,57 @@ data CodeGenNode = CodeGenNode'
 -- 'args', 'codeGenNode_args' - Properties of the node, in the form of name-value pairs.
 newCodeGenNode ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'nodeType'
-  Prelude.Text ->
+  Core.Text ->
   CodeGenNode
 newCodeGenNode pId_ pNodeType_ =
   CodeGenNode'
-    { lineNumber = Prelude.Nothing,
+    { lineNumber = Core.Nothing,
       id = pId_,
       nodeType = pNodeType_,
-      args = Prelude.mempty
+      args = Core.mempty
     }
 
 -- | The line number of the node.
-codeGenNode_lineNumber :: Lens.Lens' CodeGenNode (Prelude.Maybe Prelude.Int)
+codeGenNode_lineNumber :: Lens.Lens' CodeGenNode (Core.Maybe Core.Int)
 codeGenNode_lineNumber = Lens.lens (\CodeGenNode' {lineNumber} -> lineNumber) (\s@CodeGenNode' {} a -> s {lineNumber = a} :: CodeGenNode)
 
 -- | A node identifier that is unique within the node\'s graph.
-codeGenNode_id :: Lens.Lens' CodeGenNode Prelude.Text
+codeGenNode_id :: Lens.Lens' CodeGenNode Core.Text
 codeGenNode_id = Lens.lens (\CodeGenNode' {id} -> id) (\s@CodeGenNode' {} a -> s {id = a} :: CodeGenNode)
 
 -- | The type of node that this is.
-codeGenNode_nodeType :: Lens.Lens' CodeGenNode Prelude.Text
+codeGenNode_nodeType :: Lens.Lens' CodeGenNode Core.Text
 codeGenNode_nodeType = Lens.lens (\CodeGenNode' {nodeType} -> nodeType) (\s@CodeGenNode' {} a -> s {nodeType = a} :: CodeGenNode)
 
 -- | Properties of the node, in the form of name-value pairs.
 codeGenNode_args :: Lens.Lens' CodeGenNode [CodeGenNodeArg]
-codeGenNode_args = Lens.lens (\CodeGenNode' {args} -> args) (\s@CodeGenNode' {} a -> s {args = a} :: CodeGenNode) Prelude.. Prelude._Coerce
+codeGenNode_args = Lens.lens (\CodeGenNode' {args} -> args) (\s@CodeGenNode' {} a -> s {args = a} :: CodeGenNode) Core.. Lens._Coerce
 
-instance Prelude.FromJSON CodeGenNode where
+instance Core.FromJSON CodeGenNode where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CodeGenNode"
       ( \x ->
           CodeGenNode'
-            Prelude.<$> (x Prelude..:? "LineNumber")
-            Prelude.<*> (x Prelude..: "Id")
-            Prelude.<*> (x Prelude..: "NodeType")
-            Prelude.<*> (x Prelude..:? "Args" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "LineNumber")
+            Core.<*> (x Core..: "Id")
+            Core.<*> (x Core..: "NodeType")
+            Core.<*> (x Core..:? "Args" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable CodeGenNode
+instance Core.Hashable CodeGenNode
 
-instance Prelude.NFData CodeGenNode
+instance Core.NFData CodeGenNode
 
-instance Prelude.ToJSON CodeGenNode where
+instance Core.ToJSON CodeGenNode where
   toJSON CodeGenNode' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("LineNumber" Prelude..=) Prelude.<$> lineNumber,
-            Prelude.Just ("Id" Prelude..= id),
-            Prelude.Just ("NodeType" Prelude..= nodeType),
-            Prelude.Just ("Args" Prelude..= args)
+    Core.object
+      ( Core.catMaybes
+          [ ("LineNumber" Core..=) Core.<$> lineNumber,
+            Core.Just ("Id" Core..= id),
+            Core.Just ("NodeType" Core..= nodeType),
+            Core.Just ("Args" Core..= args)
           ]
       )

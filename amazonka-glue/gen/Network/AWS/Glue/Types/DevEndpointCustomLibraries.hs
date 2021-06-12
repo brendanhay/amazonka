@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.DevEndpointCustomLibraries where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Custom libraries to be loaded into a development endpoint.
 --
@@ -35,14 +34,14 @@ data DevEndpointCustomLibraries = DevEndpointCustomLibraries'
     -- that rely on C extensions, such as the
     -- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
     -- currently supported.
-    extraPythonLibsS3Path :: Prelude.Maybe Prelude.Text,
+    extraPythonLibsS3Path :: Core.Maybe Core.Text,
     -- | The path to one or more Java @.jar@ files in an S3 bucket that should be
     -- loaded in your @DevEndpoint@.
     --
     -- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
-    extraJarsS3Path :: Prelude.Maybe Prelude.Text
+    extraJarsS3Path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DevEndpointCustomLibraries' with all optional fields omitted.
@@ -70,8 +69,8 @@ newDevEndpointCustomLibraries ::
 newDevEndpointCustomLibraries =
   DevEndpointCustomLibraries'
     { extraPythonLibsS3Path =
-        Prelude.Nothing,
-      extraJarsS3Path = Prelude.Nothing
+        Core.Nothing,
+      extraJarsS3Path = Core.Nothing
     }
 
 -- | The paths to one or more Python libraries in an Amazon Simple Storage
@@ -82,27 +81,27 @@ newDevEndpointCustomLibraries =
 -- that rely on C extensions, such as the
 -- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
 -- currently supported.
-devEndpointCustomLibraries_extraPythonLibsS3Path :: Lens.Lens' DevEndpointCustomLibraries (Prelude.Maybe Prelude.Text)
+devEndpointCustomLibraries_extraPythonLibsS3Path :: Lens.Lens' DevEndpointCustomLibraries (Core.Maybe Core.Text)
 devEndpointCustomLibraries_extraPythonLibsS3Path = Lens.lens (\DevEndpointCustomLibraries' {extraPythonLibsS3Path} -> extraPythonLibsS3Path) (\s@DevEndpointCustomLibraries' {} a -> s {extraPythonLibsS3Path = a} :: DevEndpointCustomLibraries)
 
 -- | The path to one or more Java @.jar@ files in an S3 bucket that should be
 -- loaded in your @DevEndpoint@.
 --
 -- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
-devEndpointCustomLibraries_extraJarsS3Path :: Lens.Lens' DevEndpointCustomLibraries (Prelude.Maybe Prelude.Text)
+devEndpointCustomLibraries_extraJarsS3Path :: Lens.Lens' DevEndpointCustomLibraries (Core.Maybe Core.Text)
 devEndpointCustomLibraries_extraJarsS3Path = Lens.lens (\DevEndpointCustomLibraries' {extraJarsS3Path} -> extraJarsS3Path) (\s@DevEndpointCustomLibraries' {} a -> s {extraJarsS3Path = a} :: DevEndpointCustomLibraries)
 
-instance Prelude.Hashable DevEndpointCustomLibraries
+instance Core.Hashable DevEndpointCustomLibraries
 
-instance Prelude.NFData DevEndpointCustomLibraries
+instance Core.NFData DevEndpointCustomLibraries
 
-instance Prelude.ToJSON DevEndpointCustomLibraries where
+instance Core.ToJSON DevEndpointCustomLibraries where
   toJSON DevEndpointCustomLibraries' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExtraPythonLibsS3Path" Prelude..=)
-              Prelude.<$> extraPythonLibsS3Path,
-            ("ExtraJarsS3Path" Prelude..=)
-              Prelude.<$> extraJarsS3Path
+    Core.object
+      ( Core.catMaybes
+          [ ("ExtraPythonLibsS3Path" Core..=)
+              Core.<$> extraPythonLibsS3Path,
+            ("ExtraJarsS3Path" Core..=)
+              Core.<$> extraJarsS3Path
           ]
       )

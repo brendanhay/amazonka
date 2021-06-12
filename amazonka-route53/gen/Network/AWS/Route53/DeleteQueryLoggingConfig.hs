@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Route53.DeleteQueryLoggingConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -54,9 +53,9 @@ import Network.AWS.Route53.Types
 -- | /See:/ 'newDeleteQueryLoggingConfig' smart constructor.
 data DeleteQueryLoggingConfig = DeleteQueryLoggingConfig'
   { -- | The ID of the configuration that you want to delete.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQueryLoggingConfig' with all optional fields omitted.
@@ -69,48 +68,48 @@ data DeleteQueryLoggingConfig = DeleteQueryLoggingConfig'
 -- 'id', 'deleteQueryLoggingConfig_id' - The ID of the configuration that you want to delete.
 newDeleteQueryLoggingConfig ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteQueryLoggingConfig
 newDeleteQueryLoggingConfig pId_ =
   DeleteQueryLoggingConfig' {id = pId_}
 
 -- | The ID of the configuration that you want to delete.
-deleteQueryLoggingConfig_id :: Lens.Lens' DeleteQueryLoggingConfig Prelude.Text
+deleteQueryLoggingConfig_id :: Lens.Lens' DeleteQueryLoggingConfig Core.Text
 deleteQueryLoggingConfig_id = Lens.lens (\DeleteQueryLoggingConfig' {id} -> id) (\s@DeleteQueryLoggingConfig' {} a -> s {id = a} :: DeleteQueryLoggingConfig)
 
-instance Prelude.AWSRequest DeleteQueryLoggingConfig where
+instance Core.AWSRequest DeleteQueryLoggingConfig where
   type
-    Rs DeleteQueryLoggingConfig =
+    AWSResponse DeleteQueryLoggingConfig =
       DeleteQueryLoggingConfigResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteQueryLoggingConfigResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQueryLoggingConfig
+instance Core.Hashable DeleteQueryLoggingConfig
 
-instance Prelude.NFData DeleteQueryLoggingConfig
+instance Core.NFData DeleteQueryLoggingConfig
 
-instance Prelude.ToHeaders DeleteQueryLoggingConfig where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteQueryLoggingConfig where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteQueryLoggingConfig where
+instance Core.ToPath DeleteQueryLoggingConfig where
   toPath DeleteQueryLoggingConfig' {..} =
-    Prelude.mconcat
-      ["/2013-04-01/queryloggingconfig/", Prelude.toBS id]
+    Core.mconcat
+      ["/2013-04-01/queryloggingconfig/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteQueryLoggingConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteQueryLoggingConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteQueryLoggingConfigResponse' smart constructor.
 data DeleteQueryLoggingConfigResponse = DeleteQueryLoggingConfigResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQueryLoggingConfigResponse' with all optional fields omitted.
@@ -123,7 +122,7 @@ data DeleteQueryLoggingConfigResponse = DeleteQueryLoggingConfigResponse'
 -- 'httpStatus', 'deleteQueryLoggingConfigResponse_httpStatus' - The response's http status code.
 newDeleteQueryLoggingConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteQueryLoggingConfigResponse
 newDeleteQueryLoggingConfigResponse pHttpStatus_ =
   DeleteQueryLoggingConfigResponse'
@@ -132,9 +131,7 @@ newDeleteQueryLoggingConfigResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteQueryLoggingConfigResponse_httpStatus :: Lens.Lens' DeleteQueryLoggingConfigResponse Prelude.Int
+deleteQueryLoggingConfigResponse_httpStatus :: Lens.Lens' DeleteQueryLoggingConfigResponse Core.Int
 deleteQueryLoggingConfigResponse_httpStatus = Lens.lens (\DeleteQueryLoggingConfigResponse' {httpStatus} -> httpStatus) (\s@DeleteQueryLoggingConfigResponse' {} a -> s {httpStatus = a} :: DeleteQueryLoggingConfigResponse)
 
-instance
-  Prelude.NFData
-    DeleteQueryLoggingConfigResponse
+instance Core.NFData DeleteQueryLoggingConfigResponse

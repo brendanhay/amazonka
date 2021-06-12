@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.DirectoryService.CreateLogSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,12 +51,12 @@ import qualified Network.AWS.Response as Response
 data CreateLogSubscription = CreateLogSubscription'
   { -- | Identifier of the directory to which you want to subscribe and receive
     -- real-time logs to your specified CloudWatch log group.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The name of the CloudWatch log group where the real-time domain
     -- controller logs are forwarded.
-    logGroupName :: Prelude.Text
+    logGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLogSubscription' with all optional fields omitted.
@@ -74,9 +73,9 @@ data CreateLogSubscription = CreateLogSubscription'
 -- controller logs are forwarded.
 newCreateLogSubscription ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   CreateLogSubscription
 newCreateLogSubscription pDirectoryId_ pLogGroupName_ =
   CreateLogSubscription'
@@ -86,67 +85,64 @@ newCreateLogSubscription pDirectoryId_ pLogGroupName_ =
 
 -- | Identifier of the directory to which you want to subscribe and receive
 -- real-time logs to your specified CloudWatch log group.
-createLogSubscription_directoryId :: Lens.Lens' CreateLogSubscription Prelude.Text
+createLogSubscription_directoryId :: Lens.Lens' CreateLogSubscription Core.Text
 createLogSubscription_directoryId = Lens.lens (\CreateLogSubscription' {directoryId} -> directoryId) (\s@CreateLogSubscription' {} a -> s {directoryId = a} :: CreateLogSubscription)
 
 -- | The name of the CloudWatch log group where the real-time domain
 -- controller logs are forwarded.
-createLogSubscription_logGroupName :: Lens.Lens' CreateLogSubscription Prelude.Text
+createLogSubscription_logGroupName :: Lens.Lens' CreateLogSubscription Core.Text
 createLogSubscription_logGroupName = Lens.lens (\CreateLogSubscription' {logGroupName} -> logGroupName) (\s@CreateLogSubscription' {} a -> s {logGroupName = a} :: CreateLogSubscription)
 
-instance Prelude.AWSRequest CreateLogSubscription where
+instance Core.AWSRequest CreateLogSubscription where
   type
-    Rs CreateLogSubscription =
+    AWSResponse CreateLogSubscription =
       CreateLogSubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateLogSubscriptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLogSubscription
+instance Core.Hashable CreateLogSubscription
 
-instance Prelude.NFData CreateLogSubscription
+instance Core.NFData CreateLogSubscription
 
-instance Prelude.ToHeaders CreateLogSubscription where
+instance Core.ToHeaders CreateLogSubscription where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.CreateLogSubscription" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.CreateLogSubscription" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateLogSubscription where
+instance Core.ToJSON CreateLogSubscription where
   toJSON CreateLogSubscription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just
-              ("LogGroupName" Prelude..= logGroupName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("LogGroupName" Core..= logGroupName)
           ]
       )
 
-instance Prelude.ToPath CreateLogSubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateLogSubscription where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateLogSubscription where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateLogSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateLogSubscriptionResponse' smart constructor.
 data CreateLogSubscriptionResponse = CreateLogSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLogSubscriptionResponse' with all optional fields omitted.
@@ -159,7 +155,7 @@ data CreateLogSubscriptionResponse = CreateLogSubscriptionResponse'
 -- 'httpStatus', 'createLogSubscriptionResponse_httpStatus' - The response's http status code.
 newCreateLogSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateLogSubscriptionResponse
 newCreateLogSubscriptionResponse pHttpStatus_ =
   CreateLogSubscriptionResponse'
@@ -168,7 +164,7 @@ newCreateLogSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createLogSubscriptionResponse_httpStatus :: Lens.Lens' CreateLogSubscriptionResponse Prelude.Int
+createLogSubscriptionResponse_httpStatus :: Lens.Lens' CreateLogSubscriptionResponse Core.Int
 createLogSubscriptionResponse_httpStatus = Lens.lens (\CreateLogSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateLogSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateLogSubscriptionResponse)
 
-instance Prelude.NFData CreateLogSubscriptionResponse
+instance Core.NFData CreateLogSubscriptionResponse

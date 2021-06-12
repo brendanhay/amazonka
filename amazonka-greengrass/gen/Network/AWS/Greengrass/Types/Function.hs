@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.Function where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.FunctionConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a Lambda function.
 --
 -- /See:/ 'newFunction' smart constructor.
 data Function = Function'
   { -- | The configuration of the Lambda function.
-    functionConfiguration :: Prelude.Maybe FunctionConfiguration,
+    functionConfiguration :: Core.Maybe FunctionConfiguration,
     -- | The ARN of the Lambda function.
-    functionArn :: Prelude.Maybe Prelude.Text,
+    functionArn :: Core.Maybe Core.Text,
     -- | A descriptive or arbitrary ID for the function. This value must be
     -- unique within the function definition version. Max length is 128
     -- characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Function' with all optional fields omitted.
@@ -56,51 +55,51 @@ data Function = Function'
 -- characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
 newFunction ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   Function
 newFunction pId_ =
   Function'
-    { functionConfiguration = Prelude.Nothing,
-      functionArn = Prelude.Nothing,
+    { functionConfiguration = Core.Nothing,
+      functionArn = Core.Nothing,
       id = pId_
     }
 
 -- | The configuration of the Lambda function.
-function_functionConfiguration :: Lens.Lens' Function (Prelude.Maybe FunctionConfiguration)
+function_functionConfiguration :: Lens.Lens' Function (Core.Maybe FunctionConfiguration)
 function_functionConfiguration = Lens.lens (\Function' {functionConfiguration} -> functionConfiguration) (\s@Function' {} a -> s {functionConfiguration = a} :: Function)
 
 -- | The ARN of the Lambda function.
-function_functionArn :: Lens.Lens' Function (Prelude.Maybe Prelude.Text)
+function_functionArn :: Lens.Lens' Function (Core.Maybe Core.Text)
 function_functionArn = Lens.lens (\Function' {functionArn} -> functionArn) (\s@Function' {} a -> s {functionArn = a} :: Function)
 
 -- | A descriptive or arbitrary ID for the function. This value must be
 -- unique within the function definition version. Max length is 128
 -- characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-function_id :: Lens.Lens' Function Prelude.Text
+function_id :: Lens.Lens' Function Core.Text
 function_id = Lens.lens (\Function' {id} -> id) (\s@Function' {} a -> s {id = a} :: Function)
 
-instance Prelude.FromJSON Function where
+instance Core.FromJSON Function where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Function"
       ( \x ->
           Function'
-            Prelude.<$> (x Prelude..:? "FunctionConfiguration")
-            Prelude.<*> (x Prelude..:? "FunctionArn")
-            Prelude.<*> (x Prelude..: "Id")
+            Core.<$> (x Core..:? "FunctionConfiguration")
+            Core.<*> (x Core..:? "FunctionArn")
+            Core.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable Function
+instance Core.Hashable Function
 
-instance Prelude.NFData Function
+instance Core.NFData Function
 
-instance Prelude.ToJSON Function where
+instance Core.ToJSON Function where
   toJSON Function' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FunctionConfiguration" Prelude..=)
-              Prelude.<$> functionConfiguration,
-            ("FunctionArn" Prelude..=) Prelude.<$> functionArn,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("FunctionConfiguration" Core..=)
+              Core.<$> functionConfiguration,
+            ("FunctionArn" Core..=) Core.<$> functionArn,
+            Core.Just ("Id" Core..= id)
           ]
       )

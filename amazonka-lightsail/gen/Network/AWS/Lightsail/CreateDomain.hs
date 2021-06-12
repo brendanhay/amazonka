@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.Lightsail.CreateDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +55,16 @@ data CreateDomain = CreateDomain'
   { -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it\'s created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The domain name to manage (e.g., @example.com@).
     --
     -- You cannot register a new domain name using Lightsail. You must register
     -- a domain name using Amazon Route 53 or another domain name registrar. If
     -- you have already registered your domain, you can enter its name in this
     -- parameter to manage the DNS records for that domain.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDomain' with all optional fields omitted.
@@ -87,19 +86,19 @@ data CreateDomain = CreateDomain'
 -- parameter to manage the DNS records for that domain.
 newCreateDomain ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   CreateDomain
 newCreateDomain pDomainName_ =
   CreateDomain'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | The tag keys and optional values to add to the resource during create.
 --
 -- Use the @TagResource@ action to tag a resource after it\'s created.
-createDomain_tags :: Lens.Lens' CreateDomain (Prelude.Maybe [Tag])
-createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Prelude.. Lens.mapping Prelude._Coerce
+createDomain_tags :: Lens.Lens' CreateDomain (Core.Maybe [Tag])
+createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' {} a -> s {tags = a} :: CreateDomain) Core.. Lens.mapping Lens._Coerce
 
 -- | The domain name to manage (e.g., @example.com@).
 --
@@ -107,64 +106,62 @@ createDomain_tags = Lens.lens (\CreateDomain' {tags} -> tags) (\s@CreateDomain' 
 -- a domain name using Amazon Route 53 or another domain name registrar. If
 -- you have already registered your domain, you can enter its name in this
 -- parameter to manage the DNS records for that domain.
-createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
+createDomain_domainName :: Lens.Lens' CreateDomain Core.Text
 createDomain_domainName = Lens.lens (\CreateDomain' {domainName} -> domainName) (\s@CreateDomain' {} a -> s {domainName = a} :: CreateDomain)
 
-instance Prelude.AWSRequest CreateDomain where
-  type Rs CreateDomain = CreateDomainResponse
+instance Core.AWSRequest CreateDomain where
+  type AWSResponse CreateDomain = CreateDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDomainResponse'
-            Prelude.<$> (x Prelude..?> "operation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDomain
+instance Core.Hashable CreateDomain
 
-instance Prelude.NFData CreateDomain
+instance Core.NFData CreateDomain
 
-instance Prelude.ToHeaders CreateDomain where
+instance Core.ToHeaders CreateDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.CreateDomain" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.CreateDomain" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDomain where
+instance Core.ToJSON CreateDomain where
   toJSON CreateDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("domainName" Prelude..= domainName)
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            Core.Just ("domainName" Core..= domainName)
           ]
       )
 
-instance Prelude.ToPath CreateDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDomain where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Prelude.Maybe Operation,
+    operation :: Core.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDomainResponse' with all optional fields omitted.
@@ -181,22 +178,22 @@ data CreateDomainResponse = CreateDomainResponse'
 -- 'httpStatus', 'createDomainResponse_httpStatus' - The response's http status code.
 newCreateDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDomainResponse
 newCreateDomainResponse pHttpStatus_ =
   CreateDomainResponse'
-    { operation = Prelude.Nothing,
+    { operation = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-createDomainResponse_operation :: Lens.Lens' CreateDomainResponse (Prelude.Maybe Operation)
+createDomainResponse_operation :: Lens.Lens' CreateDomainResponse (Core.Maybe Operation)
 createDomainResponse_operation = Lens.lens (\CreateDomainResponse' {operation} -> operation) (\s@CreateDomainResponse' {} a -> s {operation = a} :: CreateDomainResponse)
 
 -- | The response's http status code.
-createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Prelude.Int
+createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Core.Int
 createDomainResponse_httpStatus = Lens.lens (\CreateDomainResponse' {httpStatus} -> httpStatus) (\s@CreateDomainResponse' {} a -> s {httpStatus = a} :: CreateDomainResponse)
 
-instance Prelude.NFData CreateDomainResponse
+instance Core.NFData CreateDomainResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.EC2InstanceCounts where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Current status of fleet capacity. The number of active instances should
 -- match or be in the process of matching the number of desired instances.
@@ -45,22 +44,22 @@ import qualified Network.AWS.Prelude as Prelude
 data EC2InstanceCounts = EC2InstanceCounts'
   { -- | Number of active instances in the fleet that are not currently hosting a
     -- game session.
-    idle :: Prelude.Maybe Prelude.Natural,
+    idle :: Core.Maybe Core.Natural,
     -- | The minimum value allowed for the fleet\'s instance count.
-    minimum :: Prelude.Maybe Prelude.Natural,
+    minimum :: Core.Maybe Core.Natural,
     -- | Number of instances in the fleet that are starting but not yet active.
-    pending :: Prelude.Maybe Prelude.Natural,
+    pending :: Core.Maybe Core.Natural,
     -- | Actual number of active instances in the fleet.
-    active :: Prelude.Maybe Prelude.Natural,
+    active :: Core.Maybe Core.Natural,
     -- | Number of instances in the fleet that are no longer active but haven\'t
     -- yet been terminated.
-    terminating :: Prelude.Maybe Prelude.Natural,
+    terminating :: Core.Maybe Core.Natural,
     -- | The maximum value allowed for the fleet\'s instance count.
-    maximum :: Prelude.Maybe Prelude.Natural,
+    maximum :: Core.Maybe Core.Natural,
     -- | Ideal number of active instances in the fleet.
-    desired :: Prelude.Maybe Prelude.Natural
+    desired :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EC2InstanceCounts' with all optional fields omitted.
@@ -89,60 +88,60 @@ newEC2InstanceCounts ::
   EC2InstanceCounts
 newEC2InstanceCounts =
   EC2InstanceCounts'
-    { idle = Prelude.Nothing,
-      minimum = Prelude.Nothing,
-      pending = Prelude.Nothing,
-      active = Prelude.Nothing,
-      terminating = Prelude.Nothing,
-      maximum = Prelude.Nothing,
-      desired = Prelude.Nothing
+    { idle = Core.Nothing,
+      minimum = Core.Nothing,
+      pending = Core.Nothing,
+      active = Core.Nothing,
+      terminating = Core.Nothing,
+      maximum = Core.Nothing,
+      desired = Core.Nothing
     }
 
 -- | Number of active instances in the fleet that are not currently hosting a
 -- game session.
-eC2InstanceCounts_idle :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_idle :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
 eC2InstanceCounts_idle = Lens.lens (\EC2InstanceCounts' {idle} -> idle) (\s@EC2InstanceCounts' {} a -> s {idle = a} :: EC2InstanceCounts)
 
 -- | The minimum value allowed for the fleet\'s instance count.
-eC2InstanceCounts_minimum :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_minimum :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
 eC2InstanceCounts_minimum = Lens.lens (\EC2InstanceCounts' {minimum} -> minimum) (\s@EC2InstanceCounts' {} a -> s {minimum = a} :: EC2InstanceCounts)
 
 -- | Number of instances in the fleet that are starting but not yet active.
-eC2InstanceCounts_pending :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_pending :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
 eC2InstanceCounts_pending = Lens.lens (\EC2InstanceCounts' {pending} -> pending) (\s@EC2InstanceCounts' {} a -> s {pending = a} :: EC2InstanceCounts)
 
 -- | Actual number of active instances in the fleet.
-eC2InstanceCounts_active :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_active :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
 eC2InstanceCounts_active = Lens.lens (\EC2InstanceCounts' {active} -> active) (\s@EC2InstanceCounts' {} a -> s {active = a} :: EC2InstanceCounts)
 
 -- | Number of instances in the fleet that are no longer active but haven\'t
 -- yet been terminated.
-eC2InstanceCounts_terminating :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_terminating :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
 eC2InstanceCounts_terminating = Lens.lens (\EC2InstanceCounts' {terminating} -> terminating) (\s@EC2InstanceCounts' {} a -> s {terminating = a} :: EC2InstanceCounts)
 
 -- | The maximum value allowed for the fleet\'s instance count.
-eC2InstanceCounts_maximum :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_maximum :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
 eC2InstanceCounts_maximum = Lens.lens (\EC2InstanceCounts' {maximum} -> maximum) (\s@EC2InstanceCounts' {} a -> s {maximum = a} :: EC2InstanceCounts)
 
 -- | Ideal number of active instances in the fleet.
-eC2InstanceCounts_desired :: Lens.Lens' EC2InstanceCounts (Prelude.Maybe Prelude.Natural)
+eC2InstanceCounts_desired :: Lens.Lens' EC2InstanceCounts (Core.Maybe Core.Natural)
 eC2InstanceCounts_desired = Lens.lens (\EC2InstanceCounts' {desired} -> desired) (\s@EC2InstanceCounts' {} a -> s {desired = a} :: EC2InstanceCounts)
 
-instance Prelude.FromJSON EC2InstanceCounts where
+instance Core.FromJSON EC2InstanceCounts where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EC2InstanceCounts"
       ( \x ->
           EC2InstanceCounts'
-            Prelude.<$> (x Prelude..:? "IDLE")
-            Prelude.<*> (x Prelude..:? "MINIMUM")
-            Prelude.<*> (x Prelude..:? "PENDING")
-            Prelude.<*> (x Prelude..:? "ACTIVE")
-            Prelude.<*> (x Prelude..:? "TERMINATING")
-            Prelude.<*> (x Prelude..:? "MAXIMUM")
-            Prelude.<*> (x Prelude..:? "DESIRED")
+            Core.<$> (x Core..:? "IDLE")
+            Core.<*> (x Core..:? "MINIMUM")
+            Core.<*> (x Core..:? "PENDING")
+            Core.<*> (x Core..:? "ACTIVE")
+            Core.<*> (x Core..:? "TERMINATING")
+            Core.<*> (x Core..:? "MAXIMUM")
+            Core.<*> (x Core..:? "DESIRED")
       )
 
-instance Prelude.Hashable EC2InstanceCounts
+instance Core.Hashable EC2InstanceCounts
 
-instance Prelude.NFData EC2InstanceCounts
+instance Core.NFData EC2InstanceCounts

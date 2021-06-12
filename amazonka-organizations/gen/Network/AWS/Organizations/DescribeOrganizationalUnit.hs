@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Organizations.DescribeOrganizationalUnit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +60,9 @@ data DescribeOrganizationalUnit = DescribeOrganizationalUnit'
     -- lowercase letters or digits (the ID of the root that contains the OU).
     -- This string is followed by a second \"-\" dash and from 8 to 32
     -- additional lowercase letters or digits.
-    organizationalUnitId :: Prelude.Text
+    organizationalUnitId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationalUnit' with all optional fields omitted.
@@ -84,7 +83,7 @@ data DescribeOrganizationalUnit = DescribeOrganizationalUnit'
 -- additional lowercase letters or digits.
 newDescribeOrganizationalUnit ::
   -- | 'organizationalUnitId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeOrganizationalUnit
 newDescribeOrganizationalUnit pOrganizationalUnitId_ =
   DescribeOrganizationalUnit'
@@ -101,69 +100,64 @@ newDescribeOrganizationalUnit pOrganizationalUnitId_ =
 -- lowercase letters or digits (the ID of the root that contains the OU).
 -- This string is followed by a second \"-\" dash and from 8 to 32
 -- additional lowercase letters or digits.
-describeOrganizationalUnit_organizationalUnitId :: Lens.Lens' DescribeOrganizationalUnit Prelude.Text
+describeOrganizationalUnit_organizationalUnitId :: Lens.Lens' DescribeOrganizationalUnit Core.Text
 describeOrganizationalUnit_organizationalUnitId = Lens.lens (\DescribeOrganizationalUnit' {organizationalUnitId} -> organizationalUnitId) (\s@DescribeOrganizationalUnit' {} a -> s {organizationalUnitId = a} :: DescribeOrganizationalUnit)
 
-instance
-  Prelude.AWSRequest
-    DescribeOrganizationalUnit
-  where
+instance Core.AWSRequest DescribeOrganizationalUnit where
   type
-    Rs DescribeOrganizationalUnit =
+    AWSResponse DescribeOrganizationalUnit =
       DescribeOrganizationalUnitResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationalUnitResponse'
-            Prelude.<$> (x Prelude..?> "OrganizationalUnit")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OrganizationalUnit")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeOrganizationalUnit
+instance Core.Hashable DescribeOrganizationalUnit
 
-instance Prelude.NFData DescribeOrganizationalUnit
+instance Core.NFData DescribeOrganizationalUnit
 
-instance Prelude.ToHeaders DescribeOrganizationalUnit where
+instance Core.ToHeaders DescribeOrganizationalUnit where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DescribeOrganizationalUnit" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DescribeOrganizationalUnit" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeOrganizationalUnit where
+instance Core.ToJSON DescribeOrganizationalUnit where
   toJSON DescribeOrganizationalUnit' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "OrganizationalUnitId"
-                  Prelude..= organizationalUnitId
+                  Core..= organizationalUnitId
               )
           ]
       )
 
-instance Prelude.ToPath DescribeOrganizationalUnit where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeOrganizationalUnit where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeOrganizationalUnit where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeOrganizationalUnit where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeOrganizationalUnitResponse' smart constructor.
 data DescribeOrganizationalUnitResponse = DescribeOrganizationalUnitResponse'
   { -- | A structure that contains details about the specified OU.
-    organizationalUnit :: Prelude.Maybe OrganizationalUnit,
+    organizationalUnit :: Core.Maybe OrganizationalUnit,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeOrganizationalUnitResponse' with all optional fields omitted.
@@ -178,23 +172,23 @@ data DescribeOrganizationalUnitResponse = DescribeOrganizationalUnitResponse'
 -- 'httpStatus', 'describeOrganizationalUnitResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationalUnitResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeOrganizationalUnitResponse
 newDescribeOrganizationalUnitResponse pHttpStatus_ =
   DescribeOrganizationalUnitResponse'
     { organizationalUnit =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the specified OU.
-describeOrganizationalUnitResponse_organizationalUnit :: Lens.Lens' DescribeOrganizationalUnitResponse (Prelude.Maybe OrganizationalUnit)
+describeOrganizationalUnitResponse_organizationalUnit :: Lens.Lens' DescribeOrganizationalUnitResponse (Core.Maybe OrganizationalUnit)
 describeOrganizationalUnitResponse_organizationalUnit = Lens.lens (\DescribeOrganizationalUnitResponse' {organizationalUnit} -> organizationalUnit) (\s@DescribeOrganizationalUnitResponse' {} a -> s {organizationalUnit = a} :: DescribeOrganizationalUnitResponse)
 
 -- | The response's http status code.
-describeOrganizationalUnitResponse_httpStatus :: Lens.Lens' DescribeOrganizationalUnitResponse Prelude.Int
+describeOrganizationalUnitResponse_httpStatus :: Lens.Lens' DescribeOrganizationalUnitResponse Core.Int
 describeOrganizationalUnitResponse_httpStatus = Lens.lens (\DescribeOrganizationalUnitResponse' {httpStatus} -> httpStatus) (\s@DescribeOrganizationalUnitResponse' {} a -> s {httpStatus = a} :: DescribeOrganizationalUnitResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeOrganizationalUnitResponse

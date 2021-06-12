@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types.BrokerInstance where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about all brokers.
 --
 -- /See:/ 'newBrokerInstance' smart constructor.
 data BrokerInstance = BrokerInstance'
   { -- | The broker\'s wire-level protocol endpoints.
-    endpoints :: Prelude.Maybe [Prelude.Text],
+    endpoints :: Core.Maybe [Core.Text],
     -- | The IP address of the Elastic Network Interface (ENI) attached to the
     -- broker. Does not apply to RabbitMQ brokers
-    ipAddress :: Prelude.Maybe Prelude.Text,
+    ipAddress :: Core.Maybe Core.Text,
     -- | The URL of the broker\'s Web Console.
-    consoleURL :: Prelude.Maybe Prelude.Text
+    consoleURL :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BrokerInstance' with all optional fields omitted.
@@ -55,37 +54,35 @@ newBrokerInstance ::
   BrokerInstance
 newBrokerInstance =
   BrokerInstance'
-    { endpoints = Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
-      consoleURL = Prelude.Nothing
+    { endpoints = Core.Nothing,
+      ipAddress = Core.Nothing,
+      consoleURL = Core.Nothing
     }
 
 -- | The broker\'s wire-level protocol endpoints.
-brokerInstance_endpoints :: Lens.Lens' BrokerInstance (Prelude.Maybe [Prelude.Text])
-brokerInstance_endpoints = Lens.lens (\BrokerInstance' {endpoints} -> endpoints) (\s@BrokerInstance' {} a -> s {endpoints = a} :: BrokerInstance) Prelude.. Lens.mapping Prelude._Coerce
+brokerInstance_endpoints :: Lens.Lens' BrokerInstance (Core.Maybe [Core.Text])
+brokerInstance_endpoints = Lens.lens (\BrokerInstance' {endpoints} -> endpoints) (\s@BrokerInstance' {} a -> s {endpoints = a} :: BrokerInstance) Core.. Lens.mapping Lens._Coerce
 
 -- | The IP address of the Elastic Network Interface (ENI) attached to the
 -- broker. Does not apply to RabbitMQ brokers
-brokerInstance_ipAddress :: Lens.Lens' BrokerInstance (Prelude.Maybe Prelude.Text)
+brokerInstance_ipAddress :: Lens.Lens' BrokerInstance (Core.Maybe Core.Text)
 brokerInstance_ipAddress = Lens.lens (\BrokerInstance' {ipAddress} -> ipAddress) (\s@BrokerInstance' {} a -> s {ipAddress = a} :: BrokerInstance)
 
 -- | The URL of the broker\'s Web Console.
-brokerInstance_consoleURL :: Lens.Lens' BrokerInstance (Prelude.Maybe Prelude.Text)
+brokerInstance_consoleURL :: Lens.Lens' BrokerInstance (Core.Maybe Core.Text)
 brokerInstance_consoleURL = Lens.lens (\BrokerInstance' {consoleURL} -> consoleURL) (\s@BrokerInstance' {} a -> s {consoleURL = a} :: BrokerInstance)
 
-instance Prelude.FromJSON BrokerInstance where
+instance Core.FromJSON BrokerInstance where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BrokerInstance"
       ( \x ->
           BrokerInstance'
-            Prelude.<$> ( x Prelude..:? "endpoints"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ipAddress")
-            Prelude.<*> (x Prelude..:? "consoleURL")
+            Core.<$> (x Core..:? "endpoints" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ipAddress")
+            Core.<*> (x Core..:? "consoleURL")
       )
 
-instance Prelude.Hashable BrokerInstance
+instance Core.Hashable BrokerInstance
 
-instance Prelude.NFData BrokerInstance
+instance Core.NFData BrokerInstance

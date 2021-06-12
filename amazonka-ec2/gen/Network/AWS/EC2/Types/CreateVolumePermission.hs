@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.CreateVolumePermission where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PermissionGroup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the user or group to be added or removed from the list of
 -- create volume permissions for a volume.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCreateVolumePermission' smart constructor.
 data CreateVolumePermission = CreateVolumePermission'
   { -- | The group to be added or removed. The possible value is @all@.
-    group' :: Prelude.Maybe PermissionGroup,
+    group' :: Core.Maybe PermissionGroup,
     -- | The AWS account ID to be added or removed.
-    userId :: Prelude.Maybe Prelude.Text
+    userId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVolumePermission' with all optional fields omitted.
@@ -52,31 +51,28 @@ newCreateVolumePermission ::
   CreateVolumePermission
 newCreateVolumePermission =
   CreateVolumePermission'
-    { group' = Prelude.Nothing,
-      userId = Prelude.Nothing
+    { group' = Core.Nothing,
+      userId = Core.Nothing
     }
 
 -- | The group to be added or removed. The possible value is @all@.
-createVolumePermission_group :: Lens.Lens' CreateVolumePermission (Prelude.Maybe PermissionGroup)
+createVolumePermission_group :: Lens.Lens' CreateVolumePermission (Core.Maybe PermissionGroup)
 createVolumePermission_group = Lens.lens (\CreateVolumePermission' {group'} -> group') (\s@CreateVolumePermission' {} a -> s {group' = a} :: CreateVolumePermission)
 
 -- | The AWS account ID to be added or removed.
-createVolumePermission_userId :: Lens.Lens' CreateVolumePermission (Prelude.Maybe Prelude.Text)
+createVolumePermission_userId :: Lens.Lens' CreateVolumePermission (Core.Maybe Core.Text)
 createVolumePermission_userId = Lens.lens (\CreateVolumePermission' {userId} -> userId) (\s@CreateVolumePermission' {} a -> s {userId = a} :: CreateVolumePermission)
 
-instance Prelude.FromXML CreateVolumePermission where
+instance Core.FromXML CreateVolumePermission where
   parseXML x =
     CreateVolumePermission'
-      Prelude.<$> (x Prelude..@? "group")
-      Prelude.<*> (x Prelude..@? "userId")
+      Core.<$> (x Core..@? "group") Core.<*> (x Core..@? "userId")
 
-instance Prelude.Hashable CreateVolumePermission
+instance Core.Hashable CreateVolumePermission
 
-instance Prelude.NFData CreateVolumePermission
+instance Core.NFData CreateVolumePermission
 
-instance Prelude.ToQuery CreateVolumePermission where
+instance Core.ToQuery CreateVolumePermission where
   toQuery CreateVolumePermission' {..} =
-    Prelude.mconcat
-      [ "Group" Prelude.=: group',
-        "UserId" Prelude.=: userId
-      ]
+    Core.mconcat
+      ["Group" Core.=: group', "UserId" Core.=: userId]

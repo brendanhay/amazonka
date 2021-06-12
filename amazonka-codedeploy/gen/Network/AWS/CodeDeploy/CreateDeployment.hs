@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CodeDeploy.CreateDeployment
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,7 +65,7 @@ data CreateDeployment = CreateDeployment'
     -- as the default. If the deployment group does not have a deployment
     -- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
     -- used by default.
-    deploymentConfigName :: Prelude.Maybe Prelude.Text,
+    deploymentConfigName :: Core.Maybe Core.Text,
     -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
     -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
     -- then the deployment continues to the next deployment lifecycle event.
@@ -93,22 +92,22 @@ data CreateDeployment = CreateDeployment'
     -- use @ignoreApplicationStopFailures@ to specify that the
     -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
     -- failures should be ignored.
-    ignoreApplicationStopFailures :: Prelude.Maybe Prelude.Bool,
+    ignoreApplicationStopFailures :: Core.Maybe Core.Bool,
     -- | Indicates whether to deploy to all instances or only to instances that
     -- are not running the latest application revision.
-    updateOutdatedInstancesOnly :: Prelude.Maybe Prelude.Bool,
+    updateOutdatedInstancesOnly :: Core.Maybe Core.Bool,
     -- | Configuration information for an automatic rollback that is added when a
     -- deployment is created.
-    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
+    autoRollbackConfiguration :: Core.Maybe AutoRollbackConfiguration,
     -- | The name of the deployment group.
-    deploymentGroupName :: Prelude.Maybe Prelude.Text,
+    deploymentGroupName :: Core.Maybe Core.Text,
     -- | Information about the instances that belong to the replacement
     -- environment in a blue\/green deployment.
-    targetInstances :: Prelude.Maybe TargetInstances,
+    targetInstances :: Core.Maybe TargetInstances,
     -- | A comment about the deployment.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The type and location of the revision to deploy.
-    revision :: Prelude.Maybe RevisionLocation,
+    revision :: Core.Maybe RevisionLocation,
     -- | Information about how AWS CodeDeploy handles files that already exist in
     -- a deployment target location but weren\'t part of the previous
     -- successful deployment.
@@ -124,12 +123,12 @@ data CreateDeployment = CreateDeployment'
     --
     -- -   RETAIN: The version of the file already on the instance is kept and
     --     used as part of the new deployment.
-    fileExistsBehavior :: Prelude.Maybe FileExistsBehavior,
+    fileExistsBehavior :: Core.Maybe FileExistsBehavior,
     -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDeployment' with all optional fields omitted.
@@ -209,20 +208,20 @@ data CreateDeployment = CreateDeployment'
 -- or AWS account.
 newCreateDeployment ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   CreateDeployment
 newCreateDeployment pApplicationName_ =
   CreateDeployment'
     { deploymentConfigName =
-        Prelude.Nothing,
-      ignoreApplicationStopFailures = Prelude.Nothing,
-      updateOutdatedInstancesOnly = Prelude.Nothing,
-      autoRollbackConfiguration = Prelude.Nothing,
-      deploymentGroupName = Prelude.Nothing,
-      targetInstances = Prelude.Nothing,
-      description = Prelude.Nothing,
-      revision = Prelude.Nothing,
-      fileExistsBehavior = Prelude.Nothing,
+        Core.Nothing,
+      ignoreApplicationStopFailures = Core.Nothing,
+      updateOutdatedInstancesOnly = Core.Nothing,
+      autoRollbackConfiguration = Core.Nothing,
+      deploymentGroupName = Core.Nothing,
+      targetInstances = Core.Nothing,
+      description = Core.Nothing,
+      revision = Core.Nothing,
+      fileExistsBehavior = Core.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -233,7 +232,7 @@ newCreateDeployment pApplicationName_ =
 -- as the default. If the deployment group does not have a deployment
 -- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
 -- used by default.
-createDeployment_deploymentConfigName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_deploymentConfigName :: Lens.Lens' CreateDeployment (Core.Maybe Core.Text)
 createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeployment' {} a -> s {deploymentConfigName = a} :: CreateDeployment)
 
 -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
@@ -262,34 +261,34 @@ createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymen
 -- use @ignoreApplicationStopFailures@ to specify that the
 -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
 -- failures should be ignored.
-createDeployment_ignoreApplicationStopFailures :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
+createDeployment_ignoreApplicationStopFailures :: Lens.Lens' CreateDeployment (Core.Maybe Core.Bool)
 createDeployment_ignoreApplicationStopFailures = Lens.lens (\CreateDeployment' {ignoreApplicationStopFailures} -> ignoreApplicationStopFailures) (\s@CreateDeployment' {} a -> s {ignoreApplicationStopFailures = a} :: CreateDeployment)
 
 -- | Indicates whether to deploy to all instances or only to instances that
 -- are not running the latest application revision.
-createDeployment_updateOutdatedInstancesOnly :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
+createDeployment_updateOutdatedInstancesOnly :: Lens.Lens' CreateDeployment (Core.Maybe Core.Bool)
 createDeployment_updateOutdatedInstancesOnly = Lens.lens (\CreateDeployment' {updateOutdatedInstancesOnly} -> updateOutdatedInstancesOnly) (\s@CreateDeployment' {} a -> s {updateOutdatedInstancesOnly = a} :: CreateDeployment)
 
 -- | Configuration information for an automatic rollback that is added when a
 -- deployment is created.
-createDeployment_autoRollbackConfiguration :: Lens.Lens' CreateDeployment (Prelude.Maybe AutoRollbackConfiguration)
+createDeployment_autoRollbackConfiguration :: Lens.Lens' CreateDeployment (Core.Maybe AutoRollbackConfiguration)
 createDeployment_autoRollbackConfiguration = Lens.lens (\CreateDeployment' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeployment' {} a -> s {autoRollbackConfiguration = a} :: CreateDeployment)
 
 -- | The name of the deployment group.
-createDeployment_deploymentGroupName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_deploymentGroupName :: Lens.Lens' CreateDeployment (Core.Maybe Core.Text)
 createDeployment_deploymentGroupName = Lens.lens (\CreateDeployment' {deploymentGroupName} -> deploymentGroupName) (\s@CreateDeployment' {} a -> s {deploymentGroupName = a} :: CreateDeployment)
 
 -- | Information about the instances that belong to the replacement
 -- environment in a blue\/green deployment.
-createDeployment_targetInstances :: Lens.Lens' CreateDeployment (Prelude.Maybe TargetInstances)
+createDeployment_targetInstances :: Lens.Lens' CreateDeployment (Core.Maybe TargetInstances)
 createDeployment_targetInstances = Lens.lens (\CreateDeployment' {targetInstances} -> targetInstances) (\s@CreateDeployment' {} a -> s {targetInstances = a} :: CreateDeployment)
 
 -- | A comment about the deployment.
-createDeployment_description :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_description :: Lens.Lens' CreateDeployment (Core.Maybe Core.Text)
 createDeployment_description = Lens.lens (\CreateDeployment' {description} -> description) (\s@CreateDeployment' {} a -> s {description = a} :: CreateDeployment)
 
 -- | The type and location of the revision to deploy.
-createDeployment_revision :: Lens.Lens' CreateDeployment (Prelude.Maybe RevisionLocation)
+createDeployment_revision :: Lens.Lens' CreateDeployment (Core.Maybe RevisionLocation)
 createDeployment_revision = Lens.lens (\CreateDeployment' {revision} -> revision) (\s@CreateDeployment' {} a -> s {revision = a} :: CreateDeployment)
 
 -- | Information about how AWS CodeDeploy handles files that already exist in
@@ -307,85 +306,84 @@ createDeployment_revision = Lens.lens (\CreateDeployment' {revision} -> revision
 --
 -- -   RETAIN: The version of the file already on the instance is kept and
 --     used as part of the new deployment.
-createDeployment_fileExistsBehavior :: Lens.Lens' CreateDeployment (Prelude.Maybe FileExistsBehavior)
+createDeployment_fileExistsBehavior :: Lens.Lens' CreateDeployment (Core.Maybe FileExistsBehavior)
 createDeployment_fileExistsBehavior = Lens.lens (\CreateDeployment' {fileExistsBehavior} -> fileExistsBehavior) (\s@CreateDeployment' {} a -> s {fileExistsBehavior = a} :: CreateDeployment)
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
-createDeployment_applicationName :: Lens.Lens' CreateDeployment Prelude.Text
+createDeployment_applicationName :: Lens.Lens' CreateDeployment Core.Text
 createDeployment_applicationName = Lens.lens (\CreateDeployment' {applicationName} -> applicationName) (\s@CreateDeployment' {} a -> s {applicationName = a} :: CreateDeployment)
 
-instance Prelude.AWSRequest CreateDeployment where
-  type Rs CreateDeployment = CreateDeploymentResponse
+instance Core.AWSRequest CreateDeployment where
+  type
+    AWSResponse CreateDeployment =
+      CreateDeploymentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDeploymentResponse'
-            Prelude.<$> (x Prelude..?> "deploymentId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "deploymentId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDeployment
+instance Core.Hashable CreateDeployment
 
-instance Prelude.NFData CreateDeployment
+instance Core.NFData CreateDeployment
 
-instance Prelude.ToHeaders CreateDeployment where
+instance Core.ToHeaders CreateDeployment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.CreateDeployment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.CreateDeployment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDeployment where
+instance Core.ToJSON CreateDeployment where
   toJSON CreateDeployment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deploymentConfigName" Prelude..=)
-              Prelude.<$> deploymentConfigName,
-            ("ignoreApplicationStopFailures" Prelude..=)
-              Prelude.<$> ignoreApplicationStopFailures,
-            ("updateOutdatedInstancesOnly" Prelude..=)
-              Prelude.<$> updateOutdatedInstancesOnly,
-            ("autoRollbackConfiguration" Prelude..=)
-              Prelude.<$> autoRollbackConfiguration,
-            ("deploymentGroupName" Prelude..=)
-              Prelude.<$> deploymentGroupName,
-            ("targetInstances" Prelude..=)
-              Prelude.<$> targetInstances,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("revision" Prelude..=) Prelude.<$> revision,
-            ("fileExistsBehavior" Prelude..=)
-              Prelude.<$> fileExistsBehavior,
-            Prelude.Just
-              ("applicationName" Prelude..= applicationName)
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentConfigName" Core..=)
+              Core.<$> deploymentConfigName,
+            ("ignoreApplicationStopFailures" Core..=)
+              Core.<$> ignoreApplicationStopFailures,
+            ("updateOutdatedInstancesOnly" Core..=)
+              Core.<$> updateOutdatedInstancesOnly,
+            ("autoRollbackConfiguration" Core..=)
+              Core.<$> autoRollbackConfiguration,
+            ("deploymentGroupName" Core..=)
+              Core.<$> deploymentGroupName,
+            ("targetInstances" Core..=) Core.<$> targetInstances,
+            ("description" Core..=) Core.<$> description,
+            ("revision" Core..=) Core.<$> revision,
+            ("fileExistsBehavior" Core..=)
+              Core.<$> fileExistsBehavior,
+            Core.Just
+              ("applicationName" Core..= applicationName)
           ]
       )
 
-instance Prelude.ToPath CreateDeployment where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDeployment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDeployment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDeployment where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @CreateDeployment@ operation.
 --
 -- /See:/ 'newCreateDeploymentResponse' smart constructor.
 data CreateDeploymentResponse = CreateDeploymentResponse'
   { -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    deploymentId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDeploymentResponse' with all optional fields omitted.
@@ -400,21 +398,21 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 -- 'httpStatus', 'createDeploymentResponse_httpStatus' - The response's http status code.
 newCreateDeploymentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDeploymentResponse
 newCreateDeploymentResponse pHttpStatus_ =
   CreateDeploymentResponse'
     { deploymentId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID of a deployment.
-createDeploymentResponse_deploymentId :: Lens.Lens' CreateDeploymentResponse (Prelude.Maybe Prelude.Text)
+createDeploymentResponse_deploymentId :: Lens.Lens' CreateDeploymentResponse (Core.Maybe Core.Text)
 createDeploymentResponse_deploymentId = Lens.lens (\CreateDeploymentResponse' {deploymentId} -> deploymentId) (\s@CreateDeploymentResponse' {} a -> s {deploymentId = a} :: CreateDeploymentResponse)
 
 -- | The response's http status code.
-createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Prelude.Int
+createDeploymentResponse_httpStatus :: Lens.Lens' CreateDeploymentResponse Core.Int
 createDeploymentResponse_httpStatus = Lens.lens (\CreateDeploymentResponse' {httpStatus} -> httpStatus) (\s@CreateDeploymentResponse' {} a -> s {httpStatus = a} :: CreateDeploymentResponse)
 
-instance Prelude.NFData CreateDeploymentResponse
+instance Core.NFData CreateDeploymentResponse

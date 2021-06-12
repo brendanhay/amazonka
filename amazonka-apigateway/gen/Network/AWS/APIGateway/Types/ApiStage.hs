@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,22 +20,22 @@
 module Network.AWS.APIGateway.Types.ApiStage where
 
 import Network.AWS.APIGateway.Types.ThrottleSettings
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | API stage name of the associated API stage in a usage plan.
 --
 -- /See:/ 'newApiStage' smart constructor.
 data ApiStage = ApiStage'
   { -- | API Id of the associated API stage in a usage plan.
-    apiId :: Prelude.Maybe Prelude.Text,
+    apiId :: Core.Maybe Core.Text,
     -- | API stage name of the associated API stage in a usage plan.
-    stage :: Prelude.Maybe Prelude.Text,
+    stage :: Core.Maybe Core.Text,
     -- | Map containing method level throttling information for API stage in a
     -- usage plan.
-    throttle :: Prelude.Maybe (Prelude.HashMap Prelude.Text ThrottleSettings)
+    throttle :: Core.Maybe (Core.HashMap Core.Text ThrottleSettings)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApiStage' with all optional fields omitted.
@@ -56,47 +55,45 @@ newApiStage ::
   ApiStage
 newApiStage =
   ApiStage'
-    { apiId = Prelude.Nothing,
-      stage = Prelude.Nothing,
-      throttle = Prelude.Nothing
+    { apiId = Core.Nothing,
+      stage = Core.Nothing,
+      throttle = Core.Nothing
     }
 
 -- | API Id of the associated API stage in a usage plan.
-apiStage_apiId :: Lens.Lens' ApiStage (Prelude.Maybe Prelude.Text)
+apiStage_apiId :: Lens.Lens' ApiStage (Core.Maybe Core.Text)
 apiStage_apiId = Lens.lens (\ApiStage' {apiId} -> apiId) (\s@ApiStage' {} a -> s {apiId = a} :: ApiStage)
 
 -- | API stage name of the associated API stage in a usage plan.
-apiStage_stage :: Lens.Lens' ApiStage (Prelude.Maybe Prelude.Text)
+apiStage_stage :: Lens.Lens' ApiStage (Core.Maybe Core.Text)
 apiStage_stage = Lens.lens (\ApiStage' {stage} -> stage) (\s@ApiStage' {} a -> s {stage = a} :: ApiStage)
 
 -- | Map containing method level throttling information for API stage in a
 -- usage plan.
-apiStage_throttle :: Lens.Lens' ApiStage (Prelude.Maybe (Prelude.HashMap Prelude.Text ThrottleSettings))
-apiStage_throttle = Lens.lens (\ApiStage' {throttle} -> throttle) (\s@ApiStage' {} a -> s {throttle = a} :: ApiStage) Prelude.. Lens.mapping Prelude._Coerce
+apiStage_throttle :: Lens.Lens' ApiStage (Core.Maybe (Core.HashMap Core.Text ThrottleSettings))
+apiStage_throttle = Lens.lens (\ApiStage' {throttle} -> throttle) (\s@ApiStage' {} a -> s {throttle = a} :: ApiStage) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ApiStage where
+instance Core.FromJSON ApiStage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ApiStage"
       ( \x ->
           ApiStage'
-            Prelude.<$> (x Prelude..:? "apiId")
-            Prelude.<*> (x Prelude..:? "stage")
-            Prelude.<*> ( x Prelude..:? "throttle"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "apiId")
+            Core.<*> (x Core..:? "stage")
+            Core.<*> (x Core..:? "throttle" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ApiStage
+instance Core.Hashable ApiStage
 
-instance Prelude.NFData ApiStage
+instance Core.NFData ApiStage
 
-instance Prelude.ToJSON ApiStage where
+instance Core.ToJSON ApiStage where
   toJSON ApiStage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("apiId" Prelude..=) Prelude.<$> apiId,
-            ("stage" Prelude..=) Prelude.<$> stage,
-            ("throttle" Prelude..=) Prelude.<$> throttle
+    Core.object
+      ( Core.catMaybes
+          [ ("apiId" Core..=) Core.<$> apiId,
+            ("stage" Core..=) Core.<$> stage,
+            ("throttle" Core..=) Core.<$> throttle
           ]
       )

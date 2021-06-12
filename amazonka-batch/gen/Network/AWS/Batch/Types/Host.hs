@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.Host where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Determine whether your data volume persists on the host container
 -- instance and where it is stored. If this parameter is empty, then the
@@ -42,9 +41,9 @@ data Host = Host'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources
     -- and shouldn\'t be provided.
-    sourcePath :: Prelude.Maybe Prelude.Text
+    sourcePath :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Host' with all optional fields omitted.
@@ -67,7 +66,7 @@ data Host = Host'
 -- and shouldn\'t be provided.
 newHost ::
   Host
-newHost = Host' {sourcePath = Prelude.Nothing}
+newHost = Host' {sourcePath = Core.Nothing}
 
 -- | The path on the host container instance that\'s presented to the
 -- container. If this parameter is empty, then the Docker daemon has
@@ -80,24 +79,22 @@ newHost = Host' {sourcePath = Prelude.Nothing}
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources
 -- and shouldn\'t be provided.
-host_sourcePath :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
+host_sourcePath :: Lens.Lens' Host (Core.Maybe Core.Text)
 host_sourcePath = Lens.lens (\Host' {sourcePath} -> sourcePath) (\s@Host' {} a -> s {sourcePath = a} :: Host)
 
-instance Prelude.FromJSON Host where
+instance Core.FromJSON Host where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Host"
-      ( \x ->
-          Host' Prelude.<$> (x Prelude..:? "sourcePath")
-      )
+      (\x -> Host' Core.<$> (x Core..:? "sourcePath"))
 
-instance Prelude.Hashable Host
+instance Core.Hashable Host
 
-instance Prelude.NFData Host
+instance Core.NFData Host
 
-instance Prelude.ToJSON Host where
+instance Core.ToJSON Host where
   toJSON Host' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("sourcePath" Prelude..=) Prelude.<$> sourcePath]
+    Core.object
+      ( Core.catMaybes
+          [("sourcePath" Core..=) Core.<$> sourcePath]
       )

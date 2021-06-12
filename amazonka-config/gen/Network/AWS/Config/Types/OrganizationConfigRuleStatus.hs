@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,23 +20,23 @@
 module Network.AWS.Config.Types.OrganizationConfigRuleStatus where
 
 import Network.AWS.Config.Types.OrganizationRuleStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the status for an organization config rule in an organization.
 --
 -- /See:/ 'newOrganizationConfigRuleStatus' smart constructor.
 data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
   { -- | The timestamp of the last update.
-    lastUpdateTime :: Prelude.Maybe Prelude.POSIX,
+    lastUpdateTime :: Core.Maybe Core.POSIX,
     -- | An error message indicating that organization config rule creation or
     -- deletion failed due to an error.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | An error code that is returned when organization config rule creation or
     -- deletion has failed.
-    errorCode :: Prelude.Maybe Prelude.Text,
+    errorCode :: Core.Maybe Core.Text,
     -- | The name that you assign to organization config rule.
-    organizationConfigRuleName :: Prelude.Text,
+    organizationConfigRuleName :: Core.Text,
     -- | Indicates deployment status of an organization config rule. When master
     -- account calls PutOrganizationConfigRule action for the first time,
     -- config rule status is created in all the member accounts. When master
@@ -78,7 +77,7 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
     --     one or more member accounts within that organization.
     organizationRuleStatus :: OrganizationRuleStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationConfigRuleStatus' with all optional fields omitted.
@@ -138,7 +137,7 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
 --     one or more member accounts within that organization.
 newOrganizationConfigRuleStatus ::
   -- | 'organizationConfigRuleName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationRuleStatus'
   OrganizationRuleStatus ->
   OrganizationConfigRuleStatus
@@ -147,9 +146,9 @@ newOrganizationConfigRuleStatus
   pOrganizationRuleStatus_ =
     OrganizationConfigRuleStatus'
       { lastUpdateTime =
-          Prelude.Nothing,
-        errorMessage = Prelude.Nothing,
-        errorCode = Prelude.Nothing,
+          Core.Nothing,
+        errorMessage = Core.Nothing,
+        errorCode = Core.Nothing,
         organizationConfigRuleName =
           pOrganizationConfigRuleName_,
         organizationRuleStatus =
@@ -157,21 +156,21 @@ newOrganizationConfigRuleStatus
       }
 
 -- | The timestamp of the last update.
-organizationConfigRuleStatus_lastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.UTCTime)
-organizationConfigRuleStatus_lastUpdateTime = Lens.lens (\OrganizationConfigRuleStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRuleStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRuleStatus) Prelude.. Lens.mapping Prelude._Time
+organizationConfigRuleStatus_lastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Core.Maybe Core.UTCTime)
+organizationConfigRuleStatus_lastUpdateTime = Lens.lens (\OrganizationConfigRuleStatus' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConfigRuleStatus' {} a -> s {lastUpdateTime = a} :: OrganizationConfigRuleStatus) Core.. Lens.mapping Core._Time
 
 -- | An error message indicating that organization config rule creation or
 -- deletion failed due to an error.
-organizationConfigRuleStatus_errorMessage :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
+organizationConfigRuleStatus_errorMessage :: Lens.Lens' OrganizationConfigRuleStatus (Core.Maybe Core.Text)
 organizationConfigRuleStatus_errorMessage = Lens.lens (\OrganizationConfigRuleStatus' {errorMessage} -> errorMessage) (\s@OrganizationConfigRuleStatus' {} a -> s {errorMessage = a} :: OrganizationConfigRuleStatus)
 
 -- | An error code that is returned when organization config rule creation or
 -- deletion has failed.
-organizationConfigRuleStatus_errorCode :: Lens.Lens' OrganizationConfigRuleStatus (Prelude.Maybe Prelude.Text)
+organizationConfigRuleStatus_errorCode :: Lens.Lens' OrganizationConfigRuleStatus (Core.Maybe Core.Text)
 organizationConfigRuleStatus_errorCode = Lens.lens (\OrganizationConfigRuleStatus' {errorCode} -> errorCode) (\s@OrganizationConfigRuleStatus' {} a -> s {errorCode = a} :: OrganizationConfigRuleStatus)
 
 -- | The name that you assign to organization config rule.
-organizationConfigRuleStatus_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRuleStatus Prelude.Text
+organizationConfigRuleStatus_organizationConfigRuleName :: Lens.Lens' OrganizationConfigRuleStatus Core.Text
 organizationConfigRuleStatus_organizationConfigRuleName = Lens.lens (\OrganizationConfigRuleStatus' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@OrganizationConfigRuleStatus' {} a -> s {organizationConfigRuleName = a} :: OrganizationConfigRuleStatus)
 
 -- | Indicates deployment status of an organization config rule. When master
@@ -215,24 +214,19 @@ organizationConfigRuleStatus_organizationConfigRuleName = Lens.lens (\Organizati
 organizationConfigRuleStatus_organizationRuleStatus :: Lens.Lens' OrganizationConfigRuleStatus OrganizationRuleStatus
 organizationConfigRuleStatus_organizationRuleStatus = Lens.lens (\OrganizationConfigRuleStatus' {organizationRuleStatus} -> organizationRuleStatus) (\s@OrganizationConfigRuleStatus' {} a -> s {organizationRuleStatus = a} :: OrganizationConfigRuleStatus)
 
-instance
-  Prelude.FromJSON
-    OrganizationConfigRuleStatus
-  where
+instance Core.FromJSON OrganizationConfigRuleStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OrganizationConfigRuleStatus"
       ( \x ->
           OrganizationConfigRuleStatus'
-            Prelude.<$> (x Prelude..:? "LastUpdateTime")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
-            Prelude.<*> (x Prelude..: "OrganizationConfigRuleName")
-            Prelude.<*> (x Prelude..: "OrganizationRuleStatus")
+            Core.<$> (x Core..:? "LastUpdateTime")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
+            Core.<*> (x Core..: "OrganizationConfigRuleName")
+            Core.<*> (x Core..: "OrganizationRuleStatus")
       )
 
-instance
-  Prelude.Hashable
-    OrganizationConfigRuleStatus
+instance Core.Hashable OrganizationConfigRuleStatus
 
-instance Prelude.NFData OrganizationConfigRuleStatus
+instance Core.NFData OrganizationConfigRuleStatus

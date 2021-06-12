@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.KeyProviderSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.StaticKeySettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Key Provider Settings
 --
 -- /See:/ 'newKeyProviderSettings' smart constructor.
 data KeyProviderSettings = KeyProviderSettings'
-  { staticKeySettings :: Prelude.Maybe StaticKeySettings
+  { staticKeySettings :: Core.Maybe StaticKeySettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyProviderSettings' with all optional fields omitted.
@@ -46,31 +45,31 @@ newKeyProviderSettings ::
 newKeyProviderSettings =
   KeyProviderSettings'
     { staticKeySettings =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Undocumented member.
-keyProviderSettings_staticKeySettings :: Lens.Lens' KeyProviderSettings (Prelude.Maybe StaticKeySettings)
+keyProviderSettings_staticKeySettings :: Lens.Lens' KeyProviderSettings (Core.Maybe StaticKeySettings)
 keyProviderSettings_staticKeySettings = Lens.lens (\KeyProviderSettings' {staticKeySettings} -> staticKeySettings) (\s@KeyProviderSettings' {} a -> s {staticKeySettings = a} :: KeyProviderSettings)
 
-instance Prelude.FromJSON KeyProviderSettings where
+instance Core.FromJSON KeyProviderSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyProviderSettings"
       ( \x ->
           KeyProviderSettings'
-            Prelude.<$> (x Prelude..:? "staticKeySettings")
+            Core.<$> (x Core..:? "staticKeySettings")
       )
 
-instance Prelude.Hashable KeyProviderSettings
+instance Core.Hashable KeyProviderSettings
 
-instance Prelude.NFData KeyProviderSettings
+instance Core.NFData KeyProviderSettings
 
-instance Prelude.ToJSON KeyProviderSettings where
+instance Core.ToJSON KeyProviderSettings where
   toJSON KeyProviderSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("staticKeySettings" Prelude..=)
-              Prelude.<$> staticKeySettings
+    Core.object
+      ( Core.catMaybes
+          [ ("staticKeySettings" Core..=)
+              Core.<$> staticKeySettings
           ]
       )

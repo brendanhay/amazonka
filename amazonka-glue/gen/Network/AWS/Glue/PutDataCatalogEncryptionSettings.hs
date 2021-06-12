@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Glue.PutDataCatalogEncryptionSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data PutDataCatalogEncryptionSettings = PutDataCatalogEncryptionSettings'
   { -- | The ID of the Data Catalog to set the security configuration for. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The security configuration to set.
     dataCatalogEncryptionSettings :: DataCatalogEncryptionSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDataCatalogEncryptionSettings' with all optional fields omitted.
@@ -78,14 +77,14 @@ newPutDataCatalogEncryptionSettings
   pDataCatalogEncryptionSettings_ =
     PutDataCatalogEncryptionSettings'
       { catalogId =
-          Prelude.Nothing,
+          Core.Nothing,
         dataCatalogEncryptionSettings =
           pDataCatalogEncryptionSettings_
       }
 
 -- | The ID of the Data Catalog to set the security configuration for. If
 -- none is provided, the AWS account ID is used by default.
-putDataCatalogEncryptionSettings_catalogId :: Lens.Lens' PutDataCatalogEncryptionSettings (Prelude.Maybe Prelude.Text)
+putDataCatalogEncryptionSettings_catalogId :: Lens.Lens' PutDataCatalogEncryptionSettings (Core.Maybe Core.Text)
 putDataCatalogEncryptionSettings_catalogId = Lens.lens (\PutDataCatalogEncryptionSettings' {catalogId} -> catalogId) (\s@PutDataCatalogEncryptionSettings' {} a -> s {catalogId = a} :: PutDataCatalogEncryptionSettings)
 
 -- | The security configuration to set.
@@ -93,79 +92,69 @@ putDataCatalogEncryptionSettings_dataCatalogEncryptionSettings :: Lens.Lens' Put
 putDataCatalogEncryptionSettings_dataCatalogEncryptionSettings = Lens.lens (\PutDataCatalogEncryptionSettings' {dataCatalogEncryptionSettings} -> dataCatalogEncryptionSettings) (\s@PutDataCatalogEncryptionSettings' {} a -> s {dataCatalogEncryptionSettings = a} :: PutDataCatalogEncryptionSettings)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutDataCatalogEncryptionSettings
   where
   type
-    Rs PutDataCatalogEncryptionSettings =
+    AWSResponse PutDataCatalogEncryptionSettings =
       PutDataCatalogEncryptionSettingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutDataCatalogEncryptionSettingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutDataCatalogEncryptionSettings
 
-instance
-  Prelude.NFData
-    PutDataCatalogEncryptionSettings
+instance Core.NFData PutDataCatalogEncryptionSettings
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     PutDataCatalogEncryptionSettings
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.PutDataCatalogEncryptionSettings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.PutDataCatalogEncryptionSettings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    PutDataCatalogEncryptionSettings
-  where
+instance Core.ToJSON PutDataCatalogEncryptionSettings where
   toJSON PutDataCatalogEncryptionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just
               ( "DataCatalogEncryptionSettings"
-                  Prelude..= dataCatalogEncryptionSettings
+                  Core..= dataCatalogEncryptionSettings
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    PutDataCatalogEncryptionSettings
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutDataCatalogEncryptionSettings where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     PutDataCatalogEncryptionSettings
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutDataCatalogEncryptionSettingsResponse' smart constructor.
 data PutDataCatalogEncryptionSettingsResponse = PutDataCatalogEncryptionSettingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDataCatalogEncryptionSettingsResponse' with all optional fields omitted.
@@ -178,7 +167,7 @@ data PutDataCatalogEncryptionSettingsResponse = PutDataCatalogEncryptionSettings
 -- 'httpStatus', 'putDataCatalogEncryptionSettingsResponse_httpStatus' - The response's http status code.
 newPutDataCatalogEncryptionSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutDataCatalogEncryptionSettingsResponse
 newPutDataCatalogEncryptionSettingsResponse
   pHttpStatus_ =
@@ -188,9 +177,9 @@ newPutDataCatalogEncryptionSettingsResponse
       }
 
 -- | The response's http status code.
-putDataCatalogEncryptionSettingsResponse_httpStatus :: Lens.Lens' PutDataCatalogEncryptionSettingsResponse Prelude.Int
+putDataCatalogEncryptionSettingsResponse_httpStatus :: Lens.Lens' PutDataCatalogEncryptionSettingsResponse Core.Int
 putDataCatalogEncryptionSettingsResponse_httpStatus = Lens.lens (\PutDataCatalogEncryptionSettingsResponse' {httpStatus} -> httpStatus) (\s@PutDataCatalogEncryptionSettingsResponse' {} a -> s {httpStatus = a} :: PutDataCatalogEncryptionSettingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutDataCatalogEncryptionSettingsResponse

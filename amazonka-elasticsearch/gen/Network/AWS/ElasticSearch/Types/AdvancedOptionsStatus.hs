@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the advanced options for the specified Elasticsearch domain.
 -- Currently, the following advanced options are available:
@@ -42,12 +41,12 @@ import qualified Network.AWS.Prelude as Prelude
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
   { -- | Specifies the status of advanced options for the specified Elasticsearch
     -- domain.
-    options :: Prelude.HashMap Prelude.Text Prelude.Text,
+    options :: Core.HashMap Core.Text Core.Text,
     -- | Specifies the status of @OptionStatus@ for advanced options for the
     -- specified Elasticsearch domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdvancedOptionsStatus' with all optional fields omitted.
@@ -68,30 +67,30 @@ newAdvancedOptionsStatus ::
   AdvancedOptionsStatus
 newAdvancedOptionsStatus pStatus_ =
   AdvancedOptionsStatus'
-    { options = Prelude.mempty,
+    { options = Core.mempty,
       status = pStatus_
     }
 
 -- | Specifies the status of advanced options for the specified Elasticsearch
 -- domain.
-advancedOptionsStatus_options :: Lens.Lens' AdvancedOptionsStatus (Prelude.HashMap Prelude.Text Prelude.Text)
-advancedOptionsStatus_options = Lens.lens (\AdvancedOptionsStatus' {options} -> options) (\s@AdvancedOptionsStatus' {} a -> s {options = a} :: AdvancedOptionsStatus) Prelude.. Prelude._Coerce
+advancedOptionsStatus_options :: Lens.Lens' AdvancedOptionsStatus (Core.HashMap Core.Text Core.Text)
+advancedOptionsStatus_options = Lens.lens (\AdvancedOptionsStatus' {options} -> options) (\s@AdvancedOptionsStatus' {} a -> s {options = a} :: AdvancedOptionsStatus) Core.. Lens._Coerce
 
 -- | Specifies the status of @OptionStatus@ for advanced options for the
 -- specified Elasticsearch domain.
 advancedOptionsStatus_status :: Lens.Lens' AdvancedOptionsStatus OptionStatus
 advancedOptionsStatus_status = Lens.lens (\AdvancedOptionsStatus' {status} -> status) (\s@AdvancedOptionsStatus' {} a -> s {status = a} :: AdvancedOptionsStatus)
 
-instance Prelude.FromJSON AdvancedOptionsStatus where
+instance Core.FromJSON AdvancedOptionsStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AdvancedOptionsStatus"
       ( \x ->
           AdvancedOptionsStatus'
-            Prelude.<$> (x Prelude..:? "Options" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..:? "Options" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable AdvancedOptionsStatus
+instance Core.Hashable AdvancedOptionsStatus
 
-instance Prelude.NFData AdvancedOptionsStatus
+instance Core.NFData AdvancedOptionsStatus

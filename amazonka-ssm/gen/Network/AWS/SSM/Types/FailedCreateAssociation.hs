@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.FailedCreateAssociation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry
 import Network.AWS.SSM.Types.Fault
 
@@ -30,13 +29,13 @@ import Network.AWS.SSM.Types.Fault
 -- /See:/ 'newFailedCreateAssociation' smart constructor.
 data FailedCreateAssociation = FailedCreateAssociation'
   { -- | The association.
-    entry :: Prelude.Maybe CreateAssociationBatchRequestEntry,
+    entry :: Core.Maybe CreateAssociationBatchRequestEntry,
     -- | A description of the failure.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The source of the failure.
-    fault :: Prelude.Maybe Fault
+    fault :: Core.Maybe Fault
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailedCreateAssociation' with all optional fields omitted.
@@ -55,34 +54,34 @@ newFailedCreateAssociation ::
   FailedCreateAssociation
 newFailedCreateAssociation =
   FailedCreateAssociation'
-    { entry = Prelude.Nothing,
-      message = Prelude.Nothing,
-      fault = Prelude.Nothing
+    { entry = Core.Nothing,
+      message = Core.Nothing,
+      fault = Core.Nothing
     }
 
 -- | The association.
-failedCreateAssociation_entry :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe CreateAssociationBatchRequestEntry)
+failedCreateAssociation_entry :: Lens.Lens' FailedCreateAssociation (Core.Maybe CreateAssociationBatchRequestEntry)
 failedCreateAssociation_entry = Lens.lens (\FailedCreateAssociation' {entry} -> entry) (\s@FailedCreateAssociation' {} a -> s {entry = a} :: FailedCreateAssociation)
 
 -- | A description of the failure.
-failedCreateAssociation_message :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe Prelude.Text)
+failedCreateAssociation_message :: Lens.Lens' FailedCreateAssociation (Core.Maybe Core.Text)
 failedCreateAssociation_message = Lens.lens (\FailedCreateAssociation' {message} -> message) (\s@FailedCreateAssociation' {} a -> s {message = a} :: FailedCreateAssociation)
 
 -- | The source of the failure.
-failedCreateAssociation_fault :: Lens.Lens' FailedCreateAssociation (Prelude.Maybe Fault)
+failedCreateAssociation_fault :: Lens.Lens' FailedCreateAssociation (Core.Maybe Fault)
 failedCreateAssociation_fault = Lens.lens (\FailedCreateAssociation' {fault} -> fault) (\s@FailedCreateAssociation' {} a -> s {fault = a} :: FailedCreateAssociation)
 
-instance Prelude.FromJSON FailedCreateAssociation where
+instance Core.FromJSON FailedCreateAssociation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailedCreateAssociation"
       ( \x ->
           FailedCreateAssociation'
-            Prelude.<$> (x Prelude..:? "Entry")
-            Prelude.<*> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "Fault")
+            Core.<$> (x Core..:? "Entry")
+            Core.<*> (x Core..:? "Message")
+            Core.<*> (x Core..:? "Fault")
       )
 
-instance Prelude.Hashable FailedCreateAssociation
+instance Core.Hashable FailedCreateAssociation
 
-instance Prelude.NFData FailedCreateAssociation
+instance Core.NFData FailedCreateAssociation

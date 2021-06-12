@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.APIGateway.UpdateIntegration
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,16 +67,16 @@ import qualified Network.AWS.Response as Response
 data UpdateIntegration = UpdateIntegration'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] Represents an update integration request\'s resource
     -- identifier.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] Represents an update integration request\'s HTTP method.
-    httpMethod :: Prelude.Text
+    httpMethod :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateIntegration' with all optional fields omitted.
@@ -98,19 +97,18 @@ data UpdateIntegration = UpdateIntegration'
 -- 'httpMethod', 'updateIntegration_httpMethod' - [Required] Represents an update integration request\'s HTTP method.
 newUpdateIntegration ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   UpdateIntegration
 newUpdateIntegration
   pRestApiId_
   pResourceId_
   pHttpMethod_ =
     UpdateIntegration'
-      { patchOperations =
-          Prelude.Nothing,
+      { patchOperations = Core.Nothing,
         restApiId = pRestApiId_,
         resourceId = pResourceId_,
         httpMethod = pHttpMethod_
@@ -118,62 +116,62 @@ newUpdateIntegration
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateIntegration_patchOperations :: Lens.Lens' UpdateIntegration (Prelude.Maybe [PatchOperation])
-updateIntegration_patchOperations = Lens.lens (\UpdateIntegration' {patchOperations} -> patchOperations) (\s@UpdateIntegration' {} a -> s {patchOperations = a} :: UpdateIntegration) Prelude.. Lens.mapping Prelude._Coerce
+updateIntegration_patchOperations :: Lens.Lens' UpdateIntegration (Core.Maybe [PatchOperation])
+updateIntegration_patchOperations = Lens.lens (\UpdateIntegration' {patchOperations} -> patchOperations) (\s@UpdateIntegration' {} a -> s {patchOperations = a} :: UpdateIntegration) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateIntegration_restApiId :: Lens.Lens' UpdateIntegration Prelude.Text
+updateIntegration_restApiId :: Lens.Lens' UpdateIntegration Core.Text
 updateIntegration_restApiId = Lens.lens (\UpdateIntegration' {restApiId} -> restApiId) (\s@UpdateIntegration' {} a -> s {restApiId = a} :: UpdateIntegration)
 
 -- | [Required] Represents an update integration request\'s resource
 -- identifier.
-updateIntegration_resourceId :: Lens.Lens' UpdateIntegration Prelude.Text
+updateIntegration_resourceId :: Lens.Lens' UpdateIntegration Core.Text
 updateIntegration_resourceId = Lens.lens (\UpdateIntegration' {resourceId} -> resourceId) (\s@UpdateIntegration' {} a -> s {resourceId = a} :: UpdateIntegration)
 
 -- | [Required] Represents an update integration request\'s HTTP method.
-updateIntegration_httpMethod :: Lens.Lens' UpdateIntegration Prelude.Text
+updateIntegration_httpMethod :: Lens.Lens' UpdateIntegration Core.Text
 updateIntegration_httpMethod = Lens.lens (\UpdateIntegration' {httpMethod} -> httpMethod) (\s@UpdateIntegration' {} a -> s {httpMethod = a} :: UpdateIntegration)
 
-instance Prelude.AWSRequest UpdateIntegration where
-  type Rs UpdateIntegration = Integration
+instance Core.AWSRequest UpdateIntegration where
+  type AWSResponse UpdateIntegration = Integration
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateIntegration
+instance Core.Hashable UpdateIntegration
 
-instance Prelude.NFData UpdateIntegration
+instance Core.NFData UpdateIntegration
 
-instance Prelude.ToHeaders UpdateIntegration where
+instance Core.ToHeaders UpdateIntegration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateIntegration where
+instance Core.ToJSON UpdateIntegration where
   toJSON UpdateIntegration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateIntegration where
+instance Core.ToPath UpdateIntegration where
   toPath UpdateIntegration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod,
+        Core.toBS httpMethod,
         "/integration"
       ]
 
-instance Prelude.ToQuery UpdateIntegration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateIntegration where
+  toQuery = Core.const Core.mempty

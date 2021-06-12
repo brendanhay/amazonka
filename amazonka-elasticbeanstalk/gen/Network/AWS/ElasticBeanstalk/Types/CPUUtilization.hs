@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.CPUUtilization where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | CPU utilization metrics for an instance.
 --
@@ -29,42 +28,42 @@ import qualified Network.AWS.Prelude as Prelude
 data CPUUtilization = CPUUtilization'
   { -- | Percentage of time that the CPU has spent in the @Idle@ state over the
     -- last 10 seconds.
-    idle :: Prelude.Maybe Prelude.Double,
+    idle :: Core.Maybe Core.Double,
     -- | Percentage of time that the CPU has spent in the @User@ state over the
     -- last 10 seconds.
-    user :: Prelude.Maybe Prelude.Double,
+    user :: Core.Maybe Core.Double,
     -- | Available on Windows environments only.
     --
     -- Percentage of time that the CPU has spent in the @Privileged@ state over
     -- the last 10 seconds.
-    privileged :: Prelude.Maybe Prelude.Double,
+    privileged :: Core.Maybe Core.Double,
     -- | Available on Linux environments only.
     --
     -- Percentage of time that the CPU has spent in the @I\/O Wait@ state over
     -- the last 10 seconds.
-    iOWait :: Prelude.Maybe Prelude.Double,
+    iOWait :: Core.Maybe Core.Double,
     -- | Available on Linux environments only.
     --
     -- Percentage of time that the CPU has spent in the @SoftIRQ@ state over
     -- the last 10 seconds.
-    softIRQ :: Prelude.Maybe Prelude.Double,
+    softIRQ :: Core.Maybe Core.Double,
     -- | Available on Linux environments only.
     --
     -- Percentage of time that the CPU has spent in the @Nice@ state over the
     -- last 10 seconds.
-    nice :: Prelude.Maybe Prelude.Double,
+    nice :: Core.Maybe Core.Double,
     -- | Available on Linux environments only.
     --
     -- Percentage of time that the CPU has spent in the @System@ state over the
     -- last 10 seconds.
-    system :: Prelude.Maybe Prelude.Double,
+    system :: Core.Maybe Core.Double,
     -- | Available on Linux environments only.
     --
     -- Percentage of time that the CPU has spent in the @IRQ@ state over the
     -- last 10 seconds.
-    irq :: Prelude.Maybe Prelude.Double
+    irq :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CPUUtilization' with all optional fields omitted.
@@ -113,80 +112,80 @@ newCPUUtilization ::
   CPUUtilization
 newCPUUtilization =
   CPUUtilization'
-    { idle = Prelude.Nothing,
-      user = Prelude.Nothing,
-      privileged = Prelude.Nothing,
-      iOWait = Prelude.Nothing,
-      softIRQ = Prelude.Nothing,
-      nice = Prelude.Nothing,
-      system = Prelude.Nothing,
-      irq = Prelude.Nothing
+    { idle = Core.Nothing,
+      user = Core.Nothing,
+      privileged = Core.Nothing,
+      iOWait = Core.Nothing,
+      softIRQ = Core.Nothing,
+      nice = Core.Nothing,
+      system = Core.Nothing,
+      irq = Core.Nothing
     }
 
 -- | Percentage of time that the CPU has spent in the @Idle@ state over the
 -- last 10 seconds.
-cPUUtilization_idle :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_idle :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_idle = Lens.lens (\CPUUtilization' {idle} -> idle) (\s@CPUUtilization' {} a -> s {idle = a} :: CPUUtilization)
 
 -- | Percentage of time that the CPU has spent in the @User@ state over the
 -- last 10 seconds.
-cPUUtilization_user :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_user :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_user = Lens.lens (\CPUUtilization' {user} -> user) (\s@CPUUtilization' {} a -> s {user = a} :: CPUUtilization)
 
 -- | Available on Windows environments only.
 --
 -- Percentage of time that the CPU has spent in the @Privileged@ state over
 -- the last 10 seconds.
-cPUUtilization_privileged :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_privileged :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_privileged = Lens.lens (\CPUUtilization' {privileged} -> privileged) (\s@CPUUtilization' {} a -> s {privileged = a} :: CPUUtilization)
 
 -- | Available on Linux environments only.
 --
 -- Percentage of time that the CPU has spent in the @I\/O Wait@ state over
 -- the last 10 seconds.
-cPUUtilization_iOWait :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_iOWait :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_iOWait = Lens.lens (\CPUUtilization' {iOWait} -> iOWait) (\s@CPUUtilization' {} a -> s {iOWait = a} :: CPUUtilization)
 
 -- | Available on Linux environments only.
 --
 -- Percentage of time that the CPU has spent in the @SoftIRQ@ state over
 -- the last 10 seconds.
-cPUUtilization_softIRQ :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_softIRQ :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_softIRQ = Lens.lens (\CPUUtilization' {softIRQ} -> softIRQ) (\s@CPUUtilization' {} a -> s {softIRQ = a} :: CPUUtilization)
 
 -- | Available on Linux environments only.
 --
 -- Percentage of time that the CPU has spent in the @Nice@ state over the
 -- last 10 seconds.
-cPUUtilization_nice :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_nice :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_nice = Lens.lens (\CPUUtilization' {nice} -> nice) (\s@CPUUtilization' {} a -> s {nice = a} :: CPUUtilization)
 
 -- | Available on Linux environments only.
 --
 -- Percentage of time that the CPU has spent in the @System@ state over the
 -- last 10 seconds.
-cPUUtilization_system :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_system :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_system = Lens.lens (\CPUUtilization' {system} -> system) (\s@CPUUtilization' {} a -> s {system = a} :: CPUUtilization)
 
 -- | Available on Linux environments only.
 --
 -- Percentage of time that the CPU has spent in the @IRQ@ state over the
 -- last 10 seconds.
-cPUUtilization_irq :: Lens.Lens' CPUUtilization (Prelude.Maybe Prelude.Double)
+cPUUtilization_irq :: Lens.Lens' CPUUtilization (Core.Maybe Core.Double)
 cPUUtilization_irq = Lens.lens (\CPUUtilization' {irq} -> irq) (\s@CPUUtilization' {} a -> s {irq = a} :: CPUUtilization)
 
-instance Prelude.FromXML CPUUtilization where
+instance Core.FromXML CPUUtilization where
   parseXML x =
     CPUUtilization'
-      Prelude.<$> (x Prelude..@? "Idle")
-      Prelude.<*> (x Prelude..@? "User")
-      Prelude.<*> (x Prelude..@? "Privileged")
-      Prelude.<*> (x Prelude..@? "IOWait")
-      Prelude.<*> (x Prelude..@? "SoftIRQ")
-      Prelude.<*> (x Prelude..@? "Nice")
-      Prelude.<*> (x Prelude..@? "System")
-      Prelude.<*> (x Prelude..@? "IRQ")
+      Core.<$> (x Core..@? "Idle")
+      Core.<*> (x Core..@? "User")
+      Core.<*> (x Core..@? "Privileged")
+      Core.<*> (x Core..@? "IOWait")
+      Core.<*> (x Core..@? "SoftIRQ")
+      Core.<*> (x Core..@? "Nice")
+      Core.<*> (x Core..@? "System")
+      Core.<*> (x Core..@? "IRQ")
 
-instance Prelude.Hashable CPUUtilization
+instance Core.Hashable CPUUtilization
 
-instance Prelude.NFData CPUUtilization
+instance Core.NFData CPUUtilization

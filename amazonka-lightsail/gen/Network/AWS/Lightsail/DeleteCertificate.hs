@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.Lightsail.DeleteCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data DeleteCertificate = DeleteCertificate'
     --
     -- Use the @GetCertificates@ action to get a list of certificate names that
     -- you can specify.
-    certificateName :: Prelude.Text
+    certificateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificate' with all optional fields omitted.
@@ -75,7 +74,7 @@ data DeleteCertificate = DeleteCertificate'
 -- you can specify.
 newDeleteCertificate ::
   -- | 'certificateName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCertificate
 newDeleteCertificate pCertificateName_ =
   DeleteCertificate'
@@ -87,66 +86,64 @@ newDeleteCertificate pCertificateName_ =
 --
 -- Use the @GetCertificates@ action to get a list of certificate names that
 -- you can specify.
-deleteCertificate_certificateName :: Lens.Lens' DeleteCertificate Prelude.Text
+deleteCertificate_certificateName :: Lens.Lens' DeleteCertificate Core.Text
 deleteCertificate_certificateName = Lens.lens (\DeleteCertificate' {certificateName} -> certificateName) (\s@DeleteCertificate' {} a -> s {certificateName = a} :: DeleteCertificate)
 
-instance Prelude.AWSRequest DeleteCertificate where
-  type Rs DeleteCertificate = DeleteCertificateResponse
+instance Core.AWSRequest DeleteCertificate where
+  type
+    AWSResponse DeleteCertificate =
+      DeleteCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteCertificateResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCertificate
+instance Core.Hashable DeleteCertificate
 
-instance Prelude.NFData DeleteCertificate
+instance Core.NFData DeleteCertificate
 
-instance Prelude.ToHeaders DeleteCertificate where
+instance Core.ToHeaders DeleteCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteCertificate where
+instance Core.ToJSON DeleteCertificate where
   toJSON DeleteCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("certificateName" Prelude..= certificateName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("certificateName" Core..= certificateName)
           ]
       )
 
-instance Prelude.ToPath DeleteCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCertificateResponse' smart constructor.
 data DeleteCertificateResponse = DeleteCertificateResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCertificateResponse' with all optional fields omitted.
@@ -163,23 +160,23 @@ data DeleteCertificateResponse = DeleteCertificateResponse'
 -- 'httpStatus', 'deleteCertificateResponse_httpStatus' - The response's http status code.
 newDeleteCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCertificateResponse
 newDeleteCertificateResponse pHttpStatus_ =
   DeleteCertificateResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteCertificateResponse_operations :: Lens.Lens' DeleteCertificateResponse (Prelude.Maybe [Operation])
-deleteCertificateResponse_operations = Lens.lens (\DeleteCertificateResponse' {operations} -> operations) (\s@DeleteCertificateResponse' {} a -> s {operations = a} :: DeleteCertificateResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteCertificateResponse_operations :: Lens.Lens' DeleteCertificateResponse (Core.Maybe [Operation])
+deleteCertificateResponse_operations = Lens.lens (\DeleteCertificateResponse' {operations} -> operations) (\s@DeleteCertificateResponse' {} a -> s {operations = a} :: DeleteCertificateResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-deleteCertificateResponse_httpStatus :: Lens.Lens' DeleteCertificateResponse Prelude.Int
+deleteCertificateResponse_httpStatus :: Lens.Lens' DeleteCertificateResponse Core.Int
 deleteCertificateResponse_httpStatus = Lens.lens (\DeleteCertificateResponse' {httpStatus} -> httpStatus) (\s@DeleteCertificateResponse' {} a -> s {httpStatus = a} :: DeleteCertificateResponse)
 
-instance Prelude.NFData DeleteCertificateResponse
+instance Core.NFData DeleteCertificateResponse

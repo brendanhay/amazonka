@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CloudSearch.DescribeSuggesters
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,13 +64,13 @@ import qualified Network.AWS.Response as Response
 data DescribeSuggesters = DescribeSuggesters'
   { -- | Whether to display the deployed configuration (@true@) or include any
     -- pending changes (@false@). Defaults to @false@.
-    deployed :: Prelude.Maybe Prelude.Bool,
+    deployed :: Core.Maybe Core.Bool,
     -- | The suggesters you want to describe.
-    suggesterNames :: Prelude.Maybe [Prelude.Text],
+    suggesterNames :: Core.Maybe [Core.Text],
     -- | The name of the domain you want to describe.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSuggesters' with all optional fields omitted.
@@ -89,31 +88,31 @@ data DescribeSuggesters = DescribeSuggesters'
 -- 'domainName', 'describeSuggesters_domainName' - The name of the domain you want to describe.
 newDescribeSuggesters ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeSuggesters
 newDescribeSuggesters pDomainName_ =
   DescribeSuggesters'
-    { deployed = Prelude.Nothing,
-      suggesterNames = Prelude.Nothing,
+    { deployed = Core.Nothing,
+      suggesterNames = Core.Nothing,
       domainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-describeSuggesters_deployed :: Lens.Lens' DescribeSuggesters (Prelude.Maybe Prelude.Bool)
+describeSuggesters_deployed :: Lens.Lens' DescribeSuggesters (Core.Maybe Core.Bool)
 describeSuggesters_deployed = Lens.lens (\DescribeSuggesters' {deployed} -> deployed) (\s@DescribeSuggesters' {} a -> s {deployed = a} :: DescribeSuggesters)
 
 -- | The suggesters you want to describe.
-describeSuggesters_suggesterNames :: Lens.Lens' DescribeSuggesters (Prelude.Maybe [Prelude.Text])
-describeSuggesters_suggesterNames = Lens.lens (\DescribeSuggesters' {suggesterNames} -> suggesterNames) (\s@DescribeSuggesters' {} a -> s {suggesterNames = a} :: DescribeSuggesters) Prelude.. Lens.mapping Prelude._Coerce
+describeSuggesters_suggesterNames :: Lens.Lens' DescribeSuggesters (Core.Maybe [Core.Text])
+describeSuggesters_suggesterNames = Lens.lens (\DescribeSuggesters' {suggesterNames} -> suggesterNames) (\s@DescribeSuggesters' {} a -> s {suggesterNames = a} :: DescribeSuggesters) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain you want to describe.
-describeSuggesters_domainName :: Lens.Lens' DescribeSuggesters Prelude.Text
+describeSuggesters_domainName :: Lens.Lens' DescribeSuggesters Core.Text
 describeSuggesters_domainName = Lens.lens (\DescribeSuggesters' {domainName} -> domainName) (\s@DescribeSuggesters' {} a -> s {domainName = a} :: DescribeSuggesters)
 
-instance Prelude.AWSRequest DescribeSuggesters where
+instance Core.AWSRequest DescribeSuggesters where
   type
-    Rs DescribeSuggesters =
+    AWSResponse DescribeSuggesters =
       DescribeSuggestersResponse
   request = Request.postQuery defaultService
   response =
@@ -121,37 +120,33 @@ instance Prelude.AWSRequest DescribeSuggesters where
       "DescribeSuggestersResult"
       ( \s h x ->
           DescribeSuggestersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "Suggesters"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "Suggesters" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable DescribeSuggesters
+instance Core.Hashable DescribeSuggesters
 
-instance Prelude.NFData DescribeSuggesters
+instance Core.NFData DescribeSuggesters
 
-instance Prelude.ToHeaders DescribeSuggesters where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeSuggesters where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeSuggesters where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSuggesters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeSuggesters where
+instance Core.ToQuery DescribeSuggesters where
   toQuery DescribeSuggesters' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeSuggesters" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "Deployed" Prelude.=: deployed,
+          Core.=: ("DescribeSuggesters" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "Deployed" Core.=: deployed,
         "SuggesterNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> suggesterNames
-            ),
-        "DomainName" Prelude.=: domainName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> suggesterNames),
+        "DomainName" Core.=: domainName
       ]
 
 -- | The result of a @DescribeSuggesters@ request.
@@ -159,11 +154,11 @@ instance Prelude.ToQuery DescribeSuggesters where
 -- /See:/ 'newDescribeSuggestersResponse' smart constructor.
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The suggesters configured for the domain specified in the request.
     suggesters :: [SuggesterStatus]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSuggestersResponse' with all optional fields omitted.
@@ -178,21 +173,21 @@ data DescribeSuggestersResponse = DescribeSuggestersResponse'
 -- 'suggesters', 'describeSuggestersResponse_suggesters' - The suggesters configured for the domain specified in the request.
 newDescribeSuggestersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSuggestersResponse
 newDescribeSuggestersResponse pHttpStatus_ =
   DescribeSuggestersResponse'
     { httpStatus =
         pHttpStatus_,
-      suggesters = Prelude.mempty
+      suggesters = Core.mempty
     }
 
 -- | The response's http status code.
-describeSuggestersResponse_httpStatus :: Lens.Lens' DescribeSuggestersResponse Prelude.Int
+describeSuggestersResponse_httpStatus :: Lens.Lens' DescribeSuggestersResponse Core.Int
 describeSuggestersResponse_httpStatus = Lens.lens (\DescribeSuggestersResponse' {httpStatus} -> httpStatus) (\s@DescribeSuggestersResponse' {} a -> s {httpStatus = a} :: DescribeSuggestersResponse)
 
 -- | The suggesters configured for the domain specified in the request.
 describeSuggestersResponse_suggesters :: Lens.Lens' DescribeSuggestersResponse [SuggesterStatus]
-describeSuggestersResponse_suggesters = Lens.lens (\DescribeSuggestersResponse' {suggesters} -> suggesters) (\s@DescribeSuggestersResponse' {} a -> s {suggesters = a} :: DescribeSuggestersResponse) Prelude.. Prelude._Coerce
+describeSuggestersResponse_suggesters = Lens.lens (\DescribeSuggestersResponse' {suggesters} -> suggesters) (\s@DescribeSuggestersResponse' {} a -> s {suggesters = a} :: DescribeSuggestersResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData DescribeSuggestersResponse
+instance Core.NFData DescribeSuggestersResponse

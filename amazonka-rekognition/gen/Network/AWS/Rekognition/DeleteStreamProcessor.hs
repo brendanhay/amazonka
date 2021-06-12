@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Rekognition.DeleteStreamProcessor
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteStreamProcessor' smart constructor.
 data DeleteStreamProcessor = DeleteStreamProcessor'
   { -- | The name of the stream processor you want to delete.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamProcessor' with all optional fields omitted.
@@ -67,65 +66,61 @@ data DeleteStreamProcessor = DeleteStreamProcessor'
 -- 'name', 'deleteStreamProcessor_name' - The name of the stream processor you want to delete.
 newDeleteStreamProcessor ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStreamProcessor
 newDeleteStreamProcessor pName_ =
   DeleteStreamProcessor' {name = pName_}
 
 -- | The name of the stream processor you want to delete.
-deleteStreamProcessor_name :: Lens.Lens' DeleteStreamProcessor Prelude.Text
+deleteStreamProcessor_name :: Lens.Lens' DeleteStreamProcessor Core.Text
 deleteStreamProcessor_name = Lens.lens (\DeleteStreamProcessor' {name} -> name) (\s@DeleteStreamProcessor' {} a -> s {name = a} :: DeleteStreamProcessor)
 
-instance Prelude.AWSRequest DeleteStreamProcessor where
+instance Core.AWSRequest DeleteStreamProcessor where
   type
-    Rs DeleteStreamProcessor =
+    AWSResponse DeleteStreamProcessor =
       DeleteStreamProcessorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteStreamProcessorResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteStreamProcessor
+instance Core.Hashable DeleteStreamProcessor
 
-instance Prelude.NFData DeleteStreamProcessor
+instance Core.NFData DeleteStreamProcessor
 
-instance Prelude.ToHeaders DeleteStreamProcessor where
+instance Core.ToHeaders DeleteStreamProcessor where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.DeleteStreamProcessor" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.DeleteStreamProcessor" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteStreamProcessor where
+instance Core.ToJSON DeleteStreamProcessor where
   toJSON DeleteStreamProcessor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteStreamProcessor where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteStreamProcessor where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteStreamProcessor where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStreamProcessor where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStreamProcessorResponse' smart constructor.
 data DeleteStreamProcessorResponse = DeleteStreamProcessorResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamProcessorResponse' with all optional fields omitted.
@@ -138,7 +133,7 @@ data DeleteStreamProcessorResponse = DeleteStreamProcessorResponse'
 -- 'httpStatus', 'deleteStreamProcessorResponse_httpStatus' - The response's http status code.
 newDeleteStreamProcessorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteStreamProcessorResponse
 newDeleteStreamProcessorResponse pHttpStatus_ =
   DeleteStreamProcessorResponse'
@@ -147,7 +142,7 @@ newDeleteStreamProcessorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteStreamProcessorResponse_httpStatus :: Lens.Lens' DeleteStreamProcessorResponse Prelude.Int
+deleteStreamProcessorResponse_httpStatus :: Lens.Lens' DeleteStreamProcessorResponse Core.Int
 deleteStreamProcessorResponse_httpStatus = Lens.lens (\DeleteStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamProcessorResponse' {} a -> s {httpStatus = a} :: DeleteStreamProcessorResponse)
 
-instance Prelude.NFData DeleteStreamProcessorResponse
+instance Core.NFData DeleteStreamProcessorResponse

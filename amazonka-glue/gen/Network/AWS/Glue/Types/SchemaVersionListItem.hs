@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SchemaVersionListItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.SchemaVersionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object containing the details about a schema version.
 --
 -- /See:/ 'newSchemaVersionListItem' smart constructor.
 data SchemaVersionListItem = SchemaVersionListItem'
   { -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
+    schemaArn :: Core.Maybe Core.Text,
     -- | The status of the schema version.
-    status :: Prelude.Maybe SchemaVersionStatus,
+    status :: Core.Maybe SchemaVersionStatus,
     -- | The unique identifier of the schema version.
-    schemaVersionId :: Prelude.Maybe Prelude.Text,
+    schemaVersionId :: Core.Maybe Core.Text,
     -- | The date and time the schema version was created.
-    createdTime :: Prelude.Maybe Prelude.Text,
+    createdTime :: Core.Maybe Core.Text,
     -- | The version number of the schema.
-    versionNumber :: Prelude.Maybe Prelude.Natural
+    versionNumber :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SchemaVersionListItem' with all optional fields omitted.
@@ -62,46 +61,46 @@ newSchemaVersionListItem ::
   SchemaVersionListItem
 newSchemaVersionListItem =
   SchemaVersionListItem'
-    { schemaArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      schemaVersionId = Prelude.Nothing,
-      createdTime = Prelude.Nothing,
-      versionNumber = Prelude.Nothing
+    { schemaArn = Core.Nothing,
+      status = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      createdTime = Core.Nothing,
+      versionNumber = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the schema.
-schemaVersionListItem_schemaArn :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Text)
+schemaVersionListItem_schemaArn :: Lens.Lens' SchemaVersionListItem (Core.Maybe Core.Text)
 schemaVersionListItem_schemaArn = Lens.lens (\SchemaVersionListItem' {schemaArn} -> schemaArn) (\s@SchemaVersionListItem' {} a -> s {schemaArn = a} :: SchemaVersionListItem)
 
 -- | The status of the schema version.
-schemaVersionListItem_status :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe SchemaVersionStatus)
+schemaVersionListItem_status :: Lens.Lens' SchemaVersionListItem (Core.Maybe SchemaVersionStatus)
 schemaVersionListItem_status = Lens.lens (\SchemaVersionListItem' {status} -> status) (\s@SchemaVersionListItem' {} a -> s {status = a} :: SchemaVersionListItem)
 
 -- | The unique identifier of the schema version.
-schemaVersionListItem_schemaVersionId :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Text)
+schemaVersionListItem_schemaVersionId :: Lens.Lens' SchemaVersionListItem (Core.Maybe Core.Text)
 schemaVersionListItem_schemaVersionId = Lens.lens (\SchemaVersionListItem' {schemaVersionId} -> schemaVersionId) (\s@SchemaVersionListItem' {} a -> s {schemaVersionId = a} :: SchemaVersionListItem)
 
 -- | The date and time the schema version was created.
-schemaVersionListItem_createdTime :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Text)
+schemaVersionListItem_createdTime :: Lens.Lens' SchemaVersionListItem (Core.Maybe Core.Text)
 schemaVersionListItem_createdTime = Lens.lens (\SchemaVersionListItem' {createdTime} -> createdTime) (\s@SchemaVersionListItem' {} a -> s {createdTime = a} :: SchemaVersionListItem)
 
 -- | The version number of the schema.
-schemaVersionListItem_versionNumber :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Natural)
+schemaVersionListItem_versionNumber :: Lens.Lens' SchemaVersionListItem (Core.Maybe Core.Natural)
 schemaVersionListItem_versionNumber = Lens.lens (\SchemaVersionListItem' {versionNumber} -> versionNumber) (\s@SchemaVersionListItem' {} a -> s {versionNumber = a} :: SchemaVersionListItem)
 
-instance Prelude.FromJSON SchemaVersionListItem where
+instance Core.FromJSON SchemaVersionListItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SchemaVersionListItem"
       ( \x ->
           SchemaVersionListItem'
-            Prelude.<$> (x Prelude..:? "SchemaArn")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "SchemaVersionId")
-            Prelude.<*> (x Prelude..:? "CreatedTime")
-            Prelude.<*> (x Prelude..:? "VersionNumber")
+            Core.<$> (x Core..:? "SchemaArn")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "SchemaVersionId")
+            Core.<*> (x Core..:? "CreatedTime")
+            Core.<*> (x Core..:? "VersionNumber")
       )
 
-instance Prelude.Hashable SchemaVersionListItem
+instance Core.Hashable SchemaVersionListItem
 
-instance Prelude.NFData SchemaVersionListItem
+instance Core.NFData SchemaVersionListItem

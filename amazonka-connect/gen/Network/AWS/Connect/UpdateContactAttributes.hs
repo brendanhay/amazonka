@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,8 +63,8 @@ module Network.AWS.Connect.UpdateContactAttributes
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,18 +72,18 @@ import qualified Network.AWS.Response as Response
 data UpdateContactAttributes = UpdateContactAttributes'
   { -- | The identifier of the contact. This is the identifier of the contact
     -- associated with the first interaction with the contact center.
-    initialContactId :: Prelude.Text,
+    initialContactId :: Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The Amazon Connect attributes. These attributes can be accessed in
     -- contact flows just like any other contact attributes.
     --
     -- You can have up to 32,768 UTF-8 bytes across all attributes for a
     -- contact. Attribute keys can include only alphanumeric, dash, and
     -- underscore characters.
-    attributes :: Prelude.HashMap Prelude.Text Prelude.Text
+    attributes :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContactAttributes' with all optional fields omitted.
@@ -107,9 +106,9 @@ data UpdateContactAttributes = UpdateContactAttributes'
 -- underscore characters.
 newUpdateContactAttributes ::
   -- | 'initialContactId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateContactAttributes
 newUpdateContactAttributes
   pInitialContactId_
@@ -118,16 +117,16 @@ newUpdateContactAttributes
       { initialContactId =
           pInitialContactId_,
         instanceId = pInstanceId_,
-        attributes = Prelude.mempty
+        attributes = Core.mempty
       }
 
 -- | The identifier of the contact. This is the identifier of the contact
 -- associated with the first interaction with the contact center.
-updateContactAttributes_initialContactId :: Lens.Lens' UpdateContactAttributes Prelude.Text
+updateContactAttributes_initialContactId :: Lens.Lens' UpdateContactAttributes Core.Text
 updateContactAttributes_initialContactId = Lens.lens (\UpdateContactAttributes' {initialContactId} -> initialContactId) (\s@UpdateContactAttributes' {} a -> s {initialContactId = a} :: UpdateContactAttributes)
 
 -- | The identifier of the Amazon Connect instance.
-updateContactAttributes_instanceId :: Lens.Lens' UpdateContactAttributes Prelude.Text
+updateContactAttributes_instanceId :: Lens.Lens' UpdateContactAttributes Core.Text
 updateContactAttributes_instanceId = Lens.lens (\UpdateContactAttributes' {instanceId} -> instanceId) (\s@UpdateContactAttributes' {} a -> s {instanceId = a} :: UpdateContactAttributes)
 
 -- | The Amazon Connect attributes. These attributes can be accessed in
@@ -136,59 +135,57 @@ updateContactAttributes_instanceId = Lens.lens (\UpdateContactAttributes' {insta
 -- You can have up to 32,768 UTF-8 bytes across all attributes for a
 -- contact. Attribute keys can include only alphanumeric, dash, and
 -- underscore characters.
-updateContactAttributes_attributes :: Lens.Lens' UpdateContactAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-updateContactAttributes_attributes = Lens.lens (\UpdateContactAttributes' {attributes} -> attributes) (\s@UpdateContactAttributes' {} a -> s {attributes = a} :: UpdateContactAttributes) Prelude.. Prelude._Coerce
+updateContactAttributes_attributes :: Lens.Lens' UpdateContactAttributes (Core.HashMap Core.Text Core.Text)
+updateContactAttributes_attributes = Lens.lens (\UpdateContactAttributes' {attributes} -> attributes) (\s@UpdateContactAttributes' {} a -> s {attributes = a} :: UpdateContactAttributes) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UpdateContactAttributes where
+instance Core.AWSRequest UpdateContactAttributes where
   type
-    Rs UpdateContactAttributes =
+    AWSResponse UpdateContactAttributes =
       UpdateContactAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateContactAttributesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateContactAttributes
+instance Core.Hashable UpdateContactAttributes
 
-instance Prelude.NFData UpdateContactAttributes
+instance Core.NFData UpdateContactAttributes
 
-instance Prelude.ToHeaders UpdateContactAttributes where
+instance Core.ToHeaders UpdateContactAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateContactAttributes where
+instance Core.ToJSON UpdateContactAttributes where
   toJSON UpdateContactAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("InitialContactId" Prelude..= initialContactId),
-            Prelude.Just ("InstanceId" Prelude..= instanceId),
-            Prelude.Just ("Attributes" Prelude..= attributes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("InitialContactId" Core..= initialContactId),
+            Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("Attributes" Core..= attributes)
           ]
       )
 
-instance Prelude.ToPath UpdateContactAttributes where
-  toPath = Prelude.const "/contact/attributes"
+instance Core.ToPath UpdateContactAttributes where
+  toPath = Core.const "/contact/attributes"
 
-instance Prelude.ToQuery UpdateContactAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateContactAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateContactAttributesResponse' smart constructor.
 data UpdateContactAttributesResponse = UpdateContactAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateContactAttributesResponse' with all optional fields omitted.
@@ -201,7 +198,7 @@ data UpdateContactAttributesResponse = UpdateContactAttributesResponse'
 -- 'httpStatus', 'updateContactAttributesResponse_httpStatus' - The response's http status code.
 newUpdateContactAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateContactAttributesResponse
 newUpdateContactAttributesResponse pHttpStatus_ =
   UpdateContactAttributesResponse'
@@ -210,9 +207,7 @@ newUpdateContactAttributesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateContactAttributesResponse_httpStatus :: Lens.Lens' UpdateContactAttributesResponse Prelude.Int
+updateContactAttributesResponse_httpStatus :: Lens.Lens' UpdateContactAttributesResponse Core.Int
 updateContactAttributesResponse_httpStatus = Lens.lens (\UpdateContactAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateContactAttributesResponse' {} a -> s {httpStatus = a} :: UpdateContactAttributesResponse)
 
-instance
-  Prelude.NFData
-    UpdateContactAttributesResponse
+instance Core.NFData UpdateContactAttributesResponse

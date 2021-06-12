@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.TracingConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.TracingMode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The function\'s AWS X-Ray tracing configuration. To sample and record
 -- incoming requests, set @Mode@ to @Active@.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTracingConfig' smart constructor.
 data TracingConfig = TracingConfig'
   { -- | The tracing mode.
-    mode :: Prelude.Maybe TracingMode
+    mode :: Core.Maybe TracingMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TracingConfig' with all optional fields omitted.
@@ -46,19 +45,17 @@ data TracingConfig = TracingConfig'
 newTracingConfig ::
   TracingConfig
 newTracingConfig =
-  TracingConfig' {mode = Prelude.Nothing}
+  TracingConfig' {mode = Core.Nothing}
 
 -- | The tracing mode.
-tracingConfig_mode :: Lens.Lens' TracingConfig (Prelude.Maybe TracingMode)
+tracingConfig_mode :: Lens.Lens' TracingConfig (Core.Maybe TracingMode)
 tracingConfig_mode = Lens.lens (\TracingConfig' {mode} -> mode) (\s@TracingConfig' {} a -> s {mode = a} :: TracingConfig)
 
-instance Prelude.Hashable TracingConfig
+instance Core.Hashable TracingConfig
 
-instance Prelude.NFData TracingConfig
+instance Core.NFData TracingConfig
 
-instance Prelude.ToJSON TracingConfig where
+instance Core.ToJSON TracingConfig where
   toJSON TracingConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Mode" Prelude..=) Prelude.<$> mode]
-      )
+    Core.object
+      (Core.catMaybes [("Mode" Core..=) Core.<$> mode])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,13 +60,13 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The attribute of the network interface. This parameter is required.
-    attribute :: Prelude.Maybe NetworkInterfaceAttribute,
+    attribute :: Core.Maybe NetworkInterfaceAttribute,
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Text
+    networkInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeNetworkInterfaceAttribute' with all optional fields omitted.
@@ -87,14 +86,14 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
 -- 'networkInterfaceId', 'describeNetworkInterfaceAttribute_networkInterfaceId' - The ID of the network interface.
 newDescribeNetworkInterfaceAttribute ::
   -- | 'networkInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeNetworkInterfaceAttribute
 newDescribeNetworkInterfaceAttribute
   pNetworkInterfaceId_ =
     DescribeNetworkInterfaceAttribute'
       { dryRun =
-          Prelude.Nothing,
-        attribute = Prelude.Nothing,
+          Core.Nothing,
+        attribute = Core.Nothing,
         networkInterfaceId =
           pNetworkInterfaceId_
       }
@@ -103,74 +102,73 @@ newDescribeNetworkInterfaceAttribute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeNetworkInterfaceAttribute_dryRun :: Lens.Lens' DescribeNetworkInterfaceAttribute (Prelude.Maybe Prelude.Bool)
+describeNetworkInterfaceAttribute_dryRun :: Lens.Lens' DescribeNetworkInterfaceAttribute (Core.Maybe Core.Bool)
 describeNetworkInterfaceAttribute_dryRun = Lens.lens (\DescribeNetworkInterfaceAttribute' {dryRun} -> dryRun) (\s@DescribeNetworkInterfaceAttribute' {} a -> s {dryRun = a} :: DescribeNetworkInterfaceAttribute)
 
 -- | The attribute of the network interface. This parameter is required.
-describeNetworkInterfaceAttribute_attribute :: Lens.Lens' DescribeNetworkInterfaceAttribute (Prelude.Maybe NetworkInterfaceAttribute)
+describeNetworkInterfaceAttribute_attribute :: Lens.Lens' DescribeNetworkInterfaceAttribute (Core.Maybe NetworkInterfaceAttribute)
 describeNetworkInterfaceAttribute_attribute = Lens.lens (\DescribeNetworkInterfaceAttribute' {attribute} -> attribute) (\s@DescribeNetworkInterfaceAttribute' {} a -> s {attribute = a} :: DescribeNetworkInterfaceAttribute)
 
 -- | The ID of the network interface.
-describeNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttribute Prelude.Text
+describeNetworkInterfaceAttribute_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttribute Core.Text
 describeNetworkInterfaceAttribute_networkInterfaceId = Lens.lens (\DescribeNetworkInterfaceAttribute' {networkInterfaceId} -> networkInterfaceId) (\s@DescribeNetworkInterfaceAttribute' {} a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttribute)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeNetworkInterfaceAttribute
   where
   type
-    Rs DescribeNetworkInterfaceAttribute =
+    AWSResponse DescribeNetworkInterfaceAttribute =
       DescribeNetworkInterfaceAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInterfaceAttributeResponse'
-            Prelude.<$> ( x Prelude..@? "groupSet" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-              Prelude.<*> (x Prelude..@? "attachment")
-              Prelude.<*> (x Prelude..@? "sourceDestCheck")
-              Prelude.<*> (x Prelude..@? "networkInterfaceId")
-              Prelude.<*> (x Prelude..@? "description")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "groupSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (x Core..@? "attachment")
+            Core.<*> (x Core..@? "sourceDestCheck")
+            Core.<*> (x Core..@? "networkInterfaceId")
+            Core.<*> (x Core..@? "description")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeNetworkInterfaceAttribute
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeNetworkInterfaceAttribute
 
 instance
-  Prelude.ToHeaders
-    DescribeNetworkInterfaceAttribute
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeNetworkInterfaceAttribute
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeNetworkInterfaceAttribute
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeNetworkInterfaceAttribute
   where
   toQuery DescribeNetworkInterfaceAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeNetworkInterfaceAttribute" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Attribute" Prelude.=: attribute,
-        "NetworkInterfaceId" Prelude.=: networkInterfaceId
+          Core.=: ( "DescribeNetworkInterfaceAttribute" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "NetworkInterfaceId" Core.=: networkInterfaceId
       ]
 
 -- | Contains the output of DescribeNetworkInterfaceAttribute.
@@ -178,19 +176,19 @@ instance
 -- /See:/ 'newDescribeNetworkInterfaceAttributeResponse' smart constructor.
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
   { -- | The security groups associated with the network interface.
-    groups :: Prelude.Maybe [GroupIdentifier],
+    groups :: Core.Maybe [GroupIdentifier],
     -- | The attachment (if any) of the network interface.
-    attachment :: Prelude.Maybe NetworkInterfaceAttachment,
+    attachment :: Core.Maybe NetworkInterfaceAttachment,
     -- | Indicates whether source\/destination checking is enabled.
-    sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
+    sourceDestCheck :: Core.Maybe AttributeBooleanValue,
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    networkInterfaceId :: Core.Maybe Core.Text,
     -- | The description of the network interface.
-    description :: Prelude.Maybe AttributeValue,
+    description :: Core.Maybe AttributeValue,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeNetworkInterfaceAttributeResponse' with all optional fields omitted.
@@ -213,46 +211,45 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 -- 'httpStatus', 'describeNetworkInterfaceAttributeResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInterfaceAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeNetworkInterfaceAttributeResponse
 newDescribeNetworkInterfaceAttributeResponse
   pHttpStatus_ =
     DescribeNetworkInterfaceAttributeResponse'
       { groups =
-          Prelude.Nothing,
-        attachment = Prelude.Nothing,
-        sourceDestCheck =
-          Prelude.Nothing,
+          Core.Nothing,
+        attachment = Core.Nothing,
+        sourceDestCheck = Core.Nothing,
         networkInterfaceId =
-          Prelude.Nothing,
-        description = Prelude.Nothing,
+          Core.Nothing,
+        description = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The security groups associated with the network interface.
-describeNetworkInterfaceAttributeResponse_groups :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe [GroupIdentifier])
-describeNetworkInterfaceAttributeResponse_groups = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {groups} -> groups) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {groups = a} :: DescribeNetworkInterfaceAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeNetworkInterfaceAttributeResponse_groups :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Core.Maybe [GroupIdentifier])
+describeNetworkInterfaceAttributeResponse_groups = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {groups} -> groups) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {groups = a} :: DescribeNetworkInterfaceAttributeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The attachment (if any) of the network interface.
-describeNetworkInterfaceAttributeResponse_attachment :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe NetworkInterfaceAttachment)
+describeNetworkInterfaceAttributeResponse_attachment :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Core.Maybe NetworkInterfaceAttachment)
 describeNetworkInterfaceAttributeResponse_attachment = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {attachment} -> attachment) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {attachment = a} :: DescribeNetworkInterfaceAttributeResponse)
 
 -- | Indicates whether source\/destination checking is enabled.
-describeNetworkInterfaceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeNetworkInterfaceAttributeResponse_sourceDestCheck :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Core.Maybe AttributeBooleanValue)
 describeNetworkInterfaceAttributeResponse_sourceDestCheck = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {sourceDestCheck} -> sourceDestCheck) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {sourceDestCheck = a} :: DescribeNetworkInterfaceAttributeResponse)
 
 -- | The ID of the network interface.
-describeNetworkInterfaceAttributeResponse_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe Prelude.Text)
+describeNetworkInterfaceAttributeResponse_networkInterfaceId :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Core.Maybe Core.Text)
 describeNetworkInterfaceAttributeResponse_networkInterfaceId = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {networkInterfaceId} -> networkInterfaceId) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {networkInterfaceId = a} :: DescribeNetworkInterfaceAttributeResponse)
 
 -- | The description of the network interface.
-describeNetworkInterfaceAttributeResponse_description :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Prelude.Maybe AttributeValue)
+describeNetworkInterfaceAttributeResponse_description :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse (Core.Maybe AttributeValue)
 describeNetworkInterfaceAttributeResponse_description = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {description} -> description) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {description = a} :: DescribeNetworkInterfaceAttributeResponse)
 
 -- | The response's http status code.
-describeNetworkInterfaceAttributeResponse_httpStatus :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse Prelude.Int
+describeNetworkInterfaceAttributeResponse_httpStatus :: Lens.Lens' DescribeNetworkInterfaceAttributeResponse Core.Int
 describeNetworkInterfaceAttributeResponse_httpStatus = Lens.lens (\DescribeNetworkInterfaceAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeNetworkInterfaceAttributeResponse' {} a -> s {httpStatus = a} :: DescribeNetworkInterfaceAttributeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeNetworkInterfaceAttributeResponse

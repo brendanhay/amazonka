@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.DocumentMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.DocumentVersionMetadata
 import Network.AWS.WorkDocs.Types.ResourceStateType
 
@@ -30,23 +29,23 @@ import Network.AWS.WorkDocs.Types.ResourceStateType
 -- /See:/ 'newDocumentMetadata' smart constructor.
 data DocumentMetadata = DocumentMetadata'
   { -- | The time when the document was updated.
-    modifiedTimestamp :: Prelude.Maybe Prelude.POSIX,
+    modifiedTimestamp :: Core.Maybe Core.POSIX,
     -- | The ID of the parent folder.
-    parentFolderId :: Prelude.Maybe Prelude.Text,
+    parentFolderId :: Core.Maybe Core.Text,
     -- | The ID of the creator.
-    creatorId :: Prelude.Maybe Prelude.Text,
+    creatorId :: Core.Maybe Core.Text,
     -- | The time when the document was created.
-    createdTimestamp :: Prelude.Maybe Prelude.POSIX,
+    createdTimestamp :: Core.Maybe Core.POSIX,
     -- | The ID of the document.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | List of labels on the document.
-    labels :: Prelude.Maybe [Prelude.Text],
+    labels :: Core.Maybe [Core.Text],
     -- | The latest version of the document.
-    latestVersionMetadata :: Prelude.Maybe DocumentVersionMetadata,
+    latestVersionMetadata :: Core.Maybe DocumentVersionMetadata,
     -- | The resource state.
-    resourceState :: Prelude.Maybe ResourceStateType
+    resourceState :: Core.Maybe ResourceStateType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentMetadata' with all optional fields omitted.
@@ -75,65 +74,64 @@ newDocumentMetadata ::
   DocumentMetadata
 newDocumentMetadata =
   DocumentMetadata'
-    { modifiedTimestamp =
-        Prelude.Nothing,
-      parentFolderId = Prelude.Nothing,
-      creatorId = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
-      labels = Prelude.Nothing,
-      latestVersionMetadata = Prelude.Nothing,
-      resourceState = Prelude.Nothing
+    { modifiedTimestamp = Core.Nothing,
+      parentFolderId = Core.Nothing,
+      creatorId = Core.Nothing,
+      createdTimestamp = Core.Nothing,
+      id = Core.Nothing,
+      labels = Core.Nothing,
+      latestVersionMetadata = Core.Nothing,
+      resourceState = Core.Nothing
     }
 
 -- | The time when the document was updated.
-documentMetadata_modifiedTimestamp :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.UTCTime)
-documentMetadata_modifiedTimestamp = Lens.lens (\DocumentMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@DocumentMetadata' {} a -> s {modifiedTimestamp = a} :: DocumentMetadata) Prelude.. Lens.mapping Prelude._Time
+documentMetadata_modifiedTimestamp :: Lens.Lens' DocumentMetadata (Core.Maybe Core.UTCTime)
+documentMetadata_modifiedTimestamp = Lens.lens (\DocumentMetadata' {modifiedTimestamp} -> modifiedTimestamp) (\s@DocumentMetadata' {} a -> s {modifiedTimestamp = a} :: DocumentMetadata) Core.. Lens.mapping Core._Time
 
 -- | The ID of the parent folder.
-documentMetadata_parentFolderId :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.Text)
+documentMetadata_parentFolderId :: Lens.Lens' DocumentMetadata (Core.Maybe Core.Text)
 documentMetadata_parentFolderId = Lens.lens (\DocumentMetadata' {parentFolderId} -> parentFolderId) (\s@DocumentMetadata' {} a -> s {parentFolderId = a} :: DocumentMetadata)
 
 -- | The ID of the creator.
-documentMetadata_creatorId :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.Text)
+documentMetadata_creatorId :: Lens.Lens' DocumentMetadata (Core.Maybe Core.Text)
 documentMetadata_creatorId = Lens.lens (\DocumentMetadata' {creatorId} -> creatorId) (\s@DocumentMetadata' {} a -> s {creatorId = a} :: DocumentMetadata)
 
 -- | The time when the document was created.
-documentMetadata_createdTimestamp :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.UTCTime)
-documentMetadata_createdTimestamp = Lens.lens (\DocumentMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentMetadata' {} a -> s {createdTimestamp = a} :: DocumentMetadata) Prelude.. Lens.mapping Prelude._Time
+documentMetadata_createdTimestamp :: Lens.Lens' DocumentMetadata (Core.Maybe Core.UTCTime)
+documentMetadata_createdTimestamp = Lens.lens (\DocumentMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentMetadata' {} a -> s {createdTimestamp = a} :: DocumentMetadata) Core.. Lens.mapping Core._Time
 
 -- | The ID of the document.
-documentMetadata_id :: Lens.Lens' DocumentMetadata (Prelude.Maybe Prelude.Text)
+documentMetadata_id :: Lens.Lens' DocumentMetadata (Core.Maybe Core.Text)
 documentMetadata_id = Lens.lens (\DocumentMetadata' {id} -> id) (\s@DocumentMetadata' {} a -> s {id = a} :: DocumentMetadata)
 
 -- | List of labels on the document.
-documentMetadata_labels :: Lens.Lens' DocumentMetadata (Prelude.Maybe [Prelude.Text])
-documentMetadata_labels = Lens.lens (\DocumentMetadata' {labels} -> labels) (\s@DocumentMetadata' {} a -> s {labels = a} :: DocumentMetadata) Prelude.. Lens.mapping Prelude._Coerce
+documentMetadata_labels :: Lens.Lens' DocumentMetadata (Core.Maybe [Core.Text])
+documentMetadata_labels = Lens.lens (\DocumentMetadata' {labels} -> labels) (\s@DocumentMetadata' {} a -> s {labels = a} :: DocumentMetadata) Core.. Lens.mapping Lens._Coerce
 
 -- | The latest version of the document.
-documentMetadata_latestVersionMetadata :: Lens.Lens' DocumentMetadata (Prelude.Maybe DocumentVersionMetadata)
+documentMetadata_latestVersionMetadata :: Lens.Lens' DocumentMetadata (Core.Maybe DocumentVersionMetadata)
 documentMetadata_latestVersionMetadata = Lens.lens (\DocumentMetadata' {latestVersionMetadata} -> latestVersionMetadata) (\s@DocumentMetadata' {} a -> s {latestVersionMetadata = a} :: DocumentMetadata)
 
 -- | The resource state.
-documentMetadata_resourceState :: Lens.Lens' DocumentMetadata (Prelude.Maybe ResourceStateType)
+documentMetadata_resourceState :: Lens.Lens' DocumentMetadata (Core.Maybe ResourceStateType)
 documentMetadata_resourceState = Lens.lens (\DocumentMetadata' {resourceState} -> resourceState) (\s@DocumentMetadata' {} a -> s {resourceState = a} :: DocumentMetadata)
 
-instance Prelude.FromJSON DocumentMetadata where
+instance Core.FromJSON DocumentMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentMetadata"
       ( \x ->
           DocumentMetadata'
-            Prelude.<$> (x Prelude..:? "ModifiedTimestamp")
-            Prelude.<*> (x Prelude..:? "ParentFolderId")
-            Prelude.<*> (x Prelude..:? "CreatorId")
-            Prelude.<*> (x Prelude..:? "CreatedTimestamp")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Labels" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "LatestVersionMetadata")
-            Prelude.<*> (x Prelude..:? "ResourceState")
+            Core.<$> (x Core..:? "ModifiedTimestamp")
+            Core.<*> (x Core..:? "ParentFolderId")
+            Core.<*> (x Core..:? "CreatorId")
+            Core.<*> (x Core..:? "CreatedTimestamp")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Labels" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "LatestVersionMetadata")
+            Core.<*> (x Core..:? "ResourceState")
       )
 
-instance Prelude.Hashable DocumentMetadata
+instance Core.Hashable DocumentMetadata
 
-instance Prelude.NFData DocumentMetadata
+instance Core.NFData DocumentMetadata

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Emotion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.EmotionName
 
 -- | The emotions that appear to be expressed on the face, and the confidence
@@ -34,11 +33,11 @@ import Network.AWS.Rekognition.Types.EmotionName
 -- /See:/ 'newEmotion' smart constructor.
 data Emotion = Emotion'
   { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | Type of emotion detected.
-    type' :: Prelude.Maybe EmotionName
+    type' :: Core.Maybe EmotionName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Emotion' with all optional fields omitted.
@@ -55,28 +54,28 @@ newEmotion ::
   Emotion
 newEmotion =
   Emotion'
-    { confidence = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { confidence = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Level of confidence in the determination.
-emotion_confidence :: Lens.Lens' Emotion (Prelude.Maybe Prelude.Double)
+emotion_confidence :: Lens.Lens' Emotion (Core.Maybe Core.Double)
 emotion_confidence = Lens.lens (\Emotion' {confidence} -> confidence) (\s@Emotion' {} a -> s {confidence = a} :: Emotion)
 
 -- | Type of emotion detected.
-emotion_type :: Lens.Lens' Emotion (Prelude.Maybe EmotionName)
+emotion_type :: Lens.Lens' Emotion (Core.Maybe EmotionName)
 emotion_type = Lens.lens (\Emotion' {type'} -> type') (\s@Emotion' {} a -> s {type' = a} :: Emotion)
 
-instance Prelude.FromJSON Emotion where
+instance Core.FromJSON Emotion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Emotion"
       ( \x ->
           Emotion'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Emotion
+instance Core.Hashable Emotion
 
-instance Prelude.NFData Emotion
+instance Core.NFData Emotion

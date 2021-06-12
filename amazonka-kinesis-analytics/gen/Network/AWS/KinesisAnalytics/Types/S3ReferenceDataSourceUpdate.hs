@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the S3 bucket name, object key name, and IAM role that Amazon
 -- Kinesis Analytics can assume to read the Amazon S3 object on your behalf
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data S3ReferenceDataSourceUpdate = S3ReferenceDataSourceUpdate'
   { -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
     -- Amazon S3 object and populate the in-application.
-    referenceRoleARNUpdate :: Prelude.Maybe Prelude.Text,
+    referenceRoleARNUpdate :: Core.Maybe Core.Text,
     -- | Object key name.
-    fileKeyUpdate :: Prelude.Maybe Prelude.Text,
+    fileKeyUpdate :: Core.Maybe Core.Text,
     -- | Amazon Resource Name (ARN) of the S3 bucket.
-    bucketARNUpdate :: Prelude.Maybe Prelude.Text
+    bucketARNUpdate :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3ReferenceDataSourceUpdate' with all optional fields omitted.
@@ -58,37 +57,36 @@ newS3ReferenceDataSourceUpdate ::
 newS3ReferenceDataSourceUpdate =
   S3ReferenceDataSourceUpdate'
     { referenceRoleARNUpdate =
-        Prelude.Nothing,
-      fileKeyUpdate = Prelude.Nothing,
-      bucketARNUpdate = Prelude.Nothing
+        Core.Nothing,
+      fileKeyUpdate = Core.Nothing,
+      bucketARNUpdate = Core.Nothing
     }
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the
 -- Amazon S3 object and populate the in-application.
-s3ReferenceDataSourceUpdate_referenceRoleARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
+s3ReferenceDataSourceUpdate_referenceRoleARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Core.Maybe Core.Text)
 s3ReferenceDataSourceUpdate_referenceRoleARNUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {referenceRoleARNUpdate} -> referenceRoleARNUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {referenceRoleARNUpdate = a} :: S3ReferenceDataSourceUpdate)
 
 -- | Object key name.
-s3ReferenceDataSourceUpdate_fileKeyUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
+s3ReferenceDataSourceUpdate_fileKeyUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Core.Maybe Core.Text)
 s3ReferenceDataSourceUpdate_fileKeyUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {fileKeyUpdate} -> fileKeyUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {fileKeyUpdate = a} :: S3ReferenceDataSourceUpdate)
 
 -- | Amazon Resource Name (ARN) of the S3 bucket.
-s3ReferenceDataSourceUpdate_bucketARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Prelude.Maybe Prelude.Text)
+s3ReferenceDataSourceUpdate_bucketARNUpdate :: Lens.Lens' S3ReferenceDataSourceUpdate (Core.Maybe Core.Text)
 s3ReferenceDataSourceUpdate_bucketARNUpdate = Lens.lens (\S3ReferenceDataSourceUpdate' {bucketARNUpdate} -> bucketARNUpdate) (\s@S3ReferenceDataSourceUpdate' {} a -> s {bucketARNUpdate = a} :: S3ReferenceDataSourceUpdate)
 
-instance Prelude.Hashable S3ReferenceDataSourceUpdate
+instance Core.Hashable S3ReferenceDataSourceUpdate
 
-instance Prelude.NFData S3ReferenceDataSourceUpdate
+instance Core.NFData S3ReferenceDataSourceUpdate
 
-instance Prelude.ToJSON S3ReferenceDataSourceUpdate where
+instance Core.ToJSON S3ReferenceDataSourceUpdate where
   toJSON S3ReferenceDataSourceUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ReferenceRoleARNUpdate" Prelude..=)
-              Prelude.<$> referenceRoleARNUpdate,
-            ("FileKeyUpdate" Prelude..=)
-              Prelude.<$> fileKeyUpdate,
-            ("BucketARNUpdate" Prelude..=)
-              Prelude.<$> bucketARNUpdate
+    Core.object
+      ( Core.catMaybes
+          [ ("ReferenceRoleARNUpdate" Core..=)
+              Core.<$> referenceRoleARNUpdate,
+            ("FileKeyUpdate" Core..=) Core.<$> fileKeyUpdate,
+            ("BucketARNUpdate" Core..=)
+              Core.<$> bucketARNUpdate
           ]
       )

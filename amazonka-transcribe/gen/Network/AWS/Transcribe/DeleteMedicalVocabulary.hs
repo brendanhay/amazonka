@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Transcribe.DeleteMedicalVocabulary
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -45,9 +44,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newDeleteMedicalVocabulary' smart constructor.
 data DeleteMedicalVocabulary = DeleteMedicalVocabulary'
   { -- | The name of the vocabulary that you want to delete.
-    vocabularyName :: Prelude.Text
+    vocabularyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalVocabulary' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteMedicalVocabulary = DeleteMedicalVocabulary'
 -- 'vocabularyName', 'deleteMedicalVocabulary_vocabularyName' - The name of the vocabulary that you want to delete.
 newDeleteMedicalVocabulary ::
   -- | 'vocabularyName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMedicalVocabulary
 newDeleteMedicalVocabulary pVocabularyName_ =
   DeleteMedicalVocabulary'
@@ -69,57 +68,55 @@ newDeleteMedicalVocabulary pVocabularyName_ =
     }
 
 -- | The name of the vocabulary that you want to delete.
-deleteMedicalVocabulary_vocabularyName :: Lens.Lens' DeleteMedicalVocabulary Prelude.Text
+deleteMedicalVocabulary_vocabularyName :: Lens.Lens' DeleteMedicalVocabulary Core.Text
 deleteMedicalVocabulary_vocabularyName = Lens.lens (\DeleteMedicalVocabulary' {vocabularyName} -> vocabularyName) (\s@DeleteMedicalVocabulary' {} a -> s {vocabularyName = a} :: DeleteMedicalVocabulary)
 
-instance Prelude.AWSRequest DeleteMedicalVocabulary where
+instance Core.AWSRequest DeleteMedicalVocabulary where
   type
-    Rs DeleteMedicalVocabulary =
+    AWSResponse DeleteMedicalVocabulary =
       DeleteMedicalVocabularyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteMedicalVocabularyResponse'
 
-instance Prelude.Hashable DeleteMedicalVocabulary
+instance Core.Hashable DeleteMedicalVocabulary
 
-instance Prelude.NFData DeleteMedicalVocabulary
+instance Core.NFData DeleteMedicalVocabulary
 
-instance Prelude.ToHeaders DeleteMedicalVocabulary where
+instance Core.ToHeaders DeleteMedicalVocabulary where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.DeleteMedicalVocabulary" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.DeleteMedicalVocabulary" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteMedicalVocabulary where
+instance Core.ToJSON DeleteMedicalVocabulary where
   toJSON DeleteMedicalVocabulary' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("VocabularyName" Prelude..= vocabularyName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("VocabularyName" Core..= vocabularyName)
           ]
       )
 
-instance Prelude.ToPath DeleteMedicalVocabulary where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteMedicalVocabulary where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteMedicalVocabulary where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMedicalVocabulary where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteMedicalVocabularyResponse' smart constructor.
 data DeleteMedicalVocabularyResponse = DeleteMedicalVocabularyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMedicalVocabularyResponse' with all optional fields omitted.
@@ -130,6 +127,4 @@ newDeleteMedicalVocabularyResponse ::
 newDeleteMedicalVocabularyResponse =
   DeleteMedicalVocabularyResponse'
 
-instance
-  Prelude.NFData
-    DeleteMedicalVocabularyResponse
+instance Core.NFData DeleteMedicalVocabularyResponse

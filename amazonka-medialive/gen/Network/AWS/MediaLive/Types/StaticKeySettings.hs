@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.StaticKeySettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputLocation
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Static Key Settings
 --
 -- /See:/ 'newStaticKeySettings' smart constructor.
 data StaticKeySettings = StaticKeySettings'
   { -- | The URL of the license server used for protecting content.
-    keyProviderServer :: Prelude.Maybe InputLocation,
+    keyProviderServer :: Core.Maybe InputLocation,
     -- | Static key value as a 32 character hexadecimal string.
-    staticKeyValue :: Prelude.Text
+    staticKeyValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StaticKeySettings' with all optional fields omitted.
@@ -48,44 +47,43 @@ data StaticKeySettings = StaticKeySettings'
 -- 'staticKeyValue', 'staticKeySettings_staticKeyValue' - Static key value as a 32 character hexadecimal string.
 newStaticKeySettings ::
   -- | 'staticKeyValue'
-  Prelude.Text ->
+  Core.Text ->
   StaticKeySettings
 newStaticKeySettings pStaticKeyValue_ =
   StaticKeySettings'
     { keyProviderServer =
-        Prelude.Nothing,
+        Core.Nothing,
       staticKeyValue = pStaticKeyValue_
     }
 
 -- | The URL of the license server used for protecting content.
-staticKeySettings_keyProviderServer :: Lens.Lens' StaticKeySettings (Prelude.Maybe InputLocation)
+staticKeySettings_keyProviderServer :: Lens.Lens' StaticKeySettings (Core.Maybe InputLocation)
 staticKeySettings_keyProviderServer = Lens.lens (\StaticKeySettings' {keyProviderServer} -> keyProviderServer) (\s@StaticKeySettings' {} a -> s {keyProviderServer = a} :: StaticKeySettings)
 
 -- | Static key value as a 32 character hexadecimal string.
-staticKeySettings_staticKeyValue :: Lens.Lens' StaticKeySettings Prelude.Text
+staticKeySettings_staticKeyValue :: Lens.Lens' StaticKeySettings Core.Text
 staticKeySettings_staticKeyValue = Lens.lens (\StaticKeySettings' {staticKeyValue} -> staticKeyValue) (\s@StaticKeySettings' {} a -> s {staticKeyValue = a} :: StaticKeySettings)
 
-instance Prelude.FromJSON StaticKeySettings where
+instance Core.FromJSON StaticKeySettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StaticKeySettings"
       ( \x ->
           StaticKeySettings'
-            Prelude.<$> (x Prelude..:? "keyProviderServer")
-            Prelude.<*> (x Prelude..: "staticKeyValue")
+            Core.<$> (x Core..:? "keyProviderServer")
+            Core.<*> (x Core..: "staticKeyValue")
       )
 
-instance Prelude.Hashable StaticKeySettings
+instance Core.Hashable StaticKeySettings
 
-instance Prelude.NFData StaticKeySettings
+instance Core.NFData StaticKeySettings
 
-instance Prelude.ToJSON StaticKeySettings where
+instance Core.ToJSON StaticKeySettings where
   toJSON StaticKeySettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("keyProviderServer" Prelude..=)
-              Prelude.<$> keyProviderServer,
-            Prelude.Just
-              ("staticKeyValue" Prelude..= staticKeyValue)
+    Core.object
+      ( Core.catMaybes
+          [ ("keyProviderServer" Core..=)
+              Core.<$> keyProviderServer,
+            Core.Just ("staticKeyValue" Core..= staticKeyValue)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatch.Types.StatisticSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a set of statistics that describes a specific metric.
 --
 -- /See:/ 'newStatisticSet' smart constructor.
 data StatisticSet = StatisticSet'
   { -- | The number of samples used for the statistic set.
-    sampleCount :: Prelude.Double,
+    sampleCount :: Core.Double,
     -- | The sum of values for the sample set.
-    sum :: Prelude.Double,
+    sum :: Core.Double,
     -- | The minimum value of the sample set.
-    minimum :: Prelude.Double,
+    minimum :: Core.Double,
     -- | The maximum value of the sample set.
-    maximum :: Prelude.Double
+    maximum :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StatisticSet' with all optional fields omitted.
@@ -55,13 +54,13 @@ data StatisticSet = StatisticSet'
 -- 'maximum', 'statisticSet_maximum' - The maximum value of the sample set.
 newStatisticSet ::
   -- | 'sampleCount'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'sum'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'minimum'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'maximum'
-  Prelude.Double ->
+  Core.Double ->
   StatisticSet
 newStatisticSet
   pSampleCount_
@@ -76,30 +75,30 @@ newStatisticSet
       }
 
 -- | The number of samples used for the statistic set.
-statisticSet_sampleCount :: Lens.Lens' StatisticSet Prelude.Double
+statisticSet_sampleCount :: Lens.Lens' StatisticSet Core.Double
 statisticSet_sampleCount = Lens.lens (\StatisticSet' {sampleCount} -> sampleCount) (\s@StatisticSet' {} a -> s {sampleCount = a} :: StatisticSet)
 
 -- | The sum of values for the sample set.
-statisticSet_sum :: Lens.Lens' StatisticSet Prelude.Double
+statisticSet_sum :: Lens.Lens' StatisticSet Core.Double
 statisticSet_sum = Lens.lens (\StatisticSet' {sum} -> sum) (\s@StatisticSet' {} a -> s {sum = a} :: StatisticSet)
 
 -- | The minimum value of the sample set.
-statisticSet_minimum :: Lens.Lens' StatisticSet Prelude.Double
+statisticSet_minimum :: Lens.Lens' StatisticSet Core.Double
 statisticSet_minimum = Lens.lens (\StatisticSet' {minimum} -> minimum) (\s@StatisticSet' {} a -> s {minimum = a} :: StatisticSet)
 
 -- | The maximum value of the sample set.
-statisticSet_maximum :: Lens.Lens' StatisticSet Prelude.Double
+statisticSet_maximum :: Lens.Lens' StatisticSet Core.Double
 statisticSet_maximum = Lens.lens (\StatisticSet' {maximum} -> maximum) (\s@StatisticSet' {} a -> s {maximum = a} :: StatisticSet)
 
-instance Prelude.Hashable StatisticSet
+instance Core.Hashable StatisticSet
 
-instance Prelude.NFData StatisticSet
+instance Core.NFData StatisticSet
 
-instance Prelude.ToQuery StatisticSet where
+instance Core.ToQuery StatisticSet where
   toQuery StatisticSet' {..} =
-    Prelude.mconcat
-      [ "SampleCount" Prelude.=: sampleCount,
-        "Sum" Prelude.=: sum,
-        "Minimum" Prelude.=: minimum,
-        "Maximum" Prelude.=: maximum
+    Core.mconcat
+      [ "SampleCount" Core.=: sampleCount,
+        "Sum" Core.=: sum,
+        "Minimum" Core.=: minimum,
+        "Maximum" Core.=: maximum
       ]

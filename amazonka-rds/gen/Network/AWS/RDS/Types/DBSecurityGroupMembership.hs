@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBSecurityGroupMembership where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -36,11 +35,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDBSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
   { -- | The status of the DB security group.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The name of the DB security group.
-    dbSecurityGroupName :: Prelude.Maybe Prelude.Text
+    dbSecurityGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBSecurityGroupMembership' with all optional fields omitted.
@@ -57,25 +56,24 @@ newDBSecurityGroupMembership ::
   DBSecurityGroupMembership
 newDBSecurityGroupMembership =
   DBSecurityGroupMembership'
-    { status =
-        Prelude.Nothing,
-      dbSecurityGroupName = Prelude.Nothing
+    { status = Core.Nothing,
+      dbSecurityGroupName = Core.Nothing
     }
 
 -- | The status of the DB security group.
-dbSecurityGroupMembership_status :: Lens.Lens' DBSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+dbSecurityGroupMembership_status :: Lens.Lens' DBSecurityGroupMembership (Core.Maybe Core.Text)
 dbSecurityGroupMembership_status = Lens.lens (\DBSecurityGroupMembership' {status} -> status) (\s@DBSecurityGroupMembership' {} a -> s {status = a} :: DBSecurityGroupMembership)
 
 -- | The name of the DB security group.
-dbSecurityGroupMembership_dbSecurityGroupName :: Lens.Lens' DBSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+dbSecurityGroupMembership_dbSecurityGroupName :: Lens.Lens' DBSecurityGroupMembership (Core.Maybe Core.Text)
 dbSecurityGroupMembership_dbSecurityGroupName = Lens.lens (\DBSecurityGroupMembership' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@DBSecurityGroupMembership' {} a -> s {dbSecurityGroupName = a} :: DBSecurityGroupMembership)
 
-instance Prelude.FromXML DBSecurityGroupMembership where
+instance Core.FromXML DBSecurityGroupMembership where
   parseXML x =
     DBSecurityGroupMembership'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "DBSecurityGroupName")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "DBSecurityGroupName")
 
-instance Prelude.Hashable DBSecurityGroupMembership
+instance Core.Hashable DBSecurityGroupMembership
 
-instance Prelude.NFData DBSecurityGroupMembership
+instance Core.NFData DBSecurityGroupMembership

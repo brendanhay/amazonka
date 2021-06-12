@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CognitoIdentityProvider.Types.RiskConfigurationType where
 import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverRiskConfigurationType
 import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsRiskConfigurationType
 import Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The risk configuration type.
 --
@@ -33,20 +32,20 @@ data RiskConfigurationType = RiskConfigurationType'
   { -- | The account takeover risk configuration object including the
     -- @NotifyConfiguration@ object and @Actions@ to take in the case of an
     -- account takeover.
-    accountTakeoverRiskConfiguration :: Prelude.Maybe AccountTakeoverRiskConfigurationType,
+    accountTakeoverRiskConfiguration :: Core.Maybe AccountTakeoverRiskConfigurationType,
     -- | The last modified date.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The app client ID.
-    clientId :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    clientId :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The configuration to override the risk decision.
-    riskExceptionConfiguration :: Prelude.Maybe RiskExceptionConfigurationType,
+    riskExceptionConfiguration :: Core.Maybe RiskExceptionConfigurationType,
     -- | The user pool ID.
-    userPoolId :: Prelude.Maybe Prelude.Text,
+    userPoolId :: Core.Maybe Core.Text,
     -- | The compromised credentials risk configuration object including the
     -- @EventFilter@ and the @EventAction@
-    compromisedCredentialsRiskConfiguration :: Prelude.Maybe CompromisedCredentialsRiskConfigurationType
+    compromisedCredentialsRiskConfiguration :: Core.Maybe CompromisedCredentialsRiskConfigurationType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RiskConfigurationType' with all optional fields omitted.
@@ -75,58 +74,58 @@ newRiskConfigurationType ::
 newRiskConfigurationType =
   RiskConfigurationType'
     { accountTakeoverRiskConfiguration =
-        Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
-      clientId = Prelude.Nothing,
-      riskExceptionConfiguration = Prelude.Nothing,
-      userPoolId = Prelude.Nothing,
+        Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      clientId = Core.Nothing,
+      riskExceptionConfiguration = Core.Nothing,
+      userPoolId = Core.Nothing,
       compromisedCredentialsRiskConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The account takeover risk configuration object including the
 -- @NotifyConfiguration@ object and @Actions@ to take in the case of an
 -- account takeover.
-riskConfigurationType_accountTakeoverRiskConfiguration :: Lens.Lens' RiskConfigurationType (Prelude.Maybe AccountTakeoverRiskConfigurationType)
+riskConfigurationType_accountTakeoverRiskConfiguration :: Lens.Lens' RiskConfigurationType (Core.Maybe AccountTakeoverRiskConfigurationType)
 riskConfigurationType_accountTakeoverRiskConfiguration = Lens.lens (\RiskConfigurationType' {accountTakeoverRiskConfiguration} -> accountTakeoverRiskConfiguration) (\s@RiskConfigurationType' {} a -> s {accountTakeoverRiskConfiguration = a} :: RiskConfigurationType)
 
 -- | The last modified date.
-riskConfigurationType_lastModifiedDate :: Lens.Lens' RiskConfigurationType (Prelude.Maybe Prelude.UTCTime)
-riskConfigurationType_lastModifiedDate = Lens.lens (\RiskConfigurationType' {lastModifiedDate} -> lastModifiedDate) (\s@RiskConfigurationType' {} a -> s {lastModifiedDate = a} :: RiskConfigurationType) Prelude.. Lens.mapping Prelude._Time
+riskConfigurationType_lastModifiedDate :: Lens.Lens' RiskConfigurationType (Core.Maybe Core.UTCTime)
+riskConfigurationType_lastModifiedDate = Lens.lens (\RiskConfigurationType' {lastModifiedDate} -> lastModifiedDate) (\s@RiskConfigurationType' {} a -> s {lastModifiedDate = a} :: RiskConfigurationType) Core.. Lens.mapping Core._Time
 
 -- | The app client ID.
-riskConfigurationType_clientId :: Lens.Lens' RiskConfigurationType (Prelude.Maybe Prelude.Text)
-riskConfigurationType_clientId = Lens.lens (\RiskConfigurationType' {clientId} -> clientId) (\s@RiskConfigurationType' {} a -> s {clientId = a} :: RiskConfigurationType) Prelude.. Lens.mapping Prelude._Sensitive
+riskConfigurationType_clientId :: Lens.Lens' RiskConfigurationType (Core.Maybe Core.Text)
+riskConfigurationType_clientId = Lens.lens (\RiskConfigurationType' {clientId} -> clientId) (\s@RiskConfigurationType' {} a -> s {clientId = a} :: RiskConfigurationType) Core.. Lens.mapping Core._Sensitive
 
 -- | The configuration to override the risk decision.
-riskConfigurationType_riskExceptionConfiguration :: Lens.Lens' RiskConfigurationType (Prelude.Maybe RiskExceptionConfigurationType)
+riskConfigurationType_riskExceptionConfiguration :: Lens.Lens' RiskConfigurationType (Core.Maybe RiskExceptionConfigurationType)
 riskConfigurationType_riskExceptionConfiguration = Lens.lens (\RiskConfigurationType' {riskExceptionConfiguration} -> riskExceptionConfiguration) (\s@RiskConfigurationType' {} a -> s {riskExceptionConfiguration = a} :: RiskConfigurationType)
 
 -- | The user pool ID.
-riskConfigurationType_userPoolId :: Lens.Lens' RiskConfigurationType (Prelude.Maybe Prelude.Text)
+riskConfigurationType_userPoolId :: Lens.Lens' RiskConfigurationType (Core.Maybe Core.Text)
 riskConfigurationType_userPoolId = Lens.lens (\RiskConfigurationType' {userPoolId} -> userPoolId) (\s@RiskConfigurationType' {} a -> s {userPoolId = a} :: RiskConfigurationType)
 
 -- | The compromised credentials risk configuration object including the
 -- @EventFilter@ and the @EventAction@
-riskConfigurationType_compromisedCredentialsRiskConfiguration :: Lens.Lens' RiskConfigurationType (Prelude.Maybe CompromisedCredentialsRiskConfigurationType)
+riskConfigurationType_compromisedCredentialsRiskConfiguration :: Lens.Lens' RiskConfigurationType (Core.Maybe CompromisedCredentialsRiskConfigurationType)
 riskConfigurationType_compromisedCredentialsRiskConfiguration = Lens.lens (\RiskConfigurationType' {compromisedCredentialsRiskConfiguration} -> compromisedCredentialsRiskConfiguration) (\s@RiskConfigurationType' {} a -> s {compromisedCredentialsRiskConfiguration = a} :: RiskConfigurationType)
 
-instance Prelude.FromJSON RiskConfigurationType where
+instance Core.FromJSON RiskConfigurationType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RiskConfigurationType"
       ( \x ->
           RiskConfigurationType'
-            Prelude.<$> (x Prelude..:? "AccountTakeoverRiskConfiguration")
-            Prelude.<*> (x Prelude..:? "LastModifiedDate")
-            Prelude.<*> (x Prelude..:? "ClientId")
-            Prelude.<*> (x Prelude..:? "RiskExceptionConfiguration")
-            Prelude.<*> (x Prelude..:? "UserPoolId")
-            Prelude.<*> ( x
-                            Prelude..:? "CompromisedCredentialsRiskConfiguration"
-                        )
+            Core.<$> (x Core..:? "AccountTakeoverRiskConfiguration")
+            Core.<*> (x Core..:? "LastModifiedDate")
+            Core.<*> (x Core..:? "ClientId")
+            Core.<*> (x Core..:? "RiskExceptionConfiguration")
+            Core.<*> (x Core..:? "UserPoolId")
+            Core.<*> ( x
+                         Core..:? "CompromisedCredentialsRiskConfiguration"
+                     )
       )
 
-instance Prelude.Hashable RiskConfigurationType
+instance Core.Hashable RiskConfigurationType
 
-instance Prelude.NFData RiskConfigurationType
+instance Core.NFData RiskConfigurationType

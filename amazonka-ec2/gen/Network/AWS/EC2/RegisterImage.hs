@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -109,9 +108,9 @@ module Network.AWS.EC2.RegisterImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -122,21 +121,21 @@ data RegisterImage = RegisterImage'
   { -- | The type of virtualization (@hvm@ | @paravirtual@).
     --
     -- Default: @paravirtual@
-    virtualizationType :: Prelude.Maybe Prelude.Text,
+    virtualizationType :: Core.Maybe Core.Text,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-    rootDeviceName :: Prelude.Maybe Prelude.Text,
+    rootDeviceName :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the RAM disk.
-    ramdiskId :: Prelude.Maybe Prelude.Text,
+    ramdiskId :: Core.Maybe Core.Text,
     -- | The architecture of the AMI.
     --
     -- Default: For Amazon EBS-backed AMIs, @i386@. For instance store-backed
     -- AMIs, the architecture specified in the manifest file.
-    architecture :: Prelude.Maybe ArchitectureValues,
+    architecture :: Core.Maybe ArchitectureValues,
     -- | Set to @simple@ to enable enhanced networking with the Intel 82599
     -- Virtual Function interface for the AMI and any instances that you launch
     -- from the AMI.
@@ -145,7 +144,7 @@ data RegisterImage = RegisterImage'
     --
     -- This option is supported only for HVM AMIs. Specifying this option with
     -- a PV AMI can make instances launched from the AMI unreachable.
-    sriovNetSupport :: Prelude.Maybe Prelude.Text,
+    sriovNetSupport :: Core.Maybe Core.Text,
     -- | The block device mapping entries.
     --
     -- If you specify an EBS volume using the ID of an EBS snapshot, you can\'t
@@ -157,35 +156,35 @@ data RegisterImage = RegisterImage'
     -- Outpost only. For more information,
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    blockDeviceMappings :: Core.Maybe [BlockDeviceMapping],
     -- | The ID of the kernel.
-    kernelId :: Prelude.Maybe Prelude.Text,
+    kernelId :: Core.Maybe Core.Text,
     -- | A description for your AMI.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The billing product codes. Your account must be authorized to specify
     -- billing product codes. Otherwise, you can use the AWS Marketplace to
     -- bill for the use of an AMI.
-    billingProducts :: Prelude.Maybe [Prelude.Text],
+    billingProducts :: Core.Maybe [Core.Text],
     -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any
     -- instances that you launch from the AMI.
     --
     -- This option is supported only for HVM AMIs. Specifying this option with
     -- a PV AMI can make instances launched from the AMI unreachable.
-    enaSupport :: Prelude.Maybe Prelude.Bool,
+    enaSupport :: Core.Maybe Core.Bool,
     -- | The full path to your AMI manifest in Amazon S3 storage. The specified
     -- bucket must have the @aws-exec-read@ canned access control list (ACL) to
     -- ensure that it can be accessed by Amazon EC2. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs>
     -- in the /Amazon S3 Service Developer Guide/.
-    imageLocation :: Prelude.Maybe Prelude.Text,
+    imageLocation :: Core.Maybe Core.Text,
     -- | A name for your AMI.
     --
     -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
     -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
     -- quotes (\'), at-signs (\@), or underscores(_)
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterImage' with all optional fields omitted.
@@ -261,52 +260,51 @@ data RegisterImage = RegisterImage'
 -- quotes (\'), at-signs (\@), or underscores(_)
 newRegisterImage ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   RegisterImage
 newRegisterImage pName_ =
   RegisterImage'
-    { virtualizationType =
-        Prelude.Nothing,
-      rootDeviceName = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      ramdiskId = Prelude.Nothing,
-      architecture = Prelude.Nothing,
-      sriovNetSupport = Prelude.Nothing,
-      blockDeviceMappings = Prelude.Nothing,
-      kernelId = Prelude.Nothing,
-      description = Prelude.Nothing,
-      billingProducts = Prelude.Nothing,
-      enaSupport = Prelude.Nothing,
-      imageLocation = Prelude.Nothing,
+    { virtualizationType = Core.Nothing,
+      rootDeviceName = Core.Nothing,
+      dryRun = Core.Nothing,
+      ramdiskId = Core.Nothing,
+      architecture = Core.Nothing,
+      sriovNetSupport = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      kernelId = Core.Nothing,
+      description = Core.Nothing,
+      billingProducts = Core.Nothing,
+      enaSupport = Core.Nothing,
+      imageLocation = Core.Nothing,
       name = pName_
     }
 
 -- | The type of virtualization (@hvm@ | @paravirtual@).
 --
 -- Default: @paravirtual@
-registerImage_virtualizationType :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_virtualizationType :: Lens.Lens' RegisterImage (Core.Maybe Core.Text)
 registerImage_virtualizationType = Lens.lens (\RegisterImage' {virtualizationType} -> virtualizationType) (\s@RegisterImage' {} a -> s {virtualizationType = a} :: RegisterImage)
 
 -- | The device name of the root device volume (for example, @\/dev\/sda1@).
-registerImage_rootDeviceName :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_rootDeviceName :: Lens.Lens' RegisterImage (Core.Maybe Core.Text)
 registerImage_rootDeviceName = Lens.lens (\RegisterImage' {rootDeviceName} -> rootDeviceName) (\s@RegisterImage' {} a -> s {rootDeviceName = a} :: RegisterImage)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-registerImage_dryRun :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Bool)
+registerImage_dryRun :: Lens.Lens' RegisterImage (Core.Maybe Core.Bool)
 registerImage_dryRun = Lens.lens (\RegisterImage' {dryRun} -> dryRun) (\s@RegisterImage' {} a -> s {dryRun = a} :: RegisterImage)
 
 -- | The ID of the RAM disk.
-registerImage_ramdiskId :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_ramdiskId :: Lens.Lens' RegisterImage (Core.Maybe Core.Text)
 registerImage_ramdiskId = Lens.lens (\RegisterImage' {ramdiskId} -> ramdiskId) (\s@RegisterImage' {} a -> s {ramdiskId = a} :: RegisterImage)
 
 -- | The architecture of the AMI.
 --
 -- Default: For Amazon EBS-backed AMIs, @i386@. For instance store-backed
 -- AMIs, the architecture specified in the manifest file.
-registerImage_architecture :: Lens.Lens' RegisterImage (Prelude.Maybe ArchitectureValues)
+registerImage_architecture :: Lens.Lens' RegisterImage (Core.Maybe ArchitectureValues)
 registerImage_architecture = Lens.lens (\RegisterImage' {architecture} -> architecture) (\s@RegisterImage' {} a -> s {architecture = a} :: RegisterImage)
 
 -- | Set to @simple@ to enable enhanced networking with the Intel 82599
@@ -317,7 +315,7 @@ registerImage_architecture = Lens.lens (\RegisterImage' {architecture} -> archit
 --
 -- This option is supported only for HVM AMIs. Specifying this option with
 -- a PV AMI can make instances launched from the AMI unreachable.
-registerImage_sriovNetSupport :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_sriovNetSupport :: Lens.Lens' RegisterImage (Core.Maybe Core.Text)
 registerImage_sriovNetSupport = Lens.lens (\RegisterImage' {sriovNetSupport} -> sriovNetSupport) (\s@RegisterImage' {} a -> s {sriovNetSupport = a} :: RegisterImage)
 
 -- | The block device mapping entries.
@@ -331,29 +329,29 @@ registerImage_sriovNetSupport = Lens.lens (\RegisterImage' {sriovNetSupport} -> 
 -- Outpost only. For more information,
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-registerImage_blockDeviceMappings :: Lens.Lens' RegisterImage (Prelude.Maybe [BlockDeviceMapping])
-registerImage_blockDeviceMappings = Lens.lens (\RegisterImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@RegisterImage' {} a -> s {blockDeviceMappings = a} :: RegisterImage) Prelude.. Lens.mapping Prelude._Coerce
+registerImage_blockDeviceMappings :: Lens.Lens' RegisterImage (Core.Maybe [BlockDeviceMapping])
+registerImage_blockDeviceMappings = Lens.lens (\RegisterImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@RegisterImage' {} a -> s {blockDeviceMappings = a} :: RegisterImage) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the kernel.
-registerImage_kernelId :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_kernelId :: Lens.Lens' RegisterImage (Core.Maybe Core.Text)
 registerImage_kernelId = Lens.lens (\RegisterImage' {kernelId} -> kernelId) (\s@RegisterImage' {} a -> s {kernelId = a} :: RegisterImage)
 
 -- | A description for your AMI.
-registerImage_description :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_description :: Lens.Lens' RegisterImage (Core.Maybe Core.Text)
 registerImage_description = Lens.lens (\RegisterImage' {description} -> description) (\s@RegisterImage' {} a -> s {description = a} :: RegisterImage)
 
 -- | The billing product codes. Your account must be authorized to specify
 -- billing product codes. Otherwise, you can use the AWS Marketplace to
 -- bill for the use of an AMI.
-registerImage_billingProducts :: Lens.Lens' RegisterImage (Prelude.Maybe [Prelude.Text])
-registerImage_billingProducts = Lens.lens (\RegisterImage' {billingProducts} -> billingProducts) (\s@RegisterImage' {} a -> s {billingProducts = a} :: RegisterImage) Prelude.. Lens.mapping Prelude._Coerce
+registerImage_billingProducts :: Lens.Lens' RegisterImage (Core.Maybe [Core.Text])
+registerImage_billingProducts = Lens.lens (\RegisterImage' {billingProducts} -> billingProducts) (\s@RegisterImage' {} a -> s {billingProducts = a} :: RegisterImage) Core.. Lens.mapping Lens._Coerce
 
 -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any
 -- instances that you launch from the AMI.
 --
 -- This option is supported only for HVM AMIs. Specifying this option with
 -- a PV AMI can make instances launched from the AMI unreachable.
-registerImage_enaSupport :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Bool)
+registerImage_enaSupport :: Lens.Lens' RegisterImage (Core.Maybe Core.Bool)
 registerImage_enaSupport = Lens.lens (\RegisterImage' {enaSupport} -> enaSupport) (\s@RegisterImage' {} a -> s {enaSupport = a} :: RegisterImage)
 
 -- | The full path to your AMI manifest in Amazon S3 storage. The specified
@@ -361,7 +359,7 @@ registerImage_enaSupport = Lens.lens (\RegisterImage' {enaSupport} -> enaSupport
 -- ensure that it can be accessed by Amazon EC2. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs>
 -- in the /Amazon S3 Service Developer Guide/.
-registerImage_imageLocation :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_imageLocation :: Lens.Lens' RegisterImage (Core.Maybe Core.Text)
 registerImage_imageLocation = Lens.lens (\RegisterImage' {imageLocation} -> imageLocation) (\s@RegisterImage' {} a -> s {imageLocation = a} :: RegisterImage)
 
 -- | A name for your AMI.
@@ -369,56 +367,57 @@ registerImage_imageLocation = Lens.lens (\RegisterImage' {imageLocation} -> imag
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
 -- quotes (\'), at-signs (\@), or underscores(_)
-registerImage_name :: Lens.Lens' RegisterImage Prelude.Text
+registerImage_name :: Lens.Lens' RegisterImage Core.Text
 registerImage_name = Lens.lens (\RegisterImage' {name} -> name) (\s@RegisterImage' {} a -> s {name = a} :: RegisterImage)
 
-instance Prelude.AWSRequest RegisterImage where
-  type Rs RegisterImage = RegisterImageResponse
+instance Core.AWSRequest RegisterImage where
+  type
+    AWSResponse RegisterImage =
+      RegisterImageResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           RegisterImageResponse'
-            Prelude.<$> (x Prelude..@? "imageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "imageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterImage
+instance Core.Hashable RegisterImage
 
-instance Prelude.NFData RegisterImage
+instance Core.NFData RegisterImage
 
-instance Prelude.ToHeaders RegisterImage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RegisterImage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RegisterImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterImage where
+instance Core.ToQuery RegisterImage where
   toQuery RegisterImage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RegisterImage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "VirtualizationType" Prelude.=: virtualizationType,
-        "RootDeviceName" Prelude.=: rootDeviceName,
-        "DryRun" Prelude.=: dryRun,
-        "RamdiskId" Prelude.=: ramdiskId,
-        "Architecture" Prelude.=: architecture,
-        "SriovNetSupport" Prelude.=: sriovNetSupport,
-        Prelude.toQuery
-          ( Prelude.toQueryList "BlockDeviceMapping"
-              Prelude.<$> blockDeviceMappings
+          Core.=: ("RegisterImage" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "VirtualizationType" Core.=: virtualizationType,
+        "RootDeviceName" Core.=: rootDeviceName,
+        "DryRun" Core.=: dryRun,
+        "RamdiskId" Core.=: ramdiskId,
+        "Architecture" Core.=: architecture,
+        "SriovNetSupport" Core.=: sriovNetSupport,
+        Core.toQuery
+          ( Core.toQueryList "BlockDeviceMapping"
+              Core.<$> blockDeviceMappings
           ),
-        "KernelId" Prelude.=: kernelId,
-        "Description" Prelude.=: description,
-        Prelude.toQuery
-          ( Prelude.toQueryList "BillingProduct"
-              Prelude.<$> billingProducts
+        "KernelId" Core.=: kernelId,
+        "Description" Core.=: description,
+        Core.toQuery
+          ( Core.toQueryList "BillingProduct"
+              Core.<$> billingProducts
           ),
-        "EnaSupport" Prelude.=: enaSupport,
-        "ImageLocation" Prelude.=: imageLocation,
-        "Name" Prelude.=: name
+        "EnaSupport" Core.=: enaSupport,
+        "ImageLocation" Core.=: imageLocation,
+        "Name" Core.=: name
       ]
 
 -- | Contains the output of RegisterImage.
@@ -426,11 +425,11 @@ instance Prelude.ToQuery RegisterImage where
 -- /See:/ 'newRegisterImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
   { -- | The ID of the newly registered AMI.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterImageResponse' with all optional fields omitted.
@@ -445,20 +444,20 @@ data RegisterImageResponse = RegisterImageResponse'
 -- 'httpStatus', 'registerImageResponse_httpStatus' - The response's http status code.
 newRegisterImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterImageResponse
 newRegisterImageResponse pHttpStatus_ =
   RegisterImageResponse'
-    { imageId = Prelude.Nothing,
+    { imageId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the newly registered AMI.
-registerImageResponse_imageId :: Lens.Lens' RegisterImageResponse (Prelude.Maybe Prelude.Text)
+registerImageResponse_imageId :: Lens.Lens' RegisterImageResponse (Core.Maybe Core.Text)
 registerImageResponse_imageId = Lens.lens (\RegisterImageResponse' {imageId} -> imageId) (\s@RegisterImageResponse' {} a -> s {imageId = a} :: RegisterImageResponse)
 
 -- | The response's http status code.
-registerImageResponse_httpStatus :: Lens.Lens' RegisterImageResponse Prelude.Int
+registerImageResponse_httpStatus :: Lens.Lens' RegisterImageResponse Core.Int
 registerImageResponse_httpStatus = Lens.lens (\RegisterImageResponse' {httpStatus} -> httpStatus) (\s@RegisterImageResponse' {} a -> s {httpStatus = a} :: RegisterImageResponse)
 
-instance Prelude.NFData RegisterImageResponse
+instance Core.NFData RegisterImageResponse

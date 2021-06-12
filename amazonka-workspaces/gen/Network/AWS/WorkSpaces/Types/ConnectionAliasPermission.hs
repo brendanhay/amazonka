@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.ConnectionAliasPermission where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the permissions for a connection alias. Connection aliases are
 -- used for cross-Region redirection. For more information, see
@@ -31,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ConnectionAliasPermission = ConnectionAliasPermission'
   { -- | The identifier of the AWS account that the connection alias is shared
     -- with.
-    sharedAccountId :: Prelude.Text,
+    sharedAccountId :: Core.Text,
     -- | Indicates whether the specified AWS account is allowed to associate the
     -- connection alias with a directory.
-    allowAssociation :: Prelude.Bool
+    allowAssociation :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionAliasPermission' with all optional fields omitted.
@@ -53,9 +52,9 @@ data ConnectionAliasPermission = ConnectionAliasPermission'
 -- connection alias with a directory.
 newConnectionAliasPermission ::
   -- | 'sharedAccountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'allowAssociation'
-  Prelude.Bool ->
+  Core.Bool ->
   ConnectionAliasPermission
 newConnectionAliasPermission
   pSharedAccountId_
@@ -68,35 +67,35 @@ newConnectionAliasPermission
 
 -- | The identifier of the AWS account that the connection alias is shared
 -- with.
-connectionAliasPermission_sharedAccountId :: Lens.Lens' ConnectionAliasPermission Prelude.Text
+connectionAliasPermission_sharedAccountId :: Lens.Lens' ConnectionAliasPermission Core.Text
 connectionAliasPermission_sharedAccountId = Lens.lens (\ConnectionAliasPermission' {sharedAccountId} -> sharedAccountId) (\s@ConnectionAliasPermission' {} a -> s {sharedAccountId = a} :: ConnectionAliasPermission)
 
 -- | Indicates whether the specified AWS account is allowed to associate the
 -- connection alias with a directory.
-connectionAliasPermission_allowAssociation :: Lens.Lens' ConnectionAliasPermission Prelude.Bool
+connectionAliasPermission_allowAssociation :: Lens.Lens' ConnectionAliasPermission Core.Bool
 connectionAliasPermission_allowAssociation = Lens.lens (\ConnectionAliasPermission' {allowAssociation} -> allowAssociation) (\s@ConnectionAliasPermission' {} a -> s {allowAssociation = a} :: ConnectionAliasPermission)
 
-instance Prelude.FromJSON ConnectionAliasPermission where
+instance Core.FromJSON ConnectionAliasPermission where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectionAliasPermission"
       ( \x ->
           ConnectionAliasPermission'
-            Prelude.<$> (x Prelude..: "SharedAccountId")
-            Prelude.<*> (x Prelude..: "AllowAssociation")
+            Core.<$> (x Core..: "SharedAccountId")
+            Core.<*> (x Core..: "AllowAssociation")
       )
 
-instance Prelude.Hashable ConnectionAliasPermission
+instance Core.Hashable ConnectionAliasPermission
 
-instance Prelude.NFData ConnectionAliasPermission
+instance Core.NFData ConnectionAliasPermission
 
-instance Prelude.ToJSON ConnectionAliasPermission where
+instance Core.ToJSON ConnectionAliasPermission where
   toJSON ConnectionAliasPermission' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("SharedAccountId" Prelude..= sharedAccountId),
-            Prelude.Just
-              ("AllowAssociation" Prelude..= allowAssociation)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SharedAccountId" Core..= sharedAccountId),
+            Core.Just
+              ("AllowAssociation" Core..= allowAssociation)
           ]
       )

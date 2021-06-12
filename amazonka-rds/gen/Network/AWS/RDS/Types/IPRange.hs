@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.IPRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used as a response element in the
 -- @DescribeDBSecurityGroups@ action.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data IPRange = IPRange'
   { -- | Specifies the status of the IP range. Status can be \"authorizing\",
     -- \"authorized\", \"revoking\", and \"revoked\".
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | Specifies the IP range.
-    cidrip :: Prelude.Maybe Prelude.Text
+    cidrip :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IPRange' with all optional fields omitted.
@@ -52,25 +51,24 @@ newIPRange ::
   IPRange
 newIPRange =
   IPRange'
-    { status = Prelude.Nothing,
-      cidrip = Prelude.Nothing
+    { status = Core.Nothing,
+      cidrip = Core.Nothing
     }
 
 -- | Specifies the status of the IP range. Status can be \"authorizing\",
 -- \"authorized\", \"revoking\", and \"revoked\".
-iPRange_status :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
+iPRange_status :: Lens.Lens' IPRange (Core.Maybe Core.Text)
 iPRange_status = Lens.lens (\IPRange' {status} -> status) (\s@IPRange' {} a -> s {status = a} :: IPRange)
 
 -- | Specifies the IP range.
-iPRange_cidrip :: Lens.Lens' IPRange (Prelude.Maybe Prelude.Text)
+iPRange_cidrip :: Lens.Lens' IPRange (Core.Maybe Core.Text)
 iPRange_cidrip = Lens.lens (\IPRange' {cidrip} -> cidrip) (\s@IPRange' {} a -> s {cidrip = a} :: IPRange)
 
-instance Prelude.FromXML IPRange where
+instance Core.FromXML IPRange where
   parseXML x =
     IPRange'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "CIDRIP")
+      Core.<$> (x Core..@? "Status") Core.<*> (x Core..@? "CIDRIP")
 
-instance Prelude.Hashable IPRange
+instance Core.Hashable IPRange
 
-instance Prelude.NFData IPRange
+instance Core.NFData IPRange

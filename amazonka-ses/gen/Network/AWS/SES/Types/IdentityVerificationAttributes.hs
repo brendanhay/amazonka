@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.IdentityVerificationAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.VerificationStatus
 
 -- | Represents the verification attributes of a single identity.
@@ -30,12 +29,12 @@ import Network.AWS.SES.Types.VerificationStatus
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
   { -- | The verification token for a domain identity. Null for email address
     -- identities.
-    verificationToken :: Prelude.Maybe Prelude.Text,
+    verificationToken :: Core.Maybe Core.Text,
     -- | The verification status of the identity: \"Pending\", \"Success\",
     -- \"Failed\", or \"TemporaryFailure\".
     verificationStatus :: VerificationStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityVerificationAttributes' with all optional fields omitted.
@@ -58,13 +57,13 @@ newIdentityVerificationAttributes
   pVerificationStatus_ =
     IdentityVerificationAttributes'
       { verificationToken =
-          Prelude.Nothing,
+          Core.Nothing,
         verificationStatus = pVerificationStatus_
       }
 
 -- | The verification token for a domain identity. Null for email address
 -- identities.
-identityVerificationAttributes_verificationToken :: Lens.Lens' IdentityVerificationAttributes (Prelude.Maybe Prelude.Text)
+identityVerificationAttributes_verificationToken :: Lens.Lens' IdentityVerificationAttributes (Core.Maybe Core.Text)
 identityVerificationAttributes_verificationToken = Lens.lens (\IdentityVerificationAttributes' {verificationToken} -> verificationToken) (\s@IdentityVerificationAttributes' {} a -> s {verificationToken = a} :: IdentityVerificationAttributes)
 
 -- | The verification status of the identity: \"Pending\", \"Success\",
@@ -72,19 +71,12 @@ identityVerificationAttributes_verificationToken = Lens.lens (\IdentityVerificat
 identityVerificationAttributes_verificationStatus :: Lens.Lens' IdentityVerificationAttributes VerificationStatus
 identityVerificationAttributes_verificationStatus = Lens.lens (\IdentityVerificationAttributes' {verificationStatus} -> verificationStatus) (\s@IdentityVerificationAttributes' {} a -> s {verificationStatus = a} :: IdentityVerificationAttributes)
 
-instance
-  Prelude.FromXML
-    IdentityVerificationAttributes
-  where
+instance Core.FromXML IdentityVerificationAttributes where
   parseXML x =
     IdentityVerificationAttributes'
-      Prelude.<$> (x Prelude..@? "VerificationToken")
-      Prelude.<*> (x Prelude..@ "VerificationStatus")
+      Core.<$> (x Core..@? "VerificationToken")
+      Core.<*> (x Core..@ "VerificationStatus")
 
-instance
-  Prelude.Hashable
-    IdentityVerificationAttributes
+instance Core.Hashable IdentityVerificationAttributes
 
-instance
-  Prelude.NFData
-    IdentityVerificationAttributes
+instance Core.NFData IdentityVerificationAttributes

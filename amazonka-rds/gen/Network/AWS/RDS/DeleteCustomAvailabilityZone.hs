@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.RDS.DeleteCustomAvailabilityZone
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteCustomAvailabilityZone' smart constructor.
 data DeleteCustomAvailabilityZone = DeleteCustomAvailabilityZone'
   { -- | The custom AZ identifier.
-    customAvailabilityZoneId :: Prelude.Text
+    customAvailabilityZoneId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomAvailabilityZone' with all optional fields omitted.
@@ -70,7 +69,7 @@ data DeleteCustomAvailabilityZone = DeleteCustomAvailabilityZone'
 -- 'customAvailabilityZoneId', 'deleteCustomAvailabilityZone_customAvailabilityZoneId' - The custom AZ identifier.
 newDeleteCustomAvailabilityZone ::
   -- | 'customAvailabilityZoneId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCustomAvailabilityZone
 newDeleteCustomAvailabilityZone
   pCustomAvailabilityZoneId_ =
@@ -80,15 +79,12 @@ newDeleteCustomAvailabilityZone
       }
 
 -- | The custom AZ identifier.
-deleteCustomAvailabilityZone_customAvailabilityZoneId :: Lens.Lens' DeleteCustomAvailabilityZone Prelude.Text
+deleteCustomAvailabilityZone_customAvailabilityZoneId :: Lens.Lens' DeleteCustomAvailabilityZone Core.Text
 deleteCustomAvailabilityZone_customAvailabilityZoneId = Lens.lens (\DeleteCustomAvailabilityZone' {customAvailabilityZoneId} -> customAvailabilityZoneId) (\s@DeleteCustomAvailabilityZone' {} a -> s {customAvailabilityZoneId = a} :: DeleteCustomAvailabilityZone)
 
-instance
-  Prelude.AWSRequest
-    DeleteCustomAvailabilityZone
-  where
+instance Core.AWSRequest DeleteCustomAvailabilityZone where
   type
-    Rs DeleteCustomAvailabilityZone =
+    AWSResponse DeleteCustomAvailabilityZone =
       DeleteCustomAvailabilityZoneResponse
   request = Request.postQuery defaultService
   response =
@@ -96,45 +92,37 @@ instance
       "DeleteCustomAvailabilityZoneResult"
       ( \s h x ->
           DeleteCustomAvailabilityZoneResponse'
-            Prelude.<$> (x Prelude..@? "CustomAvailabilityZone")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "CustomAvailabilityZone")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DeleteCustomAvailabilityZone
+instance Core.Hashable DeleteCustomAvailabilityZone
 
-instance Prelude.NFData DeleteCustomAvailabilityZone
+instance Core.NFData DeleteCustomAvailabilityZone
 
-instance
-  Prelude.ToHeaders
-    DeleteCustomAvailabilityZone
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteCustomAvailabilityZone where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteCustomAvailabilityZone where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCustomAvailabilityZone where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCustomAvailabilityZone where
+instance Core.ToQuery DeleteCustomAvailabilityZone where
   toQuery DeleteCustomAvailabilityZone' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteCustomAvailabilityZone" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("DeleteCustomAvailabilityZone" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "CustomAvailabilityZoneId"
-          Prelude.=: customAvailabilityZoneId
+          Core.=: customAvailabilityZoneId
       ]
 
 -- | /See:/ 'newDeleteCustomAvailabilityZoneResponse' smart constructor.
 data DeleteCustomAvailabilityZoneResponse = DeleteCustomAvailabilityZoneResponse'
-  { customAvailabilityZone :: Prelude.Maybe CustomAvailabilityZone,
+  { customAvailabilityZone :: Core.Maybe CustomAvailabilityZone,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomAvailabilityZoneResponse' with all optional fields omitted.
@@ -149,23 +137,23 @@ data DeleteCustomAvailabilityZoneResponse = DeleteCustomAvailabilityZoneResponse
 -- 'httpStatus', 'deleteCustomAvailabilityZoneResponse_httpStatus' - The response's http status code.
 newDeleteCustomAvailabilityZoneResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteCustomAvailabilityZoneResponse
 newDeleteCustomAvailabilityZoneResponse pHttpStatus_ =
   DeleteCustomAvailabilityZoneResponse'
     { customAvailabilityZone =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteCustomAvailabilityZoneResponse_customAvailabilityZone :: Lens.Lens' DeleteCustomAvailabilityZoneResponse (Prelude.Maybe CustomAvailabilityZone)
+deleteCustomAvailabilityZoneResponse_customAvailabilityZone :: Lens.Lens' DeleteCustomAvailabilityZoneResponse (Core.Maybe CustomAvailabilityZone)
 deleteCustomAvailabilityZoneResponse_customAvailabilityZone = Lens.lens (\DeleteCustomAvailabilityZoneResponse' {customAvailabilityZone} -> customAvailabilityZone) (\s@DeleteCustomAvailabilityZoneResponse' {} a -> s {customAvailabilityZone = a} :: DeleteCustomAvailabilityZoneResponse)
 
 -- | The response's http status code.
-deleteCustomAvailabilityZoneResponse_httpStatus :: Lens.Lens' DeleteCustomAvailabilityZoneResponse Prelude.Int
+deleteCustomAvailabilityZoneResponse_httpStatus :: Lens.Lens' DeleteCustomAvailabilityZoneResponse Core.Int
 deleteCustomAvailabilityZoneResponse_httpStatus = Lens.lens (\DeleteCustomAvailabilityZoneResponse' {httpStatus} -> httpStatus) (\s@DeleteCustomAvailabilityZoneResponse' {} a -> s {httpStatus = a} :: DeleteCustomAvailabilityZoneResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteCustomAvailabilityZoneResponse

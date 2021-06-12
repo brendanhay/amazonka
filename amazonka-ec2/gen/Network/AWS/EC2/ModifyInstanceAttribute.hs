@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.EC2.ModifyInstanceAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,45 +75,45 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     -- at least one security group, even if it\'s just the default security
     -- group for the VPC. You must specify the security group ID, not the
     -- security group name.
-    groups :: Prelude.Maybe [Prelude.Text],
+    groups :: Core.Maybe [Core.Text],
     -- | Changes the instance type to the specified value. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
     -- error returned is @InvalidInstanceAttributeValue@.
-    instanceType :: Prelude.Maybe AttributeValue,
+    instanceType :: Core.Maybe AttributeValue,
     -- | Specifies whether the instance is optimized for Amazon EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal EBS I\/O performance.
     -- This optimization isn\'t available with all instance types. Additional
     -- usage charges apply when using an EBS Optimized instance.
-    ebsOptimized :: Prelude.Maybe AttributeBooleanValue,
+    ebsOptimized :: Core.Maybe AttributeBooleanValue,
     -- | Changes the instance\'s user data to the specified value. If you are
     -- using an AWS SDK or command line tool, base64-encoding is performed for
     -- you, and you can load the text from a file. Otherwise, you must provide
     -- base64-encoded text.
-    userData :: Prelude.Maybe BlobAttributeValue,
+    userData :: Core.Maybe BlobAttributeValue,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Changes the instance\'s kernel to the specified value. We recommend that
     -- you use PV-GRUB instead of kernels and RAM disks. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
-    kernel :: Prelude.Maybe AttributeValue,
+    kernel :: Core.Maybe AttributeValue,
     -- | Specifies whether source\/destination checking is enabled. A value of
     -- @true@ means that checking is enabled, and @false@ means that checking
     -- is disabled. This value must be @false@ for a NAT instance to perform
     -- NAT.
-    sourceDestCheck :: Prelude.Maybe AttributeBooleanValue,
+    sourceDestCheck :: Core.Maybe AttributeBooleanValue,
     -- | Specifies whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
     -- system shutdown).
-    instanceInitiatedShutdownBehavior :: Prelude.Maybe AttributeValue,
+    instanceInitiatedShutdownBehavior :: Core.Maybe AttributeValue,
     -- | The name of the attribute.
-    attribute :: Prelude.Maybe InstanceAttributeName,
+    attribute :: Core.Maybe InstanceAttributeName,
     -- | Set to @simple@ to enable enhanced networking with the Intel 82599
     -- Virtual Function interface for the instance.
     --
@@ -123,7 +122,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     --
     -- This option is supported only for HVM instances. Specifying this option
     -- with a PV instance can make it unreachable.
-    sriovNetSupport :: Prelude.Maybe AttributeValue,
+    sriovNetSupport :: Core.Maybe AttributeValue,
     -- | Modifies the @DeleteOnTermination@ attribute for volumes that are
     -- currently attached. The volume must be owned by the caller. If no value
     -- is specified for @DeleteOnTermination@, the default is @true@ and the
@@ -133,29 +132,29 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     -- add them when you launch the instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance>
     -- in the /Amazon EC2 User Guide/.
-    blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMappingSpecification],
+    blockDeviceMappings :: Core.Maybe [InstanceBlockDeviceMappingSpecification],
     -- | A new value for the attribute. Use only with the @kernel@, @ramdisk@,
     -- @userData@, @disableApiTermination@, or
     -- @instanceInitiatedShutdownBehavior@ attribute.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | Changes the instance\'s RAM disk to the specified value. We recommend
     -- that you use PV-GRUB instead of kernels and RAM disks. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
-    ramdisk :: Prelude.Maybe AttributeValue,
+    ramdisk :: Core.Maybe AttributeValue,
     -- | If the value is @true@, you can\'t terminate the instance using the
     -- Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this
     -- parameter for Spot Instances.
-    disableApiTermination :: Prelude.Maybe AttributeBooleanValue,
+    disableApiTermination :: Core.Maybe AttributeBooleanValue,
     -- | Set to @true@ to enable enhanced networking with ENA for the instance.
     --
     -- This option is supported only for HVM instances. Specifying this option
     -- with a PV instance can make it unreachable.
-    enaSupport :: Prelude.Maybe AttributeBooleanValue,
+    enaSupport :: Core.Maybe AttributeBooleanValue,
     -- | The ID of the instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceAttribute' with all optional fields omitted.
@@ -248,26 +247,25 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- 'instanceId', 'modifyInstanceAttribute_instanceId' - The ID of the instance.
 newModifyInstanceAttribute ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyInstanceAttribute
 newModifyInstanceAttribute pInstanceId_ =
   ModifyInstanceAttribute'
-    { groups = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      ebsOptimized = Prelude.Nothing,
-      userData = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      kernel = Prelude.Nothing,
-      sourceDestCheck = Prelude.Nothing,
-      instanceInitiatedShutdownBehavior =
-        Prelude.Nothing,
-      attribute = Prelude.Nothing,
-      sriovNetSupport = Prelude.Nothing,
-      blockDeviceMappings = Prelude.Nothing,
-      value = Prelude.Nothing,
-      ramdisk = Prelude.Nothing,
-      disableApiTermination = Prelude.Nothing,
-      enaSupport = Prelude.Nothing,
+    { groups = Core.Nothing,
+      instanceType = Core.Nothing,
+      ebsOptimized = Core.Nothing,
+      userData = Core.Nothing,
+      dryRun = Core.Nothing,
+      kernel = Core.Nothing,
+      sourceDestCheck = Core.Nothing,
+      instanceInitiatedShutdownBehavior = Core.Nothing,
+      attribute = Core.Nothing,
+      sriovNetSupport = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      value = Core.Nothing,
+      ramdisk = Core.Nothing,
+      disableApiTermination = Core.Nothing,
+      enaSupport = Core.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -275,15 +273,15 @@ newModifyInstanceAttribute pInstanceId_ =
 -- at least one security group, even if it\'s just the default security
 -- group for the VPC. You must specify the security group ID, not the
 -- security group name.
-modifyInstanceAttribute_groups :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe [Prelude.Text])
-modifyInstanceAttribute_groups = Lens.lens (\ModifyInstanceAttribute' {groups} -> groups) (\s@ModifyInstanceAttribute' {} a -> s {groups = a} :: ModifyInstanceAttribute) Prelude.. Lens.mapping Prelude._Coerce
+modifyInstanceAttribute_groups :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe [Core.Text])
+modifyInstanceAttribute_groups = Lens.lens (\ModifyInstanceAttribute' {groups} -> groups) (\s@ModifyInstanceAttribute' {} a -> s {groups = a} :: ModifyInstanceAttribute) Core.. Lens.mapping Lens._Coerce
 
 -- | Changes the instance type to the specified value. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/. If the instance type is not valid, the
 -- error returned is @InvalidInstanceAttributeValue@.
-modifyInstanceAttribute_instanceType :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
+modifyInstanceAttribute_instanceType :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeValue)
 modifyInstanceAttribute_instanceType = Lens.lens (\ModifyInstanceAttribute' {instanceType} -> instanceType) (\s@ModifyInstanceAttribute' {} a -> s {instanceType = a} :: ModifyInstanceAttribute)
 
 -- | Specifies whether the instance is optimized for Amazon EBS I\/O. This
@@ -291,45 +289,45 @@ modifyInstanceAttribute_instanceType = Lens.lens (\ModifyInstanceAttribute' {ins
 -- optimized configuration stack to provide optimal EBS I\/O performance.
 -- This optimization isn\'t available with all instance types. Additional
 -- usage charges apply when using an EBS Optimized instance.
-modifyInstanceAttribute_ebsOptimized :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyInstanceAttribute_ebsOptimized :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeBooleanValue)
 modifyInstanceAttribute_ebsOptimized = Lens.lens (\ModifyInstanceAttribute' {ebsOptimized} -> ebsOptimized) (\s@ModifyInstanceAttribute' {} a -> s {ebsOptimized = a} :: ModifyInstanceAttribute)
 
 -- | Changes the instance\'s user data to the specified value. If you are
 -- using an AWS SDK or command line tool, base64-encoding is performed for
 -- you, and you can load the text from a file. Otherwise, you must provide
 -- base64-encoded text.
-modifyInstanceAttribute_userData :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe BlobAttributeValue)
+modifyInstanceAttribute_userData :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe BlobAttributeValue)
 modifyInstanceAttribute_userData = Lens.lens (\ModifyInstanceAttribute' {userData} -> userData) (\s@ModifyInstanceAttribute' {} a -> s {userData = a} :: ModifyInstanceAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyInstanceAttribute_dryRun :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe Prelude.Bool)
+modifyInstanceAttribute_dryRun :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Core.Bool)
 modifyInstanceAttribute_dryRun = Lens.lens (\ModifyInstanceAttribute' {dryRun} -> dryRun) (\s@ModifyInstanceAttribute' {} a -> s {dryRun = a} :: ModifyInstanceAttribute)
 
 -- | Changes the instance\'s kernel to the specified value. We recommend that
 -- you use PV-GRUB instead of kernels and RAM disks. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
-modifyInstanceAttribute_kernel :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
+modifyInstanceAttribute_kernel :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeValue)
 modifyInstanceAttribute_kernel = Lens.lens (\ModifyInstanceAttribute' {kernel} -> kernel) (\s@ModifyInstanceAttribute' {} a -> s {kernel = a} :: ModifyInstanceAttribute)
 
 -- | Specifies whether source\/destination checking is enabled. A value of
 -- @true@ means that checking is enabled, and @false@ means that checking
 -- is disabled. This value must be @false@ for a NAT instance to perform
 -- NAT.
-modifyInstanceAttribute_sourceDestCheck :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyInstanceAttribute_sourceDestCheck :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeBooleanValue)
 modifyInstanceAttribute_sourceDestCheck = Lens.lens (\ModifyInstanceAttribute' {sourceDestCheck} -> sourceDestCheck) (\s@ModifyInstanceAttribute' {} a -> s {sourceDestCheck = a} :: ModifyInstanceAttribute)
 
 -- | Specifies whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
-modifyInstanceAttribute_instanceInitiatedShutdownBehavior :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
+modifyInstanceAttribute_instanceInitiatedShutdownBehavior :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeValue)
 modifyInstanceAttribute_instanceInitiatedShutdownBehavior = Lens.lens (\ModifyInstanceAttribute' {instanceInitiatedShutdownBehavior} -> instanceInitiatedShutdownBehavior) (\s@ModifyInstanceAttribute' {} a -> s {instanceInitiatedShutdownBehavior = a} :: ModifyInstanceAttribute)
 
 -- | The name of the attribute.
-modifyInstanceAttribute_attribute :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe InstanceAttributeName)
+modifyInstanceAttribute_attribute :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe InstanceAttributeName)
 modifyInstanceAttribute_attribute = Lens.lens (\ModifyInstanceAttribute' {attribute} -> attribute) (\s@ModifyInstanceAttribute' {} a -> s {attribute = a} :: ModifyInstanceAttribute)
 
 -- | Set to @simple@ to enable enhanced networking with the Intel 82599
@@ -340,7 +338,7 @@ modifyInstanceAttribute_attribute = Lens.lens (\ModifyInstanceAttribute' {attrib
 --
 -- This option is supported only for HVM instances. Specifying this option
 -- with a PV instance can make it unreachable.
-modifyInstanceAttribute_sriovNetSupport :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
+modifyInstanceAttribute_sriovNetSupport :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeValue)
 modifyInstanceAttribute_sriovNetSupport = Lens.lens (\ModifyInstanceAttribute' {sriovNetSupport} -> sriovNetSupport) (\s@ModifyInstanceAttribute' {} a -> s {sriovNetSupport = a} :: ModifyInstanceAttribute)
 
 -- | Modifies the @DeleteOnTermination@ attribute for volumes that are
@@ -352,94 +350,93 @@ modifyInstanceAttribute_sriovNetSupport = Lens.lens (\ModifyInstanceAttribute' {
 -- add them when you launch the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the block device mapping when launching an instance>
 -- in the /Amazon EC2 User Guide/.
-modifyInstanceAttribute_blockDeviceMappings :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe [InstanceBlockDeviceMappingSpecification])
-modifyInstanceAttribute_blockDeviceMappings = Lens.lens (\ModifyInstanceAttribute' {blockDeviceMappings} -> blockDeviceMappings) (\s@ModifyInstanceAttribute' {} a -> s {blockDeviceMappings = a} :: ModifyInstanceAttribute) Prelude.. Lens.mapping Prelude._Coerce
+modifyInstanceAttribute_blockDeviceMappings :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe [InstanceBlockDeviceMappingSpecification])
+modifyInstanceAttribute_blockDeviceMappings = Lens.lens (\ModifyInstanceAttribute' {blockDeviceMappings} -> blockDeviceMappings) (\s@ModifyInstanceAttribute' {} a -> s {blockDeviceMappings = a} :: ModifyInstanceAttribute) Core.. Lens.mapping Lens._Coerce
 
 -- | A new value for the attribute. Use only with the @kernel@, @ramdisk@,
 -- @userData@, @disableApiTermination@, or
 -- @instanceInitiatedShutdownBehavior@ attribute.
-modifyInstanceAttribute_value :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe Prelude.Text)
+modifyInstanceAttribute_value :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe Core.Text)
 modifyInstanceAttribute_value = Lens.lens (\ModifyInstanceAttribute' {value} -> value) (\s@ModifyInstanceAttribute' {} a -> s {value = a} :: ModifyInstanceAttribute)
 
 -- | Changes the instance\'s RAM disk to the specified value. We recommend
 -- that you use PV-GRUB instead of kernels and RAM disks. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
-modifyInstanceAttribute_ramdisk :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeValue)
+modifyInstanceAttribute_ramdisk :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeValue)
 modifyInstanceAttribute_ramdisk = Lens.lens (\ModifyInstanceAttribute' {ramdisk} -> ramdisk) (\s@ModifyInstanceAttribute' {} a -> s {ramdisk = a} :: ModifyInstanceAttribute)
 
 -- | If the value is @true@, you can\'t terminate the instance using the
 -- Amazon EC2 console, CLI, or API; otherwise, you can. You cannot use this
 -- parameter for Spot Instances.
-modifyInstanceAttribute_disableApiTermination :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyInstanceAttribute_disableApiTermination :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeBooleanValue)
 modifyInstanceAttribute_disableApiTermination = Lens.lens (\ModifyInstanceAttribute' {disableApiTermination} -> disableApiTermination) (\s@ModifyInstanceAttribute' {} a -> s {disableApiTermination = a} :: ModifyInstanceAttribute)
 
 -- | Set to @true@ to enable enhanced networking with ENA for the instance.
 --
 -- This option is supported only for HVM instances. Specifying this option
 -- with a PV instance can make it unreachable.
-modifyInstanceAttribute_enaSupport :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyInstanceAttribute_enaSupport :: Lens.Lens' ModifyInstanceAttribute (Core.Maybe AttributeBooleanValue)
 modifyInstanceAttribute_enaSupport = Lens.lens (\ModifyInstanceAttribute' {enaSupport} -> enaSupport) (\s@ModifyInstanceAttribute' {} a -> s {enaSupport = a} :: ModifyInstanceAttribute)
 
 -- | The ID of the instance.
-modifyInstanceAttribute_instanceId :: Lens.Lens' ModifyInstanceAttribute Prelude.Text
+modifyInstanceAttribute_instanceId :: Lens.Lens' ModifyInstanceAttribute Core.Text
 modifyInstanceAttribute_instanceId = Lens.lens (\ModifyInstanceAttribute' {instanceId} -> instanceId) (\s@ModifyInstanceAttribute' {} a -> s {instanceId = a} :: ModifyInstanceAttribute)
 
-instance Prelude.AWSRequest ModifyInstanceAttribute where
+instance Core.AWSRequest ModifyInstanceAttribute where
   type
-    Rs ModifyInstanceAttribute =
+    AWSResponse ModifyInstanceAttribute =
       ModifyInstanceAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       ModifyInstanceAttributeResponse'
 
-instance Prelude.Hashable ModifyInstanceAttribute
+instance Core.Hashable ModifyInstanceAttribute
 
-instance Prelude.NFData ModifyInstanceAttribute
+instance Core.NFData ModifyInstanceAttribute
 
-instance Prelude.ToHeaders ModifyInstanceAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyInstanceAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyInstanceAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyInstanceAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyInstanceAttribute where
+instance Core.ToQuery ModifyInstanceAttribute where
   toQuery ModifyInstanceAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyInstanceAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          (Prelude.toQueryList "GroupId" Prelude.<$> groups),
-        "InstanceType" Prelude.=: instanceType,
-        "EbsOptimized" Prelude.=: ebsOptimized,
-        "UserData" Prelude.=: userData,
-        "DryRun" Prelude.=: dryRun,
-        "Kernel" Prelude.=: kernel,
-        "SourceDestCheck" Prelude.=: sourceDestCheck,
+          Core.=: ("ModifyInstanceAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          (Core.toQueryList "GroupId" Core.<$> groups),
+        "InstanceType" Core.=: instanceType,
+        "EbsOptimized" Core.=: ebsOptimized,
+        "UserData" Core.=: userData,
+        "DryRun" Core.=: dryRun,
+        "Kernel" Core.=: kernel,
+        "SourceDestCheck" Core.=: sourceDestCheck,
         "InstanceInitiatedShutdownBehavior"
-          Prelude.=: instanceInitiatedShutdownBehavior,
-        "Attribute" Prelude.=: attribute,
-        "SriovNetSupport" Prelude.=: sriovNetSupport,
-        Prelude.toQuery
-          ( Prelude.toQueryList "BlockDeviceMapping"
-              Prelude.<$> blockDeviceMappings
+          Core.=: instanceInitiatedShutdownBehavior,
+        "Attribute" Core.=: attribute,
+        "SriovNetSupport" Core.=: sriovNetSupport,
+        Core.toQuery
+          ( Core.toQueryList "BlockDeviceMapping"
+              Core.<$> blockDeviceMappings
           ),
-        "Value" Prelude.=: value,
-        "Ramdisk" Prelude.=: ramdisk,
+        "Value" Core.=: value,
+        "Ramdisk" Core.=: ramdisk,
         "DisableApiTermination"
-          Prelude.=: disableApiTermination,
-        "EnaSupport" Prelude.=: enaSupport,
-        "InstanceId" Prelude.=: instanceId
+          Core.=: disableApiTermination,
+        "EnaSupport" Core.=: enaSupport,
+        "InstanceId" Core.=: instanceId
       ]
 
 -- | /See:/ 'newModifyInstanceAttributeResponse' smart constructor.
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceAttributeResponse' with all optional fields omitted.
@@ -450,6 +447,4 @@ newModifyInstanceAttributeResponse ::
 newModifyInstanceAttributeResponse =
   ModifyInstanceAttributeResponse'
 
-instance
-  Prelude.NFData
-    ModifyInstanceAttributeResponse
+instance Core.NFData ModifyInstanceAttributeResponse

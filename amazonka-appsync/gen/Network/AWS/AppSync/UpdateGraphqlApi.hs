@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,32 +47,32 @@ module Network.AWS.AppSync.UpdateGraphqlApi
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateGraphqlApi' smart constructor.
 data UpdateGraphqlApi = UpdateGraphqlApi'
   { -- | The OpenID Connect configuration for the @GraphqlApi@ object.
-    openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
+    openIDConnectConfig :: Core.Maybe OpenIDConnectConfig,
     -- | The new Amazon Cognito user pool configuration for the @GraphqlApi@
     -- object.
-    userPoolConfig :: Prelude.Maybe UserPoolConfig,
+    userPoolConfig :: Core.Maybe UserPoolConfig,
     -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
-    xrayEnabled :: Prelude.Maybe Prelude.Bool,
+    xrayEnabled :: Core.Maybe Core.Bool,
     -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
-    logConfig :: Prelude.Maybe LogConfig,
+    logConfig :: Core.Maybe LogConfig,
     -- | A list of additional authentication providers for the @GraphqlApi@ API.
-    additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
+    additionalAuthenticationProviders :: Core.Maybe [AdditionalAuthenticationProvider],
     -- | The new authentication type for the @GraphqlApi@ object.
-    authenticationType :: Prelude.Maybe AuthenticationType,
+    authenticationType :: Core.Maybe AuthenticationType,
     -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The new name for the @GraphqlApi@ object.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGraphqlApi' with all optional fields omitted.
@@ -101,115 +100,114 @@ data UpdateGraphqlApi = UpdateGraphqlApi'
 -- 'name', 'updateGraphqlApi_name' - The new name for the @GraphqlApi@ object.
 newUpdateGraphqlApi ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateGraphqlApi
 newUpdateGraphqlApi pApiId_ pName_ =
   UpdateGraphqlApi'
     { openIDConnectConfig =
-        Prelude.Nothing,
-      userPoolConfig = Prelude.Nothing,
-      xrayEnabled = Prelude.Nothing,
-      logConfig = Prelude.Nothing,
-      additionalAuthenticationProviders = Prelude.Nothing,
-      authenticationType = Prelude.Nothing,
+        Core.Nothing,
+      userPoolConfig = Core.Nothing,
+      xrayEnabled = Core.Nothing,
+      logConfig = Core.Nothing,
+      additionalAuthenticationProviders = Core.Nothing,
+      authenticationType = Core.Nothing,
       apiId = pApiId_,
       name = pName_
     }
 
 -- | The OpenID Connect configuration for the @GraphqlApi@ object.
-updateGraphqlApi_openIDConnectConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe OpenIDConnectConfig)
+updateGraphqlApi_openIDConnectConfig :: Lens.Lens' UpdateGraphqlApi (Core.Maybe OpenIDConnectConfig)
 updateGraphqlApi_openIDConnectConfig = Lens.lens (\UpdateGraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@UpdateGraphqlApi' {} a -> s {openIDConnectConfig = a} :: UpdateGraphqlApi)
 
 -- | The new Amazon Cognito user pool configuration for the @GraphqlApi@
 -- object.
-updateGraphqlApi_userPoolConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe UserPoolConfig)
+updateGraphqlApi_userPoolConfig :: Lens.Lens' UpdateGraphqlApi (Core.Maybe UserPoolConfig)
 updateGraphqlApi_userPoolConfig = Lens.lens (\UpdateGraphqlApi' {userPoolConfig} -> userPoolConfig) (\s@UpdateGraphqlApi' {} a -> s {userPoolConfig = a} :: UpdateGraphqlApi)
 
 -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
-updateGraphqlApi_xrayEnabled :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe Prelude.Bool)
+updateGraphqlApi_xrayEnabled :: Lens.Lens' UpdateGraphqlApi (Core.Maybe Core.Bool)
 updateGraphqlApi_xrayEnabled = Lens.lens (\UpdateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@UpdateGraphqlApi' {} a -> s {xrayEnabled = a} :: UpdateGraphqlApi)
 
 -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
-updateGraphqlApi_logConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe LogConfig)
+updateGraphqlApi_logConfig :: Lens.Lens' UpdateGraphqlApi (Core.Maybe LogConfig)
 updateGraphqlApi_logConfig = Lens.lens (\UpdateGraphqlApi' {logConfig} -> logConfig) (\s@UpdateGraphqlApi' {} a -> s {logConfig = a} :: UpdateGraphqlApi)
 
 -- | A list of additional authentication providers for the @GraphqlApi@ API.
-updateGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
-updateGraphqlApi_additionalAuthenticationProviders = Lens.lens (\UpdateGraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@UpdateGraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: UpdateGraphqlApi) Prelude.. Lens.mapping Prelude._Coerce
+updateGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' UpdateGraphqlApi (Core.Maybe [AdditionalAuthenticationProvider])
+updateGraphqlApi_additionalAuthenticationProviders = Lens.lens (\UpdateGraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@UpdateGraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: UpdateGraphqlApi) Core.. Lens.mapping Lens._Coerce
 
 -- | The new authentication type for the @GraphqlApi@ object.
-updateGraphqlApi_authenticationType :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe AuthenticationType)
+updateGraphqlApi_authenticationType :: Lens.Lens' UpdateGraphqlApi (Core.Maybe AuthenticationType)
 updateGraphqlApi_authenticationType = Lens.lens (\UpdateGraphqlApi' {authenticationType} -> authenticationType) (\s@UpdateGraphqlApi' {} a -> s {authenticationType = a} :: UpdateGraphqlApi)
 
 -- | The API ID.
-updateGraphqlApi_apiId :: Lens.Lens' UpdateGraphqlApi Prelude.Text
+updateGraphqlApi_apiId :: Lens.Lens' UpdateGraphqlApi Core.Text
 updateGraphqlApi_apiId = Lens.lens (\UpdateGraphqlApi' {apiId} -> apiId) (\s@UpdateGraphqlApi' {} a -> s {apiId = a} :: UpdateGraphqlApi)
 
 -- | The new name for the @GraphqlApi@ object.
-updateGraphqlApi_name :: Lens.Lens' UpdateGraphqlApi Prelude.Text
+updateGraphqlApi_name :: Lens.Lens' UpdateGraphqlApi Core.Text
 updateGraphqlApi_name = Lens.lens (\UpdateGraphqlApi' {name} -> name) (\s@UpdateGraphqlApi' {} a -> s {name = a} :: UpdateGraphqlApi)
 
-instance Prelude.AWSRequest UpdateGraphqlApi where
-  type Rs UpdateGraphqlApi = UpdateGraphqlApiResponse
+instance Core.AWSRequest UpdateGraphqlApi where
+  type
+    AWSResponse UpdateGraphqlApi =
+      UpdateGraphqlApiResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateGraphqlApiResponse'
-            Prelude.<$> (x Prelude..?> "graphqlApi")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "graphqlApi")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGraphqlApi
+instance Core.Hashable UpdateGraphqlApi
 
-instance Prelude.NFData UpdateGraphqlApi
+instance Core.NFData UpdateGraphqlApi
 
-instance Prelude.ToHeaders UpdateGraphqlApi where
+instance Core.ToHeaders UpdateGraphqlApi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateGraphqlApi where
+instance Core.ToJSON UpdateGraphqlApi where
   toJSON UpdateGraphqlApi' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("openIDConnectConfig" Prelude..=)
-              Prelude.<$> openIDConnectConfig,
-            ("userPoolConfig" Prelude..=)
-              Prelude.<$> userPoolConfig,
-            ("xrayEnabled" Prelude..=) Prelude.<$> xrayEnabled,
-            ("logConfig" Prelude..=) Prelude.<$> logConfig,
-            ("additionalAuthenticationProviders" Prelude..=)
-              Prelude.<$> additionalAuthenticationProviders,
-            ("authenticationType" Prelude..=)
-              Prelude.<$> authenticationType,
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("openIDConnectConfig" Core..=)
+              Core.<$> openIDConnectConfig,
+            ("userPoolConfig" Core..=) Core.<$> userPoolConfig,
+            ("xrayEnabled" Core..=) Core.<$> xrayEnabled,
+            ("logConfig" Core..=) Core.<$> logConfig,
+            ("additionalAuthenticationProviders" Core..=)
+              Core.<$> additionalAuthenticationProviders,
+            ("authenticationType" Core..=)
+              Core.<$> authenticationType,
+            Core.Just ("name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath UpdateGraphqlApi where
+instance Core.ToPath UpdateGraphqlApi where
   toPath UpdateGraphqlApi' {..} =
-    Prelude.mconcat ["/v1/apis/", Prelude.toBS apiId]
+    Core.mconcat ["/v1/apis/", Core.toBS apiId]
 
-instance Prelude.ToQuery UpdateGraphqlApi where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateGraphqlApi where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateGraphqlApiResponse' smart constructor.
 data UpdateGraphqlApiResponse = UpdateGraphqlApiResponse'
   { -- | The updated @GraphqlApi@ object.
-    graphqlApi :: Prelude.Maybe GraphqlApi,
+    graphqlApi :: Core.Maybe GraphqlApi,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGraphqlApiResponse' with all optional fields omitted.
@@ -224,21 +222,21 @@ data UpdateGraphqlApiResponse = UpdateGraphqlApiResponse'
 -- 'httpStatus', 'updateGraphqlApiResponse_httpStatus' - The response's http status code.
 newUpdateGraphqlApiResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateGraphqlApiResponse
 newUpdateGraphqlApiResponse pHttpStatus_ =
   UpdateGraphqlApiResponse'
     { graphqlApi =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated @GraphqlApi@ object.
-updateGraphqlApiResponse_graphqlApi :: Lens.Lens' UpdateGraphqlApiResponse (Prelude.Maybe GraphqlApi)
+updateGraphqlApiResponse_graphqlApi :: Lens.Lens' UpdateGraphqlApiResponse (Core.Maybe GraphqlApi)
 updateGraphqlApiResponse_graphqlApi = Lens.lens (\UpdateGraphqlApiResponse' {graphqlApi} -> graphqlApi) (\s@UpdateGraphqlApiResponse' {} a -> s {graphqlApi = a} :: UpdateGraphqlApiResponse)
 
 -- | The response's http status code.
-updateGraphqlApiResponse_httpStatus :: Lens.Lens' UpdateGraphqlApiResponse Prelude.Int
+updateGraphqlApiResponse_httpStatus :: Lens.Lens' UpdateGraphqlApiResponse Core.Int
 updateGraphqlApiResponse_httpStatus = Lens.lens (\UpdateGraphqlApiResponse' {httpStatus} -> httpStatus) (\s@UpdateGraphqlApiResponse' {} a -> s {httpStatus = a} :: UpdateGraphqlApiResponse)
 
-instance Prelude.NFData UpdateGraphqlApiResponse
+instance Core.NFData UpdateGraphqlApiResponse

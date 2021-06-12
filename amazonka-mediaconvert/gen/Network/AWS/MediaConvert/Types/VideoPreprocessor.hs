@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.VideoPreprocessor where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ColorCorrector
 import Network.AWS.MediaConvert.Types.Deinterlacer
@@ -28,7 +28,6 @@ import Network.AWS.MediaConvert.Types.ImageInserter
 import Network.AWS.MediaConvert.Types.NoiseReducer
 import Network.AWS.MediaConvert.Types.PartnerWatermarking
 import Network.AWS.MediaConvert.Types.TimecodeBurnin
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Find additional transcoding features under Preprocessors
 -- (VideoPreprocessors). Enable the features at each output individually.
@@ -39,30 +38,30 @@ data VideoPreprocessor = VideoPreprocessor'
   { -- | Enable the Image inserter (ImageInserter) feature to include a graphic
     -- overlay on your video. Enable or disable this feature for each output
     -- individually. This setting is disabled by default.
-    imageInserter :: Prelude.Maybe ImageInserter,
+    imageInserter :: Core.Maybe ImageInserter,
     -- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and
     -- specified prefix into the output.
-    timecodeBurnin :: Prelude.Maybe TimecodeBurnin,
+    timecodeBurnin :: Core.Maybe TimecodeBurnin,
     -- | Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer
     -- picture.
-    deinterlacer :: Prelude.Maybe Deinterlacer,
+    deinterlacer :: Core.Maybe Deinterlacer,
     -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from
     -- your video output if necessary. Enable or disable this feature for each
     -- output individually. This setting is disabled by default.
-    noiseReducer :: Prelude.Maybe NoiseReducer,
+    noiseReducer :: Core.Maybe NoiseReducer,
     -- | If you work with a third party video watermarking partner, use the group
     -- of settings that correspond with your watermarking partner to include
     -- watermarks in your output.
-    partnerWatermarking :: Prelude.Maybe PartnerWatermarking,
+    partnerWatermarking :: Core.Maybe PartnerWatermarking,
     -- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable
     -- or disable this feature for each output individually. This setting is
     -- disabled by default.
-    colorCorrector :: Prelude.Maybe ColorCorrector,
+    colorCorrector :: Core.Maybe ColorCorrector,
     -- | Enable Dolby Vision feature to produce Dolby Vision compatible video
     -- output.
-    dolbyVision :: Prelude.Maybe DolbyVision
+    dolbyVision :: Core.Maybe DolbyVision
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VideoPreprocessor' with all optional fields omitted.
@@ -100,87 +99,84 @@ newVideoPreprocessor ::
   VideoPreprocessor
 newVideoPreprocessor =
   VideoPreprocessor'
-    { imageInserter = Prelude.Nothing,
-      timecodeBurnin = Prelude.Nothing,
-      deinterlacer = Prelude.Nothing,
-      noiseReducer = Prelude.Nothing,
-      partnerWatermarking = Prelude.Nothing,
-      colorCorrector = Prelude.Nothing,
-      dolbyVision = Prelude.Nothing
+    { imageInserter = Core.Nothing,
+      timecodeBurnin = Core.Nothing,
+      deinterlacer = Core.Nothing,
+      noiseReducer = Core.Nothing,
+      partnerWatermarking = Core.Nothing,
+      colorCorrector = Core.Nothing,
+      dolbyVision = Core.Nothing
     }
 
 -- | Enable the Image inserter (ImageInserter) feature to include a graphic
 -- overlay on your video. Enable or disable this feature for each output
 -- individually. This setting is disabled by default.
-videoPreprocessor_imageInserter :: Lens.Lens' VideoPreprocessor (Prelude.Maybe ImageInserter)
+videoPreprocessor_imageInserter :: Lens.Lens' VideoPreprocessor (Core.Maybe ImageInserter)
 videoPreprocessor_imageInserter = Lens.lens (\VideoPreprocessor' {imageInserter} -> imageInserter) (\s@VideoPreprocessor' {} a -> s {imageInserter = a} :: VideoPreprocessor)
 
 -- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and
 -- specified prefix into the output.
-videoPreprocessor_timecodeBurnin :: Lens.Lens' VideoPreprocessor (Prelude.Maybe TimecodeBurnin)
+videoPreprocessor_timecodeBurnin :: Lens.Lens' VideoPreprocessor (Core.Maybe TimecodeBurnin)
 videoPreprocessor_timecodeBurnin = Lens.lens (\VideoPreprocessor' {timecodeBurnin} -> timecodeBurnin) (\s@VideoPreprocessor' {} a -> s {timecodeBurnin = a} :: VideoPreprocessor)
 
 -- | Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer
 -- picture.
-videoPreprocessor_deinterlacer :: Lens.Lens' VideoPreprocessor (Prelude.Maybe Deinterlacer)
+videoPreprocessor_deinterlacer :: Lens.Lens' VideoPreprocessor (Core.Maybe Deinterlacer)
 videoPreprocessor_deinterlacer = Lens.lens (\VideoPreprocessor' {deinterlacer} -> deinterlacer) (\s@VideoPreprocessor' {} a -> s {deinterlacer = a} :: VideoPreprocessor)
 
 -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from
 -- your video output if necessary. Enable or disable this feature for each
 -- output individually. This setting is disabled by default.
-videoPreprocessor_noiseReducer :: Lens.Lens' VideoPreprocessor (Prelude.Maybe NoiseReducer)
+videoPreprocessor_noiseReducer :: Lens.Lens' VideoPreprocessor (Core.Maybe NoiseReducer)
 videoPreprocessor_noiseReducer = Lens.lens (\VideoPreprocessor' {noiseReducer} -> noiseReducer) (\s@VideoPreprocessor' {} a -> s {noiseReducer = a} :: VideoPreprocessor)
 
 -- | If you work with a third party video watermarking partner, use the group
 -- of settings that correspond with your watermarking partner to include
 -- watermarks in your output.
-videoPreprocessor_partnerWatermarking :: Lens.Lens' VideoPreprocessor (Prelude.Maybe PartnerWatermarking)
+videoPreprocessor_partnerWatermarking :: Lens.Lens' VideoPreprocessor (Core.Maybe PartnerWatermarking)
 videoPreprocessor_partnerWatermarking = Lens.lens (\VideoPreprocessor' {partnerWatermarking} -> partnerWatermarking) (\s@VideoPreprocessor' {} a -> s {partnerWatermarking = a} :: VideoPreprocessor)
 
 -- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable
 -- or disable this feature for each output individually. This setting is
 -- disabled by default.
-videoPreprocessor_colorCorrector :: Lens.Lens' VideoPreprocessor (Prelude.Maybe ColorCorrector)
+videoPreprocessor_colorCorrector :: Lens.Lens' VideoPreprocessor (Core.Maybe ColorCorrector)
 videoPreprocessor_colorCorrector = Lens.lens (\VideoPreprocessor' {colorCorrector} -> colorCorrector) (\s@VideoPreprocessor' {} a -> s {colorCorrector = a} :: VideoPreprocessor)
 
 -- | Enable Dolby Vision feature to produce Dolby Vision compatible video
 -- output.
-videoPreprocessor_dolbyVision :: Lens.Lens' VideoPreprocessor (Prelude.Maybe DolbyVision)
+videoPreprocessor_dolbyVision :: Lens.Lens' VideoPreprocessor (Core.Maybe DolbyVision)
 videoPreprocessor_dolbyVision = Lens.lens (\VideoPreprocessor' {dolbyVision} -> dolbyVision) (\s@VideoPreprocessor' {} a -> s {dolbyVision = a} :: VideoPreprocessor)
 
-instance Prelude.FromJSON VideoPreprocessor where
+instance Core.FromJSON VideoPreprocessor where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VideoPreprocessor"
       ( \x ->
           VideoPreprocessor'
-            Prelude.<$> (x Prelude..:? "imageInserter")
-            Prelude.<*> (x Prelude..:? "timecodeBurnin")
-            Prelude.<*> (x Prelude..:? "deinterlacer")
-            Prelude.<*> (x Prelude..:? "noiseReducer")
-            Prelude.<*> (x Prelude..:? "partnerWatermarking")
-            Prelude.<*> (x Prelude..:? "colorCorrector")
-            Prelude.<*> (x Prelude..:? "dolbyVision")
+            Core.<$> (x Core..:? "imageInserter")
+            Core.<*> (x Core..:? "timecodeBurnin")
+            Core.<*> (x Core..:? "deinterlacer")
+            Core.<*> (x Core..:? "noiseReducer")
+            Core.<*> (x Core..:? "partnerWatermarking")
+            Core.<*> (x Core..:? "colorCorrector")
+            Core.<*> (x Core..:? "dolbyVision")
       )
 
-instance Prelude.Hashable VideoPreprocessor
+instance Core.Hashable VideoPreprocessor
 
-instance Prelude.NFData VideoPreprocessor
+instance Core.NFData VideoPreprocessor
 
-instance Prelude.ToJSON VideoPreprocessor where
+instance Core.ToJSON VideoPreprocessor where
   toJSON VideoPreprocessor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("imageInserter" Prelude..=)
-              Prelude.<$> imageInserter,
-            ("timecodeBurnin" Prelude..=)
-              Prelude.<$> timecodeBurnin,
-            ("deinterlacer" Prelude..=) Prelude.<$> deinterlacer,
-            ("noiseReducer" Prelude..=) Prelude.<$> noiseReducer,
-            ("partnerWatermarking" Prelude..=)
-              Prelude.<$> partnerWatermarking,
-            ("colorCorrector" Prelude..=)
-              Prelude.<$> colorCorrector,
-            ("dolbyVision" Prelude..=) Prelude.<$> dolbyVision
+    Core.object
+      ( Core.catMaybes
+          [ ("imageInserter" Core..=) Core.<$> imageInserter,
+            ("timecodeBurnin" Core..=) Core.<$> timecodeBurnin,
+            ("deinterlacer" Core..=) Core.<$> deinterlacer,
+            ("noiseReducer" Core..=) Core.<$> noiseReducer,
+            ("partnerWatermarking" Core..=)
+              Core.<$> partnerWatermarking,
+            ("colorCorrector" Core..=) Core.<$> colorCorrector,
+            ("dolbyVision" Core..=) Core.<$> dolbyVision
           ]
       )

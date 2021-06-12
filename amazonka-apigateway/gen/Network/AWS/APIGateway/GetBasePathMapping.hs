@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.APIGateway.GetBasePathMapping
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,14 +53,14 @@ import qualified Network.AWS.Response as Response
 data GetBasePathMapping = GetBasePathMapping'
   { -- | [Required] The domain name of the BasePathMapping resource to be
     -- described.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | [Required] The base path name that callers of the API must provide as
     -- part of the URL after the domain name. This value must be unique for all
     -- of the mappings across a single API. Specify \'(none)\' if you do not
     -- want callers to specify any base path name after the domain name.
-    basePath :: Prelude.Text
+    basePath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBasePathMapping' with all optional fields omitted.
@@ -80,9 +79,9 @@ data GetBasePathMapping = GetBasePathMapping'
 -- want callers to specify any base path name after the domain name.
 newGetBasePathMapping ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'basePath'
-  Prelude.Text ->
+  Core.Text ->
   GetBasePathMapping
 newGetBasePathMapping pDomainName_ pBasePath_ =
   GetBasePathMapping'
@@ -92,44 +91,44 @@ newGetBasePathMapping pDomainName_ pBasePath_ =
 
 -- | [Required] The domain name of the BasePathMapping resource to be
 -- described.
-getBasePathMapping_domainName :: Lens.Lens' GetBasePathMapping Prelude.Text
+getBasePathMapping_domainName :: Lens.Lens' GetBasePathMapping Core.Text
 getBasePathMapping_domainName = Lens.lens (\GetBasePathMapping' {domainName} -> domainName) (\s@GetBasePathMapping' {} a -> s {domainName = a} :: GetBasePathMapping)
 
 -- | [Required] The base path name that callers of the API must provide as
 -- part of the URL after the domain name. This value must be unique for all
 -- of the mappings across a single API. Specify \'(none)\' if you do not
 -- want callers to specify any base path name after the domain name.
-getBasePathMapping_basePath :: Lens.Lens' GetBasePathMapping Prelude.Text
+getBasePathMapping_basePath :: Lens.Lens' GetBasePathMapping Core.Text
 getBasePathMapping_basePath = Lens.lens (\GetBasePathMapping' {basePath} -> basePath) (\s@GetBasePathMapping' {} a -> s {basePath = a} :: GetBasePathMapping)
 
-instance Prelude.AWSRequest GetBasePathMapping where
-  type Rs GetBasePathMapping = BasePathMapping
+instance Core.AWSRequest GetBasePathMapping where
+  type AWSResponse GetBasePathMapping = BasePathMapping
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetBasePathMapping
+instance Core.Hashable GetBasePathMapping
 
-instance Prelude.NFData GetBasePathMapping
+instance Core.NFData GetBasePathMapping
 
-instance Prelude.ToHeaders GetBasePathMapping where
+instance Core.ToHeaders GetBasePathMapping where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetBasePathMapping where
+instance Core.ToPath GetBasePathMapping where
   toPath GetBasePathMapping' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/domainnames/",
-        Prelude.toBS domainName,
+        Core.toBS domainName,
         "/basepathmappings/",
-        Prelude.toBS basePath
+        Core.toBS basePath
       ]
 
-instance Prelude.ToQuery GetBasePathMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetBasePathMapping where
+  toQuery = Core.const Core.mempty

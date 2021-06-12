@@ -701,187 +701,184 @@ import Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration
 import Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn
 import Network.AWS.AlexaBusiness.Types.UserData
 import Network.AWS.AlexaBusiness.Types.WakeWord
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-11-09@ of the Amazon Alexa For Business SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev =
-        "AlexaBusiness",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "a4b",
-      Prelude._svcSigningName = "a4b",
-      Prelude._svcVersion = "2017-11-09",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "AlexaBusiness",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "AlexaBusiness",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "a4b",
+      Core._serviceSigningName = "a4b",
+      Core._serviceVersion = "2017-11-09",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseJSONError "AlexaBusiness",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The resource is not found.
-_NotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NotFoundException"
 
 -- | The service linked role is locked for deletion.
-_InvalidServiceLinkedRoleStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidServiceLinkedRoleStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidServiceLinkedRoleStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidServiceLinkedRoleStateException"
 
 -- | The caller has no permissions to operate on the resource involved in the
 -- API call.
-_UnauthorizedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnauthorizedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnauthorizedException"
 
 -- | The attempt to update a user is invalid due to the user\'s current
 -- status.
-_InvalidUserStatusException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidUserStatusException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidUserStatusException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidUserStatusException"
 
 -- | Another resource is associated with the resource in the request.
-_ResourceAssociatedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceAssociatedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceAssociatedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceAssociatedException"
 
 -- | There is a concurrent modification of resources.
-_ConcurrentModificationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConcurrentModificationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | The request failed because this device is no longer registered and
 -- therefore no longer managed by this account.
-_DeviceNotRegisteredException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DeviceNotRegisteredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DeviceNotRegisteredException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DeviceNotRegisteredException"
 
 -- | The Certificate Authority can\'t issue or revoke a certificate.
-_InvalidCertificateAuthorityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidCertificateAuthorityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidCertificateAuthorityException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidCertificateAuthorityException"
 
 -- | The name sent in the request is already in use.
-_NameInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NameInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NameInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NameInUseException"
 
 -- | The resource in the request is already in use.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | You are performing an action that would put you beyond your account\'s
 -- limits.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The resource being created already exists.
-_AlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AlreadyExistsException"
 
 -- | The device is in an invalid state.
-_InvalidDeviceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidDeviceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidDeviceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidDeviceException"
 
 -- | The skill must be linked to a third-party account.
-_SkillNotLinkedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SkillNotLinkedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SkillNotLinkedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SkillNotLinkedException"
 
 -- | A password in SecretsManager is in an invalid state.
-_InvalidSecretsManagerResourceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSecretsManagerResourceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSecretsManagerResourceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSecretsManagerResourceException"

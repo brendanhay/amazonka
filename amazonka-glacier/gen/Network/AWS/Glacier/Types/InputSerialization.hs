@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.InputSerialization where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types.CSVInput
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes how the archive is serialized.
 --
 -- /See:/ 'newInputSerialization' smart constructor.
 data InputSerialization = InputSerialization'
   { -- | Describes the serialization of a CSV-encoded object.
-    csv :: Prelude.Maybe CSVInput
+    csv :: Core.Maybe CSVInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputSerialization' with all optional fields omitted.
@@ -45,28 +44,25 @@ data InputSerialization = InputSerialization'
 newInputSerialization ::
   InputSerialization
 newInputSerialization =
-  InputSerialization' {csv = Prelude.Nothing}
+  InputSerialization' {csv = Core.Nothing}
 
 -- | Describes the serialization of a CSV-encoded object.
-inputSerialization_csv :: Lens.Lens' InputSerialization (Prelude.Maybe CSVInput)
+inputSerialization_csv :: Lens.Lens' InputSerialization (Core.Maybe CSVInput)
 inputSerialization_csv = Lens.lens (\InputSerialization' {csv} -> csv) (\s@InputSerialization' {} a -> s {csv = a} :: InputSerialization)
 
-instance Prelude.FromJSON InputSerialization where
+instance Core.FromJSON InputSerialization where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputSerialization"
       ( \x ->
-          InputSerialization'
-            Prelude.<$> (x Prelude..:? "csv")
+          InputSerialization' Core.<$> (x Core..:? "csv")
       )
 
-instance Prelude.Hashable InputSerialization
+instance Core.Hashable InputSerialization
 
-instance Prelude.NFData InputSerialization
+instance Core.NFData InputSerialization
 
-instance Prelude.ToJSON InputSerialization where
+instance Core.ToJSON InputSerialization where
   toJSON InputSerialization' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("csv" Prelude..=) Prelude.<$> csv]
-      )
+    Core.object
+      (Core.catMaybes [("csv" Core..=) Core.<$> csv])

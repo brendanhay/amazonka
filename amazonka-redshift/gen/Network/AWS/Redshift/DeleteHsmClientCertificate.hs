@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Redshift.DeleteHsmClientCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -47,9 +46,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteHsmClientCertificate' smart constructor.
 data DeleteHsmClientCertificate = DeleteHsmClientCertificate'
   { -- | The identifier of the HSM client certificate to be deleted.
-    hsmClientCertificateIdentifier :: Prelude.Text
+    hsmClientCertificateIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmClientCertificate' with all optional fields omitted.
@@ -62,7 +61,7 @@ data DeleteHsmClientCertificate = DeleteHsmClientCertificate'
 -- 'hsmClientCertificateIdentifier', 'deleteHsmClientCertificate_hsmClientCertificateIdentifier' - The identifier of the HSM client certificate to be deleted.
 newDeleteHsmClientCertificate ::
   -- | 'hsmClientCertificateIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteHsmClientCertificate
 newDeleteHsmClientCertificate
   pHsmClientCertificateIdentifier_ =
@@ -72,47 +71,43 @@ newDeleteHsmClientCertificate
       }
 
 -- | The identifier of the HSM client certificate to be deleted.
-deleteHsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' DeleteHsmClientCertificate Prelude.Text
+deleteHsmClientCertificate_hsmClientCertificateIdentifier :: Lens.Lens' DeleteHsmClientCertificate Core.Text
 deleteHsmClientCertificate_hsmClientCertificateIdentifier = Lens.lens (\DeleteHsmClientCertificate' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@DeleteHsmClientCertificate' {} a -> s {hsmClientCertificateIdentifier = a} :: DeleteHsmClientCertificate)
 
-instance
-  Prelude.AWSRequest
-    DeleteHsmClientCertificate
-  where
+instance Core.AWSRequest DeleteHsmClientCertificate where
   type
-    Rs DeleteHsmClientCertificate =
+    AWSResponse DeleteHsmClientCertificate =
       DeleteHsmClientCertificateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteHsmClientCertificateResponse'
 
-instance Prelude.Hashable DeleteHsmClientCertificate
+instance Core.Hashable DeleteHsmClientCertificate
 
-instance Prelude.NFData DeleteHsmClientCertificate
+instance Core.NFData DeleteHsmClientCertificate
 
-instance Prelude.ToHeaders DeleteHsmClientCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteHsmClientCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteHsmClientCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteHsmClientCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteHsmClientCertificate where
+instance Core.ToQuery DeleteHsmClientCertificate where
   toQuery DeleteHsmClientCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteHsmClientCertificate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DeleteHsmClientCertificate" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "HsmClientCertificateIdentifier"
-          Prelude.=: hsmClientCertificateIdentifier
+          Core.=: hsmClientCertificateIdentifier
       ]
 
 -- | /See:/ 'newDeleteHsmClientCertificateResponse' smart constructor.
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHsmClientCertificateResponse' with all optional fields omitted.
@@ -124,5 +119,5 @@ newDeleteHsmClientCertificateResponse =
   DeleteHsmClientCertificateResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteHsmClientCertificateResponse

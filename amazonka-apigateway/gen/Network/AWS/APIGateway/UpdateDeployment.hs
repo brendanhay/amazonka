@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.APIGateway.UpdateDeployment
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,14 +55,14 @@ import qualified Network.AWS.Response as Response
 data UpdateDeployment = UpdateDeployment'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | The replacement identifier for the Deployment resource to change
     -- information about.
-    deploymentId :: Prelude.Text
+    deploymentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDeployment' with all optional fields omitted.
@@ -82,69 +81,68 @@ data UpdateDeployment = UpdateDeployment'
 -- information about.
 newUpdateDeployment ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deploymentId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDeployment
 newUpdateDeployment pRestApiId_ pDeploymentId_ =
   UpdateDeployment'
-    { patchOperations =
-        Prelude.Nothing,
+    { patchOperations = Core.Nothing,
       restApiId = pRestApiId_,
       deploymentId = pDeploymentId_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateDeployment_patchOperations :: Lens.Lens' UpdateDeployment (Prelude.Maybe [PatchOperation])
-updateDeployment_patchOperations = Lens.lens (\UpdateDeployment' {patchOperations} -> patchOperations) (\s@UpdateDeployment' {} a -> s {patchOperations = a} :: UpdateDeployment) Prelude.. Lens.mapping Prelude._Coerce
+updateDeployment_patchOperations :: Lens.Lens' UpdateDeployment (Core.Maybe [PatchOperation])
+updateDeployment_patchOperations = Lens.lens (\UpdateDeployment' {patchOperations} -> patchOperations) (\s@UpdateDeployment' {} a -> s {patchOperations = a} :: UpdateDeployment) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateDeployment_restApiId :: Lens.Lens' UpdateDeployment Prelude.Text
+updateDeployment_restApiId :: Lens.Lens' UpdateDeployment Core.Text
 updateDeployment_restApiId = Lens.lens (\UpdateDeployment' {restApiId} -> restApiId) (\s@UpdateDeployment' {} a -> s {restApiId = a} :: UpdateDeployment)
 
 -- | The replacement identifier for the Deployment resource to change
 -- information about.
-updateDeployment_deploymentId :: Lens.Lens' UpdateDeployment Prelude.Text
+updateDeployment_deploymentId :: Lens.Lens' UpdateDeployment Core.Text
 updateDeployment_deploymentId = Lens.lens (\UpdateDeployment' {deploymentId} -> deploymentId) (\s@UpdateDeployment' {} a -> s {deploymentId = a} :: UpdateDeployment)
 
-instance Prelude.AWSRequest UpdateDeployment where
-  type Rs UpdateDeployment = Deployment
+instance Core.AWSRequest UpdateDeployment where
+  type AWSResponse UpdateDeployment = Deployment
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateDeployment
+instance Core.Hashable UpdateDeployment
 
-instance Prelude.NFData UpdateDeployment
+instance Core.NFData UpdateDeployment
 
-instance Prelude.ToHeaders UpdateDeployment where
+instance Core.ToHeaders UpdateDeployment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDeployment where
+instance Core.ToJSON UpdateDeployment where
   toJSON UpdateDeployment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateDeployment where
+instance Core.ToPath UpdateDeployment where
   toPath UpdateDeployment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/deployments/",
-        Prelude.toBS deploymentId
+        Core.toBS deploymentId
       ]
 
-instance Prelude.ToQuery UpdateDeployment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDeployment where
+  toQuery = Core.const Core.mempty

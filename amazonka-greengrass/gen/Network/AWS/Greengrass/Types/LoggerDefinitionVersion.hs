@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.LoggerDefinitionVersion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.GreengrassLogger
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a logger definition version.
 --
 -- /See:/ 'newLoggerDefinitionVersion' smart constructor.
 data LoggerDefinitionVersion = LoggerDefinitionVersion'
   { -- | A list of loggers.
-    loggers :: Prelude.Maybe [GreengrassLogger]
+    loggers :: Core.Maybe [GreengrassLogger]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoggerDefinitionVersion' with all optional fields omitted.
@@ -45,28 +44,28 @@ data LoggerDefinitionVersion = LoggerDefinitionVersion'
 newLoggerDefinitionVersion ::
   LoggerDefinitionVersion
 newLoggerDefinitionVersion =
-  LoggerDefinitionVersion' {loggers = Prelude.Nothing}
+  LoggerDefinitionVersion' {loggers = Core.Nothing}
 
 -- | A list of loggers.
-loggerDefinitionVersion_loggers :: Lens.Lens' LoggerDefinitionVersion (Prelude.Maybe [GreengrassLogger])
-loggerDefinitionVersion_loggers = Lens.lens (\LoggerDefinitionVersion' {loggers} -> loggers) (\s@LoggerDefinitionVersion' {} a -> s {loggers = a} :: LoggerDefinitionVersion) Prelude.. Lens.mapping Prelude._Coerce
+loggerDefinitionVersion_loggers :: Lens.Lens' LoggerDefinitionVersion (Core.Maybe [GreengrassLogger])
+loggerDefinitionVersion_loggers = Lens.lens (\LoggerDefinitionVersion' {loggers} -> loggers) (\s@LoggerDefinitionVersion' {} a -> s {loggers = a} :: LoggerDefinitionVersion) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON LoggerDefinitionVersion where
+instance Core.FromJSON LoggerDefinitionVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LoggerDefinitionVersion"
       ( \x ->
           LoggerDefinitionVersion'
-            Prelude.<$> (x Prelude..:? "Loggers" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Loggers" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable LoggerDefinitionVersion
+instance Core.Hashable LoggerDefinitionVersion
 
-instance Prelude.NFData LoggerDefinitionVersion
+instance Core.NFData LoggerDefinitionVersion
 
-instance Prelude.ToJSON LoggerDefinitionVersion where
+instance Core.ToJSON LoggerDefinitionVersion where
   toJSON LoggerDefinitionVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Loggers" Prelude..=) Prelude.<$> loggers]
+    Core.object
+      ( Core.catMaybes
+          [("Loggers" Core..=) Core.<$> loggers]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.GetRecommenderConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ data GetRecommenderConfiguration = GetRecommenderConfiguration'
   { -- | The unique identifier for the recommender model configuration. This
     -- identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint
     -- console.
-    recommenderId :: Prelude.Text
+    recommenderId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRecommenderConfiguration' with all optional fields omitted.
@@ -69,7 +68,7 @@ data GetRecommenderConfiguration = GetRecommenderConfiguration'
 -- console.
 newGetRecommenderConfiguration ::
   -- | 'recommenderId'
-  Prelude.Text ->
+  Core.Text ->
   GetRecommenderConfiguration
 newGetRecommenderConfiguration pRecommenderId_ =
   GetRecommenderConfiguration'
@@ -80,58 +79,50 @@ newGetRecommenderConfiguration pRecommenderId_ =
 -- | The unique identifier for the recommender model configuration. This
 -- identifier is displayed as the __Recommender ID__ on the Amazon Pinpoint
 -- console.
-getRecommenderConfiguration_recommenderId :: Lens.Lens' GetRecommenderConfiguration Prelude.Text
+getRecommenderConfiguration_recommenderId :: Lens.Lens' GetRecommenderConfiguration Core.Text
 getRecommenderConfiguration_recommenderId = Lens.lens (\GetRecommenderConfiguration' {recommenderId} -> recommenderId) (\s@GetRecommenderConfiguration' {} a -> s {recommenderId = a} :: GetRecommenderConfiguration)
 
-instance
-  Prelude.AWSRequest
-    GetRecommenderConfiguration
-  where
+instance Core.AWSRequest GetRecommenderConfiguration where
   type
-    Rs GetRecommenderConfiguration =
+    AWSResponse GetRecommenderConfiguration =
       GetRecommenderConfigurationResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRecommenderConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetRecommenderConfiguration
+instance Core.Hashable GetRecommenderConfiguration
 
-instance Prelude.NFData GetRecommenderConfiguration
+instance Core.NFData GetRecommenderConfiguration
 
-instance
-  Prelude.ToHeaders
-    GetRecommenderConfiguration
-  where
+instance Core.ToHeaders GetRecommenderConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetRecommenderConfiguration where
+instance Core.ToPath GetRecommenderConfiguration where
   toPath GetRecommenderConfiguration' {..} =
-    Prelude.mconcat
-      ["/v1/recommenders/", Prelude.toBS recommenderId]
+    Core.mconcat
+      ["/v1/recommenders/", Core.toBS recommenderId]
 
-instance Prelude.ToQuery GetRecommenderConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRecommenderConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRecommenderConfigurationResponse' smart constructor.
 data GetRecommenderConfigurationResponse = GetRecommenderConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     recommenderConfigurationResponse :: RecommenderConfigurationResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRecommenderConfigurationResponse' with all optional fields omitted.
@@ -146,7 +137,7 @@ data GetRecommenderConfigurationResponse = GetRecommenderConfigurationResponse'
 -- 'recommenderConfigurationResponse', 'getRecommenderConfigurationResponse_recommenderConfigurationResponse' - Undocumented member.
 newGetRecommenderConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'recommenderConfigurationResponse'
   RecommenderConfigurationResponse ->
   GetRecommenderConfigurationResponse
@@ -161,7 +152,7 @@ newGetRecommenderConfigurationResponse
       }
 
 -- | The response's http status code.
-getRecommenderConfigurationResponse_httpStatus :: Lens.Lens' GetRecommenderConfigurationResponse Prelude.Int
+getRecommenderConfigurationResponse_httpStatus :: Lens.Lens' GetRecommenderConfigurationResponse Core.Int
 getRecommenderConfigurationResponse_httpStatus = Lens.lens (\GetRecommenderConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetRecommenderConfigurationResponse' {} a -> s {httpStatus = a} :: GetRecommenderConfigurationResponse)
 
 -- | Undocumented member.
@@ -169,5 +160,5 @@ getRecommenderConfigurationResponse_recommenderConfigurationResponse :: Lens.Len
 getRecommenderConfigurationResponse_recommenderConfigurationResponse = Lens.lens (\GetRecommenderConfigurationResponse' {recommenderConfigurationResponse} -> recommenderConfigurationResponse) (\s@GetRecommenderConfigurationResponse' {} a -> s {recommenderConfigurationResponse = a} :: GetRecommenderConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRecommenderConfigurationResponse

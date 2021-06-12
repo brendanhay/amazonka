@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.PermissionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.AccountLevelPermissions
 import Network.AWS.GuardDuty.Types.BucketLevelPermissions
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about how permissions are configured for the S3
 -- bucket.
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data PermissionConfiguration = PermissionConfiguration'
   { -- | Contains information about the account level permissions on the S3
     -- bucket.
-    accountLevelPermissions :: Prelude.Maybe AccountLevelPermissions,
+    accountLevelPermissions :: Core.Maybe AccountLevelPermissions,
     -- | Contains information about the bucket level permissions for the S3
     -- bucket.
-    bucketLevelPermissions :: Prelude.Maybe BucketLevelPermissions
+    bucketLevelPermissions :: Core.Maybe BucketLevelPermissions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PermissionConfiguration' with all optional fields omitted.
@@ -57,30 +56,30 @@ newPermissionConfiguration ::
 newPermissionConfiguration =
   PermissionConfiguration'
     { accountLevelPermissions =
-        Prelude.Nothing,
-      bucketLevelPermissions = Prelude.Nothing
+        Core.Nothing,
+      bucketLevelPermissions = Core.Nothing
     }
 
 -- | Contains information about the account level permissions on the S3
 -- bucket.
-permissionConfiguration_accountLevelPermissions :: Lens.Lens' PermissionConfiguration (Prelude.Maybe AccountLevelPermissions)
+permissionConfiguration_accountLevelPermissions :: Lens.Lens' PermissionConfiguration (Core.Maybe AccountLevelPermissions)
 permissionConfiguration_accountLevelPermissions = Lens.lens (\PermissionConfiguration' {accountLevelPermissions} -> accountLevelPermissions) (\s@PermissionConfiguration' {} a -> s {accountLevelPermissions = a} :: PermissionConfiguration)
 
 -- | Contains information about the bucket level permissions for the S3
 -- bucket.
-permissionConfiguration_bucketLevelPermissions :: Lens.Lens' PermissionConfiguration (Prelude.Maybe BucketLevelPermissions)
+permissionConfiguration_bucketLevelPermissions :: Lens.Lens' PermissionConfiguration (Core.Maybe BucketLevelPermissions)
 permissionConfiguration_bucketLevelPermissions = Lens.lens (\PermissionConfiguration' {bucketLevelPermissions} -> bucketLevelPermissions) (\s@PermissionConfiguration' {} a -> s {bucketLevelPermissions = a} :: PermissionConfiguration)
 
-instance Prelude.FromJSON PermissionConfiguration where
+instance Core.FromJSON PermissionConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PermissionConfiguration"
       ( \x ->
           PermissionConfiguration'
-            Prelude.<$> (x Prelude..:? "accountLevelPermissions")
-            Prelude.<*> (x Prelude..:? "bucketLevelPermissions")
+            Core.<$> (x Core..:? "accountLevelPermissions")
+            Core.<*> (x Core..:? "bucketLevelPermissions")
       )
 
-instance Prelude.Hashable PermissionConfiguration
+instance Core.Hashable PermissionConfiguration
 
-instance Prelude.NFData PermissionConfiguration
+instance Core.NFData PermissionConfiguration

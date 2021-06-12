@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
 import Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the timestamp range and timestamp origin of a range of
 -- fragments.
@@ -43,7 +42,7 @@ data ClipFragmentSelector = ClipFragmentSelector'
     -- | The range of timestamps to return.
     timestampRange :: ClipTimestampRange
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClipFragmentSelector' with all optional fields omitted.
@@ -79,19 +78,18 @@ clipFragmentSelector_fragmentSelectorType = Lens.lens (\ClipFragmentSelector' {f
 clipFragmentSelector_timestampRange :: Lens.Lens' ClipFragmentSelector ClipTimestampRange
 clipFragmentSelector_timestampRange = Lens.lens (\ClipFragmentSelector' {timestampRange} -> timestampRange) (\s@ClipFragmentSelector' {} a -> s {timestampRange = a} :: ClipFragmentSelector)
 
-instance Prelude.Hashable ClipFragmentSelector
+instance Core.Hashable ClipFragmentSelector
 
-instance Prelude.NFData ClipFragmentSelector
+instance Core.NFData ClipFragmentSelector
 
-instance Prelude.ToJSON ClipFragmentSelector where
+instance Core.ToJSON ClipFragmentSelector where
   toJSON ClipFragmentSelector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "FragmentSelectorType"
-                  Prelude..= fragmentSelectorType
+                  Core..= fragmentSelectorType
               ),
-            Prelude.Just
-              ("TimestampRange" Prelude..= timestampRange)
+            Core.Just ("TimestampRange" Core..= timestampRange)
           ]
       )

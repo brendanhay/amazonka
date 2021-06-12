@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.Rekognition.StartCelebrityRecognition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -68,22 +67,22 @@ import qualified Network.AWS.Response as Response
 data StartCelebrityRecognition = StartCelebrityRecognition'
   { -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
     -- publish the completion status of the celebrity recognition analysis to.
-    notificationChannel :: Prelude.Maybe NotificationChannel,
+    notificationChannel :: Core.Maybe NotificationChannel,
     -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartCelebrityRecognition@ requests, the same
     -- @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job
     -- from being accidently started more than once.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | An identifier you specify that\'s returned in the completion
     -- notification that\'s published to your Amazon Simple Notification
     -- Service topic. For example, you can use @JobTag@ to group related jobs
     -- and identify them in the completion notification.
-    jobTag :: Prelude.Maybe Prelude.Text,
+    jobTag :: Core.Maybe Core.Text,
     -- | The video in which you want to recognize celebrities. The video must be
     -- stored in an Amazon S3 bucket.
     video :: Video
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartCelebrityRecognition' with all optional fields omitted.
@@ -115,29 +114,29 @@ newStartCelebrityRecognition ::
 newStartCelebrityRecognition pVideo_ =
   StartCelebrityRecognition'
     { notificationChannel =
-        Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
-      jobTag = Prelude.Nothing,
+        Core.Nothing,
+      clientRequestToken = Core.Nothing,
+      jobTag = Core.Nothing,
       video = pVideo_
     }
 
 -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
 -- publish the completion status of the celebrity recognition analysis to.
-startCelebrityRecognition_notificationChannel :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe NotificationChannel)
+startCelebrityRecognition_notificationChannel :: Lens.Lens' StartCelebrityRecognition (Core.Maybe NotificationChannel)
 startCelebrityRecognition_notificationChannel = Lens.lens (\StartCelebrityRecognition' {notificationChannel} -> notificationChannel) (\s@StartCelebrityRecognition' {} a -> s {notificationChannel = a} :: StartCelebrityRecognition)
 
 -- | Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartCelebrityRecognition@ requests, the same
 -- @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job
 -- from being accidently started more than once.
-startCelebrityRecognition_clientRequestToken :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe Prelude.Text)
+startCelebrityRecognition_clientRequestToken :: Lens.Lens' StartCelebrityRecognition (Core.Maybe Core.Text)
 startCelebrityRecognition_clientRequestToken = Lens.lens (\StartCelebrityRecognition' {clientRequestToken} -> clientRequestToken) (\s@StartCelebrityRecognition' {} a -> s {clientRequestToken = a} :: StartCelebrityRecognition)
 
 -- | An identifier you specify that\'s returned in the completion
 -- notification that\'s published to your Amazon Simple Notification
 -- Service topic. For example, you can use @JobTag@ to group related jobs
 -- and identify them in the completion notification.
-startCelebrityRecognition_jobTag :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe Prelude.Text)
+startCelebrityRecognition_jobTag :: Lens.Lens' StartCelebrityRecognition (Core.Maybe Core.Text)
 startCelebrityRecognition_jobTag = Lens.lens (\StartCelebrityRecognition' {jobTag} -> jobTag) (\s@StartCelebrityRecognition' {} a -> s {jobTag = a} :: StartCelebrityRecognition)
 
 -- | The video in which you want to recognize celebrities. The video must be
@@ -145,66 +144,64 @@ startCelebrityRecognition_jobTag = Lens.lens (\StartCelebrityRecognition' {jobTa
 startCelebrityRecognition_video :: Lens.Lens' StartCelebrityRecognition Video
 startCelebrityRecognition_video = Lens.lens (\StartCelebrityRecognition' {video} -> video) (\s@StartCelebrityRecognition' {} a -> s {video = a} :: StartCelebrityRecognition)
 
-instance Prelude.AWSRequest StartCelebrityRecognition where
+instance Core.AWSRequest StartCelebrityRecognition where
   type
-    Rs StartCelebrityRecognition =
+    AWSResponse StartCelebrityRecognition =
       StartCelebrityRecognitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartCelebrityRecognitionResponse'
-            Prelude.<$> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartCelebrityRecognition
+instance Core.Hashable StartCelebrityRecognition
 
-instance Prelude.NFData StartCelebrityRecognition
+instance Core.NFData StartCelebrityRecognition
 
-instance Prelude.ToHeaders StartCelebrityRecognition where
+instance Core.ToHeaders StartCelebrityRecognition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.StartCelebrityRecognition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.StartCelebrityRecognition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartCelebrityRecognition where
+instance Core.ToJSON StartCelebrityRecognition where
   toJSON StartCelebrityRecognition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NotificationChannel" Prelude..=)
-              Prelude.<$> notificationChannel,
-            ("ClientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            ("JobTag" Prelude..=) Prelude.<$> jobTag,
-            Prelude.Just ("Video" Prelude..= video)
+    Core.object
+      ( Core.catMaybes
+          [ ("NotificationChannel" Core..=)
+              Core.<$> notificationChannel,
+            ("ClientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            ("JobTag" Core..=) Core.<$> jobTag,
+            Core.Just ("Video" Core..= video)
           ]
       )
 
-instance Prelude.ToPath StartCelebrityRecognition where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartCelebrityRecognition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartCelebrityRecognition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartCelebrityRecognition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartCelebrityRecognitionResponse' smart constructor.
 data StartCelebrityRecognitionResponse = StartCelebrityRecognitionResponse'
   { -- | The identifier for the celebrity recognition analysis job. Use @JobId@
     -- to identify the job in a subsequent call to @GetCelebrityRecognition@.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartCelebrityRecognitionResponse' with all optional fields omitted.
@@ -220,24 +217,24 @@ data StartCelebrityRecognitionResponse = StartCelebrityRecognitionResponse'
 -- 'httpStatus', 'startCelebrityRecognitionResponse_httpStatus' - The response's http status code.
 newStartCelebrityRecognitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartCelebrityRecognitionResponse
 newStartCelebrityRecognitionResponse pHttpStatus_ =
   StartCelebrityRecognitionResponse'
     { jobId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier for the celebrity recognition analysis job. Use @JobId@
 -- to identify the job in a subsequent call to @GetCelebrityRecognition@.
-startCelebrityRecognitionResponse_jobId :: Lens.Lens' StartCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
+startCelebrityRecognitionResponse_jobId :: Lens.Lens' StartCelebrityRecognitionResponse (Core.Maybe Core.Text)
 startCelebrityRecognitionResponse_jobId = Lens.lens (\StartCelebrityRecognitionResponse' {jobId} -> jobId) (\s@StartCelebrityRecognitionResponse' {} a -> s {jobId = a} :: StartCelebrityRecognitionResponse)
 
 -- | The response's http status code.
-startCelebrityRecognitionResponse_httpStatus :: Lens.Lens' StartCelebrityRecognitionResponse Prelude.Int
+startCelebrityRecognitionResponse_httpStatus :: Lens.Lens' StartCelebrityRecognitionResponse Core.Int
 startCelebrityRecognitionResponse_httpStatus = Lens.lens (\StartCelebrityRecognitionResponse' {httpStatus} -> httpStatus) (\s@StartCelebrityRecognitionResponse' {} a -> s {httpStatus = a} :: StartCelebrityRecognitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartCelebrityRecognitionResponse

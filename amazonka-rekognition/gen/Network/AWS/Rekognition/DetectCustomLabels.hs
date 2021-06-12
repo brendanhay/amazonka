@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,8 +77,8 @@ module Network.AWS.Rekognition.DetectCustomLabels
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -89,17 +88,17 @@ data DetectCustomLabels = DetectCustomLabels'
   { -- | Maximum number of results you want the service to return in the
     -- response. The service returns the specified number of highest confidence
     -- labels ranked from highest confidence to lowest.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Specifies the minimum confidence level for the labels to return. Amazon
     -- Rekognition doesn\'t return any labels with a confidence lower than this
     -- specified value. If you specify a value of 0, all labels are return,
     -- regardless of the default thresholds that the model version applies.
-    minConfidence :: Prelude.Maybe Prelude.Double,
+    minConfidence :: Core.Maybe Core.Double,
     -- | The ARN of the model version that you want to use.
-    projectVersionArn :: Prelude.Text,
+    projectVersionArn :: Core.Text,
     image :: Image
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectCustomLabels' with all optional fields omitted.
@@ -123,14 +122,14 @@ data DetectCustomLabels = DetectCustomLabels'
 -- 'image', 'detectCustomLabels_image' - Undocumented member.
 newDetectCustomLabels ::
   -- | 'projectVersionArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'image'
   Image ->
   DetectCustomLabels
 newDetectCustomLabels pProjectVersionArn_ pImage_ =
   DetectCustomLabels'
-    { maxResults = Prelude.Nothing,
-      minConfidence = Prelude.Nothing,
+    { maxResults = Core.Nothing,
+      minConfidence = Core.Nothing,
       projectVersionArn = pProjectVersionArn_,
       image = pImage_
     }
@@ -138,85 +137,80 @@ newDetectCustomLabels pProjectVersionArn_ pImage_ =
 -- | Maximum number of results you want the service to return in the
 -- response. The service returns the specified number of highest confidence
 -- labels ranked from highest confidence to lowest.
-detectCustomLabels_maxResults :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Natural)
+detectCustomLabels_maxResults :: Lens.Lens' DetectCustomLabels (Core.Maybe Core.Natural)
 detectCustomLabels_maxResults = Lens.lens (\DetectCustomLabels' {maxResults} -> maxResults) (\s@DetectCustomLabels' {} a -> s {maxResults = a} :: DetectCustomLabels)
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon
 -- Rekognition doesn\'t return any labels with a confidence lower than this
 -- specified value. If you specify a value of 0, all labels are return,
 -- regardless of the default thresholds that the model version applies.
-detectCustomLabels_minConfidence :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Double)
+detectCustomLabels_minConfidence :: Lens.Lens' DetectCustomLabels (Core.Maybe Core.Double)
 detectCustomLabels_minConfidence = Lens.lens (\DetectCustomLabels' {minConfidence} -> minConfidence) (\s@DetectCustomLabels' {} a -> s {minConfidence = a} :: DetectCustomLabels)
 
 -- | The ARN of the model version that you want to use.
-detectCustomLabels_projectVersionArn :: Lens.Lens' DetectCustomLabels Prelude.Text
+detectCustomLabels_projectVersionArn :: Lens.Lens' DetectCustomLabels Core.Text
 detectCustomLabels_projectVersionArn = Lens.lens (\DetectCustomLabels' {projectVersionArn} -> projectVersionArn) (\s@DetectCustomLabels' {} a -> s {projectVersionArn = a} :: DetectCustomLabels)
 
 -- | Undocumented member.
 detectCustomLabels_image :: Lens.Lens' DetectCustomLabels Image
 detectCustomLabels_image = Lens.lens (\DetectCustomLabels' {image} -> image) (\s@DetectCustomLabels' {} a -> s {image = a} :: DetectCustomLabels)
 
-instance Prelude.AWSRequest DetectCustomLabels where
+instance Core.AWSRequest DetectCustomLabels where
   type
-    Rs DetectCustomLabels =
+    AWSResponse DetectCustomLabels =
       DetectCustomLabelsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DetectCustomLabelsResponse'
-            Prelude.<$> ( x Prelude..?> "CustomLabels"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CustomLabels" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetectCustomLabels
+instance Core.Hashable DetectCustomLabels
 
-instance Prelude.NFData DetectCustomLabels
+instance Core.NFData DetectCustomLabels
 
-instance Prelude.ToHeaders DetectCustomLabels where
+instance Core.ToHeaders DetectCustomLabels where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.DetectCustomLabels" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.DetectCustomLabels" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DetectCustomLabels where
+instance Core.ToJSON DetectCustomLabels where
   toJSON DetectCustomLabels' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("MinConfidence" Prelude..=)
-              Prelude.<$> minConfidence,
-            Prelude.Just
-              ("ProjectVersionArn" Prelude..= projectVersionArn),
-            Prelude.Just ("Image" Prelude..= image)
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("MinConfidence" Core..=) Core.<$> minConfidence,
+            Core.Just
+              ("ProjectVersionArn" Core..= projectVersionArn),
+            Core.Just ("Image" Core..= image)
           ]
       )
 
-instance Prelude.ToPath DetectCustomLabels where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetectCustomLabels where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetectCustomLabels where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetectCustomLabels where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDetectCustomLabelsResponse' smart constructor.
 data DetectCustomLabelsResponse = DetectCustomLabelsResponse'
   { -- | An array of custom labels detected in the input image.
-    customLabels :: Prelude.Maybe [CustomLabel],
+    customLabels :: Core.Maybe [CustomLabel],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectCustomLabelsResponse' with all optional fields omitted.
@@ -231,21 +225,21 @@ data DetectCustomLabelsResponse = DetectCustomLabelsResponse'
 -- 'httpStatus', 'detectCustomLabelsResponse_httpStatus' - The response's http status code.
 newDetectCustomLabelsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetectCustomLabelsResponse
 newDetectCustomLabelsResponse pHttpStatus_ =
   DetectCustomLabelsResponse'
     { customLabels =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of custom labels detected in the input image.
-detectCustomLabelsResponse_customLabels :: Lens.Lens' DetectCustomLabelsResponse (Prelude.Maybe [CustomLabel])
-detectCustomLabelsResponse_customLabels = Lens.lens (\DetectCustomLabelsResponse' {customLabels} -> customLabels) (\s@DetectCustomLabelsResponse' {} a -> s {customLabels = a} :: DetectCustomLabelsResponse) Prelude.. Lens.mapping Prelude._Coerce
+detectCustomLabelsResponse_customLabels :: Lens.Lens' DetectCustomLabelsResponse (Core.Maybe [CustomLabel])
+detectCustomLabelsResponse_customLabels = Lens.lens (\DetectCustomLabelsResponse' {customLabels} -> customLabels) (\s@DetectCustomLabelsResponse' {} a -> s {customLabels = a} :: DetectCustomLabelsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-detectCustomLabelsResponse_httpStatus :: Lens.Lens' DetectCustomLabelsResponse Prelude.Int
+detectCustomLabelsResponse_httpStatus :: Lens.Lens' DetectCustomLabelsResponse Core.Int
 detectCustomLabelsResponse_httpStatus = Lens.lens (\DetectCustomLabelsResponse' {httpStatus} -> httpStatus) (\s@DetectCustomLabelsResponse' {} a -> s {httpStatus = a} :: DetectCustomLabelsResponse)
 
-instance Prelude.NFData DetectCustomLabelsResponse
+instance Core.NFData DetectCustomLabelsResponse

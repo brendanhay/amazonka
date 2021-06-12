@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.Member where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the member account.
 --
 -- /See:/ 'newMember' smart constructor.
 data Member = Member'
   { -- | The detector ID of the member account.
-    detectorId :: Prelude.Maybe Prelude.Text,
+    detectorId :: Core.Maybe Core.Text,
     -- | The timestamp when the invitation was sent.
-    invitedAt :: Prelude.Maybe Prelude.Text,
+    invitedAt :: Core.Maybe Core.Text,
     -- | The ID of the member account.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The administrator account ID.
-    masterId :: Prelude.Text,
+    masterId :: Core.Text,
     -- | The email address of the member account.
-    email :: Prelude.Text,
+    email :: Core.Text,
     -- | The status of the relationship between the member and the administrator.
-    relationshipStatus :: Prelude.Text,
+    relationshipStatus :: Core.Text,
     -- | The last-updated timestamp of the member.
-    updatedAt :: Prelude.Text
+    updatedAt :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Member' with all optional fields omitted.
@@ -67,15 +66,15 @@ data Member = Member'
 -- 'updatedAt', 'member_updatedAt' - The last-updated timestamp of the member.
 newMember ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'masterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'email'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'relationshipStatus'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updatedAt'
-  Prelude.Text ->
+  Core.Text ->
   Member
 newMember
   pAccountId_
@@ -84,8 +83,8 @@ newMember
   pRelationshipStatus_
   pUpdatedAt_ =
     Member'
-      { detectorId = Prelude.Nothing,
-        invitedAt = Prelude.Nothing,
+      { detectorId = Core.Nothing,
+        invitedAt = Core.Nothing,
         accountId = pAccountId_,
         masterId = pMasterId_,
         email = pEmail_,
@@ -94,48 +93,48 @@ newMember
       }
 
 -- | The detector ID of the member account.
-member_detectorId :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_detectorId :: Lens.Lens' Member (Core.Maybe Core.Text)
 member_detectorId = Lens.lens (\Member' {detectorId} -> detectorId) (\s@Member' {} a -> s {detectorId = a} :: Member)
 
 -- | The timestamp when the invitation was sent.
-member_invitedAt :: Lens.Lens' Member (Prelude.Maybe Prelude.Text)
+member_invitedAt :: Lens.Lens' Member (Core.Maybe Core.Text)
 member_invitedAt = Lens.lens (\Member' {invitedAt} -> invitedAt) (\s@Member' {} a -> s {invitedAt = a} :: Member)
 
 -- | The ID of the member account.
-member_accountId :: Lens.Lens' Member Prelude.Text
+member_accountId :: Lens.Lens' Member Core.Text
 member_accountId = Lens.lens (\Member' {accountId} -> accountId) (\s@Member' {} a -> s {accountId = a} :: Member)
 
 -- | The administrator account ID.
-member_masterId :: Lens.Lens' Member Prelude.Text
+member_masterId :: Lens.Lens' Member Core.Text
 member_masterId = Lens.lens (\Member' {masterId} -> masterId) (\s@Member' {} a -> s {masterId = a} :: Member)
 
 -- | The email address of the member account.
-member_email :: Lens.Lens' Member Prelude.Text
+member_email :: Lens.Lens' Member Core.Text
 member_email = Lens.lens (\Member' {email} -> email) (\s@Member' {} a -> s {email = a} :: Member)
 
 -- | The status of the relationship between the member and the administrator.
-member_relationshipStatus :: Lens.Lens' Member Prelude.Text
+member_relationshipStatus :: Lens.Lens' Member Core.Text
 member_relationshipStatus = Lens.lens (\Member' {relationshipStatus} -> relationshipStatus) (\s@Member' {} a -> s {relationshipStatus = a} :: Member)
 
 -- | The last-updated timestamp of the member.
-member_updatedAt :: Lens.Lens' Member Prelude.Text
+member_updatedAt :: Lens.Lens' Member Core.Text
 member_updatedAt = Lens.lens (\Member' {updatedAt} -> updatedAt) (\s@Member' {} a -> s {updatedAt = a} :: Member)
 
-instance Prelude.FromJSON Member where
+instance Core.FromJSON Member where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Member"
       ( \x ->
           Member'
-            Prelude.<$> (x Prelude..:? "detectorId")
-            Prelude.<*> (x Prelude..:? "invitedAt")
-            Prelude.<*> (x Prelude..: "accountId")
-            Prelude.<*> (x Prelude..: "masterId")
-            Prelude.<*> (x Prelude..: "email")
-            Prelude.<*> (x Prelude..: "relationshipStatus")
-            Prelude.<*> (x Prelude..: "updatedAt")
+            Core.<$> (x Core..:? "detectorId")
+            Core.<*> (x Core..:? "invitedAt")
+            Core.<*> (x Core..: "accountId")
+            Core.<*> (x Core..: "masterId")
+            Core.<*> (x Core..: "email")
+            Core.<*> (x Core..: "relationshipStatus")
+            Core.<*> (x Core..: "updatedAt")
       )
 
-instance Prelude.Hashable Member
+instance Core.Hashable Member
 
-instance Prelude.NFData Member
+instance Core.NFData Member

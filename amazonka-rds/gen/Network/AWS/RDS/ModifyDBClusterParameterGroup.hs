@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,8 +71,8 @@ module Network.AWS.RDS.ModifyDBClusterParameterGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -83,11 +82,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyDBClusterParameterGroup' smart constructor.
 data ModifyDBClusterParameterGroup = ModifyDBClusterParameterGroup'
   { -- | The name of the DB cluster parameter group to modify.
-    dbClusterParameterGroupName :: Prelude.Text,
+    dbClusterParameterGroupName :: Core.Text,
     -- | A list of parameters in the DB cluster parameter group to modify.
     parameters :: [Parameter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyDBClusterParameterGroup' with all optional fields omitted.
@@ -102,66 +101,55 @@ data ModifyDBClusterParameterGroup = ModifyDBClusterParameterGroup'
 -- 'parameters', 'modifyDBClusterParameterGroup_parameters' - A list of parameters in the DB cluster parameter group to modify.
 newModifyDBClusterParameterGroup ::
   -- | 'dbClusterParameterGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ModifyDBClusterParameterGroup
 newModifyDBClusterParameterGroup
   pDBClusterParameterGroupName_ =
     ModifyDBClusterParameterGroup'
       { dbClusterParameterGroupName =
           pDBClusterParameterGroupName_,
-        parameters = Prelude.mempty
+        parameters = Core.mempty
       }
 
 -- | The name of the DB cluster parameter group to modify.
-modifyDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' ModifyDBClusterParameterGroup Prelude.Text
+modifyDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' ModifyDBClusterParameterGroup Core.Text
 modifyDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\ModifyDBClusterParameterGroup' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@ModifyDBClusterParameterGroup' {} a -> s {dbClusterParameterGroupName = a} :: ModifyDBClusterParameterGroup)
 
 -- | A list of parameters in the DB cluster parameter group to modify.
 modifyDBClusterParameterGroup_parameters :: Lens.Lens' ModifyDBClusterParameterGroup [Parameter]
-modifyDBClusterParameterGroup_parameters = Lens.lens (\ModifyDBClusterParameterGroup' {parameters} -> parameters) (\s@ModifyDBClusterParameterGroup' {} a -> s {parameters = a} :: ModifyDBClusterParameterGroup) Prelude.. Prelude._Coerce
+modifyDBClusterParameterGroup_parameters = Lens.lens (\ModifyDBClusterParameterGroup' {parameters} -> parameters) (\s@ModifyDBClusterParameterGroup' {} a -> s {parameters = a} :: ModifyDBClusterParameterGroup) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyDBClusterParameterGroup
   where
   type
-    Rs ModifyDBClusterParameterGroup =
+    AWSResponse ModifyDBClusterParameterGroup =
       DBClusterParameterGroupNameMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterParameterGroupResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance
-  Prelude.Hashable
-    ModifyDBClusterParameterGroup
+instance Core.Hashable ModifyDBClusterParameterGroup
 
-instance Prelude.NFData ModifyDBClusterParameterGroup
+instance Core.NFData ModifyDBClusterParameterGroup
 
-instance
-  Prelude.ToHeaders
-    ModifyDBClusterParameterGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyDBClusterParameterGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyDBClusterParameterGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyDBClusterParameterGroup where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ModifyDBClusterParameterGroup
-  where
+instance Core.ToQuery ModifyDBClusterParameterGroup where
   toQuery ModifyDBClusterParameterGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyDBClusterParameterGroup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("ModifyDBClusterParameterGroup" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "DBClusterParameterGroupName"
-          Prelude.=: dbClusterParameterGroupName,
+          Core.=: dbClusterParameterGroupName,
         "Parameters"
-          Prelude.=: Prelude.toQueryList "Parameter" parameters
+          Core.=: Core.toQueryList "Parameter" parameters
       ]

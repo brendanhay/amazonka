@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -87,8 +86,8 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -102,11 +101,11 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- enabled. By default, deletion protection is disabled. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-    deletionProtection :: Prelude.Maybe Prelude.Bool,
+    deletionProtection :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the replicated automated backups from
     -- which to restore, for example,
     -- @arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
-    sourceDBInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
+    sourceDBInstanceAutomatedBackupsArn :: Core.Maybe Core.Text,
     -- | The upper limit to which Amazon RDS can automatically scale the storage
     -- of the DB instance.
     --
@@ -114,13 +113,13 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- apply to it, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
     -- in the /Amazon RDS User Guide/.
-    maxAllocatedStorage :: Prelude.Maybe Prelude.Int,
+    maxAllocatedStorage :: Core.Maybe Core.Int,
     -- | The identifier of the source DB instance from which to restore.
     --
     -- Constraints:
     --
     -- -   Must match the identifier of an existing DB instance.
-    sourceDBInstanceIdentifier :: Prelude.Maybe Prelude.Text,
+    sourceDBInstanceIdentifier :: Core.Maybe Core.Text,
     -- | A value that indicates whether to enable mapping of AWS Identity and
     -- Access Management (IAM) accounts to database accounts. By default,
     -- mapping is disabled.
@@ -128,13 +127,13 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- For more information about IAM database authentication, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
     -- in the /Amazon RDS User Guide./
-    enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
+    enableIAMDatabaseAuthentication :: Core.Maybe Core.Bool,
     -- | The list of logs that the restored DB instance is to export to
     -- CloudWatch Logs. The values in the list depend on the DB engine being
     -- used. For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
     -- in the /Amazon RDS User Guide/.
-    enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
+    enableCloudwatchLogsExports :: Core.Maybe [Core.Text],
     -- | Specifies the storage type to be associated with the DB instance.
     --
     -- Valid values: @standard | gp2 | io1@
@@ -143,17 +142,17 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- parameter.
     --
     -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-    storageType :: Prelude.Maybe Prelude.Text,
+    storageType :: Core.Maybe Core.Text,
     -- | A value that indicates whether the DB instance class of the DB instance
     -- uses its default processor features.
-    useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
+    useDefaultProcessorFeatures :: Core.Maybe Core.Bool,
     -- | The name of the option group to be used for the restored DB instance.
     --
     -- Permanent options, such as the TDE option for Oracle Advanced Security
     -- TDE, can\'t be removed from an option group, and that option group
     -- can\'t be removed from a DB instance once it is associated with a DB
     -- instance
-    optionGroupName :: Prelude.Maybe Prelude.Text,
+    optionGroupName :: Core.Maybe Core.Text,
     -- | Specify the Active Directory directory ID to restore the DB instance in.
     -- The domain must be created prior to this operation. Currently, only
     -- MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be
@@ -162,7 +161,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
     -- in the /Amazon RDS User Guide/.
-    domain :: Prelude.Maybe Prelude.Text,
+    domain :: Core.Maybe Core.Text,
     -- | The date and time to restore from.
     --
     -- Valid Values: Value must be a time in Universal Coordinated Time (UTC)
@@ -176,19 +175,19 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     --     enabled
     --
     -- Example: @2009-09-07T23:45:00Z@
-    restoreTime :: Prelude.Maybe Prelude.ISO8601,
+    restoreTime :: Core.Maybe Core.ISO8601,
     -- | The DB subnet group name to use for the new instance.
     --
     -- Constraints: If supplied, must match the name of an existing
     -- DBSubnetGroup.
     --
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    dbSubnetGroupName :: Core.Maybe Core.Text,
     -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
     --
     -- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
     -- DB instance is a Multi-AZ deployment.
-    multiAZ :: Prelude.Maybe Prelude.Bool,
+    multiAZ :: Core.Maybe Core.Bool,
     -- | A value that indicates whether the DB instance is publicly accessible.
     --
     -- When the DB instance is publicly accessible, its DNS endpoint resolves
@@ -202,12 +201,12 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- instance with a DNS name that resolves to a private IP address.
     --
     -- For more information, see CreateDBInstance.
-    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    publiclyAccessible :: Core.Maybe Core.Bool,
     -- | A list of EC2 VPC security groups to associate with this DB instance.
     --
     -- Default: The default EC2 VPC security group for the DB subnet group\'s
     -- VPC.
-    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    vpcSecurityGroupIds :: Core.Maybe [Core.Text],
     -- | The name of the DB parameter group to associate with this DB instance.
     --
     -- If you do not specify a value for @DBParameterGroupName@, then the
@@ -222,7 +221,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- -   First character must be a letter.
     --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
-    dbParameterGroupName :: Prelude.Maybe Prelude.Text,
+    dbParameterGroupName :: Core.Maybe Core.Text,
     -- | The Availability Zone (AZ) where the DB instance will be created.
     --
     -- Default: A random, system-chosen Availability Zone.
@@ -231,27 +230,27 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- DB instance is a Multi-AZ deployment.
     --
     -- Example: @us-east-1a@
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | License model information for the restored DB instance.
     --
     -- Default: Same as source.
     --
     -- Valid values: @license-included@ | @bring-your-own-license@ |
     -- @general-public-license@
-    licenseModel :: Prelude.Maybe Prelude.Text,
+    licenseModel :: Core.Maybe Core.Text,
     -- | The password for the given ARN from the key store in order to access the
     -- device.
-    tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
-    tags :: Prelude.Maybe [Tag],
+    tdeCredentialPassword :: Core.Maybe Core.Text,
+    tags :: Core.Maybe [Tag],
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
-    processorFeatures :: Prelude.Maybe [ProcessorFeature],
+    processorFeatures :: Core.Maybe [ProcessorFeature],
     -- | The port number on which the database accepts connections.
     --
     -- Constraints: Value must be @1150-65535@
     --
     -- Default: The same port as the original DB instance.
-    port :: Prelude.Maybe Prelude.Int,
+    port :: Core.Maybe Core.Int,
     -- | The compute and memory capacity of the Amazon RDS DB instance, for
     -- example, @db.m4.large@. Not all DB instance classes are available in all
     -- AWS Regions, or for all database engines. For the full list of DB
@@ -260,14 +259,14 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- in the /Amazon RDS User Guide./
     --
     -- Default: The same DBInstanceClass as the original DB instance.
-    dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    dbInstanceClass :: Core.Maybe Core.Text,
     -- | The database name for the restored DB instance.
     --
     -- This parameter isn\'t used for the MySQL or MariaDB engines.
-    dbName :: Prelude.Maybe Prelude.Text,
+    dbName :: Core.Maybe Core.Text,
     -- | Specify the name of the IAM role to be used when making API calls to the
     -- Directory Service.
-    domainIAMRoleName :: Prelude.Maybe Prelude.Text,
+    domainIAMRoleName :: Core.Maybe Core.Text,
     -- | The database engine to use for the new instance.
     --
     -- Default: The same as source
@@ -297,10 +296,10 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- -   @sqlserver-ex@
     --
     -- -   @sqlserver-web@
-    engine :: Prelude.Maybe Prelude.Text,
+    engine :: Core.Maybe Core.Text,
     -- | The ARN from the key store with which to associate the instance for TDE
     -- encryption.
-    tdeCredentialArn :: Prelude.Maybe Prelude.Text,
+    tdeCredentialArn :: Core.Maybe Core.Text,
     -- | A value that indicates whether to enable a customer-owned IP address
     -- (CoIP) for an RDS on Outposts DB instance.
     --
@@ -316,13 +315,13 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- For more information about CoIPs, see
     -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
     -- in the /AWS Outposts User Guide/.
-    enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
+    enableCustomerOwnedIp :: Core.Maybe Core.Bool,
     -- | A value that indicates whether to copy all tags from the restored DB
     -- instance to snapshots of the DB instance. By default, tags are not
     -- copied.
-    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
+    copyTagsToSnapshot :: Core.Maybe Core.Bool,
     -- | The resource ID of the source DB instance from which to restore.
-    sourceDbiResourceId :: Prelude.Maybe Prelude.Text,
+    sourceDbiResourceId :: Core.Maybe Core.Text,
     -- | The amount of Provisioned IOPS (input\/output operations per second) to
     -- be initially allocated for the DB instance.
     --
@@ -332,17 +331,17 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     --
     -- Setting the IOPS value for the SQL Server database engine isn\'t
     -- supported.
-    iops :: Prelude.Maybe Prelude.Int,
+    iops :: Core.Maybe Core.Int,
     -- | A value that indicates whether minor version upgrades are applied
     -- automatically to the DB instance during the maintenance window.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    autoMinorVersionUpgrade :: Core.Maybe Core.Bool,
     -- | A value that indicates whether the DB instance is restored from the
     -- latest backup time. By default, the DB instance isn\'t restored from the
     -- latest backup time.
     --
     -- Constraints: Can\'t be specified if the @RestoreTime@ parameter is
     -- provided.
-    useLatestRestorableTime :: Prelude.Maybe Prelude.Bool,
+    useLatestRestorableTime :: Core.Maybe Core.Bool,
     -- | The name of the new DB instance to be created.
     --
     -- Constraints:
@@ -352,9 +351,9 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     -- -   First character must be a letter
     --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-    targetDBInstanceIdentifier :: Prelude.Text
+    targetDBInstanceIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreDBInstanceToPointInTime' with all optional fields omitted.
@@ -622,50 +621,47 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 newRestoreDBInstanceToPointInTime ::
   -- | 'targetDBInstanceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   RestoreDBInstanceToPointInTime
 newRestoreDBInstanceToPointInTime
   pTargetDBInstanceIdentifier_ =
     RestoreDBInstanceToPointInTime'
       { deletionProtection =
-          Prelude.Nothing,
+          Core.Nothing,
         sourceDBInstanceAutomatedBackupsArn =
-          Prelude.Nothing,
-        maxAllocatedStorage = Prelude.Nothing,
-        sourceDBInstanceIdentifier =
-          Prelude.Nothing,
+          Core.Nothing,
+        maxAllocatedStorage = Core.Nothing,
+        sourceDBInstanceIdentifier = Core.Nothing,
         enableIAMDatabaseAuthentication =
-          Prelude.Nothing,
-        enableCloudwatchLogsExports =
-          Prelude.Nothing,
-        storageType = Prelude.Nothing,
-        useDefaultProcessorFeatures =
-          Prelude.Nothing,
-        optionGroupName = Prelude.Nothing,
-        domain = Prelude.Nothing,
-        restoreTime = Prelude.Nothing,
-        dbSubnetGroupName = Prelude.Nothing,
-        multiAZ = Prelude.Nothing,
-        publiclyAccessible = Prelude.Nothing,
-        vpcSecurityGroupIds = Prelude.Nothing,
-        dbParameterGroupName = Prelude.Nothing,
-        availabilityZone = Prelude.Nothing,
-        licenseModel = Prelude.Nothing,
-        tdeCredentialPassword = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        processorFeatures = Prelude.Nothing,
-        port = Prelude.Nothing,
-        dbInstanceClass = Prelude.Nothing,
-        dbName = Prelude.Nothing,
-        domainIAMRoleName = Prelude.Nothing,
-        engine = Prelude.Nothing,
-        tdeCredentialArn = Prelude.Nothing,
-        enableCustomerOwnedIp = Prelude.Nothing,
-        copyTagsToSnapshot = Prelude.Nothing,
-        sourceDbiResourceId = Prelude.Nothing,
-        iops = Prelude.Nothing,
-        autoMinorVersionUpgrade = Prelude.Nothing,
-        useLatestRestorableTime = Prelude.Nothing,
+          Core.Nothing,
+        enableCloudwatchLogsExports = Core.Nothing,
+        storageType = Core.Nothing,
+        useDefaultProcessorFeatures = Core.Nothing,
+        optionGroupName = Core.Nothing,
+        domain = Core.Nothing,
+        restoreTime = Core.Nothing,
+        dbSubnetGroupName = Core.Nothing,
+        multiAZ = Core.Nothing,
+        publiclyAccessible = Core.Nothing,
+        vpcSecurityGroupIds = Core.Nothing,
+        dbParameterGroupName = Core.Nothing,
+        availabilityZone = Core.Nothing,
+        licenseModel = Core.Nothing,
+        tdeCredentialPassword = Core.Nothing,
+        tags = Core.Nothing,
+        processorFeatures = Core.Nothing,
+        port = Core.Nothing,
+        dbInstanceClass = Core.Nothing,
+        dbName = Core.Nothing,
+        domainIAMRoleName = Core.Nothing,
+        engine = Core.Nothing,
+        tdeCredentialArn = Core.Nothing,
+        enableCustomerOwnedIp = Core.Nothing,
+        copyTagsToSnapshot = Core.Nothing,
+        sourceDbiResourceId = Core.Nothing,
+        iops = Core.Nothing,
+        autoMinorVersionUpgrade = Core.Nothing,
+        useLatestRestorableTime = Core.Nothing,
         targetDBInstanceIdentifier =
           pTargetDBInstanceIdentifier_
       }
@@ -675,13 +671,13 @@ newRestoreDBInstanceToPointInTime
 -- enabled. By default, deletion protection is disabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
-restoreDBInstanceToPointInTime_deletionProtection :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_deletionProtection :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_deletionProtection = Lens.lens (\RestoreDBInstanceToPointInTime' {deletionProtection} -> deletionProtection) (\s@RestoreDBInstanceToPointInTime' {} a -> s {deletionProtection = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The Amazon Resource Name (ARN) of the replicated automated backups from
 -- which to restore, for example,
 -- @arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
-restoreDBInstanceToPointInTime_sourceDBInstanceAutomatedBackupsArn :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_sourceDBInstanceAutomatedBackupsArn :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_sourceDBInstanceAutomatedBackupsArn = Lens.lens (\RestoreDBInstanceToPointInTime' {sourceDBInstanceAutomatedBackupsArn} -> sourceDBInstanceAutomatedBackupsArn) (\s@RestoreDBInstanceToPointInTime' {} a -> s {sourceDBInstanceAutomatedBackupsArn = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The upper limit to which Amazon RDS can automatically scale the storage
@@ -691,7 +687,7 @@ restoreDBInstanceToPointInTime_sourceDBInstanceAutomatedBackupsArn = Lens.lens (
 -- apply to it, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling Managing capacity automatically with Amazon RDS storage autoscaling>
 -- in the /Amazon RDS User Guide/.
-restoreDBInstanceToPointInTime_maxAllocatedStorage :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Int)
+restoreDBInstanceToPointInTime_maxAllocatedStorage :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Int)
 restoreDBInstanceToPointInTime_maxAllocatedStorage = Lens.lens (\RestoreDBInstanceToPointInTime' {maxAllocatedStorage} -> maxAllocatedStorage) (\s@RestoreDBInstanceToPointInTime' {} a -> s {maxAllocatedStorage = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The identifier of the source DB instance from which to restore.
@@ -699,7 +695,7 @@ restoreDBInstanceToPointInTime_maxAllocatedStorage = Lens.lens (\RestoreDBInstan
 -- Constraints:
 --
 -- -   Must match the identifier of an existing DB instance.
-restoreDBInstanceToPointInTime_sourceDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_sourceDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_sourceDBInstanceIdentifier = Lens.lens (\RestoreDBInstanceToPointInTime' {sourceDBInstanceIdentifier} -> sourceDBInstanceIdentifier) (\s@RestoreDBInstanceToPointInTime' {} a -> s {sourceDBInstanceIdentifier = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether to enable mapping of AWS Identity and
@@ -709,7 +705,7 @@ restoreDBInstanceToPointInTime_sourceDBInstanceIdentifier = Lens.lens (\RestoreD
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
-restoreDBInstanceToPointInTime_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBInstanceToPointInTime' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBInstanceToPointInTime' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The list of logs that the restored DB instance is to export to
@@ -717,8 +713,8 @@ restoreDBInstanceToPointInTime_enableIAMDatabaseAuthentication = Lens.lens (\Res
 -- used. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon RDS User Guide/.
-restoreDBInstanceToPointInTime_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe [Prelude.Text])
-restoreDBInstanceToPointInTime_enableCloudwatchLogsExports = Lens.lens (\RestoreDBInstanceToPointInTime' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBInstanceToPointInTime' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBInstanceToPointInTime) Prelude.. Lens.mapping Prelude._Coerce
+restoreDBInstanceToPointInTime_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe [Core.Text])
+restoreDBInstanceToPointInTime_enableCloudwatchLogsExports = Lens.lens (\RestoreDBInstanceToPointInTime' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBInstanceToPointInTime' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBInstanceToPointInTime) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
@@ -728,12 +724,12 @@ restoreDBInstanceToPointInTime_enableCloudwatchLogsExports = Lens.lens (\Restore
 -- parameter.
 --
 -- Default: @io1@ if the @Iops@ parameter is specified, otherwise @gp2@
-restoreDBInstanceToPointInTime_storageType :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_storageType :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_storageType = Lens.lens (\RestoreDBInstanceToPointInTime' {storageType} -> storageType) (\s@RestoreDBInstanceToPointInTime' {} a -> s {storageType = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
-restoreDBInstanceToPointInTime_useDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_useDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInstanceToPointInTime' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@RestoreDBInstanceToPointInTime' {} a -> s {useDefaultProcessorFeatures = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The name of the option group to be used for the restored DB instance.
@@ -742,7 +738,7 @@ restoreDBInstanceToPointInTime_useDefaultProcessorFeatures = Lens.lens (\Restore
 -- TDE, can\'t be removed from an option group, and that option group
 -- can\'t be removed from a DB instance once it is associated with a DB
 -- instance
-restoreDBInstanceToPointInTime_optionGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_optionGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_optionGroupName = Lens.lens (\RestoreDBInstanceToPointInTime' {optionGroupName} -> optionGroupName) (\s@RestoreDBInstanceToPointInTime' {} a -> s {optionGroupName = a} :: RestoreDBInstanceToPointInTime)
 
 -- | Specify the Active Directory directory ID to restore the DB instance in.
@@ -753,7 +749,7 @@ restoreDBInstanceToPointInTime_optionGroupName = Lens.lens (\RestoreDBInstanceTo
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon RDS User Guide/.
-restoreDBInstanceToPointInTime_domain :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_domain :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_domain = Lens.lens (\RestoreDBInstanceToPointInTime' {domain} -> domain) (\s@RestoreDBInstanceToPointInTime' {} a -> s {domain = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The date and time to restore from.
@@ -769,8 +765,8 @@ restoreDBInstanceToPointInTime_domain = Lens.lens (\RestoreDBInstanceToPointInTi
 --     enabled
 --
 -- Example: @2009-09-07T23:45:00Z@
-restoreDBInstanceToPointInTime_restoreTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.UTCTime)
-restoreDBInstanceToPointInTime_restoreTime = Lens.lens (\RestoreDBInstanceToPointInTime' {restoreTime} -> restoreTime) (\s@RestoreDBInstanceToPointInTime' {} a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime) Prelude.. Lens.mapping Prelude._Time
+restoreDBInstanceToPointInTime_restoreTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.UTCTime)
+restoreDBInstanceToPointInTime_restoreTime = Lens.lens (\RestoreDBInstanceToPointInTime' {restoreTime} -> restoreTime) (\s@RestoreDBInstanceToPointInTime' {} a -> s {restoreTime = a} :: RestoreDBInstanceToPointInTime) Core.. Lens.mapping Core._Time
 
 -- | The DB subnet group name to use for the new instance.
 --
@@ -778,14 +774,14 @@ restoreDBInstanceToPointInTime_restoreTime = Lens.lens (\RestoreDBInstanceToPoin
 -- DBSubnetGroup.
 --
 -- Example: @mySubnetgroup@
-restoreDBInstanceToPointInTime_dbSubnetGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_dbSubnetGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_dbSubnetGroupName = Lens.lens (\RestoreDBInstanceToPointInTime' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBInstanceToPointInTime' {} a -> s {dbSubnetGroupName = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
 --
 -- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
 -- DB instance is a Multi-AZ deployment.
-restoreDBInstanceToPointInTime_multiAZ :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_multiAZ :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_multiAZ = Lens.lens (\RestoreDBInstanceToPointInTime' {multiAZ} -> multiAZ) (\s@RestoreDBInstanceToPointInTime' {} a -> s {multiAZ = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether the DB instance is publicly accessible.
@@ -801,15 +797,15 @@ restoreDBInstanceToPointInTime_multiAZ = Lens.lens (\RestoreDBInstanceToPointInT
 -- instance with a DNS name that resolves to a private IP address.
 --
 -- For more information, see CreateDBInstance.
-restoreDBInstanceToPointInTime_publiclyAccessible :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_publiclyAccessible :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_publiclyAccessible = Lens.lens (\RestoreDBInstanceToPointInTime' {publiclyAccessible} -> publiclyAccessible) (\s@RestoreDBInstanceToPointInTime' {} a -> s {publiclyAccessible = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A list of EC2 VPC security groups to associate with this DB instance.
 --
 -- Default: The default EC2 VPC security group for the DB subnet group\'s
 -- VPC.
-restoreDBInstanceToPointInTime_vpcSecurityGroupIds :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe [Prelude.Text])
-restoreDBInstanceToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBInstanceToPointInTime' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBInstanceToPointInTime' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBInstanceToPointInTime) Prelude.. Lens.mapping Prelude._Coerce
+restoreDBInstanceToPointInTime_vpcSecurityGroupIds :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe [Core.Text])
+restoreDBInstanceToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBInstanceToPointInTime' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@RestoreDBInstanceToPointInTime' {} a -> s {vpcSecurityGroupIds = a} :: RestoreDBInstanceToPointInTime) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the DB parameter group to associate with this DB instance.
 --
@@ -825,7 +821,7 @@ restoreDBInstanceToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBInstan
 -- -   First character must be a letter.
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
-restoreDBInstanceToPointInTime_dbParameterGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_dbParameterGroupName :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_dbParameterGroupName = Lens.lens (\RestoreDBInstanceToPointInTime' {dbParameterGroupName} -> dbParameterGroupName) (\s@RestoreDBInstanceToPointInTime' {} a -> s {dbParameterGroupName = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The Availability Zone (AZ) where the DB instance will be created.
@@ -836,7 +832,7 @@ restoreDBInstanceToPointInTime_dbParameterGroupName = Lens.lens (\RestoreDBInsta
 -- DB instance is a Multi-AZ deployment.
 --
 -- Example: @us-east-1a@
-restoreDBInstanceToPointInTime_availabilityZone :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_availabilityZone :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_availabilityZone = Lens.lens (\RestoreDBInstanceToPointInTime' {availabilityZone} -> availabilityZone) (\s@RestoreDBInstanceToPointInTime' {} a -> s {availabilityZone = a} :: RestoreDBInstanceToPointInTime)
 
 -- | License model information for the restored DB instance.
@@ -845,29 +841,29 @@ restoreDBInstanceToPointInTime_availabilityZone = Lens.lens (\RestoreDBInstanceT
 --
 -- Valid values: @license-included@ | @bring-your-own-license@ |
 -- @general-public-license@
-restoreDBInstanceToPointInTime_licenseModel :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_licenseModel :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_licenseModel = Lens.lens (\RestoreDBInstanceToPointInTime' {licenseModel} -> licenseModel) (\s@RestoreDBInstanceToPointInTime' {} a -> s {licenseModel = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The password for the given ARN from the key store in order to access the
 -- device.
-restoreDBInstanceToPointInTime_tdeCredentialPassword :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_tdeCredentialPassword :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_tdeCredentialPassword = Lens.lens (\RestoreDBInstanceToPointInTime' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@RestoreDBInstanceToPointInTime' {} a -> s {tdeCredentialPassword = a} :: RestoreDBInstanceToPointInTime)
 
 -- | Undocumented member.
-restoreDBInstanceToPointInTime_tags :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe [Tag])
-restoreDBInstanceToPointInTime_tags = Lens.lens (\RestoreDBInstanceToPointInTime' {tags} -> tags) (\s@RestoreDBInstanceToPointInTime' {} a -> s {tags = a} :: RestoreDBInstanceToPointInTime) Prelude.. Lens.mapping Prelude._Coerce
+restoreDBInstanceToPointInTime_tags :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe [Tag])
+restoreDBInstanceToPointInTime_tags = Lens.lens (\RestoreDBInstanceToPointInTime' {tags} -> tags) (\s@RestoreDBInstanceToPointInTime' {} a -> s {tags = a} :: RestoreDBInstanceToPointInTime) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
-restoreDBInstanceToPointInTime_processorFeatures :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe [ProcessorFeature])
-restoreDBInstanceToPointInTime_processorFeatures = Lens.lens (\RestoreDBInstanceToPointInTime' {processorFeatures} -> processorFeatures) (\s@RestoreDBInstanceToPointInTime' {} a -> s {processorFeatures = a} :: RestoreDBInstanceToPointInTime) Prelude.. Lens.mapping Prelude._Coerce
+restoreDBInstanceToPointInTime_processorFeatures :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe [ProcessorFeature])
+restoreDBInstanceToPointInTime_processorFeatures = Lens.lens (\RestoreDBInstanceToPointInTime' {processorFeatures} -> processorFeatures) (\s@RestoreDBInstanceToPointInTime' {} a -> s {processorFeatures = a} :: RestoreDBInstanceToPointInTime) Core.. Lens.mapping Lens._Coerce
 
 -- | The port number on which the database accepts connections.
 --
 -- Constraints: Value must be @1150-65535@
 --
 -- Default: The same port as the original DB instance.
-restoreDBInstanceToPointInTime_port :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Int)
+restoreDBInstanceToPointInTime_port :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Int)
 restoreDBInstanceToPointInTime_port = Lens.lens (\RestoreDBInstanceToPointInTime' {port} -> port) (\s@RestoreDBInstanceToPointInTime' {} a -> s {port = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The compute and memory capacity of the Amazon RDS DB instance, for
@@ -878,18 +874,18 @@ restoreDBInstanceToPointInTime_port = Lens.lens (\RestoreDBInstanceToPointInTime
 -- in the /Amazon RDS User Guide./
 --
 -- Default: The same DBInstanceClass as the original DB instance.
-restoreDBInstanceToPointInTime_dbInstanceClass :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_dbInstanceClass :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_dbInstanceClass = Lens.lens (\RestoreDBInstanceToPointInTime' {dbInstanceClass} -> dbInstanceClass) (\s@RestoreDBInstanceToPointInTime' {} a -> s {dbInstanceClass = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The database name for the restored DB instance.
 --
 -- This parameter isn\'t used for the MySQL or MariaDB engines.
-restoreDBInstanceToPointInTime_dbName :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_dbName :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_dbName = Lens.lens (\RestoreDBInstanceToPointInTime' {dbName} -> dbName) (\s@RestoreDBInstanceToPointInTime' {} a -> s {dbName = a} :: RestoreDBInstanceToPointInTime)
 
 -- | Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
-restoreDBInstanceToPointInTime_domainIAMRoleName :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_domainIAMRoleName :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_domainIAMRoleName = Lens.lens (\RestoreDBInstanceToPointInTime' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBInstanceToPointInTime' {} a -> s {domainIAMRoleName = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The database engine to use for the new instance.
@@ -921,12 +917,12 @@ restoreDBInstanceToPointInTime_domainIAMRoleName = Lens.lens (\RestoreDBInstance
 -- -   @sqlserver-ex@
 --
 -- -   @sqlserver-web@
-restoreDBInstanceToPointInTime_engine :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_engine :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_engine = Lens.lens (\RestoreDBInstanceToPointInTime' {engine} -> engine) (\s@RestoreDBInstanceToPointInTime' {} a -> s {engine = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The ARN from the key store with which to associate the instance for TDE
 -- encryption.
-restoreDBInstanceToPointInTime_tdeCredentialArn :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_tdeCredentialArn :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_tdeCredentialArn = Lens.lens (\RestoreDBInstanceToPointInTime' {tdeCredentialArn} -> tdeCredentialArn) (\s@RestoreDBInstanceToPointInTime' {} a -> s {tdeCredentialArn = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether to enable a customer-owned IP address
@@ -944,17 +940,17 @@ restoreDBInstanceToPointInTime_tdeCredentialArn = Lens.lens (\RestoreDBInstanceT
 -- For more information about CoIPs, see
 -- <https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing Customer-owned IP addresses>
 -- in the /AWS Outposts User Guide/.
-restoreDBInstanceToPointInTime_enableCustomerOwnedIp :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_enableCustomerOwnedIp :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_enableCustomerOwnedIp = Lens.lens (\RestoreDBInstanceToPointInTime' {enableCustomerOwnedIp} -> enableCustomerOwnedIp) (\s@RestoreDBInstanceToPointInTime' {} a -> s {enableCustomerOwnedIp = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether to copy all tags from the restored DB
 -- instance to snapshots of the DB instance. By default, tags are not
 -- copied.
-restoreDBInstanceToPointInTime_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_copyTagsToSnapshot = Lens.lens (\RestoreDBInstanceToPointInTime' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBInstanceToPointInTime' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The resource ID of the source DB instance from which to restore.
-restoreDBInstanceToPointInTime_sourceDbiResourceId :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBInstanceToPointInTime_sourceDbiResourceId :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Text)
 restoreDBInstanceToPointInTime_sourceDbiResourceId = Lens.lens (\RestoreDBInstanceToPointInTime' {sourceDbiResourceId} -> sourceDbiResourceId) (\s@RestoreDBInstanceToPointInTime' {} a -> s {sourceDbiResourceId = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
@@ -966,12 +962,12 @@ restoreDBInstanceToPointInTime_sourceDbiResourceId = Lens.lens (\RestoreDBInstan
 --
 -- Setting the IOPS value for the SQL Server database engine isn\'t
 -- supported.
-restoreDBInstanceToPointInTime_iops :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Int)
+restoreDBInstanceToPointInTime_iops :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Int)
 restoreDBInstanceToPointInTime_iops = Lens.lens (\RestoreDBInstanceToPointInTime' {iops} -> iops) (\s@RestoreDBInstanceToPointInTime' {} a -> s {iops = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether minor version upgrades are applied
 -- automatically to the DB instance during the maintenance window.
-restoreDBInstanceToPointInTime_autoMinorVersionUpgrade :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_autoMinorVersionUpgrade :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_autoMinorVersionUpgrade = Lens.lens (\RestoreDBInstanceToPointInTime' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@RestoreDBInstanceToPointInTime' {} a -> s {autoMinorVersionUpgrade = a} :: RestoreDBInstanceToPointInTime)
 
 -- | A value that indicates whether the DB instance is restored from the
@@ -980,7 +976,7 @@ restoreDBInstanceToPointInTime_autoMinorVersionUpgrade = Lens.lens (\RestoreDBIn
 --
 -- Constraints: Can\'t be specified if the @RestoreTime@ parameter is
 -- provided.
-restoreDBInstanceToPointInTime_useLatestRestorableTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Prelude.Maybe Prelude.Bool)
+restoreDBInstanceToPointInTime_useLatestRestorableTime :: Lens.Lens' RestoreDBInstanceToPointInTime (Core.Maybe Core.Bool)
 restoreDBInstanceToPointInTime_useLatestRestorableTime = Lens.lens (\RestoreDBInstanceToPointInTime' {useLatestRestorableTime} -> useLatestRestorableTime) (\s@RestoreDBInstanceToPointInTime' {} a -> s {useLatestRestorableTime = a} :: RestoreDBInstanceToPointInTime)
 
 -- | The name of the new DB instance to be created.
@@ -992,15 +988,15 @@ restoreDBInstanceToPointInTime_useLatestRestorableTime = Lens.lens (\RestoreDBIn
 -- -   First character must be a letter
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
-restoreDBInstanceToPointInTime_targetDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime Prelude.Text
+restoreDBInstanceToPointInTime_targetDBInstanceIdentifier :: Lens.Lens' RestoreDBInstanceToPointInTime Core.Text
 restoreDBInstanceToPointInTime_targetDBInstanceIdentifier = Lens.lens (\RestoreDBInstanceToPointInTime' {targetDBInstanceIdentifier} -> targetDBInstanceIdentifier) (\s@RestoreDBInstanceToPointInTime' {} a -> s {targetDBInstanceIdentifier = a} :: RestoreDBInstanceToPointInTime)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RestoreDBInstanceToPointInTime
   where
   type
-    Rs RestoreDBInstanceToPointInTime =
+    AWSResponse RestoreDBInstanceToPointInTime =
       RestoreDBInstanceToPointInTimeResponse
   request = Request.postQuery defaultService
   response =
@@ -1008,109 +1004,96 @@ instance
       "RestoreDBInstanceToPointInTimeResult"
       ( \s h x ->
           RestoreDBInstanceToPointInTimeResponse'
-            Prelude.<$> (x Prelude..@? "DBInstance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    RestoreDBInstanceToPointInTime
+instance Core.Hashable RestoreDBInstanceToPointInTime
+
+instance Core.NFData RestoreDBInstanceToPointInTime
 
 instance
-  Prelude.NFData
-    RestoreDBInstanceToPointInTime
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     RestoreDBInstanceToPointInTime
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    RestoreDBInstanceToPointInTime
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath RestoreDBInstanceToPointInTime where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    RestoreDBInstanceToPointInTime
-  where
+instance Core.ToQuery RestoreDBInstanceToPointInTime where
   toQuery RestoreDBInstanceToPointInTime' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "RestoreDBInstanceToPointInTime" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "DeletionProtection" Prelude.=: deletionProtection,
+          Core.=: ( "RestoreDBInstanceToPointInTime" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "DeletionProtection" Core.=: deletionProtection,
         "SourceDBInstanceAutomatedBackupsArn"
-          Prelude.=: sourceDBInstanceAutomatedBackupsArn,
-        "MaxAllocatedStorage" Prelude.=: maxAllocatedStorage,
+          Core.=: sourceDBInstanceAutomatedBackupsArn,
+        "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
         "SourceDBInstanceIdentifier"
-          Prelude.=: sourceDBInstanceIdentifier,
+          Core.=: sourceDBInstanceIdentifier,
         "EnableIAMDatabaseAuthentication"
-          Prelude.=: enableIAMDatabaseAuthentication,
+          Core.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> enableCloudwatchLogsExports
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> enableCloudwatchLogsExports
             ),
-        "StorageType" Prelude.=: storageType,
+        "StorageType" Core.=: storageType,
         "UseDefaultProcessorFeatures"
-          Prelude.=: useDefaultProcessorFeatures,
-        "OptionGroupName" Prelude.=: optionGroupName,
-        "Domain" Prelude.=: domain,
-        "RestoreTime" Prelude.=: restoreTime,
-        "DBSubnetGroupName" Prelude.=: dbSubnetGroupName,
-        "MultiAZ" Prelude.=: multiAZ,
-        "PubliclyAccessible" Prelude.=: publiclyAccessible,
+          Core.=: useDefaultProcessorFeatures,
+        "OptionGroupName" Core.=: optionGroupName,
+        "Domain" Core.=: domain,
+        "RestoreTime" Core.=: restoreTime,
+        "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "MultiAZ" Core.=: multiAZ,
+        "PubliclyAccessible" Core.=: publiclyAccessible,
         "VpcSecurityGroupIds"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "VpcSecurityGroupId"
-                Prelude.<$> vpcSecurityGroupIds
+          Core.=: Core.toQuery
+            ( Core.toQueryList "VpcSecurityGroupId"
+                Core.<$> vpcSecurityGroupIds
             ),
-        "DBParameterGroupName"
-          Prelude.=: dbParameterGroupName,
-        "AvailabilityZone" Prelude.=: availabilityZone,
-        "LicenseModel" Prelude.=: licenseModel,
+        "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "AvailabilityZone" Core.=: availabilityZone,
+        "LicenseModel" Core.=: licenseModel,
         "TdeCredentialPassword"
-          Prelude.=: tdeCredentialPassword,
+          Core.=: tdeCredentialPassword,
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Tag" Prelude.<$> tags),
+          Core.=: Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
         "ProcessorFeatures"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "ProcessorFeature"
-                Prelude.<$> processorFeatures
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ProcessorFeature"
+                Core.<$> processorFeatures
             ),
-        "Port" Prelude.=: port,
-        "DBInstanceClass" Prelude.=: dbInstanceClass,
-        "DBName" Prelude.=: dbName,
-        "DomainIAMRoleName" Prelude.=: domainIAMRoleName,
-        "Engine" Prelude.=: engine,
-        "TdeCredentialArn" Prelude.=: tdeCredentialArn,
+        "Port" Core.=: port,
+        "DBInstanceClass" Core.=: dbInstanceClass,
+        "DBName" Core.=: dbName,
+        "DomainIAMRoleName" Core.=: domainIAMRoleName,
+        "Engine" Core.=: engine,
+        "TdeCredentialArn" Core.=: tdeCredentialArn,
         "EnableCustomerOwnedIp"
-          Prelude.=: enableCustomerOwnedIp,
-        "CopyTagsToSnapshot" Prelude.=: copyTagsToSnapshot,
-        "SourceDbiResourceId" Prelude.=: sourceDbiResourceId,
-        "Iops" Prelude.=: iops,
+          Core.=: enableCustomerOwnedIp,
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
+        "SourceDbiResourceId" Core.=: sourceDbiResourceId,
+        "Iops" Core.=: iops,
         "AutoMinorVersionUpgrade"
-          Prelude.=: autoMinorVersionUpgrade,
+          Core.=: autoMinorVersionUpgrade,
         "UseLatestRestorableTime"
-          Prelude.=: useLatestRestorableTime,
+          Core.=: useLatestRestorableTime,
         "TargetDBInstanceIdentifier"
-          Prelude.=: targetDBInstanceIdentifier
+          Core.=: targetDBInstanceIdentifier
       ]
 
 -- | /See:/ 'newRestoreDBInstanceToPointInTimeResponse' smart constructor.
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
-  { dbInstance :: Prelude.Maybe DBInstance,
+  { dbInstance :: Core.Maybe DBInstance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreDBInstanceToPointInTimeResponse' with all optional fields omitted.
@@ -1125,24 +1108,24 @@ data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResp
 -- 'httpStatus', 'restoreDBInstanceToPointInTimeResponse_httpStatus' - The response's http status code.
 newRestoreDBInstanceToPointInTimeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RestoreDBInstanceToPointInTimeResponse
 newRestoreDBInstanceToPointInTimeResponse
   pHttpStatus_ =
     RestoreDBInstanceToPointInTimeResponse'
       { dbInstance =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-restoreDBInstanceToPointInTimeResponse_dbInstance :: Lens.Lens' RestoreDBInstanceToPointInTimeResponse (Prelude.Maybe DBInstance)
+restoreDBInstanceToPointInTimeResponse_dbInstance :: Lens.Lens' RestoreDBInstanceToPointInTimeResponse (Core.Maybe DBInstance)
 restoreDBInstanceToPointInTimeResponse_dbInstance = Lens.lens (\RestoreDBInstanceToPointInTimeResponse' {dbInstance} -> dbInstance) (\s@RestoreDBInstanceToPointInTimeResponse' {} a -> s {dbInstance = a} :: RestoreDBInstanceToPointInTimeResponse)
 
 -- | The response's http status code.
-restoreDBInstanceToPointInTimeResponse_httpStatus :: Lens.Lens' RestoreDBInstanceToPointInTimeResponse Prelude.Int
+restoreDBInstanceToPointInTimeResponse_httpStatus :: Lens.Lens' RestoreDBInstanceToPointInTimeResponse Core.Int
 restoreDBInstanceToPointInTimeResponse_httpStatus = Lens.lens (\RestoreDBInstanceToPointInTimeResponse' {httpStatus} -> httpStatus) (\s@RestoreDBInstanceToPointInTimeResponse' {} a -> s {httpStatus = a} :: RestoreDBInstanceToPointInTimeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RestoreDBInstanceToPointInTimeResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.SQS.DeleteMessage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -71,11 +70,11 @@ data DeleteMessage = DeleteMessage'
   { -- | The URL of the Amazon SQS queue from which messages are deleted.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Prelude.Text,
+    queueUrl :: Core.Text,
     -- | The receipt handle associated with the message to delete.
-    receiptHandle :: Prelude.Text
+    receiptHandle :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMessage' with all optional fields omitted.
@@ -92,9 +91,9 @@ data DeleteMessage = DeleteMessage'
 -- 'receiptHandle', 'deleteMessage_receiptHandle' - The receipt handle associated with the message to delete.
 newDeleteMessage ::
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'receiptHandle'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMessage
 newDeleteMessage pQueueUrl_ pReceiptHandle_ =
   DeleteMessage'
@@ -105,45 +104,46 @@ newDeleteMessage pQueueUrl_ pReceiptHandle_ =
 -- | The URL of the Amazon SQS queue from which messages are deleted.
 --
 -- Queue URLs and names are case-sensitive.
-deleteMessage_queueUrl :: Lens.Lens' DeleteMessage Prelude.Text
+deleteMessage_queueUrl :: Lens.Lens' DeleteMessage Core.Text
 deleteMessage_queueUrl = Lens.lens (\DeleteMessage' {queueUrl} -> queueUrl) (\s@DeleteMessage' {} a -> s {queueUrl = a} :: DeleteMessage)
 
 -- | The receipt handle associated with the message to delete.
-deleteMessage_receiptHandle :: Lens.Lens' DeleteMessage Prelude.Text
+deleteMessage_receiptHandle :: Lens.Lens' DeleteMessage Core.Text
 deleteMessage_receiptHandle = Lens.lens (\DeleteMessage' {receiptHandle} -> receiptHandle) (\s@DeleteMessage' {} a -> s {receiptHandle = a} :: DeleteMessage)
 
-instance Prelude.AWSRequest DeleteMessage where
-  type Rs DeleteMessage = DeleteMessageResponse
+instance Core.AWSRequest DeleteMessage where
+  type
+    AWSResponse DeleteMessage =
+      DeleteMessageResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteMessageResponse'
 
-instance Prelude.Hashable DeleteMessage
+instance Core.Hashable DeleteMessage
 
-instance Prelude.NFData DeleteMessage
+instance Core.NFData DeleteMessage
 
-instance Prelude.ToHeaders DeleteMessage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteMessage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteMessage where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteMessage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteMessage where
+instance Core.ToQuery DeleteMessage where
   toQuery DeleteMessage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteMessage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Prelude.=: queueUrl,
-        "ReceiptHandle" Prelude.=: receiptHandle
+          Core.=: ("DeleteMessage" :: Core.ByteString),
+        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+        "QueueUrl" Core.=: queueUrl,
+        "ReceiptHandle" Core.=: receiptHandle
       ]
 
 -- | /See:/ 'newDeleteMessageResponse' smart constructor.
 data DeleteMessageResponse = DeleteMessageResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMessageResponse' with all optional fields omitted.
@@ -153,4 +153,4 @@ newDeleteMessageResponse ::
   DeleteMessageResponse
 newDeleteMessageResponse = DeleteMessageResponse'
 
-instance Prelude.NFData DeleteMessageResponse
+instance Core.NFData DeleteMessageResponse

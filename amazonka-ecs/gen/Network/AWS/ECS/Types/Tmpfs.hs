@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.Tmpfs where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The container path, mount options, and size of the tmpfs mount.
 --
@@ -31,13 +30,13 @@ data Tmpfs = Tmpfs'
     --
     -- Valid values:
     -- @\"defaults\" | \"ro\" | \"rw\" | \"suid\" | \"nosuid\" | \"dev\" | \"nodev\" | \"exec\" | \"noexec\" | \"sync\" | \"async\" | \"dirsync\" | \"remount\" | \"mand\" | \"nomand\" | \"atime\" | \"noatime\" | \"diratime\" | \"nodiratime\" | \"bind\" | \"rbind\" | \"unbindable\" | \"runbindable\" | \"private\" | \"rprivate\" | \"shared\" | \"rshared\" | \"slave\" | \"rslave\" | \"relatime\" | \"norelatime\" | \"strictatime\" | \"nostrictatime\" | \"mode\" | \"uid\" | \"gid\" | \"nr_inodes\" | \"nr_blocks\" | \"mpol\"@
-    mountOptions :: Prelude.Maybe [Prelude.Text],
+    mountOptions :: Core.Maybe [Core.Text],
     -- | The absolute file path where the tmpfs volume is to be mounted.
-    containerPath :: Prelude.Text,
+    containerPath :: Core.Text,
     -- | The maximum size (in MiB) of the tmpfs volume.
-    size :: Prelude.Int
+    size :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tmpfs' with all optional fields omitted.
@@ -57,13 +56,13 @@ data Tmpfs = Tmpfs'
 -- 'size', 'tmpfs_size' - The maximum size (in MiB) of the tmpfs volume.
 newTmpfs ::
   -- | 'containerPath'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'size'
-  Prelude.Int ->
+  Core.Int ->
   Tmpfs
 newTmpfs pContainerPath_ pSize_ =
   Tmpfs'
-    { mountOptions = Prelude.Nothing,
+    { mountOptions = Core.Nothing,
       containerPath = pContainerPath_,
       size = pSize_
     }
@@ -72,42 +71,38 @@ newTmpfs pContainerPath_ pSize_ =
 --
 -- Valid values:
 -- @\"defaults\" | \"ro\" | \"rw\" | \"suid\" | \"nosuid\" | \"dev\" | \"nodev\" | \"exec\" | \"noexec\" | \"sync\" | \"async\" | \"dirsync\" | \"remount\" | \"mand\" | \"nomand\" | \"atime\" | \"noatime\" | \"diratime\" | \"nodiratime\" | \"bind\" | \"rbind\" | \"unbindable\" | \"runbindable\" | \"private\" | \"rprivate\" | \"shared\" | \"rshared\" | \"slave\" | \"rslave\" | \"relatime\" | \"norelatime\" | \"strictatime\" | \"nostrictatime\" | \"mode\" | \"uid\" | \"gid\" | \"nr_inodes\" | \"nr_blocks\" | \"mpol\"@
-tmpfs_mountOptions :: Lens.Lens' Tmpfs (Prelude.Maybe [Prelude.Text])
-tmpfs_mountOptions = Lens.lens (\Tmpfs' {mountOptions} -> mountOptions) (\s@Tmpfs' {} a -> s {mountOptions = a} :: Tmpfs) Prelude.. Lens.mapping Prelude._Coerce
+tmpfs_mountOptions :: Lens.Lens' Tmpfs (Core.Maybe [Core.Text])
+tmpfs_mountOptions = Lens.lens (\Tmpfs' {mountOptions} -> mountOptions) (\s@Tmpfs' {} a -> s {mountOptions = a} :: Tmpfs) Core.. Lens.mapping Lens._Coerce
 
 -- | The absolute file path where the tmpfs volume is to be mounted.
-tmpfs_containerPath :: Lens.Lens' Tmpfs Prelude.Text
+tmpfs_containerPath :: Lens.Lens' Tmpfs Core.Text
 tmpfs_containerPath = Lens.lens (\Tmpfs' {containerPath} -> containerPath) (\s@Tmpfs' {} a -> s {containerPath = a} :: Tmpfs)
 
 -- | The maximum size (in MiB) of the tmpfs volume.
-tmpfs_size :: Lens.Lens' Tmpfs Prelude.Int
+tmpfs_size :: Lens.Lens' Tmpfs Core.Int
 tmpfs_size = Lens.lens (\Tmpfs' {size} -> size) (\s@Tmpfs' {} a -> s {size = a} :: Tmpfs)
 
-instance Prelude.FromJSON Tmpfs where
+instance Core.FromJSON Tmpfs where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Tmpfs"
       ( \x ->
           Tmpfs'
-            Prelude.<$> ( x Prelude..:? "mountOptions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "containerPath")
-            Prelude.<*> (x Prelude..: "size")
+            Core.<$> (x Core..:? "mountOptions" Core..!= Core.mempty)
+            Core.<*> (x Core..: "containerPath")
+            Core.<*> (x Core..: "size")
       )
 
-instance Prelude.Hashable Tmpfs
+instance Core.Hashable Tmpfs
 
-instance Prelude.NFData Tmpfs
+instance Core.NFData Tmpfs
 
-instance Prelude.ToJSON Tmpfs where
+instance Core.ToJSON Tmpfs where
   toJSON Tmpfs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("mountOptions" Prelude..=)
-              Prelude.<$> mountOptions,
-            Prelude.Just
-              ("containerPath" Prelude..= containerPath),
-            Prelude.Just ("size" Prelude..= size)
+    Core.object
+      ( Core.catMaybes
+          [ ("mountOptions" Core..=) Core.<$> mountOptions,
+            Core.Just ("containerPath" Core..= containerPath),
+            Core.Just ("size" Core..= size)
           ]
       )

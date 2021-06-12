@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,26 +46,25 @@ module Network.AWS.EC2.DescribeVpcs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeVpcs' smart constructor.
 data DescribeVpcs = DescribeVpcs'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters.
     --
     -- -   @cidr@ - The primary IPv4 CIDR block of the VPC. The CIDR block you
@@ -114,13 +112,13 @@ data DescribeVpcs = DescribeVpcs'
     --     regardless of the tag value.
     --
     -- -   @vpc-id@ - The ID of the VPC.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | One or more VPC IDs.
     --
     -- Default: Describes all your VPCs.
-    vpcIds :: Prelude.Maybe [Prelude.Text]
+    vpcIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcs' with all optional fields omitted.
@@ -196,28 +194,28 @@ newDescribeVpcs ::
   DescribeVpcs
 newDescribeVpcs =
   DescribeVpcs'
-    { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      vpcIds = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
+      vpcIds = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeVpcs_nextToken :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Text)
+describeVpcs_nextToken :: Lens.Lens' DescribeVpcs (Core.Maybe Core.Text)
 describeVpcs_nextToken = Lens.lens (\DescribeVpcs' {nextToken} -> nextToken) (\s@DescribeVpcs' {} a -> s {nextToken = a} :: DescribeVpcs)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVpcs_dryRun :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Bool)
+describeVpcs_dryRun :: Lens.Lens' DescribeVpcs (Core.Maybe Core.Bool)
 describeVpcs_dryRun = Lens.lens (\DescribeVpcs' {dryRun} -> dryRun) (\s@DescribeVpcs' {} a -> s {dryRun = a} :: DescribeVpcs)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeVpcs_maxResults :: Lens.Lens' DescribeVpcs (Prelude.Maybe Prelude.Natural)
+describeVpcs_maxResults :: Lens.Lens' DescribeVpcs (Core.Maybe Core.Natural)
 describeVpcs_maxResults = Lens.lens (\DescribeVpcs' {maxResults} -> maxResults) (\s@DescribeVpcs' {} a -> s {maxResults = a} :: DescribeVpcs)
 
 -- | One or more filters.
@@ -267,85 +265,84 @@ describeVpcs_maxResults = Lens.lens (\DescribeVpcs' {maxResults} -> maxResults) 
 --     regardless of the tag value.
 --
 -- -   @vpc-id@ - The ID of the VPC.
-describeVpcs_filters :: Lens.Lens' DescribeVpcs (Prelude.Maybe [Filter])
-describeVpcs_filters = Lens.lens (\DescribeVpcs' {filters} -> filters) (\s@DescribeVpcs' {} a -> s {filters = a} :: DescribeVpcs) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcs_filters :: Lens.Lens' DescribeVpcs (Core.Maybe [Filter])
+describeVpcs_filters = Lens.lens (\DescribeVpcs' {filters} -> filters) (\s@DescribeVpcs' {} a -> s {filters = a} :: DescribeVpcs) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
-describeVpcs_vpcIds :: Lens.Lens' DescribeVpcs (Prelude.Maybe [Prelude.Text])
-describeVpcs_vpcIds = Lens.lens (\DescribeVpcs' {vpcIds} -> vpcIds) (\s@DescribeVpcs' {} a -> s {vpcIds = a} :: DescribeVpcs) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcs_vpcIds :: Lens.Lens' DescribeVpcs (Core.Maybe [Core.Text])
+describeVpcs_vpcIds = Lens.lens (\DescribeVpcs' {vpcIds} -> vpcIds) (\s@DescribeVpcs' {} a -> s {vpcIds = a} :: DescribeVpcs) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeVpcs where
+instance Core.AWSPager DescribeVpcs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeVpcsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeVpcsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeVpcsResponse_vpcs Prelude.. Lens._Just
+            Lens.^? describeVpcsResponse_vpcs Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeVpcs_nextToken
           Lens..~ rs
-          Lens.^? describeVpcsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeVpcsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeVpcs where
-  type Rs DescribeVpcs = DescribeVpcsResponse
+instance Core.AWSRequest DescribeVpcs where
+  type AWSResponse DescribeVpcs = DescribeVpcsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeVpcsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "vpcSet" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "vpcSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpcs
+instance Core.Hashable DescribeVpcs
 
-instance Prelude.NFData DescribeVpcs
+instance Core.NFData DescribeVpcs
 
-instance Prelude.ToHeaders DescribeVpcs where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeVpcs where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeVpcs where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeVpcs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeVpcs where
+instance Core.ToQuery DescribeVpcs where
   toQuery DescribeVpcs' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeVpcs" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        Prelude.toQuery
-          (Prelude.toQueryList "VpcId" Prelude.<$> vpcIds)
+          Core.=: ("DescribeVpcs" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "VpcId" Core.<$> vpcIds)
       ]
 
 -- | /See:/ 'newDescribeVpcsResponse' smart constructor.
 data DescribeVpcsResponse = DescribeVpcsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about one or more VPCs.
-    vpcs :: Prelude.Maybe [Vpc],
+    vpcs :: Core.Maybe [Vpc],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcsResponse' with all optional fields omitted.
@@ -363,26 +360,26 @@ data DescribeVpcsResponse = DescribeVpcsResponse'
 -- 'httpStatus', 'describeVpcsResponse_httpStatus' - The response's http status code.
 newDescribeVpcsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVpcsResponse
 newDescribeVpcsResponse pHttpStatus_ =
   DescribeVpcsResponse'
-    { nextToken = Prelude.Nothing,
-      vpcs = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      vpcs = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeVpcsResponse_nextToken :: Lens.Lens' DescribeVpcsResponse (Prelude.Maybe Prelude.Text)
+describeVpcsResponse_nextToken :: Lens.Lens' DescribeVpcsResponse (Core.Maybe Core.Text)
 describeVpcsResponse_nextToken = Lens.lens (\DescribeVpcsResponse' {nextToken} -> nextToken) (\s@DescribeVpcsResponse' {} a -> s {nextToken = a} :: DescribeVpcsResponse)
 
 -- | Information about one or more VPCs.
-describeVpcsResponse_vpcs :: Lens.Lens' DescribeVpcsResponse (Prelude.Maybe [Vpc])
-describeVpcsResponse_vpcs = Lens.lens (\DescribeVpcsResponse' {vpcs} -> vpcs) (\s@DescribeVpcsResponse' {} a -> s {vpcs = a} :: DescribeVpcsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcsResponse_vpcs :: Lens.Lens' DescribeVpcsResponse (Core.Maybe [Vpc])
+describeVpcsResponse_vpcs = Lens.lens (\DescribeVpcsResponse' {vpcs} -> vpcs) (\s@DescribeVpcsResponse' {} a -> s {vpcs = a} :: DescribeVpcsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpcsResponse_httpStatus :: Lens.Lens' DescribeVpcsResponse Prelude.Int
+describeVpcsResponse_httpStatus :: Lens.Lens' DescribeVpcsResponse Core.Int
 describeVpcsResponse_httpStatus = Lens.lens (\DescribeVpcsResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcsResponse' {} a -> s {httpStatus = a} :: DescribeVpcsResponse)
 
-instance Prelude.NFData DescribeVpcsResponse
+instance Core.NFData DescribeVpcsResponse

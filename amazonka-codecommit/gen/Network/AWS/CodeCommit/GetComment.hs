@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CodeCommit.GetComment
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 data GetComment = GetComment'
   { -- | The unique, system-generated ID of the comment. To get this ID, use
     -- GetCommentsForComparedCommit or GetCommentsForPullRequest.
-    commentId :: Prelude.Text
+    commentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetComment' with all optional fields omitted.
@@ -71,67 +70,65 @@ data GetComment = GetComment'
 -- GetCommentsForComparedCommit or GetCommentsForPullRequest.
 newGetComment ::
   -- | 'commentId'
-  Prelude.Text ->
+  Core.Text ->
   GetComment
 newGetComment pCommentId_ =
   GetComment' {commentId = pCommentId_}
 
 -- | The unique, system-generated ID of the comment. To get this ID, use
 -- GetCommentsForComparedCommit or GetCommentsForPullRequest.
-getComment_commentId :: Lens.Lens' GetComment Prelude.Text
+getComment_commentId :: Lens.Lens' GetComment Core.Text
 getComment_commentId = Lens.lens (\GetComment' {commentId} -> commentId) (\s@GetComment' {} a -> s {commentId = a} :: GetComment)
 
-instance Prelude.AWSRequest GetComment where
-  type Rs GetComment = GetCommentResponse
+instance Core.AWSRequest GetComment where
+  type AWSResponse GetComment = GetCommentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCommentResponse'
-            Prelude.<$> (x Prelude..?> "comment")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "comment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetComment
+instance Core.Hashable GetComment
 
-instance Prelude.NFData GetComment
+instance Core.NFData GetComment
 
-instance Prelude.ToHeaders GetComment where
+instance Core.ToHeaders GetComment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.GetComment" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.GetComment" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetComment where
+instance Core.ToJSON GetComment where
   toJSON GetComment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("commentId" Prelude..= commentId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("commentId" Core..= commentId)]
       )
 
-instance Prelude.ToPath GetComment where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetComment where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetComment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetComment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCommentResponse' smart constructor.
 data GetCommentResponse = GetCommentResponse'
   { -- | The contents of the comment.
-    comment :: Prelude.Maybe Comment,
+    comment :: Core.Maybe Comment,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCommentResponse' with all optional fields omitted.
@@ -146,20 +143,20 @@ data GetCommentResponse = GetCommentResponse'
 -- 'httpStatus', 'getCommentResponse_httpStatus' - The response's http status code.
 newGetCommentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCommentResponse
 newGetCommentResponse pHttpStatus_ =
   GetCommentResponse'
-    { comment = Prelude.Nothing,
+    { comment = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The contents of the comment.
-getCommentResponse_comment :: Lens.Lens' GetCommentResponse (Prelude.Maybe Comment)
+getCommentResponse_comment :: Lens.Lens' GetCommentResponse (Core.Maybe Comment)
 getCommentResponse_comment = Lens.lens (\GetCommentResponse' {comment} -> comment) (\s@GetCommentResponse' {} a -> s {comment = a} :: GetCommentResponse)
 
 -- | The response's http status code.
-getCommentResponse_httpStatus :: Lens.Lens' GetCommentResponse Prelude.Int
+getCommentResponse_httpStatus :: Lens.Lens' GetCommentResponse Core.Int
 getCommentResponse_httpStatus = Lens.lens (\GetCommentResponse' {httpStatus} -> httpStatus) (\s@GetCommentResponse' {} a -> s {httpStatus = a} :: GetCommentResponse)
 
-instance Prelude.NFData GetCommentResponse
+instance Core.NFData GetCommentResponse

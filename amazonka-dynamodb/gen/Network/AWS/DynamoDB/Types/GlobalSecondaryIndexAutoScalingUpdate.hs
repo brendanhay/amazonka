@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexAutoScalingUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the auto scaling settings of a global secondary index for a
 -- global table that will be modified.
@@ -30,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGlobalSecondaryIndexAutoScalingUpdate' smart constructor.
 data GlobalSecondaryIndexAutoScalingUpdate = GlobalSecondaryIndexAutoScalingUpdate'
   { -- | The name of the global secondary index.
-    indexName :: Prelude.Maybe Prelude.Text,
-    provisionedWriteCapacityAutoScalingUpdate :: Prelude.Maybe AutoScalingSettingsUpdate
+    indexName :: Core.Maybe Core.Text,
+    provisionedWriteCapacityAutoScalingUpdate :: Core.Maybe AutoScalingSettingsUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GlobalSecondaryIndexAutoScalingUpdate' with all optional fields omitted.
@@ -51,38 +50,36 @@ newGlobalSecondaryIndexAutoScalingUpdate ::
 newGlobalSecondaryIndexAutoScalingUpdate =
   GlobalSecondaryIndexAutoScalingUpdate'
     { indexName =
-        Prelude.Nothing,
+        Core.Nothing,
       provisionedWriteCapacityAutoScalingUpdate =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the global secondary index.
-globalSecondaryIndexAutoScalingUpdate_indexName :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Prelude.Maybe Prelude.Text)
+globalSecondaryIndexAutoScalingUpdate_indexName :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Core.Maybe Core.Text)
 globalSecondaryIndexAutoScalingUpdate_indexName = Lens.lens (\GlobalSecondaryIndexAutoScalingUpdate' {indexName} -> indexName) (\s@GlobalSecondaryIndexAutoScalingUpdate' {} a -> s {indexName = a} :: GlobalSecondaryIndexAutoScalingUpdate)
 
 -- | Undocumented member.
-globalSecondaryIndexAutoScalingUpdate_provisionedWriteCapacityAutoScalingUpdate :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
+globalSecondaryIndexAutoScalingUpdate_provisionedWriteCapacityAutoScalingUpdate :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Core.Maybe AutoScalingSettingsUpdate)
 globalSecondaryIndexAutoScalingUpdate_provisionedWriteCapacityAutoScalingUpdate = Lens.lens (\GlobalSecondaryIndexAutoScalingUpdate' {provisionedWriteCapacityAutoScalingUpdate} -> provisionedWriteCapacityAutoScalingUpdate) (\s@GlobalSecondaryIndexAutoScalingUpdate' {} a -> s {provisionedWriteCapacityAutoScalingUpdate = a} :: GlobalSecondaryIndexAutoScalingUpdate)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GlobalSecondaryIndexAutoScalingUpdate
 
 instance
-  Prelude.NFData
+  Core.NFData
     GlobalSecondaryIndexAutoScalingUpdate
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     GlobalSecondaryIndexAutoScalingUpdate
   where
   toJSON GlobalSecondaryIndexAutoScalingUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IndexName" Prelude..=) Prelude.<$> indexName,
-            ( "ProvisionedWriteCapacityAutoScalingUpdate"
-                Prelude..=
-            )
-              Prelude.<$> provisionedWriteCapacityAutoScalingUpdate
+    Core.object
+      ( Core.catMaybes
+          [ ("IndexName" Core..=) Core.<$> indexName,
+            ("ProvisionedWriteCapacityAutoScalingUpdate" Core..=)
+              Core.<$> provisionedWriteCapacityAutoScalingUpdate
           ]
       )

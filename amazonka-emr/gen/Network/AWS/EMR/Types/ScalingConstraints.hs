@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.ScalingConstraints where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy.
 -- Automatic scaling activities triggered by automatic scaling rules will
@@ -32,13 +31,13 @@ data ScalingConstraints = ScalingConstraints'
   { -- | The lower boundary of EC2 instances in an instance group below which
     -- scaling activities are not allowed to shrink. Scale-in activities will
     -- not terminate instances below this boundary.
-    minCapacity :: Prelude.Int,
+    minCapacity :: Core.Int,
     -- | The upper boundary of EC2 instances in an instance group beyond which
     -- scaling activities are not allowed to grow. Scale-out activities will
     -- not add instances beyond this boundary.
-    maxCapacity :: Prelude.Int
+    maxCapacity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingConstraints' with all optional fields omitted.
@@ -57,9 +56,9 @@ data ScalingConstraints = ScalingConstraints'
 -- not add instances beyond this boundary.
 newScalingConstraints ::
   -- | 'minCapacity'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'maxCapacity'
-  Prelude.Int ->
+  Core.Int ->
   ScalingConstraints
 newScalingConstraints pMinCapacity_ pMaxCapacity_ =
   ScalingConstraints'
@@ -70,34 +69,34 @@ newScalingConstraints pMinCapacity_ pMaxCapacity_ =
 -- | The lower boundary of EC2 instances in an instance group below which
 -- scaling activities are not allowed to shrink. Scale-in activities will
 -- not terminate instances below this boundary.
-scalingConstraints_minCapacity :: Lens.Lens' ScalingConstraints Prelude.Int
+scalingConstraints_minCapacity :: Lens.Lens' ScalingConstraints Core.Int
 scalingConstraints_minCapacity = Lens.lens (\ScalingConstraints' {minCapacity} -> minCapacity) (\s@ScalingConstraints' {} a -> s {minCapacity = a} :: ScalingConstraints)
 
 -- | The upper boundary of EC2 instances in an instance group beyond which
 -- scaling activities are not allowed to grow. Scale-out activities will
 -- not add instances beyond this boundary.
-scalingConstraints_maxCapacity :: Lens.Lens' ScalingConstraints Prelude.Int
+scalingConstraints_maxCapacity :: Lens.Lens' ScalingConstraints Core.Int
 scalingConstraints_maxCapacity = Lens.lens (\ScalingConstraints' {maxCapacity} -> maxCapacity) (\s@ScalingConstraints' {} a -> s {maxCapacity = a} :: ScalingConstraints)
 
-instance Prelude.FromJSON ScalingConstraints where
+instance Core.FromJSON ScalingConstraints where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScalingConstraints"
       ( \x ->
           ScalingConstraints'
-            Prelude.<$> (x Prelude..: "MinCapacity")
-            Prelude.<*> (x Prelude..: "MaxCapacity")
+            Core.<$> (x Core..: "MinCapacity")
+            Core.<*> (x Core..: "MaxCapacity")
       )
 
-instance Prelude.Hashable ScalingConstraints
+instance Core.Hashable ScalingConstraints
 
-instance Prelude.NFData ScalingConstraints
+instance Core.NFData ScalingConstraints
 
-instance Prelude.ToJSON ScalingConstraints where
+instance Core.ToJSON ScalingConstraints where
   toJSON ScalingConstraints' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("MinCapacity" Prelude..= minCapacity),
-            Prelude.Just ("MaxCapacity" Prelude..= maxCapacity)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MinCapacity" Core..= minCapacity),
+            Core.Just ("MaxCapacity" Core..= maxCapacity)
           ]
       )

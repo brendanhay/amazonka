@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.FailureException where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a failure a contributor insights operation.
 --
 -- /See:/ 'newFailureException' smart constructor.
 data FailureException = FailureException'
   { -- | Exception name.
-    exceptionName :: Prelude.Maybe Prelude.Text,
+    exceptionName :: Core.Maybe Core.Text,
     -- | Description of the failure.
-    exceptionDescription :: Prelude.Maybe Prelude.Text
+    exceptionDescription :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailureException' with all optional fields omitted.
@@ -49,28 +48,28 @@ newFailureException ::
   FailureException
 newFailureException =
   FailureException'
-    { exceptionName = Prelude.Nothing,
-      exceptionDescription = Prelude.Nothing
+    { exceptionName = Core.Nothing,
+      exceptionDescription = Core.Nothing
     }
 
 -- | Exception name.
-failureException_exceptionName :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
+failureException_exceptionName :: Lens.Lens' FailureException (Core.Maybe Core.Text)
 failureException_exceptionName = Lens.lens (\FailureException' {exceptionName} -> exceptionName) (\s@FailureException' {} a -> s {exceptionName = a} :: FailureException)
 
 -- | Description of the failure.
-failureException_exceptionDescription :: Lens.Lens' FailureException (Prelude.Maybe Prelude.Text)
+failureException_exceptionDescription :: Lens.Lens' FailureException (Core.Maybe Core.Text)
 failureException_exceptionDescription = Lens.lens (\FailureException' {exceptionDescription} -> exceptionDescription) (\s@FailureException' {} a -> s {exceptionDescription = a} :: FailureException)
 
-instance Prelude.FromJSON FailureException where
+instance Core.FromJSON FailureException where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FailureException"
       ( \x ->
           FailureException'
-            Prelude.<$> (x Prelude..:? "ExceptionName")
-            Prelude.<*> (x Prelude..:? "ExceptionDescription")
+            Core.<$> (x Core..:? "ExceptionName")
+            Core.<*> (x Core..:? "ExceptionDescription")
       )
 
-instance Prelude.Hashable FailureException
+instance Core.Hashable FailureException
 
-instance Prelude.NFData FailureException
+instance Core.NFData FailureException

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.AnnotationConsolidationConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures how labels are consolidated across human workers and
 -- processes output data.
@@ -674,9 +673,9 @@ data AnnotationConsolidationConfig = AnnotationConsolidationConfig'
     -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
     --
     -- -   @arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
-    annotationConsolidationLambdaArn :: Prelude.Text
+    annotationConsolidationLambdaArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnnotationConsolidationConfig' with all optional fields omitted.
@@ -1334,7 +1333,7 @@ data AnnotationConsolidationConfig = AnnotationConsolidationConfig'
 -- -   @arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
 newAnnotationConsolidationConfig ::
   -- | 'annotationConsolidationLambdaArn'
-  Prelude.Text ->
+  Core.Text ->
   AnnotationConsolidationConfig
 newAnnotationConsolidationConfig
   pAnnotationConsolidationLambdaArn_ =
@@ -1989,34 +1988,29 @@ newAnnotationConsolidationConfig
 -- -   @arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
 --
 -- -   @arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation@
-annotationConsolidationConfig_annotationConsolidationLambdaArn :: Lens.Lens' AnnotationConsolidationConfig Prelude.Text
+annotationConsolidationConfig_annotationConsolidationLambdaArn :: Lens.Lens' AnnotationConsolidationConfig Core.Text
 annotationConsolidationConfig_annotationConsolidationLambdaArn = Lens.lens (\AnnotationConsolidationConfig' {annotationConsolidationLambdaArn} -> annotationConsolidationLambdaArn) (\s@AnnotationConsolidationConfig' {} a -> s {annotationConsolidationLambdaArn = a} :: AnnotationConsolidationConfig)
 
-instance
-  Prelude.FromJSON
-    AnnotationConsolidationConfig
-  where
+instance Core.FromJSON AnnotationConsolidationConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AnnotationConsolidationConfig"
       ( \x ->
           AnnotationConsolidationConfig'
-            Prelude.<$> (x Prelude..: "AnnotationConsolidationLambdaArn")
+            Core.<$> (x Core..: "AnnotationConsolidationLambdaArn")
       )
 
-instance
-  Prelude.Hashable
-    AnnotationConsolidationConfig
+instance Core.Hashable AnnotationConsolidationConfig
 
-instance Prelude.NFData AnnotationConsolidationConfig
+instance Core.NFData AnnotationConsolidationConfig
 
-instance Prelude.ToJSON AnnotationConsolidationConfig where
+instance Core.ToJSON AnnotationConsolidationConfig where
   toJSON AnnotationConsolidationConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "AnnotationConsolidationLambdaArn"
-                  Prelude..= annotationConsolidationLambdaArn
+                  Core..= annotationConsolidationLambdaArn
               )
           ]
       )

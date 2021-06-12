@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteEnvironmentConfiguration' smart constructor.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
   { -- | The name of the application the environment is associated with.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | The name of the environment to delete the draft configuration from.
-    environmentName :: Prelude.Text
+    environmentName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEnvironmentConfiguration' with all optional fields omitted.
@@ -74,9 +73,9 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
 -- 'environmentName', 'deleteEnvironmentConfiguration_environmentName' - The name of the environment to delete the draft configuration from.
 newDeleteEnvironmentConfiguration ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'environmentName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEnvironmentConfiguration
 newDeleteEnvironmentConfiguration
   pApplicationName_
@@ -88,66 +87,55 @@ newDeleteEnvironmentConfiguration
       }
 
 -- | The name of the application the environment is associated with.
-deleteEnvironmentConfiguration_applicationName :: Lens.Lens' DeleteEnvironmentConfiguration Prelude.Text
+deleteEnvironmentConfiguration_applicationName :: Lens.Lens' DeleteEnvironmentConfiguration Core.Text
 deleteEnvironmentConfiguration_applicationName = Lens.lens (\DeleteEnvironmentConfiguration' {applicationName} -> applicationName) (\s@DeleteEnvironmentConfiguration' {} a -> s {applicationName = a} :: DeleteEnvironmentConfiguration)
 
 -- | The name of the environment to delete the draft configuration from.
-deleteEnvironmentConfiguration_environmentName :: Lens.Lens' DeleteEnvironmentConfiguration Prelude.Text
+deleteEnvironmentConfiguration_environmentName :: Lens.Lens' DeleteEnvironmentConfiguration Core.Text
 deleteEnvironmentConfiguration_environmentName = Lens.lens (\DeleteEnvironmentConfiguration' {environmentName} -> environmentName) (\s@DeleteEnvironmentConfiguration' {} a -> s {environmentName = a} :: DeleteEnvironmentConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteEnvironmentConfiguration
   where
   type
-    Rs DeleteEnvironmentConfiguration =
+    AWSResponse DeleteEnvironmentConfiguration =
       DeleteEnvironmentConfigurationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteEnvironmentConfigurationResponse'
 
-instance
-  Prelude.Hashable
-    DeleteEnvironmentConfiguration
+instance Core.Hashable DeleteEnvironmentConfiguration
+
+instance Core.NFData DeleteEnvironmentConfiguration
 
 instance
-  Prelude.NFData
-    DeleteEnvironmentConfiguration
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteEnvironmentConfiguration
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteEnvironmentConfiguration
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteEnvironmentConfiguration where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteEnvironmentConfiguration
-  where
+instance Core.ToQuery DeleteEnvironmentConfiguration where
   toQuery DeleteEnvironmentConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DeleteEnvironmentConfiguration" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "ApplicationName" Prelude.=: applicationName,
-        "EnvironmentName" Prelude.=: environmentName
+          Core.=: ( "DeleteEnvironmentConfiguration" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "ApplicationName" Core.=: applicationName,
+        "EnvironmentName" Core.=: environmentName
       ]
 
 -- | /See:/ 'newDeleteEnvironmentConfigurationResponse' smart constructor.
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEnvironmentConfigurationResponse' with all optional fields omitted.
@@ -159,5 +147,5 @@ newDeleteEnvironmentConfigurationResponse =
   DeleteEnvironmentConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteEnvironmentConfigurationResponse

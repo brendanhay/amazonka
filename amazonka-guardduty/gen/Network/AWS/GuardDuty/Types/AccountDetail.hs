@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.AccountDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the account.
 --
 -- /See:/ 'newAccountDetail' smart constructor.
 data AccountDetail = AccountDetail'
   { -- | The member account ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The email address of the member account.
-    email :: Prelude.Text
+    email :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountDetail' with all optional fields omitted.
@@ -47,9 +46,9 @@ data AccountDetail = AccountDetail'
 -- 'email', 'accountDetail_email' - The email address of the member account.
 newAccountDetail ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'email'
-  Prelude.Text ->
+  Core.Text ->
   AccountDetail
 newAccountDetail pAccountId_ pEmail_ =
   AccountDetail'
@@ -58,22 +57,22 @@ newAccountDetail pAccountId_ pEmail_ =
     }
 
 -- | The member account ID.
-accountDetail_accountId :: Lens.Lens' AccountDetail Prelude.Text
+accountDetail_accountId :: Lens.Lens' AccountDetail Core.Text
 accountDetail_accountId = Lens.lens (\AccountDetail' {accountId} -> accountId) (\s@AccountDetail' {} a -> s {accountId = a} :: AccountDetail)
 
 -- | The email address of the member account.
-accountDetail_email :: Lens.Lens' AccountDetail Prelude.Text
+accountDetail_email :: Lens.Lens' AccountDetail Core.Text
 accountDetail_email = Lens.lens (\AccountDetail' {email} -> email) (\s@AccountDetail' {} a -> s {email = a} :: AccountDetail)
 
-instance Prelude.Hashable AccountDetail
+instance Core.Hashable AccountDetail
 
-instance Prelude.NFData AccountDetail
+instance Core.NFData AccountDetail
 
-instance Prelude.ToJSON AccountDetail where
+instance Core.ToJSON AccountDetail where
   toJSON AccountDetail' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("accountId" Prelude..= accountId),
-            Prelude.Just ("email" Prelude..= email)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("accountId" Core..= accountId),
+            Core.Just ("email" Core..= email)
           ]
       )

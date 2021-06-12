@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Comprehend.DescribeKeyPhrasesDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DescribeKeyPhrasesDetectionJob = DescribeKeyPhrasesDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
     -- operation returns this identifier in its response.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeKeyPhrasesDetectionJob' with all optional fields omitted.
@@ -67,89 +66,72 @@ data DescribeKeyPhrasesDetectionJob = DescribeKeyPhrasesDetectionJob'
 -- operation returns this identifier in its response.
 newDescribeKeyPhrasesDetectionJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeKeyPhrasesDetectionJob
 newDescribeKeyPhrasesDetectionJob pJobId_ =
   DescribeKeyPhrasesDetectionJob' {jobId = pJobId_}
 
 -- | The identifier that Amazon Comprehend generated for the job. The
 -- operation returns this identifier in its response.
-describeKeyPhrasesDetectionJob_jobId :: Lens.Lens' DescribeKeyPhrasesDetectionJob Prelude.Text
+describeKeyPhrasesDetectionJob_jobId :: Lens.Lens' DescribeKeyPhrasesDetectionJob Core.Text
 describeKeyPhrasesDetectionJob_jobId = Lens.lens (\DescribeKeyPhrasesDetectionJob' {jobId} -> jobId) (\s@DescribeKeyPhrasesDetectionJob' {} a -> s {jobId = a} :: DescribeKeyPhrasesDetectionJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeKeyPhrasesDetectionJob
   where
   type
-    Rs DescribeKeyPhrasesDetectionJob =
+    AWSResponse DescribeKeyPhrasesDetectionJob =
       DescribeKeyPhrasesDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeKeyPhrasesDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "KeyPhrasesDetectionJobProperties")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "KeyPhrasesDetectionJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeKeyPhrasesDetectionJob
+instance Core.Hashable DescribeKeyPhrasesDetectionJob
+
+instance Core.NFData DescribeKeyPhrasesDetectionJob
 
 instance
-  Prelude.NFData
-    DescribeKeyPhrasesDetectionJob
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeKeyPhrasesDetectionJob
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DescribeKeyPhrasesDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DescribeKeyPhrasesDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeKeyPhrasesDetectionJob
-  where
+instance Core.ToJSON DescribeKeyPhrasesDetectionJob where
   toJSON DescribeKeyPhrasesDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
-instance
-  Prelude.ToPath
-    DescribeKeyPhrasesDetectionJob
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeKeyPhrasesDetectionJob where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeKeyPhrasesDetectionJob
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeKeyPhrasesDetectionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeKeyPhrasesDetectionJobResponse' smart constructor.
 data DescribeKeyPhrasesDetectionJobResponse = DescribeKeyPhrasesDetectionJobResponse'
   { -- | An object that contains the properties associated with a key phrases
     -- detection job.
-    keyPhrasesDetectionJobProperties :: Prelude.Maybe KeyPhrasesDetectionJobProperties,
+    keyPhrasesDetectionJobProperties :: Core.Maybe KeyPhrasesDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeKeyPhrasesDetectionJobResponse' with all optional fields omitted.
@@ -165,25 +147,25 @@ data DescribeKeyPhrasesDetectionJobResponse = DescribeKeyPhrasesDetectionJobResp
 -- 'httpStatus', 'describeKeyPhrasesDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribeKeyPhrasesDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeKeyPhrasesDetectionJobResponse
 newDescribeKeyPhrasesDetectionJobResponse
   pHttpStatus_ =
     DescribeKeyPhrasesDetectionJobResponse'
       { keyPhrasesDetectionJobProperties =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object that contains the properties associated with a key phrases
 -- detection job.
-describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties :: Lens.Lens' DescribeKeyPhrasesDetectionJobResponse (Prelude.Maybe KeyPhrasesDetectionJobProperties)
+describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties :: Lens.Lens' DescribeKeyPhrasesDetectionJobResponse (Core.Maybe KeyPhrasesDetectionJobProperties)
 describeKeyPhrasesDetectionJobResponse_keyPhrasesDetectionJobProperties = Lens.lens (\DescribeKeyPhrasesDetectionJobResponse' {keyPhrasesDetectionJobProperties} -> keyPhrasesDetectionJobProperties) (\s@DescribeKeyPhrasesDetectionJobResponse' {} a -> s {keyPhrasesDetectionJobProperties = a} :: DescribeKeyPhrasesDetectionJobResponse)
 
 -- | The response's http status code.
-describeKeyPhrasesDetectionJobResponse_httpStatus :: Lens.Lens' DescribeKeyPhrasesDetectionJobResponse Prelude.Int
+describeKeyPhrasesDetectionJobResponse_httpStatus :: Lens.Lens' DescribeKeyPhrasesDetectionJobResponse Core.Int
 describeKeyPhrasesDetectionJobResponse_httpStatus = Lens.lens (\DescribeKeyPhrasesDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribeKeyPhrasesDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribeKeyPhrasesDetectionJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeKeyPhrasesDetectionJobResponse

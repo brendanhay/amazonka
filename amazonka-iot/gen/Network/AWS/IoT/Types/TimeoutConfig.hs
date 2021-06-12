@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.TimeoutConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the amount of time each device has to finish its execution of
 -- the job. A timer is started when the job execution status is set to
@@ -38,9 +37,9 @@ data TimeoutConfig = TimeoutConfig'
     -- execution remains in the IN_PROGRESS status for longer than this
     -- interval, the job execution will fail and switch to the terminal
     -- @TIMED_OUT@ status.
-    inProgressTimeoutInMinutes :: Prelude.Maybe Prelude.Integer
+    inProgressTimeoutInMinutes :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimeoutConfig' with all optional fields omitted.
@@ -62,7 +61,7 @@ newTimeoutConfig ::
 newTimeoutConfig =
   TimeoutConfig'
     { inProgressTimeoutInMinutes =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the amount of time, in minutes, this device has to finish
@@ -72,27 +71,27 @@ newTimeoutConfig =
 -- execution remains in the IN_PROGRESS status for longer than this
 -- interval, the job execution will fail and switch to the terminal
 -- @TIMED_OUT@ status.
-timeoutConfig_inProgressTimeoutInMinutes :: Lens.Lens' TimeoutConfig (Prelude.Maybe Prelude.Integer)
+timeoutConfig_inProgressTimeoutInMinutes :: Lens.Lens' TimeoutConfig (Core.Maybe Core.Integer)
 timeoutConfig_inProgressTimeoutInMinutes = Lens.lens (\TimeoutConfig' {inProgressTimeoutInMinutes} -> inProgressTimeoutInMinutes) (\s@TimeoutConfig' {} a -> s {inProgressTimeoutInMinutes = a} :: TimeoutConfig)
 
-instance Prelude.FromJSON TimeoutConfig where
+instance Core.FromJSON TimeoutConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TimeoutConfig"
       ( \x ->
           TimeoutConfig'
-            Prelude.<$> (x Prelude..:? "inProgressTimeoutInMinutes")
+            Core.<$> (x Core..:? "inProgressTimeoutInMinutes")
       )
 
-instance Prelude.Hashable TimeoutConfig
+instance Core.Hashable TimeoutConfig
 
-instance Prelude.NFData TimeoutConfig
+instance Core.NFData TimeoutConfig
 
-instance Prelude.ToJSON TimeoutConfig where
+instance Core.ToJSON TimeoutConfig where
   toJSON TimeoutConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("inProgressTimeoutInMinutes" Prelude..=)
-              Prelude.<$> inProgressTimeoutInMinutes
+    Core.object
+      ( Core.catMaybes
+          [ ("inProgressTimeoutInMinutes" Core..=)
+              Core.<$> inProgressTimeoutInMinutes
           ]
       )

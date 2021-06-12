@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -24,17 +23,17 @@ import Network.AWS.AppSync.Types.CachingConfig
 import Network.AWS.AppSync.Types.PipelineConfig
 import Network.AWS.AppSync.Types.ResolverKind
 import Network.AWS.AppSync.Types.SyncConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a resolver.
 --
 -- /See:/ 'newResolver' smart constructor.
 data Resolver = Resolver'
   { -- | The response mapping template.
-    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
+    responseMappingTemplate :: Core.Maybe Core.Text,
     -- | The resolver type name.
-    typeName :: Prelude.Maybe Prelude.Text,
+    typeName :: Core.Maybe Core.Text,
     -- | The resolver type.
     --
     -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
@@ -45,23 +44,23 @@ data Resolver = Resolver'
     --     you to execute a series of @Function@ in a serial manner. You can
     --     use a pipeline resolver to execute a GraphQL query against multiple
     --     data sources.
-    kind :: Prelude.Maybe ResolverKind,
+    kind :: Core.Maybe ResolverKind,
     -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
-    syncConfig :: Prelude.Maybe SyncConfig,
+    syncConfig :: Core.Maybe SyncConfig,
     -- | The resolver data source name.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
+    dataSourceName :: Core.Maybe Core.Text,
     -- | The caching configuration for the resolver.
-    cachingConfig :: Prelude.Maybe CachingConfig,
+    cachingConfig :: Core.Maybe CachingConfig,
     -- | The resolver ARN.
-    resolverArn :: Prelude.Maybe Prelude.Text,
+    resolverArn :: Core.Maybe Core.Text,
     -- | The @PipelineConfig@.
-    pipelineConfig :: Prelude.Maybe PipelineConfig,
+    pipelineConfig :: Core.Maybe PipelineConfig,
     -- | The resolver field name.
-    fieldName :: Prelude.Maybe Prelude.Text,
+    fieldName :: Core.Maybe Core.Text,
     -- | The request mapping template.
-    requestMappingTemplate :: Prelude.Maybe Prelude.Text
+    requestMappingTemplate :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Resolver' with all optional fields omitted.
@@ -103,25 +102,24 @@ newResolver ::
   Resolver
 newResolver =
   Resolver'
-    { responseMappingTemplate =
-        Prelude.Nothing,
-      typeName = Prelude.Nothing,
-      kind = Prelude.Nothing,
-      syncConfig = Prelude.Nothing,
-      dataSourceName = Prelude.Nothing,
-      cachingConfig = Prelude.Nothing,
-      resolverArn = Prelude.Nothing,
-      pipelineConfig = Prelude.Nothing,
-      fieldName = Prelude.Nothing,
-      requestMappingTemplate = Prelude.Nothing
+    { responseMappingTemplate = Core.Nothing,
+      typeName = Core.Nothing,
+      kind = Core.Nothing,
+      syncConfig = Core.Nothing,
+      dataSourceName = Core.Nothing,
+      cachingConfig = Core.Nothing,
+      resolverArn = Core.Nothing,
+      pipelineConfig = Core.Nothing,
+      fieldName = Core.Nothing,
+      requestMappingTemplate = Core.Nothing
     }
 
 -- | The response mapping template.
-resolver_responseMappingTemplate :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_responseMappingTemplate :: Lens.Lens' Resolver (Core.Maybe Core.Text)
 resolver_responseMappingTemplate = Lens.lens (\Resolver' {responseMappingTemplate} -> responseMappingTemplate) (\s@Resolver' {} a -> s {responseMappingTemplate = a} :: Resolver)
 
 -- | The resolver type name.
-resolver_typeName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_typeName :: Lens.Lens' Resolver (Core.Maybe Core.Text)
 resolver_typeName = Lens.lens (\Resolver' {typeName} -> typeName) (\s@Resolver' {} a -> s {typeName = a} :: Resolver)
 
 -- | The resolver type.
@@ -134,55 +132,55 @@ resolver_typeName = Lens.lens (\Resolver' {typeName} -> typeName) (\s@Resolver' 
 --     you to execute a series of @Function@ in a serial manner. You can
 --     use a pipeline resolver to execute a GraphQL query against multiple
 --     data sources.
-resolver_kind :: Lens.Lens' Resolver (Prelude.Maybe ResolverKind)
+resolver_kind :: Lens.Lens' Resolver (Core.Maybe ResolverKind)
 resolver_kind = Lens.lens (\Resolver' {kind} -> kind) (\s@Resolver' {} a -> s {kind = a} :: Resolver)
 
 -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
-resolver_syncConfig :: Lens.Lens' Resolver (Prelude.Maybe SyncConfig)
+resolver_syncConfig :: Lens.Lens' Resolver (Core.Maybe SyncConfig)
 resolver_syncConfig = Lens.lens (\Resolver' {syncConfig} -> syncConfig) (\s@Resolver' {} a -> s {syncConfig = a} :: Resolver)
 
 -- | The resolver data source name.
-resolver_dataSourceName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_dataSourceName :: Lens.Lens' Resolver (Core.Maybe Core.Text)
 resolver_dataSourceName = Lens.lens (\Resolver' {dataSourceName} -> dataSourceName) (\s@Resolver' {} a -> s {dataSourceName = a} :: Resolver)
 
 -- | The caching configuration for the resolver.
-resolver_cachingConfig :: Lens.Lens' Resolver (Prelude.Maybe CachingConfig)
+resolver_cachingConfig :: Lens.Lens' Resolver (Core.Maybe CachingConfig)
 resolver_cachingConfig = Lens.lens (\Resolver' {cachingConfig} -> cachingConfig) (\s@Resolver' {} a -> s {cachingConfig = a} :: Resolver)
 
 -- | The resolver ARN.
-resolver_resolverArn :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_resolverArn :: Lens.Lens' Resolver (Core.Maybe Core.Text)
 resolver_resolverArn = Lens.lens (\Resolver' {resolverArn} -> resolverArn) (\s@Resolver' {} a -> s {resolverArn = a} :: Resolver)
 
 -- | The @PipelineConfig@.
-resolver_pipelineConfig :: Lens.Lens' Resolver (Prelude.Maybe PipelineConfig)
+resolver_pipelineConfig :: Lens.Lens' Resolver (Core.Maybe PipelineConfig)
 resolver_pipelineConfig = Lens.lens (\Resolver' {pipelineConfig} -> pipelineConfig) (\s@Resolver' {} a -> s {pipelineConfig = a} :: Resolver)
 
 -- | The resolver field name.
-resolver_fieldName :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_fieldName :: Lens.Lens' Resolver (Core.Maybe Core.Text)
 resolver_fieldName = Lens.lens (\Resolver' {fieldName} -> fieldName) (\s@Resolver' {} a -> s {fieldName = a} :: Resolver)
 
 -- | The request mapping template.
-resolver_requestMappingTemplate :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
+resolver_requestMappingTemplate :: Lens.Lens' Resolver (Core.Maybe Core.Text)
 resolver_requestMappingTemplate = Lens.lens (\Resolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@Resolver' {} a -> s {requestMappingTemplate = a} :: Resolver)
 
-instance Prelude.FromJSON Resolver where
+instance Core.FromJSON Resolver where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Resolver"
       ( \x ->
           Resolver'
-            Prelude.<$> (x Prelude..:? "responseMappingTemplate")
-            Prelude.<*> (x Prelude..:? "typeName")
-            Prelude.<*> (x Prelude..:? "kind")
-            Prelude.<*> (x Prelude..:? "syncConfig")
-            Prelude.<*> (x Prelude..:? "dataSourceName")
-            Prelude.<*> (x Prelude..:? "cachingConfig")
-            Prelude.<*> (x Prelude..:? "resolverArn")
-            Prelude.<*> (x Prelude..:? "pipelineConfig")
-            Prelude.<*> (x Prelude..:? "fieldName")
-            Prelude.<*> (x Prelude..:? "requestMappingTemplate")
+            Core.<$> (x Core..:? "responseMappingTemplate")
+            Core.<*> (x Core..:? "typeName")
+            Core.<*> (x Core..:? "kind")
+            Core.<*> (x Core..:? "syncConfig")
+            Core.<*> (x Core..:? "dataSourceName")
+            Core.<*> (x Core..:? "cachingConfig")
+            Core.<*> (x Core..:? "resolverArn")
+            Core.<*> (x Core..:? "pipelineConfig")
+            Core.<*> (x Core..:? "fieldName")
+            Core.<*> (x Core..:? "requestMappingTemplate")
       )
 
-instance Prelude.Hashable Resolver
+instance Core.Hashable Resolver
 
-instance Prelude.NFData Resolver
+instance Core.NFData Resolver

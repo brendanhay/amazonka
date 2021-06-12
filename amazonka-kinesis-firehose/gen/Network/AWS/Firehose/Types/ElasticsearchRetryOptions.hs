@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.ElasticsearchRetryOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to
 -- deliver documents to Amazon ES.
@@ -33,9 +32,9 @@ data ElasticsearchRetryOptions = ElasticsearchRetryOptions'
     -- first attempt). After this time has elapsed, the failed documents are
     -- written to Amazon S3. Default value is 300 seconds (5 minutes). A value
     -- of 0 (zero) results in no retries.
-    durationInSeconds :: Prelude.Maybe Prelude.Natural
+    durationInSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchRetryOptions' with all optional fields omitted.
@@ -55,7 +54,7 @@ newElasticsearchRetryOptions ::
 newElasticsearchRetryOptions =
   ElasticsearchRetryOptions'
     { durationInSeconds =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | After an initial failure to deliver to Amazon ES, the total amount of
@@ -63,27 +62,27 @@ newElasticsearchRetryOptions =
 -- first attempt). After this time has elapsed, the failed documents are
 -- written to Amazon S3. Default value is 300 seconds (5 minutes). A value
 -- of 0 (zero) results in no retries.
-elasticsearchRetryOptions_durationInSeconds :: Lens.Lens' ElasticsearchRetryOptions (Prelude.Maybe Prelude.Natural)
+elasticsearchRetryOptions_durationInSeconds :: Lens.Lens' ElasticsearchRetryOptions (Core.Maybe Core.Natural)
 elasticsearchRetryOptions_durationInSeconds = Lens.lens (\ElasticsearchRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@ElasticsearchRetryOptions' {} a -> s {durationInSeconds = a} :: ElasticsearchRetryOptions)
 
-instance Prelude.FromJSON ElasticsearchRetryOptions where
+instance Core.FromJSON ElasticsearchRetryOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ElasticsearchRetryOptions"
       ( \x ->
           ElasticsearchRetryOptions'
-            Prelude.<$> (x Prelude..:? "DurationInSeconds")
+            Core.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable ElasticsearchRetryOptions
+instance Core.Hashable ElasticsearchRetryOptions
 
-instance Prelude.NFData ElasticsearchRetryOptions
+instance Core.NFData ElasticsearchRetryOptions
 
-instance Prelude.ToJSON ElasticsearchRetryOptions where
+instance Core.ToJSON ElasticsearchRetryOptions where
   toJSON ElasticsearchRetryOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DurationInSeconds" Prelude..=)
-              Prelude.<$> durationInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("DurationInSeconds" Core..=)
+              Core.<$> durationInSeconds
           ]
       )

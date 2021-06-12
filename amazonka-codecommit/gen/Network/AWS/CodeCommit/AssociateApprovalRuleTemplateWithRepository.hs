@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,19 +44,19 @@ module Network.AWS.CodeCommit.AssociateApprovalRuleTemplateWithRepository
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateApprovalRuleTemplateWithRepository' smart constructor.
 data AssociateApprovalRuleTemplateWithRepository = AssociateApprovalRuleTemplateWithRepository'
   { -- | The name for the approval rule template.
-    approvalRuleTemplateName :: Prelude.Text,
+    approvalRuleTemplateName :: Core.Text,
     -- | The name of the repository that you want to associate with the template.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateApprovalRuleTemplateWithRepository' with all optional fields omitted.
@@ -72,9 +71,9 @@ data AssociateApprovalRuleTemplateWithRepository = AssociateApprovalRuleTemplate
 -- 'repositoryName', 'associateApprovalRuleTemplateWithRepository_repositoryName' - The name of the repository that you want to associate with the template.
 newAssociateApprovalRuleTemplateWithRepository ::
   -- | 'approvalRuleTemplateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   AssociateApprovalRuleTemplateWithRepository
 newAssociateApprovalRuleTemplateWithRepository
   pApprovalRuleTemplateName_
@@ -87,19 +86,20 @@ newAssociateApprovalRuleTemplateWithRepository
       }
 
 -- | The name for the approval rule template.
-associateApprovalRuleTemplateWithRepository_approvalRuleTemplateName :: Lens.Lens' AssociateApprovalRuleTemplateWithRepository Prelude.Text
+associateApprovalRuleTemplateWithRepository_approvalRuleTemplateName :: Lens.Lens' AssociateApprovalRuleTemplateWithRepository Core.Text
 associateApprovalRuleTemplateWithRepository_approvalRuleTemplateName = Lens.lens (\AssociateApprovalRuleTemplateWithRepository' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@AssociateApprovalRuleTemplateWithRepository' {} a -> s {approvalRuleTemplateName = a} :: AssociateApprovalRuleTemplateWithRepository)
 
 -- | The name of the repository that you want to associate with the template.
-associateApprovalRuleTemplateWithRepository_repositoryName :: Lens.Lens' AssociateApprovalRuleTemplateWithRepository Prelude.Text
+associateApprovalRuleTemplateWithRepository_repositoryName :: Lens.Lens' AssociateApprovalRuleTemplateWithRepository Core.Text
 associateApprovalRuleTemplateWithRepository_repositoryName = Lens.lens (\AssociateApprovalRuleTemplateWithRepository' {repositoryName} -> repositoryName) (\s@AssociateApprovalRuleTemplateWithRepository' {} a -> s {repositoryName = a} :: AssociateApprovalRuleTemplateWithRepository)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AssociateApprovalRuleTemplateWithRepository
   where
   type
-    Rs AssociateApprovalRuleTemplateWithRepository =
+    AWSResponse
+      AssociateApprovalRuleTemplateWithRepository =
       AssociateApprovalRuleTemplateWithRepositoryResponse
   request = Request.postJSON defaultService
   response =
@@ -107,65 +107,62 @@ instance
       AssociateApprovalRuleTemplateWithRepositoryResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AssociateApprovalRuleTemplateWithRepository
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateApprovalRuleTemplateWithRepository
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AssociateApprovalRuleTemplateWithRepository
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.AssociateApprovalRuleTemplateWithRepository" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     AssociateApprovalRuleTemplateWithRepository
   where
   toJSON
     AssociateApprovalRuleTemplateWithRepository' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just
                 ( "approvalRuleTemplateName"
-                    Prelude..= approvalRuleTemplateName
+                    Core..= approvalRuleTemplateName
                 ),
-              Prelude.Just
-                ("repositoryName" Prelude..= repositoryName)
+              Core.Just ("repositoryName" Core..= repositoryName)
             ]
         )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     AssociateApprovalRuleTemplateWithRepository
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     AssociateApprovalRuleTemplateWithRepository
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAssociateApprovalRuleTemplateWithRepositoryResponse' smart constructor.
 data AssociateApprovalRuleTemplateWithRepositoryResponse = AssociateApprovalRuleTemplateWithRepositoryResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateApprovalRuleTemplateWithRepositoryResponse' with all optional fields omitted.
@@ -177,5 +174,5 @@ newAssociateApprovalRuleTemplateWithRepositoryResponse =
   AssociateApprovalRuleTemplateWithRepositoryResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     AssociateApprovalRuleTemplateWithRepositoryResponse

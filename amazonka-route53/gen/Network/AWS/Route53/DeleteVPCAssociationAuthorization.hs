@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Route53.DeleteVPCAssociationAuthorization
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -71,7 +70,7 @@ data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
     -- account, a complex type that includes the ID and region of the VPC.
     vpc :: VPC
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVPCAssociationAuthorization' with all optional fields omitted.
@@ -116,74 +115,71 @@ deleteVPCAssociationAuthorization_vpc :: Lens.Lens' DeleteVPCAssociationAuthoriz
 deleteVPCAssociationAuthorization_vpc = Lens.lens (\DeleteVPCAssociationAuthorization' {vpc} -> vpc) (\s@DeleteVPCAssociationAuthorization' {} a -> s {vpc = a} :: DeleteVPCAssociationAuthorization)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteVPCAssociationAuthorization
   where
   type
-    Rs DeleteVPCAssociationAuthorization =
+    AWSResponse DeleteVPCAssociationAuthorization =
       DeleteVPCAssociationAuthorizationResponse
   request = Request.postXML defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteVPCAssociationAuthorizationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteVPCAssociationAuthorization
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteVPCAssociationAuthorization
 
 instance
-  Prelude.ToElement
+  Core.ToElement
     DeleteVPCAssociationAuthorization
   where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}DeleteVPCAssociationAuthorizationRequest"
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteVPCAssociationAuthorization
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteVPCAssociationAuthorization
   where
   toPath DeleteVPCAssociationAuthorization' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/hostedzone/",
-        Prelude.toBS hostedZoneId,
+        Core.toBS hostedZoneId,
         "/deauthorizevpcassociation"
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteVPCAssociationAuthorization
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
-instance
-  Prelude.ToXML
-    DeleteVPCAssociationAuthorization
-  where
+instance Core.ToXML DeleteVPCAssociationAuthorization where
   toXML DeleteVPCAssociationAuthorization' {..} =
-    Prelude.mconcat ["VPC" Prelude.@= vpc]
+    Core.mconcat ["VPC" Core.@= vpc]
 
 -- | Empty response for the request.
 --
 -- /See:/ 'newDeleteVPCAssociationAuthorizationResponse' smart constructor.
 data DeleteVPCAssociationAuthorizationResponse = DeleteVPCAssociationAuthorizationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVPCAssociationAuthorizationResponse' with all optional fields omitted.
@@ -196,7 +192,7 @@ data DeleteVPCAssociationAuthorizationResponse = DeleteVPCAssociationAuthorizati
 -- 'httpStatus', 'deleteVPCAssociationAuthorizationResponse_httpStatus' - The response's http status code.
 newDeleteVPCAssociationAuthorizationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteVPCAssociationAuthorizationResponse
 newDeleteVPCAssociationAuthorizationResponse
   pHttpStatus_ =
@@ -206,9 +202,9 @@ newDeleteVPCAssociationAuthorizationResponse
       }
 
 -- | The response's http status code.
-deleteVPCAssociationAuthorizationResponse_httpStatus :: Lens.Lens' DeleteVPCAssociationAuthorizationResponse Prelude.Int
+deleteVPCAssociationAuthorizationResponse_httpStatus :: Lens.Lens' DeleteVPCAssociationAuthorizationResponse Core.Int
 deleteVPCAssociationAuthorizationResponse_httpStatus = Lens.lens (\DeleteVPCAssociationAuthorizationResponse' {httpStatus} -> httpStatus) (\s@DeleteVPCAssociationAuthorizationResponse' {} a -> s {httpStatus = a} :: DeleteVPCAssociationAuthorizationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteVPCAssociationAuthorizationResponse

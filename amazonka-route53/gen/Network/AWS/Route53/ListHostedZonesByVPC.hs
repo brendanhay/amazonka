@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.Route53.ListHostedZonesByVPC
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -78,20 +77,20 @@ data ListHostedZonesByVPC = ListHostedZonesByVPC'
     --
     -- If the previous response didn\'t include a @NextToken@ element, there
     -- are no more hosted zones to get.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | (Optional) The maximum number of hosted zones that you want Amazon Route
     -- 53 to return. If the specified VPC is associated with more than
     -- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
     -- @NextToken@ contains an encrypted token that identifies the first hosted
     -- zone that Route 53 will return if you submit another request.
-    maxItems :: Prelude.Maybe Prelude.Text,
+    maxItems :: Core.Maybe Core.Text,
     -- | The ID of the Amazon VPC that you want to list hosted zones for.
-    vPCId :: Prelude.Text,
+    vPCId :: Core.Text,
     -- | For the Amazon VPC that you specified for @VPCId@, the AWS Region that
     -- you created the VPC in.
     vPCRegion :: VPCRegion
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHostedZonesByVPC' with all optional fields omitted.
@@ -123,14 +122,14 @@ data ListHostedZonesByVPC = ListHostedZonesByVPC'
 -- you created the VPC in.
 newListHostedZonesByVPC ::
   -- | 'vPCId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vPCRegion'
   VPCRegion ->
   ListHostedZonesByVPC
 newListHostedZonesByVPC pVPCId_ pVPCRegion_ =
   ListHostedZonesByVPC'
-    { nextToken = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxItems = Core.Nothing,
       vPCId = pVPCId_,
       vPCRegion = pVPCRegion_
     }
@@ -144,7 +143,7 @@ newListHostedZonesByVPC pVPCId_ pVPCRegion_ =
 --
 -- If the previous response didn\'t include a @NextToken@ element, there
 -- are no more hosted zones to get.
-listHostedZonesByVPC_nextToken :: Lens.Lens' ListHostedZonesByVPC (Prelude.Maybe Prelude.Text)
+listHostedZonesByVPC_nextToken :: Lens.Lens' ListHostedZonesByVPC (Core.Maybe Core.Text)
 listHostedZonesByVPC_nextToken = Lens.lens (\ListHostedZonesByVPC' {nextToken} -> nextToken) (\s@ListHostedZonesByVPC' {} a -> s {nextToken = a} :: ListHostedZonesByVPC)
 
 -- | (Optional) The maximum number of hosted zones that you want Amazon Route
@@ -152,11 +151,11 @@ listHostedZonesByVPC_nextToken = Lens.lens (\ListHostedZonesByVPC' {nextToken} -
 -- @MaxItems@ hosted zones, the response includes a @NextToken@ element.
 -- @NextToken@ contains an encrypted token that identifies the first hosted
 -- zone that Route 53 will return if you submit another request.
-listHostedZonesByVPC_maxItems :: Lens.Lens' ListHostedZonesByVPC (Prelude.Maybe Prelude.Text)
+listHostedZonesByVPC_maxItems :: Lens.Lens' ListHostedZonesByVPC (Core.Maybe Core.Text)
 listHostedZonesByVPC_maxItems = Lens.lens (\ListHostedZonesByVPC' {maxItems} -> maxItems) (\s@ListHostedZonesByVPC' {} a -> s {maxItems = a} :: ListHostedZonesByVPC)
 
 -- | The ID of the Amazon VPC that you want to list hosted zones for.
-listHostedZonesByVPC_vPCId :: Lens.Lens' ListHostedZonesByVPC Prelude.Text
+listHostedZonesByVPC_vPCId :: Lens.Lens' ListHostedZonesByVPC Core.Text
 listHostedZonesByVPC_vPCId = Lens.lens (\ListHostedZonesByVPC' {vPCId} -> vPCId) (\s@ListHostedZonesByVPC' {} a -> s {vPCId = a} :: ListHostedZonesByVPC)
 
 -- | For the Amazon VPC that you specified for @VPCId@, the AWS Region that
@@ -164,50 +163,50 @@ listHostedZonesByVPC_vPCId = Lens.lens (\ListHostedZonesByVPC' {vPCId} -> vPCId)
 listHostedZonesByVPC_vPCRegion :: Lens.Lens' ListHostedZonesByVPC VPCRegion
 listHostedZonesByVPC_vPCRegion = Lens.lens (\ListHostedZonesByVPC' {vPCRegion} -> vPCRegion) (\s@ListHostedZonesByVPC' {} a -> s {vPCRegion = a} :: ListHostedZonesByVPC)
 
-instance Prelude.AWSRequest ListHostedZonesByVPC where
+instance Core.AWSRequest ListHostedZonesByVPC where
   type
-    Rs ListHostedZonesByVPC =
+    AWSResponse ListHostedZonesByVPC =
       ListHostedZonesByVPCResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListHostedZonesByVPCResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "HostedZoneSummaries"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "HostedZoneSummary"
-                        )
-            Prelude.<*> (x Prelude..@ "MaxItems")
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "HostedZoneSummaries"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "HostedZoneSummary"
+                     )
+            Core.<*> (x Core..@ "MaxItems")
       )
 
-instance Prelude.Hashable ListHostedZonesByVPC
+instance Core.Hashable ListHostedZonesByVPC
 
-instance Prelude.NFData ListHostedZonesByVPC
+instance Core.NFData ListHostedZonesByVPC
 
-instance Prelude.ToHeaders ListHostedZonesByVPC where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListHostedZonesByVPC where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListHostedZonesByVPC where
-  toPath = Prelude.const "/2013-04-01/hostedzonesbyvpc"
+instance Core.ToPath ListHostedZonesByVPC where
+  toPath = Core.const "/2013-04-01/hostedzonesbyvpc"
 
-instance Prelude.ToQuery ListHostedZonesByVPC where
+instance Core.ToQuery ListHostedZonesByVPC where
   toQuery ListHostedZonesByVPC' {..} =
-    Prelude.mconcat
-      [ "nexttoken" Prelude.=: nextToken,
-        "maxitems" Prelude.=: maxItems,
-        "vpcid" Prelude.=: vPCId,
-        "vpcregion" Prelude.=: vPCRegion
+    Core.mconcat
+      [ "nexttoken" Core.=: nextToken,
+        "maxitems" Core.=: maxItems,
+        "vpcid" Core.=: vPCId,
+        "vpcregion" Core.=: vPCRegion
       ]
 
 -- | /See:/ 'newListHostedZonesByVPCResponse' smart constructor.
 data ListHostedZonesByVPCResponse = ListHostedZonesByVPCResponse'
   { -- | The value that you specified for @NextToken@ in the most recent
     -- @ListHostedZonesByVPC@ request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list that contains one @HostedZoneSummary@ element for each hosted
     -- zone that the specified Amazon VPC is associated with. Each
     -- @HostedZoneSummary@ element contains the hosted zone name and ID, and
@@ -215,9 +214,9 @@ data ListHostedZonesByVPCResponse = ListHostedZonesByVPCResponse'
     hostedZoneSummaries :: [HostedZoneSummary],
     -- | The value that you specified for @MaxItems@ in the most recent
     -- @ListHostedZonesByVPC@ request.
-    maxItems :: Prelude.Text
+    maxItems :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHostedZonesByVPCResponse' with all optional fields omitted.
@@ -241,28 +240,28 @@ data ListHostedZonesByVPCResponse = ListHostedZonesByVPCResponse'
 -- @ListHostedZonesByVPC@ request.
 newListHostedZonesByVPCResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'maxItems'
-  Prelude.Text ->
+  Core.Text ->
   ListHostedZonesByVPCResponse
 newListHostedZonesByVPCResponse
   pHttpStatus_
   pMaxItems_ =
     ListHostedZonesByVPCResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
-        hostedZoneSummaries = Prelude.mempty,
+        hostedZoneSummaries = Core.mempty,
         maxItems = pMaxItems_
       }
 
 -- | The value that you specified for @NextToken@ in the most recent
 -- @ListHostedZonesByVPC@ request.
-listHostedZonesByVPCResponse_nextToken :: Lens.Lens' ListHostedZonesByVPCResponse (Prelude.Maybe Prelude.Text)
+listHostedZonesByVPCResponse_nextToken :: Lens.Lens' ListHostedZonesByVPCResponse (Core.Maybe Core.Text)
 listHostedZonesByVPCResponse_nextToken = Lens.lens (\ListHostedZonesByVPCResponse' {nextToken} -> nextToken) (\s@ListHostedZonesByVPCResponse' {} a -> s {nextToken = a} :: ListHostedZonesByVPCResponse)
 
 -- | The response's http status code.
-listHostedZonesByVPCResponse_httpStatus :: Lens.Lens' ListHostedZonesByVPCResponse Prelude.Int
+listHostedZonesByVPCResponse_httpStatus :: Lens.Lens' ListHostedZonesByVPCResponse Core.Int
 listHostedZonesByVPCResponse_httpStatus = Lens.lens (\ListHostedZonesByVPCResponse' {httpStatus} -> httpStatus) (\s@ListHostedZonesByVPCResponse' {} a -> s {httpStatus = a} :: ListHostedZonesByVPCResponse)
 
 -- | A list that contains one @HostedZoneSummary@ element for each hosted
@@ -270,11 +269,11 @@ listHostedZonesByVPCResponse_httpStatus = Lens.lens (\ListHostedZonesByVPCRespon
 -- @HostedZoneSummary@ element contains the hosted zone name and ID, and
 -- information about who owns the hosted zone.
 listHostedZonesByVPCResponse_hostedZoneSummaries :: Lens.Lens' ListHostedZonesByVPCResponse [HostedZoneSummary]
-listHostedZonesByVPCResponse_hostedZoneSummaries = Lens.lens (\ListHostedZonesByVPCResponse' {hostedZoneSummaries} -> hostedZoneSummaries) (\s@ListHostedZonesByVPCResponse' {} a -> s {hostedZoneSummaries = a} :: ListHostedZonesByVPCResponse) Prelude.. Prelude._Coerce
+listHostedZonesByVPCResponse_hostedZoneSummaries = Lens.lens (\ListHostedZonesByVPCResponse' {hostedZoneSummaries} -> hostedZoneSummaries) (\s@ListHostedZonesByVPCResponse' {} a -> s {hostedZoneSummaries = a} :: ListHostedZonesByVPCResponse) Core.. Lens._Coerce
 
 -- | The value that you specified for @MaxItems@ in the most recent
 -- @ListHostedZonesByVPC@ request.
-listHostedZonesByVPCResponse_maxItems :: Lens.Lens' ListHostedZonesByVPCResponse Prelude.Text
+listHostedZonesByVPCResponse_maxItems :: Lens.Lens' ListHostedZonesByVPCResponse Core.Text
 listHostedZonesByVPCResponse_maxItems = Lens.lens (\ListHostedZonesByVPCResponse' {maxItems} -> maxItems) (\s@ListHostedZonesByVPCResponse' {} a -> s {maxItems = a} :: ListHostedZonesByVPCResponse)
 
-instance Prelude.NFData ListHostedZonesByVPCResponse
+instance Core.NFData ListHostedZonesByVPCResponse

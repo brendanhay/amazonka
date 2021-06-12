@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppStream.Types.ApplicationSettingsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the persistent application settings for users of a stack.
 --
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 data ApplicationSettingsResponse = ApplicationSettingsResponse'
   { -- | Specifies whether persistent application settings are enabled for users
     -- during their streaming sessions.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The path prefix for the S3 bucket where users’ persistent application
     -- settings are stored.
-    settingsGroup :: Prelude.Maybe Prelude.Text,
+    settingsGroup :: Core.Maybe Core.Text,
     -- | The S3 bucket where users’ persistent application settings are stored.
     -- When persistent application settings are enabled for the first time for
     -- an account in an AWS Region, an S3 bucket is created. The bucket is
     -- unique to the AWS account and the Region.
-    s3BucketName :: Prelude.Maybe Prelude.Text
+    s3BucketName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplicationSettingsResponse' with all optional fields omitted.
@@ -64,39 +63,39 @@ newApplicationSettingsResponse ::
 newApplicationSettingsResponse =
   ApplicationSettingsResponse'
     { enabled =
-        Prelude.Nothing,
-      settingsGroup = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing
+        Core.Nothing,
+      settingsGroup = Core.Nothing,
+      s3BucketName = Core.Nothing
     }
 
 -- | Specifies whether persistent application settings are enabled for users
 -- during their streaming sessions.
-applicationSettingsResponse_enabled :: Lens.Lens' ApplicationSettingsResponse (Prelude.Maybe Prelude.Bool)
+applicationSettingsResponse_enabled :: Lens.Lens' ApplicationSettingsResponse (Core.Maybe Core.Bool)
 applicationSettingsResponse_enabled = Lens.lens (\ApplicationSettingsResponse' {enabled} -> enabled) (\s@ApplicationSettingsResponse' {} a -> s {enabled = a} :: ApplicationSettingsResponse)
 
 -- | The path prefix for the S3 bucket where users’ persistent application
 -- settings are stored.
-applicationSettingsResponse_settingsGroup :: Lens.Lens' ApplicationSettingsResponse (Prelude.Maybe Prelude.Text)
+applicationSettingsResponse_settingsGroup :: Lens.Lens' ApplicationSettingsResponse (Core.Maybe Core.Text)
 applicationSettingsResponse_settingsGroup = Lens.lens (\ApplicationSettingsResponse' {settingsGroup} -> settingsGroup) (\s@ApplicationSettingsResponse' {} a -> s {settingsGroup = a} :: ApplicationSettingsResponse)
 
 -- | The S3 bucket where users’ persistent application settings are stored.
 -- When persistent application settings are enabled for the first time for
 -- an account in an AWS Region, an S3 bucket is created. The bucket is
 -- unique to the AWS account and the Region.
-applicationSettingsResponse_s3BucketName :: Lens.Lens' ApplicationSettingsResponse (Prelude.Maybe Prelude.Text)
+applicationSettingsResponse_s3BucketName :: Lens.Lens' ApplicationSettingsResponse (Core.Maybe Core.Text)
 applicationSettingsResponse_s3BucketName = Lens.lens (\ApplicationSettingsResponse' {s3BucketName} -> s3BucketName) (\s@ApplicationSettingsResponse' {} a -> s {s3BucketName = a} :: ApplicationSettingsResponse)
 
-instance Prelude.FromJSON ApplicationSettingsResponse where
+instance Core.FromJSON ApplicationSettingsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ApplicationSettingsResponse"
       ( \x ->
           ApplicationSettingsResponse'
-            Prelude.<$> (x Prelude..:? "Enabled")
-            Prelude.<*> (x Prelude..:? "SettingsGroup")
-            Prelude.<*> (x Prelude..:? "S3BucketName")
+            Core.<$> (x Core..:? "Enabled")
+            Core.<*> (x Core..:? "SettingsGroup")
+            Core.<*> (x Core..:? "S3BucketName")
       )
 
-instance Prelude.Hashable ApplicationSettingsResponse
+instance Core.Hashable ApplicationSettingsResponse
 
-instance Prelude.NFData ApplicationSettingsResponse
+instance Core.NFData ApplicationSettingsResponse

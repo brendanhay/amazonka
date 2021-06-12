@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.TagKeys where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that contains zero or more @Tag@ elements.
 --
 -- /See:/ 'newTagKeys' smart constructor.
 data TagKeys = TagKeys'
   { -- | A complex type that contains @Tag@ key elements.
-    items :: Prelude.Maybe [Prelude.Text]
+    items :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagKeys' with all optional fields omitted.
@@ -43,20 +42,19 @@ data TagKeys = TagKeys'
 -- 'items', 'tagKeys_items' - A complex type that contains @Tag@ key elements.
 newTagKeys ::
   TagKeys
-newTagKeys = TagKeys' {items = Prelude.Nothing}
+newTagKeys = TagKeys' {items = Core.Nothing}
 
 -- | A complex type that contains @Tag@ key elements.
-tagKeys_items :: Lens.Lens' TagKeys (Prelude.Maybe [Prelude.Text])
-tagKeys_items = Lens.lens (\TagKeys' {items} -> items) (\s@TagKeys' {} a -> s {items = a} :: TagKeys) Prelude.. Lens.mapping Prelude._Coerce
+tagKeys_items :: Lens.Lens' TagKeys (Core.Maybe [Core.Text])
+tagKeys_items = Lens.lens (\TagKeys' {items} -> items) (\s@TagKeys' {} a -> s {items = a} :: TagKeys) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable TagKeys
+instance Core.Hashable TagKeys
 
-instance Prelude.NFData TagKeys
+instance Core.NFData TagKeys
 
-instance Prelude.ToXML TagKeys where
+instance Core.ToXML TagKeys where
   toXML TagKeys' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Key" Prelude.<$> items)
+          Core.@= Core.toXML (Core.toXMLList "Key" Core.<$> items)
       ]

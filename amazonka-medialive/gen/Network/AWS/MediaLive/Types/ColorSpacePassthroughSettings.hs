@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Passthrough applies no color space conversion to the output
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ColorSpacePassthroughSettings = ColorSpacePassthroughSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ColorSpacePassthroughSettings' with all optional fields omitted.
@@ -40,21 +39,15 @@ newColorSpacePassthroughSettings ::
 newColorSpacePassthroughSettings =
   ColorSpacePassthroughSettings'
 
-instance
-  Prelude.FromJSON
-    ColorSpacePassthroughSettings
-  where
+instance Core.FromJSON ColorSpacePassthroughSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ColorSpacePassthroughSettings"
-      (\x -> Prelude.pure ColorSpacePassthroughSettings')
+      (\x -> Core.pure ColorSpacePassthroughSettings')
 
-instance
-  Prelude.Hashable
-    ColorSpacePassthroughSettings
+instance Core.Hashable ColorSpacePassthroughSettings
 
-instance Prelude.NFData ColorSpacePassthroughSettings
+instance Core.NFData ColorSpacePassthroughSettings
 
-instance Prelude.ToJSON ColorSpacePassthroughSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON ColorSpacePassthroughSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.QLDB.ListJournalS3Exports
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,13 +63,13 @@ data ListJournalS3Exports = ListJournalS3Exports'
     -- of results. If you received a value for @NextToken@ in the response from
     -- a previous @ListJournalS3Exports@ call, then you should use that value
     -- as input here.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in a single
     -- @ListJournalS3Exports@ request. (The actual number of results returned
     -- might be fewer.)
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListJournalS3Exports' with all optional fields omitted.
@@ -92,62 +91,58 @@ newListJournalS3Exports ::
   ListJournalS3Exports
 newListJournalS3Exports =
   ListJournalS3Exports'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | A pagination token, indicating that you want to retrieve the next page
 -- of results. If you received a value for @NextToken@ in the response from
 -- a previous @ListJournalS3Exports@ call, then you should use that value
 -- as input here.
-listJournalS3Exports_nextToken :: Lens.Lens' ListJournalS3Exports (Prelude.Maybe Prelude.Text)
+listJournalS3Exports_nextToken :: Lens.Lens' ListJournalS3Exports (Core.Maybe Core.Text)
 listJournalS3Exports_nextToken = Lens.lens (\ListJournalS3Exports' {nextToken} -> nextToken) (\s@ListJournalS3Exports' {} a -> s {nextToken = a} :: ListJournalS3Exports)
 
 -- | The maximum number of results to return in a single
 -- @ListJournalS3Exports@ request. (The actual number of results returned
 -- might be fewer.)
-listJournalS3Exports_maxResults :: Lens.Lens' ListJournalS3Exports (Prelude.Maybe Prelude.Natural)
+listJournalS3Exports_maxResults :: Lens.Lens' ListJournalS3Exports (Core.Maybe Core.Natural)
 listJournalS3Exports_maxResults = Lens.lens (\ListJournalS3Exports' {maxResults} -> maxResults) (\s@ListJournalS3Exports' {} a -> s {maxResults = a} :: ListJournalS3Exports)
 
-instance Prelude.AWSRequest ListJournalS3Exports where
+instance Core.AWSRequest ListJournalS3Exports where
   type
-    Rs ListJournalS3Exports =
+    AWSResponse ListJournalS3Exports =
       ListJournalS3ExportsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListJournalS3ExportsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "JournalS3Exports"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "JournalS3Exports" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListJournalS3Exports
+instance Core.Hashable ListJournalS3Exports
 
-instance Prelude.NFData ListJournalS3Exports
+instance Core.NFData ListJournalS3Exports
 
-instance Prelude.ToHeaders ListJournalS3Exports where
+instance Core.ToHeaders ListJournalS3Exports where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListJournalS3Exports where
-  toPath = Prelude.const "/journal-s3-exports"
+instance Core.ToPath ListJournalS3Exports where
+  toPath = Core.const "/journal-s3-exports"
 
-instance Prelude.ToQuery ListJournalS3Exports where
+instance Core.ToQuery ListJournalS3Exports where
   toQuery ListJournalS3Exports' {..} =
-    Prelude.mconcat
-      [ "next_token" Prelude.=: nextToken,
-        "max_results" Prelude.=: maxResults
+    Core.mconcat
+      [ "next_token" Core.=: nextToken,
+        "max_results" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListJournalS3ExportsResponse' smart constructor.
@@ -158,14 +153,14 @@ data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
     -- -   If @NextToken@ is /not/ empty, then there are more results
     --     available. To retrieve the next page of results, use the value of
     --     @NextToken@ in a subsequent @ListJournalS3Exports@ call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The array of journal export job descriptions for all ledgers that are
     -- associated with the current AWS account and Region.
-    journalS3Exports :: Prelude.Maybe [JournalS3ExportDescription],
+    journalS3Exports :: Core.Maybe [JournalS3ExportDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListJournalS3ExportsResponse' with all optional fields omitted.
@@ -188,13 +183,13 @@ data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
 -- 'httpStatus', 'listJournalS3ExportsResponse_httpStatus' - The response's http status code.
 newListJournalS3ExportsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListJournalS3ExportsResponse
 newListJournalS3ExportsResponse pHttpStatus_ =
   ListJournalS3ExportsResponse'
     { nextToken =
-        Prelude.Nothing,
-      journalS3Exports = Prelude.Nothing,
+        Core.Nothing,
+      journalS3Exports = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -204,16 +199,16 @@ newListJournalS3ExportsResponse pHttpStatus_ =
 -- -   If @NextToken@ is /not/ empty, then there are more results
 --     available. To retrieve the next page of results, use the value of
 --     @NextToken@ in a subsequent @ListJournalS3Exports@ call.
-listJournalS3ExportsResponse_nextToken :: Lens.Lens' ListJournalS3ExportsResponse (Prelude.Maybe Prelude.Text)
+listJournalS3ExportsResponse_nextToken :: Lens.Lens' ListJournalS3ExportsResponse (Core.Maybe Core.Text)
 listJournalS3ExportsResponse_nextToken = Lens.lens (\ListJournalS3ExportsResponse' {nextToken} -> nextToken) (\s@ListJournalS3ExportsResponse' {} a -> s {nextToken = a} :: ListJournalS3ExportsResponse)
 
 -- | The array of journal export job descriptions for all ledgers that are
 -- associated with the current AWS account and Region.
-listJournalS3ExportsResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsResponse (Prelude.Maybe [JournalS3ExportDescription])
-listJournalS3ExportsResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listJournalS3ExportsResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsResponse (Core.Maybe [JournalS3ExportDescription])
+listJournalS3ExportsResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listJournalS3ExportsResponse_httpStatus :: Lens.Lens' ListJournalS3ExportsResponse Prelude.Int
+listJournalS3ExportsResponse_httpStatus :: Lens.Lens' ListJournalS3ExportsResponse Core.Int
 listJournalS3ExportsResponse_httpStatus = Lens.lens (\ListJournalS3ExportsResponse' {httpStatus} -> httpStatus) (\s@ListJournalS3ExportsResponse' {} a -> s {httpStatus = a} :: ListJournalS3ExportsResponse)
 
-instance Prelude.NFData ListJournalS3ExportsResponse
+instance Core.NFData ListJournalS3ExportsResponse

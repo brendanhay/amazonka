@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.CaptureContentTypeHeader where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
 -- /See:/ 'newCaptureContentTypeHeader' smart constructor.
 data CaptureContentTypeHeader = CaptureContentTypeHeader'
-  { csvContentTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    jsonContentTypes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+  { csvContentTypes :: Core.Maybe (Core.NonEmpty Core.Text),
+    jsonContentTypes :: Core.Maybe (Core.NonEmpty Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CaptureContentTypeHeader' with all optional fields omitted.
@@ -48,39 +47,39 @@ newCaptureContentTypeHeader ::
 newCaptureContentTypeHeader =
   CaptureContentTypeHeader'
     { csvContentTypes =
-        Prelude.Nothing,
-      jsonContentTypes = Prelude.Nothing
+        Core.Nothing,
+      jsonContentTypes = Core.Nothing
     }
 
 -- |
-captureContentTypeHeader_csvContentTypes :: Lens.Lens' CaptureContentTypeHeader (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-captureContentTypeHeader_csvContentTypes = Lens.lens (\CaptureContentTypeHeader' {csvContentTypes} -> csvContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {csvContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Prelude._Coerce
+captureContentTypeHeader_csvContentTypes :: Lens.Lens' CaptureContentTypeHeader (Core.Maybe (Core.NonEmpty Core.Text))
+captureContentTypeHeader_csvContentTypes = Lens.lens (\CaptureContentTypeHeader' {csvContentTypes} -> csvContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {csvContentTypes = a} :: CaptureContentTypeHeader) Core.. Lens.mapping Lens._Coerce
 
 -- |
-captureContentTypeHeader_jsonContentTypes :: Lens.Lens' CaptureContentTypeHeader (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-captureContentTypeHeader_jsonContentTypes = Lens.lens (\CaptureContentTypeHeader' {jsonContentTypes} -> jsonContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader) Prelude.. Lens.mapping Prelude._Coerce
+captureContentTypeHeader_jsonContentTypes :: Lens.Lens' CaptureContentTypeHeader (Core.Maybe (Core.NonEmpty Core.Text))
+captureContentTypeHeader_jsonContentTypes = Lens.lens (\CaptureContentTypeHeader' {jsonContentTypes} -> jsonContentTypes) (\s@CaptureContentTypeHeader' {} a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON CaptureContentTypeHeader where
+instance Core.FromJSON CaptureContentTypeHeader where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CaptureContentTypeHeader"
       ( \x ->
           CaptureContentTypeHeader'
-            Prelude.<$> (x Prelude..:? "CsvContentTypes")
-            Prelude.<*> (x Prelude..:? "JsonContentTypes")
+            Core.<$> (x Core..:? "CsvContentTypes")
+            Core.<*> (x Core..:? "JsonContentTypes")
       )
 
-instance Prelude.Hashable CaptureContentTypeHeader
+instance Core.Hashable CaptureContentTypeHeader
 
-instance Prelude.NFData CaptureContentTypeHeader
+instance Core.NFData CaptureContentTypeHeader
 
-instance Prelude.ToJSON CaptureContentTypeHeader where
+instance Core.ToJSON CaptureContentTypeHeader where
   toJSON CaptureContentTypeHeader' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CsvContentTypes" Prelude..=)
-              Prelude.<$> csvContentTypes,
-            ("JsonContentTypes" Prelude..=)
-              Prelude.<$> jsonContentTypes
+    Core.object
+      ( Core.catMaybes
+          [ ("CsvContentTypes" Core..=)
+              Core.<$> csvContentTypes,
+            ("JsonContentTypes" Core..=)
+              Core.<$> jsonContentTypes
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.WAFRegional.CreateWebACLMigrationStack
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -63,7 +62,7 @@ import Network.AWS.WAFRegional.Types
 -- | /See:/ 'newCreateWebACLMigrationStack' smart constructor.
 data CreateWebACLMigrationStack = CreateWebACLMigrationStack'
   { -- | The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.
-    webACLId :: Prelude.Text,
+    webACLId :: Core.Text,
     -- | The name of the Amazon S3 bucket to store the CloudFormation template
     -- in. The S3 bucket must be configured as follows for the migration:
     --
@@ -77,14 +76,14 @@ data CreateWebACLMigrationStack = CreateWebACLMigrationStack'
     --
     -- -   The bucket policies must permit the migration process to write data.
     --     For listings of the bucket policies, see the Examples section.
-    s3BucketName :: Prelude.Text,
+    s3BucketName :: Core.Text,
     -- | Indicates whether to exclude entities that can\'t be migrated or to stop
     -- the migration. Set this to true to ignore unsupported entities in the
     -- web ACL during the migration. Otherwise, if AWS WAF encounters
     -- unsupported entities, it stops the process and throws an exception.
-    ignoreUnsupportedType :: Prelude.Bool
+    ignoreUnsupportedType :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateWebACLMigrationStack' with all optional fields omitted.
@@ -116,11 +115,11 @@ data CreateWebACLMigrationStack = CreateWebACLMigrationStack'
 -- unsupported entities, it stops the process and throws an exception.
 newCreateWebACLMigrationStack ::
   -- | 'webACLId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 's3BucketName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ignoreUnsupportedType'
-  Prelude.Bool ->
+  Core.Bool ->
   CreateWebACLMigrationStack
 newCreateWebACLMigrationStack
   pWebACLId_
@@ -133,7 +132,7 @@ newCreateWebACLMigrationStack
       }
 
 -- | The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.
-createWebACLMigrationStack_webACLId :: Lens.Lens' CreateWebACLMigrationStack Prelude.Text
+createWebACLMigrationStack_webACLId :: Lens.Lens' CreateWebACLMigrationStack Core.Text
 createWebACLMigrationStack_webACLId = Lens.lens (\CreateWebACLMigrationStack' {webACLId} -> webACLId) (\s@CreateWebACLMigrationStack' {} a -> s {webACLId = a} :: CreateWebACLMigrationStack)
 
 -- | The name of the Amazon S3 bucket to store the CloudFormation template
@@ -149,79 +148,73 @@ createWebACLMigrationStack_webACLId = Lens.lens (\CreateWebACLMigrationStack' {w
 --
 -- -   The bucket policies must permit the migration process to write data.
 --     For listings of the bucket policies, see the Examples section.
-createWebACLMigrationStack_s3BucketName :: Lens.Lens' CreateWebACLMigrationStack Prelude.Text
+createWebACLMigrationStack_s3BucketName :: Lens.Lens' CreateWebACLMigrationStack Core.Text
 createWebACLMigrationStack_s3BucketName = Lens.lens (\CreateWebACLMigrationStack' {s3BucketName} -> s3BucketName) (\s@CreateWebACLMigrationStack' {} a -> s {s3BucketName = a} :: CreateWebACLMigrationStack)
 
 -- | Indicates whether to exclude entities that can\'t be migrated or to stop
 -- the migration. Set this to true to ignore unsupported entities in the
 -- web ACL during the migration. Otherwise, if AWS WAF encounters
 -- unsupported entities, it stops the process and throws an exception.
-createWebACLMigrationStack_ignoreUnsupportedType :: Lens.Lens' CreateWebACLMigrationStack Prelude.Bool
+createWebACLMigrationStack_ignoreUnsupportedType :: Lens.Lens' CreateWebACLMigrationStack Core.Bool
 createWebACLMigrationStack_ignoreUnsupportedType = Lens.lens (\CreateWebACLMigrationStack' {ignoreUnsupportedType} -> ignoreUnsupportedType) (\s@CreateWebACLMigrationStack' {} a -> s {ignoreUnsupportedType = a} :: CreateWebACLMigrationStack)
 
-instance
-  Prelude.AWSRequest
-    CreateWebACLMigrationStack
-  where
+instance Core.AWSRequest CreateWebACLMigrationStack where
   type
-    Rs CreateWebACLMigrationStack =
+    AWSResponse CreateWebACLMigrationStack =
       CreateWebACLMigrationStackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateWebACLMigrationStackResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "S3ObjectUrl")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "S3ObjectUrl")
       )
 
-instance Prelude.Hashable CreateWebACLMigrationStack
+instance Core.Hashable CreateWebACLMigrationStack
 
-instance Prelude.NFData CreateWebACLMigrationStack
+instance Core.NFData CreateWebACLMigrationStack
 
-instance Prelude.ToHeaders CreateWebACLMigrationStack where
+instance Core.ToHeaders CreateWebACLMigrationStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.CreateWebACLMigrationStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.CreateWebACLMigrationStack" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateWebACLMigrationStack where
+instance Core.ToJSON CreateWebACLMigrationStack where
   toJSON CreateWebACLMigrationStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("WebACLId" Prelude..= webACLId),
-            Prelude.Just
-              ("S3BucketName" Prelude..= s3BucketName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WebACLId" Core..= webACLId),
+            Core.Just ("S3BucketName" Core..= s3BucketName),
+            Core.Just
               ( "IgnoreUnsupportedType"
-                  Prelude..= ignoreUnsupportedType
+                  Core..= ignoreUnsupportedType
               )
           ]
       )
 
-instance Prelude.ToPath CreateWebACLMigrationStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateWebACLMigrationStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateWebACLMigrationStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateWebACLMigrationStack where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateWebACLMigrationStackResponse' smart constructor.
 data CreateWebACLMigrationStackResponse = CreateWebACLMigrationStackResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The URL of the template created in Amazon S3.
-    s3ObjectUrl :: Prelude.Text
+    s3ObjectUrl :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateWebACLMigrationStackResponse' with all optional fields omitted.
@@ -236,9 +229,9 @@ data CreateWebACLMigrationStackResponse = CreateWebACLMigrationStackResponse'
 -- 's3ObjectUrl', 'createWebACLMigrationStackResponse_s3ObjectUrl' - The URL of the template created in Amazon S3.
 newCreateWebACLMigrationStackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 's3ObjectUrl'
-  Prelude.Text ->
+  Core.Text ->
   CreateWebACLMigrationStackResponse
 newCreateWebACLMigrationStackResponse
   pHttpStatus_
@@ -250,13 +243,13 @@ newCreateWebACLMigrationStackResponse
       }
 
 -- | The response's http status code.
-createWebACLMigrationStackResponse_httpStatus :: Lens.Lens' CreateWebACLMigrationStackResponse Prelude.Int
+createWebACLMigrationStackResponse_httpStatus :: Lens.Lens' CreateWebACLMigrationStackResponse Core.Int
 createWebACLMigrationStackResponse_httpStatus = Lens.lens (\CreateWebACLMigrationStackResponse' {httpStatus} -> httpStatus) (\s@CreateWebACLMigrationStackResponse' {} a -> s {httpStatus = a} :: CreateWebACLMigrationStackResponse)
 
 -- | The URL of the template created in Amazon S3.
-createWebACLMigrationStackResponse_s3ObjectUrl :: Lens.Lens' CreateWebACLMigrationStackResponse Prelude.Text
+createWebACLMigrationStackResponse_s3ObjectUrl :: Lens.Lens' CreateWebACLMigrationStackResponse Core.Text
 createWebACLMigrationStackResponse_s3ObjectUrl = Lens.lens (\CreateWebACLMigrationStackResponse' {s3ObjectUrl} -> s3ObjectUrl) (\s@CreateWebACLMigrationStackResponse' {} a -> s {s3ObjectUrl = a} :: CreateWebACLMigrationStackResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateWebACLMigrationStackResponse

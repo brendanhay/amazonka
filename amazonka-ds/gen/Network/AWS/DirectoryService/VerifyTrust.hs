@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.DirectoryService.VerifyTrust
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newVerifyTrust' smart constructor.
 data VerifyTrust = VerifyTrust'
   { -- | The unique Trust ID of the trust relationship to verify.
-    trustId :: Prelude.Text
+    trustId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyTrust' with all optional fields omitted.
@@ -71,68 +70,66 @@ data VerifyTrust = VerifyTrust'
 -- 'trustId', 'verifyTrust_trustId' - The unique Trust ID of the trust relationship to verify.
 newVerifyTrust ::
   -- | 'trustId'
-  Prelude.Text ->
+  Core.Text ->
   VerifyTrust
 newVerifyTrust pTrustId_ =
   VerifyTrust' {trustId = pTrustId_}
 
 -- | The unique Trust ID of the trust relationship to verify.
-verifyTrust_trustId :: Lens.Lens' VerifyTrust Prelude.Text
+verifyTrust_trustId :: Lens.Lens' VerifyTrust Core.Text
 verifyTrust_trustId = Lens.lens (\VerifyTrust' {trustId} -> trustId) (\s@VerifyTrust' {} a -> s {trustId = a} :: VerifyTrust)
 
-instance Prelude.AWSRequest VerifyTrust where
-  type Rs VerifyTrust = VerifyTrustResponse
+instance Core.AWSRequest VerifyTrust where
+  type AWSResponse VerifyTrust = VerifyTrustResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           VerifyTrustResponse'
-            Prelude.<$> (x Prelude..?> "TrustId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TrustId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable VerifyTrust
+instance Core.Hashable VerifyTrust
 
-instance Prelude.NFData VerifyTrust
+instance Core.NFData VerifyTrust
 
-instance Prelude.ToHeaders VerifyTrust where
+instance Core.ToHeaders VerifyTrust where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.VerifyTrust" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.VerifyTrust" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON VerifyTrust where
+instance Core.ToJSON VerifyTrust where
   toJSON VerifyTrust' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TrustId" Prelude..= trustId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TrustId" Core..= trustId)]
       )
 
-instance Prelude.ToPath VerifyTrust where
-  toPath = Prelude.const "/"
+instance Core.ToPath VerifyTrust where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery VerifyTrust where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery VerifyTrust where
+  toQuery = Core.const Core.mempty
 
 -- | Result of a VerifyTrust request.
 --
 -- /See:/ 'newVerifyTrustResponse' smart constructor.
 data VerifyTrustResponse = VerifyTrustResponse'
   { -- | The unique Trust ID of the trust relationship that was verified.
-    trustId :: Prelude.Maybe Prelude.Text,
+    trustId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyTrustResponse' with all optional fields omitted.
@@ -147,20 +144,20 @@ data VerifyTrustResponse = VerifyTrustResponse'
 -- 'httpStatus', 'verifyTrustResponse_httpStatus' - The response's http status code.
 newVerifyTrustResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   VerifyTrustResponse
 newVerifyTrustResponse pHttpStatus_ =
   VerifyTrustResponse'
-    { trustId = Prelude.Nothing,
+    { trustId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique Trust ID of the trust relationship that was verified.
-verifyTrustResponse_trustId :: Lens.Lens' VerifyTrustResponse (Prelude.Maybe Prelude.Text)
+verifyTrustResponse_trustId :: Lens.Lens' VerifyTrustResponse (Core.Maybe Core.Text)
 verifyTrustResponse_trustId = Lens.lens (\VerifyTrustResponse' {trustId} -> trustId) (\s@VerifyTrustResponse' {} a -> s {trustId = a} :: VerifyTrustResponse)
 
 -- | The response's http status code.
-verifyTrustResponse_httpStatus :: Lens.Lens' VerifyTrustResponse Prelude.Int
+verifyTrustResponse_httpStatus :: Lens.Lens' VerifyTrustResponse Core.Int
 verifyTrustResponse_httpStatus = Lens.lens (\VerifyTrustResponse' {httpStatus} -> httpStatus) (\s@VerifyTrustResponse' {} a -> s {httpStatus = a} :: VerifyTrustResponse)
 
-instance Prelude.NFData VerifyTrustResponse
+instance Core.NFData VerifyTrustResponse

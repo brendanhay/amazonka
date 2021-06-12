@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPolicy where
 
 import Network.AWS.AutoScalingPlans.Types.PolicyType
 import Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a scaling policy.
 --
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data ScalingPolicy = ScalingPolicy'
   { -- | The target tracking scaling policy. Includes support for predefined or
     -- customized metrics.
-    targetTrackingConfiguration :: Prelude.Maybe TargetTrackingConfiguration,
+    targetTrackingConfiguration :: Core.Maybe TargetTrackingConfiguration,
     -- | The name of the scaling policy.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The type of scaling policy.
     policyType :: PolicyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScalingPolicy' with all optional fields omitted.
@@ -55,42 +54,42 @@ data ScalingPolicy = ScalingPolicy'
 -- 'policyType', 'scalingPolicy_policyType' - The type of scaling policy.
 newScalingPolicy ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyType'
   PolicyType ->
   ScalingPolicy
 newScalingPolicy pPolicyName_ pPolicyType_ =
   ScalingPolicy'
     { targetTrackingConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       policyName = pPolicyName_,
       policyType = pPolicyType_
     }
 
 -- | The target tracking scaling policy. Includes support for predefined or
 -- customized metrics.
-scalingPolicy_targetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Prelude.Maybe TargetTrackingConfiguration)
+scalingPolicy_targetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Core.Maybe TargetTrackingConfiguration)
 scalingPolicy_targetTrackingConfiguration = Lens.lens (\ScalingPolicy' {targetTrackingConfiguration} -> targetTrackingConfiguration) (\s@ScalingPolicy' {} a -> s {targetTrackingConfiguration = a} :: ScalingPolicy)
 
 -- | The name of the scaling policy.
-scalingPolicy_policyName :: Lens.Lens' ScalingPolicy Prelude.Text
+scalingPolicy_policyName :: Lens.Lens' ScalingPolicy Core.Text
 scalingPolicy_policyName = Lens.lens (\ScalingPolicy' {policyName} -> policyName) (\s@ScalingPolicy' {} a -> s {policyName = a} :: ScalingPolicy)
 
 -- | The type of scaling policy.
 scalingPolicy_policyType :: Lens.Lens' ScalingPolicy PolicyType
 scalingPolicy_policyType = Lens.lens (\ScalingPolicy' {policyType} -> policyType) (\s@ScalingPolicy' {} a -> s {policyType = a} :: ScalingPolicy)
 
-instance Prelude.FromJSON ScalingPolicy where
+instance Core.FromJSON ScalingPolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ScalingPolicy"
       ( \x ->
           ScalingPolicy'
-            Prelude.<$> (x Prelude..:? "TargetTrackingConfiguration")
-            Prelude.<*> (x Prelude..: "PolicyName")
-            Prelude.<*> (x Prelude..: "PolicyType")
+            Core.<$> (x Core..:? "TargetTrackingConfiguration")
+            Core.<*> (x Core..: "PolicyName")
+            Core.<*> (x Core..: "PolicyType")
       )
 
-instance Prelude.Hashable ScalingPolicy
+instance Core.Hashable ScalingPolicy
 
-instance Prelude.NFData ScalingPolicy
+instance Core.NFData ScalingPolicy

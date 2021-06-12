@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.ELBInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a load balancer in Elastic Load Balancing to use in a
 -- deployment. Instances are registered directly with a load balancer, and
@@ -35,9 +34,9 @@ data ELBInfo = ELBInfo'
     -- balancer that instances are deregistered from so they are not serving
     -- traffic during a deployment, and then re-registered with after the
     -- deployment is complete.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ELBInfo' with all optional fields omitted.
@@ -55,7 +54,7 @@ data ELBInfo = ELBInfo'
 -- deployment is complete.
 newELBInfo ::
   ELBInfo
-newELBInfo = ELBInfo' {name = Prelude.Nothing}
+newELBInfo = ELBInfo' {name = Core.Nothing}
 
 -- | For blue\/green deployments, the name of the load balancer that is used
 -- to route traffic from original instances to replacement instances in a
@@ -63,22 +62,20 @@ newELBInfo = ELBInfo' {name = Prelude.Nothing}
 -- balancer that instances are deregistered from so they are not serving
 -- traffic during a deployment, and then re-registered with after the
 -- deployment is complete.
-eLBInfo_name :: Lens.Lens' ELBInfo (Prelude.Maybe Prelude.Text)
+eLBInfo_name :: Lens.Lens' ELBInfo (Core.Maybe Core.Text)
 eLBInfo_name = Lens.lens (\ELBInfo' {name} -> name) (\s@ELBInfo' {} a -> s {name = a} :: ELBInfo)
 
-instance Prelude.FromJSON ELBInfo where
+instance Core.FromJSON ELBInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ELBInfo"
-      (\x -> ELBInfo' Prelude.<$> (x Prelude..:? "name"))
+      (\x -> ELBInfo' Core.<$> (x Core..:? "name"))
 
-instance Prelude.Hashable ELBInfo
+instance Core.Hashable ELBInfo
 
-instance Prelude.NFData ELBInfo
+instance Core.NFData ELBInfo
 
-instance Prelude.ToJSON ELBInfo where
+instance Core.ToJSON ELBInfo where
   toJSON ELBInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("name" Prelude..=) Prelude.<$> name]
-      )
+    Core.object
+      (Core.catMaybes [("name" Core..=) Core.<$> name])

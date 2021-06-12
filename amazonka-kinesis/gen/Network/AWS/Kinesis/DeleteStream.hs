@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.Kinesis.DeleteStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,11 +68,11 @@ data DeleteStream = DeleteStream'
   { -- | If this parameter is unset (@null@) or if you set it to @false@, and the
     -- stream has registered consumers, the call to @DeleteStream@ fails with a
     -- @ResourceInUseException@.
-    enforceConsumerDeletion :: Prelude.Maybe Prelude.Bool,
+    enforceConsumerDeletion :: Core.Maybe Core.Bool,
     -- | The name of the stream to delete.
-    streamName :: Prelude.Text
+    streamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStream' with all optional fields omitted.
@@ -90,70 +89,66 @@ data DeleteStream = DeleteStream'
 -- 'streamName', 'deleteStream_streamName' - The name of the stream to delete.
 newDeleteStream ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStream
 newDeleteStream pStreamName_ =
   DeleteStream'
     { enforceConsumerDeletion =
-        Prelude.Nothing,
+        Core.Nothing,
       streamName = pStreamName_
     }
 
 -- | If this parameter is unset (@null@) or if you set it to @false@, and the
 -- stream has registered consumers, the call to @DeleteStream@ fails with a
 -- @ResourceInUseException@.
-deleteStream_enforceConsumerDeletion :: Lens.Lens' DeleteStream (Prelude.Maybe Prelude.Bool)
+deleteStream_enforceConsumerDeletion :: Lens.Lens' DeleteStream (Core.Maybe Core.Bool)
 deleteStream_enforceConsumerDeletion = Lens.lens (\DeleteStream' {enforceConsumerDeletion} -> enforceConsumerDeletion) (\s@DeleteStream' {} a -> s {enforceConsumerDeletion = a} :: DeleteStream)
 
 -- | The name of the stream to delete.
-deleteStream_streamName :: Lens.Lens' DeleteStream Prelude.Text
+deleteStream_streamName :: Lens.Lens' DeleteStream Core.Text
 deleteStream_streamName = Lens.lens (\DeleteStream' {streamName} -> streamName) (\s@DeleteStream' {} a -> s {streamName = a} :: DeleteStream)
 
-instance Prelude.AWSRequest DeleteStream where
-  type Rs DeleteStream = DeleteStreamResponse
+instance Core.AWSRequest DeleteStream where
+  type AWSResponse DeleteStream = DeleteStreamResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteStreamResponse'
 
-instance Prelude.Hashable DeleteStream
+instance Core.Hashable DeleteStream
 
-instance Prelude.NFData DeleteStream
+instance Core.NFData DeleteStream
 
-instance Prelude.ToHeaders DeleteStream where
+instance Core.ToHeaders DeleteStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.DeleteStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Kinesis_20131202.DeleteStream" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteStream where
+instance Core.ToJSON DeleteStream where
   toJSON DeleteStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EnforceConsumerDeletion" Prelude..=)
-              Prelude.<$> enforceConsumerDeletion,
-            Prelude.Just ("StreamName" Prelude..= streamName)
+    Core.object
+      ( Core.catMaybes
+          [ ("EnforceConsumerDeletion" Core..=)
+              Core.<$> enforceConsumerDeletion,
+            Core.Just ("StreamName" Core..= streamName)
           ]
       )
 
-instance Prelude.ToPath DeleteStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStreamResponse' with all optional fields omitted.
@@ -163,4 +158,4 @@ newDeleteStreamResponse ::
   DeleteStreamResponse
 newDeleteStreamResponse = DeleteStreamResponse'
 
-instance Prelude.NFData DeleteStreamResponse
+instance Core.NFData DeleteStreamResponse

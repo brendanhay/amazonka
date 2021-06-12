@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MechanicalTurk.Types.ParameterMapEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data structure is the data type for the AnswerKey parameter of the
 -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
@@ -31,13 +30,13 @@ data ParameterMapEntry = ParameterMapEntry'
   { -- | The QuestionID from the HIT that is used to identify which question
     -- requires Mechanical Turk to score as part of the
     -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The list of answers to the question specified in the MapEntry Key
     -- element. The Worker must match all values in order for the answer to be
     -- scored correctly.
-    values :: Prelude.Maybe [Prelude.Text]
+    values :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterMapEntry' with all optional fields omitted.
@@ -58,41 +57,41 @@ newParameterMapEntry ::
   ParameterMapEntry
 newParameterMapEntry =
   ParameterMapEntry'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | The QuestionID from the HIT that is used to identify which question
 -- requires Mechanical Turk to score as part of the
 -- ScoreMyKnownAnswers\/2011-09-01 Review Policy.
-parameterMapEntry_key :: Lens.Lens' ParameterMapEntry (Prelude.Maybe Prelude.Text)
+parameterMapEntry_key :: Lens.Lens' ParameterMapEntry (Core.Maybe Core.Text)
 parameterMapEntry_key = Lens.lens (\ParameterMapEntry' {key} -> key) (\s@ParameterMapEntry' {} a -> s {key = a} :: ParameterMapEntry)
 
 -- | The list of answers to the question specified in the MapEntry Key
 -- element. The Worker must match all values in order for the answer to be
 -- scored correctly.
-parameterMapEntry_values :: Lens.Lens' ParameterMapEntry (Prelude.Maybe [Prelude.Text])
-parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\s@ParameterMapEntry' {} a -> s {values = a} :: ParameterMapEntry) Prelude.. Lens.mapping Prelude._Coerce
+parameterMapEntry_values :: Lens.Lens' ParameterMapEntry (Core.Maybe [Core.Text])
+parameterMapEntry_values = Lens.lens (\ParameterMapEntry' {values} -> values) (\s@ParameterMapEntry' {} a -> s {values = a} :: ParameterMapEntry) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ParameterMapEntry where
+instance Core.FromJSON ParameterMapEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterMapEntry"
       ( \x ->
           ParameterMapEntry'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ParameterMapEntry
+instance Core.Hashable ParameterMapEntry
 
-instance Prelude.NFData ParameterMapEntry
+instance Core.NFData ParameterMapEntry
 
-instance Prelude.ToJSON ParameterMapEntry where
+instance Core.ToJSON ParameterMapEntry where
   toJSON ParameterMapEntry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Values" Prelude..=) Prelude.<$> values
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Values" Core..=) Core.<$> values
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InstanceUsage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Capacity Reservation usage.
 --
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data InstanceUsage = InstanceUsage'
   { -- | The ID of the AWS account that is making use of the Capacity
     -- Reservation.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | The number of instances the AWS account currently has in the Capacity
     -- Reservation.
-    usedInstanceCount :: Prelude.Maybe Prelude.Int
+    usedInstanceCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceUsage' with all optional fields omitted.
@@ -54,26 +53,26 @@ newInstanceUsage ::
   InstanceUsage
 newInstanceUsage =
   InstanceUsage'
-    { accountId = Prelude.Nothing,
-      usedInstanceCount = Prelude.Nothing
+    { accountId = Core.Nothing,
+      usedInstanceCount = Core.Nothing
     }
 
 -- | The ID of the AWS account that is making use of the Capacity
 -- Reservation.
-instanceUsage_accountId :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Text)
+instanceUsage_accountId :: Lens.Lens' InstanceUsage (Core.Maybe Core.Text)
 instanceUsage_accountId = Lens.lens (\InstanceUsage' {accountId} -> accountId) (\s@InstanceUsage' {} a -> s {accountId = a} :: InstanceUsage)
 
 -- | The number of instances the AWS account currently has in the Capacity
 -- Reservation.
-instanceUsage_usedInstanceCount :: Lens.Lens' InstanceUsage (Prelude.Maybe Prelude.Int)
+instanceUsage_usedInstanceCount :: Lens.Lens' InstanceUsage (Core.Maybe Core.Int)
 instanceUsage_usedInstanceCount = Lens.lens (\InstanceUsage' {usedInstanceCount} -> usedInstanceCount) (\s@InstanceUsage' {} a -> s {usedInstanceCount = a} :: InstanceUsage)
 
-instance Prelude.FromXML InstanceUsage where
+instance Core.FromXML InstanceUsage where
   parseXML x =
     InstanceUsage'
-      Prelude.<$> (x Prelude..@? "accountId")
-      Prelude.<*> (x Prelude..@? "usedInstanceCount")
+      Core.<$> (x Core..@? "accountId")
+      Core.<*> (x Core..@? "usedInstanceCount")
 
-instance Prelude.Hashable InstanceUsage
+instance Core.Hashable InstanceUsage
 
-instance Prelude.NFData InstanceUsage
+instance Core.NFData InstanceUsage

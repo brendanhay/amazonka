@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFormation.Types.ResourceTargetDefinition where
 
 import Network.AWS.CloudFormation.Types.RequiresRecreation
 import Network.AWS.CloudFormation.Types.ResourceAttribute
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The field that AWS CloudFormation will change, such as the name of a
 -- resource\'s property, and whether the resource will be recreated.
@@ -36,15 +35,15 @@ data ResourceTargetDefinition = ResourceTargetDefinition'
     -- @Conditionally@ recreation, see the update behavior for that
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property>
     -- in the AWS CloudFormation User Guide.
-    requiresRecreation :: Prelude.Maybe RequiresRecreation,
+    requiresRecreation :: Core.Maybe RequiresRecreation,
     -- | If the @Attribute@ value is @Properties@, the name of the property. For
     -- all other attributes, the value is null.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Indicates which resource attribute is triggering this update, such as a
     -- change in the resource attribute\'s @Metadata@, @Properties@, or @Tags@.
-    attribute :: Prelude.Maybe ResourceAttribute
+    attribute :: Core.Maybe ResourceAttribute
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceTargetDefinition' with all optional fields omitted.
@@ -71,9 +70,9 @@ newResourceTargetDefinition ::
 newResourceTargetDefinition =
   ResourceTargetDefinition'
     { requiresRecreation =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      attribute = Prelude.Nothing
+        Core.Nothing,
+      name = Core.Nothing,
+      attribute = Core.Nothing
     }
 
 -- | If the @Attribute@ value is @Properties@, indicates whether a change to
@@ -82,26 +81,26 @@ newResourceTargetDefinition =
 -- @Conditionally@ recreation, see the update behavior for that
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property>
 -- in the AWS CloudFormation User Guide.
-resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe RequiresRecreation)
+resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Core.Maybe RequiresRecreation)
 resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefinition' {requiresRecreation} -> requiresRecreation) (\s@ResourceTargetDefinition' {} a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
 
 -- | If the @Attribute@ value is @Properties@, the name of the property. For
 -- all other attributes, the value is null.
-resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe Prelude.Text)
+resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Core.Text)
 resourceTargetDefinition_name = Lens.lens (\ResourceTargetDefinition' {name} -> name) (\s@ResourceTargetDefinition' {} a -> s {name = a} :: ResourceTargetDefinition)
 
 -- | Indicates which resource attribute is triggering this update, such as a
 -- change in the resource attribute\'s @Metadata@, @Properties@, or @Tags@.
-resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe ResourceAttribute)
+resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Core.Maybe ResourceAttribute)
 resourceTargetDefinition_attribute = Lens.lens (\ResourceTargetDefinition' {attribute} -> attribute) (\s@ResourceTargetDefinition' {} a -> s {attribute = a} :: ResourceTargetDefinition)
 
-instance Prelude.FromXML ResourceTargetDefinition where
+instance Core.FromXML ResourceTargetDefinition where
   parseXML x =
     ResourceTargetDefinition'
-      Prelude.<$> (x Prelude..@? "RequiresRecreation")
-      Prelude.<*> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "Attribute")
+      Core.<$> (x Core..@? "RequiresRecreation")
+      Core.<*> (x Core..@? "Name")
+      Core.<*> (x Core..@? "Attribute")
 
-instance Prelude.Hashable ResourceTargetDefinition
+instance Core.Hashable ResourceTargetDefinition
 
-instance Prelude.NFData ResourceTargetDefinition
+instance Core.NFData ResourceTargetDefinition

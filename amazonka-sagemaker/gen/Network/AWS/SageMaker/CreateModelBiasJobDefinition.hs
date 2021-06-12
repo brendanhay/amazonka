@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.SageMaker.CreateModelBiasJobDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -58,17 +57,17 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateModelBiasJobDefinition' smart constructor.
 data CreateModelBiasJobDefinition = CreateModelBiasJobDefinition'
   { -- | Networking options for a model bias job.
-    networkConfig :: Prelude.Maybe MonitoringNetworkConfig,
+    networkConfig :: Core.Maybe MonitoringNetworkConfig,
     -- | The baseline configuration for a model bias job.
-    modelBiasBaselineConfig :: Prelude.Maybe ModelBiasBaselineConfig,
+    modelBiasBaselineConfig :: Core.Maybe ModelBiasBaselineConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
     -- in the /AWS Billing and Cost Management User Guide/.
-    tags :: Prelude.Maybe [Tag],
-    stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
+    tags :: Core.Maybe [Tag],
+    stoppingCondition :: Core.Maybe MonitoringStoppingCondition,
     -- | The name of the bias job definition. The name must be unique within an
     -- AWS Region in the AWS account.
-    jobDefinitionName :: Prelude.Text,
+    jobDefinitionName :: Core.Text,
     -- | Configures the model bias job to run a specified Docker container image.
     modelBiasAppSpecification :: ModelBiasAppSpecification,
     -- | Inputs for the model bias job.
@@ -77,9 +76,9 @@ data CreateModelBiasJobDefinition = CreateModelBiasJobDefinition'
     jobResources :: MonitoringResources,
     -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
     -- assume to perform tasks on your behalf.
-    roleArn :: Prelude.Text
+    roleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateModelBiasJobDefinition' with all optional fields omitted.
@@ -114,7 +113,7 @@ data CreateModelBiasJobDefinition = CreateModelBiasJobDefinition'
 -- assume to perform tasks on your behalf.
 newCreateModelBiasJobDefinition ::
   -- | 'jobDefinitionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelBiasAppSpecification'
   ModelBiasAppSpecification ->
   -- | 'modelBiasJobInput'
@@ -124,7 +123,7 @@ newCreateModelBiasJobDefinition ::
   -- | 'jobResources'
   MonitoringResources ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateModelBiasJobDefinition
 newCreateModelBiasJobDefinition
   pJobDefinitionName_
@@ -135,10 +134,10 @@ newCreateModelBiasJobDefinition
   pRoleArn_ =
     CreateModelBiasJobDefinition'
       { networkConfig =
-          Prelude.Nothing,
-        modelBiasBaselineConfig = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        stoppingCondition = Prelude.Nothing,
+          Core.Nothing,
+        modelBiasBaselineConfig = Core.Nothing,
+        tags = Core.Nothing,
+        stoppingCondition = Core.Nothing,
         jobDefinitionName = pJobDefinitionName_,
         modelBiasAppSpecification =
           pModelBiasAppSpecification_,
@@ -150,26 +149,26 @@ newCreateModelBiasJobDefinition
       }
 
 -- | Networking options for a model bias job.
-createModelBiasJobDefinition_networkConfig :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe MonitoringNetworkConfig)
+createModelBiasJobDefinition_networkConfig :: Lens.Lens' CreateModelBiasJobDefinition (Core.Maybe MonitoringNetworkConfig)
 createModelBiasJobDefinition_networkConfig = Lens.lens (\CreateModelBiasJobDefinition' {networkConfig} -> networkConfig) (\s@CreateModelBiasJobDefinition' {} a -> s {networkConfig = a} :: CreateModelBiasJobDefinition)
 
 -- | The baseline configuration for a model bias job.
-createModelBiasJobDefinition_modelBiasBaselineConfig :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe ModelBiasBaselineConfig)
+createModelBiasJobDefinition_modelBiasBaselineConfig :: Lens.Lens' CreateModelBiasJobDefinition (Core.Maybe ModelBiasBaselineConfig)
 createModelBiasJobDefinition_modelBiasBaselineConfig = Lens.lens (\CreateModelBiasJobDefinition' {modelBiasBaselineConfig} -> modelBiasBaselineConfig) (\s@CreateModelBiasJobDefinition' {} a -> s {modelBiasBaselineConfig = a} :: CreateModelBiasJobDefinition)
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
 -- in the /AWS Billing and Cost Management User Guide/.
-createModelBiasJobDefinition_tags :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe [Tag])
-createModelBiasJobDefinition_tags = Lens.lens (\CreateModelBiasJobDefinition' {tags} -> tags) (\s@CreateModelBiasJobDefinition' {} a -> s {tags = a} :: CreateModelBiasJobDefinition) Prelude.. Lens.mapping Prelude._Coerce
+createModelBiasJobDefinition_tags :: Lens.Lens' CreateModelBiasJobDefinition (Core.Maybe [Tag])
+createModelBiasJobDefinition_tags = Lens.lens (\CreateModelBiasJobDefinition' {tags} -> tags) (\s@CreateModelBiasJobDefinition' {} a -> s {tags = a} :: CreateModelBiasJobDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-createModelBiasJobDefinition_stoppingCondition :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe MonitoringStoppingCondition)
+createModelBiasJobDefinition_stoppingCondition :: Lens.Lens' CreateModelBiasJobDefinition (Core.Maybe MonitoringStoppingCondition)
 createModelBiasJobDefinition_stoppingCondition = Lens.lens (\CreateModelBiasJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateModelBiasJobDefinition' {} a -> s {stoppingCondition = a} :: CreateModelBiasJobDefinition)
 
 -- | The name of the bias job definition. The name must be unique within an
 -- AWS Region in the AWS account.
-createModelBiasJobDefinition_jobDefinitionName :: Lens.Lens' CreateModelBiasJobDefinition Prelude.Text
+createModelBiasJobDefinition_jobDefinitionName :: Lens.Lens' CreateModelBiasJobDefinition Core.Text
 createModelBiasJobDefinition_jobDefinitionName = Lens.lens (\CreateModelBiasJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@CreateModelBiasJobDefinition' {} a -> s {jobDefinitionName = a} :: CreateModelBiasJobDefinition)
 
 -- | Configures the model bias job to run a specified Docker container image.
@@ -190,92 +189,80 @@ createModelBiasJobDefinition_jobResources = Lens.lens (\CreateModelBiasJobDefini
 
 -- | The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can
 -- assume to perform tasks on your behalf.
-createModelBiasJobDefinition_roleArn :: Lens.Lens' CreateModelBiasJobDefinition Prelude.Text
+createModelBiasJobDefinition_roleArn :: Lens.Lens' CreateModelBiasJobDefinition Core.Text
 createModelBiasJobDefinition_roleArn = Lens.lens (\CreateModelBiasJobDefinition' {roleArn} -> roleArn) (\s@CreateModelBiasJobDefinition' {} a -> s {roleArn = a} :: CreateModelBiasJobDefinition)
 
-instance
-  Prelude.AWSRequest
-    CreateModelBiasJobDefinition
-  where
+instance Core.AWSRequest CreateModelBiasJobDefinition where
   type
-    Rs CreateModelBiasJobDefinition =
+    AWSResponse CreateModelBiasJobDefinition =
       CreateModelBiasJobDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateModelBiasJobDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "JobDefinitionArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "JobDefinitionArn")
       )
 
-instance
-  Prelude.Hashable
-    CreateModelBiasJobDefinition
+instance Core.Hashable CreateModelBiasJobDefinition
 
-instance Prelude.NFData CreateModelBiasJobDefinition
+instance Core.NFData CreateModelBiasJobDefinition
 
-instance
-  Prelude.ToHeaders
-    CreateModelBiasJobDefinition
-  where
+instance Core.ToHeaders CreateModelBiasJobDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateModelBiasJobDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.CreateModelBiasJobDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateModelBiasJobDefinition where
+instance Core.ToJSON CreateModelBiasJobDefinition where
   toJSON CreateModelBiasJobDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NetworkConfig" Prelude..=)
-              Prelude.<$> networkConfig,
-            ("ModelBiasBaselineConfig" Prelude..=)
-              Prelude.<$> modelBiasBaselineConfig,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("StoppingCondition" Prelude..=)
-              Prelude.<$> stoppingCondition,
-            Prelude.Just
-              ("JobDefinitionName" Prelude..= jobDefinitionName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NetworkConfig" Core..=) Core.<$> networkConfig,
+            ("ModelBiasBaselineConfig" Core..=)
+              Core.<$> modelBiasBaselineConfig,
+            ("Tags" Core..=) Core.<$> tags,
+            ("StoppingCondition" Core..=)
+              Core.<$> stoppingCondition,
+            Core.Just
+              ("JobDefinitionName" Core..= jobDefinitionName),
+            Core.Just
               ( "ModelBiasAppSpecification"
-                  Prelude..= modelBiasAppSpecification
+                  Core..= modelBiasAppSpecification
               ),
-            Prelude.Just
-              ("ModelBiasJobInput" Prelude..= modelBiasJobInput),
-            Prelude.Just
+            Core.Just
+              ("ModelBiasJobInput" Core..= modelBiasJobInput),
+            Core.Just
               ( "ModelBiasJobOutputConfig"
-                  Prelude..= modelBiasJobOutputConfig
+                  Core..= modelBiasJobOutputConfig
               ),
-            Prelude.Just
-              ("JobResources" Prelude..= jobResources),
-            Prelude.Just ("RoleArn" Prelude..= roleArn)
+            Core.Just ("JobResources" Core..= jobResources),
+            Core.Just ("RoleArn" Core..= roleArn)
           ]
       )
 
-instance Prelude.ToPath CreateModelBiasJobDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateModelBiasJobDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateModelBiasJobDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateModelBiasJobDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateModelBiasJobDefinitionResponse' smart constructor.
 data CreateModelBiasJobDefinitionResponse = CreateModelBiasJobDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the model bias job.
-    jobDefinitionArn :: Prelude.Text
+    jobDefinitionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateModelBiasJobDefinitionResponse' with all optional fields omitted.
@@ -290,9 +277,9 @@ data CreateModelBiasJobDefinitionResponse = CreateModelBiasJobDefinitionResponse
 -- 'jobDefinitionArn', 'createModelBiasJobDefinitionResponse_jobDefinitionArn' - The Amazon Resource Name (ARN) of the model bias job.
 newCreateModelBiasJobDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'jobDefinitionArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateModelBiasJobDefinitionResponse
 newCreateModelBiasJobDefinitionResponse
   pHttpStatus_
@@ -304,13 +291,13 @@ newCreateModelBiasJobDefinitionResponse
       }
 
 -- | The response's http status code.
-createModelBiasJobDefinitionResponse_httpStatus :: Lens.Lens' CreateModelBiasJobDefinitionResponse Prelude.Int
+createModelBiasJobDefinitionResponse_httpStatus :: Lens.Lens' CreateModelBiasJobDefinitionResponse Core.Int
 createModelBiasJobDefinitionResponse_httpStatus = Lens.lens (\CreateModelBiasJobDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateModelBiasJobDefinitionResponse' {} a -> s {httpStatus = a} :: CreateModelBiasJobDefinitionResponse)
 
 -- | The Amazon Resource Name (ARN) of the model bias job.
-createModelBiasJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' CreateModelBiasJobDefinitionResponse Prelude.Text
+createModelBiasJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' CreateModelBiasJobDefinitionResponse Core.Text
 createModelBiasJobDefinitionResponse_jobDefinitionArn = Lens.lens (\CreateModelBiasJobDefinitionResponse' {jobDefinitionArn} -> jobDefinitionArn) (\s@CreateModelBiasJobDefinitionResponse' {} a -> s {jobDefinitionArn = a} :: CreateModelBiasJobDefinitionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateModelBiasJobDefinitionResponse

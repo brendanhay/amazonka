@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.LayerFailure where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.LayerFailureCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an Amazon ECR image layer failure.
 --
 -- /See:/ 'newLayerFailure' smart constructor.
 data LayerFailure = LayerFailure'
   { -- | The failure code associated with the failure.
-    failureCode :: Prelude.Maybe LayerFailureCode,
+    failureCode :: Core.Maybe LayerFailureCode,
     -- | The reason for the failure.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    failureReason :: Core.Maybe Core.Text,
     -- | The layer digest associated with the failure.
-    layerDigest :: Prelude.Maybe Prelude.Text
+    layerDigest :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LayerFailure' with all optional fields omitted.
@@ -54,34 +53,34 @@ newLayerFailure ::
   LayerFailure
 newLayerFailure =
   LayerFailure'
-    { failureCode = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
-      layerDigest = Prelude.Nothing
+    { failureCode = Core.Nothing,
+      failureReason = Core.Nothing,
+      layerDigest = Core.Nothing
     }
 
 -- | The failure code associated with the failure.
-layerFailure_failureCode :: Lens.Lens' LayerFailure (Prelude.Maybe LayerFailureCode)
+layerFailure_failureCode :: Lens.Lens' LayerFailure (Core.Maybe LayerFailureCode)
 layerFailure_failureCode = Lens.lens (\LayerFailure' {failureCode} -> failureCode) (\s@LayerFailure' {} a -> s {failureCode = a} :: LayerFailure)
 
 -- | The reason for the failure.
-layerFailure_failureReason :: Lens.Lens' LayerFailure (Prelude.Maybe Prelude.Text)
+layerFailure_failureReason :: Lens.Lens' LayerFailure (Core.Maybe Core.Text)
 layerFailure_failureReason = Lens.lens (\LayerFailure' {failureReason} -> failureReason) (\s@LayerFailure' {} a -> s {failureReason = a} :: LayerFailure)
 
 -- | The layer digest associated with the failure.
-layerFailure_layerDigest :: Lens.Lens' LayerFailure (Prelude.Maybe Prelude.Text)
+layerFailure_layerDigest :: Lens.Lens' LayerFailure (Core.Maybe Core.Text)
 layerFailure_layerDigest = Lens.lens (\LayerFailure' {layerDigest} -> layerDigest) (\s@LayerFailure' {} a -> s {layerDigest = a} :: LayerFailure)
 
-instance Prelude.FromJSON LayerFailure where
+instance Core.FromJSON LayerFailure where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LayerFailure"
       ( \x ->
           LayerFailure'
-            Prelude.<$> (x Prelude..:? "failureCode")
-            Prelude.<*> (x Prelude..:? "failureReason")
-            Prelude.<*> (x Prelude..:? "layerDigest")
+            Core.<$> (x Core..:? "failureCode")
+            Core.<*> (x Core..:? "failureReason")
+            Core.<*> (x Core..:? "layerDigest")
       )
 
-instance Prelude.Hashable LayerFailure
+instance Core.Hashable LayerFailure
 
-instance Prelude.NFData LayerFailure
+instance Core.NFData LayerFailure

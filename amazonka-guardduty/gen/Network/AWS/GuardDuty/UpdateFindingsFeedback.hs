@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,25 +41,25 @@ module Network.AWS.GuardDuty.UpdateFindingsFeedback
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFindingsFeedback' smart constructor.
 data UpdateFindingsFeedback = UpdateFindingsFeedback'
   { -- | Additional feedback about the GuardDuty findings.
-    comments :: Prelude.Maybe Prelude.Text,
+    comments :: Core.Maybe Core.Text,
     -- | The ID of the detector associated with the findings to update feedback
     -- for.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The IDs of the findings that you want to mark as useful or not useful.
-    findingIds :: [Prelude.Text],
+    findingIds :: [Core.Text],
     -- | The feedback for the finding.
     feedback :: Feedback
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateFindingsFeedback' with all optional fields omitted.
@@ -80,89 +79,87 @@ data UpdateFindingsFeedback = UpdateFindingsFeedback'
 -- 'feedback', 'updateFindingsFeedback_feedback' - The feedback for the finding.
 newUpdateFindingsFeedback ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'feedback'
   Feedback ->
   UpdateFindingsFeedback
 newUpdateFindingsFeedback pDetectorId_ pFeedback_ =
   UpdateFindingsFeedback'
-    { comments = Prelude.Nothing,
+    { comments = Core.Nothing,
       detectorId = pDetectorId_,
-      findingIds = Prelude.mempty,
+      findingIds = Core.mempty,
       feedback = pFeedback_
     }
 
 -- | Additional feedback about the GuardDuty findings.
-updateFindingsFeedback_comments :: Lens.Lens' UpdateFindingsFeedback (Prelude.Maybe Prelude.Text)
+updateFindingsFeedback_comments :: Lens.Lens' UpdateFindingsFeedback (Core.Maybe Core.Text)
 updateFindingsFeedback_comments = Lens.lens (\UpdateFindingsFeedback' {comments} -> comments) (\s@UpdateFindingsFeedback' {} a -> s {comments = a} :: UpdateFindingsFeedback)
 
 -- | The ID of the detector associated with the findings to update feedback
 -- for.
-updateFindingsFeedback_detectorId :: Lens.Lens' UpdateFindingsFeedback Prelude.Text
+updateFindingsFeedback_detectorId :: Lens.Lens' UpdateFindingsFeedback Core.Text
 updateFindingsFeedback_detectorId = Lens.lens (\UpdateFindingsFeedback' {detectorId} -> detectorId) (\s@UpdateFindingsFeedback' {} a -> s {detectorId = a} :: UpdateFindingsFeedback)
 
 -- | The IDs of the findings that you want to mark as useful or not useful.
-updateFindingsFeedback_findingIds :: Lens.Lens' UpdateFindingsFeedback [Prelude.Text]
-updateFindingsFeedback_findingIds = Lens.lens (\UpdateFindingsFeedback' {findingIds} -> findingIds) (\s@UpdateFindingsFeedback' {} a -> s {findingIds = a} :: UpdateFindingsFeedback) Prelude.. Prelude._Coerce
+updateFindingsFeedback_findingIds :: Lens.Lens' UpdateFindingsFeedback [Core.Text]
+updateFindingsFeedback_findingIds = Lens.lens (\UpdateFindingsFeedback' {findingIds} -> findingIds) (\s@UpdateFindingsFeedback' {} a -> s {findingIds = a} :: UpdateFindingsFeedback) Core.. Lens._Coerce
 
 -- | The feedback for the finding.
 updateFindingsFeedback_feedback :: Lens.Lens' UpdateFindingsFeedback Feedback
 updateFindingsFeedback_feedback = Lens.lens (\UpdateFindingsFeedback' {feedback} -> feedback) (\s@UpdateFindingsFeedback' {} a -> s {feedback = a} :: UpdateFindingsFeedback)
 
-instance Prelude.AWSRequest UpdateFindingsFeedback where
+instance Core.AWSRequest UpdateFindingsFeedback where
   type
-    Rs UpdateFindingsFeedback =
+    AWSResponse UpdateFindingsFeedback =
       UpdateFindingsFeedbackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateFindingsFeedbackResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFindingsFeedback
+instance Core.Hashable UpdateFindingsFeedback
 
-instance Prelude.NFData UpdateFindingsFeedback
+instance Core.NFData UpdateFindingsFeedback
 
-instance Prelude.ToHeaders UpdateFindingsFeedback where
+instance Core.ToHeaders UpdateFindingsFeedback where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateFindingsFeedback where
+instance Core.ToJSON UpdateFindingsFeedback where
   toJSON UpdateFindingsFeedback' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("comments" Prelude..=) Prelude.<$> comments,
-            Prelude.Just ("findingIds" Prelude..= findingIds),
-            Prelude.Just ("feedback" Prelude..= feedback)
+    Core.object
+      ( Core.catMaybes
+          [ ("comments" Core..=) Core.<$> comments,
+            Core.Just ("findingIds" Core..= findingIds),
+            Core.Just ("feedback" Core..= feedback)
           ]
       )
 
-instance Prelude.ToPath UpdateFindingsFeedback where
+instance Core.ToPath UpdateFindingsFeedback where
   toPath UpdateFindingsFeedback' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/findings/feedback"
       ]
 
-instance Prelude.ToQuery UpdateFindingsFeedback where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateFindingsFeedback where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateFindingsFeedbackResponse' smart constructor.
 data UpdateFindingsFeedbackResponse = UpdateFindingsFeedbackResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateFindingsFeedbackResponse' with all optional fields omitted.
@@ -175,7 +172,7 @@ data UpdateFindingsFeedbackResponse = UpdateFindingsFeedbackResponse'
 -- 'httpStatus', 'updateFindingsFeedbackResponse_httpStatus' - The response's http status code.
 newUpdateFindingsFeedbackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateFindingsFeedbackResponse
 newUpdateFindingsFeedbackResponse pHttpStatus_ =
   UpdateFindingsFeedbackResponse'
@@ -184,9 +181,7 @@ newUpdateFindingsFeedbackResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateFindingsFeedbackResponse_httpStatus :: Lens.Lens' UpdateFindingsFeedbackResponse Prelude.Int
+updateFindingsFeedbackResponse_httpStatus :: Lens.Lens' UpdateFindingsFeedbackResponse Core.Int
 updateFindingsFeedbackResponse_httpStatus = Lens.lens (\UpdateFindingsFeedbackResponse' {httpStatus} -> httpStatus) (\s@UpdateFindingsFeedbackResponse' {} a -> s {httpStatus = a} :: UpdateFindingsFeedbackResponse)
 
-instance
-  Prelude.NFData
-    UpdateFindingsFeedbackResponse
+instance Core.NFData UpdateFindingsFeedbackResponse

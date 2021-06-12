@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.DocumentReviewCommentSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.DocumentReviewCommentType
 
 -- | Information about comments added to a document review request.
@@ -30,12 +29,12 @@ import Network.AWS.SSM.Types.DocumentReviewCommentType
 data DocumentReviewCommentSource = DocumentReviewCommentSource'
   { -- | The content of a comment entered by a user who requests a review of a
     -- new document version, or who reviews the new version.
-    content :: Prelude.Maybe Prelude.Text,
+    content :: Core.Maybe Core.Text,
     -- | The type of information added to a review request. Currently, only the
     -- value @Comment@ is supported.
-    type' :: Prelude.Maybe DocumentReviewCommentType
+    type' :: Core.Maybe DocumentReviewCommentType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentReviewCommentSource' with all optional fields omitted.
@@ -55,39 +54,38 @@ newDocumentReviewCommentSource ::
 newDocumentReviewCommentSource =
   DocumentReviewCommentSource'
     { content =
-        Prelude.Nothing,
-      type' = Prelude.Nothing
+        Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The content of a comment entered by a user who requests a review of a
 -- new document version, or who reviews the new version.
-documentReviewCommentSource_content :: Lens.Lens' DocumentReviewCommentSource (Prelude.Maybe Prelude.Text)
+documentReviewCommentSource_content :: Lens.Lens' DocumentReviewCommentSource (Core.Maybe Core.Text)
 documentReviewCommentSource_content = Lens.lens (\DocumentReviewCommentSource' {content} -> content) (\s@DocumentReviewCommentSource' {} a -> s {content = a} :: DocumentReviewCommentSource)
 
 -- | The type of information added to a review request. Currently, only the
 -- value @Comment@ is supported.
-documentReviewCommentSource_type :: Lens.Lens' DocumentReviewCommentSource (Prelude.Maybe DocumentReviewCommentType)
+documentReviewCommentSource_type :: Lens.Lens' DocumentReviewCommentSource (Core.Maybe DocumentReviewCommentType)
 documentReviewCommentSource_type = Lens.lens (\DocumentReviewCommentSource' {type'} -> type') (\s@DocumentReviewCommentSource' {} a -> s {type' = a} :: DocumentReviewCommentSource)
 
-instance Prelude.FromJSON DocumentReviewCommentSource where
+instance Core.FromJSON DocumentReviewCommentSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentReviewCommentSource"
       ( \x ->
           DocumentReviewCommentSource'
-            Prelude.<$> (x Prelude..:? "Content")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Content") Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable DocumentReviewCommentSource
+instance Core.Hashable DocumentReviewCommentSource
 
-instance Prelude.NFData DocumentReviewCommentSource
+instance Core.NFData DocumentReviewCommentSource
 
-instance Prelude.ToJSON DocumentReviewCommentSource where
+instance Core.ToJSON DocumentReviewCommentSource where
   toJSON DocumentReviewCommentSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Content" Prelude..=) Prelude.<$> content,
-            ("Type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("Content" Core..=) Core.<$> content,
+            ("Type" Core..=) Core.<$> type'
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.DeleteRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a request to perform a @DeleteItem@ operation on an item.
 --
@@ -32,9 +31,9 @@ data DeleteRequest = DeleteRequest'
     -- key of the item to delete. All of the table\'s primary key attributes
     -- must be specified, and their data types must match those of the table\'s
     -- key schema.
-    key :: Prelude.HashMap Prelude.Text AttributeValue
+    key :: Core.HashMap Core.Text AttributeValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRequest' with all optional fields omitted.
@@ -50,32 +49,29 @@ data DeleteRequest = DeleteRequest'
 -- key schema.
 newDeleteRequest ::
   DeleteRequest
-newDeleteRequest =
-  DeleteRequest' {key = Prelude.mempty}
+newDeleteRequest = DeleteRequest' {key = Core.mempty}
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of the item to delete. All of the table\'s primary key attributes
 -- must be specified, and their data types must match those of the table\'s
 -- key schema.
-deleteRequest_key :: Lens.Lens' DeleteRequest (Prelude.HashMap Prelude.Text AttributeValue)
-deleteRequest_key = Lens.lens (\DeleteRequest' {key} -> key) (\s@DeleteRequest' {} a -> s {key = a} :: DeleteRequest) Prelude.. Prelude._Coerce
+deleteRequest_key :: Lens.Lens' DeleteRequest (Core.HashMap Core.Text AttributeValue)
+deleteRequest_key = Lens.lens (\DeleteRequest' {key} -> key) (\s@DeleteRequest' {} a -> s {key = a} :: DeleteRequest) Core.. Lens._Coerce
 
-instance Prelude.FromJSON DeleteRequest where
+instance Core.FromJSON DeleteRequest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeleteRequest"
       ( \x ->
           DeleteRequest'
-            Prelude.<$> (x Prelude..:? "Key" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Key" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable DeleteRequest
+instance Core.Hashable DeleteRequest
 
-instance Prelude.NFData DeleteRequest
+instance Core.NFData DeleteRequest
 
-instance Prelude.ToJSON DeleteRequest where
+instance Core.ToJSON DeleteRequest where
   toJSON DeleteRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Key" Prelude..= key)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Key" Core..= key)])

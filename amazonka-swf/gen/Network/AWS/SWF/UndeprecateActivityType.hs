@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,8 +68,8 @@ module Network.AWS.SWF.UndeprecateActivityType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -78,11 +77,11 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newUndeprecateActivityType' smart constructor.
 data UndeprecateActivityType = UndeprecateActivityType'
   { -- | The name of the domain of the deprecated activity type.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The activity type to undeprecate.
     activityType :: ActivityType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UndeprecateActivityType' with all optional fields omitted.
@@ -97,7 +96,7 @@ data UndeprecateActivityType = UndeprecateActivityType'
 -- 'activityType', 'undeprecateActivityType_activityType' - The activity type to undeprecate.
 newUndeprecateActivityType ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'activityType'
   ActivityType ->
   UndeprecateActivityType
@@ -108,62 +107,59 @@ newUndeprecateActivityType pDomain_ pActivityType_ =
     }
 
 -- | The name of the domain of the deprecated activity type.
-undeprecateActivityType_domain :: Lens.Lens' UndeprecateActivityType Prelude.Text
+undeprecateActivityType_domain :: Lens.Lens' UndeprecateActivityType Core.Text
 undeprecateActivityType_domain = Lens.lens (\UndeprecateActivityType' {domain} -> domain) (\s@UndeprecateActivityType' {} a -> s {domain = a} :: UndeprecateActivityType)
 
 -- | The activity type to undeprecate.
 undeprecateActivityType_activityType :: Lens.Lens' UndeprecateActivityType ActivityType
 undeprecateActivityType_activityType = Lens.lens (\UndeprecateActivityType' {activityType} -> activityType) (\s@UndeprecateActivityType' {} a -> s {activityType = a} :: UndeprecateActivityType)
 
-instance Prelude.AWSRequest UndeprecateActivityType where
+instance Core.AWSRequest UndeprecateActivityType where
   type
-    Rs UndeprecateActivityType =
+    AWSResponse UndeprecateActivityType =
       UndeprecateActivityTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UndeprecateActivityTypeResponse'
 
-instance Prelude.Hashable UndeprecateActivityType
+instance Core.Hashable UndeprecateActivityType
 
-instance Prelude.NFData UndeprecateActivityType
+instance Core.NFData UndeprecateActivityType
 
-instance Prelude.ToHeaders UndeprecateActivityType where
+instance Core.ToHeaders UndeprecateActivityType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.UndeprecateActivityType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.UndeprecateActivityType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UndeprecateActivityType where
+instance Core.ToJSON UndeprecateActivityType where
   toJSON UndeprecateActivityType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just
-              ("activityType" Prelude..= activityType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("activityType" Core..= activityType)
           ]
       )
 
-instance Prelude.ToPath UndeprecateActivityType where
-  toPath = Prelude.const "/"
+instance Core.ToPath UndeprecateActivityType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UndeprecateActivityType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UndeprecateActivityType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUndeprecateActivityTypeResponse' smart constructor.
 data UndeprecateActivityTypeResponse = UndeprecateActivityTypeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UndeprecateActivityTypeResponse' with all optional fields omitted.
@@ -174,6 +170,4 @@ newUndeprecateActivityTypeResponse ::
 newUndeprecateActivityTypeResponse =
   UndeprecateActivityTypeResponse'
 
-instance
-  Prelude.NFData
-    UndeprecateActivityTypeResponse
+instance Core.NFData UndeprecateActivityTypeResponse

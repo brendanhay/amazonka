@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.UiTemplateInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Container for user interface template information.
 --
 -- /See:/ 'newUiTemplateInfo' smart constructor.
 data UiTemplateInfo = UiTemplateInfo'
   { -- | The SHA-256 digest of the contents of the template.
-    contentSha256 :: Prelude.Maybe Prelude.Text,
+    contentSha256 :: Core.Maybe Core.Text,
     -- | The URL for the user interface template.
-    url :: Prelude.Maybe Prelude.Text
+    url :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UiTemplateInfo' with all optional fields omitted.
@@ -49,28 +48,28 @@ newUiTemplateInfo ::
   UiTemplateInfo
 newUiTemplateInfo =
   UiTemplateInfo'
-    { contentSha256 = Prelude.Nothing,
-      url = Prelude.Nothing
+    { contentSha256 = Core.Nothing,
+      url = Core.Nothing
     }
 
 -- | The SHA-256 digest of the contents of the template.
-uiTemplateInfo_contentSha256 :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
+uiTemplateInfo_contentSha256 :: Lens.Lens' UiTemplateInfo (Core.Maybe Core.Text)
 uiTemplateInfo_contentSha256 = Lens.lens (\UiTemplateInfo' {contentSha256} -> contentSha256) (\s@UiTemplateInfo' {} a -> s {contentSha256 = a} :: UiTemplateInfo)
 
 -- | The URL for the user interface template.
-uiTemplateInfo_url :: Lens.Lens' UiTemplateInfo (Prelude.Maybe Prelude.Text)
+uiTemplateInfo_url :: Lens.Lens' UiTemplateInfo (Core.Maybe Core.Text)
 uiTemplateInfo_url = Lens.lens (\UiTemplateInfo' {url} -> url) (\s@UiTemplateInfo' {} a -> s {url = a} :: UiTemplateInfo)
 
-instance Prelude.FromJSON UiTemplateInfo where
+instance Core.FromJSON UiTemplateInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UiTemplateInfo"
       ( \x ->
           UiTemplateInfo'
-            Prelude.<$> (x Prelude..:? "ContentSha256")
-            Prelude.<*> (x Prelude..:? "Url")
+            Core.<$> (x Core..:? "ContentSha256")
+            Core.<*> (x Core..:? "Url")
       )
 
-instance Prelude.Hashable UiTemplateInfo
+instance Core.Hashable UiTemplateInfo
 
-instance Prelude.NFData UiTemplateInfo
+instance Core.NFData UiTemplateInfo

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.TrackingOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A domain that is used to redirect email recipients to an Amazon
 -- SES-operated domain. This domain captures open and click events
@@ -35,9 +34,9 @@ import qualified Network.AWS.Prelude as Prelude
 data TrackingOptions = TrackingOptions'
   { -- | The custom subdomain that will be used to redirect email recipients to
     -- the Amazon SES event tracking domain.
-    customRedirectDomain :: Prelude.Maybe Prelude.Text
+    customRedirectDomain :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrackingOptions' with all optional fields omitted.
@@ -54,26 +53,24 @@ newTrackingOptions ::
 newTrackingOptions =
   TrackingOptions'
     { customRedirectDomain =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The custom subdomain that will be used to redirect email recipients to
 -- the Amazon SES event tracking domain.
-trackingOptions_customRedirectDomain :: Lens.Lens' TrackingOptions (Prelude.Maybe Prelude.Text)
+trackingOptions_customRedirectDomain :: Lens.Lens' TrackingOptions (Core.Maybe Core.Text)
 trackingOptions_customRedirectDomain = Lens.lens (\TrackingOptions' {customRedirectDomain} -> customRedirectDomain) (\s@TrackingOptions' {} a -> s {customRedirectDomain = a} :: TrackingOptions)
 
-instance Prelude.FromXML TrackingOptions where
+instance Core.FromXML TrackingOptions where
   parseXML x =
     TrackingOptions'
-      Prelude.<$> (x Prelude..@? "CustomRedirectDomain")
+      Core.<$> (x Core..@? "CustomRedirectDomain")
 
-instance Prelude.Hashable TrackingOptions
+instance Core.Hashable TrackingOptions
 
-instance Prelude.NFData TrackingOptions
+instance Core.NFData TrackingOptions
 
-instance Prelude.ToQuery TrackingOptions where
+instance Core.ToQuery TrackingOptions where
   toQuery TrackingOptions' {..} =
-    Prelude.mconcat
-      [ "CustomRedirectDomain"
-          Prelude.=: customRedirectDomain
-      ]
+    Core.mconcat
+      ["CustomRedirectDomain" Core.=: customRedirectDomain]

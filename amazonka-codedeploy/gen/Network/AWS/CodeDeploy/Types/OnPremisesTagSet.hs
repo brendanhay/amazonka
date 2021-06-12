@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeDeploy.Types.OnPremisesTagSet where
 
 import Network.AWS.CodeDeploy.Types.TagFilter
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about groups of on-premises instance tags.
 --
@@ -31,9 +30,9 @@ data OnPremisesTagSet = OnPremisesTagSet'
   { -- | A list that contains other lists of on-premises instance tag groups. For
     -- an instance to be included in the deployment group, it must be
     -- identified by all of the tag groups in the list.
-    onPremisesTagSetList :: Prelude.Maybe [[TagFilter]]
+    onPremisesTagSetList :: Core.Maybe [[TagFilter]]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OnPremisesTagSet' with all optional fields omitted.
@@ -51,35 +50,35 @@ newOnPremisesTagSet ::
 newOnPremisesTagSet =
   OnPremisesTagSet'
     { onPremisesTagSetList =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A list that contains other lists of on-premises instance tag groups. For
 -- an instance to be included in the deployment group, it must be
 -- identified by all of the tag groups in the list.
-onPremisesTagSet_onPremisesTagSetList :: Lens.Lens' OnPremisesTagSet (Prelude.Maybe [[TagFilter]])
-onPremisesTagSet_onPremisesTagSetList = Lens.lens (\OnPremisesTagSet' {onPremisesTagSetList} -> onPremisesTagSetList) (\s@OnPremisesTagSet' {} a -> s {onPremisesTagSetList = a} :: OnPremisesTagSet) Prelude.. Lens.mapping Prelude._Coerce
+onPremisesTagSet_onPremisesTagSetList :: Lens.Lens' OnPremisesTagSet (Core.Maybe [[TagFilter]])
+onPremisesTagSet_onPremisesTagSetList = Lens.lens (\OnPremisesTagSet' {onPremisesTagSetList} -> onPremisesTagSetList) (\s@OnPremisesTagSet' {} a -> s {onPremisesTagSetList = a} :: OnPremisesTagSet) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON OnPremisesTagSet where
+instance Core.FromJSON OnPremisesTagSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OnPremisesTagSet"
       ( \x ->
           OnPremisesTagSet'
-            Prelude.<$> ( x Prelude..:? "onPremisesTagSetList"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "onPremisesTagSetList"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable OnPremisesTagSet
+instance Core.Hashable OnPremisesTagSet
 
-instance Prelude.NFData OnPremisesTagSet
+instance Core.NFData OnPremisesTagSet
 
-instance Prelude.ToJSON OnPremisesTagSet where
+instance Core.ToJSON OnPremisesTagSet where
   toJSON OnPremisesTagSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("onPremisesTagSetList" Prelude..=)
-              Prelude.<$> onPremisesTagSetList
+    Core.object
+      ( Core.catMaybes
+          [ ("onPremisesTagSetList" Core..=)
+              Core.<$> onPremisesTagSetList
           ]
       )

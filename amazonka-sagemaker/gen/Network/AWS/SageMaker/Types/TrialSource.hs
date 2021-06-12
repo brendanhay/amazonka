@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TrialSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The source of the trial.
 --
 -- /See:/ 'newTrialSource' smart constructor.
 data TrialSource = TrialSource'
   { -- | The source job type.
-    sourceType :: Prelude.Maybe Prelude.Text,
+    sourceType :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the source.
-    sourceArn :: Prelude.Text
+    sourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrialSource' with all optional fields omitted.
@@ -47,32 +46,32 @@ data TrialSource = TrialSource'
 -- 'sourceArn', 'trialSource_sourceArn' - The Amazon Resource Name (ARN) of the source.
 newTrialSource ::
   -- | 'sourceArn'
-  Prelude.Text ->
+  Core.Text ->
   TrialSource
 newTrialSource pSourceArn_ =
   TrialSource'
-    { sourceType = Prelude.Nothing,
+    { sourceType = Core.Nothing,
       sourceArn = pSourceArn_
     }
 
 -- | The source job type.
-trialSource_sourceType :: Lens.Lens' TrialSource (Prelude.Maybe Prelude.Text)
+trialSource_sourceType :: Lens.Lens' TrialSource (Core.Maybe Core.Text)
 trialSource_sourceType = Lens.lens (\TrialSource' {sourceType} -> sourceType) (\s@TrialSource' {} a -> s {sourceType = a} :: TrialSource)
 
 -- | The Amazon Resource Name (ARN) of the source.
-trialSource_sourceArn :: Lens.Lens' TrialSource Prelude.Text
+trialSource_sourceArn :: Lens.Lens' TrialSource Core.Text
 trialSource_sourceArn = Lens.lens (\TrialSource' {sourceArn} -> sourceArn) (\s@TrialSource' {} a -> s {sourceArn = a} :: TrialSource)
 
-instance Prelude.FromJSON TrialSource where
+instance Core.FromJSON TrialSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TrialSource"
       ( \x ->
           TrialSource'
-            Prelude.<$> (x Prelude..:? "SourceType")
-            Prelude.<*> (x Prelude..: "SourceArn")
+            Core.<$> (x Core..:? "SourceType")
+            Core.<*> (x Core..: "SourceArn")
       )
 
-instance Prelude.Hashable TrialSource
+instance Core.Hashable TrialSource
 
-instance Prelude.NFData TrialSource
+instance Core.NFData TrialSource

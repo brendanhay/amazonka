@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.IoT.DeleteThingGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteThingGroup' smart constructor.
 data DeleteThingGroup = DeleteThingGroup'
   { -- | The expected version of the thing group to delete.
-    expectedVersion :: Prelude.Maybe Prelude.Integer,
+    expectedVersion :: Core.Maybe Core.Integer,
     -- | The name of the thing group to delete.
-    thingGroupName :: Prelude.Text
+    thingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteThingGroup' with all optional fields omitted.
@@ -68,56 +67,57 @@ data DeleteThingGroup = DeleteThingGroup'
 -- 'thingGroupName', 'deleteThingGroup_thingGroupName' - The name of the thing group to delete.
 newDeleteThingGroup ::
   -- | 'thingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteThingGroup
 newDeleteThingGroup pThingGroupName_ =
   DeleteThingGroup'
-    { expectedVersion =
-        Prelude.Nothing,
+    { expectedVersion = Core.Nothing,
       thingGroupName = pThingGroupName_
     }
 
 -- | The expected version of the thing group to delete.
-deleteThingGroup_expectedVersion :: Lens.Lens' DeleteThingGroup (Prelude.Maybe Prelude.Integer)
+deleteThingGroup_expectedVersion :: Lens.Lens' DeleteThingGroup (Core.Maybe Core.Integer)
 deleteThingGroup_expectedVersion = Lens.lens (\DeleteThingGroup' {expectedVersion} -> expectedVersion) (\s@DeleteThingGroup' {} a -> s {expectedVersion = a} :: DeleteThingGroup)
 
 -- | The name of the thing group to delete.
-deleteThingGroup_thingGroupName :: Lens.Lens' DeleteThingGroup Prelude.Text
+deleteThingGroup_thingGroupName :: Lens.Lens' DeleteThingGroup Core.Text
 deleteThingGroup_thingGroupName = Lens.lens (\DeleteThingGroup' {thingGroupName} -> thingGroupName) (\s@DeleteThingGroup' {} a -> s {thingGroupName = a} :: DeleteThingGroup)
 
-instance Prelude.AWSRequest DeleteThingGroup where
-  type Rs DeleteThingGroup = DeleteThingGroupResponse
+instance Core.AWSRequest DeleteThingGroup where
+  type
+    AWSResponse DeleteThingGroup =
+      DeleteThingGroupResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteThingGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteThingGroup
+instance Core.Hashable DeleteThingGroup
 
-instance Prelude.NFData DeleteThingGroup
+instance Core.NFData DeleteThingGroup
 
-instance Prelude.ToHeaders DeleteThingGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteThingGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteThingGroup where
+instance Core.ToPath DeleteThingGroup where
   toPath DeleteThingGroup' {..} =
-    Prelude.mconcat
-      ["/thing-groups/", Prelude.toBS thingGroupName]
+    Core.mconcat
+      ["/thing-groups/", Core.toBS thingGroupName]
 
-instance Prelude.ToQuery DeleteThingGroup where
+instance Core.ToQuery DeleteThingGroup where
   toQuery DeleteThingGroup' {..} =
-    Prelude.mconcat
-      ["expectedVersion" Prelude.=: expectedVersion]
+    Core.mconcat
+      ["expectedVersion" Core.=: expectedVersion]
 
 -- | /See:/ 'newDeleteThingGroupResponse' smart constructor.
 data DeleteThingGroupResponse = DeleteThingGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteThingGroupResponse' with all optional fields omitted.
@@ -130,7 +130,7 @@ data DeleteThingGroupResponse = DeleteThingGroupResponse'
 -- 'httpStatus', 'deleteThingGroupResponse_httpStatus' - The response's http status code.
 newDeleteThingGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteThingGroupResponse
 newDeleteThingGroupResponse pHttpStatus_ =
   DeleteThingGroupResponse'
@@ -139,7 +139,7 @@ newDeleteThingGroupResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteThingGroupResponse_httpStatus :: Lens.Lens' DeleteThingGroupResponse Prelude.Int
+deleteThingGroupResponse_httpStatus :: Lens.Lens' DeleteThingGroupResponse Core.Int
 deleteThingGroupResponse_httpStatus = Lens.lens (\DeleteThingGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteThingGroupResponse' {} a -> s {httpStatus = a} :: DeleteThingGroupResponse)
 
-instance Prelude.NFData DeleteThingGroupResponse
+instance Core.NFData DeleteThingGroupResponse

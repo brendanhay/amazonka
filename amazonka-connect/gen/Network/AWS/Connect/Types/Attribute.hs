@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.Connect.Types.Attribute where
 
 import Network.AWS.Connect.Types.InstanceAttributeType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A toggle for an individual feature at the instance level.
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
   { -- | The type of attribute.
-    attributeType :: Prelude.Maybe InstanceAttributeType,
+    attributeType :: Core.Maybe InstanceAttributeType,
     -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -50,28 +49,28 @@ newAttribute ::
   Attribute
 newAttribute =
   Attribute'
-    { attributeType = Prelude.Nothing,
-      value = Prelude.Nothing
+    { attributeType = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The type of attribute.
-attribute_attributeType :: Lens.Lens' Attribute (Prelude.Maybe InstanceAttributeType)
+attribute_attributeType :: Lens.Lens' Attribute (Core.Maybe InstanceAttributeType)
 attribute_attributeType = Lens.lens (\Attribute' {attributeType} -> attributeType) (\s@Attribute' {} a -> s {attributeType = a} :: Attribute)
 
 -- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_value :: Lens.Lens' Attribute (Core.Maybe Core.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
-instance Prelude.FromJSON Attribute where
+instance Core.FromJSON Attribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Prelude..:? "AttributeType")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "AttributeType")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Attribute
+instance Core.Hashable Attribute
 
-instance Prelude.NFData Attribute
+instance Core.NFData Attribute

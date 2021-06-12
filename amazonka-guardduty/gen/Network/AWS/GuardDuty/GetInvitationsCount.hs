@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.GuardDuty.GetInvitationsCount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data GetInvitationsCount = GetInvitationsCount'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInvitationsCount' with all optional fields omitted.
@@ -58,48 +57,46 @@ newGetInvitationsCount ::
   GetInvitationsCount
 newGetInvitationsCount = GetInvitationsCount'
 
-instance Prelude.AWSRequest GetInvitationsCount where
+instance Core.AWSRequest GetInvitationsCount where
   type
-    Rs GetInvitationsCount =
+    AWSResponse GetInvitationsCount =
       GetInvitationsCountResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInvitationsCountResponse'
-            Prelude.<$> (x Prelude..?> "invitationsCount")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "invitationsCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInvitationsCount
+instance Core.Hashable GetInvitationsCount
 
-instance Prelude.NFData GetInvitationsCount
+instance Core.NFData GetInvitationsCount
 
-instance Prelude.ToHeaders GetInvitationsCount where
+instance Core.ToHeaders GetInvitationsCount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetInvitationsCount where
-  toPath = Prelude.const "/invitation/count"
+instance Core.ToPath GetInvitationsCount where
+  toPath = Core.const "/invitation/count"
 
-instance Prelude.ToQuery GetInvitationsCount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInvitationsCount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInvitationsCountResponse' smart constructor.
 data GetInvitationsCountResponse = GetInvitationsCountResponse'
   { -- | The number of received invitations.
-    invitationsCount :: Prelude.Maybe Prelude.Int,
+    invitationsCount :: Core.Maybe Core.Int,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInvitationsCountResponse' with all optional fields omitted.
@@ -114,21 +111,21 @@ data GetInvitationsCountResponse = GetInvitationsCountResponse'
 -- 'httpStatus', 'getInvitationsCountResponse_httpStatus' - The response's http status code.
 newGetInvitationsCountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInvitationsCountResponse
 newGetInvitationsCountResponse pHttpStatus_ =
   GetInvitationsCountResponse'
     { invitationsCount =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The number of received invitations.
-getInvitationsCountResponse_invitationsCount :: Lens.Lens' GetInvitationsCountResponse (Prelude.Maybe Prelude.Int)
+getInvitationsCountResponse_invitationsCount :: Lens.Lens' GetInvitationsCountResponse (Core.Maybe Core.Int)
 getInvitationsCountResponse_invitationsCount = Lens.lens (\GetInvitationsCountResponse' {invitationsCount} -> invitationsCount) (\s@GetInvitationsCountResponse' {} a -> s {invitationsCount = a} :: GetInvitationsCountResponse)
 
 -- | The response's http status code.
-getInvitationsCountResponse_httpStatus :: Lens.Lens' GetInvitationsCountResponse Prelude.Int
+getInvitationsCountResponse_httpStatus :: Lens.Lens' GetInvitationsCountResponse Core.Int
 getInvitationsCountResponse_httpStatus = Lens.lens (\GetInvitationsCountResponse' {httpStatus} -> httpStatus) (\s@GetInvitationsCountResponse' {} a -> s {httpStatus = a} :: GetInvitationsCountResponse)
 
-instance Prelude.NFData GetInvitationsCountResponse
+instance Core.NFData GetInvitationsCountResponse

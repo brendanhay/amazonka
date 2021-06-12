@@ -117,6 +117,7 @@ module Network.AWS.Polly.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types.Engine
 import Network.AWS.Polly.Types.Gender
@@ -131,105 +132,102 @@ import Network.AWS.Polly.Types.TaskStatus
 import Network.AWS.Polly.Types.TextType
 import Network.AWS.Polly.Types.Voice
 import Network.AWS.Polly.Types.VoiceId
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-06-10@ of the Amazon Polly SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Polly",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "polly",
-      Prelude._svcSigningName = "polly",
-      Prelude._svcVersion = "2016-06-10",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "Polly",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Polly",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "polly",
+      Core._serviceSigningName = "polly",
+      Core._serviceVersion = "2016-06-10",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Polly",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The SSML you provided is invalid. Verify the SSML syntax, spelling of
 -- tags and values, and then try again.
-_InvalidSsmlException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSsmlException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSsmlException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSsmlException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Amazon Polly can\'t find the specified lexicon. Verify that the
 -- lexicon\'s name is spelled correctly, and then try again.
-_InvalidLexiconException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidLexiconException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidLexiconException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidLexiconException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The provided Amazon S3 key prefix is invalid. Please provide a valid S3
 -- object key name.
-_InvalidS3KeyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidS3KeyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidS3KeyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidS3KeyException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Amazon Polly can\'t find the specified lexicon. This could be caused by
 -- a lexicon that is missing, its name is misspelled or specifying a
@@ -237,28 +235,28 @@ _InvalidS3KeyException =
 --
 -- Verify that the lexicon exists, is in the region (see ListLexicons) and
 -- that you spelled its name is spelled correctly. Then try again.
-_LexiconNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LexiconNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LexiconNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LexiconNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The maximum size of the lexeme would be exceeded by this operation.
-_MaxLexemeLengthExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxLexemeLengthExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxLexemeLengthExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxLexemeLengthExceededException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The Speech Synthesis task with requested Task ID cannot be found.
-_SynthesisTaskNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SynthesisTaskNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SynthesisTaskNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SynthesisTaskNotFoundException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The value of the \"Text\" parameter is longer than the accepted limits.
 -- For the @SynthesizeSpeech@ API, the limit for input text is a maximum of
@@ -266,133 +264,133 @@ _SynthesisTaskNotFoundException =
 -- characters. For the @StartSpeechSynthesisTask@ API, the maximum is
 -- 200,000 characters, of which no more than 100,000 can be billed
 -- characters. SSML tags are not counted as billed characters.
-_TextLengthExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TextLengthExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TextLengthExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TextLengthExceededException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The alphabet specified by the lexicon is not a supported alphabet. Valid
 -- values are @x-sampa@ and @ipa@.
-_UnsupportedPlsAlphabetException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedPlsAlphabetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedPlsAlphabetException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedPlsAlphabetException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The maximum number of lexicons would be exceeded by this operation.
-_MaxLexiconsNumberExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MaxLexiconsNumberExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MaxLexiconsNumberExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MaxLexiconsNumberExceededException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The NextToken is invalid. Verify that it\'s spelled correctly, and then
 -- try again.
-_InvalidNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Speech marks are not supported for the @OutputFormat@ selected. Speech
 -- marks are only available for content in @json@ format.
-_MarksNotSupportedForFormatException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MarksNotSupportedForFormatException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MarksNotSupportedForFormatException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MarksNotSupportedForFormatException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified sample rate is not valid.
-_InvalidSampleRateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSampleRateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSampleRateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSampleRateException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | An unknown condition has caused a service failure.
-_ServiceFailureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceFailureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceFailureException"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The language specified in the lexicon is unsupported. For a list of
 -- supported languages, see
 -- <https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html Lexicon Attributes>.
-_UnsupportedPlsLanguageException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedPlsLanguageException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedPlsLanguageException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedPlsLanguageException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The provided SNS topic ARN is invalid. Please provide a valid SNS topic
 -- ARN and try again.
-_InvalidSnsTopicArnException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSnsTopicArnException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSnsTopicArnException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSnsTopicArnException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The provided Task ID is not valid. Please provide a valid Task ID and
 -- try again.
-_InvalidTaskIdException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTaskIdException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTaskIdException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTaskIdException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The language specified is not currently supported by Amazon Polly in
 -- this capacity.
-_LanguageNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LanguageNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LanguageNotSupportedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LanguageNotSupportedException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The maximum size of the specified lexicon would be exceeded by this
 -- operation.
-_LexiconSizeExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LexiconSizeExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LexiconSizeExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LexiconSizeExceededException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The provided Amazon S3 bucket name is invalid. Please check your input
 -- with S3 bucket naming requirements and try again.
-_InvalidS3BucketException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidS3BucketException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidS3BucketException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidS3BucketException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | SSML speech marks are not supported for plain text-type input.
-_SsmlMarksNotSupportedForTextTypeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SsmlMarksNotSupportedForTextTypeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SsmlMarksNotSupportedForTextTypeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SsmlMarksNotSupportedForTextTypeException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | This engine is not compatible with the voice that you have designated.
 -- Choose a new voice that is compatible with the engine or change the
 -- engine and restart the operation.
-_EngineNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_EngineNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _EngineNotSupportedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "EngineNotSupportedException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

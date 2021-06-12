@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SSM.SendAutomationSignal
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -67,14 +66,14 @@ data SendAutomationSignal = SendAutomationSignal'
     -- the payload. For example:
     --
     -- @StepExecutionId=\"97fff367-fc5a-4299-aed8-0123456789ab\"@
-    payload :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    payload :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The unique identifier for an existing Automation execution that you want
     -- to send the signal to.
-    automationExecutionId :: Prelude.Text,
+    automationExecutionId :: Core.Text,
     -- | The type of signal to send to an Automation execution.
     signalType :: SignalType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendAutomationSignal' with all optional fields omitted.
@@ -108,7 +107,7 @@ data SendAutomationSignal = SendAutomationSignal'
 -- 'signalType', 'sendAutomationSignal_signalType' - The type of signal to send to an Automation execution.
 newSendAutomationSignal ::
   -- | 'automationExecutionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'signalType'
   SignalType ->
   SendAutomationSignal
@@ -116,7 +115,7 @@ newSendAutomationSignal
   pAutomationExecutionId_
   pSignalType_ =
     SendAutomationSignal'
-      { payload = Prelude.Nothing,
+      { payload = Core.Nothing,
         automationExecutionId = pAutomationExecutionId_,
         signalType = pSignalType_
       }
@@ -138,74 +137,72 @@ newSendAutomationSignal
 -- the payload. For example:
 --
 -- @StepExecutionId=\"97fff367-fc5a-4299-aed8-0123456789ab\"@
-sendAutomationSignal_payload :: Lens.Lens' SendAutomationSignal (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-sendAutomationSignal_payload = Lens.lens (\SendAutomationSignal' {payload} -> payload) (\s@SendAutomationSignal' {} a -> s {payload = a} :: SendAutomationSignal) Prelude.. Lens.mapping Prelude._Coerce
+sendAutomationSignal_payload :: Lens.Lens' SendAutomationSignal (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+sendAutomationSignal_payload = Lens.lens (\SendAutomationSignal' {payload} -> payload) (\s@SendAutomationSignal' {} a -> s {payload = a} :: SendAutomationSignal) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for an existing Automation execution that you want
 -- to send the signal to.
-sendAutomationSignal_automationExecutionId :: Lens.Lens' SendAutomationSignal Prelude.Text
+sendAutomationSignal_automationExecutionId :: Lens.Lens' SendAutomationSignal Core.Text
 sendAutomationSignal_automationExecutionId = Lens.lens (\SendAutomationSignal' {automationExecutionId} -> automationExecutionId) (\s@SendAutomationSignal' {} a -> s {automationExecutionId = a} :: SendAutomationSignal)
 
 -- | The type of signal to send to an Automation execution.
 sendAutomationSignal_signalType :: Lens.Lens' SendAutomationSignal SignalType
 sendAutomationSignal_signalType = Lens.lens (\SendAutomationSignal' {signalType} -> signalType) (\s@SendAutomationSignal' {} a -> s {signalType = a} :: SendAutomationSignal)
 
-instance Prelude.AWSRequest SendAutomationSignal where
+instance Core.AWSRequest SendAutomationSignal where
   type
-    Rs SendAutomationSignal =
+    AWSResponse SendAutomationSignal =
       SendAutomationSignalResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendAutomationSignalResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SendAutomationSignal
+instance Core.Hashable SendAutomationSignal
 
-instance Prelude.NFData SendAutomationSignal
+instance Core.NFData SendAutomationSignal
 
-instance Prelude.ToHeaders SendAutomationSignal where
+instance Core.ToHeaders SendAutomationSignal where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.SendAutomationSignal" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.SendAutomationSignal" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SendAutomationSignal where
+instance Core.ToJSON SendAutomationSignal where
   toJSON SendAutomationSignal' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Payload" Prelude..=) Prelude.<$> payload,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("Payload" Core..=) Core.<$> payload,
+            Core.Just
               ( "AutomationExecutionId"
-                  Prelude..= automationExecutionId
+                  Core..= automationExecutionId
               ),
-            Prelude.Just ("SignalType" Prelude..= signalType)
+            Core.Just ("SignalType" Core..= signalType)
           ]
       )
 
-instance Prelude.ToPath SendAutomationSignal where
-  toPath = Prelude.const "/"
+instance Core.ToPath SendAutomationSignal where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SendAutomationSignal where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SendAutomationSignal where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSendAutomationSignalResponse' smart constructor.
 data SendAutomationSignalResponse = SendAutomationSignalResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SendAutomationSignalResponse' with all optional fields omitted.
@@ -218,7 +215,7 @@ data SendAutomationSignalResponse = SendAutomationSignalResponse'
 -- 'httpStatus', 'sendAutomationSignalResponse_httpStatus' - The response's http status code.
 newSendAutomationSignalResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SendAutomationSignalResponse
 newSendAutomationSignalResponse pHttpStatus_ =
   SendAutomationSignalResponse'
@@ -227,7 +224,7 @@ newSendAutomationSignalResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-sendAutomationSignalResponse_httpStatus :: Lens.Lens' SendAutomationSignalResponse Prelude.Int
+sendAutomationSignalResponse_httpStatus :: Lens.Lens' SendAutomationSignalResponse Core.Int
 sendAutomationSignalResponse_httpStatus = Lens.lens (\SendAutomationSignalResponse' {httpStatus} -> httpStatus) (\s@SendAutomationSignalResponse' {} a -> s {httpStatus = a} :: SendAutomationSignalResponse)
 
-instance Prelude.NFData SendAutomationSignalResponse
+instance Core.NFData SendAutomationSignalResponse

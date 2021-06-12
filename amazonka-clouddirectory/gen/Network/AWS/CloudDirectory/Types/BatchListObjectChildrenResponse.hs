@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a ListObjectChildren response operation.
 --
 -- /See:/ 'newBatchListObjectChildrenResponse' smart constructor.
 data BatchListObjectChildrenResponse = BatchListObjectChildrenResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The children structure, which is a map with the key as the @LinkName@
     -- and @ObjectIdentifier@ as the value.
-    children :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    children :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListObjectChildrenResponse' with all optional fields omitted.
@@ -52,38 +51,34 @@ newBatchListObjectChildrenResponse ::
 newBatchListObjectChildrenResponse =
   BatchListObjectChildrenResponse'
     { nextToken =
-        Prelude.Nothing,
-      children = Prelude.Nothing
+        Core.Nothing,
+      children = Core.Nothing
     }
 
 -- | The pagination token.
-batchListObjectChildrenResponse_nextToken :: Lens.Lens' BatchListObjectChildrenResponse (Prelude.Maybe Prelude.Text)
+batchListObjectChildrenResponse_nextToken :: Lens.Lens' BatchListObjectChildrenResponse (Core.Maybe Core.Text)
 batchListObjectChildrenResponse_nextToken = Lens.lens (\BatchListObjectChildrenResponse' {nextToken} -> nextToken) (\s@BatchListObjectChildrenResponse' {} a -> s {nextToken = a} :: BatchListObjectChildrenResponse)
 
 -- | The children structure, which is a map with the key as the @LinkName@
 -- and @ObjectIdentifier@ as the value.
-batchListObjectChildrenResponse_children :: Lens.Lens' BatchListObjectChildrenResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-batchListObjectChildrenResponse_children = Lens.lens (\BatchListObjectChildrenResponse' {children} -> children) (\s@BatchListObjectChildrenResponse' {} a -> s {children = a} :: BatchListObjectChildrenResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchListObjectChildrenResponse_children :: Lens.Lens' BatchListObjectChildrenResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+batchListObjectChildrenResponse_children = Lens.lens (\BatchListObjectChildrenResponse' {children} -> children) (\s@BatchListObjectChildrenResponse' {} a -> s {children = a} :: BatchListObjectChildrenResponse) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchListObjectChildrenResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchListObjectChildrenResponse"
       ( \x ->
           BatchListObjectChildrenResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> ( x Prelude..:? "Children"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Children" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchListObjectChildrenResponse
 
-instance
-  Prelude.NFData
-    BatchListObjectChildrenResponse
+instance Core.NFData BatchListObjectChildrenResponse

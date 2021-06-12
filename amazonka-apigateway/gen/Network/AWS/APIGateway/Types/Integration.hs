@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -25,8 +24,8 @@ import Network.AWS.APIGateway.Types.ContentHandlingStrategy
 import Network.AWS.APIGateway.Types.IntegrationResponse
 import Network.AWS.APIGateway.Types.IntegrationType
 import Network.AWS.APIGateway.Types.TlsConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an HTTP, HTTP_PROXY, AWS, AWS_PROXY, or Mock integration.
 --
@@ -38,7 +37,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newIntegration' smart constructor.
 data Integration = Integration'
   { -- | Specifies the integration\'s HTTP method type.
-    httpMethod :: Prelude.Maybe Prelude.Text,
+    httpMethod :: Core.Maybe Core.Text,
     -- | Specifies how the method request body of an unmapped content type will
     -- be passed through the integration request to the back end without
     -- transformation. A content type is unmapped if no mapping template is
@@ -62,7 +61,7 @@ data Integration = Integration'
     --     content type does not match any content type associated with the
     --     mapping templates defined in the integration request or no mapping
     --     template is defined in the integration request.
-    passthroughBehavior :: Prelude.Maybe Prelude.Text,
+    passthroughBehavior :: Core.Maybe Core.Text,
     -- | Specifies how to handle request payload content type conversions.
     -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
     -- following behaviors:
@@ -77,7 +76,7 @@ data Integration = Integration'
     -- through from the method request to integration request without
     -- modification, provided that the @passthroughBehavior@ is configured to
     -- support payload pass-through.
-    contentHandling :: Prelude.Maybe ContentHandlingStrategy,
+    contentHandling :: Core.Maybe ContentHandlingStrategy,
     -- | Specifies Uniform Resource Identifier (URI) of the integration endpoint.
     --
     -- -   For @HTTP@ or @HTTP_PROXY@ integrations, the URI must be a fully
@@ -104,36 +103,36 @@ data Integration = Integration'
     --     with the S3 API of @GetObject@, the @uri@ can be either
     --     @arn:aws:apigateway:us-west-2:s3:action\/GetObject&Bucket={bucket}&Key={key}@
     --     or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@
-    uri :: Prelude.Maybe Prelude.Text,
+    uri :: Core.Maybe Core.Text,
     -- | The type of the network connection to the integration endpoint. The
     -- valid value is @INTERNET@ for connections through the public routable
     -- internet or @VPC_LINK@ for private connections between API Gateway and a
     -- network load balancer in a VPC. The default value is @INTERNET@.
-    connectionType :: Prelude.Maybe ConnectionType,
+    connectionType :: Core.Maybe ConnectionType,
     -- | The
     -- (<https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id id>)
     -- of the VpcLink used for the integration when @connectionType=VPC_LINK@
     -- and undefined, otherwise.
-    connectionId :: Prelude.Maybe Prelude.Text,
+    connectionId :: Core.Maybe Core.Text,
     -- | Represents a map of Velocity templates that are applied on the request
     -- payload based on the value of the Content-Type header sent by the
     -- client. The content type value is the key in this map, and the template
     -- (as a String) is the value.
-    requestTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    requestTemplates :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Custom timeout between 50 and 29,000 milliseconds. The default value is
     -- 29,000 milliseconds or 29 seconds.
-    timeoutInMillis :: Prelude.Maybe Prelude.Int,
+    timeoutInMillis :: Core.Maybe Core.Int,
     -- | Specifies a group of related cached parameters. By default, API Gateway
     -- uses the resource ID as the @cacheNamespace@. You can specify the same
     -- @cacheNamespace@ across resources to return the same cached data for
     -- requests to different resources.
-    cacheNamespace :: Prelude.Maybe Prelude.Text,
+    cacheNamespace :: Core.Maybe Core.Text,
     -- | A list of request parameters whose values API Gateway caches. To be
     -- valid values for @cacheKeyParameters@, these parameters must also be
     -- specified for Method @requestParameters@.
-    cacheKeyParameters :: Prelude.Maybe [Prelude.Text],
+    cacheKeyParameters :: Core.Maybe [Core.Text],
     -- | Specifies the TLS configuration for an integration.
-    tlsConfig :: Prelude.Maybe TlsConfig,
+    tlsConfig :: Core.Maybe TlsConfig,
     -- | Specifies the integration\'s responses.
     --
     -- ==== Example: Get integration responses of a method
@@ -150,7 +149,7 @@ data Integration = Integration'
     -- > { "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }
     --
     -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
-    integrationResponses :: Prelude.Maybe (Prelude.HashMap Prelude.Text IntegrationResponse),
+    integrationResponses :: Core.Maybe (Core.HashMap Core.Text IntegrationResponse),
     -- | A key-value map specifying request parameters that are passed from the
     -- method request to the back end. The key is an integration request
     -- parameter name and the associated value is a method request parameter
@@ -159,7 +158,7 @@ data Integration = Integration'
     -- value must match the pattern of @method.request.{location}.{name}@,
     -- where @location@ is @querystring@, @path@, or @header@ and @name@ must
     -- be a valid and unique method request parameter name.
-    requestParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    requestParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies an API method integration type. The valid value is one of the
     -- following:
     --
@@ -188,16 +187,16 @@ data Integration = Integration'
     -- integration with a @connectionType@ of @VPC_LINK@ is referred to as a
     -- private integration and uses a VpcLink to connect API Gateway to a
     -- network load balancer of a VPC.
-    type' :: Prelude.Maybe IntegrationType,
+    type' :: Core.Maybe IntegrationType,
     -- | Specifies the credentials required for the integration, if any. For AWS
     -- integrations, three options are available. To specify an IAM Role for
     -- API Gateway to assume, use the role\'s Amazon Resource Name (ARN). To
     -- require that the caller\'s identity be passed through from the request,
     -- specify the string @arn:aws:iam::\\*:user\/\\*@. To use resource-based
     -- permissions on supported AWS services, specify null.
-    credentials :: Prelude.Maybe Prelude.Text
+    credentials :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Integration' with all optional fields omitted.
@@ -369,25 +368,25 @@ newIntegration ::
   Integration
 newIntegration =
   Integration'
-    { httpMethod = Prelude.Nothing,
-      passthroughBehavior = Prelude.Nothing,
-      contentHandling = Prelude.Nothing,
-      uri = Prelude.Nothing,
-      connectionType = Prelude.Nothing,
-      connectionId = Prelude.Nothing,
-      requestTemplates = Prelude.Nothing,
-      timeoutInMillis = Prelude.Nothing,
-      cacheNamespace = Prelude.Nothing,
-      cacheKeyParameters = Prelude.Nothing,
-      tlsConfig = Prelude.Nothing,
-      integrationResponses = Prelude.Nothing,
-      requestParameters = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      credentials = Prelude.Nothing
+    { httpMethod = Core.Nothing,
+      passthroughBehavior = Core.Nothing,
+      contentHandling = Core.Nothing,
+      uri = Core.Nothing,
+      connectionType = Core.Nothing,
+      connectionId = Core.Nothing,
+      requestTemplates = Core.Nothing,
+      timeoutInMillis = Core.Nothing,
+      cacheNamespace = Core.Nothing,
+      cacheKeyParameters = Core.Nothing,
+      tlsConfig = Core.Nothing,
+      integrationResponses = Core.Nothing,
+      requestParameters = Core.Nothing,
+      type' = Core.Nothing,
+      credentials = Core.Nothing
     }
 
 -- | Specifies the integration\'s HTTP method type.
-integration_httpMethod :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
+integration_httpMethod :: Lens.Lens' Integration (Core.Maybe Core.Text)
 integration_httpMethod = Lens.lens (\Integration' {httpMethod} -> httpMethod) (\s@Integration' {} a -> s {httpMethod = a} :: Integration)
 
 -- | Specifies how the method request body of an unmapped content type will
@@ -413,7 +412,7 @@ integration_httpMethod = Lens.lens (\Integration' {httpMethod} -> httpMethod) (\
 --     content type does not match any content type associated with the
 --     mapping templates defined in the integration request or no mapping
 --     template is defined in the integration request.
-integration_passthroughBehavior :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
+integration_passthroughBehavior :: Lens.Lens' Integration (Core.Maybe Core.Text)
 integration_passthroughBehavior = Lens.lens (\Integration' {passthroughBehavior} -> passthroughBehavior) (\s@Integration' {} a -> s {passthroughBehavior = a} :: Integration)
 
 -- | Specifies how to handle request payload content type conversions.
@@ -430,7 +429,7 @@ integration_passthroughBehavior = Lens.lens (\Integration' {passthroughBehavior}
 -- through from the method request to integration request without
 -- modification, provided that the @passthroughBehavior@ is configured to
 -- support payload pass-through.
-integration_contentHandling :: Lens.Lens' Integration (Prelude.Maybe ContentHandlingStrategy)
+integration_contentHandling :: Lens.Lens' Integration (Core.Maybe ContentHandlingStrategy)
 integration_contentHandling = Lens.lens (\Integration' {contentHandling} -> contentHandling) (\s@Integration' {} a -> s {contentHandling = a} :: Integration)
 
 -- | Specifies Uniform Resource Identifier (URI) of the integration endpoint.
@@ -459,50 +458,50 @@ integration_contentHandling = Lens.lens (\Integration' {contentHandling} -> cont
 --     with the S3 API of @GetObject@, the @uri@ can be either
 --     @arn:aws:apigateway:us-west-2:s3:action\/GetObject&Bucket={bucket}&Key={key}@
 --     or @arn:aws:apigateway:us-west-2:s3:path\/{bucket}\/{key}@
-integration_uri :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
+integration_uri :: Lens.Lens' Integration (Core.Maybe Core.Text)
 integration_uri = Lens.lens (\Integration' {uri} -> uri) (\s@Integration' {} a -> s {uri = a} :: Integration)
 
 -- | The type of the network connection to the integration endpoint. The
 -- valid value is @INTERNET@ for connections through the public routable
 -- internet or @VPC_LINK@ for private connections between API Gateway and a
 -- network load balancer in a VPC. The default value is @INTERNET@.
-integration_connectionType :: Lens.Lens' Integration (Prelude.Maybe ConnectionType)
+integration_connectionType :: Lens.Lens' Integration (Core.Maybe ConnectionType)
 integration_connectionType = Lens.lens (\Integration' {connectionType} -> connectionType) (\s@Integration' {} a -> s {connectionType = a} :: Integration)
 
 -- | The
 -- (<https://docs.aws.amazon.com/apigateway/api-reference/resource/vpc-link/#id id>)
 -- of the VpcLink used for the integration when @connectionType=VPC_LINK@
 -- and undefined, otherwise.
-integration_connectionId :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
+integration_connectionId :: Lens.Lens' Integration (Core.Maybe Core.Text)
 integration_connectionId = Lens.lens (\Integration' {connectionId} -> connectionId) (\s@Integration' {} a -> s {connectionId = a} :: Integration)
 
 -- | Represents a map of Velocity templates that are applied on the request
 -- payload based on the value of the Content-Type header sent by the
 -- client. The content type value is the key in this map, and the template
 -- (as a String) is the value.
-integration_requestTemplates :: Lens.Lens' Integration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-integration_requestTemplates = Lens.lens (\Integration' {requestTemplates} -> requestTemplates) (\s@Integration' {} a -> s {requestTemplates = a} :: Integration) Prelude.. Lens.mapping Prelude._Coerce
+integration_requestTemplates :: Lens.Lens' Integration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+integration_requestTemplates = Lens.lens (\Integration' {requestTemplates} -> requestTemplates) (\s@Integration' {} a -> s {requestTemplates = a} :: Integration) Core.. Lens.mapping Lens._Coerce
 
 -- | Custom timeout between 50 and 29,000 milliseconds. The default value is
 -- 29,000 milliseconds or 29 seconds.
-integration_timeoutInMillis :: Lens.Lens' Integration (Prelude.Maybe Prelude.Int)
+integration_timeoutInMillis :: Lens.Lens' Integration (Core.Maybe Core.Int)
 integration_timeoutInMillis = Lens.lens (\Integration' {timeoutInMillis} -> timeoutInMillis) (\s@Integration' {} a -> s {timeoutInMillis = a} :: Integration)
 
 -- | Specifies a group of related cached parameters. By default, API Gateway
 -- uses the resource ID as the @cacheNamespace@. You can specify the same
 -- @cacheNamespace@ across resources to return the same cached data for
 -- requests to different resources.
-integration_cacheNamespace :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
+integration_cacheNamespace :: Lens.Lens' Integration (Core.Maybe Core.Text)
 integration_cacheNamespace = Lens.lens (\Integration' {cacheNamespace} -> cacheNamespace) (\s@Integration' {} a -> s {cacheNamespace = a} :: Integration)
 
 -- | A list of request parameters whose values API Gateway caches. To be
 -- valid values for @cacheKeyParameters@, these parameters must also be
 -- specified for Method @requestParameters@.
-integration_cacheKeyParameters :: Lens.Lens' Integration (Prelude.Maybe [Prelude.Text])
-integration_cacheKeyParameters = Lens.lens (\Integration' {cacheKeyParameters} -> cacheKeyParameters) (\s@Integration' {} a -> s {cacheKeyParameters = a} :: Integration) Prelude.. Lens.mapping Prelude._Coerce
+integration_cacheKeyParameters :: Lens.Lens' Integration (Core.Maybe [Core.Text])
+integration_cacheKeyParameters = Lens.lens (\Integration' {cacheKeyParameters} -> cacheKeyParameters) (\s@Integration' {} a -> s {cacheKeyParameters = a} :: Integration) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the TLS configuration for an integration.
-integration_tlsConfig :: Lens.Lens' Integration (Prelude.Maybe TlsConfig)
+integration_tlsConfig :: Lens.Lens' Integration (Core.Maybe TlsConfig)
 integration_tlsConfig = Lens.lens (\Integration' {tlsConfig} -> tlsConfig) (\s@Integration' {} a -> s {tlsConfig = a} :: Integration)
 
 -- | Specifies the integration\'s responses.
@@ -521,8 +520,8 @@ integration_tlsConfig = Lens.lens (\Integration' {tlsConfig} -> tlsConfig) (\s@I
 -- > { "_links": { "curies": { "href": "https://docs.aws.amazon.com/apigateway/latest/developerguide/restapi-integration-response-{rel}.html", "name": "integrationresponse", "templated": true }, "self": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200", "title": "200" }, "integrationresponse:delete": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" }, "integrationresponse:update": { "href": "/restapis/fugvjdxtri/resources/3kzxbg5sa2/methods/GET/integration/responses/200" } }, "responseParameters": { "method.response.header.Content-Type": "'application/xml'" }, "responseTemplates": { "application/json": "$util.urlDecode(\"%3CkinesisStreams%3E#foreach($stream in $input.path('$.StreamNames'))%3Cstream%3E%3Cname%3E$stream%3C/name%3E%3C/stream%3E#end%3C/kinesisStreams%3E\")\n" }, "statusCode": "200" }
 --
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
-integration_integrationResponses :: Lens.Lens' Integration (Prelude.Maybe (Prelude.HashMap Prelude.Text IntegrationResponse))
-integration_integrationResponses = Lens.lens (\Integration' {integrationResponses} -> integrationResponses) (\s@Integration' {} a -> s {integrationResponses = a} :: Integration) Prelude.. Lens.mapping Prelude._Coerce
+integration_integrationResponses :: Lens.Lens' Integration (Core.Maybe (Core.HashMap Core.Text IntegrationResponse))
+integration_integrationResponses = Lens.lens (\Integration' {integrationResponses} -> integrationResponses) (\s@Integration' {} a -> s {integrationResponses = a} :: Integration) Core.. Lens.mapping Lens._Coerce
 
 -- | A key-value map specifying request parameters that are passed from the
 -- method request to the back end. The key is an integration request
@@ -532,8 +531,8 @@ integration_integrationResponses = Lens.lens (\Integration' {integrationResponse
 -- value must match the pattern of @method.request.{location}.{name}@,
 -- where @location@ is @querystring@, @path@, or @header@ and @name@ must
 -- be a valid and unique method request parameter name.
-integration_requestParameters :: Lens.Lens' Integration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-integration_requestParameters = Lens.lens (\Integration' {requestParameters} -> requestParameters) (\s@Integration' {} a -> s {requestParameters = a} :: Integration) Prelude.. Lens.mapping Prelude._Coerce
+integration_requestParameters :: Lens.Lens' Integration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+integration_requestParameters = Lens.lens (\Integration' {requestParameters} -> requestParameters) (\s@Integration' {} a -> s {requestParameters = a} :: Integration) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies an API method integration type. The valid value is one of the
 -- following:
@@ -563,7 +562,7 @@ integration_requestParameters = Lens.lens (\Integration' {requestParameters} -> 
 -- integration with a @connectionType@ of @VPC_LINK@ is referred to as a
 -- private integration and uses a VpcLink to connect API Gateway to a
 -- network load balancer of a VPC.
-integration_type :: Lens.Lens' Integration (Prelude.Maybe IntegrationType)
+integration_type :: Lens.Lens' Integration (Core.Maybe IntegrationType)
 integration_type = Lens.lens (\Integration' {type'} -> type') (\s@Integration' {} a -> s {type' = a} :: Integration)
 
 -- | Specifies the credentials required for the integration, if any. For AWS
@@ -572,40 +571,36 @@ integration_type = Lens.lens (\Integration' {type'} -> type') (\s@Integration' {
 -- require that the caller\'s identity be passed through from the request,
 -- specify the string @arn:aws:iam::\\*:user\/\\*@. To use resource-based
 -- permissions on supported AWS services, specify null.
-integration_credentials :: Lens.Lens' Integration (Prelude.Maybe Prelude.Text)
+integration_credentials :: Lens.Lens' Integration (Core.Maybe Core.Text)
 integration_credentials = Lens.lens (\Integration' {credentials} -> credentials) (\s@Integration' {} a -> s {credentials = a} :: Integration)
 
-instance Prelude.FromJSON Integration where
+instance Core.FromJSON Integration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Integration"
       ( \x ->
           Integration'
-            Prelude.<$> (x Prelude..:? "httpMethod")
-            Prelude.<*> (x Prelude..:? "passthroughBehavior")
-            Prelude.<*> (x Prelude..:? "contentHandling")
-            Prelude.<*> (x Prelude..:? "uri")
-            Prelude.<*> (x Prelude..:? "connectionType")
-            Prelude.<*> (x Prelude..:? "connectionId")
-            Prelude.<*> ( x Prelude..:? "requestTemplates"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "timeoutInMillis")
-            Prelude.<*> (x Prelude..:? "cacheNamespace")
-            Prelude.<*> ( x Prelude..:? "cacheKeyParameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "tlsConfig")
-            Prelude.<*> ( x Prelude..:? "integrationResponses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "requestParameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "credentials")
+            Core.<$> (x Core..:? "httpMethod")
+            Core.<*> (x Core..:? "passthroughBehavior")
+            Core.<*> (x Core..:? "contentHandling")
+            Core.<*> (x Core..:? "uri")
+            Core.<*> (x Core..:? "connectionType")
+            Core.<*> (x Core..:? "connectionId")
+            Core.<*> (x Core..:? "requestTemplates" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "timeoutInMillis")
+            Core.<*> (x Core..:? "cacheNamespace")
+            Core.<*> ( x Core..:? "cacheKeyParameters"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "tlsConfig")
+            Core.<*> ( x Core..:? "integrationResponses"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "requestParameters" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "credentials")
       )
 
-instance Prelude.Hashable Integration
+instance Core.Hashable Integration
 
-instance Prelude.NFData Integration
+instance Core.NFData Integration

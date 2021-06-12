@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.TransformEncryption where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.MLUserDataEncryption
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption-at-rest settings of the transform that apply to accessing
 -- user data. Machine learning transforms can access user data encrypted in
@@ -35,11 +34,11 @@ import qualified Network.AWS.Prelude as Prelude
 data TransformEncryption = TransformEncryption'
   { -- | An @MLUserDataEncryption@ object containing the encryption mode and
     -- customer-provided KMS key ID.
-    mlUserDataEncryption :: Prelude.Maybe MLUserDataEncryption,
+    mlUserDataEncryption :: Core.Maybe MLUserDataEncryption,
     -- | The name of the security configuration.
-    taskRunSecurityConfigurationName :: Prelude.Maybe Prelude.Text
+    taskRunSecurityConfigurationName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformEncryption' with all optional fields omitted.
@@ -58,40 +57,40 @@ newTransformEncryption ::
 newTransformEncryption =
   TransformEncryption'
     { mlUserDataEncryption =
-        Prelude.Nothing,
-      taskRunSecurityConfigurationName = Prelude.Nothing
+        Core.Nothing,
+      taskRunSecurityConfigurationName = Core.Nothing
     }
 
 -- | An @MLUserDataEncryption@ object containing the encryption mode and
 -- customer-provided KMS key ID.
-transformEncryption_mlUserDataEncryption :: Lens.Lens' TransformEncryption (Prelude.Maybe MLUserDataEncryption)
+transformEncryption_mlUserDataEncryption :: Lens.Lens' TransformEncryption (Core.Maybe MLUserDataEncryption)
 transformEncryption_mlUserDataEncryption = Lens.lens (\TransformEncryption' {mlUserDataEncryption} -> mlUserDataEncryption) (\s@TransformEncryption' {} a -> s {mlUserDataEncryption = a} :: TransformEncryption)
 
 -- | The name of the security configuration.
-transformEncryption_taskRunSecurityConfigurationName :: Lens.Lens' TransformEncryption (Prelude.Maybe Prelude.Text)
+transformEncryption_taskRunSecurityConfigurationName :: Lens.Lens' TransformEncryption (Core.Maybe Core.Text)
 transformEncryption_taskRunSecurityConfigurationName = Lens.lens (\TransformEncryption' {taskRunSecurityConfigurationName} -> taskRunSecurityConfigurationName) (\s@TransformEncryption' {} a -> s {taskRunSecurityConfigurationName = a} :: TransformEncryption)
 
-instance Prelude.FromJSON TransformEncryption where
+instance Core.FromJSON TransformEncryption where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TransformEncryption"
       ( \x ->
           TransformEncryption'
-            Prelude.<$> (x Prelude..:? "MlUserDataEncryption")
-            Prelude.<*> (x Prelude..:? "TaskRunSecurityConfigurationName")
+            Core.<$> (x Core..:? "MlUserDataEncryption")
+            Core.<*> (x Core..:? "TaskRunSecurityConfigurationName")
       )
 
-instance Prelude.Hashable TransformEncryption
+instance Core.Hashable TransformEncryption
 
-instance Prelude.NFData TransformEncryption
+instance Core.NFData TransformEncryption
 
-instance Prelude.ToJSON TransformEncryption where
+instance Core.ToJSON TransformEncryption where
   toJSON TransformEncryption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MlUserDataEncryption" Prelude..=)
-              Prelude.<$> mlUserDataEncryption,
-            ("TaskRunSecurityConfigurationName" Prelude..=)
-              Prelude.<$> taskRunSecurityConfigurationName
+    Core.object
+      ( Core.catMaybes
+          [ ("MlUserDataEncryption" Core..=)
+              Core.<$> mlUserDataEncryption,
+            ("TaskRunSecurityConfigurationName" Core..=)
+              Core.<$> taskRunSecurityConfigurationName
           ]
       )

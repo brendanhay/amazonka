@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.WAFRegional.ListGeoMatchSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -65,14 +64,14 @@ data ListGeoMatchSets = ListGeoMatchSets'
     -- For the second and subsequent @ListGeoMatchSets@ requests, specify the
     -- value of @NextMarker@ from the previous response to get information
     -- about another batch of @GeoMatchSet@ objects.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
     -- return for this request. If you have more @GeoMatchSet@ objects than the
     -- number you specify for @Limit@, the response includes a @NextMarker@
     -- value that you can use to get another batch of @GeoMatchSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGeoMatchSets' with all optional fields omitted.
@@ -97,8 +96,8 @@ newListGeoMatchSets ::
   ListGeoMatchSets
 newListGeoMatchSets =
   ListGeoMatchSets'
-    { nextMarker = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more @GeoMatchSet@s than
@@ -107,78 +106,76 @@ newListGeoMatchSets =
 -- For the second and subsequent @ListGeoMatchSets@ requests, specify the
 -- value of @NextMarker@ from the previous response to get information
 -- about another batch of @GeoMatchSet@ objects.
-listGeoMatchSets_nextMarker :: Lens.Lens' ListGeoMatchSets (Prelude.Maybe Prelude.Text)
+listGeoMatchSets_nextMarker :: Lens.Lens' ListGeoMatchSets (Core.Maybe Core.Text)
 listGeoMatchSets_nextMarker = Lens.lens (\ListGeoMatchSets' {nextMarker} -> nextMarker) (\s@ListGeoMatchSets' {} a -> s {nextMarker = a} :: ListGeoMatchSets)
 
 -- | Specifies the number of @GeoMatchSet@ objects that you want AWS WAF to
 -- return for this request. If you have more @GeoMatchSet@ objects than the
 -- number you specify for @Limit@, the response includes a @NextMarker@
 -- value that you can use to get another batch of @GeoMatchSet@ objects.
-listGeoMatchSets_limit :: Lens.Lens' ListGeoMatchSets (Prelude.Maybe Prelude.Natural)
+listGeoMatchSets_limit :: Lens.Lens' ListGeoMatchSets (Core.Maybe Core.Natural)
 listGeoMatchSets_limit = Lens.lens (\ListGeoMatchSets' {limit} -> limit) (\s@ListGeoMatchSets' {} a -> s {limit = a} :: ListGeoMatchSets)
 
-instance Prelude.AWSRequest ListGeoMatchSets where
-  type Rs ListGeoMatchSets = ListGeoMatchSetsResponse
+instance Core.AWSRequest ListGeoMatchSets where
+  type
+    AWSResponse ListGeoMatchSets =
+      ListGeoMatchSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListGeoMatchSetsResponse'
-            Prelude.<$> ( x Prelude..?> "GeoMatchSets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GeoMatchSets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListGeoMatchSets
+instance Core.Hashable ListGeoMatchSets
 
-instance Prelude.NFData ListGeoMatchSets
+instance Core.NFData ListGeoMatchSets
 
-instance Prelude.ToHeaders ListGeoMatchSets where
+instance Core.ToHeaders ListGeoMatchSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.ListGeoMatchSets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.ListGeoMatchSets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListGeoMatchSets where
+instance Core.ToJSON ListGeoMatchSets where
   toJSON ListGeoMatchSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListGeoMatchSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListGeoMatchSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListGeoMatchSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListGeoMatchSets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListGeoMatchSetsResponse' smart constructor.
 data ListGeoMatchSetsResponse = ListGeoMatchSetsResponse'
   { -- | An array of GeoMatchSetSummary objects.
-    geoMatchSets :: Prelude.Maybe [GeoMatchSetSummary],
+    geoMatchSets :: Core.Maybe [GeoMatchSetSummary],
     -- | If you have more @GeoMatchSet@ objects than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @GeoMatchSet@ objects, submit another
     -- @ListGeoMatchSets@ request, and specify the @NextMarker@ value from the
     -- response in the @NextMarker@ value in the next request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGeoMatchSetsResponse' with all optional fields omitted.
@@ -199,30 +196,30 @@ data ListGeoMatchSetsResponse = ListGeoMatchSetsResponse'
 -- 'httpStatus', 'listGeoMatchSetsResponse_httpStatus' - The response's http status code.
 newListGeoMatchSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListGeoMatchSetsResponse
 newListGeoMatchSetsResponse pHttpStatus_ =
   ListGeoMatchSetsResponse'
     { geoMatchSets =
-        Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+        Core.Nothing,
+      nextMarker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of GeoMatchSetSummary objects.
-listGeoMatchSetsResponse_geoMatchSets :: Lens.Lens' ListGeoMatchSetsResponse (Prelude.Maybe [GeoMatchSetSummary])
-listGeoMatchSetsResponse_geoMatchSets = Lens.lens (\ListGeoMatchSetsResponse' {geoMatchSets} -> geoMatchSets) (\s@ListGeoMatchSetsResponse' {} a -> s {geoMatchSets = a} :: ListGeoMatchSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listGeoMatchSetsResponse_geoMatchSets :: Lens.Lens' ListGeoMatchSetsResponse (Core.Maybe [GeoMatchSetSummary])
+listGeoMatchSetsResponse_geoMatchSets = Lens.lens (\ListGeoMatchSetsResponse' {geoMatchSets} -> geoMatchSets) (\s@ListGeoMatchSetsResponse' {} a -> s {geoMatchSets = a} :: ListGeoMatchSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If you have more @GeoMatchSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
 -- @NextMarker@ value. To list more @GeoMatchSet@ objects, submit another
 -- @ListGeoMatchSets@ request, and specify the @NextMarker@ value from the
 -- response in the @NextMarker@ value in the next request.
-listGeoMatchSetsResponse_nextMarker :: Lens.Lens' ListGeoMatchSetsResponse (Prelude.Maybe Prelude.Text)
+listGeoMatchSetsResponse_nextMarker :: Lens.Lens' ListGeoMatchSetsResponse (Core.Maybe Core.Text)
 listGeoMatchSetsResponse_nextMarker = Lens.lens (\ListGeoMatchSetsResponse' {nextMarker} -> nextMarker) (\s@ListGeoMatchSetsResponse' {} a -> s {nextMarker = a} :: ListGeoMatchSetsResponse)
 
 -- | The response's http status code.
-listGeoMatchSetsResponse_httpStatus :: Lens.Lens' ListGeoMatchSetsResponse Prelude.Int
+listGeoMatchSetsResponse_httpStatus :: Lens.Lens' ListGeoMatchSetsResponse Core.Int
 listGeoMatchSetsResponse_httpStatus = Lens.lens (\ListGeoMatchSetsResponse' {httpStatus} -> httpStatus) (\s@ListGeoMatchSetsResponse' {} a -> s {httpStatus = a} :: ListGeoMatchSetsResponse)
 
-instance Prelude.NFData ListGeoMatchSetsResponse
+instance Core.NFData ListGeoMatchSetsResponse

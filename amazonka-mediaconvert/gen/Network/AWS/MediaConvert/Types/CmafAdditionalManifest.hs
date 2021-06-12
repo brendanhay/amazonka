@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.CmafAdditionalManifest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the details for each pair of HLS and DASH additional manifests
 -- that you want the service to generate for this CMAF output group. Each
@@ -39,12 +38,12 @@ data CmafAdditionalManifest = CmafAdditionalManifest'
     -- HLS output groups, specify a manifestNameModifier that is different from
     -- the nameModifier of the output. The service uses the output name
     -- modifier to create unique names for the individual variant manifests.
-    manifestNameModifier :: Prelude.Maybe Prelude.Text,
+    manifestNameModifier :: Core.Maybe Core.Text,
     -- | Specify the outputs that you want this additional top-level manifest to
     -- reference.
-    selectedOutputs :: Prelude.Maybe [Prelude.Text]
+    selectedOutputs :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CmafAdditionalManifest' with all optional fields omitted.
@@ -71,8 +70,8 @@ newCmafAdditionalManifest ::
 newCmafAdditionalManifest =
   CmafAdditionalManifest'
     { manifestNameModifier =
-        Prelude.Nothing,
-      selectedOutputs = Prelude.Nothing
+        Core.Nothing,
+      selectedOutputs = Core.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this
@@ -84,37 +83,35 @@ newCmafAdditionalManifest =
 -- HLS output groups, specify a manifestNameModifier that is different from
 -- the nameModifier of the output. The service uses the output name
 -- modifier to create unique names for the individual variant manifests.
-cmafAdditionalManifest_manifestNameModifier :: Lens.Lens' CmafAdditionalManifest (Prelude.Maybe Prelude.Text)
+cmafAdditionalManifest_manifestNameModifier :: Lens.Lens' CmafAdditionalManifest (Core.Maybe Core.Text)
 cmafAdditionalManifest_manifestNameModifier = Lens.lens (\CmafAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@CmafAdditionalManifest' {} a -> s {manifestNameModifier = a} :: CmafAdditionalManifest)
 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
-cmafAdditionalManifest_selectedOutputs :: Lens.Lens' CmafAdditionalManifest (Prelude.Maybe [Prelude.Text])
-cmafAdditionalManifest_selectedOutputs = Lens.lens (\CmafAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@CmafAdditionalManifest' {} a -> s {selectedOutputs = a} :: CmafAdditionalManifest) Prelude.. Lens.mapping Prelude._Coerce
+cmafAdditionalManifest_selectedOutputs :: Lens.Lens' CmafAdditionalManifest (Core.Maybe [Core.Text])
+cmafAdditionalManifest_selectedOutputs = Lens.lens (\CmafAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@CmafAdditionalManifest' {} a -> s {selectedOutputs = a} :: CmafAdditionalManifest) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON CmafAdditionalManifest where
+instance Core.FromJSON CmafAdditionalManifest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CmafAdditionalManifest"
       ( \x ->
           CmafAdditionalManifest'
-            Prelude.<$> (x Prelude..:? "manifestNameModifier")
-            Prelude.<*> ( x Prelude..:? "selectedOutputs"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "manifestNameModifier")
+            Core.<*> (x Core..:? "selectedOutputs" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable CmafAdditionalManifest
+instance Core.Hashable CmafAdditionalManifest
 
-instance Prelude.NFData CmafAdditionalManifest
+instance Core.NFData CmafAdditionalManifest
 
-instance Prelude.ToJSON CmafAdditionalManifest where
+instance Core.ToJSON CmafAdditionalManifest where
   toJSON CmafAdditionalManifest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("manifestNameModifier" Prelude..=)
-              Prelude.<$> manifestNameModifier,
-            ("selectedOutputs" Prelude..=)
-              Prelude.<$> selectedOutputs
+    Core.object
+      ( Core.catMaybes
+          [ ("manifestNameModifier" Core..=)
+              Core.<$> manifestNameModifier,
+            ("selectedOutputs" Core..=)
+              Core.<$> selectedOutputs
           ]
       )

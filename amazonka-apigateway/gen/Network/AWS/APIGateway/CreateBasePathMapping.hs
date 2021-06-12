@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.APIGateway.CreateBasePathMapping
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,17 +57,17 @@ data CreateBasePathMapping = CreateBasePathMapping'
     -- URL after the domain name. This value must be unique for all of the
     -- mappings across a single API. Specify \'(none)\' if you do not want
     -- callers to specify a base path name after the domain name.
-    basePath :: Prelude.Maybe Prelude.Text,
+    basePath :: Core.Maybe Core.Text,
     -- | The name of the API\'s stage that you want to use for this mapping.
     -- Specify \'(none)\' if you want callers to explicitly specify the stage
     -- name after any base path name.
-    stage :: Prelude.Maybe Prelude.Text,
+    stage :: Core.Maybe Core.Text,
     -- | [Required] The domain name of the BasePathMapping resource to create.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text
+    restApiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBasePathMapping' with all optional fields omitted.
@@ -92,14 +91,14 @@ data CreateBasePathMapping = CreateBasePathMapping'
 -- 'restApiId', 'createBasePathMapping_restApiId' - [Required] The string identifier of the associated RestApi.
 newCreateBasePathMapping ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   CreateBasePathMapping
 newCreateBasePathMapping pDomainName_ pRestApiId_ =
   CreateBasePathMapping'
-    { basePath = Prelude.Nothing,
-      stage = Prelude.Nothing,
+    { basePath = Core.Nothing,
+      stage = Core.Nothing,
       domainName = pDomainName_,
       restApiId = pRestApiId_
     }
@@ -108,60 +107,62 @@ newCreateBasePathMapping pDomainName_ pRestApiId_ =
 -- URL after the domain name. This value must be unique for all of the
 -- mappings across a single API. Specify \'(none)\' if you do not want
 -- callers to specify a base path name after the domain name.
-createBasePathMapping_basePath :: Lens.Lens' CreateBasePathMapping (Prelude.Maybe Prelude.Text)
+createBasePathMapping_basePath :: Lens.Lens' CreateBasePathMapping (Core.Maybe Core.Text)
 createBasePathMapping_basePath = Lens.lens (\CreateBasePathMapping' {basePath} -> basePath) (\s@CreateBasePathMapping' {} a -> s {basePath = a} :: CreateBasePathMapping)
 
 -- | The name of the API\'s stage that you want to use for this mapping.
 -- Specify \'(none)\' if you want callers to explicitly specify the stage
 -- name after any base path name.
-createBasePathMapping_stage :: Lens.Lens' CreateBasePathMapping (Prelude.Maybe Prelude.Text)
+createBasePathMapping_stage :: Lens.Lens' CreateBasePathMapping (Core.Maybe Core.Text)
 createBasePathMapping_stage = Lens.lens (\CreateBasePathMapping' {stage} -> stage) (\s@CreateBasePathMapping' {} a -> s {stage = a} :: CreateBasePathMapping)
 
 -- | [Required] The domain name of the BasePathMapping resource to create.
-createBasePathMapping_domainName :: Lens.Lens' CreateBasePathMapping Prelude.Text
+createBasePathMapping_domainName :: Lens.Lens' CreateBasePathMapping Core.Text
 createBasePathMapping_domainName = Lens.lens (\CreateBasePathMapping' {domainName} -> domainName) (\s@CreateBasePathMapping' {} a -> s {domainName = a} :: CreateBasePathMapping)
 
 -- | [Required] The string identifier of the associated RestApi.
-createBasePathMapping_restApiId :: Lens.Lens' CreateBasePathMapping Prelude.Text
+createBasePathMapping_restApiId :: Lens.Lens' CreateBasePathMapping Core.Text
 createBasePathMapping_restApiId = Lens.lens (\CreateBasePathMapping' {restApiId} -> restApiId) (\s@CreateBasePathMapping' {} a -> s {restApiId = a} :: CreateBasePathMapping)
 
-instance Prelude.AWSRequest CreateBasePathMapping where
-  type Rs CreateBasePathMapping = BasePathMapping
+instance Core.AWSRequest CreateBasePathMapping where
+  type
+    AWSResponse CreateBasePathMapping =
+      BasePathMapping
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateBasePathMapping
+instance Core.Hashable CreateBasePathMapping
 
-instance Prelude.NFData CreateBasePathMapping
+instance Core.NFData CreateBasePathMapping
 
-instance Prelude.ToHeaders CreateBasePathMapping where
+instance Core.ToHeaders CreateBasePathMapping where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateBasePathMapping where
+instance Core.ToJSON CreateBasePathMapping where
   toJSON CreateBasePathMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("basePath" Prelude..=) Prelude.<$> basePath,
-            ("stage" Prelude..=) Prelude.<$> stage,
-            Prelude.Just ("restApiId" Prelude..= restApiId)
+    Core.object
+      ( Core.catMaybes
+          [ ("basePath" Core..=) Core.<$> basePath,
+            ("stage" Core..=) Core.<$> stage,
+            Core.Just ("restApiId" Core..= restApiId)
           ]
       )
 
-instance Prelude.ToPath CreateBasePathMapping where
+instance Core.ToPath CreateBasePathMapping where
   toPath CreateBasePathMapping' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/domainnames/",
-        Prelude.toBS domainName,
+        Core.toBS domainName,
         "/basepathmappings"
       ]
 
-instance Prelude.ToQuery CreateBasePathMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateBasePathMapping where
+  toQuery = Core.const Core.mempty

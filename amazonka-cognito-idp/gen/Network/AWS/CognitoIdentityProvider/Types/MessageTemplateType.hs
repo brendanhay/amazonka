@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.MessageTemplateType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The message template structure.
 --
@@ -30,15 +29,15 @@ data MessageTemplateType = MessageTemplateType'
   { -- | The subject line for email messages. EmailSubject is allowed only if
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
     -- is DEVELOPER.
-    emailSubject :: Prelude.Maybe Prelude.Text,
+    emailSubject :: Core.Maybe Core.Text,
     -- | The message template for email messages. EmailMessage is allowed only if
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
     -- is DEVELOPER.
-    emailMessage :: Prelude.Maybe Prelude.Text,
+    emailMessage :: Core.Maybe Core.Text,
     -- | The message template for SMS messages.
-    sMSMessage :: Prelude.Maybe Prelude.Text
+    sMSMessage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MessageTemplateType' with all optional fields omitted.
@@ -61,50 +60,48 @@ newMessageTemplateType ::
   MessageTemplateType
 newMessageTemplateType =
   MessageTemplateType'
-    { emailSubject =
-        Prelude.Nothing,
-      emailMessage = Prelude.Nothing,
-      sMSMessage = Prelude.Nothing
+    { emailSubject = Core.Nothing,
+      emailMessage = Core.Nothing,
+      sMSMessage = Core.Nothing
     }
 
 -- | The subject line for email messages. EmailSubject is allowed only if
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is DEVELOPER.
-messageTemplateType_emailSubject :: Lens.Lens' MessageTemplateType (Prelude.Maybe Prelude.Text)
+messageTemplateType_emailSubject :: Lens.Lens' MessageTemplateType (Core.Maybe Core.Text)
 messageTemplateType_emailSubject = Lens.lens (\MessageTemplateType' {emailSubject} -> emailSubject) (\s@MessageTemplateType' {} a -> s {emailSubject = a} :: MessageTemplateType)
 
 -- | The message template for email messages. EmailMessage is allowed only if
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount EmailSendingAccount>
 -- is DEVELOPER.
-messageTemplateType_emailMessage :: Lens.Lens' MessageTemplateType (Prelude.Maybe Prelude.Text)
+messageTemplateType_emailMessage :: Lens.Lens' MessageTemplateType (Core.Maybe Core.Text)
 messageTemplateType_emailMessage = Lens.lens (\MessageTemplateType' {emailMessage} -> emailMessage) (\s@MessageTemplateType' {} a -> s {emailMessage = a} :: MessageTemplateType)
 
 -- | The message template for SMS messages.
-messageTemplateType_sMSMessage :: Lens.Lens' MessageTemplateType (Prelude.Maybe Prelude.Text)
+messageTemplateType_sMSMessage :: Lens.Lens' MessageTemplateType (Core.Maybe Core.Text)
 messageTemplateType_sMSMessage = Lens.lens (\MessageTemplateType' {sMSMessage} -> sMSMessage) (\s@MessageTemplateType' {} a -> s {sMSMessage = a} :: MessageTemplateType)
 
-instance Prelude.FromJSON MessageTemplateType where
+instance Core.FromJSON MessageTemplateType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MessageTemplateType"
       ( \x ->
           MessageTemplateType'
-            Prelude.<$> (x Prelude..:? "EmailSubject")
-            Prelude.<*> (x Prelude..:? "EmailMessage")
-            Prelude.<*> (x Prelude..:? "SMSMessage")
+            Core.<$> (x Core..:? "EmailSubject")
+            Core.<*> (x Core..:? "EmailMessage")
+            Core.<*> (x Core..:? "SMSMessage")
       )
 
-instance Prelude.Hashable MessageTemplateType
+instance Core.Hashable MessageTemplateType
 
-instance Prelude.NFData MessageTemplateType
+instance Core.NFData MessageTemplateType
 
-instance Prelude.ToJSON MessageTemplateType where
+instance Core.ToJSON MessageTemplateType where
   toJSON MessageTemplateType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EmailSubject" Prelude..=)
-              Prelude.<$> emailSubject,
-            ("EmailMessage" Prelude..=) Prelude.<$> emailMessage,
-            ("SMSMessage" Prelude..=) Prelude.<$> sMSMessage
+    Core.object
+      ( Core.catMaybes
+          [ ("EmailSubject" Core..=) Core.<$> emailSubject,
+            ("EmailMessage" Core..=) Core.<$> emailMessage,
+            ("SMSMessage" Core..=) Core.<$> sMSMessage
           ]
       )

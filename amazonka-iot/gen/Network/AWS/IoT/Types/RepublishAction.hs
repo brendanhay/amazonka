@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.RepublishAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to republish to another topic.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data RepublishAction = RepublishAction'
   { -- | The Quality of Service (QoS) level to use when republishing messages.
     -- The default value is 0.
-    qos :: Prelude.Maybe Prelude.Natural,
+    qos :: Core.Maybe Core.Natural,
     -- | The ARN of the IAM role that grants access.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The name of the MQTT topic.
-    topic :: Prelude.Text
+    topic :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RepublishAction' with all optional fields omitted.
@@ -53,51 +52,51 @@ data RepublishAction = RepublishAction'
 -- 'topic', 'republishAction_topic' - The name of the MQTT topic.
 newRepublishAction ::
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'topic'
-  Prelude.Text ->
+  Core.Text ->
   RepublishAction
 newRepublishAction pRoleArn_ pTopic_ =
   RepublishAction'
-    { qos = Prelude.Nothing,
+    { qos = Core.Nothing,
       roleArn = pRoleArn_,
       topic = pTopic_
     }
 
 -- | The Quality of Service (QoS) level to use when republishing messages.
 -- The default value is 0.
-republishAction_qos :: Lens.Lens' RepublishAction (Prelude.Maybe Prelude.Natural)
+republishAction_qos :: Lens.Lens' RepublishAction (Core.Maybe Core.Natural)
 republishAction_qos = Lens.lens (\RepublishAction' {qos} -> qos) (\s@RepublishAction' {} a -> s {qos = a} :: RepublishAction)
 
 -- | The ARN of the IAM role that grants access.
-republishAction_roleArn :: Lens.Lens' RepublishAction Prelude.Text
+republishAction_roleArn :: Lens.Lens' RepublishAction Core.Text
 republishAction_roleArn = Lens.lens (\RepublishAction' {roleArn} -> roleArn) (\s@RepublishAction' {} a -> s {roleArn = a} :: RepublishAction)
 
 -- | The name of the MQTT topic.
-republishAction_topic :: Lens.Lens' RepublishAction Prelude.Text
+republishAction_topic :: Lens.Lens' RepublishAction Core.Text
 republishAction_topic = Lens.lens (\RepublishAction' {topic} -> topic) (\s@RepublishAction' {} a -> s {topic = a} :: RepublishAction)
 
-instance Prelude.FromJSON RepublishAction where
+instance Core.FromJSON RepublishAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RepublishAction"
       ( \x ->
           RepublishAction'
-            Prelude.<$> (x Prelude..:? "qos")
-            Prelude.<*> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..: "topic")
+            Core.<$> (x Core..:? "qos")
+            Core.<*> (x Core..: "roleArn")
+            Core.<*> (x Core..: "topic")
       )
 
-instance Prelude.Hashable RepublishAction
+instance Core.Hashable RepublishAction
 
-instance Prelude.NFData RepublishAction
+instance Core.NFData RepublishAction
 
-instance Prelude.ToJSON RepublishAction where
+instance Core.ToJSON RepublishAction where
   toJSON RepublishAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("qos" Prelude..=) Prelude.<$> qos,
-            Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just ("topic" Prelude..= topic)
+    Core.object
+      ( Core.catMaybes
+          [ ("qos" Core..=) Core.<$> qos,
+            Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("topic" Core..= topic)
           ]
       )

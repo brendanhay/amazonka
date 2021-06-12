@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.Glue.BatchGetWorkflows
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +55,12 @@ import qualified Network.AWS.Response as Response
 data BatchGetWorkflows = BatchGetWorkflows'
   { -- | Specifies whether to include a graph when returning the workflow
     -- resource metadata.
-    includeGraph :: Prelude.Maybe Prelude.Bool,
+    includeGraph :: Core.Maybe Core.Bool,
     -- | A list of workflow names, which may be the names returned from the
     -- @ListWorkflows@ operation.
-    names :: Prelude.NonEmpty Prelude.Text
+    names :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetWorkflows' with all optional fields omitted.
@@ -78,79 +77,78 @@ data BatchGetWorkflows = BatchGetWorkflows'
 -- @ListWorkflows@ operation.
 newBatchGetWorkflows ::
   -- | 'names'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   BatchGetWorkflows
 newBatchGetWorkflows pNames_ =
   BatchGetWorkflows'
-    { includeGraph = Prelude.Nothing,
-      names = Prelude._Coerce Lens.# pNames_
+    { includeGraph = Core.Nothing,
+      names = Lens._Coerce Lens.# pNames_
     }
 
 -- | Specifies whether to include a graph when returning the workflow
 -- resource metadata.
-batchGetWorkflows_includeGraph :: Lens.Lens' BatchGetWorkflows (Prelude.Maybe Prelude.Bool)
+batchGetWorkflows_includeGraph :: Lens.Lens' BatchGetWorkflows (Core.Maybe Core.Bool)
 batchGetWorkflows_includeGraph = Lens.lens (\BatchGetWorkflows' {includeGraph} -> includeGraph) (\s@BatchGetWorkflows' {} a -> s {includeGraph = a} :: BatchGetWorkflows)
 
 -- | A list of workflow names, which may be the names returned from the
 -- @ListWorkflows@ operation.
-batchGetWorkflows_names :: Lens.Lens' BatchGetWorkflows (Prelude.NonEmpty Prelude.Text)
-batchGetWorkflows_names = Lens.lens (\BatchGetWorkflows' {names} -> names) (\s@BatchGetWorkflows' {} a -> s {names = a} :: BatchGetWorkflows) Prelude.. Prelude._Coerce
+batchGetWorkflows_names :: Lens.Lens' BatchGetWorkflows (Core.NonEmpty Core.Text)
+batchGetWorkflows_names = Lens.lens (\BatchGetWorkflows' {names} -> names) (\s@BatchGetWorkflows' {} a -> s {names = a} :: BatchGetWorkflows) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchGetWorkflows where
-  type Rs BatchGetWorkflows = BatchGetWorkflowsResponse
+instance Core.AWSRequest BatchGetWorkflows where
+  type
+    AWSResponse BatchGetWorkflows =
+      BatchGetWorkflowsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchGetWorkflowsResponse'
-            Prelude.<$> (x Prelude..?> "MissingWorkflows")
-            Prelude.<*> (x Prelude..?> "Workflows")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "MissingWorkflows")
+            Core.<*> (x Core..?> "Workflows")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetWorkflows
+instance Core.Hashable BatchGetWorkflows
 
-instance Prelude.NFData BatchGetWorkflows
+instance Core.NFData BatchGetWorkflows
 
-instance Prelude.ToHeaders BatchGetWorkflows where
+instance Core.ToHeaders BatchGetWorkflows where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.BatchGetWorkflows" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.BatchGetWorkflows" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchGetWorkflows where
+instance Core.ToJSON BatchGetWorkflows where
   toJSON BatchGetWorkflows' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("IncludeGraph" Prelude..=)
-              Prelude.<$> includeGraph,
-            Prelude.Just ("Names" Prelude..= names)
+    Core.object
+      ( Core.catMaybes
+          [ ("IncludeGraph" Core..=) Core.<$> includeGraph,
+            Core.Just ("Names" Core..= names)
           ]
       )
 
-instance Prelude.ToPath BatchGetWorkflows where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchGetWorkflows where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchGetWorkflows where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchGetWorkflows where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchGetWorkflowsResponse' smart constructor.
 data BatchGetWorkflowsResponse = BatchGetWorkflowsResponse'
   { -- | A list of names of workflows not found.
-    missingWorkflows :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    missingWorkflows :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | A list of workflow resource metadata.
-    workflows :: Prelude.Maybe (Prelude.NonEmpty Workflow),
+    workflows :: Core.Maybe (Core.NonEmpty Workflow),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetWorkflowsResponse' with all optional fields omitted.
@@ -167,26 +165,26 @@ data BatchGetWorkflowsResponse = BatchGetWorkflowsResponse'
 -- 'httpStatus', 'batchGetWorkflowsResponse_httpStatus' - The response's http status code.
 newBatchGetWorkflowsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchGetWorkflowsResponse
 newBatchGetWorkflowsResponse pHttpStatus_ =
   BatchGetWorkflowsResponse'
     { missingWorkflows =
-        Prelude.Nothing,
-      workflows = Prelude.Nothing,
+        Core.Nothing,
+      workflows = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of names of workflows not found.
-batchGetWorkflowsResponse_missingWorkflows :: Lens.Lens' BatchGetWorkflowsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-batchGetWorkflowsResponse_missingWorkflows = Lens.lens (\BatchGetWorkflowsResponse' {missingWorkflows} -> missingWorkflows) (\s@BatchGetWorkflowsResponse' {} a -> s {missingWorkflows = a} :: BatchGetWorkflowsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetWorkflowsResponse_missingWorkflows :: Lens.Lens' BatchGetWorkflowsResponse (Core.Maybe (Core.NonEmpty Core.Text))
+batchGetWorkflowsResponse_missingWorkflows = Lens.lens (\BatchGetWorkflowsResponse' {missingWorkflows} -> missingWorkflows) (\s@BatchGetWorkflowsResponse' {} a -> s {missingWorkflows = a} :: BatchGetWorkflowsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of workflow resource metadata.
-batchGetWorkflowsResponse_workflows :: Lens.Lens' BatchGetWorkflowsResponse (Prelude.Maybe (Prelude.NonEmpty Workflow))
-batchGetWorkflowsResponse_workflows = Lens.lens (\BatchGetWorkflowsResponse' {workflows} -> workflows) (\s@BatchGetWorkflowsResponse' {} a -> s {workflows = a} :: BatchGetWorkflowsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetWorkflowsResponse_workflows :: Lens.Lens' BatchGetWorkflowsResponse (Core.Maybe (Core.NonEmpty Workflow))
+batchGetWorkflowsResponse_workflows = Lens.lens (\BatchGetWorkflowsResponse' {workflows} -> workflows) (\s@BatchGetWorkflowsResponse' {} a -> s {workflows = a} :: BatchGetWorkflowsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetWorkflowsResponse_httpStatus :: Lens.Lens' BatchGetWorkflowsResponse Prelude.Int
+batchGetWorkflowsResponse_httpStatus :: Lens.Lens' BatchGetWorkflowsResponse Core.Int
 batchGetWorkflowsResponse_httpStatus = Lens.lens (\BatchGetWorkflowsResponse' {httpStatus} -> httpStatus) (\s@BatchGetWorkflowsResponse' {} a -> s {httpStatus = a} :: BatchGetWorkflowsResponse)
 
-instance Prelude.NFData BatchGetWorkflowsResponse
+instance Core.NFData BatchGetWorkflowsResponse

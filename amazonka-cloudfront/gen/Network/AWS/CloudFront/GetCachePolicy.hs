@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.CloudFront.GetCachePolicy
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +63,9 @@ data GetCachePolicy = GetCachePolicy'
     -- identifier using @ListDistributions@ or @GetDistribution@. If the cache
     -- policy is not attached to a cache behavior, you can get the identifier
     -- using @ListCachePolicies@.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCachePolicy' with all optional fields omitted.
@@ -83,7 +82,7 @@ data GetCachePolicy = GetCachePolicy'
 -- using @ListCachePolicies@.
 newGetCachePolicy ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetCachePolicy
 newGetCachePolicy pId_ = GetCachePolicy' {id = pId_}
 
@@ -92,46 +91,48 @@ newGetCachePolicy pId_ = GetCachePolicy' {id = pId_}
 -- identifier using @ListDistributions@ or @GetDistribution@. If the cache
 -- policy is not attached to a cache behavior, you can get the identifier
 -- using @ListCachePolicies@.
-getCachePolicy_id :: Lens.Lens' GetCachePolicy Prelude.Text
+getCachePolicy_id :: Lens.Lens' GetCachePolicy Core.Text
 getCachePolicy_id = Lens.lens (\GetCachePolicy' {id} -> id) (\s@GetCachePolicy' {} a -> s {id = a} :: GetCachePolicy)
 
-instance Prelude.AWSRequest GetCachePolicy where
-  type Rs GetCachePolicy = GetCachePolicyResponse
+instance Core.AWSRequest GetCachePolicy where
+  type
+    AWSResponse GetCachePolicy =
+      GetCachePolicyResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetCachePolicyResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetCachePolicy
+instance Core.Hashable GetCachePolicy
 
-instance Prelude.NFData GetCachePolicy
+instance Core.NFData GetCachePolicy
 
-instance Prelude.ToHeaders GetCachePolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetCachePolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetCachePolicy where
+instance Core.ToPath GetCachePolicy where
   toPath GetCachePolicy' {..} =
-    Prelude.mconcat
-      ["/2020-05-31/cache-policy/", Prelude.toBS id]
+    Core.mconcat
+      ["/2020-05-31/cache-policy/", Core.toBS id]
 
-instance Prelude.ToQuery GetCachePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCachePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCachePolicyResponse' smart constructor.
 data GetCachePolicyResponse = GetCachePolicyResponse'
   { -- | The current version of the cache policy.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The cache policy.
-    cachePolicy :: Prelude.Maybe CachePolicy,
+    cachePolicy :: Core.Maybe CachePolicy,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCachePolicyResponse' with all optional fields omitted.
@@ -148,25 +149,25 @@ data GetCachePolicyResponse = GetCachePolicyResponse'
 -- 'httpStatus', 'getCachePolicyResponse_httpStatus' - The response's http status code.
 newGetCachePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetCachePolicyResponse
 newGetCachePolicyResponse pHttpStatus_ =
   GetCachePolicyResponse'
-    { eTag = Prelude.Nothing,
-      cachePolicy = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      cachePolicy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the cache policy.
-getCachePolicyResponse_eTag :: Lens.Lens' GetCachePolicyResponse (Prelude.Maybe Prelude.Text)
+getCachePolicyResponse_eTag :: Lens.Lens' GetCachePolicyResponse (Core.Maybe Core.Text)
 getCachePolicyResponse_eTag = Lens.lens (\GetCachePolicyResponse' {eTag} -> eTag) (\s@GetCachePolicyResponse' {} a -> s {eTag = a} :: GetCachePolicyResponse)
 
 -- | The cache policy.
-getCachePolicyResponse_cachePolicy :: Lens.Lens' GetCachePolicyResponse (Prelude.Maybe CachePolicy)
+getCachePolicyResponse_cachePolicy :: Lens.Lens' GetCachePolicyResponse (Core.Maybe CachePolicy)
 getCachePolicyResponse_cachePolicy = Lens.lens (\GetCachePolicyResponse' {cachePolicy} -> cachePolicy) (\s@GetCachePolicyResponse' {} a -> s {cachePolicy = a} :: GetCachePolicyResponse)
 
 -- | The response's http status code.
-getCachePolicyResponse_httpStatus :: Lens.Lens' GetCachePolicyResponse Prelude.Int
+getCachePolicyResponse_httpStatus :: Lens.Lens' GetCachePolicyResponse Core.Int
 getCachePolicyResponse_httpStatus = Lens.lens (\GetCachePolicyResponse' {httpStatus} -> httpStatus) (\s@GetCachePolicyResponse' {} a -> s {httpStatus = a} :: GetCachePolicyResponse)
 
-instance Prelude.NFData GetCachePolicyResponse
+instance Core.NFData GetCachePolicyResponse

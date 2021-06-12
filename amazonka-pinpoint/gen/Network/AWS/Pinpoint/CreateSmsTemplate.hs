@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.CreateSmsTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,10 +53,10 @@ data CreateSmsTemplate = CreateSmsTemplate'
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     sMSTemplateRequest :: SMSTemplateRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSmsTemplate' with all optional fields omitted.
@@ -75,7 +74,7 @@ data CreateSmsTemplate = CreateSmsTemplate'
 -- 'sMSTemplateRequest', 'createSmsTemplate_sMSTemplateRequest' - Undocumented member.
 newCreateSmsTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sMSTemplateRequest'
   SMSTemplateRequest ->
   CreateSmsTemplate
@@ -91,65 +90,63 @@ newCreateSmsTemplate
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-createSmsTemplate_templateName :: Lens.Lens' CreateSmsTemplate Prelude.Text
+createSmsTemplate_templateName :: Lens.Lens' CreateSmsTemplate Core.Text
 createSmsTemplate_templateName = Lens.lens (\CreateSmsTemplate' {templateName} -> templateName) (\s@CreateSmsTemplate' {} a -> s {templateName = a} :: CreateSmsTemplate)
 
 -- | Undocumented member.
 createSmsTemplate_sMSTemplateRequest :: Lens.Lens' CreateSmsTemplate SMSTemplateRequest
 createSmsTemplate_sMSTemplateRequest = Lens.lens (\CreateSmsTemplate' {sMSTemplateRequest} -> sMSTemplateRequest) (\s@CreateSmsTemplate' {} a -> s {sMSTemplateRequest = a} :: CreateSmsTemplate)
 
-instance Prelude.AWSRequest CreateSmsTemplate where
-  type Rs CreateSmsTemplate = CreateSmsTemplateResponse
+instance Core.AWSRequest CreateSmsTemplate where
+  type
+    AWSResponse CreateSmsTemplate =
+      CreateSmsTemplateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateSmsTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateSmsTemplate
+instance Core.Hashable CreateSmsTemplate
 
-instance Prelude.NFData CreateSmsTemplate
+instance Core.NFData CreateSmsTemplate
 
-instance Prelude.ToHeaders CreateSmsTemplate where
+instance Core.ToHeaders CreateSmsTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateSmsTemplate where
+instance Core.ToJSON CreateSmsTemplate where
   toJSON CreateSmsTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "SMSTemplateRequest"
-                  Prelude..= sMSTemplateRequest
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SMSTemplateRequest" Core..= sMSTemplateRequest)
           ]
       )
 
-instance Prelude.ToPath CreateSmsTemplate where
+instance Core.ToPath CreateSmsTemplate where
   toPath CreateSmsTemplate' {..} =
-    Prelude.mconcat
-      ["/v1/templates/", Prelude.toBS templateName, "/sms"]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/sms"]
 
-instance Prelude.ToQuery CreateSmsTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateSmsTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateSmsTemplateResponse' smart constructor.
 data CreateSmsTemplateResponse = CreateSmsTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     createTemplateMessageBody :: CreateTemplateMessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSmsTemplateResponse' with all optional fields omitted.
@@ -164,7 +161,7 @@ data CreateSmsTemplateResponse = CreateSmsTemplateResponse'
 -- 'createTemplateMessageBody', 'createSmsTemplateResponse_createTemplateMessageBody' - Undocumented member.
 newCreateSmsTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'createTemplateMessageBody'
   CreateTemplateMessageBody ->
   CreateSmsTemplateResponse
@@ -179,11 +176,11 @@ newCreateSmsTemplateResponse
       }
 
 -- | The response's http status code.
-createSmsTemplateResponse_httpStatus :: Lens.Lens' CreateSmsTemplateResponse Prelude.Int
+createSmsTemplateResponse_httpStatus :: Lens.Lens' CreateSmsTemplateResponse Core.Int
 createSmsTemplateResponse_httpStatus = Lens.lens (\CreateSmsTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateSmsTemplateResponse' {} a -> s {httpStatus = a} :: CreateSmsTemplateResponse)
 
 -- | Undocumented member.
 createSmsTemplateResponse_createTemplateMessageBody :: Lens.Lens' CreateSmsTemplateResponse CreateTemplateMessageBody
 createSmsTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateSmsTemplateResponse' {createTemplateMessageBody} -> createTemplateMessageBody) (\s@CreateSmsTemplateResponse' {} a -> s {createTemplateMessageBody = a} :: CreateSmsTemplateResponse)
 
-instance Prelude.NFData CreateSmsTemplateResponse
+instance Core.NFData CreateSmsTemplateResponse

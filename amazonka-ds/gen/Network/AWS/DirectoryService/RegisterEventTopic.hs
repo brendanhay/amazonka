@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.DirectoryService.RegisterEventTopic
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +55,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRegisterEventTopic' smart constructor.
 data RegisterEventTopic = RegisterEventTopic'
   { -- | The Directory ID that will publish status messages to the SNS topic.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The SNS topic name to which the directory will publish status messages.
     -- This SNS topic must be in the same region as the specified Directory ID.
-    topicName :: Prelude.Text
+    topicName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterEventTopic' with all optional fields omitted.
@@ -77,9 +76,9 @@ data RegisterEventTopic = RegisterEventTopic'
 -- This SNS topic must be in the same region as the specified Directory ID.
 newRegisterEventTopic ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'topicName'
-  Prelude.Text ->
+  Core.Text ->
   RegisterEventTopic
 newRegisterEventTopic pDirectoryId_ pTopicName_ =
   RegisterEventTopic'
@@ -88,68 +87,66 @@ newRegisterEventTopic pDirectoryId_ pTopicName_ =
     }
 
 -- | The Directory ID that will publish status messages to the SNS topic.
-registerEventTopic_directoryId :: Lens.Lens' RegisterEventTopic Prelude.Text
+registerEventTopic_directoryId :: Lens.Lens' RegisterEventTopic Core.Text
 registerEventTopic_directoryId = Lens.lens (\RegisterEventTopic' {directoryId} -> directoryId) (\s@RegisterEventTopic' {} a -> s {directoryId = a} :: RegisterEventTopic)
 
 -- | The SNS topic name to which the directory will publish status messages.
 -- This SNS topic must be in the same region as the specified Directory ID.
-registerEventTopic_topicName :: Lens.Lens' RegisterEventTopic Prelude.Text
+registerEventTopic_topicName :: Lens.Lens' RegisterEventTopic Core.Text
 registerEventTopic_topicName = Lens.lens (\RegisterEventTopic' {topicName} -> topicName) (\s@RegisterEventTopic' {} a -> s {topicName = a} :: RegisterEventTopic)
 
-instance Prelude.AWSRequest RegisterEventTopic where
+instance Core.AWSRequest RegisterEventTopic where
   type
-    Rs RegisterEventTopic =
+    AWSResponse RegisterEventTopic =
       RegisterEventTopicResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterEventTopicResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterEventTopic
+instance Core.Hashable RegisterEventTopic
 
-instance Prelude.NFData RegisterEventTopic
+instance Core.NFData RegisterEventTopic
 
-instance Prelude.ToHeaders RegisterEventTopic where
+instance Core.ToHeaders RegisterEventTopic where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.RegisterEventTopic" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.RegisterEventTopic" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterEventTopic where
+instance Core.ToJSON RegisterEventTopic where
   toJSON RegisterEventTopic' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("TopicName" Prelude..= topicName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("TopicName" Core..= topicName)
           ]
       )
 
-instance Prelude.ToPath RegisterEventTopic where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterEventTopic where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterEventTopic where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterEventTopic where
+  toQuery = Core.const Core.mempty
 
 -- | The result of a RegisterEventTopic request.
 --
 -- /See:/ 'newRegisterEventTopicResponse' smart constructor.
 data RegisterEventTopicResponse = RegisterEventTopicResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterEventTopicResponse' with all optional fields omitted.
@@ -162,7 +159,7 @@ data RegisterEventTopicResponse = RegisterEventTopicResponse'
 -- 'httpStatus', 'registerEventTopicResponse_httpStatus' - The response's http status code.
 newRegisterEventTopicResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterEventTopicResponse
 newRegisterEventTopicResponse pHttpStatus_ =
   RegisterEventTopicResponse'
@@ -171,7 +168,7 @@ newRegisterEventTopicResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-registerEventTopicResponse_httpStatus :: Lens.Lens' RegisterEventTopicResponse Prelude.Int
+registerEventTopicResponse_httpStatus :: Lens.Lens' RegisterEventTopicResponse Core.Int
 registerEventTopicResponse_httpStatus = Lens.lens (\RegisterEventTopicResponse' {httpStatus} -> httpStatus) (\s@RegisterEventTopicResponse' {} a -> s {httpStatus = a} :: RegisterEventTopicResponse)
 
-instance Prelude.NFData RegisterEventTopicResponse
+instance Core.NFData RegisterEventTopicResponse

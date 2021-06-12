@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.AutoScaling.SuspendProcesses
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,11 +75,11 @@ data SuspendProcesses = SuspendProcesses'
     -- -   @ScheduledActions@
     --
     -- If you omit this parameter, all processes are specified.
-    scalingProcesses :: Prelude.Maybe [Prelude.Text],
+    scalingProcesses :: Core.Maybe [Core.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuspendProcesses' with all optional fields omitted.
@@ -115,12 +114,11 @@ data SuspendProcesses = SuspendProcesses'
 -- 'autoScalingGroupName', 'suspendProcesses_autoScalingGroupName' - The name of the Auto Scaling group.
 newSuspendProcesses ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   SuspendProcesses
 newSuspendProcesses pAutoScalingGroupName_ =
   SuspendProcesses'
-    { scalingProcesses =
-        Prelude.Nothing,
+    { scalingProcesses = Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -145,50 +143,50 @@ newSuspendProcesses pAutoScalingGroupName_ =
 -- -   @ScheduledActions@
 --
 -- If you omit this parameter, all processes are specified.
-suspendProcesses_scalingProcesses :: Lens.Lens' SuspendProcesses (Prelude.Maybe [Prelude.Text])
-suspendProcesses_scalingProcesses = Lens.lens (\SuspendProcesses' {scalingProcesses} -> scalingProcesses) (\s@SuspendProcesses' {} a -> s {scalingProcesses = a} :: SuspendProcesses) Prelude.. Lens.mapping Prelude._Coerce
+suspendProcesses_scalingProcesses :: Lens.Lens' SuspendProcesses (Core.Maybe [Core.Text])
+suspendProcesses_scalingProcesses = Lens.lens (\SuspendProcesses' {scalingProcesses} -> scalingProcesses) (\s@SuspendProcesses' {} a -> s {scalingProcesses = a} :: SuspendProcesses) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-suspendProcesses_autoScalingGroupName :: Lens.Lens' SuspendProcesses Prelude.Text
+suspendProcesses_autoScalingGroupName :: Lens.Lens' SuspendProcesses Core.Text
 suspendProcesses_autoScalingGroupName = Lens.lens (\SuspendProcesses' {autoScalingGroupName} -> autoScalingGroupName) (\s@SuspendProcesses' {} a -> s {autoScalingGroupName = a} :: SuspendProcesses)
 
-instance Prelude.AWSRequest SuspendProcesses where
-  type Rs SuspendProcesses = SuspendProcessesResponse
+instance Core.AWSRequest SuspendProcesses where
+  type
+    AWSResponse SuspendProcesses =
+      SuspendProcessesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull SuspendProcessesResponse'
 
-instance Prelude.Hashable SuspendProcesses
+instance Core.Hashable SuspendProcesses
 
-instance Prelude.NFData SuspendProcesses
+instance Core.NFData SuspendProcesses
 
-instance Prelude.ToHeaders SuspendProcesses where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SuspendProcesses where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SuspendProcesses where
-  toPath = Prelude.const "/"
+instance Core.ToPath SuspendProcesses where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SuspendProcesses where
+instance Core.ToQuery SuspendProcesses where
   toQuery SuspendProcesses' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SuspendProcesses" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+          Core.=: ("SuspendProcesses" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
         "ScalingProcesses"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> scalingProcesses
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> scalingProcesses
             ),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newSuspendProcessesResponse' smart constructor.
 data SuspendProcessesResponse = SuspendProcessesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuspendProcessesResponse' with all optional fields omitted.
@@ -199,4 +197,4 @@ newSuspendProcessesResponse ::
 newSuspendProcessesResponse =
   SuspendProcessesResponse'
 
-instance Prelude.NFData SuspendProcessesResponse
+instance Core.NFData SuspendProcessesResponse

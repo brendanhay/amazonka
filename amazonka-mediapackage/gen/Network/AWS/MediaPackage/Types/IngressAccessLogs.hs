@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaPackage.Types.IngressAccessLogs where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configure ingress access logging.
 --
 -- /See:/ 'newIngressAccessLogs' smart constructor.
 data IngressAccessLogs = IngressAccessLogs'
   { -- | Customize the log group name.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IngressAccessLogs' with all optional fields omitted.
@@ -44,30 +43,28 @@ data IngressAccessLogs = IngressAccessLogs'
 newIngressAccessLogs ::
   IngressAccessLogs
 newIngressAccessLogs =
-  IngressAccessLogs' {logGroupName = Prelude.Nothing}
+  IngressAccessLogs' {logGroupName = Core.Nothing}
 
 -- | Customize the log group name.
-ingressAccessLogs_logGroupName :: Lens.Lens' IngressAccessLogs (Prelude.Maybe Prelude.Text)
+ingressAccessLogs_logGroupName :: Lens.Lens' IngressAccessLogs (Core.Maybe Core.Text)
 ingressAccessLogs_logGroupName = Lens.lens (\IngressAccessLogs' {logGroupName} -> logGroupName) (\s@IngressAccessLogs' {} a -> s {logGroupName = a} :: IngressAccessLogs)
 
-instance Prelude.FromJSON IngressAccessLogs where
+instance Core.FromJSON IngressAccessLogs where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IngressAccessLogs"
       ( \x ->
           IngressAccessLogs'
-            Prelude.<$> (x Prelude..:? "logGroupName")
+            Core.<$> (x Core..:? "logGroupName")
       )
 
-instance Prelude.Hashable IngressAccessLogs
+instance Core.Hashable IngressAccessLogs
 
-instance Prelude.NFData IngressAccessLogs
+instance Core.NFData IngressAccessLogs
 
-instance Prelude.ToJSON IngressAccessLogs where
+instance Core.ToJSON IngressAccessLogs where
   toJSON IngressAccessLogs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("logGroupName" Prelude..=)
-              Prelude.<$> logGroupName
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("logGroupName" Core..=) Core.<$> logGroupName]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,22 +57,22 @@ module Network.AWS.AlexaBusiness.StartDeviceSync
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartDeviceSync' smart constructor.
 data StartDeviceSync = StartDeviceSync'
   { -- | The ARN of the device to sync. Required.
-    deviceArn :: Prelude.Maybe Prelude.Text,
+    deviceArn :: Core.Maybe Core.Text,
     -- | The ARN of the room with which the device to sync is associated.
     -- Required.
-    roomArn :: Prelude.Maybe Prelude.Text,
+    roomArn :: Core.Maybe Core.Text,
     -- | Request structure to start the device sync. Required.
     features :: [Feature]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDeviceSync' with all optional fields omitted.
@@ -93,75 +92,75 @@ newStartDeviceSync ::
   StartDeviceSync
 newStartDeviceSync =
   StartDeviceSync'
-    { deviceArn = Prelude.Nothing,
-      roomArn = Prelude.Nothing,
-      features = Prelude.mempty
+    { deviceArn = Core.Nothing,
+      roomArn = Core.Nothing,
+      features = Core.mempty
     }
 
 -- | The ARN of the device to sync. Required.
-startDeviceSync_deviceArn :: Lens.Lens' StartDeviceSync (Prelude.Maybe Prelude.Text)
+startDeviceSync_deviceArn :: Lens.Lens' StartDeviceSync (Core.Maybe Core.Text)
 startDeviceSync_deviceArn = Lens.lens (\StartDeviceSync' {deviceArn} -> deviceArn) (\s@StartDeviceSync' {} a -> s {deviceArn = a} :: StartDeviceSync)
 
 -- | The ARN of the room with which the device to sync is associated.
 -- Required.
-startDeviceSync_roomArn :: Lens.Lens' StartDeviceSync (Prelude.Maybe Prelude.Text)
+startDeviceSync_roomArn :: Lens.Lens' StartDeviceSync (Core.Maybe Core.Text)
 startDeviceSync_roomArn = Lens.lens (\StartDeviceSync' {roomArn} -> roomArn) (\s@StartDeviceSync' {} a -> s {roomArn = a} :: StartDeviceSync)
 
 -- | Request structure to start the device sync. Required.
 startDeviceSync_features :: Lens.Lens' StartDeviceSync [Feature]
-startDeviceSync_features = Lens.lens (\StartDeviceSync' {features} -> features) (\s@StartDeviceSync' {} a -> s {features = a} :: StartDeviceSync) Prelude.. Prelude._Coerce
+startDeviceSync_features = Lens.lens (\StartDeviceSync' {features} -> features) (\s@StartDeviceSync' {} a -> s {features = a} :: StartDeviceSync) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest StartDeviceSync where
-  type Rs StartDeviceSync = StartDeviceSyncResponse
+instance Core.AWSRequest StartDeviceSync where
+  type
+    AWSResponse StartDeviceSync =
+      StartDeviceSyncResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartDeviceSyncResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartDeviceSync
+instance Core.Hashable StartDeviceSync
 
-instance Prelude.NFData StartDeviceSync
+instance Core.NFData StartDeviceSync
 
-instance Prelude.ToHeaders StartDeviceSync where
+instance Core.ToHeaders StartDeviceSync where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.StartDeviceSync" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.StartDeviceSync" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartDeviceSync where
+instance Core.ToJSON StartDeviceSync where
   toJSON StartDeviceSync' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeviceArn" Prelude..=) Prelude.<$> deviceArn,
-            ("RoomArn" Prelude..=) Prelude.<$> roomArn,
-            Prelude.Just ("Features" Prelude..= features)
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceArn" Core..=) Core.<$> deviceArn,
+            ("RoomArn" Core..=) Core.<$> roomArn,
+            Core.Just ("Features" Core..= features)
           ]
       )
 
-instance Prelude.ToPath StartDeviceSync where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartDeviceSync where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartDeviceSync where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartDeviceSync where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartDeviceSyncResponse' smart constructor.
 data StartDeviceSyncResponse = StartDeviceSyncResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDeviceSyncResponse' with all optional fields omitted.
@@ -174,13 +173,13 @@ data StartDeviceSyncResponse = StartDeviceSyncResponse'
 -- 'httpStatus', 'startDeviceSyncResponse_httpStatus' - The response's http status code.
 newStartDeviceSyncResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartDeviceSyncResponse
 newStartDeviceSyncResponse pHttpStatus_ =
   StartDeviceSyncResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-startDeviceSyncResponse_httpStatus :: Lens.Lens' StartDeviceSyncResponse Prelude.Int
+startDeviceSyncResponse_httpStatus :: Lens.Lens' StartDeviceSyncResponse Core.Int
 startDeviceSyncResponse_httpStatus = Lens.lens (\StartDeviceSyncResponse' {httpStatus} -> httpStatus) (\s@StartDeviceSyncResponse' {} a -> s {httpStatus = a} :: StartDeviceSyncResponse)
 
-instance Prelude.NFData StartDeviceSyncResponse
+instance Core.NFData StartDeviceSyncResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.InputProcessingConfigurationUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes updates to an
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html InputProcessingConfiguration>.
@@ -33,7 +32,7 @@ data InputProcessingConfigurationUpdate = InputProcessingConfigurationUpdate'
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html InputLambdaProcessor>.
     inputLambdaProcessorUpdate :: InputLambdaProcessorUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputProcessingConfigurationUpdate' with all optional fields omitted.
@@ -62,23 +61,23 @@ inputProcessingConfigurationUpdate_inputLambdaProcessorUpdate :: Lens.Lens' Inpu
 inputProcessingConfigurationUpdate_inputLambdaProcessorUpdate = Lens.lens (\InputProcessingConfigurationUpdate' {inputLambdaProcessorUpdate} -> inputLambdaProcessorUpdate) (\s@InputProcessingConfigurationUpdate' {} a -> s {inputLambdaProcessorUpdate = a} :: InputProcessingConfigurationUpdate)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     InputProcessingConfigurationUpdate
 
 instance
-  Prelude.NFData
+  Core.NFData
     InputProcessingConfigurationUpdate
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     InputProcessingConfigurationUpdate
   where
   toJSON InputProcessingConfigurationUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "InputLambdaProcessorUpdate"
-                  Prelude..= inputLambdaProcessorUpdate
+                  Core..= inputLambdaProcessorUpdate
               )
           ]
       )

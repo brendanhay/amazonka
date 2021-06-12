@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.ServiceCatalog.CreateConstraint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -59,7 +58,7 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newCreateConstraint' smart constructor.
 data CreateConstraint = CreateConstraint'
   { -- | The description of the constraint.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -67,11 +66,11 @@ data CreateConstraint = CreateConstraint'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The portfolio identifier.
-    portfolioId :: Prelude.Text,
+    portfolioId :: Core.Text,
     -- | The product identifier.
-    productId :: Prelude.Text,
+    productId :: Core.Text,
     -- | The constraint parameters, in JSON format. The syntax depends on the
     -- constraint type as follows:
     --
@@ -131,7 +130,7 @@ data CreateConstraint = CreateConstraint'
     -- [TEMPLATE]
     --     Specify the @Rules@ property. For more information, see
     --     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
-    parameters :: Prelude.Text,
+    parameters :: Core.Text,
     -- | The type of constraint.
     --
     -- -   @LAUNCH@
@@ -143,13 +142,13 @@ data CreateConstraint = CreateConstraint'
     -- -   @STACKSET@
     --
     -- -   @TEMPLATE@
-    type' :: Prelude.Text,
+    type' :: Core.Text,
     -- | A unique identifier that you provide to ensure idempotency. If multiple
     -- requests differ only by the idempotency token, the same response is
     -- returned for each repeated request.
-    idempotencyToken :: Prelude.Text
+    idempotencyToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateConstraint' with all optional fields omitted.
@@ -250,15 +249,15 @@ data CreateConstraint = CreateConstraint'
 -- returned for each repeated request.
 newCreateConstraint ::
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'productId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'parameters'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   -- | 'idempotencyToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateConstraint
 newCreateConstraint
   pPortfolioId_
@@ -267,8 +266,8 @@ newCreateConstraint
   pType_
   pIdempotencyToken_ =
     CreateConstraint'
-      { description = Prelude.Nothing,
-        acceptLanguage = Prelude.Nothing,
+      { description = Core.Nothing,
+        acceptLanguage = Core.Nothing,
         portfolioId = pPortfolioId_,
         productId = pProductId_,
         parameters = pParameters_,
@@ -277,7 +276,7 @@ newCreateConstraint
       }
 
 -- | The description of the constraint.
-createConstraint_description :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
+createConstraint_description :: Lens.Lens' CreateConstraint (Core.Maybe Core.Text)
 createConstraint_description = Lens.lens (\CreateConstraint' {description} -> description) (\s@CreateConstraint' {} a -> s {description = a} :: CreateConstraint)
 
 -- | The language code.
@@ -287,15 +286,15 @@ createConstraint_description = Lens.lens (\CreateConstraint' {description} -> de
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-createConstraint_acceptLanguage :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
+createConstraint_acceptLanguage :: Lens.Lens' CreateConstraint (Core.Maybe Core.Text)
 createConstraint_acceptLanguage = Lens.lens (\CreateConstraint' {acceptLanguage} -> acceptLanguage) (\s@CreateConstraint' {} a -> s {acceptLanguage = a} :: CreateConstraint)
 
 -- | The portfolio identifier.
-createConstraint_portfolioId :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_portfolioId :: Lens.Lens' CreateConstraint Core.Text
 createConstraint_portfolioId = Lens.lens (\CreateConstraint' {portfolioId} -> portfolioId) (\s@CreateConstraint' {} a -> s {portfolioId = a} :: CreateConstraint)
 
 -- | The product identifier.
-createConstraint_productId :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_productId :: Lens.Lens' CreateConstraint Core.Text
 createConstraint_productId = Lens.lens (\CreateConstraint' {productId} -> productId) (\s@CreateConstraint' {} a -> s {productId = a} :: CreateConstraint)
 
 -- | The constraint parameters, in JSON format. The syntax depends on the
@@ -357,7 +356,7 @@ createConstraint_productId = Lens.lens (\CreateConstraint' {productId} -> produc
 -- [TEMPLATE]
 --     Specify the @Rules@ property. For more information, see
 --     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
-createConstraint_parameters :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_parameters :: Lens.Lens' CreateConstraint Core.Text
 createConstraint_parameters = Lens.lens (\CreateConstraint' {parameters} -> parameters) (\s@CreateConstraint' {} a -> s {parameters = a} :: CreateConstraint)
 
 -- | The type of constraint.
@@ -371,81 +370,80 @@ createConstraint_parameters = Lens.lens (\CreateConstraint' {parameters} -> para
 -- -   @STACKSET@
 --
 -- -   @TEMPLATE@
-createConstraint_type :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_type :: Lens.Lens' CreateConstraint Core.Text
 createConstraint_type = Lens.lens (\CreateConstraint' {type'} -> type') (\s@CreateConstraint' {} a -> s {type' = a} :: CreateConstraint)
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple
 -- requests differ only by the idempotency token, the same response is
 -- returned for each repeated request.
-createConstraint_idempotencyToken :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_idempotencyToken :: Lens.Lens' CreateConstraint Core.Text
 createConstraint_idempotencyToken = Lens.lens (\CreateConstraint' {idempotencyToken} -> idempotencyToken) (\s@CreateConstraint' {} a -> s {idempotencyToken = a} :: CreateConstraint)
 
-instance Prelude.AWSRequest CreateConstraint where
-  type Rs CreateConstraint = CreateConstraintResponse
+instance Core.AWSRequest CreateConstraint where
+  type
+    AWSResponse CreateConstraint =
+      CreateConstraintResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateConstraintResponse'
-            Prelude.<$> (x Prelude..?> "ConstraintParameters")
-            Prelude.<*> (x Prelude..?> "Status")
-            Prelude.<*> (x Prelude..?> "ConstraintDetail")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ConstraintParameters")
+            Core.<*> (x Core..?> "Status")
+            Core.<*> (x Core..?> "ConstraintDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateConstraint
+instance Core.Hashable CreateConstraint
 
-instance Prelude.NFData CreateConstraint
+instance Core.NFData CreateConstraint
 
-instance Prelude.ToHeaders CreateConstraint where
+instance Core.ToHeaders CreateConstraint where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.CreateConstraint" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.CreateConstraint" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateConstraint where
+instance Core.ToJSON CreateConstraint where
   toJSON CreateConstraint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Description" Prelude..=) Prelude.<$> description,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId),
-            Prelude.Just ("ProductId" Prelude..= productId),
-            Prelude.Just ("Parameters" Prelude..= parameters),
-            Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just
-              ("IdempotencyToken" Prelude..= idempotencyToken)
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("PortfolioId" Core..= portfolioId),
+            Core.Just ("ProductId" Core..= productId),
+            Core.Just ("Parameters" Core..= parameters),
+            Core.Just ("Type" Core..= type'),
+            Core.Just
+              ("IdempotencyToken" Core..= idempotencyToken)
           ]
       )
 
-instance Prelude.ToPath CreateConstraint where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateConstraint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateConstraint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateConstraint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
   { -- | The constraint parameters.
-    constraintParameters :: Prelude.Maybe Prelude.Text,
+    constraintParameters :: Core.Maybe Core.Text,
     -- | The status of the current request.
-    status :: Prelude.Maybe RequestStatus,
+    status :: Core.Maybe RequestStatus,
     -- | Information about the constraint.
-    constraintDetail :: Prelude.Maybe ConstraintDetail,
+    constraintDetail :: Core.Maybe ConstraintDetail,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateConstraintResponse' with all optional fields omitted.
@@ -464,31 +462,31 @@ data CreateConstraintResponse = CreateConstraintResponse'
 -- 'httpStatus', 'createConstraintResponse_httpStatus' - The response's http status code.
 newCreateConstraintResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateConstraintResponse
 newCreateConstraintResponse pHttpStatus_ =
   CreateConstraintResponse'
     { constraintParameters =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      constraintDetail = Prelude.Nothing,
+        Core.Nothing,
+      status = Core.Nothing,
+      constraintDetail = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The constraint parameters.
-createConstraintResponse_constraintParameters :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe Prelude.Text)
+createConstraintResponse_constraintParameters :: Lens.Lens' CreateConstraintResponse (Core.Maybe Core.Text)
 createConstraintResponse_constraintParameters = Lens.lens (\CreateConstraintResponse' {constraintParameters} -> constraintParameters) (\s@CreateConstraintResponse' {} a -> s {constraintParameters = a} :: CreateConstraintResponse)
 
 -- | The status of the current request.
-createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
+createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Core.Maybe RequestStatus)
 createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
 
 -- | Information about the constraint.
-createConstraintResponse_constraintDetail :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe ConstraintDetail)
+createConstraintResponse_constraintDetail :: Lens.Lens' CreateConstraintResponse (Core.Maybe ConstraintDetail)
 createConstraintResponse_constraintDetail = Lens.lens (\CreateConstraintResponse' {constraintDetail} -> constraintDetail) (\s@CreateConstraintResponse' {} a -> s {constraintDetail = a} :: CreateConstraintResponse)
 
 -- | The response's http status code.
-createConstraintResponse_httpStatus :: Lens.Lens' CreateConstraintResponse Prelude.Int
+createConstraintResponse_httpStatus :: Lens.Lens' CreateConstraintResponse Core.Int
 createConstraintResponse_httpStatus = Lens.lens (\CreateConstraintResponse' {httpStatus} -> httpStatus) (\s@CreateConstraintResponse' {} a -> s {httpStatus = a} :: CreateConstraintResponse)
 
-instance Prelude.NFData CreateConstraintResponse
+instance Core.NFData CreateConstraintResponse

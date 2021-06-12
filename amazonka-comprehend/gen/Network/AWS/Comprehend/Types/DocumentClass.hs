@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.DocumentClass where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the class that categorizes the document being analyzed
 --
 -- /See:/ 'newDocumentClass' smart constructor.
 data DocumentClass = DocumentClass'
   { -- | The name of the class.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The confidence score that Amazon Comprehend has this class correctly
     -- attributed.
-    score :: Prelude.Maybe Prelude.Double
+    score :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentClass' with all optional fields omitted.
@@ -51,29 +50,28 @@ newDocumentClass ::
   DocumentClass
 newDocumentClass =
   DocumentClass'
-    { name = Prelude.Nothing,
-      score = Prelude.Nothing
+    { name = Core.Nothing,
+      score = Core.Nothing
     }
 
 -- | The name of the class.
-documentClass_name :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Text)
+documentClass_name :: Lens.Lens' DocumentClass (Core.Maybe Core.Text)
 documentClass_name = Lens.lens (\DocumentClass' {name} -> name) (\s@DocumentClass' {} a -> s {name = a} :: DocumentClass)
 
 -- | The confidence score that Amazon Comprehend has this class correctly
 -- attributed.
-documentClass_score :: Lens.Lens' DocumentClass (Prelude.Maybe Prelude.Double)
+documentClass_score :: Lens.Lens' DocumentClass (Core.Maybe Core.Double)
 documentClass_score = Lens.lens (\DocumentClass' {score} -> score) (\s@DocumentClass' {} a -> s {score = a} :: DocumentClass)
 
-instance Prelude.FromJSON DocumentClass where
+instance Core.FromJSON DocumentClass where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentClass"
       ( \x ->
           DocumentClass'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Score")
+            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Score")
       )
 
-instance Prelude.Hashable DocumentClass
+instance Core.Hashable DocumentClass
 
-instance Prelude.NFData DocumentClass
+instance Core.NFData DocumentClass

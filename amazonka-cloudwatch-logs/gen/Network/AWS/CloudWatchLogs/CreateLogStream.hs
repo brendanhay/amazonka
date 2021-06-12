@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,19 +51,19 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateLogStream' smart constructor.
 data CreateLogStream = CreateLogStream'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text,
+    logGroupName :: Core.Text,
     -- | The name of the log stream.
-    logStreamName :: Prelude.Text
+    logStreamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLogStream' with all optional fields omitted.
@@ -79,9 +78,9 @@ data CreateLogStream = CreateLogStream'
 -- 'logStreamName', 'createLogStream_logStreamName' - The name of the log stream.
 newCreateLogStream ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logStreamName'
-  Prelude.Text ->
+  Core.Text ->
   CreateLogStream
 newCreateLogStream pLogGroupName_ pLogStreamName_ =
   CreateLogStream'
@@ -90,60 +89,56 @@ newCreateLogStream pLogGroupName_ pLogStreamName_ =
     }
 
 -- | The name of the log group.
-createLogStream_logGroupName :: Lens.Lens' CreateLogStream Prelude.Text
+createLogStream_logGroupName :: Lens.Lens' CreateLogStream Core.Text
 createLogStream_logGroupName = Lens.lens (\CreateLogStream' {logGroupName} -> logGroupName) (\s@CreateLogStream' {} a -> s {logGroupName = a} :: CreateLogStream)
 
 -- | The name of the log stream.
-createLogStream_logStreamName :: Lens.Lens' CreateLogStream Prelude.Text
+createLogStream_logStreamName :: Lens.Lens' CreateLogStream Core.Text
 createLogStream_logStreamName = Lens.lens (\CreateLogStream' {logStreamName} -> logStreamName) (\s@CreateLogStream' {} a -> s {logStreamName = a} :: CreateLogStream)
 
-instance Prelude.AWSRequest CreateLogStream where
-  type Rs CreateLogStream = CreateLogStreamResponse
+instance Core.AWSRequest CreateLogStream where
+  type
+    AWSResponse CreateLogStream =
+      CreateLogStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull CreateLogStreamResponse'
 
-instance Prelude.Hashable CreateLogStream
+instance Core.Hashable CreateLogStream
 
-instance Prelude.NFData CreateLogStream
+instance Core.NFData CreateLogStream
 
-instance Prelude.ToHeaders CreateLogStream where
+instance Core.ToHeaders CreateLogStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.CreateLogStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.CreateLogStream" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateLogStream where
+instance Core.ToJSON CreateLogStream where
   toJSON CreateLogStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName),
-            Prelude.Just
-              ("logStreamName" Prelude..= logStreamName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("logStreamName" Core..= logStreamName)
           ]
       )
 
-instance Prelude.ToPath CreateLogStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateLogStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateLogStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateLogStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateLogStreamResponse' smart constructor.
 data CreateLogStreamResponse = CreateLogStreamResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLogStreamResponse' with all optional fields omitted.
@@ -153,4 +148,4 @@ newCreateLogStreamResponse ::
   CreateLogStreamResponse
 newCreateLogStreamResponse = CreateLogStreamResponse'
 
-instance Prelude.NFData CreateLogStreamResponse
+instance Core.NFData CreateLogStreamResponse

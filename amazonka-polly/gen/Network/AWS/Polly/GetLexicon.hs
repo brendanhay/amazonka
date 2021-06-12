@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,18 +42,18 @@ module Network.AWS.Polly.GetLexicon
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetLexicon' smart constructor.
 data GetLexicon = GetLexicon'
   { -- | Name of the lexicon.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLexicon' with all optional fields omitted.
@@ -67,53 +66,52 @@ data GetLexicon = GetLexicon'
 -- 'name', 'getLexicon_name' - Name of the lexicon.
 newGetLexicon ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetLexicon
 newGetLexicon pName_ = GetLexicon' {name = pName_}
 
 -- | Name of the lexicon.
-getLexicon_name :: Lens.Lens' GetLexicon Prelude.Text
+getLexicon_name :: Lens.Lens' GetLexicon Core.Text
 getLexicon_name = Lens.lens (\GetLexicon' {name} -> name) (\s@GetLexicon' {} a -> s {name = a} :: GetLexicon)
 
-instance Prelude.AWSRequest GetLexicon where
-  type Rs GetLexicon = GetLexiconResponse
+instance Core.AWSRequest GetLexicon where
+  type AWSResponse GetLexicon = GetLexiconResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLexiconResponse'
-            Prelude.<$> (x Prelude..?> "LexiconAttributes")
-            Prelude.<*> (x Prelude..?> "Lexicon")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "LexiconAttributes")
+            Core.<*> (x Core..?> "Lexicon")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetLexicon
+instance Core.Hashable GetLexicon
 
-instance Prelude.NFData GetLexicon
+instance Core.NFData GetLexicon
 
-instance Prelude.ToHeaders GetLexicon where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetLexicon where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetLexicon where
+instance Core.ToPath GetLexicon where
   toPath GetLexicon' {..} =
-    Prelude.mconcat
-      ["/v1/lexicons/", Prelude.toBS name]
+    Core.mconcat ["/v1/lexicons/", Core.toBS name]
 
-instance Prelude.ToQuery GetLexicon where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLexicon where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetLexiconResponse' smart constructor.
 data GetLexiconResponse = GetLexiconResponse'
   { -- | Metadata of the lexicon, including phonetic alphabetic used, language
     -- code, lexicon ARN, number of lexemes defined in the lexicon, and size of
     -- lexicon in bytes.
-    lexiconAttributes :: Prelude.Maybe LexiconAttributes,
+    lexiconAttributes :: Core.Maybe LexiconAttributes,
     -- | Lexicon object that provides name and the string content of the lexicon.
-    lexicon :: Prelude.Maybe Lexicon,
+    lexicon :: Core.Maybe Lexicon,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLexiconResponse' with all optional fields omitted.
@@ -132,28 +130,28 @@ data GetLexiconResponse = GetLexiconResponse'
 -- 'httpStatus', 'getLexiconResponse_httpStatus' - The response's http status code.
 newGetLexiconResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetLexiconResponse
 newGetLexiconResponse pHttpStatus_ =
   GetLexiconResponse'
     { lexiconAttributes =
-        Prelude.Nothing,
-      lexicon = Prelude.Nothing,
+        Core.Nothing,
+      lexicon = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Metadata of the lexicon, including phonetic alphabetic used, language
 -- code, lexicon ARN, number of lexemes defined in the lexicon, and size of
 -- lexicon in bytes.
-getLexiconResponse_lexiconAttributes :: Lens.Lens' GetLexiconResponse (Prelude.Maybe LexiconAttributes)
+getLexiconResponse_lexiconAttributes :: Lens.Lens' GetLexiconResponse (Core.Maybe LexiconAttributes)
 getLexiconResponse_lexiconAttributes = Lens.lens (\GetLexiconResponse' {lexiconAttributes} -> lexiconAttributes) (\s@GetLexiconResponse' {} a -> s {lexiconAttributes = a} :: GetLexiconResponse)
 
 -- | Lexicon object that provides name and the string content of the lexicon.
-getLexiconResponse_lexicon :: Lens.Lens' GetLexiconResponse (Prelude.Maybe Lexicon)
+getLexiconResponse_lexicon :: Lens.Lens' GetLexiconResponse (Core.Maybe Lexicon)
 getLexiconResponse_lexicon = Lens.lens (\GetLexiconResponse' {lexicon} -> lexicon) (\s@GetLexiconResponse' {} a -> s {lexicon = a} :: GetLexiconResponse)
 
 -- | The response's http status code.
-getLexiconResponse_httpStatus :: Lens.Lens' GetLexiconResponse Prelude.Int
+getLexiconResponse_httpStatus :: Lens.Lens' GetLexiconResponse Core.Int
 getLexiconResponse_httpStatus = Lens.lens (\GetLexiconResponse' {httpStatus} -> httpStatus) (\s@GetLexiconResponse' {} a -> s {httpStatus = a} :: GetLexiconResponse)
 
-instance Prelude.NFData GetLexiconResponse
+instance Core.NFData GetLexiconResponse

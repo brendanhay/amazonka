@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.FMS.PutProtocolsList
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutProtocolsList' smart constructor.
 data PutProtocolsList = PutProtocolsList'
   { -- | The tags associated with the resource.
-    tagList :: Prelude.Maybe [Tag],
+    tagList :: Core.Maybe [Tag],
     -- | The details of the AWS Firewall Manager protocols list to be created.
     protocolsList :: ProtocolsListData
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutProtocolsList' with all optional fields omitted.
@@ -74,75 +73,74 @@ newPutProtocolsList ::
   PutProtocolsList
 newPutProtocolsList pProtocolsList_ =
   PutProtocolsList'
-    { tagList = Prelude.Nothing,
+    { tagList = Core.Nothing,
       protocolsList = pProtocolsList_
     }
 
 -- | The tags associated with the resource.
-putProtocolsList_tagList :: Lens.Lens' PutProtocolsList (Prelude.Maybe [Tag])
-putProtocolsList_tagList = Lens.lens (\PutProtocolsList' {tagList} -> tagList) (\s@PutProtocolsList' {} a -> s {tagList = a} :: PutProtocolsList) Prelude.. Lens.mapping Prelude._Coerce
+putProtocolsList_tagList :: Lens.Lens' PutProtocolsList (Core.Maybe [Tag])
+putProtocolsList_tagList = Lens.lens (\PutProtocolsList' {tagList} -> tagList) (\s@PutProtocolsList' {} a -> s {tagList = a} :: PutProtocolsList) Core.. Lens.mapping Lens._Coerce
 
 -- | The details of the AWS Firewall Manager protocols list to be created.
 putProtocolsList_protocolsList :: Lens.Lens' PutProtocolsList ProtocolsListData
 putProtocolsList_protocolsList = Lens.lens (\PutProtocolsList' {protocolsList} -> protocolsList) (\s@PutProtocolsList' {} a -> s {protocolsList = a} :: PutProtocolsList)
 
-instance Prelude.AWSRequest PutProtocolsList where
-  type Rs PutProtocolsList = PutProtocolsListResponse
+instance Core.AWSRequest PutProtocolsList where
+  type
+    AWSResponse PutProtocolsList =
+      PutProtocolsListResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutProtocolsListResponse'
-            Prelude.<$> (x Prelude..?> "ProtocolsList")
-            Prelude.<*> (x Prelude..?> "ProtocolsListArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ProtocolsList")
+            Core.<*> (x Core..?> "ProtocolsListArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutProtocolsList
+instance Core.Hashable PutProtocolsList
 
-instance Prelude.NFData PutProtocolsList
+instance Core.NFData PutProtocolsList
 
-instance Prelude.ToHeaders PutProtocolsList where
+instance Core.ToHeaders PutProtocolsList where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.PutProtocolsList" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.PutProtocolsList" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutProtocolsList where
+instance Core.ToJSON PutProtocolsList where
   toJSON PutProtocolsList' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TagList" Prelude..=) Prelude.<$> tagList,
-            Prelude.Just
-              ("ProtocolsList" Prelude..= protocolsList)
+    Core.object
+      ( Core.catMaybes
+          [ ("TagList" Core..=) Core.<$> tagList,
+            Core.Just ("ProtocolsList" Core..= protocolsList)
           ]
       )
 
-instance Prelude.ToPath PutProtocolsList where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutProtocolsList where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutProtocolsList where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutProtocolsList where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutProtocolsListResponse' smart constructor.
 data PutProtocolsListResponse = PutProtocolsListResponse'
   { -- | The details of the AWS Firewall Manager protocols list.
-    protocolsList :: Prelude.Maybe ProtocolsListData,
+    protocolsList :: Core.Maybe ProtocolsListData,
     -- | The Amazon Resource Name (ARN) of the protocols list.
-    protocolsListArn :: Prelude.Maybe Prelude.Text,
+    protocolsListArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutProtocolsListResponse' with all optional fields omitted.
@@ -159,26 +157,26 @@ data PutProtocolsListResponse = PutProtocolsListResponse'
 -- 'httpStatus', 'putProtocolsListResponse_httpStatus' - The response's http status code.
 newPutProtocolsListResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutProtocolsListResponse
 newPutProtocolsListResponse pHttpStatus_ =
   PutProtocolsListResponse'
     { protocolsList =
-        Prelude.Nothing,
-      protocolsListArn = Prelude.Nothing,
+        Core.Nothing,
+      protocolsListArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the AWS Firewall Manager protocols list.
-putProtocolsListResponse_protocolsList :: Lens.Lens' PutProtocolsListResponse (Prelude.Maybe ProtocolsListData)
+putProtocolsListResponse_protocolsList :: Lens.Lens' PutProtocolsListResponse (Core.Maybe ProtocolsListData)
 putProtocolsListResponse_protocolsList = Lens.lens (\PutProtocolsListResponse' {protocolsList} -> protocolsList) (\s@PutProtocolsListResponse' {} a -> s {protocolsList = a} :: PutProtocolsListResponse)
 
 -- | The Amazon Resource Name (ARN) of the protocols list.
-putProtocolsListResponse_protocolsListArn :: Lens.Lens' PutProtocolsListResponse (Prelude.Maybe Prelude.Text)
+putProtocolsListResponse_protocolsListArn :: Lens.Lens' PutProtocolsListResponse (Core.Maybe Core.Text)
 putProtocolsListResponse_protocolsListArn = Lens.lens (\PutProtocolsListResponse' {protocolsListArn} -> protocolsListArn) (\s@PutProtocolsListResponse' {} a -> s {protocolsListArn = a} :: PutProtocolsListResponse)
 
 -- | The response's http status code.
-putProtocolsListResponse_httpStatus :: Lens.Lens' PutProtocolsListResponse Prelude.Int
+putProtocolsListResponse_httpStatus :: Lens.Lens' PutProtocolsListResponse Core.Int
 putProtocolsListResponse_httpStatus = Lens.lens (\PutProtocolsListResponse' {httpStatus} -> httpStatus) (\s@PutProtocolsListResponse' {} a -> s {httpStatus = a} :: PutProtocolsListResponse)
 
-instance Prelude.NFData PutProtocolsListResponse
+instance Core.NFData PutProtocolsListResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -99,9 +98,9 @@ module Network.AWS.Organizations.DisableAWSServiceAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -110,9 +109,9 @@ data DisableAWSServiceAccess = DisableAWSServiceAccess'
   { -- | The service principal name of the AWS service for which you want to
     -- disable integration with your organization. This is typically in the
     -- form of a URL, such as @ service-abbreviation.amazonaws.com@.
-    servicePrincipal :: Prelude.Text
+    servicePrincipal :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableAWSServiceAccess' with all optional fields omitted.
@@ -127,7 +126,7 @@ data DisableAWSServiceAccess = DisableAWSServiceAccess'
 -- form of a URL, such as @ service-abbreviation.amazonaws.com@.
 newDisableAWSServiceAccess ::
   -- | 'servicePrincipal'
-  Prelude.Text ->
+  Core.Text ->
   DisableAWSServiceAccess
 newDisableAWSServiceAccess pServicePrincipal_ =
   DisableAWSServiceAccess'
@@ -138,57 +137,55 @@ newDisableAWSServiceAccess pServicePrincipal_ =
 -- | The service principal name of the AWS service for which you want to
 -- disable integration with your organization. This is typically in the
 -- form of a URL, such as @ service-abbreviation.amazonaws.com@.
-disableAWSServiceAccess_servicePrincipal :: Lens.Lens' DisableAWSServiceAccess Prelude.Text
+disableAWSServiceAccess_servicePrincipal :: Lens.Lens' DisableAWSServiceAccess Core.Text
 disableAWSServiceAccess_servicePrincipal = Lens.lens (\DisableAWSServiceAccess' {servicePrincipal} -> servicePrincipal) (\s@DisableAWSServiceAccess' {} a -> s {servicePrincipal = a} :: DisableAWSServiceAccess)
 
-instance Prelude.AWSRequest DisableAWSServiceAccess where
+instance Core.AWSRequest DisableAWSServiceAccess where
   type
-    Rs DisableAWSServiceAccess =
+    AWSResponse DisableAWSServiceAccess =
       DisableAWSServiceAccessResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DisableAWSServiceAccessResponse'
 
-instance Prelude.Hashable DisableAWSServiceAccess
+instance Core.Hashable DisableAWSServiceAccess
 
-instance Prelude.NFData DisableAWSServiceAccess
+instance Core.NFData DisableAWSServiceAccess
 
-instance Prelude.ToHeaders DisableAWSServiceAccess where
+instance Core.ToHeaders DisableAWSServiceAccess where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DisableAWSServiceAccess" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DisableAWSServiceAccess" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableAWSServiceAccess where
+instance Core.ToJSON DisableAWSServiceAccess where
   toJSON DisableAWSServiceAccess' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ServicePrincipal" Prelude..= servicePrincipal)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ServicePrincipal" Core..= servicePrincipal)
           ]
       )
 
-instance Prelude.ToPath DisableAWSServiceAccess where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableAWSServiceAccess where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableAWSServiceAccess where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableAWSServiceAccess where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableAWSServiceAccessResponse' smart constructor.
 data DisableAWSServiceAccessResponse = DisableAWSServiceAccessResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableAWSServiceAccessResponse' with all optional fields omitted.
@@ -199,6 +196,4 @@ newDisableAWSServiceAccessResponse ::
 newDisableAWSServiceAccessResponse =
   DisableAWSServiceAccessResponse'
 
-instance
-  Prelude.NFData
-    DisableAWSServiceAccessResponse
+instance Core.NFData DisableAWSServiceAccessResponse

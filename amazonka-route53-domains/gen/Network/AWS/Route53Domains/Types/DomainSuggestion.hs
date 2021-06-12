@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53Domains.Types.DomainSuggestion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about one suggested domain name.
 --
@@ -65,11 +64,11 @@ data DomainSuggestion = DomainSuggestion'
     --
     -- [UNAVAILABLE_RESTRICTED]
     --     The domain name is forbidden.
-    availability :: Prelude.Maybe Prelude.Text,
+    availability :: Core.Maybe Core.Text,
     -- | A suggested domain name.
-    domainName :: Prelude.Maybe Prelude.Text
+    domainName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DomainSuggestion' with all optional fields omitted.
@@ -123,8 +122,8 @@ newDomainSuggestion ::
   DomainSuggestion
 newDomainSuggestion =
   DomainSuggestion'
-    { availability = Prelude.Nothing,
-      domainName = Prelude.Nothing
+    { availability = Core.Nothing,
+      domainName = Core.Nothing
     }
 
 -- | Whether the domain name is available for registering.
@@ -165,23 +164,23 @@ newDomainSuggestion =
 --
 -- [UNAVAILABLE_RESTRICTED]
 --     The domain name is forbidden.
-domainSuggestion_availability :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
+domainSuggestion_availability :: Lens.Lens' DomainSuggestion (Core.Maybe Core.Text)
 domainSuggestion_availability = Lens.lens (\DomainSuggestion' {availability} -> availability) (\s@DomainSuggestion' {} a -> s {availability = a} :: DomainSuggestion)
 
 -- | A suggested domain name.
-domainSuggestion_domainName :: Lens.Lens' DomainSuggestion (Prelude.Maybe Prelude.Text)
+domainSuggestion_domainName :: Lens.Lens' DomainSuggestion (Core.Maybe Core.Text)
 domainSuggestion_domainName = Lens.lens (\DomainSuggestion' {domainName} -> domainName) (\s@DomainSuggestion' {} a -> s {domainName = a} :: DomainSuggestion)
 
-instance Prelude.FromJSON DomainSuggestion where
+instance Core.FromJSON DomainSuggestion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DomainSuggestion"
       ( \x ->
           DomainSuggestion'
-            Prelude.<$> (x Prelude..:? "Availability")
-            Prelude.<*> (x Prelude..:? "DomainName")
+            Core.<$> (x Core..:? "Availability")
+            Core.<*> (x Core..:? "DomainName")
       )
 
-instance Prelude.Hashable DomainSuggestion
+instance Core.Hashable DomainSuggestion
 
-instance Prelude.NFData DomainSuggestion
+instance Core.NFData DomainSuggestion

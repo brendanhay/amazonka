@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.FirelensConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.FirelensConfigurationType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The FireLens configuration for the container. This is used to specify
 -- and configure a log router for container logs. For more information, see
@@ -40,11 +39,11 @@ data FirelensConfiguration = FirelensConfiguration'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    options :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    options :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The log router to use. The valid values are @fluentd@ or @fluentbit@.
     type' :: FirelensConfigurationType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FirelensConfiguration' with all optional fields omitted.
@@ -71,7 +70,7 @@ newFirelensConfiguration ::
   FirelensConfiguration
 newFirelensConfiguration pType_ =
   FirelensConfiguration'
-    { options = Prelude.Nothing,
+    { options = Core.Nothing,
       type' = pType_
     }
 
@@ -84,32 +83,32 @@ newFirelensConfiguration pType_ =
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef Creating a Task Definition that Uses a FireLens Configuration>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-firelensConfiguration_options :: Lens.Lens' FirelensConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> options) (\s@FirelensConfiguration' {} a -> s {options = a} :: FirelensConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+firelensConfiguration_options :: Lens.Lens' FirelensConfiguration (Core.Maybe (Core.HashMap Core.Text Core.Text))
+firelensConfiguration_options = Lens.lens (\FirelensConfiguration' {options} -> options) (\s@FirelensConfiguration' {} a -> s {options = a} :: FirelensConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The log router to use. The valid values are @fluentd@ or @fluentbit@.
 firelensConfiguration_type :: Lens.Lens' FirelensConfiguration FirelensConfigurationType
 firelensConfiguration_type = Lens.lens (\FirelensConfiguration' {type'} -> type') (\s@FirelensConfiguration' {} a -> s {type' = a} :: FirelensConfiguration)
 
-instance Prelude.FromJSON FirelensConfiguration where
+instance Core.FromJSON FirelensConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FirelensConfiguration"
       ( \x ->
           FirelensConfiguration'
-            Prelude.<$> (x Prelude..:? "options" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "type")
+            Core.<$> (x Core..:? "options" Core..!= Core.mempty)
+            Core.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable FirelensConfiguration
+instance Core.Hashable FirelensConfiguration
 
-instance Prelude.NFData FirelensConfiguration
+instance Core.NFData FirelensConfiguration
 
-instance Prelude.ToJSON FirelensConfiguration where
+instance Core.ToJSON FirelensConfiguration where
   toJSON FirelensConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("options" Prelude..=) Prelude.<$> options,
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("options" Core..=) Core.<$> options,
+            Core.Just ("type" Core..= type')
           ]
       )

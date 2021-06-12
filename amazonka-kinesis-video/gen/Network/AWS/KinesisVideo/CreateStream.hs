@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.KinesisVideo.CreateStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,7 +74,7 @@ data CreateStream = CreateStream'
     -- the fragments that remain in the service host buffer, which has a
     -- retention time limit of 5 minutes and a retention memory limit of 200
     -- MB. Fragments are removed from the buffer when either limit is reached.
-    dataRetentionInHours :: Prelude.Maybe Prelude.Natural,
+    dataRetentionInHours :: Core.Maybe Core.Natural,
     -- | The ID of the AWS Key Management Service (AWS KMS) key that you want
     -- Kinesis Video Streams to use to encrypt stream data.
     --
@@ -84,12 +83,12 @@ data CreateStream = CreateStream'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The name of the device that is writing to the stream.
     --
     -- In the current implementation, Kinesis Video Streams does not use this
     -- name.
-    deviceName :: Prelude.Maybe Prelude.Text,
+    deviceName :: Core.Maybe Core.Text,
     -- | The media type of the stream. Consumers of the stream can use this
     -- information when processing the stream. For more information about media
     -- types, see
@@ -103,17 +102,17 @@ data CreateStream = CreateStream'
     --
     -- This parameter is optional; the default value is @null@ (or empty in
     -- JSON).
-    mediaType :: Prelude.Maybe Prelude.Text,
+    mediaType :: Core.Maybe Core.Text,
     -- | A list of tags to associate with the specified stream. Each tag is a
     -- key-value pair (the value is optional).
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A name for the stream that you are creating.
     --
     -- The stream name is an identifier for the stream, and must be unique for
     -- each account and region.
-    streamName :: Prelude.Text
+    streamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStream' with all optional fields omitted.
@@ -172,16 +171,15 @@ data CreateStream = CreateStream'
 -- each account and region.
 newCreateStream ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   CreateStream
 newCreateStream pStreamName_ =
   CreateStream'
-    { dataRetentionInHours =
-        Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      deviceName = Prelude.Nothing,
-      mediaType = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { dataRetentionInHours = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      deviceName = Core.Nothing,
+      mediaType = Core.Nothing,
+      tags = Core.Nothing,
       streamName = pStreamName_
     }
 
@@ -196,7 +194,7 @@ newCreateStream pStreamName_ =
 -- the fragments that remain in the service host buffer, which has a
 -- retention time limit of 5 minutes and a retention memory limit of 200
 -- MB. Fragments are removed from the buffer when either limit is reached.
-createStream_dataRetentionInHours :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Natural)
+createStream_dataRetentionInHours :: Lens.Lens' CreateStream (Core.Maybe Core.Natural)
 createStream_dataRetentionInHours = Lens.lens (\CreateStream' {dataRetentionInHours} -> dataRetentionInHours) (\s@CreateStream' {} a -> s {dataRetentionInHours = a} :: CreateStream)
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that you want
@@ -207,14 +205,14 @@ createStream_dataRetentionInHours = Lens.lens (\CreateStream' {dataRetentionInHo
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters DescribeKey>.
-createStream_kmsKeyId :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
+createStream_kmsKeyId :: Lens.Lens' CreateStream (Core.Maybe Core.Text)
 createStream_kmsKeyId = Lens.lens (\CreateStream' {kmsKeyId} -> kmsKeyId) (\s@CreateStream' {} a -> s {kmsKeyId = a} :: CreateStream)
 
 -- | The name of the device that is writing to the stream.
 --
 -- In the current implementation, Kinesis Video Streams does not use this
 -- name.
-createStream_deviceName :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
+createStream_deviceName :: Lens.Lens' CreateStream (Core.Maybe Core.Text)
 createStream_deviceName = Lens.lens (\CreateStream' {deviceName} -> deviceName) (\s@CreateStream' {} a -> s {deviceName = a} :: CreateStream)
 
 -- | The media type of the stream. Consumers of the stream can use this
@@ -230,67 +228,67 @@ createStream_deviceName = Lens.lens (\CreateStream' {deviceName} -> deviceName) 
 --
 -- This parameter is optional; the default value is @null@ (or empty in
 -- JSON).
-createStream_mediaType :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
+createStream_mediaType :: Lens.Lens' CreateStream (Core.Maybe Core.Text)
 createStream_mediaType = Lens.lens (\CreateStream' {mediaType} -> mediaType) (\s@CreateStream' {} a -> s {mediaType = a} :: CreateStream)
 
 -- | A list of tags to associate with the specified stream. Each tag is a
 -- key-value pair (the value is optional).
-createStream_tags :: Lens.Lens' CreateStream (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' {} a -> s {tags = a} :: CreateStream) Prelude.. Lens.mapping Prelude._Coerce
+createStream_tags :: Lens.Lens' CreateStream (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createStream_tags = Lens.lens (\CreateStream' {tags} -> tags) (\s@CreateStream' {} a -> s {tags = a} :: CreateStream) Core.. Lens.mapping Lens._Coerce
 
 -- | A name for the stream that you are creating.
 --
 -- The stream name is an identifier for the stream, and must be unique for
 -- each account and region.
-createStream_streamName :: Lens.Lens' CreateStream Prelude.Text
+createStream_streamName :: Lens.Lens' CreateStream Core.Text
 createStream_streamName = Lens.lens (\CreateStream' {streamName} -> streamName) (\s@CreateStream' {} a -> s {streamName = a} :: CreateStream)
 
-instance Prelude.AWSRequest CreateStream where
-  type Rs CreateStream = CreateStreamResponse
+instance Core.AWSRequest CreateStream where
+  type AWSResponse CreateStream = CreateStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateStreamResponse'
-            Prelude.<$> (x Prelude..?> "StreamARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StreamARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStream
+instance Core.Hashable CreateStream
 
-instance Prelude.NFData CreateStream
+instance Core.NFData CreateStream
 
-instance Prelude.ToHeaders CreateStream where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateStream where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateStream where
+instance Core.ToJSON CreateStream where
   toJSON CreateStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DataRetentionInHours" Prelude..=)
-              Prelude.<$> dataRetentionInHours,
-            ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            ("DeviceName" Prelude..=) Prelude.<$> deviceName,
-            ("MediaType" Prelude..=) Prelude.<$> mediaType,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("StreamName" Prelude..= streamName)
+    Core.object
+      ( Core.catMaybes
+          [ ("DataRetentionInHours" Core..=)
+              Core.<$> dataRetentionInHours,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("DeviceName" Core..=) Core.<$> deviceName,
+            ("MediaType" Core..=) Core.<$> mediaType,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("StreamName" Core..= streamName)
           ]
       )
 
-instance Prelude.ToPath CreateStream where
-  toPath = Prelude.const "/createStream"
+instance Core.ToPath CreateStream where
+  toPath = Core.const "/createStream"
 
-instance Prelude.ToQuery CreateStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateStreamResponse' smart constructor.
 data CreateStreamResponse = CreateStreamResponse'
   { -- | The Amazon Resource Name (ARN) of the stream.
-    streamARN :: Prelude.Maybe Prelude.Text,
+    streamARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStreamResponse' with all optional fields omitted.
@@ -305,20 +303,20 @@ data CreateStreamResponse = CreateStreamResponse'
 -- 'httpStatus', 'createStreamResponse_httpStatus' - The response's http status code.
 newCreateStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateStreamResponse
 newCreateStreamResponse pHttpStatus_ =
   CreateStreamResponse'
-    { streamARN = Prelude.Nothing,
+    { streamARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the stream.
-createStreamResponse_streamARN :: Lens.Lens' CreateStreamResponse (Prelude.Maybe Prelude.Text)
+createStreamResponse_streamARN :: Lens.Lens' CreateStreamResponse (Core.Maybe Core.Text)
 createStreamResponse_streamARN = Lens.lens (\CreateStreamResponse' {streamARN} -> streamARN) (\s@CreateStreamResponse' {} a -> s {streamARN = a} :: CreateStreamResponse)
 
 -- | The response's http status code.
-createStreamResponse_httpStatus :: Lens.Lens' CreateStreamResponse Prelude.Int
+createStreamResponse_httpStatus :: Lens.Lens' CreateStreamResponse Core.Int
 createStreamResponse_httpStatus = Lens.lens (\CreateStreamResponse' {httpStatus} -> httpStatus) (\s@CreateStreamResponse' {} a -> s {httpStatus = a} :: CreateStreamResponse)
 
-instance Prelude.NFData CreateStreamResponse
+instance Core.NFData CreateStreamResponse

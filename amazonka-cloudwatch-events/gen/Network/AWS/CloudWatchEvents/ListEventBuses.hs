@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CloudWatchEvents.ListEventBuses
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,16 +53,16 @@ import qualified Network.AWS.Response as Response
 data ListEventBuses = ListEventBuses'
   { -- | The token returned by a previous call to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Specifying this limits the results to only those event buses with names
     -- that start with the specified prefix.
-    namePrefix :: Prelude.Maybe Prelude.Text,
+    namePrefix :: Core.Maybe Core.Text,
     -- | Specifying this limits the number of results returned by this operation.
     -- The operation also returns a NextToken which you can use in a subsequent
     -- operation to retrieve the next set of results.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEventBuses' with all optional fields omitted.
@@ -86,85 +85,83 @@ newListEventBuses ::
   ListEventBuses
 newListEventBuses =
   ListEventBuses'
-    { nextToken = Prelude.Nothing,
-      namePrefix = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      namePrefix = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The token returned by a previous call to retrieve the next set of
 -- results.
-listEventBuses_nextToken :: Lens.Lens' ListEventBuses (Prelude.Maybe Prelude.Text)
+listEventBuses_nextToken :: Lens.Lens' ListEventBuses (Core.Maybe Core.Text)
 listEventBuses_nextToken = Lens.lens (\ListEventBuses' {nextToken} -> nextToken) (\s@ListEventBuses' {} a -> s {nextToken = a} :: ListEventBuses)
 
 -- | Specifying this limits the results to only those event buses with names
 -- that start with the specified prefix.
-listEventBuses_namePrefix :: Lens.Lens' ListEventBuses (Prelude.Maybe Prelude.Text)
+listEventBuses_namePrefix :: Lens.Lens' ListEventBuses (Core.Maybe Core.Text)
 listEventBuses_namePrefix = Lens.lens (\ListEventBuses' {namePrefix} -> namePrefix) (\s@ListEventBuses' {} a -> s {namePrefix = a} :: ListEventBuses)
 
 -- | Specifying this limits the number of results returned by this operation.
 -- The operation also returns a NextToken which you can use in a subsequent
 -- operation to retrieve the next set of results.
-listEventBuses_limit :: Lens.Lens' ListEventBuses (Prelude.Maybe Prelude.Natural)
+listEventBuses_limit :: Lens.Lens' ListEventBuses (Core.Maybe Core.Natural)
 listEventBuses_limit = Lens.lens (\ListEventBuses' {limit} -> limit) (\s@ListEventBuses' {} a -> s {limit = a} :: ListEventBuses)
 
-instance Prelude.AWSRequest ListEventBuses where
-  type Rs ListEventBuses = ListEventBusesResponse
+instance Core.AWSRequest ListEventBuses where
+  type
+    AWSResponse ListEventBuses =
+      ListEventBusesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListEventBusesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "EventBuses"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "EventBuses" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListEventBuses
+instance Core.Hashable ListEventBuses
 
-instance Prelude.NFData ListEventBuses
+instance Core.NFData ListEventBuses
 
-instance Prelude.ToHeaders ListEventBuses where
+instance Core.ToHeaders ListEventBuses where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSEvents.ListEventBuses" :: Prelude.ByteString),
+              Core.=# ("AWSEvents.ListEventBuses" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListEventBuses where
+instance Core.ToJSON ListEventBuses where
   toJSON ListEventBuses' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NamePrefix" Prelude..=) Prelude.<$> namePrefix,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("NamePrefix" Core..=) Core.<$> namePrefix,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListEventBuses where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListEventBuses where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListEventBuses where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListEventBuses where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListEventBusesResponse' smart constructor.
 data ListEventBusesResponse = ListEventBusesResponse'
   { -- | A token you can use in a subsequent operation to retrieve the next set
     -- of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | This list of event buses.
-    eventBuses :: Prelude.Maybe [EventBus],
+    eventBuses :: Core.Maybe [EventBus],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListEventBusesResponse' with all optional fields omitted.
@@ -182,27 +179,26 @@ data ListEventBusesResponse = ListEventBusesResponse'
 -- 'httpStatus', 'listEventBusesResponse_httpStatus' - The response's http status code.
 newListEventBusesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListEventBusesResponse
 newListEventBusesResponse pHttpStatus_ =
   ListEventBusesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      eventBuses = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      eventBuses = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token you can use in a subsequent operation to retrieve the next set
 -- of results.
-listEventBusesResponse_nextToken :: Lens.Lens' ListEventBusesResponse (Prelude.Maybe Prelude.Text)
+listEventBusesResponse_nextToken :: Lens.Lens' ListEventBusesResponse (Core.Maybe Core.Text)
 listEventBusesResponse_nextToken = Lens.lens (\ListEventBusesResponse' {nextToken} -> nextToken) (\s@ListEventBusesResponse' {} a -> s {nextToken = a} :: ListEventBusesResponse)
 
 -- | This list of event buses.
-listEventBusesResponse_eventBuses :: Lens.Lens' ListEventBusesResponse (Prelude.Maybe [EventBus])
-listEventBusesResponse_eventBuses = Lens.lens (\ListEventBusesResponse' {eventBuses} -> eventBuses) (\s@ListEventBusesResponse' {} a -> s {eventBuses = a} :: ListEventBusesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listEventBusesResponse_eventBuses :: Lens.Lens' ListEventBusesResponse (Core.Maybe [EventBus])
+listEventBusesResponse_eventBuses = Lens.lens (\ListEventBusesResponse' {eventBuses} -> eventBuses) (\s@ListEventBusesResponse' {} a -> s {eventBuses = a} :: ListEventBusesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listEventBusesResponse_httpStatus :: Lens.Lens' ListEventBusesResponse Prelude.Int
+listEventBusesResponse_httpStatus :: Lens.Lens' ListEventBusesResponse Core.Int
 listEventBusesResponse_httpStatus = Lens.lens (\ListEventBusesResponse' {httpStatus} -> httpStatus) (\s@ListEventBusesResponse' {} a -> s {httpStatus = a} :: ListEventBusesResponse)
 
-instance Prelude.NFData ListEventBusesResponse
+instance Core.NFData ListEventBusesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ActionRevision where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about the version (or revision) of an action.
 --
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 data ActionRevision = ActionRevision'
   { -- | The system-generated unique ID that identifies the revision number of
     -- the action.
-    revisionId :: Prelude.Text,
+    revisionId :: Core.Text,
     -- | The unique identifier of the change that set the state to this revision
     -- (for example, a deployment ID or timestamp).
-    revisionChangeId :: Prelude.Text,
+    revisionChangeId :: Core.Text,
     -- | The date and time when the most recent version of the action was
     -- created, in timestamp format.
-    created :: Prelude.POSIX
+    created :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionRevision' with all optional fields omitted.
@@ -57,11 +56,11 @@ data ActionRevision = ActionRevision'
 -- created, in timestamp format.
 newActionRevision ::
   -- | 'revisionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'revisionChangeId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'created'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   ActionRevision
 newActionRevision
   pRevisionId_
@@ -70,46 +69,46 @@ newActionRevision
     ActionRevision'
       { revisionId = pRevisionId_,
         revisionChangeId = pRevisionChangeId_,
-        created = Prelude._Time Lens.# pCreated_
+        created = Core._Time Lens.# pCreated_
       }
 
 -- | The system-generated unique ID that identifies the revision number of
 -- the action.
-actionRevision_revisionId :: Lens.Lens' ActionRevision Prelude.Text
+actionRevision_revisionId :: Lens.Lens' ActionRevision Core.Text
 actionRevision_revisionId = Lens.lens (\ActionRevision' {revisionId} -> revisionId) (\s@ActionRevision' {} a -> s {revisionId = a} :: ActionRevision)
 
 -- | The unique identifier of the change that set the state to this revision
 -- (for example, a deployment ID or timestamp).
-actionRevision_revisionChangeId :: Lens.Lens' ActionRevision Prelude.Text
+actionRevision_revisionChangeId :: Lens.Lens' ActionRevision Core.Text
 actionRevision_revisionChangeId = Lens.lens (\ActionRevision' {revisionChangeId} -> revisionChangeId) (\s@ActionRevision' {} a -> s {revisionChangeId = a} :: ActionRevision)
 
 -- | The date and time when the most recent version of the action was
 -- created, in timestamp format.
-actionRevision_created :: Lens.Lens' ActionRevision Prelude.UTCTime
-actionRevision_created = Lens.lens (\ActionRevision' {created} -> created) (\s@ActionRevision' {} a -> s {created = a} :: ActionRevision) Prelude.. Prelude._Time
+actionRevision_created :: Lens.Lens' ActionRevision Core.UTCTime
+actionRevision_created = Lens.lens (\ActionRevision' {created} -> created) (\s@ActionRevision' {} a -> s {created = a} :: ActionRevision) Core.. Core._Time
 
-instance Prelude.FromJSON ActionRevision where
+instance Core.FromJSON ActionRevision where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionRevision"
       ( \x ->
           ActionRevision'
-            Prelude.<$> (x Prelude..: "revisionId")
-            Prelude.<*> (x Prelude..: "revisionChangeId")
-            Prelude.<*> (x Prelude..: "created")
+            Core.<$> (x Core..: "revisionId")
+            Core.<*> (x Core..: "revisionChangeId")
+            Core.<*> (x Core..: "created")
       )
 
-instance Prelude.Hashable ActionRevision
+instance Core.Hashable ActionRevision
 
-instance Prelude.NFData ActionRevision
+instance Core.NFData ActionRevision
 
-instance Prelude.ToJSON ActionRevision where
+instance Core.ToJSON ActionRevision where
   toJSON ActionRevision' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("revisionId" Prelude..= revisionId),
-            Prelude.Just
-              ("revisionChangeId" Prelude..= revisionChangeId),
-            Prelude.Just ("created" Prelude..= created)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("revisionId" Core..= revisionId),
+            Core.Just
+              ("revisionChangeId" Core..= revisionChangeId),
+            Core.Just ("created" Core..= created)
           ]
       )

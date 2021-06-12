@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.TapeArchive where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a virtual tape that is archived in the virtual tape shelf
 -- (VTS).
@@ -32,46 +31,46 @@ data TapeArchive = TapeArchive'
     --
     -- The default timestamp format is in the ISO8601 extended
     -- YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
-    poolEntryDate :: Prelude.Maybe Prelude.POSIX,
+    poolEntryDate :: Core.Maybe Core.POSIX,
     -- | The current state of the archived virtual tape.
-    tapeStatus :: Prelude.Maybe Prelude.Text,
+    tapeStatus :: Core.Maybe Core.Text,
     -- | The date the virtual tape was created.
-    tapeCreatedDate :: Prelude.Maybe Prelude.POSIX,
+    tapeCreatedDate :: Core.Maybe Core.POSIX,
     -- | The ID of the pool that was used to archive the tape. The tapes in this
     -- pool are archived in the S3 storage class that is associated with the
     -- pool.
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-    poolId :: Prelude.Maybe Prelude.Text,
+    poolId :: Core.Maybe Core.Text,
     -- | The time that the archiving of the virtual tape was completed.
     --
     -- The default timestamp format is in the ISO8601 extended
     -- YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
-    completionTime :: Prelude.Maybe Prelude.POSIX,
+    completionTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the tape gateway that the virtual tape
     -- is being retrieved to.
     --
     -- The virtual tape is retrieved from the virtual tape shelf (VTS).
-    retrievedTo :: Prelude.Maybe Prelude.Text,
+    retrievedTo :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of an archived virtual tape.
-    tapeARN :: Prelude.Maybe Prelude.Text,
-    kmsKey :: Prelude.Maybe Prelude.Text,
+    tapeARN :: Core.Maybe Core.Text,
+    kmsKey :: Core.Maybe Core.Text,
     -- | Set to @true@ if the archived tape is stored as write-once-read-many
     -- (WORM).
-    worm :: Prelude.Maybe Prelude.Bool,
+    worm :: Core.Maybe Core.Bool,
     -- | The barcode that identifies the archived virtual tape.
-    tapeBarcode :: Prelude.Maybe Prelude.Text,
+    tapeBarcode :: Core.Maybe Core.Text,
     -- | The size, in bytes, of data stored on the virtual tape.
     --
     -- This value is not available for tapes created prior to May 13, 2015.
-    tapeUsedInBytes :: Prelude.Maybe Prelude.Integer,
+    tapeUsedInBytes :: Core.Maybe Core.Integer,
     -- | The size, in bytes, of the archived virtual tape.
-    tapeSizeInBytes :: Prelude.Maybe Prelude.Integer,
+    tapeSizeInBytes :: Core.Maybe Core.Integer,
     -- | If the archived tape is subject to tape retention lock, the date that
     -- the archived tape started being retained.
-    retentionStartDate :: Prelude.Maybe Prelude.POSIX
+    retentionStartDate :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TapeArchive' with all optional fields omitted.
@@ -127,111 +126,111 @@ newTapeArchive ::
   TapeArchive
 newTapeArchive =
   TapeArchive'
-    { poolEntryDate = Prelude.Nothing,
-      tapeStatus = Prelude.Nothing,
-      tapeCreatedDate = Prelude.Nothing,
-      poolId = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      retrievedTo = Prelude.Nothing,
-      tapeARN = Prelude.Nothing,
-      kmsKey = Prelude.Nothing,
-      worm = Prelude.Nothing,
-      tapeBarcode = Prelude.Nothing,
-      tapeUsedInBytes = Prelude.Nothing,
-      tapeSizeInBytes = Prelude.Nothing,
-      retentionStartDate = Prelude.Nothing
+    { poolEntryDate = Core.Nothing,
+      tapeStatus = Core.Nothing,
+      tapeCreatedDate = Core.Nothing,
+      poolId = Core.Nothing,
+      completionTime = Core.Nothing,
+      retrievedTo = Core.Nothing,
+      tapeARN = Core.Nothing,
+      kmsKey = Core.Nothing,
+      worm = Core.Nothing,
+      tapeBarcode = Core.Nothing,
+      tapeUsedInBytes = Core.Nothing,
+      tapeSizeInBytes = Core.Nothing,
+      retentionStartDate = Core.Nothing
     }
 
 -- | The time that the tape entered the custom tape pool.
 --
 -- The default timestamp format is in the ISO8601 extended
 -- YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
-tapeArchive_poolEntryDate :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.UTCTime)
-tapeArchive_poolEntryDate = Lens.lens (\TapeArchive' {poolEntryDate} -> poolEntryDate) (\s@TapeArchive' {} a -> s {poolEntryDate = a} :: TapeArchive) Prelude.. Lens.mapping Prelude._Time
+tapeArchive_poolEntryDate :: Lens.Lens' TapeArchive (Core.Maybe Core.UTCTime)
+tapeArchive_poolEntryDate = Lens.lens (\TapeArchive' {poolEntryDate} -> poolEntryDate) (\s@TapeArchive' {} a -> s {poolEntryDate = a} :: TapeArchive) Core.. Lens.mapping Core._Time
 
 -- | The current state of the archived virtual tape.
-tapeArchive_tapeStatus :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
+tapeArchive_tapeStatus :: Lens.Lens' TapeArchive (Core.Maybe Core.Text)
 tapeArchive_tapeStatus = Lens.lens (\TapeArchive' {tapeStatus} -> tapeStatus) (\s@TapeArchive' {} a -> s {tapeStatus = a} :: TapeArchive)
 
 -- | The date the virtual tape was created.
-tapeArchive_tapeCreatedDate :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.UTCTime)
-tapeArchive_tapeCreatedDate = Lens.lens (\TapeArchive' {tapeCreatedDate} -> tapeCreatedDate) (\s@TapeArchive' {} a -> s {tapeCreatedDate = a} :: TapeArchive) Prelude.. Lens.mapping Prelude._Time
+tapeArchive_tapeCreatedDate :: Lens.Lens' TapeArchive (Core.Maybe Core.UTCTime)
+tapeArchive_tapeCreatedDate = Lens.lens (\TapeArchive' {tapeCreatedDate} -> tapeCreatedDate) (\s@TapeArchive' {} a -> s {tapeCreatedDate = a} :: TapeArchive) Core.. Lens.mapping Core._Time
 
 -- | The ID of the pool that was used to archive the tape. The tapes in this
 -- pool are archived in the S3 storage class that is associated with the
 -- pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-tapeArchive_poolId :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
+tapeArchive_poolId :: Lens.Lens' TapeArchive (Core.Maybe Core.Text)
 tapeArchive_poolId = Lens.lens (\TapeArchive' {poolId} -> poolId) (\s@TapeArchive' {} a -> s {poolId = a} :: TapeArchive)
 
 -- | The time that the archiving of the virtual tape was completed.
 --
 -- The default timestamp format is in the ISO8601 extended
 -- YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
-tapeArchive_completionTime :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.UTCTime)
-tapeArchive_completionTime = Lens.lens (\TapeArchive' {completionTime} -> completionTime) (\s@TapeArchive' {} a -> s {completionTime = a} :: TapeArchive) Prelude.. Lens.mapping Prelude._Time
+tapeArchive_completionTime :: Lens.Lens' TapeArchive (Core.Maybe Core.UTCTime)
+tapeArchive_completionTime = Lens.lens (\TapeArchive' {completionTime} -> completionTime) (\s@TapeArchive' {} a -> s {completionTime = a} :: TapeArchive) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the tape gateway that the virtual tape
 -- is being retrieved to.
 --
 -- The virtual tape is retrieved from the virtual tape shelf (VTS).
-tapeArchive_retrievedTo :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
+tapeArchive_retrievedTo :: Lens.Lens' TapeArchive (Core.Maybe Core.Text)
 tapeArchive_retrievedTo = Lens.lens (\TapeArchive' {retrievedTo} -> retrievedTo) (\s@TapeArchive' {} a -> s {retrievedTo = a} :: TapeArchive)
 
 -- | The Amazon Resource Name (ARN) of an archived virtual tape.
-tapeArchive_tapeARN :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
+tapeArchive_tapeARN :: Lens.Lens' TapeArchive (Core.Maybe Core.Text)
 tapeArchive_tapeARN = Lens.lens (\TapeArchive' {tapeARN} -> tapeARN) (\s@TapeArchive' {} a -> s {tapeARN = a} :: TapeArchive)
 
 -- | Undocumented member.
-tapeArchive_kmsKey :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
+tapeArchive_kmsKey :: Lens.Lens' TapeArchive (Core.Maybe Core.Text)
 tapeArchive_kmsKey = Lens.lens (\TapeArchive' {kmsKey} -> kmsKey) (\s@TapeArchive' {} a -> s {kmsKey = a} :: TapeArchive)
 
 -- | Set to @true@ if the archived tape is stored as write-once-read-many
 -- (WORM).
-tapeArchive_worm :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Bool)
+tapeArchive_worm :: Lens.Lens' TapeArchive (Core.Maybe Core.Bool)
 tapeArchive_worm = Lens.lens (\TapeArchive' {worm} -> worm) (\s@TapeArchive' {} a -> s {worm = a} :: TapeArchive)
 
 -- | The barcode that identifies the archived virtual tape.
-tapeArchive_tapeBarcode :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
+tapeArchive_tapeBarcode :: Lens.Lens' TapeArchive (Core.Maybe Core.Text)
 tapeArchive_tapeBarcode = Lens.lens (\TapeArchive' {tapeBarcode} -> tapeBarcode) (\s@TapeArchive' {} a -> s {tapeBarcode = a} :: TapeArchive)
 
 -- | The size, in bytes, of data stored on the virtual tape.
 --
 -- This value is not available for tapes created prior to May 13, 2015.
-tapeArchive_tapeUsedInBytes :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Integer)
+tapeArchive_tapeUsedInBytes :: Lens.Lens' TapeArchive (Core.Maybe Core.Integer)
 tapeArchive_tapeUsedInBytes = Lens.lens (\TapeArchive' {tapeUsedInBytes} -> tapeUsedInBytes) (\s@TapeArchive' {} a -> s {tapeUsedInBytes = a} :: TapeArchive)
 
 -- | The size, in bytes, of the archived virtual tape.
-tapeArchive_tapeSizeInBytes :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Integer)
+tapeArchive_tapeSizeInBytes :: Lens.Lens' TapeArchive (Core.Maybe Core.Integer)
 tapeArchive_tapeSizeInBytes = Lens.lens (\TapeArchive' {tapeSizeInBytes} -> tapeSizeInBytes) (\s@TapeArchive' {} a -> s {tapeSizeInBytes = a} :: TapeArchive)
 
 -- | If the archived tape is subject to tape retention lock, the date that
 -- the archived tape started being retained.
-tapeArchive_retentionStartDate :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.UTCTime)
-tapeArchive_retentionStartDate = Lens.lens (\TapeArchive' {retentionStartDate} -> retentionStartDate) (\s@TapeArchive' {} a -> s {retentionStartDate = a} :: TapeArchive) Prelude.. Lens.mapping Prelude._Time
+tapeArchive_retentionStartDate :: Lens.Lens' TapeArchive (Core.Maybe Core.UTCTime)
+tapeArchive_retentionStartDate = Lens.lens (\TapeArchive' {retentionStartDate} -> retentionStartDate) (\s@TapeArchive' {} a -> s {retentionStartDate = a} :: TapeArchive) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON TapeArchive where
+instance Core.FromJSON TapeArchive where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TapeArchive"
       ( \x ->
           TapeArchive'
-            Prelude.<$> (x Prelude..:? "PoolEntryDate")
-            Prelude.<*> (x Prelude..:? "TapeStatus")
-            Prelude.<*> (x Prelude..:? "TapeCreatedDate")
-            Prelude.<*> (x Prelude..:? "PoolId")
-            Prelude.<*> (x Prelude..:? "CompletionTime")
-            Prelude.<*> (x Prelude..:? "RetrievedTo")
-            Prelude.<*> (x Prelude..:? "TapeARN")
-            Prelude.<*> (x Prelude..:? "KMSKey")
-            Prelude.<*> (x Prelude..:? "Worm")
-            Prelude.<*> (x Prelude..:? "TapeBarcode")
-            Prelude.<*> (x Prelude..:? "TapeUsedInBytes")
-            Prelude.<*> (x Prelude..:? "TapeSizeInBytes")
-            Prelude.<*> (x Prelude..:? "RetentionStartDate")
+            Core.<$> (x Core..:? "PoolEntryDate")
+            Core.<*> (x Core..:? "TapeStatus")
+            Core.<*> (x Core..:? "TapeCreatedDate")
+            Core.<*> (x Core..:? "PoolId")
+            Core.<*> (x Core..:? "CompletionTime")
+            Core.<*> (x Core..:? "RetrievedTo")
+            Core.<*> (x Core..:? "TapeARN")
+            Core.<*> (x Core..:? "KMSKey")
+            Core.<*> (x Core..:? "Worm")
+            Core.<*> (x Core..:? "TapeBarcode")
+            Core.<*> (x Core..:? "TapeUsedInBytes")
+            Core.<*> (x Core..:? "TapeSizeInBytes")
+            Core.<*> (x Core..:? "RetentionStartDate")
       )
 
-instance Prelude.Hashable TapeArchive
+instance Core.Hashable TapeArchive
 
-instance Prelude.NFData TapeArchive
+instance Core.NFData TapeArchive

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.Redshift.DeleteTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -50,11 +49,11 @@ import qualified Network.AWS.Response as Response
 data DeleteTags = DeleteTags'
   { -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
     -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-    resourceName :: Prelude.Text,
+    resourceName :: Core.Text,
     -- | The tag key that you want to delete.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTags' with all optional fields omitted.
@@ -70,55 +69,52 @@ data DeleteTags = DeleteTags'
 -- 'tagKeys', 'deleteTags_tagKeys' - The tag key that you want to delete.
 newDeleteTags ::
   -- | 'resourceName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTags
 newDeleteTags pResourceName_ =
   DeleteTags'
     { resourceName = pResourceName_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
 -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
-deleteTags_resourceName :: Lens.Lens' DeleteTags Prelude.Text
+deleteTags_resourceName :: Lens.Lens' DeleteTags Core.Text
 deleteTags_resourceName = Lens.lens (\DeleteTags' {resourceName} -> resourceName) (\s@DeleteTags' {} a -> s {resourceName = a} :: DeleteTags)
 
 -- | The tag key that you want to delete.
-deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Prelude._Coerce
+deleteTags_tagKeys :: Lens.Lens' DeleteTags [Core.Text]
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteTags where
-  type Rs DeleteTags = DeleteTagsResponse
+instance Core.AWSRequest DeleteTags where
+  type AWSResponse DeleteTags = DeleteTagsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Prelude.Hashable DeleteTags
+instance Core.Hashable DeleteTags
 
-instance Prelude.NFData DeleteTags
+instance Core.NFData DeleteTags
 
-instance Prelude.ToHeaders DeleteTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTags where
+instance Core.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteTags" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ResourceName" Prelude.=: resourceName,
-        "TagKeys"
-          Prelude.=: Prelude.toQueryList "TagKey" tagKeys
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteTags" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ResourceName" Core.=: resourceName,
+        "TagKeys" Core.=: Core.toQueryList "TagKey" tagKeys
       ]
 
 -- | /See:/ 'newDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
@@ -128,4 +124,4 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Prelude.NFData DeleteTagsResponse
+instance Core.NFData DeleteTagsResponse

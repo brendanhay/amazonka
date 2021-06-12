@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.IoT.DeleteRoleAlias
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRoleAlias' smart constructor.
 data DeleteRoleAlias = DeleteRoleAlias'
   { -- | The role alias to delete.
-    roleAlias :: Prelude.Text
+    roleAlias :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRoleAlias' with all optional fields omitted.
@@ -63,46 +62,48 @@ data DeleteRoleAlias = DeleteRoleAlias'
 -- 'roleAlias', 'deleteRoleAlias_roleAlias' - The role alias to delete.
 newDeleteRoleAlias ::
   -- | 'roleAlias'
-  Prelude.Text ->
+  Core.Text ->
   DeleteRoleAlias
 newDeleteRoleAlias pRoleAlias_ =
   DeleteRoleAlias' {roleAlias = pRoleAlias_}
 
 -- | The role alias to delete.
-deleteRoleAlias_roleAlias :: Lens.Lens' DeleteRoleAlias Prelude.Text
+deleteRoleAlias_roleAlias :: Lens.Lens' DeleteRoleAlias Core.Text
 deleteRoleAlias_roleAlias = Lens.lens (\DeleteRoleAlias' {roleAlias} -> roleAlias) (\s@DeleteRoleAlias' {} a -> s {roleAlias = a} :: DeleteRoleAlias)
 
-instance Prelude.AWSRequest DeleteRoleAlias where
-  type Rs DeleteRoleAlias = DeleteRoleAliasResponse
+instance Core.AWSRequest DeleteRoleAlias where
+  type
+    AWSResponse DeleteRoleAlias =
+      DeleteRoleAliasResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRoleAliasResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRoleAlias
+instance Core.Hashable DeleteRoleAlias
 
-instance Prelude.NFData DeleteRoleAlias
+instance Core.NFData DeleteRoleAlias
 
-instance Prelude.ToHeaders DeleteRoleAlias where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteRoleAlias where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteRoleAlias where
+instance Core.ToPath DeleteRoleAlias where
   toPath DeleteRoleAlias' {..} =
-    Prelude.mconcat
-      ["/role-aliases/", Prelude.toBS roleAlias]
+    Core.mconcat
+      ["/role-aliases/", Core.toBS roleAlias]
 
-instance Prelude.ToQuery DeleteRoleAlias where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteRoleAlias where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteRoleAliasResponse' smart constructor.
 data DeleteRoleAliasResponse = DeleteRoleAliasResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRoleAliasResponse' with all optional fields omitted.
@@ -115,13 +116,13 @@ data DeleteRoleAliasResponse = DeleteRoleAliasResponse'
 -- 'httpStatus', 'deleteRoleAliasResponse_httpStatus' - The response's http status code.
 newDeleteRoleAliasResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteRoleAliasResponse
 newDeleteRoleAliasResponse pHttpStatus_ =
   DeleteRoleAliasResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteRoleAliasResponse_httpStatus :: Lens.Lens' DeleteRoleAliasResponse Prelude.Int
+deleteRoleAliasResponse_httpStatus :: Lens.Lens' DeleteRoleAliasResponse Core.Int
 deleteRoleAliasResponse_httpStatus = Lens.lens (\DeleteRoleAliasResponse' {httpStatus} -> httpStatus) (\s@DeleteRoleAliasResponse' {} a -> s {httpStatus = a} :: DeleteRoleAliasResponse)
 
-instance Prelude.NFData DeleteRoleAliasResponse
+instance Core.NFData DeleteRoleAliasResponse

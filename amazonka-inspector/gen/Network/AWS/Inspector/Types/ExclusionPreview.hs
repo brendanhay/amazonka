@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.ExclusionPreview where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.Attribute
 import Network.AWS.Inspector.Types.Scope
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about what is excluded from an assessment run given
 -- the current state of the assessment template.
@@ -31,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newExclusionPreview' smart constructor.
 data ExclusionPreview = ExclusionPreview'
   { -- | The system-defined attributes for the exclusion preview.
-    attributes :: Prelude.Maybe [Attribute],
+    attributes :: Core.Maybe [Attribute],
     -- | The name of the exclusion preview.
-    title :: Prelude.Text,
+    title :: Core.Text,
     -- | The description of the exclusion preview.
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | The recommendation for the exclusion preview.
-    recommendation :: Prelude.Text,
+    recommendation :: Core.Text,
     -- | The AWS resources for which the exclusion preview pertains.
-    scopes :: Prelude.NonEmpty Scope
+    scopes :: Core.NonEmpty Scope
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExclusionPreview' with all optional fields omitted.
@@ -62,13 +61,13 @@ data ExclusionPreview = ExclusionPreview'
 -- 'scopes', 'exclusionPreview_scopes' - The AWS resources for which the exclusion preview pertains.
 newExclusionPreview ::
   -- | 'title'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'recommendation'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scopes'
-  Prelude.NonEmpty Scope ->
+  Core.NonEmpty Scope ->
   ExclusionPreview
 newExclusionPreview
   pTitle_
@@ -76,48 +75,46 @@ newExclusionPreview
   pRecommendation_
   pScopes_ =
     ExclusionPreview'
-      { attributes = Prelude.Nothing,
+      { attributes = Core.Nothing,
         title = pTitle_,
         description = pDescription_,
         recommendation = pRecommendation_,
-        scopes = Prelude._Coerce Lens.# pScopes_
+        scopes = Lens._Coerce Lens.# pScopes_
       }
 
 -- | The system-defined attributes for the exclusion preview.
-exclusionPreview_attributes :: Lens.Lens' ExclusionPreview (Prelude.Maybe [Attribute])
-exclusionPreview_attributes = Lens.lens (\ExclusionPreview' {attributes} -> attributes) (\s@ExclusionPreview' {} a -> s {attributes = a} :: ExclusionPreview) Prelude.. Lens.mapping Prelude._Coerce
+exclusionPreview_attributes :: Lens.Lens' ExclusionPreview (Core.Maybe [Attribute])
+exclusionPreview_attributes = Lens.lens (\ExclusionPreview' {attributes} -> attributes) (\s@ExclusionPreview' {} a -> s {attributes = a} :: ExclusionPreview) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the exclusion preview.
-exclusionPreview_title :: Lens.Lens' ExclusionPreview Prelude.Text
+exclusionPreview_title :: Lens.Lens' ExclusionPreview Core.Text
 exclusionPreview_title = Lens.lens (\ExclusionPreview' {title} -> title) (\s@ExclusionPreview' {} a -> s {title = a} :: ExclusionPreview)
 
 -- | The description of the exclusion preview.
-exclusionPreview_description :: Lens.Lens' ExclusionPreview Prelude.Text
+exclusionPreview_description :: Lens.Lens' ExclusionPreview Core.Text
 exclusionPreview_description = Lens.lens (\ExclusionPreview' {description} -> description) (\s@ExclusionPreview' {} a -> s {description = a} :: ExclusionPreview)
 
 -- | The recommendation for the exclusion preview.
-exclusionPreview_recommendation :: Lens.Lens' ExclusionPreview Prelude.Text
+exclusionPreview_recommendation :: Lens.Lens' ExclusionPreview Core.Text
 exclusionPreview_recommendation = Lens.lens (\ExclusionPreview' {recommendation} -> recommendation) (\s@ExclusionPreview' {} a -> s {recommendation = a} :: ExclusionPreview)
 
 -- | The AWS resources for which the exclusion preview pertains.
-exclusionPreview_scopes :: Lens.Lens' ExclusionPreview (Prelude.NonEmpty Scope)
-exclusionPreview_scopes = Lens.lens (\ExclusionPreview' {scopes} -> scopes) (\s@ExclusionPreview' {} a -> s {scopes = a} :: ExclusionPreview) Prelude.. Prelude._Coerce
+exclusionPreview_scopes :: Lens.Lens' ExclusionPreview (Core.NonEmpty Scope)
+exclusionPreview_scopes = Lens.lens (\ExclusionPreview' {scopes} -> scopes) (\s@ExclusionPreview' {} a -> s {scopes = a} :: ExclusionPreview) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ExclusionPreview where
+instance Core.FromJSON ExclusionPreview where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExclusionPreview"
       ( \x ->
           ExclusionPreview'
-            Prelude.<$> ( x Prelude..:? "attributes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "title")
-            Prelude.<*> (x Prelude..: "description")
-            Prelude.<*> (x Prelude..: "recommendation")
-            Prelude.<*> (x Prelude..: "scopes")
+            Core.<$> (x Core..:? "attributes" Core..!= Core.mempty)
+            Core.<*> (x Core..: "title")
+            Core.<*> (x Core..: "description")
+            Core.<*> (x Core..: "recommendation")
+            Core.<*> (x Core..: "scopes")
       )
 
-instance Prelude.Hashable ExclusionPreview
+instance Core.Hashable ExclusionPreview
 
-instance Prelude.NFData ExclusionPreview
+instance Core.NFData ExclusionPreview

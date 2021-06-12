@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.SES.UpdateCustomVerificationEmailTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -59,26 +58,26 @@ import Network.AWS.SES.Types
 -- /See:/ 'newUpdateCustomVerificationEmailTemplate' smart constructor.
 data UpdateCustomVerificationEmailTemplate = UpdateCustomVerificationEmailTemplate'
   { -- | The subject line of the custom verification email.
-    templateSubject :: Prelude.Maybe Prelude.Text,
+    templateSubject :: Core.Maybe Core.Text,
     -- | The email address that the custom verification email is sent from.
-    fromEmailAddress :: Prelude.Maybe Prelude.Text,
+    fromEmailAddress :: Core.Maybe Core.Text,
     -- | The content of the custom verification email. The total size of the
     -- email must be less than 10 MB. The message body may contain HTML, with
     -- some limitations. For more information, see
     -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions>
     -- in the /Amazon SES Developer Guide/.
-    templateContent :: Prelude.Maybe Prelude.Text,
+    templateContent :: Core.Maybe Core.Text,
     -- | The URL that the recipient of the verification email is sent to if his
     -- or her address is successfully verified.
-    successRedirectionURL :: Prelude.Maybe Prelude.Text,
+    successRedirectionURL :: Core.Maybe Core.Text,
     -- | The URL that the recipient of the verification email is sent to if his
     -- or her address is not successfully verified.
-    failureRedirectionURL :: Prelude.Maybe Prelude.Text,
+    failureRedirectionURL :: Core.Maybe Core.Text,
     -- | The name of the custom verification email template that you want to
     -- update.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCustomVerificationEmailTemplate' with all optional fields omitted.
@@ -108,28 +107,26 @@ data UpdateCustomVerificationEmailTemplate = UpdateCustomVerificationEmailTempla
 -- update.
 newUpdateCustomVerificationEmailTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateCustomVerificationEmailTemplate
 newUpdateCustomVerificationEmailTemplate
   pTemplateName_ =
     UpdateCustomVerificationEmailTemplate'
       { templateSubject =
-          Prelude.Nothing,
-        fromEmailAddress = Prelude.Nothing,
-        templateContent = Prelude.Nothing,
-        successRedirectionURL =
-          Prelude.Nothing,
-        failureRedirectionURL =
-          Prelude.Nothing,
+          Core.Nothing,
+        fromEmailAddress = Core.Nothing,
+        templateContent = Core.Nothing,
+        successRedirectionURL = Core.Nothing,
+        failureRedirectionURL = Core.Nothing,
         templateName = pTemplateName_
       }
 
 -- | The subject line of the custom verification email.
-updateCustomVerificationEmailTemplate_templateSubject :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+updateCustomVerificationEmailTemplate_templateSubject :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Core.Maybe Core.Text)
 updateCustomVerificationEmailTemplate_templateSubject = Lens.lens (\UpdateCustomVerificationEmailTemplate' {templateSubject} -> templateSubject) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {templateSubject = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The email address that the custom verification email is sent from.
-updateCustomVerificationEmailTemplate_fromEmailAddress :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+updateCustomVerificationEmailTemplate_fromEmailAddress :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Core.Maybe Core.Text)
 updateCustomVerificationEmailTemplate_fromEmailAddress = Lens.lens (\UpdateCustomVerificationEmailTemplate' {fromEmailAddress} -> fromEmailAddress) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {fromEmailAddress = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The content of the custom verification email. The total size of the
@@ -137,30 +134,31 @@ updateCustomVerificationEmailTemplate_fromEmailAddress = Lens.lens (\UpdateCusto
 -- some limitations. For more information, see
 -- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq Custom Verification Email Frequently Asked Questions>
 -- in the /Amazon SES Developer Guide/.
-updateCustomVerificationEmailTemplate_templateContent :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+updateCustomVerificationEmailTemplate_templateContent :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Core.Maybe Core.Text)
 updateCustomVerificationEmailTemplate_templateContent = Lens.lens (\UpdateCustomVerificationEmailTemplate' {templateContent} -> templateContent) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {templateContent = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The URL that the recipient of the verification email is sent to if his
 -- or her address is successfully verified.
-updateCustomVerificationEmailTemplate_successRedirectionURL :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+updateCustomVerificationEmailTemplate_successRedirectionURL :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Core.Maybe Core.Text)
 updateCustomVerificationEmailTemplate_successRedirectionURL = Lens.lens (\UpdateCustomVerificationEmailTemplate' {successRedirectionURL} -> successRedirectionURL) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {successRedirectionURL = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The URL that the recipient of the verification email is sent to if his
 -- or her address is not successfully verified.
-updateCustomVerificationEmailTemplate_failureRedirectionURL :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Prelude.Maybe Prelude.Text)
+updateCustomVerificationEmailTemplate_failureRedirectionURL :: Lens.Lens' UpdateCustomVerificationEmailTemplate (Core.Maybe Core.Text)
 updateCustomVerificationEmailTemplate_failureRedirectionURL = Lens.lens (\UpdateCustomVerificationEmailTemplate' {failureRedirectionURL} -> failureRedirectionURL) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {failureRedirectionURL = a} :: UpdateCustomVerificationEmailTemplate)
 
 -- | The name of the custom verification email template that you want to
 -- update.
-updateCustomVerificationEmailTemplate_templateName :: Lens.Lens' UpdateCustomVerificationEmailTemplate Prelude.Text
+updateCustomVerificationEmailTemplate_templateName :: Lens.Lens' UpdateCustomVerificationEmailTemplate Core.Text
 updateCustomVerificationEmailTemplate_templateName = Lens.lens (\UpdateCustomVerificationEmailTemplate' {templateName} -> templateName) (\s@UpdateCustomVerificationEmailTemplate' {} a -> s {templateName = a} :: UpdateCustomVerificationEmailTemplate)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateCustomVerificationEmailTemplate
   where
   type
-    Rs UpdateCustomVerificationEmailTemplate =
+    AWSResponse
+      UpdateCustomVerificationEmailTemplate =
       UpdateCustomVerificationEmailTemplateResponse
   request = Request.postQuery defaultService
   response =
@@ -168,52 +166,51 @@ instance
       UpdateCustomVerificationEmailTemplateResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateCustomVerificationEmailTemplate
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateCustomVerificationEmailTemplate
 
 instance
-  Prelude.ToHeaders
-    UpdateCustomVerificationEmailTemplate
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     UpdateCustomVerificationEmailTemplate
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    UpdateCustomVerificationEmailTemplate
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     UpdateCustomVerificationEmailTemplate
   where
   toQuery UpdateCustomVerificationEmailTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "UpdateCustomVerificationEmailTemplate" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateSubject" Prelude.=: templateSubject,
-        "FromEmailAddress" Prelude.=: fromEmailAddress,
-        "TemplateContent" Prelude.=: templateContent,
+          Core.=: ( "UpdateCustomVerificationEmailTemplate" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "TemplateSubject" Core.=: templateSubject,
+        "FromEmailAddress" Core.=: fromEmailAddress,
+        "TemplateContent" Core.=: templateContent,
         "SuccessRedirectionURL"
-          Prelude.=: successRedirectionURL,
+          Core.=: successRedirectionURL,
         "FailureRedirectionURL"
-          Prelude.=: failureRedirectionURL,
-        "TemplateName" Prelude.=: templateName
+          Core.=: failureRedirectionURL,
+        "TemplateName" Core.=: templateName
       ]
 
 -- | /See:/ 'newUpdateCustomVerificationEmailTemplateResponse' smart constructor.
 data UpdateCustomVerificationEmailTemplateResponse = UpdateCustomVerificationEmailTemplateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCustomVerificationEmailTemplateResponse' with all optional fields omitted.
@@ -225,5 +222,5 @@ newUpdateCustomVerificationEmailTemplateResponse =
   UpdateCustomVerificationEmailTemplateResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateCustomVerificationEmailTemplateResponse

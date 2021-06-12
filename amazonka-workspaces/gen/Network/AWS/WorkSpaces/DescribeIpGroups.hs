@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.WorkSpaces.DescribeIpGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -56,13 +54,13 @@ import Network.AWS.WorkSpaces.Types
 data DescribeIpGroups = DescribeIpGroups'
   { -- | If you received a @NextToken@ from a previous call that was paginated,
     -- provide this token to receive the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The identifiers of one or more IP access control groups.
-    groupIds :: Prelude.Maybe [Prelude.Text],
+    groupIds :: Core.Maybe [Core.Text],
     -- | The maximum number of items to return.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIpGroups' with all optional fields omitted.
@@ -82,103 +80,101 @@ newDescribeIpGroups ::
   DescribeIpGroups
 newDescribeIpGroups =
   DescribeIpGroups'
-    { nextToken = Prelude.Nothing,
-      groupIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      groupIds = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | If you received a @NextToken@ from a previous call that was paginated,
 -- provide this token to receive the next set of results.
-describeIpGroups_nextToken :: Lens.Lens' DescribeIpGroups (Prelude.Maybe Prelude.Text)
+describeIpGroups_nextToken :: Lens.Lens' DescribeIpGroups (Core.Maybe Core.Text)
 describeIpGroups_nextToken = Lens.lens (\DescribeIpGroups' {nextToken} -> nextToken) (\s@DescribeIpGroups' {} a -> s {nextToken = a} :: DescribeIpGroups)
 
 -- | The identifiers of one or more IP access control groups.
-describeIpGroups_groupIds :: Lens.Lens' DescribeIpGroups (Prelude.Maybe [Prelude.Text])
-describeIpGroups_groupIds = Lens.lens (\DescribeIpGroups' {groupIds} -> groupIds) (\s@DescribeIpGroups' {} a -> s {groupIds = a} :: DescribeIpGroups) Prelude.. Lens.mapping Prelude._Coerce
+describeIpGroups_groupIds :: Lens.Lens' DescribeIpGroups (Core.Maybe [Core.Text])
+describeIpGroups_groupIds = Lens.lens (\DescribeIpGroups' {groupIds} -> groupIds) (\s@DescribeIpGroups' {} a -> s {groupIds = a} :: DescribeIpGroups) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return.
-describeIpGroups_maxResults :: Lens.Lens' DescribeIpGroups (Prelude.Maybe Prelude.Natural)
+describeIpGroups_maxResults :: Lens.Lens' DescribeIpGroups (Core.Maybe Core.Natural)
 describeIpGroups_maxResults = Lens.lens (\DescribeIpGroups' {maxResults} -> maxResults) (\s@DescribeIpGroups' {} a -> s {maxResults = a} :: DescribeIpGroups)
 
-instance Pager.AWSPager DescribeIpGroups where
+instance Core.AWSPager DescribeIpGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeIpGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeIpGroupsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeIpGroupsResponse_result Prelude.. Lens._Just
+            Lens.^? describeIpGroupsResponse_result Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeIpGroups_nextToken
           Lens..~ rs
-          Lens.^? describeIpGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeIpGroupsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeIpGroups where
-  type Rs DescribeIpGroups = DescribeIpGroupsResponse
+instance Core.AWSRequest DescribeIpGroups where
+  type
+    AWSResponse DescribeIpGroups =
+      DescribeIpGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeIpGroupsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Result" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Result" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIpGroups
+instance Core.Hashable DescribeIpGroups
 
-instance Prelude.NFData DescribeIpGroups
+instance Core.NFData DescribeIpGroups
 
-instance Prelude.ToHeaders DescribeIpGroups where
+instance Core.ToHeaders DescribeIpGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.DescribeIpGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.DescribeIpGroups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeIpGroups where
+instance Core.ToJSON DescribeIpGroups where
   toJSON DescribeIpGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("GroupIds" Prelude..=) Prelude.<$> groupIds,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("GroupIds" Core..=) Core.<$> groupIds,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath DescribeIpGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeIpGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeIpGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeIpGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeIpGroupsResponse' smart constructor.
 data DescribeIpGroupsResponse = DescribeIpGroupsResponse'
   { -- | The token to use to retrieve the next set of results, or null if no more
     -- results are available.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the IP access control groups.
-    result :: Prelude.Maybe [WorkspacesIpGroup],
+    result :: Core.Maybe [WorkspacesIpGroup],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIpGroupsResponse' with all optional fields omitted.
@@ -196,27 +192,26 @@ data DescribeIpGroupsResponse = DescribeIpGroupsResponse'
 -- 'httpStatus', 'describeIpGroupsResponse_httpStatus' - The response's http status code.
 newDescribeIpGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeIpGroupsResponse
 newDescribeIpGroupsResponse pHttpStatus_ =
   DescribeIpGroupsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      result = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      result = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next set of results, or null if no more
 -- results are available.
-describeIpGroupsResponse_nextToken :: Lens.Lens' DescribeIpGroupsResponse (Prelude.Maybe Prelude.Text)
+describeIpGroupsResponse_nextToken :: Lens.Lens' DescribeIpGroupsResponse (Core.Maybe Core.Text)
 describeIpGroupsResponse_nextToken = Lens.lens (\DescribeIpGroupsResponse' {nextToken} -> nextToken) (\s@DescribeIpGroupsResponse' {} a -> s {nextToken = a} :: DescribeIpGroupsResponse)
 
 -- | Information about the IP access control groups.
-describeIpGroupsResponse_result :: Lens.Lens' DescribeIpGroupsResponse (Prelude.Maybe [WorkspacesIpGroup])
-describeIpGroupsResponse_result = Lens.lens (\DescribeIpGroupsResponse' {result} -> result) (\s@DescribeIpGroupsResponse' {} a -> s {result = a} :: DescribeIpGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeIpGroupsResponse_result :: Lens.Lens' DescribeIpGroupsResponse (Core.Maybe [WorkspacesIpGroup])
+describeIpGroupsResponse_result = Lens.lens (\DescribeIpGroupsResponse' {result} -> result) (\s@DescribeIpGroupsResponse' {} a -> s {result = a} :: DescribeIpGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeIpGroupsResponse_httpStatus :: Lens.Lens' DescribeIpGroupsResponse Prelude.Int
+describeIpGroupsResponse_httpStatus :: Lens.Lens' DescribeIpGroupsResponse Core.Int
 describeIpGroupsResponse_httpStatus = Lens.lens (\DescribeIpGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeIpGroupsResponse' {} a -> s {httpStatus = a} :: DescribeIpGroupsResponse)
 
-instance Prelude.NFData DescribeIpGroupsResponse
+instance Core.NFData DescribeIpGroupsResponse

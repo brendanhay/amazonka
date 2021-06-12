@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.BlockDeviceMapping where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.EbsBlockDevice
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a block device mapping.
 --
@@ -31,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data BlockDeviceMapping = BlockDeviceMapping'
   { -- | Parameters used to automatically set up EBS volumes when the instance is
     -- launched.
-    ebs :: Prelude.Maybe EbsBlockDevice,
+    ebs :: Core.Maybe EbsBlockDevice,
     -- | To omit the device from the block device mapping, specify an empty
     -- string.
-    noDevice :: Prelude.Maybe Prelude.Text,
+    noDevice :: Core.Maybe Core.Text,
     -- | The virtual device name (@ephemeral@N). Instance store volumes are
     -- numbered starting from 0. An instance type with 2 available instance
     -- store volumes can specify mappings for @ephemeral0@ and @ephemeral1@.
@@ -48,11 +47,11 @@ data BlockDeviceMapping = BlockDeviceMapping'
     -- in the block device mapping for the instance. When you launch an M3
     -- instance, we ignore any instance store volumes specified in the block
     -- device mapping for the AMI.
-    virtualName :: Prelude.Maybe Prelude.Text,
+    virtualName :: Core.Maybe Core.Text,
     -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-    deviceName :: Prelude.Text
+    deviceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BlockDeviceMapping' with all optional fields omitted.
@@ -85,24 +84,24 @@ data BlockDeviceMapping = BlockDeviceMapping'
 -- 'deviceName', 'blockDeviceMapping_deviceName' - The device name (for example, @\/dev\/sdh@ or @xvdh@).
 newBlockDeviceMapping ::
   -- | 'deviceName'
-  Prelude.Text ->
+  Core.Text ->
   BlockDeviceMapping
 newBlockDeviceMapping pDeviceName_ =
   BlockDeviceMapping'
-    { ebs = Prelude.Nothing,
-      noDevice = Prelude.Nothing,
-      virtualName = Prelude.Nothing,
+    { ebs = Core.Nothing,
+      noDevice = Core.Nothing,
+      virtualName = Core.Nothing,
       deviceName = pDeviceName_
     }
 
 -- | Parameters used to automatically set up EBS volumes when the instance is
 -- launched.
-blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe EbsBlockDevice)
+blockDeviceMapping_ebs :: Lens.Lens' BlockDeviceMapping (Core.Maybe EbsBlockDevice)
 blockDeviceMapping_ebs = Lens.lens (\BlockDeviceMapping' {ebs} -> ebs) (\s@BlockDeviceMapping' {} a -> s {ebs = a} :: BlockDeviceMapping)
 
 -- | To omit the device from the block device mapping, specify an empty
 -- string.
-blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
+blockDeviceMapping_noDevice :: Lens.Lens' BlockDeviceMapping (Core.Maybe Core.Text)
 blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDevice) (\s@BlockDeviceMapping' {} a -> s {noDevice = a} :: BlockDeviceMapping)
 
 -- | The virtual device name (@ephemeral@N). Instance store volumes are
@@ -118,30 +117,30 @@ blockDeviceMapping_noDevice = Lens.lens (\BlockDeviceMapping' {noDevice} -> noDe
 -- in the block device mapping for the instance. When you launch an M3
 -- instance, we ignore any instance store volumes specified in the block
 -- device mapping for the AMI.
-blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Prelude.Maybe Prelude.Text)
+blockDeviceMapping_virtualName :: Lens.Lens' BlockDeviceMapping (Core.Maybe Core.Text)
 blockDeviceMapping_virtualName = Lens.lens (\BlockDeviceMapping' {virtualName} -> virtualName) (\s@BlockDeviceMapping' {} a -> s {virtualName = a} :: BlockDeviceMapping)
 
 -- | The device name (for example, @\/dev\/sdh@ or @xvdh@).
-blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping Prelude.Text
+blockDeviceMapping_deviceName :: Lens.Lens' BlockDeviceMapping Core.Text
 blockDeviceMapping_deviceName = Lens.lens (\BlockDeviceMapping' {deviceName} -> deviceName) (\s@BlockDeviceMapping' {} a -> s {deviceName = a} :: BlockDeviceMapping)
 
-instance Prelude.FromXML BlockDeviceMapping where
+instance Core.FromXML BlockDeviceMapping where
   parseXML x =
     BlockDeviceMapping'
-      Prelude.<$> (x Prelude..@? "ebs")
-      Prelude.<*> (x Prelude..@? "noDevice")
-      Prelude.<*> (x Prelude..@? "virtualName")
-      Prelude.<*> (x Prelude..@ "deviceName")
+      Core.<$> (x Core..@? "ebs")
+      Core.<*> (x Core..@? "noDevice")
+      Core.<*> (x Core..@? "virtualName")
+      Core.<*> (x Core..@ "deviceName")
 
-instance Prelude.Hashable BlockDeviceMapping
+instance Core.Hashable BlockDeviceMapping
 
-instance Prelude.NFData BlockDeviceMapping
+instance Core.NFData BlockDeviceMapping
 
-instance Prelude.ToQuery BlockDeviceMapping where
+instance Core.ToQuery BlockDeviceMapping where
   toQuery BlockDeviceMapping' {..} =
-    Prelude.mconcat
-      [ "Ebs" Prelude.=: ebs,
-        "NoDevice" Prelude.=: noDevice,
-        "VirtualName" Prelude.=: virtualName,
-        "DeviceName" Prelude.=: deviceName
+    Core.mconcat
+      [ "Ebs" Core.=: ebs,
+        "NoDevice" Core.=: noDevice,
+        "VirtualName" Core.=: virtualName,
+        "DeviceName" Core.=: deviceName
       ]

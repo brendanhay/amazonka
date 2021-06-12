@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The retry strategy to use for failed jobs, if the target is an AWS Batch
 -- job. If you specify a retry strategy here, it overrides the retry
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchRetryStrategy = BatchRetryStrategy'
   { -- | The number of times to attempt to retry, if the job fails. Valid values
     -- are 1–10.
-    attempts :: Prelude.Maybe Prelude.Int
+    attempts :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchRetryStrategy' with all optional fields omitted.
@@ -48,29 +47,28 @@ data BatchRetryStrategy = BatchRetryStrategy'
 newBatchRetryStrategy ::
   BatchRetryStrategy
 newBatchRetryStrategy =
-  BatchRetryStrategy' {attempts = Prelude.Nothing}
+  BatchRetryStrategy' {attempts = Core.Nothing}
 
 -- | The number of times to attempt to retry, if the job fails. Valid values
 -- are 1–10.
-batchRetryStrategy_attempts :: Lens.Lens' BatchRetryStrategy (Prelude.Maybe Prelude.Int)
+batchRetryStrategy_attempts :: Lens.Lens' BatchRetryStrategy (Core.Maybe Core.Int)
 batchRetryStrategy_attempts = Lens.lens (\BatchRetryStrategy' {attempts} -> attempts) (\s@BatchRetryStrategy' {} a -> s {attempts = a} :: BatchRetryStrategy)
 
-instance Prelude.FromJSON BatchRetryStrategy where
+instance Core.FromJSON BatchRetryStrategy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchRetryStrategy"
       ( \x ->
-          BatchRetryStrategy'
-            Prelude.<$> (x Prelude..:? "Attempts")
+          BatchRetryStrategy' Core.<$> (x Core..:? "Attempts")
       )
 
-instance Prelude.Hashable BatchRetryStrategy
+instance Core.Hashable BatchRetryStrategy
 
-instance Prelude.NFData BatchRetryStrategy
+instance Core.NFData BatchRetryStrategy
 
-instance Prelude.ToJSON BatchRetryStrategy where
+instance Core.ToJSON BatchRetryStrategy where
   toJSON BatchRetryStrategy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Attempts" Prelude..=) Prelude.<$> attempts]
+    Core.object
+      ( Core.catMaybes
+          [("Attempts" Core..=) Core.<$> attempts]
       )

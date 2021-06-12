@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,21 +45,21 @@ module Network.AWS.Lightsail.DeleteDomainEntry
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDomainEntry' smart constructor.
 data DeleteDomainEntry = DeleteDomainEntry'
   { -- | The name of the domain entry to delete.
-    domainName :: Prelude.Text,
+    domainName :: Core.Text,
     -- | An array of key-value pairs containing information about your domain
     -- entries.
     domainEntry :: DomainEntry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainEntry' with all optional fields omitted.
@@ -76,7 +75,7 @@ data DeleteDomainEntry = DeleteDomainEntry'
 -- entries.
 newDeleteDomainEntry ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'domainEntry'
   DomainEntry ->
   DeleteDomainEntry
@@ -87,7 +86,7 @@ newDeleteDomainEntry pDomainName_ pDomainEntry_ =
     }
 
 -- | The name of the domain entry to delete.
-deleteDomainEntry_domainName :: Lens.Lens' DeleteDomainEntry Prelude.Text
+deleteDomainEntry_domainName :: Lens.Lens' DeleteDomainEntry Core.Text
 deleteDomainEntry_domainName = Lens.lens (\DeleteDomainEntry' {domainName} -> domainName) (\s@DeleteDomainEntry' {} a -> s {domainName = a} :: DeleteDomainEntry)
 
 -- | An array of key-value pairs containing information about your domain
@@ -95,61 +94,61 @@ deleteDomainEntry_domainName = Lens.lens (\DeleteDomainEntry' {domainName} -> do
 deleteDomainEntry_domainEntry :: Lens.Lens' DeleteDomainEntry DomainEntry
 deleteDomainEntry_domainEntry = Lens.lens (\DeleteDomainEntry' {domainEntry} -> domainEntry) (\s@DeleteDomainEntry' {} a -> s {domainEntry = a} :: DeleteDomainEntry)
 
-instance Prelude.AWSRequest DeleteDomainEntry where
-  type Rs DeleteDomainEntry = DeleteDomainEntryResponse
+instance Core.AWSRequest DeleteDomainEntry where
+  type
+    AWSResponse DeleteDomainEntry =
+      DeleteDomainEntryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteDomainEntryResponse'
-            Prelude.<$> (x Prelude..?> "operation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDomainEntry
+instance Core.Hashable DeleteDomainEntry
 
-instance Prelude.NFData DeleteDomainEntry
+instance Core.NFData DeleteDomainEntry
 
-instance Prelude.ToHeaders DeleteDomainEntry where
+instance Core.ToHeaders DeleteDomainEntry where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.DeleteDomainEntry" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.DeleteDomainEntry" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDomainEntry where
+instance Core.ToJSON DeleteDomainEntry where
   toJSON DeleteDomainEntry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("domainName" Prelude..= domainName),
-            Prelude.Just ("domainEntry" Prelude..= domainEntry)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domainName" Core..= domainName),
+            Core.Just ("domainEntry" Core..= domainEntry)
           ]
       )
 
-instance Prelude.ToPath DeleteDomainEntry where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDomainEntry where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDomainEntry where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDomainEntry where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDomainEntryResponse' smart constructor.
 data DeleteDomainEntryResponse = DeleteDomainEntryResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operation :: Prelude.Maybe Operation,
+    operation :: Core.Maybe Operation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainEntryResponse' with all optional fields omitted.
@@ -166,23 +165,23 @@ data DeleteDomainEntryResponse = DeleteDomainEntryResponse'
 -- 'httpStatus', 'deleteDomainEntryResponse_httpStatus' - The response's http status code.
 newDeleteDomainEntryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDomainEntryResponse
 newDeleteDomainEntryResponse pHttpStatus_ =
   DeleteDomainEntryResponse'
     { operation =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-deleteDomainEntryResponse_operation :: Lens.Lens' DeleteDomainEntryResponse (Prelude.Maybe Operation)
+deleteDomainEntryResponse_operation :: Lens.Lens' DeleteDomainEntryResponse (Core.Maybe Operation)
 deleteDomainEntryResponse_operation = Lens.lens (\DeleteDomainEntryResponse' {operation} -> operation) (\s@DeleteDomainEntryResponse' {} a -> s {operation = a} :: DeleteDomainEntryResponse)
 
 -- | The response's http status code.
-deleteDomainEntryResponse_httpStatus :: Lens.Lens' DeleteDomainEntryResponse Prelude.Int
+deleteDomainEntryResponse_httpStatus :: Lens.Lens' DeleteDomainEntryResponse Core.Int
 deleteDomainEntryResponse_httpStatus = Lens.lens (\DeleteDomainEntryResponse' {httpStatus} -> httpStatus) (\s@DeleteDomainEntryResponse' {} a -> s {httpStatus = a} :: DeleteDomainEntryResponse)
 
-instance Prelude.NFData DeleteDomainEntryResponse
+instance Core.NFData DeleteDomainEntryResponse

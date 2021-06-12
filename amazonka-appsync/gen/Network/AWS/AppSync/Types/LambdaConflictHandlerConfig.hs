@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types.LambdaConflictHandlerConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @LambdaConflictHandlerConfig@ object when configuring LAMBDA as the
 -- Conflict Handler.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLambdaConflictHandlerConfig' smart constructor.
 data LambdaConflictHandlerConfig = LambdaConflictHandlerConfig'
   { -- | The Arn for the Lambda function to use as the Conflict Handler.
-    lambdaConflictHandlerArn :: Prelude.Maybe Prelude.Text
+    lambdaConflictHandlerArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaConflictHandlerConfig' with all optional fields omitted.
@@ -47,31 +46,31 @@ newLambdaConflictHandlerConfig ::
 newLambdaConflictHandlerConfig =
   LambdaConflictHandlerConfig'
     { lambdaConflictHandlerArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Arn for the Lambda function to use as the Conflict Handler.
-lambdaConflictHandlerConfig_lambdaConflictHandlerArn :: Lens.Lens' LambdaConflictHandlerConfig (Prelude.Maybe Prelude.Text)
+lambdaConflictHandlerConfig_lambdaConflictHandlerArn :: Lens.Lens' LambdaConflictHandlerConfig (Core.Maybe Core.Text)
 lambdaConflictHandlerConfig_lambdaConflictHandlerArn = Lens.lens (\LambdaConflictHandlerConfig' {lambdaConflictHandlerArn} -> lambdaConflictHandlerArn) (\s@LambdaConflictHandlerConfig' {} a -> s {lambdaConflictHandlerArn = a} :: LambdaConflictHandlerConfig)
 
-instance Prelude.FromJSON LambdaConflictHandlerConfig where
+instance Core.FromJSON LambdaConflictHandlerConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LambdaConflictHandlerConfig"
       ( \x ->
           LambdaConflictHandlerConfig'
-            Prelude.<$> (x Prelude..:? "lambdaConflictHandlerArn")
+            Core.<$> (x Core..:? "lambdaConflictHandlerArn")
       )
 
-instance Prelude.Hashable LambdaConflictHandlerConfig
+instance Core.Hashable LambdaConflictHandlerConfig
 
-instance Prelude.NFData LambdaConflictHandlerConfig
+instance Core.NFData LambdaConflictHandlerConfig
 
-instance Prelude.ToJSON LambdaConflictHandlerConfig where
+instance Core.ToJSON LambdaConflictHandlerConfig where
   toJSON LambdaConflictHandlerConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("lambdaConflictHandlerArn" Prelude..=)
-              Prelude.<$> lambdaConflictHandlerArn
+    Core.object
+      ( Core.catMaybes
+          [ ("lambdaConflictHandlerArn" Core..=)
+              Core.<$> lambdaConflictHandlerArn
           ]
       )

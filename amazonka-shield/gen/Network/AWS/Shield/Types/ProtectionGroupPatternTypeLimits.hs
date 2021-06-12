@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.ProtectionGroupArbitraryPatternLimits
 
 -- | Limits settings by pattern type in the protection groups for your
@@ -32,7 +31,7 @@ data ProtectionGroupPatternTypeLimits = ProtectionGroupPatternTypeLimits'
   { -- | Limits settings on protection groups with arbitrary pattern type.
     arbitraryPatternLimits :: ProtectionGroupArbitraryPatternLimits
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProtectionGroupPatternTypeLimits' with all optional fields omitted.
@@ -59,21 +58,19 @@ protectionGroupPatternTypeLimits_arbitraryPatternLimits :: Lens.Lens' Protection
 protectionGroupPatternTypeLimits_arbitraryPatternLimits = Lens.lens (\ProtectionGroupPatternTypeLimits' {arbitraryPatternLimits} -> arbitraryPatternLimits) (\s@ProtectionGroupPatternTypeLimits' {} a -> s {arbitraryPatternLimits = a} :: ProtectionGroupPatternTypeLimits)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ProtectionGroupPatternTypeLimits
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProtectionGroupPatternTypeLimits"
       ( \x ->
           ProtectionGroupPatternTypeLimits'
-            Prelude.<$> (x Prelude..: "ArbitraryPatternLimits")
+            Core.<$> (x Core..: "ArbitraryPatternLimits")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ProtectionGroupPatternTypeLimits
 
-instance
-  Prelude.NFData
-    ProtectionGroupPatternTypeLimits
+instance Core.NFData ProtectionGroupPatternTypeLimits

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.Settings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Types.VocabularyFilterMethod
 
 -- | Provides optional settings for the @StartTranscriptionJob@ operation.
@@ -31,16 +30,16 @@ data Settings = Settings'
   { -- | Set to @mask@ to remove filtered text from the transcript and replace it
     -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
     -- remove filtered text from the transcript without using placeholder text.
-    vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod,
+    vocabularyFilterMethod :: Core.Maybe VocabularyFilterMethod,
     -- | The name of the vocabulary filter to use when transcribing the audio.
     -- The filter that you specify must have the same language code as the
     -- transcription job.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
+    vocabularyFilterName :: Core.Maybe Core.Text,
     -- | Determines whether the transcription contains alternative
     -- transcriptions. If you set the @ShowAlternatives@ field to true, you
     -- must also set the maximum number of alternatives to return in the
     -- @MaxAlternatives@ field.
-    showAlternatives :: Prelude.Maybe Prelude.Bool,
+    showAlternatives :: Core.Maybe Core.Bool,
     -- | Instructs Amazon Transcribe to process each audio channel separately and
     -- then merge the transcription output of each channel into a single
     -- transcription.
@@ -53,11 +52,11 @@ data Settings = Settings'
     -- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
     -- the same request. If you set both, your request returns a
     -- @BadRequestException@.
-    channelIdentification :: Prelude.Maybe Prelude.Bool,
+    channelIdentification :: Core.Maybe Core.Bool,
     -- | The number of alternative transcriptions that the service should return.
     -- If you specify the @MaxAlternatives@ field, you must set the
     -- @ShowAlternatives@ field to true.
-    maxAlternatives :: Prelude.Maybe Prelude.Natural,
+    maxAlternatives :: Core.Maybe Core.Natural,
     -- | Determines whether the transcription job uses speaker recognition to
     -- identify different speakers in the input audio. Speaker recognition
     -- labels individual speakers in the audio file. If you set the
@@ -67,16 +66,16 @@ data Settings = Settings'
     -- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
     -- the same request. If you set both, your request returns a
     -- @BadRequestException@.
-    showSpeakerLabels :: Prelude.Maybe Prelude.Bool,
+    showSpeakerLabels :: Core.Maybe Core.Bool,
     -- | The name of a vocabulary to use when processing the transcription job.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
+    vocabularyName :: Core.Maybe Core.Text,
     -- | The maximum number of speakers to identify in the input audio. If there
     -- are more speakers in the audio than this number, multiple speakers are
     -- identified as a single speaker. If you specify the @MaxSpeakerLabels@
     -- field, you must set the @ShowSpeakerLabels@ field to true.
-    maxSpeakerLabels :: Prelude.Maybe Prelude.Natural
+    maxSpeakerLabels :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Settings' with all optional fields omitted.
@@ -136,33 +135,33 @@ newSettings ::
   Settings
 newSettings =
   Settings'
-    { vocabularyFilterMethod = Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing,
-      showAlternatives = Prelude.Nothing,
-      channelIdentification = Prelude.Nothing,
-      maxAlternatives = Prelude.Nothing,
-      showSpeakerLabels = Prelude.Nothing,
-      vocabularyName = Prelude.Nothing,
-      maxSpeakerLabels = Prelude.Nothing
+    { vocabularyFilterMethod = Core.Nothing,
+      vocabularyFilterName = Core.Nothing,
+      showAlternatives = Core.Nothing,
+      channelIdentification = Core.Nothing,
+      maxAlternatives = Core.Nothing,
+      showSpeakerLabels = Core.Nothing,
+      vocabularyName = Core.Nothing,
+      maxSpeakerLabels = Core.Nothing
     }
 
 -- | Set to @mask@ to remove filtered text from the transcript and replace it
 -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
 -- remove filtered text from the transcript without using placeholder text.
-settings_vocabularyFilterMethod :: Lens.Lens' Settings (Prelude.Maybe VocabularyFilterMethod)
+settings_vocabularyFilterMethod :: Lens.Lens' Settings (Core.Maybe VocabularyFilterMethod)
 settings_vocabularyFilterMethod = Lens.lens (\Settings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@Settings' {} a -> s {vocabularyFilterMethod = a} :: Settings)
 
 -- | The name of the vocabulary filter to use when transcribing the audio.
 -- The filter that you specify must have the same language code as the
 -- transcription job.
-settings_vocabularyFilterName :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
+settings_vocabularyFilterName :: Lens.Lens' Settings (Core.Maybe Core.Text)
 settings_vocabularyFilterName = Lens.lens (\Settings' {vocabularyFilterName} -> vocabularyFilterName) (\s@Settings' {} a -> s {vocabularyFilterName = a} :: Settings)
 
 -- | Determines whether the transcription contains alternative
 -- transcriptions. If you set the @ShowAlternatives@ field to true, you
 -- must also set the maximum number of alternatives to return in the
 -- @MaxAlternatives@ field.
-settings_showAlternatives :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
+settings_showAlternatives :: Lens.Lens' Settings (Core.Maybe Core.Bool)
 settings_showAlternatives = Lens.lens (\Settings' {showAlternatives} -> showAlternatives) (\s@Settings' {} a -> s {showAlternatives = a} :: Settings)
 
 -- | Instructs Amazon Transcribe to process each audio channel separately and
@@ -177,13 +176,13 @@ settings_showAlternatives = Lens.lens (\Settings' {showAlternatives} -> showAlte
 -- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
 -- the same request. If you set both, your request returns a
 -- @BadRequestException@.
-settings_channelIdentification :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
+settings_channelIdentification :: Lens.Lens' Settings (Core.Maybe Core.Bool)
 settings_channelIdentification = Lens.lens (\Settings' {channelIdentification} -> channelIdentification) (\s@Settings' {} a -> s {channelIdentification = a} :: Settings)
 
 -- | The number of alternative transcriptions that the service should return.
 -- If you specify the @MaxAlternatives@ field, you must set the
 -- @ShowAlternatives@ field to true.
-settings_maxAlternatives :: Lens.Lens' Settings (Prelude.Maybe Prelude.Natural)
+settings_maxAlternatives :: Lens.Lens' Settings (Core.Maybe Core.Natural)
 settings_maxAlternatives = Lens.lens (\Settings' {maxAlternatives} -> maxAlternatives) (\s@Settings' {} a -> s {maxAlternatives = a} :: Settings)
 
 -- | Determines whether the transcription job uses speaker recognition to
@@ -195,59 +194,57 @@ settings_maxAlternatives = Lens.lens (\Settings' {maxAlternatives} -> maxAlterna
 -- You can\'t set both @ShowSpeakerLabels@ and @ChannelIdentification@ in
 -- the same request. If you set both, your request returns a
 -- @BadRequestException@.
-settings_showSpeakerLabels :: Lens.Lens' Settings (Prelude.Maybe Prelude.Bool)
+settings_showSpeakerLabels :: Lens.Lens' Settings (Core.Maybe Core.Bool)
 settings_showSpeakerLabels = Lens.lens (\Settings' {showSpeakerLabels} -> showSpeakerLabels) (\s@Settings' {} a -> s {showSpeakerLabels = a} :: Settings)
 
 -- | The name of a vocabulary to use when processing the transcription job.
-settings_vocabularyName :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
+settings_vocabularyName :: Lens.Lens' Settings (Core.Maybe Core.Text)
 settings_vocabularyName = Lens.lens (\Settings' {vocabularyName} -> vocabularyName) (\s@Settings' {} a -> s {vocabularyName = a} :: Settings)
 
 -- | The maximum number of speakers to identify in the input audio. If there
 -- are more speakers in the audio than this number, multiple speakers are
 -- identified as a single speaker. If you specify the @MaxSpeakerLabels@
 -- field, you must set the @ShowSpeakerLabels@ field to true.
-settings_maxSpeakerLabels :: Lens.Lens' Settings (Prelude.Maybe Prelude.Natural)
+settings_maxSpeakerLabels :: Lens.Lens' Settings (Core.Maybe Core.Natural)
 settings_maxSpeakerLabels = Lens.lens (\Settings' {maxSpeakerLabels} -> maxSpeakerLabels) (\s@Settings' {} a -> s {maxSpeakerLabels = a} :: Settings)
 
-instance Prelude.FromJSON Settings where
+instance Core.FromJSON Settings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Settings"
       ( \x ->
           Settings'
-            Prelude.<$> (x Prelude..:? "VocabularyFilterMethod")
-            Prelude.<*> (x Prelude..:? "VocabularyFilterName")
-            Prelude.<*> (x Prelude..:? "ShowAlternatives")
-            Prelude.<*> (x Prelude..:? "ChannelIdentification")
-            Prelude.<*> (x Prelude..:? "MaxAlternatives")
-            Prelude.<*> (x Prelude..:? "ShowSpeakerLabels")
-            Prelude.<*> (x Prelude..:? "VocabularyName")
-            Prelude.<*> (x Prelude..:? "MaxSpeakerLabels")
+            Core.<$> (x Core..:? "VocabularyFilterMethod")
+            Core.<*> (x Core..:? "VocabularyFilterName")
+            Core.<*> (x Core..:? "ShowAlternatives")
+            Core.<*> (x Core..:? "ChannelIdentification")
+            Core.<*> (x Core..:? "MaxAlternatives")
+            Core.<*> (x Core..:? "ShowSpeakerLabels")
+            Core.<*> (x Core..:? "VocabularyName")
+            Core.<*> (x Core..:? "MaxSpeakerLabels")
       )
 
-instance Prelude.Hashable Settings
+instance Core.Hashable Settings
 
-instance Prelude.NFData Settings
+instance Core.NFData Settings
 
-instance Prelude.ToJSON Settings where
+instance Core.ToJSON Settings where
   toJSON Settings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VocabularyFilterMethod" Prelude..=)
-              Prelude.<$> vocabularyFilterMethod,
-            ("VocabularyFilterName" Prelude..=)
-              Prelude.<$> vocabularyFilterName,
-            ("ShowAlternatives" Prelude..=)
-              Prelude.<$> showAlternatives,
-            ("ChannelIdentification" Prelude..=)
-              Prelude.<$> channelIdentification,
-            ("MaxAlternatives" Prelude..=)
-              Prelude.<$> maxAlternatives,
-            ("ShowSpeakerLabels" Prelude..=)
-              Prelude.<$> showSpeakerLabels,
-            ("VocabularyName" Prelude..=)
-              Prelude.<$> vocabularyName,
-            ("MaxSpeakerLabels" Prelude..=)
-              Prelude.<$> maxSpeakerLabels
+    Core.object
+      ( Core.catMaybes
+          [ ("VocabularyFilterMethod" Core..=)
+              Core.<$> vocabularyFilterMethod,
+            ("VocabularyFilterName" Core..=)
+              Core.<$> vocabularyFilterName,
+            ("ShowAlternatives" Core..=)
+              Core.<$> showAlternatives,
+            ("ChannelIdentification" Core..=)
+              Core.<$> channelIdentification,
+            ("MaxAlternatives" Core..=) Core.<$> maxAlternatives,
+            ("ShowSpeakerLabels" Core..=)
+              Core.<$> showSpeakerLabels,
+            ("VocabularyName" Core..=) Core.<$> vocabularyName,
+            ("MaxSpeakerLabels" Core..=)
+              Core.<$> maxSpeakerLabels
           ]
       )

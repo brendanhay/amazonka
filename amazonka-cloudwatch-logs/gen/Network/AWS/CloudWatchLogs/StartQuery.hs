@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.CloudWatchLogs.StartQuery
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,29 +66,29 @@ data StartQuery = StartQuery'
     --
     -- A @StartQuery@ operation must include a @logGroupNames@ or a
     -- @logGroupName@ parameter, but not both.
-    logGroupNames :: Prelude.Maybe [Prelude.Text],
+    logGroupNames :: Core.Maybe [Core.Text],
     -- | The log group on which to perform the query.
     --
     -- A @StartQuery@ operation must include a @logGroupNames@ or a
     -- @logGroupName@ parameter, but not both.
-    logGroupName :: Prelude.Maybe Prelude.Text,
+    logGroupName :: Core.Maybe Core.Text,
     -- | The maximum number of log events to return in the query. If the query
     -- string uses the @fields@ command, only the specified fields and their
     -- values are returned. The default is 1000.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The beginning of the time range to query. The range is inclusive, so the
     -- specified start time is included in the query. Specified as epoch time,
     -- the number of seconds since January 1, 1970, 00:00:00 UTC.
-    startTime :: Prelude.Natural,
+    startTime :: Core.Natural,
     -- | The end of the time range to query. The range is inclusive, so the
     -- specified end time is included in the query. Specified as epoch time,
     -- the number of seconds since January 1, 1970, 00:00:00 UTC.
-    endTime :: Prelude.Natural,
+    endTime :: Core.Natural,
     -- | The query string to use. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
-    queryString :: Prelude.Text
+    queryString :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartQuery' with all optional fields omitted.
@@ -126,17 +125,17 @@ data StartQuery = StartQuery'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
 newStartQuery ::
   -- | 'startTime'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'endTime'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'queryString'
-  Prelude.Text ->
+  Core.Text ->
   StartQuery
 newStartQuery pStartTime_ pEndTime_ pQueryString_ =
   StartQuery'
-    { logGroupNames = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { logGroupNames = Core.Nothing,
+      logGroupName = Core.Nothing,
+      limit = Core.Nothing,
       startTime = pStartTime_,
       endTime = pEndTime_,
       queryString = pQueryString_
@@ -147,95 +146,92 @@ newStartQuery pStartTime_ pEndTime_ pQueryString_ =
 --
 -- A @StartQuery@ operation must include a @logGroupNames@ or a
 -- @logGroupName@ parameter, but not both.
-startQuery_logGroupNames :: Lens.Lens' StartQuery (Prelude.Maybe [Prelude.Text])
-startQuery_logGroupNames = Lens.lens (\StartQuery' {logGroupNames} -> logGroupNames) (\s@StartQuery' {} a -> s {logGroupNames = a} :: StartQuery) Prelude.. Lens.mapping Prelude._Coerce
+startQuery_logGroupNames :: Lens.Lens' StartQuery (Core.Maybe [Core.Text])
+startQuery_logGroupNames = Lens.lens (\StartQuery' {logGroupNames} -> logGroupNames) (\s@StartQuery' {} a -> s {logGroupNames = a} :: StartQuery) Core.. Lens.mapping Lens._Coerce
 
 -- | The log group on which to perform the query.
 --
 -- A @StartQuery@ operation must include a @logGroupNames@ or a
 -- @logGroupName@ parameter, but not both.
-startQuery_logGroupName :: Lens.Lens' StartQuery (Prelude.Maybe Prelude.Text)
+startQuery_logGroupName :: Lens.Lens' StartQuery (Core.Maybe Core.Text)
 startQuery_logGroupName = Lens.lens (\StartQuery' {logGroupName} -> logGroupName) (\s@StartQuery' {} a -> s {logGroupName = a} :: StartQuery)
 
 -- | The maximum number of log events to return in the query. If the query
 -- string uses the @fields@ command, only the specified fields and their
 -- values are returned. The default is 1000.
-startQuery_limit :: Lens.Lens' StartQuery (Prelude.Maybe Prelude.Natural)
+startQuery_limit :: Lens.Lens' StartQuery (Core.Maybe Core.Natural)
 startQuery_limit = Lens.lens (\StartQuery' {limit} -> limit) (\s@StartQuery' {} a -> s {limit = a} :: StartQuery)
 
 -- | The beginning of the time range to query. The range is inclusive, so the
 -- specified start time is included in the query. Specified as epoch time,
 -- the number of seconds since January 1, 1970, 00:00:00 UTC.
-startQuery_startTime :: Lens.Lens' StartQuery Prelude.Natural
+startQuery_startTime :: Lens.Lens' StartQuery Core.Natural
 startQuery_startTime = Lens.lens (\StartQuery' {startTime} -> startTime) (\s@StartQuery' {} a -> s {startTime = a} :: StartQuery)
 
 -- | The end of the time range to query. The range is inclusive, so the
 -- specified end time is included in the query. Specified as epoch time,
 -- the number of seconds since January 1, 1970, 00:00:00 UTC.
-startQuery_endTime :: Lens.Lens' StartQuery Prelude.Natural
+startQuery_endTime :: Lens.Lens' StartQuery Core.Natural
 startQuery_endTime = Lens.lens (\StartQuery' {endTime} -> endTime) (\s@StartQuery' {} a -> s {endTime = a} :: StartQuery)
 
 -- | The query string to use. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax>.
-startQuery_queryString :: Lens.Lens' StartQuery Prelude.Text
+startQuery_queryString :: Lens.Lens' StartQuery Core.Text
 startQuery_queryString = Lens.lens (\StartQuery' {queryString} -> queryString) (\s@StartQuery' {} a -> s {queryString = a} :: StartQuery)
 
-instance Prelude.AWSRequest StartQuery where
-  type Rs StartQuery = StartQueryResponse
+instance Core.AWSRequest StartQuery where
+  type AWSResponse StartQuery = StartQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartQueryResponse'
-            Prelude.<$> (x Prelude..?> "queryId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "queryId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartQuery
+instance Core.Hashable StartQuery
 
-instance Prelude.NFData StartQuery
+instance Core.NFData StartQuery
 
-instance Prelude.ToHeaders StartQuery where
+instance Core.ToHeaders StartQuery where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("Logs_20140328.StartQuery" :: Prelude.ByteString),
+              Core.=# ("Logs_20140328.StartQuery" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartQuery where
+instance Core.ToJSON StartQuery where
   toJSON StartQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("logGroupNames" Prelude..=)
-              Prelude.<$> logGroupNames,
-            ("logGroupName" Prelude..=) Prelude.<$> logGroupName,
-            ("limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("startTime" Prelude..= startTime),
-            Prelude.Just ("endTime" Prelude..= endTime),
-            Prelude.Just ("queryString" Prelude..= queryString)
+    Core.object
+      ( Core.catMaybes
+          [ ("logGroupNames" Core..=) Core.<$> logGroupNames,
+            ("logGroupName" Core..=) Core.<$> logGroupName,
+            ("limit" Core..=) Core.<$> limit,
+            Core.Just ("startTime" Core..= startTime),
+            Core.Just ("endTime" Core..= endTime),
+            Core.Just ("queryString" Core..= queryString)
           ]
       )
 
-instance Prelude.ToPath StartQuery where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartQuery where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartQueryResponse' smart constructor.
 data StartQueryResponse = StartQueryResponse'
   { -- | The unique ID of the query.
-    queryId :: Prelude.Maybe Prelude.Text,
+    queryId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartQueryResponse' with all optional fields omitted.
@@ -250,20 +246,20 @@ data StartQueryResponse = StartQueryResponse'
 -- 'httpStatus', 'startQueryResponse_httpStatus' - The response's http status code.
 newStartQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartQueryResponse
 newStartQueryResponse pHttpStatus_ =
   StartQueryResponse'
-    { queryId = Prelude.Nothing,
+    { queryId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID of the query.
-startQueryResponse_queryId :: Lens.Lens' StartQueryResponse (Prelude.Maybe Prelude.Text)
+startQueryResponse_queryId :: Lens.Lens' StartQueryResponse (Core.Maybe Core.Text)
 startQueryResponse_queryId = Lens.lens (\StartQueryResponse' {queryId} -> queryId) (\s@StartQueryResponse' {} a -> s {queryId = a} :: StartQueryResponse)
 
 -- | The response's http status code.
-startQueryResponse_httpStatus :: Lens.Lens' StartQueryResponse Prelude.Int
+startQueryResponse_httpStatus :: Lens.Lens' StartQueryResponse Core.Int
 startQueryResponse_httpStatus = Lens.lens (\StartQueryResponse' {httpStatus} -> httpStatus) (\s@StartQueryResponse' {} a -> s {httpStatus = a} :: StartQueryResponse)
 
-instance Prelude.NFData StartQueryResponse
+instance Core.NFData StartQueryResponse

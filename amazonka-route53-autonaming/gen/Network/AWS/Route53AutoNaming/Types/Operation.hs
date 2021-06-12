@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53AutoNaming.Types.Operation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.OperationStatus
 import Network.AWS.Route53AutoNaming.Types.OperationTargetType
 import Network.AWS.Route53AutoNaming.Types.OperationType
@@ -41,14 +40,14 @@ data Operation = Operation'
     --
     -- -   __FAIL__: The operation failed. For the failure reason, see
     --     @ErrorMessage@.
-    status :: Prelude.Maybe OperationStatus,
+    status :: Core.Maybe OperationStatus,
     -- | The date and time that the request was submitted, in Unix date\/time
     -- format and Coordinated Universal Time (UTC). The value of @CreateDate@
     -- is accurate to milliseconds. For example, the value @1516925490.087@
     -- represents Friday, January 26, 2018 12:11:30.087 AM.
-    createDate :: Prelude.Maybe Prelude.POSIX,
+    createDate :: Core.Maybe Core.POSIX,
     -- | The ID of the operation that you want to get information about.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The name of the target entity that is associated with the operation:
     --
     -- -   __NAMESPACE__: The namespace ID is returned in the @ResourceId@
@@ -59,12 +58,12 @@ data Operation = Operation'
     --
     -- -   __INSTANCE__: The instance ID is returned in the @ResourceId@
     --     property.
-    targets :: Prelude.Maybe (Prelude.HashMap OperationTargetType Prelude.Text),
+    targets :: Core.Maybe (Core.HashMap OperationTargetType Core.Text),
     -- | If the value of @Status@ is @FAIL@, the reason that the operation
     -- failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The name of the operation that is associated with the specified ID.
-    type' :: Prelude.Maybe OperationType,
+    type' :: Core.Maybe OperationType,
     -- | The code associated with @ErrorMessage@. Values for @ErrorCode@ include
     -- the following:
     --
@@ -81,15 +80,15 @@ data Operation = Operation'
     -- -   @INVALID_CHANGE_BATCH@
     --
     -- -   @THROTTLED_REQUEST@
-    errorCode :: Prelude.Maybe Prelude.Text,
+    errorCode :: Core.Maybe Core.Text,
     -- | The date and time that the value of @Status@ changed to the current
     -- value, in Unix date\/time format and Coordinated Universal Time (UTC).
     -- The value of @UpdateDate@ is accurate to milliseconds. For example, the
     -- value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087
     -- AM.
-    updateDate :: Prelude.Maybe Prelude.POSIX
+    updateDate :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Operation' with all optional fields omitted.
@@ -160,14 +159,14 @@ newOperation ::
   Operation
 newOperation =
   Operation'
-    { status = Prelude.Nothing,
-      createDate = Prelude.Nothing,
-      id = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      errorCode = Prelude.Nothing,
-      updateDate = Prelude.Nothing
+    { status = Core.Nothing,
+      createDate = Core.Nothing,
+      id = Core.Nothing,
+      targets = Core.Nothing,
+      errorMessage = Core.Nothing,
+      type' = Core.Nothing,
+      errorCode = Core.Nothing,
+      updateDate = Core.Nothing
     }
 
 -- | The status of the operation. Values include the following:
@@ -181,18 +180,18 @@ newOperation =
 --
 -- -   __FAIL__: The operation failed. For the failure reason, see
 --     @ErrorMessage@.
-operation_status :: Lens.Lens' Operation (Prelude.Maybe OperationStatus)
+operation_status :: Lens.Lens' Operation (Core.Maybe OperationStatus)
 operation_status = Lens.lens (\Operation' {status} -> status) (\s@Operation' {} a -> s {status = a} :: Operation)
 
 -- | The date and time that the request was submitted, in Unix date\/time
 -- format and Coordinated Universal Time (UTC). The value of @CreateDate@
 -- is accurate to milliseconds. For example, the value @1516925490.087@
 -- represents Friday, January 26, 2018 12:11:30.087 AM.
-operation_createDate :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_createDate = Lens.lens (\Operation' {createDate} -> createDate) (\s@Operation' {} a -> s {createDate = a} :: Operation) Prelude.. Lens.mapping Prelude._Time
+operation_createDate :: Lens.Lens' Operation (Core.Maybe Core.UTCTime)
+operation_createDate = Lens.lens (\Operation' {createDate} -> createDate) (\s@Operation' {} a -> s {createDate = a} :: Operation) Core.. Lens.mapping Core._Time
 
 -- | The ID of the operation that you want to get information about.
-operation_id :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_id :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id = a} :: Operation)
 
 -- | The name of the target entity that is associated with the operation:
@@ -205,16 +204,16 @@ operation_id = Lens.lens (\Operation' {id} -> id) (\s@Operation' {} a -> s {id =
 --
 -- -   __INSTANCE__: The instance ID is returned in the @ResourceId@
 --     property.
-operation_targets :: Lens.Lens' Operation (Prelude.Maybe (Prelude.HashMap OperationTargetType Prelude.Text))
-operation_targets = Lens.lens (\Operation' {targets} -> targets) (\s@Operation' {} a -> s {targets = a} :: Operation) Prelude.. Lens.mapping Prelude._Coerce
+operation_targets :: Lens.Lens' Operation (Core.Maybe (Core.HashMap OperationTargetType Core.Text))
+operation_targets = Lens.lens (\Operation' {targets} -> targets) (\s@Operation' {} a -> s {targets = a} :: Operation) Core.. Lens.mapping Lens._Coerce
 
 -- | If the value of @Status@ is @FAIL@, the reason that the operation
 -- failed.
-operation_errorMessage :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_errorMessage :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_errorMessage = Lens.lens (\Operation' {errorMessage} -> errorMessage) (\s@Operation' {} a -> s {errorMessage = a} :: Operation)
 
 -- | The name of the operation that is associated with the specified ID.
-operation_type :: Lens.Lens' Operation (Prelude.Maybe OperationType)
+operation_type :: Lens.Lens' Operation (Core.Maybe OperationType)
 operation_type = Lens.lens (\Operation' {type'} -> type') (\s@Operation' {} a -> s {type' = a} :: Operation)
 
 -- | The code associated with @ErrorMessage@. Values for @ErrorCode@ include
@@ -233,7 +232,7 @@ operation_type = Lens.lens (\Operation' {type'} -> type') (\s@Operation' {} a ->
 -- -   @INVALID_CHANGE_BATCH@
 --
 -- -   @THROTTLED_REQUEST@
-operation_errorCode :: Lens.Lens' Operation (Prelude.Maybe Prelude.Text)
+operation_errorCode :: Lens.Lens' Operation (Core.Maybe Core.Text)
 operation_errorCode = Lens.lens (\Operation' {errorCode} -> errorCode) (\s@Operation' {} a -> s {errorCode = a} :: Operation)
 
 -- | The date and time that the value of @Status@ changed to the current
@@ -241,25 +240,25 @@ operation_errorCode = Lens.lens (\Operation' {errorCode} -> errorCode) (\s@Opera
 -- The value of @UpdateDate@ is accurate to milliseconds. For example, the
 -- value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087
 -- AM.
-operation_updateDate :: Lens.Lens' Operation (Prelude.Maybe Prelude.UTCTime)
-operation_updateDate = Lens.lens (\Operation' {updateDate} -> updateDate) (\s@Operation' {} a -> s {updateDate = a} :: Operation) Prelude.. Lens.mapping Prelude._Time
+operation_updateDate :: Lens.Lens' Operation (Core.Maybe Core.UTCTime)
+operation_updateDate = Lens.lens (\Operation' {updateDate} -> updateDate) (\s@Operation' {} a -> s {updateDate = a} :: Operation) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON Operation where
+instance Core.FromJSON Operation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Operation"
       ( \x ->
           Operation'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "CreateDate")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Targets" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "Type")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
-            Prelude.<*> (x Prelude..:? "UpdateDate")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "CreateDate")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Targets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (x Core..:? "ErrorCode")
+            Core.<*> (x Core..:? "UpdateDate")
       )
 
-instance Prelude.Hashable Operation
+instance Core.Hashable Operation
 
-instance Prelude.NFData Operation
+instance Core.NFData Operation

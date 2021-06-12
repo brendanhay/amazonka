@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.EyeOpen where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether or not the eyes on the face are open, and the
 -- confidence level in the determination.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEyeOpen' smart constructor.
 data EyeOpen = EyeOpen'
   { -- | Level of confidence in the determination.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | Boolean value that indicates whether the eyes on the face are open.
-    value :: Prelude.Maybe Prelude.Bool
+    value :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EyeOpen' with all optional fields omitted.
@@ -50,28 +49,28 @@ newEyeOpen ::
   EyeOpen
 newEyeOpen =
   EyeOpen'
-    { confidence = Prelude.Nothing,
-      value = Prelude.Nothing
+    { confidence = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Level of confidence in the determination.
-eyeOpen_confidence :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Double)
+eyeOpen_confidence :: Lens.Lens' EyeOpen (Core.Maybe Core.Double)
 eyeOpen_confidence = Lens.lens (\EyeOpen' {confidence} -> confidence) (\s@EyeOpen' {} a -> s {confidence = a} :: EyeOpen)
 
 -- | Boolean value that indicates whether the eyes on the face are open.
-eyeOpen_value :: Lens.Lens' EyeOpen (Prelude.Maybe Prelude.Bool)
+eyeOpen_value :: Lens.Lens' EyeOpen (Core.Maybe Core.Bool)
 eyeOpen_value = Lens.lens (\EyeOpen' {value} -> value) (\s@EyeOpen' {} a -> s {value = a} :: EyeOpen)
 
-instance Prelude.FromJSON EyeOpen where
+instance Core.FromJSON EyeOpen where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EyeOpen"
       ( \x ->
           EyeOpen'
-            Prelude.<$> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable EyeOpen
+instance Core.Hashable EyeOpen
 
-instance Prelude.NFData EyeOpen
+instance Core.NFData EyeOpen

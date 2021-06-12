@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.IcmpTypeCode where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the ICMP type and code.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data IcmpTypeCode = IcmpTypeCode'
   { -- | The ICMP code. A value of -1 means all codes for the specified ICMP
     -- type.
-    code :: Prelude.Maybe Prelude.Int,
+    code :: Core.Maybe Core.Int,
     -- | The ICMP type. A value of -1 means all types.
-    type' :: Prelude.Maybe Prelude.Int
+    type' :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IcmpTypeCode' with all optional fields omitted.
@@ -52,30 +51,29 @@ newIcmpTypeCode ::
   IcmpTypeCode
 newIcmpTypeCode =
   IcmpTypeCode'
-    { code = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { code = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The ICMP code. A value of -1 means all codes for the specified ICMP
 -- type.
-icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
+icmpTypeCode_code :: Lens.Lens' IcmpTypeCode (Core.Maybe Core.Int)
 icmpTypeCode_code = Lens.lens (\IcmpTypeCode' {code} -> code) (\s@IcmpTypeCode' {} a -> s {code = a} :: IcmpTypeCode)
 
 -- | The ICMP type. A value of -1 means all types.
-icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Prelude.Maybe Prelude.Int)
+icmpTypeCode_type :: Lens.Lens' IcmpTypeCode (Core.Maybe Core.Int)
 icmpTypeCode_type = Lens.lens (\IcmpTypeCode' {type'} -> type') (\s@IcmpTypeCode' {} a -> s {type' = a} :: IcmpTypeCode)
 
-instance Prelude.FromXML IcmpTypeCode where
+instance Core.FromXML IcmpTypeCode where
   parseXML x =
     IcmpTypeCode'
-      Prelude.<$> (x Prelude..@? "code")
-      Prelude.<*> (x Prelude..@? "type")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "type")
 
-instance Prelude.Hashable IcmpTypeCode
+instance Core.Hashable IcmpTypeCode
 
-instance Prelude.NFData IcmpTypeCode
+instance Core.NFData IcmpTypeCode
 
-instance Prelude.ToQuery IcmpTypeCode where
+instance Core.ToQuery IcmpTypeCode where
   toQuery IcmpTypeCode' {..} =
-    Prelude.mconcat
-      ["Code" Prelude.=: code, "Type" Prelude.=: type']
+    Core.mconcat
+      ["Code" Core.=: code, "Type" Core.=: type']

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,9 +60,9 @@ module Network.AWS.Glacier.DeleteVault
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,11 +75,11 @@ data DeleteVault = DeleteVault'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVault' with all optional fields omitted.
@@ -99,9 +98,9 @@ data DeleteVault = DeleteVault'
 -- 'vaultName', 'deleteVault_vaultName' - The name of the vault.
 newDeleteVault ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVault
 newDeleteVault pAccountId_ pVaultName_ =
   DeleteVault'
@@ -114,44 +113,44 @@ newDeleteVault pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-deleteVault_accountId :: Lens.Lens' DeleteVault Prelude.Text
+deleteVault_accountId :: Lens.Lens' DeleteVault Core.Text
 deleteVault_accountId = Lens.lens (\DeleteVault' {accountId} -> accountId) (\s@DeleteVault' {} a -> s {accountId = a} :: DeleteVault)
 
 -- | The name of the vault.
-deleteVault_vaultName :: Lens.Lens' DeleteVault Prelude.Text
+deleteVault_vaultName :: Lens.Lens' DeleteVault Core.Text
 deleteVault_vaultName = Lens.lens (\DeleteVault' {vaultName} -> vaultName) (\s@DeleteVault' {} a -> s {vaultName = a} :: DeleteVault)
 
-instance Prelude.AWSRequest DeleteVault where
-  type Rs DeleteVault = DeleteVaultResponse
+instance Core.AWSRequest DeleteVault where
+  type AWSResponse DeleteVault = DeleteVaultResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.delete defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.delete defaultService
   response = Response.receiveNull DeleteVaultResponse'
 
-instance Prelude.Hashable DeleteVault
+instance Core.Hashable DeleteVault
 
-instance Prelude.NFData DeleteVault
+instance Core.NFData DeleteVault
 
-instance Prelude.ToHeaders DeleteVault where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteVault where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteVault where
+instance Core.ToPath DeleteVault where
   toPath DeleteVault' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName
+        Core.toBS vaultName
       ]
 
-instance Prelude.ToQuery DeleteVault where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteVault where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteVaultResponse' smart constructor.
 data DeleteVaultResponse = DeleteVaultResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVaultResponse' with all optional fields omitted.
@@ -161,4 +160,4 @@ newDeleteVaultResponse ::
   DeleteVaultResponse
 newDeleteVaultResponse = DeleteVaultResponse'
 
-instance Prelude.NFData DeleteVaultResponse
+instance Core.NFData DeleteVaultResponse

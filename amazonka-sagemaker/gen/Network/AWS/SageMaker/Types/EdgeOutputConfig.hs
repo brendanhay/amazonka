@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.EdgeOutputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The output configuration.
 --
@@ -31,11 +30,11 @@ data EdgeOutputConfig = EdgeOutputConfig'
     -- to encrypt data on the storage volume after compilation job. If you
     -- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
     -- for Amazon S3 for your role\'s account.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The Amazon Simple Storage (S3) bucker URI.
-    s3OutputLocation :: Prelude.Text
+    s3OutputLocation :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EdgeOutputConfig' with all optional fields omitted.
@@ -53,11 +52,11 @@ data EdgeOutputConfig = EdgeOutputConfig'
 -- 's3OutputLocation', 'edgeOutputConfig_s3OutputLocation' - The Amazon Simple Storage (S3) bucker URI.
 newEdgeOutputConfig ::
   -- | 's3OutputLocation'
-  Prelude.Text ->
+  Core.Text ->
   EdgeOutputConfig
 newEdgeOutputConfig pS3OutputLocation_ =
   EdgeOutputConfig'
-    { kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
       s3OutputLocation = pS3OutputLocation_
     }
 
@@ -65,33 +64,33 @@ newEdgeOutputConfig pS3OutputLocation_ =
 -- to encrypt data on the storage volume after compilation job. If you
 -- don\'t provide a KMS key ID, Amazon SageMaker uses the default KMS key
 -- for Amazon S3 for your role\'s account.
-edgeOutputConfig_kmsKeyId :: Lens.Lens' EdgeOutputConfig (Prelude.Maybe Prelude.Text)
+edgeOutputConfig_kmsKeyId :: Lens.Lens' EdgeOutputConfig (Core.Maybe Core.Text)
 edgeOutputConfig_kmsKeyId = Lens.lens (\EdgeOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@EdgeOutputConfig' {} a -> s {kmsKeyId = a} :: EdgeOutputConfig)
 
 -- | The Amazon Simple Storage (S3) bucker URI.
-edgeOutputConfig_s3OutputLocation :: Lens.Lens' EdgeOutputConfig Prelude.Text
+edgeOutputConfig_s3OutputLocation :: Lens.Lens' EdgeOutputConfig Core.Text
 edgeOutputConfig_s3OutputLocation = Lens.lens (\EdgeOutputConfig' {s3OutputLocation} -> s3OutputLocation) (\s@EdgeOutputConfig' {} a -> s {s3OutputLocation = a} :: EdgeOutputConfig)
 
-instance Prelude.FromJSON EdgeOutputConfig where
+instance Core.FromJSON EdgeOutputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EdgeOutputConfig"
       ( \x ->
           EdgeOutputConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "S3OutputLocation")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..: "S3OutputLocation")
       )
 
-instance Prelude.Hashable EdgeOutputConfig
+instance Core.Hashable EdgeOutputConfig
 
-instance Prelude.NFData EdgeOutputConfig
+instance Core.NFData EdgeOutputConfig
 
-instance Prelude.ToJSON EdgeOutputConfig where
+instance Core.ToJSON EdgeOutputConfig where
   toJSON EdgeOutputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
-              ("S3OutputLocation" Prelude..= s3OutputLocation)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just
+              ("S3OutputLocation" Core..= s3OutputLocation)
           ]
       )

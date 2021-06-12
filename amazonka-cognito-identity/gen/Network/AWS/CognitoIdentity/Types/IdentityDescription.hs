@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentity.Types.IdentityDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A description of the identity.
 --
 -- /See:/ 'newIdentityDescription' smart constructor.
 data IdentityDescription = IdentityDescription'
   { -- | Date on which the identity was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | Date on which the identity was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | The provider names.
-    logins :: Prelude.Maybe [Prelude.Text]
+    logins :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityDescription' with all optional fields omitted.
@@ -58,40 +57,40 @@ newIdentityDescription ::
 newIdentityDescription =
   IdentityDescription'
     { lastModifiedDate =
-        Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      identityId = Prelude.Nothing,
-      logins = Prelude.Nothing
+        Core.Nothing,
+      creationDate = Core.Nothing,
+      identityId = Core.Nothing,
+      logins = Core.Nothing
     }
 
 -- | Date on which the identity was last modified.
-identityDescription_lastModifiedDate :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.UTCTime)
-identityDescription_lastModifiedDate = Lens.lens (\IdentityDescription' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityDescription' {} a -> s {lastModifiedDate = a} :: IdentityDescription) Prelude.. Lens.mapping Prelude._Time
+identityDescription_lastModifiedDate :: Lens.Lens' IdentityDescription (Core.Maybe Core.UTCTime)
+identityDescription_lastModifiedDate = Lens.lens (\IdentityDescription' {lastModifiedDate} -> lastModifiedDate) (\s@IdentityDescription' {} a -> s {lastModifiedDate = a} :: IdentityDescription) Core.. Lens.mapping Core._Time
 
 -- | Date on which the identity was created.
-identityDescription_creationDate :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.UTCTime)
-identityDescription_creationDate = Lens.lens (\IdentityDescription' {creationDate} -> creationDate) (\s@IdentityDescription' {} a -> s {creationDate = a} :: IdentityDescription) Prelude.. Lens.mapping Prelude._Time
+identityDescription_creationDate :: Lens.Lens' IdentityDescription (Core.Maybe Core.UTCTime)
+identityDescription_creationDate = Lens.lens (\IdentityDescription' {creationDate} -> creationDate) (\s@IdentityDescription' {} a -> s {creationDate = a} :: IdentityDescription) Core.. Lens.mapping Core._Time
 
 -- | A unique identifier in the format REGION:GUID.
-identityDescription_identityId :: Lens.Lens' IdentityDescription (Prelude.Maybe Prelude.Text)
+identityDescription_identityId :: Lens.Lens' IdentityDescription (Core.Maybe Core.Text)
 identityDescription_identityId = Lens.lens (\IdentityDescription' {identityId} -> identityId) (\s@IdentityDescription' {} a -> s {identityId = a} :: IdentityDescription)
 
 -- | The provider names.
-identityDescription_logins :: Lens.Lens' IdentityDescription (Prelude.Maybe [Prelude.Text])
-identityDescription_logins = Lens.lens (\IdentityDescription' {logins} -> logins) (\s@IdentityDescription' {} a -> s {logins = a} :: IdentityDescription) Prelude.. Lens.mapping Prelude._Coerce
+identityDescription_logins :: Lens.Lens' IdentityDescription (Core.Maybe [Core.Text])
+identityDescription_logins = Lens.lens (\IdentityDescription' {logins} -> logins) (\s@IdentityDescription' {} a -> s {logins = a} :: IdentityDescription) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON IdentityDescription where
+instance Core.FromJSON IdentityDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IdentityDescription"
       ( \x ->
           IdentityDescription'
-            Prelude.<$> (x Prelude..:? "LastModifiedDate")
-            Prelude.<*> (x Prelude..:? "CreationDate")
-            Prelude.<*> (x Prelude..:? "IdentityId")
-            Prelude.<*> (x Prelude..:? "Logins" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "LastModifiedDate")
+            Core.<*> (x Core..:? "CreationDate")
+            Core.<*> (x Core..:? "IdentityId")
+            Core.<*> (x Core..:? "Logins" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable IdentityDescription
+instance Core.Hashable IdentityDescription
 
-instance Prelude.NFData IdentityDescription
+instance Core.NFData IdentityDescription

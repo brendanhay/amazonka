@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.Rule where
 
 import Network.AWS.CloudDirectory.Types.RuleType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains an Amazon Resource Name (ARN) and parameters that are
 -- associated with the rule.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRule' smart constructor.
 data Rule = Rule'
   { -- | The type of attribute validation rule.
-    type' :: Prelude.Maybe RuleType,
+    type' :: Core.Maybe RuleType,
     -- | The minimum and maximum parameters that are associated with the rule.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Rule' with all optional fields omitted.
@@ -51,39 +50,37 @@ newRule ::
   Rule
 newRule =
   Rule'
-    { type' = Prelude.Nothing,
-      parameters = Prelude.Nothing
+    { type' = Core.Nothing,
+      parameters = Core.Nothing
     }
 
 -- | The type of attribute validation rule.
-rule_type :: Lens.Lens' Rule (Prelude.Maybe RuleType)
+rule_type :: Lens.Lens' Rule (Core.Maybe RuleType)
 rule_type = Lens.lens (\Rule' {type'} -> type') (\s@Rule' {} a -> s {type' = a} :: Rule)
 
 -- | The minimum and maximum parameters that are associated with the rule.
-rule_parameters :: Lens.Lens' Rule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Prelude.. Lens.mapping Prelude._Coerce
+rule_parameters :: Lens.Lens' Rule (Core.Maybe (Core.HashMap Core.Text Core.Text))
+rule_parameters = Lens.lens (\Rule' {parameters} -> parameters) (\s@Rule' {} a -> s {parameters = a} :: Rule) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Rule where
+instance Core.FromJSON Rule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Rule"
       ( \x ->
           Rule'
-            Prelude.<$> (x Prelude..:? "Type")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Type")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Rule
+instance Core.Hashable Rule
 
-instance Prelude.NFData Rule
+instance Core.NFData Rule
 
-instance Prelude.ToJSON Rule where
+instance Core.ToJSON Rule where
   toJSON Rule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Type" Prelude..=) Prelude.<$> type',
-            ("Parameters" Prelude..=) Prelude.<$> parameters
+    Core.object
+      ( Core.catMaybes
+          [ ("Type" Core..=) Core.<$> type',
+            ("Parameters" Core..=) Core.<$> parameters
           ]
       )

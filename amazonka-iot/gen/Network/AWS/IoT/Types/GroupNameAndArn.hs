@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.GroupNameAndArn where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The name and ARN of a group.
 --
 -- /See:/ 'newGroupNameAndArn' smart constructor.
 data GroupNameAndArn = GroupNameAndArn'
   { -- | The group name.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The group ARN.
-    groupArn :: Prelude.Maybe Prelude.Text
+    groupArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupNameAndArn' with all optional fields omitted.
@@ -49,28 +48,28 @@ newGroupNameAndArn ::
   GroupNameAndArn
 newGroupNameAndArn =
   GroupNameAndArn'
-    { groupName = Prelude.Nothing,
-      groupArn = Prelude.Nothing
+    { groupName = Core.Nothing,
+      groupArn = Core.Nothing
     }
 
 -- | The group name.
-groupNameAndArn_groupName :: Lens.Lens' GroupNameAndArn (Prelude.Maybe Prelude.Text)
+groupNameAndArn_groupName :: Lens.Lens' GroupNameAndArn (Core.Maybe Core.Text)
 groupNameAndArn_groupName = Lens.lens (\GroupNameAndArn' {groupName} -> groupName) (\s@GroupNameAndArn' {} a -> s {groupName = a} :: GroupNameAndArn)
 
 -- | The group ARN.
-groupNameAndArn_groupArn :: Lens.Lens' GroupNameAndArn (Prelude.Maybe Prelude.Text)
+groupNameAndArn_groupArn :: Lens.Lens' GroupNameAndArn (Core.Maybe Core.Text)
 groupNameAndArn_groupArn = Lens.lens (\GroupNameAndArn' {groupArn} -> groupArn) (\s@GroupNameAndArn' {} a -> s {groupArn = a} :: GroupNameAndArn)
 
-instance Prelude.FromJSON GroupNameAndArn where
+instance Core.FromJSON GroupNameAndArn where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GroupNameAndArn"
       ( \x ->
           GroupNameAndArn'
-            Prelude.<$> (x Prelude..:? "groupName")
-            Prelude.<*> (x Prelude..:? "groupArn")
+            Core.<$> (x Core..:? "groupName")
+            Core.<*> (x Core..:? "groupArn")
       )
 
-instance Prelude.Hashable GroupNameAndArn
+instance Core.Hashable GroupNameAndArn
 
-instance Prelude.NFData GroupNameAndArn
+instance Core.NFData GroupNameAndArn

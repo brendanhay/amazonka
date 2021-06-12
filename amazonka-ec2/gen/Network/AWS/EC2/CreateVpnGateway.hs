@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.EC2.CreateVpnGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,25 +60,25 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateVpnGateway' smart constructor.
 data CreateVpnGateway = CreateVpnGateway'
   { -- | The tags to apply to the virtual private gateway.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The Availability Zone for the virtual private gateway.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
     -- session. If you\'re using a 16-bit ASN, it must be in the 64512 to 65534
     -- range. If you\'re using a 32-bit ASN, it must be in the 4200000000 to
     -- 4294967294 range.
     --
     -- Default: 64512
-    amazonSideAsn :: Prelude.Maybe Prelude.Integer,
+    amazonSideAsn :: Core.Maybe Core.Integer,
     -- | The type of VPN connection this virtual private gateway supports.
     type' :: GatewayType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpnGateway' with all optional fields omitted.
@@ -112,27 +111,26 @@ newCreateVpnGateway ::
   CreateVpnGateway
 newCreateVpnGateway pType_ =
   CreateVpnGateway'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      amazonSideAsn = Prelude.Nothing,
+    { tagSpecifications = Core.Nothing,
+      dryRun = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      amazonSideAsn = Core.Nothing,
       type' = pType_
     }
 
 -- | The tags to apply to the virtual private gateway.
-createVpnGateway_tagSpecifications :: Lens.Lens' CreateVpnGateway (Prelude.Maybe [TagSpecification])
-createVpnGateway_tagSpecifications = Lens.lens (\CreateVpnGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateVpnGateway' {} a -> s {tagSpecifications = a} :: CreateVpnGateway) Prelude.. Lens.mapping Prelude._Coerce
+createVpnGateway_tagSpecifications :: Lens.Lens' CreateVpnGateway (Core.Maybe [TagSpecification])
+createVpnGateway_tagSpecifications = Lens.lens (\CreateVpnGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateVpnGateway' {} a -> s {tagSpecifications = a} :: CreateVpnGateway) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createVpnGateway_dryRun :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Bool)
+createVpnGateway_dryRun :: Lens.Lens' CreateVpnGateway (Core.Maybe Core.Bool)
 createVpnGateway_dryRun = Lens.lens (\CreateVpnGateway' {dryRun} -> dryRun) (\s@CreateVpnGateway' {} a -> s {dryRun = a} :: CreateVpnGateway)
 
 -- | The Availability Zone for the virtual private gateway.
-createVpnGateway_availabilityZone :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Text)
+createVpnGateway_availabilityZone :: Lens.Lens' CreateVpnGateway (Core.Maybe Core.Text)
 createVpnGateway_availabilityZone = Lens.lens (\CreateVpnGateway' {availabilityZone} -> availabilityZone) (\s@CreateVpnGateway' {} a -> s {availabilityZone = a} :: CreateVpnGateway)
 
 -- | A private Autonomous System Number (ASN) for the Amazon side of a BGP
@@ -141,49 +139,50 @@ createVpnGateway_availabilityZone = Lens.lens (\CreateVpnGateway' {availabilityZ
 -- 4294967294 range.
 --
 -- Default: 64512
-createVpnGateway_amazonSideAsn :: Lens.Lens' CreateVpnGateway (Prelude.Maybe Prelude.Integer)
+createVpnGateway_amazonSideAsn :: Lens.Lens' CreateVpnGateway (Core.Maybe Core.Integer)
 createVpnGateway_amazonSideAsn = Lens.lens (\CreateVpnGateway' {amazonSideAsn} -> amazonSideAsn) (\s@CreateVpnGateway' {} a -> s {amazonSideAsn = a} :: CreateVpnGateway)
 
 -- | The type of VPN connection this virtual private gateway supports.
 createVpnGateway_type :: Lens.Lens' CreateVpnGateway GatewayType
 createVpnGateway_type = Lens.lens (\CreateVpnGateway' {type'} -> type') (\s@CreateVpnGateway' {} a -> s {type' = a} :: CreateVpnGateway)
 
-instance Prelude.AWSRequest CreateVpnGateway where
-  type Rs CreateVpnGateway = CreateVpnGatewayResponse
+instance Core.AWSRequest CreateVpnGateway where
+  type
+    AWSResponse CreateVpnGateway =
+      CreateVpnGatewayResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateVpnGatewayResponse'
-            Prelude.<$> (x Prelude..@? "vpnGateway")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "vpnGateway")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVpnGateway
+instance Core.Hashable CreateVpnGateway
 
-instance Prelude.NFData CreateVpnGateway
+instance Core.NFData CreateVpnGateway
 
-instance Prelude.ToHeaders CreateVpnGateway where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateVpnGateway where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateVpnGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateVpnGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateVpnGateway where
+instance Core.ToQuery CreateVpnGateway where
   toQuery CreateVpnGateway' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateVpnGateway" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateVpnGateway" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "AvailabilityZone" Prelude.=: availabilityZone,
-        "AmazonSideAsn" Prelude.=: amazonSideAsn,
-        "Type" Prelude.=: type'
+        "DryRun" Core.=: dryRun,
+        "AvailabilityZone" Core.=: availabilityZone,
+        "AmazonSideAsn" Core.=: amazonSideAsn,
+        "Type" Core.=: type'
       ]
 
 -- | Contains the output of CreateVpnGateway.
@@ -191,11 +190,11 @@ instance Prelude.ToQuery CreateVpnGateway where
 -- /See:/ 'newCreateVpnGatewayResponse' smart constructor.
 data CreateVpnGatewayResponse = CreateVpnGatewayResponse'
   { -- | Information about the virtual private gateway.
-    vpnGateway :: Prelude.Maybe VpnGateway,
+    vpnGateway :: Core.Maybe VpnGateway,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpnGatewayResponse' with all optional fields omitted.
@@ -210,21 +209,21 @@ data CreateVpnGatewayResponse = CreateVpnGatewayResponse'
 -- 'httpStatus', 'createVpnGatewayResponse_httpStatus' - The response's http status code.
 newCreateVpnGatewayResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateVpnGatewayResponse
 newCreateVpnGatewayResponse pHttpStatus_ =
   CreateVpnGatewayResponse'
     { vpnGateway =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the virtual private gateway.
-createVpnGatewayResponse_vpnGateway :: Lens.Lens' CreateVpnGatewayResponse (Prelude.Maybe VpnGateway)
+createVpnGatewayResponse_vpnGateway :: Lens.Lens' CreateVpnGatewayResponse (Core.Maybe VpnGateway)
 createVpnGatewayResponse_vpnGateway = Lens.lens (\CreateVpnGatewayResponse' {vpnGateway} -> vpnGateway) (\s@CreateVpnGatewayResponse' {} a -> s {vpnGateway = a} :: CreateVpnGatewayResponse)
 
 -- | The response's http status code.
-createVpnGatewayResponse_httpStatus :: Lens.Lens' CreateVpnGatewayResponse Prelude.Int
+createVpnGatewayResponse_httpStatus :: Lens.Lens' CreateVpnGatewayResponse Core.Int
 createVpnGatewayResponse_httpStatus = Lens.lens (\CreateVpnGatewayResponse' {httpStatus} -> httpStatus) (\s@CreateVpnGatewayResponse' {} a -> s {httpStatus = a} :: CreateVpnGatewayResponse)
 
-instance Prelude.NFData CreateVpnGatewayResponse
+instance Core.NFData CreateVpnGatewayResponse

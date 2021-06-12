@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CognitoIdentity.Types.MappingRule where
 
 import Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A rule that maps a claim name, a claim value, and a match type to a role
 -- ARN.
@@ -31,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 data MappingRule = MappingRule'
   { -- | The claim name that must be present in the token, for example,
     -- \"isAdmin\" or \"paid\".
-    claim :: Prelude.Text,
+    claim :: Core.Text,
     -- | The match condition that specifies how closely the claim value in the
     -- IdP token must match @Value@.
     matchType :: MappingRuleMatchType,
     -- | A brief string that the claim must match, for example, \"paid\" or
     -- \"yes\".
-    value :: Prelude.Text,
+    value :: Core.Text,
     -- | The role ARN.
-    roleARN :: Prelude.Text
+    roleARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MappingRule' with all optional fields omitted.
@@ -63,13 +62,13 @@ data MappingRule = MappingRule'
 -- 'roleARN', 'mappingRule_roleARN' - The role ARN.
 newMappingRule ::
   -- | 'claim'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'matchType'
   MappingRuleMatchType ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleARN'
-  Prelude.Text ->
+  Core.Text ->
   MappingRule
 newMappingRule pClaim_ pMatchType_ pValue_ pRoleARN_ =
   MappingRule'
@@ -81,7 +80,7 @@ newMappingRule pClaim_ pMatchType_ pValue_ pRoleARN_ =
 
 -- | The claim name that must be present in the token, for example,
 -- \"isAdmin\" or \"paid\".
-mappingRule_claim :: Lens.Lens' MappingRule Prelude.Text
+mappingRule_claim :: Lens.Lens' MappingRule Core.Text
 mappingRule_claim = Lens.lens (\MappingRule' {claim} -> claim) (\s@MappingRule' {} a -> s {claim = a} :: MappingRule)
 
 -- | The match condition that specifies how closely the claim value in the
@@ -91,36 +90,36 @@ mappingRule_matchType = Lens.lens (\MappingRule' {matchType} -> matchType) (\s@M
 
 -- | A brief string that the claim must match, for example, \"paid\" or
 -- \"yes\".
-mappingRule_value :: Lens.Lens' MappingRule Prelude.Text
+mappingRule_value :: Lens.Lens' MappingRule Core.Text
 mappingRule_value = Lens.lens (\MappingRule' {value} -> value) (\s@MappingRule' {} a -> s {value = a} :: MappingRule)
 
 -- | The role ARN.
-mappingRule_roleARN :: Lens.Lens' MappingRule Prelude.Text
+mappingRule_roleARN :: Lens.Lens' MappingRule Core.Text
 mappingRule_roleARN = Lens.lens (\MappingRule' {roleARN} -> roleARN) (\s@MappingRule' {} a -> s {roleARN = a} :: MappingRule)
 
-instance Prelude.FromJSON MappingRule where
+instance Core.FromJSON MappingRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MappingRule"
       ( \x ->
           MappingRule'
-            Prelude.<$> (x Prelude..: "Claim")
-            Prelude.<*> (x Prelude..: "MatchType")
-            Prelude.<*> (x Prelude..: "Value")
-            Prelude.<*> (x Prelude..: "RoleARN")
+            Core.<$> (x Core..: "Claim")
+            Core.<*> (x Core..: "MatchType")
+            Core.<*> (x Core..: "Value")
+            Core.<*> (x Core..: "RoleARN")
       )
 
-instance Prelude.Hashable MappingRule
+instance Core.Hashable MappingRule
 
-instance Prelude.NFData MappingRule
+instance Core.NFData MappingRule
 
-instance Prelude.ToJSON MappingRule where
+instance Core.ToJSON MappingRule where
   toJSON MappingRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Claim" Prelude..= claim),
-            Prelude.Just ("MatchType" Prelude..= matchType),
-            Prelude.Just ("Value" Prelude..= value),
-            Prelude.Just ("RoleARN" Prelude..= roleARN)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Claim" Core..= claim),
+            Core.Just ("MatchType" Core..= matchType),
+            Core.Just ("Value" Core..= value),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )

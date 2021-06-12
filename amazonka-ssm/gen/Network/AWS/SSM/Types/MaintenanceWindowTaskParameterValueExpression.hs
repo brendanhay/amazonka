@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValueExpression where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines the values for a task parameter.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data MaintenanceWindowTaskParameterValueExpression = MaintenanceWindowTaskParameterValueExpression'
   { -- | This field contains an array of 0 or more strings, each 1 to 255
     -- characters in length.
-    values :: Prelude.Maybe (Prelude.Sensitive [Prelude.Sensitive Prelude.Text])
+    values :: Core.Maybe (Core.Sensitive [Core.Sensitive Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowTaskParameterValueExpression' with all optional fields omitted.
@@ -48,41 +47,39 @@ newMaintenanceWindowTaskParameterValueExpression ::
 newMaintenanceWindowTaskParameterValueExpression =
   MaintenanceWindowTaskParameterValueExpression'
     { values =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | This field contains an array of 0 or more strings, each 1 to 255
 -- characters in length.
-maintenanceWindowTaskParameterValueExpression_values :: Lens.Lens' MaintenanceWindowTaskParameterValueExpression (Prelude.Maybe [Prelude.Text])
-maintenanceWindowTaskParameterValueExpression_values = Lens.lens (\MaintenanceWindowTaskParameterValueExpression' {values} -> values) (\s@MaintenanceWindowTaskParameterValueExpression' {} a -> s {values = a} :: MaintenanceWindowTaskParameterValueExpression) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+maintenanceWindowTaskParameterValueExpression_values :: Lens.Lens' MaintenanceWindowTaskParameterValueExpression (Core.Maybe [Core.Text])
+maintenanceWindowTaskParameterValueExpression_values = Lens.lens (\MaintenanceWindowTaskParameterValueExpression' {values} -> values) (\s@MaintenanceWindowTaskParameterValueExpression' {} a -> s {values = a} :: MaintenanceWindowTaskParameterValueExpression) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     MaintenanceWindowTaskParameterValueExpression
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MaintenanceWindowTaskParameterValueExpression"
       ( \x ->
           MaintenanceWindowTaskParameterValueExpression'
-            Prelude.<$> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Values" Core..!= Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     MaintenanceWindowTaskParameterValueExpression
 
 instance
-  Prelude.NFData
+  Core.NFData
     MaintenanceWindowTaskParameterValueExpression
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     MaintenanceWindowTaskParameterValueExpression
   where
   toJSON
     MaintenanceWindowTaskParameterValueExpression' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [("Values" Prelude..=) Prelude.<$> values]
-        )
+      Core.object
+        (Core.catMaybes [("Values" Core..=) Core.<$> values])

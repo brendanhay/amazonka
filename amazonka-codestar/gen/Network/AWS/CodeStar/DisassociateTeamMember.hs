@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CodeStar.DisassociateTeamMember
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data DisassociateTeamMember = DisassociateTeamMember'
   { -- | The ID of the AWS CodeStar project from which you want to remove a team
     -- member.
-    projectId :: Prelude.Text,
+    projectId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to
     -- remove from the project.
-    userArn :: Prelude.Text
+    userArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTeamMember' with all optional fields omitted.
@@ -76,9 +75,9 @@ data DisassociateTeamMember = DisassociateTeamMember'
 -- remove from the project.
 newDisassociateTeamMember ::
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateTeamMember
 newDisassociateTeamMember pProjectId_ pUserArn_ =
   DisassociateTeamMember'
@@ -88,66 +87,64 @@ newDisassociateTeamMember pProjectId_ pUserArn_ =
 
 -- | The ID of the AWS CodeStar project from which you want to remove a team
 -- member.
-disassociateTeamMember_projectId :: Lens.Lens' DisassociateTeamMember Prelude.Text
+disassociateTeamMember_projectId :: Lens.Lens' DisassociateTeamMember Core.Text
 disassociateTeamMember_projectId = Lens.lens (\DisassociateTeamMember' {projectId} -> projectId) (\s@DisassociateTeamMember' {} a -> s {projectId = a} :: DisassociateTeamMember)
 
 -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to
 -- remove from the project.
-disassociateTeamMember_userArn :: Lens.Lens' DisassociateTeamMember Prelude.Text
+disassociateTeamMember_userArn :: Lens.Lens' DisassociateTeamMember Core.Text
 disassociateTeamMember_userArn = Lens.lens (\DisassociateTeamMember' {userArn} -> userArn) (\s@DisassociateTeamMember' {} a -> s {userArn = a} :: DisassociateTeamMember)
 
-instance Prelude.AWSRequest DisassociateTeamMember where
+instance Core.AWSRequest DisassociateTeamMember where
   type
-    Rs DisassociateTeamMember =
+    AWSResponse DisassociateTeamMember =
       DisassociateTeamMemberResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateTeamMemberResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateTeamMember
+instance Core.Hashable DisassociateTeamMember
 
-instance Prelude.NFData DisassociateTeamMember
+instance Core.NFData DisassociateTeamMember
 
-instance Prelude.ToHeaders DisassociateTeamMember where
+instance Core.ToHeaders DisassociateTeamMember where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.DisassociateTeamMember" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.DisassociateTeamMember" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateTeamMember where
+instance Core.ToJSON DisassociateTeamMember where
   toJSON DisassociateTeamMember' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("projectId" Prelude..= projectId),
-            Prelude.Just ("userArn" Prelude..= userArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("projectId" Core..= projectId),
+            Core.Just ("userArn" Core..= userArn)
           ]
       )
 
-instance Prelude.ToPath DisassociateTeamMember where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateTeamMember where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateTeamMember where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateTeamMember where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateTeamMemberResponse' smart constructor.
 data DisassociateTeamMemberResponse = DisassociateTeamMemberResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateTeamMemberResponse' with all optional fields omitted.
@@ -160,7 +157,7 @@ data DisassociateTeamMemberResponse = DisassociateTeamMemberResponse'
 -- 'httpStatus', 'disassociateTeamMemberResponse_httpStatus' - The response's http status code.
 newDisassociateTeamMemberResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateTeamMemberResponse
 newDisassociateTeamMemberResponse pHttpStatus_ =
   DisassociateTeamMemberResponse'
@@ -169,9 +166,7 @@ newDisassociateTeamMemberResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateTeamMemberResponse_httpStatus :: Lens.Lens' DisassociateTeamMemberResponse Prelude.Int
+disassociateTeamMemberResponse_httpStatus :: Lens.Lens' DisassociateTeamMemberResponse Core.Int
 disassociateTeamMemberResponse_httpStatus = Lens.lens (\DisassociateTeamMemberResponse' {httpStatus} -> httpStatus) (\s@DisassociateTeamMemberResponse' {} a -> s {httpStatus = a} :: DisassociateTeamMemberResponse)
 
-instance
-  Prelude.NFData
-    DisassociateTeamMemberResponse
+instance Core.NFData DisassociateTeamMemberResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.NetworkInterface where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a gateway\'s network interface.
 --
@@ -30,14 +29,14 @@ data NetworkInterface = NetworkInterface'
   { -- | The Media Access Control (MAC) address of the interface.
     --
     -- This is currently unsupported and will not be returned in output.
-    macAddress :: Prelude.Maybe Prelude.Text,
+    macAddress :: Core.Maybe Core.Text,
     -- | The Internet Protocol version 6 (IPv6) address of the interface.
     -- /Currently not supported/.
-    ipv6Address :: Prelude.Maybe Prelude.Text,
+    ipv6Address :: Core.Maybe Core.Text,
     -- | The Internet Protocol version 4 (IPv4) address of the interface.
-    ipv4Address :: Prelude.Maybe Prelude.Text
+    ipv4Address :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NetworkInterface' with all optional fields omitted.
@@ -59,37 +58,37 @@ newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { macAddress = Prelude.Nothing,
-      ipv6Address = Prelude.Nothing,
-      ipv4Address = Prelude.Nothing
+    { macAddress = Core.Nothing,
+      ipv6Address = Core.Nothing,
+      ipv4Address = Core.Nothing
     }
 
 -- | The Media Access Control (MAC) address of the interface.
 --
 -- This is currently unsupported and will not be returned in output.
-networkInterface_macAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_macAddress :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macAddress) (\s@NetworkInterface' {} a -> s {macAddress = a} :: NetworkInterface)
 
 -- | The Internet Protocol version 6 (IPv6) address of the interface.
 -- /Currently not supported/.
-networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ipv6Address) (\s@NetworkInterface' {} a -> s {ipv6Address = a} :: NetworkInterface)
 
 -- | The Internet Protocol version 4 (IPv4) address of the interface.
-networkInterface_ipv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_ipv4Address :: Lens.Lens' NetworkInterface (Core.Maybe Core.Text)
 networkInterface_ipv4Address = Lens.lens (\NetworkInterface' {ipv4Address} -> ipv4Address) (\s@NetworkInterface' {} a -> s {ipv4Address = a} :: NetworkInterface)
 
-instance Prelude.FromJSON NetworkInterface where
+instance Core.FromJSON NetworkInterface where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Prelude..:? "MacAddress")
-            Prelude.<*> (x Prelude..:? "Ipv6Address")
-            Prelude.<*> (x Prelude..:? "Ipv4Address")
+            Core.<$> (x Core..:? "MacAddress")
+            Core.<*> (x Core..:? "Ipv6Address")
+            Core.<*> (x Core..:? "Ipv4Address")
       )
 
-instance Prelude.Hashable NetworkInterface
+instance Core.Hashable NetworkInterface
 
-instance Prelude.NFData NetworkInterface
+instance Core.NFData NetworkInterface

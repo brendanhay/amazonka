@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AppStream.Types.UserSetting where
 
 import Network.AWS.AppStream.Types.Action
 import Network.AWS.AppStream.Types.Permission
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action and whether the action is enabled or disabled for
 -- users during their streaming sessions.
@@ -35,7 +34,7 @@ data UserSetting = UserSetting'
     -- | Indicates whether the action is enabled or disabled.
     permission :: Permission
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserSetting' with all optional fields omitted.
@@ -68,25 +67,25 @@ userSetting_action = Lens.lens (\UserSetting' {action} -> action) (\s@UserSettin
 userSetting_permission :: Lens.Lens' UserSetting Permission
 userSetting_permission = Lens.lens (\UserSetting' {permission} -> permission) (\s@UserSetting' {} a -> s {permission = a} :: UserSetting)
 
-instance Prelude.FromJSON UserSetting where
+instance Core.FromJSON UserSetting where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserSetting"
       ( \x ->
           UserSetting'
-            Prelude.<$> (x Prelude..: "Action")
-            Prelude.<*> (x Prelude..: "Permission")
+            Core.<$> (x Core..: "Action")
+            Core.<*> (x Core..: "Permission")
       )
 
-instance Prelude.Hashable UserSetting
+instance Core.Hashable UserSetting
 
-instance Prelude.NFData UserSetting
+instance Core.NFData UserSetting
 
-instance Prelude.ToJSON UserSetting where
+instance Core.ToJSON UserSetting where
   toJSON UserSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just ("Permission" Prelude..= permission)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("Permission" Core..= permission)
           ]
       )

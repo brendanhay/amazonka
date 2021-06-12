@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,8 +61,8 @@ module Network.AWS.ResourceGroupsTagging.TagResources
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroupsTagging.Types
 import qualified Network.AWS.Response as Response
@@ -77,12 +76,12 @@ data TagResources = TagResources'
     -- information, see
     -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
     -- in the /AWS General Reference/.
-    resourceARNList :: Prelude.NonEmpty Prelude.Text,
+    resourceARNList :: Core.NonEmpty Core.Text,
     -- | Specifies a list of tags that you want to add to the specified
     -- resources. A tag consists of a key and a value that you define.
-    tags :: Prelude.HashMap Prelude.Text Prelude.Text
+    tags :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResources' with all optional fields omitted.
@@ -104,13 +103,13 @@ data TagResources = TagResources'
 -- resources. A tag consists of a key and a value that you define.
 newTagResources ::
   -- | 'resourceARNList'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   TagResources
 newTagResources pResourceARNList_ =
   TagResources'
     { resourceARNList =
-        Prelude._Coerce Lens.# pResourceARNList_,
-      tags = Prelude.mempty
+        Lens._Coerce Lens.# pResourceARNList_,
+      tags = Core.mempty
     }
 
 -- | Specifies the list of ARNs of the resources that you want to apply tags
@@ -120,61 +119,59 @@ newTagResources pResourceARNList_ =
 -- information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
 -- in the /AWS General Reference/.
-tagResources_resourceARNList :: Lens.Lens' TagResources (Prelude.NonEmpty Prelude.Text)
-tagResources_resourceARNList = Lens.lens (\TagResources' {resourceARNList} -> resourceARNList) (\s@TagResources' {} a -> s {resourceARNList = a} :: TagResources) Prelude.. Prelude._Coerce
+tagResources_resourceARNList :: Lens.Lens' TagResources (Core.NonEmpty Core.Text)
+tagResources_resourceARNList = Lens.lens (\TagResources' {resourceARNList} -> resourceARNList) (\s@TagResources' {} a -> s {resourceARNList = a} :: TagResources) Core.. Lens._Coerce
 
 -- | Specifies a list of tags that you want to add to the specified
 -- resources. A tag consists of a key and a value that you define.
-tagResources_tags :: Lens.Lens' TagResources (Prelude.HashMap Prelude.Text Prelude.Text)
-tagResources_tags = Lens.lens (\TagResources' {tags} -> tags) (\s@TagResources' {} a -> s {tags = a} :: TagResources) Prelude.. Prelude._Coerce
+tagResources_tags :: Lens.Lens' TagResources (Core.HashMap Core.Text Core.Text)
+tagResources_tags = Lens.lens (\TagResources' {tags} -> tags) (\s@TagResources' {} a -> s {tags = a} :: TagResources) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagResources where
-  type Rs TagResources = TagResourcesResponse
+instance Core.AWSRequest TagResources where
+  type AWSResponse TagResources = TagResourcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           TagResourcesResponse'
-            Prelude.<$> ( x Prelude..?> "FailedResourcesMap"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "FailedResourcesMap"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TagResources
+instance Core.Hashable TagResources
 
-instance Prelude.NFData TagResources
+instance Core.NFData TagResources
 
-instance Prelude.ToHeaders TagResources where
+instance Core.ToHeaders TagResources where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ResourceGroupsTaggingAPI_20170126.TagResources" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ResourceGroupsTaggingAPI_20170126.TagResources" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TagResources where
+instance Core.ToJSON TagResources where
   toJSON TagResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceARNList" Prelude..= resourceARNList),
-            Prelude.Just ("Tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ResourceARNList" Core..= resourceARNList),
+            Core.Just ("Tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath TagResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagResources where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagResources where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagResourcesResponse' smart constructor.
 data TagResourcesResponse = TagResourcesResponse'
@@ -183,11 +180,11 @@ data TagResourcesResponse = TagResourcesResponse'
     -- @FailureInfo@ object that contains an error code, a status code, and an
     -- error message. If there are no errors, the @FailedResourcesMap@ is
     -- empty.
-    failedResourcesMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo),
+    failedResourcesMap :: Core.Maybe (Core.HashMap Core.Text FailureInfo),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResourcesResponse' with all optional fields omitted.
@@ -206,12 +203,12 @@ data TagResourcesResponse = TagResourcesResponse'
 -- 'httpStatus', 'tagResourcesResponse_httpStatus' - The response's http status code.
 newTagResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TagResourcesResponse
 newTagResourcesResponse pHttpStatus_ =
   TagResourcesResponse'
     { failedResourcesMap =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -220,11 +217,11 @@ newTagResourcesResponse pHttpStatus_ =
 -- @FailureInfo@ object that contains an error code, a status code, and an
 -- error message. If there are no errors, the @FailedResourcesMap@ is
 -- empty.
-tagResourcesResponse_failedResourcesMap :: Lens.Lens' TagResourcesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text FailureInfo))
-tagResourcesResponse_failedResourcesMap = Lens.lens (\TagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@TagResourcesResponse' {} a -> s {failedResourcesMap = a} :: TagResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+tagResourcesResponse_failedResourcesMap :: Lens.Lens' TagResourcesResponse (Core.Maybe (Core.HashMap Core.Text FailureInfo))
+tagResourcesResponse_failedResourcesMap = Lens.lens (\TagResourcesResponse' {failedResourcesMap} -> failedResourcesMap) (\s@TagResourcesResponse' {} a -> s {failedResourcesMap = a} :: TagResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-tagResourcesResponse_httpStatus :: Lens.Lens' TagResourcesResponse Prelude.Int
+tagResourcesResponse_httpStatus :: Lens.Lens' TagResourcesResponse Core.Int
 tagResourcesResponse_httpStatus = Lens.lens (\TagResourcesResponse' {httpStatus} -> httpStatus) (\s@TagResourcesResponse' {} a -> s {httpStatus = a} :: TagResourcesResponse)
 
-instance Prelude.NFData TagResourcesResponse
+instance Core.NFData TagResourcesResponse

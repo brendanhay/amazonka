@@ -15,8 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SDB.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SDB.Lens
 import Network.AWS.SDB.Types
-import qualified Network.AWS.Waiter as Waiter

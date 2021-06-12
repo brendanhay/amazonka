@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -80,8 +79,8 @@ module Network.AWS.WAFRegional.UpdateGeoMatchSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -91,9 +90,9 @@ data UpdateGeoMatchSet = UpdateGeoMatchSet'
   { -- | The @GeoMatchSetId@ of the GeoMatchSet that you want to update.
     -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
     -- ListGeoMatchSets.
-    geoMatchSetId :: Prelude.Text,
+    geoMatchSetId :: Core.Text,
     -- | The value returned by the most recent call to GetChangeToken.
-    changeToken :: Prelude.Text,
+    changeToken :: Core.Text,
     -- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or
     -- delete from an GeoMatchSet. For more information, see the applicable
     -- data types:
@@ -105,9 +104,9 @@ data UpdateGeoMatchSet = UpdateGeoMatchSet'
     --     You can have only one @Type@ and @Value@ per @GeoMatchConstraint@.
     --     To add multiple countries, include multiple @GeoMatchSetUpdate@
     --     objects in your request.
-    updates :: Prelude.NonEmpty GeoMatchSetUpdate
+    updates :: Core.NonEmpty GeoMatchSetUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGeoMatchSet' with all optional fields omitted.
@@ -136,11 +135,11 @@ data UpdateGeoMatchSet = UpdateGeoMatchSet'
 --     objects in your request.
 newUpdateGeoMatchSet ::
   -- | 'geoMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updates'
-  Prelude.NonEmpty GeoMatchSetUpdate ->
+  Core.NonEmpty GeoMatchSetUpdate ->
   UpdateGeoMatchSet
 newUpdateGeoMatchSet
   pGeoMatchSetId_
@@ -149,17 +148,17 @@ newUpdateGeoMatchSet
     UpdateGeoMatchSet'
       { geoMatchSetId = pGeoMatchSetId_,
         changeToken = pChangeToken_,
-        updates = Prelude._Coerce Lens.# pUpdates_
+        updates = Lens._Coerce Lens.# pUpdates_
       }
 
 -- | The @GeoMatchSetId@ of the GeoMatchSet that you want to update.
 -- @GeoMatchSetId@ is returned by CreateGeoMatchSet and by
 -- ListGeoMatchSets.
-updateGeoMatchSet_geoMatchSetId :: Lens.Lens' UpdateGeoMatchSet Prelude.Text
+updateGeoMatchSet_geoMatchSetId :: Lens.Lens' UpdateGeoMatchSet Core.Text
 updateGeoMatchSet_geoMatchSetId = Lens.lens (\UpdateGeoMatchSet' {geoMatchSetId} -> geoMatchSetId) (\s@UpdateGeoMatchSet' {} a -> s {geoMatchSetId = a} :: UpdateGeoMatchSet)
 
 -- | The value returned by the most recent call to GetChangeToken.
-updateGeoMatchSet_changeToken :: Lens.Lens' UpdateGeoMatchSet Prelude.Text
+updateGeoMatchSet_changeToken :: Lens.Lens' UpdateGeoMatchSet Core.Text
 updateGeoMatchSet_changeToken = Lens.lens (\UpdateGeoMatchSet' {changeToken} -> changeToken) (\s@UpdateGeoMatchSet' {} a -> s {changeToken = a} :: UpdateGeoMatchSet)
 
 -- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or
@@ -173,66 +172,65 @@ updateGeoMatchSet_changeToken = Lens.lens (\UpdateGeoMatchSet' {changeToken} -> 
 --     You can have only one @Type@ and @Value@ per @GeoMatchConstraint@.
 --     To add multiple countries, include multiple @GeoMatchSetUpdate@
 --     objects in your request.
-updateGeoMatchSet_updates :: Lens.Lens' UpdateGeoMatchSet (Prelude.NonEmpty GeoMatchSetUpdate)
-updateGeoMatchSet_updates = Lens.lens (\UpdateGeoMatchSet' {updates} -> updates) (\s@UpdateGeoMatchSet' {} a -> s {updates = a} :: UpdateGeoMatchSet) Prelude.. Prelude._Coerce
+updateGeoMatchSet_updates :: Lens.Lens' UpdateGeoMatchSet (Core.NonEmpty GeoMatchSetUpdate)
+updateGeoMatchSet_updates = Lens.lens (\UpdateGeoMatchSet' {updates} -> updates) (\s@UpdateGeoMatchSet' {} a -> s {updates = a} :: UpdateGeoMatchSet) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UpdateGeoMatchSet where
-  type Rs UpdateGeoMatchSet = UpdateGeoMatchSetResponse
+instance Core.AWSRequest UpdateGeoMatchSet where
+  type
+    AWSResponse UpdateGeoMatchSet =
+      UpdateGeoMatchSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateGeoMatchSetResponse'
-            Prelude.<$> (x Prelude..?> "ChangeToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateGeoMatchSet
+instance Core.Hashable UpdateGeoMatchSet
 
-instance Prelude.NFData UpdateGeoMatchSet
+instance Core.NFData UpdateGeoMatchSet
 
-instance Prelude.ToHeaders UpdateGeoMatchSet where
+instance Core.ToHeaders UpdateGeoMatchSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.UpdateGeoMatchSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.UpdateGeoMatchSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateGeoMatchSet where
+instance Core.ToJSON UpdateGeoMatchSet where
   toJSON UpdateGeoMatchSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("GeoMatchSetId" Prelude..= geoMatchSetId),
-            Prelude.Just ("ChangeToken" Prelude..= changeToken),
-            Prelude.Just ("Updates" Prelude..= updates)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GeoMatchSetId" Core..= geoMatchSetId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates)
           ]
       )
 
-instance Prelude.ToPath UpdateGeoMatchSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateGeoMatchSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateGeoMatchSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateGeoMatchSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateGeoMatchSetResponse' smart constructor.
 data UpdateGeoMatchSetResponse = UpdateGeoMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@
     -- request. You can also use this value to query the status of the request.
     -- For more information, see GetChangeTokenStatus.
-    changeToken :: Prelude.Maybe Prelude.Text,
+    changeToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateGeoMatchSetResponse' with all optional fields omitted.
@@ -249,23 +247,23 @@ data UpdateGeoMatchSetResponse = UpdateGeoMatchSetResponse'
 -- 'httpStatus', 'updateGeoMatchSetResponse_httpStatus' - The response's http status code.
 newUpdateGeoMatchSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateGeoMatchSetResponse
 newUpdateGeoMatchSetResponse pHttpStatus_ =
   UpdateGeoMatchSetResponse'
     { changeToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@
 -- request. You can also use this value to query the status of the request.
 -- For more information, see GetChangeTokenStatus.
-updateGeoMatchSetResponse_changeToken :: Lens.Lens' UpdateGeoMatchSetResponse (Prelude.Maybe Prelude.Text)
+updateGeoMatchSetResponse_changeToken :: Lens.Lens' UpdateGeoMatchSetResponse (Core.Maybe Core.Text)
 updateGeoMatchSetResponse_changeToken = Lens.lens (\UpdateGeoMatchSetResponse' {changeToken} -> changeToken) (\s@UpdateGeoMatchSetResponse' {} a -> s {changeToken = a} :: UpdateGeoMatchSetResponse)
 
 -- | The response's http status code.
-updateGeoMatchSetResponse_httpStatus :: Lens.Lens' UpdateGeoMatchSetResponse Prelude.Int
+updateGeoMatchSetResponse_httpStatus :: Lens.Lens' UpdateGeoMatchSetResponse Core.Int
 updateGeoMatchSetResponse_httpStatus = Lens.lens (\UpdateGeoMatchSetResponse' {httpStatus} -> httpStatus) (\s@UpdateGeoMatchSetResponse' {} a -> s {httpStatus = a} :: UpdateGeoMatchSetResponse)
 
-instance Prelude.NFData UpdateGeoMatchSetResponse
+instance Core.NFData UpdateGeoMatchSetResponse

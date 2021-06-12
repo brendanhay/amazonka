@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ECS.DescribeTaskDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ data DescribeTaskDefinition = DescribeTaskDefinition'
   { -- | Specifies whether to see the resource tags for the task definition. If
     -- @TAGS@ is specified, the tags are included in the response. If this
     -- field is omitted, tags are not included in the response.
-    include :: Prelude.Maybe [TaskDefinitionField],
+    include :: Core.Maybe [TaskDefinitionField],
     -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
     -- (@family:revision@) for a specific revision in the family, or full
     -- Amazon Resource Name (ARN) of the task definition to describe.
-    taskDefinition :: Prelude.Text
+    taskDefinition :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTaskDefinition' with all optional fields omitted.
@@ -83,74 +82,71 @@ data DescribeTaskDefinition = DescribeTaskDefinition'
 -- Amazon Resource Name (ARN) of the task definition to describe.
 newDescribeTaskDefinition ::
   -- | 'taskDefinition'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTaskDefinition
 newDescribeTaskDefinition pTaskDefinition_ =
   DescribeTaskDefinition'
-    { include = Prelude.Nothing,
+    { include = Core.Nothing,
       taskDefinition = pTaskDefinition_
     }
 
 -- | Specifies whether to see the resource tags for the task definition. If
 -- @TAGS@ is specified, the tags are included in the response. If this
 -- field is omitted, tags are not included in the response.
-describeTaskDefinition_include :: Lens.Lens' DescribeTaskDefinition (Prelude.Maybe [TaskDefinitionField])
-describeTaskDefinition_include = Lens.lens (\DescribeTaskDefinition' {include} -> include) (\s@DescribeTaskDefinition' {} a -> s {include = a} :: DescribeTaskDefinition) Prelude.. Lens.mapping Prelude._Coerce
+describeTaskDefinition_include :: Lens.Lens' DescribeTaskDefinition (Core.Maybe [TaskDefinitionField])
+describeTaskDefinition_include = Lens.lens (\DescribeTaskDefinition' {include} -> include) (\s@DescribeTaskDefinition' {} a -> s {include = a} :: DescribeTaskDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
 -- (@family:revision@) for a specific revision in the family, or full
 -- Amazon Resource Name (ARN) of the task definition to describe.
-describeTaskDefinition_taskDefinition :: Lens.Lens' DescribeTaskDefinition Prelude.Text
+describeTaskDefinition_taskDefinition :: Lens.Lens' DescribeTaskDefinition Core.Text
 describeTaskDefinition_taskDefinition = Lens.lens (\DescribeTaskDefinition' {taskDefinition} -> taskDefinition) (\s@DescribeTaskDefinition' {} a -> s {taskDefinition = a} :: DescribeTaskDefinition)
 
-instance Prelude.AWSRequest DescribeTaskDefinition where
+instance Core.AWSRequest DescribeTaskDefinition where
   type
-    Rs DescribeTaskDefinition =
+    AWSResponse DescribeTaskDefinition =
       DescribeTaskDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTaskDefinitionResponse'
-            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "taskDefinition")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "taskDefinition")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTaskDefinition
+instance Core.Hashable DescribeTaskDefinition
 
-instance Prelude.NFData DescribeTaskDefinition
+instance Core.NFData DescribeTaskDefinition
 
-instance Prelude.ToHeaders DescribeTaskDefinition where
+instance Core.ToHeaders DescribeTaskDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTaskDefinition where
+instance Core.ToJSON DescribeTaskDefinition where
   toJSON DescribeTaskDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("include" Prelude..=) Prelude.<$> include,
-            Prelude.Just
-              ("taskDefinition" Prelude..= taskDefinition)
+    Core.object
+      ( Core.catMaybes
+          [ ("include" Core..=) Core.<$> include,
+            Core.Just ("taskDefinition" Core..= taskDefinition)
           ]
       )
 
-instance Prelude.ToPath DescribeTaskDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTaskDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTaskDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTaskDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
@@ -182,13 +178,13 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The full task definition description.
-    taskDefinition :: Prelude.Maybe TaskDefinition,
+    taskDefinition :: Core.Maybe TaskDefinition,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTaskDefinitionResponse' with all optional fields omitted.
@@ -232,13 +228,13 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 -- 'httpStatus', 'describeTaskDefinitionResponse_httpStatus' - The response's http status code.
 newDescribeTaskDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTaskDefinitionResponse
 newDescribeTaskDefinitionResponse pHttpStatus_ =
   DescribeTaskDefinitionResponse'
     { tags =
-        Prelude.Nothing,
-      taskDefinition = Prelude.Nothing,
+        Core.Nothing,
+      taskDefinition = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -270,17 +266,15 @@ newDescribeTaskDefinitionResponse pHttpStatus_ =
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-describeTaskDefinitionResponse_tags :: Lens.Lens' DescribeTaskDefinitionResponse (Prelude.Maybe [Tag])
-describeTaskDefinitionResponse_tags = Lens.lens (\DescribeTaskDefinitionResponse' {tags} -> tags) (\s@DescribeTaskDefinitionResponse' {} a -> s {tags = a} :: DescribeTaskDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTaskDefinitionResponse_tags :: Lens.Lens' DescribeTaskDefinitionResponse (Core.Maybe [Tag])
+describeTaskDefinitionResponse_tags = Lens.lens (\DescribeTaskDefinitionResponse' {tags} -> tags) (\s@DescribeTaskDefinitionResponse' {} a -> s {tags = a} :: DescribeTaskDefinitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The full task definition description.
-describeTaskDefinitionResponse_taskDefinition :: Lens.Lens' DescribeTaskDefinitionResponse (Prelude.Maybe TaskDefinition)
+describeTaskDefinitionResponse_taskDefinition :: Lens.Lens' DescribeTaskDefinitionResponse (Core.Maybe TaskDefinition)
 describeTaskDefinitionResponse_taskDefinition = Lens.lens (\DescribeTaskDefinitionResponse' {taskDefinition} -> taskDefinition) (\s@DescribeTaskDefinitionResponse' {} a -> s {taskDefinition = a} :: DescribeTaskDefinitionResponse)
 
 -- | The response's http status code.
-describeTaskDefinitionResponse_httpStatus :: Lens.Lens' DescribeTaskDefinitionResponse Prelude.Int
+describeTaskDefinitionResponse_httpStatus :: Lens.Lens' DescribeTaskDefinitionResponse Core.Int
 describeTaskDefinitionResponse_httpStatus = Lens.lens (\DescribeTaskDefinitionResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskDefinitionResponse' {} a -> s {httpStatus = a} :: DescribeTaskDefinitionResponse)
 
-instance
-  Prelude.NFData
-    DescribeTaskDefinitionResponse
+instance Core.NFData DescribeTaskDefinitionResponse

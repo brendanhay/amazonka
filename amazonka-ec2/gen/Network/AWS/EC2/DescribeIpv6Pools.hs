@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,26 +46,25 @@ module Network.AWS.EC2.DescribeIpv6Pools
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeIpv6Pools' smart constructor.
 data DescribeIpv6Pools = DescribeIpv6Pools'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters.
     --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
@@ -78,11 +76,11 @@ data DescribeIpv6Pools = DescribeIpv6Pools'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The IDs of the IPv6 address pools.
-    poolIds :: Prelude.Maybe [Prelude.Text]
+    poolIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIpv6Pools' with all optional fields omitted.
@@ -120,28 +118,28 @@ newDescribeIpv6Pools ::
   DescribeIpv6Pools
 newDescribeIpv6Pools =
   DescribeIpv6Pools'
-    { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      poolIds = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
+      poolIds = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeIpv6Pools_nextToken :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe Prelude.Text)
+describeIpv6Pools_nextToken :: Lens.Lens' DescribeIpv6Pools (Core.Maybe Core.Text)
 describeIpv6Pools_nextToken = Lens.lens (\DescribeIpv6Pools' {nextToken} -> nextToken) (\s@DescribeIpv6Pools' {} a -> s {nextToken = a} :: DescribeIpv6Pools)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeIpv6Pools_dryRun :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe Prelude.Bool)
+describeIpv6Pools_dryRun :: Lens.Lens' DescribeIpv6Pools (Core.Maybe Core.Bool)
 describeIpv6Pools_dryRun = Lens.lens (\DescribeIpv6Pools' {dryRun} -> dryRun) (\s@DescribeIpv6Pools' {} a -> s {dryRun = a} :: DescribeIpv6Pools)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeIpv6Pools_maxResults :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe Prelude.Natural)
+describeIpv6Pools_maxResults :: Lens.Lens' DescribeIpv6Pools (Core.Maybe Core.Natural)
 describeIpv6Pools_maxResults = Lens.lens (\DescribeIpv6Pools' {maxResults} -> maxResults) (\s@DescribeIpv6Pools' {} a -> s {maxResults = a} :: DescribeIpv6Pools)
 
 -- | One or more filters.
@@ -155,87 +153,86 @@ describeIpv6Pools_maxResults = Lens.lens (\DescribeIpv6Pools' {maxResults} -> ma
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeIpv6Pools_filters :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe [Filter])
-describeIpv6Pools_filters = Lens.lens (\DescribeIpv6Pools' {filters} -> filters) (\s@DescribeIpv6Pools' {} a -> s {filters = a} :: DescribeIpv6Pools) Prelude.. Lens.mapping Prelude._Coerce
+describeIpv6Pools_filters :: Lens.Lens' DescribeIpv6Pools (Core.Maybe [Filter])
+describeIpv6Pools_filters = Lens.lens (\DescribeIpv6Pools' {filters} -> filters) (\s@DescribeIpv6Pools' {} a -> s {filters = a} :: DescribeIpv6Pools) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the IPv6 address pools.
-describeIpv6Pools_poolIds :: Lens.Lens' DescribeIpv6Pools (Prelude.Maybe [Prelude.Text])
-describeIpv6Pools_poolIds = Lens.lens (\DescribeIpv6Pools' {poolIds} -> poolIds) (\s@DescribeIpv6Pools' {} a -> s {poolIds = a} :: DescribeIpv6Pools) Prelude.. Lens.mapping Prelude._Coerce
+describeIpv6Pools_poolIds :: Lens.Lens' DescribeIpv6Pools (Core.Maybe [Core.Text])
+describeIpv6Pools_poolIds = Lens.lens (\DescribeIpv6Pools' {poolIds} -> poolIds) (\s@DescribeIpv6Pools' {} a -> s {poolIds = a} :: DescribeIpv6Pools) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeIpv6Pools where
+instance Core.AWSPager DescribeIpv6Pools where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeIpv6PoolsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeIpv6PoolsResponse_ipv6Pools
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeIpv6Pools_nextToken
           Lens..~ rs
-          Lens.^? describeIpv6PoolsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeIpv6PoolsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeIpv6Pools where
-  type Rs DescribeIpv6Pools = DescribeIpv6PoolsResponse
+instance Core.AWSRequest DescribeIpv6Pools where
+  type
+    AWSResponse DescribeIpv6Pools =
+      DescribeIpv6PoolsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeIpv6PoolsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "ipv6PoolSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "ipv6PoolSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIpv6Pools
+instance Core.Hashable DescribeIpv6Pools
 
-instance Prelude.NFData DescribeIpv6Pools
+instance Core.NFData DescribeIpv6Pools
 
-instance Prelude.ToHeaders DescribeIpv6Pools where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeIpv6Pools where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeIpv6Pools where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeIpv6Pools where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeIpv6Pools where
+instance Core.ToQuery DescribeIpv6Pools where
   toQuery DescribeIpv6Pools' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeIpv6Pools" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        Prelude.toQuery
-          (Prelude.toQueryList "PoolId" Prelude.<$> poolIds)
+          Core.=: ("DescribeIpv6Pools" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "PoolId" Core.<$> poolIds)
       ]
 
 -- | /See:/ 'newDescribeIpv6PoolsResponse' smart constructor.
 data DescribeIpv6PoolsResponse = DescribeIpv6PoolsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the IPv6 address pools.
-    ipv6Pools :: Prelude.Maybe [Ipv6Pool],
+    ipv6Pools :: Core.Maybe [Ipv6Pool],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIpv6PoolsResponse' with all optional fields omitted.
@@ -253,27 +250,27 @@ data DescribeIpv6PoolsResponse = DescribeIpv6PoolsResponse'
 -- 'httpStatus', 'describeIpv6PoolsResponse_httpStatus' - The response's http status code.
 newDescribeIpv6PoolsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeIpv6PoolsResponse
 newDescribeIpv6PoolsResponse pHttpStatus_ =
   DescribeIpv6PoolsResponse'
     { nextToken =
-        Prelude.Nothing,
-      ipv6Pools = Prelude.Nothing,
+        Core.Nothing,
+      ipv6Pools = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeIpv6PoolsResponse_nextToken :: Lens.Lens' DescribeIpv6PoolsResponse (Prelude.Maybe Prelude.Text)
+describeIpv6PoolsResponse_nextToken :: Lens.Lens' DescribeIpv6PoolsResponse (Core.Maybe Core.Text)
 describeIpv6PoolsResponse_nextToken = Lens.lens (\DescribeIpv6PoolsResponse' {nextToken} -> nextToken) (\s@DescribeIpv6PoolsResponse' {} a -> s {nextToken = a} :: DescribeIpv6PoolsResponse)
 
 -- | Information about the IPv6 address pools.
-describeIpv6PoolsResponse_ipv6Pools :: Lens.Lens' DescribeIpv6PoolsResponse (Prelude.Maybe [Ipv6Pool])
-describeIpv6PoolsResponse_ipv6Pools = Lens.lens (\DescribeIpv6PoolsResponse' {ipv6Pools} -> ipv6Pools) (\s@DescribeIpv6PoolsResponse' {} a -> s {ipv6Pools = a} :: DescribeIpv6PoolsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeIpv6PoolsResponse_ipv6Pools :: Lens.Lens' DescribeIpv6PoolsResponse (Core.Maybe [Ipv6Pool])
+describeIpv6PoolsResponse_ipv6Pools = Lens.lens (\DescribeIpv6PoolsResponse' {ipv6Pools} -> ipv6Pools) (\s@DescribeIpv6PoolsResponse' {} a -> s {ipv6Pools = a} :: DescribeIpv6PoolsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeIpv6PoolsResponse_httpStatus :: Lens.Lens' DescribeIpv6PoolsResponse Prelude.Int
+describeIpv6PoolsResponse_httpStatus :: Lens.Lens' DescribeIpv6PoolsResponse Core.Int
 describeIpv6PoolsResponse_httpStatus = Lens.lens (\DescribeIpv6PoolsResponse' {httpStatus} -> httpStatus) (\s@DescribeIpv6PoolsResponse' {} a -> s {httpStatus = a} :: DescribeIpv6PoolsResponse)
 
-instance Prelude.NFData DescribeIpv6PoolsResponse
+instance Core.NFData DescribeIpv6PoolsResponse

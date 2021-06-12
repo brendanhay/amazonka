@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a DetachTypedLink response operation.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data BatchDetachTypedLinkResponse = BatchDetachTypedLinkResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetachTypedLinkResponse' with all optional fields omitted.
@@ -40,17 +39,12 @@ newBatchDetachTypedLinkResponse ::
 newBatchDetachTypedLinkResponse =
   BatchDetachTypedLinkResponse'
 
-instance
-  Prelude.FromJSON
-    BatchDetachTypedLinkResponse
-  where
+instance Core.FromJSON BatchDetachTypedLinkResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDetachTypedLinkResponse"
-      (\x -> Prelude.pure BatchDetachTypedLinkResponse')
+      (\x -> Core.pure BatchDetachTypedLinkResponse')
 
-instance
-  Prelude.Hashable
-    BatchDetachTypedLinkResponse
+instance Core.Hashable BatchDetachTypedLinkResponse
 
-instance Prelude.NFData BatchDetachTypedLinkResponse
+instance Core.NFData BatchDetachTypedLinkResponse

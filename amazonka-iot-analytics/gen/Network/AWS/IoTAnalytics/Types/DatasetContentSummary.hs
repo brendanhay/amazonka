@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetContentSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.DatasetContentStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary information about dataset contents.
 --
 -- /See:/ 'newDatasetContentSummary' smart constructor.
 data DatasetContentSummary = DatasetContentSummary'
   { -- | The status of the data set contents.
-    status :: Prelude.Maybe DatasetContentStatus,
+    status :: Core.Maybe DatasetContentStatus,
     -- | The actual time the creation of the dataset contents was started.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
-    completionTime :: Prelude.Maybe Prelude.POSIX,
+    completionTime :: Core.Maybe Core.POSIX,
     -- | The time the creation of the dataset contents was scheduled to start.
-    scheduleTime :: Prelude.Maybe Prelude.POSIX,
+    scheduleTime :: Core.Maybe Core.POSIX,
     -- | The version of the dataset contents.
-    version :: Prelude.Maybe Prelude.Text
+    version :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetContentSummary' with all optional fields omitted.
@@ -62,46 +61,46 @@ newDatasetContentSummary ::
   DatasetContentSummary
 newDatasetContentSummary =
   DatasetContentSummary'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      scheduleTime = Prelude.Nothing,
-      version = Prelude.Nothing
+    { status = Core.Nothing,
+      creationTime = Core.Nothing,
+      completionTime = Core.Nothing,
+      scheduleTime = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The status of the data set contents.
-datasetContentSummary_status :: Lens.Lens' DatasetContentSummary (Prelude.Maybe DatasetContentStatus)
+datasetContentSummary_status :: Lens.Lens' DatasetContentSummary (Core.Maybe DatasetContentStatus)
 datasetContentSummary_status = Lens.lens (\DatasetContentSummary' {status} -> status) (\s@DatasetContentSummary' {} a -> s {status = a} :: DatasetContentSummary)
 
 -- | The actual time the creation of the dataset contents was started.
-datasetContentSummary_creationTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_creationTime = Lens.lens (\DatasetContentSummary' {creationTime} -> creationTime) (\s@DatasetContentSummary' {} a -> s {creationTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Prelude._Time
+datasetContentSummary_creationTime :: Lens.Lens' DatasetContentSummary (Core.Maybe Core.UTCTime)
+datasetContentSummary_creationTime = Lens.lens (\DatasetContentSummary' {creationTime} -> creationTime) (\s@DatasetContentSummary' {} a -> s {creationTime = a} :: DatasetContentSummary) Core.. Lens.mapping Core._Time
 
 -- | The time the dataset content status was updated to SUCCEEDED or FAILED.
-datasetContentSummary_completionTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_completionTime = Lens.lens (\DatasetContentSummary' {completionTime} -> completionTime) (\s@DatasetContentSummary' {} a -> s {completionTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Prelude._Time
+datasetContentSummary_completionTime :: Lens.Lens' DatasetContentSummary (Core.Maybe Core.UTCTime)
+datasetContentSummary_completionTime = Lens.lens (\DatasetContentSummary' {completionTime} -> completionTime) (\s@DatasetContentSummary' {} a -> s {completionTime = a} :: DatasetContentSummary) Core.. Lens.mapping Core._Time
 
 -- | The time the creation of the dataset contents was scheduled to start.
-datasetContentSummary_scheduleTime :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.UTCTime)
-datasetContentSummary_scheduleTime = Lens.lens (\DatasetContentSummary' {scheduleTime} -> scheduleTime) (\s@DatasetContentSummary' {} a -> s {scheduleTime = a} :: DatasetContentSummary) Prelude.. Lens.mapping Prelude._Time
+datasetContentSummary_scheduleTime :: Lens.Lens' DatasetContentSummary (Core.Maybe Core.UTCTime)
+datasetContentSummary_scheduleTime = Lens.lens (\DatasetContentSummary' {scheduleTime} -> scheduleTime) (\s@DatasetContentSummary' {} a -> s {scheduleTime = a} :: DatasetContentSummary) Core.. Lens.mapping Core._Time
 
 -- | The version of the dataset contents.
-datasetContentSummary_version :: Lens.Lens' DatasetContentSummary (Prelude.Maybe Prelude.Text)
+datasetContentSummary_version :: Lens.Lens' DatasetContentSummary (Core.Maybe Core.Text)
 datasetContentSummary_version = Lens.lens (\DatasetContentSummary' {version} -> version) (\s@DatasetContentSummary' {} a -> s {version = a} :: DatasetContentSummary)
 
-instance Prelude.FromJSON DatasetContentSummary where
+instance Core.FromJSON DatasetContentSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetContentSummary"
       ( \x ->
           DatasetContentSummary'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "creationTime")
-            Prelude.<*> (x Prelude..:? "completionTime")
-            Prelude.<*> (x Prelude..:? "scheduleTime")
-            Prelude.<*> (x Prelude..:? "version")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "creationTime")
+            Core.<*> (x Core..:? "completionTime")
+            Core.<*> (x Core..:? "scheduleTime")
+            Core.<*> (x Core..:? "version")
       )
 
-instance Prelude.Hashable DatasetContentSummary
+instance Core.Hashable DatasetContentSummary
 
-instance Prelude.NFData DatasetContentSummary
+instance Core.NFData DatasetContentSummary

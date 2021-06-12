@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.Route53.GetChange
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -63,7 +62,7 @@ data GetChange = GetChange'
     -- when you submitted the request.
     id :: ResourceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetChange' with all optional fields omitted.
@@ -88,43 +87,42 @@ newGetChange pId_ = GetChange' {id = pId_}
 getChange_id :: Lens.Lens' GetChange ResourceId
 getChange_id = Lens.lens (\GetChange' {id} -> id) (\s@GetChange' {} a -> s {id = a} :: GetChange)
 
-instance Prelude.AWSRequest GetChange where
-  type Rs GetChange = GetChangeResponse
+instance Core.AWSRequest GetChange where
+  type AWSResponse GetChange = GetChangeResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetChangeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ChangeInfo")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable GetChange
+instance Core.Hashable GetChange
 
-instance Prelude.NFData GetChange
+instance Core.NFData GetChange
 
-instance Prelude.ToHeaders GetChange where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetChange where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetChange where
+instance Core.ToPath GetChange where
   toPath GetChange' {..} =
-    Prelude.mconcat
-      ["/2013-04-01/change/", Prelude.toBS id]
+    Core.mconcat ["/2013-04-01/change/", Core.toBS id]
 
-instance Prelude.ToQuery GetChange where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetChange where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains the @ChangeInfo@ element.
 --
 -- /See:/ 'newGetChangeResponse' smart constructor.
 data GetChangeResponse = GetChangeResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains information about the specified change
     -- batch.
     changeInfo :: ChangeInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetChangeResponse' with all optional fields omitted.
@@ -140,7 +138,7 @@ data GetChangeResponse = GetChangeResponse'
 -- batch.
 newGetChangeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   GetChangeResponse
@@ -151,7 +149,7 @@ newGetChangeResponse pHttpStatus_ pChangeInfo_ =
     }
 
 -- | The response's http status code.
-getChangeResponse_httpStatus :: Lens.Lens' GetChangeResponse Prelude.Int
+getChangeResponse_httpStatus :: Lens.Lens' GetChangeResponse Core.Int
 getChangeResponse_httpStatus = Lens.lens (\GetChangeResponse' {httpStatus} -> httpStatus) (\s@GetChangeResponse' {} a -> s {httpStatus = a} :: GetChangeResponse)
 
 -- | A complex type that contains information about the specified change
@@ -159,4 +157,4 @@ getChangeResponse_httpStatus = Lens.lens (\GetChangeResponse' {httpStatus} -> ht
 getChangeResponse_changeInfo :: Lens.Lens' GetChangeResponse ChangeInfo
 getChangeResponse_changeInfo = Lens.lens (\GetChangeResponse' {changeInfo} -> changeInfo) (\s@GetChangeResponse' {} a -> s {changeInfo = a} :: GetChangeResponse)
 
-instance Prelude.NFData GetChangeResponse
+instance Core.NFData GetChangeResponse

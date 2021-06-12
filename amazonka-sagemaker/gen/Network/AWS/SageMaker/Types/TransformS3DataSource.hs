@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TransformS3DataSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.S3DataType
 
 -- | Describes the S3 data source.
@@ -78,9 +77,9 @@ data TransformS3DataSource = TransformS3DataSource'
     --     data for the channel for this datasource. The object that each
     --     @S3Uris@ points to must be readable by the IAM role that Amazon
     --     SageMaker uses to perform tasks on your behalf.
-    s3Uri :: Prelude.Text
+    s3Uri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformS3DataSource' with all optional fields omitted.
@@ -144,7 +143,7 @@ newTransformS3DataSource ::
   -- | 's3DataType'
   S3DataType ->
   -- | 's3Uri'
-  Prelude.Text ->
+  Core.Text ->
   TransformS3DataSource
 newTransformS3DataSource pS3DataType_ pS3Uri_ =
   TransformS3DataSource'
@@ -204,28 +203,28 @@ transformS3DataSource_s3DataType = Lens.lens (\TransformS3DataSource' {s3DataTyp
 --     data for the channel for this datasource. The object that each
 --     @S3Uris@ points to must be readable by the IAM role that Amazon
 --     SageMaker uses to perform tasks on your behalf.
-transformS3DataSource_s3Uri :: Lens.Lens' TransformS3DataSource Prelude.Text
+transformS3DataSource_s3Uri :: Lens.Lens' TransformS3DataSource Core.Text
 transformS3DataSource_s3Uri = Lens.lens (\TransformS3DataSource' {s3Uri} -> s3Uri) (\s@TransformS3DataSource' {} a -> s {s3Uri = a} :: TransformS3DataSource)
 
-instance Prelude.FromJSON TransformS3DataSource where
+instance Core.FromJSON TransformS3DataSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TransformS3DataSource"
       ( \x ->
           TransformS3DataSource'
-            Prelude.<$> (x Prelude..: "S3DataType")
-            Prelude.<*> (x Prelude..: "S3Uri")
+            Core.<$> (x Core..: "S3DataType")
+            Core.<*> (x Core..: "S3Uri")
       )
 
-instance Prelude.Hashable TransformS3DataSource
+instance Core.Hashable TransformS3DataSource
 
-instance Prelude.NFData TransformS3DataSource
+instance Core.NFData TransformS3DataSource
 
-instance Prelude.ToJSON TransformS3DataSource where
+instance Core.ToJSON TransformS3DataSource where
   toJSON TransformS3DataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("S3DataType" Prelude..= s3DataType),
-            Prelude.Just ("S3Uri" Prelude..= s3Uri)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3DataType" Core..= s3DataType),
+            Core.Just ("S3Uri" Core..= s3Uri)
           ]
       )

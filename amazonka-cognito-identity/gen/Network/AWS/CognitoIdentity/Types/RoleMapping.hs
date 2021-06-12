@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CognitoIdentity.Types.RoleMapping where
 import Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
 import Network.AWS.CognitoIdentity.Types.RoleMappingType
 import Network.AWS.CognitoIdentity.Types.RulesConfigurationType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A role mapping.
 --
@@ -37,19 +36,19 @@ data RoleMapping = RoleMapping'
     -- value for the @Rules@ type, or there is no @cognito:preferred_role@
     -- claim and there are multiple @cognito:roles@ matches for the @Token@
     -- type.
-    ambiguousRoleResolution :: Prelude.Maybe AmbiguousRoleResolutionType,
+    ambiguousRoleResolution :: Core.Maybe AmbiguousRoleResolutionType,
     -- | The rules to be used for mapping users to roles.
     --
     -- If you specify Rules as the role mapping type, @RulesConfiguration@ is
     -- required.
-    rulesConfiguration :: Prelude.Maybe RulesConfigurationType,
+    rulesConfiguration :: Core.Maybe RulesConfigurationType,
     -- | The role mapping type. Token will use @cognito:roles@ and
     -- @cognito:preferred_role@ claims from the Cognito identity provider token
     -- to map groups to roles. Rules will attempt to match claims from the
     -- token to map to a role.
     type' :: RoleMappingType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RoleMapping' with all optional fields omitted.
@@ -83,8 +82,8 @@ newRoleMapping ::
 newRoleMapping pType_ =
   RoleMapping'
     { ambiguousRoleResolution =
-        Prelude.Nothing,
-      rulesConfiguration = Prelude.Nothing,
+        Core.Nothing,
+      rulesConfiguration = Core.Nothing,
       type' = pType_
     }
 
@@ -95,14 +94,14 @@ newRoleMapping pType_ =
 -- value for the @Rules@ type, or there is no @cognito:preferred_role@
 -- claim and there are multiple @cognito:roles@ matches for the @Token@
 -- type.
-roleMapping_ambiguousRoleResolution :: Lens.Lens' RoleMapping (Prelude.Maybe AmbiguousRoleResolutionType)
+roleMapping_ambiguousRoleResolution :: Lens.Lens' RoleMapping (Core.Maybe AmbiguousRoleResolutionType)
 roleMapping_ambiguousRoleResolution = Lens.lens (\RoleMapping' {ambiguousRoleResolution} -> ambiguousRoleResolution) (\s@RoleMapping' {} a -> s {ambiguousRoleResolution = a} :: RoleMapping)
 
 -- | The rules to be used for mapping users to roles.
 --
 -- If you specify Rules as the role mapping type, @RulesConfiguration@ is
 -- required.
-roleMapping_rulesConfiguration :: Lens.Lens' RoleMapping (Prelude.Maybe RulesConfigurationType)
+roleMapping_rulesConfiguration :: Lens.Lens' RoleMapping (Core.Maybe RulesConfigurationType)
 roleMapping_rulesConfiguration = Lens.lens (\RoleMapping' {rulesConfiguration} -> rulesConfiguration) (\s@RoleMapping' {} a -> s {rulesConfiguration = a} :: RoleMapping)
 
 -- | The role mapping type. Token will use @cognito:roles@ and
@@ -112,29 +111,29 @@ roleMapping_rulesConfiguration = Lens.lens (\RoleMapping' {rulesConfiguration} -
 roleMapping_type :: Lens.Lens' RoleMapping RoleMappingType
 roleMapping_type = Lens.lens (\RoleMapping' {type'} -> type') (\s@RoleMapping' {} a -> s {type' = a} :: RoleMapping)
 
-instance Prelude.FromJSON RoleMapping where
+instance Core.FromJSON RoleMapping where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RoleMapping"
       ( \x ->
           RoleMapping'
-            Prelude.<$> (x Prelude..:? "AmbiguousRoleResolution")
-            Prelude.<*> (x Prelude..:? "RulesConfiguration")
-            Prelude.<*> (x Prelude..: "Type")
+            Core.<$> (x Core..:? "AmbiguousRoleResolution")
+            Core.<*> (x Core..:? "RulesConfiguration")
+            Core.<*> (x Core..: "Type")
       )
 
-instance Prelude.Hashable RoleMapping
+instance Core.Hashable RoleMapping
 
-instance Prelude.NFData RoleMapping
+instance Core.NFData RoleMapping
 
-instance Prelude.ToJSON RoleMapping where
+instance Core.ToJSON RoleMapping where
   toJSON RoleMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AmbiguousRoleResolution" Prelude..=)
-              Prelude.<$> ambiguousRoleResolution,
-            ("RulesConfiguration" Prelude..=)
-              Prelude.<$> rulesConfiguration,
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("AmbiguousRoleResolution" Core..=)
+              Core.<$> ambiguousRoleResolution,
+            ("RulesConfiguration" Core..=)
+              Core.<$> rulesConfiguration,
+            Core.Just ("Type" Core..= type')
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.PartitionValueList where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a list of values defining partitions.
 --
 -- /See:/ 'newPartitionValueList' smart constructor.
 data PartitionValueList = PartitionValueList'
   { -- | The list of values.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PartitionValueList' with all optional fields omitted.
@@ -44,28 +43,28 @@ data PartitionValueList = PartitionValueList'
 newPartitionValueList ::
   PartitionValueList
 newPartitionValueList =
-  PartitionValueList' {values = Prelude.mempty}
+  PartitionValueList' {values = Core.mempty}
 
 -- | The list of values.
-partitionValueList_values :: Lens.Lens' PartitionValueList [Prelude.Text]
-partitionValueList_values = Lens.lens (\PartitionValueList' {values} -> values) (\s@PartitionValueList' {} a -> s {values = a} :: PartitionValueList) Prelude.. Prelude._Coerce
+partitionValueList_values :: Lens.Lens' PartitionValueList [Core.Text]
+partitionValueList_values = Lens.lens (\PartitionValueList' {values} -> values) (\s@PartitionValueList' {} a -> s {values = a} :: PartitionValueList) Core.. Lens._Coerce
 
-instance Prelude.FromJSON PartitionValueList where
+instance Core.FromJSON PartitionValueList where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PartitionValueList"
       ( \x ->
           PartitionValueList'
-            Prelude.<$> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Values" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PartitionValueList
+instance Core.Hashable PartitionValueList
 
-instance Prelude.NFData PartitionValueList
+instance Core.NFData PartitionValueList
 
-instance Prelude.ToJSON PartitionValueList where
+instance Core.ToJSON PartitionValueList where
   toJSON PartitionValueList' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Values" Prelude..= values)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Values" Core..= values)]
       )

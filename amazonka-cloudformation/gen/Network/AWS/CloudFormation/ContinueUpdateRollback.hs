@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.CloudFormation.ContinueUpdateRollback
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,7 +77,7 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
     -- previously associated with the stack. If no role is available, AWS
     -- CloudFormation uses a temporary session that is generated from your user
     -- credentials.
-    roleARN :: Prelude.Maybe Prelude.Text,
+    roleARN :: Core.Maybe Core.Text,
     -- | A list of the logical IDs of the resources that AWS CloudFormation skips
     -- during the continue update rollback operation. You can specify only
     -- resources that are in the @UPDATE_FAILED@ state because a rollback
@@ -115,13 +114,13 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
     -- defined in the parent stack. For an example of a continue update
     -- rollback operation with nested stacks, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy>.
-    resourcesToSkip :: Prelude.Maybe [Prelude.Text],
+    resourcesToSkip :: Core.Maybe [Core.Text],
     -- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
     -- this token if you plan to retry requests so that AWS CloudFormation
     -- knows that you\'re not attempting to continue the rollback to a stack
     -- with the same name. You might retry @ContinueUpdateRollback@ requests to
     -- ensure that AWS CloudFormation successfully received them.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name or the unique ID of the stack that you want to continue rolling
     -- back.
     --
@@ -129,9 +128,9 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
     -- using the @AWS::CloudFormation::Stack@ resource). Instead, use this
     -- operation on the parent stack (the stack that contains the
     -- @AWS::CloudFormation::Stack@ resource).
-    stackName :: Prelude.Text
+    stackName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContinueUpdateRollback' with all optional fields omitted.
@@ -206,13 +205,13 @@ data ContinueUpdateRollback = ContinueUpdateRollback'
 -- @AWS::CloudFormation::Stack@ resource).
 newContinueUpdateRollback ::
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   ContinueUpdateRollback
 newContinueUpdateRollback pStackName_ =
   ContinueUpdateRollback'
-    { roleARN = Prelude.Nothing,
-      resourcesToSkip = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { roleARN = Core.Nothing,
+      resourcesToSkip = Core.Nothing,
+      clientRequestToken = Core.Nothing,
       stackName = pStackName_
     }
 
@@ -228,7 +227,7 @@ newContinueUpdateRollback pStackName_ =
 -- previously associated with the stack. If no role is available, AWS
 -- CloudFormation uses a temporary session that is generated from your user
 -- credentials.
-continueUpdateRollback_roleARN :: Lens.Lens' ContinueUpdateRollback (Prelude.Maybe Prelude.Text)
+continueUpdateRollback_roleARN :: Lens.Lens' ContinueUpdateRollback (Core.Maybe Core.Text)
 continueUpdateRollback_roleARN = Lens.lens (\ContinueUpdateRollback' {roleARN} -> roleARN) (\s@ContinueUpdateRollback' {} a -> s {roleARN = a} :: ContinueUpdateRollback)
 
 -- | A list of the logical IDs of the resources that AWS CloudFormation skips
@@ -267,15 +266,15 @@ continueUpdateRollback_roleARN = Lens.lens (\ContinueUpdateRollback' {roleARN} -
 -- defined in the parent stack. For an example of a continue update
 -- rollback operation with nested stacks, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks Using ResourcesToSkip to recover a nested stacks hierarchy>.
-continueUpdateRollback_resourcesToSkip :: Lens.Lens' ContinueUpdateRollback (Prelude.Maybe [Prelude.Text])
-continueUpdateRollback_resourcesToSkip = Lens.lens (\ContinueUpdateRollback' {resourcesToSkip} -> resourcesToSkip) (\s@ContinueUpdateRollback' {} a -> s {resourcesToSkip = a} :: ContinueUpdateRollback) Prelude.. Lens.mapping Prelude._Coerce
+continueUpdateRollback_resourcesToSkip :: Lens.Lens' ContinueUpdateRollback (Core.Maybe [Core.Text])
+continueUpdateRollback_resourcesToSkip = Lens.lens (\ContinueUpdateRollback' {resourcesToSkip} -> resourcesToSkip) (\s@ContinueUpdateRollback' {} a -> s {resourcesToSkip = a} :: ContinueUpdateRollback) Core.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier for this @ContinueUpdateRollback@ request. Specify
 -- this token if you plan to retry requests so that AWS CloudFormation
 -- knows that you\'re not attempting to continue the rollback to a stack
 -- with the same name. You might retry @ContinueUpdateRollback@ requests to
 -- ensure that AWS CloudFormation successfully received them.
-continueUpdateRollback_clientRequestToken :: Lens.Lens' ContinueUpdateRollback (Prelude.Maybe Prelude.Text)
+continueUpdateRollback_clientRequestToken :: Lens.Lens' ContinueUpdateRollback (Core.Maybe Core.Text)
 continueUpdateRollback_clientRequestToken = Lens.lens (\ContinueUpdateRollback' {clientRequestToken} -> clientRequestToken) (\s@ContinueUpdateRollback' {} a -> s {clientRequestToken = a} :: ContinueUpdateRollback)
 
 -- | The name or the unique ID of the stack that you want to continue rolling
@@ -285,12 +284,12 @@ continueUpdateRollback_clientRequestToken = Lens.lens (\ContinueUpdateRollback' 
 -- using the @AWS::CloudFormation::Stack@ resource). Instead, use this
 -- operation on the parent stack (the stack that contains the
 -- @AWS::CloudFormation::Stack@ resource).
-continueUpdateRollback_stackName :: Lens.Lens' ContinueUpdateRollback Prelude.Text
+continueUpdateRollback_stackName :: Lens.Lens' ContinueUpdateRollback Core.Text
 continueUpdateRollback_stackName = Lens.lens (\ContinueUpdateRollback' {stackName} -> stackName) (\s@ContinueUpdateRollback' {} a -> s {stackName = a} :: ContinueUpdateRollback)
 
-instance Prelude.AWSRequest ContinueUpdateRollback where
+instance Core.AWSRequest ContinueUpdateRollback where
   type
-    Rs ContinueUpdateRollback =
+    AWSResponse ContinueUpdateRollback =
       ContinueUpdateRollbackResponse
   request = Request.postQuery defaultService
   response =
@@ -298,34 +297,31 @@ instance Prelude.AWSRequest ContinueUpdateRollback where
       "ContinueUpdateRollbackResult"
       ( \s h x ->
           ContinueUpdateRollbackResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ContinueUpdateRollback
+instance Core.Hashable ContinueUpdateRollback
 
-instance Prelude.NFData ContinueUpdateRollback
+instance Core.NFData ContinueUpdateRollback
 
-instance Prelude.ToHeaders ContinueUpdateRollback where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ContinueUpdateRollback where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ContinueUpdateRollback where
-  toPath = Prelude.const "/"
+instance Core.ToPath ContinueUpdateRollback where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ContinueUpdateRollback where
+instance Core.ToQuery ContinueUpdateRollback where
   toQuery ContinueUpdateRollback' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ContinueUpdateRollback" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "RoleARN" Prelude.=: roleARN,
+          Core.=: ("ContinueUpdateRollback" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "RoleARN" Core.=: roleARN,
         "ResourcesToSkip"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> resourcesToSkip
-            ),
-        "ClientRequestToken" Prelude.=: clientRequestToken,
-        "StackName" Prelude.=: stackName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> resourcesToSkip),
+        "ClientRequestToken" Core.=: clientRequestToken,
+        "StackName" Core.=: stackName
       ]
 
 -- | The output for a ContinueUpdateRollback action.
@@ -333,9 +329,9 @@ instance Prelude.ToQuery ContinueUpdateRollback where
 -- /See:/ 'newContinueUpdateRollbackResponse' smart constructor.
 data ContinueUpdateRollbackResponse = ContinueUpdateRollbackResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContinueUpdateRollbackResponse' with all optional fields omitted.
@@ -348,7 +344,7 @@ data ContinueUpdateRollbackResponse = ContinueUpdateRollbackResponse'
 -- 'httpStatus', 'continueUpdateRollbackResponse_httpStatus' - The response's http status code.
 newContinueUpdateRollbackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ContinueUpdateRollbackResponse
 newContinueUpdateRollbackResponse pHttpStatus_ =
   ContinueUpdateRollbackResponse'
@@ -357,9 +353,7 @@ newContinueUpdateRollbackResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-continueUpdateRollbackResponse_httpStatus :: Lens.Lens' ContinueUpdateRollbackResponse Prelude.Int
+continueUpdateRollbackResponse_httpStatus :: Lens.Lens' ContinueUpdateRollbackResponse Core.Int
 continueUpdateRollbackResponse_httpStatus = Lens.lens (\ContinueUpdateRollbackResponse' {httpStatus} -> httpStatus) (\s@ContinueUpdateRollbackResponse' {} a -> s {httpStatus = a} :: ContinueUpdateRollbackResponse)
 
-instance
-  Prelude.NFData
-    ContinueUpdateRollbackResponse
+instance Core.NFData ContinueUpdateRollbackResponse

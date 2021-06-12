@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CloudSearch.DefineIndexField
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +60,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDefineIndexField' smart constructor.
 data DefineIndexField = DefineIndexField'
-  { domainName :: Prelude.Text,
+  { domainName :: Core.Text,
     -- | The index field and field options you want to configure.
     indexField :: IndexField
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DefineIndexField' with all optional fields omitted.
@@ -80,7 +79,7 @@ data DefineIndexField = DefineIndexField'
 -- 'indexField', 'defineIndexField_indexField' - The index field and field options you want to configure.
 newDefineIndexField ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'indexField'
   IndexField ->
   DefineIndexField
@@ -91,44 +90,45 @@ newDefineIndexField pDomainName_ pIndexField_ =
     }
 
 -- | Undocumented member.
-defineIndexField_domainName :: Lens.Lens' DefineIndexField Prelude.Text
+defineIndexField_domainName :: Lens.Lens' DefineIndexField Core.Text
 defineIndexField_domainName = Lens.lens (\DefineIndexField' {domainName} -> domainName) (\s@DefineIndexField' {} a -> s {domainName = a} :: DefineIndexField)
 
 -- | The index field and field options you want to configure.
 defineIndexField_indexField :: Lens.Lens' DefineIndexField IndexField
 defineIndexField_indexField = Lens.lens (\DefineIndexField' {indexField} -> indexField) (\s@DefineIndexField' {} a -> s {indexField = a} :: DefineIndexField)
 
-instance Prelude.AWSRequest DefineIndexField where
-  type Rs DefineIndexField = DefineIndexFieldResponse
+instance Core.AWSRequest DefineIndexField where
+  type
+    AWSResponse DefineIndexField =
+      DefineIndexFieldResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DefineIndexFieldResult"
       ( \s h x ->
           DefineIndexFieldResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "IndexField")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "IndexField")
       )
 
-instance Prelude.Hashable DefineIndexField
+instance Core.Hashable DefineIndexField
 
-instance Prelude.NFData DefineIndexField
+instance Core.NFData DefineIndexField
 
-instance Prelude.ToHeaders DefineIndexField where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DefineIndexField where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DefineIndexField where
-  toPath = Prelude.const "/"
+instance Core.ToPath DefineIndexField where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DefineIndexField where
+instance Core.ToQuery DefineIndexField where
   toQuery DefineIndexField' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DefineIndexField" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName,
-        "IndexField" Prelude.=: indexField
+          Core.=: ("DefineIndexField" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName,
+        "IndexField" Core.=: indexField
       ]
 
 -- | The result of a @DefineIndexField@ request. Contains the status of the
@@ -137,10 +137,10 @@ instance Prelude.ToQuery DefineIndexField where
 -- /See:/ 'newDefineIndexFieldResponse' smart constructor.
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     indexField :: IndexFieldStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DefineIndexFieldResponse' with all optional fields omitted.
@@ -155,7 +155,7 @@ data DefineIndexFieldResponse = DefineIndexFieldResponse'
 -- 'indexField', 'defineIndexFieldResponse_indexField' - Undocumented member.
 newDefineIndexFieldResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'indexField'
   IndexFieldStatus ->
   DefineIndexFieldResponse
@@ -167,11 +167,11 @@ newDefineIndexFieldResponse pHttpStatus_ pIndexField_ =
     }
 
 -- | The response's http status code.
-defineIndexFieldResponse_httpStatus :: Lens.Lens' DefineIndexFieldResponse Prelude.Int
+defineIndexFieldResponse_httpStatus :: Lens.Lens' DefineIndexFieldResponse Core.Int
 defineIndexFieldResponse_httpStatus = Lens.lens (\DefineIndexFieldResponse' {httpStatus} -> httpStatus) (\s@DefineIndexFieldResponse' {} a -> s {httpStatus = a} :: DefineIndexFieldResponse)
 
 -- | Undocumented member.
 defineIndexFieldResponse_indexField :: Lens.Lens' DefineIndexFieldResponse IndexFieldStatus
 defineIndexFieldResponse_indexField = Lens.lens (\DefineIndexFieldResponse' {indexField} -> indexField) (\s@DefineIndexFieldResponse' {} a -> s {indexField = a} :: DefineIndexFieldResponse)
 
-instance Prelude.NFData DefineIndexFieldResponse
+instance Core.NFData DefineIndexFieldResponse

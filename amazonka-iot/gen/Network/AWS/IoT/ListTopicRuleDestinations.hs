@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.IoT.ListTopicRuleDestinations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +54,11 @@ data ListTopicRuleDestinations = ListTopicRuleDestinations'
   { -- | To retrieve the next set of results, the @nextToken@ value from a
     -- previous response; otherwise __null__ to receive the first set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return at one time.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTopicRuleDestinations' with all optional fields omitted.
@@ -80,86 +78,86 @@ newListTopicRuleDestinations ::
 newListTopicRuleDestinations =
   ListTopicRuleDestinations'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | To retrieve the next set of results, the @nextToken@ value from a
 -- previous response; otherwise __null__ to receive the first set of
 -- results.
-listTopicRuleDestinations_nextToken :: Lens.Lens' ListTopicRuleDestinations (Prelude.Maybe Prelude.Text)
+listTopicRuleDestinations_nextToken :: Lens.Lens' ListTopicRuleDestinations (Core.Maybe Core.Text)
 listTopicRuleDestinations_nextToken = Lens.lens (\ListTopicRuleDestinations' {nextToken} -> nextToken) (\s@ListTopicRuleDestinations' {} a -> s {nextToken = a} :: ListTopicRuleDestinations)
 
 -- | The maximum number of results to return at one time.
-listTopicRuleDestinations_maxResults :: Lens.Lens' ListTopicRuleDestinations (Prelude.Maybe Prelude.Natural)
+listTopicRuleDestinations_maxResults :: Lens.Lens' ListTopicRuleDestinations (Core.Maybe Core.Natural)
 listTopicRuleDestinations_maxResults = Lens.lens (\ListTopicRuleDestinations' {maxResults} -> maxResults) (\s@ListTopicRuleDestinations' {} a -> s {maxResults = a} :: ListTopicRuleDestinations)
 
-instance Pager.AWSPager ListTopicRuleDestinations where
+instance Core.AWSPager ListTopicRuleDestinations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listTopicRuleDestinationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listTopicRuleDestinationsResponse_destinationSummaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTopicRuleDestinations_nextToken
           Lens..~ rs
           Lens.^? listTopicRuleDestinationsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTopicRuleDestinations where
+instance Core.AWSRequest ListTopicRuleDestinations where
   type
-    Rs ListTopicRuleDestinations =
+    AWSResponse ListTopicRuleDestinations =
       ListTopicRuleDestinationsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTopicRuleDestinationsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "destinationSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> ( x Core..?> "destinationSummaries"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTopicRuleDestinations
+instance Core.Hashable ListTopicRuleDestinations
 
-instance Prelude.NFData ListTopicRuleDestinations
+instance Core.NFData ListTopicRuleDestinations
 
-instance Prelude.ToHeaders ListTopicRuleDestinations where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTopicRuleDestinations where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTopicRuleDestinations where
-  toPath = Prelude.const "/destinations"
+instance Core.ToPath ListTopicRuleDestinations where
+  toPath = Core.const "/destinations"
 
-instance Prelude.ToQuery ListTopicRuleDestinations where
+instance Core.ToQuery ListTopicRuleDestinations where
   toQuery ListTopicRuleDestinations' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListTopicRuleDestinationsResponse' smart constructor.
 data ListTopicRuleDestinationsResponse = ListTopicRuleDestinationsResponse'
   { -- | The token to use to get the next set of results, or __null__ if there
     -- are no additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about a topic rule destination.
-    destinationSummaries :: Prelude.Maybe [TopicRuleDestinationSummary],
+    destinationSummaries :: Core.Maybe [TopicRuleDestinationSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTopicRuleDestinationsResponse' with all optional fields omitted.
@@ -177,29 +175,29 @@ data ListTopicRuleDestinationsResponse = ListTopicRuleDestinationsResponse'
 -- 'httpStatus', 'listTopicRuleDestinationsResponse_httpStatus' - The response's http status code.
 newListTopicRuleDestinationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTopicRuleDestinationsResponse
 newListTopicRuleDestinationsResponse pHttpStatus_ =
   ListTopicRuleDestinationsResponse'
     { nextToken =
-        Prelude.Nothing,
-      destinationSummaries = Prelude.Nothing,
+        Core.Nothing,
+      destinationSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to get the next set of results, or __null__ if there
 -- are no additional results.
-listTopicRuleDestinationsResponse_nextToken :: Lens.Lens' ListTopicRuleDestinationsResponse (Prelude.Maybe Prelude.Text)
+listTopicRuleDestinationsResponse_nextToken :: Lens.Lens' ListTopicRuleDestinationsResponse (Core.Maybe Core.Text)
 listTopicRuleDestinationsResponse_nextToken = Lens.lens (\ListTopicRuleDestinationsResponse' {nextToken} -> nextToken) (\s@ListTopicRuleDestinationsResponse' {} a -> s {nextToken = a} :: ListTopicRuleDestinationsResponse)
 
 -- | Information about a topic rule destination.
-listTopicRuleDestinationsResponse_destinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Prelude.Maybe [TopicRuleDestinationSummary])
-listTopicRuleDestinationsResponse_destinationSummaries = Lens.lens (\ListTopicRuleDestinationsResponse' {destinationSummaries} -> destinationSummaries) (\s@ListTopicRuleDestinationsResponse' {} a -> s {destinationSummaries = a} :: ListTopicRuleDestinationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTopicRuleDestinationsResponse_destinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Core.Maybe [TopicRuleDestinationSummary])
+listTopicRuleDestinationsResponse_destinationSummaries = Lens.lens (\ListTopicRuleDestinationsResponse' {destinationSummaries} -> destinationSummaries) (\s@ListTopicRuleDestinationsResponse' {} a -> s {destinationSummaries = a} :: ListTopicRuleDestinationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTopicRuleDestinationsResponse_httpStatus :: Lens.Lens' ListTopicRuleDestinationsResponse Prelude.Int
+listTopicRuleDestinationsResponse_httpStatus :: Lens.Lens' ListTopicRuleDestinationsResponse Core.Int
 listTopicRuleDestinationsResponse_httpStatus = Lens.lens (\ListTopicRuleDestinationsResponse' {httpStatus} -> httpStatus) (\s@ListTopicRuleDestinationsResponse' {} a -> s {httpStatus = a} :: ListTopicRuleDestinationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListTopicRuleDestinationsResponse

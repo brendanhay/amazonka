@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.AppStream.Types.StackError where
 
 import Network.AWS.AppStream.Types.StackErrorCode
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a stack error.
 --
 -- /See:/ 'newStackError' smart constructor.
 data StackError = StackError'
   { -- | The error message.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code.
-    errorCode :: Prelude.Maybe StackErrorCode
+    errorCode :: Core.Maybe StackErrorCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StackError' with all optional fields omitted.
@@ -50,28 +49,28 @@ newStackError ::
   StackError
 newStackError =
   StackError'
-    { errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The error message.
-stackError_errorMessage :: Lens.Lens' StackError (Prelude.Maybe Prelude.Text)
+stackError_errorMessage :: Lens.Lens' StackError (Core.Maybe Core.Text)
 stackError_errorMessage = Lens.lens (\StackError' {errorMessage} -> errorMessage) (\s@StackError' {} a -> s {errorMessage = a} :: StackError)
 
 -- | The error code.
-stackError_errorCode :: Lens.Lens' StackError (Prelude.Maybe StackErrorCode)
+stackError_errorCode :: Lens.Lens' StackError (Core.Maybe StackErrorCode)
 stackError_errorCode = Lens.lens (\StackError' {errorCode} -> errorCode) (\s@StackError' {} a -> s {errorCode = a} :: StackError)
 
-instance Prelude.FromJSON StackError where
+instance Core.FromJSON StackError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StackError"
       ( \x ->
           StackError'
-            Prelude.<$> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable StackError
+instance Core.Hashable StackError
 
-instance Prelude.NFData StackError
+instance Core.NFData StackError

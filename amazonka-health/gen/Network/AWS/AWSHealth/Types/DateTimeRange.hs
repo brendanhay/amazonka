@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AWSHealth.Types.DateTimeRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of dates and times that is used by the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html EventFilter>
@@ -37,11 +36,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDateTimeRange' smart constructor.
 data DateTimeRange = DateTimeRange'
   { -- | The ending date and time of a time range.
-    to :: Prelude.Maybe Prelude.POSIX,
+    to :: Core.Maybe Core.POSIX,
     -- | The starting date and time of a time range.
-    from :: Prelude.Maybe Prelude.POSIX
+    from :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DateTimeRange' with all optional fields omitted.
@@ -58,27 +57,27 @@ newDateTimeRange ::
   DateTimeRange
 newDateTimeRange =
   DateTimeRange'
-    { to = Prelude.Nothing,
-      from = Prelude.Nothing
+    { to = Core.Nothing,
+      from = Core.Nothing
     }
 
 -- | The ending date and time of a time range.
-dateTimeRange_to :: Lens.Lens' DateTimeRange (Prelude.Maybe Prelude.UTCTime)
-dateTimeRange_to = Lens.lens (\DateTimeRange' {to} -> to) (\s@DateTimeRange' {} a -> s {to = a} :: DateTimeRange) Prelude.. Lens.mapping Prelude._Time
+dateTimeRange_to :: Lens.Lens' DateTimeRange (Core.Maybe Core.UTCTime)
+dateTimeRange_to = Lens.lens (\DateTimeRange' {to} -> to) (\s@DateTimeRange' {} a -> s {to = a} :: DateTimeRange) Core.. Lens.mapping Core._Time
 
 -- | The starting date and time of a time range.
-dateTimeRange_from :: Lens.Lens' DateTimeRange (Prelude.Maybe Prelude.UTCTime)
-dateTimeRange_from = Lens.lens (\DateTimeRange' {from} -> from) (\s@DateTimeRange' {} a -> s {from = a} :: DateTimeRange) Prelude.. Lens.mapping Prelude._Time
+dateTimeRange_from :: Lens.Lens' DateTimeRange (Core.Maybe Core.UTCTime)
+dateTimeRange_from = Lens.lens (\DateTimeRange' {from} -> from) (\s@DateTimeRange' {} a -> s {from = a} :: DateTimeRange) Core.. Lens.mapping Core._Time
 
-instance Prelude.Hashable DateTimeRange
+instance Core.Hashable DateTimeRange
 
-instance Prelude.NFData DateTimeRange
+instance Core.NFData DateTimeRange
 
-instance Prelude.ToJSON DateTimeRange where
+instance Core.ToJSON DateTimeRange where
   toJSON DateTimeRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("to" Prelude..=) Prelude.<$> to,
-            ("from" Prelude..=) Prelude.<$> from
+    Core.object
+      ( Core.catMaybes
+          [ ("to" Core..=) Core.<$> to,
+            ("from" Core..=) Core.<$> from
           ]
       )

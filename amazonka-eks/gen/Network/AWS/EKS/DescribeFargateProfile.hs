@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.EKS.DescribeFargateProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFargateProfile' smart constructor.
 data DescribeFargateProfile = DescribeFargateProfile'
   { -- | The name of the Amazon EKS cluster associated with the Fargate profile.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The name of the Fargate profile to describe.
-    fargateProfileName :: Prelude.Text
+    fargateProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFargateProfile' with all optional fields omitted.
@@ -69,9 +68,9 @@ data DescribeFargateProfile = DescribeFargateProfile'
 -- 'fargateProfileName', 'describeFargateProfile_fargateProfileName' - The name of the Fargate profile to describe.
 newDescribeFargateProfile ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fargateProfileName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeFargateProfile
 newDescribeFargateProfile
   pClusterName_
@@ -83,61 +82,59 @@ newDescribeFargateProfile
       }
 
 -- | The name of the Amazon EKS cluster associated with the Fargate profile.
-describeFargateProfile_clusterName :: Lens.Lens' DescribeFargateProfile Prelude.Text
+describeFargateProfile_clusterName :: Lens.Lens' DescribeFargateProfile Core.Text
 describeFargateProfile_clusterName = Lens.lens (\DescribeFargateProfile' {clusterName} -> clusterName) (\s@DescribeFargateProfile' {} a -> s {clusterName = a} :: DescribeFargateProfile)
 
 -- | The name of the Fargate profile to describe.
-describeFargateProfile_fargateProfileName :: Lens.Lens' DescribeFargateProfile Prelude.Text
+describeFargateProfile_fargateProfileName :: Lens.Lens' DescribeFargateProfile Core.Text
 describeFargateProfile_fargateProfileName = Lens.lens (\DescribeFargateProfile' {fargateProfileName} -> fargateProfileName) (\s@DescribeFargateProfile' {} a -> s {fargateProfileName = a} :: DescribeFargateProfile)
 
-instance Prelude.AWSRequest DescribeFargateProfile where
+instance Core.AWSRequest DescribeFargateProfile where
   type
-    Rs DescribeFargateProfile =
+    AWSResponse DescribeFargateProfile =
       DescribeFargateProfileResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeFargateProfileResponse'
-            Prelude.<$> (x Prelude..?> "fargateProfile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "fargateProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFargateProfile
+instance Core.Hashable DescribeFargateProfile
 
-instance Prelude.NFData DescribeFargateProfile
+instance Core.NFData DescribeFargateProfile
 
-instance Prelude.ToHeaders DescribeFargateProfile where
+instance Core.ToHeaders DescribeFargateProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeFargateProfile where
+instance Core.ToPath DescribeFargateProfile where
   toPath DescribeFargateProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/fargate-profiles/",
-        Prelude.toBS fargateProfileName
+        Core.toBS fargateProfileName
       ]
 
-instance Prelude.ToQuery DescribeFargateProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeFargateProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeFargateProfileResponse' smart constructor.
 data DescribeFargateProfileResponse = DescribeFargateProfileResponse'
   { -- | The full description of your Fargate profile.
-    fargateProfile :: Prelude.Maybe FargateProfile,
+    fargateProfile :: Core.Maybe FargateProfile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFargateProfileResponse' with all optional fields omitted.
@@ -152,23 +149,21 @@ data DescribeFargateProfileResponse = DescribeFargateProfileResponse'
 -- 'httpStatus', 'describeFargateProfileResponse_httpStatus' - The response's http status code.
 newDescribeFargateProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeFargateProfileResponse
 newDescribeFargateProfileResponse pHttpStatus_ =
   DescribeFargateProfileResponse'
     { fargateProfile =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your Fargate profile.
-describeFargateProfileResponse_fargateProfile :: Lens.Lens' DescribeFargateProfileResponse (Prelude.Maybe FargateProfile)
+describeFargateProfileResponse_fargateProfile :: Lens.Lens' DescribeFargateProfileResponse (Core.Maybe FargateProfile)
 describeFargateProfileResponse_fargateProfile = Lens.lens (\DescribeFargateProfileResponse' {fargateProfile} -> fargateProfile) (\s@DescribeFargateProfileResponse' {} a -> s {fargateProfile = a} :: DescribeFargateProfileResponse)
 
 -- | The response's http status code.
-describeFargateProfileResponse_httpStatus :: Lens.Lens' DescribeFargateProfileResponse Prelude.Int
+describeFargateProfileResponse_httpStatus :: Lens.Lens' DescribeFargateProfileResponse Core.Int
 describeFargateProfileResponse_httpStatus = Lens.lens (\DescribeFargateProfileResponse' {httpStatus} -> httpStatus) (\s@DescribeFargateProfileResponse' {} a -> s {httpStatus = a} :: DescribeFargateProfileResponse)
 
-instance
-  Prelude.NFData
-    DescribeFargateProfileResponse
+instance Core.NFData DescribeFargateProfileResponse

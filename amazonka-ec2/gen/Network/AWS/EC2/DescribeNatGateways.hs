@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,28 +46,27 @@ module Network.AWS.EC2.DescribeNatGateways
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeNatGateways' smart constructor.
 data DescribeNatGateways = DescribeNatGateways'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more NAT gateway IDs.
-    natGatewayIds :: Prelude.Maybe [Prelude.Text],
+    natGatewayIds :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @nat-gateway-id@ - The ID of the NAT gateway.
@@ -89,9 +87,9 @@ data DescribeNatGateways = DescribeNatGateways'
     --     regardless of the tag value.
     --
     -- -   @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
-    filter' :: Prelude.Maybe [Filter]
+    filter' :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeNatGateways' with all optional fields omitted.
@@ -138,33 +136,33 @@ newDescribeNatGateways ::
   DescribeNatGateways
 newDescribeNatGateways =
   DescribeNatGateways'
-    { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      natGatewayIds = Prelude.Nothing,
-      filter' = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      natGatewayIds = Core.Nothing,
+      filter' = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeNatGateways_nextToken :: Lens.Lens' DescribeNatGateways (Prelude.Maybe Prelude.Text)
+describeNatGateways_nextToken :: Lens.Lens' DescribeNatGateways (Core.Maybe Core.Text)
 describeNatGateways_nextToken = Lens.lens (\DescribeNatGateways' {nextToken} -> nextToken) (\s@DescribeNatGateways' {} a -> s {nextToken = a} :: DescribeNatGateways)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeNatGateways_dryRun :: Lens.Lens' DescribeNatGateways (Prelude.Maybe Prelude.Bool)
+describeNatGateways_dryRun :: Lens.Lens' DescribeNatGateways (Core.Maybe Core.Bool)
 describeNatGateways_dryRun = Lens.lens (\DescribeNatGateways' {dryRun} -> dryRun) (\s@DescribeNatGateways' {} a -> s {dryRun = a} :: DescribeNatGateways)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeNatGateways_maxResults :: Lens.Lens' DescribeNatGateways (Prelude.Maybe Prelude.Natural)
+describeNatGateways_maxResults :: Lens.Lens' DescribeNatGateways (Core.Maybe Core.Natural)
 describeNatGateways_maxResults = Lens.lens (\DescribeNatGateways' {maxResults} -> maxResults) (\s@DescribeNatGateways' {} a -> s {maxResults = a} :: DescribeNatGateways)
 
 -- | One or more NAT gateway IDs.
-describeNatGateways_natGatewayIds :: Lens.Lens' DescribeNatGateways (Prelude.Maybe [Prelude.Text])
-describeNatGateways_natGatewayIds = Lens.lens (\DescribeNatGateways' {natGatewayIds} -> natGatewayIds) (\s@DescribeNatGateways' {} a -> s {natGatewayIds = a} :: DescribeNatGateways) Prelude.. Lens.mapping Prelude._Coerce
+describeNatGateways_natGatewayIds :: Lens.Lens' DescribeNatGateways (Core.Maybe [Core.Text])
+describeNatGateways_natGatewayIds = Lens.lens (\DescribeNatGateways' {natGatewayIds} -> natGatewayIds) (\s@DescribeNatGateways' {} a -> s {natGatewayIds = a} :: DescribeNatGateways) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -186,87 +184,85 @@ describeNatGateways_natGatewayIds = Lens.lens (\DescribeNatGateways' {natGateway
 --     regardless of the tag value.
 --
 -- -   @vpc-id@ - The ID of the VPC in which the NAT gateway resides.
-describeNatGateways_filter :: Lens.Lens' DescribeNatGateways (Prelude.Maybe [Filter])
-describeNatGateways_filter = Lens.lens (\DescribeNatGateways' {filter'} -> filter') (\s@DescribeNatGateways' {} a -> s {filter' = a} :: DescribeNatGateways) Prelude.. Lens.mapping Prelude._Coerce
+describeNatGateways_filter :: Lens.Lens' DescribeNatGateways (Core.Maybe [Filter])
+describeNatGateways_filter = Lens.lens (\DescribeNatGateways' {filter'} -> filter') (\s@DescribeNatGateways' {} a -> s {filter' = a} :: DescribeNatGateways) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeNatGateways where
+instance Core.AWSPager DescribeNatGateways where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeNatGatewaysResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeNatGatewaysResponse_natGateways
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeNatGateways_nextToken
           Lens..~ rs
           Lens.^? describeNatGatewaysResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeNatGateways where
+instance Core.AWSRequest DescribeNatGateways where
   type
-    Rs DescribeNatGateways =
+    AWSResponse DescribeNatGateways =
       DescribeNatGatewaysResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeNatGatewaysResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "natGatewaySet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "natGatewaySet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeNatGateways
+instance Core.Hashable DescribeNatGateways
 
-instance Prelude.NFData DescribeNatGateways
+instance Core.NFData DescribeNatGateways
 
-instance Prelude.ToHeaders DescribeNatGateways where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeNatGateways where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeNatGateways where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeNatGateways where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeNatGateways where
+instance Core.ToQuery DescribeNatGateways where
   toQuery DescribeNatGateways' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeNatGateways" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          ( Prelude.toQueryList "NatGatewayId"
-              Prelude.<$> natGatewayIds
+          Core.=: ("DescribeNatGateways" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          ( Core.toQueryList "NatGatewayId"
+              Core.<$> natGatewayIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filter')
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filter')
       ]
 
 -- | /See:/ 'newDescribeNatGatewaysResponse' smart constructor.
 data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the NAT gateways.
-    natGateways :: Prelude.Maybe [NatGateway],
+    natGateways :: Core.Maybe [NatGateway],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeNatGatewaysResponse' with all optional fields omitted.
@@ -284,27 +280,27 @@ data DescribeNatGatewaysResponse = DescribeNatGatewaysResponse'
 -- 'httpStatus', 'describeNatGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeNatGatewaysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeNatGatewaysResponse
 newDescribeNatGatewaysResponse pHttpStatus_ =
   DescribeNatGatewaysResponse'
     { nextToken =
-        Prelude.Nothing,
-      natGateways = Prelude.Nothing,
+        Core.Nothing,
+      natGateways = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeNatGatewaysResponse_nextToken :: Lens.Lens' DescribeNatGatewaysResponse (Prelude.Maybe Prelude.Text)
+describeNatGatewaysResponse_nextToken :: Lens.Lens' DescribeNatGatewaysResponse (Core.Maybe Core.Text)
 describeNatGatewaysResponse_nextToken = Lens.lens (\DescribeNatGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeNatGatewaysResponse' {} a -> s {nextToken = a} :: DescribeNatGatewaysResponse)
 
 -- | Information about the NAT gateways.
-describeNatGatewaysResponse_natGateways :: Lens.Lens' DescribeNatGatewaysResponse (Prelude.Maybe [NatGateway])
-describeNatGatewaysResponse_natGateways = Lens.lens (\DescribeNatGatewaysResponse' {natGateways} -> natGateways) (\s@DescribeNatGatewaysResponse' {} a -> s {natGateways = a} :: DescribeNatGatewaysResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeNatGatewaysResponse_natGateways :: Lens.Lens' DescribeNatGatewaysResponse (Core.Maybe [NatGateway])
+describeNatGatewaysResponse_natGateways = Lens.lens (\DescribeNatGatewaysResponse' {natGateways} -> natGateways) (\s@DescribeNatGatewaysResponse' {} a -> s {natGateways = a} :: DescribeNatGatewaysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeNatGatewaysResponse_httpStatus :: Lens.Lens' DescribeNatGatewaysResponse Prelude.Int
+describeNatGatewaysResponse_httpStatus :: Lens.Lens' DescribeNatGatewaysResponse Core.Int
 describeNatGatewaysResponse_httpStatus = Lens.lens (\DescribeNatGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeNatGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeNatGatewaysResponse)
 
-instance Prelude.NFData DescribeNatGatewaysResponse
+instance Core.NFData DescribeNatGatewaysResponse

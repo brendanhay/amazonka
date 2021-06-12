@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,9 +64,9 @@ module Network.AWS.DynamoDB.DeleteItem
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,7 +78,7 @@ data DeleteItem = DeleteItem'
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expected :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue),
+    expected :: Core.Maybe (Core.HashMap Core.Text ExpectedAttributeValue),
     -- | One or more values that can be substituted in an expression.
     --
     -- Use the __:__ (colon) character in an expression to dereference an
@@ -99,12 +98,12 @@ data DeleteItem = DeleteItem'
     -- For more information on expression attribute values, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    expressionAttributeValues :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
     -- | Determines whether item collection metrics are returned. If set to
     -- @SIZE@, the response includes statistics about item collections, if any,
     -- that were modified during the operation are returned in the response. If
     -- set to @NONE@ (the default), no statistics are returned.
-    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
+    returnItemCollectionMetrics :: Core.Maybe ReturnItemCollectionMetrics,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -142,7 +141,7 @@ data DeleteItem = DeleteItem'
     -- For more information on expression attribute names, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    expressionAttributeNames :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Use @ReturnValues@ if you want to get the item attributes as they
     -- appeared before they were deleted. For @DeleteItem@, the valid values
     -- are:
@@ -156,7 +155,7 @@ data DeleteItem = DeleteItem'
     -- The @ReturnValues@ parameter is used by several DynamoDB operations;
     -- however, @DeleteItem@ does not recognize any values other than @NONE@ or
     -- @ALL_OLD@.
-    returnValues :: Prelude.Maybe ReturnValue,
+    returnValues :: Core.Maybe ReturnValue,
     -- | A condition that must be satisfied in order for a conditional
     -- @DeleteItem@ to succeed.
     --
@@ -174,15 +173,15 @@ data DeleteItem = DeleteItem'
     -- For more information about condition expressions, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
-    conditionExpression :: Prelude.Maybe Prelude.Text,
-    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
+    conditionExpression :: Core.Maybe Core.Text,
+    returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
     -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
     -- in the /Amazon DynamoDB Developer Guide/.
-    conditionalOperator :: Prelude.Maybe ConditionalOperator,
+    conditionalOperator :: Core.Maybe ConditionalOperator,
     -- | The name of the table from which to delete the item.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A map of attribute names to @AttributeValue@ objects, representing the
     -- primary key of the item to delete.
     --
@@ -190,9 +189,9 @@ data DeleteItem = DeleteItem'
     -- example, with a simple primary key, you only need to provide a value for
     -- the partition key. For a composite primary key, you must provide values
     -- for both the partition key and the sort key.
-    key :: Prelude.HashMap Prelude.Text AttributeValue
+    key :: Core.HashMap Core.Text AttributeValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteItem' with all optional fields omitted.
@@ -320,28 +319,28 @@ data DeleteItem = DeleteItem'
 -- for both the partition key and the sort key.
 newDeleteItem ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteItem
 newDeleteItem pTableName_ =
   DeleteItem'
-    { expected = Prelude.Nothing,
-      expressionAttributeValues = Prelude.Nothing,
-      returnItemCollectionMetrics = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
-      returnValues = Prelude.Nothing,
-      conditionExpression = Prelude.Nothing,
-      returnConsumedCapacity = Prelude.Nothing,
-      conditionalOperator = Prelude.Nothing,
+    { expected = Core.Nothing,
+      expressionAttributeValues = Core.Nothing,
+      returnItemCollectionMetrics = Core.Nothing,
+      expressionAttributeNames = Core.Nothing,
+      returnValues = Core.Nothing,
+      conditionExpression = Core.Nothing,
+      returnConsumedCapacity = Core.Nothing,
+      conditionalOperator = Core.Nothing,
       tableName = pTableName_,
-      key = Prelude.mempty
+      key = Core.mempty
     }
 
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
 -- in the /Amazon DynamoDB Developer Guide/.
-deleteItem_expected :: Lens.Lens' DeleteItem (Prelude.Maybe (Prelude.HashMap Prelude.Text ExpectedAttributeValue))
-deleteItem_expected = Lens.lens (\DeleteItem' {expected} -> expected) (\s@DeleteItem' {} a -> s {expected = a} :: DeleteItem) Prelude.. Lens.mapping Prelude._Coerce
+deleteItem_expected :: Lens.Lens' DeleteItem (Core.Maybe (Core.HashMap Core.Text ExpectedAttributeValue))
+deleteItem_expected = Lens.lens (\DeleteItem' {expected} -> expected) (\s@DeleteItem' {} a -> s {expected = a} :: DeleteItem) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -362,14 +361,14 @@ deleteItem_expected = Lens.lens (\DeleteItem' {expected} -> expected) (\s@Delete
 -- For more information on expression attribute values, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
-deleteItem_expressionAttributeValues :: Lens.Lens' DeleteItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-deleteItem_expressionAttributeValues = Lens.lens (\DeleteItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@DeleteItem' {} a -> s {expressionAttributeValues = a} :: DeleteItem) Prelude.. Lens.mapping Prelude._Coerce
+deleteItem_expressionAttributeValues :: Lens.Lens' DeleteItem (Core.Maybe (Core.HashMap Core.Text AttributeValue))
+deleteItem_expressionAttributeValues = Lens.lens (\DeleteItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@DeleteItem' {} a -> s {expressionAttributeValues = a} :: DeleteItem) Core.. Lens.mapping Lens._Coerce
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-deleteItem_returnItemCollectionMetrics :: Lens.Lens' DeleteItem (Prelude.Maybe ReturnItemCollectionMetrics)
+deleteItem_returnItemCollectionMetrics :: Lens.Lens' DeleteItem (Core.Maybe ReturnItemCollectionMetrics)
 deleteItem_returnItemCollectionMetrics = Lens.lens (\DeleteItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@DeleteItem' {} a -> s {returnItemCollectionMetrics = a} :: DeleteItem)
 
 -- | One or more substitution tokens for attribute names in an expression.
@@ -409,8 +408,8 @@ deleteItem_returnItemCollectionMetrics = Lens.lens (\DeleteItem' {returnItemColl
 -- For more information on expression attribute names, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-deleteItem_expressionAttributeNames :: Lens.Lens' DeleteItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-deleteItem_expressionAttributeNames = Lens.lens (\DeleteItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@DeleteItem' {} a -> s {expressionAttributeNames = a} :: DeleteItem) Prelude.. Lens.mapping Prelude._Coerce
+deleteItem_expressionAttributeNames :: Lens.Lens' DeleteItem (Core.Maybe (Core.HashMap Core.Text Core.Text))
+deleteItem_expressionAttributeNames = Lens.lens (\DeleteItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@DeleteItem' {} a -> s {expressionAttributeNames = a} :: DeleteItem) Core.. Lens.mapping Lens._Coerce
 
 -- | Use @ReturnValues@ if you want to get the item attributes as they
 -- appeared before they were deleted. For @DeleteItem@, the valid values
@@ -425,7 +424,7 @@ deleteItem_expressionAttributeNames = Lens.lens (\DeleteItem' {expressionAttribu
 -- The @ReturnValues@ parameter is used by several DynamoDB operations;
 -- however, @DeleteItem@ does not recognize any values other than @NONE@ or
 -- @ALL_OLD@.
-deleteItem_returnValues :: Lens.Lens' DeleteItem (Prelude.Maybe ReturnValue)
+deleteItem_returnValues :: Lens.Lens' DeleteItem (Core.Maybe ReturnValue)
 deleteItem_returnValues = Lens.lens (\DeleteItem' {returnValues} -> returnValues) (\s@DeleteItem' {} a -> s {returnValues = a} :: DeleteItem)
 
 -- | A condition that must be satisfied in order for a conditional
@@ -445,22 +444,22 @@ deleteItem_returnValues = Lens.lens (\DeleteItem' {returnValues} -> returnValues
 -- For more information about condition expressions, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
-deleteItem_conditionExpression :: Lens.Lens' DeleteItem (Prelude.Maybe Prelude.Text)
+deleteItem_conditionExpression :: Lens.Lens' DeleteItem (Core.Maybe Core.Text)
 deleteItem_conditionExpression = Lens.lens (\DeleteItem' {conditionExpression} -> conditionExpression) (\s@DeleteItem' {} a -> s {conditionExpression = a} :: DeleteItem)
 
 -- | Undocumented member.
-deleteItem_returnConsumedCapacity :: Lens.Lens' DeleteItem (Prelude.Maybe ReturnConsumedCapacity)
+deleteItem_returnConsumedCapacity :: Lens.Lens' DeleteItem (Core.Maybe ReturnConsumedCapacity)
 deleteItem_returnConsumedCapacity = Lens.lens (\DeleteItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@DeleteItem' {} a -> s {returnConsumedCapacity = a} :: DeleteItem)
 
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html ConditionalOperator>
 -- in the /Amazon DynamoDB Developer Guide/.
-deleteItem_conditionalOperator :: Lens.Lens' DeleteItem (Prelude.Maybe ConditionalOperator)
+deleteItem_conditionalOperator :: Lens.Lens' DeleteItem (Core.Maybe ConditionalOperator)
 deleteItem_conditionalOperator = Lens.lens (\DeleteItem' {conditionalOperator} -> conditionalOperator) (\s@DeleteItem' {} a -> s {conditionalOperator = a} :: DeleteItem)
 
 -- | The name of the table from which to delete the item.
-deleteItem_tableName :: Lens.Lens' DeleteItem Prelude.Text
+deleteItem_tableName :: Lens.Lens' DeleteItem Core.Text
 deleteItem_tableName = Lens.lens (\DeleteItem' {tableName} -> tableName) (\s@DeleteItem' {} a -> s {tableName = a} :: DeleteItem)
 
 -- | A map of attribute names to @AttributeValue@ objects, representing the
@@ -470,71 +469,65 @@ deleteItem_tableName = Lens.lens (\DeleteItem' {tableName} -> tableName) (\s@Del
 -- example, with a simple primary key, you only need to provide a value for
 -- the partition key. For a composite primary key, you must provide values
 -- for both the partition key and the sort key.
-deleteItem_key :: Lens.Lens' DeleteItem (Prelude.HashMap Prelude.Text AttributeValue)
-deleteItem_key = Lens.lens (\DeleteItem' {key} -> key) (\s@DeleteItem' {} a -> s {key = a} :: DeleteItem) Prelude.. Prelude._Coerce
+deleteItem_key :: Lens.Lens' DeleteItem (Core.HashMap Core.Text AttributeValue)
+deleteItem_key = Lens.lens (\DeleteItem' {key} -> key) (\s@DeleteItem' {} a -> s {key = a} :: DeleteItem) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteItem where
-  type Rs DeleteItem = DeleteItemResponse
+instance Core.AWSRequest DeleteItem where
+  type AWSResponse DeleteItem = DeleteItemResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteItemResponse'
-            Prelude.<$> (x Prelude..?> "ItemCollectionMetrics")
-            Prelude.<*> ( x Prelude..?> "Attributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "ConsumedCapacity")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ItemCollectionMetrics")
+            Core.<*> (x Core..?> "Attributes" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ConsumedCapacity")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteItem
+instance Core.Hashable DeleteItem
 
-instance Prelude.NFData DeleteItem
+instance Core.NFData DeleteItem
 
-instance Prelude.ToHeaders DeleteItem where
+instance Core.ToHeaders DeleteItem where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.DeleteItem" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DynamoDB_20120810.DeleteItem" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteItem where
+instance Core.ToJSON DeleteItem where
   toJSON DeleteItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Expected" Prelude..=) Prelude.<$> expected,
-            ("ExpressionAttributeValues" Prelude..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ReturnItemCollectionMetrics" Prelude..=)
-              Prelude.<$> returnItemCollectionMetrics,
-            ("ExpressionAttributeNames" Prelude..=)
-              Prelude.<$> expressionAttributeNames,
-            ("ReturnValues" Prelude..=) Prelude.<$> returnValues,
-            ("ConditionExpression" Prelude..=)
-              Prelude.<$> conditionExpression,
-            ("ReturnConsumedCapacity" Prelude..=)
-              Prelude.<$> returnConsumedCapacity,
-            ("ConditionalOperator" Prelude..=)
-              Prelude.<$> conditionalOperator,
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just ("Key" Prelude..= key)
+    Core.object
+      ( Core.catMaybes
+          [ ("Expected" Core..=) Core.<$> expected,
+            ("ExpressionAttributeValues" Core..=)
+              Core.<$> expressionAttributeValues,
+            ("ReturnItemCollectionMetrics" Core..=)
+              Core.<$> returnItemCollectionMetrics,
+            ("ExpressionAttributeNames" Core..=)
+              Core.<$> expressionAttributeNames,
+            ("ReturnValues" Core..=) Core.<$> returnValues,
+            ("ConditionExpression" Core..=)
+              Core.<$> conditionExpression,
+            ("ReturnConsumedCapacity" Core..=)
+              Core.<$> returnConsumedCapacity,
+            ("ConditionalOperator" Core..=)
+              Core.<$> conditionalOperator,
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("Key" Core..= key)
           ]
       )
 
-instance Prelude.ToPath DeleteItem where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteItem where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteItem where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteItem where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DeleteItem@ operation.
 --
@@ -562,12 +555,12 @@ data DeleteItemResponse = DeleteItemResponse'
     --
     --     The estimate is subject to change over time; therefore, do not rely
     --     on the precision or accuracy of the estimate.
-    itemCollectionMetrics :: Prelude.Maybe ItemCollectionMetrics,
+    itemCollectionMetrics :: Core.Maybe ItemCollectionMetrics,
     -- | A map of attribute names to @AttributeValue@ objects, representing the
     -- item as it appeared before the @DeleteItem@ operation. This map appears
     -- in the response only if @ReturnValues@ was specified as @ALL_OLD@ in the
     -- request.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    attributes :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
     -- | The capacity units consumed by the @DeleteItem@ operation. The data
     -- returned includes the total provisioned throughput consumed, along with
     -- statistics for the table and any indexes involved in the operation.
@@ -575,11 +568,11 @@ data DeleteItemResponse = DeleteItemResponse'
     -- parameter was specified. For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode>
     -- in the /Amazon DynamoDB Developer Guide/.
-    consumedCapacity :: Prelude.Maybe ConsumedCapacity,
+    consumedCapacity :: Core.Maybe ConsumedCapacity,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteItemResponse' with all optional fields omitted.
@@ -628,14 +621,14 @@ data DeleteItemResponse = DeleteItemResponse'
 -- 'httpStatus', 'deleteItemResponse_httpStatus' - The response's http status code.
 newDeleteItemResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteItemResponse
 newDeleteItemResponse pHttpStatus_ =
   DeleteItemResponse'
     { itemCollectionMetrics =
-        Prelude.Nothing,
-      attributes = Prelude.Nothing,
-      consumedCapacity = Prelude.Nothing,
+        Core.Nothing,
+      attributes = Core.Nothing,
+      consumedCapacity = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -661,15 +654,15 @@ newDeleteItemResponse pHttpStatus_ =
 --
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
-deleteItemResponse_itemCollectionMetrics :: Lens.Lens' DeleteItemResponse (Prelude.Maybe ItemCollectionMetrics)
+deleteItemResponse_itemCollectionMetrics :: Lens.Lens' DeleteItemResponse (Core.Maybe ItemCollectionMetrics)
 deleteItemResponse_itemCollectionMetrics = Lens.lens (\DeleteItemResponse' {itemCollectionMetrics} -> itemCollectionMetrics) (\s@DeleteItemResponse' {} a -> s {itemCollectionMetrics = a} :: DeleteItemResponse)
 
 -- | A map of attribute names to @AttributeValue@ objects, representing the
 -- item as it appeared before the @DeleteItem@ operation. This map appears
 -- in the response only if @ReturnValues@ was specified as @ALL_OLD@ in the
 -- request.
-deleteItemResponse_attributes :: Lens.Lens' DeleteItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-deleteItemResponse_attributes = Lens.lens (\DeleteItemResponse' {attributes} -> attributes) (\s@DeleteItemResponse' {} a -> s {attributes = a} :: DeleteItemResponse) Prelude.. Lens.mapping Prelude._Coerce
+deleteItemResponse_attributes :: Lens.Lens' DeleteItemResponse (Core.Maybe (Core.HashMap Core.Text AttributeValue))
+deleteItemResponse_attributes = Lens.lens (\DeleteItemResponse' {attributes} -> attributes) (\s@DeleteItemResponse' {} a -> s {attributes = a} :: DeleteItemResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The capacity units consumed by the @DeleteItem@ operation. The data
 -- returned includes the total provisioned throughput consumed, along with
@@ -678,11 +671,11 @@ deleteItemResponse_attributes = Lens.lens (\DeleteItemResponse' {attributes} -> 
 -- parameter was specified. For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode>
 -- in the /Amazon DynamoDB Developer Guide/.
-deleteItemResponse_consumedCapacity :: Lens.Lens' DeleteItemResponse (Prelude.Maybe ConsumedCapacity)
+deleteItemResponse_consumedCapacity :: Lens.Lens' DeleteItemResponse (Core.Maybe ConsumedCapacity)
 deleteItemResponse_consumedCapacity = Lens.lens (\DeleteItemResponse' {consumedCapacity} -> consumedCapacity) (\s@DeleteItemResponse' {} a -> s {consumedCapacity = a} :: DeleteItemResponse)
 
 -- | The response's http status code.
-deleteItemResponse_httpStatus :: Lens.Lens' DeleteItemResponse Prelude.Int
+deleteItemResponse_httpStatus :: Lens.Lens' DeleteItemResponse Core.Int
 deleteItemResponse_httpStatus = Lens.lens (\DeleteItemResponse' {httpStatus} -> httpStatus) (\s@DeleteItemResponse' {} a -> s {httpStatus = a} :: DeleteItemResponse)
 
-instance Prelude.NFData DeleteItemResponse
+instance Core.NFData DeleteItemResponse

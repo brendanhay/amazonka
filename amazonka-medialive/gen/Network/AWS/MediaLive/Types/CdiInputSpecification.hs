@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.CdiInputSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.CdiInputResolution
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for CdiInputSpecification
 --
 -- /See:/ 'newCdiInputSpecification' smart constructor.
 data CdiInputSpecification = CdiInputSpecification'
   { -- | Maximum CDI input resolution
-    resolution :: Prelude.Maybe CdiInputResolution
+    resolution :: Core.Maybe CdiInputResolution
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CdiInputSpecification' with all optional fields omitted.
@@ -45,31 +44,28 @@ data CdiInputSpecification = CdiInputSpecification'
 newCdiInputSpecification ::
   CdiInputSpecification
 newCdiInputSpecification =
-  CdiInputSpecification'
-    { resolution =
-        Prelude.Nothing
-    }
+  CdiInputSpecification' {resolution = Core.Nothing}
 
 -- | Maximum CDI input resolution
-cdiInputSpecification_resolution :: Lens.Lens' CdiInputSpecification (Prelude.Maybe CdiInputResolution)
+cdiInputSpecification_resolution :: Lens.Lens' CdiInputSpecification (Core.Maybe CdiInputResolution)
 cdiInputSpecification_resolution = Lens.lens (\CdiInputSpecification' {resolution} -> resolution) (\s@CdiInputSpecification' {} a -> s {resolution = a} :: CdiInputSpecification)
 
-instance Prelude.FromJSON CdiInputSpecification where
+instance Core.FromJSON CdiInputSpecification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CdiInputSpecification"
       ( \x ->
           CdiInputSpecification'
-            Prelude.<$> (x Prelude..:? "resolution")
+            Core.<$> (x Core..:? "resolution")
       )
 
-instance Prelude.Hashable CdiInputSpecification
+instance Core.Hashable CdiInputSpecification
 
-instance Prelude.NFData CdiInputSpecification
+instance Core.NFData CdiInputSpecification
 
-instance Prelude.ToJSON CdiInputSpecification where
+instance Core.ToJSON CdiInputSpecification where
   toJSON CdiInputSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("resolution" Prelude..=) Prelude.<$> resolution]
+    Core.object
+      ( Core.catMaybes
+          [("resolution" Core..=) Core.<$> resolution]
       )

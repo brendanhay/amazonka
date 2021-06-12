@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.SES.VerifyEmailAddress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -50,9 +49,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newVerifyEmailAddress' smart constructor.
 data VerifyEmailAddress = VerifyEmailAddress'
   { -- | The email address to be verified.
-    emailAddress :: Prelude.Text
+    emailAddress :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailAddress' with all optional fields omitted.
@@ -65,48 +64,47 @@ data VerifyEmailAddress = VerifyEmailAddress'
 -- 'emailAddress', 'verifyEmailAddress_emailAddress' - The email address to be verified.
 newVerifyEmailAddress ::
   -- | 'emailAddress'
-  Prelude.Text ->
+  Core.Text ->
   VerifyEmailAddress
 newVerifyEmailAddress pEmailAddress_ =
   VerifyEmailAddress' {emailAddress = pEmailAddress_}
 
 -- | The email address to be verified.
-verifyEmailAddress_emailAddress :: Lens.Lens' VerifyEmailAddress Prelude.Text
+verifyEmailAddress_emailAddress :: Lens.Lens' VerifyEmailAddress Core.Text
 verifyEmailAddress_emailAddress = Lens.lens (\VerifyEmailAddress' {emailAddress} -> emailAddress) (\s@VerifyEmailAddress' {} a -> s {emailAddress = a} :: VerifyEmailAddress)
 
-instance Prelude.AWSRequest VerifyEmailAddress where
+instance Core.AWSRequest VerifyEmailAddress where
   type
-    Rs VerifyEmailAddress =
+    AWSResponse VerifyEmailAddress =
       VerifyEmailAddressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull VerifyEmailAddressResponse'
 
-instance Prelude.Hashable VerifyEmailAddress
+instance Core.Hashable VerifyEmailAddress
 
-instance Prelude.NFData VerifyEmailAddress
+instance Core.NFData VerifyEmailAddress
 
-instance Prelude.ToHeaders VerifyEmailAddress where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders VerifyEmailAddress where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath VerifyEmailAddress where
-  toPath = Prelude.const "/"
+instance Core.ToPath VerifyEmailAddress where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery VerifyEmailAddress where
+instance Core.ToQuery VerifyEmailAddress where
   toQuery VerifyEmailAddress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("VerifyEmailAddress" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EmailAddress" Prelude.=: emailAddress
+          Core.=: ("VerifyEmailAddress" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EmailAddress" Core.=: emailAddress
       ]
 
 -- | /See:/ 'newVerifyEmailAddressResponse' smart constructor.
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VerifyEmailAddressResponse' with all optional fields omitted.
@@ -117,4 +115,4 @@ newVerifyEmailAddressResponse ::
 newVerifyEmailAddressResponse =
   VerifyEmailAddressResponse'
 
-instance Prelude.NFData VerifyEmailAddressResponse
+instance Core.NFData VerifyEmailAddressResponse

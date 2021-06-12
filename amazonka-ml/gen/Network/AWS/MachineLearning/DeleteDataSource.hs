@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,18 +46,18 @@ module Network.AWS.MachineLearning.DeleteDataSource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDataSource' smart constructor.
 data DeleteDataSource = DeleteDataSource'
   { -- | A user-supplied ID that uniquely identifies the @DataSource@.
-    dataSourceId :: Prelude.Text
+    dataSourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDataSource' with all optional fields omitted.
@@ -71,59 +70,57 @@ data DeleteDataSource = DeleteDataSource'
 -- 'dataSourceId', 'deleteDataSource_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@.
 newDeleteDataSource ::
   -- | 'dataSourceId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDataSource
 newDeleteDataSource pDataSourceId_ =
   DeleteDataSource' {dataSourceId = pDataSourceId_}
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
-deleteDataSource_dataSourceId :: Lens.Lens' DeleteDataSource Prelude.Text
+deleteDataSource_dataSourceId :: Lens.Lens' DeleteDataSource Core.Text
 deleteDataSource_dataSourceId = Lens.lens (\DeleteDataSource' {dataSourceId} -> dataSourceId) (\s@DeleteDataSource' {} a -> s {dataSourceId = a} :: DeleteDataSource)
 
-instance Prelude.AWSRequest DeleteDataSource where
-  type Rs DeleteDataSource = DeleteDataSourceResponse
+instance Core.AWSRequest DeleteDataSource where
+  type
+    AWSResponse DeleteDataSource =
+      DeleteDataSourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteDataSourceResponse'
-            Prelude.<$> (x Prelude..?> "DataSourceId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DataSourceId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDataSource
+instance Core.Hashable DeleteDataSource
 
-instance Prelude.NFData DeleteDataSource
+instance Core.NFData DeleteDataSource
 
-instance Prelude.ToHeaders DeleteDataSource where
+instance Core.ToHeaders DeleteDataSource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.DeleteDataSource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.DeleteDataSource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDataSource where
+instance Core.ToJSON DeleteDataSource where
   toJSON DeleteDataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DataSourceId" Prelude..= dataSourceId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DataSourceId" Core..= dataSourceId)]
       )
 
-instance Prelude.ToPath DeleteDataSource where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDataSource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDataSource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDataSource where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DeleteDataSource@ operation.
 --
@@ -131,11 +128,11 @@ instance Prelude.ToQuery DeleteDataSource where
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
   { -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
     -- should be identical to the value of the @DataSourceID@ in the request.
-    dataSourceId :: Prelude.Maybe Prelude.Text,
+    dataSourceId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDataSourceResponse' with all optional fields omitted.
@@ -151,22 +148,22 @@ data DeleteDataSourceResponse = DeleteDataSourceResponse'
 -- 'httpStatus', 'deleteDataSourceResponse_httpStatus' - The response's http status code.
 newDeleteDataSourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDataSourceResponse
 newDeleteDataSourceResponse pHttpStatus_ =
   DeleteDataSourceResponse'
     { dataSourceId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-deleteDataSourceResponse_dataSourceId :: Lens.Lens' DeleteDataSourceResponse (Prelude.Maybe Prelude.Text)
+deleteDataSourceResponse_dataSourceId :: Lens.Lens' DeleteDataSourceResponse (Core.Maybe Core.Text)
 deleteDataSourceResponse_dataSourceId = Lens.lens (\DeleteDataSourceResponse' {dataSourceId} -> dataSourceId) (\s@DeleteDataSourceResponse' {} a -> s {dataSourceId = a} :: DeleteDataSourceResponse)
 
 -- | The response's http status code.
-deleteDataSourceResponse_httpStatus :: Lens.Lens' DeleteDataSourceResponse Prelude.Int
+deleteDataSourceResponse_httpStatus :: Lens.Lens' DeleteDataSourceResponse Core.Int
 deleteDataSourceResponse_httpStatus = Lens.lens (\DeleteDataSourceResponse' {httpStatus} -> httpStatus) (\s@DeleteDataSourceResponse' {} a -> s {httpStatus = a} :: DeleteDataSourceResponse)
 
-instance Prelude.NFData DeleteDataSourceResponse
+instance Core.NFData DeleteDataSourceResponse

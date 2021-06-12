@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,22 +49,22 @@ module Network.AWS.Connect.SuspendContactRecording
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSuspendContactRecording' smart constructor.
 data SuspendContactRecording = SuspendContactRecording'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier of the contact.
-    contactId :: Prelude.Text,
+    contactId :: Core.Text,
     -- | The identifier of the contact. This is the identifier of the contact
     -- associated with the first interaction with the contact center.
-    initialContactId :: Prelude.Text
+    initialContactId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuspendContactRecording' with all optional fields omitted.
@@ -83,11 +82,11 @@ data SuspendContactRecording = SuspendContactRecording'
 -- associated with the first interaction with the contact center.
 newSuspendContactRecording ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'contactId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'initialContactId'
-  Prelude.Text ->
+  Core.Text ->
   SuspendContactRecording
 newSuspendContactRecording
   pInstanceId_
@@ -100,68 +99,66 @@ newSuspendContactRecording
       }
 
 -- | The identifier of the Amazon Connect instance.
-suspendContactRecording_instanceId :: Lens.Lens' SuspendContactRecording Prelude.Text
+suspendContactRecording_instanceId :: Lens.Lens' SuspendContactRecording Core.Text
 suspendContactRecording_instanceId = Lens.lens (\SuspendContactRecording' {instanceId} -> instanceId) (\s@SuspendContactRecording' {} a -> s {instanceId = a} :: SuspendContactRecording)
 
 -- | The identifier of the contact.
-suspendContactRecording_contactId :: Lens.Lens' SuspendContactRecording Prelude.Text
+suspendContactRecording_contactId :: Lens.Lens' SuspendContactRecording Core.Text
 suspendContactRecording_contactId = Lens.lens (\SuspendContactRecording' {contactId} -> contactId) (\s@SuspendContactRecording' {} a -> s {contactId = a} :: SuspendContactRecording)
 
 -- | The identifier of the contact. This is the identifier of the contact
 -- associated with the first interaction with the contact center.
-suspendContactRecording_initialContactId :: Lens.Lens' SuspendContactRecording Prelude.Text
+suspendContactRecording_initialContactId :: Lens.Lens' SuspendContactRecording Core.Text
 suspendContactRecording_initialContactId = Lens.lens (\SuspendContactRecording' {initialContactId} -> initialContactId) (\s@SuspendContactRecording' {} a -> s {initialContactId = a} :: SuspendContactRecording)
 
-instance Prelude.AWSRequest SuspendContactRecording where
+instance Core.AWSRequest SuspendContactRecording where
   type
-    Rs SuspendContactRecording =
+    AWSResponse SuspendContactRecording =
       SuspendContactRecordingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           SuspendContactRecordingResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SuspendContactRecording
+instance Core.Hashable SuspendContactRecording
 
-instance Prelude.NFData SuspendContactRecording
+instance Core.NFData SuspendContactRecording
 
-instance Prelude.ToHeaders SuspendContactRecording where
+instance Core.ToHeaders SuspendContactRecording where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SuspendContactRecording where
+instance Core.ToJSON SuspendContactRecording where
   toJSON SuspendContactRecording' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Prelude..= instanceId),
-            Prelude.Just ("ContactId" Prelude..= contactId),
-            Prelude.Just
-              ("InitialContactId" Prelude..= initialContactId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("ContactId" Core..= contactId),
+            Core.Just
+              ("InitialContactId" Core..= initialContactId)
           ]
       )
 
-instance Prelude.ToPath SuspendContactRecording where
-  toPath = Prelude.const "/contact/suspend-recording"
+instance Core.ToPath SuspendContactRecording where
+  toPath = Core.const "/contact/suspend-recording"
 
-instance Prelude.ToQuery SuspendContactRecording where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SuspendContactRecording where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSuspendContactRecordingResponse' smart constructor.
 data SuspendContactRecordingResponse = SuspendContactRecordingResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuspendContactRecordingResponse' with all optional fields omitted.
@@ -174,7 +171,7 @@ data SuspendContactRecordingResponse = SuspendContactRecordingResponse'
 -- 'httpStatus', 'suspendContactRecordingResponse_httpStatus' - The response's http status code.
 newSuspendContactRecordingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SuspendContactRecordingResponse
 newSuspendContactRecordingResponse pHttpStatus_ =
   SuspendContactRecordingResponse'
@@ -183,9 +180,7 @@ newSuspendContactRecordingResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-suspendContactRecordingResponse_httpStatus :: Lens.Lens' SuspendContactRecordingResponse Prelude.Int
+suspendContactRecordingResponse_httpStatus :: Lens.Lens' SuspendContactRecordingResponse Core.Int
 suspendContactRecordingResponse_httpStatus = Lens.lens (\SuspendContactRecordingResponse' {httpStatus} -> httpStatus) (\s@SuspendContactRecordingResponse' {} a -> s {httpStatus = a} :: SuspendContactRecordingResponse)
 
-instance
-  Prelude.NFData
-    SuspendContactRecordingResponse
+instance Core.NFData SuspendContactRecordingResponse

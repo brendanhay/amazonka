@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AlexaBusiness.Types.MeetingSetting where
 
 import Network.AWS.AlexaBusiness.Types.RequirePin
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The values that indicate whether a pin is always required (YES), never
 -- required (NO), or OPTIONAL.
@@ -39,7 +38,7 @@ data MeetingSetting = MeetingSetting'
   { -- | The values that indicate whether the pin is always required.
     requirePin :: RequirePin
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MeetingSetting' with all optional fields omitted.
@@ -61,22 +60,21 @@ newMeetingSetting pRequirePin_ =
 meetingSetting_requirePin :: Lens.Lens' MeetingSetting RequirePin
 meetingSetting_requirePin = Lens.lens (\MeetingSetting' {requirePin} -> requirePin) (\s@MeetingSetting' {} a -> s {requirePin = a} :: MeetingSetting)
 
-instance Prelude.FromJSON MeetingSetting where
+instance Core.FromJSON MeetingSetting where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MeetingSetting"
       ( \x ->
-          MeetingSetting'
-            Prelude.<$> (x Prelude..: "RequirePin")
+          MeetingSetting' Core.<$> (x Core..: "RequirePin")
       )
 
-instance Prelude.Hashable MeetingSetting
+instance Core.Hashable MeetingSetting
 
-instance Prelude.NFData MeetingSetting
+instance Core.NFData MeetingSetting
 
-instance Prelude.ToJSON MeetingSetting where
+instance Core.ToJSON MeetingSetting where
   toJSON MeetingSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("RequirePin" Prelude..= requirePin)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RequirePin" Core..= requirePin)]
       )

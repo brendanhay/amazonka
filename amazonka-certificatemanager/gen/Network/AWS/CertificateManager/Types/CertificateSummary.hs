@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CertificateManager.Types.CertificateSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure is returned in the response object of ListCertificates
 -- action.
@@ -34,12 +33,12 @@ data CertificateSummary = CertificateSummary'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | Fully qualified domain name (FQDN), such as www.example.com or
     -- example.com, for the certificate.
-    domainName :: Prelude.Maybe Prelude.Text
+    domainName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CertificateSummary' with all optional fields omitted.
@@ -62,9 +61,8 @@ newCertificateSummary ::
   CertificateSummary
 newCertificateSummary =
   CertificateSummary'
-    { certificateArn =
-        Prelude.Nothing,
-      domainName = Prelude.Nothing
+    { certificateArn = Core.Nothing,
+      domainName = Core.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the certificate. This is of the form:
@@ -73,24 +71,24 @@ newCertificateSummary =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-certificateSummary_certificateArn :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
+certificateSummary_certificateArn :: Lens.Lens' CertificateSummary (Core.Maybe Core.Text)
 certificateSummary_certificateArn = Lens.lens (\CertificateSummary' {certificateArn} -> certificateArn) (\s@CertificateSummary' {} a -> s {certificateArn = a} :: CertificateSummary)
 
 -- | Fully qualified domain name (FQDN), such as www.example.com or
 -- example.com, for the certificate.
-certificateSummary_domainName :: Lens.Lens' CertificateSummary (Prelude.Maybe Prelude.Text)
+certificateSummary_domainName :: Lens.Lens' CertificateSummary (Core.Maybe Core.Text)
 certificateSummary_domainName = Lens.lens (\CertificateSummary' {domainName} -> domainName) (\s@CertificateSummary' {} a -> s {domainName = a} :: CertificateSummary)
 
-instance Prelude.FromJSON CertificateSummary where
+instance Core.FromJSON CertificateSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CertificateSummary"
       ( \x ->
           CertificateSummary'
-            Prelude.<$> (x Prelude..:? "CertificateArn")
-            Prelude.<*> (x Prelude..:? "DomainName")
+            Core.<$> (x Core..:? "CertificateArn")
+            Core.<*> (x Core..:? "DomainName")
       )
 
-instance Prelude.Hashable CertificateSummary
+instance Core.Hashable CertificateSummary
 
-instance Prelude.NFData CertificateSummary
+instance Core.NFData CertificateSummary

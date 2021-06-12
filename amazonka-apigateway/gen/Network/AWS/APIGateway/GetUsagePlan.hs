@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.APIGateway.GetUsagePlan
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetUsagePlan' smart constructor.
 data GetUsagePlan = GetUsagePlan'
   { -- | [Required] The identifier of the UsagePlan resource to be retrieved.
-    usagePlanId :: Prelude.Text
+    usagePlanId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUsagePlan' with all optional fields omitted.
@@ -72,39 +71,39 @@ data GetUsagePlan = GetUsagePlan'
 -- 'usagePlanId', 'getUsagePlan_usagePlanId' - [Required] The identifier of the UsagePlan resource to be retrieved.
 newGetUsagePlan ::
   -- | 'usagePlanId'
-  Prelude.Text ->
+  Core.Text ->
   GetUsagePlan
 newGetUsagePlan pUsagePlanId_ =
   GetUsagePlan' {usagePlanId = pUsagePlanId_}
 
 -- | [Required] The identifier of the UsagePlan resource to be retrieved.
-getUsagePlan_usagePlanId :: Lens.Lens' GetUsagePlan Prelude.Text
+getUsagePlan_usagePlanId :: Lens.Lens' GetUsagePlan Core.Text
 getUsagePlan_usagePlanId = Lens.lens (\GetUsagePlan' {usagePlanId} -> usagePlanId) (\s@GetUsagePlan' {} a -> s {usagePlanId = a} :: GetUsagePlan)
 
-instance Prelude.AWSRequest GetUsagePlan where
-  type Rs GetUsagePlan = UsagePlan
+instance Core.AWSRequest GetUsagePlan where
+  type AWSResponse GetUsagePlan = UsagePlan
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetUsagePlan
+instance Core.Hashable GetUsagePlan
 
-instance Prelude.NFData GetUsagePlan
+instance Core.NFData GetUsagePlan
 
-instance Prelude.ToHeaders GetUsagePlan where
+instance Core.ToHeaders GetUsagePlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetUsagePlan where
+instance Core.ToPath GetUsagePlan where
   toPath GetUsagePlan' {..} =
-    Prelude.mconcat
-      ["/usageplans/", Prelude.toBS usagePlanId]
+    Core.mconcat
+      ["/usageplans/", Core.toBS usagePlanId]
 
-instance Prelude.ToQuery GetUsagePlan where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetUsagePlan where
+  toQuery = Core.const Core.mempty

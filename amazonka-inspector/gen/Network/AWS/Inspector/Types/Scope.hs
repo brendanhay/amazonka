@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.Scope where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.ScopeType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type contains key-value pairs that identify various Amazon
 -- resources.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newScope' smart constructor.
 data Scope = Scope'
   { -- | The type of the scope.
-    key :: Prelude.Maybe ScopeType,
+    key :: Core.Maybe ScopeType,
     -- | The resource identifier for the specified scope type.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scope' with all optional fields omitted.
@@ -50,29 +49,25 @@ data Scope = Scope'
 newScope ::
   Scope
 newScope =
-  Scope'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
-    }
+  Scope' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The type of the scope.
-scope_key :: Lens.Lens' Scope (Prelude.Maybe ScopeType)
+scope_key :: Lens.Lens' Scope (Core.Maybe ScopeType)
 scope_key = Lens.lens (\Scope' {key} -> key) (\s@Scope' {} a -> s {key = a} :: Scope)
 
 -- | The resource identifier for the specified scope type.
-scope_value :: Lens.Lens' Scope (Prelude.Maybe Prelude.Text)
+scope_value :: Lens.Lens' Scope (Core.Maybe Core.Text)
 scope_value = Lens.lens (\Scope' {value} -> value) (\s@Scope' {} a -> s {value = a} :: Scope)
 
-instance Prelude.FromJSON Scope where
+instance Core.FromJSON Scope where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scope"
       ( \x ->
           Scope'
-            Prelude.<$> (x Prelude..:? "key")
-            Prelude.<*> (x Prelude..:? "value")
+            Core.<$> (x Core..:? "key") Core.<*> (x Core..:? "value")
       )
 
-instance Prelude.Hashable Scope
+instance Core.Hashable Scope
 
-instance Prelude.NFData Scope
+instance Core.NFData Scope

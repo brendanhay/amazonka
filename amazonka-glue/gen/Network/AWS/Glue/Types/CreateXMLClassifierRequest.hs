@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.CreateXMLClassifierRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an XML classifier for @CreateClassifier@ to create.
 --
@@ -33,13 +32,13 @@ data CreateXMLClassifierRequest = CreateXMLClassifierRequest'
     -- can be parsed as long as it ends with a closing tag (for example,
     -- @\<row item_a=\"A\" item_b=\"B\">\<\/row>@ is okay, but
     -- @\<row item_a=\"A\" item_b=\"B\" \/>@ is not).
-    rowTag :: Prelude.Maybe Prelude.Text,
+    rowTag :: Core.Maybe Core.Text,
     -- | An identifier of the data format that the classifier matches.
-    classification :: Prelude.Text,
+    classification :: Core.Text,
     -- | The name of the classifier.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateXMLClassifierRequest' with all optional fields omitted.
@@ -61,14 +60,13 @@ data CreateXMLClassifierRequest = CreateXMLClassifierRequest'
 -- 'name', 'createXMLClassifierRequest_name' - The name of the classifier.
 newCreateXMLClassifierRequest ::
   -- | 'classification'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateXMLClassifierRequest
 newCreateXMLClassifierRequest pClassification_ pName_ =
   CreateXMLClassifierRequest'
-    { rowTag =
-        Prelude.Nothing,
+    { rowTag = Core.Nothing,
       classification = pClassification_,
       name = pName_
     }
@@ -79,28 +77,27 @@ newCreateXMLClassifierRequest pClassification_ pName_ =
 -- can be parsed as long as it ends with a closing tag (for example,
 -- @\<row item_a=\"A\" item_b=\"B\">\<\/row>@ is okay, but
 -- @\<row item_a=\"A\" item_b=\"B\" \/>@ is not).
-createXMLClassifierRequest_rowTag :: Lens.Lens' CreateXMLClassifierRequest (Prelude.Maybe Prelude.Text)
+createXMLClassifierRequest_rowTag :: Lens.Lens' CreateXMLClassifierRequest (Core.Maybe Core.Text)
 createXMLClassifierRequest_rowTag = Lens.lens (\CreateXMLClassifierRequest' {rowTag} -> rowTag) (\s@CreateXMLClassifierRequest' {} a -> s {rowTag = a} :: CreateXMLClassifierRequest)
 
 -- | An identifier of the data format that the classifier matches.
-createXMLClassifierRequest_classification :: Lens.Lens' CreateXMLClassifierRequest Prelude.Text
+createXMLClassifierRequest_classification :: Lens.Lens' CreateXMLClassifierRequest Core.Text
 createXMLClassifierRequest_classification = Lens.lens (\CreateXMLClassifierRequest' {classification} -> classification) (\s@CreateXMLClassifierRequest' {} a -> s {classification = a} :: CreateXMLClassifierRequest)
 
 -- | The name of the classifier.
-createXMLClassifierRequest_name :: Lens.Lens' CreateXMLClassifierRequest Prelude.Text
+createXMLClassifierRequest_name :: Lens.Lens' CreateXMLClassifierRequest Core.Text
 createXMLClassifierRequest_name = Lens.lens (\CreateXMLClassifierRequest' {name} -> name) (\s@CreateXMLClassifierRequest' {} a -> s {name = a} :: CreateXMLClassifierRequest)
 
-instance Prelude.Hashable CreateXMLClassifierRequest
+instance Core.Hashable CreateXMLClassifierRequest
 
-instance Prelude.NFData CreateXMLClassifierRequest
+instance Core.NFData CreateXMLClassifierRequest
 
-instance Prelude.ToJSON CreateXMLClassifierRequest where
+instance Core.ToJSON CreateXMLClassifierRequest where
   toJSON CreateXMLClassifierRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RowTag" Prelude..=) Prelude.<$> rowTag,
-            Prelude.Just
-              ("Classification" Prelude..= classification),
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("RowTag" Core..=) Core.<$> rowTag,
+            Core.Just ("Classification" Core..= classification),
+            Core.Just ("Name" Core..= name)
           ]
       )

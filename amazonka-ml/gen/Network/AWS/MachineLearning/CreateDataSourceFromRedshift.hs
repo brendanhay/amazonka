@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -80,9 +79,9 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,11 +92,11 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
     -- the statistics internally during @MLModel@ training. This parameter must
     -- be set to @true@ if the @DataSource@ needs to be used for @MLModel@
     -- training.
-    computeStatistics :: Prelude.Maybe Prelude.Bool,
+    computeStatistics :: Core.Maybe Core.Bool,
     -- | A user-supplied name or description of the @DataSource@.
-    dataSourceName :: Prelude.Maybe Prelude.Text,
+    dataSourceName :: Core.Maybe Core.Text,
     -- | A user-supplied ID that uniquely identifies the @DataSource@.
-    dataSourceId :: Prelude.Text,
+    dataSourceId :: Core.Text,
     -- | The data specification of an Amazon Redshift @DataSource@:
     --
     -- -   DatabaseInformation -
@@ -137,9 +136,9 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
     --
     -- -   An Amazon S3 bucket policy to grant Amazon ML read\/write
     --     permissions on the @S3StagingLocation@
-    roleARN :: Prelude.Text
+    roleARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDataSourceFromRedshift' with all optional fields omitted.
@@ -200,11 +199,11 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
 --     permissions on the @S3StagingLocation@
 newCreateDataSourceFromRedshift ::
   -- | 'dataSourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dataSpec'
   RedshiftDataSpec ->
   -- | 'roleARN'
-  Prelude.Text ->
+  Core.Text ->
   CreateDataSourceFromRedshift
 newCreateDataSourceFromRedshift
   pDataSourceId_
@@ -212,8 +211,8 @@ newCreateDataSourceFromRedshift
   pRoleARN_ =
     CreateDataSourceFromRedshift'
       { computeStatistics =
-          Prelude.Nothing,
-        dataSourceName = Prelude.Nothing,
+          Core.Nothing,
+        dataSourceName = Core.Nothing,
         dataSourceId = pDataSourceId_,
         dataSpec = pDataSpec_,
         roleARN = pRoleARN_
@@ -224,15 +223,15 @@ newCreateDataSourceFromRedshift
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @DataSource@ needs to be used for @MLModel@
 -- training.
-createDataSourceFromRedshift_computeStatistics :: Lens.Lens' CreateDataSourceFromRedshift (Prelude.Maybe Prelude.Bool)
+createDataSourceFromRedshift_computeStatistics :: Lens.Lens' CreateDataSourceFromRedshift (Core.Maybe Core.Bool)
 createDataSourceFromRedshift_computeStatistics = Lens.lens (\CreateDataSourceFromRedshift' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromRedshift' {} a -> s {computeStatistics = a} :: CreateDataSourceFromRedshift)
 
 -- | A user-supplied name or description of the @DataSource@.
-createDataSourceFromRedshift_dataSourceName :: Lens.Lens' CreateDataSourceFromRedshift (Prelude.Maybe Prelude.Text)
+createDataSourceFromRedshift_dataSourceName :: Lens.Lens' CreateDataSourceFromRedshift (Core.Maybe Core.Text)
 createDataSourceFromRedshift_dataSourceName = Lens.lens (\CreateDataSourceFromRedshift' {dataSourceName} -> dataSourceName) (\s@CreateDataSourceFromRedshift' {} a -> s {dataSourceName = a} :: CreateDataSourceFromRedshift)
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
-createDataSourceFromRedshift_dataSourceId :: Lens.Lens' CreateDataSourceFromRedshift Prelude.Text
+createDataSourceFromRedshift_dataSourceId :: Lens.Lens' CreateDataSourceFromRedshift Core.Text
 createDataSourceFromRedshift_dataSourceId = Lens.lens (\CreateDataSourceFromRedshift' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromRedshift' {} a -> s {dataSourceId = a} :: CreateDataSourceFromRedshift)
 
 -- | The data specification of an Amazon Redshift @DataSource@:
@@ -276,69 +275,57 @@ createDataSourceFromRedshift_dataSpec = Lens.lens (\CreateDataSourceFromRedshift
 --
 -- -   An Amazon S3 bucket policy to grant Amazon ML read\/write
 --     permissions on the @S3StagingLocation@
-createDataSourceFromRedshift_roleARN :: Lens.Lens' CreateDataSourceFromRedshift Prelude.Text
+createDataSourceFromRedshift_roleARN :: Lens.Lens' CreateDataSourceFromRedshift Core.Text
 createDataSourceFromRedshift_roleARN = Lens.lens (\CreateDataSourceFromRedshift' {roleARN} -> roleARN) (\s@CreateDataSourceFromRedshift' {} a -> s {roleARN = a} :: CreateDataSourceFromRedshift)
 
-instance
-  Prelude.AWSRequest
-    CreateDataSourceFromRedshift
-  where
+instance Core.AWSRequest CreateDataSourceFromRedshift where
   type
-    Rs CreateDataSourceFromRedshift =
+    AWSResponse CreateDataSourceFromRedshift =
       CreateDataSourceFromRedshiftResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDataSourceFromRedshiftResponse'
-            Prelude.<$> (x Prelude..?> "DataSourceId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DataSourceId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateDataSourceFromRedshift
+instance Core.Hashable CreateDataSourceFromRedshift
 
-instance Prelude.NFData CreateDataSourceFromRedshift
+instance Core.NFData CreateDataSourceFromRedshift
 
-instance
-  Prelude.ToHeaders
-    CreateDataSourceFromRedshift
-  where
+instance Core.ToHeaders CreateDataSourceFromRedshift where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.CreateDataSourceFromRedshift" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.CreateDataSourceFromRedshift" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDataSourceFromRedshift where
+instance Core.ToJSON CreateDataSourceFromRedshift where
   toJSON CreateDataSourceFromRedshift' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ComputeStatistics" Prelude..=)
-              Prelude.<$> computeStatistics,
-            ("DataSourceName" Prelude..=)
-              Prelude.<$> dataSourceName,
-            Prelude.Just
-              ("DataSourceId" Prelude..= dataSourceId),
-            Prelude.Just ("DataSpec" Prelude..= dataSpec),
-            Prelude.Just ("RoleARN" Prelude..= roleARN)
+    Core.object
+      ( Core.catMaybes
+          [ ("ComputeStatistics" Core..=)
+              Core.<$> computeStatistics,
+            ("DataSourceName" Core..=) Core.<$> dataSourceName,
+            Core.Just ("DataSourceId" Core..= dataSourceId),
+            Core.Just ("DataSpec" Core..= dataSpec),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )
 
-instance Prelude.ToPath CreateDataSourceFromRedshift where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDataSourceFromRedshift where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDataSourceFromRedshift where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDataSourceFromRedshift where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @CreateDataSourceFromRedshift@ operation, and
 -- is an acknowledgement that Amazon ML received the request.
@@ -351,11 +338,11 @@ instance Prelude.ToQuery CreateDataSourceFromRedshift where
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
   { -- | A user-supplied ID that uniquely identifies the datasource. This value
     -- should be identical to the value of the @DataSourceID@ in the request.
-    dataSourceId :: Prelude.Maybe Prelude.Text,
+    dataSourceId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDataSourceFromRedshiftResponse' with all optional fields omitted.
@@ -371,24 +358,24 @@ data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse
 -- 'httpStatus', 'createDataSourceFromRedshiftResponse_httpStatus' - The response's http status code.
 newCreateDataSourceFromRedshiftResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDataSourceFromRedshiftResponse
 newCreateDataSourceFromRedshiftResponse pHttpStatus_ =
   CreateDataSourceFromRedshiftResponse'
     { dataSourceId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-createDataSourceFromRedshiftResponse_dataSourceId :: Lens.Lens' CreateDataSourceFromRedshiftResponse (Prelude.Maybe Prelude.Text)
+createDataSourceFromRedshiftResponse_dataSourceId :: Lens.Lens' CreateDataSourceFromRedshiftResponse (Core.Maybe Core.Text)
 createDataSourceFromRedshiftResponse_dataSourceId = Lens.lens (\CreateDataSourceFromRedshiftResponse' {dataSourceId} -> dataSourceId) (\s@CreateDataSourceFromRedshiftResponse' {} a -> s {dataSourceId = a} :: CreateDataSourceFromRedshiftResponse)
 
 -- | The response's http status code.
-createDataSourceFromRedshiftResponse_httpStatus :: Lens.Lens' CreateDataSourceFromRedshiftResponse Prelude.Int
+createDataSourceFromRedshiftResponse_httpStatus :: Lens.Lens' CreateDataSourceFromRedshiftResponse Core.Int
 createDataSourceFromRedshiftResponse_httpStatus = Lens.lens (\CreateDataSourceFromRedshiftResponse' {httpStatus} -> httpStatus) (\s@CreateDataSourceFromRedshiftResponse' {} a -> s {httpStatus = a} :: CreateDataSourceFromRedshiftResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateDataSourceFromRedshiftResponse

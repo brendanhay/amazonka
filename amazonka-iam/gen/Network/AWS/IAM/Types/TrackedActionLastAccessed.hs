@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.TrackedActionLastAccessed where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the most recent attempt to access an action
 -- within the service.
@@ -33,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 data TrackedActionLastAccessed = TrackedActionLastAccessed'
   { -- | The name of the tracked action to which access was attempted. Tracked
     -- actions are actions that report activity to IAM.
-    actionName :: Prelude.Maybe Prelude.Text,
+    actionName :: Core.Maybe Core.Text,
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
     -- authenticated entity most recently attempted to access the tracked
@@ -42,7 +41,7 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
-    lastAccessedTime :: Prelude.Maybe Prelude.ISO8601,
+    lastAccessedTime :: Core.Maybe Core.ISO8601,
     -- | The Region from which the authenticated entity (user or role) last
     -- attempted to access the tracked action. AWS does not report
     -- unauthenticated requests.
@@ -50,10 +49,10 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
-    lastAccessedRegion :: Prelude.Maybe Prelude.Text,
-    lastAccessedEntity :: Prelude.Maybe Prelude.Text
+    lastAccessedRegion :: Core.Maybe Core.Text,
+    lastAccessedEntity :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrackedActionLastAccessed' with all optional fields omitted.
@@ -89,15 +88,15 @@ newTrackedActionLastAccessed ::
 newTrackedActionLastAccessed =
   TrackedActionLastAccessed'
     { actionName =
-        Prelude.Nothing,
-      lastAccessedTime = Prelude.Nothing,
-      lastAccessedRegion = Prelude.Nothing,
-      lastAccessedEntity = Prelude.Nothing
+        Core.Nothing,
+      lastAccessedTime = Core.Nothing,
+      lastAccessedRegion = Core.Nothing,
+      lastAccessedEntity = Core.Nothing
     }
 
 -- | The name of the tracked action to which access was attempted. Tracked
 -- actions are actions that report activity to IAM.
-trackedActionLastAccessed_actionName :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
+trackedActionLastAccessed_actionName :: Lens.Lens' TrackedActionLastAccessed (Core.Maybe Core.Text)
 trackedActionLastAccessed_actionName = Lens.lens (\TrackedActionLastAccessed' {actionName} -> actionName) (\s@TrackedActionLastAccessed' {} a -> s {actionName = a} :: TrackedActionLastAccessed)
 
 -- | The date and time,
@@ -108,8 +107,8 @@ trackedActionLastAccessed_actionName = Lens.lens (\TrackedActionLastAccessed' {a
 -- This field is null if no IAM entities attempted to access the service
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
-trackedActionLastAccessed_lastAccessedTime :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.UTCTime)
-trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccessed' {lastAccessedTime} -> lastAccessedTime) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed) Prelude.. Lens.mapping Prelude._Time
+trackedActionLastAccessed_lastAccessedTime :: Lens.Lens' TrackedActionLastAccessed (Core.Maybe Core.UTCTime)
+trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccessed' {lastAccessedTime} -> lastAccessedTime) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed) Core.. Lens.mapping Core._Time
 
 -- | The Region from which the authenticated entity (user or role) last
 -- attempted to access the tracked action. AWS does not report
@@ -118,21 +117,21 @@ trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccess
 -- This field is null if no IAM entities attempted to access the service
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
-trackedActionLastAccessed_lastAccessedRegion :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
+trackedActionLastAccessed_lastAccessedRegion :: Lens.Lens' TrackedActionLastAccessed (Core.Maybe Core.Text)
 trackedActionLastAccessed_lastAccessedRegion = Lens.lens (\TrackedActionLastAccessed' {lastAccessedRegion} -> lastAccessedRegion) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedRegion = a} :: TrackedActionLastAccessed)
 
 -- | Undocumented member.
-trackedActionLastAccessed_lastAccessedEntity :: Lens.Lens' TrackedActionLastAccessed (Prelude.Maybe Prelude.Text)
+trackedActionLastAccessed_lastAccessedEntity :: Lens.Lens' TrackedActionLastAccessed (Core.Maybe Core.Text)
 trackedActionLastAccessed_lastAccessedEntity = Lens.lens (\TrackedActionLastAccessed' {lastAccessedEntity} -> lastAccessedEntity) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedEntity = a} :: TrackedActionLastAccessed)
 
-instance Prelude.FromXML TrackedActionLastAccessed where
+instance Core.FromXML TrackedActionLastAccessed where
   parseXML x =
     TrackedActionLastAccessed'
-      Prelude.<$> (x Prelude..@? "ActionName")
-      Prelude.<*> (x Prelude..@? "LastAccessedTime")
-      Prelude.<*> (x Prelude..@? "LastAccessedRegion")
-      Prelude.<*> (x Prelude..@? "LastAccessedEntity")
+      Core.<$> (x Core..@? "ActionName")
+      Core.<*> (x Core..@? "LastAccessedTime")
+      Core.<*> (x Core..@? "LastAccessedRegion")
+      Core.<*> (x Core..@? "LastAccessedEntity")
 
-instance Prelude.Hashable TrackedActionLastAccessed
+instance Core.Hashable TrackedActionLastAccessed
 
-instance Prelude.NFData TrackedActionLastAccessed
+instance Core.NFData TrackedActionLastAccessed

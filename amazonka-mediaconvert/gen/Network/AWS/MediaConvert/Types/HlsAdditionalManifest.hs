@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.HlsAdditionalManifest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the details for each additional HLS manifest that you want the
 -- service to generate for this output group. Each manifest can reference a
@@ -38,12 +37,12 @@ data HlsAdditionalManifest = HlsAdditionalManifest'
     -- HLS output groups, specify a manifestNameModifier that is different from
     -- the nameModifier of the output. The service uses the output name
     -- modifier to create unique names for the individual variant manifests.
-    manifestNameModifier :: Prelude.Maybe Prelude.Text,
+    manifestNameModifier :: Core.Maybe Core.Text,
     -- | Specify the outputs that you want this additional top-level manifest to
     -- reference.
-    selectedOutputs :: Prelude.Maybe [Prelude.Text]
+    selectedOutputs :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HlsAdditionalManifest' with all optional fields omitted.
@@ -70,8 +69,8 @@ newHlsAdditionalManifest ::
 newHlsAdditionalManifest =
   HlsAdditionalManifest'
     { manifestNameModifier =
-        Prelude.Nothing,
-      selectedOutputs = Prelude.Nothing
+        Core.Nothing,
+      selectedOutputs = Core.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this
@@ -83,37 +82,35 @@ newHlsAdditionalManifest =
 -- HLS output groups, specify a manifestNameModifier that is different from
 -- the nameModifier of the output. The service uses the output name
 -- modifier to create unique names for the individual variant manifests.
-hlsAdditionalManifest_manifestNameModifier :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe Prelude.Text)
+hlsAdditionalManifest_manifestNameModifier :: Lens.Lens' HlsAdditionalManifest (Core.Maybe Core.Text)
 hlsAdditionalManifest_manifestNameModifier = Lens.lens (\HlsAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@HlsAdditionalManifest' {} a -> s {manifestNameModifier = a} :: HlsAdditionalManifest)
 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
-hlsAdditionalManifest_selectedOutputs :: Lens.Lens' HlsAdditionalManifest (Prelude.Maybe [Prelude.Text])
-hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Prelude.. Lens.mapping Prelude._Coerce
+hlsAdditionalManifest_selectedOutputs :: Lens.Lens' HlsAdditionalManifest (Core.Maybe [Core.Text])
+hlsAdditionalManifest_selectedOutputs = Lens.lens (\HlsAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@HlsAdditionalManifest' {} a -> s {selectedOutputs = a} :: HlsAdditionalManifest) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON HlsAdditionalManifest where
+instance Core.FromJSON HlsAdditionalManifest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HlsAdditionalManifest"
       ( \x ->
           HlsAdditionalManifest'
-            Prelude.<$> (x Prelude..:? "manifestNameModifier")
-            Prelude.<*> ( x Prelude..:? "selectedOutputs"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "manifestNameModifier")
+            Core.<*> (x Core..:? "selectedOutputs" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable HlsAdditionalManifest
+instance Core.Hashable HlsAdditionalManifest
 
-instance Prelude.NFData HlsAdditionalManifest
+instance Core.NFData HlsAdditionalManifest
 
-instance Prelude.ToJSON HlsAdditionalManifest where
+instance Core.ToJSON HlsAdditionalManifest where
   toJSON HlsAdditionalManifest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("manifestNameModifier" Prelude..=)
-              Prelude.<$> manifestNameModifier,
-            ("selectedOutputs" Prelude..=)
-              Prelude.<$> selectedOutputs
+    Core.object
+      ( Core.catMaybes
+          [ ("manifestNameModifier" Core..=)
+              Core.<$> manifestNameModifier,
+            ("selectedOutputs" Core..=)
+              Core.<$> selectedOutputs
           ]
       )

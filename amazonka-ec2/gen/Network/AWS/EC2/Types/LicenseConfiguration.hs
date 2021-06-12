@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LicenseConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'newLicenseConfiguration' smart constructor.
 data LicenseConfiguration = LicenseConfiguration'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationArn :: Prelude.Maybe Prelude.Text
+    licenseConfigurationArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LicenseConfiguration' with all optional fields omitted.
@@ -47,18 +46,18 @@ newLicenseConfiguration ::
 newLicenseConfiguration =
   LicenseConfiguration'
     { licenseConfigurationArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
-licenseConfiguration_licenseConfigurationArn :: Lens.Lens' LicenseConfiguration (Prelude.Maybe Prelude.Text)
+licenseConfiguration_licenseConfigurationArn :: Lens.Lens' LicenseConfiguration (Core.Maybe Core.Text)
 licenseConfiguration_licenseConfigurationArn = Lens.lens (\LicenseConfiguration' {licenseConfigurationArn} -> licenseConfigurationArn) (\s@LicenseConfiguration' {} a -> s {licenseConfigurationArn = a} :: LicenseConfiguration)
 
-instance Prelude.FromXML LicenseConfiguration where
+instance Core.FromXML LicenseConfiguration where
   parseXML x =
     LicenseConfiguration'
-      Prelude.<$> (x Prelude..@? "licenseConfigurationArn")
+      Core.<$> (x Core..@? "licenseConfigurationArn")
 
-instance Prelude.Hashable LicenseConfiguration
+instance Core.Hashable LicenseConfiguration
 
-instance Prelude.NFData LicenseConfiguration
+instance Core.NFData LicenseConfiguration

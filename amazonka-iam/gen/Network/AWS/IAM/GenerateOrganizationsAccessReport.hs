@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -166,9 +165,9 @@ module Network.AWS.IAM.GenerateOrganizationsAccessReport
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -179,7 +178,7 @@ data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
     --
     -- This ID is used to generate information about when an account principal
     -- that is limited by the SCP attempted to access an AWS service.
-    organizationsPolicyId :: Prelude.Maybe Prelude.Text,
+    organizationsPolicyId :: Core.Maybe Core.Text,
     -- | The path of the AWS Organizations entity (root, OU, or account). You can
     -- build an entity path using the known structure of your organization. For
     -- example, assume that your account ID is @123456789012@ and its parent OU
@@ -187,9 +186,9 @@ data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
     -- @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@. Your
     -- entity path is
     -- @o-a1b2c3d4e5\/r-f6g7h8i9j0example\/ou-rge0-awsabcde\/123456789012@.
-    entityPath :: Prelude.Text
+    entityPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateOrganizationsAccessReport' with all optional fields omitted.
@@ -214,12 +213,12 @@ data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
 -- @o-a1b2c3d4e5\/r-f6g7h8i9j0example\/ou-rge0-awsabcde\/123456789012@.
 newGenerateOrganizationsAccessReport ::
   -- | 'entityPath'
-  Prelude.Text ->
+  Core.Text ->
   GenerateOrganizationsAccessReport
 newGenerateOrganizationsAccessReport pEntityPath_ =
   GenerateOrganizationsAccessReport'
     { organizationsPolicyId =
-        Prelude.Nothing,
+        Core.Nothing,
       entityPath = pEntityPath_
     }
 
@@ -228,7 +227,7 @@ newGenerateOrganizationsAccessReport pEntityPath_ =
 --
 -- This ID is used to generate information about when an account principal
 -- that is limited by the SCP attempted to access an AWS service.
-generateOrganizationsAccessReport_organizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Prelude.Maybe Prelude.Text)
+generateOrganizationsAccessReport_organizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Core.Maybe Core.Text)
 generateOrganizationsAccessReport_organizationsPolicyId = Lens.lens (\GenerateOrganizationsAccessReport' {organizationsPolicyId} -> organizationsPolicyId) (\s@GenerateOrganizationsAccessReport' {} a -> s {organizationsPolicyId = a} :: GenerateOrganizationsAccessReport)
 
 -- | The path of the AWS Organizations entity (root, OU, or account). You can
@@ -238,15 +237,15 @@ generateOrganizationsAccessReport_organizationsPolicyId = Lens.lens (\GenerateOr
 -- @r-f6g7h8i9j0example@ and your organization ID is @o-a1b2c3d4e5@. Your
 -- entity path is
 -- @o-a1b2c3d4e5\/r-f6g7h8i9j0example\/ou-rge0-awsabcde\/123456789012@.
-generateOrganizationsAccessReport_entityPath :: Lens.Lens' GenerateOrganizationsAccessReport Prelude.Text
+generateOrganizationsAccessReport_entityPath :: Lens.Lens' GenerateOrganizationsAccessReport Core.Text
 generateOrganizationsAccessReport_entityPath = Lens.lens (\GenerateOrganizationsAccessReport' {entityPath} -> entityPath) (\s@GenerateOrganizationsAccessReport' {} a -> s {entityPath = a} :: GenerateOrganizationsAccessReport)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GenerateOrganizationsAccessReport
   where
   type
-    Rs GenerateOrganizationsAccessReport =
+    AWSResponse GenerateOrganizationsAccessReport =
       GenerateOrganizationsAccessReportResponse
   request = Request.postQuery defaultService
   response =
@@ -254,56 +253,55 @@ instance
       "GenerateOrganizationsAccessReportResult"
       ( \s h x ->
           GenerateOrganizationsAccessReportResponse'
-            Prelude.<$> (x Prelude..@? "JobId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GenerateOrganizationsAccessReport
 
 instance
-  Prelude.NFData
+  Core.NFData
     GenerateOrganizationsAccessReport
 
 instance
-  Prelude.ToHeaders
-    GenerateOrganizationsAccessReport
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     GenerateOrganizationsAccessReport
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    GenerateOrganizationsAccessReport
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     GenerateOrganizationsAccessReport
   where
   toQuery GenerateOrganizationsAccessReport' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GenerateOrganizationsAccessReport" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+          Core.=: ( "GenerateOrganizationsAccessReport" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
         "OrganizationsPolicyId"
-          Prelude.=: organizationsPolicyId,
-        "EntityPath" Prelude.=: entityPath
+          Core.=: organizationsPolicyId,
+        "EntityPath" Core.=: entityPath
       ]
 
 -- | /See:/ 'newGenerateOrganizationsAccessReportResponse' smart constructor.
 data GenerateOrganizationsAccessReportResponse = GenerateOrganizationsAccessReportResponse'
   { -- | The job identifier that you can use in the GetOrganizationsAccessReport
     -- operation.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateOrganizationsAccessReportResponse' with all optional fields omitted.
@@ -319,25 +317,25 @@ data GenerateOrganizationsAccessReportResponse = GenerateOrganizationsAccessRepo
 -- 'httpStatus', 'generateOrganizationsAccessReportResponse_httpStatus' - The response's http status code.
 newGenerateOrganizationsAccessReportResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GenerateOrganizationsAccessReportResponse
 newGenerateOrganizationsAccessReportResponse
   pHttpStatus_ =
     GenerateOrganizationsAccessReportResponse'
       { jobId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The job identifier that you can use in the GetOrganizationsAccessReport
 -- operation.
-generateOrganizationsAccessReportResponse_jobId :: Lens.Lens' GenerateOrganizationsAccessReportResponse (Prelude.Maybe Prelude.Text)
+generateOrganizationsAccessReportResponse_jobId :: Lens.Lens' GenerateOrganizationsAccessReportResponse (Core.Maybe Core.Text)
 generateOrganizationsAccessReportResponse_jobId = Lens.lens (\GenerateOrganizationsAccessReportResponse' {jobId} -> jobId) (\s@GenerateOrganizationsAccessReportResponse' {} a -> s {jobId = a} :: GenerateOrganizationsAccessReportResponse)
 
 -- | The response's http status code.
-generateOrganizationsAccessReportResponse_httpStatus :: Lens.Lens' GenerateOrganizationsAccessReportResponse Prelude.Int
+generateOrganizationsAccessReportResponse_httpStatus :: Lens.Lens' GenerateOrganizationsAccessReportResponse Core.Int
 generateOrganizationsAccessReportResponse_httpStatus = Lens.lens (\GenerateOrganizationsAccessReportResponse' {httpStatus} -> httpStatus) (\s@GenerateOrganizationsAccessReportResponse' {} a -> s {httpStatus = a} :: GenerateOrganizationsAccessReportResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GenerateOrganizationsAccessReportResponse

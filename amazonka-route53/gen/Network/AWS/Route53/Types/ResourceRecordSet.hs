@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.ResourceRecordSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 import Network.AWS.Route53.Types.AliasTarget
 import Network.AWS.Route53.Types.GeoLocation
@@ -151,7 +150,7 @@ data ResourceRecordSet = ResourceRecordSet'
     --     @FullyQualifiedDomainName@ as the name of a resource record set.
     --
     -- -   Associate that health check with the resource record set.
-    healthCheckId :: Prelude.Maybe Prelude.Text,
+    healthCheckId :: Core.Maybe Core.Text,
     -- | /Multivalue answer resource record sets only/: To route traffic
     -- approximately randomly to multiple resources, such as web servers,
     -- create one multivalue answer record for each resource and specify @true@
@@ -180,7 +179,7 @@ data ResourceRecordSet = ResourceRecordSet'
     --     addresses in the response.
     --
     -- You can\'t create multivalue answer alias records.
-    multiValueAnswer :: Prelude.Maybe Prelude.Bool,
+    multiValueAnswer :: Core.Maybe Core.Bool,
     -- | /Geolocation resource record sets only:/ A complex type that lets you
     -- control how Amazon Route 53 responds to DNS queries based on the
     -- geographic origin of the query. For example, if you want all queries
@@ -220,7 +219,7 @@ data ResourceRecordSet = ResourceRecordSet'
     -- You can\'t create non-geolocation resource record sets that have the
     -- same values for the @Name@ and @Type@ elements as geolocation resource
     -- record sets.
-    geoLocation :: Prelude.Maybe GeoLocation,
+    geoLocation :: Core.Maybe GeoLocation,
     -- | /Weighted resource record sets only:/ Among resource record sets that
     -- have the same combination of DNS name and type, a value that determines
     -- the proportion of DNS queries that Amazon Route 53 responds to using the
@@ -254,7 +253,7 @@ data ResourceRecordSet = ResourceRecordSet'
     --     information, see
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
     --     in the /Amazon Route 53 Developer Guide/.
-    weight :: Prelude.Maybe Prelude.Natural,
+    weight :: Core.Maybe Core.Natural,
     -- | /Alias resource record sets only:/ Information about the AWS resource,
     -- such as a CloudFront distribution or an Amazon S3 bucket, that you want
     -- to route traffic to.
@@ -272,12 +271,12 @@ data ResourceRecordSet = ResourceRecordSet'
     --     private hosted zone, see
     --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
     --     in the /Amazon Route 53 Developer Guide/.
-    aliasTarget :: Prelude.Maybe AliasTarget,
+    aliasTarget :: Core.Maybe AliasTarget,
     -- | Information about the resource records to act upon.
     --
     -- If you\'re creating an alias resource record set, omit
     -- @ResourceRecords@.
-    resourceRecords :: Prelude.Maybe (Prelude.NonEmpty ResourceRecord),
+    resourceRecords :: Core.Maybe (Core.NonEmpty ResourceRecord),
     -- | /Failover resource record sets only:/ To configure failover, you add the
     -- @Failover@ element to two resource record sets. For one resource record
     -- set, you specify @PRIMARY@ as the value for @Failover@; for the other
@@ -321,7 +320,7 @@ data ResourceRecordSet = ResourceRecordSet'
     -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
     --
     -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
-    failover :: Prelude.Maybe ResourceRecordSetFailover,
+    failover :: Core.Maybe ResourceRecordSetFailover,
     -- | The resource record cache time to live (TTL), in seconds. Note the
     -- following:
     --
@@ -343,7 +342,7 @@ data ResourceRecordSet = ResourceRecordSet'
     --     have the same name and type. Values other than 60 seconds (the TTL
     --     for load balancers) will change the effect of the values that you
     --     specify for @Weight@.
-    ttl :: Prelude.Maybe Prelude.Natural,
+    ttl :: Core.Maybe Core.Natural,
     -- | When you create a traffic policy instance, Amazon Route 53 automatically
     -- creates a resource record set. @TrafficPolicyInstanceId@ is the ID of
     -- the traffic policy instance that Route 53 created this resource record
@@ -355,7 +354,7 @@ data ResourceRecordSet = ResourceRecordSet'
     -- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
     -- delete the traffic policy instance, and you\'ll continue to be charged
     -- for it even though it\'s no longer in use.
-    trafficPolicyInstanceId :: Prelude.Maybe Prelude.Text,
+    trafficPolicyInstanceId :: Core.Maybe Core.Text,
     -- | /Resource record sets that have a routing policy other than simple:/ An
     -- identifier that differentiates among multiple resource record sets that
     -- have the same combination of name and type, such as multiple weighted
@@ -366,7 +365,7 @@ data ResourceRecordSet = ResourceRecordSet'
     -- For information about routing policies, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
     -- in the /Amazon Route 53 Developer Guide/.
-    setIdentifier :: Prelude.Maybe Prelude.Text,
+    setIdentifier :: Core.Maybe Core.Text,
     -- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
     -- you created the resource that this resource record set refers to. The
     -- resource typically is an AWS resource, such as an EC2 instance or an ELB
@@ -398,7 +397,7 @@ data ResourceRecordSet = ResourceRecordSet'
     -- -   You can\'t create non-latency resource record sets that have the
     --     same values for the @Name@ and @Type@ elements as latency resource
     --     record sets.
-    region :: Prelude.Maybe Prelude.Region,
+    region :: Core.Maybe Core.Region,
     -- | For @ChangeResourceRecordSets@ requests, the name of the record that you
     -- want to create, update, or delete. For @ListResourceRecordSets@
     -- responses, the name of a record in the specified hosted zone.
@@ -437,7 +436,7 @@ data ResourceRecordSet = ResourceRecordSet'
     -- labels, for example, @marketing.*.example.com@. In addition, the * must
     -- replace the entire label; for example, you can\'t specify
     -- @prod*.example.com@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The DNS record type. For information about different record types and
     -- how data is encoded for them, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/ResourceRecordTypes.html Supported DNS Resource Record Types>
@@ -498,7 +497,7 @@ data ResourceRecordSet = ResourceRecordSet'
     --     supported even for an alias record.
     type' :: RRType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceRecordSet' with all optional fields omitted.
@@ -973,23 +972,23 @@ data ResourceRecordSet = ResourceRecordSet'
 --     supported even for an alias record.
 newResourceRecordSet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   RRType ->
   ResourceRecordSet
 newResourceRecordSet pName_ pType_ =
   ResourceRecordSet'
-    { healthCheckId = Prelude.Nothing,
-      multiValueAnswer = Prelude.Nothing,
-      geoLocation = Prelude.Nothing,
-      weight = Prelude.Nothing,
-      aliasTarget = Prelude.Nothing,
-      resourceRecords = Prelude.Nothing,
-      failover = Prelude.Nothing,
-      ttl = Prelude.Nothing,
-      trafficPolicyInstanceId = Prelude.Nothing,
-      setIdentifier = Prelude.Nothing,
-      region = Prelude.Nothing,
+    { healthCheckId = Core.Nothing,
+      multiValueAnswer = Core.Nothing,
+      geoLocation = Core.Nothing,
+      weight = Core.Nothing,
+      aliasTarget = Core.Nothing,
+      resourceRecords = Core.Nothing,
+      failover = Core.Nothing,
+      ttl = Core.Nothing,
+      trafficPolicyInstanceId = Core.Nothing,
+      setIdentifier = Core.Nothing,
+      region = Core.Nothing,
       name = pName_,
       type' = pType_
     }
@@ -1112,7 +1111,7 @@ newResourceRecordSet pName_ pType_ =
 --     @FullyQualifiedDomainName@ as the name of a resource record set.
 --
 -- -   Associate that health check with the resource record set.
-resourceRecordSet_healthCheckId :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
+resourceRecordSet_healthCheckId :: Lens.Lens' ResourceRecordSet (Core.Maybe Core.Text)
 resourceRecordSet_healthCheckId = Lens.lens (\ResourceRecordSet' {healthCheckId} -> healthCheckId) (\s@ResourceRecordSet' {} a -> s {healthCheckId = a} :: ResourceRecordSet)
 
 -- | /Multivalue answer resource record sets only/: To route traffic
@@ -1143,7 +1142,7 @@ resourceRecordSet_healthCheckId = Lens.lens (\ResourceRecordSet' {healthCheckId}
 --     addresses in the response.
 --
 -- You can\'t create multivalue answer alias records.
-resourceRecordSet_multiValueAnswer :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Bool)
+resourceRecordSet_multiValueAnswer :: Lens.Lens' ResourceRecordSet (Core.Maybe Core.Bool)
 resourceRecordSet_multiValueAnswer = Lens.lens (\ResourceRecordSet' {multiValueAnswer} -> multiValueAnswer) (\s@ResourceRecordSet' {} a -> s {multiValueAnswer = a} :: ResourceRecordSet)
 
 -- | /Geolocation resource record sets only:/ A complex type that lets you
@@ -1185,7 +1184,7 @@ resourceRecordSet_multiValueAnswer = Lens.lens (\ResourceRecordSet' {multiValueA
 -- You can\'t create non-geolocation resource record sets that have the
 -- same values for the @Name@ and @Type@ elements as geolocation resource
 -- record sets.
-resourceRecordSet_geoLocation :: Lens.Lens' ResourceRecordSet (Prelude.Maybe GeoLocation)
+resourceRecordSet_geoLocation :: Lens.Lens' ResourceRecordSet (Core.Maybe GeoLocation)
 resourceRecordSet_geoLocation = Lens.lens (\ResourceRecordSet' {geoLocation} -> geoLocation) (\s@ResourceRecordSet' {} a -> s {geoLocation = a} :: ResourceRecordSet)
 
 -- | /Weighted resource record sets only:/ Among resource record sets that
@@ -1221,7 +1220,7 @@ resourceRecordSet_geoLocation = Lens.lens (\ResourceRecordSet' {geoLocation} -> 
 --     information, see
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html Options for Configuring Route 53 Active-Active and Active-Passive Failover>
 --     in the /Amazon Route 53 Developer Guide/.
-resourceRecordSet_weight :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
+resourceRecordSet_weight :: Lens.Lens' ResourceRecordSet (Core.Maybe Core.Natural)
 resourceRecordSet_weight = Lens.lens (\ResourceRecordSet' {weight} -> weight) (\s@ResourceRecordSet' {} a -> s {weight = a} :: ResourceRecordSet)
 
 -- | /Alias resource record sets only:/ Information about the AWS resource,
@@ -1241,15 +1240,15 @@ resourceRecordSet_weight = Lens.lens (\ResourceRecordSet' {weight} -> weight) (\
 --     private hosted zone, see
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
 --     in the /Amazon Route 53 Developer Guide/.
-resourceRecordSet_aliasTarget :: Lens.Lens' ResourceRecordSet (Prelude.Maybe AliasTarget)
+resourceRecordSet_aliasTarget :: Lens.Lens' ResourceRecordSet (Core.Maybe AliasTarget)
 resourceRecordSet_aliasTarget = Lens.lens (\ResourceRecordSet' {aliasTarget} -> aliasTarget) (\s@ResourceRecordSet' {} a -> s {aliasTarget = a} :: ResourceRecordSet)
 
 -- | Information about the resource records to act upon.
 --
 -- If you\'re creating an alias resource record set, omit
 -- @ResourceRecords@.
-resourceRecordSet_resourceRecords :: Lens.Lens' ResourceRecordSet (Prelude.Maybe (Prelude.NonEmpty ResourceRecord))
-resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceRecords} -> resourceRecords) (\s@ResourceRecordSet' {} a -> s {resourceRecords = a} :: ResourceRecordSet) Prelude.. Lens.mapping Prelude._Coerce
+resourceRecordSet_resourceRecords :: Lens.Lens' ResourceRecordSet (Core.Maybe (Core.NonEmpty ResourceRecord))
+resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceRecords} -> resourceRecords) (\s@ResourceRecordSet' {} a -> s {resourceRecords = a} :: ResourceRecordSet) Core.. Lens.mapping Lens._Coerce
 
 -- | /Failover resource record sets only:/ To configure failover, you add the
 -- @Failover@ element to two resource record sets. For one resource record
@@ -1294,7 +1293,7 @@ resourceRecordSet_resourceRecords = Lens.lens (\ResourceRecordSet' {resourceReco
 -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Route 53 Health Checks and DNS Failover>
 --
 -- -   <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone>
-resourceRecordSet_failover :: Lens.Lens' ResourceRecordSet (Prelude.Maybe ResourceRecordSetFailover)
+resourceRecordSet_failover :: Lens.Lens' ResourceRecordSet (Core.Maybe ResourceRecordSetFailover)
 resourceRecordSet_failover = Lens.lens (\ResourceRecordSet' {failover} -> failover) (\s@ResourceRecordSet' {} a -> s {failover = a} :: ResourceRecordSet)
 
 -- | The resource record cache time to live (TTL), in seconds. Note the
@@ -1318,7 +1317,7 @@ resourceRecordSet_failover = Lens.lens (\ResourceRecordSet' {failover} -> failov
 --     have the same name and type. Values other than 60 seconds (the TTL
 --     for load balancers) will change the effect of the values that you
 --     specify for @Weight@.
-resourceRecordSet_ttl :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Natural)
+resourceRecordSet_ttl :: Lens.Lens' ResourceRecordSet (Core.Maybe Core.Natural)
 resourceRecordSet_ttl = Lens.lens (\ResourceRecordSet' {ttl} -> ttl) (\s@ResourceRecordSet' {} a -> s {ttl = a} :: ResourceRecordSet)
 
 -- | When you create a traffic policy instance, Amazon Route 53 automatically
@@ -1332,7 +1331,7 @@ resourceRecordSet_ttl = Lens.lens (\ResourceRecordSet' {ttl} -> ttl) (\s@Resourc
 -- set by using @ChangeResourceRecordSets@, Route 53 doesn\'t automatically
 -- delete the traffic policy instance, and you\'ll continue to be charged
 -- for it even though it\'s no longer in use.
-resourceRecordSet_trafficPolicyInstanceId :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
+resourceRecordSet_trafficPolicyInstanceId :: Lens.Lens' ResourceRecordSet (Core.Maybe Core.Text)
 resourceRecordSet_trafficPolicyInstanceId = Lens.lens (\ResourceRecordSet' {trafficPolicyInstanceId} -> trafficPolicyInstanceId) (\s@ResourceRecordSet' {} a -> s {trafficPolicyInstanceId = a} :: ResourceRecordSet)
 
 -- | /Resource record sets that have a routing policy other than simple:/ An
@@ -1345,7 +1344,7 @@ resourceRecordSet_trafficPolicyInstanceId = Lens.lens (\ResourceRecordSet' {traf
 -- For information about routing policies, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html Choosing a Routing Policy>
 -- in the /Amazon Route 53 Developer Guide/.
-resourceRecordSet_setIdentifier :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Text)
+resourceRecordSet_setIdentifier :: Lens.Lens' ResourceRecordSet (Core.Maybe Core.Text)
 resourceRecordSet_setIdentifier = Lens.lens (\ResourceRecordSet' {setIdentifier} -> setIdentifier) (\s@ResourceRecordSet' {} a -> s {setIdentifier = a} :: ResourceRecordSet)
 
 -- | /Latency-based resource record sets only:/ The Amazon EC2 Region where
@@ -1379,7 +1378,7 @@ resourceRecordSet_setIdentifier = Lens.lens (\ResourceRecordSet' {setIdentifier}
 -- -   You can\'t create non-latency resource record sets that have the
 --     same values for the @Name@ and @Type@ elements as latency resource
 --     record sets.
-resourceRecordSet_region :: Lens.Lens' ResourceRecordSet (Prelude.Maybe Prelude.Region)
+resourceRecordSet_region :: Lens.Lens' ResourceRecordSet (Core.Maybe Core.Region)
 resourceRecordSet_region = Lens.lens (\ResourceRecordSet' {region} -> region) (\s@ResourceRecordSet' {} a -> s {region = a} :: ResourceRecordSet)
 
 -- | For @ChangeResourceRecordSets@ requests, the name of the record that you
@@ -1420,7 +1419,7 @@ resourceRecordSet_region = Lens.lens (\ResourceRecordSet' {region} -> region) (\
 -- labels, for example, @marketing.*.example.com@. In addition, the * must
 -- replace the entire label; for example, you can\'t specify
 -- @prod*.example.com@.
-resourceRecordSet_name :: Lens.Lens' ResourceRecordSet Prelude.Text
+resourceRecordSet_name :: Lens.Lens' ResourceRecordSet Core.Text
 resourceRecordSet_name = Lens.lens (\ResourceRecordSet' {name} -> name) (\s@ResourceRecordSet' {} a -> s {name = a} :: ResourceRecordSet)
 
 -- | The DNS record type. For information about different record types and
@@ -1484,49 +1483,48 @@ resourceRecordSet_name = Lens.lens (\ResourceRecordSet' {name} -> name) (\s@Reso
 resourceRecordSet_type :: Lens.Lens' ResourceRecordSet RRType
 resourceRecordSet_type = Lens.lens (\ResourceRecordSet' {type'} -> type') (\s@ResourceRecordSet' {} a -> s {type' = a} :: ResourceRecordSet)
 
-instance Prelude.FromXML ResourceRecordSet where
+instance Core.FromXML ResourceRecordSet where
   parseXML x =
     ResourceRecordSet'
-      Prelude.<$> (x Prelude..@? "HealthCheckId")
-      Prelude.<*> (x Prelude..@? "MultiValueAnswer")
-      Prelude.<*> (x Prelude..@? "GeoLocation")
-      Prelude.<*> (x Prelude..@? "Weight")
-      Prelude.<*> (x Prelude..@? "AliasTarget")
-      Prelude.<*> ( x Prelude..@? "ResourceRecords"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList1 "ResourceRecord")
-                  )
-      Prelude.<*> (x Prelude..@? "Failover")
-      Prelude.<*> (x Prelude..@? "TTL")
-      Prelude.<*> (x Prelude..@? "TrafficPolicyInstanceId")
-      Prelude.<*> (x Prelude..@? "SetIdentifier")
-      Prelude.<*> (x Prelude..@? "Region")
-      Prelude.<*> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "Type")
+      Core.<$> (x Core..@? "HealthCheckId")
+      Core.<*> (x Core..@? "MultiValueAnswer")
+      Core.<*> (x Core..@? "GeoLocation")
+      Core.<*> (x Core..@? "Weight")
+      Core.<*> (x Core..@? "AliasTarget")
+      Core.<*> ( x Core..@? "ResourceRecords" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList1 "ResourceRecord")
+               )
+      Core.<*> (x Core..@? "Failover")
+      Core.<*> (x Core..@? "TTL")
+      Core.<*> (x Core..@? "TrafficPolicyInstanceId")
+      Core.<*> (x Core..@? "SetIdentifier")
+      Core.<*> (x Core..@? "Region")
+      Core.<*> (x Core..@ "Name")
+      Core.<*> (x Core..@ "Type")
 
-instance Prelude.Hashable ResourceRecordSet
+instance Core.Hashable ResourceRecordSet
 
-instance Prelude.NFData ResourceRecordSet
+instance Core.NFData ResourceRecordSet
 
-instance Prelude.ToXML ResourceRecordSet where
+instance Core.ToXML ResourceRecordSet where
   toXML ResourceRecordSet' {..} =
-    Prelude.mconcat
-      [ "HealthCheckId" Prelude.@= healthCheckId,
-        "MultiValueAnswer" Prelude.@= multiValueAnswer,
-        "GeoLocation" Prelude.@= geoLocation,
-        "Weight" Prelude.@= weight,
-        "AliasTarget" Prelude.@= aliasTarget,
+    Core.mconcat
+      [ "HealthCheckId" Core.@= healthCheckId,
+        "MultiValueAnswer" Core.@= multiValueAnswer,
+        "GeoLocation" Core.@= geoLocation,
+        "Weight" Core.@= weight,
+        "AliasTarget" Core.@= aliasTarget,
         "ResourceRecords"
-          Prelude.@= Prelude.toXML
-            ( Prelude.toXMLList "ResourceRecord"
-                Prelude.<$> resourceRecords
+          Core.@= Core.toXML
+            ( Core.toXMLList "ResourceRecord"
+                Core.<$> resourceRecords
             ),
-        "Failover" Prelude.@= failover,
-        "TTL" Prelude.@= ttl,
+        "Failover" Core.@= failover,
+        "TTL" Core.@= ttl,
         "TrafficPolicyInstanceId"
-          Prelude.@= trafficPolicyInstanceId,
-        "SetIdentifier" Prelude.@= setIdentifier,
-        "Region" Prelude.@= region,
-        "Name" Prelude.@= name,
-        "Type" Prelude.@= type'
+          Core.@= trafficPolicyInstanceId,
+        "SetIdentifier" Core.@= setIdentifier,
+        "Region" Core.@= region,
+        "Name" Core.@= name,
+        "Type" Core.@= type'
       ]

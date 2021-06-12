@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.RecordColumn where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the mapping of each data element in the streaming source to
 -- the corresponding column in the in-application stream.
@@ -34,15 +33,15 @@ data RecordColumn = RecordColumn'
     -- data source. This element is required if the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel RecordFormatType>
     -- is @JSON@.
-    mapping :: Prelude.Maybe Prelude.Text,
+    mapping :: Core.Maybe Core.Text,
     -- | Name of the column created in the in-application input stream or
     -- reference table.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | Type of column created in the in-application input stream or reference
     -- table.
-    sqlType :: Prelude.Text
+    sqlType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RecordColumn' with all optional fields omitted.
@@ -64,13 +63,13 @@ data RecordColumn = RecordColumn'
 -- table.
 newRecordColumn ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sqlType'
-  Prelude.Text ->
+  Core.Text ->
   RecordColumn
 newRecordColumn pName_ pSqlType_ =
   RecordColumn'
-    { mapping = Prelude.Nothing,
+    { mapping = Core.Nothing,
       name = pName_,
       sqlType = pSqlType_
     }
@@ -79,40 +78,40 @@ newRecordColumn pName_ pSqlType_ =
 -- data source. This element is required if the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel RecordFormatType>
 -- is @JSON@.
-recordColumn_mapping :: Lens.Lens' RecordColumn (Prelude.Maybe Prelude.Text)
+recordColumn_mapping :: Lens.Lens' RecordColumn (Core.Maybe Core.Text)
 recordColumn_mapping = Lens.lens (\RecordColumn' {mapping} -> mapping) (\s@RecordColumn' {} a -> s {mapping = a} :: RecordColumn)
 
 -- | Name of the column created in the in-application input stream or
 -- reference table.
-recordColumn_name :: Lens.Lens' RecordColumn Prelude.Text
+recordColumn_name :: Lens.Lens' RecordColumn Core.Text
 recordColumn_name = Lens.lens (\RecordColumn' {name} -> name) (\s@RecordColumn' {} a -> s {name = a} :: RecordColumn)
 
 -- | Type of column created in the in-application input stream or reference
 -- table.
-recordColumn_sqlType :: Lens.Lens' RecordColumn Prelude.Text
+recordColumn_sqlType :: Lens.Lens' RecordColumn Core.Text
 recordColumn_sqlType = Lens.lens (\RecordColumn' {sqlType} -> sqlType) (\s@RecordColumn' {} a -> s {sqlType = a} :: RecordColumn)
 
-instance Prelude.FromJSON RecordColumn where
+instance Core.FromJSON RecordColumn where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RecordColumn"
       ( \x ->
           RecordColumn'
-            Prelude.<$> (x Prelude..:? "Mapping")
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "SqlType")
+            Core.<$> (x Core..:? "Mapping")
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "SqlType")
       )
 
-instance Prelude.Hashable RecordColumn
+instance Core.Hashable RecordColumn
 
-instance Prelude.NFData RecordColumn
+instance Core.NFData RecordColumn
 
-instance Prelude.ToJSON RecordColumn where
+instance Core.ToJSON RecordColumn where
   toJSON RecordColumn' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Mapping" Prelude..=) Prelude.<$> mapping,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("SqlType" Prelude..= sqlType)
+    Core.object
+      ( Core.catMaybes
+          [ ("Mapping" Core..=) Core.<$> mapping,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("SqlType" Core..= sqlType)
           ]
       )

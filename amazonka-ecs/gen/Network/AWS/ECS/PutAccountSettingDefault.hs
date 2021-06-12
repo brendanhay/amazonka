@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.ECS.PutAccountSettingDefault
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +62,9 @@ data PutAccountSettingDefault = PutAccountSettingDefault'
     name :: SettingName,
     -- | The account setting value for the specified principal ARN. Accepted
     -- values are @enabled@ and @disabled@.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAccountSettingDefault' with all optional fields omitted.
@@ -91,7 +90,7 @@ newPutAccountSettingDefault ::
   -- | 'name'
   SettingName ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   PutAccountSettingDefault
 newPutAccountSettingDefault pName_ pValue_ =
   PutAccountSettingDefault'
@@ -113,63 +112,61 @@ putAccountSettingDefault_name = Lens.lens (\PutAccountSettingDefault' {name} -> 
 
 -- | The account setting value for the specified principal ARN. Accepted
 -- values are @enabled@ and @disabled@.
-putAccountSettingDefault_value :: Lens.Lens' PutAccountSettingDefault Prelude.Text
+putAccountSettingDefault_value :: Lens.Lens' PutAccountSettingDefault Core.Text
 putAccountSettingDefault_value = Lens.lens (\PutAccountSettingDefault' {value} -> value) (\s@PutAccountSettingDefault' {} a -> s {value = a} :: PutAccountSettingDefault)
 
-instance Prelude.AWSRequest PutAccountSettingDefault where
+instance Core.AWSRequest PutAccountSettingDefault where
   type
-    Rs PutAccountSettingDefault =
+    AWSResponse PutAccountSettingDefault =
       PutAccountSettingDefaultResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutAccountSettingDefaultResponse'
-            Prelude.<$> (x Prelude..?> "setting")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "setting")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutAccountSettingDefault
+instance Core.Hashable PutAccountSettingDefault
 
-instance Prelude.NFData PutAccountSettingDefault
+instance Core.NFData PutAccountSettingDefault
 
-instance Prelude.ToHeaders PutAccountSettingDefault where
+instance Core.ToHeaders PutAccountSettingDefault where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.PutAccountSettingDefault" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutAccountSettingDefault where
+instance Core.ToJSON PutAccountSettingDefault where
   toJSON PutAccountSettingDefault' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("value" Core..= value)
           ]
       )
 
-instance Prelude.ToPath PutAccountSettingDefault where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutAccountSettingDefault where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutAccountSettingDefault where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutAccountSettingDefault where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutAccountSettingDefaultResponse' smart constructor.
 data PutAccountSettingDefaultResponse = PutAccountSettingDefaultResponse'
-  { setting :: Prelude.Maybe Setting,
+  { setting :: Core.Maybe Setting,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAccountSettingDefaultResponse' with all optional fields omitted.
@@ -184,23 +181,21 @@ data PutAccountSettingDefaultResponse = PutAccountSettingDefaultResponse'
 -- 'httpStatus', 'putAccountSettingDefaultResponse_httpStatus' - The response's http status code.
 newPutAccountSettingDefaultResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutAccountSettingDefaultResponse
 newPutAccountSettingDefaultResponse pHttpStatus_ =
   PutAccountSettingDefaultResponse'
     { setting =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-putAccountSettingDefaultResponse_setting :: Lens.Lens' PutAccountSettingDefaultResponse (Prelude.Maybe Setting)
+putAccountSettingDefaultResponse_setting :: Lens.Lens' PutAccountSettingDefaultResponse (Core.Maybe Setting)
 putAccountSettingDefaultResponse_setting = Lens.lens (\PutAccountSettingDefaultResponse' {setting} -> setting) (\s@PutAccountSettingDefaultResponse' {} a -> s {setting = a} :: PutAccountSettingDefaultResponse)
 
 -- | The response's http status code.
-putAccountSettingDefaultResponse_httpStatus :: Lens.Lens' PutAccountSettingDefaultResponse Prelude.Int
+putAccountSettingDefaultResponse_httpStatus :: Lens.Lens' PutAccountSettingDefaultResponse Core.Int
 putAccountSettingDefaultResponse_httpStatus = Lens.lens (\PutAccountSettingDefaultResponse' {httpStatus} -> httpStatus) (\s@PutAccountSettingDefaultResponse' {} a -> s {httpStatus = a} :: PutAccountSettingDefaultResponse)
 
-instance
-  Prelude.NFData
-    PutAccountSettingDefaultResponse
+instance Core.NFData PutAccountSettingDefaultResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,15 +54,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAdminUpdateDeviceStatus' smart constructor.
 data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
   { -- | The status indicating whether a device has been remembered or not.
-    deviceRememberedStatus :: Prelude.Maybe DeviceRememberedStatusType,
+    deviceRememberedStatus :: Core.Maybe DeviceRememberedStatusType,
     -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user name.
-    username :: Prelude.Sensitive Prelude.Text,
+    username :: Core.Sensitive Core.Text,
     -- | The device key.
-    deviceKey :: Prelude.Text
+    deviceKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminUpdateDeviceStatus' with all optional fields omitted.
@@ -82,11 +81,11 @@ data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
 -- 'deviceKey', 'adminUpdateDeviceStatus_deviceKey' - The device key.
 newAdminUpdateDeviceStatus ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'deviceKey'
-  Prelude.Text ->
+  Core.Text ->
   AdminUpdateDeviceStatus
 newAdminUpdateDeviceStatus
   pUserPoolId_
@@ -94,76 +93,74 @@ newAdminUpdateDeviceStatus
   pDeviceKey_ =
     AdminUpdateDeviceStatus'
       { deviceRememberedStatus =
-          Prelude.Nothing,
+          Core.Nothing,
         userPoolId = pUserPoolId_,
-        username = Prelude._Sensitive Lens.# pUsername_,
+        username = Core._Sensitive Lens.# pUsername_,
         deviceKey = pDeviceKey_
       }
 
 -- | The status indicating whether a device has been remembered or not.
-adminUpdateDeviceStatus_deviceRememberedStatus :: Lens.Lens' AdminUpdateDeviceStatus (Prelude.Maybe DeviceRememberedStatusType)
+adminUpdateDeviceStatus_deviceRememberedStatus :: Lens.Lens' AdminUpdateDeviceStatus (Core.Maybe DeviceRememberedStatusType)
 adminUpdateDeviceStatus_deviceRememberedStatus = Lens.lens (\AdminUpdateDeviceStatus' {deviceRememberedStatus} -> deviceRememberedStatus) (\s@AdminUpdateDeviceStatus' {} a -> s {deviceRememberedStatus = a} :: AdminUpdateDeviceStatus)
 
 -- | The user pool ID.
-adminUpdateDeviceStatus_userPoolId :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
+adminUpdateDeviceStatus_userPoolId :: Lens.Lens' AdminUpdateDeviceStatus Core.Text
 adminUpdateDeviceStatus_userPoolId = Lens.lens (\AdminUpdateDeviceStatus' {userPoolId} -> userPoolId) (\s@AdminUpdateDeviceStatus' {} a -> s {userPoolId = a} :: AdminUpdateDeviceStatus)
 
 -- | The user name.
-adminUpdateDeviceStatus_username :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
-adminUpdateDeviceStatus_username = Lens.lens (\AdminUpdateDeviceStatus' {username} -> username) (\s@AdminUpdateDeviceStatus' {} a -> s {username = a} :: AdminUpdateDeviceStatus) Prelude.. Prelude._Sensitive
+adminUpdateDeviceStatus_username :: Lens.Lens' AdminUpdateDeviceStatus Core.Text
+adminUpdateDeviceStatus_username = Lens.lens (\AdminUpdateDeviceStatus' {username} -> username) (\s@AdminUpdateDeviceStatus' {} a -> s {username = a} :: AdminUpdateDeviceStatus) Core.. Core._Sensitive
 
 -- | The device key.
-adminUpdateDeviceStatus_deviceKey :: Lens.Lens' AdminUpdateDeviceStatus Prelude.Text
+adminUpdateDeviceStatus_deviceKey :: Lens.Lens' AdminUpdateDeviceStatus Core.Text
 adminUpdateDeviceStatus_deviceKey = Lens.lens (\AdminUpdateDeviceStatus' {deviceKey} -> deviceKey) (\s@AdminUpdateDeviceStatus' {} a -> s {deviceKey = a} :: AdminUpdateDeviceStatus)
 
-instance Prelude.AWSRequest AdminUpdateDeviceStatus where
+instance Core.AWSRequest AdminUpdateDeviceStatus where
   type
-    Rs AdminUpdateDeviceStatus =
+    AWSResponse AdminUpdateDeviceStatus =
       AdminUpdateDeviceStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminUpdateDeviceStatusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AdminUpdateDeviceStatus
+instance Core.Hashable AdminUpdateDeviceStatus
 
-instance Prelude.NFData AdminUpdateDeviceStatus
+instance Core.NFData AdminUpdateDeviceStatus
 
-instance Prelude.ToHeaders AdminUpdateDeviceStatus where
+instance Core.ToHeaders AdminUpdateDeviceStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminUpdateDeviceStatus where
+instance Core.ToJSON AdminUpdateDeviceStatus where
   toJSON AdminUpdateDeviceStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeviceRememberedStatus" Prelude..=)
-              Prelude.<$> deviceRememberedStatus,
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username),
-            Prelude.Just ("DeviceKey" Prelude..= deviceKey)
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceRememberedStatus" Core..=)
+              Core.<$> deviceRememberedStatus,
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            Core.Just ("DeviceKey" Core..= deviceKey)
           ]
       )
 
-instance Prelude.ToPath AdminUpdateDeviceStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminUpdateDeviceStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminUpdateDeviceStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminUpdateDeviceStatus where
+  toQuery = Core.const Core.mempty
 
 -- | The status response from the request to update the device, as an
 -- administrator.
@@ -171,9 +168,9 @@ instance Prelude.ToQuery AdminUpdateDeviceStatus where
 -- /See:/ 'newAdminUpdateDeviceStatusResponse' smart constructor.
 data AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminUpdateDeviceStatusResponse' with all optional fields omitted.
@@ -186,7 +183,7 @@ data AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
 -- 'httpStatus', 'adminUpdateDeviceStatusResponse_httpStatus' - The response's http status code.
 newAdminUpdateDeviceStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AdminUpdateDeviceStatusResponse
 newAdminUpdateDeviceStatusResponse pHttpStatus_ =
   AdminUpdateDeviceStatusResponse'
@@ -195,9 +192,7 @@ newAdminUpdateDeviceStatusResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-adminUpdateDeviceStatusResponse_httpStatus :: Lens.Lens' AdminUpdateDeviceStatusResponse Prelude.Int
+adminUpdateDeviceStatusResponse_httpStatus :: Lens.Lens' AdminUpdateDeviceStatusResponse Core.Int
 adminUpdateDeviceStatusResponse_httpStatus = Lens.lens (\AdminUpdateDeviceStatusResponse' {httpStatus} -> httpStatus) (\s@AdminUpdateDeviceStatusResponse' {} a -> s {httpStatus = a} :: AdminUpdateDeviceStatusResponse)
 
-instance
-  Prelude.NFData
-    AdminUpdateDeviceStatusResponse
+instance Core.NFData AdminUpdateDeviceStatusResponse

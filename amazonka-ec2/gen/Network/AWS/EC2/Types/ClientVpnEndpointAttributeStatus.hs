@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatusCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the status of the Client VPN endpoint attribute.
 --
 -- /See:/ 'newClientVpnEndpointAttributeStatus' smart constructor.
 data ClientVpnEndpointAttributeStatus = ClientVpnEndpointAttributeStatus'
   { -- | The status message.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The status code.
-    code :: Prelude.Maybe ClientVpnEndpointAttributeStatusCode
+    code :: Core.Maybe ClientVpnEndpointAttributeStatusCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClientVpnEndpointAttributeStatus' with all optional fields omitted.
@@ -52,31 +51,28 @@ newClientVpnEndpointAttributeStatus ::
 newClientVpnEndpointAttributeStatus =
   ClientVpnEndpointAttributeStatus'
     { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+        Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The status message.
-clientVpnEndpointAttributeStatus_message :: Lens.Lens' ClientVpnEndpointAttributeStatus (Prelude.Maybe Prelude.Text)
+clientVpnEndpointAttributeStatus_message :: Lens.Lens' ClientVpnEndpointAttributeStatus (Core.Maybe Core.Text)
 clientVpnEndpointAttributeStatus_message = Lens.lens (\ClientVpnEndpointAttributeStatus' {message} -> message) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {message = a} :: ClientVpnEndpointAttributeStatus)
 
 -- | The status code.
-clientVpnEndpointAttributeStatus_code :: Lens.Lens' ClientVpnEndpointAttributeStatus (Prelude.Maybe ClientVpnEndpointAttributeStatusCode)
+clientVpnEndpointAttributeStatus_code :: Lens.Lens' ClientVpnEndpointAttributeStatus (Core.Maybe ClientVpnEndpointAttributeStatusCode)
 clientVpnEndpointAttributeStatus_code = Lens.lens (\ClientVpnEndpointAttributeStatus' {code} -> code) (\s@ClientVpnEndpointAttributeStatus' {} a -> s {code = a} :: ClientVpnEndpointAttributeStatus)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ClientVpnEndpointAttributeStatus
   where
   parseXML x =
     ClientVpnEndpointAttributeStatus'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ClientVpnEndpointAttributeStatus
 
-instance
-  Prelude.NFData
-    ClientVpnEndpointAttributeStatus
+instance Core.NFData ClientVpnEndpointAttributeStatus

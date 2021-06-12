@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.DiskSnapshotInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a disk snapshot.
 --
 -- /See:/ 'newDiskSnapshotInfo' smart constructor.
 data DiskSnapshotInfo = DiskSnapshotInfo'
   { -- | The size of the disk in GB (e.g., @32@).
-    sizeInGb :: Prelude.Maybe Prelude.Int
+    sizeInGb :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DiskSnapshotInfo' with all optional fields omitted.
@@ -44,21 +43,20 @@ data DiskSnapshotInfo = DiskSnapshotInfo'
 newDiskSnapshotInfo ::
   DiskSnapshotInfo
 newDiskSnapshotInfo =
-  DiskSnapshotInfo' {sizeInGb = Prelude.Nothing}
+  DiskSnapshotInfo' {sizeInGb = Core.Nothing}
 
 -- | The size of the disk in GB (e.g., @32@).
-diskSnapshotInfo_sizeInGb :: Lens.Lens' DiskSnapshotInfo (Prelude.Maybe Prelude.Int)
+diskSnapshotInfo_sizeInGb :: Lens.Lens' DiskSnapshotInfo (Core.Maybe Core.Int)
 diskSnapshotInfo_sizeInGb = Lens.lens (\DiskSnapshotInfo' {sizeInGb} -> sizeInGb) (\s@DiskSnapshotInfo' {} a -> s {sizeInGb = a} :: DiskSnapshotInfo)
 
-instance Prelude.FromJSON DiskSnapshotInfo where
+instance Core.FromJSON DiskSnapshotInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DiskSnapshotInfo"
       ( \x ->
-          DiskSnapshotInfo'
-            Prelude.<$> (x Prelude..:? "sizeInGb")
+          DiskSnapshotInfo' Core.<$> (x Core..:? "sizeInGb")
       )
 
-instance Prelude.Hashable DiskSnapshotInfo
+instance Core.Hashable DiskSnapshotInfo
 
-instance Prelude.NFData DiskSnapshotInfo
+instance Core.NFData DiskSnapshotInfo

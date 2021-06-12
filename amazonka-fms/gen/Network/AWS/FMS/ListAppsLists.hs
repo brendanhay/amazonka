@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.FMS.ListAppsLists
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,10 +55,10 @@ data ListAppsLists = ListAppsLists'
     -- token in the response. For all but the first request, you provide the
     -- token returned by the prior request in the request parameters, to
     -- retrieve the next batch of objects.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Specifies whether the lists to retrieve are default lists owned by AWS
     -- Firewall Manager.
-    defaultLists :: Prelude.Maybe Prelude.Bool,
+    defaultLists :: Core.Maybe Core.Bool,
     -- | The maximum number of objects that you want AWS Firewall Manager to
     -- return for this request. If more objects are available, in the response,
     -- AWS Firewall Manager provides a @NextToken@ value that you can use in a
@@ -67,9 +66,9 @@ data ListAppsLists = ListAppsLists'
     --
     -- If you don\'t specify this, AWS Firewall Manager returns all available
     -- objects.
-    maxResults :: Prelude.Natural
+    maxResults :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAppsLists' with all optional fields omitted.
@@ -97,12 +96,12 @@ data ListAppsLists = ListAppsLists'
 -- objects.
 newListAppsLists ::
   -- | 'maxResults'
-  Prelude.Natural ->
+  Core.Natural ->
   ListAppsLists
 newListAppsLists pMaxResults_ =
   ListAppsLists'
-    { nextToken = Prelude.Nothing,
-      defaultLists = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      defaultLists = Core.Nothing,
       maxResults = pMaxResults_
     }
 
@@ -111,12 +110,12 @@ newListAppsLists pMaxResults_ =
 -- token in the response. For all but the first request, you provide the
 -- token returned by the prior request in the request parameters, to
 -- retrieve the next batch of objects.
-listAppsLists_nextToken :: Lens.Lens' ListAppsLists (Prelude.Maybe Prelude.Text)
+listAppsLists_nextToken :: Lens.Lens' ListAppsLists (Core.Maybe Core.Text)
 listAppsLists_nextToken = Lens.lens (\ListAppsLists' {nextToken} -> nextToken) (\s@ListAppsLists' {} a -> s {nextToken = a} :: ListAppsLists)
 
 -- | Specifies whether the lists to retrieve are default lists owned by AWS
 -- Firewall Manager.
-listAppsLists_defaultLists :: Lens.Lens' ListAppsLists (Prelude.Maybe Prelude.Bool)
+listAppsLists_defaultLists :: Lens.Lens' ListAppsLists (Core.Maybe Core.Bool)
 listAppsLists_defaultLists = Lens.lens (\ListAppsLists' {defaultLists} -> defaultLists) (\s@ListAppsLists' {} a -> s {defaultLists = a} :: ListAppsLists)
 
 -- | The maximum number of objects that you want AWS Firewall Manager to
@@ -126,57 +125,53 @@ listAppsLists_defaultLists = Lens.lens (\ListAppsLists' {defaultLists} -> defaul
 --
 -- If you don\'t specify this, AWS Firewall Manager returns all available
 -- objects.
-listAppsLists_maxResults :: Lens.Lens' ListAppsLists Prelude.Natural
+listAppsLists_maxResults :: Lens.Lens' ListAppsLists Core.Natural
 listAppsLists_maxResults = Lens.lens (\ListAppsLists' {maxResults} -> maxResults) (\s@ListAppsLists' {} a -> s {maxResults = a} :: ListAppsLists)
 
-instance Prelude.AWSRequest ListAppsLists where
-  type Rs ListAppsLists = ListAppsListsResponse
+instance Core.AWSRequest ListAppsLists where
+  type
+    AWSResponse ListAppsLists =
+      ListAppsListsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAppsListsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "AppsLists"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "AppsLists" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAppsLists
+instance Core.Hashable ListAppsLists
 
-instance Prelude.NFData ListAppsLists
+instance Core.NFData ListAppsLists
 
-instance Prelude.ToHeaders ListAppsLists where
+instance Core.ToHeaders ListAppsLists where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.ListAppsLists" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSFMS_20180101.ListAppsLists" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAppsLists where
+instance Core.ToJSON ListAppsLists where
   toJSON ListAppsLists' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("DefaultLists" Prelude..=) Prelude.<$> defaultLists,
-            Prelude.Just ("MaxResults" Prelude..= maxResults)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("DefaultLists" Core..=) Core.<$> defaultLists,
+            Core.Just ("MaxResults" Core..= maxResults)
           ]
       )
 
-instance Prelude.ToPath ListAppsLists where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAppsLists where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAppsLists where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAppsLists where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAppsListsResponse' smart constructor.
 data ListAppsListsResponse = ListAppsListsResponse'
@@ -184,13 +179,13 @@ data ListAppsListsResponse = ListAppsListsResponse'
     -- have more objects than the maximum, AWS Firewall Manager returns this
     -- token in the response. You can use this token in subsequent requests to
     -- retrieve the next batch of objects.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of @AppsListDataSummary@ objects.
-    appsLists :: Prelude.Maybe [AppsListDataSummary],
+    appsLists :: Core.Maybe [AppsListDataSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAppsListsResponse' with all optional fields omitted.
@@ -210,12 +205,12 @@ data ListAppsListsResponse = ListAppsListsResponse'
 -- 'httpStatus', 'listAppsListsResponse_httpStatus' - The response's http status code.
 newListAppsListsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAppsListsResponse
 newListAppsListsResponse pHttpStatus_ =
   ListAppsListsResponse'
-    { nextToken = Prelude.Nothing,
-      appsLists = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      appsLists = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -223,15 +218,15 @@ newListAppsListsResponse pHttpStatus_ =
 -- have more objects than the maximum, AWS Firewall Manager returns this
 -- token in the response. You can use this token in subsequent requests to
 -- retrieve the next batch of objects.
-listAppsListsResponse_nextToken :: Lens.Lens' ListAppsListsResponse (Prelude.Maybe Prelude.Text)
+listAppsListsResponse_nextToken :: Lens.Lens' ListAppsListsResponse (Core.Maybe Core.Text)
 listAppsListsResponse_nextToken = Lens.lens (\ListAppsListsResponse' {nextToken} -> nextToken) (\s@ListAppsListsResponse' {} a -> s {nextToken = a} :: ListAppsListsResponse)
 
 -- | An array of @AppsListDataSummary@ objects.
-listAppsListsResponse_appsLists :: Lens.Lens' ListAppsListsResponse (Prelude.Maybe [AppsListDataSummary])
-listAppsListsResponse_appsLists = Lens.lens (\ListAppsListsResponse' {appsLists} -> appsLists) (\s@ListAppsListsResponse' {} a -> s {appsLists = a} :: ListAppsListsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAppsListsResponse_appsLists :: Lens.Lens' ListAppsListsResponse (Core.Maybe [AppsListDataSummary])
+listAppsListsResponse_appsLists = Lens.lens (\ListAppsListsResponse' {appsLists} -> appsLists) (\s@ListAppsListsResponse' {} a -> s {appsLists = a} :: ListAppsListsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAppsListsResponse_httpStatus :: Lens.Lens' ListAppsListsResponse Prelude.Int
+listAppsListsResponse_httpStatus :: Lens.Lens' ListAppsListsResponse Core.Int
 listAppsListsResponse_httpStatus = Lens.lens (\ListAppsListsResponse' {httpStatus} -> httpStatus) (\s@ListAppsListsResponse' {} a -> s {httpStatus = a} :: ListAppsListsResponse)
 
-instance Prelude.NFData ListAppsListsResponse
+instance Core.NFData ListAppsListsResponse

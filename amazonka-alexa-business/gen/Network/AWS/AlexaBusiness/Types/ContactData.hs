@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.AlexaBusiness.Types.ContactData where
 
 import Network.AWS.AlexaBusiness.Types.PhoneNumber
 import Network.AWS.AlexaBusiness.Types.SipAddress
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information related to a contact.
 --
@@ -33,21 +32,21 @@ data ContactData = ContactData'
     -- You can specify PhoneNumber or PhoneNumbers. We recommend that you use
     -- PhoneNumbers, which lets you specify the phone number type and multiple
     -- numbers.
-    phoneNumber :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    phoneNumber :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The list of phone numbers for the contact.
-    phoneNumbers :: Prelude.Maybe [PhoneNumber],
+    phoneNumbers :: Core.Maybe [PhoneNumber],
     -- | The name of the contact to display on the console.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Core.Maybe Core.Text,
     -- | The ARN of the contact.
-    contactArn :: Prelude.Maybe Prelude.Text,
+    contactArn :: Core.Maybe Core.Text,
     -- | The first name of the contact, used to call the contact on the device.
-    firstName :: Prelude.Maybe Prelude.Text,
+    firstName :: Core.Maybe Core.Text,
     -- | The last name of the contact, used to call the contact on the device.
-    lastName :: Prelude.Maybe Prelude.Text,
+    lastName :: Core.Maybe Core.Text,
     -- | The list of SIP addresses for the contact.
-    sipAddresses :: Prelude.Maybe [SipAddress]
+    sipAddresses :: Core.Maybe [SipAddress]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContactData' with all optional fields omitted.
@@ -77,65 +76,61 @@ newContactData ::
   ContactData
 newContactData =
   ContactData'
-    { phoneNumber = Prelude.Nothing,
-      phoneNumbers = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      contactArn = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      lastName = Prelude.Nothing,
-      sipAddresses = Prelude.Nothing
+    { phoneNumber = Core.Nothing,
+      phoneNumbers = Core.Nothing,
+      displayName = Core.Nothing,
+      contactArn = Core.Nothing,
+      firstName = Core.Nothing,
+      lastName = Core.Nothing,
+      sipAddresses = Core.Nothing
     }
 
 -- | The phone number of the contact. The phone number type defaults to WORK.
 -- You can specify PhoneNumber or PhoneNumbers. We recommend that you use
 -- PhoneNumbers, which lets you specify the phone number type and multiple
 -- numbers.
-contactData_phoneNumber :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
-contactData_phoneNumber = Lens.lens (\ContactData' {phoneNumber} -> phoneNumber) (\s@ContactData' {} a -> s {phoneNumber = a} :: ContactData) Prelude.. Lens.mapping Prelude._Sensitive
+contactData_phoneNumber :: Lens.Lens' ContactData (Core.Maybe Core.Text)
+contactData_phoneNumber = Lens.lens (\ContactData' {phoneNumber} -> phoneNumber) (\s@ContactData' {} a -> s {phoneNumber = a} :: ContactData) Core.. Lens.mapping Core._Sensitive
 
 -- | The list of phone numbers for the contact.
-contactData_phoneNumbers :: Lens.Lens' ContactData (Prelude.Maybe [PhoneNumber])
-contactData_phoneNumbers = Lens.lens (\ContactData' {phoneNumbers} -> phoneNumbers) (\s@ContactData' {} a -> s {phoneNumbers = a} :: ContactData) Prelude.. Lens.mapping Prelude._Coerce
+contactData_phoneNumbers :: Lens.Lens' ContactData (Core.Maybe [PhoneNumber])
+contactData_phoneNumbers = Lens.lens (\ContactData' {phoneNumbers} -> phoneNumbers) (\s@ContactData' {} a -> s {phoneNumbers = a} :: ContactData) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the contact to display on the console.
-contactData_displayName :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
+contactData_displayName :: Lens.Lens' ContactData (Core.Maybe Core.Text)
 contactData_displayName = Lens.lens (\ContactData' {displayName} -> displayName) (\s@ContactData' {} a -> s {displayName = a} :: ContactData)
 
 -- | The ARN of the contact.
-contactData_contactArn :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
+contactData_contactArn :: Lens.Lens' ContactData (Core.Maybe Core.Text)
 contactData_contactArn = Lens.lens (\ContactData' {contactArn} -> contactArn) (\s@ContactData' {} a -> s {contactArn = a} :: ContactData)
 
 -- | The first name of the contact, used to call the contact on the device.
-contactData_firstName :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
+contactData_firstName :: Lens.Lens' ContactData (Core.Maybe Core.Text)
 contactData_firstName = Lens.lens (\ContactData' {firstName} -> firstName) (\s@ContactData' {} a -> s {firstName = a} :: ContactData)
 
 -- | The last name of the contact, used to call the contact on the device.
-contactData_lastName :: Lens.Lens' ContactData (Prelude.Maybe Prelude.Text)
+contactData_lastName :: Lens.Lens' ContactData (Core.Maybe Core.Text)
 contactData_lastName = Lens.lens (\ContactData' {lastName} -> lastName) (\s@ContactData' {} a -> s {lastName = a} :: ContactData)
 
 -- | The list of SIP addresses for the contact.
-contactData_sipAddresses :: Lens.Lens' ContactData (Prelude.Maybe [SipAddress])
-contactData_sipAddresses = Lens.lens (\ContactData' {sipAddresses} -> sipAddresses) (\s@ContactData' {} a -> s {sipAddresses = a} :: ContactData) Prelude.. Lens.mapping Prelude._Coerce
+contactData_sipAddresses :: Lens.Lens' ContactData (Core.Maybe [SipAddress])
+contactData_sipAddresses = Lens.lens (\ContactData' {sipAddresses} -> sipAddresses) (\s@ContactData' {} a -> s {sipAddresses = a} :: ContactData) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ContactData where
+instance Core.FromJSON ContactData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContactData"
       ( \x ->
           ContactData'
-            Prelude.<$> (x Prelude..:? "PhoneNumber")
-            Prelude.<*> ( x Prelude..:? "PhoneNumbers"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "DisplayName")
-            Prelude.<*> (x Prelude..:? "ContactArn")
-            Prelude.<*> (x Prelude..:? "FirstName")
-            Prelude.<*> (x Prelude..:? "LastName")
-            Prelude.<*> ( x Prelude..:? "SipAddresses"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "PhoneNumber")
+            Core.<*> (x Core..:? "PhoneNumbers" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "DisplayName")
+            Core.<*> (x Core..:? "ContactArn")
+            Core.<*> (x Core..:? "FirstName")
+            Core.<*> (x Core..:? "LastName")
+            Core.<*> (x Core..:? "SipAddresses" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ContactData
+instance Core.Hashable ContactData
 
-instance Prelude.NFData ContactData
+instance Core.NFData ContactData

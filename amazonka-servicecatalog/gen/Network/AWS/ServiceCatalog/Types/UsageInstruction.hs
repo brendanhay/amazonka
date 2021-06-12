@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.UsageInstruction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Additional information provided by the administrator.
 --
 -- /See:/ 'newUsageInstruction' smart constructor.
 data UsageInstruction = UsageInstruction'
   { -- | The usage instruction value for this type.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The usage instruction type for the value.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UsageInstruction' with all optional fields omitted.
@@ -49,28 +48,27 @@ newUsageInstruction ::
   UsageInstruction
 newUsageInstruction =
   UsageInstruction'
-    { value = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { value = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The usage instruction value for this type.
-usageInstruction_value :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
+usageInstruction_value :: Lens.Lens' UsageInstruction (Core.Maybe Core.Text)
 usageInstruction_value = Lens.lens (\UsageInstruction' {value} -> value) (\s@UsageInstruction' {} a -> s {value = a} :: UsageInstruction)
 
 -- | The usage instruction type for the value.
-usageInstruction_type :: Lens.Lens' UsageInstruction (Prelude.Maybe Prelude.Text)
+usageInstruction_type :: Lens.Lens' UsageInstruction (Core.Maybe Core.Text)
 usageInstruction_type = Lens.lens (\UsageInstruction' {type'} -> type') (\s@UsageInstruction' {} a -> s {type' = a} :: UsageInstruction)
 
-instance Prelude.FromJSON UsageInstruction where
+instance Core.FromJSON UsageInstruction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UsageInstruction"
       ( \x ->
           UsageInstruction'
-            Prelude.<$> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Value") Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable UsageInstruction
+instance Core.Hashable UsageInstruction
 
-instance Prelude.NFData UsageInstruction
+instance Core.NFData UsageInstruction

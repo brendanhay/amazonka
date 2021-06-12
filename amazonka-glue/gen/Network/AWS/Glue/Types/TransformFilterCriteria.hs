@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,49 +19,49 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.TransformFilterCriteria where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.SchemaColumn
 import Network.AWS.Glue.Types.TransformStatusType
 import Network.AWS.Glue.Types.TransformType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The criteria used to filter the machine learning transforms.
 --
 -- /See:/ 'newTransformFilterCriteria' smart constructor.
 data TransformFilterCriteria = TransformFilterCriteria'
   { -- | The time and date after which the transforms were created.
-    createdAfter :: Prelude.Maybe Prelude.POSIX,
+    createdAfter :: Core.Maybe Core.POSIX,
     -- | Filters the list of machine learning transforms by the last known status
     -- of the transforms (to indicate whether a transform can be used or not).
     -- One of \"NOT_READY\", \"READY\", or \"DELETING\".
-    status :: Prelude.Maybe TransformStatusType,
+    status :: Core.Maybe TransformStatusType,
     -- | The type of machine learning transform that is used to filter the
     -- machine learning transforms.
-    transformType :: Prelude.Maybe TransformType,
+    transformType :: Core.Maybe TransformType,
     -- | Filters on datasets with a specific schema. The @Map\<Column, Type>@
     -- object is an array of key-value pairs representing the schema this
     -- transform accepts, where @Column@ is the name of a column, and @Type@ is
     -- the type of the data such as an integer or string. Has an upper bound of
     -- 100 columns.
-    schema :: Prelude.Maybe [SchemaColumn],
+    schema :: Core.Maybe [SchemaColumn],
     -- | The time and date before which the transforms were created.
-    createdBefore :: Prelude.Maybe Prelude.POSIX,
+    createdBefore :: Core.Maybe Core.POSIX,
     -- | Filter on transforms last modified before this date.
-    lastModifiedBefore :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedBefore :: Core.Maybe Core.POSIX,
     -- | Filter on transforms last modified after this date.
-    lastModifiedAfter :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedAfter :: Core.Maybe Core.POSIX,
     -- | A unique transform name that is used to filter the machine learning
     -- transforms.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | This value determines which version of AWS Glue this machine learning
     -- transform is compatible with. Glue 1.0 is recommended for most
     -- customers. If the value is not set, the Glue compatibility defaults to
     -- Glue 0.9. For more information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
     -- in the developer guide.
-    glueVersion :: Prelude.Maybe Prelude.Text
+    glueVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformFilterCriteria' with all optional fields omitted.
@@ -107,30 +106,30 @@ newTransformFilterCriteria ::
 newTransformFilterCriteria =
   TransformFilterCriteria'
     { createdAfter =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      transformType = Prelude.Nothing,
-      schema = Prelude.Nothing,
-      createdBefore = Prelude.Nothing,
-      lastModifiedBefore = Prelude.Nothing,
-      lastModifiedAfter = Prelude.Nothing,
-      name = Prelude.Nothing,
-      glueVersion = Prelude.Nothing
+        Core.Nothing,
+      status = Core.Nothing,
+      transformType = Core.Nothing,
+      schema = Core.Nothing,
+      createdBefore = Core.Nothing,
+      lastModifiedBefore = Core.Nothing,
+      lastModifiedAfter = Core.Nothing,
+      name = Core.Nothing,
+      glueVersion = Core.Nothing
     }
 
 -- | The time and date after which the transforms were created.
-transformFilterCriteria_createdAfter :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_createdAfter = Lens.lens (\TransformFilterCriteria' {createdAfter} -> createdAfter) (\s@TransformFilterCriteria' {} a -> s {createdAfter = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Prelude._Time
+transformFilterCriteria_createdAfter :: Lens.Lens' TransformFilterCriteria (Core.Maybe Core.UTCTime)
+transformFilterCriteria_createdAfter = Lens.lens (\TransformFilterCriteria' {createdAfter} -> createdAfter) (\s@TransformFilterCriteria' {} a -> s {createdAfter = a} :: TransformFilterCriteria) Core.. Lens.mapping Core._Time
 
 -- | Filters the list of machine learning transforms by the last known status
 -- of the transforms (to indicate whether a transform can be used or not).
 -- One of \"NOT_READY\", \"READY\", or \"DELETING\".
-transformFilterCriteria_status :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe TransformStatusType)
+transformFilterCriteria_status :: Lens.Lens' TransformFilterCriteria (Core.Maybe TransformStatusType)
 transformFilterCriteria_status = Lens.lens (\TransformFilterCriteria' {status} -> status) (\s@TransformFilterCriteria' {} a -> s {status = a} :: TransformFilterCriteria)
 
 -- | The type of machine learning transform that is used to filter the
 -- machine learning transforms.
-transformFilterCriteria_transformType :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe TransformType)
+transformFilterCriteria_transformType :: Lens.Lens' TransformFilterCriteria (Core.Maybe TransformType)
 transformFilterCriteria_transformType = Lens.lens (\TransformFilterCriteria' {transformType} -> transformType) (\s@TransformFilterCriteria' {} a -> s {transformType = a} :: TransformFilterCriteria)
 
 -- | Filters on datasets with a specific schema. The @Map\<Column, Type>@
@@ -138,24 +137,24 @@ transformFilterCriteria_transformType = Lens.lens (\TransformFilterCriteria' {tr
 -- transform accepts, where @Column@ is the name of a column, and @Type@ is
 -- the type of the data such as an integer or string. Has an upper bound of
 -- 100 columns.
-transformFilterCriteria_schema :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe [SchemaColumn])
-transformFilterCriteria_schema = Lens.lens (\TransformFilterCriteria' {schema} -> schema) (\s@TransformFilterCriteria' {} a -> s {schema = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Prelude._Coerce
+transformFilterCriteria_schema :: Lens.Lens' TransformFilterCriteria (Core.Maybe [SchemaColumn])
+transformFilterCriteria_schema = Lens.lens (\TransformFilterCriteria' {schema} -> schema) (\s@TransformFilterCriteria' {} a -> s {schema = a} :: TransformFilterCriteria) Core.. Lens.mapping Lens._Coerce
 
 -- | The time and date before which the transforms were created.
-transformFilterCriteria_createdBefore :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_createdBefore = Lens.lens (\TransformFilterCriteria' {createdBefore} -> createdBefore) (\s@TransformFilterCriteria' {} a -> s {createdBefore = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Prelude._Time
+transformFilterCriteria_createdBefore :: Lens.Lens' TransformFilterCriteria (Core.Maybe Core.UTCTime)
+transformFilterCriteria_createdBefore = Lens.lens (\TransformFilterCriteria' {createdBefore} -> createdBefore) (\s@TransformFilterCriteria' {} a -> s {createdBefore = a} :: TransformFilterCriteria) Core.. Lens.mapping Core._Time
 
 -- | Filter on transforms last modified before this date.
-transformFilterCriteria_lastModifiedBefore :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_lastModifiedBefore = Lens.lens (\TransformFilterCriteria' {lastModifiedBefore} -> lastModifiedBefore) (\s@TransformFilterCriteria' {} a -> s {lastModifiedBefore = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Prelude._Time
+transformFilterCriteria_lastModifiedBefore :: Lens.Lens' TransformFilterCriteria (Core.Maybe Core.UTCTime)
+transformFilterCriteria_lastModifiedBefore = Lens.lens (\TransformFilterCriteria' {lastModifiedBefore} -> lastModifiedBefore) (\s@TransformFilterCriteria' {} a -> s {lastModifiedBefore = a} :: TransformFilterCriteria) Core.. Lens.mapping Core._Time
 
 -- | Filter on transforms last modified after this date.
-transformFilterCriteria_lastModifiedAfter :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.UTCTime)
-transformFilterCriteria_lastModifiedAfter = Lens.lens (\TransformFilterCriteria' {lastModifiedAfter} -> lastModifiedAfter) (\s@TransformFilterCriteria' {} a -> s {lastModifiedAfter = a} :: TransformFilterCriteria) Prelude.. Lens.mapping Prelude._Time
+transformFilterCriteria_lastModifiedAfter :: Lens.Lens' TransformFilterCriteria (Core.Maybe Core.UTCTime)
+transformFilterCriteria_lastModifiedAfter = Lens.lens (\TransformFilterCriteria' {lastModifiedAfter} -> lastModifiedAfter) (\s@TransformFilterCriteria' {} a -> s {lastModifiedAfter = a} :: TransformFilterCriteria) Core.. Lens.mapping Core._Time
 
 -- | A unique transform name that is used to filter the machine learning
 -- transforms.
-transformFilterCriteria_name :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.Text)
+transformFilterCriteria_name :: Lens.Lens' TransformFilterCriteria (Core.Maybe Core.Text)
 transformFilterCriteria_name = Lens.lens (\TransformFilterCriteria' {name} -> name) (\s@TransformFilterCriteria' {} a -> s {name = a} :: TransformFilterCriteria)
 
 -- | This value determines which version of AWS Glue this machine learning
@@ -164,30 +163,27 @@ transformFilterCriteria_name = Lens.lens (\TransformFilterCriteria' {name} -> na
 -- Glue 0.9. For more information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
 -- in the developer guide.
-transformFilterCriteria_glueVersion :: Lens.Lens' TransformFilterCriteria (Prelude.Maybe Prelude.Text)
+transformFilterCriteria_glueVersion :: Lens.Lens' TransformFilterCriteria (Core.Maybe Core.Text)
 transformFilterCriteria_glueVersion = Lens.lens (\TransformFilterCriteria' {glueVersion} -> glueVersion) (\s@TransformFilterCriteria' {} a -> s {glueVersion = a} :: TransformFilterCriteria)
 
-instance Prelude.Hashable TransformFilterCriteria
+instance Core.Hashable TransformFilterCriteria
 
-instance Prelude.NFData TransformFilterCriteria
+instance Core.NFData TransformFilterCriteria
 
-instance Prelude.ToJSON TransformFilterCriteria where
+instance Core.ToJSON TransformFilterCriteria where
   toJSON TransformFilterCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CreatedAfter" Prelude..=)
-              Prelude.<$> createdAfter,
-            ("Status" Prelude..=) Prelude.<$> status,
-            ("TransformType" Prelude..=)
-              Prelude.<$> transformType,
-            ("Schema" Prelude..=) Prelude.<$> schema,
-            ("CreatedBefore" Prelude..=)
-              Prelude.<$> createdBefore,
-            ("LastModifiedBefore" Prelude..=)
-              Prelude.<$> lastModifiedBefore,
-            ("LastModifiedAfter" Prelude..=)
-              Prelude.<$> lastModifiedAfter,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("GlueVersion" Prelude..=) Prelude.<$> glueVersion
+    Core.object
+      ( Core.catMaybes
+          [ ("CreatedAfter" Core..=) Core.<$> createdAfter,
+            ("Status" Core..=) Core.<$> status,
+            ("TransformType" Core..=) Core.<$> transformType,
+            ("Schema" Core..=) Core.<$> schema,
+            ("CreatedBefore" Core..=) Core.<$> createdBefore,
+            ("LastModifiedBefore" Core..=)
+              Core.<$> lastModifiedBefore,
+            ("LastModifiedAfter" Core..=)
+              Core.<$> lastModifiedAfter,
+            ("Name" Core..=) Core.<$> name,
+            ("GlueVersion" Core..=) Core.<$> glueVersion
           ]
       )

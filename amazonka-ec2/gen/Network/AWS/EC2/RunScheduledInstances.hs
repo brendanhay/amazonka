@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.EC2.RunScheduledInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -69,22 +68,22 @@ data RunScheduledInstances = RunScheduledInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Unique, case-sensitive identifier that ensures the idempotency of the
     -- request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The number of instances.
     --
     -- Default: 1
-    instanceCount :: Prelude.Maybe Prelude.Int,
+    instanceCount :: Core.Maybe Core.Int,
     -- | The launch specification. You must match the instance type, Availability
     -- Zone, network, and platform of the schedule that you purchased.
     launchSpecification :: ScheduledInstancesLaunchSpecification,
     -- | The Scheduled Instance ID.
-    scheduledInstanceId :: Prelude.Text
+    scheduledInstanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunScheduledInstances' with all optional fields omitted.
@@ -115,15 +114,15 @@ newRunScheduledInstances ::
   -- | 'launchSpecification'
   ScheduledInstancesLaunchSpecification ->
   -- | 'scheduledInstanceId'
-  Prelude.Text ->
+  Core.Text ->
   RunScheduledInstances
 newRunScheduledInstances
   pLaunchSpecification_
   pScheduledInstanceId_ =
     RunScheduledInstances'
-      { dryRun = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
-        instanceCount = Prelude.Nothing,
+      { dryRun = Core.Nothing,
+        clientToken = Core.Nothing,
+        instanceCount = Core.Nothing,
         launchSpecification = pLaunchSpecification_,
         scheduledInstanceId = pScheduledInstanceId_
       }
@@ -132,19 +131,19 @@ newRunScheduledInstances
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-runScheduledInstances_dryRun :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Bool)
+runScheduledInstances_dryRun :: Lens.Lens' RunScheduledInstances (Core.Maybe Core.Bool)
 runScheduledInstances_dryRun = Lens.lens (\RunScheduledInstances' {dryRun} -> dryRun) (\s@RunScheduledInstances' {} a -> s {dryRun = a} :: RunScheduledInstances)
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the
 -- request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-runScheduledInstances_clientToken :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Text)
+runScheduledInstances_clientToken :: Lens.Lens' RunScheduledInstances (Core.Maybe Core.Text)
 runScheduledInstances_clientToken = Lens.lens (\RunScheduledInstances' {clientToken} -> clientToken) (\s@RunScheduledInstances' {} a -> s {clientToken = a} :: RunScheduledInstances)
 
 -- | The number of instances.
 --
 -- Default: 1
-runScheduledInstances_instanceCount :: Lens.Lens' RunScheduledInstances (Prelude.Maybe Prelude.Int)
+runScheduledInstances_instanceCount :: Lens.Lens' RunScheduledInstances (Core.Maybe Core.Int)
 runScheduledInstances_instanceCount = Lens.lens (\RunScheduledInstances' {instanceCount} -> instanceCount) (\s@RunScheduledInstances' {} a -> s {instanceCount = a} :: RunScheduledInstances)
 
 -- | The launch specification. You must match the instance type, Availability
@@ -153,47 +152,45 @@ runScheduledInstances_launchSpecification :: Lens.Lens' RunScheduledInstances Sc
 runScheduledInstances_launchSpecification = Lens.lens (\RunScheduledInstances' {launchSpecification} -> launchSpecification) (\s@RunScheduledInstances' {} a -> s {launchSpecification = a} :: RunScheduledInstances)
 
 -- | The Scheduled Instance ID.
-runScheduledInstances_scheduledInstanceId :: Lens.Lens' RunScheduledInstances Prelude.Text
+runScheduledInstances_scheduledInstanceId :: Lens.Lens' RunScheduledInstances Core.Text
 runScheduledInstances_scheduledInstanceId = Lens.lens (\RunScheduledInstances' {scheduledInstanceId} -> scheduledInstanceId) (\s@RunScheduledInstances' {} a -> s {scheduledInstanceId = a} :: RunScheduledInstances)
 
-instance Prelude.AWSRequest RunScheduledInstances where
+instance Core.AWSRequest RunScheduledInstances where
   type
-    Rs RunScheduledInstances =
+    AWSResponse RunScheduledInstances =
       RunScheduledInstancesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           RunScheduledInstancesResponse'
-            Prelude.<$> ( x Prelude..@? "instanceIdSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "instanceIdSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RunScheduledInstances
+instance Core.Hashable RunScheduledInstances
 
-instance Prelude.NFData RunScheduledInstances
+instance Core.NFData RunScheduledInstances
 
-instance Prelude.ToHeaders RunScheduledInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RunScheduledInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RunScheduledInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath RunScheduledInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RunScheduledInstances where
+instance Core.ToQuery RunScheduledInstances where
   toQuery RunScheduledInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RunScheduledInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "ClientToken" Prelude.=: clientToken,
-        "InstanceCount" Prelude.=: instanceCount,
-        "LaunchSpecification" Prelude.=: launchSpecification,
-        "ScheduledInstanceId" Prelude.=: scheduledInstanceId
+          Core.=: ("RunScheduledInstances" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "ClientToken" Core.=: clientToken,
+        "InstanceCount" Core.=: instanceCount,
+        "LaunchSpecification" Core.=: launchSpecification,
+        "ScheduledInstanceId" Core.=: scheduledInstanceId
       ]
 
 -- | Contains the output of RunScheduledInstances.
@@ -201,11 +198,11 @@ instance Prelude.ToQuery RunScheduledInstances where
 -- /See:/ 'newRunScheduledInstancesResponse' smart constructor.
 data RunScheduledInstancesResponse = RunScheduledInstancesResponse'
   { -- | The IDs of the newly launched instances.
-    instanceIdSet :: Prelude.Maybe [Prelude.Text],
+    instanceIdSet :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunScheduledInstancesResponse' with all optional fields omitted.
@@ -220,21 +217,21 @@ data RunScheduledInstancesResponse = RunScheduledInstancesResponse'
 -- 'httpStatus', 'runScheduledInstancesResponse_httpStatus' - The response's http status code.
 newRunScheduledInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RunScheduledInstancesResponse
 newRunScheduledInstancesResponse pHttpStatus_ =
   RunScheduledInstancesResponse'
     { instanceIdSet =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IDs of the newly launched instances.
-runScheduledInstancesResponse_instanceIdSet :: Lens.Lens' RunScheduledInstancesResponse (Prelude.Maybe [Prelude.Text])
-runScheduledInstancesResponse_instanceIdSet = Lens.lens (\RunScheduledInstancesResponse' {instanceIdSet} -> instanceIdSet) (\s@RunScheduledInstancesResponse' {} a -> s {instanceIdSet = a} :: RunScheduledInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+runScheduledInstancesResponse_instanceIdSet :: Lens.Lens' RunScheduledInstancesResponse (Core.Maybe [Core.Text])
+runScheduledInstancesResponse_instanceIdSet = Lens.lens (\RunScheduledInstancesResponse' {instanceIdSet} -> instanceIdSet) (\s@RunScheduledInstancesResponse' {} a -> s {instanceIdSet = a} :: RunScheduledInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-runScheduledInstancesResponse_httpStatus :: Lens.Lens' RunScheduledInstancesResponse Prelude.Int
+runScheduledInstancesResponse_httpStatus :: Lens.Lens' RunScheduledInstancesResponse Core.Int
 runScheduledInstancesResponse_httpStatus = Lens.lens (\RunScheduledInstancesResponse' {httpStatus} -> httpStatus) (\s@RunScheduledInstancesResponse' {} a -> s {httpStatus = a} :: RunScheduledInstancesResponse)
 
-instance Prelude.NFData RunScheduledInstancesResponse
+instance Core.NFData RunScheduledInstancesResponse

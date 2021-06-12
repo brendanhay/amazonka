@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.SecurityGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a security group associated with a network
 -- interface. This data type is used as one of the elements of the
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSecurityGroup' smart constructor.
 data SecurityGroup = SecurityGroup'
   { -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text
+    groupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityGroup' with all optional fields omitted.
@@ -51,28 +50,28 @@ newSecurityGroup ::
   SecurityGroup
 newSecurityGroup =
   SecurityGroup'
-    { groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { groupName = Core.Nothing,
+      groupId = Core.Nothing
     }
 
 -- | The name of the security group.
-securityGroup_groupName :: Lens.Lens' SecurityGroup (Prelude.Maybe Prelude.Text)
+securityGroup_groupName :: Lens.Lens' SecurityGroup (Core.Maybe Core.Text)
 securityGroup_groupName = Lens.lens (\SecurityGroup' {groupName} -> groupName) (\s@SecurityGroup' {} a -> s {groupName = a} :: SecurityGroup)
 
 -- | The ID of the security group.
-securityGroup_groupId :: Lens.Lens' SecurityGroup (Prelude.Maybe Prelude.Text)
+securityGroup_groupId :: Lens.Lens' SecurityGroup (Core.Maybe Core.Text)
 securityGroup_groupId = Lens.lens (\SecurityGroup' {groupId} -> groupId) (\s@SecurityGroup' {} a -> s {groupId = a} :: SecurityGroup)
 
-instance Prelude.FromJSON SecurityGroup where
+instance Core.FromJSON SecurityGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SecurityGroup"
       ( \x ->
           SecurityGroup'
-            Prelude.<$> (x Prelude..:? "groupName")
-            Prelude.<*> (x Prelude..:? "groupId")
+            Core.<$> (x Core..:? "groupName")
+            Core.<*> (x Core..:? "groupId")
       )
 
-instance Prelude.Hashable SecurityGroup
+instance Core.Hashable SecurityGroup
 
-instance Prelude.NFData SecurityGroup
+instance Core.NFData SecurityGroup

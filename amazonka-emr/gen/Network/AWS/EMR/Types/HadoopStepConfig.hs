@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.HadoopStepConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A cluster step consisting of a JAR file whose main function will be
 -- executed. The main function submits a job for Hadoop to execute and
@@ -31,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 data HadoopStepConfig = HadoopStepConfig'
   { -- | The list of command line arguments to pass to the JAR file\'s main
     -- function for execution.
-    args :: Prelude.Maybe [Prelude.Text],
+    args :: Core.Maybe [Core.Text],
     -- | The path to the JAR file that runs during the step.
-    jar :: Prelude.Maybe Prelude.Text,
+    jar :: Core.Maybe Core.Text,
     -- | The list of Java properties that are set when the step runs. You can use
     -- these properties to pass key-value pairs to your main function.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    properties :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the main class in the specified Java file. If not specified,
     -- the JAR file should specify a main class in its manifest file.
-    mainClass :: Prelude.Maybe Prelude.Text
+    mainClass :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HadoopStepConfig' with all optional fields omitted.
@@ -65,45 +64,43 @@ newHadoopStepConfig ::
   HadoopStepConfig
 newHadoopStepConfig =
   HadoopStepConfig'
-    { args = Prelude.Nothing,
-      jar = Prelude.Nothing,
-      properties = Prelude.Nothing,
-      mainClass = Prelude.Nothing
+    { args = Core.Nothing,
+      jar = Core.Nothing,
+      properties = Core.Nothing,
+      mainClass = Core.Nothing
     }
 
 -- | The list of command line arguments to pass to the JAR file\'s main
 -- function for execution.
-hadoopStepConfig_args :: Lens.Lens' HadoopStepConfig (Prelude.Maybe [Prelude.Text])
-hadoopStepConfig_args = Lens.lens (\HadoopStepConfig' {args} -> args) (\s@HadoopStepConfig' {} a -> s {args = a} :: HadoopStepConfig) Prelude.. Lens.mapping Prelude._Coerce
+hadoopStepConfig_args :: Lens.Lens' HadoopStepConfig (Core.Maybe [Core.Text])
+hadoopStepConfig_args = Lens.lens (\HadoopStepConfig' {args} -> args) (\s@HadoopStepConfig' {} a -> s {args = a} :: HadoopStepConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The path to the JAR file that runs during the step.
-hadoopStepConfig_jar :: Lens.Lens' HadoopStepConfig (Prelude.Maybe Prelude.Text)
+hadoopStepConfig_jar :: Lens.Lens' HadoopStepConfig (Core.Maybe Core.Text)
 hadoopStepConfig_jar = Lens.lens (\HadoopStepConfig' {jar} -> jar) (\s@HadoopStepConfig' {} a -> s {jar = a} :: HadoopStepConfig)
 
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key-value pairs to your main function.
-hadoopStepConfig_properties :: Lens.Lens' HadoopStepConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-hadoopStepConfig_properties = Lens.lens (\HadoopStepConfig' {properties} -> properties) (\s@HadoopStepConfig' {} a -> s {properties = a} :: HadoopStepConfig) Prelude.. Lens.mapping Prelude._Coerce
+hadoopStepConfig_properties :: Lens.Lens' HadoopStepConfig (Core.Maybe (Core.HashMap Core.Text Core.Text))
+hadoopStepConfig_properties = Lens.lens (\HadoopStepConfig' {properties} -> properties) (\s@HadoopStepConfig' {} a -> s {properties = a} :: HadoopStepConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the main class in the specified Java file. If not specified,
 -- the JAR file should specify a main class in its manifest file.
-hadoopStepConfig_mainClass :: Lens.Lens' HadoopStepConfig (Prelude.Maybe Prelude.Text)
+hadoopStepConfig_mainClass :: Lens.Lens' HadoopStepConfig (Core.Maybe Core.Text)
 hadoopStepConfig_mainClass = Lens.lens (\HadoopStepConfig' {mainClass} -> mainClass) (\s@HadoopStepConfig' {} a -> s {mainClass = a} :: HadoopStepConfig)
 
-instance Prelude.FromJSON HadoopStepConfig where
+instance Core.FromJSON HadoopStepConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HadoopStepConfig"
       ( \x ->
           HadoopStepConfig'
-            Prelude.<$> (x Prelude..:? "Args" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Jar")
-            Prelude.<*> ( x Prelude..:? "Properties"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "MainClass")
+            Core.<$> (x Core..:? "Args" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Jar")
+            Core.<*> (x Core..:? "Properties" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MainClass")
       )
 
-instance Prelude.Hashable HadoopStepConfig
+instance Core.Hashable HadoopStepConfig
 
-instance Prelude.NFData HadoopStepConfig
+instance Core.NFData HadoopStepConfig

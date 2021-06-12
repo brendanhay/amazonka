@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.InventoryAggregator where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InventoryGroup
 
 -- | Specifies the inventory type and attribute for the aggregation
@@ -32,13 +31,13 @@ data InventoryAggregator = InventoryAggregator'
   { -- | A user-defined set of one or more filters on which to aggregate
     -- inventory data. Groups return a count of resources that match and don\'t
     -- match the specified criteria.
-    groups :: Prelude.Maybe (Prelude.NonEmpty InventoryGroup),
+    groups :: Core.Maybe (Core.NonEmpty InventoryGroup),
     -- | Nested aggregators to further refine aggregation for an inventory type.
-    aggregators :: Prelude.Maybe (Prelude.NonEmpty InventoryAggregator),
+    aggregators :: Core.Maybe (Core.NonEmpty InventoryAggregator),
     -- | The inventory type and attribute name for aggregation.
-    expression :: Prelude.Maybe Prelude.Text
+    expression :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InventoryAggregator' with all optional fields omitted.
@@ -59,35 +58,35 @@ newInventoryAggregator ::
   InventoryAggregator
 newInventoryAggregator =
   InventoryAggregator'
-    { groups = Prelude.Nothing,
-      aggregators = Prelude.Nothing,
-      expression = Prelude.Nothing
+    { groups = Core.Nothing,
+      aggregators = Core.Nothing,
+      expression = Core.Nothing
     }
 
 -- | A user-defined set of one or more filters on which to aggregate
 -- inventory data. Groups return a count of resources that match and don\'t
 -- match the specified criteria.
-inventoryAggregator_groups :: Lens.Lens' InventoryAggregator (Prelude.Maybe (Prelude.NonEmpty InventoryGroup))
-inventoryAggregator_groups = Lens.lens (\InventoryAggregator' {groups} -> groups) (\s@InventoryAggregator' {} a -> s {groups = a} :: InventoryAggregator) Prelude.. Lens.mapping Prelude._Coerce
+inventoryAggregator_groups :: Lens.Lens' InventoryAggregator (Core.Maybe (Core.NonEmpty InventoryGroup))
+inventoryAggregator_groups = Lens.lens (\InventoryAggregator' {groups} -> groups) (\s@InventoryAggregator' {} a -> s {groups = a} :: InventoryAggregator) Core.. Lens.mapping Lens._Coerce
 
 -- | Nested aggregators to further refine aggregation for an inventory type.
-inventoryAggregator_aggregators :: Lens.Lens' InventoryAggregator (Prelude.Maybe (Prelude.NonEmpty InventoryAggregator))
-inventoryAggregator_aggregators = Lens.lens (\InventoryAggregator' {aggregators} -> aggregators) (\s@InventoryAggregator' {} a -> s {aggregators = a} :: InventoryAggregator) Prelude.. Lens.mapping Prelude._Coerce
+inventoryAggregator_aggregators :: Lens.Lens' InventoryAggregator (Core.Maybe (Core.NonEmpty InventoryAggregator))
+inventoryAggregator_aggregators = Lens.lens (\InventoryAggregator' {aggregators} -> aggregators) (\s@InventoryAggregator' {} a -> s {aggregators = a} :: InventoryAggregator) Core.. Lens.mapping Lens._Coerce
 
 -- | The inventory type and attribute name for aggregation.
-inventoryAggregator_expression :: Lens.Lens' InventoryAggregator (Prelude.Maybe Prelude.Text)
+inventoryAggregator_expression :: Lens.Lens' InventoryAggregator (Core.Maybe Core.Text)
 inventoryAggregator_expression = Lens.lens (\InventoryAggregator' {expression} -> expression) (\s@InventoryAggregator' {} a -> s {expression = a} :: InventoryAggregator)
 
-instance Prelude.Hashable InventoryAggregator
+instance Core.Hashable InventoryAggregator
 
-instance Prelude.NFData InventoryAggregator
+instance Core.NFData InventoryAggregator
 
-instance Prelude.ToJSON InventoryAggregator where
+instance Core.ToJSON InventoryAggregator where
   toJSON InventoryAggregator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Groups" Prelude..=) Prelude.<$> groups,
-            ("Aggregators" Prelude..=) Prelude.<$> aggregators,
-            ("Expression" Prelude..=) Prelude.<$> expression
+    Core.object
+      ( Core.catMaybes
+          [ ("Groups" Core..=) Core.<$> groups,
+            ("Aggregators" Core..=) Core.<$> aggregators,
+            ("Expression" Core..=) Core.<$> expression
           ]
       )

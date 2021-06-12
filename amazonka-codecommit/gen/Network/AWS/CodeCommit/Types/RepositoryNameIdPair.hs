@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeCommit.Types.RepositoryNameIdPair where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a repository name and ID.
 --
 -- /See:/ 'newRepositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
   { -- | The name associated with the repository.
-    repositoryName :: Prelude.Maybe Prelude.Text,
+    repositoryName :: Core.Maybe Core.Text,
     -- | The ID associated with the repository.
-    repositoryId :: Prelude.Maybe Prelude.Text
+    repositoryId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RepositoryNameIdPair' with all optional fields omitted.
@@ -50,28 +49,28 @@ newRepositoryNameIdPair ::
 newRepositoryNameIdPair =
   RepositoryNameIdPair'
     { repositoryName =
-        Prelude.Nothing,
-      repositoryId = Prelude.Nothing
+        Core.Nothing,
+      repositoryId = Core.Nothing
     }
 
 -- | The name associated with the repository.
-repositoryNameIdPair_repositoryName :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
+repositoryNameIdPair_repositoryName :: Lens.Lens' RepositoryNameIdPair (Core.Maybe Core.Text)
 repositoryNameIdPair_repositoryName = Lens.lens (\RepositoryNameIdPair' {repositoryName} -> repositoryName) (\s@RepositoryNameIdPair' {} a -> s {repositoryName = a} :: RepositoryNameIdPair)
 
 -- | The ID associated with the repository.
-repositoryNameIdPair_repositoryId :: Lens.Lens' RepositoryNameIdPair (Prelude.Maybe Prelude.Text)
+repositoryNameIdPair_repositoryId :: Lens.Lens' RepositoryNameIdPair (Core.Maybe Core.Text)
 repositoryNameIdPair_repositoryId = Lens.lens (\RepositoryNameIdPair' {repositoryId} -> repositoryId) (\s@RepositoryNameIdPair' {} a -> s {repositoryId = a} :: RepositoryNameIdPair)
 
-instance Prelude.FromJSON RepositoryNameIdPair where
+instance Core.FromJSON RepositoryNameIdPair where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RepositoryNameIdPair"
       ( \x ->
           RepositoryNameIdPair'
-            Prelude.<$> (x Prelude..:? "repositoryName")
-            Prelude.<*> (x Prelude..:? "repositoryId")
+            Core.<$> (x Core..:? "repositoryName")
+            Core.<*> (x Core..:? "repositoryId")
       )
 
-instance Prelude.Hashable RepositoryNameIdPair
+instance Core.Hashable RepositoryNameIdPair
 
-instance Prelude.NFData RepositoryNameIdPair
+instance Core.NFData RepositoryNameIdPair

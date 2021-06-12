@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.ProvisionedCapacityDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The definition for a provisioned capacity unit.
 --
@@ -29,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ProvisionedCapacityDescription = ProvisionedCapacityDescription'
   { -- | The date that the provisioned capacity unit was purchased, in Universal
     -- Coordinated Time (UTC).
-    startDate :: Prelude.Maybe Prelude.Text,
+    startDate :: Core.Maybe Core.Text,
     -- | The ID that identifies the provisioned capacity unit.
-    capacityId :: Prelude.Maybe Prelude.Text,
+    capacityId :: Core.Maybe Core.Text,
     -- | The date that the provisioned capacity unit expires, in Universal
     -- Coordinated Time (UTC).
-    expirationDate :: Prelude.Maybe Prelude.Text
+    expirationDate :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvisionedCapacityDescription' with all optional fields omitted.
@@ -58,43 +57,36 @@ newProvisionedCapacityDescription ::
 newProvisionedCapacityDescription =
   ProvisionedCapacityDescription'
     { startDate =
-        Prelude.Nothing,
-      capacityId = Prelude.Nothing,
-      expirationDate = Prelude.Nothing
+        Core.Nothing,
+      capacityId = Core.Nothing,
+      expirationDate = Core.Nothing
     }
 
 -- | The date that the provisioned capacity unit was purchased, in Universal
 -- Coordinated Time (UTC).
-provisionedCapacityDescription_startDate :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
+provisionedCapacityDescription_startDate :: Lens.Lens' ProvisionedCapacityDescription (Core.Maybe Core.Text)
 provisionedCapacityDescription_startDate = Lens.lens (\ProvisionedCapacityDescription' {startDate} -> startDate) (\s@ProvisionedCapacityDescription' {} a -> s {startDate = a} :: ProvisionedCapacityDescription)
 
 -- | The ID that identifies the provisioned capacity unit.
-provisionedCapacityDescription_capacityId :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
+provisionedCapacityDescription_capacityId :: Lens.Lens' ProvisionedCapacityDescription (Core.Maybe Core.Text)
 provisionedCapacityDescription_capacityId = Lens.lens (\ProvisionedCapacityDescription' {capacityId} -> capacityId) (\s@ProvisionedCapacityDescription' {} a -> s {capacityId = a} :: ProvisionedCapacityDescription)
 
 -- | The date that the provisioned capacity unit expires, in Universal
 -- Coordinated Time (UTC).
-provisionedCapacityDescription_expirationDate :: Lens.Lens' ProvisionedCapacityDescription (Prelude.Maybe Prelude.Text)
+provisionedCapacityDescription_expirationDate :: Lens.Lens' ProvisionedCapacityDescription (Core.Maybe Core.Text)
 provisionedCapacityDescription_expirationDate = Lens.lens (\ProvisionedCapacityDescription' {expirationDate} -> expirationDate) (\s@ProvisionedCapacityDescription' {} a -> s {expirationDate = a} :: ProvisionedCapacityDescription)
 
-instance
-  Prelude.FromJSON
-    ProvisionedCapacityDescription
-  where
+instance Core.FromJSON ProvisionedCapacityDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProvisionedCapacityDescription"
       ( \x ->
           ProvisionedCapacityDescription'
-            Prelude.<$> (x Prelude..:? "StartDate")
-            Prelude.<*> (x Prelude..:? "CapacityId")
-            Prelude.<*> (x Prelude..:? "ExpirationDate")
+            Core.<$> (x Core..:? "StartDate")
+            Core.<*> (x Core..:? "CapacityId")
+            Core.<*> (x Core..:? "ExpirationDate")
       )
 
-instance
-  Prelude.Hashable
-    ProvisionedCapacityDescription
+instance Core.Hashable ProvisionedCapacityDescription
 
-instance
-  Prelude.NFData
-    ProvisionedCapacityDescription
+instance Core.NFData ProvisionedCapacityDescription

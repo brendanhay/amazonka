@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.Connect.ListInstanceStorageConfigs
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,15 +60,15 @@ data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInstanceStorageConfigs' with all optional fields omitted.
@@ -91,7 +89,7 @@ data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
 -- 'resourceType', 'listInstanceStorageConfigs_resourceType' - A valid resource type.
 newListInstanceStorageConfigs ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceType'
   InstanceStorageResourceType ->
   ListInstanceStorageConfigs
@@ -100,8 +98,8 @@ newListInstanceStorageConfigs
   pResourceType_ =
     ListInstanceStorageConfigs'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
         instanceId = pInstanceId_,
         resourceType = pResourceType_
       }
@@ -109,104 +107,97 @@ newListInstanceStorageConfigs
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listInstanceStorageConfigs_nextToken :: Lens.Lens' ListInstanceStorageConfigs (Prelude.Maybe Prelude.Text)
+listInstanceStorageConfigs_nextToken :: Lens.Lens' ListInstanceStorageConfigs (Core.Maybe Core.Text)
 listInstanceStorageConfigs_nextToken = Lens.lens (\ListInstanceStorageConfigs' {nextToken} -> nextToken) (\s@ListInstanceStorageConfigs' {} a -> s {nextToken = a} :: ListInstanceStorageConfigs)
 
 -- | The maximum number of results to return per page.
-listInstanceStorageConfigs_maxResults :: Lens.Lens' ListInstanceStorageConfigs (Prelude.Maybe Prelude.Natural)
+listInstanceStorageConfigs_maxResults :: Lens.Lens' ListInstanceStorageConfigs (Core.Maybe Core.Natural)
 listInstanceStorageConfigs_maxResults = Lens.lens (\ListInstanceStorageConfigs' {maxResults} -> maxResults) (\s@ListInstanceStorageConfigs' {} a -> s {maxResults = a} :: ListInstanceStorageConfigs)
 
 -- | The identifier of the Amazon Connect instance.
-listInstanceStorageConfigs_instanceId :: Lens.Lens' ListInstanceStorageConfigs Prelude.Text
+listInstanceStorageConfigs_instanceId :: Lens.Lens' ListInstanceStorageConfigs Core.Text
 listInstanceStorageConfigs_instanceId = Lens.lens (\ListInstanceStorageConfigs' {instanceId} -> instanceId) (\s@ListInstanceStorageConfigs' {} a -> s {instanceId = a} :: ListInstanceStorageConfigs)
 
 -- | A valid resource type.
 listInstanceStorageConfigs_resourceType :: Lens.Lens' ListInstanceStorageConfigs InstanceStorageResourceType
 listInstanceStorageConfigs_resourceType = Lens.lens (\ListInstanceStorageConfigs' {resourceType} -> resourceType) (\s@ListInstanceStorageConfigs' {} a -> s {resourceType = a} :: ListInstanceStorageConfigs)
 
-instance Pager.AWSPager ListInstanceStorageConfigs where
+instance Core.AWSPager ListInstanceStorageConfigs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listInstanceStorageConfigsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listInstanceStorageConfigsResponse_storageConfigs
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listInstanceStorageConfigs_nextToken
           Lens..~ rs
           Lens.^? listInstanceStorageConfigsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListInstanceStorageConfigs
-  where
+instance Core.AWSRequest ListInstanceStorageConfigs where
   type
-    Rs ListInstanceStorageConfigs =
+    AWSResponse ListInstanceStorageConfigs =
       ListInstanceStorageConfigsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListInstanceStorageConfigsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "StorageConfigs"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "StorageConfigs" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListInstanceStorageConfigs
+instance Core.Hashable ListInstanceStorageConfigs
 
-instance Prelude.NFData ListInstanceStorageConfigs
+instance Core.NFData ListInstanceStorageConfigs
 
-instance Prelude.ToHeaders ListInstanceStorageConfigs where
+instance Core.ToHeaders ListInstanceStorageConfigs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListInstanceStorageConfigs where
+instance Core.ToPath ListInstanceStorageConfigs where
   toPath ListInstanceStorageConfigs' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/storage-configs"
       ]
 
-instance Prelude.ToQuery ListInstanceStorageConfigs where
+instance Core.ToQuery ListInstanceStorageConfigs where
   toQuery ListInstanceStorageConfigs' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults,
-        "resourceType" Prelude.=: resourceType
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults,
+        "resourceType" Core.=: resourceType
       ]
 
 -- | /See:/ 'newListInstanceStorageConfigsResponse' smart constructor.
 data ListInstanceStorageConfigsResponse = ListInstanceStorageConfigsResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A valid storage type.
-    storageConfigs :: Prelude.Maybe [InstanceStorageConfig],
+    storageConfigs :: Core.Maybe [InstanceStorageConfig],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInstanceStorageConfigsResponse' with all optional fields omitted.
@@ -224,29 +215,29 @@ data ListInstanceStorageConfigsResponse = ListInstanceStorageConfigsResponse'
 -- 'httpStatus', 'listInstanceStorageConfigsResponse_httpStatus' - The response's http status code.
 newListInstanceStorageConfigsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListInstanceStorageConfigsResponse
 newListInstanceStorageConfigsResponse pHttpStatus_ =
   ListInstanceStorageConfigsResponse'
     { nextToken =
-        Prelude.Nothing,
-      storageConfigs = Prelude.Nothing,
+        Core.Nothing,
+      storageConfigs = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listInstanceStorageConfigsResponse_nextToken :: Lens.Lens' ListInstanceStorageConfigsResponse (Prelude.Maybe Prelude.Text)
+listInstanceStorageConfigsResponse_nextToken :: Lens.Lens' ListInstanceStorageConfigsResponse (Core.Maybe Core.Text)
 listInstanceStorageConfigsResponse_nextToken = Lens.lens (\ListInstanceStorageConfigsResponse' {nextToken} -> nextToken) (\s@ListInstanceStorageConfigsResponse' {} a -> s {nextToken = a} :: ListInstanceStorageConfigsResponse)
 
 -- | A valid storage type.
-listInstanceStorageConfigsResponse_storageConfigs :: Lens.Lens' ListInstanceStorageConfigsResponse (Prelude.Maybe [InstanceStorageConfig])
-listInstanceStorageConfigsResponse_storageConfigs = Lens.lens (\ListInstanceStorageConfigsResponse' {storageConfigs} -> storageConfigs) (\s@ListInstanceStorageConfigsResponse' {} a -> s {storageConfigs = a} :: ListInstanceStorageConfigsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listInstanceStorageConfigsResponse_storageConfigs :: Lens.Lens' ListInstanceStorageConfigsResponse (Core.Maybe [InstanceStorageConfig])
+listInstanceStorageConfigsResponse_storageConfigs = Lens.lens (\ListInstanceStorageConfigsResponse' {storageConfigs} -> storageConfigs) (\s@ListInstanceStorageConfigsResponse' {} a -> s {storageConfigs = a} :: ListInstanceStorageConfigsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInstanceStorageConfigsResponse_httpStatus :: Lens.Lens' ListInstanceStorageConfigsResponse Prelude.Int
+listInstanceStorageConfigsResponse_httpStatus :: Lens.Lens' ListInstanceStorageConfigsResponse Core.Int
 listInstanceStorageConfigsResponse_httpStatus = Lens.lens (\ListInstanceStorageConfigsResponse' {httpStatus} -> httpStatus) (\s@ListInstanceStorageConfigsResponse' {} a -> s {httpStatus = a} :: ListInstanceStorageConfigsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListInstanceStorageConfigsResponse

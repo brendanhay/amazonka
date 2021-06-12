@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.APIGateway.DeleteClientCertificate
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,9 +47,9 @@ import qualified Network.AWS.Response as Response
 data DeleteClientCertificate = DeleteClientCertificate'
   { -- | [Required] The identifier of the ClientCertificate resource to be
     -- deleted.
-    clientCertificateId :: Prelude.Text
+    clientCertificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClientCertificate' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DeleteClientCertificate = DeleteClientCertificate'
 -- deleted.
 newDeleteClientCertificate ::
   -- | 'clientCertificateId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteClientCertificate
 newDeleteClientCertificate pClientCertificateId_ =
   DeleteClientCertificate'
@@ -74,46 +73,46 @@ newDeleteClientCertificate pClientCertificateId_ =
 
 -- | [Required] The identifier of the ClientCertificate resource to be
 -- deleted.
-deleteClientCertificate_clientCertificateId :: Lens.Lens' DeleteClientCertificate Prelude.Text
+deleteClientCertificate_clientCertificateId :: Lens.Lens' DeleteClientCertificate Core.Text
 deleteClientCertificate_clientCertificateId = Lens.lens (\DeleteClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@DeleteClientCertificate' {} a -> s {clientCertificateId = a} :: DeleteClientCertificate)
 
-instance Prelude.AWSRequest DeleteClientCertificate where
+instance Core.AWSRequest DeleteClientCertificate where
   type
-    Rs DeleteClientCertificate =
+    AWSResponse DeleteClientCertificate =
       DeleteClientCertificateResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteClientCertificateResponse'
 
-instance Prelude.Hashable DeleteClientCertificate
+instance Core.Hashable DeleteClientCertificate
 
-instance Prelude.NFData DeleteClientCertificate
+instance Core.NFData DeleteClientCertificate
 
-instance Prelude.ToHeaders DeleteClientCertificate where
+instance Core.ToHeaders DeleteClientCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteClientCertificate where
+instance Core.ToPath DeleteClientCertificate where
   toPath DeleteClientCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clientcertificates/",
-        Prelude.toBS clientCertificateId
+        Core.toBS clientCertificateId
       ]
 
-instance Prelude.ToQuery DeleteClientCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteClientCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteClientCertificateResponse' smart constructor.
 data DeleteClientCertificateResponse = DeleteClientCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClientCertificateResponse' with all optional fields omitted.
@@ -124,6 +123,4 @@ newDeleteClientCertificateResponse ::
 newDeleteClientCertificateResponse =
   DeleteClientCertificateResponse'
 
-instance
-  Prelude.NFData
-    DeleteClientCertificateResponse
+instance Core.NFData DeleteClientCertificateResponse

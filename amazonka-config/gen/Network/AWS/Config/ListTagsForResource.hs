@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Config.ListTagsForResource
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,17 +52,17 @@ import qualified Network.AWS.Response as Response
 data ListTagsForResource = ListTagsForResource'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of tags returned on each page. The limit maximum is
     -- 50. You cannot specify a number greater than 50. If you specify 0, AWS
     -- Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) that identifies the resource for which to
     -- list the tags. Currently, the supported resources are @ConfigRule@,
     -- @ConfigurationAggregator@ and @AggregatorAuthorization@.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -85,92 +84,90 @@ data ListTagsForResource = ListTagsForResource'
 -- @ConfigurationAggregator@ and @AggregatorAuthorization@.
 newListTagsForResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   ListTagsForResource
 newListTagsForResource pResourceArn_ =
   ListTagsForResource'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      limit = Core.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Text)
+listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Text)
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The maximum number of tags returned on each page. The limit maximum is
 -- 50. You cannot specify a number greater than 50. If you specify 0, AWS
 -- Config uses the default.
-listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
+listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Core.Maybe Core.Natural)
 listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (\s@ListTagsForResource' {} a -> s {limit = a} :: ListTagsForResource)
 
 -- | The Amazon Resource Name (ARN) that identifies the resource for which to
 -- list the tags. Currently, the supported resources are @ConfigRule@,
 -- @ConfigurationAggregator@ and @AggregatorAuthorization@.
-listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
+listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Core.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
-instance Prelude.AWSRequest ListTagsForResource where
+instance Core.AWSRequest ListTagsForResource where
   type
-    Rs ListTagsForResource =
+    AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Tags")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Core.Hashable ListTagsForResource
 
-instance Prelude.NFData ListTagsForResource
+instance Core.NFData ListTagsForResource
 
-instance Prelude.ToHeaders ListTagsForResource where
+instance Core.ToHeaders ListTagsForResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.ListTagsForResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.ListTagsForResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTagsForResource where
+instance Core.ToJSON ListTagsForResource where
   toJSON ListTagsForResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("ResourceArn" Prelude..= resourceArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("ResourceArn" Core..= resourceArn)
           ]
       )
 
-instance Prelude.ToPath ListTagsForResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTagsForResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTagsForResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTagsForResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The tags for the resource.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -188,27 +185,27 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
     { nextToken =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_nextToken :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Core.Text)
 listTagsForResourceResponse_nextToken = Lens.lens (\ListTagsForResourceResponse' {nextToken} -> nextToken) (\s@ListTagsForResourceResponse' {} a -> s {nextToken = a} :: ListTagsForResourceResponse)
 
 -- | The tags for the resource.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.NonEmpty Tag))
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe (Core.NonEmpty Tag))
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Core.NFData ListTagsForResourceResponse

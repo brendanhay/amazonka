@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.SplunkRetryOptions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configures retry behavior in case Kinesis Data Firehose is unable to
 -- deliver documents to Splunk, or if it doesn\'t receive an acknowledgment
@@ -33,9 +32,9 @@ data SplunkRetryOptions = SplunkRetryOptions'
     -- This duration starts after the initial attempt to send data to Splunk
     -- fails. It doesn\'t include the periods during which Kinesis Data
     -- Firehose waits for acknowledgment from Splunk after each attempt.
-    durationInSeconds :: Prelude.Maybe Prelude.Natural
+    durationInSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SplunkRetryOptions' with all optional fields omitted.
@@ -54,34 +53,34 @@ newSplunkRetryOptions ::
 newSplunkRetryOptions =
   SplunkRetryOptions'
     { durationInSeconds =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The total amount of time that Kinesis Data Firehose spends on retries.
 -- This duration starts after the initial attempt to send data to Splunk
 -- fails. It doesn\'t include the periods during which Kinesis Data
 -- Firehose waits for acknowledgment from Splunk after each attempt.
-splunkRetryOptions_durationInSeconds :: Lens.Lens' SplunkRetryOptions (Prelude.Maybe Prelude.Natural)
+splunkRetryOptions_durationInSeconds :: Lens.Lens' SplunkRetryOptions (Core.Maybe Core.Natural)
 splunkRetryOptions_durationInSeconds = Lens.lens (\SplunkRetryOptions' {durationInSeconds} -> durationInSeconds) (\s@SplunkRetryOptions' {} a -> s {durationInSeconds = a} :: SplunkRetryOptions)
 
-instance Prelude.FromJSON SplunkRetryOptions where
+instance Core.FromJSON SplunkRetryOptions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SplunkRetryOptions"
       ( \x ->
           SplunkRetryOptions'
-            Prelude.<$> (x Prelude..:? "DurationInSeconds")
+            Core.<$> (x Core..:? "DurationInSeconds")
       )
 
-instance Prelude.Hashable SplunkRetryOptions
+instance Core.Hashable SplunkRetryOptions
 
-instance Prelude.NFData SplunkRetryOptions
+instance Core.NFData SplunkRetryOptions
 
-instance Prelude.ToJSON SplunkRetryOptions where
+instance Core.ToJSON SplunkRetryOptions where
   toJSON SplunkRetryOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DurationInSeconds" Prelude..=)
-              Prelude.<$> durationInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("DurationInSeconds" Core..=)
+              Core.<$> durationInSeconds
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.DeploymentConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.DeploymentCircuitBreaker
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Optional deployment parameters that control how many tasks run during a
 -- deployment and the ordering of stopping and starting tasks.
@@ -50,7 +49,7 @@ data DeploymentConfiguration = DeploymentConfiguration'
     -- state. If the tasks in the service use the Fargate launch type, the
     -- maximum percent value is not used, although it is returned when
     -- describing your service.
-    maximumPercent :: Prelude.Maybe Prelude.Int,
+    maximumPercent :: Core.Maybe Core.Int,
     -- | If a service is using the rolling update (@ECS@) deployment type, the
     -- __minimum healthy percent__ represents a lower limit on the number of
     -- tasks in a service that must remain in the @RUNNING@ state during a
@@ -75,7 +74,7 @@ data DeploymentConfiguration = DeploymentConfiguration'
     -- @DRAINING@ state. If the tasks in the service use the Fargate launch
     -- type, the minimum healthy percent value is not used, although it is
     -- returned when describing your service.
-    minimumHealthyPercent :: Prelude.Maybe Prelude.Int,
+    minimumHealthyPercent :: Core.Maybe Core.Int,
     -- | The deployment circuit breaker can only be used for services using the
     -- rolling update (@ECS@) deployment type.
     --
@@ -85,9 +84,9 @@ data DeploymentConfiguration = DeploymentConfiguration'
     -- transition to a failed state and stop launching new tasks. If rollback
     -- is enabled, when a service deployment fails, the service is rolled back
     -- to the last deployment that completed successfully.
-    deploymentCircuitBreaker :: Prelude.Maybe DeploymentCircuitBreaker
+    deploymentCircuitBreaker :: Core.Maybe DeploymentCircuitBreaker
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeploymentConfiguration' with all optional fields omitted.
@@ -158,9 +157,9 @@ newDeploymentConfiguration ::
 newDeploymentConfiguration =
   DeploymentConfiguration'
     { maximumPercent =
-        Prelude.Nothing,
-      minimumHealthyPercent = Prelude.Nothing,
-      deploymentCircuitBreaker = Prelude.Nothing
+        Core.Nothing,
+      minimumHealthyPercent = Core.Nothing,
+      deploymentCircuitBreaker = Core.Nothing
     }
 
 -- | If a service is using the rolling update (@ECS@) deployment type, the
@@ -184,7 +183,7 @@ newDeploymentConfiguration =
 -- state. If the tasks in the service use the Fargate launch type, the
 -- maximum percent value is not used, although it is returned when
 -- describing your service.
-deploymentConfiguration_maximumPercent :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe Prelude.Int)
+deploymentConfiguration_maximumPercent :: Lens.Lens' DeploymentConfiguration (Core.Maybe Core.Int)
 deploymentConfiguration_maximumPercent = Lens.lens (\DeploymentConfiguration' {maximumPercent} -> maximumPercent) (\s@DeploymentConfiguration' {} a -> s {maximumPercent = a} :: DeploymentConfiguration)
 
 -- | If a service is using the rolling update (@ECS@) deployment type, the
@@ -211,7 +210,7 @@ deploymentConfiguration_maximumPercent = Lens.lens (\DeploymentConfiguration' {m
 -- @DRAINING@ state. If the tasks in the service use the Fargate launch
 -- type, the minimum healthy percent value is not used, although it is
 -- returned when describing your service.
-deploymentConfiguration_minimumHealthyPercent :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe Prelude.Int)
+deploymentConfiguration_minimumHealthyPercent :: Lens.Lens' DeploymentConfiguration (Core.Maybe Core.Int)
 deploymentConfiguration_minimumHealthyPercent = Lens.lens (\DeploymentConfiguration' {minimumHealthyPercent} -> minimumHealthyPercent) (\s@DeploymentConfiguration' {} a -> s {minimumHealthyPercent = a} :: DeploymentConfiguration)
 
 -- | The deployment circuit breaker can only be used for services using the
@@ -223,33 +222,32 @@ deploymentConfiguration_minimumHealthyPercent = Lens.lens (\DeploymentConfigurat
 -- transition to a failed state and stop launching new tasks. If rollback
 -- is enabled, when a service deployment fails, the service is rolled back
 -- to the last deployment that completed successfully.
-deploymentConfiguration_deploymentCircuitBreaker :: Lens.Lens' DeploymentConfiguration (Prelude.Maybe DeploymentCircuitBreaker)
+deploymentConfiguration_deploymentCircuitBreaker :: Lens.Lens' DeploymentConfiguration (Core.Maybe DeploymentCircuitBreaker)
 deploymentConfiguration_deploymentCircuitBreaker = Lens.lens (\DeploymentConfiguration' {deploymentCircuitBreaker} -> deploymentCircuitBreaker) (\s@DeploymentConfiguration' {} a -> s {deploymentCircuitBreaker = a} :: DeploymentConfiguration)
 
-instance Prelude.FromJSON DeploymentConfiguration where
+instance Core.FromJSON DeploymentConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeploymentConfiguration"
       ( \x ->
           DeploymentConfiguration'
-            Prelude.<$> (x Prelude..:? "maximumPercent")
-            Prelude.<*> (x Prelude..:? "minimumHealthyPercent")
-            Prelude.<*> (x Prelude..:? "deploymentCircuitBreaker")
+            Core.<$> (x Core..:? "maximumPercent")
+            Core.<*> (x Core..:? "minimumHealthyPercent")
+            Core.<*> (x Core..:? "deploymentCircuitBreaker")
       )
 
-instance Prelude.Hashable DeploymentConfiguration
+instance Core.Hashable DeploymentConfiguration
 
-instance Prelude.NFData DeploymentConfiguration
+instance Core.NFData DeploymentConfiguration
 
-instance Prelude.ToJSON DeploymentConfiguration where
+instance Core.ToJSON DeploymentConfiguration where
   toJSON DeploymentConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("maximumPercent" Prelude..=)
-              Prelude.<$> maximumPercent,
-            ("minimumHealthyPercent" Prelude..=)
-              Prelude.<$> minimumHealthyPercent,
-            ("deploymentCircuitBreaker" Prelude..=)
-              Prelude.<$> deploymentCircuitBreaker
+    Core.object
+      ( Core.catMaybes
+          [ ("maximumPercent" Core..=) Core.<$> maximumPercent,
+            ("minimumHealthyPercent" Core..=)
+              Core.<$> minimumHealthyPercent,
+            ("deploymentCircuitBreaker" Core..=)
+              Core.<$> deploymentCircuitBreaker
           ]
       )

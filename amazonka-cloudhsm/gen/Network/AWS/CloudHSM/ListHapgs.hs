@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,9 +62,8 @@ module Network.AWS.CloudHSM.ListHapgs
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,9 +71,9 @@ import qualified Network.AWS.Response as Response
 data ListHapgs = ListHapgs'
   { -- | The @NextToken@ value from a previous call to @ListHapgs@. Pass null if
     -- this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHapgs' with all optional fields omitted.
@@ -89,87 +87,82 @@ data ListHapgs = ListHapgs'
 -- this is the first call.
 newListHapgs ::
   ListHapgs
-newListHapgs =
-  ListHapgs' {nextToken = Prelude.Nothing}
+newListHapgs = ListHapgs' {nextToken = Core.Nothing}
 
 -- | The @NextToken@ value from a previous call to @ListHapgs@. Pass null if
 -- this is the first call.
-listHapgs_nextToken :: Lens.Lens' ListHapgs (Prelude.Maybe Prelude.Text)
+listHapgs_nextToken :: Lens.Lens' ListHapgs (Core.Maybe Core.Text)
 listHapgs_nextToken = Lens.lens (\ListHapgs' {nextToken} -> nextToken) (\s@ListHapgs' {} a -> s {nextToken = a} :: ListHapgs)
 
-instance Pager.AWSPager ListHapgs where
+instance Core.AWSPager ListHapgs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listHapgsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listHapgsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop (rs Lens.^. listHapgsResponse_hapgList) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.stop (rs Lens.^. listHapgsResponse_hapgList) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listHapgs_nextToken
           Lens..~ rs
-          Lens.^? listHapgsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listHapgsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListHapgs where
-  type Rs ListHapgs = ListHapgsResponse
+instance Core.AWSRequest ListHapgs where
+  type AWSResponse ListHapgs = ListHapgsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListHapgsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "HapgList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "HapgList" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListHapgs
+instance Core.Hashable ListHapgs
 
-instance Prelude.NFData ListHapgs
+instance Core.NFData ListHapgs
 
-instance Prelude.ToHeaders ListHapgs where
+instance Core.ToHeaders ListHapgs where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.ListHapgs" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.ListHapgs" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListHapgs where
+instance Core.ToJSON ListHapgs where
   toJSON ListHapgs' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("NextToken" Prelude..=) Prelude.<$> nextToken]
+    Core.object
+      ( Core.catMaybes
+          [("NextToken" Core..=) Core.<$> nextToken]
       )
 
-instance Prelude.ToPath ListHapgs where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListHapgs where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListHapgs where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListHapgs where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListHapgsResponse' smart constructor.
 data ListHapgsResponse = ListHapgsResponse'
   { -- | If not null, more results are available. Pass this value to @ListHapgs@
     -- to retrieve the next set of items.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The list of high-availability partition groups.
-    hapgList :: [Prelude.Text]
+    hapgList :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListHapgsResponse' with all optional fields omitted.
@@ -187,26 +180,26 @@ data ListHapgsResponse = ListHapgsResponse'
 -- 'hapgList', 'listHapgsResponse_hapgList' - The list of high-availability partition groups.
 newListHapgsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListHapgsResponse
 newListHapgsResponse pHttpStatus_ =
   ListHapgsResponse'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      hapgList = Prelude.mempty
+      hapgList = Core.mempty
     }
 
 -- | If not null, more results are available. Pass this value to @ListHapgs@
 -- to retrieve the next set of items.
-listHapgsResponse_nextToken :: Lens.Lens' ListHapgsResponse (Prelude.Maybe Prelude.Text)
+listHapgsResponse_nextToken :: Lens.Lens' ListHapgsResponse (Core.Maybe Core.Text)
 listHapgsResponse_nextToken = Lens.lens (\ListHapgsResponse' {nextToken} -> nextToken) (\s@ListHapgsResponse' {} a -> s {nextToken = a} :: ListHapgsResponse)
 
 -- | The response's http status code.
-listHapgsResponse_httpStatus :: Lens.Lens' ListHapgsResponse Prelude.Int
+listHapgsResponse_httpStatus :: Lens.Lens' ListHapgsResponse Core.Int
 listHapgsResponse_httpStatus = Lens.lens (\ListHapgsResponse' {httpStatus} -> httpStatus) (\s@ListHapgsResponse' {} a -> s {httpStatus = a} :: ListHapgsResponse)
 
 -- | The list of high-availability partition groups.
-listHapgsResponse_hapgList :: Lens.Lens' ListHapgsResponse [Prelude.Text]
-listHapgsResponse_hapgList = Lens.lens (\ListHapgsResponse' {hapgList} -> hapgList) (\s@ListHapgsResponse' {} a -> s {hapgList = a} :: ListHapgsResponse) Prelude.. Prelude._Coerce
+listHapgsResponse_hapgList :: Lens.Lens' ListHapgsResponse [Core.Text]
+listHapgsResponse_hapgList = Lens.lens (\ListHapgsResponse' {hapgList} -> hapgList) (\s@ListHapgsResponse' {} a -> s {hapgList = a} :: ListHapgsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListHapgsResponse
+instance Core.NFData ListHapgsResponse

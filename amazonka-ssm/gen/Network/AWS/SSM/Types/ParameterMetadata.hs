@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ParameterMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ParameterInlinePolicy
 import Network.AWS.SSM.Types.ParameterTier
 import Network.AWS.SSM.Types.ParameterType
@@ -32,34 +31,34 @@ import Network.AWS.SSM.Types.ParameterType
 -- /See:/ 'newParameterMetadata' smart constructor.
 data ParameterMetadata = ParameterMetadata'
   { -- | Date the parameter was last changed or updated.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | A list of policies associated with a parameter.
-    policies :: Prelude.Maybe [ParameterInlinePolicy],
+    policies :: Core.Maybe [ParameterInlinePolicy],
     -- | The parameter version.
-    version :: Prelude.Maybe Prelude.Integer,
+    version :: Core.Maybe Core.Integer,
     -- | The parameter name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Description of the parameter actions.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The type of parameter. Valid parameter types include the following:
     -- @String@, @StringList@, and @SecureString@.
-    type' :: Prelude.Maybe ParameterType,
+    type' :: Core.Maybe ParameterType,
     -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
     -- default is @text@.
-    dataType :: Prelude.Maybe Prelude.Text,
+    dataType :: Core.Maybe Core.Text,
     -- | A parameter name can include only the following letters and symbols.
     --
     -- a-zA-Z0-9_.-
-    allowedPattern :: Prelude.Maybe Prelude.Text,
+    allowedPattern :: Core.Maybe Core.Text,
     -- | Amazon Resource Name (ARN) of the AWS user who last changed the
     -- parameter.
-    lastModifiedUser :: Prelude.Maybe Prelude.Text,
+    lastModifiedUser :: Core.Maybe Core.Text,
     -- | The parameter tier.
-    tier :: Prelude.Maybe ParameterTier,
+    tier :: Core.Maybe ParameterTier,
     -- | The ID of the query key used for this parameter.
-    keyId :: Prelude.Maybe Prelude.Text
+    keyId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterMetadata' with all optional fields omitted.
@@ -99,88 +98,87 @@ newParameterMetadata ::
   ParameterMetadata
 newParameterMetadata =
   ParameterMetadata'
-    { lastModifiedDate =
-        Prelude.Nothing,
-      policies = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      dataType = Prelude.Nothing,
-      allowedPattern = Prelude.Nothing,
-      lastModifiedUser = Prelude.Nothing,
-      tier = Prelude.Nothing,
-      keyId = Prelude.Nothing
+    { lastModifiedDate = Core.Nothing,
+      policies = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      type' = Core.Nothing,
+      dataType = Core.Nothing,
+      allowedPattern = Core.Nothing,
+      lastModifiedUser = Core.Nothing,
+      tier = Core.Nothing,
+      keyId = Core.Nothing
     }
 
 -- | Date the parameter was last changed or updated.
-parameterMetadata_lastModifiedDate :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.UTCTime)
-parameterMetadata_lastModifiedDate = Lens.lens (\ParameterMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@ParameterMetadata' {} a -> s {lastModifiedDate = a} :: ParameterMetadata) Prelude.. Lens.mapping Prelude._Time
+parameterMetadata_lastModifiedDate :: Lens.Lens' ParameterMetadata (Core.Maybe Core.UTCTime)
+parameterMetadata_lastModifiedDate = Lens.lens (\ParameterMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@ParameterMetadata' {} a -> s {lastModifiedDate = a} :: ParameterMetadata) Core.. Lens.mapping Core._Time
 
 -- | A list of policies associated with a parameter.
-parameterMetadata_policies :: Lens.Lens' ParameterMetadata (Prelude.Maybe [ParameterInlinePolicy])
-parameterMetadata_policies = Lens.lens (\ParameterMetadata' {policies} -> policies) (\s@ParameterMetadata' {} a -> s {policies = a} :: ParameterMetadata) Prelude.. Lens.mapping Prelude._Coerce
+parameterMetadata_policies :: Lens.Lens' ParameterMetadata (Core.Maybe [ParameterInlinePolicy])
+parameterMetadata_policies = Lens.lens (\ParameterMetadata' {policies} -> policies) (\s@ParameterMetadata' {} a -> s {policies = a} :: ParameterMetadata) Core.. Lens.mapping Lens._Coerce
 
 -- | The parameter version.
-parameterMetadata_version :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Integer)
+parameterMetadata_version :: Lens.Lens' ParameterMetadata (Core.Maybe Core.Integer)
 parameterMetadata_version = Lens.lens (\ParameterMetadata' {version} -> version) (\s@ParameterMetadata' {} a -> s {version = a} :: ParameterMetadata)
 
 -- | The parameter name.
-parameterMetadata_name :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
+parameterMetadata_name :: Lens.Lens' ParameterMetadata (Core.Maybe Core.Text)
 parameterMetadata_name = Lens.lens (\ParameterMetadata' {name} -> name) (\s@ParameterMetadata' {} a -> s {name = a} :: ParameterMetadata)
 
 -- | Description of the parameter actions.
-parameterMetadata_description :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
+parameterMetadata_description :: Lens.Lens' ParameterMetadata (Core.Maybe Core.Text)
 parameterMetadata_description = Lens.lens (\ParameterMetadata' {description} -> description) (\s@ParameterMetadata' {} a -> s {description = a} :: ParameterMetadata)
 
 -- | The type of parameter. Valid parameter types include the following:
 -- @String@, @StringList@, and @SecureString@.
-parameterMetadata_type :: Lens.Lens' ParameterMetadata (Prelude.Maybe ParameterType)
+parameterMetadata_type :: Lens.Lens' ParameterMetadata (Core.Maybe ParameterType)
 parameterMetadata_type = Lens.lens (\ParameterMetadata' {type'} -> type') (\s@ParameterMetadata' {} a -> s {type' = a} :: ParameterMetadata)
 
 -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
 -- default is @text@.
-parameterMetadata_dataType :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
+parameterMetadata_dataType :: Lens.Lens' ParameterMetadata (Core.Maybe Core.Text)
 parameterMetadata_dataType = Lens.lens (\ParameterMetadata' {dataType} -> dataType) (\s@ParameterMetadata' {} a -> s {dataType = a} :: ParameterMetadata)
 
 -- | A parameter name can include only the following letters and symbols.
 --
 -- a-zA-Z0-9_.-
-parameterMetadata_allowedPattern :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
+parameterMetadata_allowedPattern :: Lens.Lens' ParameterMetadata (Core.Maybe Core.Text)
 parameterMetadata_allowedPattern = Lens.lens (\ParameterMetadata' {allowedPattern} -> allowedPattern) (\s@ParameterMetadata' {} a -> s {allowedPattern = a} :: ParameterMetadata)
 
 -- | Amazon Resource Name (ARN) of the AWS user who last changed the
 -- parameter.
-parameterMetadata_lastModifiedUser :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
+parameterMetadata_lastModifiedUser :: Lens.Lens' ParameterMetadata (Core.Maybe Core.Text)
 parameterMetadata_lastModifiedUser = Lens.lens (\ParameterMetadata' {lastModifiedUser} -> lastModifiedUser) (\s@ParameterMetadata' {} a -> s {lastModifiedUser = a} :: ParameterMetadata)
 
 -- | The parameter tier.
-parameterMetadata_tier :: Lens.Lens' ParameterMetadata (Prelude.Maybe ParameterTier)
+parameterMetadata_tier :: Lens.Lens' ParameterMetadata (Core.Maybe ParameterTier)
 parameterMetadata_tier = Lens.lens (\ParameterMetadata' {tier} -> tier) (\s@ParameterMetadata' {} a -> s {tier = a} :: ParameterMetadata)
 
 -- | The ID of the query key used for this parameter.
-parameterMetadata_keyId :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
+parameterMetadata_keyId :: Lens.Lens' ParameterMetadata (Core.Maybe Core.Text)
 parameterMetadata_keyId = Lens.lens (\ParameterMetadata' {keyId} -> keyId) (\s@ParameterMetadata' {} a -> s {keyId = a} :: ParameterMetadata)
 
-instance Prelude.FromJSON ParameterMetadata where
+instance Core.FromJSON ParameterMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterMetadata"
       ( \x ->
           ParameterMetadata'
-            Prelude.<$> (x Prelude..:? "LastModifiedDate")
-            Prelude.<*> (x Prelude..:? "Policies" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "Type")
-            Prelude.<*> (x Prelude..:? "DataType")
-            Prelude.<*> (x Prelude..:? "AllowedPattern")
-            Prelude.<*> (x Prelude..:? "LastModifiedUser")
-            Prelude.<*> (x Prelude..:? "Tier")
-            Prelude.<*> (x Prelude..:? "KeyId")
+            Core.<$> (x Core..:? "LastModifiedDate")
+            Core.<*> (x Core..:? "Policies" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (x Core..:? "DataType")
+            Core.<*> (x Core..:? "AllowedPattern")
+            Core.<*> (x Core..:? "LastModifiedUser")
+            Core.<*> (x Core..:? "Tier")
+            Core.<*> (x Core..:? "KeyId")
       )
 
-instance Prelude.Hashable ParameterMetadata
+instance Core.Hashable ParameterMetadata
 
-instance Prelude.NFData ParameterMetadata
+instance Core.NFData ParameterMetadata

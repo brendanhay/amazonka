@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.ElasticBeanstalk.UpdateTagsForResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,18 +70,18 @@ data UpdateTagsForResource = UpdateTagsForResource'
     -- silently ignored.
     --
     -- Specify at least one of these parameters: @TagsToAdd@, @TagsToRemove@.
-    tagsToRemove :: Prelude.Maybe [Prelude.Text],
+    tagsToRemove :: Core.Maybe [Core.Text],
     -- | A list of tags to add or update. If a key of an existing tag is added,
     -- the tag\'s value is updated.
     --
     -- Specify at least one of these parameters: @TagsToAdd@, @TagsToRemove@.
-    tagsToAdd :: Prelude.Maybe [Tag],
+    tagsToAdd :: Core.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the resouce to be updated.
     --
     -- Must be the ARN of an Elastic Beanstalk resource.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTagsForResource' with all optional fields omitted.
@@ -107,13 +106,12 @@ data UpdateTagsForResource = UpdateTagsForResource'
 -- Must be the ARN of an Elastic Beanstalk resource.
 newUpdateTagsForResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTagsForResource
 newUpdateTagsForResource pResourceArn_ =
   UpdateTagsForResource'
-    { tagsToRemove =
-        Prelude.Nothing,
-      tagsToAdd = Prelude.Nothing,
+    { tagsToRemove = Core.Nothing,
+      tagsToAdd = Core.Nothing,
       resourceArn = pResourceArn_
     }
 
@@ -121,63 +119,60 @@ newUpdateTagsForResource pResourceArn_ =
 -- silently ignored.
 --
 -- Specify at least one of these parameters: @TagsToAdd@, @TagsToRemove@.
-updateTagsForResource_tagsToRemove :: Lens.Lens' UpdateTagsForResource (Prelude.Maybe [Prelude.Text])
-updateTagsForResource_tagsToRemove = Lens.lens (\UpdateTagsForResource' {tagsToRemove} -> tagsToRemove) (\s@UpdateTagsForResource' {} a -> s {tagsToRemove = a} :: UpdateTagsForResource) Prelude.. Lens.mapping Prelude._Coerce
+updateTagsForResource_tagsToRemove :: Lens.Lens' UpdateTagsForResource (Core.Maybe [Core.Text])
+updateTagsForResource_tagsToRemove = Lens.lens (\UpdateTagsForResource' {tagsToRemove} -> tagsToRemove) (\s@UpdateTagsForResource' {} a -> s {tagsToRemove = a} :: UpdateTagsForResource) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of tags to add or update. If a key of an existing tag is added,
 -- the tag\'s value is updated.
 --
 -- Specify at least one of these parameters: @TagsToAdd@, @TagsToRemove@.
-updateTagsForResource_tagsToAdd :: Lens.Lens' UpdateTagsForResource (Prelude.Maybe [Tag])
-updateTagsForResource_tagsToAdd = Lens.lens (\UpdateTagsForResource' {tagsToAdd} -> tagsToAdd) (\s@UpdateTagsForResource' {} a -> s {tagsToAdd = a} :: UpdateTagsForResource) Prelude.. Lens.mapping Prelude._Coerce
+updateTagsForResource_tagsToAdd :: Lens.Lens' UpdateTagsForResource (Core.Maybe [Tag])
+updateTagsForResource_tagsToAdd = Lens.lens (\UpdateTagsForResource' {tagsToAdd} -> tagsToAdd) (\s@UpdateTagsForResource' {} a -> s {tagsToAdd = a} :: UpdateTagsForResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the resouce to be updated.
 --
 -- Must be the ARN of an Elastic Beanstalk resource.
-updateTagsForResource_resourceArn :: Lens.Lens' UpdateTagsForResource Prelude.Text
+updateTagsForResource_resourceArn :: Lens.Lens' UpdateTagsForResource Core.Text
 updateTagsForResource_resourceArn = Lens.lens (\UpdateTagsForResource' {resourceArn} -> resourceArn) (\s@UpdateTagsForResource' {} a -> s {resourceArn = a} :: UpdateTagsForResource)
 
-instance Prelude.AWSRequest UpdateTagsForResource where
+instance Core.AWSRequest UpdateTagsForResource where
   type
-    Rs UpdateTagsForResource =
+    AWSResponse UpdateTagsForResource =
       UpdateTagsForResourceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull UpdateTagsForResourceResponse'
 
-instance Prelude.Hashable UpdateTagsForResource
+instance Core.Hashable UpdateTagsForResource
 
-instance Prelude.NFData UpdateTagsForResource
+instance Core.NFData UpdateTagsForResource
 
-instance Prelude.ToHeaders UpdateTagsForResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateTagsForResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateTagsForResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTagsForResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTagsForResource where
+instance Core.ToQuery UpdateTagsForResource where
   toQuery UpdateTagsForResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateTagsForResource" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+          Core.=: ("UpdateTagsForResource" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
         "TagsToRemove"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> tagsToRemove
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tagsToRemove),
         "TagsToAdd"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tagsToAdd),
-        "ResourceArn" Prelude.=: resourceArn
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tagsToAdd),
+        "ResourceArn" Core.=: resourceArn
       ]
 
 -- | /See:/ 'newUpdateTagsForResourceResponse' smart constructor.
 data UpdateTagsForResourceResponse = UpdateTagsForResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTagsForResourceResponse' with all optional fields omitted.
@@ -188,4 +183,4 @@ newUpdateTagsForResourceResponse ::
 newUpdateTagsForResourceResponse =
   UpdateTagsForResourceResponse'
 
-instance Prelude.NFData UpdateTagsForResourceResponse
+instance Core.NFData UpdateTagsForResourceResponse

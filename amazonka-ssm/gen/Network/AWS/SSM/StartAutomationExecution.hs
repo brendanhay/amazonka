@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.SSM.StartAutomationExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -74,26 +73,26 @@ data StartAutomationExecution = StartAutomationExecution'
     -- as well. If you need to ensure that there won\'t be more than max-errors
     -- failed executions, set max-concurrency to 1 so the executions proceed
     -- one at a time.
-    maxErrors :: Prelude.Maybe Prelude.Text,
+    maxErrors :: Core.Maybe Core.Text,
     -- | The execution mode of the automation. Valid modes include the following:
     -- Auto and Interactive. The default mode is Auto.
-    mode :: Prelude.Maybe ExecutionMode,
+    mode :: Core.Maybe ExecutionMode,
     -- | A key-value mapping to target resources. Required if you specify
     -- TargetParameterName.
-    targets :: Prelude.Maybe [Target],
+    targets :: Core.Maybe [Target],
     -- | A location is a combination of AWS Regions and\/or AWS accounts where
     -- you want to run the Automation. Use this action to start an Automation
     -- in multiple Regions and multiple accounts. For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts>
     -- in the /AWS Systems Manager User Guide/.
-    targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
+    targetLocations :: Core.Maybe (Core.NonEmpty TargetLocation),
     -- | The name of the parameter used as the target resource for the
     -- rate-controlled execution. Required if you specify targets.
-    targetParameterName :: Prelude.Maybe Prelude.Text,
+    targetParameterName :: Core.Maybe Core.Text,
     -- | The maximum number of targets allowed to run this task in parallel. You
     -- can specify a number, such as 10, or a percentage, such as 10%. The
     -- default value is 10.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
+    maxConcurrency :: Core.Maybe Core.Text,
     -- | Optional metadata that you assign to a resource. You can specify a
     -- maximum of five tags for an automation. Tags enable you to categorize a
     -- resource in different ways, such as by purpose, owner, or environment.
@@ -107,27 +106,27 @@ data StartAutomationExecution = StartAutomationExecution'
     --
     -- To add tags to an existing patch baseline, use the AddTagsToResource
     -- action.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A key-value mapping of document parameters to target resources. Both
     -- Targets and TargetMaps cannot be specified together.
-    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
+    targetMaps :: Core.Maybe [Core.HashMap Core.Text [Core.Text]],
     -- | The version of the Automation document to use for this execution.
-    documentVersion :: Prelude.Maybe Prelude.Text,
+    documentVersion :: Core.Maybe Core.Text,
     -- | A key-value map of execution parameters, which match the declared
     -- parameters in the Automation document.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | User-provided idempotency token. The token must be unique, is case
     -- insensitive, enforces the UUID format, and can\'t be reused.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The name of the Systems Manager document to run. This can be a public
     -- document or a custom document. To run a shared document belonging to
     -- another account, specify the document ARN. For more information about
     -- how to use shared documents, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
     -- in the /AWS Systems Manager User Guide/.
-    documentName :: Prelude.Text
+    documentName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAutomationExecution' with all optional fields omitted.
@@ -205,22 +204,21 @@ data StartAutomationExecution = StartAutomationExecution'
 -- in the /AWS Systems Manager User Guide/.
 newStartAutomationExecution ::
   -- | 'documentName'
-  Prelude.Text ->
+  Core.Text ->
   StartAutomationExecution
 newStartAutomationExecution pDocumentName_ =
   StartAutomationExecution'
-    { maxErrors =
-        Prelude.Nothing,
-      mode = Prelude.Nothing,
-      targets = Prelude.Nothing,
-      targetLocations = Prelude.Nothing,
-      targetParameterName = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      targetMaps = Prelude.Nothing,
-      documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { maxErrors = Core.Nothing,
+      mode = Core.Nothing,
+      targets = Core.Nothing,
+      targetLocations = Core.Nothing,
+      targetParameterName = Core.Nothing,
+      maxConcurrency = Core.Nothing,
+      tags = Core.Nothing,
+      targetMaps = Core.Nothing,
+      documentVersion = Core.Nothing,
+      parameters = Core.Nothing,
+      clientToken = Core.Nothing,
       documentName = pDocumentName_
     }
 
@@ -239,36 +237,36 @@ newStartAutomationExecution pDocumentName_ =
 -- as well. If you need to ensure that there won\'t be more than max-errors
 -- failed executions, set max-concurrency to 1 so the executions proceed
 -- one at a time.
-startAutomationExecution_maxErrors :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_maxErrors :: Lens.Lens' StartAutomationExecution (Core.Maybe Core.Text)
 startAutomationExecution_maxErrors = Lens.lens (\StartAutomationExecution' {maxErrors} -> maxErrors) (\s@StartAutomationExecution' {} a -> s {maxErrors = a} :: StartAutomationExecution)
 
 -- | The execution mode of the automation. Valid modes include the following:
 -- Auto and Interactive. The default mode is Auto.
-startAutomationExecution_mode :: Lens.Lens' StartAutomationExecution (Prelude.Maybe ExecutionMode)
+startAutomationExecution_mode :: Lens.Lens' StartAutomationExecution (Core.Maybe ExecutionMode)
 startAutomationExecution_mode = Lens.lens (\StartAutomationExecution' {mode} -> mode) (\s@StartAutomationExecution' {} a -> s {mode = a} :: StartAutomationExecution)
 
 -- | A key-value mapping to target resources. Required if you specify
 -- TargetParameterName.
-startAutomationExecution_targets :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Target])
-startAutomationExecution_targets = Lens.lens (\StartAutomationExecution' {targets} -> targets) (\s@StartAutomationExecution' {} a -> s {targets = a} :: StartAutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+startAutomationExecution_targets :: Lens.Lens' StartAutomationExecution (Core.Maybe [Target])
+startAutomationExecution_targets = Lens.lens (\StartAutomationExecution' {targets} -> targets) (\s@StartAutomationExecution' {} a -> s {targets = a} :: StartAutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | A location is a combination of AWS Regions and\/or AWS accounts where
 -- you want to run the Automation. Use this action to start an Automation
 -- in multiple Regions and multiple accounts. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts>
 -- in the /AWS Systems Manager User Guide/.
-startAutomationExecution_targetLocations :: Lens.Lens' StartAutomationExecution (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
-startAutomationExecution_targetLocations = Lens.lens (\StartAutomationExecution' {targetLocations} -> targetLocations) (\s@StartAutomationExecution' {} a -> s {targetLocations = a} :: StartAutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+startAutomationExecution_targetLocations :: Lens.Lens' StartAutomationExecution (Core.Maybe (Core.NonEmpty TargetLocation))
+startAutomationExecution_targetLocations = Lens.lens (\StartAutomationExecution' {targetLocations} -> targetLocations) (\s@StartAutomationExecution' {} a -> s {targetLocations = a} :: StartAutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the parameter used as the target resource for the
 -- rate-controlled execution. Required if you specify targets.
-startAutomationExecution_targetParameterName :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_targetParameterName :: Lens.Lens' StartAutomationExecution (Core.Maybe Core.Text)
 startAutomationExecution_targetParameterName = Lens.lens (\StartAutomationExecution' {targetParameterName} -> targetParameterName) (\s@StartAutomationExecution' {} a -> s {targetParameterName = a} :: StartAutomationExecution)
 
 -- | The maximum number of targets allowed to run this task in parallel. You
 -- can specify a number, such as 10, or a percentage, such as 10%. The
 -- default value is 10.
-startAutomationExecution_maxConcurrency :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_maxConcurrency :: Lens.Lens' StartAutomationExecution (Core.Maybe Core.Text)
 startAutomationExecution_maxConcurrency = Lens.lens (\StartAutomationExecution' {maxConcurrency} -> maxConcurrency) (\s@StartAutomationExecution' {} a -> s {maxConcurrency = a} :: StartAutomationExecution)
 
 -- | Optional metadata that you assign to a resource. You can specify a
@@ -284,26 +282,26 @@ startAutomationExecution_maxConcurrency = Lens.lens (\StartAutomationExecution' 
 --
 -- To add tags to an existing patch baseline, use the AddTagsToResource
 -- action.
-startAutomationExecution_tags :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Tag])
-startAutomationExecution_tags = Lens.lens (\StartAutomationExecution' {tags} -> tags) (\s@StartAutomationExecution' {} a -> s {tags = a} :: StartAutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+startAutomationExecution_tags :: Lens.Lens' StartAutomationExecution (Core.Maybe [Tag])
+startAutomationExecution_tags = Lens.lens (\StartAutomationExecution' {tags} -> tags) (\s@StartAutomationExecution' {} a -> s {tags = a} :: StartAutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | A key-value mapping of document parameters to target resources. Both
 -- Targets and TargetMaps cannot be specified together.
-startAutomationExecution_targetMaps :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
-startAutomationExecution_targetMaps = Lens.lens (\StartAutomationExecution' {targetMaps} -> targetMaps) (\s@StartAutomationExecution' {} a -> s {targetMaps = a} :: StartAutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+startAutomationExecution_targetMaps :: Lens.Lens' StartAutomationExecution (Core.Maybe [Core.HashMap Core.Text [Core.Text]])
+startAutomationExecution_targetMaps = Lens.lens (\StartAutomationExecution' {targetMaps} -> targetMaps) (\s@StartAutomationExecution' {} a -> s {targetMaps = a} :: StartAutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The version of the Automation document to use for this execution.
-startAutomationExecution_documentVersion :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_documentVersion :: Lens.Lens' StartAutomationExecution (Core.Maybe Core.Text)
 startAutomationExecution_documentVersion = Lens.lens (\StartAutomationExecution' {documentVersion} -> documentVersion) (\s@StartAutomationExecution' {} a -> s {documentVersion = a} :: StartAutomationExecution)
 
 -- | A key-value map of execution parameters, which match the declared
 -- parameters in the Automation document.
-startAutomationExecution_parameters :: Lens.Lens' StartAutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-startAutomationExecution_parameters = Lens.lens (\StartAutomationExecution' {parameters} -> parameters) (\s@StartAutomationExecution' {} a -> s {parameters = a} :: StartAutomationExecution) Prelude.. Lens.mapping Prelude._Coerce
+startAutomationExecution_parameters :: Lens.Lens' StartAutomationExecution (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+startAutomationExecution_parameters = Lens.lens (\StartAutomationExecution' {parameters} -> parameters) (\s@StartAutomationExecution' {} a -> s {parameters = a} :: StartAutomationExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | User-provided idempotency token. The token must be unique, is case
 -- insensitive, enforces the UUID format, and can\'t be reused.
-startAutomationExecution_clientToken :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_clientToken :: Lens.Lens' StartAutomationExecution (Core.Maybe Core.Text)
 startAutomationExecution_clientToken = Lens.lens (\StartAutomationExecution' {clientToken} -> clientToken) (\s@StartAutomationExecution' {} a -> s {clientToken = a} :: StartAutomationExecution)
 
 -- | The name of the Systems Manager document to run. This can be a public
@@ -312,79 +310,73 @@ startAutomationExecution_clientToken = Lens.lens (\StartAutomationExecution' {cl
 -- how to use shared documents, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
 -- in the /AWS Systems Manager User Guide/.
-startAutomationExecution_documentName :: Lens.Lens' StartAutomationExecution Prelude.Text
+startAutomationExecution_documentName :: Lens.Lens' StartAutomationExecution Core.Text
 startAutomationExecution_documentName = Lens.lens (\StartAutomationExecution' {documentName} -> documentName) (\s@StartAutomationExecution' {} a -> s {documentName = a} :: StartAutomationExecution)
 
-instance Prelude.AWSRequest StartAutomationExecution where
+instance Core.AWSRequest StartAutomationExecution where
   type
-    Rs StartAutomationExecution =
+    AWSResponse StartAutomationExecution =
       StartAutomationExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartAutomationExecutionResponse'
-            Prelude.<$> (x Prelude..?> "AutomationExecutionId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AutomationExecutionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartAutomationExecution
+instance Core.Hashable StartAutomationExecution
 
-instance Prelude.NFData StartAutomationExecution
+instance Core.NFData StartAutomationExecution
 
-instance Prelude.ToHeaders StartAutomationExecution where
+instance Core.ToHeaders StartAutomationExecution where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.StartAutomationExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.StartAutomationExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartAutomationExecution where
+instance Core.ToJSON StartAutomationExecution where
   toJSON StartAutomationExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxErrors" Prelude..=) Prelude.<$> maxErrors,
-            ("Mode" Prelude..=) Prelude.<$> mode,
-            ("Targets" Prelude..=) Prelude.<$> targets,
-            ("TargetLocations" Prelude..=)
-              Prelude.<$> targetLocations,
-            ("TargetParameterName" Prelude..=)
-              Prelude.<$> targetParameterName,
-            ("MaxConcurrency" Prelude..=)
-              Prelude.<$> maxConcurrency,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("TargetMaps" Prelude..=) Prelude.<$> targetMaps,
-            ("DocumentVersion" Prelude..=)
-              Prelude.<$> documentVersion,
-            ("Parameters" Prelude..=) Prelude.<$> parameters,
-            ("ClientToken" Prelude..=) Prelude.<$> clientToken,
-            Prelude.Just
-              ("DocumentName" Prelude..= documentName)
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxErrors" Core..=) Core.<$> maxErrors,
+            ("Mode" Core..=) Core.<$> mode,
+            ("Targets" Core..=) Core.<$> targets,
+            ("TargetLocations" Core..=) Core.<$> targetLocations,
+            ("TargetParameterName" Core..=)
+              Core.<$> targetParameterName,
+            ("MaxConcurrency" Core..=) Core.<$> maxConcurrency,
+            ("Tags" Core..=) Core.<$> tags,
+            ("TargetMaps" Core..=) Core.<$> targetMaps,
+            ("DocumentVersion" Core..=) Core.<$> documentVersion,
+            ("Parameters" Core..=) Core.<$> parameters,
+            ("ClientToken" Core..=) Core.<$> clientToken,
+            Core.Just ("DocumentName" Core..= documentName)
           ]
       )
 
-instance Prelude.ToPath StartAutomationExecution where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartAutomationExecution where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartAutomationExecution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartAutomationExecution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartAutomationExecutionResponse' smart constructor.
 data StartAutomationExecutionResponse = StartAutomationExecutionResponse'
   { -- | The unique ID of a newly scheduled automation execution.
-    automationExecutionId :: Prelude.Maybe Prelude.Text,
+    automationExecutionId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAutomationExecutionResponse' with all optional fields omitted.
@@ -399,23 +391,21 @@ data StartAutomationExecutionResponse = StartAutomationExecutionResponse'
 -- 'httpStatus', 'startAutomationExecutionResponse_httpStatus' - The response's http status code.
 newStartAutomationExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartAutomationExecutionResponse
 newStartAutomationExecutionResponse pHttpStatus_ =
   StartAutomationExecutionResponse'
     { automationExecutionId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID of a newly scheduled automation execution.
-startAutomationExecutionResponse_automationExecutionId :: Lens.Lens' StartAutomationExecutionResponse (Prelude.Maybe Prelude.Text)
+startAutomationExecutionResponse_automationExecutionId :: Lens.Lens' StartAutomationExecutionResponse (Core.Maybe Core.Text)
 startAutomationExecutionResponse_automationExecutionId = Lens.lens (\StartAutomationExecutionResponse' {automationExecutionId} -> automationExecutionId) (\s@StartAutomationExecutionResponse' {} a -> s {automationExecutionId = a} :: StartAutomationExecutionResponse)
 
 -- | The response's http status code.
-startAutomationExecutionResponse_httpStatus :: Lens.Lens' StartAutomationExecutionResponse Prelude.Int
+startAutomationExecutionResponse_httpStatus :: Lens.Lens' StartAutomationExecutionResponse Core.Int
 startAutomationExecutionResponse_httpStatus = Lens.lens (\StartAutomationExecutionResponse' {httpStatus} -> httpStatus) (\s@StartAutomationExecutionResponse' {} a -> s {httpStatus = a} :: StartAutomationExecutionResponse)
 
-instance
-  Prelude.NFData
-    StartAutomationExecutionResponse
+instance Core.NFData StartAutomationExecutionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.S3.GetObjectTorrent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -70,15 +69,15 @@ data GetObjectTorrent = GetObjectTorrent'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
-    requestPayer :: Prelude.Maybe RequestPayer,
+    expectedBucketOwner :: Core.Maybe Core.Text,
+    requestPayer :: Core.Maybe RequestPayer,
     -- | The name of the bucket containing the object for which to get the
     -- torrent files.
     bucket :: BucketName,
     -- | The object key for which to get the information.
     key :: ObjectKey
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetObjectTorrent' with all optional fields omitted.
@@ -107,8 +106,8 @@ newGetObjectTorrent ::
 newGetObjectTorrent pBucket_ pKey_ =
   GetObjectTorrent'
     { expectedBucketOwner =
-        Prelude.Nothing,
-      requestPayer = Prelude.Nothing,
+        Core.Nothing,
+      requestPayer = Core.Nothing,
       bucket = pBucket_,
       key = pKey_
     }
@@ -116,11 +115,11 @@ newGetObjectTorrent pBucket_ pKey_ =
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getObjectTorrent_expectedBucketOwner :: Lens.Lens' GetObjectTorrent (Prelude.Maybe Prelude.Text)
+getObjectTorrent_expectedBucketOwner :: Lens.Lens' GetObjectTorrent (Core.Maybe Core.Text)
 getObjectTorrent_expectedBucketOwner = Lens.lens (\GetObjectTorrent' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetObjectTorrent' {} a -> s {expectedBucketOwner = a} :: GetObjectTorrent)
 
 -- | Undocumented member.
-getObjectTorrent_requestPayer :: Lens.Lens' GetObjectTorrent (Prelude.Maybe RequestPayer)
+getObjectTorrent_requestPayer :: Lens.Lens' GetObjectTorrent (Core.Maybe RequestPayer)
 getObjectTorrent_requestPayer = Lens.lens (\GetObjectTorrent' {requestPayer} -> requestPayer) (\s@GetObjectTorrent' {} a -> s {requestPayer = a} :: GetObjectTorrent)
 
 -- | The name of the bucket containing the object for which to get the
@@ -132,47 +131,49 @@ getObjectTorrent_bucket = Lens.lens (\GetObjectTorrent' {bucket} -> bucket) (\s@
 getObjectTorrent_key :: Lens.Lens' GetObjectTorrent ObjectKey
 getObjectTorrent_key = Lens.lens (\GetObjectTorrent' {key} -> key) (\s@GetObjectTorrent' {} a -> s {key = a} :: GetObjectTorrent)
 
-instance Prelude.AWSRequest GetObjectTorrent where
-  type Rs GetObjectTorrent = GetObjectTorrentResponse
+instance Core.AWSRequest GetObjectTorrent where
+  type
+    AWSResponse GetObjectTorrent =
+      GetObjectTorrentResponse
   request = Request.get defaultService
   response =
     Response.receiveBody
       ( \s h x ->
           GetObjectTorrentResponse'
-            Prelude.<$> (h Prelude..#? "x-amz-request-charged")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.pure x)
+            Core.<$> (h Core..#? "x-amz-request-charged")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.pure x)
       )
 
-instance Prelude.Hashable GetObjectTorrent
+instance Core.Hashable GetObjectTorrent
 
-instance Prelude.NFData GetObjectTorrent
+instance Core.NFData GetObjectTorrent
 
-instance Prelude.ToHeaders GetObjectTorrent where
+instance Core.ToHeaders GetObjectTorrent where
   toHeaders GetObjectTorrent' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "x-amz-request-payer" Prelude.=# requestPayer
+          Core.=# expectedBucketOwner,
+        "x-amz-request-payer" Core.=# requestPayer
       ]
 
-instance Prelude.ToPath GetObjectTorrent where
+instance Core.ToPath GetObjectTorrent where
   toPath GetObjectTorrent' {..} =
-    Prelude.mconcat
-      ["/", Prelude.toBS bucket, "/", Prelude.toBS key]
+    Core.mconcat
+      ["/", Core.toBS bucket, "/", Core.toBS key]
 
-instance Prelude.ToQuery GetObjectTorrent where
-  toQuery = Prelude.const (Prelude.mconcat ["torrent"])
+instance Core.ToQuery GetObjectTorrent where
+  toQuery = Core.const (Core.mconcat ["torrent"])
 
 -- | /See:/ 'newGetObjectTorrentResponse' smart constructor.
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
+  { requestCharged :: Core.Maybe RequestCharged,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A Bencoded dictionary as defined by the BitTorrent specification
-    body :: Prelude.RsBody
+    body :: Core.ResponseBody
   }
-  deriving (Prelude.Show, Prelude.Generic)
+  deriving (Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetObjectTorrentResponse' with all optional fields omitted.
@@ -189,26 +190,26 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
 -- 'body', 'getObjectTorrentResponse_body' - A Bencoded dictionary as defined by the BitTorrent specification
 newGetObjectTorrentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'body'
-  Prelude.RsBody ->
+  Core.ResponseBody ->
   GetObjectTorrentResponse
 newGetObjectTorrentResponse pHttpStatus_ pBody_ =
   GetObjectTorrentResponse'
     { requestCharged =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
       body = pBody_
     }
 
 -- | Undocumented member.
-getObjectTorrentResponse_requestCharged :: Lens.Lens' GetObjectTorrentResponse (Prelude.Maybe RequestCharged)
+getObjectTorrentResponse_requestCharged :: Lens.Lens' GetObjectTorrentResponse (Core.Maybe RequestCharged)
 getObjectTorrentResponse_requestCharged = Lens.lens (\GetObjectTorrentResponse' {requestCharged} -> requestCharged) (\s@GetObjectTorrentResponse' {} a -> s {requestCharged = a} :: GetObjectTorrentResponse)
 
 -- | The response's http status code.
-getObjectTorrentResponse_httpStatus :: Lens.Lens' GetObjectTorrentResponse Prelude.Int
+getObjectTorrentResponse_httpStatus :: Lens.Lens' GetObjectTorrentResponse Core.Int
 getObjectTorrentResponse_httpStatus = Lens.lens (\GetObjectTorrentResponse' {httpStatus} -> httpStatus) (\s@GetObjectTorrentResponse' {} a -> s {httpStatus = a} :: GetObjectTorrentResponse)
 
 -- | A Bencoded dictionary as defined by the BitTorrent specification
-getObjectTorrentResponse_body :: Lens.Lens' GetObjectTorrentResponse Prelude.RsBody
+getObjectTorrentResponse_body :: Lens.Lens' GetObjectTorrentResponse Core.ResponseBody
 getObjectTorrentResponse_body = Lens.lens (\GetObjectTorrentResponse' {body} -> body) (\s@GetObjectTorrentResponse' {} a -> s {body = a} :: GetObjectTorrentResponse)

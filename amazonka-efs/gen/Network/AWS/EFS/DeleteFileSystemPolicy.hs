@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EFS.DeleteFileSystemPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 data DeleteFileSystemPolicy = DeleteFileSystemPolicy'
   { -- | Specifies the EFS file system for which to delete the
     -- @FileSystemPolicy@.
-    fileSystemId :: Prelude.Text
+    fileSystemId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystemPolicy' with all optional fields omitted.
@@ -68,7 +67,7 @@ data DeleteFileSystemPolicy = DeleteFileSystemPolicy'
 -- @FileSystemPolicy@.
 newDeleteFileSystemPolicy ::
   -- | 'fileSystemId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFileSystemPolicy
 newDeleteFileSystemPolicy pFileSystemId_ =
   DeleteFileSystemPolicy'
@@ -78,41 +77,41 @@ newDeleteFileSystemPolicy pFileSystemId_ =
 
 -- | Specifies the EFS file system for which to delete the
 -- @FileSystemPolicy@.
-deleteFileSystemPolicy_fileSystemId :: Lens.Lens' DeleteFileSystemPolicy Prelude.Text
+deleteFileSystemPolicy_fileSystemId :: Lens.Lens' DeleteFileSystemPolicy Core.Text
 deleteFileSystemPolicy_fileSystemId = Lens.lens (\DeleteFileSystemPolicy' {fileSystemId} -> fileSystemId) (\s@DeleteFileSystemPolicy' {} a -> s {fileSystemId = a} :: DeleteFileSystemPolicy)
 
-instance Prelude.AWSRequest DeleteFileSystemPolicy where
+instance Core.AWSRequest DeleteFileSystemPolicy where
   type
-    Rs DeleteFileSystemPolicy =
+    AWSResponse DeleteFileSystemPolicy =
       DeleteFileSystemPolicyResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteFileSystemPolicyResponse'
 
-instance Prelude.Hashable DeleteFileSystemPolicy
+instance Core.Hashable DeleteFileSystemPolicy
 
-instance Prelude.NFData DeleteFileSystemPolicy
+instance Core.NFData DeleteFileSystemPolicy
 
-instance Prelude.ToHeaders DeleteFileSystemPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteFileSystemPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteFileSystemPolicy where
+instance Core.ToPath DeleteFileSystemPolicy where
   toPath DeleteFileSystemPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-02-01/file-systems/",
-        Prelude.toBS fileSystemId,
+        Core.toBS fileSystemId,
         "/policy"
       ]
 
-instance Prelude.ToQuery DeleteFileSystemPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteFileSystemPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFileSystemPolicyResponse' smart constructor.
 data DeleteFileSystemPolicyResponse = DeleteFileSystemPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFileSystemPolicyResponse' with all optional fields omitted.
@@ -123,6 +122,4 @@ newDeleteFileSystemPolicyResponse ::
 newDeleteFileSystemPolicyResponse =
   DeleteFileSystemPolicyResponse'
 
-instance
-  Prelude.NFData
-    DeleteFileSystemPolicyResponse
+instance Core.NFData DeleteFileSystemPolicyResponse

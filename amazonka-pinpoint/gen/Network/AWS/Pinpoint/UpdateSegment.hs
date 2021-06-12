@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,22 +43,22 @@ module Network.AWS.Pinpoint.UpdateSegment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateSegment' smart constructor.
 data UpdateSegment = UpdateSegment'
   { -- | The unique identifier for the segment.
-    segmentId :: Prelude.Text,
+    segmentId :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     writeSegmentRequest :: WriteSegmentRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSegment' with all optional fields omitted.
@@ -77,9 +76,9 @@ data UpdateSegment = UpdateSegment'
 -- 'writeSegmentRequest', 'updateSegment_writeSegmentRequest' - Undocumented member.
 newUpdateSegment ::
   -- | 'segmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'writeSegmentRequest'
   WriteSegmentRequest ->
   UpdateSegment
@@ -94,74 +93,72 @@ newUpdateSegment
       }
 
 -- | The unique identifier for the segment.
-updateSegment_segmentId :: Lens.Lens' UpdateSegment Prelude.Text
+updateSegment_segmentId :: Lens.Lens' UpdateSegment Core.Text
 updateSegment_segmentId = Lens.lens (\UpdateSegment' {segmentId} -> segmentId) (\s@UpdateSegment' {} a -> s {segmentId = a} :: UpdateSegment)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateSegment_applicationId :: Lens.Lens' UpdateSegment Prelude.Text
+updateSegment_applicationId :: Lens.Lens' UpdateSegment Core.Text
 updateSegment_applicationId = Lens.lens (\UpdateSegment' {applicationId} -> applicationId) (\s@UpdateSegment' {} a -> s {applicationId = a} :: UpdateSegment)
 
 -- | Undocumented member.
 updateSegment_writeSegmentRequest :: Lens.Lens' UpdateSegment WriteSegmentRequest
 updateSegment_writeSegmentRequest = Lens.lens (\UpdateSegment' {writeSegmentRequest} -> writeSegmentRequest) (\s@UpdateSegment' {} a -> s {writeSegmentRequest = a} :: UpdateSegment)
 
-instance Prelude.AWSRequest UpdateSegment where
-  type Rs UpdateSegment = UpdateSegmentResponse
+instance Core.AWSRequest UpdateSegment where
+  type
+    AWSResponse UpdateSegment =
+      UpdateSegmentResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSegmentResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateSegment
+instance Core.Hashable UpdateSegment
 
-instance Prelude.NFData UpdateSegment
+instance Core.NFData UpdateSegment
 
-instance Prelude.ToHeaders UpdateSegment where
+instance Core.ToHeaders UpdateSegment where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSegment where
+instance Core.ToJSON UpdateSegment where
   toJSON UpdateSegment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "WriteSegmentRequest"
-                  Prelude..= writeSegmentRequest
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("WriteSegmentRequest" Core..= writeSegmentRequest)
           ]
       )
 
-instance Prelude.ToPath UpdateSegment where
+instance Core.ToPath UpdateSegment where
   toPath UpdateSegment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/segments/",
-        Prelude.toBS segmentId
+        Core.toBS segmentId
       ]
 
-instance Prelude.ToQuery UpdateSegment where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSegment where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSegmentResponse' smart constructor.
 data UpdateSegmentResponse = UpdateSegmentResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     segmentResponse :: SegmentResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSegmentResponse' with all optional fields omitted.
@@ -176,7 +173,7 @@ data UpdateSegmentResponse = UpdateSegmentResponse'
 -- 'segmentResponse', 'updateSegmentResponse_segmentResponse' - Undocumented member.
 newUpdateSegmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'segmentResponse'
   SegmentResponse ->
   UpdateSegmentResponse
@@ -189,11 +186,11 @@ newUpdateSegmentResponse
       }
 
 -- | The response's http status code.
-updateSegmentResponse_httpStatus :: Lens.Lens' UpdateSegmentResponse Prelude.Int
+updateSegmentResponse_httpStatus :: Lens.Lens' UpdateSegmentResponse Core.Int
 updateSegmentResponse_httpStatus = Lens.lens (\UpdateSegmentResponse' {httpStatus} -> httpStatus) (\s@UpdateSegmentResponse' {} a -> s {httpStatus = a} :: UpdateSegmentResponse)
 
 -- | Undocumented member.
 updateSegmentResponse_segmentResponse :: Lens.Lens' UpdateSegmentResponse SegmentResponse
 updateSegmentResponse_segmentResponse = Lens.lens (\UpdateSegmentResponse' {segmentResponse} -> segmentResponse) (\s@UpdateSegmentResponse' {} a -> s {segmentResponse = a} :: UpdateSegmentResponse)
 
-instance Prelude.NFData UpdateSegmentResponse
+instance Core.NFData UpdateSegmentResponse

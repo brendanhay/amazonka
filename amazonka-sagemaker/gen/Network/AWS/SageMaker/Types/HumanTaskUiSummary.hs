@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.HumanTaskUiSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Container for human task user interface information.
 --
 -- /See:/ 'newHumanTaskUiSummary' smart constructor.
 data HumanTaskUiSummary = HumanTaskUiSummary'
   { -- | The name of the human task user interface.
-    humanTaskUiName :: Prelude.Text,
+    humanTaskUiName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the human task user interface.
-    humanTaskUiArn :: Prelude.Text,
+    humanTaskUiArn :: Core.Text,
     -- | A timestamp when SageMaker created the human task user interface.
-    creationTime :: Prelude.POSIX
+    creationTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HumanTaskUiSummary' with all optional fields omitted.
@@ -51,11 +50,11 @@ data HumanTaskUiSummary = HumanTaskUiSummary'
 -- 'creationTime', 'humanTaskUiSummary_creationTime' - A timestamp when SageMaker created the human task user interface.
 newHumanTaskUiSummary ::
   -- | 'humanTaskUiName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'humanTaskUiArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   HumanTaskUiSummary
 newHumanTaskUiSummary
   pHumanTaskUiName_
@@ -65,32 +64,32 @@ newHumanTaskUiSummary
       { humanTaskUiName =
           pHumanTaskUiName_,
         humanTaskUiArn = pHumanTaskUiArn_,
-        creationTime = Prelude._Time Lens.# pCreationTime_
+        creationTime = Core._Time Lens.# pCreationTime_
       }
 
 -- | The name of the human task user interface.
-humanTaskUiSummary_humanTaskUiName :: Lens.Lens' HumanTaskUiSummary Prelude.Text
+humanTaskUiSummary_humanTaskUiName :: Lens.Lens' HumanTaskUiSummary Core.Text
 humanTaskUiSummary_humanTaskUiName = Lens.lens (\HumanTaskUiSummary' {humanTaskUiName} -> humanTaskUiName) (\s@HumanTaskUiSummary' {} a -> s {humanTaskUiName = a} :: HumanTaskUiSummary)
 
 -- | The Amazon Resource Name (ARN) of the human task user interface.
-humanTaskUiSummary_humanTaskUiArn :: Lens.Lens' HumanTaskUiSummary Prelude.Text
+humanTaskUiSummary_humanTaskUiArn :: Lens.Lens' HumanTaskUiSummary Core.Text
 humanTaskUiSummary_humanTaskUiArn = Lens.lens (\HumanTaskUiSummary' {humanTaskUiArn} -> humanTaskUiArn) (\s@HumanTaskUiSummary' {} a -> s {humanTaskUiArn = a} :: HumanTaskUiSummary)
 
 -- | A timestamp when SageMaker created the human task user interface.
-humanTaskUiSummary_creationTime :: Lens.Lens' HumanTaskUiSummary Prelude.UTCTime
-humanTaskUiSummary_creationTime = Lens.lens (\HumanTaskUiSummary' {creationTime} -> creationTime) (\s@HumanTaskUiSummary' {} a -> s {creationTime = a} :: HumanTaskUiSummary) Prelude.. Prelude._Time
+humanTaskUiSummary_creationTime :: Lens.Lens' HumanTaskUiSummary Core.UTCTime
+humanTaskUiSummary_creationTime = Lens.lens (\HumanTaskUiSummary' {creationTime} -> creationTime) (\s@HumanTaskUiSummary' {} a -> s {creationTime = a} :: HumanTaskUiSummary) Core.. Core._Time
 
-instance Prelude.FromJSON HumanTaskUiSummary where
+instance Core.FromJSON HumanTaskUiSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HumanTaskUiSummary"
       ( \x ->
           HumanTaskUiSummary'
-            Prelude.<$> (x Prelude..: "HumanTaskUiName")
-            Prelude.<*> (x Prelude..: "HumanTaskUiArn")
-            Prelude.<*> (x Prelude..: "CreationTime")
+            Core.<$> (x Core..: "HumanTaskUiName")
+            Core.<*> (x Core..: "HumanTaskUiArn")
+            Core.<*> (x Core..: "CreationTime")
       )
 
-instance Prelude.Hashable HumanTaskUiSummary
+instance Core.Hashable HumanTaskUiSummary
 
-instance Prelude.NFData HumanTaskUiSummary
+instance Core.NFData HumanTaskUiSummary

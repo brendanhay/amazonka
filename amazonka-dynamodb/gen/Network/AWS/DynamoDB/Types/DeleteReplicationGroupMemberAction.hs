@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a replica to be deleted.
 --
 -- /See:/ 'newDeleteReplicationGroupMemberAction' smart constructor.
 data DeleteReplicationGroupMemberAction = DeleteReplicationGroupMemberAction'
   { -- | The Region where the replica exists.
-    regionName :: Prelude.Text
+    regionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationGroupMemberAction' with all optional fields omitted.
@@ -43,7 +42,7 @@ data DeleteReplicationGroupMemberAction = DeleteReplicationGroupMemberAction'
 -- 'regionName', 'deleteReplicationGroupMemberAction_regionName' - The Region where the replica exists.
 newDeleteReplicationGroupMemberAction ::
   -- | 'regionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReplicationGroupMemberAction
 newDeleteReplicationGroupMemberAction pRegionName_ =
   DeleteReplicationGroupMemberAction'
@@ -52,23 +51,23 @@ newDeleteReplicationGroupMemberAction pRegionName_ =
     }
 
 -- | The Region where the replica exists.
-deleteReplicationGroupMemberAction_regionName :: Lens.Lens' DeleteReplicationGroupMemberAction Prelude.Text
+deleteReplicationGroupMemberAction_regionName :: Lens.Lens' DeleteReplicationGroupMemberAction Core.Text
 deleteReplicationGroupMemberAction_regionName = Lens.lens (\DeleteReplicationGroupMemberAction' {regionName} -> regionName) (\s@DeleteReplicationGroupMemberAction' {} a -> s {regionName = a} :: DeleteReplicationGroupMemberAction)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteReplicationGroupMemberAction
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteReplicationGroupMemberAction
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteReplicationGroupMemberAction
   where
   toJSON DeleteReplicationGroupMemberAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("RegionName" Prelude..= regionName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RegionName" Core..= regionName)]
       )

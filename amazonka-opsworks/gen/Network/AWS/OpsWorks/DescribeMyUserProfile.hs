@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data DescribeMyUserProfile = DescribeMyUserProfile'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMyUserProfile' with all optional fields omitted.
@@ -62,58 +61,55 @@ newDescribeMyUserProfile ::
   DescribeMyUserProfile
 newDescribeMyUserProfile = DescribeMyUserProfile'
 
-instance Prelude.AWSRequest DescribeMyUserProfile where
+instance Core.AWSRequest DescribeMyUserProfile where
   type
-    Rs DescribeMyUserProfile =
+    AWSResponse DescribeMyUserProfile =
       DescribeMyUserProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeMyUserProfileResponse'
-            Prelude.<$> (x Prelude..?> "UserProfile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMyUserProfile
+instance Core.Hashable DescribeMyUserProfile
 
-instance Prelude.NFData DescribeMyUserProfile
+instance Core.NFData DescribeMyUserProfile
 
-instance Prelude.ToHeaders DescribeMyUserProfile where
+instance Core.ToHeaders DescribeMyUserProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeMyUserProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeMyUserProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeMyUserProfile where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeMyUserProfile where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DescribeMyUserProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMyUserProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeMyUserProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeMyUserProfile where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeMyUserProfile@ request.
 --
 -- /See:/ 'newDescribeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
   { -- | A @UserProfile@ object that describes the user\'s SSH information.
-    userProfile :: Prelude.Maybe SelfUserProfile,
+    userProfile :: Core.Maybe SelfUserProfile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMyUserProfileResponse' with all optional fields omitted.
@@ -128,21 +124,21 @@ data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
 -- 'httpStatus', 'describeMyUserProfileResponse_httpStatus' - The response's http status code.
 newDescribeMyUserProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMyUserProfileResponse
 newDescribeMyUserProfileResponse pHttpStatus_ =
   DescribeMyUserProfileResponse'
     { userProfile =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @UserProfile@ object that describes the user\'s SSH information.
-describeMyUserProfileResponse_userProfile :: Lens.Lens' DescribeMyUserProfileResponse (Prelude.Maybe SelfUserProfile)
+describeMyUserProfileResponse_userProfile :: Lens.Lens' DescribeMyUserProfileResponse (Core.Maybe SelfUserProfile)
 describeMyUserProfileResponse_userProfile = Lens.lens (\DescribeMyUserProfileResponse' {userProfile} -> userProfile) (\s@DescribeMyUserProfileResponse' {} a -> s {userProfile = a} :: DescribeMyUserProfileResponse)
 
 -- | The response's http status code.
-describeMyUserProfileResponse_httpStatus :: Lens.Lens' DescribeMyUserProfileResponse Prelude.Int
+describeMyUserProfileResponse_httpStatus :: Lens.Lens' DescribeMyUserProfileResponse Core.Int
 describeMyUserProfileResponse_httpStatus = Lens.lens (\DescribeMyUserProfileResponse' {httpStatus} -> httpStatus) (\s@DescribeMyUserProfileResponse' {} a -> s {httpStatus = a} :: DescribeMyUserProfileResponse)
 
-instance Prelude.NFData DescribeMyUserProfileResponse
+instance Core.NFData DescribeMyUserProfileResponse

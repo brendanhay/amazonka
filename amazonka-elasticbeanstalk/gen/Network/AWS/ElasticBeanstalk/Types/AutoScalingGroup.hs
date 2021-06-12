@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'newAutoScalingGroup' smart constructor.
 data AutoScalingGroup = AutoScalingGroup'
   { -- | The name of the @AutoScalingGroup@ .
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoScalingGroup' with all optional fields omitted.
@@ -44,17 +43,16 @@ data AutoScalingGroup = AutoScalingGroup'
 newAutoScalingGroup ::
   AutoScalingGroup
 newAutoScalingGroup =
-  AutoScalingGroup' {name = Prelude.Nothing}
+  AutoScalingGroup' {name = Core.Nothing}
 
 -- | The name of the @AutoScalingGroup@ .
-autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
+autoScalingGroup_name :: Lens.Lens' AutoScalingGroup (Core.Maybe Core.Text)
 autoScalingGroup_name = Lens.lens (\AutoScalingGroup' {name} -> name) (\s@AutoScalingGroup' {} a -> s {name = a} :: AutoScalingGroup)
 
-instance Prelude.FromXML AutoScalingGroup where
+instance Core.FromXML AutoScalingGroup where
   parseXML x =
-    AutoScalingGroup'
-      Prelude.<$> (x Prelude..@? "Name")
+    AutoScalingGroup' Core.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable AutoScalingGroup
+instance Core.Hashable AutoScalingGroup
 
-instance Prelude.NFData AutoScalingGroup
+instance Core.NFData AutoScalingGroup

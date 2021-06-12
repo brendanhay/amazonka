@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.TextDetectionResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.TextDetection
 
 -- | Information about text detected in a video. Incudes the detected text,
@@ -31,12 +30,12 @@ import Network.AWS.Rekognition.Types.TextDetection
 -- /See:/ 'newTextDetectionResult' smart constructor.
 data TextDetectionResult = TextDetectionResult'
   { -- | Details about text detected in a video.
-    textDetection :: Prelude.Maybe TextDetection,
+    textDetection :: Core.Maybe TextDetection,
     -- | The time, in milliseconds from the start of the video, that the text was
     -- detected.
-    timestamp :: Prelude.Maybe Prelude.Integer
+    timestamp :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TextDetectionResult' with all optional fields omitted.
@@ -54,30 +53,29 @@ newTextDetectionResult ::
   TextDetectionResult
 newTextDetectionResult =
   TextDetectionResult'
-    { textDetection =
-        Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { textDetection = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | Details about text detected in a video.
-textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Prelude.Maybe TextDetection)
+textDetectionResult_textDetection :: Lens.Lens' TextDetectionResult (Core.Maybe TextDetection)
 textDetectionResult_textDetection = Lens.lens (\TextDetectionResult' {textDetection} -> textDetection) (\s@TextDetectionResult' {} a -> s {textDetection = a} :: TextDetectionResult)
 
 -- | The time, in milliseconds from the start of the video, that the text was
 -- detected.
-textDetectionResult_timestamp :: Lens.Lens' TextDetectionResult (Prelude.Maybe Prelude.Integer)
+textDetectionResult_timestamp :: Lens.Lens' TextDetectionResult (Core.Maybe Core.Integer)
 textDetectionResult_timestamp = Lens.lens (\TextDetectionResult' {timestamp} -> timestamp) (\s@TextDetectionResult' {} a -> s {timestamp = a} :: TextDetectionResult)
 
-instance Prelude.FromJSON TextDetectionResult where
+instance Core.FromJSON TextDetectionResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TextDetectionResult"
       ( \x ->
           TextDetectionResult'
-            Prelude.<$> (x Prelude..:? "TextDetection")
-            Prelude.<*> (x Prelude..:? "Timestamp")
+            Core.<$> (x Core..:? "TextDetection")
+            Core.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable TextDetectionResult
+instance Core.Hashable TextDetectionResult
 
-instance Prelude.NFData TextDetectionResult
+instance Core.NFData TextDetectionResult

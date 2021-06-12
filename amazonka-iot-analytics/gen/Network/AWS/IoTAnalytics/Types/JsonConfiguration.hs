@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.JsonConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the configuration information of the JSON format.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data JsonConfiguration = JsonConfiguration'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JsonConfiguration' with all optional fields omitted.
@@ -39,16 +38,15 @@ newJsonConfiguration ::
   JsonConfiguration
 newJsonConfiguration = JsonConfiguration'
 
-instance Prelude.FromJSON JsonConfiguration where
+instance Core.FromJSON JsonConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JsonConfiguration"
-      (\x -> Prelude.pure JsonConfiguration')
+      (\x -> Core.pure JsonConfiguration')
 
-instance Prelude.Hashable JsonConfiguration
+instance Core.Hashable JsonConfiguration
 
-instance Prelude.NFData JsonConfiguration
+instance Core.NFData JsonConfiguration
 
-instance Prelude.ToJSON JsonConfiguration where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON JsonConfiguration where
+  toJSON = Core.const (Core.Object Core.mempty)

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.AutoSnapshotAddOnRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a request to enable or modify the automatic snapshot add-on
 -- for an Amazon Lightsail instance or disk.
@@ -70,9 +69,9 @@ data AutoSnapshotAddOnRequest = AutoSnapshotAddOnRequest'
     --
     -- -   The snapshot will be automatically created between the time
     --     specified and up to 45 minutes after.
-    snapshotTimeOfDay :: Prelude.Maybe Prelude.Text
+    snapshotTimeOfDay :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoSnapshotAddOnRequest' with all optional fields omitted.
@@ -97,7 +96,7 @@ newAutoSnapshotAddOnRequest ::
 newAutoSnapshotAddOnRequest =
   AutoSnapshotAddOnRequest'
     { snapshotTimeOfDay =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The daily time when an automatic snapshot will be created.
@@ -110,18 +109,18 @@ newAutoSnapshotAddOnRequest =
 --
 -- -   The snapshot will be automatically created between the time
 --     specified and up to 45 minutes after.
-autoSnapshotAddOnRequest_snapshotTimeOfDay :: Lens.Lens' AutoSnapshotAddOnRequest (Prelude.Maybe Prelude.Text)
+autoSnapshotAddOnRequest_snapshotTimeOfDay :: Lens.Lens' AutoSnapshotAddOnRequest (Core.Maybe Core.Text)
 autoSnapshotAddOnRequest_snapshotTimeOfDay = Lens.lens (\AutoSnapshotAddOnRequest' {snapshotTimeOfDay} -> snapshotTimeOfDay) (\s@AutoSnapshotAddOnRequest' {} a -> s {snapshotTimeOfDay = a} :: AutoSnapshotAddOnRequest)
 
-instance Prelude.Hashable AutoSnapshotAddOnRequest
+instance Core.Hashable AutoSnapshotAddOnRequest
 
-instance Prelude.NFData AutoSnapshotAddOnRequest
+instance Core.NFData AutoSnapshotAddOnRequest
 
-instance Prelude.ToJSON AutoSnapshotAddOnRequest where
+instance Core.ToJSON AutoSnapshotAddOnRequest where
   toJSON AutoSnapshotAddOnRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("snapshotTimeOfDay" Prelude..=)
-              Prelude.<$> snapshotTimeOfDay
+    Core.object
+      ( Core.catMaybes
+          [ ("snapshotTimeOfDay" Core..=)
+              Core.<$> snapshotTimeOfDay
           ]
       )

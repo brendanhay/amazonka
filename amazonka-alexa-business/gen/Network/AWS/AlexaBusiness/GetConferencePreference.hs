@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.AlexaBusiness.GetConferencePreference
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -47,7 +46,7 @@ import qualified Network.AWS.Response as Response
 data GetConferencePreference = GetConferencePreference'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetConferencePreference' with all optional fields omitted.
@@ -57,56 +56,53 @@ newGetConferencePreference ::
   GetConferencePreference
 newGetConferencePreference = GetConferencePreference'
 
-instance Prelude.AWSRequest GetConferencePreference where
+instance Core.AWSRequest GetConferencePreference where
   type
-    Rs GetConferencePreference =
+    AWSResponse GetConferencePreference =
       GetConferencePreferenceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetConferencePreferenceResponse'
-            Prelude.<$> (x Prelude..?> "Preference")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Preference")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetConferencePreference
+instance Core.Hashable GetConferencePreference
 
-instance Prelude.NFData GetConferencePreference
+instance Core.NFData GetConferencePreference
 
-instance Prelude.ToHeaders GetConferencePreference where
+instance Core.ToHeaders GetConferencePreference where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.GetConferencePreference" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.GetConferencePreference" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetConferencePreference where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetConferencePreference where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetConferencePreference where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetConferencePreference where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetConferencePreference where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetConferencePreference where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetConferencePreferenceResponse' smart constructor.
 data GetConferencePreferenceResponse = GetConferencePreferenceResponse'
   { -- | The conference preference.
-    preference :: Prelude.Maybe ConferencePreference,
+    preference :: Core.Maybe ConferencePreference,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetConferencePreferenceResponse' with all optional fields omitted.
@@ -121,23 +117,21 @@ data GetConferencePreferenceResponse = GetConferencePreferenceResponse'
 -- 'httpStatus', 'getConferencePreferenceResponse_httpStatus' - The response's http status code.
 newGetConferencePreferenceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetConferencePreferenceResponse
 newGetConferencePreferenceResponse pHttpStatus_ =
   GetConferencePreferenceResponse'
     { preference =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The conference preference.
-getConferencePreferenceResponse_preference :: Lens.Lens' GetConferencePreferenceResponse (Prelude.Maybe ConferencePreference)
+getConferencePreferenceResponse_preference :: Lens.Lens' GetConferencePreferenceResponse (Core.Maybe ConferencePreference)
 getConferencePreferenceResponse_preference = Lens.lens (\GetConferencePreferenceResponse' {preference} -> preference) (\s@GetConferencePreferenceResponse' {} a -> s {preference = a} :: GetConferencePreferenceResponse)
 
 -- | The response's http status code.
-getConferencePreferenceResponse_httpStatus :: Lens.Lens' GetConferencePreferenceResponse Prelude.Int
+getConferencePreferenceResponse_httpStatus :: Lens.Lens' GetConferencePreferenceResponse Core.Int
 getConferencePreferenceResponse_httpStatus = Lens.lens (\GetConferencePreferenceResponse' {httpStatus} -> httpStatus) (\s@GetConferencePreferenceResponse' {} a -> s {httpStatus = a} :: GetConferencePreferenceResponse)
 
-instance
-  Prelude.NFData
-    GetConferencePreferenceResponse
+instance Core.NFData GetConferencePreferenceResponse

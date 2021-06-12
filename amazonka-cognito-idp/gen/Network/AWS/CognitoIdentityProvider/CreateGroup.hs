@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,17 +46,17 @@ module Network.AWS.CognitoIdentityProvider.CreateGroup
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
   { -- | The role ARN for the group.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | A string containing the description of the group.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | A nonnegative integer value that specifies the precedence of this group
     -- relative to the other groups that a user can belong to in the user pool.
     -- Zero is the highest precedence value. Groups with lower @Precedence@
@@ -75,13 +74,13 @@ data CreateGroup = CreateGroup'
     -- is not set in users\' tokens.
     --
     -- The default @Precedence@ value is null.
-    precedence :: Prelude.Maybe Prelude.Natural,
+    precedence :: Core.Maybe Core.Natural,
     -- | The name of the group. Must be unique.
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | The user pool ID for the user pool.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGroup' with all optional fields omitted.
@@ -118,25 +117,25 @@ data CreateGroup = CreateGroup'
 -- 'userPoolId', 'createGroup_userPoolId' - The user pool ID for the user pool.
 newCreateGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   CreateGroup
 newCreateGroup pGroupName_ pUserPoolId_ =
   CreateGroup'
-    { roleArn = Prelude.Nothing,
-      description = Prelude.Nothing,
-      precedence = Prelude.Nothing,
+    { roleArn = Core.Nothing,
+      description = Core.Nothing,
+      precedence = Core.Nothing,
       groupName = pGroupName_,
       userPoolId = pUserPoolId_
     }
 
 -- | The role ARN for the group.
-createGroup_roleArn :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_roleArn :: Lens.Lens' CreateGroup (Core.Maybe Core.Text)
 createGroup_roleArn = Lens.lens (\CreateGroup' {roleArn} -> roleArn) (\s@CreateGroup' {} a -> s {roleArn = a} :: CreateGroup)
 
 -- | A string containing the description of the group.
-createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_description :: Lens.Lens' CreateGroup (Core.Maybe Core.Text)
 createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup)
 
 -- | A nonnegative integer value that specifies the precedence of this group
@@ -156,73 +155,71 @@ createGroup_description = Lens.lens (\CreateGroup' {description} -> description)
 -- is not set in users\' tokens.
 --
 -- The default @Precedence@ value is null.
-createGroup_precedence :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Natural)
+createGroup_precedence :: Lens.Lens' CreateGroup (Core.Maybe Core.Natural)
 createGroup_precedence = Lens.lens (\CreateGroup' {precedence} -> precedence) (\s@CreateGroup' {} a -> s {precedence = a} :: CreateGroup)
 
 -- | The name of the group. Must be unique.
-createGroup_groupName :: Lens.Lens' CreateGroup Prelude.Text
+createGroup_groupName :: Lens.Lens' CreateGroup Core.Text
 createGroup_groupName = Lens.lens (\CreateGroup' {groupName} -> groupName) (\s@CreateGroup' {} a -> s {groupName = a} :: CreateGroup)
 
 -- | The user pool ID for the user pool.
-createGroup_userPoolId :: Lens.Lens' CreateGroup Prelude.Text
+createGroup_userPoolId :: Lens.Lens' CreateGroup Core.Text
 createGroup_userPoolId = Lens.lens (\CreateGroup' {userPoolId} -> userPoolId) (\s@CreateGroup' {} a -> s {userPoolId = a} :: CreateGroup)
 
-instance Prelude.AWSRequest CreateGroup where
-  type Rs CreateGroup = CreateGroupResponse
+instance Core.AWSRequest CreateGroup where
+  type AWSResponse CreateGroup = CreateGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Prelude.<$> (x Prelude..?> "Group")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Group")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGroup
+instance Core.Hashable CreateGroup
 
-instance Prelude.NFData CreateGroup
+instance Core.NFData CreateGroup
 
-instance Prelude.ToHeaders CreateGroup where
+instance Core.ToHeaders CreateGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.CreateGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.CreateGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateGroup where
+instance Core.ToJSON CreateGroup where
   toJSON CreateGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoleArn" Prelude..=) Prelude.<$> roleArn,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("Precedence" Prelude..=) Prelude.<$> precedence,
-            Prelude.Just ("GroupName" Prelude..= groupName),
-            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ ("RoleArn" Core..=) Core.<$> roleArn,
+            ("Description" Core..=) Core.<$> description,
+            ("Precedence" Core..=) Core.<$> precedence,
+            Core.Just ("GroupName" Core..= groupName),
+            Core.Just ("UserPoolId" Core..= userPoolId)
           ]
       )
 
-instance Prelude.ToPath CreateGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
   { -- | The group object for the group.
-    group' :: Prelude.Maybe GroupType,
+    group' :: Core.Maybe GroupType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGroupResponse' with all optional fields omitted.
@@ -237,20 +234,20 @@ data CreateGroupResponse = CreateGroupResponse'
 -- 'httpStatus', 'createGroupResponse_httpStatus' - The response's http status code.
 newCreateGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateGroupResponse
 newCreateGroupResponse pHttpStatus_ =
   CreateGroupResponse'
-    { group' = Prelude.Nothing,
+    { group' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The group object for the group.
-createGroupResponse_group :: Lens.Lens' CreateGroupResponse (Prelude.Maybe GroupType)
+createGroupResponse_group :: Lens.Lens' CreateGroupResponse (Core.Maybe GroupType)
 createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group') (\s@CreateGroupResponse' {} a -> s {group' = a} :: CreateGroupResponse)
 
 -- | The response's http status code.
-createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
+createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Core.Int
 createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
 
-instance Prelude.NFData CreateGroupResponse
+instance Core.NFData CreateGroupResponse

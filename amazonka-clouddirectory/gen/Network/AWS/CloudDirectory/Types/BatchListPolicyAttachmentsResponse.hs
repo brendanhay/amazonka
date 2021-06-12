@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a ListPolicyAttachments response operation.
 --
 -- /See:/ 'newBatchListPolicyAttachmentsResponse' smart constructor.
 data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @ObjectIdentifiers@ to which the policy is attached.
-    objectIdentifiers :: Prelude.Maybe [Prelude.Text]
+    objectIdentifiers :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchListPolicyAttachmentsResponse' with all optional fields omitted.
@@ -50,37 +49,37 @@ newBatchListPolicyAttachmentsResponse ::
 newBatchListPolicyAttachmentsResponse =
   BatchListPolicyAttachmentsResponse'
     { nextToken =
-        Prelude.Nothing,
-      objectIdentifiers = Prelude.Nothing
+        Core.Nothing,
+      objectIdentifiers = Core.Nothing
     }
 
 -- | The pagination token.
-batchListPolicyAttachmentsResponse_nextToken :: Lens.Lens' BatchListPolicyAttachmentsResponse (Prelude.Maybe Prelude.Text)
+batchListPolicyAttachmentsResponse_nextToken :: Lens.Lens' BatchListPolicyAttachmentsResponse (Core.Maybe Core.Text)
 batchListPolicyAttachmentsResponse_nextToken = Lens.lens (\BatchListPolicyAttachmentsResponse' {nextToken} -> nextToken) (\s@BatchListPolicyAttachmentsResponse' {} a -> s {nextToken = a} :: BatchListPolicyAttachmentsResponse)
 
 -- | A list of @ObjectIdentifiers@ to which the policy is attached.
-batchListPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' BatchListPolicyAttachmentsResponse (Prelude.Maybe [Prelude.Text])
-batchListPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\BatchListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@BatchListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: BatchListPolicyAttachmentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchListPolicyAttachmentsResponse_objectIdentifiers :: Lens.Lens' BatchListPolicyAttachmentsResponse (Core.Maybe [Core.Text])
+batchListPolicyAttachmentsResponse_objectIdentifiers = Lens.lens (\BatchListPolicyAttachmentsResponse' {objectIdentifiers} -> objectIdentifiers) (\s@BatchListPolicyAttachmentsResponse' {} a -> s {objectIdentifiers = a} :: BatchListPolicyAttachmentsResponse) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchListPolicyAttachmentsResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchListPolicyAttachmentsResponse"
       ( \x ->
           BatchListPolicyAttachmentsResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> ( x Prelude..:? "ObjectIdentifiers"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> ( x Core..:? "ObjectIdentifiers"
+                         Core..!= Core.mempty
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchListPolicyAttachmentsResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchListPolicyAttachmentsResponse

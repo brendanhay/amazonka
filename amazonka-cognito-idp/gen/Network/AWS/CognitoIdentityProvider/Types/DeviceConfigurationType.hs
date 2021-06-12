@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.DeviceConfigurationType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration for the user pool\'s device tracking.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data DeviceConfigurationType = DeviceConfigurationType'
   { -- | Indicates whether a challenge is required on a new device. Only
     -- applicable to a new device.
-    challengeRequiredOnNewDevice :: Prelude.Maybe Prelude.Bool,
+    challengeRequiredOnNewDevice :: Core.Maybe Core.Bool,
     -- | If true, a device is only remembered on user prompt.
-    deviceOnlyRememberedOnUserPrompt :: Prelude.Maybe Prelude.Bool
+    deviceOnlyRememberedOnUserPrompt :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceConfigurationType' with all optional fields omitted.
@@ -52,40 +51,40 @@ newDeviceConfigurationType ::
 newDeviceConfigurationType =
   DeviceConfigurationType'
     { challengeRequiredOnNewDevice =
-        Prelude.Nothing,
-      deviceOnlyRememberedOnUserPrompt = Prelude.Nothing
+        Core.Nothing,
+      deviceOnlyRememberedOnUserPrompt = Core.Nothing
     }
 
 -- | Indicates whether a challenge is required on a new device. Only
 -- applicable to a new device.
-deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
+deviceConfigurationType_challengeRequiredOnNewDevice :: Lens.Lens' DeviceConfigurationType (Core.Maybe Core.Bool)
 deviceConfigurationType_challengeRequiredOnNewDevice = Lens.lens (\DeviceConfigurationType' {challengeRequiredOnNewDevice} -> challengeRequiredOnNewDevice) (\s@DeviceConfigurationType' {} a -> s {challengeRequiredOnNewDevice = a} :: DeviceConfigurationType)
 
 -- | If true, a device is only remembered on user prompt.
-deviceConfigurationType_deviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Prelude.Maybe Prelude.Bool)
+deviceConfigurationType_deviceOnlyRememberedOnUserPrompt :: Lens.Lens' DeviceConfigurationType (Core.Maybe Core.Bool)
 deviceConfigurationType_deviceOnlyRememberedOnUserPrompt = Lens.lens (\DeviceConfigurationType' {deviceOnlyRememberedOnUserPrompt} -> deviceOnlyRememberedOnUserPrompt) (\s@DeviceConfigurationType' {} a -> s {deviceOnlyRememberedOnUserPrompt = a} :: DeviceConfigurationType)
 
-instance Prelude.FromJSON DeviceConfigurationType where
+instance Core.FromJSON DeviceConfigurationType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceConfigurationType"
       ( \x ->
           DeviceConfigurationType'
-            Prelude.<$> (x Prelude..:? "ChallengeRequiredOnNewDevice")
-            Prelude.<*> (x Prelude..:? "DeviceOnlyRememberedOnUserPrompt")
+            Core.<$> (x Core..:? "ChallengeRequiredOnNewDevice")
+            Core.<*> (x Core..:? "DeviceOnlyRememberedOnUserPrompt")
       )
 
-instance Prelude.Hashable DeviceConfigurationType
+instance Core.Hashable DeviceConfigurationType
 
-instance Prelude.NFData DeviceConfigurationType
+instance Core.NFData DeviceConfigurationType
 
-instance Prelude.ToJSON DeviceConfigurationType where
+instance Core.ToJSON DeviceConfigurationType where
   toJSON DeviceConfigurationType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ChallengeRequiredOnNewDevice" Prelude..=)
-              Prelude.<$> challengeRequiredOnNewDevice,
-            ("DeviceOnlyRememberedOnUserPrompt" Prelude..=)
-              Prelude.<$> deviceOnlyRememberedOnUserPrompt
+    Core.object
+      ( Core.catMaybes
+          [ ("ChallengeRequiredOnNewDevice" Core..=)
+              Core.<$> challengeRequiredOnNewDevice,
+            ("DeviceOnlyRememberedOnUserPrompt" Core..=)
+              Core.<$> deviceOnlyRememberedOnUserPrompt
           ]
       )

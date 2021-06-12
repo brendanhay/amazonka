@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IoT.ConfirmTopicRuleDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data ConfirmTopicRuleDestination = ConfirmTopicRuleDestination'
   { -- | The token used to confirm ownership or access to the topic rule
     -- confirmation URL.
-    confirmationToken :: Prelude.Text
+    confirmationToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmTopicRuleDestination' with all optional fields omitted.
@@ -69,7 +68,7 @@ data ConfirmTopicRuleDestination = ConfirmTopicRuleDestination'
 -- confirmation URL.
 newConfirmTopicRuleDestination ::
   -- | 'confirmationToken'
-  Prelude.Text ->
+  Core.Text ->
   ConfirmTopicRuleDestination
 newConfirmTopicRuleDestination pConfirmationToken_ =
   ConfirmTopicRuleDestination'
@@ -79,50 +78,42 @@ newConfirmTopicRuleDestination pConfirmationToken_ =
 
 -- | The token used to confirm ownership or access to the topic rule
 -- confirmation URL.
-confirmTopicRuleDestination_confirmationToken :: Lens.Lens' ConfirmTopicRuleDestination Prelude.Text
+confirmTopicRuleDestination_confirmationToken :: Lens.Lens' ConfirmTopicRuleDestination Core.Text
 confirmTopicRuleDestination_confirmationToken = Lens.lens (\ConfirmTopicRuleDestination' {confirmationToken} -> confirmationToken) (\s@ConfirmTopicRuleDestination' {} a -> s {confirmationToken = a} :: ConfirmTopicRuleDestination)
 
-instance
-  Prelude.AWSRequest
-    ConfirmTopicRuleDestination
-  where
+instance Core.AWSRequest ConfirmTopicRuleDestination where
   type
-    Rs ConfirmTopicRuleDestination =
+    AWSResponse ConfirmTopicRuleDestination =
       ConfirmTopicRuleDestinationResponse
   request = Request.get defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ConfirmTopicRuleDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmTopicRuleDestination
+instance Core.Hashable ConfirmTopicRuleDestination
 
-instance Prelude.NFData ConfirmTopicRuleDestination
+instance Core.NFData ConfirmTopicRuleDestination
 
-instance
-  Prelude.ToHeaders
-    ConfirmTopicRuleDestination
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ConfirmTopicRuleDestination where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ConfirmTopicRuleDestination where
+instance Core.ToPath ConfirmTopicRuleDestination where
   toPath ConfirmTopicRuleDestination' {..} =
-    Prelude.mconcat
-      [ "/confirmdestination/",
-        Prelude.toBS confirmationToken
-      ]
+    Core.mconcat
+      ["/confirmdestination/", Core.toBS confirmationToken]
 
-instance Prelude.ToQuery ConfirmTopicRuleDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ConfirmTopicRuleDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newConfirmTopicRuleDestinationResponse' smart constructor.
 data ConfirmTopicRuleDestinationResponse = ConfirmTopicRuleDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmTopicRuleDestinationResponse' with all optional fields omitted.
@@ -135,7 +126,7 @@ data ConfirmTopicRuleDestinationResponse = ConfirmTopicRuleDestinationResponse'
 -- 'httpStatus', 'confirmTopicRuleDestinationResponse_httpStatus' - The response's http status code.
 newConfirmTopicRuleDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ConfirmTopicRuleDestinationResponse
 newConfirmTopicRuleDestinationResponse pHttpStatus_ =
   ConfirmTopicRuleDestinationResponse'
@@ -144,9 +135,9 @@ newConfirmTopicRuleDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-confirmTopicRuleDestinationResponse_httpStatus :: Lens.Lens' ConfirmTopicRuleDestinationResponse Prelude.Int
+confirmTopicRuleDestinationResponse_httpStatus :: Lens.Lens' ConfirmTopicRuleDestinationResponse Core.Int
 confirmTopicRuleDestinationResponse_httpStatus = Lens.lens (\ConfirmTopicRuleDestinationResponse' {httpStatus} -> httpStatus) (\s@ConfirmTopicRuleDestinationResponse' {} a -> s {httpStatus = a} :: ConfirmTopicRuleDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ConfirmTopicRuleDestinationResponse

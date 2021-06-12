@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.ReportGroupTrendStats where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains trend statistics for a set of reports. The actual values depend
 -- on the type of trend being collected. For more information, see .
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReportGroupTrendStats' smart constructor.
 data ReportGroupTrendStats = ReportGroupTrendStats'
   { -- | Contains the minimum value analyzed.
-    min :: Prelude.Maybe Prelude.Text,
+    min :: Core.Maybe Core.Text,
     -- | Contains the maximum value analyzed.
-    max :: Prelude.Maybe Prelude.Text,
+    max :: Core.Maybe Core.Text,
     -- | Contains the average of all values analyzed.
-    average :: Prelude.Maybe Prelude.Text
+    average :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReportGroupTrendStats' with all optional fields omitted.
@@ -54,34 +53,34 @@ newReportGroupTrendStats ::
   ReportGroupTrendStats
 newReportGroupTrendStats =
   ReportGroupTrendStats'
-    { min = Prelude.Nothing,
-      max = Prelude.Nothing,
-      average = Prelude.Nothing
+    { min = Core.Nothing,
+      max = Core.Nothing,
+      average = Core.Nothing
     }
 
 -- | Contains the minimum value analyzed.
-reportGroupTrendStats_min :: Lens.Lens' ReportGroupTrendStats (Prelude.Maybe Prelude.Text)
+reportGroupTrendStats_min :: Lens.Lens' ReportGroupTrendStats (Core.Maybe Core.Text)
 reportGroupTrendStats_min = Lens.lens (\ReportGroupTrendStats' {min} -> min) (\s@ReportGroupTrendStats' {} a -> s {min = a} :: ReportGroupTrendStats)
 
 -- | Contains the maximum value analyzed.
-reportGroupTrendStats_max :: Lens.Lens' ReportGroupTrendStats (Prelude.Maybe Prelude.Text)
+reportGroupTrendStats_max :: Lens.Lens' ReportGroupTrendStats (Core.Maybe Core.Text)
 reportGroupTrendStats_max = Lens.lens (\ReportGroupTrendStats' {max} -> max) (\s@ReportGroupTrendStats' {} a -> s {max = a} :: ReportGroupTrendStats)
 
 -- | Contains the average of all values analyzed.
-reportGroupTrendStats_average :: Lens.Lens' ReportGroupTrendStats (Prelude.Maybe Prelude.Text)
+reportGroupTrendStats_average :: Lens.Lens' ReportGroupTrendStats (Core.Maybe Core.Text)
 reportGroupTrendStats_average = Lens.lens (\ReportGroupTrendStats' {average} -> average) (\s@ReportGroupTrendStats' {} a -> s {average = a} :: ReportGroupTrendStats)
 
-instance Prelude.FromJSON ReportGroupTrendStats where
+instance Core.FromJSON ReportGroupTrendStats where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReportGroupTrendStats"
       ( \x ->
           ReportGroupTrendStats'
-            Prelude.<$> (x Prelude..:? "min")
-            Prelude.<*> (x Prelude..:? "max")
-            Prelude.<*> (x Prelude..:? "average")
+            Core.<$> (x Core..:? "min")
+            Core.<*> (x Core..:? "max")
+            Core.<*> (x Core..:? "average")
       )
 
-instance Prelude.Hashable ReportGroupTrendStats
+instance Core.Hashable ReportGroupTrendStats
 
-instance Prelude.NFData ReportGroupTrendStats
+instance Core.NFData ReportGroupTrendStats

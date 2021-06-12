@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.IAM.CreateGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,15 +66,15 @@ data CreateGroup = CreateGroup'
     -- ASCII character from the ! (@\\u0021@) through the DEL character
     -- (@\\u007F@), including most punctuation characters, digits, and upper
     -- and lowercased letters.
-    path :: Prelude.Maybe Prelude.Text,
+    path :: Core.Maybe Core.Text,
     -- | The name of the group to create. Do not include the path in this value.
     --
     -- IAM user, group, role, and policy names must be unique within the
     -- account. Names are not distinguished by case. For example, you cannot
     -- create resources named both \"MyResource\" and \"myresource\".
-    groupName :: Prelude.Text
+    groupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGroup' with all optional fields omitted.
@@ -107,11 +106,11 @@ data CreateGroup = CreateGroup'
 -- create resources named both \"MyResource\" and \"myresource\".
 newCreateGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   CreateGroup
 newCreateGroup pGroupName_ =
   CreateGroup'
-    { path = Prelude.Nothing,
+    { path = Core.Nothing,
       groupName = pGroupName_
     }
 
@@ -129,7 +128,7 @@ newCreateGroup pGroupName_ =
 -- ASCII character from the ! (@\\u0021@) through the DEL character
 -- (@\\u007F@), including most punctuation characters, digits, and upper
 -- and lowercased letters.
-createGroup_path :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
+createGroup_path :: Lens.Lens' CreateGroup (Core.Maybe Core.Text)
 createGroup_path = Lens.lens (\CreateGroup' {path} -> path) (\s@CreateGroup' {} a -> s {path = a} :: CreateGroup)
 
 -- | The name of the group to create. Do not include the path in this value.
@@ -137,40 +136,38 @@ createGroup_path = Lens.lens (\CreateGroup' {path} -> path) (\s@CreateGroup' {} 
 -- IAM user, group, role, and policy names must be unique within the
 -- account. Names are not distinguished by case. For example, you cannot
 -- create resources named both \"MyResource\" and \"myresource\".
-createGroup_groupName :: Lens.Lens' CreateGroup Prelude.Text
+createGroup_groupName :: Lens.Lens' CreateGroup Core.Text
 createGroup_groupName = Lens.lens (\CreateGroup' {groupName} -> groupName) (\s@CreateGroup' {} a -> s {groupName = a} :: CreateGroup)
 
-instance Prelude.AWSRequest CreateGroup where
-  type Rs CreateGroup = CreateGroupResponse
+instance Core.AWSRequest CreateGroup where
+  type AWSResponse CreateGroup = CreateGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateGroupResult"
       ( \s h x ->
           CreateGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "Group")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "Group")
       )
 
-instance Prelude.Hashable CreateGroup
+instance Core.Hashable CreateGroup
 
-instance Prelude.NFData CreateGroup
+instance Core.NFData CreateGroup
 
-instance Prelude.ToHeaders CreateGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateGroup where
+instance Core.ToQuery CreateGroup where
   toQuery CreateGroup' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("CreateGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "Path" Prelude.=: path,
-        "GroupName" Prelude.=: groupName
+    Core.mconcat
+      [ "Action" Core.=: ("CreateGroup" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "Path" Core.=: path,
+        "GroupName" Core.=: groupName
       ]
 
 -- | Contains the response to a successful CreateGroup request.
@@ -178,11 +175,11 @@ instance Prelude.ToQuery CreateGroup where
 -- /See:/ 'newCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A structure containing details about the new group.
     group' :: Group
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGroupResponse' with all optional fields omitted.
@@ -197,7 +194,7 @@ data CreateGroupResponse = CreateGroupResponse'
 -- 'group'', 'createGroupResponse_group' - A structure containing details about the new group.
 newCreateGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'group''
   Group ->
   CreateGroupResponse
@@ -208,11 +205,11 @@ newCreateGroupResponse pHttpStatus_ pGroup_ =
     }
 
 -- | The response's http status code.
-createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Prelude.Int
+createGroupResponse_httpStatus :: Lens.Lens' CreateGroupResponse Core.Int
 createGroupResponse_httpStatus = Lens.lens (\CreateGroupResponse' {httpStatus} -> httpStatus) (\s@CreateGroupResponse' {} a -> s {httpStatus = a} :: CreateGroupResponse)
 
 -- | A structure containing details about the new group.
 createGroupResponse_group :: Lens.Lens' CreateGroupResponse Group
 createGroupResponse_group = Lens.lens (\CreateGroupResponse' {group'} -> group') (\s@CreateGroupResponse' {} a -> s {group' = a} :: CreateGroupResponse)
 
-instance Prelude.NFData CreateGroupResponse
+instance Core.NFData CreateGroupResponse

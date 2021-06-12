@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AncillarySourceSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Ancillary Source Settings
 --
@@ -33,9 +32,9 @@ data AncillarySourceSettings = AncillarySourceSettings'
     -- to choose Embedded as the captions destination in the output (to pass
     -- through all the channels in the ancillary captions), leave this field
     -- blank because MediaLive ignores the field.
-    sourceAncillaryChannelNumber :: Prelude.Maybe Prelude.Natural
+    sourceAncillaryChannelNumber :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AncillarySourceSettings' with all optional fields omitted.
@@ -56,7 +55,7 @@ newAncillarySourceSettings ::
 newAncillarySourceSettings =
   AncillarySourceSettings'
     { sourceAncillaryChannelNumber =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the number (1 to 4) of the captions channel you want to
@@ -65,27 +64,27 @@ newAncillarySourceSettings =
 -- to choose Embedded as the captions destination in the output (to pass
 -- through all the channels in the ancillary captions), leave this field
 -- blank because MediaLive ignores the field.
-ancillarySourceSettings_sourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Prelude.Maybe Prelude.Natural)
+ancillarySourceSettings_sourceAncillaryChannelNumber :: Lens.Lens' AncillarySourceSettings (Core.Maybe Core.Natural)
 ancillarySourceSettings_sourceAncillaryChannelNumber = Lens.lens (\AncillarySourceSettings' {sourceAncillaryChannelNumber} -> sourceAncillaryChannelNumber) (\s@AncillarySourceSettings' {} a -> s {sourceAncillaryChannelNumber = a} :: AncillarySourceSettings)
 
-instance Prelude.FromJSON AncillarySourceSettings where
+instance Core.FromJSON AncillarySourceSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AncillarySourceSettings"
       ( \x ->
           AncillarySourceSettings'
-            Prelude.<$> (x Prelude..:? "sourceAncillaryChannelNumber")
+            Core.<$> (x Core..:? "sourceAncillaryChannelNumber")
       )
 
-instance Prelude.Hashable AncillarySourceSettings
+instance Core.Hashable AncillarySourceSettings
 
-instance Prelude.NFData AncillarySourceSettings
+instance Core.NFData AncillarySourceSettings
 
-instance Prelude.ToJSON AncillarySourceSettings where
+instance Core.ToJSON AncillarySourceSettings where
   toJSON AncillarySourceSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("sourceAncillaryChannelNumber" Prelude..=)
-              Prelude.<$> sourceAncillaryChannelNumber
+    Core.object
+      ( Core.catMaybes
+          [ ("sourceAncillaryChannelNumber" Core..=)
+              Core.<$> sourceAncillaryChannelNumber
           ]
       )

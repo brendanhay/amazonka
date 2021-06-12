@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DataPipeline.Types.ParameterObject where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types.ParameterAttribute
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a parameter object.
 --
 -- /See:/ 'newParameterObject' smart constructor.
 data ParameterObject = ParameterObject'
   { -- | The ID of the parameter object.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The attributes of the parameter object.
     attributes :: [ParameterAttribute]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterObject' with all optional fields omitted.
@@ -48,43 +47,41 @@ data ParameterObject = ParameterObject'
 -- 'attributes', 'parameterObject_attributes' - The attributes of the parameter object.
 newParameterObject ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   ParameterObject
 newParameterObject pId_ =
   ParameterObject'
     { id = pId_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- | The ID of the parameter object.
-parameterObject_id :: Lens.Lens' ParameterObject Prelude.Text
+parameterObject_id :: Lens.Lens' ParameterObject Core.Text
 parameterObject_id = Lens.lens (\ParameterObject' {id} -> id) (\s@ParameterObject' {} a -> s {id = a} :: ParameterObject)
 
 -- | The attributes of the parameter object.
 parameterObject_attributes :: Lens.Lens' ParameterObject [ParameterAttribute]
-parameterObject_attributes = Lens.lens (\ParameterObject' {attributes} -> attributes) (\s@ParameterObject' {} a -> s {attributes = a} :: ParameterObject) Prelude.. Prelude._Coerce
+parameterObject_attributes = Lens.lens (\ParameterObject' {attributes} -> attributes) (\s@ParameterObject' {} a -> s {attributes = a} :: ParameterObject) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ParameterObject where
+instance Core.FromJSON ParameterObject where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterObject"
       ( \x ->
           ParameterObject'
-            Prelude.<$> (x Prelude..: "id")
-            Prelude.<*> ( x Prelude..:? "attributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..: "id")
+            Core.<*> (x Core..:? "attributes" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ParameterObject
+instance Core.Hashable ParameterObject
 
-instance Prelude.NFData ParameterObject
+instance Core.NFData ParameterObject
 
-instance Prelude.ToJSON ParameterObject where
+instance Core.ToJSON ParameterObject where
   toJSON ParameterObject' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("id" Prelude..= id),
-            Prelude.Just ("attributes" Prelude..= attributes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            Core.Just ("attributes" Core..= attributes)
           ]
       )

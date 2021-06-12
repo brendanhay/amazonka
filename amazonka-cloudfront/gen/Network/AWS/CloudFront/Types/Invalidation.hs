@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.Invalidation where
 
 import Network.AWS.CloudFront.Types.InvalidationBatch
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An invalidation.
 --
@@ -30,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 data Invalidation = Invalidation'
   { -- | The identifier for the invalidation request. For example:
     -- @IDFDVBD632BHDS5@.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The status of the invalidation request. When the invalidation batch is
     -- finished, the status is @Completed@.
-    status :: Prelude.Text,
+    status :: Core.Text,
     -- | The date and time the invalidation request was first made.
-    createTime :: Prelude.ISO8601,
+    createTime :: Core.ISO8601,
     -- | The current invalidation information for the batch request.
     invalidationBatch :: InvalidationBatch
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Invalidation' with all optional fields omitted.
@@ -60,11 +59,11 @@ data Invalidation = Invalidation'
 -- 'invalidationBatch', 'invalidation_invalidationBatch' - The current invalidation information for the batch request.
 newInvalidation ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'createTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'invalidationBatch'
   InvalidationBatch ->
   Invalidation
@@ -76,36 +75,36 @@ newInvalidation
     Invalidation'
       { id = pId_,
         status = pStatus_,
-        createTime = Prelude._Time Lens.# pCreateTime_,
+        createTime = Core._Time Lens.# pCreateTime_,
         invalidationBatch = pInvalidationBatch_
       }
 
 -- | The identifier for the invalidation request. For example:
 -- @IDFDVBD632BHDS5@.
-invalidation_id :: Lens.Lens' Invalidation Prelude.Text
+invalidation_id :: Lens.Lens' Invalidation Core.Text
 invalidation_id = Lens.lens (\Invalidation' {id} -> id) (\s@Invalidation' {} a -> s {id = a} :: Invalidation)
 
 -- | The status of the invalidation request. When the invalidation batch is
 -- finished, the status is @Completed@.
-invalidation_status :: Lens.Lens' Invalidation Prelude.Text
+invalidation_status :: Lens.Lens' Invalidation Core.Text
 invalidation_status = Lens.lens (\Invalidation' {status} -> status) (\s@Invalidation' {} a -> s {status = a} :: Invalidation)
 
 -- | The date and time the invalidation request was first made.
-invalidation_createTime :: Lens.Lens' Invalidation Prelude.UTCTime
-invalidation_createTime = Lens.lens (\Invalidation' {createTime} -> createTime) (\s@Invalidation' {} a -> s {createTime = a} :: Invalidation) Prelude.. Prelude._Time
+invalidation_createTime :: Lens.Lens' Invalidation Core.UTCTime
+invalidation_createTime = Lens.lens (\Invalidation' {createTime} -> createTime) (\s@Invalidation' {} a -> s {createTime = a} :: Invalidation) Core.. Core._Time
 
 -- | The current invalidation information for the batch request.
 invalidation_invalidationBatch :: Lens.Lens' Invalidation InvalidationBatch
 invalidation_invalidationBatch = Lens.lens (\Invalidation' {invalidationBatch} -> invalidationBatch) (\s@Invalidation' {} a -> s {invalidationBatch = a} :: Invalidation)
 
-instance Prelude.FromXML Invalidation where
+instance Core.FromXML Invalidation where
   parseXML x =
     Invalidation'
-      Prelude.<$> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "Status")
-      Prelude.<*> (x Prelude..@ "CreateTime")
-      Prelude.<*> (x Prelude..@ "InvalidationBatch")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@ "CreateTime")
+      Core.<*> (x Core..@ "InvalidationBatch")
 
-instance Prelude.Hashable Invalidation
+instance Core.Hashable Invalidation
 
-instance Prelude.NFData Invalidation
+instance Core.NFData Invalidation

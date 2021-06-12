@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,20 +43,20 @@ module Network.AWS.OpsWorks.DescribeAgentVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAgentVersions' smart constructor.
 data DescribeAgentVersions = DescribeAgentVersions'
   { -- | The stack ID.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | The configuration manager.
-    configurationManager :: Prelude.Maybe StackConfigurationManager
+    configurationManager :: Core.Maybe StackConfigurationManager
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAgentVersions' with all optional fields omitted.
@@ -74,67 +73,63 @@ newDescribeAgentVersions ::
   DescribeAgentVersions
 newDescribeAgentVersions =
   DescribeAgentVersions'
-    { stackId = Prelude.Nothing,
-      configurationManager = Prelude.Nothing
+    { stackId = Core.Nothing,
+      configurationManager = Core.Nothing
     }
 
 -- | The stack ID.
-describeAgentVersions_stackId :: Lens.Lens' DescribeAgentVersions (Prelude.Maybe Prelude.Text)
+describeAgentVersions_stackId :: Lens.Lens' DescribeAgentVersions (Core.Maybe Core.Text)
 describeAgentVersions_stackId = Lens.lens (\DescribeAgentVersions' {stackId} -> stackId) (\s@DescribeAgentVersions' {} a -> s {stackId = a} :: DescribeAgentVersions)
 
 -- | The configuration manager.
-describeAgentVersions_configurationManager :: Lens.Lens' DescribeAgentVersions (Prelude.Maybe StackConfigurationManager)
+describeAgentVersions_configurationManager :: Lens.Lens' DescribeAgentVersions (Core.Maybe StackConfigurationManager)
 describeAgentVersions_configurationManager = Lens.lens (\DescribeAgentVersions' {configurationManager} -> configurationManager) (\s@DescribeAgentVersions' {} a -> s {configurationManager = a} :: DescribeAgentVersions)
 
-instance Prelude.AWSRequest DescribeAgentVersions where
+instance Core.AWSRequest DescribeAgentVersions where
   type
-    Rs DescribeAgentVersions =
+    AWSResponse DescribeAgentVersions =
       DescribeAgentVersionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAgentVersionsResponse'
-            Prelude.<$> ( x Prelude..?> "AgentVersions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AgentVersions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAgentVersions
+instance Core.Hashable DescribeAgentVersions
 
-instance Prelude.NFData DescribeAgentVersions
+instance Core.NFData DescribeAgentVersions
 
-instance Prelude.ToHeaders DescribeAgentVersions where
+instance Core.ToHeaders DescribeAgentVersions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeAgentVersions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeAgentVersions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAgentVersions where
+instance Core.ToJSON DescribeAgentVersions where
   toJSON DescribeAgentVersions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StackId" Prelude..=) Prelude.<$> stackId,
-            ("ConfigurationManager" Prelude..=)
-              Prelude.<$> configurationManager
+    Core.object
+      ( Core.catMaybes
+          [ ("StackId" Core..=) Core.<$> stackId,
+            ("ConfigurationManager" Core..=)
+              Core.<$> configurationManager
           ]
       )
 
-instance Prelude.ToPath DescribeAgentVersions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAgentVersions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAgentVersions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAgentVersions where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeAgentVersions@ request.
 --
@@ -143,11 +138,11 @@ data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
   { -- | The agent versions for the specified stack or configuration manager.
     -- Note that this value is the complete version number, not the abbreviated
     -- number used by the console.
-    agentVersions :: Prelude.Maybe [AgentVersion],
+    agentVersions :: Core.Maybe [AgentVersion],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAgentVersionsResponse' with all optional fields omitted.
@@ -164,23 +159,23 @@ data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
 -- 'httpStatus', 'describeAgentVersionsResponse_httpStatus' - The response's http status code.
 newDescribeAgentVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAgentVersionsResponse
 newDescribeAgentVersionsResponse pHttpStatus_ =
   DescribeAgentVersionsResponse'
     { agentVersions =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The agent versions for the specified stack or configuration manager.
 -- Note that this value is the complete version number, not the abbreviated
 -- number used by the console.
-describeAgentVersionsResponse_agentVersions :: Lens.Lens' DescribeAgentVersionsResponse (Prelude.Maybe [AgentVersion])
-describeAgentVersionsResponse_agentVersions = Lens.lens (\DescribeAgentVersionsResponse' {agentVersions} -> agentVersions) (\s@DescribeAgentVersionsResponse' {} a -> s {agentVersions = a} :: DescribeAgentVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAgentVersionsResponse_agentVersions :: Lens.Lens' DescribeAgentVersionsResponse (Core.Maybe [AgentVersion])
+describeAgentVersionsResponse_agentVersions = Lens.lens (\DescribeAgentVersionsResponse' {agentVersions} -> agentVersions) (\s@DescribeAgentVersionsResponse' {} a -> s {agentVersions = a} :: DescribeAgentVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAgentVersionsResponse_httpStatus :: Lens.Lens' DescribeAgentVersionsResponse Prelude.Int
+describeAgentVersionsResponse_httpStatus :: Lens.Lens' DescribeAgentVersionsResponse Core.Int
 describeAgentVersionsResponse_httpStatus = Lens.lens (\DescribeAgentVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeAgentVersionsResponse' {} a -> s {httpStatus = a} :: DescribeAgentVersionsResponse)
 
-instance Prelude.NFData DescribeAgentVersionsResponse
+instance Core.NFData DescribeAgentVersionsResponse

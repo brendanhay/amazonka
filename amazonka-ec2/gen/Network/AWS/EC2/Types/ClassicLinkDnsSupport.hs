@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClassicLinkDnsSupport where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the ClassicLink DNS support status of a VPC.
 --
 -- /See:/ 'newClassicLinkDnsSupport' smart constructor.
 data ClassicLinkDnsSupport = ClassicLinkDnsSupport'
   { -- | Indicates whether ClassicLink DNS support is enabled for the VPC.
-    classicLinkDnsSupported :: Prelude.Maybe Prelude.Bool,
+    classicLinkDnsSupported :: Core.Maybe Core.Bool,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClassicLinkDnsSupport' with all optional fields omitted.
@@ -51,24 +50,24 @@ newClassicLinkDnsSupport ::
 newClassicLinkDnsSupport =
   ClassicLinkDnsSupport'
     { classicLinkDnsSupported =
-        Prelude.Nothing,
-      vpcId = Prelude.Nothing
+        Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | Indicates whether ClassicLink DNS support is enabled for the VPC.
-classicLinkDnsSupport_classicLinkDnsSupported :: Lens.Lens' ClassicLinkDnsSupport (Prelude.Maybe Prelude.Bool)
+classicLinkDnsSupport_classicLinkDnsSupported :: Lens.Lens' ClassicLinkDnsSupport (Core.Maybe Core.Bool)
 classicLinkDnsSupport_classicLinkDnsSupported = Lens.lens (\ClassicLinkDnsSupport' {classicLinkDnsSupported} -> classicLinkDnsSupported) (\s@ClassicLinkDnsSupport' {} a -> s {classicLinkDnsSupported = a} :: ClassicLinkDnsSupport)
 
 -- | The ID of the VPC.
-classicLinkDnsSupport_vpcId :: Lens.Lens' ClassicLinkDnsSupport (Prelude.Maybe Prelude.Text)
+classicLinkDnsSupport_vpcId :: Lens.Lens' ClassicLinkDnsSupport (Core.Maybe Core.Text)
 classicLinkDnsSupport_vpcId = Lens.lens (\ClassicLinkDnsSupport' {vpcId} -> vpcId) (\s@ClassicLinkDnsSupport' {} a -> s {vpcId = a} :: ClassicLinkDnsSupport)
 
-instance Prelude.FromXML ClassicLinkDnsSupport where
+instance Core.FromXML ClassicLinkDnsSupport where
   parseXML x =
     ClassicLinkDnsSupport'
-      Prelude.<$> (x Prelude..@? "classicLinkDnsSupported")
-      Prelude.<*> (x Prelude..@? "vpcId")
+      Core.<$> (x Core..@? "classicLinkDnsSupported")
+      Core.<*> (x Core..@? "vpcId")
 
-instance Prelude.Hashable ClassicLinkDnsSupport
+instance Core.Hashable ClassicLinkDnsSupport
 
-instance Prelude.NFData ClassicLinkDnsSupport
+instance Core.NFData ClassicLinkDnsSupport

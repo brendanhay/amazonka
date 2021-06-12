@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudDirectory.Types.IndexAttachment where
 
 import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an index and an attached object.
 --
@@ -33,11 +32,11 @@ data IndexAttachment = IndexAttachment'
     -- of the index attached to the object. This field will always contain the
     -- @ObjectIdentifier@ of the object on the opposite side of the attachment
     -- specified in the query.
-    objectIdentifier :: Prelude.Maybe Prelude.Text,
+    objectIdentifier :: Core.Maybe Core.Text,
     -- | The indexed attribute values.
-    indexedAttributes :: Prelude.Maybe [AttributeKeyAndValue]
+    indexedAttributes :: Core.Maybe [AttributeKeyAndValue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IndexAttachment' with all optional fields omitted.
@@ -58,9 +57,8 @@ newIndexAttachment ::
   IndexAttachment
 newIndexAttachment =
   IndexAttachment'
-    { objectIdentifier =
-        Prelude.Nothing,
-      indexedAttributes = Prelude.Nothing
+    { objectIdentifier = Core.Nothing,
+      indexedAttributes = Core.Nothing
     }
 
 -- | In response to ListIndex, the @ObjectIdentifier@ of the object attached
@@ -68,25 +66,25 @@ newIndexAttachment =
 -- of the index attached to the object. This field will always contain the
 -- @ObjectIdentifier@ of the object on the opposite side of the attachment
 -- specified in the query.
-indexAttachment_objectIdentifier :: Lens.Lens' IndexAttachment (Prelude.Maybe Prelude.Text)
+indexAttachment_objectIdentifier :: Lens.Lens' IndexAttachment (Core.Maybe Core.Text)
 indexAttachment_objectIdentifier = Lens.lens (\IndexAttachment' {objectIdentifier} -> objectIdentifier) (\s@IndexAttachment' {} a -> s {objectIdentifier = a} :: IndexAttachment)
 
 -- | The indexed attribute values.
-indexAttachment_indexedAttributes :: Lens.Lens' IndexAttachment (Prelude.Maybe [AttributeKeyAndValue])
-indexAttachment_indexedAttributes = Lens.lens (\IndexAttachment' {indexedAttributes} -> indexedAttributes) (\s@IndexAttachment' {} a -> s {indexedAttributes = a} :: IndexAttachment) Prelude.. Lens.mapping Prelude._Coerce
+indexAttachment_indexedAttributes :: Lens.Lens' IndexAttachment (Core.Maybe [AttributeKeyAndValue])
+indexAttachment_indexedAttributes = Lens.lens (\IndexAttachment' {indexedAttributes} -> indexedAttributes) (\s@IndexAttachment' {} a -> s {indexedAttributes = a} :: IndexAttachment) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON IndexAttachment where
+instance Core.FromJSON IndexAttachment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IndexAttachment"
       ( \x ->
           IndexAttachment'
-            Prelude.<$> (x Prelude..:? "ObjectIdentifier")
-            Prelude.<*> ( x Prelude..:? "IndexedAttributes"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ObjectIdentifier")
+            Core.<*> ( x Core..:? "IndexedAttributes"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable IndexAttachment
+instance Core.Hashable IndexAttachment
 
-instance Prelude.NFData IndexAttachment
+instance Core.NFData IndexAttachment

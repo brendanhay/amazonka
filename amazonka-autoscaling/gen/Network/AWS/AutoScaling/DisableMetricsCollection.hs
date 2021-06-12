@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,11 +73,11 @@ data DisableMetricsCollection = DisableMetricsCollection'
     -- -   @GroupTotalCapacity@
     --
     -- If you omit this parameter, all metrics are disabled.
-    metrics :: Prelude.Maybe [Prelude.Text],
+    metrics :: Core.Maybe [Core.Text],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text
+    autoScalingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableMetricsCollection' with all optional fields omitted.
@@ -121,12 +120,11 @@ data DisableMetricsCollection = DisableMetricsCollection'
 -- 'autoScalingGroupName', 'disableMetricsCollection_autoScalingGroupName' - The name of the Auto Scaling group.
 newDisableMetricsCollection ::
   -- | 'autoScalingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DisableMetricsCollection
 newDisableMetricsCollection pAutoScalingGroupName_ =
   DisableMetricsCollection'
-    { metrics =
-        Prelude.Nothing,
+    { metrics = Core.Nothing,
       autoScalingGroupName = pAutoScalingGroupName_
     }
 
@@ -159,51 +157,49 @@ newDisableMetricsCollection pAutoScalingGroupName_ =
 -- -   @GroupTotalCapacity@
 --
 -- If you omit this parameter, all metrics are disabled.
-disableMetricsCollection_metrics :: Lens.Lens' DisableMetricsCollection (Prelude.Maybe [Prelude.Text])
-disableMetricsCollection_metrics = Lens.lens (\DisableMetricsCollection' {metrics} -> metrics) (\s@DisableMetricsCollection' {} a -> s {metrics = a} :: DisableMetricsCollection) Prelude.. Lens.mapping Prelude._Coerce
+disableMetricsCollection_metrics :: Lens.Lens' DisableMetricsCollection (Core.Maybe [Core.Text])
+disableMetricsCollection_metrics = Lens.lens (\DisableMetricsCollection' {metrics} -> metrics) (\s@DisableMetricsCollection' {} a -> s {metrics = a} :: DisableMetricsCollection) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Auto Scaling group.
-disableMetricsCollection_autoScalingGroupName :: Lens.Lens' DisableMetricsCollection Prelude.Text
+disableMetricsCollection_autoScalingGroupName :: Lens.Lens' DisableMetricsCollection Core.Text
 disableMetricsCollection_autoScalingGroupName = Lens.lens (\DisableMetricsCollection' {autoScalingGroupName} -> autoScalingGroupName) (\s@DisableMetricsCollection' {} a -> s {autoScalingGroupName = a} :: DisableMetricsCollection)
 
-instance Prelude.AWSRequest DisableMetricsCollection where
+instance Core.AWSRequest DisableMetricsCollection where
   type
-    Rs DisableMetricsCollection =
+    AWSResponse DisableMetricsCollection =
       DisableMetricsCollectionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DisableMetricsCollectionResponse'
 
-instance Prelude.Hashable DisableMetricsCollection
+instance Core.Hashable DisableMetricsCollection
 
-instance Prelude.NFData DisableMetricsCollection
+instance Core.NFData DisableMetricsCollection
 
-instance Prelude.ToHeaders DisableMetricsCollection where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DisableMetricsCollection where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DisableMetricsCollection where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableMetricsCollection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableMetricsCollection where
+instance Core.ToQuery DisableMetricsCollection where
   toQuery DisableMetricsCollection' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DisableMetricsCollection" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+          Core.=: ("DisableMetricsCollection" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
         "Metrics"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> metrics),
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> metrics),
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDisableMetricsCollectionResponse' smart constructor.
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableMetricsCollectionResponse' with all optional fields omitted.
@@ -214,6 +210,4 @@ newDisableMetricsCollectionResponse ::
 newDisableMetricsCollectionResponse =
   DisableMetricsCollectionResponse'
 
-instance
-  Prelude.NFData
-    DisableMetricsCollectionResponse
+instance Core.NFData DisableMetricsCollectionResponse

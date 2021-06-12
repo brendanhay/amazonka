@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +56,15 @@ data SetIdentityPoolRoles = SetIdentityPoolRoles'
     -- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
     --
     -- Up to 25 rules can be specified per identity provider.
-    roleMappings :: Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping),
+    roleMappings :: Core.Maybe (Core.HashMap Core.Text RoleMapping),
     -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text,
+    identityPoolId :: Core.Text,
     -- | The map of roles associated with this pool. For a given role, the key
     -- will be either \"authenticated\" or \"unauthenticated\" and the value
     -- will be the Role ARN.
-    roles :: Prelude.HashMap Prelude.Text Prelude.Text
+    roles :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityPoolRoles' with all optional fields omitted.
@@ -89,14 +88,13 @@ data SetIdentityPoolRoles = SetIdentityPoolRoles'
 -- will be the Role ARN.
 newSetIdentityPoolRoles ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   SetIdentityPoolRoles
 newSetIdentityPoolRoles pIdentityPoolId_ =
   SetIdentityPoolRoles'
-    { roleMappings =
-        Prelude.Nothing,
+    { roleMappings = Core.Nothing,
       identityPoolId = pIdentityPoolId_,
-      roles = Prelude.mempty
+      roles = Core.mempty
     }
 
 -- | How users for a specific identity provider are to mapped to roles. This
@@ -105,69 +103,65 @@ newSetIdentityPoolRoles pIdentityPoolId_ =
 -- \"cognito-idp.us-east-1.amazonaws.com\/us-east-1_abcdefghi:app_client_id\".
 --
 -- Up to 25 rules can be specified per identity provider.
-setIdentityPoolRoles_roleMappings :: Lens.Lens' SetIdentityPoolRoles (Prelude.Maybe (Prelude.HashMap Prelude.Text RoleMapping))
-setIdentityPoolRoles_roleMappings = Lens.lens (\SetIdentityPoolRoles' {roleMappings} -> roleMappings) (\s@SetIdentityPoolRoles' {} a -> s {roleMappings = a} :: SetIdentityPoolRoles) Prelude.. Lens.mapping Prelude._Coerce
+setIdentityPoolRoles_roleMappings :: Lens.Lens' SetIdentityPoolRoles (Core.Maybe (Core.HashMap Core.Text RoleMapping))
+setIdentityPoolRoles_roleMappings = Lens.lens (\SetIdentityPoolRoles' {roleMappings} -> roleMappings) (\s@SetIdentityPoolRoles' {} a -> s {roleMappings = a} :: SetIdentityPoolRoles) Core.. Lens.mapping Lens._Coerce
 
 -- | An identity pool ID in the format REGION:GUID.
-setIdentityPoolRoles_identityPoolId :: Lens.Lens' SetIdentityPoolRoles Prelude.Text
+setIdentityPoolRoles_identityPoolId :: Lens.Lens' SetIdentityPoolRoles Core.Text
 setIdentityPoolRoles_identityPoolId = Lens.lens (\SetIdentityPoolRoles' {identityPoolId} -> identityPoolId) (\s@SetIdentityPoolRoles' {} a -> s {identityPoolId = a} :: SetIdentityPoolRoles)
 
 -- | The map of roles associated with this pool. For a given role, the key
 -- will be either \"authenticated\" or \"unauthenticated\" and the value
 -- will be the Role ARN.
-setIdentityPoolRoles_roles :: Lens.Lens' SetIdentityPoolRoles (Prelude.HashMap Prelude.Text Prelude.Text)
-setIdentityPoolRoles_roles = Lens.lens (\SetIdentityPoolRoles' {roles} -> roles) (\s@SetIdentityPoolRoles' {} a -> s {roles = a} :: SetIdentityPoolRoles) Prelude.. Prelude._Coerce
+setIdentityPoolRoles_roles :: Lens.Lens' SetIdentityPoolRoles (Core.HashMap Core.Text Core.Text)
+setIdentityPoolRoles_roles = Lens.lens (\SetIdentityPoolRoles' {roles} -> roles) (\s@SetIdentityPoolRoles' {} a -> s {roles = a} :: SetIdentityPoolRoles) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest SetIdentityPoolRoles where
+instance Core.AWSRequest SetIdentityPoolRoles where
   type
-    Rs SetIdentityPoolRoles =
+    AWSResponse SetIdentityPoolRoles =
       SetIdentityPoolRolesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull SetIdentityPoolRolesResponse'
 
-instance Prelude.Hashable SetIdentityPoolRoles
+instance Core.Hashable SetIdentityPoolRoles
 
-instance Prelude.NFData SetIdentityPoolRoles
+instance Core.NFData SetIdentityPoolRoles
 
-instance Prelude.ToHeaders SetIdentityPoolRoles where
+instance Core.ToHeaders SetIdentityPoolRoles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.SetIdentityPoolRoles" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.SetIdentityPoolRoles" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SetIdentityPoolRoles where
+instance Core.ToJSON SetIdentityPoolRoles where
   toJSON SetIdentityPoolRoles' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoleMappings" Prelude..=)
-              Prelude.<$> roleMappings,
-            Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId),
-            Prelude.Just ("Roles" Prelude..= roles)
+    Core.object
+      ( Core.catMaybes
+          [ ("RoleMappings" Core..=) Core.<$> roleMappings,
+            Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            Core.Just ("Roles" Core..= roles)
           ]
       )
 
-instance Prelude.ToPath SetIdentityPoolRoles where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetIdentityPoolRoles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetIdentityPoolRoles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SetIdentityPoolRoles where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSetIdentityPoolRolesResponse' smart constructor.
 data SetIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityPoolRolesResponse' with all optional fields omitted.
@@ -178,4 +172,4 @@ newSetIdentityPoolRolesResponse ::
 newSetIdentityPoolRolesResponse =
   SetIdentityPoolRolesResponse'
 
-instance Prelude.NFData SetIdentityPoolRolesResponse
+instance Core.NFData SetIdentityPoolRolesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SNS.Types.Endpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Endpoint for mobile app and device.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | Attributes for endpoint.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | EndpointArn for mobile app and device.
-    endpointArn :: Prelude.Maybe Prelude.Text
+    endpointArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Endpoint' with all optional fields omitted.
@@ -49,28 +48,26 @@ newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { attributes = Prelude.Nothing,
-      endpointArn = Prelude.Nothing
+    { attributes = Core.Nothing,
+      endpointArn = Core.Nothing
     }
 
 -- | Attributes for endpoint.
-endpoint_attributes :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endpoint' {} a -> s {attributes = a} :: Endpoint) Prelude.. Lens.mapping Prelude._Coerce
+endpoint_attributes :: Lens.Lens' Endpoint (Core.Maybe (Core.HashMap Core.Text Core.Text))
+endpoint_attributes = Lens.lens (\Endpoint' {attributes} -> attributes) (\s@Endpoint' {} a -> s {attributes = a} :: Endpoint) Core.. Lens.mapping Lens._Coerce
 
 -- | EndpointArn for mobile app and device.
-endpoint_endpointArn :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_endpointArn :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
 endpoint_endpointArn = Lens.lens (\Endpoint' {endpointArn} -> endpointArn) (\s@Endpoint' {} a -> s {endpointArn = a} :: Endpoint)
 
-instance Prelude.FromXML Endpoint where
+instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> ( x Prelude..@? "Attributes"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLMap "entry" "key" "value")
-                  )
-      Prelude.<*> (x Prelude..@? "EndpointArn")
+      Core.<$> ( x Core..@? "Attributes" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+               )
+      Core.<*> (x Core..@? "EndpointArn")
 
-instance Prelude.Hashable Endpoint
+instance Core.Hashable Endpoint
 
-instance Prelude.NFData Endpoint
+instance Core.NFData Endpoint

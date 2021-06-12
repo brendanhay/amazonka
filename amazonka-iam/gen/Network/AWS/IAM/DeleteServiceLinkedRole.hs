@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,18 +59,18 @@ module Network.AWS.IAM.DeleteServiceLinkedRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteServiceLinkedRole' smart constructor.
 data DeleteServiceLinkedRole = DeleteServiceLinkedRole'
   { -- | The name of the service-linked role to be deleted.
-    roleName :: Prelude.Text
+    roleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceLinkedRole' with all optional fields omitted.
@@ -84,18 +83,18 @@ data DeleteServiceLinkedRole = DeleteServiceLinkedRole'
 -- 'roleName', 'deleteServiceLinkedRole_roleName' - The name of the service-linked role to be deleted.
 newDeleteServiceLinkedRole ::
   -- | 'roleName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteServiceLinkedRole
 newDeleteServiceLinkedRole pRoleName_ =
   DeleteServiceLinkedRole' {roleName = pRoleName_}
 
 -- | The name of the service-linked role to be deleted.
-deleteServiceLinkedRole_roleName :: Lens.Lens' DeleteServiceLinkedRole Prelude.Text
+deleteServiceLinkedRole_roleName :: Lens.Lens' DeleteServiceLinkedRole Core.Text
 deleteServiceLinkedRole_roleName = Lens.lens (\DeleteServiceLinkedRole' {roleName} -> roleName) (\s@DeleteServiceLinkedRole' {} a -> s {roleName = a} :: DeleteServiceLinkedRole)
 
-instance Prelude.AWSRequest DeleteServiceLinkedRole where
+instance Core.AWSRequest DeleteServiceLinkedRole where
   type
-    Rs DeleteServiceLinkedRole =
+    AWSResponse DeleteServiceLinkedRole =
       DeleteServiceLinkedRoleResponse
   request = Request.postQuery defaultService
   response =
@@ -103,40 +102,39 @@ instance Prelude.AWSRequest DeleteServiceLinkedRole where
       "DeleteServiceLinkedRoleResult"
       ( \s h x ->
           DeleteServiceLinkedRoleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "DeletionTaskId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "DeletionTaskId")
       )
 
-instance Prelude.Hashable DeleteServiceLinkedRole
+instance Core.Hashable DeleteServiceLinkedRole
 
-instance Prelude.NFData DeleteServiceLinkedRole
+instance Core.NFData DeleteServiceLinkedRole
 
-instance Prelude.ToHeaders DeleteServiceLinkedRole where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteServiceLinkedRole where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteServiceLinkedRole where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteServiceLinkedRole where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteServiceLinkedRole where
+instance Core.ToQuery DeleteServiceLinkedRole where
   toQuery DeleteServiceLinkedRole' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteServiceLinkedRole" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "RoleName" Prelude.=: roleName
+          Core.=: ("DeleteServiceLinkedRole" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "RoleName" Core.=: roleName
       ]
 
 -- | /See:/ 'newDeleteServiceLinkedRoleResponse' smart constructor.
 data DeleteServiceLinkedRoleResponse = DeleteServiceLinkedRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The deletion task identifier that you can use to check the status of the
     -- deletion. This identifier is returned in the format
     -- @task\/aws-service-role\/\<service-principal-name>\/\<role-name>\/\<task-uuid>@.
-    deletionTaskId :: Prelude.Text
+    deletionTaskId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceLinkedRoleResponse' with all optional fields omitted.
@@ -153,9 +151,9 @@ data DeleteServiceLinkedRoleResponse = DeleteServiceLinkedRoleResponse'
 -- @task\/aws-service-role\/\<service-principal-name>\/\<role-name>\/\<task-uuid>@.
 newDeleteServiceLinkedRoleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'deletionTaskId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteServiceLinkedRoleResponse
 newDeleteServiceLinkedRoleResponse
   pHttpStatus_
@@ -167,15 +165,13 @@ newDeleteServiceLinkedRoleResponse
       }
 
 -- | The response's http status code.
-deleteServiceLinkedRoleResponse_httpStatus :: Lens.Lens' DeleteServiceLinkedRoleResponse Prelude.Int
+deleteServiceLinkedRoleResponse_httpStatus :: Lens.Lens' DeleteServiceLinkedRoleResponse Core.Int
 deleteServiceLinkedRoleResponse_httpStatus = Lens.lens (\DeleteServiceLinkedRoleResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceLinkedRoleResponse' {} a -> s {httpStatus = a} :: DeleteServiceLinkedRoleResponse)
 
 -- | The deletion task identifier that you can use to check the status of the
 -- deletion. This identifier is returned in the format
 -- @task\/aws-service-role\/\<service-principal-name>\/\<role-name>\/\<task-uuid>@.
-deleteServiceLinkedRoleResponse_deletionTaskId :: Lens.Lens' DeleteServiceLinkedRoleResponse Prelude.Text
+deleteServiceLinkedRoleResponse_deletionTaskId :: Lens.Lens' DeleteServiceLinkedRoleResponse Core.Text
 deleteServiceLinkedRoleResponse_deletionTaskId = Lens.lens (\DeleteServiceLinkedRoleResponse' {deletionTaskId} -> deletionTaskId) (\s@DeleteServiceLinkedRoleResponse' {} a -> s {deletionTaskId = a} :: DeleteServiceLinkedRoleResponse)
 
-instance
-  Prelude.NFData
-    DeleteServiceLinkedRoleResponse
+instance Core.NFData DeleteServiceLinkedRoleResponse

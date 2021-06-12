@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.RegexPatternSetUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ChangeAction
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -43,9 +42,9 @@ data RegexPatternSetUpdate = RegexPatternSetUpdate'
     action :: ChangeAction,
     -- | Specifies the regular expression (regex) pattern that you want AWS WAF
     -- to search for, such as @B[a\@]dB[o0]t@.
-    regexPatternString :: Prelude.Text
+    regexPatternString :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegexPatternSetUpdate' with all optional fields omitted.
@@ -63,7 +62,7 @@ newRegexPatternSetUpdate ::
   -- | 'action'
   ChangeAction ->
   -- | 'regexPatternString'
-  Prelude.Text ->
+  Core.Text ->
   RegexPatternSetUpdate
 newRegexPatternSetUpdate
   pAction_
@@ -79,21 +78,19 @@ regexPatternSetUpdate_action = Lens.lens (\RegexPatternSetUpdate' {action} -> ac
 
 -- | Specifies the regular expression (regex) pattern that you want AWS WAF
 -- to search for, such as @B[a\@]dB[o0]t@.
-regexPatternSetUpdate_regexPatternString :: Lens.Lens' RegexPatternSetUpdate Prelude.Text
+regexPatternSetUpdate_regexPatternString :: Lens.Lens' RegexPatternSetUpdate Core.Text
 regexPatternSetUpdate_regexPatternString = Lens.lens (\RegexPatternSetUpdate' {regexPatternString} -> regexPatternString) (\s@RegexPatternSetUpdate' {} a -> s {regexPatternString = a} :: RegexPatternSetUpdate)
 
-instance Prelude.Hashable RegexPatternSetUpdate
+instance Core.Hashable RegexPatternSetUpdate
 
-instance Prelude.NFData RegexPatternSetUpdate
+instance Core.NFData RegexPatternSetUpdate
 
-instance Prelude.ToJSON RegexPatternSetUpdate where
+instance Core.ToJSON RegexPatternSetUpdate where
   toJSON RegexPatternSetUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just
-              ( "RegexPatternString"
-                  Prelude..= regexPatternString
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just
+              ("RegexPatternString" Core..= regexPatternString)
           ]
       )

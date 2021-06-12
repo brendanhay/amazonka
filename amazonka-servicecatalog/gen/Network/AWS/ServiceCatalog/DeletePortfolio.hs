@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.ServiceCatalog.DeletePortfolio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -60,11 +59,11 @@ data DeletePortfolio = DeletePortfolio'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The portfolio identifier.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePortfolio' with all optional fields omitted.
@@ -85,11 +84,11 @@ data DeletePortfolio = DeletePortfolio'
 -- 'id', 'deletePortfolio_id' - The portfolio identifier.
 newDeletePortfolio ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeletePortfolio
 newDeletePortfolio pId_ =
   DeletePortfolio'
-    { acceptLanguage = Prelude.Nothing,
+    { acceptLanguage = Core.Nothing,
       id = pId_
     }
 
@@ -100,64 +99,63 @@ newDeletePortfolio pId_ =
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-deletePortfolio_acceptLanguage :: Lens.Lens' DeletePortfolio (Prelude.Maybe Prelude.Text)
+deletePortfolio_acceptLanguage :: Lens.Lens' DeletePortfolio (Core.Maybe Core.Text)
 deletePortfolio_acceptLanguage = Lens.lens (\DeletePortfolio' {acceptLanguage} -> acceptLanguage) (\s@DeletePortfolio' {} a -> s {acceptLanguage = a} :: DeletePortfolio)
 
 -- | The portfolio identifier.
-deletePortfolio_id :: Lens.Lens' DeletePortfolio Prelude.Text
+deletePortfolio_id :: Lens.Lens' DeletePortfolio Core.Text
 deletePortfolio_id = Lens.lens (\DeletePortfolio' {id} -> id) (\s@DeletePortfolio' {} a -> s {id = a} :: DeletePortfolio)
 
-instance Prelude.AWSRequest DeletePortfolio where
-  type Rs DeletePortfolio = DeletePortfolioResponse
+instance Core.AWSRequest DeletePortfolio where
+  type
+    AWSResponse DeletePortfolio =
+      DeletePortfolioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePortfolioResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePortfolio
+instance Core.Hashable DeletePortfolio
 
-instance Prelude.NFData DeletePortfolio
+instance Core.NFData DeletePortfolio
 
-instance Prelude.ToHeaders DeletePortfolio where
+instance Core.ToHeaders DeletePortfolio where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DeletePortfolio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DeletePortfolio" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeletePortfolio where
+instance Core.ToJSON DeletePortfolio where
   toJSON DeletePortfolio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("Id" Core..= id)
           ]
       )
 
-instance Prelude.ToPath DeletePortfolio where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePortfolio where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePortfolio where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePortfolio where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePortfolioResponse' smart constructor.
 data DeletePortfolioResponse = DeletePortfolioResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePortfolioResponse' with all optional fields omitted.
@@ -170,13 +168,13 @@ data DeletePortfolioResponse = DeletePortfolioResponse'
 -- 'httpStatus', 'deletePortfolioResponse_httpStatus' - The response's http status code.
 newDeletePortfolioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeletePortfolioResponse
 newDeletePortfolioResponse pHttpStatus_ =
   DeletePortfolioResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deletePortfolioResponse_httpStatus :: Lens.Lens' DeletePortfolioResponse Prelude.Int
+deletePortfolioResponse_httpStatus :: Lens.Lens' DeletePortfolioResponse Core.Int
 deletePortfolioResponse_httpStatus = Lens.lens (\DeletePortfolioResponse' {httpStatus} -> httpStatus) (\s@DeletePortfolioResponse' {} a -> s {httpStatus = a} :: DeletePortfolioResponse)
 
-instance Prelude.NFData DeletePortfolioResponse
+instance Core.NFData DeletePortfolioResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkMail.Types.FolderConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkMail.Types.FolderName
 import Network.AWS.WorkMail.Types.RetentionAction
 
@@ -31,14 +30,14 @@ import Network.AWS.WorkMail.Types.RetentionAction
 -- /See:/ 'newFolderConfiguration' smart constructor.
 data FolderConfiguration = FolderConfiguration'
   { -- | The period of time at which the folder configuration action is applied.
-    period :: Prelude.Maybe Prelude.Natural,
+    period :: Core.Maybe Core.Natural,
     -- | The folder name.
     name :: FolderName,
     -- | The action to take on the folder contents at the end of the folder
     -- configuration period.
     action :: RetentionAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FolderConfiguration' with all optional fields omitted.
@@ -62,13 +61,13 @@ newFolderConfiguration ::
   FolderConfiguration
 newFolderConfiguration pName_ pAction_ =
   FolderConfiguration'
-    { period = Prelude.Nothing,
+    { period = Core.Nothing,
       name = pName_,
       action = pAction_
     }
 
 -- | The period of time at which the folder configuration action is applied.
-folderConfiguration_period :: Lens.Lens' FolderConfiguration (Prelude.Maybe Prelude.Natural)
+folderConfiguration_period :: Lens.Lens' FolderConfiguration (Core.Maybe Core.Natural)
 folderConfiguration_period = Lens.lens (\FolderConfiguration' {period} -> period) (\s@FolderConfiguration' {} a -> s {period = a} :: FolderConfiguration)
 
 -- | The folder name.
@@ -80,27 +79,27 @@ folderConfiguration_name = Lens.lens (\FolderConfiguration' {name} -> name) (\s@
 folderConfiguration_action :: Lens.Lens' FolderConfiguration RetentionAction
 folderConfiguration_action = Lens.lens (\FolderConfiguration' {action} -> action) (\s@FolderConfiguration' {} a -> s {action = a} :: FolderConfiguration)
 
-instance Prelude.FromJSON FolderConfiguration where
+instance Core.FromJSON FolderConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FolderConfiguration"
       ( \x ->
           FolderConfiguration'
-            Prelude.<$> (x Prelude..:? "Period")
-            Prelude.<*> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Action")
+            Core.<$> (x Core..:? "Period")
+            Core.<*> (x Core..: "Name")
+            Core.<*> (x Core..: "Action")
       )
 
-instance Prelude.Hashable FolderConfiguration
+instance Core.Hashable FolderConfiguration
 
-instance Prelude.NFData FolderConfiguration
+instance Core.NFData FolderConfiguration
 
-instance Prelude.ToJSON FolderConfiguration where
+instance Core.ToJSON FolderConfiguration where
   toJSON FolderConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Period" Prelude..=) Prelude.<$> period,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Action" Prelude..= action)
+    Core.object
+      ( Core.catMaybes
+          [ ("Period" Core..=) Core.<$> period,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Action" Core..= action)
           ]
       )

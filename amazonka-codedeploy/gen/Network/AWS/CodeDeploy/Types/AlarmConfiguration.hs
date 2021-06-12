@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeDeploy.Types.AlarmConfiguration where
 
 import Network.AWS.CodeDeploy.Types.Alarm
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about alarms associated with the deployment group.
 --
@@ -37,14 +36,14 @@ data AlarmConfiguration = AlarmConfiguration'
     --
     -- -   @false@: The deployment stops if alarm status information can\'t be
     --     retrieved from Amazon CloudWatch.
-    ignorePollAlarmFailure :: Prelude.Maybe Prelude.Bool,
+    ignorePollAlarmFailure :: Core.Maybe Core.Bool,
     -- | Indicates whether the alarm configuration is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | A list of alarms configured for the deployment group. A maximum of 10
     -- alarms can be added to a deployment group.
-    alarms :: Prelude.Maybe [Alarm]
+    alarms :: Core.Maybe [Alarm]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AlarmConfiguration' with all optional fields omitted.
@@ -73,9 +72,9 @@ newAlarmConfiguration ::
 newAlarmConfiguration =
   AlarmConfiguration'
     { ignorePollAlarmFailure =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      alarms = Prelude.Nothing
+        Core.Nothing,
+      enabled = Core.Nothing,
+      alarms = Core.Nothing
     }
 
 -- | Indicates whether a deployment should continue if information about the
@@ -87,40 +86,40 @@ newAlarmConfiguration =
 --
 -- -   @false@: The deployment stops if alarm status information can\'t be
 --     retrieved from Amazon CloudWatch.
-alarmConfiguration_ignorePollAlarmFailure :: Lens.Lens' AlarmConfiguration (Prelude.Maybe Prelude.Bool)
+alarmConfiguration_ignorePollAlarmFailure :: Lens.Lens' AlarmConfiguration (Core.Maybe Core.Bool)
 alarmConfiguration_ignorePollAlarmFailure = Lens.lens (\AlarmConfiguration' {ignorePollAlarmFailure} -> ignorePollAlarmFailure) (\s@AlarmConfiguration' {} a -> s {ignorePollAlarmFailure = a} :: AlarmConfiguration)
 
 -- | Indicates whether the alarm configuration is enabled.
-alarmConfiguration_enabled :: Lens.Lens' AlarmConfiguration (Prelude.Maybe Prelude.Bool)
+alarmConfiguration_enabled :: Lens.Lens' AlarmConfiguration (Core.Maybe Core.Bool)
 alarmConfiguration_enabled = Lens.lens (\AlarmConfiguration' {enabled} -> enabled) (\s@AlarmConfiguration' {} a -> s {enabled = a} :: AlarmConfiguration)
 
 -- | A list of alarms configured for the deployment group. A maximum of 10
 -- alarms can be added to a deployment group.
-alarmConfiguration_alarms :: Lens.Lens' AlarmConfiguration (Prelude.Maybe [Alarm])
-alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+alarmConfiguration_alarms :: Lens.Lens' AlarmConfiguration (Core.Maybe [Alarm])
+alarmConfiguration_alarms = Lens.lens (\AlarmConfiguration' {alarms} -> alarms) (\s@AlarmConfiguration' {} a -> s {alarms = a} :: AlarmConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AlarmConfiguration where
+instance Core.FromJSON AlarmConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AlarmConfiguration"
       ( \x ->
           AlarmConfiguration'
-            Prelude.<$> (x Prelude..:? "ignorePollAlarmFailure")
-            Prelude.<*> (x Prelude..:? "enabled")
-            Prelude.<*> (x Prelude..:? "alarms" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "ignorePollAlarmFailure")
+            Core.<*> (x Core..:? "enabled")
+            Core.<*> (x Core..:? "alarms" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AlarmConfiguration
+instance Core.Hashable AlarmConfiguration
 
-instance Prelude.NFData AlarmConfiguration
+instance Core.NFData AlarmConfiguration
 
-instance Prelude.ToJSON AlarmConfiguration where
+instance Core.ToJSON AlarmConfiguration where
   toJSON AlarmConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ignorePollAlarmFailure" Prelude..=)
-              Prelude.<$> ignorePollAlarmFailure,
-            ("enabled" Prelude..=) Prelude.<$> enabled,
-            ("alarms" Prelude..=) Prelude.<$> alarms
+    Core.object
+      ( Core.catMaybes
+          [ ("ignorePollAlarmFailure" Core..=)
+              Core.<$> ignorePollAlarmFailure,
+            ("enabled" Core..=) Core.<$> enabled,
+            ("alarms" Core..=) Core.<$> alarms
           ]
       )

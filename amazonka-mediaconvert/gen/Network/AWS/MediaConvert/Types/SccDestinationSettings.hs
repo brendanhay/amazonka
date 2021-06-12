@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.SccDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.SccDestinationFramerate
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for SCC caption output.
 --
@@ -34,9 +33,9 @@ data SccDestinationSettings = SccDestinationSettings'
     -- is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the
     -- video has video_insertion=true and drop_frame_timecode=true; otherwise,
     -- choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
-    framerate :: Prelude.Maybe SccDestinationFramerate
+    framerate :: Core.Maybe SccDestinationFramerate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SccDestinationSettings' with all optional fields omitted.
@@ -55,10 +54,7 @@ data SccDestinationSettings = SccDestinationSettings'
 newSccDestinationSettings ::
   SccDestinationSettings
 newSccDestinationSettings =
-  SccDestinationSettings'
-    { framerate =
-        Prelude.Nothing
-    }
+  SccDestinationSettings' {framerate = Core.Nothing}
 
 -- | Set Framerate (SccDestinationFramerate) to make sure that the captions
 -- and the video are synchronized in the output. Specify a frame rate that
@@ -66,25 +62,25 @@ newSccDestinationSettings =
 -- is 29.97, choose 29.97 dropframe (FRAMERATE_29_97_DROPFRAME) only if the
 -- video has video_insertion=true and drop_frame_timecode=true; otherwise,
 -- choose 29.97 non-dropframe (FRAMERATE_29_97_NON_DROPFRAME).
-sccDestinationSettings_framerate :: Lens.Lens' SccDestinationSettings (Prelude.Maybe SccDestinationFramerate)
+sccDestinationSettings_framerate :: Lens.Lens' SccDestinationSettings (Core.Maybe SccDestinationFramerate)
 sccDestinationSettings_framerate = Lens.lens (\SccDestinationSettings' {framerate} -> framerate) (\s@SccDestinationSettings' {} a -> s {framerate = a} :: SccDestinationSettings)
 
-instance Prelude.FromJSON SccDestinationSettings where
+instance Core.FromJSON SccDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SccDestinationSettings"
       ( \x ->
           SccDestinationSettings'
-            Prelude.<$> (x Prelude..:? "framerate")
+            Core.<$> (x Core..:? "framerate")
       )
 
-instance Prelude.Hashable SccDestinationSettings
+instance Core.Hashable SccDestinationSettings
 
-instance Prelude.NFData SccDestinationSettings
+instance Core.NFData SccDestinationSettings
 
-instance Prelude.ToJSON SccDestinationSettings where
+instance Core.ToJSON SccDestinationSettings where
   toJSON SccDestinationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("framerate" Prelude..=) Prelude.<$> framerate]
+    Core.object
+      ( Core.catMaybes
+          [("framerate" Core..=) Core.<$> framerate]
       )

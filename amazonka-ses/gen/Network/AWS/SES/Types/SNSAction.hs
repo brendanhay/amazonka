@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.SNSAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.SNSActionEncoding
 
 -- | When included in a receipt rule, this action publishes a notification to
@@ -52,15 +51,15 @@ data SNSAction = SNSAction'
     -- UTF-8 is easier to use, but may not preserve all special characters when
     -- a message was encoded with a different encoding format. Base64 preserves
     -- all special characters. The default value is UTF-8.
-    encoding :: Prelude.Maybe SNSActionEncoding,
+    encoding :: Core.Maybe SNSActionEncoding,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An
     -- example of an Amazon SNS topic ARN is
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicArn :: Prelude.Text
+    topicArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SNSAction' with all optional fields omitted.
@@ -82,11 +81,11 @@ data SNSAction = SNSAction'
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
 newSNSAction ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   SNSAction
 newSNSAction pTopicArn_ =
   SNSAction'
-    { encoding = Prelude.Nothing,
+    { encoding = Core.Nothing,
       topicArn = pTopicArn_
     }
 
@@ -94,7 +93,7 @@ newSNSAction pTopicArn_ =
 -- UTF-8 is easier to use, but may not preserve all special characters when
 -- a message was encoded with a different encoding format. Base64 preserves
 -- all special characters. The default value is UTF-8.
-sNSAction_encoding :: Lens.Lens' SNSAction (Prelude.Maybe SNSActionEncoding)
+sNSAction_encoding :: Lens.Lens' SNSAction (Core.Maybe SNSActionEncoding)
 sNSAction_encoding = Lens.lens (\SNSAction' {encoding} -> encoding) (\s@SNSAction' {} a -> s {encoding = a} :: SNSAction)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An
@@ -102,22 +101,22 @@ sNSAction_encoding = Lens.lens (\SNSAction' {encoding} -> encoding) (\s@SNSActio
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-sNSAction_topicArn :: Lens.Lens' SNSAction Prelude.Text
+sNSAction_topicArn :: Lens.Lens' SNSAction Core.Text
 sNSAction_topicArn = Lens.lens (\SNSAction' {topicArn} -> topicArn) (\s@SNSAction' {} a -> s {topicArn = a} :: SNSAction)
 
-instance Prelude.FromXML SNSAction where
+instance Core.FromXML SNSAction where
   parseXML x =
     SNSAction'
-      Prelude.<$> (x Prelude..@? "Encoding")
-      Prelude.<*> (x Prelude..@ "TopicArn")
+      Core.<$> (x Core..@? "Encoding")
+      Core.<*> (x Core..@ "TopicArn")
 
-instance Prelude.Hashable SNSAction
+instance Core.Hashable SNSAction
 
-instance Prelude.NFData SNSAction
+instance Core.NFData SNSAction
 
-instance Prelude.ToQuery SNSAction where
+instance Core.ToQuery SNSAction where
   toQuery SNSAction' {..} =
-    Prelude.mconcat
-      [ "Encoding" Prelude.=: encoding,
-        "TopicArn" Prelude.=: topicArn
+    Core.mconcat
+      [ "Encoding" Core.=: encoding,
+        "TopicArn" Core.=: topicArn
       ]

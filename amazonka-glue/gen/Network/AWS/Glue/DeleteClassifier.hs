@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.Glue.DeleteClassifier
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteClassifier' smart constructor.
 data DeleteClassifier = DeleteClassifier'
   { -- | Name of the classifier to remove.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClassifier' with all optional fields omitted.
@@ -63,61 +62,59 @@ data DeleteClassifier = DeleteClassifier'
 -- 'name', 'deleteClassifier_name' - Name of the classifier to remove.
 newDeleteClassifier ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteClassifier
 newDeleteClassifier pName_ =
   DeleteClassifier' {name = pName_}
 
 -- | Name of the classifier to remove.
-deleteClassifier_name :: Lens.Lens' DeleteClassifier Prelude.Text
+deleteClassifier_name :: Lens.Lens' DeleteClassifier Core.Text
 deleteClassifier_name = Lens.lens (\DeleteClassifier' {name} -> name) (\s@DeleteClassifier' {} a -> s {name = a} :: DeleteClassifier)
 
-instance Prelude.AWSRequest DeleteClassifier where
-  type Rs DeleteClassifier = DeleteClassifierResponse
+instance Core.AWSRequest DeleteClassifier where
+  type
+    AWSResponse DeleteClassifier =
+      DeleteClassifierResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteClassifierResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteClassifier
+instance Core.Hashable DeleteClassifier
 
-instance Prelude.NFData DeleteClassifier
+instance Core.NFData DeleteClassifier
 
-instance Prelude.ToHeaders DeleteClassifier where
+instance Core.ToHeaders DeleteClassifier where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.DeleteClassifier" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.DeleteClassifier" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteClassifier where
+instance Core.ToJSON DeleteClassifier where
   toJSON DeleteClassifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteClassifier where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteClassifier where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteClassifier where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteClassifier where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteClassifierResponse' smart constructor.
 data DeleteClassifierResponse = DeleteClassifierResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClassifierResponse' with all optional fields omitted.
@@ -130,7 +127,7 @@ data DeleteClassifierResponse = DeleteClassifierResponse'
 -- 'httpStatus', 'deleteClassifierResponse_httpStatus' - The response's http status code.
 newDeleteClassifierResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteClassifierResponse
 newDeleteClassifierResponse pHttpStatus_ =
   DeleteClassifierResponse'
@@ -139,7 +136,7 @@ newDeleteClassifierResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteClassifierResponse_httpStatus :: Lens.Lens' DeleteClassifierResponse Prelude.Int
+deleteClassifierResponse_httpStatus :: Lens.Lens' DeleteClassifierResponse Core.Int
 deleteClassifierResponse_httpStatus = Lens.lens (\DeleteClassifierResponse' {httpStatus} -> httpStatus) (\s@DeleteClassifierResponse' {} a -> s {httpStatus = a} :: DeleteClassifierResponse)
 
-instance Prelude.NFData DeleteClassifierResponse
+instance Core.NFData DeleteClassifierResponse

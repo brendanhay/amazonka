@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IAM.UpdateServiceSpecificCredential
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,17 +57,17 @@ data UpdateServiceSpecificCredential = UpdateServiceSpecificCredential'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | The unique identifier of the service-specific credential.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that can consist of any upper or lowercased letter or digit.
-    serviceSpecificCredentialId :: Prelude.Text,
+    serviceSpecificCredentialId :: Core.Text,
     -- | The status to be assigned to the service-specific credential.
     status :: StatusType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceSpecificCredential' with all optional fields omitted.
@@ -96,7 +95,7 @@ data UpdateServiceSpecificCredential = UpdateServiceSpecificCredential'
 -- 'status', 'updateServiceSpecificCredential_status' - The status to be assigned to the service-specific credential.
 newUpdateServiceSpecificCredential ::
   -- | 'serviceSpecificCredentialId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'status'
   StatusType ->
   UpdateServiceSpecificCredential
@@ -105,7 +104,7 @@ newUpdateServiceSpecificCredential
   pStatus_ =
     UpdateServiceSpecificCredential'
       { userName =
-          Prelude.Nothing,
+          Core.Nothing,
         serviceSpecificCredentialId =
           pServiceSpecificCredentialId_,
         status = pStatus_
@@ -119,7 +118,7 @@ newUpdateServiceSpecificCredential
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-updateServiceSpecificCredential_userName :: Lens.Lens' UpdateServiceSpecificCredential (Prelude.Maybe Prelude.Text)
+updateServiceSpecificCredential_userName :: Lens.Lens' UpdateServiceSpecificCredential (Core.Maybe Core.Text)
 updateServiceSpecificCredential_userName = Lens.lens (\UpdateServiceSpecificCredential' {userName} -> userName) (\s@UpdateServiceSpecificCredential' {} a -> s {userName = a} :: UpdateServiceSpecificCredential)
 
 -- | The unique identifier of the service-specific credential.
@@ -127,7 +126,7 @@ updateServiceSpecificCredential_userName = Lens.lens (\UpdateServiceSpecificCred
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that can consist of any upper or lowercased letter or digit.
-updateServiceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' UpdateServiceSpecificCredential Prelude.Text
+updateServiceSpecificCredential_serviceSpecificCredentialId :: Lens.Lens' UpdateServiceSpecificCredential Core.Text
 updateServiceSpecificCredential_serviceSpecificCredentialId = Lens.lens (\UpdateServiceSpecificCredential' {serviceSpecificCredentialId} -> serviceSpecificCredentialId) (\s@UpdateServiceSpecificCredential' {} a -> s {serviceSpecificCredentialId = a} :: UpdateServiceSpecificCredential)
 
 -- | The status to be assigned to the service-specific credential.
@@ -135,11 +134,11 @@ updateServiceSpecificCredential_status :: Lens.Lens' UpdateServiceSpecificCreden
 updateServiceSpecificCredential_status = Lens.lens (\UpdateServiceSpecificCredential' {status} -> status) (\s@UpdateServiceSpecificCredential' {} a -> s {status = a} :: UpdateServiceSpecificCredential)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateServiceSpecificCredential
   where
   type
-    Rs UpdateServiceSpecificCredential =
+    AWSResponse UpdateServiceSpecificCredential =
       UpdateServiceSpecificCredentialResponse
   request = Request.postQuery defaultService
   response =
@@ -147,48 +146,39 @@ instance
       UpdateServiceSpecificCredentialResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateServiceSpecificCredential
 
-instance
-  Prelude.NFData
-    UpdateServiceSpecificCredential
+instance Core.NFData UpdateServiceSpecificCredential
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateServiceSpecificCredential
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    UpdateServiceSpecificCredential
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateServiceSpecificCredential where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    UpdateServiceSpecificCredential
-  where
+instance Core.ToQuery UpdateServiceSpecificCredential where
   toQuery UpdateServiceSpecificCredential' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "UpdateServiceSpecificCredential" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
+          Core.=: ( "UpdateServiceSpecificCredential" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
         "ServiceSpecificCredentialId"
-          Prelude.=: serviceSpecificCredentialId,
-        "Status" Prelude.=: status
+          Core.=: serviceSpecificCredentialId,
+        "Status" Core.=: status
       ]
 
 -- | /See:/ 'newUpdateServiceSpecificCredentialResponse' smart constructor.
 data UpdateServiceSpecificCredentialResponse = UpdateServiceSpecificCredentialResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceSpecificCredentialResponse' with all optional fields omitted.
@@ -200,5 +190,5 @@ newUpdateServiceSpecificCredentialResponse =
   UpdateServiceSpecificCredentialResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateServiceSpecificCredentialResponse

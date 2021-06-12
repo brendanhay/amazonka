@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -119,9 +118,9 @@ module Network.AWS.Organizations.CreateAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -152,7 +151,7 @@ data CreateAccount = CreateAccount'
     -- validate this parameter. The pattern can include uppercase letters,
     -- lowercase letters, digits with no spaces, and any of the following
     -- characters: =,.\@-
-    roleName :: Prelude.Maybe Prelude.Text,
+    roleName :: Core.Maybe Core.Text,
     -- | If set to @ALLOW@, the new account enables IAM users to access account
     -- billing information /if/ they have the required permissions. If set to
     -- @DENY@, only the root user of the new account can access account billing
@@ -163,7 +162,7 @@ data CreateAccount = CreateAccount'
     -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
     -- IAM users and roles with the required permissions can access billing
     -- information for the new account.
-    iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
+    iamUserAccessToBilling :: Core.Maybe IAMUserAccessToBilling,
     -- | A list of tags that you want to attach to the newly created account. For
     -- each tag in the list, you must specify both a tag key and a value. You
     -- can set the value to an empty string, but you can\'t set it to @null@.
@@ -174,17 +173,17 @@ data CreateAccount = CreateAccount'
     -- If any one of the tags is invalid or if you exceed the allowed number of
     -- tags for an account, then the entire request fails and the account is
     -- not created.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The email address of the owner to assign to the new member account. This
     -- email address must not already be associated with another AWS account.
     -- You must use a valid email address to complete account creation. You
     -- can\'t access the root user of the account or remove an account that was
     -- created with an invalid email address.
-    email :: Prelude.Sensitive Prelude.Text,
+    email :: Core.Sensitive Core.Text,
     -- | The friendly name of the member account.
-    accountName :: Prelude.Sensitive Prelude.Text
+    accountName :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAccount' with all optional fields omitted.
@@ -251,18 +250,17 @@ data CreateAccount = CreateAccount'
 -- 'accountName', 'createAccount_accountName' - The friendly name of the member account.
 newCreateAccount ::
   -- | 'email'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accountName'
-  Prelude.Text ->
+  Core.Text ->
   CreateAccount
 newCreateAccount pEmail_ pAccountName_ =
   CreateAccount'
-    { roleName = Prelude.Nothing,
-      iamUserAccessToBilling = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      email = Prelude._Sensitive Lens.# pEmail_,
-      accountName =
-        Prelude._Sensitive Lens.# pAccountName_
+    { roleName = Core.Nothing,
+      iamUserAccessToBilling = Core.Nothing,
+      tags = Core.Nothing,
+      email = Core._Sensitive Lens.# pEmail_,
+      accountName = Core._Sensitive Lens.# pAccountName_
     }
 
 -- | (Optional)
@@ -290,7 +288,7 @@ newCreateAccount pEmail_ pAccountName_ =
 -- validate this parameter. The pattern can include uppercase letters,
 -- lowercase letters, digits with no spaces, and any of the following
 -- characters: =,.\@-
-createAccount_roleName :: Lens.Lens' CreateAccount (Prelude.Maybe Prelude.Text)
+createAccount_roleName :: Lens.Lens' CreateAccount (Core.Maybe Core.Text)
 createAccount_roleName = Lens.lens (\CreateAccount' {roleName} -> roleName) (\s@CreateAccount' {} a -> s {roleName = a} :: CreateAccount)
 
 -- | If set to @ALLOW@, the new account enables IAM users to access account
@@ -303,7 +301,7 @@ createAccount_roleName = Lens.lens (\CreateAccount' {roleName} -> roleName) (\s@
 -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
 -- IAM users and roles with the required permissions can access billing
 -- information for the new account.
-createAccount_iamUserAccessToBilling :: Lens.Lens' CreateAccount (Prelude.Maybe IAMUserAccessToBilling)
+createAccount_iamUserAccessToBilling :: Lens.Lens' CreateAccount (Core.Maybe IAMUserAccessToBilling)
 createAccount_iamUserAccessToBilling = Lens.lens (\CreateAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateAccount)
 
 -- | A list of tags that you want to attach to the newly created account. For
@@ -316,69 +314,69 @@ createAccount_iamUserAccessToBilling = Lens.lens (\CreateAccount' {iamUserAccess
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an account, then the entire request fails and the account is
 -- not created.
-createAccount_tags :: Lens.Lens' CreateAccount (Prelude.Maybe [Tag])
-createAccount_tags = Lens.lens (\CreateAccount' {tags} -> tags) (\s@CreateAccount' {} a -> s {tags = a} :: CreateAccount) Prelude.. Lens.mapping Prelude._Coerce
+createAccount_tags :: Lens.Lens' CreateAccount (Core.Maybe [Tag])
+createAccount_tags = Lens.lens (\CreateAccount' {tags} -> tags) (\s@CreateAccount' {} a -> s {tags = a} :: CreateAccount) Core.. Lens.mapping Lens._Coerce
 
 -- | The email address of the owner to assign to the new member account. This
 -- email address must not already be associated with another AWS account.
 -- You must use a valid email address to complete account creation. You
 -- can\'t access the root user of the account or remove an account that was
 -- created with an invalid email address.
-createAccount_email :: Lens.Lens' CreateAccount Prelude.Text
-createAccount_email = Lens.lens (\CreateAccount' {email} -> email) (\s@CreateAccount' {} a -> s {email = a} :: CreateAccount) Prelude.. Prelude._Sensitive
+createAccount_email :: Lens.Lens' CreateAccount Core.Text
+createAccount_email = Lens.lens (\CreateAccount' {email} -> email) (\s@CreateAccount' {} a -> s {email = a} :: CreateAccount) Core.. Core._Sensitive
 
 -- | The friendly name of the member account.
-createAccount_accountName :: Lens.Lens' CreateAccount Prelude.Text
-createAccount_accountName = Lens.lens (\CreateAccount' {accountName} -> accountName) (\s@CreateAccount' {} a -> s {accountName = a} :: CreateAccount) Prelude.. Prelude._Sensitive
+createAccount_accountName :: Lens.Lens' CreateAccount Core.Text
+createAccount_accountName = Lens.lens (\CreateAccount' {accountName} -> accountName) (\s@CreateAccount' {} a -> s {accountName = a} :: CreateAccount) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest CreateAccount where
-  type Rs CreateAccount = CreateAccountResponse
+instance Core.AWSRequest CreateAccount where
+  type
+    AWSResponse CreateAccount =
+      CreateAccountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateAccountResponse'
-            Prelude.<$> (x Prelude..?> "CreateAccountStatus")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreateAccountStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateAccount
+instance Core.Hashable CreateAccount
 
-instance Prelude.NFData CreateAccount
+instance Core.NFData CreateAccount
 
-instance Prelude.ToHeaders CreateAccount where
+instance Core.ToHeaders CreateAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.CreateAccount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.CreateAccount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAccount where
+instance Core.ToJSON CreateAccount where
   toJSON CreateAccount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RoleName" Prelude..=) Prelude.<$> roleName,
-            ("IamUserAccessToBilling" Prelude..=)
-              Prelude.<$> iamUserAccessToBilling,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("Email" Prelude..= email),
-            Prelude.Just ("AccountName" Prelude..= accountName)
+    Core.object
+      ( Core.catMaybes
+          [ ("RoleName" Core..=) Core.<$> roleName,
+            ("IamUserAccessToBilling" Core..=)
+              Core.<$> iamUserAccessToBilling,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("Email" Core..= email),
+            Core.Just ("AccountName" Core..= accountName)
           ]
       )
 
-instance Prelude.ToPath CreateAccount where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateAccount where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateAccount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAccountResponse' smart constructor.
 data CreateAccountResponse = CreateAccountResponse'
@@ -391,11 +389,11 @@ data CreateAccountResponse = CreateAccountResponse'
     -- the @CreateAccountResult@ event. For more information, see
     -- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
     -- in the /AWS Organizations User Guide/.
-    createAccountStatus :: Prelude.Maybe CreateAccountStatus,
+    createAccountStatus :: Core.Maybe CreateAccountStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAccountResponse' with all optional fields omitted.
@@ -418,12 +416,12 @@ data CreateAccountResponse = CreateAccountResponse'
 -- 'httpStatus', 'createAccountResponse_httpStatus' - The response's http status code.
 newCreateAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateAccountResponse
 newCreateAccountResponse pHttpStatus_ =
   CreateAccountResponse'
     { createAccountStatus =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -436,11 +434,11 @@ newCreateAccountResponse pHttpStatus_ =
 -- the @CreateAccountResult@ event. For more information, see
 -- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
 -- in the /AWS Organizations User Guide/.
-createAccountResponse_createAccountStatus :: Lens.Lens' CreateAccountResponse (Prelude.Maybe CreateAccountStatus)
+createAccountResponse_createAccountStatus :: Lens.Lens' CreateAccountResponse (Core.Maybe CreateAccountStatus)
 createAccountResponse_createAccountStatus = Lens.lens (\CreateAccountResponse' {createAccountStatus} -> createAccountStatus) (\s@CreateAccountResponse' {} a -> s {createAccountStatus = a} :: CreateAccountResponse)
 
 -- | The response's http status code.
-createAccountResponse_httpStatus :: Lens.Lens' CreateAccountResponse Prelude.Int
+createAccountResponse_httpStatus :: Lens.Lens' CreateAccountResponse Core.Int
 createAccountResponse_httpStatus = Lens.lens (\CreateAccountResponse' {httpStatus} -> httpStatus) (\s@CreateAccountResponse' {} a -> s {httpStatus = a} :: CreateAccountResponse)
 
-instance Prelude.NFData CreateAccountResponse
+instance Core.NFData CreateAccountResponse

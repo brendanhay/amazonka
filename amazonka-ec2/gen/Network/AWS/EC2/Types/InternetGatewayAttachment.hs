@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.InternetGatewayAttachment where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AttachmentStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the attachment of a VPC to an internet gateway or an
 -- egress-only internet gateway.
@@ -35,9 +34,9 @@ data InternetGatewayAttachment = InternetGatewayAttachment'
     -- returned.
     state :: AttachmentStatus,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text
+    vpcId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InternetGatewayAttachment' with all optional fields omitted.
@@ -56,7 +55,7 @@ newInternetGatewayAttachment ::
   -- | 'state'
   AttachmentStatus ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   InternetGatewayAttachment
 newInternetGatewayAttachment pState_ pVpcId_ =
   InternetGatewayAttachment'
@@ -71,15 +70,14 @@ internetGatewayAttachment_state :: Lens.Lens' InternetGatewayAttachment Attachme
 internetGatewayAttachment_state = Lens.lens (\InternetGatewayAttachment' {state} -> state) (\s@InternetGatewayAttachment' {} a -> s {state = a} :: InternetGatewayAttachment)
 
 -- | The ID of the VPC.
-internetGatewayAttachment_vpcId :: Lens.Lens' InternetGatewayAttachment Prelude.Text
+internetGatewayAttachment_vpcId :: Lens.Lens' InternetGatewayAttachment Core.Text
 internetGatewayAttachment_vpcId = Lens.lens (\InternetGatewayAttachment' {vpcId} -> vpcId) (\s@InternetGatewayAttachment' {} a -> s {vpcId = a} :: InternetGatewayAttachment)
 
-instance Prelude.FromXML InternetGatewayAttachment where
+instance Core.FromXML InternetGatewayAttachment where
   parseXML x =
     InternetGatewayAttachment'
-      Prelude.<$> (x Prelude..@ "state")
-      Prelude.<*> (x Prelude..@ "vpcId")
+      Core.<$> (x Core..@ "state") Core.<*> (x Core..@ "vpcId")
 
-instance Prelude.Hashable InternetGatewayAttachment
+instance Core.Hashable InternetGatewayAttachment
 
-instance Prelude.NFData InternetGatewayAttachment
+instance Core.NFData InternetGatewayAttachment

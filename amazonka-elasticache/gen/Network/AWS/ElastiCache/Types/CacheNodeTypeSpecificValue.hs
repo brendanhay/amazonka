@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A value that applies only to a certain cache node type.
 --
 -- /See:/ 'newCacheNodeTypeSpecificValue' smart constructor.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
   { -- | The cache node type for which this value applies.
-    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    cacheNodeType :: Core.Maybe Core.Text,
     -- | The value for the cache node type.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CacheNodeTypeSpecificValue' with all optional fields omitted.
@@ -50,24 +49,24 @@ newCacheNodeTypeSpecificValue ::
 newCacheNodeTypeSpecificValue =
   CacheNodeTypeSpecificValue'
     { cacheNodeType =
-        Prelude.Nothing,
-      value = Prelude.Nothing
+        Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The cache node type for which this value applies.
-cacheNodeTypeSpecificValue_cacheNodeType :: Lens.Lens' CacheNodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
+cacheNodeTypeSpecificValue_cacheNodeType :: Lens.Lens' CacheNodeTypeSpecificValue (Core.Maybe Core.Text)
 cacheNodeTypeSpecificValue_cacheNodeType = Lens.lens (\CacheNodeTypeSpecificValue' {cacheNodeType} -> cacheNodeType) (\s@CacheNodeTypeSpecificValue' {} a -> s {cacheNodeType = a} :: CacheNodeTypeSpecificValue)
 
 -- | The value for the cache node type.
-cacheNodeTypeSpecificValue_value :: Lens.Lens' CacheNodeTypeSpecificValue (Prelude.Maybe Prelude.Text)
+cacheNodeTypeSpecificValue_value :: Lens.Lens' CacheNodeTypeSpecificValue (Core.Maybe Core.Text)
 cacheNodeTypeSpecificValue_value = Lens.lens (\CacheNodeTypeSpecificValue' {value} -> value) (\s@CacheNodeTypeSpecificValue' {} a -> s {value = a} :: CacheNodeTypeSpecificValue)
 
-instance Prelude.FromXML CacheNodeTypeSpecificValue where
+instance Core.FromXML CacheNodeTypeSpecificValue where
   parseXML x =
     CacheNodeTypeSpecificValue'
-      Prelude.<$> (x Prelude..@? "CacheNodeType")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "CacheNodeType")
+      Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable CacheNodeTypeSpecificValue
+instance Core.Hashable CacheNodeTypeSpecificValue
 
-instance Prelude.NFData CacheNodeTypeSpecificValue
+instance Core.NFData CacheNodeTypeSpecificValue

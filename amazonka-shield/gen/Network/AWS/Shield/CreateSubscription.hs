@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Shield.CreateSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -50,7 +49,7 @@ import Network.AWS.Shield.Types
 data CreateSubscription = CreateSubscription'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSubscription' with all optional fields omitted.
@@ -60,53 +59,50 @@ newCreateSubscription ::
   CreateSubscription
 newCreateSubscription = CreateSubscription'
 
-instance Prelude.AWSRequest CreateSubscription where
+instance Core.AWSRequest CreateSubscription where
   type
-    Rs CreateSubscription =
+    AWSResponse CreateSubscription =
       CreateSubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateSubscriptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateSubscription
+instance Core.Hashable CreateSubscription
 
-instance Prelude.NFData CreateSubscription
+instance Core.NFData CreateSubscription
 
-instance Prelude.ToHeaders CreateSubscription where
+instance Core.ToHeaders CreateSubscription where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.CreateSubscription" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.CreateSubscription" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateSubscription where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON CreateSubscription where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath CreateSubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateSubscription where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateSubscription where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateSubscriptionResponse' smart constructor.
 data CreateSubscriptionResponse = CreateSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateSubscriptionResponse' with all optional fields omitted.
@@ -119,7 +115,7 @@ data CreateSubscriptionResponse = CreateSubscriptionResponse'
 -- 'httpStatus', 'createSubscriptionResponse_httpStatus' - The response's http status code.
 newCreateSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateSubscriptionResponse
 newCreateSubscriptionResponse pHttpStatus_ =
   CreateSubscriptionResponse'
@@ -128,7 +124,7 @@ newCreateSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createSubscriptionResponse_httpStatus :: Lens.Lens' CreateSubscriptionResponse Prelude.Int
+createSubscriptionResponse_httpStatus :: Lens.Lens' CreateSubscriptionResponse Core.Int
 createSubscriptionResponse_httpStatus = Lens.lens (\CreateSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateSubscriptionResponse)
 
-instance Prelude.NFData CreateSubscriptionResponse
+instance Core.NFData CreateSubscriptionResponse

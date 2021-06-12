@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,15 +83,15 @@ data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The access token returned by the server response to get the user
     -- attribute verification code.
-    accessToken :: Prelude.Sensitive Prelude.Text,
+    accessToken :: Core.Sensitive Core.Text,
     -- | The attribute name returned by the server response to get the user
     -- attribute verification code.
-    attributeName :: Prelude.Text
+    attributeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserAttributeVerificationCode' with all optional fields omitted.
@@ -141,18 +140,18 @@ data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
 -- attribute verification code.
 newGetUserAttributeVerificationCode ::
   -- | 'accessToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributeName'
-  Prelude.Text ->
+  Core.Text ->
   GetUserAttributeVerificationCode
 newGetUserAttributeVerificationCode
   pAccessToken_
   pAttributeName_ =
     GetUserAttributeVerificationCode'
       { clientMetadata =
-          Prelude.Nothing,
+          Core.Nothing,
         accessToken =
-          Prelude._Sensitive Lens.# pAccessToken_,
+          Core._Sensitive Lens.# pAccessToken_,
         attributeName = pAttributeName_
       }
 
@@ -187,87 +186,75 @@ newGetUserAttributeVerificationCode
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-getUserAttributeVerificationCode_clientMetadata :: Lens.Lens' GetUserAttributeVerificationCode (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getUserAttributeVerificationCode_clientMetadata = Lens.lens (\GetUserAttributeVerificationCode' {clientMetadata} -> clientMetadata) (\s@GetUserAttributeVerificationCode' {} a -> s {clientMetadata = a} :: GetUserAttributeVerificationCode) Prelude.. Lens.mapping Prelude._Coerce
+getUserAttributeVerificationCode_clientMetadata :: Lens.Lens' GetUserAttributeVerificationCode (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getUserAttributeVerificationCode_clientMetadata = Lens.lens (\GetUserAttributeVerificationCode' {clientMetadata} -> clientMetadata) (\s@GetUserAttributeVerificationCode' {} a -> s {clientMetadata = a} :: GetUserAttributeVerificationCode) Core.. Lens.mapping Lens._Coerce
 
 -- | The access token returned by the server response to get the user
 -- attribute verification code.
-getUserAttributeVerificationCode_accessToken :: Lens.Lens' GetUserAttributeVerificationCode Prelude.Text
-getUserAttributeVerificationCode_accessToken = Lens.lens (\GetUserAttributeVerificationCode' {accessToken} -> accessToken) (\s@GetUserAttributeVerificationCode' {} a -> s {accessToken = a} :: GetUserAttributeVerificationCode) Prelude.. Prelude._Sensitive
+getUserAttributeVerificationCode_accessToken :: Lens.Lens' GetUserAttributeVerificationCode Core.Text
+getUserAttributeVerificationCode_accessToken = Lens.lens (\GetUserAttributeVerificationCode' {accessToken} -> accessToken) (\s@GetUserAttributeVerificationCode' {} a -> s {accessToken = a} :: GetUserAttributeVerificationCode) Core.. Core._Sensitive
 
 -- | The attribute name returned by the server response to get the user
 -- attribute verification code.
-getUserAttributeVerificationCode_attributeName :: Lens.Lens' GetUserAttributeVerificationCode Prelude.Text
+getUserAttributeVerificationCode_attributeName :: Lens.Lens' GetUserAttributeVerificationCode Core.Text
 getUserAttributeVerificationCode_attributeName = Lens.lens (\GetUserAttributeVerificationCode' {attributeName} -> attributeName) (\s@GetUserAttributeVerificationCode' {} a -> s {attributeName = a} :: GetUserAttributeVerificationCode)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetUserAttributeVerificationCode
   where
   type
-    Rs GetUserAttributeVerificationCode =
+    AWSResponse GetUserAttributeVerificationCode =
       GetUserAttributeVerificationCodeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetUserAttributeVerificationCodeResponse'
-            Prelude.<$> (x Prelude..?> "CodeDeliveryDetails")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CodeDeliveryDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetUserAttributeVerificationCode
 
-instance
-  Prelude.NFData
-    GetUserAttributeVerificationCode
+instance Core.NFData GetUserAttributeVerificationCode
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetUserAttributeVerificationCode
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetUserAttributeVerificationCode
-  where
+instance Core.ToJSON GetUserAttributeVerificationCode where
   toJSON GetUserAttributeVerificationCode' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientMetadata" Prelude..=)
-              Prelude.<$> clientMetadata,
-            Prelude.Just ("AccessToken" Prelude..= accessToken),
-            Prelude.Just
-              ("AttributeName" Prelude..= attributeName)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            Core.Just ("AccessToken" Core..= accessToken),
+            Core.Just ("AttributeName" Core..= attributeName)
           ]
       )
 
-instance
-  Prelude.ToPath
-    GetUserAttributeVerificationCode
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetUserAttributeVerificationCode where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetUserAttributeVerificationCode
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | The verification code response returned by the server response to get
 -- the user attribute verification code.
@@ -276,11 +263,11 @@ instance
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
   { -- | The code delivery details returned by the server in response to the
     -- request to get the user attribute verification code.
-    codeDeliveryDetails :: Prelude.Maybe CodeDeliveryDetailsType,
+    codeDeliveryDetails :: Core.Maybe CodeDeliveryDetailsType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserAttributeVerificationCodeResponse' with all optional fields omitted.
@@ -296,25 +283,25 @@ data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCode
 -- 'httpStatus', 'getUserAttributeVerificationCodeResponse_httpStatus' - The response's http status code.
 newGetUserAttributeVerificationCodeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetUserAttributeVerificationCodeResponse
 newGetUserAttributeVerificationCodeResponse
   pHttpStatus_ =
     GetUserAttributeVerificationCodeResponse'
       { codeDeliveryDetails =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The code delivery details returned by the server in response to the
 -- request to get the user attribute verification code.
-getUserAttributeVerificationCodeResponse_codeDeliveryDetails :: Lens.Lens' GetUserAttributeVerificationCodeResponse (Prelude.Maybe CodeDeliveryDetailsType)
+getUserAttributeVerificationCodeResponse_codeDeliveryDetails :: Lens.Lens' GetUserAttributeVerificationCodeResponse (Core.Maybe CodeDeliveryDetailsType)
 getUserAttributeVerificationCodeResponse_codeDeliveryDetails = Lens.lens (\GetUserAttributeVerificationCodeResponse' {codeDeliveryDetails} -> codeDeliveryDetails) (\s@GetUserAttributeVerificationCodeResponse' {} a -> s {codeDeliveryDetails = a} :: GetUserAttributeVerificationCodeResponse)
 
 -- | The response's http status code.
-getUserAttributeVerificationCodeResponse_httpStatus :: Lens.Lens' GetUserAttributeVerificationCodeResponse Prelude.Int
+getUserAttributeVerificationCodeResponse_httpStatus :: Lens.Lens' GetUserAttributeVerificationCodeResponse Core.Int
 getUserAttributeVerificationCodeResponse_httpStatus = Lens.lens (\GetUserAttributeVerificationCodeResponse' {httpStatus} -> httpStatus) (\s@GetUserAttributeVerificationCodeResponse' {} a -> s {httpStatus = a} :: GetUserAttributeVerificationCodeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetUserAttributeVerificationCodeResponse

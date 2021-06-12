@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.RootCause where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The combination of AWS service, linked account, Region, and usage type
 -- where a cost anomaly is observed.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRootCause' smart constructor.
 data RootCause = RootCause'
   { -- | The AWS service name associated with the cost anomaly.
-    service :: Prelude.Maybe Prelude.Text,
+    service :: Core.Maybe Core.Text,
     -- | The @UsageType@ value associated with the cost anomaly.
-    usageType :: Prelude.Maybe Prelude.Text,
+    usageType :: Core.Maybe Core.Text,
     -- | The linked account value associated with the cost anomaly.
-    linkedAccount :: Prelude.Maybe Prelude.Text,
+    linkedAccount :: Core.Maybe Core.Text,
     -- | The AWS Region associated with the cost anomaly.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RootCause' with all optional fields omitted.
@@ -58,40 +57,40 @@ newRootCause ::
   RootCause
 newRootCause =
   RootCause'
-    { service = Prelude.Nothing,
-      usageType = Prelude.Nothing,
-      linkedAccount = Prelude.Nothing,
-      region = Prelude.Nothing
+    { service = Core.Nothing,
+      usageType = Core.Nothing,
+      linkedAccount = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | The AWS service name associated with the cost anomaly.
-rootCause_service :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
+rootCause_service :: Lens.Lens' RootCause (Core.Maybe Core.Text)
 rootCause_service = Lens.lens (\RootCause' {service} -> service) (\s@RootCause' {} a -> s {service = a} :: RootCause)
 
 -- | The @UsageType@ value associated with the cost anomaly.
-rootCause_usageType :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
+rootCause_usageType :: Lens.Lens' RootCause (Core.Maybe Core.Text)
 rootCause_usageType = Lens.lens (\RootCause' {usageType} -> usageType) (\s@RootCause' {} a -> s {usageType = a} :: RootCause)
 
 -- | The linked account value associated with the cost anomaly.
-rootCause_linkedAccount :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
+rootCause_linkedAccount :: Lens.Lens' RootCause (Core.Maybe Core.Text)
 rootCause_linkedAccount = Lens.lens (\RootCause' {linkedAccount} -> linkedAccount) (\s@RootCause' {} a -> s {linkedAccount = a} :: RootCause)
 
 -- | The AWS Region associated with the cost anomaly.
-rootCause_region :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
+rootCause_region :: Lens.Lens' RootCause (Core.Maybe Core.Text)
 rootCause_region = Lens.lens (\RootCause' {region} -> region) (\s@RootCause' {} a -> s {region = a} :: RootCause)
 
-instance Prelude.FromJSON RootCause where
+instance Core.FromJSON RootCause where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RootCause"
       ( \x ->
           RootCause'
-            Prelude.<$> (x Prelude..:? "Service")
-            Prelude.<*> (x Prelude..:? "UsageType")
-            Prelude.<*> (x Prelude..:? "LinkedAccount")
-            Prelude.<*> (x Prelude..:? "Region")
+            Core.<$> (x Core..:? "Service")
+            Core.<*> (x Core..:? "UsageType")
+            Core.<*> (x Core..:? "LinkedAccount")
+            Core.<*> (x Core..:? "Region")
       )
 
-instance Prelude.Hashable RootCause
+instance Core.Hashable RootCause
 
-instance Prelude.NFData RootCause
+instance Core.NFData RootCause

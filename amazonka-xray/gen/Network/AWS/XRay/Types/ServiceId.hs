@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.ServiceId where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
 -- /See:/ 'newServiceId' smart constructor.
 data ServiceId = ServiceId'
-  { names :: Prelude.Maybe [Prelude.Text],
-    accountId :: Prelude.Maybe Prelude.Text,
-    name :: Prelude.Maybe Prelude.Text,
-    type' :: Prelude.Maybe Prelude.Text
+  { names :: Core.Maybe [Core.Text],
+    accountId :: Core.Maybe Core.Text,
+    name :: Core.Maybe Core.Text,
+    type' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceId' with all optional fields omitted.
@@ -53,40 +52,40 @@ newServiceId ::
   ServiceId
 newServiceId =
   ServiceId'
-    { names = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { names = Core.Nothing,
+      accountId = Core.Nothing,
+      name = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- |
-serviceId_names :: Lens.Lens' ServiceId (Prelude.Maybe [Prelude.Text])
-serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -> s {names = a} :: ServiceId) Prelude.. Lens.mapping Prelude._Coerce
+serviceId_names :: Lens.Lens' ServiceId (Core.Maybe [Core.Text])
+serviceId_names = Lens.lens (\ServiceId' {names} -> names) (\s@ServiceId' {} a -> s {names = a} :: ServiceId) Core.. Lens.mapping Lens._Coerce
 
 -- |
-serviceId_accountId :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
+serviceId_accountId :: Lens.Lens' ServiceId (Core.Maybe Core.Text)
 serviceId_accountId = Lens.lens (\ServiceId' {accountId} -> accountId) (\s@ServiceId' {} a -> s {accountId = a} :: ServiceId)
 
 -- |
-serviceId_name :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
+serviceId_name :: Lens.Lens' ServiceId (Core.Maybe Core.Text)
 serviceId_name = Lens.lens (\ServiceId' {name} -> name) (\s@ServiceId' {} a -> s {name = a} :: ServiceId)
 
 -- |
-serviceId_type :: Lens.Lens' ServiceId (Prelude.Maybe Prelude.Text)
+serviceId_type :: Lens.Lens' ServiceId (Core.Maybe Core.Text)
 serviceId_type = Lens.lens (\ServiceId' {type'} -> type') (\s@ServiceId' {} a -> s {type' = a} :: ServiceId)
 
-instance Prelude.FromJSON ServiceId where
+instance Core.FromJSON ServiceId where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceId"
       ( \x ->
           ServiceId'
-            Prelude.<$> (x Prelude..:? "Names" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "AccountId")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Names" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "AccountId")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable ServiceId
+instance Core.Hashable ServiceId
 
-instance Prelude.NFData ServiceId
+instance Core.NFData ServiceId

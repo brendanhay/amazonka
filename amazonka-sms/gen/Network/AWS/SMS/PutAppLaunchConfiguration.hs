@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SMS.PutAppLaunchConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -52,18 +51,18 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newPutAppLaunchConfiguration' smart constructor.
 data PutAppLaunchConfiguration = PutAppLaunchConfiguration'
   { -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text,
+    appId :: Core.Maybe Core.Text,
     -- | The name of service role in the customer\'s account that AWS
     -- CloudFormation uses to launch the application.
-    roleName :: Prelude.Maybe Prelude.Text,
+    roleName :: Core.Maybe Core.Text,
     -- | Indicates whether the application is configured to launch automatically
     -- after replication is complete.
-    autoLaunch :: Prelude.Maybe Prelude.Bool,
+    autoLaunch :: Core.Maybe Core.Bool,
     -- | Information about the launch configurations for server groups in the
     -- application.
-    serverGroupLaunchConfigurations :: Prelude.Maybe [ServerGroupLaunchConfiguration]
+    serverGroupLaunchConfigurations :: Core.Maybe [ServerGroupLaunchConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAppLaunchConfiguration' with all optional fields omitted.
@@ -87,87 +86,84 @@ newPutAppLaunchConfiguration ::
   PutAppLaunchConfiguration
 newPutAppLaunchConfiguration =
   PutAppLaunchConfiguration'
-    { appId = Prelude.Nothing,
-      roleName = Prelude.Nothing,
-      autoLaunch = Prelude.Nothing,
-      serverGroupLaunchConfigurations =
-        Prelude.Nothing
+    { appId = Core.Nothing,
+      roleName = Core.Nothing,
+      autoLaunch = Core.Nothing,
+      serverGroupLaunchConfigurations = Core.Nothing
     }
 
 -- | The ID of the application.
-putAppLaunchConfiguration_appId :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Text)
+putAppLaunchConfiguration_appId :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe Core.Text)
 putAppLaunchConfiguration_appId = Lens.lens (\PutAppLaunchConfiguration' {appId} -> appId) (\s@PutAppLaunchConfiguration' {} a -> s {appId = a} :: PutAppLaunchConfiguration)
 
 -- | The name of service role in the customer\'s account that AWS
 -- CloudFormation uses to launch the application.
-putAppLaunchConfiguration_roleName :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Text)
+putAppLaunchConfiguration_roleName :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe Core.Text)
 putAppLaunchConfiguration_roleName = Lens.lens (\PutAppLaunchConfiguration' {roleName} -> roleName) (\s@PutAppLaunchConfiguration' {} a -> s {roleName = a} :: PutAppLaunchConfiguration)
 
 -- | Indicates whether the application is configured to launch automatically
 -- after replication is complete.
-putAppLaunchConfiguration_autoLaunch :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe Prelude.Bool)
+putAppLaunchConfiguration_autoLaunch :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe Core.Bool)
 putAppLaunchConfiguration_autoLaunch = Lens.lens (\PutAppLaunchConfiguration' {autoLaunch} -> autoLaunch) (\s@PutAppLaunchConfiguration' {} a -> s {autoLaunch = a} :: PutAppLaunchConfiguration)
 
 -- | Information about the launch configurations for server groups in the
 -- application.
-putAppLaunchConfiguration_serverGroupLaunchConfigurations :: Lens.Lens' PutAppLaunchConfiguration (Prelude.Maybe [ServerGroupLaunchConfiguration])
-putAppLaunchConfiguration_serverGroupLaunchConfigurations = Lens.lens (\PutAppLaunchConfiguration' {serverGroupLaunchConfigurations} -> serverGroupLaunchConfigurations) (\s@PutAppLaunchConfiguration' {} a -> s {serverGroupLaunchConfigurations = a} :: PutAppLaunchConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+putAppLaunchConfiguration_serverGroupLaunchConfigurations :: Lens.Lens' PutAppLaunchConfiguration (Core.Maybe [ServerGroupLaunchConfiguration])
+putAppLaunchConfiguration_serverGroupLaunchConfigurations = Lens.lens (\PutAppLaunchConfiguration' {serverGroupLaunchConfigurations} -> serverGroupLaunchConfigurations) (\s@PutAppLaunchConfiguration' {} a -> s {serverGroupLaunchConfigurations = a} :: PutAppLaunchConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest PutAppLaunchConfiguration where
+instance Core.AWSRequest PutAppLaunchConfiguration where
   type
-    Rs PutAppLaunchConfiguration =
+    AWSResponse PutAppLaunchConfiguration =
       PutAppLaunchConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAppLaunchConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutAppLaunchConfiguration
+instance Core.Hashable PutAppLaunchConfiguration
 
-instance Prelude.NFData PutAppLaunchConfiguration
+instance Core.NFData PutAppLaunchConfiguration
 
-instance Prelude.ToHeaders PutAppLaunchConfiguration where
+instance Core.ToHeaders PutAppLaunchConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutAppLaunchConfiguration where
+instance Core.ToJSON PutAppLaunchConfiguration where
   toJSON PutAppLaunchConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("appId" Prelude..=) Prelude.<$> appId,
-            ("roleName" Prelude..=) Prelude.<$> roleName,
-            ("autoLaunch" Prelude..=) Prelude.<$> autoLaunch,
-            ("serverGroupLaunchConfigurations" Prelude..=)
-              Prelude.<$> serverGroupLaunchConfigurations
+    Core.object
+      ( Core.catMaybes
+          [ ("appId" Core..=) Core.<$> appId,
+            ("roleName" Core..=) Core.<$> roleName,
+            ("autoLaunch" Core..=) Core.<$> autoLaunch,
+            ("serverGroupLaunchConfigurations" Core..=)
+              Core.<$> serverGroupLaunchConfigurations
           ]
       )
 
-instance Prelude.ToPath PutAppLaunchConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutAppLaunchConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutAppLaunchConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutAppLaunchConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutAppLaunchConfigurationResponse' smart constructor.
 data PutAppLaunchConfigurationResponse = PutAppLaunchConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAppLaunchConfigurationResponse' with all optional fields omitted.
@@ -180,7 +176,7 @@ data PutAppLaunchConfigurationResponse = PutAppLaunchConfigurationResponse'
 -- 'httpStatus', 'putAppLaunchConfigurationResponse_httpStatus' - The response's http status code.
 newPutAppLaunchConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutAppLaunchConfigurationResponse
 newPutAppLaunchConfigurationResponse pHttpStatus_ =
   PutAppLaunchConfigurationResponse'
@@ -189,9 +185,9 @@ newPutAppLaunchConfigurationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putAppLaunchConfigurationResponse_httpStatus :: Lens.Lens' PutAppLaunchConfigurationResponse Prelude.Int
+putAppLaunchConfigurationResponse_httpStatus :: Lens.Lens' PutAppLaunchConfigurationResponse Core.Int
 putAppLaunchConfigurationResponse_httpStatus = Lens.lens (\PutAppLaunchConfigurationResponse' {httpStatus} -> httpStatus) (\s@PutAppLaunchConfigurationResponse' {} a -> s {httpStatus = a} :: PutAppLaunchConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutAppLaunchConfigurationResponse

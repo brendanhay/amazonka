@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.MetricDimension where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.DimensionValueOperator
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The dimension of a metric.
 --
@@ -34,11 +33,11 @@ data MetricDimension = MetricDimension'
     -- @NOT_IN@ operator, a message will be counted only if it doesn\'t match
     -- any of the topic filters. The operator is optional: if it\'s not
     -- provided (is @null@), it will be interpreted as @IN@.
-    operator :: Prelude.Maybe DimensionValueOperator,
+    operator :: Core.Maybe DimensionValueOperator,
     -- | A unique identifier for the dimension.
-    dimensionName :: Prelude.Text
+    dimensionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricDimension' with all optional fields omitted.
@@ -58,11 +57,11 @@ data MetricDimension = MetricDimension'
 -- 'dimensionName', 'metricDimension_dimensionName' - A unique identifier for the dimension.
 newMetricDimension ::
   -- | 'dimensionName'
-  Prelude.Text ->
+  Core.Text ->
   MetricDimension
 newMetricDimension pDimensionName_ =
   MetricDimension'
-    { operator = Prelude.Nothing,
+    { operator = Core.Nothing,
       dimensionName = pDimensionName_
     }
 
@@ -72,33 +71,32 @@ newMetricDimension pDimensionName_ =
 -- @NOT_IN@ operator, a message will be counted only if it doesn\'t match
 -- any of the topic filters. The operator is optional: if it\'s not
 -- provided (is @null@), it will be interpreted as @IN@.
-metricDimension_operator :: Lens.Lens' MetricDimension (Prelude.Maybe DimensionValueOperator)
+metricDimension_operator :: Lens.Lens' MetricDimension (Core.Maybe DimensionValueOperator)
 metricDimension_operator = Lens.lens (\MetricDimension' {operator} -> operator) (\s@MetricDimension' {} a -> s {operator = a} :: MetricDimension)
 
 -- | A unique identifier for the dimension.
-metricDimension_dimensionName :: Lens.Lens' MetricDimension Prelude.Text
+metricDimension_dimensionName :: Lens.Lens' MetricDimension Core.Text
 metricDimension_dimensionName = Lens.lens (\MetricDimension' {dimensionName} -> dimensionName) (\s@MetricDimension' {} a -> s {dimensionName = a} :: MetricDimension)
 
-instance Prelude.FromJSON MetricDimension where
+instance Core.FromJSON MetricDimension where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetricDimension"
       ( \x ->
           MetricDimension'
-            Prelude.<$> (x Prelude..:? "operator")
-            Prelude.<*> (x Prelude..: "dimensionName")
+            Core.<$> (x Core..:? "operator")
+            Core.<*> (x Core..: "dimensionName")
       )
 
-instance Prelude.Hashable MetricDimension
+instance Core.Hashable MetricDimension
 
-instance Prelude.NFData MetricDimension
+instance Core.NFData MetricDimension
 
-instance Prelude.ToJSON MetricDimension where
+instance Core.ToJSON MetricDimension where
   toJSON MetricDimension' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("operator" Prelude..=) Prelude.<$> operator,
-            Prelude.Just
-              ("dimensionName" Prelude..= dimensionName)
+    Core.object
+      ( Core.catMaybes
+          [ ("operator" Core..=) Core.<$> operator,
+            Core.Just ("dimensionName" Core..= dimensionName)
           ]
       )

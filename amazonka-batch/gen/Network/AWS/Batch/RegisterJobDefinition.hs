@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.Batch.RegisterJobDefinition
 where
 
 import Network.AWS.Batch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +63,7 @@ data RegisterJobDefinition = RegisterJobDefinition'
   { -- | The platform capabilities required by the job definition. If no value is
     -- specified, it defaults to @EC2@. To run the job on Fargate resources,
     -- specify @FARGATE@.
-    platformCapabilities :: Prelude.Maybe [PlatformCapability],
+    platformCapabilities :: Core.Maybe [PlatformCapability],
     -- | The timeout configuration for jobs that are submitted with this job
     -- definition, after which AWS Batch terminates your jobs if they have not
     -- finished. If a job is terminated due to a timeout, it isn\'t retried.
@@ -73,7 +72,7 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- the timeout configuration defined here. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
     -- in the /AWS Batch User Guide/.
-    timeout :: Prelude.Maybe JobTimeout,
+    timeout :: Core.Maybe JobTimeout,
     -- | An object with various properties specific to multi-node parallel jobs.
     -- If you specify node properties for a job, it becomes a multi-node
     -- parallel job. For more information, see
@@ -84,13 +83,13 @@ data RegisterJobDefinition = RegisterJobDefinition'
     --
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use @containerProperties@ instead.
-    nodeProperties :: Prelude.Maybe NodeProperties,
+    nodeProperties :: Core.Maybe NodeProperties,
     -- | The tags that you apply to the job definition to help you categorize and
     -- organize your resources. Each tag consists of a key and an optional
     -- value. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging AWS Resources>
     -- in /AWS Batch User Guide/.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | An object with various properties specific to single-node
     -- container-based jobs. If the job definition\'s @type@ parameter is
     -- @container@, then you must specify either @containerProperties@ or
@@ -98,27 +97,27 @@ data RegisterJobDefinition = RegisterJobDefinition'
     --
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use only @containerProperties@.
-    containerProperties :: Prelude.Maybe ContainerProperties,
+    containerProperties :: Core.Maybe ContainerProperties,
     -- | The retry strategy to use for failed jobs that are submitted with this
     -- job definition. Any retry strategy that\'s specified during a SubmitJob
     -- operation overrides the retry strategy defined here. If a job is
     -- terminated due to a timeout, it isn\'t retried.
-    retryStrategy :: Prelude.Maybe RetryStrategy,
+    retryStrategy :: Core.Maybe RetryStrategy,
     -- | Default parameter substitution placeholders to set in the job
     -- definition. Parameters are specified as a key-value pair mapping.
     -- Parameters in a @SubmitJob@ request override any corresponding parameter
     -- defaults from the job definition.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Specifies whether to propagate the tags from the job or job definition
     -- to the corresponding Amazon ECS task. If no value is specified, the tags
     -- are not propagated. Tags can only be propagated to the tasks during task
     -- creation. For tags with the same name, job tags are given priority over
     -- job definitions tags. If the total number of combined tags from the job
     -- and job definition is over 50, the job is moved to the @FAILED@ state.
-    propagateTags :: Prelude.Maybe Prelude.Bool,
+    propagateTags :: Core.Maybe Core.Bool,
     -- | The name of the job definition to register. Up to 128 letters (uppercase
     -- and lowercase), numbers, hyphens, and underscores are allowed.
-    jobDefinitionName :: Prelude.Text,
+    jobDefinitionName :: Core.Text,
     -- | The type of job definition. For more information about multi-node
     -- parallel jobs, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
@@ -128,7 +127,7 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- supported.
     type' :: JobDefinitionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterJobDefinition' with all optional fields omitted.
@@ -205,21 +204,21 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- supported.
 newRegisterJobDefinition ::
   -- | 'jobDefinitionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   JobDefinitionType ->
   RegisterJobDefinition
 newRegisterJobDefinition pJobDefinitionName_ pType_ =
   RegisterJobDefinition'
     { platformCapabilities =
-        Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      nodeProperties = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      containerProperties = Prelude.Nothing,
-      retryStrategy = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      propagateTags = Prelude.Nothing,
+        Core.Nothing,
+      timeout = Core.Nothing,
+      nodeProperties = Core.Nothing,
+      tags = Core.Nothing,
+      containerProperties = Core.Nothing,
+      retryStrategy = Core.Nothing,
+      parameters = Core.Nothing,
+      propagateTags = Core.Nothing,
       jobDefinitionName = pJobDefinitionName_,
       type' = pType_
     }
@@ -227,8 +226,8 @@ newRegisterJobDefinition pJobDefinitionName_ pType_ =
 -- | The platform capabilities required by the job definition. If no value is
 -- specified, it defaults to @EC2@. To run the job on Fargate resources,
 -- specify @FARGATE@.
-registerJobDefinition_platformCapabilities :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe [PlatformCapability])
-registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' {platformCapabilities} -> platformCapabilities) (\s@RegisterJobDefinition' {} a -> s {platformCapabilities = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerJobDefinition_platformCapabilities :: Lens.Lens' RegisterJobDefinition (Core.Maybe [PlatformCapability])
+registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' {platformCapabilities} -> platformCapabilities) (\s@RegisterJobDefinition' {} a -> s {platformCapabilities = a} :: RegisterJobDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The timeout configuration for jobs that are submitted with this job
 -- definition, after which AWS Batch terminates your jobs if they have not
@@ -238,7 +237,7 @@ registerJobDefinition_platformCapabilities = Lens.lens (\RegisterJobDefinition' 
 -- the timeout configuration defined here. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.html Job Timeouts>
 -- in the /AWS Batch User Guide/.
-registerJobDefinition_timeout :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe JobTimeout)
+registerJobDefinition_timeout :: Lens.Lens' RegisterJobDefinition (Core.Maybe JobTimeout)
 registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> timeout) (\s@RegisterJobDefinition' {} a -> s {timeout = a} :: RegisterJobDefinition)
 
 -- | An object with various properties specific to multi-node parallel jobs.
@@ -251,7 +250,7 @@ registerJobDefinition_timeout = Lens.lens (\RegisterJobDefinition' {timeout} -> 
 --
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use @containerProperties@ instead.
-registerJobDefinition_nodeProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe NodeProperties)
+registerJobDefinition_nodeProperties :: Lens.Lens' RegisterJobDefinition (Core.Maybe NodeProperties)
 registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeProperties} -> nodeProperties) (\s@RegisterJobDefinition' {} a -> s {nodeProperties = a} :: RegisterJobDefinition)
 
 -- | The tags that you apply to the job definition to help you categorize and
@@ -259,8 +258,8 @@ registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeP
 -- value. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html Tagging AWS Resources>
 -- in /AWS Batch User Guide/.
-registerJobDefinition_tags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) (\s@RegisterJobDefinition' {} a -> s {tags = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerJobDefinition_tags :: Lens.Lens' RegisterJobDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
+registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) (\s@RegisterJobDefinition' {} a -> s {tags = a} :: RegisterJobDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | An object with various properties specific to single-node
 -- container-based jobs. If the job definition\'s @type@ parameter is
@@ -269,22 +268,22 @@ registerJobDefinition_tags = Lens.lens (\RegisterJobDefinition' {tags} -> tags) 
 --
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use only @containerProperties@.
-registerJobDefinition_containerProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe ContainerProperties)
+registerJobDefinition_containerProperties :: Lens.Lens' RegisterJobDefinition (Core.Maybe ContainerProperties)
 registerJobDefinition_containerProperties = Lens.lens (\RegisterJobDefinition' {containerProperties} -> containerProperties) (\s@RegisterJobDefinition' {} a -> s {containerProperties = a} :: RegisterJobDefinition)
 
 -- | The retry strategy to use for failed jobs that are submitted with this
 -- job definition. Any retry strategy that\'s specified during a SubmitJob
 -- operation overrides the retry strategy defined here. If a job is
 -- terminated due to a timeout, it isn\'t retried.
-registerJobDefinition_retryStrategy :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe RetryStrategy)
+registerJobDefinition_retryStrategy :: Lens.Lens' RegisterJobDefinition (Core.Maybe RetryStrategy)
 registerJobDefinition_retryStrategy = Lens.lens (\RegisterJobDefinition' {retryStrategy} -> retryStrategy) (\s@RegisterJobDefinition' {} a -> s {retryStrategy = a} :: RegisterJobDefinition)
 
 -- | Default parameter substitution placeholders to set in the job
 -- definition. Parameters are specified as a key-value pair mapping.
 -- Parameters in a @SubmitJob@ request override any corresponding parameter
 -- defaults from the job definition.
-registerJobDefinition_parameters :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameters} -> parameters) (\s@RegisterJobDefinition' {} a -> s {parameters = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerJobDefinition_parameters :: Lens.Lens' RegisterJobDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
+registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameters} -> parameters) (\s@RegisterJobDefinition' {} a -> s {parameters = a} :: RegisterJobDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether to propagate the tags from the job or job definition
 -- to the corresponding Amazon ECS task. If no value is specified, the tags
@@ -292,12 +291,12 @@ registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameter
 -- creation. For tags with the same name, job tags are given priority over
 -- job definitions tags. If the total number of combined tags from the job
 -- and job definition is over 50, the job is moved to the @FAILED@ state.
-registerJobDefinition_propagateTags :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Bool)
+registerJobDefinition_propagateTags :: Lens.Lens' RegisterJobDefinition (Core.Maybe Core.Bool)
 registerJobDefinition_propagateTags = Lens.lens (\RegisterJobDefinition' {propagateTags} -> propagateTags) (\s@RegisterJobDefinition' {} a -> s {propagateTags = a} :: RegisterJobDefinition)
 
 -- | The name of the job definition to register. Up to 128 letters (uppercase
 -- and lowercase), numbers, hyphens, and underscores are allowed.
-registerJobDefinition_jobDefinitionName :: Lens.Lens' RegisterJobDefinition Prelude.Text
+registerJobDefinition_jobDefinitionName :: Lens.Lens' RegisterJobDefinition Core.Text
 registerJobDefinition_jobDefinitionName = Lens.lens (\RegisterJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@RegisterJobDefinition' {} a -> s {jobDefinitionName = a} :: RegisterJobDefinition)
 
 -- | The type of job definition. For more information about multi-node
@@ -310,77 +309,72 @@ registerJobDefinition_jobDefinitionName = Lens.lens (\RegisterJobDefinition' {jo
 registerJobDefinition_type :: Lens.Lens' RegisterJobDefinition JobDefinitionType
 registerJobDefinition_type = Lens.lens (\RegisterJobDefinition' {type'} -> type') (\s@RegisterJobDefinition' {} a -> s {type' = a} :: RegisterJobDefinition)
 
-instance Prelude.AWSRequest RegisterJobDefinition where
+instance Core.AWSRequest RegisterJobDefinition where
   type
-    Rs RegisterJobDefinition =
+    AWSResponse RegisterJobDefinition =
       RegisterJobDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterJobDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "jobDefinitionName")
-            Prelude.<*> (x Prelude..:> "jobDefinitionArn")
-            Prelude.<*> (x Prelude..:> "revision")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "jobDefinitionName")
+            Core.<*> (x Core..:> "jobDefinitionArn")
+            Core.<*> (x Core..:> "revision")
       )
 
-instance Prelude.Hashable RegisterJobDefinition
+instance Core.Hashable RegisterJobDefinition
 
-instance Prelude.NFData RegisterJobDefinition
+instance Core.NFData RegisterJobDefinition
 
-instance Prelude.ToHeaders RegisterJobDefinition where
+instance Core.ToHeaders RegisterJobDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterJobDefinition where
+instance Core.ToJSON RegisterJobDefinition where
   toJSON RegisterJobDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("platformCapabilities" Prelude..=)
-              Prelude.<$> platformCapabilities,
-            ("timeout" Prelude..=) Prelude.<$> timeout,
-            ("nodeProperties" Prelude..=)
-              Prelude.<$> nodeProperties,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("containerProperties" Prelude..=)
-              Prelude.<$> containerProperties,
-            ("retryStrategy" Prelude..=)
-              Prelude.<$> retryStrategy,
-            ("parameters" Prelude..=) Prelude.<$> parameters,
-            ("propagateTags" Prelude..=)
-              Prelude.<$> propagateTags,
-            Prelude.Just
-              ("jobDefinitionName" Prelude..= jobDefinitionName),
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("platformCapabilities" Core..=)
+              Core.<$> platformCapabilities,
+            ("timeout" Core..=) Core.<$> timeout,
+            ("nodeProperties" Core..=) Core.<$> nodeProperties,
+            ("tags" Core..=) Core.<$> tags,
+            ("containerProperties" Core..=)
+              Core.<$> containerProperties,
+            ("retryStrategy" Core..=) Core.<$> retryStrategy,
+            ("parameters" Core..=) Core.<$> parameters,
+            ("propagateTags" Core..=) Core.<$> propagateTags,
+            Core.Just
+              ("jobDefinitionName" Core..= jobDefinitionName),
+            Core.Just ("type" Core..= type')
           ]
       )
 
-instance Prelude.ToPath RegisterJobDefinition where
-  toPath = Prelude.const "/v1/registerjobdefinition"
+instance Core.ToPath RegisterJobDefinition where
+  toPath = Core.const "/v1/registerjobdefinition"
 
-instance Prelude.ToQuery RegisterJobDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterJobDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterJobDefinitionResponse' smart constructor.
 data RegisterJobDefinitionResponse = RegisterJobDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The name of the job definition.
-    jobDefinitionName :: Prelude.Text,
+    jobDefinitionName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the job definition.
-    jobDefinitionArn :: Prelude.Text,
+    jobDefinitionArn :: Core.Text,
     -- | The revision of the job definition.
-    revision :: Prelude.Int
+    revision :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterJobDefinitionResponse' with all optional fields omitted.
@@ -399,13 +393,13 @@ data RegisterJobDefinitionResponse = RegisterJobDefinitionResponse'
 -- 'revision', 'registerJobDefinitionResponse_revision' - The revision of the job definition.
 newRegisterJobDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'jobDefinitionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'jobDefinitionArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'revision'
-  Prelude.Int ->
+  Core.Int ->
   RegisterJobDefinitionResponse
 newRegisterJobDefinitionResponse
   pHttpStatus_
@@ -421,19 +415,19 @@ newRegisterJobDefinitionResponse
       }
 
 -- | The response's http status code.
-registerJobDefinitionResponse_httpStatus :: Lens.Lens' RegisterJobDefinitionResponse Prelude.Int
+registerJobDefinitionResponse_httpStatus :: Lens.Lens' RegisterJobDefinitionResponse Core.Int
 registerJobDefinitionResponse_httpStatus = Lens.lens (\RegisterJobDefinitionResponse' {httpStatus} -> httpStatus) (\s@RegisterJobDefinitionResponse' {} a -> s {httpStatus = a} :: RegisterJobDefinitionResponse)
 
 -- | The name of the job definition.
-registerJobDefinitionResponse_jobDefinitionName :: Lens.Lens' RegisterJobDefinitionResponse Prelude.Text
+registerJobDefinitionResponse_jobDefinitionName :: Lens.Lens' RegisterJobDefinitionResponse Core.Text
 registerJobDefinitionResponse_jobDefinitionName = Lens.lens (\RegisterJobDefinitionResponse' {jobDefinitionName} -> jobDefinitionName) (\s@RegisterJobDefinitionResponse' {} a -> s {jobDefinitionName = a} :: RegisterJobDefinitionResponse)
 
 -- | The Amazon Resource Name (ARN) of the job definition.
-registerJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' RegisterJobDefinitionResponse Prelude.Text
+registerJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' RegisterJobDefinitionResponse Core.Text
 registerJobDefinitionResponse_jobDefinitionArn = Lens.lens (\RegisterJobDefinitionResponse' {jobDefinitionArn} -> jobDefinitionArn) (\s@RegisterJobDefinitionResponse' {} a -> s {jobDefinitionArn = a} :: RegisterJobDefinitionResponse)
 
 -- | The revision of the job definition.
-registerJobDefinitionResponse_revision :: Lens.Lens' RegisterJobDefinitionResponse Prelude.Int
+registerJobDefinitionResponse_revision :: Lens.Lens' RegisterJobDefinitionResponse Core.Int
 registerJobDefinitionResponse_revision = Lens.lens (\RegisterJobDefinitionResponse' {revision} -> revision) (\s@RegisterJobDefinitionResponse' {} a -> s {revision = a} :: RegisterJobDefinitionResponse)
 
-instance Prelude.NFData RegisterJobDefinitionResponse
+instance Core.NFData RegisterJobDefinitionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -25,28 +24,28 @@ import Network.AWS.Connect.Types.KinesisStreamConfig
 import Network.AWS.Connect.Types.KinesisVideoStreamConfig
 import Network.AWS.Connect.Types.S3Config
 import Network.AWS.Connect.Types.StorageType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The storage configuration for the instance.
 --
 -- /See:/ 'newInstanceStorageConfig' smart constructor.
 data InstanceStorageConfig = InstanceStorageConfig'
   { -- | The configuration of the Kinesis data stream.
-    kinesisStreamConfig :: Prelude.Maybe KinesisStreamConfig,
+    kinesisStreamConfig :: Core.Maybe KinesisStreamConfig,
     -- | The configuration of the Kinesis Firehose delivery stream.
-    kinesisFirehoseConfig :: Prelude.Maybe KinesisFirehoseConfig,
+    kinesisFirehoseConfig :: Core.Maybe KinesisFirehoseConfig,
     -- | The configuration of the Kinesis video stream.
-    kinesisVideoStreamConfig :: Prelude.Maybe KinesisVideoStreamConfig,
+    kinesisVideoStreamConfig :: Core.Maybe KinesisVideoStreamConfig,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | The S3 bucket configuration.
-    s3Config :: Prelude.Maybe S3Config,
+    s3Config :: Core.Maybe S3Config,
     -- | A valid storage type.
     storageType :: StorageType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceStorageConfig' with all optional fields omitted.
@@ -75,70 +74,69 @@ newInstanceStorageConfig ::
 newInstanceStorageConfig pStorageType_ =
   InstanceStorageConfig'
     { kinesisStreamConfig =
-        Prelude.Nothing,
-      kinesisFirehoseConfig = Prelude.Nothing,
-      kinesisVideoStreamConfig = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      s3Config = Prelude.Nothing,
+        Core.Nothing,
+      kinesisFirehoseConfig = Core.Nothing,
+      kinesisVideoStreamConfig = Core.Nothing,
+      associationId = Core.Nothing,
+      s3Config = Core.Nothing,
       storageType = pStorageType_
     }
 
 -- | The configuration of the Kinesis data stream.
-instanceStorageConfig_kinesisStreamConfig :: Lens.Lens' InstanceStorageConfig (Prelude.Maybe KinesisStreamConfig)
+instanceStorageConfig_kinesisStreamConfig :: Lens.Lens' InstanceStorageConfig (Core.Maybe KinesisStreamConfig)
 instanceStorageConfig_kinesisStreamConfig = Lens.lens (\InstanceStorageConfig' {kinesisStreamConfig} -> kinesisStreamConfig) (\s@InstanceStorageConfig' {} a -> s {kinesisStreamConfig = a} :: InstanceStorageConfig)
 
 -- | The configuration of the Kinesis Firehose delivery stream.
-instanceStorageConfig_kinesisFirehoseConfig :: Lens.Lens' InstanceStorageConfig (Prelude.Maybe KinesisFirehoseConfig)
+instanceStorageConfig_kinesisFirehoseConfig :: Lens.Lens' InstanceStorageConfig (Core.Maybe KinesisFirehoseConfig)
 instanceStorageConfig_kinesisFirehoseConfig = Lens.lens (\InstanceStorageConfig' {kinesisFirehoseConfig} -> kinesisFirehoseConfig) (\s@InstanceStorageConfig' {} a -> s {kinesisFirehoseConfig = a} :: InstanceStorageConfig)
 
 -- | The configuration of the Kinesis video stream.
-instanceStorageConfig_kinesisVideoStreamConfig :: Lens.Lens' InstanceStorageConfig (Prelude.Maybe KinesisVideoStreamConfig)
+instanceStorageConfig_kinesisVideoStreamConfig :: Lens.Lens' InstanceStorageConfig (Core.Maybe KinesisVideoStreamConfig)
 instanceStorageConfig_kinesisVideoStreamConfig = Lens.lens (\InstanceStorageConfig' {kinesisVideoStreamConfig} -> kinesisVideoStreamConfig) (\s@InstanceStorageConfig' {} a -> s {kinesisVideoStreamConfig = a} :: InstanceStorageConfig)
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-instanceStorageConfig_associationId :: Lens.Lens' InstanceStorageConfig (Prelude.Maybe Prelude.Text)
+instanceStorageConfig_associationId :: Lens.Lens' InstanceStorageConfig (Core.Maybe Core.Text)
 instanceStorageConfig_associationId = Lens.lens (\InstanceStorageConfig' {associationId} -> associationId) (\s@InstanceStorageConfig' {} a -> s {associationId = a} :: InstanceStorageConfig)
 
 -- | The S3 bucket configuration.
-instanceStorageConfig_s3Config :: Lens.Lens' InstanceStorageConfig (Prelude.Maybe S3Config)
+instanceStorageConfig_s3Config :: Lens.Lens' InstanceStorageConfig (Core.Maybe S3Config)
 instanceStorageConfig_s3Config = Lens.lens (\InstanceStorageConfig' {s3Config} -> s3Config) (\s@InstanceStorageConfig' {} a -> s {s3Config = a} :: InstanceStorageConfig)
 
 -- | A valid storage type.
 instanceStorageConfig_storageType :: Lens.Lens' InstanceStorageConfig StorageType
 instanceStorageConfig_storageType = Lens.lens (\InstanceStorageConfig' {storageType} -> storageType) (\s@InstanceStorageConfig' {} a -> s {storageType = a} :: InstanceStorageConfig)
 
-instance Prelude.FromJSON InstanceStorageConfig where
+instance Core.FromJSON InstanceStorageConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceStorageConfig"
       ( \x ->
           InstanceStorageConfig'
-            Prelude.<$> (x Prelude..:? "KinesisStreamConfig")
-            Prelude.<*> (x Prelude..:? "KinesisFirehoseConfig")
-            Prelude.<*> (x Prelude..:? "KinesisVideoStreamConfig")
-            Prelude.<*> (x Prelude..:? "AssociationId")
-            Prelude.<*> (x Prelude..:? "S3Config")
-            Prelude.<*> (x Prelude..: "StorageType")
+            Core.<$> (x Core..:? "KinesisStreamConfig")
+            Core.<*> (x Core..:? "KinesisFirehoseConfig")
+            Core.<*> (x Core..:? "KinesisVideoStreamConfig")
+            Core.<*> (x Core..:? "AssociationId")
+            Core.<*> (x Core..:? "S3Config")
+            Core.<*> (x Core..: "StorageType")
       )
 
-instance Prelude.Hashable InstanceStorageConfig
+instance Core.Hashable InstanceStorageConfig
 
-instance Prelude.NFData InstanceStorageConfig
+instance Core.NFData InstanceStorageConfig
 
-instance Prelude.ToJSON InstanceStorageConfig where
+instance Core.ToJSON InstanceStorageConfig where
   toJSON InstanceStorageConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KinesisStreamConfig" Prelude..=)
-              Prelude.<$> kinesisStreamConfig,
-            ("KinesisFirehoseConfig" Prelude..=)
-              Prelude.<$> kinesisFirehoseConfig,
-            ("KinesisVideoStreamConfig" Prelude..=)
-              Prelude.<$> kinesisVideoStreamConfig,
-            ("AssociationId" Prelude..=)
-              Prelude.<$> associationId,
-            ("S3Config" Prelude..=) Prelude.<$> s3Config,
-            Prelude.Just ("StorageType" Prelude..= storageType)
+    Core.object
+      ( Core.catMaybes
+          [ ("KinesisStreamConfig" Core..=)
+              Core.<$> kinesisStreamConfig,
+            ("KinesisFirehoseConfig" Core..=)
+              Core.<$> kinesisFirehoseConfig,
+            ("KinesisVideoStreamConfig" Core..=)
+              Core.<$> kinesisVideoStreamConfig,
+            ("AssociationId" Core..=) Core.<$> associationId,
+            ("S3Config" Core..=) Core.<$> s3Config,
+            Core.Just ("StorageType" Core..= storageType)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization
 where
 
 import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 data DescribeHealthServiceStatusForOrganization = DescribeHealthServiceStatusForOrganization'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHealthServiceStatusForOrganization' with all optional fields omitted.
@@ -62,67 +61,65 @@ newDescribeHealthServiceStatusForOrganization =
   DescribeHealthServiceStatusForOrganization'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeHealthServiceStatusForOrganization
   where
   type
-    Rs DescribeHealthServiceStatusForOrganization =
+    AWSResponse
+      DescribeHealthServiceStatusForOrganization =
       DescribeHealthServiceStatusForOrganizationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeHealthServiceStatusForOrganizationResponse'
-            Prelude.<$> ( x
-                            Prelude..?> "healthServiceAccessStatusForOrganization"
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x
+                         Core..?> "healthServiceAccessStatusForOrganization"
+                     )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeHealthServiceStatusForOrganization
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeHealthServiceStatusForOrganization
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeHealthServiceStatusForOrganization
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeHealthServiceStatusForOrganization
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeHealthServiceStatusForOrganization
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeHealthServiceStatusForOrganization
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeHealthServiceStatusForOrganizationResponse' smart constructor.
 data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceStatusForOrganizationResponse'
@@ -130,11 +127,11 @@ data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceS
     -- Organizational View in your organization.
     --
     -- Valid values are @ENABLED | DISABLED | PENDING@.
-    healthServiceAccessStatusForOrganization :: Prelude.Maybe Prelude.Text,
+    healthServiceAccessStatusForOrganization :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHealthServiceStatusForOrganizationResponse' with all optional fields omitted.
@@ -152,13 +149,13 @@ data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceS
 -- 'httpStatus', 'describeHealthServiceStatusForOrganizationResponse_httpStatus' - The response's http status code.
 newDescribeHealthServiceStatusForOrganizationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeHealthServiceStatusForOrganizationResponse
 newDescribeHealthServiceStatusForOrganizationResponse
   pHttpStatus_ =
     DescribeHealthServiceStatusForOrganizationResponse'
       { healthServiceAccessStatusForOrganization =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
@@ -167,13 +164,13 @@ newDescribeHealthServiceStatusForOrganizationResponse
 -- Organizational View in your organization.
 --
 -- Valid values are @ENABLED | DISABLED | PENDING@.
-describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse (Core.Maybe Core.Text)
 describeHealthServiceStatusForOrganizationResponse_healthServiceAccessStatusForOrganization = Lens.lens (\DescribeHealthServiceStatusForOrganizationResponse' {healthServiceAccessStatusForOrganization} -> healthServiceAccessStatusForOrganization) (\s@DescribeHealthServiceStatusForOrganizationResponse' {} a -> s {healthServiceAccessStatusForOrganization = a} :: DescribeHealthServiceStatusForOrganizationResponse)
 
 -- | The response's http status code.
-describeHealthServiceStatusForOrganizationResponse_httpStatus :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse Prelude.Int
+describeHealthServiceStatusForOrganizationResponse_httpStatus :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse Core.Int
 describeHealthServiceStatusForOrganizationResponse_httpStatus = Lens.lens (\DescribeHealthServiceStatusForOrganizationResponse' {httpStatus} -> httpStatus) (\s@DescribeHealthServiceStatusForOrganizationResponse' {} a -> s {httpStatus = a} :: DescribeHealthServiceStatusForOrganizationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeHealthServiceStatusForOrganizationResponse

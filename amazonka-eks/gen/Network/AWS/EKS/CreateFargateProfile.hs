@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,9 +80,9 @@ module Network.AWS.EKS.CreateFargateProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -94,24 +93,24 @@ data CreateFargateProfile = CreateFargateProfile'
     -- optional value, both of which you define. Fargate profile tags do not
     -- propagate to any other resources associated with the Fargate profile,
     -- such as the pods that are scheduled with it.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The selectors to match for pods to use this Fargate profile. Each
     -- selector must have an associated namespace. Optionally, you can also
     -- specify labels for a namespace. You may specify up to five selectors in
     -- a Fargate profile.
-    selectors :: Prelude.Maybe [FargateProfileSelector],
+    selectors :: Core.Maybe [FargateProfileSelector],
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The IDs of subnets to launch your pods into. At this time, pods running
     -- on Fargate are not assigned public IP addresses, so only private subnets
     -- (with no direct route to an Internet Gateway) are accepted for this
     -- parameter.
-    subnets :: Prelude.Maybe [Prelude.Text],
+    subnets :: Core.Maybe [Core.Text],
     -- | The name of the Fargate profile.
-    fargateProfileName :: Prelude.Text,
+    fargateProfileName :: Core.Text,
     -- | The name of the Amazon EKS cluster to apply the Fargate profile to.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the pod execution role to use for pods
     -- that match the selectors in the Fargate profile. The pod execution role
     -- allows Fargate infrastructure to register with your cluster as a node,
@@ -119,9 +118,9 @@ data CreateFargateProfile = CreateFargateProfile'
     -- information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role>
     -- in the /Amazon EKS User Guide/.
-    podExecutionRoleArn :: Prelude.Text
+    podExecutionRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateFargateProfile' with all optional fields omitted.
@@ -163,21 +162,21 @@ data CreateFargateProfile = CreateFargateProfile'
 -- in the /Amazon EKS User Guide/.
 newCreateFargateProfile ::
   -- | 'fargateProfileName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'podExecutionRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateFargateProfile
 newCreateFargateProfile
   pFargateProfileName_
   pClusterName_
   pPodExecutionRoleArn_ =
     CreateFargateProfile'
-      { tags = Prelude.Nothing,
-        selectors = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        subnets = Prelude.Nothing,
+      { tags = Core.Nothing,
+        selectors = Core.Nothing,
+        clientRequestToken = Core.Nothing,
+        subnets = Core.Nothing,
         fargateProfileName = pFargateProfileName_,
         clusterName = pClusterName_,
         podExecutionRoleArn = pPodExecutionRoleArn_
@@ -188,34 +187,34 @@ newCreateFargateProfile
 -- optional value, both of which you define. Fargate profile tags do not
 -- propagate to any other resources associated with the Fargate profile,
 -- such as the pods that are scheduled with it.
-createFargateProfile_tags :: Lens.Lens' CreateFargateProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createFargateProfile_tags = Lens.lens (\CreateFargateProfile' {tags} -> tags) (\s@CreateFargateProfile' {} a -> s {tags = a} :: CreateFargateProfile) Prelude.. Lens.mapping Prelude._Coerce
+createFargateProfile_tags :: Lens.Lens' CreateFargateProfile (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createFargateProfile_tags = Lens.lens (\CreateFargateProfile' {tags} -> tags) (\s@CreateFargateProfile' {} a -> s {tags = a} :: CreateFargateProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The selectors to match for pods to use this Fargate profile. Each
 -- selector must have an associated namespace. Optionally, you can also
 -- specify labels for a namespace. You may specify up to five selectors in
 -- a Fargate profile.
-createFargateProfile_selectors :: Lens.Lens' CreateFargateProfile (Prelude.Maybe [FargateProfileSelector])
-createFargateProfile_selectors = Lens.lens (\CreateFargateProfile' {selectors} -> selectors) (\s@CreateFargateProfile' {} a -> s {selectors = a} :: CreateFargateProfile) Prelude.. Lens.mapping Prelude._Coerce
+createFargateProfile_selectors :: Lens.Lens' CreateFargateProfile (Core.Maybe [FargateProfileSelector])
+createFargateProfile_selectors = Lens.lens (\CreateFargateProfile' {selectors} -> selectors) (\s@CreateFargateProfile' {} a -> s {selectors = a} :: CreateFargateProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-createFargateProfile_clientRequestToken :: Lens.Lens' CreateFargateProfile (Prelude.Maybe Prelude.Text)
+createFargateProfile_clientRequestToken :: Lens.Lens' CreateFargateProfile (Core.Maybe Core.Text)
 createFargateProfile_clientRequestToken = Lens.lens (\CreateFargateProfile' {clientRequestToken} -> clientRequestToken) (\s@CreateFargateProfile' {} a -> s {clientRequestToken = a} :: CreateFargateProfile)
 
 -- | The IDs of subnets to launch your pods into. At this time, pods running
 -- on Fargate are not assigned public IP addresses, so only private subnets
 -- (with no direct route to an Internet Gateway) are accepted for this
 -- parameter.
-createFargateProfile_subnets :: Lens.Lens' CreateFargateProfile (Prelude.Maybe [Prelude.Text])
-createFargateProfile_subnets = Lens.lens (\CreateFargateProfile' {subnets} -> subnets) (\s@CreateFargateProfile' {} a -> s {subnets = a} :: CreateFargateProfile) Prelude.. Lens.mapping Prelude._Coerce
+createFargateProfile_subnets :: Lens.Lens' CreateFargateProfile (Core.Maybe [Core.Text])
+createFargateProfile_subnets = Lens.lens (\CreateFargateProfile' {subnets} -> subnets) (\s@CreateFargateProfile' {} a -> s {subnets = a} :: CreateFargateProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Fargate profile.
-createFargateProfile_fargateProfileName :: Lens.Lens' CreateFargateProfile Prelude.Text
+createFargateProfile_fargateProfileName :: Lens.Lens' CreateFargateProfile Core.Text
 createFargateProfile_fargateProfileName = Lens.lens (\CreateFargateProfile' {fargateProfileName} -> fargateProfileName) (\s@CreateFargateProfile' {} a -> s {fargateProfileName = a} :: CreateFargateProfile)
 
 -- | The name of the Amazon EKS cluster to apply the Fargate profile to.
-createFargateProfile_clusterName :: Lens.Lens' CreateFargateProfile Prelude.Text
+createFargateProfile_clusterName :: Lens.Lens' CreateFargateProfile Core.Text
 createFargateProfile_clusterName = Lens.lens (\CreateFargateProfile' {clusterName} -> clusterName) (\s@CreateFargateProfile' {} a -> s {clusterName = a} :: CreateFargateProfile)
 
 -- | The Amazon Resource Name (ARN) of the pod execution role to use for pods
@@ -225,74 +224,70 @@ createFargateProfile_clusterName = Lens.lens (\CreateFargateProfile' {clusterNam
 -- information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html Pod Execution Role>
 -- in the /Amazon EKS User Guide/.
-createFargateProfile_podExecutionRoleArn :: Lens.Lens' CreateFargateProfile Prelude.Text
+createFargateProfile_podExecutionRoleArn :: Lens.Lens' CreateFargateProfile Core.Text
 createFargateProfile_podExecutionRoleArn = Lens.lens (\CreateFargateProfile' {podExecutionRoleArn} -> podExecutionRoleArn) (\s@CreateFargateProfile' {} a -> s {podExecutionRoleArn = a} :: CreateFargateProfile)
 
-instance Prelude.AWSRequest CreateFargateProfile where
+instance Core.AWSRequest CreateFargateProfile where
   type
-    Rs CreateFargateProfile =
+    AWSResponse CreateFargateProfile =
       CreateFargateProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateFargateProfileResponse'
-            Prelude.<$> (x Prelude..?> "fargateProfile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "fargateProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFargateProfile
+instance Core.Hashable CreateFargateProfile
 
-instance Prelude.NFData CreateFargateProfile
+instance Core.NFData CreateFargateProfile
 
-instance Prelude.ToHeaders CreateFargateProfile where
+instance Core.ToHeaders CreateFargateProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateFargateProfile where
+instance Core.ToJSON CreateFargateProfile where
   toJSON CreateFargateProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            ("selectors" Prelude..=) Prelude.<$> selectors,
-            ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            ("subnets" Prelude..=) Prelude.<$> subnets,
-            Prelude.Just
-              ("fargateProfileName" Prelude..= fargateProfileName),
-            Prelude.Just
-              ( "podExecutionRoleArn"
-                  Prelude..= podExecutionRoleArn
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            ("selectors" Core..=) Core.<$> selectors,
+            ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            ("subnets" Core..=) Core.<$> subnets,
+            Core.Just
+              ("fargateProfileName" Core..= fargateProfileName),
+            Core.Just
+              ("podExecutionRoleArn" Core..= podExecutionRoleArn)
           ]
       )
 
-instance Prelude.ToPath CreateFargateProfile where
+instance Core.ToPath CreateFargateProfile where
   toPath CreateFargateProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/fargate-profiles"
       ]
 
-instance Prelude.ToQuery CreateFargateProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateFargateProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateFargateProfileResponse' smart constructor.
 data CreateFargateProfileResponse = CreateFargateProfileResponse'
   { -- | The full description of your new Fargate profile.
-    fargateProfile :: Prelude.Maybe FargateProfile,
+    fargateProfile :: Core.Maybe FargateProfile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateFargateProfileResponse' with all optional fields omitted.
@@ -307,21 +302,21 @@ data CreateFargateProfileResponse = CreateFargateProfileResponse'
 -- 'httpStatus', 'createFargateProfileResponse_httpStatus' - The response's http status code.
 newCreateFargateProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateFargateProfileResponse
 newCreateFargateProfileResponse pHttpStatus_ =
   CreateFargateProfileResponse'
     { fargateProfile =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The full description of your new Fargate profile.
-createFargateProfileResponse_fargateProfile :: Lens.Lens' CreateFargateProfileResponse (Prelude.Maybe FargateProfile)
+createFargateProfileResponse_fargateProfile :: Lens.Lens' CreateFargateProfileResponse (Core.Maybe FargateProfile)
 createFargateProfileResponse_fargateProfile = Lens.lens (\CreateFargateProfileResponse' {fargateProfile} -> fargateProfile) (\s@CreateFargateProfileResponse' {} a -> s {fargateProfile = a} :: CreateFargateProfileResponse)
 
 -- | The response's http status code.
-createFargateProfileResponse_httpStatus :: Lens.Lens' CreateFargateProfileResponse Prelude.Int
+createFargateProfileResponse_httpStatus :: Lens.Lens' CreateFargateProfileResponse Core.Int
 createFargateProfileResponse_httpStatus = Lens.lens (\CreateFargateProfileResponse' {httpStatus} -> httpStatus) (\s@CreateFargateProfileResponse' {} a -> s {httpStatus = a} :: CreateFargateProfileResponse)
 
-instance Prelude.NFData CreateFargateProfileResponse
+instance Core.NFData CreateFargateProfileResponse

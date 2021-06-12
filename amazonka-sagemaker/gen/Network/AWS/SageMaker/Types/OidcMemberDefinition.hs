@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.OidcMemberDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of user groups that exist in your OIDC Identity Provider (IdP).
 -- One to ten groups can be used to create a single private work team. When
@@ -34,9 +33,9 @@ import qualified Network.AWS.Prelude as Prelude
 data OidcMemberDefinition = OidcMemberDefinition'
   { -- | A list of comma seperated strings that identifies user groups in your
     -- OIDC IdP. Each user group is made up of a group of private workers.
-    groups :: Prelude.NonEmpty Prelude.Text
+    groups :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OidcMemberDefinition' with all optional fields omitted.
@@ -50,35 +49,34 @@ data OidcMemberDefinition = OidcMemberDefinition'
 -- OIDC IdP. Each user group is made up of a group of private workers.
 newOidcMemberDefinition ::
   -- | 'groups'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   OidcMemberDefinition
 newOidcMemberDefinition pGroups_ =
   OidcMemberDefinition'
     { groups =
-        Prelude._Coerce Lens.# pGroups_
+        Lens._Coerce Lens.# pGroups_
     }
 
 -- | A list of comma seperated strings that identifies user groups in your
 -- OIDC IdP. Each user group is made up of a group of private workers.
-oidcMemberDefinition_groups :: Lens.Lens' OidcMemberDefinition (Prelude.NonEmpty Prelude.Text)
-oidcMemberDefinition_groups = Lens.lens (\OidcMemberDefinition' {groups} -> groups) (\s@OidcMemberDefinition' {} a -> s {groups = a} :: OidcMemberDefinition) Prelude.. Prelude._Coerce
+oidcMemberDefinition_groups :: Lens.Lens' OidcMemberDefinition (Core.NonEmpty Core.Text)
+oidcMemberDefinition_groups = Lens.lens (\OidcMemberDefinition' {groups} -> groups) (\s@OidcMemberDefinition' {} a -> s {groups = a} :: OidcMemberDefinition) Core.. Lens._Coerce
 
-instance Prelude.FromJSON OidcMemberDefinition where
+instance Core.FromJSON OidcMemberDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OidcMemberDefinition"
       ( \x ->
-          OidcMemberDefinition'
-            Prelude.<$> (x Prelude..: "Groups")
+          OidcMemberDefinition' Core.<$> (x Core..: "Groups")
       )
 
-instance Prelude.Hashable OidcMemberDefinition
+instance Core.Hashable OidcMemberDefinition
 
-instance Prelude.NFData OidcMemberDefinition
+instance Core.NFData OidcMemberDefinition
 
-instance Prelude.ToJSON OidcMemberDefinition where
+instance Core.ToJSON OidcMemberDefinition where
   toJSON OidcMemberDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Groups" Prelude..= groups)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Groups" Core..= groups)]
       )

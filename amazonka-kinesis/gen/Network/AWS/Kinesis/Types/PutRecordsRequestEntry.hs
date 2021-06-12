@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Kinesis.Types.PutRecordsRequestEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output for @PutRecords@.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data PutRecordsRequestEntry = PutRecordsRequestEntry'
   { -- | The hash value used to determine explicitly the shard that the data
     -- record is assigned to by overriding the partition key hash.
-    explicitHashKey :: Prelude.Maybe Prelude.Text,
+    explicitHashKey :: Core.Maybe Core.Text,
     -- | The data blob to put into the record, which is base64-encoded when the
     -- blob is serialized. When the data blob (the payload before
     -- base64-encoding) is added to the partition key size, the total size must
     -- not exceed the maximum record size (1 MiB).
-    data' :: Prelude.Base64,
+    data' :: Core.Base64,
     -- | Determines which shard in the stream the data record is assigned to.
     -- Partition keys are Unicode strings with a maximum length limit of 256
     -- characters for each key. Amazon Kinesis Data Streams uses the partition
@@ -44,9 +43,9 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'
     -- associated data records to shards. As a result of this hashing
     -- mechanism, all data records with the same partition key map to the same
     -- shard within the stream.
-    partitionKey :: Prelude.Text
+    partitionKey :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRecordsRequestEntry' with all optional fields omitted.
@@ -79,21 +78,21 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'
 -- shard within the stream.
 newPutRecordsRequestEntry ::
   -- | 'data''
-  Prelude.ByteString ->
+  Core.ByteString ->
   -- | 'partitionKey'
-  Prelude.Text ->
+  Core.Text ->
   PutRecordsRequestEntry
 newPutRecordsRequestEntry pData_ pPartitionKey_ =
   PutRecordsRequestEntry'
     { explicitHashKey =
-        Prelude.Nothing,
-      data' = Prelude._Base64 Lens.# pData_,
+        Core.Nothing,
+      data' = Core._Base64 Lens.# pData_,
       partitionKey = pPartitionKey_
     }
 
 -- | The hash value used to determine explicitly the shard that the data
 -- record is assigned to by overriding the partition key hash.
-putRecordsRequestEntry_explicitHashKey :: Lens.Lens' PutRecordsRequestEntry (Prelude.Maybe Prelude.Text)
+putRecordsRequestEntry_explicitHashKey :: Lens.Lens' PutRecordsRequestEntry (Core.Maybe Core.Text)
 putRecordsRequestEntry_explicitHashKey = Lens.lens (\PutRecordsRequestEntry' {explicitHashKey} -> explicitHashKey) (\s@PutRecordsRequestEntry' {} a -> s {explicitHashKey = a} :: PutRecordsRequestEntry)
 
 -- | The data blob to put into the record, which is base64-encoded when the
@@ -104,8 +103,8 @@ putRecordsRequestEntry_explicitHashKey = Lens.lens (\PutRecordsRequestEntry' {ex
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-putRecordsRequestEntry_data :: Lens.Lens' PutRecordsRequestEntry Prelude.ByteString
-putRecordsRequestEntry_data = Lens.lens (\PutRecordsRequestEntry' {data'} -> data') (\s@PutRecordsRequestEntry' {} a -> s {data' = a} :: PutRecordsRequestEntry) Prelude.. Prelude._Base64
+putRecordsRequestEntry_data :: Lens.Lens' PutRecordsRequestEntry Core.ByteString
+putRecordsRequestEntry_data = Lens.lens (\PutRecordsRequestEntry' {data'} -> data') (\s@PutRecordsRequestEntry' {} a -> s {data' = a} :: PutRecordsRequestEntry) Core.. Core._Base64
 
 -- | Determines which shard in the stream the data record is assigned to.
 -- Partition keys are Unicode strings with a maximum length limit of 256
@@ -116,21 +115,20 @@ putRecordsRequestEntry_data = Lens.lens (\PutRecordsRequestEntry' {data'} -> dat
 -- associated data records to shards. As a result of this hashing
 -- mechanism, all data records with the same partition key map to the same
 -- shard within the stream.
-putRecordsRequestEntry_partitionKey :: Lens.Lens' PutRecordsRequestEntry Prelude.Text
+putRecordsRequestEntry_partitionKey :: Lens.Lens' PutRecordsRequestEntry Core.Text
 putRecordsRequestEntry_partitionKey = Lens.lens (\PutRecordsRequestEntry' {partitionKey} -> partitionKey) (\s@PutRecordsRequestEntry' {} a -> s {partitionKey = a} :: PutRecordsRequestEntry)
 
-instance Prelude.Hashable PutRecordsRequestEntry
+instance Core.Hashable PutRecordsRequestEntry
 
-instance Prelude.NFData PutRecordsRequestEntry
+instance Core.NFData PutRecordsRequestEntry
 
-instance Prelude.ToJSON PutRecordsRequestEntry where
+instance Core.ToJSON PutRecordsRequestEntry where
   toJSON PutRecordsRequestEntry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExplicitHashKey" Prelude..=)
-              Prelude.<$> explicitHashKey,
-            Prelude.Just ("Data" Prelude..= data'),
-            Prelude.Just
-              ("PartitionKey" Prelude..= partitionKey)
+    Core.object
+      ( Core.catMaybes
+          [ ("ExplicitHashKey" Core..=)
+              Core.<$> explicitHashKey,
+            Core.Just ("Data" Core..= data'),
+            Core.Just ("PartitionKey" Core..= partitionKey)
           ]
       )

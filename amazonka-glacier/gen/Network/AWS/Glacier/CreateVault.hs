@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,9 +64,9 @@ module Network.AWS.Glacier.CreateVault
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,11 +80,11 @@ data CreateVault = CreateVault'
     -- (hyphen), in which case Amazon S3 Glacier uses the AWS account ID
     -- associated with the credentials used to sign the request. If you specify
     -- your account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVault' with all optional fields omitted.
@@ -105,9 +104,9 @@ data CreateVault = CreateVault'
 -- 'vaultName', 'createVault_vaultName' - The name of the vault.
 newCreateVault ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   CreateVault
 newCreateVault pAccountId_ pVaultName_ =
   CreateVault'
@@ -121,59 +120,58 @@ newCreateVault pAccountId_ pVaultName_ =
 -- (hyphen), in which case Amazon S3 Glacier uses the AWS account ID
 -- associated with the credentials used to sign the request. If you specify
 -- your account ID, do not include any hyphens (\'-\') in the ID.
-createVault_accountId :: Lens.Lens' CreateVault Prelude.Text
+createVault_accountId :: Lens.Lens' CreateVault Core.Text
 createVault_accountId = Lens.lens (\CreateVault' {accountId} -> accountId) (\s@CreateVault' {} a -> s {accountId = a} :: CreateVault)
 
 -- | The name of the vault.
-createVault_vaultName :: Lens.Lens' CreateVault Prelude.Text
+createVault_vaultName :: Lens.Lens' CreateVault Core.Text
 createVault_vaultName = Lens.lens (\CreateVault' {vaultName} -> vaultName) (\s@CreateVault' {} a -> s {vaultName = a} :: CreateVault)
 
-instance Prelude.AWSRequest CreateVault where
-  type Rs CreateVault = CreateVaultResponse
+instance Core.AWSRequest CreateVault where
+  type AWSResponse CreateVault = CreateVaultResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.putJSON defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateVaultResponse'
-            Prelude.<$> (h Prelude..#? "Location")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "Location")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateVault
+instance Core.Hashable CreateVault
 
-instance Prelude.NFData CreateVault
+instance Core.NFData CreateVault
 
-instance Prelude.ToHeaders CreateVault where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateVault where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateVault where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON CreateVault where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath CreateVault where
+instance Core.ToPath CreateVault where
   toPath CreateVault' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName
+        Core.toBS vaultName
       ]
 
-instance Prelude.ToQuery CreateVault where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateVault where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'newCreateVaultResponse' smart constructor.
 data CreateVaultResponse = CreateVaultResponse'
   { -- | The URI of the vault that was created.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVaultResponse' with all optional fields omitted.
@@ -188,20 +186,20 @@ data CreateVaultResponse = CreateVaultResponse'
 -- 'httpStatus', 'createVaultResponse_httpStatus' - The response's http status code.
 newCreateVaultResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateVaultResponse
 newCreateVaultResponse pHttpStatus_ =
   CreateVaultResponse'
-    { location = Prelude.Nothing,
+    { location = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The URI of the vault that was created.
-createVaultResponse_location :: Lens.Lens' CreateVaultResponse (Prelude.Maybe Prelude.Text)
+createVaultResponse_location :: Lens.Lens' CreateVaultResponse (Core.Maybe Core.Text)
 createVaultResponse_location = Lens.lens (\CreateVaultResponse' {location} -> location) (\s@CreateVaultResponse' {} a -> s {location = a} :: CreateVaultResponse)
 
 -- | The response's http status code.
-createVaultResponse_httpStatus :: Lens.Lens' CreateVaultResponse Prelude.Int
+createVaultResponse_httpStatus :: Lens.Lens' CreateVaultResponse Core.Int
 createVaultResponse_httpStatus = Lens.lens (\CreateVaultResponse' {httpStatus} -> httpStatus) (\s@CreateVaultResponse' {} a -> s {httpStatus = a} :: CreateVaultResponse)
 
-instance Prelude.NFData CreateVaultResponse
+instance Core.NFData CreateVaultResponse

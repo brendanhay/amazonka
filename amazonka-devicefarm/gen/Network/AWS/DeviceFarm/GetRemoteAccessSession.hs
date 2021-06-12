@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.DeviceFarm.GetRemoteAccessSession
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data GetRemoteAccessSession = GetRemoteAccessSession'
   { -- | The Amazon Resource Name (ARN) of the remote access session about which
     -- you want to get session information.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRemoteAccessSession' with all optional fields omitted.
@@ -69,60 +68,56 @@ data GetRemoteAccessSession = GetRemoteAccessSession'
 -- you want to get session information.
 newGetRemoteAccessSession ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetRemoteAccessSession
 newGetRemoteAccessSession pArn_ =
   GetRemoteAccessSession' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the remote access session about which
 -- you want to get session information.
-getRemoteAccessSession_arn :: Lens.Lens' GetRemoteAccessSession Prelude.Text
+getRemoteAccessSession_arn :: Lens.Lens' GetRemoteAccessSession Core.Text
 getRemoteAccessSession_arn = Lens.lens (\GetRemoteAccessSession' {arn} -> arn) (\s@GetRemoteAccessSession' {} a -> s {arn = a} :: GetRemoteAccessSession)
 
-instance Prelude.AWSRequest GetRemoteAccessSession where
+instance Core.AWSRequest GetRemoteAccessSession where
   type
-    Rs GetRemoteAccessSession =
+    AWSResponse GetRemoteAccessSession =
       GetRemoteAccessSessionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRemoteAccessSessionResponse'
-            Prelude.<$> (x Prelude..?> "remoteAccessSession")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "remoteAccessSession")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRemoteAccessSession
+instance Core.Hashable GetRemoteAccessSession
 
-instance Prelude.NFData GetRemoteAccessSession
+instance Core.NFData GetRemoteAccessSession
 
-instance Prelude.ToHeaders GetRemoteAccessSession where
+instance Core.ToHeaders GetRemoteAccessSession where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetRemoteAccessSession" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.GetRemoteAccessSession" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRemoteAccessSession where
+instance Core.ToJSON GetRemoteAccessSession where
   toJSON GetRemoteAccessSession' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetRemoteAccessSession where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRemoteAccessSession where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRemoteAccessSession where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRemoteAccessSession where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server that lists detailed information
 -- about the remote access session.
@@ -131,11 +126,11 @@ instance Prelude.ToQuery GetRemoteAccessSession where
 data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
   { -- | A container that lists detailed information about the remote access
     -- session.
-    remoteAccessSession :: Prelude.Maybe RemoteAccessSession,
+    remoteAccessSession :: Core.Maybe RemoteAccessSession,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRemoteAccessSessionResponse' with all optional fields omitted.
@@ -151,24 +146,22 @@ data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
 -- 'httpStatus', 'getRemoteAccessSessionResponse_httpStatus' - The response's http status code.
 newGetRemoteAccessSessionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRemoteAccessSessionResponse
 newGetRemoteAccessSessionResponse pHttpStatus_ =
   GetRemoteAccessSessionResponse'
     { remoteAccessSession =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A container that lists detailed information about the remote access
 -- session.
-getRemoteAccessSessionResponse_remoteAccessSession :: Lens.Lens' GetRemoteAccessSessionResponse (Prelude.Maybe RemoteAccessSession)
+getRemoteAccessSessionResponse_remoteAccessSession :: Lens.Lens' GetRemoteAccessSessionResponse (Core.Maybe RemoteAccessSession)
 getRemoteAccessSessionResponse_remoteAccessSession = Lens.lens (\GetRemoteAccessSessionResponse' {remoteAccessSession} -> remoteAccessSession) (\s@GetRemoteAccessSessionResponse' {} a -> s {remoteAccessSession = a} :: GetRemoteAccessSessionResponse)
 
 -- | The response's http status code.
-getRemoteAccessSessionResponse_httpStatus :: Lens.Lens' GetRemoteAccessSessionResponse Prelude.Int
+getRemoteAccessSessionResponse_httpStatus :: Lens.Lens' GetRemoteAccessSessionResponse Core.Int
 getRemoteAccessSessionResponse_httpStatus = Lens.lens (\GetRemoteAccessSessionResponse' {httpStatus} -> httpStatus) (\s@GetRemoteAccessSessionResponse' {} a -> s {httpStatus = a} :: GetRemoteAccessSessionResponse)
 
-instance
-  Prelude.NFData
-    GetRemoteAccessSessionResponse
+instance Core.NFData GetRemoteAccessSessionResponse

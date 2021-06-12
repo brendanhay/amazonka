@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,20 +20,20 @@
 module Network.AWS.Config.Types.ConformancePackComplianceSummary where
 
 import Network.AWS.Config.Types.ConformancePackComplianceType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Summary includes the name and status of the conformance pack.
 --
 -- /See:/ 'newConformancePackComplianceSummary' smart constructor.
 data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
   { -- | The name of the conformance pack name.
-    conformancePackName :: Prelude.Text,
+    conformancePackName :: Core.Text,
     -- | The status of the conformance pack. The allowed values are COMPLIANT and
     -- NON_COMPLIANT.
     conformancePackComplianceStatus :: ConformancePackComplianceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConformancePackComplianceSummary' with all optional fields omitted.
@@ -50,7 +49,7 @@ data ConformancePackComplianceSummary = ConformancePackComplianceSummary'
 -- NON_COMPLIANT.
 newConformancePackComplianceSummary ::
   -- | 'conformancePackName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'conformancePackComplianceStatus'
   ConformancePackComplianceType ->
   ConformancePackComplianceSummary
@@ -65,7 +64,7 @@ newConformancePackComplianceSummary
       }
 
 -- | The name of the conformance pack name.
-conformancePackComplianceSummary_conformancePackName :: Lens.Lens' ConformancePackComplianceSummary Prelude.Text
+conformancePackComplianceSummary_conformancePackName :: Lens.Lens' ConformancePackComplianceSummary Core.Text
 conformancePackComplianceSummary_conformancePackName = Lens.lens (\ConformancePackComplianceSummary' {conformancePackName} -> conformancePackName) (\s@ConformancePackComplianceSummary' {} a -> s {conformancePackName = a} :: ConformancePackComplianceSummary)
 
 -- | The status of the conformance pack. The allowed values are COMPLIANT and
@@ -74,22 +73,20 @@ conformancePackComplianceSummary_conformancePackComplianceStatus :: Lens.Lens' C
 conformancePackComplianceSummary_conformancePackComplianceStatus = Lens.lens (\ConformancePackComplianceSummary' {conformancePackComplianceStatus} -> conformancePackComplianceStatus) (\s@ConformancePackComplianceSummary' {} a -> s {conformancePackComplianceStatus = a} :: ConformancePackComplianceSummary)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ConformancePackComplianceSummary
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConformancePackComplianceSummary"
       ( \x ->
           ConformancePackComplianceSummary'
-            Prelude.<$> (x Prelude..: "ConformancePackName")
-            Prelude.<*> (x Prelude..: "ConformancePackComplianceStatus")
+            Core.<$> (x Core..: "ConformancePackName")
+            Core.<*> (x Core..: "ConformancePackComplianceStatus")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ConformancePackComplianceSummary
 
-instance
-  Prelude.NFData
-    ConformancePackComplianceSummary
+instance Core.NFData ConformancePackComplianceSummary

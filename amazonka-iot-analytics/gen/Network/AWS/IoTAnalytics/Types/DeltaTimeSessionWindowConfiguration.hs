@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains the configuration information of a delta time
 -- session window.
@@ -43,9 +42,9 @@ data DeltaTimeSessionWindowConfiguration = DeltaTimeSessionWindowConfiguration'
     -- For more information about how to write a timestamp expression, see
     -- <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators>,
     -- in the /Presto 0.172 Documentation/.
-    timeoutInMinutes :: Prelude.Natural
+    timeoutInMinutes :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeltaTimeSessionWindowConfiguration' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DeltaTimeSessionWindowConfiguration = DeltaTimeSessionWindowConfiguration'
 -- in the /Presto 0.172 Documentation/.
 newDeltaTimeSessionWindowConfiguration ::
   -- | 'timeoutInMinutes'
-  Prelude.Natural ->
+  Core.Natural ->
   DeltaTimeSessionWindowConfiguration
 newDeltaTimeSessionWindowConfiguration
   pTimeoutInMinutes_ =
@@ -82,37 +81,37 @@ newDeltaTimeSessionWindowConfiguration
 -- For more information about how to write a timestamp expression, see
 -- <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators>,
 -- in the /Presto 0.172 Documentation/.
-deltaTimeSessionWindowConfiguration_timeoutInMinutes :: Lens.Lens' DeltaTimeSessionWindowConfiguration Prelude.Natural
+deltaTimeSessionWindowConfiguration_timeoutInMinutes :: Lens.Lens' DeltaTimeSessionWindowConfiguration Core.Natural
 deltaTimeSessionWindowConfiguration_timeoutInMinutes = Lens.lens (\DeltaTimeSessionWindowConfiguration' {timeoutInMinutes} -> timeoutInMinutes) (\s@DeltaTimeSessionWindowConfiguration' {} a -> s {timeoutInMinutes = a} :: DeltaTimeSessionWindowConfiguration)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     DeltaTimeSessionWindowConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeltaTimeSessionWindowConfiguration"
       ( \x ->
           DeltaTimeSessionWindowConfiguration'
-            Prelude.<$> (x Prelude..: "timeoutInMinutes")
+            Core.<$> (x Core..: "timeoutInMinutes")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeltaTimeSessionWindowConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeltaTimeSessionWindowConfiguration
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeltaTimeSessionWindowConfiguration
   where
   toJSON DeltaTimeSessionWindowConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("timeoutInMinutes" Prelude..= timeoutInMinutes)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("timeoutInMinutes" Core..= timeoutInMinutes)
           ]
       )

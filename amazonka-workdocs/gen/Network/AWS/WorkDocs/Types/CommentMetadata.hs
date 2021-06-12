@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.CommentMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.CommentStatusType
 import Network.AWS.WorkDocs.Types.User
 
@@ -30,17 +29,17 @@ import Network.AWS.WorkDocs.Types.User
 -- /See:/ 'newCommentMetadata' smart constructor.
 data CommentMetadata = CommentMetadata'
   { -- | The status of the comment.
-    commentStatus :: Prelude.Maybe CommentStatusType,
+    commentStatus :: Core.Maybe CommentStatusType,
     -- | The timestamp that the comment was created.
-    createdTimestamp :: Prelude.Maybe Prelude.POSIX,
+    createdTimestamp :: Core.Maybe Core.POSIX,
     -- | The user who made the comment.
-    contributor :: Prelude.Maybe User,
+    contributor :: Core.Maybe User,
     -- | The ID of the user being replied to.
-    recipientId :: Prelude.Maybe Prelude.Text,
+    recipientId :: Core.Maybe Core.Text,
     -- | The ID of the comment.
-    commentId :: Prelude.Maybe Prelude.Text
+    commentId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CommentMetadata' with all optional fields omitted.
@@ -63,46 +62,46 @@ newCommentMetadata ::
   CommentMetadata
 newCommentMetadata =
   CommentMetadata'
-    { commentStatus = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      contributor = Prelude.Nothing,
-      recipientId = Prelude.Nothing,
-      commentId = Prelude.Nothing
+    { commentStatus = Core.Nothing,
+      createdTimestamp = Core.Nothing,
+      contributor = Core.Nothing,
+      recipientId = Core.Nothing,
+      commentId = Core.Nothing
     }
 
 -- | The status of the comment.
-commentMetadata_commentStatus :: Lens.Lens' CommentMetadata (Prelude.Maybe CommentStatusType)
+commentMetadata_commentStatus :: Lens.Lens' CommentMetadata (Core.Maybe CommentStatusType)
 commentMetadata_commentStatus = Lens.lens (\CommentMetadata' {commentStatus} -> commentStatus) (\s@CommentMetadata' {} a -> s {commentStatus = a} :: CommentMetadata)
 
 -- | The timestamp that the comment was created.
-commentMetadata_createdTimestamp :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.UTCTime)
-commentMetadata_createdTimestamp = Lens.lens (\CommentMetadata' {createdTimestamp} -> createdTimestamp) (\s@CommentMetadata' {} a -> s {createdTimestamp = a} :: CommentMetadata) Prelude.. Lens.mapping Prelude._Time
+commentMetadata_createdTimestamp :: Lens.Lens' CommentMetadata (Core.Maybe Core.UTCTime)
+commentMetadata_createdTimestamp = Lens.lens (\CommentMetadata' {createdTimestamp} -> createdTimestamp) (\s@CommentMetadata' {} a -> s {createdTimestamp = a} :: CommentMetadata) Core.. Lens.mapping Core._Time
 
 -- | The user who made the comment.
-commentMetadata_contributor :: Lens.Lens' CommentMetadata (Prelude.Maybe User)
+commentMetadata_contributor :: Lens.Lens' CommentMetadata (Core.Maybe User)
 commentMetadata_contributor = Lens.lens (\CommentMetadata' {contributor} -> contributor) (\s@CommentMetadata' {} a -> s {contributor = a} :: CommentMetadata)
 
 -- | The ID of the user being replied to.
-commentMetadata_recipientId :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.Text)
+commentMetadata_recipientId :: Lens.Lens' CommentMetadata (Core.Maybe Core.Text)
 commentMetadata_recipientId = Lens.lens (\CommentMetadata' {recipientId} -> recipientId) (\s@CommentMetadata' {} a -> s {recipientId = a} :: CommentMetadata)
 
 -- | The ID of the comment.
-commentMetadata_commentId :: Lens.Lens' CommentMetadata (Prelude.Maybe Prelude.Text)
+commentMetadata_commentId :: Lens.Lens' CommentMetadata (Core.Maybe Core.Text)
 commentMetadata_commentId = Lens.lens (\CommentMetadata' {commentId} -> commentId) (\s@CommentMetadata' {} a -> s {commentId = a} :: CommentMetadata)
 
-instance Prelude.FromJSON CommentMetadata where
+instance Core.FromJSON CommentMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CommentMetadata"
       ( \x ->
           CommentMetadata'
-            Prelude.<$> (x Prelude..:? "CommentStatus")
-            Prelude.<*> (x Prelude..:? "CreatedTimestamp")
-            Prelude.<*> (x Prelude..:? "Contributor")
-            Prelude.<*> (x Prelude..:? "RecipientId")
-            Prelude.<*> (x Prelude..:? "CommentId")
+            Core.<$> (x Core..:? "CommentStatus")
+            Core.<*> (x Core..:? "CreatedTimestamp")
+            Core.<*> (x Core..:? "Contributor")
+            Core.<*> (x Core..:? "RecipientId")
+            Core.<*> (x Core..:? "CommentId")
       )
 
-instance Prelude.Hashable CommentMetadata
+instance Core.Hashable CommentMetadata
 
-instance Prelude.NFData CommentMetadata
+instance Core.NFData CommentMetadata

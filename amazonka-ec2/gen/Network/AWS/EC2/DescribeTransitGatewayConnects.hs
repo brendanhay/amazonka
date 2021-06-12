@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,28 +46,27 @@ module Network.AWS.EC2.DescribeTransitGatewayConnects
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeTransitGatewayConnects' smart constructor.
 data DescribeTransitGatewayConnects = DescribeTransitGatewayConnects'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The IDs of the attachments.
-    transitGatewayAttachmentIds :: Prelude.Maybe [Prelude.Text],
+    transitGatewayAttachmentIds :: Core.Maybe [Core.Text],
     -- | One or more filters. The possible values are:
     --
     -- -   @options.protocol@ - The tunnel protocol (@gre@).
@@ -84,9 +82,9 @@ data DescribeTransitGatewayConnects = DescribeTransitGatewayConnects'
     --
     -- -   @transport-transit-gateway-attachment-id@ - The ID of the transit
     --     gateway attachment from which the Connect attachment was created.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTransitGatewayConnects' with all optional fields omitted.
@@ -129,34 +127,33 @@ newDescribeTransitGatewayConnects ::
 newDescribeTransitGatewayConnects =
   DescribeTransitGatewayConnects'
     { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      transitGatewayAttachmentIds =
-        Prelude.Nothing,
-      filters = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      transitGatewayAttachmentIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeTransitGatewayConnects_nextToken :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe Prelude.Text)
+describeTransitGatewayConnects_nextToken :: Lens.Lens' DescribeTransitGatewayConnects (Core.Maybe Core.Text)
 describeTransitGatewayConnects_nextToken = Lens.lens (\DescribeTransitGatewayConnects' {nextToken} -> nextToken) (\s@DescribeTransitGatewayConnects' {} a -> s {nextToken = a} :: DescribeTransitGatewayConnects)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeTransitGatewayConnects_dryRun :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe Prelude.Bool)
+describeTransitGatewayConnects_dryRun :: Lens.Lens' DescribeTransitGatewayConnects (Core.Maybe Core.Bool)
 describeTransitGatewayConnects_dryRun = Lens.lens (\DescribeTransitGatewayConnects' {dryRun} -> dryRun) (\s@DescribeTransitGatewayConnects' {} a -> s {dryRun = a} :: DescribeTransitGatewayConnects)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeTransitGatewayConnects_maxResults :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe Prelude.Natural)
+describeTransitGatewayConnects_maxResults :: Lens.Lens' DescribeTransitGatewayConnects (Core.Maybe Core.Natural)
 describeTransitGatewayConnects_maxResults = Lens.lens (\DescribeTransitGatewayConnects' {maxResults} -> maxResults) (\s@DescribeTransitGatewayConnects' {} a -> s {maxResults = a} :: DescribeTransitGatewayConnects)
 
 -- | The IDs of the attachments.
-describeTransitGatewayConnects_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe [Prelude.Text])
-describeTransitGatewayConnects_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayConnects' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayConnects' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayConnects) Prelude.. Lens.mapping Prelude._Coerce
+describeTransitGatewayConnects_transitGatewayAttachmentIds :: Lens.Lens' DescribeTransitGatewayConnects (Core.Maybe [Core.Text])
+describeTransitGatewayConnects_transitGatewayAttachmentIds = Lens.lens (\DescribeTransitGatewayConnects' {transitGatewayAttachmentIds} -> transitGatewayAttachmentIds) (\s@DescribeTransitGatewayConnects' {} a -> s {transitGatewayAttachmentIds = a} :: DescribeTransitGatewayConnects) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters. The possible values are:
 --
@@ -173,108 +170,94 @@ describeTransitGatewayConnects_transitGatewayAttachmentIds = Lens.lens (\Describ
 --
 -- -   @transport-transit-gateway-attachment-id@ - The ID of the transit
 --     gateway attachment from which the Connect attachment was created.
-describeTransitGatewayConnects_filters :: Lens.Lens' DescribeTransitGatewayConnects (Prelude.Maybe [Filter])
-describeTransitGatewayConnects_filters = Lens.lens (\DescribeTransitGatewayConnects' {filters} -> filters) (\s@DescribeTransitGatewayConnects' {} a -> s {filters = a} :: DescribeTransitGatewayConnects) Prelude.. Lens.mapping Prelude._Coerce
+describeTransitGatewayConnects_filters :: Lens.Lens' DescribeTransitGatewayConnects (Core.Maybe [Filter])
+describeTransitGatewayConnects_filters = Lens.lens (\DescribeTransitGatewayConnects' {filters} -> filters) (\s@DescribeTransitGatewayConnects' {} a -> s {filters = a} :: DescribeTransitGatewayConnects) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Pager.AWSPager
-    DescribeTransitGatewayConnects
-  where
+instance Core.AWSPager DescribeTransitGatewayConnects where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeTransitGatewayConnectsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeTransitGatewayConnectsResponse_transitGatewayConnects
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeTransitGatewayConnects_nextToken
           Lens..~ rs
           Lens.^? describeTransitGatewayConnectsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeTransitGatewayConnects
   where
   type
-    Rs DescribeTransitGatewayConnects =
+    AWSResponse DescribeTransitGatewayConnects =
       DescribeTransitGatewayConnectsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeTransitGatewayConnectsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "transitGatewayConnectSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "transitGatewayConnectSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeTransitGatewayConnects
+instance Core.Hashable DescribeTransitGatewayConnects
+
+instance Core.NFData DescribeTransitGatewayConnects
 
 instance
-  Prelude.NFData
-    DescribeTransitGatewayConnects
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeTransitGatewayConnects
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DescribeTransitGatewayConnects
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTransitGatewayConnects where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeTransitGatewayConnects
-  where
+instance Core.ToQuery DescribeTransitGatewayConnects where
   toQuery DescribeTransitGatewayConnects' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeTransitGatewayConnects" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          ( Prelude.toQueryList "TransitGatewayAttachmentIds"
-              Prelude.<$> transitGatewayAttachmentIds
+          Core.=: ( "DescribeTransitGatewayConnects" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          ( Core.toQueryList "TransitGatewayAttachmentIds"
+              Core.<$> transitGatewayAttachmentIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeTransitGatewayConnectsResponse' smart constructor.
 data DescribeTransitGatewayConnectsResponse = DescribeTransitGatewayConnectsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the Connect attachments.
-    transitGatewayConnects :: Prelude.Maybe [TransitGatewayConnect],
+    transitGatewayConnects :: Core.Maybe [TransitGatewayConnect],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTransitGatewayConnectsResponse' with all optional fields omitted.
@@ -292,31 +275,31 @@ data DescribeTransitGatewayConnectsResponse = DescribeTransitGatewayConnectsResp
 -- 'httpStatus', 'describeTransitGatewayConnectsResponse_httpStatus' - The response's http status code.
 newDescribeTransitGatewayConnectsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTransitGatewayConnectsResponse
 newDescribeTransitGatewayConnectsResponse
   pHttpStatus_ =
     DescribeTransitGatewayConnectsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         transitGatewayConnects =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeTransitGatewayConnectsResponse_nextToken :: Lens.Lens' DescribeTransitGatewayConnectsResponse (Prelude.Maybe Prelude.Text)
+describeTransitGatewayConnectsResponse_nextToken :: Lens.Lens' DescribeTransitGatewayConnectsResponse (Core.Maybe Core.Text)
 describeTransitGatewayConnectsResponse_nextToken = Lens.lens (\DescribeTransitGatewayConnectsResponse' {nextToken} -> nextToken) (\s@DescribeTransitGatewayConnectsResponse' {} a -> s {nextToken = a} :: DescribeTransitGatewayConnectsResponse)
 
 -- | Information about the Connect attachments.
-describeTransitGatewayConnectsResponse_transitGatewayConnects :: Lens.Lens' DescribeTransitGatewayConnectsResponse (Prelude.Maybe [TransitGatewayConnect])
-describeTransitGatewayConnectsResponse_transitGatewayConnects = Lens.lens (\DescribeTransitGatewayConnectsResponse' {transitGatewayConnects} -> transitGatewayConnects) (\s@DescribeTransitGatewayConnectsResponse' {} a -> s {transitGatewayConnects = a} :: DescribeTransitGatewayConnectsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTransitGatewayConnectsResponse_transitGatewayConnects :: Lens.Lens' DescribeTransitGatewayConnectsResponse (Core.Maybe [TransitGatewayConnect])
+describeTransitGatewayConnectsResponse_transitGatewayConnects = Lens.lens (\DescribeTransitGatewayConnectsResponse' {transitGatewayConnects} -> transitGatewayConnects) (\s@DescribeTransitGatewayConnectsResponse' {} a -> s {transitGatewayConnects = a} :: DescribeTransitGatewayConnectsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeTransitGatewayConnectsResponse_httpStatus :: Lens.Lens' DescribeTransitGatewayConnectsResponse Prelude.Int
+describeTransitGatewayConnectsResponse_httpStatus :: Lens.Lens' DescribeTransitGatewayConnectsResponse Core.Int
 describeTransitGatewayConnectsResponse_httpStatus = Lens.lens (\DescribeTransitGatewayConnectsResponse' {httpStatus} -> httpStatus) (\s@DescribeTransitGatewayConnectsResponse' {} a -> s {httpStatus = a} :: DescribeTransitGatewayConnectsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeTransitGatewayConnectsResponse

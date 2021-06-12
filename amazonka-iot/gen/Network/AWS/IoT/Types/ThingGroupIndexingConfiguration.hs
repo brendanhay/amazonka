@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ThingGroupIndexingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Field
 import Network.AWS.IoT.Types.ThingGroupIndexingMode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Thing group indexing configuration.
 --
@@ -31,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 data ThingGroupIndexingConfiguration = ThingGroupIndexingConfiguration'
   { -- | Contains fields that are indexed and whose types are already known by
     -- the Fleet Indexing service.
-    managedFields :: Prelude.Maybe [Field],
+    managedFields :: Core.Maybe [Field],
     -- | A list of thing group fields to index. This list cannot contain any
     -- managed fields. Use the GetIndexingConfiguration API to get a list of
     -- managed fields.
     --
     -- Contains custom field names and their data type.
-    customFields :: Prelude.Maybe [Field],
+    customFields :: Core.Maybe [Field],
     -- | Thing group indexing mode.
     thingGroupIndexingMode :: ThingGroupIndexingMode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ThingGroupIndexingConfiguration' with all optional fields omitted.
@@ -69,68 +68,58 @@ newThingGroupIndexingConfiguration
   pThingGroupIndexingMode_ =
     ThingGroupIndexingConfiguration'
       { managedFields =
-          Prelude.Nothing,
-        customFields = Prelude.Nothing,
+          Core.Nothing,
+        customFields = Core.Nothing,
         thingGroupIndexingMode =
           pThingGroupIndexingMode_
       }
 
 -- | Contains fields that are indexed and whose types are already known by
 -- the Fleet Indexing service.
-thingGroupIndexingConfiguration_managedFields :: Lens.Lens' ThingGroupIndexingConfiguration (Prelude.Maybe [Field])
-thingGroupIndexingConfiguration_managedFields = Lens.lens (\ThingGroupIndexingConfiguration' {managedFields} -> managedFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {managedFields = a} :: ThingGroupIndexingConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+thingGroupIndexingConfiguration_managedFields :: Lens.Lens' ThingGroupIndexingConfiguration (Core.Maybe [Field])
+thingGroupIndexingConfiguration_managedFields = Lens.lens (\ThingGroupIndexingConfiguration' {managedFields} -> managedFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {managedFields = a} :: ThingGroupIndexingConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of thing group fields to index. This list cannot contain any
 -- managed fields. Use the GetIndexingConfiguration API to get a list of
 -- managed fields.
 --
 -- Contains custom field names and their data type.
-thingGroupIndexingConfiguration_customFields :: Lens.Lens' ThingGroupIndexingConfiguration (Prelude.Maybe [Field])
-thingGroupIndexingConfiguration_customFields = Lens.lens (\ThingGroupIndexingConfiguration' {customFields} -> customFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {customFields = a} :: ThingGroupIndexingConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+thingGroupIndexingConfiguration_customFields :: Lens.Lens' ThingGroupIndexingConfiguration (Core.Maybe [Field])
+thingGroupIndexingConfiguration_customFields = Lens.lens (\ThingGroupIndexingConfiguration' {customFields} -> customFields) (\s@ThingGroupIndexingConfiguration' {} a -> s {customFields = a} :: ThingGroupIndexingConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | Thing group indexing mode.
 thingGroupIndexingConfiguration_thingGroupIndexingMode :: Lens.Lens' ThingGroupIndexingConfiguration ThingGroupIndexingMode
 thingGroupIndexingConfiguration_thingGroupIndexingMode = Lens.lens (\ThingGroupIndexingConfiguration' {thingGroupIndexingMode} -> thingGroupIndexingMode) (\s@ThingGroupIndexingConfiguration' {} a -> s {thingGroupIndexingMode = a} :: ThingGroupIndexingConfiguration)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ThingGroupIndexingConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ThingGroupIndexingConfiguration"
       ( \x ->
           ThingGroupIndexingConfiguration'
-            Prelude.<$> ( x Prelude..:? "managedFields"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "customFields"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "thingGroupIndexingMode")
+            Core.<$> (x Core..:? "managedFields" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "customFields" Core..!= Core.mempty)
+            Core.<*> (x Core..: "thingGroupIndexingMode")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ThingGroupIndexingConfiguration
 
-instance
-  Prelude.NFData
-    ThingGroupIndexingConfiguration
+instance Core.NFData ThingGroupIndexingConfiguration
 
-instance
-  Prelude.ToJSON
-    ThingGroupIndexingConfiguration
-  where
+instance Core.ToJSON ThingGroupIndexingConfiguration where
   toJSON ThingGroupIndexingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("managedFields" Prelude..=)
-              Prelude.<$> managedFields,
-            ("customFields" Prelude..=) Prelude.<$> customFields,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("managedFields" Core..=) Core.<$> managedFields,
+            ("customFields" Core..=) Core.<$> customFields,
+            Core.Just
               ( "thingGroupIndexingMode"
-                  Prelude..= thingGroupIndexingMode
+                  Core..= thingGroupIndexingMode
               )
           ]
       )

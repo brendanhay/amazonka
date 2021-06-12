@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurationsResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains information on which data sources are
 -- automatically enabled for new members within the organization.
@@ -32,7 +31,7 @@ data OrganizationDataSourceConfigurationsResult = OrganizationDataSourceConfigur
   { -- | Describes whether S3 data event logs are enabled as a data source.
     s3Logs :: OrganizationS3LogsConfigurationResult
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationDataSourceConfigurationsResult' with all optional fields omitted.
@@ -59,21 +58,21 @@ organizationDataSourceConfigurationsResult_s3Logs :: Lens.Lens' OrganizationData
 organizationDataSourceConfigurationsResult_s3Logs = Lens.lens (\OrganizationDataSourceConfigurationsResult' {s3Logs} -> s3Logs) (\s@OrganizationDataSourceConfigurationsResult' {} a -> s {s3Logs = a} :: OrganizationDataSourceConfigurationsResult)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     OrganizationDataSourceConfigurationsResult
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OrganizationDataSourceConfigurationsResult"
       ( \x ->
           OrganizationDataSourceConfigurationsResult'
-            Prelude.<$> (x Prelude..: "s3Logs")
+            Core.<$> (x Core..: "s3Logs")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     OrganizationDataSourceConfigurationsResult
 
 instance
-  Prelude.NFData
+  Core.NFData
     OrganizationDataSourceConfigurationsResult

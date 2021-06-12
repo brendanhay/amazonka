@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.QLDB.ListTagsForResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -52,9 +51,9 @@ data ListTagsForResource = ListTagsForResource'
     -- example:
     --
     -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -70,7 +69,7 @@ data ListTagsForResource = ListTagsForResource'
 -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
 newListTagsForResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   ListTagsForResource
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
@@ -79,54 +78,51 @@ newListTagsForResource pResourceArn_ =
 -- example:
 --
 -- @arn:aws:qldb:us-east-1:123456789012:ledger\/exampleLedger@
-listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
+listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Core.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
-instance Prelude.AWSRequest ListTagsForResource where
+instance Core.AWSRequest ListTagsForResource where
   type
-    Rs ListTagsForResource =
+    AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Core.Hashable ListTagsForResource
 
-instance Prelude.NFData ListTagsForResource
+instance Core.NFData ListTagsForResource
 
-instance Prelude.ToHeaders ListTagsForResource where
+instance Core.ToHeaders ListTagsForResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListTagsForResource where
+instance Core.ToPath ListTagsForResource where
   toPath ListTagsForResource' {..} =
-    Prelude.mconcat
-      ["/tags/", Prelude.toBS resourceArn]
+    Core.mconcat ["/tags/", Core.toBS resourceArn]
 
-instance Prelude.ToQuery ListTagsForResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTagsForResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The tags that are currently associated with the specified Amazon QLDB
     -- resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -142,22 +138,21 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
-    { tags =
-        Prelude.Nothing,
+    { tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The tags that are currently associated with the specified Amazon QLDB
 -- resource.
-listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsForResourceResponse_tags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+listTagsForResourceResponse_tags = Lens.lens (\ListTagsForResourceResponse' {tags} -> tags) (\s@ListTagsForResourceResponse' {} a -> s {tags = a} :: ListTagsForResourceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Core.NFData ListTagsForResourceResponse

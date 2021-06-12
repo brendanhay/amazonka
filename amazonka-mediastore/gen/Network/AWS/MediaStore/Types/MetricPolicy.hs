@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaStore.Types.MetricPolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types.ContainerLevelMetrics
 import Network.AWS.MediaStore.Types.MetricPolicyRule
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metric policy that is associated with the container. A metric policy
 -- allows AWS Elemental MediaStore to send metrics to Amazon CloudWatch. In
@@ -43,11 +42,11 @@ data MetricPolicy = MetricPolicy'
     -- up to five rules. You can also
     -- <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase>
     -- to allow up to 300 rules per policy.
-    metricPolicyRules :: Prelude.Maybe (Prelude.NonEmpty MetricPolicyRule),
+    metricPolicyRules :: Core.Maybe (Core.NonEmpty MetricPolicyRule),
     -- | A setting to enable or disable metrics at the container level.
     containerLevelMetrics :: ContainerLevelMetrics
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricPolicy' with all optional fields omitted.
@@ -71,7 +70,7 @@ newMetricPolicy ::
   MetricPolicy
 newMetricPolicy pContainerLevelMetrics_ =
   MetricPolicy'
-    { metricPolicyRules = Prelude.Nothing,
+    { metricPolicyRules = Core.Nothing,
       containerLevelMetrics = pContainerLevelMetrics_
     }
 
@@ -81,36 +80,36 @@ newMetricPolicy pContainerLevelMetrics_ =
 -- up to five rules. You can also
 -- <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase>
 -- to allow up to 300 rules per policy.
-metricPolicy_metricPolicyRules :: Lens.Lens' MetricPolicy (Prelude.Maybe (Prelude.NonEmpty MetricPolicyRule))
-metricPolicy_metricPolicyRules = Lens.lens (\MetricPolicy' {metricPolicyRules} -> metricPolicyRules) (\s@MetricPolicy' {} a -> s {metricPolicyRules = a} :: MetricPolicy) Prelude.. Lens.mapping Prelude._Coerce
+metricPolicy_metricPolicyRules :: Lens.Lens' MetricPolicy (Core.Maybe (Core.NonEmpty MetricPolicyRule))
+metricPolicy_metricPolicyRules = Lens.lens (\MetricPolicy' {metricPolicyRules} -> metricPolicyRules) (\s@MetricPolicy' {} a -> s {metricPolicyRules = a} :: MetricPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | A setting to enable or disable metrics at the container level.
 metricPolicy_containerLevelMetrics :: Lens.Lens' MetricPolicy ContainerLevelMetrics
 metricPolicy_containerLevelMetrics = Lens.lens (\MetricPolicy' {containerLevelMetrics} -> containerLevelMetrics) (\s@MetricPolicy' {} a -> s {containerLevelMetrics = a} :: MetricPolicy)
 
-instance Prelude.FromJSON MetricPolicy where
+instance Core.FromJSON MetricPolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetricPolicy"
       ( \x ->
           MetricPolicy'
-            Prelude.<$> (x Prelude..:? "MetricPolicyRules")
-            Prelude.<*> (x Prelude..: "ContainerLevelMetrics")
+            Core.<$> (x Core..:? "MetricPolicyRules")
+            Core.<*> (x Core..: "ContainerLevelMetrics")
       )
 
-instance Prelude.Hashable MetricPolicy
+instance Core.Hashable MetricPolicy
 
-instance Prelude.NFData MetricPolicy
+instance Core.NFData MetricPolicy
 
-instance Prelude.ToJSON MetricPolicy where
+instance Core.ToJSON MetricPolicy where
   toJSON MetricPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MetricPolicyRules" Prelude..=)
-              Prelude.<$> metricPolicyRules,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("MetricPolicyRules" Core..=)
+              Core.<$> metricPolicyRules,
+            Core.Just
               ( "ContainerLevelMetrics"
-                  Prelude..= containerLevelMetrics
+                  Core..= containerLevelMetrics
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,18 +59,18 @@ module Network.AWS.Discovery.DescribeConfigurations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeConfigurations' smart constructor.
 data DescribeConfigurations = DescribeConfigurations'
   { -- | One or more configuration IDs.
-    configurationIds :: [Prelude.Text]
+    configurationIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurations' with all optional fields omitted.
@@ -87,70 +86,66 @@ newDescribeConfigurations ::
 newDescribeConfigurations =
   DescribeConfigurations'
     { configurationIds =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | One or more configuration IDs.
-describeConfigurations_configurationIds :: Lens.Lens' DescribeConfigurations [Prelude.Text]
-describeConfigurations_configurationIds = Lens.lens (\DescribeConfigurations' {configurationIds} -> configurationIds) (\s@DescribeConfigurations' {} a -> s {configurationIds = a} :: DescribeConfigurations) Prelude.. Prelude._Coerce
+describeConfigurations_configurationIds :: Lens.Lens' DescribeConfigurations [Core.Text]
+describeConfigurations_configurationIds = Lens.lens (\DescribeConfigurations' {configurationIds} -> configurationIds) (\s@DescribeConfigurations' {} a -> s {configurationIds = a} :: DescribeConfigurations) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DescribeConfigurations where
+instance Core.AWSRequest DescribeConfigurations where
   type
-    Rs DescribeConfigurations =
+    AWSResponse DescribeConfigurations =
       DescribeConfigurationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationsResponse'
-            Prelude.<$> ( x Prelude..?> "configurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "configurations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeConfigurations
+instance Core.Hashable DescribeConfigurations
 
-instance Prelude.NFData DescribeConfigurations
+instance Core.NFData DescribeConfigurations
 
-instance Prelude.ToHeaders DescribeConfigurations where
+instance Core.ToHeaders DescribeConfigurations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.DescribeConfigurations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.DescribeConfigurations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeConfigurations where
+instance Core.ToJSON DescribeConfigurations where
   toJSON DescribeConfigurations' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("configurationIds" Prelude..= configurationIds)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("configurationIds" Core..= configurationIds)
           ]
       )
 
-instance Prelude.ToPath DescribeConfigurations where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeConfigurations where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeConfigurations where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeConfigurations where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeConfigurationsResponse' smart constructor.
 data DescribeConfigurationsResponse = DescribeConfigurationsResponse'
   { -- | A key in the response map. The value is an array of data.
-    configurations :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
+    configurations :: Core.Maybe [Core.HashMap Core.Text Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeConfigurationsResponse' with all optional fields omitted.
@@ -165,23 +160,21 @@ data DescribeConfigurationsResponse = DescribeConfigurationsResponse'
 -- 'httpStatus', 'describeConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeConfigurationsResponse
 newDescribeConfigurationsResponse pHttpStatus_ =
   DescribeConfigurationsResponse'
     { configurations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A key in the response map. The value is an array of data.
-describeConfigurationsResponse_configurations :: Lens.Lens' DescribeConfigurationsResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
-describeConfigurationsResponse_configurations = Lens.lens (\DescribeConfigurationsResponse' {configurations} -> configurations) (\s@DescribeConfigurationsResponse' {} a -> s {configurations = a} :: DescribeConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeConfigurationsResponse_configurations :: Lens.Lens' DescribeConfigurationsResponse (Core.Maybe [Core.HashMap Core.Text Core.Text])
+describeConfigurationsResponse_configurations = Lens.lens (\DescribeConfigurationsResponse' {configurations} -> configurations) (\s@DescribeConfigurationsResponse' {} a -> s {configurations = a} :: DescribeConfigurationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeConfigurationsResponse_httpStatus :: Lens.Lens' DescribeConfigurationsResponse Prelude.Int
+describeConfigurationsResponse_httpStatus :: Lens.Lens' DescribeConfigurationsResponse Core.Int
 describeConfigurationsResponse_httpStatus = Lens.lens (\DescribeConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeConfigurationsResponse)
 
-instance
-  Prelude.NFData
-    DescribeConfigurationsResponse
+instance Core.NFData DescribeConfigurationsResponse

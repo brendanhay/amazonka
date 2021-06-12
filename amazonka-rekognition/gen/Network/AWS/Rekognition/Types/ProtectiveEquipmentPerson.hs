@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.ProtectiveEquipmentPerson where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
 
@@ -33,17 +32,17 @@ import Network.AWS.Rekognition.Types.ProtectiveEquipmentBodyPart
 data ProtectiveEquipmentPerson = ProtectiveEquipmentPerson'
   { -- | The identifier for the detected person. The identifier is only unique
     -- for a single call to @DetectProtectiveEquipment@.
-    id :: Prelude.Maybe Prelude.Natural,
+    id :: Core.Maybe Core.Natural,
     -- | A bounding box around the detected person.
-    boundingBox :: Prelude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe BoundingBox,
     -- | An array of body parts detected on a person\'s body (including body
     -- parts without PPE).
-    bodyParts :: Prelude.Maybe [ProtectiveEquipmentBodyPart],
+    bodyParts :: Core.Maybe [ProtectiveEquipmentBodyPart],
     -- | The confidence that Amazon Rekognition has that the bounding box
     -- contains a person.
-    confidence :: Prelude.Maybe Prelude.Double
+    confidence :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProtectiveEquipmentPerson' with all optional fields omitted.
@@ -67,45 +66,43 @@ newProtectiveEquipmentPerson ::
   ProtectiveEquipmentPerson
 newProtectiveEquipmentPerson =
   ProtectiveEquipmentPerson'
-    { id = Prelude.Nothing,
-      boundingBox = Prelude.Nothing,
-      bodyParts = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { id = Core.Nothing,
+      boundingBox = Core.Nothing,
+      bodyParts = Core.Nothing,
+      confidence = Core.Nothing
     }
 
 -- | The identifier for the detected person. The identifier is only unique
 -- for a single call to @DetectProtectiveEquipment@.
-protectiveEquipmentPerson_id :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe Prelude.Natural)
+protectiveEquipmentPerson_id :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe Core.Natural)
 protectiveEquipmentPerson_id = Lens.lens (\ProtectiveEquipmentPerson' {id} -> id) (\s@ProtectiveEquipmentPerson' {} a -> s {id = a} :: ProtectiveEquipmentPerson)
 
 -- | A bounding box around the detected person.
-protectiveEquipmentPerson_boundingBox :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe BoundingBox)
+protectiveEquipmentPerson_boundingBox :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe BoundingBox)
 protectiveEquipmentPerson_boundingBox = Lens.lens (\ProtectiveEquipmentPerson' {boundingBox} -> boundingBox) (\s@ProtectiveEquipmentPerson' {} a -> s {boundingBox = a} :: ProtectiveEquipmentPerson)
 
 -- | An array of body parts detected on a person\'s body (including body
 -- parts without PPE).
-protectiveEquipmentPerson_bodyParts :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe [ProtectiveEquipmentBodyPart])
-protectiveEquipmentPerson_bodyParts = Lens.lens (\ProtectiveEquipmentPerson' {bodyParts} -> bodyParts) (\s@ProtectiveEquipmentPerson' {} a -> s {bodyParts = a} :: ProtectiveEquipmentPerson) Prelude.. Lens.mapping Prelude._Coerce
+protectiveEquipmentPerson_bodyParts :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe [ProtectiveEquipmentBodyPart])
+protectiveEquipmentPerson_bodyParts = Lens.lens (\ProtectiveEquipmentPerson' {bodyParts} -> bodyParts) (\s@ProtectiveEquipmentPerson' {} a -> s {bodyParts = a} :: ProtectiveEquipmentPerson) Core.. Lens.mapping Lens._Coerce
 
 -- | The confidence that Amazon Rekognition has that the bounding box
 -- contains a person.
-protectiveEquipmentPerson_confidence :: Lens.Lens' ProtectiveEquipmentPerson (Prelude.Maybe Prelude.Double)
+protectiveEquipmentPerson_confidence :: Lens.Lens' ProtectiveEquipmentPerson (Core.Maybe Core.Double)
 protectiveEquipmentPerson_confidence = Lens.lens (\ProtectiveEquipmentPerson' {confidence} -> confidence) (\s@ProtectiveEquipmentPerson' {} a -> s {confidence = a} :: ProtectiveEquipmentPerson)
 
-instance Prelude.FromJSON ProtectiveEquipmentPerson where
+instance Core.FromJSON ProtectiveEquipmentPerson where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProtectiveEquipmentPerson"
       ( \x ->
           ProtectiveEquipmentPerson'
-            Prelude.<$> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "BoundingBox")
-            Prelude.<*> ( x Prelude..:? "BodyParts"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Confidence")
+            Core.<$> (x Core..:? "Id")
+            Core.<*> (x Core..:? "BoundingBox")
+            Core.<*> (x Core..:? "BodyParts" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable ProtectiveEquipmentPerson
+instance Core.Hashable ProtectiveEquipmentPerson
 
-instance Prelude.NFData ProtectiveEquipmentPerson
+instance Core.NFData ProtectiveEquipmentPerson

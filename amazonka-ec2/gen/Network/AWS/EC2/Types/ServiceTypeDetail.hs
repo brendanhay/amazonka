@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ServiceTypeDetail where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ServiceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the type of service for a VPC endpoint.
 --
 -- /See:/ 'newServiceTypeDetail' smart constructor.
 data ServiceTypeDetail = ServiceTypeDetail'
   { -- | The type of service.
-    serviceType :: Prelude.Maybe ServiceType
+    serviceType :: Core.Maybe ServiceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceTypeDetail' with all optional fields omitted.
@@ -46,17 +45,17 @@ data ServiceTypeDetail = ServiceTypeDetail'
 newServiceTypeDetail ::
   ServiceTypeDetail
 newServiceTypeDetail =
-  ServiceTypeDetail' {serviceType = Prelude.Nothing}
+  ServiceTypeDetail' {serviceType = Core.Nothing}
 
 -- | The type of service.
-serviceTypeDetail_serviceType :: Lens.Lens' ServiceTypeDetail (Prelude.Maybe ServiceType)
+serviceTypeDetail_serviceType :: Lens.Lens' ServiceTypeDetail (Core.Maybe ServiceType)
 serviceTypeDetail_serviceType = Lens.lens (\ServiceTypeDetail' {serviceType} -> serviceType) (\s@ServiceTypeDetail' {} a -> s {serviceType = a} :: ServiceTypeDetail)
 
-instance Prelude.FromXML ServiceTypeDetail where
+instance Core.FromXML ServiceTypeDetail where
   parseXML x =
     ServiceTypeDetail'
-      Prelude.<$> (x Prelude..@? "serviceType")
+      Core.<$> (x Core..@? "serviceType")
 
-instance Prelude.Hashable ServiceTypeDetail
+instance Core.Hashable ServiceTypeDetail
 
-instance Prelude.NFData ServiceTypeDetail
+instance Core.NFData ServiceTypeDetail

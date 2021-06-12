@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CodeStar.UpdateTeamMember
 where
 
 import Network.AWS.CodeStar.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,19 +58,19 @@ data UpdateTeamMember = UpdateTeamMember'
     -- different levels of access. For more information, see
     -- <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams>
     -- in the /AWS CodeStar User Guide/.
-    projectRole :: Prelude.Maybe Prelude.Text,
+    projectRole :: Core.Maybe Core.Text,
     -- | Whether a team member is allowed to remotely access project resources
     -- using the SSH public key associated with the user\'s profile. Even if
     -- this is set to True, the user must associate a public key with their
     -- profile before the user can access resources.
-    remoteAccessAllowed :: Prelude.Maybe Prelude.Bool,
+    remoteAccessAllowed :: Core.Maybe Core.Bool,
     -- | The ID of the project.
-    projectId :: Prelude.Text,
+    projectId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the user for whom you want to change
     -- team membership attributes.
-    userArn :: Prelude.Text
+    userArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTeamMember' with all optional fields omitted.
@@ -97,14 +96,14 @@ data UpdateTeamMember = UpdateTeamMember'
 -- team membership attributes.
 newUpdateTeamMember ::
   -- | 'projectId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTeamMember
 newUpdateTeamMember pProjectId_ pUserArn_ =
   UpdateTeamMember'
-    { projectRole = Prelude.Nothing,
-      remoteAccessAllowed = Prelude.Nothing,
+    { projectRole = Core.Nothing,
+      remoteAccessAllowed = Core.Nothing,
       projectId = pProjectId_,
       userArn = pUserArn_
     }
@@ -113,89 +112,89 @@ newUpdateTeamMember pProjectId_ pUserArn_ =
 -- different levels of access. For more information, see
 -- <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams>
 -- in the /AWS CodeStar User Guide/.
-updateTeamMember_projectRole :: Lens.Lens' UpdateTeamMember (Prelude.Maybe Prelude.Text)
+updateTeamMember_projectRole :: Lens.Lens' UpdateTeamMember (Core.Maybe Core.Text)
 updateTeamMember_projectRole = Lens.lens (\UpdateTeamMember' {projectRole} -> projectRole) (\s@UpdateTeamMember' {} a -> s {projectRole = a} :: UpdateTeamMember)
 
 -- | Whether a team member is allowed to remotely access project resources
 -- using the SSH public key associated with the user\'s profile. Even if
 -- this is set to True, the user must associate a public key with their
 -- profile before the user can access resources.
-updateTeamMember_remoteAccessAllowed :: Lens.Lens' UpdateTeamMember (Prelude.Maybe Prelude.Bool)
+updateTeamMember_remoteAccessAllowed :: Lens.Lens' UpdateTeamMember (Core.Maybe Core.Bool)
 updateTeamMember_remoteAccessAllowed = Lens.lens (\UpdateTeamMember' {remoteAccessAllowed} -> remoteAccessAllowed) (\s@UpdateTeamMember' {} a -> s {remoteAccessAllowed = a} :: UpdateTeamMember)
 
 -- | The ID of the project.
-updateTeamMember_projectId :: Lens.Lens' UpdateTeamMember Prelude.Text
+updateTeamMember_projectId :: Lens.Lens' UpdateTeamMember Core.Text
 updateTeamMember_projectId = Lens.lens (\UpdateTeamMember' {projectId} -> projectId) (\s@UpdateTeamMember' {} a -> s {projectId = a} :: UpdateTeamMember)
 
 -- | The Amazon Resource Name (ARN) of the user for whom you want to change
 -- team membership attributes.
-updateTeamMember_userArn :: Lens.Lens' UpdateTeamMember Prelude.Text
+updateTeamMember_userArn :: Lens.Lens' UpdateTeamMember Core.Text
 updateTeamMember_userArn = Lens.lens (\UpdateTeamMember' {userArn} -> userArn) (\s@UpdateTeamMember' {} a -> s {userArn = a} :: UpdateTeamMember)
 
-instance Prelude.AWSRequest UpdateTeamMember where
-  type Rs UpdateTeamMember = UpdateTeamMemberResponse
+instance Core.AWSRequest UpdateTeamMember where
+  type
+    AWSResponse UpdateTeamMember =
+      UpdateTeamMemberResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateTeamMemberResponse'
-            Prelude.<$> (x Prelude..?> "userArn")
-            Prelude.<*> (x Prelude..?> "projectRole")
-            Prelude.<*> (x Prelude..?> "remoteAccessAllowed")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "userArn")
+            Core.<*> (x Core..?> "projectRole")
+            Core.<*> (x Core..?> "remoteAccessAllowed")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTeamMember
+instance Core.Hashable UpdateTeamMember
 
-instance Prelude.NFData UpdateTeamMember
+instance Core.NFData UpdateTeamMember
 
-instance Prelude.ToHeaders UpdateTeamMember where
+instance Core.ToHeaders UpdateTeamMember where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeStar_20170419.UpdateTeamMember" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeStar_20170419.UpdateTeamMember" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTeamMember where
+instance Core.ToJSON UpdateTeamMember where
   toJSON UpdateTeamMember' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("projectRole" Prelude..=) Prelude.<$> projectRole,
-            ("remoteAccessAllowed" Prelude..=)
-              Prelude.<$> remoteAccessAllowed,
-            Prelude.Just ("projectId" Prelude..= projectId),
-            Prelude.Just ("userArn" Prelude..= userArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("projectRole" Core..=) Core.<$> projectRole,
+            ("remoteAccessAllowed" Core..=)
+              Core.<$> remoteAccessAllowed,
+            Core.Just ("projectId" Core..= projectId),
+            Core.Just ("userArn" Core..= userArn)
           ]
       )
 
-instance Prelude.ToPath UpdateTeamMember where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTeamMember where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTeamMember where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTeamMember where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateTeamMemberResponse' smart constructor.
 data UpdateTeamMemberResponse = UpdateTeamMemberResponse'
   { -- | The Amazon Resource Name (ARN) of the user whose team membership
     -- attributes were updated.
-    userArn :: Prelude.Maybe Prelude.Text,
+    userArn :: Core.Maybe Core.Text,
     -- | The project role granted to the user.
-    projectRole :: Prelude.Maybe Prelude.Text,
+    projectRole :: Core.Maybe Core.Text,
     -- | Whether a team member is allowed to remotely access project resources
     -- using the SSH public key associated with the user\'s profile.
-    remoteAccessAllowed :: Prelude.Maybe Prelude.Bool,
+    remoteAccessAllowed :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTeamMemberResponse' with all optional fields omitted.
@@ -216,33 +215,32 @@ data UpdateTeamMemberResponse = UpdateTeamMemberResponse'
 -- 'httpStatus', 'updateTeamMemberResponse_httpStatus' - The response's http status code.
 newUpdateTeamMemberResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTeamMemberResponse
 newUpdateTeamMemberResponse pHttpStatus_ =
   UpdateTeamMemberResponse'
-    { userArn =
-        Prelude.Nothing,
-      projectRole = Prelude.Nothing,
-      remoteAccessAllowed = Prelude.Nothing,
+    { userArn = Core.Nothing,
+      projectRole = Core.Nothing,
+      remoteAccessAllowed = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the user whose team membership
 -- attributes were updated.
-updateTeamMemberResponse_userArn :: Lens.Lens' UpdateTeamMemberResponse (Prelude.Maybe Prelude.Text)
+updateTeamMemberResponse_userArn :: Lens.Lens' UpdateTeamMemberResponse (Core.Maybe Core.Text)
 updateTeamMemberResponse_userArn = Lens.lens (\UpdateTeamMemberResponse' {userArn} -> userArn) (\s@UpdateTeamMemberResponse' {} a -> s {userArn = a} :: UpdateTeamMemberResponse)
 
 -- | The project role granted to the user.
-updateTeamMemberResponse_projectRole :: Lens.Lens' UpdateTeamMemberResponse (Prelude.Maybe Prelude.Text)
+updateTeamMemberResponse_projectRole :: Lens.Lens' UpdateTeamMemberResponse (Core.Maybe Core.Text)
 updateTeamMemberResponse_projectRole = Lens.lens (\UpdateTeamMemberResponse' {projectRole} -> projectRole) (\s@UpdateTeamMemberResponse' {} a -> s {projectRole = a} :: UpdateTeamMemberResponse)
 
 -- | Whether a team member is allowed to remotely access project resources
 -- using the SSH public key associated with the user\'s profile.
-updateTeamMemberResponse_remoteAccessAllowed :: Lens.Lens' UpdateTeamMemberResponse (Prelude.Maybe Prelude.Bool)
+updateTeamMemberResponse_remoteAccessAllowed :: Lens.Lens' UpdateTeamMemberResponse (Core.Maybe Core.Bool)
 updateTeamMemberResponse_remoteAccessAllowed = Lens.lens (\UpdateTeamMemberResponse' {remoteAccessAllowed} -> remoteAccessAllowed) (\s@UpdateTeamMemberResponse' {} a -> s {remoteAccessAllowed = a} :: UpdateTeamMemberResponse)
 
 -- | The response's http status code.
-updateTeamMemberResponse_httpStatus :: Lens.Lens' UpdateTeamMemberResponse Prelude.Int
+updateTeamMemberResponse_httpStatus :: Lens.Lens' UpdateTeamMemberResponse Core.Int
 updateTeamMemberResponse_httpStatus = Lens.lens (\UpdateTeamMemberResponse' {httpStatus} -> httpStatus) (\s@UpdateTeamMemberResponse' {} a -> s {httpStatus = a} :: UpdateTeamMemberResponse)
 
-instance Prelude.NFData UpdateTeamMemberResponse
+instance Core.NFData UpdateTeamMemberResponse

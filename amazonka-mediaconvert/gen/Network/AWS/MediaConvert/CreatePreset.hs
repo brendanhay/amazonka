@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,27 +45,27 @@ module Network.AWS.MediaConvert.CreatePreset
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePreset' smart constructor.
 data CreatePreset = CreatePreset'
   { -- | Optional. A category for the preset you are creating.
-    category :: Prelude.Maybe Prelude.Text,
+    category :: Core.Maybe Core.Text,
     -- | The tags that you want to add to the resource. You can tag resources
     -- with a key-value pair or with only a key.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Optional. A description of the preset you are creating.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Settings for preset
     settings :: PresetSettings,
     -- | The name of the preset you are creating.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePreset' with all optional fields omitted.
@@ -90,28 +89,28 @@ newCreatePreset ::
   -- | 'settings'
   PresetSettings ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreatePreset
 newCreatePreset pSettings_ pName_ =
   CreatePreset'
-    { category = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { category = Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
       settings = pSettings_,
       name = pName_
     }
 
 -- | Optional. A category for the preset you are creating.
-createPreset_category :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
+createPreset_category :: Lens.Lens' CreatePreset (Core.Maybe Core.Text)
 createPreset_category = Lens.lens (\CreatePreset' {category} -> category) (\s@CreatePreset' {} a -> s {category = a} :: CreatePreset)
 
 -- | The tags that you want to add to the resource. You can tag resources
 -- with a key-value pair or with only a key.
-createPreset_tags :: Lens.Lens' CreatePreset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createPreset_tags = Lens.lens (\CreatePreset' {tags} -> tags) (\s@CreatePreset' {} a -> s {tags = a} :: CreatePreset) Prelude.. Lens.mapping Prelude._Coerce
+createPreset_tags :: Lens.Lens' CreatePreset (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createPreset_tags = Lens.lens (\CreatePreset' {tags} -> tags) (\s@CreatePreset' {} a -> s {tags = a} :: CreatePreset) Core.. Lens.mapping Lens._Coerce
 
 -- | Optional. A description of the preset you are creating.
-createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
+createPreset_description :: Lens.Lens' CreatePreset (Core.Maybe Core.Text)
 createPreset_description = Lens.lens (\CreatePreset' {description} -> description) (\s@CreatePreset' {} a -> s {description = a} :: CreatePreset)
 
 -- | Settings for preset
@@ -119,63 +118,61 @@ createPreset_settings :: Lens.Lens' CreatePreset PresetSettings
 createPreset_settings = Lens.lens (\CreatePreset' {settings} -> settings) (\s@CreatePreset' {} a -> s {settings = a} :: CreatePreset)
 
 -- | The name of the preset you are creating.
-createPreset_name :: Lens.Lens' CreatePreset Prelude.Text
+createPreset_name :: Lens.Lens' CreatePreset Core.Text
 createPreset_name = Lens.lens (\CreatePreset' {name} -> name) (\s@CreatePreset' {} a -> s {name = a} :: CreatePreset)
 
-instance Prelude.AWSRequest CreatePreset where
-  type Rs CreatePreset = CreatePresetResponse
+instance Core.AWSRequest CreatePreset where
+  type AWSResponse CreatePreset = CreatePresetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePresetResponse'
-            Prelude.<$> (x Prelude..?> "preset")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "preset")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePreset
+instance Core.Hashable CreatePreset
 
-instance Prelude.NFData CreatePreset
+instance Core.NFData CreatePreset
 
-instance Prelude.ToHeaders CreatePreset where
+instance Core.ToHeaders CreatePreset where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePreset where
+instance Core.ToJSON CreatePreset where
   toJSON CreatePreset' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("category" Prelude..=) Prelude.<$> category,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("settings" Prelude..= settings),
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("category" Core..=) Core.<$> category,
+            ("tags" Core..=) Core.<$> tags,
+            ("description" Core..=) Core.<$> description,
+            Core.Just ("settings" Core..= settings),
+            Core.Just ("name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath CreatePreset where
-  toPath = Prelude.const "/2017-08-29/presets"
+instance Core.ToPath CreatePreset where
+  toPath = Core.const "/2017-08-29/presets"
 
-instance Prelude.ToQuery CreatePreset where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePreset where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreatePresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
   { -- | A preset is a collection of preconfigured media conversion settings that
     -- you want MediaConvert to apply to the output during the conversion
     -- process.
-    preset :: Prelude.Maybe Preset,
+    preset :: Core.Maybe Preset,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePresetResponse' with all optional fields omitted.
@@ -192,22 +189,22 @@ data CreatePresetResponse = CreatePresetResponse'
 -- 'httpStatus', 'createPresetResponse_httpStatus' - The response's http status code.
 newCreatePresetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePresetResponse
 newCreatePresetResponse pHttpStatus_ =
   CreatePresetResponse'
-    { preset = Prelude.Nothing,
+    { preset = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A preset is a collection of preconfigured media conversion settings that
 -- you want MediaConvert to apply to the output during the conversion
 -- process.
-createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Preset)
+createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Core.Maybe Preset)
 createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> preset) (\s@CreatePresetResponse' {} a -> s {preset = a} :: CreatePresetResponse)
 
 -- | The response's http status code.
-createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Prelude.Int
+createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Core.Int
 createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus} -> httpStatus) (\s@CreatePresetResponse' {} a -> s {httpStatus = a} :: CreatePresetResponse)
 
-instance Prelude.NFData CreatePresetResponse
+instance Core.NFData CreatePresetResponse

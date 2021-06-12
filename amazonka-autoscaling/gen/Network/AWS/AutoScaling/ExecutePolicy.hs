@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.AutoScaling.ExecutePolicy
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,12 +59,12 @@ data ExecutePolicy = ExecutePolicy'
     --
     -- Required if the policy type is @StepScaling@ and not supported
     -- otherwise.
-    metricValue :: Prelude.Maybe Prelude.Double,
+    metricValue :: Core.Maybe Core.Double,
     -- | The breach threshold for the alarm.
     --
     -- Required if the policy type is @StepScaling@ and not supported
     -- otherwise.
-    breachThreshold :: Prelude.Maybe Prelude.Double,
+    breachThreshold :: Core.Maybe Core.Double,
     -- | Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period
     -- to complete before executing the policy.
     --
@@ -73,13 +72,13 @@ data ExecutePolicy = ExecutePolicy'
     -- see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
     -- in the /Amazon EC2 Auto Scaling User Guide/.
-    honorCooldown :: Prelude.Maybe Prelude.Bool,
+    honorCooldown :: Core.Maybe Core.Bool,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
+    autoScalingGroupName :: Core.Maybe Core.Text,
     -- | The name or ARN of the policy.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutePolicy' with all optional fields omitted.
@@ -119,14 +118,14 @@ data ExecutePolicy = ExecutePolicy'
 -- 'policyName', 'executePolicy_policyName' - The name or ARN of the policy.
 newExecutePolicy ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   ExecutePolicy
 newExecutePolicy pPolicyName_ =
   ExecutePolicy'
-    { metricValue = Prelude.Nothing,
-      breachThreshold = Prelude.Nothing,
-      honorCooldown = Prelude.Nothing,
-      autoScalingGroupName = Prelude.Nothing,
+    { metricValue = Core.Nothing,
+      breachThreshold = Core.Nothing,
+      honorCooldown = Core.Nothing,
+      autoScalingGroupName = Core.Nothing,
       policyName = pPolicyName_
     }
 
@@ -141,14 +140,14 @@ newExecutePolicy pPolicyName_ =
 --
 -- Required if the policy type is @StepScaling@ and not supported
 -- otherwise.
-executePolicy_metricValue :: Lens.Lens' ExecutePolicy (Prelude.Maybe Prelude.Double)
+executePolicy_metricValue :: Lens.Lens' ExecutePolicy (Core.Maybe Core.Double)
 executePolicy_metricValue = Lens.lens (\ExecutePolicy' {metricValue} -> metricValue) (\s@ExecutePolicy' {} a -> s {metricValue = a} :: ExecutePolicy)
 
 -- | The breach threshold for the alarm.
 --
 -- Required if the policy type is @StepScaling@ and not supported
 -- otherwise.
-executePolicy_breachThreshold :: Lens.Lens' ExecutePolicy (Prelude.Maybe Prelude.Double)
+executePolicy_breachThreshold :: Lens.Lens' ExecutePolicy (Core.Maybe Core.Double)
 executePolicy_breachThreshold = Lens.lens (\ExecutePolicy' {breachThreshold} -> breachThreshold) (\s@ExecutePolicy' {} a -> s {breachThreshold = a} :: ExecutePolicy)
 
 -- | Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period
@@ -158,53 +157,53 @@ executePolicy_breachThreshold = Lens.lens (\ExecutePolicy' {breachThreshold} -> 
 -- see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html Scaling cooldowns for Amazon EC2 Auto Scaling>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
-executePolicy_honorCooldown :: Lens.Lens' ExecutePolicy (Prelude.Maybe Prelude.Bool)
+executePolicy_honorCooldown :: Lens.Lens' ExecutePolicy (Core.Maybe Core.Bool)
 executePolicy_honorCooldown = Lens.lens (\ExecutePolicy' {honorCooldown} -> honorCooldown) (\s@ExecutePolicy' {} a -> s {honorCooldown = a} :: ExecutePolicy)
 
 -- | The name of the Auto Scaling group.
-executePolicy_autoScalingGroupName :: Lens.Lens' ExecutePolicy (Prelude.Maybe Prelude.Text)
+executePolicy_autoScalingGroupName :: Lens.Lens' ExecutePolicy (Core.Maybe Core.Text)
 executePolicy_autoScalingGroupName = Lens.lens (\ExecutePolicy' {autoScalingGroupName} -> autoScalingGroupName) (\s@ExecutePolicy' {} a -> s {autoScalingGroupName = a} :: ExecutePolicy)
 
 -- | The name or ARN of the policy.
-executePolicy_policyName :: Lens.Lens' ExecutePolicy Prelude.Text
+executePolicy_policyName :: Lens.Lens' ExecutePolicy Core.Text
 executePolicy_policyName = Lens.lens (\ExecutePolicy' {policyName} -> policyName) (\s@ExecutePolicy' {} a -> s {policyName = a} :: ExecutePolicy)
 
-instance Prelude.AWSRequest ExecutePolicy where
-  type Rs ExecutePolicy = ExecutePolicyResponse
+instance Core.AWSRequest ExecutePolicy where
+  type
+    AWSResponse ExecutePolicy =
+      ExecutePolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull ExecutePolicyResponse'
 
-instance Prelude.Hashable ExecutePolicy
+instance Core.Hashable ExecutePolicy
 
-instance Prelude.NFData ExecutePolicy
+instance Core.NFData ExecutePolicy
 
-instance Prelude.ToHeaders ExecutePolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ExecutePolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ExecutePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath ExecutePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ExecutePolicy where
+instance Core.ToQuery ExecutePolicy where
   toQuery ExecutePolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ExecutePolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "MetricValue" Prelude.=: metricValue,
-        "BreachThreshold" Prelude.=: breachThreshold,
-        "HonorCooldown" Prelude.=: honorCooldown,
-        "AutoScalingGroupName"
-          Prelude.=: autoScalingGroupName,
-        "PolicyName" Prelude.=: policyName
+          Core.=: ("ExecutePolicy" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "MetricValue" Core.=: metricValue,
+        "BreachThreshold" Core.=: breachThreshold,
+        "HonorCooldown" Core.=: honorCooldown,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName,
+        "PolicyName" Core.=: policyName
       ]
 
 -- | /See:/ 'newExecutePolicyResponse' smart constructor.
 data ExecutePolicyResponse = ExecutePolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutePolicyResponse' with all optional fields omitted.
@@ -214,4 +213,4 @@ newExecutePolicyResponse ::
   ExecutePolicyResponse
 newExecutePolicyResponse = ExecutePolicyResponse'
 
-instance Prelude.NFData ExecutePolicyResponse
+instance Core.NFData ExecutePolicyResponse

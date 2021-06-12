@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SSM.RemoveTagsFromResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -68,11 +67,11 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
     -- The ManagedInstance type for this API action is only for on-premises
     -- managed instances. Specify the name of the managed instance in the
     -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | Tag keys that you want to remove from the specified resource.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromResource' with all optional fields omitted.
@@ -107,14 +106,14 @@ newRemoveTagsFromResource ::
   -- | 'resourceType'
   ResourceTypeForTagging ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   RemoveTagsFromResource
 newRemoveTagsFromResource pResourceType_ pResourceId_ =
   RemoveTagsFromResource'
     { resourceType =
         pResourceType_,
       resourceId = pResourceId_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The type of resource from which you want to remove a tag.
@@ -138,67 +137,64 @@ removeTagsFromResource_resourceType = Lens.lens (\RemoveTagsFromResource' {resou
 -- The ManagedInstance type for this API action is only for on-premises
 -- managed instances. Specify the name of the managed instance in the
 -- following format: mi-ID_number. For example, mi-1a2b3c4d5e6f.
-removeTagsFromResource_resourceId :: Lens.Lens' RemoveTagsFromResource Prelude.Text
+removeTagsFromResource_resourceId :: Lens.Lens' RemoveTagsFromResource Core.Text
 removeTagsFromResource_resourceId = Lens.lens (\RemoveTagsFromResource' {resourceId} -> resourceId) (\s@RemoveTagsFromResource' {} a -> s {resourceId = a} :: RemoveTagsFromResource)
 
 -- | Tag keys that you want to remove from the specified resource.
-removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Prelude.Text]
-removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Prelude.. Prelude._Coerce
+removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Core.Text]
+removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RemoveTagsFromResource where
+instance Core.AWSRequest RemoveTagsFromResource where
   type
-    Rs RemoveTagsFromResource =
+    AWSResponse RemoveTagsFromResource =
       RemoveTagsFromResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveTagsFromResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveTagsFromResource
+instance Core.Hashable RemoveTagsFromResource
 
-instance Prelude.NFData RemoveTagsFromResource
+instance Core.NFData RemoveTagsFromResource
 
-instance Prelude.ToHeaders RemoveTagsFromResource where
+instance Core.ToHeaders RemoveTagsFromResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.RemoveTagsFromResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.RemoveTagsFromResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RemoveTagsFromResource where
+instance Core.ToJSON RemoveTagsFromResource where
   toJSON RemoveTagsFromResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceType" Prelude..= resourceType),
-            Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceType" Core..= resourceType),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("TagKeys" Core..= tagKeys)
           ]
       )
 
-instance Prelude.ToPath RemoveTagsFromResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveTagsFromResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveTagsFromResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveTagsFromResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsFromResourceResponse' with all optional fields omitted.
@@ -211,7 +207,7 @@ data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
 -- 'httpStatus', 'removeTagsFromResourceResponse_httpStatus' - The response's http status code.
 newRemoveTagsFromResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveTagsFromResourceResponse
 newRemoveTagsFromResourceResponse pHttpStatus_ =
   RemoveTagsFromResourceResponse'
@@ -220,9 +216,7 @@ newRemoveTagsFromResourceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-removeTagsFromResourceResponse_httpStatus :: Lens.Lens' RemoveTagsFromResourceResponse Prelude.Int
+removeTagsFromResourceResponse_httpStatus :: Lens.Lens' RemoveTagsFromResourceResponse Core.Int
 removeTagsFromResourceResponse_httpStatus = Lens.lens (\RemoveTagsFromResourceResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsFromResourceResponse' {} a -> s {httpStatus = a} :: RemoveTagsFromResourceResponse)
 
-instance
-  Prelude.NFData
-    RemoveTagsFromResourceResponse
+instance Core.NFData RemoveTagsFromResourceResponse

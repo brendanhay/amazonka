@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.ProviderUserIdentifierType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for information about an identity provider for a user pool.
 --
@@ -29,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ProviderUserIdentifierType = ProviderUserIdentifierType'
   { -- | The name of the provider, for example, Facebook, Google, or Login with
     -- Amazon.
-    providerName :: Prelude.Maybe Prelude.Text,
+    providerName :: Core.Maybe Core.Text,
     -- | The name of the provider attribute to link to, for example, @NameID@.
-    providerAttributeName :: Prelude.Maybe Prelude.Text,
+    providerAttributeName :: Core.Maybe Core.Text,
     -- | The value of the provider attribute to link to, for example,
     -- @xxxxx_account@.
-    providerAttributeValue :: Prelude.Maybe Prelude.Text
+    providerAttributeValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProviderUserIdentifierType' with all optional fields omitted.
@@ -58,38 +57,37 @@ newProviderUserIdentifierType ::
 newProviderUserIdentifierType =
   ProviderUserIdentifierType'
     { providerName =
-        Prelude.Nothing,
-      providerAttributeName = Prelude.Nothing,
-      providerAttributeValue = Prelude.Nothing
+        Core.Nothing,
+      providerAttributeName = Core.Nothing,
+      providerAttributeValue = Core.Nothing
     }
 
 -- | The name of the provider, for example, Facebook, Google, or Login with
 -- Amazon.
-providerUserIdentifierType_providerName :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
+providerUserIdentifierType_providerName :: Lens.Lens' ProviderUserIdentifierType (Core.Maybe Core.Text)
 providerUserIdentifierType_providerName = Lens.lens (\ProviderUserIdentifierType' {providerName} -> providerName) (\s@ProviderUserIdentifierType' {} a -> s {providerName = a} :: ProviderUserIdentifierType)
 
 -- | The name of the provider attribute to link to, for example, @NameID@.
-providerUserIdentifierType_providerAttributeName :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
+providerUserIdentifierType_providerAttributeName :: Lens.Lens' ProviderUserIdentifierType (Core.Maybe Core.Text)
 providerUserIdentifierType_providerAttributeName = Lens.lens (\ProviderUserIdentifierType' {providerAttributeName} -> providerAttributeName) (\s@ProviderUserIdentifierType' {} a -> s {providerAttributeName = a} :: ProviderUserIdentifierType)
 
 -- | The value of the provider attribute to link to, for example,
 -- @xxxxx_account@.
-providerUserIdentifierType_providerAttributeValue :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
+providerUserIdentifierType_providerAttributeValue :: Lens.Lens' ProviderUserIdentifierType (Core.Maybe Core.Text)
 providerUserIdentifierType_providerAttributeValue = Lens.lens (\ProviderUserIdentifierType' {providerAttributeValue} -> providerAttributeValue) (\s@ProviderUserIdentifierType' {} a -> s {providerAttributeValue = a} :: ProviderUserIdentifierType)
 
-instance Prelude.Hashable ProviderUserIdentifierType
+instance Core.Hashable ProviderUserIdentifierType
 
-instance Prelude.NFData ProviderUserIdentifierType
+instance Core.NFData ProviderUserIdentifierType
 
-instance Prelude.ToJSON ProviderUserIdentifierType where
+instance Core.ToJSON ProviderUserIdentifierType where
   toJSON ProviderUserIdentifierType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ProviderName" Prelude..=)
-              Prelude.<$> providerName,
-            ("ProviderAttributeName" Prelude..=)
-              Prelude.<$> providerAttributeName,
-            ("ProviderAttributeValue" Prelude..=)
-              Prelude.<$> providerAttributeValue
+    Core.object
+      ( Core.catMaybes
+          [ ("ProviderName" Core..=) Core.<$> providerName,
+            ("ProviderAttributeName" Core..=)
+              Core.<$> providerAttributeName,
+            ("ProviderAttributeValue" Core..=)
+              Core.<$> providerAttributeValue
           ]
       )

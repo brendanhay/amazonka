@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AWSHealth.Types.EventType where
 
 import Network.AWS.AWSHealth.Types.EventTypeCategory
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the metadata about a type of event that is reported by AWS
 -- Health. The @EventType@ shows the category, service, and the event type
@@ -43,16 +42,16 @@ import qualified Network.AWS.Prelude as Prelude
 data EventType = EventType'
   { -- | A list of event type category codes (@issue@, @scheduledChange@, or
     -- @accountNotification@).
-    category :: Prelude.Maybe EventTypeCategory,
+    category :: Core.Maybe EventTypeCategory,
     -- | The unique identifier for the event type. The format is
     -- @AWS_SERVICE_DESCRIPTION @; for example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
-    code :: Prelude.Maybe Prelude.Text,
+    code :: Core.Maybe Core.Text,
     -- | The AWS service that is affected by the event. For example, @EC2@,
     -- @RDS@.
-    service :: Prelude.Maybe Prelude.Text
+    service :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventType' with all optional fields omitted.
@@ -75,38 +74,38 @@ newEventType ::
   EventType
 newEventType =
   EventType'
-    { category = Prelude.Nothing,
-      code = Prelude.Nothing,
-      service = Prelude.Nothing
+    { category = Core.Nothing,
+      code = Core.Nothing,
+      service = Core.Nothing
     }
 
 -- | A list of event type category codes (@issue@, @scheduledChange@, or
 -- @accountNotification@).
-eventType_category :: Lens.Lens' EventType (Prelude.Maybe EventTypeCategory)
+eventType_category :: Lens.Lens' EventType (Core.Maybe EventTypeCategory)
 eventType_category = Lens.lens (\EventType' {category} -> category) (\s@EventType' {} a -> s {category = a} :: EventType)
 
 -- | The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION @; for example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
-eventType_code :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
+eventType_code :: Lens.Lens' EventType (Core.Maybe Core.Text)
 eventType_code = Lens.lens (\EventType' {code} -> code) (\s@EventType' {} a -> s {code = a} :: EventType)
 
 -- | The AWS service that is affected by the event. For example, @EC2@,
 -- @RDS@.
-eventType_service :: Lens.Lens' EventType (Prelude.Maybe Prelude.Text)
+eventType_service :: Lens.Lens' EventType (Core.Maybe Core.Text)
 eventType_service = Lens.lens (\EventType' {service} -> service) (\s@EventType' {} a -> s {service = a} :: EventType)
 
-instance Prelude.FromJSON EventType where
+instance Core.FromJSON EventType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventType"
       ( \x ->
           EventType'
-            Prelude.<$> (x Prelude..:? "category")
-            Prelude.<*> (x Prelude..:? "code")
-            Prelude.<*> (x Prelude..:? "service")
+            Core.<$> (x Core..:? "category")
+            Core.<*> (x Core..:? "code")
+            Core.<*> (x Core..:? "service")
       )
 
-instance Prelude.Hashable EventType
+instance Core.Hashable EventType
 
-instance Prelude.NFData EventType
+instance Core.NFData EventType

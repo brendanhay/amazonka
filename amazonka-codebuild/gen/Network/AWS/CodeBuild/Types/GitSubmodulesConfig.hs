@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.GitSubmodulesConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Git submodules configuration for an AWS CodeBuild
 -- build project.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data GitSubmodulesConfig = GitSubmodulesConfig'
   { -- | Set to true to fetch Git submodules for your AWS CodeBuild build
     -- project.
-    fetchSubmodules :: Prelude.Bool
+    fetchSubmodules :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GitSubmodulesConfig' with all optional fields omitted.
@@ -46,7 +45,7 @@ data GitSubmodulesConfig = GitSubmodulesConfig'
 -- project.
 newGitSubmodulesConfig ::
   -- | 'fetchSubmodules'
-  Prelude.Bool ->
+  Core.Bool ->
   GitSubmodulesConfig
 newGitSubmodulesConfig pFetchSubmodules_ =
   GitSubmodulesConfig'
@@ -56,27 +55,27 @@ newGitSubmodulesConfig pFetchSubmodules_ =
 
 -- | Set to true to fetch Git submodules for your AWS CodeBuild build
 -- project.
-gitSubmodulesConfig_fetchSubmodules :: Lens.Lens' GitSubmodulesConfig Prelude.Bool
+gitSubmodulesConfig_fetchSubmodules :: Lens.Lens' GitSubmodulesConfig Core.Bool
 gitSubmodulesConfig_fetchSubmodules = Lens.lens (\GitSubmodulesConfig' {fetchSubmodules} -> fetchSubmodules) (\s@GitSubmodulesConfig' {} a -> s {fetchSubmodules = a} :: GitSubmodulesConfig)
 
-instance Prelude.FromJSON GitSubmodulesConfig where
+instance Core.FromJSON GitSubmodulesConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GitSubmodulesConfig"
       ( \x ->
           GitSubmodulesConfig'
-            Prelude.<$> (x Prelude..: "fetchSubmodules")
+            Core.<$> (x Core..: "fetchSubmodules")
       )
 
-instance Prelude.Hashable GitSubmodulesConfig
+instance Core.Hashable GitSubmodulesConfig
 
-instance Prelude.NFData GitSubmodulesConfig
+instance Core.NFData GitSubmodulesConfig
 
-instance Prelude.ToJSON GitSubmodulesConfig where
+instance Core.ToJSON GitSubmodulesConfig where
   toJSON GitSubmodulesConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("fetchSubmodules" Prelude..= fetchSubmodules)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("fetchSubmodules" Core..= fetchSubmodules)
           ]
       )

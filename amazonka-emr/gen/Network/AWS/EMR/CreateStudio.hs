@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.EMR.CreateStudio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,46 +62,46 @@ data CreateStudio = CreateStudio'
     -- user-defined key-value pairs that consist of a required key string with
     -- a maximum of 128 characters, and an optional value string with a maximum
     -- of 256 characters.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A detailed description of the Amazon EMR Studio.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | A descriptive name for the Amazon EMR Studio.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | Specifies whether the Studio authenticates users using single sign-on
     -- (SSO) or IAM. Amazon EMR Studio currently only supports SSO
     -- authentication.
     authMode :: AuthMode,
     -- | The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate
     -- with the Studio.
-    vpcId :: Prelude.Text,
+    vpcId :: Core.Text,
     -- | A list of subnet IDs to associate with the Amazon EMR Studio. A Studio
     -- can have a maximum of 5 subnets. The subnets must belong to the VPC
     -- specified by @VpcId@. Studio users can create a Workspace in any of the
     -- specified subnets.
-    subnetIds :: [Prelude.Text],
+    subnetIds :: [Core.Text],
     -- | The IAM role that will be assumed by the Amazon EMR Studio. The service
     -- role provides a way for Amazon EMR Studio to interoperate with other AWS
     -- services.
-    serviceRole :: Prelude.Text,
+    serviceRole :: Core.Text,
     -- | The IAM user role that will be assumed by users and groups logged in to
     -- an Amazon EMR Studio. The permissions attached to this IAM role can be
     -- scoped down for each user or group using session policies.
-    userRole :: Prelude.Text,
+    userRole :: Core.Text,
     -- | The ID of the Amazon EMR Studio Workspace security group. The Workspace
     -- security group allows outbound network traffic to resources in the
     -- Engine security group, and it must be in the same VPC specified by
     -- @VpcId@.
-    workspaceSecurityGroupId :: Prelude.Text,
+    workspaceSecurityGroupId :: Core.Text,
     -- | The ID of the Amazon EMR Studio Engine security group. The Engine
     -- security group allows inbound network traffic from the Workspace
     -- security group, and it must be in the same VPC specified by @VpcId@.
-    engineSecurityGroupId :: Prelude.Text,
+    engineSecurityGroupId :: Core.Text,
     -- | The default Amazon S3 location to back up Amazon EMR Studio Workspaces
     -- and notebook files. A Studio user can select an alternative Amazon S3
     -- location when creating a Workspace.
-    defaultS3Location :: Prelude.Text
+    defaultS3Location :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStudio' with all optional fields omitted.
@@ -155,21 +154,21 @@ data CreateStudio = CreateStudio'
 -- location when creating a Workspace.
 newCreateStudio ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authMode'
   AuthMode ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceRole'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userRole'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workspaceSecurityGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'engineSecurityGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'defaultS3Location'
-  Prelude.Text ->
+  Core.Text ->
   CreateStudio
 newCreateStudio
   pName_
@@ -181,12 +180,12 @@ newCreateStudio
   pEngineSecurityGroupId_
   pDefaultS3Location_ =
     CreateStudio'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { tags = Core.Nothing,
+        description = Core.Nothing,
         name = pName_,
         authMode = pAuthMode_,
         vpcId = pVpcId_,
-        subnetIds = Prelude.mempty,
+        subnetIds = Core.mempty,
         serviceRole = pServiceRole_,
         userRole = pUserRole_,
         workspaceSecurityGroupId =
@@ -199,15 +198,15 @@ newCreateStudio
 -- user-defined key-value pairs that consist of a required key string with
 -- a maximum of 128 characters, and an optional value string with a maximum
 -- of 256 characters.
-createStudio_tags :: Lens.Lens' CreateStudio (Prelude.Maybe [Tag])
-createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Prelude.. Lens.mapping Prelude._Coerce
+createStudio_tags :: Lens.Lens' CreateStudio (Core.Maybe [Tag])
+createStudio_tags = Lens.lens (\CreateStudio' {tags} -> tags) (\s@CreateStudio' {} a -> s {tags = a} :: CreateStudio) Core.. Lens.mapping Lens._Coerce
 
 -- | A detailed description of the Amazon EMR Studio.
-createStudio_description :: Lens.Lens' CreateStudio (Prelude.Maybe Prelude.Text)
+createStudio_description :: Lens.Lens' CreateStudio (Core.Maybe Core.Text)
 createStudio_description = Lens.lens (\CreateStudio' {description} -> description) (\s@CreateStudio' {} a -> s {description = a} :: CreateStudio)
 
 -- | A descriptive name for the Amazon EMR Studio.
-createStudio_name :: Lens.Lens' CreateStudio Prelude.Text
+createStudio_name :: Lens.Lens' CreateStudio Core.Text
 createStudio_name = Lens.lens (\CreateStudio' {name} -> name) (\s@CreateStudio' {} a -> s {name = a} :: CreateStudio)
 
 -- | Specifies whether the Studio authenticates users using single sign-on
@@ -218,119 +217,115 @@ createStudio_authMode = Lens.lens (\CreateStudio' {authMode} -> authMode) (\s@Cr
 
 -- | The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate
 -- with the Studio.
-createStudio_vpcId :: Lens.Lens' CreateStudio Prelude.Text
+createStudio_vpcId :: Lens.Lens' CreateStudio Core.Text
 createStudio_vpcId = Lens.lens (\CreateStudio' {vpcId} -> vpcId) (\s@CreateStudio' {} a -> s {vpcId = a} :: CreateStudio)
 
 -- | A list of subnet IDs to associate with the Amazon EMR Studio. A Studio
 -- can have a maximum of 5 subnets. The subnets must belong to the VPC
 -- specified by @VpcId@. Studio users can create a Workspace in any of the
 -- specified subnets.
-createStudio_subnetIds :: Lens.Lens' CreateStudio [Prelude.Text]
-createStudio_subnetIds = Lens.lens (\CreateStudio' {subnetIds} -> subnetIds) (\s@CreateStudio' {} a -> s {subnetIds = a} :: CreateStudio) Prelude.. Prelude._Coerce
+createStudio_subnetIds :: Lens.Lens' CreateStudio [Core.Text]
+createStudio_subnetIds = Lens.lens (\CreateStudio' {subnetIds} -> subnetIds) (\s@CreateStudio' {} a -> s {subnetIds = a} :: CreateStudio) Core.. Lens._Coerce
 
 -- | The IAM role that will be assumed by the Amazon EMR Studio. The service
 -- role provides a way for Amazon EMR Studio to interoperate with other AWS
 -- services.
-createStudio_serviceRole :: Lens.Lens' CreateStudio Prelude.Text
+createStudio_serviceRole :: Lens.Lens' CreateStudio Core.Text
 createStudio_serviceRole = Lens.lens (\CreateStudio' {serviceRole} -> serviceRole) (\s@CreateStudio' {} a -> s {serviceRole = a} :: CreateStudio)
 
 -- | The IAM user role that will be assumed by users and groups logged in to
 -- an Amazon EMR Studio. The permissions attached to this IAM role can be
 -- scoped down for each user or group using session policies.
-createStudio_userRole :: Lens.Lens' CreateStudio Prelude.Text
+createStudio_userRole :: Lens.Lens' CreateStudio Core.Text
 createStudio_userRole = Lens.lens (\CreateStudio' {userRole} -> userRole) (\s@CreateStudio' {} a -> s {userRole = a} :: CreateStudio)
 
 -- | The ID of the Amazon EMR Studio Workspace security group. The Workspace
 -- security group allows outbound network traffic to resources in the
 -- Engine security group, and it must be in the same VPC specified by
 -- @VpcId@.
-createStudio_workspaceSecurityGroupId :: Lens.Lens' CreateStudio Prelude.Text
+createStudio_workspaceSecurityGroupId :: Lens.Lens' CreateStudio Core.Text
 createStudio_workspaceSecurityGroupId = Lens.lens (\CreateStudio' {workspaceSecurityGroupId} -> workspaceSecurityGroupId) (\s@CreateStudio' {} a -> s {workspaceSecurityGroupId = a} :: CreateStudio)
 
 -- | The ID of the Amazon EMR Studio Engine security group. The Engine
 -- security group allows inbound network traffic from the Workspace
 -- security group, and it must be in the same VPC specified by @VpcId@.
-createStudio_engineSecurityGroupId :: Lens.Lens' CreateStudio Prelude.Text
+createStudio_engineSecurityGroupId :: Lens.Lens' CreateStudio Core.Text
 createStudio_engineSecurityGroupId = Lens.lens (\CreateStudio' {engineSecurityGroupId} -> engineSecurityGroupId) (\s@CreateStudio' {} a -> s {engineSecurityGroupId = a} :: CreateStudio)
 
 -- | The default Amazon S3 location to back up Amazon EMR Studio Workspaces
 -- and notebook files. A Studio user can select an alternative Amazon S3
 -- location when creating a Workspace.
-createStudio_defaultS3Location :: Lens.Lens' CreateStudio Prelude.Text
+createStudio_defaultS3Location :: Lens.Lens' CreateStudio Core.Text
 createStudio_defaultS3Location = Lens.lens (\CreateStudio' {defaultS3Location} -> defaultS3Location) (\s@CreateStudio' {} a -> s {defaultS3Location = a} :: CreateStudio)
 
-instance Prelude.AWSRequest CreateStudio where
-  type Rs CreateStudio = CreateStudioResponse
+instance Core.AWSRequest CreateStudio where
+  type AWSResponse CreateStudio = CreateStudioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateStudioResponse'
-            Prelude.<$> (x Prelude..?> "Url")
-            Prelude.<*> (x Prelude..?> "StudioId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Url")
+            Core.<*> (x Core..?> "StudioId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStudio
+instance Core.Hashable CreateStudio
 
-instance Prelude.NFData CreateStudio
+instance Core.NFData CreateStudio
 
-instance Prelude.ToHeaders CreateStudio where
+instance Core.ToHeaders CreateStudio where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.CreateStudio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("ElasticMapReduce.CreateStudio" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateStudio where
+instance Core.ToJSON CreateStudio where
   toJSON CreateStudio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("AuthMode" Prelude..= authMode),
-            Prelude.Just ("VpcId" Prelude..= vpcId),
-            Prelude.Just ("SubnetIds" Prelude..= subnetIds),
-            Prelude.Just ("ServiceRole" Prelude..= serviceRole),
-            Prelude.Just ("UserRole" Prelude..= userRole),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("AuthMode" Core..= authMode),
+            Core.Just ("VpcId" Core..= vpcId),
+            Core.Just ("SubnetIds" Core..= subnetIds),
+            Core.Just ("ServiceRole" Core..= serviceRole),
+            Core.Just ("UserRole" Core..= userRole),
+            Core.Just
               ( "WorkspaceSecurityGroupId"
-                  Prelude..= workspaceSecurityGroupId
+                  Core..= workspaceSecurityGroupId
               ),
-            Prelude.Just
+            Core.Just
               ( "EngineSecurityGroupId"
-                  Prelude..= engineSecurityGroupId
+                  Core..= engineSecurityGroupId
               ),
-            Prelude.Just
-              ("DefaultS3Location" Prelude..= defaultS3Location)
+            Core.Just
+              ("DefaultS3Location" Core..= defaultS3Location)
           ]
       )
 
-instance Prelude.ToPath CreateStudio where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateStudio where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateStudio where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateStudio where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateStudioResponse' smart constructor.
 data CreateStudioResponse = CreateStudioResponse'
   { -- | The unique Studio access URL.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | The ID of the Amazon EMR Studio.
-    studioId :: Prelude.Maybe Prelude.Text,
+    studioId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStudioResponse' with all optional fields omitted.
@@ -347,25 +342,25 @@ data CreateStudioResponse = CreateStudioResponse'
 -- 'httpStatus', 'createStudioResponse_httpStatus' - The response's http status code.
 newCreateStudioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateStudioResponse
 newCreateStudioResponse pHttpStatus_ =
   CreateStudioResponse'
-    { url = Prelude.Nothing,
-      studioId = Prelude.Nothing,
+    { url = Core.Nothing,
+      studioId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique Studio access URL.
-createStudioResponse_url :: Lens.Lens' CreateStudioResponse (Prelude.Maybe Prelude.Text)
+createStudioResponse_url :: Lens.Lens' CreateStudioResponse (Core.Maybe Core.Text)
 createStudioResponse_url = Lens.lens (\CreateStudioResponse' {url} -> url) (\s@CreateStudioResponse' {} a -> s {url = a} :: CreateStudioResponse)
 
 -- | The ID of the Amazon EMR Studio.
-createStudioResponse_studioId :: Lens.Lens' CreateStudioResponse (Prelude.Maybe Prelude.Text)
+createStudioResponse_studioId :: Lens.Lens' CreateStudioResponse (Core.Maybe Core.Text)
 createStudioResponse_studioId = Lens.lens (\CreateStudioResponse' {studioId} -> studioId) (\s@CreateStudioResponse' {} a -> s {studioId = a} :: CreateStudioResponse)
 
 -- | The response's http status code.
-createStudioResponse_httpStatus :: Lens.Lens' CreateStudioResponse Prelude.Int
+createStudioResponse_httpStatus :: Lens.Lens' CreateStudioResponse Core.Int
 createStudioResponse_httpStatus = Lens.lens (\CreateStudioResponse' {httpStatus} -> httpStatus) (\s@CreateStudioResponse' {} a -> s {httpStatus = a} :: CreateStudioResponse)
 
-instance Prelude.NFData CreateStudioResponse
+instance Core.NFData CreateStudioResponse

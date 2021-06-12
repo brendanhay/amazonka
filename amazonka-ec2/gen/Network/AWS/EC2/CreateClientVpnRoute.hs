@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.EC2.CreateClientVpnRoute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,15 +59,15 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | A brief description of the route.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The ID of the Client VPN endpoint to which to add the route.
-    clientVpnEndpointId :: Prelude.Text,
+    clientVpnEndpointId :: Core.Text,
     -- | The IPv4 address range, in CIDR notation, of the route destination. For
     -- example:
     --
@@ -81,16 +80,16 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
     --     Site-to-Site VPN connection\'s IPv4 CIDR range
     --
     -- -   To add a route for the local network, enter the client CIDR range
-    destinationCidrBlock :: Prelude.Text,
+    destinationCidrBlock :: Core.Text,
     -- | The ID of the subnet through which you want to route traffic. The
     -- specified subnet must be an existing target network of the Client VPN
     -- endpoint.
     --
     -- Alternatively, if you\'re adding a route for the local network, specify
     -- @local@.
-    targetVpcSubnetId :: Prelude.Text
+    targetVpcSubnetId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateClientVpnRoute' with all optional fields omitted.
@@ -134,20 +133,20 @@ data CreateClientVpnRoute = CreateClientVpnRoute'
 -- @local@.
 newCreateClientVpnRoute ::
   -- | 'clientVpnEndpointId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationCidrBlock'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetVpcSubnetId'
-  Prelude.Text ->
+  Core.Text ->
   CreateClientVpnRoute
 newCreateClientVpnRoute
   pClientVpnEndpointId_
   pDestinationCidrBlock_
   pTargetVpcSubnetId_ =
     CreateClientVpnRoute'
-      { dryRun = Prelude.Nothing,
-        description = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { dryRun = Core.Nothing,
+        description = Core.Nothing,
+        clientToken = Core.Nothing,
         clientVpnEndpointId = pClientVpnEndpointId_,
         destinationCidrBlock = pDestinationCidrBlock_,
         targetVpcSubnetId = pTargetVpcSubnetId_
@@ -157,21 +156,21 @@ newCreateClientVpnRoute
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createClientVpnRoute_dryRun :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Bool)
+createClientVpnRoute_dryRun :: Lens.Lens' CreateClientVpnRoute (Core.Maybe Core.Bool)
 createClientVpnRoute_dryRun = Lens.lens (\CreateClientVpnRoute' {dryRun} -> dryRun) (\s@CreateClientVpnRoute' {} a -> s {dryRun = a} :: CreateClientVpnRoute)
 
 -- | A brief description of the route.
-createClientVpnRoute_description :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Text)
+createClientVpnRoute_description :: Lens.Lens' CreateClientVpnRoute (Core.Maybe Core.Text)
 createClientVpnRoute_description = Lens.lens (\CreateClientVpnRoute' {description} -> description) (\s@CreateClientVpnRoute' {} a -> s {description = a} :: CreateClientVpnRoute)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-createClientVpnRoute_clientToken :: Lens.Lens' CreateClientVpnRoute (Prelude.Maybe Prelude.Text)
+createClientVpnRoute_clientToken :: Lens.Lens' CreateClientVpnRoute (Core.Maybe Core.Text)
 createClientVpnRoute_clientToken = Lens.lens (\CreateClientVpnRoute' {clientToken} -> clientToken) (\s@CreateClientVpnRoute' {} a -> s {clientToken = a} :: CreateClientVpnRoute)
 
 -- | The ID of the Client VPN endpoint to which to add the route.
-createClientVpnRoute_clientVpnEndpointId :: Lens.Lens' CreateClientVpnRoute Prelude.Text
+createClientVpnRoute_clientVpnEndpointId :: Lens.Lens' CreateClientVpnRoute Core.Text
 createClientVpnRoute_clientVpnEndpointId = Lens.lens (\CreateClientVpnRoute' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@CreateClientVpnRoute' {} a -> s {clientVpnEndpointId = a} :: CreateClientVpnRoute)
 
 -- | The IPv4 address range, in CIDR notation, of the route destination. For
@@ -186,7 +185,7 @@ createClientVpnRoute_clientVpnEndpointId = Lens.lens (\CreateClientVpnRoute' {cl
 --     Site-to-Site VPN connection\'s IPv4 CIDR range
 --
 -- -   To add a route for the local network, enter the client CIDR range
-createClientVpnRoute_destinationCidrBlock :: Lens.Lens' CreateClientVpnRoute Prelude.Text
+createClientVpnRoute_destinationCidrBlock :: Lens.Lens' CreateClientVpnRoute Core.Text
 createClientVpnRoute_destinationCidrBlock = Lens.lens (\CreateClientVpnRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@CreateClientVpnRoute' {} a -> s {destinationCidrBlock = a} :: CreateClientVpnRoute)
 
 -- | The ID of the subnet through which you want to route traffic. The
@@ -195,56 +194,54 @@ createClientVpnRoute_destinationCidrBlock = Lens.lens (\CreateClientVpnRoute' {d
 --
 -- Alternatively, if you\'re adding a route for the local network, specify
 -- @local@.
-createClientVpnRoute_targetVpcSubnetId :: Lens.Lens' CreateClientVpnRoute Prelude.Text
+createClientVpnRoute_targetVpcSubnetId :: Lens.Lens' CreateClientVpnRoute Core.Text
 createClientVpnRoute_targetVpcSubnetId = Lens.lens (\CreateClientVpnRoute' {targetVpcSubnetId} -> targetVpcSubnetId) (\s@CreateClientVpnRoute' {} a -> s {targetVpcSubnetId = a} :: CreateClientVpnRoute)
 
-instance Prelude.AWSRequest CreateClientVpnRoute where
+instance Core.AWSRequest CreateClientVpnRoute where
   type
-    Rs CreateClientVpnRoute =
+    AWSResponse CreateClientVpnRoute =
       CreateClientVpnRouteResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateClientVpnRouteResponse'
-            Prelude.<$> (x Prelude..@? "status")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateClientVpnRoute
+instance Core.Hashable CreateClientVpnRoute
 
-instance Prelude.NFData CreateClientVpnRoute
+instance Core.NFData CreateClientVpnRoute
 
-instance Prelude.ToHeaders CreateClientVpnRoute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateClientVpnRoute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateClientVpnRoute where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateClientVpnRoute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateClientVpnRoute where
+instance Core.ToQuery CreateClientVpnRoute where
   toQuery CreateClientVpnRoute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateClientVpnRoute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Description" Prelude.=: description,
-        "ClientToken" Prelude.=: clientToken,
-        "ClientVpnEndpointId" Prelude.=: clientVpnEndpointId,
-        "DestinationCidrBlock"
-          Prelude.=: destinationCidrBlock,
-        "TargetVpcSubnetId" Prelude.=: targetVpcSubnetId
+          Core.=: ("CreateClientVpnRoute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Description" Core.=: description,
+        "ClientToken" Core.=: clientToken,
+        "ClientVpnEndpointId" Core.=: clientVpnEndpointId,
+        "DestinationCidrBlock" Core.=: destinationCidrBlock,
+        "TargetVpcSubnetId" Core.=: targetVpcSubnetId
       ]
 
 -- | /See:/ 'newCreateClientVpnRouteResponse' smart constructor.
 data CreateClientVpnRouteResponse = CreateClientVpnRouteResponse'
   { -- | The current state of the route.
-    status :: Prelude.Maybe ClientVpnRouteStatus,
+    status :: Core.Maybe ClientVpnRouteStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateClientVpnRouteResponse' with all optional fields omitted.
@@ -259,21 +256,21 @@ data CreateClientVpnRouteResponse = CreateClientVpnRouteResponse'
 -- 'httpStatus', 'createClientVpnRouteResponse_httpStatus' - The response's http status code.
 newCreateClientVpnRouteResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateClientVpnRouteResponse
 newCreateClientVpnRouteResponse pHttpStatus_ =
   CreateClientVpnRouteResponse'
     { status =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current state of the route.
-createClientVpnRouteResponse_status :: Lens.Lens' CreateClientVpnRouteResponse (Prelude.Maybe ClientVpnRouteStatus)
+createClientVpnRouteResponse_status :: Lens.Lens' CreateClientVpnRouteResponse (Core.Maybe ClientVpnRouteStatus)
 createClientVpnRouteResponse_status = Lens.lens (\CreateClientVpnRouteResponse' {status} -> status) (\s@CreateClientVpnRouteResponse' {} a -> s {status = a} :: CreateClientVpnRouteResponse)
 
 -- | The response's http status code.
-createClientVpnRouteResponse_httpStatus :: Lens.Lens' CreateClientVpnRouteResponse Prelude.Int
+createClientVpnRouteResponse_httpStatus :: Lens.Lens' CreateClientVpnRouteResponse Core.Int
 createClientVpnRouteResponse_httpStatus = Lens.lens (\CreateClientVpnRouteResponse' {httpStatus} -> httpStatus) (\s@CreateClientVpnRouteResponse' {} a -> s {httpStatus = a} :: CreateClientVpnRouteResponse)
 
-instance Prelude.NFData CreateClientVpnRouteResponse
+instance Core.NFData CreateClientVpnRouteResponse

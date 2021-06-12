@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.GuardDuty.UpdatePublishingDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,14 +51,14 @@ import qualified Network.AWS.Response as Response
 data UpdatePublishingDestination = UpdatePublishingDestination'
   { -- | A @DestinationProperties@ object that includes the @DestinationArn@ and
     -- @KmsKeyArn@ of the publishing destination.
-    destinationProperties :: Prelude.Maybe DestinationProperties,
+    destinationProperties :: Core.Maybe DestinationProperties,
     -- | The ID of the detector associated with the publishing destinations to
     -- update.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The ID of the publishing destination to update.
-    destinationId :: Prelude.Text
+    destinationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePublishingDestination' with all optional fields omitted.
@@ -78,94 +77,86 @@ data UpdatePublishingDestination = UpdatePublishingDestination'
 -- 'destinationId', 'updatePublishingDestination_destinationId' - The ID of the publishing destination to update.
 newUpdatePublishingDestination ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationId'
-  Prelude.Text ->
+  Core.Text ->
   UpdatePublishingDestination
 newUpdatePublishingDestination
   pDetectorId_
   pDestinationId_ =
     UpdatePublishingDestination'
       { destinationProperties =
-          Prelude.Nothing,
+          Core.Nothing,
         detectorId = pDetectorId_,
         destinationId = pDestinationId_
       }
 
 -- | A @DestinationProperties@ object that includes the @DestinationArn@ and
 -- @KmsKeyArn@ of the publishing destination.
-updatePublishingDestination_destinationProperties :: Lens.Lens' UpdatePublishingDestination (Prelude.Maybe DestinationProperties)
+updatePublishingDestination_destinationProperties :: Lens.Lens' UpdatePublishingDestination (Core.Maybe DestinationProperties)
 updatePublishingDestination_destinationProperties = Lens.lens (\UpdatePublishingDestination' {destinationProperties} -> destinationProperties) (\s@UpdatePublishingDestination' {} a -> s {destinationProperties = a} :: UpdatePublishingDestination)
 
 -- | The ID of the detector associated with the publishing destinations to
 -- update.
-updatePublishingDestination_detectorId :: Lens.Lens' UpdatePublishingDestination Prelude.Text
+updatePublishingDestination_detectorId :: Lens.Lens' UpdatePublishingDestination Core.Text
 updatePublishingDestination_detectorId = Lens.lens (\UpdatePublishingDestination' {detectorId} -> detectorId) (\s@UpdatePublishingDestination' {} a -> s {detectorId = a} :: UpdatePublishingDestination)
 
 -- | The ID of the publishing destination to update.
-updatePublishingDestination_destinationId :: Lens.Lens' UpdatePublishingDestination Prelude.Text
+updatePublishingDestination_destinationId :: Lens.Lens' UpdatePublishingDestination Core.Text
 updatePublishingDestination_destinationId = Lens.lens (\UpdatePublishingDestination' {destinationId} -> destinationId) (\s@UpdatePublishingDestination' {} a -> s {destinationId = a} :: UpdatePublishingDestination)
 
-instance
-  Prelude.AWSRequest
-    UpdatePublishingDestination
-  where
+instance Core.AWSRequest UpdatePublishingDestination where
   type
-    Rs UpdatePublishingDestination =
+    AWSResponse UpdatePublishingDestination =
       UpdatePublishingDestinationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePublishingDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdatePublishingDestination
+instance Core.Hashable UpdatePublishingDestination
 
-instance Prelude.NFData UpdatePublishingDestination
+instance Core.NFData UpdatePublishingDestination
 
-instance
-  Prelude.ToHeaders
-    UpdatePublishingDestination
-  where
+instance Core.ToHeaders UpdatePublishingDestination where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdatePublishingDestination where
+instance Core.ToJSON UpdatePublishingDestination where
   toJSON UpdatePublishingDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("destinationProperties" Prelude..=)
-              Prelude.<$> destinationProperties
+    Core.object
+      ( Core.catMaybes
+          [ ("destinationProperties" Core..=)
+              Core.<$> destinationProperties
           ]
       )
 
-instance Prelude.ToPath UpdatePublishingDestination where
+instance Core.ToPath UpdatePublishingDestination where
   toPath UpdatePublishingDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/publishingDestination/",
-        Prelude.toBS destinationId
+        Core.toBS destinationId
       ]
 
-instance Prelude.ToQuery UpdatePublishingDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdatePublishingDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdatePublishingDestinationResponse' smart constructor.
 data UpdatePublishingDestinationResponse = UpdatePublishingDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdatePublishingDestinationResponse' with all optional fields omitted.
@@ -178,7 +169,7 @@ data UpdatePublishingDestinationResponse = UpdatePublishingDestinationResponse'
 -- 'httpStatus', 'updatePublishingDestinationResponse_httpStatus' - The response's http status code.
 newUpdatePublishingDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdatePublishingDestinationResponse
 newUpdatePublishingDestinationResponse pHttpStatus_ =
   UpdatePublishingDestinationResponse'
@@ -187,9 +178,9 @@ newUpdatePublishingDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updatePublishingDestinationResponse_httpStatus :: Lens.Lens' UpdatePublishingDestinationResponse Prelude.Int
+updatePublishingDestinationResponse_httpStatus :: Lens.Lens' UpdatePublishingDestinationResponse Core.Int
 updatePublishingDestinationResponse_httpStatus = Lens.lens (\UpdatePublishingDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdatePublishingDestinationResponse' {} a -> s {httpStatus = a} :: UpdatePublishingDestinationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdatePublishingDestinationResponse

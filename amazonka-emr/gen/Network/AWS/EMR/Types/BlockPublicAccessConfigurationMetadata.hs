@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Properties that describe the AWS principal that created the
 -- @BlockPublicAccessConfiguration@ using the
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBlockPublicAccessConfigurationMetadata' smart constructor.
 data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMetadata'
   { -- | The date and time that the configuration was created.
-    creationDateTime :: Prelude.POSIX,
+    creationDateTime :: Core.POSIX,
     -- | The Amazon Resource Name that created or last modified the
     -- configuration.
-    createdByArn :: Prelude.Text
+    createdByArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BlockPublicAccessConfigurationMetadata' with all optional fields omitted.
@@ -53,46 +52,46 @@ data BlockPublicAccessConfigurationMetadata = BlockPublicAccessConfigurationMeta
 -- configuration.
 newBlockPublicAccessConfigurationMetadata ::
   -- | 'creationDateTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'createdByArn'
-  Prelude.Text ->
+  Core.Text ->
   BlockPublicAccessConfigurationMetadata
 newBlockPublicAccessConfigurationMetadata
   pCreationDateTime_
   pCreatedByArn_ =
     BlockPublicAccessConfigurationMetadata'
       { creationDateTime =
-          Prelude._Time
+          Core._Time
             Lens.# pCreationDateTime_,
         createdByArn = pCreatedByArn_
       }
 
 -- | The date and time that the configuration was created.
-blockPublicAccessConfigurationMetadata_creationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Prelude.UTCTime
-blockPublicAccessConfigurationMetadata_creationDateTime = Lens.lens (\BlockPublicAccessConfigurationMetadata' {creationDateTime} -> creationDateTime) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata) Prelude.. Prelude._Time
+blockPublicAccessConfigurationMetadata_creationDateTime :: Lens.Lens' BlockPublicAccessConfigurationMetadata Core.UTCTime
+blockPublicAccessConfigurationMetadata_creationDateTime = Lens.lens (\BlockPublicAccessConfigurationMetadata' {creationDateTime} -> creationDateTime) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {creationDateTime = a} :: BlockPublicAccessConfigurationMetadata) Core.. Core._Time
 
 -- | The Amazon Resource Name that created or last modified the
 -- configuration.
-blockPublicAccessConfigurationMetadata_createdByArn :: Lens.Lens' BlockPublicAccessConfigurationMetadata Prelude.Text
+blockPublicAccessConfigurationMetadata_createdByArn :: Lens.Lens' BlockPublicAccessConfigurationMetadata Core.Text
 blockPublicAccessConfigurationMetadata_createdByArn = Lens.lens (\BlockPublicAccessConfigurationMetadata' {createdByArn} -> createdByArn) (\s@BlockPublicAccessConfigurationMetadata' {} a -> s {createdByArn = a} :: BlockPublicAccessConfigurationMetadata)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BlockPublicAccessConfigurationMetadata
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BlockPublicAccessConfigurationMetadata"
       ( \x ->
           BlockPublicAccessConfigurationMetadata'
-            Prelude.<$> (x Prelude..: "CreationDateTime")
-            Prelude.<*> (x Prelude..: "CreatedByArn")
+            Core.<$> (x Core..: "CreationDateTime")
+            Core.<*> (x Core..: "CreatedByArn")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BlockPublicAccessConfigurationMetadata
 
 instance
-  Prelude.NFData
+  Core.NFData
     BlockPublicAccessConfigurationMetadata

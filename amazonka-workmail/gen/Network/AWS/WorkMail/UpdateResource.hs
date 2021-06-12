@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.WorkMail.UpdateResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -54,16 +53,16 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
   { -- | The name of the resource to be updated.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The resource\'s booking options to be updated.
-    bookingOptions :: Prelude.Maybe BookingOptions,
+    bookingOptions :: Core.Maybe BookingOptions,
     -- | The identifier associated with the organization for which the resource
     -- is updated.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The identifier of the resource to be updated.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateResource' with all optional fields omitted.
@@ -83,89 +82,87 @@ data UpdateResource = UpdateResource'
 -- 'resourceId', 'updateResource_resourceId' - The identifier of the resource to be updated.
 newUpdateResource ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateResource
 newUpdateResource pOrganizationId_ pResourceId_ =
   UpdateResource'
-    { name = Prelude.Nothing,
-      bookingOptions = Prelude.Nothing,
+    { name = Core.Nothing,
+      bookingOptions = Core.Nothing,
       organizationId = pOrganizationId_,
       resourceId = pResourceId_
     }
 
 -- | The name of the resource to be updated.
-updateResource_name :: Lens.Lens' UpdateResource (Prelude.Maybe Prelude.Text)
+updateResource_name :: Lens.Lens' UpdateResource (Core.Maybe Core.Text)
 updateResource_name = Lens.lens (\UpdateResource' {name} -> name) (\s@UpdateResource' {} a -> s {name = a} :: UpdateResource)
 
 -- | The resource\'s booking options to be updated.
-updateResource_bookingOptions :: Lens.Lens' UpdateResource (Prelude.Maybe BookingOptions)
+updateResource_bookingOptions :: Lens.Lens' UpdateResource (Core.Maybe BookingOptions)
 updateResource_bookingOptions = Lens.lens (\UpdateResource' {bookingOptions} -> bookingOptions) (\s@UpdateResource' {} a -> s {bookingOptions = a} :: UpdateResource)
 
 -- | The identifier associated with the organization for which the resource
 -- is updated.
-updateResource_organizationId :: Lens.Lens' UpdateResource Prelude.Text
+updateResource_organizationId :: Lens.Lens' UpdateResource Core.Text
 updateResource_organizationId = Lens.lens (\UpdateResource' {organizationId} -> organizationId) (\s@UpdateResource' {} a -> s {organizationId = a} :: UpdateResource)
 
 -- | The identifier of the resource to be updated.
-updateResource_resourceId :: Lens.Lens' UpdateResource Prelude.Text
+updateResource_resourceId :: Lens.Lens' UpdateResource Core.Text
 updateResource_resourceId = Lens.lens (\UpdateResource' {resourceId} -> resourceId) (\s@UpdateResource' {} a -> s {resourceId = a} :: UpdateResource)
 
-instance Prelude.AWSRequest UpdateResource where
-  type Rs UpdateResource = UpdateResourceResponse
+instance Core.AWSRequest UpdateResource where
+  type
+    AWSResponse UpdateResource =
+      UpdateResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResource
+instance Core.Hashable UpdateResource
 
-instance Prelude.NFData UpdateResource
+instance Core.NFData UpdateResource
 
-instance Prelude.ToHeaders UpdateResource where
+instance Core.ToHeaders UpdateResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.UpdateResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.UpdateResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateResource where
+instance Core.ToJSON UpdateResource where
   toJSON UpdateResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("BookingOptions" Prelude..=)
-              Prelude.<$> bookingOptions,
-            Prelude.Just
-              ("OrganizationId" Prelude..= organizationId),
-            Prelude.Just ("ResourceId" Prelude..= resourceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("BookingOptions" Core..=) Core.<$> bookingOptions,
+            Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
-instance Prelude.ToPath UpdateResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateResource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateResourceResponse' smart constructor.
 data UpdateResourceResponse = UpdateResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceResponse' with all optional fields omitted.
@@ -178,13 +175,13 @@ data UpdateResourceResponse = UpdateResourceResponse'
 -- 'httpStatus', 'updateResourceResponse_httpStatus' - The response's http status code.
 newUpdateResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateResourceResponse
 newUpdateResourceResponse pHttpStatus_ =
   UpdateResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateResourceResponse_httpStatus :: Lens.Lens' UpdateResourceResponse Prelude.Int
+updateResourceResponse_httpStatus :: Lens.Lens' UpdateResourceResponse Core.Int
 updateResourceResponse_httpStatus = Lens.lens (\UpdateResourceResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceResponse' {} a -> s {httpStatus = a} :: UpdateResourceResponse)
 
-instance Prelude.NFData UpdateResourceResponse
+instance Core.NFData UpdateResourceResponse

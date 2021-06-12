@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,19 +37,19 @@ module Network.AWS.CognitoIdentityProvider.DeleteResourceServer
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteResourceServer' smart constructor.
 data DeleteResourceServer = DeleteResourceServer'
   { -- | The user pool ID for the user pool that hosts the resource server.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The identifier for the resource server.
-    identifier :: Prelude.Text
+    identifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceServer' with all optional fields omitted.
@@ -65,9 +64,9 @@ data DeleteResourceServer = DeleteResourceServer'
 -- 'identifier', 'deleteResourceServer_identifier' - The identifier for the resource server.
 newDeleteResourceServer ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteResourceServer
 newDeleteResourceServer pUserPoolId_ pIdentifier_ =
   DeleteResourceServer'
@@ -76,60 +75,58 @@ newDeleteResourceServer pUserPoolId_ pIdentifier_ =
     }
 
 -- | The user pool ID for the user pool that hosts the resource server.
-deleteResourceServer_userPoolId :: Lens.Lens' DeleteResourceServer Prelude.Text
+deleteResourceServer_userPoolId :: Lens.Lens' DeleteResourceServer Core.Text
 deleteResourceServer_userPoolId = Lens.lens (\DeleteResourceServer' {userPoolId} -> userPoolId) (\s@DeleteResourceServer' {} a -> s {userPoolId = a} :: DeleteResourceServer)
 
 -- | The identifier for the resource server.
-deleteResourceServer_identifier :: Lens.Lens' DeleteResourceServer Prelude.Text
+deleteResourceServer_identifier :: Lens.Lens' DeleteResourceServer Core.Text
 deleteResourceServer_identifier = Lens.lens (\DeleteResourceServer' {identifier} -> identifier) (\s@DeleteResourceServer' {} a -> s {identifier = a} :: DeleteResourceServer)
 
-instance Prelude.AWSRequest DeleteResourceServer where
+instance Core.AWSRequest DeleteResourceServer where
   type
-    Rs DeleteResourceServer =
+    AWSResponse DeleteResourceServer =
       DeleteResourceServerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteResourceServerResponse'
 
-instance Prelude.Hashable DeleteResourceServer
+instance Core.Hashable DeleteResourceServer
 
-instance Prelude.NFData DeleteResourceServer
+instance Core.NFData DeleteResourceServer
 
-instance Prelude.ToHeaders DeleteResourceServer where
+instance Core.ToHeaders DeleteResourceServer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.DeleteResourceServer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.DeleteResourceServer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteResourceServer where
+instance Core.ToJSON DeleteResourceServer where
   toJSON DeleteResourceServer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Identifier" Prelude..= identifier)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Identifier" Core..= identifier)
           ]
       )
 
-instance Prelude.ToPath DeleteResourceServer where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteResourceServer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteResourceServer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResourceServer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResourceServerResponse' smart constructor.
 data DeleteResourceServerResponse = DeleteResourceServerResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceServerResponse' with all optional fields omitted.
@@ -140,4 +137,4 @@ newDeleteResourceServerResponse ::
 newDeleteResourceServerResponse =
   DeleteResourceServerResponse'
 
-instance Prelude.NFData DeleteResourceServerResponse
+instance Core.NFData DeleteResourceServerResponse

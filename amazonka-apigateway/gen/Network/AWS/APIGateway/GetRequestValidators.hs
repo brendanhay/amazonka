@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.APIGateway.GetRequestValidators
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +55,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetRequestValidators' smart constructor.
 data GetRequestValidators = GetRequestValidators'
   { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+    position :: Core.Maybe Core.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
+    limit :: Core.Maybe Core.Int,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text
+    restApiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRequestValidators' with all optional fields omitted.
@@ -82,91 +80,88 @@ data GetRequestValidators = GetRequestValidators'
 -- 'restApiId', 'getRequestValidators_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetRequestValidators ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   GetRequestValidators
 newGetRequestValidators pRestApiId_ =
   GetRequestValidators'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { position = Core.Nothing,
+      limit = Core.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The current pagination position in the paged result set.
-getRequestValidators_position :: Lens.Lens' GetRequestValidators (Prelude.Maybe Prelude.Text)
+getRequestValidators_position :: Lens.Lens' GetRequestValidators (Core.Maybe Core.Text)
 getRequestValidators_position = Lens.lens (\GetRequestValidators' {position} -> position) (\s@GetRequestValidators' {} a -> s {position = a} :: GetRequestValidators)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getRequestValidators_limit :: Lens.Lens' GetRequestValidators (Prelude.Maybe Prelude.Int)
+getRequestValidators_limit :: Lens.Lens' GetRequestValidators (Core.Maybe Core.Int)
 getRequestValidators_limit = Lens.lens (\GetRequestValidators' {limit} -> limit) (\s@GetRequestValidators' {} a -> s {limit = a} :: GetRequestValidators)
 
 -- | [Required] The string identifier of the associated RestApi.
-getRequestValidators_restApiId :: Lens.Lens' GetRequestValidators Prelude.Text
+getRequestValidators_restApiId :: Lens.Lens' GetRequestValidators Core.Text
 getRequestValidators_restApiId = Lens.lens (\GetRequestValidators' {restApiId} -> restApiId) (\s@GetRequestValidators' {} a -> s {restApiId = a} :: GetRequestValidators)
 
-instance Pager.AWSPager GetRequestValidators where
+instance Core.AWSPager GetRequestValidators where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getRequestValidatorsResponse_position
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getRequestValidatorsResponse_items
-              Prelude.. Lens._Just
+            Lens.^? getRequestValidatorsResponse_items Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getRequestValidators_position
           Lens..~ rs
           Lens.^? getRequestValidatorsResponse_position
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetRequestValidators where
+instance Core.AWSRequest GetRequestValidators where
   type
-    Rs GetRequestValidators =
+    AWSResponse GetRequestValidators =
       GetRequestValidatorsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRequestValidatorsResponse'
-            Prelude.<$> (x Prelude..?> "item" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "position")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "position")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRequestValidators
+instance Core.Hashable GetRequestValidators
 
-instance Prelude.NFData GetRequestValidators
+instance Core.NFData GetRequestValidators
 
-instance Prelude.ToHeaders GetRequestValidators where
+instance Core.ToHeaders GetRequestValidators where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetRequestValidators where
+instance Core.ToPath GetRequestValidators where
   toPath GetRequestValidators' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/requestvalidators"
       ]
 
-instance Prelude.ToQuery GetRequestValidators where
+instance Core.ToQuery GetRequestValidators where
   toQuery GetRequestValidators' {..} =
-    Prelude.mconcat
-      [ "position" Prelude.=: position,
-        "limit" Prelude.=: limit
-      ]
+    Core.mconcat
+      ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | A collection of RequestValidator resources of a given RestApi.
 --
@@ -179,12 +174,12 @@ instance Prelude.ToQuery GetRequestValidators where
 -- /See:/ 'newGetRequestValidatorsResponse' smart constructor.
 data GetRequestValidatorsResponse = GetRequestValidatorsResponse'
   { -- | The current page of elements from this collection.
-    items :: Prelude.Maybe [RequestValidator],
-    position :: Prelude.Maybe Prelude.Text,
+    items :: Core.Maybe [RequestValidator],
+    position :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRequestValidatorsResponse' with all optional fields omitted.
@@ -201,26 +196,25 @@ data GetRequestValidatorsResponse = GetRequestValidatorsResponse'
 -- 'httpStatus', 'getRequestValidatorsResponse_httpStatus' - The response's http status code.
 newGetRequestValidatorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRequestValidatorsResponse
 newGetRequestValidatorsResponse pHttpStatus_ =
   GetRequestValidatorsResponse'
-    { items =
-        Prelude.Nothing,
-      position = Prelude.Nothing,
+    { items = Core.Nothing,
+      position = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getRequestValidatorsResponse_items :: Lens.Lens' GetRequestValidatorsResponse (Prelude.Maybe [RequestValidator])
-getRequestValidatorsResponse_items = Lens.lens (\GetRequestValidatorsResponse' {items} -> items) (\s@GetRequestValidatorsResponse' {} a -> s {items = a} :: GetRequestValidatorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRequestValidatorsResponse_items :: Lens.Lens' GetRequestValidatorsResponse (Core.Maybe [RequestValidator])
+getRequestValidatorsResponse_items = Lens.lens (\GetRequestValidatorsResponse' {items} -> items) (\s@GetRequestValidatorsResponse' {} a -> s {items = a} :: GetRequestValidatorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getRequestValidatorsResponse_position :: Lens.Lens' GetRequestValidatorsResponse (Prelude.Maybe Prelude.Text)
+getRequestValidatorsResponse_position :: Lens.Lens' GetRequestValidatorsResponse (Core.Maybe Core.Text)
 getRequestValidatorsResponse_position = Lens.lens (\GetRequestValidatorsResponse' {position} -> position) (\s@GetRequestValidatorsResponse' {} a -> s {position = a} :: GetRequestValidatorsResponse)
 
 -- | The response's http status code.
-getRequestValidatorsResponse_httpStatus :: Lens.Lens' GetRequestValidatorsResponse Prelude.Int
+getRequestValidatorsResponse_httpStatus :: Lens.Lens' GetRequestValidatorsResponse Core.Int
 getRequestValidatorsResponse_httpStatus = Lens.lens (\GetRequestValidatorsResponse' {httpStatus} -> httpStatus) (\s@GetRequestValidatorsResponse' {} a -> s {httpStatus = a} :: GetRequestValidatorsResponse)
 
-instance Prelude.NFData GetRequestValidatorsResponse
+instance Core.NFData GetRequestValidatorsResponse

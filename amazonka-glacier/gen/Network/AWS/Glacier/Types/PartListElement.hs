@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Types.PartListElement where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of the part sizes of the multipart upload.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data PartListElement = PartListElement'
   { -- | The SHA256 tree hash value that Amazon S3 Glacier calculated for the
     -- part. This field is never @null@.
-    sHA256TreeHash :: Prelude.Maybe Prelude.Text,
+    sHA256TreeHash :: Core.Maybe Core.Text,
     -- | The byte range of a part, inclusive of the upper value of the range.
-    rangeInBytes :: Prelude.Maybe Prelude.Text
+    rangeInBytes :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PartListElement' with all optional fields omitted.
@@ -51,29 +50,29 @@ newPartListElement ::
   PartListElement
 newPartListElement =
   PartListElement'
-    { sHA256TreeHash = Prelude.Nothing,
-      rangeInBytes = Prelude.Nothing
+    { sHA256TreeHash = Core.Nothing,
+      rangeInBytes = Core.Nothing
     }
 
 -- | The SHA256 tree hash value that Amazon S3 Glacier calculated for the
 -- part. This field is never @null@.
-partListElement_sHA256TreeHash :: Lens.Lens' PartListElement (Prelude.Maybe Prelude.Text)
+partListElement_sHA256TreeHash :: Lens.Lens' PartListElement (Core.Maybe Core.Text)
 partListElement_sHA256TreeHash = Lens.lens (\PartListElement' {sHA256TreeHash} -> sHA256TreeHash) (\s@PartListElement' {} a -> s {sHA256TreeHash = a} :: PartListElement)
 
 -- | The byte range of a part, inclusive of the upper value of the range.
-partListElement_rangeInBytes :: Lens.Lens' PartListElement (Prelude.Maybe Prelude.Text)
+partListElement_rangeInBytes :: Lens.Lens' PartListElement (Core.Maybe Core.Text)
 partListElement_rangeInBytes = Lens.lens (\PartListElement' {rangeInBytes} -> rangeInBytes) (\s@PartListElement' {} a -> s {rangeInBytes = a} :: PartListElement)
 
-instance Prelude.FromJSON PartListElement where
+instance Core.FromJSON PartListElement where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PartListElement"
       ( \x ->
           PartListElement'
-            Prelude.<$> (x Prelude..:? "SHA256TreeHash")
-            Prelude.<*> (x Prelude..:? "RangeInBytes")
+            Core.<$> (x Core..:? "SHA256TreeHash")
+            Core.<*> (x Core..:? "RangeInBytes")
       )
 
-instance Prelude.Hashable PartListElement
+instance Core.Hashable PartListElement
 
-instance Prelude.NFData PartListElement
+instance Core.NFData PartListElement

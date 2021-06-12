@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.PostgreSQLSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that defines a PostgreSQL endpoint.
 --
@@ -32,52 +31,52 @@ data PostgreSQLSettings = PostgreSQLSettings'
     --
     -- If task is set to Limited LOB mode and this option is set to true, the
     -- task fails instead of truncating the LOB data.
-    failTasksOnLobTruncation :: Prelude.Maybe Prelude.Bool,
+    failTasksOnLobTruncation :: Core.Maybe Core.Bool,
     -- | Sets the client statement timeout for the PostgreSQL instance, in
     -- seconds. The default value is 60 seconds.
     --
     -- Example: @executeTimeout=100;@
-    executeTimeout :: Prelude.Maybe Prelude.Int,
+    executeTimeout :: Core.Maybe Core.Int,
     -- | Sets the name of a previously created logical replication slot for a CDC
     -- load of the PostgreSQL source instance.
     --
     -- When used with the AWS DMS API @CdcStartPosition@ request parameter,
     -- this attribute also enables using native CDC start points.
-    slotName :: Prelude.Maybe Prelude.Text,
+    slotName :: Core.Maybe Core.Text,
     -- | To capture DDL events, AWS DMS creates various artifacts in the
     -- PostgreSQL database when the task starts. You can later remove these
     -- artifacts.
     --
     -- If this value is set to @N@, you don\'t have to create tables or
     -- triggers on the source database.
-    captureDdls :: Prelude.Maybe Prelude.Bool,
+    captureDdls :: Core.Maybe Core.Bool,
     -- | The schema in which the operational DDL database artifacts are created.
     --
     -- Example: @ddlArtifactsSchema=xyzddlschema;@
-    ddlArtifactsSchema :: Prelude.Maybe Prelude.Text,
+    ddlArtifactsSchema :: Core.Maybe Core.Text,
     -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the PostgreSQL endpoint connection
     -- details.
-    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
+    secretsManagerSecretId :: Core.Maybe Core.Text,
     -- | For use with change data capture (CDC) only, this attribute has AWS DMS
     -- bypass foreign keys and user triggers to reduce the time it takes to
     -- bulk load data.
     --
     -- Example: @afterConnectScript=SET session_replication_role=\'replica\'@
-    afterConnectScript :: Prelude.Maybe Prelude.Text,
+    afterConnectScript :: Core.Maybe Core.Text,
     -- | Fully qualified domain name of the endpoint.
-    serverName :: Prelude.Maybe Prelude.Text,
+    serverName :: Core.Maybe Core.Text,
     -- | Specifies the maximum size (in KB) of any .csv file used to transfer
     -- data to PostgreSQL.
     --
     -- Example: @maxFileSize=512@
-    maxFileSize :: Prelude.Maybe Prelude.Int,
+    maxFileSize :: Core.Maybe Core.Int,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    password :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Endpoint TCP port.
-    port :: Prelude.Maybe Prelude.Int,
+    port :: Core.Maybe Core.Int,
     -- | Endpoint connection user name.
-    username :: Prelude.Maybe Prelude.Text,
+    username :: Core.Maybe Core.Text,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
     -- DMS as the trusted entity and grants the required permissions to access
     -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
@@ -92,11 +91,11 @@ data PostgreSQLSettings = PostgreSQLSettings'
     -- @SecretsManagerSecretId@ required to access it, see
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
     -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    secretsManagerAccessRoleArn :: Core.Maybe Core.Text,
     -- | Database name for the endpoint.
-    databaseName :: Prelude.Maybe Prelude.Text
+    databaseName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PostgreSQLSettings' with all optional fields omitted.
@@ -178,20 +177,20 @@ newPostgreSQLSettings ::
 newPostgreSQLSettings =
   PostgreSQLSettings'
     { failTasksOnLobTruncation =
-        Prelude.Nothing,
-      executeTimeout = Prelude.Nothing,
-      slotName = Prelude.Nothing,
-      captureDdls = Prelude.Nothing,
-      ddlArtifactsSchema = Prelude.Nothing,
-      secretsManagerSecretId = Prelude.Nothing,
-      afterConnectScript = Prelude.Nothing,
-      serverName = Prelude.Nothing,
-      maxFileSize = Prelude.Nothing,
-      password = Prelude.Nothing,
-      port = Prelude.Nothing,
-      username = Prelude.Nothing,
-      secretsManagerAccessRoleArn = Prelude.Nothing,
-      databaseName = Prelude.Nothing
+        Core.Nothing,
+      executeTimeout = Core.Nothing,
+      slotName = Core.Nothing,
+      captureDdls = Core.Nothing,
+      ddlArtifactsSchema = Core.Nothing,
+      secretsManagerSecretId = Core.Nothing,
+      afterConnectScript = Core.Nothing,
+      serverName = Core.Nothing,
+      maxFileSize = Core.Nothing,
+      password = Core.Nothing,
+      port = Core.Nothing,
+      username = Core.Nothing,
+      secretsManagerAccessRoleArn = Core.Nothing,
+      databaseName = Core.Nothing
     }
 
 -- | When set to @true@, this value causes a task to fail if the actual size
@@ -199,14 +198,14 @@ newPostgreSQLSettings =
 --
 -- If task is set to Limited LOB mode and this option is set to true, the
 -- task fails instead of truncating the LOB data.
-postgreSQLSettings_failTasksOnLobTruncation :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Bool)
+postgreSQLSettings_failTasksOnLobTruncation :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Bool)
 postgreSQLSettings_failTasksOnLobTruncation = Lens.lens (\PostgreSQLSettings' {failTasksOnLobTruncation} -> failTasksOnLobTruncation) (\s@PostgreSQLSettings' {} a -> s {failTasksOnLobTruncation = a} :: PostgreSQLSettings)
 
 -- | Sets the client statement timeout for the PostgreSQL instance, in
 -- seconds. The default value is 60 seconds.
 --
 -- Example: @executeTimeout=100;@
-postgreSQLSettings_executeTimeout :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Int)
+postgreSQLSettings_executeTimeout :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Int)
 postgreSQLSettings_executeTimeout = Lens.lens (\PostgreSQLSettings' {executeTimeout} -> executeTimeout) (\s@PostgreSQLSettings' {} a -> s {executeTimeout = a} :: PostgreSQLSettings)
 
 -- | Sets the name of a previously created logical replication slot for a CDC
@@ -214,7 +213,7 @@ postgreSQLSettings_executeTimeout = Lens.lens (\PostgreSQLSettings' {executeTime
 --
 -- When used with the AWS DMS API @CdcStartPosition@ request parameter,
 -- this attribute also enables using native CDC start points.
-postgreSQLSettings_slotName :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_slotName :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_slotName = Lens.lens (\PostgreSQLSettings' {slotName} -> slotName) (\s@PostgreSQLSettings' {} a -> s {slotName = a} :: PostgreSQLSettings)
 
 -- | To capture DDL events, AWS DMS creates various artifacts in the
@@ -223,19 +222,19 @@ postgreSQLSettings_slotName = Lens.lens (\PostgreSQLSettings' {slotName} -> slot
 --
 -- If this value is set to @N@, you don\'t have to create tables or
 -- triggers on the source database.
-postgreSQLSettings_captureDdls :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Bool)
+postgreSQLSettings_captureDdls :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Bool)
 postgreSQLSettings_captureDdls = Lens.lens (\PostgreSQLSettings' {captureDdls} -> captureDdls) (\s@PostgreSQLSettings' {} a -> s {captureDdls = a} :: PostgreSQLSettings)
 
 -- | The schema in which the operational DDL database artifacts are created.
 --
 -- Example: @ddlArtifactsSchema=xyzddlschema;@
-postgreSQLSettings_ddlArtifactsSchema :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_ddlArtifactsSchema :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_ddlArtifactsSchema = Lens.lens (\PostgreSQLSettings' {ddlArtifactsSchema} -> ddlArtifactsSchema) (\s@PostgreSQLSettings' {} a -> s {ddlArtifactsSchema = a} :: PostgreSQLSettings)
 
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the PostgreSQL endpoint connection
 -- details.
-postgreSQLSettings_secretsManagerSecretId :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_secretsManagerSecretId :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_secretsManagerSecretId = Lens.lens (\PostgreSQLSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@PostgreSQLSettings' {} a -> s {secretsManagerSecretId = a} :: PostgreSQLSettings)
 
 -- | For use with change data capture (CDC) only, this attribute has AWS DMS
@@ -243,30 +242,30 @@ postgreSQLSettings_secretsManagerSecretId = Lens.lens (\PostgreSQLSettings' {sec
 -- bulk load data.
 --
 -- Example: @afterConnectScript=SET session_replication_role=\'replica\'@
-postgreSQLSettings_afterConnectScript :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_afterConnectScript :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_afterConnectScript = Lens.lens (\PostgreSQLSettings' {afterConnectScript} -> afterConnectScript) (\s@PostgreSQLSettings' {} a -> s {afterConnectScript = a} :: PostgreSQLSettings)
 
 -- | Fully qualified domain name of the endpoint.
-postgreSQLSettings_serverName :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_serverName :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_serverName = Lens.lens (\PostgreSQLSettings' {serverName} -> serverName) (\s@PostgreSQLSettings' {} a -> s {serverName = a} :: PostgreSQLSettings)
 
 -- | Specifies the maximum size (in KB) of any .csv file used to transfer
 -- data to PostgreSQL.
 --
 -- Example: @maxFileSize=512@
-postgreSQLSettings_maxFileSize :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Int)
+postgreSQLSettings_maxFileSize :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Int)
 postgreSQLSettings_maxFileSize = Lens.lens (\PostgreSQLSettings' {maxFileSize} -> maxFileSize) (\s@PostgreSQLSettings' {} a -> s {maxFileSize = a} :: PostgreSQLSettings)
 
 -- | Endpoint connection password.
-postgreSQLSettings_password :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
-postgreSQLSettings_password = Lens.lens (\PostgreSQLSettings' {password} -> password) (\s@PostgreSQLSettings' {} a -> s {password = a} :: PostgreSQLSettings) Prelude.. Lens.mapping Prelude._Sensitive
+postgreSQLSettings_password :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
+postgreSQLSettings_password = Lens.lens (\PostgreSQLSettings' {password} -> password) (\s@PostgreSQLSettings' {} a -> s {password = a} :: PostgreSQLSettings) Core.. Lens.mapping Core._Sensitive
 
 -- | Endpoint TCP port.
-postgreSQLSettings_port :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Int)
+postgreSQLSettings_port :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Int)
 postgreSQLSettings_port = Lens.lens (\PostgreSQLSettings' {port} -> port) (\s@PostgreSQLSettings' {} a -> s {port = a} :: PostgreSQLSettings)
 
 -- | Endpoint connection user name.
-postgreSQLSettings_username :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_username :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_username = Lens.lens (\PostgreSQLSettings' {username} -> username) (\s@PostgreSQLSettings' {} a -> s {username = a} :: PostgreSQLSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
@@ -283,63 +282,61 @@ postgreSQLSettings_username = Lens.lens (\PostgreSQLSettings' {username} -> user
 -- @SecretsManagerSecretId@ required to access it, see
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
 -- in the /AWS Database Migration Service User Guide/.
-postgreSQLSettings_secretsManagerAccessRoleArn :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_secretsManagerAccessRoleArn :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_secretsManagerAccessRoleArn = Lens.lens (\PostgreSQLSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@PostgreSQLSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: PostgreSQLSettings)
 
 -- | Database name for the endpoint.
-postgreSQLSettings_databaseName :: Lens.Lens' PostgreSQLSettings (Prelude.Maybe Prelude.Text)
+postgreSQLSettings_databaseName :: Lens.Lens' PostgreSQLSettings (Core.Maybe Core.Text)
 postgreSQLSettings_databaseName = Lens.lens (\PostgreSQLSettings' {databaseName} -> databaseName) (\s@PostgreSQLSettings' {} a -> s {databaseName = a} :: PostgreSQLSettings)
 
-instance Prelude.FromJSON PostgreSQLSettings where
+instance Core.FromJSON PostgreSQLSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PostgreSQLSettings"
       ( \x ->
           PostgreSQLSettings'
-            Prelude.<$> (x Prelude..:? "FailTasksOnLobTruncation")
-            Prelude.<*> (x Prelude..:? "ExecuteTimeout")
-            Prelude.<*> (x Prelude..:? "SlotName")
-            Prelude.<*> (x Prelude..:? "CaptureDdls")
-            Prelude.<*> (x Prelude..:? "DdlArtifactsSchema")
-            Prelude.<*> (x Prelude..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Prelude..:? "AfterConnectScript")
-            Prelude.<*> (x Prelude..:? "ServerName")
-            Prelude.<*> (x Prelude..:? "MaxFileSize")
-            Prelude.<*> (x Prelude..:? "Password")
-            Prelude.<*> (x Prelude..:? "Port")
-            Prelude.<*> (x Prelude..:? "Username")
-            Prelude.<*> (x Prelude..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Prelude..:? "DatabaseName")
+            Core.<$> (x Core..:? "FailTasksOnLobTruncation")
+            Core.<*> (x Core..:? "ExecuteTimeout")
+            Core.<*> (x Core..:? "SlotName")
+            Core.<*> (x Core..:? "CaptureDdls")
+            Core.<*> (x Core..:? "DdlArtifactsSchema")
+            Core.<*> (x Core..:? "SecretsManagerSecretId")
+            Core.<*> (x Core..:? "AfterConnectScript")
+            Core.<*> (x Core..:? "ServerName")
+            Core.<*> (x Core..:? "MaxFileSize")
+            Core.<*> (x Core..:? "Password")
+            Core.<*> (x Core..:? "Port")
+            Core.<*> (x Core..:? "Username")
+            Core.<*> (x Core..:? "SecretsManagerAccessRoleArn")
+            Core.<*> (x Core..:? "DatabaseName")
       )
 
-instance Prelude.Hashable PostgreSQLSettings
+instance Core.Hashable PostgreSQLSettings
 
-instance Prelude.NFData PostgreSQLSettings
+instance Core.NFData PostgreSQLSettings
 
-instance Prelude.ToJSON PostgreSQLSettings where
+instance Core.ToJSON PostgreSQLSettings where
   toJSON PostgreSQLSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FailTasksOnLobTruncation" Prelude..=)
-              Prelude.<$> failTasksOnLobTruncation,
-            ("ExecuteTimeout" Prelude..=)
-              Prelude.<$> executeTimeout,
-            ("SlotName" Prelude..=) Prelude.<$> slotName,
-            ("CaptureDdls" Prelude..=) Prelude.<$> captureDdls,
-            ("DdlArtifactsSchema" Prelude..=)
-              Prelude.<$> ddlArtifactsSchema,
-            ("SecretsManagerSecretId" Prelude..=)
-              Prelude.<$> secretsManagerSecretId,
-            ("AfterConnectScript" Prelude..=)
-              Prelude.<$> afterConnectScript,
-            ("ServerName" Prelude..=) Prelude.<$> serverName,
-            ("MaxFileSize" Prelude..=) Prelude.<$> maxFileSize,
-            ("Password" Prelude..=) Prelude.<$> password,
-            ("Port" Prelude..=) Prelude.<$> port,
-            ("Username" Prelude..=) Prelude.<$> username,
-            ("SecretsManagerAccessRoleArn" Prelude..=)
-              Prelude.<$> secretsManagerAccessRoleArn,
-            ("DatabaseName" Prelude..=)
-              Prelude.<$> databaseName
+    Core.object
+      ( Core.catMaybes
+          [ ("FailTasksOnLobTruncation" Core..=)
+              Core.<$> failTasksOnLobTruncation,
+            ("ExecuteTimeout" Core..=) Core.<$> executeTimeout,
+            ("SlotName" Core..=) Core.<$> slotName,
+            ("CaptureDdls" Core..=) Core.<$> captureDdls,
+            ("DdlArtifactsSchema" Core..=)
+              Core.<$> ddlArtifactsSchema,
+            ("SecretsManagerSecretId" Core..=)
+              Core.<$> secretsManagerSecretId,
+            ("AfterConnectScript" Core..=)
+              Core.<$> afterConnectScript,
+            ("ServerName" Core..=) Core.<$> serverName,
+            ("MaxFileSize" Core..=) Core.<$> maxFileSize,
+            ("Password" Core..=) Core.<$> password,
+            ("Port" Core..=) Core.<$> port,
+            ("Username" Core..=) Core.<$> username,
+            ("SecretsManagerAccessRoleArn" Core..=)
+              Core.<$> secretsManagerAccessRoleArn,
+            ("DatabaseName" Core..=) Core.<$> databaseName
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.CloudDirectory.DetachTypedLink
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,11 +48,11 @@ import qualified Network.AWS.Response as Response
 data DetachTypedLink = DetachTypedLink'
   { -- | The Amazon Resource Name (ARN) of the directory where you want to detach
     -- the typed link.
-    directoryArn :: Prelude.Text,
+    directoryArn :: Core.Text,
     -- | Used to accept a typed link specifier as input.
     typedLinkSpecifier :: TypedLinkSpecifier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachTypedLink' with all optional fields omitted.
@@ -69,7 +68,7 @@ data DetachTypedLink = DetachTypedLink'
 -- 'typedLinkSpecifier', 'detachTypedLink_typedLinkSpecifier' - Used to accept a typed link specifier as input.
 newDetachTypedLink ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'typedLinkSpecifier'
   TypedLinkSpecifier ->
   DetachTypedLink
@@ -83,52 +82,52 @@ newDetachTypedLink
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to detach
 -- the typed link.
-detachTypedLink_directoryArn :: Lens.Lens' DetachTypedLink Prelude.Text
+detachTypedLink_directoryArn :: Lens.Lens' DetachTypedLink Core.Text
 detachTypedLink_directoryArn = Lens.lens (\DetachTypedLink' {directoryArn} -> directoryArn) (\s@DetachTypedLink' {} a -> s {directoryArn = a} :: DetachTypedLink)
 
 -- | Used to accept a typed link specifier as input.
 detachTypedLink_typedLinkSpecifier :: Lens.Lens' DetachTypedLink TypedLinkSpecifier
 detachTypedLink_typedLinkSpecifier = Lens.lens (\DetachTypedLink' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@DetachTypedLink' {} a -> s {typedLinkSpecifier = a} :: DetachTypedLink)
 
-instance Prelude.AWSRequest DetachTypedLink where
-  type Rs DetachTypedLink = DetachTypedLinkResponse
+instance Core.AWSRequest DetachTypedLink where
+  type
+    AWSResponse DetachTypedLink =
+      DetachTypedLinkResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveNull DetachTypedLinkResponse'
 
-instance Prelude.Hashable DetachTypedLink
+instance Core.Hashable DetachTypedLink
 
-instance Prelude.NFData DetachTypedLink
+instance Core.NFData DetachTypedLink
 
-instance Prelude.ToHeaders DetachTypedLink where
+instance Core.ToHeaders DetachTypedLink where
   toHeaders DetachTypedLink' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# directoryArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance Prelude.ToJSON DetachTypedLink where
+instance Core.ToJSON DetachTypedLink where
   toJSON DetachTypedLink' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "TypedLinkSpecifier"
-                  Prelude..= typedLinkSpecifier
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TypedLinkSpecifier" Core..= typedLinkSpecifier)
           ]
       )
 
-instance Prelude.ToPath DetachTypedLink where
+instance Core.ToPath DetachTypedLink where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/typedlink/detach"
 
-instance Prelude.ToQuery DetachTypedLink where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetachTypedLink where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDetachTypedLinkResponse' smart constructor.
 data DetachTypedLinkResponse = DetachTypedLinkResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachTypedLinkResponse' with all optional fields omitted.
@@ -138,4 +137,4 @@ newDetachTypedLinkResponse ::
   DetachTypedLinkResponse
 newDetachTypedLinkResponse = DetachTypedLinkResponse'
 
-instance Prelude.NFData DetachTypedLinkResponse
+instance Core.NFData DetachTypedLinkResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.DeletionTaskFailureReasonType where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.RoleUsageType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The reason that the service-linked role deletion failed.
 --
@@ -33,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
   { -- | A short description of the reason that the service-linked role deletion
     -- failed.
-    reason :: Prelude.Maybe Prelude.Text,
+    reason :: Core.Maybe Core.Text,
     -- | A list of objects that contains details about the service-linked role
     -- deletion failure, if that information is returned by the service. If the
     -- service-linked role has active sessions or if any resources that were
@@ -41,9 +40,9 @@ data DeletionTaskFailureReasonType = DeletionTaskFailureReasonType'
     -- can\'t be deleted. This parameter includes a list of the resources that
     -- are associated with the role and the Region in which the resources are
     -- being used.
-    roleUsageList :: Prelude.Maybe [RoleUsageType]
+    roleUsageList :: Core.Maybe [RoleUsageType]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletionTaskFailureReasonType' with all optional fields omitted.
@@ -68,13 +67,13 @@ newDeletionTaskFailureReasonType ::
 newDeletionTaskFailureReasonType =
   DeletionTaskFailureReasonType'
     { reason =
-        Prelude.Nothing,
-      roleUsageList = Prelude.Nothing
+        Core.Nothing,
+      roleUsageList = Core.Nothing
     }
 
 -- | A short description of the reason that the service-linked role deletion
 -- failed.
-deletionTaskFailureReasonType_reason :: Lens.Lens' DeletionTaskFailureReasonType (Prelude.Maybe Prelude.Text)
+deletionTaskFailureReasonType_reason :: Lens.Lens' DeletionTaskFailureReasonType (Core.Maybe Core.Text)
 deletionTaskFailureReasonType_reason = Lens.lens (\DeletionTaskFailureReasonType' {reason} -> reason) (\s@DeletionTaskFailureReasonType' {} a -> s {reason = a} :: DeletionTaskFailureReasonType)
 
 -- | A list of objects that contains details about the service-linked role
@@ -84,23 +83,17 @@ deletionTaskFailureReasonType_reason = Lens.lens (\DeletionTaskFailureReasonType
 -- can\'t be deleted. This parameter includes a list of the resources that
 -- are associated with the role and the Region in which the resources are
 -- being used.
-deletionTaskFailureReasonType_roleUsageList :: Lens.Lens' DeletionTaskFailureReasonType (Prelude.Maybe [RoleUsageType])
-deletionTaskFailureReasonType_roleUsageList = Lens.lens (\DeletionTaskFailureReasonType' {roleUsageList} -> roleUsageList) (\s@DeletionTaskFailureReasonType' {} a -> s {roleUsageList = a} :: DeletionTaskFailureReasonType) Prelude.. Lens.mapping Prelude._Coerce
+deletionTaskFailureReasonType_roleUsageList :: Lens.Lens' DeletionTaskFailureReasonType (Core.Maybe [RoleUsageType])
+deletionTaskFailureReasonType_roleUsageList = Lens.lens (\DeletionTaskFailureReasonType' {roleUsageList} -> roleUsageList) (\s@DeletionTaskFailureReasonType' {} a -> s {roleUsageList = a} :: DeletionTaskFailureReasonType) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromXML
-    DeletionTaskFailureReasonType
-  where
+instance Core.FromXML DeletionTaskFailureReasonType where
   parseXML x =
     DeletionTaskFailureReasonType'
-      Prelude.<$> (x Prelude..@? "Reason")
-      Prelude.<*> ( x Prelude..@? "RoleUsageList"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "Reason")
+      Core.<*> ( x Core..@? "RoleUsageList" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance
-  Prelude.Hashable
-    DeletionTaskFailureReasonType
+instance Core.Hashable DeletionTaskFailureReasonType
 
-instance Prelude.NFData DeletionTaskFailureReasonType
+instance Core.NFData DeletionTaskFailureReasonType

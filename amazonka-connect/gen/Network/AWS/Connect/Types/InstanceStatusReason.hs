@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.InstanceStatusReason where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Relevant details why the instance was not successfully created.
 --
 -- /See:/ 'newInstanceStatusReason' smart constructor.
 data InstanceStatusReason = InstanceStatusReason'
   { -- | The message.
-    message :: Prelude.Maybe Prelude.Text
+    message :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceStatusReason' with all optional fields omitted.
@@ -44,21 +43,21 @@ data InstanceStatusReason = InstanceStatusReason'
 newInstanceStatusReason ::
   InstanceStatusReason
 newInstanceStatusReason =
-  InstanceStatusReason' {message = Prelude.Nothing}
+  InstanceStatusReason' {message = Core.Nothing}
 
 -- | The message.
-instanceStatusReason_message :: Lens.Lens' InstanceStatusReason (Prelude.Maybe Prelude.Text)
+instanceStatusReason_message :: Lens.Lens' InstanceStatusReason (Core.Maybe Core.Text)
 instanceStatusReason_message = Lens.lens (\InstanceStatusReason' {message} -> message) (\s@InstanceStatusReason' {} a -> s {message = a} :: InstanceStatusReason)
 
-instance Prelude.FromJSON InstanceStatusReason where
+instance Core.FromJSON InstanceStatusReason where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceStatusReason"
       ( \x ->
           InstanceStatusReason'
-            Prelude.<$> (x Prelude..:? "Message")
+            Core.<$> (x Core..:? "Message")
       )
 
-instance Prelude.Hashable InstanceStatusReason
+instance Core.Hashable InstanceStatusReason
 
-instance Prelude.NFData InstanceStatusReason
+instance Core.NFData InstanceStatusReason

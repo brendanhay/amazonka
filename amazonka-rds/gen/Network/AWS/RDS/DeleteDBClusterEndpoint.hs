@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.RDS.DeleteDBClusterEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,9 +60,9 @@ import qualified Network.AWS.Response as Response
 data DeleteDBClusterEndpoint = DeleteDBClusterEndpoint'
   { -- | The identifier associated with the custom endpoint. This parameter is
     -- stored as a lowercase string.
-    dbClusterEndpointIdentifier :: Prelude.Text
+    dbClusterEndpointIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBClusterEndpoint' with all optional fields omitted.
@@ -77,7 +76,7 @@ data DeleteDBClusterEndpoint = DeleteDBClusterEndpoint'
 -- stored as a lowercase string.
 newDeleteDBClusterEndpoint ::
   -- | 'dbClusterEndpointIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDBClusterEndpoint
 newDeleteDBClusterEndpoint
   pDBClusterEndpointIdentifier_ =
@@ -88,34 +87,35 @@ newDeleteDBClusterEndpoint
 
 -- | The identifier associated with the custom endpoint. This parameter is
 -- stored as a lowercase string.
-deleteDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' DeleteDBClusterEndpoint Prelude.Text
+deleteDBClusterEndpoint_dbClusterEndpointIdentifier :: Lens.Lens' DeleteDBClusterEndpoint Core.Text
 deleteDBClusterEndpoint_dbClusterEndpointIdentifier = Lens.lens (\DeleteDBClusterEndpoint' {dbClusterEndpointIdentifier} -> dbClusterEndpointIdentifier) (\s@DeleteDBClusterEndpoint' {} a -> s {dbClusterEndpointIdentifier = a} :: DeleteDBClusterEndpoint)
 
-instance Prelude.AWSRequest DeleteDBClusterEndpoint where
-  type Rs DeleteDBClusterEndpoint = DBClusterEndpoint
+instance Core.AWSRequest DeleteDBClusterEndpoint where
+  type
+    AWSResponse DeleteDBClusterEndpoint =
+      DBClusterEndpoint
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteDBClusterEndpointResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeleteDBClusterEndpoint
+instance Core.Hashable DeleteDBClusterEndpoint
 
-instance Prelude.NFData DeleteDBClusterEndpoint
+instance Core.NFData DeleteDBClusterEndpoint
 
-instance Prelude.ToHeaders DeleteDBClusterEndpoint where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDBClusterEndpoint where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDBClusterEndpoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDBClusterEndpoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDBClusterEndpoint where
+instance Core.ToQuery DeleteDBClusterEndpoint where
   toQuery DeleteDBClusterEndpoint' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteDBClusterEndpoint" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("DeleteDBClusterEndpoint" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "DBClusterEndpointIdentifier"
-          Prelude.=: dbClusterEndpointIdentifier
+          Core.=: dbClusterEndpointIdentifier
       ]

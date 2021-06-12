@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetTrigger where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.Schedule
 import Network.AWS.IoTAnalytics.Types.TriggeringDataset
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @DatasetTrigger@ that specifies when the data set is automatically
 -- updated.
@@ -31,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDatasetTrigger' smart constructor.
 data DatasetTrigger = DatasetTrigger'
   { -- | The Schedule when the trigger is initiated.
-    schedule :: Prelude.Maybe Schedule,
+    schedule :: Core.Maybe Schedule,
     -- | The data set whose content creation triggers the creation of this data
     -- set\'s contents.
-    dataset :: Prelude.Maybe TriggeringDataset
+    dataset :: Core.Maybe TriggeringDataset
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetTrigger' with all optional fields omitted.
@@ -54,38 +53,38 @@ newDatasetTrigger ::
   DatasetTrigger
 newDatasetTrigger =
   DatasetTrigger'
-    { schedule = Prelude.Nothing,
-      dataset = Prelude.Nothing
+    { schedule = Core.Nothing,
+      dataset = Core.Nothing
     }
 
 -- | The Schedule when the trigger is initiated.
-datasetTrigger_schedule :: Lens.Lens' DatasetTrigger (Prelude.Maybe Schedule)
+datasetTrigger_schedule :: Lens.Lens' DatasetTrigger (Core.Maybe Schedule)
 datasetTrigger_schedule = Lens.lens (\DatasetTrigger' {schedule} -> schedule) (\s@DatasetTrigger' {} a -> s {schedule = a} :: DatasetTrigger)
 
 -- | The data set whose content creation triggers the creation of this data
 -- set\'s contents.
-datasetTrigger_dataset :: Lens.Lens' DatasetTrigger (Prelude.Maybe TriggeringDataset)
+datasetTrigger_dataset :: Lens.Lens' DatasetTrigger (Core.Maybe TriggeringDataset)
 datasetTrigger_dataset = Lens.lens (\DatasetTrigger' {dataset} -> dataset) (\s@DatasetTrigger' {} a -> s {dataset = a} :: DatasetTrigger)
 
-instance Prelude.FromJSON DatasetTrigger where
+instance Core.FromJSON DatasetTrigger where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetTrigger"
       ( \x ->
           DatasetTrigger'
-            Prelude.<$> (x Prelude..:? "schedule")
-            Prelude.<*> (x Prelude..:? "dataset")
+            Core.<$> (x Core..:? "schedule")
+            Core.<*> (x Core..:? "dataset")
       )
 
-instance Prelude.Hashable DatasetTrigger
+instance Core.Hashable DatasetTrigger
 
-instance Prelude.NFData DatasetTrigger
+instance Core.NFData DatasetTrigger
 
-instance Prelude.ToJSON DatasetTrigger where
+instance Core.ToJSON DatasetTrigger where
   toJSON DatasetTrigger' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("schedule" Prelude..=) Prelude.<$> schedule,
-            ("dataset" Prelude..=) Prelude.<$> dataset
+    Core.object
+      ( Core.catMaybes
+          [ ("schedule" Core..=) Core.<$> schedule,
+            ("dataset" Core..=) Core.<$> dataset
           ]
       )

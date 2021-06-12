@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.S3Location where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location in S3 where build or script files are stored for access by
 -- Amazon GameLift. This location is specified in CreateBuild,
@@ -34,20 +33,20 @@ data S3Location = S3Location'
     -- an S3 bucket that you own. Use this parameter to specify a specific
     -- version of the file. If not set, the latest version of the file is
     -- retrieved.
-    objectVersion :: Prelude.Maybe Prelude.Text,
+    objectVersion :: Core.Maybe Core.Text,
     -- | The name of the zip file that contains the build files or script files.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- for an IAM role that allows Amazon GameLift to access the S3 bucket.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | An S3 bucket identifier. This is the name of the S3 bucket.
     --
     -- GameLift currently does not support uploading from S3 buckets with names
     -- that contain a dot (.).
-    bucket :: Prelude.Maybe Prelude.Text
+    bucket :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3Location' with all optional fields omitted.
@@ -77,10 +76,10 @@ newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { objectVersion = Prelude.Nothing,
-      key = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
-      bucket = Prelude.Nothing
+    { objectVersion = Core.Nothing,
+      key = Core.Nothing,
+      roleArn = Core.Nothing,
+      bucket = Core.Nothing
     }
 
 -- | The version of the file, if object versioning is turned on for the
@@ -88,50 +87,49 @@ newS3Location =
 -- an S3 bucket that you own. Use this parameter to specify a specific
 -- version of the file. If not set, the latest version of the file is
 -- retrieved.
-s3Location_objectVersion :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_objectVersion :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_objectVersion = Lens.lens (\S3Location' {objectVersion} -> objectVersion) (\s@S3Location' {} a -> s {objectVersion = a} :: S3Location)
 
 -- | The name of the zip file that contains the build files or script files.
-s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_key :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- for an IAM role that allows Amazon GameLift to access the S3 bucket.
-s3Location_roleArn :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_roleArn :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_roleArn = Lens.lens (\S3Location' {roleArn} -> roleArn) (\s@S3Location' {} a -> s {roleArn = a} :: S3Location)
 
 -- | An S3 bucket identifier. This is the name of the S3 bucket.
 --
 -- GameLift currently does not support uploading from S3 buckets with names
 -- that contain a dot (.).
-s3Location_bucket :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_bucket :: Lens.Lens' S3Location (Core.Maybe Core.Text)
 s3Location_bucket = Lens.lens (\S3Location' {bucket} -> bucket) (\s@S3Location' {} a -> s {bucket = a} :: S3Location)
 
-instance Prelude.FromJSON S3Location where
+instance Core.FromJSON S3Location where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Prelude..:? "ObjectVersion")
-            Prelude.<*> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "RoleArn")
-            Prelude.<*> (x Prelude..:? "Bucket")
+            Core.<$> (x Core..:? "ObjectVersion")
+            Core.<*> (x Core..:? "Key")
+            Core.<*> (x Core..:? "RoleArn")
+            Core.<*> (x Core..:? "Bucket")
       )
 
-instance Prelude.Hashable S3Location
+instance Core.Hashable S3Location
 
-instance Prelude.NFData S3Location
+instance Core.NFData S3Location
 
-instance Prelude.ToJSON S3Location where
+instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ObjectVersion" Prelude..=)
-              Prelude.<$> objectVersion,
-            ("Key" Prelude..=) Prelude.<$> key,
-            ("RoleArn" Prelude..=) Prelude.<$> roleArn,
-            ("Bucket" Prelude..=) Prelude.<$> bucket
+    Core.object
+      ( Core.catMaybes
+          [ ("ObjectVersion" Core..=) Core.<$> objectVersion,
+            ("Key" Core..=) Core.<$> key,
+            ("RoleArn" Core..=) Core.<$> roleArn,
+            ("Bucket" Core..=) Core.<$> bucket
           ]
       )

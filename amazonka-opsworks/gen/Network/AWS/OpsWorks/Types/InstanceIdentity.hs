@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.InstanceIdentity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a description of an Amazon EC2 instance from the Amazon EC2
 -- metadata service. For more information, see
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
   { -- | A JSON document that contains the metadata.
-    document :: Prelude.Maybe Prelude.Text,
+    document :: Core.Maybe Core.Text,
     -- | A signature that can be used to verify the document\'s accuracy and
     -- authenticity.
-    signature :: Prelude.Maybe Prelude.Text
+    signature :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceIdentity' with all optional fields omitted.
@@ -53,28 +52,28 @@ newInstanceIdentity ::
   InstanceIdentity
 newInstanceIdentity =
   InstanceIdentity'
-    { document = Prelude.Nothing,
-      signature = Prelude.Nothing
+    { document = Core.Nothing,
+      signature = Core.Nothing
     }
 
 -- | A JSON document that contains the metadata.
-instanceIdentity_document :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
+instanceIdentity_document :: Lens.Lens' InstanceIdentity (Core.Maybe Core.Text)
 instanceIdentity_document = Lens.lens (\InstanceIdentity' {document} -> document) (\s@InstanceIdentity' {} a -> s {document = a} :: InstanceIdentity)
 
 -- | A signature that can be used to verify the document\'s accuracy and
 -- authenticity.
-instanceIdentity_signature :: Lens.Lens' InstanceIdentity (Prelude.Maybe Prelude.Text)
+instanceIdentity_signature :: Lens.Lens' InstanceIdentity (Core.Maybe Core.Text)
 instanceIdentity_signature = Lens.lens (\InstanceIdentity' {signature} -> signature) (\s@InstanceIdentity' {} a -> s {signature = a} :: InstanceIdentity)
 
-instance Prelude.Hashable InstanceIdentity
+instance Core.Hashable InstanceIdentity
 
-instance Prelude.NFData InstanceIdentity
+instance Core.NFData InstanceIdentity
 
-instance Prelude.ToJSON InstanceIdentity where
+instance Core.ToJSON InstanceIdentity where
   toJSON InstanceIdentity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Document" Prelude..=) Prelude.<$> document,
-            ("Signature" Prelude..=) Prelude.<$> signature
+    Core.object
+      ( Core.catMaybes
+          [ ("Document" Core..=) Core.<$> document,
+            ("Signature" Core..=) Core.<$> signature
           ]
       )

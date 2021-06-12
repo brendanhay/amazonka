@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutputDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | For an application output, describes the Amazon Kinesis Firehose
 -- delivery stream configured as its destination.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data KinesisFirehoseOutputDescription = KinesisFirehoseOutputDescription'
   { -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery
     -- stream.
-    resourceARN :: Prelude.Maybe Prelude.Text,
+    resourceARN :: Core.Maybe Core.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
     -- the stream.
-    roleARN :: Prelude.Maybe Prelude.Text
+    roleARN :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisFirehoseOutputDescription' with all optional fields omitted.
@@ -55,37 +54,35 @@ newKinesisFirehoseOutputDescription ::
 newKinesisFirehoseOutputDescription =
   KinesisFirehoseOutputDescription'
     { resourceARN =
-        Prelude.Nothing,
-      roleARN = Prelude.Nothing
+        Core.Nothing,
+      roleARN = Core.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery
 -- stream.
-kinesisFirehoseOutputDescription_resourceARN :: Lens.Lens' KinesisFirehoseOutputDescription (Prelude.Maybe Prelude.Text)
+kinesisFirehoseOutputDescription_resourceARN :: Lens.Lens' KinesisFirehoseOutputDescription (Core.Maybe Core.Text)
 kinesisFirehoseOutputDescription_resourceARN = Lens.lens (\KinesisFirehoseOutputDescription' {resourceARN} -> resourceARN) (\s@KinesisFirehoseOutputDescription' {} a -> s {resourceARN = a} :: KinesisFirehoseOutputDescription)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access
 -- the stream.
-kinesisFirehoseOutputDescription_roleARN :: Lens.Lens' KinesisFirehoseOutputDescription (Prelude.Maybe Prelude.Text)
+kinesisFirehoseOutputDescription_roleARN :: Lens.Lens' KinesisFirehoseOutputDescription (Core.Maybe Core.Text)
 kinesisFirehoseOutputDescription_roleARN = Lens.lens (\KinesisFirehoseOutputDescription' {roleARN} -> roleARN) (\s@KinesisFirehoseOutputDescription' {} a -> s {roleARN = a} :: KinesisFirehoseOutputDescription)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     KinesisFirehoseOutputDescription
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KinesisFirehoseOutputDescription"
       ( \x ->
           KinesisFirehoseOutputDescription'
-            Prelude.<$> (x Prelude..:? "ResourceARN")
-            Prelude.<*> (x Prelude..:? "RoleARN")
+            Core.<$> (x Core..:? "ResourceARN")
+            Core.<*> (x Core..:? "RoleARN")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     KinesisFirehoseOutputDescription
 
-instance
-  Prelude.NFData
-    KinesisFirehoseOutputDescription
+instance Core.NFData KinesisFirehoseOutputDescription

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,8 @@ module Network.AWS.Config.ListAggregateDiscoveredResources
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,19 +66,19 @@ import qualified Network.AWS.Response as Response
 data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Filters the results based on the @ResourceFilters@ object.
-    filters :: Prelude.Maybe ResourceFilters,
+    filters :: Core.Maybe ResourceFilters,
     -- | The maximum number of resource identifiers returned on each page. You
     -- cannot specify a number greater than 100. If you specify 0, AWS Config
     -- uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Prelude.Text,
+    configurationAggregatorName :: Core.Text,
     -- | The type of resources that you want AWS Config to list in the response.
     resourceType :: ResourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAggregateDiscoveredResources' with all optional fields omitted.
@@ -104,7 +102,7 @@ data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
 -- 'resourceType', 'listAggregateDiscoveredResources_resourceType' - The type of resources that you want AWS Config to list in the response.
 newListAggregateDiscoveredResources ::
   -- | 'configurationAggregatorName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceType'
   ResourceType ->
   ListAggregateDiscoveredResources
@@ -113,9 +111,9 @@ newListAggregateDiscoveredResources
   pResourceType_ =
     ListAggregateDiscoveredResources'
       { nextToken =
-          Prelude.Nothing,
-        filters = Prelude.Nothing,
-        limit = Prelude.Nothing,
+          Core.Nothing,
+        filters = Core.Nothing,
+        limit = Core.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_,
         resourceType = pResourceType_
@@ -123,21 +121,21 @@ newListAggregateDiscoveredResources
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-listAggregateDiscoveredResources_nextToken :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe Prelude.Text)
+listAggregateDiscoveredResources_nextToken :: Lens.Lens' ListAggregateDiscoveredResources (Core.Maybe Core.Text)
 listAggregateDiscoveredResources_nextToken = Lens.lens (\ListAggregateDiscoveredResources' {nextToken} -> nextToken) (\s@ListAggregateDiscoveredResources' {} a -> s {nextToken = a} :: ListAggregateDiscoveredResources)
 
 -- | Filters the results based on the @ResourceFilters@ object.
-listAggregateDiscoveredResources_filters :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe ResourceFilters)
+listAggregateDiscoveredResources_filters :: Lens.Lens' ListAggregateDiscoveredResources (Core.Maybe ResourceFilters)
 listAggregateDiscoveredResources_filters = Lens.lens (\ListAggregateDiscoveredResources' {filters} -> filters) (\s@ListAggregateDiscoveredResources' {} a -> s {filters = a} :: ListAggregateDiscoveredResources)
 
 -- | The maximum number of resource identifiers returned on each page. You
 -- cannot specify a number greater than 100. If you specify 0, AWS Config
 -- uses the default.
-listAggregateDiscoveredResources_limit :: Lens.Lens' ListAggregateDiscoveredResources (Prelude.Maybe Prelude.Natural)
+listAggregateDiscoveredResources_limit :: Lens.Lens' ListAggregateDiscoveredResources (Core.Maybe Core.Natural)
 listAggregateDiscoveredResources_limit = Lens.lens (\ListAggregateDiscoveredResources' {limit} -> limit) (\s@ListAggregateDiscoveredResources' {} a -> s {limit = a} :: ListAggregateDiscoveredResources)
 
 -- | The name of the configuration aggregator.
-listAggregateDiscoveredResources_configurationAggregatorName :: Lens.Lens' ListAggregateDiscoveredResources Prelude.Text
+listAggregateDiscoveredResources_configurationAggregatorName :: Lens.Lens' ListAggregateDiscoveredResources Core.Text
 listAggregateDiscoveredResources_configurationAggregatorName = Lens.lens (\ListAggregateDiscoveredResources' {configurationAggregatorName} -> configurationAggregatorName) (\s@ListAggregateDiscoveredResources' {} a -> s {configurationAggregatorName = a} :: ListAggregateDiscoveredResources)
 
 -- | The type of resources that you want AWS Config to list in the response.
@@ -145,117 +143,106 @@ listAggregateDiscoveredResources_resourceType :: Lens.Lens' ListAggregateDiscove
 listAggregateDiscoveredResources_resourceType = Lens.lens (\ListAggregateDiscoveredResources' {resourceType} -> resourceType) (\s@ListAggregateDiscoveredResources' {} a -> s {resourceType = a} :: ListAggregateDiscoveredResources)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListAggregateDiscoveredResources
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listAggregateDiscoveredResourcesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listAggregateDiscoveredResourcesResponse_resourceIdentifiers
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAggregateDiscoveredResources_nextToken
           Lens..~ rs
           Lens.^? listAggregateDiscoveredResourcesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListAggregateDiscoveredResources
   where
   type
-    Rs ListAggregateDiscoveredResources =
+    AWSResponse ListAggregateDiscoveredResources =
       ListAggregateDiscoveredResourcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAggregateDiscoveredResourcesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ResourceIdentifiers"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "ResourceIdentifiers"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListAggregateDiscoveredResources
 
-instance
-  Prelude.NFData
-    ListAggregateDiscoveredResources
+instance Core.NFData ListAggregateDiscoveredResources
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListAggregateDiscoveredResources
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.ListAggregateDiscoveredResources" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.ListAggregateDiscoveredResources" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    ListAggregateDiscoveredResources
-  where
+instance Core.ToJSON ListAggregateDiscoveredResources where
   toJSON ListAggregateDiscoveredResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Filters" Prelude..=) Prelude.<$> filters,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Filters" Core..=) Core.<$> filters,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just
               ( "ConfigurationAggregatorName"
-                  Prelude..= configurationAggregatorName
+                  Core..= configurationAggregatorName
               ),
-            Prelude.Just
-              ("ResourceType" Prelude..= resourceType)
+            Core.Just ("ResourceType" Core..= resourceType)
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListAggregateDiscoveredResources
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAggregateDiscoveredResources where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListAggregateDiscoveredResources
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAggregateDiscoveredResourcesResponse' smart constructor.
 data ListAggregateDiscoveredResourcesResponse = ListAggregateDiscoveredResourcesResponse'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Returns a list of @ResourceIdentifiers@ objects.
-    resourceIdentifiers :: Prelude.Maybe [AggregateResourceIdentifier],
+    resourceIdentifiers :: Core.Maybe [AggregateResourceIdentifier],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAggregateDiscoveredResourcesResponse' with all optional fields omitted.
@@ -273,31 +260,31 @@ data ListAggregateDiscoveredResourcesResponse = ListAggregateDiscoveredResources
 -- 'httpStatus', 'listAggregateDiscoveredResourcesResponse_httpStatus' - The response's http status code.
 newListAggregateDiscoveredResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAggregateDiscoveredResourcesResponse
 newListAggregateDiscoveredResourcesResponse
   pHttpStatus_ =
     ListAggregateDiscoveredResourcesResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         resourceIdentifiers =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-listAggregateDiscoveredResourcesResponse_nextToken :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Prelude.Maybe Prelude.Text)
+listAggregateDiscoveredResourcesResponse_nextToken :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Core.Maybe Core.Text)
 listAggregateDiscoveredResourcesResponse_nextToken = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {nextToken} -> nextToken) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {nextToken = a} :: ListAggregateDiscoveredResourcesResponse)
 
 -- | Returns a list of @ResourceIdentifiers@ objects.
-listAggregateDiscoveredResourcesResponse_resourceIdentifiers :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Prelude.Maybe [AggregateResourceIdentifier])
-listAggregateDiscoveredResourcesResponse_resourceIdentifiers = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListAggregateDiscoveredResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAggregateDiscoveredResourcesResponse_resourceIdentifiers :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Core.Maybe [AggregateResourceIdentifier])
+listAggregateDiscoveredResourcesResponse_resourceIdentifiers = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListAggregateDiscoveredResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAggregateDiscoveredResourcesResponse_httpStatus :: Lens.Lens' ListAggregateDiscoveredResourcesResponse Prelude.Int
+listAggregateDiscoveredResourcesResponse_httpStatus :: Lens.Lens' ListAggregateDiscoveredResourcesResponse Core.Int
 listAggregateDiscoveredResourcesResponse_httpStatus = Lens.lens (\ListAggregateDiscoveredResourcesResponse' {httpStatus} -> httpStatus) (\s@ListAggregateDiscoveredResourcesResponse' {} a -> s {httpStatus = a} :: ListAggregateDiscoveredResourcesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListAggregateDiscoveredResourcesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.UpdateModel
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +56,13 @@ import qualified Network.AWS.Response as Response
 data UpdateModel = UpdateModel'
   { -- | A list of update operations to be applied to the specified resource and
     -- in the order specified in this list.
-    patchOperations :: Prelude.Maybe [PatchOperation],
+    patchOperations :: Core.Maybe [PatchOperation],
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The name of the model to update.
-    modelName :: Prelude.Text
+    modelName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateModel' with all optional fields omitted.
@@ -81,67 +80,67 @@ data UpdateModel = UpdateModel'
 -- 'modelName', 'updateModel_modelName' - [Required] The name of the model to update.
 newUpdateModel ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateModel
 newUpdateModel pRestApiId_ pModelName_ =
   UpdateModel'
-    { patchOperations = Prelude.Nothing,
+    { patchOperations = Core.Nothing,
       restApiId = pRestApiId_,
       modelName = pModelName_
     }
 
 -- | A list of update operations to be applied to the specified resource and
 -- in the order specified in this list.
-updateModel_patchOperations :: Lens.Lens' UpdateModel (Prelude.Maybe [PatchOperation])
-updateModel_patchOperations = Lens.lens (\UpdateModel' {patchOperations} -> patchOperations) (\s@UpdateModel' {} a -> s {patchOperations = a} :: UpdateModel) Prelude.. Lens.mapping Prelude._Coerce
+updateModel_patchOperations :: Lens.Lens' UpdateModel (Core.Maybe [PatchOperation])
+updateModel_patchOperations = Lens.lens (\UpdateModel' {patchOperations} -> patchOperations) (\s@UpdateModel' {} a -> s {patchOperations = a} :: UpdateModel) Core.. Lens.mapping Lens._Coerce
 
 -- | [Required] The string identifier of the associated RestApi.
-updateModel_restApiId :: Lens.Lens' UpdateModel Prelude.Text
+updateModel_restApiId :: Lens.Lens' UpdateModel Core.Text
 updateModel_restApiId = Lens.lens (\UpdateModel' {restApiId} -> restApiId) (\s@UpdateModel' {} a -> s {restApiId = a} :: UpdateModel)
 
 -- | [Required] The name of the model to update.
-updateModel_modelName :: Lens.Lens' UpdateModel Prelude.Text
+updateModel_modelName :: Lens.Lens' UpdateModel Core.Text
 updateModel_modelName = Lens.lens (\UpdateModel' {modelName} -> modelName) (\s@UpdateModel' {} a -> s {modelName = a} :: UpdateModel)
 
-instance Prelude.AWSRequest UpdateModel where
-  type Rs UpdateModel = Model
+instance Core.AWSRequest UpdateModel where
+  type AWSResponse UpdateModel = Model
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateModel
+instance Core.Hashable UpdateModel
 
-instance Prelude.NFData UpdateModel
+instance Core.NFData UpdateModel
 
-instance Prelude.ToHeaders UpdateModel where
+instance Core.ToHeaders UpdateModel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateModel where
+instance Core.ToJSON UpdateModel where
   toJSON UpdateModel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("patchOperations" Prelude..=)
-              Prelude.<$> patchOperations
+    Core.object
+      ( Core.catMaybes
+          [ ("patchOperations" Core..=)
+              Core.<$> patchOperations
           ]
       )
 
-instance Prelude.ToPath UpdateModel where
+instance Core.ToPath UpdateModel where
   toPath UpdateModel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/models/",
-        Prelude.toBS modelName
+        Core.toBS modelName
       ]
 
-instance Prelude.ToQuery UpdateModel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateModel where
+  toQuery = Core.const Core.mempty

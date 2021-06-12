@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.TaskFailedEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about a task failure event.
 --
 -- /See:/ 'newTaskFailedEventDetails' smart constructor.
 data TaskFailedEventDetails = TaskFailedEventDetails'
   { -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    cause :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The error code of the failure.
-    error :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    error :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The action of the resource called by a task state.
-    resourceType :: Prelude.Text,
+    resourceType :: Core.Text,
     -- | The service name of the resource in a task state.
-    resource :: Prelude.Text
+    resource :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TaskFailedEventDetails' with all optional fields omitted.
@@ -55,46 +54,46 @@ data TaskFailedEventDetails = TaskFailedEventDetails'
 -- 'resource', 'taskFailedEventDetails_resource' - The service name of the resource in a task state.
 newTaskFailedEventDetails ::
   -- | 'resourceType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   TaskFailedEventDetails
 newTaskFailedEventDetails pResourceType_ pResource_ =
   TaskFailedEventDetails'
-    { cause = Prelude.Nothing,
-      error = Prelude.Nothing,
+    { cause = Core.Nothing,
+      error = Core.Nothing,
       resourceType = pResourceType_,
       resource = pResource_
     }
 
 -- | A more detailed explanation of the cause of the failure.
-taskFailedEventDetails_cause :: Lens.Lens' TaskFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskFailedEventDetails_cause = Lens.lens (\TaskFailedEventDetails' {cause} -> cause) (\s@TaskFailedEventDetails' {} a -> s {cause = a} :: TaskFailedEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+taskFailedEventDetails_cause :: Lens.Lens' TaskFailedEventDetails (Core.Maybe Core.Text)
+taskFailedEventDetails_cause = Lens.lens (\TaskFailedEventDetails' {cause} -> cause) (\s@TaskFailedEventDetails' {} a -> s {cause = a} :: TaskFailedEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
-taskFailedEventDetails_error :: Lens.Lens' TaskFailedEventDetails (Prelude.Maybe Prelude.Text)
-taskFailedEventDetails_error = Lens.lens (\TaskFailedEventDetails' {error} -> error) (\s@TaskFailedEventDetails' {} a -> s {error = a} :: TaskFailedEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+taskFailedEventDetails_error :: Lens.Lens' TaskFailedEventDetails (Core.Maybe Core.Text)
+taskFailedEventDetails_error = Lens.lens (\TaskFailedEventDetails' {error} -> error) (\s@TaskFailedEventDetails' {} a -> s {error = a} :: TaskFailedEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | The action of the resource called by a task state.
-taskFailedEventDetails_resourceType :: Lens.Lens' TaskFailedEventDetails Prelude.Text
+taskFailedEventDetails_resourceType :: Lens.Lens' TaskFailedEventDetails Core.Text
 taskFailedEventDetails_resourceType = Lens.lens (\TaskFailedEventDetails' {resourceType} -> resourceType) (\s@TaskFailedEventDetails' {} a -> s {resourceType = a} :: TaskFailedEventDetails)
 
 -- | The service name of the resource in a task state.
-taskFailedEventDetails_resource :: Lens.Lens' TaskFailedEventDetails Prelude.Text
+taskFailedEventDetails_resource :: Lens.Lens' TaskFailedEventDetails Core.Text
 taskFailedEventDetails_resource = Lens.lens (\TaskFailedEventDetails' {resource} -> resource) (\s@TaskFailedEventDetails' {} a -> s {resource = a} :: TaskFailedEventDetails)
 
-instance Prelude.FromJSON TaskFailedEventDetails where
+instance Core.FromJSON TaskFailedEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TaskFailedEventDetails"
       ( \x ->
           TaskFailedEventDetails'
-            Prelude.<$> (x Prelude..:? "cause")
-            Prelude.<*> (x Prelude..:? "error")
-            Prelude.<*> (x Prelude..: "resourceType")
-            Prelude.<*> (x Prelude..: "resource")
+            Core.<$> (x Core..:? "cause")
+            Core.<*> (x Core..:? "error")
+            Core.<*> (x Core..: "resourceType")
+            Core.<*> (x Core..: "resource")
       )
 
-instance Prelude.Hashable TaskFailedEventDetails
+instance Core.Hashable TaskFailedEventDetails
 
-instance Prelude.NFData TaskFailedEventDetails
+instance Core.NFData TaskFailedEventDetails

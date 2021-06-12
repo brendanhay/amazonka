@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newConfirmPublicVirtualInterface' smart constructor.
 data ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
   { -- | The ID of the virtual interface.
-    virtualInterfaceId :: Prelude.Text
+    virtualInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmPublicVirtualInterface' with all optional fields omitted.
@@ -68,7 +67,7 @@ data ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
 -- 'virtualInterfaceId', 'confirmPublicVirtualInterface_virtualInterfaceId' - The ID of the virtual interface.
 newConfirmPublicVirtualInterface ::
   -- | 'virtualInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   ConfirmPublicVirtualInterface
 newConfirmPublicVirtualInterface pVirtualInterfaceId_ =
   ConfirmPublicVirtualInterface'
@@ -77,68 +76,56 @@ newConfirmPublicVirtualInterface pVirtualInterfaceId_ =
     }
 
 -- | The ID of the virtual interface.
-confirmPublicVirtualInterface_virtualInterfaceId :: Lens.Lens' ConfirmPublicVirtualInterface Prelude.Text
+confirmPublicVirtualInterface_virtualInterfaceId :: Lens.Lens' ConfirmPublicVirtualInterface Core.Text
 confirmPublicVirtualInterface_virtualInterfaceId = Lens.lens (\ConfirmPublicVirtualInterface' {virtualInterfaceId} -> virtualInterfaceId) (\s@ConfirmPublicVirtualInterface' {} a -> s {virtualInterfaceId = a} :: ConfirmPublicVirtualInterface)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ConfirmPublicVirtualInterface
   where
   type
-    Rs ConfirmPublicVirtualInterface =
+    AWSResponse ConfirmPublicVirtualInterface =
       ConfirmPublicVirtualInterfaceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ConfirmPublicVirtualInterfaceResponse'
-            Prelude.<$> (x Prelude..?> "virtualInterfaceState")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "virtualInterfaceState")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ConfirmPublicVirtualInterface
+instance Core.Hashable ConfirmPublicVirtualInterface
 
-instance Prelude.NFData ConfirmPublicVirtualInterface
+instance Core.NFData ConfirmPublicVirtualInterface
 
-instance
-  Prelude.ToHeaders
-    ConfirmPublicVirtualInterface
-  where
+instance Core.ToHeaders ConfirmPublicVirtualInterface where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.ConfirmPublicVirtualInterface" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.ConfirmPublicVirtualInterface" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ConfirmPublicVirtualInterface where
+instance Core.ToJSON ConfirmPublicVirtualInterface where
   toJSON ConfirmPublicVirtualInterface' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "virtualInterfaceId"
-                  Prelude..= virtualInterfaceId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("virtualInterfaceId" Core..= virtualInterfaceId)
           ]
       )
 
-instance Prelude.ToPath ConfirmPublicVirtualInterface where
-  toPath = Prelude.const "/"
+instance Core.ToPath ConfirmPublicVirtualInterface where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ConfirmPublicVirtualInterface
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ConfirmPublicVirtualInterface where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newConfirmPublicVirtualInterfaceResponse' smart constructor.
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
@@ -175,11 +162,11 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
     --     enters the @Rejected@ state.
     --
     -- -   @unknown@: The state of the virtual interface is not available.
-    virtualInterfaceState :: Prelude.Maybe VirtualInterfaceState,
+    virtualInterfaceState :: Core.Maybe VirtualInterfaceState,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmPublicVirtualInterfaceResponse' with all optional fields omitted.
@@ -226,12 +213,12 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 -- 'httpStatus', 'confirmPublicVirtualInterfaceResponse_httpStatus' - The response's http status code.
 newConfirmPublicVirtualInterfaceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ConfirmPublicVirtualInterfaceResponse
 newConfirmPublicVirtualInterfaceResponse pHttpStatus_ =
   ConfirmPublicVirtualInterfaceResponse'
     { virtualInterfaceState =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -268,13 +255,13 @@ newConfirmPublicVirtualInterfaceResponse pHttpStatus_ =
 --     enters the @Rejected@ state.
 --
 -- -   @unknown@: The state of the virtual interface is not available.
-confirmPublicVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse (Prelude.Maybe VirtualInterfaceState)
+confirmPublicVirtualInterfaceResponse_virtualInterfaceState :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse (Core.Maybe VirtualInterfaceState)
 confirmPublicVirtualInterfaceResponse_virtualInterfaceState = Lens.lens (\ConfirmPublicVirtualInterfaceResponse' {virtualInterfaceState} -> virtualInterfaceState) (\s@ConfirmPublicVirtualInterfaceResponse' {} a -> s {virtualInterfaceState = a} :: ConfirmPublicVirtualInterfaceResponse)
 
 -- | The response's http status code.
-confirmPublicVirtualInterfaceResponse_httpStatus :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse Prelude.Int
+confirmPublicVirtualInterfaceResponse_httpStatus :: Lens.Lens' ConfirmPublicVirtualInterfaceResponse Core.Int
 confirmPublicVirtualInterfaceResponse_httpStatus = Lens.lens (\ConfirmPublicVirtualInterfaceResponse' {httpStatus} -> httpStatus) (\s@ConfirmPublicVirtualInterfaceResponse' {} a -> s {httpStatus = a} :: ConfirmPublicVirtualInterfaceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ConfirmPublicVirtualInterfaceResponse

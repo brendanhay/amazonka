@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Node where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.CrawlerNodeDetails
 import Network.AWS.Glue.Types.JobNodeDetails
 import Network.AWS.Glue.Types.NodeType
 import Network.AWS.Glue.Types.TriggerNodeDetails
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A node represents an AWS Glue component such as a trigger, or job, etc.,
 -- that is part of a workflow.
@@ -33,19 +32,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNode' smart constructor.
 data Node = Node'
   { -- | Details of the Job when the node represents a Job.
-    jobDetails :: Prelude.Maybe JobNodeDetails,
+    jobDetails :: Core.Maybe JobNodeDetails,
     -- | Details of the Trigger when the node represents a Trigger.
-    triggerDetails :: Prelude.Maybe TriggerNodeDetails,
+    triggerDetails :: Core.Maybe TriggerNodeDetails,
     -- | The name of the AWS Glue component represented by the node.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The unique Id assigned to the node within the workflow.
-    uniqueId :: Prelude.Maybe Prelude.Text,
+    uniqueId :: Core.Maybe Core.Text,
     -- | Details of the crawler when the node represents a crawler.
-    crawlerDetails :: Prelude.Maybe CrawlerNodeDetails,
+    crawlerDetails :: Core.Maybe CrawlerNodeDetails,
     -- | The type of AWS Glue component represented by the node.
-    type' :: Prelude.Maybe NodeType
+    type' :: Core.Maybe NodeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Node' with all optional fields omitted.
@@ -70,52 +69,52 @@ newNode ::
   Node
 newNode =
   Node'
-    { jobDetails = Prelude.Nothing,
-      triggerDetails = Prelude.Nothing,
-      name = Prelude.Nothing,
-      uniqueId = Prelude.Nothing,
-      crawlerDetails = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { jobDetails = Core.Nothing,
+      triggerDetails = Core.Nothing,
+      name = Core.Nothing,
+      uniqueId = Core.Nothing,
+      crawlerDetails = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Details of the Job when the node represents a Job.
-node_jobDetails :: Lens.Lens' Node (Prelude.Maybe JobNodeDetails)
+node_jobDetails :: Lens.Lens' Node (Core.Maybe JobNodeDetails)
 node_jobDetails = Lens.lens (\Node' {jobDetails} -> jobDetails) (\s@Node' {} a -> s {jobDetails = a} :: Node)
 
 -- | Details of the Trigger when the node represents a Trigger.
-node_triggerDetails :: Lens.Lens' Node (Prelude.Maybe TriggerNodeDetails)
+node_triggerDetails :: Lens.Lens' Node (Core.Maybe TriggerNodeDetails)
 node_triggerDetails = Lens.lens (\Node' {triggerDetails} -> triggerDetails) (\s@Node' {} a -> s {triggerDetails = a} :: Node)
 
 -- | The name of the AWS Glue component represented by the node.
-node_name :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
+node_name :: Lens.Lens' Node (Core.Maybe Core.Text)
 node_name = Lens.lens (\Node' {name} -> name) (\s@Node' {} a -> s {name = a} :: Node)
 
 -- | The unique Id assigned to the node within the workflow.
-node_uniqueId :: Lens.Lens' Node (Prelude.Maybe Prelude.Text)
+node_uniqueId :: Lens.Lens' Node (Core.Maybe Core.Text)
 node_uniqueId = Lens.lens (\Node' {uniqueId} -> uniqueId) (\s@Node' {} a -> s {uniqueId = a} :: Node)
 
 -- | Details of the crawler when the node represents a crawler.
-node_crawlerDetails :: Lens.Lens' Node (Prelude.Maybe CrawlerNodeDetails)
+node_crawlerDetails :: Lens.Lens' Node (Core.Maybe CrawlerNodeDetails)
 node_crawlerDetails = Lens.lens (\Node' {crawlerDetails} -> crawlerDetails) (\s@Node' {} a -> s {crawlerDetails = a} :: Node)
 
 -- | The type of AWS Glue component represented by the node.
-node_type :: Lens.Lens' Node (Prelude.Maybe NodeType)
+node_type :: Lens.Lens' Node (Core.Maybe NodeType)
 node_type = Lens.lens (\Node' {type'} -> type') (\s@Node' {} a -> s {type' = a} :: Node)
 
-instance Prelude.FromJSON Node where
+instance Core.FromJSON Node where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Node"
       ( \x ->
           Node'
-            Prelude.<$> (x Prelude..:? "JobDetails")
-            Prelude.<*> (x Prelude..:? "TriggerDetails")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "UniqueId")
-            Prelude.<*> (x Prelude..:? "CrawlerDetails")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "JobDetails")
+            Core.<*> (x Core..:? "TriggerDetails")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "UniqueId")
+            Core.<*> (x Core..:? "CrawlerDetails")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Node
+instance Core.Hashable Node
 
-instance Prelude.NFData Node
+instance Core.NFData Node

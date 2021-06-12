@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.RoleUsageType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains details about how a service-linked role is used,
 -- if that information is returned by the service.
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRoleUsageType' smart constructor.
 data RoleUsageType = RoleUsageType'
   { -- | The name of the resource that is using the service-linked role.
-    resources :: Prelude.Maybe [Prelude.Text],
+    resources :: Core.Maybe [Core.Text],
     -- | The name of the Region where the service-linked role is being used.
-    region :: Prelude.Maybe Prelude.Text
+    region :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RoleUsageType' with all optional fields omitted.
@@ -53,26 +52,26 @@ newRoleUsageType ::
   RoleUsageType
 newRoleUsageType =
   RoleUsageType'
-    { resources = Prelude.Nothing,
-      region = Prelude.Nothing
+    { resources = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | The name of the resource that is using the service-linked role.
-roleUsageType_resources :: Lens.Lens' RoleUsageType (Prelude.Maybe [Prelude.Text])
-roleUsageType_resources = Lens.lens (\RoleUsageType' {resources} -> resources) (\s@RoleUsageType' {} a -> s {resources = a} :: RoleUsageType) Prelude.. Lens.mapping Prelude._Coerce
+roleUsageType_resources :: Lens.Lens' RoleUsageType (Core.Maybe [Core.Text])
+roleUsageType_resources = Lens.lens (\RoleUsageType' {resources} -> resources) (\s@RoleUsageType' {} a -> s {resources = a} :: RoleUsageType) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the Region where the service-linked role is being used.
-roleUsageType_region :: Lens.Lens' RoleUsageType (Prelude.Maybe Prelude.Text)
+roleUsageType_region :: Lens.Lens' RoleUsageType (Core.Maybe Core.Text)
 roleUsageType_region = Lens.lens (\RoleUsageType' {region} -> region) (\s@RoleUsageType' {} a -> s {region = a} :: RoleUsageType)
 
-instance Prelude.FromXML RoleUsageType where
+instance Core.FromXML RoleUsageType where
   parseXML x =
     RoleUsageType'
-      Prelude.<$> ( x Prelude..@? "Resources" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "Region")
+      Core.<$> ( x Core..@? "Resources" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "Region")
 
-instance Prelude.Hashable RoleUsageType
+instance Core.Hashable RoleUsageType
 
-instance Prelude.NFData RoleUsageType
+instance Core.NFData RoleUsageType

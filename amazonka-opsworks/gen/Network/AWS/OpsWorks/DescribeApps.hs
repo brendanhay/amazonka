@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.OpsWorks.DescribeApps
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,12 +59,12 @@ data DescribeApps = DescribeApps'
   { -- | An array of app IDs for the apps to be described. If you use this
     -- parameter, @DescribeApps@ returns a description of the specified apps.
     -- Otherwise, it returns a description of every app.
-    appIds :: Prelude.Maybe [Prelude.Text],
+    appIds :: Core.Maybe [Core.Text],
     -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
     -- description of the apps in the specified stack.
-    stackId :: Prelude.Maybe Prelude.Text
+    stackId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeApps' with all optional fields omitted.
@@ -85,76 +84,74 @@ newDescribeApps ::
   DescribeApps
 newDescribeApps =
   DescribeApps'
-    { appIds = Prelude.Nothing,
-      stackId = Prelude.Nothing
+    { appIds = Core.Nothing,
+      stackId = Core.Nothing
     }
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-describeApps_appIds :: Lens.Lens' DescribeApps (Prelude.Maybe [Prelude.Text])
-describeApps_appIds = Lens.lens (\DescribeApps' {appIds} -> appIds) (\s@DescribeApps' {} a -> s {appIds = a} :: DescribeApps) Prelude.. Lens.mapping Prelude._Coerce
+describeApps_appIds :: Lens.Lens' DescribeApps (Core.Maybe [Core.Text])
+describeApps_appIds = Lens.lens (\DescribeApps' {appIds} -> appIds) (\s@DescribeApps' {} a -> s {appIds = a} :: DescribeApps) Core.. Lens.mapping Lens._Coerce
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
 -- description of the apps in the specified stack.
-describeApps_stackId :: Lens.Lens' DescribeApps (Prelude.Maybe Prelude.Text)
+describeApps_stackId :: Lens.Lens' DescribeApps (Core.Maybe Core.Text)
 describeApps_stackId = Lens.lens (\DescribeApps' {stackId} -> stackId) (\s@DescribeApps' {} a -> s {stackId = a} :: DescribeApps)
 
-instance Prelude.AWSRequest DescribeApps where
-  type Rs DescribeApps = DescribeAppsResponse
+instance Core.AWSRequest DescribeApps where
+  type AWSResponse DescribeApps = DescribeAppsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAppsResponse'
-            Prelude.<$> (x Prelude..?> "Apps" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Apps" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeApps
+instance Core.Hashable DescribeApps
 
-instance Prelude.NFData DescribeApps
+instance Core.NFData DescribeApps
 
-instance Prelude.ToHeaders DescribeApps where
+instance Core.ToHeaders DescribeApps where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeApps" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeApps" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeApps where
+instance Core.ToJSON DescribeApps where
   toJSON DescribeApps' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AppIds" Prelude..=) Prelude.<$> appIds,
-            ("StackId" Prelude..=) Prelude.<$> stackId
+    Core.object
+      ( Core.catMaybes
+          [ ("AppIds" Core..=) Core.<$> appIds,
+            ("StackId" Core..=) Core.<$> stackId
           ]
       )
 
-instance Prelude.ToPath DescribeApps where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeApps where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeApps where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeApps where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeApps@ request.
 --
 -- /See:/ 'newDescribeAppsResponse' smart constructor.
 data DescribeAppsResponse = DescribeAppsResponse'
   { -- | An array of @App@ objects that describe the specified apps.
-    apps :: Prelude.Maybe [App],
+    apps :: Core.Maybe [App],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAppsResponse' with all optional fields omitted.
@@ -169,20 +166,20 @@ data DescribeAppsResponse = DescribeAppsResponse'
 -- 'httpStatus', 'describeAppsResponse_httpStatus' - The response's http status code.
 newDescribeAppsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAppsResponse
 newDescribeAppsResponse pHttpStatus_ =
   DescribeAppsResponse'
-    { apps = Prelude.Nothing,
+    { apps = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @App@ objects that describe the specified apps.
-describeAppsResponse_apps :: Lens.Lens' DescribeAppsResponse (Prelude.Maybe [App])
-describeAppsResponse_apps = Lens.lens (\DescribeAppsResponse' {apps} -> apps) (\s@DescribeAppsResponse' {} a -> s {apps = a} :: DescribeAppsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAppsResponse_apps :: Lens.Lens' DescribeAppsResponse (Core.Maybe [App])
+describeAppsResponse_apps = Lens.lens (\DescribeAppsResponse' {apps} -> apps) (\s@DescribeAppsResponse' {} a -> s {apps = a} :: DescribeAppsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAppsResponse_httpStatus :: Lens.Lens' DescribeAppsResponse Prelude.Int
+describeAppsResponse_httpStatus :: Lens.Lens' DescribeAppsResponse Core.Int
 describeAppsResponse_httpStatus = Lens.lens (\DescribeAppsResponse' {httpStatus} -> httpStatus) (\s@DescribeAppsResponse' {} a -> s {httpStatus = a} :: DescribeAppsResponse)
 
-instance Prelude.NFData DescribeAppsResponse
+instance Core.NFData DescribeAppsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ReplicaModifications where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicaModificationsStatus
 
@@ -40,7 +39,7 @@ data ReplicaModifications = ReplicaModifications'
   { -- | Specifies whether Amazon S3 replicates modifications on replicas.
     status :: ReplicaModificationsStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicaModifications' with all optional fields omitted.
@@ -62,15 +61,14 @@ newReplicaModifications pStatus_ =
 replicaModifications_status :: Lens.Lens' ReplicaModifications ReplicaModificationsStatus
 replicaModifications_status = Lens.lens (\ReplicaModifications' {status} -> status) (\s@ReplicaModifications' {} a -> s {status = a} :: ReplicaModifications)
 
-instance Prelude.FromXML ReplicaModifications where
+instance Core.FromXML ReplicaModifications where
   parseXML x =
-    ReplicaModifications'
-      Prelude.<$> (x Prelude..@ "Status")
+    ReplicaModifications' Core.<$> (x Core..@ "Status")
 
-instance Prelude.Hashable ReplicaModifications
+instance Core.Hashable ReplicaModifications
 
-instance Prelude.NFData ReplicaModifications
+instance Core.NFData ReplicaModifications
 
-instance Prelude.ToXML ReplicaModifications where
+instance Core.ToXML ReplicaModifications where
   toXML ReplicaModifications' {..} =
-    Prelude.mconcat ["Status" Prelude.@= status]
+    Core.mconcat ["Status" Core.@= status]

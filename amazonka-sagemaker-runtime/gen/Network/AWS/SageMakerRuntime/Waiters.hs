@@ -15,8 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMakerRuntime.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMakerRuntime.Lens
 import Network.AWS.SageMakerRuntime.Types
-import qualified Network.AWS.Waiter as Waiter

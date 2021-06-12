@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,12 +57,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newApplySecurityGroupsToLoadBalancer' smart constructor.
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
   { -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The IDs of the security groups to associate with the load balancer. Note
     -- that you cannot specify the name of the security group.
-    securityGroups :: [Prelude.Text]
+    securityGroups :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplySecurityGroupsToLoadBalancer' with all optional fields omitted.
@@ -79,31 +78,31 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
 -- that you cannot specify the name of the security group.
 newApplySecurityGroupsToLoadBalancer ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   ApplySecurityGroupsToLoadBalancer
 newApplySecurityGroupsToLoadBalancer
   pLoadBalancerName_ =
     ApplySecurityGroupsToLoadBalancer'
       { loadBalancerName =
           pLoadBalancerName_,
-        securityGroups = Prelude.mempty
+        securityGroups = Core.mempty
       }
 
 -- | The name of the load balancer.
-applySecurityGroupsToLoadBalancer_loadBalancerName :: Lens.Lens' ApplySecurityGroupsToLoadBalancer Prelude.Text
+applySecurityGroupsToLoadBalancer_loadBalancerName :: Lens.Lens' ApplySecurityGroupsToLoadBalancer Core.Text
 applySecurityGroupsToLoadBalancer_loadBalancerName = Lens.lens (\ApplySecurityGroupsToLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@ApplySecurityGroupsToLoadBalancer' {} a -> s {loadBalancerName = a} :: ApplySecurityGroupsToLoadBalancer)
 
 -- | The IDs of the security groups to associate with the load balancer. Note
 -- that you cannot specify the name of the security group.
-applySecurityGroupsToLoadBalancer_securityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancer [Prelude.Text]
-applySecurityGroupsToLoadBalancer_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancer' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancer' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancer) Prelude.. Prelude._Coerce
+applySecurityGroupsToLoadBalancer_securityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancer [Core.Text]
+applySecurityGroupsToLoadBalancer_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancer' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancer' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancer) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ApplySecurityGroupsToLoadBalancer
   where
   type
-    Rs ApplySecurityGroupsToLoadBalancer =
+    AWSResponse ApplySecurityGroupsToLoadBalancer =
       ApplySecurityGroupsToLoadBalancerResponse
   request = Request.postQuery defaultService
   response =
@@ -111,48 +110,46 @@ instance
       "ApplySecurityGroupsToLoadBalancerResult"
       ( \s h x ->
           ApplySecurityGroupsToLoadBalancerResponse'
-            Prelude.<$> ( x Prelude..@? "SecurityGroups"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "SecurityGroups" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ApplySecurityGroupsToLoadBalancer
 
 instance
-  Prelude.NFData
+  Core.NFData
     ApplySecurityGroupsToLoadBalancer
 
 instance
-  Prelude.ToHeaders
-    ApplySecurityGroupsToLoadBalancer
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ApplySecurityGroupsToLoadBalancer
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ApplySecurityGroupsToLoadBalancer
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ApplySecurityGroupsToLoadBalancer
   where
   toQuery ApplySecurityGroupsToLoadBalancer' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ApplySecurityGroupsToLoadBalancer" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
+          Core.=: ( "ApplySecurityGroupsToLoadBalancer" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
+        "LoadBalancerName" Core.=: loadBalancerName,
         "SecurityGroups"
-          Prelude.=: Prelude.toQueryList "member" securityGroups
+          Core.=: Core.toQueryList "member" securityGroups
       ]
 
 -- | Contains the output of ApplySecurityGroupsToLoadBalancer.
@@ -160,11 +157,11 @@ instance
 -- /See:/ 'newApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
   { -- | The IDs of the security groups associated with the load balancer.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ApplySecurityGroupsToLoadBalancerResponse' with all optional fields omitted.
@@ -179,24 +176,24 @@ data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalanc
 -- 'httpStatus', 'applySecurityGroupsToLoadBalancerResponse_httpStatus' - The response's http status code.
 newApplySecurityGroupsToLoadBalancerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ApplySecurityGroupsToLoadBalancerResponse
 newApplySecurityGroupsToLoadBalancerResponse
   pHttpStatus_ =
     ApplySecurityGroupsToLoadBalancerResponse'
       { securityGroups =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The IDs of the security groups associated with the load balancer.
-applySecurityGroupsToLoadBalancerResponse_securityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse (Prelude.Maybe [Prelude.Text])
-applySecurityGroupsToLoadBalancerResponse_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancerResponse' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancerResponse' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancerResponse) Prelude.. Lens.mapping Prelude._Coerce
+applySecurityGroupsToLoadBalancerResponse_securityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse (Core.Maybe [Core.Text])
+applySecurityGroupsToLoadBalancerResponse_securityGroups = Lens.lens (\ApplySecurityGroupsToLoadBalancerResponse' {securityGroups} -> securityGroups) (\s@ApplySecurityGroupsToLoadBalancerResponse' {} a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancerResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-applySecurityGroupsToLoadBalancerResponse_httpStatus :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse Prelude.Int
+applySecurityGroupsToLoadBalancerResponse_httpStatus :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse Core.Int
 applySecurityGroupsToLoadBalancerResponse_httpStatus = Lens.lens (\ApplySecurityGroupsToLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@ApplySecurityGroupsToLoadBalancerResponse' {} a -> s {httpStatus = a} :: ApplySecurityGroupsToLoadBalancerResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ApplySecurityGroupsToLoadBalancerResponse

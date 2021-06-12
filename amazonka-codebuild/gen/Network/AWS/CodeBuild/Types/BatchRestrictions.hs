@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.BatchRestrictions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies restrictions for the batch build.
 --
@@ -31,11 +30,11 @@ data BatchRestrictions = BatchRestrictions'
     -- the batch build. See
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
     -- in the /AWS CodeBuild User Guide/ for these values.
-    computeTypesAllowed :: Prelude.Maybe [Prelude.Text],
+    computeTypesAllowed :: Core.Maybe [Core.Text],
     -- | Specifies the maximum number of builds allowed.
-    maximumBuildsAllowed :: Prelude.Maybe Prelude.Int
+    maximumBuildsAllowed :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchRestrictions' with all optional fields omitted.
@@ -56,44 +55,44 @@ newBatchRestrictions ::
 newBatchRestrictions =
   BatchRestrictions'
     { computeTypesAllowed =
-        Prelude.Nothing,
-      maximumBuildsAllowed = Prelude.Nothing
+        Core.Nothing,
+      maximumBuildsAllowed = Core.Nothing
     }
 
 -- | An array of strings that specify the compute types that are allowed for
 -- the batch build. See
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
 -- in the /AWS CodeBuild User Guide/ for these values.
-batchRestrictions_computeTypesAllowed :: Lens.Lens' BatchRestrictions (Prelude.Maybe [Prelude.Text])
-batchRestrictions_computeTypesAllowed = Lens.lens (\BatchRestrictions' {computeTypesAllowed} -> computeTypesAllowed) (\s@BatchRestrictions' {} a -> s {computeTypesAllowed = a} :: BatchRestrictions) Prelude.. Lens.mapping Prelude._Coerce
+batchRestrictions_computeTypesAllowed :: Lens.Lens' BatchRestrictions (Core.Maybe [Core.Text])
+batchRestrictions_computeTypesAllowed = Lens.lens (\BatchRestrictions' {computeTypesAllowed} -> computeTypesAllowed) (\s@BatchRestrictions' {} a -> s {computeTypesAllowed = a} :: BatchRestrictions) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the maximum number of builds allowed.
-batchRestrictions_maximumBuildsAllowed :: Lens.Lens' BatchRestrictions (Prelude.Maybe Prelude.Int)
+batchRestrictions_maximumBuildsAllowed :: Lens.Lens' BatchRestrictions (Core.Maybe Core.Int)
 batchRestrictions_maximumBuildsAllowed = Lens.lens (\BatchRestrictions' {maximumBuildsAllowed} -> maximumBuildsAllowed) (\s@BatchRestrictions' {} a -> s {maximumBuildsAllowed = a} :: BatchRestrictions)
 
-instance Prelude.FromJSON BatchRestrictions where
+instance Core.FromJSON BatchRestrictions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchRestrictions"
       ( \x ->
           BatchRestrictions'
-            Prelude.<$> ( x Prelude..:? "computeTypesAllowed"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "maximumBuildsAllowed")
+            Core.<$> ( x Core..:? "computeTypesAllowed"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "maximumBuildsAllowed")
       )
 
-instance Prelude.Hashable BatchRestrictions
+instance Core.Hashable BatchRestrictions
 
-instance Prelude.NFData BatchRestrictions
+instance Core.NFData BatchRestrictions
 
-instance Prelude.ToJSON BatchRestrictions where
+instance Core.ToJSON BatchRestrictions where
   toJSON BatchRestrictions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("computeTypesAllowed" Prelude..=)
-              Prelude.<$> computeTypesAllowed,
-            ("maximumBuildsAllowed" Prelude..=)
-              Prelude.<$> maximumBuildsAllowed
+    Core.object
+      ( Core.catMaybes
+          [ ("computeTypesAllowed" Core..=)
+              Core.<$> computeTypesAllowed,
+            ("maximumBuildsAllowed" Core..=)
+              Core.<$> maximumBuildsAllowed
           ]
       )

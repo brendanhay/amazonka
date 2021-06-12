@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.OrganizationResourceDetailedStatusFilters where
 
 import Network.AWS.Config.Types.OrganizationResourceDetailedStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status filter object to filter results based on specific member account
 -- ID or status type for an organization conformance pack.
@@ -66,11 +65,11 @@ data OrganizationResourceDetailedStatusFilters = OrganizationResourceDetailedSta
     --
     -- -   @UPDATE_FAILED@ when conformance pack deletion has failed in the
     --     member account.
-    status :: Prelude.Maybe OrganizationResourceDetailedStatus,
+    status :: Core.Maybe OrganizationResourceDetailedStatus,
     -- | The 12-digit account ID of the member account within an organization.
-    accountId :: Prelude.Maybe Prelude.Text
+    accountId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationResourceDetailedStatusFilters' with all optional fields omitted.
@@ -124,8 +123,8 @@ newOrganizationResourceDetailedStatusFilters ::
 newOrganizationResourceDetailedStatusFilters =
   OrganizationResourceDetailedStatusFilters'
     { status =
-        Prelude.Nothing,
-      accountId = Prelude.Nothing
+        Core.Nothing,
+      accountId = Core.Nothing
     }
 
 -- | Indicates deployment status for conformance pack in a member account.
@@ -165,29 +164,29 @@ newOrganizationResourceDetailedStatusFilters =
 --
 -- -   @UPDATE_FAILED@ when conformance pack deletion has failed in the
 --     member account.
-organizationResourceDetailedStatusFilters_status :: Lens.Lens' OrganizationResourceDetailedStatusFilters (Prelude.Maybe OrganizationResourceDetailedStatus)
+organizationResourceDetailedStatusFilters_status :: Lens.Lens' OrganizationResourceDetailedStatusFilters (Core.Maybe OrganizationResourceDetailedStatus)
 organizationResourceDetailedStatusFilters_status = Lens.lens (\OrganizationResourceDetailedStatusFilters' {status} -> status) (\s@OrganizationResourceDetailedStatusFilters' {} a -> s {status = a} :: OrganizationResourceDetailedStatusFilters)
 
 -- | The 12-digit account ID of the member account within an organization.
-organizationResourceDetailedStatusFilters_accountId :: Lens.Lens' OrganizationResourceDetailedStatusFilters (Prelude.Maybe Prelude.Text)
+organizationResourceDetailedStatusFilters_accountId :: Lens.Lens' OrganizationResourceDetailedStatusFilters (Core.Maybe Core.Text)
 organizationResourceDetailedStatusFilters_accountId = Lens.lens (\OrganizationResourceDetailedStatusFilters' {accountId} -> accountId) (\s@OrganizationResourceDetailedStatusFilters' {} a -> s {accountId = a} :: OrganizationResourceDetailedStatusFilters)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     OrganizationResourceDetailedStatusFilters
 
 instance
-  Prelude.NFData
+  Core.NFData
     OrganizationResourceDetailedStatusFilters
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     OrganizationResourceDetailedStatusFilters
   where
   toJSON OrganizationResourceDetailedStatusFilters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Status" Prelude..=) Prelude.<$> status,
-            ("AccountId" Prelude..=) Prelude.<$> accountId
+    Core.object
+      ( Core.catMaybes
+          [ ("Status" Core..=) Core.<$> status,
+            ("AccountId" Core..=) Core.<$> accountId
           ]
       )

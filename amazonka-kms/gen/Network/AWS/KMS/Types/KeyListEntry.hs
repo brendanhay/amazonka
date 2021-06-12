@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KMS.Types.KeyListEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about each entry in the key list.
 --
 -- /See:/ 'newKeyListEntry' smart constructor.
 data KeyListEntry = KeyListEntry'
   { -- | ARN of the key.
-    keyArn :: Prelude.Maybe Prelude.Text,
+    keyArn :: Core.Maybe Core.Text,
     -- | Unique identifier of the key.
-    keyId :: Prelude.Maybe Prelude.Text
+    keyId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyListEntry' with all optional fields omitted.
@@ -49,28 +48,27 @@ newKeyListEntry ::
   KeyListEntry
 newKeyListEntry =
   KeyListEntry'
-    { keyArn = Prelude.Nothing,
-      keyId = Prelude.Nothing
+    { keyArn = Core.Nothing,
+      keyId = Core.Nothing
     }
 
 -- | ARN of the key.
-keyListEntry_keyArn :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
+keyListEntry_keyArn :: Lens.Lens' KeyListEntry (Core.Maybe Core.Text)
 keyListEntry_keyArn = Lens.lens (\KeyListEntry' {keyArn} -> keyArn) (\s@KeyListEntry' {} a -> s {keyArn = a} :: KeyListEntry)
 
 -- | Unique identifier of the key.
-keyListEntry_keyId :: Lens.Lens' KeyListEntry (Prelude.Maybe Prelude.Text)
+keyListEntry_keyId :: Lens.Lens' KeyListEntry (Core.Maybe Core.Text)
 keyListEntry_keyId = Lens.lens (\KeyListEntry' {keyId} -> keyId) (\s@KeyListEntry' {} a -> s {keyId = a} :: KeyListEntry)
 
-instance Prelude.FromJSON KeyListEntry where
+instance Core.FromJSON KeyListEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyListEntry"
       ( \x ->
           KeyListEntry'
-            Prelude.<$> (x Prelude..:? "KeyArn")
-            Prelude.<*> (x Prelude..:? "KeyId")
+            Core.<$> (x Core..:? "KeyArn") Core.<*> (x Core..:? "KeyId")
       )
 
-instance Prelude.Hashable KeyListEntry
+instance Core.Hashable KeyListEntry
 
-instance Prelude.NFData KeyListEntry
+instance Core.NFData KeyListEntry

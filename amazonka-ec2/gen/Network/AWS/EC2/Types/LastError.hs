@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LastError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The last error that occurred for a VPC endpoint.
 --
 -- /See:/ 'newLastError' smart constructor.
 data LastError = LastError'
   { -- | The error message for the VPC endpoint error.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The error code for the VPC endpoint error.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LastError' with all optional fields omitted.
@@ -50,24 +49,23 @@ newLastError ::
   LastError
 newLastError =
   LastError'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The error message for the VPC endpoint error.
-lastError_message :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
+lastError_message :: Lens.Lens' LastError (Core.Maybe Core.Text)
 lastError_message = Lens.lens (\LastError' {message} -> message) (\s@LastError' {} a -> s {message = a} :: LastError)
 
 -- | The error code for the VPC endpoint error.
-lastError_code :: Lens.Lens' LastError (Prelude.Maybe Prelude.Text)
+lastError_code :: Lens.Lens' LastError (Core.Maybe Core.Text)
 lastError_code = Lens.lens (\LastError' {code} -> code) (\s@LastError' {} a -> s {code = a} :: LastError)
 
-instance Prelude.FromXML LastError where
+instance Core.FromXML LastError where
   parseXML x =
     LastError'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
-instance Prelude.Hashable LastError
+instance Core.Hashable LastError
 
-instance Prelude.NFData LastError
+instance Core.NFData LastError

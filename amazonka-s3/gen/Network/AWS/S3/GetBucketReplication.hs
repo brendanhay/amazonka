@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,8 +66,8 @@ module Network.AWS.S3.GetBucketReplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -78,11 +77,11 @@ data GetBucketReplication = GetBucketReplication'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name for which to get the replication information.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketReplication' with all optional fields omitted.
@@ -104,59 +103,58 @@ newGetBucketReplication ::
 newGetBucketReplication pBucket_ =
   GetBucketReplication'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketReplication_expectedBucketOwner :: Lens.Lens' GetBucketReplication (Prelude.Maybe Prelude.Text)
+getBucketReplication_expectedBucketOwner :: Lens.Lens' GetBucketReplication (Core.Maybe Core.Text)
 getBucketReplication_expectedBucketOwner = Lens.lens (\GetBucketReplication' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketReplication' {} a -> s {expectedBucketOwner = a} :: GetBucketReplication)
 
 -- | The bucket name for which to get the replication information.
 getBucketReplication_bucket :: Lens.Lens' GetBucketReplication BucketName
 getBucketReplication_bucket = Lens.lens (\GetBucketReplication' {bucket} -> bucket) (\s@GetBucketReplication' {} a -> s {bucket = a} :: GetBucketReplication)
 
-instance Prelude.AWSRequest GetBucketReplication where
+instance Core.AWSRequest GetBucketReplication where
   type
-    Rs GetBucketReplication =
+    AWSResponse GetBucketReplication =
       GetBucketReplicationResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketReplicationResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketReplication
+instance Core.Hashable GetBucketReplication
 
-instance Prelude.NFData GetBucketReplication
+instance Core.NFData GetBucketReplication
 
-instance Prelude.ToHeaders GetBucketReplication where
+instance Core.ToHeaders GetBucketReplication where
   toHeaders GetBucketReplication' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetBucketReplication where
+instance Core.ToPath GetBucketReplication where
   toPath GetBucketReplication' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetBucketReplication where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["replication"])
+instance Core.ToQuery GetBucketReplication where
+  toQuery = Core.const (Core.mconcat ["replication"])
 
 -- | /See:/ 'newGetBucketReplicationResponse' smart constructor.
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
-  { replicationConfiguration :: Prelude.Maybe ReplicationConfiguration,
+  { replicationConfiguration :: Core.Maybe ReplicationConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketReplicationResponse' with all optional fields omitted.
@@ -171,21 +169,21 @@ data GetBucketReplicationResponse = GetBucketReplicationResponse'
 -- 'httpStatus', 'getBucketReplicationResponse_httpStatus' - The response's http status code.
 newGetBucketReplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBucketReplicationResponse
 newGetBucketReplicationResponse pHttpStatus_ =
   GetBucketReplicationResponse'
     { replicationConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-getBucketReplicationResponse_replicationConfiguration :: Lens.Lens' GetBucketReplicationResponse (Prelude.Maybe ReplicationConfiguration)
+getBucketReplicationResponse_replicationConfiguration :: Lens.Lens' GetBucketReplicationResponse (Core.Maybe ReplicationConfiguration)
 getBucketReplicationResponse_replicationConfiguration = Lens.lens (\GetBucketReplicationResponse' {replicationConfiguration} -> replicationConfiguration) (\s@GetBucketReplicationResponse' {} a -> s {replicationConfiguration = a} :: GetBucketReplicationResponse)
 
 -- | The response's http status code.
-getBucketReplicationResponse_httpStatus :: Lens.Lens' GetBucketReplicationResponse Prelude.Int
+getBucketReplicationResponse_httpStatus :: Lens.Lens' GetBucketReplicationResponse Core.Int
 getBucketReplicationResponse_httpStatus = Lens.lens (\GetBucketReplicationResponse' {httpStatus} -> httpStatus) (\s@GetBucketReplicationResponse' {} a -> s {httpStatus = a} :: GetBucketReplicationResponse)
 
-instance Prelude.NFData GetBucketReplicationResponse
+instance Core.NFData GetBucketReplicationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.Endpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | The DNS hostname of the cache node.
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | The port number that the cache engine is listening on.
-    port :: Prelude.Maybe Prelude.Int
+    port :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Endpoint' with all optional fields omitted.
@@ -50,24 +49,23 @@ newEndpoint ::
   Endpoint
 newEndpoint =
   Endpoint'
-    { address = Prelude.Nothing,
-      port = Prelude.Nothing
+    { address = Core.Nothing,
+      port = Core.Nothing
     }
 
 -- | The DNS hostname of the cache node.
-endpoint_address :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_address :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
 endpoint_address = Lens.lens (\Endpoint' {address} -> address) (\s@Endpoint' {} a -> s {address = a} :: Endpoint)
 
 -- | The port number that the cache engine is listening on.
-endpoint_port :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Int)
+endpoint_port :: Lens.Lens' Endpoint (Core.Maybe Core.Int)
 endpoint_port = Lens.lens (\Endpoint' {port} -> port) (\s@Endpoint' {} a -> s {port = a} :: Endpoint)
 
-instance Prelude.FromXML Endpoint where
+instance Core.FromXML Endpoint where
   parseXML x =
     Endpoint'
-      Prelude.<$> (x Prelude..@? "Address")
-      Prelude.<*> (x Prelude..@? "Port")
+      Core.<$> (x Core..@? "Address") Core.<*> (x Core..@? "Port")
 
-instance Prelude.Hashable Endpoint
+instance Core.Hashable Endpoint
 
-instance Prelude.NFData Endpoint
+instance Core.NFData Endpoint

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,9 @@ module Network.AWS.GameLift.DeleteScript
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,9 +69,9 @@ import qualified Network.AWS.Response as Response
 data DeleteScript = DeleteScript'
   { -- | A unique identifier for a Realtime script to delete. You can use either
     -- the script ID or ARN value.
-    scriptId :: Prelude.Text
+    scriptId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScript' with all optional fields omitted.
@@ -86,56 +85,54 @@ data DeleteScript = DeleteScript'
 -- the script ID or ARN value.
 newDeleteScript ::
   -- | 'scriptId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteScript
 newDeleteScript pScriptId_ =
   DeleteScript' {scriptId = pScriptId_}
 
 -- | A unique identifier for a Realtime script to delete. You can use either
 -- the script ID or ARN value.
-deleteScript_scriptId :: Lens.Lens' DeleteScript Prelude.Text
+deleteScript_scriptId :: Lens.Lens' DeleteScript Core.Text
 deleteScript_scriptId = Lens.lens (\DeleteScript' {scriptId} -> scriptId) (\s@DeleteScript' {} a -> s {scriptId = a} :: DeleteScript)
 
-instance Prelude.AWSRequest DeleteScript where
-  type Rs DeleteScript = DeleteScriptResponse
+instance Core.AWSRequest DeleteScript where
+  type AWSResponse DeleteScript = DeleteScriptResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteScriptResponse'
 
-instance Prelude.Hashable DeleteScript
+instance Core.Hashable DeleteScript
 
-instance Prelude.NFData DeleteScript
+instance Core.NFData DeleteScript
 
-instance Prelude.ToHeaders DeleteScript where
+instance Core.ToHeaders DeleteScript where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.DeleteScript" :: Prelude.ByteString),
+              Core.=# ("GameLift.DeleteScript" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteScript where
+instance Core.ToJSON DeleteScript where
   toJSON DeleteScript' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ScriptId" Prelude..= scriptId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ScriptId" Core..= scriptId)]
       )
 
-instance Prelude.ToPath DeleteScript where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteScript where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteScript where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteScript where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteScriptResponse' smart constructor.
 data DeleteScriptResponse = DeleteScriptResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteScriptResponse' with all optional fields omitted.
@@ -145,4 +142,4 @@ newDeleteScriptResponse ::
   DeleteScriptResponse
 newDeleteScriptResponse = DeleteScriptResponse'
 
-instance Prelude.NFData DeleteScriptResponse
+instance Core.NFData DeleteScriptResponse

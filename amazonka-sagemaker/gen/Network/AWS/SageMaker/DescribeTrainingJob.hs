@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -83,8 +82,8 @@ module Network.AWS.SageMaker.DescribeTrainingJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -92,9 +91,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeTrainingJob' smart constructor.
 data DescribeTrainingJob = DescribeTrainingJob'
   { -- | The name of the training job.
-    trainingJobName :: Prelude.Text
+    trainingJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrainingJob' with all optional fields omitted.
@@ -107,7 +106,7 @@ data DescribeTrainingJob = DescribeTrainingJob'
 -- 'trainingJobName', 'describeTrainingJob_trainingJobName' - The name of the training job.
 newDescribeTrainingJob ::
   -- | 'trainingJobName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTrainingJob
 newDescribeTrainingJob pTrainingJobName_ =
   DescribeTrainingJob'
@@ -116,181 +115,173 @@ newDescribeTrainingJob pTrainingJobName_ =
     }
 
 -- | The name of the training job.
-describeTrainingJob_trainingJobName :: Lens.Lens' DescribeTrainingJob Prelude.Text
+describeTrainingJob_trainingJobName :: Lens.Lens' DescribeTrainingJob Core.Text
 describeTrainingJob_trainingJobName = Lens.lens (\DescribeTrainingJob' {trainingJobName} -> trainingJobName) (\s@DescribeTrainingJob' {} a -> s {trainingJobName = a} :: DescribeTrainingJob)
 
-instance Prelude.AWSRequest DescribeTrainingJob where
+instance Core.AWSRequest DescribeTrainingJob where
   type
-    Rs DescribeTrainingJob =
+    AWSResponse DescribeTrainingJob =
       DescribeTrainingJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTrainingJobResponse'
-            Prelude.<$> (x Prelude..?> "VpcConfig")
-            Prelude.<*> ( x Prelude..?> "DebugRuleConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "InputDataConfig")
-            Prelude.<*> ( x Prelude..?> "HyperParameters"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "EnableManagedSpotTraining")
-            Prelude.<*> (x Prelude..?> "LabelingJobArn")
-            Prelude.<*> (x Prelude..?> "RoleArn")
-            Prelude.<*> (x Prelude..?> "TrainingTimeInSeconds")
-            Prelude.<*> (x Prelude..?> "ProfilerConfig")
-            Prelude.<*> (x Prelude..?> "ExperimentConfig")
-            Prelude.<*> ( x Prelude..?> "ProfilerRuleEvaluationStatuses"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "EnableNetworkIsolation")
-            Prelude.<*> ( x
-                            Prelude..?> "EnableInterContainerTrafficEncryption"
-                        )
-            Prelude.<*> (x Prelude..?> "CheckpointConfig")
-            Prelude.<*> (x Prelude..?> "OutputDataConfig")
-            Prelude.<*> (x Prelude..?> "TuningJobArn")
-            Prelude.<*> ( x Prelude..?> "SecondaryStatusTransitions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "FinalMetricDataList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "ProfilingStatus")
-            Prelude.<*> ( x Prelude..?> "ProfilerRuleConfigurations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "AutoMLJobArn")
-            Prelude.<*> (x Prelude..?> "FailureReason")
-            Prelude.<*> (x Prelude..?> "LastModifiedTime")
-            Prelude.<*> (x Prelude..?> "TensorBoardOutputConfig")
-            Prelude.<*> ( x Prelude..?> "DebugRuleEvaluationStatuses"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "DebugHookConfig")
-            Prelude.<*> (x Prelude..?> "BillableTimeInSeconds")
-            Prelude.<*> (x Prelude..?> "TrainingStartTime")
-            Prelude.<*> (x Prelude..?> "TrainingEndTime")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "TrainingJobName")
-            Prelude.<*> (x Prelude..:> "TrainingJobArn")
-            Prelude.<*> (x Prelude..:> "ModelArtifacts")
-            Prelude.<*> (x Prelude..:> "TrainingJobStatus")
-            Prelude.<*> (x Prelude..:> "SecondaryStatus")
-            Prelude.<*> (x Prelude..:> "AlgorithmSpecification")
-            Prelude.<*> (x Prelude..:> "ResourceConfig")
-            Prelude.<*> (x Prelude..:> "StoppingCondition")
-            Prelude.<*> (x Prelude..:> "CreationTime")
+            Core.<$> (x Core..?> "VpcConfig")
+            Core.<*> ( x Core..?> "DebugRuleConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "InputDataConfig")
+            Core.<*> (x Core..?> "HyperParameters" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "EnableManagedSpotTraining")
+            Core.<*> (x Core..?> "LabelingJobArn")
+            Core.<*> (x Core..?> "RoleArn")
+            Core.<*> (x Core..?> "TrainingTimeInSeconds")
+            Core.<*> (x Core..?> "ProfilerConfig")
+            Core.<*> (x Core..?> "ExperimentConfig")
+            Core.<*> ( x Core..?> "ProfilerRuleEvaluationStatuses"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "EnableNetworkIsolation")
+            Core.<*> (x Core..?> "EnableInterContainerTrafficEncryption")
+            Core.<*> (x Core..?> "CheckpointConfig")
+            Core.<*> (x Core..?> "OutputDataConfig")
+            Core.<*> (x Core..?> "TuningJobArn")
+            Core.<*> ( x Core..?> "SecondaryStatusTransitions"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> ( x Core..?> "FinalMetricDataList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "ProfilingStatus")
+            Core.<*> ( x Core..?> "ProfilerRuleConfigurations"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "AutoMLJobArn")
+            Core.<*> (x Core..?> "FailureReason")
+            Core.<*> (x Core..?> "LastModifiedTime")
+            Core.<*> (x Core..?> "TensorBoardOutputConfig")
+            Core.<*> ( x Core..?> "DebugRuleEvaluationStatuses"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "DebugHookConfig")
+            Core.<*> (x Core..?> "BillableTimeInSeconds")
+            Core.<*> (x Core..?> "TrainingStartTime")
+            Core.<*> (x Core..?> "TrainingEndTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "TrainingJobName")
+            Core.<*> (x Core..:> "TrainingJobArn")
+            Core.<*> (x Core..:> "ModelArtifacts")
+            Core.<*> (x Core..:> "TrainingJobStatus")
+            Core.<*> (x Core..:> "SecondaryStatus")
+            Core.<*> (x Core..:> "AlgorithmSpecification")
+            Core.<*> (x Core..:> "ResourceConfig")
+            Core.<*> (x Core..:> "StoppingCondition")
+            Core.<*> (x Core..:> "CreationTime")
       )
 
-instance Prelude.Hashable DescribeTrainingJob
+instance Core.Hashable DescribeTrainingJob
 
-instance Prelude.NFData DescribeTrainingJob
+instance Core.NFData DescribeTrainingJob
 
-instance Prelude.ToHeaders DescribeTrainingJob where
+instance Core.ToHeaders DescribeTrainingJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeTrainingJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DescribeTrainingJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTrainingJob where
+instance Core.ToJSON DescribeTrainingJob where
   toJSON DescribeTrainingJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TrainingJobName" Prelude..= trainingJobName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TrainingJobName" Core..= trainingJobName)
           ]
       )
 
-instance Prelude.ToPath DescribeTrainingJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTrainingJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTrainingJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTrainingJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeTrainingJobResponse' smart constructor.
 data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
   { -- | A VpcConfig object that specifies the VPC that this training job has
     -- access to. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+    vpcConfig :: Core.Maybe VpcConfig,
     -- | Configuration information for Debugger rules for debugging output
     -- tensors.
-    debugRuleConfigurations :: Prelude.Maybe [DebugRuleConfiguration],
+    debugRuleConfigurations :: Core.Maybe [DebugRuleConfiguration],
     -- | An array of @Channel@ objects that describes each data input channel.
-    inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
+    inputDataConfig :: Core.Maybe (Core.NonEmpty Channel),
     -- | Algorithm-specific parameters.
-    hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    hyperParameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A Boolean indicating whether managed spot training is enabled (@True@)
     -- or not (@False@).
-    enableManagedSpotTraining :: Prelude.Maybe Prelude.Bool,
+    enableManagedSpotTraining :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
     -- labeling job that created the transform or training job.
-    labelingJobArn :: Prelude.Maybe Prelude.Text,
+    labelingJobArn :: Core.Maybe Core.Text,
     -- | The AWS Identity and Access Management (IAM) role configured for the
     -- training job.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The training time in seconds.
-    trainingTimeInSeconds :: Prelude.Maybe Prelude.Natural,
-    profilerConfig :: Prelude.Maybe ProfilerConfig,
-    experimentConfig :: Prelude.Maybe ExperimentConfig,
+    trainingTimeInSeconds :: Core.Maybe Core.Natural,
+    profilerConfig :: Core.Maybe ProfilerConfig,
+    experimentConfig :: Core.Maybe ExperimentConfig,
     -- | Evaluation status of Debugger rules for profiling on a training job.
-    profilerRuleEvaluationStatuses :: Prelude.Maybe [ProfilerRuleEvaluationStatus],
+    profilerRuleEvaluationStatuses :: Core.Maybe [ProfilerRuleEvaluationStatus],
     -- | If you want to allow inbound or outbound network calls, except for calls
     -- between peers within a training cluster for distributed training, choose
     -- @True@. If you enable network isolation for training jobs that are
     -- configured to use a VPC, Amazon SageMaker downloads and uploads customer
     -- data and model artifacts through the specified VPC, but the training
     -- container does not have network access.
-    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    enableNetworkIsolation :: Core.Maybe Core.Bool,
     -- | To encrypt all communications between ML compute instances in
     -- distributed training, choose @True@. Encryption provides greater
     -- security for distributed training, but training might take longer. How
     -- long it takes depends on the amount of communication between compute
     -- instances, especially if you use a deep learning algorithms in
     -- distributed training.
-    enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool,
-    checkpointConfig :: Prelude.Maybe CheckpointConfig,
+    enableInterContainerTrafficEncryption :: Core.Maybe Core.Bool,
+    checkpointConfig :: Core.Maybe CheckpointConfig,
     -- | The S3 path where model artifacts that you configured when creating the
     -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
-    outputDataConfig :: Prelude.Maybe OutputDataConfig,
+    outputDataConfig :: Core.Maybe OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning
     -- job if the training job was launched by a hyperparameter tuning job.
-    tuningJobArn :: Prelude.Maybe Prelude.Text,
+    tuningJobArn :: Core.Maybe Core.Text,
     -- | A history of all of the secondary statuses that the training job has
     -- transitioned through.
-    secondaryStatusTransitions :: Prelude.Maybe [SecondaryStatusTransition],
+    secondaryStatusTransitions :: Core.Maybe [SecondaryStatusTransition],
     -- | A collection of @MetricData@ objects that specify the names, values, and
     -- dates and times that the training algorithm emitted to Amazon
     -- CloudWatch.
-    finalMetricDataList :: Prelude.Maybe [MetricData],
+    finalMetricDataList :: Core.Maybe [MetricData],
     -- | Profiling status of a training job.
-    profilingStatus :: Prelude.Maybe ProfilingStatus,
+    profilingStatus :: Core.Maybe ProfilingStatus,
     -- | Configuration information for Debugger rules for profiling system and
     -- framework metrics.
-    profilerRuleConfigurations :: Prelude.Maybe [ProfilerRuleConfiguration],
+    profilerRuleConfigurations :: Core.Maybe [ProfilerRuleConfiguration],
     -- | The Amazon Resource Name (ARN) of an AutoML job.
-    autoMLJobArn :: Prelude.Maybe Prelude.Text,
+    autoMLJobArn :: Core.Maybe Core.Text,
     -- | If the training job failed, the reason it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    failureReason :: Core.Maybe Core.Text,
     -- | A timestamp that indicates when the status of the training job was last
     -- modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
-    tensorBoardOutputConfig :: Prelude.Maybe TensorBoardOutputConfig,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
+    tensorBoardOutputConfig :: Core.Maybe TensorBoardOutputConfig,
     -- | Evaluation status of Debugger rules for debugging on a training job.
-    debugRuleEvaluationStatuses :: Prelude.Maybe [DebugRuleEvaluationStatus],
-    debugHookConfig :: Prelude.Maybe DebugHookConfig,
+    debugRuleEvaluationStatuses :: Core.Maybe [DebugRuleEvaluationStatus],
+    debugHookConfig :: Core.Maybe DebugHookConfig,
     -- | The billable time in seconds. Billable time refers to the absolute
     -- wall-clock time.
     --
@@ -303,25 +294,25 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- formula @(1 - BillableTimeInSeconds \/ TrainingTimeInSeconds) * 100@.
     -- For example, if @BillableTimeInSeconds@ is 100 and
     -- @TrainingTimeInSeconds@ is 500, the savings is 80%.
-    billableTimeInSeconds :: Prelude.Maybe Prelude.Natural,
+    billableTimeInSeconds :: Core.Maybe Core.Natural,
     -- | Indicates the time when the training job starts on training instances.
     -- You are billed for the time interval between this time and the value of
     -- @TrainingEndTime@. The start time in CloudWatch Logs might be later than
     -- this time. The difference is due to the time it takes to download the
     -- training data and to the size of the training container.
-    trainingStartTime :: Prelude.Maybe Prelude.POSIX,
+    trainingStartTime :: Core.Maybe Core.POSIX,
     -- | Indicates the time when the training job ends on training instances. You
     -- are billed for the time interval between the value of
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
     -- this is the time after model artifacts are uploaded. For failed jobs,
     -- this is the time when Amazon SageMaker detects a job failure.
-    trainingEndTime :: Prelude.Maybe Prelude.POSIX,
+    trainingEndTime :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Name of the model training job.
-    trainingJobName :: Prelude.Text,
+    trainingJobName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the training job.
-    trainingJobArn :: Prelude.Text,
+    trainingJobArn :: Core.Text,
     -- | Information about the Amazon S3 location that is configured for storing
     -- model artifacts.
     modelArtifacts :: ModelArtifacts,
@@ -412,9 +403,9 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- training are not lost.
     stoppingCondition :: StoppingCondition,
     -- | A timestamp that indicates when the training job was created.
-    creationTime :: Prelude.POSIX
+    creationTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTrainingJobResponse' with all optional fields omitted.
@@ -622,11 +613,11 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- 'creationTime', 'describeTrainingJobResponse_creationTime' - A timestamp that indicates when the training job was created.
 newDescribeTrainingJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'trainingJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'trainingJobArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelArtifacts'
   ModelArtifacts ->
   -- | 'trainingJobStatus'
@@ -640,7 +631,7 @@ newDescribeTrainingJobResponse ::
   -- | 'stoppingCondition'
   StoppingCondition ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   DescribeTrainingJobResponse
 newDescribeTrainingJobResponse
   pHttpStatus_
@@ -655,37 +646,36 @@ newDescribeTrainingJobResponse
   pCreationTime_ =
     DescribeTrainingJobResponse'
       { vpcConfig =
-          Prelude.Nothing,
-        debugRuleConfigurations = Prelude.Nothing,
-        inputDataConfig = Prelude.Nothing,
-        hyperParameters = Prelude.Nothing,
-        enableManagedSpotTraining = Prelude.Nothing,
-        labelingJobArn = Prelude.Nothing,
-        roleArn = Prelude.Nothing,
-        trainingTimeInSeconds = Prelude.Nothing,
-        profilerConfig = Prelude.Nothing,
-        experimentConfig = Prelude.Nothing,
-        profilerRuleEvaluationStatuses =
-          Prelude.Nothing,
-        enableNetworkIsolation = Prelude.Nothing,
+          Core.Nothing,
+        debugRuleConfigurations = Core.Nothing,
+        inputDataConfig = Core.Nothing,
+        hyperParameters = Core.Nothing,
+        enableManagedSpotTraining = Core.Nothing,
+        labelingJobArn = Core.Nothing,
+        roleArn = Core.Nothing,
+        trainingTimeInSeconds = Core.Nothing,
+        profilerConfig = Core.Nothing,
+        experimentConfig = Core.Nothing,
+        profilerRuleEvaluationStatuses = Core.Nothing,
+        enableNetworkIsolation = Core.Nothing,
         enableInterContainerTrafficEncryption =
-          Prelude.Nothing,
-        checkpointConfig = Prelude.Nothing,
-        outputDataConfig = Prelude.Nothing,
-        tuningJobArn = Prelude.Nothing,
-        secondaryStatusTransitions = Prelude.Nothing,
-        finalMetricDataList = Prelude.Nothing,
-        profilingStatus = Prelude.Nothing,
-        profilerRuleConfigurations = Prelude.Nothing,
-        autoMLJobArn = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
-        tensorBoardOutputConfig = Prelude.Nothing,
-        debugRuleEvaluationStatuses = Prelude.Nothing,
-        debugHookConfig = Prelude.Nothing,
-        billableTimeInSeconds = Prelude.Nothing,
-        trainingStartTime = Prelude.Nothing,
-        trainingEndTime = Prelude.Nothing,
+          Core.Nothing,
+        checkpointConfig = Core.Nothing,
+        outputDataConfig = Core.Nothing,
+        tuningJobArn = Core.Nothing,
+        secondaryStatusTransitions = Core.Nothing,
+        finalMetricDataList = Core.Nothing,
+        profilingStatus = Core.Nothing,
+        profilerRuleConfigurations = Core.Nothing,
+        autoMLJobArn = Core.Nothing,
+        failureReason = Core.Nothing,
+        lastModifiedTime = Core.Nothing,
+        tensorBoardOutputConfig = Core.Nothing,
+        debugRuleEvaluationStatuses = Core.Nothing,
+        debugHookConfig = Core.Nothing,
+        billableTimeInSeconds = Core.Nothing,
+        trainingStartTime = Core.Nothing,
+        trainingEndTime = Core.Nothing,
         httpStatus = pHttpStatus_,
         trainingJobName = pTrainingJobName_,
         trainingJobArn = pTrainingJobArn_,
@@ -697,58 +687,58 @@ newDescribeTrainingJobResponse
         resourceConfig = pResourceConfig_,
         stoppingCondition = pStoppingCondition_,
         creationTime =
-          Prelude._Time Lens.# pCreationTime_
+          Core._Time Lens.# pCreationTime_
       }
 
 -- | A VpcConfig object that specifies the VPC that this training job has
 -- access to. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
-describeTrainingJobResponse_vpcConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe VpcConfig)
+describeTrainingJobResponse_vpcConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe VpcConfig)
 describeTrainingJobResponse_vpcConfig = Lens.lens (\DescribeTrainingJobResponse' {vpcConfig} -> vpcConfig) (\s@DescribeTrainingJobResponse' {} a -> s {vpcConfig = a} :: DescribeTrainingJobResponse)
 
 -- | Configuration information for Debugger rules for debugging output
 -- tensors.
-describeTrainingJobResponse_debugRuleConfigurations :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [DebugRuleConfiguration])
-describeTrainingJobResponse_debugRuleConfigurations = Lens.lens (\DescribeTrainingJobResponse' {debugRuleConfigurations} -> debugRuleConfigurations) (\s@DescribeTrainingJobResponse' {} a -> s {debugRuleConfigurations = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_debugRuleConfigurations :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe [DebugRuleConfiguration])
+describeTrainingJobResponse_debugRuleConfigurations = Lens.lens (\DescribeTrainingJobResponse' {debugRuleConfigurations} -> debugRuleConfigurations) (\s@DescribeTrainingJobResponse' {} a -> s {debugRuleConfigurations = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of @Channel@ objects that describes each data input channel.
-describeTrainingJobResponse_inputDataConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe (Prelude.NonEmpty Channel))
-describeTrainingJobResponse_inputDataConfig = Lens.lens (\DescribeTrainingJobResponse' {inputDataConfig} -> inputDataConfig) (\s@DescribeTrainingJobResponse' {} a -> s {inputDataConfig = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_inputDataConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe (Core.NonEmpty Channel))
+describeTrainingJobResponse_inputDataConfig = Lens.lens (\DescribeTrainingJobResponse' {inputDataConfig} -> inputDataConfig) (\s@DescribeTrainingJobResponse' {} a -> s {inputDataConfig = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Algorithm-specific parameters.
-describeTrainingJobResponse_hyperParameters :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeTrainingJobResponse_hyperParameters = Lens.lens (\DescribeTrainingJobResponse' {hyperParameters} -> hyperParameters) (\s@DescribeTrainingJobResponse' {} a -> s {hyperParameters = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_hyperParameters :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+describeTrainingJobResponse_hyperParameters = Lens.lens (\DescribeTrainingJobResponse' {hyperParameters} -> hyperParameters) (\s@DescribeTrainingJobResponse' {} a -> s {hyperParameters = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A Boolean indicating whether managed spot training is enabled (@True@)
 -- or not (@False@).
-describeTrainingJobResponse_enableManagedSpotTraining :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Bool)
+describeTrainingJobResponse_enableManagedSpotTraining :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Bool)
 describeTrainingJobResponse_enableManagedSpotTraining = Lens.lens (\DescribeTrainingJobResponse' {enableManagedSpotTraining} -> enableManagedSpotTraining) (\s@DescribeTrainingJobResponse' {} a -> s {enableManagedSpotTraining = a} :: DescribeTrainingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the Amazon SageMaker Ground Truth
 -- labeling job that created the transform or training job.
-describeTrainingJobResponse_labelingJobArn :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Text)
+describeTrainingJobResponse_labelingJobArn :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Text)
 describeTrainingJobResponse_labelingJobArn = Lens.lens (\DescribeTrainingJobResponse' {labelingJobArn} -> labelingJobArn) (\s@DescribeTrainingJobResponse' {} a -> s {labelingJobArn = a} :: DescribeTrainingJobResponse)
 
 -- | The AWS Identity and Access Management (IAM) role configured for the
 -- training job.
-describeTrainingJobResponse_roleArn :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Text)
+describeTrainingJobResponse_roleArn :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Text)
 describeTrainingJobResponse_roleArn = Lens.lens (\DescribeTrainingJobResponse' {roleArn} -> roleArn) (\s@DescribeTrainingJobResponse' {} a -> s {roleArn = a} :: DescribeTrainingJobResponse)
 
 -- | The training time in seconds.
-describeTrainingJobResponse_trainingTimeInSeconds :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Natural)
+describeTrainingJobResponse_trainingTimeInSeconds :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Natural)
 describeTrainingJobResponse_trainingTimeInSeconds = Lens.lens (\DescribeTrainingJobResponse' {trainingTimeInSeconds} -> trainingTimeInSeconds) (\s@DescribeTrainingJobResponse' {} a -> s {trainingTimeInSeconds = a} :: DescribeTrainingJobResponse)
 
 -- | Undocumented member.
-describeTrainingJobResponse_profilerConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe ProfilerConfig)
+describeTrainingJobResponse_profilerConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe ProfilerConfig)
 describeTrainingJobResponse_profilerConfig = Lens.lens (\DescribeTrainingJobResponse' {profilerConfig} -> profilerConfig) (\s@DescribeTrainingJobResponse' {} a -> s {profilerConfig = a} :: DescribeTrainingJobResponse)
 
 -- | Undocumented member.
-describeTrainingJobResponse_experimentConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe ExperimentConfig)
+describeTrainingJobResponse_experimentConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe ExperimentConfig)
 describeTrainingJobResponse_experimentConfig = Lens.lens (\DescribeTrainingJobResponse' {experimentConfig} -> experimentConfig) (\s@DescribeTrainingJobResponse' {} a -> s {experimentConfig = a} :: DescribeTrainingJobResponse)
 
 -- | Evaluation status of Debugger rules for profiling on a training job.
-describeTrainingJobResponse_profilerRuleEvaluationStatuses :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [ProfilerRuleEvaluationStatus])
-describeTrainingJobResponse_profilerRuleEvaluationStatuses = Lens.lens (\DescribeTrainingJobResponse' {profilerRuleEvaluationStatuses} -> profilerRuleEvaluationStatuses) (\s@DescribeTrainingJobResponse' {} a -> s {profilerRuleEvaluationStatuses = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_profilerRuleEvaluationStatuses :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe [ProfilerRuleEvaluationStatus])
+describeTrainingJobResponse_profilerRuleEvaluationStatuses = Lens.lens (\DescribeTrainingJobResponse' {profilerRuleEvaluationStatuses} -> profilerRuleEvaluationStatuses) (\s@DescribeTrainingJobResponse' {} a -> s {profilerRuleEvaluationStatuses = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If you want to allow inbound or outbound network calls, except for calls
 -- between peers within a training cluster for distributed training, choose
@@ -756,7 +746,7 @@ describeTrainingJobResponse_profilerRuleEvaluationStatuses = Lens.lens (\Describ
 -- configured to use a VPC, Amazon SageMaker downloads and uploads customer
 -- data and model artifacts through the specified VPC, but the training
 -- container does not have network access.
-describeTrainingJobResponse_enableNetworkIsolation :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Bool)
+describeTrainingJobResponse_enableNetworkIsolation :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Bool)
 describeTrainingJobResponse_enableNetworkIsolation = Lens.lens (\DescribeTrainingJobResponse' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@DescribeTrainingJobResponse' {} a -> s {enableNetworkIsolation = a} :: DescribeTrainingJobResponse)
 
 -- | To encrypt all communications between ML compute instances in
@@ -765,66 +755,66 @@ describeTrainingJobResponse_enableNetworkIsolation = Lens.lens (\DescribeTrainin
 -- long it takes depends on the amount of communication between compute
 -- instances, especially if you use a deep learning algorithms in
 -- distributed training.
-describeTrainingJobResponse_enableInterContainerTrafficEncryption :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Bool)
+describeTrainingJobResponse_enableInterContainerTrafficEncryption :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Bool)
 describeTrainingJobResponse_enableInterContainerTrafficEncryption = Lens.lens (\DescribeTrainingJobResponse' {enableInterContainerTrafficEncryption} -> enableInterContainerTrafficEncryption) (\s@DescribeTrainingJobResponse' {} a -> s {enableInterContainerTrafficEncryption = a} :: DescribeTrainingJobResponse)
 
 -- | Undocumented member.
-describeTrainingJobResponse_checkpointConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe CheckpointConfig)
+describeTrainingJobResponse_checkpointConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe CheckpointConfig)
 describeTrainingJobResponse_checkpointConfig = Lens.lens (\DescribeTrainingJobResponse' {checkpointConfig} -> checkpointConfig) (\s@DescribeTrainingJobResponse' {} a -> s {checkpointConfig = a} :: DescribeTrainingJobResponse)
 
 -- | The S3 path where model artifacts that you configured when creating the
 -- job are stored. Amazon SageMaker creates subfolders for model artifacts.
-describeTrainingJobResponse_outputDataConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe OutputDataConfig)
+describeTrainingJobResponse_outputDataConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe OutputDataConfig)
 describeTrainingJobResponse_outputDataConfig = Lens.lens (\DescribeTrainingJobResponse' {outputDataConfig} -> outputDataConfig) (\s@DescribeTrainingJobResponse' {} a -> s {outputDataConfig = a} :: DescribeTrainingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning
 -- job if the training job was launched by a hyperparameter tuning job.
-describeTrainingJobResponse_tuningJobArn :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Text)
+describeTrainingJobResponse_tuningJobArn :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Text)
 describeTrainingJobResponse_tuningJobArn = Lens.lens (\DescribeTrainingJobResponse' {tuningJobArn} -> tuningJobArn) (\s@DescribeTrainingJobResponse' {} a -> s {tuningJobArn = a} :: DescribeTrainingJobResponse)
 
 -- | A history of all of the secondary statuses that the training job has
 -- transitioned through.
-describeTrainingJobResponse_secondaryStatusTransitions :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [SecondaryStatusTransition])
-describeTrainingJobResponse_secondaryStatusTransitions = Lens.lens (\DescribeTrainingJobResponse' {secondaryStatusTransitions} -> secondaryStatusTransitions) (\s@DescribeTrainingJobResponse' {} a -> s {secondaryStatusTransitions = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_secondaryStatusTransitions :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe [SecondaryStatusTransition])
+describeTrainingJobResponse_secondaryStatusTransitions = Lens.lens (\DescribeTrainingJobResponse' {secondaryStatusTransitions} -> secondaryStatusTransitions) (\s@DescribeTrainingJobResponse' {} a -> s {secondaryStatusTransitions = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A collection of @MetricData@ objects that specify the names, values, and
 -- dates and times that the training algorithm emitted to Amazon
 -- CloudWatch.
-describeTrainingJobResponse_finalMetricDataList :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [MetricData])
-describeTrainingJobResponse_finalMetricDataList = Lens.lens (\DescribeTrainingJobResponse' {finalMetricDataList} -> finalMetricDataList) (\s@DescribeTrainingJobResponse' {} a -> s {finalMetricDataList = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_finalMetricDataList :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe [MetricData])
+describeTrainingJobResponse_finalMetricDataList = Lens.lens (\DescribeTrainingJobResponse' {finalMetricDataList} -> finalMetricDataList) (\s@DescribeTrainingJobResponse' {} a -> s {finalMetricDataList = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Profiling status of a training job.
-describeTrainingJobResponse_profilingStatus :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe ProfilingStatus)
+describeTrainingJobResponse_profilingStatus :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe ProfilingStatus)
 describeTrainingJobResponse_profilingStatus = Lens.lens (\DescribeTrainingJobResponse' {profilingStatus} -> profilingStatus) (\s@DescribeTrainingJobResponse' {} a -> s {profilingStatus = a} :: DescribeTrainingJobResponse)
 
 -- | Configuration information for Debugger rules for profiling system and
 -- framework metrics.
-describeTrainingJobResponse_profilerRuleConfigurations :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [ProfilerRuleConfiguration])
-describeTrainingJobResponse_profilerRuleConfigurations = Lens.lens (\DescribeTrainingJobResponse' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@DescribeTrainingJobResponse' {} a -> s {profilerRuleConfigurations = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_profilerRuleConfigurations :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe [ProfilerRuleConfiguration])
+describeTrainingJobResponse_profilerRuleConfigurations = Lens.lens (\DescribeTrainingJobResponse' {profilerRuleConfigurations} -> profilerRuleConfigurations) (\s@DescribeTrainingJobResponse' {} a -> s {profilerRuleConfigurations = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of an AutoML job.
-describeTrainingJobResponse_autoMLJobArn :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Text)
+describeTrainingJobResponse_autoMLJobArn :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Text)
 describeTrainingJobResponse_autoMLJobArn = Lens.lens (\DescribeTrainingJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@DescribeTrainingJobResponse' {} a -> s {autoMLJobArn = a} :: DescribeTrainingJobResponse)
 
 -- | If the training job failed, the reason it failed.
-describeTrainingJobResponse_failureReason :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Text)
+describeTrainingJobResponse_failureReason :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Text)
 describeTrainingJobResponse_failureReason = Lens.lens (\DescribeTrainingJobResponse' {failureReason} -> failureReason) (\s@DescribeTrainingJobResponse' {} a -> s {failureReason = a} :: DescribeTrainingJobResponse)
 
 -- | A timestamp that indicates when the status of the training job was last
 -- modified.
-describeTrainingJobResponse_lastModifiedTime :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrainingJobResponse_lastModifiedTime = Lens.lens (\DescribeTrainingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrainingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeTrainingJobResponse_lastModifiedTime :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.UTCTime)
+describeTrainingJobResponse_lastModifiedTime = Lens.lens (\DescribeTrainingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeTrainingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-describeTrainingJobResponse_tensorBoardOutputConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe TensorBoardOutputConfig)
+describeTrainingJobResponse_tensorBoardOutputConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe TensorBoardOutputConfig)
 describeTrainingJobResponse_tensorBoardOutputConfig = Lens.lens (\DescribeTrainingJobResponse' {tensorBoardOutputConfig} -> tensorBoardOutputConfig) (\s@DescribeTrainingJobResponse' {} a -> s {tensorBoardOutputConfig = a} :: DescribeTrainingJobResponse)
 
 -- | Evaluation status of Debugger rules for debugging on a training job.
-describeTrainingJobResponse_debugRuleEvaluationStatuses :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe [DebugRuleEvaluationStatus])
-describeTrainingJobResponse_debugRuleEvaluationStatuses = Lens.lens (\DescribeTrainingJobResponse' {debugRuleEvaluationStatuses} -> debugRuleEvaluationStatuses) (\s@DescribeTrainingJobResponse' {} a -> s {debugRuleEvaluationStatuses = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeTrainingJobResponse_debugRuleEvaluationStatuses :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe [DebugRuleEvaluationStatus])
+describeTrainingJobResponse_debugRuleEvaluationStatuses = Lens.lens (\DescribeTrainingJobResponse' {debugRuleEvaluationStatuses} -> debugRuleEvaluationStatuses) (\s@DescribeTrainingJobResponse' {} a -> s {debugRuleEvaluationStatuses = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-describeTrainingJobResponse_debugHookConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe DebugHookConfig)
+describeTrainingJobResponse_debugHookConfig :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe DebugHookConfig)
 describeTrainingJobResponse_debugHookConfig = Lens.lens (\DescribeTrainingJobResponse' {debugHookConfig} -> debugHookConfig) (\s@DescribeTrainingJobResponse' {} a -> s {debugHookConfig = a} :: DescribeTrainingJobResponse)
 
 -- | The billable time in seconds. Billable time refers to the absolute
@@ -839,7 +829,7 @@ describeTrainingJobResponse_debugHookConfig = Lens.lens (\DescribeTrainingJobRes
 -- formula @(1 - BillableTimeInSeconds \/ TrainingTimeInSeconds) * 100@.
 -- For example, if @BillableTimeInSeconds@ is 100 and
 -- @TrainingTimeInSeconds@ is 500, the savings is 80%.
-describeTrainingJobResponse_billableTimeInSeconds :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Natural)
+describeTrainingJobResponse_billableTimeInSeconds :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.Natural)
 describeTrainingJobResponse_billableTimeInSeconds = Lens.lens (\DescribeTrainingJobResponse' {billableTimeInSeconds} -> billableTimeInSeconds) (\s@DescribeTrainingJobResponse' {} a -> s {billableTimeInSeconds = a} :: DescribeTrainingJobResponse)
 
 -- | Indicates the time when the training job starts on training instances.
@@ -847,27 +837,27 @@ describeTrainingJobResponse_billableTimeInSeconds = Lens.lens (\DescribeTraining
 -- @TrainingEndTime@. The start time in CloudWatch Logs might be later than
 -- this time. The difference is due to the time it takes to download the
 -- training data and to the size of the training container.
-describeTrainingJobResponse_trainingStartTime :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrainingJobResponse_trainingStartTime = Lens.lens (\DescribeTrainingJobResponse' {trainingStartTime} -> trainingStartTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingStartTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeTrainingJobResponse_trainingStartTime :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.UTCTime)
+describeTrainingJobResponse_trainingStartTime = Lens.lens (\DescribeTrainingJobResponse' {trainingStartTime} -> trainingStartTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingStartTime = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Core._Time
 
 -- | Indicates the time when the training job ends on training instances. You
 -- are billed for the time interval between the value of
 -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
 -- this is the time after model artifacts are uploaded. For failed jobs,
 -- this is the time when Amazon SageMaker detects a job failure.
-describeTrainingJobResponse_trainingEndTime :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeTrainingJobResponse_trainingEndTime = Lens.lens (\DescribeTrainingJobResponse' {trainingEndTime} -> trainingEndTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingEndTime = a} :: DescribeTrainingJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeTrainingJobResponse_trainingEndTime :: Lens.Lens' DescribeTrainingJobResponse (Core.Maybe Core.UTCTime)
+describeTrainingJobResponse_trainingEndTime = Lens.lens (\DescribeTrainingJobResponse' {trainingEndTime} -> trainingEndTime) (\s@DescribeTrainingJobResponse' {} a -> s {trainingEndTime = a} :: DescribeTrainingJobResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeTrainingJobResponse_httpStatus :: Lens.Lens' DescribeTrainingJobResponse Prelude.Int
+describeTrainingJobResponse_httpStatus :: Lens.Lens' DescribeTrainingJobResponse Core.Int
 describeTrainingJobResponse_httpStatus = Lens.lens (\DescribeTrainingJobResponse' {httpStatus} -> httpStatus) (\s@DescribeTrainingJobResponse' {} a -> s {httpStatus = a} :: DescribeTrainingJobResponse)
 
 -- | Name of the model training job.
-describeTrainingJobResponse_trainingJobName :: Lens.Lens' DescribeTrainingJobResponse Prelude.Text
+describeTrainingJobResponse_trainingJobName :: Lens.Lens' DescribeTrainingJobResponse Core.Text
 describeTrainingJobResponse_trainingJobName = Lens.lens (\DescribeTrainingJobResponse' {trainingJobName} -> trainingJobName) (\s@DescribeTrainingJobResponse' {} a -> s {trainingJobName = a} :: DescribeTrainingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the training job.
-describeTrainingJobResponse_trainingJobArn :: Lens.Lens' DescribeTrainingJobResponse Prelude.Text
+describeTrainingJobResponse_trainingJobArn :: Lens.Lens' DescribeTrainingJobResponse Core.Text
 describeTrainingJobResponse_trainingJobArn = Lens.lens (\DescribeTrainingJobResponse' {trainingJobArn} -> trainingJobArn) (\s@DescribeTrainingJobResponse' {} a -> s {trainingJobArn = a} :: DescribeTrainingJobResponse)
 
 -- | Information about the Amazon S3 location that is configured for storing
@@ -972,7 +962,7 @@ describeTrainingJobResponse_stoppingCondition :: Lens.Lens' DescribeTrainingJobR
 describeTrainingJobResponse_stoppingCondition = Lens.lens (\DescribeTrainingJobResponse' {stoppingCondition} -> stoppingCondition) (\s@DescribeTrainingJobResponse' {} a -> s {stoppingCondition = a} :: DescribeTrainingJobResponse)
 
 -- | A timestamp that indicates when the training job was created.
-describeTrainingJobResponse_creationTime :: Lens.Lens' DescribeTrainingJobResponse Prelude.UTCTime
-describeTrainingJobResponse_creationTime = Lens.lens (\DescribeTrainingJobResponse' {creationTime} -> creationTime) (\s@DescribeTrainingJobResponse' {} a -> s {creationTime = a} :: DescribeTrainingJobResponse) Prelude.. Prelude._Time
+describeTrainingJobResponse_creationTime :: Lens.Lens' DescribeTrainingJobResponse Core.UTCTime
+describeTrainingJobResponse_creationTime = Lens.lens (\DescribeTrainingJobResponse' {creationTime} -> creationTime) (\s@DescribeTrainingJobResponse' {} a -> s {creationTime = a} :: DescribeTrainingJobResponse) Core.. Core._Time
 
-instance Prelude.NFData DescribeTrainingJobResponse
+instance Core.NFData DescribeTrainingJobResponse

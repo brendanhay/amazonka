@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.APIGateway.Types.Resource where
 
 import Network.AWS.APIGateway.Types.Method
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an API resource.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
   { -- | The resource\'s identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The last path segment for this resource.
-    pathPart :: Prelude.Maybe Prelude.Text,
+    pathPart :: Core.Maybe Core.Text,
     -- | The parent resource\'s identifier.
-    parentId :: Prelude.Maybe Prelude.Text,
+    parentId :: Core.Maybe Core.Text,
     -- | Gets an API resource\'s method of a given HTTP verb.
     --
     -- The resource methods are a map of methods indexed by methods\' HTTP
@@ -58,11 +57,11 @@ data Resource = Resource'
     -- If the @OPTIONS@ is enabled on the resource, you can follow the example
     -- here to get that method. Just replace the @GET@ of the last path segment
     -- in the request URL with @OPTIONS@.
-    resourceMethods :: Prelude.Maybe (Prelude.HashMap Prelude.Text Method),
+    resourceMethods :: Core.Maybe (Core.HashMap Core.Text Method),
     -- | The full path for this resource.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Resource' with all optional fields omitted.
@@ -106,23 +105,23 @@ newResource ::
   Resource
 newResource =
   Resource'
-    { id = Prelude.Nothing,
-      pathPart = Prelude.Nothing,
-      parentId = Prelude.Nothing,
-      resourceMethods = Prelude.Nothing,
-      path = Prelude.Nothing
+    { id = Core.Nothing,
+      pathPart = Core.Nothing,
+      parentId = Core.Nothing,
+      resourceMethods = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | The resource\'s identifier.
-resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_id :: Lens.Lens' Resource (Core.Maybe Core.Text)
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
 -- | The last path segment for this resource.
-resource_pathPart :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_pathPart :: Lens.Lens' Resource (Core.Maybe Core.Text)
 resource_pathPart = Lens.lens (\Resource' {pathPart} -> pathPart) (\s@Resource' {} a -> s {pathPart = a} :: Resource)
 
 -- | The parent resource\'s identifier.
-resource_parentId :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_parentId :: Lens.Lens' Resource (Core.Maybe Core.Text)
 resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' {} a -> s {parentId = a} :: Resource)
 
 -- | Gets an API resource\'s method of a given HTTP verb.
@@ -147,28 +146,26 @@ resource_parentId = Lens.lens (\Resource' {parentId} -> parentId) (\s@Resource' 
 -- If the @OPTIONS@ is enabled on the resource, you can follow the example
 -- here to get that method. Just replace the @GET@ of the last path segment
 -- in the request URL with @OPTIONS@.
-resource_resourceMethods :: Lens.Lens' Resource (Prelude.Maybe (Prelude.HashMap Prelude.Text Method))
-resource_resourceMethods = Lens.lens (\Resource' {resourceMethods} -> resourceMethods) (\s@Resource' {} a -> s {resourceMethods = a} :: Resource) Prelude.. Lens.mapping Prelude._Coerce
+resource_resourceMethods :: Lens.Lens' Resource (Core.Maybe (Core.HashMap Core.Text Method))
+resource_resourceMethods = Lens.lens (\Resource' {resourceMethods} -> resourceMethods) (\s@Resource' {} a -> s {resourceMethods = a} :: Resource) Core.. Lens.mapping Lens._Coerce
 
 -- | The full path for this resource.
-resource_path :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_path :: Lens.Lens' Resource (Core.Maybe Core.Text)
 resource_path = Lens.lens (\Resource' {path} -> path) (\s@Resource' {} a -> s {path = a} :: Resource)
 
-instance Prelude.FromJSON Resource where
+instance Core.FromJSON Resource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Resource"
       ( \x ->
           Resource'
-            Prelude.<$> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "pathPart")
-            Prelude.<*> (x Prelude..:? "parentId")
-            Prelude.<*> ( x Prelude..:? "resourceMethods"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "path")
+            Core.<$> (x Core..:? "id")
+            Core.<*> (x Core..:? "pathPart")
+            Core.<*> (x Core..:? "parentId")
+            Core.<*> (x Core..:? "resourceMethods" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "path")
       )
 
-instance Prelude.Hashable Resource
+instance Core.Hashable Resource
 
-instance Prelude.NFData Resource
+instance Core.NFData Resource

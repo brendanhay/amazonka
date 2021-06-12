@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.RollbackInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a deployment rollback.
 --
@@ -30,14 +29,14 @@ data RollbackInfo = RollbackInfo'
   { -- | Information that describes the status of a deployment rollback (for
     -- example, whether the deployment can\'t be rolled back, is in progress,
     -- failed, or succeeded).
-    rollbackMessage :: Prelude.Maybe Prelude.Text,
+    rollbackMessage :: Core.Maybe Core.Text,
     -- | The deployment ID of the deployment that was underway and triggered a
     -- rollback deployment because it failed or was stopped.
-    rollbackTriggeringDeploymentId :: Prelude.Maybe Prelude.Text,
+    rollbackTriggeringDeploymentId :: Core.Maybe Core.Text,
     -- | The ID of the deployment rollback.
-    rollbackDeploymentId :: Prelude.Maybe Prelude.Text
+    rollbackDeploymentId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RollbackInfo' with all optional fields omitted.
@@ -59,37 +58,37 @@ newRollbackInfo ::
   RollbackInfo
 newRollbackInfo =
   RollbackInfo'
-    { rollbackMessage = Prelude.Nothing,
-      rollbackTriggeringDeploymentId = Prelude.Nothing,
-      rollbackDeploymentId = Prelude.Nothing
+    { rollbackMessage = Core.Nothing,
+      rollbackTriggeringDeploymentId = Core.Nothing,
+      rollbackDeploymentId = Core.Nothing
     }
 
 -- | Information that describes the status of a deployment rollback (for
 -- example, whether the deployment can\'t be rolled back, is in progress,
 -- failed, or succeeded).
-rollbackInfo_rollbackMessage :: Lens.Lens' RollbackInfo (Prelude.Maybe Prelude.Text)
+rollbackInfo_rollbackMessage :: Lens.Lens' RollbackInfo (Core.Maybe Core.Text)
 rollbackInfo_rollbackMessage = Lens.lens (\RollbackInfo' {rollbackMessage} -> rollbackMessage) (\s@RollbackInfo' {} a -> s {rollbackMessage = a} :: RollbackInfo)
 
 -- | The deployment ID of the deployment that was underway and triggered a
 -- rollback deployment because it failed or was stopped.
-rollbackInfo_rollbackTriggeringDeploymentId :: Lens.Lens' RollbackInfo (Prelude.Maybe Prelude.Text)
+rollbackInfo_rollbackTriggeringDeploymentId :: Lens.Lens' RollbackInfo (Core.Maybe Core.Text)
 rollbackInfo_rollbackTriggeringDeploymentId = Lens.lens (\RollbackInfo' {rollbackTriggeringDeploymentId} -> rollbackTriggeringDeploymentId) (\s@RollbackInfo' {} a -> s {rollbackTriggeringDeploymentId = a} :: RollbackInfo)
 
 -- | The ID of the deployment rollback.
-rollbackInfo_rollbackDeploymentId :: Lens.Lens' RollbackInfo (Prelude.Maybe Prelude.Text)
+rollbackInfo_rollbackDeploymentId :: Lens.Lens' RollbackInfo (Core.Maybe Core.Text)
 rollbackInfo_rollbackDeploymentId = Lens.lens (\RollbackInfo' {rollbackDeploymentId} -> rollbackDeploymentId) (\s@RollbackInfo' {} a -> s {rollbackDeploymentId = a} :: RollbackInfo)
 
-instance Prelude.FromJSON RollbackInfo where
+instance Core.FromJSON RollbackInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RollbackInfo"
       ( \x ->
           RollbackInfo'
-            Prelude.<$> (x Prelude..:? "rollbackMessage")
-            Prelude.<*> (x Prelude..:? "rollbackTriggeringDeploymentId")
-            Prelude.<*> (x Prelude..:? "rollbackDeploymentId")
+            Core.<$> (x Core..:? "rollbackMessage")
+            Core.<*> (x Core..:? "rollbackTriggeringDeploymentId")
+            Core.<*> (x Core..:? "rollbackDeploymentId")
       )
 
-instance Prelude.Hashable RollbackInfo
+instance Core.Hashable RollbackInfo
 
-instance Prelude.NFData RollbackInfo
+instance Core.NFData RollbackInfo

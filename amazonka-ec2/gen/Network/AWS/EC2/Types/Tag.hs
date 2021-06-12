@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a tag.
 --
@@ -32,14 +31,14 @@ data Tag = Tag'
     --
     -- Constraints: Tag keys are case-sensitive and accept a maximum of 127
     -- Unicode characters. May not begin with @aws:@.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The value of the tag.
     --
     -- Constraints: Tag values are case-sensitive and accept a maximum of 255
     -- Unicode characters.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -60,9 +59,9 @@ data Tag = Tag'
 -- Unicode characters.
 newTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
@@ -71,27 +70,26 @@ newTag pKey_ pValue_ =
 --
 -- Constraints: Tag keys are case-sensitive and accept a maximum of 127
 -- Unicode characters. May not begin with @aws:@.
-tag_key :: Lens.Lens' Tag Prelude.Text
+tag_key :: Lens.Lens' Tag Core.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value of the tag.
 --
 -- Constraints: Tag values are case-sensitive and accept a maximum of 255
 -- Unicode characters.
-tag_value :: Lens.Lens' Tag Prelude.Text
+tag_value :: Lens.Lens' Tag Core.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
-instance Prelude.FromXML Tag where
+instance Core.FromXML Tag where
   parseXML x =
     Tag'
-      Prelude.<$> (x Prelude..@ "key")
-      Prelude.<*> (x Prelude..@ "value")
+      Core.<$> (x Core..@ "key") Core.<*> (x Core..@ "value")
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToQuery Tag where
+instance Core.ToQuery Tag where
   toQuery Tag' {..} =
-    Prelude.mconcat
-      ["Key" Prelude.=: key, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Key" Core.=: key, "Value" Core.=: value]

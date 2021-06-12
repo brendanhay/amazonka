@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.UserStorageMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.StorageRuleType
 
 -- | Describes the storage for a user.
@@ -29,11 +28,11 @@ import Network.AWS.WorkDocs.Types.StorageRuleType
 -- /See:/ 'newUserStorageMetadata' smart constructor.
 data UserStorageMetadata = UserStorageMetadata'
   { -- | The storage for a user.
-    storageRule :: Prelude.Maybe StorageRuleType,
+    storageRule :: Core.Maybe StorageRuleType,
     -- | The amount of storage used, in bytes.
-    storageUtilizedInBytes :: Prelude.Maybe Prelude.Integer
+    storageUtilizedInBytes :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserStorageMetadata' with all optional fields omitted.
@@ -50,28 +49,28 @@ newUserStorageMetadata ::
   UserStorageMetadata
 newUserStorageMetadata =
   UserStorageMetadata'
-    { storageRule = Prelude.Nothing,
-      storageUtilizedInBytes = Prelude.Nothing
+    { storageRule = Core.Nothing,
+      storageUtilizedInBytes = Core.Nothing
     }
 
 -- | The storage for a user.
-userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Prelude.Maybe StorageRuleType)
+userStorageMetadata_storageRule :: Lens.Lens' UserStorageMetadata (Core.Maybe StorageRuleType)
 userStorageMetadata_storageRule = Lens.lens (\UserStorageMetadata' {storageRule} -> storageRule) (\s@UserStorageMetadata' {} a -> s {storageRule = a} :: UserStorageMetadata)
 
 -- | The amount of storage used, in bytes.
-userStorageMetadata_storageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Prelude.Maybe Prelude.Integer)
+userStorageMetadata_storageUtilizedInBytes :: Lens.Lens' UserStorageMetadata (Core.Maybe Core.Integer)
 userStorageMetadata_storageUtilizedInBytes = Lens.lens (\UserStorageMetadata' {storageUtilizedInBytes} -> storageUtilizedInBytes) (\s@UserStorageMetadata' {} a -> s {storageUtilizedInBytes = a} :: UserStorageMetadata)
 
-instance Prelude.FromJSON UserStorageMetadata where
+instance Core.FromJSON UserStorageMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserStorageMetadata"
       ( \x ->
           UserStorageMetadata'
-            Prelude.<$> (x Prelude..:? "StorageRule")
-            Prelude.<*> (x Prelude..:? "StorageUtilizedInBytes")
+            Core.<$> (x Core..:? "StorageRule")
+            Core.<*> (x Core..:? "StorageUtilizedInBytes")
       )
 
-instance Prelude.Hashable UserStorageMetadata
+instance Core.Hashable UserStorageMetadata
 
-instance Prelude.NFData UserStorageMetadata
+instance Core.NFData UserStorageMetadata

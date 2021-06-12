@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,8 +70,8 @@ module Network.AWS.RDS.DeleteDBInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -95,7 +94,7 @@ data DeleteDBInstance = DeleteDBInstance'
     --
     -- The FinalDBSnapshotIdentifier parameter must be specified if skip isn\'t
     -- specified.
-    skipFinalSnapshot :: Prelude.Maybe Prelude.Bool,
+    skipFinalSnapshot :: Core.Maybe Core.Bool,
     -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
     -- @SkipFinalSnapshot@ parameter is disabled.
     --
@@ -111,21 +110,21 @@ data DeleteDBInstance = DeleteDBInstance'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     --
     -- -   Can\'t be specified when deleting a read replica.
-    finalDBSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    finalDBSnapshotIdentifier :: Core.Maybe Core.Text,
     -- | A value that indicates whether to remove automated backups immediately
     -- after the DB instance is deleted. This parameter isn\'t case-sensitive.
     -- The default is to remove automated backups immediately after the DB
     -- instance is deleted.
-    deleteAutomatedBackups :: Prelude.Maybe Prelude.Bool,
+    deleteAutomatedBackups :: Core.Maybe Core.Bool,
     -- | The DB instance identifier for the DB instance to be deleted. This
     -- parameter isn\'t case-sensitive.
     --
     -- Constraints:
     --
     -- -   Must match the name of an existing DB instance.
-    dbInstanceIdentifier :: Prelude.Text
+    dbInstanceIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBInstance' with all optional fields omitted.
@@ -179,14 +178,13 @@ data DeleteDBInstance = DeleteDBInstance'
 -- -   Must match the name of an existing DB instance.
 newDeleteDBInstance ::
   -- | 'dbInstanceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDBInstance
 newDeleteDBInstance pDBInstanceIdentifier_ =
   DeleteDBInstance'
-    { skipFinalSnapshot =
-        Prelude.Nothing,
-      finalDBSnapshotIdentifier = Prelude.Nothing,
-      deleteAutomatedBackups = Prelude.Nothing,
+    { skipFinalSnapshot = Core.Nothing,
+      finalDBSnapshotIdentifier = Core.Nothing,
+      deleteAutomatedBackups = Core.Nothing,
       dbInstanceIdentifier = pDBInstanceIdentifier_
     }
 
@@ -204,7 +202,7 @@ newDeleteDBInstance pDBInstanceIdentifier_ =
 --
 -- The FinalDBSnapshotIdentifier parameter must be specified if skip isn\'t
 -- specified.
-deleteDBInstance_skipFinalSnapshot :: Lens.Lens' DeleteDBInstance (Prelude.Maybe Prelude.Bool)
+deleteDBInstance_skipFinalSnapshot :: Lens.Lens' DeleteDBInstance (Core.Maybe Core.Bool)
 deleteDBInstance_skipFinalSnapshot = Lens.lens (\DeleteDBInstance' {skipFinalSnapshot} -> skipFinalSnapshot) (\s@DeleteDBInstance' {} a -> s {skipFinalSnapshot = a} :: DeleteDBInstance)
 
 -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
@@ -222,14 +220,14 @@ deleteDBInstance_skipFinalSnapshot = Lens.lens (\DeleteDBInstance' {skipFinalSna
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
 -- -   Can\'t be specified when deleting a read replica.
-deleteDBInstance_finalDBSnapshotIdentifier :: Lens.Lens' DeleteDBInstance (Prelude.Maybe Prelude.Text)
+deleteDBInstance_finalDBSnapshotIdentifier :: Lens.Lens' DeleteDBInstance (Core.Maybe Core.Text)
 deleteDBInstance_finalDBSnapshotIdentifier = Lens.lens (\DeleteDBInstance' {finalDBSnapshotIdentifier} -> finalDBSnapshotIdentifier) (\s@DeleteDBInstance' {} a -> s {finalDBSnapshotIdentifier = a} :: DeleteDBInstance)
 
 -- | A value that indicates whether to remove automated backups immediately
 -- after the DB instance is deleted. This parameter isn\'t case-sensitive.
 -- The default is to remove automated backups immediately after the DB
 -- instance is deleted.
-deleteDBInstance_deleteAutomatedBackups :: Lens.Lens' DeleteDBInstance (Prelude.Maybe Prelude.Bool)
+deleteDBInstance_deleteAutomatedBackups :: Lens.Lens' DeleteDBInstance (Core.Maybe Core.Bool)
 deleteDBInstance_deleteAutomatedBackups = Lens.lens (\DeleteDBInstance' {deleteAutomatedBackups} -> deleteAutomatedBackups) (\s@DeleteDBInstance' {} a -> s {deleteAutomatedBackups = a} :: DeleteDBInstance)
 
 -- | The DB instance identifier for the DB instance to be deleted. This
@@ -238,54 +236,54 @@ deleteDBInstance_deleteAutomatedBackups = Lens.lens (\DeleteDBInstance' {deleteA
 -- Constraints:
 --
 -- -   Must match the name of an existing DB instance.
-deleteDBInstance_dbInstanceIdentifier :: Lens.Lens' DeleteDBInstance Prelude.Text
+deleteDBInstance_dbInstanceIdentifier :: Lens.Lens' DeleteDBInstance Core.Text
 deleteDBInstance_dbInstanceIdentifier = Lens.lens (\DeleteDBInstance' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DeleteDBInstance' {} a -> s {dbInstanceIdentifier = a} :: DeleteDBInstance)
 
-instance Prelude.AWSRequest DeleteDBInstance where
-  type Rs DeleteDBInstance = DeleteDBInstanceResponse
+instance Core.AWSRequest DeleteDBInstance where
+  type
+    AWSResponse DeleteDBInstance =
+      DeleteDBInstanceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteDBInstanceResult"
       ( \s h x ->
           DeleteDBInstanceResponse'
-            Prelude.<$> (x Prelude..@? "DBInstance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDBInstance
+instance Core.Hashable DeleteDBInstance
 
-instance Prelude.NFData DeleteDBInstance
+instance Core.NFData DeleteDBInstance
 
-instance Prelude.ToHeaders DeleteDBInstance where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDBInstance where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDBInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDBInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDBInstance where
+instance Core.ToQuery DeleteDBInstance where
   toQuery DeleteDBInstance' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteDBInstance" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "SkipFinalSnapshot" Prelude.=: skipFinalSnapshot,
+          Core.=: ("DeleteDBInstance" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "SkipFinalSnapshot" Core.=: skipFinalSnapshot,
         "FinalDBSnapshotIdentifier"
-          Prelude.=: finalDBSnapshotIdentifier,
+          Core.=: finalDBSnapshotIdentifier,
         "DeleteAutomatedBackups"
-          Prelude.=: deleteAutomatedBackups,
-        "DBInstanceIdentifier"
-          Prelude.=: dbInstanceIdentifier
+          Core.=: deleteAutomatedBackups,
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier
       ]
 
 -- | /See:/ 'newDeleteDBInstanceResponse' smart constructor.
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
-  { dbInstance :: Prelude.Maybe DBInstance,
+  { dbInstance :: Core.Maybe DBInstance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBInstanceResponse' with all optional fields omitted.
@@ -300,21 +298,21 @@ data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
 -- 'httpStatus', 'deleteDBInstanceResponse_httpStatus' - The response's http status code.
 newDeleteDBInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDBInstanceResponse
 newDeleteDBInstanceResponse pHttpStatus_ =
   DeleteDBInstanceResponse'
     { dbInstance =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteDBInstanceResponse_dbInstance :: Lens.Lens' DeleteDBInstanceResponse (Prelude.Maybe DBInstance)
+deleteDBInstanceResponse_dbInstance :: Lens.Lens' DeleteDBInstanceResponse (Core.Maybe DBInstance)
 deleteDBInstanceResponse_dbInstance = Lens.lens (\DeleteDBInstanceResponse' {dbInstance} -> dbInstance) (\s@DeleteDBInstanceResponse' {} a -> s {dbInstance = a} :: DeleteDBInstanceResponse)
 
 -- | The response's http status code.
-deleteDBInstanceResponse_httpStatus :: Lens.Lens' DeleteDBInstanceResponse Prelude.Int
+deleteDBInstanceResponse_httpStatus :: Lens.Lens' DeleteDBInstanceResponse Core.Int
 deleteDBInstanceResponse_httpStatus = Lens.lens (\DeleteDBInstanceResponse' {httpStatus} -> httpStatus) (\s@DeleteDBInstanceResponse' {} a -> s {httpStatus = a} :: DeleteDBInstanceResponse)
 
-instance Prelude.NFData DeleteDBInstanceResponse
+instance Core.NFData DeleteDBInstanceResponse

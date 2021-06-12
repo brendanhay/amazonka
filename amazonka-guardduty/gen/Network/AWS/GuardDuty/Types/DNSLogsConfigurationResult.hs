@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of DNS logs as a data source.
 --
@@ -31,7 +30,7 @@ data DNSLogsConfigurationResult = DNSLogsConfigurationResult'
   { -- | Denotes whether DNS logs is enabled as a data source.
     status :: DataSourceStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DNSLogsConfigurationResult' with all optional fields omitted.
@@ -53,15 +52,15 @@ newDNSLogsConfigurationResult pStatus_ =
 dNSLogsConfigurationResult_status :: Lens.Lens' DNSLogsConfigurationResult DataSourceStatus
 dNSLogsConfigurationResult_status = Lens.lens (\DNSLogsConfigurationResult' {status} -> status) (\s@DNSLogsConfigurationResult' {} a -> s {status = a} :: DNSLogsConfigurationResult)
 
-instance Prelude.FromJSON DNSLogsConfigurationResult where
+instance Core.FromJSON DNSLogsConfigurationResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DNSLogsConfigurationResult"
       ( \x ->
           DNSLogsConfigurationResult'
-            Prelude.<$> (x Prelude..: "status")
+            Core.<$> (x Core..: "status")
       )
 
-instance Prelude.Hashable DNSLogsConfigurationResult
+instance Core.Hashable DNSLogsConfigurationResult
 
-instance Prelude.NFData DNSLogsConfigurationResult
+instance Core.NFData DNSLogsConfigurationResult

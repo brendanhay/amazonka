@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,25 +20,25 @@
 module Network.AWS.CloudFront.Types.KeyGroupList where
 
 import Network.AWS.CloudFront.Types.KeyGroupSummary
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of key groups.
 --
 -- /See:/ 'newKeyGroupList' smart constructor.
 data KeyGroupList = KeyGroupList'
   { -- | A list of key groups.
-    items :: Prelude.Maybe [KeyGroupSummary],
+    items :: Core.Maybe [KeyGroupSummary],
     -- | If there are more items in the list than are in this response, this
     -- element is present. It contains the value that you should use in the
     -- @Marker@ field of a subsequent request to continue listing key groups.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The maximum number of key groups requested.
-    maxItems :: Prelude.Int,
+    maxItems :: Core.Int,
     -- | The number of key groups returned in the response.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyGroupList' with all optional fields omitted.
@@ -60,46 +59,46 @@ data KeyGroupList = KeyGroupList'
 -- 'quantity', 'keyGroupList_quantity' - The number of key groups returned in the response.
 newKeyGroupList ::
   -- | 'maxItems'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   KeyGroupList
 newKeyGroupList pMaxItems_ pQuantity_ =
   KeyGroupList'
-    { items = Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+    { items = Core.Nothing,
+      nextMarker = Core.Nothing,
       maxItems = pMaxItems_,
       quantity = pQuantity_
     }
 
 -- | A list of key groups.
-keyGroupList_items :: Lens.Lens' KeyGroupList (Prelude.Maybe [KeyGroupSummary])
-keyGroupList_items = Lens.lens (\KeyGroupList' {items} -> items) (\s@KeyGroupList' {} a -> s {items = a} :: KeyGroupList) Prelude.. Lens.mapping Prelude._Coerce
+keyGroupList_items :: Lens.Lens' KeyGroupList (Core.Maybe [KeyGroupSummary])
+keyGroupList_items = Lens.lens (\KeyGroupList' {items} -> items) (\s@KeyGroupList' {} a -> s {items = a} :: KeyGroupList) Core.. Lens.mapping Lens._Coerce
 
 -- | If there are more items in the list than are in this response, this
 -- element is present. It contains the value that you should use in the
 -- @Marker@ field of a subsequent request to continue listing key groups.
-keyGroupList_nextMarker :: Lens.Lens' KeyGroupList (Prelude.Maybe Prelude.Text)
+keyGroupList_nextMarker :: Lens.Lens' KeyGroupList (Core.Maybe Core.Text)
 keyGroupList_nextMarker = Lens.lens (\KeyGroupList' {nextMarker} -> nextMarker) (\s@KeyGroupList' {} a -> s {nextMarker = a} :: KeyGroupList)
 
 -- | The maximum number of key groups requested.
-keyGroupList_maxItems :: Lens.Lens' KeyGroupList Prelude.Int
+keyGroupList_maxItems :: Lens.Lens' KeyGroupList Core.Int
 keyGroupList_maxItems = Lens.lens (\KeyGroupList' {maxItems} -> maxItems) (\s@KeyGroupList' {} a -> s {maxItems = a} :: KeyGroupList)
 
 -- | The number of key groups returned in the response.
-keyGroupList_quantity :: Lens.Lens' KeyGroupList Prelude.Int
+keyGroupList_quantity :: Lens.Lens' KeyGroupList Core.Int
 keyGroupList_quantity = Lens.lens (\KeyGroupList' {quantity} -> quantity) (\s@KeyGroupList' {} a -> s {quantity = a} :: KeyGroupList)
 
-instance Prelude.FromXML KeyGroupList where
+instance Core.FromXML KeyGroupList where
   parseXML x =
     KeyGroupList'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "KeyGroupSummary")
-                  )
-      Prelude.<*> (x Prelude..@? "NextMarker")
-      Prelude.<*> (x Prelude..@ "MaxItems")
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "KeyGroupSummary")
+               )
+      Core.<*> (x Core..@? "NextMarker")
+      Core.<*> (x Core..@ "MaxItems")
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable KeyGroupList
+instance Core.Hashable KeyGroupList
 
-instance Prelude.NFData KeyGroupList
+instance Core.NFData KeyGroupList

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,22 +53,22 @@ module Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateServerEngineAttributes' smart constructor.
 data UpdateServerEngineAttributes = UpdateServerEngineAttributes'
   { -- | The value to set for the attribute.
-    attributeValue :: Prelude.Maybe Prelude.Text,
+    attributeValue :: Core.Maybe Core.Text,
     -- | The name of the server to update.
-    serverName :: Prelude.Text,
+    serverName :: Core.Text,
     -- | The name of the engine attribute to update.
-    attributeName :: Prelude.Text
+    attributeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServerEngineAttributes' with all optional fields omitted.
@@ -86,98 +85,86 @@ data UpdateServerEngineAttributes = UpdateServerEngineAttributes'
 -- 'attributeName', 'updateServerEngineAttributes_attributeName' - The name of the engine attribute to update.
 newUpdateServerEngineAttributes ::
   -- | 'serverName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributeName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateServerEngineAttributes
 newUpdateServerEngineAttributes
   pServerName_
   pAttributeName_ =
     UpdateServerEngineAttributes'
       { attributeValue =
-          Prelude.Nothing,
+          Core.Nothing,
         serverName = pServerName_,
         attributeName = pAttributeName_
       }
 
 -- | The value to set for the attribute.
-updateServerEngineAttributes_attributeValue :: Lens.Lens' UpdateServerEngineAttributes (Prelude.Maybe Prelude.Text)
+updateServerEngineAttributes_attributeValue :: Lens.Lens' UpdateServerEngineAttributes (Core.Maybe Core.Text)
 updateServerEngineAttributes_attributeValue = Lens.lens (\UpdateServerEngineAttributes' {attributeValue} -> attributeValue) (\s@UpdateServerEngineAttributes' {} a -> s {attributeValue = a} :: UpdateServerEngineAttributes)
 
 -- | The name of the server to update.
-updateServerEngineAttributes_serverName :: Lens.Lens' UpdateServerEngineAttributes Prelude.Text
+updateServerEngineAttributes_serverName :: Lens.Lens' UpdateServerEngineAttributes Core.Text
 updateServerEngineAttributes_serverName = Lens.lens (\UpdateServerEngineAttributes' {serverName} -> serverName) (\s@UpdateServerEngineAttributes' {} a -> s {serverName = a} :: UpdateServerEngineAttributes)
 
 -- | The name of the engine attribute to update.
-updateServerEngineAttributes_attributeName :: Lens.Lens' UpdateServerEngineAttributes Prelude.Text
+updateServerEngineAttributes_attributeName :: Lens.Lens' UpdateServerEngineAttributes Core.Text
 updateServerEngineAttributes_attributeName = Lens.lens (\UpdateServerEngineAttributes' {attributeName} -> attributeName) (\s@UpdateServerEngineAttributes' {} a -> s {attributeName = a} :: UpdateServerEngineAttributes)
 
-instance
-  Prelude.AWSRequest
-    UpdateServerEngineAttributes
-  where
+instance Core.AWSRequest UpdateServerEngineAttributes where
   type
-    Rs UpdateServerEngineAttributes =
+    AWSResponse UpdateServerEngineAttributes =
       UpdateServerEngineAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateServerEngineAttributesResponse'
-            Prelude.<$> (x Prelude..?> "Server")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Server")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    UpdateServerEngineAttributes
+instance Core.Hashable UpdateServerEngineAttributes
 
-instance Prelude.NFData UpdateServerEngineAttributes
+instance Core.NFData UpdateServerEngineAttributes
 
-instance
-  Prelude.ToHeaders
-    UpdateServerEngineAttributes
-  where
+instance Core.ToHeaders UpdateServerEngineAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateServerEngineAttributes where
+instance Core.ToJSON UpdateServerEngineAttributes where
   toJSON UpdateServerEngineAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AttributeValue" Prelude..=)
-              Prelude.<$> attributeValue,
-            Prelude.Just ("ServerName" Prelude..= serverName),
-            Prelude.Just
-              ("AttributeName" Prelude..= attributeName)
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeValue" Core..=) Core.<$> attributeValue,
+            Core.Just ("ServerName" Core..= serverName),
+            Core.Just ("AttributeName" Core..= attributeName)
           ]
       )
 
-instance Prelude.ToPath UpdateServerEngineAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateServerEngineAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateServerEngineAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateServerEngineAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateServerEngineAttributesResponse' smart constructor.
 data UpdateServerEngineAttributesResponse = UpdateServerEngineAttributesResponse'
   { -- | Contains the response to an @UpdateServerEngineAttributes@ request.
-    server :: Prelude.Maybe Server,
+    server :: Core.Maybe Server,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServerEngineAttributesResponse' with all optional fields omitted.
@@ -192,23 +179,23 @@ data UpdateServerEngineAttributesResponse = UpdateServerEngineAttributesResponse
 -- 'httpStatus', 'updateServerEngineAttributesResponse_httpStatus' - The response's http status code.
 newUpdateServerEngineAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateServerEngineAttributesResponse
 newUpdateServerEngineAttributesResponse pHttpStatus_ =
   UpdateServerEngineAttributesResponse'
     { server =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the response to an @UpdateServerEngineAttributes@ request.
-updateServerEngineAttributesResponse_server :: Lens.Lens' UpdateServerEngineAttributesResponse (Prelude.Maybe Server)
+updateServerEngineAttributesResponse_server :: Lens.Lens' UpdateServerEngineAttributesResponse (Core.Maybe Server)
 updateServerEngineAttributesResponse_server = Lens.lens (\UpdateServerEngineAttributesResponse' {server} -> server) (\s@UpdateServerEngineAttributesResponse' {} a -> s {server = a} :: UpdateServerEngineAttributesResponse)
 
 -- | The response's http status code.
-updateServerEngineAttributesResponse_httpStatus :: Lens.Lens' UpdateServerEngineAttributesResponse Prelude.Int
+updateServerEngineAttributesResponse_httpStatus :: Lens.Lens' UpdateServerEngineAttributesResponse Core.Int
 updateServerEngineAttributesResponse_httpStatus = Lens.lens (\UpdateServerEngineAttributesResponse' {httpStatus} -> httpStatus) (\s@UpdateServerEngineAttributesResponse' {} a -> s {httpStatus = a} :: UpdateServerEngineAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateServerEngineAttributesResponse

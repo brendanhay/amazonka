@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,30 +65,30 @@ module Network.AWS.CertificateManagerPCA.CreatePermission
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePermission' smart constructor.
 data CreatePermission = CreatePermission'
   { -- | The ID of the calling account.
-    sourceAccount :: Prelude.Maybe Prelude.Text,
+    sourceAccount :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the CA that grants the permissions.
     -- You can find the ARN by calling the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html ListCertificateAuthorities>
     -- action. This must have the following form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-    certificateAuthorityArn :: Prelude.Text,
+    certificateAuthorityArn :: Core.Text,
     -- | The AWS service or identity that receives the permission. At this time,
     -- the only valid principal is @acm.amazonaws.com@.
-    principal :: Prelude.Text,
+    principal :: Core.Text,
     -- | The actions that the specified AWS service principal can use. These
     -- include @IssueCertificate@, @GetCertificate@, and @ListPermissions@.
-    actions :: Prelude.NonEmpty ActionType
+    actions :: Core.NonEmpty ActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePermission' with all optional fields omitted.
@@ -115,25 +114,25 @@ data CreatePermission = CreatePermission'
 -- include @IssueCertificate@, @GetCertificate@, and @ListPermissions@.
 newCreatePermission ::
   -- | 'certificateAuthorityArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'principal'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'actions'
-  Prelude.NonEmpty ActionType ->
+  Core.NonEmpty ActionType ->
   CreatePermission
 newCreatePermission
   pCertificateAuthorityArn_
   pPrincipal_
   pActions_ =
     CreatePermission'
-      { sourceAccount = Prelude.Nothing,
+      { sourceAccount = Core.Nothing,
         certificateAuthorityArn = pCertificateAuthorityArn_,
         principal = pPrincipal_,
-        actions = Prelude._Coerce Lens.# pActions_
+        actions = Lens._Coerce Lens.# pActions_
       }
 
 -- | The ID of the calling account.
-createPermission_sourceAccount :: Lens.Lens' CreatePermission (Prelude.Maybe Prelude.Text)
+createPermission_sourceAccount :: Lens.Lens' CreatePermission (Core.Maybe Core.Text)
 createPermission_sourceAccount = Lens.lens (\CreatePermission' {sourceAccount} -> sourceAccount) (\s@CreatePermission' {} a -> s {sourceAccount = a} :: CreatePermission)
 
 -- | The Amazon Resource Name (ARN) of the CA that grants the permissions.
@@ -142,70 +141,67 @@ createPermission_sourceAccount = Lens.lens (\CreatePermission' {sourceAccount} -
 -- action. This must have the following form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @.
-createPermission_certificateAuthorityArn :: Lens.Lens' CreatePermission Prelude.Text
+createPermission_certificateAuthorityArn :: Lens.Lens' CreatePermission Core.Text
 createPermission_certificateAuthorityArn = Lens.lens (\CreatePermission' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@CreatePermission' {} a -> s {certificateAuthorityArn = a} :: CreatePermission)
 
 -- | The AWS service or identity that receives the permission. At this time,
 -- the only valid principal is @acm.amazonaws.com@.
-createPermission_principal :: Lens.Lens' CreatePermission Prelude.Text
+createPermission_principal :: Lens.Lens' CreatePermission Core.Text
 createPermission_principal = Lens.lens (\CreatePermission' {principal} -> principal) (\s@CreatePermission' {} a -> s {principal = a} :: CreatePermission)
 
 -- | The actions that the specified AWS service principal can use. These
 -- include @IssueCertificate@, @GetCertificate@, and @ListPermissions@.
-createPermission_actions :: Lens.Lens' CreatePermission (Prelude.NonEmpty ActionType)
-createPermission_actions = Lens.lens (\CreatePermission' {actions} -> actions) (\s@CreatePermission' {} a -> s {actions = a} :: CreatePermission) Prelude.. Prelude._Coerce
+createPermission_actions :: Lens.Lens' CreatePermission (Core.NonEmpty ActionType)
+createPermission_actions = Lens.lens (\CreatePermission' {actions} -> actions) (\s@CreatePermission' {} a -> s {actions = a} :: CreatePermission) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreatePermission where
-  type Rs CreatePermission = CreatePermissionResponse
+instance Core.AWSRequest CreatePermission where
+  type
+    AWSResponse CreatePermission =
+      CreatePermissionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull CreatePermissionResponse'
 
-instance Prelude.Hashable CreatePermission
+instance Core.Hashable CreatePermission
 
-instance Prelude.NFData CreatePermission
+instance Core.NFData CreatePermission
 
-instance Prelude.ToHeaders CreatePermission where
+instance Core.ToHeaders CreatePermission where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ACMPrivateCA.CreatePermission" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("ACMPrivateCA.CreatePermission" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePermission where
+instance Core.ToJSON CreatePermission where
   toJSON CreatePermission' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SourceAccount" Prelude..=)
-              Prelude.<$> sourceAccount,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("SourceAccount" Core..=) Core.<$> sourceAccount,
+            Core.Just
               ( "CertificateAuthorityArn"
-                  Prelude..= certificateAuthorityArn
+                  Core..= certificateAuthorityArn
               ),
-            Prelude.Just ("Principal" Prelude..= principal),
-            Prelude.Just ("Actions" Prelude..= actions)
+            Core.Just ("Principal" Core..= principal),
+            Core.Just ("Actions" Core..= actions)
           ]
       )
 
-instance Prelude.ToPath CreatePermission where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePermission where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePermission where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePermission where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreatePermissionResponse' smart constructor.
 data CreatePermissionResponse = CreatePermissionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePermissionResponse' with all optional fields omitted.
@@ -216,4 +212,4 @@ newCreatePermissionResponse ::
 newCreatePermissionResponse =
   CreatePermissionResponse'
 
-instance Prelude.NFData CreatePermissionResponse
+instance Core.NFData CreatePermissionResponse

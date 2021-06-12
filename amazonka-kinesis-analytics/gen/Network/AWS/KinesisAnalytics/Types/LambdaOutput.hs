@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.LambdaOutput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | When configuring application output, identifies an AWS Lambda function
 -- as the destination. You provide the function Amazon Resource Name (ARN)
@@ -37,13 +36,13 @@ data LambdaOutput = LambdaOutput'
     -- include the Lambda function version in the Lambda function ARN. For more
     -- information about Lambda ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-    resourceARN :: Prelude.Text,
+    resourceARN :: Core.Text,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
     -- the destination function on your behalf. You need to grant the necessary
     -- permissions to this role.
-    roleARN :: Prelude.Text
+    roleARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaOutput' with all optional fields omitted.
@@ -66,9 +65,9 @@ data LambdaOutput = LambdaOutput'
 -- permissions to this role.
 newLambdaOutput ::
   -- | 'resourceARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleARN'
-  Prelude.Text ->
+  Core.Text ->
   LambdaOutput
 newLambdaOutput pResourceARN_ pRoleARN_ =
   LambdaOutput'
@@ -83,24 +82,24 @@ newLambdaOutput pResourceARN_ pRoleARN_ =
 -- include the Lambda function version in the Lambda function ARN. For more
 -- information about Lambda ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda Example ARNs: AWS Lambda>
-lambdaOutput_resourceARN :: Lens.Lens' LambdaOutput Prelude.Text
+lambdaOutput_resourceARN :: Lens.Lens' LambdaOutput Core.Text
 lambdaOutput_resourceARN = Lens.lens (\LambdaOutput' {resourceARN} -> resourceARN) (\s@LambdaOutput' {} a -> s {resourceARN = a} :: LambdaOutput)
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to
 -- the destination function on your behalf. You need to grant the necessary
 -- permissions to this role.
-lambdaOutput_roleARN :: Lens.Lens' LambdaOutput Prelude.Text
+lambdaOutput_roleARN :: Lens.Lens' LambdaOutput Core.Text
 lambdaOutput_roleARN = Lens.lens (\LambdaOutput' {roleARN} -> roleARN) (\s@LambdaOutput' {} a -> s {roleARN = a} :: LambdaOutput)
 
-instance Prelude.Hashable LambdaOutput
+instance Core.Hashable LambdaOutput
 
-instance Prelude.NFData LambdaOutput
+instance Core.NFData LambdaOutput
 
-instance Prelude.ToJSON LambdaOutput where
+instance Core.ToJSON LambdaOutput where
   toJSON LambdaOutput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceARN" Prelude..= resourceARN),
-            Prelude.Just ("RoleARN" Prelude..= roleARN)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceARN" Core..= resourceARN),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )

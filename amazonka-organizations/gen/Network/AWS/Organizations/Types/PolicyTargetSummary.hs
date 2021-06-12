@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.PolicyTargetSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.TargetType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a root, OU, or account that a policy is
 -- attached to.
@@ -43,23 +42,23 @@ data PolicyTargetSummary = PolicyTargetSummary'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    targetId :: Prelude.Maybe Prelude.Text,
+    targetId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the policy target.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The friendly name of the policy target.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The type of the policy target.
-    type' :: Prelude.Maybe TargetType
+    type' :: Core.Maybe TargetType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyTargetSummary' with all optional fields omitted.
@@ -101,10 +100,10 @@ newPolicyTargetSummary ::
   PolicyTargetSummary
 newPolicyTargetSummary =
   PolicyTargetSummary'
-    { targetId = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { targetId = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The unique identifier (ID) of the policy target.
@@ -121,7 +120,7 @@ newPolicyTargetSummary =
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-policyTargetSummary_targetId :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
+policyTargetSummary_targetId :: Lens.Lens' PolicyTargetSummary (Core.Maybe Core.Text)
 policyTargetSummary_targetId = Lens.lens (\PolicyTargetSummary' {targetId} -> targetId) (\s@PolicyTargetSummary' {} a -> s {targetId = a} :: PolicyTargetSummary)
 
 -- | The Amazon Resource Name (ARN) of the policy target.
@@ -129,7 +128,7 @@ policyTargetSummary_targetId = Lens.lens (\PolicyTargetSummary' {targetId} -> ta
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
-policyTargetSummary_arn :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
+policyTargetSummary_arn :: Lens.Lens' PolicyTargetSummary (Core.Maybe Core.Text)
 policyTargetSummary_arn = Lens.lens (\PolicyTargetSummary' {arn} -> arn) (\s@PolicyTargetSummary' {} a -> s {arn = a} :: PolicyTargetSummary)
 
 -- | The friendly name of the policy target.
@@ -137,25 +136,25 @@ policyTargetSummary_arn = Lens.lens (\PolicyTargetSummary' {arn} -> arn) (\s@Pol
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-policyTargetSummary_name :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
+policyTargetSummary_name :: Lens.Lens' PolicyTargetSummary (Core.Maybe Core.Text)
 policyTargetSummary_name = Lens.lens (\PolicyTargetSummary' {name} -> name) (\s@PolicyTargetSummary' {} a -> s {name = a} :: PolicyTargetSummary)
 
 -- | The type of the policy target.
-policyTargetSummary_type :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe TargetType)
+policyTargetSummary_type :: Lens.Lens' PolicyTargetSummary (Core.Maybe TargetType)
 policyTargetSummary_type = Lens.lens (\PolicyTargetSummary' {type'} -> type') (\s@PolicyTargetSummary' {} a -> s {type' = a} :: PolicyTargetSummary)
 
-instance Prelude.FromJSON PolicyTargetSummary where
+instance Core.FromJSON PolicyTargetSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PolicyTargetSummary"
       ( \x ->
           PolicyTargetSummary'
-            Prelude.<$> (x Prelude..:? "TargetId")
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "TargetId")
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable PolicyTargetSummary
+instance Core.Hashable PolicyTargetSummary
 
-instance Prelude.NFData PolicyTargetSummary
+instance Core.NFData PolicyTargetSummary

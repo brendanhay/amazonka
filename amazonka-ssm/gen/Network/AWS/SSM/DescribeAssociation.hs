@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.SSM.DescribeAssociation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -57,19 +56,19 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDescribeAssociation' smart constructor.
 data DescribeAssociation = DescribeAssociation'
   { -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The name of the Systems Manager document.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The association ID for which you want information.
-    associationId :: Prelude.Maybe Prelude.Text,
+    associationId :: Core.Maybe Core.Text,
     -- | Specify the association version to retrieve. To view the latest version,
     -- either specify @$LATEST@ for this parameter, or omit this parameter. To
     -- view a list of all associations for an instance, use ListAssociations.
     -- To get a list of versions for a specific association, use
     -- ListAssociationVersions.
-    associationVersion :: Prelude.Maybe Prelude.Text
+    associationVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAssociation' with all optional fields omitted.
@@ -94,22 +93,22 @@ newDescribeAssociation ::
   DescribeAssociation
 newDescribeAssociation =
   DescribeAssociation'
-    { instanceId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      associationId = Prelude.Nothing,
-      associationVersion = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      name = Core.Nothing,
+      associationId = Core.Nothing,
+      associationVersion = Core.Nothing
     }
 
 -- | The instance ID.
-describeAssociation_instanceId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
+describeAssociation_instanceId :: Lens.Lens' DescribeAssociation (Core.Maybe Core.Text)
 describeAssociation_instanceId = Lens.lens (\DescribeAssociation' {instanceId} -> instanceId) (\s@DescribeAssociation' {} a -> s {instanceId = a} :: DescribeAssociation)
 
 -- | The name of the Systems Manager document.
-describeAssociation_name :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
+describeAssociation_name :: Lens.Lens' DescribeAssociation (Core.Maybe Core.Text)
 describeAssociation_name = Lens.lens (\DescribeAssociation' {name} -> name) (\s@DescribeAssociation' {} a -> s {name = a} :: DescribeAssociation)
 
 -- | The association ID for which you want information.
-describeAssociation_associationId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
+describeAssociation_associationId :: Lens.Lens' DescribeAssociation (Core.Maybe Core.Text)
 describeAssociation_associationId = Lens.lens (\DescribeAssociation' {associationId} -> associationId) (\s@DescribeAssociation' {} a -> s {associationId = a} :: DescribeAssociation)
 
 -- | Specify the association version to retrieve. To view the latest version,
@@ -117,68 +116,63 @@ describeAssociation_associationId = Lens.lens (\DescribeAssociation' {associatio
 -- view a list of all associations for an instance, use ListAssociations.
 -- To get a list of versions for a specific association, use
 -- ListAssociationVersions.
-describeAssociation_associationVersion :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
+describeAssociation_associationVersion :: Lens.Lens' DescribeAssociation (Core.Maybe Core.Text)
 describeAssociation_associationVersion = Lens.lens (\DescribeAssociation' {associationVersion} -> associationVersion) (\s@DescribeAssociation' {} a -> s {associationVersion = a} :: DescribeAssociation)
 
-instance Prelude.AWSRequest DescribeAssociation where
+instance Core.AWSRequest DescribeAssociation where
   type
-    Rs DescribeAssociation =
+    AWSResponse DescribeAssociation =
       DescribeAssociationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAssociationResponse'
-            Prelude.<$> (x Prelude..?> "AssociationDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AssociationDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAssociation
+instance Core.Hashable DescribeAssociation
 
-instance Prelude.NFData DescribeAssociation
+instance Core.NFData DescribeAssociation
 
-instance Prelude.ToHeaders DescribeAssociation where
+instance Core.ToHeaders DescribeAssociation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribeAssociation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonSSM.DescribeAssociation" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAssociation where
+instance Core.ToJSON DescribeAssociation where
   toJSON DescribeAssociation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceId" Prelude..=) Prelude.<$> instanceId,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("AssociationId" Prelude..=)
-              Prelude.<$> associationId,
-            ("AssociationVersion" Prelude..=)
-              Prelude.<$> associationVersion
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceId" Core..=) Core.<$> instanceId,
+            ("Name" Core..=) Core.<$> name,
+            ("AssociationId" Core..=) Core.<$> associationId,
+            ("AssociationVersion" Core..=)
+              Core.<$> associationVersion
           ]
       )
 
-instance Prelude.ToPath DescribeAssociation where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAssociation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAssociation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAssociation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAssociationResponse' smart constructor.
 data DescribeAssociationResponse = DescribeAssociationResponse'
   { -- | Information about the association.
-    associationDescription :: Prelude.Maybe AssociationDescription,
+    associationDescription :: Core.Maybe AssociationDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAssociationResponse' with all optional fields omitted.
@@ -193,21 +187,21 @@ data DescribeAssociationResponse = DescribeAssociationResponse'
 -- 'httpStatus', 'describeAssociationResponse_httpStatus' - The response's http status code.
 newDescribeAssociationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAssociationResponse
 newDescribeAssociationResponse pHttpStatus_ =
   DescribeAssociationResponse'
     { associationDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the association.
-describeAssociationResponse_associationDescription :: Lens.Lens' DescribeAssociationResponse (Prelude.Maybe AssociationDescription)
+describeAssociationResponse_associationDescription :: Lens.Lens' DescribeAssociationResponse (Core.Maybe AssociationDescription)
 describeAssociationResponse_associationDescription = Lens.lens (\DescribeAssociationResponse' {associationDescription} -> associationDescription) (\s@DescribeAssociationResponse' {} a -> s {associationDescription = a} :: DescribeAssociationResponse)
 
 -- | The response's http status code.
-describeAssociationResponse_httpStatus :: Lens.Lens' DescribeAssociationResponse Prelude.Int
+describeAssociationResponse_httpStatus :: Lens.Lens' DescribeAssociationResponse Core.Int
 describeAssociationResponse_httpStatus = Lens.lens (\DescribeAssociationResponse' {httpStatus} -> httpStatus) (\s@DescribeAssociationResponse' {} a -> s {httpStatus = a} :: DescribeAssociationResponse)
 
-instance Prelude.NFData DescribeAssociationResponse
+instance Core.NFData DescribeAssociationResponse

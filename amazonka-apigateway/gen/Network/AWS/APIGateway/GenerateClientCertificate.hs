@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.APIGateway.GenerateClientCertificate
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +57,11 @@ data GenerateClientCertificate = GenerateClientCertificate'
   { -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The description of the ClientCertificate.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateClientCertificate' with all optional fields omitted.
@@ -81,51 +80,53 @@ newGenerateClientCertificate ::
   GenerateClientCertificate
 newGenerateClientCertificate =
   GenerateClientCertificate'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing
+    { tags = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
-generateClientCertificate_tags :: Lens.Lens' GenerateClientCertificate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-generateClientCertificate_tags = Lens.lens (\GenerateClientCertificate' {tags} -> tags) (\s@GenerateClientCertificate' {} a -> s {tags = a} :: GenerateClientCertificate) Prelude.. Lens.mapping Prelude._Coerce
+generateClientCertificate_tags :: Lens.Lens' GenerateClientCertificate (Core.Maybe (Core.HashMap Core.Text Core.Text))
+generateClientCertificate_tags = Lens.lens (\GenerateClientCertificate' {tags} -> tags) (\s@GenerateClientCertificate' {} a -> s {tags = a} :: GenerateClientCertificate) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the ClientCertificate.
-generateClientCertificate_description :: Lens.Lens' GenerateClientCertificate (Prelude.Maybe Prelude.Text)
+generateClientCertificate_description :: Lens.Lens' GenerateClientCertificate (Core.Maybe Core.Text)
 generateClientCertificate_description = Lens.lens (\GenerateClientCertificate' {description} -> description) (\s@GenerateClientCertificate' {} a -> s {description = a} :: GenerateClientCertificate)
 
-instance Prelude.AWSRequest GenerateClientCertificate where
-  type Rs GenerateClientCertificate = ClientCertificate
+instance Core.AWSRequest GenerateClientCertificate where
+  type
+    AWSResponse GenerateClientCertificate =
+      ClientCertificate
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GenerateClientCertificate
+instance Core.Hashable GenerateClientCertificate
 
-instance Prelude.NFData GenerateClientCertificate
+instance Core.NFData GenerateClientCertificate
 
-instance Prelude.ToHeaders GenerateClientCertificate where
+instance Core.ToHeaders GenerateClientCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GenerateClientCertificate where
+instance Core.ToJSON GenerateClientCertificate where
   toJSON GenerateClientCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            ("description" Prelude..=) Prelude.<$> description
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            ("description" Core..=) Core.<$> description
           ]
       )
 
-instance Prelude.ToPath GenerateClientCertificate where
-  toPath = Prelude.const "/clientcertificates"
+instance Core.ToPath GenerateClientCertificate where
+  toPath = Core.const "/clientcertificates"
 
-instance Prelude.ToQuery GenerateClientCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GenerateClientCertificate where
+  toQuery = Core.const Core.mempty

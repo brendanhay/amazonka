@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,28 +19,28 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.AvailabilityZone where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.LoadBalancerAddress
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an Availability Zone.
 --
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
   { -- | The name of the Availability Zone.
-    zoneName :: Prelude.Maybe Prelude.Text,
+    zoneName :: Core.Maybe Core.Text,
     -- | [Application Load Balancers on Outposts] The ID of the Outpost.
-    outpostId :: Prelude.Maybe Prelude.Text,
+    outpostId :: Core.Maybe Core.Text,
     -- | [Network Load Balancers] If you need static IP addresses for your load
     -- balancer, you can specify one Elastic IP address per Availability Zone
     -- when you create an internal-facing load balancer. For internal load
     -- balancers, you can specify a private IP address from the IPv4 range of
     -- the subnet.
-    loadBalancerAddresses :: Prelude.Maybe [LoadBalancerAddress],
+    loadBalancerAddresses :: Core.Maybe [LoadBalancerAddress],
     -- | The ID of the subnet. You can specify one subnet per Availability Zone.
-    subnetId :: Prelude.Maybe Prelude.Text
+    subnetId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailabilityZone' with all optional fields omitted.
@@ -66,18 +65,18 @@ newAvailabilityZone ::
   AvailabilityZone
 newAvailabilityZone =
   AvailabilityZone'
-    { zoneName = Prelude.Nothing,
-      outpostId = Prelude.Nothing,
-      loadBalancerAddresses = Prelude.Nothing,
-      subnetId = Prelude.Nothing
+    { zoneName = Core.Nothing,
+      outpostId = Core.Nothing,
+      loadBalancerAddresses = Core.Nothing,
+      subnetId = Core.Nothing
     }
 
 -- | The name of the Availability Zone.
-availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_zoneName :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
 availabilityZone_zoneName = Lens.lens (\AvailabilityZone' {zoneName} -> zoneName) (\s@AvailabilityZone' {} a -> s {zoneName = a} :: AvailabilityZone)
 
 -- | [Application Load Balancers on Outposts] The ID of the Outpost.
-availabilityZone_outpostId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_outpostId :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
 availabilityZone_outpostId = Lens.lens (\AvailabilityZone' {outpostId} -> outpostId) (\s@AvailabilityZone' {} a -> s {outpostId = a} :: AvailabilityZone)
 
 -- | [Network Load Balancers] If you need static IP addresses for your load
@@ -85,24 +84,24 @@ availabilityZone_outpostId = Lens.lens (\AvailabilityZone' {outpostId} -> outpos
 -- when you create an internal-facing load balancer. For internal load
 -- balancers, you can specify a private IP address from the IPv4 range of
 -- the subnet.
-availabilityZone_loadBalancerAddresses :: Lens.Lens' AvailabilityZone (Prelude.Maybe [LoadBalancerAddress])
-availabilityZone_loadBalancerAddresses = Lens.lens (\AvailabilityZone' {loadBalancerAddresses} -> loadBalancerAddresses) (\s@AvailabilityZone' {} a -> s {loadBalancerAddresses = a} :: AvailabilityZone) Prelude.. Lens.mapping Prelude._Coerce
+availabilityZone_loadBalancerAddresses :: Lens.Lens' AvailabilityZone (Core.Maybe [LoadBalancerAddress])
+availabilityZone_loadBalancerAddresses = Lens.lens (\AvailabilityZone' {loadBalancerAddresses} -> loadBalancerAddresses) (\s@AvailabilityZone' {} a -> s {loadBalancerAddresses = a} :: AvailabilityZone) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the subnet. You can specify one subnet per Availability Zone.
-availabilityZone_subnetId :: Lens.Lens' AvailabilityZone (Prelude.Maybe Prelude.Text)
+availabilityZone_subnetId :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
 availabilityZone_subnetId = Lens.lens (\AvailabilityZone' {subnetId} -> subnetId) (\s@AvailabilityZone' {} a -> s {subnetId = a} :: AvailabilityZone)
 
-instance Prelude.FromXML AvailabilityZone where
+instance Core.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Prelude.<$> (x Prelude..@? "ZoneName")
-      Prelude.<*> (x Prelude..@? "OutpostId")
-      Prelude.<*> ( x Prelude..@? "LoadBalancerAddresses"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "SubnetId")
+      Core.<$> (x Core..@? "ZoneName")
+      Core.<*> (x Core..@? "OutpostId")
+      Core.<*> ( x Core..@? "LoadBalancerAddresses"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "SubnetId")
 
-instance Prelude.Hashable AvailabilityZone
+instance Core.Hashable AvailabilityZone
 
-instance Prelude.NFData AvailabilityZone
+instance Core.NFData AvailabilityZone

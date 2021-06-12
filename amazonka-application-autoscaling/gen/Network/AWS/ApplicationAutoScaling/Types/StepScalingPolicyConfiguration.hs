@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration w
 import Network.AWS.ApplicationAutoScaling.Types.AdjustmentType
 import Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
 import Network.AWS.ApplicationAutoScaling.Types.StepAdjustment
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a step scaling policy configuration to use with Application
 -- Auto Scaling.
@@ -36,11 +35,11 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     --
     -- At least one step adjustment is required if you are adding a new step
     -- scaling policy configuration.
-    stepAdjustments :: Prelude.Maybe [StepAdjustment],
+    stepAdjustments :: Core.Maybe [StepAdjustment],
     -- | The aggregation type for the CloudWatch metrics. Valid values are
     -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
     -- the value is treated as @Average@.
-    metricAggregationType :: Prelude.Maybe MetricAggregationType,
+    metricAggregationType :: Core.Maybe MetricAggregationType,
     -- | The amount of time, in seconds, to wait for a previous scaling activity
     -- to take effect.
     --
@@ -98,7 +97,7 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     -- -   Amazon Keyspaces tables
     --
     -- -   Amazon MSK broker storage
-    cooldown :: Prelude.Maybe Prelude.Int,
+    cooldown :: Core.Maybe Core.Int,
     -- | Specifies how the @ScalingAdjustment@ value in a
     -- <https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment>
     -- is interpreted (for example, an absolute number or a percentage). The
@@ -107,7 +106,7 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     --
     -- @AdjustmentType@ is required if you are adding a new step scaling policy
     -- configuration.
-    adjustmentType :: Prelude.Maybe AdjustmentType,
+    adjustmentType :: Core.Maybe AdjustmentType,
     -- | The minimum value to scale by when the adjustment type is
     -- @PercentChangeInCapacity@. For example, suppose that you create a step
     -- scaling policy to scale out an Amazon ECS service by 25 percent and you
@@ -115,9 +114,9 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     -- the scaling policy is performed, 25 percent of 4 is 1. However, because
     -- you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling
     -- scales out the service by 2 tasks.
-    minAdjustmentMagnitude :: Prelude.Maybe Prelude.Int
+    minAdjustmentMagnitude :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StepScalingPolicyConfiguration' with all optional fields omitted.
@@ -216,11 +215,11 @@ newStepScalingPolicyConfiguration ::
 newStepScalingPolicyConfiguration =
   StepScalingPolicyConfiguration'
     { stepAdjustments =
-        Prelude.Nothing,
-      metricAggregationType = Prelude.Nothing,
-      cooldown = Prelude.Nothing,
-      adjustmentType = Prelude.Nothing,
-      minAdjustmentMagnitude = Prelude.Nothing
+        Core.Nothing,
+      metricAggregationType = Core.Nothing,
+      cooldown = Core.Nothing,
+      adjustmentType = Core.Nothing,
+      minAdjustmentMagnitude = Core.Nothing
     }
 
 -- | A set of adjustments that enable you to scale based on the size of the
@@ -228,13 +227,13 @@ newStepScalingPolicyConfiguration =
 --
 -- At least one step adjustment is required if you are adding a new step
 -- scaling policy configuration.
-stepScalingPolicyConfiguration_stepAdjustments :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe [StepAdjustment])
-stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyConfiguration' {stepAdjustments} -> stepAdjustments) (\s@StepScalingPolicyConfiguration' {} a -> s {stepAdjustments = a} :: StepScalingPolicyConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+stepScalingPolicyConfiguration_stepAdjustments :: Lens.Lens' StepScalingPolicyConfiguration (Core.Maybe [StepAdjustment])
+stepScalingPolicyConfiguration_stepAdjustments = Lens.lens (\StepScalingPolicyConfiguration' {stepAdjustments} -> stepAdjustments) (\s@StepScalingPolicyConfiguration' {} a -> s {stepAdjustments = a} :: StepScalingPolicyConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The aggregation type for the CloudWatch metrics. Valid values are
 -- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
 -- the value is treated as @Average@.
-stepScalingPolicyConfiguration_metricAggregationType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe MetricAggregationType)
+stepScalingPolicyConfiguration_metricAggregationType :: Lens.Lens' StepScalingPolicyConfiguration (Core.Maybe MetricAggregationType)
 stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPolicyConfiguration' {metricAggregationType} -> metricAggregationType) (\s@StepScalingPolicyConfiguration' {} a -> s {metricAggregationType = a} :: StepScalingPolicyConfiguration)
 
 -- | The amount of time, in seconds, to wait for a previous scaling activity
@@ -294,7 +293,7 @@ stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPo
 -- -   Amazon Keyspaces tables
 --
 -- -   Amazon MSK broker storage
-stepScalingPolicyConfiguration_cooldown :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
+stepScalingPolicyConfiguration_cooldown :: Lens.Lens' StepScalingPolicyConfiguration (Core.Maybe Core.Int)
 stepScalingPolicyConfiguration_cooldown = Lens.lens (\StepScalingPolicyConfiguration' {cooldown} -> cooldown) (\s@StepScalingPolicyConfiguration' {} a -> s {cooldown = a} :: StepScalingPolicyConfiguration)
 
 -- | Specifies how the @ScalingAdjustment@ value in a
@@ -305,7 +304,7 @@ stepScalingPolicyConfiguration_cooldown = Lens.lens (\StepScalingPolicyConfigura
 --
 -- @AdjustmentType@ is required if you are adding a new step scaling policy
 -- configuration.
-stepScalingPolicyConfiguration_adjustmentType :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe AdjustmentType)
+stepScalingPolicyConfiguration_adjustmentType :: Lens.Lens' StepScalingPolicyConfiguration (Core.Maybe AdjustmentType)
 stepScalingPolicyConfiguration_adjustmentType = Lens.lens (\StepScalingPolicyConfiguration' {adjustmentType} -> adjustmentType) (\s@StepScalingPolicyConfiguration' {} a -> s {adjustmentType = a} :: StepScalingPolicyConfiguration)
 
 -- | The minimum value to scale by when the adjustment type is
@@ -315,50 +314,37 @@ stepScalingPolicyConfiguration_adjustmentType = Lens.lens (\StepScalingPolicyCon
 -- the scaling policy is performed, 25 percent of 4 is 1. However, because
 -- you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling
 -- scales out the service by 2 tasks.
-stepScalingPolicyConfiguration_minAdjustmentMagnitude :: Lens.Lens' StepScalingPolicyConfiguration (Prelude.Maybe Prelude.Int)
+stepScalingPolicyConfiguration_minAdjustmentMagnitude :: Lens.Lens' StepScalingPolicyConfiguration (Core.Maybe Core.Int)
 stepScalingPolicyConfiguration_minAdjustmentMagnitude = Lens.lens (\StepScalingPolicyConfiguration' {minAdjustmentMagnitude} -> minAdjustmentMagnitude) (\s@StepScalingPolicyConfiguration' {} a -> s {minAdjustmentMagnitude = a} :: StepScalingPolicyConfiguration)
 
-instance
-  Prelude.FromJSON
-    StepScalingPolicyConfiguration
-  where
+instance Core.FromJSON StepScalingPolicyConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StepScalingPolicyConfiguration"
       ( \x ->
           StepScalingPolicyConfiguration'
-            Prelude.<$> ( x Prelude..:? "StepAdjustments"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "MetricAggregationType")
-            Prelude.<*> (x Prelude..:? "Cooldown")
-            Prelude.<*> (x Prelude..:? "AdjustmentType")
-            Prelude.<*> (x Prelude..:? "MinAdjustmentMagnitude")
+            Core.<$> (x Core..:? "StepAdjustments" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MetricAggregationType")
+            Core.<*> (x Core..:? "Cooldown")
+            Core.<*> (x Core..:? "AdjustmentType")
+            Core.<*> (x Core..:? "MinAdjustmentMagnitude")
       )
 
-instance
-  Prelude.Hashable
-    StepScalingPolicyConfiguration
+instance Core.Hashable StepScalingPolicyConfiguration
 
-instance
-  Prelude.NFData
-    StepScalingPolicyConfiguration
+instance Core.NFData StepScalingPolicyConfiguration
 
-instance
-  Prelude.ToJSON
-    StepScalingPolicyConfiguration
-  where
+instance Core.ToJSON StepScalingPolicyConfiguration where
   toJSON StepScalingPolicyConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StepAdjustments" Prelude..=)
-              Prelude.<$> stepAdjustments,
-            ("MetricAggregationType" Prelude..=)
-              Prelude.<$> metricAggregationType,
-            ("Cooldown" Prelude..=) Prelude.<$> cooldown,
-            ("AdjustmentType" Prelude..=)
-              Prelude.<$> adjustmentType,
-            ("MinAdjustmentMagnitude" Prelude..=)
-              Prelude.<$> minAdjustmentMagnitude
+    Core.object
+      ( Core.catMaybes
+          [ ("StepAdjustments" Core..=)
+              Core.<$> stepAdjustments,
+            ("MetricAggregationType" Core..=)
+              Core.<$> metricAggregationType,
+            ("Cooldown" Core..=) Core.<$> cooldown,
+            ("AdjustmentType" Core..=) Core.<$> adjustmentType,
+            ("MinAdjustmentMagnitude" Core..=)
+              Core.<$> minAdjustmentMagnitude
           ]
       )

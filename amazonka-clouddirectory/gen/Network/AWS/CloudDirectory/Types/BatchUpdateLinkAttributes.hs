@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes where
 
 import Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
 import Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Updates a given typed link’s attributes inside a BatchRead operation.
 -- Attributes to be updated must not contribute to the typed link’s
@@ -37,7 +36,7 @@ data BatchUpdateLinkAttributes = BatchUpdateLinkAttributes'
     -- | The attributes update structure.
     attributeUpdates :: [LinkAttributeUpdate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchUpdateLinkAttributes' with all optional fields omitted.
@@ -58,7 +57,7 @@ newBatchUpdateLinkAttributes pTypedLinkSpecifier_ =
   BatchUpdateLinkAttributes'
     { typedLinkSpecifier =
         pTypedLinkSpecifier_,
-      attributeUpdates = Prelude.mempty
+      attributeUpdates = Core.mempty
     }
 
 -- | Allows a typed link specifier to be accepted as input.
@@ -67,19 +66,19 @@ batchUpdateLinkAttributes_typedLinkSpecifier = Lens.lens (\BatchUpdateLinkAttrib
 
 -- | The attributes update structure.
 batchUpdateLinkAttributes_attributeUpdates :: Lens.Lens' BatchUpdateLinkAttributes [LinkAttributeUpdate]
-batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes) Prelude.. Prelude._Coerce
+batchUpdateLinkAttributes_attributeUpdates = Lens.lens (\BatchUpdateLinkAttributes' {attributeUpdates} -> attributeUpdates) (\s@BatchUpdateLinkAttributes' {} a -> s {attributeUpdates = a} :: BatchUpdateLinkAttributes) Core.. Lens._Coerce
 
-instance Prelude.Hashable BatchUpdateLinkAttributes
+instance Core.Hashable BatchUpdateLinkAttributes
 
-instance Prelude.NFData BatchUpdateLinkAttributes
+instance Core.NFData BatchUpdateLinkAttributes
 
-instance Prelude.ToJSON BatchUpdateLinkAttributes where
+instance Core.ToJSON BatchUpdateLinkAttributes where
   toJSON BatchUpdateLinkAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TypedLinkSpecifier" Prelude..= typedLinkSpecifier),
-            Prelude.Just
-              ("AttributeUpdates" Prelude..= attributeUpdates)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+            Core.Just
+              ("AttributeUpdates" Core..= attributeUpdates)
           ]
       )

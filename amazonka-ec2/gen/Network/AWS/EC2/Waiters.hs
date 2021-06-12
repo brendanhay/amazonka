@@ -15,6 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.DescribeBundleTasks
 import Network.AWS.EC2.DescribeConversionTasks
 import Network.AWS.EC2.DescribeCustomerGateways
@@ -37,1146 +38,1121 @@ import Network.AWS.EC2.GetPasswordData
 import Network.AWS.EC2.Lens
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceTerminated :: Waiter.Wait DescribeInstances
+newInstanceTerminated :: Core.Wait DescribeInstances
 newInstanceTerminated =
-  Waiter.Wait
-    { Waiter._waitName =
-        "InstanceTerminated",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "InstanceTerminated",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "terminated"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "pending"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "stopping"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVpcPeeringConnectionDeleted :: Waiter.Wait DescribeVpcPeeringConnections
+newVpcPeeringConnectionDeleted :: Core.Wait DescribeVpcPeeringConnections
 newVpcPeeringConnectionDeleted =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "VpcPeeringConnectionDeleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "deleted"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpcPeeringConnectionsResponse_vpcPeeringConnections
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. vpcPeeringConnection_status
-                Prelude.. Lens._Just
-                Prelude.. vpcPeeringConnectionStateReason_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. vpcPeeringConnection_status
+                Core.. Lens._Just
+                Core.. vpcPeeringConnectionStateReason_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidVpcPeeringConnectionID.NotFound"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newExportTaskCompleted :: Waiter.Wait DescribeExportTasks
+newExportTaskCompleted :: Core.Wait DescribeExportTasks
 newExportTaskCompleted =
-  Waiter.Wait
-    { Waiter._waitName =
-        "ExportTaskCompleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "ExportTaskCompleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "completed"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeExportTasksResponse_exportTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. exportTask_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. exportTask_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeSnapshots' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newSnapshotCompleted :: Waiter.Wait DescribeSnapshots
+newSnapshotCompleted :: Core.Wait DescribeSnapshots
 newSnapshotCompleted =
-  Waiter.Wait
-    { Waiter._waitName = "SnapshotCompleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "SnapshotCompleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "completed"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSnapshotsResponse_snapshots
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. snapshot_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. snapshot_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeSpotInstanceRequests' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newSpotInstanceRequestFulfilled :: Waiter.Wait DescribeSpotInstanceRequests
+newSpotInstanceRequestFulfilled :: Core.Wait DescribeSpotInstanceRequests
 newSpotInstanceRequestFulfilled =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "SpotInstanceRequestFulfilled",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "fulfilled"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. spotInstanceRequest_status
-                Prelude.. Lens._Just
-                Prelude.. spotInstanceStatus_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. spotInstanceRequest_status
+                Core.. Lens._Just
+                Core.. spotInstanceStatus_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "request-canceled-and-instance-running"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. spotInstanceRequest_status
-                Prelude.. Lens._Just
-                Prelude.. spotInstanceStatus_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. spotInstanceRequest_status
+                Core.. Lens._Just
+                Core.. spotInstanceStatus_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "schedule-expired"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. spotInstanceRequest_status
-                Prelude.. Lens._Just
-                Prelude.. spotInstanceStatus_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. spotInstanceRequest_status
+                Core.. Lens._Just
+                Core.. spotInstanceStatus_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "canceled-before-fulfillment"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. spotInstanceRequest_status
-                Prelude.. Lens._Just
-                Prelude.. spotInstanceStatus_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. spotInstanceRequest_status
+                Core.. Lens._Just
+                Core.. spotInstanceStatus_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "bad-parameters"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. spotInstanceRequest_status
-                Prelude.. Lens._Just
-                Prelude.. spotInstanceStatus_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. spotInstanceRequest_status
+                Core.. Lens._Just
+                Core.. spotInstanceStatus_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "system-error"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSpotInstanceRequestsResponse_spotInstanceRequests
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. spotInstanceRequest_status
-                Prelude.. Lens._Just
-                Prelude.. spotInstanceStatus_code
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. spotInstanceRequest_status
+                Core.. Lens._Just
+                Core.. spotInstanceStatus_code
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidSpotInstanceRequestID.NotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVolumeAvailable :: Waiter.Wait DescribeVolumes
+newVolumeAvailable :: Core.Wait DescribeVolumes
 newVolumeAvailable =
-  Waiter.Wait
-    { Waiter._waitName = "VolumeAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "VolumeAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeVolumesResponse_volumes
-                        Prelude.. Lens._Just
-                    )
+                    (describeVolumesResponse_volumes Core.. Lens._Just)
                 )
-                Prelude.. volume_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. volume_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleted"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeVolumesResponse_volumes
-                        Prelude.. Lens._Just
-                    )
+                    (describeVolumesResponse_volumes Core.. Lens._Just)
                 )
-                Prelude.. volume_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. volume_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newImageAvailable :: Waiter.Wait DescribeImages
+newImageAvailable :: Core.Wait DescribeImages
 newImageAvailable =
-  Waiter.Wait
-    { Waiter._waitName = "ImageAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "ImageAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeImagesResponse_images Prelude.. Lens._Just)
+                    (describeImagesResponse_images Core.. Lens._Just)
                 )
-                Prelude.. image_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. image_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deregistered"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeImagesResponse_images Prelude.. Lens._Just)
+                    (describeImagesResponse_images Core.. Lens._Just)
                 )
-                Prelude.. image_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. image_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.GetPasswordData' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newPasswordDataAvailable :: Waiter.Wait GetPasswordData
+newPasswordDataAvailable :: Core.Wait GetPasswordData
 newPasswordDataAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
-        "PasswordDataAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
-            Prelude.True
-            Waiter.AcceptSuccess
-            ( Waiter.nonEmptyText
+  Core.Wait
+    { Core._waitName = "PasswordDataAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            Core.True
+            Core.AcceptSuccess
+            ( Core.nonEmptyText
                 getPasswordDataResponse_passwordData
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceRunning :: Waiter.Wait DescribeInstances
+newInstanceRunning :: Core.Wait DescribeInstances
 newInstanceRunning =
-  Waiter.Wait
-    { Waiter._waitName = "InstanceRunning",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "InstanceRunning",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "running"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "shutting-down"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "terminated"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "stopping"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidInstanceID.NotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeKeyPairs' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
-newKeyPairExists :: Waiter.Wait DescribeKeyPairs
+newKeyPairExists :: Core.Wait DescribeKeyPairs
 newKeyPairExists =
-  Waiter.Wait
-    { Waiter._waitName = "KeyPairExists",
-      Waiter._waitAttempts = 6,
-      Waiter._waitDelay = 5,
-      Waiter._waitAcceptors =
-        [ Waiter.matchNonEmpty
-            Prelude.True
-            Waiter.AcceptSuccess
+  Core.Wait
+    { Core._waitName = "KeyPairExists",
+      Core._waitAttempts = 6,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Core.True
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeKeyPairsResponse_keyPairs
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. keyPairInfo_keyName
-                Prelude.. Lens._Just
+                Core.. keyPairInfo_keyName
+                Core.. Lens._Just
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidKeyPair.NotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeExportTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newExportTaskCancelled :: Waiter.Wait DescribeExportTasks
+newExportTaskCancelled :: Core.Wait DescribeExportTasks
 newExportTaskCancelled =
-  Waiter.Wait
-    { Waiter._waitName =
-        "ExportTaskCancelled",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "ExportTaskCancelled",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "cancelled"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeExportTasksResponse_exportTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. exportTask_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. exportTask_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVpnConnectionAvailable :: Waiter.Wait DescribeVpnConnections
+newVpnConnectionAvailable :: Core.Wait DescribeVpnConnections
 newVpnConnectionAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "VpnConnectionAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. vpnConnection_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. vpnConnection_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleting"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. vpnConnection_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. vpnConnection_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleted"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. vpnConnection_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. vpnConnection_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeImages' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newImageExists :: Waiter.Wait DescribeImages
+newImageExists :: Core.Wait DescribeImages
 newImageExists =
-  Waiter.Wait
-    { Waiter._waitName = "ImageExists",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchNonEmpty
-            Prelude.True
-            Waiter.AcceptSuccess
+  Core.Wait
+    { Core._waitName = "ImageExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Core.True
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeImagesResponse_images
-                        Prelude.. Lens._Just
-                    )
+                    (describeImagesResponse_images Core.. Lens._Just)
                 )
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidAMIID.NotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVpcs' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVpcAvailable :: Waiter.Wait DescribeVpcs
+newVpcAvailable :: Core.Wait DescribeVpcs
 newVpcAvailable =
-  Waiter.Wait
-    { Waiter._waitName = "VpcAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "VpcAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (describeVpcsResponse_vpcs Prelude.. Lens._Just)
+                    (describeVpcsResponse_vpcs Core.. Lens._Just)
                 )
-                Prelude.. vpc_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. vpc_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVolumeInUse :: Waiter.Wait DescribeVolumes
+newVolumeInUse :: Core.Wait DescribeVolumes
 newVolumeInUse =
-  Waiter.Wait
-    { Waiter._waitName = "VolumeInUse",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "VolumeInUse",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "in-use"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeVolumesResponse_volumes
-                        Prelude.. Lens._Just
-                    )
+                    (describeVolumesResponse_volumes Core.. Lens._Just)
                 )
-                Prelude.. volume_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. volume_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleted"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeVolumesResponse_volumes
-                        Prelude.. Lens._Just
-                    )
+                    (describeVolumesResponse_volumes Core.. Lens._Just)
                 )
-                Prelude.. volume_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. volume_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 5 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceExists :: Waiter.Wait DescribeInstances
+newInstanceExists :: Core.Wait DescribeInstances
 newInstanceExists =
-  Waiter.Wait
-    { Waiter._waitName = "InstanceExists",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 5,
-      Waiter._waitAcceptors =
-        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
-          Waiter.matchError
+  Core.Wait
+    { Core._waitName = "InstanceExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
             "InvalidInstanceIDNotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVpcPeeringConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVpcPeeringConnectionExists :: Waiter.Wait DescribeVpcPeeringConnections
+newVpcPeeringConnectionExists :: Core.Wait DescribeVpcPeeringConnections
 newVpcPeeringConnectionExists =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "VpcPeeringConnectionExists",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
-          Waiter.matchError
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
             "InvalidVpcPeeringConnectionID.NotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceStatusOk :: Waiter.Wait DescribeInstanceStatus
+newInstanceStatusOk :: Core.Wait DescribeInstanceStatus
 newInstanceStatusOk =
-  Waiter.Wait
-    { Waiter._waitName = "InstanceStatusOk",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "InstanceStatusOk",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "ok"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstanceStatusResponse_instanceStatuses
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. instanceStatus_instanceStatus
-                Prelude.. Lens._Just
-                Prelude.. instanceStatusSummary_status
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instanceStatus_instanceStatus
+                Core.. Lens._Just
+                Core.. instanceStatusSummary_status
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidInstanceID.NotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeSecurityGroups' every 5 seconds until a successful state is reached. An error is returned after 6 failed checks.
-newSecurityGroupExists :: Waiter.Wait DescribeSecurityGroups
+newSecurityGroupExists :: Core.Wait DescribeSecurityGroups
 newSecurityGroupExists =
-  Waiter.Wait
-    { Waiter._waitName =
-        "SecurityGroupExists",
-      Waiter._waitAttempts = 6,
-      Waiter._waitDelay = 5,
-      Waiter._waitAcceptors =
-        [ Waiter.matchNonEmpty
-            Prelude.True
-            Waiter.AcceptSuccess
+  Core.Wait
+    { Core._waitName = "SecurityGroupExists",
+      Core._waitAttempts = 6,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Core.True
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeSecurityGroupsResponse_securityGroups
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. securityGroup_groupId
+                Core.. securityGroup_groupId
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidGroupNotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newConversionTaskCancelled :: Waiter.Wait DescribeConversionTasks
+newConversionTaskCancelled :: Core.Wait DescribeConversionTasks
 newConversionTaskCancelled =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "ConversionTaskCancelled",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "cancelled"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. conversionTask_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVpnConnections' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVpnConnectionDeleted :: Waiter.Wait DescribeVpnConnections
+newVpnConnectionDeleted :: Core.Wait DescribeVpnConnections
 newVpnConnectionDeleted =
-  Waiter.Wait
-    { Waiter._waitName =
-        "VpnConnectionDeleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "VpnConnectionDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "deleted"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. vpnConnection_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. vpnConnection_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "pending"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeVpnConnectionsResponse_vpnConnections
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. vpnConnection_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. vpnConnection_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceStopped :: Waiter.Wait DescribeInstances
+newInstanceStopped :: Core.Wait DescribeInstances
 newInstanceStopped =
-  Waiter.Wait
-    { Waiter._waitName = "InstanceStopped",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "InstanceStopped",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "stopped"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "pending"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "terminated"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstancesResponse_reservations
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. Lens.folding
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      (reservation_instances Prelude.. Lens._Just)
+                      (reservation_instances Core.. Lens._Just)
                   )
-                Prelude.. instance_state
-                Prelude.. instanceState_name
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instance_state
+                Core.. instanceState_name
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newConversionTaskCompleted :: Waiter.Wait DescribeConversionTasks
+newConversionTaskCompleted :: Core.Wait DescribeConversionTasks
 newConversionTaskCompleted =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "ConversionTaskCompleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "completed"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. conversionTask_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "cancelled"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. conversionTask_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "cancelling"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. conversionTask_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeBundleTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newBundleTaskComplete :: Waiter.Wait DescribeBundleTasks
+newBundleTaskComplete :: Core.Wait DescribeBundleTasks
 newBundleTaskComplete =
-  Waiter.Wait
-    { Waiter._waitName =
-        "BundleTaskComplete",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "BundleTaskComplete",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "complete"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBundleTasksResponse_bundleTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. bundleTask_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. bundleTask_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeBundleTasksResponse_bundleTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. bundleTask_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. bundleTask_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeConversionTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newConversionTaskDeleted :: Waiter.Wait DescribeConversionTasks
+newConversionTaskDeleted :: Core.Wait DescribeConversionTasks
 newConversionTaskDeleted =
-  Waiter.Wait
-    { Waiter._waitName =
-        "ConversionTaskDeleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "ConversionTaskDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "deleted"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeConversionTasksResponse_conversionTasks
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. conversionTask_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. conversionTask_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVolumes' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newVolumeDeleted :: Waiter.Wait DescribeVolumes
+newVolumeDeleted :: Core.Wait DescribeVolumes
 newVolumeDeleted =
-  Waiter.Wait
-    { Waiter._waitName = "VolumeDeleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "VolumeDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "deleted"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeVolumesResponse_volumes
-                        Prelude.. Lens._Just
-                    )
+                    (describeVolumesResponse_volumes Core.. Lens._Just)
                 )
-                Prelude.. volume_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. volume_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidVolume.NotFound"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeCustomerGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newCustomerGatewayAvailable :: Waiter.Wait DescribeCustomerGateways
+newCustomerGatewayAvailable :: Core.Wait DescribeCustomerGateways
 newCustomerGatewayAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "CustomerGatewayAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCustomerGatewaysResponse_customerGateways
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. customerGateway_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. customerGateway_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleted"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCustomerGatewaysResponse_customerGateways
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. customerGateway_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. customerGateway_state
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleting"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeCustomerGatewaysResponse_customerGateways
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. customerGateway_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. customerGateway_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeVpcs' every 1 seconds until a successful state is reached. An error is returned after 5 failed checks.
-newVpcExists :: Waiter.Wait DescribeVpcs
+newVpcExists :: Core.Wait DescribeVpcs
 newVpcExists =
-  Waiter.Wait
-    { Waiter._waitName = "VpcExists",
-      Waiter._waitAttempts = 5,
-      Waiter._waitDelay = 1,
-      Waiter._waitAcceptors =
-        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
-          Waiter.matchError
+  Core.Wait
+    { Core._waitName = "VpcExists",
+      Core._waitAttempts = 5,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
             "InvalidVpcID.NotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeInstanceStatus' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newSystemStatusOk :: Waiter.Wait DescribeInstanceStatus
+newSystemStatusOk :: Core.Wait DescribeInstanceStatus
 newSystemStatusOk =
-  Waiter.Wait
-    { Waiter._waitName = "SystemStatusOk",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "SystemStatusOk",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "ok"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeInstanceStatusResponse_instanceStatuses
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. instanceStatus_systemStatus
-                Prelude.. Lens._Just
-                Prelude.. instanceStatusSummary_status
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. instanceStatus_systemStatus
+                Core.. Lens._Just
+                Core.. instanceStatusSummary_status
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeNetworkInterfaces' every 20 seconds until a successful state is reached. An error is returned after 10 failed checks.
-newNetworkInterfaceAvailable :: Waiter.Wait DescribeNetworkInterfaces
+newNetworkInterfaceAvailable :: Core.Wait DescribeNetworkInterfaces
 newNetworkInterfaceAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "NetworkInterfaceAvailable",
-      Waiter._waitAttempts = 10,
-      Waiter._waitDelay = 20,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 10,
+      Core._waitDelay = 20,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNetworkInterfacesResponse_networkInterfaces
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. networkInterface_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. networkInterface_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "InvalidNetworkInterfaceID.NotFound"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeNatGateways' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newNatGatewayAvailable :: Waiter.Wait DescribeNatGateways
+newNatGatewayAvailable :: Core.Wait DescribeNatGateways
 newNatGatewayAvailable =
-  Waiter.Wait
-    { Waiter._waitName =
-        "NatGatewayAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "NatGatewayAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. natGateway_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. natGateway_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "failed"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. natGateway_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. natGateway_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleting"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. natGateway_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. natGateway_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "deleted"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeNatGatewaysResponse_natGateways
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. natGateway_state
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. natGateway_state
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "NatGatewayNotFound"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.EC2.DescribeSubnets' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newSubnetAvailable :: Waiter.Wait DescribeSubnets
+newSubnetAvailable :: Core.Wait DescribeSubnets
 newSubnetAvailable =
-  Waiter.Wait
-    { Waiter._waitName = "SubnetAvailable",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 15,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "SubnetAvailable",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "available"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeSubnetsResponse_subnets
-                        Prelude.. Lens._Just
-                    )
+                    (describeSubnetsResponse_subnets Core.. Lens._Just)
                 )
-                Prelude.. subnet_state
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. subnet_state
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.AppSpecContent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A revision for an AWS Lambda or Amazon ECS deployment that is a
 -- YAML-formatted or JSON-formatted string. For AWS Lambda and Amazon ECS
@@ -44,11 +43,11 @@ data AppSpecContent = AppSpecContent'
     -- For both types of deployments, the content can specify Lambda functions
     -- that run at specified hooks, such as @BeforeInstall@, during a
     -- deployment.
-    content :: Prelude.Maybe Prelude.Text,
+    content :: Core.Maybe Core.Text,
     -- | The SHA256 hash value of the revision content.
-    sha256 :: Prelude.Maybe Prelude.Text
+    sha256 :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AppSpecContent' with all optional fields omitted.
@@ -78,8 +77,8 @@ newAppSpecContent ::
   AppSpecContent
 newAppSpecContent =
   AppSpecContent'
-    { content = Prelude.Nothing,
-      sha256 = Prelude.Nothing
+    { content = Core.Nothing,
+      sha256 = Core.Nothing
     }
 
 -- | The YAML-formatted or JSON-formatted revision string.
@@ -96,32 +95,32 @@ newAppSpecContent =
 -- For both types of deployments, the content can specify Lambda functions
 -- that run at specified hooks, such as @BeforeInstall@, during a
 -- deployment.
-appSpecContent_content :: Lens.Lens' AppSpecContent (Prelude.Maybe Prelude.Text)
+appSpecContent_content :: Lens.Lens' AppSpecContent (Core.Maybe Core.Text)
 appSpecContent_content = Lens.lens (\AppSpecContent' {content} -> content) (\s@AppSpecContent' {} a -> s {content = a} :: AppSpecContent)
 
 -- | The SHA256 hash value of the revision content.
-appSpecContent_sha256 :: Lens.Lens' AppSpecContent (Prelude.Maybe Prelude.Text)
+appSpecContent_sha256 :: Lens.Lens' AppSpecContent (Core.Maybe Core.Text)
 appSpecContent_sha256 = Lens.lens (\AppSpecContent' {sha256} -> sha256) (\s@AppSpecContent' {} a -> s {sha256 = a} :: AppSpecContent)
 
-instance Prelude.FromJSON AppSpecContent where
+instance Core.FromJSON AppSpecContent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AppSpecContent"
       ( \x ->
           AppSpecContent'
-            Prelude.<$> (x Prelude..:? "content")
-            Prelude.<*> (x Prelude..:? "sha256")
+            Core.<$> (x Core..:? "content")
+            Core.<*> (x Core..:? "sha256")
       )
 
-instance Prelude.Hashable AppSpecContent
+instance Core.Hashable AppSpecContent
 
-instance Prelude.NFData AppSpecContent
+instance Core.NFData AppSpecContent
 
-instance Prelude.ToJSON AppSpecContent where
+instance Core.ToJSON AppSpecContent where
   toJSON AppSpecContent' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("content" Prelude..=) Prelude.<$> content,
-            ("sha256" Prelude..=) Prelude.<$> sha256
+    Core.object
+      ( Core.catMaybes
+          [ ("content" Core..=) Core.<$> content,
+            ("sha256" Core..=) Core.<$> sha256
           ]
       )

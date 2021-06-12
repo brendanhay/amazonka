@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.CaptionLanguageMapping where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Maps a caption channel to an ISO 693-2 language code
 -- (http:\/\/www.loc.gov\/standards\/iso639-2), with an optional
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 data CaptionLanguageMapping = CaptionLanguageMapping'
   { -- | Three character ISO 639-2 language code (see
     -- http:\/\/www.loc.gov\/standards\/iso639-2)
-    languageCode :: Prelude.Text,
+    languageCode :: Core.Text,
     -- | Textual description of language
-    languageDescription :: Prelude.Text,
+    languageDescription :: Core.Text,
     -- | The closed caption channel being described by this
     -- CaptionLanguageMapping. Each channel mapping must have a unique channel
     -- number (maximum of 4)
-    captionChannel :: Prelude.Natural
+    captionChannel :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CaptionLanguageMapping' with all optional fields omitted.
@@ -59,11 +58,11 @@ data CaptionLanguageMapping = CaptionLanguageMapping'
 -- number (maximum of 4)
 newCaptionLanguageMapping ::
   -- | 'languageCode'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'languageDescription'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'captionChannel'
-  Prelude.Natural ->
+  Core.Natural ->
   CaptionLanguageMapping
 newCaptionLanguageMapping
   pLanguageCode_
@@ -78,45 +77,41 @@ newCaptionLanguageMapping
 
 -- | Three character ISO 639-2 language code (see
 -- http:\/\/www.loc.gov\/standards\/iso639-2)
-captionLanguageMapping_languageCode :: Lens.Lens' CaptionLanguageMapping Prelude.Text
+captionLanguageMapping_languageCode :: Lens.Lens' CaptionLanguageMapping Core.Text
 captionLanguageMapping_languageCode = Lens.lens (\CaptionLanguageMapping' {languageCode} -> languageCode) (\s@CaptionLanguageMapping' {} a -> s {languageCode = a} :: CaptionLanguageMapping)
 
 -- | Textual description of language
-captionLanguageMapping_languageDescription :: Lens.Lens' CaptionLanguageMapping Prelude.Text
+captionLanguageMapping_languageDescription :: Lens.Lens' CaptionLanguageMapping Core.Text
 captionLanguageMapping_languageDescription = Lens.lens (\CaptionLanguageMapping' {languageDescription} -> languageDescription) (\s@CaptionLanguageMapping' {} a -> s {languageDescription = a} :: CaptionLanguageMapping)
 
 -- | The closed caption channel being described by this
 -- CaptionLanguageMapping. Each channel mapping must have a unique channel
 -- number (maximum of 4)
-captionLanguageMapping_captionChannel :: Lens.Lens' CaptionLanguageMapping Prelude.Natural
+captionLanguageMapping_captionChannel :: Lens.Lens' CaptionLanguageMapping Core.Natural
 captionLanguageMapping_captionChannel = Lens.lens (\CaptionLanguageMapping' {captionChannel} -> captionChannel) (\s@CaptionLanguageMapping' {} a -> s {captionChannel = a} :: CaptionLanguageMapping)
 
-instance Prelude.FromJSON CaptionLanguageMapping where
+instance Core.FromJSON CaptionLanguageMapping where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CaptionLanguageMapping"
       ( \x ->
           CaptionLanguageMapping'
-            Prelude.<$> (x Prelude..: "languageCode")
-            Prelude.<*> (x Prelude..: "languageDescription")
-            Prelude.<*> (x Prelude..: "captionChannel")
+            Core.<$> (x Core..: "languageCode")
+            Core.<*> (x Core..: "languageDescription")
+            Core.<*> (x Core..: "captionChannel")
       )
 
-instance Prelude.Hashable CaptionLanguageMapping
+instance Core.Hashable CaptionLanguageMapping
 
-instance Prelude.NFData CaptionLanguageMapping
+instance Core.NFData CaptionLanguageMapping
 
-instance Prelude.ToJSON CaptionLanguageMapping where
+instance Core.ToJSON CaptionLanguageMapping where
   toJSON CaptionLanguageMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("languageCode" Prelude..= languageCode),
-            Prelude.Just
-              ( "languageDescription"
-                  Prelude..= languageDescription
-              ),
-            Prelude.Just
-              ("captionChannel" Prelude..= captionChannel)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("languageCode" Core..= languageCode),
+            Core.Just
+              ("languageDescription" Core..= languageDescription),
+            Core.Just ("captionChannel" Core..= captionChannel)
           ]
       )

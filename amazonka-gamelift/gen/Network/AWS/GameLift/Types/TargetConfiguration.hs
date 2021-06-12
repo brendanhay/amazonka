@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.TargetConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a target-based scaling policy (see ScalingPolicy. A
 -- target-based policy tracks a particular fleet metric specifies a target
@@ -58,9 +57,9 @@ data TargetConfiguration = TargetConfiguration'
     -- target value should be the preferred size of the fleet\'s buffer (the
     -- percent of capacity that should be idle and ready for new game
     -- sessions).
-    targetValue :: Prelude.Double
+    targetValue :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetConfiguration' with all optional fields omitted.
@@ -78,7 +77,7 @@ data TargetConfiguration = TargetConfiguration'
 -- sessions).
 newTargetConfiguration ::
   -- | 'targetValue'
-  Prelude.Double ->
+  Core.Double ->
   TargetConfiguration
 newTargetConfiguration pTargetValue_ =
   TargetConfiguration' {targetValue = pTargetValue_}
@@ -89,27 +88,25 @@ newTargetConfiguration pTargetValue_ =
 -- target value should be the preferred size of the fleet\'s buffer (the
 -- percent of capacity that should be idle and ready for new game
 -- sessions).
-targetConfiguration_targetValue :: Lens.Lens' TargetConfiguration Prelude.Double
+targetConfiguration_targetValue :: Lens.Lens' TargetConfiguration Core.Double
 targetConfiguration_targetValue = Lens.lens (\TargetConfiguration' {targetValue} -> targetValue) (\s@TargetConfiguration' {} a -> s {targetValue = a} :: TargetConfiguration)
 
-instance Prelude.FromJSON TargetConfiguration where
+instance Core.FromJSON TargetConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TargetConfiguration"
       ( \x ->
           TargetConfiguration'
-            Prelude.<$> (x Prelude..: "TargetValue")
+            Core.<$> (x Core..: "TargetValue")
       )
 
-instance Prelude.Hashable TargetConfiguration
+instance Core.Hashable TargetConfiguration
 
-instance Prelude.NFData TargetConfiguration
+instance Core.NFData TargetConfiguration
 
-instance Prelude.ToJSON TargetConfiguration where
+instance Core.ToJSON TargetConfiguration where
   toJSON TargetConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TargetValue" Prelude..= targetValue)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TargetValue" Core..= targetValue)]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.SigningProfileParameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the code-signing profile.
 --
 -- /See:/ 'newSigningProfileParameter' smart constructor.
 data SigningProfileParameter = SigningProfileParameter'
   { -- | The hardware platform of your device.
-    platform :: Prelude.Maybe Prelude.Text,
+    platform :: Core.Maybe Core.Text,
     -- | Certificate ARN.
-    certificateArn :: Prelude.Maybe Prelude.Text,
+    certificateArn :: Core.Maybe Core.Text,
     -- | The location of the code-signing certificate on your device.
-    certificatePathOnDevice :: Prelude.Maybe Prelude.Text
+    certificatePathOnDevice :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SigningProfileParameter' with all optional fields omitted.
@@ -53,47 +52,45 @@ newSigningProfileParameter ::
   SigningProfileParameter
 newSigningProfileParameter =
   SigningProfileParameter'
-    { platform =
-        Prelude.Nothing,
-      certificateArn = Prelude.Nothing,
-      certificatePathOnDevice = Prelude.Nothing
+    { platform = Core.Nothing,
+      certificateArn = Core.Nothing,
+      certificatePathOnDevice = Core.Nothing
     }
 
 -- | The hardware platform of your device.
-signingProfileParameter_platform :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
+signingProfileParameter_platform :: Lens.Lens' SigningProfileParameter (Core.Maybe Core.Text)
 signingProfileParameter_platform = Lens.lens (\SigningProfileParameter' {platform} -> platform) (\s@SigningProfileParameter' {} a -> s {platform = a} :: SigningProfileParameter)
 
 -- | Certificate ARN.
-signingProfileParameter_certificateArn :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
+signingProfileParameter_certificateArn :: Lens.Lens' SigningProfileParameter (Core.Maybe Core.Text)
 signingProfileParameter_certificateArn = Lens.lens (\SigningProfileParameter' {certificateArn} -> certificateArn) (\s@SigningProfileParameter' {} a -> s {certificateArn = a} :: SigningProfileParameter)
 
 -- | The location of the code-signing certificate on your device.
-signingProfileParameter_certificatePathOnDevice :: Lens.Lens' SigningProfileParameter (Prelude.Maybe Prelude.Text)
+signingProfileParameter_certificatePathOnDevice :: Lens.Lens' SigningProfileParameter (Core.Maybe Core.Text)
 signingProfileParameter_certificatePathOnDevice = Lens.lens (\SigningProfileParameter' {certificatePathOnDevice} -> certificatePathOnDevice) (\s@SigningProfileParameter' {} a -> s {certificatePathOnDevice = a} :: SigningProfileParameter)
 
-instance Prelude.FromJSON SigningProfileParameter where
+instance Core.FromJSON SigningProfileParameter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SigningProfileParameter"
       ( \x ->
           SigningProfileParameter'
-            Prelude.<$> (x Prelude..:? "platform")
-            Prelude.<*> (x Prelude..:? "certificateArn")
-            Prelude.<*> (x Prelude..:? "certificatePathOnDevice")
+            Core.<$> (x Core..:? "platform")
+            Core.<*> (x Core..:? "certificateArn")
+            Core.<*> (x Core..:? "certificatePathOnDevice")
       )
 
-instance Prelude.Hashable SigningProfileParameter
+instance Core.Hashable SigningProfileParameter
 
-instance Prelude.NFData SigningProfileParameter
+instance Core.NFData SigningProfileParameter
 
-instance Prelude.ToJSON SigningProfileParameter where
+instance Core.ToJSON SigningProfileParameter where
   toJSON SigningProfileParameter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("platform" Prelude..=) Prelude.<$> platform,
-            ("certificateArn" Prelude..=)
-              Prelude.<$> certificateArn,
-            ("certificatePathOnDevice" Prelude..=)
-              Prelude.<$> certificatePathOnDevice
+    Core.object
+      ( Core.catMaybes
+          [ ("platform" Core..=) Core.<$> platform,
+            ("certificateArn" Core..=) Core.<$> certificateArn,
+            ("certificatePathOnDevice" Core..=)
+              Core.<$> certificatePathOnDevice
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EMR.CancelSteps
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,15 +58,15 @@ import qualified Network.AWS.Response as Response
 data CancelSteps = CancelSteps'
   { -- | The option to choose to cancel @RUNNING@ steps. By default, the value is
     -- @SEND_INTERRUPT@.
-    stepCancellationOption :: Prelude.Maybe StepCancellationOption,
+    stepCancellationOption :: Core.Maybe StepCancellationOption,
     -- | The @ClusterID@ for the specified steps that will be canceled. Use
     -- RunJobFlow and ListClusters to get ClusterIDs.
-    clusterId :: Prelude.Text,
+    clusterId :: Core.Text,
     -- | The list of @StepIDs@ to cancel. Use ListSteps to get steps and their
     -- states for the specified cluster.
-    stepIds :: [Prelude.Text]
+    stepIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelSteps' with all optional fields omitted.
@@ -87,79 +86,74 @@ data CancelSteps = CancelSteps'
 -- states for the specified cluster.
 newCancelSteps ::
   -- | 'clusterId'
-  Prelude.Text ->
+  Core.Text ->
   CancelSteps
 newCancelSteps pClusterId_ =
   CancelSteps'
-    { stepCancellationOption =
-        Prelude.Nothing,
+    { stepCancellationOption = Core.Nothing,
       clusterId = pClusterId_,
-      stepIds = Prelude.mempty
+      stepIds = Core.mempty
     }
 
 -- | The option to choose to cancel @RUNNING@ steps. By default, the value is
 -- @SEND_INTERRUPT@.
-cancelSteps_stepCancellationOption :: Lens.Lens' CancelSteps (Prelude.Maybe StepCancellationOption)
+cancelSteps_stepCancellationOption :: Lens.Lens' CancelSteps (Core.Maybe StepCancellationOption)
 cancelSteps_stepCancellationOption = Lens.lens (\CancelSteps' {stepCancellationOption} -> stepCancellationOption) (\s@CancelSteps' {} a -> s {stepCancellationOption = a} :: CancelSteps)
 
 -- | The @ClusterID@ for the specified steps that will be canceled. Use
 -- RunJobFlow and ListClusters to get ClusterIDs.
-cancelSteps_clusterId :: Lens.Lens' CancelSteps Prelude.Text
+cancelSteps_clusterId :: Lens.Lens' CancelSteps Core.Text
 cancelSteps_clusterId = Lens.lens (\CancelSteps' {clusterId} -> clusterId) (\s@CancelSteps' {} a -> s {clusterId = a} :: CancelSteps)
 
 -- | The list of @StepIDs@ to cancel. Use ListSteps to get steps and their
 -- states for the specified cluster.
-cancelSteps_stepIds :: Lens.Lens' CancelSteps [Prelude.Text]
-cancelSteps_stepIds = Lens.lens (\CancelSteps' {stepIds} -> stepIds) (\s@CancelSteps' {} a -> s {stepIds = a} :: CancelSteps) Prelude.. Prelude._Coerce
+cancelSteps_stepIds :: Lens.Lens' CancelSteps [Core.Text]
+cancelSteps_stepIds = Lens.lens (\CancelSteps' {stepIds} -> stepIds) (\s@CancelSteps' {} a -> s {stepIds = a} :: CancelSteps) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CancelSteps where
-  type Rs CancelSteps = CancelStepsResponse
+instance Core.AWSRequest CancelSteps where
+  type AWSResponse CancelSteps = CancelStepsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelStepsResponse'
-            Prelude.<$> ( x Prelude..?> "CancelStepsInfoList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "CancelStepsInfoList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelSteps
+instance Core.Hashable CancelSteps
 
-instance Prelude.NFData CancelSteps
+instance Core.NFData CancelSteps
 
-instance Prelude.ToHeaders CancelSteps where
+instance Core.ToHeaders CancelSteps where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.CancelSteps" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("ElasticMapReduce.CancelSteps" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CancelSteps where
+instance Core.ToJSON CancelSteps where
   toJSON CancelSteps' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StepCancellationOption" Prelude..=)
-              Prelude.<$> stepCancellationOption,
-            Prelude.Just ("ClusterId" Prelude..= clusterId),
-            Prelude.Just ("StepIds" Prelude..= stepIds)
+    Core.object
+      ( Core.catMaybes
+          [ ("StepCancellationOption" Core..=)
+              Core.<$> stepCancellationOption,
+            Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just ("StepIds" Core..= stepIds)
           ]
       )
 
-instance Prelude.ToPath CancelSteps where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelSteps where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelSteps where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelSteps where
+  toQuery = Core.const Core.mempty
 
 -- | The output for the CancelSteps operation.
 --
@@ -167,11 +161,11 @@ instance Prelude.ToQuery CancelSteps where
 data CancelStepsResponse = CancelStepsResponse'
   { -- | A list of CancelStepsInfo, which shows the status of specified cancel
     -- requests for each @StepID@ specified.
-    cancelStepsInfoList :: Prelude.Maybe [CancelStepsInfo],
+    cancelStepsInfoList :: Core.Maybe [CancelStepsInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelStepsResponse' with all optional fields omitted.
@@ -187,22 +181,22 @@ data CancelStepsResponse = CancelStepsResponse'
 -- 'httpStatus', 'cancelStepsResponse_httpStatus' - The response's http status code.
 newCancelStepsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelStepsResponse
 newCancelStepsResponse pHttpStatus_ =
   CancelStepsResponse'
     { cancelStepsInfoList =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of CancelStepsInfo, which shows the status of specified cancel
 -- requests for each @StepID@ specified.
-cancelStepsResponse_cancelStepsInfoList :: Lens.Lens' CancelStepsResponse (Prelude.Maybe [CancelStepsInfo])
-cancelStepsResponse_cancelStepsInfoList = Lens.lens (\CancelStepsResponse' {cancelStepsInfoList} -> cancelStepsInfoList) (\s@CancelStepsResponse' {} a -> s {cancelStepsInfoList = a} :: CancelStepsResponse) Prelude.. Lens.mapping Prelude._Coerce
+cancelStepsResponse_cancelStepsInfoList :: Lens.Lens' CancelStepsResponse (Core.Maybe [CancelStepsInfo])
+cancelStepsResponse_cancelStepsInfoList = Lens.lens (\CancelStepsResponse' {cancelStepsInfoList} -> cancelStepsInfoList) (\s@CancelStepsResponse' {} a -> s {cancelStepsInfoList = a} :: CancelStepsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-cancelStepsResponse_httpStatus :: Lens.Lens' CancelStepsResponse Prelude.Int
+cancelStepsResponse_httpStatus :: Lens.Lens' CancelStepsResponse Core.Int
 cancelStepsResponse_httpStatus = Lens.lens (\CancelStepsResponse' {httpStatus} -> httpStatus) (\s@CancelStepsResponse' {} a -> s {httpStatus = a} :: CancelStepsResponse)
 
-instance Prelude.NFData CancelStepsResponse
+instance Core.NFData CancelStepsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CloudDirectory.Types.TypedLinkSpecifier where
 import Network.AWS.CloudDirectory.Types.AttributeNameAndValue
 import Network.AWS.CloudDirectory.Types.ObjectReference
 import Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains all the information that is used to uniquely identify a typed
 -- link. The parameters discussed in this topic are used to uniquely
@@ -45,7 +44,7 @@ data TypedLinkSpecifier = TypedLinkSpecifier'
     -- | Identifies the attribute value to update.
     identityAttributeValues :: [AttributeNameAndValue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TypedLinkSpecifier' with all optional fields omitted.
@@ -79,7 +78,7 @@ newTypedLinkSpecifier
           pTypedLinkFacet_,
         sourceObjectReference = pSourceObjectReference_,
         targetObjectReference = pTargetObjectReference_,
-        identityAttributeValues = Prelude.mempty
+        identityAttributeValues = Core.mempty
       }
 
 -- | Identifies the typed link facet that is associated with the typed link.
@@ -96,43 +95,42 @@ typedLinkSpecifier_targetObjectReference = Lens.lens (\TypedLinkSpecifier' {targ
 
 -- | Identifies the attribute value to update.
 typedLinkSpecifier_identityAttributeValues :: Lens.Lens' TypedLinkSpecifier [AttributeNameAndValue]
-typedLinkSpecifier_identityAttributeValues = Lens.lens (\TypedLinkSpecifier' {identityAttributeValues} -> identityAttributeValues) (\s@TypedLinkSpecifier' {} a -> s {identityAttributeValues = a} :: TypedLinkSpecifier) Prelude.. Prelude._Coerce
+typedLinkSpecifier_identityAttributeValues = Lens.lens (\TypedLinkSpecifier' {identityAttributeValues} -> identityAttributeValues) (\s@TypedLinkSpecifier' {} a -> s {identityAttributeValues = a} :: TypedLinkSpecifier) Core.. Lens._Coerce
 
-instance Prelude.FromJSON TypedLinkSpecifier where
+instance Core.FromJSON TypedLinkSpecifier where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TypedLinkSpecifier"
       ( \x ->
           TypedLinkSpecifier'
-            Prelude.<$> (x Prelude..: "TypedLinkFacet")
-            Prelude.<*> (x Prelude..: "SourceObjectReference")
-            Prelude.<*> (x Prelude..: "TargetObjectReference")
-            Prelude.<*> ( x Prelude..:? "IdentityAttributeValues"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..: "TypedLinkFacet")
+            Core.<*> (x Core..: "SourceObjectReference")
+            Core.<*> (x Core..: "TargetObjectReference")
+            Core.<*> ( x Core..:? "IdentityAttributeValues"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable TypedLinkSpecifier
+instance Core.Hashable TypedLinkSpecifier
 
-instance Prelude.NFData TypedLinkSpecifier
+instance Core.NFData TypedLinkSpecifier
 
-instance Prelude.ToJSON TypedLinkSpecifier where
+instance Core.ToJSON TypedLinkSpecifier where
   toJSON TypedLinkSpecifier' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TypedLinkFacet" Prelude..= typedLinkFacet),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TypedLinkFacet" Core..= typedLinkFacet),
+            Core.Just
               ( "SourceObjectReference"
-                  Prelude..= sourceObjectReference
+                  Core..= sourceObjectReference
               ),
-            Prelude.Just
+            Core.Just
               ( "TargetObjectReference"
-                  Prelude..= targetObjectReference
+                  Core..= targetObjectReference
               ),
-            Prelude.Just
+            Core.Just
               ( "IdentityAttributeValues"
-                  Prelude..= identityAttributeValues
+                  Core..= identityAttributeValues
               )
           ]
       )

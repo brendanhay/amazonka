@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,30 +46,29 @@ module Network.AWS.EC2.GetManagedPrefixListAssociations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetManagedPrefixListAssociations' smart constructor.
 data GetManagedPrefixListAssociations = GetManagedPrefixListAssociations'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The ID of the prefix list.
-    prefixListId :: Prelude.Text
+    prefixListId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetManagedPrefixListAssociations' with all optional fields omitted.
@@ -94,132 +92,126 @@ data GetManagedPrefixListAssociations = GetManagedPrefixListAssociations'
 -- 'prefixListId', 'getManagedPrefixListAssociations_prefixListId' - The ID of the prefix list.
 newGetManagedPrefixListAssociations ::
   -- | 'prefixListId'
-  Prelude.Text ->
+  Core.Text ->
   GetManagedPrefixListAssociations
 newGetManagedPrefixListAssociations pPrefixListId_ =
   GetManagedPrefixListAssociations'
     { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
       prefixListId = pPrefixListId_
     }
 
 -- | The token for the next page of results.
-getManagedPrefixListAssociations_nextToken :: Lens.Lens' GetManagedPrefixListAssociations (Prelude.Maybe Prelude.Text)
+getManagedPrefixListAssociations_nextToken :: Lens.Lens' GetManagedPrefixListAssociations (Core.Maybe Core.Text)
 getManagedPrefixListAssociations_nextToken = Lens.lens (\GetManagedPrefixListAssociations' {nextToken} -> nextToken) (\s@GetManagedPrefixListAssociations' {} a -> s {nextToken = a} :: GetManagedPrefixListAssociations)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getManagedPrefixListAssociations_dryRun :: Lens.Lens' GetManagedPrefixListAssociations (Prelude.Maybe Prelude.Bool)
+getManagedPrefixListAssociations_dryRun :: Lens.Lens' GetManagedPrefixListAssociations (Core.Maybe Core.Bool)
 getManagedPrefixListAssociations_dryRun = Lens.lens (\GetManagedPrefixListAssociations' {dryRun} -> dryRun) (\s@GetManagedPrefixListAssociations' {} a -> s {dryRun = a} :: GetManagedPrefixListAssociations)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-getManagedPrefixListAssociations_maxResults :: Lens.Lens' GetManagedPrefixListAssociations (Prelude.Maybe Prelude.Natural)
+getManagedPrefixListAssociations_maxResults :: Lens.Lens' GetManagedPrefixListAssociations (Core.Maybe Core.Natural)
 getManagedPrefixListAssociations_maxResults = Lens.lens (\GetManagedPrefixListAssociations' {maxResults} -> maxResults) (\s@GetManagedPrefixListAssociations' {} a -> s {maxResults = a} :: GetManagedPrefixListAssociations)
 
 -- | The ID of the prefix list.
-getManagedPrefixListAssociations_prefixListId :: Lens.Lens' GetManagedPrefixListAssociations Prelude.Text
+getManagedPrefixListAssociations_prefixListId :: Lens.Lens' GetManagedPrefixListAssociations Core.Text
 getManagedPrefixListAssociations_prefixListId = Lens.lens (\GetManagedPrefixListAssociations' {prefixListId} -> prefixListId) (\s@GetManagedPrefixListAssociations' {} a -> s {prefixListId = a} :: GetManagedPrefixListAssociations)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     GetManagedPrefixListAssociations
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getManagedPrefixListAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? getManagedPrefixListAssociationsResponse_prefixListAssociations
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getManagedPrefixListAssociations_nextToken
           Lens..~ rs
           Lens.^? getManagedPrefixListAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetManagedPrefixListAssociations
   where
   type
-    Rs GetManagedPrefixListAssociations =
+    AWSResponse GetManagedPrefixListAssociations =
       GetManagedPrefixListAssociationsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetManagedPrefixListAssociationsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "prefixListAssociationSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "prefixListAssociationSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetManagedPrefixListAssociations
 
-instance
-  Prelude.NFData
-    GetManagedPrefixListAssociations
+instance Core.NFData GetManagedPrefixListAssociations
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetManagedPrefixListAssociations
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
+
+instance Core.ToPath GetManagedPrefixListAssociations where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
-    GetManagedPrefixListAssociations
-  where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetManagedPrefixListAssociations
   where
   toQuery GetManagedPrefixListAssociations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetManagedPrefixListAssociations" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        "PrefixListId" Prelude.=: prefixListId
+          Core.=: ( "GetManagedPrefixListAssociations" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        "PrefixListId" Core.=: prefixListId
       ]
 
 -- | /See:/ 'newGetManagedPrefixListAssociationsResponse' smart constructor.
 data GetManagedPrefixListAssociationsResponse = GetManagedPrefixListAssociationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the associations.
-    prefixListAssociations :: Prelude.Maybe [PrefixListAssociation],
+    prefixListAssociations :: Core.Maybe [PrefixListAssociation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetManagedPrefixListAssociationsResponse' with all optional fields omitted.
@@ -237,31 +229,31 @@ data GetManagedPrefixListAssociationsResponse = GetManagedPrefixListAssociations
 -- 'httpStatus', 'getManagedPrefixListAssociationsResponse_httpStatus' - The response's http status code.
 newGetManagedPrefixListAssociationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetManagedPrefixListAssociationsResponse
 newGetManagedPrefixListAssociationsResponse
   pHttpStatus_ =
     GetManagedPrefixListAssociationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         prefixListAssociations =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-getManagedPrefixListAssociationsResponse_nextToken :: Lens.Lens' GetManagedPrefixListAssociationsResponse (Prelude.Maybe Prelude.Text)
+getManagedPrefixListAssociationsResponse_nextToken :: Lens.Lens' GetManagedPrefixListAssociationsResponse (Core.Maybe Core.Text)
 getManagedPrefixListAssociationsResponse_nextToken = Lens.lens (\GetManagedPrefixListAssociationsResponse' {nextToken} -> nextToken) (\s@GetManagedPrefixListAssociationsResponse' {} a -> s {nextToken = a} :: GetManagedPrefixListAssociationsResponse)
 
 -- | Information about the associations.
-getManagedPrefixListAssociationsResponse_prefixListAssociations :: Lens.Lens' GetManagedPrefixListAssociationsResponse (Prelude.Maybe [PrefixListAssociation])
-getManagedPrefixListAssociationsResponse_prefixListAssociations = Lens.lens (\GetManagedPrefixListAssociationsResponse' {prefixListAssociations} -> prefixListAssociations) (\s@GetManagedPrefixListAssociationsResponse' {} a -> s {prefixListAssociations = a} :: GetManagedPrefixListAssociationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getManagedPrefixListAssociationsResponse_prefixListAssociations :: Lens.Lens' GetManagedPrefixListAssociationsResponse (Core.Maybe [PrefixListAssociation])
+getManagedPrefixListAssociationsResponse_prefixListAssociations = Lens.lens (\GetManagedPrefixListAssociationsResponse' {prefixListAssociations} -> prefixListAssociations) (\s@GetManagedPrefixListAssociationsResponse' {} a -> s {prefixListAssociations = a} :: GetManagedPrefixListAssociationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getManagedPrefixListAssociationsResponse_httpStatus :: Lens.Lens' GetManagedPrefixListAssociationsResponse Prelude.Int
+getManagedPrefixListAssociationsResponse_httpStatus :: Lens.Lens' GetManagedPrefixListAssociationsResponse Core.Int
 getManagedPrefixListAssociationsResponse_httpStatus = Lens.lens (\GetManagedPrefixListAssociationsResponse' {httpStatus} -> httpStatus) (\s@GetManagedPrefixListAssociationsResponse' {} a -> s {httpStatus = a} :: GetManagedPrefixListAssociationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetManagedPrefixListAssociationsResponse

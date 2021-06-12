@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -121,9 +120,9 @@ module Network.AWS.DynamoDB.BatchWriteItem
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -135,8 +134,8 @@ data BatchWriteItem = BatchWriteItem'
     -- @SIZE@, the response includes statistics about item collections, if any,
     -- that were modified during the operation are returned in the response. If
     -- set to @NONE@ (the default), no statistics are returned.
-    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
-    returnConsumedCapacity :: Prelude.Maybe ReturnConsumedCapacity,
+    returnItemCollectionMetrics :: Core.Maybe ReturnItemCollectionMetrics,
+    returnConsumedCapacity :: Core.Maybe ReturnConsumedCapacity,
     -- | A map of one or more table names and, for each table, a list of
     -- operations to be performed (@DeleteRequest@ or @PutRequest@). Each
     -- element in the map consists of the following:
@@ -165,9 +164,9 @@ data BatchWriteItem = BatchWriteItem'
     --         If you specify any attributes that are part of an index key,
     --         then the data types for those attributes must match those of the
     --         schema in the table\'s attribute definition.
-    requestItems :: Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest)
+    requestItems :: Core.HashMap Core.Text (Core.NonEmpty WriteRequest)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchWriteItem' with all optional fields omitted.
@@ -217,20 +216,20 @@ newBatchWriteItem ::
 newBatchWriteItem =
   BatchWriteItem'
     { returnItemCollectionMetrics =
-        Prelude.Nothing,
-      returnConsumedCapacity = Prelude.Nothing,
-      requestItems = Prelude.mempty
+        Core.Nothing,
+      returnConsumedCapacity = Core.Nothing,
+      requestItems = Core.mempty
     }
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-batchWriteItem_returnItemCollectionMetrics :: Lens.Lens' BatchWriteItem (Prelude.Maybe ReturnItemCollectionMetrics)
+batchWriteItem_returnItemCollectionMetrics :: Lens.Lens' BatchWriteItem (Core.Maybe ReturnItemCollectionMetrics)
 batchWriteItem_returnItemCollectionMetrics = Lens.lens (\BatchWriteItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@BatchWriteItem' {} a -> s {returnItemCollectionMetrics = a} :: BatchWriteItem)
 
 -- | Undocumented member.
-batchWriteItem_returnConsumedCapacity :: Lens.Lens' BatchWriteItem (Prelude.Maybe ReturnConsumedCapacity)
+batchWriteItem_returnConsumedCapacity :: Lens.Lens' BatchWriteItem (Core.Maybe ReturnConsumedCapacity)
 batchWriteItem_returnConsumedCapacity = Lens.lens (\BatchWriteItem' {returnConsumedCapacity} -> returnConsumedCapacity) (\s@BatchWriteItem' {} a -> s {returnConsumedCapacity = a} :: BatchWriteItem)
 
 -- | A map of one or more table names and, for each table, a list of
@@ -261,65 +260,60 @@ batchWriteItem_returnConsumedCapacity = Lens.lens (\BatchWriteItem' {returnConsu
 --         If you specify any attributes that are part of an index key,
 --         then the data types for those attributes must match those of the
 --         schema in the table\'s attribute definition.
-batchWriteItem_requestItems :: Lens.Lens' BatchWriteItem (Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest))
-batchWriteItem_requestItems = Lens.lens (\BatchWriteItem' {requestItems} -> requestItems) (\s@BatchWriteItem' {} a -> s {requestItems = a} :: BatchWriteItem) Prelude.. Prelude._Coerce
+batchWriteItem_requestItems :: Lens.Lens' BatchWriteItem (Core.HashMap Core.Text (Core.NonEmpty WriteRequest))
+batchWriteItem_requestItems = Lens.lens (\BatchWriteItem' {requestItems} -> requestItems) (\s@BatchWriteItem' {} a -> s {requestItems = a} :: BatchWriteItem) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchWriteItem where
-  type Rs BatchWriteItem = BatchWriteItemResponse
+instance Core.AWSRequest BatchWriteItem where
+  type
+    AWSResponse BatchWriteItem =
+      BatchWriteItemResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchWriteItemResponse'
-            Prelude.<$> ( x Prelude..?> "ItemCollectionMetrics"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "UnprocessedItems"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "ConsumedCapacity"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "ItemCollectionMetrics"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "UnprocessedItems" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ConsumedCapacity" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchWriteItem
+instance Core.Hashable BatchWriteItem
 
-instance Prelude.NFData BatchWriteItem
+instance Core.NFData BatchWriteItem
 
-instance Prelude.ToHeaders BatchWriteItem where
+instance Core.ToHeaders BatchWriteItem where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.BatchWriteItem" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.BatchWriteItem" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchWriteItem where
+instance Core.ToJSON BatchWriteItem where
   toJSON BatchWriteItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ReturnItemCollectionMetrics" Prelude..=)
-              Prelude.<$> returnItemCollectionMetrics,
-            ("ReturnConsumedCapacity" Prelude..=)
-              Prelude.<$> returnConsumedCapacity,
-            Prelude.Just
-              ("RequestItems" Prelude..= requestItems)
+    Core.object
+      ( Core.catMaybes
+          [ ("ReturnItemCollectionMetrics" Core..=)
+              Core.<$> returnItemCollectionMetrics,
+            ("ReturnConsumedCapacity" Core..=)
+              Core.<$> returnConsumedCapacity,
+            Core.Just ("RequestItems" Core..= requestItems)
           ]
       )
 
-instance Prelude.ToPath BatchWriteItem where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchWriteItem where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchWriteItem where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchWriteItem where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @BatchWriteItem@ operation.
 --
@@ -344,7 +338,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     --
     --     The estimate is subject to change over time; therefore, do not rely
     --     on the precision or accuracy of the estimate.
-    itemCollectionMetrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ItemCollectionMetrics]),
+    itemCollectionMetrics :: Core.Maybe (Core.HashMap Core.Text [ItemCollectionMetrics]),
     -- | A map of tables and requests against those tables that were not
     -- processed. The @UnprocessedItems@ value is in the same form as
     -- @RequestItems@, so you can provide this value directly to a subsequent
@@ -378,7 +372,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     --
     -- If there are no unprocessed items remaining, the response contains an
     -- empty @UnprocessedItems@ map.
-    unprocessedItems :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest)),
+    unprocessedItems :: Core.Maybe (Core.HashMap Core.Text (Core.NonEmpty WriteRequest)),
     -- | The capacity units consumed by the entire @BatchWriteItem@ operation.
     --
     -- Each element consists of:
@@ -386,11 +380,11 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     -- -   @TableName@ - The table that consumed the provisioned throughput.
     --
     -- -   @CapacityUnits@ - The total number of capacity units consumed.
-    consumedCapacity :: Prelude.Maybe [ConsumedCapacity],
+    consumedCapacity :: Core.Maybe [ConsumedCapacity],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchWriteItemResponse' with all optional fields omitted.
@@ -465,14 +459,14 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 -- 'httpStatus', 'batchWriteItemResponse_httpStatus' - The response's http status code.
 newBatchWriteItemResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchWriteItemResponse
 newBatchWriteItemResponse pHttpStatus_ =
   BatchWriteItemResponse'
     { itemCollectionMetrics =
-        Prelude.Nothing,
-      unprocessedItems = Prelude.Nothing,
-      consumedCapacity = Prelude.Nothing,
+        Core.Nothing,
+      unprocessedItems = Core.Nothing,
+      consumedCapacity = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -495,8 +489,8 @@ newBatchWriteItemResponse pHttpStatus_ =
 --
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
-batchWriteItemResponse_itemCollectionMetrics :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ItemCollectionMetrics]))
-batchWriteItemResponse_itemCollectionMetrics = Lens.lens (\BatchWriteItemResponse' {itemCollectionMetrics} -> itemCollectionMetrics) (\s@BatchWriteItemResponse' {} a -> s {itemCollectionMetrics = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchWriteItemResponse_itemCollectionMetrics :: Lens.Lens' BatchWriteItemResponse (Core.Maybe (Core.HashMap Core.Text [ItemCollectionMetrics]))
+batchWriteItemResponse_itemCollectionMetrics = Lens.lens (\BatchWriteItemResponse' {itemCollectionMetrics} -> itemCollectionMetrics) (\s@BatchWriteItemResponse' {} a -> s {itemCollectionMetrics = a} :: BatchWriteItemResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A map of tables and requests against those tables that were not
 -- processed. The @UnprocessedItems@ value is in the same form as
@@ -531,8 +525,8 @@ batchWriteItemResponse_itemCollectionMetrics = Lens.lens (\BatchWriteItemRespons
 --
 -- If there are no unprocessed items remaining, the response contains an
 -- empty @UnprocessedItems@ map.
-batchWriteItemResponse_unprocessedItems :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text (Prelude.NonEmpty WriteRequest)))
-batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {unprocessedItems} -> unprocessedItems) (\s@BatchWriteItemResponse' {} a -> s {unprocessedItems = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchWriteItemResponse_unprocessedItems :: Lens.Lens' BatchWriteItemResponse (Core.Maybe (Core.HashMap Core.Text (Core.NonEmpty WriteRequest)))
+batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {unprocessedItems} -> unprocessedItems) (\s@BatchWriteItemResponse' {} a -> s {unprocessedItems = a} :: BatchWriteItemResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The capacity units consumed by the entire @BatchWriteItem@ operation.
 --
@@ -541,11 +535,11 @@ batchWriteItemResponse_unprocessedItems = Lens.lens (\BatchWriteItemResponse' {u
 -- -   @TableName@ - The table that consumed the provisioned throughput.
 --
 -- -   @CapacityUnits@ - The total number of capacity units consumed.
-batchWriteItemResponse_consumedCapacity :: Lens.Lens' BatchWriteItemResponse (Prelude.Maybe [ConsumedCapacity])
-batchWriteItemResponse_consumedCapacity = Lens.lens (\BatchWriteItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchWriteItemResponse' {} a -> s {consumedCapacity = a} :: BatchWriteItemResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchWriteItemResponse_consumedCapacity :: Lens.Lens' BatchWriteItemResponse (Core.Maybe [ConsumedCapacity])
+batchWriteItemResponse_consumedCapacity = Lens.lens (\BatchWriteItemResponse' {consumedCapacity} -> consumedCapacity) (\s@BatchWriteItemResponse' {} a -> s {consumedCapacity = a} :: BatchWriteItemResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchWriteItemResponse_httpStatus :: Lens.Lens' BatchWriteItemResponse Prelude.Int
+batchWriteItemResponse_httpStatus :: Lens.Lens' BatchWriteItemResponse Core.Int
 batchWriteItemResponse_httpStatus = Lens.lens (\BatchWriteItemResponse' {httpStatus} -> httpStatus) (\s@BatchWriteItemResponse' {} a -> s {httpStatus = a} :: BatchWriteItemResponse)
 
-instance Prelude.NFData BatchWriteItemResponse
+instance Core.NFData BatchWriteItemResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.CognitoIdentityProvider.AdminDeleteUser
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +49,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAdminDeleteUser' smart constructor.
 data AdminDeleteUser = AdminDeleteUser'
   { -- | The user pool ID for the user pool where you want to delete the user.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The user name of the user you wish to delete.
-    username :: Prelude.Sensitive Prelude.Text
+    username :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminDeleteUser' with all optional fields omitted.
@@ -69,69 +68,69 @@ data AdminDeleteUser = AdminDeleteUser'
 -- 'username', 'adminDeleteUser_username' - The user name of the user you wish to delete.
 newAdminDeleteUser ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   AdminDeleteUser
 newAdminDeleteUser pUserPoolId_ pUsername_ =
   AdminDeleteUser'
     { userPoolId = pUserPoolId_,
-      username = Prelude._Sensitive Lens.# pUsername_
+      username = Core._Sensitive Lens.# pUsername_
     }
 
 -- | The user pool ID for the user pool where you want to delete the user.
-adminDeleteUser_userPoolId :: Lens.Lens' AdminDeleteUser Prelude.Text
+adminDeleteUser_userPoolId :: Lens.Lens' AdminDeleteUser Core.Text
 adminDeleteUser_userPoolId = Lens.lens (\AdminDeleteUser' {userPoolId} -> userPoolId) (\s@AdminDeleteUser' {} a -> s {userPoolId = a} :: AdminDeleteUser)
 
 -- | The user name of the user you wish to delete.
-adminDeleteUser_username :: Lens.Lens' AdminDeleteUser Prelude.Text
-adminDeleteUser_username = Lens.lens (\AdminDeleteUser' {username} -> username) (\s@AdminDeleteUser' {} a -> s {username = a} :: AdminDeleteUser) Prelude.. Prelude._Sensitive
+adminDeleteUser_username :: Lens.Lens' AdminDeleteUser Core.Text
+adminDeleteUser_username = Lens.lens (\AdminDeleteUser' {username} -> username) (\s@AdminDeleteUser' {} a -> s {username = a} :: AdminDeleteUser) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest AdminDeleteUser where
-  type Rs AdminDeleteUser = AdminDeleteUserResponse
+instance Core.AWSRequest AdminDeleteUser where
+  type
+    AWSResponse AdminDeleteUser =
+      AdminDeleteUserResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull AdminDeleteUserResponse'
 
-instance Prelude.Hashable AdminDeleteUser
+instance Core.Hashable AdminDeleteUser
 
-instance Prelude.NFData AdminDeleteUser
+instance Core.NFData AdminDeleteUser
 
-instance Prelude.ToHeaders AdminDeleteUser where
+instance Core.ToHeaders AdminDeleteUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUser" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.AdminDeleteUser" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AdminDeleteUser where
+instance Core.ToJSON AdminDeleteUser where
   toJSON AdminDeleteUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just ("Username" Prelude..= username)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username)
           ]
       )
 
-instance Prelude.ToPath AdminDeleteUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath AdminDeleteUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AdminDeleteUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AdminDeleteUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAdminDeleteUserResponse' smart constructor.
 data AdminDeleteUserResponse = AdminDeleteUserResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminDeleteUserResponse' with all optional fields omitted.
@@ -141,4 +140,4 @@ newAdminDeleteUserResponse ::
   AdminDeleteUserResponse
 newAdminDeleteUserResponse = AdminDeleteUserResponse'
 
-instance Prelude.NFData AdminDeleteUserResponse
+instance Core.NFData AdminDeleteUserResponse

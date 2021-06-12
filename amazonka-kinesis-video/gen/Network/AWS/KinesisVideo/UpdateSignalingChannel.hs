@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.KinesisVideo.UpdateSignalingChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +56,14 @@ import qualified Network.AWS.Response as Response
 data UpdateSignalingChannel = UpdateSignalingChannel'
   { -- | The structure containing the configuration for the @SINGLE_MASTER@ type
     -- of the signaling channel that you want to update.
-    singleMasterConfiguration :: Prelude.Maybe SingleMasterConfiguration,
+    singleMasterConfiguration :: Core.Maybe SingleMasterConfiguration,
     -- | The Amazon Resource Name (ARN) of the signaling channel that you want to
     -- update.
-    channelARN :: Prelude.Text,
+    channelARN :: Core.Text,
     -- | The current version of the signaling channel that you want to update.
-    currentVersion :: Prelude.Text
+    currentVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSignalingChannel' with all optional fields omitted.
@@ -83,77 +82,76 @@ data UpdateSignalingChannel = UpdateSignalingChannel'
 -- 'currentVersion', 'updateSignalingChannel_currentVersion' - The current version of the signaling channel that you want to update.
 newUpdateSignalingChannel ::
   -- | 'channelARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'currentVersion'
-  Prelude.Text ->
+  Core.Text ->
   UpdateSignalingChannel
 newUpdateSignalingChannel
   pChannelARN_
   pCurrentVersion_ =
     UpdateSignalingChannel'
       { singleMasterConfiguration =
-          Prelude.Nothing,
+          Core.Nothing,
         channelARN = pChannelARN_,
         currentVersion = pCurrentVersion_
       }
 
 -- | The structure containing the configuration for the @SINGLE_MASTER@ type
 -- of the signaling channel that you want to update.
-updateSignalingChannel_singleMasterConfiguration :: Lens.Lens' UpdateSignalingChannel (Prelude.Maybe SingleMasterConfiguration)
+updateSignalingChannel_singleMasterConfiguration :: Lens.Lens' UpdateSignalingChannel (Core.Maybe SingleMasterConfiguration)
 updateSignalingChannel_singleMasterConfiguration = Lens.lens (\UpdateSignalingChannel' {singleMasterConfiguration} -> singleMasterConfiguration) (\s@UpdateSignalingChannel' {} a -> s {singleMasterConfiguration = a} :: UpdateSignalingChannel)
 
 -- | The Amazon Resource Name (ARN) of the signaling channel that you want to
 -- update.
-updateSignalingChannel_channelARN :: Lens.Lens' UpdateSignalingChannel Prelude.Text
+updateSignalingChannel_channelARN :: Lens.Lens' UpdateSignalingChannel Core.Text
 updateSignalingChannel_channelARN = Lens.lens (\UpdateSignalingChannel' {channelARN} -> channelARN) (\s@UpdateSignalingChannel' {} a -> s {channelARN = a} :: UpdateSignalingChannel)
 
 -- | The current version of the signaling channel that you want to update.
-updateSignalingChannel_currentVersion :: Lens.Lens' UpdateSignalingChannel Prelude.Text
+updateSignalingChannel_currentVersion :: Lens.Lens' UpdateSignalingChannel Core.Text
 updateSignalingChannel_currentVersion = Lens.lens (\UpdateSignalingChannel' {currentVersion} -> currentVersion) (\s@UpdateSignalingChannel' {} a -> s {currentVersion = a} :: UpdateSignalingChannel)
 
-instance Prelude.AWSRequest UpdateSignalingChannel where
+instance Core.AWSRequest UpdateSignalingChannel where
   type
-    Rs UpdateSignalingChannel =
+    AWSResponse UpdateSignalingChannel =
       UpdateSignalingChannelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSignalingChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSignalingChannel
+instance Core.Hashable UpdateSignalingChannel
 
-instance Prelude.NFData UpdateSignalingChannel
+instance Core.NFData UpdateSignalingChannel
 
-instance Prelude.ToHeaders UpdateSignalingChannel where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateSignalingChannel where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateSignalingChannel where
+instance Core.ToJSON UpdateSignalingChannel where
   toJSON UpdateSignalingChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SingleMasterConfiguration" Prelude..=)
-              Prelude.<$> singleMasterConfiguration,
-            Prelude.Just ("ChannelARN" Prelude..= channelARN),
-            Prelude.Just
-              ("CurrentVersion" Prelude..= currentVersion)
+    Core.object
+      ( Core.catMaybes
+          [ ("SingleMasterConfiguration" Core..=)
+              Core.<$> singleMasterConfiguration,
+            Core.Just ("ChannelARN" Core..= channelARN),
+            Core.Just ("CurrentVersion" Core..= currentVersion)
           ]
       )
 
-instance Prelude.ToPath UpdateSignalingChannel where
-  toPath = Prelude.const "/updateSignalingChannel"
+instance Core.ToPath UpdateSignalingChannel where
+  toPath = Core.const "/updateSignalingChannel"
 
-instance Prelude.ToQuery UpdateSignalingChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSignalingChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSignalingChannelResponse' smart constructor.
 data UpdateSignalingChannelResponse = UpdateSignalingChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSignalingChannelResponse' with all optional fields omitted.
@@ -166,7 +164,7 @@ data UpdateSignalingChannelResponse = UpdateSignalingChannelResponse'
 -- 'httpStatus', 'updateSignalingChannelResponse_httpStatus' - The response's http status code.
 newUpdateSignalingChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSignalingChannelResponse
 newUpdateSignalingChannelResponse pHttpStatus_ =
   UpdateSignalingChannelResponse'
@@ -175,9 +173,7 @@ newUpdateSignalingChannelResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateSignalingChannelResponse_httpStatus :: Lens.Lens' UpdateSignalingChannelResponse Prelude.Int
+updateSignalingChannelResponse_httpStatus :: Lens.Lens' UpdateSignalingChannelResponse Core.Int
 updateSignalingChannelResponse_httpStatus = Lens.lens (\UpdateSignalingChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateSignalingChannelResponse' {} a -> s {httpStatus = a} :: UpdateSignalingChannelResponse)
 
-instance
-  Prelude.NFData
-    UpdateSignalingChannelResponse
+instance Core.NFData UpdateSignalingChannelResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.RandomSplitActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.RandomSplitEntry
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for a random split activity in a journey. This
 -- type of activity randomly sends specified percentages of participants
@@ -33,9 +32,9 @@ import qualified Network.AWS.Prelude as Prelude
 data RandomSplitActivity = RandomSplitActivity'
   { -- | The paths for the activity, including the percentage of participants to
     -- enter each path and the activity to perform for each path.
-    branches :: Prelude.Maybe [RandomSplitEntry]
+    branches :: Core.Maybe [RandomSplitEntry]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RandomSplitActivity' with all optional fields omitted.
@@ -50,31 +49,29 @@ data RandomSplitActivity = RandomSplitActivity'
 newRandomSplitActivity ::
   RandomSplitActivity
 newRandomSplitActivity =
-  RandomSplitActivity' {branches = Prelude.Nothing}
+  RandomSplitActivity' {branches = Core.Nothing}
 
 -- | The paths for the activity, including the percentage of participants to
 -- enter each path and the activity to perform for each path.
-randomSplitActivity_branches :: Lens.Lens' RandomSplitActivity (Prelude.Maybe [RandomSplitEntry])
-randomSplitActivity_branches = Lens.lens (\RandomSplitActivity' {branches} -> branches) (\s@RandomSplitActivity' {} a -> s {branches = a} :: RandomSplitActivity) Prelude.. Lens.mapping Prelude._Coerce
+randomSplitActivity_branches :: Lens.Lens' RandomSplitActivity (Core.Maybe [RandomSplitEntry])
+randomSplitActivity_branches = Lens.lens (\RandomSplitActivity' {branches} -> branches) (\s@RandomSplitActivity' {} a -> s {branches = a} :: RandomSplitActivity) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON RandomSplitActivity where
+instance Core.FromJSON RandomSplitActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RandomSplitActivity"
       ( \x ->
           RandomSplitActivity'
-            Prelude.<$> ( x Prelude..:? "Branches"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Branches" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable RandomSplitActivity
+instance Core.Hashable RandomSplitActivity
 
-instance Prelude.NFData RandomSplitActivity
+instance Core.NFData RandomSplitActivity
 
-instance Prelude.ToJSON RandomSplitActivity where
+instance Core.ToJSON RandomSplitActivity where
   toJSON RandomSplitActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Branches" Prelude..=) Prelude.<$> branches]
+    Core.object
+      ( Core.catMaybes
+          [("Branches" Core..=) Core.<$> branches]
       )

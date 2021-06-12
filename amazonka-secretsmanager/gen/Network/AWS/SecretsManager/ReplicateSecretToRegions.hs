@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SecretsManager.ReplicateSecretToRegions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -54,13 +53,13 @@ import Network.AWS.SecretsManager.Types
 data ReplicateSecretToRegions = ReplicateSecretToRegions'
   { -- | (Optional) If set, Secrets Manager replication overwrites a secret with
     -- the same name in the destination region.
-    forceOverwriteReplicaSecret :: Prelude.Maybe Prelude.Bool,
+    forceOverwriteReplicaSecret :: Core.Maybe Core.Bool,
     -- | Use the @Secret Id@ to replicate a secret to regions.
-    secretId :: Prelude.Text,
+    secretId :: Core.Text,
     -- | Add Regions to replicate the secret.
-    addReplicaRegions :: Prelude.NonEmpty ReplicaRegionType
+    addReplicaRegions :: Core.NonEmpty ReplicaRegionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicateSecretToRegions' with all optional fields omitted.
@@ -78,100 +77,96 @@ data ReplicateSecretToRegions = ReplicateSecretToRegions'
 -- 'addReplicaRegions', 'replicateSecretToRegions_addReplicaRegions' - Add Regions to replicate the secret.
 newReplicateSecretToRegions ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'addReplicaRegions'
-  Prelude.NonEmpty ReplicaRegionType ->
+  Core.NonEmpty ReplicaRegionType ->
   ReplicateSecretToRegions
 newReplicateSecretToRegions
   pSecretId_
   pAddReplicaRegions_ =
     ReplicateSecretToRegions'
       { forceOverwriteReplicaSecret =
-          Prelude.Nothing,
+          Core.Nothing,
         secretId = pSecretId_,
         addReplicaRegions =
-          Prelude._Coerce Lens.# pAddReplicaRegions_
+          Lens._Coerce Lens.# pAddReplicaRegions_
       }
 
 -- | (Optional) If set, Secrets Manager replication overwrites a secret with
 -- the same name in the destination region.
-replicateSecretToRegions_forceOverwriteReplicaSecret :: Lens.Lens' ReplicateSecretToRegions (Prelude.Maybe Prelude.Bool)
+replicateSecretToRegions_forceOverwriteReplicaSecret :: Lens.Lens' ReplicateSecretToRegions (Core.Maybe Core.Bool)
 replicateSecretToRegions_forceOverwriteReplicaSecret = Lens.lens (\ReplicateSecretToRegions' {forceOverwriteReplicaSecret} -> forceOverwriteReplicaSecret) (\s@ReplicateSecretToRegions' {} a -> s {forceOverwriteReplicaSecret = a} :: ReplicateSecretToRegions)
 
 -- | Use the @Secret Id@ to replicate a secret to regions.
-replicateSecretToRegions_secretId :: Lens.Lens' ReplicateSecretToRegions Prelude.Text
+replicateSecretToRegions_secretId :: Lens.Lens' ReplicateSecretToRegions Core.Text
 replicateSecretToRegions_secretId = Lens.lens (\ReplicateSecretToRegions' {secretId} -> secretId) (\s@ReplicateSecretToRegions' {} a -> s {secretId = a} :: ReplicateSecretToRegions)
 
 -- | Add Regions to replicate the secret.
-replicateSecretToRegions_addReplicaRegions :: Lens.Lens' ReplicateSecretToRegions (Prelude.NonEmpty ReplicaRegionType)
-replicateSecretToRegions_addReplicaRegions = Lens.lens (\ReplicateSecretToRegions' {addReplicaRegions} -> addReplicaRegions) (\s@ReplicateSecretToRegions' {} a -> s {addReplicaRegions = a} :: ReplicateSecretToRegions) Prelude.. Prelude._Coerce
+replicateSecretToRegions_addReplicaRegions :: Lens.Lens' ReplicateSecretToRegions (Core.NonEmpty ReplicaRegionType)
+replicateSecretToRegions_addReplicaRegions = Lens.lens (\ReplicateSecretToRegions' {addReplicaRegions} -> addReplicaRegions) (\s@ReplicateSecretToRegions' {} a -> s {addReplicaRegions = a} :: ReplicateSecretToRegions) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest ReplicateSecretToRegions where
+instance Core.AWSRequest ReplicateSecretToRegions where
   type
-    Rs ReplicateSecretToRegions =
+    AWSResponse ReplicateSecretToRegions =
       ReplicateSecretToRegionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ReplicateSecretToRegionsResponse'
-            Prelude.<$> ( x Prelude..?> "ReplicationStatus"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "ARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationStatus" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ReplicateSecretToRegions
+instance Core.Hashable ReplicateSecretToRegions
 
-instance Prelude.NFData ReplicateSecretToRegions
+instance Core.NFData ReplicateSecretToRegions
 
-instance Prelude.ToHeaders ReplicateSecretToRegions where
+instance Core.ToHeaders ReplicateSecretToRegions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.ReplicateSecretToRegions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.ReplicateSecretToRegions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ReplicateSecretToRegions where
+instance Core.ToJSON ReplicateSecretToRegions where
   toJSON ReplicateSecretToRegions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ForceOverwriteReplicaSecret" Prelude..=)
-              Prelude.<$> forceOverwriteReplicaSecret,
-            Prelude.Just ("SecretId" Prelude..= secretId),
-            Prelude.Just
-              ("AddReplicaRegions" Prelude..= addReplicaRegions)
+    Core.object
+      ( Core.catMaybes
+          [ ("ForceOverwriteReplicaSecret" Core..=)
+              Core.<$> forceOverwriteReplicaSecret,
+            Core.Just ("SecretId" Core..= secretId),
+            Core.Just
+              ("AddReplicaRegions" Core..= addReplicaRegions)
           ]
       )
 
-instance Prelude.ToPath ReplicateSecretToRegions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ReplicateSecretToRegions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ReplicateSecretToRegions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ReplicateSecretToRegions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newReplicateSecretToRegionsResponse' smart constructor.
 data ReplicateSecretToRegionsResponse = ReplicateSecretToRegionsResponse'
   { -- | Describes the secret replication status as @PENDING@, @SUCCESS@ or
     -- @FAIL@.
-    replicationStatus :: Prelude.Maybe [ReplicationStatusType],
+    replicationStatus :: Core.Maybe [ReplicationStatusType],
     -- | Replicate a secret based on the @ReplicaRegionType@> consisting of a
     -- Region(required) and a KMSKeyId (optional) which can be the ARN, KeyID,
     -- or Alias.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicateSecretToRegionsResponse' with all optional fields omitted.
@@ -191,31 +186,29 @@ data ReplicateSecretToRegionsResponse = ReplicateSecretToRegionsResponse'
 -- 'httpStatus', 'replicateSecretToRegionsResponse_httpStatus' - The response's http status code.
 newReplicateSecretToRegionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ReplicateSecretToRegionsResponse
 newReplicateSecretToRegionsResponse pHttpStatus_ =
   ReplicateSecretToRegionsResponse'
     { replicationStatus =
-        Prelude.Nothing,
-      arn = Prelude.Nothing,
+        Core.Nothing,
+      arn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Describes the secret replication status as @PENDING@, @SUCCESS@ or
 -- @FAIL@.
-replicateSecretToRegionsResponse_replicationStatus :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe [ReplicationStatusType])
-replicateSecretToRegionsResponse_replicationStatus = Lens.lens (\ReplicateSecretToRegionsResponse' {replicationStatus} -> replicationStatus) (\s@ReplicateSecretToRegionsResponse' {} a -> s {replicationStatus = a} :: ReplicateSecretToRegionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+replicateSecretToRegionsResponse_replicationStatus :: Lens.Lens' ReplicateSecretToRegionsResponse (Core.Maybe [ReplicationStatusType])
+replicateSecretToRegionsResponse_replicationStatus = Lens.lens (\ReplicateSecretToRegionsResponse' {replicationStatus} -> replicationStatus) (\s@ReplicateSecretToRegionsResponse' {} a -> s {replicationStatus = a} :: ReplicateSecretToRegionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Replicate a secret based on the @ReplicaRegionType@> consisting of a
 -- Region(required) and a KMSKeyId (optional) which can be the ARN, KeyID,
 -- or Alias.
-replicateSecretToRegionsResponse_arn :: Lens.Lens' ReplicateSecretToRegionsResponse (Prelude.Maybe Prelude.Text)
+replicateSecretToRegionsResponse_arn :: Lens.Lens' ReplicateSecretToRegionsResponse (Core.Maybe Core.Text)
 replicateSecretToRegionsResponse_arn = Lens.lens (\ReplicateSecretToRegionsResponse' {arn} -> arn) (\s@ReplicateSecretToRegionsResponse' {} a -> s {arn = a} :: ReplicateSecretToRegionsResponse)
 
 -- | The response's http status code.
-replicateSecretToRegionsResponse_httpStatus :: Lens.Lens' ReplicateSecretToRegionsResponse Prelude.Int
+replicateSecretToRegionsResponse_httpStatus :: Lens.Lens' ReplicateSecretToRegionsResponse Core.Int
 replicateSecretToRegionsResponse_httpStatus = Lens.lens (\ReplicateSecretToRegionsResponse' {httpStatus} -> httpStatus) (\s@ReplicateSecretToRegionsResponse' {} a -> s {httpStatus = a} :: ReplicateSecretToRegionsResponse)
 
-instance
-  Prelude.NFData
-    ReplicateSecretToRegionsResponse
+instance Core.NFData ReplicateSecretToRegionsResponse

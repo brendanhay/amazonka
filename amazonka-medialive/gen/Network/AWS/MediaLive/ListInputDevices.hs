@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.MediaLive.ListInputDevices
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,10 +53,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newListInputDevices' smart constructor.
 data ListInputDevices = ListInputDevices'
-  { nextToken :: Prelude.Maybe Prelude.Text,
-    maxResults :: Prelude.Maybe Prelude.Natural
+  { nextToken :: Core.Maybe Core.Text,
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInputDevices' with all optional fields omitted.
@@ -75,77 +73,73 @@ newListInputDevices ::
   ListInputDevices
 newListInputDevices =
   ListInputDevices'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | Undocumented member.
-listInputDevices_nextToken :: Lens.Lens' ListInputDevices (Prelude.Maybe Prelude.Text)
+listInputDevices_nextToken :: Lens.Lens' ListInputDevices (Core.Maybe Core.Text)
 listInputDevices_nextToken = Lens.lens (\ListInputDevices' {nextToken} -> nextToken) (\s@ListInputDevices' {} a -> s {nextToken = a} :: ListInputDevices)
 
 -- | Undocumented member.
-listInputDevices_maxResults :: Lens.Lens' ListInputDevices (Prelude.Maybe Prelude.Natural)
+listInputDevices_maxResults :: Lens.Lens' ListInputDevices (Core.Maybe Core.Natural)
 listInputDevices_maxResults = Lens.lens (\ListInputDevices' {maxResults} -> maxResults) (\s@ListInputDevices' {} a -> s {maxResults = a} :: ListInputDevices)
 
-instance Pager.AWSPager ListInputDevices where
+instance Core.AWSPager ListInputDevices where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listInputDevicesResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listInputDevicesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listInputDevicesResponse_inputDevices
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listInputDevices_nextToken
           Lens..~ rs
-          Lens.^? listInputDevicesResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listInputDevicesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListInputDevices where
-  type Rs ListInputDevices = ListInputDevicesResponse
+instance Core.AWSRequest ListInputDevices where
+  type
+    AWSResponse ListInputDevices =
+      ListInputDevicesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListInputDevicesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "inputDevices"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "inputDevices" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListInputDevices
+instance Core.Hashable ListInputDevices
 
-instance Prelude.NFData ListInputDevices
+instance Core.NFData ListInputDevices
 
-instance Prelude.ToHeaders ListInputDevices where
+instance Core.ToHeaders ListInputDevices where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListInputDevices where
-  toPath = Prelude.const "/prod/inputDevices"
+instance Core.ToPath ListInputDevices where
+  toPath = Core.const "/prod/inputDevices"
 
-instance Prelude.ToQuery ListInputDevices where
+instance Core.ToQuery ListInputDevices where
   toQuery ListInputDevices' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | Placeholder documentation for ListInputDevicesResponse
@@ -153,13 +147,13 @@ instance Prelude.ToQuery ListInputDevices where
 -- /See:/ 'newListInputDevicesResponse' smart constructor.
 data ListInputDevicesResponse = ListInputDevicesResponse'
   { -- | A token to get additional list results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of input devices.
-    inputDevices :: Prelude.Maybe [InputDeviceSummary],
+    inputDevices :: Core.Maybe [InputDeviceSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInputDevicesResponse' with all optional fields omitted.
@@ -176,26 +170,25 @@ data ListInputDevicesResponse = ListInputDevicesResponse'
 -- 'httpStatus', 'listInputDevicesResponse_httpStatus' - The response's http status code.
 newListInputDevicesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListInputDevicesResponse
 newListInputDevicesResponse pHttpStatus_ =
   ListInputDevicesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      inputDevices = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      inputDevices = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A token to get additional list results.
-listInputDevicesResponse_nextToken :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe Prelude.Text)
+listInputDevicesResponse_nextToken :: Lens.Lens' ListInputDevicesResponse (Core.Maybe Core.Text)
 listInputDevicesResponse_nextToken = Lens.lens (\ListInputDevicesResponse' {nextToken} -> nextToken) (\s@ListInputDevicesResponse' {} a -> s {nextToken = a} :: ListInputDevicesResponse)
 
 -- | The list of input devices.
-listInputDevicesResponse_inputDevices :: Lens.Lens' ListInputDevicesResponse (Prelude.Maybe [InputDeviceSummary])
-listInputDevicesResponse_inputDevices = Lens.lens (\ListInputDevicesResponse' {inputDevices} -> inputDevices) (\s@ListInputDevicesResponse' {} a -> s {inputDevices = a} :: ListInputDevicesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listInputDevicesResponse_inputDevices :: Lens.Lens' ListInputDevicesResponse (Core.Maybe [InputDeviceSummary])
+listInputDevicesResponse_inputDevices = Lens.lens (\ListInputDevicesResponse' {inputDevices} -> inputDevices) (\s@ListInputDevicesResponse' {} a -> s {inputDevices = a} :: ListInputDevicesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInputDevicesResponse_httpStatus :: Lens.Lens' ListInputDevicesResponse Prelude.Int
+listInputDevicesResponse_httpStatus :: Lens.Lens' ListInputDevicesResponse Core.Int
 listInputDevicesResponse_httpStatus = Lens.lens (\ListInputDevicesResponse' {httpStatus} -> httpStatus) (\s@ListInputDevicesResponse' {} a -> s {httpStatus = a} :: ListInputDevicesResponse)
 
-instance Prelude.NFData ListInputDevicesResponse
+instance Core.NFData ListInputDevicesResponse

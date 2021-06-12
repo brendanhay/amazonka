@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,25 +59,25 @@ import qualified Network.AWS.Response as Response
 data DescribeMetricFilters = DescribeMetricFilters'
   { -- | The prefix to match. CloudWatch Logs uses the value you set here only if
     -- you also include the @logGroupName@ parameter in your request.
-    filterNamePrefix :: Prelude.Maybe Prelude.Text,
+    filterNamePrefix :: Core.Maybe Core.Text,
     -- | Filters results to include only those in the specified namespace. If you
     -- include this parameter in your request, you must also include the
     -- @metricName@ parameter.
-    metricNamespace :: Prelude.Maybe Prelude.Text,
+    metricNamespace :: Core.Maybe Core.Text,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Filters results to include only those with the specified metric name. If
     -- you include this parameter in your request, you must also include the
     -- @metricNamespace@ parameter.
-    metricName :: Prelude.Maybe Prelude.Text,
+    metricName :: Core.Maybe Core.Text,
     -- | The name of the log group.
-    logGroupName :: Prelude.Maybe Prelude.Text,
+    logGroupName :: Core.Maybe Core.Text,
     -- | The maximum number of items returned. If you don\'t specify a value, the
     -- default is up to 50 items.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMetricFilters' with all optional fields omitted.
@@ -112,132 +110,127 @@ newDescribeMetricFilters ::
 newDescribeMetricFilters =
   DescribeMetricFilters'
     { filterNamePrefix =
-        Prelude.Nothing,
-      metricNamespace = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      metricName = Prelude.Nothing,
-      logGroupName = Prelude.Nothing,
-      limit = Prelude.Nothing
+        Core.Nothing,
+      metricNamespace = Core.Nothing,
+      nextToken = Core.Nothing,
+      metricName = Core.Nothing,
+      logGroupName = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The prefix to match. CloudWatch Logs uses the value you set here only if
 -- you also include the @logGroupName@ parameter in your request.
-describeMetricFilters_filterNamePrefix :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_filterNamePrefix :: Lens.Lens' DescribeMetricFilters (Core.Maybe Core.Text)
 describeMetricFilters_filterNamePrefix = Lens.lens (\DescribeMetricFilters' {filterNamePrefix} -> filterNamePrefix) (\s@DescribeMetricFilters' {} a -> s {filterNamePrefix = a} :: DescribeMetricFilters)
 
 -- | Filters results to include only those in the specified namespace. If you
 -- include this parameter in your request, you must also include the
 -- @metricName@ parameter.
-describeMetricFilters_metricNamespace :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_metricNamespace :: Lens.Lens' DescribeMetricFilters (Core.Maybe Core.Text)
 describeMetricFilters_metricNamespace = Lens.lens (\DescribeMetricFilters' {metricNamespace} -> metricNamespace) (\s@DescribeMetricFilters' {} a -> s {metricNamespace = a} :: DescribeMetricFilters)
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeMetricFilters_nextToken :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_nextToken :: Lens.Lens' DescribeMetricFilters (Core.Maybe Core.Text)
 describeMetricFilters_nextToken = Lens.lens (\DescribeMetricFilters' {nextToken} -> nextToken) (\s@DescribeMetricFilters' {} a -> s {nextToken = a} :: DescribeMetricFilters)
 
 -- | Filters results to include only those with the specified metric name. If
 -- you include this parameter in your request, you must also include the
 -- @metricNamespace@ parameter.
-describeMetricFilters_metricName :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_metricName :: Lens.Lens' DescribeMetricFilters (Core.Maybe Core.Text)
 describeMetricFilters_metricName = Lens.lens (\DescribeMetricFilters' {metricName} -> metricName) (\s@DescribeMetricFilters' {} a -> s {metricName = a} :: DescribeMetricFilters)
 
 -- | The name of the log group.
-describeMetricFilters_logGroupName :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Text)
+describeMetricFilters_logGroupName :: Lens.Lens' DescribeMetricFilters (Core.Maybe Core.Text)
 describeMetricFilters_logGroupName = Lens.lens (\DescribeMetricFilters' {logGroupName} -> logGroupName) (\s@DescribeMetricFilters' {} a -> s {logGroupName = a} :: DescribeMetricFilters)
 
 -- | The maximum number of items returned. If you don\'t specify a value, the
 -- default is up to 50 items.
-describeMetricFilters_limit :: Lens.Lens' DescribeMetricFilters (Prelude.Maybe Prelude.Natural)
+describeMetricFilters_limit :: Lens.Lens' DescribeMetricFilters (Core.Maybe Core.Natural)
 describeMetricFilters_limit = Lens.lens (\DescribeMetricFilters' {limit} -> limit) (\s@DescribeMetricFilters' {} a -> s {limit = a} :: DescribeMetricFilters)
 
-instance Pager.AWSPager DescribeMetricFilters where
+instance Core.AWSPager DescribeMetricFilters where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeMetricFiltersResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeMetricFiltersResponse_metricFilters
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeMetricFilters_nextToken
           Lens..~ rs
           Lens.^? describeMetricFiltersResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeMetricFilters where
+instance Core.AWSRequest DescribeMetricFilters where
   type
-    Rs DescribeMetricFilters =
+    AWSResponse DescribeMetricFilters =
       DescribeMetricFiltersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeMetricFiltersResponse'
-            Prelude.<$> ( x Prelude..?> "metricFilters"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "metricFilters" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMetricFilters
+instance Core.Hashable DescribeMetricFilters
 
-instance Prelude.NFData DescribeMetricFilters
+instance Core.NFData DescribeMetricFilters
 
-instance Prelude.ToHeaders DescribeMetricFilters where
+instance Core.ToHeaders DescribeMetricFilters where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DescribeMetricFilters" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.DescribeMetricFilters" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeMetricFilters where
+instance Core.ToJSON DescribeMetricFilters where
   toJSON DescribeMetricFilters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("filterNamePrefix" Prelude..=)
-              Prelude.<$> filterNamePrefix,
-            ("metricNamespace" Prelude..=)
-              Prelude.<$> metricNamespace,
-            ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("metricName" Prelude..=) Prelude.<$> metricName,
-            ("logGroupName" Prelude..=) Prelude.<$> logGroupName,
-            ("limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("filterNamePrefix" Core..=)
+              Core.<$> filterNamePrefix,
+            ("metricNamespace" Core..=) Core.<$> metricNamespace,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("metricName" Core..=) Core.<$> metricName,
+            ("logGroupName" Core..=) Core.<$> logGroupName,
+            ("limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeMetricFilters where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMetricFilters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeMetricFilters where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeMetricFilters where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeMetricFiltersResponse' smart constructor.
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
   { -- | The metric filters.
-    metricFilters :: Prelude.Maybe [MetricFilter],
-    nextToken :: Prelude.Maybe Prelude.Text,
+    metricFilters :: Core.Maybe [MetricFilter],
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMetricFiltersResponse' with all optional fields omitted.
@@ -254,26 +247,26 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
 -- 'httpStatus', 'describeMetricFiltersResponse_httpStatus' - The response's http status code.
 newDescribeMetricFiltersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMetricFiltersResponse
 newDescribeMetricFiltersResponse pHttpStatus_ =
   DescribeMetricFiltersResponse'
     { metricFilters =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The metric filters.
-describeMetricFiltersResponse_metricFilters :: Lens.Lens' DescribeMetricFiltersResponse (Prelude.Maybe [MetricFilter])
-describeMetricFiltersResponse_metricFilters = Lens.lens (\DescribeMetricFiltersResponse' {metricFilters} -> metricFilters) (\s@DescribeMetricFiltersResponse' {} a -> s {metricFilters = a} :: DescribeMetricFiltersResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMetricFiltersResponse_metricFilters :: Lens.Lens' DescribeMetricFiltersResponse (Core.Maybe [MetricFilter])
+describeMetricFiltersResponse_metricFilters = Lens.lens (\DescribeMetricFiltersResponse' {metricFilters} -> metricFilters) (\s@DescribeMetricFiltersResponse' {} a -> s {metricFilters = a} :: DescribeMetricFiltersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-describeMetricFiltersResponse_nextToken :: Lens.Lens' DescribeMetricFiltersResponse (Prelude.Maybe Prelude.Text)
+describeMetricFiltersResponse_nextToken :: Lens.Lens' DescribeMetricFiltersResponse (Core.Maybe Core.Text)
 describeMetricFiltersResponse_nextToken = Lens.lens (\DescribeMetricFiltersResponse' {nextToken} -> nextToken) (\s@DescribeMetricFiltersResponse' {} a -> s {nextToken = a} :: DescribeMetricFiltersResponse)
 
 -- | The response's http status code.
-describeMetricFiltersResponse_httpStatus :: Lens.Lens' DescribeMetricFiltersResponse Prelude.Int
+describeMetricFiltersResponse_httpStatus :: Lens.Lens' DescribeMetricFiltersResponse Core.Int
 describeMetricFiltersResponse_httpStatus = Lens.lens (\DescribeMetricFiltersResponse' {httpStatus} -> httpStatus) (\s@DescribeMetricFiltersResponse' {} a -> s {httpStatus = a} :: DescribeMetricFiltersResponse)
 
-instance Prelude.NFData DescribeMetricFiltersResponse
+instance Core.NFData DescribeMetricFiltersResponse

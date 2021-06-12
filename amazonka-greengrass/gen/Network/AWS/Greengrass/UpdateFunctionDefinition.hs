@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Greengrass.UpdateFunctionDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFunctionDefinition' smart constructor.
 data UpdateFunctionDefinition = UpdateFunctionDefinition'
   { -- | The name of the definition.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID of the Lambda function definition.
-    functionDefinitionId :: Prelude.Text
+    functionDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateFunctionDefinition' with all optional fields omitted.
@@ -68,72 +67,68 @@ data UpdateFunctionDefinition = UpdateFunctionDefinition'
 -- 'functionDefinitionId', 'updateFunctionDefinition_functionDefinitionId' - The ID of the Lambda function definition.
 newUpdateFunctionDefinition ::
   -- | 'functionDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateFunctionDefinition
 newUpdateFunctionDefinition pFunctionDefinitionId_ =
   UpdateFunctionDefinition'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       functionDefinitionId = pFunctionDefinitionId_
     }
 
 -- | The name of the definition.
-updateFunctionDefinition_name :: Lens.Lens' UpdateFunctionDefinition (Prelude.Maybe Prelude.Text)
+updateFunctionDefinition_name :: Lens.Lens' UpdateFunctionDefinition (Core.Maybe Core.Text)
 updateFunctionDefinition_name = Lens.lens (\UpdateFunctionDefinition' {name} -> name) (\s@UpdateFunctionDefinition' {} a -> s {name = a} :: UpdateFunctionDefinition)
 
 -- | The ID of the Lambda function definition.
-updateFunctionDefinition_functionDefinitionId :: Lens.Lens' UpdateFunctionDefinition Prelude.Text
+updateFunctionDefinition_functionDefinitionId :: Lens.Lens' UpdateFunctionDefinition Core.Text
 updateFunctionDefinition_functionDefinitionId = Lens.lens (\UpdateFunctionDefinition' {functionDefinitionId} -> functionDefinitionId) (\s@UpdateFunctionDefinition' {} a -> s {functionDefinitionId = a} :: UpdateFunctionDefinition)
 
-instance Prelude.AWSRequest UpdateFunctionDefinition where
+instance Core.AWSRequest UpdateFunctionDefinition where
   type
-    Rs UpdateFunctionDefinition =
+    AWSResponse UpdateFunctionDefinition =
       UpdateFunctionDefinitionResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateFunctionDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateFunctionDefinition
+instance Core.Hashable UpdateFunctionDefinition
 
-instance Prelude.NFData UpdateFunctionDefinition
+instance Core.NFData UpdateFunctionDefinition
 
-instance Prelude.ToHeaders UpdateFunctionDefinition where
+instance Core.ToHeaders UpdateFunctionDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateFunctionDefinition where
+instance Core.ToJSON UpdateFunctionDefinition where
   toJSON UpdateFunctionDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Name" Prelude..=) Prelude.<$> name]
-      )
+    Core.object
+      (Core.catMaybes [("Name" Core..=) Core.<$> name])
 
-instance Prelude.ToPath UpdateFunctionDefinition where
+instance Core.ToPath UpdateFunctionDefinition where
   toPath UpdateFunctionDefinition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/definition/functions/",
-        Prelude.toBS functionDefinitionId
+        Core.toBS functionDefinitionId
       ]
 
-instance Prelude.ToQuery UpdateFunctionDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateFunctionDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateFunctionDefinitionResponse' smart constructor.
 data UpdateFunctionDefinitionResponse = UpdateFunctionDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateFunctionDefinitionResponse' with all optional fields omitted.
@@ -146,7 +141,7 @@ data UpdateFunctionDefinitionResponse = UpdateFunctionDefinitionResponse'
 -- 'httpStatus', 'updateFunctionDefinitionResponse_httpStatus' - The response's http status code.
 newUpdateFunctionDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateFunctionDefinitionResponse
 newUpdateFunctionDefinitionResponse pHttpStatus_ =
   UpdateFunctionDefinitionResponse'
@@ -155,9 +150,7 @@ newUpdateFunctionDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateFunctionDefinitionResponse_httpStatus :: Lens.Lens' UpdateFunctionDefinitionResponse Prelude.Int
+updateFunctionDefinitionResponse_httpStatus :: Lens.Lens' UpdateFunctionDefinitionResponse Core.Int
 updateFunctionDefinitionResponse_httpStatus = Lens.lens (\UpdateFunctionDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateFunctionDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateFunctionDefinitionResponse)
 
-instance
-  Prelude.NFData
-    UpdateFunctionDefinitionResponse
+instance Core.NFData UpdateFunctionDefinitionResponse

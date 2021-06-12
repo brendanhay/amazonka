@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -69,8 +68,8 @@ module Network.AWS.CertificateManagerPCA.GetPolicy
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,9 +78,9 @@ data GetPolicy = GetPolicy'
   { -- | The Amazon Resource Number (ARN) of the private CA that will have its
     -- policy retrieved. You can find the CA\'s ARN by calling the
     -- ListCertificateAuthorities action.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPolicy' with all optional fields omitted.
@@ -96,7 +95,7 @@ data GetPolicy = GetPolicy'
 -- ListCertificateAuthorities action.
 newGetPolicy ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   GetPolicy
 newGetPolicy pResourceArn_ =
   GetPolicy' {resourceArn = pResourceArn_}
@@ -104,60 +103,56 @@ newGetPolicy pResourceArn_ =
 -- | The Amazon Resource Number (ARN) of the private CA that will have its
 -- policy retrieved. You can find the CA\'s ARN by calling the
 -- ListCertificateAuthorities action.
-getPolicy_resourceArn :: Lens.Lens' GetPolicy Prelude.Text
+getPolicy_resourceArn :: Lens.Lens' GetPolicy Core.Text
 getPolicy_resourceArn = Lens.lens (\GetPolicy' {resourceArn} -> resourceArn) (\s@GetPolicy' {} a -> s {resourceArn = a} :: GetPolicy)
 
-instance Prelude.AWSRequest GetPolicy where
-  type Rs GetPolicy = GetPolicyResponse
+instance Core.AWSRequest GetPolicy where
+  type AWSResponse GetPolicy = GetPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            Prelude.<$> (x Prelude..?> "Policy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Policy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetPolicy
+instance Core.Hashable GetPolicy
 
-instance Prelude.NFData GetPolicy
+instance Core.NFData GetPolicy
 
-instance Prelude.ToHeaders GetPolicy where
+instance Core.ToHeaders GetPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("ACMPrivateCA.GetPolicy" :: Prelude.ByteString),
+              Core.=# ("ACMPrivateCA.GetPolicy" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetPolicy where
+instance Core.ToJSON GetPolicy where
   toJSON GetPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceArn" Prelude..= resourceArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ResourceArn" Core..= resourceArn)]
       )
 
-instance Prelude.ToPath GetPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
   { -- | The policy attached to the private CA as a JSON document.
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPolicyResponse' with all optional fields omitted.
@@ -172,20 +167,20 @@ data GetPolicyResponse = GetPolicyResponse'
 -- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
 newGetPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetPolicyResponse
 newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
-    { policy = Prelude.Nothing,
+    { policy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The policy attached to the private CA as a JSON document.
-getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Core.Maybe Core.Text)
 getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\s@GetPolicyResponse' {} a -> s {policy = a} :: GetPolicyResponse)
 
 -- | The response's http status code.
-getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int
+getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Core.Int
 getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPolicyResponse' {} a -> s {httpStatus = a} :: GetPolicyResponse)
 
-instance Prelude.NFData GetPolicyResponse
+instance Core.NFData GetPolicyResponse

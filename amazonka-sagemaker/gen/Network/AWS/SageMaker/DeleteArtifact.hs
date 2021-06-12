@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.DeleteArtifact
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,11 +49,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteArtifact' smart constructor.
 data DeleteArtifact = DeleteArtifact'
   { -- | The Amazon Resource Name (ARN) of the artifact to delete.
-    artifactArn :: Prelude.Maybe Prelude.Text,
+    artifactArn :: Core.Maybe Core.Text,
     -- | The URI of the source.
-    source :: Prelude.Maybe ArtifactSource
+    source :: Core.Maybe ArtifactSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteArtifact' with all optional fields omitted.
@@ -71,69 +70,69 @@ newDeleteArtifact ::
   DeleteArtifact
 newDeleteArtifact =
   DeleteArtifact'
-    { artifactArn = Prelude.Nothing,
-      source = Prelude.Nothing
+    { artifactArn = Core.Nothing,
+      source = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the artifact to delete.
-deleteArtifact_artifactArn :: Lens.Lens' DeleteArtifact (Prelude.Maybe Prelude.Text)
+deleteArtifact_artifactArn :: Lens.Lens' DeleteArtifact (Core.Maybe Core.Text)
 deleteArtifact_artifactArn = Lens.lens (\DeleteArtifact' {artifactArn} -> artifactArn) (\s@DeleteArtifact' {} a -> s {artifactArn = a} :: DeleteArtifact)
 
 -- | The URI of the source.
-deleteArtifact_source :: Lens.Lens' DeleteArtifact (Prelude.Maybe ArtifactSource)
+deleteArtifact_source :: Lens.Lens' DeleteArtifact (Core.Maybe ArtifactSource)
 deleteArtifact_source = Lens.lens (\DeleteArtifact' {source} -> source) (\s@DeleteArtifact' {} a -> s {source = a} :: DeleteArtifact)
 
-instance Prelude.AWSRequest DeleteArtifact where
-  type Rs DeleteArtifact = DeleteArtifactResponse
+instance Core.AWSRequest DeleteArtifact where
+  type
+    AWSResponse DeleteArtifact =
+      DeleteArtifactResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteArtifactResponse'
-            Prelude.<$> (x Prelude..?> "ArtifactArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ArtifactArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteArtifact
+instance Core.Hashable DeleteArtifact
 
-instance Prelude.NFData DeleteArtifact
+instance Core.NFData DeleteArtifact
 
-instance Prelude.ToHeaders DeleteArtifact where
+instance Core.ToHeaders DeleteArtifact where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.DeleteArtifact" :: Prelude.ByteString),
+              Core.=# ("SageMaker.DeleteArtifact" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteArtifact where
+instance Core.ToJSON DeleteArtifact where
   toJSON DeleteArtifact' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ArtifactArn" Prelude..=) Prelude.<$> artifactArn,
-            ("Source" Prelude..=) Prelude.<$> source
+    Core.object
+      ( Core.catMaybes
+          [ ("ArtifactArn" Core..=) Core.<$> artifactArn,
+            ("Source" Core..=) Core.<$> source
           ]
       )
 
-instance Prelude.ToPath DeleteArtifact where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteArtifact where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteArtifact where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteArtifact where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteArtifactResponse' smart constructor.
 data DeleteArtifactResponse = DeleteArtifactResponse'
   { -- | The Amazon Resource Name (ARN) of the artifact.
-    artifactArn :: Prelude.Maybe Prelude.Text,
+    artifactArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteArtifactResponse' with all optional fields omitted.
@@ -148,21 +147,20 @@ data DeleteArtifactResponse = DeleteArtifactResponse'
 -- 'httpStatus', 'deleteArtifactResponse_httpStatus' - The response's http status code.
 newDeleteArtifactResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteArtifactResponse
 newDeleteArtifactResponse pHttpStatus_ =
   DeleteArtifactResponse'
-    { artifactArn =
-        Prelude.Nothing,
+    { artifactArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the artifact.
-deleteArtifactResponse_artifactArn :: Lens.Lens' DeleteArtifactResponse (Prelude.Maybe Prelude.Text)
+deleteArtifactResponse_artifactArn :: Lens.Lens' DeleteArtifactResponse (Core.Maybe Core.Text)
 deleteArtifactResponse_artifactArn = Lens.lens (\DeleteArtifactResponse' {artifactArn} -> artifactArn) (\s@DeleteArtifactResponse' {} a -> s {artifactArn = a} :: DeleteArtifactResponse)
 
 -- | The response's http status code.
-deleteArtifactResponse_httpStatus :: Lens.Lens' DeleteArtifactResponse Prelude.Int
+deleteArtifactResponse_httpStatus :: Lens.Lens' DeleteArtifactResponse Core.Int
 deleteArtifactResponse_httpStatus = Lens.lens (\DeleteArtifactResponse' {httpStatus} -> httpStatus) (\s@DeleteArtifactResponse' {} a -> s {httpStatus = a} :: DeleteArtifactResponse)
 
-instance Prelude.NFData DeleteArtifactResponse
+instance Core.NFData DeleteArtifactResponse

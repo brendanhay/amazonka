@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.KinesisAnalytics.ListApplications
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,11 +73,11 @@ data ListApplications = ListApplications'
     -- first request. However, in subsequent requests, you add the last
     -- application name from the previous response to get the next page of
     -- applications.
-    exclusiveStartApplicationName :: Prelude.Maybe Prelude.Text,
+    exclusiveStartApplicationName :: Core.Maybe Core.Text,
     -- | Maximum number of applications to list.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListApplications' with all optional fields omitted.
@@ -100,8 +99,8 @@ newListApplications ::
 newListApplications =
   ListApplications'
     { exclusiveStartApplicationName =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+        Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | Name of the application to start the list with. When using pagination to
@@ -109,74 +108,74 @@ newListApplications =
 -- first request. However, in subsequent requests, you add the last
 -- application name from the previous response to get the next page of
 -- applications.
-listApplications_exclusiveStartApplicationName :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Text)
+listApplications_exclusiveStartApplicationName :: Lens.Lens' ListApplications (Core.Maybe Core.Text)
 listApplications_exclusiveStartApplicationName = Lens.lens (\ListApplications' {exclusiveStartApplicationName} -> exclusiveStartApplicationName) (\s@ListApplications' {} a -> s {exclusiveStartApplicationName = a} :: ListApplications)
 
 -- | Maximum number of applications to list.
-listApplications_limit :: Lens.Lens' ListApplications (Prelude.Maybe Prelude.Natural)
+listApplications_limit :: Lens.Lens' ListApplications (Core.Maybe Core.Natural)
 listApplications_limit = Lens.lens (\ListApplications' {limit} -> limit) (\s@ListApplications' {} a -> s {limit = a} :: ListApplications)
 
-instance Prelude.AWSRequest ListApplications where
-  type Rs ListApplications = ListApplicationsResponse
+instance Core.AWSRequest ListApplications where
+  type
+    AWSResponse ListApplications =
+      ListApplicationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListApplicationsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "ApplicationSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:> "HasMoreApplications")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "ApplicationSummaries"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..:> "HasMoreApplications")
       )
 
-instance Prelude.Hashable ListApplications
+instance Core.Hashable ListApplications
 
-instance Prelude.NFData ListApplications
+instance Core.NFData ListApplications
 
-instance Prelude.ToHeaders ListApplications where
+instance Core.ToHeaders ListApplications where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.ListApplications" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.ListApplications" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListApplications where
+instance Core.ToJSON ListApplications where
   toJSON ListApplications' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ExclusiveStartApplicationName" Prelude..=)
-              Prelude.<$> exclusiveStartApplicationName,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartApplicationName" Core..=)
+              Core.<$> exclusiveStartApplicationName,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListApplications where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListApplications where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListApplications where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListApplications where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newListApplicationsResponse' smart constructor.
 data ListApplicationsResponse = ListApplicationsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | List of @ApplicationSummary@ objects.
     applicationSummaries :: [ApplicationSummary],
     -- | Returns true if there are more applications to retrieve.
-    hasMoreApplications :: Prelude.Bool
+    hasMoreApplications :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListApplicationsResponse' with all optional fields omitted.
@@ -193,9 +192,9 @@ data ListApplicationsResponse = ListApplicationsResponse'
 -- 'hasMoreApplications', 'listApplicationsResponse_hasMoreApplications' - Returns true if there are more applications to retrieve.
 newListApplicationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'hasMoreApplications'
-  Prelude.Bool ->
+  Core.Bool ->
   ListApplicationsResponse
 newListApplicationsResponse
   pHttpStatus_
@@ -203,20 +202,20 @@ newListApplicationsResponse
     ListApplicationsResponse'
       { httpStatus =
           pHttpStatus_,
-        applicationSummaries = Prelude.mempty,
+        applicationSummaries = Core.mempty,
         hasMoreApplications = pHasMoreApplications_
       }
 
 -- | The response's http status code.
-listApplicationsResponse_httpStatus :: Lens.Lens' ListApplicationsResponse Prelude.Int
+listApplicationsResponse_httpStatus :: Lens.Lens' ListApplicationsResponse Core.Int
 listApplicationsResponse_httpStatus = Lens.lens (\ListApplicationsResponse' {httpStatus} -> httpStatus) (\s@ListApplicationsResponse' {} a -> s {httpStatus = a} :: ListApplicationsResponse)
 
 -- | List of @ApplicationSummary@ objects.
 listApplicationsResponse_applicationSummaries :: Lens.Lens' ListApplicationsResponse [ApplicationSummary]
-listApplicationsResponse_applicationSummaries = Lens.lens (\ListApplicationsResponse' {applicationSummaries} -> applicationSummaries) (\s@ListApplicationsResponse' {} a -> s {applicationSummaries = a} :: ListApplicationsResponse) Prelude.. Prelude._Coerce
+listApplicationsResponse_applicationSummaries = Lens.lens (\ListApplicationsResponse' {applicationSummaries} -> applicationSummaries) (\s@ListApplicationsResponse' {} a -> s {applicationSummaries = a} :: ListApplicationsResponse) Core.. Lens._Coerce
 
 -- | Returns true if there are more applications to retrieve.
-listApplicationsResponse_hasMoreApplications :: Lens.Lens' ListApplicationsResponse Prelude.Bool
+listApplicationsResponse_hasMoreApplications :: Lens.Lens' ListApplicationsResponse Core.Bool
 listApplicationsResponse_hasMoreApplications = Lens.lens (\ListApplicationsResponse' {hasMoreApplications} -> hasMoreApplications) (\s@ListApplicationsResponse' {} a -> s {hasMoreApplications = a} :: ListApplicationsResponse)
 
-instance Prelude.NFData ListApplicationsResponse
+instance Core.NFData ListApplicationsResponse

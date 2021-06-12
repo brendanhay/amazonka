@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Glue.StopWorkflowRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStopWorkflowRun' smart constructor.
 data StopWorkflowRun = StopWorkflowRun'
   { -- | The name of the workflow to stop.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ID of the workflow run to stop.
-    runId :: Prelude.Text
+    runId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopWorkflowRun' with all optional fields omitted.
@@ -68,69 +67,69 @@ data StopWorkflowRun = StopWorkflowRun'
 -- 'runId', 'stopWorkflowRun_runId' - The ID of the workflow run to stop.
 newStopWorkflowRun ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'runId'
-  Prelude.Text ->
+  Core.Text ->
   StopWorkflowRun
 newStopWorkflowRun pName_ pRunId_ =
   StopWorkflowRun' {name = pName_, runId = pRunId_}
 
 -- | The name of the workflow to stop.
-stopWorkflowRun_name :: Lens.Lens' StopWorkflowRun Prelude.Text
+stopWorkflowRun_name :: Lens.Lens' StopWorkflowRun Core.Text
 stopWorkflowRun_name = Lens.lens (\StopWorkflowRun' {name} -> name) (\s@StopWorkflowRun' {} a -> s {name = a} :: StopWorkflowRun)
 
 -- | The ID of the workflow run to stop.
-stopWorkflowRun_runId :: Lens.Lens' StopWorkflowRun Prelude.Text
+stopWorkflowRun_runId :: Lens.Lens' StopWorkflowRun Core.Text
 stopWorkflowRun_runId = Lens.lens (\StopWorkflowRun' {runId} -> runId) (\s@StopWorkflowRun' {} a -> s {runId = a} :: StopWorkflowRun)
 
-instance Prelude.AWSRequest StopWorkflowRun where
-  type Rs StopWorkflowRun = StopWorkflowRunResponse
+instance Core.AWSRequest StopWorkflowRun where
+  type
+    AWSResponse StopWorkflowRun =
+      StopWorkflowRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopWorkflowRunResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopWorkflowRun
+instance Core.Hashable StopWorkflowRun
 
-instance Prelude.NFData StopWorkflowRun
+instance Core.NFData StopWorkflowRun
 
-instance Prelude.ToHeaders StopWorkflowRun where
+instance Core.ToHeaders StopWorkflowRun where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.StopWorkflowRun" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.StopWorkflowRun" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopWorkflowRun where
+instance Core.ToJSON StopWorkflowRun where
   toJSON StopWorkflowRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("RunId" Prelude..= runId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("RunId" Core..= runId)
           ]
       )
 
-instance Prelude.ToPath StopWorkflowRun where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopWorkflowRun where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopWorkflowRun where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopWorkflowRun where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopWorkflowRunResponse' smart constructor.
 data StopWorkflowRunResponse = StopWorkflowRunResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopWorkflowRunResponse' with all optional fields omitted.
@@ -143,13 +142,13 @@ data StopWorkflowRunResponse = StopWorkflowRunResponse'
 -- 'httpStatus', 'stopWorkflowRunResponse_httpStatus' - The response's http status code.
 newStopWorkflowRunResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopWorkflowRunResponse
 newStopWorkflowRunResponse pHttpStatus_ =
   StopWorkflowRunResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-stopWorkflowRunResponse_httpStatus :: Lens.Lens' StopWorkflowRunResponse Prelude.Int
+stopWorkflowRunResponse_httpStatus :: Lens.Lens' StopWorkflowRunResponse Core.Int
 stopWorkflowRunResponse_httpStatus = Lens.lens (\StopWorkflowRunResponse' {httpStatus} -> httpStatus) (\s@StopWorkflowRunResponse' {} a -> s {httpStatus = a} :: StopWorkflowRunResponse)
 
-instance Prelude.NFData StopWorkflowRunResponse
+instance Core.NFData StopWorkflowRunResponse

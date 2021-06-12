@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -83,8 +82,8 @@ module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
 where
 
 import Network.AWS.ApplicationAutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -95,7 +94,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- This parameter is required if you are creating a policy and the policy
     -- type is @TargetTrackingScaling@.
-    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
+    targetTrackingScalingPolicyConfiguration :: Core.Maybe TargetTrackingScalingPolicyConfiguration,
     -- | The policy type. This parameter is required if you are creating a
     -- scaling policy.
     --
@@ -111,14 +110,14 @@ data PutScalingPolicy = PutScalingPolicy'
     -- and
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
     -- in the /Application Auto Scaling User Guide/.
-    policyType :: Prelude.Maybe PolicyType,
+    policyType :: Core.Maybe PolicyType,
     -- | A step scaling policy.
     --
     -- This parameter is required if you are creating a policy and the policy
     -- type is @StepScaling@.
-    stepScalingPolicyConfiguration :: Prelude.Maybe StepScalingPolicyConfiguration,
+    stepScalingPolicyConfiguration :: Core.Maybe StepScalingPolicyConfiguration,
     -- | The name of the scaling policy.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The namespace of the AWS service that provides the resource. For a
     -- resource provided by your own application or service, use
     -- @custom-resource@ instead.
@@ -183,7 +182,7 @@ data PutScalingPolicy = PutScalingPolicy'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
     --
@@ -242,7 +241,7 @@ data PutScalingPolicy = PutScalingPolicy'
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: ScalableDimension
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutScalingPolicy' with all optional fields omitted.
@@ -404,11 +403,11 @@ data PutScalingPolicy = PutScalingPolicy'
 --     GiB) for brokers in an Amazon MSK cluster.
 newPutScalingPolicy ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
   PutScalingPolicy
@@ -419,9 +418,9 @@ newPutScalingPolicy
   pScalableDimension_ =
     PutScalingPolicy'
       { targetTrackingScalingPolicyConfiguration =
-          Prelude.Nothing,
-        policyType = Prelude.Nothing,
-        stepScalingPolicyConfiguration = Prelude.Nothing,
+          Core.Nothing,
+        policyType = Core.Nothing,
+        stepScalingPolicyConfiguration = Core.Nothing,
         policyName = pPolicyName_,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
@@ -433,7 +432,7 @@ newPutScalingPolicy
 --
 -- This parameter is required if you are creating a policy and the policy
 -- type is @TargetTrackingScaling@.
-putScalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetTrackingScalingPolicyConfiguration)
+putScalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Core.Maybe TargetTrackingScalingPolicyConfiguration)
 putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@PutScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: PutScalingPolicy)
 
 -- | The policy type. This parameter is required if you are creating a
@@ -451,18 +450,18 @@ putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScali
 -- and
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
 -- in the /Application Auto Scaling User Guide/.
-putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe PolicyType)
+putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Core.Maybe PolicyType)
 putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
 
 -- | A step scaling policy.
 --
 -- This parameter is required if you are creating a policy and the policy
 -- type is @StepScaling@.
-putScalingPolicy_stepScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe StepScalingPolicyConfiguration)
+putScalingPolicy_stepScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Core.Maybe StepScalingPolicyConfiguration)
 putScalingPolicy_stepScalingPolicyConfiguration = Lens.lens (\PutScalingPolicy' {stepScalingPolicyConfiguration} -> stepScalingPolicyConfiguration) (\s@PutScalingPolicy' {} a -> s {stepScalingPolicyConfiguration = a} :: PutScalingPolicy)
 
 -- | The name of the scaling policy.
-putScalingPolicy_policyName :: Lens.Lens' PutScalingPolicy Prelude.Text
+putScalingPolicy_policyName :: Lens.Lens' PutScalingPolicy Core.Text
 putScalingPolicy_policyName = Lens.lens (\PutScalingPolicy' {policyName} -> policyName) (\s@PutScalingPolicy' {} a -> s {policyName = a} :: PutScalingPolicy)
 
 -- | The namespace of the AWS service that provides the resource. For a
@@ -531,7 +530,7 @@ putScalingPolicy_serviceNamespace = Lens.lens (\PutScalingPolicy' {serviceNamesp
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-putScalingPolicy_resourceId :: Lens.Lens' PutScalingPolicy Prelude.Text
+putScalingPolicy_resourceId :: Lens.Lens' PutScalingPolicy Core.Text
 putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> resourceId) (\s@PutScalingPolicy' {} a -> s {resourceId = a} :: PutScalingPolicy)
 
 -- | The scalable dimension. This string consists of the service namespace,
@@ -593,73 +592,71 @@ putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> reso
 putScalingPolicy_scalableDimension :: Lens.Lens' PutScalingPolicy ScalableDimension
 putScalingPolicy_scalableDimension = Lens.lens (\PutScalingPolicy' {scalableDimension} -> scalableDimension) (\s@PutScalingPolicy' {} a -> s {scalableDimension = a} :: PutScalingPolicy)
 
-instance Prelude.AWSRequest PutScalingPolicy where
-  type Rs PutScalingPolicy = PutScalingPolicyResponse
+instance Core.AWSRequest PutScalingPolicy where
+  type
+    AWSResponse PutScalingPolicy =
+      PutScalingPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutScalingPolicyResponse'
-            Prelude.<$> (x Prelude..?> "Alarms" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "PolicyARN")
+            Core.<$> (x Core..?> "Alarms" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "PolicyARN")
       )
 
-instance Prelude.Hashable PutScalingPolicy
+instance Core.Hashable PutScalingPolicy
 
-instance Prelude.NFData PutScalingPolicy
+instance Core.NFData PutScalingPolicy
 
-instance Prelude.ToHeaders PutScalingPolicy where
+instance Core.ToHeaders PutScalingPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleFrontendService.PutScalingPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleFrontendService.PutScalingPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutScalingPolicy where
+instance Core.ToJSON PutScalingPolicy where
   toJSON PutScalingPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ( "TargetTrackingScalingPolicyConfiguration"
-                Prelude..=
-            )
-              Prelude.<$> targetTrackingScalingPolicyConfiguration,
-            ("PolicyType" Prelude..=) Prelude.<$> policyType,
-            ("StepScalingPolicyConfiguration" Prelude..=)
-              Prelude.<$> stepScalingPolicyConfiguration,
-            Prelude.Just ("PolicyName" Prelude..= policyName),
-            Prelude.Just
-              ("ServiceNamespace" Prelude..= serviceNamespace),
-            Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just
-              ("ScalableDimension" Prelude..= scalableDimension)
+    Core.object
+      ( Core.catMaybes
+          [ ("TargetTrackingScalingPolicyConfiguration" Core..=)
+              Core.<$> targetTrackingScalingPolicyConfiguration,
+            ("PolicyType" Core..=) Core.<$> policyType,
+            ("StepScalingPolicyConfiguration" Core..=)
+              Core.<$> stepScalingPolicyConfiguration,
+            Core.Just ("PolicyName" Core..= policyName),
+            Core.Just
+              ("ServiceNamespace" Core..= serviceNamespace),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just
+              ("ScalableDimension" Core..= scalableDimension)
           ]
       )
 
-instance Prelude.ToPath PutScalingPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutScalingPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutScalingPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutScalingPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
   { -- | The CloudWatch alarms created for the target tracking scaling policy.
-    alarms :: Prelude.Maybe [Alarm],
+    alarms :: Core.Maybe [Alarm],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the resulting scaling policy.
-    policyARN :: Prelude.Text
+    policyARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutScalingPolicyResponse' with all optional fields omitted.
@@ -676,27 +673,27 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 -- 'policyARN', 'putScalingPolicyResponse_policyARN' - The Amazon Resource Name (ARN) of the resulting scaling policy.
 newPutScalingPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'policyARN'
-  Prelude.Text ->
+  Core.Text ->
   PutScalingPolicyResponse
 newPutScalingPolicyResponse pHttpStatus_ pPolicyARN_ =
   PutScalingPolicyResponse'
-    { alarms = Prelude.Nothing,
+    { alarms = Core.Nothing,
       httpStatus = pHttpStatus_,
       policyARN = pPolicyARN_
     }
 
 -- | The CloudWatch alarms created for the target tracking scaling policy.
-putScalingPolicyResponse_alarms :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe [Alarm])
-putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Prelude.. Lens.mapping Prelude._Coerce
+putScalingPolicyResponse_alarms :: Lens.Lens' PutScalingPolicyResponse (Core.Maybe [Alarm])
+putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Prelude.Int
+putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Core.Int
 putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@PutScalingPolicyResponse' {} a -> s {httpStatus = a} :: PutScalingPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the resulting scaling policy.
-putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse Prelude.Text
+putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse Core.Text
 putScalingPolicyResponse_policyARN = Lens.lens (\PutScalingPolicyResponse' {policyARN} -> policyARN) (\s@PutScalingPolicyResponse' {} a -> s {policyARN = a} :: PutScalingPolicyResponse)
 
-instance Prelude.NFData PutScalingPolicyResponse
+instance Core.NFData PutScalingPolicyResponse

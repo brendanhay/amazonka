@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeStar.Types.CodeSource where
 
 import Network.AWS.CodeStar.Types.S3Location
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location where the source code files provided with the project
 -- request are stored. AWS CodeStar retrieves the files during project
@@ -34,7 +33,7 @@ data CodeSource = CodeSource'
     -- provided with the project request are stored.
     s3 :: S3Location
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CodeSource' with all optional fields omitted.
@@ -57,13 +56,11 @@ newCodeSource pS3_ = CodeSource' {s3 = pS3_}
 codeSource_s3 :: Lens.Lens' CodeSource S3Location
 codeSource_s3 = Lens.lens (\CodeSource' {s3} -> s3) (\s@CodeSource' {} a -> s {s3 = a} :: CodeSource)
 
-instance Prelude.Hashable CodeSource
+instance Core.Hashable CodeSource
 
-instance Prelude.NFData CodeSource
+instance Core.NFData CodeSource
 
-instance Prelude.ToJSON CodeSource where
+instance Core.ToJSON CodeSource where
   toJSON CodeSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("s3" Prelude..= s3)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("s3" Core..= s3)])

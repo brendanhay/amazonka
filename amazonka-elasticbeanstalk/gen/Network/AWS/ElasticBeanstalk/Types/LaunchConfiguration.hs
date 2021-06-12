@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'newLaunchConfiguration' smart constructor.
 data LaunchConfiguration = LaunchConfiguration'
   { -- | The name of the launch configuration.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchConfiguration' with all optional fields omitted.
@@ -44,17 +43,16 @@ data LaunchConfiguration = LaunchConfiguration'
 newLaunchConfiguration ::
   LaunchConfiguration
 newLaunchConfiguration =
-  LaunchConfiguration' {name = Prelude.Nothing}
+  LaunchConfiguration' {name = Core.Nothing}
 
 -- | The name of the launch configuration.
-launchConfiguration_name :: Lens.Lens' LaunchConfiguration (Prelude.Maybe Prelude.Text)
+launchConfiguration_name :: Lens.Lens' LaunchConfiguration (Core.Maybe Core.Text)
 launchConfiguration_name = Lens.lens (\LaunchConfiguration' {name} -> name) (\s@LaunchConfiguration' {} a -> s {name = a} :: LaunchConfiguration)
 
-instance Prelude.FromXML LaunchConfiguration where
+instance Core.FromXML LaunchConfiguration where
   parseXML x =
-    LaunchConfiguration'
-      Prelude.<$> (x Prelude..@? "Name")
+    LaunchConfiguration' Core.<$> (x Core..@? "Name")
 
-instance Prelude.Hashable LaunchConfiguration
+instance Core.Hashable LaunchConfiguration
 
-instance Prelude.NFData LaunchConfiguration
+instance Core.NFData LaunchConfiguration

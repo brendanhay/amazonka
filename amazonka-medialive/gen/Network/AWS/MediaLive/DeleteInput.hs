@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.MediaLive.DeleteInput
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteInput' smart constructor.
 data DeleteInput = DeleteInput'
   { -- | Unique ID of the input
-    inputId :: Prelude.Text
+    inputId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInput' with all optional fields omitted.
@@ -65,56 +64,53 @@ data DeleteInput = DeleteInput'
 -- 'inputId', 'deleteInput_inputId' - Unique ID of the input
 newDeleteInput ::
   -- | 'inputId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteInput
 newDeleteInput pInputId_ =
   DeleteInput' {inputId = pInputId_}
 
 -- | Unique ID of the input
-deleteInput_inputId :: Lens.Lens' DeleteInput Prelude.Text
+deleteInput_inputId :: Lens.Lens' DeleteInput Core.Text
 deleteInput_inputId = Lens.lens (\DeleteInput' {inputId} -> inputId) (\s@DeleteInput' {} a -> s {inputId = a} :: DeleteInput)
 
-instance Prelude.AWSRequest DeleteInput where
-  type Rs DeleteInput = DeleteInputResponse
+instance Core.AWSRequest DeleteInput where
+  type AWSResponse DeleteInput = DeleteInputResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteInputResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteInput
+instance Core.Hashable DeleteInput
 
-instance Prelude.NFData DeleteInput
+instance Core.NFData DeleteInput
 
-instance Prelude.ToHeaders DeleteInput where
+instance Core.ToHeaders DeleteInput where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteInput where
+instance Core.ToPath DeleteInput where
   toPath DeleteInput' {..} =
-    Prelude.mconcat
-      ["/prod/inputs/", Prelude.toBS inputId]
+    Core.mconcat ["/prod/inputs/", Core.toBS inputId]
 
-instance Prelude.ToQuery DeleteInput where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteInput where
+  toQuery = Core.const Core.mempty
 
 -- | Placeholder documentation for DeleteInputResponse
 --
 -- /See:/ 'newDeleteInputResponse' smart constructor.
 data DeleteInputResponse = DeleteInputResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInputResponse' with all optional fields omitted.
@@ -127,13 +123,13 @@ data DeleteInputResponse = DeleteInputResponse'
 -- 'httpStatus', 'deleteInputResponse_httpStatus' - The response's http status code.
 newDeleteInputResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteInputResponse
 newDeleteInputResponse pHttpStatus_ =
   DeleteInputResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteInputResponse_httpStatus :: Lens.Lens' DeleteInputResponse Prelude.Int
+deleteInputResponse_httpStatus :: Lens.Lens' DeleteInputResponse Core.Int
 deleteInputResponse_httpStatus = Lens.lens (\DeleteInputResponse' {httpStatus} -> httpStatus) (\s@DeleteInputResponse' {} a -> s {httpStatus = a} :: DeleteInputResponse)
 
-instance Prelude.NFData DeleteInputResponse
+instance Core.NFData DeleteInputResponse

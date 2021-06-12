@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.S3.GetBucketVersioning
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -68,11 +67,11 @@ data GetBucketVersioning = GetBucketVersioning'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket for which to get the versioning information.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketVersioning' with all optional fields omitted.
@@ -94,66 +93,65 @@ newGetBucketVersioning ::
 newGetBucketVersioning pBucket_ =
   GetBucketVersioning'
     { expectedBucketOwner =
-        Prelude.Nothing,
+        Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-getBucketVersioning_expectedBucketOwner :: Lens.Lens' GetBucketVersioning (Prelude.Maybe Prelude.Text)
+getBucketVersioning_expectedBucketOwner :: Lens.Lens' GetBucketVersioning (Core.Maybe Core.Text)
 getBucketVersioning_expectedBucketOwner = Lens.lens (\GetBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketVersioning' {} a -> s {expectedBucketOwner = a} :: GetBucketVersioning)
 
 -- | The name of the bucket for which to get the versioning information.
 getBucketVersioning_bucket :: Lens.Lens' GetBucketVersioning BucketName
 getBucketVersioning_bucket = Lens.lens (\GetBucketVersioning' {bucket} -> bucket) (\s@GetBucketVersioning' {} a -> s {bucket = a} :: GetBucketVersioning)
 
-instance Prelude.AWSRequest GetBucketVersioning where
+instance Core.AWSRequest GetBucketVersioning where
   type
-    Rs GetBucketVersioning =
+    AWSResponse GetBucketVersioning =
       GetBucketVersioningResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetBucketVersioningResponse'
-            Prelude.<$> (x Prelude..@? "Status")
-            Prelude.<*> (x Prelude..@? "MfaDelete")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Status")
+            Core.<*> (x Core..@? "MfaDelete")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetBucketVersioning
+instance Core.Hashable GetBucketVersioning
 
-instance Prelude.NFData GetBucketVersioning
+instance Core.NFData GetBucketVersioning
 
-instance Prelude.ToHeaders GetBucketVersioning where
+instance Core.ToHeaders GetBucketVersioning where
   toHeaders GetBucketVersioning' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath GetBucketVersioning where
+instance Core.ToPath GetBucketVersioning where
   toPath GetBucketVersioning' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery GetBucketVersioning where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["versioning"])
+instance Core.ToQuery GetBucketVersioning where
+  toQuery = Core.const (Core.mconcat ["versioning"])
 
 -- | /See:/ 'newGetBucketVersioningResponse' smart constructor.
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
   { -- | The versioning state of the bucket.
-    status :: Prelude.Maybe BucketVersioningStatus,
+    status :: Core.Maybe BucketVersioningStatus,
     -- | Specifies whether MFA delete is enabled in the bucket versioning
     -- configuration. This element is only returned if the bucket has been
     -- configured with MFA delete. If the bucket has never been so configured,
     -- this element is not returned.
-    mfaDelete :: Prelude.Maybe MFADeleteStatus,
+    mfaDelete :: Core.Maybe MFADeleteStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBucketVersioningResponse' with all optional fields omitted.
@@ -173,29 +171,28 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse'
 -- 'httpStatus', 'getBucketVersioningResponse_httpStatus' - The response's http status code.
 newGetBucketVersioningResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetBucketVersioningResponse
 newGetBucketVersioningResponse pHttpStatus_ =
   GetBucketVersioningResponse'
-    { status =
-        Prelude.Nothing,
-      mfaDelete = Prelude.Nothing,
+    { status = Core.Nothing,
+      mfaDelete = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The versioning state of the bucket.
-getBucketVersioningResponse_status :: Lens.Lens' GetBucketVersioningResponse (Prelude.Maybe BucketVersioningStatus)
+getBucketVersioningResponse_status :: Lens.Lens' GetBucketVersioningResponse (Core.Maybe BucketVersioningStatus)
 getBucketVersioningResponse_status = Lens.lens (\GetBucketVersioningResponse' {status} -> status) (\s@GetBucketVersioningResponse' {} a -> s {status = a} :: GetBucketVersioningResponse)
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
-getBucketVersioningResponse_mfaDelete :: Lens.Lens' GetBucketVersioningResponse (Prelude.Maybe MFADeleteStatus)
+getBucketVersioningResponse_mfaDelete :: Lens.Lens' GetBucketVersioningResponse (Core.Maybe MFADeleteStatus)
 getBucketVersioningResponse_mfaDelete = Lens.lens (\GetBucketVersioningResponse' {mfaDelete} -> mfaDelete) (\s@GetBucketVersioningResponse' {} a -> s {mfaDelete = a} :: GetBucketVersioningResponse)
 
 -- | The response's http status code.
-getBucketVersioningResponse_httpStatus :: Lens.Lens' GetBucketVersioningResponse Prelude.Int
+getBucketVersioningResponse_httpStatus :: Lens.Lens' GetBucketVersioningResponse Core.Int
 getBucketVersioningResponse_httpStatus = Lens.lens (\GetBucketVersioningResponse' {httpStatus} -> httpStatus) (\s@GetBucketVersioningResponse' {} a -> s {httpStatus = a} :: GetBucketVersioningResponse)
 
-instance Prelude.NFData GetBucketVersioningResponse
+instance Core.NFData GetBucketVersioningResponse

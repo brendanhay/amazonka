@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeStar.Types.CodeDestination where
 
 import Network.AWS.CodeStar.Types.CodeCommitCodeDestination
 import Network.AWS.CodeStar.Types.GitHubCodeDestination
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The repository to be created in AWS CodeStar. Valid values are AWS
 -- CodeCommit or GitHub. After AWS CodeStar provisions the new repository,
@@ -35,13 +34,13 @@ data CodeDestination = CodeDestination'
   { -- | Information about the AWS CodeCommit repository to be created in AWS
     -- CodeStar. This is where the source code files provided with the project
     -- request will be uploaded after project creation.
-    codeCommit :: Prelude.Maybe CodeCommitCodeDestination,
+    codeCommit :: Core.Maybe CodeCommitCodeDestination,
     -- | Information about the GitHub repository to be created in AWS CodeStar.
     -- This is where the source code files provided with the project request
     -- will be uploaded after project creation.
-    gitHub :: Prelude.Maybe GitHubCodeDestination
+    gitHub :: Core.Maybe GitHubCodeDestination
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CodeDestination' with all optional fields omitted.
@@ -62,31 +61,31 @@ newCodeDestination ::
   CodeDestination
 newCodeDestination =
   CodeDestination'
-    { codeCommit = Prelude.Nothing,
-      gitHub = Prelude.Nothing
+    { codeCommit = Core.Nothing,
+      gitHub = Core.Nothing
     }
 
 -- | Information about the AWS CodeCommit repository to be created in AWS
 -- CodeStar. This is where the source code files provided with the project
 -- request will be uploaded after project creation.
-codeDestination_codeCommit :: Lens.Lens' CodeDestination (Prelude.Maybe CodeCommitCodeDestination)
+codeDestination_codeCommit :: Lens.Lens' CodeDestination (Core.Maybe CodeCommitCodeDestination)
 codeDestination_codeCommit = Lens.lens (\CodeDestination' {codeCommit} -> codeCommit) (\s@CodeDestination' {} a -> s {codeCommit = a} :: CodeDestination)
 
 -- | Information about the GitHub repository to be created in AWS CodeStar.
 -- This is where the source code files provided with the project request
 -- will be uploaded after project creation.
-codeDestination_gitHub :: Lens.Lens' CodeDestination (Prelude.Maybe GitHubCodeDestination)
+codeDestination_gitHub :: Lens.Lens' CodeDestination (Core.Maybe GitHubCodeDestination)
 codeDestination_gitHub = Lens.lens (\CodeDestination' {gitHub} -> gitHub) (\s@CodeDestination' {} a -> s {gitHub = a} :: CodeDestination)
 
-instance Prelude.Hashable CodeDestination
+instance Core.Hashable CodeDestination
 
-instance Prelude.NFData CodeDestination
+instance Core.NFData CodeDestination
 
-instance Prelude.ToJSON CodeDestination where
+instance Core.ToJSON CodeDestination where
   toJSON CodeDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("codeCommit" Prelude..=) Prelude.<$> codeCommit,
-            ("gitHub" Prelude..=) Prelude.<$> gitHub
+    Core.object
+      ( Core.catMaybes
+          [ ("codeCommit" Core..=) Core.<$> codeCommit,
+            ("gitHub" Core..=) Core.<$> gitHub
           ]
       )

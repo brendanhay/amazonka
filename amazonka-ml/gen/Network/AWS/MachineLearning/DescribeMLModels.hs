@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,10 +53,9 @@ module Network.AWS.MachineLearning.DescribeMLModels
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,12 +68,12 @@ data DescribeMLModels = DescribeMLModels'
     -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
     --
     -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
+    sortOrder :: Core.Maybe SortOrder,
     -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
     -- values that exactly match the value specified with @EQ@.
-    eq :: Prelude.Maybe Prelude.Text,
+    eq :: Core.Maybe Core.Text,
     -- | The ID of the page in the paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Use one of the following variables to filter a list of @MLModel@:
     --
     -- -   @CreatedAt@ - Sets the search criteria to @MLModel@ creation date.
@@ -95,14 +93,14 @@ data DescribeMLModels = DescribeMLModels'
     -- -   @TrainingDataURI@ - Sets the search criteria to the data file(s)
     --     used in training a @MLModel@. The URL can identify either a file or
     --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-    filterVariable :: Prelude.Maybe MLModelFilterVariable,
+    filterVariable :: Core.Maybe MLModelFilterVariable,
     -- | The greater than operator. The @MLModel@ results will have
     -- @FilterVariable@ values that are greater than the value specified with
     -- @GT@.
-    gt :: Prelude.Maybe Prelude.Text,
+    gt :: Core.Maybe Core.Text,
     -- | The not equal to operator. The @MLModel@ results will have
     -- @FilterVariable@ values not equal to the value specified with @NE@.
-    ne :: Prelude.Maybe Prelude.Text,
+    ne :: Core.Maybe Core.Text,
     -- | A string that is found at the beginning of a variable, such as @Name@ or
     -- @Id@.
     --
@@ -116,23 +114,23 @@ data DescribeMLModels = DescribeMLModels'
     -- -   2014-09-09
     --
     -- -   2014-09-09-Holiday
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | The greater than or equal to operator. The @MLModel@ results will have
     -- @FilterVariable@ values that are greater than or equal to the value
     -- specified with @GE@.
-    ge :: Prelude.Maybe Prelude.Text,
+    ge :: Core.Maybe Core.Text,
     -- | The less than or equal to operator. The @MLModel@ results will have
     -- @FilterVariable@ values that are less than or equal to the value
     -- specified with @LE@.
-    le :: Prelude.Maybe Prelude.Text,
+    le :: Core.Maybe Core.Text,
     -- | The less than operator. The @MLModel@ results will have @FilterVariable@
     -- values that are less than the value specified with @LT@.
-    lt :: Prelude.Maybe Prelude.Text,
+    lt :: Core.Maybe Core.Text,
     -- | The number of pages of information to include in the result. The range
     -- of acceptable values is @1@ through @100@. The default value is @100@.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMLModels' with all optional fields omitted.
@@ -213,17 +211,17 @@ newDescribeMLModels ::
   DescribeMLModels
 newDescribeMLModels =
   DescribeMLModels'
-    { sortOrder = Prelude.Nothing,
-      eq = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      filterVariable = Prelude.Nothing,
-      gt = Prelude.Nothing,
-      ne = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      ge = Prelude.Nothing,
-      le = Prelude.Nothing,
-      lt = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { sortOrder = Core.Nothing,
+      eq = Core.Nothing,
+      nextToken = Core.Nothing,
+      filterVariable = Core.Nothing,
+      gt = Core.Nothing,
+      ne = Core.Nothing,
+      prefix = Core.Nothing,
+      ge = Core.Nothing,
+      le = Core.Nothing,
+      lt = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | A two-value parameter that determines the sequence of the resulting list
@@ -233,16 +231,16 @@ newDescribeMLModels =
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-describeMLModels_sortOrder :: Lens.Lens' DescribeMLModels (Prelude.Maybe SortOrder)
+describeMLModels_sortOrder :: Lens.Lens' DescribeMLModels (Core.Maybe SortOrder)
 describeMLModels_sortOrder = Lens.lens (\DescribeMLModels' {sortOrder} -> sortOrder) (\s@DescribeMLModels' {} a -> s {sortOrder = a} :: DescribeMLModels)
 
 -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
 -- values that exactly match the value specified with @EQ@.
-describeMLModels_eq :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_eq :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_eq = Lens.lens (\DescribeMLModels' {eq} -> eq) (\s@DescribeMLModels' {} a -> s {eq = a} :: DescribeMLModels)
 
 -- | The ID of the page in the paginated results.
-describeMLModels_nextToken :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_nextToken :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_nextToken = Lens.lens (\DescribeMLModels' {nextToken} -> nextToken) (\s@DescribeMLModels' {} a -> s {nextToken = a} :: DescribeMLModels)
 
 -- | Use one of the following variables to filter a list of @MLModel@:
@@ -264,18 +262,18 @@ describeMLModels_nextToken = Lens.lens (\DescribeMLModels' {nextToken} -> nextTo
 -- -   @TrainingDataURI@ - Sets the search criteria to the data file(s)
 --     used in training a @MLModel@. The URL can identify either a file or
 --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-describeMLModels_filterVariable :: Lens.Lens' DescribeMLModels (Prelude.Maybe MLModelFilterVariable)
+describeMLModels_filterVariable :: Lens.Lens' DescribeMLModels (Core.Maybe MLModelFilterVariable)
 describeMLModels_filterVariable = Lens.lens (\DescribeMLModels' {filterVariable} -> filterVariable) (\s@DescribeMLModels' {} a -> s {filterVariable = a} :: DescribeMLModels)
 
 -- | The greater than operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are greater than the value specified with
 -- @GT@.
-describeMLModels_gt :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_gt :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_gt = Lens.lens (\DescribeMLModels' {gt} -> gt) (\s@DescribeMLModels' {} a -> s {gt = a} :: DescribeMLModels)
 
 -- | The not equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values not equal to the value specified with @NE@.
-describeMLModels_ne :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_ne :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_ne = Lens.lens (\DescribeMLModels' {ne} -> ne) (\s@DescribeMLModels' {} a -> s {ne = a} :: DescribeMLModels)
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
@@ -291,108 +289,104 @@ describeMLModels_ne = Lens.lens (\DescribeMLModels' {ne} -> ne) (\s@DescribeMLMo
 -- -   2014-09-09
 --
 -- -   2014-09-09-Holiday
-describeMLModels_prefix :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_prefix :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_prefix = Lens.lens (\DescribeMLModels' {prefix} -> prefix) (\s@DescribeMLModels' {} a -> s {prefix = a} :: DescribeMLModels)
 
 -- | The greater than or equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are greater than or equal to the value
 -- specified with @GE@.
-describeMLModels_ge :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_ge :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_ge = Lens.lens (\DescribeMLModels' {ge} -> ge) (\s@DescribeMLModels' {} a -> s {ge = a} :: DescribeMLModels)
 
 -- | The less than or equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
 -- specified with @LE@.
-describeMLModels_le :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_le :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_le = Lens.lens (\DescribeMLModels' {le} -> le) (\s@DescribeMLModels' {} a -> s {le = a} :: DescribeMLModels)
 
 -- | The less than operator. The @MLModel@ results will have @FilterVariable@
 -- values that are less than the value specified with @LT@.
-describeMLModels_lt :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Text)
+describeMLModels_lt :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Text)
 describeMLModels_lt = Lens.lens (\DescribeMLModels' {lt} -> lt) (\s@DescribeMLModels' {} a -> s {lt = a} :: DescribeMLModels)
 
 -- | The number of pages of information to include in the result. The range
 -- of acceptable values is @1@ through @100@. The default value is @100@.
-describeMLModels_limit :: Lens.Lens' DescribeMLModels (Prelude.Maybe Prelude.Natural)
+describeMLModels_limit :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Natural)
 describeMLModels_limit = Lens.lens (\DescribeMLModels' {limit} -> limit) (\s@DescribeMLModels' {} a -> s {limit = a} :: DescribeMLModels)
 
-instance Pager.AWSPager DescribeMLModels where
+instance Core.AWSPager DescribeMLModels where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeMLModelsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeMLModelsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeMLModelsResponse_results
-              Prelude.. Lens._Just
+            Lens.^? describeMLModelsResponse_results Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeMLModels_nextToken
           Lens..~ rs
-          Lens.^? describeMLModelsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeMLModelsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeMLModels where
-  type Rs DescribeMLModels = DescribeMLModelsResponse
+instance Core.AWSRequest DescribeMLModels where
+  type
+    AWSResponse DescribeMLModels =
+      DescribeMLModelsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeMLModelsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Results" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Results" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMLModels
+instance Core.Hashable DescribeMLModels
 
-instance Prelude.NFData DescribeMLModels
+instance Core.NFData DescribeMLModels
 
-instance Prelude.ToHeaders DescribeMLModels where
+instance Core.ToHeaders DescribeMLModels where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonML_20141212.DescribeMLModels" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonML_20141212.DescribeMLModels" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeMLModels where
+instance Core.ToJSON DescribeMLModels where
   toJSON DescribeMLModels' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("EQ" Prelude..=) Prelude.<$> eq,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("FilterVariable" Prelude..=)
-              Prelude.<$> filterVariable,
-            ("GT" Prelude..=) Prelude.<$> gt,
-            ("NE" Prelude..=) Prelude.<$> ne,
-            ("Prefix" Prelude..=) Prelude.<$> prefix,
-            ("GE" Prelude..=) Prelude.<$> ge,
-            ("LE" Prelude..=) Prelude.<$> le,
-            ("LT" Prelude..=) Prelude.<$> lt,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("EQ" Core..=) Core.<$> eq,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("FilterVariable" Core..=) Core.<$> filterVariable,
+            ("GT" Core..=) Core.<$> gt,
+            ("NE" Core..=) Core.<$> ne,
+            ("Prefix" Core..=) Core.<$> prefix,
+            ("GE" Core..=) Core.<$> ge,
+            ("LE" Core..=) Core.<$> le,
+            ("LT" Core..=) Core.<$> lt,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeMLModels where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMLModels where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeMLModels where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeMLModels where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DescribeMLModels@ operation. The content is
 -- essentially a list of @MLModel@.
@@ -401,13 +395,13 @@ instance Prelude.ToQuery DescribeMLModels where
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
   { -- | The ID of the next page in the paginated results that indicates at least
     -- one more page follows.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @MLModel@ that meet the search criteria.
-    results :: Prelude.Maybe [MLModel],
+    results :: Core.Maybe [MLModel],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMLModelsResponse' with all optional fields omitted.
@@ -425,27 +419,26 @@ data DescribeMLModelsResponse = DescribeMLModelsResponse'
 -- 'httpStatus', 'describeMLModelsResponse_httpStatus' - The response's http status code.
 newDescribeMLModelsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMLModelsResponse
 newDescribeMLModelsResponse pHttpStatus_ =
   DescribeMLModelsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      results = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      results = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-describeMLModelsResponse_nextToken :: Lens.Lens' DescribeMLModelsResponse (Prelude.Maybe Prelude.Text)
+describeMLModelsResponse_nextToken :: Lens.Lens' DescribeMLModelsResponse (Core.Maybe Core.Text)
 describeMLModelsResponse_nextToken = Lens.lens (\DescribeMLModelsResponse' {nextToken} -> nextToken) (\s@DescribeMLModelsResponse' {} a -> s {nextToken = a} :: DescribeMLModelsResponse)
 
 -- | A list of @MLModel@ that meet the search criteria.
-describeMLModelsResponse_results :: Lens.Lens' DescribeMLModelsResponse (Prelude.Maybe [MLModel])
-describeMLModelsResponse_results = Lens.lens (\DescribeMLModelsResponse' {results} -> results) (\s@DescribeMLModelsResponse' {} a -> s {results = a} :: DescribeMLModelsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMLModelsResponse_results :: Lens.Lens' DescribeMLModelsResponse (Core.Maybe [MLModel])
+describeMLModelsResponse_results = Lens.lens (\DescribeMLModelsResponse' {results} -> results) (\s@DescribeMLModelsResponse' {} a -> s {results = a} :: DescribeMLModelsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMLModelsResponse_httpStatus :: Lens.Lens' DescribeMLModelsResponse Prelude.Int
+describeMLModelsResponse_httpStatus :: Lens.Lens' DescribeMLModelsResponse Core.Int
 describeMLModelsResponse_httpStatus = Lens.lens (\DescribeMLModelsResponse' {httpStatus} -> httpStatus) (\s@DescribeMLModelsResponse' {} a -> s {httpStatus = a} :: DescribeMLModelsResponse)
 
-instance Prelude.NFData DescribeMLModelsResponse
+instance Core.NFData DescribeMLModelsResponse

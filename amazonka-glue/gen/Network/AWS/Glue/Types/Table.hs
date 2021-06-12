@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,40 +19,40 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Table where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Column
 import Network.AWS.Glue.Types.StorageDescriptor
 import Network.AWS.Glue.Types.TableIdentifier
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a collection of related data organized in columns and rows.
 --
 -- /See:/ 'newTable' smart constructor.
 data Table = Table'
   { -- | If the table is a view, the original text of the view; otherwise @null@.
-    viewOriginalText :: Prelude.Maybe Prelude.Text,
+    viewOriginalText :: Core.Maybe Core.Text,
     -- | The ID of the Data Catalog in which the table resides.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
-    tableType :: Prelude.Maybe Prelude.Text,
+    tableType :: Core.Maybe Core.Text,
     -- | A storage descriptor containing information about the physical storage
     -- of this table.
-    storageDescriptor :: Prelude.Maybe StorageDescriptor,
+    storageDescriptor :: Core.Maybe StorageDescriptor,
     -- | The last time that column statistics were computed for this table.
-    lastAnalyzedTime :: Prelude.Maybe Prelude.POSIX,
+    lastAnalyzedTime :: Core.Maybe Core.POSIX,
     -- | If the table is a view, the expanded text of the view; otherwise @null@.
-    viewExpandedText :: Prelude.Maybe Prelude.Text,
+    viewExpandedText :: Core.Maybe Core.Text,
     -- | A @TableIdentifier@ structure that describes a target table for resource
     -- linking.
-    targetTable :: Prelude.Maybe TableIdentifier,
+    targetTable :: Core.Maybe TableIdentifier,
     -- | The retention time for this table.
-    retention :: Prelude.Maybe Prelude.Natural,
+    retention :: Core.Maybe Core.Natural,
     -- | The last time that the table was updated.
-    updateTime :: Prelude.Maybe Prelude.POSIX,
+    updateTime :: Core.Maybe Core.POSIX,
     -- | The time when the table definition was created in the Data Catalog.
-    createTime :: Prelude.Maybe Prelude.POSIX,
+    createTime :: Core.Maybe Core.POSIX,
     -- | The owner of the table.
-    owner :: Prelude.Maybe Prelude.Text,
+    owner :: Core.Maybe Core.Text,
     -- | A list of columns by which the table is partitioned. Only primitive
     -- types are supported as partition keys.
     --
@@ -62,25 +61,25 @@ data Table = Table'
     -- to an empty list. For example:
     --
     -- @\"PartitionKeys\": []@
-    partitionKeys :: Prelude.Maybe [Column],
+    partitionKeys :: Core.Maybe [Column],
     -- | A description of the table.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The last time that the table was accessed. This is usually taken from
     -- HDFS, and might not be reliable.
-    lastAccessTime :: Prelude.Maybe Prelude.POSIX,
+    lastAccessTime :: Core.Maybe Core.POSIX,
     -- | The person or entity who created the table.
-    createdBy :: Prelude.Maybe Prelude.Text,
+    createdBy :: Core.Maybe Core.Text,
     -- | Indicates whether the table has been registered with AWS Lake Formation.
-    isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
+    isRegisteredWithLakeFormation :: Core.Maybe Core.Bool,
     -- | These key-value pairs define properties associated with the table.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the database where the table metadata resides. For Hive
     -- compatibility, this must be all lowercase.
-    databaseName :: Prelude.Maybe Prelude.Text,
+    databaseName :: Core.Maybe Core.Text,
     -- | The table name. For Hive compatibility, this must be entirely lowercase.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Table' with all optional fields omitted.
@@ -140,75 +139,75 @@ data Table = Table'
 -- 'name', 'table_name' - The table name. For Hive compatibility, this must be entirely lowercase.
 newTable ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Table
 newTable pName_ =
   Table'
-    { viewOriginalText = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
-      tableType = Prelude.Nothing,
-      storageDescriptor = Prelude.Nothing,
-      lastAnalyzedTime = Prelude.Nothing,
-      viewExpandedText = Prelude.Nothing,
-      targetTable = Prelude.Nothing,
-      retention = Prelude.Nothing,
-      updateTime = Prelude.Nothing,
-      createTime = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      partitionKeys = Prelude.Nothing,
-      description = Prelude.Nothing,
-      lastAccessTime = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      isRegisteredWithLakeFormation = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      databaseName = Prelude.Nothing,
+    { viewOriginalText = Core.Nothing,
+      catalogId = Core.Nothing,
+      tableType = Core.Nothing,
+      storageDescriptor = Core.Nothing,
+      lastAnalyzedTime = Core.Nothing,
+      viewExpandedText = Core.Nothing,
+      targetTable = Core.Nothing,
+      retention = Core.Nothing,
+      updateTime = Core.Nothing,
+      createTime = Core.Nothing,
+      owner = Core.Nothing,
+      partitionKeys = Core.Nothing,
+      description = Core.Nothing,
+      lastAccessTime = Core.Nothing,
+      createdBy = Core.Nothing,
+      isRegisteredWithLakeFormation = Core.Nothing,
+      parameters = Core.Nothing,
+      databaseName = Core.Nothing,
       name = pName_
     }
 
 -- | If the table is a view, the original text of the view; otherwise @null@.
-table_viewOriginalText :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_viewOriginalText :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_viewOriginalText = Lens.lens (\Table' {viewOriginalText} -> viewOriginalText) (\s@Table' {} a -> s {viewOriginalText = a} :: Table)
 
 -- | The ID of the Data Catalog in which the table resides.
-table_catalogId :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_catalogId :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_catalogId = Lens.lens (\Table' {catalogId} -> catalogId) (\s@Table' {} a -> s {catalogId = a} :: Table)
 
 -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
-table_tableType :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_tableType :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_tableType = Lens.lens (\Table' {tableType} -> tableType) (\s@Table' {} a -> s {tableType = a} :: Table)
 
 -- | A storage descriptor containing information about the physical storage
 -- of this table.
-table_storageDescriptor :: Lens.Lens' Table (Prelude.Maybe StorageDescriptor)
+table_storageDescriptor :: Lens.Lens' Table (Core.Maybe StorageDescriptor)
 table_storageDescriptor = Lens.lens (\Table' {storageDescriptor} -> storageDescriptor) (\s@Table' {} a -> s {storageDescriptor = a} :: Table)
 
 -- | The last time that column statistics were computed for this table.
-table_lastAnalyzedTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
-table_lastAnalyzedTime = Lens.lens (\Table' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@Table' {} a -> s {lastAnalyzedTime = a} :: Table) Prelude.. Lens.mapping Prelude._Time
+table_lastAnalyzedTime :: Lens.Lens' Table (Core.Maybe Core.UTCTime)
+table_lastAnalyzedTime = Lens.lens (\Table' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@Table' {} a -> s {lastAnalyzedTime = a} :: Table) Core.. Lens.mapping Core._Time
 
 -- | If the table is a view, the expanded text of the view; otherwise @null@.
-table_viewExpandedText :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_viewExpandedText :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_viewExpandedText = Lens.lens (\Table' {viewExpandedText} -> viewExpandedText) (\s@Table' {} a -> s {viewExpandedText = a} :: Table)
 
 -- | A @TableIdentifier@ structure that describes a target table for resource
 -- linking.
-table_targetTable :: Lens.Lens' Table (Prelude.Maybe TableIdentifier)
+table_targetTable :: Lens.Lens' Table (Core.Maybe TableIdentifier)
 table_targetTable = Lens.lens (\Table' {targetTable} -> targetTable) (\s@Table' {} a -> s {targetTable = a} :: Table)
 
 -- | The retention time for this table.
-table_retention :: Lens.Lens' Table (Prelude.Maybe Prelude.Natural)
+table_retention :: Lens.Lens' Table (Core.Maybe Core.Natural)
 table_retention = Lens.lens (\Table' {retention} -> retention) (\s@Table' {} a -> s {retention = a} :: Table)
 
 -- | The last time that the table was updated.
-table_updateTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
-table_updateTime = Lens.lens (\Table' {updateTime} -> updateTime) (\s@Table' {} a -> s {updateTime = a} :: Table) Prelude.. Lens.mapping Prelude._Time
+table_updateTime :: Lens.Lens' Table (Core.Maybe Core.UTCTime)
+table_updateTime = Lens.lens (\Table' {updateTime} -> updateTime) (\s@Table' {} a -> s {updateTime = a} :: Table) Core.. Lens.mapping Core._Time
 
 -- | The time when the table definition was created in the Data Catalog.
-table_createTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
-table_createTime = Lens.lens (\Table' {createTime} -> createTime) (\s@Table' {} a -> s {createTime = a} :: Table) Prelude.. Lens.mapping Prelude._Time
+table_createTime :: Lens.Lens' Table (Core.Maybe Core.UTCTime)
+table_createTime = Lens.lens (\Table' {createTime} -> createTime) (\s@Table' {} a -> s {createTime = a} :: Table) Core.. Lens.mapping Core._Time
 
 -- | The owner of the table.
-table_owner :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_owner :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_owner = Lens.lens (\Table' {owner} -> owner) (\s@Table' {} a -> s {owner = a} :: Table)
 
 -- | A list of columns by which the table is partitioned. Only primitive
@@ -219,70 +218,66 @@ table_owner = Lens.lens (\Table' {owner} -> owner) (\s@Table' {} a -> s {owner =
 -- to an empty list. For example:
 --
 -- @\"PartitionKeys\": []@
-table_partitionKeys :: Lens.Lens' Table (Prelude.Maybe [Column])
-table_partitionKeys = Lens.lens (\Table' {partitionKeys} -> partitionKeys) (\s@Table' {} a -> s {partitionKeys = a} :: Table) Prelude.. Lens.mapping Prelude._Coerce
+table_partitionKeys :: Lens.Lens' Table (Core.Maybe [Column])
+table_partitionKeys = Lens.lens (\Table' {partitionKeys} -> partitionKeys) (\s@Table' {} a -> s {partitionKeys = a} :: Table) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the table.
-table_description :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_description :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_description = Lens.lens (\Table' {description} -> description) (\s@Table' {} a -> s {description = a} :: Table)
 
 -- | The last time that the table was accessed. This is usually taken from
 -- HDFS, and might not be reliable.
-table_lastAccessTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
-table_lastAccessTime = Lens.lens (\Table' {lastAccessTime} -> lastAccessTime) (\s@Table' {} a -> s {lastAccessTime = a} :: Table) Prelude.. Lens.mapping Prelude._Time
+table_lastAccessTime :: Lens.Lens' Table (Core.Maybe Core.UTCTime)
+table_lastAccessTime = Lens.lens (\Table' {lastAccessTime} -> lastAccessTime) (\s@Table' {} a -> s {lastAccessTime = a} :: Table) Core.. Lens.mapping Core._Time
 
 -- | The person or entity who created the table.
-table_createdBy :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_createdBy :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_createdBy = Lens.lens (\Table' {createdBy} -> createdBy) (\s@Table' {} a -> s {createdBy = a} :: Table)
 
 -- | Indicates whether the table has been registered with AWS Lake Formation.
-table_isRegisteredWithLakeFormation :: Lens.Lens' Table (Prelude.Maybe Prelude.Bool)
+table_isRegisteredWithLakeFormation :: Lens.Lens' Table (Core.Maybe Core.Bool)
 table_isRegisteredWithLakeFormation = Lens.lens (\Table' {isRegisteredWithLakeFormation} -> isRegisteredWithLakeFormation) (\s@Table' {} a -> s {isRegisteredWithLakeFormation = a} :: Table)
 
 -- | These key-value pairs define properties associated with the table.
-table_parameters :: Lens.Lens' Table (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-table_parameters = Lens.lens (\Table' {parameters} -> parameters) (\s@Table' {} a -> s {parameters = a} :: Table) Prelude.. Lens.mapping Prelude._Coerce
+table_parameters :: Lens.Lens' Table (Core.Maybe (Core.HashMap Core.Text Core.Text))
+table_parameters = Lens.lens (\Table' {parameters} -> parameters) (\s@Table' {} a -> s {parameters = a} :: Table) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the database where the table metadata resides. For Hive
 -- compatibility, this must be all lowercase.
-table_databaseName :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_databaseName :: Lens.Lens' Table (Core.Maybe Core.Text)
 table_databaseName = Lens.lens (\Table' {databaseName} -> databaseName) (\s@Table' {} a -> s {databaseName = a} :: Table)
 
 -- | The table name. For Hive compatibility, this must be entirely lowercase.
-table_name :: Lens.Lens' Table Prelude.Text
+table_name :: Lens.Lens' Table Core.Text
 table_name = Lens.lens (\Table' {name} -> name) (\s@Table' {} a -> s {name = a} :: Table)
 
-instance Prelude.FromJSON Table where
+instance Core.FromJSON Table where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Table"
       ( \x ->
           Table'
-            Prelude.<$> (x Prelude..:? "ViewOriginalText")
-            Prelude.<*> (x Prelude..:? "CatalogId")
-            Prelude.<*> (x Prelude..:? "TableType")
-            Prelude.<*> (x Prelude..:? "StorageDescriptor")
-            Prelude.<*> (x Prelude..:? "LastAnalyzedTime")
-            Prelude.<*> (x Prelude..:? "ViewExpandedText")
-            Prelude.<*> (x Prelude..:? "TargetTable")
-            Prelude.<*> (x Prelude..:? "Retention")
-            Prelude.<*> (x Prelude..:? "UpdateTime")
-            Prelude.<*> (x Prelude..:? "CreateTime")
-            Prelude.<*> (x Prelude..:? "Owner")
-            Prelude.<*> ( x Prelude..:? "PartitionKeys"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "LastAccessTime")
-            Prelude.<*> (x Prelude..:? "CreatedBy")
-            Prelude.<*> (x Prelude..:? "IsRegisteredWithLakeFormation")
-            Prelude.<*> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "DatabaseName")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "ViewOriginalText")
+            Core.<*> (x Core..:? "CatalogId")
+            Core.<*> (x Core..:? "TableType")
+            Core.<*> (x Core..:? "StorageDescriptor")
+            Core.<*> (x Core..:? "LastAnalyzedTime")
+            Core.<*> (x Core..:? "ViewExpandedText")
+            Core.<*> (x Core..:? "TargetTable")
+            Core.<*> (x Core..:? "Retention")
+            Core.<*> (x Core..:? "UpdateTime")
+            Core.<*> (x Core..:? "CreateTime")
+            Core.<*> (x Core..:? "Owner")
+            Core.<*> (x Core..:? "PartitionKeys" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "LastAccessTime")
+            Core.<*> (x Core..:? "CreatedBy")
+            Core.<*> (x Core..:? "IsRegisteredWithLakeFormation")
+            Core.<*> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "DatabaseName")
+            Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable Table
+instance Core.Hashable Table
 
-instance Prelude.NFData Table
+instance Core.NFData Table

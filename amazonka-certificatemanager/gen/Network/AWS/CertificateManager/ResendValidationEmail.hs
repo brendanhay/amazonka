@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.CertificateManager.ResendValidationEmail
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,10 +63,10 @@ data ResendValidationEmail = ResendValidationEmail'
     -- certificate request. The ARN must be of the form:
     --
     -- @arn:aws:acm:us-east-1:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
-    certificateArn :: Prelude.Text,
+    certificateArn :: Core.Text,
     -- | The fully qualified domain name (FQDN) of the certificate that needs to
     -- be validated.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The base validation domain that will act as the suffix of the email
     -- addresses that are used to send the emails. This must be the same as the
     -- @Domain@ value or a superdomain of the @Domain@ value. For example, if
@@ -85,9 +84,9 @@ data ResendValidationEmail = ResendValidationEmail'
     -- -   postmaster\@subdomain.example.com
     --
     -- -   webmaster\@subdomain.example.com
-    validationDomain :: Prelude.Text
+    validationDomain :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResendValidationEmail' with all optional fields omitted.
@@ -127,11 +126,11 @@ data ResendValidationEmail = ResendValidationEmail'
 -- -   webmaster\@subdomain.example.com
 newResendValidationEmail ::
   -- | 'certificateArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'validationDomain'
-  Prelude.Text ->
+  Core.Text ->
   ResendValidationEmail
 newResendValidationEmail
   pCertificateArn_
@@ -151,12 +150,12 @@ newResendValidationEmail
 -- certificate request. The ARN must be of the form:
 --
 -- @arn:aws:acm:us-east-1:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
-resendValidationEmail_certificateArn :: Lens.Lens' ResendValidationEmail Prelude.Text
+resendValidationEmail_certificateArn :: Lens.Lens' ResendValidationEmail Core.Text
 resendValidationEmail_certificateArn = Lens.lens (\ResendValidationEmail' {certificateArn} -> certificateArn) (\s@ResendValidationEmail' {} a -> s {certificateArn = a} :: ResendValidationEmail)
 
 -- | The fully qualified domain name (FQDN) of the certificate that needs to
 -- be validated.
-resendValidationEmail_domain :: Lens.Lens' ResendValidationEmail Prelude.Text
+resendValidationEmail_domain :: Lens.Lens' ResendValidationEmail Core.Text
 resendValidationEmail_domain = Lens.lens (\ResendValidationEmail' {domain} -> domain) (\s@ResendValidationEmail' {} a -> s {domain = a} :: ResendValidationEmail)
 
 -- | The base validation domain that will act as the suffix of the email
@@ -176,59 +175,56 @@ resendValidationEmail_domain = Lens.lens (\ResendValidationEmail' {domain} -> do
 -- -   postmaster\@subdomain.example.com
 --
 -- -   webmaster\@subdomain.example.com
-resendValidationEmail_validationDomain :: Lens.Lens' ResendValidationEmail Prelude.Text
+resendValidationEmail_validationDomain :: Lens.Lens' ResendValidationEmail Core.Text
 resendValidationEmail_validationDomain = Lens.lens (\ResendValidationEmail' {validationDomain} -> validationDomain) (\s@ResendValidationEmail' {} a -> s {validationDomain = a} :: ResendValidationEmail)
 
-instance Prelude.AWSRequest ResendValidationEmail where
+instance Core.AWSRequest ResendValidationEmail where
   type
-    Rs ResendValidationEmail =
+    AWSResponse ResendValidationEmail =
       ResendValidationEmailResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull ResendValidationEmailResponse'
 
-instance Prelude.Hashable ResendValidationEmail
+instance Core.Hashable ResendValidationEmail
 
-instance Prelude.NFData ResendValidationEmail
+instance Core.NFData ResendValidationEmail
 
-instance Prelude.ToHeaders ResendValidationEmail where
+instance Core.ToHeaders ResendValidationEmail where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.ResendValidationEmail" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.ResendValidationEmail" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ResendValidationEmail where
+instance Core.ToJSON ResendValidationEmail where
   toJSON ResendValidationEmail' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CertificateArn" Prelude..= certificateArn),
-            Prelude.Just ("Domain" Prelude..= domain),
-            Prelude.Just
-              ("ValidationDomain" Prelude..= validationDomain)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CertificateArn" Core..= certificateArn),
+            Core.Just ("Domain" Core..= domain),
+            Core.Just
+              ("ValidationDomain" Core..= validationDomain)
           ]
       )
 
-instance Prelude.ToPath ResendValidationEmail where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResendValidationEmail where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResendValidationEmail where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ResendValidationEmail where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newResendValidationEmailResponse' smart constructor.
 data ResendValidationEmailResponse = ResendValidationEmailResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResendValidationEmailResponse' with all optional fields omitted.
@@ -239,4 +235,4 @@ newResendValidationEmailResponse ::
 newResendValidationEmailResponse =
   ResendValidationEmailResponse'
 
-instance Prelude.NFData ResendValidationEmailResponse
+instance Core.NFData ResendValidationEmailResponse

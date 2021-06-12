@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,9 +69,9 @@ module Network.AWS.Organizations.EnableAllFeatures
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,7 +79,7 @@ import qualified Network.AWS.Response as Response
 data EnableAllFeatures = EnableAllFeatures'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAllFeatures' with all optional fields omitted.
@@ -90,55 +89,54 @@ newEnableAllFeatures ::
   EnableAllFeatures
 newEnableAllFeatures = EnableAllFeatures'
 
-instance Prelude.AWSRequest EnableAllFeatures where
-  type Rs EnableAllFeatures = EnableAllFeaturesResponse
+instance Core.AWSRequest EnableAllFeatures where
+  type
+    AWSResponse EnableAllFeatures =
+      EnableAllFeaturesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           EnableAllFeaturesResponse'
-            Prelude.<$> (x Prelude..?> "Handshake")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Handshake")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable EnableAllFeatures
+instance Core.Hashable EnableAllFeatures
 
-instance Prelude.NFData EnableAllFeatures
+instance Core.NFData EnableAllFeatures
 
-instance Prelude.ToHeaders EnableAllFeatures where
+instance Core.ToHeaders EnableAllFeatures where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.EnableAllFeatures" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.EnableAllFeatures" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableAllFeatures where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON EnableAllFeatures where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath EnableAllFeatures where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableAllFeatures where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableAllFeatures where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableAllFeatures where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableAllFeaturesResponse' smart constructor.
 data EnableAllFeaturesResponse = EnableAllFeaturesResponse'
   { -- | A structure that contains details about the handshake created to support
     -- this request to enable all features in the organization.
-    handshake :: Prelude.Maybe Handshake,
+    handshake :: Core.Maybe Handshake,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableAllFeaturesResponse' with all optional fields omitted.
@@ -154,22 +152,22 @@ data EnableAllFeaturesResponse = EnableAllFeaturesResponse'
 -- 'httpStatus', 'enableAllFeaturesResponse_httpStatus' - The response's http status code.
 newEnableAllFeaturesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableAllFeaturesResponse
 newEnableAllFeaturesResponse pHttpStatus_ =
   EnableAllFeaturesResponse'
     { handshake =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the handshake created to support
 -- this request to enable all features in the organization.
-enableAllFeaturesResponse_handshake :: Lens.Lens' EnableAllFeaturesResponse (Prelude.Maybe Handshake)
+enableAllFeaturesResponse_handshake :: Lens.Lens' EnableAllFeaturesResponse (Core.Maybe Handshake)
 enableAllFeaturesResponse_handshake = Lens.lens (\EnableAllFeaturesResponse' {handshake} -> handshake) (\s@EnableAllFeaturesResponse' {} a -> s {handshake = a} :: EnableAllFeaturesResponse)
 
 -- | The response's http status code.
-enableAllFeaturesResponse_httpStatus :: Lens.Lens' EnableAllFeaturesResponse Prelude.Int
+enableAllFeaturesResponse_httpStatus :: Lens.Lens' EnableAllFeaturesResponse Core.Int
 enableAllFeaturesResponse_httpStatus = Lens.lens (\EnableAllFeaturesResponse' {httpStatus} -> httpStatus) (\s@EnableAllFeaturesResponse' {} a -> s {httpStatus = a} :: EnableAllFeaturesResponse)
 
-instance Prelude.NFData EnableAllFeaturesResponse
+instance Core.NFData EnableAllFeaturesResponse

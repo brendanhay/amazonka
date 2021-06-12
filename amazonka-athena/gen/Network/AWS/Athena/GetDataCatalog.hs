@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.Athena.GetDataCatalog
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDataCatalog' smart constructor.
 data GetDataCatalog = GetDataCatalog'
   { -- | The name of the data catalog to return.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDataCatalog' with all optional fields omitted.
@@ -64,66 +63,62 @@ data GetDataCatalog = GetDataCatalog'
 -- 'name', 'getDataCatalog_name' - The name of the data catalog to return.
 newGetDataCatalog ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetDataCatalog
 newGetDataCatalog pName_ =
   GetDataCatalog' {name = pName_}
 
 -- | The name of the data catalog to return.
-getDataCatalog_name :: Lens.Lens' GetDataCatalog Prelude.Text
+getDataCatalog_name :: Lens.Lens' GetDataCatalog Core.Text
 getDataCatalog_name = Lens.lens (\GetDataCatalog' {name} -> name) (\s@GetDataCatalog' {} a -> s {name = a} :: GetDataCatalog)
 
-instance Prelude.AWSRequest GetDataCatalog where
-  type Rs GetDataCatalog = GetDataCatalogResponse
+instance Core.AWSRequest GetDataCatalog where
+  type
+    AWSResponse GetDataCatalog =
+      GetDataCatalogResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDataCatalogResponse'
-            Prelude.<$> (x Prelude..?> "DataCatalog")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DataCatalog")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDataCatalog
+instance Core.Hashable GetDataCatalog
 
-instance Prelude.NFData GetDataCatalog
+instance Core.NFData GetDataCatalog
 
-instance Prelude.ToHeaders GetDataCatalog where
+instance Core.ToHeaders GetDataCatalog where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonAthena.GetDataCatalog" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonAthena.GetDataCatalog" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDataCatalog where
+instance Core.ToJSON GetDataCatalog where
   toJSON GetDataCatalog' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath GetDataCatalog where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDataCatalog where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDataCatalog where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDataCatalog where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDataCatalogResponse' smart constructor.
 data GetDataCatalogResponse = GetDataCatalogResponse'
   { -- | The data catalog returned.
-    dataCatalog :: Prelude.Maybe DataCatalog,
+    dataCatalog :: Core.Maybe DataCatalog,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDataCatalogResponse' with all optional fields omitted.
@@ -138,21 +133,20 @@ data GetDataCatalogResponse = GetDataCatalogResponse'
 -- 'httpStatus', 'getDataCatalogResponse_httpStatus' - The response's http status code.
 newGetDataCatalogResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDataCatalogResponse
 newGetDataCatalogResponse pHttpStatus_ =
   GetDataCatalogResponse'
-    { dataCatalog =
-        Prelude.Nothing,
+    { dataCatalog = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The data catalog returned.
-getDataCatalogResponse_dataCatalog :: Lens.Lens' GetDataCatalogResponse (Prelude.Maybe DataCatalog)
+getDataCatalogResponse_dataCatalog :: Lens.Lens' GetDataCatalogResponse (Core.Maybe DataCatalog)
 getDataCatalogResponse_dataCatalog = Lens.lens (\GetDataCatalogResponse' {dataCatalog} -> dataCatalog) (\s@GetDataCatalogResponse' {} a -> s {dataCatalog = a} :: GetDataCatalogResponse)
 
 -- | The response's http status code.
-getDataCatalogResponse_httpStatus :: Lens.Lens' GetDataCatalogResponse Prelude.Int
+getDataCatalogResponse_httpStatus :: Lens.Lens' GetDataCatalogResponse Core.Int
 getDataCatalogResponse_httpStatus = Lens.lens (\GetDataCatalogResponse' {httpStatus} -> httpStatus) (\s@GetDataCatalogResponse' {} a -> s {httpStatus = a} :: GetDataCatalogResponse)
 
-instance Prelude.NFData GetDataCatalogResponse
+instance Core.NFData GetDataCatalogResponse

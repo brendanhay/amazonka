@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.CloudFormation.ListExports
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,9 +59,9 @@ import qualified Network.AWS.Response as Response
 data ListExports = ListExports'
   { -- | A string (provided by the ListExports response output) that identifies
     -- the next page of exported output values that you asked to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExports' with all optional fields omitted.
@@ -78,79 +76,77 @@ data ListExports = ListExports'
 newListExports ::
   ListExports
 newListExports =
-  ListExports' {nextToken = Prelude.Nothing}
+  ListExports' {nextToken = Core.Nothing}
 
 -- | A string (provided by the ListExports response output) that identifies
 -- the next page of exported output values that you asked to retrieve.
-listExports_nextToken :: Lens.Lens' ListExports (Prelude.Maybe Prelude.Text)
+listExports_nextToken :: Lens.Lens' ListExports (Core.Maybe Core.Text)
 listExports_nextToken = Lens.lens (\ListExports' {nextToken} -> nextToken) (\s@ListExports' {} a -> s {nextToken = a} :: ListExports)
 
-instance Pager.AWSPager ListExports where
+instance Core.AWSPager ListExports where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listExportsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listExportsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listExportsResponse_exports Prelude.. Lens._Just
+            Lens.^? listExportsResponse_exports Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listExports_nextToken
           Lens..~ rs
-          Lens.^? listExportsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listExportsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListExports where
-  type Rs ListExports = ListExportsResponse
+instance Core.AWSRequest ListExports where
+  type AWSResponse ListExports = ListExportsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListExportsResult"
       ( \s h x ->
           ListExportsResponse'
-            Prelude.<$> ( x Prelude..@? "Exports" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Exports" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListExports
+instance Core.Hashable ListExports
 
-instance Prelude.NFData ListExports
+instance Core.NFData ListExports
 
-instance Prelude.ToHeaders ListExports where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListExports where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListExports where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListExports where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListExports where
+instance Core.ToQuery ListExports where
   toQuery ListExports' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("ListExports" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken
+    Core.mconcat
+      [ "Action" Core.=: ("ListExports" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken
       ]
 
 -- | /See:/ 'newListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
   { -- | The output for the ListExports action.
-    exports :: Prelude.Maybe [Export],
+    exports :: Core.Maybe [Export],
     -- | If the output exceeds 100 exported output values, a string that
     -- identifies the next page of exports. If there is no additional page,
     -- this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListExportsResponse' with all optional fields omitted.
@@ -169,27 +165,27 @@ data ListExportsResponse = ListExportsResponse'
 -- 'httpStatus', 'listExportsResponse_httpStatus' - The response's http status code.
 newListExportsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListExportsResponse
 newListExportsResponse pHttpStatus_ =
   ListExportsResponse'
-    { exports = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { exports = Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The output for the ListExports action.
-listExportsResponse_exports :: Lens.Lens' ListExportsResponse (Prelude.Maybe [Export])
-listExportsResponse_exports = Lens.lens (\ListExportsResponse' {exports} -> exports) (\s@ListExportsResponse' {} a -> s {exports = a} :: ListExportsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listExportsResponse_exports :: Lens.Lens' ListExportsResponse (Core.Maybe [Export])
+listExportsResponse_exports = Lens.lens (\ListExportsResponse' {exports} -> exports) (\s@ListExportsResponse' {} a -> s {exports = a} :: ListExportsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If the output exceeds 100 exported output values, a string that
 -- identifies the next page of exports. If there is no additional page,
 -- this value is null.
-listExportsResponse_nextToken :: Lens.Lens' ListExportsResponse (Prelude.Maybe Prelude.Text)
+listExportsResponse_nextToken :: Lens.Lens' ListExportsResponse (Core.Maybe Core.Text)
 listExportsResponse_nextToken = Lens.lens (\ListExportsResponse' {nextToken} -> nextToken) (\s@ListExportsResponse' {} a -> s {nextToken = a} :: ListExportsResponse)
 
 -- | The response's http status code.
-listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Prelude.Int
+listExportsResponse_httpStatus :: Lens.Lens' ListExportsResponse Core.Int
 listExportsResponse_httpStatus = Lens.lens (\ListExportsResponse' {httpStatus} -> httpStatus) (\s@ListExportsResponse' {} a -> s {httpStatus = a} :: ListExportsResponse)
 
-instance Prelude.NFData ListExportsResponse
+instance Core.NFData ListExportsResponse

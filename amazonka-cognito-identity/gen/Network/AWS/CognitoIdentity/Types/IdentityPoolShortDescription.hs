@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A description of the identity pool.
 --
 -- /See:/ 'newIdentityPoolShortDescription' smart constructor.
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Maybe Prelude.Text,
+    identityPoolId :: Core.Maybe Core.Text,
     -- | A string that you provide.
-    identityPoolName :: Prelude.Maybe Prelude.Text
+    identityPoolName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityPoolShortDescription' with all optional fields omitted.
@@ -50,33 +49,28 @@ newIdentityPoolShortDescription ::
 newIdentityPoolShortDescription =
   IdentityPoolShortDescription'
     { identityPoolId =
-        Prelude.Nothing,
-      identityPoolName = Prelude.Nothing
+        Core.Nothing,
+      identityPoolName = Core.Nothing
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-identityPoolShortDescription_identityPoolId :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
+identityPoolShortDescription_identityPoolId :: Lens.Lens' IdentityPoolShortDescription (Core.Maybe Core.Text)
 identityPoolShortDescription_identityPoolId = Lens.lens (\IdentityPoolShortDescription' {identityPoolId} -> identityPoolId) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolId = a} :: IdentityPoolShortDescription)
 
 -- | A string that you provide.
-identityPoolShortDescription_identityPoolName :: Lens.Lens' IdentityPoolShortDescription (Prelude.Maybe Prelude.Text)
+identityPoolShortDescription_identityPoolName :: Lens.Lens' IdentityPoolShortDescription (Core.Maybe Core.Text)
 identityPoolShortDescription_identityPoolName = Lens.lens (\IdentityPoolShortDescription' {identityPoolName} -> identityPoolName) (\s@IdentityPoolShortDescription' {} a -> s {identityPoolName = a} :: IdentityPoolShortDescription)
 
-instance
-  Prelude.FromJSON
-    IdentityPoolShortDescription
-  where
+instance Core.FromJSON IdentityPoolShortDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IdentityPoolShortDescription"
       ( \x ->
           IdentityPoolShortDescription'
-            Prelude.<$> (x Prelude..:? "IdentityPoolId")
-            Prelude.<*> (x Prelude..:? "IdentityPoolName")
+            Core.<$> (x Core..:? "IdentityPoolId")
+            Core.<*> (x Core..:? "IdentityPoolName")
       )
 
-instance
-  Prelude.Hashable
-    IdentityPoolShortDescription
+instance Core.Hashable IdentityPoolShortDescription
 
-instance Prelude.NFData IdentityPoolShortDescription
+instance Core.NFData IdentityPoolShortDescription

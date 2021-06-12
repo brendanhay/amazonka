@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,8 @@ module Network.AWS.RDS.DescribeDBInstanceAutomatedBackups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -69,15 +67,15 @@ data DescribeDBInstanceAutomatedBackups = DescribeDBInstanceAutomatedBackups'
   { -- | The Amazon Resource Name (ARN) of the replicated automated backups, for
     -- example,
     -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
-    dbInstanceAutomatedBackupsArn :: Prelude.Maybe Prelude.Text,
+    dbInstanceAutomatedBackupsArn :: Core.Maybe Core.Text,
     -- | The resource ID of the DB instance that is the source of the automated
     -- backup. This parameter isn\'t case-sensitive.
-    dbiResourceId :: Prelude.Maybe Prelude.Text,
+    dbiResourceId :: Core.Maybe Core.Text,
     -- | (Optional) The user-supplied instance identifier. If this parameter is
     -- specified, it must match the identifier of an existing DB instance. It
     -- returns information from the specific DB instance\' automated backup.
     -- This parameter isn\'t case-sensitive.
-    dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
+    dbInstanceIdentifier :: Core.Maybe Core.Text,
     -- | A filter that specifies which resources to return based on status.
     --
     -- Supported filters are the following:
@@ -102,18 +100,18 @@ data DescribeDBInstanceAutomatedBackups = DescribeDBInstanceAutomatedBackups'
     --
     -- Returns all resources by default. The status for each resource is
     -- specified in the response.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The pagination token provided in the previous request. If this parameter
     -- is specified the response includes only records beyond the marker, up to
     -- @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
     -- remaining results.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDBInstanceAutomatedBackups' with all optional fields omitted.
@@ -173,30 +171,30 @@ newDescribeDBInstanceAutomatedBackups ::
 newDescribeDBInstanceAutomatedBackups =
   DescribeDBInstanceAutomatedBackups'
     { dbInstanceAutomatedBackupsArn =
-        Prelude.Nothing,
-      dbiResourceId = Prelude.Nothing,
-      dbInstanceIdentifier = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      dbiResourceId = Core.Nothing,
+      dbInstanceIdentifier = Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the replicated automated backups, for
 -- example,
 -- @arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE@.
-describeDBInstanceAutomatedBackups_dbInstanceAutomatedBackupsArn :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Text)
+describeDBInstanceAutomatedBackups_dbInstanceAutomatedBackupsArn :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Core.Maybe Core.Text)
 describeDBInstanceAutomatedBackups_dbInstanceAutomatedBackupsArn = Lens.lens (\DescribeDBInstanceAutomatedBackups' {dbInstanceAutomatedBackupsArn} -> dbInstanceAutomatedBackupsArn) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {dbInstanceAutomatedBackupsArn = a} :: DescribeDBInstanceAutomatedBackups)
 
 -- | The resource ID of the DB instance that is the source of the automated
 -- backup. This parameter isn\'t case-sensitive.
-describeDBInstanceAutomatedBackups_dbiResourceId :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Text)
+describeDBInstanceAutomatedBackups_dbiResourceId :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Core.Maybe Core.Text)
 describeDBInstanceAutomatedBackups_dbiResourceId = Lens.lens (\DescribeDBInstanceAutomatedBackups' {dbiResourceId} -> dbiResourceId) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {dbiResourceId = a} :: DescribeDBInstanceAutomatedBackups)
 
 -- | (Optional) The user-supplied instance identifier. If this parameter is
 -- specified, it must match the identifier of an existing DB instance. It
 -- returns information from the specific DB instance\' automated backup.
 -- This parameter isn\'t case-sensitive.
-describeDBInstanceAutomatedBackups_dbInstanceIdentifier :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Text)
+describeDBInstanceAutomatedBackups_dbInstanceIdentifier :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Core.Maybe Core.Text)
 describeDBInstanceAutomatedBackups_dbInstanceIdentifier = Lens.lens (\DescribeDBInstanceAutomatedBackups' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {dbInstanceIdentifier = a} :: DescribeDBInstanceAutomatedBackups)
 
 -- | A filter that specifies which resources to return based on status.
@@ -223,53 +221,53 @@ describeDBInstanceAutomatedBackups_dbInstanceIdentifier = Lens.lens (\DescribeDB
 --
 -- Returns all resources by default. The status for each resource is
 -- specified in the response.
-describeDBInstanceAutomatedBackups_filters :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe [Filter])
-describeDBInstanceAutomatedBackups_filters = Lens.lens (\DescribeDBInstanceAutomatedBackups' {filters} -> filters) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {filters = a} :: DescribeDBInstanceAutomatedBackups) Prelude.. Lens.mapping Prelude._Coerce
+describeDBInstanceAutomatedBackups_filters :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Core.Maybe [Filter])
+describeDBInstanceAutomatedBackups_filters = Lens.lens (\DescribeDBInstanceAutomatedBackups' {filters} -> filters) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {filters = a} :: DescribeDBInstanceAutomatedBackups) Core.. Lens.mapping Lens._Coerce
 
 -- | The pagination token provided in the previous request. If this parameter
 -- is specified the response includes only records beyond the marker, up to
 -- @MaxRecords@.
-describeDBInstanceAutomatedBackups_marker :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Text)
+describeDBInstanceAutomatedBackups_marker :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Core.Maybe Core.Text)
 describeDBInstanceAutomatedBackups_marker = Lens.lens (\DescribeDBInstanceAutomatedBackups' {marker} -> marker) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {marker = a} :: DescribeDBInstanceAutomatedBackups)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that you can retrieve the
 -- remaining results.
-describeDBInstanceAutomatedBackups_maxRecords :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Prelude.Maybe Prelude.Int)
+describeDBInstanceAutomatedBackups_maxRecords :: Lens.Lens' DescribeDBInstanceAutomatedBackups (Core.Maybe Core.Int)
 describeDBInstanceAutomatedBackups_maxRecords = Lens.lens (\DescribeDBInstanceAutomatedBackups' {maxRecords} -> maxRecords) (\s@DescribeDBInstanceAutomatedBackups' {} a -> s {maxRecords = a} :: DescribeDBInstanceAutomatedBackups)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeDBInstanceAutomatedBackups
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeDBInstanceAutomatedBackupsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeDBInstanceAutomatedBackupsResponse_dbInstanceAutomatedBackups
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeDBInstanceAutomatedBackups_marker
           Lens..~ rs
           Lens.^? describeDBInstanceAutomatedBackupsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeDBInstanceAutomatedBackups
   where
   type
-    Rs DescribeDBInstanceAutomatedBackups =
+    AWSResponse DescribeDBInstanceAutomatedBackups =
       DescribeDBInstanceAutomatedBackupsResponse
   request = Request.postQuery defaultService
   response =
@@ -277,57 +275,55 @@ instance
       "DescribeDBInstanceAutomatedBackupsResult"
       ( \s h x ->
           DescribeDBInstanceAutomatedBackupsResponse'
-            Prelude.<$> ( x Prelude..@? "DBInstanceAutomatedBackups"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "DBInstanceAutomatedBackup")
-                        )
-              Prelude.<*> (x Prelude..@? "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "DBInstanceAutomatedBackups"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may
+                           (Core.parseXMLList "DBInstanceAutomatedBackup")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeDBInstanceAutomatedBackups
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDBInstanceAutomatedBackups
 
 instance
-  Prelude.ToHeaders
-    DescribeDBInstanceAutomatedBackups
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeDBInstanceAutomatedBackups
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeDBInstanceAutomatedBackups
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeDBInstanceAutomatedBackups
   where
   toQuery DescribeDBInstanceAutomatedBackups' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeDBInstanceAutomatedBackups" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ( "DescribeDBInstanceAutomatedBackups" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "DBInstanceAutomatedBackupsArn"
-          Prelude.=: dbInstanceAutomatedBackupsArn,
-        "DbiResourceId" Prelude.=: dbiResourceId,
-        "DBInstanceIdentifier"
-          Prelude.=: dbInstanceIdentifier,
+          Core.=: dbInstanceAutomatedBackupsArn,
+        "DbiResourceId" Core.=: dbiResourceId,
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "Filters"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Core.<$> filters),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the
@@ -336,15 +332,15 @@ instance
 -- /See:/ 'newDescribeDBInstanceAutomatedBackupsResponse' smart constructor.
 data DescribeDBInstanceAutomatedBackupsResponse = DescribeDBInstanceAutomatedBackupsResponse'
   { -- | A list of @DBInstanceAutomatedBackup@ instances.
-    dbInstanceAutomatedBackups :: Prelude.Maybe [DBInstanceAutomatedBackup],
+    dbInstanceAutomatedBackups :: Core.Maybe [DBInstanceAutomatedBackup],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@ .
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDBInstanceAutomatedBackupsResponse' with all optional fields omitted.
@@ -363,31 +359,31 @@ data DescribeDBInstanceAutomatedBackupsResponse = DescribeDBInstanceAutomatedBac
 -- 'httpStatus', 'describeDBInstanceAutomatedBackupsResponse_httpStatus' - The response's http status code.
 newDescribeDBInstanceAutomatedBackupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDBInstanceAutomatedBackupsResponse
 newDescribeDBInstanceAutomatedBackupsResponse
   pHttpStatus_ =
     DescribeDBInstanceAutomatedBackupsResponse'
       { dbInstanceAutomatedBackups =
-          Prelude.Nothing,
-        marker = Prelude.Nothing,
+          Core.Nothing,
+        marker = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A list of @DBInstanceAutomatedBackup@ instances.
-describeDBInstanceAutomatedBackupsResponse_dbInstanceAutomatedBackups :: Lens.Lens' DescribeDBInstanceAutomatedBackupsResponse (Prelude.Maybe [DBInstanceAutomatedBackup])
-describeDBInstanceAutomatedBackupsResponse_dbInstanceAutomatedBackups = Lens.lens (\DescribeDBInstanceAutomatedBackupsResponse' {dbInstanceAutomatedBackups} -> dbInstanceAutomatedBackups) (\s@DescribeDBInstanceAutomatedBackupsResponse' {} a -> s {dbInstanceAutomatedBackups = a} :: DescribeDBInstanceAutomatedBackupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeDBInstanceAutomatedBackupsResponse_dbInstanceAutomatedBackups :: Lens.Lens' DescribeDBInstanceAutomatedBackupsResponse (Core.Maybe [DBInstanceAutomatedBackup])
+describeDBInstanceAutomatedBackupsResponse_dbInstanceAutomatedBackups = Lens.lens (\DescribeDBInstanceAutomatedBackupsResponse' {dbInstanceAutomatedBackups} -> dbInstanceAutomatedBackups) (\s@DescribeDBInstanceAutomatedBackupsResponse' {} a -> s {dbInstanceAutomatedBackups = a} :: DescribeDBInstanceAutomatedBackupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@ .
-describeDBInstanceAutomatedBackupsResponse_marker :: Lens.Lens' DescribeDBInstanceAutomatedBackupsResponse (Prelude.Maybe Prelude.Text)
+describeDBInstanceAutomatedBackupsResponse_marker :: Lens.Lens' DescribeDBInstanceAutomatedBackupsResponse (Core.Maybe Core.Text)
 describeDBInstanceAutomatedBackupsResponse_marker = Lens.lens (\DescribeDBInstanceAutomatedBackupsResponse' {marker} -> marker) (\s@DescribeDBInstanceAutomatedBackupsResponse' {} a -> s {marker = a} :: DescribeDBInstanceAutomatedBackupsResponse)
 
 -- | The response's http status code.
-describeDBInstanceAutomatedBackupsResponse_httpStatus :: Lens.Lens' DescribeDBInstanceAutomatedBackupsResponse Prelude.Int
+describeDBInstanceAutomatedBackupsResponse_httpStatus :: Lens.Lens' DescribeDBInstanceAutomatedBackupsResponse Core.Int
 describeDBInstanceAutomatedBackupsResponse_httpStatus = Lens.lens (\DescribeDBInstanceAutomatedBackupsResponse' {httpStatus} -> httpStatus) (\s@DescribeDBInstanceAutomatedBackupsResponse' {} a -> s {httpStatus = a} :: DescribeDBInstanceAutomatedBackupsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDBInstanceAutomatedBackupsResponse

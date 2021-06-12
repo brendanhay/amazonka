@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.MediaStore.PutLifecyclePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data PutLifecyclePolicy = PutLifecyclePolicy'
   { -- | The name of the container that you want to assign the object lifecycle
     -- policy to.
-    containerName :: Prelude.Text,
+    containerName :: Core.Text,
     -- | The object lifecycle policy to apply to the container.
-    lifecyclePolicy :: Prelude.Text
+    lifecyclePolicy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLifecyclePolicy' with all optional fields omitted.
@@ -76,9 +75,9 @@ data PutLifecyclePolicy = PutLifecyclePolicy'
 -- 'lifecyclePolicy', 'putLifecyclePolicy_lifecyclePolicy' - The object lifecycle policy to apply to the container.
 newPutLifecyclePolicy ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lifecyclePolicy'
-  Prelude.Text ->
+  Core.Text ->
   PutLifecyclePolicy
 newPutLifecyclePolicy
   pContainerName_
@@ -91,67 +90,64 @@ newPutLifecyclePolicy
 
 -- | The name of the container that you want to assign the object lifecycle
 -- policy to.
-putLifecyclePolicy_containerName :: Lens.Lens' PutLifecyclePolicy Prelude.Text
+putLifecyclePolicy_containerName :: Lens.Lens' PutLifecyclePolicy Core.Text
 putLifecyclePolicy_containerName = Lens.lens (\PutLifecyclePolicy' {containerName} -> containerName) (\s@PutLifecyclePolicy' {} a -> s {containerName = a} :: PutLifecyclePolicy)
 
 -- | The object lifecycle policy to apply to the container.
-putLifecyclePolicy_lifecyclePolicy :: Lens.Lens' PutLifecyclePolicy Prelude.Text
+putLifecyclePolicy_lifecyclePolicy :: Lens.Lens' PutLifecyclePolicy Core.Text
 putLifecyclePolicy_lifecyclePolicy = Lens.lens (\PutLifecyclePolicy' {lifecyclePolicy} -> lifecyclePolicy) (\s@PutLifecyclePolicy' {} a -> s {lifecyclePolicy = a} :: PutLifecyclePolicy)
 
-instance Prelude.AWSRequest PutLifecyclePolicy where
+instance Core.AWSRequest PutLifecyclePolicy where
   type
-    Rs PutLifecyclePolicy =
+    AWSResponse PutLifecyclePolicy =
       PutLifecyclePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutLifecyclePolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutLifecyclePolicy
+instance Core.Hashable PutLifecyclePolicy
 
-instance Prelude.NFData PutLifecyclePolicy
+instance Core.NFData PutLifecyclePolicy
 
-instance Prelude.ToHeaders PutLifecyclePolicy where
+instance Core.ToHeaders PutLifecyclePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.PutLifecyclePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.PutLifecyclePolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutLifecyclePolicy where
+instance Core.ToJSON PutLifecyclePolicy where
   toJSON PutLifecyclePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ContainerName" Prelude..= containerName),
-            Prelude.Just
-              ("LifecyclePolicy" Prelude..= lifecyclePolicy)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContainerName" Core..= containerName),
+            Core.Just
+              ("LifecyclePolicy" Core..= lifecyclePolicy)
           ]
       )
 
-instance Prelude.ToPath PutLifecyclePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutLifecyclePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutLifecyclePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutLifecyclePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutLifecyclePolicyResponse' smart constructor.
 data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLifecyclePolicyResponse' with all optional fields omitted.
@@ -164,7 +160,7 @@ data PutLifecyclePolicyResponse = PutLifecyclePolicyResponse'
 -- 'httpStatus', 'putLifecyclePolicyResponse_httpStatus' - The response's http status code.
 newPutLifecyclePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutLifecyclePolicyResponse
 newPutLifecyclePolicyResponse pHttpStatus_ =
   PutLifecyclePolicyResponse'
@@ -173,7 +169,7 @@ newPutLifecyclePolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putLifecyclePolicyResponse_httpStatus :: Lens.Lens' PutLifecyclePolicyResponse Prelude.Int
+putLifecyclePolicyResponse_httpStatus :: Lens.Lens' PutLifecyclePolicyResponse Core.Int
 putLifecyclePolicyResponse_httpStatus = Lens.lens (\PutLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@PutLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: PutLifecyclePolicyResponse)
 
-instance Prelude.NFData PutLifecyclePolicyResponse
+instance Core.NFData PutLifecyclePolicyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.Lightsail.GetAlarms
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,18 +64,18 @@ data GetAlarms = GetAlarms'
     -- To get a page token, perform an initial @GetAlarms@ request. If your
     -- results are paginated, the response will return a next page token that
     -- you can specify as the page token in a subsequent request.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The name of the alarm.
     --
     -- Specify an alarm name to return information about a specific alarm.
-    alarmName :: Prelude.Maybe Prelude.Text,
+    alarmName :: Core.Maybe Core.Text,
     -- | The name of the Lightsail resource being monitored by the alarm.
     --
     -- Specify a monitored resource name to return information about all alarms
     -- for a specific resource.
-    monitoredResourceName :: Prelude.Maybe Prelude.Text
+    monitoredResourceName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAlarms' with all optional fields omitted.
@@ -104,9 +103,9 @@ newGetAlarms ::
   GetAlarms
 newGetAlarms =
   GetAlarms'
-    { pageToken = Prelude.Nothing,
-      alarmName = Prelude.Nothing,
-      monitoredResourceName = Prelude.Nothing
+    { pageToken = Core.Nothing,
+      alarmName = Core.Nothing,
+      monitoredResourceName = Core.Nothing
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -114,69 +113,65 @@ newGetAlarms =
 -- To get a page token, perform an initial @GetAlarms@ request. If your
 -- results are paginated, the response will return a next page token that
 -- you can specify as the page token in a subsequent request.
-getAlarms_pageToken :: Lens.Lens' GetAlarms (Prelude.Maybe Prelude.Text)
+getAlarms_pageToken :: Lens.Lens' GetAlarms (Core.Maybe Core.Text)
 getAlarms_pageToken = Lens.lens (\GetAlarms' {pageToken} -> pageToken) (\s@GetAlarms' {} a -> s {pageToken = a} :: GetAlarms)
 
 -- | The name of the alarm.
 --
 -- Specify an alarm name to return information about a specific alarm.
-getAlarms_alarmName :: Lens.Lens' GetAlarms (Prelude.Maybe Prelude.Text)
+getAlarms_alarmName :: Lens.Lens' GetAlarms (Core.Maybe Core.Text)
 getAlarms_alarmName = Lens.lens (\GetAlarms' {alarmName} -> alarmName) (\s@GetAlarms' {} a -> s {alarmName = a} :: GetAlarms)
 
 -- | The name of the Lightsail resource being monitored by the alarm.
 --
 -- Specify a monitored resource name to return information about all alarms
 -- for a specific resource.
-getAlarms_monitoredResourceName :: Lens.Lens' GetAlarms (Prelude.Maybe Prelude.Text)
+getAlarms_monitoredResourceName :: Lens.Lens' GetAlarms (Core.Maybe Core.Text)
 getAlarms_monitoredResourceName = Lens.lens (\GetAlarms' {monitoredResourceName} -> monitoredResourceName) (\s@GetAlarms' {} a -> s {monitoredResourceName = a} :: GetAlarms)
 
-instance Prelude.AWSRequest GetAlarms where
-  type Rs GetAlarms = GetAlarmsResponse
+instance Core.AWSRequest GetAlarms where
+  type AWSResponse GetAlarms = GetAlarmsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAlarmsResponse'
-            Prelude.<$> (x Prelude..?> "nextPageToken")
-            Prelude.<*> (x Prelude..?> "alarms" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextPageToken")
+            Core.<*> (x Core..?> "alarms" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetAlarms
+instance Core.Hashable GetAlarms
 
-instance Prelude.NFData GetAlarms
+instance Core.NFData GetAlarms
 
-instance Prelude.ToHeaders GetAlarms where
+instance Core.ToHeaders GetAlarms where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetAlarms" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.GetAlarms" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetAlarms where
+instance Core.ToJSON GetAlarms where
   toJSON GetAlarms' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("pageToken" Prelude..=) Prelude.<$> pageToken,
-            ("alarmName" Prelude..=) Prelude.<$> alarmName,
-            ("monitoredResourceName" Prelude..=)
-              Prelude.<$> monitoredResourceName
+    Core.object
+      ( Core.catMaybes
+          [ ("pageToken" Core..=) Core.<$> pageToken,
+            ("alarmName" Core..=) Core.<$> alarmName,
+            ("monitoredResourceName" Core..=)
+              Core.<$> monitoredResourceName
           ]
       )
 
-instance Prelude.ToPath GetAlarms where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAlarms where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAlarms where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAlarms where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAlarmsResponse' smart constructor.
 data GetAlarmsResponse = GetAlarmsResponse'
@@ -187,13 +182,13 @@ data GetAlarmsResponse = GetAlarmsResponse'
     --
     -- To get the next page of results, perform another @GetAlarms@ request and
     -- specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | An array of objects that describe the alarms.
-    alarms :: Prelude.Maybe [Alarm],
+    alarms :: Core.Maybe [Alarm],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAlarmsResponse' with all optional fields omitted.
@@ -216,12 +211,12 @@ data GetAlarmsResponse = GetAlarmsResponse'
 -- 'httpStatus', 'getAlarmsResponse_httpStatus' - The response's http status code.
 newGetAlarmsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAlarmsResponse
 newGetAlarmsResponse pHttpStatus_ =
   GetAlarmsResponse'
-    { nextPageToken = Prelude.Nothing,
-      alarms = Prelude.Nothing,
+    { nextPageToken = Core.Nothing,
+      alarms = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -232,15 +227,15 @@ newGetAlarmsResponse pHttpStatus_ =
 --
 -- To get the next page of results, perform another @GetAlarms@ request and
 -- specify the next page token using the @pageToken@ parameter.
-getAlarmsResponse_nextPageToken :: Lens.Lens' GetAlarmsResponse (Prelude.Maybe Prelude.Text)
+getAlarmsResponse_nextPageToken :: Lens.Lens' GetAlarmsResponse (Core.Maybe Core.Text)
 getAlarmsResponse_nextPageToken = Lens.lens (\GetAlarmsResponse' {nextPageToken} -> nextPageToken) (\s@GetAlarmsResponse' {} a -> s {nextPageToken = a} :: GetAlarmsResponse)
 
 -- | An array of objects that describe the alarms.
-getAlarmsResponse_alarms :: Lens.Lens' GetAlarmsResponse (Prelude.Maybe [Alarm])
-getAlarmsResponse_alarms = Lens.lens (\GetAlarmsResponse' {alarms} -> alarms) (\s@GetAlarmsResponse' {} a -> s {alarms = a} :: GetAlarmsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAlarmsResponse_alarms :: Lens.Lens' GetAlarmsResponse (Core.Maybe [Alarm])
+getAlarmsResponse_alarms = Lens.lens (\GetAlarmsResponse' {alarms} -> alarms) (\s@GetAlarmsResponse' {} a -> s {alarms = a} :: GetAlarmsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getAlarmsResponse_httpStatus :: Lens.Lens' GetAlarmsResponse Prelude.Int
+getAlarmsResponse_httpStatus :: Lens.Lens' GetAlarmsResponse Core.Int
 getAlarmsResponse_httpStatus = Lens.lens (\GetAlarmsResponse' {httpStatus} -> httpStatus) (\s@GetAlarmsResponse' {} a -> s {httpStatus = a} :: GetAlarmsResponse)
 
-instance Prelude.NFData GetAlarmsResponse
+instance Core.NFData GetAlarmsResponse

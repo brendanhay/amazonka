@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.ClusterSecurityGroupMembership where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes a cluster security group.
@@ -29,11 +28,11 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newClusterSecurityGroupMembership' smart constructor.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
   { -- | The status of the cluster security group.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The name of the cluster security group.
-    clusterSecurityGroupName :: Prelude.Maybe Prelude.Text
+    clusterSecurityGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClusterSecurityGroupMembership' with all optional fields omitted.
@@ -51,31 +50,24 @@ newClusterSecurityGroupMembership ::
 newClusterSecurityGroupMembership =
   ClusterSecurityGroupMembership'
     { status =
-        Prelude.Nothing,
-      clusterSecurityGroupName = Prelude.Nothing
+        Core.Nothing,
+      clusterSecurityGroupName = Core.Nothing
     }
 
 -- | The status of the cluster security group.
-clusterSecurityGroupMembership_status :: Lens.Lens' ClusterSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+clusterSecurityGroupMembership_status :: Lens.Lens' ClusterSecurityGroupMembership (Core.Maybe Core.Text)
 clusterSecurityGroupMembership_status = Lens.lens (\ClusterSecurityGroupMembership' {status} -> status) (\s@ClusterSecurityGroupMembership' {} a -> s {status = a} :: ClusterSecurityGroupMembership)
 
 -- | The name of the cluster security group.
-clusterSecurityGroupMembership_clusterSecurityGroupName :: Lens.Lens' ClusterSecurityGroupMembership (Prelude.Maybe Prelude.Text)
+clusterSecurityGroupMembership_clusterSecurityGroupName :: Lens.Lens' ClusterSecurityGroupMembership (Core.Maybe Core.Text)
 clusterSecurityGroupMembership_clusterSecurityGroupName = Lens.lens (\ClusterSecurityGroupMembership' {clusterSecurityGroupName} -> clusterSecurityGroupName) (\s@ClusterSecurityGroupMembership' {} a -> s {clusterSecurityGroupName = a} :: ClusterSecurityGroupMembership)
 
-instance
-  Prelude.FromXML
-    ClusterSecurityGroupMembership
-  where
+instance Core.FromXML ClusterSecurityGroupMembership where
   parseXML x =
     ClusterSecurityGroupMembership'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "ClusterSecurityGroupName")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "ClusterSecurityGroupName")
 
-instance
-  Prelude.Hashable
-    ClusterSecurityGroupMembership
+instance Core.Hashable ClusterSecurityGroupMembership
 
-instance
-  Prelude.NFData
-    ClusterSecurityGroupMembership
+instance Core.NFData ClusterSecurityGroupMembership

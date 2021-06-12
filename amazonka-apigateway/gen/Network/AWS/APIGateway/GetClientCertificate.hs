@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.APIGateway.GetClientCertificate
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data GetClientCertificate = GetClientCertificate'
   { -- | [Required] The identifier of the ClientCertificate resource to be
     -- described.
-    clientCertificateId :: Prelude.Text
+    clientCertificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetClientCertificate' with all optional fields omitted.
@@ -73,7 +72,7 @@ data GetClientCertificate = GetClientCertificate'
 -- described.
 newGetClientCertificate ::
   -- | 'clientCertificateId'
-  Prelude.Text ->
+  Core.Text ->
   GetClientCertificate
 newGetClientCertificate pClientCertificateId_ =
   GetClientCertificate'
@@ -83,35 +82,37 @@ newGetClientCertificate pClientCertificateId_ =
 
 -- | [Required] The identifier of the ClientCertificate resource to be
 -- described.
-getClientCertificate_clientCertificateId :: Lens.Lens' GetClientCertificate Prelude.Text
+getClientCertificate_clientCertificateId :: Lens.Lens' GetClientCertificate Core.Text
 getClientCertificate_clientCertificateId = Lens.lens (\GetClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@GetClientCertificate' {} a -> s {clientCertificateId = a} :: GetClientCertificate)
 
-instance Prelude.AWSRequest GetClientCertificate where
-  type Rs GetClientCertificate = ClientCertificate
+instance Core.AWSRequest GetClientCertificate where
+  type
+    AWSResponse GetClientCertificate =
+      ClientCertificate
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetClientCertificate
+instance Core.Hashable GetClientCertificate
 
-instance Prelude.NFData GetClientCertificate
+instance Core.NFData GetClientCertificate
 
-instance Prelude.ToHeaders GetClientCertificate where
+instance Core.ToHeaders GetClientCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetClientCertificate where
+instance Core.ToPath GetClientCertificate where
   toPath GetClientCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clientcertificates/",
-        Prelude.toBS clientCertificateId
+        Core.toBS clientCertificateId
       ]
 
-instance Prelude.ToQuery GetClientCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetClientCertificate where
+  toQuery = Core.const Core.mempty

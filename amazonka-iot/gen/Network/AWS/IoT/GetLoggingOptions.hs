@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IoT.GetLoggingOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data GetLoggingOptions = GetLoggingOptions'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLoggingOptions' with all optional fields omitted.
@@ -63,43 +62,45 @@ newGetLoggingOptions ::
   GetLoggingOptions
 newGetLoggingOptions = GetLoggingOptions'
 
-instance Prelude.AWSRequest GetLoggingOptions where
-  type Rs GetLoggingOptions = GetLoggingOptionsResponse
+instance Core.AWSRequest GetLoggingOptions where
+  type
+    AWSResponse GetLoggingOptions =
+      GetLoggingOptionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLoggingOptionsResponse'
-            Prelude.<$> (x Prelude..?> "roleArn")
-            Prelude.<*> (x Prelude..?> "logLevel")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "roleArn")
+            Core.<*> (x Core..?> "logLevel")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetLoggingOptions
+instance Core.Hashable GetLoggingOptions
 
-instance Prelude.NFData GetLoggingOptions
+instance Core.NFData GetLoggingOptions
 
-instance Prelude.ToHeaders GetLoggingOptions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetLoggingOptions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetLoggingOptions where
-  toPath = Prelude.const "/loggingOptions"
+instance Core.ToPath GetLoggingOptions where
+  toPath = Core.const "/loggingOptions"
 
-instance Prelude.ToQuery GetLoggingOptions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLoggingOptions where
+  toQuery = Core.const Core.mempty
 
 -- | The output from the GetLoggingOptions operation.
 --
 -- /See:/ 'newGetLoggingOptionsResponse' smart constructor.
 data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
   { -- | The ARN of the IAM role that grants access.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The logging level.
-    logLevel :: Prelude.Maybe LogLevel,
+    logLevel :: Core.Maybe LogLevel,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLoggingOptionsResponse' with all optional fields omitted.
@@ -116,26 +117,25 @@ data GetLoggingOptionsResponse = GetLoggingOptionsResponse'
 -- 'httpStatus', 'getLoggingOptionsResponse_httpStatus' - The response's http status code.
 newGetLoggingOptionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetLoggingOptionsResponse
 newGetLoggingOptionsResponse pHttpStatus_ =
   GetLoggingOptionsResponse'
-    { roleArn =
-        Prelude.Nothing,
-      logLevel = Prelude.Nothing,
+    { roleArn = Core.Nothing,
+      logLevel = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the IAM role that grants access.
-getLoggingOptionsResponse_roleArn :: Lens.Lens' GetLoggingOptionsResponse (Prelude.Maybe Prelude.Text)
+getLoggingOptionsResponse_roleArn :: Lens.Lens' GetLoggingOptionsResponse (Core.Maybe Core.Text)
 getLoggingOptionsResponse_roleArn = Lens.lens (\GetLoggingOptionsResponse' {roleArn} -> roleArn) (\s@GetLoggingOptionsResponse' {} a -> s {roleArn = a} :: GetLoggingOptionsResponse)
 
 -- | The logging level.
-getLoggingOptionsResponse_logLevel :: Lens.Lens' GetLoggingOptionsResponse (Prelude.Maybe LogLevel)
+getLoggingOptionsResponse_logLevel :: Lens.Lens' GetLoggingOptionsResponse (Core.Maybe LogLevel)
 getLoggingOptionsResponse_logLevel = Lens.lens (\GetLoggingOptionsResponse' {logLevel} -> logLevel) (\s@GetLoggingOptionsResponse' {} a -> s {logLevel = a} :: GetLoggingOptionsResponse)
 
 -- | The response's http status code.
-getLoggingOptionsResponse_httpStatus :: Lens.Lens' GetLoggingOptionsResponse Prelude.Int
+getLoggingOptionsResponse_httpStatus :: Lens.Lens' GetLoggingOptionsResponse Core.Int
 getLoggingOptionsResponse_httpStatus = Lens.lens (\GetLoggingOptionsResponse' {httpStatus} -> httpStatus) (\s@GetLoggingOptionsResponse' {} a -> s {httpStatus = a} :: GetLoggingOptionsResponse)
 
-instance Prelude.NFData GetLoggingOptionsResponse
+instance Core.NFData GetLoggingOptionsResponse

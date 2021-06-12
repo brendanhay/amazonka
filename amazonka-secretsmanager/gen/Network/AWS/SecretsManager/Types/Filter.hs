@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SecretsManager.Types.Filter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SecretsManager.Types.FilterNameStringType
 
 -- | Allows you to add filters when you use the search function in Secrets
@@ -30,14 +29,14 @@ import Network.AWS.SecretsManager.Types.FilterNameStringType
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
   { -- | Filters your list of secrets by a specific key.
-    key :: Prelude.Maybe FilterNameStringType,
+    key :: Core.Maybe FilterNameStringType,
     -- | Filters your list of secrets by a specific value.
     --
     -- You can prefix your search value with an exclamation mark (@!@) in order
     -- to perform negation filters.
-    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    values :: Core.Maybe (Core.NonEmpty Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -56,31 +55,28 @@ data Filter = Filter'
 newFilter ::
   Filter
 newFilter =
-  Filter'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
-    }
+  Filter' {key = Core.Nothing, values = Core.Nothing}
 
 -- | Filters your list of secrets by a specific key.
-filter_key :: Lens.Lens' Filter (Prelude.Maybe FilterNameStringType)
+filter_key :: Lens.Lens' Filter (Core.Maybe FilterNameStringType)
 filter_key = Lens.lens (\Filter' {key} -> key) (\s@Filter' {} a -> s {key = a} :: Filter)
 
 -- | Filters your list of secrets by a specific value.
 --
 -- You can prefix your search value with an exclamation mark (@!@) in order
 -- to perform negation filters.
-filter_values :: Lens.Lens' Filter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Lens.mapping Prelude._Coerce
+filter_values :: Lens.Lens' Filter (Core.Maybe (Core.NonEmpty Core.Text))
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable Filter
+instance Core.Hashable Filter
 
-instance Prelude.NFData Filter
+instance Core.NFData Filter
 
-instance Prelude.ToJSON Filter where
+instance Core.ToJSON Filter where
   toJSON Filter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Values" Prelude..=) Prelude.<$> values
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Values" Core..=) Core.<$> values
           ]
       )

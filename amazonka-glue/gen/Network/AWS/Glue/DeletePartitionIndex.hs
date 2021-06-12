@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,26 +41,26 @@ module Network.AWS.Glue.DeletePartitionIndex
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeletePartitionIndex' smart constructor.
 data DeletePartitionIndex = DeletePartitionIndex'
   { -- | The catalog ID where the table resides.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | Specifies the name of a database from which you want to delete a
     -- partition index.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | Specifies the name of a table from which you want to delete a partition
     -- index.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | The name of the partition index to be deleted.
-    indexName :: Prelude.Text
+    indexName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePartitionIndex' with all optional fields omitted.
@@ -82,96 +81,91 @@ data DeletePartitionIndex = DeletePartitionIndex'
 -- 'indexName', 'deletePartitionIndex_indexName' - The name of the partition index to be deleted.
 newDeletePartitionIndex ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'indexName'
-  Prelude.Text ->
+  Core.Text ->
   DeletePartitionIndex
 newDeletePartitionIndex
   pDatabaseName_
   pTableName_
   pIndexName_ =
     DeletePartitionIndex'
-      { catalogId = Prelude.Nothing,
+      { catalogId = Core.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
         indexName = pIndexName_
       }
 
 -- | The catalog ID where the table resides.
-deletePartitionIndex_catalogId :: Lens.Lens' DeletePartitionIndex (Prelude.Maybe Prelude.Text)
+deletePartitionIndex_catalogId :: Lens.Lens' DeletePartitionIndex (Core.Maybe Core.Text)
 deletePartitionIndex_catalogId = Lens.lens (\DeletePartitionIndex' {catalogId} -> catalogId) (\s@DeletePartitionIndex' {} a -> s {catalogId = a} :: DeletePartitionIndex)
 
 -- | Specifies the name of a database from which you want to delete a
 -- partition index.
-deletePartitionIndex_databaseName :: Lens.Lens' DeletePartitionIndex Prelude.Text
+deletePartitionIndex_databaseName :: Lens.Lens' DeletePartitionIndex Core.Text
 deletePartitionIndex_databaseName = Lens.lens (\DeletePartitionIndex' {databaseName} -> databaseName) (\s@DeletePartitionIndex' {} a -> s {databaseName = a} :: DeletePartitionIndex)
 
 -- | Specifies the name of a table from which you want to delete a partition
 -- index.
-deletePartitionIndex_tableName :: Lens.Lens' DeletePartitionIndex Prelude.Text
+deletePartitionIndex_tableName :: Lens.Lens' DeletePartitionIndex Core.Text
 deletePartitionIndex_tableName = Lens.lens (\DeletePartitionIndex' {tableName} -> tableName) (\s@DeletePartitionIndex' {} a -> s {tableName = a} :: DeletePartitionIndex)
 
 -- | The name of the partition index to be deleted.
-deletePartitionIndex_indexName :: Lens.Lens' DeletePartitionIndex Prelude.Text
+deletePartitionIndex_indexName :: Lens.Lens' DeletePartitionIndex Core.Text
 deletePartitionIndex_indexName = Lens.lens (\DeletePartitionIndex' {indexName} -> indexName) (\s@DeletePartitionIndex' {} a -> s {indexName = a} :: DeletePartitionIndex)
 
-instance Prelude.AWSRequest DeletePartitionIndex where
+instance Core.AWSRequest DeletePartitionIndex where
   type
-    Rs DeletePartitionIndex =
+    AWSResponse DeletePartitionIndex =
       DeletePartitionIndexResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePartitionIndexResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeletePartitionIndex
+instance Core.Hashable DeletePartitionIndex
 
-instance Prelude.NFData DeletePartitionIndex
+instance Core.NFData DeletePartitionIndex
 
-instance Prelude.ToHeaders DeletePartitionIndex where
+instance Core.ToHeaders DeletePartitionIndex where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.DeletePartitionIndex" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.DeletePartitionIndex" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeletePartitionIndex where
+instance Core.ToJSON DeletePartitionIndex where
   toJSON DeletePartitionIndex' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just ("IndexName" Prelude..= indexName)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("IndexName" Core..= indexName)
           ]
       )
 
-instance Prelude.ToPath DeletePartitionIndex where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeletePartitionIndex where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeletePartitionIndex where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePartitionIndex where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePartitionIndexResponse' smart constructor.
 data DeletePartitionIndexResponse = DeletePartitionIndexResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePartitionIndexResponse' with all optional fields omitted.
@@ -184,7 +178,7 @@ data DeletePartitionIndexResponse = DeletePartitionIndexResponse'
 -- 'httpStatus', 'deletePartitionIndexResponse_httpStatus' - The response's http status code.
 newDeletePartitionIndexResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeletePartitionIndexResponse
 newDeletePartitionIndexResponse pHttpStatus_ =
   DeletePartitionIndexResponse'
@@ -193,7 +187,7 @@ newDeletePartitionIndexResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deletePartitionIndexResponse_httpStatus :: Lens.Lens' DeletePartitionIndexResponse Prelude.Int
+deletePartitionIndexResponse_httpStatus :: Lens.Lens' DeletePartitionIndexResponse Core.Int
 deletePartitionIndexResponse_httpStatus = Lens.lens (\DeletePartitionIndexResponse' {httpStatus} -> httpStatus) (\s@DeletePartitionIndexResponse' {} a -> s {httpStatus = a} :: DeletePartitionIndexResponse)
 
-instance Prelude.NFData DeletePartitionIndexResponse
+instance Core.NFData DeletePartitionIndexResponse

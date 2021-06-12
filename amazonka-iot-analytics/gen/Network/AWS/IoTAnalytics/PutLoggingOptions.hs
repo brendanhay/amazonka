@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.IoTAnalytics.PutLoggingOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,7 +52,7 @@ data PutLoggingOptions = PutLoggingOptions'
   { -- | The new values of the AWS IoT Analytics logging options.
     loggingOptions :: LoggingOptions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLoggingOptions' with all optional fields omitted.
@@ -78,39 +77,41 @@ newPutLoggingOptions pLoggingOptions_ =
 putLoggingOptions_loggingOptions :: Lens.Lens' PutLoggingOptions LoggingOptions
 putLoggingOptions_loggingOptions = Lens.lens (\PutLoggingOptions' {loggingOptions} -> loggingOptions) (\s@PutLoggingOptions' {} a -> s {loggingOptions = a} :: PutLoggingOptions)
 
-instance Prelude.AWSRequest PutLoggingOptions where
-  type Rs PutLoggingOptions = PutLoggingOptionsResponse
+instance Core.AWSRequest PutLoggingOptions where
+  type
+    AWSResponse PutLoggingOptions =
+      PutLoggingOptionsResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveNull PutLoggingOptionsResponse'
 
-instance Prelude.Hashable PutLoggingOptions
+instance Core.Hashable PutLoggingOptions
 
-instance Prelude.NFData PutLoggingOptions
+instance Core.NFData PutLoggingOptions
 
-instance Prelude.ToHeaders PutLoggingOptions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutLoggingOptions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutLoggingOptions where
+instance Core.ToJSON PutLoggingOptions where
   toJSON PutLoggingOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("loggingOptions" Prelude..= loggingOptions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("loggingOptions" Core..= loggingOptions)
           ]
       )
 
-instance Prelude.ToPath PutLoggingOptions where
-  toPath = Prelude.const "/logging"
+instance Core.ToPath PutLoggingOptions where
+  toPath = Core.const "/logging"
 
-instance Prelude.ToQuery PutLoggingOptions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutLoggingOptions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutLoggingOptionsResponse' smart constructor.
 data PutLoggingOptionsResponse = PutLoggingOptionsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLoggingOptionsResponse' with all optional fields omitted.
@@ -121,4 +122,4 @@ newPutLoggingOptionsResponse ::
 newPutLoggingOptionsResponse =
   PutLoggingOptionsResponse'
 
-instance Prelude.NFData PutLoggingOptionsResponse
+instance Core.NFData PutLoggingOptionsResponse

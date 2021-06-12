@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.DecisionTaskStartedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @DecisionTaskStarted@ event.
 --
@@ -29,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
   { -- | Identity of the decider making the request. This enables diagnostic
     -- tracing when problems arise. The form of this identity is user defined.
-    identity :: Prelude.Maybe Prelude.Text,
+    identity :: Core.Maybe Core.Text,
     -- | The ID of the @DecisionTaskScheduled@ event that was recorded when this
     -- decision task was scheduled. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    scheduledEventId :: Prelude.Integer
+    scheduledEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecisionTaskStartedEventAttributes' with all optional fields omitted.
@@ -55,45 +54,45 @@ data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
 -- this event.
 newDecisionTaskStartedEventAttributes ::
   -- | 'scheduledEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   DecisionTaskStartedEventAttributes
 newDecisionTaskStartedEventAttributes
   pScheduledEventId_ =
     DecisionTaskStartedEventAttributes'
       { identity =
-          Prelude.Nothing,
+          Core.Nothing,
         scheduledEventId = pScheduledEventId_
       }
 
 -- | Identity of the decider making the request. This enables diagnostic
 -- tracing when problems arise. The form of this identity is user defined.
-decisionTaskStartedEventAttributes_identity :: Lens.Lens' DecisionTaskStartedEventAttributes (Prelude.Maybe Prelude.Text)
+decisionTaskStartedEventAttributes_identity :: Lens.Lens' DecisionTaskStartedEventAttributes (Core.Maybe Core.Text)
 decisionTaskStartedEventAttributes_identity = Lens.lens (\DecisionTaskStartedEventAttributes' {identity} -> identity) (\s@DecisionTaskStartedEventAttributes' {} a -> s {identity = a} :: DecisionTaskStartedEventAttributes)
 
 -- | The ID of the @DecisionTaskScheduled@ event that was recorded when this
 -- decision task was scheduled. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-decisionTaskStartedEventAttributes_scheduledEventId :: Lens.Lens' DecisionTaskStartedEventAttributes Prelude.Integer
+decisionTaskStartedEventAttributes_scheduledEventId :: Lens.Lens' DecisionTaskStartedEventAttributes Core.Integer
 decisionTaskStartedEventAttributes_scheduledEventId = Lens.lens (\DecisionTaskStartedEventAttributes' {scheduledEventId} -> scheduledEventId) (\s@DecisionTaskStartedEventAttributes' {} a -> s {scheduledEventId = a} :: DecisionTaskStartedEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     DecisionTaskStartedEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DecisionTaskStartedEventAttributes"
       ( \x ->
           DecisionTaskStartedEventAttributes'
-            Prelude.<$> (x Prelude..:? "identity")
-            Prelude.<*> (x Prelude..: "scheduledEventId")
+            Core.<$> (x Core..:? "identity")
+            Core.<*> (x Core..: "scheduledEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DecisionTaskStartedEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     DecisionTaskStartedEventAttributes

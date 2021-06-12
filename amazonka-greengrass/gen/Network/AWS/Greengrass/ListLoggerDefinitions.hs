@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,10 +43,9 @@ module Network.AWS.Greengrass.ListLoggerDefinitions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data ListLoggerDefinitions = ListLoggerDefinitions'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Prelude.Maybe Prelude.Text
+    maxResults :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListLoggerDefinitions' with all optional fields omitted.
@@ -77,94 +75,89 @@ newListLoggerDefinitions ::
   ListLoggerDefinitions
 newListLoggerDefinitions =
   ListLoggerDefinitions'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listLoggerDefinitions_nextToken :: Lens.Lens' ListLoggerDefinitions (Prelude.Maybe Prelude.Text)
+listLoggerDefinitions_nextToken :: Lens.Lens' ListLoggerDefinitions (Core.Maybe Core.Text)
 listLoggerDefinitions_nextToken = Lens.lens (\ListLoggerDefinitions' {nextToken} -> nextToken) (\s@ListLoggerDefinitions' {} a -> s {nextToken = a} :: ListLoggerDefinitions)
 
 -- | The maximum number of results to be returned per request.
-listLoggerDefinitions_maxResults :: Lens.Lens' ListLoggerDefinitions (Prelude.Maybe Prelude.Text)
+listLoggerDefinitions_maxResults :: Lens.Lens' ListLoggerDefinitions (Core.Maybe Core.Text)
 listLoggerDefinitions_maxResults = Lens.lens (\ListLoggerDefinitions' {maxResults} -> maxResults) (\s@ListLoggerDefinitions' {} a -> s {maxResults = a} :: ListLoggerDefinitions)
 
-instance Pager.AWSPager ListLoggerDefinitions where
+instance Core.AWSPager ListLoggerDefinitions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listLoggerDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listLoggerDefinitionsResponse_definitions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listLoggerDefinitions_nextToken
           Lens..~ rs
           Lens.^? listLoggerDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListLoggerDefinitions where
+instance Core.AWSRequest ListLoggerDefinitions where
   type
-    Rs ListLoggerDefinitions =
+    AWSResponse ListLoggerDefinitions =
       ListLoggerDefinitionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListLoggerDefinitionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Definitions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Definitions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListLoggerDefinitions
+instance Core.Hashable ListLoggerDefinitions
 
-instance Prelude.NFData ListLoggerDefinitions
+instance Core.NFData ListLoggerDefinitions
 
-instance Prelude.ToHeaders ListLoggerDefinitions where
+instance Core.ToHeaders ListLoggerDefinitions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListLoggerDefinitions where
-  toPath =
-    Prelude.const "/greengrass/definition/loggers"
+instance Core.ToPath ListLoggerDefinitions where
+  toPath = Core.const "/greengrass/definition/loggers"
 
-instance Prelude.ToQuery ListLoggerDefinitions where
+instance Core.ToQuery ListLoggerDefinitions where
   toQuery ListLoggerDefinitions' {..} =
-    Prelude.mconcat
-      [ "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListLoggerDefinitionsResponse' smart constructor.
 data ListLoggerDefinitionsResponse = ListLoggerDefinitionsResponse'
   { -- | The token for the next set of results, or \'\'null\'\' if there are no
     -- additional results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about a definition.
-    definitions :: Prelude.Maybe [DefinitionInformation],
+    definitions :: Core.Maybe [DefinitionInformation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListLoggerDefinitionsResponse' with all optional fields omitted.
@@ -182,27 +175,27 @@ data ListLoggerDefinitionsResponse = ListLoggerDefinitionsResponse'
 -- 'httpStatus', 'listLoggerDefinitionsResponse_httpStatus' - The response's http status code.
 newListLoggerDefinitionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListLoggerDefinitionsResponse
 newListLoggerDefinitionsResponse pHttpStatus_ =
   ListLoggerDefinitionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      definitions = Prelude.Nothing,
+        Core.Nothing,
+      definitions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token for the next set of results, or \'\'null\'\' if there are no
 -- additional results.
-listLoggerDefinitionsResponse_nextToken :: Lens.Lens' ListLoggerDefinitionsResponse (Prelude.Maybe Prelude.Text)
+listLoggerDefinitionsResponse_nextToken :: Lens.Lens' ListLoggerDefinitionsResponse (Core.Maybe Core.Text)
 listLoggerDefinitionsResponse_nextToken = Lens.lens (\ListLoggerDefinitionsResponse' {nextToken} -> nextToken) (\s@ListLoggerDefinitionsResponse' {} a -> s {nextToken = a} :: ListLoggerDefinitionsResponse)
 
 -- | Information about a definition.
-listLoggerDefinitionsResponse_definitions :: Lens.Lens' ListLoggerDefinitionsResponse (Prelude.Maybe [DefinitionInformation])
-listLoggerDefinitionsResponse_definitions = Lens.lens (\ListLoggerDefinitionsResponse' {definitions} -> definitions) (\s@ListLoggerDefinitionsResponse' {} a -> s {definitions = a} :: ListLoggerDefinitionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listLoggerDefinitionsResponse_definitions :: Lens.Lens' ListLoggerDefinitionsResponse (Core.Maybe [DefinitionInformation])
+listLoggerDefinitionsResponse_definitions = Lens.lens (\ListLoggerDefinitionsResponse' {definitions} -> definitions) (\s@ListLoggerDefinitionsResponse' {} a -> s {definitions = a} :: ListLoggerDefinitionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listLoggerDefinitionsResponse_httpStatus :: Lens.Lens' ListLoggerDefinitionsResponse Prelude.Int
+listLoggerDefinitionsResponse_httpStatus :: Lens.Lens' ListLoggerDefinitionsResponse Core.Int
 listLoggerDefinitionsResponse_httpStatus = Lens.lens (\ListLoggerDefinitionsResponse' {httpStatus} -> httpStatus) (\s@ListLoggerDefinitionsResponse' {} a -> s {httpStatus = a} :: ListLoggerDefinitionsResponse)
 
-instance Prelude.NFData ListLoggerDefinitionsResponse
+instance Core.NFData ListLoggerDefinitionsResponse

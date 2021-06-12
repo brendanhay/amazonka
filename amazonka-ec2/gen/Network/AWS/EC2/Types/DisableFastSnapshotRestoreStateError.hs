@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an error that occurred when disabling fast snapshot restores.
 --
 -- /See:/ 'newDisableFastSnapshotRestoreStateError' smart constructor.
 data DisableFastSnapshotRestoreStateError = DisableFastSnapshotRestoreStateError'
   { -- | The error message.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The error code.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableFastSnapshotRestoreStateError' with all optional fields omitted.
@@ -51,31 +50,30 @@ newDisableFastSnapshotRestoreStateError ::
 newDisableFastSnapshotRestoreStateError =
   DisableFastSnapshotRestoreStateError'
     { message =
-        Prelude.Nothing,
-      code = Prelude.Nothing
+        Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The error message.
-disableFastSnapshotRestoreStateError_message :: Lens.Lens' DisableFastSnapshotRestoreStateError (Prelude.Maybe Prelude.Text)
+disableFastSnapshotRestoreStateError_message :: Lens.Lens' DisableFastSnapshotRestoreStateError (Core.Maybe Core.Text)
 disableFastSnapshotRestoreStateError_message = Lens.lens (\DisableFastSnapshotRestoreStateError' {message} -> message) (\s@DisableFastSnapshotRestoreStateError' {} a -> s {message = a} :: DisableFastSnapshotRestoreStateError)
 
 -- | The error code.
-disableFastSnapshotRestoreStateError_code :: Lens.Lens' DisableFastSnapshotRestoreStateError (Prelude.Maybe Prelude.Text)
+disableFastSnapshotRestoreStateError_code :: Lens.Lens' DisableFastSnapshotRestoreStateError (Core.Maybe Core.Text)
 disableFastSnapshotRestoreStateError_code = Lens.lens (\DisableFastSnapshotRestoreStateError' {code} -> code) (\s@DisableFastSnapshotRestoreStateError' {} a -> s {code = a} :: DisableFastSnapshotRestoreStateError)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     DisableFastSnapshotRestoreStateError
   where
   parseXML x =
     DisableFastSnapshotRestoreStateError'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisableFastSnapshotRestoreStateError
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableFastSnapshotRestoreStateError

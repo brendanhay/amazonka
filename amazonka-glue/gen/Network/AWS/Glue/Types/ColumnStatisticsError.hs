@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.ColumnStatisticsError where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.ColumnStatistics
 import Network.AWS.Glue.Types.ErrorDetail
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Encapsulates a @ColumnStatistics@ object that failed and the reason for
 -- failure.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newColumnStatisticsError' smart constructor.
 data ColumnStatisticsError = ColumnStatisticsError'
   { -- | The @ColumnStatistics@ of the column.
-    columnStatistics :: Prelude.Maybe ColumnStatistics,
+    columnStatistics :: Core.Maybe ColumnStatistics,
     -- | An error message with the reason for the failure of an operation.
-    error :: Prelude.Maybe ErrorDetail
+    error :: Core.Maybe ErrorDetail
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ColumnStatisticsError' with all optional fields omitted.
@@ -53,28 +52,28 @@ newColumnStatisticsError ::
 newColumnStatisticsError =
   ColumnStatisticsError'
     { columnStatistics =
-        Prelude.Nothing,
-      error = Prelude.Nothing
+        Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | The @ColumnStatistics@ of the column.
-columnStatisticsError_columnStatistics :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ColumnStatistics)
+columnStatisticsError_columnStatistics :: Lens.Lens' ColumnStatisticsError (Core.Maybe ColumnStatistics)
 columnStatisticsError_columnStatistics = Lens.lens (\ColumnStatisticsError' {columnStatistics} -> columnStatistics) (\s@ColumnStatisticsError' {} a -> s {columnStatistics = a} :: ColumnStatisticsError)
 
 -- | An error message with the reason for the failure of an operation.
-columnStatisticsError_error :: Lens.Lens' ColumnStatisticsError (Prelude.Maybe ErrorDetail)
+columnStatisticsError_error :: Lens.Lens' ColumnStatisticsError (Core.Maybe ErrorDetail)
 columnStatisticsError_error = Lens.lens (\ColumnStatisticsError' {error} -> error) (\s@ColumnStatisticsError' {} a -> s {error = a} :: ColumnStatisticsError)
 
-instance Prelude.FromJSON ColumnStatisticsError where
+instance Core.FromJSON ColumnStatisticsError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ColumnStatisticsError"
       ( \x ->
           ColumnStatisticsError'
-            Prelude.<$> (x Prelude..:? "ColumnStatistics")
-            Prelude.<*> (x Prelude..:? "Error")
+            Core.<$> (x Core..:? "ColumnStatistics")
+            Core.<*> (x Core..:? "Error")
       )
 
-instance Prelude.Hashable ColumnStatisticsError
+instance Core.Hashable ColumnStatisticsError
 
-instance Prelude.NFData ColumnStatisticsError
+instance Core.NFData ColumnStatisticsError

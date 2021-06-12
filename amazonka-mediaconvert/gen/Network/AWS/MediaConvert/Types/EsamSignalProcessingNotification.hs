@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | ESAM SignalProcessingNotification data defined by
 -- OC-SP-ESAM-API-I03-131025.
@@ -38,9 +37,9 @@ data EsamSignalProcessingNotification = EsamSignalProcessingNotification'
     -- must also enable SCTE-35 ESAM (scte35Esam). Note that you can either
     -- specify an ESAM XML document or enable SCTE-35 passthrough. You can\'t
     -- do both.
-    sccXml :: Prelude.Maybe Prelude.Text
+    sccXml :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EsamSignalProcessingNotification' with all optional fields omitted.
@@ -65,7 +64,7 @@ newEsamSignalProcessingNotification ::
 newEsamSignalProcessingNotification =
   EsamSignalProcessingNotification'
     { sccXml =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Provide your ESAM SignalProcessingNotification XML document inside your
@@ -78,35 +77,28 @@ newEsamSignalProcessingNotification =
 -- must also enable SCTE-35 ESAM (scte35Esam). Note that you can either
 -- specify an ESAM XML document or enable SCTE-35 passthrough. You can\'t
 -- do both.
-esamSignalProcessingNotification_sccXml :: Lens.Lens' EsamSignalProcessingNotification (Prelude.Maybe Prelude.Text)
+esamSignalProcessingNotification_sccXml :: Lens.Lens' EsamSignalProcessingNotification (Core.Maybe Core.Text)
 esamSignalProcessingNotification_sccXml = Lens.lens (\EsamSignalProcessingNotification' {sccXml} -> sccXml) (\s@EsamSignalProcessingNotification' {} a -> s {sccXml = a} :: EsamSignalProcessingNotification)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     EsamSignalProcessingNotification
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EsamSignalProcessingNotification"
       ( \x ->
           EsamSignalProcessingNotification'
-            Prelude.<$> (x Prelude..:? "sccXml")
+            Core.<$> (x Core..:? "sccXml")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EsamSignalProcessingNotification
 
-instance
-  Prelude.NFData
-    EsamSignalProcessingNotification
+instance Core.NFData EsamSignalProcessingNotification
 
-instance
-  Prelude.ToJSON
-    EsamSignalProcessingNotification
-  where
+instance Core.ToJSON EsamSignalProcessingNotification where
   toJSON EsamSignalProcessingNotification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("sccXml" Prelude..=) Prelude.<$> sccXml]
-      )
+    Core.object
+      (Core.catMaybes [("sccXml" Core..=) Core.<$> sccXml])

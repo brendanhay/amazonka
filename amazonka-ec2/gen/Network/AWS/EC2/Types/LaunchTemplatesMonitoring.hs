@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplatesMonitoring where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the monitoring for the instance.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data LaunchTemplatesMonitoring = LaunchTemplatesMonitoring'
   { -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
     -- monitoring is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplatesMonitoring' with all optional fields omitted.
@@ -47,21 +46,18 @@ data LaunchTemplatesMonitoring = LaunchTemplatesMonitoring'
 newLaunchTemplatesMonitoring ::
   LaunchTemplatesMonitoring
 newLaunchTemplatesMonitoring =
-  LaunchTemplatesMonitoring'
-    { enabled =
-        Prelude.Nothing
-    }
+  LaunchTemplatesMonitoring' {enabled = Core.Nothing}
 
 -- | Indicates whether detailed monitoring is enabled. Otherwise, basic
 -- monitoring is enabled.
-launchTemplatesMonitoring_enabled :: Lens.Lens' LaunchTemplatesMonitoring (Prelude.Maybe Prelude.Bool)
+launchTemplatesMonitoring_enabled :: Lens.Lens' LaunchTemplatesMonitoring (Core.Maybe Core.Bool)
 launchTemplatesMonitoring_enabled = Lens.lens (\LaunchTemplatesMonitoring' {enabled} -> enabled) (\s@LaunchTemplatesMonitoring' {} a -> s {enabled = a} :: LaunchTemplatesMonitoring)
 
-instance Prelude.FromXML LaunchTemplatesMonitoring where
+instance Core.FromXML LaunchTemplatesMonitoring where
   parseXML x =
     LaunchTemplatesMonitoring'
-      Prelude.<$> (x Prelude..@? "enabled")
+      Core.<$> (x Core..@? "enabled")
 
-instance Prelude.Hashable LaunchTemplatesMonitoring
+instance Core.Hashable LaunchTemplatesMonitoring
 
-instance Prelude.NFData LaunchTemplatesMonitoring
+instance Core.NFData LaunchTemplatesMonitoring

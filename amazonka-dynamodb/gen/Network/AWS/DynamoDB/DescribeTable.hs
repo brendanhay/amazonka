@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.DynamoDB.DescribeTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeTable' smart constructor.
 data DescribeTable = DescribeTable'
   { -- | The name of the table to describe.
-    tableName :: Prelude.Text
+    tableName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTable' with all optional fields omitted.
@@ -74,68 +73,68 @@ data DescribeTable = DescribeTable'
 -- 'tableName', 'describeTable_tableName' - The name of the table to describe.
 newDescribeTable ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeTable
 newDescribeTable pTableName_ =
   DescribeTable' {tableName = pTableName_}
 
 -- | The name of the table to describe.
-describeTable_tableName :: Lens.Lens' DescribeTable Prelude.Text
+describeTable_tableName :: Lens.Lens' DescribeTable Core.Text
 describeTable_tableName = Lens.lens (\DescribeTable' {tableName} -> tableName) (\s@DescribeTable' {} a -> s {tableName = a} :: DescribeTable)
 
-instance Prelude.AWSRequest DescribeTable where
-  type Rs DescribeTable = DescribeTableResponse
+instance Core.AWSRequest DescribeTable where
+  type
+    AWSResponse DescribeTable =
+      DescribeTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeTableResponse'
-            Prelude.<$> (x Prelude..?> "Table")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Table")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeTable
+instance Core.Hashable DescribeTable
 
-instance Prelude.NFData DescribeTable
+instance Core.NFData DescribeTable
 
-instance Prelude.ToHeaders DescribeTable where
+instance Core.ToHeaders DescribeTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.DescribeTable" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.DescribeTable" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeTable where
+instance Core.ToJSON DescribeTable where
   toJSON DescribeTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Prelude..= tableName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TableName" Core..= tableName)]
       )
 
-instance Prelude.ToPath DescribeTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeTable where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DescribeTable@ operation.
 --
 -- /See:/ 'newDescribeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
   { -- | The properties of the table.
-    table :: Prelude.Maybe TableDescription,
+    table :: Core.Maybe TableDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeTableResponse' with all optional fields omitted.
@@ -150,20 +149,20 @@ data DescribeTableResponse = DescribeTableResponse'
 -- 'httpStatus', 'describeTableResponse_httpStatus' - The response's http status code.
 newDescribeTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeTableResponse
 newDescribeTableResponse pHttpStatus_ =
   DescribeTableResponse'
-    { table = Prelude.Nothing,
+    { table = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The properties of the table.
-describeTableResponse_table :: Lens.Lens' DescribeTableResponse (Prelude.Maybe TableDescription)
+describeTableResponse_table :: Lens.Lens' DescribeTableResponse (Core.Maybe TableDescription)
 describeTableResponse_table = Lens.lens (\DescribeTableResponse' {table} -> table) (\s@DescribeTableResponse' {} a -> s {table = a} :: DescribeTableResponse)
 
 -- | The response's http status code.
-describeTableResponse_httpStatus :: Lens.Lens' DescribeTableResponse Prelude.Int
+describeTableResponse_httpStatus :: Lens.Lens' DescribeTableResponse Core.Int
 describeTableResponse_httpStatus = Lens.lens (\DescribeTableResponse' {httpStatus} -> httpStatus) (\s@DescribeTableResponse' {} a -> s {httpStatus = a} :: DescribeTableResponse)
 
-instance Prelude.NFData DescribeTableResponse
+instance Core.NFData DescribeTableResponse

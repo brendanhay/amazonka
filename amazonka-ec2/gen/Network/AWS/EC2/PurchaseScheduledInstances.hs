@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.EC2.PurchaseScheduledInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,15 +65,15 @@ data PurchaseScheduledInstances = PurchaseScheduledInstances'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Unique, case-sensitive identifier that ensures the idempotency of the
     -- request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The purchase requests.
-    purchaseRequests :: Prelude.NonEmpty PurchaseRequest
+    purchaseRequests :: Core.NonEmpty PurchaseRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseScheduledInstances' with all optional fields omitted.
@@ -96,75 +95,68 @@ data PurchaseScheduledInstances = PurchaseScheduledInstances'
 -- 'purchaseRequests', 'purchaseScheduledInstances_purchaseRequests' - The purchase requests.
 newPurchaseScheduledInstances ::
   -- | 'purchaseRequests'
-  Prelude.NonEmpty PurchaseRequest ->
+  Core.NonEmpty PurchaseRequest ->
   PurchaseScheduledInstances
 newPurchaseScheduledInstances pPurchaseRequests_ =
   PurchaseScheduledInstances'
-    { dryRun =
-        Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      clientToken = Core.Nothing,
       purchaseRequests =
-        Prelude._Coerce Lens.# pPurchaseRequests_
+        Lens._Coerce Lens.# pPurchaseRequests_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-purchaseScheduledInstances_dryRun :: Lens.Lens' PurchaseScheduledInstances (Prelude.Maybe Prelude.Bool)
+purchaseScheduledInstances_dryRun :: Lens.Lens' PurchaseScheduledInstances (Core.Maybe Core.Bool)
 purchaseScheduledInstances_dryRun = Lens.lens (\PurchaseScheduledInstances' {dryRun} -> dryRun) (\s@PurchaseScheduledInstances' {} a -> s {dryRun = a} :: PurchaseScheduledInstances)
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the
 -- request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-purchaseScheduledInstances_clientToken :: Lens.Lens' PurchaseScheduledInstances (Prelude.Maybe Prelude.Text)
+purchaseScheduledInstances_clientToken :: Lens.Lens' PurchaseScheduledInstances (Core.Maybe Core.Text)
 purchaseScheduledInstances_clientToken = Lens.lens (\PurchaseScheduledInstances' {clientToken} -> clientToken) (\s@PurchaseScheduledInstances' {} a -> s {clientToken = a} :: PurchaseScheduledInstances)
 
 -- | The purchase requests.
-purchaseScheduledInstances_purchaseRequests :: Lens.Lens' PurchaseScheduledInstances (Prelude.NonEmpty PurchaseRequest)
-purchaseScheduledInstances_purchaseRequests = Lens.lens (\PurchaseScheduledInstances' {purchaseRequests} -> purchaseRequests) (\s@PurchaseScheduledInstances' {} a -> s {purchaseRequests = a} :: PurchaseScheduledInstances) Prelude.. Prelude._Coerce
+purchaseScheduledInstances_purchaseRequests :: Lens.Lens' PurchaseScheduledInstances (Core.NonEmpty PurchaseRequest)
+purchaseScheduledInstances_purchaseRequests = Lens.lens (\PurchaseScheduledInstances' {purchaseRequests} -> purchaseRequests) (\s@PurchaseScheduledInstances' {} a -> s {purchaseRequests = a} :: PurchaseScheduledInstances) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    PurchaseScheduledInstances
-  where
+instance Core.AWSRequest PurchaseScheduledInstances where
   type
-    Rs PurchaseScheduledInstances =
+    AWSResponse PurchaseScheduledInstances =
       PurchaseScheduledInstancesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           PurchaseScheduledInstancesResponse'
-            Prelude.<$> ( x Prelude..@? "scheduledInstanceSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "scheduledInstanceSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PurchaseScheduledInstances
+instance Core.Hashable PurchaseScheduledInstances
 
-instance Prelude.NFData PurchaseScheduledInstances
+instance Core.NFData PurchaseScheduledInstances
 
-instance Prelude.ToHeaders PurchaseScheduledInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PurchaseScheduledInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PurchaseScheduledInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath PurchaseScheduledInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PurchaseScheduledInstances where
+instance Core.ToQuery PurchaseScheduledInstances where
   toQuery PurchaseScheduledInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PurchaseScheduledInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "ClientToken" Prelude.=: clientToken,
-        Prelude.toQueryList
-          "PurchaseRequest"
-          purchaseRequests
+          Core.=: ("PurchaseScheduledInstances" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "ClientToken" Core.=: clientToken,
+        Core.toQueryList "PurchaseRequest" purchaseRequests
       ]
 
 -- | Contains the output of PurchaseScheduledInstances.
@@ -172,11 +164,11 @@ instance Prelude.ToQuery PurchaseScheduledInstances where
 -- /See:/ 'newPurchaseScheduledInstancesResponse' smart constructor.
 data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
   { -- | Information about the Scheduled Instances.
-    scheduledInstanceSet :: Prelude.Maybe [ScheduledInstance],
+    scheduledInstanceSet :: Core.Maybe [ScheduledInstance],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurchaseScheduledInstancesResponse' with all optional fields omitted.
@@ -191,23 +183,23 @@ data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
 -- 'httpStatus', 'purchaseScheduledInstancesResponse_httpStatus' - The response's http status code.
 newPurchaseScheduledInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PurchaseScheduledInstancesResponse
 newPurchaseScheduledInstancesResponse pHttpStatus_ =
   PurchaseScheduledInstancesResponse'
     { scheduledInstanceSet =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Scheduled Instances.
-purchaseScheduledInstancesResponse_scheduledInstanceSet :: Lens.Lens' PurchaseScheduledInstancesResponse (Prelude.Maybe [ScheduledInstance])
-purchaseScheduledInstancesResponse_scheduledInstanceSet = Lens.lens (\PurchaseScheduledInstancesResponse' {scheduledInstanceSet} -> scheduledInstanceSet) (\s@PurchaseScheduledInstancesResponse' {} a -> s {scheduledInstanceSet = a} :: PurchaseScheduledInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+purchaseScheduledInstancesResponse_scheduledInstanceSet :: Lens.Lens' PurchaseScheduledInstancesResponse (Core.Maybe [ScheduledInstance])
+purchaseScheduledInstancesResponse_scheduledInstanceSet = Lens.lens (\PurchaseScheduledInstancesResponse' {scheduledInstanceSet} -> scheduledInstanceSet) (\s@PurchaseScheduledInstancesResponse' {} a -> s {scheduledInstanceSet = a} :: PurchaseScheduledInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-purchaseScheduledInstancesResponse_httpStatus :: Lens.Lens' PurchaseScheduledInstancesResponse Prelude.Int
+purchaseScheduledInstancesResponse_httpStatus :: Lens.Lens' PurchaseScheduledInstancesResponse Core.Int
 purchaseScheduledInstancesResponse_httpStatus = Lens.lens (\PurchaseScheduledInstancesResponse' {httpStatus} -> httpStatus) (\s@PurchaseScheduledInstancesResponse' {} a -> s {httpStatus = a} :: PurchaseScheduledInstancesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PurchaseScheduledInstancesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Translate.Types.ParallelDataDataLocation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The location of the most recent parallel data input file that was
 -- successfully imported into Amazon Translate.
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newParallelDataDataLocation' smart constructor.
 data ParallelDataDataLocation = ParallelDataDataLocation'
   { -- | Describes the repository that contains the parallel data input file.
-    repositoryType :: Prelude.Text,
+    repositoryType :: Core.Text,
     -- | The Amazon S3 location of the parallel data input file. The location is
     -- returned as a presigned URL to that has a 30 minute expiration.
-    location :: Prelude.Text
+    location :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParallelDataDataLocation' with all optional fields omitted.
@@ -50,9 +49,9 @@ data ParallelDataDataLocation = ParallelDataDataLocation'
 -- returned as a presigned URL to that has a 30 minute expiration.
 newParallelDataDataLocation ::
   -- | 'repositoryType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'location'
-  Prelude.Text ->
+  Core.Text ->
   ParallelDataDataLocation
 newParallelDataDataLocation
   pRepositoryType_
@@ -64,24 +63,24 @@ newParallelDataDataLocation
       }
 
 -- | Describes the repository that contains the parallel data input file.
-parallelDataDataLocation_repositoryType :: Lens.Lens' ParallelDataDataLocation Prelude.Text
+parallelDataDataLocation_repositoryType :: Lens.Lens' ParallelDataDataLocation Core.Text
 parallelDataDataLocation_repositoryType = Lens.lens (\ParallelDataDataLocation' {repositoryType} -> repositoryType) (\s@ParallelDataDataLocation' {} a -> s {repositoryType = a} :: ParallelDataDataLocation)
 
 -- | The Amazon S3 location of the parallel data input file. The location is
 -- returned as a presigned URL to that has a 30 minute expiration.
-parallelDataDataLocation_location :: Lens.Lens' ParallelDataDataLocation Prelude.Text
+parallelDataDataLocation_location :: Lens.Lens' ParallelDataDataLocation Core.Text
 parallelDataDataLocation_location = Lens.lens (\ParallelDataDataLocation' {location} -> location) (\s@ParallelDataDataLocation' {} a -> s {location = a} :: ParallelDataDataLocation)
 
-instance Prelude.FromJSON ParallelDataDataLocation where
+instance Core.FromJSON ParallelDataDataLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParallelDataDataLocation"
       ( \x ->
           ParallelDataDataLocation'
-            Prelude.<$> (x Prelude..: "RepositoryType")
-            Prelude.<*> (x Prelude..: "Location")
+            Core.<$> (x Core..: "RepositoryType")
+            Core.<*> (x Core..: "Location")
       )
 
-instance Prelude.Hashable ParallelDataDataLocation
+instance Core.Hashable ParallelDataDataLocation
 
-instance Prelude.NFData ParallelDataDataLocation
+instance Core.NFData ParallelDataDataLocation

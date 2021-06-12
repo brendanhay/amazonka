@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.Route53Domains.DisableDomainTransferLock
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
@@ -57,9 +56,9 @@ import Network.AWS.Route53Domains.Types
 -- /See:/ 'newDisableDomainTransferLock' smart constructor.
 data DisableDomainTransferLock = DisableDomainTransferLock'
   { -- | The name of the domain that you want to remove the transfer lock for.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableDomainTransferLock' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DisableDomainTransferLock = DisableDomainTransferLock'
 -- 'domainName', 'disableDomainTransferLock_domainName' - The name of the domain that you want to remove the transfer lock for.
 newDisableDomainTransferLock ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DisableDomainTransferLock
 newDisableDomainTransferLock pDomainName_ =
   DisableDomainTransferLock'
@@ -81,66 +80,64 @@ newDisableDomainTransferLock pDomainName_ =
     }
 
 -- | The name of the domain that you want to remove the transfer lock for.
-disableDomainTransferLock_domainName :: Lens.Lens' DisableDomainTransferLock Prelude.Text
+disableDomainTransferLock_domainName :: Lens.Lens' DisableDomainTransferLock Core.Text
 disableDomainTransferLock_domainName = Lens.lens (\DisableDomainTransferLock' {domainName} -> domainName) (\s@DisableDomainTransferLock' {} a -> s {domainName = a} :: DisableDomainTransferLock)
 
-instance Prelude.AWSRequest DisableDomainTransferLock where
+instance Core.AWSRequest DisableDomainTransferLock where
   type
-    Rs DisableDomainTransferLock =
+    AWSResponse DisableDomainTransferLock =
       DisableDomainTransferLockResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DisableDomainTransferLockResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "OperationId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "OperationId")
       )
 
-instance Prelude.Hashable DisableDomainTransferLock
+instance Core.Hashable DisableDomainTransferLock
 
-instance Prelude.NFData DisableDomainTransferLock
+instance Core.NFData DisableDomainTransferLock
 
-instance Prelude.ToHeaders DisableDomainTransferLock where
+instance Core.ToHeaders DisableDomainTransferLock where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53Domains_v20140515.DisableDomainTransferLock" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53Domains_v20140515.DisableDomainTransferLock" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableDomainTransferLock where
+instance Core.ToJSON DisableDomainTransferLock where
   toJSON DisableDomainTransferLock' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("DomainName" Prelude..= domainName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DomainName" Core..= domainName)]
       )
 
-instance Prelude.ToPath DisableDomainTransferLock where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableDomainTransferLock where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableDomainTransferLock where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableDomainTransferLock where
+  toQuery = Core.const Core.mempty
 
 -- | The DisableDomainTransferLock response includes the following element.
 --
 -- /See:/ 'newDisableDomainTransferLockResponse' smart constructor.
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Identifier for tracking the progress of the request. To query the
     -- operation status, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-    operationId :: Prelude.Text
+    operationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableDomainTransferLockResponse' with all optional fields omitted.
@@ -157,9 +154,9 @@ data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
 newDisableDomainTransferLockResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'operationId'
-  Prelude.Text ->
+  Core.Text ->
   DisableDomainTransferLockResponse
 newDisableDomainTransferLockResponse
   pHttpStatus_
@@ -171,15 +168,15 @@ newDisableDomainTransferLockResponse
       }
 
 -- | The response's http status code.
-disableDomainTransferLockResponse_httpStatus :: Lens.Lens' DisableDomainTransferLockResponse Prelude.Int
+disableDomainTransferLockResponse_httpStatus :: Lens.Lens' DisableDomainTransferLockResponse Core.Int
 disableDomainTransferLockResponse_httpStatus = Lens.lens (\DisableDomainTransferLockResponse' {httpStatus} -> httpStatus) (\s@DisableDomainTransferLockResponse' {} a -> s {httpStatus = a} :: DisableDomainTransferLockResponse)
 
 -- | Identifier for tracking the progress of the request. To query the
 -- operation status, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
-disableDomainTransferLockResponse_operationId :: Lens.Lens' DisableDomainTransferLockResponse Prelude.Text
+disableDomainTransferLockResponse_operationId :: Lens.Lens' DisableDomainTransferLockResponse Core.Text
 disableDomainTransferLockResponse_operationId = Lens.lens (\DisableDomainTransferLockResponse' {operationId} -> operationId) (\s@DisableDomainTransferLockResponse' {} a -> s {operationId = a} :: DisableDomainTransferLockResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableDomainTransferLockResponse

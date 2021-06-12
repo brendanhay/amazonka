@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.IoT.DetachSecurityProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDetachSecurityProfile' smart constructor.
 data DetachSecurityProfile = DetachSecurityProfile'
   { -- | The security profile that is detached.
-    securityProfileName :: Prelude.Text,
+    securityProfileName :: Core.Text,
     -- | The ARN of the thing group from which the security profile is detached.
-    securityProfileTargetArn :: Prelude.Text
+    securityProfileTargetArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachSecurityProfile' with all optional fields omitted.
@@ -69,9 +68,9 @@ data DetachSecurityProfile = DetachSecurityProfile'
 -- 'securityProfileTargetArn', 'detachSecurityProfile_securityProfileTargetArn' - The ARN of the thing group from which the security profile is detached.
 newDetachSecurityProfile ::
   -- | 'securityProfileName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'securityProfileTargetArn'
-  Prelude.Text ->
+  Core.Text ->
   DetachSecurityProfile
 newDetachSecurityProfile
   pSecurityProfileName_
@@ -84,53 +83,53 @@ newDetachSecurityProfile
       }
 
 -- | The security profile that is detached.
-detachSecurityProfile_securityProfileName :: Lens.Lens' DetachSecurityProfile Prelude.Text
+detachSecurityProfile_securityProfileName :: Lens.Lens' DetachSecurityProfile Core.Text
 detachSecurityProfile_securityProfileName = Lens.lens (\DetachSecurityProfile' {securityProfileName} -> securityProfileName) (\s@DetachSecurityProfile' {} a -> s {securityProfileName = a} :: DetachSecurityProfile)
 
 -- | The ARN of the thing group from which the security profile is detached.
-detachSecurityProfile_securityProfileTargetArn :: Lens.Lens' DetachSecurityProfile Prelude.Text
+detachSecurityProfile_securityProfileTargetArn :: Lens.Lens' DetachSecurityProfile Core.Text
 detachSecurityProfile_securityProfileTargetArn = Lens.lens (\DetachSecurityProfile' {securityProfileTargetArn} -> securityProfileTargetArn) (\s@DetachSecurityProfile' {} a -> s {securityProfileTargetArn = a} :: DetachSecurityProfile)
 
-instance Prelude.AWSRequest DetachSecurityProfile where
+instance Core.AWSRequest DetachSecurityProfile where
   type
-    Rs DetachSecurityProfile =
+    AWSResponse DetachSecurityProfile =
       DetachSecurityProfileResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DetachSecurityProfileResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetachSecurityProfile
+instance Core.Hashable DetachSecurityProfile
 
-instance Prelude.NFData DetachSecurityProfile
+instance Core.NFData DetachSecurityProfile
 
-instance Prelude.ToHeaders DetachSecurityProfile where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DetachSecurityProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DetachSecurityProfile where
+instance Core.ToPath DetachSecurityProfile where
   toPath DetachSecurityProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/security-profiles/",
-        Prelude.toBS securityProfileName,
+        Core.toBS securityProfileName,
         "/targets"
       ]
 
-instance Prelude.ToQuery DetachSecurityProfile where
+instance Core.ToQuery DetachSecurityProfile where
   toQuery DetachSecurityProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "securityProfileTargetArn"
-          Prelude.=: securityProfileTargetArn
+          Core.=: securityProfileTargetArn
       ]
 
 -- | /See:/ 'newDetachSecurityProfileResponse' smart constructor.
 data DetachSecurityProfileResponse = DetachSecurityProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetachSecurityProfileResponse' with all optional fields omitted.
@@ -143,7 +142,7 @@ data DetachSecurityProfileResponse = DetachSecurityProfileResponse'
 -- 'httpStatus', 'detachSecurityProfileResponse_httpStatus' - The response's http status code.
 newDetachSecurityProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetachSecurityProfileResponse
 newDetachSecurityProfileResponse pHttpStatus_ =
   DetachSecurityProfileResponse'
@@ -152,7 +151,7 @@ newDetachSecurityProfileResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-detachSecurityProfileResponse_httpStatus :: Lens.Lens' DetachSecurityProfileResponse Prelude.Int
+detachSecurityProfileResponse_httpStatus :: Lens.Lens' DetachSecurityProfileResponse Core.Int
 detachSecurityProfileResponse_httpStatus = Lens.lens (\DetachSecurityProfileResponse' {httpStatus} -> httpStatus) (\s@DetachSecurityProfileResponse' {} a -> s {httpStatus = a} :: DetachSecurityProfileResponse)
 
-instance Prelude.NFData DetachSecurityProfileResponse
+instance Core.NFData DetachSecurityProfileResponse

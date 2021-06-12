@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.AutoScalingPolicy where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.ScalingConstraints
 import Network.AWS.EMR.Types.ScalingRule
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An automatic scaling policy for a core instance group or task instance
 -- group in an Amazon EMR cluster. An automatic scaling policy defines how
@@ -40,7 +39,7 @@ data AutoScalingPolicy = AutoScalingPolicy'
     -- policy.
     rules :: [ScalingRule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutoScalingPolicy' with all optional fields omitted.
@@ -63,7 +62,7 @@ newAutoScalingPolicy ::
 newAutoScalingPolicy pConstraints_ =
   AutoScalingPolicy'
     { constraints = pConstraints_,
-      rules = Prelude.mempty
+      rules = Core.mempty
     }
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy.
@@ -75,17 +74,17 @@ autoScalingPolicy_constraints = Lens.lens (\AutoScalingPolicy' {constraints} -> 
 -- | The scale-in and scale-out rules that comprise the automatic scaling
 -- policy.
 autoScalingPolicy_rules :: Lens.Lens' AutoScalingPolicy [ScalingRule]
-autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@AutoScalingPolicy' {} a -> s {rules = a} :: AutoScalingPolicy) Prelude.. Prelude._Coerce
+autoScalingPolicy_rules = Lens.lens (\AutoScalingPolicy' {rules} -> rules) (\s@AutoScalingPolicy' {} a -> s {rules = a} :: AutoScalingPolicy) Core.. Lens._Coerce
 
-instance Prelude.Hashable AutoScalingPolicy
+instance Core.Hashable AutoScalingPolicy
 
-instance Prelude.NFData AutoScalingPolicy
+instance Core.NFData AutoScalingPolicy
 
-instance Prelude.ToJSON AutoScalingPolicy where
+instance Core.ToJSON AutoScalingPolicy where
   toJSON AutoScalingPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Constraints" Prelude..= constraints),
-            Prelude.Just ("Rules" Prelude..= rules)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Constraints" Core..= constraints),
+            Core.Just ("Rules" Core..= rules)
           ]
       )

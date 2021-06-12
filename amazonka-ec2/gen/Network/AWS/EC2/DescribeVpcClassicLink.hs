@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EC2.DescribeVpcClassicLink
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ data DescribeVpcClassicLink = DescribeVpcClassicLink'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters.
     --
     -- -   @is-classic-link-enabled@ - Whether the VPC is enabled for
@@ -69,11 +68,11 @@ data DescribeVpcClassicLink = DescribeVpcClassicLink'
     -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | One or more VPCs for which you want to describe the ClassicLink status.
-    vpcIds :: Prelude.Maybe [Prelude.Text]
+    vpcIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcClassicLink' with all optional fields omitted.
@@ -108,16 +107,16 @@ newDescribeVpcClassicLink ::
   DescribeVpcClassicLink
 newDescribeVpcClassicLink =
   DescribeVpcClassicLink'
-    { dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      vpcIds = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      vpcIds = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVpcClassicLink_dryRun :: Lens.Lens' DescribeVpcClassicLink (Prelude.Maybe Prelude.Bool)
+describeVpcClassicLink_dryRun :: Lens.Lens' DescribeVpcClassicLink (Core.Maybe Core.Bool)
 describeVpcClassicLink_dryRun = Lens.lens (\DescribeVpcClassicLink' {dryRun} -> dryRun) (\s@DescribeVpcClassicLink' {} a -> s {dryRun = a} :: DescribeVpcClassicLink)
 
 -- | One or more filters.
@@ -134,60 +133,59 @@ describeVpcClassicLink_dryRun = Lens.lens (\DescribeVpcClassicLink' {dryRun} -> 
 -- -   @tag-key@ - The key of a tag assigned to the resource. Use this
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
-describeVpcClassicLink_filters :: Lens.Lens' DescribeVpcClassicLink (Prelude.Maybe [Filter])
-describeVpcClassicLink_filters = Lens.lens (\DescribeVpcClassicLink' {filters} -> filters) (\s@DescribeVpcClassicLink' {} a -> s {filters = a} :: DescribeVpcClassicLink) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcClassicLink_filters :: Lens.Lens' DescribeVpcClassicLink (Core.Maybe [Filter])
+describeVpcClassicLink_filters = Lens.lens (\DescribeVpcClassicLink' {filters} -> filters) (\s@DescribeVpcClassicLink' {} a -> s {filters = a} :: DescribeVpcClassicLink) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
-describeVpcClassicLink_vpcIds :: Lens.Lens' DescribeVpcClassicLink (Prelude.Maybe [Prelude.Text])
-describeVpcClassicLink_vpcIds = Lens.lens (\DescribeVpcClassicLink' {vpcIds} -> vpcIds) (\s@DescribeVpcClassicLink' {} a -> s {vpcIds = a} :: DescribeVpcClassicLink) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcClassicLink_vpcIds :: Lens.Lens' DescribeVpcClassicLink (Core.Maybe [Core.Text])
+describeVpcClassicLink_vpcIds = Lens.lens (\DescribeVpcClassicLink' {vpcIds} -> vpcIds) (\s@DescribeVpcClassicLink' {} a -> s {vpcIds = a} :: DescribeVpcClassicLink) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeVpcClassicLink where
+instance Core.AWSRequest DescribeVpcClassicLink where
   type
-    Rs DescribeVpcClassicLink =
+    AWSResponse DescribeVpcClassicLink =
       DescribeVpcClassicLinkResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeVpcClassicLinkResponse'
-            Prelude.<$> ( x Prelude..@? "vpcSet" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "vpcSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpcClassicLink
+instance Core.Hashable DescribeVpcClassicLink
 
-instance Prelude.NFData DescribeVpcClassicLink
+instance Core.NFData DescribeVpcClassicLink
 
-instance Prelude.ToHeaders DescribeVpcClassicLink where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeVpcClassicLink where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeVpcClassicLink where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeVpcClassicLink where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeVpcClassicLink where
+instance Core.ToQuery DescribeVpcClassicLink where
   toQuery DescribeVpcClassicLink' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeVpcClassicLink" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        Prelude.toQuery
-          (Prelude.toQueryList "VpcId" Prelude.<$> vpcIds)
+          Core.=: ("DescribeVpcClassicLink" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "VpcId" Core.<$> vpcIds)
       ]
 
 -- | /See:/ 'newDescribeVpcClassicLinkResponse' smart constructor.
 data DescribeVpcClassicLinkResponse = DescribeVpcClassicLinkResponse'
   { -- | The ClassicLink status of one or more VPCs.
-    vpcs :: Prelude.Maybe [VpcClassicLink],
+    vpcs :: Core.Maybe [VpcClassicLink],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpcClassicLinkResponse' with all optional fields omitted.
@@ -202,23 +200,21 @@ data DescribeVpcClassicLinkResponse = DescribeVpcClassicLinkResponse'
 -- 'httpStatus', 'describeVpcClassicLinkResponse_httpStatus' - The response's http status code.
 newDescribeVpcClassicLinkResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVpcClassicLinkResponse
 newDescribeVpcClassicLinkResponse pHttpStatus_ =
   DescribeVpcClassicLinkResponse'
     { vpcs =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ClassicLink status of one or more VPCs.
-describeVpcClassicLinkResponse_vpcs :: Lens.Lens' DescribeVpcClassicLinkResponse (Prelude.Maybe [VpcClassicLink])
-describeVpcClassicLinkResponse_vpcs = Lens.lens (\DescribeVpcClassicLinkResponse' {vpcs} -> vpcs) (\s@DescribeVpcClassicLinkResponse' {} a -> s {vpcs = a} :: DescribeVpcClassicLinkResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVpcClassicLinkResponse_vpcs :: Lens.Lens' DescribeVpcClassicLinkResponse (Core.Maybe [VpcClassicLink])
+describeVpcClassicLinkResponse_vpcs = Lens.lens (\DescribeVpcClassicLinkResponse' {vpcs} -> vpcs) (\s@DescribeVpcClassicLinkResponse' {} a -> s {vpcs = a} :: DescribeVpcClassicLinkResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpcClassicLinkResponse_httpStatus :: Lens.Lens' DescribeVpcClassicLinkResponse Prelude.Int
+describeVpcClassicLinkResponse_httpStatus :: Lens.Lens' DescribeVpcClassicLinkResponse Core.Int
 describeVpcClassicLinkResponse_httpStatus = Lens.lens (\DescribeVpcClassicLinkResponse' {httpStatus} -> httpStatus) (\s@DescribeVpcClassicLinkResponse' {} a -> s {httpStatus = a} :: DescribeVpcClassicLinkResponse)
 
-instance
-  Prelude.NFData
-    DescribeVpcClassicLinkResponse
+instance Core.NFData DescribeVpcClassicLinkResponse

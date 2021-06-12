@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.CostExplorer.GetTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,15 +63,15 @@ data GetTags = GetTags'
     -- results as the default value for this parameter.
     --
     -- For @GetTags@, MaxResults has an upper limit of 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The value that you want to search for.
-    searchString :: Prelude.Maybe Prelude.Text,
+    searchString :: Core.Maybe Core.Text,
     -- | The key of the tag that you want to return values for.
-    tagKey :: Prelude.Maybe Prelude.Text,
+    tagKey :: Core.Maybe Core.Text,
     -- | The token to retrieve the next set of results. AWS provides the token
     -- when the response from a previous call has more results than the maximum
     -- page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The value by which you want to sort the data.
     --
     -- The key represents cost and usage metrics. The following values are
@@ -96,8 +95,8 @@ data GetTags = GetTags'
     --
     -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
     -- supported.
-    sortBy :: Prelude.Maybe [SortDefinition],
-    filter' :: Prelude.Maybe Expression,
+    sortBy :: Core.Maybe [SortDefinition],
+    filter' :: Core.Maybe Expression,
     -- | The start and end dates for retrieving the dimension values. The start
     -- date is inclusive, but the end date is exclusive. For example, if
     -- @start@ is @2017-01-01@ and @end@ is @2017-05-01@, then the cost and
@@ -105,7 +104,7 @@ data GetTags = GetTags'
     -- @2017-04-30@ but not including @2017-05-01@.
     timePeriod :: DateInterval
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTags' with all optional fields omitted.
@@ -167,12 +166,12 @@ newGetTags ::
   GetTags
 newGetTags pTimePeriod_ =
   GetTags'
-    { maxResults = Prelude.Nothing,
-      searchString = Prelude.Nothing,
-      tagKey = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { maxResults = Core.Nothing,
+      searchString = Core.Nothing,
+      tagKey = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      filter' = Core.Nothing,
       timePeriod = pTimePeriod_
     }
 
@@ -182,21 +181,21 @@ newGetTags pTimePeriod_ =
 -- results as the default value for this parameter.
 --
 -- For @GetTags@, MaxResults has an upper limit of 1000.
-getTags_maxResults :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Natural)
+getTags_maxResults :: Lens.Lens' GetTags (Core.Maybe Core.Natural)
 getTags_maxResults = Lens.lens (\GetTags' {maxResults} -> maxResults) (\s@GetTags' {} a -> s {maxResults = a} :: GetTags)
 
 -- | The value that you want to search for.
-getTags_searchString :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
+getTags_searchString :: Lens.Lens' GetTags (Core.Maybe Core.Text)
 getTags_searchString = Lens.lens (\GetTags' {searchString} -> searchString) (\s@GetTags' {} a -> s {searchString = a} :: GetTags)
 
 -- | The key of the tag that you want to return values for.
-getTags_tagKey :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
+getTags_tagKey :: Lens.Lens' GetTags (Core.Maybe Core.Text)
 getTags_tagKey = Lens.lens (\GetTags' {tagKey} -> tagKey) (\s@GetTags' {} a -> s {tagKey = a} :: GetTags)
 
 -- | The token to retrieve the next set of results. AWS provides the token
 -- when the response from a previous call has more results than the maximum
 -- page size.
-getTags_nextPageToken :: Lens.Lens' GetTags (Prelude.Maybe Prelude.Text)
+getTags_nextPageToken :: Lens.Lens' GetTags (Core.Maybe Core.Text)
 getTags_nextPageToken = Lens.lens (\GetTags' {nextPageToken} -> nextPageToken) (\s@GetTags' {} a -> s {nextPageToken = a} :: GetTags)
 
 -- | The value by which you want to sort the data.
@@ -222,11 +221,11 @@ getTags_nextPageToken = Lens.lens (\GetTags' {nextPageToken} -> nextPageToken) (
 --
 -- When using @SortBy@, @NextPageToken@ and @SearchString@ are not
 -- supported.
-getTags_sortBy :: Lens.Lens' GetTags (Prelude.Maybe [SortDefinition])
-getTags_sortBy = Lens.lens (\GetTags' {sortBy} -> sortBy) (\s@GetTags' {} a -> s {sortBy = a} :: GetTags) Prelude.. Lens.mapping Prelude._Coerce
+getTags_sortBy :: Lens.Lens' GetTags (Core.Maybe [SortDefinition])
+getTags_sortBy = Lens.lens (\GetTags' {sortBy} -> sortBy) (\s@GetTags' {} a -> s {sortBy = a} :: GetTags) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getTags_filter :: Lens.Lens' GetTags (Prelude.Maybe Expression)
+getTags_filter :: Lens.Lens' GetTags (Core.Maybe Expression)
 getTags_filter = Lens.lens (\GetTags' {filter'} -> filter') (\s@GetTags' {} a -> s {filter' = a} :: GetTags)
 
 -- | The start and end dates for retrieving the dimension values. The start
@@ -237,76 +236,73 @@ getTags_filter = Lens.lens (\GetTags' {filter'} -> filter') (\s@GetTags' {} a ->
 getTags_timePeriod :: Lens.Lens' GetTags DateInterval
 getTags_timePeriod = Lens.lens (\GetTags' {timePeriod} -> timePeriod) (\s@GetTags' {} a -> s {timePeriod = a} :: GetTags)
 
-instance Prelude.AWSRequest GetTags where
-  type Rs GetTags = GetTagsResponse
+instance Core.AWSRequest GetTags where
+  type AWSResponse GetTags = GetTagsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTagsResponse'
-            Prelude.<$> (x Prelude..?> "NextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..:> "ReturnSize")
-            Prelude.<*> (x Prelude..:> "TotalSize")
+            Core.<$> (x Core..?> "NextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..:> "ReturnSize")
+            Core.<*> (x Core..:> "TotalSize")
       )
 
-instance Prelude.Hashable GetTags
+instance Core.Hashable GetTags
 
-instance Prelude.NFData GetTags
+instance Core.NFData GetTags
 
-instance Prelude.ToHeaders GetTags where
+instance Core.ToHeaders GetTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.GetTags" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.GetTags" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetTags where
+instance Core.ToJSON GetTags where
   toJSON GetTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("SearchString" Prelude..=) Prelude.<$> searchString,
-            ("TagKey" Prelude..=) Prelude.<$> tagKey,
-            ("NextPageToken" Prelude..=)
-              Prelude.<$> nextPageToken,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            ("Filter" Prelude..=) Prelude.<$> filter',
-            Prelude.Just ("TimePeriod" Prelude..= timePeriod)
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("SearchString" Core..=) Core.<$> searchString,
+            ("TagKey" Core..=) Core.<$> tagKey,
+            ("NextPageToken" Core..=) Core.<$> nextPageToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("Filter" Core..=) Core.<$> filter',
+            Core.Just ("TimePeriod" Core..= timePeriod)
           ]
       )
 
-instance Prelude.ToPath GetTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetTagsResponse' smart constructor.
 data GetTagsResponse = GetTagsResponse'
   { -- | The token for the next set of retrievable results. AWS provides the
     -- token when the response from a previous call has more results than the
     -- maximum page size.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The tags that match your request.
-    tags :: [Prelude.Text],
+    tags :: [Core.Text],
     -- | The number of query results that AWS returns at a time.
-    returnSize :: Prelude.Int,
+    returnSize :: Core.Int,
     -- | The total number of query results.
-    totalSize :: Prelude.Int
+    totalSize :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTagsResponse' with all optional fields omitted.
@@ -329,20 +325,20 @@ data GetTagsResponse = GetTagsResponse'
 -- 'totalSize', 'getTagsResponse_totalSize' - The total number of query results.
 newGetTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'returnSize'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'totalSize'
-  Prelude.Int ->
+  Core.Int ->
   GetTagsResponse
 newGetTagsResponse
   pHttpStatus_
   pReturnSize_
   pTotalSize_ =
     GetTagsResponse'
-      { nextPageToken = Prelude.Nothing,
+      { nextPageToken = Core.Nothing,
         httpStatus = pHttpStatus_,
-        tags = Prelude.mempty,
+        tags = Core.mempty,
         returnSize = pReturnSize_,
         totalSize = pTotalSize_
       }
@@ -350,23 +346,23 @@ newGetTagsResponse
 -- | The token for the next set of retrievable results. AWS provides the
 -- token when the response from a previous call has more results than the
 -- maximum page size.
-getTagsResponse_nextPageToken :: Lens.Lens' GetTagsResponse (Prelude.Maybe Prelude.Text)
+getTagsResponse_nextPageToken :: Lens.Lens' GetTagsResponse (Core.Maybe Core.Text)
 getTagsResponse_nextPageToken = Lens.lens (\GetTagsResponse' {nextPageToken} -> nextPageToken) (\s@GetTagsResponse' {} a -> s {nextPageToken = a} :: GetTagsResponse)
 
 -- | The response's http status code.
-getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Prelude.Int
+getTagsResponse_httpStatus :: Lens.Lens' GetTagsResponse Core.Int
 getTagsResponse_httpStatus = Lens.lens (\GetTagsResponse' {httpStatus} -> httpStatus) (\s@GetTagsResponse' {} a -> s {httpStatus = a} :: GetTagsResponse)
 
 -- | The tags that match your request.
-getTagsResponse_tags :: Lens.Lens' GetTagsResponse [Prelude.Text]
-getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Prelude.. Prelude._Coerce
+getTagsResponse_tags :: Lens.Lens' GetTagsResponse [Core.Text]
+getTagsResponse_tags = Lens.lens (\GetTagsResponse' {tags} -> tags) (\s@GetTagsResponse' {} a -> s {tags = a} :: GetTagsResponse) Core.. Lens._Coerce
 
 -- | The number of query results that AWS returns at a time.
-getTagsResponse_returnSize :: Lens.Lens' GetTagsResponse Prelude.Int
+getTagsResponse_returnSize :: Lens.Lens' GetTagsResponse Core.Int
 getTagsResponse_returnSize = Lens.lens (\GetTagsResponse' {returnSize} -> returnSize) (\s@GetTagsResponse' {} a -> s {returnSize = a} :: GetTagsResponse)
 
 -- | The total number of query results.
-getTagsResponse_totalSize :: Lens.Lens' GetTagsResponse Prelude.Int
+getTagsResponse_totalSize :: Lens.Lens' GetTagsResponse Core.Int
 getTagsResponse_totalSize = Lens.lens (\GetTagsResponse' {totalSize} -> totalSize) (\s@GetTagsResponse' {} a -> s {totalSize = a} :: GetTagsResponse)
 
-instance Prelude.NFData GetTagsResponse
+instance Core.NFData GetTagsResponse

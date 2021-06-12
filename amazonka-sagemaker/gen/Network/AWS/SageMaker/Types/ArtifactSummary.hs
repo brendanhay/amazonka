@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ArtifactSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ArtifactSource
 
 -- | Lists a summary of the properties of an artifact. An artifact represents
@@ -31,19 +30,19 @@ import Network.AWS.SageMaker.Types.ArtifactSource
 -- /See:/ 'newArtifactSummary' smart constructor.
 data ArtifactSummary = ArtifactSummary'
   { -- | When the artifact was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The name of the artifact.
-    artifactName :: Prelude.Maybe Prelude.Text,
+    artifactName :: Core.Maybe Core.Text,
     -- | The type of the artifact.
-    artifactType :: Prelude.Maybe Prelude.Text,
+    artifactType :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the artifact.
-    artifactArn :: Prelude.Maybe Prelude.Text,
+    artifactArn :: Core.Maybe Core.Text,
     -- | The source of the artifact.
-    source :: Prelude.Maybe ArtifactSource,
+    source :: Core.Maybe ArtifactSource,
     -- | When the artifact was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX
+    lastModifiedTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArtifactSummary' with all optional fields omitted.
@@ -68,52 +67,52 @@ newArtifactSummary ::
   ArtifactSummary
 newArtifactSummary =
   ArtifactSummary'
-    { creationTime = Prelude.Nothing,
-      artifactName = Prelude.Nothing,
-      artifactType = Prelude.Nothing,
-      artifactArn = Prelude.Nothing,
-      source = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing
+    { creationTime = Core.Nothing,
+      artifactName = Core.Nothing,
+      artifactType = Core.Nothing,
+      artifactArn = Core.Nothing,
+      source = Core.Nothing,
+      lastModifiedTime = Core.Nothing
     }
 
 -- | When the artifact was created.
-artifactSummary_creationTime :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.UTCTime)
-artifactSummary_creationTime = Lens.lens (\ArtifactSummary' {creationTime} -> creationTime) (\s@ArtifactSummary' {} a -> s {creationTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Prelude._Time
+artifactSummary_creationTime :: Lens.Lens' ArtifactSummary (Core.Maybe Core.UTCTime)
+artifactSummary_creationTime = Lens.lens (\ArtifactSummary' {creationTime} -> creationTime) (\s@ArtifactSummary' {} a -> s {creationTime = a} :: ArtifactSummary) Core.. Lens.mapping Core._Time
 
 -- | The name of the artifact.
-artifactSummary_artifactName :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.Text)
+artifactSummary_artifactName :: Lens.Lens' ArtifactSummary (Core.Maybe Core.Text)
 artifactSummary_artifactName = Lens.lens (\ArtifactSummary' {artifactName} -> artifactName) (\s@ArtifactSummary' {} a -> s {artifactName = a} :: ArtifactSummary)
 
 -- | The type of the artifact.
-artifactSummary_artifactType :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.Text)
+artifactSummary_artifactType :: Lens.Lens' ArtifactSummary (Core.Maybe Core.Text)
 artifactSummary_artifactType = Lens.lens (\ArtifactSummary' {artifactType} -> artifactType) (\s@ArtifactSummary' {} a -> s {artifactType = a} :: ArtifactSummary)
 
 -- | The Amazon Resource Name (ARN) of the artifact.
-artifactSummary_artifactArn :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.Text)
+artifactSummary_artifactArn :: Lens.Lens' ArtifactSummary (Core.Maybe Core.Text)
 artifactSummary_artifactArn = Lens.lens (\ArtifactSummary' {artifactArn} -> artifactArn) (\s@ArtifactSummary' {} a -> s {artifactArn = a} :: ArtifactSummary)
 
 -- | The source of the artifact.
-artifactSummary_source :: Lens.Lens' ArtifactSummary (Prelude.Maybe ArtifactSource)
+artifactSummary_source :: Lens.Lens' ArtifactSummary (Core.Maybe ArtifactSource)
 artifactSummary_source = Lens.lens (\ArtifactSummary' {source} -> source) (\s@ArtifactSummary' {} a -> s {source = a} :: ArtifactSummary)
 
 -- | When the artifact was last modified.
-artifactSummary_lastModifiedTime :: Lens.Lens' ArtifactSummary (Prelude.Maybe Prelude.UTCTime)
-artifactSummary_lastModifiedTime = Lens.lens (\ArtifactSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ArtifactSummary' {} a -> s {lastModifiedTime = a} :: ArtifactSummary) Prelude.. Lens.mapping Prelude._Time
+artifactSummary_lastModifiedTime :: Lens.Lens' ArtifactSummary (Core.Maybe Core.UTCTime)
+artifactSummary_lastModifiedTime = Lens.lens (\ArtifactSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ArtifactSummary' {} a -> s {lastModifiedTime = a} :: ArtifactSummary) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON ArtifactSummary where
+instance Core.FromJSON ArtifactSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ArtifactSummary"
       ( \x ->
           ArtifactSummary'
-            Prelude.<$> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ArtifactName")
-            Prelude.<*> (x Prelude..:? "ArtifactType")
-            Prelude.<*> (x Prelude..:? "ArtifactArn")
-            Prelude.<*> (x Prelude..:? "Source")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
+            Core.<$> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ArtifactName")
+            Core.<*> (x Core..:? "ArtifactType")
+            Core.<*> (x Core..:? "ArtifactArn")
+            Core.<*> (x Core..:? "Source")
+            Core.<*> (x Core..:? "LastModifiedTime")
       )
 
-instance Prelude.Hashable ArtifactSummary
+instance Core.Hashable ArtifactSummary
 
-instance Prelude.NFData ArtifactSummary
+instance Core.NFData ArtifactSummary

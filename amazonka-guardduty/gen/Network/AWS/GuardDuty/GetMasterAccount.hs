@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.GuardDuty.GetMasterAccount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMasterAccount' smart constructor.
 data GetMasterAccount = GetMasterAccount'
   { -- | The unique ID of the detector of the GuardDuty member account.
-    detectorId :: Prelude.Text
+    detectorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMasterAccount' with all optional fields omitted.
@@ -65,57 +64,57 @@ data GetMasterAccount = GetMasterAccount'
 -- 'detectorId', 'getMasterAccount_detectorId' - The unique ID of the detector of the GuardDuty member account.
 newGetMasterAccount ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   GetMasterAccount
 newGetMasterAccount pDetectorId_ =
   GetMasterAccount' {detectorId = pDetectorId_}
 
 -- | The unique ID of the detector of the GuardDuty member account.
-getMasterAccount_detectorId :: Lens.Lens' GetMasterAccount Prelude.Text
+getMasterAccount_detectorId :: Lens.Lens' GetMasterAccount Core.Text
 getMasterAccount_detectorId = Lens.lens (\GetMasterAccount' {detectorId} -> detectorId) (\s@GetMasterAccount' {} a -> s {detectorId = a} :: GetMasterAccount)
 
-instance Prelude.AWSRequest GetMasterAccount where
-  type Rs GetMasterAccount = GetMasterAccountResponse
+instance Core.AWSRequest GetMasterAccount where
+  type
+    AWSResponse GetMasterAccount =
+      GetMasterAccountResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetMasterAccountResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "master")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "master")
       )
 
-instance Prelude.Hashable GetMasterAccount
+instance Core.Hashable GetMasterAccount
 
-instance Prelude.NFData GetMasterAccount
+instance Core.NFData GetMasterAccount
 
-instance Prelude.ToHeaders GetMasterAccount where
+instance Core.ToHeaders GetMasterAccount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetMasterAccount where
+instance Core.ToPath GetMasterAccount where
   toPath GetMasterAccount' {..} =
-    Prelude.mconcat
-      ["/detector/", Prelude.toBS detectorId, "/master"]
+    Core.mconcat
+      ["/detector/", Core.toBS detectorId, "/master"]
 
-instance Prelude.ToQuery GetMasterAccount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMasterAccount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetMasterAccountResponse' smart constructor.
 data GetMasterAccountResponse = GetMasterAccountResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The administrator account details.
     master :: Master
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMasterAccountResponse' with all optional fields omitted.
@@ -130,7 +129,7 @@ data GetMasterAccountResponse = GetMasterAccountResponse'
 -- 'master', 'getMasterAccountResponse_master' - The administrator account details.
 newGetMasterAccountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'master'
   Master ->
   GetMasterAccountResponse
@@ -142,11 +141,11 @@ newGetMasterAccountResponse pHttpStatus_ pMaster_ =
     }
 
 -- | The response's http status code.
-getMasterAccountResponse_httpStatus :: Lens.Lens' GetMasterAccountResponse Prelude.Int
+getMasterAccountResponse_httpStatus :: Lens.Lens' GetMasterAccountResponse Core.Int
 getMasterAccountResponse_httpStatus = Lens.lens (\GetMasterAccountResponse' {httpStatus} -> httpStatus) (\s@GetMasterAccountResponse' {} a -> s {httpStatus = a} :: GetMasterAccountResponse)
 
 -- | The administrator account details.
 getMasterAccountResponse_master :: Lens.Lens' GetMasterAccountResponse Master
 getMasterAccountResponse_master = Lens.lens (\GetMasterAccountResponse' {master} -> master) (\s@GetMasterAccountResponse' {} a -> s {master = a} :: GetMasterAccountResponse)
 
-instance Prelude.NFData GetMasterAccountResponse
+instance Core.NFData GetMasterAccountResponse

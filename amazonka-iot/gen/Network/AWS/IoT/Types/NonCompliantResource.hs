@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.NonCompliantResource where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ResourceIdentifier
 import Network.AWS.IoT.Types.ResourceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the resource that was noncompliant with the audit
 -- check.
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNonCompliantResource' smart constructor.
 data NonCompliantResource = NonCompliantResource'
   { -- | Other information about the noncompliant resource.
-    additionalInfo :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    additionalInfo :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The type of the noncompliant resource.
-    resourceType :: Prelude.Maybe ResourceType,
+    resourceType :: Core.Maybe ResourceType,
     -- | Information that identifies the noncompliant resource.
-    resourceIdentifier :: Prelude.Maybe ResourceIdentifier
+    resourceIdentifier :: Core.Maybe ResourceIdentifier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NonCompliantResource' with all optional fields omitted.
@@ -57,36 +56,34 @@ newNonCompliantResource ::
 newNonCompliantResource =
   NonCompliantResource'
     { additionalInfo =
-        Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      resourceIdentifier = Prelude.Nothing
+        Core.Nothing,
+      resourceType = Core.Nothing,
+      resourceIdentifier = Core.Nothing
     }
 
 -- | Other information about the noncompliant resource.
-nonCompliantResource_additionalInfo :: Lens.Lens' NonCompliantResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-nonCompliantResource_additionalInfo = Lens.lens (\NonCompliantResource' {additionalInfo} -> additionalInfo) (\s@NonCompliantResource' {} a -> s {additionalInfo = a} :: NonCompliantResource) Prelude.. Lens.mapping Prelude._Coerce
+nonCompliantResource_additionalInfo :: Lens.Lens' NonCompliantResource (Core.Maybe (Core.HashMap Core.Text Core.Text))
+nonCompliantResource_additionalInfo = Lens.lens (\NonCompliantResource' {additionalInfo} -> additionalInfo) (\s@NonCompliantResource' {} a -> s {additionalInfo = a} :: NonCompliantResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of the noncompliant resource.
-nonCompliantResource_resourceType :: Lens.Lens' NonCompliantResource (Prelude.Maybe ResourceType)
+nonCompliantResource_resourceType :: Lens.Lens' NonCompliantResource (Core.Maybe ResourceType)
 nonCompliantResource_resourceType = Lens.lens (\NonCompliantResource' {resourceType} -> resourceType) (\s@NonCompliantResource' {} a -> s {resourceType = a} :: NonCompliantResource)
 
 -- | Information that identifies the noncompliant resource.
-nonCompliantResource_resourceIdentifier :: Lens.Lens' NonCompliantResource (Prelude.Maybe ResourceIdentifier)
+nonCompliantResource_resourceIdentifier :: Lens.Lens' NonCompliantResource (Core.Maybe ResourceIdentifier)
 nonCompliantResource_resourceIdentifier = Lens.lens (\NonCompliantResource' {resourceIdentifier} -> resourceIdentifier) (\s@NonCompliantResource' {} a -> s {resourceIdentifier = a} :: NonCompliantResource)
 
-instance Prelude.FromJSON NonCompliantResource where
+instance Core.FromJSON NonCompliantResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NonCompliantResource"
       ( \x ->
           NonCompliantResource'
-            Prelude.<$> ( x Prelude..:? "additionalInfo"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "resourceType")
-            Prelude.<*> (x Prelude..:? "resourceIdentifier")
+            Core.<$> (x Core..:? "additionalInfo" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "resourceType")
+            Core.<*> (x Core..:? "resourceIdentifier")
       )
 
-instance Prelude.Hashable NonCompliantResource
+instance Core.Hashable NonCompliantResource
 
-instance Prelude.NFData NonCompliantResource
+instance Core.NFData NonCompliantResource

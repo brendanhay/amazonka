@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.InstanceAccessDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.HostKeyAttributes
 import Network.AWS.Lightsail.Types.InstanceAccessProtocol
 import Network.AWS.Lightsail.Types.PasswordData
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The parameters for gaining temporary access to one of your Amazon
 -- Lightsail instances.
@@ -32,26 +31,26 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newInstanceAccessDetails' smart constructor.
 data InstanceAccessDetails = InstanceAccessDetails'
   { -- | Describes the public SSH host keys or the RDP certificate.
-    hostKeys :: Prelude.Maybe [HostKeyAttributes],
+    hostKeys :: Core.Maybe [HostKeyAttributes],
     -- | The name of this Amazon Lightsail instance.
-    instanceName :: Prelude.Maybe Prelude.Text,
+    instanceName :: Core.Maybe Core.Text,
     -- | For SSH access, the date on which the temporary keys expire.
-    expiresAt :: Prelude.Maybe Prelude.POSIX,
+    expiresAt :: Core.Maybe Core.POSIX,
     -- | For SSH access, the temporary private key. For OpenSSH clients (e.g.,
     -- command line SSH), you should save this value to @tempkey@).
-    privateKey :: Prelude.Maybe Prelude.Text,
+    privateKey :: Core.Maybe Core.Text,
     -- | For SSH access, the public key to use when accessing your instance For
     -- OpenSSH clients (e.g., command line SSH), you should save this value to
     -- @tempkey-cert.pub@.
-    certKey :: Prelude.Maybe Prelude.Text,
+    certKey :: Core.Maybe Core.Text,
     -- | For a Windows Server-based instance, an object with the data you can use
     -- to retrieve your password. This is only needed if @password@ is empty
     -- and the instance is not new (and therefore the password is not ready
     -- yet). When you create an instance, it can take up to 15 minutes for the
     -- instance to be ready.
-    passwordData :: Prelude.Maybe PasswordData,
+    passwordData :: Core.Maybe PasswordData,
     -- | The public IP address of the Amazon Lightsail instance.
-    ipAddress :: Prelude.Maybe Prelude.Text,
+    ipAddress :: Core.Maybe Core.Text,
     -- | For RDP access, the password for your Amazon Lightsail instance.
     -- Password will be an empty string if the password for your new instance
     -- is not ready yet. When you create an instance, it can take up to 15
@@ -64,13 +63,13 @@ data InstanceAccessDetails = InstanceAccessDetails'
     -- continue to return the original password value. When accessing the
     -- instance using RDP, you need to manually enter the Administrator
     -- password after changing it from the default.
-    password :: Prelude.Maybe Prelude.Text,
+    password :: Core.Maybe Core.Text,
     -- | The user name to use when logging in to the Amazon Lightsail instance.
-    username :: Prelude.Maybe Prelude.Text,
+    username :: Core.Maybe Core.Text,
     -- | The protocol for these Amazon Lightsail instance access details.
-    protocol :: Prelude.Maybe InstanceAccessProtocol
+    protocol :: Core.Maybe InstanceAccessProtocol
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceAccessDetails' with all optional fields omitted.
@@ -121,39 +120,39 @@ newInstanceAccessDetails ::
   InstanceAccessDetails
 newInstanceAccessDetails =
   InstanceAccessDetails'
-    { hostKeys = Prelude.Nothing,
-      instanceName = Prelude.Nothing,
-      expiresAt = Prelude.Nothing,
-      privateKey = Prelude.Nothing,
-      certKey = Prelude.Nothing,
-      passwordData = Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
-      password = Prelude.Nothing,
-      username = Prelude.Nothing,
-      protocol = Prelude.Nothing
+    { hostKeys = Core.Nothing,
+      instanceName = Core.Nothing,
+      expiresAt = Core.Nothing,
+      privateKey = Core.Nothing,
+      certKey = Core.Nothing,
+      passwordData = Core.Nothing,
+      ipAddress = Core.Nothing,
+      password = Core.Nothing,
+      username = Core.Nothing,
+      protocol = Core.Nothing
     }
 
 -- | Describes the public SSH host keys or the RDP certificate.
-instanceAccessDetails_hostKeys :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe [HostKeyAttributes])
-instanceAccessDetails_hostKeys = Lens.lens (\InstanceAccessDetails' {hostKeys} -> hostKeys) (\s@InstanceAccessDetails' {} a -> s {hostKeys = a} :: InstanceAccessDetails) Prelude.. Lens.mapping Prelude._Coerce
+instanceAccessDetails_hostKeys :: Lens.Lens' InstanceAccessDetails (Core.Maybe [HostKeyAttributes])
+instanceAccessDetails_hostKeys = Lens.lens (\InstanceAccessDetails' {hostKeys} -> hostKeys) (\s@InstanceAccessDetails' {} a -> s {hostKeys = a} :: InstanceAccessDetails) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of this Amazon Lightsail instance.
-instanceAccessDetails_instanceName :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_instanceName :: Lens.Lens' InstanceAccessDetails (Core.Maybe Core.Text)
 instanceAccessDetails_instanceName = Lens.lens (\InstanceAccessDetails' {instanceName} -> instanceName) (\s@InstanceAccessDetails' {} a -> s {instanceName = a} :: InstanceAccessDetails)
 
 -- | For SSH access, the date on which the temporary keys expire.
-instanceAccessDetails_expiresAt :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.UTCTime)
-instanceAccessDetails_expiresAt = Lens.lens (\InstanceAccessDetails' {expiresAt} -> expiresAt) (\s@InstanceAccessDetails' {} a -> s {expiresAt = a} :: InstanceAccessDetails) Prelude.. Lens.mapping Prelude._Time
+instanceAccessDetails_expiresAt :: Lens.Lens' InstanceAccessDetails (Core.Maybe Core.UTCTime)
+instanceAccessDetails_expiresAt = Lens.lens (\InstanceAccessDetails' {expiresAt} -> expiresAt) (\s@InstanceAccessDetails' {} a -> s {expiresAt = a} :: InstanceAccessDetails) Core.. Lens.mapping Core._Time
 
 -- | For SSH access, the temporary private key. For OpenSSH clients (e.g.,
 -- command line SSH), you should save this value to @tempkey@).
-instanceAccessDetails_privateKey :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_privateKey :: Lens.Lens' InstanceAccessDetails (Core.Maybe Core.Text)
 instanceAccessDetails_privateKey = Lens.lens (\InstanceAccessDetails' {privateKey} -> privateKey) (\s@InstanceAccessDetails' {} a -> s {privateKey = a} :: InstanceAccessDetails)
 
 -- | For SSH access, the public key to use when accessing your instance For
 -- OpenSSH clients (e.g., command line SSH), you should save this value to
 -- @tempkey-cert.pub@.
-instanceAccessDetails_certKey :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_certKey :: Lens.Lens' InstanceAccessDetails (Core.Maybe Core.Text)
 instanceAccessDetails_certKey = Lens.lens (\InstanceAccessDetails' {certKey} -> certKey) (\s@InstanceAccessDetails' {} a -> s {certKey = a} :: InstanceAccessDetails)
 
 -- | For a Windows Server-based instance, an object with the data you can use
@@ -161,11 +160,11 @@ instanceAccessDetails_certKey = Lens.lens (\InstanceAccessDetails' {certKey} -> 
 -- and the instance is not new (and therefore the password is not ready
 -- yet). When you create an instance, it can take up to 15 minutes for the
 -- instance to be ready.
-instanceAccessDetails_passwordData :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe PasswordData)
+instanceAccessDetails_passwordData :: Lens.Lens' InstanceAccessDetails (Core.Maybe PasswordData)
 instanceAccessDetails_passwordData = Lens.lens (\InstanceAccessDetails' {passwordData} -> passwordData) (\s@InstanceAccessDetails' {} a -> s {passwordData = a} :: InstanceAccessDetails)
 
 -- | The public IP address of the Amazon Lightsail instance.
-instanceAccessDetails_ipAddress :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_ipAddress :: Lens.Lens' InstanceAccessDetails (Core.Maybe Core.Text)
 instanceAccessDetails_ipAddress = Lens.lens (\InstanceAccessDetails' {ipAddress} -> ipAddress) (\s@InstanceAccessDetails' {} a -> s {ipAddress = a} :: InstanceAccessDetails)
 
 -- | For RDP access, the password for your Amazon Lightsail instance.
@@ -180,35 +179,35 @@ instanceAccessDetails_ipAddress = Lens.lens (\InstanceAccessDetails' {ipAddress}
 -- continue to return the original password value. When accessing the
 -- instance using RDP, you need to manually enter the Administrator
 -- password after changing it from the default.
-instanceAccessDetails_password :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_password :: Lens.Lens' InstanceAccessDetails (Core.Maybe Core.Text)
 instanceAccessDetails_password = Lens.lens (\InstanceAccessDetails' {password} -> password) (\s@InstanceAccessDetails' {} a -> s {password = a} :: InstanceAccessDetails)
 
 -- | The user name to use when logging in to the Amazon Lightsail instance.
-instanceAccessDetails_username :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe Prelude.Text)
+instanceAccessDetails_username :: Lens.Lens' InstanceAccessDetails (Core.Maybe Core.Text)
 instanceAccessDetails_username = Lens.lens (\InstanceAccessDetails' {username} -> username) (\s@InstanceAccessDetails' {} a -> s {username = a} :: InstanceAccessDetails)
 
 -- | The protocol for these Amazon Lightsail instance access details.
-instanceAccessDetails_protocol :: Lens.Lens' InstanceAccessDetails (Prelude.Maybe InstanceAccessProtocol)
+instanceAccessDetails_protocol :: Lens.Lens' InstanceAccessDetails (Core.Maybe InstanceAccessProtocol)
 instanceAccessDetails_protocol = Lens.lens (\InstanceAccessDetails' {protocol} -> protocol) (\s@InstanceAccessDetails' {} a -> s {protocol = a} :: InstanceAccessDetails)
 
-instance Prelude.FromJSON InstanceAccessDetails where
+instance Core.FromJSON InstanceAccessDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InstanceAccessDetails"
       ( \x ->
           InstanceAccessDetails'
-            Prelude.<$> (x Prelude..:? "hostKeys" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "instanceName")
-            Prelude.<*> (x Prelude..:? "expiresAt")
-            Prelude.<*> (x Prelude..:? "privateKey")
-            Prelude.<*> (x Prelude..:? "certKey")
-            Prelude.<*> (x Prelude..:? "passwordData")
-            Prelude.<*> (x Prelude..:? "ipAddress")
-            Prelude.<*> (x Prelude..:? "password")
-            Prelude.<*> (x Prelude..:? "username")
-            Prelude.<*> (x Prelude..:? "protocol")
+            Core.<$> (x Core..:? "hostKeys" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "instanceName")
+            Core.<*> (x Core..:? "expiresAt")
+            Core.<*> (x Core..:? "privateKey")
+            Core.<*> (x Core..:? "certKey")
+            Core.<*> (x Core..:? "passwordData")
+            Core.<*> (x Core..:? "ipAddress")
+            Core.<*> (x Core..:? "password")
+            Core.<*> (x Core..:? "username")
+            Core.<*> (x Core..:? "protocol")
       )
 
-instance Prelude.Hashable InstanceAccessDetails
+instance Core.Hashable InstanceAccessDetails
 
-instance Prelude.NFData InstanceAccessDetails
+instance Core.NFData InstanceAccessDetails

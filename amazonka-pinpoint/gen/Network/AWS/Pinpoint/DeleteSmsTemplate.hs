@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.DeleteSmsTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,14 +71,14 @@ data DeleteSmsTemplate = DeleteSmsTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSmsTemplate' with all optional fields omitted.
@@ -118,11 +117,11 @@ data DeleteSmsTemplate = DeleteSmsTemplate'
 -- (-). Template names are case sensitive.
 newDeleteSmsTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSmsTemplate
 newDeleteSmsTemplate pTemplateName_ =
   DeleteSmsTemplate'
-    { version = Prelude.Nothing,
+    { version = Core.Nothing,
       templateName = pTemplateName_
     }
 
@@ -148,58 +147,58 @@ newDeleteSmsTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-deleteSmsTemplate_version :: Lens.Lens' DeleteSmsTemplate (Prelude.Maybe Prelude.Text)
+deleteSmsTemplate_version :: Lens.Lens' DeleteSmsTemplate (Core.Maybe Core.Text)
 deleteSmsTemplate_version = Lens.lens (\DeleteSmsTemplate' {version} -> version) (\s@DeleteSmsTemplate' {} a -> s {version = a} :: DeleteSmsTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-deleteSmsTemplate_templateName :: Lens.Lens' DeleteSmsTemplate Prelude.Text
+deleteSmsTemplate_templateName :: Lens.Lens' DeleteSmsTemplate Core.Text
 deleteSmsTemplate_templateName = Lens.lens (\DeleteSmsTemplate' {templateName} -> templateName) (\s@DeleteSmsTemplate' {} a -> s {templateName = a} :: DeleteSmsTemplate)
 
-instance Prelude.AWSRequest DeleteSmsTemplate where
-  type Rs DeleteSmsTemplate = DeleteSmsTemplateResponse
+instance Core.AWSRequest DeleteSmsTemplate where
+  type
+    AWSResponse DeleteSmsTemplate =
+      DeleteSmsTemplateResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSmsTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable DeleteSmsTemplate
+instance Core.Hashable DeleteSmsTemplate
 
-instance Prelude.NFData DeleteSmsTemplate
+instance Core.NFData DeleteSmsTemplate
 
-instance Prelude.ToHeaders DeleteSmsTemplate where
+instance Core.ToHeaders DeleteSmsTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteSmsTemplate where
+instance Core.ToPath DeleteSmsTemplate where
   toPath DeleteSmsTemplate' {..} =
-    Prelude.mconcat
-      ["/v1/templates/", Prelude.toBS templateName, "/sms"]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/sms"]
 
-instance Prelude.ToQuery DeleteSmsTemplate where
+instance Core.ToQuery DeleteSmsTemplate where
   toQuery DeleteSmsTemplate' {..} =
-    Prelude.mconcat ["version" Prelude.=: version]
+    Core.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newDeleteSmsTemplateResponse' smart constructor.
 data DeleteSmsTemplateResponse = DeleteSmsTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     messageBody :: MessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSmsTemplateResponse' with all optional fields omitted.
@@ -214,7 +213,7 @@ data DeleteSmsTemplateResponse = DeleteSmsTemplateResponse'
 -- 'messageBody', 'deleteSmsTemplateResponse_messageBody' - Undocumented member.
 newDeleteSmsTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'messageBody'
   MessageBody ->
   DeleteSmsTemplateResponse
@@ -228,11 +227,11 @@ newDeleteSmsTemplateResponse
       }
 
 -- | The response's http status code.
-deleteSmsTemplateResponse_httpStatus :: Lens.Lens' DeleteSmsTemplateResponse Prelude.Int
+deleteSmsTemplateResponse_httpStatus :: Lens.Lens' DeleteSmsTemplateResponse Core.Int
 deleteSmsTemplateResponse_httpStatus = Lens.lens (\DeleteSmsTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteSmsTemplateResponse' {} a -> s {httpStatus = a} :: DeleteSmsTemplateResponse)
 
 -- | Undocumented member.
 deleteSmsTemplateResponse_messageBody :: Lens.Lens' DeleteSmsTemplateResponse MessageBody
 deleteSmsTemplateResponse_messageBody = Lens.lens (\DeleteSmsTemplateResponse' {messageBody} -> messageBody) (\s@DeleteSmsTemplateResponse' {} a -> s {messageBody = a} :: DeleteSmsTemplateResponse)
 
-instance Prelude.NFData DeleteSmsTemplateResponse
+instance Core.NFData DeleteSmsTemplateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceIpv6Address
 import Network.AWS.EC2.Types.PrivateIpAddressSpecification
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network interface.
 --
 -- /See:/ 'newLaunchTemplateInstanceNetworkInterfaceSpecification' smart constructor.
 data LaunchTemplateInstanceNetworkInterfaceSpecification = LaunchTemplateInstanceNetworkInterfaceSpecification'
   { -- | The IDs of one or more security groups.
-    groups :: Prelude.Maybe [Prelude.Text],
+    groups :: Core.Maybe [Core.Text],
     -- | One or more private IPv4 addresses.
-    privateIpAddresses :: Prelude.Maybe [PrivateIpAddressSpecification],
+    privateIpAddresses :: Core.Maybe [PrivateIpAddressSpecification],
     -- | The IPv6 addresses for the network interface.
-    ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address],
+    ipv6Addresses :: Core.Maybe [InstanceIpv6Address],
     -- | The type of network interface.
-    interfaceType :: Prelude.Maybe Prelude.Text,
+    interfaceType :: Core.Maybe Core.Text,
     -- | Indicates whether to associate a public IPv4 address with eth0 for a new
     -- network interface.
-    associatePublicIpAddress :: Prelude.Maybe Prelude.Bool,
+    associatePublicIpAddress :: Core.Maybe Core.Bool,
     -- | Indicates whether to associate a Carrier IP address with eth0 for a new
     -- network interface.
     --
@@ -49,29 +48,29 @@ data LaunchTemplateInstanceNetworkInterfaceSpecification = LaunchTemplateInstanc
     -- more information about Carrier IP addresses, see
     -- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses>
     -- in the /AWS Wavelength Developer Guide/.
-    associateCarrierIpAddress :: Prelude.Maybe Prelude.Bool,
+    associateCarrierIpAddress :: Core.Maybe Core.Bool,
     -- | The number of IPv6 addresses for the network interface.
-    ipv6AddressCount :: Prelude.Maybe Prelude.Int,
+    ipv6AddressCount :: Core.Maybe Core.Int,
     -- | The index of the network card.
-    networkCardIndex :: Prelude.Maybe Prelude.Int,
+    networkCardIndex :: Core.Maybe Core.Int,
     -- | Indicates whether the network interface is deleted when the instance is
     -- terminated.
-    deleteOnTermination :: Prelude.Maybe Prelude.Bool,
+    deleteOnTermination :: Core.Maybe Core.Bool,
     -- | The ID of the network interface.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    networkInterfaceId :: Core.Maybe Core.Text,
     -- | The ID of the subnet for the network interface.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | A description for the network interface.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The device index for the network interface attachment.
-    deviceIndex :: Prelude.Maybe Prelude.Int,
+    deviceIndex :: Core.Maybe Core.Int,
     -- | The number of secondary private IPv4 addresses for the network
     -- interface.
-    secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Int,
+    secondaryPrivateIpAddressCount :: Core.Maybe Core.Int,
     -- | The primary private IPv4 address of the network interface.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateInstanceNetworkInterfaceSpecification' with all optional fields omitted.
@@ -125,56 +124,56 @@ newLaunchTemplateInstanceNetworkInterfaceSpecification ::
 newLaunchTemplateInstanceNetworkInterfaceSpecification =
   LaunchTemplateInstanceNetworkInterfaceSpecification'
     { groups =
-        Prelude.Nothing,
+        Core.Nothing,
       privateIpAddresses =
-        Prelude.Nothing,
+        Core.Nothing,
       ipv6Addresses =
-        Prelude.Nothing,
+        Core.Nothing,
       interfaceType =
-        Prelude.Nothing,
+        Core.Nothing,
       associatePublicIpAddress =
-        Prelude.Nothing,
+        Core.Nothing,
       associateCarrierIpAddress =
-        Prelude.Nothing,
+        Core.Nothing,
       ipv6AddressCount =
-        Prelude.Nothing,
+        Core.Nothing,
       networkCardIndex =
-        Prelude.Nothing,
+        Core.Nothing,
       deleteOnTermination =
-        Prelude.Nothing,
+        Core.Nothing,
       networkInterfaceId =
-        Prelude.Nothing,
+        Core.Nothing,
       subnetId =
-        Prelude.Nothing,
+        Core.Nothing,
       description =
-        Prelude.Nothing,
+        Core.Nothing,
       deviceIndex =
-        Prelude.Nothing,
+        Core.Nothing,
       secondaryPrivateIpAddressCount =
-        Prelude.Nothing,
+        Core.Nothing,
       privateIpAddress =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The IDs of one or more security groups.
-launchTemplateInstanceNetworkInterfaceSpecification_groups :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe [Prelude.Text])
-launchTemplateInstanceNetworkInterfaceSpecification_groups = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {groups} -> groups) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {groups = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Prelude._Coerce
+launchTemplateInstanceNetworkInterfaceSpecification_groups :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe [Core.Text])
+launchTemplateInstanceNetworkInterfaceSpecification_groups = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {groups} -> groups) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {groups = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more private IPv4 addresses.
-launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddresses :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe [PrivateIpAddressSpecification])
-launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddresses = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {privateIpAddresses} -> privateIpAddresses) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {privateIpAddresses = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Prelude._Coerce
+launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddresses :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe [PrivateIpAddressSpecification])
+launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddresses = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {privateIpAddresses} -> privateIpAddresses) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {privateIpAddresses = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | The IPv6 addresses for the network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_ipv6Addresses :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe [InstanceIpv6Address])
-launchTemplateInstanceNetworkInterfaceSpecification_ipv6Addresses = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {ipv6Addresses} -> ipv6Addresses) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {ipv6Addresses = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification) Prelude.. Lens.mapping Prelude._Coerce
+launchTemplateInstanceNetworkInterfaceSpecification_ipv6Addresses :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe [InstanceIpv6Address])
+launchTemplateInstanceNetworkInterfaceSpecification_ipv6Addresses = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {ipv6Addresses} -> ipv6Addresses) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {ipv6Addresses = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_interfaceType :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateInstanceNetworkInterfaceSpecification_interfaceType :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 launchTemplateInstanceNetworkInterfaceSpecification_interfaceType = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {interfaceType} -> interfaceType) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {interfaceType = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | Indicates whether to associate a public IPv4 address with eth0 for a new
 -- network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_associatePublicIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
+launchTemplateInstanceNetworkInterfaceSpecification_associatePublicIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
 launchTemplateInstanceNetworkInterfaceSpecification_associatePublicIpAddress = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {associatePublicIpAddress} -> associatePublicIpAddress) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {associatePublicIpAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | Indicates whether to associate a Carrier IP address with eth0 for a new
@@ -185,81 +184,80 @@ launchTemplateInstanceNetworkInterfaceSpecification_associatePublicIpAddress = L
 -- more information about Carrier IP addresses, see
 -- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP addresses>
 -- in the /AWS Wavelength Developer Guide/.
-launchTemplateInstanceNetworkInterfaceSpecification_associateCarrierIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
+launchTemplateInstanceNetworkInterfaceSpecification_associateCarrierIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
 launchTemplateInstanceNetworkInterfaceSpecification_associateCarrierIpAddress = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {associateCarrierIpAddress} -> associateCarrierIpAddress) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {associateCarrierIpAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | The number of IPv6 addresses for the network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_ipv6AddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+launchTemplateInstanceNetworkInterfaceSpecification_ipv6AddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 launchTemplateInstanceNetworkInterfaceSpecification_ipv6AddressCount = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {ipv6AddressCount} -> ipv6AddressCount) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {ipv6AddressCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | The index of the network card.
-launchTemplateInstanceNetworkInterfaceSpecification_networkCardIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+launchTemplateInstanceNetworkInterfaceSpecification_networkCardIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 launchTemplateInstanceNetworkInterfaceSpecification_networkCardIndex = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {networkCardIndex} -> networkCardIndex) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {networkCardIndex = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | Indicates whether the network interface is deleted when the instance is
 -- terminated.
-launchTemplateInstanceNetworkInterfaceSpecification_deleteOnTermination :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
+launchTemplateInstanceNetworkInterfaceSpecification_deleteOnTermination :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Bool)
 launchTemplateInstanceNetworkInterfaceSpecification_deleteOnTermination = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {deleteOnTermination} -> deleteOnTermination) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {deleteOnTermination = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | The ID of the network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_networkInterfaceId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateInstanceNetworkInterfaceSpecification_networkInterfaceId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 launchTemplateInstanceNetworkInterfaceSpecification_networkInterfaceId = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {networkInterfaceId} -> networkInterfaceId) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {networkInterfaceId = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | The ID of the subnet for the network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_subnetId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateInstanceNetworkInterfaceSpecification_subnetId :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 launchTemplateInstanceNetworkInterfaceSpecification_subnetId = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {subnetId} -> subnetId) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {subnetId = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | A description for the network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_description :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateInstanceNetworkInterfaceSpecification_description :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 launchTemplateInstanceNetworkInterfaceSpecification_description = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {description} -> description) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {description = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | The device index for the network interface attachment.
-launchTemplateInstanceNetworkInterfaceSpecification_deviceIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+launchTemplateInstanceNetworkInterfaceSpecification_deviceIndex :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 launchTemplateInstanceNetworkInterfaceSpecification_deviceIndex = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {deviceIndex} -> deviceIndex) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {deviceIndex = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | The number of secondary private IPv4 addresses for the network
 -- interface.
-launchTemplateInstanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Int)
+launchTemplateInstanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Int)
 launchTemplateInstanceNetworkInterfaceSpecification_secondaryPrivateIpAddressCount = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {secondaryPrivateIpAddressCount = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 -- | The primary private IPv4 address of the network interface.
-launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
+launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddress :: Lens.Lens' LaunchTemplateInstanceNetworkInterfaceSpecification (Core.Maybe Core.Text)
 launchTemplateInstanceNetworkInterfaceSpecification_privateIpAddress = Lens.lens (\LaunchTemplateInstanceNetworkInterfaceSpecification' {privateIpAddress} -> privateIpAddress) (\s@LaunchTemplateInstanceNetworkInterfaceSpecification' {} a -> s {privateIpAddress = a} :: LaunchTemplateInstanceNetworkInterfaceSpecification)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     LaunchTemplateInstanceNetworkInterfaceSpecification
   where
   parseXML x =
     LaunchTemplateInstanceNetworkInterfaceSpecification'
-      Prelude.<$> ( x Prelude..@? "groupSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "groupId")
-                  )
-        Prelude.<*> ( x Prelude..@? "privateIpAddressesSet"
-                        Prelude..!@ Prelude.mempty
-                        Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                    )
-        Prelude.<*> ( x Prelude..@? "ipv6AddressesSet"
-                        Prelude..!@ Prelude.mempty
-                        Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                    )
-        Prelude.<*> (x Prelude..@? "interfaceType")
-        Prelude.<*> (x Prelude..@? "associatePublicIpAddress")
-        Prelude.<*> (x Prelude..@? "associateCarrierIpAddress")
-        Prelude.<*> (x Prelude..@? "ipv6AddressCount")
-        Prelude.<*> (x Prelude..@? "networkCardIndex")
-        Prelude.<*> (x Prelude..@? "deleteOnTermination")
-        Prelude.<*> (x Prelude..@? "networkInterfaceId")
-        Prelude.<*> (x Prelude..@? "subnetId")
-        Prelude.<*> (x Prelude..@? "description")
-        Prelude.<*> (x Prelude..@? "deviceIndex")
-        Prelude.<*> (x Prelude..@? "secondaryPrivateIpAddressCount")
-        Prelude.<*> (x Prelude..@? "privateIpAddress")
+      Core.<$> ( x Core..@? "groupSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "groupId")
+               )
+        Core.<*> ( x Core..@? "privateIpAddressesSet"
+                     Core..!@ Core.mempty
+                     Core.>>= Core.may (Core.parseXMLList "item")
+                 )
+        Core.<*> ( x Core..@? "ipv6AddressesSet" Core..!@ Core.mempty
+                     Core.>>= Core.may (Core.parseXMLList "item")
+                 )
+        Core.<*> (x Core..@? "interfaceType")
+        Core.<*> (x Core..@? "associatePublicIpAddress")
+        Core.<*> (x Core..@? "associateCarrierIpAddress")
+        Core.<*> (x Core..@? "ipv6AddressCount")
+        Core.<*> (x Core..@? "networkCardIndex")
+        Core.<*> (x Core..@? "deleteOnTermination")
+        Core.<*> (x Core..@? "networkInterfaceId")
+        Core.<*> (x Core..@? "subnetId")
+        Core.<*> (x Core..@? "description")
+        Core.<*> (x Core..@? "deviceIndex")
+        Core.<*> (x Core..@? "secondaryPrivateIpAddressCount")
+        Core.<*> (x Core..@? "privateIpAddress")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateInstanceNetworkInterfaceSpecification
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateInstanceNetworkInterfaceSpecification

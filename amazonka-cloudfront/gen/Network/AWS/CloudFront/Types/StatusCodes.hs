@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.StatusCodes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type for the status codes that you specify that, when
 -- returned by a primary origin, trigger CloudFront to failover to a second
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newStatusCodes' smart constructor.
 data StatusCodes = StatusCodes'
   { -- | The number of status codes.
-    quantity :: Prelude.Int,
+    quantity :: Core.Int,
     -- | The items (status codes) for an origin group.
-    items :: Prelude.NonEmpty Prelude.Int
+    items :: Core.NonEmpty Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StatusCodes' with all optional fields omitted.
@@ -49,40 +48,39 @@ data StatusCodes = StatusCodes'
 -- 'items', 'statusCodes_items' - The items (status codes) for an origin group.
 newStatusCodes ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'items'
-  Prelude.NonEmpty Prelude.Int ->
+  Core.NonEmpty Core.Int ->
   StatusCodes
 newStatusCodes pQuantity_ pItems_ =
   StatusCodes'
     { quantity = pQuantity_,
-      items = Prelude._Coerce Lens.# pItems_
+      items = Lens._Coerce Lens.# pItems_
     }
 
 -- | The number of status codes.
-statusCodes_quantity :: Lens.Lens' StatusCodes Prelude.Int
+statusCodes_quantity :: Lens.Lens' StatusCodes Core.Int
 statusCodes_quantity = Lens.lens (\StatusCodes' {quantity} -> quantity) (\s@StatusCodes' {} a -> s {quantity = a} :: StatusCodes)
 
 -- | The items (status codes) for an origin group.
-statusCodes_items :: Lens.Lens' StatusCodes (Prelude.NonEmpty Prelude.Int)
-statusCodes_items = Lens.lens (\StatusCodes' {items} -> items) (\s@StatusCodes' {} a -> s {items = a} :: StatusCodes) Prelude.. Prelude._Coerce
+statusCodes_items :: Lens.Lens' StatusCodes (Core.NonEmpty Core.Int)
+statusCodes_items = Lens.lens (\StatusCodes' {items} -> items) (\s@StatusCodes' {} a -> s {items = a} :: StatusCodes) Core.. Lens._Coerce
 
-instance Prelude.FromXML StatusCodes where
+instance Core.FromXML StatusCodes where
   parseXML x =
     StatusCodes'
-      Prelude.<$> (x Prelude..@ "Quantity")
-      Prelude.<*> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList1 "StatusCode"
-                  )
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList1 "StatusCode"
+               )
 
-instance Prelude.Hashable StatusCodes
+instance Core.Hashable StatusCodes
 
-instance Prelude.NFData StatusCodes
+instance Core.NFData StatusCodes
 
-instance Prelude.ToXML StatusCodes where
+instance Core.ToXML StatusCodes where
   toXML StatusCodes' {..} =
-    Prelude.mconcat
-      [ "Quantity" Prelude.@= quantity,
-        "Items"
-          Prelude.@= Prelude.toXMLList "StatusCode" items
+    Core.mconcat
+      [ "Quantity" Core.@= quantity,
+        "Items" Core.@= Core.toXMLList "StatusCode" items
       ]

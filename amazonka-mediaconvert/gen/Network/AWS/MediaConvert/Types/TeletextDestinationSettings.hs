@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.TeletextDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.TeletextPageType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for Teletext caption output
 --
@@ -33,14 +32,14 @@ data TeletextDestinationSettings = TeletextDestinationSettings'
     -- (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext
     -- data, don\'t use this field. When you pass through a set of Teletext
     -- pages, your output has the same page types as your input.
-    pageTypes :: Prelude.Maybe [TeletextPageType],
+    pageTypes :: Core.Maybe [TeletextPageType],
     -- | Set pageNumber to the Teletext page number for the destination captions
     -- for this output. This value must be a three-digit hexadecimal string;
     -- strings ending in -FF are invalid. If you are passing through the entire
     -- set of Teletext data, do not use this field.
-    pageNumber :: Prelude.Maybe Prelude.Text
+    pageNumber :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TeletextDestinationSettings' with all optional fields omitted.
@@ -65,8 +64,8 @@ newTeletextDestinationSettings ::
 newTeletextDestinationSettings =
   TeletextDestinationSettings'
     { pageTypes =
-        Prelude.Nothing,
-      pageNumber = Prelude.Nothing
+        Core.Nothing,
+      pageNumber = Core.Nothing
     }
 
 -- | Specify the page types for this Teletext page. If you don\'t specify a
@@ -74,37 +73,35 @@ newTeletextDestinationSettings =
 -- (PAGE_TYPE_SUBTITLE). If you pass through the entire set of Teletext
 -- data, don\'t use this field. When you pass through a set of Teletext
 -- pages, your output has the same page types as your input.
-teletextDestinationSettings_pageTypes :: Lens.Lens' TeletextDestinationSettings (Prelude.Maybe [TeletextPageType])
-teletextDestinationSettings_pageTypes = Lens.lens (\TeletextDestinationSettings' {pageTypes} -> pageTypes) (\s@TeletextDestinationSettings' {} a -> s {pageTypes = a} :: TeletextDestinationSettings) Prelude.. Lens.mapping Prelude._Coerce
+teletextDestinationSettings_pageTypes :: Lens.Lens' TeletextDestinationSettings (Core.Maybe [TeletextPageType])
+teletextDestinationSettings_pageTypes = Lens.lens (\TeletextDestinationSettings' {pageTypes} -> pageTypes) (\s@TeletextDestinationSettings' {} a -> s {pageTypes = a} :: TeletextDestinationSettings) Core.. Lens.mapping Lens._Coerce
 
 -- | Set pageNumber to the Teletext page number for the destination captions
 -- for this output. This value must be a three-digit hexadecimal string;
 -- strings ending in -FF are invalid. If you are passing through the entire
 -- set of Teletext data, do not use this field.
-teletextDestinationSettings_pageNumber :: Lens.Lens' TeletextDestinationSettings (Prelude.Maybe Prelude.Text)
+teletextDestinationSettings_pageNumber :: Lens.Lens' TeletextDestinationSettings (Core.Maybe Core.Text)
 teletextDestinationSettings_pageNumber = Lens.lens (\TeletextDestinationSettings' {pageNumber} -> pageNumber) (\s@TeletextDestinationSettings' {} a -> s {pageNumber = a} :: TeletextDestinationSettings)
 
-instance Prelude.FromJSON TeletextDestinationSettings where
+instance Core.FromJSON TeletextDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TeletextDestinationSettings"
       ( \x ->
           TeletextDestinationSettings'
-            Prelude.<$> ( x Prelude..:? "pageTypes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "pageNumber")
+            Core.<$> (x Core..:? "pageTypes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "pageNumber")
       )
 
-instance Prelude.Hashable TeletextDestinationSettings
+instance Core.Hashable TeletextDestinationSettings
 
-instance Prelude.NFData TeletextDestinationSettings
+instance Core.NFData TeletextDestinationSettings
 
-instance Prelude.ToJSON TeletextDestinationSettings where
+instance Core.ToJSON TeletextDestinationSettings where
   toJSON TeletextDestinationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("pageTypes" Prelude..=) Prelude.<$> pageTypes,
-            ("pageNumber" Prelude..=) Prelude.<$> pageNumber
+    Core.object
+      ( Core.catMaybes
+          [ ("pageTypes" Core..=) Core.<$> pageTypes,
+            ("pageNumber" Core..=) Core.<$> pageNumber
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Athena.DeleteWorkGroup
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 data DeleteWorkGroup = DeleteWorkGroup'
   { -- | The option to delete the workgroup and its contents even if the
     -- workgroup contains any named queries or query executions.
-    recursiveDeleteOption :: Prelude.Maybe Prelude.Bool,
+    recursiveDeleteOption :: Core.Maybe Core.Bool,
     -- | The unique name of the workgroup to delete.
-    workGroup :: Prelude.Text
+    workGroup :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteWorkGroup' with all optional fields omitted.
@@ -71,75 +70,73 @@ data DeleteWorkGroup = DeleteWorkGroup'
 -- 'workGroup', 'deleteWorkGroup_workGroup' - The unique name of the workgroup to delete.
 newDeleteWorkGroup ::
   -- | 'workGroup'
-  Prelude.Text ->
+  Core.Text ->
   DeleteWorkGroup
 newDeleteWorkGroup pWorkGroup_ =
   DeleteWorkGroup'
     { recursiveDeleteOption =
-        Prelude.Nothing,
+        Core.Nothing,
       workGroup = pWorkGroup_
     }
 
 -- | The option to delete the workgroup and its contents even if the
 -- workgroup contains any named queries or query executions.
-deleteWorkGroup_recursiveDeleteOption :: Lens.Lens' DeleteWorkGroup (Prelude.Maybe Prelude.Bool)
+deleteWorkGroup_recursiveDeleteOption :: Lens.Lens' DeleteWorkGroup (Core.Maybe Core.Bool)
 deleteWorkGroup_recursiveDeleteOption = Lens.lens (\DeleteWorkGroup' {recursiveDeleteOption} -> recursiveDeleteOption) (\s@DeleteWorkGroup' {} a -> s {recursiveDeleteOption = a} :: DeleteWorkGroup)
 
 -- | The unique name of the workgroup to delete.
-deleteWorkGroup_workGroup :: Lens.Lens' DeleteWorkGroup Prelude.Text
+deleteWorkGroup_workGroup :: Lens.Lens' DeleteWorkGroup Core.Text
 deleteWorkGroup_workGroup = Lens.lens (\DeleteWorkGroup' {workGroup} -> workGroup) (\s@DeleteWorkGroup' {} a -> s {workGroup = a} :: DeleteWorkGroup)
 
-instance Prelude.AWSRequest DeleteWorkGroup where
-  type Rs DeleteWorkGroup = DeleteWorkGroupResponse
+instance Core.AWSRequest DeleteWorkGroup where
+  type
+    AWSResponse DeleteWorkGroup =
+      DeleteWorkGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkGroupResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWorkGroup
+instance Core.Hashable DeleteWorkGroup
 
-instance Prelude.NFData DeleteWorkGroup
+instance Core.NFData DeleteWorkGroup
 
-instance Prelude.ToHeaders DeleteWorkGroup where
+instance Core.ToHeaders DeleteWorkGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonAthena.DeleteWorkGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonAthena.DeleteWorkGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteWorkGroup where
+instance Core.ToJSON DeleteWorkGroup where
   toJSON DeleteWorkGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RecursiveDeleteOption" Prelude..=)
-              Prelude.<$> recursiveDeleteOption,
-            Prelude.Just ("WorkGroup" Prelude..= workGroup)
+    Core.object
+      ( Core.catMaybes
+          [ ("RecursiveDeleteOption" Core..=)
+              Core.<$> recursiveDeleteOption,
+            Core.Just ("WorkGroup" Core..= workGroup)
           ]
       )
 
-instance Prelude.ToPath DeleteWorkGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteWorkGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteWorkGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteWorkGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteWorkGroupResponse' smart constructor.
 data DeleteWorkGroupResponse = DeleteWorkGroupResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteWorkGroupResponse' with all optional fields omitted.
@@ -152,13 +149,13 @@ data DeleteWorkGroupResponse = DeleteWorkGroupResponse'
 -- 'httpStatus', 'deleteWorkGroupResponse_httpStatus' - The response's http status code.
 newDeleteWorkGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteWorkGroupResponse
 newDeleteWorkGroupResponse pHttpStatus_ =
   DeleteWorkGroupResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteWorkGroupResponse_httpStatus :: Lens.Lens' DeleteWorkGroupResponse Prelude.Int
+deleteWorkGroupResponse_httpStatus :: Lens.Lens' DeleteWorkGroupResponse Core.Int
 deleteWorkGroupResponse_httpStatus = Lens.lens (\DeleteWorkGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkGroupResponse' {} a -> s {httpStatus = a} :: DeleteWorkGroupResponse)
 
-instance Prelude.NFData DeleteWorkGroupResponse
+instance Core.NFData DeleteWorkGroupResponse

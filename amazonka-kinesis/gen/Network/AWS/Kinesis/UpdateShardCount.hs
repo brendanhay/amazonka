@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -87,16 +86,16 @@ module Network.AWS.Kinesis.UpdateShardCount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateShardCount' smart constructor.
 data UpdateShardCount = UpdateShardCount'
   { -- | The name of the stream.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The new number of shards. This value has the following default limits.
     -- By default, you cannot do the following:
     --
@@ -111,11 +110,11 @@ data UpdateShardCount = UpdateShardCount'
     --
     -- -   Scale a stream with more than 500 shards down unless you set this
     --     value to less than 500 shards.
-    targetShardCount :: Prelude.Natural,
+    targetShardCount :: Core.Natural,
     -- | The scaling type. Uniform scaling creates shards of equal size.
     scalingType :: ScalingType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateShardCount' with all optional fields omitted.
@@ -145,9 +144,9 @@ data UpdateShardCount = UpdateShardCount'
 -- 'scalingType', 'updateShardCount_scalingType' - The scaling type. Uniform scaling creates shards of equal size.
 newUpdateShardCount ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetShardCount'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'scalingType'
   ScalingType ->
   UpdateShardCount
@@ -162,7 +161,7 @@ newUpdateShardCount
       }
 
 -- | The name of the stream.
-updateShardCount_streamName :: Lens.Lens' UpdateShardCount Prelude.Text
+updateShardCount_streamName :: Lens.Lens' UpdateShardCount Core.Text
 updateShardCount_streamName = Lens.lens (\UpdateShardCount' {streamName} -> streamName) (\s@UpdateShardCount' {} a -> s {streamName = a} :: UpdateShardCount)
 
 -- | The new number of shards. This value has the following default limits.
@@ -179,74 +178,74 @@ updateShardCount_streamName = Lens.lens (\UpdateShardCount' {streamName} -> stre
 --
 -- -   Scale a stream with more than 500 shards down unless you set this
 --     value to less than 500 shards.
-updateShardCount_targetShardCount :: Lens.Lens' UpdateShardCount Prelude.Natural
+updateShardCount_targetShardCount :: Lens.Lens' UpdateShardCount Core.Natural
 updateShardCount_targetShardCount = Lens.lens (\UpdateShardCount' {targetShardCount} -> targetShardCount) (\s@UpdateShardCount' {} a -> s {targetShardCount = a} :: UpdateShardCount)
 
 -- | The scaling type. Uniform scaling creates shards of equal size.
 updateShardCount_scalingType :: Lens.Lens' UpdateShardCount ScalingType
 updateShardCount_scalingType = Lens.lens (\UpdateShardCount' {scalingType} -> scalingType) (\s@UpdateShardCount' {} a -> s {scalingType = a} :: UpdateShardCount)
 
-instance Prelude.AWSRequest UpdateShardCount where
-  type Rs UpdateShardCount = UpdateShardCountResponse
+instance Core.AWSRequest UpdateShardCount where
+  type
+    AWSResponse UpdateShardCount =
+      UpdateShardCountResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateShardCountResponse'
-            Prelude.<$> (x Prelude..?> "TargetShardCount")
-            Prelude.<*> (x Prelude..?> "CurrentShardCount")
-            Prelude.<*> (x Prelude..?> "StreamName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TargetShardCount")
+            Core.<*> (x Core..?> "CurrentShardCount")
+            Core.<*> (x Core..?> "StreamName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateShardCount
+instance Core.Hashable UpdateShardCount
 
-instance Prelude.NFData UpdateShardCount
+instance Core.NFData UpdateShardCount
 
-instance Prelude.ToHeaders UpdateShardCount where
+instance Core.ToHeaders UpdateShardCount where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.UpdateShardCount" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.UpdateShardCount" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateShardCount where
+instance Core.ToJSON UpdateShardCount where
   toJSON UpdateShardCount' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
-              ("TargetShardCount" Prelude..= targetShardCount),
-            Prelude.Just ("ScalingType" Prelude..= scalingType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just
+              ("TargetShardCount" Core..= targetShardCount),
+            Core.Just ("ScalingType" Core..= scalingType)
           ]
       )
 
-instance Prelude.ToPath UpdateShardCount where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateShardCount where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateShardCount where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateShardCount where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateShardCountResponse' smart constructor.
 data UpdateShardCountResponse = UpdateShardCountResponse'
   { -- | The updated number of shards.
-    targetShardCount :: Prelude.Maybe Prelude.Natural,
+    targetShardCount :: Core.Maybe Core.Natural,
     -- | The current number of shards.
-    currentShardCount :: Prelude.Maybe Prelude.Natural,
+    currentShardCount :: Core.Maybe Core.Natural,
     -- | The name of the stream.
-    streamName :: Prelude.Maybe Prelude.Text,
+    streamName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateShardCountResponse' with all optional fields omitted.
@@ -265,31 +264,31 @@ data UpdateShardCountResponse = UpdateShardCountResponse'
 -- 'httpStatus', 'updateShardCountResponse_httpStatus' - The response's http status code.
 newUpdateShardCountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateShardCountResponse
 newUpdateShardCountResponse pHttpStatus_ =
   UpdateShardCountResponse'
     { targetShardCount =
-        Prelude.Nothing,
-      currentShardCount = Prelude.Nothing,
-      streamName = Prelude.Nothing,
+        Core.Nothing,
+      currentShardCount = Core.Nothing,
+      streamName = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated number of shards.
-updateShardCountResponse_targetShardCount :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Natural)
+updateShardCountResponse_targetShardCount :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Natural)
 updateShardCountResponse_targetShardCount = Lens.lens (\UpdateShardCountResponse' {targetShardCount} -> targetShardCount) (\s@UpdateShardCountResponse' {} a -> s {targetShardCount = a} :: UpdateShardCountResponse)
 
 -- | The current number of shards.
-updateShardCountResponse_currentShardCount :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Natural)
+updateShardCountResponse_currentShardCount :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Natural)
 updateShardCountResponse_currentShardCount = Lens.lens (\UpdateShardCountResponse' {currentShardCount} -> currentShardCount) (\s@UpdateShardCountResponse' {} a -> s {currentShardCount = a} :: UpdateShardCountResponse)
 
 -- | The name of the stream.
-updateShardCountResponse_streamName :: Lens.Lens' UpdateShardCountResponse (Prelude.Maybe Prelude.Text)
+updateShardCountResponse_streamName :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Text)
 updateShardCountResponse_streamName = Lens.lens (\UpdateShardCountResponse' {streamName} -> streamName) (\s@UpdateShardCountResponse' {} a -> s {streamName = a} :: UpdateShardCountResponse)
 
 -- | The response's http status code.
-updateShardCountResponse_httpStatus :: Lens.Lens' UpdateShardCountResponse Prelude.Int
+updateShardCountResponse_httpStatus :: Lens.Lens' UpdateShardCountResponse Core.Int
 updateShardCountResponse_httpStatus = Lens.lens (\UpdateShardCountResponse' {httpStatus} -> httpStatus) (\s@UpdateShardCountResponse' {} a -> s {httpStatus = a} :: UpdateShardCountResponse)
 
-instance Prelude.NFData UpdateShardCountResponse
+instance Core.NFData UpdateShardCountResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ExecutionDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The details of the actions taken and results produced on an artifact as
 -- it passes through stages in the pipeline.
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ExecutionDetails = ExecutionDetails'
   { -- | The percentage of work completed on the action, represented on a scale
     -- of 0 to 100 percent.
-    percentComplete :: Prelude.Maybe Prelude.Natural,
+    percentComplete :: Core.Maybe Core.Natural,
     -- | The system-generated unique ID of this action used to identify this job
     -- worker in any external systems, such as AWS CodeDeploy.
-    externalExecutionId :: Prelude.Maybe Prelude.Text,
+    externalExecutionId :: Core.Maybe Core.Text,
     -- | The summary of the current status of the actions.
-    summary :: Prelude.Maybe Prelude.Text
+    summary :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutionDetails' with all optional fields omitted.
@@ -58,38 +57,37 @@ newExecutionDetails ::
   ExecutionDetails
 newExecutionDetails =
   ExecutionDetails'
-    { percentComplete =
-        Prelude.Nothing,
-      externalExecutionId = Prelude.Nothing,
-      summary = Prelude.Nothing
+    { percentComplete = Core.Nothing,
+      externalExecutionId = Core.Nothing,
+      summary = Core.Nothing
     }
 
 -- | The percentage of work completed on the action, represented on a scale
 -- of 0 to 100 percent.
-executionDetails_percentComplete :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Natural)
+executionDetails_percentComplete :: Lens.Lens' ExecutionDetails (Core.Maybe Core.Natural)
 executionDetails_percentComplete = Lens.lens (\ExecutionDetails' {percentComplete} -> percentComplete) (\s@ExecutionDetails' {} a -> s {percentComplete = a} :: ExecutionDetails)
 
 -- | The system-generated unique ID of this action used to identify this job
 -- worker in any external systems, such as AWS CodeDeploy.
-executionDetails_externalExecutionId :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
+executionDetails_externalExecutionId :: Lens.Lens' ExecutionDetails (Core.Maybe Core.Text)
 executionDetails_externalExecutionId = Lens.lens (\ExecutionDetails' {externalExecutionId} -> externalExecutionId) (\s@ExecutionDetails' {} a -> s {externalExecutionId = a} :: ExecutionDetails)
 
 -- | The summary of the current status of the actions.
-executionDetails_summary :: Lens.Lens' ExecutionDetails (Prelude.Maybe Prelude.Text)
+executionDetails_summary :: Lens.Lens' ExecutionDetails (Core.Maybe Core.Text)
 executionDetails_summary = Lens.lens (\ExecutionDetails' {summary} -> summary) (\s@ExecutionDetails' {} a -> s {summary = a} :: ExecutionDetails)
 
-instance Prelude.Hashable ExecutionDetails
+instance Core.Hashable ExecutionDetails
 
-instance Prelude.NFData ExecutionDetails
+instance Core.NFData ExecutionDetails
 
-instance Prelude.ToJSON ExecutionDetails where
+instance Core.ToJSON ExecutionDetails where
   toJSON ExecutionDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("percentComplete" Prelude..=)
-              Prelude.<$> percentComplete,
-            ("externalExecutionId" Prelude..=)
-              Prelude.<$> externalExecutionId,
-            ("summary" Prelude..=) Prelude.<$> summary
+    Core.object
+      ( Core.catMaybes
+          [ ("percentComplete" Core..=)
+              Core.<$> percentComplete,
+            ("externalExecutionId" Core..=)
+              Core.<$> externalExecutionId,
+            ("summary" Core..=) Core.<$> summary
           ]
       )

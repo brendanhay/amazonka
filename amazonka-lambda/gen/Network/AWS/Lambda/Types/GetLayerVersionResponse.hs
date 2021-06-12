@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,33 +19,33 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.GetLayerVersionResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types.LayerVersionContentOutput
 import Network.AWS.Lambda.Types.Runtime
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newGetLayerVersionResponse' smart constructor.
 data GetLayerVersionResponse = GetLayerVersionResponse'
   { -- | The date that the layer version was created, in
     -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
     -- (YYYY-MM-DDThh:mm:ss.sTZD).
-    createdDate :: Prelude.Maybe Prelude.Text,
+    createdDate :: Core.Maybe Core.Text,
     -- | The ARN of the layer.
-    layerArn :: Prelude.Maybe Prelude.Text,
+    layerArn :: Core.Maybe Core.Text,
     -- | The version number.
-    version :: Prelude.Maybe Prelude.Integer,
+    version :: Core.Maybe Core.Integer,
     -- | The ARN of the layer version.
-    layerVersionArn :: Prelude.Maybe Prelude.Text,
+    layerVersionArn :: Core.Maybe Core.Text,
     -- | Details about the layer version.
-    content :: Prelude.Maybe LayerVersionContentOutput,
+    content :: Core.Maybe LayerVersionContentOutput,
     -- | The layer\'s compatible runtimes.
-    compatibleRuntimes :: Prelude.Maybe [Runtime],
+    compatibleRuntimes :: Core.Maybe [Runtime],
     -- | The description of the version.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The layer\'s software license.
-    licenseInfo :: Prelude.Maybe Prelude.Text
+    licenseInfo :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLayerVersionResponse' with all optional fields omitted.
@@ -78,68 +77,68 @@ newGetLayerVersionResponse ::
 newGetLayerVersionResponse =
   GetLayerVersionResponse'
     { createdDate =
-        Prelude.Nothing,
-      layerArn = Prelude.Nothing,
-      version = Prelude.Nothing,
-      layerVersionArn = Prelude.Nothing,
-      content = Prelude.Nothing,
-      compatibleRuntimes = Prelude.Nothing,
-      description = Prelude.Nothing,
-      licenseInfo = Prelude.Nothing
+        Core.Nothing,
+      layerArn = Core.Nothing,
+      version = Core.Nothing,
+      layerVersionArn = Core.Nothing,
+      content = Core.Nothing,
+      compatibleRuntimes = Core.Nothing,
+      description = Core.Nothing,
+      licenseInfo = Core.Nothing
     }
 
 -- | The date that the layer version was created, in
 -- <https://www.w3.org/TR/NOTE-datetime ISO-8601 format>
 -- (YYYY-MM-DDThh:mm:ss.sTZD).
-getLayerVersionResponse_createdDate :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionResponse_createdDate :: Lens.Lens' GetLayerVersionResponse (Core.Maybe Core.Text)
 getLayerVersionResponse_createdDate = Lens.lens (\GetLayerVersionResponse' {createdDate} -> createdDate) (\s@GetLayerVersionResponse' {} a -> s {createdDate = a} :: GetLayerVersionResponse)
 
 -- | The ARN of the layer.
-getLayerVersionResponse_layerArn :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionResponse_layerArn :: Lens.Lens' GetLayerVersionResponse (Core.Maybe Core.Text)
 getLayerVersionResponse_layerArn = Lens.lens (\GetLayerVersionResponse' {layerArn} -> layerArn) (\s@GetLayerVersionResponse' {} a -> s {layerArn = a} :: GetLayerVersionResponse)
 
 -- | The version number.
-getLayerVersionResponse_version :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe Prelude.Integer)
+getLayerVersionResponse_version :: Lens.Lens' GetLayerVersionResponse (Core.Maybe Core.Integer)
 getLayerVersionResponse_version = Lens.lens (\GetLayerVersionResponse' {version} -> version) (\s@GetLayerVersionResponse' {} a -> s {version = a} :: GetLayerVersionResponse)
 
 -- | The ARN of the layer version.
-getLayerVersionResponse_layerVersionArn :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionResponse_layerVersionArn :: Lens.Lens' GetLayerVersionResponse (Core.Maybe Core.Text)
 getLayerVersionResponse_layerVersionArn = Lens.lens (\GetLayerVersionResponse' {layerVersionArn} -> layerVersionArn) (\s@GetLayerVersionResponse' {} a -> s {layerVersionArn = a} :: GetLayerVersionResponse)
 
 -- | Details about the layer version.
-getLayerVersionResponse_content :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe LayerVersionContentOutput)
+getLayerVersionResponse_content :: Lens.Lens' GetLayerVersionResponse (Core.Maybe LayerVersionContentOutput)
 getLayerVersionResponse_content = Lens.lens (\GetLayerVersionResponse' {content} -> content) (\s@GetLayerVersionResponse' {} a -> s {content = a} :: GetLayerVersionResponse)
 
 -- | The layer\'s compatible runtimes.
-getLayerVersionResponse_compatibleRuntimes :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe [Runtime])
-getLayerVersionResponse_compatibleRuntimes = Lens.lens (\GetLayerVersionResponse' {compatibleRuntimes} -> compatibleRuntimes) (\s@GetLayerVersionResponse' {} a -> s {compatibleRuntimes = a} :: GetLayerVersionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getLayerVersionResponse_compatibleRuntimes :: Lens.Lens' GetLayerVersionResponse (Core.Maybe [Runtime])
+getLayerVersionResponse_compatibleRuntimes = Lens.lens (\GetLayerVersionResponse' {compatibleRuntimes} -> compatibleRuntimes) (\s@GetLayerVersionResponse' {} a -> s {compatibleRuntimes = a} :: GetLayerVersionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the version.
-getLayerVersionResponse_description :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionResponse_description :: Lens.Lens' GetLayerVersionResponse (Core.Maybe Core.Text)
 getLayerVersionResponse_description = Lens.lens (\GetLayerVersionResponse' {description} -> description) (\s@GetLayerVersionResponse' {} a -> s {description = a} :: GetLayerVersionResponse)
 
 -- | The layer\'s software license.
-getLayerVersionResponse_licenseInfo :: Lens.Lens' GetLayerVersionResponse (Prelude.Maybe Prelude.Text)
+getLayerVersionResponse_licenseInfo :: Lens.Lens' GetLayerVersionResponse (Core.Maybe Core.Text)
 getLayerVersionResponse_licenseInfo = Lens.lens (\GetLayerVersionResponse' {licenseInfo} -> licenseInfo) (\s@GetLayerVersionResponse' {} a -> s {licenseInfo = a} :: GetLayerVersionResponse)
 
-instance Prelude.FromJSON GetLayerVersionResponse where
+instance Core.FromJSON GetLayerVersionResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GetLayerVersionResponse"
       ( \x ->
           GetLayerVersionResponse'
-            Prelude.<$> (x Prelude..:? "CreatedDate")
-            Prelude.<*> (x Prelude..:? "LayerArn")
-            Prelude.<*> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "LayerVersionArn")
-            Prelude.<*> (x Prelude..:? "Content")
-            Prelude.<*> ( x Prelude..:? "CompatibleRuntimes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "LicenseInfo")
+            Core.<$> (x Core..:? "CreatedDate")
+            Core.<*> (x Core..:? "LayerArn")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (x Core..:? "LayerVersionArn")
+            Core.<*> (x Core..:? "Content")
+            Core.<*> ( x Core..:? "CompatibleRuntimes"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "LicenseInfo")
       )
 
-instance Prelude.Hashable GetLayerVersionResponse
+instance Core.Hashable GetLayerVersionResponse
 
-instance Prelude.NFData GetLayerVersionResponse
+instance Core.NFData GetLayerVersionResponse

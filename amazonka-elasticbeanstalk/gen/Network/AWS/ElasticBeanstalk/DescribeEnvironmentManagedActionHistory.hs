@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +56,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeEnvironmentManagedActionHistory' smart constructor.
 data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionHistory'
   { -- | The pagination token returned by a previous request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The environment ID of the target environment.
-    environmentId :: Prelude.Maybe Prelude.Text,
+    environmentId :: Core.Maybe Core.Text,
     -- | The name of the target environment.
-    environmentName :: Prelude.Maybe Prelude.Text,
+    environmentName :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for a single request.
-    maxItems :: Prelude.Maybe Prelude.Natural
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentManagedActionHistory' with all optional fields omitted.
@@ -88,60 +86,61 @@ newDescribeEnvironmentManagedActionHistory ::
 newDescribeEnvironmentManagedActionHistory =
   DescribeEnvironmentManagedActionHistory'
     { nextToken =
-        Prelude.Nothing,
-      environmentId = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
-      maxItems = Prelude.Nothing
+        Core.Nothing,
+      environmentId = Core.Nothing,
+      environmentName = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | The pagination token returned by a previous request.
-describeEnvironmentManagedActionHistory_nextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Prelude.Maybe Prelude.Text)
+describeEnvironmentManagedActionHistory_nextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Core.Text)
 describeEnvironmentManagedActionHistory_nextToken = Lens.lens (\DescribeEnvironmentManagedActionHistory' {nextToken} -> nextToken) (\s@DescribeEnvironmentManagedActionHistory' {} a -> s {nextToken = a} :: DescribeEnvironmentManagedActionHistory)
 
 -- | The environment ID of the target environment.
-describeEnvironmentManagedActionHistory_environmentId :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Prelude.Maybe Prelude.Text)
+describeEnvironmentManagedActionHistory_environmentId :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Core.Text)
 describeEnvironmentManagedActionHistory_environmentId = Lens.lens (\DescribeEnvironmentManagedActionHistory' {environmentId} -> environmentId) (\s@DescribeEnvironmentManagedActionHistory' {} a -> s {environmentId = a} :: DescribeEnvironmentManagedActionHistory)
 
 -- | The name of the target environment.
-describeEnvironmentManagedActionHistory_environmentName :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Prelude.Maybe Prelude.Text)
+describeEnvironmentManagedActionHistory_environmentName :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Core.Text)
 describeEnvironmentManagedActionHistory_environmentName = Lens.lens (\DescribeEnvironmentManagedActionHistory' {environmentName} -> environmentName) (\s@DescribeEnvironmentManagedActionHistory' {} a -> s {environmentName = a} :: DescribeEnvironmentManagedActionHistory)
 
 -- | The maximum number of items to return for a single request.
-describeEnvironmentManagedActionHistory_maxItems :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Prelude.Maybe Prelude.Natural)
+describeEnvironmentManagedActionHistory_maxItems :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Core.Natural)
 describeEnvironmentManagedActionHistory_maxItems = Lens.lens (\DescribeEnvironmentManagedActionHistory' {maxItems} -> maxItems) (\s@DescribeEnvironmentManagedActionHistory' {} a -> s {maxItems = a} :: DescribeEnvironmentManagedActionHistory)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeEnvironmentManagedActionHistory
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeEnvironmentManagedActionHistoryResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+              Core.. Lens._Just
+              Core.. Lens.to Core.toList
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeEnvironmentManagedActionHistory_nextToken
           Lens..~ rs
             Lens.^? describeEnvironmentManagedActionHistoryResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeEnvironmentManagedActionHistory
   where
   type
-    Rs DescribeEnvironmentManagedActionHistory =
+    AWSResponse
+      DescribeEnvironmentManagedActionHistory =
       DescribeEnvironmentManagedActionHistoryResponse
   request = Request.postQuery defaultService
   response =
@@ -149,50 +148,49 @@ instance
       "DescribeEnvironmentManagedActionHistoryResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionHistoryResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-              Prelude.<*> ( x Prelude..@? "ManagedActionHistoryItems"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList1 "member")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+              Core.<*> ( x Core..@? "ManagedActionHistoryItems"
+                           Core..!@ Core.mempty
+                           Core.>>= Core.may (Core.parseXMLList1 "member")
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeEnvironmentManagedActionHistory
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEnvironmentManagedActionHistory
 
 instance
-  Prelude.ToHeaders
-    DescribeEnvironmentManagedActionHistory
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeEnvironmentManagedActionHistory
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeEnvironmentManagedActionHistory
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeEnvironmentManagedActionHistory
   where
   toQuery DescribeEnvironmentManagedActionHistory' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeEnvironmentManagedActionHistory" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "EnvironmentId" Prelude.=: environmentId,
-        "EnvironmentName" Prelude.=: environmentName,
-        "MaxItems" Prelude.=: maxItems
+          Core.=: ( "DescribeEnvironmentManagedActionHistory" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "EnvironmentId" Core.=: environmentId,
+        "EnvironmentName" Core.=: environmentName,
+        "MaxItems" Core.=: maxItems
       ]
 
 -- | A result message containing a list of completed and failed managed
@@ -202,13 +200,13 @@ instance
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
   { -- | A pagination token that you pass to
     -- DescribeEnvironmentManagedActionHistory to get the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of completed and failed managed actions.
-    managedActionHistoryItems :: Prelude.Maybe (Prelude.NonEmpty ManagedActionHistoryItem),
+    managedActionHistoryItems :: Core.Maybe (Core.NonEmpty ManagedActionHistoryItem),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEnvironmentManagedActionHistoryResponse' with all optional fields omitted.
@@ -226,31 +224,31 @@ data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManage
 -- 'httpStatus', 'describeEnvironmentManagedActionHistoryResponse_httpStatus' - The response's http status code.
 newDescribeEnvironmentManagedActionHistoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEnvironmentManagedActionHistoryResponse
 newDescribeEnvironmentManagedActionHistoryResponse
   pHttpStatus_ =
     DescribeEnvironmentManagedActionHistoryResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         managedActionHistoryItems =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A pagination token that you pass to
 -- DescribeEnvironmentManagedActionHistory to get the next page of results.
-describeEnvironmentManagedActionHistoryResponse_nextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Prelude.Maybe Prelude.Text)
+describeEnvironmentManagedActionHistoryResponse_nextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Core.Maybe Core.Text)
 describeEnvironmentManagedActionHistoryResponse_nextToken = Lens.lens (\DescribeEnvironmentManagedActionHistoryResponse' {nextToken} -> nextToken) (\s@DescribeEnvironmentManagedActionHistoryResponse' {} a -> s {nextToken = a} :: DescribeEnvironmentManagedActionHistoryResponse)
 
 -- | A list of completed and failed managed actions.
-describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Prelude.Maybe (Prelude.NonEmpty ManagedActionHistoryItem))
-describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems = Lens.lens (\DescribeEnvironmentManagedActionHistoryResponse' {managedActionHistoryItems} -> managedActionHistoryItems) (\s@DescribeEnvironmentManagedActionHistoryResponse' {} a -> s {managedActionHistoryItems = a} :: DescribeEnvironmentManagedActionHistoryResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Core.Maybe (Core.NonEmpty ManagedActionHistoryItem))
+describeEnvironmentManagedActionHistoryResponse_managedActionHistoryItems = Lens.lens (\DescribeEnvironmentManagedActionHistoryResponse' {managedActionHistoryItems} -> managedActionHistoryItems) (\s@DescribeEnvironmentManagedActionHistoryResponse' {} a -> s {managedActionHistoryItems = a} :: DescribeEnvironmentManagedActionHistoryResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEnvironmentManagedActionHistoryResponse_httpStatus :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse Prelude.Int
+describeEnvironmentManagedActionHistoryResponse_httpStatus :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse Core.Int
 describeEnvironmentManagedActionHistoryResponse_httpStatus = Lens.lens (\DescribeEnvironmentManagedActionHistoryResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentManagedActionHistoryResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentManagedActionHistoryResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEnvironmentManagedActionHistoryResponse

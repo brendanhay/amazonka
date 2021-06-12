@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the properties of a replica global secondary index.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ReplicaGlobalSecondaryIndex = ReplicaGlobalSecondaryIndex'
   { -- | Replica table GSI-specific provisioned throughput. If not specified,
     -- uses the source table GSI\'s read capacity settings.
-    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughputOverride,
+    provisionedThroughputOverride :: Core.Maybe ProvisionedThroughputOverride,
     -- | The name of the global secondary index.
-    indexName :: Prelude.Text
+    indexName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicaGlobalSecondaryIndex' with all optional fields omitted.
@@ -50,34 +49,34 @@ data ReplicaGlobalSecondaryIndex = ReplicaGlobalSecondaryIndex'
 -- 'indexName', 'replicaGlobalSecondaryIndex_indexName' - The name of the global secondary index.
 newReplicaGlobalSecondaryIndex ::
   -- | 'indexName'
-  Prelude.Text ->
+  Core.Text ->
   ReplicaGlobalSecondaryIndex
 newReplicaGlobalSecondaryIndex pIndexName_ =
   ReplicaGlobalSecondaryIndex'
     { provisionedThroughputOverride =
-        Prelude.Nothing,
+        Core.Nothing,
       indexName = pIndexName_
     }
 
 -- | Replica table GSI-specific provisioned throughput. If not specified,
 -- uses the source table GSI\'s read capacity settings.
-replicaGlobalSecondaryIndex_provisionedThroughputOverride :: Lens.Lens' ReplicaGlobalSecondaryIndex (Prelude.Maybe ProvisionedThroughputOverride)
+replicaGlobalSecondaryIndex_provisionedThroughputOverride :: Lens.Lens' ReplicaGlobalSecondaryIndex (Core.Maybe ProvisionedThroughputOverride)
 replicaGlobalSecondaryIndex_provisionedThroughputOverride = Lens.lens (\ReplicaGlobalSecondaryIndex' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@ReplicaGlobalSecondaryIndex' {} a -> s {provisionedThroughputOverride = a} :: ReplicaGlobalSecondaryIndex)
 
 -- | The name of the global secondary index.
-replicaGlobalSecondaryIndex_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndex Prelude.Text
+replicaGlobalSecondaryIndex_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndex Core.Text
 replicaGlobalSecondaryIndex_indexName = Lens.lens (\ReplicaGlobalSecondaryIndex' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndex' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndex)
 
-instance Prelude.Hashable ReplicaGlobalSecondaryIndex
+instance Core.Hashable ReplicaGlobalSecondaryIndex
 
-instance Prelude.NFData ReplicaGlobalSecondaryIndex
+instance Core.NFData ReplicaGlobalSecondaryIndex
 
-instance Prelude.ToJSON ReplicaGlobalSecondaryIndex where
+instance Core.ToJSON ReplicaGlobalSecondaryIndex where
   toJSON ReplicaGlobalSecondaryIndex' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ProvisionedThroughputOverride" Prelude..=)
-              Prelude.<$> provisionedThroughputOverride,
-            Prelude.Just ("IndexName" Prelude..= indexName)
+    Core.object
+      ( Core.catMaybes
+          [ ("ProvisionedThroughputOverride" Core..=)
+              Core.<$> provisionedThroughputOverride,
+            Core.Just ("IndexName" Core..= indexName)
           ]
       )

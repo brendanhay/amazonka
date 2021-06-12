@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.WorkSpaces.RestoreWorkspace
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -58,9 +57,9 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newRestoreWorkspace' smart constructor.
 data RestoreWorkspace = RestoreWorkspace'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Prelude.Text
+    workspaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreWorkspace' with all optional fields omitted.
@@ -73,65 +72,63 @@ data RestoreWorkspace = RestoreWorkspace'
 -- 'workspaceId', 'restoreWorkspace_workspaceId' - The identifier of the WorkSpace.
 newRestoreWorkspace ::
   -- | 'workspaceId'
-  Prelude.Text ->
+  Core.Text ->
   RestoreWorkspace
 newRestoreWorkspace pWorkspaceId_ =
   RestoreWorkspace' {workspaceId = pWorkspaceId_}
 
 -- | The identifier of the WorkSpace.
-restoreWorkspace_workspaceId :: Lens.Lens' RestoreWorkspace Prelude.Text
+restoreWorkspace_workspaceId :: Lens.Lens' RestoreWorkspace Core.Text
 restoreWorkspace_workspaceId = Lens.lens (\RestoreWorkspace' {workspaceId} -> workspaceId) (\s@RestoreWorkspace' {} a -> s {workspaceId = a} :: RestoreWorkspace)
 
-instance Prelude.AWSRequest RestoreWorkspace where
-  type Rs RestoreWorkspace = RestoreWorkspaceResponse
+instance Core.AWSRequest RestoreWorkspace where
+  type
+    AWSResponse RestoreWorkspace =
+      RestoreWorkspaceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RestoreWorkspaceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreWorkspace
+instance Core.Hashable RestoreWorkspace
 
-instance Prelude.NFData RestoreWorkspace
+instance Core.NFData RestoreWorkspace
 
-instance Prelude.ToHeaders RestoreWorkspace where
+instance Core.ToHeaders RestoreWorkspace where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.RestoreWorkspace" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.RestoreWorkspace" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RestoreWorkspace where
+instance Core.ToJSON RestoreWorkspace where
   toJSON RestoreWorkspace' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("WorkspaceId" Prelude..= workspaceId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkspaceId" Core..= workspaceId)]
       )
 
-instance Prelude.ToPath RestoreWorkspace where
-  toPath = Prelude.const "/"
+instance Core.ToPath RestoreWorkspace where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RestoreWorkspace where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RestoreWorkspace where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRestoreWorkspaceResponse' smart constructor.
 data RestoreWorkspaceResponse = RestoreWorkspaceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreWorkspaceResponse' with all optional fields omitted.
@@ -144,7 +141,7 @@ data RestoreWorkspaceResponse = RestoreWorkspaceResponse'
 -- 'httpStatus', 'restoreWorkspaceResponse_httpStatus' - The response's http status code.
 newRestoreWorkspaceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RestoreWorkspaceResponse
 newRestoreWorkspaceResponse pHttpStatus_ =
   RestoreWorkspaceResponse'
@@ -153,7 +150,7 @@ newRestoreWorkspaceResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-restoreWorkspaceResponse_httpStatus :: Lens.Lens' RestoreWorkspaceResponse Prelude.Int
+restoreWorkspaceResponse_httpStatus :: Lens.Lens' RestoreWorkspaceResponse Core.Int
 restoreWorkspaceResponse_httpStatus = Lens.lens (\RestoreWorkspaceResponse' {httpStatus} -> httpStatus) (\s@RestoreWorkspaceResponse' {} a -> s {httpStatus = a} :: RestoreWorkspaceResponse)
 
-instance Prelude.NFData RestoreWorkspaceResponse
+instance Core.NFData RestoreWorkspaceResponse

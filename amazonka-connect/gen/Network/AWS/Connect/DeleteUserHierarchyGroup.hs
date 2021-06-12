@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,19 +38,19 @@ module Network.AWS.Connect.DeleteUserHierarchyGroup
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUserHierarchyGroup' smart constructor.
 data DeleteUserHierarchyGroup = DeleteUserHierarchyGroup'
   { -- | The identifier of the hierarchy group.
-    hierarchyGroupId :: Prelude.Text,
+    hierarchyGroupId :: Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserHierarchyGroup' with all optional fields omitted.
@@ -66,9 +65,9 @@ data DeleteUserHierarchyGroup = DeleteUserHierarchyGroup'
 -- 'instanceId', 'deleteUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance.
 newDeleteUserHierarchyGroup ::
   -- | 'hierarchyGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUserHierarchyGroup
 newDeleteUserHierarchyGroup
   pHierarchyGroupId_
@@ -80,54 +79,52 @@ newDeleteUserHierarchyGroup
       }
 
 -- | The identifier of the hierarchy group.
-deleteUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DeleteUserHierarchyGroup Prelude.Text
+deleteUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DeleteUserHierarchyGroup Core.Text
 deleteUserHierarchyGroup_hierarchyGroupId = Lens.lens (\DeleteUserHierarchyGroup' {hierarchyGroupId} -> hierarchyGroupId) (\s@DeleteUserHierarchyGroup' {} a -> s {hierarchyGroupId = a} :: DeleteUserHierarchyGroup)
 
 -- | The identifier of the Amazon Connect instance.
-deleteUserHierarchyGroup_instanceId :: Lens.Lens' DeleteUserHierarchyGroup Prelude.Text
+deleteUserHierarchyGroup_instanceId :: Lens.Lens' DeleteUserHierarchyGroup Core.Text
 deleteUserHierarchyGroup_instanceId = Lens.lens (\DeleteUserHierarchyGroup' {instanceId} -> instanceId) (\s@DeleteUserHierarchyGroup' {} a -> s {instanceId = a} :: DeleteUserHierarchyGroup)
 
-instance Prelude.AWSRequest DeleteUserHierarchyGroup where
+instance Core.AWSRequest DeleteUserHierarchyGroup where
   type
-    Rs DeleteUserHierarchyGroup =
+    AWSResponse DeleteUserHierarchyGroup =
       DeleteUserHierarchyGroupResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteUserHierarchyGroupResponse'
 
-instance Prelude.Hashable DeleteUserHierarchyGroup
+instance Core.Hashable DeleteUserHierarchyGroup
 
-instance Prelude.NFData DeleteUserHierarchyGroup
+instance Core.NFData DeleteUserHierarchyGroup
 
-instance Prelude.ToHeaders DeleteUserHierarchyGroup where
+instance Core.ToHeaders DeleteUserHierarchyGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteUserHierarchyGroup where
+instance Core.ToPath DeleteUserHierarchyGroup where
   toPath DeleteUserHierarchyGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/user-hierarchy-groups/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS hierarchyGroupId
+        Core.toBS hierarchyGroupId
       ]
 
-instance Prelude.ToQuery DeleteUserHierarchyGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUserHierarchyGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUserHierarchyGroupResponse' smart constructor.
 data DeleteUserHierarchyGroupResponse = DeleteUserHierarchyGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserHierarchyGroupResponse' with all optional fields omitted.
@@ -138,6 +135,4 @@ newDeleteUserHierarchyGroupResponse ::
 newDeleteUserHierarchyGroupResponse =
   DeleteUserHierarchyGroupResponse'
 
-instance
-  Prelude.NFData
-    DeleteUserHierarchyGroupResponse
+instance Core.NFData DeleteUserHierarchyGroupResponse

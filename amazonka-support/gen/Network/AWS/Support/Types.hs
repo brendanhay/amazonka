@@ -155,8 +155,8 @@ module Network.AWS.Support.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.Support.Types.Attachment
 import Network.AWS.Support.Types.AttachmentDetails
@@ -176,138 +176,136 @@ import Network.AWS.Support.Types.TrustedAdvisorResourceDetail
 import Network.AWS.Support.Types.TrustedAdvisorResourcesSummary
 
 -- | API version @2013-04-15@ of the Amazon Support SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Support",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "support",
-      Prelude._svcSigningName = "support",
-      Prelude._svcVersion = "2013-04-15",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "Support",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Support",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "support",
+      Core._serviceSigningName = "support",
+      Core._serviceVersion = "2013-04-15",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Support",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The expiration time of the attachment set has passed. The set expires 1
 -- hour after it is created.
-_AttachmentSetExpired :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AttachmentSetExpired :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AttachmentSetExpired =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AttachmentSetExpired"
 
 -- | The case creation limit for the account has been exceeded.
-_CaseCreationLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CaseCreationLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CaseCreationLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CaseCreationLimitExceeded"
 
 -- | A limit for the size of an attachment set has been exceeded. The limits
 -- are three attachments and 5 MB per attachment.
-_AttachmentSetSizeLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AttachmentSetSizeLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AttachmentSetSizeLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AttachmentSetSizeLimitExceeded"
 
 -- | An attachment set with the specified ID could not be found.
-_AttachmentSetIdNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AttachmentSetIdNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AttachmentSetIdNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AttachmentSetIdNotFound"
 
 -- | An internal server error occurred.
-_InternalServerError :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServerError"
 
 -- | The requested @caseId@ could not be located.
-_CaseIdNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CaseIdNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CaseIdNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CaseIdNotFound"
 
 -- | An attachment with the specified ID could not be found.
-_AttachmentIdNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AttachmentIdNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AttachmentIdNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AttachmentIdNotFound"
 
 -- | The limit for the number of attachment sets created in a short period of
 -- time has been exceeded.
-_AttachmentLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AttachmentLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AttachmentLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AttachmentLimitExceeded"
 
 -- | The limit for the number of DescribeAttachment requests in a short
 -- period of time has been exceeded.
-_DescribeAttachmentLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DescribeAttachmentLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DescribeAttachmentLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DescribeAttachmentLimitExceeded"

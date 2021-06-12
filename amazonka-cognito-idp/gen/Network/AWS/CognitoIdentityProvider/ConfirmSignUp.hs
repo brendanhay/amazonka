@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CognitoIdentityProvider.ConfirmSignUp
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,33 +86,33 @@ data ConfirmSignUp = ConfirmSignUp'
     --
     -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
     --     don\'t use it to provide sensitive information.
-    clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    clientMetadata :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
-    userContextData :: Prelude.Maybe UserContextDataType,
+    userContextData :: Core.Maybe UserContextDataType,
     -- | Boolean to be specified to force user confirmation irrespective of
     -- existing alias. By default set to @False@. If this parameter is set to
     -- @True@ and the phone number\/email used for sign up confirmation already
     -- exists as an alias with a different user, the API call will migrate the
     -- alias from the previous user to the newly created user being confirmed.
     -- If set to @False@, the API will throw an __AliasExistsException__ error.
-    forceAliasCreation :: Prelude.Maybe Prelude.Bool,
+    forceAliasCreation :: Core.Maybe Core.Bool,
     -- | A keyed-hash message authentication code (HMAC) calculated using the
     -- secret key of a user pool client and username plus the client ID in the
     -- message.
-    secretHash :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    secretHash :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The Amazon Pinpoint analytics metadata for collecting metrics for
     -- @ConfirmSignUp@ calls.
-    analyticsMetadata :: Prelude.Maybe AnalyticsMetadataType,
+    analyticsMetadata :: Core.Maybe AnalyticsMetadataType,
     -- | The ID of the app client associated with the user pool.
-    clientId :: Prelude.Sensitive Prelude.Text,
+    clientId :: Core.Sensitive Core.Text,
     -- | The user name of the user whose registration you wish to confirm.
-    username :: Prelude.Sensitive Prelude.Text,
+    username :: Core.Sensitive Core.Text,
     -- | The confirmation code sent by a user\'s request to confirm registration.
-    confirmationCode :: Prelude.Text
+    confirmationCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmSignUp' with all optional fields omitted.
@@ -179,24 +178,24 @@ data ConfirmSignUp = ConfirmSignUp'
 -- 'confirmationCode', 'confirmSignUp_confirmationCode' - The confirmation code sent by a user\'s request to confirm registration.
 newConfirmSignUp ::
   -- | 'clientId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'confirmationCode'
-  Prelude.Text ->
+  Core.Text ->
   ConfirmSignUp
 newConfirmSignUp
   pClientId_
   pUsername_
   pConfirmationCode_ =
     ConfirmSignUp'
-      { clientMetadata = Prelude.Nothing,
-        userContextData = Prelude.Nothing,
-        forceAliasCreation = Prelude.Nothing,
-        secretHash = Prelude.Nothing,
-        analyticsMetadata = Prelude.Nothing,
-        clientId = Prelude._Sensitive Lens.# pClientId_,
-        username = Prelude._Sensitive Lens.# pUsername_,
+      { clientMetadata = Core.Nothing,
+        userContextData = Core.Nothing,
+        forceAliasCreation = Core.Nothing,
+        secretHash = Core.Nothing,
+        analyticsMetadata = Core.Nothing,
+        clientId = Core._Sensitive Lens.# pClientId_,
+        username = Core._Sensitive Lens.# pUsername_,
         confirmationCode = pConfirmationCode_
       }
 
@@ -230,13 +229,13 @@ newConfirmSignUp
 --
 -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
 --     don\'t use it to provide sensitive information.
-confirmSignUp_clientMetadata :: Lens.Lens' ConfirmSignUp (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-confirmSignUp_clientMetadata = Lens.lens (\ConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@ConfirmSignUp' {} a -> s {clientMetadata = a} :: ConfirmSignUp) Prelude.. Lens.mapping Prelude._Coerce
+confirmSignUp_clientMetadata :: Lens.Lens' ConfirmSignUp (Core.Maybe (Core.HashMap Core.Text Core.Text))
+confirmSignUp_clientMetadata = Lens.lens (\ConfirmSignUp' {clientMetadata} -> clientMetadata) (\s@ConfirmSignUp' {} a -> s {clientMetadata = a} :: ConfirmSignUp) Core.. Lens.mapping Lens._Coerce
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
-confirmSignUp_userContextData :: Lens.Lens' ConfirmSignUp (Prelude.Maybe UserContextDataType)
+confirmSignUp_userContextData :: Lens.Lens' ConfirmSignUp (Core.Maybe UserContextDataType)
 confirmSignUp_userContextData = Lens.lens (\ConfirmSignUp' {userContextData} -> userContextData) (\s@ConfirmSignUp' {} a -> s {userContextData = a} :: ConfirmSignUp)
 
 -- | Boolean to be specified to force user confirmation irrespective of
@@ -245,86 +244,84 @@ confirmSignUp_userContextData = Lens.lens (\ConfirmSignUp' {userContextData} -> 
 -- exists as an alias with a different user, the API call will migrate the
 -- alias from the previous user to the newly created user being confirmed.
 -- If set to @False@, the API will throw an __AliasExistsException__ error.
-confirmSignUp_forceAliasCreation :: Lens.Lens' ConfirmSignUp (Prelude.Maybe Prelude.Bool)
+confirmSignUp_forceAliasCreation :: Lens.Lens' ConfirmSignUp (Core.Maybe Core.Bool)
 confirmSignUp_forceAliasCreation = Lens.lens (\ConfirmSignUp' {forceAliasCreation} -> forceAliasCreation) (\s@ConfirmSignUp' {} a -> s {forceAliasCreation = a} :: ConfirmSignUp)
 
 -- | A keyed-hash message authentication code (HMAC) calculated using the
 -- secret key of a user pool client and username plus the client ID in the
 -- message.
-confirmSignUp_secretHash :: Lens.Lens' ConfirmSignUp (Prelude.Maybe Prelude.Text)
-confirmSignUp_secretHash = Lens.lens (\ConfirmSignUp' {secretHash} -> secretHash) (\s@ConfirmSignUp' {} a -> s {secretHash = a} :: ConfirmSignUp) Prelude.. Lens.mapping Prelude._Sensitive
+confirmSignUp_secretHash :: Lens.Lens' ConfirmSignUp (Core.Maybe Core.Text)
+confirmSignUp_secretHash = Lens.lens (\ConfirmSignUp' {secretHash} -> secretHash) (\s@ConfirmSignUp' {} a -> s {secretHash = a} :: ConfirmSignUp) Core.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Pinpoint analytics metadata for collecting metrics for
 -- @ConfirmSignUp@ calls.
-confirmSignUp_analyticsMetadata :: Lens.Lens' ConfirmSignUp (Prelude.Maybe AnalyticsMetadataType)
+confirmSignUp_analyticsMetadata :: Lens.Lens' ConfirmSignUp (Core.Maybe AnalyticsMetadataType)
 confirmSignUp_analyticsMetadata = Lens.lens (\ConfirmSignUp' {analyticsMetadata} -> analyticsMetadata) (\s@ConfirmSignUp' {} a -> s {analyticsMetadata = a} :: ConfirmSignUp)
 
 -- | The ID of the app client associated with the user pool.
-confirmSignUp_clientId :: Lens.Lens' ConfirmSignUp Prelude.Text
-confirmSignUp_clientId = Lens.lens (\ConfirmSignUp' {clientId} -> clientId) (\s@ConfirmSignUp' {} a -> s {clientId = a} :: ConfirmSignUp) Prelude.. Prelude._Sensitive
+confirmSignUp_clientId :: Lens.Lens' ConfirmSignUp Core.Text
+confirmSignUp_clientId = Lens.lens (\ConfirmSignUp' {clientId} -> clientId) (\s@ConfirmSignUp' {} a -> s {clientId = a} :: ConfirmSignUp) Core.. Core._Sensitive
 
 -- | The user name of the user whose registration you wish to confirm.
-confirmSignUp_username :: Lens.Lens' ConfirmSignUp Prelude.Text
-confirmSignUp_username = Lens.lens (\ConfirmSignUp' {username} -> username) (\s@ConfirmSignUp' {} a -> s {username = a} :: ConfirmSignUp) Prelude.. Prelude._Sensitive
+confirmSignUp_username :: Lens.Lens' ConfirmSignUp Core.Text
+confirmSignUp_username = Lens.lens (\ConfirmSignUp' {username} -> username) (\s@ConfirmSignUp' {} a -> s {username = a} :: ConfirmSignUp) Core.. Core._Sensitive
 
 -- | The confirmation code sent by a user\'s request to confirm registration.
-confirmSignUp_confirmationCode :: Lens.Lens' ConfirmSignUp Prelude.Text
+confirmSignUp_confirmationCode :: Lens.Lens' ConfirmSignUp Core.Text
 confirmSignUp_confirmationCode = Lens.lens (\ConfirmSignUp' {confirmationCode} -> confirmationCode) (\s@ConfirmSignUp' {} a -> s {confirmationCode = a} :: ConfirmSignUp)
 
-instance Prelude.AWSRequest ConfirmSignUp where
-  type Rs ConfirmSignUp = ConfirmSignUpResponse
+instance Core.AWSRequest ConfirmSignUp where
+  type
+    AWSResponse ConfirmSignUp =
+      ConfirmSignUpResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ConfirmSignUpResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ConfirmSignUp
+instance Core.Hashable ConfirmSignUp
 
-instance Prelude.NFData ConfirmSignUp
+instance Core.NFData ConfirmSignUp
 
-instance Prelude.ToHeaders ConfirmSignUp where
+instance Core.ToHeaders ConfirmSignUp where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.ConfirmSignUp" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.ConfirmSignUp" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ConfirmSignUp where
+instance Core.ToJSON ConfirmSignUp where
   toJSON ConfirmSignUp' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientMetadata" Prelude..=)
-              Prelude.<$> clientMetadata,
-            ("UserContextData" Prelude..=)
-              Prelude.<$> userContextData,
-            ("ForceAliasCreation" Prelude..=)
-              Prelude.<$> forceAliasCreation,
-            ("SecretHash" Prelude..=) Prelude.<$> secretHash,
-            ("AnalyticsMetadata" Prelude..=)
-              Prelude.<$> analyticsMetadata,
-            Prelude.Just ("ClientId" Prelude..= clientId),
-            Prelude.Just ("Username" Prelude..= username),
-            Prelude.Just
-              ("ConfirmationCode" Prelude..= confirmationCode)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            ("UserContextData" Core..=) Core.<$> userContextData,
+            ("ForceAliasCreation" Core..=)
+              Core.<$> forceAliasCreation,
+            ("SecretHash" Core..=) Core.<$> secretHash,
+            ("AnalyticsMetadata" Core..=)
+              Core.<$> analyticsMetadata,
+            Core.Just ("ClientId" Core..= clientId),
+            Core.Just ("Username" Core..= username),
+            Core.Just
+              ("ConfirmationCode" Core..= confirmationCode)
           ]
       )
 
-instance Prelude.ToPath ConfirmSignUp where
-  toPath = Prelude.const "/"
+instance Core.ToPath ConfirmSignUp where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ConfirmSignUp where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ConfirmSignUp where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the response from the server for the registration
 -- confirmation.
@@ -332,9 +329,9 @@ instance Prelude.ToQuery ConfirmSignUp where
 -- /See:/ 'newConfirmSignUpResponse' smart constructor.
 data ConfirmSignUpResponse = ConfirmSignUpResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConfirmSignUpResponse' with all optional fields omitted.
@@ -347,13 +344,13 @@ data ConfirmSignUpResponse = ConfirmSignUpResponse'
 -- 'httpStatus', 'confirmSignUpResponse_httpStatus' - The response's http status code.
 newConfirmSignUpResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ConfirmSignUpResponse
 newConfirmSignUpResponse pHttpStatus_ =
   ConfirmSignUpResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-confirmSignUpResponse_httpStatus :: Lens.Lens' ConfirmSignUpResponse Prelude.Int
+confirmSignUpResponse_httpStatus :: Lens.Lens' ConfirmSignUpResponse Core.Int
 confirmSignUpResponse_httpStatus = Lens.lens (\ConfirmSignUpResponse' {httpStatus} -> httpStatus) (\s@ConfirmSignUpResponse' {} a -> s {httpStatus = a} :: ConfirmSignUpResponse)
 
-instance Prelude.NFData ConfirmSignUpResponse
+instance Core.NFData ConfirmSignUpResponse

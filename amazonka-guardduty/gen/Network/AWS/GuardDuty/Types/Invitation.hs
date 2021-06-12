@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.Invitation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the invitation to become a member account.
 --
 -- /See:/ 'newInvitation' smart constructor.
 data Invitation = Invitation'
   { -- | The ID of the account that the invitation was sent from.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | The status of the relationship between the inviter and invitee accounts.
-    relationshipStatus :: Prelude.Maybe Prelude.Text,
+    relationshipStatus :: Core.Maybe Core.Text,
     -- | The ID of the invitation. This value is used to validate the inviter
     -- account to the member account.
-    invitationId :: Prelude.Maybe Prelude.Text,
+    invitationId :: Core.Maybe Core.Text,
     -- | The timestamp when the invitation was sent.
-    invitedAt :: Prelude.Maybe Prelude.Text
+    invitedAt :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Invitation' with all optional fields omitted.
@@ -59,41 +58,41 @@ newInvitation ::
   Invitation
 newInvitation =
   Invitation'
-    { accountId = Prelude.Nothing,
-      relationshipStatus = Prelude.Nothing,
-      invitationId = Prelude.Nothing,
-      invitedAt = Prelude.Nothing
+    { accountId = Core.Nothing,
+      relationshipStatus = Core.Nothing,
+      invitationId = Core.Nothing,
+      invitedAt = Core.Nothing
     }
 
 -- | The ID of the account that the invitation was sent from.
-invitation_accountId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_accountId :: Lens.Lens' Invitation (Core.Maybe Core.Text)
 invitation_accountId = Lens.lens (\Invitation' {accountId} -> accountId) (\s@Invitation' {} a -> s {accountId = a} :: Invitation)
 
 -- | The status of the relationship between the inviter and invitee accounts.
-invitation_relationshipStatus :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_relationshipStatus :: Lens.Lens' Invitation (Core.Maybe Core.Text)
 invitation_relationshipStatus = Lens.lens (\Invitation' {relationshipStatus} -> relationshipStatus) (\s@Invitation' {} a -> s {relationshipStatus = a} :: Invitation)
 
 -- | The ID of the invitation. This value is used to validate the inviter
 -- account to the member account.
-invitation_invitationId :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_invitationId :: Lens.Lens' Invitation (Core.Maybe Core.Text)
 invitation_invitationId = Lens.lens (\Invitation' {invitationId} -> invitationId) (\s@Invitation' {} a -> s {invitationId = a} :: Invitation)
 
 -- | The timestamp when the invitation was sent.
-invitation_invitedAt :: Lens.Lens' Invitation (Prelude.Maybe Prelude.Text)
+invitation_invitedAt :: Lens.Lens' Invitation (Core.Maybe Core.Text)
 invitation_invitedAt = Lens.lens (\Invitation' {invitedAt} -> invitedAt) (\s@Invitation' {} a -> s {invitedAt = a} :: Invitation)
 
-instance Prelude.FromJSON Invitation where
+instance Core.FromJSON Invitation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Invitation"
       ( \x ->
           Invitation'
-            Prelude.<$> (x Prelude..:? "accountId")
-            Prelude.<*> (x Prelude..:? "relationshipStatus")
-            Prelude.<*> (x Prelude..:? "invitationId")
-            Prelude.<*> (x Prelude..:? "invitedAt")
+            Core.<$> (x Core..:? "accountId")
+            Core.<*> (x Core..:? "relationshipStatus")
+            Core.<*> (x Core..:? "invitationId")
+            Core.<*> (x Core..:? "invitedAt")
       )
 
-instance Prelude.Hashable Invitation
+instance Core.Hashable Invitation
 
-instance Prelude.NFData Invitation
+instance Core.NFData Invitation

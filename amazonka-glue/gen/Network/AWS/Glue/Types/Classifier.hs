@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.Classifier where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.CsvClassifier
 import Network.AWS.Glue.Types.GrokClassifier
 import Network.AWS.Glue.Types.JsonClassifier
 import Network.AWS.Glue.Types.XMLClassifier
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Classifiers are triggered during a crawl task. A classifier checks
 -- whether a given file is in a format it can handle. If it is, the
@@ -42,15 +41,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newClassifier' smart constructor.
 data Classifier = Classifier'
   { -- | A classifier for XML content.
-    xMLClassifier :: Prelude.Maybe XMLClassifier,
+    xMLClassifier :: Core.Maybe XMLClassifier,
     -- | A classifier for JSON content.
-    jsonClassifier :: Prelude.Maybe JsonClassifier,
+    jsonClassifier :: Core.Maybe JsonClassifier,
     -- | A classifier for comma-separated values (CSV).
-    csvClassifier :: Prelude.Maybe CsvClassifier,
+    csvClassifier :: Core.Maybe CsvClassifier,
     -- | A classifier that uses @grok@.
-    grokClassifier :: Prelude.Maybe GrokClassifier
+    grokClassifier :: Core.Maybe GrokClassifier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Classifier' with all optional fields omitted.
@@ -71,40 +70,40 @@ newClassifier ::
   Classifier
 newClassifier =
   Classifier'
-    { xMLClassifier = Prelude.Nothing,
-      jsonClassifier = Prelude.Nothing,
-      csvClassifier = Prelude.Nothing,
-      grokClassifier = Prelude.Nothing
+    { xMLClassifier = Core.Nothing,
+      jsonClassifier = Core.Nothing,
+      csvClassifier = Core.Nothing,
+      grokClassifier = Core.Nothing
     }
 
 -- | A classifier for XML content.
-classifier_xMLClassifier :: Lens.Lens' Classifier (Prelude.Maybe XMLClassifier)
+classifier_xMLClassifier :: Lens.Lens' Classifier (Core.Maybe XMLClassifier)
 classifier_xMLClassifier = Lens.lens (\Classifier' {xMLClassifier} -> xMLClassifier) (\s@Classifier' {} a -> s {xMLClassifier = a} :: Classifier)
 
 -- | A classifier for JSON content.
-classifier_jsonClassifier :: Lens.Lens' Classifier (Prelude.Maybe JsonClassifier)
+classifier_jsonClassifier :: Lens.Lens' Classifier (Core.Maybe JsonClassifier)
 classifier_jsonClassifier = Lens.lens (\Classifier' {jsonClassifier} -> jsonClassifier) (\s@Classifier' {} a -> s {jsonClassifier = a} :: Classifier)
 
 -- | A classifier for comma-separated values (CSV).
-classifier_csvClassifier :: Lens.Lens' Classifier (Prelude.Maybe CsvClassifier)
+classifier_csvClassifier :: Lens.Lens' Classifier (Core.Maybe CsvClassifier)
 classifier_csvClassifier = Lens.lens (\Classifier' {csvClassifier} -> csvClassifier) (\s@Classifier' {} a -> s {csvClassifier = a} :: Classifier)
 
 -- | A classifier that uses @grok@.
-classifier_grokClassifier :: Lens.Lens' Classifier (Prelude.Maybe GrokClassifier)
+classifier_grokClassifier :: Lens.Lens' Classifier (Core.Maybe GrokClassifier)
 classifier_grokClassifier = Lens.lens (\Classifier' {grokClassifier} -> grokClassifier) (\s@Classifier' {} a -> s {grokClassifier = a} :: Classifier)
 
-instance Prelude.FromJSON Classifier where
+instance Core.FromJSON Classifier where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Classifier"
       ( \x ->
           Classifier'
-            Prelude.<$> (x Prelude..:? "XMLClassifier")
-            Prelude.<*> (x Prelude..:? "JsonClassifier")
-            Prelude.<*> (x Prelude..:? "CsvClassifier")
-            Prelude.<*> (x Prelude..:? "GrokClassifier")
+            Core.<$> (x Core..:? "XMLClassifier")
+            Core.<*> (x Core..:? "JsonClassifier")
+            Core.<*> (x Core..:? "CsvClassifier")
+            Core.<*> (x Core..:? "GrokClassifier")
       )
 
-instance Prelude.Hashable Classifier
+instance Core.Hashable Classifier
 
-instance Prelude.NFData Classifier
+instance Core.NFData Classifier

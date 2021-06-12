@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.EC2.EnableEbsEncryptionByDefault
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,9 +69,9 @@ data EnableEbsEncryptionByDefault = EnableEbsEncryptionByDefault'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableEbsEncryptionByDefault' with all optional fields omitted.
@@ -91,67 +90,56 @@ newEnableEbsEncryptionByDefault ::
 newEnableEbsEncryptionByDefault =
   EnableEbsEncryptionByDefault'
     { dryRun =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-enableEbsEncryptionByDefault_dryRun :: Lens.Lens' EnableEbsEncryptionByDefault (Prelude.Maybe Prelude.Bool)
+enableEbsEncryptionByDefault_dryRun :: Lens.Lens' EnableEbsEncryptionByDefault (Core.Maybe Core.Bool)
 enableEbsEncryptionByDefault_dryRun = Lens.lens (\EnableEbsEncryptionByDefault' {dryRun} -> dryRun) (\s@EnableEbsEncryptionByDefault' {} a -> s {dryRun = a} :: EnableEbsEncryptionByDefault)
 
-instance
-  Prelude.AWSRequest
-    EnableEbsEncryptionByDefault
-  where
+instance Core.AWSRequest EnableEbsEncryptionByDefault where
   type
-    Rs EnableEbsEncryptionByDefault =
+    AWSResponse EnableEbsEncryptionByDefault =
       EnableEbsEncryptionByDefaultResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           EnableEbsEncryptionByDefaultResponse'
-            Prelude.<$> (x Prelude..@? "ebsEncryptionByDefault")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ebsEncryptionByDefault")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    EnableEbsEncryptionByDefault
+instance Core.Hashable EnableEbsEncryptionByDefault
 
-instance Prelude.NFData EnableEbsEncryptionByDefault
+instance Core.NFData EnableEbsEncryptionByDefault
 
-instance
-  Prelude.ToHeaders
-    EnableEbsEncryptionByDefault
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders EnableEbsEncryptionByDefault where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath EnableEbsEncryptionByDefault where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableEbsEncryptionByDefault where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableEbsEncryptionByDefault where
+instance Core.ToQuery EnableEbsEncryptionByDefault where
   toQuery EnableEbsEncryptionByDefault' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "EnableEbsEncryptionByDefault" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun
+          Core.=: ("EnableEbsEncryptionByDefault" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newEnableEbsEncryptionByDefaultResponse' smart constructor.
 data EnableEbsEncryptionByDefaultResponse = EnableEbsEncryptionByDefaultResponse'
   { -- | The updated status of encryption by default.
-    ebsEncryptionByDefault :: Prelude.Maybe Prelude.Bool,
+    ebsEncryptionByDefault :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableEbsEncryptionByDefaultResponse' with all optional fields omitted.
@@ -166,23 +154,23 @@ data EnableEbsEncryptionByDefaultResponse = EnableEbsEncryptionByDefaultResponse
 -- 'httpStatus', 'enableEbsEncryptionByDefaultResponse_httpStatus' - The response's http status code.
 newEnableEbsEncryptionByDefaultResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableEbsEncryptionByDefaultResponse
 newEnableEbsEncryptionByDefaultResponse pHttpStatus_ =
   EnableEbsEncryptionByDefaultResponse'
     { ebsEncryptionByDefault =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated status of encryption by default.
-enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault :: Lens.Lens' EnableEbsEncryptionByDefaultResponse (Prelude.Maybe Prelude.Bool)
+enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault :: Lens.Lens' EnableEbsEncryptionByDefaultResponse (Core.Maybe Core.Bool)
 enableEbsEncryptionByDefaultResponse_ebsEncryptionByDefault = Lens.lens (\EnableEbsEncryptionByDefaultResponse' {ebsEncryptionByDefault} -> ebsEncryptionByDefault) (\s@EnableEbsEncryptionByDefaultResponse' {} a -> s {ebsEncryptionByDefault = a} :: EnableEbsEncryptionByDefaultResponse)
 
 -- | The response's http status code.
-enableEbsEncryptionByDefaultResponse_httpStatus :: Lens.Lens' EnableEbsEncryptionByDefaultResponse Prelude.Int
+enableEbsEncryptionByDefaultResponse_httpStatus :: Lens.Lens' EnableEbsEncryptionByDefaultResponse Core.Int
 enableEbsEncryptionByDefaultResponse_httpStatus = Lens.lens (\EnableEbsEncryptionByDefaultResponse' {httpStatus} -> httpStatus) (\s@EnableEbsEncryptionByDefaultResponse' {} a -> s {httpStatus = a} :: EnableEbsEncryptionByDefaultResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableEbsEncryptionByDefaultResponse

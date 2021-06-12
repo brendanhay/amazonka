@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CloudFront.CreateMonitoringSubscription
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data CreateMonitoringSubscription = CreateMonitoringSubscription'
     -- distribution.
     monitoringSubscription :: MonitoringSubscription,
     -- | The ID of the distribution that you are enabling metrics for.
-    distributionId :: Prelude.Text
+    distributionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateMonitoringSubscription' with all optional fields omitted.
@@ -80,7 +79,7 @@ newCreateMonitoringSubscription ::
   -- | 'monitoringSubscription'
   MonitoringSubscription ->
   -- | 'distributionId'
-  Prelude.Text ->
+  Core.Text ->
   CreateMonitoringSubscription
 newCreateMonitoringSubscription
   pMonitoringSubscription_
@@ -98,67 +97,56 @@ createMonitoringSubscription_monitoringSubscription :: Lens.Lens' CreateMonitori
 createMonitoringSubscription_monitoringSubscription = Lens.lens (\CreateMonitoringSubscription' {monitoringSubscription} -> monitoringSubscription) (\s@CreateMonitoringSubscription' {} a -> s {monitoringSubscription = a} :: CreateMonitoringSubscription)
 
 -- | The ID of the distribution that you are enabling metrics for.
-createMonitoringSubscription_distributionId :: Lens.Lens' CreateMonitoringSubscription Prelude.Text
+createMonitoringSubscription_distributionId :: Lens.Lens' CreateMonitoringSubscription Core.Text
 createMonitoringSubscription_distributionId = Lens.lens (\CreateMonitoringSubscription' {distributionId} -> distributionId) (\s@CreateMonitoringSubscription' {} a -> s {distributionId = a} :: CreateMonitoringSubscription)
 
-instance
-  Prelude.AWSRequest
-    CreateMonitoringSubscription
-  where
+instance Core.AWSRequest CreateMonitoringSubscription where
   type
-    Rs CreateMonitoringSubscription =
+    AWSResponse CreateMonitoringSubscription =
       CreateMonitoringSubscriptionResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateMonitoringSubscriptionResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateMonitoringSubscription
+instance Core.Hashable CreateMonitoringSubscription
 
-instance Prelude.NFData CreateMonitoringSubscription
+instance Core.NFData CreateMonitoringSubscription
 
-instance
-  Prelude.ToElement
-    CreateMonitoringSubscription
-  where
+instance Core.ToElement CreateMonitoringSubscription where
   toElement CreateMonitoringSubscription' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}MonitoringSubscription"
       monitoringSubscription
 
-instance
-  Prelude.ToHeaders
-    CreateMonitoringSubscription
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateMonitoringSubscription where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateMonitoringSubscription where
+instance Core.ToPath CreateMonitoringSubscription where
   toPath CreateMonitoringSubscription' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2020-05-31/distributions/",
-        Prelude.toBS distributionId,
+        Core.toBS distributionId,
         "/monitoring-subscription"
       ]
 
-instance Prelude.ToQuery CreateMonitoringSubscription where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateMonitoringSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateMonitoringSubscriptionResponse' smart constructor.
 data CreateMonitoringSubscriptionResponse = CreateMonitoringSubscriptionResponse'
   { -- | A monitoring subscription. This structure contains information about
     -- whether additional CloudWatch metrics are enabled for a given CloudFront
     -- distribution.
-    monitoringSubscription :: Prelude.Maybe MonitoringSubscription,
+    monitoringSubscription :: Core.Maybe MonitoringSubscription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateMonitoringSubscriptionResponse' with all optional fields omitted.
@@ -175,25 +163,25 @@ data CreateMonitoringSubscriptionResponse = CreateMonitoringSubscriptionResponse
 -- 'httpStatus', 'createMonitoringSubscriptionResponse_httpStatus' - The response's http status code.
 newCreateMonitoringSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateMonitoringSubscriptionResponse
 newCreateMonitoringSubscriptionResponse pHttpStatus_ =
   CreateMonitoringSubscriptionResponse'
     { monitoringSubscription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A monitoring subscription. This structure contains information about
 -- whether additional CloudWatch metrics are enabled for a given CloudFront
 -- distribution.
-createMonitoringSubscriptionResponse_monitoringSubscription :: Lens.Lens' CreateMonitoringSubscriptionResponse (Prelude.Maybe MonitoringSubscription)
+createMonitoringSubscriptionResponse_monitoringSubscription :: Lens.Lens' CreateMonitoringSubscriptionResponse (Core.Maybe MonitoringSubscription)
 createMonitoringSubscriptionResponse_monitoringSubscription = Lens.lens (\CreateMonitoringSubscriptionResponse' {monitoringSubscription} -> monitoringSubscription) (\s@CreateMonitoringSubscriptionResponse' {} a -> s {monitoringSubscription = a} :: CreateMonitoringSubscriptionResponse)
 
 -- | The response's http status code.
-createMonitoringSubscriptionResponse_httpStatus :: Lens.Lens' CreateMonitoringSubscriptionResponse Prelude.Int
+createMonitoringSubscriptionResponse_httpStatus :: Lens.Lens' CreateMonitoringSubscriptionResponse Core.Int
 createMonitoringSubscriptionResponse_httpStatus = Lens.lens (\CreateMonitoringSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateMonitoringSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateMonitoringSubscriptionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateMonitoringSubscriptionResponse

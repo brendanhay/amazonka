@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,9 +60,9 @@ module Network.AWS.DirectoryService.ShareDirectory
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,10 +72,10 @@ data ShareDirectory = ShareDirectory'
     -- directory consumer. The request includes a typed message to help the
     -- directory consumer administrator determine whether to approve or reject
     -- the share invitation.
-    shareNotes :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    shareNotes :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Identifier of the AWS Managed Microsoft AD directory that you want to
     -- share with other AWS accounts.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | Identifier for the directory consumer account with whom the directory is
     -- to be shared.
     shareTarget :: ShareTarget,
@@ -86,7 +85,7 @@ data ShareDirectory = ShareDirectory'
     -- request (@HANDSHAKE@).
     shareMethod :: ShareMethod
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShareDirectory' with all optional fields omitted.
@@ -113,7 +112,7 @@ data ShareDirectory = ShareDirectory'
 -- request (@HANDSHAKE@).
 newShareDirectory ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shareTarget'
   ShareTarget ->
   -- | 'shareMethod'
@@ -124,7 +123,7 @@ newShareDirectory
   pShareTarget_
   pShareMethod_ =
     ShareDirectory'
-      { shareNotes = Prelude.Nothing,
+      { shareNotes = Core.Nothing,
         directoryId = pDirectoryId_,
         shareTarget = pShareTarget_,
         shareMethod = pShareMethod_
@@ -134,12 +133,12 @@ newShareDirectory
 -- directory consumer. The request includes a typed message to help the
 -- directory consumer administrator determine whether to approve or reject
 -- the share invitation.
-shareDirectory_shareNotes :: Lens.Lens' ShareDirectory (Prelude.Maybe Prelude.Text)
-shareDirectory_shareNotes = Lens.lens (\ShareDirectory' {shareNotes} -> shareNotes) (\s@ShareDirectory' {} a -> s {shareNotes = a} :: ShareDirectory) Prelude.. Lens.mapping Prelude._Sensitive
+shareDirectory_shareNotes :: Lens.Lens' ShareDirectory (Core.Maybe Core.Text)
+shareDirectory_shareNotes = Lens.lens (\ShareDirectory' {shareNotes} -> shareNotes) (\s@ShareDirectory' {} a -> s {shareNotes = a} :: ShareDirectory) Core.. Lens.mapping Core._Sensitive
 
 -- | Identifier of the AWS Managed Microsoft AD directory that you want to
 -- share with other AWS accounts.
-shareDirectory_directoryId :: Lens.Lens' ShareDirectory Prelude.Text
+shareDirectory_directoryId :: Lens.Lens' ShareDirectory Core.Text
 shareDirectory_directoryId = Lens.lens (\ShareDirectory' {directoryId} -> directoryId) (\s@ShareDirectory' {} a -> s {directoryId = a} :: ShareDirectory)
 
 -- | Identifier for the directory consumer account with whom the directory is
@@ -154,62 +153,62 @@ shareDirectory_shareTarget = Lens.lens (\ShareDirectory' {shareTarget} -> shareT
 shareDirectory_shareMethod :: Lens.Lens' ShareDirectory ShareMethod
 shareDirectory_shareMethod = Lens.lens (\ShareDirectory' {shareMethod} -> shareMethod) (\s@ShareDirectory' {} a -> s {shareMethod = a} :: ShareDirectory)
 
-instance Prelude.AWSRequest ShareDirectory where
-  type Rs ShareDirectory = ShareDirectoryResponse
+instance Core.AWSRequest ShareDirectory where
+  type
+    AWSResponse ShareDirectory =
+      ShareDirectoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ShareDirectoryResponse'
-            Prelude.<$> (x Prelude..?> "SharedDirectoryId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SharedDirectoryId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ShareDirectory
+instance Core.Hashable ShareDirectory
 
-instance Prelude.NFData ShareDirectory
+instance Core.NFData ShareDirectory
 
-instance Prelude.ToHeaders ShareDirectory where
+instance Core.ToHeaders ShareDirectory where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.ShareDirectory" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.ShareDirectory" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ShareDirectory where
+instance Core.ToJSON ShareDirectory where
   toJSON ShareDirectory' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ShareNotes" Prelude..=) Prelude.<$> shareNotes,
-            Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("ShareTarget" Prelude..= shareTarget),
-            Prelude.Just ("ShareMethod" Prelude..= shareMethod)
+    Core.object
+      ( Core.catMaybes
+          [ ("ShareNotes" Core..=) Core.<$> shareNotes,
+            Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("ShareTarget" Core..= shareTarget),
+            Core.Just ("ShareMethod" Core..= shareMethod)
           ]
       )
 
-instance Prelude.ToPath ShareDirectory where
-  toPath = Prelude.const "/"
+instance Core.ToPath ShareDirectory where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ShareDirectory where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ShareDirectory where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newShareDirectoryResponse' smart constructor.
 data ShareDirectoryResponse = ShareDirectoryResponse'
   { -- | Identifier of the directory that is stored in the directory consumer
     -- account that is shared from the specified directory (@DirectoryId@).
-    sharedDirectoryId :: Prelude.Maybe Prelude.Text,
+    sharedDirectoryId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShareDirectoryResponse' with all optional fields omitted.
@@ -225,22 +224,22 @@ data ShareDirectoryResponse = ShareDirectoryResponse'
 -- 'httpStatus', 'shareDirectoryResponse_httpStatus' - The response's http status code.
 newShareDirectoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ShareDirectoryResponse
 newShareDirectoryResponse pHttpStatus_ =
   ShareDirectoryResponse'
     { sharedDirectoryId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Identifier of the directory that is stored in the directory consumer
 -- account that is shared from the specified directory (@DirectoryId@).
-shareDirectoryResponse_sharedDirectoryId :: Lens.Lens' ShareDirectoryResponse (Prelude.Maybe Prelude.Text)
+shareDirectoryResponse_sharedDirectoryId :: Lens.Lens' ShareDirectoryResponse (Core.Maybe Core.Text)
 shareDirectoryResponse_sharedDirectoryId = Lens.lens (\ShareDirectoryResponse' {sharedDirectoryId} -> sharedDirectoryId) (\s@ShareDirectoryResponse' {} a -> s {sharedDirectoryId = a} :: ShareDirectoryResponse)
 
 -- | The response's http status code.
-shareDirectoryResponse_httpStatus :: Lens.Lens' ShareDirectoryResponse Prelude.Int
+shareDirectoryResponse_httpStatus :: Lens.Lens' ShareDirectoryResponse Core.Int
 shareDirectoryResponse_httpStatus = Lens.lens (\ShareDirectoryResponse' {httpStatus} -> httpStatus) (\s@ShareDirectoryResponse' {} a -> s {httpStatus = a} :: ShareDirectoryResponse)
 
-instance Prelude.NFData ShareDirectoryResponse
+instance Core.NFData ShareDirectoryResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLaunchConfiguration' smart constructor.
 data DeleteLaunchConfiguration = DeleteLaunchConfiguration'
   { -- | The name of the launch configuration.
-    launchConfigurationName :: Prelude.Text
+    launchConfigurationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchConfiguration' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DeleteLaunchConfiguration = DeleteLaunchConfiguration'
 -- 'launchConfigurationName', 'deleteLaunchConfiguration_launchConfigurationName' - The name of the launch configuration.
 newDeleteLaunchConfiguration ::
   -- | 'launchConfigurationName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLaunchConfiguration
 newDeleteLaunchConfiguration
   pLaunchConfigurationName_ =
@@ -74,44 +73,43 @@ newDeleteLaunchConfiguration
       }
 
 -- | The name of the launch configuration.
-deleteLaunchConfiguration_launchConfigurationName :: Lens.Lens' DeleteLaunchConfiguration Prelude.Text
+deleteLaunchConfiguration_launchConfigurationName :: Lens.Lens' DeleteLaunchConfiguration Core.Text
 deleteLaunchConfiguration_launchConfigurationName = Lens.lens (\DeleteLaunchConfiguration' {launchConfigurationName} -> launchConfigurationName) (\s@DeleteLaunchConfiguration' {} a -> s {launchConfigurationName = a} :: DeleteLaunchConfiguration)
 
-instance Prelude.AWSRequest DeleteLaunchConfiguration where
+instance Core.AWSRequest DeleteLaunchConfiguration where
   type
-    Rs DeleteLaunchConfiguration =
+    AWSResponse DeleteLaunchConfiguration =
       DeleteLaunchConfigurationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteLaunchConfigurationResponse'
 
-instance Prelude.Hashable DeleteLaunchConfiguration
+instance Core.Hashable DeleteLaunchConfiguration
 
-instance Prelude.NFData DeleteLaunchConfiguration
+instance Core.NFData DeleteLaunchConfiguration
 
-instance Prelude.ToHeaders DeleteLaunchConfiguration where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteLaunchConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteLaunchConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLaunchConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLaunchConfiguration where
+instance Core.ToQuery DeleteLaunchConfiguration where
   toQuery DeleteLaunchConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteLaunchConfiguration" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+          Core.=: ("DeleteLaunchConfiguration" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
         "LaunchConfigurationName"
-          Prelude.=: launchConfigurationName
+          Core.=: launchConfigurationName
       ]
 
 -- | /See:/ 'newDeleteLaunchConfigurationResponse' smart constructor.
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchConfigurationResponse' with all optional fields omitted.
@@ -123,5 +121,5 @@ newDeleteLaunchConfigurationResponse =
   DeleteLaunchConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteLaunchConfigurationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +57,14 @@ data DescribeElasticsearchInstanceTypeLimits = DescribeElasticsearchInstanceType
   { -- | DomainName represents the name of the Domain that we are trying to
     -- modify. This should be present only if we are querying for Elasticsearch
     -- @ Limits @ for existing domain.
-    domainName :: Prelude.Maybe Prelude.Text,
+    domainName :: Core.Maybe Core.Text,
     -- | The instance type for an Elasticsearch cluster for which Elasticsearch
     -- @ Limits @ are needed.
     instanceType :: ESPartitionInstanceType,
     -- | Version of Elasticsearch for which @ Limits @ are needed.
-    elasticsearchVersion :: Prelude.Text
+    elasticsearchVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticsearchInstanceTypeLimits' with all optional fields omitted.
@@ -87,14 +86,14 @@ newDescribeElasticsearchInstanceTypeLimits ::
   -- | 'instanceType'
   ESPartitionInstanceType ->
   -- | 'elasticsearchVersion'
-  Prelude.Text ->
+  Core.Text ->
   DescribeElasticsearchInstanceTypeLimits
 newDescribeElasticsearchInstanceTypeLimits
   pInstanceType_
   pElasticsearchVersion_ =
     DescribeElasticsearchInstanceTypeLimits'
       { domainName =
-          Prelude.Nothing,
+          Core.Nothing,
         instanceType = pInstanceType_,
         elasticsearchVersion =
           pElasticsearchVersion_
@@ -103,7 +102,7 @@ newDescribeElasticsearchInstanceTypeLimits
 -- | DomainName represents the name of the Domain that we are trying to
 -- modify. This should be present only if we are querying for Elasticsearch
 -- @ Limits @ for existing domain.
-describeElasticsearchInstanceTypeLimits_domainName :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits (Prelude.Maybe Prelude.Text)
+describeElasticsearchInstanceTypeLimits_domainName :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits (Core.Maybe Core.Text)
 describeElasticsearchInstanceTypeLimits_domainName = Lens.lens (\DescribeElasticsearchInstanceTypeLimits' {domainName} -> domainName) (\s@DescribeElasticsearchInstanceTypeLimits' {} a -> s {domainName = a} :: DescribeElasticsearchInstanceTypeLimits)
 
 -- | The instance type for an Elasticsearch cluster for which Elasticsearch
@@ -112,71 +111,69 @@ describeElasticsearchInstanceTypeLimits_instanceType :: Lens.Lens' DescribeElast
 describeElasticsearchInstanceTypeLimits_instanceType = Lens.lens (\DescribeElasticsearchInstanceTypeLimits' {instanceType} -> instanceType) (\s@DescribeElasticsearchInstanceTypeLimits' {} a -> s {instanceType = a} :: DescribeElasticsearchInstanceTypeLimits)
 
 -- | Version of Elasticsearch for which @ Limits @ are needed.
-describeElasticsearchInstanceTypeLimits_elasticsearchVersion :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits Prelude.Text
+describeElasticsearchInstanceTypeLimits_elasticsearchVersion :: Lens.Lens' DescribeElasticsearchInstanceTypeLimits Core.Text
 describeElasticsearchInstanceTypeLimits_elasticsearchVersion = Lens.lens (\DescribeElasticsearchInstanceTypeLimits' {elasticsearchVersion} -> elasticsearchVersion) (\s@DescribeElasticsearchInstanceTypeLimits' {} a -> s {elasticsearchVersion = a} :: DescribeElasticsearchInstanceTypeLimits)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeElasticsearchInstanceTypeLimits
   where
   type
-    Rs DescribeElasticsearchInstanceTypeLimits =
+    AWSResponse
+      DescribeElasticsearchInstanceTypeLimits =
       DescribeElasticsearchInstanceTypeLimitsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeElasticsearchInstanceTypeLimitsResponse'
-            Prelude.<$> ( x Prelude..?> "LimitsByRole"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "LimitsByRole" Core..!@ Core.mempty)
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeElasticsearchInstanceTypeLimits
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeElasticsearchInstanceTypeLimits
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeElasticsearchInstanceTypeLimits
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeElasticsearchInstanceTypeLimits
   where
   toPath DescribeElasticsearchInstanceTypeLimits' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-01-01/es/instanceTypeLimits/",
-        Prelude.toBS elasticsearchVersion,
+        Core.toBS elasticsearchVersion,
         "/",
-        Prelude.toBS instanceType
+        Core.toBS instanceType
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeElasticsearchInstanceTypeLimits
   where
   toQuery DescribeElasticsearchInstanceTypeLimits' {..} =
-    Prelude.mconcat
-      ["domainName" Prelude.=: domainName]
+    Core.mconcat ["domainName" Core.=: domainName]
 
 -- | Container for the parameters received from
 -- @ DescribeElasticsearchInstanceTypeLimits @ operation.
 --
 -- /See:/ 'newDescribeElasticsearchInstanceTypeLimitsResponse' smart constructor.
 data DescribeElasticsearchInstanceTypeLimitsResponse = DescribeElasticsearchInstanceTypeLimitsResponse'
-  { limitsByRole :: Prelude.Maybe (Prelude.HashMap Prelude.Text Limits),
+  { limitsByRole :: Core.Maybe (Core.HashMap Core.Text Limits),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticsearchInstanceTypeLimitsResponse' with all optional fields omitted.
@@ -191,24 +188,24 @@ data DescribeElasticsearchInstanceTypeLimitsResponse = DescribeElasticsearchInst
 -- 'httpStatus', 'describeElasticsearchInstanceTypeLimitsResponse_httpStatus' - The response's http status code.
 newDescribeElasticsearchInstanceTypeLimitsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeElasticsearchInstanceTypeLimitsResponse
 newDescribeElasticsearchInstanceTypeLimitsResponse
   pHttpStatus_ =
     DescribeElasticsearchInstanceTypeLimitsResponse'
       { limitsByRole =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-describeElasticsearchInstanceTypeLimitsResponse_limitsByRole :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Limits))
-describeElasticsearchInstanceTypeLimitsResponse_limitsByRole = Lens.lens (\DescribeElasticsearchInstanceTypeLimitsResponse' {limitsByRole} -> limitsByRole) (\s@DescribeElasticsearchInstanceTypeLimitsResponse' {} a -> s {limitsByRole = a} :: DescribeElasticsearchInstanceTypeLimitsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeElasticsearchInstanceTypeLimitsResponse_limitsByRole :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse (Core.Maybe (Core.HashMap Core.Text Limits))
+describeElasticsearchInstanceTypeLimitsResponse_limitsByRole = Lens.lens (\DescribeElasticsearchInstanceTypeLimitsResponse' {limitsByRole} -> limitsByRole) (\s@DescribeElasticsearchInstanceTypeLimitsResponse' {} a -> s {limitsByRole = a} :: DescribeElasticsearchInstanceTypeLimitsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeElasticsearchInstanceTypeLimitsResponse_httpStatus :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse Prelude.Int
+describeElasticsearchInstanceTypeLimitsResponse_httpStatus :: Lens.Lens' DescribeElasticsearchInstanceTypeLimitsResponse Core.Int
 describeElasticsearchInstanceTypeLimitsResponse_httpStatus = Lens.lens (\DescribeElasticsearchInstanceTypeLimitsResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticsearchInstanceTypeLimitsResponse' {} a -> s {httpStatus = a} :: DescribeElasticsearchInstanceTypeLimitsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeElasticsearchInstanceTypeLimitsResponse

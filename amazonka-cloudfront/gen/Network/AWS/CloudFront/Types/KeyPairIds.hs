@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.KeyPairIds where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A list of CloudFront key pair identifiers.
 --
 -- /See:/ 'newKeyPairIds' smart constructor.
 data KeyPairIds = KeyPairIds'
   { -- | A list of CloudFront key pair identifiers.
-    items :: Prelude.Maybe [Prelude.Text],
+    items :: Core.Maybe [Core.Text],
     -- | The number of key pair identifiers in the list.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyPairIds' with all optional fields omitted.
@@ -47,30 +46,30 @@ data KeyPairIds = KeyPairIds'
 -- 'quantity', 'keyPairIds_quantity' - The number of key pair identifiers in the list.
 newKeyPairIds ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   KeyPairIds
 newKeyPairIds pQuantity_ =
   KeyPairIds'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | A list of CloudFront key pair identifiers.
-keyPairIds_items :: Lens.Lens' KeyPairIds (Prelude.Maybe [Prelude.Text])
-keyPairIds_items = Lens.lens (\KeyPairIds' {items} -> items) (\s@KeyPairIds' {} a -> s {items = a} :: KeyPairIds) Prelude.. Lens.mapping Prelude._Coerce
+keyPairIds_items :: Lens.Lens' KeyPairIds (Core.Maybe [Core.Text])
+keyPairIds_items = Lens.lens (\KeyPairIds' {items} -> items) (\s@KeyPairIds' {} a -> s {items = a} :: KeyPairIds) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of key pair identifiers in the list.
-keyPairIds_quantity :: Lens.Lens' KeyPairIds Prelude.Int
+keyPairIds_quantity :: Lens.Lens' KeyPairIds Core.Int
 keyPairIds_quantity = Lens.lens (\KeyPairIds' {quantity} -> quantity) (\s@KeyPairIds' {} a -> s {quantity = a} :: KeyPairIds)
 
-instance Prelude.FromXML KeyPairIds where
+instance Core.FromXML KeyPairIds where
   parseXML x =
     KeyPairIds'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "KeyPairId")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "KeyPairId")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable KeyPairIds
+instance Core.Hashable KeyPairIds
 
-instance Prelude.NFData KeyPairIds
+instance Core.NFData KeyPairIds

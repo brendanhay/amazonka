@@ -15,85 +15,83 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Waiters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.DescribeProjectVersions
 import Network.AWS.Rekognition.Lens
 import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 120 seconds until a successful state is reached. An error is returned after 360 failed checks.
-newProjectVersionTrainingCompleted :: Waiter.Wait DescribeProjectVersions
+newProjectVersionTrainingCompleted :: Core.Wait DescribeProjectVersions
 newProjectVersionTrainingCompleted =
-  Waiter.Wait
-    { Waiter._waitName =
+  Core.Wait
+    { Core._waitName =
         "ProjectVersionTrainingCompleted",
-      Waiter._waitAttempts = 360,
-      Waiter._waitDelay = 120,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+      Core._waitAttempts = 360,
+      Core._waitDelay = 120,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "TRAINING_COMPLETED"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. projectVersionDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. projectVersionDescription_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "TRAINING_FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. projectVersionDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. projectVersionDescription_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.Rekognition.DescribeProjectVersions' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newProjectVersionRunning :: Waiter.Wait DescribeProjectVersions
+newProjectVersionRunning :: Core.Wait DescribeProjectVersions
 newProjectVersionRunning =
-  Waiter.Wait
-    { Waiter._waitName =
-        "ProjectVersionRunning",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "ProjectVersionRunning",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "RUNNING"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. projectVersionDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. projectVersionDescription_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAny
+          Core.matchAny
             "FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
                     ( describeProjectVersionsResponse_projectVersionDescriptions
-                        Prelude.. Lens._Just
+                        Core.. Lens._Just
                     )
                 )
-                Prelude.. projectVersionDescription_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. projectVersionDescription_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }

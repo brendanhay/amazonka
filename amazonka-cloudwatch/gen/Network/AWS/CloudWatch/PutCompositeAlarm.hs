@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -87,8 +86,8 @@ module Network.AWS.CloudWatch.PutCompositeAlarm
 where
 
 import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -100,34 +99,34 @@ data PutCompositeAlarm = PutCompositeAlarm'
     --
     -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
     -- @arn:aws:ssm:region:account-id:opsitem:severity @
-    alarmActions :: Prelude.Maybe [Prelude.Text],
+    alarmActions :: Core.Maybe [Core.Text],
     -- | The actions to execute when this alarm transitions to the
     -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
     -- as an Amazon Resource Name (ARN).
     --
     -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
-    insufficientDataActions :: Prelude.Maybe [Prelude.Text],
+    insufficientDataActions :: Core.Maybe [Core.Text],
     -- | A list of key-value pairs to associate with the composite alarm. You can
     -- associate as many as 50 tags with an alarm.
     --
     -- Tags can help you organize and categorize your resources. You can also
     -- use them to scope user permissions, by granting a user permission to
     -- access or change only resources with certain tag values.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The actions to execute when this alarm transitions to an @OK@ state from
     -- any other state. Each action is specified as an Amazon Resource Name
     -- (ARN).
     --
     -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
-    oKActions :: Prelude.Maybe [Prelude.Text],
+    oKActions :: Core.Maybe [Core.Text],
     -- | Indicates whether actions should be executed during any changes to the
     -- alarm state of the composite alarm. The default is @TRUE@.
-    actionsEnabled :: Prelude.Maybe Prelude.Bool,
+    actionsEnabled :: Core.Maybe Core.Bool,
     -- | The description for the composite alarm.
-    alarmDescription :: Prelude.Maybe Prelude.Text,
+    alarmDescription :: Core.Maybe Core.Text,
     -- | The name for the composite alarm. This name must be unique within the
     -- Region.
-    alarmName :: Prelude.Text,
+    alarmName :: Core.Text,
     -- | An expression that specifies which other alarms are to be evaluated to
     -- determine this composite alarm\'s state. For each alarm that you
     -- reference, you designate a function that specifies whether that alarm
@@ -184,9 +183,9 @@ data PutCompositeAlarm = PutCompositeAlarm'
     -- The @AlarmRule@ can specify as many as 100 \"children\" alarms. The
     -- @AlarmRule@ expression can have as many as 500 elements. Elements are
     -- child alarms, TRUE or FALSE statements, and parentheses.
-    alarmRule :: Prelude.Text
+    alarmRule :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutCompositeAlarm' with all optional fields omitted.
@@ -288,18 +287,18 @@ data PutCompositeAlarm = PutCompositeAlarm'
 -- child alarms, TRUE or FALSE statements, and parentheses.
 newPutCompositeAlarm ::
   -- | 'alarmName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'alarmRule'
-  Prelude.Text ->
+  Core.Text ->
   PutCompositeAlarm
 newPutCompositeAlarm pAlarmName_ pAlarmRule_ =
   PutCompositeAlarm'
-    { alarmActions = Prelude.Nothing,
-      insufficientDataActions = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      oKActions = Prelude.Nothing,
-      actionsEnabled = Prelude.Nothing,
-      alarmDescription = Prelude.Nothing,
+    { alarmActions = Core.Nothing,
+      insufficientDataActions = Core.Nothing,
+      tags = Core.Nothing,
+      oKActions = Core.Nothing,
+      actionsEnabled = Core.Nothing,
+      alarmDescription = Core.Nothing,
       alarmName = pAlarmName_,
       alarmRule = pAlarmRule_
     }
@@ -310,16 +309,16 @@ newPutCompositeAlarm pAlarmName_ pAlarmRule_ =
 --
 -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @ |
 -- @arn:aws:ssm:region:account-id:opsitem:severity @
-putCompositeAlarm_alarmActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
-putCompositeAlarm_alarmActions = Lens.lens (\PutCompositeAlarm' {alarmActions} -> alarmActions) (\s@PutCompositeAlarm' {} a -> s {alarmActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Prelude._Coerce
+putCompositeAlarm_alarmActions :: Lens.Lens' PutCompositeAlarm (Core.Maybe [Core.Text])
+putCompositeAlarm_alarmActions = Lens.lens (\PutCompositeAlarm' {alarmActions} -> alarmActions) (\s@PutCompositeAlarm' {} a -> s {alarmActions = a} :: PutCompositeAlarm) Core.. Lens.mapping Lens._Coerce
 
 -- | The actions to execute when this alarm transitions to the
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
 -- as an Amazon Resource Name (ARN).
 --
 -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
-putCompositeAlarm_insufficientDataActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
-putCompositeAlarm_insufficientDataActions = Lens.lens (\PutCompositeAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@PutCompositeAlarm' {} a -> s {insufficientDataActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Prelude._Coerce
+putCompositeAlarm_insufficientDataActions :: Lens.Lens' PutCompositeAlarm (Core.Maybe [Core.Text])
+putCompositeAlarm_insufficientDataActions = Lens.lens (\PutCompositeAlarm' {insufficientDataActions} -> insufficientDataActions) (\s@PutCompositeAlarm' {} a -> s {insufficientDataActions = a} :: PutCompositeAlarm) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of key-value pairs to associate with the composite alarm. You can
 -- associate as many as 50 tags with an alarm.
@@ -327,29 +326,29 @@ putCompositeAlarm_insufficientDataActions = Lens.lens (\PutCompositeAlarm' {insu
 -- Tags can help you organize and categorize your resources. You can also
 -- use them to scope user permissions, by granting a user permission to
 -- access or change only resources with certain tag values.
-putCompositeAlarm_tags :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Tag])
-putCompositeAlarm_tags = Lens.lens (\PutCompositeAlarm' {tags} -> tags) (\s@PutCompositeAlarm' {} a -> s {tags = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Prelude._Coerce
+putCompositeAlarm_tags :: Lens.Lens' PutCompositeAlarm (Core.Maybe [Tag])
+putCompositeAlarm_tags = Lens.lens (\PutCompositeAlarm' {tags} -> tags) (\s@PutCompositeAlarm' {} a -> s {tags = a} :: PutCompositeAlarm) Core.. Lens.mapping Lens._Coerce
 
 -- | The actions to execute when this alarm transitions to an @OK@ state from
 -- any other state. Each action is specified as an Amazon Resource Name
 -- (ARN).
 --
 -- Valid Values: @arn:aws:sns:region:account-id:sns-topic-name @
-putCompositeAlarm_oKActions :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe [Prelude.Text])
-putCompositeAlarm_oKActions = Lens.lens (\PutCompositeAlarm' {oKActions} -> oKActions) (\s@PutCompositeAlarm' {} a -> s {oKActions = a} :: PutCompositeAlarm) Prelude.. Lens.mapping Prelude._Coerce
+putCompositeAlarm_oKActions :: Lens.Lens' PutCompositeAlarm (Core.Maybe [Core.Text])
+putCompositeAlarm_oKActions = Lens.lens (\PutCompositeAlarm' {oKActions} -> oKActions) (\s@PutCompositeAlarm' {} a -> s {oKActions = a} :: PutCompositeAlarm) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether actions should be executed during any changes to the
 -- alarm state of the composite alarm. The default is @TRUE@.
-putCompositeAlarm_actionsEnabled :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe Prelude.Bool)
+putCompositeAlarm_actionsEnabled :: Lens.Lens' PutCompositeAlarm (Core.Maybe Core.Bool)
 putCompositeAlarm_actionsEnabled = Lens.lens (\PutCompositeAlarm' {actionsEnabled} -> actionsEnabled) (\s@PutCompositeAlarm' {} a -> s {actionsEnabled = a} :: PutCompositeAlarm)
 
 -- | The description for the composite alarm.
-putCompositeAlarm_alarmDescription :: Lens.Lens' PutCompositeAlarm (Prelude.Maybe Prelude.Text)
+putCompositeAlarm_alarmDescription :: Lens.Lens' PutCompositeAlarm (Core.Maybe Core.Text)
 putCompositeAlarm_alarmDescription = Lens.lens (\PutCompositeAlarm' {alarmDescription} -> alarmDescription) (\s@PutCompositeAlarm' {} a -> s {alarmDescription = a} :: PutCompositeAlarm)
 
 -- | The name for the composite alarm. This name must be unique within the
 -- Region.
-putCompositeAlarm_alarmName :: Lens.Lens' PutCompositeAlarm Prelude.Text
+putCompositeAlarm_alarmName :: Lens.Lens' PutCompositeAlarm Core.Text
 putCompositeAlarm_alarmName = Lens.lens (\PutCompositeAlarm' {alarmName} -> alarmName) (\s@PutCompositeAlarm' {} a -> s {alarmName = a} :: PutCompositeAlarm)
 
 -- | An expression that specifies which other alarms are to be evaluated to
@@ -408,59 +407,58 @@ putCompositeAlarm_alarmName = Lens.lens (\PutCompositeAlarm' {alarmName} -> alar
 -- The @AlarmRule@ can specify as many as 100 \"children\" alarms. The
 -- @AlarmRule@ expression can have as many as 500 elements. Elements are
 -- child alarms, TRUE or FALSE statements, and parentheses.
-putCompositeAlarm_alarmRule :: Lens.Lens' PutCompositeAlarm Prelude.Text
+putCompositeAlarm_alarmRule :: Lens.Lens' PutCompositeAlarm Core.Text
 putCompositeAlarm_alarmRule = Lens.lens (\PutCompositeAlarm' {alarmRule} -> alarmRule) (\s@PutCompositeAlarm' {} a -> s {alarmRule = a} :: PutCompositeAlarm)
 
-instance Prelude.AWSRequest PutCompositeAlarm where
-  type Rs PutCompositeAlarm = PutCompositeAlarmResponse
+instance Core.AWSRequest PutCompositeAlarm where
+  type
+    AWSResponse PutCompositeAlarm =
+      PutCompositeAlarmResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull PutCompositeAlarmResponse'
 
-instance Prelude.Hashable PutCompositeAlarm
+instance Core.Hashable PutCompositeAlarm
 
-instance Prelude.NFData PutCompositeAlarm
+instance Core.NFData PutCompositeAlarm
 
-instance Prelude.ToHeaders PutCompositeAlarm where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutCompositeAlarm where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutCompositeAlarm where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutCompositeAlarm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutCompositeAlarm where
+instance Core.ToQuery PutCompositeAlarm where
   toQuery PutCompositeAlarm' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutCompositeAlarm" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
+          Core.=: ("PutCompositeAlarm" :: Core.ByteString),
+        "Version" Core.=: ("2010-08-01" :: Core.ByteString),
         "AlarmActions"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> alarmActions
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> alarmActions),
         "InsufficientDataActions"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> insufficientDataActions
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> insufficientDataActions
             ),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
         "OKActions"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> oKActions),
-        "ActionsEnabled" Prelude.=: actionsEnabled,
-        "AlarmDescription" Prelude.=: alarmDescription,
-        "AlarmName" Prelude.=: alarmName,
-        "AlarmRule" Prelude.=: alarmRule
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> oKActions),
+        "ActionsEnabled" Core.=: actionsEnabled,
+        "AlarmDescription" Core.=: alarmDescription,
+        "AlarmName" Core.=: alarmName,
+        "AlarmRule" Core.=: alarmRule
       ]
 
 -- | /See:/ 'newPutCompositeAlarmResponse' smart constructor.
 data PutCompositeAlarmResponse = PutCompositeAlarmResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutCompositeAlarmResponse' with all optional fields omitted.
@@ -471,4 +469,4 @@ newPutCompositeAlarmResponse ::
 newPutCompositeAlarmResponse =
   PutCompositeAlarmResponse'
 
-instance Prelude.NFData PutCompositeAlarmResponse
+instance Core.NFData PutCompositeAlarmResponse

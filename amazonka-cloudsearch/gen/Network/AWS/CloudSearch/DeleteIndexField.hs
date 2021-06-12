@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.CloudSearch.DeleteIndexField
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,12 +55,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteIndexField' smart constructor.
 data DeleteIndexField = DeleteIndexField'
-  { domainName :: Prelude.Text,
+  { domainName :: Core.Text,
     -- | The name of the index field your want to remove from the domain\'s
     -- indexing options.
-    indexFieldName :: Prelude.Text
+    indexFieldName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIndexField' with all optional fields omitted.
@@ -77,9 +76,9 @@ data DeleteIndexField = DeleteIndexField'
 -- indexing options.
 newDeleteIndexField ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'indexFieldName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteIndexField
 newDeleteIndexField pDomainName_ pIndexFieldName_ =
   DeleteIndexField'
@@ -88,45 +87,46 @@ newDeleteIndexField pDomainName_ pIndexFieldName_ =
     }
 
 -- | Undocumented member.
-deleteIndexField_domainName :: Lens.Lens' DeleteIndexField Prelude.Text
+deleteIndexField_domainName :: Lens.Lens' DeleteIndexField Core.Text
 deleteIndexField_domainName = Lens.lens (\DeleteIndexField' {domainName} -> domainName) (\s@DeleteIndexField' {} a -> s {domainName = a} :: DeleteIndexField)
 
 -- | The name of the index field your want to remove from the domain\'s
 -- indexing options.
-deleteIndexField_indexFieldName :: Lens.Lens' DeleteIndexField Prelude.Text
+deleteIndexField_indexFieldName :: Lens.Lens' DeleteIndexField Core.Text
 deleteIndexField_indexFieldName = Lens.lens (\DeleteIndexField' {indexFieldName} -> indexFieldName) (\s@DeleteIndexField' {} a -> s {indexFieldName = a} :: DeleteIndexField)
 
-instance Prelude.AWSRequest DeleteIndexField where
-  type Rs DeleteIndexField = DeleteIndexFieldResponse
+instance Core.AWSRequest DeleteIndexField where
+  type
+    AWSResponse DeleteIndexField =
+      DeleteIndexFieldResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteIndexFieldResult"
       ( \s h x ->
           DeleteIndexFieldResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "IndexField")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "IndexField")
       )
 
-instance Prelude.Hashable DeleteIndexField
+instance Core.Hashable DeleteIndexField
 
-instance Prelude.NFData DeleteIndexField
+instance Core.NFData DeleteIndexField
 
-instance Prelude.ToHeaders DeleteIndexField where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteIndexField where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteIndexField where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteIndexField where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteIndexField where
+instance Core.ToQuery DeleteIndexField where
   toQuery DeleteIndexField' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteIndexField" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName,
-        "IndexFieldName" Prelude.=: indexFieldName
+          Core.=: ("DeleteIndexField" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName,
+        "IndexFieldName" Core.=: indexFieldName
       ]
 
 -- | The result of a @DeleteIndexField@ request.
@@ -134,11 +134,11 @@ instance Prelude.ToQuery DeleteIndexField where
 -- /See:/ 'newDeleteIndexFieldResponse' smart constructor.
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The status of the index field being deleted.
     indexField :: IndexFieldStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIndexFieldResponse' with all optional fields omitted.
@@ -153,7 +153,7 @@ data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
 -- 'indexField', 'deleteIndexFieldResponse_indexField' - The status of the index field being deleted.
 newDeleteIndexFieldResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'indexField'
   IndexFieldStatus ->
   DeleteIndexFieldResponse
@@ -165,11 +165,11 @@ newDeleteIndexFieldResponse pHttpStatus_ pIndexField_ =
     }
 
 -- | The response's http status code.
-deleteIndexFieldResponse_httpStatus :: Lens.Lens' DeleteIndexFieldResponse Prelude.Int
+deleteIndexFieldResponse_httpStatus :: Lens.Lens' DeleteIndexFieldResponse Core.Int
 deleteIndexFieldResponse_httpStatus = Lens.lens (\DeleteIndexFieldResponse' {httpStatus} -> httpStatus) (\s@DeleteIndexFieldResponse' {} a -> s {httpStatus = a} :: DeleteIndexFieldResponse)
 
 -- | The status of the index field being deleted.
 deleteIndexFieldResponse_indexField :: Lens.Lens' DeleteIndexFieldResponse IndexFieldStatus
 deleteIndexFieldResponse_indexField = Lens.lens (\DeleteIndexFieldResponse' {indexField} -> indexField) (\s@DeleteIndexFieldResponse' {} a -> s {indexField = a} :: DeleteIndexFieldResponse)
 
-instance Prelude.NFData DeleteIndexFieldResponse
+instance Core.NFData DeleteIndexFieldResponse

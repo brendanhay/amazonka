@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.SlotMigration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the progress of an online resharding operation.
 --
 -- /See:/ 'newSlotMigration' smart constructor.
 data SlotMigration = SlotMigration'
   { -- | The percentage of the slot migration that is complete.
-    progressPercentage :: Prelude.Maybe Prelude.Double
+    progressPercentage :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SlotMigration' with all optional fields omitted.
@@ -44,20 +43,17 @@ data SlotMigration = SlotMigration'
 newSlotMigration ::
   SlotMigration
 newSlotMigration =
-  SlotMigration'
-    { progressPercentage =
-        Prelude.Nothing
-    }
+  SlotMigration' {progressPercentage = Core.Nothing}
 
 -- | The percentage of the slot migration that is complete.
-slotMigration_progressPercentage :: Lens.Lens' SlotMigration (Prelude.Maybe Prelude.Double)
+slotMigration_progressPercentage :: Lens.Lens' SlotMigration (Core.Maybe Core.Double)
 slotMigration_progressPercentage = Lens.lens (\SlotMigration' {progressPercentage} -> progressPercentage) (\s@SlotMigration' {} a -> s {progressPercentage = a} :: SlotMigration)
 
-instance Prelude.FromXML SlotMigration where
+instance Core.FromXML SlotMigration where
   parseXML x =
     SlotMigration'
-      Prelude.<$> (x Prelude..@? "ProgressPercentage")
+      Core.<$> (x Core..@? "ProgressPercentage")
 
-instance Prelude.Hashable SlotMigration
+instance Core.Hashable SlotMigration
 
-instance Prelude.NFData SlotMigration
+instance Core.NFData SlotMigration

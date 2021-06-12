@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,23 +44,23 @@ module Network.AWS.Connect.UpdateQuickConnectName
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQuickConnectName' smart constructor.
 data UpdateQuickConnectName = UpdateQuickConnectName'
   { -- | The name of the quick connect.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description of the quick connect.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier for the quick connect.
-    quickConnectId :: Prelude.Text
+    quickConnectId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQuickConnectName' with all optional fields omitted.
@@ -80,87 +79,85 @@ data UpdateQuickConnectName = UpdateQuickConnectName'
 -- 'quickConnectId', 'updateQuickConnectName_quickConnectId' - The identifier for the quick connect.
 newUpdateQuickConnectName ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'quickConnectId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateQuickConnectName
 newUpdateQuickConnectName
   pInstanceId_
   pQuickConnectId_ =
     UpdateQuickConnectName'
-      { name = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { name = Core.Nothing,
+        description = Core.Nothing,
         instanceId = pInstanceId_,
         quickConnectId = pQuickConnectId_
       }
 
 -- | The name of the quick connect.
-updateQuickConnectName_name :: Lens.Lens' UpdateQuickConnectName (Prelude.Maybe Prelude.Text)
+updateQuickConnectName_name :: Lens.Lens' UpdateQuickConnectName (Core.Maybe Core.Text)
 updateQuickConnectName_name = Lens.lens (\UpdateQuickConnectName' {name} -> name) (\s@UpdateQuickConnectName' {} a -> s {name = a} :: UpdateQuickConnectName)
 
 -- | The description of the quick connect.
-updateQuickConnectName_description :: Lens.Lens' UpdateQuickConnectName (Prelude.Maybe Prelude.Text)
+updateQuickConnectName_description :: Lens.Lens' UpdateQuickConnectName (Core.Maybe Core.Text)
 updateQuickConnectName_description = Lens.lens (\UpdateQuickConnectName' {description} -> description) (\s@UpdateQuickConnectName' {} a -> s {description = a} :: UpdateQuickConnectName)
 
 -- | The identifier of the Amazon Connect instance.
-updateQuickConnectName_instanceId :: Lens.Lens' UpdateQuickConnectName Prelude.Text
+updateQuickConnectName_instanceId :: Lens.Lens' UpdateQuickConnectName Core.Text
 updateQuickConnectName_instanceId = Lens.lens (\UpdateQuickConnectName' {instanceId} -> instanceId) (\s@UpdateQuickConnectName' {} a -> s {instanceId = a} :: UpdateQuickConnectName)
 
 -- | The identifier for the quick connect.
-updateQuickConnectName_quickConnectId :: Lens.Lens' UpdateQuickConnectName Prelude.Text
+updateQuickConnectName_quickConnectId :: Lens.Lens' UpdateQuickConnectName Core.Text
 updateQuickConnectName_quickConnectId = Lens.lens (\UpdateQuickConnectName' {quickConnectId} -> quickConnectId) (\s@UpdateQuickConnectName' {} a -> s {quickConnectId = a} :: UpdateQuickConnectName)
 
-instance Prelude.AWSRequest UpdateQuickConnectName where
+instance Core.AWSRequest UpdateQuickConnectName where
   type
-    Rs UpdateQuickConnectName =
+    AWSResponse UpdateQuickConnectName =
       UpdateQuickConnectNameResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateQuickConnectNameResponse'
 
-instance Prelude.Hashable UpdateQuickConnectName
+instance Core.Hashable UpdateQuickConnectName
 
-instance Prelude.NFData UpdateQuickConnectName
+instance Core.NFData UpdateQuickConnectName
 
-instance Prelude.ToHeaders UpdateQuickConnectName where
+instance Core.ToHeaders UpdateQuickConnectName where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateQuickConnectName where
+instance Core.ToJSON UpdateQuickConnectName where
   toJSON UpdateQuickConnectName' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("Description" Prelude..=) Prelude.<$> description
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("Description" Core..=) Core.<$> description
           ]
       )
 
-instance Prelude.ToPath UpdateQuickConnectName where
+instance Core.ToPath UpdateQuickConnectName where
   toPath UpdateQuickConnectName' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/quick-connects/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS quickConnectId,
+        Core.toBS quickConnectId,
         "/name"
       ]
 
-instance Prelude.ToQuery UpdateQuickConnectName where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateQuickConnectName where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateQuickConnectNameResponse' smart constructor.
 data UpdateQuickConnectNameResponse = UpdateQuickConnectNameResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateQuickConnectNameResponse' with all optional fields omitted.
@@ -171,6 +168,4 @@ newUpdateQuickConnectNameResponse ::
 newUpdateQuickConnectNameResponse =
   UpdateQuickConnectNameResponse'
 
-instance
-  Prelude.NFData
-    UpdateQuickConnectNameResponse
+instance Core.NFData UpdateQuickConnectNameResponse

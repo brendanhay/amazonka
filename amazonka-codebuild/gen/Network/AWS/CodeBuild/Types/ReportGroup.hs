@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -24,8 +23,8 @@ import Network.AWS.CodeBuild.Types.ReportExportConfig
 import Network.AWS.CodeBuild.Types.ReportGroupStatusType
 import Network.AWS.CodeBuild.Types.ReportType
 import Network.AWS.CodeBuild.Types.Tag
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A series of reports. Each report contains information about the results
 -- from running a series of test cases. You specify the test cases for a
@@ -43,23 +42,23 @@ data ReportGroup = ReportGroup'
     --
     -- [DELETING]
     --     The report group is in the process of being deleted.
-    status :: Prelude.Maybe ReportGroupStatusType,
+    status :: Core.Maybe ReportGroupStatusType,
     -- | Information about the destination where the raw data of this
     -- @ReportGroup@ is exported.
-    exportConfig :: Prelude.Maybe ReportExportConfig,
+    exportConfig :: Core.Maybe ReportExportConfig,
     -- | The ARN of the @ReportGroup@.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The name of the @ReportGroup@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A list of tag key and value pairs associated with this report group.
     --
     -- These tags are available for use by AWS services that support AWS
     -- CodeBuild report group tags.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The date and time this @ReportGroup@ was last modified.
-    lastModified :: Prelude.Maybe Prelude.POSIX,
+    lastModified :: Core.Maybe Core.POSIX,
     -- | The date and time this @ReportGroup@ was created.
-    created :: Prelude.Maybe Prelude.POSIX,
+    created :: Core.Maybe Core.POSIX,
     -- | The type of the @ReportGroup@. This can be one of the following values:
     --
     -- [CODE_COVERAGE]
@@ -67,9 +66,9 @@ data ReportGroup = ReportGroup'
     --
     -- [TEST]
     --     The report group contains test reports.
-    type' :: Prelude.Maybe ReportType
+    type' :: Core.Maybe ReportType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReportGroup' with all optional fields omitted.
@@ -116,14 +115,14 @@ newReportGroup ::
   ReportGroup
 newReportGroup =
   ReportGroup'
-    { status = Prelude.Nothing,
-      exportConfig = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
-      created = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { status = Core.Nothing,
+      exportConfig = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      lastModified = Core.Nothing,
+      created = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The status of the report group. This property is read-only.
@@ -135,36 +134,36 @@ newReportGroup =
 --
 -- [DELETING]
 --     The report group is in the process of being deleted.
-reportGroup_status :: Lens.Lens' ReportGroup (Prelude.Maybe ReportGroupStatusType)
+reportGroup_status :: Lens.Lens' ReportGroup (Core.Maybe ReportGroupStatusType)
 reportGroup_status = Lens.lens (\ReportGroup' {status} -> status) (\s@ReportGroup' {} a -> s {status = a} :: ReportGroup)
 
 -- | Information about the destination where the raw data of this
 -- @ReportGroup@ is exported.
-reportGroup_exportConfig :: Lens.Lens' ReportGroup (Prelude.Maybe ReportExportConfig)
+reportGroup_exportConfig :: Lens.Lens' ReportGroup (Core.Maybe ReportExportConfig)
 reportGroup_exportConfig = Lens.lens (\ReportGroup' {exportConfig} -> exportConfig) (\s@ReportGroup' {} a -> s {exportConfig = a} :: ReportGroup)
 
 -- | The ARN of the @ReportGroup@.
-reportGroup_arn :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.Text)
+reportGroup_arn :: Lens.Lens' ReportGroup (Core.Maybe Core.Text)
 reportGroup_arn = Lens.lens (\ReportGroup' {arn} -> arn) (\s@ReportGroup' {} a -> s {arn = a} :: ReportGroup)
 
 -- | The name of the @ReportGroup@.
-reportGroup_name :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.Text)
+reportGroup_name :: Lens.Lens' ReportGroup (Core.Maybe Core.Text)
 reportGroup_name = Lens.lens (\ReportGroup' {name} -> name) (\s@ReportGroup' {} a -> s {name = a} :: ReportGroup)
 
 -- | A list of tag key and value pairs associated with this report group.
 --
 -- These tags are available for use by AWS services that support AWS
 -- CodeBuild report group tags.
-reportGroup_tags :: Lens.Lens' ReportGroup (Prelude.Maybe [Tag])
-reportGroup_tags = Lens.lens (\ReportGroup' {tags} -> tags) (\s@ReportGroup' {} a -> s {tags = a} :: ReportGroup) Prelude.. Lens.mapping Prelude._Coerce
+reportGroup_tags :: Lens.Lens' ReportGroup (Core.Maybe [Tag])
+reportGroup_tags = Lens.lens (\ReportGroup' {tags} -> tags) (\s@ReportGroup' {} a -> s {tags = a} :: ReportGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The date and time this @ReportGroup@ was last modified.
-reportGroup_lastModified :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
-reportGroup_lastModified = Lens.lens (\ReportGroup' {lastModified} -> lastModified) (\s@ReportGroup' {} a -> s {lastModified = a} :: ReportGroup) Prelude.. Lens.mapping Prelude._Time
+reportGroup_lastModified :: Lens.Lens' ReportGroup (Core.Maybe Core.UTCTime)
+reportGroup_lastModified = Lens.lens (\ReportGroup' {lastModified} -> lastModified) (\s@ReportGroup' {} a -> s {lastModified = a} :: ReportGroup) Core.. Lens.mapping Core._Time
 
 -- | The date and time this @ReportGroup@ was created.
-reportGroup_created :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
-reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Prelude.. Lens.mapping Prelude._Time
+reportGroup_created :: Lens.Lens' ReportGroup (Core.Maybe Core.UTCTime)
+reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Core.. Lens.mapping Core._Time
 
 -- | The type of the @ReportGroup@. This can be one of the following values:
 --
@@ -173,25 +172,25 @@ reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportG
 --
 -- [TEST]
 --     The report group contains test reports.
-reportGroup_type :: Lens.Lens' ReportGroup (Prelude.Maybe ReportType)
+reportGroup_type :: Lens.Lens' ReportGroup (Core.Maybe ReportType)
 reportGroup_type = Lens.lens (\ReportGroup' {type'} -> type') (\s@ReportGroup' {} a -> s {type' = a} :: ReportGroup)
 
-instance Prelude.FromJSON ReportGroup where
+instance Core.FromJSON ReportGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReportGroup"
       ( \x ->
           ReportGroup'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "exportConfig")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "lastModified")
-            Prelude.<*> (x Prelude..:? "created")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "exportConfig")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "lastModified")
+            Core.<*> (x Core..:? "created")
+            Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable ReportGroup
+instance Core.Hashable ReportGroup
 
-instance Prelude.NFData ReportGroup
+instance Core.NFData ReportGroup

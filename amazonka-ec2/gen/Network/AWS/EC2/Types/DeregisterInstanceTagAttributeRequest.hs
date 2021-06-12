@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.DeregisterInstanceTagAttributeRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the tag keys to deregister for the current Region. You
 -- can either specify individual tag keys or deregister all tag keys in the
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDeregisterInstanceTagAttributeRequest' smart constructor.
 data DeregisterInstanceTagAttributeRequest = DeregisterInstanceTagAttributeRequest'
   { -- | Information about the tag keys to deregister.
-    instanceTagKeys :: Prelude.Maybe [Prelude.Text],
+    instanceTagKeys :: Core.Maybe [Core.Text],
     -- | Indicates whether to deregister all tag keys in the current Region.
     -- Specify @false@ to deregister all tag keys.
-    includeAllTagsOfInstance :: Prelude.Maybe Prelude.Bool
+    includeAllTagsOfInstance :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterInstanceTagAttributeRequest' with all optional fields omitted.
@@ -56,38 +55,38 @@ newDeregisterInstanceTagAttributeRequest ::
 newDeregisterInstanceTagAttributeRequest =
   DeregisterInstanceTagAttributeRequest'
     { instanceTagKeys =
-        Prelude.Nothing,
+        Core.Nothing,
       includeAllTagsOfInstance =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Information about the tag keys to deregister.
-deregisterInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Prelude.Maybe [Prelude.Text])
-deregisterInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\DeregisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@DeregisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: DeregisterInstanceTagAttributeRequest) Prelude.. Lens.mapping Prelude._Coerce
+deregisterInstanceTagAttributeRequest_instanceTagKeys :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Core.Maybe [Core.Text])
+deregisterInstanceTagAttributeRequest_instanceTagKeys = Lens.lens (\DeregisterInstanceTagAttributeRequest' {instanceTagKeys} -> instanceTagKeys) (\s@DeregisterInstanceTagAttributeRequest' {} a -> s {instanceTagKeys = a} :: DeregisterInstanceTagAttributeRequest) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether to deregister all tag keys in the current Region.
 -- Specify @false@ to deregister all tag keys.
-deregisterInstanceTagAttributeRequest_includeAllTagsOfInstance :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Prelude.Maybe Prelude.Bool)
+deregisterInstanceTagAttributeRequest_includeAllTagsOfInstance :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Core.Maybe Core.Bool)
 deregisterInstanceTagAttributeRequest_includeAllTagsOfInstance = Lens.lens (\DeregisterInstanceTagAttributeRequest' {includeAllTagsOfInstance} -> includeAllTagsOfInstance) (\s@DeregisterInstanceTagAttributeRequest' {} a -> s {includeAllTagsOfInstance = a} :: DeregisterInstanceTagAttributeRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeregisterInstanceTagAttributeRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeregisterInstanceTagAttributeRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeregisterInstanceTagAttributeRequest
   where
   toQuery DeregisterInstanceTagAttributeRequest' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          ( Prelude.toQueryList "InstanceTagKey"
-              Prelude.<$> instanceTagKeys
+    Core.mconcat
+      [ Core.toQuery
+          ( Core.toQueryList "InstanceTagKey"
+              Core.<$> instanceTagKeys
           ),
         "IncludeAllTagsOfInstance"
-          Prelude.=: includeAllTagsOfInstance
+          Core.=: includeAllTagsOfInstance
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a SCTE-35 splice_insert message.
 --
@@ -34,12 +33,12 @@ data Scte35SpliceInsertScheduleActionSettings = Scte35SpliceInsertScheduleAction
     -- the splice_insert will continue indefinitely and there is an expectation
     -- that you will enter a return_to_network to end the splice_insert at the
     -- appropriate time.
-    duration :: Prelude.Maybe Prelude.Natural,
+    duration :: Core.Maybe Core.Natural,
     -- | The splice_event_id for the SCTE-35 splice_insert, as defined in
     -- SCTE-35.
-    spliceEventId :: Prelude.Natural
+    spliceEventId :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scte35SpliceInsertScheduleActionSettings' with all optional fields omitted.
@@ -61,13 +60,13 @@ data Scte35SpliceInsertScheduleActionSettings = Scte35SpliceInsertScheduleAction
 -- SCTE-35.
 newScte35SpliceInsertScheduleActionSettings ::
   -- | 'spliceEventId'
-  Prelude.Natural ->
+  Core.Natural ->
   Scte35SpliceInsertScheduleActionSettings
 newScte35SpliceInsertScheduleActionSettings
   pSpliceEventId_ =
     Scte35SpliceInsertScheduleActionSettings'
       { duration =
-          Prelude.Nothing,
+          Core.Nothing,
         spliceEventId = pSpliceEventId_
       }
 
@@ -78,44 +77,43 @@ newScte35SpliceInsertScheduleActionSettings
 -- the splice_insert will continue indefinitely and there is an expectation
 -- that you will enter a return_to_network to end the splice_insert at the
 -- appropriate time.
-scte35SpliceInsertScheduleActionSettings_duration :: Lens.Lens' Scte35SpliceInsertScheduleActionSettings (Prelude.Maybe Prelude.Natural)
+scte35SpliceInsertScheduleActionSettings_duration :: Lens.Lens' Scte35SpliceInsertScheduleActionSettings (Core.Maybe Core.Natural)
 scte35SpliceInsertScheduleActionSettings_duration = Lens.lens (\Scte35SpliceInsertScheduleActionSettings' {duration} -> duration) (\s@Scte35SpliceInsertScheduleActionSettings' {} a -> s {duration = a} :: Scte35SpliceInsertScheduleActionSettings)
 
 -- | The splice_event_id for the SCTE-35 splice_insert, as defined in
 -- SCTE-35.
-scte35SpliceInsertScheduleActionSettings_spliceEventId :: Lens.Lens' Scte35SpliceInsertScheduleActionSettings Prelude.Natural
+scte35SpliceInsertScheduleActionSettings_spliceEventId :: Lens.Lens' Scte35SpliceInsertScheduleActionSettings Core.Natural
 scte35SpliceInsertScheduleActionSettings_spliceEventId = Lens.lens (\Scte35SpliceInsertScheduleActionSettings' {spliceEventId} -> spliceEventId) (\s@Scte35SpliceInsertScheduleActionSettings' {} a -> s {spliceEventId = a} :: Scte35SpliceInsertScheduleActionSettings)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     Scte35SpliceInsertScheduleActionSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scte35SpliceInsertScheduleActionSettings"
       ( \x ->
           Scte35SpliceInsertScheduleActionSettings'
-            Prelude.<$> (x Prelude..:? "duration")
-            Prelude.<*> (x Prelude..: "spliceEventId")
+            Core.<$> (x Core..:? "duration")
+            Core.<*> (x Core..: "spliceEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Scte35SpliceInsertScheduleActionSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     Scte35SpliceInsertScheduleActionSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     Scte35SpliceInsertScheduleActionSettings
   where
   toJSON Scte35SpliceInsertScheduleActionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("duration" Prelude..=) Prelude.<$> duration,
-            Prelude.Just
-              ("spliceEventId" Prelude..= spliceEventId)
+    Core.object
+      ( Core.catMaybes
+          [ ("duration" Core..=) Core.<$> duration,
+            Core.Just ("spliceEventId" Core..= spliceEventId)
           ]
       )

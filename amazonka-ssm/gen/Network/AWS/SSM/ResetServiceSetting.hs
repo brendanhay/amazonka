@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.SSM.ResetServiceSetting
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -73,9 +72,9 @@ data ResetServiceSetting = ResetServiceSetting'
     -- @\/ssm\/parameter-store\/high-throughput-enabled@, or
     -- @\/ssm\/managed-instance\/activation-tier@. For example,
     -- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
-    settingId :: Prelude.Text
+    settingId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetServiceSetting' with all optional fields omitted.
@@ -94,7 +93,7 @@ data ResetServiceSetting = ResetServiceSetting'
 -- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
 newResetServiceSetting ::
   -- | 'settingId'
-  Prelude.Text ->
+  Core.Text ->
   ResetServiceSetting
 newResetServiceSetting pSettingId_ =
   ResetServiceSetting' {settingId = pSettingId_}
@@ -106,53 +105,49 @@ newResetServiceSetting pSettingId_ =
 -- @\/ssm\/parameter-store\/high-throughput-enabled@, or
 -- @\/ssm\/managed-instance\/activation-tier@. For example,
 -- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
-resetServiceSetting_settingId :: Lens.Lens' ResetServiceSetting Prelude.Text
+resetServiceSetting_settingId :: Lens.Lens' ResetServiceSetting Core.Text
 resetServiceSetting_settingId = Lens.lens (\ResetServiceSetting' {settingId} -> settingId) (\s@ResetServiceSetting' {} a -> s {settingId = a} :: ResetServiceSetting)
 
-instance Prelude.AWSRequest ResetServiceSetting where
+instance Core.AWSRequest ResetServiceSetting where
   type
-    Rs ResetServiceSetting =
+    AWSResponse ResetServiceSetting =
       ResetServiceSettingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ResetServiceSettingResponse'
-            Prelude.<$> (x Prelude..?> "ServiceSetting")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ServiceSetting")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ResetServiceSetting
+instance Core.Hashable ResetServiceSetting
 
-instance Prelude.NFData ResetServiceSetting
+instance Core.NFData ResetServiceSetting
 
-instance Prelude.ToHeaders ResetServiceSetting where
+instance Core.ToHeaders ResetServiceSetting where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.ResetServiceSetting" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonSSM.ResetServiceSetting" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ResetServiceSetting where
+instance Core.ToJSON ResetServiceSetting where
   toJSON ResetServiceSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SettingId" Prelude..= settingId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SettingId" Core..= settingId)]
       )
 
-instance Prelude.ToPath ResetServiceSetting where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResetServiceSetting where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResetServiceSetting where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ResetServiceSetting where
+  toQuery = Core.const Core.mempty
 
 -- | The result body of the ResetServiceSetting API action.
 --
@@ -160,11 +155,11 @@ instance Prelude.ToQuery ResetServiceSetting where
 data ResetServiceSettingResponse = ResetServiceSettingResponse'
   { -- | The current, effective service setting after calling the
     -- ResetServiceSetting API action.
-    serviceSetting :: Prelude.Maybe ServiceSetting,
+    serviceSetting :: Core.Maybe ServiceSetting,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetServiceSettingResponse' with all optional fields omitted.
@@ -180,22 +175,22 @@ data ResetServiceSettingResponse = ResetServiceSettingResponse'
 -- 'httpStatus', 'resetServiceSettingResponse_httpStatus' - The response's http status code.
 newResetServiceSettingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ResetServiceSettingResponse
 newResetServiceSettingResponse pHttpStatus_ =
   ResetServiceSettingResponse'
     { serviceSetting =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current, effective service setting after calling the
 -- ResetServiceSetting API action.
-resetServiceSettingResponse_serviceSetting :: Lens.Lens' ResetServiceSettingResponse (Prelude.Maybe ServiceSetting)
+resetServiceSettingResponse_serviceSetting :: Lens.Lens' ResetServiceSettingResponse (Core.Maybe ServiceSetting)
 resetServiceSettingResponse_serviceSetting = Lens.lens (\ResetServiceSettingResponse' {serviceSetting} -> serviceSetting) (\s@ResetServiceSettingResponse' {} a -> s {serviceSetting = a} :: ResetServiceSettingResponse)
 
 -- | The response's http status code.
-resetServiceSettingResponse_httpStatus :: Lens.Lens' ResetServiceSettingResponse Prelude.Int
+resetServiceSettingResponse_httpStatus :: Lens.Lens' ResetServiceSettingResponse Core.Int
 resetServiceSettingResponse_httpStatus = Lens.lens (\ResetServiceSettingResponse' {httpStatus} -> httpStatus) (\s@ResetServiceSettingResponse' {} a -> s {httpStatus = a} :: ResetServiceSettingResponse)
 
-instance Prelude.NFData ResetServiceSettingResponse
+instance Core.NFData ResetServiceSettingResponse

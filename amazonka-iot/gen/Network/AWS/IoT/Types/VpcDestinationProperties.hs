@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.VpcDestinationProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The properties of a virtual private cloud (VPC) destination.
 --
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 data VpcDestinationProperties = VpcDestinationProperties'
   { -- | The ARN of a role that has permission to create and attach to elastic
     -- network interfaces (ENIs).
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | The subnet IDs of the VPC destination.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | The security groups of the VPC destination.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VpcDestinationProperties' with all optional fields omitted.
@@ -59,46 +58,41 @@ newVpcDestinationProperties ::
   VpcDestinationProperties
 newVpcDestinationProperties =
   VpcDestinationProperties'
-    { roleArn =
-        Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+    { roleArn = Core.Nothing,
+      subnetIds = Core.Nothing,
+      securityGroups = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | The ARN of a role that has permission to create and attach to elastic
 -- network interfaces (ENIs).
-vpcDestinationProperties_roleArn :: Lens.Lens' VpcDestinationProperties (Prelude.Maybe Prelude.Text)
+vpcDestinationProperties_roleArn :: Lens.Lens' VpcDestinationProperties (Core.Maybe Core.Text)
 vpcDestinationProperties_roleArn = Lens.lens (\VpcDestinationProperties' {roleArn} -> roleArn) (\s@VpcDestinationProperties' {} a -> s {roleArn = a} :: VpcDestinationProperties)
 
 -- | The subnet IDs of the VPC destination.
-vpcDestinationProperties_subnetIds :: Lens.Lens' VpcDestinationProperties (Prelude.Maybe [Prelude.Text])
-vpcDestinationProperties_subnetIds = Lens.lens (\VpcDestinationProperties' {subnetIds} -> subnetIds) (\s@VpcDestinationProperties' {} a -> s {subnetIds = a} :: VpcDestinationProperties) Prelude.. Lens.mapping Prelude._Coerce
+vpcDestinationProperties_subnetIds :: Lens.Lens' VpcDestinationProperties (Core.Maybe [Core.Text])
+vpcDestinationProperties_subnetIds = Lens.lens (\VpcDestinationProperties' {subnetIds} -> subnetIds) (\s@VpcDestinationProperties' {} a -> s {subnetIds = a} :: VpcDestinationProperties) Core.. Lens.mapping Lens._Coerce
 
 -- | The security groups of the VPC destination.
-vpcDestinationProperties_securityGroups :: Lens.Lens' VpcDestinationProperties (Prelude.Maybe [Prelude.Text])
-vpcDestinationProperties_securityGroups = Lens.lens (\VpcDestinationProperties' {securityGroups} -> securityGroups) (\s@VpcDestinationProperties' {} a -> s {securityGroups = a} :: VpcDestinationProperties) Prelude.. Lens.mapping Prelude._Coerce
+vpcDestinationProperties_securityGroups :: Lens.Lens' VpcDestinationProperties (Core.Maybe [Core.Text])
+vpcDestinationProperties_securityGroups = Lens.lens (\VpcDestinationProperties' {securityGroups} -> securityGroups) (\s@VpcDestinationProperties' {} a -> s {securityGroups = a} :: VpcDestinationProperties) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC.
-vpcDestinationProperties_vpcId :: Lens.Lens' VpcDestinationProperties (Prelude.Maybe Prelude.Text)
+vpcDestinationProperties_vpcId :: Lens.Lens' VpcDestinationProperties (Core.Maybe Core.Text)
 vpcDestinationProperties_vpcId = Lens.lens (\VpcDestinationProperties' {vpcId} -> vpcId) (\s@VpcDestinationProperties' {} a -> s {vpcId = a} :: VpcDestinationProperties)
 
-instance Prelude.FromJSON VpcDestinationProperties where
+instance Core.FromJSON VpcDestinationProperties where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VpcDestinationProperties"
       ( \x ->
           VpcDestinationProperties'
-            Prelude.<$> (x Prelude..:? "roleArn")
-            Prelude.<*> ( x Prelude..:? "subnetIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "securityGroups"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "vpcId")
+            Core.<$> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "subnetIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "securityGroups" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "vpcId")
       )
 
-instance Prelude.Hashable VpcDestinationProperties
+instance Core.Hashable VpcDestinationProperties
 
-instance Prelude.NFData VpcDestinationProperties
+instance Core.NFData VpcDestinationProperties

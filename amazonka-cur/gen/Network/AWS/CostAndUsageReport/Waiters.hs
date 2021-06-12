@@ -15,8 +15,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostAndUsageReport.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Lens
 import Network.AWS.CostAndUsageReport.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter

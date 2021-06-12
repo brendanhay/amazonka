@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.Config.SelectResourceConfig
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,13 +59,13 @@ import qualified Network.AWS.Response as Response
 data SelectResourceConfig = SelectResourceConfig'
   { -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of query results returned on each page.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The SQL query @SELECT@ command.
-    expression :: Prelude.Text
+    expression :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SelectResourceConfig' with all optional fields omitted.
@@ -84,91 +83,89 @@ data SelectResourceConfig = SelectResourceConfig'
 -- 'expression', 'selectResourceConfig_expression' - The SQL query @SELECT@ command.
 newSelectResourceConfig ::
   -- | 'expression'
-  Prelude.Text ->
+  Core.Text ->
   SelectResourceConfig
 newSelectResourceConfig pExpression_ =
   SelectResourceConfig'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      limit = Core.Nothing,
       expression = pExpression_
     }
 
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
-selectResourceConfig_nextToken :: Lens.Lens' SelectResourceConfig (Prelude.Maybe Prelude.Text)
+selectResourceConfig_nextToken :: Lens.Lens' SelectResourceConfig (Core.Maybe Core.Text)
 selectResourceConfig_nextToken = Lens.lens (\SelectResourceConfig' {nextToken} -> nextToken) (\s@SelectResourceConfig' {} a -> s {nextToken = a} :: SelectResourceConfig)
 
 -- | The maximum number of query results returned on each page.
-selectResourceConfig_limit :: Lens.Lens' SelectResourceConfig (Prelude.Maybe Prelude.Natural)
+selectResourceConfig_limit :: Lens.Lens' SelectResourceConfig (Core.Maybe Core.Natural)
 selectResourceConfig_limit = Lens.lens (\SelectResourceConfig' {limit} -> limit) (\s@SelectResourceConfig' {} a -> s {limit = a} :: SelectResourceConfig)
 
 -- | The SQL query @SELECT@ command.
-selectResourceConfig_expression :: Lens.Lens' SelectResourceConfig Prelude.Text
+selectResourceConfig_expression :: Lens.Lens' SelectResourceConfig Core.Text
 selectResourceConfig_expression = Lens.lens (\SelectResourceConfig' {expression} -> expression) (\s@SelectResourceConfig' {} a -> s {expression = a} :: SelectResourceConfig)
 
-instance Prelude.AWSRequest SelectResourceConfig where
+instance Core.AWSRequest SelectResourceConfig where
   type
-    Rs SelectResourceConfig =
+    AWSResponse SelectResourceConfig =
       SelectResourceConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SelectResourceConfigResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "QueryInfo")
-            Prelude.<*> (x Prelude..?> "Results" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "QueryInfo")
+            Core.<*> (x Core..?> "Results" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SelectResourceConfig
+instance Core.Hashable SelectResourceConfig
 
-instance Prelude.NFData SelectResourceConfig
+instance Core.NFData SelectResourceConfig
 
-instance Prelude.ToHeaders SelectResourceConfig where
+instance Core.ToHeaders SelectResourceConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.SelectResourceConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.SelectResourceConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SelectResourceConfig where
+instance Core.ToJSON SelectResourceConfig where
   toJSON SelectResourceConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("Expression" Prelude..= expression)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("Expression" Core..= expression)
           ]
       )
 
-instance Prelude.ToPath SelectResourceConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath SelectResourceConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SelectResourceConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SelectResourceConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSelectResourceConfigResponse' smart constructor.
 data SelectResourceConfigResponse = SelectResourceConfigResponse'
   { -- | The @nextToken@ string returned in a previous request that you use to
     -- request the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Returns the @QueryInfo@ object.
-    queryInfo :: Prelude.Maybe QueryInfo,
+    queryInfo :: Core.Maybe QueryInfo,
     -- | Returns the results for the SQL query.
-    results :: Prelude.Maybe [Prelude.Text],
+    results :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SelectResourceConfigResponse' with all optional fields omitted.
@@ -188,32 +185,32 @@ data SelectResourceConfigResponse = SelectResourceConfigResponse'
 -- 'httpStatus', 'selectResourceConfigResponse_httpStatus' - The response's http status code.
 newSelectResourceConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SelectResourceConfigResponse
 newSelectResourceConfigResponse pHttpStatus_ =
   SelectResourceConfigResponse'
     { nextToken =
-        Prelude.Nothing,
-      queryInfo = Prelude.Nothing,
-      results = Prelude.Nothing,
+        Core.Nothing,
+      queryInfo = Core.Nothing,
+      results = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @nextToken@ string returned in a previous request that you use to
 -- request the next page of results in a paginated response.
-selectResourceConfigResponse_nextToken :: Lens.Lens' SelectResourceConfigResponse (Prelude.Maybe Prelude.Text)
+selectResourceConfigResponse_nextToken :: Lens.Lens' SelectResourceConfigResponse (Core.Maybe Core.Text)
 selectResourceConfigResponse_nextToken = Lens.lens (\SelectResourceConfigResponse' {nextToken} -> nextToken) (\s@SelectResourceConfigResponse' {} a -> s {nextToken = a} :: SelectResourceConfigResponse)
 
 -- | Returns the @QueryInfo@ object.
-selectResourceConfigResponse_queryInfo :: Lens.Lens' SelectResourceConfigResponse (Prelude.Maybe QueryInfo)
+selectResourceConfigResponse_queryInfo :: Lens.Lens' SelectResourceConfigResponse (Core.Maybe QueryInfo)
 selectResourceConfigResponse_queryInfo = Lens.lens (\SelectResourceConfigResponse' {queryInfo} -> queryInfo) (\s@SelectResourceConfigResponse' {} a -> s {queryInfo = a} :: SelectResourceConfigResponse)
 
 -- | Returns the results for the SQL query.
-selectResourceConfigResponse_results :: Lens.Lens' SelectResourceConfigResponse (Prelude.Maybe [Prelude.Text])
-selectResourceConfigResponse_results = Lens.lens (\SelectResourceConfigResponse' {results} -> results) (\s@SelectResourceConfigResponse' {} a -> s {results = a} :: SelectResourceConfigResponse) Prelude.. Lens.mapping Prelude._Coerce
+selectResourceConfigResponse_results :: Lens.Lens' SelectResourceConfigResponse (Core.Maybe [Core.Text])
+selectResourceConfigResponse_results = Lens.lens (\SelectResourceConfigResponse' {results} -> results) (\s@SelectResourceConfigResponse' {} a -> s {results = a} :: SelectResourceConfigResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-selectResourceConfigResponse_httpStatus :: Lens.Lens' SelectResourceConfigResponse Prelude.Int
+selectResourceConfigResponse_httpStatus :: Lens.Lens' SelectResourceConfigResponse Core.Int
 selectResourceConfigResponse_httpStatus = Lens.lens (\SelectResourceConfigResponse' {httpStatus} -> httpStatus) (\s@SelectResourceConfigResponse' {} a -> s {httpStatus = a} :: SelectResourceConfigResponse)
 
-instance Prelude.NFData SelectResourceConfigResponse
+instance Core.NFData SelectResourceConfigResponse

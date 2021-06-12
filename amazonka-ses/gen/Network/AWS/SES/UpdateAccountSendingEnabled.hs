@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SES.UpdateAccountSendingEnabled
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -55,9 +54,9 @@ import Network.AWS.SES.Types
 data UpdateAccountSendingEnabled = UpdateAccountSendingEnabled'
   { -- | Describes whether email sending is enabled or disabled for your Amazon
     -- SES account in the current AWS Region.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountSendingEnabled' with all optional fields omitted.
@@ -74,56 +73,47 @@ newUpdateAccountSendingEnabled ::
 newUpdateAccountSendingEnabled =
   UpdateAccountSendingEnabled'
     { enabled =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Describes whether email sending is enabled or disabled for your Amazon
 -- SES account in the current AWS Region.
-updateAccountSendingEnabled_enabled :: Lens.Lens' UpdateAccountSendingEnabled (Prelude.Maybe Prelude.Bool)
+updateAccountSendingEnabled_enabled :: Lens.Lens' UpdateAccountSendingEnabled (Core.Maybe Core.Bool)
 updateAccountSendingEnabled_enabled = Lens.lens (\UpdateAccountSendingEnabled' {enabled} -> enabled) (\s@UpdateAccountSendingEnabled' {} a -> s {enabled = a} :: UpdateAccountSendingEnabled)
 
-instance
-  Prelude.AWSRequest
-    UpdateAccountSendingEnabled
-  where
+instance Core.AWSRequest UpdateAccountSendingEnabled where
   type
-    Rs UpdateAccountSendingEnabled =
+    AWSResponse UpdateAccountSendingEnabled =
       UpdateAccountSendingEnabledResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       UpdateAccountSendingEnabledResponse'
 
-instance Prelude.Hashable UpdateAccountSendingEnabled
+instance Core.Hashable UpdateAccountSendingEnabled
 
-instance Prelude.NFData UpdateAccountSendingEnabled
+instance Core.NFData UpdateAccountSendingEnabled
 
-instance
-  Prelude.ToHeaders
-    UpdateAccountSendingEnabled
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateAccountSendingEnabled where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateAccountSendingEnabled where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateAccountSendingEnabled where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateAccountSendingEnabled where
+instance Core.ToQuery UpdateAccountSendingEnabled where
   toQuery UpdateAccountSendingEnabled' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "UpdateAccountSendingEnabled" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Enabled" Prelude.=: enabled
+          Core.=: ("UpdateAccountSendingEnabled" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Enabled" Core.=: enabled
       ]
 
 -- | /See:/ 'newUpdateAccountSendingEnabledResponse' smart constructor.
 data UpdateAccountSendingEnabledResponse = UpdateAccountSendingEnabledResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateAccountSendingEnabledResponse' with all optional fields omitted.
@@ -135,5 +125,5 @@ newUpdateAccountSendingEnabledResponse =
   UpdateAccountSendingEnabledResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateAccountSendingEnabledResponse

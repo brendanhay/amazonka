@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,19 +38,19 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLogStream' smart constructor.
 data DeleteLogStream = DeleteLogStream'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text,
+    logGroupName :: Core.Text,
     -- | The name of the log stream.
-    logStreamName :: Prelude.Text
+    logStreamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLogStream' with all optional fields omitted.
@@ -66,9 +65,9 @@ data DeleteLogStream = DeleteLogStream'
 -- 'logStreamName', 'deleteLogStream_logStreamName' - The name of the log stream.
 newDeleteLogStream ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logStreamName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLogStream
 newDeleteLogStream pLogGroupName_ pLogStreamName_ =
   DeleteLogStream'
@@ -77,60 +76,56 @@ newDeleteLogStream pLogGroupName_ pLogStreamName_ =
     }
 
 -- | The name of the log group.
-deleteLogStream_logGroupName :: Lens.Lens' DeleteLogStream Prelude.Text
+deleteLogStream_logGroupName :: Lens.Lens' DeleteLogStream Core.Text
 deleteLogStream_logGroupName = Lens.lens (\DeleteLogStream' {logGroupName} -> logGroupName) (\s@DeleteLogStream' {} a -> s {logGroupName = a} :: DeleteLogStream)
 
 -- | The name of the log stream.
-deleteLogStream_logStreamName :: Lens.Lens' DeleteLogStream Prelude.Text
+deleteLogStream_logStreamName :: Lens.Lens' DeleteLogStream Core.Text
 deleteLogStream_logStreamName = Lens.lens (\DeleteLogStream' {logStreamName} -> logStreamName) (\s@DeleteLogStream' {} a -> s {logStreamName = a} :: DeleteLogStream)
 
-instance Prelude.AWSRequest DeleteLogStream where
-  type Rs DeleteLogStream = DeleteLogStreamResponse
+instance Core.AWSRequest DeleteLogStream where
+  type
+    AWSResponse DeleteLogStream =
+      DeleteLogStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteLogStreamResponse'
 
-instance Prelude.Hashable DeleteLogStream
+instance Core.Hashable DeleteLogStream
 
-instance Prelude.NFData DeleteLogStream
+instance Core.NFData DeleteLogStream
 
-instance Prelude.ToHeaders DeleteLogStream where
+instance Core.ToHeaders DeleteLogStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DeleteLogStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.DeleteLogStream" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteLogStream where
+instance Core.ToJSON DeleteLogStream where
   toJSON DeleteLogStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName),
-            Prelude.Just
-              ("logStreamName" Prelude..= logStreamName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just ("logStreamName" Core..= logStreamName)
           ]
       )
 
-instance Prelude.ToPath DeleteLogStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLogStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLogStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLogStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLogStreamResponse' smart constructor.
 data DeleteLogStreamResponse = DeleteLogStreamResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLogStreamResponse' with all optional fields omitted.
@@ -140,4 +135,4 @@ newDeleteLogStreamResponse ::
   DeleteLogStreamResponse
 newDeleteLogStreamResponse = DeleteLogStreamResponse'
 
-instance Prelude.NFData DeleteLogStreamResponse
+instance Core.NFData DeleteLogStreamResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDBStreams.Types.Stream where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents all of the data describing a particular stream.
 --
 -- /See:/ 'newStream' smart constructor.
 data Stream = Stream'
   { -- | The DynamoDB table with which the stream is associated.
-    tableName :: Prelude.Maybe Prelude.Text,
+    tableName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) for the stream.
-    streamArn :: Prelude.Maybe Prelude.Text,
+    streamArn :: Core.Maybe Core.Text,
     -- | A timestamp, in ISO 8601 format, for this stream.
     --
     -- Note that @LatestStreamLabel@ is not a unique identifier for the stream,
@@ -43,9 +42,9 @@ data Stream = Stream'
     -- -   the table name
     --
     -- -   the @StreamLabel@
-    streamLabel :: Prelude.Maybe Prelude.Text
+    streamLabel :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Stream' with all optional fields omitted.
@@ -75,17 +74,17 @@ newStream ::
   Stream
 newStream =
   Stream'
-    { tableName = Prelude.Nothing,
-      streamArn = Prelude.Nothing,
-      streamLabel = Prelude.Nothing
+    { tableName = Core.Nothing,
+      streamArn = Core.Nothing,
+      streamLabel = Core.Nothing
     }
 
 -- | The DynamoDB table with which the stream is associated.
-stream_tableName :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_tableName :: Lens.Lens' Stream (Core.Maybe Core.Text)
 stream_tableName = Lens.lens (\Stream' {tableName} -> tableName) (\s@Stream' {} a -> s {tableName = a} :: Stream)
 
 -- | The Amazon Resource Name (ARN) for the stream.
-stream_streamArn :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_streamArn :: Lens.Lens' Stream (Core.Maybe Core.Text)
 stream_streamArn = Lens.lens (\Stream' {streamArn} -> streamArn) (\s@Stream' {} a -> s {streamArn = a} :: Stream)
 
 -- | A timestamp, in ISO 8601 format, for this stream.
@@ -100,20 +99,20 @@ stream_streamArn = Lens.lens (\Stream' {streamArn} -> streamArn) (\s@Stream' {} 
 -- -   the table name
 --
 -- -   the @StreamLabel@
-stream_streamLabel :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_streamLabel :: Lens.Lens' Stream (Core.Maybe Core.Text)
 stream_streamLabel = Lens.lens (\Stream' {streamLabel} -> streamLabel) (\s@Stream' {} a -> s {streamLabel = a} :: Stream)
 
-instance Prelude.FromJSON Stream where
+instance Core.FromJSON Stream where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Stream"
       ( \x ->
           Stream'
-            Prelude.<$> (x Prelude..:? "TableName")
-            Prelude.<*> (x Prelude..:? "StreamArn")
-            Prelude.<*> (x Prelude..:? "StreamLabel")
+            Core.<$> (x Core..:? "TableName")
+            Core.<*> (x Core..:? "StreamArn")
+            Core.<*> (x Core..:? "StreamLabel")
       )
 
-instance Prelude.Hashable Stream
+instance Core.Hashable Stream
 
-instance Prelude.NFData Stream
+instance Core.NFData Stream

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Rekognition.StopStreamProcessor
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -49,9 +48,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStopStreamProcessor' smart constructor.
 data StopStreamProcessor = StopStreamProcessor'
   { -- | The name of a stream processor created by CreateStreamProcessor.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopStreamProcessor' with all optional fields omitted.
@@ -64,65 +63,61 @@ data StopStreamProcessor = StopStreamProcessor'
 -- 'name', 'stopStreamProcessor_name' - The name of a stream processor created by CreateStreamProcessor.
 newStopStreamProcessor ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   StopStreamProcessor
 newStopStreamProcessor pName_ =
   StopStreamProcessor' {name = pName_}
 
 -- | The name of a stream processor created by CreateStreamProcessor.
-stopStreamProcessor_name :: Lens.Lens' StopStreamProcessor Prelude.Text
+stopStreamProcessor_name :: Lens.Lens' StopStreamProcessor Core.Text
 stopStreamProcessor_name = Lens.lens (\StopStreamProcessor' {name} -> name) (\s@StopStreamProcessor' {} a -> s {name = a} :: StopStreamProcessor)
 
-instance Prelude.AWSRequest StopStreamProcessor where
+instance Core.AWSRequest StopStreamProcessor where
   type
-    Rs StopStreamProcessor =
+    AWSResponse StopStreamProcessor =
       StopStreamProcessorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopStreamProcessorResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopStreamProcessor
+instance Core.Hashable StopStreamProcessor
 
-instance Prelude.NFData StopStreamProcessor
+instance Core.NFData StopStreamProcessor
 
-instance Prelude.ToHeaders StopStreamProcessor where
+instance Core.ToHeaders StopStreamProcessor where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.StopStreamProcessor" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.StopStreamProcessor" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopStreamProcessor where
+instance Core.ToJSON StopStreamProcessor where
   toJSON StopStreamProcessor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath StopStreamProcessor where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopStreamProcessor where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopStreamProcessor where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopStreamProcessor where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopStreamProcessorResponse' smart constructor.
 data StopStreamProcessorResponse = StopStreamProcessorResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopStreamProcessorResponse' with all optional fields omitted.
@@ -135,7 +130,7 @@ data StopStreamProcessorResponse = StopStreamProcessorResponse'
 -- 'httpStatus', 'stopStreamProcessorResponse_httpStatus' - The response's http status code.
 newStopStreamProcessorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopStreamProcessorResponse
 newStopStreamProcessorResponse pHttpStatus_ =
   StopStreamProcessorResponse'
@@ -144,7 +139,7 @@ newStopStreamProcessorResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopStreamProcessorResponse_httpStatus :: Lens.Lens' StopStreamProcessorResponse Prelude.Int
+stopStreamProcessorResponse_httpStatus :: Lens.Lens' StopStreamProcessorResponse Core.Int
 stopStreamProcessorResponse_httpStatus = Lens.lens (\StopStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@StopStreamProcessorResponse' {} a -> s {httpStatus = a} :: StopStreamProcessorResponse)
 
-instance Prelude.NFData StopStreamProcessorResponse
+instance Core.NFData StopStreamProcessorResponse

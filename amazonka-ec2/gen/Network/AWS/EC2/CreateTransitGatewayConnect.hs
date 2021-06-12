@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,28 +48,28 @@ module Network.AWS.EC2.CreateTransitGatewayConnect
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayConnect' smart constructor.
 data CreateTransitGatewayConnect = CreateTransitGatewayConnect'
   { -- | The tags to apply to the Connect attachment.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the transit gateway attachment. You can specify a VPC
     -- attachment or a AWS Direct Connect attachment.
-    transportTransitGatewayAttachmentId :: Prelude.Text,
+    transportTransitGatewayAttachmentId :: Core.Text,
     -- | The Connect attachment options.
     options :: CreateTransitGatewayConnectRequestOptions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayConnect' with all optional fields omitted.
@@ -93,7 +92,7 @@ data CreateTransitGatewayConnect = CreateTransitGatewayConnect'
 -- 'options', 'createTransitGatewayConnect_options' - The Connect attachment options.
 newCreateTransitGatewayConnect ::
   -- | 'transportTransitGatewayAttachmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'options'
   CreateTransitGatewayConnectRequestOptions ->
   CreateTransitGatewayConnect
@@ -102,89 +101,80 @@ newCreateTransitGatewayConnect
   pOptions_ =
     CreateTransitGatewayConnect'
       { tagSpecifications =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
         transportTransitGatewayAttachmentId =
           pTransportTransitGatewayAttachmentId_,
         options = pOptions_
       }
 
 -- | The tags to apply to the Connect attachment.
-createTransitGatewayConnect_tagSpecifications :: Lens.Lens' CreateTransitGatewayConnect (Prelude.Maybe [TagSpecification])
-createTransitGatewayConnect_tagSpecifications = Lens.lens (\CreateTransitGatewayConnect' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnect' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnect) Prelude.. Lens.mapping Prelude._Coerce
+createTransitGatewayConnect_tagSpecifications :: Lens.Lens' CreateTransitGatewayConnect (Core.Maybe [TagSpecification])
+createTransitGatewayConnect_tagSpecifications = Lens.lens (\CreateTransitGatewayConnect' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayConnect' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayConnect) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createTransitGatewayConnect_dryRun :: Lens.Lens' CreateTransitGatewayConnect (Prelude.Maybe Prelude.Bool)
+createTransitGatewayConnect_dryRun :: Lens.Lens' CreateTransitGatewayConnect (Core.Maybe Core.Bool)
 createTransitGatewayConnect_dryRun = Lens.lens (\CreateTransitGatewayConnect' {dryRun} -> dryRun) (\s@CreateTransitGatewayConnect' {} a -> s {dryRun = a} :: CreateTransitGatewayConnect)
 
 -- | The ID of the transit gateway attachment. You can specify a VPC
 -- attachment or a AWS Direct Connect attachment.
-createTransitGatewayConnect_transportTransitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayConnect Prelude.Text
+createTransitGatewayConnect_transportTransitGatewayAttachmentId :: Lens.Lens' CreateTransitGatewayConnect Core.Text
 createTransitGatewayConnect_transportTransitGatewayAttachmentId = Lens.lens (\CreateTransitGatewayConnect' {transportTransitGatewayAttachmentId} -> transportTransitGatewayAttachmentId) (\s@CreateTransitGatewayConnect' {} a -> s {transportTransitGatewayAttachmentId = a} :: CreateTransitGatewayConnect)
 
 -- | The Connect attachment options.
 createTransitGatewayConnect_options :: Lens.Lens' CreateTransitGatewayConnect CreateTransitGatewayConnectRequestOptions
 createTransitGatewayConnect_options = Lens.lens (\CreateTransitGatewayConnect' {options} -> options) (\s@CreateTransitGatewayConnect' {} a -> s {options = a} :: CreateTransitGatewayConnect)
 
-instance
-  Prelude.AWSRequest
-    CreateTransitGatewayConnect
-  where
+instance Core.AWSRequest CreateTransitGatewayConnect where
   type
-    Rs CreateTransitGatewayConnect =
+    AWSResponse CreateTransitGatewayConnect =
       CreateTransitGatewayConnectResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayConnectResponse'
-            Prelude.<$> (x Prelude..@? "transitGatewayConnect")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayConnect")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTransitGatewayConnect
+instance Core.Hashable CreateTransitGatewayConnect
 
-instance Prelude.NFData CreateTransitGatewayConnect
+instance Core.NFData CreateTransitGatewayConnect
 
-instance
-  Prelude.ToHeaders
-    CreateTransitGatewayConnect
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateTransitGatewayConnect where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateTransitGatewayConnect where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTransitGatewayConnect where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTransitGatewayConnect where
+instance Core.ToQuery CreateTransitGatewayConnect where
   toQuery CreateTransitGatewayConnect' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateTransitGatewayConnect" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateTransitGatewayConnect" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
+        "DryRun" Core.=: dryRun,
         "TransportTransitGatewayAttachmentId"
-          Prelude.=: transportTransitGatewayAttachmentId,
-        "Options" Prelude.=: options
+          Core.=: transportTransitGatewayAttachmentId,
+        "Options" Core.=: options
       ]
 
 -- | /See:/ 'newCreateTransitGatewayConnectResponse' smart constructor.
 data CreateTransitGatewayConnectResponse = CreateTransitGatewayConnectResponse'
   { -- | Information about the Connect attachment.
-    transitGatewayConnect :: Prelude.Maybe TransitGatewayConnect,
+    transitGatewayConnect :: Core.Maybe TransitGatewayConnect,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayConnectResponse' with all optional fields omitted.
@@ -199,23 +189,23 @@ data CreateTransitGatewayConnectResponse = CreateTransitGatewayConnectResponse'
 -- 'httpStatus', 'createTransitGatewayConnectResponse_httpStatus' - The response's http status code.
 newCreateTransitGatewayConnectResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTransitGatewayConnectResponse
 newCreateTransitGatewayConnectResponse pHttpStatus_ =
   CreateTransitGatewayConnectResponse'
     { transitGatewayConnect =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the Connect attachment.
-createTransitGatewayConnectResponse_transitGatewayConnect :: Lens.Lens' CreateTransitGatewayConnectResponse (Prelude.Maybe TransitGatewayConnect)
+createTransitGatewayConnectResponse_transitGatewayConnect :: Lens.Lens' CreateTransitGatewayConnectResponse (Core.Maybe TransitGatewayConnect)
 createTransitGatewayConnectResponse_transitGatewayConnect = Lens.lens (\CreateTransitGatewayConnectResponse' {transitGatewayConnect} -> transitGatewayConnect) (\s@CreateTransitGatewayConnectResponse' {} a -> s {transitGatewayConnect = a} :: CreateTransitGatewayConnectResponse)
 
 -- | The response's http status code.
-createTransitGatewayConnectResponse_httpStatus :: Lens.Lens' CreateTransitGatewayConnectResponse Prelude.Int
+createTransitGatewayConnectResponse_httpStatus :: Lens.Lens' CreateTransitGatewayConnectResponse Core.Int
 createTransitGatewayConnectResponse_httpStatus = Lens.lens (\CreateTransitGatewayConnectResponse' {httpStatus} -> httpStatus) (\s@CreateTransitGatewayConnectResponse' {} a -> s {httpStatus = a} :: CreateTransitGatewayConnectResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTransitGatewayConnectResponse

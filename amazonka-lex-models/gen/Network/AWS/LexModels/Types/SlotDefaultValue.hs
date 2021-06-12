@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.SlotDefaultValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A default value for a slot.
 --
@@ -36,9 +35,9 @@ data SlotDefaultValue = SlotDefaultValue'
     --     \"attribute.\"
     --
     -- -   @\'value\'@ - The discrete value \"value.\"
-    defaultValue :: Prelude.Text
+    defaultValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SlotDefaultValue' with all optional fields omitted.
@@ -59,7 +58,7 @@ data SlotDefaultValue = SlotDefaultValue'
 -- -   @\'value\'@ - The discrete value \"value.\"
 newSlotDefaultValue ::
   -- | 'defaultValue'
-  Prelude.Text ->
+  Core.Text ->
   SlotDefaultValue
 newSlotDefaultValue pDefaultValue_ =
   SlotDefaultValue' {defaultValue = pDefaultValue_}
@@ -73,27 +72,25 @@ newSlotDefaultValue pDefaultValue_ =
 --     \"attribute.\"
 --
 -- -   @\'value\'@ - The discrete value \"value.\"
-slotDefaultValue_defaultValue :: Lens.Lens' SlotDefaultValue Prelude.Text
+slotDefaultValue_defaultValue :: Lens.Lens' SlotDefaultValue Core.Text
 slotDefaultValue_defaultValue = Lens.lens (\SlotDefaultValue' {defaultValue} -> defaultValue) (\s@SlotDefaultValue' {} a -> s {defaultValue = a} :: SlotDefaultValue)
 
-instance Prelude.FromJSON SlotDefaultValue where
+instance Core.FromJSON SlotDefaultValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SlotDefaultValue"
       ( \x ->
           SlotDefaultValue'
-            Prelude.<$> (x Prelude..: "defaultValue")
+            Core.<$> (x Core..: "defaultValue")
       )
 
-instance Prelude.Hashable SlotDefaultValue
+instance Core.Hashable SlotDefaultValue
 
-instance Prelude.NFData SlotDefaultValue
+instance Core.NFData SlotDefaultValue
 
-instance Prelude.ToJSON SlotDefaultValue where
+instance Core.ToJSON SlotDefaultValue where
   toJSON SlotDefaultValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("defaultValue" Prelude..= defaultValue)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("defaultValue" Core..= defaultValue)]
       )

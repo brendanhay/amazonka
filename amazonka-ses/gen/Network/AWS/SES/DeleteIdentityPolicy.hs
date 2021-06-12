@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.SES.DeleteIdentityPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -72,11 +71,11 @@ data DeleteIdentityPolicy = DeleteIdentityPolicy'
     -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
     --
     -- To successfully call this API, you must own the identity.
-    identity :: Prelude.Text,
+    identity :: Core.Text,
     -- | The name of the policy to be deleted.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityPolicy' with all optional fields omitted.
@@ -96,9 +95,9 @@ data DeleteIdentityPolicy = DeleteIdentityPolicy'
 -- 'policyName', 'deleteIdentityPolicy_policyName' - The name of the policy to be deleted.
 newDeleteIdentityPolicy ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteIdentityPolicy
 newDeleteIdentityPolicy pIdentity_ pPolicyName_ =
   DeleteIdentityPolicy'
@@ -112,16 +111,16 @@ newDeleteIdentityPolicy pIdentity_ pPolicyName_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-deleteIdentityPolicy_identity :: Lens.Lens' DeleteIdentityPolicy Prelude.Text
+deleteIdentityPolicy_identity :: Lens.Lens' DeleteIdentityPolicy Core.Text
 deleteIdentityPolicy_identity = Lens.lens (\DeleteIdentityPolicy' {identity} -> identity) (\s@DeleteIdentityPolicy' {} a -> s {identity = a} :: DeleteIdentityPolicy)
 
 -- | The name of the policy to be deleted.
-deleteIdentityPolicy_policyName :: Lens.Lens' DeleteIdentityPolicy Prelude.Text
+deleteIdentityPolicy_policyName :: Lens.Lens' DeleteIdentityPolicy Core.Text
 deleteIdentityPolicy_policyName = Lens.lens (\DeleteIdentityPolicy' {policyName} -> policyName) (\s@DeleteIdentityPolicy' {} a -> s {policyName = a} :: DeleteIdentityPolicy)
 
-instance Prelude.AWSRequest DeleteIdentityPolicy where
+instance Core.AWSRequest DeleteIdentityPolicy where
   type
-    Rs DeleteIdentityPolicy =
+    AWSResponse DeleteIdentityPolicy =
       DeleteIdentityPolicyResponse
   request = Request.postQuery defaultService
   response =
@@ -129,28 +128,27 @@ instance Prelude.AWSRequest DeleteIdentityPolicy where
       "DeleteIdentityPolicyResult"
       ( \s h x ->
           DeleteIdentityPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteIdentityPolicy
+instance Core.Hashable DeleteIdentityPolicy
 
-instance Prelude.NFData DeleteIdentityPolicy
+instance Core.NFData DeleteIdentityPolicy
 
-instance Prelude.ToHeaders DeleteIdentityPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteIdentityPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteIdentityPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteIdentityPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteIdentityPolicy where
+instance Core.ToQuery DeleteIdentityPolicy where
   toQuery DeleteIdentityPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteIdentityPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Prelude.=: identity,
-        "PolicyName" Prelude.=: policyName
+          Core.=: ("DeleteIdentityPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Identity" Core.=: identity,
+        "PolicyName" Core.=: policyName
       ]
 
 -- | An empty element returned on a successful request.
@@ -158,9 +156,9 @@ instance Prelude.ToQuery DeleteIdentityPolicy where
 -- /See:/ 'newDeleteIdentityPolicyResponse' smart constructor.
 data DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityPolicyResponse' with all optional fields omitted.
@@ -173,7 +171,7 @@ data DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
 -- 'httpStatus', 'deleteIdentityPolicyResponse_httpStatus' - The response's http status code.
 newDeleteIdentityPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteIdentityPolicyResponse
 newDeleteIdentityPolicyResponse pHttpStatus_ =
   DeleteIdentityPolicyResponse'
@@ -182,7 +180,7 @@ newDeleteIdentityPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteIdentityPolicyResponse_httpStatus :: Lens.Lens' DeleteIdentityPolicyResponse Prelude.Int
+deleteIdentityPolicyResponse_httpStatus :: Lens.Lens' DeleteIdentityPolicyResponse Core.Int
 deleteIdentityPolicyResponse_httpStatus = Lens.lens (\DeleteIdentityPolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteIdentityPolicyResponse' {} a -> s {httpStatus = a} :: DeleteIdentityPolicyResponse)
 
-instance Prelude.NFData DeleteIdentityPolicyResponse
+instance Core.NFData DeleteIdentityPolicyResponse

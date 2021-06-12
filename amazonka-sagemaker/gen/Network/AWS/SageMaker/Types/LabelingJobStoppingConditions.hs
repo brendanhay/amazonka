@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.LabelingJobStoppingConditions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of conditions for stopping a labeling job. If any of the
 -- conditions are met, the job is automatically stopped. You can use these
@@ -33,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLabelingJobStoppingConditions' smart constructor.
 data LabelingJobStoppingConditions = LabelingJobStoppingConditions'
   { -- | The maximum number of input data objects that should be labeled.
-    maxPercentageOfInputDatasetLabeled :: Prelude.Maybe Prelude.Natural,
+    maxPercentageOfInputDatasetLabeled :: Core.Maybe Core.Natural,
     -- | The maximum number of objects that can be labeled by human workers.
-    maxHumanLabeledObjectCount :: Prelude.Maybe Prelude.Natural
+    maxHumanLabeledObjectCount :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelingJobStoppingConditions' with all optional fields omitted.
@@ -55,44 +54,39 @@ newLabelingJobStoppingConditions ::
 newLabelingJobStoppingConditions =
   LabelingJobStoppingConditions'
     { maxPercentageOfInputDatasetLabeled =
-        Prelude.Nothing,
-      maxHumanLabeledObjectCount = Prelude.Nothing
+        Core.Nothing,
+      maxHumanLabeledObjectCount = Core.Nothing
     }
 
 -- | The maximum number of input data objects that should be labeled.
-labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
+labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled :: Lens.Lens' LabelingJobStoppingConditions (Core.Maybe Core.Natural)
 labelingJobStoppingConditions_maxPercentageOfInputDatasetLabeled = Lens.lens (\LabelingJobStoppingConditions' {maxPercentageOfInputDatasetLabeled} -> maxPercentageOfInputDatasetLabeled) (\s@LabelingJobStoppingConditions' {} a -> s {maxPercentageOfInputDatasetLabeled = a} :: LabelingJobStoppingConditions)
 
 -- | The maximum number of objects that can be labeled by human workers.
-labelingJobStoppingConditions_maxHumanLabeledObjectCount :: Lens.Lens' LabelingJobStoppingConditions (Prelude.Maybe Prelude.Natural)
+labelingJobStoppingConditions_maxHumanLabeledObjectCount :: Lens.Lens' LabelingJobStoppingConditions (Core.Maybe Core.Natural)
 labelingJobStoppingConditions_maxHumanLabeledObjectCount = Lens.lens (\LabelingJobStoppingConditions' {maxHumanLabeledObjectCount} -> maxHumanLabeledObjectCount) (\s@LabelingJobStoppingConditions' {} a -> s {maxHumanLabeledObjectCount = a} :: LabelingJobStoppingConditions)
 
-instance
-  Prelude.FromJSON
-    LabelingJobStoppingConditions
-  where
+instance Core.FromJSON LabelingJobStoppingConditions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LabelingJobStoppingConditions"
       ( \x ->
           LabelingJobStoppingConditions'
-            Prelude.<$> (x Prelude..:? "MaxPercentageOfInputDatasetLabeled")
-            Prelude.<*> (x Prelude..:? "MaxHumanLabeledObjectCount")
+            Core.<$> (x Core..:? "MaxPercentageOfInputDatasetLabeled")
+            Core.<*> (x Core..:? "MaxHumanLabeledObjectCount")
       )
 
-instance
-  Prelude.Hashable
-    LabelingJobStoppingConditions
+instance Core.Hashable LabelingJobStoppingConditions
 
-instance Prelude.NFData LabelingJobStoppingConditions
+instance Core.NFData LabelingJobStoppingConditions
 
-instance Prelude.ToJSON LabelingJobStoppingConditions where
+instance Core.ToJSON LabelingJobStoppingConditions where
   toJSON LabelingJobStoppingConditions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MaxPercentageOfInputDatasetLabeled" Prelude..=)
-              Prelude.<$> maxPercentageOfInputDatasetLabeled,
-            ("MaxHumanLabeledObjectCount" Prelude..=)
-              Prelude.<$> maxHumanLabeledObjectCount
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxPercentageOfInputDatasetLabeled" Core..=)
+              Core.<$> maxPercentageOfInputDatasetLabeled,
+            ("MaxHumanLabeledObjectCount" Core..=)
+              Core.<$> maxHumanLabeledObjectCount
           ]
       )

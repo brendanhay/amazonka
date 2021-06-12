@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.EC2.ModifyVolumeAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,13 +59,13 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | Indicates whether the volume should be auto-enabled for I\/O operations.
-    autoEnableIO :: Prelude.Maybe AttributeBooleanValue,
+    autoEnableIO :: Core.Maybe AttributeBooleanValue,
     -- | The ID of the volume.
-    volumeId :: Prelude.Text
+    volumeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVolumeAttribute' with all optional fields omitted.
@@ -86,12 +85,12 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute'
 -- 'volumeId', 'modifyVolumeAttribute_volumeId' - The ID of the volume.
 newModifyVolumeAttribute ::
   -- | 'volumeId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyVolumeAttribute
 newModifyVolumeAttribute pVolumeId_ =
   ModifyVolumeAttribute'
-    { dryRun = Prelude.Nothing,
-      autoEnableIO = Prelude.Nothing,
+    { dryRun = Core.Nothing,
+      autoEnableIO = Core.Nothing,
       volumeId = pVolumeId_
     }
 
@@ -99,52 +98,51 @@ newModifyVolumeAttribute pVolumeId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVolumeAttribute_dryRun :: Lens.Lens' ModifyVolumeAttribute (Prelude.Maybe Prelude.Bool)
+modifyVolumeAttribute_dryRun :: Lens.Lens' ModifyVolumeAttribute (Core.Maybe Core.Bool)
 modifyVolumeAttribute_dryRun = Lens.lens (\ModifyVolumeAttribute' {dryRun} -> dryRun) (\s@ModifyVolumeAttribute' {} a -> s {dryRun = a} :: ModifyVolumeAttribute)
 
 -- | Indicates whether the volume should be auto-enabled for I\/O operations.
-modifyVolumeAttribute_autoEnableIO :: Lens.Lens' ModifyVolumeAttribute (Prelude.Maybe AttributeBooleanValue)
+modifyVolumeAttribute_autoEnableIO :: Lens.Lens' ModifyVolumeAttribute (Core.Maybe AttributeBooleanValue)
 modifyVolumeAttribute_autoEnableIO = Lens.lens (\ModifyVolumeAttribute' {autoEnableIO} -> autoEnableIO) (\s@ModifyVolumeAttribute' {} a -> s {autoEnableIO = a} :: ModifyVolumeAttribute)
 
 -- | The ID of the volume.
-modifyVolumeAttribute_volumeId :: Lens.Lens' ModifyVolumeAttribute Prelude.Text
+modifyVolumeAttribute_volumeId :: Lens.Lens' ModifyVolumeAttribute Core.Text
 modifyVolumeAttribute_volumeId = Lens.lens (\ModifyVolumeAttribute' {volumeId} -> volumeId) (\s@ModifyVolumeAttribute' {} a -> s {volumeId = a} :: ModifyVolumeAttribute)
 
-instance Prelude.AWSRequest ModifyVolumeAttribute where
+instance Core.AWSRequest ModifyVolumeAttribute where
   type
-    Rs ModifyVolumeAttribute =
+    AWSResponse ModifyVolumeAttribute =
       ModifyVolumeAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull ModifyVolumeAttributeResponse'
 
-instance Prelude.Hashable ModifyVolumeAttribute
+instance Core.Hashable ModifyVolumeAttribute
 
-instance Prelude.NFData ModifyVolumeAttribute
+instance Core.NFData ModifyVolumeAttribute
 
-instance Prelude.ToHeaders ModifyVolumeAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyVolumeAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyVolumeAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyVolumeAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyVolumeAttribute where
+instance Core.ToQuery ModifyVolumeAttribute where
   toQuery ModifyVolumeAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyVolumeAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "AutoEnableIO" Prelude.=: autoEnableIO,
-        "VolumeId" Prelude.=: volumeId
+          Core.=: ("ModifyVolumeAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "AutoEnableIO" Core.=: autoEnableIO,
+        "VolumeId" Core.=: volumeId
       ]
 
 -- | /See:/ 'newModifyVolumeAttributeResponse' smart constructor.
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVolumeAttributeResponse' with all optional fields omitted.
@@ -155,4 +153,4 @@ newModifyVolumeAttributeResponse ::
 newModifyVolumeAttributeResponse =
   ModifyVolumeAttributeResponse'
 
-instance Prelude.NFData ModifyVolumeAttributeResponse
+instance Core.NFData ModifyVolumeAttributeResponse

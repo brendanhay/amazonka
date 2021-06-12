@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +54,15 @@ import qualified Network.AWS.Response as Response
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The launch configuration names. If you omit this parameter, all launch
     -- configurations are described.
-    launchConfigurationNames :: Prelude.Maybe [Prelude.Text],
+    launchConfigurationNames :: Core.Maybe [Core.Text],
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLaunchConfigurations' with all optional fields omitted.
@@ -87,53 +85,50 @@ newDescribeLaunchConfigurations ::
 newDescribeLaunchConfigurations =
   DescribeLaunchConfigurations'
     { nextToken =
-        Prelude.Nothing,
-      launchConfigurationNames = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      launchConfigurationNames = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeLaunchConfigurations_nextToken :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe Prelude.Text)
+describeLaunchConfigurations_nextToken :: Lens.Lens' DescribeLaunchConfigurations (Core.Maybe Core.Text)
 describeLaunchConfigurations_nextToken = Lens.lens (\DescribeLaunchConfigurations' {nextToken} -> nextToken) (\s@DescribeLaunchConfigurations' {} a -> s {nextToken = a} :: DescribeLaunchConfigurations)
 
 -- | The launch configuration names. If you omit this parameter, all launch
 -- configurations are described.
-describeLaunchConfigurations_launchConfigurationNames :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe [Prelude.Text])
-describeLaunchConfigurations_launchConfigurationNames = Lens.lens (\DescribeLaunchConfigurations' {launchConfigurationNames} -> launchConfigurationNames) (\s@DescribeLaunchConfigurations' {} a -> s {launchConfigurationNames = a} :: DescribeLaunchConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+describeLaunchConfigurations_launchConfigurationNames :: Lens.Lens' DescribeLaunchConfigurations (Core.Maybe [Core.Text])
+describeLaunchConfigurations_launchConfigurationNames = Lens.lens (\DescribeLaunchConfigurations' {launchConfigurationNames} -> launchConfigurationNames) (\s@DescribeLaunchConfigurations' {} a -> s {launchConfigurationNames = a} :: DescribeLaunchConfigurations) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
-describeLaunchConfigurations_maxRecords :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe Prelude.Int)
+describeLaunchConfigurations_maxRecords :: Lens.Lens' DescribeLaunchConfigurations (Core.Maybe Core.Int)
 describeLaunchConfigurations_maxRecords = Lens.lens (\DescribeLaunchConfigurations' {maxRecords} -> maxRecords) (\s@DescribeLaunchConfigurations' {} a -> s {maxRecords = a} :: DescribeLaunchConfigurations)
 
-instance Pager.AWSPager DescribeLaunchConfigurations where
+instance Core.AWSPager DescribeLaunchConfigurations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeLaunchConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. describeLaunchConfigurationsResponse_launchConfigurations
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeLaunchConfigurations_nextToken
           Lens..~ rs
           Lens.^? describeLaunchConfigurationsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeLaunchConfigurations
-  where
+instance Core.AWSRequest DescribeLaunchConfigurations where
   type
-    Rs DescribeLaunchConfigurations =
+    AWSResponse DescribeLaunchConfigurations =
       DescribeLaunchConfigurationsResponse
   request = Request.postQuery defaultService
   response =
@@ -141,45 +136,37 @@ instance
       "DescribeLaunchConfigurationsResult"
       ( \s h x ->
           DescribeLaunchConfigurationsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "LaunchConfigurations"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "LaunchConfigurations"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance
-  Prelude.Hashable
-    DescribeLaunchConfigurations
+instance Core.Hashable DescribeLaunchConfigurations
 
-instance Prelude.NFData DescribeLaunchConfigurations
+instance Core.NFData DescribeLaunchConfigurations
 
-instance
-  Prelude.ToHeaders
-    DescribeLaunchConfigurations
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeLaunchConfigurations where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeLaunchConfigurations where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLaunchConfigurations where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLaunchConfigurations where
+instance Core.ToQuery DescribeLaunchConfigurations where
   toQuery DescribeLaunchConfigurations' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeLaunchConfigurations" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
+          Core.=: ("DescribeLaunchConfigurations" :: Core.ByteString),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
         "LaunchConfigurationNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> launchConfigurationNames
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> launchConfigurationNames
             ),
-        "MaxRecords" Prelude.=: maxRecords
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | /See:/ 'newDescribeLaunchConfigurationsResponse' smart constructor.
@@ -188,13 +175,13 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     -- be returned in a single response. To receive additional items, specify
     -- this string for the @NextToken@ value when requesting the next set of
     -- items. This value is null when there are no more items to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The launch configurations.
     launchConfigurations :: [LaunchConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLaunchConfigurationsResponse' with all optional fields omitted.
@@ -214,31 +201,31 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
 -- 'launchConfigurations', 'describeLaunchConfigurationsResponse_launchConfigurations' - The launch configurations.
 newDescribeLaunchConfigurationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLaunchConfigurationsResponse
 newDescribeLaunchConfigurationsResponse pHttpStatus_ =
   DescribeLaunchConfigurationsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      launchConfigurations = Prelude.mempty
+      launchConfigurations = Core.mempty
     }
 
 -- | A string that indicates that the response contains more items than can
 -- be returned in a single response. To receive additional items, specify
 -- this string for the @NextToken@ value when requesting the next set of
 -- items. This value is null when there are no more items to return.
-describeLaunchConfigurationsResponse_nextToken :: Lens.Lens' DescribeLaunchConfigurationsResponse (Prelude.Maybe Prelude.Text)
+describeLaunchConfigurationsResponse_nextToken :: Lens.Lens' DescribeLaunchConfigurationsResponse (Core.Maybe Core.Text)
 describeLaunchConfigurationsResponse_nextToken = Lens.lens (\DescribeLaunchConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeLaunchConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeLaunchConfigurationsResponse)
 
 -- | The response's http status code.
-describeLaunchConfigurationsResponse_httpStatus :: Lens.Lens' DescribeLaunchConfigurationsResponse Prelude.Int
+describeLaunchConfigurationsResponse_httpStatus :: Lens.Lens' DescribeLaunchConfigurationsResponse Core.Int
 describeLaunchConfigurationsResponse_httpStatus = Lens.lens (\DescribeLaunchConfigurationsResponse' {httpStatus} -> httpStatus) (\s@DescribeLaunchConfigurationsResponse' {} a -> s {httpStatus = a} :: DescribeLaunchConfigurationsResponse)
 
 -- | The launch configurations.
 describeLaunchConfigurationsResponse_launchConfigurations :: Lens.Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-describeLaunchConfigurationsResponse_launchConfigurations = Lens.lens (\DescribeLaunchConfigurationsResponse' {launchConfigurations} -> launchConfigurations) (\s@DescribeLaunchConfigurationsResponse' {} a -> s {launchConfigurations = a} :: DescribeLaunchConfigurationsResponse) Prelude.. Prelude._Coerce
+describeLaunchConfigurationsResponse_launchConfigurations = Lens.lens (\DescribeLaunchConfigurationsResponse' {launchConfigurations} -> launchConfigurations) (\s@DescribeLaunchConfigurationsResponse' {} a -> s {launchConfigurations = a} :: DescribeLaunchConfigurationsResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeLaunchConfigurationsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.BufferingHints where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes hints for the buffering to perform before delivering data to
 -- the destination. These options are treated as hints, and therefore
@@ -41,14 +40,14 @@ data BufferingHints = BufferingHints'
     -- of data you typically ingest into the delivery stream in 10 seconds. For
     -- example, if you typically ingest data at 1 MiB\/sec, the value should be
     -- 10 MiB or higher.
-    sizeInMBs :: Prelude.Maybe Prelude.Natural,
+    sizeInMBs :: Core.Maybe Core.Natural,
     -- | Buffer incoming data for the specified period of time, in seconds,
     -- before delivering it to the destination. The default value is 300. This
     -- parameter is optional but if you specify a value for it, you must also
     -- specify a value for @SizeInMBs@, and vice versa.
-    intervalInSeconds :: Prelude.Maybe Prelude.Natural
+    intervalInSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BufferingHints' with all optional fields omitted.
@@ -76,8 +75,8 @@ newBufferingHints ::
   BufferingHints
 newBufferingHints =
   BufferingHints'
-    { sizeInMBs = Prelude.Nothing,
-      intervalInSeconds = Prelude.Nothing
+    { sizeInMBs = Core.Nothing,
+      intervalInSeconds = Core.Nothing
     }
 
 -- | Buffer incoming data to the specified size, in MiBs, before delivering
@@ -89,36 +88,36 @@ newBufferingHints =
 -- of data you typically ingest into the delivery stream in 10 seconds. For
 -- example, if you typically ingest data at 1 MiB\/sec, the value should be
 -- 10 MiB or higher.
-bufferingHints_sizeInMBs :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
+bufferingHints_sizeInMBs :: Lens.Lens' BufferingHints (Core.Maybe Core.Natural)
 bufferingHints_sizeInMBs = Lens.lens (\BufferingHints' {sizeInMBs} -> sizeInMBs) (\s@BufferingHints' {} a -> s {sizeInMBs = a} :: BufferingHints)
 
 -- | Buffer incoming data for the specified period of time, in seconds,
 -- before delivering it to the destination. The default value is 300. This
 -- parameter is optional but if you specify a value for it, you must also
 -- specify a value for @SizeInMBs@, and vice versa.
-bufferingHints_intervalInSeconds :: Lens.Lens' BufferingHints (Prelude.Maybe Prelude.Natural)
+bufferingHints_intervalInSeconds :: Lens.Lens' BufferingHints (Core.Maybe Core.Natural)
 bufferingHints_intervalInSeconds = Lens.lens (\BufferingHints' {intervalInSeconds} -> intervalInSeconds) (\s@BufferingHints' {} a -> s {intervalInSeconds = a} :: BufferingHints)
 
-instance Prelude.FromJSON BufferingHints where
+instance Core.FromJSON BufferingHints where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BufferingHints"
       ( \x ->
           BufferingHints'
-            Prelude.<$> (x Prelude..:? "SizeInMBs")
-            Prelude.<*> (x Prelude..:? "IntervalInSeconds")
+            Core.<$> (x Core..:? "SizeInMBs")
+            Core.<*> (x Core..:? "IntervalInSeconds")
       )
 
-instance Prelude.Hashable BufferingHints
+instance Core.Hashable BufferingHints
 
-instance Prelude.NFData BufferingHints
+instance Core.NFData BufferingHints
 
-instance Prelude.ToJSON BufferingHints where
+instance Core.ToJSON BufferingHints where
   toJSON BufferingHints' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SizeInMBs" Prelude..=) Prelude.<$> sizeInMBs,
-            ("IntervalInSeconds" Prelude..=)
-              Prelude.<$> intervalInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("SizeInMBs" Core..=) Core.<$> sizeInMBs,
+            ("IntervalInSeconds" Core..=)
+              Core.<$> intervalInSeconds
           ]
       )

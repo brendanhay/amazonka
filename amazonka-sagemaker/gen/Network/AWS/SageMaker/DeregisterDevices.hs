@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.SageMaker.DeregisterDevices
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,11 +46,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeregisterDevices' smart constructor.
 data DeregisterDevices = DeregisterDevices'
   { -- | The name of the fleet the devices belong to.
-    deviceFleetName :: Prelude.Text,
+    deviceFleetName :: Core.Text,
     -- | The unique IDs of the devices.
-    deviceNames :: [Prelude.Text]
+    deviceNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterDevices' with all optional fields omitted.
@@ -66,69 +65,67 @@ data DeregisterDevices = DeregisterDevices'
 -- 'deviceNames', 'deregisterDevices_deviceNames' - The unique IDs of the devices.
 newDeregisterDevices ::
   -- | 'deviceFleetName'
-  Prelude.Text ->
+  Core.Text ->
   DeregisterDevices
 newDeregisterDevices pDeviceFleetName_ =
   DeregisterDevices'
     { deviceFleetName =
         pDeviceFleetName_,
-      deviceNames = Prelude.mempty
+      deviceNames = Core.mempty
     }
 
 -- | The name of the fleet the devices belong to.
-deregisterDevices_deviceFleetName :: Lens.Lens' DeregisterDevices Prelude.Text
+deregisterDevices_deviceFleetName :: Lens.Lens' DeregisterDevices Core.Text
 deregisterDevices_deviceFleetName = Lens.lens (\DeregisterDevices' {deviceFleetName} -> deviceFleetName) (\s@DeregisterDevices' {} a -> s {deviceFleetName = a} :: DeregisterDevices)
 
 -- | The unique IDs of the devices.
-deregisterDevices_deviceNames :: Lens.Lens' DeregisterDevices [Prelude.Text]
-deregisterDevices_deviceNames = Lens.lens (\DeregisterDevices' {deviceNames} -> deviceNames) (\s@DeregisterDevices' {} a -> s {deviceNames = a} :: DeregisterDevices) Prelude.. Prelude._Coerce
+deregisterDevices_deviceNames :: Lens.Lens' DeregisterDevices [Core.Text]
+deregisterDevices_deviceNames = Lens.lens (\DeregisterDevices' {deviceNames} -> deviceNames) (\s@DeregisterDevices' {} a -> s {deviceNames = a} :: DeregisterDevices) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeregisterDevices where
-  type Rs DeregisterDevices = DeregisterDevicesResponse
+instance Core.AWSRequest DeregisterDevices where
+  type
+    AWSResponse DeregisterDevices =
+      DeregisterDevicesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeregisterDevicesResponse'
 
-instance Prelude.Hashable DeregisterDevices
+instance Core.Hashable DeregisterDevices
 
-instance Prelude.NFData DeregisterDevices
+instance Core.NFData DeregisterDevices
 
-instance Prelude.ToHeaders DeregisterDevices where
+instance Core.ToHeaders DeregisterDevices where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeregisterDevices" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.DeregisterDevices" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeregisterDevices where
+instance Core.ToJSON DeregisterDevices where
   toJSON DeregisterDevices' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DeviceFleetName" Prelude..= deviceFleetName),
-            Prelude.Just ("DeviceNames" Prelude..= deviceNames)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeviceFleetName" Core..= deviceFleetName),
+            Core.Just ("DeviceNames" Core..= deviceNames)
           ]
       )
 
-instance Prelude.ToPath DeregisterDevices where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeregisterDevices where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeregisterDevices where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeregisterDevices where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeregisterDevicesResponse' smart constructor.
 data DeregisterDevicesResponse = DeregisterDevicesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeregisterDevicesResponse' with all optional fields omitted.
@@ -139,4 +136,4 @@ newDeregisterDevicesResponse ::
 newDeregisterDevicesResponse =
   DeregisterDevicesResponse'
 
-instance Prelude.NFData DeregisterDevicesResponse
+instance Core.NFData DeregisterDevicesResponse

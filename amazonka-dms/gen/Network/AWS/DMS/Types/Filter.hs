@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.Filter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the name and value of a filter object. This filter is used to
 -- limit the number and type of AWS DMS objects that are returned for a
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Filter = Filter'
   { -- | The name of the filter as specified for a @Describe*@ or similar
     -- operation.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The filter value, which can specify one or more values used to narrow
     -- the returned results.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -54,30 +53,30 @@ data Filter = Filter'
 -- the returned results.
 newFilter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Filter
 newFilter pName_ =
-  Filter' {name = pName_, values = Prelude.mempty}
+  Filter' {name = pName_, values = Core.mempty}
 
 -- | The name of the filter as specified for a @Describe*@ or similar
 -- operation.
-filter_name :: Lens.Lens' Filter Prelude.Text
+filter_name :: Lens.Lens' Filter Core.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
 -- | The filter value, which can specify one or more values used to narrow
 -- the returned results.
-filter_values :: Lens.Lens' Filter [Prelude.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Prelude._Coerce
+filter_values :: Lens.Lens' Filter [Core.Text]
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens._Coerce
 
-instance Prelude.Hashable Filter
+instance Core.Hashable Filter
 
-instance Prelude.NFData Filter
+instance Core.NFData Filter
 
-instance Prelude.ToJSON Filter where
+instance Core.ToJSON Filter where
   toJSON Filter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Values" Core..= values)
           ]
       )

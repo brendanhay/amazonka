@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ContinuousBackupsDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ContinuousBackupsStatus
 import Network.AWS.DynamoDB.Types.PointInTimeRecoveryDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the continuous backups and point in time recovery settings on
 -- the table.
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ContinuousBackupsDescription = ContinuousBackupsDescription'
   { -- | The description of the point in time recovery settings applied to the
     -- table.
-    pointInTimeRecoveryDescription :: Prelude.Maybe PointInTimeRecoveryDescription,
+    pointInTimeRecoveryDescription :: Core.Maybe PointInTimeRecoveryDescription,
     -- | @ContinuousBackupsStatus@ can be one of the following states: ENABLED,
     -- DISABLED
     continuousBackupsStatus :: ContinuousBackupsStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContinuousBackupsDescription' with all optional fields omitted.
@@ -60,14 +59,14 @@ newContinuousBackupsDescription
   pContinuousBackupsStatus_ =
     ContinuousBackupsDescription'
       { pointInTimeRecoveryDescription =
-          Prelude.Nothing,
+          Core.Nothing,
         continuousBackupsStatus =
           pContinuousBackupsStatus_
       }
 
 -- | The description of the point in time recovery settings applied to the
 -- table.
-continuousBackupsDescription_pointInTimeRecoveryDescription :: Lens.Lens' ContinuousBackupsDescription (Prelude.Maybe PointInTimeRecoveryDescription)
+continuousBackupsDescription_pointInTimeRecoveryDescription :: Lens.Lens' ContinuousBackupsDescription (Core.Maybe PointInTimeRecoveryDescription)
 continuousBackupsDescription_pointInTimeRecoveryDescription = Lens.lens (\ContinuousBackupsDescription' {pointInTimeRecoveryDescription} -> pointInTimeRecoveryDescription) (\s@ContinuousBackupsDescription' {} a -> s {pointInTimeRecoveryDescription = a} :: ContinuousBackupsDescription)
 
 -- | @ContinuousBackupsStatus@ can be one of the following states: ENABLED,
@@ -75,21 +74,16 @@ continuousBackupsDescription_pointInTimeRecoveryDescription = Lens.lens (\Contin
 continuousBackupsDescription_continuousBackupsStatus :: Lens.Lens' ContinuousBackupsDescription ContinuousBackupsStatus
 continuousBackupsDescription_continuousBackupsStatus = Lens.lens (\ContinuousBackupsDescription' {continuousBackupsStatus} -> continuousBackupsStatus) (\s@ContinuousBackupsDescription' {} a -> s {continuousBackupsStatus = a} :: ContinuousBackupsDescription)
 
-instance
-  Prelude.FromJSON
-    ContinuousBackupsDescription
-  where
+instance Core.FromJSON ContinuousBackupsDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContinuousBackupsDescription"
       ( \x ->
           ContinuousBackupsDescription'
-            Prelude.<$> (x Prelude..:? "PointInTimeRecoveryDescription")
-            Prelude.<*> (x Prelude..: "ContinuousBackupsStatus")
+            Core.<$> (x Core..:? "PointInTimeRecoveryDescription")
+            Core.<*> (x Core..: "ContinuousBackupsStatus")
       )
 
-instance
-  Prelude.Hashable
-    ContinuousBackupsDescription
+instance Core.Hashable ContinuousBackupsDescription
 
-instance Prelude.NFData ContinuousBackupsDescription
+instance Core.NFData ContinuousBackupsDescription

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.ResourceConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.ComputeType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration of the resource used to execute the @containerAction@.
 --
@@ -34,9 +33,9 @@ data ResourceConfiguration = ResourceConfiguration'
     computeType :: ComputeType,
     -- | The size, in GB, of the persistent storage available to the resource
     -- instance used to execute the @containerAction@ (min: 1, max: 50).
-    volumeSizeInGB :: Prelude.Natural
+    volumeSizeInGB :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceConfiguration' with all optional fields omitted.
@@ -56,7 +55,7 @@ newResourceConfiguration ::
   -- | 'computeType'
   ComputeType ->
   -- | 'volumeSizeInGB'
-  Prelude.Natural ->
+  Core.Natural ->
   ResourceConfiguration
 newResourceConfiguration
   pComputeType_
@@ -74,29 +73,28 @@ resourceConfiguration_computeType = Lens.lens (\ResourceConfiguration' {computeT
 
 -- | The size, in GB, of the persistent storage available to the resource
 -- instance used to execute the @containerAction@ (min: 1, max: 50).
-resourceConfiguration_volumeSizeInGB :: Lens.Lens' ResourceConfiguration Prelude.Natural
+resourceConfiguration_volumeSizeInGB :: Lens.Lens' ResourceConfiguration Core.Natural
 resourceConfiguration_volumeSizeInGB = Lens.lens (\ResourceConfiguration' {volumeSizeInGB} -> volumeSizeInGB) (\s@ResourceConfiguration' {} a -> s {volumeSizeInGB = a} :: ResourceConfiguration)
 
-instance Prelude.FromJSON ResourceConfiguration where
+instance Core.FromJSON ResourceConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceConfiguration"
       ( \x ->
           ResourceConfiguration'
-            Prelude.<$> (x Prelude..: "computeType")
-            Prelude.<*> (x Prelude..: "volumeSizeInGB")
+            Core.<$> (x Core..: "computeType")
+            Core.<*> (x Core..: "volumeSizeInGB")
       )
 
-instance Prelude.Hashable ResourceConfiguration
+instance Core.Hashable ResourceConfiguration
 
-instance Prelude.NFData ResourceConfiguration
+instance Core.NFData ResourceConfiguration
 
-instance Prelude.ToJSON ResourceConfiguration where
+instance Core.ToJSON ResourceConfiguration where
   toJSON ResourceConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("computeType" Prelude..= computeType),
-            Prelude.Just
-              ("volumeSizeInGB" Prelude..= volumeSizeInGB)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("computeType" Core..= computeType),
+            Core.Just ("volumeSizeInGB" Core..= volumeSizeInGB)
           ]
       )

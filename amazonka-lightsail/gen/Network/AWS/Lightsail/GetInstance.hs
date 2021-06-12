@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.Lightsail.GetInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetInstance' smart constructor.
 data GetInstance = GetInstance'
   { -- | The name of the instance.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstance' with all optional fields omitted.
@@ -65,69 +64,65 @@ data GetInstance = GetInstance'
 -- 'instanceName', 'getInstance_instanceName' - The name of the instance.
 newGetInstance ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   GetInstance
 newGetInstance pInstanceName_ =
   GetInstance' {instanceName = pInstanceName_}
 
 -- | The name of the instance.
-getInstance_instanceName :: Lens.Lens' GetInstance Prelude.Text
+getInstance_instanceName :: Lens.Lens' GetInstance Core.Text
 getInstance_instanceName = Lens.lens (\GetInstance' {instanceName} -> instanceName) (\s@GetInstance' {} a -> s {instanceName = a} :: GetInstance)
 
-instance Prelude.AWSRequest GetInstance where
-  type Rs GetInstance = GetInstanceResponse
+instance Core.AWSRequest GetInstance where
+  type AWSResponse GetInstance = GetInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInstanceResponse'
-            Prelude.<$> (x Prelude..?> "instance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "instance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInstance
+instance Core.Hashable GetInstance
 
-instance Prelude.NFData GetInstance
+instance Core.NFData GetInstance
 
-instance Prelude.ToHeaders GetInstance where
+instance Core.ToHeaders GetInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetInstance where
+instance Core.ToJSON GetInstance where
   toJSON GetInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("instanceName" Prelude..= instanceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceName" Core..= instanceName)]
       )
 
-instance Prelude.ToPath GetInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInstanceResponse' smart constructor.
 data GetInstanceResponse = GetInstanceResponse'
   { -- | An array of key-value pairs containing information about the specified
     -- instance.
-    instance' :: Prelude.Maybe Instance,
+    instance' :: Core.Maybe Instance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInstanceResponse' with all optional fields omitted.
@@ -143,21 +138,21 @@ data GetInstanceResponse = GetInstanceResponse'
 -- 'httpStatus', 'getInstanceResponse_httpStatus' - The response's http status code.
 newGetInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInstanceResponse
 newGetInstanceResponse pHttpStatus_ =
   GetInstanceResponse'
-    { instance' = Prelude.Nothing,
+    { instance' = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of key-value pairs containing information about the specified
 -- instance.
-getInstanceResponse_instance :: Lens.Lens' GetInstanceResponse (Prelude.Maybe Instance)
+getInstanceResponse_instance :: Lens.Lens' GetInstanceResponse (Core.Maybe Instance)
 getInstanceResponse_instance = Lens.lens (\GetInstanceResponse' {instance'} -> instance') (\s@GetInstanceResponse' {} a -> s {instance' = a} :: GetInstanceResponse)
 
 -- | The response's http status code.
-getInstanceResponse_httpStatus :: Lens.Lens' GetInstanceResponse Prelude.Int
+getInstanceResponse_httpStatus :: Lens.Lens' GetInstanceResponse Core.Int
 getInstanceResponse_httpStatus = Lens.lens (\GetInstanceResponse' {httpStatus} -> httpStatus) (\s@GetInstanceResponse' {} a -> s {httpStatus = a} :: GetInstanceResponse)
 
-instance Prelude.NFData GetInstanceResponse
+instance Core.NFData GetInstanceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Request parameters when using an identity provider (IdP) that is
 -- compliant with OpenID Connect (OIDC) to authenticate users.
@@ -32,26 +31,26 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
   { -- | Indicates whether to use the existing client secret when modifying a
     -- rule. If you are creating a rule, you can omit this parameter or set it
     -- to false.
-    useExistingClientSecret :: Prelude.Maybe Prelude.Bool,
+    useExistingClientSecret :: Core.Maybe Core.Bool,
     -- | The OAuth 2.0 client secret. This parameter is required if you are
     -- creating a rule. If you are modifying a rule, you can omit this
     -- parameter if you set @UseExistingClientSecret@ to true.
-    clientSecret :: Prelude.Maybe Prelude.Text,
+    clientSecret :: Core.Maybe Core.Text,
     -- | The maximum duration of the authentication session, in seconds. The
     -- default is 604800 seconds (7 days).
-    sessionTimeout :: Prelude.Maybe Prelude.Integer,
+    sessionTimeout :: Core.Maybe Core.Integer,
     -- | The set of user claims to be requested from the IdP. The default is
     -- @openid@.
     --
     -- To verify which scope values your IdP supports and how to separate
     -- multiple values, see the documentation for your IdP.
-    scope :: Prelude.Maybe Prelude.Text,
+    scope :: Core.Maybe Core.Text,
     -- | The query parameters (up to 10) to include in the redirect request to
     -- the authorization endpoint.
-    authenticationRequestExtraParams :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    authenticationRequestExtraParams :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The name of the cookie used to maintain session information. The default
     -- is AWSELBAuthSessionCookie.
-    sessionCookieName :: Prelude.Maybe Prelude.Text,
+    sessionCookieName :: Core.Maybe Core.Text,
     -- | The behavior if the user is not authenticated. The following are
     -- possible values:
     --
@@ -61,23 +60,23 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
     --
     -- -   authenticate@@ - Redirect the request to the IdP authorization
     --     endpoint. This is the default value.
-    onUnauthenticatedRequest :: Prelude.Maybe AuthenticateOidcActionConditionalBehaviorEnum,
+    onUnauthenticatedRequest :: Core.Maybe AuthenticateOidcActionConditionalBehaviorEnum,
     -- | The OIDC issuer identifier of the IdP. This must be a full URL,
     -- including the HTTPS protocol, the domain, and the path.
-    issuer :: Prelude.Text,
+    issuer :: Core.Text,
     -- | The authorization endpoint of the IdP. This must be a full URL,
     -- including the HTTPS protocol, the domain, and the path.
-    authorizationEndpoint :: Prelude.Text,
+    authorizationEndpoint :: Core.Text,
     -- | The token endpoint of the IdP. This must be a full URL, including the
     -- HTTPS protocol, the domain, and the path.
-    tokenEndpoint :: Prelude.Text,
+    tokenEndpoint :: Core.Text,
     -- | The user info endpoint of the IdP. This must be a full URL, including
     -- the HTTPS protocol, the domain, and the path.
-    userInfoEndpoint :: Prelude.Text,
+    userInfoEndpoint :: Core.Text,
     -- | The OAuth 2.0 client identifier.
-    clientId :: Prelude.Text
+    clientId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthenticateOidcActionConfig' with all optional fields omitted.
@@ -135,15 +134,15 @@ data AuthenticateOidcActionConfig = AuthenticateOidcActionConfig'
 -- 'clientId', 'authenticateOidcActionConfig_clientId' - The OAuth 2.0 client identifier.
 newAuthenticateOidcActionConfig ::
   -- | 'issuer'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authorizationEndpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tokenEndpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userInfoEndpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientId'
-  Prelude.Text ->
+  Core.Text ->
   AuthenticateOidcActionConfig
 newAuthenticateOidcActionConfig
   pIssuer_
@@ -153,14 +152,14 @@ newAuthenticateOidcActionConfig
   pClientId_ =
     AuthenticateOidcActionConfig'
       { useExistingClientSecret =
-          Prelude.Nothing,
-        clientSecret = Prelude.Nothing,
-        sessionTimeout = Prelude.Nothing,
-        scope = Prelude.Nothing,
+          Core.Nothing,
+        clientSecret = Core.Nothing,
+        sessionTimeout = Core.Nothing,
+        scope = Core.Nothing,
         authenticationRequestExtraParams =
-          Prelude.Nothing,
-        sessionCookieName = Prelude.Nothing,
-        onUnauthenticatedRequest = Prelude.Nothing,
+          Core.Nothing,
+        sessionCookieName = Core.Nothing,
+        onUnauthenticatedRequest = Core.Nothing,
         issuer = pIssuer_,
         authorizationEndpoint =
           pAuthorizationEndpoint_,
@@ -172,18 +171,18 @@ newAuthenticateOidcActionConfig
 -- | Indicates whether to use the existing client secret when modifying a
 -- rule. If you are creating a rule, you can omit this parameter or set it
 -- to false.
-authenticateOidcActionConfig_useExistingClientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Bool)
+authenticateOidcActionConfig_useExistingClientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Core.Maybe Core.Bool)
 authenticateOidcActionConfig_useExistingClientSecret = Lens.lens (\AuthenticateOidcActionConfig' {useExistingClientSecret} -> useExistingClientSecret) (\s@AuthenticateOidcActionConfig' {} a -> s {useExistingClientSecret = a} :: AuthenticateOidcActionConfig)
 
 -- | The OAuth 2.0 client secret. This parameter is required if you are
 -- creating a rule. If you are modifying a rule, you can omit this
 -- parameter if you set @UseExistingClientSecret@ to true.
-authenticateOidcActionConfig_clientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Text)
+authenticateOidcActionConfig_clientSecret :: Lens.Lens' AuthenticateOidcActionConfig (Core.Maybe Core.Text)
 authenticateOidcActionConfig_clientSecret = Lens.lens (\AuthenticateOidcActionConfig' {clientSecret} -> clientSecret) (\s@AuthenticateOidcActionConfig' {} a -> s {clientSecret = a} :: AuthenticateOidcActionConfig)
 
 -- | The maximum duration of the authentication session, in seconds. The
 -- default is 604800 seconds (7 days).
-authenticateOidcActionConfig_sessionTimeout :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Integer)
+authenticateOidcActionConfig_sessionTimeout :: Lens.Lens' AuthenticateOidcActionConfig (Core.Maybe Core.Integer)
 authenticateOidcActionConfig_sessionTimeout = Lens.lens (\AuthenticateOidcActionConfig' {sessionTimeout} -> sessionTimeout) (\s@AuthenticateOidcActionConfig' {} a -> s {sessionTimeout = a} :: AuthenticateOidcActionConfig)
 
 -- | The set of user claims to be requested from the IdP. The default is
@@ -191,17 +190,17 @@ authenticateOidcActionConfig_sessionTimeout = Lens.lens (\AuthenticateOidcAction
 --
 -- To verify which scope values your IdP supports and how to separate
 -- multiple values, see the documentation for your IdP.
-authenticateOidcActionConfig_scope :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Text)
+authenticateOidcActionConfig_scope :: Lens.Lens' AuthenticateOidcActionConfig (Core.Maybe Core.Text)
 authenticateOidcActionConfig_scope = Lens.lens (\AuthenticateOidcActionConfig' {scope} -> scope) (\s@AuthenticateOidcActionConfig' {} a -> s {scope = a} :: AuthenticateOidcActionConfig)
 
 -- | The query parameters (up to 10) to include in the redirect request to
 -- the authorization endpoint.
-authenticateOidcActionConfig_authenticationRequestExtraParams :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-authenticateOidcActionConfig_authenticationRequestExtraParams = Lens.lens (\AuthenticateOidcActionConfig' {authenticationRequestExtraParams} -> authenticationRequestExtraParams) (\s@AuthenticateOidcActionConfig' {} a -> s {authenticationRequestExtraParams = a} :: AuthenticateOidcActionConfig) Prelude.. Lens.mapping Prelude._Coerce
+authenticateOidcActionConfig_authenticationRequestExtraParams :: Lens.Lens' AuthenticateOidcActionConfig (Core.Maybe (Core.HashMap Core.Text Core.Text))
+authenticateOidcActionConfig_authenticationRequestExtraParams = Lens.lens (\AuthenticateOidcActionConfig' {authenticationRequestExtraParams} -> authenticationRequestExtraParams) (\s@AuthenticateOidcActionConfig' {} a -> s {authenticationRequestExtraParams = a} :: AuthenticateOidcActionConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the cookie used to maintain session information. The default
 -- is AWSELBAuthSessionCookie.
-authenticateOidcActionConfig_sessionCookieName :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe Prelude.Text)
+authenticateOidcActionConfig_sessionCookieName :: Lens.Lens' AuthenticateOidcActionConfig (Core.Maybe Core.Text)
 authenticateOidcActionConfig_sessionCookieName = Lens.lens (\AuthenticateOidcActionConfig' {sessionCookieName} -> sessionCookieName) (\s@AuthenticateOidcActionConfig' {} a -> s {sessionCookieName = a} :: AuthenticateOidcActionConfig)
 
 -- | The behavior if the user is not authenticated. The following are
@@ -213,79 +212,76 @@ authenticateOidcActionConfig_sessionCookieName = Lens.lens (\AuthenticateOidcAct
 --
 -- -   authenticate@@ - Redirect the request to the IdP authorization
 --     endpoint. This is the default value.
-authenticateOidcActionConfig_onUnauthenticatedRequest :: Lens.Lens' AuthenticateOidcActionConfig (Prelude.Maybe AuthenticateOidcActionConditionalBehaviorEnum)
+authenticateOidcActionConfig_onUnauthenticatedRequest :: Lens.Lens' AuthenticateOidcActionConfig (Core.Maybe AuthenticateOidcActionConditionalBehaviorEnum)
 authenticateOidcActionConfig_onUnauthenticatedRequest = Lens.lens (\AuthenticateOidcActionConfig' {onUnauthenticatedRequest} -> onUnauthenticatedRequest) (\s@AuthenticateOidcActionConfig' {} a -> s {onUnauthenticatedRequest = a} :: AuthenticateOidcActionConfig)
 
 -- | The OIDC issuer identifier of the IdP. This must be a full URL,
 -- including the HTTPS protocol, the domain, and the path.
-authenticateOidcActionConfig_issuer :: Lens.Lens' AuthenticateOidcActionConfig Prelude.Text
+authenticateOidcActionConfig_issuer :: Lens.Lens' AuthenticateOidcActionConfig Core.Text
 authenticateOidcActionConfig_issuer = Lens.lens (\AuthenticateOidcActionConfig' {issuer} -> issuer) (\s@AuthenticateOidcActionConfig' {} a -> s {issuer = a} :: AuthenticateOidcActionConfig)
 
 -- | The authorization endpoint of the IdP. This must be a full URL,
 -- including the HTTPS protocol, the domain, and the path.
-authenticateOidcActionConfig_authorizationEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Prelude.Text
+authenticateOidcActionConfig_authorizationEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Core.Text
 authenticateOidcActionConfig_authorizationEndpoint = Lens.lens (\AuthenticateOidcActionConfig' {authorizationEndpoint} -> authorizationEndpoint) (\s@AuthenticateOidcActionConfig' {} a -> s {authorizationEndpoint = a} :: AuthenticateOidcActionConfig)
 
 -- | The token endpoint of the IdP. This must be a full URL, including the
 -- HTTPS protocol, the domain, and the path.
-authenticateOidcActionConfig_tokenEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Prelude.Text
+authenticateOidcActionConfig_tokenEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Core.Text
 authenticateOidcActionConfig_tokenEndpoint = Lens.lens (\AuthenticateOidcActionConfig' {tokenEndpoint} -> tokenEndpoint) (\s@AuthenticateOidcActionConfig' {} a -> s {tokenEndpoint = a} :: AuthenticateOidcActionConfig)
 
 -- | The user info endpoint of the IdP. This must be a full URL, including
 -- the HTTPS protocol, the domain, and the path.
-authenticateOidcActionConfig_userInfoEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Prelude.Text
+authenticateOidcActionConfig_userInfoEndpoint :: Lens.Lens' AuthenticateOidcActionConfig Core.Text
 authenticateOidcActionConfig_userInfoEndpoint = Lens.lens (\AuthenticateOidcActionConfig' {userInfoEndpoint} -> userInfoEndpoint) (\s@AuthenticateOidcActionConfig' {} a -> s {userInfoEndpoint = a} :: AuthenticateOidcActionConfig)
 
 -- | The OAuth 2.0 client identifier.
-authenticateOidcActionConfig_clientId :: Lens.Lens' AuthenticateOidcActionConfig Prelude.Text
+authenticateOidcActionConfig_clientId :: Lens.Lens' AuthenticateOidcActionConfig Core.Text
 authenticateOidcActionConfig_clientId = Lens.lens (\AuthenticateOidcActionConfig' {clientId} -> clientId) (\s@AuthenticateOidcActionConfig' {} a -> s {clientId = a} :: AuthenticateOidcActionConfig)
 
-instance Prelude.FromXML AuthenticateOidcActionConfig where
+instance Core.FromXML AuthenticateOidcActionConfig where
   parseXML x =
     AuthenticateOidcActionConfig'
-      Prelude.<$> (x Prelude..@? "UseExistingClientSecret")
-      Prelude.<*> (x Prelude..@? "ClientSecret")
-      Prelude.<*> (x Prelude..@? "SessionTimeout")
-      Prelude.<*> (x Prelude..@? "Scope")
-      Prelude.<*> ( x Prelude..@? "AuthenticationRequestExtraParams"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLMap "entry" "key" "value")
-                  )
-      Prelude.<*> (x Prelude..@? "SessionCookieName")
-      Prelude.<*> (x Prelude..@? "OnUnauthenticatedRequest")
-      Prelude.<*> (x Prelude..@ "Issuer")
-      Prelude.<*> (x Prelude..@ "AuthorizationEndpoint")
-      Prelude.<*> (x Prelude..@ "TokenEndpoint")
-      Prelude.<*> (x Prelude..@ "UserInfoEndpoint")
-      Prelude.<*> (x Prelude..@ "ClientId")
+      Core.<$> (x Core..@? "UseExistingClientSecret")
+      Core.<*> (x Core..@? "ClientSecret")
+      Core.<*> (x Core..@? "SessionTimeout")
+      Core.<*> (x Core..@? "Scope")
+      Core.<*> ( x Core..@? "AuthenticationRequestExtraParams"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLMap "entry" "key" "value")
+               )
+      Core.<*> (x Core..@? "SessionCookieName")
+      Core.<*> (x Core..@? "OnUnauthenticatedRequest")
+      Core.<*> (x Core..@ "Issuer")
+      Core.<*> (x Core..@ "AuthorizationEndpoint")
+      Core.<*> (x Core..@ "TokenEndpoint")
+      Core.<*> (x Core..@ "UserInfoEndpoint")
+      Core.<*> (x Core..@ "ClientId")
 
-instance
-  Prelude.Hashable
-    AuthenticateOidcActionConfig
+instance Core.Hashable AuthenticateOidcActionConfig
 
-instance Prelude.NFData AuthenticateOidcActionConfig
+instance Core.NFData AuthenticateOidcActionConfig
 
-instance Prelude.ToQuery AuthenticateOidcActionConfig where
+instance Core.ToQuery AuthenticateOidcActionConfig where
   toQuery AuthenticateOidcActionConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "UseExistingClientSecret"
-          Prelude.=: useExistingClientSecret,
-        "ClientSecret" Prelude.=: clientSecret,
-        "SessionTimeout" Prelude.=: sessionTimeout,
-        "Scope" Prelude.=: scope,
+          Core.=: useExistingClientSecret,
+        "ClientSecret" Core.=: clientSecret,
+        "SessionTimeout" Core.=: sessionTimeout,
+        "Scope" Core.=: scope,
         "AuthenticationRequestExtraParams"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryMap "entry" "key" "value"
-                Prelude.<$> authenticationRequestExtraParams
+          Core.=: Core.toQuery
+            ( Core.toQueryMap "entry" "key" "value"
+                Core.<$> authenticationRequestExtraParams
             ),
-        "SessionCookieName" Prelude.=: sessionCookieName,
+        "SessionCookieName" Core.=: sessionCookieName,
         "OnUnauthenticatedRequest"
-          Prelude.=: onUnauthenticatedRequest,
-        "Issuer" Prelude.=: issuer,
+          Core.=: onUnauthenticatedRequest,
+        "Issuer" Core.=: issuer,
         "AuthorizationEndpoint"
-          Prelude.=: authorizationEndpoint,
-        "TokenEndpoint" Prelude.=: tokenEndpoint,
-        "UserInfoEndpoint" Prelude.=: userInfoEndpoint,
-        "ClientId" Prelude.=: clientId
+          Core.=: authorizationEndpoint,
+        "TokenEndpoint" Core.=: tokenEndpoint,
+        "UserInfoEndpoint" Core.=: userInfoEndpoint,
+        "ClientId" Core.=: clientId
       ]

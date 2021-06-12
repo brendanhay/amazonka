@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.ForecastStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The predicted high and low fault count. This is used to determine if a
 -- service has become anomalous and if an insight should be created.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newForecastStatistics' smart constructor.
 data ForecastStatistics = ForecastStatistics'
   { -- | The lower limit of fault counts for a service.
-    faultCountLow :: Prelude.Maybe Prelude.Integer,
+    faultCountLow :: Core.Maybe Core.Integer,
     -- | The upper limit of fault counts for a service.
-    faultCountHigh :: Prelude.Maybe Prelude.Integer
+    faultCountHigh :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ForecastStatistics' with all optional fields omitted.
@@ -50,29 +49,28 @@ newForecastStatistics ::
   ForecastStatistics
 newForecastStatistics =
   ForecastStatistics'
-    { faultCountLow =
-        Prelude.Nothing,
-      faultCountHigh = Prelude.Nothing
+    { faultCountLow = Core.Nothing,
+      faultCountHigh = Core.Nothing
     }
 
 -- | The lower limit of fault counts for a service.
-forecastStatistics_faultCountLow :: Lens.Lens' ForecastStatistics (Prelude.Maybe Prelude.Integer)
+forecastStatistics_faultCountLow :: Lens.Lens' ForecastStatistics (Core.Maybe Core.Integer)
 forecastStatistics_faultCountLow = Lens.lens (\ForecastStatistics' {faultCountLow} -> faultCountLow) (\s@ForecastStatistics' {} a -> s {faultCountLow = a} :: ForecastStatistics)
 
 -- | The upper limit of fault counts for a service.
-forecastStatistics_faultCountHigh :: Lens.Lens' ForecastStatistics (Prelude.Maybe Prelude.Integer)
+forecastStatistics_faultCountHigh :: Lens.Lens' ForecastStatistics (Core.Maybe Core.Integer)
 forecastStatistics_faultCountHigh = Lens.lens (\ForecastStatistics' {faultCountHigh} -> faultCountHigh) (\s@ForecastStatistics' {} a -> s {faultCountHigh = a} :: ForecastStatistics)
 
-instance Prelude.FromJSON ForecastStatistics where
+instance Core.FromJSON ForecastStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ForecastStatistics"
       ( \x ->
           ForecastStatistics'
-            Prelude.<$> (x Prelude..:? "FaultCountLow")
-            Prelude.<*> (x Prelude..:? "FaultCountHigh")
+            Core.<$> (x Core..:? "FaultCountLow")
+            Core.<*> (x Core..:? "FaultCountHigh")
       )
 
-instance Prelude.Hashable ForecastStatistics
+instance Core.Hashable ForecastStatistics
 
-instance Prelude.NFData ForecastStatistics
+instance Core.NFData ForecastStatistics

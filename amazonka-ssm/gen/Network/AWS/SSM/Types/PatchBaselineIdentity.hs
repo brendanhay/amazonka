@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.PatchBaselineIdentity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OperatingSystem
 
 -- | Defines the basic information about a patch baseline.
@@ -29,20 +28,20 @@ import Network.AWS.SSM.Types.OperatingSystem
 -- /See:/ 'newPatchBaselineIdentity' smart constructor.
 data PatchBaselineIdentity = PatchBaselineIdentity'
   { -- | The name of the patch baseline.
-    baselineName :: Prelude.Maybe Prelude.Text,
+    baselineName :: Core.Maybe Core.Text,
     -- | The ID of the patch baseline.
-    baselineId :: Prelude.Maybe Prelude.Text,
+    baselineId :: Core.Maybe Core.Text,
     -- | Whether this is the default baseline. Note that Systems Manager supports
     -- creating multiple default patch baselines. For example, you can create a
     -- default patch baseline for each operating system.
-    defaultBaseline :: Prelude.Maybe Prelude.Bool,
+    defaultBaseline :: Core.Maybe Core.Bool,
     -- | The description of the patch baseline.
-    baselineDescription :: Prelude.Maybe Prelude.Text,
+    baselineDescription :: Core.Maybe Core.Text,
     -- | Defines the operating system the patch baseline applies to. The Default
     -- value is WINDOWS.
-    operatingSystem :: Prelude.Maybe OperatingSystem
+    operatingSystem :: Core.Maybe OperatingSystem
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PatchBaselineIdentity' with all optional fields omitted.
@@ -68,50 +67,49 @@ newPatchBaselineIdentity ::
   PatchBaselineIdentity
 newPatchBaselineIdentity =
   PatchBaselineIdentity'
-    { baselineName =
-        Prelude.Nothing,
-      baselineId = Prelude.Nothing,
-      defaultBaseline = Prelude.Nothing,
-      baselineDescription = Prelude.Nothing,
-      operatingSystem = Prelude.Nothing
+    { baselineName = Core.Nothing,
+      baselineId = Core.Nothing,
+      defaultBaseline = Core.Nothing,
+      baselineDescription = Core.Nothing,
+      operatingSystem = Core.Nothing
     }
 
 -- | The name of the patch baseline.
-patchBaselineIdentity_baselineName :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
+patchBaselineIdentity_baselineName :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Core.Text)
 patchBaselineIdentity_baselineName = Lens.lens (\PatchBaselineIdentity' {baselineName} -> baselineName) (\s@PatchBaselineIdentity' {} a -> s {baselineName = a} :: PatchBaselineIdentity)
 
 -- | The ID of the patch baseline.
-patchBaselineIdentity_baselineId :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
+patchBaselineIdentity_baselineId :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Core.Text)
 patchBaselineIdentity_baselineId = Lens.lens (\PatchBaselineIdentity' {baselineId} -> baselineId) (\s@PatchBaselineIdentity' {} a -> s {baselineId = a} :: PatchBaselineIdentity)
 
 -- | Whether this is the default baseline. Note that Systems Manager supports
 -- creating multiple default patch baselines. For example, you can create a
 -- default patch baseline for each operating system.
-patchBaselineIdentity_defaultBaseline :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Bool)
+patchBaselineIdentity_defaultBaseline :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Core.Bool)
 patchBaselineIdentity_defaultBaseline = Lens.lens (\PatchBaselineIdentity' {defaultBaseline} -> defaultBaseline) (\s@PatchBaselineIdentity' {} a -> s {defaultBaseline = a} :: PatchBaselineIdentity)
 
 -- | The description of the patch baseline.
-patchBaselineIdentity_baselineDescription :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe Prelude.Text)
+patchBaselineIdentity_baselineDescription :: Lens.Lens' PatchBaselineIdentity (Core.Maybe Core.Text)
 patchBaselineIdentity_baselineDescription = Lens.lens (\PatchBaselineIdentity' {baselineDescription} -> baselineDescription) (\s@PatchBaselineIdentity' {} a -> s {baselineDescription = a} :: PatchBaselineIdentity)
 
 -- | Defines the operating system the patch baseline applies to. The Default
 -- value is WINDOWS.
-patchBaselineIdentity_operatingSystem :: Lens.Lens' PatchBaselineIdentity (Prelude.Maybe OperatingSystem)
+patchBaselineIdentity_operatingSystem :: Lens.Lens' PatchBaselineIdentity (Core.Maybe OperatingSystem)
 patchBaselineIdentity_operatingSystem = Lens.lens (\PatchBaselineIdentity' {operatingSystem} -> operatingSystem) (\s@PatchBaselineIdentity' {} a -> s {operatingSystem = a} :: PatchBaselineIdentity)
 
-instance Prelude.FromJSON PatchBaselineIdentity where
+instance Core.FromJSON PatchBaselineIdentity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PatchBaselineIdentity"
       ( \x ->
           PatchBaselineIdentity'
-            Prelude.<$> (x Prelude..:? "BaselineName")
-            Prelude.<*> (x Prelude..:? "BaselineId")
-            Prelude.<*> (x Prelude..:? "DefaultBaseline")
-            Prelude.<*> (x Prelude..:? "BaselineDescription")
-            Prelude.<*> (x Prelude..:? "OperatingSystem")
+            Core.<$> (x Core..:? "BaselineName")
+            Core.<*> (x Core..:? "BaselineId")
+            Core.<*> (x Core..:? "DefaultBaseline")
+            Core.<*> (x Core..:? "BaselineDescription")
+            Core.<*> (x Core..:? "OperatingSystem")
       )
 
-instance Prelude.Hashable PatchBaselineIdentity
+instance Core.Hashable PatchBaselineIdentity
 
-instance Prelude.NFData PatchBaselineIdentity
+instance Core.NFData PatchBaselineIdentity

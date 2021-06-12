@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ReplicationTimeValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | A container specifying the time value for S3 Replication Time Control
@@ -32,9 +31,9 @@ data ReplicationTimeValue = ReplicationTimeValue'
   { -- | Contains an integer specifying time in minutes.
     --
     -- Valid values: 15 minutes.
-    minutes :: Prelude.Maybe Prelude.Int
+    minutes :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationTimeValue' with all optional fields omitted.
@@ -50,23 +49,23 @@ data ReplicationTimeValue = ReplicationTimeValue'
 newReplicationTimeValue ::
   ReplicationTimeValue
 newReplicationTimeValue =
-  ReplicationTimeValue' {minutes = Prelude.Nothing}
+  ReplicationTimeValue' {minutes = Core.Nothing}
 
 -- | Contains an integer specifying time in minutes.
 --
 -- Valid values: 15 minutes.
-replicationTimeValue_minutes :: Lens.Lens' ReplicationTimeValue (Prelude.Maybe Prelude.Int)
+replicationTimeValue_minutes :: Lens.Lens' ReplicationTimeValue (Core.Maybe Core.Int)
 replicationTimeValue_minutes = Lens.lens (\ReplicationTimeValue' {minutes} -> minutes) (\s@ReplicationTimeValue' {} a -> s {minutes = a} :: ReplicationTimeValue)
 
-instance Prelude.FromXML ReplicationTimeValue where
+instance Core.FromXML ReplicationTimeValue where
   parseXML x =
     ReplicationTimeValue'
-      Prelude.<$> (x Prelude..@? "Minutes")
+      Core.<$> (x Core..@? "Minutes")
 
-instance Prelude.Hashable ReplicationTimeValue
+instance Core.Hashable ReplicationTimeValue
 
-instance Prelude.NFData ReplicationTimeValue
+instance Core.NFData ReplicationTimeValue
 
-instance Prelude.ToXML ReplicationTimeValue where
+instance Core.ToXML ReplicationTimeValue where
   toXML ReplicationTimeValue' {..} =
-    Prelude.mconcat ["Minutes" Prelude.@= minutes]
+    Core.mconcat ["Minutes" Core.@= minutes]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudSearch.Types.Suggester where
 
 import Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information for a search suggester. Each suggester has a
 -- unique name and specifies the text field you want to use for
@@ -31,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSuggester' smart constructor.
 data Suggester = Suggester'
-  { suggesterName :: Prelude.Text,
+  { suggesterName :: Core.Text,
     documentSuggesterOptions :: DocumentSuggesterOptions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Suggester' with all optional fields omitted.
@@ -49,7 +48,7 @@ data Suggester = Suggester'
 -- 'documentSuggesterOptions', 'suggester_documentSuggesterOptions' - Undocumented member.
 newSuggester ::
   -- | 'suggesterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'documentSuggesterOptions'
   DocumentSuggesterOptions ->
   Suggester
@@ -63,27 +62,27 @@ newSuggester
       }
 
 -- | Undocumented member.
-suggester_suggesterName :: Lens.Lens' Suggester Prelude.Text
+suggester_suggesterName :: Lens.Lens' Suggester Core.Text
 suggester_suggesterName = Lens.lens (\Suggester' {suggesterName} -> suggesterName) (\s@Suggester' {} a -> s {suggesterName = a} :: Suggester)
 
 -- | Undocumented member.
 suggester_documentSuggesterOptions :: Lens.Lens' Suggester DocumentSuggesterOptions
 suggester_documentSuggesterOptions = Lens.lens (\Suggester' {documentSuggesterOptions} -> documentSuggesterOptions) (\s@Suggester' {} a -> s {documentSuggesterOptions = a} :: Suggester)
 
-instance Prelude.FromXML Suggester where
+instance Core.FromXML Suggester where
   parseXML x =
     Suggester'
-      Prelude.<$> (x Prelude..@ "SuggesterName")
-      Prelude.<*> (x Prelude..@ "DocumentSuggesterOptions")
+      Core.<$> (x Core..@ "SuggesterName")
+      Core.<*> (x Core..@ "DocumentSuggesterOptions")
 
-instance Prelude.Hashable Suggester
+instance Core.Hashable Suggester
 
-instance Prelude.NFData Suggester
+instance Core.NFData Suggester
 
-instance Prelude.ToQuery Suggester where
+instance Core.ToQuery Suggester where
   toQuery Suggester' {..} =
-    Prelude.mconcat
-      [ "SuggesterName" Prelude.=: suggesterName,
+    Core.mconcat
+      [ "SuggesterName" Core.=: suggesterName,
         "DocumentSuggesterOptions"
-          Prelude.=: documentSuggesterOptions
+          Core.=: documentSuggesterOptions
       ]

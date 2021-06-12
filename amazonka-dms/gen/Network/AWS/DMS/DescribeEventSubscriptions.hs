@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,10 +51,9 @@ module Network.AWS.DMS.DescribeEventSubscriptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,13 +62,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
   { -- | The name of the AWS DMS event subscription to be described.
-    subscriptionName :: Prelude.Maybe Prelude.Text,
+    subscriptionName :: Core.Maybe Core.Text,
     -- | Filters applied to event subscriptions.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -79,9 +77,9 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventSubscriptions' with all optional fields omitted.
@@ -112,24 +110,24 @@ newDescribeEventSubscriptions ::
 newDescribeEventSubscriptions =
   DescribeEventSubscriptions'
     { subscriptionName =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The name of the AWS DMS event subscription to be described.
-describeEventSubscriptions_subscriptionName :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
+describeEventSubscriptions_subscriptionName :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe Core.Text)
 describeEventSubscriptions_subscriptionName = Lens.lens (\DescribeEventSubscriptions' {subscriptionName} -> subscriptionName) (\s@DescribeEventSubscriptions' {} a -> s {subscriptionName = a} :: DescribeEventSubscriptions)
 
 -- | Filters applied to event subscriptions.
-describeEventSubscriptions_filters :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe [Filter])
-describeEventSubscriptions_filters = Lens.lens (\DescribeEventSubscriptions' {filters} -> filters) (\s@DescribeEventSubscriptions' {} a -> s {filters = a} :: DescribeEventSubscriptions) Prelude.. Lens.mapping Prelude._Coerce
+describeEventSubscriptions_filters :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe [Filter])
+describeEventSubscriptions_filters = Lens.lens (\DescribeEventSubscriptions' {filters} -> filters) (\s@DescribeEventSubscriptions' {} a -> s {filters = a} :: DescribeEventSubscriptions) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Text)
+describeEventSubscriptions_marker :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe Core.Text)
 describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {marker} -> marker) (\s@DescribeEventSubscriptions' {} a -> s {marker = a} :: DescribeEventSubscriptions)
 
 -- | The maximum number of records to include in the response. If more
@@ -140,101 +138,96 @@ describeEventSubscriptions_marker = Lens.lens (\DescribeEventSubscriptions' {mar
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeEventSubscriptions_maxRecords :: Lens.Lens' DescribeEventSubscriptions (Prelude.Maybe Prelude.Int)
+describeEventSubscriptions_maxRecords :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe Core.Int)
 describeEventSubscriptions_maxRecords = Lens.lens (\DescribeEventSubscriptions' {maxRecords} -> maxRecords) (\s@DescribeEventSubscriptions' {} a -> s {maxRecords = a} :: DescribeEventSubscriptions)
 
-instance Pager.AWSPager DescribeEventSubscriptions where
+instance Core.AWSPager DescribeEventSubscriptions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeEventSubscriptionsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeEventSubscriptionsResponse_eventSubscriptionsList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeEventSubscriptions_marker
           Lens..~ rs
           Lens.^? describeEventSubscriptionsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeEventSubscriptions
-  where
+instance Core.AWSRequest DescribeEventSubscriptions where
   type
-    Rs DescribeEventSubscriptions =
+    AWSResponse DescribeEventSubscriptions =
       DescribeEventSubscriptionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEventSubscriptionsResponse'
-            Prelude.<$> ( x Prelude..?> "EventSubscriptionsList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "EventSubscriptionsList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEventSubscriptions
+instance Core.Hashable DescribeEventSubscriptions
 
-instance Prelude.NFData DescribeEventSubscriptions
+instance Core.NFData DescribeEventSubscriptions
 
-instance Prelude.ToHeaders DescribeEventSubscriptions where
+instance Core.ToHeaders DescribeEventSubscriptions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DescribeEventSubscriptions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DescribeEventSubscriptions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEventSubscriptions where
+instance Core.ToJSON DescribeEventSubscriptions where
   toJSON DescribeEventSubscriptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SubscriptionName" Prelude..=)
-              Prelude.<$> subscriptionName,
-            ("Filters" Prelude..=) Prelude.<$> filters,
-            ("Marker" Prelude..=) Prelude.<$> marker,
-            ("MaxRecords" Prelude..=) Prelude.<$> maxRecords
+    Core.object
+      ( Core.catMaybes
+          [ ("SubscriptionName" Core..=)
+              Core.<$> subscriptionName,
+            ("Filters" Core..=) Core.<$> filters,
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
           ]
       )
 
-instance Prelude.ToPath DescribeEventSubscriptions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEventSubscriptions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEventSubscriptions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEventSubscriptions where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDescribeEventSubscriptionsResponse' smart constructor.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
   { -- | A list of event subscriptions.
-    eventSubscriptionsList :: Prelude.Maybe [EventSubscription],
+    eventSubscriptionsList :: Core.Maybe [EventSubscription],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventSubscriptionsResponse' with all optional fields omitted.
@@ -253,30 +246,30 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
 -- 'httpStatus', 'describeEventSubscriptionsResponse_httpStatus' - The response's http status code.
 newDescribeEventSubscriptionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventSubscriptionsResponse
 newDescribeEventSubscriptionsResponse pHttpStatus_ =
   DescribeEventSubscriptionsResponse'
     { eventSubscriptionsList =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of event subscriptions.
-describeEventSubscriptionsResponse_eventSubscriptionsList :: Lens.Lens' DescribeEventSubscriptionsResponse (Prelude.Maybe [EventSubscription])
-describeEventSubscriptionsResponse_eventSubscriptionsList = Lens.lens (\DescribeEventSubscriptionsResponse' {eventSubscriptionsList} -> eventSubscriptionsList) (\s@DescribeEventSubscriptionsResponse' {} a -> s {eventSubscriptionsList = a} :: DescribeEventSubscriptionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventSubscriptionsResponse_eventSubscriptionsList :: Lens.Lens' DescribeEventSubscriptionsResponse (Core.Maybe [EventSubscription])
+describeEventSubscriptionsResponse_eventSubscriptionsList = Lens.lens (\DescribeEventSubscriptionsResponse' {eventSubscriptionsList} -> eventSubscriptionsList) (\s@DescribeEventSubscriptionsResponse' {} a -> s {eventSubscriptionsList = a} :: DescribeEventSubscriptionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-describeEventSubscriptionsResponse_marker :: Lens.Lens' DescribeEventSubscriptionsResponse (Prelude.Maybe Prelude.Text)
+describeEventSubscriptionsResponse_marker :: Lens.Lens' DescribeEventSubscriptionsResponse (Core.Maybe Core.Text)
 describeEventSubscriptionsResponse_marker = Lens.lens (\DescribeEventSubscriptionsResponse' {marker} -> marker) (\s@DescribeEventSubscriptionsResponse' {} a -> s {marker = a} :: DescribeEventSubscriptionsResponse)
 
 -- | The response's http status code.
-describeEventSubscriptionsResponse_httpStatus :: Lens.Lens' DescribeEventSubscriptionsResponse Prelude.Int
+describeEventSubscriptionsResponse_httpStatus :: Lens.Lens' DescribeEventSubscriptionsResponse Core.Int
 describeEventSubscriptionsResponse_httpStatus = Lens.lens (\DescribeEventSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventSubscriptionsResponse' {} a -> s {httpStatus = a} :: DescribeEventSubscriptionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeEventSubscriptionsResponse

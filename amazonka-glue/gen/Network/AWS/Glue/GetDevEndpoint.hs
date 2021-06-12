@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.Glue.GetDevEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetDevEndpoint' smart constructor.
 data GetDevEndpoint = GetDevEndpoint'
   { -- | Name of the @DevEndpoint@ to retrieve information for.
-    endpointName :: Prelude.Text
+    endpointName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDevEndpoint' with all optional fields omitted.
@@ -69,66 +68,64 @@ data GetDevEndpoint = GetDevEndpoint'
 -- 'endpointName', 'getDevEndpoint_endpointName' - Name of the @DevEndpoint@ to retrieve information for.
 newGetDevEndpoint ::
   -- | 'endpointName'
-  Prelude.Text ->
+  Core.Text ->
   GetDevEndpoint
 newGetDevEndpoint pEndpointName_ =
   GetDevEndpoint' {endpointName = pEndpointName_}
 
 -- | Name of the @DevEndpoint@ to retrieve information for.
-getDevEndpoint_endpointName :: Lens.Lens' GetDevEndpoint Prelude.Text
+getDevEndpoint_endpointName :: Lens.Lens' GetDevEndpoint Core.Text
 getDevEndpoint_endpointName = Lens.lens (\GetDevEndpoint' {endpointName} -> endpointName) (\s@GetDevEndpoint' {} a -> s {endpointName = a} :: GetDevEndpoint)
 
-instance Prelude.AWSRequest GetDevEndpoint where
-  type Rs GetDevEndpoint = GetDevEndpointResponse
+instance Core.AWSRequest GetDevEndpoint where
+  type
+    AWSResponse GetDevEndpoint =
+      GetDevEndpointResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDevEndpointResponse'
-            Prelude.<$> (x Prelude..?> "DevEndpoint")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DevEndpoint")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDevEndpoint
+instance Core.Hashable GetDevEndpoint
 
-instance Prelude.NFData GetDevEndpoint
+instance Core.NFData GetDevEndpoint
 
-instance Prelude.ToHeaders GetDevEndpoint where
+instance Core.ToHeaders GetDevEndpoint where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetDevEndpoint" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetDevEndpoint" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetDevEndpoint where
+instance Core.ToJSON GetDevEndpoint where
   toJSON GetDevEndpoint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointName" Prelude..= endpointName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointName" Core..= endpointName)]
       )
 
-instance Prelude.ToPath GetDevEndpoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetDevEndpoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetDevEndpoint where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDevEndpoint where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetDevEndpointResponse' smart constructor.
 data GetDevEndpointResponse = GetDevEndpointResponse'
   { -- | A @DevEndpoint@ definition.
-    devEndpoint :: Prelude.Maybe DevEndpoint,
+    devEndpoint :: Core.Maybe DevEndpoint,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDevEndpointResponse' with all optional fields omitted.
@@ -143,21 +140,20 @@ data GetDevEndpointResponse = GetDevEndpointResponse'
 -- 'httpStatus', 'getDevEndpointResponse_httpStatus' - The response's http status code.
 newGetDevEndpointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDevEndpointResponse
 newGetDevEndpointResponse pHttpStatus_ =
   GetDevEndpointResponse'
-    { devEndpoint =
-        Prelude.Nothing,
+    { devEndpoint = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A @DevEndpoint@ definition.
-getDevEndpointResponse_devEndpoint :: Lens.Lens' GetDevEndpointResponse (Prelude.Maybe DevEndpoint)
+getDevEndpointResponse_devEndpoint :: Lens.Lens' GetDevEndpointResponse (Core.Maybe DevEndpoint)
 getDevEndpointResponse_devEndpoint = Lens.lens (\GetDevEndpointResponse' {devEndpoint} -> devEndpoint) (\s@GetDevEndpointResponse' {} a -> s {devEndpoint = a} :: GetDevEndpointResponse)
 
 -- | The response's http status code.
-getDevEndpointResponse_httpStatus :: Lens.Lens' GetDevEndpointResponse Prelude.Int
+getDevEndpointResponse_httpStatus :: Lens.Lens' GetDevEndpointResponse Core.Int
 getDevEndpointResponse_httpStatus = Lens.lens (\GetDevEndpointResponse' {httpStatus} -> httpStatus) (\s@GetDevEndpointResponse' {} a -> s {httpStatus = a} :: GetDevEndpointResponse)
 
-instance Prelude.NFData GetDevEndpointResponse
+instance Core.NFData GetDevEndpointResponse

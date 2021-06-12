@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.FrameCaptureOutputSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Frame Capture Output Settings
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data FrameCaptureOutputSettings = FrameCaptureOutputSettings'
   { -- | Required if the output group contains more than one output. This
     -- modifier forms part of the output file name.
-    nameModifier :: Prelude.Maybe Prelude.Text
+    nameModifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FrameCaptureOutputSettings' with all optional fields omitted.
@@ -48,32 +47,30 @@ newFrameCaptureOutputSettings ::
 newFrameCaptureOutputSettings =
   FrameCaptureOutputSettings'
     { nameModifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Required if the output group contains more than one output. This
 -- modifier forms part of the output file name.
-frameCaptureOutputSettings_nameModifier :: Lens.Lens' FrameCaptureOutputSettings (Prelude.Maybe Prelude.Text)
+frameCaptureOutputSettings_nameModifier :: Lens.Lens' FrameCaptureOutputSettings (Core.Maybe Core.Text)
 frameCaptureOutputSettings_nameModifier = Lens.lens (\FrameCaptureOutputSettings' {nameModifier} -> nameModifier) (\s@FrameCaptureOutputSettings' {} a -> s {nameModifier = a} :: FrameCaptureOutputSettings)
 
-instance Prelude.FromJSON FrameCaptureOutputSettings where
+instance Core.FromJSON FrameCaptureOutputSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FrameCaptureOutputSettings"
       ( \x ->
           FrameCaptureOutputSettings'
-            Prelude.<$> (x Prelude..:? "nameModifier")
+            Core.<$> (x Core..:? "nameModifier")
       )
 
-instance Prelude.Hashable FrameCaptureOutputSettings
+instance Core.Hashable FrameCaptureOutputSettings
 
-instance Prelude.NFData FrameCaptureOutputSettings
+instance Core.NFData FrameCaptureOutputSettings
 
-instance Prelude.ToJSON FrameCaptureOutputSettings where
+instance Core.ToJSON FrameCaptureOutputSettings where
   toJSON FrameCaptureOutputSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nameModifier" Prelude..=)
-              Prelude.<$> nameModifier
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("nameModifier" Core..=) Core.<$> nameModifier]
       )

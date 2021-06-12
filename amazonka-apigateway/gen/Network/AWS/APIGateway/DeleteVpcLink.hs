@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.APIGateway.DeleteVpcLink
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,9 +47,9 @@ import qualified Network.AWS.Response as Response
 data DeleteVpcLink = DeleteVpcLink'
   { -- | [Required] The identifier of the VpcLink. It is used in an Integration
     -- to reference this VpcLink.
-    vpcLinkId :: Prelude.Text
+    vpcLinkId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcLink' with all optional fields omitted.
@@ -64,48 +63,49 @@ data DeleteVpcLink = DeleteVpcLink'
 -- to reference this VpcLink.
 newDeleteVpcLink ::
   -- | 'vpcLinkId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteVpcLink
 newDeleteVpcLink pVpcLinkId_ =
   DeleteVpcLink' {vpcLinkId = pVpcLinkId_}
 
 -- | [Required] The identifier of the VpcLink. It is used in an Integration
 -- to reference this VpcLink.
-deleteVpcLink_vpcLinkId :: Lens.Lens' DeleteVpcLink Prelude.Text
+deleteVpcLink_vpcLinkId :: Lens.Lens' DeleteVpcLink Core.Text
 deleteVpcLink_vpcLinkId = Lens.lens (\DeleteVpcLink' {vpcLinkId} -> vpcLinkId) (\s@DeleteVpcLink' {} a -> s {vpcLinkId = a} :: DeleteVpcLink)
 
-instance Prelude.AWSRequest DeleteVpcLink where
-  type Rs DeleteVpcLink = DeleteVpcLinkResponse
+instance Core.AWSRequest DeleteVpcLink where
+  type
+    AWSResponse DeleteVpcLink =
+      DeleteVpcLinkResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteVpcLinkResponse'
 
-instance Prelude.Hashable DeleteVpcLink
+instance Core.Hashable DeleteVpcLink
 
-instance Prelude.NFData DeleteVpcLink
+instance Core.NFData DeleteVpcLink
 
-instance Prelude.ToHeaders DeleteVpcLink where
+instance Core.ToHeaders DeleteVpcLink where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteVpcLink where
+instance Core.ToPath DeleteVpcLink where
   toPath DeleteVpcLink' {..} =
-    Prelude.mconcat
-      ["/vpclinks/", Prelude.toBS vpcLinkId]
+    Core.mconcat ["/vpclinks/", Core.toBS vpcLinkId]
 
-instance Prelude.ToQuery DeleteVpcLink where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteVpcLink where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteVpcLinkResponse' smart constructor.
 data DeleteVpcLinkResponse = DeleteVpcLinkResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteVpcLinkResponse' with all optional fields omitted.
@@ -115,4 +115,4 @@ newDeleteVpcLinkResponse ::
   DeleteVpcLinkResponse
 newDeleteVpcLinkResponse = DeleteVpcLinkResponse'
 
-instance Prelude.NFData DeleteVpcLinkResponse
+instance Core.NFData DeleteVpcLinkResponse

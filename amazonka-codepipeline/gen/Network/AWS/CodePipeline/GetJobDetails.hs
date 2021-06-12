@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CodePipeline.GetJobDetails
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetJobDetails' smart constructor.
 data GetJobDetails = GetJobDetails'
   { -- | The unique system-generated ID for the job.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobDetails' with all optional fields omitted.
@@ -71,57 +70,55 @@ data GetJobDetails = GetJobDetails'
 -- 'jobId', 'getJobDetails_jobId' - The unique system-generated ID for the job.
 newGetJobDetails ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   GetJobDetails
 newGetJobDetails pJobId_ =
   GetJobDetails' {jobId = pJobId_}
 
 -- | The unique system-generated ID for the job.
-getJobDetails_jobId :: Lens.Lens' GetJobDetails Prelude.Text
+getJobDetails_jobId :: Lens.Lens' GetJobDetails Core.Text
 getJobDetails_jobId = Lens.lens (\GetJobDetails' {jobId} -> jobId) (\s@GetJobDetails' {} a -> s {jobId = a} :: GetJobDetails)
 
-instance Prelude.AWSRequest GetJobDetails where
-  type Rs GetJobDetails = GetJobDetailsResponse
+instance Core.AWSRequest GetJobDetails where
+  type
+    AWSResponse GetJobDetails =
+      GetJobDetailsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetJobDetailsResponse'
-            Prelude.<$> (x Prelude..?> "jobDetails")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "jobDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobDetails
+instance Core.Hashable GetJobDetails
 
-instance Prelude.NFData GetJobDetails
+instance Core.NFData GetJobDetails
 
-instance Prelude.ToHeaders GetJobDetails where
+instance Core.ToHeaders GetJobDetails where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.GetJobDetails" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.GetJobDetails" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetJobDetails where
+instance Core.ToJSON GetJobDetails where
   toJSON GetJobDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("jobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("jobId" Core..= jobId)])
 
-instance Prelude.ToPath GetJobDetails where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetJobDetails where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetJobDetails where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJobDetails where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @GetJobDetails@ action.
 --
@@ -131,11 +128,11 @@ data GetJobDetailsResponse = GetJobDetailsResponse'
     --
     -- If AWSSessionCredentials is used, a long-running job can call
     -- @GetJobDetails@ again to obtain new credentials.
-    jobDetails :: Prelude.Maybe JobDetails,
+    jobDetails :: Core.Maybe JobDetails,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobDetailsResponse' with all optional fields omitted.
@@ -153,12 +150,11 @@ data GetJobDetailsResponse = GetJobDetailsResponse'
 -- 'httpStatus', 'getJobDetailsResponse_httpStatus' - The response's http status code.
 newGetJobDetailsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetJobDetailsResponse
 newGetJobDetailsResponse pHttpStatus_ =
   GetJobDetailsResponse'
-    { jobDetails =
-        Prelude.Nothing,
+    { jobDetails = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -166,11 +162,11 @@ newGetJobDetailsResponse pHttpStatus_ =
 --
 -- If AWSSessionCredentials is used, a long-running job can call
 -- @GetJobDetails@ again to obtain new credentials.
-getJobDetailsResponse_jobDetails :: Lens.Lens' GetJobDetailsResponse (Prelude.Maybe JobDetails)
+getJobDetailsResponse_jobDetails :: Lens.Lens' GetJobDetailsResponse (Core.Maybe JobDetails)
 getJobDetailsResponse_jobDetails = Lens.lens (\GetJobDetailsResponse' {jobDetails} -> jobDetails) (\s@GetJobDetailsResponse' {} a -> s {jobDetails = a} :: GetJobDetailsResponse)
 
 -- | The response's http status code.
-getJobDetailsResponse_httpStatus :: Lens.Lens' GetJobDetailsResponse Prelude.Int
+getJobDetailsResponse_httpStatus :: Lens.Lens' GetJobDetailsResponse Core.Int
 getJobDetailsResponse_httpStatus = Lens.lens (\GetJobDetailsResponse' {httpStatus} -> httpStatus) (\s@GetJobDetailsResponse' {} a -> s {httpStatus = a} :: GetJobDetailsResponse)
 
-instance Prelude.NFData GetJobDetailsResponse
+instance Core.NFData GetJobDetailsResponse

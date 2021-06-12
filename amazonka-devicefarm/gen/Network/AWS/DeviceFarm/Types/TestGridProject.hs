@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.TestGridProject where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A Selenium testing project. Projects are used to collect and collate
 -- sessions.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTestGridProject' smart constructor.
 data TestGridProject = TestGridProject'
   { -- | The ARN for the project.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | A human-readable name for the project.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A human-readable description for the project.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | When the project was created.
-    created :: Prelude.Maybe Prelude.POSIX
+    created :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestGridProject' with all optional fields omitted.
@@ -58,40 +57,40 @@ newTestGridProject ::
   TestGridProject
 newTestGridProject =
   TestGridProject'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      created = Prelude.Nothing
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      created = Core.Nothing
     }
 
 -- | The ARN for the project.
-testGridProject_arn :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
+testGridProject_arn :: Lens.Lens' TestGridProject (Core.Maybe Core.Text)
 testGridProject_arn = Lens.lens (\TestGridProject' {arn} -> arn) (\s@TestGridProject' {} a -> s {arn = a} :: TestGridProject)
 
 -- | A human-readable name for the project.
-testGridProject_name :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
+testGridProject_name :: Lens.Lens' TestGridProject (Core.Maybe Core.Text)
 testGridProject_name = Lens.lens (\TestGridProject' {name} -> name) (\s@TestGridProject' {} a -> s {name = a} :: TestGridProject)
 
 -- | A human-readable description for the project.
-testGridProject_description :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.Text)
+testGridProject_description :: Lens.Lens' TestGridProject (Core.Maybe Core.Text)
 testGridProject_description = Lens.lens (\TestGridProject' {description} -> description) (\s@TestGridProject' {} a -> s {description = a} :: TestGridProject)
 
 -- | When the project was created.
-testGridProject_created :: Lens.Lens' TestGridProject (Prelude.Maybe Prelude.UTCTime)
-testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Prelude.. Lens.mapping Prelude._Time
+testGridProject_created :: Lens.Lens' TestGridProject (Core.Maybe Core.UTCTime)
+testGridProject_created = Lens.lens (\TestGridProject' {created} -> created) (\s@TestGridProject' {} a -> s {created = a} :: TestGridProject) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON TestGridProject where
+instance Core.FromJSON TestGridProject where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TestGridProject"
       ( \x ->
           TestGridProject'
-            Prelude.<$> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "created")
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "created")
       )
 
-instance Prelude.Hashable TestGridProject
+instance Core.Hashable TestGridProject
 
-instance Prelude.NFData TestGridProject
+instance Core.NFData TestGridProject

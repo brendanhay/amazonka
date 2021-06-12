@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Comprehend.Types.EntityRecognizerFilter where
 
 import Network.AWS.Comprehend.Types.ModelStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information for filtering a list of entity recognizers. You can
 -- only specify one filtering parameter in a request. For more information,
@@ -31,17 +30,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEntityRecognizerFilter' smart constructor.
 data EntityRecognizerFilter = EntityRecognizerFilter'
   { -- | The status of an entity recognizer.
-    status :: Prelude.Maybe ModelStatus,
+    status :: Core.Maybe ModelStatus,
     -- | Filters the list of entities based on the time that the list was
     -- submitted for processing. Returns only jobs submitted before the
     -- specified time. Jobs are returned in descending order, newest to oldest.
-    submitTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    submitTimeBefore :: Core.Maybe Core.POSIX,
     -- | Filters the list of entities based on the time that the list was
     -- submitted for processing. Returns only jobs submitted after the
     -- specified time. Jobs are returned in ascending order, oldest to newest.
-    submitTimeAfter :: Prelude.Maybe Prelude.POSIX
+    submitTimeAfter :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EntityRecognizerFilter' with all optional fields omitted.
@@ -64,39 +63,39 @@ newEntityRecognizerFilter ::
   EntityRecognizerFilter
 newEntityRecognizerFilter =
   EntityRecognizerFilter'
-    { status = Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing
+    { status = Core.Nothing,
+      submitTimeBefore = Core.Nothing,
+      submitTimeAfter = Core.Nothing
     }
 
 -- | The status of an entity recognizer.
-entityRecognizerFilter_status :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe ModelStatus)
+entityRecognizerFilter_status :: Lens.Lens' EntityRecognizerFilter (Core.Maybe ModelStatus)
 entityRecognizerFilter_status = Lens.lens (\EntityRecognizerFilter' {status} -> status) (\s@EntityRecognizerFilter' {} a -> s {status = a} :: EntityRecognizerFilter)
 
 -- | Filters the list of entities based on the time that the list was
 -- submitted for processing. Returns only jobs submitted before the
 -- specified time. Jobs are returned in descending order, newest to oldest.
-entityRecognizerFilter_submitTimeBefore :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EntityRecognizerFilter' {} a -> s {submitTimeBefore = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Prelude._Time
+entityRecognizerFilter_submitTimeBefore :: Lens.Lens' EntityRecognizerFilter (Core.Maybe Core.UTCTime)
+entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {submitTimeBefore} -> submitTimeBefore) (\s@EntityRecognizerFilter' {} a -> s {submitTimeBefore = a} :: EntityRecognizerFilter) Core.. Lens.mapping Core._Time
 
 -- | Filters the list of entities based on the time that the list was
 -- submitted for processing. Returns only jobs submitted after the
 -- specified time. Jobs are returned in ascending order, oldest to newest.
-entityRecognizerFilter_submitTimeAfter :: Lens.Lens' EntityRecognizerFilter (Prelude.Maybe Prelude.UTCTime)
-entityRecognizerFilter_submitTimeAfter = Lens.lens (\EntityRecognizerFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntityRecognizerFilter' {} a -> s {submitTimeAfter = a} :: EntityRecognizerFilter) Prelude.. Lens.mapping Prelude._Time
+entityRecognizerFilter_submitTimeAfter :: Lens.Lens' EntityRecognizerFilter (Core.Maybe Core.UTCTime)
+entityRecognizerFilter_submitTimeAfter = Lens.lens (\EntityRecognizerFilter' {submitTimeAfter} -> submitTimeAfter) (\s@EntityRecognizerFilter' {} a -> s {submitTimeAfter = a} :: EntityRecognizerFilter) Core.. Lens.mapping Core._Time
 
-instance Prelude.Hashable EntityRecognizerFilter
+instance Core.Hashable EntityRecognizerFilter
 
-instance Prelude.NFData EntityRecognizerFilter
+instance Core.NFData EntityRecognizerFilter
 
-instance Prelude.ToJSON EntityRecognizerFilter where
+instance Core.ToJSON EntityRecognizerFilter where
   toJSON EntityRecognizerFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Status" Prelude..=) Prelude.<$> status,
-            ("SubmitTimeBefore" Prelude..=)
-              Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Prelude..=)
-              Prelude.<$> submitTimeAfter
+    Core.object
+      ( Core.catMaybes
+          [ ("Status" Core..=) Core.<$> status,
+            ("SubmitTimeBefore" Core..=)
+              Core.<$> submitTimeBefore,
+            ("SubmitTimeAfter" Core..=)
+              Core.<$> submitTimeAfter
           ]
       )

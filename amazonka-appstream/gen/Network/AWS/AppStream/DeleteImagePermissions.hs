@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,20 +42,20 @@ module Network.AWS.AppStream.DeleteImagePermissions
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteImagePermissions' smart constructor.
 data DeleteImagePermissions = DeleteImagePermissions'
   { -- | The name of the private image.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The 12-digit identifier of the AWS account for which to delete image
     -- permissions.
-    sharedAccountId :: Prelude.Text
+    sharedAccountId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteImagePermissions' with all optional fields omitted.
@@ -72,9 +71,9 @@ data DeleteImagePermissions = DeleteImagePermissions'
 -- permissions.
 newDeleteImagePermissions ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sharedAccountId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteImagePermissions
 newDeleteImagePermissions pName_ pSharedAccountId_ =
   DeleteImagePermissions'
@@ -83,67 +82,65 @@ newDeleteImagePermissions pName_ pSharedAccountId_ =
     }
 
 -- | The name of the private image.
-deleteImagePermissions_name :: Lens.Lens' DeleteImagePermissions Prelude.Text
+deleteImagePermissions_name :: Lens.Lens' DeleteImagePermissions Core.Text
 deleteImagePermissions_name = Lens.lens (\DeleteImagePermissions' {name} -> name) (\s@DeleteImagePermissions' {} a -> s {name = a} :: DeleteImagePermissions)
 
 -- | The 12-digit identifier of the AWS account for which to delete image
 -- permissions.
-deleteImagePermissions_sharedAccountId :: Lens.Lens' DeleteImagePermissions Prelude.Text
+deleteImagePermissions_sharedAccountId :: Lens.Lens' DeleteImagePermissions Core.Text
 deleteImagePermissions_sharedAccountId = Lens.lens (\DeleteImagePermissions' {sharedAccountId} -> sharedAccountId) (\s@DeleteImagePermissions' {} a -> s {sharedAccountId = a} :: DeleteImagePermissions)
 
-instance Prelude.AWSRequest DeleteImagePermissions where
+instance Core.AWSRequest DeleteImagePermissions where
   type
-    Rs DeleteImagePermissions =
+    AWSResponse DeleteImagePermissions =
       DeleteImagePermissionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteImagePermissionsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteImagePermissions
+instance Core.Hashable DeleteImagePermissions
 
-instance Prelude.NFData DeleteImagePermissions
+instance Core.NFData DeleteImagePermissions
 
-instance Prelude.ToHeaders DeleteImagePermissions where
+instance Core.ToHeaders DeleteImagePermissions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DeleteImagePermissions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DeleteImagePermissions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteImagePermissions where
+instance Core.ToJSON DeleteImagePermissions where
   toJSON DeleteImagePermissions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("SharedAccountId" Prelude..= sharedAccountId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just
+              ("SharedAccountId" Core..= sharedAccountId)
           ]
       )
 
-instance Prelude.ToPath DeleteImagePermissions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteImagePermissions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteImagePermissions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteImagePermissions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteImagePermissionsResponse' smart constructor.
 data DeleteImagePermissionsResponse = DeleteImagePermissionsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteImagePermissionsResponse' with all optional fields omitted.
@@ -156,7 +153,7 @@ data DeleteImagePermissionsResponse = DeleteImagePermissionsResponse'
 -- 'httpStatus', 'deleteImagePermissionsResponse_httpStatus' - The response's http status code.
 newDeleteImagePermissionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteImagePermissionsResponse
 newDeleteImagePermissionsResponse pHttpStatus_ =
   DeleteImagePermissionsResponse'
@@ -165,9 +162,7 @@ newDeleteImagePermissionsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteImagePermissionsResponse_httpStatus :: Lens.Lens' DeleteImagePermissionsResponse Prelude.Int
+deleteImagePermissionsResponse_httpStatus :: Lens.Lens' DeleteImagePermissionsResponse Core.Int
 deleteImagePermissionsResponse_httpStatus = Lens.lens (\DeleteImagePermissionsResponse' {httpStatus} -> httpStatus) (\s@DeleteImagePermissionsResponse' {} a -> s {httpStatus = a} :: DeleteImagePermissionsResponse)
 
-instance
-  Prelude.NFData
-    DeleteImagePermissionsResponse
+instance Core.NFData DeleteImagePermissionsResponse

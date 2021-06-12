@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types.ListGroupResourcesItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.ResourceIdentifier
 import Network.AWS.ResourceGroups.Types.ResourceStatus
 
@@ -36,10 +35,10 @@ data ListGroupResourcesItem = ListGroupResourcesItem'
     --
     -- This field is present in the response only if the group is of type
     -- @AWS::EC2::HostManagement@.
-    status :: Prelude.Maybe ResourceStatus,
-    identifier :: Prelude.Maybe ResourceIdentifier
+    status :: Core.Maybe ResourceStatus,
+    identifier :: Core.Maybe ResourceIdentifier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGroupResourcesItem' with all optional fields omitted.
@@ -60,8 +59,8 @@ newListGroupResourcesItem ::
   ListGroupResourcesItem
 newListGroupResourcesItem =
   ListGroupResourcesItem'
-    { status = Prelude.Nothing,
-      identifier = Prelude.Nothing
+    { status = Core.Nothing,
+      identifier = Core.Nothing
     }
 
 -- | A structure that contains the status of this resource\'s membership in
@@ -69,23 +68,23 @@ newListGroupResourcesItem =
 --
 -- This field is present in the response only if the group is of type
 -- @AWS::EC2::HostManagement@.
-listGroupResourcesItem_status :: Lens.Lens' ListGroupResourcesItem (Prelude.Maybe ResourceStatus)
+listGroupResourcesItem_status :: Lens.Lens' ListGroupResourcesItem (Core.Maybe ResourceStatus)
 listGroupResourcesItem_status = Lens.lens (\ListGroupResourcesItem' {status} -> status) (\s@ListGroupResourcesItem' {} a -> s {status = a} :: ListGroupResourcesItem)
 
 -- | Undocumented member.
-listGroupResourcesItem_identifier :: Lens.Lens' ListGroupResourcesItem (Prelude.Maybe ResourceIdentifier)
+listGroupResourcesItem_identifier :: Lens.Lens' ListGroupResourcesItem (Core.Maybe ResourceIdentifier)
 listGroupResourcesItem_identifier = Lens.lens (\ListGroupResourcesItem' {identifier} -> identifier) (\s@ListGroupResourcesItem' {} a -> s {identifier = a} :: ListGroupResourcesItem)
 
-instance Prelude.FromJSON ListGroupResourcesItem where
+instance Core.FromJSON ListGroupResourcesItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ListGroupResourcesItem"
       ( \x ->
           ListGroupResourcesItem'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Identifier")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "Identifier")
       )
 
-instance Prelude.Hashable ListGroupResourcesItem
+instance Core.Hashable ListGroupResourcesItem
 
-instance Prelude.NFData ListGroupResourcesItem
+instance Core.NFData ListGroupResourcesItem

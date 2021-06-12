@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicySummary where
 
 import Network.AWS.CloudFront.Types.OriginRequestPolicy
 import Network.AWS.CloudFront.Types.OriginRequestPolicyType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains an origin request policy.
 --
@@ -35,7 +34,7 @@ data OriginRequestPolicySummary = OriginRequestPolicySummary'
     -- | The origin request policy.
     originRequestPolicy :: OriginRequestPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginRequestPolicySummary' with all optional fields omitted.
@@ -72,12 +71,12 @@ originRequestPolicySummary_type = Lens.lens (\OriginRequestPolicySummary' {type'
 originRequestPolicySummary_originRequestPolicy :: Lens.Lens' OriginRequestPolicySummary OriginRequestPolicy
 originRequestPolicySummary_originRequestPolicy = Lens.lens (\OriginRequestPolicySummary' {originRequestPolicy} -> originRequestPolicy) (\s@OriginRequestPolicySummary' {} a -> s {originRequestPolicy = a} :: OriginRequestPolicySummary)
 
-instance Prelude.FromXML OriginRequestPolicySummary where
+instance Core.FromXML OriginRequestPolicySummary where
   parseXML x =
     OriginRequestPolicySummary'
-      Prelude.<$> (x Prelude..@ "Type")
-      Prelude.<*> (x Prelude..@ "OriginRequestPolicy")
+      Core.<$> (x Core..@ "Type")
+      Core.<*> (x Core..@ "OriginRequestPolicy")
 
-instance Prelude.Hashable OriginRequestPolicySummary
+instance Core.Hashable OriginRequestPolicySummary
 
-instance Prelude.NFData OriginRequestPolicySummary
+instance Core.NFData OriginRequestPolicySummary

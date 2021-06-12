@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.WorkspaceRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.Tag
 import Network.AWS.WorkSpaces.Types.WorkspaceProperties
 
@@ -30,29 +29,29 @@ import Network.AWS.WorkSpaces.Types.WorkspaceProperties
 -- /See:/ 'newWorkspaceRequest' smart constructor.
 data WorkspaceRequest = WorkspaceRequest'
   { -- | The WorkSpace properties.
-    workspaceProperties :: Prelude.Maybe WorkspaceProperties,
+    workspaceProperties :: Core.Maybe WorkspaceProperties,
     -- | Indicates whether the data stored on the root volume is encrypted.
-    rootVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    rootVolumeEncryptionEnabled :: Core.Maybe Core.Bool,
     -- | Indicates whether the data stored on the user volume is encrypted.
-    userVolumeEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    userVolumeEncryptionEnabled :: Core.Maybe Core.Bool,
     -- | The symmetric AWS KMS customer master key (CMK) used to encrypt data
     -- stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric
     -- CMKs.
-    volumeEncryptionKey :: Prelude.Maybe Prelude.Text,
+    volumeEncryptionKey :: Core.Maybe Core.Text,
     -- | The tags for the WorkSpace.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The identifier of the AWS Directory Service directory for the WorkSpace.
     -- You can use DescribeWorkspaceDirectories to list the available
     -- directories.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The user name of the user for the WorkSpace. This user name must exist
     -- in the AWS Directory Service directory for the WorkSpace.
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The identifier of the bundle for the WorkSpace. You can use
     -- DescribeWorkspaceBundles to list the available bundles.
-    bundleId :: Prelude.Text
+    bundleId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkspaceRequest' with all optional fields omitted.
@@ -85,11 +84,11 @@ data WorkspaceRequest = WorkspaceRequest'
 -- DescribeWorkspaceBundles to list the available bundles.
 newWorkspaceRequest ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'bundleId'
-  Prelude.Text ->
+  Core.Text ->
   WorkspaceRequest
 newWorkspaceRequest
   pDirectoryId_
@@ -97,89 +96,89 @@ newWorkspaceRequest
   pBundleId_ =
     WorkspaceRequest'
       { workspaceProperties =
-          Prelude.Nothing,
-        rootVolumeEncryptionEnabled = Prelude.Nothing,
-        userVolumeEncryptionEnabled = Prelude.Nothing,
-        volumeEncryptionKey = Prelude.Nothing,
-        tags = Prelude.Nothing,
+          Core.Nothing,
+        rootVolumeEncryptionEnabled = Core.Nothing,
+        userVolumeEncryptionEnabled = Core.Nothing,
+        volumeEncryptionKey = Core.Nothing,
+        tags = Core.Nothing,
         directoryId = pDirectoryId_,
         userName = pUserName_,
         bundleId = pBundleId_
       }
 
 -- | The WorkSpace properties.
-workspaceRequest_workspaceProperties :: Lens.Lens' WorkspaceRequest (Prelude.Maybe WorkspaceProperties)
+workspaceRequest_workspaceProperties :: Lens.Lens' WorkspaceRequest (Core.Maybe WorkspaceProperties)
 workspaceRequest_workspaceProperties = Lens.lens (\WorkspaceRequest' {workspaceProperties} -> workspaceProperties) (\s@WorkspaceRequest' {} a -> s {workspaceProperties = a} :: WorkspaceRequest)
 
 -- | Indicates whether the data stored on the root volume is encrypted.
-workspaceRequest_rootVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
+workspaceRequest_rootVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Core.Maybe Core.Bool)
 workspaceRequest_rootVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {rootVolumeEncryptionEnabled} -> rootVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {rootVolumeEncryptionEnabled = a} :: WorkspaceRequest)
 
 -- | Indicates whether the data stored on the user volume is encrypted.
-workspaceRequest_userVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Bool)
+workspaceRequest_userVolumeEncryptionEnabled :: Lens.Lens' WorkspaceRequest (Core.Maybe Core.Bool)
 workspaceRequest_userVolumeEncryptionEnabled = Lens.lens (\WorkspaceRequest' {userVolumeEncryptionEnabled} -> userVolumeEncryptionEnabled) (\s@WorkspaceRequest' {} a -> s {userVolumeEncryptionEnabled = a} :: WorkspaceRequest)
 
 -- | The symmetric AWS KMS customer master key (CMK) used to encrypt data
 -- stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric
 -- CMKs.
-workspaceRequest_volumeEncryptionKey :: Lens.Lens' WorkspaceRequest (Prelude.Maybe Prelude.Text)
+workspaceRequest_volumeEncryptionKey :: Lens.Lens' WorkspaceRequest (Core.Maybe Core.Text)
 workspaceRequest_volumeEncryptionKey = Lens.lens (\WorkspaceRequest' {volumeEncryptionKey} -> volumeEncryptionKey) (\s@WorkspaceRequest' {} a -> s {volumeEncryptionKey = a} :: WorkspaceRequest)
 
 -- | The tags for the WorkSpace.
-workspaceRequest_tags :: Lens.Lens' WorkspaceRequest (Prelude.Maybe [Tag])
-workspaceRequest_tags = Lens.lens (\WorkspaceRequest' {tags} -> tags) (\s@WorkspaceRequest' {} a -> s {tags = a} :: WorkspaceRequest) Prelude.. Lens.mapping Prelude._Coerce
+workspaceRequest_tags :: Lens.Lens' WorkspaceRequest (Core.Maybe [Tag])
+workspaceRequest_tags = Lens.lens (\WorkspaceRequest' {tags} -> tags) (\s@WorkspaceRequest' {} a -> s {tags = a} :: WorkspaceRequest) Core.. Lens.mapping Lens._Coerce
 
 -- | The identifier of the AWS Directory Service directory for the WorkSpace.
 -- You can use DescribeWorkspaceDirectories to list the available
 -- directories.
-workspaceRequest_directoryId :: Lens.Lens' WorkspaceRequest Prelude.Text
+workspaceRequest_directoryId :: Lens.Lens' WorkspaceRequest Core.Text
 workspaceRequest_directoryId = Lens.lens (\WorkspaceRequest' {directoryId} -> directoryId) (\s@WorkspaceRequest' {} a -> s {directoryId = a} :: WorkspaceRequest)
 
 -- | The user name of the user for the WorkSpace. This user name must exist
 -- in the AWS Directory Service directory for the WorkSpace.
-workspaceRequest_userName :: Lens.Lens' WorkspaceRequest Prelude.Text
+workspaceRequest_userName :: Lens.Lens' WorkspaceRequest Core.Text
 workspaceRequest_userName = Lens.lens (\WorkspaceRequest' {userName} -> userName) (\s@WorkspaceRequest' {} a -> s {userName = a} :: WorkspaceRequest)
 
 -- | The identifier of the bundle for the WorkSpace. You can use
 -- DescribeWorkspaceBundles to list the available bundles.
-workspaceRequest_bundleId :: Lens.Lens' WorkspaceRequest Prelude.Text
+workspaceRequest_bundleId :: Lens.Lens' WorkspaceRequest Core.Text
 workspaceRequest_bundleId = Lens.lens (\WorkspaceRequest' {bundleId} -> bundleId) (\s@WorkspaceRequest' {} a -> s {bundleId = a} :: WorkspaceRequest)
 
-instance Prelude.FromJSON WorkspaceRequest where
+instance Core.FromJSON WorkspaceRequest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkspaceRequest"
       ( \x ->
           WorkspaceRequest'
-            Prelude.<$> (x Prelude..:? "WorkspaceProperties")
-            Prelude.<*> (x Prelude..:? "RootVolumeEncryptionEnabled")
-            Prelude.<*> (x Prelude..:? "UserVolumeEncryptionEnabled")
-            Prelude.<*> (x Prelude..:? "VolumeEncryptionKey")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "DirectoryId")
-            Prelude.<*> (x Prelude..: "UserName")
-            Prelude.<*> (x Prelude..: "BundleId")
+            Core.<$> (x Core..:? "WorkspaceProperties")
+            Core.<*> (x Core..:? "RootVolumeEncryptionEnabled")
+            Core.<*> (x Core..:? "UserVolumeEncryptionEnabled")
+            Core.<*> (x Core..:? "VolumeEncryptionKey")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
+            Core.<*> (x Core..: "DirectoryId")
+            Core.<*> (x Core..: "UserName")
+            Core.<*> (x Core..: "BundleId")
       )
 
-instance Prelude.Hashable WorkspaceRequest
+instance Core.Hashable WorkspaceRequest
 
-instance Prelude.NFData WorkspaceRequest
+instance Core.NFData WorkspaceRequest
 
-instance Prelude.ToJSON WorkspaceRequest where
+instance Core.ToJSON WorkspaceRequest where
   toJSON WorkspaceRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("WorkspaceProperties" Prelude..=)
-              Prelude.<$> workspaceProperties,
-            ("RootVolumeEncryptionEnabled" Prelude..=)
-              Prelude.<$> rootVolumeEncryptionEnabled,
-            ("UserVolumeEncryptionEnabled" Prelude..=)
-              Prelude.<$> userVolumeEncryptionEnabled,
-            ("VolumeEncryptionKey" Prelude..=)
-              Prelude.<$> volumeEncryptionKey,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("UserName" Prelude..= userName),
-            Prelude.Just ("BundleId" Prelude..= bundleId)
+    Core.object
+      ( Core.catMaybes
+          [ ("WorkspaceProperties" Core..=)
+              Core.<$> workspaceProperties,
+            ("RootVolumeEncryptionEnabled" Core..=)
+              Core.<$> rootVolumeEncryptionEnabled,
+            ("UserVolumeEncryptionEnabled" Core..=)
+              Core.<$> userVolumeEncryptionEnabled,
+            ("VolumeEncryptionKey" Core..=)
+              Core.<$> volumeEncryptionKey,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("UserName" Core..= userName),
+            Core.Just ("BundleId" Core..= bundleId)
           ]
       )

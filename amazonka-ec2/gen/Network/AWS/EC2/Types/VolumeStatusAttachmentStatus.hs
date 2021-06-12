@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.VolumeStatusAttachmentStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the instances to which the volume is attached.
 --
 -- /See:/ 'newVolumeStatusAttachmentStatus' smart constructor.
 data VolumeStatusAttachmentStatus = VolumeStatusAttachmentStatus'
   { -- | The ID of the attached instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The maximum IOPS supported by the attached instance.
-    ioPerformance :: Prelude.Maybe Prelude.Text
+    ioPerformance :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VolumeStatusAttachmentStatus' with all optional fields omitted.
@@ -51,26 +50,24 @@ newVolumeStatusAttachmentStatus ::
 newVolumeStatusAttachmentStatus =
   VolumeStatusAttachmentStatus'
     { instanceId =
-        Prelude.Nothing,
-      ioPerformance = Prelude.Nothing
+        Core.Nothing,
+      ioPerformance = Core.Nothing
     }
 
 -- | The ID of the attached instance.
-volumeStatusAttachmentStatus_instanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
+volumeStatusAttachmentStatus_instanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Core.Maybe Core.Text)
 volumeStatusAttachmentStatus_instanceId = Lens.lens (\VolumeStatusAttachmentStatus' {instanceId} -> instanceId) (\s@VolumeStatusAttachmentStatus' {} a -> s {instanceId = a} :: VolumeStatusAttachmentStatus)
 
 -- | The maximum IOPS supported by the attached instance.
-volumeStatusAttachmentStatus_ioPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Prelude.Maybe Prelude.Text)
+volumeStatusAttachmentStatus_ioPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Core.Maybe Core.Text)
 volumeStatusAttachmentStatus_ioPerformance = Lens.lens (\VolumeStatusAttachmentStatus' {ioPerformance} -> ioPerformance) (\s@VolumeStatusAttachmentStatus' {} a -> s {ioPerformance = a} :: VolumeStatusAttachmentStatus)
 
-instance Prelude.FromXML VolumeStatusAttachmentStatus where
+instance Core.FromXML VolumeStatusAttachmentStatus where
   parseXML x =
     VolumeStatusAttachmentStatus'
-      Prelude.<$> (x Prelude..@? "instanceId")
-      Prelude.<*> (x Prelude..@? "ioPerformance")
+      Core.<$> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "ioPerformance")
 
-instance
-  Prelude.Hashable
-    VolumeStatusAttachmentStatus
+instance Core.Hashable VolumeStatusAttachmentStatus
 
-instance Prelude.NFData VolumeStatusAttachmentStatus
+instance Core.NFData VolumeStatusAttachmentStatus

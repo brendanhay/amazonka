@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.UpdateLabelsPayload where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a Kubernetes label change for a managed node
 -- group.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newUpdateLabelsPayload' smart constructor.
 data UpdateLabelsPayload = UpdateLabelsPayload'
   { -- | Kubernetes labels to be removed.
-    removeLabels :: Prelude.Maybe [Prelude.Text],
+    removeLabels :: Core.Maybe [Core.Text],
     -- | Kubernetes labels to be added or updated.
-    addOrUpdateLabels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    addOrUpdateLabels :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateLabelsPayload' with all optional fields omitted.
@@ -50,30 +49,28 @@ newUpdateLabelsPayload ::
   UpdateLabelsPayload
 newUpdateLabelsPayload =
   UpdateLabelsPayload'
-    { removeLabels =
-        Prelude.Nothing,
-      addOrUpdateLabels = Prelude.Nothing
+    { removeLabels = Core.Nothing,
+      addOrUpdateLabels = Core.Nothing
     }
 
 -- | Kubernetes labels to be removed.
-updateLabelsPayload_removeLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe [Prelude.Text])
-updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabels} -> removeLabels) (\s@UpdateLabelsPayload' {} a -> s {removeLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Prelude._Coerce
+updateLabelsPayload_removeLabels :: Lens.Lens' UpdateLabelsPayload (Core.Maybe [Core.Text])
+updateLabelsPayload_removeLabels = Lens.lens (\UpdateLabelsPayload' {removeLabels} -> removeLabels) (\s@UpdateLabelsPayload' {} a -> s {removeLabels = a} :: UpdateLabelsPayload) Core.. Lens.mapping Lens._Coerce
 
 -- | Kubernetes labels to be added or updated.
-updateLabelsPayload_addOrUpdateLabels :: Lens.Lens' UpdateLabelsPayload (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateLabelsPayload_addOrUpdateLabels = Lens.lens (\UpdateLabelsPayload' {addOrUpdateLabels} -> addOrUpdateLabels) (\s@UpdateLabelsPayload' {} a -> s {addOrUpdateLabels = a} :: UpdateLabelsPayload) Prelude.. Lens.mapping Prelude._Coerce
+updateLabelsPayload_addOrUpdateLabels :: Lens.Lens' UpdateLabelsPayload (Core.Maybe (Core.HashMap Core.Text Core.Text))
+updateLabelsPayload_addOrUpdateLabels = Lens.lens (\UpdateLabelsPayload' {addOrUpdateLabels} -> addOrUpdateLabels) (\s@UpdateLabelsPayload' {} a -> s {addOrUpdateLabels = a} :: UpdateLabelsPayload) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable UpdateLabelsPayload
+instance Core.Hashable UpdateLabelsPayload
 
-instance Prelude.NFData UpdateLabelsPayload
+instance Core.NFData UpdateLabelsPayload
 
-instance Prelude.ToJSON UpdateLabelsPayload where
+instance Core.ToJSON UpdateLabelsPayload where
   toJSON UpdateLabelsPayload' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("removeLabels" Prelude..=)
-              Prelude.<$> removeLabels,
-            ("addOrUpdateLabels" Prelude..=)
-              Prelude.<$> addOrUpdateLabels
+    Core.object
+      ( Core.catMaybes
+          [ ("removeLabels" Core..=) Core.<$> removeLabels,
+            ("addOrUpdateLabels" Core..=)
+              Core.<$> addOrUpdateLabels
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.XRay.GetInsightSummaries
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -57,24 +56,24 @@ import Network.AWS.XRay.Types
 -- | /See:/ 'newGetInsightSummaries' smart constructor.
 data GetInsightSummaries = GetInsightSummaries'
   { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of insight states.
-    states :: Prelude.Maybe [InsightState],
+    states :: Core.Maybe [InsightState],
     -- | The maximum number of results to display.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The name of the group. Required if the GroupARN isn\'t provided.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the group. Required if the GroupName
     -- isn\'t provided.
-    groupARN :: Prelude.Maybe Prelude.Text,
+    groupARN :: Core.Maybe Core.Text,
     -- | The beginning of the time frame in which the insights started. The start
     -- time can\'t be more than 30 days old.
-    startTime :: Prelude.POSIX,
+    startTime :: Core.POSIX,
     -- | The end of the time frame in which the insights ended. The end time
     -- can\'t be more than 30 days old.
-    endTime :: Prelude.POSIX
+    endTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInsightSummaries' with all optional fields omitted.
@@ -102,94 +101,92 @@ data GetInsightSummaries = GetInsightSummaries'
 -- can\'t be more than 30 days old.
 newGetInsightSummaries ::
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'endTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   GetInsightSummaries
 newGetInsightSummaries pStartTime_ pEndTime_ =
   GetInsightSummaries'
-    { nextToken = Prelude.Nothing,
-      states = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      groupARN = Prelude.Nothing,
-      startTime = Prelude._Time Lens.# pStartTime_,
-      endTime = Prelude._Time Lens.# pEndTime_
+    { nextToken = Core.Nothing,
+      states = Core.Nothing,
+      maxResults = Core.Nothing,
+      groupName = Core.Nothing,
+      groupARN = Core.Nothing,
+      startTime = Core._Time Lens.# pStartTime_,
+      endTime = Core._Time Lens.# pEndTime_
     }
 
 -- | Pagination token.
-getInsightSummaries_nextToken :: Lens.Lens' GetInsightSummaries (Prelude.Maybe Prelude.Text)
+getInsightSummaries_nextToken :: Lens.Lens' GetInsightSummaries (Core.Maybe Core.Text)
 getInsightSummaries_nextToken = Lens.lens (\GetInsightSummaries' {nextToken} -> nextToken) (\s@GetInsightSummaries' {} a -> s {nextToken = a} :: GetInsightSummaries)
 
 -- | The list of insight states.
-getInsightSummaries_states :: Lens.Lens' GetInsightSummaries (Prelude.Maybe [InsightState])
-getInsightSummaries_states = Lens.lens (\GetInsightSummaries' {states} -> states) (\s@GetInsightSummaries' {} a -> s {states = a} :: GetInsightSummaries) Prelude.. Lens.mapping Prelude._Coerce
+getInsightSummaries_states :: Lens.Lens' GetInsightSummaries (Core.Maybe [InsightState])
+getInsightSummaries_states = Lens.lens (\GetInsightSummaries' {states} -> states) (\s@GetInsightSummaries' {} a -> s {states = a} :: GetInsightSummaries) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to display.
-getInsightSummaries_maxResults :: Lens.Lens' GetInsightSummaries (Prelude.Maybe Prelude.Natural)
+getInsightSummaries_maxResults :: Lens.Lens' GetInsightSummaries (Core.Maybe Core.Natural)
 getInsightSummaries_maxResults = Lens.lens (\GetInsightSummaries' {maxResults} -> maxResults) (\s@GetInsightSummaries' {} a -> s {maxResults = a} :: GetInsightSummaries)
 
 -- | The name of the group. Required if the GroupARN isn\'t provided.
-getInsightSummaries_groupName :: Lens.Lens' GetInsightSummaries (Prelude.Maybe Prelude.Text)
+getInsightSummaries_groupName :: Lens.Lens' GetInsightSummaries (Core.Maybe Core.Text)
 getInsightSummaries_groupName = Lens.lens (\GetInsightSummaries' {groupName} -> groupName) (\s@GetInsightSummaries' {} a -> s {groupName = a} :: GetInsightSummaries)
 
 -- | The Amazon Resource Name (ARN) of the group. Required if the GroupName
 -- isn\'t provided.
-getInsightSummaries_groupARN :: Lens.Lens' GetInsightSummaries (Prelude.Maybe Prelude.Text)
+getInsightSummaries_groupARN :: Lens.Lens' GetInsightSummaries (Core.Maybe Core.Text)
 getInsightSummaries_groupARN = Lens.lens (\GetInsightSummaries' {groupARN} -> groupARN) (\s@GetInsightSummaries' {} a -> s {groupARN = a} :: GetInsightSummaries)
 
 -- | The beginning of the time frame in which the insights started. The start
 -- time can\'t be more than 30 days old.
-getInsightSummaries_startTime :: Lens.Lens' GetInsightSummaries Prelude.UTCTime
-getInsightSummaries_startTime = Lens.lens (\GetInsightSummaries' {startTime} -> startTime) (\s@GetInsightSummaries' {} a -> s {startTime = a} :: GetInsightSummaries) Prelude.. Prelude._Time
+getInsightSummaries_startTime :: Lens.Lens' GetInsightSummaries Core.UTCTime
+getInsightSummaries_startTime = Lens.lens (\GetInsightSummaries' {startTime} -> startTime) (\s@GetInsightSummaries' {} a -> s {startTime = a} :: GetInsightSummaries) Core.. Core._Time
 
 -- | The end of the time frame in which the insights ended. The end time
 -- can\'t be more than 30 days old.
-getInsightSummaries_endTime :: Lens.Lens' GetInsightSummaries Prelude.UTCTime
-getInsightSummaries_endTime = Lens.lens (\GetInsightSummaries' {endTime} -> endTime) (\s@GetInsightSummaries' {} a -> s {endTime = a} :: GetInsightSummaries) Prelude.. Prelude._Time
+getInsightSummaries_endTime :: Lens.Lens' GetInsightSummaries Core.UTCTime
+getInsightSummaries_endTime = Lens.lens (\GetInsightSummaries' {endTime} -> endTime) (\s@GetInsightSummaries' {} a -> s {endTime = a} :: GetInsightSummaries) Core.. Core._Time
 
-instance Prelude.AWSRequest GetInsightSummaries where
+instance Core.AWSRequest GetInsightSummaries where
   type
-    Rs GetInsightSummaries =
+    AWSResponse GetInsightSummaries =
       GetInsightSummariesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetInsightSummariesResponse'
-            Prelude.<$> ( x Prelude..?> "InsightSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "InsightSummaries" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetInsightSummaries
+instance Core.Hashable GetInsightSummaries
 
-instance Prelude.NFData GetInsightSummaries
+instance Core.NFData GetInsightSummaries
 
-instance Prelude.ToHeaders GetInsightSummaries where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetInsightSummaries where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetInsightSummaries where
+instance Core.ToJSON GetInsightSummaries where
   toJSON GetInsightSummaries' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("States" Prelude..=) Prelude.<$> states,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("GroupName" Prelude..=) Prelude.<$> groupName,
-            ("GroupARN" Prelude..=) Prelude.<$> groupARN,
-            Prelude.Just ("StartTime" Prelude..= startTime),
-            Prelude.Just ("EndTime" Prelude..= endTime)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("States" Core..=) Core.<$> states,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("GroupName" Core..=) Core.<$> groupName,
+            ("GroupARN" Core..=) Core.<$> groupARN,
+            Core.Just ("StartTime" Core..= startTime),
+            Core.Just ("EndTime" Core..= endTime)
           ]
       )
 
-instance Prelude.ToPath GetInsightSummaries where
-  toPath = Prelude.const "/InsightSummaries"
+instance Core.ToPath GetInsightSummaries where
+  toPath = Core.const "/InsightSummaries"
 
-instance Prelude.ToQuery GetInsightSummaries where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetInsightSummaries where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetInsightSummariesResponse' smart constructor.
 data GetInsightSummariesResponse = GetInsightSummariesResponse'
@@ -197,13 +194,13 @@ data GetInsightSummariesResponse = GetInsightSummariesResponse'
     -- filters. The summary contains the InsightID, start and end time, the
     -- root cause service, the root cause and client impact statistics, the top
     -- anomalous services, and the status of the insight.
-    insightSummaries :: Prelude.Maybe [InsightSummary],
+    insightSummaries :: Core.Maybe [InsightSummary],
     -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetInsightSummariesResponse' with all optional fields omitted.
@@ -223,13 +220,13 @@ data GetInsightSummariesResponse = GetInsightSummariesResponse'
 -- 'httpStatus', 'getInsightSummariesResponse_httpStatus' - The response's http status code.
 newGetInsightSummariesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetInsightSummariesResponse
 newGetInsightSummariesResponse pHttpStatus_ =
   GetInsightSummariesResponse'
     { insightSummaries =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -237,15 +234,15 @@ newGetInsightSummariesResponse pHttpStatus_ =
 -- filters. The summary contains the InsightID, start and end time, the
 -- root cause service, the root cause and client impact statistics, the top
 -- anomalous services, and the status of the insight.
-getInsightSummariesResponse_insightSummaries :: Lens.Lens' GetInsightSummariesResponse (Prelude.Maybe [InsightSummary])
-getInsightSummariesResponse_insightSummaries = Lens.lens (\GetInsightSummariesResponse' {insightSummaries} -> insightSummaries) (\s@GetInsightSummariesResponse' {} a -> s {insightSummaries = a} :: GetInsightSummariesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getInsightSummariesResponse_insightSummaries :: Lens.Lens' GetInsightSummariesResponse (Core.Maybe [InsightSummary])
+getInsightSummariesResponse_insightSummaries = Lens.lens (\GetInsightSummariesResponse' {insightSummaries} -> insightSummaries) (\s@GetInsightSummariesResponse' {} a -> s {insightSummaries = a} :: GetInsightSummariesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Pagination token.
-getInsightSummariesResponse_nextToken :: Lens.Lens' GetInsightSummariesResponse (Prelude.Maybe Prelude.Text)
+getInsightSummariesResponse_nextToken :: Lens.Lens' GetInsightSummariesResponse (Core.Maybe Core.Text)
 getInsightSummariesResponse_nextToken = Lens.lens (\GetInsightSummariesResponse' {nextToken} -> nextToken) (\s@GetInsightSummariesResponse' {} a -> s {nextToken = a} :: GetInsightSummariesResponse)
 
 -- | The response's http status code.
-getInsightSummariesResponse_httpStatus :: Lens.Lens' GetInsightSummariesResponse Prelude.Int
+getInsightSummariesResponse_httpStatus :: Lens.Lens' GetInsightSummariesResponse Core.Int
 getInsightSummariesResponse_httpStatus = Lens.lens (\GetInsightSummariesResponse' {httpStatus} -> httpStatus) (\s@GetInsightSummariesResponse' {} a -> s {httpStatus = a} :: GetInsightSummariesResponse)
 
-instance Prelude.NFData GetInsightSummariesResponse
+instance Core.NFData GetInsightSummariesResponse

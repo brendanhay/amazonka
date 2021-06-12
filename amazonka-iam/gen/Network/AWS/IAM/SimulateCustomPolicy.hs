@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -77,10 +76,9 @@ module Network.AWS.IAM.SimulateCustomPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -101,11 +99,11 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
     -- account with the 112233445566 ID, use the following ARN:
     -- @arn:aws:iam::112233445566-ID:root@.
-    resourceOwner :: Prelude.Maybe Prelude.Text,
+    resourceOwner :: Core.Maybe Core.Text,
     -- | A list of context keys and corresponding values for the simulation to
     -- use. Whenever a context key is evaluated in one of the simulated IAM
     -- permissions policies, the corresponding value is supplied.
-    contextEntries :: Prelude.Maybe [ContextEntry],
+    contextEntries :: Core.Maybe [ContextEntry],
     -- | A resource-based policy to include in the simulation provided as a
     -- string. Each resource in the simulation is treated as if it had this
     -- policy attached. You can include only one resource-based policy in a
@@ -122,7 +120,7 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    resourcePolicy :: Prelude.Maybe Prelude.Text,
+    resourcePolicy :: Core.Maybe Core.Text,
     -- | A list of ARNs of AWS resources to include in the simulation. If this
     -- parameter is not provided, then the value defaults to @*@ (all
     -- resources). Each API in the @ActionNames@ parameter is evaluated for
@@ -142,7 +140,7 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    resourceArns :: Prelude.Maybe [Prelude.Text],
+    resourceArns :: Core.Maybe [Core.Text],
     -- | The IAM permissions boundary policy to simulate. The permissions
     -- boundary sets the maximum permissions that an IAM entity can have. You
     -- can input only one permissions boundary when you pass a policy to this
@@ -162,7 +160,7 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    permissionsBoundaryPolicyInputList :: Prelude.Maybe [Prelude.Text],
+    permissionsBoundaryPolicyInputList :: Core.Maybe [Core.Text],
     -- | Specifies the type of simulation to run. Different API operations that
     -- support resource-based policies require different combinations of
     -- resources. By specifying the type of simulation to run, you enable the
@@ -204,7 +202,7 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- -   __EC2-VPC-EBS-Subnet__
     --
     --     instance, image, security-group, network-interface, subnet, volume
-    resourceHandlingOption :: Prelude.Maybe Prelude.Text,
+    resourceHandlingOption :: Core.Maybe Core.Text,
     -- | The ARN of the IAM user that you want to use as the simulated caller of
     -- the API operations. @CallerArn@ is required if you include a
     -- @ResourcePolicy@ so that the policy\'s @Principal@ element has a value
@@ -212,7 +210,7 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     --
     -- You can specify only the ARN of an IAM user. You cannot specify the ARN
     -- of an assumed role, federated user, or a service principal.
-    callerArn :: Prelude.Maybe Prelude.Text,
+    callerArn :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -222,12 +220,12 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | A list of policy documents to include in the simulation. Each document
     -- is specified as a string containing the complete, valid JSON text of an
     -- IAM policy. Do not include any resource-based policies in this
@@ -251,14 +249,14 @@ data SimulateCustomPolicy = SimulateCustomPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyInputList :: [Prelude.Text],
+    policyInputList :: [Core.Text],
     -- | A list of names of API operations to evaluate in the simulation. Each
     -- operation is evaluated against each resource. Each operation must
     -- include the service identifier, such as @iam:CreateUser@. This operation
     -- does not support using wildcards (*) in an action name.
-    actionNames :: [Prelude.Text]
+    actionNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SimulateCustomPolicy' with all optional fields omitted.
@@ -442,18 +440,17 @@ newSimulateCustomPolicy ::
   SimulateCustomPolicy
 newSimulateCustomPolicy =
   SimulateCustomPolicy'
-    { resourceOwner =
-        Prelude.Nothing,
-      contextEntries = Prelude.Nothing,
-      resourcePolicy = Prelude.Nothing,
-      resourceArns = Prelude.Nothing,
-      permissionsBoundaryPolicyInputList = Prelude.Nothing,
-      resourceHandlingOption = Prelude.Nothing,
-      callerArn = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      policyInputList = Prelude.mempty,
-      actionNames = Prelude.mempty
+    { resourceOwner = Core.Nothing,
+      contextEntries = Core.Nothing,
+      resourcePolicy = Core.Nothing,
+      resourceArns = Core.Nothing,
+      permissionsBoundaryPolicyInputList = Core.Nothing,
+      resourceHandlingOption = Core.Nothing,
+      callerArn = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing,
+      policyInputList = Core.mempty,
+      actionNames = Core.mempty
     }
 
 -- | An ARN representing the AWS account ID that specifies the owner of any
@@ -471,14 +468,14 @@ newSimulateCustomPolicy =
 -- @arn:aws:iam::AWS-account-ID:root@. For example, to represent the
 -- account with the 112233445566 ID, use the following ARN:
 -- @arn:aws:iam::112233445566-ID:root@.
-simulateCustomPolicy_resourceOwner :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_resourceOwner :: Lens.Lens' SimulateCustomPolicy (Core.Maybe Core.Text)
 simulateCustomPolicy_resourceOwner = Lens.lens (\SimulateCustomPolicy' {resourceOwner} -> resourceOwner) (\s@SimulateCustomPolicy' {} a -> s {resourceOwner = a} :: SimulateCustomPolicy)
 
 -- | A list of context keys and corresponding values for the simulation to
 -- use. Whenever a context key is evaluated in one of the simulated IAM
 -- permissions policies, the corresponding value is supplied.
-simulateCustomPolicy_contextEntries :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [ContextEntry])
-simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {contextEntries} -> contextEntries) (\s@SimulateCustomPolicy' {} a -> s {contextEntries = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Prelude._Coerce
+simulateCustomPolicy_contextEntries :: Lens.Lens' SimulateCustomPolicy (Core.Maybe [ContextEntry])
+simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {contextEntries} -> contextEntries) (\s@SimulateCustomPolicy' {} a -> s {contextEntries = a} :: SimulateCustomPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | A resource-based policy to include in the simulation provided as a
 -- string. Each resource in the simulation is treated as if it had this
@@ -496,7 +493,7 @@ simulateCustomPolicy_contextEntries = Lens.lens (\SimulateCustomPolicy' {context
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-simulateCustomPolicy_resourcePolicy :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_resourcePolicy :: Lens.Lens' SimulateCustomPolicy (Core.Maybe Core.Text)
 simulateCustomPolicy_resourcePolicy = Lens.lens (\SimulateCustomPolicy' {resourcePolicy} -> resourcePolicy) (\s@SimulateCustomPolicy' {} a -> s {resourcePolicy = a} :: SimulateCustomPolicy)
 
 -- | A list of ARNs of AWS resources to include in the simulation. If this
@@ -518,8 +515,8 @@ simulateCustomPolicy_resourcePolicy = Lens.lens (\SimulateCustomPolicy' {resourc
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-simulateCustomPolicy_resourceArns :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
-simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceArns} -> resourceArns) (\s@SimulateCustomPolicy' {} a -> s {resourceArns = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Prelude._Coerce
+simulateCustomPolicy_resourceArns :: Lens.Lens' SimulateCustomPolicy (Core.Maybe [Core.Text])
+simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceArns} -> resourceArns) (\s@SimulateCustomPolicy' {} a -> s {resourceArns = a} :: SimulateCustomPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | The IAM permissions boundary policy to simulate. The permissions
 -- boundary sets the maximum permissions that an IAM entity can have. You
@@ -540,8 +537,8 @@ simulateCustomPolicy_resourceArns = Lens.lens (\SimulateCustomPolicy' {resourceA
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-simulateCustomPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe [Prelude.Text])
-simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCustomPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulateCustomPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulateCustomPolicy) Prelude.. Lens.mapping Prelude._Coerce
+simulateCustomPolicy_permissionsBoundaryPolicyInputList :: Lens.Lens' SimulateCustomPolicy (Core.Maybe [Core.Text])
+simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCustomPolicy' {permissionsBoundaryPolicyInputList} -> permissionsBoundaryPolicyInputList) (\s@SimulateCustomPolicy' {} a -> s {permissionsBoundaryPolicyInputList = a} :: SimulateCustomPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the type of simulation to run. Different API operations that
 -- support resource-based policies require different combinations of
@@ -584,7 +581,7 @@ simulateCustomPolicy_permissionsBoundaryPolicyInputList = Lens.lens (\SimulateCu
 -- -   __EC2-VPC-EBS-Subnet__
 --
 --     instance, image, security-group, network-interface, subnet, volume
-simulateCustomPolicy_resourceHandlingOption :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_resourceHandlingOption :: Lens.Lens' SimulateCustomPolicy (Core.Maybe Core.Text)
 simulateCustomPolicy_resourceHandlingOption = Lens.lens (\SimulateCustomPolicy' {resourceHandlingOption} -> resourceHandlingOption) (\s@SimulateCustomPolicy' {} a -> s {resourceHandlingOption = a} :: SimulateCustomPolicy)
 
 -- | The ARN of the IAM user that you want to use as the simulated caller of
@@ -594,7 +591,7 @@ simulateCustomPolicy_resourceHandlingOption = Lens.lens (\SimulateCustomPolicy' 
 --
 -- You can specify only the ARN of an IAM user. You cannot specify the ARN
 -- of an assumed role, federated user, or a service principal.
-simulateCustomPolicy_callerArn :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_callerArn :: Lens.Lens' SimulateCustomPolicy (Core.Maybe Core.Text)
 simulateCustomPolicy_callerArn = Lens.lens (\SimulateCustomPolicy' {callerArn} -> callerArn) (\s@SimulateCustomPolicy' {} a -> s {callerArn = a} :: SimulateCustomPolicy)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -606,14 +603,14 @@ simulateCustomPolicy_callerArn = Lens.lens (\SimulateCustomPolicy' {callerArn} -
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-simulateCustomPolicy_maxItems :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Natural)
+simulateCustomPolicy_maxItems :: Lens.Lens' SimulateCustomPolicy (Core.Maybe Core.Natural)
 simulateCustomPolicy_maxItems = Lens.lens (\SimulateCustomPolicy' {maxItems} -> maxItems) (\s@SimulateCustomPolicy' {} a -> s {maxItems = a} :: SimulateCustomPolicy)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-simulateCustomPolicy_marker :: Lens.Lens' SimulateCustomPolicy (Prelude.Maybe Prelude.Text)
+simulateCustomPolicy_marker :: Lens.Lens' SimulateCustomPolicy (Core.Maybe Core.Text)
 simulateCustomPolicy_marker = Lens.lens (\SimulateCustomPolicy' {marker} -> marker) (\s@SimulateCustomPolicy' {} a -> s {marker = a} :: SimulateCustomPolicy)
 
 -- | A list of policy documents to include in the simulation. Each document
@@ -639,85 +636,81 @@ simulateCustomPolicy_marker = Lens.lens (\SimulateCustomPolicy' {marker} -> mark
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-simulateCustomPolicy_policyInputList :: Lens.Lens' SimulateCustomPolicy [Prelude.Text]
-simulateCustomPolicy_policyInputList = Lens.lens (\SimulateCustomPolicy' {policyInputList} -> policyInputList) (\s@SimulateCustomPolicy' {} a -> s {policyInputList = a} :: SimulateCustomPolicy) Prelude.. Prelude._Coerce
+simulateCustomPolicy_policyInputList :: Lens.Lens' SimulateCustomPolicy [Core.Text]
+simulateCustomPolicy_policyInputList = Lens.lens (\SimulateCustomPolicy' {policyInputList} -> policyInputList) (\s@SimulateCustomPolicy' {} a -> s {policyInputList = a} :: SimulateCustomPolicy) Core.. Lens._Coerce
 
 -- | A list of names of API operations to evaluate in the simulation. Each
 -- operation is evaluated against each resource. Each operation must
 -- include the service identifier, such as @iam:CreateUser@. This operation
 -- does not support using wildcards (*) in an action name.
-simulateCustomPolicy_actionNames :: Lens.Lens' SimulateCustomPolicy [Prelude.Text]
-simulateCustomPolicy_actionNames = Lens.lens (\SimulateCustomPolicy' {actionNames} -> actionNames) (\s@SimulateCustomPolicy' {} a -> s {actionNames = a} :: SimulateCustomPolicy) Prelude.. Prelude._Coerce
+simulateCustomPolicy_actionNames :: Lens.Lens' SimulateCustomPolicy [Core.Text]
+simulateCustomPolicy_actionNames = Lens.lens (\SimulateCustomPolicy' {actionNames} -> actionNames) (\s@SimulateCustomPolicy' {} a -> s {actionNames = a} :: SimulateCustomPolicy) Core.. Lens._Coerce
 
-instance Pager.AWSPager SimulateCustomPolicy where
+instance Core.AWSPager SimulateCustomPolicy where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? simulatePolicyResponse_isTruncated
-              Prelude.. Lens._Just
+            Lens.^? simulatePolicyResponse_isTruncated Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+            Lens.^? simulatePolicyResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& simulateCustomPolicy_marker
           Lens..~ rs
-          Lens.^? simulatePolicyResponse_marker Prelude.. Lens._Just
+          Lens.^? simulatePolicyResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest SimulateCustomPolicy where
-  type Rs SimulateCustomPolicy = SimulatePolicyResponse
+instance Core.AWSRequest SimulateCustomPolicy where
+  type
+    AWSResponse SimulateCustomPolicy =
+      SimulatePolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "SimulateCustomPolicyResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable SimulateCustomPolicy
+instance Core.Hashable SimulateCustomPolicy
 
-instance Prelude.NFData SimulateCustomPolicy
+instance Core.NFData SimulateCustomPolicy
 
-instance Prelude.ToHeaders SimulateCustomPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SimulateCustomPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SimulateCustomPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath SimulateCustomPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SimulateCustomPolicy where
+instance Core.ToQuery SimulateCustomPolicy where
   toQuery SimulateCustomPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SimulateCustomPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "ResourceOwner" Prelude.=: resourceOwner,
+          Core.=: ("SimulateCustomPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "ResourceOwner" Core.=: resourceOwner,
         "ContextEntries"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> contextEntries
-            ),
-        "ResourcePolicy" Prelude.=: resourcePolicy,
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> contextEntries),
+        "ResourcePolicy" Core.=: resourcePolicy,
         "ResourceArns"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> resourceArns
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> resourceArns),
         "PermissionsBoundaryPolicyInputList"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> permissionsBoundaryPolicyInputList
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> permissionsBoundaryPolicyInputList
             ),
         "ResourceHandlingOption"
-          Prelude.=: resourceHandlingOption,
-        "CallerArn" Prelude.=: callerArn,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker,
+          Core.=: resourceHandlingOption,
+        "CallerArn" Core.=: callerArn,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker,
         "PolicyInputList"
-          Prelude.=: Prelude.toQueryList "member" policyInputList,
+          Core.=: Core.toQueryList "member" policyInputList,
         "ActionNames"
-          Prelude.=: Prelude.toQueryList "member" actionNames
+          Core.=: Core.toQueryList "member" actionNames
       ]

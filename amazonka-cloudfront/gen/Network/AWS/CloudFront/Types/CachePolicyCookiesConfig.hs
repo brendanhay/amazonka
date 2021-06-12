@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.CachePolicyCookiesConfig where
 
 import Network.AWS.CloudFront.Types.CachePolicyCookieBehavior
 import Network.AWS.CloudFront.Types.CookieNames
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that determines whether any cookies in viewer requests (and if
 -- so, which cookies) are included in the cache key and automatically
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCachePolicyCookiesConfig' smart constructor.
 data CachePolicyCookiesConfig = CachePolicyCookiesConfig'
-  { cookies :: Prelude.Maybe CookieNames,
+  { cookies :: Core.Maybe CookieNames,
     -- | Determines whether any cookies in viewer requests are included in the
     -- cache key and automatically included in requests that CloudFront sends
     -- to the origin. Valid values are:
@@ -56,7 +55,7 @@ data CachePolicyCookiesConfig = CachePolicyCookiesConfig'
     --     the origin.
     cookieBehavior :: CachePolicyCookieBehavior
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CachePolicyCookiesConfig' with all optional fields omitted.
@@ -96,13 +95,12 @@ newCachePolicyCookiesConfig ::
   CachePolicyCookiesConfig
 newCachePolicyCookiesConfig pCookieBehavior_ =
   CachePolicyCookiesConfig'
-    { cookies =
-        Prelude.Nothing,
+    { cookies = Core.Nothing,
       cookieBehavior = pCookieBehavior_
     }
 
 -- | Undocumented member.
-cachePolicyCookiesConfig_cookies :: Lens.Lens' CachePolicyCookiesConfig (Prelude.Maybe CookieNames)
+cachePolicyCookiesConfig_cookies :: Lens.Lens' CachePolicyCookiesConfig (Core.Maybe CookieNames)
 cachePolicyCookiesConfig_cookies = Lens.lens (\CachePolicyCookiesConfig' {cookies} -> cookies) (\s@CachePolicyCookiesConfig' {} a -> s {cookies = a} :: CachePolicyCookiesConfig)
 
 -- | Determines whether any cookies in viewer requests are included in the
@@ -130,19 +128,19 @@ cachePolicyCookiesConfig_cookies = Lens.lens (\CachePolicyCookiesConfig' {cookie
 cachePolicyCookiesConfig_cookieBehavior :: Lens.Lens' CachePolicyCookiesConfig CachePolicyCookieBehavior
 cachePolicyCookiesConfig_cookieBehavior = Lens.lens (\CachePolicyCookiesConfig' {cookieBehavior} -> cookieBehavior) (\s@CachePolicyCookiesConfig' {} a -> s {cookieBehavior = a} :: CachePolicyCookiesConfig)
 
-instance Prelude.FromXML CachePolicyCookiesConfig where
+instance Core.FromXML CachePolicyCookiesConfig where
   parseXML x =
     CachePolicyCookiesConfig'
-      Prelude.<$> (x Prelude..@? "Cookies")
-      Prelude.<*> (x Prelude..@ "CookieBehavior")
+      Core.<$> (x Core..@? "Cookies")
+      Core.<*> (x Core..@ "CookieBehavior")
 
-instance Prelude.Hashable CachePolicyCookiesConfig
+instance Core.Hashable CachePolicyCookiesConfig
 
-instance Prelude.NFData CachePolicyCookiesConfig
+instance Core.NFData CachePolicyCookiesConfig
 
-instance Prelude.ToXML CachePolicyCookiesConfig where
+instance Core.ToXML CachePolicyCookiesConfig where
   toXML CachePolicyCookiesConfig' {..} =
-    Prelude.mconcat
-      [ "Cookies" Prelude.@= cookies,
-        "CookieBehavior" Prelude.@= cookieBehavior
+    Core.mconcat
+      [ "Cookies" Core.@= cookies,
+        "CookieBehavior" Core.@= cookieBehavior
       ]

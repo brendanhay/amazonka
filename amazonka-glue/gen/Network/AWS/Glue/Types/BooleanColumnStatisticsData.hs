@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.BooleanColumnStatisticsData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines column statistics supported for Boolean data columns.
 --
 -- /See:/ 'newBooleanColumnStatisticsData' smart constructor.
 data BooleanColumnStatisticsData = BooleanColumnStatisticsData'
   { -- | The number of true values in the column.
-    numberOfTrues :: Prelude.Natural,
+    numberOfTrues :: Core.Natural,
     -- | The number of false values in the column.
-    numberOfFalses :: Prelude.Natural,
+    numberOfFalses :: Core.Natural,
     -- | The number of null values in the column.
-    numberOfNulls :: Prelude.Natural
+    numberOfNulls :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BooleanColumnStatisticsData' with all optional fields omitted.
@@ -51,11 +50,11 @@ data BooleanColumnStatisticsData = BooleanColumnStatisticsData'
 -- 'numberOfNulls', 'booleanColumnStatisticsData_numberOfNulls' - The number of null values in the column.
 newBooleanColumnStatisticsData ::
   -- | 'numberOfTrues'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'numberOfFalses'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'numberOfNulls'
-  Prelude.Natural ->
+  Core.Natural ->
   BooleanColumnStatisticsData
 newBooleanColumnStatisticsData
   pNumberOfTrues_
@@ -69,41 +68,38 @@ newBooleanColumnStatisticsData
       }
 
 -- | The number of true values in the column.
-booleanColumnStatisticsData_numberOfTrues :: Lens.Lens' BooleanColumnStatisticsData Prelude.Natural
+booleanColumnStatisticsData_numberOfTrues :: Lens.Lens' BooleanColumnStatisticsData Core.Natural
 booleanColumnStatisticsData_numberOfTrues = Lens.lens (\BooleanColumnStatisticsData' {numberOfTrues} -> numberOfTrues) (\s@BooleanColumnStatisticsData' {} a -> s {numberOfTrues = a} :: BooleanColumnStatisticsData)
 
 -- | The number of false values in the column.
-booleanColumnStatisticsData_numberOfFalses :: Lens.Lens' BooleanColumnStatisticsData Prelude.Natural
+booleanColumnStatisticsData_numberOfFalses :: Lens.Lens' BooleanColumnStatisticsData Core.Natural
 booleanColumnStatisticsData_numberOfFalses = Lens.lens (\BooleanColumnStatisticsData' {numberOfFalses} -> numberOfFalses) (\s@BooleanColumnStatisticsData' {} a -> s {numberOfFalses = a} :: BooleanColumnStatisticsData)
 
 -- | The number of null values in the column.
-booleanColumnStatisticsData_numberOfNulls :: Lens.Lens' BooleanColumnStatisticsData Prelude.Natural
+booleanColumnStatisticsData_numberOfNulls :: Lens.Lens' BooleanColumnStatisticsData Core.Natural
 booleanColumnStatisticsData_numberOfNulls = Lens.lens (\BooleanColumnStatisticsData' {numberOfNulls} -> numberOfNulls) (\s@BooleanColumnStatisticsData' {} a -> s {numberOfNulls = a} :: BooleanColumnStatisticsData)
 
-instance Prelude.FromJSON BooleanColumnStatisticsData where
+instance Core.FromJSON BooleanColumnStatisticsData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BooleanColumnStatisticsData"
       ( \x ->
           BooleanColumnStatisticsData'
-            Prelude.<$> (x Prelude..: "NumberOfTrues")
-            Prelude.<*> (x Prelude..: "NumberOfFalses")
-            Prelude.<*> (x Prelude..: "NumberOfNulls")
+            Core.<$> (x Core..: "NumberOfTrues")
+            Core.<*> (x Core..: "NumberOfFalses")
+            Core.<*> (x Core..: "NumberOfNulls")
       )
 
-instance Prelude.Hashable BooleanColumnStatisticsData
+instance Core.Hashable BooleanColumnStatisticsData
 
-instance Prelude.NFData BooleanColumnStatisticsData
+instance Core.NFData BooleanColumnStatisticsData
 
-instance Prelude.ToJSON BooleanColumnStatisticsData where
+instance Core.ToJSON BooleanColumnStatisticsData where
   toJSON BooleanColumnStatisticsData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("NumberOfTrues" Prelude..= numberOfTrues),
-            Prelude.Just
-              ("NumberOfFalses" Prelude..= numberOfFalses),
-            Prelude.Just
-              ("NumberOfNulls" Prelude..= numberOfNulls)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("NumberOfTrues" Core..= numberOfTrues),
+            Core.Just ("NumberOfFalses" Core..= numberOfFalses),
+            Core.Just ("NumberOfNulls" Core..= numberOfNulls)
           ]
       )

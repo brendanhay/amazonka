@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.CloudWatchDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.CloudWatchDimensionConfiguration
 
 -- | Contains information associated with an Amazon CloudWatch event
@@ -38,7 +37,7 @@ data CloudWatchDestination = CloudWatchDestination'
     -- publish email sending events to Amazon CloudWatch.
     dimensionConfigurations :: [CloudWatchDimensionConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudWatchDestination' with all optional fields omitted.
@@ -55,29 +54,29 @@ newCloudWatchDestination ::
 newCloudWatchDestination =
   CloudWatchDestination'
     { dimensionConfigurations =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A list of dimensions upon which to categorize your emails when you
 -- publish email sending events to Amazon CloudWatch.
 cloudWatchDestination_dimensionConfigurations :: Lens.Lens' CloudWatchDestination [CloudWatchDimensionConfiguration]
-cloudWatchDestination_dimensionConfigurations = Lens.lens (\CloudWatchDestination' {dimensionConfigurations} -> dimensionConfigurations) (\s@CloudWatchDestination' {} a -> s {dimensionConfigurations = a} :: CloudWatchDestination) Prelude.. Prelude._Coerce
+cloudWatchDestination_dimensionConfigurations = Lens.lens (\CloudWatchDestination' {dimensionConfigurations} -> dimensionConfigurations) (\s@CloudWatchDestination' {} a -> s {dimensionConfigurations = a} :: CloudWatchDestination) Core.. Lens._Coerce
 
-instance Prelude.FromXML CloudWatchDestination where
+instance Core.FromXML CloudWatchDestination where
   parseXML x =
     CloudWatchDestination'
-      Prelude.<$> ( x Prelude..@? "DimensionConfigurations"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList "member"
-                  )
+      Core.<$> ( x Core..@? "DimensionConfigurations"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList "member"
+               )
 
-instance Prelude.Hashable CloudWatchDestination
+instance Core.Hashable CloudWatchDestination
 
-instance Prelude.NFData CloudWatchDestination
+instance Core.NFData CloudWatchDestination
 
-instance Prelude.ToQuery CloudWatchDestination where
+instance Core.ToQuery CloudWatchDestination where
   toQuery CloudWatchDestination' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "DimensionConfigurations"
-          Prelude.=: Prelude.toQueryList "member" dimensionConfigurations
+          Core.=: Core.toQueryList "member" dimensionConfigurations
       ]

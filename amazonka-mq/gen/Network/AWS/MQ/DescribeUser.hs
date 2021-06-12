@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.MQ.DescribeUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ data DescribeUser = DescribeUser'
   { -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
-    username :: Prelude.Text,
+    username :: Core.Text,
     -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Text
+    brokerId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUser' with all optional fields omitted.
@@ -77,9 +76,9 @@ data DescribeUser = DescribeUser'
 -- 'brokerId', 'describeUser_brokerId' - The unique ID that Amazon MQ generates for the broker.
 newDescribeUser ::
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'brokerId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeUser
 newDescribeUser pUsername_ pBrokerId_ =
   DescribeUser'
@@ -90,54 +89,52 @@ newDescribeUser pUsername_ pBrokerId_ =
 -- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
-describeUser_username :: Lens.Lens' DescribeUser Prelude.Text
+describeUser_username :: Lens.Lens' DescribeUser Core.Text
 describeUser_username = Lens.lens (\DescribeUser' {username} -> username) (\s@DescribeUser' {} a -> s {username = a} :: DescribeUser)
 
 -- | The unique ID that Amazon MQ generates for the broker.
-describeUser_brokerId :: Lens.Lens' DescribeUser Prelude.Text
+describeUser_brokerId :: Lens.Lens' DescribeUser Core.Text
 describeUser_brokerId = Lens.lens (\DescribeUser' {brokerId} -> brokerId) (\s@DescribeUser' {} a -> s {brokerId = a} :: DescribeUser)
 
-instance Prelude.AWSRequest DescribeUser where
-  type Rs DescribeUser = DescribeUserResponse
+instance Core.AWSRequest DescribeUser where
+  type AWSResponse DescribeUser = DescribeUserResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeUserResponse'
-            Prelude.<$> (x Prelude..?> "groups" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "brokerId")
-            Prelude.<*> (x Prelude..?> "pending")
-            Prelude.<*> (x Prelude..?> "username")
-            Prelude.<*> (x Prelude..?> "consoleAccess")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "groups" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "brokerId")
+            Core.<*> (x Core..?> "pending")
+            Core.<*> (x Core..?> "username")
+            Core.<*> (x Core..?> "consoleAccess")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeUser
+instance Core.Hashable DescribeUser
 
-instance Prelude.NFData DescribeUser
+instance Core.NFData DescribeUser
 
-instance Prelude.ToHeaders DescribeUser where
+instance Core.ToHeaders DescribeUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeUser where
+instance Core.ToPath DescribeUser where
   toPath DescribeUser' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/brokers/",
-        Prelude.toBS brokerId,
+        Core.toBS brokerId,
         "/users/",
-        Prelude.toBS username
+        Core.toBS username
       ]
 
-instance Prelude.ToQuery DescribeUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeUserResponse' smart constructor.
 data DescribeUserResponse = DescribeUserResponse'
@@ -145,21 +142,21 @@ data DescribeUserResponse = DescribeUserResponse'
     -- value can contain only alphanumeric characters, dashes, periods,
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
-    groups :: Prelude.Maybe [Prelude.Text],
+    groups :: Core.Maybe [Core.Text],
     -- | Required. The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Prelude.Maybe Prelude.Text,
+    brokerId :: Core.Maybe Core.Text,
     -- | The status of the changes pending for the ActiveMQ user.
-    pending :: Prelude.Maybe UserPendingChanges,
+    pending :: Core.Maybe UserPendingChanges,
     -- | Required. The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
-    username :: Prelude.Maybe Prelude.Text,
+    username :: Core.Maybe Core.Text,
     -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-    consoleAccess :: Prelude.Maybe Prelude.Bool,
+    consoleAccess :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeUserResponse' with all optional fields omitted.
@@ -187,15 +184,15 @@ data DescribeUserResponse = DescribeUserResponse'
 -- 'httpStatus', 'describeUserResponse_httpStatus' - The response's http status code.
 newDescribeUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeUserResponse
 newDescribeUserResponse pHttpStatus_ =
   DescribeUserResponse'
-    { groups = Prelude.Nothing,
-      brokerId = Prelude.Nothing,
-      pending = Prelude.Nothing,
-      username = Prelude.Nothing,
-      consoleAccess = Prelude.Nothing,
+    { groups = Core.Nothing,
+      brokerId = Core.Nothing,
+      pending = Core.Nothing,
+      username = Core.Nothing,
+      consoleAccess = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -203,29 +200,29 @@ newDescribeUserResponse pHttpStatus_ =
 -- value can contain only alphanumeric characters, dashes, periods,
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
-describeUserResponse_groups :: Lens.Lens' DescribeUserResponse (Prelude.Maybe [Prelude.Text])
-describeUserResponse_groups = Lens.lens (\DescribeUserResponse' {groups} -> groups) (\s@DescribeUserResponse' {} a -> s {groups = a} :: DescribeUserResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeUserResponse_groups :: Lens.Lens' DescribeUserResponse (Core.Maybe [Core.Text])
+describeUserResponse_groups = Lens.lens (\DescribeUserResponse' {groups} -> groups) (\s@DescribeUserResponse' {} a -> s {groups = a} :: DescribeUserResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Required. The unique ID that Amazon MQ generates for the broker.
-describeUserResponse_brokerId :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_brokerId :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.Text)
 describeUserResponse_brokerId = Lens.lens (\DescribeUserResponse' {brokerId} -> brokerId) (\s@DescribeUserResponse' {} a -> s {brokerId = a} :: DescribeUserResponse)
 
 -- | The status of the changes pending for the ActiveMQ user.
-describeUserResponse_pending :: Lens.Lens' DescribeUserResponse (Prelude.Maybe UserPendingChanges)
+describeUserResponse_pending :: Lens.Lens' DescribeUserResponse (Core.Maybe UserPendingChanges)
 describeUserResponse_pending = Lens.lens (\DescribeUserResponse' {pending} -> pending) (\s@DescribeUserResponse' {} a -> s {pending = a} :: DescribeUserResponse)
 
 -- | Required. The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
-describeUserResponse_username :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Text)
+describeUserResponse_username :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.Text)
 describeUserResponse_username = Lens.lens (\DescribeUserResponse' {username} -> username) (\s@DescribeUserResponse' {} a -> s {username = a} :: DescribeUserResponse)
 
 -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
-describeUserResponse_consoleAccess :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Bool)
+describeUserResponse_consoleAccess :: Lens.Lens' DescribeUserResponse (Core.Maybe Core.Bool)
 describeUserResponse_consoleAccess = Lens.lens (\DescribeUserResponse' {consoleAccess} -> consoleAccess) (\s@DescribeUserResponse' {} a -> s {consoleAccess = a} :: DescribeUserResponse)
 
 -- | The response's http status code.
-describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Prelude.Int
+describeUserResponse_httpStatus :: Lens.Lens' DescribeUserResponse Core.Int
 describeUserResponse_httpStatus = Lens.lens (\DescribeUserResponse' {httpStatus} -> httpStatus) (\s@DescribeUserResponse' {} a -> s {httpStatus = a} :: DescribeUserResponse)
 
-instance Prelude.NFData DescribeUserResponse
+instance Core.NFData DescribeUserResponse

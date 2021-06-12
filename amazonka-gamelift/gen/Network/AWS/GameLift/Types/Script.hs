@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.Script where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.S3Location
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Properties describing a Realtime script.
 --
@@ -43,27 +42,27 @@ data Script = Script'
   { -- | A time stamp indicating when this data object was created. The format is
     -- a number expressed in Unix time as milliseconds (for example
     -- \"1469498468.057\").
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | Amazon Resource Name
     -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
     -- that is assigned to a GameLift script resource and uniquely identifies
     -- it. ARNs are unique across all Regions. In a GameLift script ARN, the
     -- resource ID matches the /ScriptId/ value.
-    scriptArn :: Prelude.Maybe Prelude.Text,
+    scriptArn :: Core.Maybe Core.Text,
     -- | The version that is associated with a build or script. Version strings
     -- do not need to be unique.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | A descriptive label that is associated with a script. Script names do
     -- not need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
-    storageLocation :: Prelude.Maybe S3Location,
+    name :: Core.Maybe Core.Text,
+    storageLocation :: Core.Maybe S3Location,
     -- | The file size of the uploaded Realtime script, expressed in bytes. When
     -- files are uploaded from an S3 location, this value remains at \"0\".
-    sizeOnDisk :: Prelude.Maybe Prelude.Natural,
+    sizeOnDisk :: Core.Maybe Core.Natural,
     -- | A unique identifier for a Realtime script
-    scriptId :: Prelude.Maybe Prelude.Text
+    scriptId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Script' with all optional fields omitted.
@@ -99,67 +98,67 @@ newScript ::
   Script
 newScript =
   Script'
-    { creationTime = Prelude.Nothing,
-      scriptArn = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing,
-      storageLocation = Prelude.Nothing,
-      sizeOnDisk = Prelude.Nothing,
-      scriptId = Prelude.Nothing
+    { creationTime = Core.Nothing,
+      scriptArn = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing,
+      storageLocation = Core.Nothing,
+      sizeOnDisk = Core.Nothing,
+      scriptId = Core.Nothing
     }
 
 -- | A time stamp indicating when this data object was created. The format is
 -- a number expressed in Unix time as milliseconds (for example
 -- \"1469498468.057\").
-script_creationTime :: Lens.Lens' Script (Prelude.Maybe Prelude.UTCTime)
-script_creationTime = Lens.lens (\Script' {creationTime} -> creationTime) (\s@Script' {} a -> s {creationTime = a} :: Script) Prelude.. Lens.mapping Prelude._Time
+script_creationTime :: Lens.Lens' Script (Core.Maybe Core.UTCTime)
+script_creationTime = Lens.lens (\Script' {creationTime} -> creationTime) (\s@Script' {} a -> s {creationTime = a} :: Script) Core.. Lens.mapping Core._Time
 
 -- | Amazon Resource Name
 -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
 -- that is assigned to a GameLift script resource and uniquely identifies
 -- it. ARNs are unique across all Regions. In a GameLift script ARN, the
 -- resource ID matches the /ScriptId/ value.
-script_scriptArn :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
+script_scriptArn :: Lens.Lens' Script (Core.Maybe Core.Text)
 script_scriptArn = Lens.lens (\Script' {scriptArn} -> scriptArn) (\s@Script' {} a -> s {scriptArn = a} :: Script)
 
 -- | The version that is associated with a build or script. Version strings
 -- do not need to be unique.
-script_version :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
+script_version :: Lens.Lens' Script (Core.Maybe Core.Text)
 script_version = Lens.lens (\Script' {version} -> version) (\s@Script' {} a -> s {version = a} :: Script)
 
 -- | A descriptive label that is associated with a script. Script names do
 -- not need to be unique.
-script_name :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
+script_name :: Lens.Lens' Script (Core.Maybe Core.Text)
 script_name = Lens.lens (\Script' {name} -> name) (\s@Script' {} a -> s {name = a} :: Script)
 
 -- | Undocumented member.
-script_storageLocation :: Lens.Lens' Script (Prelude.Maybe S3Location)
+script_storageLocation :: Lens.Lens' Script (Core.Maybe S3Location)
 script_storageLocation = Lens.lens (\Script' {storageLocation} -> storageLocation) (\s@Script' {} a -> s {storageLocation = a} :: Script)
 
 -- | The file size of the uploaded Realtime script, expressed in bytes. When
 -- files are uploaded from an S3 location, this value remains at \"0\".
-script_sizeOnDisk :: Lens.Lens' Script (Prelude.Maybe Prelude.Natural)
+script_sizeOnDisk :: Lens.Lens' Script (Core.Maybe Core.Natural)
 script_sizeOnDisk = Lens.lens (\Script' {sizeOnDisk} -> sizeOnDisk) (\s@Script' {} a -> s {sizeOnDisk = a} :: Script)
 
 -- | A unique identifier for a Realtime script
-script_scriptId :: Lens.Lens' Script (Prelude.Maybe Prelude.Text)
+script_scriptId :: Lens.Lens' Script (Core.Maybe Core.Text)
 script_scriptId = Lens.lens (\Script' {scriptId} -> scriptId) (\s@Script' {} a -> s {scriptId = a} :: Script)
 
-instance Prelude.FromJSON Script where
+instance Core.FromJSON Script where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Script"
       ( \x ->
           Script'
-            Prelude.<$> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ScriptArn")
-            Prelude.<*> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "StorageLocation")
-            Prelude.<*> (x Prelude..:? "SizeOnDisk")
-            Prelude.<*> (x Prelude..:? "ScriptId")
+            Core.<$> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ScriptArn")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "StorageLocation")
+            Core.<*> (x Core..:? "SizeOnDisk")
+            Core.<*> (x Core..:? "ScriptId")
       )
 
-instance Prelude.Hashable Script
+instance Core.Hashable Script
 
-instance Prelude.NFData Script
+instance Core.NFData Script

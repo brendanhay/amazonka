@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.CloudHSMv2.DescribeClusters
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,11 +61,11 @@ import qualified Network.AWS.Response as Response
 data DescribeClusters = DescribeClusters'
   { -- | The @NextToken@ value that you received in the previous response. Use
     -- this value to get more clusters.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of clusters to return in the response. When there are
     -- more clusters than the number you specify, the response contains a
     -- @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters to limit the items returned in the response.
     --
     -- Use the @clusterIds@ filter to return only the specified clusters.
@@ -79,9 +77,9 @@ data DescribeClusters = DescribeClusters'
     --
     -- Use the @states@ filter to return only clusters that match the specified
     -- state.
-    filters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
+    filters :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeClusters' with all optional fields omitted.
@@ -113,20 +111,20 @@ newDescribeClusters ::
   DescribeClusters
 newDescribeClusters =
   DescribeClusters'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The @NextToken@ value that you received in the previous response. Use
 -- this value to get more clusters.
-describeClusters_nextToken :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Text)
+describeClusters_nextToken :: Lens.Lens' DescribeClusters (Core.Maybe Core.Text)
 describeClusters_nextToken = Lens.lens (\DescribeClusters' {nextToken} -> nextToken) (\s@DescribeClusters' {} a -> s {nextToken = a} :: DescribeClusters)
 
 -- | The maximum number of clusters to return in the response. When there are
 -- more clusters than the number you specify, the response contains a
 -- @NextToken@ value.
-describeClusters_maxResults :: Lens.Lens' DescribeClusters (Prelude.Maybe Prelude.Natural)
+describeClusters_maxResults :: Lens.Lens' DescribeClusters (Core.Maybe Core.Natural)
 describeClusters_maxResults = Lens.lens (\DescribeClusters' {maxResults} -> maxResults) (\s@DescribeClusters' {} a -> s {maxResults = a} :: DescribeClusters)
 
 -- | One or more filters to limit the items returned in the response.
@@ -140,90 +138,87 @@ describeClusters_maxResults = Lens.lens (\DescribeClusters' {maxResults} -> maxR
 --
 -- Use the @states@ filter to return only clusters that match the specified
 -- state.
-describeClusters_filters :: Lens.Lens' DescribeClusters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-describeClusters_filters = Lens.lens (\DescribeClusters' {filters} -> filters) (\s@DescribeClusters' {} a -> s {filters = a} :: DescribeClusters) Prelude.. Lens.mapping Prelude._Coerce
+describeClusters_filters :: Lens.Lens' DescribeClusters (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+describeClusters_filters = Lens.lens (\DescribeClusters' {filters} -> filters) (\s@DescribeClusters' {} a -> s {filters = a} :: DescribeClusters) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeClusters where
+instance Core.AWSPager DescribeClusters where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeClustersResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeClustersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeClustersResponse_clusters
-              Prelude.. Lens._Just
+            Lens.^? describeClustersResponse_clusters Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeClusters_nextToken
           Lens..~ rs
-          Lens.^? describeClustersResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeClustersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeClusters where
-  type Rs DescribeClusters = DescribeClustersResponse
+instance Core.AWSRequest DescribeClusters where
+  type
+    AWSResponse DescribeClusters =
+      DescribeClustersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeClustersResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Clusters" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Clusters" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeClusters
+instance Core.Hashable DescribeClusters
 
-instance Prelude.NFData DescribeClusters
+instance Core.NFData DescribeClusters
 
-instance Prelude.ToHeaders DescribeClusters where
+instance Core.ToHeaders DescribeClusters where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "BaldrApiService.DescribeClusters" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "BaldrApiService.DescribeClusters" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeClusters where
+instance Core.ToJSON DescribeClusters where
   toJSON DescribeClusters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath DescribeClusters where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeClusters where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeClusters where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeClusters where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
   { -- | An opaque string that indicates that the response contains only a subset
     -- of clusters. Use this value in a subsequent @DescribeClusters@ request
     -- to get more clusters.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of clusters.
-    clusters :: Prelude.Maybe [Cluster],
+    clusters :: Core.Maybe [Cluster],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeClustersResponse' with all optional fields omitted.
@@ -242,28 +237,27 @@ data DescribeClustersResponse = DescribeClustersResponse'
 -- 'httpStatus', 'describeClustersResponse_httpStatus' - The response's http status code.
 newDescribeClustersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeClustersResponse
 newDescribeClustersResponse pHttpStatus_ =
   DescribeClustersResponse'
-    { nextToken =
-        Prelude.Nothing,
-      clusters = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      clusters = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An opaque string that indicates that the response contains only a subset
 -- of clusters. Use this value in a subsequent @DescribeClusters@ request
 -- to get more clusters.
-describeClustersResponse_nextToken :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe Prelude.Text)
+describeClustersResponse_nextToken :: Lens.Lens' DescribeClustersResponse (Core.Maybe Core.Text)
 describeClustersResponse_nextToken = Lens.lens (\DescribeClustersResponse' {nextToken} -> nextToken) (\s@DescribeClustersResponse' {} a -> s {nextToken = a} :: DescribeClustersResponse)
 
 -- | A list of clusters.
-describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Cluster])
-describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Core.Maybe [Cluster])
+describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Prelude.Int
+describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Core.Int
 describeClustersResponse_httpStatus = Lens.lens (\DescribeClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeClustersResponse' {} a -> s {httpStatus = a} :: DescribeClustersResponse)
 
-instance Prelude.NFData DescribeClustersResponse
+instance Core.NFData DescribeClustersResponse

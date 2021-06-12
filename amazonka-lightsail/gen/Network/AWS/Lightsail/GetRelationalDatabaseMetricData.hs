@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,16 +51,16 @@ module Network.AWS.Lightsail.GetRelationalDatabaseMetricData
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRelationalDatabaseMetricData' smart constructor.
 data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
   { -- | The name of your database from which to get metric data.
-    relationalDatabaseName :: Prelude.Text,
+    relationalDatabaseName :: Core.Text,
     -- | The metric for which you want to return information.
     --
     -- Valid relational database metric names are listed below, along with the
@@ -117,7 +116,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
     --
     -- All relational database metric data is available in 1-minute (60
     -- seconds) granularity.
-    period :: Prelude.Natural,
+    period :: Core.Natural,
     -- | The start of the time interval from which to get metric data.
     --
     -- Constraints:
@@ -128,7 +127,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
     --
     --     For example, if you wish to use a start time of October 1, 2018, at
     --     8 PM UTC, then you input @1538424000@ as the start time.
-    startTime :: Prelude.POSIX,
+    startTime :: Core.POSIX,
     -- | The end of the time interval from which to get metric data.
     --
     -- Constraints:
@@ -139,7 +138,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
     --
     --     For example, if you wish to use an end time of October 1, 2018, at 8
     --     PM UTC, then you input @1538424000@ as the end time.
-    endTime :: Prelude.POSIX,
+    endTime :: Core.POSIX,
     -- | The unit for the metric data request. Valid units depend on the metric
     -- data being requested. For the valid units with each available metric,
     -- see the @metricName@ parameter.
@@ -171,7 +170,7 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
     --     statistical calculation.
     statistics :: [MetricStatistic]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseMetricData' with all optional fields omitted.
@@ -292,15 +291,15 @@ data GetRelationalDatabaseMetricData = GetRelationalDatabaseMetricData'
 --     statistical calculation.
 newGetRelationalDatabaseMetricData ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'metricName'
   RelationalDatabaseMetricName ->
   -- | 'period'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'endTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'unit'
   MetricUnit ->
   GetRelationalDatabaseMetricData
@@ -316,15 +315,14 @@ newGetRelationalDatabaseMetricData
           pRelationalDatabaseName_,
         metricName = pMetricName_,
         period = pPeriod_,
-        startTime =
-          Prelude._Time Lens.# pStartTime_,
-        endTime = Prelude._Time Lens.# pEndTime_,
+        startTime = Core._Time Lens.# pStartTime_,
+        endTime = Core._Time Lens.# pEndTime_,
         unit = pUnit_,
-        statistics = Prelude.mempty
+        statistics = Core.mempty
       }
 
 -- | The name of your database from which to get metric data.
-getRelationalDatabaseMetricData_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseMetricData Prelude.Text
+getRelationalDatabaseMetricData_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseMetricData Core.Text
 getRelationalDatabaseMetricData_relationalDatabaseName = Lens.lens (\GetRelationalDatabaseMetricData' {relationalDatabaseName} -> relationalDatabaseName) (\s@GetRelationalDatabaseMetricData' {} a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseMetricData)
 
 -- | The metric for which you want to return information.
@@ -384,7 +382,7 @@ getRelationalDatabaseMetricData_metricName = Lens.lens (\GetRelationalDatabaseMe
 --
 -- All relational database metric data is available in 1-minute (60
 -- seconds) granularity.
-getRelationalDatabaseMetricData_period :: Lens.Lens' GetRelationalDatabaseMetricData Prelude.Natural
+getRelationalDatabaseMetricData_period :: Lens.Lens' GetRelationalDatabaseMetricData Core.Natural
 getRelationalDatabaseMetricData_period = Lens.lens (\GetRelationalDatabaseMetricData' {period} -> period) (\s@GetRelationalDatabaseMetricData' {} a -> s {period = a} :: GetRelationalDatabaseMetricData)
 
 -- | The start of the time interval from which to get metric data.
@@ -397,8 +395,8 @@ getRelationalDatabaseMetricData_period = Lens.lens (\GetRelationalDatabaseMetric
 --
 --     For example, if you wish to use a start time of October 1, 2018, at
 --     8 PM UTC, then you input @1538424000@ as the start time.
-getRelationalDatabaseMetricData_startTime :: Lens.Lens' GetRelationalDatabaseMetricData Prelude.UTCTime
-getRelationalDatabaseMetricData_startTime = Lens.lens (\GetRelationalDatabaseMetricData' {startTime} -> startTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {startTime = a} :: GetRelationalDatabaseMetricData) Prelude.. Prelude._Time
+getRelationalDatabaseMetricData_startTime :: Lens.Lens' GetRelationalDatabaseMetricData Core.UTCTime
+getRelationalDatabaseMetricData_startTime = Lens.lens (\GetRelationalDatabaseMetricData' {startTime} -> startTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {startTime = a} :: GetRelationalDatabaseMetricData) Core.. Core._Time
 
 -- | The end of the time interval from which to get metric data.
 --
@@ -410,8 +408,8 @@ getRelationalDatabaseMetricData_startTime = Lens.lens (\GetRelationalDatabaseMet
 --
 --     For example, if you wish to use an end time of October 1, 2018, at 8
 --     PM UTC, then you input @1538424000@ as the end time.
-getRelationalDatabaseMetricData_endTime :: Lens.Lens' GetRelationalDatabaseMetricData Prelude.UTCTime
-getRelationalDatabaseMetricData_endTime = Lens.lens (\GetRelationalDatabaseMetricData' {endTime} -> endTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {endTime = a} :: GetRelationalDatabaseMetricData) Prelude.. Prelude._Time
+getRelationalDatabaseMetricData_endTime :: Lens.Lens' GetRelationalDatabaseMetricData Core.UTCTime
+getRelationalDatabaseMetricData_endTime = Lens.lens (\GetRelationalDatabaseMetricData' {endTime} -> endTime) (\s@GetRelationalDatabaseMetricData' {} a -> s {endTime = a} :: GetRelationalDatabaseMetricData) Core.. Core._Time
 
 -- | The unit for the metric data request. Valid units depend on the metric
 -- data being requested. For the valid units with each available metric,
@@ -445,95 +443,80 @@ getRelationalDatabaseMetricData_unit = Lens.lens (\GetRelationalDatabaseMetricDa
 -- -   @SampleCount@ - The count, or number, of data points used for the
 --     statistical calculation.
 getRelationalDatabaseMetricData_statistics :: Lens.Lens' GetRelationalDatabaseMetricData [MetricStatistic]
-getRelationalDatabaseMetricData_statistics = Lens.lens (\GetRelationalDatabaseMetricData' {statistics} -> statistics) (\s@GetRelationalDatabaseMetricData' {} a -> s {statistics = a} :: GetRelationalDatabaseMetricData) Prelude.. Prelude._Coerce
+getRelationalDatabaseMetricData_statistics = Lens.lens (\GetRelationalDatabaseMetricData' {statistics} -> statistics) (\s@GetRelationalDatabaseMetricData' {} a -> s {statistics = a} :: GetRelationalDatabaseMetricData) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetRelationalDatabaseMetricData
   where
   type
-    Rs GetRelationalDatabaseMetricData =
+    AWSResponse GetRelationalDatabaseMetricData =
       GetRelationalDatabaseMetricDataResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseMetricDataResponse'
-            Prelude.<$> (x Prelude..?> "metricName")
-            Prelude.<*> ( x Prelude..?> "metricData"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "metricName")
+            Core.<*> (x Core..?> "metricData" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetRelationalDatabaseMetricData
 
-instance
-  Prelude.NFData
-    GetRelationalDatabaseMetricData
+instance Core.NFData GetRelationalDatabaseMetricData
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetRelationalDatabaseMetricData
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetRelationalDatabaseMetricData" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseMetricData" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetRelationalDatabaseMetricData
-  where
+instance Core.ToJSON GetRelationalDatabaseMetricData where
   toJSON GetRelationalDatabaseMetricData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               ),
-            Prelude.Just ("metricName" Prelude..= metricName),
-            Prelude.Just ("period" Prelude..= period),
-            Prelude.Just ("startTime" Prelude..= startTime),
-            Prelude.Just ("endTime" Prelude..= endTime),
-            Prelude.Just ("unit" Prelude..= unit),
-            Prelude.Just ("statistics" Prelude..= statistics)
+            Core.Just ("metricName" Core..= metricName),
+            Core.Just ("period" Core..= period),
+            Core.Just ("startTime" Core..= startTime),
+            Core.Just ("endTime" Core..= endTime),
+            Core.Just ("unit" Core..= unit),
+            Core.Just ("statistics" Core..= statistics)
           ]
       )
 
-instance
-  Prelude.ToPath
-    GetRelationalDatabaseMetricData
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRelationalDatabaseMetricData where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetRelationalDatabaseMetricData
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRelationalDatabaseMetricData where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseMetricDataResponse' smart constructor.
 data GetRelationalDatabaseMetricDataResponse = GetRelationalDatabaseMetricDataResponse'
   { -- | The name of the metric returned.
-    metricName :: Prelude.Maybe RelationalDatabaseMetricName,
+    metricName :: Core.Maybe RelationalDatabaseMetricName,
     -- | An array of objects that describe the metric data returned.
-    metricData :: Prelude.Maybe [MetricDatapoint],
+    metricData :: Core.Maybe [MetricDatapoint],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseMetricDataResponse' with all optional fields omitted.
@@ -550,29 +533,29 @@ data GetRelationalDatabaseMetricDataResponse = GetRelationalDatabaseMetricDataRe
 -- 'httpStatus', 'getRelationalDatabaseMetricDataResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseMetricDataResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRelationalDatabaseMetricDataResponse
 newGetRelationalDatabaseMetricDataResponse
   pHttpStatus_ =
     GetRelationalDatabaseMetricDataResponse'
       { metricName =
-          Prelude.Nothing,
-        metricData = Prelude.Nothing,
+          Core.Nothing,
+        metricData = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The name of the metric returned.
-getRelationalDatabaseMetricDataResponse_metricName :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Prelude.Maybe RelationalDatabaseMetricName)
+getRelationalDatabaseMetricDataResponse_metricName :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Core.Maybe RelationalDatabaseMetricName)
 getRelationalDatabaseMetricDataResponse_metricName = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricName} -> metricName) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricName = a} :: GetRelationalDatabaseMetricDataResponse)
 
 -- | An array of objects that describe the metric data returned.
-getRelationalDatabaseMetricDataResponse_metricData :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Prelude.Maybe [MetricDatapoint])
-getRelationalDatabaseMetricDataResponse_metricData = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricData} -> metricData) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricData = a} :: GetRelationalDatabaseMetricDataResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRelationalDatabaseMetricDataResponse_metricData :: Lens.Lens' GetRelationalDatabaseMetricDataResponse (Core.Maybe [MetricDatapoint])
+getRelationalDatabaseMetricDataResponse_metricData = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {metricData} -> metricData) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {metricData = a} :: GetRelationalDatabaseMetricDataResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getRelationalDatabaseMetricDataResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseMetricDataResponse Prelude.Int
+getRelationalDatabaseMetricDataResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseMetricDataResponse Core.Int
 getRelationalDatabaseMetricDataResponse_httpStatus = Lens.lens (\GetRelationalDatabaseMetricDataResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseMetricDataResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseMetricDataResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRelationalDatabaseMetricDataResponse

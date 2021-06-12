@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -75,19 +74,19 @@ module Network.AWS.Config.PutConfigRule
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutConfigRule' smart constructor.
 data PutConfigRule = PutConfigRule'
   { -- | An array of tag object.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The rule that you want to add to your account.
     configRule :: ConfigRule
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutConfigRule' with all optional fields omitted.
@@ -106,63 +105,63 @@ newPutConfigRule ::
   PutConfigRule
 newPutConfigRule pConfigRule_ =
   PutConfigRule'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       configRule = pConfigRule_
     }
 
 -- | An array of tag object.
-putConfigRule_tags :: Lens.Lens' PutConfigRule (Prelude.Maybe [Tag])
-putConfigRule_tags = Lens.lens (\PutConfigRule' {tags} -> tags) (\s@PutConfigRule' {} a -> s {tags = a} :: PutConfigRule) Prelude.. Lens.mapping Prelude._Coerce
+putConfigRule_tags :: Lens.Lens' PutConfigRule (Core.Maybe [Tag])
+putConfigRule_tags = Lens.lens (\PutConfigRule' {tags} -> tags) (\s@PutConfigRule' {} a -> s {tags = a} :: PutConfigRule) Core.. Lens.mapping Lens._Coerce
 
 -- | The rule that you want to add to your account.
 putConfigRule_configRule :: Lens.Lens' PutConfigRule ConfigRule
 putConfigRule_configRule = Lens.lens (\PutConfigRule' {configRule} -> configRule) (\s@PutConfigRule' {} a -> s {configRule = a} :: PutConfigRule)
 
-instance Prelude.AWSRequest PutConfigRule where
-  type Rs PutConfigRule = PutConfigRuleResponse
+instance Core.AWSRequest PutConfigRule where
+  type
+    AWSResponse PutConfigRule =
+      PutConfigRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull PutConfigRuleResponse'
 
-instance Prelude.Hashable PutConfigRule
+instance Core.Hashable PutConfigRule
 
-instance Prelude.NFData PutConfigRule
+instance Core.NFData PutConfigRule
 
-instance Prelude.ToHeaders PutConfigRule where
+instance Core.ToHeaders PutConfigRule where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.PutConfigRule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.PutConfigRule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutConfigRule where
+instance Core.ToJSON PutConfigRule where
   toJSON PutConfigRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("ConfigRule" Prelude..= configRule)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            Core.Just ("ConfigRule" Core..= configRule)
           ]
       )
 
-instance Prelude.ToPath PutConfigRule where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutConfigRule where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutConfigRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutConfigRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutConfigRuleResponse' smart constructor.
 data PutConfigRuleResponse = PutConfigRuleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutConfigRuleResponse' with all optional fields omitted.
@@ -172,4 +171,4 @@ newPutConfigRuleResponse ::
   PutConfigRuleResponse
 newPutConfigRuleResponse = PutConfigRuleResponse'
 
-instance Prelude.NFData PutConfigRuleResponse
+instance Core.NFData PutConfigRuleResponse

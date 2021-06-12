@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.Root where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.PolicyTypeSummary
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about a root. A root is a top-level parent node in the
 -- hierarchy of an organization that can contain organizational units (OUs)
@@ -37,26 +36,26 @@ data Root = Root'
     -- separately enable and disable them at the root level by using
     -- EnablePolicyType and DisablePolicyType. Use DescribeOrganization to see
     -- the availability of the policy types in that organization.
-    policyTypes :: Prelude.Maybe [PolicyTypeSummary],
+    policyTypes :: Core.Maybe [PolicyTypeSummary],
     -- | The Amazon Resource Name (ARN) of the root.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique identifier (ID) for the root.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string
     -- requires \"r-\" followed by from 4 to 32 lowercase letters or digits.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The friendly name of the root.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Root' with all optional fields omitted.
@@ -94,10 +93,10 @@ newRoot ::
   Root
 newRoot =
   Root'
-    { policyTypes = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing
+    { policyTypes = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The types of policies that are currently enabled for the root and
@@ -107,22 +106,22 @@ newRoot =
 -- separately enable and disable them at the root level by using
 -- EnablePolicyType and DisablePolicyType. Use DescribeOrganization to see
 -- the availability of the policy types in that organization.
-root_policyTypes :: Lens.Lens' Root (Prelude.Maybe [PolicyTypeSummary])
-root_policyTypes = Lens.lens (\Root' {policyTypes} -> policyTypes) (\s@Root' {} a -> s {policyTypes = a} :: Root) Prelude.. Lens.mapping Prelude._Coerce
+root_policyTypes :: Lens.Lens' Root (Core.Maybe [PolicyTypeSummary])
+root_policyTypes = Lens.lens (\Root' {policyTypes} -> policyTypes) (\s@Root' {} a -> s {policyTypes = a} :: Root) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the root.
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
-root_arn :: Lens.Lens' Root (Prelude.Maybe Prelude.Text)
+root_arn :: Lens.Lens' Root (Core.Maybe Core.Text)
 root_arn = Lens.lens (\Root' {arn} -> arn) (\s@Root' {} a -> s {arn = a} :: Root)
 
 -- | The unique identifier (ID) for the root.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a root ID string
 -- requires \"r-\" followed by from 4 to 32 lowercase letters or digits.
-root_id :: Lens.Lens' Root (Prelude.Maybe Prelude.Text)
+root_id :: Lens.Lens' Root (Core.Maybe Core.Text)
 root_id = Lens.lens (\Root' {id} -> id) (\s@Root' {} a -> s {id = a} :: Root)
 
 -- | The friendly name of the root.
@@ -130,23 +129,21 @@ root_id = Lens.lens (\Root' {id} -> id) (\s@Root' {} a -> s {id = a} :: Root)
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
-root_name :: Lens.Lens' Root (Prelude.Maybe Prelude.Text)
+root_name :: Lens.Lens' Root (Core.Maybe Core.Text)
 root_name = Lens.lens (\Root' {name} -> name) (\s@Root' {} a -> s {name = a} :: Root)
 
-instance Prelude.FromJSON Root where
+instance Core.FromJSON Root where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Root"
       ( \x ->
           Root'
-            Prelude.<$> ( x Prelude..:? "PolicyTypes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "PolicyTypes" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Root
+instance Core.Hashable Root
 
-instance Prelude.NFData Root
+instance Core.NFData Root

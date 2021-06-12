@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Inspector.CreateExclusionsPreview
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data CreateExclusionsPreview = CreateExclusionsPreview'
   { -- | The ARN that specifies the assessment template for which you want to
     -- create an exclusions preview.
-    assessmentTemplateArn :: Prelude.Text
+    assessmentTemplateArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateExclusionsPreview' with all optional fields omitted.
@@ -69,7 +68,7 @@ data CreateExclusionsPreview = CreateExclusionsPreview'
 -- create an exclusions preview.
 newCreateExclusionsPreview ::
   -- | 'assessmentTemplateArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateExclusionsPreview
 newCreateExclusionsPreview pAssessmentTemplateArn_ =
   CreateExclusionsPreview'
@@ -79,68 +78,66 @@ newCreateExclusionsPreview pAssessmentTemplateArn_ =
 
 -- | The ARN that specifies the assessment template for which you want to
 -- create an exclusions preview.
-createExclusionsPreview_assessmentTemplateArn :: Lens.Lens' CreateExclusionsPreview Prelude.Text
+createExclusionsPreview_assessmentTemplateArn :: Lens.Lens' CreateExclusionsPreview Core.Text
 createExclusionsPreview_assessmentTemplateArn = Lens.lens (\CreateExclusionsPreview' {assessmentTemplateArn} -> assessmentTemplateArn) (\s@CreateExclusionsPreview' {} a -> s {assessmentTemplateArn = a} :: CreateExclusionsPreview)
 
-instance Prelude.AWSRequest CreateExclusionsPreview where
+instance Core.AWSRequest CreateExclusionsPreview where
   type
-    Rs CreateExclusionsPreview =
+    AWSResponse CreateExclusionsPreview =
       CreateExclusionsPreviewResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateExclusionsPreviewResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "previewToken")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "previewToken")
       )
 
-instance Prelude.Hashable CreateExclusionsPreview
+instance Core.Hashable CreateExclusionsPreview
 
-instance Prelude.NFData CreateExclusionsPreview
+instance Core.NFData CreateExclusionsPreview
 
-instance Prelude.ToHeaders CreateExclusionsPreview where
+instance Core.ToHeaders CreateExclusionsPreview where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.CreateExclusionsPreview" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.CreateExclusionsPreview" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateExclusionsPreview where
+instance Core.ToJSON CreateExclusionsPreview where
   toJSON CreateExclusionsPreview' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "assessmentTemplateArn"
-                  Prelude..= assessmentTemplateArn
+                  Core..= assessmentTemplateArn
               )
           ]
       )
 
-instance Prelude.ToPath CreateExclusionsPreview where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateExclusionsPreview where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateExclusionsPreview where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateExclusionsPreview where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateExclusionsPreviewResponse' smart constructor.
 data CreateExclusionsPreviewResponse = CreateExclusionsPreviewResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Specifies the unique identifier of the requested exclusions preview. You
     -- can use the unique identifier to retrieve the exclusions preview when
     -- running the GetExclusionsPreview API.
-    previewToken :: Prelude.Text
+    previewToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateExclusionsPreviewResponse' with all optional fields omitted.
@@ -157,9 +154,9 @@ data CreateExclusionsPreviewResponse = CreateExclusionsPreviewResponse'
 -- running the GetExclusionsPreview API.
 newCreateExclusionsPreviewResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'previewToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateExclusionsPreviewResponse
 newCreateExclusionsPreviewResponse
   pHttpStatus_
@@ -171,15 +168,13 @@ newCreateExclusionsPreviewResponse
       }
 
 -- | The response's http status code.
-createExclusionsPreviewResponse_httpStatus :: Lens.Lens' CreateExclusionsPreviewResponse Prelude.Int
+createExclusionsPreviewResponse_httpStatus :: Lens.Lens' CreateExclusionsPreviewResponse Core.Int
 createExclusionsPreviewResponse_httpStatus = Lens.lens (\CreateExclusionsPreviewResponse' {httpStatus} -> httpStatus) (\s@CreateExclusionsPreviewResponse' {} a -> s {httpStatus = a} :: CreateExclusionsPreviewResponse)
 
 -- | Specifies the unique identifier of the requested exclusions preview. You
 -- can use the unique identifier to retrieve the exclusions preview when
 -- running the GetExclusionsPreview API.
-createExclusionsPreviewResponse_previewToken :: Lens.Lens' CreateExclusionsPreviewResponse Prelude.Text
+createExclusionsPreviewResponse_previewToken :: Lens.Lens' CreateExclusionsPreviewResponse Core.Text
 createExclusionsPreviewResponse_previewToken = Lens.lens (\CreateExclusionsPreviewResponse' {previewToken} -> previewToken) (\s@CreateExclusionsPreviewResponse' {} a -> s {previewToken = a} :: CreateExclusionsPreviewResponse)
 
-instance
-  Prelude.NFData
-    CreateExclusionsPreviewResponse
+instance Core.NFData CreateExclusionsPreviewResponse

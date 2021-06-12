@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.EC2.WithdrawByoipCidr
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +59,11 @@ data WithdrawByoipCidr = WithdrawByoipCidr'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The address range, in CIDR notation.
-    cidr :: Prelude.Text
+    cidr :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WithdrawByoipCidr' with all optional fields omitted.
@@ -82,11 +81,11 @@ data WithdrawByoipCidr = WithdrawByoipCidr'
 -- 'cidr', 'withdrawByoipCidr_cidr' - The address range, in CIDR notation.
 newWithdrawByoipCidr ::
   -- | 'cidr'
-  Prelude.Text ->
+  Core.Text ->
   WithdrawByoipCidr
 newWithdrawByoipCidr pCidr_ =
   WithdrawByoipCidr'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       cidr = pCidr_
     }
 
@@ -94,53 +93,54 @@ newWithdrawByoipCidr pCidr_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-withdrawByoipCidr_dryRun :: Lens.Lens' WithdrawByoipCidr (Prelude.Maybe Prelude.Bool)
+withdrawByoipCidr_dryRun :: Lens.Lens' WithdrawByoipCidr (Core.Maybe Core.Bool)
 withdrawByoipCidr_dryRun = Lens.lens (\WithdrawByoipCidr' {dryRun} -> dryRun) (\s@WithdrawByoipCidr' {} a -> s {dryRun = a} :: WithdrawByoipCidr)
 
 -- | The address range, in CIDR notation.
-withdrawByoipCidr_cidr :: Lens.Lens' WithdrawByoipCidr Prelude.Text
+withdrawByoipCidr_cidr :: Lens.Lens' WithdrawByoipCidr Core.Text
 withdrawByoipCidr_cidr = Lens.lens (\WithdrawByoipCidr' {cidr} -> cidr) (\s@WithdrawByoipCidr' {} a -> s {cidr = a} :: WithdrawByoipCidr)
 
-instance Prelude.AWSRequest WithdrawByoipCidr where
-  type Rs WithdrawByoipCidr = WithdrawByoipCidrResponse
+instance Core.AWSRequest WithdrawByoipCidr where
+  type
+    AWSResponse WithdrawByoipCidr =
+      WithdrawByoipCidrResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           WithdrawByoipCidrResponse'
-            Prelude.<$> (x Prelude..@? "byoipCidr")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "byoipCidr")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable WithdrawByoipCidr
+instance Core.Hashable WithdrawByoipCidr
 
-instance Prelude.NFData WithdrawByoipCidr
+instance Core.NFData WithdrawByoipCidr
 
-instance Prelude.ToHeaders WithdrawByoipCidr where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders WithdrawByoipCidr where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath WithdrawByoipCidr where
-  toPath = Prelude.const "/"
+instance Core.ToPath WithdrawByoipCidr where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery WithdrawByoipCidr where
+instance Core.ToQuery WithdrawByoipCidr where
   toQuery WithdrawByoipCidr' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("WithdrawByoipCidr" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Cidr" Prelude.=: cidr
+          Core.=: ("WithdrawByoipCidr" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Cidr" Core.=: cidr
       ]
 
 -- | /See:/ 'newWithdrawByoipCidrResponse' smart constructor.
 data WithdrawByoipCidrResponse = WithdrawByoipCidrResponse'
   { -- | Information about the address pool.
-    byoipCidr :: Prelude.Maybe ByoipCidr,
+    byoipCidr :: Core.Maybe ByoipCidr,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WithdrawByoipCidrResponse' with all optional fields omitted.
@@ -155,21 +155,21 @@ data WithdrawByoipCidrResponse = WithdrawByoipCidrResponse'
 -- 'httpStatus', 'withdrawByoipCidrResponse_httpStatus' - The response's http status code.
 newWithdrawByoipCidrResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   WithdrawByoipCidrResponse
 newWithdrawByoipCidrResponse pHttpStatus_ =
   WithdrawByoipCidrResponse'
     { byoipCidr =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the address pool.
-withdrawByoipCidrResponse_byoipCidr :: Lens.Lens' WithdrawByoipCidrResponse (Prelude.Maybe ByoipCidr)
+withdrawByoipCidrResponse_byoipCidr :: Lens.Lens' WithdrawByoipCidrResponse (Core.Maybe ByoipCidr)
 withdrawByoipCidrResponse_byoipCidr = Lens.lens (\WithdrawByoipCidrResponse' {byoipCidr} -> byoipCidr) (\s@WithdrawByoipCidrResponse' {} a -> s {byoipCidr = a} :: WithdrawByoipCidrResponse)
 
 -- | The response's http status code.
-withdrawByoipCidrResponse_httpStatus :: Lens.Lens' WithdrawByoipCidrResponse Prelude.Int
+withdrawByoipCidrResponse_httpStatus :: Lens.Lens' WithdrawByoipCidrResponse Core.Int
 withdrawByoipCidrResponse_httpStatus = Lens.lens (\WithdrawByoipCidrResponse' {httpStatus} -> httpStatus) (\s@WithdrawByoipCidrResponse' {} a -> s {httpStatus = a} :: WithdrawByoipCidrResponse)
 
-instance Prelude.NFData WithdrawByoipCidrResponse
+instance Core.NFData WithdrawByoipCidrResponse

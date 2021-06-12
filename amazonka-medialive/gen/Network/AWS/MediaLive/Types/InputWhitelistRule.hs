@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputWhitelistRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Whitelist rule
 --
 -- /See:/ 'newInputWhitelistRule' smart constructor.
 data InputWhitelistRule = InputWhitelistRule'
   { -- | The IPv4 CIDR that\'s whitelisted.
-    cidr :: Prelude.Maybe Prelude.Text
+    cidr :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputWhitelistRule' with all optional fields omitted.
@@ -44,21 +43,20 @@ data InputWhitelistRule = InputWhitelistRule'
 newInputWhitelistRule ::
   InputWhitelistRule
 newInputWhitelistRule =
-  InputWhitelistRule' {cidr = Prelude.Nothing}
+  InputWhitelistRule' {cidr = Core.Nothing}
 
 -- | The IPv4 CIDR that\'s whitelisted.
-inputWhitelistRule_cidr :: Lens.Lens' InputWhitelistRule (Prelude.Maybe Prelude.Text)
+inputWhitelistRule_cidr :: Lens.Lens' InputWhitelistRule (Core.Maybe Core.Text)
 inputWhitelistRule_cidr = Lens.lens (\InputWhitelistRule' {cidr} -> cidr) (\s@InputWhitelistRule' {} a -> s {cidr = a} :: InputWhitelistRule)
 
-instance Prelude.FromJSON InputWhitelistRule where
+instance Core.FromJSON InputWhitelistRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputWhitelistRule"
       ( \x ->
-          InputWhitelistRule'
-            Prelude.<$> (x Prelude..:? "cidr")
+          InputWhitelistRule' Core.<$> (x Core..:? "cidr")
       )
 
-instance Prelude.Hashable InputWhitelistRule
+instance Core.Hashable InputWhitelistRule
 
-instance Prelude.NFData InputWhitelistRule
+instance Core.NFData InputWhitelistRule

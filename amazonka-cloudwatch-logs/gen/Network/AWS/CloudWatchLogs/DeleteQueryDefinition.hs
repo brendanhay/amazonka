@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CloudWatchLogs.DeleteQueryDefinition
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ data DeleteQueryDefinition = DeleteQueryDefinition'
   { -- | The ID of the query definition that you want to delete. You can use
     -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>
     -- to retrieve the IDs of your saved query definitions.
-    queryDefinitionId :: Prelude.Text
+    queryDefinitionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQueryDefinition' with all optional fields omitted.
@@ -75,7 +74,7 @@ data DeleteQueryDefinition = DeleteQueryDefinition'
 -- to retrieve the IDs of your saved query definitions.
 newDeleteQueryDefinition ::
   -- | 'queryDefinitionId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteQueryDefinition
 newDeleteQueryDefinition pQueryDefinitionId_ =
   DeleteQueryDefinition'
@@ -86,65 +85,63 @@ newDeleteQueryDefinition pQueryDefinitionId_ =
 -- | The ID of the query definition that you want to delete. You can use
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeQueryDefinitions.html DescribeQueryDefinitions>
 -- to retrieve the IDs of your saved query definitions.
-deleteQueryDefinition_queryDefinitionId :: Lens.Lens' DeleteQueryDefinition Prelude.Text
+deleteQueryDefinition_queryDefinitionId :: Lens.Lens' DeleteQueryDefinition Core.Text
 deleteQueryDefinition_queryDefinitionId = Lens.lens (\DeleteQueryDefinition' {queryDefinitionId} -> queryDefinitionId) (\s@DeleteQueryDefinition' {} a -> s {queryDefinitionId = a} :: DeleteQueryDefinition)
 
-instance Prelude.AWSRequest DeleteQueryDefinition where
+instance Core.AWSRequest DeleteQueryDefinition where
   type
-    Rs DeleteQueryDefinition =
+    AWSResponse DeleteQueryDefinition =
       DeleteQueryDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteQueryDefinitionResponse'
-            Prelude.<$> (x Prelude..?> "success")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "success")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteQueryDefinition
+instance Core.Hashable DeleteQueryDefinition
 
-instance Prelude.NFData DeleteQueryDefinition
+instance Core.NFData DeleteQueryDefinition
 
-instance Prelude.ToHeaders DeleteQueryDefinition where
+instance Core.ToHeaders DeleteQueryDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DeleteQueryDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.DeleteQueryDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteQueryDefinition where
+instance Core.ToJSON DeleteQueryDefinition where
   toJSON DeleteQueryDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("queryDefinitionId" Prelude..= queryDefinitionId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("queryDefinitionId" Core..= queryDefinitionId)
           ]
       )
 
-instance Prelude.ToPath DeleteQueryDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteQueryDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteQueryDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteQueryDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteQueryDefinitionResponse' smart constructor.
 data DeleteQueryDefinitionResponse = DeleteQueryDefinitionResponse'
   { -- | A value of TRUE indicates that the operation succeeded. FALSE indicates
     -- that the operation failed.
-    success :: Prelude.Maybe Prelude.Bool,
+    success :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteQueryDefinitionResponse' with all optional fields omitted.
@@ -160,22 +157,22 @@ data DeleteQueryDefinitionResponse = DeleteQueryDefinitionResponse'
 -- 'httpStatus', 'deleteQueryDefinitionResponse_httpStatus' - The response's http status code.
 newDeleteQueryDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteQueryDefinitionResponse
 newDeleteQueryDefinitionResponse pHttpStatus_ =
   DeleteQueryDefinitionResponse'
     { success =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value of TRUE indicates that the operation succeeded. FALSE indicates
 -- that the operation failed.
-deleteQueryDefinitionResponse_success :: Lens.Lens' DeleteQueryDefinitionResponse (Prelude.Maybe Prelude.Bool)
+deleteQueryDefinitionResponse_success :: Lens.Lens' DeleteQueryDefinitionResponse (Core.Maybe Core.Bool)
 deleteQueryDefinitionResponse_success = Lens.lens (\DeleteQueryDefinitionResponse' {success} -> success) (\s@DeleteQueryDefinitionResponse' {} a -> s {success = a} :: DeleteQueryDefinitionResponse)
 
 -- | The response's http status code.
-deleteQueryDefinitionResponse_httpStatus :: Lens.Lens' DeleteQueryDefinitionResponse Prelude.Int
+deleteQueryDefinitionResponse_httpStatus :: Lens.Lens' DeleteQueryDefinitionResponse Core.Int
 deleteQueryDefinitionResponse_httpStatus = Lens.lens (\DeleteQueryDefinitionResponse' {httpStatus} -> httpStatus) (\s@DeleteQueryDefinitionResponse' {} a -> s {httpStatus = a} :: DeleteQueryDefinitionResponse)
 
-instance Prelude.NFData DeleteQueryDefinitionResponse
+instance Core.NFData DeleteQueryDefinitionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The amortized amount of Savings Plans purchased in a specific account
 -- during a specific time interval.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 data SavingsPlansAmortizedCommitment = SavingsPlansAmortizedCommitment'
   { -- | The amortized amount of your Savings Plans commitment that was purchased
     -- with an @Upfront@ or @PartialUpfront@ Savings Plans.
-    amortizedUpfrontCommitment :: Prelude.Maybe Prelude.Text,
+    amortizedUpfrontCommitment :: Core.Maybe Core.Text,
     -- | The amortized amount of your Savings Plans commitment that was purchased
     -- with either a @Partial@ or a @NoUpfront@.
-    amortizedRecurringCommitment :: Prelude.Maybe Prelude.Text,
+    amortizedRecurringCommitment :: Core.Maybe Core.Text,
     -- | The total amortized amount of your Savings Plans commitment, regardless
     -- of your Savings Plans purchase method.
-    totalAmortizedCommitment :: Prelude.Maybe Prelude.Text
+    totalAmortizedCommitment :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansAmortizedCommitment' with all optional fields omitted.
@@ -61,45 +60,43 @@ newSavingsPlansAmortizedCommitment ::
 newSavingsPlansAmortizedCommitment =
   SavingsPlansAmortizedCommitment'
     { amortizedUpfrontCommitment =
-        Prelude.Nothing,
+        Core.Nothing,
       amortizedRecurringCommitment =
-        Prelude.Nothing,
-      totalAmortizedCommitment = Prelude.Nothing
+        Core.Nothing,
+      totalAmortizedCommitment = Core.Nothing
     }
 
 -- | The amortized amount of your Savings Plans commitment that was purchased
 -- with an @Upfront@ or @PartialUpfront@ Savings Plans.
-savingsPlansAmortizedCommitment_amortizedUpfrontCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Prelude.Maybe Prelude.Text)
+savingsPlansAmortizedCommitment_amortizedUpfrontCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Core.Maybe Core.Text)
 savingsPlansAmortizedCommitment_amortizedUpfrontCommitment = Lens.lens (\SavingsPlansAmortizedCommitment' {amortizedUpfrontCommitment} -> amortizedUpfrontCommitment) (\s@SavingsPlansAmortizedCommitment' {} a -> s {amortizedUpfrontCommitment = a} :: SavingsPlansAmortizedCommitment)
 
 -- | The amortized amount of your Savings Plans commitment that was purchased
 -- with either a @Partial@ or a @NoUpfront@.
-savingsPlansAmortizedCommitment_amortizedRecurringCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Prelude.Maybe Prelude.Text)
+savingsPlansAmortizedCommitment_amortizedRecurringCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Core.Maybe Core.Text)
 savingsPlansAmortizedCommitment_amortizedRecurringCommitment = Lens.lens (\SavingsPlansAmortizedCommitment' {amortizedRecurringCommitment} -> amortizedRecurringCommitment) (\s@SavingsPlansAmortizedCommitment' {} a -> s {amortizedRecurringCommitment = a} :: SavingsPlansAmortizedCommitment)
 
 -- | The total amortized amount of your Savings Plans commitment, regardless
 -- of your Savings Plans purchase method.
-savingsPlansAmortizedCommitment_totalAmortizedCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Prelude.Maybe Prelude.Text)
+savingsPlansAmortizedCommitment_totalAmortizedCommitment :: Lens.Lens' SavingsPlansAmortizedCommitment (Core.Maybe Core.Text)
 savingsPlansAmortizedCommitment_totalAmortizedCommitment = Lens.lens (\SavingsPlansAmortizedCommitment' {totalAmortizedCommitment} -> totalAmortizedCommitment) (\s@SavingsPlansAmortizedCommitment' {} a -> s {totalAmortizedCommitment = a} :: SavingsPlansAmortizedCommitment)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     SavingsPlansAmortizedCommitment
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansAmortizedCommitment"
       ( \x ->
           SavingsPlansAmortizedCommitment'
-            Prelude.<$> (x Prelude..:? "AmortizedUpfrontCommitment")
-            Prelude.<*> (x Prelude..:? "AmortizedRecurringCommitment")
-            Prelude.<*> (x Prelude..:? "TotalAmortizedCommitment")
+            Core.<$> (x Core..:? "AmortizedUpfrontCommitment")
+            Core.<*> (x Core..:? "AmortizedRecurringCommitment")
+            Core.<*> (x Core..:? "TotalAmortizedCommitment")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SavingsPlansAmortizedCommitment
 
-instance
-  Prelude.NFData
-    SavingsPlansAmortizedCommitment
+instance Core.NFData SavingsPlansAmortizedCommitment

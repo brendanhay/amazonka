@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -80,16 +79,16 @@ module Network.AWS.EC2.CopySnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCopySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
   { -- | The tags to apply to the new snapshot.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | The destination Region to use in the @PresignedUrl@ parameter of a
     -- snapshot copy operation. This parameter is only valid for specifying the
     -- destination Region in a @PresignedUrl@ parameter, where it is required.
@@ -98,12 +97,12 @@ data CopySnapshot = CopySnapshot'
     -- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
     -- AWS CLI, this is specified using the @--region@ parameter or the default
     -- Region in your AWS configuration file.
-    destinationRegion :: Prelude.Maybe Prelude.Text,
+    destinationRegion :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
     -- not enabled, enable encryption using this parameter. Otherwise, omit
     -- this parameter. Encrypted snapshots are encrypted, even if you omit this
@@ -111,7 +110,7 @@ data CopySnapshot = CopySnapshot'
     -- parameter to false. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    encrypted :: Prelude.Maybe Prelude.Bool,
+    encrypted :: Core.Maybe Core.Bool,
     -- | The identifier of the AWS Key Management Service (AWS KMS) customer
     -- master key (CMK) to use for Amazon EBS encryption. If this parameter is
     -- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
@@ -132,7 +131,7 @@ data CopySnapshot = CopySnapshot'
     -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
     -- ID, alias, or ARN that is not valid, the action can appear to complete,
     -- but eventually fails.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the
     -- snapshot. Only specify this parameter when copying a snapshot from an
     -- AWS Region to an Outpost. The snapshot must be in the Region for the
@@ -142,7 +141,7 @@ data CopySnapshot = CopySnapshot'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots Copying snapshots from an AWS Region to an Outpost>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
-    destinationOutpostArn :: Prelude.Maybe Prelude.Text,
+    destinationOutpostArn :: Core.Maybe Core.Text,
     -- | When you copy an encrypted source snapshot using the Amazon EC2 Query
     -- API, you must supply a pre-signed URL. This parameter is optional for
     -- unencrypted snapshots. For more information, see
@@ -158,15 +157,15 @@ data CopySnapshot = CopySnapshot'
     -- in the /Amazon Simple Storage Service API Reference/. An invalid or
     -- improperly signed @PresignedUrl@ will cause the copy operation to fail
     -- asynchronously, and the snapshot will move to an @error@ state.
-    presignedUrl :: Prelude.Maybe Prelude.Text,
+    presignedUrl :: Core.Maybe Core.Text,
     -- | A description for the EBS snapshot.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ID of the Region that contains the snapshot to be copied.
-    sourceRegion :: Prelude.Text,
+    sourceRegion :: Core.Text,
     -- | The ID of the EBS snapshot to copy.
-    sourceSnapshotId :: Prelude.Text
+    sourceSnapshotId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopySnapshot' with all optional fields omitted.
@@ -254,27 +253,27 @@ data CopySnapshot = CopySnapshot'
 -- 'sourceSnapshotId', 'copySnapshot_sourceSnapshotId' - The ID of the EBS snapshot to copy.
 newCopySnapshot ::
   -- | 'sourceRegion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sourceSnapshotId'
-  Prelude.Text ->
+  Core.Text ->
   CopySnapshot
 newCopySnapshot pSourceRegion_ pSourceSnapshotId_ =
   CopySnapshot'
-    { tagSpecifications = Prelude.Nothing,
-      destinationRegion = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      encrypted = Prelude.Nothing,
-      kmsKeyId = Prelude.Nothing,
-      destinationOutpostArn = Prelude.Nothing,
-      presignedUrl = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tagSpecifications = Core.Nothing,
+      destinationRegion = Core.Nothing,
+      dryRun = Core.Nothing,
+      encrypted = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      destinationOutpostArn = Core.Nothing,
+      presignedUrl = Core.Nothing,
+      description = Core.Nothing,
       sourceRegion = pSourceRegion_,
       sourceSnapshotId = pSourceSnapshotId_
     }
 
 -- | The tags to apply to the new snapshot.
-copySnapshot_tagSpecifications :: Lens.Lens' CopySnapshot (Prelude.Maybe [TagSpecification])
-copySnapshot_tagSpecifications = Lens.lens (\CopySnapshot' {tagSpecifications} -> tagSpecifications) (\s@CopySnapshot' {} a -> s {tagSpecifications = a} :: CopySnapshot) Prelude.. Lens.mapping Prelude._Coerce
+copySnapshot_tagSpecifications :: Lens.Lens' CopySnapshot (Core.Maybe [TagSpecification])
+copySnapshot_tagSpecifications = Lens.lens (\CopySnapshot' {tagSpecifications} -> tagSpecifications) (\s@CopySnapshot' {} a -> s {tagSpecifications = a} :: CopySnapshot) Core.. Lens.mapping Lens._Coerce
 
 -- | The destination Region to use in the @PresignedUrl@ parameter of a
 -- snapshot copy operation. This parameter is only valid for specifying the
@@ -284,14 +283,14 @@ copySnapshot_tagSpecifications = Lens.lens (\CopySnapshot' {tagSpecifications} -
 -- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
 -- AWS CLI, this is specified using the @--region@ parameter or the default
 -- Region in your AWS configuration file.
-copySnapshot_destinationRegion :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_destinationRegion :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
 copySnapshot_destinationRegion = Lens.lens (\CopySnapshot' {destinationRegion} -> destinationRegion) (\s@CopySnapshot' {} a -> s {destinationRegion = a} :: CopySnapshot)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-copySnapshot_dryRun :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
+copySnapshot_dryRun :: Lens.Lens' CopySnapshot (Core.Maybe Core.Bool)
 copySnapshot_dryRun = Lens.lens (\CopySnapshot' {dryRun} -> dryRun) (\s@CopySnapshot' {} a -> s {dryRun = a} :: CopySnapshot)
 
 -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
@@ -301,7 +300,7 @@ copySnapshot_dryRun = Lens.lens (\CopySnapshot' {dryRun} -> dryRun) (\s@CopySnap
 -- parameter to false. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-copySnapshot_encrypted :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
+copySnapshot_encrypted :: Lens.Lens' CopySnapshot (Core.Maybe Core.Bool)
 copySnapshot_encrypted = Lens.lens (\CopySnapshot' {encrypted} -> encrypted) (\s@CopySnapshot' {} a -> s {encrypted = a} :: CopySnapshot)
 
 -- | The identifier of the AWS Key Management Service (AWS KMS) customer
@@ -324,7 +323,7 @@ copySnapshot_encrypted = Lens.lens (\CopySnapshot' {encrypted} -> encrypted) (\s
 -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
 -- ID, alias, or ARN that is not valid, the action can appear to complete,
 -- but eventually fails.
-copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
 copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopySnapshot' {} a -> s {kmsKeyId = a} :: CopySnapshot)
 
 -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the
@@ -336,7 +335,7 @@ copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@Co
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots Copying snapshots from an AWS Region to an Outpost>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-copySnapshot_destinationOutpostArn :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_destinationOutpostArn :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
 copySnapshot_destinationOutpostArn = Lens.lens (\CopySnapshot' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopySnapshot' {} a -> s {destinationOutpostArn = a} :: CopySnapshot)
 
 -- | When you copy an encrypted source snapshot using the Amazon EC2 Query
@@ -354,78 +353,77 @@ copySnapshot_destinationOutpostArn = Lens.lens (\CopySnapshot' {destinationOutpo
 -- in the /Amazon Simple Storage Service API Reference/. An invalid or
 -- improperly signed @PresignedUrl@ will cause the copy operation to fail
 -- asynchronously, and the snapshot will move to an @error@ state.
-copySnapshot_presignedUrl :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_presignedUrl :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
 copySnapshot_presignedUrl = Lens.lens (\CopySnapshot' {presignedUrl} -> presignedUrl) (\s@CopySnapshot' {} a -> s {presignedUrl = a} :: CopySnapshot)
 
 -- | A description for the EBS snapshot.
-copySnapshot_description :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_description :: Lens.Lens' CopySnapshot (Core.Maybe Core.Text)
 copySnapshot_description = Lens.lens (\CopySnapshot' {description} -> description) (\s@CopySnapshot' {} a -> s {description = a} :: CopySnapshot)
 
 -- | The ID of the Region that contains the snapshot to be copied.
-copySnapshot_sourceRegion :: Lens.Lens' CopySnapshot Prelude.Text
+copySnapshot_sourceRegion :: Lens.Lens' CopySnapshot Core.Text
 copySnapshot_sourceRegion = Lens.lens (\CopySnapshot' {sourceRegion} -> sourceRegion) (\s@CopySnapshot' {} a -> s {sourceRegion = a} :: CopySnapshot)
 
 -- | The ID of the EBS snapshot to copy.
-copySnapshot_sourceSnapshotId :: Lens.Lens' CopySnapshot Prelude.Text
+copySnapshot_sourceSnapshotId :: Lens.Lens' CopySnapshot Core.Text
 copySnapshot_sourceSnapshotId = Lens.lens (\CopySnapshot' {sourceSnapshotId} -> sourceSnapshotId) (\s@CopySnapshot' {} a -> s {sourceSnapshotId = a} :: CopySnapshot)
 
-instance Prelude.AWSRequest CopySnapshot where
-  type Rs CopySnapshot = CopySnapshotResponse
+instance Core.AWSRequest CopySnapshot where
+  type AWSResponse CopySnapshot = CopySnapshotResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CopySnapshotResponse'
-            Prelude.<$> (x Prelude..@? "snapshotId")
-            Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "snapshotId")
+            Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CopySnapshot
+instance Core.Hashable CopySnapshot
 
-instance Prelude.NFData CopySnapshot
+instance Core.NFData CopySnapshot
 
-instance Prelude.ToHeaders CopySnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CopySnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CopySnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath CopySnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CopySnapshot where
+instance Core.ToQuery CopySnapshot where
   toQuery CopySnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CopySnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CopySnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DestinationRegion" Prelude.=: destinationRegion,
-        "DryRun" Prelude.=: dryRun,
-        "Encrypted" Prelude.=: encrypted,
-        "KmsKeyId" Prelude.=: kmsKeyId,
+        "DestinationRegion" Core.=: destinationRegion,
+        "DryRun" Core.=: dryRun,
+        "Encrypted" Core.=: encrypted,
+        "KmsKeyId" Core.=: kmsKeyId,
         "DestinationOutpostArn"
-          Prelude.=: destinationOutpostArn,
-        "PresignedUrl" Prelude.=: presignedUrl,
-        "Description" Prelude.=: description,
-        "SourceRegion" Prelude.=: sourceRegion,
-        "SourceSnapshotId" Prelude.=: sourceSnapshotId
+          Core.=: destinationOutpostArn,
+        "PresignedUrl" Core.=: presignedUrl,
+        "Description" Core.=: description,
+        "SourceRegion" Core.=: sourceRegion,
+        "SourceSnapshotId" Core.=: sourceSnapshotId
       ]
 
 -- | /See:/ 'newCopySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
   { -- | The ID of the new snapshot.
-    snapshotId :: Prelude.Maybe Prelude.Text,
+    snapshotId :: Core.Maybe Core.Text,
     -- | Any tags applied to the new snapshot.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopySnapshotResponse' with all optional fields omitted.
@@ -442,25 +440,25 @@ data CopySnapshotResponse = CopySnapshotResponse'
 -- 'httpStatus', 'copySnapshotResponse_httpStatus' - The response's http status code.
 newCopySnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CopySnapshotResponse
 newCopySnapshotResponse pHttpStatus_ =
   CopySnapshotResponse'
-    { snapshotId = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { snapshotId = Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the new snapshot.
-copySnapshotResponse_snapshotId :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe Prelude.Text)
+copySnapshotResponse_snapshotId :: Lens.Lens' CopySnapshotResponse (Core.Maybe Core.Text)
 copySnapshotResponse_snapshotId = Lens.lens (\CopySnapshotResponse' {snapshotId} -> snapshotId) (\s@CopySnapshotResponse' {} a -> s {snapshotId = a} :: CopySnapshotResponse)
 
 -- | Any tags applied to the new snapshot.
-copySnapshotResponse_tags :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe [Tag])
-copySnapshotResponse_tags = Lens.lens (\CopySnapshotResponse' {tags} -> tags) (\s@CopySnapshotResponse' {} a -> s {tags = a} :: CopySnapshotResponse) Prelude.. Lens.mapping Prelude._Coerce
+copySnapshotResponse_tags :: Lens.Lens' CopySnapshotResponse (Core.Maybe [Tag])
+copySnapshotResponse_tags = Lens.lens (\CopySnapshotResponse' {tags} -> tags) (\s@CopySnapshotResponse' {} a -> s {tags = a} :: CopySnapshotResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Prelude.Int
+copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Core.Int
 copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus} -> httpStatus) (\s@CopySnapshotResponse' {} a -> s {httpStatus = a} :: CopySnapshotResponse)
 
-instance Prelude.NFData CopySnapshotResponse
+instance Core.NFData CopySnapshotResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Route53.GetReusableDelegationSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -55,7 +54,7 @@ data GetReusableDelegationSet = GetReusableDelegationSet'
     -- name servers for.
     id :: ResourceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetReusableDelegationSet' with all optional fields omitted.
@@ -79,33 +78,33 @@ newGetReusableDelegationSet pId_ =
 getReusableDelegationSet_id :: Lens.Lens' GetReusableDelegationSet ResourceId
 getReusableDelegationSet_id = Lens.lens (\GetReusableDelegationSet' {id} -> id) (\s@GetReusableDelegationSet' {} a -> s {id = a} :: GetReusableDelegationSet)
 
-instance Prelude.AWSRequest GetReusableDelegationSet where
+instance Core.AWSRequest GetReusableDelegationSet where
   type
-    Rs GetReusableDelegationSet =
+    AWSResponse GetReusableDelegationSet =
       GetReusableDelegationSetResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetReusableDelegationSetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "DelegationSet")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "DelegationSet")
       )
 
-instance Prelude.Hashable GetReusableDelegationSet
+instance Core.Hashable GetReusableDelegationSet
 
-instance Prelude.NFData GetReusableDelegationSet
+instance Core.NFData GetReusableDelegationSet
 
-instance Prelude.ToHeaders GetReusableDelegationSet where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetReusableDelegationSet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetReusableDelegationSet where
+instance Core.ToPath GetReusableDelegationSet where
   toPath GetReusableDelegationSet' {..} =
-    Prelude.mconcat
-      ["/2013-04-01/delegationset/", Prelude.toBS id]
+    Core.mconcat
+      ["/2013-04-01/delegationset/", Core.toBS id]
 
-instance Prelude.ToQuery GetReusableDelegationSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetReusableDelegationSet where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains the response to the
 -- @GetReusableDelegationSet@ request.
@@ -113,12 +112,12 @@ instance Prelude.ToQuery GetReusableDelegationSet where
 -- /See:/ 'newGetReusableDelegationSetResponse' smart constructor.
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains information about the reusable delegation
     -- set.
     delegationSet :: DelegationSet
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetReusableDelegationSetResponse' with all optional fields omitted.
@@ -134,7 +133,7 @@ data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
 -- set.
 newGetReusableDelegationSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'delegationSet'
   DelegationSet ->
   GetReusableDelegationSetResponse
@@ -148,7 +147,7 @@ newGetReusableDelegationSetResponse
       }
 
 -- | The response's http status code.
-getReusableDelegationSetResponse_httpStatus :: Lens.Lens' GetReusableDelegationSetResponse Prelude.Int
+getReusableDelegationSetResponse_httpStatus :: Lens.Lens' GetReusableDelegationSetResponse Core.Int
 getReusableDelegationSetResponse_httpStatus = Lens.lens (\GetReusableDelegationSetResponse' {httpStatus} -> httpStatus) (\s@GetReusableDelegationSetResponse' {} a -> s {httpStatus = a} :: GetReusableDelegationSetResponse)
 
 -- | A complex type that contains information about the reusable delegation
@@ -156,6 +155,4 @@ getReusableDelegationSetResponse_httpStatus = Lens.lens (\GetReusableDelegationS
 getReusableDelegationSetResponse_delegationSet :: Lens.Lens' GetReusableDelegationSetResponse DelegationSet
 getReusableDelegationSetResponse_delegationSet = Lens.lens (\GetReusableDelegationSetResponse' {delegationSet} -> delegationSet) (\s@GetReusableDelegationSetResponse' {} a -> s {delegationSet = a} :: GetReusableDelegationSetResponse)
 
-instance
-  Prelude.NFData
-    GetReusableDelegationSetResponse
+instance Core.NFData GetReusableDelegationSetResponse

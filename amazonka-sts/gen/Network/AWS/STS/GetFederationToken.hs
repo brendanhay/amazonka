@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -141,8 +140,8 @@ module Network.AWS.STS.GetFederationToken
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.STS.Types
@@ -177,7 +176,7 @@ data GetFederationToken = GetFederationToken'
     -- pass the @department@=@engineering@ session tag. @Department@ and
     -- @department@ are not saved as separate tags, and the session tag passed
     -- in the request takes precedence over the role tag.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
     -- want to use as a managed session policy. The policies must exist in the
     -- same account as the IAM user that is requesting federated access.
@@ -218,7 +217,7 @@ data GetFederationToken = GetFederationToken'
     -- requirements. The @PackedPolicySize@ response element indicates by
     -- percentage how close the policies and tags for your request are to the
     -- upper size limit.
-    policyArns :: Prelude.Maybe [PolicyDescriptorType],
+    policyArns :: Core.Maybe [PolicyDescriptorType],
     -- | An IAM policy in JSON format that you want to use as an inline session
     -- policy.
     --
@@ -259,7 +258,7 @@ data GetFederationToken = GetFederationToken'
     -- requirements. The @PackedPolicySize@ response element indicates by
     -- percentage how close the policies and tags for your request are to the
     -- upper size limit.
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | The duration, in seconds, that the session should last. Acceptable
     -- durations for federation sessions range from 900 seconds (15 minutes) to
     -- 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the
@@ -267,7 +266,7 @@ data GetFederationToken = GetFederationToken'
     -- restricted to a maximum of 3,600 seconds (one hour). If the specified
     -- duration is longer than one hour, the session obtained by using root
     -- user credentials defaults to one hour.
-    durationSeconds :: Prelude.Maybe Prelude.Natural,
+    durationSeconds :: Core.Maybe Core.Natural,
     -- | The name of the federated user. The name is used as an identifier for
     -- the temporary security credentials (such as @Bob@). For example, you can
     -- reference the federated user name in a resource-based policy, such as in
@@ -277,9 +276,9 @@ data GetFederationToken = GetFederationToken'
     -- consisting of upper- and lower-case alphanumeric characters with no
     -- spaces. You can also include underscores or any of the following
     -- characters: =,.\@-
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFederationToken' with all optional fields omitted.
@@ -419,14 +418,14 @@ data GetFederationToken = GetFederationToken'
 -- characters: =,.\@-
 newGetFederationToken ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   GetFederationToken
 newGetFederationToken pName_ =
   GetFederationToken'
-    { tags = Prelude.Nothing,
-      policyArns = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      durationSeconds = Prelude.Nothing,
+    { tags = Core.Nothing,
+      policyArns = Core.Nothing,
+      policy = Core.Nothing,
+      durationSeconds = Core.Nothing,
       name = pName_
     }
 
@@ -458,8 +457,8 @@ newGetFederationToken pName_ =
 -- pass the @department@=@engineering@ session tag. @Department@ and
 -- @department@ are not saved as separate tags, and the session tag passed
 -- in the request takes precedence over the role tag.
-getFederationToken_tags :: Lens.Lens' GetFederationToken (Prelude.Maybe [Tag])
-getFederationToken_tags = Lens.lens (\GetFederationToken' {tags} -> tags) (\s@GetFederationToken' {} a -> s {tags = a} :: GetFederationToken) Prelude.. Lens.mapping Prelude._Coerce
+getFederationToken_tags :: Lens.Lens' GetFederationToken (Core.Maybe [Tag])
+getFederationToken_tags = Lens.lens (\GetFederationToken' {tags} -> tags) (\s@GetFederationToken' {} a -> s {tags = a} :: GetFederationToken) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Names (ARNs) of the IAM managed policies that you
 -- want to use as a managed session policy. The policies must exist in the
@@ -501,8 +500,8 @@ getFederationToken_tags = Lens.lens (\GetFederationToken' {tags} -> tags) (\s@Ge
 -- requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
-getFederationToken_policyArns :: Lens.Lens' GetFederationToken (Prelude.Maybe [PolicyDescriptorType])
-getFederationToken_policyArns = Lens.lens (\GetFederationToken' {policyArns} -> policyArns) (\s@GetFederationToken' {} a -> s {policyArns = a} :: GetFederationToken) Prelude.. Lens.mapping Prelude._Coerce
+getFederationToken_policyArns :: Lens.Lens' GetFederationToken (Core.Maybe [PolicyDescriptorType])
+getFederationToken_policyArns = Lens.lens (\GetFederationToken' {policyArns} -> policyArns) (\s@GetFederationToken' {} a -> s {policyArns = a} :: GetFederationToken) Core.. Lens.mapping Lens._Coerce
 
 -- | An IAM policy in JSON format that you want to use as an inline session
 -- policy.
@@ -544,7 +543,7 @@ getFederationToken_policyArns = Lens.lens (\GetFederationToken' {policyArns} -> 
 -- requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
-getFederationToken_policy :: Lens.Lens' GetFederationToken (Prelude.Maybe Prelude.Text)
+getFederationToken_policy :: Lens.Lens' GetFederationToken (Core.Maybe Core.Text)
 getFederationToken_policy = Lens.lens (\GetFederationToken' {policy} -> policy) (\s@GetFederationToken' {} a -> s {policy = a} :: GetFederationToken)
 
 -- | The duration, in seconds, that the session should last. Acceptable
@@ -554,7 +553,7 @@ getFederationToken_policy = Lens.lens (\GetFederationToken' {policy} -> policy) 
 -- restricted to a maximum of 3,600 seconds (one hour). If the specified
 -- duration is longer than one hour, the session obtained by using root
 -- user credentials defaults to one hour.
-getFederationToken_durationSeconds :: Lens.Lens' GetFederationToken (Prelude.Maybe Prelude.Natural)
+getFederationToken_durationSeconds :: Lens.Lens' GetFederationToken (Core.Maybe Core.Natural)
 getFederationToken_durationSeconds = Lens.lens (\GetFederationToken' {durationSeconds} -> durationSeconds) (\s@GetFederationToken' {} a -> s {durationSeconds = a} :: GetFederationToken)
 
 -- | The name of the federated user. The name is used as an identifier for
@@ -566,12 +565,12 @@ getFederationToken_durationSeconds = Lens.lens (\GetFederationToken' {durationSe
 -- consisting of upper- and lower-case alphanumeric characters with no
 -- spaces. You can also include underscores or any of the following
 -- characters: =,.\@-
-getFederationToken_name :: Lens.Lens' GetFederationToken Prelude.Text
+getFederationToken_name :: Lens.Lens' GetFederationToken Core.Text
 getFederationToken_name = Lens.lens (\GetFederationToken' {name} -> name) (\s@GetFederationToken' {} a -> s {name = a} :: GetFederationToken)
 
-instance Prelude.AWSRequest GetFederationToken where
+instance Core.AWSRequest GetFederationToken where
   type
-    Rs GetFederationToken =
+    AWSResponse GetFederationToken =
       GetFederationTokenResponse
   request = Request.postQuery defaultService
   response =
@@ -579,40 +578,37 @@ instance Prelude.AWSRequest GetFederationToken where
       "GetFederationTokenResult"
       ( \s h x ->
           GetFederationTokenResponse'
-            Prelude.<$> (x Prelude..@? "Credentials")
-            Prelude.<*> (x Prelude..@? "FederatedUser")
-            Prelude.<*> (x Prelude..@? "PackedPolicySize")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Credentials")
+            Core.<*> (x Core..@? "FederatedUser")
+            Core.<*> (x Core..@? "PackedPolicySize")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetFederationToken
+instance Core.Hashable GetFederationToken
 
-instance Prelude.NFData GetFederationToken
+instance Core.NFData GetFederationToken
 
-instance Prelude.ToHeaders GetFederationToken where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetFederationToken where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetFederationToken where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetFederationToken where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetFederationToken where
+instance Core.ToQuery GetFederationToken where
   toQuery GetFederationToken' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetFederationToken" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2011-06-15" :: Prelude.ByteString),
+          Core.=: ("GetFederationToken" :: Core.ByteString),
+        "Version" Core.=: ("2011-06-15" :: Core.ByteString),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
         "PolicyArns"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> policyArns
-            ),
-        "Policy" Prelude.=: policy,
-        "DurationSeconds" Prelude.=: durationSeconds,
-        "Name" Prelude.=: name
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> policyArns),
+        "Policy" Core.=: policy,
+        "DurationSeconds" Core.=: durationSeconds,
+        "Name" Core.=: name
       ]
 
 -- | Contains the response to a successful GetFederationToken request,
@@ -627,21 +623,21 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
     -- The size of the security token that STS API operations return is not
     -- fixed. We strongly recommend that you make no assumptions about the
     -- maximum size.
-    credentials :: Prelude.Maybe Prelude.AuthEnv,
+    credentials :: Core.Maybe Core.AuthEnv,
     -- | Identifiers for the federated user associated with the credentials (such
     -- as @arn:aws:sts::123456789012:federated-user\/Bob@ or
     -- @123456789012:Bob@). You can use the federated user\'s ARN in your
     -- resource-based policies, such as an Amazon S3 bucket policy.
-    federatedUser :: Prelude.Maybe FederatedUser,
+    federatedUser :: Core.Maybe FederatedUser,
     -- | A percentage value that indicates the packed size of the session
     -- policies and session tags combined passed in the request. The request
     -- fails if the packed size is greater than 100 percent, which means the
     -- policies and tags exceeded the allowed space.
-    packedPolicySize :: Prelude.Maybe Prelude.Natural,
+    packedPolicySize :: Core.Maybe Core.Natural,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFederationTokenResponse' with all optional fields omitted.
@@ -671,14 +667,14 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
 -- 'httpStatus', 'getFederationTokenResponse_httpStatus' - The response's http status code.
 newGetFederationTokenResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetFederationTokenResponse
 newGetFederationTokenResponse pHttpStatus_ =
   GetFederationTokenResponse'
     { credentials =
-        Prelude.Nothing,
-      federatedUser = Prelude.Nothing,
-      packedPolicySize = Prelude.Nothing,
+        Core.Nothing,
+      federatedUser = Core.Nothing,
+      packedPolicySize = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -688,25 +684,25 @@ newGetFederationTokenResponse pHttpStatus_ =
 -- The size of the security token that STS API operations return is not
 -- fixed. We strongly recommend that you make no assumptions about the
 -- maximum size.
-getFederationTokenResponse_credentials :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Prelude.AuthEnv)
+getFederationTokenResponse_credentials :: Lens.Lens' GetFederationTokenResponse (Core.Maybe Core.AuthEnv)
 getFederationTokenResponse_credentials = Lens.lens (\GetFederationTokenResponse' {credentials} -> credentials) (\s@GetFederationTokenResponse' {} a -> s {credentials = a} :: GetFederationTokenResponse)
 
 -- | Identifiers for the federated user associated with the credentials (such
 -- as @arn:aws:sts::123456789012:federated-user\/Bob@ or
 -- @123456789012:Bob@). You can use the federated user\'s ARN in your
 -- resource-based policies, such as an Amazon S3 bucket policy.
-getFederationTokenResponse_federatedUser :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe FederatedUser)
+getFederationTokenResponse_federatedUser :: Lens.Lens' GetFederationTokenResponse (Core.Maybe FederatedUser)
 getFederationTokenResponse_federatedUser = Lens.lens (\GetFederationTokenResponse' {federatedUser} -> federatedUser) (\s@GetFederationTokenResponse' {} a -> s {federatedUser = a} :: GetFederationTokenResponse)
 
 -- | A percentage value that indicates the packed size of the session
 -- policies and session tags combined passed in the request. The request
 -- fails if the packed size is greater than 100 percent, which means the
 -- policies and tags exceeded the allowed space.
-getFederationTokenResponse_packedPolicySize :: Lens.Lens' GetFederationTokenResponse (Prelude.Maybe Prelude.Natural)
+getFederationTokenResponse_packedPolicySize :: Lens.Lens' GetFederationTokenResponse (Core.Maybe Core.Natural)
 getFederationTokenResponse_packedPolicySize = Lens.lens (\GetFederationTokenResponse' {packedPolicySize} -> packedPolicySize) (\s@GetFederationTokenResponse' {} a -> s {packedPolicySize = a} :: GetFederationTokenResponse)
 
 -- | The response's http status code.
-getFederationTokenResponse_httpStatus :: Lens.Lens' GetFederationTokenResponse Prelude.Int
+getFederationTokenResponse_httpStatus :: Lens.Lens' GetFederationTokenResponse Core.Int
 getFederationTokenResponse_httpStatus = Lens.lens (\GetFederationTokenResponse' {httpStatus} -> httpStatus) (\s@GetFederationTokenResponse' {} a -> s {httpStatus = a} :: GetFederationTokenResponse)
 
-instance Prelude.NFData GetFederationTokenResponse
+instance Core.NFData GetFederationTokenResponse

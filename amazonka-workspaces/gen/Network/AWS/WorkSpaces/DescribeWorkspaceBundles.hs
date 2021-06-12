@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -59,18 +57,18 @@ import Network.AWS.WorkSpaces.Types
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
   { -- | The token for the next set of results. (You received this token from a
     -- previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The owner of the bundles. You cannot combine this parameter with any
     -- other filter.
     --
     -- Specify @AMAZON@ to describe the bundles provided by AWS or null to
     -- describe the bundles that belong to your account.
-    owner :: Prelude.Maybe Prelude.Text,
+    owner :: Core.Maybe Core.Text,
     -- | The identifiers of the bundles. You cannot combine this parameter with
     -- any other filter.
-    bundleIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    bundleIds :: Core.Maybe (Core.NonEmpty Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspaceBundles' with all optional fields omitted.
@@ -95,15 +93,14 @@ newDescribeWorkspaceBundles ::
   DescribeWorkspaceBundles
 newDescribeWorkspaceBundles =
   DescribeWorkspaceBundles'
-    { nextToken =
-        Prelude.Nothing,
-      owner = Prelude.Nothing,
-      bundleIds = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      owner = Core.Nothing,
+      bundleIds = Core.Nothing
     }
 
 -- | The token for the next set of results. (You received this token from a
 -- previous call.)
-describeWorkspaceBundles_nextToken :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe Prelude.Text)
+describeWorkspaceBundles_nextToken :: Lens.Lens' DescribeWorkspaceBundles (Core.Maybe Core.Text)
 describeWorkspaceBundles_nextToken = Lens.lens (\DescribeWorkspaceBundles' {nextToken} -> nextToken) (\s@DescribeWorkspaceBundles' {} a -> s {nextToken = a} :: DescribeWorkspaceBundles)
 
 -- | The owner of the bundles. You cannot combine this parameter with any
@@ -111,97 +108,95 @@ describeWorkspaceBundles_nextToken = Lens.lens (\DescribeWorkspaceBundles' {next
 --
 -- Specify @AMAZON@ to describe the bundles provided by AWS or null to
 -- describe the bundles that belong to your account.
-describeWorkspaceBundles_owner :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe Prelude.Text)
+describeWorkspaceBundles_owner :: Lens.Lens' DescribeWorkspaceBundles (Core.Maybe Core.Text)
 describeWorkspaceBundles_owner = Lens.lens (\DescribeWorkspaceBundles' {owner} -> owner) (\s@DescribeWorkspaceBundles' {} a -> s {owner = a} :: DescribeWorkspaceBundles)
 
 -- | The identifiers of the bundles. You cannot combine this parameter with
 -- any other filter.
-describeWorkspaceBundles_bundleIds :: Lens.Lens' DescribeWorkspaceBundles (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-describeWorkspaceBundles_bundleIds = Lens.lens (\DescribeWorkspaceBundles' {bundleIds} -> bundleIds) (\s@DescribeWorkspaceBundles' {} a -> s {bundleIds = a} :: DescribeWorkspaceBundles) Prelude.. Lens.mapping Prelude._Coerce
+describeWorkspaceBundles_bundleIds :: Lens.Lens' DescribeWorkspaceBundles (Core.Maybe (Core.NonEmpty Core.Text))
+describeWorkspaceBundles_bundleIds = Lens.lens (\DescribeWorkspaceBundles' {bundleIds} -> bundleIds) (\s@DescribeWorkspaceBundles' {} a -> s {bundleIds = a} :: DescribeWorkspaceBundles) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeWorkspaceBundles where
+instance Core.AWSPager DescribeWorkspaceBundles where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeWorkspaceBundlesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeWorkspaceBundlesResponse_bundles
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeWorkspaceBundles_nextToken
           Lens..~ rs
           Lens.^? describeWorkspaceBundlesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeWorkspaceBundles where
+instance Core.AWSRequest DescribeWorkspaceBundles where
   type
-    Rs DescribeWorkspaceBundles =
+    AWSResponse DescribeWorkspaceBundles =
       DescribeWorkspaceBundlesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeWorkspaceBundlesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Bundles" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Bundles" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeWorkspaceBundles
+instance Core.Hashable DescribeWorkspaceBundles
 
-instance Prelude.NFData DescribeWorkspaceBundles
+instance Core.NFData DescribeWorkspaceBundles
 
-instance Prelude.ToHeaders DescribeWorkspaceBundles where
+instance Core.ToHeaders DescribeWorkspaceBundles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.DescribeWorkspaceBundles" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.DescribeWorkspaceBundles" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeWorkspaceBundles where
+instance Core.ToJSON DescribeWorkspaceBundles where
   toJSON DescribeWorkspaceBundles' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Owner" Prelude..=) Prelude.<$> owner,
-            ("BundleIds" Prelude..=) Prelude.<$> bundleIds
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Owner" Core..=) Core.<$> owner,
+            ("BundleIds" Core..=) Core.<$> bundleIds
           ]
       )
 
-instance Prelude.ToPath DescribeWorkspaceBundles where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeWorkspaceBundles where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeWorkspaceBundles where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeWorkspaceBundles where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeWorkspaceBundlesResponse' smart constructor.
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
   { -- | The token to use to retrieve the next set of results, or null if there
     -- are no more results available. This token is valid for one day and must
     -- be used within that time frame.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the bundles.
-    bundles :: Prelude.Maybe [WorkspaceBundle],
+    bundles :: Core.Maybe [WorkspaceBundle],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeWorkspaceBundlesResponse' with all optional fields omitted.
@@ -220,30 +215,28 @@ data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
 -- 'httpStatus', 'describeWorkspaceBundlesResponse_httpStatus' - The response's http status code.
 newDescribeWorkspaceBundlesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeWorkspaceBundlesResponse
 newDescribeWorkspaceBundlesResponse pHttpStatus_ =
   DescribeWorkspaceBundlesResponse'
     { nextToken =
-        Prelude.Nothing,
-      bundles = Prelude.Nothing,
+        Core.Nothing,
+      bundles = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next set of results, or null if there
 -- are no more results available. This token is valid for one day and must
 -- be used within that time frame.
-describeWorkspaceBundlesResponse_nextToken :: Lens.Lens' DescribeWorkspaceBundlesResponse (Prelude.Maybe Prelude.Text)
+describeWorkspaceBundlesResponse_nextToken :: Lens.Lens' DescribeWorkspaceBundlesResponse (Core.Maybe Core.Text)
 describeWorkspaceBundlesResponse_nextToken = Lens.lens (\DescribeWorkspaceBundlesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspaceBundlesResponse' {} a -> s {nextToken = a} :: DescribeWorkspaceBundlesResponse)
 
 -- | Information about the bundles.
-describeWorkspaceBundlesResponse_bundles :: Lens.Lens' DescribeWorkspaceBundlesResponse (Prelude.Maybe [WorkspaceBundle])
-describeWorkspaceBundlesResponse_bundles = Lens.lens (\DescribeWorkspaceBundlesResponse' {bundles} -> bundles) (\s@DescribeWorkspaceBundlesResponse' {} a -> s {bundles = a} :: DescribeWorkspaceBundlesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeWorkspaceBundlesResponse_bundles :: Lens.Lens' DescribeWorkspaceBundlesResponse (Core.Maybe [WorkspaceBundle])
+describeWorkspaceBundlesResponse_bundles = Lens.lens (\DescribeWorkspaceBundlesResponse' {bundles} -> bundles) (\s@DescribeWorkspaceBundlesResponse' {} a -> s {bundles = a} :: DescribeWorkspaceBundlesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeWorkspaceBundlesResponse_httpStatus :: Lens.Lens' DescribeWorkspaceBundlesResponse Prelude.Int
+describeWorkspaceBundlesResponse_httpStatus :: Lens.Lens' DescribeWorkspaceBundlesResponse Core.Int
 describeWorkspaceBundlesResponse_httpStatus = Lens.lens (\DescribeWorkspaceBundlesResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkspaceBundlesResponse' {} a -> s {httpStatus = a} :: DescribeWorkspaceBundlesResponse)
 
-instance
-  Prelude.NFData
-    DescribeWorkspaceBundlesResponse
+instance Core.NFData DescribeWorkspaceBundlesResponse

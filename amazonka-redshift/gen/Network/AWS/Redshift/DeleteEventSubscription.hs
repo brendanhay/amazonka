@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.Redshift.DeleteEventSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -48,9 +47,9 @@ import qualified Network.AWS.Response as Response
 data DeleteEventSubscription = DeleteEventSubscription'
   { -- | The name of the Amazon Redshift event notification subscription to be
     -- deleted.
-    subscriptionName :: Prelude.Text
+    subscriptionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEventSubscription' with all optional fields omitted.
@@ -64,7 +63,7 @@ data DeleteEventSubscription = DeleteEventSubscription'
 -- deleted.
 newDeleteEventSubscription ::
   -- | 'subscriptionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteEventSubscription
 newDeleteEventSubscription pSubscriptionName_ =
   DeleteEventSubscription'
@@ -74,43 +73,42 @@ newDeleteEventSubscription pSubscriptionName_ =
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
-deleteEventSubscription_subscriptionName :: Lens.Lens' DeleteEventSubscription Prelude.Text
+deleteEventSubscription_subscriptionName :: Lens.Lens' DeleteEventSubscription Core.Text
 deleteEventSubscription_subscriptionName = Lens.lens (\DeleteEventSubscription' {subscriptionName} -> subscriptionName) (\s@DeleteEventSubscription' {} a -> s {subscriptionName = a} :: DeleteEventSubscription)
 
-instance Prelude.AWSRequest DeleteEventSubscription where
+instance Core.AWSRequest DeleteEventSubscription where
   type
-    Rs DeleteEventSubscription =
+    AWSResponse DeleteEventSubscription =
       DeleteEventSubscriptionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteEventSubscriptionResponse'
 
-instance Prelude.Hashable DeleteEventSubscription
+instance Core.Hashable DeleteEventSubscription
 
-instance Prelude.NFData DeleteEventSubscription
+instance Core.NFData DeleteEventSubscription
 
-instance Prelude.ToHeaders DeleteEventSubscription where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteEventSubscription where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteEventSubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteEventSubscription where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteEventSubscription where
+instance Core.ToQuery DeleteEventSubscription where
   toQuery DeleteEventSubscription' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteEventSubscription" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "SubscriptionName" Prelude.=: subscriptionName
+          Core.=: ("DeleteEventSubscription" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "SubscriptionName" Core.=: subscriptionName
       ]
 
 -- | /See:/ 'newDeleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteEventSubscriptionResponse' with all optional fields omitted.
@@ -121,6 +119,4 @@ newDeleteEventSubscriptionResponse ::
 newDeleteEventSubscriptionResponse =
   DeleteEventSubscriptionResponse'
 
-instance
-  Prelude.NFData
-    DeleteEventSubscriptionResponse
+instance Core.NFData DeleteEventSubscriptionResponse

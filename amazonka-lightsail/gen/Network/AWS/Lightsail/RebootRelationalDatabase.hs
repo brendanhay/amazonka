@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.Lightsail.RebootRelationalDatabase
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebootRelationalDatabase' smart constructor.
 data RebootRelationalDatabase = RebootRelationalDatabase'
   { -- | The name of your database to reboot.
-    relationalDatabaseName :: Prelude.Text
+    relationalDatabaseName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootRelationalDatabase' with all optional fields omitted.
@@ -69,7 +68,7 @@ data RebootRelationalDatabase = RebootRelationalDatabase'
 -- 'relationalDatabaseName', 'rebootRelationalDatabase_relationalDatabaseName' - The name of your database to reboot.
 newRebootRelationalDatabase ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   RebootRelationalDatabase
 newRebootRelationalDatabase pRelationalDatabaseName_ =
   RebootRelationalDatabase'
@@ -78,70 +77,66 @@ newRebootRelationalDatabase pRelationalDatabaseName_ =
     }
 
 -- | The name of your database to reboot.
-rebootRelationalDatabase_relationalDatabaseName :: Lens.Lens' RebootRelationalDatabase Prelude.Text
+rebootRelationalDatabase_relationalDatabaseName :: Lens.Lens' RebootRelationalDatabase Core.Text
 rebootRelationalDatabase_relationalDatabaseName = Lens.lens (\RebootRelationalDatabase' {relationalDatabaseName} -> relationalDatabaseName) (\s@RebootRelationalDatabase' {} a -> s {relationalDatabaseName = a} :: RebootRelationalDatabase)
 
-instance Prelude.AWSRequest RebootRelationalDatabase where
+instance Core.AWSRequest RebootRelationalDatabase where
   type
-    Rs RebootRelationalDatabase =
+    AWSResponse RebootRelationalDatabase =
       RebootRelationalDatabaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RebootRelationalDatabaseResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RebootRelationalDatabase
+instance Core.Hashable RebootRelationalDatabase
 
-instance Prelude.NFData RebootRelationalDatabase
+instance Core.NFData RebootRelationalDatabase
 
-instance Prelude.ToHeaders RebootRelationalDatabase where
+instance Core.ToHeaders RebootRelationalDatabase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.RebootRelationalDatabase" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.RebootRelationalDatabase" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RebootRelationalDatabase where
+instance Core.ToJSON RebootRelationalDatabase where
   toJSON RebootRelationalDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               )
           ]
       )
 
-instance Prelude.ToPath RebootRelationalDatabase where
-  toPath = Prelude.const "/"
+instance Core.ToPath RebootRelationalDatabase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RebootRelationalDatabase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RebootRelationalDatabase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRebootRelationalDatabaseResponse' smart constructor.
 data RebootRelationalDatabaseResponse = RebootRelationalDatabaseResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RebootRelationalDatabaseResponse' with all optional fields omitted.
@@ -158,25 +153,23 @@ data RebootRelationalDatabaseResponse = RebootRelationalDatabaseResponse'
 -- 'httpStatus', 'rebootRelationalDatabaseResponse_httpStatus' - The response's http status code.
 newRebootRelationalDatabaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RebootRelationalDatabaseResponse
 newRebootRelationalDatabaseResponse pHttpStatus_ =
   RebootRelationalDatabaseResponse'
     { operations =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-rebootRelationalDatabaseResponse_operations :: Lens.Lens' RebootRelationalDatabaseResponse (Prelude.Maybe [Operation])
-rebootRelationalDatabaseResponse_operations = Lens.lens (\RebootRelationalDatabaseResponse' {operations} -> operations) (\s@RebootRelationalDatabaseResponse' {} a -> s {operations = a} :: RebootRelationalDatabaseResponse) Prelude.. Lens.mapping Prelude._Coerce
+rebootRelationalDatabaseResponse_operations :: Lens.Lens' RebootRelationalDatabaseResponse (Core.Maybe [Operation])
+rebootRelationalDatabaseResponse_operations = Lens.lens (\RebootRelationalDatabaseResponse' {operations} -> operations) (\s@RebootRelationalDatabaseResponse' {} a -> s {operations = a} :: RebootRelationalDatabaseResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-rebootRelationalDatabaseResponse_httpStatus :: Lens.Lens' RebootRelationalDatabaseResponse Prelude.Int
+rebootRelationalDatabaseResponse_httpStatus :: Lens.Lens' RebootRelationalDatabaseResponse Core.Int
 rebootRelationalDatabaseResponse_httpStatus = Lens.lens (\RebootRelationalDatabaseResponse' {httpStatus} -> httpStatus) (\s@RebootRelationalDatabaseResponse' {} a -> s {httpStatus = a} :: RebootRelationalDatabaseResponse)
 
-instance
-  Prelude.NFData
-    RebootRelationalDatabaseResponse
+instance Core.NFData RebootRelationalDatabaseResponse

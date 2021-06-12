@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.LogGroupField where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The fields contained in log events found by a @GetLogGroupFields@
 -- operation, along with the percentage of queried log events in which each
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLogGroupField' smart constructor.
 data LogGroupField = LogGroupField'
   { -- | The name of a log field.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The percentage of log events queried that contained the field.
-    percent :: Prelude.Maybe Prelude.Natural
+    percent :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogGroupField' with all optional fields omitted.
@@ -51,28 +50,27 @@ newLogGroupField ::
   LogGroupField
 newLogGroupField =
   LogGroupField'
-    { name = Prelude.Nothing,
-      percent = Prelude.Nothing
+    { name = Core.Nothing,
+      percent = Core.Nothing
     }
 
 -- | The name of a log field.
-logGroupField_name :: Lens.Lens' LogGroupField (Prelude.Maybe Prelude.Text)
+logGroupField_name :: Lens.Lens' LogGroupField (Core.Maybe Core.Text)
 logGroupField_name = Lens.lens (\LogGroupField' {name} -> name) (\s@LogGroupField' {} a -> s {name = a} :: LogGroupField)
 
 -- | The percentage of log events queried that contained the field.
-logGroupField_percent :: Lens.Lens' LogGroupField (Prelude.Maybe Prelude.Natural)
+logGroupField_percent :: Lens.Lens' LogGroupField (Core.Maybe Core.Natural)
 logGroupField_percent = Lens.lens (\LogGroupField' {percent} -> percent) (\s@LogGroupField' {} a -> s {percent = a} :: LogGroupField)
 
-instance Prelude.FromJSON LogGroupField where
+instance Core.FromJSON LogGroupField where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogGroupField"
       ( \x ->
           LogGroupField'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "percent")
+            Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "percent")
       )
 
-instance Prelude.Hashable LogGroupField
+instance Core.Hashable LogGroupField
 
-instance Prelude.NFData LogGroupField
+instance Core.NFData LogGroupField

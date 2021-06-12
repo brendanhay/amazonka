@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Organizations.DescribePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data DescribePolicy = DescribePolicy'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
     -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
     -- letters, digits, or the underscore character (_).
-    policyId :: Prelude.Text
+    policyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePolicy' with all optional fields omitted.
@@ -80,7 +79,7 @@ data DescribePolicy = DescribePolicy'
 -- letters, digits, or the underscore character (_).
 newDescribePolicy ::
   -- | 'policyId'
-  Prelude.Text ->
+  Core.Text ->
   DescribePolicy
 newDescribePolicy pPolicyId_ =
   DescribePolicy' {policyId = pPolicyId_}
@@ -92,60 +91,60 @@ newDescribePolicy pPolicyId_ =
 -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
 -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
 -- letters, digits, or the underscore character (_).
-describePolicy_policyId :: Lens.Lens' DescribePolicy Prelude.Text
+describePolicy_policyId :: Lens.Lens' DescribePolicy Core.Text
 describePolicy_policyId = Lens.lens (\DescribePolicy' {policyId} -> policyId) (\s@DescribePolicy' {} a -> s {policyId = a} :: DescribePolicy)
 
-instance Prelude.AWSRequest DescribePolicy where
-  type Rs DescribePolicy = DescribePolicyResponse
+instance Core.AWSRequest DescribePolicy where
+  type
+    AWSResponse DescribePolicy =
+      DescribePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePolicyResponse'
-            Prelude.<$> (x Prelude..?> "Policy")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Policy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePolicy
+instance Core.Hashable DescribePolicy
 
-instance Prelude.NFData DescribePolicy
+instance Core.NFData DescribePolicy
 
-instance Prelude.ToHeaders DescribePolicy where
+instance Core.ToHeaders DescribePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.DescribePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.DescribePolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribePolicy where
+instance Core.ToJSON DescribePolicy where
   toJSON DescribePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("PolicyId" Prelude..= policyId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("PolicyId" Core..= policyId)]
       )
 
-instance Prelude.ToPath DescribePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePolicyResponse' smart constructor.
 data DescribePolicyResponse = DescribePolicyResponse'
   { -- | A structure that contains details about the specified policy.
-    policy :: Prelude.Maybe Policy,
+    policy :: Core.Maybe Policy,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePolicyResponse' with all optional fields omitted.
@@ -160,20 +159,20 @@ data DescribePolicyResponse = DescribePolicyResponse'
 -- 'httpStatus', 'describePolicyResponse_httpStatus' - The response's http status code.
 newDescribePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePolicyResponse
 newDescribePolicyResponse pHttpStatus_ =
   DescribePolicyResponse'
-    { policy = Prelude.Nothing,
+    { policy = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A structure that contains details about the specified policy.
-describePolicyResponse_policy :: Lens.Lens' DescribePolicyResponse (Prelude.Maybe Policy)
+describePolicyResponse_policy :: Lens.Lens' DescribePolicyResponse (Core.Maybe Policy)
 describePolicyResponse_policy = Lens.lens (\DescribePolicyResponse' {policy} -> policy) (\s@DescribePolicyResponse' {} a -> s {policy = a} :: DescribePolicyResponse)
 
 -- | The response's http status code.
-describePolicyResponse_httpStatus :: Lens.Lens' DescribePolicyResponse Prelude.Int
+describePolicyResponse_httpStatus :: Lens.Lens' DescribePolicyResponse Core.Int
 describePolicyResponse_httpStatus = Lens.lens (\DescribePolicyResponse' {httpStatus} -> httpStatus) (\s@DescribePolicyResponse' {} a -> s {httpStatus = a} :: DescribePolicyResponse)
 
-instance Prelude.NFData DescribePolicyResponse
+instance Core.NFData DescribePolicyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.ImagePermission where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the AWS accounts that have been granted permission to use a
 -- shared image. For more information about sharing images, see
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newImagePermission' smart constructor.
 data ImagePermission = ImagePermission'
   { -- | The identifier of the AWS account that an image has been shared with.
-    sharedAccountId :: Prelude.Maybe Prelude.Text
+    sharedAccountId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImagePermission' with all optional fields omitted.
@@ -46,21 +45,21 @@ data ImagePermission = ImagePermission'
 newImagePermission ::
   ImagePermission
 newImagePermission =
-  ImagePermission' {sharedAccountId = Prelude.Nothing}
+  ImagePermission' {sharedAccountId = Core.Nothing}
 
 -- | The identifier of the AWS account that an image has been shared with.
-imagePermission_sharedAccountId :: Lens.Lens' ImagePermission (Prelude.Maybe Prelude.Text)
+imagePermission_sharedAccountId :: Lens.Lens' ImagePermission (Core.Maybe Core.Text)
 imagePermission_sharedAccountId = Lens.lens (\ImagePermission' {sharedAccountId} -> sharedAccountId) (\s@ImagePermission' {} a -> s {sharedAccountId = a} :: ImagePermission)
 
-instance Prelude.FromJSON ImagePermission where
+instance Core.FromJSON ImagePermission where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImagePermission"
       ( \x ->
           ImagePermission'
-            Prelude.<$> (x Prelude..:? "SharedAccountId")
+            Core.<$> (x Core..:? "SharedAccountId")
       )
 
-instance Prelude.Hashable ImagePermission
+instance Core.Hashable ImagePermission
 
-instance Prelude.NFData ImagePermission
+instance Core.NFData ImagePermission

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.PutEvents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data PutEvents = PutEvents'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     eventsRequest :: EventsRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEvents' with all optional fields omitted.
@@ -71,7 +70,7 @@ data PutEvents = PutEvents'
 -- 'eventsRequest', 'putEvents_eventsRequest' - Undocumented member.
 newPutEvents ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'eventsRequest'
   EventsRequest ->
   PutEvents
@@ -83,63 +82,59 @@ newPutEvents pApplicationId_ pEventsRequest_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-putEvents_applicationId :: Lens.Lens' PutEvents Prelude.Text
+putEvents_applicationId :: Lens.Lens' PutEvents Core.Text
 putEvents_applicationId = Lens.lens (\PutEvents' {applicationId} -> applicationId) (\s@PutEvents' {} a -> s {applicationId = a} :: PutEvents)
 
 -- | Undocumented member.
 putEvents_eventsRequest :: Lens.Lens' PutEvents EventsRequest
 putEvents_eventsRequest = Lens.lens (\PutEvents' {eventsRequest} -> eventsRequest) (\s@PutEvents' {} a -> s {eventsRequest = a} :: PutEvents)
 
-instance Prelude.AWSRequest PutEvents where
-  type Rs PutEvents = PutEventsResponse
+instance Core.AWSRequest PutEvents where
+  type AWSResponse PutEvents = PutEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutEventsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable PutEvents
+instance Core.Hashable PutEvents
 
-instance Prelude.NFData PutEvents
+instance Core.NFData PutEvents
 
-instance Prelude.ToHeaders PutEvents where
+instance Core.ToHeaders PutEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutEvents where
+instance Core.ToJSON PutEvents where
   toJSON PutEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EventsRequest" Prelude..= eventsRequest)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EventsRequest" Core..= eventsRequest)]
       )
 
-instance Prelude.ToPath PutEvents where
+instance Core.ToPath PutEvents where
   toPath PutEvents' {..} =
-    Prelude.mconcat
-      ["/v1/apps/", Prelude.toBS applicationId, "/events"]
+    Core.mconcat
+      ["/v1/apps/", Core.toBS applicationId, "/events"]
 
-instance Prelude.ToQuery PutEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutEventsResponse' smart constructor.
 data PutEventsResponse = PutEventsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     eventsResponse :: EventsResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEventsResponse' with all optional fields omitted.
@@ -154,7 +149,7 @@ data PutEventsResponse = PutEventsResponse'
 -- 'eventsResponse', 'putEventsResponse_eventsResponse' - Undocumented member.
 newPutEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'eventsResponse'
   EventsResponse ->
   PutEventsResponse
@@ -165,11 +160,11 @@ newPutEventsResponse pHttpStatus_ pEventsResponse_ =
     }
 
 -- | The response's http status code.
-putEventsResponse_httpStatus :: Lens.Lens' PutEventsResponse Prelude.Int
+putEventsResponse_httpStatus :: Lens.Lens' PutEventsResponse Core.Int
 putEventsResponse_httpStatus = Lens.lens (\PutEventsResponse' {httpStatus} -> httpStatus) (\s@PutEventsResponse' {} a -> s {httpStatus = a} :: PutEventsResponse)
 
 -- | Undocumented member.
 putEventsResponse_eventsResponse :: Lens.Lens' PutEventsResponse EventsResponse
 putEventsResponse_eventsResponse = Lens.lens (\PutEventsResponse' {eventsResponse} -> eventsResponse) (\s@PutEventsResponse' {} a -> s {eventsResponse = a} :: PutEventsResponse)
 
-instance Prelude.NFData PutEventsResponse
+instance Core.NFData PutEventsResponse

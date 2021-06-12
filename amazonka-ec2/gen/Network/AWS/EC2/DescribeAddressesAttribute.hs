@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,32 +48,31 @@ module Network.AWS.EC2.DescribeAddressesAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAddressesAttribute' smart constructor.
 data DescribeAddressesAttribute = DescribeAddressesAttribute'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The attribute of the IP address.
-    attribute :: Prelude.Maybe AddressAttributeName,
+    attribute :: Core.Maybe AddressAttributeName,
     -- | [EC2-VPC] The allocation IDs.
-    allocationIds :: Prelude.Maybe [Prelude.Text]
+    allocationIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddressesAttribute' with all optional fields omitted.
@@ -103,104 +101,99 @@ newDescribeAddressesAttribute ::
 newDescribeAddressesAttribute =
   DescribeAddressesAttribute'
     { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      attribute = Prelude.Nothing,
-      allocationIds = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      attribute = Core.Nothing,
+      allocationIds = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeAddressesAttribute_nextToken :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe Prelude.Text)
+describeAddressesAttribute_nextToken :: Lens.Lens' DescribeAddressesAttribute (Core.Maybe Core.Text)
 describeAddressesAttribute_nextToken = Lens.lens (\DescribeAddressesAttribute' {nextToken} -> nextToken) (\s@DescribeAddressesAttribute' {} a -> s {nextToken = a} :: DescribeAddressesAttribute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeAddressesAttribute_dryRun :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe Prelude.Bool)
+describeAddressesAttribute_dryRun :: Lens.Lens' DescribeAddressesAttribute (Core.Maybe Core.Bool)
 describeAddressesAttribute_dryRun = Lens.lens (\DescribeAddressesAttribute' {dryRun} -> dryRun) (\s@DescribeAddressesAttribute' {} a -> s {dryRun = a} :: DescribeAddressesAttribute)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
-describeAddressesAttribute_maxResults :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe Prelude.Natural)
+describeAddressesAttribute_maxResults :: Lens.Lens' DescribeAddressesAttribute (Core.Maybe Core.Natural)
 describeAddressesAttribute_maxResults = Lens.lens (\DescribeAddressesAttribute' {maxResults} -> maxResults) (\s@DescribeAddressesAttribute' {} a -> s {maxResults = a} :: DescribeAddressesAttribute)
 
 -- | The attribute of the IP address.
-describeAddressesAttribute_attribute :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe AddressAttributeName)
+describeAddressesAttribute_attribute :: Lens.Lens' DescribeAddressesAttribute (Core.Maybe AddressAttributeName)
 describeAddressesAttribute_attribute = Lens.lens (\DescribeAddressesAttribute' {attribute} -> attribute) (\s@DescribeAddressesAttribute' {} a -> s {attribute = a} :: DescribeAddressesAttribute)
 
 -- | [EC2-VPC] The allocation IDs.
-describeAddressesAttribute_allocationIds :: Lens.Lens' DescribeAddressesAttribute (Prelude.Maybe [Prelude.Text])
-describeAddressesAttribute_allocationIds = Lens.lens (\DescribeAddressesAttribute' {allocationIds} -> allocationIds) (\s@DescribeAddressesAttribute' {} a -> s {allocationIds = a} :: DescribeAddressesAttribute) Prelude.. Lens.mapping Prelude._Coerce
+describeAddressesAttribute_allocationIds :: Lens.Lens' DescribeAddressesAttribute (Core.Maybe [Core.Text])
+describeAddressesAttribute_allocationIds = Lens.lens (\DescribeAddressesAttribute' {allocationIds} -> allocationIds) (\s@DescribeAddressesAttribute' {} a -> s {allocationIds = a} :: DescribeAddressesAttribute) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeAddressesAttribute where
+instance Core.AWSPager DescribeAddressesAttribute where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAddressesAttributeResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAddressesAttributeResponse_addresses
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAddressesAttribute_nextToken
           Lens..~ rs
           Lens.^? describeAddressesAttributeResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeAddressesAttribute
-  where
+instance Core.AWSRequest DescribeAddressesAttribute where
   type
-    Rs DescribeAddressesAttribute =
+    AWSResponse DescribeAddressesAttribute =
       DescribeAddressesAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesAttributeResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "addressSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "addressSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddressesAttribute
+instance Core.Hashable DescribeAddressesAttribute
 
-instance Prelude.NFData DescribeAddressesAttribute
+instance Core.NFData DescribeAddressesAttribute
 
-instance Prelude.ToHeaders DescribeAddressesAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeAddressesAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeAddressesAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAddressesAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAddressesAttribute where
+instance Core.ToQuery DescribeAddressesAttribute where
   toQuery DescribeAddressesAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeAddressesAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        "Attribute" Prelude.=: attribute,
-        Prelude.toQuery
-          ( Prelude.toQueryList "AllocationId"
-              Prelude.<$> allocationIds
+          Core.=: ("DescribeAddressesAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        "Attribute" Core.=: attribute,
+        Core.toQuery
+          ( Core.toQueryList "AllocationId"
+              Core.<$> allocationIds
           )
       ]
 
@@ -208,13 +201,13 @@ instance Prelude.ToQuery DescribeAddressesAttribute where
 data DescribeAddressesAttributeResponse = DescribeAddressesAttributeResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the IP addresses.
-    addresses :: Prelude.Maybe [AddressAttribute],
+    addresses :: Core.Maybe [AddressAttribute],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddressesAttributeResponse' with all optional fields omitted.
@@ -232,29 +225,29 @@ data DescribeAddressesAttributeResponse = DescribeAddressesAttributeResponse'
 -- 'httpStatus', 'describeAddressesAttributeResponse_httpStatus' - The response's http status code.
 newDescribeAddressesAttributeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAddressesAttributeResponse
 newDescribeAddressesAttributeResponse pHttpStatus_ =
   DescribeAddressesAttributeResponse'
     { nextToken =
-        Prelude.Nothing,
-      addresses = Prelude.Nothing,
+        Core.Nothing,
+      addresses = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeAddressesAttributeResponse_nextToken :: Lens.Lens' DescribeAddressesAttributeResponse (Prelude.Maybe Prelude.Text)
+describeAddressesAttributeResponse_nextToken :: Lens.Lens' DescribeAddressesAttributeResponse (Core.Maybe Core.Text)
 describeAddressesAttributeResponse_nextToken = Lens.lens (\DescribeAddressesAttributeResponse' {nextToken} -> nextToken) (\s@DescribeAddressesAttributeResponse' {} a -> s {nextToken = a} :: DescribeAddressesAttributeResponse)
 
 -- | Information about the IP addresses.
-describeAddressesAttributeResponse_addresses :: Lens.Lens' DescribeAddressesAttributeResponse (Prelude.Maybe [AddressAttribute])
-describeAddressesAttributeResponse_addresses = Lens.lens (\DescribeAddressesAttributeResponse' {addresses} -> addresses) (\s@DescribeAddressesAttributeResponse' {} a -> s {addresses = a} :: DescribeAddressesAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAddressesAttributeResponse_addresses :: Lens.Lens' DescribeAddressesAttributeResponse (Core.Maybe [AddressAttribute])
+describeAddressesAttributeResponse_addresses = Lens.lens (\DescribeAddressesAttributeResponse' {addresses} -> addresses) (\s@DescribeAddressesAttributeResponse' {} a -> s {addresses = a} :: DescribeAddressesAttributeResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAddressesAttributeResponse_httpStatus :: Lens.Lens' DescribeAddressesAttributeResponse Prelude.Int
+describeAddressesAttributeResponse_httpStatus :: Lens.Lens' DescribeAddressesAttributeResponse Core.Int
 describeAddressesAttributeResponse_httpStatus = Lens.lens (\DescribeAddressesAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeAddressesAttributeResponse' {} a -> s {httpStatus = a} :: DescribeAddressesAttributeResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAddressesAttributeResponse

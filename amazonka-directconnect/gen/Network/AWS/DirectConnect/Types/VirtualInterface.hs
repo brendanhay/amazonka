@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.VirtualInterface where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.AddressFamily
 import Network.AWS.DirectConnect.Types.BGPPeer
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
 import Network.AWS.DirectConnect.Types.Tag
 import Network.AWS.DirectConnect.Types.VirtualInterfaceState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a virtual interface.
 --
@@ -34,43 +33,43 @@ import qualified Network.AWS.Prelude as Prelude
 data VirtualInterface = VirtualInterface'
   { -- | The authentication key for BGP configuration. This string has a minimum
     -- length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Prelude.Maybe Prelude.Text,
+    authKey :: Core.Maybe Core.Text,
     -- | The BGP peers configured on this virtual interface.
-    bgpPeers :: Prelude.Maybe [BGPPeer],
+    bgpPeers :: Core.Maybe [BGPPeer],
     -- | The ID of the virtual private gateway. Applies only to private virtual
     -- interfaces.
-    virtualGatewayId :: Prelude.Maybe Prelude.Text,
+    virtualGatewayId :: Core.Maybe Core.Text,
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
     --
     -- The valid values are 1-2147483647.
-    asn :: Prelude.Maybe Prelude.Int,
+    asn :: Core.Maybe Core.Int,
     -- | The Direct Connect endpoint on which the virtual interface terminates.
-    awsDeviceV2 :: Prelude.Maybe Prelude.Text,
+    awsDeviceV2 :: Core.Maybe Core.Text,
     -- | The ID of the connection.
-    connectionId :: Prelude.Maybe Prelude.Text,
+    connectionId :: Core.Maybe Core.Text,
     -- | The customer router configuration.
-    customerRouterConfig :: Prelude.Maybe Prelude.Text,
+    customerRouterConfig :: Core.Maybe Core.Text,
     -- | Indicates whether jumbo frames (9001 MTU) are supported.
-    jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
+    jumboFrameCapable :: Core.Maybe Core.Bool,
     -- | The routes to be advertised to the AWS network in this Region. Applies
     -- to public virtual interfaces.
-    routeFilterPrefixes :: Prelude.Maybe [RouteFilterPrefix],
+    routeFilterPrefixes :: Core.Maybe [RouteFilterPrefix],
     -- | The type of virtual interface. The possible values are @private@ and
     -- @public@.
-    virtualInterfaceType :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceType :: Core.Maybe Core.Text,
     -- | The maximum transmission unit (MTU), in bytes. The supported values are
     -- 1500 and 9001. The default value is 1500.
-    mtu :: Prelude.Maybe Prelude.Int,
+    mtu :: Core.Maybe Core.Int,
     -- | The tags associated with the virtual interface.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceId :: Core.Maybe Core.Text,
     -- | The autonomous system number (ASN) for the Amazon side of the
     -- connection.
-    amazonSideAsn :: Prelude.Maybe Prelude.Integer,
+    amazonSideAsn :: Core.Maybe Core.Integer,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Maybe Prelude.Text,
+    directConnectGatewayId :: Core.Maybe Core.Text,
     -- | The state of the virtual interface. The following are the possible
     -- values:
     --
@@ -104,27 +103,27 @@ data VirtualInterface = VirtualInterface'
     --     enters the @Rejected@ state.
     --
     -- -   @unknown@: The state of the virtual interface is not available.
-    virtualInterfaceState :: Prelude.Maybe VirtualInterfaceState,
+    virtualInterfaceState :: Core.Maybe VirtualInterfaceState,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
-    virtualInterfaceName :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceName :: Core.Maybe Core.Text,
     -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
+    addressFamily :: Core.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Prelude.Maybe Prelude.Text,
+    amazonAddress :: Core.Maybe Core.Text,
     -- | The ID of the AWS account that owns the virtual interface.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
+    ownerAccount :: Core.Maybe Core.Text,
     -- | The AWS Region where the virtual interface is located.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The location of the connection.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The ID of the VLAN.
-    vlan :: Prelude.Maybe Prelude.Int,
+    vlan :: Core.Maybe Core.Int,
     -- | The IP address assigned to the customer interface.
-    customerAddress :: Prelude.Maybe Prelude.Text
+    customerAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VirtualInterface' with all optional fields omitted.
@@ -228,99 +227,99 @@ newVirtualInterface ::
   VirtualInterface
 newVirtualInterface =
   VirtualInterface'
-    { authKey = Prelude.Nothing,
-      bgpPeers = Prelude.Nothing,
-      virtualGatewayId = Prelude.Nothing,
-      asn = Prelude.Nothing,
-      awsDeviceV2 = Prelude.Nothing,
-      connectionId = Prelude.Nothing,
-      customerRouterConfig = Prelude.Nothing,
-      jumboFrameCapable = Prelude.Nothing,
-      routeFilterPrefixes = Prelude.Nothing,
-      virtualInterfaceType = Prelude.Nothing,
-      mtu = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      virtualInterfaceId = Prelude.Nothing,
-      amazonSideAsn = Prelude.Nothing,
-      directConnectGatewayId = Prelude.Nothing,
-      virtualInterfaceState = Prelude.Nothing,
-      virtualInterfaceName = Prelude.Nothing,
-      addressFamily = Prelude.Nothing,
-      amazonAddress = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing,
-      region = Prelude.Nothing,
-      location = Prelude.Nothing,
-      vlan = Prelude.Nothing,
-      customerAddress = Prelude.Nothing
+    { authKey = Core.Nothing,
+      bgpPeers = Core.Nothing,
+      virtualGatewayId = Core.Nothing,
+      asn = Core.Nothing,
+      awsDeviceV2 = Core.Nothing,
+      connectionId = Core.Nothing,
+      customerRouterConfig = Core.Nothing,
+      jumboFrameCapable = Core.Nothing,
+      routeFilterPrefixes = Core.Nothing,
+      virtualInterfaceType = Core.Nothing,
+      mtu = Core.Nothing,
+      tags = Core.Nothing,
+      virtualInterfaceId = Core.Nothing,
+      amazonSideAsn = Core.Nothing,
+      directConnectGatewayId = Core.Nothing,
+      virtualInterfaceState = Core.Nothing,
+      virtualInterfaceName = Core.Nothing,
+      addressFamily = Core.Nothing,
+      amazonAddress = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      region = Core.Nothing,
+      location = Core.Nothing,
+      vlan = Core.Nothing,
+      customerAddress = Core.Nothing
     }
 
 -- | The authentication key for BGP configuration. This string has a minimum
 -- length of 6 characters and and a maximun lenth of 80 characters.
-virtualInterface_authKey :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_authKey :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_authKey = Lens.lens (\VirtualInterface' {authKey} -> authKey) (\s@VirtualInterface' {} a -> s {authKey = a} :: VirtualInterface)
 
 -- | The BGP peers configured on this virtual interface.
-virtualInterface_bgpPeers :: Lens.Lens' VirtualInterface (Prelude.Maybe [BGPPeer])
-virtualInterface_bgpPeers = Lens.lens (\VirtualInterface' {bgpPeers} -> bgpPeers) (\s@VirtualInterface' {} a -> s {bgpPeers = a} :: VirtualInterface) Prelude.. Lens.mapping Prelude._Coerce
+virtualInterface_bgpPeers :: Lens.Lens' VirtualInterface (Core.Maybe [BGPPeer])
+virtualInterface_bgpPeers = Lens.lens (\VirtualInterface' {bgpPeers} -> bgpPeers) (\s@VirtualInterface' {} a -> s {bgpPeers = a} :: VirtualInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the virtual private gateway. Applies only to private virtual
 -- interfaces.
-virtualInterface_virtualGatewayId :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_virtualGatewayId :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_virtualGatewayId = Lens.lens (\VirtualInterface' {virtualGatewayId} -> virtualGatewayId) (\s@VirtualInterface' {} a -> s {virtualGatewayId = a} :: VirtualInterface)
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
 --
 -- The valid values are 1-2147483647.
-virtualInterface_asn :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Int)
+virtualInterface_asn :: Lens.Lens' VirtualInterface (Core.Maybe Core.Int)
 virtualInterface_asn = Lens.lens (\VirtualInterface' {asn} -> asn) (\s@VirtualInterface' {} a -> s {asn = a} :: VirtualInterface)
 
 -- | The Direct Connect endpoint on which the virtual interface terminates.
-virtualInterface_awsDeviceV2 :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_awsDeviceV2 :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_awsDeviceV2 = Lens.lens (\VirtualInterface' {awsDeviceV2} -> awsDeviceV2) (\s@VirtualInterface' {} a -> s {awsDeviceV2 = a} :: VirtualInterface)
 
 -- | The ID of the connection.
-virtualInterface_connectionId :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_connectionId :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_connectionId = Lens.lens (\VirtualInterface' {connectionId} -> connectionId) (\s@VirtualInterface' {} a -> s {connectionId = a} :: VirtualInterface)
 
 -- | The customer router configuration.
-virtualInterface_customerRouterConfig :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_customerRouterConfig :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_customerRouterConfig = Lens.lens (\VirtualInterface' {customerRouterConfig} -> customerRouterConfig) (\s@VirtualInterface' {} a -> s {customerRouterConfig = a} :: VirtualInterface)
 
 -- | Indicates whether jumbo frames (9001 MTU) are supported.
-virtualInterface_jumboFrameCapable :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Bool)
+virtualInterface_jumboFrameCapable :: Lens.Lens' VirtualInterface (Core.Maybe Core.Bool)
 virtualInterface_jumboFrameCapable = Lens.lens (\VirtualInterface' {jumboFrameCapable} -> jumboFrameCapable) (\s@VirtualInterface' {} a -> s {jumboFrameCapable = a} :: VirtualInterface)
 
 -- | The routes to be advertised to the AWS network in this Region. Applies
 -- to public virtual interfaces.
-virtualInterface_routeFilterPrefixes :: Lens.Lens' VirtualInterface (Prelude.Maybe [RouteFilterPrefix])
-virtualInterface_routeFilterPrefixes = Lens.lens (\VirtualInterface' {routeFilterPrefixes} -> routeFilterPrefixes) (\s@VirtualInterface' {} a -> s {routeFilterPrefixes = a} :: VirtualInterface) Prelude.. Lens.mapping Prelude._Coerce
+virtualInterface_routeFilterPrefixes :: Lens.Lens' VirtualInterface (Core.Maybe [RouteFilterPrefix])
+virtualInterface_routeFilterPrefixes = Lens.lens (\VirtualInterface' {routeFilterPrefixes} -> routeFilterPrefixes) (\s@VirtualInterface' {} a -> s {routeFilterPrefixes = a} :: VirtualInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of virtual interface. The possible values are @private@ and
 -- @public@.
-virtualInterface_virtualInterfaceType :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_virtualInterfaceType :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_virtualInterfaceType = Lens.lens (\VirtualInterface' {virtualInterfaceType} -> virtualInterfaceType) (\s@VirtualInterface' {} a -> s {virtualInterfaceType = a} :: VirtualInterface)
 
 -- | The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
-virtualInterface_mtu :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Int)
+virtualInterface_mtu :: Lens.Lens' VirtualInterface (Core.Maybe Core.Int)
 virtualInterface_mtu = Lens.lens (\VirtualInterface' {mtu} -> mtu) (\s@VirtualInterface' {} a -> s {mtu = a} :: VirtualInterface)
 
 -- | The tags associated with the virtual interface.
-virtualInterface_tags :: Lens.Lens' VirtualInterface (Prelude.Maybe (Prelude.NonEmpty Tag))
-virtualInterface_tags = Lens.lens (\VirtualInterface' {tags} -> tags) (\s@VirtualInterface' {} a -> s {tags = a} :: VirtualInterface) Prelude.. Lens.mapping Prelude._Coerce
+virtualInterface_tags :: Lens.Lens' VirtualInterface (Core.Maybe (Core.NonEmpty Tag))
+virtualInterface_tags = Lens.lens (\VirtualInterface' {tags} -> tags) (\s@VirtualInterface' {} a -> s {tags = a} :: VirtualInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the virtual interface.
-virtualInterface_virtualInterfaceId :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_virtualInterfaceId :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_virtualInterfaceId = Lens.lens (\VirtualInterface' {virtualInterfaceId} -> virtualInterfaceId) (\s@VirtualInterface' {} a -> s {virtualInterfaceId = a} :: VirtualInterface)
 
 -- | The autonomous system number (ASN) for the Amazon side of the
 -- connection.
-virtualInterface_amazonSideAsn :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Integer)
+virtualInterface_amazonSideAsn :: Lens.Lens' VirtualInterface (Core.Maybe Core.Integer)
 virtualInterface_amazonSideAsn = Lens.lens (\VirtualInterface' {amazonSideAsn} -> amazonSideAsn) (\s@VirtualInterface' {} a -> s {amazonSideAsn = a} :: VirtualInterface)
 
 -- | The ID of the Direct Connect gateway.
-virtualInterface_directConnectGatewayId :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_directConnectGatewayId :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_directConnectGatewayId = Lens.lens (\VirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@VirtualInterface' {} a -> s {directConnectGatewayId = a} :: VirtualInterface)
 
 -- | The state of the virtual interface. The following are the possible
@@ -356,77 +355,77 @@ virtualInterface_directConnectGatewayId = Lens.lens (\VirtualInterface' {directC
 --     enters the @Rejected@ state.
 --
 -- -   @unknown@: The state of the virtual interface is not available.
-virtualInterface_virtualInterfaceState :: Lens.Lens' VirtualInterface (Prelude.Maybe VirtualInterfaceState)
+virtualInterface_virtualInterfaceState :: Lens.Lens' VirtualInterface (Core.Maybe VirtualInterfaceState)
 virtualInterface_virtualInterfaceState = Lens.lens (\VirtualInterface' {virtualInterfaceState} -> virtualInterfaceState) (\s@VirtualInterface' {} a -> s {virtualInterfaceState = a} :: VirtualInterface)
 
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
-virtualInterface_virtualInterfaceName :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_virtualInterfaceName :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_virtualInterfaceName = Lens.lens (\VirtualInterface' {virtualInterfaceName} -> virtualInterfaceName) (\s@VirtualInterface' {} a -> s {virtualInterfaceName = a} :: VirtualInterface)
 
 -- | The address family for the BGP peer.
-virtualInterface_addressFamily :: Lens.Lens' VirtualInterface (Prelude.Maybe AddressFamily)
+virtualInterface_addressFamily :: Lens.Lens' VirtualInterface (Core.Maybe AddressFamily)
 virtualInterface_addressFamily = Lens.lens (\VirtualInterface' {addressFamily} -> addressFamily) (\s@VirtualInterface' {} a -> s {addressFamily = a} :: VirtualInterface)
 
 -- | The IP address assigned to the Amazon interface.
-virtualInterface_amazonAddress :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_amazonAddress :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_amazonAddress = Lens.lens (\VirtualInterface' {amazonAddress} -> amazonAddress) (\s@VirtualInterface' {} a -> s {amazonAddress = a} :: VirtualInterface)
 
 -- | The ID of the AWS account that owns the virtual interface.
-virtualInterface_ownerAccount :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_ownerAccount :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_ownerAccount = Lens.lens (\VirtualInterface' {ownerAccount} -> ownerAccount) (\s@VirtualInterface' {} a -> s {ownerAccount = a} :: VirtualInterface)
 
 -- | The AWS Region where the virtual interface is located.
-virtualInterface_region :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_region :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_region = Lens.lens (\VirtualInterface' {region} -> region) (\s@VirtualInterface' {} a -> s {region = a} :: VirtualInterface)
 
 -- | The location of the connection.
-virtualInterface_location :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_location :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_location = Lens.lens (\VirtualInterface' {location} -> location) (\s@VirtualInterface' {} a -> s {location = a} :: VirtualInterface)
 
 -- | The ID of the VLAN.
-virtualInterface_vlan :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Int)
+virtualInterface_vlan :: Lens.Lens' VirtualInterface (Core.Maybe Core.Int)
 virtualInterface_vlan = Lens.lens (\VirtualInterface' {vlan} -> vlan) (\s@VirtualInterface' {} a -> s {vlan = a} :: VirtualInterface)
 
 -- | The IP address assigned to the customer interface.
-virtualInterface_customerAddress :: Lens.Lens' VirtualInterface (Prelude.Maybe Prelude.Text)
+virtualInterface_customerAddress :: Lens.Lens' VirtualInterface (Core.Maybe Core.Text)
 virtualInterface_customerAddress = Lens.lens (\VirtualInterface' {customerAddress} -> customerAddress) (\s@VirtualInterface' {} a -> s {customerAddress = a} :: VirtualInterface)
 
-instance Prelude.FromJSON VirtualInterface where
+instance Core.FromJSON VirtualInterface where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VirtualInterface"
       ( \x ->
           VirtualInterface'
-            Prelude.<$> (x Prelude..:? "authKey")
-            Prelude.<*> (x Prelude..:? "bgpPeers" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "virtualGatewayId")
-            Prelude.<*> (x Prelude..:? "asn")
-            Prelude.<*> (x Prelude..:? "awsDeviceV2")
-            Prelude.<*> (x Prelude..:? "connectionId")
-            Prelude.<*> (x Prelude..:? "customerRouterConfig")
-            Prelude.<*> (x Prelude..:? "jumboFrameCapable")
-            Prelude.<*> ( x Prelude..:? "routeFilterPrefixes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "virtualInterfaceType")
-            Prelude.<*> (x Prelude..:? "mtu")
-            Prelude.<*> (x Prelude..:? "tags")
-            Prelude.<*> (x Prelude..:? "virtualInterfaceId")
-            Prelude.<*> (x Prelude..:? "amazonSideAsn")
-            Prelude.<*> (x Prelude..:? "directConnectGatewayId")
-            Prelude.<*> (x Prelude..:? "virtualInterfaceState")
-            Prelude.<*> (x Prelude..:? "virtualInterfaceName")
-            Prelude.<*> (x Prelude..:? "addressFamily")
-            Prelude.<*> (x Prelude..:? "amazonAddress")
-            Prelude.<*> (x Prelude..:? "ownerAccount")
-            Prelude.<*> (x Prelude..:? "region")
-            Prelude.<*> (x Prelude..:? "location")
-            Prelude.<*> (x Prelude..:? "vlan")
-            Prelude.<*> (x Prelude..:? "customerAddress")
+            Core.<$> (x Core..:? "authKey")
+            Core.<*> (x Core..:? "bgpPeers" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "virtualGatewayId")
+            Core.<*> (x Core..:? "asn")
+            Core.<*> (x Core..:? "awsDeviceV2")
+            Core.<*> (x Core..:? "connectionId")
+            Core.<*> (x Core..:? "customerRouterConfig")
+            Core.<*> (x Core..:? "jumboFrameCapable")
+            Core.<*> ( x Core..:? "routeFilterPrefixes"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "virtualInterfaceType")
+            Core.<*> (x Core..:? "mtu")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (x Core..:? "virtualInterfaceId")
+            Core.<*> (x Core..:? "amazonSideAsn")
+            Core.<*> (x Core..:? "directConnectGatewayId")
+            Core.<*> (x Core..:? "virtualInterfaceState")
+            Core.<*> (x Core..:? "virtualInterfaceName")
+            Core.<*> (x Core..:? "addressFamily")
+            Core.<*> (x Core..:? "amazonAddress")
+            Core.<*> (x Core..:? "ownerAccount")
+            Core.<*> (x Core..:? "region")
+            Core.<*> (x Core..:? "location")
+            Core.<*> (x Core..:? "vlan")
+            Core.<*> (x Core..:? "customerAddress")
       )
 
-instance Prelude.Hashable VirtualInterface
+instance Core.Hashable VirtualInterface
 
-instance Prelude.NFData VirtualInterface
+instance Core.NFData VirtualInterface

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatch.Types.MessageData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A message returned by the @GetMetricData@API, including a code and a
 -- description.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMessageData' smart constructor.
 data MessageData = MessageData'
   { -- | The error code or status code associated with the message.
-    code :: Prelude.Maybe Prelude.Text,
+    code :: Core.Maybe Core.Text,
     -- | The message text.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MessageData' with all optional fields omitted.
@@ -50,24 +49,23 @@ newMessageData ::
   MessageData
 newMessageData =
   MessageData'
-    { code = Prelude.Nothing,
-      value = Prelude.Nothing
+    { code = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The error code or status code associated with the message.
-messageData_code :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
+messageData_code :: Lens.Lens' MessageData (Core.Maybe Core.Text)
 messageData_code = Lens.lens (\MessageData' {code} -> code) (\s@MessageData' {} a -> s {code = a} :: MessageData)
 
 -- | The message text.
-messageData_value :: Lens.Lens' MessageData (Prelude.Maybe Prelude.Text)
+messageData_value :: Lens.Lens' MessageData (Core.Maybe Core.Text)
 messageData_value = Lens.lens (\MessageData' {value} -> value) (\s@MessageData' {} a -> s {value = a} :: MessageData)
 
-instance Prelude.FromXML MessageData where
+instance Core.FromXML MessageData where
   parseXML x =
     MessageData'
-      Prelude.<$> (x Prelude..@? "Code")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Code") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable MessageData
+instance Core.Hashable MessageData
 
-instance Prelude.NFData MessageData
+instance Core.NFData MessageData

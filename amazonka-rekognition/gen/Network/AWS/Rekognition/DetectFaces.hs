@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,8 +63,8 @@ module Network.AWS.Rekognition.DetectFaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -83,7 +82,7 @@ data DetectFaces = DetectFaces'
     -- If you provide both, @[\"ALL\", \"DEFAULT\"]@, the service uses a
     -- logical AND operator to determine which attributes to return (in this
     -- case, all attributes).
-    attributes :: Prelude.Maybe [Attribute],
+    attributes :: Core.Maybe [Attribute],
     -- | The input image as base64-encoded bytes or an S3 object. If you use the
     -- AWS CLI to call Amazon Rekognition operations, passing base64-encoded
     -- image bytes is not supported.
@@ -93,7 +92,7 @@ data DetectFaces = DetectFaces'
     -- more information, see Images in the Amazon Rekognition developer guide.
     image :: Image
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectFaces' with all optional fields omitted.
@@ -128,7 +127,7 @@ newDetectFaces ::
   DetectFaces
 newDetectFaces pImage_ =
   DetectFaces'
-    { attributes = Prelude.Nothing,
+    { attributes = Core.Nothing,
       image = pImage_
     }
 
@@ -143,8 +142,8 @@ newDetectFaces pImage_ =
 -- If you provide both, @[\"ALL\", \"DEFAULT\"]@, the service uses a
 -- logical AND operator to determine which attributes to return (in this
 -- case, all attributes).
-detectFaces_attributes :: Lens.Lens' DetectFaces (Prelude.Maybe [Attribute])
-detectFaces_attributes = Lens.lens (\DetectFaces' {attributes} -> attributes) (\s@DetectFaces' {} a -> s {attributes = a} :: DetectFaces) Prelude.. Lens.mapping Prelude._Coerce
+detectFaces_attributes :: Lens.Lens' DetectFaces (Core.Maybe [Attribute])
+detectFaces_attributes = Lens.lens (\DetectFaces' {attributes} -> attributes) (\s@DetectFaces' {} a -> s {attributes = a} :: DetectFaces) Core.. Lens.mapping Lens._Coerce
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the
 -- AWS CLI to call Amazon Rekognition operations, passing base64-encoded
@@ -156,58 +155,54 @@ detectFaces_attributes = Lens.lens (\DetectFaces' {attributes} -> attributes) (\
 detectFaces_image :: Lens.Lens' DetectFaces Image
 detectFaces_image = Lens.lens (\DetectFaces' {image} -> image) (\s@DetectFaces' {} a -> s {image = a} :: DetectFaces)
 
-instance Prelude.AWSRequest DetectFaces where
-  type Rs DetectFaces = DetectFacesResponse
+instance Core.AWSRequest DetectFaces where
+  type AWSResponse DetectFaces = DetectFacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DetectFacesResponse'
-            Prelude.<$> ( x Prelude..?> "FaceDetails"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "OrientationCorrection")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FaceDetails" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "OrientationCorrection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DetectFaces
+instance Core.Hashable DetectFaces
 
-instance Prelude.NFData DetectFaces
+instance Core.NFData DetectFaces
 
-instance Prelude.ToHeaders DetectFaces where
+instance Core.ToHeaders DetectFaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.DetectFaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "RekognitionService.DetectFaces" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DetectFaces where
+instance Core.ToJSON DetectFaces where
   toJSON DetectFaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Attributes" Prelude..=) Prelude.<$> attributes,
-            Prelude.Just ("Image" Prelude..= image)
+    Core.object
+      ( Core.catMaybes
+          [ ("Attributes" Core..=) Core.<$> attributes,
+            Core.Just ("Image" Core..= image)
           ]
       )
 
-instance Prelude.ToPath DetectFaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath DetectFaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DetectFaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DetectFaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDetectFacesResponse' smart constructor.
 data DetectFacesResponse = DetectFacesResponse'
   { -- | Details of each face found in the image.
-    faceDetails :: Prelude.Maybe [FaceDetail],
+    faceDetails :: Core.Maybe [FaceDetail],
     -- | The value of @OrientationCorrection@ is always null.
     --
     -- If the input image is in .jpeg format, it might contain exchangeable
@@ -222,11 +217,11 @@ data DetectFacesResponse = DetectFacesResponse'
     -- format and .jpeg images without orientation information in the image
     -- Exif metadata. The bounding box coordinates aren\'t translated and
     -- represent the object locations before the image is rotated.
-    orientationCorrection :: Prelude.Maybe OrientationCorrection,
+    orientationCorrection :: Core.Maybe OrientationCorrection,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectFacesResponse' with all optional fields omitted.
@@ -256,18 +251,18 @@ data DetectFacesResponse = DetectFacesResponse'
 -- 'httpStatus', 'detectFacesResponse_httpStatus' - The response's http status code.
 newDetectFacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DetectFacesResponse
 newDetectFacesResponse pHttpStatus_ =
   DetectFacesResponse'
-    { faceDetails = Prelude.Nothing,
-      orientationCorrection = Prelude.Nothing,
+    { faceDetails = Core.Nothing,
+      orientationCorrection = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Details of each face found in the image.
-detectFacesResponse_faceDetails :: Lens.Lens' DetectFacesResponse (Prelude.Maybe [FaceDetail])
-detectFacesResponse_faceDetails = Lens.lens (\DetectFacesResponse' {faceDetails} -> faceDetails) (\s@DetectFacesResponse' {} a -> s {faceDetails = a} :: DetectFacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+detectFacesResponse_faceDetails :: Lens.Lens' DetectFacesResponse (Core.Maybe [FaceDetail])
+detectFacesResponse_faceDetails = Lens.lens (\DetectFacesResponse' {faceDetails} -> faceDetails) (\s@DetectFacesResponse' {} a -> s {faceDetails = a} :: DetectFacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The value of @OrientationCorrection@ is always null.
 --
@@ -283,11 +278,11 @@ detectFacesResponse_faceDetails = Lens.lens (\DetectFacesResponse' {faceDetails}
 -- format and .jpeg images without orientation information in the image
 -- Exif metadata. The bounding box coordinates aren\'t translated and
 -- represent the object locations before the image is rotated.
-detectFacesResponse_orientationCorrection :: Lens.Lens' DetectFacesResponse (Prelude.Maybe OrientationCorrection)
+detectFacesResponse_orientationCorrection :: Lens.Lens' DetectFacesResponse (Core.Maybe OrientationCorrection)
 detectFacesResponse_orientationCorrection = Lens.lens (\DetectFacesResponse' {orientationCorrection} -> orientationCorrection) (\s@DetectFacesResponse' {} a -> s {orientationCorrection = a} :: DetectFacesResponse)
 
 -- | The response's http status code.
-detectFacesResponse_httpStatus :: Lens.Lens' DetectFacesResponse Prelude.Int
+detectFacesResponse_httpStatus :: Lens.Lens' DetectFacesResponse Core.Int
 detectFacesResponse_httpStatus = Lens.lens (\DetectFacesResponse' {httpStatus} -> httpStatus) (\s@DetectFacesResponse' {} a -> s {httpStatus = a} :: DetectFacesResponse)
 
-instance Prelude.NFData DetectFacesResponse
+instance Core.NFData DetectFacesResponse

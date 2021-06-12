@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.IoT.DeleteV2LoggingLevel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +48,9 @@ data DeleteV2LoggingLevel = DeleteV2LoggingLevel'
     -- @THING_Group@.
     targetType :: LogTargetType,
     -- | The name of the resource for which you are configuring logging.
-    targetName :: Prelude.Text
+    targetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteV2LoggingLevel' with all optional fields omitted.
@@ -69,7 +68,7 @@ newDeleteV2LoggingLevel ::
   -- | 'targetType'
   LogTargetType ->
   -- | 'targetName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteV2LoggingLevel
 newDeleteV2LoggingLevel pTargetType_ pTargetName_ =
   DeleteV2LoggingLevel'
@@ -83,39 +82,39 @@ deleteV2LoggingLevel_targetType :: Lens.Lens' DeleteV2LoggingLevel LogTargetType
 deleteV2LoggingLevel_targetType = Lens.lens (\DeleteV2LoggingLevel' {targetType} -> targetType) (\s@DeleteV2LoggingLevel' {} a -> s {targetType = a} :: DeleteV2LoggingLevel)
 
 -- | The name of the resource for which you are configuring logging.
-deleteV2LoggingLevel_targetName :: Lens.Lens' DeleteV2LoggingLevel Prelude.Text
+deleteV2LoggingLevel_targetName :: Lens.Lens' DeleteV2LoggingLevel Core.Text
 deleteV2LoggingLevel_targetName = Lens.lens (\DeleteV2LoggingLevel' {targetName} -> targetName) (\s@DeleteV2LoggingLevel' {} a -> s {targetName = a} :: DeleteV2LoggingLevel)
 
-instance Prelude.AWSRequest DeleteV2LoggingLevel where
+instance Core.AWSRequest DeleteV2LoggingLevel where
   type
-    Rs DeleteV2LoggingLevel =
+    AWSResponse DeleteV2LoggingLevel =
       DeleteV2LoggingLevelResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteV2LoggingLevelResponse'
 
-instance Prelude.Hashable DeleteV2LoggingLevel
+instance Core.Hashable DeleteV2LoggingLevel
 
-instance Prelude.NFData DeleteV2LoggingLevel
+instance Core.NFData DeleteV2LoggingLevel
 
-instance Prelude.ToHeaders DeleteV2LoggingLevel where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteV2LoggingLevel where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteV2LoggingLevel where
-  toPath = Prelude.const "/v2LoggingLevel"
+instance Core.ToPath DeleteV2LoggingLevel where
+  toPath = Core.const "/v2LoggingLevel"
 
-instance Prelude.ToQuery DeleteV2LoggingLevel where
+instance Core.ToQuery DeleteV2LoggingLevel where
   toQuery DeleteV2LoggingLevel' {..} =
-    Prelude.mconcat
-      [ "targetType" Prelude.=: targetType,
-        "targetName" Prelude.=: targetName
+    Core.mconcat
+      [ "targetType" Core.=: targetType,
+        "targetName" Core.=: targetName
       ]
 
 -- | /See:/ 'newDeleteV2LoggingLevelResponse' smart constructor.
 data DeleteV2LoggingLevelResponse = DeleteV2LoggingLevelResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteV2LoggingLevelResponse' with all optional fields omitted.
@@ -126,4 +125,4 @@ newDeleteV2LoggingLevelResponse ::
 newDeleteV2LoggingLevelResponse =
   DeleteV2LoggingLevelResponse'
 
-instance Prelude.NFData DeleteV2LoggingLevelResponse
+instance Core.NFData DeleteV2LoggingLevelResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.StepFunctions.DeleteActivity
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -48,9 +47,9 @@ import Network.AWS.StepFunctions.Types
 -- | /See:/ 'newDeleteActivity' smart constructor.
 data DeleteActivity = DeleteActivity'
   { -- | The Amazon Resource Name (ARN) of the activity to delete.
-    activityArn :: Prelude.Text
+    activityArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteActivity' with all optional fields omitted.
@@ -63,65 +62,63 @@ data DeleteActivity = DeleteActivity'
 -- 'activityArn', 'deleteActivity_activityArn' - The Amazon Resource Name (ARN) of the activity to delete.
 newDeleteActivity ::
   -- | 'activityArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteActivity
 newDeleteActivity pActivityArn_ =
   DeleteActivity' {activityArn = pActivityArn_}
 
 -- | The Amazon Resource Name (ARN) of the activity to delete.
-deleteActivity_activityArn :: Lens.Lens' DeleteActivity Prelude.Text
+deleteActivity_activityArn :: Lens.Lens' DeleteActivity Core.Text
 deleteActivity_activityArn = Lens.lens (\DeleteActivity' {activityArn} -> activityArn) (\s@DeleteActivity' {} a -> s {activityArn = a} :: DeleteActivity)
 
-instance Prelude.AWSRequest DeleteActivity where
-  type Rs DeleteActivity = DeleteActivityResponse
+instance Core.AWSRequest DeleteActivity where
+  type
+    AWSResponse DeleteActivity =
+      DeleteActivityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteActivityResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteActivity
+instance Core.Hashable DeleteActivity
 
-instance Prelude.NFData DeleteActivity
+instance Core.NFData DeleteActivity
 
-instance Prelude.ToHeaders DeleteActivity where
+instance Core.ToHeaders DeleteActivity where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSStepFunctions.DeleteActivity" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSStepFunctions.DeleteActivity" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteActivity where
+instance Core.ToJSON DeleteActivity where
   toJSON DeleteActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("activityArn" Prelude..= activityArn)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("activityArn" Core..= activityArn)]
       )
 
-instance Prelude.ToPath DeleteActivity where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteActivity where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteActivity where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteActivity where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteActivityResponse' smart constructor.
 data DeleteActivityResponse = DeleteActivityResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteActivityResponse' with all optional fields omitted.
@@ -134,13 +131,13 @@ data DeleteActivityResponse = DeleteActivityResponse'
 -- 'httpStatus', 'deleteActivityResponse_httpStatus' - The response's http status code.
 newDeleteActivityResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteActivityResponse
 newDeleteActivityResponse pHttpStatus_ =
   DeleteActivityResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteActivityResponse_httpStatus :: Lens.Lens' DeleteActivityResponse Prelude.Int
+deleteActivityResponse_httpStatus :: Lens.Lens' DeleteActivityResponse Core.Int
 deleteActivityResponse_httpStatus = Lens.lens (\DeleteActivityResponse' {httpStatus} -> httpStatus) (\s@DeleteActivityResponse' {} a -> s {httpStatus = a} :: DeleteActivityResponse)
 
-instance Prelude.NFData DeleteActivityResponse
+instance Core.NFData DeleteActivityResponse

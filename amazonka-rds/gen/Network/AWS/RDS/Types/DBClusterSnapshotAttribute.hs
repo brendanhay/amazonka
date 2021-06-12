@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBClusterSnapshotAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the name and values of a manual DB cluster snapshot attribute.
 --
@@ -36,7 +35,7 @@ data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
     -- The attribute named @restore@ refers to the list of AWS accounts that
     -- have permission to copy or restore the manual DB cluster snapshot. For
     -- more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    attributeName :: Core.Maybe Core.Text,
     -- | The value(s) for the manual DB cluster snapshot attribute.
     --
     -- If the @AttributeName@ field is set to @restore@, then this element
@@ -44,9 +43,9 @@ data DBClusterSnapshotAttribute = DBClusterSnapshotAttribute'
     -- restore the manual DB cluster snapshot. If a value of @all@ is in the
     -- list, then the manual DB cluster snapshot is public and available for
     -- any AWS account to copy or restore.
-    attributeValues :: Prelude.Maybe [Prelude.Text]
+    attributeValues :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBClusterSnapshotAttribute' with all optional fields omitted.
@@ -74,8 +73,8 @@ newDBClusterSnapshotAttribute ::
 newDBClusterSnapshotAttribute =
   DBClusterSnapshotAttribute'
     { attributeName =
-        Prelude.Nothing,
-      attributeValues = Prelude.Nothing
+        Core.Nothing,
+      attributeValues = Core.Nothing
     }
 
 -- | The name of the manual DB cluster snapshot attribute.
@@ -83,7 +82,7 @@ newDBClusterSnapshotAttribute =
 -- The attribute named @restore@ refers to the list of AWS accounts that
 -- have permission to copy or restore the manual DB cluster snapshot. For
 -- more information, see the @ModifyDBClusterSnapshotAttribute@ API action.
-dbClusterSnapshotAttribute_attributeName :: Lens.Lens' DBClusterSnapshotAttribute (Prelude.Maybe Prelude.Text)
+dbClusterSnapshotAttribute_attributeName :: Lens.Lens' DBClusterSnapshotAttribute (Core.Maybe Core.Text)
 dbClusterSnapshotAttribute_attributeName = Lens.lens (\DBClusterSnapshotAttribute' {attributeName} -> attributeName) (\s@DBClusterSnapshotAttribute' {} a -> s {attributeName = a} :: DBClusterSnapshotAttribute)
 
 -- | The value(s) for the manual DB cluster snapshot attribute.
@@ -93,18 +92,17 @@ dbClusterSnapshotAttribute_attributeName = Lens.lens (\DBClusterSnapshotAttribut
 -- restore the manual DB cluster snapshot. If a value of @all@ is in the
 -- list, then the manual DB cluster snapshot is public and available for
 -- any AWS account to copy or restore.
-dbClusterSnapshotAttribute_attributeValues :: Lens.Lens' DBClusterSnapshotAttribute (Prelude.Maybe [Prelude.Text])
-dbClusterSnapshotAttribute_attributeValues = Lens.lens (\DBClusterSnapshotAttribute' {attributeValues} -> attributeValues) (\s@DBClusterSnapshotAttribute' {} a -> s {attributeValues = a} :: DBClusterSnapshotAttribute) Prelude.. Lens.mapping Prelude._Coerce
+dbClusterSnapshotAttribute_attributeValues :: Lens.Lens' DBClusterSnapshotAttribute (Core.Maybe [Core.Text])
+dbClusterSnapshotAttribute_attributeValues = Lens.lens (\DBClusterSnapshotAttribute' {attributeValues} -> attributeValues) (\s@DBClusterSnapshotAttribute' {} a -> s {attributeValues = a} :: DBClusterSnapshotAttribute) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML DBClusterSnapshotAttribute where
+instance Core.FromXML DBClusterSnapshotAttribute where
   parseXML x =
     DBClusterSnapshotAttribute'
-      Prelude.<$> (x Prelude..@? "AttributeName")
-      Prelude.<*> ( x Prelude..@? "AttributeValues"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "AttributeValue")
-                  )
+      Core.<$> (x Core..@? "AttributeName")
+      Core.<*> ( x Core..@? "AttributeValues" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "AttributeValue")
+               )
 
-instance Prelude.Hashable DBClusterSnapshotAttribute
+instance Core.Hashable DBClusterSnapshotAttribute
 
-instance Prelude.NFData DBClusterSnapshotAttribute
+instance Core.NFData DBClusterSnapshotAttribute

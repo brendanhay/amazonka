@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.WorkMail.ListAccessControlRules
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -49,9 +48,9 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newListAccessControlRules' smart constructor.
 data ListAccessControlRules = ListAccessControlRules'
   { -- | The identifier for the organization.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAccessControlRules' with all optional fields omitted.
@@ -64,7 +63,7 @@ data ListAccessControlRules = ListAccessControlRules'
 -- 'organizationId', 'listAccessControlRules_organizationId' - The identifier for the organization.
 newListAccessControlRules ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   ListAccessControlRules
 newListAccessControlRules pOrganizationId_ =
   ListAccessControlRules'
@@ -73,64 +72,62 @@ newListAccessControlRules pOrganizationId_ =
     }
 
 -- | The identifier for the organization.
-listAccessControlRules_organizationId :: Lens.Lens' ListAccessControlRules Prelude.Text
+listAccessControlRules_organizationId :: Lens.Lens' ListAccessControlRules Core.Text
 listAccessControlRules_organizationId = Lens.lens (\ListAccessControlRules' {organizationId} -> organizationId) (\s@ListAccessControlRules' {} a -> s {organizationId = a} :: ListAccessControlRules)
 
-instance Prelude.AWSRequest ListAccessControlRules where
+instance Core.AWSRequest ListAccessControlRules where
   type
-    Rs ListAccessControlRules =
+    AWSResponse ListAccessControlRules =
       ListAccessControlRulesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAccessControlRulesResponse'
-            Prelude.<$> (x Prelude..?> "Rules" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Rules" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAccessControlRules
+instance Core.Hashable ListAccessControlRules
 
-instance Prelude.NFData ListAccessControlRules
+instance Core.NFData ListAccessControlRules
 
-instance Prelude.ToHeaders ListAccessControlRules where
+instance Core.ToHeaders ListAccessControlRules where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.ListAccessControlRules" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.ListAccessControlRules" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAccessControlRules where
+instance Core.ToJSON ListAccessControlRules where
   toJSON ListAccessControlRules' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("OrganizationId" Prelude..= organizationId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("OrganizationId" Core..= organizationId)
           ]
       )
 
-instance Prelude.ToPath ListAccessControlRules where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAccessControlRules where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAccessControlRules where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAccessControlRules where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAccessControlRulesResponse' smart constructor.
 data ListAccessControlRulesResponse = ListAccessControlRulesResponse'
   { -- | The access control rules.
-    rules :: Prelude.Maybe [AccessControlRule],
+    rules :: Core.Maybe [AccessControlRule],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAccessControlRulesResponse' with all optional fields omitted.
@@ -145,23 +142,21 @@ data ListAccessControlRulesResponse = ListAccessControlRulesResponse'
 -- 'httpStatus', 'listAccessControlRulesResponse_httpStatus' - The response's http status code.
 newListAccessControlRulesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAccessControlRulesResponse
 newListAccessControlRulesResponse pHttpStatus_ =
   ListAccessControlRulesResponse'
     { rules =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The access control rules.
-listAccessControlRulesResponse_rules :: Lens.Lens' ListAccessControlRulesResponse (Prelude.Maybe [AccessControlRule])
-listAccessControlRulesResponse_rules = Lens.lens (\ListAccessControlRulesResponse' {rules} -> rules) (\s@ListAccessControlRulesResponse' {} a -> s {rules = a} :: ListAccessControlRulesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAccessControlRulesResponse_rules :: Lens.Lens' ListAccessControlRulesResponse (Core.Maybe [AccessControlRule])
+listAccessControlRulesResponse_rules = Lens.lens (\ListAccessControlRulesResponse' {rules} -> rules) (\s@ListAccessControlRulesResponse' {} a -> s {rules = a} :: ListAccessControlRulesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAccessControlRulesResponse_httpStatus :: Lens.Lens' ListAccessControlRulesResponse Prelude.Int
+listAccessControlRulesResponse_httpStatus :: Lens.Lens' ListAccessControlRulesResponse Core.Int
 listAccessControlRulesResponse_httpStatus = Lens.lens (\ListAccessControlRulesResponse' {httpStatus} -> httpStatus) (\s@ListAccessControlRulesResponse' {} a -> s {httpStatus = a} :: ListAccessControlRulesResponse)
 
-instance
-  Prelude.NFData
-    ListAccessControlRulesResponse
+instance Core.NFData ListAccessControlRulesResponse

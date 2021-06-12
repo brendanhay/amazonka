@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AttachmentInformation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An attribute of an attachment, such as the attachment name.
 --
 -- /See:/ 'newAttachmentInformation' smart constructor.
 data AttachmentInformation = AttachmentInformation'
   { -- | The name of the attachment.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachmentInformation' with all optional fields omitted.
@@ -44,21 +43,20 @@ data AttachmentInformation = AttachmentInformation'
 newAttachmentInformation ::
   AttachmentInformation
 newAttachmentInformation =
-  AttachmentInformation' {name = Prelude.Nothing}
+  AttachmentInformation' {name = Core.Nothing}
 
 -- | The name of the attachment.
-attachmentInformation_name :: Lens.Lens' AttachmentInformation (Prelude.Maybe Prelude.Text)
+attachmentInformation_name :: Lens.Lens' AttachmentInformation (Core.Maybe Core.Text)
 attachmentInformation_name = Lens.lens (\AttachmentInformation' {name} -> name) (\s@AttachmentInformation' {} a -> s {name = a} :: AttachmentInformation)
 
-instance Prelude.FromJSON AttachmentInformation where
+instance Core.FromJSON AttachmentInformation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttachmentInformation"
       ( \x ->
-          AttachmentInformation'
-            Prelude.<$> (x Prelude..:? "Name")
+          AttachmentInformation' Core.<$> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable AttachmentInformation
+instance Core.Hashable AttachmentInformation
 
-instance Prelude.NFData AttachmentInformation
+instance Core.NFData AttachmentInformation

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,18 +51,18 @@ module Network.AWS.Lightsail.StartInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartInstance' smart constructor.
 data StartInstance = StartInstance'
   { -- | The name of the instance (a virtual private server) to start.
-    instanceName :: Prelude.Text
+    instanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartInstance' with all optional fields omitted.
@@ -76,72 +75,68 @@ data StartInstance = StartInstance'
 -- 'instanceName', 'startInstance_instanceName' - The name of the instance (a virtual private server) to start.
 newStartInstance ::
   -- | 'instanceName'
-  Prelude.Text ->
+  Core.Text ->
   StartInstance
 newStartInstance pInstanceName_ =
   StartInstance' {instanceName = pInstanceName_}
 
 -- | The name of the instance (a virtual private server) to start.
-startInstance_instanceName :: Lens.Lens' StartInstance Prelude.Text
+startInstance_instanceName :: Lens.Lens' StartInstance Core.Text
 startInstance_instanceName = Lens.lens (\StartInstance' {instanceName} -> instanceName) (\s@StartInstance' {} a -> s {instanceName = a} :: StartInstance)
 
-instance Prelude.AWSRequest StartInstance where
-  type Rs StartInstance = StartInstanceResponse
+instance Core.AWSRequest StartInstance where
+  type
+    AWSResponse StartInstance =
+      StartInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartInstanceResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartInstance
+instance Core.Hashable StartInstance
 
-instance Prelude.NFData StartInstance
+instance Core.NFData StartInstance
 
-instance Prelude.ToHeaders StartInstance where
+instance Core.ToHeaders StartInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.StartInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.StartInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartInstance where
+instance Core.ToJSON StartInstance where
   toJSON StartInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("instanceName" Prelude..= instanceName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("instanceName" Core..= instanceName)]
       )
 
-instance Prelude.ToPath StartInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartInstanceResponse' smart constructor.
 data StartInstanceResponse = StartInstanceResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartInstanceResponse' with all optional fields omitted.
@@ -158,23 +153,22 @@ data StartInstanceResponse = StartInstanceResponse'
 -- 'httpStatus', 'startInstanceResponse_httpStatus' - The response's http status code.
 newStartInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartInstanceResponse
 newStartInstanceResponse pHttpStatus_ =
   StartInstanceResponse'
-    { operations =
-        Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-startInstanceResponse_operations :: Lens.Lens' StartInstanceResponse (Prelude.Maybe [Operation])
-startInstanceResponse_operations = Lens.lens (\StartInstanceResponse' {operations} -> operations) (\s@StartInstanceResponse' {} a -> s {operations = a} :: StartInstanceResponse) Prelude.. Lens.mapping Prelude._Coerce
+startInstanceResponse_operations :: Lens.Lens' StartInstanceResponse (Core.Maybe [Operation])
+startInstanceResponse_operations = Lens.lens (\StartInstanceResponse' {operations} -> operations) (\s@StartInstanceResponse' {} a -> s {operations = a} :: StartInstanceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-startInstanceResponse_httpStatus :: Lens.Lens' StartInstanceResponse Prelude.Int
+startInstanceResponse_httpStatus :: Lens.Lens' StartInstanceResponse Core.Int
 startInstanceResponse_httpStatus = Lens.lens (\StartInstanceResponse' {httpStatus} -> httpStatus) (\s@StartInstanceResponse' {} a -> s {httpStatus = a} :: StartInstanceResponse)
 
-instance Prelude.NFData StartInstanceResponse
+instance Core.NFData StartInstanceResponse

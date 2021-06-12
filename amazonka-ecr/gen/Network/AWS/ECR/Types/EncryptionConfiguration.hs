@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.EncryptionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.EncryptionType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption configuration for the repository. This determines how the
 -- contents of your repository are encrypted at rest.
@@ -46,7 +45,7 @@ data EncryptionConfiguration = EncryptionConfiguration'
     -- encryption. The alias, key ID, or full ARN of the CMK can be specified.
     -- The key must exist in the same Region as the repository. If no key is
     -- specified, the default AWS managed CMK for Amazon ECR will be used.
-    kmsKey :: Prelude.Maybe Prelude.Text,
+    kmsKey :: Core.Maybe Core.Text,
     -- | The encryption type to use.
     --
     -- If you use the @KMS@ encryption type, the contents of the repository
@@ -65,7 +64,7 @@ data EncryptionConfiguration = EncryptionConfiguration'
     -- in the /Amazon Simple Storage Service Console Developer Guide./.
     encryptionType :: EncryptionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfiguration' with all optional fields omitted.
@@ -102,7 +101,7 @@ newEncryptionConfiguration ::
   EncryptionConfiguration
 newEncryptionConfiguration pEncryptionType_ =
   EncryptionConfiguration'
-    { kmsKey = Prelude.Nothing,
+    { kmsKey = Core.Nothing,
       encryptionType = pEncryptionType_
     }
 
@@ -110,7 +109,7 @@ newEncryptionConfiguration pEncryptionType_ =
 -- encryption. The alias, key ID, or full ARN of the CMK can be specified.
 -- The key must exist in the same Region as the repository. If no key is
 -- specified, the default AWS managed CMK for Amazon ECR will be used.
-encryptionConfiguration_kmsKey :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe Prelude.Text)
+encryptionConfiguration_kmsKey :: Lens.Lens' EncryptionConfiguration (Core.Maybe Core.Text)
 encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -> kmsKey) (\s@EncryptionConfiguration' {} a -> s {kmsKey = a} :: EncryptionConfiguration)
 
 -- | The encryption type to use.
@@ -132,26 +131,25 @@ encryptionConfiguration_kmsKey = Lens.lens (\EncryptionConfiguration' {kmsKey} -
 encryptionConfiguration_encryptionType :: Lens.Lens' EncryptionConfiguration EncryptionType
 encryptionConfiguration_encryptionType = Lens.lens (\EncryptionConfiguration' {encryptionType} -> encryptionType) (\s@EncryptionConfiguration' {} a -> s {encryptionType = a} :: EncryptionConfiguration)
 
-instance Prelude.FromJSON EncryptionConfiguration where
+instance Core.FromJSON EncryptionConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionConfiguration"
       ( \x ->
           EncryptionConfiguration'
-            Prelude.<$> (x Prelude..:? "kmsKey")
-            Prelude.<*> (x Prelude..: "encryptionType")
+            Core.<$> (x Core..:? "kmsKey")
+            Core.<*> (x Core..: "encryptionType")
       )
 
-instance Prelude.Hashable EncryptionConfiguration
+instance Core.Hashable EncryptionConfiguration
 
-instance Prelude.NFData EncryptionConfiguration
+instance Core.NFData EncryptionConfiguration
 
-instance Prelude.ToJSON EncryptionConfiguration where
+instance Core.ToJSON EncryptionConfiguration where
   toJSON EncryptionConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("kmsKey" Prelude..=) Prelude.<$> kmsKey,
-            Prelude.Just
-              ("encryptionType" Prelude..= encryptionType)
+    Core.object
+      ( Core.catMaybes
+          [ ("kmsKey" Core..=) Core.<$> kmsKey,
+            Core.Just ("encryptionType" Core..= encryptionType)
           ]
       )

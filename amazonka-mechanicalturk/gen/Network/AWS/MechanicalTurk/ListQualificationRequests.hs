@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,22 +48,21 @@ module Network.AWS.MechanicalTurk.ListQualificationRequests
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListQualificationRequests' smart constructor.
 data ListQualificationRequests = ListQualificationRequests'
   { -- | The ID of the QualificationType.
-    qualificationTypeId :: Prelude.Maybe Prelude.Text,
-    nextToken :: Prelude.Maybe Prelude.Text,
+    qualificationTypeId :: Core.Maybe Core.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListQualificationRequests' with all optional fields omitted.
@@ -84,113 +82,111 @@ newListQualificationRequests ::
 newListQualificationRequests =
   ListQualificationRequests'
     { qualificationTypeId =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The ID of the QualificationType.
-listQualificationRequests_qualificationTypeId :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Text)
+listQualificationRequests_qualificationTypeId :: Lens.Lens' ListQualificationRequests (Core.Maybe Core.Text)
 listQualificationRequests_qualificationTypeId = Lens.lens (\ListQualificationRequests' {qualificationTypeId} -> qualificationTypeId) (\s@ListQualificationRequests' {} a -> s {qualificationTypeId = a} :: ListQualificationRequests)
 
 -- | Undocumented member.
-listQualificationRequests_nextToken :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Text)
+listQualificationRequests_nextToken :: Lens.Lens' ListQualificationRequests (Core.Maybe Core.Text)
 listQualificationRequests_nextToken = Lens.lens (\ListQualificationRequests' {nextToken} -> nextToken) (\s@ListQualificationRequests' {} a -> s {nextToken = a} :: ListQualificationRequests)
 
 -- | The maximum number of results to return in a single call.
-listQualificationRequests_maxResults :: Lens.Lens' ListQualificationRequests (Prelude.Maybe Prelude.Natural)
+listQualificationRequests_maxResults :: Lens.Lens' ListQualificationRequests (Core.Maybe Core.Natural)
 listQualificationRequests_maxResults = Lens.lens (\ListQualificationRequests' {maxResults} -> maxResults) (\s@ListQualificationRequests' {} a -> s {maxResults = a} :: ListQualificationRequests)
 
-instance Pager.AWSPager ListQualificationRequests where
+instance Core.AWSPager ListQualificationRequests where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listQualificationRequestsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listQualificationRequestsResponse_qualificationRequests
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listQualificationRequests_nextToken
           Lens..~ rs
           Lens.^? listQualificationRequestsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListQualificationRequests where
+instance Core.AWSRequest ListQualificationRequests where
   type
-    Rs ListQualificationRequests =
+    AWSResponse ListQualificationRequests =
       ListQualificationRequestsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListQualificationRequestsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "NumResults")
-            Prelude.<*> ( x Prelude..?> "QualificationRequests"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "NumResults")
+            Core.<*> ( x Core..?> "QualificationRequests"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListQualificationRequests
+instance Core.Hashable ListQualificationRequests
 
-instance Prelude.NFData ListQualificationRequests
+instance Core.NFData ListQualificationRequests
 
-instance Prelude.ToHeaders ListQualificationRequests where
+instance Core.ToHeaders ListQualificationRequests where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MTurkRequesterServiceV20170117.ListQualificationRequests" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MTurkRequesterServiceV20170117.ListQualificationRequests" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListQualificationRequests where
+instance Core.ToJSON ListQualificationRequests where
   toJSON ListQualificationRequests' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("QualificationTypeId" Prelude..=)
-              Prelude.<$> qualificationTypeId,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+    Core.object
+      ( Core.catMaybes
+          [ ("QualificationTypeId" Core..=)
+              Core.<$> qualificationTypeId,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults
           ]
       )
 
-instance Prelude.ToPath ListQualificationRequests where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListQualificationRequests where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListQualificationRequests where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListQualificationRequests where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListQualificationRequestsResponse' smart constructor.
 data ListQualificationRequestsResponse = ListQualificationRequestsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The number of Qualification requests on this page in the filtered
     -- results list, equivalent to the number of Qualification requests being
     -- returned by this call.
-    numResults :: Prelude.Maybe Prelude.Int,
+    numResults :: Core.Maybe Core.Int,
     -- | The Qualification request. The response includes one
     -- QualificationRequest element for each Qualification request returned by
     -- the query.
-    qualificationRequests :: Prelude.Maybe [QualificationRequest],
+    qualificationRequests :: Core.Maybe [QualificationRequest],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListQualificationRequestsResponse' with all optional fields omitted.
@@ -213,37 +209,37 @@ data ListQualificationRequestsResponse = ListQualificationRequestsResponse'
 -- 'httpStatus', 'listQualificationRequestsResponse_httpStatus' - The response's http status code.
 newListQualificationRequestsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListQualificationRequestsResponse
 newListQualificationRequestsResponse pHttpStatus_ =
   ListQualificationRequestsResponse'
     { nextToken =
-        Prelude.Nothing,
-      numResults = Prelude.Nothing,
-      qualificationRequests = Prelude.Nothing,
+        Core.Nothing,
+      numResults = Core.Nothing,
+      qualificationRequests = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-listQualificationRequestsResponse_nextToken :: Lens.Lens' ListQualificationRequestsResponse (Prelude.Maybe Prelude.Text)
+listQualificationRequestsResponse_nextToken :: Lens.Lens' ListQualificationRequestsResponse (Core.Maybe Core.Text)
 listQualificationRequestsResponse_nextToken = Lens.lens (\ListQualificationRequestsResponse' {nextToken} -> nextToken) (\s@ListQualificationRequestsResponse' {} a -> s {nextToken = a} :: ListQualificationRequestsResponse)
 
 -- | The number of Qualification requests on this page in the filtered
 -- results list, equivalent to the number of Qualification requests being
 -- returned by this call.
-listQualificationRequestsResponse_numResults :: Lens.Lens' ListQualificationRequestsResponse (Prelude.Maybe Prelude.Int)
+listQualificationRequestsResponse_numResults :: Lens.Lens' ListQualificationRequestsResponse (Core.Maybe Core.Int)
 listQualificationRequestsResponse_numResults = Lens.lens (\ListQualificationRequestsResponse' {numResults} -> numResults) (\s@ListQualificationRequestsResponse' {} a -> s {numResults = a} :: ListQualificationRequestsResponse)
 
 -- | The Qualification request. The response includes one
 -- QualificationRequest element for each Qualification request returned by
 -- the query.
-listQualificationRequestsResponse_qualificationRequests :: Lens.Lens' ListQualificationRequestsResponse (Prelude.Maybe [QualificationRequest])
-listQualificationRequestsResponse_qualificationRequests = Lens.lens (\ListQualificationRequestsResponse' {qualificationRequests} -> qualificationRequests) (\s@ListQualificationRequestsResponse' {} a -> s {qualificationRequests = a} :: ListQualificationRequestsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listQualificationRequestsResponse_qualificationRequests :: Lens.Lens' ListQualificationRequestsResponse (Core.Maybe [QualificationRequest])
+listQualificationRequestsResponse_qualificationRequests = Lens.lens (\ListQualificationRequestsResponse' {qualificationRequests} -> qualificationRequests) (\s@ListQualificationRequestsResponse' {} a -> s {qualificationRequests = a} :: ListQualificationRequestsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listQualificationRequestsResponse_httpStatus :: Lens.Lens' ListQualificationRequestsResponse Prelude.Int
+listQualificationRequestsResponse_httpStatus :: Lens.Lens' ListQualificationRequestsResponse Core.Int
 listQualificationRequestsResponse_httpStatus = Lens.lens (\ListQualificationRequestsResponse' {httpStatus} -> httpStatus) (\s@ListQualificationRequestsResponse' {} a -> s {httpStatus = a} :: ListQualificationRequestsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListQualificationRequestsResponse

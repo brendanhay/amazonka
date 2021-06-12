@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.DescribeBundleTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +58,7 @@ data DescribeBundleTasks = DescribeBundleTasks'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The filters.
     --
     -- -   @bundle-id@ - The ID of the bundle task.
@@ -84,13 +83,13 @@ data DescribeBundleTasks = DescribeBundleTasks'
     --     | @bundling@ | @storing@ | @cancelling@ | @complete@ | @failed@).
     --
     -- -   @update-time@ - The time of the most recent update for the task.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | The bundle task IDs.
     --
     -- Default: Describes all your bundle tasks.
-    bundleIds :: Prelude.Maybe [Prelude.Text]
+    bundleIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBundleTasks' with all optional fields omitted.
@@ -137,16 +136,16 @@ newDescribeBundleTasks ::
   DescribeBundleTasks
 newDescribeBundleTasks =
   DescribeBundleTasks'
-    { dryRun = Prelude.Nothing,
-      filters = Prelude.Nothing,
-      bundleIds = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      bundleIds = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeBundleTasks_dryRun :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe Prelude.Bool)
+describeBundleTasks_dryRun :: Lens.Lens' DescribeBundleTasks (Core.Maybe Core.Bool)
 describeBundleTasks_dryRun = Lens.lens (\DescribeBundleTasks' {dryRun} -> dryRun) (\s@DescribeBundleTasks' {} a -> s {dryRun = a} :: DescribeBundleTasks)
 
 -- | The filters.
@@ -173,65 +172,62 @@ describeBundleTasks_dryRun = Lens.lens (\DescribeBundleTasks' {dryRun} -> dryRun
 --     | @bundling@ | @storing@ | @cancelling@ | @complete@ | @failed@).
 --
 -- -   @update-time@ - The time of the most recent update for the task.
-describeBundleTasks_filters :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe [Filter])
-describeBundleTasks_filters = Lens.lens (\DescribeBundleTasks' {filters} -> filters) (\s@DescribeBundleTasks' {} a -> s {filters = a} :: DescribeBundleTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeBundleTasks_filters :: Lens.Lens' DescribeBundleTasks (Core.Maybe [Filter])
+describeBundleTasks_filters = Lens.lens (\DescribeBundleTasks' {filters} -> filters) (\s@DescribeBundleTasks' {} a -> s {filters = a} :: DescribeBundleTasks) Core.. Lens.mapping Lens._Coerce
 
 -- | The bundle task IDs.
 --
 -- Default: Describes all your bundle tasks.
-describeBundleTasks_bundleIds :: Lens.Lens' DescribeBundleTasks (Prelude.Maybe [Prelude.Text])
-describeBundleTasks_bundleIds = Lens.lens (\DescribeBundleTasks' {bundleIds} -> bundleIds) (\s@DescribeBundleTasks' {} a -> s {bundleIds = a} :: DescribeBundleTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeBundleTasks_bundleIds :: Lens.Lens' DescribeBundleTasks (Core.Maybe [Core.Text])
+describeBundleTasks_bundleIds = Lens.lens (\DescribeBundleTasks' {bundleIds} -> bundleIds) (\s@DescribeBundleTasks' {} a -> s {bundleIds = a} :: DescribeBundleTasks) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeBundleTasks where
+instance Core.AWSRequest DescribeBundleTasks where
   type
-    Rs DescribeBundleTasks =
+    AWSResponse DescribeBundleTasks =
       DescribeBundleTasksResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeBundleTasksResponse'
-            Prelude.<$> ( x Prelude..@? "bundleInstanceTasksSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "bundleInstanceTasksSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeBundleTasks
+instance Core.Hashable DescribeBundleTasks
 
-instance Prelude.NFData DescribeBundleTasks
+instance Core.NFData DescribeBundleTasks
 
-instance Prelude.ToHeaders DescribeBundleTasks where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeBundleTasks where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeBundleTasks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeBundleTasks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeBundleTasks where
+instance Core.ToQuery DescribeBundleTasks where
   toQuery DescribeBundleTasks' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeBundleTasks" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        Prelude.toQuery
-          ( Prelude.toQueryList "BundleId"
-              Prelude.<$> bundleIds
-          )
+          Core.=: ("DescribeBundleTasks" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters),
+        Core.toQuery
+          (Core.toQueryList "BundleId" Core.<$> bundleIds)
       ]
 
 -- | /See:/ 'newDescribeBundleTasksResponse' smart constructor.
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
   { -- | Information about the bundle tasks.
-    bundleTasks :: Prelude.Maybe [BundleTask],
+    bundleTasks :: Core.Maybe [BundleTask],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeBundleTasksResponse' with all optional fields omitted.
@@ -246,21 +242,21 @@ data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
 -- 'httpStatus', 'describeBundleTasksResponse_httpStatus' - The response's http status code.
 newDescribeBundleTasksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeBundleTasksResponse
 newDescribeBundleTasksResponse pHttpStatus_ =
   DescribeBundleTasksResponse'
     { bundleTasks =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the bundle tasks.
-describeBundleTasksResponse_bundleTasks :: Lens.Lens' DescribeBundleTasksResponse (Prelude.Maybe [BundleTask])
-describeBundleTasksResponse_bundleTasks = Lens.lens (\DescribeBundleTasksResponse' {bundleTasks} -> bundleTasks) (\s@DescribeBundleTasksResponse' {} a -> s {bundleTasks = a} :: DescribeBundleTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeBundleTasksResponse_bundleTasks :: Lens.Lens' DescribeBundleTasksResponse (Core.Maybe [BundleTask])
+describeBundleTasksResponse_bundleTasks = Lens.lens (\DescribeBundleTasksResponse' {bundleTasks} -> bundleTasks) (\s@DescribeBundleTasksResponse' {} a -> s {bundleTasks = a} :: DescribeBundleTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeBundleTasksResponse_httpStatus :: Lens.Lens' DescribeBundleTasksResponse Prelude.Int
+describeBundleTasksResponse_httpStatus :: Lens.Lens' DescribeBundleTasksResponse Core.Int
 describeBundleTasksResponse_httpStatus = Lens.lens (\DescribeBundleTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeBundleTasksResponse' {} a -> s {httpStatus = a} :: DescribeBundleTasksResponse)
 
-instance Prelude.NFData DescribeBundleTasksResponse
+instance Core.NFData DescribeBundleTasksResponse

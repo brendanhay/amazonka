@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.AccelerateConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.BucketAccelerateStatus
 
@@ -33,9 +32,9 @@ import Network.AWS.S3.Types.BucketAccelerateStatus
 -- /See:/ 'newAccelerateConfiguration' smart constructor.
 data AccelerateConfiguration = AccelerateConfiguration'
   { -- | Specifies the transfer acceleration status of the bucket.
-    status :: Prelude.Maybe BucketAccelerateStatus
+    status :: Core.Maybe BucketAccelerateStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccelerateConfiguration' with all optional fields omitted.
@@ -49,16 +48,16 @@ data AccelerateConfiguration = AccelerateConfiguration'
 newAccelerateConfiguration ::
   AccelerateConfiguration
 newAccelerateConfiguration =
-  AccelerateConfiguration' {status = Prelude.Nothing}
+  AccelerateConfiguration' {status = Core.Nothing}
 
 -- | Specifies the transfer acceleration status of the bucket.
-accelerateConfiguration_status :: Lens.Lens' AccelerateConfiguration (Prelude.Maybe BucketAccelerateStatus)
+accelerateConfiguration_status :: Lens.Lens' AccelerateConfiguration (Core.Maybe BucketAccelerateStatus)
 accelerateConfiguration_status = Lens.lens (\AccelerateConfiguration' {status} -> status) (\s@AccelerateConfiguration' {} a -> s {status = a} :: AccelerateConfiguration)
 
-instance Prelude.Hashable AccelerateConfiguration
+instance Core.Hashable AccelerateConfiguration
 
-instance Prelude.NFData AccelerateConfiguration
+instance Core.NFData AccelerateConfiguration
 
-instance Prelude.ToXML AccelerateConfiguration where
+instance Core.ToXML AccelerateConfiguration where
   toXML AccelerateConfiguration' {..} =
-    Prelude.mconcat ["Status" Prelude.@= status]
+    Core.mconcat ["Status" Core.@= status]

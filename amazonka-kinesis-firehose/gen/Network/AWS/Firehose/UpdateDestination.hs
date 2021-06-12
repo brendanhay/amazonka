@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,28 +80,28 @@ module Network.AWS.Firehose.UpdateDestination
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
   { -- | Describes an update for a destination in Amazon Redshift.
-    redshiftDestinationUpdate :: Prelude.Maybe RedshiftDestinationUpdate,
+    redshiftDestinationUpdate :: Core.Maybe RedshiftDestinationUpdate,
     -- | [Deprecated] Describes an update for a destination in Amazon S3.
-    s3DestinationUpdate :: Prelude.Maybe S3DestinationUpdate,
+    s3DestinationUpdate :: Core.Maybe S3DestinationUpdate,
     -- | Describes an update for a destination in Amazon S3.
-    extendedS3DestinationUpdate :: Prelude.Maybe ExtendedS3DestinationUpdate,
+    extendedS3DestinationUpdate :: Core.Maybe ExtendedS3DestinationUpdate,
     -- | Describes an update to the specified HTTP endpoint destination.
-    httpEndpointDestinationUpdate :: Prelude.Maybe HttpEndpointDestinationUpdate,
+    httpEndpointDestinationUpdate :: Core.Maybe HttpEndpointDestinationUpdate,
     -- | Describes an update for a destination in Amazon ES.
-    elasticsearchDestinationUpdate :: Prelude.Maybe ElasticsearchDestinationUpdate,
+    elasticsearchDestinationUpdate :: Core.Maybe ElasticsearchDestinationUpdate,
     -- | Describes an update for a destination in Splunk.
-    splunkDestinationUpdate :: Prelude.Maybe SplunkDestinationUpdate,
+    splunkDestinationUpdate :: Core.Maybe SplunkDestinationUpdate,
     -- | The name of the delivery stream.
-    deliveryStreamName :: Prelude.Text,
+    deliveryStreamName :: Core.Text,
     -- | Obtain this value from the @VersionId@ result of
     -- DeliveryStreamDescription. This value is required, and helps the service
     -- perform conditional operations. For example, if there is an interleaving
@@ -110,11 +109,11 @@ data UpdateDestination = UpdateDestination'
     -- the update is successful, the @VersionId@ value is updated. The service
     -- then performs a merge of the old configuration with the new
     -- configuration.
-    currentDeliveryStreamVersionId :: Prelude.Text,
+    currentDeliveryStreamVersionId :: Core.Text,
     -- | The ID of the destination.
-    destinationId :: Prelude.Text
+    destinationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDestination' with all optional fields omitted.
@@ -149,11 +148,11 @@ data UpdateDestination = UpdateDestination'
 -- 'destinationId', 'updateDestination_destinationId' - The ID of the destination.
 newUpdateDestination ::
   -- | 'deliveryStreamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'currentDeliveryStreamVersionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDestination
 newUpdateDestination
   pDeliveryStreamName_
@@ -161,12 +160,12 @@ newUpdateDestination
   pDestinationId_ =
     UpdateDestination'
       { redshiftDestinationUpdate =
-          Prelude.Nothing,
-        s3DestinationUpdate = Prelude.Nothing,
-        extendedS3DestinationUpdate = Prelude.Nothing,
-        httpEndpointDestinationUpdate = Prelude.Nothing,
-        elasticsearchDestinationUpdate = Prelude.Nothing,
-        splunkDestinationUpdate = Prelude.Nothing,
+          Core.Nothing,
+        s3DestinationUpdate = Core.Nothing,
+        extendedS3DestinationUpdate = Core.Nothing,
+        httpEndpointDestinationUpdate = Core.Nothing,
+        elasticsearchDestinationUpdate = Core.Nothing,
+        splunkDestinationUpdate = Core.Nothing,
         deliveryStreamName = pDeliveryStreamName_,
         currentDeliveryStreamVersionId =
           pCurrentDeliveryStreamVersionId_,
@@ -174,31 +173,31 @@ newUpdateDestination
       }
 
 -- | Describes an update for a destination in Amazon Redshift.
-updateDestination_redshiftDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe RedshiftDestinationUpdate)
+updateDestination_redshiftDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe RedshiftDestinationUpdate)
 updateDestination_redshiftDestinationUpdate = Lens.lens (\UpdateDestination' {redshiftDestinationUpdate} -> redshiftDestinationUpdate) (\s@UpdateDestination' {} a -> s {redshiftDestinationUpdate = a} :: UpdateDestination)
 
 -- | [Deprecated] Describes an update for a destination in Amazon S3.
-updateDestination_s3DestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe S3DestinationUpdate)
+updateDestination_s3DestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe S3DestinationUpdate)
 updateDestination_s3DestinationUpdate = Lens.lens (\UpdateDestination' {s3DestinationUpdate} -> s3DestinationUpdate) (\s@UpdateDestination' {} a -> s {s3DestinationUpdate = a} :: UpdateDestination)
 
 -- | Describes an update for a destination in Amazon S3.
-updateDestination_extendedS3DestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe ExtendedS3DestinationUpdate)
+updateDestination_extendedS3DestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe ExtendedS3DestinationUpdate)
 updateDestination_extendedS3DestinationUpdate = Lens.lens (\UpdateDestination' {extendedS3DestinationUpdate} -> extendedS3DestinationUpdate) (\s@UpdateDestination' {} a -> s {extendedS3DestinationUpdate = a} :: UpdateDestination)
 
 -- | Describes an update to the specified HTTP endpoint destination.
-updateDestination_httpEndpointDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe HttpEndpointDestinationUpdate)
+updateDestination_httpEndpointDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe HttpEndpointDestinationUpdate)
 updateDestination_httpEndpointDestinationUpdate = Lens.lens (\UpdateDestination' {httpEndpointDestinationUpdate} -> httpEndpointDestinationUpdate) (\s@UpdateDestination' {} a -> s {httpEndpointDestinationUpdate = a} :: UpdateDestination)
 
 -- | Describes an update for a destination in Amazon ES.
-updateDestination_elasticsearchDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe ElasticsearchDestinationUpdate)
+updateDestination_elasticsearchDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe ElasticsearchDestinationUpdate)
 updateDestination_elasticsearchDestinationUpdate = Lens.lens (\UpdateDestination' {elasticsearchDestinationUpdate} -> elasticsearchDestinationUpdate) (\s@UpdateDestination' {} a -> s {elasticsearchDestinationUpdate = a} :: UpdateDestination)
 
 -- | Describes an update for a destination in Splunk.
-updateDestination_splunkDestinationUpdate :: Lens.Lens' UpdateDestination (Prelude.Maybe SplunkDestinationUpdate)
+updateDestination_splunkDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe SplunkDestinationUpdate)
 updateDestination_splunkDestinationUpdate = Lens.lens (\UpdateDestination' {splunkDestinationUpdate} -> splunkDestinationUpdate) (\s@UpdateDestination' {} a -> s {splunkDestinationUpdate = a} :: UpdateDestination)
 
 -- | The name of the delivery stream.
-updateDestination_deliveryStreamName :: Lens.Lens' UpdateDestination Prelude.Text
+updateDestination_deliveryStreamName :: Lens.Lens' UpdateDestination Core.Text
 updateDestination_deliveryStreamName = Lens.lens (\UpdateDestination' {deliveryStreamName} -> deliveryStreamName) (\s@UpdateDestination' {} a -> s {deliveryStreamName = a} :: UpdateDestination)
 
 -- | Obtain this value from the @VersionId@ result of
@@ -208,81 +207,80 @@ updateDestination_deliveryStreamName = Lens.lens (\UpdateDestination' {deliveryS
 -- the update is successful, the @VersionId@ value is updated. The service
 -- then performs a merge of the old configuration with the new
 -- configuration.
-updateDestination_currentDeliveryStreamVersionId :: Lens.Lens' UpdateDestination Prelude.Text
+updateDestination_currentDeliveryStreamVersionId :: Lens.Lens' UpdateDestination Core.Text
 updateDestination_currentDeliveryStreamVersionId = Lens.lens (\UpdateDestination' {currentDeliveryStreamVersionId} -> currentDeliveryStreamVersionId) (\s@UpdateDestination' {} a -> s {currentDeliveryStreamVersionId = a} :: UpdateDestination)
 
 -- | The ID of the destination.
-updateDestination_destinationId :: Lens.Lens' UpdateDestination Prelude.Text
+updateDestination_destinationId :: Lens.Lens' UpdateDestination Core.Text
 updateDestination_destinationId = Lens.lens (\UpdateDestination' {destinationId} -> destinationId) (\s@UpdateDestination' {} a -> s {destinationId = a} :: UpdateDestination)
 
-instance Prelude.AWSRequest UpdateDestination where
-  type Rs UpdateDestination = UpdateDestinationResponse
+instance Core.AWSRequest UpdateDestination where
+  type
+    AWSResponse UpdateDestination =
+      UpdateDestinationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDestinationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDestination
+instance Core.Hashable UpdateDestination
 
-instance Prelude.NFData UpdateDestination
+instance Core.NFData UpdateDestination
 
-instance Prelude.ToHeaders UpdateDestination where
+instance Core.ToHeaders UpdateDestination where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Firehose_20150804.UpdateDestination" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Firehose_20150804.UpdateDestination" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDestination where
+instance Core.ToJSON UpdateDestination where
   toJSON UpdateDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RedshiftDestinationUpdate" Prelude..=)
-              Prelude.<$> redshiftDestinationUpdate,
-            ("S3DestinationUpdate" Prelude..=)
-              Prelude.<$> s3DestinationUpdate,
-            ("ExtendedS3DestinationUpdate" Prelude..=)
-              Prelude.<$> extendedS3DestinationUpdate,
-            ("HttpEndpointDestinationUpdate" Prelude..=)
-              Prelude.<$> httpEndpointDestinationUpdate,
-            ("ElasticsearchDestinationUpdate" Prelude..=)
-              Prelude.<$> elasticsearchDestinationUpdate,
-            ("SplunkDestinationUpdate" Prelude..=)
-              Prelude.<$> splunkDestinationUpdate,
-            Prelude.Just
-              ("DeliveryStreamName" Prelude..= deliveryStreamName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("RedshiftDestinationUpdate" Core..=)
+              Core.<$> redshiftDestinationUpdate,
+            ("S3DestinationUpdate" Core..=)
+              Core.<$> s3DestinationUpdate,
+            ("ExtendedS3DestinationUpdate" Core..=)
+              Core.<$> extendedS3DestinationUpdate,
+            ("HttpEndpointDestinationUpdate" Core..=)
+              Core.<$> httpEndpointDestinationUpdate,
+            ("ElasticsearchDestinationUpdate" Core..=)
+              Core.<$> elasticsearchDestinationUpdate,
+            ("SplunkDestinationUpdate" Core..=)
+              Core.<$> splunkDestinationUpdate,
+            Core.Just
+              ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just
               ( "CurrentDeliveryStreamVersionId"
-                  Prelude..= currentDeliveryStreamVersionId
+                  Core..= currentDeliveryStreamVersionId
               ),
-            Prelude.Just
-              ("DestinationId" Prelude..= destinationId)
+            Core.Just ("DestinationId" Core..= destinationId)
           ]
       )
 
-instance Prelude.ToPath UpdateDestination where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateDestination where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateDestination where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDestination where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDestinationResponse' smart constructor.
 data UpdateDestinationResponse = UpdateDestinationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDestinationResponse' with all optional fields omitted.
@@ -295,7 +293,7 @@ data UpdateDestinationResponse = UpdateDestinationResponse'
 -- 'httpStatus', 'updateDestinationResponse_httpStatus' - The response's http status code.
 newUpdateDestinationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDestinationResponse
 newUpdateDestinationResponse pHttpStatus_ =
   UpdateDestinationResponse'
@@ -304,7 +302,7 @@ newUpdateDestinationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateDestinationResponse_httpStatus :: Lens.Lens' UpdateDestinationResponse Prelude.Int
+updateDestinationResponse_httpStatus :: Lens.Lens' UpdateDestinationResponse Core.Int
 updateDestinationResponse_httpStatus = Lens.lens (\UpdateDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateDestinationResponse' {} a -> s {httpStatus = a} :: UpdateDestinationResponse)
 
-instance Prelude.NFData UpdateDestinationResponse
+instance Core.NFData UpdateDestinationResponse

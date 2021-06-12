@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.VocabularyInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Types.LanguageCode
 import Network.AWS.Transcribe.Types.VocabularyState
 
@@ -30,16 +29,16 @@ import Network.AWS.Transcribe.Types.VocabularyState
 -- /See:/ 'newVocabularyInfo' smart constructor.
 data VocabularyInfo = VocabularyInfo'
   { -- | The language code of the vocabulary entries.
-    languageCode :: Prelude.Maybe LanguageCode,
+    languageCode :: Core.Maybe LanguageCode,
     -- | The date and time that the vocabulary was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The processing state of the vocabulary. If the state is @READY@ you can
     -- use the vocabulary in a @StartTranscriptionJob@ request.
-    vocabularyState :: Prelude.Maybe VocabularyState,
+    vocabularyState :: Core.Maybe VocabularyState,
     -- | The name of the vocabulary.
-    vocabularyName :: Prelude.Maybe Prelude.Text
+    vocabularyName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VocabularyInfo' with all optional fields omitted.
@@ -61,41 +60,41 @@ newVocabularyInfo ::
   VocabularyInfo
 newVocabularyInfo =
   VocabularyInfo'
-    { languageCode = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
-      vocabularyName = Prelude.Nothing
+    { languageCode = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      vocabularyState = Core.Nothing,
+      vocabularyName = Core.Nothing
     }
 
 -- | The language code of the vocabulary entries.
-vocabularyInfo_languageCode :: Lens.Lens' VocabularyInfo (Prelude.Maybe LanguageCode)
+vocabularyInfo_languageCode :: Lens.Lens' VocabularyInfo (Core.Maybe LanguageCode)
 vocabularyInfo_languageCode = Lens.lens (\VocabularyInfo' {languageCode} -> languageCode) (\s@VocabularyInfo' {} a -> s {languageCode = a} :: VocabularyInfo)
 
 -- | The date and time that the vocabulary was last modified.
-vocabularyInfo_lastModifiedTime :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.UTCTime)
-vocabularyInfo_lastModifiedTime = Lens.lens (\VocabularyInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyInfo' {} a -> s {lastModifiedTime = a} :: VocabularyInfo) Prelude.. Lens.mapping Prelude._Time
+vocabularyInfo_lastModifiedTime :: Lens.Lens' VocabularyInfo (Core.Maybe Core.UTCTime)
+vocabularyInfo_lastModifiedTime = Lens.lens (\VocabularyInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyInfo' {} a -> s {lastModifiedTime = a} :: VocabularyInfo) Core.. Lens.mapping Core._Time
 
 -- | The processing state of the vocabulary. If the state is @READY@ you can
 -- use the vocabulary in a @StartTranscriptionJob@ request.
-vocabularyInfo_vocabularyState :: Lens.Lens' VocabularyInfo (Prelude.Maybe VocabularyState)
+vocabularyInfo_vocabularyState :: Lens.Lens' VocabularyInfo (Core.Maybe VocabularyState)
 vocabularyInfo_vocabularyState = Lens.lens (\VocabularyInfo' {vocabularyState} -> vocabularyState) (\s@VocabularyInfo' {} a -> s {vocabularyState = a} :: VocabularyInfo)
 
 -- | The name of the vocabulary.
-vocabularyInfo_vocabularyName :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.Text)
+vocabularyInfo_vocabularyName :: Lens.Lens' VocabularyInfo (Core.Maybe Core.Text)
 vocabularyInfo_vocabularyName = Lens.lens (\VocabularyInfo' {vocabularyName} -> vocabularyName) (\s@VocabularyInfo' {} a -> s {vocabularyName = a} :: VocabularyInfo)
 
-instance Prelude.FromJSON VocabularyInfo where
+instance Core.FromJSON VocabularyInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VocabularyInfo"
       ( \x ->
           VocabularyInfo'
-            Prelude.<$> (x Prelude..:? "LanguageCode")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> (x Prelude..:? "VocabularyState")
-            Prelude.<*> (x Prelude..:? "VocabularyName")
+            Core.<$> (x Core..:? "LanguageCode")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "VocabularyState")
+            Core.<*> (x Core..:? "VocabularyName")
       )
 
-instance Prelude.Hashable VocabularyInfo
+instance Core.Hashable VocabularyInfo
 
-instance Prelude.NFData VocabularyInfo
+instance Core.NFData VocabularyInfo

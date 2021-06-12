@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.IoT.CreateScheduledAudit
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +55,15 @@ data CreateScheduledAudit = CreateScheduledAudit'
   { -- | The day of the week on which the scheduled audit takes place, either
     -- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
     -- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
-    dayOfWeek :: Prelude.Maybe DayOfWeek,
+    dayOfWeek :: Core.Maybe DayOfWeek,
     -- | The day of the month on which the scheduled audit takes place. This can
     -- be \"1\" through \"31\" or \"LAST\". This field is required if the
     -- \"frequency\" parameter is set to @MONTHLY@. If days 29 to 31 are
     -- specified, and the month doesn\'t have that many days, the audit takes
     -- place on the @LAST@ day of the month.
-    dayOfMonth :: Prelude.Maybe Prelude.Text,
+    dayOfMonth :: Core.Maybe Core.Text,
     -- | Metadata that can be used to manage the scheduled audit.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
     -- @BIWEEKLY@ or @MONTHLY@. The start time of each audit is determined by
     -- the system.
@@ -73,11 +72,11 @@ data CreateScheduledAudit = CreateScheduledAudit'
     -- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
     -- see the list of all checks, including those that are enabled or use
     -- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
-    targetCheckNames :: [Prelude.Text],
+    targetCheckNames :: [Core.Text],
     -- | The name you want to give to the scheduled audit. (Max. 128 chars)
-    scheduledAuditName :: Prelude.Text
+    scheduledAuditName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateScheduledAudit' with all optional fields omitted.
@@ -113,24 +112,24 @@ newCreateScheduledAudit ::
   -- | 'frequency'
   AuditFrequency ->
   -- | 'scheduledAuditName'
-  Prelude.Text ->
+  Core.Text ->
   CreateScheduledAudit
 newCreateScheduledAudit
   pFrequency_
   pScheduledAuditName_ =
     CreateScheduledAudit'
-      { dayOfWeek = Prelude.Nothing,
-        dayOfMonth = Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { dayOfWeek = Core.Nothing,
+        dayOfMonth = Core.Nothing,
+        tags = Core.Nothing,
         frequency = pFrequency_,
-        targetCheckNames = Prelude.mempty,
+        targetCheckNames = Core.mempty,
         scheduledAuditName = pScheduledAuditName_
       }
 
 -- | The day of the week on which the scheduled audit takes place, either
 -- @SUN@, @MON@, @TUE@, @WED@, @THU@, @FRI@, or @SAT@. This field is
 -- required if the @frequency@ parameter is set to @WEEKLY@ or @BIWEEKLY@.
-createScheduledAudit_dayOfWeek :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe DayOfWeek)
+createScheduledAudit_dayOfWeek :: Lens.Lens' CreateScheduledAudit (Core.Maybe DayOfWeek)
 createScheduledAudit_dayOfWeek = Lens.lens (\CreateScheduledAudit' {dayOfWeek} -> dayOfWeek) (\s@CreateScheduledAudit' {} a -> s {dayOfWeek = a} :: CreateScheduledAudit)
 
 -- | The day of the month on which the scheduled audit takes place. This can
@@ -138,12 +137,12 @@ createScheduledAudit_dayOfWeek = Lens.lens (\CreateScheduledAudit' {dayOfWeek} -
 -- \"frequency\" parameter is set to @MONTHLY@. If days 29 to 31 are
 -- specified, and the month doesn\'t have that many days, the audit takes
 -- place on the @LAST@ day of the month.
-createScheduledAudit_dayOfMonth :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe Prelude.Text)
+createScheduledAudit_dayOfMonth :: Lens.Lens' CreateScheduledAudit (Core.Maybe Core.Text)
 createScheduledAudit_dayOfMonth = Lens.lens (\CreateScheduledAudit' {dayOfMonth} -> dayOfMonth) (\s@CreateScheduledAudit' {} a -> s {dayOfMonth = a} :: CreateScheduledAudit)
 
 -- | Metadata that can be used to manage the scheduled audit.
-createScheduledAudit_tags :: Lens.Lens' CreateScheduledAudit (Prelude.Maybe [Tag])
-createScheduledAudit_tags = Lens.lens (\CreateScheduledAudit' {tags} -> tags) (\s@CreateScheduledAudit' {} a -> s {tags = a} :: CreateScheduledAudit) Prelude.. Lens.mapping Prelude._Coerce
+createScheduledAudit_tags :: Lens.Lens' CreateScheduledAudit (Core.Maybe [Tag])
+createScheduledAudit_tags = Lens.lens (\CreateScheduledAudit' {tags} -> tags) (\s@CreateScheduledAudit' {} a -> s {tags = a} :: CreateScheduledAudit) Core.. Lens.mapping Lens._Coerce
 
 -- | How often the scheduled audit takes place, either @DAILY@, @WEEKLY@,
 -- @BIWEEKLY@ or @MONTHLY@. The start time of each audit is determined by
@@ -155,64 +154,64 @@ createScheduledAudit_frequency = Lens.lens (\CreateScheduledAudit' {frequency} -
 -- enabled for your account. (Use @DescribeAccountAuditConfiguration@ to
 -- see the list of all checks, including those that are enabled or use
 -- @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
-createScheduledAudit_targetCheckNames :: Lens.Lens' CreateScheduledAudit [Prelude.Text]
-createScheduledAudit_targetCheckNames = Lens.lens (\CreateScheduledAudit' {targetCheckNames} -> targetCheckNames) (\s@CreateScheduledAudit' {} a -> s {targetCheckNames = a} :: CreateScheduledAudit) Prelude.. Prelude._Coerce
+createScheduledAudit_targetCheckNames :: Lens.Lens' CreateScheduledAudit [Core.Text]
+createScheduledAudit_targetCheckNames = Lens.lens (\CreateScheduledAudit' {targetCheckNames} -> targetCheckNames) (\s@CreateScheduledAudit' {} a -> s {targetCheckNames = a} :: CreateScheduledAudit) Core.. Lens._Coerce
 
 -- | The name you want to give to the scheduled audit. (Max. 128 chars)
-createScheduledAudit_scheduledAuditName :: Lens.Lens' CreateScheduledAudit Prelude.Text
+createScheduledAudit_scheduledAuditName :: Lens.Lens' CreateScheduledAudit Core.Text
 createScheduledAudit_scheduledAuditName = Lens.lens (\CreateScheduledAudit' {scheduledAuditName} -> scheduledAuditName) (\s@CreateScheduledAudit' {} a -> s {scheduledAuditName = a} :: CreateScheduledAudit)
 
-instance Prelude.AWSRequest CreateScheduledAudit where
+instance Core.AWSRequest CreateScheduledAudit where
   type
-    Rs CreateScheduledAudit =
+    AWSResponse CreateScheduledAudit =
       CreateScheduledAuditResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateScheduledAuditResponse'
-            Prelude.<$> (x Prelude..?> "scheduledAuditArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "scheduledAuditArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateScheduledAudit
+instance Core.Hashable CreateScheduledAudit
 
-instance Prelude.NFData CreateScheduledAudit
+instance Core.NFData CreateScheduledAudit
 
-instance Prelude.ToHeaders CreateScheduledAudit where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateScheduledAudit where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateScheduledAudit where
+instance Core.ToJSON CreateScheduledAudit where
   toJSON CreateScheduledAudit' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("dayOfWeek" Prelude..=) Prelude.<$> dayOfWeek,
-            ("dayOfMonth" Prelude..=) Prelude.<$> dayOfMonth,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("frequency" Prelude..= frequency),
-            Prelude.Just
-              ("targetCheckNames" Prelude..= targetCheckNames)
+    Core.object
+      ( Core.catMaybes
+          [ ("dayOfWeek" Core..=) Core.<$> dayOfWeek,
+            ("dayOfMonth" Core..=) Core.<$> dayOfMonth,
+            ("tags" Core..=) Core.<$> tags,
+            Core.Just ("frequency" Core..= frequency),
+            Core.Just
+              ("targetCheckNames" Core..= targetCheckNames)
           ]
       )
 
-instance Prelude.ToPath CreateScheduledAudit where
+instance Core.ToPath CreateScheduledAudit where
   toPath CreateScheduledAudit' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/audit/scheduledaudits/",
-        Prelude.toBS scheduledAuditName
+        Core.toBS scheduledAuditName
       ]
 
-instance Prelude.ToQuery CreateScheduledAudit where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateScheduledAudit where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateScheduledAuditResponse' smart constructor.
 data CreateScheduledAuditResponse = CreateScheduledAuditResponse'
   { -- | The ARN of the scheduled audit.
-    scheduledAuditArn :: Prelude.Maybe Prelude.Text,
+    scheduledAuditArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateScheduledAuditResponse' with all optional fields omitted.
@@ -227,21 +226,21 @@ data CreateScheduledAuditResponse = CreateScheduledAuditResponse'
 -- 'httpStatus', 'createScheduledAuditResponse_httpStatus' - The response's http status code.
 newCreateScheduledAuditResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateScheduledAuditResponse
 newCreateScheduledAuditResponse pHttpStatus_ =
   CreateScheduledAuditResponse'
     { scheduledAuditArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the scheduled audit.
-createScheduledAuditResponse_scheduledAuditArn :: Lens.Lens' CreateScheduledAuditResponse (Prelude.Maybe Prelude.Text)
+createScheduledAuditResponse_scheduledAuditArn :: Lens.Lens' CreateScheduledAuditResponse (Core.Maybe Core.Text)
 createScheduledAuditResponse_scheduledAuditArn = Lens.lens (\CreateScheduledAuditResponse' {scheduledAuditArn} -> scheduledAuditArn) (\s@CreateScheduledAuditResponse' {} a -> s {scheduledAuditArn = a} :: CreateScheduledAuditResponse)
 
 -- | The response's http status code.
-createScheduledAuditResponse_httpStatus :: Lens.Lens' CreateScheduledAuditResponse Prelude.Int
+createScheduledAuditResponse_httpStatus :: Lens.Lens' CreateScheduledAuditResponse Core.Int
 createScheduledAuditResponse_httpStatus = Lens.lens (\CreateScheduledAuditResponse' {httpStatus} -> httpStatus) (\s@CreateScheduledAuditResponse' {} a -> s {httpStatus = a} :: CreateScheduledAuditResponse)
 
-instance Prelude.NFData CreateScheduledAuditResponse
+instance Core.NFData CreateScheduledAuditResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -70,27 +69,27 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newAuthorizeDBSecurityGroupIngress' smart constructor.
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
   { -- | The IP range to authorize.
-    cidrip :: Prelude.Maybe Prelude.Text,
+    cidrip :: Core.Maybe Core.Text,
     -- | AWS account number of the owner of the EC2 security group specified in
     -- the @EC2SecurityGroupName@ parameter. The AWS access key ID isn\'t an
     -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
     -- be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either
     -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
+    eC2SecurityGroupOwnerId :: Core.Maybe Core.Text,
     -- | Id of the EC2 security group to authorize. For VPC DB security groups,
     -- @EC2SecurityGroupId@ must be provided. Otherwise,
     -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupId :: Prelude.Maybe Prelude.Text,
+    eC2SecurityGroupId :: Core.Maybe Core.Text,
     -- | Name of the EC2 security group to authorize. For VPC DB security groups,
     -- @EC2SecurityGroupId@ must be provided. Otherwise,
     -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
     -- @EC2SecurityGroupId@ must be provided.
-    eC2SecurityGroupName :: Prelude.Maybe Prelude.Text,
+    eC2SecurityGroupName :: Core.Maybe Core.Text,
     -- | The name of the DB security group to add authorization to.
-    dbSecurityGroupName :: Prelude.Text
+    dbSecurityGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizeDBSecurityGroupIngress' with all optional fields omitted.
@@ -121,22 +120,22 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
 -- 'dbSecurityGroupName', 'authorizeDBSecurityGroupIngress_dbSecurityGroupName' - The name of the DB security group to add authorization to.
 newAuthorizeDBSecurityGroupIngress ::
   -- | 'dbSecurityGroupName'
-  Prelude.Text ->
+  Core.Text ->
   AuthorizeDBSecurityGroupIngress
 newAuthorizeDBSecurityGroupIngress
   pDBSecurityGroupName_ =
     AuthorizeDBSecurityGroupIngress'
       { cidrip =
-          Prelude.Nothing,
-        eC2SecurityGroupOwnerId = Prelude.Nothing,
-        eC2SecurityGroupId = Prelude.Nothing,
-        eC2SecurityGroupName = Prelude.Nothing,
+          Core.Nothing,
+        eC2SecurityGroupOwnerId = Core.Nothing,
+        eC2SecurityGroupId = Core.Nothing,
+        eC2SecurityGroupName = Core.Nothing,
         dbSecurityGroupName =
           pDBSecurityGroupName_
       }
 
 -- | The IP range to authorize.
-authorizeDBSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeDBSecurityGroupIngress_cidrip :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Core.Text)
 authorizeDBSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeDBSecurityGroupIngress' {cidrip} -> cidrip) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {cidrip = a} :: AuthorizeDBSecurityGroupIngress)
 
 -- | AWS account number of the owner of the EC2 security group specified in
@@ -144,33 +143,33 @@ authorizeDBSecurityGroupIngress_cidrip = Lens.lens (\AuthorizeDBSecurityGroupIng
 -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
 -- be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either
 -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Core.Text)
 authorizeDBSecurityGroupIngress_eC2SecurityGroupOwnerId = Lens.lens (\AuthorizeDBSecurityGroupIngress' {eC2SecurityGroupOwnerId} -> eC2SecurityGroupOwnerId) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupOwnerId = a} :: AuthorizeDBSecurityGroupIngress)
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
 -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-authorizeDBSecurityGroupIngress_eC2SecurityGroupId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeDBSecurityGroupIngress_eC2SecurityGroupId :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Core.Text)
 authorizeDBSecurityGroupIngress_eC2SecurityGroupId = Lens.lens (\AuthorizeDBSecurityGroupIngress' {eC2SecurityGroupId} -> eC2SecurityGroupId) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupId = a} :: AuthorizeDBSecurityGroupIngress)
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
 -- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-authorizeDBSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Prelude.Maybe Prelude.Text)
+authorizeDBSecurityGroupIngress_eC2SecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress (Core.Maybe Core.Text)
 authorizeDBSecurityGroupIngress_eC2SecurityGroupName = Lens.lens (\AuthorizeDBSecurityGroupIngress' {eC2SecurityGroupName} -> eC2SecurityGroupName) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {eC2SecurityGroupName = a} :: AuthorizeDBSecurityGroupIngress)
 
 -- | The name of the DB security group to add authorization to.
-authorizeDBSecurityGroupIngress_dbSecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress Prelude.Text
+authorizeDBSecurityGroupIngress_dbSecurityGroupName :: Lens.Lens' AuthorizeDBSecurityGroupIngress Core.Text
 authorizeDBSecurityGroupIngress_dbSecurityGroupName = Lens.lens (\AuthorizeDBSecurityGroupIngress' {dbSecurityGroupName} -> dbSecurityGroupName) (\s@AuthorizeDBSecurityGroupIngress' {} a -> s {dbSecurityGroupName = a} :: AuthorizeDBSecurityGroupIngress)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AuthorizeDBSecurityGroupIngress
   where
   type
-    Rs AuthorizeDBSecurityGroupIngress =
+    AWSResponse AuthorizeDBSecurityGroupIngress =
       AuthorizeDBSecurityGroupIngressResponse
   request = Request.postQuery defaultService
   response =
@@ -178,58 +177,48 @@ instance
       "AuthorizeDBSecurityGroupIngressResult"
       ( \s h x ->
           AuthorizeDBSecurityGroupIngressResponse'
-            Prelude.<$> (x Prelude..@? "DBSecurityGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBSecurityGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AuthorizeDBSecurityGroupIngress
 
-instance
-  Prelude.NFData
-    AuthorizeDBSecurityGroupIngress
+instance Core.NFData AuthorizeDBSecurityGroupIngress
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AuthorizeDBSecurityGroupIngress
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    AuthorizeDBSecurityGroupIngress
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath AuthorizeDBSecurityGroupIngress where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    AuthorizeDBSecurityGroupIngress
-  where
+instance Core.ToQuery AuthorizeDBSecurityGroupIngress where
   toQuery AuthorizeDBSecurityGroupIngress' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "AuthorizeDBSecurityGroupIngress" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "CIDRIP" Prelude.=: cidrip,
+          Core.=: ( "AuthorizeDBSecurityGroupIngress" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "CIDRIP" Core.=: cidrip,
         "EC2SecurityGroupOwnerId"
-          Prelude.=: eC2SecurityGroupOwnerId,
-        "EC2SecurityGroupId" Prelude.=: eC2SecurityGroupId,
-        "EC2SecurityGroupName"
-          Prelude.=: eC2SecurityGroupName,
-        "DBSecurityGroupName" Prelude.=: dbSecurityGroupName
+          Core.=: eC2SecurityGroupOwnerId,
+        "EC2SecurityGroupId" Core.=: eC2SecurityGroupId,
+        "EC2SecurityGroupName" Core.=: eC2SecurityGroupName,
+        "DBSecurityGroupName" Core.=: dbSecurityGroupName
       ]
 
 -- | /See:/ 'newAuthorizeDBSecurityGroupIngressResponse' smart constructor.
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
-  { dbSecurityGroup :: Prelude.Maybe DBSecurityGroup,
+  { dbSecurityGroup :: Core.Maybe DBSecurityGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizeDBSecurityGroupIngressResponse' with all optional fields omitted.
@@ -244,24 +233,24 @@ data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressRe
 -- 'httpStatus', 'authorizeDBSecurityGroupIngressResponse_httpStatus' - The response's http status code.
 newAuthorizeDBSecurityGroupIngressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AuthorizeDBSecurityGroupIngressResponse
 newAuthorizeDBSecurityGroupIngressResponse
   pHttpStatus_ =
     AuthorizeDBSecurityGroupIngressResponse'
       { dbSecurityGroup =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-authorizeDBSecurityGroupIngressResponse_dbSecurityGroup :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse (Prelude.Maybe DBSecurityGroup)
+authorizeDBSecurityGroupIngressResponse_dbSecurityGroup :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse (Core.Maybe DBSecurityGroup)
 authorizeDBSecurityGroupIngressResponse_dbSecurityGroup = Lens.lens (\AuthorizeDBSecurityGroupIngressResponse' {dbSecurityGroup} -> dbSecurityGroup) (\s@AuthorizeDBSecurityGroupIngressResponse' {} a -> s {dbSecurityGroup = a} :: AuthorizeDBSecurityGroupIngressResponse)
 
 -- | The response's http status code.
-authorizeDBSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse Prelude.Int
+authorizeDBSecurityGroupIngressResponse_httpStatus :: Lens.Lens' AuthorizeDBSecurityGroupIngressResponse Core.Int
 authorizeDBSecurityGroupIngressResponse_httpStatus = Lens.lens (\AuthorizeDBSecurityGroupIngressResponse' {httpStatus} -> httpStatus) (\s@AuthorizeDBSecurityGroupIngressResponse' {} a -> s {httpStatus = a} :: AuthorizeDBSecurityGroupIngressResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     AuthorizeDBSecurityGroupIngressResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.DirectoryService.RegisterCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,17 +53,17 @@ import qualified Network.AWS.Response as Response
 data RegisterCertificate = RegisterCertificate'
   { -- | A @ClientCertAuthSettings@ object that contains client certificate
     -- authentication settings.
-    clientCertAuthSettings :: Prelude.Maybe ClientCertAuthSettings,
+    clientCertAuthSettings :: Core.Maybe ClientCertAuthSettings,
     -- | The function that the registered certificate performs. Valid values
     -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
     -- @ClientLDAPS@.
-    type' :: Prelude.Maybe CertificateType,
+    type' :: Core.Maybe CertificateType,
     -- | The identifier of the directory.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The certificate PEM string that needs to be registered.
-    certificateData :: Prelude.Text
+    certificateData :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterCertificate' with all optional fields omitted.
@@ -86,99 +85,97 @@ data RegisterCertificate = RegisterCertificate'
 -- 'certificateData', 'registerCertificate_certificateData' - The certificate PEM string that needs to be registered.
 newRegisterCertificate ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'certificateData'
-  Prelude.Text ->
+  Core.Text ->
   RegisterCertificate
 newRegisterCertificate
   pDirectoryId_
   pCertificateData_ =
     RegisterCertificate'
       { clientCertAuthSettings =
-          Prelude.Nothing,
-        type' = Prelude.Nothing,
+          Core.Nothing,
+        type' = Core.Nothing,
         directoryId = pDirectoryId_,
         certificateData = pCertificateData_
       }
 
 -- | A @ClientCertAuthSettings@ object that contains client certificate
 -- authentication settings.
-registerCertificate_clientCertAuthSettings :: Lens.Lens' RegisterCertificate (Prelude.Maybe ClientCertAuthSettings)
+registerCertificate_clientCertAuthSettings :: Lens.Lens' RegisterCertificate (Core.Maybe ClientCertAuthSettings)
 registerCertificate_clientCertAuthSettings = Lens.lens (\RegisterCertificate' {clientCertAuthSettings} -> clientCertAuthSettings) (\s@RegisterCertificate' {} a -> s {clientCertAuthSettings = a} :: RegisterCertificate)
 
 -- | The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
-registerCertificate_type :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateType)
+registerCertificate_type :: Lens.Lens' RegisterCertificate (Core.Maybe CertificateType)
 registerCertificate_type = Lens.lens (\RegisterCertificate' {type'} -> type') (\s@RegisterCertificate' {} a -> s {type' = a} :: RegisterCertificate)
 
 -- | The identifier of the directory.
-registerCertificate_directoryId :: Lens.Lens' RegisterCertificate Prelude.Text
+registerCertificate_directoryId :: Lens.Lens' RegisterCertificate Core.Text
 registerCertificate_directoryId = Lens.lens (\RegisterCertificate' {directoryId} -> directoryId) (\s@RegisterCertificate' {} a -> s {directoryId = a} :: RegisterCertificate)
 
 -- | The certificate PEM string that needs to be registered.
-registerCertificate_certificateData :: Lens.Lens' RegisterCertificate Prelude.Text
+registerCertificate_certificateData :: Lens.Lens' RegisterCertificate Core.Text
 registerCertificate_certificateData = Lens.lens (\RegisterCertificate' {certificateData} -> certificateData) (\s@RegisterCertificate' {} a -> s {certificateData = a} :: RegisterCertificate)
 
-instance Prelude.AWSRequest RegisterCertificate where
+instance Core.AWSRequest RegisterCertificate where
   type
-    Rs RegisterCertificate =
+    AWSResponse RegisterCertificate =
       RegisterCertificateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterCertificateResponse'
-            Prelude.<$> (x Prelude..?> "CertificateId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CertificateId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterCertificate
+instance Core.Hashable RegisterCertificate
 
-instance Prelude.NFData RegisterCertificate
+instance Core.NFData RegisterCertificate
 
-instance Prelude.ToHeaders RegisterCertificate where
+instance Core.ToHeaders RegisterCertificate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.RegisterCertificate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.RegisterCertificate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterCertificate where
+instance Core.ToJSON RegisterCertificate where
   toJSON RegisterCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ClientCertAuthSettings" Prelude..=)
-              Prelude.<$> clientCertAuthSettings,
-            ("Type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just
-              ("CertificateData" Prelude..= certificateData)
+    Core.object
+      ( Core.catMaybes
+          [ ("ClientCertAuthSettings" Core..=)
+              Core.<$> clientCertAuthSettings,
+            ("Type" Core..=) Core.<$> type',
+            Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just
+              ("CertificateData" Core..= certificateData)
           ]
       )
 
-instance Prelude.ToPath RegisterCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterCertificate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterCertificate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
   { -- | The identifier of the certificate.
-    certificateId :: Prelude.Maybe Prelude.Text,
+    certificateId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterCertificateResponse' with all optional fields omitted.
@@ -193,21 +190,21 @@ data RegisterCertificateResponse = RegisterCertificateResponse'
 -- 'httpStatus', 'registerCertificateResponse_httpStatus' - The response's http status code.
 newRegisterCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterCertificateResponse
 newRegisterCertificateResponse pHttpStatus_ =
   RegisterCertificateResponse'
     { certificateId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The identifier of the certificate.
-registerCertificateResponse_certificateId :: Lens.Lens' RegisterCertificateResponse (Prelude.Maybe Prelude.Text)
+registerCertificateResponse_certificateId :: Lens.Lens' RegisterCertificateResponse (Core.Maybe Core.Text)
 registerCertificateResponse_certificateId = Lens.lens (\RegisterCertificateResponse' {certificateId} -> certificateId) (\s@RegisterCertificateResponse' {} a -> s {certificateId = a} :: RegisterCertificateResponse)
 
 -- | The response's http status code.
-registerCertificateResponse_httpStatus :: Lens.Lens' RegisterCertificateResponse Prelude.Int
+registerCertificateResponse_httpStatus :: Lens.Lens' RegisterCertificateResponse Core.Int
 registerCertificateResponse_httpStatus = Lens.lens (\RegisterCertificateResponse' {httpStatus} -> httpStatus) (\s@RegisterCertificateResponse' {} a -> s {httpStatus = a} :: RegisterCertificateResponse)
 
-instance Prelude.NFData RegisterCertificateResponse
+instance Core.NFData RegisterCertificateResponse

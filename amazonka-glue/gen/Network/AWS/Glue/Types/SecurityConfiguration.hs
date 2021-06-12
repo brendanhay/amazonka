@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SecurityConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.EncryptionConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a security configuration.
 --
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data SecurityConfiguration = SecurityConfiguration'
   { -- | The encryption configuration associated with this security
     -- configuration.
-    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
+    encryptionConfiguration :: Core.Maybe EncryptionConfiguration,
     -- | The time at which this security configuration was created.
-    createdTimeStamp :: Prelude.Maybe Prelude.POSIX,
+    createdTimeStamp :: Core.Maybe Core.POSIX,
     -- | The name of the security configuration.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityConfiguration' with all optional fields omitted.
@@ -57,35 +56,35 @@ newSecurityConfiguration ::
 newSecurityConfiguration =
   SecurityConfiguration'
     { encryptionConfiguration =
-        Prelude.Nothing,
-      createdTimeStamp = Prelude.Nothing,
-      name = Prelude.Nothing
+        Core.Nothing,
+      createdTimeStamp = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The encryption configuration associated with this security
 -- configuration.
-securityConfiguration_encryptionConfiguration :: Lens.Lens' SecurityConfiguration (Prelude.Maybe EncryptionConfiguration)
+securityConfiguration_encryptionConfiguration :: Lens.Lens' SecurityConfiguration (Core.Maybe EncryptionConfiguration)
 securityConfiguration_encryptionConfiguration = Lens.lens (\SecurityConfiguration' {encryptionConfiguration} -> encryptionConfiguration) (\s@SecurityConfiguration' {} a -> s {encryptionConfiguration = a} :: SecurityConfiguration)
 
 -- | The time at which this security configuration was created.
-securityConfiguration_createdTimeStamp :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.UTCTime)
-securityConfiguration_createdTimeStamp = Lens.lens (\SecurityConfiguration' {createdTimeStamp} -> createdTimeStamp) (\s@SecurityConfiguration' {} a -> s {createdTimeStamp = a} :: SecurityConfiguration) Prelude.. Lens.mapping Prelude._Time
+securityConfiguration_createdTimeStamp :: Lens.Lens' SecurityConfiguration (Core.Maybe Core.UTCTime)
+securityConfiguration_createdTimeStamp = Lens.lens (\SecurityConfiguration' {createdTimeStamp} -> createdTimeStamp) (\s@SecurityConfiguration' {} a -> s {createdTimeStamp = a} :: SecurityConfiguration) Core.. Lens.mapping Core._Time
 
 -- | The name of the security configuration.
-securityConfiguration_name :: Lens.Lens' SecurityConfiguration (Prelude.Maybe Prelude.Text)
+securityConfiguration_name :: Lens.Lens' SecurityConfiguration (Core.Maybe Core.Text)
 securityConfiguration_name = Lens.lens (\SecurityConfiguration' {name} -> name) (\s@SecurityConfiguration' {} a -> s {name = a} :: SecurityConfiguration)
 
-instance Prelude.FromJSON SecurityConfiguration where
+instance Core.FromJSON SecurityConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SecurityConfiguration"
       ( \x ->
           SecurityConfiguration'
-            Prelude.<$> (x Prelude..:? "EncryptionConfiguration")
-            Prelude.<*> (x Prelude..:? "CreatedTimeStamp")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "EncryptionConfiguration")
+            Core.<*> (x Core..:? "CreatedTimeStamp")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable SecurityConfiguration
+instance Core.Hashable SecurityConfiguration
 
-instance Prelude.NFData SecurityConfiguration
+instance Core.NFData SecurityConfiguration

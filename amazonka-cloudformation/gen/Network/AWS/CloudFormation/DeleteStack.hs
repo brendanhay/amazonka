@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CloudFormation.DeleteStack
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,7 +57,7 @@ data DeleteStack = DeleteStack'
     --
     -- Retaining resources is useful when you cannot delete a resource, such as
     -- a non-empty S3 bucket, but you want to delete the stack.
-    retainResources :: Prelude.Maybe [Prelude.Text],
+    retainResources :: Core.Maybe [Core.Text],
     -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
     -- (IAM) role that AWS CloudFormation assumes to delete the stack. AWS
     -- CloudFormation uses the role\'s credentials to make calls on your
@@ -68,7 +67,7 @@ data DeleteStack = DeleteStack'
     -- previously associated with the stack. If no role is available, AWS
     -- CloudFormation uses a temporary session that is generated from your user
     -- credentials.
-    roleARN :: Prelude.Maybe Prelude.Text,
+    roleARN :: Core.Maybe Core.Text,
     -- | A unique identifier for this @DeleteStack@ request. Specify this token
     -- if you plan to retry requests so that AWS CloudFormation knows that
     -- you\'re not attempting to delete a stack with the same name. You might
@@ -88,11 +87,11 @@ data DeleteStack = DeleteStack'
     -- the console, each stack event would be assigned the same token in the
     -- following format:
     -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name or the unique stack ID that is associated with the stack.
-    stackName :: Prelude.Text
+    stackName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStack' with all optional fields omitted.
@@ -143,13 +142,13 @@ data DeleteStack = DeleteStack'
 -- 'stackName', 'deleteStack_stackName' - The name or the unique stack ID that is associated with the stack.
 newDeleteStack ::
   -- | 'stackName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteStack
 newDeleteStack pStackName_ =
   DeleteStack'
-    { retainResources = Prelude.Nothing,
-      roleARN = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
+    { retainResources = Core.Nothing,
+      roleARN = Core.Nothing,
+      clientRequestToken = Core.Nothing,
       stackName = pStackName_
     }
 
@@ -160,8 +159,8 @@ newDeleteStack pStackName_ =
 --
 -- Retaining resources is useful when you cannot delete a resource, such as
 -- a non-empty S3 bucket, but you want to delete the stack.
-deleteStack_retainResources :: Lens.Lens' DeleteStack (Prelude.Maybe [Prelude.Text])
-deleteStack_retainResources = Lens.lens (\DeleteStack' {retainResources} -> retainResources) (\s@DeleteStack' {} a -> s {retainResources = a} :: DeleteStack) Prelude.. Lens.mapping Prelude._Coerce
+deleteStack_retainResources :: Lens.Lens' DeleteStack (Core.Maybe [Core.Text])
+deleteStack_retainResources = Lens.lens (\DeleteStack' {retainResources} -> retainResources) (\s@DeleteStack' {} a -> s {retainResources = a} :: DeleteStack) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
 -- (IAM) role that AWS CloudFormation assumes to delete the stack. AWS
@@ -172,7 +171,7 @@ deleteStack_retainResources = Lens.lens (\DeleteStack' {retainResources} -> reta
 -- previously associated with the stack. If no role is available, AWS
 -- CloudFormation uses a temporary session that is generated from your user
 -- credentials.
-deleteStack_roleARN :: Lens.Lens' DeleteStack (Prelude.Maybe Prelude.Text)
+deleteStack_roleARN :: Lens.Lens' DeleteStack (Core.Maybe Core.Text)
 deleteStack_roleARN = Lens.lens (\DeleteStack' {roleARN} -> roleARN) (\s@DeleteStack' {} a -> s {roleARN = a} :: DeleteStack)
 
 -- | A unique identifier for this @DeleteStack@ request. Specify this token
@@ -194,50 +193,46 @@ deleteStack_roleARN = Lens.lens (\DeleteStack' {roleARN} -> roleARN) (\s@DeleteS
 -- the console, each stack event would be assigned the same token in the
 -- following format:
 -- @Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002@.
-deleteStack_clientRequestToken :: Lens.Lens' DeleteStack (Prelude.Maybe Prelude.Text)
+deleteStack_clientRequestToken :: Lens.Lens' DeleteStack (Core.Maybe Core.Text)
 deleteStack_clientRequestToken = Lens.lens (\DeleteStack' {clientRequestToken} -> clientRequestToken) (\s@DeleteStack' {} a -> s {clientRequestToken = a} :: DeleteStack)
 
 -- | The name or the unique stack ID that is associated with the stack.
-deleteStack_stackName :: Lens.Lens' DeleteStack Prelude.Text
+deleteStack_stackName :: Lens.Lens' DeleteStack Core.Text
 deleteStack_stackName = Lens.lens (\DeleteStack' {stackName} -> stackName) (\s@DeleteStack' {} a -> s {stackName = a} :: DeleteStack)
 
-instance Prelude.AWSRequest DeleteStack where
-  type Rs DeleteStack = DeleteStackResponse
+instance Core.AWSRequest DeleteStack where
+  type AWSResponse DeleteStack = DeleteStackResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteStackResponse'
 
-instance Prelude.Hashable DeleteStack
+instance Core.Hashable DeleteStack
 
-instance Prelude.NFData DeleteStack
+instance Core.NFData DeleteStack
 
-instance Prelude.ToHeaders DeleteStack where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteStack where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteStack where
+instance Core.ToQuery DeleteStack where
   toQuery DeleteStack' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteStack" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteStack" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
         "RetainResources"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> retainResources
-            ),
-        "RoleARN" Prelude.=: roleARN,
-        "ClientRequestToken" Prelude.=: clientRequestToken,
-        "StackName" Prelude.=: stackName
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> retainResources),
+        "RoleARN" Core.=: roleARN,
+        "ClientRequestToken" Core.=: clientRequestToken,
+        "StackName" Core.=: stackName
       ]
 
 -- | /See:/ 'newDeleteStackResponse' smart constructor.
 data DeleteStackResponse = DeleteStackResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteStackResponse' with all optional fields omitted.
@@ -247,4 +242,4 @@ newDeleteStackResponse ::
   DeleteStackResponse
 newDeleteStackResponse = DeleteStackResponse'
 
-instance Prelude.NFData DeleteStackResponse
+instance Core.NFData DeleteStackResponse

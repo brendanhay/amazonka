@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.PathPatternConditionConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a path pattern condition.
 --
@@ -36,9 +35,9 @@ data PathPatternConditionConfig = PathPatternConditionConfig'
     -- them matches the request URL. The path pattern is compared only to the
     -- path of the URL, not to its query string. To compare against the query
     -- string, use QueryStringConditionConfig.
-    values :: Prelude.Maybe [Prelude.Text]
+    values :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PathPatternConditionConfig' with all optional fields omitted.
@@ -60,10 +59,7 @@ data PathPatternConditionConfig = PathPatternConditionConfig'
 newPathPatternConditionConfig ::
   PathPatternConditionConfig
 newPathPatternConditionConfig =
-  PathPatternConditionConfig'
-    { values =
-        Prelude.Nothing
-    }
+  PathPatternConditionConfig' {values = Core.Nothing}
 
 -- | One or more path patterns to compare against the request URL. The
 -- maximum size of each string is 128 characters. The comparison is case
@@ -74,24 +70,24 @@ newPathPatternConditionConfig =
 -- them matches the request URL. The path pattern is compared only to the
 -- path of the URL, not to its query string. To compare against the query
 -- string, use QueryStringConditionConfig.
-pathPatternConditionConfig_values :: Lens.Lens' PathPatternConditionConfig (Prelude.Maybe [Prelude.Text])
-pathPatternConditionConfig_values = Lens.lens (\PathPatternConditionConfig' {values} -> values) (\s@PathPatternConditionConfig' {} a -> s {values = a} :: PathPatternConditionConfig) Prelude.. Lens.mapping Prelude._Coerce
+pathPatternConditionConfig_values :: Lens.Lens' PathPatternConditionConfig (Core.Maybe [Core.Text])
+pathPatternConditionConfig_values = Lens.lens (\PathPatternConditionConfig' {values} -> values) (\s@PathPatternConditionConfig' {} a -> s {values = a} :: PathPatternConditionConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML PathPatternConditionConfig where
+instance Core.FromXML PathPatternConditionConfig where
   parseXML x =
     PathPatternConditionConfig'
-      Prelude.<$> ( x Prelude..@? "Values" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "Values" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable PathPatternConditionConfig
+instance Core.Hashable PathPatternConditionConfig
 
-instance Prelude.NFData PathPatternConditionConfig
+instance Core.NFData PathPatternConditionConfig
 
-instance Prelude.ToQuery PathPatternConditionConfig where
+instance Core.ToQuery PathPatternConditionConfig where
   toQuery PathPatternConditionConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Values"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> values)
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> values)
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.ChildWorkflowExecutionStartedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecution
 import Network.AWS.SWF.Types.WorkflowType
 
@@ -37,9 +36,9 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
     -- to the @StartChildWorkflowExecution@ Decision to start this child
     -- workflow execution. This information can be useful for diagnosing
     -- problems by tracing back the chain of events leading up to this event.
-    initiatedEventId :: Prelude.Integer
+    initiatedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChildWorkflowExecutionStartedEventAttributes' with all optional fields omitted.
@@ -63,7 +62,7 @@ newChildWorkflowExecutionStartedEventAttributes ::
   -- | 'workflowType'
   WorkflowType ->
   -- | 'initiatedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   ChildWorkflowExecutionStartedEventAttributes
 newChildWorkflowExecutionStartedEventAttributes
   pWorkflowExecution_
@@ -89,27 +88,27 @@ childWorkflowExecutionStartedEventAttributes_workflowType = Lens.lens (\ChildWor
 -- to the @StartChildWorkflowExecution@ Decision to start this child
 -- workflow execution. This information can be useful for diagnosing
 -- problems by tracing back the chain of events leading up to this event.
-childWorkflowExecutionStartedEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionStartedEventAttributes Prelude.Integer
+childWorkflowExecutionStartedEventAttributes_initiatedEventId :: Lens.Lens' ChildWorkflowExecutionStartedEventAttributes Core.Integer
 childWorkflowExecutionStartedEventAttributes_initiatedEventId = Lens.lens (\ChildWorkflowExecutionStartedEventAttributes' {initiatedEventId} -> initiatedEventId) (\s@ChildWorkflowExecutionStartedEventAttributes' {} a -> s {initiatedEventId = a} :: ChildWorkflowExecutionStartedEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ChildWorkflowExecutionStartedEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ChildWorkflowExecutionStartedEventAttributes"
       ( \x ->
           ChildWorkflowExecutionStartedEventAttributes'
-            Prelude.<$> (x Prelude..: "workflowExecution")
-              Prelude.<*> (x Prelude..: "workflowType")
-              Prelude.<*> (x Prelude..: "initiatedEventId")
+            Core.<$> (x Core..: "workflowExecution")
+              Core.<*> (x Core..: "workflowType")
+              Core.<*> (x Core..: "initiatedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ChildWorkflowExecutionStartedEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     ChildWorkflowExecutionStartedEventAttributes

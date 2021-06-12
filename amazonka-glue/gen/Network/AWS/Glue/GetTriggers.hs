@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,25 +44,24 @@ module Network.AWS.Glue.GetTriggers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetTriggers' smart constructor.
 data GetTriggers = GetTriggers'
   { -- | A continuation token, if this is a continuation call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum size of the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The name of the job to retrieve triggers for. The trigger that can start
     -- this job is returned, and if there is no such trigger, all triggers are
     -- returned.
-    dependentJobName :: Prelude.Maybe Prelude.Text
+    dependentJobName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTriggers' with all optional fields omitted.
@@ -84,101 +82,99 @@ newGetTriggers ::
   GetTriggers
 newGetTriggers =
   GetTriggers'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      dependentJobName = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      dependentJobName = Core.Nothing
     }
 
 -- | A continuation token, if this is a continuation call.
-getTriggers_nextToken :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Text)
+getTriggers_nextToken :: Lens.Lens' GetTriggers (Core.Maybe Core.Text)
 getTriggers_nextToken = Lens.lens (\GetTriggers' {nextToken} -> nextToken) (\s@GetTriggers' {} a -> s {nextToken = a} :: GetTriggers)
 
 -- | The maximum size of the response.
-getTriggers_maxResults :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Natural)
+getTriggers_maxResults :: Lens.Lens' GetTriggers (Core.Maybe Core.Natural)
 getTriggers_maxResults = Lens.lens (\GetTriggers' {maxResults} -> maxResults) (\s@GetTriggers' {} a -> s {maxResults = a} :: GetTriggers)
 
 -- | The name of the job to retrieve triggers for. The trigger that can start
 -- this job is returned, and if there is no such trigger, all triggers are
 -- returned.
-getTriggers_dependentJobName :: Lens.Lens' GetTriggers (Prelude.Maybe Prelude.Text)
+getTriggers_dependentJobName :: Lens.Lens' GetTriggers (Core.Maybe Core.Text)
 getTriggers_dependentJobName = Lens.lens (\GetTriggers' {dependentJobName} -> dependentJobName) (\s@GetTriggers' {} a -> s {dependentJobName = a} :: GetTriggers)
 
-instance Pager.AWSPager GetTriggers where
+instance Core.AWSPager GetTriggers where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getTriggersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getTriggersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getTriggersResponse_triggers Prelude.. Lens._Just
+            Lens.^? getTriggersResponse_triggers Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getTriggers_nextToken
           Lens..~ rs
-          Lens.^? getTriggersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getTriggersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest GetTriggers where
-  type Rs GetTriggers = GetTriggersResponse
+instance Core.AWSRequest GetTriggers where
+  type AWSResponse GetTriggers = GetTriggersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTriggersResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Triggers" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Triggers" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTriggers
+instance Core.Hashable GetTriggers
 
-instance Prelude.NFData GetTriggers
+instance Core.NFData GetTriggers
 
-instance Prelude.ToHeaders GetTriggers where
+instance Core.ToHeaders GetTriggers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetTriggers" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetTriggers" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetTriggers where
+instance Core.ToJSON GetTriggers where
   toJSON GetTriggers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("DependentJobName" Prelude..=)
-              Prelude.<$> dependentJobName
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("DependentJobName" Core..=)
+              Core.<$> dependentJobName
           ]
       )
 
-instance Prelude.ToPath GetTriggers where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetTriggers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetTriggers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTriggers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetTriggersResponse' smart constructor.
 data GetTriggersResponse = GetTriggersResponse'
   { -- | A continuation token, if not all the requested triggers have yet been
     -- returned.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of triggers for the specified job.
-    triggers :: Prelude.Maybe [Trigger],
+    triggers :: Core.Maybe [Trigger],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTriggersResponse' with all optional fields omitted.
@@ -196,26 +192,26 @@ data GetTriggersResponse = GetTriggersResponse'
 -- 'httpStatus', 'getTriggersResponse_httpStatus' - The response's http status code.
 newGetTriggersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTriggersResponse
 newGetTriggersResponse pHttpStatus_ =
   GetTriggersResponse'
-    { nextToken = Prelude.Nothing,
-      triggers = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      triggers = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A continuation token, if not all the requested triggers have yet been
 -- returned.
-getTriggersResponse_nextToken :: Lens.Lens' GetTriggersResponse (Prelude.Maybe Prelude.Text)
+getTriggersResponse_nextToken :: Lens.Lens' GetTriggersResponse (Core.Maybe Core.Text)
 getTriggersResponse_nextToken = Lens.lens (\GetTriggersResponse' {nextToken} -> nextToken) (\s@GetTriggersResponse' {} a -> s {nextToken = a} :: GetTriggersResponse)
 
 -- | A list of triggers for the specified job.
-getTriggersResponse_triggers :: Lens.Lens' GetTriggersResponse (Prelude.Maybe [Trigger])
-getTriggersResponse_triggers = Lens.lens (\GetTriggersResponse' {triggers} -> triggers) (\s@GetTriggersResponse' {} a -> s {triggers = a} :: GetTriggersResponse) Prelude.. Lens.mapping Prelude._Coerce
+getTriggersResponse_triggers :: Lens.Lens' GetTriggersResponse (Core.Maybe [Trigger])
+getTriggersResponse_triggers = Lens.lens (\GetTriggersResponse' {triggers} -> triggers) (\s@GetTriggersResponse' {} a -> s {triggers = a} :: GetTriggersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getTriggersResponse_httpStatus :: Lens.Lens' GetTriggersResponse Prelude.Int
+getTriggersResponse_httpStatus :: Lens.Lens' GetTriggersResponse Core.Int
 getTriggersResponse_httpStatus = Lens.lens (\GetTriggersResponse' {httpStatus} -> httpStatus) (\s@GetTriggersResponse' {} a -> s {httpStatus = a} :: GetTriggersResponse)
 
-instance Prelude.NFData GetTriggersResponse
+instance Core.NFData GetTriggersResponse

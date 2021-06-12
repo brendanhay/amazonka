@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,22 +40,22 @@ module Network.AWS.EKS.DescribeAddon
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeAddon' smart constructor.
 data DescribeAddon = DescribeAddon'
   { -- | The name of the cluster.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
     -- .
-    addonName :: Prelude.Text
+    addonName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddon' with all optional fields omitted.
@@ -73,9 +72,9 @@ data DescribeAddon = DescribeAddon'
 -- .
 newDescribeAddon ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'addonName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAddon
 newDescribeAddon pClusterName_ pAddonName_ =
   DescribeAddon'
@@ -84,60 +83,60 @@ newDescribeAddon pClusterName_ pAddonName_ =
     }
 
 -- | The name of the cluster.
-describeAddon_clusterName :: Lens.Lens' DescribeAddon Prelude.Text
+describeAddon_clusterName :: Lens.Lens' DescribeAddon Core.Text
 describeAddon_clusterName = Lens.lens (\DescribeAddon' {clusterName} -> clusterName) (\s@DescribeAddon' {} a -> s {clusterName = a} :: DescribeAddon)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
 -- .
-describeAddon_addonName :: Lens.Lens' DescribeAddon Prelude.Text
+describeAddon_addonName :: Lens.Lens' DescribeAddon Core.Text
 describeAddon_addonName = Lens.lens (\DescribeAddon' {addonName} -> addonName) (\s@DescribeAddon' {} a -> s {addonName = a} :: DescribeAddon)
 
-instance Prelude.AWSRequest DescribeAddon where
-  type Rs DescribeAddon = DescribeAddonResponse
+instance Core.AWSRequest DescribeAddon where
+  type
+    AWSResponse DescribeAddon =
+      DescribeAddonResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAddonResponse'
-            Prelude.<$> (x Prelude..?> "addon")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "addon")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAddon
+instance Core.Hashable DescribeAddon
 
-instance Prelude.NFData DescribeAddon
+instance Core.NFData DescribeAddon
 
-instance Prelude.ToHeaders DescribeAddon where
+instance Core.ToHeaders DescribeAddon where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeAddon where
+instance Core.ToPath DescribeAddon where
   toPath DescribeAddon' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/addons/",
-        Prelude.toBS addonName
+        Core.toBS addonName
       ]
 
-instance Prelude.ToQuery DescribeAddon where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAddon where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAddonResponse' smart constructor.
 data DescribeAddonResponse = DescribeAddonResponse'
-  { addon :: Prelude.Maybe Addon,
+  { addon :: Core.Maybe Addon,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAddonResponse' with all optional fields omitted.
@@ -152,20 +151,20 @@ data DescribeAddonResponse = DescribeAddonResponse'
 -- 'httpStatus', 'describeAddonResponse_httpStatus' - The response's http status code.
 newDescribeAddonResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAddonResponse
 newDescribeAddonResponse pHttpStatus_ =
   DescribeAddonResponse'
-    { addon = Prelude.Nothing,
+    { addon = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeAddonResponse_addon :: Lens.Lens' DescribeAddonResponse (Prelude.Maybe Addon)
+describeAddonResponse_addon :: Lens.Lens' DescribeAddonResponse (Core.Maybe Addon)
 describeAddonResponse_addon = Lens.lens (\DescribeAddonResponse' {addon} -> addon) (\s@DescribeAddonResponse' {} a -> s {addon = a} :: DescribeAddonResponse)
 
 -- | The response's http status code.
-describeAddonResponse_httpStatus :: Lens.Lens' DescribeAddonResponse Prelude.Int
+describeAddonResponse_httpStatus :: Lens.Lens' DescribeAddonResponse Core.Int
 describeAddonResponse_httpStatus = Lens.lens (\DescribeAddonResponse' {httpStatus} -> httpStatus) (\s@DescribeAddonResponse' {} a -> s {httpStatus = a} :: DescribeAddonResponse)
 
-instance Prelude.NFData DescribeAddonResponse
+instance Core.NFData DescribeAddonResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.LogDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
 
 -- |
@@ -31,9 +30,9 @@ data LogDestination = LogDestination'
   { -- | An object describing a CloudWatch log group. For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup>
     -- in the AWS CloudFormation User Guide.
-    cloudWatchLogsLogGroup :: Prelude.Maybe CloudWatchLogsLogGroup
+    cloudWatchLogsLogGroup :: Core.Maybe CloudWatchLogsLogGroup
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogDestination' with all optional fields omitted.
@@ -51,33 +50,33 @@ newLogDestination ::
 newLogDestination =
   LogDestination'
     { cloudWatchLogsLogGroup =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | An object describing a CloudWatch log group. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html AWS::Logs::LogGroup>
 -- in the AWS CloudFormation User Guide.
-logDestination_cloudWatchLogsLogGroup :: Lens.Lens' LogDestination (Prelude.Maybe CloudWatchLogsLogGroup)
+logDestination_cloudWatchLogsLogGroup :: Lens.Lens' LogDestination (Core.Maybe CloudWatchLogsLogGroup)
 logDestination_cloudWatchLogsLogGroup = Lens.lens (\LogDestination' {cloudWatchLogsLogGroup} -> cloudWatchLogsLogGroup) (\s@LogDestination' {} a -> s {cloudWatchLogsLogGroup = a} :: LogDestination)
 
-instance Prelude.FromJSON LogDestination where
+instance Core.FromJSON LogDestination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogDestination"
       ( \x ->
           LogDestination'
-            Prelude.<$> (x Prelude..:? "cloudWatchLogsLogGroup")
+            Core.<$> (x Core..:? "cloudWatchLogsLogGroup")
       )
 
-instance Prelude.Hashable LogDestination
+instance Core.Hashable LogDestination
 
-instance Prelude.NFData LogDestination
+instance Core.NFData LogDestination
 
-instance Prelude.ToJSON LogDestination where
+instance Core.ToJSON LogDestination where
   toJSON LogDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("cloudWatchLogsLogGroup" Prelude..=)
-              Prelude.<$> cloudWatchLogsLogGroup
+    Core.object
+      ( Core.catMaybes
+          [ ("cloudWatchLogsLogGroup" Core..=)
+              Core.<$> cloudWatchLogsLogGroup
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.IAM.PutUserPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,14 +69,14 @@ data PutUserPolicy = PutUserPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The name of the policy document.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The policy document.
     --
     -- You must provide policies in JSON format in IAM. However, for AWS
@@ -96,9 +95,9 @@ data PutUserPolicy = PutUserPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyDocument :: Prelude.Text
+    policyDocument :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutUserPolicy' with all optional fields omitted.
@@ -142,11 +141,11 @@ data PutUserPolicy = PutUserPolicy'
 --     carriage return (@\\u000D@)
 newPutUserPolicy ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyDocument'
-  Prelude.Text ->
+  Core.Text ->
   PutUserPolicy
 newPutUserPolicy
   pUserName_
@@ -164,7 +163,7 @@ newPutUserPolicy
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-putUserPolicy_userName :: Lens.Lens' PutUserPolicy Prelude.Text
+putUserPolicy_userName :: Lens.Lens' PutUserPolicy Core.Text
 putUserPolicy_userName = Lens.lens (\PutUserPolicy' {userName} -> userName) (\s@PutUserPolicy' {} a -> s {userName = a} :: PutUserPolicy)
 
 -- | The name of the policy document.
@@ -173,7 +172,7 @@ putUserPolicy_userName = Lens.lens (\PutUserPolicy' {userName} -> userName) (\s@
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-putUserPolicy_policyName :: Lens.Lens' PutUserPolicy Prelude.Text
+putUserPolicy_policyName :: Lens.Lens' PutUserPolicy Core.Text
 putUserPolicy_policyName = Lens.lens (\PutUserPolicy' {policyName} -> policyName) (\s@PutUserPolicy' {} a -> s {policyName = a} :: PutUserPolicy)
 
 -- | The policy document.
@@ -194,42 +193,43 @@ putUserPolicy_policyName = Lens.lens (\PutUserPolicy' {policyName} -> policyName
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-putUserPolicy_policyDocument :: Lens.Lens' PutUserPolicy Prelude.Text
+putUserPolicy_policyDocument :: Lens.Lens' PutUserPolicy Core.Text
 putUserPolicy_policyDocument = Lens.lens (\PutUserPolicy' {policyDocument} -> policyDocument) (\s@PutUserPolicy' {} a -> s {policyDocument = a} :: PutUserPolicy)
 
-instance Prelude.AWSRequest PutUserPolicy where
-  type Rs PutUserPolicy = PutUserPolicyResponse
+instance Core.AWSRequest PutUserPolicy where
+  type
+    AWSResponse PutUserPolicy =
+      PutUserPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull PutUserPolicyResponse'
 
-instance Prelude.Hashable PutUserPolicy
+instance Core.Hashable PutUserPolicy
 
-instance Prelude.NFData PutUserPolicy
+instance Core.NFData PutUserPolicy
 
-instance Prelude.ToHeaders PutUserPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutUserPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PutUserPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutUserPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutUserPolicy where
+instance Core.ToQuery PutUserPolicy where
   toQuery PutUserPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("PutUserPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "PolicyName" Prelude.=: policyName,
-        "PolicyDocument" Prelude.=: policyDocument
+          Core.=: ("PutUserPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "PolicyName" Core.=: policyName,
+        "PolicyDocument" Core.=: policyDocument
       ]
 
 -- | /See:/ 'newPutUserPolicyResponse' smart constructor.
 data PutUserPolicyResponse = PutUserPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutUserPolicyResponse' with all optional fields omitted.
@@ -239,4 +239,4 @@ newPutUserPolicyResponse ::
   PutUserPolicyResponse
 newPutUserPolicyResponse = PutUserPolicyResponse'
 
-instance Prelude.NFData PutUserPolicyResponse
+instance Core.NFData PutUserPolicyResponse

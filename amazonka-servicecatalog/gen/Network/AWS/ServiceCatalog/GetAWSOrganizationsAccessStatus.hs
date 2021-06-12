@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.ServiceCatalog.GetAWSOrganizationsAccessStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -49,7 +48,7 @@ import Network.AWS.ServiceCatalog.Types
 data GetAWSOrganizationsAccessStatus = GetAWSOrganizationsAccessStatus'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAWSOrganizationsAccessStatus' with all optional fields omitted.
@@ -61,74 +60,60 @@ newGetAWSOrganizationsAccessStatus =
   GetAWSOrganizationsAccessStatus'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetAWSOrganizationsAccessStatus
   where
   type
-    Rs GetAWSOrganizationsAccessStatus =
+    AWSResponse GetAWSOrganizationsAccessStatus =
       GetAWSOrganizationsAccessStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAWSOrganizationsAccessStatusResponse'
-            Prelude.<$> (x Prelude..?> "AccessStatus")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AccessStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetAWSOrganizationsAccessStatus
 
-instance
-  Prelude.NFData
-    GetAWSOrganizationsAccessStatus
+instance Core.NFData GetAWSOrganizationsAccessStatus
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetAWSOrganizationsAccessStatus
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetAWSOrganizationsAccessStatus
-  where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetAWSOrganizationsAccessStatus where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance
-  Prelude.ToPath
-    GetAWSOrganizationsAccessStatus
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAWSOrganizationsAccessStatus where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetAWSOrganizationsAccessStatus
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAWSOrganizationsAccessStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAWSOrganizationsAccessStatusResponse' smart constructor.
 data GetAWSOrganizationsAccessStatusResponse = GetAWSOrganizationsAccessStatusResponse'
   { -- | The status of the portfolio share feature.
-    accessStatus :: Prelude.Maybe AccessStatus,
+    accessStatus :: Core.Maybe AccessStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAWSOrganizationsAccessStatusResponse' with all optional fields omitted.
@@ -143,24 +128,24 @@ data GetAWSOrganizationsAccessStatusResponse = GetAWSOrganizationsAccessStatusRe
 -- 'httpStatus', 'getAWSOrganizationsAccessStatusResponse_httpStatus' - The response's http status code.
 newGetAWSOrganizationsAccessStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAWSOrganizationsAccessStatusResponse
 newGetAWSOrganizationsAccessStatusResponse
   pHttpStatus_ =
     GetAWSOrganizationsAccessStatusResponse'
       { accessStatus =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The status of the portfolio share feature.
-getAWSOrganizationsAccessStatusResponse_accessStatus :: Lens.Lens' GetAWSOrganizationsAccessStatusResponse (Prelude.Maybe AccessStatus)
+getAWSOrganizationsAccessStatusResponse_accessStatus :: Lens.Lens' GetAWSOrganizationsAccessStatusResponse (Core.Maybe AccessStatus)
 getAWSOrganizationsAccessStatusResponse_accessStatus = Lens.lens (\GetAWSOrganizationsAccessStatusResponse' {accessStatus} -> accessStatus) (\s@GetAWSOrganizationsAccessStatusResponse' {} a -> s {accessStatus = a} :: GetAWSOrganizationsAccessStatusResponse)
 
 -- | The response's http status code.
-getAWSOrganizationsAccessStatusResponse_httpStatus :: Lens.Lens' GetAWSOrganizationsAccessStatusResponse Prelude.Int
+getAWSOrganizationsAccessStatusResponse_httpStatus :: Lens.Lens' GetAWSOrganizationsAccessStatusResponse Core.Int
 getAWSOrganizationsAccessStatusResponse_httpStatus = Lens.lens (\GetAWSOrganizationsAccessStatusResponse' {httpStatus} -> httpStatus) (\s@GetAWSOrganizationsAccessStatusResponse' {} a -> s {httpStatus = a} :: GetAWSOrganizationsAccessStatusResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetAWSOrganizationsAccessStatusResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.SageMaker.ListFeatureGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -61,28 +59,28 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListFeatureGroups' smart constructor.
 data ListFeatureGroups = ListFeatureGroups'
   { -- | The order in which feature groups are listed.
-    sortOrder :: Prelude.Maybe FeatureGroupSortOrder,
+    sortOrder :: Core.Maybe FeatureGroupSortOrder,
     -- | A token to resume pagination of @ListFeatureGroups@ results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A string that partially matches one or more @FeatureGroup@s names.
     -- Filters @FeatureGroup@s by name.
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of results returned by @ListFeatureGroups@.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | An @OfflineStore@ status. Filters by @OfflineStore@ status.
-    offlineStoreStatusEquals :: Prelude.Maybe OfflineStoreStatusValue,
+    offlineStoreStatusEquals :: Core.Maybe OfflineStoreStatusValue,
     -- | Use this parameter to search for @FeatureGroups@s created before a
     -- specific date and time.
-    creationTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    creationTimeBefore :: Core.Maybe Core.POSIX,
     -- | The value on which the feature group list is sorted.
-    sortBy :: Prelude.Maybe FeatureGroupSortBy,
+    sortBy :: Core.Maybe FeatureGroupSortBy,
     -- | Use this parameter to search for @FeatureGroups@s created after a
     -- specific date and time.
-    creationTimeAfter :: Prelude.Maybe Prelude.POSIX,
+    creationTimeAfter :: Core.Maybe Core.POSIX,
     -- | A @FeatureGroup@ status. Filters by @FeatureGroup@ status.
-    featureGroupStatusEquals :: Prelude.Maybe FeatureGroupStatus
+    featureGroupStatusEquals :: Core.Maybe FeatureGroupStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFeatureGroups' with all optional fields omitted.
@@ -116,146 +114,143 @@ newListFeatureGroups ::
   ListFeatureGroups
 newListFeatureGroups =
   ListFeatureGroups'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      offlineStoreStatusEquals = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing,
-      featureGroupStatusEquals = Prelude.Nothing
+    { sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing,
+      offlineStoreStatusEquals = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      sortBy = Core.Nothing,
+      creationTimeAfter = Core.Nothing,
+      featureGroupStatusEquals = Core.Nothing
     }
 
 -- | The order in which feature groups are listed.
-listFeatureGroups_sortOrder :: Lens.Lens' ListFeatureGroups (Prelude.Maybe FeatureGroupSortOrder)
+listFeatureGroups_sortOrder :: Lens.Lens' ListFeatureGroups (Core.Maybe FeatureGroupSortOrder)
 listFeatureGroups_sortOrder = Lens.lens (\ListFeatureGroups' {sortOrder} -> sortOrder) (\s@ListFeatureGroups' {} a -> s {sortOrder = a} :: ListFeatureGroups)
 
 -- | A token to resume pagination of @ListFeatureGroups@ results.
-listFeatureGroups_nextToken :: Lens.Lens' ListFeatureGroups (Prelude.Maybe Prelude.Text)
+listFeatureGroups_nextToken :: Lens.Lens' ListFeatureGroups (Core.Maybe Core.Text)
 listFeatureGroups_nextToken = Lens.lens (\ListFeatureGroups' {nextToken} -> nextToken) (\s@ListFeatureGroups' {} a -> s {nextToken = a} :: ListFeatureGroups)
 
 -- | A string that partially matches one or more @FeatureGroup@s names.
 -- Filters @FeatureGroup@s by name.
-listFeatureGroups_nameContains :: Lens.Lens' ListFeatureGroups (Prelude.Maybe Prelude.Text)
+listFeatureGroups_nameContains :: Lens.Lens' ListFeatureGroups (Core.Maybe Core.Text)
 listFeatureGroups_nameContains = Lens.lens (\ListFeatureGroups' {nameContains} -> nameContains) (\s@ListFeatureGroups' {} a -> s {nameContains = a} :: ListFeatureGroups)
 
 -- | The maximum number of results returned by @ListFeatureGroups@.
-listFeatureGroups_maxResults :: Lens.Lens' ListFeatureGroups (Prelude.Maybe Prelude.Natural)
+listFeatureGroups_maxResults :: Lens.Lens' ListFeatureGroups (Core.Maybe Core.Natural)
 listFeatureGroups_maxResults = Lens.lens (\ListFeatureGroups' {maxResults} -> maxResults) (\s@ListFeatureGroups' {} a -> s {maxResults = a} :: ListFeatureGroups)
 
 -- | An @OfflineStore@ status. Filters by @OfflineStore@ status.
-listFeatureGroups_offlineStoreStatusEquals :: Lens.Lens' ListFeatureGroups (Prelude.Maybe OfflineStoreStatusValue)
+listFeatureGroups_offlineStoreStatusEquals :: Lens.Lens' ListFeatureGroups (Core.Maybe OfflineStoreStatusValue)
 listFeatureGroups_offlineStoreStatusEquals = Lens.lens (\ListFeatureGroups' {offlineStoreStatusEquals} -> offlineStoreStatusEquals) (\s@ListFeatureGroups' {} a -> s {offlineStoreStatusEquals = a} :: ListFeatureGroups)
 
 -- | Use this parameter to search for @FeatureGroups@s created before a
 -- specific date and time.
-listFeatureGroups_creationTimeBefore :: Lens.Lens' ListFeatureGroups (Prelude.Maybe Prelude.UTCTime)
-listFeatureGroups_creationTimeBefore = Lens.lens (\ListFeatureGroups' {creationTimeBefore} -> creationTimeBefore) (\s@ListFeatureGroups' {} a -> s {creationTimeBefore = a} :: ListFeatureGroups) Prelude.. Lens.mapping Prelude._Time
+listFeatureGroups_creationTimeBefore :: Lens.Lens' ListFeatureGroups (Core.Maybe Core.UTCTime)
+listFeatureGroups_creationTimeBefore = Lens.lens (\ListFeatureGroups' {creationTimeBefore} -> creationTimeBefore) (\s@ListFeatureGroups' {} a -> s {creationTimeBefore = a} :: ListFeatureGroups) Core.. Lens.mapping Core._Time
 
 -- | The value on which the feature group list is sorted.
-listFeatureGroups_sortBy :: Lens.Lens' ListFeatureGroups (Prelude.Maybe FeatureGroupSortBy)
+listFeatureGroups_sortBy :: Lens.Lens' ListFeatureGroups (Core.Maybe FeatureGroupSortBy)
 listFeatureGroups_sortBy = Lens.lens (\ListFeatureGroups' {sortBy} -> sortBy) (\s@ListFeatureGroups' {} a -> s {sortBy = a} :: ListFeatureGroups)
 
 -- | Use this parameter to search for @FeatureGroups@s created after a
 -- specific date and time.
-listFeatureGroups_creationTimeAfter :: Lens.Lens' ListFeatureGroups (Prelude.Maybe Prelude.UTCTime)
-listFeatureGroups_creationTimeAfter = Lens.lens (\ListFeatureGroups' {creationTimeAfter} -> creationTimeAfter) (\s@ListFeatureGroups' {} a -> s {creationTimeAfter = a} :: ListFeatureGroups) Prelude.. Lens.mapping Prelude._Time
+listFeatureGroups_creationTimeAfter :: Lens.Lens' ListFeatureGroups (Core.Maybe Core.UTCTime)
+listFeatureGroups_creationTimeAfter = Lens.lens (\ListFeatureGroups' {creationTimeAfter} -> creationTimeAfter) (\s@ListFeatureGroups' {} a -> s {creationTimeAfter = a} :: ListFeatureGroups) Core.. Lens.mapping Core._Time
 
 -- | A @FeatureGroup@ status. Filters by @FeatureGroup@ status.
-listFeatureGroups_featureGroupStatusEquals :: Lens.Lens' ListFeatureGroups (Prelude.Maybe FeatureGroupStatus)
+listFeatureGroups_featureGroupStatusEquals :: Lens.Lens' ListFeatureGroups (Core.Maybe FeatureGroupStatus)
 listFeatureGroups_featureGroupStatusEquals = Lens.lens (\ListFeatureGroups' {featureGroupStatusEquals} -> featureGroupStatusEquals) (\s@ListFeatureGroups' {} a -> s {featureGroupStatusEquals = a} :: ListFeatureGroups)
 
-instance Pager.AWSPager ListFeatureGroups where
+instance Core.AWSPager ListFeatureGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listFeatureGroupsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listFeatureGroupsResponse_featureGroupSummaries
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listFeatureGroups_nextToken
           Lens..~ rs
-          Lens.^? listFeatureGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listFeatureGroupsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListFeatureGroups where
-  type Rs ListFeatureGroups = ListFeatureGroupsResponse
+instance Core.AWSRequest ListFeatureGroups where
+  type
+    AWSResponse ListFeatureGroups =
+      ListFeatureGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListFeatureGroupsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "FeatureGroupSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "FeatureGroupSummaries"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ListFeatureGroups
+instance Core.Hashable ListFeatureGroups
 
-instance Prelude.NFData ListFeatureGroups
+instance Core.NFData ListFeatureGroups
 
-instance Prelude.ToHeaders ListFeatureGroups where
+instance Core.ToHeaders ListFeatureGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.ListFeatureGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.ListFeatureGroups" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListFeatureGroups where
+instance Core.ToJSON ListFeatureGroups where
   toJSON ListFeatureGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NameContains" Prelude..=) Prelude.<$> nameContains,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("OfflineStoreStatusEquals" Prelude..=)
-              Prelude.<$> offlineStoreStatusEquals,
-            ("CreationTimeBefore" Prelude..=)
-              Prelude.<$> creationTimeBefore,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Prelude..=)
-              Prelude.<$> creationTimeAfter,
-            ("FeatureGroupStatusEquals" Prelude..=)
-              Prelude.<$> featureGroupStatusEquals
+    Core.object
+      ( Core.catMaybes
+          [ ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("OfflineStoreStatusEquals" Core..=)
+              Core.<$> offlineStoreStatusEquals,
+            ("CreationTimeBefore" Core..=)
+              Core.<$> creationTimeBefore,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("CreationTimeAfter" Core..=)
+              Core.<$> creationTimeAfter,
+            ("FeatureGroupStatusEquals" Core..=)
+              Core.<$> featureGroupStatusEquals
           ]
       )
 
-instance Prelude.ToPath ListFeatureGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListFeatureGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListFeatureGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListFeatureGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListFeatureGroupsResponse' smart constructor.
 data ListFeatureGroupsResponse = ListFeatureGroupsResponse'
   { -- | A token to resume pagination of @ListFeatureGroups@ results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A summary of feature groups.
     featureGroupSummaries :: [FeatureGroupSummary]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFeatureGroupsResponse' with all optional fields omitted.
@@ -272,26 +267,26 @@ data ListFeatureGroupsResponse = ListFeatureGroupsResponse'
 -- 'featureGroupSummaries', 'listFeatureGroupsResponse_featureGroupSummaries' - A summary of feature groups.
 newListFeatureGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListFeatureGroupsResponse
 newListFeatureGroupsResponse pHttpStatus_ =
   ListFeatureGroupsResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      featureGroupSummaries = Prelude.mempty
+      featureGroupSummaries = Core.mempty
     }
 
 -- | A token to resume pagination of @ListFeatureGroups@ results.
-listFeatureGroupsResponse_nextToken :: Lens.Lens' ListFeatureGroupsResponse (Prelude.Maybe Prelude.Text)
+listFeatureGroupsResponse_nextToken :: Lens.Lens' ListFeatureGroupsResponse (Core.Maybe Core.Text)
 listFeatureGroupsResponse_nextToken = Lens.lens (\ListFeatureGroupsResponse' {nextToken} -> nextToken) (\s@ListFeatureGroupsResponse' {} a -> s {nextToken = a} :: ListFeatureGroupsResponse)
 
 -- | The response's http status code.
-listFeatureGroupsResponse_httpStatus :: Lens.Lens' ListFeatureGroupsResponse Prelude.Int
+listFeatureGroupsResponse_httpStatus :: Lens.Lens' ListFeatureGroupsResponse Core.Int
 listFeatureGroupsResponse_httpStatus = Lens.lens (\ListFeatureGroupsResponse' {httpStatus} -> httpStatus) (\s@ListFeatureGroupsResponse' {} a -> s {httpStatus = a} :: ListFeatureGroupsResponse)
 
 -- | A summary of feature groups.
 listFeatureGroupsResponse_featureGroupSummaries :: Lens.Lens' ListFeatureGroupsResponse [FeatureGroupSummary]
-listFeatureGroupsResponse_featureGroupSummaries = Lens.lens (\ListFeatureGroupsResponse' {featureGroupSummaries} -> featureGroupSummaries) (\s@ListFeatureGroupsResponse' {} a -> s {featureGroupSummaries = a} :: ListFeatureGroupsResponse) Prelude.. Prelude._Coerce
+listFeatureGroupsResponse_featureGroupSummaries = Lens.lens (\ListFeatureGroupsResponse' {featureGroupSummaries} -> featureGroupSummaries) (\s@ListFeatureGroupsResponse' {} a -> s {featureGroupSummaries = a} :: ListFeatureGroupsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListFeatureGroupsResponse
+instance Core.NFData ListFeatureGroupsResponse

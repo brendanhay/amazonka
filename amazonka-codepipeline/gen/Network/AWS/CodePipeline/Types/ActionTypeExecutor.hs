@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodePipeline.Types.ActionTypeExecutor where
 
 import Network.AWS.CodePipeline.Types.ExecutorConfiguration
 import Network.AWS.CodePipeline.Types.ExecutorType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The action engine, or executor, for an action type created for a
 -- provider, where the action is to be used by customers of the provider.
@@ -41,11 +40,11 @@ data ActionTypeExecutor = ActionTypeExecutor'
     --
     -- The size of the passed JSON policy document cannot exceed 2048
     -- characters.
-    policyStatementsTemplate :: Prelude.Maybe Prelude.Text,
+    policyStatementsTemplate :: Core.Maybe Core.Text,
     -- | The timeout in seconds for the job. An action execution can have
     -- multiple jobs. This is the timeout for a single job, not the entire
     -- action execution.
-    jobTimeout :: Prelude.Maybe Prelude.Natural,
+    jobTimeout :: Core.Maybe Core.Natural,
     -- | The action configuration properties for the action type. These
     -- properties are specified in the action definition when the action type
     -- is created.
@@ -54,7 +53,7 @@ data ActionTypeExecutor = ActionTypeExecutor'
     -- @Lambda@ or @JobWorker@.
     type' :: ExecutorType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionTypeExecutor' with all optional fields omitted.
@@ -93,8 +92,8 @@ newActionTypeExecutor ::
 newActionTypeExecutor pConfiguration_ pType_ =
   ActionTypeExecutor'
     { policyStatementsTemplate =
-        Prelude.Nothing,
-      jobTimeout = Prelude.Nothing,
+        Core.Nothing,
+      jobTimeout = Core.Nothing,
       configuration = pConfiguration_,
       type' = pType_
     }
@@ -108,13 +107,13 @@ newActionTypeExecutor pConfiguration_ pType_ =
 --
 -- The size of the passed JSON policy document cannot exceed 2048
 -- characters.
-actionTypeExecutor_policyStatementsTemplate :: Lens.Lens' ActionTypeExecutor (Prelude.Maybe Prelude.Text)
+actionTypeExecutor_policyStatementsTemplate :: Lens.Lens' ActionTypeExecutor (Core.Maybe Core.Text)
 actionTypeExecutor_policyStatementsTemplate = Lens.lens (\ActionTypeExecutor' {policyStatementsTemplate} -> policyStatementsTemplate) (\s@ActionTypeExecutor' {} a -> s {policyStatementsTemplate = a} :: ActionTypeExecutor)
 
 -- | The timeout in seconds for the job. An action execution can have
 -- multiple jobs. This is the timeout for a single job, not the entire
 -- action execution.
-actionTypeExecutor_jobTimeout :: Lens.Lens' ActionTypeExecutor (Prelude.Maybe Prelude.Natural)
+actionTypeExecutor_jobTimeout :: Lens.Lens' ActionTypeExecutor (Core.Maybe Core.Natural)
 actionTypeExecutor_jobTimeout = Lens.lens (\ActionTypeExecutor' {jobTimeout} -> jobTimeout) (\s@ActionTypeExecutor' {} a -> s {jobTimeout = a} :: ActionTypeExecutor)
 
 -- | The action configuration properties for the action type. These
@@ -128,31 +127,30 @@ actionTypeExecutor_configuration = Lens.lens (\ActionTypeExecutor' {configuratio
 actionTypeExecutor_type :: Lens.Lens' ActionTypeExecutor ExecutorType
 actionTypeExecutor_type = Lens.lens (\ActionTypeExecutor' {type'} -> type') (\s@ActionTypeExecutor' {} a -> s {type' = a} :: ActionTypeExecutor)
 
-instance Prelude.FromJSON ActionTypeExecutor where
+instance Core.FromJSON ActionTypeExecutor where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionTypeExecutor"
       ( \x ->
           ActionTypeExecutor'
-            Prelude.<$> (x Prelude..:? "policyStatementsTemplate")
-            Prelude.<*> (x Prelude..:? "jobTimeout")
-            Prelude.<*> (x Prelude..: "configuration")
-            Prelude.<*> (x Prelude..: "type")
+            Core.<$> (x Core..:? "policyStatementsTemplate")
+            Core.<*> (x Core..:? "jobTimeout")
+            Core.<*> (x Core..: "configuration")
+            Core.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable ActionTypeExecutor
+instance Core.Hashable ActionTypeExecutor
 
-instance Prelude.NFData ActionTypeExecutor
+instance Core.NFData ActionTypeExecutor
 
-instance Prelude.ToJSON ActionTypeExecutor where
+instance Core.ToJSON ActionTypeExecutor where
   toJSON ActionTypeExecutor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("policyStatementsTemplate" Prelude..=)
-              Prelude.<$> policyStatementsTemplate,
-            ("jobTimeout" Prelude..=) Prelude.<$> jobTimeout,
-            Prelude.Just
-              ("configuration" Prelude..= configuration),
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ ("policyStatementsTemplate" Core..=)
+              Core.<$> policyStatementsTemplate,
+            ("jobTimeout" Core..=) Core.<$> jobTimeout,
+            Core.Just ("configuration" Core..= configuration),
+            Core.Just ("type" Core..= type')
           ]
       )

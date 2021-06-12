@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
 import Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
 import Network.AWS.ElastiCache.Types.ReshardingStatus
 import Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The settings to be applied to the Redis replication group, either
 -- immediately or during the next maintenance window.
@@ -33,20 +32,20 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReplicationGroupPendingModifiedValues' smart constructor.
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
   { -- | The status of an online resharding operation.
-    resharding :: Prelude.Maybe ReshardingStatus,
+    resharding :: Core.Maybe ReshardingStatus,
     -- | The primary cluster ID that is applied immediately (if
     -- @--apply-immediately@ was specified), or during the next maintenance
     -- window.
-    primaryClusterId :: Prelude.Maybe Prelude.Text,
+    primaryClusterId :: Core.Maybe Core.Text,
     -- | The auth token status
-    authTokenStatus :: Prelude.Maybe AuthTokenUpdateStatus,
+    authTokenStatus :: Core.Maybe AuthTokenUpdateStatus,
     -- | The user groups being modified.
-    userGroups :: Prelude.Maybe UserGroupsUpdateStatus,
+    userGroups :: Core.Maybe UserGroupsUpdateStatus,
     -- | Indicates the status of automatic failover for this Redis replication
     -- group.
-    automaticFailoverStatus :: Prelude.Maybe PendingAutomaticFailoverStatus
+    automaticFailoverStatus :: Core.Maybe PendingAutomaticFailoverStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationGroupPendingModifiedValues' with all optional fields omitted.
@@ -73,53 +72,53 @@ newReplicationGroupPendingModifiedValues ::
 newReplicationGroupPendingModifiedValues =
   ReplicationGroupPendingModifiedValues'
     { resharding =
-        Prelude.Nothing,
-      primaryClusterId = Prelude.Nothing,
-      authTokenStatus = Prelude.Nothing,
-      userGroups = Prelude.Nothing,
+        Core.Nothing,
+      primaryClusterId = Core.Nothing,
+      authTokenStatus = Core.Nothing,
+      userGroups = Core.Nothing,
       automaticFailoverStatus =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The status of an online resharding operation.
-replicationGroupPendingModifiedValues_resharding :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe ReshardingStatus)
+replicationGroupPendingModifiedValues_resharding :: Lens.Lens' ReplicationGroupPendingModifiedValues (Core.Maybe ReshardingStatus)
 replicationGroupPendingModifiedValues_resharding = Lens.lens (\ReplicationGroupPendingModifiedValues' {resharding} -> resharding) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {resharding = a} :: ReplicationGroupPendingModifiedValues)
 
 -- | The primary cluster ID that is applied immediately (if
 -- @--apply-immediately@ was specified), or during the next maintenance
 -- window.
-replicationGroupPendingModifiedValues_primaryClusterId :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe Prelude.Text)
+replicationGroupPendingModifiedValues_primaryClusterId :: Lens.Lens' ReplicationGroupPendingModifiedValues (Core.Maybe Core.Text)
 replicationGroupPendingModifiedValues_primaryClusterId = Lens.lens (\ReplicationGroupPendingModifiedValues' {primaryClusterId} -> primaryClusterId) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {primaryClusterId = a} :: ReplicationGroupPendingModifiedValues)
 
 -- | The auth token status
-replicationGroupPendingModifiedValues_authTokenStatus :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe AuthTokenUpdateStatus)
+replicationGroupPendingModifiedValues_authTokenStatus :: Lens.Lens' ReplicationGroupPendingModifiedValues (Core.Maybe AuthTokenUpdateStatus)
 replicationGroupPendingModifiedValues_authTokenStatus = Lens.lens (\ReplicationGroupPendingModifiedValues' {authTokenStatus} -> authTokenStatus) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {authTokenStatus = a} :: ReplicationGroupPendingModifiedValues)
 
 -- | The user groups being modified.
-replicationGroupPendingModifiedValues_userGroups :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe UserGroupsUpdateStatus)
+replicationGroupPendingModifiedValues_userGroups :: Lens.Lens' ReplicationGroupPendingModifiedValues (Core.Maybe UserGroupsUpdateStatus)
 replicationGroupPendingModifiedValues_userGroups = Lens.lens (\ReplicationGroupPendingModifiedValues' {userGroups} -> userGroups) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {userGroups = a} :: ReplicationGroupPendingModifiedValues)
 
 -- | Indicates the status of automatic failover for this Redis replication
 -- group.
-replicationGroupPendingModifiedValues_automaticFailoverStatus :: Lens.Lens' ReplicationGroupPendingModifiedValues (Prelude.Maybe PendingAutomaticFailoverStatus)
+replicationGroupPendingModifiedValues_automaticFailoverStatus :: Lens.Lens' ReplicationGroupPendingModifiedValues (Core.Maybe PendingAutomaticFailoverStatus)
 replicationGroupPendingModifiedValues_automaticFailoverStatus = Lens.lens (\ReplicationGroupPendingModifiedValues' {automaticFailoverStatus} -> automaticFailoverStatus) (\s@ReplicationGroupPendingModifiedValues' {} a -> s {automaticFailoverStatus = a} :: ReplicationGroupPendingModifiedValues)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ReplicationGroupPendingModifiedValues
   where
   parseXML x =
     ReplicationGroupPendingModifiedValues'
-      Prelude.<$> (x Prelude..@? "Resharding")
-      Prelude.<*> (x Prelude..@? "PrimaryClusterId")
-      Prelude.<*> (x Prelude..@? "AuthTokenStatus")
-      Prelude.<*> (x Prelude..@? "UserGroups")
-      Prelude.<*> (x Prelude..@? "AutomaticFailoverStatus")
+      Core.<$> (x Core..@? "Resharding")
+      Core.<*> (x Core..@? "PrimaryClusterId")
+      Core.<*> (x Core..@? "AuthTokenStatus")
+      Core.<*> (x Core..@? "UserGroups")
+      Core.<*> (x Core..@? "AutomaticFailoverStatus")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ReplicationGroupPendingModifiedValues
 
 instance
-  Prelude.NFData
+  Core.NFData
     ReplicationGroupPendingModifiedValues

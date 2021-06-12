@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.RegexMatchSetUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ChangeAction
 import Network.AWS.WAFRegional.Types.RegexMatchTuple
 
@@ -50,7 +49,7 @@ data RegexMatchSetUpdate = RegexMatchSetUpdate'
     -- @RegexMatchSet@.
     regexMatchTuple :: RegexMatchTuple
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegexMatchSetUpdate' with all optional fields omitted.
@@ -93,16 +92,16 @@ regexMatchSetUpdate_action = Lens.lens (\RegexMatchSetUpdate' {action} -> action
 regexMatchSetUpdate_regexMatchTuple :: Lens.Lens' RegexMatchSetUpdate RegexMatchTuple
 regexMatchSetUpdate_regexMatchTuple = Lens.lens (\RegexMatchSetUpdate' {regexMatchTuple} -> regexMatchTuple) (\s@RegexMatchSetUpdate' {} a -> s {regexMatchTuple = a} :: RegexMatchSetUpdate)
 
-instance Prelude.Hashable RegexMatchSetUpdate
+instance Core.Hashable RegexMatchSetUpdate
 
-instance Prelude.NFData RegexMatchSetUpdate
+instance Core.NFData RegexMatchSetUpdate
 
-instance Prelude.ToJSON RegexMatchSetUpdate where
+instance Core.ToJSON RegexMatchSetUpdate where
   toJSON RegexMatchSetUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Action" Prelude..= action),
-            Prelude.Just
-              ("RegexMatchTuple" Prelude..= regexMatchTuple)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just
+              ("RegexMatchTuple" Core..= regexMatchTuple)
           ]
       )

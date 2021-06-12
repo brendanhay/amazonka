@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.FaultStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about requests that failed with a 5xx Server Error status
 -- code.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data FaultStatistics = FaultStatistics'
   { -- | The number of requests that failed with untracked 5xx Server Error
     -- status codes.
-    otherCount :: Prelude.Maybe Prelude.Integer,
+    otherCount :: Core.Maybe Core.Integer,
     -- | The total number of requests that failed with a 5xx Server Error status
     -- code.
-    totalCount :: Prelude.Maybe Prelude.Integer
+    totalCount :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FaultStatistics' with all optional fields omitted.
@@ -54,30 +53,30 @@ newFaultStatistics ::
   FaultStatistics
 newFaultStatistics =
   FaultStatistics'
-    { otherCount = Prelude.Nothing,
-      totalCount = Prelude.Nothing
+    { otherCount = Core.Nothing,
+      totalCount = Core.Nothing
     }
 
 -- | The number of requests that failed with untracked 5xx Server Error
 -- status codes.
-faultStatistics_otherCount :: Lens.Lens' FaultStatistics (Prelude.Maybe Prelude.Integer)
+faultStatistics_otherCount :: Lens.Lens' FaultStatistics (Core.Maybe Core.Integer)
 faultStatistics_otherCount = Lens.lens (\FaultStatistics' {otherCount} -> otherCount) (\s@FaultStatistics' {} a -> s {otherCount = a} :: FaultStatistics)
 
 -- | The total number of requests that failed with a 5xx Server Error status
 -- code.
-faultStatistics_totalCount :: Lens.Lens' FaultStatistics (Prelude.Maybe Prelude.Integer)
+faultStatistics_totalCount :: Lens.Lens' FaultStatistics (Core.Maybe Core.Integer)
 faultStatistics_totalCount = Lens.lens (\FaultStatistics' {totalCount} -> totalCount) (\s@FaultStatistics' {} a -> s {totalCount = a} :: FaultStatistics)
 
-instance Prelude.FromJSON FaultStatistics where
+instance Core.FromJSON FaultStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FaultStatistics"
       ( \x ->
           FaultStatistics'
-            Prelude.<$> (x Prelude..:? "OtherCount")
-            Prelude.<*> (x Prelude..:? "TotalCount")
+            Core.<$> (x Core..:? "OtherCount")
+            Core.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable FaultStatistics
+instance Core.Hashable FaultStatistics
 
-instance Prelude.NFData FaultStatistics
+instance Core.NFData FaultStatistics

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.CodeCommit.GetRepositoryTriggers
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetRepositoryTriggers' smart constructor.
 data GetRepositoryTriggers = GetRepositoryTriggers'
   { -- | The name of the repository for which the trigger is configured.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRepositoryTriggers' with all optional fields omitted.
@@ -67,7 +66,7 @@ data GetRepositoryTriggers = GetRepositoryTriggers'
 -- 'repositoryName', 'getRepositoryTriggers_repositoryName' - The name of the repository for which the trigger is configured.
 newGetRepositoryTriggers ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   GetRepositoryTriggers
 newGetRepositoryTriggers pRepositoryName_ =
   GetRepositoryTriggers'
@@ -76,69 +75,67 @@ newGetRepositoryTriggers pRepositoryName_ =
     }
 
 -- | The name of the repository for which the trigger is configured.
-getRepositoryTriggers_repositoryName :: Lens.Lens' GetRepositoryTriggers Prelude.Text
+getRepositoryTriggers_repositoryName :: Lens.Lens' GetRepositoryTriggers Core.Text
 getRepositoryTriggers_repositoryName = Lens.lens (\GetRepositoryTriggers' {repositoryName} -> repositoryName) (\s@GetRepositoryTriggers' {} a -> s {repositoryName = a} :: GetRepositoryTriggers)
 
-instance Prelude.AWSRequest GetRepositoryTriggers where
+instance Core.AWSRequest GetRepositoryTriggers where
   type
-    Rs GetRepositoryTriggers =
+    AWSResponse GetRepositoryTriggers =
       GetRepositoryTriggersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRepositoryTriggersResponse'
-            Prelude.<$> (x Prelude..?> "triggers" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "configurationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "triggers" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "configurationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRepositoryTriggers
+instance Core.Hashable GetRepositoryTriggers
 
-instance Prelude.NFData GetRepositoryTriggers
+instance Core.NFData GetRepositoryTriggers
 
-instance Prelude.ToHeaders GetRepositoryTriggers where
+instance Core.ToHeaders GetRepositoryTriggers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.GetRepositoryTriggers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.GetRepositoryTriggers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRepositoryTriggers where
+instance Core.ToJSON GetRepositoryTriggers where
   toJSON GetRepositoryTriggers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("repositoryName" Prelude..= repositoryName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
-instance Prelude.ToPath GetRepositoryTriggers where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRepositoryTriggers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRepositoryTriggers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRepositoryTriggers where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a get repository triggers operation.
 --
 -- /See:/ 'newGetRepositoryTriggersResponse' smart constructor.
 data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
   { -- | The JSON block of configuration information for each trigger.
-    triggers :: Prelude.Maybe [RepositoryTrigger],
+    triggers :: Core.Maybe [RepositoryTrigger],
     -- | The system-generated unique ID for the trigger.
-    configurationId :: Prelude.Maybe Prelude.Text,
+    configurationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRepositoryTriggersResponse' with all optional fields omitted.
@@ -155,26 +152,26 @@ data GetRepositoryTriggersResponse = GetRepositoryTriggersResponse'
 -- 'httpStatus', 'getRepositoryTriggersResponse_httpStatus' - The response's http status code.
 newGetRepositoryTriggersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRepositoryTriggersResponse
 newGetRepositoryTriggersResponse pHttpStatus_ =
   GetRepositoryTriggersResponse'
     { triggers =
-        Prelude.Nothing,
-      configurationId = Prelude.Nothing,
+        Core.Nothing,
+      configurationId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The JSON block of configuration information for each trigger.
-getRepositoryTriggersResponse_triggers :: Lens.Lens' GetRepositoryTriggersResponse (Prelude.Maybe [RepositoryTrigger])
-getRepositoryTriggersResponse_triggers = Lens.lens (\GetRepositoryTriggersResponse' {triggers} -> triggers) (\s@GetRepositoryTriggersResponse' {} a -> s {triggers = a} :: GetRepositoryTriggersResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRepositoryTriggersResponse_triggers :: Lens.Lens' GetRepositoryTriggersResponse (Core.Maybe [RepositoryTrigger])
+getRepositoryTriggersResponse_triggers = Lens.lens (\GetRepositoryTriggersResponse' {triggers} -> triggers) (\s@GetRepositoryTriggersResponse' {} a -> s {triggers = a} :: GetRepositoryTriggersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The system-generated unique ID for the trigger.
-getRepositoryTriggersResponse_configurationId :: Lens.Lens' GetRepositoryTriggersResponse (Prelude.Maybe Prelude.Text)
+getRepositoryTriggersResponse_configurationId :: Lens.Lens' GetRepositoryTriggersResponse (Core.Maybe Core.Text)
 getRepositoryTriggersResponse_configurationId = Lens.lens (\GetRepositoryTriggersResponse' {configurationId} -> configurationId) (\s@GetRepositoryTriggersResponse' {} a -> s {configurationId = a} :: GetRepositoryTriggersResponse)
 
 -- | The response's http status code.
-getRepositoryTriggersResponse_httpStatus :: Lens.Lens' GetRepositoryTriggersResponse Prelude.Int
+getRepositoryTriggersResponse_httpStatus :: Lens.Lens' GetRepositoryTriggersResponse Core.Int
 getRepositoryTriggersResponse_httpStatus = Lens.lens (\GetRepositoryTriggersResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryTriggersResponse' {} a -> s {httpStatus = a} :: GetRepositoryTriggersResponse)
 
-instance Prelude.NFData GetRepositoryTriggersResponse
+instance Core.NFData GetRepositoryTriggersResponse

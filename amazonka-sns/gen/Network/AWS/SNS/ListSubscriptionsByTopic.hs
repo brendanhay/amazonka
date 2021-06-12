@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -62,11 +60,11 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newListSubscriptionsByTopic' smart constructor.
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
   { -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The ARN of the topic for which you wish to find subscriptions.
-    topicArn :: Prelude.Text
+    topicArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSubscriptionsByTopic' with all optional fields omitted.
@@ -81,48 +79,47 @@ data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
 -- 'topicArn', 'listSubscriptionsByTopic_topicArn' - The ARN of the topic for which you wish to find subscriptions.
 newListSubscriptionsByTopic ::
   -- | 'topicArn'
-  Prelude.Text ->
+  Core.Text ->
   ListSubscriptionsByTopic
 newListSubscriptionsByTopic pTopicArn_ =
   ListSubscriptionsByTopic'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       topicArn = pTopicArn_
     }
 
 -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
-listSubscriptionsByTopic_nextToken :: Lens.Lens' ListSubscriptionsByTopic (Prelude.Maybe Prelude.Text)
+listSubscriptionsByTopic_nextToken :: Lens.Lens' ListSubscriptionsByTopic (Core.Maybe Core.Text)
 listSubscriptionsByTopic_nextToken = Lens.lens (\ListSubscriptionsByTopic' {nextToken} -> nextToken) (\s@ListSubscriptionsByTopic' {} a -> s {nextToken = a} :: ListSubscriptionsByTopic)
 
 -- | The ARN of the topic for which you wish to find subscriptions.
-listSubscriptionsByTopic_topicArn :: Lens.Lens' ListSubscriptionsByTopic Prelude.Text
+listSubscriptionsByTopic_topicArn :: Lens.Lens' ListSubscriptionsByTopic Core.Text
 listSubscriptionsByTopic_topicArn = Lens.lens (\ListSubscriptionsByTopic' {topicArn} -> topicArn) (\s@ListSubscriptionsByTopic' {} a -> s {topicArn = a} :: ListSubscriptionsByTopic)
 
-instance Pager.AWSPager ListSubscriptionsByTopic where
+instance Core.AWSPager ListSubscriptionsByTopic where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSubscriptionsByTopicResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listSubscriptionsByTopicResponse_subscriptions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSubscriptionsByTopic_nextToken
           Lens..~ rs
           Lens.^? listSubscriptionsByTopicResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSubscriptionsByTopic where
+instance Core.AWSRequest ListSubscriptionsByTopic where
   type
-    Rs ListSubscriptionsByTopic =
+    AWSResponse ListSubscriptionsByTopic =
       ListSubscriptionsByTopicResponse
   request = Request.postQuery defaultService
   response =
@@ -130,33 +127,31 @@ instance Prelude.AWSRequest ListSubscriptionsByTopic where
       "ListSubscriptionsByTopicResult"
       ( \s h x ->
           ListSubscriptionsByTopicResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "Subscriptions"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "Subscriptions" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSubscriptionsByTopic
+instance Core.Hashable ListSubscriptionsByTopic
 
-instance Prelude.NFData ListSubscriptionsByTopic
+instance Core.NFData ListSubscriptionsByTopic
 
-instance Prelude.ToHeaders ListSubscriptionsByTopic where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListSubscriptionsByTopic where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListSubscriptionsByTopic where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSubscriptionsByTopic where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSubscriptionsByTopic where
+instance Core.ToQuery ListSubscriptionsByTopic where
   toQuery ListSubscriptionsByTopic' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListSubscriptionsByTopic" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "TopicArn" Prelude.=: topicArn
+          Core.=: ("ListSubscriptionsByTopic" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "TopicArn" Core.=: topicArn
       ]
 
 -- | Response for ListSubscriptionsByTopic action.
@@ -165,13 +160,13 @@ instance Prelude.ToQuery ListSubscriptionsByTopic where
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
   { -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This
     -- element is returned if there are more subscriptions to retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of subscriptions.
-    subscriptions :: Prelude.Maybe [Subscription],
+    subscriptions :: Core.Maybe [Subscription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSubscriptionsByTopicResponse' with all optional fields omitted.
@@ -189,29 +184,27 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
 -- 'httpStatus', 'listSubscriptionsByTopicResponse_httpStatus' - The response's http status code.
 newListSubscriptionsByTopicResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSubscriptionsByTopicResponse
 newListSubscriptionsByTopicResponse pHttpStatus_ =
   ListSubscriptionsByTopicResponse'
     { nextToken =
-        Prelude.Nothing,
-      subscriptions = Prelude.Nothing,
+        Core.Nothing,
+      subscriptions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This
 -- element is returned if there are more subscriptions to retrieve.
-listSubscriptionsByTopicResponse_nextToken :: Lens.Lens' ListSubscriptionsByTopicResponse (Prelude.Maybe Prelude.Text)
+listSubscriptionsByTopicResponse_nextToken :: Lens.Lens' ListSubscriptionsByTopicResponse (Core.Maybe Core.Text)
 listSubscriptionsByTopicResponse_nextToken = Lens.lens (\ListSubscriptionsByTopicResponse' {nextToken} -> nextToken) (\s@ListSubscriptionsByTopicResponse' {} a -> s {nextToken = a} :: ListSubscriptionsByTopicResponse)
 
 -- | A list of subscriptions.
-listSubscriptionsByTopicResponse_subscriptions :: Lens.Lens' ListSubscriptionsByTopicResponse (Prelude.Maybe [Subscription])
-listSubscriptionsByTopicResponse_subscriptions = Lens.lens (\ListSubscriptionsByTopicResponse' {subscriptions} -> subscriptions) (\s@ListSubscriptionsByTopicResponse' {} a -> s {subscriptions = a} :: ListSubscriptionsByTopicResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSubscriptionsByTopicResponse_subscriptions :: Lens.Lens' ListSubscriptionsByTopicResponse (Core.Maybe [Subscription])
+listSubscriptionsByTopicResponse_subscriptions = Lens.lens (\ListSubscriptionsByTopicResponse' {subscriptions} -> subscriptions) (\s@ListSubscriptionsByTopicResponse' {} a -> s {subscriptions = a} :: ListSubscriptionsByTopicResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listSubscriptionsByTopicResponse_httpStatus :: Lens.Lens' ListSubscriptionsByTopicResponse Prelude.Int
+listSubscriptionsByTopicResponse_httpStatus :: Lens.Lens' ListSubscriptionsByTopicResponse Core.Int
 listSubscriptionsByTopicResponse_httpStatus = Lens.lens (\ListSubscriptionsByTopicResponse' {httpStatus} -> httpStatus) (\s@ListSubscriptionsByTopicResponse' {} a -> s {httpStatus = a} :: ListSubscriptionsByTopicResponse)
 
-instance
-  Prelude.NFData
-    ListSubscriptionsByTopicResponse
+instance Core.NFData ListSubscriptionsByTopicResponse

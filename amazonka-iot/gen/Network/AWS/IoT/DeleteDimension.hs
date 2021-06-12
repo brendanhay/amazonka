@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.IoT.DeleteDimension
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDimension' smart constructor.
 data DeleteDimension = DeleteDimension'
   { -- | The unique identifier for the dimension that you want to delete.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDimension' with all optional fields omitted.
@@ -63,45 +62,47 @@ data DeleteDimension = DeleteDimension'
 -- 'name', 'deleteDimension_name' - The unique identifier for the dimension that you want to delete.
 newDeleteDimension ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDimension
 newDeleteDimension pName_ =
   DeleteDimension' {name = pName_}
 
 -- | The unique identifier for the dimension that you want to delete.
-deleteDimension_name :: Lens.Lens' DeleteDimension Prelude.Text
+deleteDimension_name :: Lens.Lens' DeleteDimension Core.Text
 deleteDimension_name = Lens.lens (\DeleteDimension' {name} -> name) (\s@DeleteDimension' {} a -> s {name = a} :: DeleteDimension)
 
-instance Prelude.AWSRequest DeleteDimension where
-  type Rs DeleteDimension = DeleteDimensionResponse
+instance Core.AWSRequest DeleteDimension where
+  type
+    AWSResponse DeleteDimension =
+      DeleteDimensionResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDimensionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteDimension
+instance Core.Hashable DeleteDimension
 
-instance Prelude.NFData DeleteDimension
+instance Core.NFData DeleteDimension
 
-instance Prelude.ToHeaders DeleteDimension where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDimension where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDimension where
+instance Core.ToPath DeleteDimension where
   toPath DeleteDimension' {..} =
-    Prelude.mconcat ["/dimensions/", Prelude.toBS name]
+    Core.mconcat ["/dimensions/", Core.toBS name]
 
-instance Prelude.ToQuery DeleteDimension where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDimension where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDimensionResponse' smart constructor.
 data DeleteDimensionResponse = DeleteDimensionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDimensionResponse' with all optional fields omitted.
@@ -114,13 +115,13 @@ data DeleteDimensionResponse = DeleteDimensionResponse'
 -- 'httpStatus', 'deleteDimensionResponse_httpStatus' - The response's http status code.
 newDeleteDimensionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteDimensionResponse
 newDeleteDimensionResponse pHttpStatus_ =
   DeleteDimensionResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteDimensionResponse_httpStatus :: Lens.Lens' DeleteDimensionResponse Prelude.Int
+deleteDimensionResponse_httpStatus :: Lens.Lens' DeleteDimensionResponse Core.Int
 deleteDimensionResponse_httpStatus = Lens.lens (\DeleteDimensionResponse' {httpStatus} -> httpStatus) (\s@DeleteDimensionResponse' {} a -> s {httpStatus = a} :: DeleteDimensionResponse)
 
-instance Prelude.NFData DeleteDimensionResponse
+instance Core.NFData DeleteDimensionResponse

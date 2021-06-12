@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata about your Savings Plans Purchase Recommendations.
 --
 -- /See:/ 'newSavingsPlansPurchaseRecommendationMetadata' smart constructor.
 data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommendationMetadata'
   { -- | The unique identifier for the recommendation set.
-    recommendationId :: Prelude.Maybe Prelude.Text,
+    recommendationId :: Core.Maybe Core.Text,
     -- | Additional metadata that may be applicable to the recommendation.
-    additionalMetadata :: Prelude.Maybe Prelude.Text,
+    additionalMetadata :: Core.Maybe Core.Text,
     -- | The timestamp showing when the recommendations were generated.
-    generationTimestamp :: Prelude.Maybe Prelude.Text
+    generationTimestamp :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansPurchaseRecommendationMetadata' with all optional fields omitted.
@@ -54,43 +53,43 @@ newSavingsPlansPurchaseRecommendationMetadata ::
 newSavingsPlansPurchaseRecommendationMetadata =
   SavingsPlansPurchaseRecommendationMetadata'
     { recommendationId =
-        Prelude.Nothing,
+        Core.Nothing,
       additionalMetadata =
-        Prelude.Nothing,
+        Core.Nothing,
       generationTimestamp =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The unique identifier for the recommendation set.
-savingsPlansPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationMetadata_recommendationId :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationMetadata_recommendationId = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {recommendationId} -> recommendationId) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {recommendationId = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
 -- | Additional metadata that may be applicable to the recommendation.
-savingsPlansPurchaseRecommendationMetadata_additionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationMetadata_additionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {additionalMetadata} -> additionalMetadata) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {additionalMetadata = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
 -- | The timestamp showing when the recommendations were generated.
-savingsPlansPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
+savingsPlansPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Core.Maybe Core.Text)
 savingsPlansPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     SavingsPlansPurchaseRecommendationMetadata
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansPurchaseRecommendationMetadata"
       ( \x ->
           SavingsPlansPurchaseRecommendationMetadata'
-            Prelude.<$> (x Prelude..:? "RecommendationId")
-              Prelude.<*> (x Prelude..:? "AdditionalMetadata")
-              Prelude.<*> (x Prelude..:? "GenerationTimestamp")
+            Core.<$> (x Core..:? "RecommendationId")
+            Core.<*> (x Core..:? "AdditionalMetadata")
+            Core.<*> (x Core..:? "GenerationTimestamp")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SavingsPlansPurchaseRecommendationMetadata
 
 instance
-  Prelude.NFData
+  Core.NFData
     SavingsPlansPurchaseRecommendationMetadata

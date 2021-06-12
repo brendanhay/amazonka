@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.PutRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AttributeValue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a request to perform a @PutItem@ operation on an item.
 --
@@ -34,9 +33,9 @@ data PutRequest = PutRequest'
     -- of the table\'s key schema. If any attributes are present in the item
     -- that are part of an index key schema for the table, their types must
     -- match the index key schema.
-    item :: Prelude.HashMap Prelude.Text AttributeValue
+    item :: Core.HashMap Core.Text AttributeValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRequest' with all optional fields omitted.
@@ -54,7 +53,7 @@ data PutRequest = PutRequest'
 -- match the index key schema.
 newPutRequest ::
   PutRequest
-newPutRequest = PutRequest' {item = Prelude.mempty}
+newPutRequest = PutRequest' {item = Core.mempty}
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of an item to be processed by @PutItem@. All of the table\'s primary
@@ -62,25 +61,23 @@ newPutRequest = PutRequest' {item = Prelude.mempty}
 -- of the table\'s key schema. If any attributes are present in the item
 -- that are part of an index key schema for the table, their types must
 -- match the index key schema.
-putRequest_item :: Lens.Lens' PutRequest (Prelude.HashMap Prelude.Text AttributeValue)
-putRequest_item = Lens.lens (\PutRequest' {item} -> item) (\s@PutRequest' {} a -> s {item = a} :: PutRequest) Prelude.. Prelude._Coerce
+putRequest_item :: Lens.Lens' PutRequest (Core.HashMap Core.Text AttributeValue)
+putRequest_item = Lens.lens (\PutRequest' {item} -> item) (\s@PutRequest' {} a -> s {item = a} :: PutRequest) Core.. Lens._Coerce
 
-instance Prelude.FromJSON PutRequest where
+instance Core.FromJSON PutRequest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PutRequest"
       ( \x ->
           PutRequest'
-            Prelude.<$> (x Prelude..:? "Item" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PutRequest
+instance Core.Hashable PutRequest
 
-instance Prelude.NFData PutRequest
+instance Core.NFData PutRequest
 
-instance Prelude.ToJSON PutRequest where
+instance Core.ToJSON PutRequest where
   toJSON PutRequest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Item" Prelude..= item)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Item" Core..= item)])

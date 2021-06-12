@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the Basic authorization parameters to use for the connection.
 --
 -- /See:/ 'newCreateConnectionOAuthClientRequestParameters' smart constructor.
 data CreateConnectionOAuthClientRequestParameters = CreateConnectionOAuthClientRequestParameters'
   { -- | The client ID to use for OAuth authorization for the connection.
-    clientID :: Prelude.Text,
+    clientID :: Core.Text,
     -- | The client secret associated with the client ID to use for OAuth
     -- authorization for the connection.
-    clientSecret :: Prelude.Text
+    clientSecret :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateConnectionOAuthClientRequestParameters' with all optional fields omitted.
@@ -49,9 +48,9 @@ data CreateConnectionOAuthClientRequestParameters = CreateConnectionOAuthClientR
 -- authorization for the connection.
 newCreateConnectionOAuthClientRequestParameters ::
   -- | 'clientID'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'clientSecret'
-  Prelude.Text ->
+  Core.Text ->
   CreateConnectionOAuthClientRequestParameters
 newCreateConnectionOAuthClientRequestParameters
   pClientID_
@@ -63,32 +62,31 @@ newCreateConnectionOAuthClientRequestParameters
       }
 
 -- | The client ID to use for OAuth authorization for the connection.
-createConnectionOAuthClientRequestParameters_clientID :: Lens.Lens' CreateConnectionOAuthClientRequestParameters Prelude.Text
+createConnectionOAuthClientRequestParameters_clientID :: Lens.Lens' CreateConnectionOAuthClientRequestParameters Core.Text
 createConnectionOAuthClientRequestParameters_clientID = Lens.lens (\CreateConnectionOAuthClientRequestParameters' {clientID} -> clientID) (\s@CreateConnectionOAuthClientRequestParameters' {} a -> s {clientID = a} :: CreateConnectionOAuthClientRequestParameters)
 
 -- | The client secret associated with the client ID to use for OAuth
 -- authorization for the connection.
-createConnectionOAuthClientRequestParameters_clientSecret :: Lens.Lens' CreateConnectionOAuthClientRequestParameters Prelude.Text
+createConnectionOAuthClientRequestParameters_clientSecret :: Lens.Lens' CreateConnectionOAuthClientRequestParameters Core.Text
 createConnectionOAuthClientRequestParameters_clientSecret = Lens.lens (\CreateConnectionOAuthClientRequestParameters' {clientSecret} -> clientSecret) (\s@CreateConnectionOAuthClientRequestParameters' {} a -> s {clientSecret = a} :: CreateConnectionOAuthClientRequestParameters)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateConnectionOAuthClientRequestParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateConnectionOAuthClientRequestParameters
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     CreateConnectionOAuthClientRequestParameters
   where
   toJSON
     CreateConnectionOAuthClientRequestParameters' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just ("ClientID" Prelude..= clientID),
-              Prelude.Just
-                ("ClientSecret" Prelude..= clientSecret)
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just ("ClientID" Core..= clientID),
+              Core.Just ("ClientSecret" Core..= clientSecret)
             ]
         )

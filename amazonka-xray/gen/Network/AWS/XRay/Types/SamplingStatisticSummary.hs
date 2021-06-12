@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.SamplingStatisticSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Aggregated request sampling data for a sampling rule across all services
 -- for a 10-second window.
@@ -29,17 +28,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSamplingStatisticSummary' smart constructor.
 data SamplingStatisticSummary = SamplingStatisticSummary'
   { -- | The name of the sampling rule.
-    ruleName :: Prelude.Maybe Prelude.Text,
+    ruleName :: Core.Maybe Core.Text,
     -- | The number of requests recorded with borrowed reservoir quota.
-    borrowCount :: Prelude.Maybe Prelude.Int,
+    borrowCount :: Core.Maybe Core.Int,
     -- | The number of requests that matched the rule.
-    requestCount :: Prelude.Maybe Prelude.Int,
+    requestCount :: Core.Maybe Core.Int,
     -- | The number of requests recorded.
-    sampledCount :: Prelude.Maybe Prelude.Int,
+    sampledCount :: Core.Maybe Core.Int,
     -- | The start time of the reporting window.
-    timestamp :: Prelude.Maybe Prelude.POSIX
+    timestamp :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SamplingStatisticSummary' with all optional fields omitted.
@@ -62,47 +61,46 @@ newSamplingStatisticSummary ::
   SamplingStatisticSummary
 newSamplingStatisticSummary =
   SamplingStatisticSummary'
-    { ruleName =
-        Prelude.Nothing,
-      borrowCount = Prelude.Nothing,
-      requestCount = Prelude.Nothing,
-      sampledCount = Prelude.Nothing,
-      timestamp = Prelude.Nothing
+    { ruleName = Core.Nothing,
+      borrowCount = Core.Nothing,
+      requestCount = Core.Nothing,
+      sampledCount = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | The name of the sampling rule.
-samplingStatisticSummary_ruleName :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.Text)
+samplingStatisticSummary_ruleName :: Lens.Lens' SamplingStatisticSummary (Core.Maybe Core.Text)
 samplingStatisticSummary_ruleName = Lens.lens (\SamplingStatisticSummary' {ruleName} -> ruleName) (\s@SamplingStatisticSummary' {} a -> s {ruleName = a} :: SamplingStatisticSummary)
 
 -- | The number of requests recorded with borrowed reservoir quota.
-samplingStatisticSummary_borrowCount :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.Int)
+samplingStatisticSummary_borrowCount :: Lens.Lens' SamplingStatisticSummary (Core.Maybe Core.Int)
 samplingStatisticSummary_borrowCount = Lens.lens (\SamplingStatisticSummary' {borrowCount} -> borrowCount) (\s@SamplingStatisticSummary' {} a -> s {borrowCount = a} :: SamplingStatisticSummary)
 
 -- | The number of requests that matched the rule.
-samplingStatisticSummary_requestCount :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.Int)
+samplingStatisticSummary_requestCount :: Lens.Lens' SamplingStatisticSummary (Core.Maybe Core.Int)
 samplingStatisticSummary_requestCount = Lens.lens (\SamplingStatisticSummary' {requestCount} -> requestCount) (\s@SamplingStatisticSummary' {} a -> s {requestCount = a} :: SamplingStatisticSummary)
 
 -- | The number of requests recorded.
-samplingStatisticSummary_sampledCount :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.Int)
+samplingStatisticSummary_sampledCount :: Lens.Lens' SamplingStatisticSummary (Core.Maybe Core.Int)
 samplingStatisticSummary_sampledCount = Lens.lens (\SamplingStatisticSummary' {sampledCount} -> sampledCount) (\s@SamplingStatisticSummary' {} a -> s {sampledCount = a} :: SamplingStatisticSummary)
 
 -- | The start time of the reporting window.
-samplingStatisticSummary_timestamp :: Lens.Lens' SamplingStatisticSummary (Prelude.Maybe Prelude.UTCTime)
-samplingStatisticSummary_timestamp = Lens.lens (\SamplingStatisticSummary' {timestamp} -> timestamp) (\s@SamplingStatisticSummary' {} a -> s {timestamp = a} :: SamplingStatisticSummary) Prelude.. Lens.mapping Prelude._Time
+samplingStatisticSummary_timestamp :: Lens.Lens' SamplingStatisticSummary (Core.Maybe Core.UTCTime)
+samplingStatisticSummary_timestamp = Lens.lens (\SamplingStatisticSummary' {timestamp} -> timestamp) (\s@SamplingStatisticSummary' {} a -> s {timestamp = a} :: SamplingStatisticSummary) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON SamplingStatisticSummary where
+instance Core.FromJSON SamplingStatisticSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SamplingStatisticSummary"
       ( \x ->
           SamplingStatisticSummary'
-            Prelude.<$> (x Prelude..:? "RuleName")
-            Prelude.<*> (x Prelude..:? "BorrowCount")
-            Prelude.<*> (x Prelude..:? "RequestCount")
-            Prelude.<*> (x Prelude..:? "SampledCount")
-            Prelude.<*> (x Prelude..:? "Timestamp")
+            Core.<$> (x Core..:? "RuleName")
+            Core.<*> (x Core..:? "BorrowCount")
+            Core.<*> (x Core..:? "RequestCount")
+            Core.<*> (x Core..:? "SampledCount")
+            Core.<*> (x Core..:? "Timestamp")
       )
 
-instance Prelude.Hashable SamplingStatisticSummary
+instance Core.Hashable SamplingStatisticSummary
 
-instance Prelude.NFData SamplingStatisticSummary
+instance Core.NFData SamplingStatisticSummary

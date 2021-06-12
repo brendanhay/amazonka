@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.Shield.CreateProtection
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -62,7 +61,7 @@ import Network.AWS.Shield.Types
 -- | /See:/ 'newCreateProtection' smart constructor.
 data CreateProtection = CreateProtection'
   { -- | Friendly name for the @Protection@ you are creating.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ARN (Amazon Resource Name) of the resource to be protected.
     --
     -- The ARN should be in one of the following formats:
@@ -83,9 +82,9 @@ data CreateProtection = CreateProtection'
     --
     -- -   For an Elastic IP address:
     --     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProtection' with all optional fields omitted.
@@ -119,9 +118,9 @@ data CreateProtection = CreateProtection'
 --     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
 newCreateProtection ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateProtection
 newCreateProtection pName_ pResourceArn_ =
   CreateProtection'
@@ -130,7 +129,7 @@ newCreateProtection pName_ pResourceArn_ =
     }
 
 -- | Friendly name for the @Protection@ you are creating.
-createProtection_name :: Lens.Lens' CreateProtection Prelude.Text
+createProtection_name :: Lens.Lens' CreateProtection Core.Text
 createProtection_name = Lens.lens (\CreateProtection' {name} -> name) (\s@CreateProtection' {} a -> s {name = a} :: CreateProtection)
 
 -- | The ARN (Amazon Resource Name) of the resource to be protected.
@@ -153,62 +152,62 @@ createProtection_name = Lens.lens (\CreateProtection' {name} -> name) (\s@Create
 --
 -- -   For an Elastic IP address:
 --     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
-createProtection_resourceArn :: Lens.Lens' CreateProtection Prelude.Text
+createProtection_resourceArn :: Lens.Lens' CreateProtection Core.Text
 createProtection_resourceArn = Lens.lens (\CreateProtection' {resourceArn} -> resourceArn) (\s@CreateProtection' {} a -> s {resourceArn = a} :: CreateProtection)
 
-instance Prelude.AWSRequest CreateProtection where
-  type Rs CreateProtection = CreateProtectionResponse
+instance Core.AWSRequest CreateProtection where
+  type
+    AWSResponse CreateProtection =
+      CreateProtectionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateProtectionResponse'
-            Prelude.<$> (x Prelude..?> "ProtectionId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ProtectionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProtection
+instance Core.Hashable CreateProtection
 
-instance Prelude.NFData CreateProtection
+instance Core.NFData CreateProtection
 
-instance Prelude.ToHeaders CreateProtection where
+instance Core.ToHeaders CreateProtection where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.CreateProtection" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.CreateProtection" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateProtection where
+instance Core.ToJSON CreateProtection where
   toJSON CreateProtection' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("ResourceArn" Prelude..= resourceArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ResourceArn" Core..= resourceArn)
           ]
       )
 
-instance Prelude.ToPath CreateProtection where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateProtection where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateProtection where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateProtection where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateProtectionResponse' smart constructor.
 data CreateProtectionResponse = CreateProtectionResponse'
   { -- | The unique identifier (ID) for the Protection object that is created.
-    protectionId :: Prelude.Maybe Prelude.Text,
+    protectionId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProtectionResponse' with all optional fields omitted.
@@ -223,21 +222,21 @@ data CreateProtectionResponse = CreateProtectionResponse'
 -- 'httpStatus', 'createProtectionResponse_httpStatus' - The response's http status code.
 newCreateProtectionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateProtectionResponse
 newCreateProtectionResponse pHttpStatus_ =
   CreateProtectionResponse'
     { protectionId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier (ID) for the Protection object that is created.
-createProtectionResponse_protectionId :: Lens.Lens' CreateProtectionResponse (Prelude.Maybe Prelude.Text)
+createProtectionResponse_protectionId :: Lens.Lens' CreateProtectionResponse (Core.Maybe Core.Text)
 createProtectionResponse_protectionId = Lens.lens (\CreateProtectionResponse' {protectionId} -> protectionId) (\s@CreateProtectionResponse' {} a -> s {protectionId = a} :: CreateProtectionResponse)
 
 -- | The response's http status code.
-createProtectionResponse_httpStatus :: Lens.Lens' CreateProtectionResponse Prelude.Int
+createProtectionResponse_httpStatus :: Lens.Lens' CreateProtectionResponse Core.Int
 createProtectionResponse_httpStatus = Lens.lens (\CreateProtectionResponse' {httpStatus} -> httpStatus) (\s@CreateProtectionResponse' {} a -> s {httpStatus = a} :: CreateProtectionResponse)
 
-instance Prelude.NFData CreateProtectionResponse
+instance Core.NFData CreateProtectionResponse

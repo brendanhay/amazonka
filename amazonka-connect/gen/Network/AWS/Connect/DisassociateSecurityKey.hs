@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,20 +40,20 @@ module Network.AWS.Connect.DisassociateSecurityKey
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateSecurityKey' smart constructor.
 data DisassociateSecurityKey = DisassociateSecurityKey'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
-    associationId :: Prelude.Text
+    associationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateSecurityKey' with all optional fields omitted.
@@ -70,9 +69,9 @@ data DisassociateSecurityKey = DisassociateSecurityKey'
 -- resource type and storage config for the given instance ID.
 newDisassociateSecurityKey ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'associationId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateSecurityKey
 newDisassociateSecurityKey
   pInstanceId_
@@ -83,55 +82,53 @@ newDisassociateSecurityKey
       }
 
 -- | The identifier of the Amazon Connect instance.
-disassociateSecurityKey_instanceId :: Lens.Lens' DisassociateSecurityKey Prelude.Text
+disassociateSecurityKey_instanceId :: Lens.Lens' DisassociateSecurityKey Core.Text
 disassociateSecurityKey_instanceId = Lens.lens (\DisassociateSecurityKey' {instanceId} -> instanceId) (\s@DisassociateSecurityKey' {} a -> s {instanceId = a} :: DisassociateSecurityKey)
 
 -- | The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
-disassociateSecurityKey_associationId :: Lens.Lens' DisassociateSecurityKey Prelude.Text
+disassociateSecurityKey_associationId :: Lens.Lens' DisassociateSecurityKey Core.Text
 disassociateSecurityKey_associationId = Lens.lens (\DisassociateSecurityKey' {associationId} -> associationId) (\s@DisassociateSecurityKey' {} a -> s {associationId = a} :: DisassociateSecurityKey)
 
-instance Prelude.AWSRequest DisassociateSecurityKey where
+instance Core.AWSRequest DisassociateSecurityKey where
   type
-    Rs DisassociateSecurityKey =
+    AWSResponse DisassociateSecurityKey =
       DisassociateSecurityKeyResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DisassociateSecurityKeyResponse'
 
-instance Prelude.Hashable DisassociateSecurityKey
+instance Core.Hashable DisassociateSecurityKey
 
-instance Prelude.NFData DisassociateSecurityKey
+instance Core.NFData DisassociateSecurityKey
 
-instance Prelude.ToHeaders DisassociateSecurityKey where
+instance Core.ToHeaders DisassociateSecurityKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DisassociateSecurityKey where
+instance Core.ToPath DisassociateSecurityKey where
   toPath DisassociateSecurityKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/security-key/",
-        Prelude.toBS associationId
+        Core.toBS associationId
       ]
 
-instance Prelude.ToQuery DisassociateSecurityKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateSecurityKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateSecurityKeyResponse' smart constructor.
 data DisassociateSecurityKeyResponse = DisassociateSecurityKeyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateSecurityKeyResponse' with all optional fields omitted.
@@ -142,6 +139,4 @@ newDisassociateSecurityKeyResponse ::
 newDisassociateSecurityKeyResponse =
   DisassociateSecurityKeyResponse'
 
-instance
-  Prelude.NFData
-    DisassociateSecurityKeyResponse
+instance Core.NFData DisassociateSecurityKeyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.OutputLocationRef where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Reference to an OutputDestination ID defined in the channel
 --
 -- /See:/ 'newOutputLocationRef' smart constructor.
 data OutputLocationRef = OutputLocationRef'
-  { destinationRefId :: Prelude.Maybe Prelude.Text
+  { destinationRefId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputLocationRef' with all optional fields omitted.
@@ -43,33 +42,30 @@ data OutputLocationRef = OutputLocationRef'
 newOutputLocationRef ::
   OutputLocationRef
 newOutputLocationRef =
-  OutputLocationRef'
-    { destinationRefId =
-        Prelude.Nothing
-    }
+  OutputLocationRef' {destinationRefId = Core.Nothing}
 
 -- | Undocumented member.
-outputLocationRef_destinationRefId :: Lens.Lens' OutputLocationRef (Prelude.Maybe Prelude.Text)
+outputLocationRef_destinationRefId :: Lens.Lens' OutputLocationRef (Core.Maybe Core.Text)
 outputLocationRef_destinationRefId = Lens.lens (\OutputLocationRef' {destinationRefId} -> destinationRefId) (\s@OutputLocationRef' {} a -> s {destinationRefId = a} :: OutputLocationRef)
 
-instance Prelude.FromJSON OutputLocationRef where
+instance Core.FromJSON OutputLocationRef where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputLocationRef"
       ( \x ->
           OutputLocationRef'
-            Prelude.<$> (x Prelude..:? "destinationRefId")
+            Core.<$> (x Core..:? "destinationRefId")
       )
 
-instance Prelude.Hashable OutputLocationRef
+instance Core.Hashable OutputLocationRef
 
-instance Prelude.NFData OutputLocationRef
+instance Core.NFData OutputLocationRef
 
-instance Prelude.ToJSON OutputLocationRef where
+instance Core.ToJSON OutputLocationRef where
   toJSON OutputLocationRef' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("destinationRefId" Prelude..=)
-              Prelude.<$> destinationRefId
+    Core.object
+      ( Core.catMaybes
+          [ ("destinationRefId" Core..=)
+              Core.<$> destinationRefId
           ]
       )

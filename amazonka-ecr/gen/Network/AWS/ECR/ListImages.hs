@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,10 +53,9 @@ module Network.AWS.ECR.ListImages
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,7 +70,7 @@ data ListImages = ListImages'
     -- This token should be treated as an opaque identifier that is only used
     -- to retrieve the next items in a list and not for other programmatic
     -- purposes.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of image results returned by @ListImages@ in
     -- paginated output. When this parameter is used, @ListImages@ only returns
     -- @maxResults@ results in a single page along with a @nextToken@ response
@@ -81,17 +79,17 @@ data ListImages = ListImages'
     -- value. This value can be between 1 and 1000. If this parameter is not
     -- used, then @ListImages@ returns up to 100 results and a @nextToken@
     -- value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The AWS account ID associated with the registry that contains the
     -- repository in which to list images. If you do not specify a registry,
     -- the default registry is assumed.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The filter key and value with which to filter your @ListImages@ results.
-    filter' :: Prelude.Maybe ListImagesFilter,
+    filter' :: Core.Maybe ListImagesFilter,
     -- | The repository with image IDs to be listed.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListImages' with all optional fields omitted.
@@ -129,14 +127,14 @@ data ListImages = ListImages'
 -- 'repositoryName', 'listImages_repositoryName' - The repository with image IDs to be listed.
 newListImages ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   ListImages
 newListImages pRepositoryName_ =
   ListImages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      registryId = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      registryId = Core.Nothing,
+      filter' = Core.Nothing,
       repositoryName = pRepositoryName_
     }
 
@@ -149,7 +147,7 @@ newListImages pRepositoryName_ =
 -- This token should be treated as an opaque identifier that is only used
 -- to retrieve the next items in a list and not for other programmatic
 -- purposes.
-listImages_nextToken :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
+listImages_nextToken :: Lens.Lens' ListImages (Core.Maybe Core.Text)
 listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@ListImages' {} a -> s {nextToken = a} :: ListImages)
 
 -- | The maximum number of image results returned by @ListImages@ in
@@ -160,91 +158,88 @@ listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@Lis
 -- value. This value can be between 1 and 1000. If this parameter is not
 -- used, then @ListImages@ returns up to 100 results and a @nextToken@
 -- value, if applicable.
-listImages_maxResults :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Natural)
+listImages_maxResults :: Lens.Lens' ListImages (Core.Maybe Core.Natural)
 listImages_maxResults = Lens.lens (\ListImages' {maxResults} -> maxResults) (\s@ListImages' {} a -> s {maxResults = a} :: ListImages)
 
 -- | The AWS account ID associated with the registry that contains the
 -- repository in which to list images. If you do not specify a registry,
 -- the default registry is assumed.
-listImages_registryId :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
+listImages_registryId :: Lens.Lens' ListImages (Core.Maybe Core.Text)
 listImages_registryId = Lens.lens (\ListImages' {registryId} -> registryId) (\s@ListImages' {} a -> s {registryId = a} :: ListImages)
 
 -- | The filter key and value with which to filter your @ListImages@ results.
-listImages_filter :: Lens.Lens' ListImages (Prelude.Maybe ListImagesFilter)
+listImages_filter :: Lens.Lens' ListImages (Core.Maybe ListImagesFilter)
 listImages_filter = Lens.lens (\ListImages' {filter'} -> filter') (\s@ListImages' {} a -> s {filter' = a} :: ListImages)
 
 -- | The repository with image IDs to be listed.
-listImages_repositoryName :: Lens.Lens' ListImages Prelude.Text
+listImages_repositoryName :: Lens.Lens' ListImages Core.Text
 listImages_repositoryName = Lens.lens (\ListImages' {repositoryName} -> repositoryName) (\s@ListImages' {} a -> s {repositoryName = a} :: ListImages)
 
-instance Pager.AWSPager ListImages where
+instance Core.AWSPager ListImages where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listImagesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listImagesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listImagesResponse_imageIds Prelude.. Lens._Just
+            Lens.^? listImagesResponse_imageIds Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listImages_nextToken
           Lens..~ rs
-          Lens.^? listImagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listImagesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListImages where
-  type Rs ListImages = ListImagesResponse
+instance Core.AWSRequest ListImages where
+  type AWSResponse ListImages = ListImagesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListImagesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "imageIds" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "imageIds" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListImages
+instance Core.Hashable ListImages
 
-instance Prelude.NFData ListImages
+instance Core.NFData ListImages
 
-instance Prelude.ToHeaders ListImages where
+instance Core.ToHeaders ListImages where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.ListImages" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.ListImages" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListImages where
+instance Core.ToJSON ListImages where
   toJSON ListImages' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("registryId" Prelude..=) Prelude.<$> registryId,
-            ("filter" Prelude..=) Prelude.<$> filter',
-            Prelude.Just
-              ("repositoryName" Prelude..= repositoryName)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("registryId" Core..=) Core.<$> registryId,
+            ("filter" Core..=) Core.<$> filter',
+            Core.Just ("repositoryName" Core..= repositoryName)
           ]
       )
 
-instance Prelude.ToPath ListImages where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListImages where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListImages where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListImages where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListImagesResponse' smart constructor.
 data ListImagesResponse = ListImagesResponse'
@@ -252,13 +247,13 @@ data ListImagesResponse = ListImagesResponse'
     -- the results of a @ListImages@ request exceed @maxResults@, this value
     -- can be used to retrieve the next page of results. This value is @null@
     -- when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of image IDs for the requested repository.
-    imageIds :: Prelude.Maybe [ImageIdentifier],
+    imageIds :: Core.Maybe [ImageIdentifier],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListImagesResponse' with all optional fields omitted.
@@ -278,12 +273,12 @@ data ListImagesResponse = ListImagesResponse'
 -- 'httpStatus', 'listImagesResponse_httpStatus' - The response's http status code.
 newListImagesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListImagesResponse
 newListImagesResponse pHttpStatus_ =
   ListImagesResponse'
-    { nextToken = Prelude.Nothing,
-      imageIds = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      imageIds = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -291,15 +286,15 @@ newListImagesResponse pHttpStatus_ =
 -- the results of a @ListImages@ request exceed @maxResults@, this value
 -- can be used to retrieve the next page of results. This value is @null@
 -- when there are no more results to return.
-listImagesResponse_nextToken :: Lens.Lens' ListImagesResponse (Prelude.Maybe Prelude.Text)
+listImagesResponse_nextToken :: Lens.Lens' ListImagesResponse (Core.Maybe Core.Text)
 listImagesResponse_nextToken = Lens.lens (\ListImagesResponse' {nextToken} -> nextToken) (\s@ListImagesResponse' {} a -> s {nextToken = a} :: ListImagesResponse)
 
 -- | The list of image IDs for the requested repository.
-listImagesResponse_imageIds :: Lens.Lens' ListImagesResponse (Prelude.Maybe [ImageIdentifier])
-listImagesResponse_imageIds = Lens.lens (\ListImagesResponse' {imageIds} -> imageIds) (\s@ListImagesResponse' {} a -> s {imageIds = a} :: ListImagesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listImagesResponse_imageIds :: Lens.Lens' ListImagesResponse (Core.Maybe [ImageIdentifier])
+listImagesResponse_imageIds = Lens.lens (\ListImagesResponse' {imageIds} -> imageIds) (\s@ListImagesResponse' {} a -> s {imageIds = a} :: ListImagesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listImagesResponse_httpStatus :: Lens.Lens' ListImagesResponse Prelude.Int
+listImagesResponse_httpStatus :: Lens.Lens' ListImagesResponse Core.Int
 listImagesResponse_httpStatus = Lens.lens (\ListImagesResponse' {httpStatus} -> httpStatus) (\s@ListImagesResponse' {} a -> s {httpStatus = a} :: ListImagesResponse)
 
-instance Prelude.NFData ListImagesResponse
+instance Core.NFData ListImagesResponse

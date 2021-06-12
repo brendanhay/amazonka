@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.XRay.UpdateSamplingRule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -51,7 +50,7 @@ data UpdateSamplingRule = UpdateSamplingRule'
   { -- | The rule and fields to change.
     samplingRuleUpdate :: SamplingRuleUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSamplingRule' with all optional fields omitted.
@@ -76,51 +75,49 @@ newUpdateSamplingRule pSamplingRuleUpdate_ =
 updateSamplingRule_samplingRuleUpdate :: Lens.Lens' UpdateSamplingRule SamplingRuleUpdate
 updateSamplingRule_samplingRuleUpdate = Lens.lens (\UpdateSamplingRule' {samplingRuleUpdate} -> samplingRuleUpdate) (\s@UpdateSamplingRule' {} a -> s {samplingRuleUpdate = a} :: UpdateSamplingRule)
 
-instance Prelude.AWSRequest UpdateSamplingRule where
+instance Core.AWSRequest UpdateSamplingRule where
   type
-    Rs UpdateSamplingRule =
+    AWSResponse UpdateSamplingRule =
       UpdateSamplingRuleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSamplingRuleResponse'
-            Prelude.<$> (x Prelude..?> "SamplingRuleRecord")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SamplingRuleRecord")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSamplingRule
+instance Core.Hashable UpdateSamplingRule
 
-instance Prelude.NFData UpdateSamplingRule
+instance Core.NFData UpdateSamplingRule
 
-instance Prelude.ToHeaders UpdateSamplingRule where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateSamplingRule where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON UpdateSamplingRule where
+instance Core.ToJSON UpdateSamplingRule where
   toJSON UpdateSamplingRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "SamplingRuleUpdate"
-                  Prelude..= samplingRuleUpdate
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SamplingRuleUpdate" Core..= samplingRuleUpdate)
           ]
       )
 
-instance Prelude.ToPath UpdateSamplingRule where
-  toPath = Prelude.const "/UpdateSamplingRule"
+instance Core.ToPath UpdateSamplingRule where
+  toPath = Core.const "/UpdateSamplingRule"
 
-instance Prelude.ToQuery UpdateSamplingRule where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSamplingRule where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSamplingRuleResponse' smart constructor.
 data UpdateSamplingRuleResponse = UpdateSamplingRuleResponse'
   { -- | The updated rule definition and metadata.
-    samplingRuleRecord :: Prelude.Maybe SamplingRuleRecord,
+    samplingRuleRecord :: Core.Maybe SamplingRuleRecord,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSamplingRuleResponse' with all optional fields omitted.
@@ -135,21 +132,21 @@ data UpdateSamplingRuleResponse = UpdateSamplingRuleResponse'
 -- 'httpStatus', 'updateSamplingRuleResponse_httpStatus' - The response's http status code.
 newUpdateSamplingRuleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSamplingRuleResponse
 newUpdateSamplingRuleResponse pHttpStatus_ =
   UpdateSamplingRuleResponse'
     { samplingRuleRecord =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The updated rule definition and metadata.
-updateSamplingRuleResponse_samplingRuleRecord :: Lens.Lens' UpdateSamplingRuleResponse (Prelude.Maybe SamplingRuleRecord)
+updateSamplingRuleResponse_samplingRuleRecord :: Lens.Lens' UpdateSamplingRuleResponse (Core.Maybe SamplingRuleRecord)
 updateSamplingRuleResponse_samplingRuleRecord = Lens.lens (\UpdateSamplingRuleResponse' {samplingRuleRecord} -> samplingRuleRecord) (\s@UpdateSamplingRuleResponse' {} a -> s {samplingRuleRecord = a} :: UpdateSamplingRuleResponse)
 
 -- | The response's http status code.
-updateSamplingRuleResponse_httpStatus :: Lens.Lens' UpdateSamplingRuleResponse Prelude.Int
+updateSamplingRuleResponse_httpStatus :: Lens.Lens' UpdateSamplingRuleResponse Core.Int
 updateSamplingRuleResponse_httpStatus = Lens.lens (\UpdateSamplingRuleResponse' {httpStatus} -> httpStatus) (\s@UpdateSamplingRuleResponse' {} a -> s {httpStatus = a} :: UpdateSamplingRuleResponse)
 
-instance Prelude.NFData UpdateSamplingRuleResponse
+instance Core.NFData UpdateSamplingRuleResponse

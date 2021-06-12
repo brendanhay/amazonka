@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexSettingsSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary configuration for a Multiplex event.
 --
 -- /See:/ 'newMultiplexSettingsSummary' smart constructor.
 data MultiplexSettingsSummary = MultiplexSettingsSummary'
   { -- | Transport stream bit rate.
-    transportStreamBitrate :: Prelude.Maybe Prelude.Natural
+    transportStreamBitrate :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexSettingsSummary' with all optional fields omitted.
@@ -46,22 +45,22 @@ newMultiplexSettingsSummary ::
 newMultiplexSettingsSummary =
   MultiplexSettingsSummary'
     { transportStreamBitrate =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Transport stream bit rate.
-multiplexSettingsSummary_transportStreamBitrate :: Lens.Lens' MultiplexSettingsSummary (Prelude.Maybe Prelude.Natural)
+multiplexSettingsSummary_transportStreamBitrate :: Lens.Lens' MultiplexSettingsSummary (Core.Maybe Core.Natural)
 multiplexSettingsSummary_transportStreamBitrate = Lens.lens (\MultiplexSettingsSummary' {transportStreamBitrate} -> transportStreamBitrate) (\s@MultiplexSettingsSummary' {} a -> s {transportStreamBitrate = a} :: MultiplexSettingsSummary)
 
-instance Prelude.FromJSON MultiplexSettingsSummary where
+instance Core.FromJSON MultiplexSettingsSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexSettingsSummary"
       ( \x ->
           MultiplexSettingsSummary'
-            Prelude.<$> (x Prelude..:? "transportStreamBitrate")
+            Core.<$> (x Core..:? "transportStreamBitrate")
       )
 
-instance Prelude.Hashable MultiplexSettingsSummary
+instance Core.Hashable MultiplexSettingsSummary
 
-instance Prelude.NFData MultiplexSettingsSummary
+instance Core.NFData MultiplexSettingsSummary

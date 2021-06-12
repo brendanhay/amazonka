@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,17 +20,17 @@
 module Network.AWS.Connect.Types.VoiceRecordingConfiguration where
 
 import Network.AWS.Connect.Types.VoiceRecordingTrack
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the recording configuration settings.
 --
 -- /See:/ 'newVoiceRecordingConfiguration' smart constructor.
 data VoiceRecordingConfiguration = VoiceRecordingConfiguration'
   { -- | Identifies which track is being recorded.
-    voiceRecordingTrack :: Prelude.Maybe VoiceRecordingTrack
+    voiceRecordingTrack :: Core.Maybe VoiceRecordingTrack
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VoiceRecordingConfiguration' with all optional fields omitted.
@@ -47,22 +46,22 @@ newVoiceRecordingConfiguration ::
 newVoiceRecordingConfiguration =
   VoiceRecordingConfiguration'
     { voiceRecordingTrack =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Identifies which track is being recorded.
-voiceRecordingConfiguration_voiceRecordingTrack :: Lens.Lens' VoiceRecordingConfiguration (Prelude.Maybe VoiceRecordingTrack)
+voiceRecordingConfiguration_voiceRecordingTrack :: Lens.Lens' VoiceRecordingConfiguration (Core.Maybe VoiceRecordingTrack)
 voiceRecordingConfiguration_voiceRecordingTrack = Lens.lens (\VoiceRecordingConfiguration' {voiceRecordingTrack} -> voiceRecordingTrack) (\s@VoiceRecordingConfiguration' {} a -> s {voiceRecordingTrack = a} :: VoiceRecordingConfiguration)
 
-instance Prelude.Hashable VoiceRecordingConfiguration
+instance Core.Hashable VoiceRecordingConfiguration
 
-instance Prelude.NFData VoiceRecordingConfiguration
+instance Core.NFData VoiceRecordingConfiguration
 
-instance Prelude.ToJSON VoiceRecordingConfiguration where
+instance Core.ToJSON VoiceRecordingConfiguration where
   toJSON VoiceRecordingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VoiceRecordingTrack" Prelude..=)
-              Prelude.<$> voiceRecordingTrack
+    Core.object
+      ( Core.catMaybes
+          [ ("VoiceRecordingTrack" Core..=)
+              Core.<$> voiceRecordingTrack
           ]
       )

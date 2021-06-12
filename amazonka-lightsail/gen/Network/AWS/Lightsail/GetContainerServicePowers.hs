@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Lightsail.GetContainerServicePowers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data GetContainerServicePowers = GetContainerServicePowers'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerServicePowers' with all optional fields omitted.
@@ -62,57 +61,54 @@ newGetContainerServicePowers ::
 newGetContainerServicePowers =
   GetContainerServicePowers'
 
-instance Prelude.AWSRequest GetContainerServicePowers where
+instance Core.AWSRequest GetContainerServicePowers where
   type
-    Rs GetContainerServicePowers =
+    AWSResponse GetContainerServicePowers =
       GetContainerServicePowersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetContainerServicePowersResponse'
-            Prelude.<$> (x Prelude..?> "powers" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "powers" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetContainerServicePowers
+instance Core.Hashable GetContainerServicePowers
 
-instance Prelude.NFData GetContainerServicePowers
+instance Core.NFData GetContainerServicePowers
 
-instance Prelude.ToHeaders GetContainerServicePowers where
+instance Core.ToHeaders GetContainerServicePowers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetContainerServicePowers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetContainerServicePowers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetContainerServicePowers where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetContainerServicePowers where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetContainerServicePowers where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetContainerServicePowers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetContainerServicePowers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetContainerServicePowers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetContainerServicePowersResponse' smart constructor.
 data GetContainerServicePowersResponse = GetContainerServicePowersResponse'
   { -- | An array of objects that describe the powers that can be specified for a
     -- container service.
-    powers :: Prelude.Maybe [ContainerServicePower],
+    powers :: Core.Maybe [ContainerServicePower],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContainerServicePowersResponse' with all optional fields omitted.
@@ -128,24 +124,24 @@ data GetContainerServicePowersResponse = GetContainerServicePowersResponse'
 -- 'httpStatus', 'getContainerServicePowersResponse_httpStatus' - The response's http status code.
 newGetContainerServicePowersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetContainerServicePowersResponse
 newGetContainerServicePowersResponse pHttpStatus_ =
   GetContainerServicePowersResponse'
     { powers =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the powers that can be specified for a
 -- container service.
-getContainerServicePowersResponse_powers :: Lens.Lens' GetContainerServicePowersResponse (Prelude.Maybe [ContainerServicePower])
-getContainerServicePowersResponse_powers = Lens.lens (\GetContainerServicePowersResponse' {powers} -> powers) (\s@GetContainerServicePowersResponse' {} a -> s {powers = a} :: GetContainerServicePowersResponse) Prelude.. Lens.mapping Prelude._Coerce
+getContainerServicePowersResponse_powers :: Lens.Lens' GetContainerServicePowersResponse (Core.Maybe [ContainerServicePower])
+getContainerServicePowersResponse_powers = Lens.lens (\GetContainerServicePowersResponse' {powers} -> powers) (\s@GetContainerServicePowersResponse' {} a -> s {powers = a} :: GetContainerServicePowersResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContainerServicePowersResponse_httpStatus :: Lens.Lens' GetContainerServicePowersResponse Prelude.Int
+getContainerServicePowersResponse_httpStatus :: Lens.Lens' GetContainerServicePowersResponse Core.Int
 getContainerServicePowersResponse_httpStatus = Lens.lens (\GetContainerServicePowersResponse' {httpStatus} -> httpStatus) (\s@GetContainerServicePowersResponse' {} a -> s {httpStatus = a} :: GetContainerServicePowersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetContainerServicePowersResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.PlatformDevice where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.PlatformDeviceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The devices that are available on the container instance. The only
 -- supported device type is a GPU.
@@ -32,12 +31,12 @@ data PlatformDevice = PlatformDevice'
   { -- | The ID for the GPU(s) on the container instance. The available GPU IDs
     -- can also be obtained on the container instance in the
     -- @\/var\/lib\/ecs\/gpu\/nvidia_gpu_info.json@ file.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The type of device that is available on the container instance. The only
     -- supported value is @GPU@.
     type' :: PlatformDeviceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlatformDevice' with all optional fields omitted.
@@ -55,7 +54,7 @@ data PlatformDevice = PlatformDevice'
 -- supported value is @GPU@.
 newPlatformDevice ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   PlatformDeviceType ->
   PlatformDevice
@@ -65,7 +64,7 @@ newPlatformDevice pId_ pType_ =
 -- | The ID for the GPU(s) on the container instance. The available GPU IDs
 -- can also be obtained on the container instance in the
 -- @\/var\/lib\/ecs\/gpu\/nvidia_gpu_info.json@ file.
-platformDevice_id :: Lens.Lens' PlatformDevice Prelude.Text
+platformDevice_id :: Lens.Lens' PlatformDevice Core.Text
 platformDevice_id = Lens.lens (\PlatformDevice' {id} -> id) (\s@PlatformDevice' {} a -> s {id = a} :: PlatformDevice)
 
 -- | The type of device that is available on the container instance. The only
@@ -73,15 +72,15 @@ platformDevice_id = Lens.lens (\PlatformDevice' {id} -> id) (\s@PlatformDevice' 
 platformDevice_type :: Lens.Lens' PlatformDevice PlatformDeviceType
 platformDevice_type = Lens.lens (\PlatformDevice' {type'} -> type') (\s@PlatformDevice' {} a -> s {type' = a} :: PlatformDevice)
 
-instance Prelude.Hashable PlatformDevice
+instance Core.Hashable PlatformDevice
 
-instance Prelude.NFData PlatformDevice
+instance Core.NFData PlatformDevice
 
-instance Prelude.ToJSON PlatformDevice where
+instance Core.ToJSON PlatformDevice where
   toJSON PlatformDevice' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("id" Prelude..= id),
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            Core.Just ("type" Core..= type')
           ]
       )

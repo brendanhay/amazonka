@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodeBuild.Types.EnvironmentPlatform where
 
 import Network.AWS.CodeBuild.Types.EnvironmentLanguage
 import Network.AWS.CodeBuild.Types.PlatformType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of Docker images that are related by platform and are managed by
 -- AWS CodeBuild.
@@ -31,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEnvironmentPlatform' smart constructor.
 data EnvironmentPlatform = EnvironmentPlatform'
   { -- | The platform\'s name.
-    platform :: Prelude.Maybe PlatformType,
+    platform :: Core.Maybe PlatformType,
     -- | The list of programming languages that are available for the specified
     -- platform.
-    languages :: Prelude.Maybe [EnvironmentLanguage]
+    languages :: Core.Maybe [EnvironmentLanguage]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentPlatform' with all optional fields omitted.
@@ -54,31 +53,29 @@ newEnvironmentPlatform ::
   EnvironmentPlatform
 newEnvironmentPlatform =
   EnvironmentPlatform'
-    { platform = Prelude.Nothing,
-      languages = Prelude.Nothing
+    { platform = Core.Nothing,
+      languages = Core.Nothing
     }
 
 -- | The platform\'s name.
-environmentPlatform_platform :: Lens.Lens' EnvironmentPlatform (Prelude.Maybe PlatformType)
+environmentPlatform_platform :: Lens.Lens' EnvironmentPlatform (Core.Maybe PlatformType)
 environmentPlatform_platform = Lens.lens (\EnvironmentPlatform' {platform} -> platform) (\s@EnvironmentPlatform' {} a -> s {platform = a} :: EnvironmentPlatform)
 
 -- | The list of programming languages that are available for the specified
 -- platform.
-environmentPlatform_languages :: Lens.Lens' EnvironmentPlatform (Prelude.Maybe [EnvironmentLanguage])
-environmentPlatform_languages = Lens.lens (\EnvironmentPlatform' {languages} -> languages) (\s@EnvironmentPlatform' {} a -> s {languages = a} :: EnvironmentPlatform) Prelude.. Lens.mapping Prelude._Coerce
+environmentPlatform_languages :: Lens.Lens' EnvironmentPlatform (Core.Maybe [EnvironmentLanguage])
+environmentPlatform_languages = Lens.lens (\EnvironmentPlatform' {languages} -> languages) (\s@EnvironmentPlatform' {} a -> s {languages = a} :: EnvironmentPlatform) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON EnvironmentPlatform where
+instance Core.FromJSON EnvironmentPlatform where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EnvironmentPlatform"
       ( \x ->
           EnvironmentPlatform'
-            Prelude.<$> (x Prelude..:? "platform")
-            Prelude.<*> ( x Prelude..:? "languages"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "platform")
+            Core.<*> (x Core..:? "languages" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable EnvironmentPlatform
+instance Core.Hashable EnvironmentPlatform
 
-instance Prelude.NFData EnvironmentPlatform
+instance Core.NFData EnvironmentPlatform

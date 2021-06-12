@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -91,9 +90,9 @@ module Network.AWS.KMS.CreateCustomKeyStore
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -101,17 +100,17 @@ import qualified Network.AWS.Response as Response
 data CreateCustomKeyStore = CreateCustomKeyStore'
   { -- | Specifies a friendly name for the custom key store. The name must be
     -- unique in your AWS account.
-    customKeyStoreName :: Prelude.Text,
+    customKeyStoreName :: Core.Text,
     -- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the
     -- cluster ID of any active AWS CloudHSM cluster that is not already
     -- associated with a custom key store. To find the cluster ID, use the
     -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
     -- operation.
-    cloudHsmClusterId :: Prelude.Text,
+    cloudHsmClusterId :: Core.Text,
     -- | Enter the content of the trust anchor certificate for the cluster. This
     -- is the content of the @customerCA.crt@ file that you created when you
     -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster>.
-    trustAnchorCertificate :: Prelude.Text,
+    trustAnchorCertificate :: Core.Text,
     -- | Enter the password of the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser kmsuser crypto user (CU) account>
     -- in the specified AWS CloudHSM cluster. AWS KMS logs into the cluster as
@@ -122,9 +121,9 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
     --
     -- This parameter tells AWS KMS the @kmsuser@ account password; it does not
     -- change the password in the AWS CloudHSM cluster.
-    keyStorePassword :: Prelude.Sensitive Prelude.Text
+    keyStorePassword :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCustomKeyStore' with all optional fields omitted.
@@ -159,13 +158,13 @@ data CreateCustomKeyStore = CreateCustomKeyStore'
 -- change the password in the AWS CloudHSM cluster.
 newCreateCustomKeyStore ::
   -- | 'customKeyStoreName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'cloudHsmClusterId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'trustAnchorCertificate'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'keyStorePassword'
-  Prelude.Text ->
+  Core.Text ->
   CreateCustomKeyStore
 newCreateCustomKeyStore
   pCustomKeyStoreName_
@@ -178,12 +177,12 @@ newCreateCustomKeyStore
         cloudHsmClusterId = pCloudHsmClusterId_,
         trustAnchorCertificate = pTrustAnchorCertificate_,
         keyStorePassword =
-          Prelude._Sensitive Lens.# pKeyStorePassword_
+          Core._Sensitive Lens.# pKeyStorePassword_
       }
 
 -- | Specifies a friendly name for the custom key store. The name must be
 -- unique in your AWS account.
-createCustomKeyStore_customKeyStoreName :: Lens.Lens' CreateCustomKeyStore Prelude.Text
+createCustomKeyStore_customKeyStoreName :: Lens.Lens' CreateCustomKeyStore Core.Text
 createCustomKeyStore_customKeyStoreName = Lens.lens (\CreateCustomKeyStore' {customKeyStoreName} -> customKeyStoreName) (\s@CreateCustomKeyStore' {} a -> s {customKeyStoreName = a} :: CreateCustomKeyStore)
 
 -- | Identifies the AWS CloudHSM cluster for the custom key store. Enter the
@@ -191,13 +190,13 @@ createCustomKeyStore_customKeyStoreName = Lens.lens (\CreateCustomKeyStore' {cus
 -- associated with a custom key store. To find the cluster ID, use the
 -- <https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html DescribeClusters>
 -- operation.
-createCustomKeyStore_cloudHsmClusterId :: Lens.Lens' CreateCustomKeyStore Prelude.Text
+createCustomKeyStore_cloudHsmClusterId :: Lens.Lens' CreateCustomKeyStore Core.Text
 createCustomKeyStore_cloudHsmClusterId = Lens.lens (\CreateCustomKeyStore' {cloudHsmClusterId} -> cloudHsmClusterId) (\s@CreateCustomKeyStore' {} a -> s {cloudHsmClusterId = a} :: CreateCustomKeyStore)
 
 -- | Enter the content of the trust anchor certificate for the cluster. This
 -- is the content of the @customerCA.crt@ file that you created when you
 -- <https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html initialized the cluster>.
-createCustomKeyStore_trustAnchorCertificate :: Lens.Lens' CreateCustomKeyStore Prelude.Text
+createCustomKeyStore_trustAnchorCertificate :: Lens.Lens' CreateCustomKeyStore Core.Text
 createCustomKeyStore_trustAnchorCertificate = Lens.lens (\CreateCustomKeyStore' {trustAnchorCertificate} -> trustAnchorCertificate) (\s@CreateCustomKeyStore' {} a -> s {trustAnchorCertificate = a} :: CreateCustomKeyStore)
 
 -- | Enter the password of the
@@ -210,72 +209,70 @@ createCustomKeyStore_trustAnchorCertificate = Lens.lens (\CreateCustomKeyStore' 
 --
 -- This parameter tells AWS KMS the @kmsuser@ account password; it does not
 -- change the password in the AWS CloudHSM cluster.
-createCustomKeyStore_keyStorePassword :: Lens.Lens' CreateCustomKeyStore Prelude.Text
-createCustomKeyStore_keyStorePassword = Lens.lens (\CreateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@CreateCustomKeyStore' {} a -> s {keyStorePassword = a} :: CreateCustomKeyStore) Prelude.. Prelude._Sensitive
+createCustomKeyStore_keyStorePassword :: Lens.Lens' CreateCustomKeyStore Core.Text
+createCustomKeyStore_keyStorePassword = Lens.lens (\CreateCustomKeyStore' {keyStorePassword} -> keyStorePassword) (\s@CreateCustomKeyStore' {} a -> s {keyStorePassword = a} :: CreateCustomKeyStore) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest CreateCustomKeyStore where
+instance Core.AWSRequest CreateCustomKeyStore where
   type
-    Rs CreateCustomKeyStore =
+    AWSResponse CreateCustomKeyStore =
       CreateCustomKeyStoreResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCustomKeyStoreResponse'
-            Prelude.<$> (x Prelude..?> "CustomKeyStoreId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CustomKeyStoreId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateCustomKeyStore
+instance Core.Hashable CreateCustomKeyStore
 
-instance Prelude.NFData CreateCustomKeyStore
+instance Core.NFData CreateCustomKeyStore
 
-instance Prelude.ToHeaders CreateCustomKeyStore where
+instance Core.ToHeaders CreateCustomKeyStore where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.CreateCustomKeyStore" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "TrentService.CreateCustomKeyStore" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCustomKeyStore where
+instance Core.ToJSON CreateCustomKeyStore where
   toJSON CreateCustomKeyStore' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CustomKeyStoreName" Prelude..= customKeyStoreName),
-            Prelude.Just
-              ("CloudHsmClusterId" Prelude..= cloudHsmClusterId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CustomKeyStoreName" Core..= customKeyStoreName),
+            Core.Just
+              ("CloudHsmClusterId" Core..= cloudHsmClusterId),
+            Core.Just
               ( "TrustAnchorCertificate"
-                  Prelude..= trustAnchorCertificate
+                  Core..= trustAnchorCertificate
               ),
-            Prelude.Just
-              ("KeyStorePassword" Prelude..= keyStorePassword)
+            Core.Just
+              ("KeyStorePassword" Core..= keyStorePassword)
           ]
       )
 
-instance Prelude.ToPath CreateCustomKeyStore where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateCustomKeyStore where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateCustomKeyStore where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCustomKeyStore where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCustomKeyStoreResponse' smart constructor.
 data CreateCustomKeyStoreResponse = CreateCustomKeyStoreResponse'
   { -- | A unique identifier for the new custom key store.
-    customKeyStoreId :: Prelude.Maybe Prelude.Text,
+    customKeyStoreId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCustomKeyStoreResponse' with all optional fields omitted.
@@ -290,21 +287,21 @@ data CreateCustomKeyStoreResponse = CreateCustomKeyStoreResponse'
 -- 'httpStatus', 'createCustomKeyStoreResponse_httpStatus' - The response's http status code.
 newCreateCustomKeyStoreResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateCustomKeyStoreResponse
 newCreateCustomKeyStoreResponse pHttpStatus_ =
   CreateCustomKeyStoreResponse'
     { customKeyStoreId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier for the new custom key store.
-createCustomKeyStoreResponse_customKeyStoreId :: Lens.Lens' CreateCustomKeyStoreResponse (Prelude.Maybe Prelude.Text)
+createCustomKeyStoreResponse_customKeyStoreId :: Lens.Lens' CreateCustomKeyStoreResponse (Core.Maybe Core.Text)
 createCustomKeyStoreResponse_customKeyStoreId = Lens.lens (\CreateCustomKeyStoreResponse' {customKeyStoreId} -> customKeyStoreId) (\s@CreateCustomKeyStoreResponse' {} a -> s {customKeyStoreId = a} :: CreateCustomKeyStoreResponse)
 
 -- | The response's http status code.
-createCustomKeyStoreResponse_httpStatus :: Lens.Lens' CreateCustomKeyStoreResponse Prelude.Int
+createCustomKeyStoreResponse_httpStatus :: Lens.Lens' CreateCustomKeyStoreResponse Core.Int
 createCustomKeyStoreResponse_httpStatus = Lens.lens (\CreateCustomKeyStoreResponse' {httpStatus} -> httpStatus) (\s@CreateCustomKeyStoreResponse' {} a -> s {httpStatus = a} :: CreateCustomKeyStoreResponse)
 
-instance Prelude.NFData CreateCustomKeyStoreResponse
+instance Core.NFData CreateCustomKeyStoreResponse

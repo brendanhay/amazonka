@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SMS.Types.ServerGroupReplicationConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SMS.Types.ServerReplicationConfiguration
 
 -- | Replication configuration for a server group.
@@ -30,11 +29,11 @@ import Network.AWS.SMS.Types.ServerReplicationConfiguration
 data ServerGroupReplicationConfiguration = ServerGroupReplicationConfiguration'
   { -- | The ID of the server group with which this replication configuration is
     -- associated.
-    serverGroupId :: Prelude.Maybe Prelude.Text,
+    serverGroupId :: Core.Maybe Core.Text,
     -- | The replication configuration for servers in the server group.
-    serverReplicationConfigurations :: Prelude.Maybe [ServerReplicationConfiguration]
+    serverReplicationConfigurations :: Core.Maybe [ServerReplicationConfiguration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerGroupReplicationConfiguration' with all optional fields omitted.
@@ -53,53 +52,52 @@ newServerGroupReplicationConfiguration ::
 newServerGroupReplicationConfiguration =
   ServerGroupReplicationConfiguration'
     { serverGroupId =
-        Prelude.Nothing,
+        Core.Nothing,
       serverReplicationConfigurations =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the server group with which this replication configuration is
 -- associated.
-serverGroupReplicationConfiguration_serverGroupId :: Lens.Lens' ServerGroupReplicationConfiguration (Prelude.Maybe Prelude.Text)
+serverGroupReplicationConfiguration_serverGroupId :: Lens.Lens' ServerGroupReplicationConfiguration (Core.Maybe Core.Text)
 serverGroupReplicationConfiguration_serverGroupId = Lens.lens (\ServerGroupReplicationConfiguration' {serverGroupId} -> serverGroupId) (\s@ServerGroupReplicationConfiguration' {} a -> s {serverGroupId = a} :: ServerGroupReplicationConfiguration)
 
 -- | The replication configuration for servers in the server group.
-serverGroupReplicationConfiguration_serverReplicationConfigurations :: Lens.Lens' ServerGroupReplicationConfiguration (Prelude.Maybe [ServerReplicationConfiguration])
-serverGroupReplicationConfiguration_serverReplicationConfigurations = Lens.lens (\ServerGroupReplicationConfiguration' {serverReplicationConfigurations} -> serverReplicationConfigurations) (\s@ServerGroupReplicationConfiguration' {} a -> s {serverReplicationConfigurations = a} :: ServerGroupReplicationConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+serverGroupReplicationConfiguration_serverReplicationConfigurations :: Lens.Lens' ServerGroupReplicationConfiguration (Core.Maybe [ServerReplicationConfiguration])
+serverGroupReplicationConfiguration_serverReplicationConfigurations = Lens.lens (\ServerGroupReplicationConfiguration' {serverReplicationConfigurations} -> serverReplicationConfigurations) (\s@ServerGroupReplicationConfiguration' {} a -> s {serverReplicationConfigurations = a} :: ServerGroupReplicationConfiguration) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ServerGroupReplicationConfiguration
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServerGroupReplicationConfiguration"
       ( \x ->
           ServerGroupReplicationConfiguration'
-            Prelude.<$> (x Prelude..:? "serverGroupId")
-            Prelude.<*> ( x Prelude..:? "serverReplicationConfigurations"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "serverGroupId")
+            Core.<*> ( x Core..:? "serverReplicationConfigurations"
+                         Core..!= Core.mempty
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ServerGroupReplicationConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     ServerGroupReplicationConfiguration
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ServerGroupReplicationConfiguration
   where
   toJSON ServerGroupReplicationConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("serverGroupId" Prelude..=)
-              Prelude.<$> serverGroupId,
-            ("serverReplicationConfigurations" Prelude..=)
-              Prelude.<$> serverReplicationConfigurations
+    Core.object
+      ( Core.catMaybes
+          [ ("serverGroupId" Core..=) Core.<$> serverGroupId,
+            ("serverReplicationConfigurations" Core..=)
+              Core.<$> serverReplicationConfigurations
           ]
       )

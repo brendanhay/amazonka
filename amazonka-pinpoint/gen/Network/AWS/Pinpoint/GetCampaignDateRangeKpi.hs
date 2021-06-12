@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Pinpoint.GetCampaignDateRangeKpi
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,25 +57,25 @@ data GetCampaignDateRangeKpi = GetCampaignDateRangeKpi'
   { -- | The string that specifies which page of results to return in a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to include in each page of a paginated
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
-    pageSize :: Prelude.Maybe Prelude.Text,
+    pageSize :: Core.Maybe Core.Text,
     -- | The first date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
     -- should also be fewer than 90 days from the current day.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The last date and time to retrieve data for, as part of an inclusive
     -- date range that filters the query results. This value should be in
     -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
     -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The name of the metric, also referred to as a /key performance indicator
     -- (KPI)/, to retrieve data for. This value describes the associated metric
     -- and consists of two or more terms, which are comprised of lowercase
@@ -84,11 +83,11 @@ data GetCampaignDateRangeKpi = GetCampaignDateRangeKpi'
     -- email-open-rate and successful-delivery-rate. For a list of valid
     -- values, see the
     -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-    kpiName :: Prelude.Text,
+    kpiName :: Core.Text,
     -- | The unique identifier for the campaign.
-    campaignId :: Prelude.Text
+    campaignId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaignDateRangeKpi' with all optional fields omitted.
@@ -131,22 +130,21 @@ data GetCampaignDateRangeKpi = GetCampaignDateRangeKpi'
 -- 'campaignId', 'getCampaignDateRangeKpi_campaignId' - The unique identifier for the campaign.
 newGetCampaignDateRangeKpi ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'kpiName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'campaignId'
-  Prelude.Text ->
+  Core.Text ->
   GetCampaignDateRangeKpi
 newGetCampaignDateRangeKpi
   pApplicationId_
   pKpiName_
   pCampaignId_ =
     GetCampaignDateRangeKpi'
-      { nextToken =
-          Prelude.Nothing,
-        pageSize = Prelude.Nothing,
-        startTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
+      { nextToken = Core.Nothing,
+        pageSize = Core.Nothing,
+        startTime = Core.Nothing,
+        endTime = Core.Nothing,
         applicationId = pApplicationId_,
         kpiName = pKpiName_,
         campaignId = pCampaignId_
@@ -155,13 +153,13 @@ newGetCampaignDateRangeKpi
 -- | The string that specifies which page of results to return in a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getCampaignDateRangeKpi_nextToken :: Lens.Lens' GetCampaignDateRangeKpi (Prelude.Maybe Prelude.Text)
+getCampaignDateRangeKpi_nextToken :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.Text)
 getCampaignDateRangeKpi_nextToken = Lens.lens (\GetCampaignDateRangeKpi' {nextToken} -> nextToken) (\s@GetCampaignDateRangeKpi' {} a -> s {nextToken = a} :: GetCampaignDateRangeKpi)
 
 -- | The maximum number of items to include in each page of a paginated
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
-getCampaignDateRangeKpi_pageSize :: Lens.Lens' GetCampaignDateRangeKpi (Prelude.Maybe Prelude.Text)
+getCampaignDateRangeKpi_pageSize :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.Text)
 getCampaignDateRangeKpi_pageSize = Lens.lens (\GetCampaignDateRangeKpi' {pageSize} -> pageSize) (\s@GetCampaignDateRangeKpi' {} a -> s {pageSize = a} :: GetCampaignDateRangeKpi)
 
 -- | The first date and time to retrieve data for, as part of an inclusive
@@ -169,19 +167,19 @@ getCampaignDateRangeKpi_pageSize = Lens.lens (\GetCampaignDateRangeKpi' {pageSiz
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value
 -- should also be fewer than 90 days from the current day.
-getCampaignDateRangeKpi_startTime :: Lens.Lens' GetCampaignDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getCampaignDateRangeKpi_startTime = Lens.lens (\GetCampaignDateRangeKpi' {startTime} -> startTime) (\s@GetCampaignDateRangeKpi' {} a -> s {startTime = a} :: GetCampaignDateRangeKpi) Prelude.. Lens.mapping Prelude._Time
+getCampaignDateRangeKpi_startTime :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.UTCTime)
+getCampaignDateRangeKpi_startTime = Lens.lens (\GetCampaignDateRangeKpi' {startTime} -> startTime) (\s@GetCampaignDateRangeKpi' {} a -> s {startTime = a} :: GetCampaignDateRangeKpi) Core.. Lens.mapping Core._Time
 
 -- | The last date and time to retrieve data for, as part of an inclusive
 -- date range that filters the query results. This value should be in
 -- extended ISO 8601 format and use Coordinated Universal Time (UTC), for
 -- example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-getCampaignDateRangeKpi_endTime :: Lens.Lens' GetCampaignDateRangeKpi (Prelude.Maybe Prelude.UTCTime)
-getCampaignDateRangeKpi_endTime = Lens.lens (\GetCampaignDateRangeKpi' {endTime} -> endTime) (\s@GetCampaignDateRangeKpi' {} a -> s {endTime = a} :: GetCampaignDateRangeKpi) Prelude.. Lens.mapping Prelude._Time
+getCampaignDateRangeKpi_endTime :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.UTCTime)
+getCampaignDateRangeKpi_endTime = Lens.lens (\GetCampaignDateRangeKpi' {endTime} -> endTime) (\s@GetCampaignDateRangeKpi' {} a -> s {endTime = a} :: GetCampaignDateRangeKpi) Core.. Lens.mapping Core._Time
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getCampaignDateRangeKpi_applicationId :: Lens.Lens' GetCampaignDateRangeKpi Prelude.Text
+getCampaignDateRangeKpi_applicationId :: Lens.Lens' GetCampaignDateRangeKpi Core.Text
 getCampaignDateRangeKpi_applicationId = Lens.lens (\GetCampaignDateRangeKpi' {applicationId} -> applicationId) (\s@GetCampaignDateRangeKpi' {} a -> s {applicationId = a} :: GetCampaignDateRangeKpi)
 
 -- | The name of the metric, also referred to as a /key performance indicator
@@ -191,68 +189,66 @@ getCampaignDateRangeKpi_applicationId = Lens.lens (\GetCampaignDateRangeKpi' {ap
 -- email-open-rate and successful-delivery-rate. For a list of valid
 -- values, see the
 -- <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide>.
-getCampaignDateRangeKpi_kpiName :: Lens.Lens' GetCampaignDateRangeKpi Prelude.Text
+getCampaignDateRangeKpi_kpiName :: Lens.Lens' GetCampaignDateRangeKpi Core.Text
 getCampaignDateRangeKpi_kpiName = Lens.lens (\GetCampaignDateRangeKpi' {kpiName} -> kpiName) (\s@GetCampaignDateRangeKpi' {} a -> s {kpiName = a} :: GetCampaignDateRangeKpi)
 
 -- | The unique identifier for the campaign.
-getCampaignDateRangeKpi_campaignId :: Lens.Lens' GetCampaignDateRangeKpi Prelude.Text
+getCampaignDateRangeKpi_campaignId :: Lens.Lens' GetCampaignDateRangeKpi Core.Text
 getCampaignDateRangeKpi_campaignId = Lens.lens (\GetCampaignDateRangeKpi' {campaignId} -> campaignId) (\s@GetCampaignDateRangeKpi' {} a -> s {campaignId = a} :: GetCampaignDateRangeKpi)
 
-instance Prelude.AWSRequest GetCampaignDateRangeKpi where
+instance Core.AWSRequest GetCampaignDateRangeKpi where
   type
-    Rs GetCampaignDateRangeKpi =
+    AWSResponse GetCampaignDateRangeKpi =
       GetCampaignDateRangeKpiResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCampaignDateRangeKpiResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetCampaignDateRangeKpi
+instance Core.Hashable GetCampaignDateRangeKpi
 
-instance Prelude.NFData GetCampaignDateRangeKpi
+instance Core.NFData GetCampaignDateRangeKpi
 
-instance Prelude.ToHeaders GetCampaignDateRangeKpi where
+instance Core.ToHeaders GetCampaignDateRangeKpi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetCampaignDateRangeKpi where
+instance Core.ToPath GetCampaignDateRangeKpi where
   toPath GetCampaignDateRangeKpi' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/campaigns/",
-        Prelude.toBS campaignId,
+        Core.toBS campaignId,
         "/kpis/daterange/",
-        Prelude.toBS kpiName
+        Core.toBS kpiName
       ]
 
-instance Prelude.ToQuery GetCampaignDateRangeKpi where
+instance Core.ToQuery GetCampaignDateRangeKpi where
   toQuery GetCampaignDateRangeKpi' {..} =
-    Prelude.mconcat
-      [ "next-token" Prelude.=: nextToken,
-        "page-size" Prelude.=: pageSize,
-        "start-time" Prelude.=: startTime,
-        "end-time" Prelude.=: endTime
+    Core.mconcat
+      [ "next-token" Core.=: nextToken,
+        "page-size" Core.=: pageSize,
+        "start-time" Core.=: startTime,
+        "end-time" Core.=: endTime
       ]
 
 -- | /See:/ 'newGetCampaignDateRangeKpiResponse' smart constructor.
 data GetCampaignDateRangeKpiResponse = GetCampaignDateRangeKpiResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     campaignDateRangeKpiResponse :: CampaignDateRangeKpiResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaignDateRangeKpiResponse' with all optional fields omitted.
@@ -267,7 +263,7 @@ data GetCampaignDateRangeKpiResponse = GetCampaignDateRangeKpiResponse'
 -- 'campaignDateRangeKpiResponse', 'getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse' - Undocumented member.
 newGetCampaignDateRangeKpiResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'campaignDateRangeKpiResponse'
   CampaignDateRangeKpiResponse ->
   GetCampaignDateRangeKpiResponse
@@ -282,13 +278,11 @@ newGetCampaignDateRangeKpiResponse
       }
 
 -- | The response's http status code.
-getCampaignDateRangeKpiResponse_httpStatus :: Lens.Lens' GetCampaignDateRangeKpiResponse Prelude.Int
+getCampaignDateRangeKpiResponse_httpStatus :: Lens.Lens' GetCampaignDateRangeKpiResponse Core.Int
 getCampaignDateRangeKpiResponse_httpStatus = Lens.lens (\GetCampaignDateRangeKpiResponse' {httpStatus} -> httpStatus) (\s@GetCampaignDateRangeKpiResponse' {} a -> s {httpStatus = a} :: GetCampaignDateRangeKpiResponse)
 
 -- | Undocumented member.
 getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse :: Lens.Lens' GetCampaignDateRangeKpiResponse CampaignDateRangeKpiResponse
 getCampaignDateRangeKpiResponse_campaignDateRangeKpiResponse = Lens.lens (\GetCampaignDateRangeKpiResponse' {campaignDateRangeKpiResponse} -> campaignDateRangeKpiResponse) (\s@GetCampaignDateRangeKpiResponse' {} a -> s {campaignDateRangeKpiResponse = a} :: GetCampaignDateRangeKpiResponse)
 
-instance
-  Prelude.NFData
-    GetCampaignDateRangeKpiResponse
+instance Core.NFData GetCampaignDateRangeKpiResponse

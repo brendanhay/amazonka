@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayRouteTablePropagation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
 import Network.AWS.EC2.Types.TransitGatewayPropagationState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a route table propagation.
 --
 -- /See:/ 'newTransitGatewayRouteTablePropagation' smart constructor.
 data TransitGatewayRouteTablePropagation = TransitGatewayRouteTablePropagation'
   { -- | The ID of the resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The type of resource. Note that the @tgw-peering@ resource type has been
     -- deprecated.
-    resourceType :: Prelude.Maybe TransitGatewayAttachmentResourceType,
+    resourceType :: Core.Maybe TransitGatewayAttachmentResourceType,
     -- | The state of the resource.
-    state :: Prelude.Maybe TransitGatewayPropagationState,
+    state :: Core.Maybe TransitGatewayPropagationState,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text
+    transitGatewayAttachmentId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayRouteTablePropagation' with all optional fields omitted.
@@ -63,45 +62,45 @@ newTransitGatewayRouteTablePropagation ::
 newTransitGatewayRouteTablePropagation =
   TransitGatewayRouteTablePropagation'
     { resourceId =
-        Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      state = Prelude.Nothing,
+        Core.Nothing,
+      resourceType = Core.Nothing,
+      state = Core.Nothing,
       transitGatewayAttachmentId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the resource.
-transitGatewayRouteTablePropagation_resourceId :: Lens.Lens' TransitGatewayRouteTablePropagation (Prelude.Maybe Prelude.Text)
+transitGatewayRouteTablePropagation_resourceId :: Lens.Lens' TransitGatewayRouteTablePropagation (Core.Maybe Core.Text)
 transitGatewayRouteTablePropagation_resourceId = Lens.lens (\TransitGatewayRouteTablePropagation' {resourceId} -> resourceId) (\s@TransitGatewayRouteTablePropagation' {} a -> s {resourceId = a} :: TransitGatewayRouteTablePropagation)
 
 -- | The type of resource. Note that the @tgw-peering@ resource type has been
 -- deprecated.
-transitGatewayRouteTablePropagation_resourceType :: Lens.Lens' TransitGatewayRouteTablePropagation (Prelude.Maybe TransitGatewayAttachmentResourceType)
+transitGatewayRouteTablePropagation_resourceType :: Lens.Lens' TransitGatewayRouteTablePropagation (Core.Maybe TransitGatewayAttachmentResourceType)
 transitGatewayRouteTablePropagation_resourceType = Lens.lens (\TransitGatewayRouteTablePropagation' {resourceType} -> resourceType) (\s@TransitGatewayRouteTablePropagation' {} a -> s {resourceType = a} :: TransitGatewayRouteTablePropagation)
 
 -- | The state of the resource.
-transitGatewayRouteTablePropagation_state :: Lens.Lens' TransitGatewayRouteTablePropagation (Prelude.Maybe TransitGatewayPropagationState)
+transitGatewayRouteTablePropagation_state :: Lens.Lens' TransitGatewayRouteTablePropagation (Core.Maybe TransitGatewayPropagationState)
 transitGatewayRouteTablePropagation_state = Lens.lens (\TransitGatewayRouteTablePropagation' {state} -> state) (\s@TransitGatewayRouteTablePropagation' {} a -> s {state = a} :: TransitGatewayRouteTablePropagation)
 
 -- | The ID of the attachment.
-transitGatewayRouteTablePropagation_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayRouteTablePropagation (Prelude.Maybe Prelude.Text)
+transitGatewayRouteTablePropagation_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayRouteTablePropagation (Core.Maybe Core.Text)
 transitGatewayRouteTablePropagation_transitGatewayAttachmentId = Lens.lens (\TransitGatewayRouteTablePropagation' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayRouteTablePropagation' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayRouteTablePropagation)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     TransitGatewayRouteTablePropagation
   where
   parseXML x =
     TransitGatewayRouteTablePropagation'
-      Prelude.<$> (x Prelude..@? "resourceId")
-      Prelude.<*> (x Prelude..@? "resourceType")
-      Prelude.<*> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "transitGatewayAttachmentId")
+      Core.<$> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TransitGatewayRouteTablePropagation
 
 instance
-  Prelude.NFData
+  Core.NFData
     TransitGatewayRouteTablePropagation

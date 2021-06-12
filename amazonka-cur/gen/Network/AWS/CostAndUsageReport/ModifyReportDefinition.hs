@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.CostAndUsageReport.ModifyReportDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostAndUsageReport.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newModifyReportDefinition' smart constructor.
 data ModifyReportDefinition = ModifyReportDefinition'
-  { reportName :: Prelude.Text,
+  { reportName :: Core.Text,
     reportDefinition :: ReportDefinition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyReportDefinition' with all optional fields omitted.
@@ -66,7 +65,7 @@ data ModifyReportDefinition = ModifyReportDefinition'
 -- 'reportDefinition', 'modifyReportDefinition_reportDefinition' - Undocumented member.
 newModifyReportDefinition ::
   -- | 'reportName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'reportDefinition'
   ReportDefinition ->
   ModifyReportDefinition
@@ -79,66 +78,64 @@ newModifyReportDefinition
       }
 
 -- | Undocumented member.
-modifyReportDefinition_reportName :: Lens.Lens' ModifyReportDefinition Prelude.Text
+modifyReportDefinition_reportName :: Lens.Lens' ModifyReportDefinition Core.Text
 modifyReportDefinition_reportName = Lens.lens (\ModifyReportDefinition' {reportName} -> reportName) (\s@ModifyReportDefinition' {} a -> s {reportName = a} :: ModifyReportDefinition)
 
 -- | Undocumented member.
 modifyReportDefinition_reportDefinition :: Lens.Lens' ModifyReportDefinition ReportDefinition
 modifyReportDefinition_reportDefinition = Lens.lens (\ModifyReportDefinition' {reportDefinition} -> reportDefinition) (\s@ModifyReportDefinition' {} a -> s {reportDefinition = a} :: ModifyReportDefinition)
 
-instance Prelude.AWSRequest ModifyReportDefinition where
+instance Core.AWSRequest ModifyReportDefinition where
   type
-    Rs ModifyReportDefinition =
+    AWSResponse ModifyReportDefinition =
       ModifyReportDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifyReportDefinitionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyReportDefinition
+instance Core.Hashable ModifyReportDefinition
 
-instance Prelude.NFData ModifyReportDefinition
+instance Core.NFData ModifyReportDefinition
 
-instance Prelude.ToHeaders ModifyReportDefinition where
+instance Core.ToHeaders ModifyReportDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrigamiServiceGatewayService.ModifyReportDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrigamiServiceGatewayService.ModifyReportDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ModifyReportDefinition where
+instance Core.ToJSON ModifyReportDefinition where
   toJSON ModifyReportDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ReportName" Prelude..= reportName),
-            Prelude.Just
-              ("ReportDefinition" Prelude..= reportDefinition)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ReportName" Core..= reportName),
+            Core.Just
+              ("ReportDefinition" Core..= reportDefinition)
           ]
       )
 
-instance Prelude.ToPath ModifyReportDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyReportDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyReportDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ModifyReportDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newModifyReportDefinitionResponse' smart constructor.
 data ModifyReportDefinitionResponse = ModifyReportDefinitionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyReportDefinitionResponse' with all optional fields omitted.
@@ -151,7 +148,7 @@ data ModifyReportDefinitionResponse = ModifyReportDefinitionResponse'
 -- 'httpStatus', 'modifyReportDefinitionResponse_httpStatus' - The response's http status code.
 newModifyReportDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyReportDefinitionResponse
 newModifyReportDefinitionResponse pHttpStatus_ =
   ModifyReportDefinitionResponse'
@@ -160,9 +157,7 @@ newModifyReportDefinitionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-modifyReportDefinitionResponse_httpStatus :: Lens.Lens' ModifyReportDefinitionResponse Prelude.Int
+modifyReportDefinitionResponse_httpStatus :: Lens.Lens' ModifyReportDefinitionResponse Core.Int
 modifyReportDefinitionResponse_httpStatus = Lens.lens (\ModifyReportDefinitionResponse' {httpStatus} -> httpStatus) (\s@ModifyReportDefinitionResponse' {} a -> s {httpStatus = a} :: ModifyReportDefinitionResponse)
 
-instance
-  Prelude.NFData
-    ModifyReportDefinitionResponse
+instance Core.NFData ModifyReportDefinitionResponse

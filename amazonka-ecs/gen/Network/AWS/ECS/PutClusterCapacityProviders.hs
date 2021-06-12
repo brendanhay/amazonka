@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.ECS.PutClusterCapacityProviders
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,7 +69,7 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster to
     -- modify the capacity provider settings for. If you do not specify a
     -- cluster, the default cluster is assumed.
-    cluster :: Prelude.Text,
+    cluster :: Core.Text,
     -- | The name of one or more capacity providers to associate with the
     -- cluster.
     --
@@ -82,7 +81,7 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
     -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
     -- are available to all accounts and only need to be associated with a
     -- cluster to be used.
-    capacityProviders :: [Prelude.Text],
+    capacityProviders :: [Core.Text],
     -- | The capacity provider strategy to use by default for the cluster.
     --
     -- When creating a service or running a task on a cluster, if no capacity
@@ -106,7 +105,7 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
     -- cluster to be used.
     defaultCapacityProviderStrategy :: [CapacityProviderStrategyItem]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutClusterCapacityProviders' with all optional fields omitted.
@@ -155,20 +154,19 @@ data PutClusterCapacityProviders = PutClusterCapacityProviders'
 -- cluster to be used.
 newPutClusterCapacityProviders ::
   -- | 'cluster'
-  Prelude.Text ->
+  Core.Text ->
   PutClusterCapacityProviders
 newPutClusterCapacityProviders pCluster_ =
   PutClusterCapacityProviders'
     { cluster = pCluster_,
-      capacityProviders = Prelude.mempty,
-      defaultCapacityProviderStrategy =
-        Prelude.mempty
+      capacityProviders = Core.mempty,
+      defaultCapacityProviderStrategy = Core.mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to
 -- modify the capacity provider settings for. If you do not specify a
 -- cluster, the default cluster is assumed.
-putClusterCapacityProviders_cluster :: Lens.Lens' PutClusterCapacityProviders Prelude.Text
+putClusterCapacityProviders_cluster :: Lens.Lens' PutClusterCapacityProviders Core.Text
 putClusterCapacityProviders_cluster = Lens.lens (\PutClusterCapacityProviders' {cluster} -> cluster) (\s@PutClusterCapacityProviders' {} a -> s {cluster = a} :: PutClusterCapacityProviders)
 
 -- | The name of one or more capacity providers to associate with the
@@ -182,8 +180,8 @@ putClusterCapacityProviders_cluster = Lens.lens (\PutClusterCapacityProviders' {
 -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
 -- are available to all accounts and only need to be associated with a
 -- cluster to be used.
-putClusterCapacityProviders_capacityProviders :: Lens.Lens' PutClusterCapacityProviders [Prelude.Text]
-putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityProviders' {capacityProviders} -> capacityProviders) (\s@PutClusterCapacityProviders' {} a -> s {capacityProviders = a} :: PutClusterCapacityProviders) Prelude.. Prelude._Coerce
+putClusterCapacityProviders_capacityProviders :: Lens.Lens' PutClusterCapacityProviders [Core.Text]
+putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityProviders' {capacityProviders} -> capacityProviders) (\s@PutClusterCapacityProviders' {} a -> s {capacityProviders = a} :: PutClusterCapacityProviders) Core.. Lens._Coerce
 
 -- | The capacity provider strategy to use by default for the cluster.
 --
@@ -207,73 +205,65 @@ putClusterCapacityProviders_capacityProviders = Lens.lens (\PutClusterCapacityPr
 -- are available to all accounts and only need to be associated with a
 -- cluster to be used.
 putClusterCapacityProviders_defaultCapacityProviderStrategy :: Lens.Lens' PutClusterCapacityProviders [CapacityProviderStrategyItem]
-putClusterCapacityProviders_defaultCapacityProviderStrategy = Lens.lens (\PutClusterCapacityProviders' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@PutClusterCapacityProviders' {} a -> s {defaultCapacityProviderStrategy = a} :: PutClusterCapacityProviders) Prelude.. Prelude._Coerce
+putClusterCapacityProviders_defaultCapacityProviderStrategy = Lens.lens (\PutClusterCapacityProviders' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@PutClusterCapacityProviders' {} a -> s {defaultCapacityProviderStrategy = a} :: PutClusterCapacityProviders) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    PutClusterCapacityProviders
-  where
+instance Core.AWSRequest PutClusterCapacityProviders where
   type
-    Rs PutClusterCapacityProviders =
+    AWSResponse PutClusterCapacityProviders =
       PutClusterCapacityProvidersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutClusterCapacityProvidersResponse'
-            Prelude.<$> (x Prelude..?> "cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutClusterCapacityProviders
+instance Core.Hashable PutClusterCapacityProviders
 
-instance Prelude.NFData PutClusterCapacityProviders
+instance Core.NFData PutClusterCapacityProviders
 
-instance
-  Prelude.ToHeaders
-    PutClusterCapacityProviders
-  where
+instance Core.ToHeaders PutClusterCapacityProviders where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutClusterCapacityProviders where
+instance Core.ToJSON PutClusterCapacityProviders where
   toJSON PutClusterCapacityProviders' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("cluster" Prelude..= cluster),
-            Prelude.Just
-              ("capacityProviders" Prelude..= capacityProviders),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("cluster" Core..= cluster),
+            Core.Just
+              ("capacityProviders" Core..= capacityProviders),
+            Core.Just
               ( "defaultCapacityProviderStrategy"
-                  Prelude..= defaultCapacityProviderStrategy
+                  Core..= defaultCapacityProviderStrategy
               )
           ]
       )
 
-instance Prelude.ToPath PutClusterCapacityProviders where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutClusterCapacityProviders where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutClusterCapacityProviders where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutClusterCapacityProviders where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutClusterCapacityProvidersResponse' smart constructor.
 data PutClusterCapacityProvidersResponse = PutClusterCapacityProvidersResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutClusterCapacityProvidersResponse' with all optional fields omitted.
@@ -288,23 +278,23 @@ data PutClusterCapacityProvidersResponse = PutClusterCapacityProvidersResponse'
 -- 'httpStatus', 'putClusterCapacityProvidersResponse_httpStatus' - The response's http status code.
 newPutClusterCapacityProvidersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutClusterCapacityProvidersResponse
 newPutClusterCapacityProvidersResponse pHttpStatus_ =
   PutClusterCapacityProvidersResponse'
     { cluster =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-putClusterCapacityProvidersResponse_cluster :: Lens.Lens' PutClusterCapacityProvidersResponse (Prelude.Maybe Cluster)
+putClusterCapacityProvidersResponse_cluster :: Lens.Lens' PutClusterCapacityProvidersResponse (Core.Maybe Cluster)
 putClusterCapacityProvidersResponse_cluster = Lens.lens (\PutClusterCapacityProvidersResponse' {cluster} -> cluster) (\s@PutClusterCapacityProvidersResponse' {} a -> s {cluster = a} :: PutClusterCapacityProvidersResponse)
 
 -- | The response's http status code.
-putClusterCapacityProvidersResponse_httpStatus :: Lens.Lens' PutClusterCapacityProvidersResponse Prelude.Int
+putClusterCapacityProvidersResponse_httpStatus :: Lens.Lens' PutClusterCapacityProvidersResponse Core.Int
 putClusterCapacityProvidersResponse_httpStatus = Lens.lens (\PutClusterCapacityProvidersResponse' {httpStatus} -> httpStatus) (\s@PutClusterCapacityProvidersResponse' {} a -> s {httpStatus = a} :: PutClusterCapacityProvidersResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutClusterCapacityProvidersResponse

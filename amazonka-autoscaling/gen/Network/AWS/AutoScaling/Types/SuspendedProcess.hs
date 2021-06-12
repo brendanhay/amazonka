@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.SuspendedProcess where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an auto scaling process that has been suspended.
 --
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSuspendedProcess' smart constructor.
 data SuspendedProcess = SuspendedProcess'
   { -- | The name of the suspended process.
-    processName :: Prelude.Maybe Prelude.Text,
+    processName :: Core.Maybe Core.Text,
     -- | The reason that the process was suspended.
-    suspensionReason :: Prelude.Maybe Prelude.Text
+    suspensionReason :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuspendedProcess' with all optional fields omitted.
@@ -53,24 +52,24 @@ newSuspendedProcess ::
   SuspendedProcess
 newSuspendedProcess =
   SuspendedProcess'
-    { processName = Prelude.Nothing,
-      suspensionReason = Prelude.Nothing
+    { processName = Core.Nothing,
+      suspensionReason = Core.Nothing
     }
 
 -- | The name of the suspended process.
-suspendedProcess_processName :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
+suspendedProcess_processName :: Lens.Lens' SuspendedProcess (Core.Maybe Core.Text)
 suspendedProcess_processName = Lens.lens (\SuspendedProcess' {processName} -> processName) (\s@SuspendedProcess' {} a -> s {processName = a} :: SuspendedProcess)
 
 -- | The reason that the process was suspended.
-suspendedProcess_suspensionReason :: Lens.Lens' SuspendedProcess (Prelude.Maybe Prelude.Text)
+suspendedProcess_suspensionReason :: Lens.Lens' SuspendedProcess (Core.Maybe Core.Text)
 suspendedProcess_suspensionReason = Lens.lens (\SuspendedProcess' {suspensionReason} -> suspensionReason) (\s@SuspendedProcess' {} a -> s {suspensionReason = a} :: SuspendedProcess)
 
-instance Prelude.FromXML SuspendedProcess where
+instance Core.FromXML SuspendedProcess where
   parseXML x =
     SuspendedProcess'
-      Prelude.<$> (x Prelude..@? "ProcessName")
-      Prelude.<*> (x Prelude..@? "SuspensionReason")
+      Core.<$> (x Core..@? "ProcessName")
+      Core.<*> (x Core..@? "SuspensionReason")
 
-instance Prelude.Hashable SuspendedProcess
+instance Core.Hashable SuspendedProcess
 
-instance Prelude.NFData SuspendedProcess
+instance Core.NFData SuspendedProcess

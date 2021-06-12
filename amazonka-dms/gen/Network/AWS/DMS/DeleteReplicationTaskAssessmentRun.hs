@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.DMS.DeleteReplicationTaskAssessmentRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 data DeleteReplicationTaskAssessmentRun = DeleteReplicationTaskAssessmentRun'
   { -- | Amazon Resource Name (ARN) of the premigration assessment run to be
     -- deleted.
-    replicationTaskAssessmentRunArn :: Prelude.Text
+    replicationTaskAssessmentRunArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationTaskAssessmentRun' with all optional fields omitted.
@@ -72,7 +71,7 @@ data DeleteReplicationTaskAssessmentRun = DeleteReplicationTaskAssessmentRun'
 -- deleted.
 newDeleteReplicationTaskAssessmentRun ::
   -- | 'replicationTaskAssessmentRunArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReplicationTaskAssessmentRun
 newDeleteReplicationTaskAssessmentRun
   pReplicationTaskAssessmentRunArn_ =
@@ -83,76 +82,74 @@ newDeleteReplicationTaskAssessmentRun
 
 -- | Amazon Resource Name (ARN) of the premigration assessment run to be
 -- deleted.
-deleteReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn :: Lens.Lens' DeleteReplicationTaskAssessmentRun Prelude.Text
+deleteReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn :: Lens.Lens' DeleteReplicationTaskAssessmentRun Core.Text
 deleteReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn = Lens.lens (\DeleteReplicationTaskAssessmentRun' {replicationTaskAssessmentRunArn} -> replicationTaskAssessmentRunArn) (\s@DeleteReplicationTaskAssessmentRun' {} a -> s {replicationTaskAssessmentRunArn = a} :: DeleteReplicationTaskAssessmentRun)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteReplicationTaskAssessmentRun
   where
   type
-    Rs DeleteReplicationTaskAssessmentRun =
+    AWSResponse DeleteReplicationTaskAssessmentRun =
       DeleteReplicationTaskAssessmentRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteReplicationTaskAssessmentRunResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationTaskAssessmentRun")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationTaskAssessmentRun")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteReplicationTaskAssessmentRun
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteReplicationTaskAssessmentRun
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteReplicationTaskAssessmentRun
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteReplicationTaskAssessmentRun
   where
   toJSON DeleteReplicationTaskAssessmentRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ReplicationTaskAssessmentRunArn"
-                  Prelude..= replicationTaskAssessmentRunArn
+                  Core..= replicationTaskAssessmentRunArn
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteReplicationTaskAssessmentRun
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteReplicationTaskAssessmentRun
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- |
 --
@@ -160,11 +157,11 @@ instance
 data DeleteReplicationTaskAssessmentRunResponse = DeleteReplicationTaskAssessmentRunResponse'
   { -- | The @ReplicationTaskAssessmentRun@ object for the deleted assessment
     -- run.
-    replicationTaskAssessmentRun :: Prelude.Maybe ReplicationTaskAssessmentRun,
+    replicationTaskAssessmentRun :: Core.Maybe ReplicationTaskAssessmentRun,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationTaskAssessmentRunResponse' with all optional fields omitted.
@@ -180,25 +177,25 @@ data DeleteReplicationTaskAssessmentRunResponse = DeleteReplicationTaskAssessmen
 -- 'httpStatus', 'deleteReplicationTaskAssessmentRunResponse_httpStatus' - The response's http status code.
 newDeleteReplicationTaskAssessmentRunResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteReplicationTaskAssessmentRunResponse
 newDeleteReplicationTaskAssessmentRunResponse
   pHttpStatus_ =
     DeleteReplicationTaskAssessmentRunResponse'
       { replicationTaskAssessmentRun =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The @ReplicationTaskAssessmentRun@ object for the deleted assessment
 -- run.
-deleteReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun :: Lens.Lens' DeleteReplicationTaskAssessmentRunResponse (Prelude.Maybe ReplicationTaskAssessmentRun)
+deleteReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun :: Lens.Lens' DeleteReplicationTaskAssessmentRunResponse (Core.Maybe ReplicationTaskAssessmentRun)
 deleteReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun = Lens.lens (\DeleteReplicationTaskAssessmentRunResponse' {replicationTaskAssessmentRun} -> replicationTaskAssessmentRun) (\s@DeleteReplicationTaskAssessmentRunResponse' {} a -> s {replicationTaskAssessmentRun = a} :: DeleteReplicationTaskAssessmentRunResponse)
 
 -- | The response's http status code.
-deleteReplicationTaskAssessmentRunResponse_httpStatus :: Lens.Lens' DeleteReplicationTaskAssessmentRunResponse Prelude.Int
+deleteReplicationTaskAssessmentRunResponse_httpStatus :: Lens.Lens' DeleteReplicationTaskAssessmentRunResponse Core.Int
 deleteReplicationTaskAssessmentRunResponse_httpStatus = Lens.lens (\DeleteReplicationTaskAssessmentRunResponse' {httpStatus} -> httpStatus) (\s@DeleteReplicationTaskAssessmentRunResponse' {} a -> s {httpStatus = a} :: DeleteReplicationTaskAssessmentRunResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteReplicationTaskAssessmentRunResponse

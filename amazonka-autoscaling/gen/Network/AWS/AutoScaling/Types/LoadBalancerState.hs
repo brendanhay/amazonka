@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.LoadBalancerState where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a Classic Load Balancer.
 --
@@ -56,11 +55,11 @@ data LoadBalancerState = LoadBalancerState'
     --
     -- -   @Removed@ - All instances in the group are deregistered from the
     --     load balancer.
-    state :: Prelude.Maybe Prelude.Text,
+    state :: Core.Maybe Core.Text,
     -- | The name of the load balancer.
-    loadBalancerName :: Prelude.Maybe Prelude.Text
+    loadBalancerName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadBalancerState' with all optional fields omitted.
@@ -94,8 +93,8 @@ newLoadBalancerState ::
   LoadBalancerState
 newLoadBalancerState =
   LoadBalancerState'
-    { state = Prelude.Nothing,
-      loadBalancerName = Prelude.Nothing
+    { state = Core.Nothing,
+      loadBalancerName = Core.Nothing
     }
 
 -- | One of the following load balancer states:
@@ -116,19 +115,19 @@ newLoadBalancerState =
 --
 -- -   @Removed@ - All instances in the group are deregistered from the
 --     load balancer.
-loadBalancerState_state :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
+loadBalancerState_state :: Lens.Lens' LoadBalancerState (Core.Maybe Core.Text)
 loadBalancerState_state = Lens.lens (\LoadBalancerState' {state} -> state) (\s@LoadBalancerState' {} a -> s {state = a} :: LoadBalancerState)
 
 -- | The name of the load balancer.
-loadBalancerState_loadBalancerName :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
+loadBalancerState_loadBalancerName :: Lens.Lens' LoadBalancerState (Core.Maybe Core.Text)
 loadBalancerState_loadBalancerName = Lens.lens (\LoadBalancerState' {loadBalancerName} -> loadBalancerName) (\s@LoadBalancerState' {} a -> s {loadBalancerName = a} :: LoadBalancerState)
 
-instance Prelude.FromXML LoadBalancerState where
+instance Core.FromXML LoadBalancerState where
   parseXML x =
     LoadBalancerState'
-      Prelude.<$> (x Prelude..@? "State")
-      Prelude.<*> (x Prelude..@? "LoadBalancerName")
+      Core.<$> (x Core..@? "State")
+      Core.<*> (x Core..@? "LoadBalancerName")
 
-instance Prelude.Hashable LoadBalancerState
+instance Core.Hashable LoadBalancerState
 
-instance Prelude.NFData LoadBalancerState
+instance Core.NFData LoadBalancerState

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SES.SetReceiptRulePosition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -61,14 +60,14 @@ import Network.AWS.SES.Types
 data SetReceiptRulePosition = SetReceiptRulePosition'
   { -- | The name of the receipt rule after which to place the specified receipt
     -- rule.
-    after :: Prelude.Maybe Prelude.Text,
+    after :: Core.Maybe Core.Text,
     -- | The name of the receipt rule set that contains the receipt rule to
     -- reposition.
-    ruleSetName :: Prelude.Text,
+    ruleSetName :: Core.Text,
     -- | The name of the receipt rule to reposition.
-    ruleName :: Prelude.Text
+    ruleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetReceiptRulePosition' with all optional fields omitted.
@@ -87,34 +86,34 @@ data SetReceiptRulePosition = SetReceiptRulePosition'
 -- 'ruleName', 'setReceiptRulePosition_ruleName' - The name of the receipt rule to reposition.
 newSetReceiptRulePosition ::
   -- | 'ruleSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ruleName'
-  Prelude.Text ->
+  Core.Text ->
   SetReceiptRulePosition
 newSetReceiptRulePosition pRuleSetName_ pRuleName_ =
   SetReceiptRulePosition'
-    { after = Prelude.Nothing,
+    { after = Core.Nothing,
       ruleSetName = pRuleSetName_,
       ruleName = pRuleName_
     }
 
 -- | The name of the receipt rule after which to place the specified receipt
 -- rule.
-setReceiptRulePosition_after :: Lens.Lens' SetReceiptRulePosition (Prelude.Maybe Prelude.Text)
+setReceiptRulePosition_after :: Lens.Lens' SetReceiptRulePosition (Core.Maybe Core.Text)
 setReceiptRulePosition_after = Lens.lens (\SetReceiptRulePosition' {after} -> after) (\s@SetReceiptRulePosition' {} a -> s {after = a} :: SetReceiptRulePosition)
 
 -- | The name of the receipt rule set that contains the receipt rule to
 -- reposition.
-setReceiptRulePosition_ruleSetName :: Lens.Lens' SetReceiptRulePosition Prelude.Text
+setReceiptRulePosition_ruleSetName :: Lens.Lens' SetReceiptRulePosition Core.Text
 setReceiptRulePosition_ruleSetName = Lens.lens (\SetReceiptRulePosition' {ruleSetName} -> ruleSetName) (\s@SetReceiptRulePosition' {} a -> s {ruleSetName = a} :: SetReceiptRulePosition)
 
 -- | The name of the receipt rule to reposition.
-setReceiptRulePosition_ruleName :: Lens.Lens' SetReceiptRulePosition Prelude.Text
+setReceiptRulePosition_ruleName :: Lens.Lens' SetReceiptRulePosition Core.Text
 setReceiptRulePosition_ruleName = Lens.lens (\SetReceiptRulePosition' {ruleName} -> ruleName) (\s@SetReceiptRulePosition' {} a -> s {ruleName = a} :: SetReceiptRulePosition)
 
-instance Prelude.AWSRequest SetReceiptRulePosition where
+instance Core.AWSRequest SetReceiptRulePosition where
   type
-    Rs SetReceiptRulePosition =
+    AWSResponse SetReceiptRulePosition =
       SetReceiptRulePositionResponse
   request = Request.postQuery defaultService
   response =
@@ -122,29 +121,28 @@ instance Prelude.AWSRequest SetReceiptRulePosition where
       "SetReceiptRulePositionResult"
       ( \s h x ->
           SetReceiptRulePositionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SetReceiptRulePosition
+instance Core.Hashable SetReceiptRulePosition
 
-instance Prelude.NFData SetReceiptRulePosition
+instance Core.NFData SetReceiptRulePosition
 
-instance Prelude.ToHeaders SetReceiptRulePosition where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetReceiptRulePosition where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetReceiptRulePosition where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetReceiptRulePosition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetReceiptRulePosition where
+instance Core.ToQuery SetReceiptRulePosition where
   toQuery SetReceiptRulePosition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetReceiptRulePosition" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "After" Prelude.=: after,
-        "RuleSetName" Prelude.=: ruleSetName,
-        "RuleName" Prelude.=: ruleName
+          Core.=: ("SetReceiptRulePosition" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "After" Core.=: after,
+        "RuleSetName" Core.=: ruleSetName,
+        "RuleName" Core.=: ruleName
       ]
 
 -- | An empty element returned on a successful request.
@@ -152,9 +150,9 @@ instance Prelude.ToQuery SetReceiptRulePosition where
 -- /See:/ 'newSetReceiptRulePositionResponse' smart constructor.
 data SetReceiptRulePositionResponse = SetReceiptRulePositionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetReceiptRulePositionResponse' with all optional fields omitted.
@@ -167,7 +165,7 @@ data SetReceiptRulePositionResponse = SetReceiptRulePositionResponse'
 -- 'httpStatus', 'setReceiptRulePositionResponse_httpStatus' - The response's http status code.
 newSetReceiptRulePositionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetReceiptRulePositionResponse
 newSetReceiptRulePositionResponse pHttpStatus_ =
   SetReceiptRulePositionResponse'
@@ -176,9 +174,7 @@ newSetReceiptRulePositionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-setReceiptRulePositionResponse_httpStatus :: Lens.Lens' SetReceiptRulePositionResponse Prelude.Int
+setReceiptRulePositionResponse_httpStatus :: Lens.Lens' SetReceiptRulePositionResponse Core.Int
 setReceiptRulePositionResponse_httpStatus = Lens.lens (\SetReceiptRulePositionResponse' {httpStatus} -> httpStatus) (\s@SetReceiptRulePositionResponse' {} a -> s {httpStatus = a} :: SetReceiptRulePositionResponse)
 
-instance
-  Prelude.NFData
-    SetReceiptRulePositionResponse
+instance Core.NFData SetReceiptRulePositionResponse

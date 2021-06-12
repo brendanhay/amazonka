@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -56,10 +54,10 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newListPrincipalsForPortfolio' smart constructor.
 data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -67,11 +65,11 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The portfolio identifier.
-    portfolioId :: Prelude.Text
+    portfolioId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPrincipalsForPortfolio' with all optional fields omitted.
@@ -97,24 +95,24 @@ data ListPrincipalsForPortfolio = ListPrincipalsForPortfolio'
 -- 'portfolioId', 'listPrincipalsForPortfolio_portfolioId' - The portfolio identifier.
 newListPrincipalsForPortfolio ::
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   ListPrincipalsForPortfolio
 newListPrincipalsForPortfolio pPortfolioId_ =
   ListPrincipalsForPortfolio'
     { pageSize =
-        Prelude.Nothing,
-      pageToken = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+        Core.Nothing,
+      pageToken = Core.Nothing,
+      acceptLanguage = Core.Nothing,
       portfolioId = pPortfolioId_
     }
 
 -- | The maximum number of items to return with this call.
-listPrincipalsForPortfolio_pageSize :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Natural)
+listPrincipalsForPortfolio_pageSize :: Lens.Lens' ListPrincipalsForPortfolio (Core.Maybe Core.Natural)
 listPrincipalsForPortfolio_pageSize = Lens.lens (\ListPrincipalsForPortfolio' {pageSize} -> pageSize) (\s@ListPrincipalsForPortfolio' {} a -> s {pageSize = a} :: ListPrincipalsForPortfolio)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-listPrincipalsForPortfolio_pageToken :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
+listPrincipalsForPortfolio_pageToken :: Lens.Lens' ListPrincipalsForPortfolio (Core.Maybe Core.Text)
 listPrincipalsForPortfolio_pageToken = Lens.lens (\ListPrincipalsForPortfolio' {pageToken} -> pageToken) (\s@ListPrincipalsForPortfolio' {} a -> s {pageToken = a} :: ListPrincipalsForPortfolio)
 
 -- | The language code.
@@ -124,102 +122,94 @@ listPrincipalsForPortfolio_pageToken = Lens.lens (\ListPrincipalsForPortfolio' {
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-listPrincipalsForPortfolio_acceptLanguage :: Lens.Lens' ListPrincipalsForPortfolio (Prelude.Maybe Prelude.Text)
+listPrincipalsForPortfolio_acceptLanguage :: Lens.Lens' ListPrincipalsForPortfolio (Core.Maybe Core.Text)
 listPrincipalsForPortfolio_acceptLanguage = Lens.lens (\ListPrincipalsForPortfolio' {acceptLanguage} -> acceptLanguage) (\s@ListPrincipalsForPortfolio' {} a -> s {acceptLanguage = a} :: ListPrincipalsForPortfolio)
 
 -- | The portfolio identifier.
-listPrincipalsForPortfolio_portfolioId :: Lens.Lens' ListPrincipalsForPortfolio Prelude.Text
+listPrincipalsForPortfolio_portfolioId :: Lens.Lens' ListPrincipalsForPortfolio Core.Text
 listPrincipalsForPortfolio_portfolioId = Lens.lens (\ListPrincipalsForPortfolio' {portfolioId} -> portfolioId) (\s@ListPrincipalsForPortfolio' {} a -> s {portfolioId = a} :: ListPrincipalsForPortfolio)
 
-instance Pager.AWSPager ListPrincipalsForPortfolio where
+instance Core.AWSPager ListPrincipalsForPortfolio where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listPrincipalsForPortfolioResponse_nextPageToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listPrincipalsForPortfolioResponse_principals
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listPrincipalsForPortfolio_pageToken
           Lens..~ rs
           Lens.^? listPrincipalsForPortfolioResponse_nextPageToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListPrincipalsForPortfolio
-  where
+instance Core.AWSRequest ListPrincipalsForPortfolio where
   type
-    Rs ListPrincipalsForPortfolio =
+    AWSResponse ListPrincipalsForPortfolio =
       ListPrincipalsForPortfolioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPrincipalsForPortfolioResponse'
-            Prelude.<$> ( x Prelude..?> "Principals"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Principals" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListPrincipalsForPortfolio
+instance Core.Hashable ListPrincipalsForPortfolio
 
-instance Prelude.NFData ListPrincipalsForPortfolio
+instance Core.NFData ListPrincipalsForPortfolio
 
-instance Prelude.ToHeaders ListPrincipalsForPortfolio where
+instance Core.ToHeaders ListPrincipalsForPortfolio where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.ListPrincipalsForPortfolio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.ListPrincipalsForPortfolio" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListPrincipalsForPortfolio where
+instance Core.ToJSON ListPrincipalsForPortfolio where
   toJSON ListPrincipalsForPortfolio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
-            ("PageToken" Prelude..=) Prelude.<$> pageToken,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId)
+    Core.object
+      ( Core.catMaybes
+          [ ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
-instance Prelude.ToPath ListPrincipalsForPortfolio where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListPrincipalsForPortfolio where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListPrincipalsForPortfolio where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListPrincipalsForPortfolio where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListPrincipalsForPortfolioResponse' smart constructor.
 data ListPrincipalsForPortfolioResponse = ListPrincipalsForPortfolioResponse'
   { -- | The IAM principals (users or roles) associated with the portfolio.
-    principals :: Prelude.Maybe [Principal],
+    principals :: Core.Maybe [Principal],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPrincipalsForPortfolioResponse' with all optional fields omitted.
@@ -237,29 +227,29 @@ data ListPrincipalsForPortfolioResponse = ListPrincipalsForPortfolioResponse'
 -- 'httpStatus', 'listPrincipalsForPortfolioResponse_httpStatus' - The response's http status code.
 newListPrincipalsForPortfolioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPrincipalsForPortfolioResponse
 newListPrincipalsForPortfolioResponse pHttpStatus_ =
   ListPrincipalsForPortfolioResponse'
     { principals =
-        Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The IAM principals (users or roles) associated with the portfolio.
-listPrincipalsForPortfolioResponse_principals :: Lens.Lens' ListPrincipalsForPortfolioResponse (Prelude.Maybe [Principal])
-listPrincipalsForPortfolioResponse_principals = Lens.lens (\ListPrincipalsForPortfolioResponse' {principals} -> principals) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {principals = a} :: ListPrincipalsForPortfolioResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPrincipalsForPortfolioResponse_principals :: Lens.Lens' ListPrincipalsForPortfolioResponse (Core.Maybe [Principal])
+listPrincipalsForPortfolioResponse_principals = Lens.lens (\ListPrincipalsForPortfolioResponse' {principals} -> principals) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {principals = a} :: ListPrincipalsForPortfolioResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-listPrincipalsForPortfolioResponse_nextPageToken :: Lens.Lens' ListPrincipalsForPortfolioResponse (Prelude.Maybe Prelude.Text)
+listPrincipalsForPortfolioResponse_nextPageToken :: Lens.Lens' ListPrincipalsForPortfolioResponse (Core.Maybe Core.Text)
 listPrincipalsForPortfolioResponse_nextPageToken = Lens.lens (\ListPrincipalsForPortfolioResponse' {nextPageToken} -> nextPageToken) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {nextPageToken = a} :: ListPrincipalsForPortfolioResponse)
 
 -- | The response's http status code.
-listPrincipalsForPortfolioResponse_httpStatus :: Lens.Lens' ListPrincipalsForPortfolioResponse Prelude.Int
+listPrincipalsForPortfolioResponse_httpStatus :: Lens.Lens' ListPrincipalsForPortfolioResponse Core.Int
 listPrincipalsForPortfolioResponse_httpStatus = Lens.lens (\ListPrincipalsForPortfolioResponse' {httpStatus} -> httpStatus) (\s@ListPrincipalsForPortfolioResponse' {} a -> s {httpStatus = a} :: ListPrincipalsForPortfolioResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPrincipalsForPortfolioResponse

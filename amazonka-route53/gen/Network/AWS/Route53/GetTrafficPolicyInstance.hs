@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.Route53.GetTrafficPolicyInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -61,9 +60,9 @@ import Network.AWS.Route53.Types
 data GetTrafficPolicyInstance = GetTrafficPolicyInstance'
   { -- | The ID of the traffic policy instance that you want to get information
     -- about.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTrafficPolicyInstance' with all optional fields omitted.
@@ -77,45 +76,43 @@ data GetTrafficPolicyInstance = GetTrafficPolicyInstance'
 -- about.
 newGetTrafficPolicyInstance ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   GetTrafficPolicyInstance
 newGetTrafficPolicyInstance pId_ =
   GetTrafficPolicyInstance' {id = pId_}
 
 -- | The ID of the traffic policy instance that you want to get information
 -- about.
-getTrafficPolicyInstance_id :: Lens.Lens' GetTrafficPolicyInstance Prelude.Text
+getTrafficPolicyInstance_id :: Lens.Lens' GetTrafficPolicyInstance Core.Text
 getTrafficPolicyInstance_id = Lens.lens (\GetTrafficPolicyInstance' {id} -> id) (\s@GetTrafficPolicyInstance' {} a -> s {id = a} :: GetTrafficPolicyInstance)
 
-instance Prelude.AWSRequest GetTrafficPolicyInstance where
+instance Core.AWSRequest GetTrafficPolicyInstance where
   type
-    Rs GetTrafficPolicyInstance =
+    AWSResponse GetTrafficPolicyInstance =
       GetTrafficPolicyInstanceResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetTrafficPolicyInstanceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "TrafficPolicyInstance")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "TrafficPolicyInstance")
       )
 
-instance Prelude.Hashable GetTrafficPolicyInstance
+instance Core.Hashable GetTrafficPolicyInstance
 
-instance Prelude.NFData GetTrafficPolicyInstance
+instance Core.NFData GetTrafficPolicyInstance
 
-instance Prelude.ToHeaders GetTrafficPolicyInstance where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetTrafficPolicyInstance where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetTrafficPolicyInstance where
+instance Core.ToPath GetTrafficPolicyInstance where
   toPath GetTrafficPolicyInstance' {..} =
-    Prelude.mconcat
-      [ "/2013-04-01/trafficpolicyinstance/",
-        Prelude.toBS id
-      ]
+    Core.mconcat
+      ["/2013-04-01/trafficpolicyinstance/", Core.toBS id]
 
-instance Prelude.ToQuery GetTrafficPolicyInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTrafficPolicyInstance where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains information about the resource record sets
 -- that Amazon Route 53 created based on a specified traffic policy.
@@ -123,11 +120,11 @@ instance Prelude.ToQuery GetTrafficPolicyInstance where
 -- /See:/ 'newGetTrafficPolicyInstanceResponse' smart constructor.
 data GetTrafficPolicyInstanceResponse = GetTrafficPolicyInstanceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains settings for the traffic policy instance.
     trafficPolicyInstance :: TrafficPolicyInstance
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTrafficPolicyInstanceResponse' with all optional fields omitted.
@@ -142,7 +139,7 @@ data GetTrafficPolicyInstanceResponse = GetTrafficPolicyInstanceResponse'
 -- 'trafficPolicyInstance', 'getTrafficPolicyInstanceResponse_trafficPolicyInstance' - A complex type that contains settings for the traffic policy instance.
 newGetTrafficPolicyInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'trafficPolicyInstance'
   TrafficPolicyInstance ->
   GetTrafficPolicyInstanceResponse
@@ -157,13 +154,11 @@ newGetTrafficPolicyInstanceResponse
       }
 
 -- | The response's http status code.
-getTrafficPolicyInstanceResponse_httpStatus :: Lens.Lens' GetTrafficPolicyInstanceResponse Prelude.Int
+getTrafficPolicyInstanceResponse_httpStatus :: Lens.Lens' GetTrafficPolicyInstanceResponse Core.Int
 getTrafficPolicyInstanceResponse_httpStatus = Lens.lens (\GetTrafficPolicyInstanceResponse' {httpStatus} -> httpStatus) (\s@GetTrafficPolicyInstanceResponse' {} a -> s {httpStatus = a} :: GetTrafficPolicyInstanceResponse)
 
 -- | A complex type that contains settings for the traffic policy instance.
 getTrafficPolicyInstanceResponse_trafficPolicyInstance :: Lens.Lens' GetTrafficPolicyInstanceResponse TrafficPolicyInstance
 getTrafficPolicyInstanceResponse_trafficPolicyInstance = Lens.lens (\GetTrafficPolicyInstanceResponse' {trafficPolicyInstance} -> trafficPolicyInstance) (\s@GetTrafficPolicyInstanceResponse' {} a -> s {trafficPolicyInstance = a} :: GetTrafficPolicyInstanceResponse)
 
-instance
-  Prelude.NFData
-    GetTrafficPolicyInstanceResponse
+instance Core.NFData GetTrafficPolicyInstanceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.SageMaker.ListPipelineParametersForExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -57,13 +55,13 @@ data ListPipelineParametersForExecution = ListPipelineParametersForExecution'
   { -- | If the result of the previous @ListPipelineParametersForExecution@
     -- request was truncated, the response includes a @NextToken@. To retrieve
     -- the next set of parameters, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of parameters to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the pipeline execution.
-    pipelineExecutionArn :: Prelude.Text
+    pipelineExecutionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPipelineParametersForExecution' with all optional fields omitted.
@@ -82,14 +80,14 @@ data ListPipelineParametersForExecution = ListPipelineParametersForExecution'
 -- 'pipelineExecutionArn', 'listPipelineParametersForExecution_pipelineExecutionArn' - The Amazon Resource Name (ARN) of the pipeline execution.
 newListPipelineParametersForExecution ::
   -- | 'pipelineExecutionArn'
-  Prelude.Text ->
+  Core.Text ->
   ListPipelineParametersForExecution
 newListPipelineParametersForExecution
   pPipelineExecutionArn_ =
     ListPipelineParametersForExecution'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
         pipelineExecutionArn =
           pPipelineExecutionArn_
       }
@@ -97,127 +95,125 @@ newListPipelineParametersForExecution
 -- | If the result of the previous @ListPipelineParametersForExecution@
 -- request was truncated, the response includes a @NextToken@. To retrieve
 -- the next set of parameters, use the token in the next request.
-listPipelineParametersForExecution_nextToken :: Lens.Lens' ListPipelineParametersForExecution (Prelude.Maybe Prelude.Text)
+listPipelineParametersForExecution_nextToken :: Lens.Lens' ListPipelineParametersForExecution (Core.Maybe Core.Text)
 listPipelineParametersForExecution_nextToken = Lens.lens (\ListPipelineParametersForExecution' {nextToken} -> nextToken) (\s@ListPipelineParametersForExecution' {} a -> s {nextToken = a} :: ListPipelineParametersForExecution)
 
 -- | The maximum number of parameters to return in the response.
-listPipelineParametersForExecution_maxResults :: Lens.Lens' ListPipelineParametersForExecution (Prelude.Maybe Prelude.Natural)
+listPipelineParametersForExecution_maxResults :: Lens.Lens' ListPipelineParametersForExecution (Core.Maybe Core.Natural)
 listPipelineParametersForExecution_maxResults = Lens.lens (\ListPipelineParametersForExecution' {maxResults} -> maxResults) (\s@ListPipelineParametersForExecution' {} a -> s {maxResults = a} :: ListPipelineParametersForExecution)
 
 -- | The Amazon Resource Name (ARN) of the pipeline execution.
-listPipelineParametersForExecution_pipelineExecutionArn :: Lens.Lens' ListPipelineParametersForExecution Prelude.Text
+listPipelineParametersForExecution_pipelineExecutionArn :: Lens.Lens' ListPipelineParametersForExecution Core.Text
 listPipelineParametersForExecution_pipelineExecutionArn = Lens.lens (\ListPipelineParametersForExecution' {pipelineExecutionArn} -> pipelineExecutionArn) (\s@ListPipelineParametersForExecution' {} a -> s {pipelineExecutionArn = a} :: ListPipelineParametersForExecution)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListPipelineParametersForExecution
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listPipelineParametersForExecutionResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listPipelineParametersForExecutionResponse_pipelineParameters
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listPipelineParametersForExecution_nextToken
           Lens..~ rs
           Lens.^? listPipelineParametersForExecutionResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListPipelineParametersForExecution
   where
   type
-    Rs ListPipelineParametersForExecution =
+    AWSResponse ListPipelineParametersForExecution =
       ListPipelineParametersForExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPipelineParametersForExecutionResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-              Prelude.<*> ( x Prelude..?> "PipelineParameters"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "PipelineParameters"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListPipelineParametersForExecution
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPipelineParametersForExecution
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListPipelineParametersForExecution
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.ListPipelineParametersForExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.ListPipelineParametersForExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ListPipelineParametersForExecution
   where
   toJSON ListPipelineParametersForExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
               ( "PipelineExecutionArn"
-                  Prelude..= pipelineExecutionArn
+                  Core..= pipelineExecutionArn
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     ListPipelineParametersForExecution
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListPipelineParametersForExecution
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListPipelineParametersForExecutionResponse' smart constructor.
 data ListPipelineParametersForExecutionResponse = ListPipelineParametersForExecutionResponse'
   { -- | If the result of the previous @ListPipelineParametersForExecution@
     -- request was truncated, the response includes a @NextToken@. To retrieve
     -- the next set of parameters, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Contains a list of pipeline parameters. This list can be empty.
-    pipelineParameters :: Prelude.Maybe [Parameter],
+    pipelineParameters :: Core.Maybe [Parameter],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPipelineParametersForExecutionResponse' with all optional fields omitted.
@@ -236,32 +232,32 @@ data ListPipelineParametersForExecutionResponse = ListPipelineParametersForExecu
 -- 'httpStatus', 'listPipelineParametersForExecutionResponse_httpStatus' - The response's http status code.
 newListPipelineParametersForExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPipelineParametersForExecutionResponse
 newListPipelineParametersForExecutionResponse
   pHttpStatus_ =
     ListPipelineParametersForExecutionResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         pipelineParameters =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | If the result of the previous @ListPipelineParametersForExecution@
 -- request was truncated, the response includes a @NextToken@. To retrieve
 -- the next set of parameters, use the token in the next request.
-listPipelineParametersForExecutionResponse_nextToken :: Lens.Lens' ListPipelineParametersForExecutionResponse (Prelude.Maybe Prelude.Text)
+listPipelineParametersForExecutionResponse_nextToken :: Lens.Lens' ListPipelineParametersForExecutionResponse (Core.Maybe Core.Text)
 listPipelineParametersForExecutionResponse_nextToken = Lens.lens (\ListPipelineParametersForExecutionResponse' {nextToken} -> nextToken) (\s@ListPipelineParametersForExecutionResponse' {} a -> s {nextToken = a} :: ListPipelineParametersForExecutionResponse)
 
 -- | Contains a list of pipeline parameters. This list can be empty.
-listPipelineParametersForExecutionResponse_pipelineParameters :: Lens.Lens' ListPipelineParametersForExecutionResponse (Prelude.Maybe [Parameter])
-listPipelineParametersForExecutionResponse_pipelineParameters = Lens.lens (\ListPipelineParametersForExecutionResponse' {pipelineParameters} -> pipelineParameters) (\s@ListPipelineParametersForExecutionResponse' {} a -> s {pipelineParameters = a} :: ListPipelineParametersForExecutionResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPipelineParametersForExecutionResponse_pipelineParameters :: Lens.Lens' ListPipelineParametersForExecutionResponse (Core.Maybe [Parameter])
+listPipelineParametersForExecutionResponse_pipelineParameters = Lens.lens (\ListPipelineParametersForExecutionResponse' {pipelineParameters} -> pipelineParameters) (\s@ListPipelineParametersForExecutionResponse' {} a -> s {pipelineParameters = a} :: ListPipelineParametersForExecutionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPipelineParametersForExecutionResponse_httpStatus :: Lens.Lens' ListPipelineParametersForExecutionResponse Prelude.Int
+listPipelineParametersForExecutionResponse_httpStatus :: Lens.Lens' ListPipelineParametersForExecutionResponse Core.Int
 listPipelineParametersForExecutionResponse_httpStatus = Lens.lens (\ListPipelineParametersForExecutionResponse' {httpStatus} -> httpStatus) (\s@ListPipelineParametersForExecutionResponse' {} a -> s {httpStatus = a} :: ListPipelineParametersForExecutionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListPipelineParametersForExecutionResponse

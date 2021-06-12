@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Comprehend.Types.DocumentClassificationJobFilter where
 
 import Network.AWS.Comprehend.Types.JobStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information for filtering a list of document classification
 -- jobs. For more information, see the operation. You can provide only one
@@ -32,19 +31,19 @@ import qualified Network.AWS.Prelude as Prelude
 data DocumentClassificationJobFilter = DocumentClassificationJobFilter'
   { -- | Filters the list based on job status. Returns only jobs with the
     -- specified status.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted before the specified time.
     -- Jobs are returned in ascending order, oldest to newest.
-    submitTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    submitTimeBefore :: Core.Maybe Core.POSIX,
     -- | Filters the list of jobs based on the time that the job was submitted
     -- for processing. Returns only jobs submitted after the specified time.
     -- Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Prelude.Maybe Prelude.POSIX,
+    submitTimeAfter :: Core.Maybe Core.POSIX,
     -- | Filters on the name of the job.
-    jobName :: Prelude.Maybe Prelude.Text
+    jobName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentClassificationJobFilter' with all optional fields omitted.
@@ -71,53 +70,47 @@ newDocumentClassificationJobFilter ::
 newDocumentClassificationJobFilter =
   DocumentClassificationJobFilter'
     { jobStatus =
-        Prelude.Nothing,
-      submitTimeBefore = Prelude.Nothing,
-      submitTimeAfter = Prelude.Nothing,
-      jobName = Prelude.Nothing
+        Core.Nothing,
+      submitTimeBefore = Core.Nothing,
+      submitTimeAfter = Core.Nothing,
+      jobName = Core.Nothing
     }
 
 -- | Filters the list based on job status. Returns only jobs with the
 -- specified status.
-documentClassificationJobFilter_jobStatus :: Lens.Lens' DocumentClassificationJobFilter (Prelude.Maybe JobStatus)
+documentClassificationJobFilter_jobStatus :: Lens.Lens' DocumentClassificationJobFilter (Core.Maybe JobStatus)
 documentClassificationJobFilter_jobStatus = Lens.lens (\DocumentClassificationJobFilter' {jobStatus} -> jobStatus) (\s@DocumentClassificationJobFilter' {} a -> s {jobStatus = a} :: DocumentClassificationJobFilter)
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted before the specified time.
 -- Jobs are returned in ascending order, oldest to newest.
-documentClassificationJobFilter_submitTimeBefore :: Lens.Lens' DocumentClassificationJobFilter (Prelude.Maybe Prelude.UTCTime)
-documentClassificationJobFilter_submitTimeBefore = Lens.lens (\DocumentClassificationJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassificationJobFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassificationJobFilter) Prelude.. Lens.mapping Prelude._Time
+documentClassificationJobFilter_submitTimeBefore :: Lens.Lens' DocumentClassificationJobFilter (Core.Maybe Core.UTCTime)
+documentClassificationJobFilter_submitTimeBefore = Lens.lens (\DocumentClassificationJobFilter' {submitTimeBefore} -> submitTimeBefore) (\s@DocumentClassificationJobFilter' {} a -> s {submitTimeBefore = a} :: DocumentClassificationJobFilter) Core.. Lens.mapping Core._Time
 
 -- | Filters the list of jobs based on the time that the job was submitted
 -- for processing. Returns only jobs submitted after the specified time.
 -- Jobs are returned in descending order, newest to oldest.
-documentClassificationJobFilter_submitTimeAfter :: Lens.Lens' DocumentClassificationJobFilter (Prelude.Maybe Prelude.UTCTime)
-documentClassificationJobFilter_submitTimeAfter = Lens.lens (\DocumentClassificationJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DocumentClassificationJobFilter' {} a -> s {submitTimeAfter = a} :: DocumentClassificationJobFilter) Prelude.. Lens.mapping Prelude._Time
+documentClassificationJobFilter_submitTimeAfter :: Lens.Lens' DocumentClassificationJobFilter (Core.Maybe Core.UTCTime)
+documentClassificationJobFilter_submitTimeAfter = Lens.lens (\DocumentClassificationJobFilter' {submitTimeAfter} -> submitTimeAfter) (\s@DocumentClassificationJobFilter' {} a -> s {submitTimeAfter = a} :: DocumentClassificationJobFilter) Core.. Lens.mapping Core._Time
 
 -- | Filters on the name of the job.
-documentClassificationJobFilter_jobName :: Lens.Lens' DocumentClassificationJobFilter (Prelude.Maybe Prelude.Text)
+documentClassificationJobFilter_jobName :: Lens.Lens' DocumentClassificationJobFilter (Core.Maybe Core.Text)
 documentClassificationJobFilter_jobName = Lens.lens (\DocumentClassificationJobFilter' {jobName} -> jobName) (\s@DocumentClassificationJobFilter' {} a -> s {jobName = a} :: DocumentClassificationJobFilter)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DocumentClassificationJobFilter
 
-instance
-  Prelude.NFData
-    DocumentClassificationJobFilter
+instance Core.NFData DocumentClassificationJobFilter
 
-instance
-  Prelude.ToJSON
-    DocumentClassificationJobFilter
-  where
+instance Core.ToJSON DocumentClassificationJobFilter where
   toJSON DocumentClassificationJobFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("JobStatus" Prelude..=) Prelude.<$> jobStatus,
-            ("SubmitTimeBefore" Prelude..=)
-              Prelude.<$> submitTimeBefore,
-            ("SubmitTimeAfter" Prelude..=)
-              Prelude.<$> submitTimeAfter,
-            ("JobName" Prelude..=) Prelude.<$> jobName
+    Core.object
+      ( Core.catMaybes
+          [ ("JobStatus" Core..=) Core.<$> jobStatus,
+            ("SubmitTimeBefore" Core..=)
+              Core.<$> submitTimeBefore,
+            ("SubmitTimeAfter" Core..=) Core.<$> submitTimeAfter,
+            ("JobName" Core..=) Core.<$> jobName
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.LambdaFunctionScheduledEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
 -- set for other event types.
@@ -29,23 +28,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLambdaFunctionScheduledEventAttributes' smart constructor.
 data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttributes'
   { -- | The input provided to the Lambda task.
-    input :: Prelude.Maybe Prelude.Text,
+    input :: Core.Maybe Core.Text,
     -- | Data attached to the event that the decider can use in subsequent
     -- workflow tasks. This data isn\'t sent to the Lambda task.
-    control :: Prelude.Maybe Prelude.Text,
+    control :: Core.Maybe Core.Text,
     -- | The maximum amount of time a worker can take to process the Lambda task.
-    startToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    startToCloseTimeout :: Core.Maybe Core.Text,
     -- | The unique ID of the Lambda task.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The name of the Lambda function.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ID of the @LambdaFunctionCompleted@ event corresponding to the
     -- decision that resulted in scheduling this activity task. To help
     -- diagnose issues, use this information to trace back the chain of events
     -- leading up to this event.
-    decisionTaskCompletedEventId :: Prelude.Integer
+    decisionTaskCompletedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LambdaFunctionScheduledEventAttributes' with all optional fields omitted.
@@ -72,11 +71,11 @@ data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttrib
 -- leading up to this event.
 newLambdaFunctionScheduledEventAttributes ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'decisionTaskCompletedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   LambdaFunctionScheduledEventAttributes
 newLambdaFunctionScheduledEventAttributes
   pId_
@@ -84,10 +83,9 @@ newLambdaFunctionScheduledEventAttributes
   pDecisionTaskCompletedEventId_ =
     LambdaFunctionScheduledEventAttributes'
       { input =
-          Prelude.Nothing,
-        control = Prelude.Nothing,
-        startToCloseTimeout =
-          Prelude.Nothing,
+          Core.Nothing,
+        control = Core.Nothing,
+        startToCloseTimeout = Core.Nothing,
         id = pId_,
         name = pName_,
         decisionTaskCompletedEventId =
@@ -95,54 +93,54 @@ newLambdaFunctionScheduledEventAttributes
       }
 
 -- | The input provided to the Lambda task.
-lambdaFunctionScheduledEventAttributes_input :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+lambdaFunctionScheduledEventAttributes_input :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Core.Maybe Core.Text)
 lambdaFunctionScheduledEventAttributes_input = Lens.lens (\LambdaFunctionScheduledEventAttributes' {input} -> input) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {input = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | Data attached to the event that the decider can use in subsequent
 -- workflow tasks. This data isn\'t sent to the Lambda task.
-lambdaFunctionScheduledEventAttributes_control :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+lambdaFunctionScheduledEventAttributes_control :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Core.Maybe Core.Text)
 lambdaFunctionScheduledEventAttributes_control = Lens.lens (\LambdaFunctionScheduledEventAttributes' {control} -> control) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {control = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | The maximum amount of time a worker can take to process the Lambda task.
-lambdaFunctionScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Prelude.Maybe Prelude.Text)
+lambdaFunctionScheduledEventAttributes_startToCloseTimeout :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Core.Maybe Core.Text)
 lambdaFunctionScheduledEventAttributes_startToCloseTimeout = Lens.lens (\LambdaFunctionScheduledEventAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {startToCloseTimeout = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | The unique ID of the Lambda task.
-lambdaFunctionScheduledEventAttributes_id :: Lens.Lens' LambdaFunctionScheduledEventAttributes Prelude.Text
+lambdaFunctionScheduledEventAttributes_id :: Lens.Lens' LambdaFunctionScheduledEventAttributes Core.Text
 lambdaFunctionScheduledEventAttributes_id = Lens.lens (\LambdaFunctionScheduledEventAttributes' {id} -> id) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {id = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | The name of the Lambda function.
-lambdaFunctionScheduledEventAttributes_name :: Lens.Lens' LambdaFunctionScheduledEventAttributes Prelude.Text
+lambdaFunctionScheduledEventAttributes_name :: Lens.Lens' LambdaFunctionScheduledEventAttributes Core.Text
 lambdaFunctionScheduledEventAttributes_name = Lens.lens (\LambdaFunctionScheduledEventAttributes' {name} -> name) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {name = a} :: LambdaFunctionScheduledEventAttributes)
 
 -- | The ID of the @LambdaFunctionCompleted@ event corresponding to the
 -- decision that resulted in scheduling this activity task. To help
 -- diagnose issues, use this information to trace back the chain of events
 -- leading up to this event.
-lambdaFunctionScheduledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' LambdaFunctionScheduledEventAttributes Prelude.Integer
+lambdaFunctionScheduledEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' LambdaFunctionScheduledEventAttributes Core.Integer
 lambdaFunctionScheduledEventAttributes_decisionTaskCompletedEventId = Lens.lens (\LambdaFunctionScheduledEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@LambdaFunctionScheduledEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: LambdaFunctionScheduledEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     LambdaFunctionScheduledEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LambdaFunctionScheduledEventAttributes"
       ( \x ->
           LambdaFunctionScheduledEventAttributes'
-            Prelude.<$> (x Prelude..:? "input")
-            Prelude.<*> (x Prelude..:? "control")
-            Prelude.<*> (x Prelude..:? "startToCloseTimeout")
-            Prelude.<*> (x Prelude..: "id")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "decisionTaskCompletedEventId")
+            Core.<$> (x Core..:? "input")
+            Core.<*> (x Core..:? "control")
+            Core.<*> (x Core..:? "startToCloseTimeout")
+            Core.<*> (x Core..: "id")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LambdaFunctionScheduledEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     LambdaFunctionScheduledEventAttributes

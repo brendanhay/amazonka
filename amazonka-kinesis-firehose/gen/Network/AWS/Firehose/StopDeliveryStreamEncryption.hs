@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.Firehose.StopDeliveryStreamEncryption
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,9 +73,9 @@ import qualified Network.AWS.Response as Response
 data StopDeliveryStreamEncryption = StopDeliveryStreamEncryption'
   { -- | The name of the delivery stream for which you want to disable
     -- server-side encryption (SSE).
-    deliveryStreamName :: Prelude.Text
+    deliveryStreamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopDeliveryStreamEncryption' with all optional fields omitted.
@@ -90,7 +89,7 @@ data StopDeliveryStreamEncryption = StopDeliveryStreamEncryption'
 -- server-side encryption (SSE).
 newStopDeliveryStreamEncryption ::
   -- | 'deliveryStreamName'
-  Prelude.Text ->
+  Core.Text ->
   StopDeliveryStreamEncryption
 newStopDeliveryStreamEncryption pDeliveryStreamName_ =
   StopDeliveryStreamEncryption'
@@ -100,71 +99,59 @@ newStopDeliveryStreamEncryption pDeliveryStreamName_ =
 
 -- | The name of the delivery stream for which you want to disable
 -- server-side encryption (SSE).
-stopDeliveryStreamEncryption_deliveryStreamName :: Lens.Lens' StopDeliveryStreamEncryption Prelude.Text
+stopDeliveryStreamEncryption_deliveryStreamName :: Lens.Lens' StopDeliveryStreamEncryption Core.Text
 stopDeliveryStreamEncryption_deliveryStreamName = Lens.lens (\StopDeliveryStreamEncryption' {deliveryStreamName} -> deliveryStreamName) (\s@StopDeliveryStreamEncryption' {} a -> s {deliveryStreamName = a} :: StopDeliveryStreamEncryption)
 
-instance
-  Prelude.AWSRequest
-    StopDeliveryStreamEncryption
-  where
+instance Core.AWSRequest StopDeliveryStreamEncryption where
   type
-    Rs StopDeliveryStreamEncryption =
+    AWSResponse StopDeliveryStreamEncryption =
       StopDeliveryStreamEncryptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopDeliveryStreamEncryptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StopDeliveryStreamEncryption
+instance Core.Hashable StopDeliveryStreamEncryption
 
-instance Prelude.NFData StopDeliveryStreamEncryption
+instance Core.NFData StopDeliveryStreamEncryption
 
-instance
-  Prelude.ToHeaders
-    StopDeliveryStreamEncryption
-  where
+instance Core.ToHeaders StopDeliveryStreamEncryption where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Firehose_20150804.StopDeliveryStreamEncryption" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Firehose_20150804.StopDeliveryStreamEncryption" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopDeliveryStreamEncryption where
+instance Core.ToJSON StopDeliveryStreamEncryption where
   toJSON StopDeliveryStreamEncryption' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "DeliveryStreamName"
-                  Prelude..= deliveryStreamName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeliveryStreamName" Core..= deliveryStreamName)
           ]
       )
 
-instance Prelude.ToPath StopDeliveryStreamEncryption where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopDeliveryStreamEncryption where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopDeliveryStreamEncryption where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopDeliveryStreamEncryption where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopDeliveryStreamEncryptionResponse' smart constructor.
 data StopDeliveryStreamEncryptionResponse = StopDeliveryStreamEncryptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopDeliveryStreamEncryptionResponse' with all optional fields omitted.
@@ -177,7 +164,7 @@ data StopDeliveryStreamEncryptionResponse = StopDeliveryStreamEncryptionResponse
 -- 'httpStatus', 'stopDeliveryStreamEncryptionResponse_httpStatus' - The response's http status code.
 newStopDeliveryStreamEncryptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopDeliveryStreamEncryptionResponse
 newStopDeliveryStreamEncryptionResponse pHttpStatus_ =
   StopDeliveryStreamEncryptionResponse'
@@ -186,9 +173,9 @@ newStopDeliveryStreamEncryptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-stopDeliveryStreamEncryptionResponse_httpStatus :: Lens.Lens' StopDeliveryStreamEncryptionResponse Prelude.Int
+stopDeliveryStreamEncryptionResponse_httpStatus :: Lens.Lens' StopDeliveryStreamEncryptionResponse Core.Int
 stopDeliveryStreamEncryptionResponse_httpStatus = Lens.lens (\StopDeliveryStreamEncryptionResponse' {httpStatus} -> httpStatus) (\s@StopDeliveryStreamEncryptionResponse' {} a -> s {httpStatus = a} :: StopDeliveryStreamEncryptionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StopDeliveryStreamEncryptionResponse

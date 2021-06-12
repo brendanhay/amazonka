@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ExportTask where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ExportTaskState
 import Network.AWS.EC2.Types.ExportToS3Task
 import Network.AWS.EC2.Types.InstanceExportDetails
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an export instance task.
 --
 -- /See:/ 'newExportTask' smart constructor.
 data ExportTask = ExportTask'
   { -- | The tags for the export task.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A description of the resource being exported.
-    description :: Prelude.Text,
+    description :: Core.Text,
     -- | The ID of the export task.
-    exportTaskId :: Prelude.Text,
+    exportTaskId :: Core.Text,
     -- | Information about the export task.
     exportToS3Task :: ExportToS3Task,
     -- | Information about the instance to export.
@@ -45,9 +44,9 @@ data ExportTask = ExportTask'
     -- | The state of the export task.
     state :: ExportTaskState,
     -- | The status message related to the export task.
-    statusMessage :: Prelude.Text
+    statusMessage :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportTask' with all optional fields omitted.
@@ -72,9 +71,9 @@ data ExportTask = ExportTask'
 -- 'statusMessage', 'exportTask_statusMessage' - The status message related to the export task.
 newExportTask ::
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'exportTaskId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'exportToS3Task'
   ExportToS3Task ->
   -- | 'instanceExportDetails'
@@ -82,7 +81,7 @@ newExportTask ::
   -- | 'state'
   ExportTaskState ->
   -- | 'statusMessage'
-  Prelude.Text ->
+  Core.Text ->
   ExportTask
 newExportTask
   pDescription_
@@ -92,7 +91,7 @@ newExportTask
   pState_
   pStatusMessage_ =
     ExportTask'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         description = pDescription_,
         exportTaskId = pExportTaskId_,
         exportToS3Task = pExportToS3Task_,
@@ -102,15 +101,15 @@ newExportTask
       }
 
 -- | The tags for the export task.
-exportTask_tags :: Lens.Lens' ExportTask (Prelude.Maybe [Tag])
-exportTask_tags = Lens.lens (\ExportTask' {tags} -> tags) (\s@ExportTask' {} a -> s {tags = a} :: ExportTask) Prelude.. Lens.mapping Prelude._Coerce
+exportTask_tags :: Lens.Lens' ExportTask (Core.Maybe [Tag])
+exportTask_tags = Lens.lens (\ExportTask' {tags} -> tags) (\s@ExportTask' {} a -> s {tags = a} :: ExportTask) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the resource being exported.
-exportTask_description :: Lens.Lens' ExportTask Prelude.Text
+exportTask_description :: Lens.Lens' ExportTask Core.Text
 exportTask_description = Lens.lens (\ExportTask' {description} -> description) (\s@ExportTask' {} a -> s {description = a} :: ExportTask)
 
 -- | The ID of the export task.
-exportTask_exportTaskId :: Lens.Lens' ExportTask Prelude.Text
+exportTask_exportTaskId :: Lens.Lens' ExportTask Core.Text
 exportTask_exportTaskId = Lens.lens (\ExportTask' {exportTaskId} -> exportTaskId) (\s@ExportTask' {} a -> s {exportTaskId = a} :: ExportTask)
 
 -- | Information about the export task.
@@ -126,22 +125,22 @@ exportTask_state :: Lens.Lens' ExportTask ExportTaskState
 exportTask_state = Lens.lens (\ExportTask' {state} -> state) (\s@ExportTask' {} a -> s {state = a} :: ExportTask)
 
 -- | The status message related to the export task.
-exportTask_statusMessage :: Lens.Lens' ExportTask Prelude.Text
+exportTask_statusMessage :: Lens.Lens' ExportTask Core.Text
 exportTask_statusMessage = Lens.lens (\ExportTask' {statusMessage} -> statusMessage) (\s@ExportTask' {} a -> s {statusMessage = a} :: ExportTask)
 
-instance Prelude.FromXML ExportTask where
+instance Core.FromXML ExportTask where
   parseXML x =
     ExportTask'
-      Prelude.<$> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@ "description")
-      Prelude.<*> (x Prelude..@ "exportTaskId")
-      Prelude.<*> (x Prelude..@ "exportToS3")
-      Prelude.<*> (x Prelude..@ "instanceExport")
-      Prelude.<*> (x Prelude..@ "state")
-      Prelude.<*> (x Prelude..@ "statusMessage")
+      Core.<$> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@ "description")
+      Core.<*> (x Core..@ "exportTaskId")
+      Core.<*> (x Core..@ "exportToS3")
+      Core.<*> (x Core..@ "instanceExport")
+      Core.<*> (x Core..@ "state")
+      Core.<*> (x Core..@ "statusMessage")
 
-instance Prelude.Hashable ExportTask
+instance Core.Hashable ExportTask
 
-instance Prelude.NFData ExportTask
+instance Core.NFData ExportTask

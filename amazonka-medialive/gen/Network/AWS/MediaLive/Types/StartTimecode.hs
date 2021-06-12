@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.StartTimecode where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to identify the start of the clip.
 --
@@ -30,9 +29,9 @@ data StartTimecode = StartTimecode'
   { -- | The timecode for the frame where you want to start the clip. Optional;
     -- if not specified, the clip starts at first frame in the file. Enter the
     -- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-    timecode :: Prelude.Maybe Prelude.Text
+    timecode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartTimecode' with all optional fields omitted.
@@ -48,30 +47,29 @@ data StartTimecode = StartTimecode'
 newStartTimecode ::
   StartTimecode
 newStartTimecode =
-  StartTimecode' {timecode = Prelude.Nothing}
+  StartTimecode' {timecode = Core.Nothing}
 
 -- | The timecode for the frame where you want to start the clip. Optional;
 -- if not specified, the clip starts at first frame in the file. Enter the
 -- timecode as HH:MM:SS:FF or HH:MM:SS;FF.
-startTimecode_timecode :: Lens.Lens' StartTimecode (Prelude.Maybe Prelude.Text)
+startTimecode_timecode :: Lens.Lens' StartTimecode (Core.Maybe Core.Text)
 startTimecode_timecode = Lens.lens (\StartTimecode' {timecode} -> timecode) (\s@StartTimecode' {} a -> s {timecode = a} :: StartTimecode)
 
-instance Prelude.FromJSON StartTimecode where
+instance Core.FromJSON StartTimecode where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StartTimecode"
       ( \x ->
-          StartTimecode'
-            Prelude.<$> (x Prelude..:? "timecode")
+          StartTimecode' Core.<$> (x Core..:? "timecode")
       )
 
-instance Prelude.Hashable StartTimecode
+instance Core.Hashable StartTimecode
 
-instance Prelude.NFData StartTimecode
+instance Core.NFData StartTimecode
 
-instance Prelude.ToJSON StartTimecode where
+instance Core.ToJSON StartTimecode where
   toJSON StartTimecode' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("timecode" Prelude..=) Prelude.<$> timecode]
+    Core.object
+      ( Core.catMaybes
+          [("timecode" Core..=) Core.<$> timecode]
       )

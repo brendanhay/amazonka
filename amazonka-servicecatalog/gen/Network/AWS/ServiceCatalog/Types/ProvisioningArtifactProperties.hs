@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
 
 -- | Information about a provisioning artifact (also known as a version) for
@@ -31,13 +30,13 @@ import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
 data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
   { -- | If set to true, AWS Service Catalog stops validating the specified
     -- provisioning artifact even if it is invalid.
-    disableTemplateValidation :: Prelude.Maybe Prelude.Bool,
+    disableTemplateValidation :: Core.Maybe Core.Bool,
     -- | The name of the provisioning artifact (for example, v1 v2beta). No
     -- spaces are allowed.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The description of the provisioning artifact, including how it differs
     -- from the previous provisioning artifact.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The type of provisioning artifact.
     --
     -- -   @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
@@ -45,7 +44,7 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     -- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
     --
     -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
-    type' :: Prelude.Maybe ProvisioningArtifactType,
+    type' :: Core.Maybe ProvisioningArtifactType,
     -- | Specify the template source with one of the following options, but not
     -- both. Keys accepted: [ @LoadTemplateFromURL@, @ImportFromPhysicalId@ ]
     --
@@ -58,9 +57,9 @@ data ProvisioningArtifactProperties = ProvisioningArtifactProperties'
     -- the template. Currently only supports CloudFormation stack arn. Specify
     -- the physical id in JSON format as follows:
     -- @ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack\/[StackName]\/[resourceId]@
-    info :: Prelude.HashMap Prelude.Text Prelude.Text
+    info :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvisioningArtifactProperties' with all optional fields omitted.
@@ -104,26 +103,26 @@ newProvisioningArtifactProperties ::
 newProvisioningArtifactProperties =
   ProvisioningArtifactProperties'
     { disableTemplateValidation =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      info = Prelude.mempty
+        Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      type' = Core.Nothing,
+      info = Core.mempty
     }
 
 -- | If set to true, AWS Service Catalog stops validating the specified
 -- provisioning artifact even if it is invalid.
-provisioningArtifactProperties_disableTemplateValidation :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Bool)
+provisioningArtifactProperties_disableTemplateValidation :: Lens.Lens' ProvisioningArtifactProperties (Core.Maybe Core.Bool)
 provisioningArtifactProperties_disableTemplateValidation = Lens.lens (\ProvisioningArtifactProperties' {disableTemplateValidation} -> disableTemplateValidation) (\s@ProvisioningArtifactProperties' {} a -> s {disableTemplateValidation = a} :: ProvisioningArtifactProperties)
 
 -- | The name of the provisioning artifact (for example, v1 v2beta). No
 -- spaces are allowed.
-provisioningArtifactProperties_name :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Text)
+provisioningArtifactProperties_name :: Lens.Lens' ProvisioningArtifactProperties (Core.Maybe Core.Text)
 provisioningArtifactProperties_name = Lens.lens (\ProvisioningArtifactProperties' {name} -> name) (\s@ProvisioningArtifactProperties' {} a -> s {name = a} :: ProvisioningArtifactProperties)
 
 -- | The description of the provisioning artifact, including how it differs
 -- from the previous provisioning artifact.
-provisioningArtifactProperties_description :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe Prelude.Text)
+provisioningArtifactProperties_description :: Lens.Lens' ProvisioningArtifactProperties (Core.Maybe Core.Text)
 provisioningArtifactProperties_description = Lens.lens (\ProvisioningArtifactProperties' {description} -> description) (\s@ProvisioningArtifactProperties' {} a -> s {description = a} :: ProvisioningArtifactProperties)
 
 -- | The type of provisioning artifact.
@@ -133,7 +132,7 @@ provisioningArtifactProperties_description = Lens.lens (\ProvisioningArtifactPro
 -- -   @MARKETPLACE_AMI@ - AWS Marketplace AMI
 --
 -- -   @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
-provisioningArtifactProperties_type :: Lens.Lens' ProvisioningArtifactProperties (Prelude.Maybe ProvisioningArtifactType)
+provisioningArtifactProperties_type :: Lens.Lens' ProvisioningArtifactProperties (Core.Maybe ProvisioningArtifactType)
 provisioningArtifactProperties_type = Lens.lens (\ProvisioningArtifactProperties' {type'} -> type') (\s@ProvisioningArtifactProperties' {} a -> s {type' = a} :: ProvisioningArtifactProperties)
 
 -- | Specify the template source with one of the following options, but not
@@ -148,29 +147,22 @@ provisioningArtifactProperties_type = Lens.lens (\ProvisioningArtifactProperties
 -- the template. Currently only supports CloudFormation stack arn. Specify
 -- the physical id in JSON format as follows:
 -- @ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack\/[StackName]\/[resourceId]@
-provisioningArtifactProperties_info :: Lens.Lens' ProvisioningArtifactProperties (Prelude.HashMap Prelude.Text Prelude.Text)
-provisioningArtifactProperties_info = Lens.lens (\ProvisioningArtifactProperties' {info} -> info) (\s@ProvisioningArtifactProperties' {} a -> s {info = a} :: ProvisioningArtifactProperties) Prelude.. Prelude._Coerce
+provisioningArtifactProperties_info :: Lens.Lens' ProvisioningArtifactProperties (Core.HashMap Core.Text Core.Text)
+provisioningArtifactProperties_info = Lens.lens (\ProvisioningArtifactProperties' {info} -> info) (\s@ProvisioningArtifactProperties' {} a -> s {info = a} :: ProvisioningArtifactProperties) Core.. Lens._Coerce
 
-instance
-  Prelude.Hashable
-    ProvisioningArtifactProperties
+instance Core.Hashable ProvisioningArtifactProperties
 
-instance
-  Prelude.NFData
-    ProvisioningArtifactProperties
+instance Core.NFData ProvisioningArtifactProperties
 
-instance
-  Prelude.ToJSON
-    ProvisioningArtifactProperties
-  where
+instance Core.ToJSON ProvisioningArtifactProperties where
   toJSON ProvisioningArtifactProperties' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DisableTemplateValidation" Prelude..=)
-              Prelude.<$> disableTemplateValidation,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("Type" Prelude..=) Prelude.<$> type',
-            Prelude.Just ("Info" Prelude..= info)
+    Core.object
+      ( Core.catMaybes
+          [ ("DisableTemplateValidation" Core..=)
+              Core.<$> disableTemplateValidation,
+            ("Name" Core..=) Core.<$> name,
+            ("Description" Core..=) Core.<$> description,
+            ("Type" Core..=) Core.<$> type',
+            Core.Just ("Info" Core..= info)
           ]
       )

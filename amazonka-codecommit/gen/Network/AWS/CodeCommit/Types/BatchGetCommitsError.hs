@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeCommit.Types.BatchGetCommitsError where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about errors in a BatchGetCommits operation.
 --
 -- /See:/ 'newBatchGetCommitsError' smart constructor.
 data BatchGetCommitsError = BatchGetCommitsError'
   { -- | A commit ID that either could not be found or was not in a valid format.
-    commitId :: Prelude.Maybe Prelude.Text,
+    commitId :: Core.Maybe Core.Text,
     -- | An error message that provides detail about why the commit ID either was
     -- not found or was not valid.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | An error code that specifies whether the commit ID was not valid or not
     -- found.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetCommitsError' with all optional fields omitted.
@@ -57,36 +56,36 @@ newBatchGetCommitsError ::
   BatchGetCommitsError
 newBatchGetCommitsError =
   BatchGetCommitsError'
-    { commitId = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { commitId = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | A commit ID that either could not be found or was not in a valid format.
-batchGetCommitsError_commitId :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
+batchGetCommitsError_commitId :: Lens.Lens' BatchGetCommitsError (Core.Maybe Core.Text)
 batchGetCommitsError_commitId = Lens.lens (\BatchGetCommitsError' {commitId} -> commitId) (\s@BatchGetCommitsError' {} a -> s {commitId = a} :: BatchGetCommitsError)
 
 -- | An error message that provides detail about why the commit ID either was
 -- not found or was not valid.
-batchGetCommitsError_errorMessage :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
+batchGetCommitsError_errorMessage :: Lens.Lens' BatchGetCommitsError (Core.Maybe Core.Text)
 batchGetCommitsError_errorMessage = Lens.lens (\BatchGetCommitsError' {errorMessage} -> errorMessage) (\s@BatchGetCommitsError' {} a -> s {errorMessage = a} :: BatchGetCommitsError)
 
 -- | An error code that specifies whether the commit ID was not valid or not
 -- found.
-batchGetCommitsError_errorCode :: Lens.Lens' BatchGetCommitsError (Prelude.Maybe Prelude.Text)
+batchGetCommitsError_errorCode :: Lens.Lens' BatchGetCommitsError (Core.Maybe Core.Text)
 batchGetCommitsError_errorCode = Lens.lens (\BatchGetCommitsError' {errorCode} -> errorCode) (\s@BatchGetCommitsError' {} a -> s {errorCode = a} :: BatchGetCommitsError)
 
-instance Prelude.FromJSON BatchGetCommitsError where
+instance Core.FromJSON BatchGetCommitsError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchGetCommitsError"
       ( \x ->
           BatchGetCommitsError'
-            Prelude.<$> (x Prelude..:? "commitId")
-            Prelude.<*> (x Prelude..:? "errorMessage")
-            Prelude.<*> (x Prelude..:? "errorCode")
+            Core.<$> (x Core..:? "commitId")
+            Core.<*> (x Core..:? "errorMessage")
+            Core.<*> (x Core..:? "errorCode")
       )
 
-instance Prelude.Hashable BatchGetCommitsError
+instance Core.Hashable BatchGetCommitsError
 
-instance Prelude.NFData BatchGetCommitsError
+instance Core.NFData BatchGetCommitsError

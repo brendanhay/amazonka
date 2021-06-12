@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data RegisterWebhookWithThirdParty = RegisterWebhookWithThirdParty'
   { -- | The name of an existing webhook created with PutWebhook to register with
     -- a supported third party.
-    webhookName :: Prelude.Maybe Prelude.Text
+    webhookName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterWebhookWithThirdParty' with all optional fields omitted.
@@ -69,75 +68,65 @@ newRegisterWebhookWithThirdParty ::
 newRegisterWebhookWithThirdParty =
   RegisterWebhookWithThirdParty'
     { webhookName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of an existing webhook created with PutWebhook to register with
 -- a supported third party.
-registerWebhookWithThirdParty_webhookName :: Lens.Lens' RegisterWebhookWithThirdParty (Prelude.Maybe Prelude.Text)
+registerWebhookWithThirdParty_webhookName :: Lens.Lens' RegisterWebhookWithThirdParty (Core.Maybe Core.Text)
 registerWebhookWithThirdParty_webhookName = Lens.lens (\RegisterWebhookWithThirdParty' {webhookName} -> webhookName) (\s@RegisterWebhookWithThirdParty' {} a -> s {webhookName = a} :: RegisterWebhookWithThirdParty)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RegisterWebhookWithThirdParty
   where
   type
-    Rs RegisterWebhookWithThirdParty =
+    AWSResponse RegisterWebhookWithThirdParty =
       RegisterWebhookWithThirdPartyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterWebhookWithThirdPartyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    RegisterWebhookWithThirdParty
+instance Core.Hashable RegisterWebhookWithThirdParty
 
-instance Prelude.NFData RegisterWebhookWithThirdParty
+instance Core.NFData RegisterWebhookWithThirdParty
 
-instance
-  Prelude.ToHeaders
-    RegisterWebhookWithThirdParty
-  where
+instance Core.ToHeaders RegisterWebhookWithThirdParty where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.RegisterWebhookWithThirdParty" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.RegisterWebhookWithThirdParty" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterWebhookWithThirdParty where
+instance Core.ToJSON RegisterWebhookWithThirdParty where
   toJSON RegisterWebhookWithThirdParty' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("webhookName" Prelude..=) Prelude.<$> webhookName]
+    Core.object
+      ( Core.catMaybes
+          [("webhookName" Core..=) Core.<$> webhookName]
       )
 
-instance Prelude.ToPath RegisterWebhookWithThirdParty where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterWebhookWithThirdParty where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    RegisterWebhookWithThirdParty
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterWebhookWithThirdParty where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterWebhookWithThirdPartyResponse' smart constructor.
 data RegisterWebhookWithThirdPartyResponse = RegisterWebhookWithThirdPartyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterWebhookWithThirdPartyResponse' with all optional fields omitted.
@@ -150,7 +139,7 @@ data RegisterWebhookWithThirdPartyResponse = RegisterWebhookWithThirdPartyRespon
 -- 'httpStatus', 'registerWebhookWithThirdPartyResponse_httpStatus' - The response's http status code.
 newRegisterWebhookWithThirdPartyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterWebhookWithThirdPartyResponse
 newRegisterWebhookWithThirdPartyResponse pHttpStatus_ =
   RegisterWebhookWithThirdPartyResponse'
@@ -159,9 +148,9 @@ newRegisterWebhookWithThirdPartyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-registerWebhookWithThirdPartyResponse_httpStatus :: Lens.Lens' RegisterWebhookWithThirdPartyResponse Prelude.Int
+registerWebhookWithThirdPartyResponse_httpStatus :: Lens.Lens' RegisterWebhookWithThirdPartyResponse Core.Int
 registerWebhookWithThirdPartyResponse_httpStatus = Lens.lens (\RegisterWebhookWithThirdPartyResponse' {httpStatus} -> httpStatus) (\s@RegisterWebhookWithThirdPartyResponse' {} a -> s {httpStatus = a} :: RegisterWebhookWithThirdPartyResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RegisterWebhookWithThirdPartyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -65,8 +64,8 @@ module Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
@@ -74,17 +73,17 @@ import Network.AWS.WorkSpaces.Types
 -- | /See:/ 'newUpdateWorkspaceImagePermission' smart constructor.
 data UpdateWorkspaceImagePermission = UpdateWorkspaceImagePermission'
   { -- | The identifier of the image.
-    imageId :: Prelude.Text,
+    imageId :: Core.Text,
     -- | The permission to copy the image. This permission can be revoked only
     -- after an image has been shared.
-    allowCopyImage :: Prelude.Bool,
+    allowCopyImage :: Core.Bool,
     -- | The identifier of the AWS account to share or unshare the image with.
     --
     -- Before sharing the image, confirm that you are sharing to the correct
     -- AWS account ID.
-    sharedAccountId :: Prelude.Text
+    sharedAccountId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateWorkspaceImagePermission' with all optional fields omitted.
@@ -105,11 +104,11 @@ data UpdateWorkspaceImagePermission = UpdateWorkspaceImagePermission'
 -- AWS account ID.
 newUpdateWorkspaceImagePermission ::
   -- | 'imageId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'allowCopyImage'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'sharedAccountId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateWorkspaceImagePermission
 newUpdateWorkspaceImagePermission
   pImageId_
@@ -123,95 +122,79 @@ newUpdateWorkspaceImagePermission
       }
 
 -- | The identifier of the image.
-updateWorkspaceImagePermission_imageId :: Lens.Lens' UpdateWorkspaceImagePermission Prelude.Text
+updateWorkspaceImagePermission_imageId :: Lens.Lens' UpdateWorkspaceImagePermission Core.Text
 updateWorkspaceImagePermission_imageId = Lens.lens (\UpdateWorkspaceImagePermission' {imageId} -> imageId) (\s@UpdateWorkspaceImagePermission' {} a -> s {imageId = a} :: UpdateWorkspaceImagePermission)
 
 -- | The permission to copy the image. This permission can be revoked only
 -- after an image has been shared.
-updateWorkspaceImagePermission_allowCopyImage :: Lens.Lens' UpdateWorkspaceImagePermission Prelude.Bool
+updateWorkspaceImagePermission_allowCopyImage :: Lens.Lens' UpdateWorkspaceImagePermission Core.Bool
 updateWorkspaceImagePermission_allowCopyImage = Lens.lens (\UpdateWorkspaceImagePermission' {allowCopyImage} -> allowCopyImage) (\s@UpdateWorkspaceImagePermission' {} a -> s {allowCopyImage = a} :: UpdateWorkspaceImagePermission)
 
 -- | The identifier of the AWS account to share or unshare the image with.
 --
 -- Before sharing the image, confirm that you are sharing to the correct
 -- AWS account ID.
-updateWorkspaceImagePermission_sharedAccountId :: Lens.Lens' UpdateWorkspaceImagePermission Prelude.Text
+updateWorkspaceImagePermission_sharedAccountId :: Lens.Lens' UpdateWorkspaceImagePermission Core.Text
 updateWorkspaceImagePermission_sharedAccountId = Lens.lens (\UpdateWorkspaceImagePermission' {sharedAccountId} -> sharedAccountId) (\s@UpdateWorkspaceImagePermission' {} a -> s {sharedAccountId = a} :: UpdateWorkspaceImagePermission)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateWorkspaceImagePermission
   where
   type
-    Rs UpdateWorkspaceImagePermission =
+    AWSResponse UpdateWorkspaceImagePermission =
       UpdateWorkspaceImagePermissionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateWorkspaceImagePermissionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    UpdateWorkspaceImagePermission
+instance Core.Hashable UpdateWorkspaceImagePermission
+
+instance Core.NFData UpdateWorkspaceImagePermission
 
 instance
-  Prelude.NFData
-    UpdateWorkspaceImagePermission
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateWorkspaceImagePermission
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkspacesService.UpdateWorkspaceImagePermission" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkspacesService.UpdateWorkspaceImagePermission" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateWorkspaceImagePermission
-  where
+instance Core.ToJSON UpdateWorkspaceImagePermission where
   toJSON UpdateWorkspaceImagePermission' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ImageId" Prelude..= imageId),
-            Prelude.Just
-              ("AllowCopyImage" Prelude..= allowCopyImage),
-            Prelude.Just
-              ("SharedAccountId" Prelude..= sharedAccountId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ImageId" Core..= imageId),
+            Core.Just ("AllowCopyImage" Core..= allowCopyImage),
+            Core.Just
+              ("SharedAccountId" Core..= sharedAccountId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateWorkspaceImagePermission
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateWorkspaceImagePermission where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    UpdateWorkspaceImagePermission
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateWorkspaceImagePermission where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateWorkspaceImagePermissionResponse' smart constructor.
 data UpdateWorkspaceImagePermissionResponse = UpdateWorkspaceImagePermissionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateWorkspaceImagePermissionResponse' with all optional fields omitted.
@@ -224,7 +207,7 @@ data UpdateWorkspaceImagePermissionResponse = UpdateWorkspaceImagePermissionResp
 -- 'httpStatus', 'updateWorkspaceImagePermissionResponse_httpStatus' - The response's http status code.
 newUpdateWorkspaceImagePermissionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateWorkspaceImagePermissionResponse
 newUpdateWorkspaceImagePermissionResponse
   pHttpStatus_ =
@@ -234,9 +217,9 @@ newUpdateWorkspaceImagePermissionResponse
       }
 
 -- | The response's http status code.
-updateWorkspaceImagePermissionResponse_httpStatus :: Lens.Lens' UpdateWorkspaceImagePermissionResponse Prelude.Int
+updateWorkspaceImagePermissionResponse_httpStatus :: Lens.Lens' UpdateWorkspaceImagePermissionResponse Core.Int
 updateWorkspaceImagePermissionResponse_httpStatus = Lens.lens (\UpdateWorkspaceImagePermissionResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkspaceImagePermissionResponse' {} a -> s {httpStatus = a} :: UpdateWorkspaceImagePermissionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateWorkspaceImagePermissionResponse

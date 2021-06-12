@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.EncryptionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Specifies encryption-related information for an Amazon S3 bucket that is
@@ -36,9 +35,9 @@ data EncryptionConfiguration = EncryptionConfiguration'
     -- information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
     -- in the /AWS Key Management Service Developer Guide/.
-    replicaKmsKeyID :: Prelude.Maybe Prelude.Text
+    replicaKmsKeyID :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfiguration' with all optional fields omitted.
@@ -60,7 +59,7 @@ newEncryptionConfiguration ::
 newEncryptionConfiguration =
   EncryptionConfiguration'
     { replicaKmsKeyID =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Specifies the ID (Key ARN or Alias ARN) of the customer managed customer
@@ -70,19 +69,19 @@ newEncryptionConfiguration =
 -- information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
 -- in the /AWS Key Management Service Developer Guide/.
-encryptionConfiguration_replicaKmsKeyID :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe Prelude.Text)
+encryptionConfiguration_replicaKmsKeyID :: Lens.Lens' EncryptionConfiguration (Core.Maybe Core.Text)
 encryptionConfiguration_replicaKmsKeyID = Lens.lens (\EncryptionConfiguration' {replicaKmsKeyID} -> replicaKmsKeyID) (\s@EncryptionConfiguration' {} a -> s {replicaKmsKeyID = a} :: EncryptionConfiguration)
 
-instance Prelude.FromXML EncryptionConfiguration where
+instance Core.FromXML EncryptionConfiguration where
   parseXML x =
     EncryptionConfiguration'
-      Prelude.<$> (x Prelude..@? "ReplicaKmsKeyID")
+      Core.<$> (x Core..@? "ReplicaKmsKeyID")
 
-instance Prelude.Hashable EncryptionConfiguration
+instance Core.Hashable EncryptionConfiguration
 
-instance Prelude.NFData EncryptionConfiguration
+instance Core.NFData EncryptionConfiguration
 
-instance Prelude.ToXML EncryptionConfiguration where
+instance Core.ToXML EncryptionConfiguration where
   toXML EncryptionConfiguration' {..} =
-    Prelude.mconcat
-      ["ReplicaKmsKeyID" Prelude.@= replicaKmsKeyID]
+    Core.mconcat
+      ["ReplicaKmsKeyID" Core.@= replicaKmsKeyID]

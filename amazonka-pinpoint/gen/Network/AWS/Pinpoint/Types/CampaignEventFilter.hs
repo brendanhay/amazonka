@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.CampaignEventFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EventDimensions
 import Network.AWS.Pinpoint.Types.FilterType
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for events that cause a campaign to be sent.
 --
@@ -36,7 +35,7 @@ data CampaignEventFilter = CampaignEventFilter'
     -- | The dimension settings of the event filter for the campaign.
     dimensions :: EventDimensions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CampaignEventFilter' with all optional fields omitted.
@@ -73,25 +72,25 @@ campaignEventFilter_filterType = Lens.lens (\CampaignEventFilter' {filterType} -
 campaignEventFilter_dimensions :: Lens.Lens' CampaignEventFilter EventDimensions
 campaignEventFilter_dimensions = Lens.lens (\CampaignEventFilter' {dimensions} -> dimensions) (\s@CampaignEventFilter' {} a -> s {dimensions = a} :: CampaignEventFilter)
 
-instance Prelude.FromJSON CampaignEventFilter where
+instance Core.FromJSON CampaignEventFilter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CampaignEventFilter"
       ( \x ->
           CampaignEventFilter'
-            Prelude.<$> (x Prelude..: "FilterType")
-            Prelude.<*> (x Prelude..: "Dimensions")
+            Core.<$> (x Core..: "FilterType")
+            Core.<*> (x Core..: "Dimensions")
       )
 
-instance Prelude.Hashable CampaignEventFilter
+instance Core.Hashable CampaignEventFilter
 
-instance Prelude.NFData CampaignEventFilter
+instance Core.NFData CampaignEventFilter
 
-instance Prelude.ToJSON CampaignEventFilter where
+instance Core.ToJSON CampaignEventFilter where
   toJSON CampaignEventFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("FilterType" Prelude..= filterType),
-            Prelude.Just ("Dimensions" Prelude..= dimensions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FilterType" Core..= filterType),
+            Core.Just ("Dimensions" Core..= dimensions)
           ]
       )

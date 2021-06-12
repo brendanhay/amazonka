@@ -15,45 +15,44 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.DescribeTable
 import Network.AWS.DynamoDB.Lens
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
-newTableNotExists :: Waiter.Wait DescribeTable
+newTableNotExists :: Core.Wait DescribeTable
 newTableNotExists =
-  Waiter.Wait
-    { Waiter._waitName = "TableNotExists",
-      Waiter._waitAttempts = 25,
-      Waiter._waitDelay = 20,
-      Waiter._waitAcceptors =
-        [ Waiter.matchError
+  Core.Wait
+    { Core._waitName = "TableNotExists",
+      Core._waitAttempts = 25,
+      Core._waitDelay = 20,
+      Core._waitAcceptors =
+        [ Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.DynamoDB.DescribeTable' every 20 seconds until a successful state is reached. An error is returned after 25 failed checks.
-newTableExists :: Waiter.Wait DescribeTable
+newTableExists :: Core.Wait DescribeTable
 newTableExists =
-  Waiter.Wait
-    { Waiter._waitName = "TableExists",
-      Waiter._waitAttempts = 25,
-      Waiter._waitDelay = 20,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "TableExists",
+      Core._waitAttempts = 25,
+      Core._waitDelay = 20,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "ACTIVE"
-            Waiter.AcceptSuccess
-            ( describeTableResponse_table Prelude.. Lens._Just
-                Prelude.. tableDescription_tableStatus
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptSuccess
+            ( describeTableResponse_table Core.. Lens._Just
+                Core.. tableDescription_tableStatus
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }

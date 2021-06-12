@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotDatafeedSubscription' with all optional fields omitted.
@@ -77,65 +76,59 @@ newDescribeSpotDatafeedSubscription ::
 newDescribeSpotDatafeedSubscription =
   DescribeSpotDatafeedSubscription'
     { dryRun =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSpotDatafeedSubscription_dryRun :: Lens.Lens' DescribeSpotDatafeedSubscription (Prelude.Maybe Prelude.Bool)
+describeSpotDatafeedSubscription_dryRun :: Lens.Lens' DescribeSpotDatafeedSubscription (Core.Maybe Core.Bool)
 describeSpotDatafeedSubscription_dryRun = Lens.lens (\DescribeSpotDatafeedSubscription' {dryRun} -> dryRun) (\s@DescribeSpotDatafeedSubscription' {} a -> s {dryRun = a} :: DescribeSpotDatafeedSubscription)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeSpotDatafeedSubscription
   where
   type
-    Rs DescribeSpotDatafeedSubscription =
+    AWSResponse DescribeSpotDatafeedSubscription =
       DescribeSpotDatafeedSubscriptionResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeSpotDatafeedSubscriptionResponse'
-            Prelude.<$> (x Prelude..@? "spotDatafeedSubscription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "spotDatafeedSubscription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeSpotDatafeedSubscription
 
-instance
-  Prelude.NFData
-    DescribeSpotDatafeedSubscription
+instance Core.NFData DescribeSpotDatafeedSubscription
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeSpotDatafeedSubscription
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
+
+instance Core.ToPath DescribeSpotDatafeedSubscription where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
-    DescribeSpotDatafeedSubscription
-  where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeSpotDatafeedSubscription
   where
   toQuery DescribeSpotDatafeedSubscription' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeSpotDatafeedSubscription" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun
+          Core.=: ( "DescribeSpotDatafeedSubscription" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | Contains the output of DescribeSpotDatafeedSubscription.
@@ -143,11 +136,11 @@ instance
 -- /See:/ 'newDescribeSpotDatafeedSubscriptionResponse' smart constructor.
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
   { -- | The Spot Instance data feed subscription.
-    spotDatafeedSubscription :: Prelude.Maybe SpotDatafeedSubscription,
+    spotDatafeedSubscription :: Core.Maybe SpotDatafeedSubscription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotDatafeedSubscriptionResponse' with all optional fields omitted.
@@ -162,24 +155,24 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
 -- 'httpStatus', 'describeSpotDatafeedSubscriptionResponse_httpStatus' - The response's http status code.
 newDescribeSpotDatafeedSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSpotDatafeedSubscriptionResponse
 newDescribeSpotDatafeedSubscriptionResponse
   pHttpStatus_ =
     DescribeSpotDatafeedSubscriptionResponse'
       { spotDatafeedSubscription =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The Spot Instance data feed subscription.
-describeSpotDatafeedSubscriptionResponse_spotDatafeedSubscription :: Lens.Lens' DescribeSpotDatafeedSubscriptionResponse (Prelude.Maybe SpotDatafeedSubscription)
+describeSpotDatafeedSubscriptionResponse_spotDatafeedSubscription :: Lens.Lens' DescribeSpotDatafeedSubscriptionResponse (Core.Maybe SpotDatafeedSubscription)
 describeSpotDatafeedSubscriptionResponse_spotDatafeedSubscription = Lens.lens (\DescribeSpotDatafeedSubscriptionResponse' {spotDatafeedSubscription} -> spotDatafeedSubscription) (\s@DescribeSpotDatafeedSubscriptionResponse' {} a -> s {spotDatafeedSubscription = a} :: DescribeSpotDatafeedSubscriptionResponse)
 
 -- | The response's http status code.
-describeSpotDatafeedSubscriptionResponse_httpStatus :: Lens.Lens' DescribeSpotDatafeedSubscriptionResponse Prelude.Int
+describeSpotDatafeedSubscriptionResponse_httpStatus :: Lens.Lens' DescribeSpotDatafeedSubscriptionResponse Core.Int
 describeSpotDatafeedSubscriptionResponse_httpStatus = Lens.lens (\DescribeSpotDatafeedSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DescribeSpotDatafeedSubscriptionResponse' {} a -> s {httpStatus = a} :: DescribeSpotDatafeedSubscriptionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeSpotDatafeedSubscriptionResponse

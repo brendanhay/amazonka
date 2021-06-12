@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.EnableIoTLoggingParams where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.LogLevel
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters used when defining a mitigation action that enable AWS IoT
 -- logging.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEnableIoTLoggingParams' smart constructor.
 data EnableIoTLoggingParams = EnableIoTLoggingParams'
   { -- | The Amazon Resource Name (ARN) of the IAM role used for logging.
-    roleArnForLogging :: Prelude.Text,
+    roleArnForLogging :: Core.Text,
     -- | Specifies the type of information to be logged.
     logLevel :: LogLevel
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableIoTLoggingParams' with all optional fields omitted.
@@ -49,7 +48,7 @@ data EnableIoTLoggingParams = EnableIoTLoggingParams'
 -- 'logLevel', 'enableIoTLoggingParams_logLevel' - Specifies the type of information to be logged.
 newEnableIoTLoggingParams ::
   -- | 'roleArnForLogging'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'logLevel'
   LogLevel ->
   EnableIoTLoggingParams
@@ -63,33 +62,33 @@ newEnableIoTLoggingParams
       }
 
 -- | The Amazon Resource Name (ARN) of the IAM role used for logging.
-enableIoTLoggingParams_roleArnForLogging :: Lens.Lens' EnableIoTLoggingParams Prelude.Text
+enableIoTLoggingParams_roleArnForLogging :: Lens.Lens' EnableIoTLoggingParams Core.Text
 enableIoTLoggingParams_roleArnForLogging = Lens.lens (\EnableIoTLoggingParams' {roleArnForLogging} -> roleArnForLogging) (\s@EnableIoTLoggingParams' {} a -> s {roleArnForLogging = a} :: EnableIoTLoggingParams)
 
 -- | Specifies the type of information to be logged.
 enableIoTLoggingParams_logLevel :: Lens.Lens' EnableIoTLoggingParams LogLevel
 enableIoTLoggingParams_logLevel = Lens.lens (\EnableIoTLoggingParams' {logLevel} -> logLevel) (\s@EnableIoTLoggingParams' {} a -> s {logLevel = a} :: EnableIoTLoggingParams)
 
-instance Prelude.FromJSON EnableIoTLoggingParams where
+instance Core.FromJSON EnableIoTLoggingParams where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EnableIoTLoggingParams"
       ( \x ->
           EnableIoTLoggingParams'
-            Prelude.<$> (x Prelude..: "roleArnForLogging")
-            Prelude.<*> (x Prelude..: "logLevel")
+            Core.<$> (x Core..: "roleArnForLogging")
+            Core.<*> (x Core..: "logLevel")
       )
 
-instance Prelude.Hashable EnableIoTLoggingParams
+instance Core.Hashable EnableIoTLoggingParams
 
-instance Prelude.NFData EnableIoTLoggingParams
+instance Core.NFData EnableIoTLoggingParams
 
-instance Prelude.ToJSON EnableIoTLoggingParams where
+instance Core.ToJSON EnableIoTLoggingParams where
   toJSON EnableIoTLoggingParams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("roleArnForLogging" Prelude..= roleArnForLogging),
-            Prelude.Just ("logLevel" Prelude..= logLevel)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("roleArnForLogging" Core..= roleArnForLogging),
+            Core.Just ("logLevel" Core..= logLevel)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudDirectory.Types.LinkAttributeAction where
 
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
 import Network.AWS.CloudDirectory.Types.UpdateActionType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The action to take on a typed link attribute value. Updates are only
 -- supported for attributes which don’t contribute to link identity.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLinkAttributeAction' smart constructor.
 data LinkAttributeAction = LinkAttributeAction'
   { -- | The value that you want to update to.
-    attributeUpdateValue :: Prelude.Maybe TypedAttributeValue,
+    attributeUpdateValue :: Core.Maybe TypedAttributeValue,
     -- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.
-    attributeActionType :: Prelude.Maybe UpdateActionType
+    attributeActionType :: Core.Maybe UpdateActionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LinkAttributeAction' with all optional fields omitted.
@@ -53,29 +52,29 @@ newLinkAttributeAction ::
 newLinkAttributeAction =
   LinkAttributeAction'
     { attributeUpdateValue =
-        Prelude.Nothing,
-      attributeActionType = Prelude.Nothing
+        Core.Nothing,
+      attributeActionType = Core.Nothing
     }
 
 -- | The value that you want to update to.
-linkAttributeAction_attributeUpdateValue :: Lens.Lens' LinkAttributeAction (Prelude.Maybe TypedAttributeValue)
+linkAttributeAction_attributeUpdateValue :: Lens.Lens' LinkAttributeAction (Core.Maybe TypedAttributeValue)
 linkAttributeAction_attributeUpdateValue = Lens.lens (\LinkAttributeAction' {attributeUpdateValue} -> attributeUpdateValue) (\s@LinkAttributeAction' {} a -> s {attributeUpdateValue = a} :: LinkAttributeAction)
 
 -- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.
-linkAttributeAction_attributeActionType :: Lens.Lens' LinkAttributeAction (Prelude.Maybe UpdateActionType)
+linkAttributeAction_attributeActionType :: Lens.Lens' LinkAttributeAction (Core.Maybe UpdateActionType)
 linkAttributeAction_attributeActionType = Lens.lens (\LinkAttributeAction' {attributeActionType} -> attributeActionType) (\s@LinkAttributeAction' {} a -> s {attributeActionType = a} :: LinkAttributeAction)
 
-instance Prelude.Hashable LinkAttributeAction
+instance Core.Hashable LinkAttributeAction
 
-instance Prelude.NFData LinkAttributeAction
+instance Core.NFData LinkAttributeAction
 
-instance Prelude.ToJSON LinkAttributeAction where
+instance Core.ToJSON LinkAttributeAction where
   toJSON LinkAttributeAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AttributeUpdateValue" Prelude..=)
-              Prelude.<$> attributeUpdateValue,
-            ("AttributeActionType" Prelude..=)
-              Prelude.<$> attributeActionType
+    Core.object
+      ( Core.catMaybes
+          [ ("AttributeUpdateValue" Core..=)
+              Core.<$> attributeUpdateValue,
+            ("AttributeActionType" Core..=)
+              Core.<$> attributeActionType
           ]
       )

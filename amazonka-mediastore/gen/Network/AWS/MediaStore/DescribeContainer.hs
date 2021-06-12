@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,18 +45,18 @@ module Network.AWS.MediaStore.DescribeContainer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeContainer' smart constructor.
 data DescribeContainer = DescribeContainer'
   { -- | The name of the container to query.
-    containerName :: Prelude.Maybe Prelude.Text
+    containerName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeContainer' with all optional fields omitted.
@@ -71,65 +70,63 @@ data DescribeContainer = DescribeContainer'
 newDescribeContainer ::
   DescribeContainer
 newDescribeContainer =
-  DescribeContainer' {containerName = Prelude.Nothing}
+  DescribeContainer' {containerName = Core.Nothing}
 
 -- | The name of the container to query.
-describeContainer_containerName :: Lens.Lens' DescribeContainer (Prelude.Maybe Prelude.Text)
+describeContainer_containerName :: Lens.Lens' DescribeContainer (Core.Maybe Core.Text)
 describeContainer_containerName = Lens.lens (\DescribeContainer' {containerName} -> containerName) (\s@DescribeContainer' {} a -> s {containerName = a} :: DescribeContainer)
 
-instance Prelude.AWSRequest DescribeContainer where
-  type Rs DescribeContainer = DescribeContainerResponse
+instance Core.AWSRequest DescribeContainer where
+  type
+    AWSResponse DescribeContainer =
+      DescribeContainerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeContainerResponse'
-            Prelude.<$> (x Prelude..?> "Container")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Container")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeContainer
+instance Core.Hashable DescribeContainer
 
-instance Prelude.NFData DescribeContainer
+instance Core.NFData DescribeContainer
 
-instance Prelude.ToHeaders DescribeContainer where
+instance Core.ToHeaders DescribeContainer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.DescribeContainer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.DescribeContainer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeContainer where
+instance Core.ToJSON DescribeContainer where
   toJSON DescribeContainer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ContainerName" Prelude..=)
-              Prelude.<$> containerName
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("ContainerName" Core..=) Core.<$> containerName]
       )
 
-instance Prelude.ToPath DescribeContainer where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeContainer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeContainer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeContainer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeContainerResponse' smart constructor.
 data DescribeContainerResponse = DescribeContainerResponse'
   { -- | The name of the queried container.
-    container :: Prelude.Maybe Container,
+    container :: Core.Maybe Container,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeContainerResponse' with all optional fields omitted.
@@ -144,21 +141,21 @@ data DescribeContainerResponse = DescribeContainerResponse'
 -- 'httpStatus', 'describeContainerResponse_httpStatus' - The response's http status code.
 newDescribeContainerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeContainerResponse
 newDescribeContainerResponse pHttpStatus_ =
   DescribeContainerResponse'
     { container =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the queried container.
-describeContainerResponse_container :: Lens.Lens' DescribeContainerResponse (Prelude.Maybe Container)
+describeContainerResponse_container :: Lens.Lens' DescribeContainerResponse (Core.Maybe Container)
 describeContainerResponse_container = Lens.lens (\DescribeContainerResponse' {container} -> container) (\s@DescribeContainerResponse' {} a -> s {container = a} :: DescribeContainerResponse)
 
 -- | The response's http status code.
-describeContainerResponse_httpStatus :: Lens.Lens' DescribeContainerResponse Prelude.Int
+describeContainerResponse_httpStatus :: Lens.Lens' DescribeContainerResponse Core.Int
 describeContainerResponse_httpStatus = Lens.lens (\DescribeContainerResponse' {httpStatus} -> httpStatus) (\s@DescribeContainerResponse' {} a -> s {httpStatus = a} :: DescribeContainerResponse)
 
-instance Prelude.NFData DescribeContainerResponse
+instance Core.NFData DescribeContainerResponse

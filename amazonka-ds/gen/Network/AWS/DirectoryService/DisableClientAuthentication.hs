@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,21 +40,21 @@ module Network.AWS.DirectoryService.DisableClientAuthentication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisableClientAuthentication' smart constructor.
 data DisableClientAuthentication = DisableClientAuthentication'
   { -- | The identifier of the directory
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The type of client authentication to disable. Currently, only the
     -- parameter, @SmartCard@ is supported.
     type' :: ClientAuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableClientAuthentication' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DisableClientAuthentication = DisableClientAuthentication'
 -- parameter, @SmartCard@ is supported.
 newDisableClientAuthentication ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   ClientAuthenticationType ->
   DisableClientAuthentication
@@ -83,7 +82,7 @@ newDisableClientAuthentication pDirectoryId_ pType_ =
     }
 
 -- | The identifier of the directory
-disableClientAuthentication_directoryId :: Lens.Lens' DisableClientAuthentication Prelude.Text
+disableClientAuthentication_directoryId :: Lens.Lens' DisableClientAuthentication Core.Text
 disableClientAuthentication_directoryId = Lens.lens (\DisableClientAuthentication' {directoryId} -> directoryId) (\s@DisableClientAuthentication' {} a -> s {directoryId = a} :: DisableClientAuthentication)
 
 -- | The type of client authentication to disable. Currently, only the
@@ -91,64 +90,56 @@ disableClientAuthentication_directoryId = Lens.lens (\DisableClientAuthenticatio
 disableClientAuthentication_type :: Lens.Lens' DisableClientAuthentication ClientAuthenticationType
 disableClientAuthentication_type = Lens.lens (\DisableClientAuthentication' {type'} -> type') (\s@DisableClientAuthentication' {} a -> s {type' = a} :: DisableClientAuthentication)
 
-instance
-  Prelude.AWSRequest
-    DisableClientAuthentication
-  where
+instance Core.AWSRequest DisableClientAuthentication where
   type
-    Rs DisableClientAuthentication =
+    AWSResponse DisableClientAuthentication =
       DisableClientAuthenticationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableClientAuthenticationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisableClientAuthentication
+instance Core.Hashable DisableClientAuthentication
 
-instance Prelude.NFData DisableClientAuthentication
+instance Core.NFData DisableClientAuthentication
 
-instance
-  Prelude.ToHeaders
-    DisableClientAuthentication
-  where
+instance Core.ToHeaders DisableClientAuthentication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DisableClientAuthentication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DisableClientAuthentication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisableClientAuthentication where
+instance Core.ToJSON DisableClientAuthentication where
   toJSON DisableClientAuthentication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("Type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("Type" Core..= type')
           ]
       )
 
-instance Prelude.ToPath DisableClientAuthentication where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisableClientAuthentication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisableClientAuthentication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisableClientAuthentication where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisableClientAuthenticationResponse' smart constructor.
 data DisableClientAuthenticationResponse = DisableClientAuthenticationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisableClientAuthenticationResponse' with all optional fields omitted.
@@ -161,7 +152,7 @@ data DisableClientAuthenticationResponse = DisableClientAuthenticationResponse'
 -- 'httpStatus', 'disableClientAuthenticationResponse_httpStatus' - The response's http status code.
 newDisableClientAuthenticationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisableClientAuthenticationResponse
 newDisableClientAuthenticationResponse pHttpStatus_ =
   DisableClientAuthenticationResponse'
@@ -170,9 +161,9 @@ newDisableClientAuthenticationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disableClientAuthenticationResponse_httpStatus :: Lens.Lens' DisableClientAuthenticationResponse Prelude.Int
+disableClientAuthenticationResponse_httpStatus :: Lens.Lens' DisableClientAuthenticationResponse Core.Int
 disableClientAuthenticationResponse_httpStatus = Lens.lens (\DisableClientAuthenticationResponse' {httpStatus} -> httpStatus) (\s@DisableClientAuthenticationResponse' {} a -> s {httpStatus = a} :: DisableClientAuthenticationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisableClientAuthenticationResponse

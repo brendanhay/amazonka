@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.IAM.DeleteGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ data DeleteGroup = DeleteGroup'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Prelude.Text
+    groupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGroup' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DeleteGroup = DeleteGroup'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteGroup
 newDeleteGroup pGroupName_ =
   DeleteGroup' {groupName = pGroupName_}
@@ -82,39 +81,37 @@ newDeleteGroup pGroupName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteGroup_groupName :: Lens.Lens' DeleteGroup Prelude.Text
+deleteGroup_groupName :: Lens.Lens' DeleteGroup Core.Text
 deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
-instance Prelude.AWSRequest DeleteGroup where
-  type Rs DeleteGroup = DeleteGroupResponse
+instance Core.AWSRequest DeleteGroup where
+  type AWSResponse DeleteGroup = DeleteGroupResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteGroupResponse'
 
-instance Prelude.Hashable DeleteGroup
+instance Core.Hashable DeleteGroup
 
-instance Prelude.NFData DeleteGroup
+instance Core.NFData DeleteGroup
 
-instance Prelude.ToHeaders DeleteGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteGroup where
+instance Core.ToQuery DeleteGroup where
   toQuery DeleteGroup' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Prelude.=: groupName
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteGroup" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "GroupName" Core.=: groupName
       ]
 
 -- | /See:/ 'newDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteGroupResponse' with all optional fields omitted.
@@ -124,4 +121,4 @@ newDeleteGroupResponse ::
   DeleteGroupResponse
 newDeleteGroupResponse = DeleteGroupResponse'
 
-instance Prelude.NFData DeleteGroupResponse
+instance Core.NFData DeleteGroupResponse

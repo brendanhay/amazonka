@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CloudWatchEvents.Types.ConnectionOAuthResponseParameters wher
 import Network.AWS.CloudWatchEvents.Types.ConnectionHttpParameters
 import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters
 import Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the response parameters when OAuth is specified as the
 -- authorization type.
@@ -32,17 +31,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConnectionOAuthResponseParameters' smart constructor.
 data ConnectionOAuthResponseParameters = ConnectionOAuthResponseParameters'
   { -- | The method used to connect to the HTTP endpoint.
-    httpMethod :: Prelude.Maybe ConnectionOAuthHttpMethod,
+    httpMethod :: Core.Maybe ConnectionOAuthHttpMethod,
     -- | A @ConnectionOAuthClientResponseParameters@ object that contains details
     -- about the client parameters returned when OAuth is specified as the
     -- authorization type.
-    clientParameters :: Prelude.Maybe ConnectionOAuthClientResponseParameters,
+    clientParameters :: Core.Maybe ConnectionOAuthClientResponseParameters,
     -- | The URL to the HTTP endpoint that authorized the request.
-    authorizationEndpoint :: Prelude.Maybe Prelude.Text,
+    authorizationEndpoint :: Core.Maybe Core.Text,
     -- | The additional HTTP parameters used for the OAuth authorization request.
-    oAuthHttpParameters :: Prelude.Maybe ConnectionHttpParameters
+    oAuthHttpParameters :: Core.Maybe ConnectionHttpParameters
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionOAuthResponseParameters' with all optional fields omitted.
@@ -66,49 +65,49 @@ newConnectionOAuthResponseParameters ::
 newConnectionOAuthResponseParameters =
   ConnectionOAuthResponseParameters'
     { httpMethod =
-        Prelude.Nothing,
-      clientParameters = Prelude.Nothing,
-      authorizationEndpoint = Prelude.Nothing,
-      oAuthHttpParameters = Prelude.Nothing
+        Core.Nothing,
+      clientParameters = Core.Nothing,
+      authorizationEndpoint = Core.Nothing,
+      oAuthHttpParameters = Core.Nothing
     }
 
 -- | The method used to connect to the HTTP endpoint.
-connectionOAuthResponseParameters_httpMethod :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe ConnectionOAuthHttpMethod)
+connectionOAuthResponseParameters_httpMethod :: Lens.Lens' ConnectionOAuthResponseParameters (Core.Maybe ConnectionOAuthHttpMethod)
 connectionOAuthResponseParameters_httpMethod = Lens.lens (\ConnectionOAuthResponseParameters' {httpMethod} -> httpMethod) (\s@ConnectionOAuthResponseParameters' {} a -> s {httpMethod = a} :: ConnectionOAuthResponseParameters)
 
 -- | A @ConnectionOAuthClientResponseParameters@ object that contains details
 -- about the client parameters returned when OAuth is specified as the
 -- authorization type.
-connectionOAuthResponseParameters_clientParameters :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe ConnectionOAuthClientResponseParameters)
+connectionOAuthResponseParameters_clientParameters :: Lens.Lens' ConnectionOAuthResponseParameters (Core.Maybe ConnectionOAuthClientResponseParameters)
 connectionOAuthResponseParameters_clientParameters = Lens.lens (\ConnectionOAuthResponseParameters' {clientParameters} -> clientParameters) (\s@ConnectionOAuthResponseParameters' {} a -> s {clientParameters = a} :: ConnectionOAuthResponseParameters)
 
 -- | The URL to the HTTP endpoint that authorized the request.
-connectionOAuthResponseParameters_authorizationEndpoint :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe Prelude.Text)
+connectionOAuthResponseParameters_authorizationEndpoint :: Lens.Lens' ConnectionOAuthResponseParameters (Core.Maybe Core.Text)
 connectionOAuthResponseParameters_authorizationEndpoint = Lens.lens (\ConnectionOAuthResponseParameters' {authorizationEndpoint} -> authorizationEndpoint) (\s@ConnectionOAuthResponseParameters' {} a -> s {authorizationEndpoint = a} :: ConnectionOAuthResponseParameters)
 
 -- | The additional HTTP parameters used for the OAuth authorization request.
-connectionOAuthResponseParameters_oAuthHttpParameters :: Lens.Lens' ConnectionOAuthResponseParameters (Prelude.Maybe ConnectionHttpParameters)
+connectionOAuthResponseParameters_oAuthHttpParameters :: Lens.Lens' ConnectionOAuthResponseParameters (Core.Maybe ConnectionHttpParameters)
 connectionOAuthResponseParameters_oAuthHttpParameters = Lens.lens (\ConnectionOAuthResponseParameters' {oAuthHttpParameters} -> oAuthHttpParameters) (\s@ConnectionOAuthResponseParameters' {} a -> s {oAuthHttpParameters = a} :: ConnectionOAuthResponseParameters)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ConnectionOAuthResponseParameters
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectionOAuthResponseParameters"
       ( \x ->
           ConnectionOAuthResponseParameters'
-            Prelude.<$> (x Prelude..:? "HttpMethod")
-            Prelude.<*> (x Prelude..:? "ClientParameters")
-            Prelude.<*> (x Prelude..:? "AuthorizationEndpoint")
-            Prelude.<*> (x Prelude..:? "OAuthHttpParameters")
+            Core.<$> (x Core..:? "HttpMethod")
+            Core.<*> (x Core..:? "ClientParameters")
+            Core.<*> (x Core..:? "AuthorizationEndpoint")
+            Core.<*> (x Core..:? "OAuthHttpParameters")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ConnectionOAuthResponseParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     ConnectionOAuthResponseParameters

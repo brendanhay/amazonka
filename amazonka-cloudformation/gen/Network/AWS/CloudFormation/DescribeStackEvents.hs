@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,8 @@ module Network.AWS.CloudFormation.DescribeStackEvents
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,7 +62,7 @@ import qualified Network.AWS.Response as Response
 data DescribeStackEvents = DescribeStackEvents'
   { -- | A string that identifies the next page of events that you want to
     -- retrieve.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The name or the unique stack ID that is associated with the stack, which
     -- are not always interchangeable:
     --
@@ -74,9 +72,9 @@ data DescribeStackEvents = DescribeStackEvents'
     -- -   Deleted stacks: You must specify the unique stack ID.
     --
     -- Default: There is no default value.
-    stackName :: Prelude.Maybe Prelude.Text
+    stackName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackEvents' with all optional fields omitted.
@@ -102,13 +100,13 @@ newDescribeStackEvents ::
   DescribeStackEvents
 newDescribeStackEvents =
   DescribeStackEvents'
-    { nextToken = Prelude.Nothing,
-      stackName = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      stackName = Core.Nothing
     }
 
 -- | A string that identifies the next page of events that you want to
 -- retrieve.
-describeStackEvents_nextToken :: Lens.Lens' DescribeStackEvents (Prelude.Maybe Prelude.Text)
+describeStackEvents_nextToken :: Lens.Lens' DescribeStackEvents (Core.Maybe Core.Text)
 describeStackEvents_nextToken = Lens.lens (\DescribeStackEvents' {nextToken} -> nextToken) (\s@DescribeStackEvents' {} a -> s {nextToken = a} :: DescribeStackEvents)
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -120,34 +118,34 @@ describeStackEvents_nextToken = Lens.lens (\DescribeStackEvents' {nextToken} -> 
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-describeStackEvents_stackName :: Lens.Lens' DescribeStackEvents (Prelude.Maybe Prelude.Text)
+describeStackEvents_stackName :: Lens.Lens' DescribeStackEvents (Core.Maybe Core.Text)
 describeStackEvents_stackName = Lens.lens (\DescribeStackEvents' {stackName} -> stackName) (\s@DescribeStackEvents' {} a -> s {stackName = a} :: DescribeStackEvents)
 
-instance Pager.AWSPager DescribeStackEvents where
+instance Core.AWSPager DescribeStackEvents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeStackEventsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeStackEventsResponse_stackEvents
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeStackEvents_nextToken
           Lens..~ rs
           Lens.^? describeStackEventsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeStackEvents where
+instance Core.AWSRequest DescribeStackEvents where
   type
-    Rs DescribeStackEvents =
+    AWSResponse DescribeStackEvents =
       DescribeStackEventsResponse
   request = Request.postQuery defaultService
   response =
@@ -155,33 +153,31 @@ instance Prelude.AWSRequest DescribeStackEvents where
       "DescribeStackEventsResult"
       ( \s h x ->
           DescribeStackEventsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "StackEvents"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "StackEvents" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackEvents
+instance Core.Hashable DescribeStackEvents
 
-instance Prelude.NFData DescribeStackEvents
+instance Core.NFData DescribeStackEvents
 
-instance Prelude.ToHeaders DescribeStackEvents where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeStackEvents where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeStackEvents where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStackEvents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStackEvents where
+instance Core.ToQuery DescribeStackEvents where
   toQuery DescribeStackEvents' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeStackEvents" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "StackName" Prelude.=: stackName
+          Core.=: ("DescribeStackEvents" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "StackName" Core.=: stackName
       ]
 
 -- | The output for a DescribeStackEvents action.
@@ -190,13 +186,13 @@ instance Prelude.ToQuery DescribeStackEvents where
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
   { -- | If the output exceeds 1 MB in size, a string that identifies the next
     -- page of events. If no additional page exists, this value is null.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @StackEvents@ structures.
-    stackEvents :: Prelude.Maybe [StackEvent],
+    stackEvents :: Core.Maybe [StackEvent],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackEventsResponse' with all optional fields omitted.
@@ -214,27 +210,27 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse'
 -- 'httpStatus', 'describeStackEventsResponse_httpStatus' - The response's http status code.
 newDescribeStackEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStackEventsResponse
 newDescribeStackEventsResponse pHttpStatus_ =
   DescribeStackEventsResponse'
     { nextToken =
-        Prelude.Nothing,
-      stackEvents = Prelude.Nothing,
+        Core.Nothing,
+      stackEvents = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the output exceeds 1 MB in size, a string that identifies the next
 -- page of events. If no additional page exists, this value is null.
-describeStackEventsResponse_nextToken :: Lens.Lens' DescribeStackEventsResponse (Prelude.Maybe Prelude.Text)
+describeStackEventsResponse_nextToken :: Lens.Lens' DescribeStackEventsResponse (Core.Maybe Core.Text)
 describeStackEventsResponse_nextToken = Lens.lens (\DescribeStackEventsResponse' {nextToken} -> nextToken) (\s@DescribeStackEventsResponse' {} a -> s {nextToken = a} :: DescribeStackEventsResponse)
 
 -- | A list of @StackEvents@ structures.
-describeStackEventsResponse_stackEvents :: Lens.Lens' DescribeStackEventsResponse (Prelude.Maybe [StackEvent])
-describeStackEventsResponse_stackEvents = Lens.lens (\DescribeStackEventsResponse' {stackEvents} -> stackEvents) (\s@DescribeStackEventsResponse' {} a -> s {stackEvents = a} :: DescribeStackEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeStackEventsResponse_stackEvents :: Lens.Lens' DescribeStackEventsResponse (Core.Maybe [StackEvent])
+describeStackEventsResponse_stackEvents = Lens.lens (\DescribeStackEventsResponse' {stackEvents} -> stackEvents) (\s@DescribeStackEventsResponse' {} a -> s {stackEvents = a} :: DescribeStackEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeStackEventsResponse_httpStatus :: Lens.Lens' DescribeStackEventsResponse Prelude.Int
+describeStackEventsResponse_httpStatus :: Lens.Lens' DescribeStackEventsResponse Core.Int
 describeStackEventsResponse_httpStatus = Lens.lens (\DescribeStackEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeStackEventsResponse' {} a -> s {httpStatus = a} :: DescribeStackEventsResponse)
 
-instance Prelude.NFData DescribeStackEventsResponse
+instance Core.NFData DescribeStackEventsResponse

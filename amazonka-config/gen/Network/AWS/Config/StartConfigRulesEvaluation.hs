@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,8 +72,8 @@ module Network.AWS.Config.StartConfigRulesEvaluation
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,9 +83,9 @@ import qualified Network.AWS.Response as Response
 data StartConfigRulesEvaluation = StartConfigRulesEvaluation'
   { -- | The list of names of AWS Config rules that you want to run evaluations
     -- for.
-    configRuleNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
+    configRuleNames :: Core.Maybe (Core.NonEmpty Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartConfigRulesEvaluation' with all optional fields omitted.
@@ -103,62 +102,57 @@ newStartConfigRulesEvaluation ::
 newStartConfigRulesEvaluation =
   StartConfigRulesEvaluation'
     { configRuleNames =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The list of names of AWS Config rules that you want to run evaluations
 -- for.
-startConfigRulesEvaluation_configRuleNames :: Lens.Lens' StartConfigRulesEvaluation (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-startConfigRulesEvaluation_configRuleNames = Lens.lens (\StartConfigRulesEvaluation' {configRuleNames} -> configRuleNames) (\s@StartConfigRulesEvaluation' {} a -> s {configRuleNames = a} :: StartConfigRulesEvaluation) Prelude.. Lens.mapping Prelude._Coerce
+startConfigRulesEvaluation_configRuleNames :: Lens.Lens' StartConfigRulesEvaluation (Core.Maybe (Core.NonEmpty Core.Text))
+startConfigRulesEvaluation_configRuleNames = Lens.lens (\StartConfigRulesEvaluation' {configRuleNames} -> configRuleNames) (\s@StartConfigRulesEvaluation' {} a -> s {configRuleNames = a} :: StartConfigRulesEvaluation) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    StartConfigRulesEvaluation
-  where
+instance Core.AWSRequest StartConfigRulesEvaluation where
   type
-    Rs StartConfigRulesEvaluation =
+    AWSResponse StartConfigRulesEvaluation =
       StartConfigRulesEvaluationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartConfigRulesEvaluationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartConfigRulesEvaluation
+instance Core.Hashable StartConfigRulesEvaluation
 
-instance Prelude.NFData StartConfigRulesEvaluation
+instance Core.NFData StartConfigRulesEvaluation
 
-instance Prelude.ToHeaders StartConfigRulesEvaluation where
+instance Core.ToHeaders StartConfigRulesEvaluation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.StartConfigRulesEvaluation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.StartConfigRulesEvaluation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartConfigRulesEvaluation where
+instance Core.ToJSON StartConfigRulesEvaluation where
   toJSON StartConfigRulesEvaluation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConfigRuleNames" Prelude..=)
-              Prelude.<$> configRuleNames
+    Core.object
+      ( Core.catMaybes
+          [ ("ConfigRuleNames" Core..=)
+              Core.<$> configRuleNames
           ]
       )
 
-instance Prelude.ToPath StartConfigRulesEvaluation where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartConfigRulesEvaluation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartConfigRulesEvaluation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartConfigRulesEvaluation where
+  toQuery = Core.const Core.mempty
 
 -- | The output when you start the evaluation for the specified AWS Config
 -- rule.
@@ -166,9 +160,9 @@ instance Prelude.ToQuery StartConfigRulesEvaluation where
 -- /See:/ 'newStartConfigRulesEvaluationResponse' smart constructor.
 data StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartConfigRulesEvaluationResponse' with all optional fields omitted.
@@ -181,7 +175,7 @@ data StartConfigRulesEvaluationResponse = StartConfigRulesEvaluationResponse'
 -- 'httpStatus', 'startConfigRulesEvaluationResponse_httpStatus' - The response's http status code.
 newStartConfigRulesEvaluationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartConfigRulesEvaluationResponse
 newStartConfigRulesEvaluationResponse pHttpStatus_ =
   StartConfigRulesEvaluationResponse'
@@ -190,9 +184,9 @@ newStartConfigRulesEvaluationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startConfigRulesEvaluationResponse_httpStatus :: Lens.Lens' StartConfigRulesEvaluationResponse Prelude.Int
+startConfigRulesEvaluationResponse_httpStatus :: Lens.Lens' StartConfigRulesEvaluationResponse Core.Int
 startConfigRulesEvaluationResponse_httpStatus = Lens.lens (\StartConfigRulesEvaluationResponse' {httpStatus} -> httpStatus) (\s@StartConfigRulesEvaluationResponse' {} a -> s {httpStatus = a} :: StartConfigRulesEvaluationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartConfigRulesEvaluationResponse

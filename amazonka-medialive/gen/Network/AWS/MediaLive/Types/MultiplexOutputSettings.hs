@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexOutputSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Multiplex Output Settings
 --
@@ -31,7 +30,7 @@ data MultiplexOutputSettings = MultiplexOutputSettings'
   { -- | Destination is a Multiplex.
     destination :: OutputLocationRef
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexOutputSettings' with all optional fields omitted.
@@ -56,24 +55,22 @@ newMultiplexOutputSettings pDestination_ =
 multiplexOutputSettings_destination :: Lens.Lens' MultiplexOutputSettings OutputLocationRef
 multiplexOutputSettings_destination = Lens.lens (\MultiplexOutputSettings' {destination} -> destination) (\s@MultiplexOutputSettings' {} a -> s {destination = a} :: MultiplexOutputSettings)
 
-instance Prelude.FromJSON MultiplexOutputSettings where
+instance Core.FromJSON MultiplexOutputSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexOutputSettings"
       ( \x ->
           MultiplexOutputSettings'
-            Prelude.<$> (x Prelude..: "destination")
+            Core.<$> (x Core..: "destination")
       )
 
-instance Prelude.Hashable MultiplexOutputSettings
+instance Core.Hashable MultiplexOutputSettings
 
-instance Prelude.NFData MultiplexOutputSettings
+instance Core.NFData MultiplexOutputSettings
 
-instance Prelude.ToJSON MultiplexOutputSettings where
+instance Core.ToJSON MultiplexOutputSettings where
   toJSON MultiplexOutputSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("destination" Prelude..= destination)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("destination" Core..= destination)]
       )

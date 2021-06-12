@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.CostExplorer.CreateAnomalyMonitor
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ data CreateAnomalyMonitor = CreateAnomalyMonitor'
   { -- | The cost anomaly detection monitor object that you want to create.
     anomalyMonitor :: AnomalyMonitor
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAnomalyMonitor' with all optional fields omitted.
@@ -77,62 +76,60 @@ newCreateAnomalyMonitor pAnomalyMonitor_ =
 createAnomalyMonitor_anomalyMonitor :: Lens.Lens' CreateAnomalyMonitor AnomalyMonitor
 createAnomalyMonitor_anomalyMonitor = Lens.lens (\CreateAnomalyMonitor' {anomalyMonitor} -> anomalyMonitor) (\s@CreateAnomalyMonitor' {} a -> s {anomalyMonitor = a} :: CreateAnomalyMonitor)
 
-instance Prelude.AWSRequest CreateAnomalyMonitor where
+instance Core.AWSRequest CreateAnomalyMonitor where
   type
-    Rs CreateAnomalyMonitor =
+    AWSResponse CreateAnomalyMonitor =
       CreateAnomalyMonitorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateAnomalyMonitorResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "MonitorArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "MonitorArn")
       )
 
-instance Prelude.Hashable CreateAnomalyMonitor
+instance Core.Hashable CreateAnomalyMonitor
 
-instance Prelude.NFData CreateAnomalyMonitor
+instance Core.NFData CreateAnomalyMonitor
 
-instance Prelude.ToHeaders CreateAnomalyMonitor where
+instance Core.ToHeaders CreateAnomalyMonitor where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.CreateAnomalyMonitor" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.CreateAnomalyMonitor" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateAnomalyMonitor where
+instance Core.ToJSON CreateAnomalyMonitor where
   toJSON CreateAnomalyMonitor' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AnomalyMonitor" Prelude..= anomalyMonitor)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("AnomalyMonitor" Core..= anomalyMonitor)
           ]
       )
 
-instance Prelude.ToPath CreateAnomalyMonitor where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateAnomalyMonitor where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateAnomalyMonitor where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateAnomalyMonitor where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateAnomalyMonitorResponse' smart constructor.
 data CreateAnomalyMonitorResponse = CreateAnomalyMonitorResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The unique identifier of your newly created cost anomaly detection
     -- monitor.
-    monitorArn :: Prelude.Text
+    monitorArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateAnomalyMonitorResponse' with all optional fields omitted.
@@ -148,9 +145,9 @@ data CreateAnomalyMonitorResponse = CreateAnomalyMonitorResponse'
 -- monitor.
 newCreateAnomalyMonitorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'monitorArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateAnomalyMonitorResponse
 newCreateAnomalyMonitorResponse
   pHttpStatus_
@@ -162,12 +159,12 @@ newCreateAnomalyMonitorResponse
       }
 
 -- | The response's http status code.
-createAnomalyMonitorResponse_httpStatus :: Lens.Lens' CreateAnomalyMonitorResponse Prelude.Int
+createAnomalyMonitorResponse_httpStatus :: Lens.Lens' CreateAnomalyMonitorResponse Core.Int
 createAnomalyMonitorResponse_httpStatus = Lens.lens (\CreateAnomalyMonitorResponse' {httpStatus} -> httpStatus) (\s@CreateAnomalyMonitorResponse' {} a -> s {httpStatus = a} :: CreateAnomalyMonitorResponse)
 
 -- | The unique identifier of your newly created cost anomaly detection
 -- monitor.
-createAnomalyMonitorResponse_monitorArn :: Lens.Lens' CreateAnomalyMonitorResponse Prelude.Text
+createAnomalyMonitorResponse_monitorArn :: Lens.Lens' CreateAnomalyMonitorResponse Core.Text
 createAnomalyMonitorResponse_monitorArn = Lens.lens (\CreateAnomalyMonitorResponse' {monitorArn} -> monitorArn) (\s@CreateAnomalyMonitorResponse' {} a -> s {monitorArn = a} :: CreateAnomalyMonitorResponse)
 
-instance Prelude.NFData CreateAnomalyMonitorResponse
+instance Core.NFData CreateAnomalyMonitorResponse

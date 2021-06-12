@@ -1650,6 +1650,7 @@ module Network.AWS.IoT.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AbortAction
 import Network.AWS.IoT.Types.AbortConfig
 import Network.AWS.IoT.Types.AbortCriteria
@@ -1894,319 +1895,316 @@ import Network.AWS.IoT.Types.VpcDestinationConfiguration
 import Network.AWS.IoT.Types.VpcDestinationProperties
 import Network.AWS.IoT.Types.VpcDestinationSummary
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-05-28@ of the Amazon IoT SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "IoT",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "iot",
-      Prelude._svcSigningName = "execute-api",
-      Prelude._svcVersion = "2015-05-28",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "IoT",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "IoT",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "iot",
+      Core._serviceSigningName = "execute-api",
+      Core._serviceVersion = "2015-05-28",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "IoT",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The index is not ready.
-_IndexNotReadyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IndexNotReadyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IndexNotReadyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IndexNotReadyException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You can\'t revert the certificate transfer because the transfer is
 -- already complete.
-_TransferAlreadyCompletedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TransferAlreadyCompletedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TransferAlreadyCompletedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TransferAlreadyCompletedException"
-    Prelude.. Prelude.hasStatus 410
+    Core.. Core.hasStatus 410
 
 -- | The query is invalid.
-_InvalidQueryException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidQueryException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidQueryException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidQueryException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Unable to verify the CA certificate used to sign the device certificate
 -- you are attempting to register. This is happens when you have registered
 -- more than one CA certificate that has the same subject field and public
 -- key.
-_CertificateConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateConflictException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | This exception occurs if you attempt to start a task with the same
 -- task-id as an existing task but with a different clientRequestToken.
-_TaskAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TaskAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TaskAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TaskAlreadyExistsException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The certificate is invalid.
-_CertificateValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateValidationException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You are not authorized to perform this operation.
-_UnauthorizedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnauthorizedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnauthorizedException"
-    Prelude.. Prelude.hasStatus 401
+    Core.. Core.hasStatus 401
 
 -- | The resource already exists.
-_ResourceAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceAlreadyExistsException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | An unexpected error has occurred.
-_InternalException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalException"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The policy documentation is not valid.
-_MalformedPolicyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MalformedPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MalformedPolicyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MalformedPolicyException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The service is temporarily unavailable.
-_ServiceUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
-    Prelude.. Prelude.hasStatus 503
+    Core.. Core.hasStatus 503
 
 -- | The certificate operation is not allowed.
-_CertificateStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateStateException"
-    Prelude.. Prelude.hasStatus 406
+    Core.. Core.hasStatus 406
 
 -- | The aggregation is invalid.
-_InvalidAggregationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidAggregationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidAggregationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidAggregationException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The rate exceeds the limit.
-_ThrottlingException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ThrottlingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ThrottlingException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request is not valid.
-_InvalidRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRequestException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The resource registration failed.
-_ResourceRegistrationFailureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceRegistrationFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceRegistrationFailureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceRegistrationFailureException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The Rule-SQL expression can\'t be parsed correctly.
-_SqlParseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SqlParseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SqlParseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SqlParseException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A limit has been exceeded.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
-    Prelude.. Prelude.hasStatus 410
+    Core.. Core.hasStatus 410
 
 -- | An attempt was made to change to an invalid state, for example by
 -- deleting a job or a job execution which is \"IN_PROGRESS\" without
 -- setting the @force@ parameter.
-_InvalidStateTransitionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidStateTransitionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidStateTransitionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidStateTransitionException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The resource is not configured.
-_NotConfiguredException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NotConfiguredException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NotConfiguredException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NotConfiguredException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | The specified resource does not exist.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | An exception thrown when the version of an entity specified with the
 -- @expectedVersion@ parameter does not match the latest version in the
 -- system.
-_VersionConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_VersionConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _VersionConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "VersionConflictException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The registration code is invalid.
-_RegistrationCodeValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RegistrationCodeValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RegistrationCodeValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RegistrationCodeValidationException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The number of policy versions exceeds the limit.
-_VersionsLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_VersionsLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _VersionsLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "VersionsLimitExceededException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | An unexpected error has occurred.
-_InternalFailureException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalFailureException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalFailureException"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | You can\'t delete the resource because it is attached to one or more
 -- resources.
-_DeleteConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DeleteConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DeleteConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DeleteConflictException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The response is invalid.
-_InvalidResponseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidResponseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidResponseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidResponseException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You can\'t transfer the certificate because authorization policies are
 -- still attached.
-_TransferConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TransferConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TransferConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TransferConflictException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | A conflicting resource update exception. This exception is thrown when
 -- two pending updates cause a conflict.
-_ConflictingResourceUpdateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConflictingResourceUpdateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConflictingResourceUpdateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConflictingResourceUpdateException"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409

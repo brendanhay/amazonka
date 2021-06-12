@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TransformResources where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TransformInstanceType
 
 -- | Describes the resources, including ML instance types and ML instance
@@ -43,7 +42,7 @@ data TransformResources = TransformResources'
     --
     -- -   Alias name ARN:
     --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
-    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    volumeKmsKeyId :: Core.Maybe Core.Text,
     -- | The ML compute instance type for the transform job. If you are using
     -- built-in algorithms to transform moderately sized datasets, we recommend
     -- using ml.m4.xlarge or @ml.m5.large@ instance types.
@@ -51,9 +50,9 @@ data TransformResources = TransformResources'
     -- | The number of ML compute instances to use in the transform job. For
     -- distributed transform jobs, specify a value greater than 1. The default
     -- value is @1@.
-    instanceCount :: Prelude.Natural
+    instanceCount :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransformResources' with all optional fields omitted.
@@ -89,12 +88,11 @@ newTransformResources ::
   -- | 'instanceType'
   TransformInstanceType ->
   -- | 'instanceCount'
-  Prelude.Natural ->
+  Core.Natural ->
   TransformResources
 newTransformResources pInstanceType_ pInstanceCount_ =
   TransformResources'
-    { volumeKmsKeyId =
-        Prelude.Nothing,
+    { volumeKmsKeyId = Core.Nothing,
       instanceType = pInstanceType_,
       instanceCount = pInstanceCount_
     }
@@ -113,7 +111,7 @@ newTransformResources pInstanceType_ pInstanceCount_ =
 --
 -- -   Alias name ARN:
 --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
-transformResources_volumeKmsKeyId :: Lens.Lens' TransformResources (Prelude.Maybe Prelude.Text)
+transformResources_volumeKmsKeyId :: Lens.Lens' TransformResources (Core.Maybe Core.Text)
 transformResources_volumeKmsKeyId = Lens.lens (\TransformResources' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@TransformResources' {} a -> s {volumeKmsKeyId = a} :: TransformResources)
 
 -- | The ML compute instance type for the transform job. If you are using
@@ -125,33 +123,30 @@ transformResources_instanceType = Lens.lens (\TransformResources' {instanceType}
 -- | The number of ML compute instances to use in the transform job. For
 -- distributed transform jobs, specify a value greater than 1. The default
 -- value is @1@.
-transformResources_instanceCount :: Lens.Lens' TransformResources Prelude.Natural
+transformResources_instanceCount :: Lens.Lens' TransformResources Core.Natural
 transformResources_instanceCount = Lens.lens (\TransformResources' {instanceCount} -> instanceCount) (\s@TransformResources' {} a -> s {instanceCount = a} :: TransformResources)
 
-instance Prelude.FromJSON TransformResources where
+instance Core.FromJSON TransformResources where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TransformResources"
       ( \x ->
           TransformResources'
-            Prelude.<$> (x Prelude..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Prelude..: "InstanceType")
-            Prelude.<*> (x Prelude..: "InstanceCount")
+            Core.<$> (x Core..:? "VolumeKmsKeyId")
+            Core.<*> (x Core..: "InstanceType")
+            Core.<*> (x Core..: "InstanceCount")
       )
 
-instance Prelude.Hashable TransformResources
+instance Core.Hashable TransformResources
 
-instance Prelude.NFData TransformResources
+instance Core.NFData TransformResources
 
-instance Prelude.ToJSON TransformResources where
+instance Core.ToJSON TransformResources where
   toJSON TransformResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Prelude..=)
-              Prelude.<$> volumeKmsKeyId,
-            Prelude.Just
-              ("InstanceType" Prelude..= instanceType),
-            Prelude.Just
-              ("InstanceCount" Prelude..= instanceCount)
+    Core.object
+      ( Core.catMaybes
+          [ ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            Core.Just ("InstanceType" Core..= instanceType),
+            Core.Just ("InstanceCount" Core..= instanceCount)
           ]
       )

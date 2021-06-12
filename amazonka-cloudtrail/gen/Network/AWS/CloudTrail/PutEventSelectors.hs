@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -91,8 +90,8 @@ module Network.AWS.CloudTrail.PutEventSelectors
 where
 
 import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -103,7 +102,7 @@ data PutEventSelectors = PutEventSelectors'
     -- @AdvancedEventSelectors@ in a @PutEventSelectors@ request, but not both.
     -- If you apply @EventSelectors@ to a trail, any existing
     -- @AdvancedEventSelectors@ are overwritten.
-    eventSelectors :: Prelude.Maybe [EventSelector],
+    eventSelectors :: Core.Maybe [EventSelector],
     -- | Specifies the settings for advanced event selectors. You can add
     -- advanced event selectors, and conditions for your advanced event
     -- selectors, up to a maximum of 500 values for all conditions and
@@ -113,7 +112,7 @@ data PutEventSelectors = PutEventSelectors'
     -- information about advanced event selectors, see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
     -- in the /AWS CloudTrail User Guide/.
-    advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
+    advancedEventSelectors :: Core.Maybe [AdvancedEventSelector],
     -- | Specifies the name of the trail or trail ARN. If you specify a trail
     -- name, the string must meet the following requirements:
     --
@@ -132,9 +131,9 @@ data PutEventSelectors = PutEventSelectors'
     -- If you specify a trail ARN, it must be in the format:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    trailName :: Prelude.Text
+    trailName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEventSelectors' with all optional fields omitted.
@@ -180,13 +179,12 @@ data PutEventSelectors = PutEventSelectors'
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newPutEventSelectors ::
   -- | 'trailName'
-  Prelude.Text ->
+  Core.Text ->
   PutEventSelectors
 newPutEventSelectors pTrailName_ =
   PutEventSelectors'
-    { eventSelectors =
-        Prelude.Nothing,
-      advancedEventSelectors = Prelude.Nothing,
+    { eventSelectors = Core.Nothing,
+      advancedEventSelectors = Core.Nothing,
       trailName = pTrailName_
     }
 
@@ -195,8 +193,8 @@ newPutEventSelectors pTrailName_ =
 -- @AdvancedEventSelectors@ in a @PutEventSelectors@ request, but not both.
 -- If you apply @EventSelectors@ to a trail, any existing
 -- @AdvancedEventSelectors@ are overwritten.
-putEventSelectors_eventSelectors :: Lens.Lens' PutEventSelectors (Prelude.Maybe [EventSelector])
-putEventSelectors_eventSelectors = Lens.lens (\PutEventSelectors' {eventSelectors} -> eventSelectors) (\s@PutEventSelectors' {} a -> s {eventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Prelude._Coerce
+putEventSelectors_eventSelectors :: Lens.Lens' PutEventSelectors (Core.Maybe [EventSelector])
+putEventSelectors_eventSelectors = Lens.lens (\PutEventSelectors' {eventSelectors} -> eventSelectors) (\s@PutEventSelectors' {} a -> s {eventSelectors = a} :: PutEventSelectors) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the settings for advanced event selectors. You can add
 -- advanced event selectors, and conditions for your advanced event
@@ -207,8 +205,8 @@ putEventSelectors_eventSelectors = Lens.lens (\PutEventSelectors' {eventSelector
 -- information about advanced event selectors, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
 -- in the /AWS CloudTrail User Guide/.
-putEventSelectors_advancedEventSelectors :: Lens.Lens' PutEventSelectors (Prelude.Maybe [AdvancedEventSelector])
-putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectors' {} a -> s {advancedEventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Prelude._Coerce
+putEventSelectors_advancedEventSelectors :: Lens.Lens' PutEventSelectors (Core.Maybe [AdvancedEventSelector])
+putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectors' {} a -> s {advancedEventSelectors = a} :: PutEventSelectors) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail
 -- name, the string must meet the following requirements:
@@ -228,62 +226,59 @@ putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advan
 -- If you specify a trail ARN, it must be in the format:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-putEventSelectors_trailName :: Lens.Lens' PutEventSelectors Prelude.Text
+putEventSelectors_trailName :: Lens.Lens' PutEventSelectors Core.Text
 putEventSelectors_trailName = Lens.lens (\PutEventSelectors' {trailName} -> trailName) (\s@PutEventSelectors' {} a -> s {trailName = a} :: PutEventSelectors)
 
-instance Prelude.AWSRequest PutEventSelectors where
-  type Rs PutEventSelectors = PutEventSelectorsResponse
+instance Core.AWSRequest PutEventSelectors where
+  type
+    AWSResponse PutEventSelectors =
+      PutEventSelectorsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutEventSelectorsResponse'
-            Prelude.<$> (x Prelude..?> "TrailARN")
-            Prelude.<*> ( x Prelude..?> "EventSelectors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "AdvancedEventSelectors"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TrailARN")
+            Core.<*> (x Core..?> "EventSelectors" Core..!@ Core.mempty)
+            Core.<*> ( x Core..?> "AdvancedEventSelectors"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutEventSelectors
+instance Core.Hashable PutEventSelectors
 
-instance Prelude.NFData PutEventSelectors
+instance Core.NFData PutEventSelectors
 
-instance Prelude.ToHeaders PutEventSelectors where
+instance Core.ToHeaders PutEventSelectors where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutEventSelectors where
+instance Core.ToJSON PutEventSelectors where
   toJSON PutEventSelectors' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EventSelectors" Prelude..=)
-              Prelude.<$> eventSelectors,
-            ("AdvancedEventSelectors" Prelude..=)
-              Prelude.<$> advancedEventSelectors,
-            Prelude.Just ("TrailName" Prelude..= trailName)
+    Core.object
+      ( Core.catMaybes
+          [ ("EventSelectors" Core..=) Core.<$> eventSelectors,
+            ("AdvancedEventSelectors" Core..=)
+              Core.<$> advancedEventSelectors,
+            Core.Just ("TrailName" Core..= trailName)
           ]
       )
 
-instance Prelude.ToPath PutEventSelectors where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutEventSelectors where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutEventSelectors where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutEventSelectors where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutEventSelectorsResponse' smart constructor.
 data PutEventSelectorsResponse = PutEventSelectorsResponse'
@@ -291,15 +286,15 @@ data PutEventSelectorsResponse = PutEventSelectorsResponse'
     -- The format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-    trailARN :: Prelude.Maybe Prelude.Text,
+    trailARN :: Core.Maybe Core.Text,
     -- | Specifies the event selectors configured for your trail.
-    eventSelectors :: Prelude.Maybe [EventSelector],
+    eventSelectors :: Core.Maybe [EventSelector],
     -- | Specifies the advanced event selectors configured for your trail.
-    advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
+    advancedEventSelectors :: Core.Maybe [AdvancedEventSelector],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutEventSelectorsResponse' with all optional fields omitted.
@@ -321,14 +316,13 @@ data PutEventSelectorsResponse = PutEventSelectorsResponse'
 -- 'httpStatus', 'putEventSelectorsResponse_httpStatus' - The response's http status code.
 newPutEventSelectorsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutEventSelectorsResponse
 newPutEventSelectorsResponse pHttpStatus_ =
   PutEventSelectorsResponse'
-    { trailARN =
-        Prelude.Nothing,
-      eventSelectors = Prelude.Nothing,
-      advancedEventSelectors = Prelude.Nothing,
+    { trailARN = Core.Nothing,
+      eventSelectors = Core.Nothing,
+      advancedEventSelectors = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -336,19 +330,19 @@ newPutEventSelectorsResponse pHttpStatus_ =
 -- The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
-putEventSelectorsResponse_trailARN :: Lens.Lens' PutEventSelectorsResponse (Prelude.Maybe Prelude.Text)
+putEventSelectorsResponse_trailARN :: Lens.Lens' PutEventSelectorsResponse (Core.Maybe Core.Text)
 putEventSelectorsResponse_trailARN = Lens.lens (\PutEventSelectorsResponse' {trailARN} -> trailARN) (\s@PutEventSelectorsResponse' {} a -> s {trailARN = a} :: PutEventSelectorsResponse)
 
 -- | Specifies the event selectors configured for your trail.
-putEventSelectorsResponse_eventSelectors :: Lens.Lens' PutEventSelectorsResponse (Prelude.Maybe [EventSelector])
-putEventSelectorsResponse_eventSelectors = Lens.lens (\PutEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {eventSelectors = a} :: PutEventSelectorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+putEventSelectorsResponse_eventSelectors :: Lens.Lens' PutEventSelectorsResponse (Core.Maybe [EventSelector])
+putEventSelectorsResponse_eventSelectors = Lens.lens (\PutEventSelectorsResponse' {eventSelectors} -> eventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {eventSelectors = a} :: PutEventSelectorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the advanced event selectors configured for your trail.
-putEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' PutEventSelectorsResponse (Prelude.Maybe [AdvancedEventSelector])
-putEventSelectorsResponse_advancedEventSelectors = Lens.lens (\PutEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: PutEventSelectorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+putEventSelectorsResponse_advancedEventSelectors :: Lens.Lens' PutEventSelectorsResponse (Core.Maybe [AdvancedEventSelector])
+putEventSelectorsResponse_advancedEventSelectors = Lens.lens (\PutEventSelectorsResponse' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectorsResponse' {} a -> s {advancedEventSelectors = a} :: PutEventSelectorsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putEventSelectorsResponse_httpStatus :: Lens.Lens' PutEventSelectorsResponse Prelude.Int
+putEventSelectorsResponse_httpStatus :: Lens.Lens' PutEventSelectorsResponse Core.Int
 putEventSelectorsResponse_httpStatus = Lens.lens (\PutEventSelectorsResponse' {httpStatus} -> httpStatus) (\s@PutEventSelectorsResponse' {} a -> s {httpStatus = a} :: PutEventSelectorsResponse)
 
-instance Prelude.NFData PutEventSelectorsResponse
+instance Core.NFData PutEventSelectorsResponse

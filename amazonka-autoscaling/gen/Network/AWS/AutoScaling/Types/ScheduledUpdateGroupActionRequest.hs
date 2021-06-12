@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.ScheduledUpdateGroupActionRequest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes information used for one or more scheduled scaling action
 -- updates in a BatchPutScheduledUpdateGroupAction operation.
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newScheduledUpdateGroupActionRequest' smart constructor.
 data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
   { -- | The minimum size of the Auto Scaling group.
-    minSize :: Prelude.Maybe Prelude.Int,
+    minSize :: Core.Maybe Core.Int,
     -- | The desired capacity is the initial capacity of the Auto Scaling group
     -- after the scheduled action runs and the capacity it attempts to
     -- maintain.
-    desiredCapacity :: Prelude.Maybe Prelude.Int,
+    desiredCapacity :: Core.Maybe Core.Int,
     -- | The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ
     -- format in UTC\/GMT only and in quotes (for example,
     -- @\"2019-06-01T00:00:00Z\"@).
@@ -47,10 +46,10 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
     --
     -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling
     -- returns an error message.
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | The date and time for the recurring schedule to end. Amazon EC2 Auto
     -- Scaling does not perform the action after this time.
-    endTime :: Prelude.Maybe Prelude.ISO8601,
+    endTime :: Core.Maybe Core.ISO8601,
     -- | The recurring schedule for the action, in Unix cron syntax format. This
     -- format consists of five fields separated by white spaces: [Minute]
     -- [Hour] [Day_of_Month] [Month_of_Year] [Day_of_Week]. The value must be
@@ -59,13 +58,13 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
     --
     -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
     -- form the boundaries of when the recurring action starts and stops.
-    recurrence :: Prelude.Maybe Prelude.Text,
+    recurrence :: Core.Maybe Core.Text,
     -- | The maximum size of the Auto Scaling group.
-    maxSize :: Prelude.Maybe Prelude.Int,
+    maxSize :: Core.Maybe Core.Int,
     -- | The name of the scaling action.
-    scheduledActionName :: Prelude.Text
+    scheduledActionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledUpdateGroupActionRequest' with all optional fields omitted.
@@ -109,30 +108,30 @@ data ScheduledUpdateGroupActionRequest = ScheduledUpdateGroupActionRequest'
 -- 'scheduledActionName', 'scheduledUpdateGroupActionRequest_scheduledActionName' - The name of the scaling action.
 newScheduledUpdateGroupActionRequest ::
   -- | 'scheduledActionName'
-  Prelude.Text ->
+  Core.Text ->
   ScheduledUpdateGroupActionRequest
 newScheduledUpdateGroupActionRequest
   pScheduledActionName_ =
     ScheduledUpdateGroupActionRequest'
       { minSize =
-          Prelude.Nothing,
-        desiredCapacity = Prelude.Nothing,
-        startTime = Prelude.Nothing,
-        endTime = Prelude.Nothing,
-        recurrence = Prelude.Nothing,
-        maxSize = Prelude.Nothing,
+          Core.Nothing,
+        desiredCapacity = Core.Nothing,
+        startTime = Core.Nothing,
+        endTime = Core.Nothing,
+        recurrence = Core.Nothing,
+        maxSize = Core.Nothing,
         scheduledActionName =
           pScheduledActionName_
       }
 
 -- | The minimum size of the Auto Scaling group.
-scheduledUpdateGroupActionRequest_minSize :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Int)
+scheduledUpdateGroupActionRequest_minSize :: Lens.Lens' ScheduledUpdateGroupActionRequest (Core.Maybe Core.Int)
 scheduledUpdateGroupActionRequest_minSize = Lens.lens (\ScheduledUpdateGroupActionRequest' {minSize} -> minSize) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {minSize = a} :: ScheduledUpdateGroupActionRequest)
 
 -- | The desired capacity is the initial capacity of the Auto Scaling group
 -- after the scheduled action runs and the capacity it attempts to
 -- maintain.
-scheduledUpdateGroupActionRequest_desiredCapacity :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Int)
+scheduledUpdateGroupActionRequest_desiredCapacity :: Lens.Lens' ScheduledUpdateGroupActionRequest (Core.Maybe Core.Int)
 scheduledUpdateGroupActionRequest_desiredCapacity = Lens.lens (\ScheduledUpdateGroupActionRequest' {desiredCapacity} -> desiredCapacity) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {desiredCapacity = a} :: ScheduledUpdateGroupActionRequest)
 
 -- | The date and time for the action to start, in YYYY-MM-DDThh:mm:ssZ
@@ -145,13 +144,13 @@ scheduledUpdateGroupActionRequest_desiredCapacity = Lens.lens (\ScheduledUpdateG
 --
 -- If you try to schedule the action in the past, Amazon EC2 Auto Scaling
 -- returns an error message.
-scheduledUpdateGroupActionRequest_startTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.UTCTime)
-scheduledUpdateGroupActionRequest_startTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {startTime} -> startTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Prelude._Time
+scheduledUpdateGroupActionRequest_startTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Core.Maybe Core.UTCTime)
+scheduledUpdateGroupActionRequest_startTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {startTime} -> startTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {startTime = a} :: ScheduledUpdateGroupActionRequest) Core.. Lens.mapping Core._Time
 
 -- | The date and time for the recurring schedule to end. Amazon EC2 Auto
 -- Scaling does not perform the action after this time.
-scheduledUpdateGroupActionRequest_endTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.UTCTime)
-scheduledUpdateGroupActionRequest_endTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {endTime} -> endTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest) Prelude.. Lens.mapping Prelude._Time
+scheduledUpdateGroupActionRequest_endTime :: Lens.Lens' ScheduledUpdateGroupActionRequest (Core.Maybe Core.UTCTime)
+scheduledUpdateGroupActionRequest_endTime = Lens.lens (\ScheduledUpdateGroupActionRequest' {endTime} -> endTime) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {endTime = a} :: ScheduledUpdateGroupActionRequest) Core.. Lens.mapping Core._Time
 
 -- | The recurring schedule for the action, in Unix cron syntax format. This
 -- format consists of five fields separated by white spaces: [Minute]
@@ -161,36 +160,36 @@ scheduledUpdateGroupActionRequest_endTime = Lens.lens (\ScheduledUpdateGroupActi
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action starts and stops.
-scheduledUpdateGroupActionRequest_recurrence :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Text)
+scheduledUpdateGroupActionRequest_recurrence :: Lens.Lens' ScheduledUpdateGroupActionRequest (Core.Maybe Core.Text)
 scheduledUpdateGroupActionRequest_recurrence = Lens.lens (\ScheduledUpdateGroupActionRequest' {recurrence} -> recurrence) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {recurrence = a} :: ScheduledUpdateGroupActionRequest)
 
 -- | The maximum size of the Auto Scaling group.
-scheduledUpdateGroupActionRequest_maxSize :: Lens.Lens' ScheduledUpdateGroupActionRequest (Prelude.Maybe Prelude.Int)
+scheduledUpdateGroupActionRequest_maxSize :: Lens.Lens' ScheduledUpdateGroupActionRequest (Core.Maybe Core.Int)
 scheduledUpdateGroupActionRequest_maxSize = Lens.lens (\ScheduledUpdateGroupActionRequest' {maxSize} -> maxSize) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {maxSize = a} :: ScheduledUpdateGroupActionRequest)
 
 -- | The name of the scaling action.
-scheduledUpdateGroupActionRequest_scheduledActionName :: Lens.Lens' ScheduledUpdateGroupActionRequest Prelude.Text
+scheduledUpdateGroupActionRequest_scheduledActionName :: Lens.Lens' ScheduledUpdateGroupActionRequest Core.Text
 scheduledUpdateGroupActionRequest_scheduledActionName = Lens.lens (\ScheduledUpdateGroupActionRequest' {scheduledActionName} -> scheduledActionName) (\s@ScheduledUpdateGroupActionRequest' {} a -> s {scheduledActionName = a} :: ScheduledUpdateGroupActionRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ScheduledUpdateGroupActionRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     ScheduledUpdateGroupActionRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ScheduledUpdateGroupActionRequest
   where
   toQuery ScheduledUpdateGroupActionRequest' {..} =
-    Prelude.mconcat
-      [ "MinSize" Prelude.=: minSize,
-        "DesiredCapacity" Prelude.=: desiredCapacity,
-        "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime,
-        "Recurrence" Prelude.=: recurrence,
-        "MaxSize" Prelude.=: maxSize,
-        "ScheduledActionName" Prelude.=: scheduledActionName
+    Core.mconcat
+      [ "MinSize" Core.=: minSize,
+        "DesiredCapacity" Core.=: desiredCapacity,
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "Recurrence" Core.=: recurrence,
+        "MaxSize" Core.=: maxSize,
+        "ScheduledActionName" Core.=: scheduledActionName
       ]

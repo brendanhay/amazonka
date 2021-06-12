@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBEngineVersion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.CharacterSet
 import Network.AWS.RDS.Types.Timezone
 import Network.AWS.RDS.Types.UpgradeTarget
@@ -32,56 +31,56 @@ import Network.AWS.RDS.Types.UpgradeTarget
 -- /See:/ 'newDBEngineVersion' smart constructor.
 data DBEngineVersion = DBEngineVersion'
   { -- | The status of the DB engine version, either @available@ or @deprecated@.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The description of the database engine version.
-    dbEngineVersionDescription :: Prelude.Maybe Prelude.Text,
+    dbEngineVersionDescription :: Core.Maybe Core.Text,
     -- | The description of the database engine.
-    dbEngineDescription :: Prelude.Maybe Prelude.Text,
+    dbEngineDescription :: Core.Maybe Core.Text,
     -- | A list of the time zones supported by this engine for the @Timezone@
     -- parameter of the @CreateDBInstance@ action.
-    supportedTimezones :: Prelude.Maybe [Timezone],
+    supportedTimezones :: Core.Maybe [Timezone],
     -- | A list of the supported DB engine modes.
-    supportedEngineModes :: Prelude.Maybe [Prelude.Text],
+    supportedEngineModes :: Core.Maybe [Core.Text],
     -- | A list of the character sets supported by the Oracle DB engine for the
     -- @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
-    supportedNcharCharacterSets :: Prelude.Maybe [CharacterSet],
+    supportedNcharCharacterSets :: Core.Maybe [CharacterSet],
     -- | A list of engine versions that this database engine version can be
     -- upgraded to.
-    validUpgradeTarget :: Prelude.Maybe [UpgradeTarget],
+    validUpgradeTarget :: Core.Maybe [UpgradeTarget],
     -- | The version number of the database engine.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    engineVersion :: Core.Maybe Core.Text,
     -- | A value that indicates whether you can use Aurora global databases with
     -- a specific DB engine version.
-    supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool,
+    supportsGlobalDatabases :: Core.Maybe Core.Bool,
     -- | The types of logs that the database engine has available for export to
     -- CloudWatch Logs.
-    exportableLogTypes :: Prelude.Maybe [Prelude.Text],
+    exportableLogTypes :: Core.Maybe [Core.Text],
     -- | A list of the character sets supported by this engine for the
     -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
-    supportedCharacterSets :: Prelude.Maybe [CharacterSet],
+    supportedCharacterSets :: Core.Maybe [CharacterSet],
     -- | Indicates whether the database engine version supports read replicas.
-    supportsReadReplica :: Prelude.Maybe Prelude.Bool,
+    supportsReadReplica :: Core.Maybe Core.Bool,
     -- | The name of the DB parameter group family for the database engine.
-    dbParameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    dbParameterGroupFamily :: Core.Maybe Core.Text,
     -- | The name of the database engine.
-    engine :: Prelude.Maybe Prelude.Text,
+    engine :: Core.Maybe Core.Text,
     -- | A list of features supported by the DB engine. Supported feature names
     -- include the following.
     --
     -- -   s3Import
-    supportedFeatureNames :: Prelude.Maybe [Prelude.Text],
+    supportedFeatureNames :: Core.Maybe [Core.Text],
     -- | A value that indicates whether the engine version supports exporting the
     -- log types specified by ExportableLogTypes to CloudWatch Logs.
-    supportsLogExportsToCloudwatchLogs :: Prelude.Maybe Prelude.Bool,
+    supportsLogExportsToCloudwatchLogs :: Core.Maybe Core.Bool,
     -- | The default character set for new instances of this engine version, if
     -- the @CharacterSetName@ parameter of the CreateDBInstance API isn\'t
     -- specified.
-    defaultCharacterSet :: Prelude.Maybe CharacterSet,
+    defaultCharacterSet :: Core.Maybe CharacterSet,
     -- | A value that indicates whether you can use Aurora parallel query with a
     -- specific DB engine version.
-    supportsParallelQuery :: Prelude.Maybe Prelude.Bool
+    supportsParallelQuery :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBEngineVersion' with all optional fields omitted.
@@ -143,154 +142,151 @@ newDBEngineVersion ::
   DBEngineVersion
 newDBEngineVersion =
   DBEngineVersion'
-    { status = Prelude.Nothing,
-      dbEngineVersionDescription = Prelude.Nothing,
-      dbEngineDescription = Prelude.Nothing,
-      supportedTimezones = Prelude.Nothing,
-      supportedEngineModes = Prelude.Nothing,
-      supportedNcharCharacterSets = Prelude.Nothing,
-      validUpgradeTarget = Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      supportsGlobalDatabases = Prelude.Nothing,
-      exportableLogTypes = Prelude.Nothing,
-      supportedCharacterSets = Prelude.Nothing,
-      supportsReadReplica = Prelude.Nothing,
-      dbParameterGroupFamily = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      supportedFeatureNames = Prelude.Nothing,
-      supportsLogExportsToCloudwatchLogs = Prelude.Nothing,
-      defaultCharacterSet = Prelude.Nothing,
-      supportsParallelQuery = Prelude.Nothing
+    { status = Core.Nothing,
+      dbEngineVersionDescription = Core.Nothing,
+      dbEngineDescription = Core.Nothing,
+      supportedTimezones = Core.Nothing,
+      supportedEngineModes = Core.Nothing,
+      supportedNcharCharacterSets = Core.Nothing,
+      validUpgradeTarget = Core.Nothing,
+      engineVersion = Core.Nothing,
+      supportsGlobalDatabases = Core.Nothing,
+      exportableLogTypes = Core.Nothing,
+      supportedCharacterSets = Core.Nothing,
+      supportsReadReplica = Core.Nothing,
+      dbParameterGroupFamily = Core.Nothing,
+      engine = Core.Nothing,
+      supportedFeatureNames = Core.Nothing,
+      supportsLogExportsToCloudwatchLogs = Core.Nothing,
+      defaultCharacterSet = Core.Nothing,
+      supportsParallelQuery = Core.Nothing
     }
 
 -- | The status of the DB engine version, either @available@ or @deprecated@.
-dbEngineVersion_status :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_status :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Text)
 dbEngineVersion_status = Lens.lens (\DBEngineVersion' {status} -> status) (\s@DBEngineVersion' {} a -> s {status = a} :: DBEngineVersion)
 
 -- | The description of the database engine version.
-dbEngineVersion_dbEngineVersionDescription :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_dbEngineVersionDescription :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Text)
 dbEngineVersion_dbEngineVersionDescription = Lens.lens (\DBEngineVersion' {dbEngineVersionDescription} -> dbEngineVersionDescription) (\s@DBEngineVersion' {} a -> s {dbEngineVersionDescription = a} :: DBEngineVersion)
 
 -- | The description of the database engine.
-dbEngineVersion_dbEngineDescription :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_dbEngineDescription :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Text)
 dbEngineVersion_dbEngineDescription = Lens.lens (\DBEngineVersion' {dbEngineDescription} -> dbEngineDescription) (\s@DBEngineVersion' {} a -> s {dbEngineDescription = a} :: DBEngineVersion)
 
 -- | A list of the time zones supported by this engine for the @Timezone@
 -- parameter of the @CreateDBInstance@ action.
-dbEngineVersion_supportedTimezones :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Timezone])
-dbEngineVersion_supportedTimezones = Lens.lens (\DBEngineVersion' {supportedTimezones} -> supportedTimezones) (\s@DBEngineVersion' {} a -> s {supportedTimezones = a} :: DBEngineVersion) Prelude.. Lens.mapping Prelude._Coerce
+dbEngineVersion_supportedTimezones :: Lens.Lens' DBEngineVersion (Core.Maybe [Timezone])
+dbEngineVersion_supportedTimezones = Lens.lens (\DBEngineVersion' {supportedTimezones} -> supportedTimezones) (\s@DBEngineVersion' {} a -> s {supportedTimezones = a} :: DBEngineVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of the supported DB engine modes.
-dbEngineVersion_supportedEngineModes :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Prelude.Text])
-dbEngineVersion_supportedEngineModes = Lens.lens (\DBEngineVersion' {supportedEngineModes} -> supportedEngineModes) (\s@DBEngineVersion' {} a -> s {supportedEngineModes = a} :: DBEngineVersion) Prelude.. Lens.mapping Prelude._Coerce
+dbEngineVersion_supportedEngineModes :: Lens.Lens' DBEngineVersion (Core.Maybe [Core.Text])
+dbEngineVersion_supportedEngineModes = Lens.lens (\DBEngineVersion' {supportedEngineModes} -> supportedEngineModes) (\s@DBEngineVersion' {} a -> s {supportedEngineModes = a} :: DBEngineVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of the character sets supported by the Oracle DB engine for the
 -- @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
-dbEngineVersion_supportedNcharCharacterSets :: Lens.Lens' DBEngineVersion (Prelude.Maybe [CharacterSet])
-dbEngineVersion_supportedNcharCharacterSets = Lens.lens (\DBEngineVersion' {supportedNcharCharacterSets} -> supportedNcharCharacterSets) (\s@DBEngineVersion' {} a -> s {supportedNcharCharacterSets = a} :: DBEngineVersion) Prelude.. Lens.mapping Prelude._Coerce
+dbEngineVersion_supportedNcharCharacterSets :: Lens.Lens' DBEngineVersion (Core.Maybe [CharacterSet])
+dbEngineVersion_supportedNcharCharacterSets = Lens.lens (\DBEngineVersion' {supportedNcharCharacterSets} -> supportedNcharCharacterSets) (\s@DBEngineVersion' {} a -> s {supportedNcharCharacterSets = a} :: DBEngineVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of engine versions that this database engine version can be
 -- upgraded to.
-dbEngineVersion_validUpgradeTarget :: Lens.Lens' DBEngineVersion (Prelude.Maybe [UpgradeTarget])
-dbEngineVersion_validUpgradeTarget = Lens.lens (\DBEngineVersion' {validUpgradeTarget} -> validUpgradeTarget) (\s@DBEngineVersion' {} a -> s {validUpgradeTarget = a} :: DBEngineVersion) Prelude.. Lens.mapping Prelude._Coerce
+dbEngineVersion_validUpgradeTarget :: Lens.Lens' DBEngineVersion (Core.Maybe [UpgradeTarget])
+dbEngineVersion_validUpgradeTarget = Lens.lens (\DBEngineVersion' {validUpgradeTarget} -> validUpgradeTarget) (\s@DBEngineVersion' {} a -> s {validUpgradeTarget = a} :: DBEngineVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | The version number of the database engine.
-dbEngineVersion_engineVersion :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_engineVersion :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Text)
 dbEngineVersion_engineVersion = Lens.lens (\DBEngineVersion' {engineVersion} -> engineVersion) (\s@DBEngineVersion' {} a -> s {engineVersion = a} :: DBEngineVersion)
 
 -- | A value that indicates whether you can use Aurora global databases with
 -- a specific DB engine version.
-dbEngineVersion_supportsGlobalDatabases :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
+dbEngineVersion_supportsGlobalDatabases :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
 dbEngineVersion_supportsGlobalDatabases = Lens.lens (\DBEngineVersion' {supportsGlobalDatabases} -> supportsGlobalDatabases) (\s@DBEngineVersion' {} a -> s {supportsGlobalDatabases = a} :: DBEngineVersion)
 
 -- | The types of logs that the database engine has available for export to
 -- CloudWatch Logs.
-dbEngineVersion_exportableLogTypes :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Prelude.Text])
-dbEngineVersion_exportableLogTypes = Lens.lens (\DBEngineVersion' {exportableLogTypes} -> exportableLogTypes) (\s@DBEngineVersion' {} a -> s {exportableLogTypes = a} :: DBEngineVersion) Prelude.. Lens.mapping Prelude._Coerce
+dbEngineVersion_exportableLogTypes :: Lens.Lens' DBEngineVersion (Core.Maybe [Core.Text])
+dbEngineVersion_exportableLogTypes = Lens.lens (\DBEngineVersion' {exportableLogTypes} -> exportableLogTypes) (\s@DBEngineVersion' {} a -> s {exportableLogTypes = a} :: DBEngineVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
-dbEngineVersion_supportedCharacterSets :: Lens.Lens' DBEngineVersion (Prelude.Maybe [CharacterSet])
-dbEngineVersion_supportedCharacterSets = Lens.lens (\DBEngineVersion' {supportedCharacterSets} -> supportedCharacterSets) (\s@DBEngineVersion' {} a -> s {supportedCharacterSets = a} :: DBEngineVersion) Prelude.. Lens.mapping Prelude._Coerce
+dbEngineVersion_supportedCharacterSets :: Lens.Lens' DBEngineVersion (Core.Maybe [CharacterSet])
+dbEngineVersion_supportedCharacterSets = Lens.lens (\DBEngineVersion' {supportedCharacterSets} -> supportedCharacterSets) (\s@DBEngineVersion' {} a -> s {supportedCharacterSets = a} :: DBEngineVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the database engine version supports read replicas.
-dbEngineVersion_supportsReadReplica :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
+dbEngineVersion_supportsReadReplica :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
 dbEngineVersion_supportsReadReplica = Lens.lens (\DBEngineVersion' {supportsReadReplica} -> supportsReadReplica) (\s@DBEngineVersion' {} a -> s {supportsReadReplica = a} :: DBEngineVersion)
 
 -- | The name of the DB parameter group family for the database engine.
-dbEngineVersion_dbParameterGroupFamily :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_dbParameterGroupFamily :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Text)
 dbEngineVersion_dbParameterGroupFamily = Lens.lens (\DBEngineVersion' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@DBEngineVersion' {} a -> s {dbParameterGroupFamily = a} :: DBEngineVersion)
 
 -- | The name of the database engine.
-dbEngineVersion_engine :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Text)
+dbEngineVersion_engine :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Text)
 dbEngineVersion_engine = Lens.lens (\DBEngineVersion' {engine} -> engine) (\s@DBEngineVersion' {} a -> s {engine = a} :: DBEngineVersion)
 
 -- | A list of features supported by the DB engine. Supported feature names
 -- include the following.
 --
 -- -   s3Import
-dbEngineVersion_supportedFeatureNames :: Lens.Lens' DBEngineVersion (Prelude.Maybe [Prelude.Text])
-dbEngineVersion_supportedFeatureNames = Lens.lens (\DBEngineVersion' {supportedFeatureNames} -> supportedFeatureNames) (\s@DBEngineVersion' {} a -> s {supportedFeatureNames = a} :: DBEngineVersion) Prelude.. Lens.mapping Prelude._Coerce
+dbEngineVersion_supportedFeatureNames :: Lens.Lens' DBEngineVersion (Core.Maybe [Core.Text])
+dbEngineVersion_supportedFeatureNames = Lens.lens (\DBEngineVersion' {supportedFeatureNames} -> supportedFeatureNames) (\s@DBEngineVersion' {} a -> s {supportedFeatureNames = a} :: DBEngineVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that indicates whether the engine version supports exporting the
 -- log types specified by ExportableLogTypes to CloudWatch Logs.
-dbEngineVersion_supportsLogExportsToCloudwatchLogs :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
+dbEngineVersion_supportsLogExportsToCloudwatchLogs :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
 dbEngineVersion_supportsLogExportsToCloudwatchLogs = Lens.lens (\DBEngineVersion' {supportsLogExportsToCloudwatchLogs} -> supportsLogExportsToCloudwatchLogs) (\s@DBEngineVersion' {} a -> s {supportsLogExportsToCloudwatchLogs = a} :: DBEngineVersion)
 
 -- | The default character set for new instances of this engine version, if
 -- the @CharacterSetName@ parameter of the CreateDBInstance API isn\'t
 -- specified.
-dbEngineVersion_defaultCharacterSet :: Lens.Lens' DBEngineVersion (Prelude.Maybe CharacterSet)
+dbEngineVersion_defaultCharacterSet :: Lens.Lens' DBEngineVersion (Core.Maybe CharacterSet)
 dbEngineVersion_defaultCharacterSet = Lens.lens (\DBEngineVersion' {defaultCharacterSet} -> defaultCharacterSet) (\s@DBEngineVersion' {} a -> s {defaultCharacterSet = a} :: DBEngineVersion)
 
 -- | A value that indicates whether you can use Aurora parallel query with a
 -- specific DB engine version.
-dbEngineVersion_supportsParallelQuery :: Lens.Lens' DBEngineVersion (Prelude.Maybe Prelude.Bool)
+dbEngineVersion_supportsParallelQuery :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
 dbEngineVersion_supportsParallelQuery = Lens.lens (\DBEngineVersion' {supportsParallelQuery} -> supportsParallelQuery) (\s@DBEngineVersion' {} a -> s {supportsParallelQuery = a} :: DBEngineVersion)
 
-instance Prelude.FromXML DBEngineVersion where
+instance Core.FromXML DBEngineVersion where
   parseXML x =
     DBEngineVersion'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "DBEngineVersionDescription")
-      Prelude.<*> (x Prelude..@? "DBEngineDescription")
-      Prelude.<*> ( x Prelude..@? "SupportedTimezones"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Timezone")
-                  )
-      Prelude.<*> ( x Prelude..@? "SupportedEngineModes"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "SupportedNcharCharacterSets"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "CharacterSet")
-                  )
-      Prelude.<*> ( x Prelude..@? "ValidUpgradeTarget"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "UpgradeTarget")
-                  )
-      Prelude.<*> (x Prelude..@? "EngineVersion")
-      Prelude.<*> (x Prelude..@? "SupportsGlobalDatabases")
-      Prelude.<*> ( x Prelude..@? "ExportableLogTypes"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "SupportedCharacterSets"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "CharacterSet")
-                  )
-      Prelude.<*> (x Prelude..@? "SupportsReadReplica")
-      Prelude.<*> (x Prelude..@? "DBParameterGroupFamily")
-      Prelude.<*> (x Prelude..@? "Engine")
-      Prelude.<*> ( x Prelude..@? "SupportedFeatureNames"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "SupportsLogExportsToCloudwatchLogs")
-      Prelude.<*> (x Prelude..@? "DefaultCharacterSet")
-      Prelude.<*> (x Prelude..@? "SupportsParallelQuery")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "DBEngineVersionDescription")
+      Core.<*> (x Core..@? "DBEngineDescription")
+      Core.<*> ( x Core..@? "SupportedTimezones" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Timezone")
+               )
+      Core.<*> ( x Core..@? "SupportedEngineModes"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "SupportedNcharCharacterSets"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "CharacterSet")
+               )
+      Core.<*> ( x Core..@? "ValidUpgradeTarget" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "UpgradeTarget")
+               )
+      Core.<*> (x Core..@? "EngineVersion")
+      Core.<*> (x Core..@? "SupportsGlobalDatabases")
+      Core.<*> ( x Core..@? "ExportableLogTypes" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "SupportedCharacterSets"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "CharacterSet")
+               )
+      Core.<*> (x Core..@? "SupportsReadReplica")
+      Core.<*> (x Core..@? "DBParameterGroupFamily")
+      Core.<*> (x Core..@? "Engine")
+      Core.<*> ( x Core..@? "SupportedFeatureNames"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "SupportsLogExportsToCloudwatchLogs")
+      Core.<*> (x Core..@? "DefaultCharacterSet")
+      Core.<*> (x Core..@? "SupportsParallelQuery")
 
-instance Prelude.Hashable DBEngineVersion
+instance Core.Hashable DBEngineVersion
 
-instance Prelude.NFData DBEngineVersion
+instance Core.NFData DBEngineVersion

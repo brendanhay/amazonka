@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,25 +47,25 @@ module Network.AWS.EC2.CreateNetworkAcl
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNetworkAcl' smart constructor.
 data CreateNetworkAcl = CreateNetworkAcl'
   { -- | The tags to assign to the network ACL.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text
+    vpcId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkAcl' with all optional fields omitted.
@@ -86,75 +85,75 @@ data CreateNetworkAcl = CreateNetworkAcl'
 -- 'vpcId', 'createNetworkAcl_vpcId' - The ID of the VPC.
 newCreateNetworkAcl ::
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   CreateNetworkAcl
 newCreateNetworkAcl pVpcId_ =
   CreateNetworkAcl'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
+    { tagSpecifications = Core.Nothing,
+      dryRun = Core.Nothing,
       vpcId = pVpcId_
     }
 
 -- | The tags to assign to the network ACL.
-createNetworkAcl_tagSpecifications :: Lens.Lens' CreateNetworkAcl (Prelude.Maybe [TagSpecification])
-createNetworkAcl_tagSpecifications = Lens.lens (\CreateNetworkAcl' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkAcl' {} a -> s {tagSpecifications = a} :: CreateNetworkAcl) Prelude.. Lens.mapping Prelude._Coerce
+createNetworkAcl_tagSpecifications :: Lens.Lens' CreateNetworkAcl (Core.Maybe [TagSpecification])
+createNetworkAcl_tagSpecifications = Lens.lens (\CreateNetworkAcl' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkAcl' {} a -> s {tagSpecifications = a} :: CreateNetworkAcl) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createNetworkAcl_dryRun :: Lens.Lens' CreateNetworkAcl (Prelude.Maybe Prelude.Bool)
+createNetworkAcl_dryRun :: Lens.Lens' CreateNetworkAcl (Core.Maybe Core.Bool)
 createNetworkAcl_dryRun = Lens.lens (\CreateNetworkAcl' {dryRun} -> dryRun) (\s@CreateNetworkAcl' {} a -> s {dryRun = a} :: CreateNetworkAcl)
 
 -- | The ID of the VPC.
-createNetworkAcl_vpcId :: Lens.Lens' CreateNetworkAcl Prelude.Text
+createNetworkAcl_vpcId :: Lens.Lens' CreateNetworkAcl Core.Text
 createNetworkAcl_vpcId = Lens.lens (\CreateNetworkAcl' {vpcId} -> vpcId) (\s@CreateNetworkAcl' {} a -> s {vpcId = a} :: CreateNetworkAcl)
 
-instance Prelude.AWSRequest CreateNetworkAcl where
-  type Rs CreateNetworkAcl = CreateNetworkAclResponse
+instance Core.AWSRequest CreateNetworkAcl where
+  type
+    AWSResponse CreateNetworkAcl =
+      CreateNetworkAclResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateNetworkAclResponse'
-            Prelude.<$> (x Prelude..@? "networkAcl")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "networkAcl")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkAcl
+instance Core.Hashable CreateNetworkAcl
 
-instance Prelude.NFData CreateNetworkAcl
+instance Core.NFData CreateNetworkAcl
 
-instance Prelude.ToHeaders CreateNetworkAcl where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateNetworkAcl where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateNetworkAcl where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateNetworkAcl where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateNetworkAcl where
+instance Core.ToQuery CreateNetworkAcl where
   toQuery CreateNetworkAcl' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateNetworkAcl" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateNetworkAcl" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "VpcId" Prelude.=: vpcId
+        "DryRun" Core.=: dryRun,
+        "VpcId" Core.=: vpcId
       ]
 
 -- | /See:/ 'newCreateNetworkAclResponse' smart constructor.
 data CreateNetworkAclResponse = CreateNetworkAclResponse'
   { -- | Information about the network ACL.
-    networkAcl :: Prelude.Maybe NetworkAcl,
+    networkAcl :: Core.Maybe NetworkAcl,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkAclResponse' with all optional fields omitted.
@@ -169,21 +168,21 @@ data CreateNetworkAclResponse = CreateNetworkAclResponse'
 -- 'httpStatus', 'createNetworkAclResponse_httpStatus' - The response's http status code.
 newCreateNetworkAclResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateNetworkAclResponse
 newCreateNetworkAclResponse pHttpStatus_ =
   CreateNetworkAclResponse'
     { networkAcl =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the network ACL.
-createNetworkAclResponse_networkAcl :: Lens.Lens' CreateNetworkAclResponse (Prelude.Maybe NetworkAcl)
+createNetworkAclResponse_networkAcl :: Lens.Lens' CreateNetworkAclResponse (Core.Maybe NetworkAcl)
 createNetworkAclResponse_networkAcl = Lens.lens (\CreateNetworkAclResponse' {networkAcl} -> networkAcl) (\s@CreateNetworkAclResponse' {} a -> s {networkAcl = a} :: CreateNetworkAclResponse)
 
 -- | The response's http status code.
-createNetworkAclResponse_httpStatus :: Lens.Lens' CreateNetworkAclResponse Prelude.Int
+createNetworkAclResponse_httpStatus :: Lens.Lens' CreateNetworkAclResponse Core.Int
 createNetworkAclResponse_httpStatus = Lens.lens (\CreateNetworkAclResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkAclResponse' {} a -> s {httpStatus = a} :: CreateNetworkAclResponse)
 
-instance Prelude.NFData CreateNetworkAclResponse
+instance Core.NFData CreateNetworkAclResponse

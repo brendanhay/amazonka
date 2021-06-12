@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.Headers where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains a list of HTTP header names.
 --
 -- /See:/ 'newHeaders' smart constructor.
 data Headers = Headers'
   { -- | A list of HTTP header names.
-    items :: Prelude.Maybe [Prelude.Text],
+    items :: Core.Maybe [Core.Text],
     -- | The number of header names in the @Items@ list.
-    quantity :: Prelude.Int
+    quantity :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Headers' with all optional fields omitted.
@@ -47,39 +46,38 @@ data Headers = Headers'
 -- 'quantity', 'headers_quantity' - The number of header names in the @Items@ list.
 newHeaders ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   Headers
 newHeaders pQuantity_ =
   Headers'
-    { items = Prelude.Nothing,
+    { items = Core.Nothing,
       quantity = pQuantity_
     }
 
 -- | A list of HTTP header names.
-headers_items :: Lens.Lens' Headers (Prelude.Maybe [Prelude.Text])
-headers_items = Lens.lens (\Headers' {items} -> items) (\s@Headers' {} a -> s {items = a} :: Headers) Prelude.. Lens.mapping Prelude._Coerce
+headers_items :: Lens.Lens' Headers (Core.Maybe [Core.Text])
+headers_items = Lens.lens (\Headers' {items} -> items) (\s@Headers' {} a -> s {items = a} :: Headers) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of header names in the @Items@ list.
-headers_quantity :: Lens.Lens' Headers Prelude.Int
+headers_quantity :: Lens.Lens' Headers Core.Int
 headers_quantity = Lens.lens (\Headers' {quantity} -> quantity) (\s@Headers' {} a -> s {quantity = a} :: Headers)
 
-instance Prelude.FromXML Headers where
+instance Core.FromXML Headers where
   parseXML x =
     Headers'
-      Prelude.<$> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Name")
-                  )
-      Prelude.<*> (x Prelude..@ "Quantity")
+      Core.<$> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Name")
+               )
+      Core.<*> (x Core..@ "Quantity")
 
-instance Prelude.Hashable Headers
+instance Core.Hashable Headers
 
-instance Prelude.NFData Headers
+instance Core.NFData Headers
 
-instance Prelude.ToXML Headers where
+instance Core.ToXML Headers where
   toXML Headers' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Items"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Name" Prelude.<$> items),
-        "Quantity" Prelude.@= quantity
+          Core.@= Core.toXML (Core.toXMLList "Name" Core.<$> items),
+        "Quantity" Core.@= quantity
       ]

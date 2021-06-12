@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Glue.BatchCreatePartition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,17 +52,17 @@ import qualified Network.AWS.Response as Response
 data BatchCreatePartition = BatchCreatePartition'
   { -- | The ID of the catalog in which the partition is to be created.
     -- Currently, this should be the AWS account ID.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the metadata database in which the partition is to be
     -- created.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the metadata table in which the partition is to be created.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A list of @PartitionInput@ structures that define the partitions to be
     -- created.
     partitionInputList :: [PartitionInput]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchCreatePartition' with all optional fields omitted.
@@ -85,98 +84,91 @@ data BatchCreatePartition = BatchCreatePartition'
 -- created.
 newBatchCreatePartition ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   BatchCreatePartition
 newBatchCreatePartition pDatabaseName_ pTableName_ =
   BatchCreatePartition'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_,
-      partitionInputList = Prelude.mempty
+      partitionInputList = Core.mempty
     }
 
 -- | The ID of the catalog in which the partition is to be created.
 -- Currently, this should be the AWS account ID.
-batchCreatePartition_catalogId :: Lens.Lens' BatchCreatePartition (Prelude.Maybe Prelude.Text)
+batchCreatePartition_catalogId :: Lens.Lens' BatchCreatePartition (Core.Maybe Core.Text)
 batchCreatePartition_catalogId = Lens.lens (\BatchCreatePartition' {catalogId} -> catalogId) (\s@BatchCreatePartition' {} a -> s {catalogId = a} :: BatchCreatePartition)
 
 -- | The name of the metadata database in which the partition is to be
 -- created.
-batchCreatePartition_databaseName :: Lens.Lens' BatchCreatePartition Prelude.Text
+batchCreatePartition_databaseName :: Lens.Lens' BatchCreatePartition Core.Text
 batchCreatePartition_databaseName = Lens.lens (\BatchCreatePartition' {databaseName} -> databaseName) (\s@BatchCreatePartition' {} a -> s {databaseName = a} :: BatchCreatePartition)
 
 -- | The name of the metadata table in which the partition is to be created.
-batchCreatePartition_tableName :: Lens.Lens' BatchCreatePartition Prelude.Text
+batchCreatePartition_tableName :: Lens.Lens' BatchCreatePartition Core.Text
 batchCreatePartition_tableName = Lens.lens (\BatchCreatePartition' {tableName} -> tableName) (\s@BatchCreatePartition' {} a -> s {tableName = a} :: BatchCreatePartition)
 
 -- | A list of @PartitionInput@ structures that define the partitions to be
 -- created.
 batchCreatePartition_partitionInputList :: Lens.Lens' BatchCreatePartition [PartitionInput]
-batchCreatePartition_partitionInputList = Lens.lens (\BatchCreatePartition' {partitionInputList} -> partitionInputList) (\s@BatchCreatePartition' {} a -> s {partitionInputList = a} :: BatchCreatePartition) Prelude.. Prelude._Coerce
+batchCreatePartition_partitionInputList = Lens.lens (\BatchCreatePartition' {partitionInputList} -> partitionInputList) (\s@BatchCreatePartition' {} a -> s {partitionInputList = a} :: BatchCreatePartition) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchCreatePartition where
+instance Core.AWSRequest BatchCreatePartition where
   type
-    Rs BatchCreatePartition =
+    AWSResponse BatchCreatePartition =
       BatchCreatePartitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchCreatePartitionResponse'
-            Prelude.<$> (x Prelude..?> "Errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchCreatePartition
+instance Core.Hashable BatchCreatePartition
 
-instance Prelude.NFData BatchCreatePartition
+instance Core.NFData BatchCreatePartition
 
-instance Prelude.ToHeaders BatchCreatePartition where
+instance Core.ToHeaders BatchCreatePartition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.BatchCreatePartition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.BatchCreatePartition" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchCreatePartition where
+instance Core.ToJSON BatchCreatePartition where
   toJSON BatchCreatePartition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ( "PartitionInputList"
-                  Prelude..= partitionInputList
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("PartitionInputList" Core..= partitionInputList)
           ]
       )
 
-instance Prelude.ToPath BatchCreatePartition where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchCreatePartition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchCreatePartition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchCreatePartition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchCreatePartitionResponse' smart constructor.
 data BatchCreatePartitionResponse = BatchCreatePartitionResponse'
   { -- | The errors encountered when trying to create the requested partitions.
-    errors :: Prelude.Maybe [PartitionError],
+    errors :: Core.Maybe [PartitionError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchCreatePartitionResponse' with all optional fields omitted.
@@ -191,21 +183,21 @@ data BatchCreatePartitionResponse = BatchCreatePartitionResponse'
 -- 'httpStatus', 'batchCreatePartitionResponse_httpStatus' - The response's http status code.
 newBatchCreatePartitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchCreatePartitionResponse
 newBatchCreatePartitionResponse pHttpStatus_ =
   BatchCreatePartitionResponse'
     { errors =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The errors encountered when trying to create the requested partitions.
-batchCreatePartitionResponse_errors :: Lens.Lens' BatchCreatePartitionResponse (Prelude.Maybe [PartitionError])
-batchCreatePartitionResponse_errors = Lens.lens (\BatchCreatePartitionResponse' {errors} -> errors) (\s@BatchCreatePartitionResponse' {} a -> s {errors = a} :: BatchCreatePartitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchCreatePartitionResponse_errors :: Lens.Lens' BatchCreatePartitionResponse (Core.Maybe [PartitionError])
+batchCreatePartitionResponse_errors = Lens.lens (\BatchCreatePartitionResponse' {errors} -> errors) (\s@BatchCreatePartitionResponse' {} a -> s {errors = a} :: BatchCreatePartitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchCreatePartitionResponse_httpStatus :: Lens.Lens' BatchCreatePartitionResponse Prelude.Int
+batchCreatePartitionResponse_httpStatus :: Lens.Lens' BatchCreatePartitionResponse Core.Int
 batchCreatePartitionResponse_httpStatus = Lens.lens (\BatchCreatePartitionResponse' {httpStatus} -> httpStatus) (\s@BatchCreatePartitionResponse' {} a -> s {httpStatus = a} :: BatchCreatePartitionResponse)
 
-instance Prelude.NFData BatchCreatePartitionResponse
+instance Core.NFData BatchCreatePartitionResponse

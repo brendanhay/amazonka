@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CognitoIdentity.GetId
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +55,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetId' smart constructor.
 data GetId = GetId'
   { -- | A standard AWS account ID (9+ digits).
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | A set of optional name-value pairs that map provider names to provider
     -- tokens. The available provider names for @Logins@ are as follows:
     --
@@ -73,11 +72,11 @@ data GetId = GetId'
     -- -   Twitter: @api.twitter.com@
     --
     -- -   Digits: @www.digits.com@
-    logins :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    logins :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text
+    identityPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetId' with all optional fields omitted.
@@ -109,17 +108,17 @@ data GetId = GetId'
 -- 'identityPoolId', 'getId_identityPoolId' - An identity pool ID in the format REGION:GUID.
 newGetId ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetId
 newGetId pIdentityPoolId_ =
   GetId'
-    { accountId = Prelude.Nothing,
-      logins = Prelude.Nothing,
+    { accountId = Core.Nothing,
+      logins = Core.Nothing,
       identityPoolId = pIdentityPoolId_
     }
 
 -- | A standard AWS account ID (9+ digits).
-getId_accountId :: Lens.Lens' GetId (Prelude.Maybe Prelude.Text)
+getId_accountId :: Lens.Lens' GetId (Core.Maybe Core.Text)
 getId_accountId = Lens.lens (\GetId' {accountId} -> accountId) (\s@GetId' {} a -> s {accountId = a} :: GetId)
 
 -- | A set of optional name-value pairs that map provider names to provider
@@ -138,70 +137,67 @@ getId_accountId = Lens.lens (\GetId' {accountId} -> accountId) (\s@GetId' {} a -
 -- -   Twitter: @api.twitter.com@
 --
 -- -   Digits: @www.digits.com@
-getId_logins :: Lens.Lens' GetId (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getId_logins = Lens.lens (\GetId' {logins} -> logins) (\s@GetId' {} a -> s {logins = a} :: GetId) Prelude.. Lens.mapping Prelude._Coerce
+getId_logins :: Lens.Lens' GetId (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getId_logins = Lens.lens (\GetId' {logins} -> logins) (\s@GetId' {} a -> s {logins = a} :: GetId) Core.. Lens.mapping Lens._Coerce
 
 -- | An identity pool ID in the format REGION:GUID.
-getId_identityPoolId :: Lens.Lens' GetId Prelude.Text
+getId_identityPoolId :: Lens.Lens' GetId Core.Text
 getId_identityPoolId = Lens.lens (\GetId' {identityPoolId} -> identityPoolId) (\s@GetId' {} a -> s {identityPoolId = a} :: GetId)
 
-instance Prelude.AWSRequest GetId where
-  type Rs GetId = GetIdResponse
+instance Core.AWSRequest GetId where
+  type AWSResponse GetId = GetIdResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetIdResponse'
-            Prelude.<$> (x Prelude..?> "IdentityId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "IdentityId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetId
+instance Core.Hashable GetId
 
-instance Prelude.NFData GetId
+instance Core.NFData GetId
 
-instance Prelude.ToHeaders GetId where
+instance Core.ToHeaders GetId where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.GetId" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.GetId" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetId where
+instance Core.ToJSON GetId where
   toJSON GetId' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AccountId" Prelude..=) Prelude.<$> accountId,
-            ("Logins" Prelude..=) Prelude.<$> logins,
-            Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId)
+    Core.object
+      ( Core.catMaybes
+          [ ("AccountId" Core..=) Core.<$> accountId,
+            ("Logins" Core..=) Core.<$> logins,
+            Core.Just ("IdentityPoolId" Core..= identityPoolId)
           ]
       )
 
-instance Prelude.ToPath GetId where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetId where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetId where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetId where
+  toQuery = Core.const Core.mempty
 
 -- | Returned in response to a GetId request.
 --
 -- /See:/ 'newGetIdResponse' smart constructor.
 data GetIdResponse = GetIdResponse'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdResponse' with all optional fields omitted.
@@ -216,20 +212,20 @@ data GetIdResponse = GetIdResponse'
 -- 'httpStatus', 'getIdResponse_httpStatus' - The response's http status code.
 newGetIdResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetIdResponse
 newGetIdResponse pHttpStatus_ =
   GetIdResponse'
-    { identityId = Prelude.Nothing,
+    { identityId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.
-getIdResponse_identityId :: Lens.Lens' GetIdResponse (Prelude.Maybe Prelude.Text)
+getIdResponse_identityId :: Lens.Lens' GetIdResponse (Core.Maybe Core.Text)
 getIdResponse_identityId = Lens.lens (\GetIdResponse' {identityId} -> identityId) (\s@GetIdResponse' {} a -> s {identityId = a} :: GetIdResponse)
 
 -- | The response's http status code.
-getIdResponse_httpStatus :: Lens.Lens' GetIdResponse Prelude.Int
+getIdResponse_httpStatus :: Lens.Lens' GetIdResponse Core.Int
 getIdResponse_httpStatus = Lens.lens (\GetIdResponse' {httpStatus} -> httpStatus) (\s@GetIdResponse' {} a -> s {httpStatus = a} :: GetIdResponse)
 
-instance Prelude.NFData GetIdResponse
+instance Core.NFData GetIdResponse

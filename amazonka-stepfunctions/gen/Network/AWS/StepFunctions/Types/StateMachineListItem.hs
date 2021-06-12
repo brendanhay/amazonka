@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.StateMachineListItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.StateMachineType
 
 -- | Contains details about the state machine.
@@ -29,7 +28,7 @@ import Network.AWS.StepFunctions.Types.StateMachineType
 -- /See:/ 'newStateMachineListItem' smart constructor.
 data StateMachineListItem = StateMachineListItem'
   { -- | The Amazon Resource Name (ARN) that identifies the state machine.
-    stateMachineArn :: Prelude.Text,
+    stateMachineArn :: Core.Text,
     -- | The name of the state machine.
     --
     -- A name must /not/ contain:
@@ -46,12 +45,12 @@ data StateMachineListItem = StateMachineListItem'
     --
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
-    name :: Prelude.Text,
+    name :: Core.Text,
     type' :: StateMachineType,
     -- | The date the state machine is created.
-    creationDate :: Prelude.POSIX
+    creationDate :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StateMachineListItem' with all optional fields omitted.
@@ -85,13 +84,13 @@ data StateMachineListItem = StateMachineListItem'
 -- 'creationDate', 'stateMachineListItem_creationDate' - The date the state machine is created.
 newStateMachineListItem ::
   -- | 'stateMachineArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
   StateMachineType ->
   -- | 'creationDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   StateMachineListItem
 newStateMachineListItem
   pStateMachineArn_
@@ -103,11 +102,11 @@ newStateMachineListItem
           pStateMachineArn_,
         name = pName_,
         type' = pType_,
-        creationDate = Prelude._Time Lens.# pCreationDate_
+        creationDate = Core._Time Lens.# pCreationDate_
       }
 
 -- | The Amazon Resource Name (ARN) that identifies the state machine.
-stateMachineListItem_stateMachineArn :: Lens.Lens' StateMachineListItem Prelude.Text
+stateMachineListItem_stateMachineArn :: Lens.Lens' StateMachineListItem Core.Text
 stateMachineListItem_stateMachineArn = Lens.lens (\StateMachineListItem' {stateMachineArn} -> stateMachineArn) (\s@StateMachineListItem' {} a -> s {stateMachineArn = a} :: StateMachineListItem)
 
 -- | The name of the state machine.
@@ -126,7 +125,7 @@ stateMachineListItem_stateMachineArn = Lens.lens (\StateMachineListItem' {stateM
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
-stateMachineListItem_name :: Lens.Lens' StateMachineListItem Prelude.Text
+stateMachineListItem_name :: Lens.Lens' StateMachineListItem Core.Text
 stateMachineListItem_name = Lens.lens (\StateMachineListItem' {name} -> name) (\s@StateMachineListItem' {} a -> s {name = a} :: StateMachineListItem)
 
 -- |
@@ -134,21 +133,21 @@ stateMachineListItem_type :: Lens.Lens' StateMachineListItem StateMachineType
 stateMachineListItem_type = Lens.lens (\StateMachineListItem' {type'} -> type') (\s@StateMachineListItem' {} a -> s {type' = a} :: StateMachineListItem)
 
 -- | The date the state machine is created.
-stateMachineListItem_creationDate :: Lens.Lens' StateMachineListItem Prelude.UTCTime
-stateMachineListItem_creationDate = Lens.lens (\StateMachineListItem' {creationDate} -> creationDate) (\s@StateMachineListItem' {} a -> s {creationDate = a} :: StateMachineListItem) Prelude.. Prelude._Time
+stateMachineListItem_creationDate :: Lens.Lens' StateMachineListItem Core.UTCTime
+stateMachineListItem_creationDate = Lens.lens (\StateMachineListItem' {creationDate} -> creationDate) (\s@StateMachineListItem' {} a -> s {creationDate = a} :: StateMachineListItem) Core.. Core._Time
 
-instance Prelude.FromJSON StateMachineListItem where
+instance Core.FromJSON StateMachineListItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StateMachineListItem"
       ( \x ->
           StateMachineListItem'
-            Prelude.<$> (x Prelude..: "stateMachineArn")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "type")
-            Prelude.<*> (x Prelude..: "creationDate")
+            Core.<$> (x Core..: "stateMachineArn")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "type")
+            Core.<*> (x Core..: "creationDate")
       )
 
-instance Prelude.Hashable StateMachineListItem
+instance Core.Hashable StateMachineListItem
 
-instance Prelude.NFData StateMachineListItem
+instance Core.NFData StateMachineListItem

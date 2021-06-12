@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.SnapshotSortingEntity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.SnapshotAttributeToSortBy
 import Network.AWS.Redshift.Types.SortByOrder
@@ -31,11 +30,11 @@ import Network.AWS.Redshift.Types.SortByOrder
 -- /See:/ 'newSnapshotSortingEntity' smart constructor.
 data SnapshotSortingEntity = SnapshotSortingEntity'
   { -- | The order for listing the attributes.
-    sortOrder :: Prelude.Maybe SortByOrder,
+    sortOrder :: Core.Maybe SortByOrder,
     -- | The category for sorting the snapshots.
     attribute :: SnapshotAttributeToSortBy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SnapshotSortingEntity' with all optional fields omitted.
@@ -54,25 +53,25 @@ newSnapshotSortingEntity ::
   SnapshotSortingEntity
 newSnapshotSortingEntity pAttribute_ =
   SnapshotSortingEntity'
-    { sortOrder = Prelude.Nothing,
+    { sortOrder = Core.Nothing,
       attribute = pAttribute_
     }
 
 -- | The order for listing the attributes.
-snapshotSortingEntity_sortOrder :: Lens.Lens' SnapshotSortingEntity (Prelude.Maybe SortByOrder)
+snapshotSortingEntity_sortOrder :: Lens.Lens' SnapshotSortingEntity (Core.Maybe SortByOrder)
 snapshotSortingEntity_sortOrder = Lens.lens (\SnapshotSortingEntity' {sortOrder} -> sortOrder) (\s@SnapshotSortingEntity' {} a -> s {sortOrder = a} :: SnapshotSortingEntity)
 
 -- | The category for sorting the snapshots.
 snapshotSortingEntity_attribute :: Lens.Lens' SnapshotSortingEntity SnapshotAttributeToSortBy
 snapshotSortingEntity_attribute = Lens.lens (\SnapshotSortingEntity' {attribute} -> attribute) (\s@SnapshotSortingEntity' {} a -> s {attribute = a} :: SnapshotSortingEntity)
 
-instance Prelude.Hashable SnapshotSortingEntity
+instance Core.Hashable SnapshotSortingEntity
 
-instance Prelude.NFData SnapshotSortingEntity
+instance Core.NFData SnapshotSortingEntity
 
-instance Prelude.ToQuery SnapshotSortingEntity where
+instance Core.ToQuery SnapshotSortingEntity where
   toQuery SnapshotSortingEntity' {..} =
-    Prelude.mconcat
-      [ "SortOrder" Prelude.=: sortOrder,
-        "Attribute" Prelude.=: attribute
+    Core.mconcat
+      [ "SortOrder" Core.=: sortOrder,
+        "Attribute" Core.=: attribute
       ]

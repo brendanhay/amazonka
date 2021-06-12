@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Tagging where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
@@ -32,7 +31,7 @@ data Tagging = Tagging'
   { -- | A collection for a set of tags
     tagSet :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tagging' with all optional fields omitted.
@@ -45,17 +44,17 @@ data Tagging = Tagging'
 -- 'tagSet', 'tagging_tagSet' - A collection for a set of tags
 newTagging ::
   Tagging
-newTagging = Tagging' {tagSet = Prelude.mempty}
+newTagging = Tagging' {tagSet = Core.mempty}
 
 -- | A collection for a set of tags
 tagging_tagSet :: Lens.Lens' Tagging [Tag]
-tagging_tagSet = Lens.lens (\Tagging' {tagSet} -> tagSet) (\s@Tagging' {} a -> s {tagSet = a} :: Tagging) Prelude.. Prelude._Coerce
+tagging_tagSet = Lens.lens (\Tagging' {tagSet} -> tagSet) (\s@Tagging' {} a -> s {tagSet = a} :: Tagging) Core.. Lens._Coerce
 
-instance Prelude.Hashable Tagging
+instance Core.Hashable Tagging
 
-instance Prelude.NFData Tagging
+instance Core.NFData Tagging
 
-instance Prelude.ToXML Tagging where
+instance Core.ToXML Tagging where
   toXML Tagging' {..} =
-    Prelude.mconcat
-      ["TagSet" Prelude.@= Prelude.toXMLList "Tag" tagSet]
+    Core.mconcat
+      ["TagSet" Core.@= Core.toXMLList "Tag" tagSet]

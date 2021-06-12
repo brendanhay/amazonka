@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkDocs.Types.User where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkDocs.Types.LocaleType
 import Network.AWS.WorkDocs.Types.UserStatusType
 import Network.AWS.WorkDocs.Types.UserStorageMetadata
@@ -32,37 +31,37 @@ import Network.AWS.WorkDocs.Types.UserType
 -- /See:/ 'newUser' smart constructor.
 data User = User'
   { -- | The time when the user was modified.
-    modifiedTimestamp :: Prelude.Maybe Prelude.POSIX,
+    modifiedTimestamp :: Core.Maybe Core.POSIX,
     -- | The status of the user.
-    status :: Prelude.Maybe UserStatusType,
+    status :: Core.Maybe UserStatusType,
     -- | The ID of the organization.
-    organizationId :: Prelude.Maybe Prelude.Text,
+    organizationId :: Core.Maybe Core.Text,
     -- | The time when the user was created.
-    createdTimestamp :: Prelude.Maybe Prelude.POSIX,
+    createdTimestamp :: Core.Maybe Core.POSIX,
     -- | The time zone ID of the user.
-    timeZoneId :: Prelude.Maybe Prelude.Text,
+    timeZoneId :: Core.Maybe Core.Text,
     -- | The surname of the user.
-    surname :: Prelude.Maybe Prelude.Text,
+    surname :: Core.Maybe Core.Text,
     -- | The locale of the user.
-    locale :: Prelude.Maybe LocaleType,
+    locale :: Core.Maybe LocaleType,
     -- | The ID of the user.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The ID of the root folder.
-    rootFolderId :: Prelude.Maybe Prelude.Text,
+    rootFolderId :: Core.Maybe Core.Text,
     -- | The given name of the user.
-    givenName :: Prelude.Maybe Prelude.Text,
+    givenName :: Core.Maybe Core.Text,
     -- | The ID of the recycle bin folder.
-    recycleBinFolderId :: Prelude.Maybe Prelude.Text,
+    recycleBinFolderId :: Core.Maybe Core.Text,
     -- | The storage for the user.
-    storage :: Prelude.Maybe UserStorageMetadata,
+    storage :: Core.Maybe UserStorageMetadata,
     -- | The login name of the user.
-    username :: Prelude.Maybe Prelude.Text,
+    username :: Core.Maybe Core.Text,
     -- | The type of user.
-    type' :: Prelude.Maybe UserType,
+    type' :: Core.Maybe UserType,
     -- | The email address of the user.
-    emailAddress :: Prelude.Maybe Prelude.Text
+    emailAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'User' with all optional fields omitted.
@@ -105,106 +104,106 @@ newUser ::
   User
 newUser =
   User'
-    { modifiedTimestamp = Prelude.Nothing,
-      status = Prelude.Nothing,
-      organizationId = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
-      timeZoneId = Prelude.Nothing,
-      surname = Prelude.Nothing,
-      locale = Prelude.Nothing,
-      id = Prelude.Nothing,
-      rootFolderId = Prelude.Nothing,
-      givenName = Prelude.Nothing,
-      recycleBinFolderId = Prelude.Nothing,
-      storage = Prelude.Nothing,
-      username = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      emailAddress = Prelude.Nothing
+    { modifiedTimestamp = Core.Nothing,
+      status = Core.Nothing,
+      organizationId = Core.Nothing,
+      createdTimestamp = Core.Nothing,
+      timeZoneId = Core.Nothing,
+      surname = Core.Nothing,
+      locale = Core.Nothing,
+      id = Core.Nothing,
+      rootFolderId = Core.Nothing,
+      givenName = Core.Nothing,
+      recycleBinFolderId = Core.Nothing,
+      storage = Core.Nothing,
+      username = Core.Nothing,
+      type' = Core.Nothing,
+      emailAddress = Core.Nothing
     }
 
 -- | The time when the user was modified.
-user_modifiedTimestamp :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_modifiedTimestamp = Lens.lens (\User' {modifiedTimestamp} -> modifiedTimestamp) (\s@User' {} a -> s {modifiedTimestamp = a} :: User) Prelude.. Lens.mapping Prelude._Time
+user_modifiedTimestamp :: Lens.Lens' User (Core.Maybe Core.UTCTime)
+user_modifiedTimestamp = Lens.lens (\User' {modifiedTimestamp} -> modifiedTimestamp) (\s@User' {} a -> s {modifiedTimestamp = a} :: User) Core.. Lens.mapping Core._Time
 
 -- | The status of the user.
-user_status :: Lens.Lens' User (Prelude.Maybe UserStatusType)
+user_status :: Lens.Lens' User (Core.Maybe UserStatusType)
 user_status = Lens.lens (\User' {status} -> status) (\s@User' {} a -> s {status = a} :: User)
 
 -- | The ID of the organization.
-user_organizationId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_organizationId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_organizationId = Lens.lens (\User' {organizationId} -> organizationId) (\s@User' {} a -> s {organizationId = a} :: User)
 
 -- | The time when the user was created.
-user_createdTimestamp :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_createdTimestamp = Lens.lens (\User' {createdTimestamp} -> createdTimestamp) (\s@User' {} a -> s {createdTimestamp = a} :: User) Prelude.. Lens.mapping Prelude._Time
+user_createdTimestamp :: Lens.Lens' User (Core.Maybe Core.UTCTime)
+user_createdTimestamp = Lens.lens (\User' {createdTimestamp} -> createdTimestamp) (\s@User' {} a -> s {createdTimestamp = a} :: User) Core.. Lens.mapping Core._Time
 
 -- | The time zone ID of the user.
-user_timeZoneId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_timeZoneId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_timeZoneId = Lens.lens (\User' {timeZoneId} -> timeZoneId) (\s@User' {} a -> s {timeZoneId = a} :: User)
 
 -- | The surname of the user.
-user_surname :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_surname :: Lens.Lens' User (Core.Maybe Core.Text)
 user_surname = Lens.lens (\User' {surname} -> surname) (\s@User' {} a -> s {surname = a} :: User)
 
 -- | The locale of the user.
-user_locale :: Lens.Lens' User (Prelude.Maybe LocaleType)
+user_locale :: Lens.Lens' User (Core.Maybe LocaleType)
 user_locale = Lens.lens (\User' {locale} -> locale) (\s@User' {} a -> s {locale = a} :: User)
 
 -- | The ID of the user.
-user_id :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_id :: Lens.Lens' User (Core.Maybe Core.Text)
 user_id = Lens.lens (\User' {id} -> id) (\s@User' {} a -> s {id = a} :: User)
 
 -- | The ID of the root folder.
-user_rootFolderId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_rootFolderId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_rootFolderId = Lens.lens (\User' {rootFolderId} -> rootFolderId) (\s@User' {} a -> s {rootFolderId = a} :: User)
 
 -- | The given name of the user.
-user_givenName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_givenName :: Lens.Lens' User (Core.Maybe Core.Text)
 user_givenName = Lens.lens (\User' {givenName} -> givenName) (\s@User' {} a -> s {givenName = a} :: User)
 
 -- | The ID of the recycle bin folder.
-user_recycleBinFolderId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_recycleBinFolderId :: Lens.Lens' User (Core.Maybe Core.Text)
 user_recycleBinFolderId = Lens.lens (\User' {recycleBinFolderId} -> recycleBinFolderId) (\s@User' {} a -> s {recycleBinFolderId = a} :: User)
 
 -- | The storage for the user.
-user_storage :: Lens.Lens' User (Prelude.Maybe UserStorageMetadata)
+user_storage :: Lens.Lens' User (Core.Maybe UserStorageMetadata)
 user_storage = Lens.lens (\User' {storage} -> storage) (\s@User' {} a -> s {storage = a} :: User)
 
 -- | The login name of the user.
-user_username :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_username :: Lens.Lens' User (Core.Maybe Core.Text)
 user_username = Lens.lens (\User' {username} -> username) (\s@User' {} a -> s {username = a} :: User)
 
 -- | The type of user.
-user_type :: Lens.Lens' User (Prelude.Maybe UserType)
+user_type :: Lens.Lens' User (Core.Maybe UserType)
 user_type = Lens.lens (\User' {type'} -> type') (\s@User' {} a -> s {type' = a} :: User)
 
 -- | The email address of the user.
-user_emailAddress :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_emailAddress :: Lens.Lens' User (Core.Maybe Core.Text)
 user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' {} a -> s {emailAddress = a} :: User)
 
-instance Prelude.FromJSON User where
+instance Core.FromJSON User where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "User"
       ( \x ->
           User'
-            Prelude.<$> (x Prelude..:? "ModifiedTimestamp")
-            Prelude.<*> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "OrganizationId")
-            Prelude.<*> (x Prelude..:? "CreatedTimestamp")
-            Prelude.<*> (x Prelude..:? "TimeZoneId")
-            Prelude.<*> (x Prelude..:? "Surname")
-            Prelude.<*> (x Prelude..:? "Locale")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "RootFolderId")
-            Prelude.<*> (x Prelude..:? "GivenName")
-            Prelude.<*> (x Prelude..:? "RecycleBinFolderId")
-            Prelude.<*> (x Prelude..:? "Storage")
-            Prelude.<*> (x Prelude..:? "Username")
-            Prelude.<*> (x Prelude..:? "Type")
-            Prelude.<*> (x Prelude..:? "EmailAddress")
+            Core.<$> (x Core..:? "ModifiedTimestamp")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "OrganizationId")
+            Core.<*> (x Core..:? "CreatedTimestamp")
+            Core.<*> (x Core..:? "TimeZoneId")
+            Core.<*> (x Core..:? "Surname")
+            Core.<*> (x Core..:? "Locale")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "RootFolderId")
+            Core.<*> (x Core..:? "GivenName")
+            Core.<*> (x Core..:? "RecycleBinFolderId")
+            Core.<*> (x Core..:? "Storage")
+            Core.<*> (x Core..:? "Username")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (x Core..:? "EmailAddress")
       )
 
-instance Prelude.Hashable User
+instance Core.Hashable User
 
-instance Prelude.NFData User
+instance Core.NFData User

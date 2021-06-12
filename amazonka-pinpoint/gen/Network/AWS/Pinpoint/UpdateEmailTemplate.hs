@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Pinpoint.UpdateEmailTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +73,7 @@ data UpdateEmailTemplate = UpdateEmailTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | Specifies whether to save the updates as a new version of the message
     -- template. Valid values are: true, save the updates as a new version;
     -- and, false, save the updates to (overwrite) the latest existing version
@@ -84,15 +83,15 @@ data UpdateEmailTemplate = UpdateEmailTemplate'
     -- the updates to (overwrites) the latest existing version of the template.
     -- If you specify a value of true for this parameter, don\'t specify a
     -- value for the version parameter. Otherwise, an error will occur.
-    createNewVersion :: Prelude.Maybe Prelude.Bool,
+    createNewVersion :: Core.Maybe Core.Bool,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     emailTemplateRequest :: EmailTemplateRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEmailTemplate' with all optional fields omitted.
@@ -143,7 +142,7 @@ data UpdateEmailTemplate = UpdateEmailTemplate'
 -- 'emailTemplateRequest', 'updateEmailTemplate_emailTemplateRequest' - Undocumented member.
 newUpdateEmailTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'emailTemplateRequest'
   EmailTemplateRequest ->
   UpdateEmailTemplate
@@ -151,8 +150,8 @@ newUpdateEmailTemplate
   pTemplateName_
   pEmailTemplateRequest_ =
     UpdateEmailTemplate'
-      { version = Prelude.Nothing,
-        createNewVersion = Prelude.Nothing,
+      { version = Core.Nothing,
+        createNewVersion = Core.Nothing,
         templateName = pTemplateName_,
         emailTemplateRequest = pEmailTemplateRequest_
       }
@@ -179,7 +178,7 @@ newUpdateEmailTemplate
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-updateEmailTemplate_version :: Lens.Lens' UpdateEmailTemplate (Prelude.Maybe Prelude.Text)
+updateEmailTemplate_version :: Lens.Lens' UpdateEmailTemplate (Core.Maybe Core.Text)
 updateEmailTemplate_version = Lens.lens (\UpdateEmailTemplate' {version} -> version) (\s@UpdateEmailTemplate' {} a -> s {version = a} :: UpdateEmailTemplate)
 
 -- | Specifies whether to save the updates as a new version of the message
@@ -191,81 +190,76 @@ updateEmailTemplate_version = Lens.lens (\UpdateEmailTemplate' {version} -> vers
 -- the updates to (overwrites) the latest existing version of the template.
 -- If you specify a value of true for this parameter, don\'t specify a
 -- value for the version parameter. Otherwise, an error will occur.
-updateEmailTemplate_createNewVersion :: Lens.Lens' UpdateEmailTemplate (Prelude.Maybe Prelude.Bool)
+updateEmailTemplate_createNewVersion :: Lens.Lens' UpdateEmailTemplate (Core.Maybe Core.Bool)
 updateEmailTemplate_createNewVersion = Lens.lens (\UpdateEmailTemplate' {createNewVersion} -> createNewVersion) (\s@UpdateEmailTemplate' {} a -> s {createNewVersion = a} :: UpdateEmailTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-updateEmailTemplate_templateName :: Lens.Lens' UpdateEmailTemplate Prelude.Text
+updateEmailTemplate_templateName :: Lens.Lens' UpdateEmailTemplate Core.Text
 updateEmailTemplate_templateName = Lens.lens (\UpdateEmailTemplate' {templateName} -> templateName) (\s@UpdateEmailTemplate' {} a -> s {templateName = a} :: UpdateEmailTemplate)
 
 -- | Undocumented member.
 updateEmailTemplate_emailTemplateRequest :: Lens.Lens' UpdateEmailTemplate EmailTemplateRequest
 updateEmailTemplate_emailTemplateRequest = Lens.lens (\UpdateEmailTemplate' {emailTemplateRequest} -> emailTemplateRequest) (\s@UpdateEmailTemplate' {} a -> s {emailTemplateRequest = a} :: UpdateEmailTemplate)
 
-instance Prelude.AWSRequest UpdateEmailTemplate where
+instance Core.AWSRequest UpdateEmailTemplate where
   type
-    Rs UpdateEmailTemplate =
+    AWSResponse UpdateEmailTemplate =
       UpdateEmailTemplateResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateEmailTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateEmailTemplate
+instance Core.Hashable UpdateEmailTemplate
 
-instance Prelude.NFData UpdateEmailTemplate
+instance Core.NFData UpdateEmailTemplate
 
-instance Prelude.ToHeaders UpdateEmailTemplate where
+instance Core.ToHeaders UpdateEmailTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateEmailTemplate where
+instance Core.ToJSON UpdateEmailTemplate where
   toJSON UpdateEmailTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "EmailTemplateRequest"
-                  Prelude..= emailTemplateRequest
+                  Core..= emailTemplateRequest
               )
           ]
       )
 
-instance Prelude.ToPath UpdateEmailTemplate where
+instance Core.ToPath UpdateEmailTemplate where
   toPath UpdateEmailTemplate' {..} =
-    Prelude.mconcat
-      [ "/v1/templates/",
-        Prelude.toBS templateName,
-        "/email"
-      ]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/email"]
 
-instance Prelude.ToQuery UpdateEmailTemplate where
+instance Core.ToQuery UpdateEmailTemplate where
   toQuery UpdateEmailTemplate' {..} =
-    Prelude.mconcat
-      [ "version" Prelude.=: version,
-        "create-new-version" Prelude.=: createNewVersion
+    Core.mconcat
+      [ "version" Core.=: version,
+        "create-new-version" Core.=: createNewVersion
       ]
 
 -- | /See:/ 'newUpdateEmailTemplateResponse' smart constructor.
 data UpdateEmailTemplateResponse = UpdateEmailTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     messageBody :: MessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEmailTemplateResponse' with all optional fields omitted.
@@ -280,7 +274,7 @@ data UpdateEmailTemplateResponse = UpdateEmailTemplateResponse'
 -- 'messageBody', 'updateEmailTemplateResponse_messageBody' - Undocumented member.
 newUpdateEmailTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'messageBody'
   MessageBody ->
   UpdateEmailTemplateResponse
@@ -294,11 +288,11 @@ newUpdateEmailTemplateResponse
       }
 
 -- | The response's http status code.
-updateEmailTemplateResponse_httpStatus :: Lens.Lens' UpdateEmailTemplateResponse Prelude.Int
+updateEmailTemplateResponse_httpStatus :: Lens.Lens' UpdateEmailTemplateResponse Core.Int
 updateEmailTemplateResponse_httpStatus = Lens.lens (\UpdateEmailTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateEmailTemplateResponse' {} a -> s {httpStatus = a} :: UpdateEmailTemplateResponse)
 
 -- | Undocumented member.
 updateEmailTemplateResponse_messageBody :: Lens.Lens' UpdateEmailTemplateResponse MessageBody
 updateEmailTemplateResponse_messageBody = Lens.lens (\UpdateEmailTemplateResponse' {messageBody} -> messageBody) (\s@UpdateEmailTemplateResponse' {} a -> s {messageBody = a} :: UpdateEmailTemplateResponse)
 
-instance Prelude.NFData UpdateEmailTemplateResponse
+instance Core.NFData UpdateEmailTemplateResponse

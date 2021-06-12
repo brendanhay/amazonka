@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.APIGateway.GetDeployments
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +55,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDeployments' smart constructor.
 data GetDeployments = GetDeployments'
   { -- | The current pagination position in the paged result set.
-    position :: Prelude.Maybe Prelude.Text,
+    position :: Core.Maybe Core.Text,
     -- | The maximum number of returned results per page. The default value is 25
     -- and the maximum value is 500.
-    limit :: Prelude.Maybe Prelude.Int,
+    limit :: Core.Maybe Core.Int,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text
+    restApiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeployments' with all optional fields omitted.
@@ -82,86 +80,83 @@ data GetDeployments = GetDeployments'
 -- 'restApiId', 'getDeployments_restApiId' - [Required] The string identifier of the associated RestApi.
 newGetDeployments ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   GetDeployments
 newGetDeployments pRestApiId_ =
   GetDeployments'
-    { position = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { position = Core.Nothing,
+      limit = Core.Nothing,
       restApiId = pRestApiId_
     }
 
 -- | The current pagination position in the paged result set.
-getDeployments_position :: Lens.Lens' GetDeployments (Prelude.Maybe Prelude.Text)
+getDeployments_position :: Lens.Lens' GetDeployments (Core.Maybe Core.Text)
 getDeployments_position = Lens.lens (\GetDeployments' {position} -> position) (\s@GetDeployments' {} a -> s {position = a} :: GetDeployments)
 
 -- | The maximum number of returned results per page. The default value is 25
 -- and the maximum value is 500.
-getDeployments_limit :: Lens.Lens' GetDeployments (Prelude.Maybe Prelude.Int)
+getDeployments_limit :: Lens.Lens' GetDeployments (Core.Maybe Core.Int)
 getDeployments_limit = Lens.lens (\GetDeployments' {limit} -> limit) (\s@GetDeployments' {} a -> s {limit = a} :: GetDeployments)
 
 -- | [Required] The string identifier of the associated RestApi.
-getDeployments_restApiId :: Lens.Lens' GetDeployments Prelude.Text
+getDeployments_restApiId :: Lens.Lens' GetDeployments Core.Text
 getDeployments_restApiId = Lens.lens (\GetDeployments' {restApiId} -> restApiId) (\s@GetDeployments' {} a -> s {restApiId = a} :: GetDeployments)
 
-instance Pager.AWSPager GetDeployments where
+instance Core.AWSPager GetDeployments where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? getDeploymentsResponse_position Prelude.. Lens._Just
+            Lens.^? getDeploymentsResponse_position Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? getDeploymentsResponse_items Prelude.. Lens._Just
+            Lens.^? getDeploymentsResponse_items Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getDeployments_position
           Lens..~ rs
-          Lens.^? getDeploymentsResponse_position Prelude.. Lens._Just
+          Lens.^? getDeploymentsResponse_position Core.. Lens._Just
 
-instance Prelude.AWSRequest GetDeployments where
-  type Rs GetDeployments = GetDeploymentsResponse
+instance Core.AWSRequest GetDeployments where
+  type
+    AWSResponse GetDeployments =
+      GetDeploymentsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetDeploymentsResponse'
-            Prelude.<$> (x Prelude..?> "item" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "position")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "item" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "position")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetDeployments
+instance Core.Hashable GetDeployments
 
-instance Prelude.NFData GetDeployments
+instance Core.NFData GetDeployments
 
-instance Prelude.ToHeaders GetDeployments where
+instance Core.ToHeaders GetDeployments where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetDeployments where
+instance Core.ToPath GetDeployments where
   toPath GetDeployments' {..} =
-    Prelude.mconcat
-      [ "/restapis/",
-        Prelude.toBS restApiId,
-        "/deployments"
-      ]
+    Core.mconcat
+      ["/restapis/", Core.toBS restApiId, "/deployments"]
 
-instance Prelude.ToQuery GetDeployments where
+instance Core.ToQuery GetDeployments where
   toQuery GetDeployments' {..} =
-    Prelude.mconcat
-      [ "position" Prelude.=: position,
-        "limit" Prelude.=: limit
-      ]
+    Core.mconcat
+      ["position" Core.=: position, "limit" Core.=: limit]
 
 -- | Represents a collection resource that contains zero or more references
 -- to your existing deployments, and links that guide you on how to
@@ -180,12 +175,12 @@ instance Prelude.ToQuery GetDeployments where
 -- /See:/ 'newGetDeploymentsResponse' smart constructor.
 data GetDeploymentsResponse = GetDeploymentsResponse'
   { -- | The current page of elements from this collection.
-    items :: Prelude.Maybe [Deployment],
-    position :: Prelude.Maybe Prelude.Text,
+    items :: Core.Maybe [Deployment],
+    position :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDeploymentsResponse' with all optional fields omitted.
@@ -202,25 +197,25 @@ data GetDeploymentsResponse = GetDeploymentsResponse'
 -- 'httpStatus', 'getDeploymentsResponse_httpStatus' - The response's http status code.
 newGetDeploymentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetDeploymentsResponse
 newGetDeploymentsResponse pHttpStatus_ =
   GetDeploymentsResponse'
-    { items = Prelude.Nothing,
-      position = Prelude.Nothing,
+    { items = Core.Nothing,
+      position = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current page of elements from this collection.
-getDeploymentsResponse_items :: Lens.Lens' GetDeploymentsResponse (Prelude.Maybe [Deployment])
-getDeploymentsResponse_items = Lens.lens (\GetDeploymentsResponse' {items} -> items) (\s@GetDeploymentsResponse' {} a -> s {items = a} :: GetDeploymentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getDeploymentsResponse_items :: Lens.Lens' GetDeploymentsResponse (Core.Maybe [Deployment])
+getDeploymentsResponse_items = Lens.lens (\GetDeploymentsResponse' {items} -> items) (\s@GetDeploymentsResponse' {} a -> s {items = a} :: GetDeploymentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-getDeploymentsResponse_position :: Lens.Lens' GetDeploymentsResponse (Prelude.Maybe Prelude.Text)
+getDeploymentsResponse_position :: Lens.Lens' GetDeploymentsResponse (Core.Maybe Core.Text)
 getDeploymentsResponse_position = Lens.lens (\GetDeploymentsResponse' {position} -> position) (\s@GetDeploymentsResponse' {} a -> s {position = a} :: GetDeploymentsResponse)
 
 -- | The response's http status code.
-getDeploymentsResponse_httpStatus :: Lens.Lens' GetDeploymentsResponse Prelude.Int
+getDeploymentsResponse_httpStatus :: Lens.Lens' GetDeploymentsResponse Core.Int
 getDeploymentsResponse_httpStatus = Lens.lens (\GetDeploymentsResponse' {httpStatus} -> httpStatus) (\s@GetDeploymentsResponse' {} a -> s {httpStatus = a} :: GetDeploymentsResponse)
 
-instance Prelude.NFData GetDeploymentsResponse
+instance Core.NFData GetDeploymentsResponse

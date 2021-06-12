@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,18 +55,18 @@ module Network.AWS.DirectConnect.DeleteLag
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLag' smart constructor.
 data DeleteLag = DeleteLag'
   { -- | The ID of the LAG.
-    lagId :: Prelude.Text
+    lagId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLag' with all optional fields omitted.
@@ -80,47 +79,43 @@ data DeleteLag = DeleteLag'
 -- 'lagId', 'deleteLag_lagId' - The ID of the LAG.
 newDeleteLag ::
   -- | 'lagId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLag
 newDeleteLag pLagId_ = DeleteLag' {lagId = pLagId_}
 
 -- | The ID of the LAG.
-deleteLag_lagId :: Lens.Lens' DeleteLag Prelude.Text
+deleteLag_lagId :: Lens.Lens' DeleteLag Core.Text
 deleteLag_lagId = Lens.lens (\DeleteLag' {lagId} -> lagId) (\s@DeleteLag' {} a -> s {lagId = a} :: DeleteLag)
 
-instance Prelude.AWSRequest DeleteLag where
-  type Rs DeleteLag = Lag
+instance Core.AWSRequest DeleteLag where
+  type AWSResponse DeleteLag = Lag
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DeleteLag
+instance Core.Hashable DeleteLag
 
-instance Prelude.NFData DeleteLag
+instance Core.NFData DeleteLag
 
-instance Prelude.ToHeaders DeleteLag where
+instance Core.ToHeaders DeleteLag where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("OvertureService.DeleteLag" :: Prelude.ByteString),
+              Core.=# ("OvertureService.DeleteLag" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteLag where
+instance Core.ToJSON DeleteLag where
   toJSON DeleteLag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("lagId" Prelude..= lagId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("lagId" Core..= lagId)])
 
-instance Prelude.ToPath DeleteLag where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLag where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLag where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLag where
+  toQuery = Core.const Core.mempty

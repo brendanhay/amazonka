@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.UserGroupPendingChanges where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the updates being applied to the user group.
 --
 -- /See:/ 'newUserGroupPendingChanges' smart constructor.
 data UserGroupPendingChanges = UserGroupPendingChanges'
   { -- | The list of user IDs to remove.
-    userIdsToRemove :: Prelude.Maybe [Prelude.Text],
+    userIdsToRemove :: Core.Maybe [Core.Text],
     -- | The list of user IDs to add.
-    userIdsToAdd :: Prelude.Maybe [Prelude.Text]
+    userIdsToAdd :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserGroupPendingChanges' with all optional fields omitted.
@@ -50,30 +49,28 @@ newUserGroupPendingChanges ::
 newUserGroupPendingChanges =
   UserGroupPendingChanges'
     { userIdsToRemove =
-        Prelude.Nothing,
-      userIdsToAdd = Prelude.Nothing
+        Core.Nothing,
+      userIdsToAdd = Core.Nothing
     }
 
 -- | The list of user IDs to remove.
-userGroupPendingChanges_userIdsToRemove :: Lens.Lens' UserGroupPendingChanges (Prelude.Maybe [Prelude.Text])
-userGroupPendingChanges_userIdsToRemove = Lens.lens (\UserGroupPendingChanges' {userIdsToRemove} -> userIdsToRemove) (\s@UserGroupPendingChanges' {} a -> s {userIdsToRemove = a} :: UserGroupPendingChanges) Prelude.. Lens.mapping Prelude._Coerce
+userGroupPendingChanges_userIdsToRemove :: Lens.Lens' UserGroupPendingChanges (Core.Maybe [Core.Text])
+userGroupPendingChanges_userIdsToRemove = Lens.lens (\UserGroupPendingChanges' {userIdsToRemove} -> userIdsToRemove) (\s@UserGroupPendingChanges' {} a -> s {userIdsToRemove = a} :: UserGroupPendingChanges) Core.. Lens.mapping Lens._Coerce
 
 -- | The list of user IDs to add.
-userGroupPendingChanges_userIdsToAdd :: Lens.Lens' UserGroupPendingChanges (Prelude.Maybe [Prelude.Text])
-userGroupPendingChanges_userIdsToAdd = Lens.lens (\UserGroupPendingChanges' {userIdsToAdd} -> userIdsToAdd) (\s@UserGroupPendingChanges' {} a -> s {userIdsToAdd = a} :: UserGroupPendingChanges) Prelude.. Lens.mapping Prelude._Coerce
+userGroupPendingChanges_userIdsToAdd :: Lens.Lens' UserGroupPendingChanges (Core.Maybe [Core.Text])
+userGroupPendingChanges_userIdsToAdd = Lens.lens (\UserGroupPendingChanges' {userIdsToAdd} -> userIdsToAdd) (\s@UserGroupPendingChanges' {} a -> s {userIdsToAdd = a} :: UserGroupPendingChanges) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML UserGroupPendingChanges where
+instance Core.FromXML UserGroupPendingChanges where
   parseXML x =
     UserGroupPendingChanges'
-      Prelude.<$> ( x Prelude..@? "UserIdsToRemove"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> ( x Prelude..@? "UserIdsToAdd"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "UserIdsToRemove" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> ( x Core..@? "UserIdsToAdd" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable UserGroupPendingChanges
+instance Core.Hashable UserGroupPendingChanges
 
-instance Prelude.NFData UserGroupPendingChanges
+instance Core.NFData UserGroupPendingChanges

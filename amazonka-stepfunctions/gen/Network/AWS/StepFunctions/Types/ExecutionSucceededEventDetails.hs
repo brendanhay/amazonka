@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 
 -- | Contains details about the successful termination of the execution.
@@ -30,11 +29,11 @@ import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 data ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
   { -- | The JSON data output by the execution. Length constraints apply to the
     -- payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    output :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Prelude.Maybe HistoryEventExecutionDataDetails
+    outputDetails :: Core.Maybe HistoryEventExecutionDataDetails
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExecutionSucceededEventDetails' with all optional fields omitted.
@@ -53,36 +52,29 @@ newExecutionSucceededEventDetails ::
 newExecutionSucceededEventDetails =
   ExecutionSucceededEventDetails'
     { output =
-        Prelude.Nothing,
-      outputDetails = Prelude.Nothing
+        Core.Nothing,
+      outputDetails = Core.Nothing
     }
 
 -- | The JSON data output by the execution. Length constraints apply to the
 -- payload size, and are expressed as bytes in UTF-8 encoding.
-executionSucceededEventDetails_output :: Lens.Lens' ExecutionSucceededEventDetails (Prelude.Maybe Prelude.Text)
-executionSucceededEventDetails_output = Lens.lens (\ExecutionSucceededEventDetails' {output} -> output) (\s@ExecutionSucceededEventDetails' {} a -> s {output = a} :: ExecutionSucceededEventDetails) Prelude.. Lens.mapping Prelude._Sensitive
+executionSucceededEventDetails_output :: Lens.Lens' ExecutionSucceededEventDetails (Core.Maybe Core.Text)
+executionSucceededEventDetails_output = Lens.lens (\ExecutionSucceededEventDetails' {output} -> output) (\s@ExecutionSucceededEventDetails' {} a -> s {output = a} :: ExecutionSucceededEventDetails) Core.. Lens.mapping Core._Sensitive
 
 -- | Contains details about the output of an execution history event.
-executionSucceededEventDetails_outputDetails :: Lens.Lens' ExecutionSucceededEventDetails (Prelude.Maybe HistoryEventExecutionDataDetails)
+executionSucceededEventDetails_outputDetails :: Lens.Lens' ExecutionSucceededEventDetails (Core.Maybe HistoryEventExecutionDataDetails)
 executionSucceededEventDetails_outputDetails = Lens.lens (\ExecutionSucceededEventDetails' {outputDetails} -> outputDetails) (\s@ExecutionSucceededEventDetails' {} a -> s {outputDetails = a} :: ExecutionSucceededEventDetails)
 
-instance
-  Prelude.FromJSON
-    ExecutionSucceededEventDetails
-  where
+instance Core.FromJSON ExecutionSucceededEventDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExecutionSucceededEventDetails"
       ( \x ->
           ExecutionSucceededEventDetails'
-            Prelude.<$> (x Prelude..:? "output")
-            Prelude.<*> (x Prelude..:? "outputDetails")
+            Core.<$> (x Core..:? "output")
+            Core.<*> (x Core..:? "outputDetails")
       )
 
-instance
-  Prelude.Hashable
-    ExecutionSucceededEventDetails
+instance Core.Hashable ExecutionSucceededEventDetails
 
-instance
-  Prelude.NFData
-    ExecutionSucceededEventDetails
+instance Core.NFData ExecutionSucceededEventDetails

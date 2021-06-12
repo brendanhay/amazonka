@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,8 @@ module Network.AWS.ServerlessApplicationRepository.ListApplicationDependencies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServerlessApplicationRepository.Types
@@ -56,15 +54,15 @@ import Network.AWS.ServerlessApplicationRepository.Types
 -- | /See:/ 'newListApplicationDependencies' smart constructor.
 data ListApplicationDependencies = ListApplicationDependencies'
   { -- | A token to specify where to start paginating.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The semantic version of the application to get.
-    semanticVersion :: Prelude.Maybe Prelude.Text,
+    semanticVersion :: Core.Maybe Core.Text,
     -- | The total number of items to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListApplicationDependencies' with all optional fields omitted.
@@ -83,118 +81,108 @@ data ListApplicationDependencies = ListApplicationDependencies'
 -- 'applicationId', 'listApplicationDependencies_applicationId' - The Amazon Resource Name (ARN) of the application.
 newListApplicationDependencies ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   ListApplicationDependencies
 newListApplicationDependencies pApplicationId_ =
   ListApplicationDependencies'
     { nextToken =
-        Prelude.Nothing,
-      semanticVersion = Prelude.Nothing,
-      maxItems = Prelude.Nothing,
+        Core.Nothing,
+      semanticVersion = Core.Nothing,
+      maxItems = Core.Nothing,
       applicationId = pApplicationId_
     }
 
 -- | A token to specify where to start paginating.
-listApplicationDependencies_nextToken :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Text)
+listApplicationDependencies_nextToken :: Lens.Lens' ListApplicationDependencies (Core.Maybe Core.Text)
 listApplicationDependencies_nextToken = Lens.lens (\ListApplicationDependencies' {nextToken} -> nextToken) (\s@ListApplicationDependencies' {} a -> s {nextToken = a} :: ListApplicationDependencies)
 
 -- | The semantic version of the application to get.
-listApplicationDependencies_semanticVersion :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Text)
+listApplicationDependencies_semanticVersion :: Lens.Lens' ListApplicationDependencies (Core.Maybe Core.Text)
 listApplicationDependencies_semanticVersion = Lens.lens (\ListApplicationDependencies' {semanticVersion} -> semanticVersion) (\s@ListApplicationDependencies' {} a -> s {semanticVersion = a} :: ListApplicationDependencies)
 
 -- | The total number of items to return.
-listApplicationDependencies_maxItems :: Lens.Lens' ListApplicationDependencies (Prelude.Maybe Prelude.Natural)
+listApplicationDependencies_maxItems :: Lens.Lens' ListApplicationDependencies (Core.Maybe Core.Natural)
 listApplicationDependencies_maxItems = Lens.lens (\ListApplicationDependencies' {maxItems} -> maxItems) (\s@ListApplicationDependencies' {} a -> s {maxItems = a} :: ListApplicationDependencies)
 
 -- | The Amazon Resource Name (ARN) of the application.
-listApplicationDependencies_applicationId :: Lens.Lens' ListApplicationDependencies Prelude.Text
+listApplicationDependencies_applicationId :: Lens.Lens' ListApplicationDependencies Core.Text
 listApplicationDependencies_applicationId = Lens.lens (\ListApplicationDependencies' {applicationId} -> applicationId) (\s@ListApplicationDependencies' {} a -> s {applicationId = a} :: ListApplicationDependencies)
 
-instance Pager.AWSPager ListApplicationDependencies where
+instance Core.AWSPager ListApplicationDependencies where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listApplicationDependenciesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listApplicationDependenciesResponse_dependencies
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listApplicationDependencies_nextToken
           Lens..~ rs
           Lens.^? listApplicationDependenciesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListApplicationDependencies
-  where
+instance Core.AWSRequest ListApplicationDependencies where
   type
-    Rs ListApplicationDependencies =
+    AWSResponse ListApplicationDependencies =
       ListApplicationDependenciesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListApplicationDependenciesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "dependencies"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "dependencies" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListApplicationDependencies
+instance Core.Hashable ListApplicationDependencies
 
-instance Prelude.NFData ListApplicationDependencies
+instance Core.NFData ListApplicationDependencies
 
-instance
-  Prelude.ToHeaders
-    ListApplicationDependencies
-  where
+instance Core.ToHeaders ListApplicationDependencies where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListApplicationDependencies where
+instance Core.ToPath ListApplicationDependencies where
   toPath ListApplicationDependencies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/applications/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/dependencies"
       ]
 
-instance Prelude.ToQuery ListApplicationDependencies where
+instance Core.ToQuery ListApplicationDependencies where
   toQuery ListApplicationDependencies' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "semanticVersion" Prelude.=: semanticVersion,
-        "maxItems" Prelude.=: maxItems
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "semanticVersion" Core.=: semanticVersion,
+        "maxItems" Core.=: maxItems
       ]
 
 -- | /See:/ 'newListApplicationDependenciesResponse' smart constructor.
 data ListApplicationDependenciesResponse = ListApplicationDependenciesResponse'
   { -- | The token to request the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of application summaries nested in the application.
-    dependencies :: Prelude.Maybe [ApplicationDependencySummary],
+    dependencies :: Core.Maybe [ApplicationDependencySummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListApplicationDependenciesResponse' with all optional fields omitted.
@@ -211,28 +199,28 @@ data ListApplicationDependenciesResponse = ListApplicationDependenciesResponse'
 -- 'httpStatus', 'listApplicationDependenciesResponse_httpStatus' - The response's http status code.
 newListApplicationDependenciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListApplicationDependenciesResponse
 newListApplicationDependenciesResponse pHttpStatus_ =
   ListApplicationDependenciesResponse'
     { nextToken =
-        Prelude.Nothing,
-      dependencies = Prelude.Nothing,
+        Core.Nothing,
+      dependencies = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to request the next page of results.
-listApplicationDependenciesResponse_nextToken :: Lens.Lens' ListApplicationDependenciesResponse (Prelude.Maybe Prelude.Text)
+listApplicationDependenciesResponse_nextToken :: Lens.Lens' ListApplicationDependenciesResponse (Core.Maybe Core.Text)
 listApplicationDependenciesResponse_nextToken = Lens.lens (\ListApplicationDependenciesResponse' {nextToken} -> nextToken) (\s@ListApplicationDependenciesResponse' {} a -> s {nextToken = a} :: ListApplicationDependenciesResponse)
 
 -- | An array of application summaries nested in the application.
-listApplicationDependenciesResponse_dependencies :: Lens.Lens' ListApplicationDependenciesResponse (Prelude.Maybe [ApplicationDependencySummary])
-listApplicationDependenciesResponse_dependencies = Lens.lens (\ListApplicationDependenciesResponse' {dependencies} -> dependencies) (\s@ListApplicationDependenciesResponse' {} a -> s {dependencies = a} :: ListApplicationDependenciesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listApplicationDependenciesResponse_dependencies :: Lens.Lens' ListApplicationDependenciesResponse (Core.Maybe [ApplicationDependencySummary])
+listApplicationDependenciesResponse_dependencies = Lens.lens (\ListApplicationDependenciesResponse' {dependencies} -> dependencies) (\s@ListApplicationDependenciesResponse' {} a -> s {dependencies = a} :: ListApplicationDependenciesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listApplicationDependenciesResponse_httpStatus :: Lens.Lens' ListApplicationDependenciesResponse Prelude.Int
+listApplicationDependenciesResponse_httpStatus :: Lens.Lens' ListApplicationDependenciesResponse Core.Int
 listApplicationDependenciesResponse_httpStatus = Lens.lens (\ListApplicationDependenciesResponse' {httpStatus} -> httpStatus) (\s@ListApplicationDependenciesResponse' {} a -> s {httpStatus = a} :: ListApplicationDependenciesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListApplicationDependenciesResponse

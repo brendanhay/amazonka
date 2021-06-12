@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,9 +61,9 @@ module Network.AWS.EC2.DescribeIdentityIdFormat
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,12 +79,12 @@ data DescribeIdentityIdFormat = DescribeIdentityIdFormat'
     -- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
     -- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
     -- | @vpn-connection@ | @vpn-gateway@
-    resource :: Prelude.Maybe Prelude.Text,
+    resource :: Core.Maybe Core.Text,
     -- | The ARN of the principal, which can be an IAM role, IAM user, or the
     -- root user.
-    principalArn :: Prelude.Text
+    principalArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityIdFormat' with all optional fields omitted.
@@ -110,12 +109,11 @@ data DescribeIdentityIdFormat = DescribeIdentityIdFormat'
 -- root user.
 newDescribeIdentityIdFormat ::
   -- | 'principalArn'
-  Prelude.Text ->
+  Core.Text ->
   DescribeIdentityIdFormat
 newDescribeIdentityIdFormat pPrincipalArn_ =
   DescribeIdentityIdFormat'
-    { resource =
-        Prelude.Nothing,
+    { resource = Core.Nothing,
       principalArn = pPrincipalArn_
     }
 
@@ -129,58 +127,57 @@ newDescribeIdentityIdFormat pPrincipalArn_ =
 -- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
 -- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
 -- | @vpn-connection@ | @vpn-gateway@
-describeIdentityIdFormat_resource :: Lens.Lens' DescribeIdentityIdFormat (Prelude.Maybe Prelude.Text)
+describeIdentityIdFormat_resource :: Lens.Lens' DescribeIdentityIdFormat (Core.Maybe Core.Text)
 describeIdentityIdFormat_resource = Lens.lens (\DescribeIdentityIdFormat' {resource} -> resource) (\s@DescribeIdentityIdFormat' {} a -> s {resource = a} :: DescribeIdentityIdFormat)
 
 -- | The ARN of the principal, which can be an IAM role, IAM user, or the
 -- root user.
-describeIdentityIdFormat_principalArn :: Lens.Lens' DescribeIdentityIdFormat Prelude.Text
+describeIdentityIdFormat_principalArn :: Lens.Lens' DescribeIdentityIdFormat Core.Text
 describeIdentityIdFormat_principalArn = Lens.lens (\DescribeIdentityIdFormat' {principalArn} -> principalArn) (\s@DescribeIdentityIdFormat' {} a -> s {principalArn = a} :: DescribeIdentityIdFormat)
 
-instance Prelude.AWSRequest DescribeIdentityIdFormat where
+instance Core.AWSRequest DescribeIdentityIdFormat where
   type
-    Rs DescribeIdentityIdFormat =
+    AWSResponse DescribeIdentityIdFormat =
       DescribeIdentityIdFormatResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeIdentityIdFormatResponse'
-            Prelude.<$> ( x Prelude..@? "statusSet" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "statusSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeIdentityIdFormat
+instance Core.Hashable DescribeIdentityIdFormat
 
-instance Prelude.NFData DescribeIdentityIdFormat
+instance Core.NFData DescribeIdentityIdFormat
 
-instance Prelude.ToHeaders DescribeIdentityIdFormat where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeIdentityIdFormat where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeIdentityIdFormat where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeIdentityIdFormat where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeIdentityIdFormat where
+instance Core.ToQuery DescribeIdentityIdFormat where
   toQuery DescribeIdentityIdFormat' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeIdentityIdFormat" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "Resource" Prelude.=: resource,
-        "PrincipalArn" Prelude.=: principalArn
+          Core.=: ("DescribeIdentityIdFormat" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Resource" Core.=: resource,
+        "PrincipalArn" Core.=: principalArn
       ]
 
 -- | /See:/ 'newDescribeIdentityIdFormatResponse' smart constructor.
 data DescribeIdentityIdFormatResponse = DescribeIdentityIdFormatResponse'
   { -- | Information about the ID format for the resources.
-    statuses :: Prelude.Maybe [IdFormat],
+    statuses :: Core.Maybe [IdFormat],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentityIdFormatResponse' with all optional fields omitted.
@@ -195,23 +192,21 @@ data DescribeIdentityIdFormatResponse = DescribeIdentityIdFormatResponse'
 -- 'httpStatus', 'describeIdentityIdFormatResponse_httpStatus' - The response's http status code.
 newDescribeIdentityIdFormatResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeIdentityIdFormatResponse
 newDescribeIdentityIdFormatResponse pHttpStatus_ =
   DescribeIdentityIdFormatResponse'
     { statuses =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the ID format for the resources.
-describeIdentityIdFormatResponse_statuses :: Lens.Lens' DescribeIdentityIdFormatResponse (Prelude.Maybe [IdFormat])
-describeIdentityIdFormatResponse_statuses = Lens.lens (\DescribeIdentityIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdentityIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdentityIdFormatResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeIdentityIdFormatResponse_statuses :: Lens.Lens' DescribeIdentityIdFormatResponse (Core.Maybe [IdFormat])
+describeIdentityIdFormatResponse_statuses = Lens.lens (\DescribeIdentityIdFormatResponse' {statuses} -> statuses) (\s@DescribeIdentityIdFormatResponse' {} a -> s {statuses = a} :: DescribeIdentityIdFormatResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeIdentityIdFormatResponse_httpStatus :: Lens.Lens' DescribeIdentityIdFormatResponse Prelude.Int
+describeIdentityIdFormatResponse_httpStatus :: Lens.Lens' DescribeIdentityIdFormatResponse Core.Int
 describeIdentityIdFormatResponse_httpStatus = Lens.lens (\DescribeIdentityIdFormatResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityIdFormatResponse' {} a -> s {httpStatus = a} :: DescribeIdentityIdFormatResponse)
 
-instance
-  Prelude.NFData
-    DescribeIdentityIdFormatResponse
+instance Core.NFData DescribeIdentityIdFormatResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.CancelImportTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,13 +55,13 @@ data CancelImportTask = CancelImportTask'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the import image or import snapshot task to be canceled.
-    importTaskId :: Prelude.Maybe Prelude.Text,
+    importTaskId :: Core.Maybe Core.Text,
     -- | The reason for canceling the task.
-    cancelReason :: Prelude.Maybe Prelude.Text
+    cancelReason :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelImportTask' with all optional fields omitted.
@@ -84,73 +83,74 @@ newCancelImportTask ::
   CancelImportTask
 newCancelImportTask =
   CancelImportTask'
-    { dryRun = Prelude.Nothing,
-      importTaskId = Prelude.Nothing,
-      cancelReason = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      importTaskId = Core.Nothing,
+      cancelReason = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cancelImportTask_dryRun :: Lens.Lens' CancelImportTask (Prelude.Maybe Prelude.Bool)
+cancelImportTask_dryRun :: Lens.Lens' CancelImportTask (Core.Maybe Core.Bool)
 cancelImportTask_dryRun = Lens.lens (\CancelImportTask' {dryRun} -> dryRun) (\s@CancelImportTask' {} a -> s {dryRun = a} :: CancelImportTask)
 
 -- | The ID of the import image or import snapshot task to be canceled.
-cancelImportTask_importTaskId :: Lens.Lens' CancelImportTask (Prelude.Maybe Prelude.Text)
+cancelImportTask_importTaskId :: Lens.Lens' CancelImportTask (Core.Maybe Core.Text)
 cancelImportTask_importTaskId = Lens.lens (\CancelImportTask' {importTaskId} -> importTaskId) (\s@CancelImportTask' {} a -> s {importTaskId = a} :: CancelImportTask)
 
 -- | The reason for canceling the task.
-cancelImportTask_cancelReason :: Lens.Lens' CancelImportTask (Prelude.Maybe Prelude.Text)
+cancelImportTask_cancelReason :: Lens.Lens' CancelImportTask (Core.Maybe Core.Text)
 cancelImportTask_cancelReason = Lens.lens (\CancelImportTask' {cancelReason} -> cancelReason) (\s@CancelImportTask' {} a -> s {cancelReason = a} :: CancelImportTask)
 
-instance Prelude.AWSRequest CancelImportTask where
-  type Rs CancelImportTask = CancelImportTaskResponse
+instance Core.AWSRequest CancelImportTask where
+  type
+    AWSResponse CancelImportTask =
+      CancelImportTaskResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CancelImportTaskResponse'
-            Prelude.<$> (x Prelude..@? "importTaskId")
-            Prelude.<*> (x Prelude..@? "state")
-            Prelude.<*> (x Prelude..@? "previousState")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "importTaskId")
+            Core.<*> (x Core..@? "state")
+            Core.<*> (x Core..@? "previousState")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelImportTask
+instance Core.Hashable CancelImportTask
 
-instance Prelude.NFData CancelImportTask
+instance Core.NFData CancelImportTask
 
-instance Prelude.ToHeaders CancelImportTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelImportTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelImportTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelImportTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelImportTask where
+instance Core.ToQuery CancelImportTask where
   toQuery CancelImportTask' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelImportTask" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "ImportTaskId" Prelude.=: importTaskId,
-        "CancelReason" Prelude.=: cancelReason
+          Core.=: ("CancelImportTask" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "ImportTaskId" Core.=: importTaskId,
+        "CancelReason" Core.=: cancelReason
       ]
 
 -- | /See:/ 'newCancelImportTaskResponse' smart constructor.
 data CancelImportTaskResponse = CancelImportTaskResponse'
   { -- | The ID of the task being canceled.
-    importTaskId :: Prelude.Maybe Prelude.Text,
+    importTaskId :: Core.Maybe Core.Text,
     -- | The current state of the task being canceled.
-    state :: Prelude.Maybe Prelude.Text,
+    state :: Core.Maybe Core.Text,
     -- | The current state of the task being canceled.
-    previousState :: Prelude.Maybe Prelude.Text,
+    previousState :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelImportTaskResponse' with all optional fields omitted.
@@ -169,31 +169,31 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
 -- 'httpStatus', 'cancelImportTaskResponse_httpStatus' - The response's http status code.
 newCancelImportTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelImportTaskResponse
 newCancelImportTaskResponse pHttpStatus_ =
   CancelImportTaskResponse'
     { importTaskId =
-        Prelude.Nothing,
-      state = Prelude.Nothing,
-      previousState = Prelude.Nothing,
+        Core.Nothing,
+      state = Core.Nothing,
+      previousState = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID of the task being canceled.
-cancelImportTaskResponse_importTaskId :: Lens.Lens' CancelImportTaskResponse (Prelude.Maybe Prelude.Text)
+cancelImportTaskResponse_importTaskId :: Lens.Lens' CancelImportTaskResponse (Core.Maybe Core.Text)
 cancelImportTaskResponse_importTaskId = Lens.lens (\CancelImportTaskResponse' {importTaskId} -> importTaskId) (\s@CancelImportTaskResponse' {} a -> s {importTaskId = a} :: CancelImportTaskResponse)
 
 -- | The current state of the task being canceled.
-cancelImportTaskResponse_state :: Lens.Lens' CancelImportTaskResponse (Prelude.Maybe Prelude.Text)
+cancelImportTaskResponse_state :: Lens.Lens' CancelImportTaskResponse (Core.Maybe Core.Text)
 cancelImportTaskResponse_state = Lens.lens (\CancelImportTaskResponse' {state} -> state) (\s@CancelImportTaskResponse' {} a -> s {state = a} :: CancelImportTaskResponse)
 
 -- | The current state of the task being canceled.
-cancelImportTaskResponse_previousState :: Lens.Lens' CancelImportTaskResponse (Prelude.Maybe Prelude.Text)
+cancelImportTaskResponse_previousState :: Lens.Lens' CancelImportTaskResponse (Core.Maybe Core.Text)
 cancelImportTaskResponse_previousState = Lens.lens (\CancelImportTaskResponse' {previousState} -> previousState) (\s@CancelImportTaskResponse' {} a -> s {previousState = a} :: CancelImportTaskResponse)
 
 -- | The response's http status code.
-cancelImportTaskResponse_httpStatus :: Lens.Lens' CancelImportTaskResponse Prelude.Int
+cancelImportTaskResponse_httpStatus :: Lens.Lens' CancelImportTaskResponse Core.Int
 cancelImportTaskResponse_httpStatus = Lens.lens (\CancelImportTaskResponse' {httpStatus} -> httpStatus) (\s@CancelImportTaskResponse' {} a -> s {httpStatus = a} :: CancelImportTaskResponse)
 
-instance Prelude.NFData CancelImportTaskResponse
+instance Core.NFData CancelImportTaskResponse

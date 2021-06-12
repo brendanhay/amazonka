@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClassicLoadBalancer where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a Classic Load Balancer.
 --
 -- /See:/ 'newClassicLoadBalancer' smart constructor.
 data ClassicLoadBalancer = ClassicLoadBalancer'
   { -- | The name of the load balancer.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClassicLoadBalancer' with all optional fields omitted.
@@ -45,21 +44,20 @@ data ClassicLoadBalancer = ClassicLoadBalancer'
 newClassicLoadBalancer ::
   ClassicLoadBalancer
 newClassicLoadBalancer =
-  ClassicLoadBalancer' {name = Prelude.Nothing}
+  ClassicLoadBalancer' {name = Core.Nothing}
 
 -- | The name of the load balancer.
-classicLoadBalancer_name :: Lens.Lens' ClassicLoadBalancer (Prelude.Maybe Prelude.Text)
+classicLoadBalancer_name :: Lens.Lens' ClassicLoadBalancer (Core.Maybe Core.Text)
 classicLoadBalancer_name = Lens.lens (\ClassicLoadBalancer' {name} -> name) (\s@ClassicLoadBalancer' {} a -> s {name = a} :: ClassicLoadBalancer)
 
-instance Prelude.FromXML ClassicLoadBalancer where
+instance Core.FromXML ClassicLoadBalancer where
   parseXML x =
-    ClassicLoadBalancer'
-      Prelude.<$> (x Prelude..@? "name")
+    ClassicLoadBalancer' Core.<$> (x Core..@? "name")
 
-instance Prelude.Hashable ClassicLoadBalancer
+instance Core.Hashable ClassicLoadBalancer
 
-instance Prelude.NFData ClassicLoadBalancer
+instance Core.NFData ClassicLoadBalancer
 
-instance Prelude.ToQuery ClassicLoadBalancer where
+instance Core.ToQuery ClassicLoadBalancer where
   toQuery ClassicLoadBalancer' {..} =
-    Prelude.mconcat ["Name" Prelude.=: name]
+    Core.mconcat ["Name" Core.=: name]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.MaintenanceWindowIdentityForTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The maintenance window to which the specified target belongs.
 --
 -- /See:/ 'newMaintenanceWindowIdentityForTarget' smart constructor.
 data MaintenanceWindowIdentityForTarget = MaintenanceWindowIdentityForTarget'
   { -- | The name of the maintenance window.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The ID of the maintenance window.
-    windowId :: Prelude.Maybe Prelude.Text
+    windowId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MaintenanceWindowIdentityForTarget' with all optional fields omitted.
@@ -50,35 +49,34 @@ newMaintenanceWindowIdentityForTarget ::
 newMaintenanceWindowIdentityForTarget =
   MaintenanceWindowIdentityForTarget'
     { name =
-        Prelude.Nothing,
-      windowId = Prelude.Nothing
+        Core.Nothing,
+      windowId = Core.Nothing
     }
 
 -- | The name of the maintenance window.
-maintenanceWindowIdentityForTarget_name :: Lens.Lens' MaintenanceWindowIdentityForTarget (Prelude.Maybe Prelude.Text)
+maintenanceWindowIdentityForTarget_name :: Lens.Lens' MaintenanceWindowIdentityForTarget (Core.Maybe Core.Text)
 maintenanceWindowIdentityForTarget_name = Lens.lens (\MaintenanceWindowIdentityForTarget' {name} -> name) (\s@MaintenanceWindowIdentityForTarget' {} a -> s {name = a} :: MaintenanceWindowIdentityForTarget)
 
 -- | The ID of the maintenance window.
-maintenanceWindowIdentityForTarget_windowId :: Lens.Lens' MaintenanceWindowIdentityForTarget (Prelude.Maybe Prelude.Text)
+maintenanceWindowIdentityForTarget_windowId :: Lens.Lens' MaintenanceWindowIdentityForTarget (Core.Maybe Core.Text)
 maintenanceWindowIdentityForTarget_windowId = Lens.lens (\MaintenanceWindowIdentityForTarget' {windowId} -> windowId) (\s@MaintenanceWindowIdentityForTarget' {} a -> s {windowId = a} :: MaintenanceWindowIdentityForTarget)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     MaintenanceWindowIdentityForTarget
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MaintenanceWindowIdentityForTarget"
       ( \x ->
           MaintenanceWindowIdentityForTarget'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "WindowId")
+            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "WindowId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     MaintenanceWindowIdentityForTarget
 
 instance
-  Prelude.NFData
+  Core.NFData
     MaintenanceWindowIdentityForTarget

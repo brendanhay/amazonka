@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types.ResourceStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.ResourceStatusValue
 
 -- | A structure that identifies the current group membership status for a
@@ -32,9 +31,9 @@ import Network.AWS.ResourceGroups.Types.ResourceStatusValue
 -- /See:/ 'newResourceStatus' smart constructor.
 data ResourceStatus = ResourceStatus'
   { -- | The current status.
-    name :: Prelude.Maybe ResourceStatusValue
+    name :: Core.Maybe ResourceStatusValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceStatus' with all optional fields omitted.
@@ -48,20 +47,18 @@ data ResourceStatus = ResourceStatus'
 newResourceStatus ::
   ResourceStatus
 newResourceStatus =
-  ResourceStatus' {name = Prelude.Nothing}
+  ResourceStatus' {name = Core.Nothing}
 
 -- | The current status.
-resourceStatus_name :: Lens.Lens' ResourceStatus (Prelude.Maybe ResourceStatusValue)
+resourceStatus_name :: Lens.Lens' ResourceStatus (Core.Maybe ResourceStatusValue)
 resourceStatus_name = Lens.lens (\ResourceStatus' {name} -> name) (\s@ResourceStatus' {} a -> s {name = a} :: ResourceStatus)
 
-instance Prelude.FromJSON ResourceStatus where
+instance Core.FromJSON ResourceStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceStatus"
-      ( \x ->
-          ResourceStatus' Prelude.<$> (x Prelude..:? "Name")
-      )
+      (\x -> ResourceStatus' Core.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable ResourceStatus
+instance Core.Hashable ResourceStatus
 
-instance Prelude.NFData ResourceStatus
+instance Core.NFData ResourceStatus

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Route53AutoNaming.DeleteService
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -49,9 +48,9 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newDeleteService' smart constructor.
 data DeleteService = DeleteService'
   { -- | The ID of the service that you want to delete.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteService' with all optional fields omitted.
@@ -64,62 +63,60 @@ data DeleteService = DeleteService'
 -- 'id', 'deleteService_id' - The ID of the service that you want to delete.
 newDeleteService ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   DeleteService
 newDeleteService pId_ = DeleteService' {id = pId_}
 
 -- | The ID of the service that you want to delete.
-deleteService_id :: Lens.Lens' DeleteService Prelude.Text
+deleteService_id :: Lens.Lens' DeleteService Core.Text
 deleteService_id = Lens.lens (\DeleteService' {id} -> id) (\s@DeleteService' {} a -> s {id = a} :: DeleteService)
 
-instance Prelude.AWSRequest DeleteService where
-  type Rs DeleteService = DeleteServiceResponse
+instance Core.AWSRequest DeleteService where
+  type
+    AWSResponse DeleteService =
+      DeleteServiceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteServiceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteService
+instance Core.Hashable DeleteService
 
-instance Prelude.NFData DeleteService
+instance Core.NFData DeleteService
 
-instance Prelude.ToHeaders DeleteService where
+instance Core.ToHeaders DeleteService where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.DeleteService" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.DeleteService" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteService where
+instance Core.ToJSON DeleteService where
   toJSON DeleteService' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Id" Prelude..= id)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Id" Core..= id)])
 
-instance Prelude.ToPath DeleteService where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteService where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteService where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteService where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteServiceResponse' with all optional fields omitted.
@@ -132,13 +129,13 @@ data DeleteServiceResponse = DeleteServiceResponse'
 -- 'httpStatus', 'deleteServiceResponse_httpStatus' - The response's http status code.
 newDeleteServiceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteServiceResponse
 newDeleteServiceResponse pHttpStatus_ =
   DeleteServiceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Prelude.Int
+deleteServiceResponse_httpStatus :: Lens.Lens' DeleteServiceResponse Core.Int
 deleteServiceResponse_httpStatus = Lens.lens (\DeleteServiceResponse' {httpStatus} -> httpStatus) (\s@DeleteServiceResponse' {} a -> s {httpStatus = a} :: DeleteServiceResponse)
 
-instance Prelude.NFData DeleteServiceResponse
+instance Core.NFData DeleteServiceResponse

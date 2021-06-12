@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.Behavior where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.BehaviorCriteria
 import Network.AWS.IoT.Types.MetricDimension
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A Device Defender security profile behavior.
 --
@@ -33,18 +32,18 @@ data Behavior = Behavior'
     -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
     -- only MQTT topics where the name matches the pattern specified in the
     -- dimension. This can\'t be used with custom metrics.
-    metricDimension :: Prelude.Maybe MetricDimension,
+    metricDimension :: Core.Maybe MetricDimension,
     -- | Suppresses alerts.
-    suppressAlerts :: Prelude.Maybe Prelude.Bool,
+    suppressAlerts :: Core.Maybe Core.Bool,
     -- | What is measured by the behavior.
-    metric :: Prelude.Maybe Prelude.Text,
+    metric :: Core.Maybe Core.Text,
     -- | The criteria that determine if a device is behaving normally in regard
     -- to the @metric@.
-    criteria :: Prelude.Maybe BehaviorCriteria,
+    criteria :: Core.Maybe BehaviorCriteria,
     -- | The name you\'ve given to the behavior.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Behavior' with all optional fields omitted.
@@ -69,14 +68,14 @@ data Behavior = Behavior'
 -- 'name', 'behavior_name' - The name you\'ve given to the behavior.
 newBehavior ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Behavior
 newBehavior pName_ =
   Behavior'
-    { metricDimension = Prelude.Nothing,
-      suppressAlerts = Prelude.Nothing,
-      metric = Prelude.Nothing,
-      criteria = Prelude.Nothing,
+    { metricDimension = Core.Nothing,
+      suppressAlerts = Core.Nothing,
+      metric = Core.Nothing,
+      criteria = Core.Nothing,
       name = pName_
     }
 
@@ -84,53 +83,52 @@ newBehavior pName_ =
 -- @TOPIC_FILTER@ dimension, you can narrow down the scope of the metric to
 -- only MQTT topics where the name matches the pattern specified in the
 -- dimension. This can\'t be used with custom metrics.
-behavior_metricDimension :: Lens.Lens' Behavior (Prelude.Maybe MetricDimension)
+behavior_metricDimension :: Lens.Lens' Behavior (Core.Maybe MetricDimension)
 behavior_metricDimension = Lens.lens (\Behavior' {metricDimension} -> metricDimension) (\s@Behavior' {} a -> s {metricDimension = a} :: Behavior)
 
 -- | Suppresses alerts.
-behavior_suppressAlerts :: Lens.Lens' Behavior (Prelude.Maybe Prelude.Bool)
+behavior_suppressAlerts :: Lens.Lens' Behavior (Core.Maybe Core.Bool)
 behavior_suppressAlerts = Lens.lens (\Behavior' {suppressAlerts} -> suppressAlerts) (\s@Behavior' {} a -> s {suppressAlerts = a} :: Behavior)
 
 -- | What is measured by the behavior.
-behavior_metric :: Lens.Lens' Behavior (Prelude.Maybe Prelude.Text)
+behavior_metric :: Lens.Lens' Behavior (Core.Maybe Core.Text)
 behavior_metric = Lens.lens (\Behavior' {metric} -> metric) (\s@Behavior' {} a -> s {metric = a} :: Behavior)
 
 -- | The criteria that determine if a device is behaving normally in regard
 -- to the @metric@.
-behavior_criteria :: Lens.Lens' Behavior (Prelude.Maybe BehaviorCriteria)
+behavior_criteria :: Lens.Lens' Behavior (Core.Maybe BehaviorCriteria)
 behavior_criteria = Lens.lens (\Behavior' {criteria} -> criteria) (\s@Behavior' {} a -> s {criteria = a} :: Behavior)
 
 -- | The name you\'ve given to the behavior.
-behavior_name :: Lens.Lens' Behavior Prelude.Text
+behavior_name :: Lens.Lens' Behavior Core.Text
 behavior_name = Lens.lens (\Behavior' {name} -> name) (\s@Behavior' {} a -> s {name = a} :: Behavior)
 
-instance Prelude.FromJSON Behavior where
+instance Core.FromJSON Behavior where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Behavior"
       ( \x ->
           Behavior'
-            Prelude.<$> (x Prelude..:? "metricDimension")
-            Prelude.<*> (x Prelude..:? "suppressAlerts")
-            Prelude.<*> (x Prelude..:? "metric")
-            Prelude.<*> (x Prelude..:? "criteria")
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..:? "metricDimension")
+            Core.<*> (x Core..:? "suppressAlerts")
+            Core.<*> (x Core..:? "metric")
+            Core.<*> (x Core..:? "criteria")
+            Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable Behavior
+instance Core.Hashable Behavior
 
-instance Prelude.NFData Behavior
+instance Core.NFData Behavior
 
-instance Prelude.ToJSON Behavior where
+instance Core.ToJSON Behavior where
   toJSON Behavior' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("metricDimension" Prelude..=)
-              Prelude.<$> metricDimension,
-            ("suppressAlerts" Prelude..=)
-              Prelude.<$> suppressAlerts,
-            ("metric" Prelude..=) Prelude.<$> metric,
-            ("criteria" Prelude..=) Prelude.<$> criteria,
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("metricDimension" Core..=)
+              Core.<$> metricDimension,
+            ("suppressAlerts" Core..=) Core.<$> suppressAlerts,
+            ("metric" Core..=) Core.<$> metric,
+            ("criteria" Core..=) Core.<$> criteria,
+            Core.Just ("name" Core..= name)
           ]
       )

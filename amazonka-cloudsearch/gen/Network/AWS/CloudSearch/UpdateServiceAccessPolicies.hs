@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +54,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateServiceAccessPolicies' smart constructor.
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
-  { domainName :: Prelude.Text,
+  { domainName :: Core.Text,
     -- | The access rules you want to configure. These rules replace any existing
     -- rules.
-    accessPolicies :: Prelude.Text
+    accessPolicies :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceAccessPolicies' with all optional fields omitted.
@@ -76,9 +75,9 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
 -- rules.
 newUpdateServiceAccessPolicies ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accessPolicies'
-  Prelude.Text ->
+  Core.Text ->
   UpdateServiceAccessPolicies
 newUpdateServiceAccessPolicies
   pDomainName_
@@ -90,20 +89,17 @@ newUpdateServiceAccessPolicies
       }
 
 -- | Undocumented member.
-updateServiceAccessPolicies_domainName :: Lens.Lens' UpdateServiceAccessPolicies Prelude.Text
+updateServiceAccessPolicies_domainName :: Lens.Lens' UpdateServiceAccessPolicies Core.Text
 updateServiceAccessPolicies_domainName = Lens.lens (\UpdateServiceAccessPolicies' {domainName} -> domainName) (\s@UpdateServiceAccessPolicies' {} a -> s {domainName = a} :: UpdateServiceAccessPolicies)
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
-updateServiceAccessPolicies_accessPolicies :: Lens.Lens' UpdateServiceAccessPolicies Prelude.Text
+updateServiceAccessPolicies_accessPolicies :: Lens.Lens' UpdateServiceAccessPolicies Core.Text
 updateServiceAccessPolicies_accessPolicies = Lens.lens (\UpdateServiceAccessPolicies' {accessPolicies} -> accessPolicies) (\s@UpdateServiceAccessPolicies' {} a -> s {accessPolicies = a} :: UpdateServiceAccessPolicies)
 
-instance
-  Prelude.AWSRequest
-    UpdateServiceAccessPolicies
-  where
+instance Core.AWSRequest UpdateServiceAccessPolicies where
   type
-    Rs UpdateServiceAccessPolicies =
+    AWSResponse UpdateServiceAccessPolicies =
       UpdateServiceAccessPoliciesResponse
   request = Request.postQuery defaultService
   response =
@@ -111,34 +107,28 @@ instance
       "UpdateServiceAccessPoliciesResult"
       ( \s h x ->
           UpdateServiceAccessPoliciesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "AccessPolicies")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "AccessPolicies")
       )
 
-instance Prelude.Hashable UpdateServiceAccessPolicies
+instance Core.Hashable UpdateServiceAccessPolicies
 
-instance Prelude.NFData UpdateServiceAccessPolicies
+instance Core.NFData UpdateServiceAccessPolicies
 
-instance
-  Prelude.ToHeaders
-    UpdateServiceAccessPolicies
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateServiceAccessPolicies where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateServiceAccessPolicies where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateServiceAccessPolicies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateServiceAccessPolicies where
+instance Core.ToQuery UpdateServiceAccessPolicies where
   toQuery UpdateServiceAccessPolicies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "UpdateServiceAccessPolicies" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName,
-        "AccessPolicies" Prelude.=: accessPolicies
+          Core.=: ("UpdateServiceAccessPolicies" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName,
+        "AccessPolicies" Core.=: accessPolicies
       ]
 
 -- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new
@@ -147,11 +137,11 @@ instance Prelude.ToQuery UpdateServiceAccessPolicies where
 -- /See:/ 'newUpdateServiceAccessPoliciesResponse' smart constructor.
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The access rules configured for the domain.
     accessPolicies :: AccessPoliciesStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateServiceAccessPoliciesResponse' with all optional fields omitted.
@@ -166,7 +156,7 @@ data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
 -- 'accessPolicies', 'updateServiceAccessPoliciesResponse_accessPolicies' - The access rules configured for the domain.
 newUpdateServiceAccessPoliciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'accessPolicies'
   AccessPoliciesStatus ->
   UpdateServiceAccessPoliciesResponse
@@ -180,7 +170,7 @@ newUpdateServiceAccessPoliciesResponse
       }
 
 -- | The response's http status code.
-updateServiceAccessPoliciesResponse_httpStatus :: Lens.Lens' UpdateServiceAccessPoliciesResponse Prelude.Int
+updateServiceAccessPoliciesResponse_httpStatus :: Lens.Lens' UpdateServiceAccessPoliciesResponse Core.Int
 updateServiceAccessPoliciesResponse_httpStatus = Lens.lens (\UpdateServiceAccessPoliciesResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceAccessPoliciesResponse' {} a -> s {httpStatus = a} :: UpdateServiceAccessPoliciesResponse)
 
 -- | The access rules configured for the domain.
@@ -188,5 +178,5 @@ updateServiceAccessPoliciesResponse_accessPolicies :: Lens.Lens' UpdateServiceAc
 updateServiceAccessPoliciesResponse_accessPolicies = Lens.lens (\UpdateServiceAccessPoliciesResponse' {accessPolicies} -> accessPolicies) (\s@UpdateServiceAccessPoliciesResponse' {} a -> s {accessPolicies = a} :: UpdateServiceAccessPoliciesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateServiceAccessPoliciesResponse

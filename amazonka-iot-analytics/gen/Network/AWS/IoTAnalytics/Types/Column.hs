@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.Column where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a column that stores your data.
 --
 -- /See:/ 'newColumn' smart constructor.
 data Column = Column'
   { -- | The name of the column.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The type of data. For more information about the supported data types,
     -- see
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html Common data types>
     -- in the /AWS Glue Developer Guide/.
-    type' :: Prelude.Text
+    type' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Column' with all optional fields omitted.
@@ -53,43 +52,42 @@ data Column = Column'
 -- in the /AWS Glue Developer Guide/.
 newColumn ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   Column
 newColumn pName_ pType_ =
   Column' {name = pName_, type' = pType_}
 
 -- | The name of the column.
-column_name :: Lens.Lens' Column Prelude.Text
+column_name :: Lens.Lens' Column Core.Text
 column_name = Lens.lens (\Column' {name} -> name) (\s@Column' {} a -> s {name = a} :: Column)
 
 -- | The type of data. For more information about the supported data types,
 -- see
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html Common data types>
 -- in the /AWS Glue Developer Guide/.
-column_type :: Lens.Lens' Column Prelude.Text
+column_type :: Lens.Lens' Column Core.Text
 column_type = Lens.lens (\Column' {type'} -> type') (\s@Column' {} a -> s {type' = a} :: Column)
 
-instance Prelude.FromJSON Column where
+instance Core.FromJSON Column where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Column"
       ( \x ->
           Column'
-            Prelude.<$> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "type")
+            Core.<$> (x Core..: "name") Core.<*> (x Core..: "type")
       )
 
-instance Prelude.Hashable Column
+instance Core.Hashable Column
 
-instance Prelude.NFData Column
+instance Core.NFData Column
 
-instance Prelude.ToJSON Column where
+instance Core.ToJSON Column where
   toJSON Column' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("type" Prelude..= type')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("type" Core..= type')
           ]
       )

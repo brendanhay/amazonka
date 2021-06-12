@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OutputSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the source where the association execution details are
 -- stored.
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newOutputSource' smart constructor.
 data OutputSource = OutputSource'
   { -- | The ID of the output source, for example the URL of an S3 bucket.
-    outputSourceId :: Prelude.Maybe Prelude.Text,
+    outputSourceId :: Core.Maybe Core.Text,
     -- | The type of source where the association execution details are stored,
     -- for example, Amazon S3.
-    outputSourceType :: Prelude.Maybe Prelude.Text
+    outputSourceType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputSource' with all optional fields omitted.
@@ -52,29 +51,29 @@ newOutputSource ::
   OutputSource
 newOutputSource =
   OutputSource'
-    { outputSourceId = Prelude.Nothing,
-      outputSourceType = Prelude.Nothing
+    { outputSourceId = Core.Nothing,
+      outputSourceType = Core.Nothing
     }
 
 -- | The ID of the output source, for example the URL of an S3 bucket.
-outputSource_outputSourceId :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
+outputSource_outputSourceId :: Lens.Lens' OutputSource (Core.Maybe Core.Text)
 outputSource_outputSourceId = Lens.lens (\OutputSource' {outputSourceId} -> outputSourceId) (\s@OutputSource' {} a -> s {outputSourceId = a} :: OutputSource)
 
 -- | The type of source where the association execution details are stored,
 -- for example, Amazon S3.
-outputSource_outputSourceType :: Lens.Lens' OutputSource (Prelude.Maybe Prelude.Text)
+outputSource_outputSourceType :: Lens.Lens' OutputSource (Core.Maybe Core.Text)
 outputSource_outputSourceType = Lens.lens (\OutputSource' {outputSourceType} -> outputSourceType) (\s@OutputSource' {} a -> s {outputSourceType = a} :: OutputSource)
 
-instance Prelude.FromJSON OutputSource where
+instance Core.FromJSON OutputSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputSource"
       ( \x ->
           OutputSource'
-            Prelude.<$> (x Prelude..:? "OutputSourceId")
-            Prelude.<*> (x Prelude..:? "OutputSourceType")
+            Core.<$> (x Core..:? "OutputSourceId")
+            Core.<*> (x Core..:? "OutputSourceType")
       )
 
-instance Prelude.Hashable OutputSource
+instance Core.Hashable OutputSource
 
-instance Prelude.NFData OutputSource
+instance Core.NFData OutputSource

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.OnFailure where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A destination for events that failed processing.
 --
 -- /See:/ 'newOnFailure' smart constructor.
 data OnFailure = OnFailure'
   { -- | The Amazon Resource Name (ARN) of the destination resource.
-    destination :: Prelude.Maybe Prelude.Text
+    destination :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OnFailure' with all optional fields omitted.
@@ -43,28 +42,27 @@ data OnFailure = OnFailure'
 -- 'destination', 'onFailure_destination' - The Amazon Resource Name (ARN) of the destination resource.
 newOnFailure ::
   OnFailure
-newOnFailure =
-  OnFailure' {destination = Prelude.Nothing}
+newOnFailure = OnFailure' {destination = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the destination resource.
-onFailure_destination :: Lens.Lens' OnFailure (Prelude.Maybe Prelude.Text)
+onFailure_destination :: Lens.Lens' OnFailure (Core.Maybe Core.Text)
 onFailure_destination = Lens.lens (\OnFailure' {destination} -> destination) (\s@OnFailure' {} a -> s {destination = a} :: OnFailure)
 
-instance Prelude.FromJSON OnFailure where
+instance Core.FromJSON OnFailure where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OnFailure"
       ( \x ->
-          OnFailure' Prelude.<$> (x Prelude..:? "Destination")
+          OnFailure' Core.<$> (x Core..:? "Destination")
       )
 
-instance Prelude.Hashable OnFailure
+instance Core.Hashable OnFailure
 
-instance Prelude.NFData OnFailure
+instance Core.NFData OnFailure
 
-instance Prelude.ToJSON OnFailure where
+instance Core.ToJSON OnFailure where
   toJSON OnFailure' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Destination" Prelude..=) Prelude.<$> destination]
+    Core.object
+      ( Core.catMaybes
+          [("Destination" Core..=) Core.<$> destination]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria where
 
 import Network.AWS.CloudFront.Types.StatusCodes
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex data type that includes information about the failover
 -- criteria for an origin group, including the status codes for which
@@ -34,7 +33,7 @@ data OriginGroupFailoverCriteria = OriginGroupFailoverCriteria'
     -- trigger CloudFront to failover to the second origin.
     statusCodes :: StatusCodes
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OriginGroupFailoverCriteria' with all optional fields omitted.
@@ -61,16 +60,15 @@ newOriginGroupFailoverCriteria pStatusCodes_ =
 originGroupFailoverCriteria_statusCodes :: Lens.Lens' OriginGroupFailoverCriteria StatusCodes
 originGroupFailoverCriteria_statusCodes = Lens.lens (\OriginGroupFailoverCriteria' {statusCodes} -> statusCodes) (\s@OriginGroupFailoverCriteria' {} a -> s {statusCodes = a} :: OriginGroupFailoverCriteria)
 
-instance Prelude.FromXML OriginGroupFailoverCriteria where
+instance Core.FromXML OriginGroupFailoverCriteria where
   parseXML x =
     OriginGroupFailoverCriteria'
-      Prelude.<$> (x Prelude..@ "StatusCodes")
+      Core.<$> (x Core..@ "StatusCodes")
 
-instance Prelude.Hashable OriginGroupFailoverCriteria
+instance Core.Hashable OriginGroupFailoverCriteria
 
-instance Prelude.NFData OriginGroupFailoverCriteria
+instance Core.NFData OriginGroupFailoverCriteria
 
-instance Prelude.ToXML OriginGroupFailoverCriteria where
+instance Core.ToXML OriginGroupFailoverCriteria where
   toXML OriginGroupFailoverCriteria' {..} =
-    Prelude.mconcat
-      ["StatusCodes" Prelude.@= statusCodes]
+    Core.mconcat ["StatusCodes" Core.@= statusCodes]

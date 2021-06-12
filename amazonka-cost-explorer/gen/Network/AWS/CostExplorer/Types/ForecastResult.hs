@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.ForecastResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.DateInterval
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The forecast created for your query.
 --
 -- /See:/ 'newForecastResult' smart constructor.
 data ForecastResult = ForecastResult'
   { -- | The mean value of the forecast.
-    meanValue :: Prelude.Maybe Prelude.Text,
+    meanValue :: Core.Maybe Core.Text,
     -- | The period of time that the forecast covers.
-    timePeriod :: Prelude.Maybe DateInterval,
+    timePeriod :: Core.Maybe DateInterval,
     -- | The lower limit for the prediction interval.
-    predictionIntervalLowerBound :: Prelude.Maybe Prelude.Text,
+    predictionIntervalLowerBound :: Core.Maybe Core.Text,
     -- | The upper limit for the prediction interval.
-    predictionIntervalUpperBound :: Prelude.Maybe Prelude.Text
+    predictionIntervalUpperBound :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ForecastResult' with all optional fields omitted.
@@ -58,40 +57,40 @@ newForecastResult ::
   ForecastResult
 newForecastResult =
   ForecastResult'
-    { meanValue = Prelude.Nothing,
-      timePeriod = Prelude.Nothing,
-      predictionIntervalLowerBound = Prelude.Nothing,
-      predictionIntervalUpperBound = Prelude.Nothing
+    { meanValue = Core.Nothing,
+      timePeriod = Core.Nothing,
+      predictionIntervalLowerBound = Core.Nothing,
+      predictionIntervalUpperBound = Core.Nothing
     }
 
 -- | The mean value of the forecast.
-forecastResult_meanValue :: Lens.Lens' ForecastResult (Prelude.Maybe Prelude.Text)
+forecastResult_meanValue :: Lens.Lens' ForecastResult (Core.Maybe Core.Text)
 forecastResult_meanValue = Lens.lens (\ForecastResult' {meanValue} -> meanValue) (\s@ForecastResult' {} a -> s {meanValue = a} :: ForecastResult)
 
 -- | The period of time that the forecast covers.
-forecastResult_timePeriod :: Lens.Lens' ForecastResult (Prelude.Maybe DateInterval)
+forecastResult_timePeriod :: Lens.Lens' ForecastResult (Core.Maybe DateInterval)
 forecastResult_timePeriod = Lens.lens (\ForecastResult' {timePeriod} -> timePeriod) (\s@ForecastResult' {} a -> s {timePeriod = a} :: ForecastResult)
 
 -- | The lower limit for the prediction interval.
-forecastResult_predictionIntervalLowerBound :: Lens.Lens' ForecastResult (Prelude.Maybe Prelude.Text)
+forecastResult_predictionIntervalLowerBound :: Lens.Lens' ForecastResult (Core.Maybe Core.Text)
 forecastResult_predictionIntervalLowerBound = Lens.lens (\ForecastResult' {predictionIntervalLowerBound} -> predictionIntervalLowerBound) (\s@ForecastResult' {} a -> s {predictionIntervalLowerBound = a} :: ForecastResult)
 
 -- | The upper limit for the prediction interval.
-forecastResult_predictionIntervalUpperBound :: Lens.Lens' ForecastResult (Prelude.Maybe Prelude.Text)
+forecastResult_predictionIntervalUpperBound :: Lens.Lens' ForecastResult (Core.Maybe Core.Text)
 forecastResult_predictionIntervalUpperBound = Lens.lens (\ForecastResult' {predictionIntervalUpperBound} -> predictionIntervalUpperBound) (\s@ForecastResult' {} a -> s {predictionIntervalUpperBound = a} :: ForecastResult)
 
-instance Prelude.FromJSON ForecastResult where
+instance Core.FromJSON ForecastResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ForecastResult"
       ( \x ->
           ForecastResult'
-            Prelude.<$> (x Prelude..:? "MeanValue")
-            Prelude.<*> (x Prelude..:? "TimePeriod")
-            Prelude.<*> (x Prelude..:? "PredictionIntervalLowerBound")
-            Prelude.<*> (x Prelude..:? "PredictionIntervalUpperBound")
+            Core.<$> (x Core..:? "MeanValue")
+            Core.<*> (x Core..:? "TimePeriod")
+            Core.<*> (x Core..:? "PredictionIntervalLowerBound")
+            Core.<*> (x Core..:? "PredictionIntervalUpperBound")
       )
 
-instance Prelude.Hashable ForecastResult
+instance Core.Hashable ForecastResult
 
-instance Prelude.NFData ForecastResult
+instance Core.NFData ForecastResult

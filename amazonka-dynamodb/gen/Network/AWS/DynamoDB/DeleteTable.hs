@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.DynamoDB.DeleteTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,9 +69,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteTable' smart constructor.
 data DeleteTable = DeleteTable'
   { -- | The name of the table to delete.
-    tableName :: Prelude.Text
+    tableName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTable' with all optional fields omitted.
@@ -85,68 +84,64 @@ data DeleteTable = DeleteTable'
 -- 'tableName', 'deleteTable_tableName' - The name of the table to delete.
 newDeleteTable ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTable
 newDeleteTable pTableName_ =
   DeleteTable' {tableName = pTableName_}
 
 -- | The name of the table to delete.
-deleteTable_tableName :: Lens.Lens' DeleteTable Prelude.Text
+deleteTable_tableName :: Lens.Lens' DeleteTable Core.Text
 deleteTable_tableName = Lens.lens (\DeleteTable' {tableName} -> tableName) (\s@DeleteTable' {} a -> s {tableName = a} :: DeleteTable)
 
-instance Prelude.AWSRequest DeleteTable where
-  type Rs DeleteTable = DeleteTableResponse
+instance Core.AWSRequest DeleteTable where
+  type AWSResponse DeleteTable = DeleteTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteTableResponse'
-            Prelude.<$> (x Prelude..?> "TableDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TableDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTable
+instance Core.Hashable DeleteTable
 
-instance Prelude.NFData DeleteTable
+instance Core.NFData DeleteTable
 
-instance Prelude.ToHeaders DeleteTable where
+instance Core.ToHeaders DeleteTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.DeleteTable" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DynamoDB_20120810.DeleteTable" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTable where
+instance Core.ToJSON DeleteTable where
   toJSON DeleteTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TableName" Prelude..= tableName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TableName" Core..= tableName)]
       )
 
-instance Prelude.ToPath DeleteTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTable where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DeleteTable@ operation.
 --
 -- /See:/ 'newDeleteTableResponse' smart constructor.
 data DeleteTableResponse = DeleteTableResponse'
   { -- | Represents the properties of a table.
-    tableDescription :: Prelude.Maybe TableDescription,
+    tableDescription :: Core.Maybe TableDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTableResponse' with all optional fields omitted.
@@ -161,21 +156,21 @@ data DeleteTableResponse = DeleteTableResponse'
 -- 'httpStatus', 'deleteTableResponse_httpStatus' - The response's http status code.
 newDeleteTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTableResponse
 newDeleteTableResponse pHttpStatus_ =
   DeleteTableResponse'
     { tableDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the properties of a table.
-deleteTableResponse_tableDescription :: Lens.Lens' DeleteTableResponse (Prelude.Maybe TableDescription)
+deleteTableResponse_tableDescription :: Lens.Lens' DeleteTableResponse (Core.Maybe TableDescription)
 deleteTableResponse_tableDescription = Lens.lens (\DeleteTableResponse' {tableDescription} -> tableDescription) (\s@DeleteTableResponse' {} a -> s {tableDescription = a} :: DeleteTableResponse)
 
 -- | The response's http status code.
-deleteTableResponse_httpStatus :: Lens.Lens' DeleteTableResponse Prelude.Int
+deleteTableResponse_httpStatus :: Lens.Lens' DeleteTableResponse Core.Int
 deleteTableResponse_httpStatus = Lens.lens (\DeleteTableResponse' {httpStatus} -> httpStatus) (\s@DeleteTableResponse' {} a -> s {httpStatus = a} :: DeleteTableResponse)
 
-instance Prelude.NFData DeleteTableResponse
+instance Core.NFData DeleteTableResponse

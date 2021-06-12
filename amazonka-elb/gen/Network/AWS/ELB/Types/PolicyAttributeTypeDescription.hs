@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.PolicyAttributeTypeDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy attribute type.
 --
 -- /See:/ 'newPolicyAttributeTypeDescription' smart constructor.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
   { -- | The type of the attribute. For example, @Boolean@ or @Integer@.
-    attributeType :: Prelude.Maybe Prelude.Text,
+    attributeType :: Core.Maybe Core.Text,
     -- | The name of the attribute.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    attributeName :: Core.Maybe Core.Text,
     -- | The cardinality of the attribute.
     --
     -- Valid values:
@@ -43,13 +42,13 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
     -- -   ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
     --
     -- -   ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
-    cardinality :: Prelude.Maybe Prelude.Text,
+    cardinality :: Core.Maybe Core.Text,
     -- | A description of the attribute.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The default value of the attribute, if applicable.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyAttributeTypeDescription' with all optional fields omitted.
@@ -83,19 +82,19 @@ newPolicyAttributeTypeDescription ::
 newPolicyAttributeTypeDescription =
   PolicyAttributeTypeDescription'
     { attributeType =
-        Prelude.Nothing,
-      attributeName = Prelude.Nothing,
-      cardinality = Prelude.Nothing,
-      description = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+        Core.Nothing,
+      attributeName = Core.Nothing,
+      cardinality = Core.Nothing,
+      description = Core.Nothing,
+      defaultValue = Core.Nothing
     }
 
 -- | The type of the attribute. For example, @Boolean@ or @Integer@.
-policyAttributeTypeDescription_attributeType :: Lens.Lens' PolicyAttributeTypeDescription (Prelude.Maybe Prelude.Text)
+policyAttributeTypeDescription_attributeType :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Core.Text)
 policyAttributeTypeDescription_attributeType = Lens.lens (\PolicyAttributeTypeDescription' {attributeType} -> attributeType) (\s@PolicyAttributeTypeDescription' {} a -> s {attributeType = a} :: PolicyAttributeTypeDescription)
 
 -- | The name of the attribute.
-policyAttributeTypeDescription_attributeName :: Lens.Lens' PolicyAttributeTypeDescription (Prelude.Maybe Prelude.Text)
+policyAttributeTypeDescription_attributeName :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Core.Text)
 policyAttributeTypeDescription_attributeName = Lens.lens (\PolicyAttributeTypeDescription' {attributeName} -> attributeName) (\s@PolicyAttributeTypeDescription' {} a -> s {attributeName = a} :: PolicyAttributeTypeDescription)
 
 -- | The cardinality of the attribute.
@@ -109,33 +108,26 @@ policyAttributeTypeDescription_attributeName = Lens.lens (\PolicyAttributeTypeDe
 -- -   ZERO_OR_MORE(0..*) : Optional. Multiple values are allowed
 --
 -- -   ONE_OR_MORE(1..*0) : Required. Multiple values are allowed
-policyAttributeTypeDescription_cardinality :: Lens.Lens' PolicyAttributeTypeDescription (Prelude.Maybe Prelude.Text)
+policyAttributeTypeDescription_cardinality :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Core.Text)
 policyAttributeTypeDescription_cardinality = Lens.lens (\PolicyAttributeTypeDescription' {cardinality} -> cardinality) (\s@PolicyAttributeTypeDescription' {} a -> s {cardinality = a} :: PolicyAttributeTypeDescription)
 
 -- | A description of the attribute.
-policyAttributeTypeDescription_description :: Lens.Lens' PolicyAttributeTypeDescription (Prelude.Maybe Prelude.Text)
+policyAttributeTypeDescription_description :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Core.Text)
 policyAttributeTypeDescription_description = Lens.lens (\PolicyAttributeTypeDescription' {description} -> description) (\s@PolicyAttributeTypeDescription' {} a -> s {description = a} :: PolicyAttributeTypeDescription)
 
 -- | The default value of the attribute, if applicable.
-policyAttributeTypeDescription_defaultValue :: Lens.Lens' PolicyAttributeTypeDescription (Prelude.Maybe Prelude.Text)
+policyAttributeTypeDescription_defaultValue :: Lens.Lens' PolicyAttributeTypeDescription (Core.Maybe Core.Text)
 policyAttributeTypeDescription_defaultValue = Lens.lens (\PolicyAttributeTypeDescription' {defaultValue} -> defaultValue) (\s@PolicyAttributeTypeDescription' {} a -> s {defaultValue = a} :: PolicyAttributeTypeDescription)
 
-instance
-  Prelude.FromXML
-    PolicyAttributeTypeDescription
-  where
+instance Core.FromXML PolicyAttributeTypeDescription where
   parseXML x =
     PolicyAttributeTypeDescription'
-      Prelude.<$> (x Prelude..@? "AttributeType")
-      Prelude.<*> (x Prelude..@? "AttributeName")
-      Prelude.<*> (x Prelude..@? "Cardinality")
-      Prelude.<*> (x Prelude..@? "Description")
-      Prelude.<*> (x Prelude..@? "DefaultValue")
+      Core.<$> (x Core..@? "AttributeType")
+      Core.<*> (x Core..@? "AttributeName")
+      Core.<*> (x Core..@? "Cardinality")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "DefaultValue")
 
-instance
-  Prelude.Hashable
-    PolicyAttributeTypeDescription
+instance Core.Hashable PolicyAttributeTypeDescription
 
-instance
-  Prelude.NFData
-    PolicyAttributeTypeDescription
+instance Core.NFData PolicyAttributeTypeDescription

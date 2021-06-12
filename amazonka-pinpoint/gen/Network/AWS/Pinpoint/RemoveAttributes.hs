@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Pinpoint.RemoveAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,13 +63,13 @@ data RemoveAttributes = RemoveAttributes'
     --
     -- -   endpoint-user-attributes - Custom attributes that describe users,
     --     such as first name, last name, and age.
-    attributeType :: Prelude.Text,
+    attributeType :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     updateAttributesRequest :: UpdateAttributesRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAttributes' with all optional fields omitted.
@@ -100,9 +99,9 @@ data RemoveAttributes = RemoveAttributes'
 -- 'updateAttributesRequest', 'removeAttributes_updateAttributesRequest' - Undocumented member.
 newRemoveAttributes ::
   -- | 'attributeType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'updateAttributesRequest'
   UpdateAttributesRequest ->
   RemoveAttributes
@@ -129,74 +128,74 @@ newRemoveAttributes
 --
 -- -   endpoint-user-attributes - Custom attributes that describe users,
 --     such as first name, last name, and age.
-removeAttributes_attributeType :: Lens.Lens' RemoveAttributes Prelude.Text
+removeAttributes_attributeType :: Lens.Lens' RemoveAttributes Core.Text
 removeAttributes_attributeType = Lens.lens (\RemoveAttributes' {attributeType} -> attributeType) (\s@RemoveAttributes' {} a -> s {attributeType = a} :: RemoveAttributes)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-removeAttributes_applicationId :: Lens.Lens' RemoveAttributes Prelude.Text
+removeAttributes_applicationId :: Lens.Lens' RemoveAttributes Core.Text
 removeAttributes_applicationId = Lens.lens (\RemoveAttributes' {applicationId} -> applicationId) (\s@RemoveAttributes' {} a -> s {applicationId = a} :: RemoveAttributes)
 
 -- | Undocumented member.
 removeAttributes_updateAttributesRequest :: Lens.Lens' RemoveAttributes UpdateAttributesRequest
 removeAttributes_updateAttributesRequest = Lens.lens (\RemoveAttributes' {updateAttributesRequest} -> updateAttributesRequest) (\s@RemoveAttributes' {} a -> s {updateAttributesRequest = a} :: RemoveAttributes)
 
-instance Prelude.AWSRequest RemoveAttributes where
-  type Rs RemoveAttributes = RemoveAttributesResponse
+instance Core.AWSRequest RemoveAttributes where
+  type
+    AWSResponse RemoveAttributes =
+      RemoveAttributesResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RemoveAttributesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable RemoveAttributes
+instance Core.Hashable RemoveAttributes
 
-instance Prelude.NFData RemoveAttributes
+instance Core.NFData RemoveAttributes
 
-instance Prelude.ToHeaders RemoveAttributes where
+instance Core.ToHeaders RemoveAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RemoveAttributes where
+instance Core.ToJSON RemoveAttributes where
   toJSON RemoveAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "UpdateAttributesRequest"
-                  Prelude..= updateAttributesRequest
+                  Core..= updateAttributesRequest
               )
           ]
       )
 
-instance Prelude.ToPath RemoveAttributes where
+instance Core.ToPath RemoveAttributes where
   toPath RemoveAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/attributes/",
-        Prelude.toBS attributeType
+        Core.toBS attributeType
       ]
 
-instance Prelude.ToQuery RemoveAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RemoveAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRemoveAttributesResponse' smart constructor.
 data RemoveAttributesResponse = RemoveAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     attributesResource :: AttributesResource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveAttributesResponse' with all optional fields omitted.
@@ -211,7 +210,7 @@ data RemoveAttributesResponse = RemoveAttributesResponse'
 -- 'attributesResource', 'removeAttributesResponse_attributesResource' - Undocumented member.
 newRemoveAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'attributesResource'
   AttributesResource ->
   RemoveAttributesResponse
@@ -225,11 +224,11 @@ newRemoveAttributesResponse
       }
 
 -- | The response's http status code.
-removeAttributesResponse_httpStatus :: Lens.Lens' RemoveAttributesResponse Prelude.Int
+removeAttributesResponse_httpStatus :: Lens.Lens' RemoveAttributesResponse Core.Int
 removeAttributesResponse_httpStatus = Lens.lens (\RemoveAttributesResponse' {httpStatus} -> httpStatus) (\s@RemoveAttributesResponse' {} a -> s {httpStatus = a} :: RemoveAttributesResponse)
 
 -- | Undocumented member.
 removeAttributesResponse_attributesResource :: Lens.Lens' RemoveAttributesResponse AttributesResource
 removeAttributesResponse_attributesResource = Lens.lens (\RemoveAttributesResponse' {attributesResource} -> attributesResource) (\s@RemoveAttributesResponse' {} a -> s {attributesResource = a} :: RemoveAttributesResponse)
 
-instance Prelude.NFData RemoveAttributesResponse
+instance Core.NFData RemoveAttributesResponse

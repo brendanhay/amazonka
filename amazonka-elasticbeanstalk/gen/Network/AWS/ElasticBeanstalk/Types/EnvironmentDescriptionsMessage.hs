@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Result message containing a list of environment descriptions.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage'
   { -- | In a paginated request, the token that you can pass in a subsequent
     -- request to get the next response page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Returns an EnvironmentDescription list.
-    environments :: Prelude.Maybe [EnvironmentDescription]
+    environments :: Core.Maybe [EnvironmentDescription]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnvironmentDescriptionsMessage' with all optional fields omitted.
@@ -53,35 +52,27 @@ newEnvironmentDescriptionsMessage ::
 newEnvironmentDescriptionsMessage =
   EnvironmentDescriptionsMessage'
     { nextToken =
-        Prelude.Nothing,
-      environments = Prelude.Nothing
+        Core.Nothing,
+      environments = Core.Nothing
     }
 
 -- | In a paginated request, the token that you can pass in a subsequent
 -- request to get the next response page.
-environmentDescriptionsMessage_nextToken :: Lens.Lens' EnvironmentDescriptionsMessage (Prelude.Maybe Prelude.Text)
+environmentDescriptionsMessage_nextToken :: Lens.Lens' EnvironmentDescriptionsMessage (Core.Maybe Core.Text)
 environmentDescriptionsMessage_nextToken = Lens.lens (\EnvironmentDescriptionsMessage' {nextToken} -> nextToken) (\s@EnvironmentDescriptionsMessage' {} a -> s {nextToken = a} :: EnvironmentDescriptionsMessage)
 
 -- | Returns an EnvironmentDescription list.
-environmentDescriptionsMessage_environments :: Lens.Lens' EnvironmentDescriptionsMessage (Prelude.Maybe [EnvironmentDescription])
-environmentDescriptionsMessage_environments = Lens.lens (\EnvironmentDescriptionsMessage' {environments} -> environments) (\s@EnvironmentDescriptionsMessage' {} a -> s {environments = a} :: EnvironmentDescriptionsMessage) Prelude.. Lens.mapping Prelude._Coerce
+environmentDescriptionsMessage_environments :: Lens.Lens' EnvironmentDescriptionsMessage (Core.Maybe [EnvironmentDescription])
+environmentDescriptionsMessage_environments = Lens.lens (\EnvironmentDescriptionsMessage' {environments} -> environments) (\s@EnvironmentDescriptionsMessage' {} a -> s {environments = a} :: EnvironmentDescriptionsMessage) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromXML
-    EnvironmentDescriptionsMessage
-  where
+instance Core.FromXML EnvironmentDescriptionsMessage where
   parseXML x =
     EnvironmentDescriptionsMessage'
-      Prelude.<$> (x Prelude..@? "NextToken")
-      Prelude.<*> ( x Prelude..@? "Environments"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "NextToken")
+      Core.<*> ( x Core..@? "Environments" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance
-  Prelude.Hashable
-    EnvironmentDescriptionsMessage
+instance Core.Hashable EnvironmentDescriptionsMessage
 
-instance
-  Prelude.NFData
-    EnvironmentDescriptionsMessage
+instance Core.NFData EnvironmentDescriptionsMessage

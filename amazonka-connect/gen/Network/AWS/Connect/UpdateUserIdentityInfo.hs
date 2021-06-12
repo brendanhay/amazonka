@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.Connect.UpdateUserIdentityInfo
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +57,11 @@ data UpdateUserIdentityInfo = UpdateUserIdentityInfo'
   { -- | The identity information for the user.
     identityInfo :: UserIdentityInfo,
     -- | The identifier of the user account.
-    userId :: Prelude.Text,
+    userId :: Core.Text,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserIdentityInfo' with all optional fields omitted.
@@ -81,9 +80,9 @@ newUpdateUserIdentityInfo ::
   -- | 'identityInfo'
   UserIdentityInfo ->
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateUserIdentityInfo
 newUpdateUserIdentityInfo
   pIdentityInfo_
@@ -101,64 +100,60 @@ updateUserIdentityInfo_identityInfo :: Lens.Lens' UpdateUserIdentityInfo UserIde
 updateUserIdentityInfo_identityInfo = Lens.lens (\UpdateUserIdentityInfo' {identityInfo} -> identityInfo) (\s@UpdateUserIdentityInfo' {} a -> s {identityInfo = a} :: UpdateUserIdentityInfo)
 
 -- | The identifier of the user account.
-updateUserIdentityInfo_userId :: Lens.Lens' UpdateUserIdentityInfo Prelude.Text
+updateUserIdentityInfo_userId :: Lens.Lens' UpdateUserIdentityInfo Core.Text
 updateUserIdentityInfo_userId = Lens.lens (\UpdateUserIdentityInfo' {userId} -> userId) (\s@UpdateUserIdentityInfo' {} a -> s {userId = a} :: UpdateUserIdentityInfo)
 
 -- | The identifier of the Amazon Connect instance.
-updateUserIdentityInfo_instanceId :: Lens.Lens' UpdateUserIdentityInfo Prelude.Text
+updateUserIdentityInfo_instanceId :: Lens.Lens' UpdateUserIdentityInfo Core.Text
 updateUserIdentityInfo_instanceId = Lens.lens (\UpdateUserIdentityInfo' {instanceId} -> instanceId) (\s@UpdateUserIdentityInfo' {} a -> s {instanceId = a} :: UpdateUserIdentityInfo)
 
-instance Prelude.AWSRequest UpdateUserIdentityInfo where
+instance Core.AWSRequest UpdateUserIdentityInfo where
   type
-    Rs UpdateUserIdentityInfo =
+    AWSResponse UpdateUserIdentityInfo =
       UpdateUserIdentityInfoResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateUserIdentityInfoResponse'
 
-instance Prelude.Hashable UpdateUserIdentityInfo
+instance Core.Hashable UpdateUserIdentityInfo
 
-instance Prelude.NFData UpdateUserIdentityInfo
+instance Core.NFData UpdateUserIdentityInfo
 
-instance Prelude.ToHeaders UpdateUserIdentityInfo where
+instance Core.ToHeaders UpdateUserIdentityInfo where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateUserIdentityInfo where
+instance Core.ToJSON UpdateUserIdentityInfo where
   toJSON UpdateUserIdentityInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("IdentityInfo" Prelude..= identityInfo)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("IdentityInfo" Core..= identityInfo)]
       )
 
-instance Prelude.ToPath UpdateUserIdentityInfo where
+instance Core.ToPath UpdateUserIdentityInfo where
   toPath UpdateUserIdentityInfo' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/users/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS userId,
+        Core.toBS userId,
         "/identity-info"
       ]
 
-instance Prelude.ToQuery UpdateUserIdentityInfo where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateUserIdentityInfo where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateUserIdentityInfoResponse' smart constructor.
 data UpdateUserIdentityInfoResponse = UpdateUserIdentityInfoResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateUserIdentityInfoResponse' with all optional fields omitted.
@@ -169,6 +164,4 @@ newUpdateUserIdentityInfoResponse ::
 newUpdateUserIdentityInfoResponse =
   UpdateUserIdentityInfoResponse'
 
-instance
-  Prelude.NFData
-    UpdateUserIdentityInfoResponse
+instance Core.NFData UpdateUserIdentityInfoResponse

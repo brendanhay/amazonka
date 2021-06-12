@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.Config.GetStoredQuery
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetStoredQuery' smart constructor.
 data GetStoredQuery = GetStoredQuery'
   { -- | The name of the query.
-    queryName :: Prelude.Text
+    queryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetStoredQuery' with all optional fields omitted.
@@ -64,66 +63,66 @@ data GetStoredQuery = GetStoredQuery'
 -- 'queryName', 'getStoredQuery_queryName' - The name of the query.
 newGetStoredQuery ::
   -- | 'queryName'
-  Prelude.Text ->
+  Core.Text ->
   GetStoredQuery
 newGetStoredQuery pQueryName_ =
   GetStoredQuery' {queryName = pQueryName_}
 
 -- | The name of the query.
-getStoredQuery_queryName :: Lens.Lens' GetStoredQuery Prelude.Text
+getStoredQuery_queryName :: Lens.Lens' GetStoredQuery Core.Text
 getStoredQuery_queryName = Lens.lens (\GetStoredQuery' {queryName} -> queryName) (\s@GetStoredQuery' {} a -> s {queryName = a} :: GetStoredQuery)
 
-instance Prelude.AWSRequest GetStoredQuery where
-  type Rs GetStoredQuery = GetStoredQueryResponse
+instance Core.AWSRequest GetStoredQuery where
+  type
+    AWSResponse GetStoredQuery =
+      GetStoredQueryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetStoredQueryResponse'
-            Prelude.<$> (x Prelude..?> "StoredQuery")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StoredQuery")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetStoredQuery
+instance Core.Hashable GetStoredQuery
 
-instance Prelude.NFData GetStoredQuery
+instance Core.NFData GetStoredQuery
 
-instance Prelude.ToHeaders GetStoredQuery where
+instance Core.ToHeaders GetStoredQuery where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.GetStoredQuery" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.GetStoredQuery" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetStoredQuery where
+instance Core.ToJSON GetStoredQuery where
   toJSON GetStoredQuery' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("QueryName" Prelude..= queryName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("QueryName" Core..= queryName)]
       )
 
-instance Prelude.ToPath GetStoredQuery where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetStoredQuery where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetStoredQuery where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetStoredQuery where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetStoredQueryResponse' smart constructor.
 data GetStoredQueryResponse = GetStoredQueryResponse'
   { -- | Returns a @StoredQuery@ object.
-    storedQuery :: Prelude.Maybe StoredQuery,
+    storedQuery :: Core.Maybe StoredQuery,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetStoredQueryResponse' with all optional fields omitted.
@@ -138,21 +137,20 @@ data GetStoredQueryResponse = GetStoredQueryResponse'
 -- 'httpStatus', 'getStoredQueryResponse_httpStatus' - The response's http status code.
 newGetStoredQueryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetStoredQueryResponse
 newGetStoredQueryResponse pHttpStatus_ =
   GetStoredQueryResponse'
-    { storedQuery =
-        Prelude.Nothing,
+    { storedQuery = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Returns a @StoredQuery@ object.
-getStoredQueryResponse_storedQuery :: Lens.Lens' GetStoredQueryResponse (Prelude.Maybe StoredQuery)
+getStoredQueryResponse_storedQuery :: Lens.Lens' GetStoredQueryResponse (Core.Maybe StoredQuery)
 getStoredQueryResponse_storedQuery = Lens.lens (\GetStoredQueryResponse' {storedQuery} -> storedQuery) (\s@GetStoredQueryResponse' {} a -> s {storedQuery = a} :: GetStoredQueryResponse)
 
 -- | The response's http status code.
-getStoredQueryResponse_httpStatus :: Lens.Lens' GetStoredQueryResponse Prelude.Int
+getStoredQueryResponse_httpStatus :: Lens.Lens' GetStoredQueryResponse Core.Int
 getStoredQueryResponse_httpStatus = Lens.lens (\GetStoredQueryResponse' {httpStatus} -> httpStatus) (\s@GetStoredQueryResponse' {} a -> s {httpStatus = a} :: GetStoredQueryResponse)
 
-instance Prelude.NFData GetStoredQueryResponse
+instance Core.NFData GetStoredQueryResponse

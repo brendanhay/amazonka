@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,20 +71,20 @@ module Network.AWS.DynamoDB.CreateBackup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateBackup' smart constructor.
 data CreateBackup = CreateBackup'
   { -- | The name of the table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | Specified name for the backup.
-    backupName :: Prelude.Text
+    backupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBackup' with all optional fields omitted.
@@ -100,9 +99,9 @@ data CreateBackup = CreateBackup'
 -- 'backupName', 'createBackup_backupName' - Specified name for the backup.
 newCreateBackup ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'backupName'
-  Prelude.Text ->
+  Core.Text ->
   CreateBackup
 newCreateBackup pTableName_ pBackupName_ =
   CreateBackup'
@@ -111,66 +110,64 @@ newCreateBackup pTableName_ pBackupName_ =
     }
 
 -- | The name of the table.
-createBackup_tableName :: Lens.Lens' CreateBackup Prelude.Text
+createBackup_tableName :: Lens.Lens' CreateBackup Core.Text
 createBackup_tableName = Lens.lens (\CreateBackup' {tableName} -> tableName) (\s@CreateBackup' {} a -> s {tableName = a} :: CreateBackup)
 
 -- | Specified name for the backup.
-createBackup_backupName :: Lens.Lens' CreateBackup Prelude.Text
+createBackup_backupName :: Lens.Lens' CreateBackup Core.Text
 createBackup_backupName = Lens.lens (\CreateBackup' {backupName} -> backupName) (\s@CreateBackup' {} a -> s {backupName = a} :: CreateBackup)
 
-instance Prelude.AWSRequest CreateBackup where
-  type Rs CreateBackup = CreateBackupResponse
+instance Core.AWSRequest CreateBackup where
+  type AWSResponse CreateBackup = CreateBackupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateBackupResponse'
-            Prelude.<$> (x Prelude..?> "BackupDetails")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "BackupDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateBackup
+instance Core.Hashable CreateBackup
 
-instance Prelude.NFData CreateBackup
+instance Core.NFData CreateBackup
 
-instance Prelude.ToHeaders CreateBackup where
+instance Core.ToHeaders CreateBackup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.CreateBackup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DynamoDB_20120810.CreateBackup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateBackup where
+instance Core.ToJSON CreateBackup where
   toJSON CreateBackup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just ("BackupName" Prelude..= backupName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just ("BackupName" Core..= backupName)
           ]
       )
 
-instance Prelude.ToPath CreateBackup where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateBackup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateBackup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateBackup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateBackupResponse' smart constructor.
 data CreateBackupResponse = CreateBackupResponse'
   { -- | Contains the details of the backup created for the table.
-    backupDetails :: Prelude.Maybe BackupDetails,
+    backupDetails :: Core.Maybe BackupDetails,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateBackupResponse' with all optional fields omitted.
@@ -185,21 +182,20 @@ data CreateBackupResponse = CreateBackupResponse'
 -- 'httpStatus', 'createBackupResponse_httpStatus' - The response's http status code.
 newCreateBackupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateBackupResponse
 newCreateBackupResponse pHttpStatus_ =
   CreateBackupResponse'
-    { backupDetails =
-        Prelude.Nothing,
+    { backupDetails = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains the details of the backup created for the table.
-createBackupResponse_backupDetails :: Lens.Lens' CreateBackupResponse (Prelude.Maybe BackupDetails)
+createBackupResponse_backupDetails :: Lens.Lens' CreateBackupResponse (Core.Maybe BackupDetails)
 createBackupResponse_backupDetails = Lens.lens (\CreateBackupResponse' {backupDetails} -> backupDetails) (\s@CreateBackupResponse' {} a -> s {backupDetails = a} :: CreateBackupResponse)
 
 -- | The response's http status code.
-createBackupResponse_httpStatus :: Lens.Lens' CreateBackupResponse Prelude.Int
+createBackupResponse_httpStatus :: Lens.Lens' CreateBackupResponse Core.Int
 createBackupResponse_httpStatus = Lens.lens (\CreateBackupResponse' {httpStatus} -> httpStatus) (\s@CreateBackupResponse' {} a -> s {httpStatus = a} :: CreateBackupResponse)
 
-instance Prelude.NFData CreateBackupResponse
+instance Core.NFData CreateBackupResponse

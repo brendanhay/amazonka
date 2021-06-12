@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SageMaker.UpdateModelPackage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,13 +50,13 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newUpdateModelPackage' smart constructor.
 data UpdateModelPackage = UpdateModelPackage'
   { -- | A description for the approval status of the model.
-    approvalDescription :: Prelude.Maybe Prelude.Text,
+    approvalDescription :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the model.
-    modelPackageArn :: Prelude.Text,
+    modelPackageArn :: Core.Text,
     -- | The approval status of the model.
     modelApprovalStatus :: ModelApprovalStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateModelPackage' with all optional fields omitted.
@@ -74,7 +73,7 @@ data UpdateModelPackage = UpdateModelPackage'
 -- 'modelApprovalStatus', 'updateModelPackage_modelApprovalStatus' - The approval status of the model.
 newUpdateModelPackage ::
   -- | 'modelPackageArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelApprovalStatus'
   ModelApprovalStatus ->
   UpdateModelPackage
@@ -83,84 +82,78 @@ newUpdateModelPackage
   pModelApprovalStatus_ =
     UpdateModelPackage'
       { approvalDescription =
-          Prelude.Nothing,
+          Core.Nothing,
         modelPackageArn = pModelPackageArn_,
         modelApprovalStatus = pModelApprovalStatus_
       }
 
 -- | A description for the approval status of the model.
-updateModelPackage_approvalDescription :: Lens.Lens' UpdateModelPackage (Prelude.Maybe Prelude.Text)
+updateModelPackage_approvalDescription :: Lens.Lens' UpdateModelPackage (Core.Maybe Core.Text)
 updateModelPackage_approvalDescription = Lens.lens (\UpdateModelPackage' {approvalDescription} -> approvalDescription) (\s@UpdateModelPackage' {} a -> s {approvalDescription = a} :: UpdateModelPackage)
 
 -- | The Amazon Resource Name (ARN) of the model.
-updateModelPackage_modelPackageArn :: Lens.Lens' UpdateModelPackage Prelude.Text
+updateModelPackage_modelPackageArn :: Lens.Lens' UpdateModelPackage Core.Text
 updateModelPackage_modelPackageArn = Lens.lens (\UpdateModelPackage' {modelPackageArn} -> modelPackageArn) (\s@UpdateModelPackage' {} a -> s {modelPackageArn = a} :: UpdateModelPackage)
 
 -- | The approval status of the model.
 updateModelPackage_modelApprovalStatus :: Lens.Lens' UpdateModelPackage ModelApprovalStatus
 updateModelPackage_modelApprovalStatus = Lens.lens (\UpdateModelPackage' {modelApprovalStatus} -> modelApprovalStatus) (\s@UpdateModelPackage' {} a -> s {modelApprovalStatus = a} :: UpdateModelPackage)
 
-instance Prelude.AWSRequest UpdateModelPackage where
+instance Core.AWSRequest UpdateModelPackage where
   type
-    Rs UpdateModelPackage =
+    AWSResponse UpdateModelPackage =
       UpdateModelPackageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateModelPackageResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "ModelPackageArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "ModelPackageArn")
       )
 
-instance Prelude.Hashable UpdateModelPackage
+instance Core.Hashable UpdateModelPackage
 
-instance Prelude.NFData UpdateModelPackage
+instance Core.NFData UpdateModelPackage
 
-instance Prelude.ToHeaders UpdateModelPackage where
+instance Core.ToHeaders UpdateModelPackage where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.UpdateModelPackage" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.UpdateModelPackage" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateModelPackage where
+instance Core.ToJSON UpdateModelPackage where
   toJSON UpdateModelPackage' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ApprovalDescription" Prelude..=)
-              Prelude.<$> approvalDescription,
-            Prelude.Just
-              ("ModelPackageArn" Prelude..= modelPackageArn),
-            Prelude.Just
-              ( "ModelApprovalStatus"
-                  Prelude..= modelApprovalStatus
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("ApprovalDescription" Core..=)
+              Core.<$> approvalDescription,
+            Core.Just
+              ("ModelPackageArn" Core..= modelPackageArn),
+            Core.Just
+              ("ModelApprovalStatus" Core..= modelApprovalStatus)
           ]
       )
 
-instance Prelude.ToPath UpdateModelPackage where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateModelPackage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateModelPackage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateModelPackage where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateModelPackageResponse' smart constructor.
 data UpdateModelPackageResponse = UpdateModelPackageResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the model.
-    modelPackageArn :: Prelude.Text
+    modelPackageArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateModelPackageResponse' with all optional fields omitted.
@@ -175,9 +168,9 @@ data UpdateModelPackageResponse = UpdateModelPackageResponse'
 -- 'modelPackageArn', 'updateModelPackageResponse_modelPackageArn' - The Amazon Resource Name (ARN) of the model.
 newUpdateModelPackageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'modelPackageArn'
-  Prelude.Text ->
+  Core.Text ->
   UpdateModelPackageResponse
 newUpdateModelPackageResponse
   pHttpStatus_
@@ -189,11 +182,11 @@ newUpdateModelPackageResponse
       }
 
 -- | The response's http status code.
-updateModelPackageResponse_httpStatus :: Lens.Lens' UpdateModelPackageResponse Prelude.Int
+updateModelPackageResponse_httpStatus :: Lens.Lens' UpdateModelPackageResponse Core.Int
 updateModelPackageResponse_httpStatus = Lens.lens (\UpdateModelPackageResponse' {httpStatus} -> httpStatus) (\s@UpdateModelPackageResponse' {} a -> s {httpStatus = a} :: UpdateModelPackageResponse)
 
 -- | The Amazon Resource Name (ARN) of the model.
-updateModelPackageResponse_modelPackageArn :: Lens.Lens' UpdateModelPackageResponse Prelude.Text
+updateModelPackageResponse_modelPackageArn :: Lens.Lens' UpdateModelPackageResponse Core.Text
 updateModelPackageResponse_modelPackageArn = Lens.lens (\UpdateModelPackageResponse' {modelPackageArn} -> modelPackageArn) (\s@UpdateModelPackageResponse' {} a -> s {modelPackageArn = a} :: UpdateModelPackageResponse)
 
-instance Prelude.NFData UpdateModelPackageResponse
+instance Core.NFData UpdateModelPackageResponse

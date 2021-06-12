@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodePipeline.Types.PipelineDeclaration where
 
 import Network.AWS.CodePipeline.Types.ArtifactStore
 import Network.AWS.CodePipeline.Types.StageDeclaration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the structure of actions and stages to be performed in the
 -- pipeline.
@@ -32,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data PipelineDeclaration = PipelineDeclaration'
   { -- | The version number of the pipeline. A new pipeline always has a version
     -- number of 1. This number is incremented when a pipeline is updated.
-    version :: Prelude.Maybe Prelude.Natural,
+    version :: Core.Maybe Core.Natural,
     -- | A mapping of @artifactStore@ objects and their corresponding AWS
     -- Regions. There must be an artifact store for the pipeline Region and for
     -- each cross-region action in the pipeline.
@@ -40,24 +39,24 @@ data PipelineDeclaration = PipelineDeclaration'
     -- You must include either @artifactStore@ or @artifactStores@ in your
     -- pipeline, but you cannot use both. If you create a cross-region action
     -- in your pipeline, you must use @artifactStores@.
-    artifactStores :: Prelude.Maybe (Prelude.HashMap Prelude.Text ArtifactStore),
+    artifactStores :: Core.Maybe (Core.HashMap Core.Text ArtifactStore),
     -- | Represents information about the S3 bucket where artifacts are stored
     -- for the pipeline.
     --
     -- You must include either @artifactStore@ or @artifactStores@ in your
     -- pipeline, but you cannot use both. If you create a cross-region action
     -- in your pipeline, you must use @artifactStores@.
-    artifactStore :: Prelude.Maybe ArtifactStore,
+    artifactStore :: Core.Maybe ArtifactStore,
     -- | The name of the pipeline.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either
     -- perform actions with no @actionRoleArn@, or to use to assume roles for
     -- actions with an @actionRoleArn@.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The stage in which to perform the action.
     stages :: [StageDeclaration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelineDeclaration' with all optional fields omitted.
@@ -94,23 +93,23 @@ data PipelineDeclaration = PipelineDeclaration'
 -- 'stages', 'pipelineDeclaration_stages' - The stage in which to perform the action.
 newPipelineDeclaration ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   PipelineDeclaration
 newPipelineDeclaration pName_ pRoleArn_ =
   PipelineDeclaration'
-    { version = Prelude.Nothing,
-      artifactStores = Prelude.Nothing,
-      artifactStore = Prelude.Nothing,
+    { version = Core.Nothing,
+      artifactStores = Core.Nothing,
+      artifactStore = Core.Nothing,
       name = pName_,
       roleArn = pRoleArn_,
-      stages = Prelude.mempty
+      stages = Core.mempty
     }
 
 -- | The version number of the pipeline. A new pipeline always has a version
 -- number of 1. This number is incremented when a pipeline is updated.
-pipelineDeclaration_version :: Lens.Lens' PipelineDeclaration (Prelude.Maybe Prelude.Natural)
+pipelineDeclaration_version :: Lens.Lens' PipelineDeclaration (Core.Maybe Core.Natural)
 pipelineDeclaration_version = Lens.lens (\PipelineDeclaration' {version} -> version) (\s@PipelineDeclaration' {} a -> s {version = a} :: PipelineDeclaration)
 
 -- | A mapping of @artifactStore@ objects and their corresponding AWS
@@ -120,8 +119,8 @@ pipelineDeclaration_version = Lens.lens (\PipelineDeclaration' {version} -> vers
 -- You must include either @artifactStore@ or @artifactStores@ in your
 -- pipeline, but you cannot use both. If you create a cross-region action
 -- in your pipeline, you must use @artifactStores@.
-pipelineDeclaration_artifactStores :: Lens.Lens' PipelineDeclaration (Prelude.Maybe (Prelude.HashMap Prelude.Text ArtifactStore))
-pipelineDeclaration_artifactStores = Lens.lens (\PipelineDeclaration' {artifactStores} -> artifactStores) (\s@PipelineDeclaration' {} a -> s {artifactStores = a} :: PipelineDeclaration) Prelude.. Lens.mapping Prelude._Coerce
+pipelineDeclaration_artifactStores :: Lens.Lens' PipelineDeclaration (Core.Maybe (Core.HashMap Core.Text ArtifactStore))
+pipelineDeclaration_artifactStores = Lens.lens (\PipelineDeclaration' {artifactStores} -> artifactStores) (\s@PipelineDeclaration' {} a -> s {artifactStores = a} :: PipelineDeclaration) Core.. Lens.mapping Lens._Coerce
 
 -- | Represents information about the S3 bucket where artifacts are stored
 -- for the pipeline.
@@ -129,54 +128,50 @@ pipelineDeclaration_artifactStores = Lens.lens (\PipelineDeclaration' {artifactS
 -- You must include either @artifactStore@ or @artifactStores@ in your
 -- pipeline, but you cannot use both. If you create a cross-region action
 -- in your pipeline, you must use @artifactStores@.
-pipelineDeclaration_artifactStore :: Lens.Lens' PipelineDeclaration (Prelude.Maybe ArtifactStore)
+pipelineDeclaration_artifactStore :: Lens.Lens' PipelineDeclaration (Core.Maybe ArtifactStore)
 pipelineDeclaration_artifactStore = Lens.lens (\PipelineDeclaration' {artifactStore} -> artifactStore) (\s@PipelineDeclaration' {} a -> s {artifactStore = a} :: PipelineDeclaration)
 
 -- | The name of the pipeline.
-pipelineDeclaration_name :: Lens.Lens' PipelineDeclaration Prelude.Text
+pipelineDeclaration_name :: Lens.Lens' PipelineDeclaration Core.Text
 pipelineDeclaration_name = Lens.lens (\PipelineDeclaration' {name} -> name) (\s@PipelineDeclaration' {} a -> s {name = a} :: PipelineDeclaration)
 
 -- | The Amazon Resource Name (ARN) for AWS CodePipeline to use to either
 -- perform actions with no @actionRoleArn@, or to use to assume roles for
 -- actions with an @actionRoleArn@.
-pipelineDeclaration_roleArn :: Lens.Lens' PipelineDeclaration Prelude.Text
+pipelineDeclaration_roleArn :: Lens.Lens' PipelineDeclaration Core.Text
 pipelineDeclaration_roleArn = Lens.lens (\PipelineDeclaration' {roleArn} -> roleArn) (\s@PipelineDeclaration' {} a -> s {roleArn = a} :: PipelineDeclaration)
 
 -- | The stage in which to perform the action.
 pipelineDeclaration_stages :: Lens.Lens' PipelineDeclaration [StageDeclaration]
-pipelineDeclaration_stages = Lens.lens (\PipelineDeclaration' {stages} -> stages) (\s@PipelineDeclaration' {} a -> s {stages = a} :: PipelineDeclaration) Prelude.. Prelude._Coerce
+pipelineDeclaration_stages = Lens.lens (\PipelineDeclaration' {stages} -> stages) (\s@PipelineDeclaration' {} a -> s {stages = a} :: PipelineDeclaration) Core.. Lens._Coerce
 
-instance Prelude.FromJSON PipelineDeclaration where
+instance Core.FromJSON PipelineDeclaration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelineDeclaration"
       ( \x ->
           PipelineDeclaration'
-            Prelude.<$> (x Prelude..:? "version")
-            Prelude.<*> ( x Prelude..:? "artifactStores"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "artifactStore")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..:? "stages" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "version")
+            Core.<*> (x Core..:? "artifactStores" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "artifactStore")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "roleArn")
+            Core.<*> (x Core..:? "stages" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PipelineDeclaration
+instance Core.Hashable PipelineDeclaration
 
-instance Prelude.NFData PipelineDeclaration
+instance Core.NFData PipelineDeclaration
 
-instance Prelude.ToJSON PipelineDeclaration where
+instance Core.ToJSON PipelineDeclaration where
   toJSON PipelineDeclaration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("version" Prelude..=) Prelude.<$> version,
-            ("artifactStores" Prelude..=)
-              Prelude.<$> artifactStores,
-            ("artifactStore" Prelude..=)
-              Prelude.<$> artifactStore,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just ("stages" Prelude..= stages)
+    Core.object
+      ( Core.catMaybes
+          [ ("version" Core..=) Core.<$> version,
+            ("artifactStores" Core..=) Core.<$> artifactStores,
+            ("artifactStore" Core..=) Core.<$> artifactStore,
+            Core.Just ("name" Core..= name),
+            Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("stages" Core..= stages)
           ]
       )

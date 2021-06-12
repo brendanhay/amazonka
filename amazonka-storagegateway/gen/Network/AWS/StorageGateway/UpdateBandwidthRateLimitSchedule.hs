@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,21 +44,21 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimitSchedule
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newUpdateBandwidthRateLimitSchedule' smart constructor.
 data UpdateBandwidthRateLimitSchedule = UpdateBandwidthRateLimitSchedule'
-  { gatewayARN :: Prelude.Text,
+  { gatewayARN :: Core.Text,
     -- | An array containing bandwidth rate limit schedule intervals for a
     -- gateway. When no bandwidth rate limit intervals have been scheduled, the
     -- array is empty.
     bandwidthRateLimitIntervals :: [BandwidthRateLimitInterval]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateBandwidthRateLimitSchedule' with all optional fields omitted.
@@ -76,102 +75,91 @@ data UpdateBandwidthRateLimitSchedule = UpdateBandwidthRateLimitSchedule'
 -- array is empty.
 newUpdateBandwidthRateLimitSchedule ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   UpdateBandwidthRateLimitSchedule
 newUpdateBandwidthRateLimitSchedule pGatewayARN_ =
   UpdateBandwidthRateLimitSchedule'
     { gatewayARN =
         pGatewayARN_,
-      bandwidthRateLimitIntervals =
-        Prelude.mempty
+      bandwidthRateLimitIntervals = Core.mempty
     }
 
 -- | Undocumented member.
-updateBandwidthRateLimitSchedule_gatewayARN :: Lens.Lens' UpdateBandwidthRateLimitSchedule Prelude.Text
+updateBandwidthRateLimitSchedule_gatewayARN :: Lens.Lens' UpdateBandwidthRateLimitSchedule Core.Text
 updateBandwidthRateLimitSchedule_gatewayARN = Lens.lens (\UpdateBandwidthRateLimitSchedule' {gatewayARN} -> gatewayARN) (\s@UpdateBandwidthRateLimitSchedule' {} a -> s {gatewayARN = a} :: UpdateBandwidthRateLimitSchedule)
 
 -- | An array containing bandwidth rate limit schedule intervals for a
 -- gateway. When no bandwidth rate limit intervals have been scheduled, the
 -- array is empty.
 updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals :: Lens.Lens' UpdateBandwidthRateLimitSchedule [BandwidthRateLimitInterval]
-updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals = Lens.lens (\UpdateBandwidthRateLimitSchedule' {bandwidthRateLimitIntervals} -> bandwidthRateLimitIntervals) (\s@UpdateBandwidthRateLimitSchedule' {} a -> s {bandwidthRateLimitIntervals = a} :: UpdateBandwidthRateLimitSchedule) Prelude.. Prelude._Coerce
+updateBandwidthRateLimitSchedule_bandwidthRateLimitIntervals = Lens.lens (\UpdateBandwidthRateLimitSchedule' {bandwidthRateLimitIntervals} -> bandwidthRateLimitIntervals) (\s@UpdateBandwidthRateLimitSchedule' {} a -> s {bandwidthRateLimitIntervals = a} :: UpdateBandwidthRateLimitSchedule) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateBandwidthRateLimitSchedule
   where
   type
-    Rs UpdateBandwidthRateLimitSchedule =
+    AWSResponse UpdateBandwidthRateLimitSchedule =
       UpdateBandwidthRateLimitScheduleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateBandwidthRateLimitScheduleResponse'
-            Prelude.<$> (x Prelude..?> "GatewayARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateBandwidthRateLimitSchedule
 
-instance
-  Prelude.NFData
-    UpdateBandwidthRateLimitSchedule
+instance Core.NFData UpdateBandwidthRateLimitSchedule
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateBandwidthRateLimitSchedule
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateBandwidthRateLimitSchedule
-  where
+instance Core.ToJSON UpdateBandwidthRateLimitSchedule where
   toJSON UpdateBandwidthRateLimitSchedule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just
               ( "BandwidthRateLimitIntervals"
-                  Prelude..= bandwidthRateLimitIntervals
+                  Core..= bandwidthRateLimitIntervals
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateBandwidthRateLimitSchedule
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateBandwidthRateLimitSchedule where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     UpdateBandwidthRateLimitSchedule
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateBandwidthRateLimitScheduleResponse' smart constructor.
 data UpdateBandwidthRateLimitScheduleResponse = UpdateBandwidthRateLimitScheduleResponse'
-  { gatewayARN :: Prelude.Maybe Prelude.Text,
+  { gatewayARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateBandwidthRateLimitScheduleResponse' with all optional fields omitted.
@@ -186,24 +174,24 @@ data UpdateBandwidthRateLimitScheduleResponse = UpdateBandwidthRateLimitSchedule
 -- 'httpStatus', 'updateBandwidthRateLimitScheduleResponse_httpStatus' - The response's http status code.
 newUpdateBandwidthRateLimitScheduleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateBandwidthRateLimitScheduleResponse
 newUpdateBandwidthRateLimitScheduleResponse
   pHttpStatus_ =
     UpdateBandwidthRateLimitScheduleResponse'
       { gatewayARN =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-updateBandwidthRateLimitScheduleResponse_gatewayARN :: Lens.Lens' UpdateBandwidthRateLimitScheduleResponse (Prelude.Maybe Prelude.Text)
+updateBandwidthRateLimitScheduleResponse_gatewayARN :: Lens.Lens' UpdateBandwidthRateLimitScheduleResponse (Core.Maybe Core.Text)
 updateBandwidthRateLimitScheduleResponse_gatewayARN = Lens.lens (\UpdateBandwidthRateLimitScheduleResponse' {gatewayARN} -> gatewayARN) (\s@UpdateBandwidthRateLimitScheduleResponse' {} a -> s {gatewayARN = a} :: UpdateBandwidthRateLimitScheduleResponse)
 
 -- | The response's http status code.
-updateBandwidthRateLimitScheduleResponse_httpStatus :: Lens.Lens' UpdateBandwidthRateLimitScheduleResponse Prelude.Int
+updateBandwidthRateLimitScheduleResponse_httpStatus :: Lens.Lens' UpdateBandwidthRateLimitScheduleResponse Core.Int
 updateBandwidthRateLimitScheduleResponse_httpStatus = Lens.lens (\UpdateBandwidthRateLimitScheduleResponse' {httpStatus} -> httpStatus) (\s@UpdateBandwidthRateLimitScheduleResponse' {} a -> s {httpStatus = a} :: UpdateBandwidthRateLimitScheduleResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateBandwidthRateLimitScheduleResponse

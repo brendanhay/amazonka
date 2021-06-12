@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.IAM.DeleteUserPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,16 +58,16 @@ data DeleteUserPolicy = DeleteUserPolicy'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The name identifying the policy document to delete.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPolicy' with all optional fields omitted.
@@ -94,9 +93,9 @@ data DeleteUserPolicy = DeleteUserPolicy'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newDeleteUserPolicy ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUserPolicy
 newDeleteUserPolicy pUserName_ pPolicyName_ =
   DeleteUserPolicy'
@@ -111,7 +110,7 @@ newDeleteUserPolicy pUserName_ pPolicyName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteUserPolicy_userName :: Lens.Lens' DeleteUserPolicy Prelude.Text
+deleteUserPolicy_userName :: Lens.Lens' DeleteUserPolicy Core.Text
 deleteUserPolicy_userName = Lens.lens (\DeleteUserPolicy' {userName} -> userName) (\s@DeleteUserPolicy' {} a -> s {userName = a} :: DeleteUserPolicy)
 
 -- | The name identifying the policy document to delete.
@@ -120,41 +119,42 @@ deleteUserPolicy_userName = Lens.lens (\DeleteUserPolicy' {userName} -> userName
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteUserPolicy_policyName :: Lens.Lens' DeleteUserPolicy Prelude.Text
+deleteUserPolicy_policyName :: Lens.Lens' DeleteUserPolicy Core.Text
 deleteUserPolicy_policyName = Lens.lens (\DeleteUserPolicy' {policyName} -> policyName) (\s@DeleteUserPolicy' {} a -> s {policyName = a} :: DeleteUserPolicy)
 
-instance Prelude.AWSRequest DeleteUserPolicy where
-  type Rs DeleteUserPolicy = DeleteUserPolicyResponse
+instance Core.AWSRequest DeleteUserPolicy where
+  type
+    AWSResponse DeleteUserPolicy =
+      DeleteUserPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteUserPolicyResponse'
 
-instance Prelude.Hashable DeleteUserPolicy
+instance Core.Hashable DeleteUserPolicy
 
-instance Prelude.NFData DeleteUserPolicy
+instance Core.NFData DeleteUserPolicy
 
-instance Prelude.ToHeaders DeleteUserPolicy where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteUserPolicy where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteUserPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUserPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUserPolicy where
+instance Core.ToQuery DeleteUserPolicy where
   toQuery DeleteUserPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteUserPolicy" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "PolicyName" Prelude.=: policyName
+          Core.=: ("DeleteUserPolicy" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "PolicyName" Core.=: policyName
       ]
 
 -- | /See:/ 'newDeleteUserPolicyResponse' smart constructor.
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserPolicyResponse' with all optional fields omitted.
@@ -165,4 +165,4 @@ newDeleteUserPolicyResponse ::
 newDeleteUserPolicyResponse =
   DeleteUserPolicyResponse'
 
-instance Prelude.NFData DeleteUserPolicyResponse
+instance Core.NFData DeleteUserPolicyResponse

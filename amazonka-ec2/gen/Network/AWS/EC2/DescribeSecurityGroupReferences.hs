@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.DescribeSecurityGroupReferences
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ data DescribeSecurityGroupReferences = DescribeSecurityGroupReferences'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The IDs of the security groups in your account.
-    groupId :: [Prelude.Text]
+    groupId :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSecurityGroupReferences' with all optional fields omitted.
@@ -80,84 +79,75 @@ newDescribeSecurityGroupReferences ::
 newDescribeSecurityGroupReferences =
   DescribeSecurityGroupReferences'
     { dryRun =
-        Prelude.Nothing,
-      groupId = Prelude.mempty
+        Core.Nothing,
+      groupId = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeSecurityGroupReferences_dryRun :: Lens.Lens' DescribeSecurityGroupReferences (Prelude.Maybe Prelude.Bool)
+describeSecurityGroupReferences_dryRun :: Lens.Lens' DescribeSecurityGroupReferences (Core.Maybe Core.Bool)
 describeSecurityGroupReferences_dryRun = Lens.lens (\DescribeSecurityGroupReferences' {dryRun} -> dryRun) (\s@DescribeSecurityGroupReferences' {} a -> s {dryRun = a} :: DescribeSecurityGroupReferences)
 
 -- | The IDs of the security groups in your account.
-describeSecurityGroupReferences_groupId :: Lens.Lens' DescribeSecurityGroupReferences [Prelude.Text]
-describeSecurityGroupReferences_groupId = Lens.lens (\DescribeSecurityGroupReferences' {groupId} -> groupId) (\s@DescribeSecurityGroupReferences' {} a -> s {groupId = a} :: DescribeSecurityGroupReferences) Prelude.. Prelude._Coerce
+describeSecurityGroupReferences_groupId :: Lens.Lens' DescribeSecurityGroupReferences [Core.Text]
+describeSecurityGroupReferences_groupId = Lens.lens (\DescribeSecurityGroupReferences' {groupId} -> groupId) (\s@DescribeSecurityGroupReferences' {} a -> s {groupId = a} :: DescribeSecurityGroupReferences) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeSecurityGroupReferences
   where
   type
-    Rs DescribeSecurityGroupReferences =
+    AWSResponse DescribeSecurityGroupReferences =
       DescribeSecurityGroupReferencesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeSecurityGroupReferencesResponse'
-            Prelude.<$> ( x Prelude..@? "securityGroupReferenceSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "securityGroupReferenceSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeSecurityGroupReferences
 
-instance
-  Prelude.NFData
-    DescribeSecurityGroupReferences
+instance Core.NFData DescribeSecurityGroupReferences
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeSecurityGroupReferences
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DescribeSecurityGroupReferences
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeSecurityGroupReferences where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeSecurityGroupReferences
-  where
+instance Core.ToQuery DescribeSecurityGroupReferences where
   toQuery DescribeSecurityGroupReferences' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeSecurityGroupReferences" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQueryList "GroupId" groupId
+          Core.=: ( "DescribeSecurityGroupReferences" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQueryList "GroupId" groupId
       ]
 
 -- | /See:/ 'newDescribeSecurityGroupReferencesResponse' smart constructor.
 data DescribeSecurityGroupReferencesResponse = DescribeSecurityGroupReferencesResponse'
   { -- | Information about the VPCs with the referencing security groups.
-    securityGroupReferenceSet :: Prelude.Maybe [SecurityGroupReference],
+    securityGroupReferenceSet :: Core.Maybe [SecurityGroupReference],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeSecurityGroupReferencesResponse' with all optional fields omitted.
@@ -172,24 +162,24 @@ data DescribeSecurityGroupReferencesResponse = DescribeSecurityGroupReferencesRe
 -- 'httpStatus', 'describeSecurityGroupReferencesResponse_httpStatus' - The response's http status code.
 newDescribeSecurityGroupReferencesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeSecurityGroupReferencesResponse
 newDescribeSecurityGroupReferencesResponse
   pHttpStatus_ =
     DescribeSecurityGroupReferencesResponse'
       { securityGroupReferenceSet =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the VPCs with the referencing security groups.
-describeSecurityGroupReferencesResponse_securityGroupReferenceSet :: Lens.Lens' DescribeSecurityGroupReferencesResponse (Prelude.Maybe [SecurityGroupReference])
-describeSecurityGroupReferencesResponse_securityGroupReferenceSet = Lens.lens (\DescribeSecurityGroupReferencesResponse' {securityGroupReferenceSet} -> securityGroupReferenceSet) (\s@DescribeSecurityGroupReferencesResponse' {} a -> s {securityGroupReferenceSet = a} :: DescribeSecurityGroupReferencesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeSecurityGroupReferencesResponse_securityGroupReferenceSet :: Lens.Lens' DescribeSecurityGroupReferencesResponse (Core.Maybe [SecurityGroupReference])
+describeSecurityGroupReferencesResponse_securityGroupReferenceSet = Lens.lens (\DescribeSecurityGroupReferencesResponse' {securityGroupReferenceSet} -> securityGroupReferenceSet) (\s@DescribeSecurityGroupReferencesResponse' {} a -> s {securityGroupReferenceSet = a} :: DescribeSecurityGroupReferencesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeSecurityGroupReferencesResponse_httpStatus :: Lens.Lens' DescribeSecurityGroupReferencesResponse Prelude.Int
+describeSecurityGroupReferencesResponse_httpStatus :: Lens.Lens' DescribeSecurityGroupReferencesResponse Core.Int
 describeSecurityGroupReferencesResponse_httpStatus = Lens.lens (\DescribeSecurityGroupReferencesResponse' {httpStatus} -> httpStatus) (\s@DescribeSecurityGroupReferencesResponse' {} a -> s {httpStatus = a} :: DescribeSecurityGroupReferencesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeSecurityGroupReferencesResponse

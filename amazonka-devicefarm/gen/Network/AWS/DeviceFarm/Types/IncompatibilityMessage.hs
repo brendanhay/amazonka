@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.IncompatibilityMessage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types.DeviceAttribute
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about incompatibility.
 --
 -- /See:/ 'newIncompatibilityMessage' smart constructor.
 data IncompatibilityMessage = IncompatibilityMessage'
   { -- | A message about the incompatibility.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The type of incompatibility.
     --
     -- Allowed values include:
@@ -45,9 +44,9 @@ data IncompatibilityMessage = IncompatibilityMessage'
     -- -   REMOTE_ACCESS_ENABLED
     --
     -- -   APPIUM_VERSION
-    type' :: Prelude.Maybe DeviceAttribute
+    type' :: Core.Maybe DeviceAttribute
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IncompatibilityMessage' with all optional fields omitted.
@@ -78,12 +77,12 @@ newIncompatibilityMessage ::
   IncompatibilityMessage
 newIncompatibilityMessage =
   IncompatibilityMessage'
-    { message = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { message = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | A message about the incompatibility.
-incompatibilityMessage_message :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe Prelude.Text)
+incompatibilityMessage_message :: Lens.Lens' IncompatibilityMessage (Core.Maybe Core.Text)
 incompatibilityMessage_message = Lens.lens (\IncompatibilityMessage' {message} -> message) (\s@IncompatibilityMessage' {} a -> s {message = a} :: IncompatibilityMessage)
 
 -- | The type of incompatibility.
@@ -101,19 +100,18 @@ incompatibilityMessage_message = Lens.lens (\IncompatibilityMessage' {message} -
 -- -   REMOTE_ACCESS_ENABLED
 --
 -- -   APPIUM_VERSION
-incompatibilityMessage_type :: Lens.Lens' IncompatibilityMessage (Prelude.Maybe DeviceAttribute)
+incompatibilityMessage_type :: Lens.Lens' IncompatibilityMessage (Core.Maybe DeviceAttribute)
 incompatibilityMessage_type = Lens.lens (\IncompatibilityMessage' {type'} -> type') (\s@IncompatibilityMessage' {} a -> s {type' = a} :: IncompatibilityMessage)
 
-instance Prelude.FromJSON IncompatibilityMessage where
+instance Core.FromJSON IncompatibilityMessage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IncompatibilityMessage"
       ( \x ->
           IncompatibilityMessage'
-            Prelude.<$> (x Prelude..:? "message")
-            Prelude.<*> (x Prelude..:? "type")
+            Core.<$> (x Core..:? "message") Core.<*> (x Core..:? "type")
       )
 
-instance Prelude.Hashable IncompatibilityMessage
+instance Core.Hashable IncompatibilityMessage
 
-instance Prelude.NFData IncompatibilityMessage
+instance Core.NFData IncompatibilityMessage

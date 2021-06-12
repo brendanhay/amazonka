@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.DeviceFarm.RenewOffering
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,11 +55,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRenewOffering' smart constructor.
 data RenewOffering = RenewOffering'
   { -- | The quantity requested in an offering renewal.
-    quantity :: Prelude.Maybe Prelude.Int,
+    quantity :: Core.Maybe Core.Int,
     -- | The ID of a request to renew an offering.
-    offeringId :: Prelude.Maybe Prelude.Text
+    offeringId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RenewOffering' with all optional fields omitted.
@@ -77,73 +76,73 @@ newRenewOffering ::
   RenewOffering
 newRenewOffering =
   RenewOffering'
-    { quantity = Prelude.Nothing,
-      offeringId = Prelude.Nothing
+    { quantity = Core.Nothing,
+      offeringId = Core.Nothing
     }
 
 -- | The quantity requested in an offering renewal.
-renewOffering_quantity :: Lens.Lens' RenewOffering (Prelude.Maybe Prelude.Int)
+renewOffering_quantity :: Lens.Lens' RenewOffering (Core.Maybe Core.Int)
 renewOffering_quantity = Lens.lens (\RenewOffering' {quantity} -> quantity) (\s@RenewOffering' {} a -> s {quantity = a} :: RenewOffering)
 
 -- | The ID of a request to renew an offering.
-renewOffering_offeringId :: Lens.Lens' RenewOffering (Prelude.Maybe Prelude.Text)
+renewOffering_offeringId :: Lens.Lens' RenewOffering (Core.Maybe Core.Text)
 renewOffering_offeringId = Lens.lens (\RenewOffering' {offeringId} -> offeringId) (\s@RenewOffering' {} a -> s {offeringId = a} :: RenewOffering)
 
-instance Prelude.AWSRequest RenewOffering where
-  type Rs RenewOffering = RenewOfferingResponse
+instance Core.AWSRequest RenewOffering where
+  type
+    AWSResponse RenewOffering =
+      RenewOfferingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RenewOfferingResponse'
-            Prelude.<$> (x Prelude..?> "offeringTransaction")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "offeringTransaction")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RenewOffering
+instance Core.Hashable RenewOffering
 
-instance Prelude.NFData RenewOffering
+instance Core.NFData RenewOffering
 
-instance Prelude.ToHeaders RenewOffering where
+instance Core.ToHeaders RenewOffering where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.RenewOffering" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.RenewOffering" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RenewOffering where
+instance Core.ToJSON RenewOffering where
   toJSON RenewOffering' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("quantity" Prelude..=) Prelude.<$> quantity,
-            ("offeringId" Prelude..=) Prelude.<$> offeringId
+    Core.object
+      ( Core.catMaybes
+          [ ("quantity" Core..=) Core.<$> quantity,
+            ("offeringId" Core..=) Core.<$> offeringId
           ]
       )
 
-instance Prelude.ToPath RenewOffering where
-  toPath = Prelude.const "/"
+instance Core.ToPath RenewOffering where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RenewOffering where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RenewOffering where
+  toQuery = Core.const Core.mempty
 
 -- | The result of a renewal offering.
 --
 -- /See:/ 'newRenewOfferingResponse' smart constructor.
 data RenewOfferingResponse = RenewOfferingResponse'
   { -- | Represents the status of the offering transaction for the renewal.
-    offeringTransaction :: Prelude.Maybe OfferingTransaction,
+    offeringTransaction :: Core.Maybe OfferingTransaction,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RenewOfferingResponse' with all optional fields omitted.
@@ -158,21 +157,21 @@ data RenewOfferingResponse = RenewOfferingResponse'
 -- 'httpStatus', 'renewOfferingResponse_httpStatus' - The response's http status code.
 newRenewOfferingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RenewOfferingResponse
 newRenewOfferingResponse pHttpStatus_ =
   RenewOfferingResponse'
     { offeringTransaction =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the status of the offering transaction for the renewal.
-renewOfferingResponse_offeringTransaction :: Lens.Lens' RenewOfferingResponse (Prelude.Maybe OfferingTransaction)
+renewOfferingResponse_offeringTransaction :: Lens.Lens' RenewOfferingResponse (Core.Maybe OfferingTransaction)
 renewOfferingResponse_offeringTransaction = Lens.lens (\RenewOfferingResponse' {offeringTransaction} -> offeringTransaction) (\s@RenewOfferingResponse' {} a -> s {offeringTransaction = a} :: RenewOfferingResponse)
 
 -- | The response's http status code.
-renewOfferingResponse_httpStatus :: Lens.Lens' RenewOfferingResponse Prelude.Int
+renewOfferingResponse_httpStatus :: Lens.Lens' RenewOfferingResponse Core.Int
 renewOfferingResponse_httpStatus = Lens.lens (\RenewOfferingResponse' {httpStatus} -> httpStatus) (\s@RenewOfferingResponse' {} a -> s {httpStatus = a} :: RenewOfferingResponse)
 
-instance Prelude.NFData RenewOfferingResponse
+instance Core.NFData RenewOfferingResponse

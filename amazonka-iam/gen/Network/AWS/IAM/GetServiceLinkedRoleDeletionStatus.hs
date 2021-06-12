@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data GetServiceLinkedRoleDeletionStatus = GetServiceLinkedRoleDeletionStatus'
   { -- | The deletion task identifier. This identifier is returned by the
     -- DeleteServiceLinkedRole operation in the format
     -- @task\/aws-service-role\/\<service-principal-name>\/\<role-name>\/\<task-uuid>@.
-    deletionTaskId :: Prelude.Text
+    deletionTaskId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServiceLinkedRoleDeletionStatus' with all optional fields omitted.
@@ -74,7 +73,7 @@ data GetServiceLinkedRoleDeletionStatus = GetServiceLinkedRoleDeletionStatus'
 -- @task\/aws-service-role\/\<service-principal-name>\/\<role-name>\/\<task-uuid>@.
 newGetServiceLinkedRoleDeletionStatus ::
   -- | 'deletionTaskId'
-  Prelude.Text ->
+  Core.Text ->
   GetServiceLinkedRoleDeletionStatus
 newGetServiceLinkedRoleDeletionStatus
   pDeletionTaskId_ =
@@ -86,15 +85,15 @@ newGetServiceLinkedRoleDeletionStatus
 -- | The deletion task identifier. This identifier is returned by the
 -- DeleteServiceLinkedRole operation in the format
 -- @task\/aws-service-role\/\<service-principal-name>\/\<role-name>\/\<task-uuid>@.
-getServiceLinkedRoleDeletionStatus_deletionTaskId :: Lens.Lens' GetServiceLinkedRoleDeletionStatus Prelude.Text
+getServiceLinkedRoleDeletionStatus_deletionTaskId :: Lens.Lens' GetServiceLinkedRoleDeletionStatus Core.Text
 getServiceLinkedRoleDeletionStatus_deletionTaskId = Lens.lens (\GetServiceLinkedRoleDeletionStatus' {deletionTaskId} -> deletionTaskId) (\s@GetServiceLinkedRoleDeletionStatus' {} a -> s {deletionTaskId = a} :: GetServiceLinkedRoleDeletionStatus)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetServiceLinkedRoleDeletionStatus
   where
   type
-    Rs GetServiceLinkedRoleDeletionStatus =
+    AWSResponse GetServiceLinkedRoleDeletionStatus =
       GetServiceLinkedRoleDeletionStatusResponse
   request = Request.postQuery defaultService
   response =
@@ -102,56 +101,55 @@ instance
       "GetServiceLinkedRoleDeletionStatusResult"
       ( \s h x ->
           GetServiceLinkedRoleDeletionStatusResponse'
-            Prelude.<$> (x Prelude..@? "Reason")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Prelude..@ "Status")
+            Core.<$> (x Core..@? "Reason")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "Status")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetServiceLinkedRoleDeletionStatus
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetServiceLinkedRoleDeletionStatus
 
 instance
-  Prelude.ToHeaders
-    GetServiceLinkedRoleDeletionStatus
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     GetServiceLinkedRoleDeletionStatus
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    GetServiceLinkedRoleDeletionStatus
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     GetServiceLinkedRoleDeletionStatus
   where
   toQuery GetServiceLinkedRoleDeletionStatus' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetServiceLinkedRoleDeletionStatus" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "DeletionTaskId" Prelude.=: deletionTaskId
+          Core.=: ( "GetServiceLinkedRoleDeletionStatus" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "DeletionTaskId" Core.=: deletionTaskId
       ]
 
 -- | /See:/ 'newGetServiceLinkedRoleDeletionStatusResponse' smart constructor.
 data GetServiceLinkedRoleDeletionStatusResponse = GetServiceLinkedRoleDeletionStatusResponse'
   { -- | An object that contains details about the reason the deletion failed.
-    reason :: Prelude.Maybe DeletionTaskFailureReasonType,
+    reason :: Core.Maybe DeletionTaskFailureReasonType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The status of the deletion.
     status :: DeletionTaskStatusType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServiceLinkedRoleDeletionStatusResponse' with all optional fields omitted.
@@ -168,7 +166,7 @@ data GetServiceLinkedRoleDeletionStatusResponse = GetServiceLinkedRoleDeletionSt
 -- 'status', 'getServiceLinkedRoleDeletionStatusResponse_status' - The status of the deletion.
 newGetServiceLinkedRoleDeletionStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'status'
   DeletionTaskStatusType ->
   GetServiceLinkedRoleDeletionStatusResponse
@@ -177,17 +175,17 @@ newGetServiceLinkedRoleDeletionStatusResponse
   pStatus_ =
     GetServiceLinkedRoleDeletionStatusResponse'
       { reason =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
         status = pStatus_
       }
 
 -- | An object that contains details about the reason the deletion failed.
-getServiceLinkedRoleDeletionStatusResponse_reason :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse (Prelude.Maybe DeletionTaskFailureReasonType)
+getServiceLinkedRoleDeletionStatusResponse_reason :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse (Core.Maybe DeletionTaskFailureReasonType)
 getServiceLinkedRoleDeletionStatusResponse_reason = Lens.lens (\GetServiceLinkedRoleDeletionStatusResponse' {reason} -> reason) (\s@GetServiceLinkedRoleDeletionStatusResponse' {} a -> s {reason = a} :: GetServiceLinkedRoleDeletionStatusResponse)
 
 -- | The response's http status code.
-getServiceLinkedRoleDeletionStatusResponse_httpStatus :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse Prelude.Int
+getServiceLinkedRoleDeletionStatusResponse_httpStatus :: Lens.Lens' GetServiceLinkedRoleDeletionStatusResponse Core.Int
 getServiceLinkedRoleDeletionStatusResponse_httpStatus = Lens.lens (\GetServiceLinkedRoleDeletionStatusResponse' {httpStatus} -> httpStatus) (\s@GetServiceLinkedRoleDeletionStatusResponse' {} a -> s {httpStatus = a} :: GetServiceLinkedRoleDeletionStatusResponse)
 
 -- | The status of the deletion.
@@ -195,5 +193,5 @@ getServiceLinkedRoleDeletionStatusResponse_status :: Lens.Lens' GetServiceLinked
 getServiceLinkedRoleDeletionStatusResponse_status = Lens.lens (\GetServiceLinkedRoleDeletionStatusResponse' {status} -> status) (\s@GetServiceLinkedRoleDeletionStatusResponse' {} a -> s {status = a} :: GetServiceLinkedRoleDeletionStatusResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetServiceLinkedRoleDeletionStatusResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.Config.DescribePendingAggregationRequests
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data DescribePendingAggregationRequests = DescribePendingAggregationRequests'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is maximum. If you specify 0, AWS Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePendingAggregationRequests' with all optional fields omitted.
@@ -80,125 +78,123 @@ newDescribePendingAggregationRequests ::
 newDescribePendingAggregationRequests =
   DescribePendingAggregationRequests'
     { nextToken =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+        Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describePendingAggregationRequests_nextToken :: Lens.Lens' DescribePendingAggregationRequests (Prelude.Maybe Prelude.Text)
+describePendingAggregationRequests_nextToken :: Lens.Lens' DescribePendingAggregationRequests (Core.Maybe Core.Text)
 describePendingAggregationRequests_nextToken = Lens.lens (\DescribePendingAggregationRequests' {nextToken} -> nextToken) (\s@DescribePendingAggregationRequests' {} a -> s {nextToken = a} :: DescribePendingAggregationRequests)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is maximum. If you specify 0, AWS Config uses the default.
-describePendingAggregationRequests_limit :: Lens.Lens' DescribePendingAggregationRequests (Prelude.Maybe Prelude.Natural)
+describePendingAggregationRequests_limit :: Lens.Lens' DescribePendingAggregationRequests (Core.Maybe Core.Natural)
 describePendingAggregationRequests_limit = Lens.lens (\DescribePendingAggregationRequests' {limit} -> limit) (\s@DescribePendingAggregationRequests' {} a -> s {limit = a} :: DescribePendingAggregationRequests)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribePendingAggregationRequests
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describePendingAggregationRequestsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describePendingAggregationRequestsResponse_pendingAggregationRequests
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describePendingAggregationRequests_nextToken
           Lens..~ rs
           Lens.^? describePendingAggregationRequestsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribePendingAggregationRequests
   where
   type
-    Rs DescribePendingAggregationRequests =
+    AWSResponse DescribePendingAggregationRequests =
       DescribePendingAggregationRequestsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePendingAggregationRequestsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-              Prelude.<*> ( x Prelude..?> "PendingAggregationRequests"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "PendingAggregationRequests"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribePendingAggregationRequests
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribePendingAggregationRequests
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribePendingAggregationRequests
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DescribePendingAggregationRequests" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DescribePendingAggregationRequests" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribePendingAggregationRequests
   where
   toJSON DescribePendingAggregationRequests' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribePendingAggregationRequests
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribePendingAggregationRequests
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribePendingAggregationRequestsResponse' smart constructor.
 data DescribePendingAggregationRequestsResponse = DescribePendingAggregationRequestsResponse'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Returns a PendingAggregationRequests object.
-    pendingAggregationRequests :: Prelude.Maybe [PendingAggregationRequest],
+    pendingAggregationRequests :: Core.Maybe [PendingAggregationRequest],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePendingAggregationRequestsResponse' with all optional fields omitted.
@@ -216,31 +212,31 @@ data DescribePendingAggregationRequestsResponse = DescribePendingAggregationRequ
 -- 'httpStatus', 'describePendingAggregationRequestsResponse_httpStatus' - The response's http status code.
 newDescribePendingAggregationRequestsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePendingAggregationRequestsResponse
 newDescribePendingAggregationRequestsResponse
   pHttpStatus_ =
     DescribePendingAggregationRequestsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         pendingAggregationRequests =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describePendingAggregationRequestsResponse_nextToken :: Lens.Lens' DescribePendingAggregationRequestsResponse (Prelude.Maybe Prelude.Text)
+describePendingAggregationRequestsResponse_nextToken :: Lens.Lens' DescribePendingAggregationRequestsResponse (Core.Maybe Core.Text)
 describePendingAggregationRequestsResponse_nextToken = Lens.lens (\DescribePendingAggregationRequestsResponse' {nextToken} -> nextToken) (\s@DescribePendingAggregationRequestsResponse' {} a -> s {nextToken = a} :: DescribePendingAggregationRequestsResponse)
 
 -- | Returns a PendingAggregationRequests object.
-describePendingAggregationRequestsResponse_pendingAggregationRequests :: Lens.Lens' DescribePendingAggregationRequestsResponse (Prelude.Maybe [PendingAggregationRequest])
-describePendingAggregationRequestsResponse_pendingAggregationRequests = Lens.lens (\DescribePendingAggregationRequestsResponse' {pendingAggregationRequests} -> pendingAggregationRequests) (\s@DescribePendingAggregationRequestsResponse' {} a -> s {pendingAggregationRequests = a} :: DescribePendingAggregationRequestsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePendingAggregationRequestsResponse_pendingAggregationRequests :: Lens.Lens' DescribePendingAggregationRequestsResponse (Core.Maybe [PendingAggregationRequest])
+describePendingAggregationRequestsResponse_pendingAggregationRequests = Lens.lens (\DescribePendingAggregationRequestsResponse' {pendingAggregationRequests} -> pendingAggregationRequests) (\s@DescribePendingAggregationRequestsResponse' {} a -> s {pendingAggregationRequests = a} :: DescribePendingAggregationRequestsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePendingAggregationRequestsResponse_httpStatus :: Lens.Lens' DescribePendingAggregationRequestsResponse Prelude.Int
+describePendingAggregationRequestsResponse_httpStatus :: Lens.Lens' DescribePendingAggregationRequestsResponse Core.Int
 describePendingAggregationRequestsResponse_httpStatus = Lens.lens (\DescribePendingAggregationRequestsResponse' {httpStatus} -> httpStatus) (\s@DescribePendingAggregationRequestsResponse' {} a -> s {httpStatus = a} :: DescribePendingAggregationRequestsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribePendingAggregationRequestsResponse

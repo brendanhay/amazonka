@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.EMR.UpdateStudio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,21 +51,21 @@ data UpdateStudio = UpdateStudio'
   { -- | A default Amazon S3 location to back up Workspaces and notebook files
     -- for the Amazon EMR Studio. A Studio user can select an alternative
     -- Amazon S3 location when creating a Workspace.
-    defaultS3Location :: Prelude.Maybe Prelude.Text,
+    defaultS3Location :: Core.Maybe Core.Text,
     -- | A list of subnet IDs to associate with the Amazon EMR Studio. The list
     -- can include new subnet IDs, but must also include all of the subnet IDs
     -- previously associated with the Studio. The list order does not matter. A
     -- Studio can have a maximum of 5 subnets. The subnets must belong to the
     -- same VPC as the Studio.
-    subnetIds :: Prelude.Maybe [Prelude.Text],
+    subnetIds :: Core.Maybe [Core.Text],
     -- | A descriptive name for the Amazon EMR Studio.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A detailed description to assign to the Amazon EMR Studio.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ID of the Amazon EMR Studio to update.
-    studioId :: Prelude.Text
+    studioId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStudio' with all optional fields omitted.
@@ -93,21 +92,21 @@ data UpdateStudio = UpdateStudio'
 -- 'studioId', 'updateStudio_studioId' - The ID of the Amazon EMR Studio to update.
 newUpdateStudio ::
   -- | 'studioId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateStudio
 newUpdateStudio pStudioId_ =
   UpdateStudio'
-    { defaultS3Location = Prelude.Nothing,
-      subnetIds = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { defaultS3Location = Core.Nothing,
+      subnetIds = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
       studioId = pStudioId_
     }
 
 -- | A default Amazon S3 location to back up Workspaces and notebook files
 -- for the Amazon EMR Studio. A Studio user can select an alternative
 -- Amazon S3 location when creating a Workspace.
-updateStudio_defaultS3Location :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_defaultS3Location :: Lens.Lens' UpdateStudio (Core.Maybe Core.Text)
 updateStudio_defaultS3Location = Lens.lens (\UpdateStudio' {defaultS3Location} -> defaultS3Location) (\s@UpdateStudio' {} a -> s {defaultS3Location = a} :: UpdateStudio)
 
 -- | A list of subnet IDs to associate with the Amazon EMR Studio. The list
@@ -115,69 +114,65 @@ updateStudio_defaultS3Location = Lens.lens (\UpdateStudio' {defaultS3Location} -
 -- previously associated with the Studio. The list order does not matter. A
 -- Studio can have a maximum of 5 subnets. The subnets must belong to the
 -- same VPC as the Studio.
-updateStudio_subnetIds :: Lens.Lens' UpdateStudio (Prelude.Maybe [Prelude.Text])
-updateStudio_subnetIds = Lens.lens (\UpdateStudio' {subnetIds} -> subnetIds) (\s@UpdateStudio' {} a -> s {subnetIds = a} :: UpdateStudio) Prelude.. Lens.mapping Prelude._Coerce
+updateStudio_subnetIds :: Lens.Lens' UpdateStudio (Core.Maybe [Core.Text])
+updateStudio_subnetIds = Lens.lens (\UpdateStudio' {subnetIds} -> subnetIds) (\s@UpdateStudio' {} a -> s {subnetIds = a} :: UpdateStudio) Core.. Lens.mapping Lens._Coerce
 
 -- | A descriptive name for the Amazon EMR Studio.
-updateStudio_name :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_name :: Lens.Lens' UpdateStudio (Core.Maybe Core.Text)
 updateStudio_name = Lens.lens (\UpdateStudio' {name} -> name) (\s@UpdateStudio' {} a -> s {name = a} :: UpdateStudio)
 
 -- | A detailed description to assign to the Amazon EMR Studio.
-updateStudio_description :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
+updateStudio_description :: Lens.Lens' UpdateStudio (Core.Maybe Core.Text)
 updateStudio_description = Lens.lens (\UpdateStudio' {description} -> description) (\s@UpdateStudio' {} a -> s {description = a} :: UpdateStudio)
 
 -- | The ID of the Amazon EMR Studio to update.
-updateStudio_studioId :: Lens.Lens' UpdateStudio Prelude.Text
+updateStudio_studioId :: Lens.Lens' UpdateStudio Core.Text
 updateStudio_studioId = Lens.lens (\UpdateStudio' {studioId} -> studioId) (\s@UpdateStudio' {} a -> s {studioId = a} :: UpdateStudio)
 
-instance Prelude.AWSRequest UpdateStudio where
-  type Rs UpdateStudio = UpdateStudioResponse
+instance Core.AWSRequest UpdateStudio where
+  type AWSResponse UpdateStudio = UpdateStudioResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull UpdateStudioResponse'
 
-instance Prelude.Hashable UpdateStudio
+instance Core.Hashable UpdateStudio
 
-instance Prelude.NFData UpdateStudio
+instance Core.NFData UpdateStudio
 
-instance Prelude.ToHeaders UpdateStudio where
+instance Core.ToHeaders UpdateStudio where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ElasticMapReduce.UpdateStudio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("ElasticMapReduce.UpdateStudio" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateStudio where
+instance Core.ToJSON UpdateStudio where
   toJSON UpdateStudio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultS3Location" Prelude..=)
-              Prelude.<$> defaultS3Location,
-            ("SubnetIds" Prelude..=) Prelude.<$> subnetIds,
-            ("Name" Prelude..=) Prelude.<$> name,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("StudioId" Prelude..= studioId)
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultS3Location" Core..=)
+              Core.<$> defaultS3Location,
+            ("SubnetIds" Core..=) Core.<$> subnetIds,
+            ("Name" Core..=) Core.<$> name,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("StudioId" Core..= studioId)
           ]
       )
 
-instance Prelude.ToPath UpdateStudio where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateStudio where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateStudio where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateStudio where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateStudioResponse' smart constructor.
 data UpdateStudioResponse = UpdateStudioResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateStudioResponse' with all optional fields omitted.
@@ -187,4 +182,4 @@ newUpdateStudioResponse ::
   UpdateStudioResponse
 newUpdateStudioResponse = UpdateStudioResponse'
 
-instance Prelude.NFData UpdateStudioResponse
+instance Core.NFData UpdateStudioResponse

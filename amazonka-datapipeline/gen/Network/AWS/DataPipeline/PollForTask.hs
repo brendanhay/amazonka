@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,9 +55,9 @@ module Network.AWS.DataPipeline.PollForTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,7 +66,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newPollForTask' smart constructor.
 data PollForTask = PollForTask'
   { -- | The public DNS name of the calling task runner.
-    hostname :: Prelude.Maybe Prelude.Text,
+    hostname :: Core.Maybe Core.Text,
     -- | Identity information for the EC2 instance that is hosting the task
     -- runner. You can get this value from the instance using
     -- @http:\/\/169.254.169.254\/latest\/meta-data\/instance-id@. For more
@@ -77,15 +76,15 @@ data PollForTask = PollForTask'
     -- proves that your task runner is running on an EC2 instance, and ensures
     -- the proper AWS Data Pipeline service charges are applied to your
     -- pipeline.
-    instanceIdentity :: Prelude.Maybe InstanceIdentity,
+    instanceIdentity :: Core.Maybe InstanceIdentity,
     -- | The type of task the task runner is configured to accept and process.
     -- The worker group is set as a field on objects in the pipeline when they
     -- are created. You can only specify a single value for @workerGroup@ in
     -- the call to @PollForTask@. There are no wildcard values permitted in
     -- @workerGroup@; the string must be an exact, case-sensitive, match.
-    workerGroup :: Prelude.Text
+    workerGroup :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PollForTask' with all optional fields omitted.
@@ -114,17 +113,17 @@ data PollForTask = PollForTask'
 -- @workerGroup@; the string must be an exact, case-sensitive, match.
 newPollForTask ::
   -- | 'workerGroup'
-  Prelude.Text ->
+  Core.Text ->
   PollForTask
 newPollForTask pWorkerGroup_ =
   PollForTask'
-    { hostname = Prelude.Nothing,
-      instanceIdentity = Prelude.Nothing,
+    { hostname = Core.Nothing,
+      instanceIdentity = Core.Nothing,
       workerGroup = pWorkerGroup_
     }
 
 -- | The public DNS name of the calling task runner.
-pollForTask_hostname :: Lens.Lens' PollForTask (Prelude.Maybe Prelude.Text)
+pollForTask_hostname :: Lens.Lens' PollForTask (Core.Maybe Core.Text)
 pollForTask_hostname = Lens.lens (\PollForTask' {hostname} -> hostname) (\s@PollForTask' {} a -> s {hostname = a} :: PollForTask)
 
 -- | Identity information for the EC2 instance that is hosting the task
@@ -136,7 +135,7 @@ pollForTask_hostname = Lens.lens (\PollForTask' {hostname} -> hostname) (\s@Poll
 -- proves that your task runner is running on an EC2 instance, and ensures
 -- the proper AWS Data Pipeline service charges are applied to your
 -- pipeline.
-pollForTask_instanceIdentity :: Lens.Lens' PollForTask (Prelude.Maybe InstanceIdentity)
+pollForTask_instanceIdentity :: Lens.Lens' PollForTask (Core.Maybe InstanceIdentity)
 pollForTask_instanceIdentity = Lens.lens (\PollForTask' {instanceIdentity} -> instanceIdentity) (\s@PollForTask' {} a -> s {instanceIdentity = a} :: PollForTask)
 
 -- | The type of task the task runner is configured to accept and process.
@@ -144,53 +143,51 @@ pollForTask_instanceIdentity = Lens.lens (\PollForTask' {instanceIdentity} -> in
 -- are created. You can only specify a single value for @workerGroup@ in
 -- the call to @PollForTask@. There are no wildcard values permitted in
 -- @workerGroup@; the string must be an exact, case-sensitive, match.
-pollForTask_workerGroup :: Lens.Lens' PollForTask Prelude.Text
+pollForTask_workerGroup :: Lens.Lens' PollForTask Core.Text
 pollForTask_workerGroup = Lens.lens (\PollForTask' {workerGroup} -> workerGroup) (\s@PollForTask' {} a -> s {workerGroup = a} :: PollForTask)
 
-instance Prelude.AWSRequest PollForTask where
-  type Rs PollForTask = PollForTaskResponse
+instance Core.AWSRequest PollForTask where
+  type AWSResponse PollForTask = PollForTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PollForTaskResponse'
-            Prelude.<$> (x Prelude..?> "taskObject")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "taskObject")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PollForTask
+instance Core.Hashable PollForTask
 
-instance Prelude.NFData PollForTask
+instance Core.NFData PollForTask
 
-instance Prelude.ToHeaders PollForTask where
+instance Core.ToHeaders PollForTask where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("DataPipeline.PollForTask" :: Prelude.ByteString),
+              Core.=# ("DataPipeline.PollForTask" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PollForTask where
+instance Core.ToJSON PollForTask where
   toJSON PollForTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("hostname" Prelude..=) Prelude.<$> hostname,
-            ("instanceIdentity" Prelude..=)
-              Prelude.<$> instanceIdentity,
-            Prelude.Just ("workerGroup" Prelude..= workerGroup)
+    Core.object
+      ( Core.catMaybes
+          [ ("hostname" Core..=) Core.<$> hostname,
+            ("instanceIdentity" Core..=)
+              Core.<$> instanceIdentity,
+            Core.Just ("workerGroup" Core..= workerGroup)
           ]
       )
 
-instance Prelude.ToPath PollForTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath PollForTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PollForTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PollForTask where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of PollForTask.
 --
@@ -201,11 +198,11 @@ data PollForTaskResponse = PollForTaskResponse'
     -- which contains an identifier for the task being assigned. The calling
     -- task runner uses @taskId@ in subsequent calls to ReportTaskProgress and
     -- SetTaskStatus.
-    taskObject :: Prelude.Maybe TaskObject,
+    taskObject :: Core.Maybe TaskObject,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PollForTaskResponse' with all optional fields omitted.
@@ -224,11 +221,11 @@ data PollForTaskResponse = PollForTaskResponse'
 -- 'httpStatus', 'pollForTaskResponse_httpStatus' - The response's http status code.
 newPollForTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PollForTaskResponse
 newPollForTaskResponse pHttpStatus_ =
   PollForTaskResponse'
-    { taskObject = Prelude.Nothing,
+    { taskObject = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -237,11 +234,11 @@ newPollForTaskResponse pHttpStatus_ =
 -- which contains an identifier for the task being assigned. The calling
 -- task runner uses @taskId@ in subsequent calls to ReportTaskProgress and
 -- SetTaskStatus.
-pollForTaskResponse_taskObject :: Lens.Lens' PollForTaskResponse (Prelude.Maybe TaskObject)
+pollForTaskResponse_taskObject :: Lens.Lens' PollForTaskResponse (Core.Maybe TaskObject)
 pollForTaskResponse_taskObject = Lens.lens (\PollForTaskResponse' {taskObject} -> taskObject) (\s@PollForTaskResponse' {} a -> s {taskObject = a} :: PollForTaskResponse)
 
 -- | The response's http status code.
-pollForTaskResponse_httpStatus :: Lens.Lens' PollForTaskResponse Prelude.Int
+pollForTaskResponse_httpStatus :: Lens.Lens' PollForTaskResponse Core.Int
 pollForTaskResponse_httpStatus = Lens.lens (\PollForTaskResponse' {httpStatus} -> httpStatus) (\s@PollForTaskResponse' {} a -> s {httpStatus = a} :: PollForTaskResponse)
 
-instance Prelude.NFData PollForTaskResponse
+instance Core.NFData PollForTaskResponse

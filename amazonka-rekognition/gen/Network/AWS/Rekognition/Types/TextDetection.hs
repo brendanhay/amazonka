@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.TextDetection where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Geometry
 import Network.AWS.Rekognition.Types.TextTypes
 
@@ -41,26 +40,26 @@ import Network.AWS.Rekognition.Types.TextTypes
 -- /See:/ 'newTextDetection' smart constructor.
 data TextDetection = TextDetection'
   { -- | The word or line of text recognized by Amazon Rekognition.
-    detectedText :: Prelude.Maybe Prelude.Text,
+    detectedText :: Core.Maybe Core.Text,
     -- | The identifier for the detected text. The identifier is only unique for
     -- a single call to @DetectText@.
-    id :: Prelude.Maybe Prelude.Natural,
+    id :: Core.Maybe Core.Natural,
     -- | The confidence that Amazon Rekognition has in the accuracy of the
     -- detected text and the accuracy of the geometry points around the
     -- detected text.
-    confidence :: Prelude.Maybe Prelude.Double,
+    confidence :: Core.Maybe Core.Double,
     -- | The Parent identifier for the detected text identified by the value of
     -- @ID@. If the type of detected text is @LINE@, the value of @ParentId@ is
     -- @Null@.
-    parentId :: Prelude.Maybe Prelude.Natural,
+    parentId :: Core.Maybe Core.Natural,
     -- | The type of text that was detected.
-    type' :: Prelude.Maybe TextTypes,
+    type' :: Core.Maybe TextTypes,
     -- | The location of the detected text on the image. Includes an axis aligned
     -- coarse bounding box surrounding the text and a finer grain polygon for
     -- more accurate spatial information.
-    geometry :: Prelude.Maybe Geometry
+    geometry :: Core.Maybe Geometry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TextDetection' with all optional fields omitted.
@@ -92,59 +91,59 @@ newTextDetection ::
   TextDetection
 newTextDetection =
   TextDetection'
-    { detectedText = Prelude.Nothing,
-      id = Prelude.Nothing,
-      confidence = Prelude.Nothing,
-      parentId = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      geometry = Prelude.Nothing
+    { detectedText = Core.Nothing,
+      id = Core.Nothing,
+      confidence = Core.Nothing,
+      parentId = Core.Nothing,
+      type' = Core.Nothing,
+      geometry = Core.Nothing
     }
 
 -- | The word or line of text recognized by Amazon Rekognition.
-textDetection_detectedText :: Lens.Lens' TextDetection (Prelude.Maybe Prelude.Text)
+textDetection_detectedText :: Lens.Lens' TextDetection (Core.Maybe Core.Text)
 textDetection_detectedText = Lens.lens (\TextDetection' {detectedText} -> detectedText) (\s@TextDetection' {} a -> s {detectedText = a} :: TextDetection)
 
 -- | The identifier for the detected text. The identifier is only unique for
 -- a single call to @DetectText@.
-textDetection_id :: Lens.Lens' TextDetection (Prelude.Maybe Prelude.Natural)
+textDetection_id :: Lens.Lens' TextDetection (Core.Maybe Core.Natural)
 textDetection_id = Lens.lens (\TextDetection' {id} -> id) (\s@TextDetection' {} a -> s {id = a} :: TextDetection)
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the
 -- detected text and the accuracy of the geometry points around the
 -- detected text.
-textDetection_confidence :: Lens.Lens' TextDetection (Prelude.Maybe Prelude.Double)
+textDetection_confidence :: Lens.Lens' TextDetection (Core.Maybe Core.Double)
 textDetection_confidence = Lens.lens (\TextDetection' {confidence} -> confidence) (\s@TextDetection' {} a -> s {confidence = a} :: TextDetection)
 
 -- | The Parent identifier for the detected text identified by the value of
 -- @ID@. If the type of detected text is @LINE@, the value of @ParentId@ is
 -- @Null@.
-textDetection_parentId :: Lens.Lens' TextDetection (Prelude.Maybe Prelude.Natural)
+textDetection_parentId :: Lens.Lens' TextDetection (Core.Maybe Core.Natural)
 textDetection_parentId = Lens.lens (\TextDetection' {parentId} -> parentId) (\s@TextDetection' {} a -> s {parentId = a} :: TextDetection)
 
 -- | The type of text that was detected.
-textDetection_type :: Lens.Lens' TextDetection (Prelude.Maybe TextTypes)
+textDetection_type :: Lens.Lens' TextDetection (Core.Maybe TextTypes)
 textDetection_type = Lens.lens (\TextDetection' {type'} -> type') (\s@TextDetection' {} a -> s {type' = a} :: TextDetection)
 
 -- | The location of the detected text on the image. Includes an axis aligned
 -- coarse bounding box surrounding the text and a finer grain polygon for
 -- more accurate spatial information.
-textDetection_geometry :: Lens.Lens' TextDetection (Prelude.Maybe Geometry)
+textDetection_geometry :: Lens.Lens' TextDetection (Core.Maybe Geometry)
 textDetection_geometry = Lens.lens (\TextDetection' {geometry} -> geometry) (\s@TextDetection' {} a -> s {geometry = a} :: TextDetection)
 
-instance Prelude.FromJSON TextDetection where
+instance Core.FromJSON TextDetection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TextDetection"
       ( \x ->
           TextDetection'
-            Prelude.<$> (x Prelude..:? "DetectedText")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Confidence")
-            Prelude.<*> (x Prelude..:? "ParentId")
-            Prelude.<*> (x Prelude..:? "Type")
-            Prelude.<*> (x Prelude..:? "Geometry")
+            Core.<$> (x Core..:? "DetectedText")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Confidence")
+            Core.<*> (x Core..:? "ParentId")
+            Core.<*> (x Core..:? "Type")
+            Core.<*> (x Core..:? "Geometry")
       )
 
-instance Prelude.Hashable TextDetection
+instance Core.Hashable TextDetection
 
-instance Prelude.NFData TextDetection
+instance Core.NFData TextDetection

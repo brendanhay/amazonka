@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudWatch.Types.MetricDataQuery where
 
 import Network.AWS.CloudWatch.Types.MetricStat
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure is used in both @GetMetricData@ and @PutMetricAlarm@. The
 -- supported use of this structure is different for those two operations.
@@ -62,7 +61,7 @@ data MetricDataQuery = MetricDataQuery'
     --
     -- Within one MetricDataQuery object, you must specify either @Expression@
     -- or @MetricStat@ but not both.
-    metricStat :: Prelude.Maybe MetricStat,
+    metricStat :: Core.Maybe MetricStat,
     -- | When used in @GetMetricData@, this option indicates whether to return
     -- the timestamps and raw data values of this metric. If you are performing
     -- this call just to do math expressions and do not also need the raw data
@@ -72,7 +71,7 @@ data MetricDataQuery = MetricDataQuery'
     -- When used in @PutMetricAlarm@, specify @True@ for the one expression
     -- result to use as the alarm. For all other metrics and expressions in the
     -- same @PutMetricAlarm@ operation, specify @ReturnData@ as False.
-    returnData :: Prelude.Maybe Prelude.Bool,
+    returnData :: Core.Maybe Core.Bool,
     -- | A human-readable label for this metric or expression. This is especially
     -- useful if this is an expression, so that you know what the value
     -- represents. If the metric or expression is shown in a CloudWatch
@@ -82,7 +81,7 @@ data MetricDataQuery = MetricDataQuery'
     -- You can put dynamic expressions into a label, so that it is more
     -- descriptive. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html Using Dynamic Labels>.
-    label :: Prelude.Maybe Prelude.Text,
+    label :: Core.Maybe Core.Text,
     -- | The granularity, in seconds, of the returned data points. For metrics
     -- with regular resolution, a period can be as short as one minute (60
     -- seconds) and must be a multiple of 60. For high-resolution metrics that
@@ -90,7 +89,7 @@ data MetricDataQuery = MetricDataQuery'
     -- 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those
     -- metrics stored by a @PutMetricData@ operation that includes a
     -- @StorageResolution of 1 second@.
-    period :: Prelude.Maybe Prelude.Natural,
+    period :: Core.Maybe Core.Natural,
     -- | The math expression to be performed on the returned data, if this object
     -- is performing a math expression. This expression can use the @Id@ of the
     -- other metrics to refer to those metrics, and can also use the @Id@ of
@@ -101,16 +100,16 @@ data MetricDataQuery = MetricDataQuery'
     --
     -- Within each MetricDataQuery object, you must specify either @Expression@
     -- or @MetricStat@ but not both.
-    expression :: Prelude.Maybe Prelude.Text,
+    expression :: Core.Maybe Core.Text,
     -- | A short name used to tie this object to the results in the response.
     -- This name must be unique within a single call to @GetMetricData@. If you
     -- are performing math expressions on this set of data, this name
     -- represents that data and can serve as a variable in the mathematical
     -- expression. The valid characters are letters, numbers, and underscore.
     -- The first character must be a lowercase letter.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricDataQuery' with all optional fields omitted.
@@ -174,15 +173,15 @@ data MetricDataQuery = MetricDataQuery'
 -- The first character must be a lowercase letter.
 newMetricDataQuery ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   MetricDataQuery
 newMetricDataQuery pId_ =
   MetricDataQuery'
-    { metricStat = Prelude.Nothing,
-      returnData = Prelude.Nothing,
-      label = Prelude.Nothing,
-      period = Prelude.Nothing,
-      expression = Prelude.Nothing,
+    { metricStat = Core.Nothing,
+      returnData = Core.Nothing,
+      label = Core.Nothing,
+      period = Core.Nothing,
+      expression = Core.Nothing,
       id = pId_
     }
 
@@ -192,7 +191,7 @@ newMetricDataQuery pId_ =
 --
 -- Within one MetricDataQuery object, you must specify either @Expression@
 -- or @MetricStat@ but not both.
-metricDataQuery_metricStat :: Lens.Lens' MetricDataQuery (Prelude.Maybe MetricStat)
+metricDataQuery_metricStat :: Lens.Lens' MetricDataQuery (Core.Maybe MetricStat)
 metricDataQuery_metricStat = Lens.lens (\MetricDataQuery' {metricStat} -> metricStat) (\s@MetricDataQuery' {} a -> s {metricStat = a} :: MetricDataQuery)
 
 -- | When used in @GetMetricData@, this option indicates whether to return
@@ -204,7 +203,7 @@ metricDataQuery_metricStat = Lens.lens (\MetricDataQuery' {metricStat} -> metric
 -- When used in @PutMetricAlarm@, specify @True@ for the one expression
 -- result to use as the alarm. For all other metrics and expressions in the
 -- same @PutMetricAlarm@ operation, specify @ReturnData@ as False.
-metricDataQuery_returnData :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Bool)
+metricDataQuery_returnData :: Lens.Lens' MetricDataQuery (Core.Maybe Core.Bool)
 metricDataQuery_returnData = Lens.lens (\MetricDataQuery' {returnData} -> returnData) (\s@MetricDataQuery' {} a -> s {returnData = a} :: MetricDataQuery)
 
 -- | A human-readable label for this metric or expression. This is especially
@@ -216,7 +215,7 @@ metricDataQuery_returnData = Lens.lens (\MetricDataQuery' {returnData} -> return
 -- You can put dynamic expressions into a label, so that it is more
 -- descriptive. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/graph-dynamic-labels.html Using Dynamic Labels>.
-metricDataQuery_label :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
+metricDataQuery_label :: Lens.Lens' MetricDataQuery (Core.Maybe Core.Text)
 metricDataQuery_label = Lens.lens (\MetricDataQuery' {label} -> label) (\s@MetricDataQuery' {} a -> s {label = a} :: MetricDataQuery)
 
 -- | The granularity, in seconds, of the returned data points. For metrics
@@ -226,7 +225,7 @@ metricDataQuery_label = Lens.lens (\MetricDataQuery' {label} -> label) (\s@Metri
 -- 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those
 -- metrics stored by a @PutMetricData@ operation that includes a
 -- @StorageResolution of 1 second@.
-metricDataQuery_period :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Natural)
+metricDataQuery_period :: Lens.Lens' MetricDataQuery (Core.Maybe Core.Natural)
 metricDataQuery_period = Lens.lens (\MetricDataQuery' {period} -> period) (\s@MetricDataQuery' {} a -> s {period = a} :: MetricDataQuery)
 
 -- | The math expression to be performed on the returned data, if this object
@@ -239,7 +238,7 @@ metricDataQuery_period = Lens.lens (\MetricDataQuery' {period} -> period) (\s@Me
 --
 -- Within each MetricDataQuery object, you must specify either @Expression@
 -- or @MetricStat@ but not both.
-metricDataQuery_expression :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
+metricDataQuery_expression :: Lens.Lens' MetricDataQuery (Core.Maybe Core.Text)
 metricDataQuery_expression = Lens.lens (\MetricDataQuery' {expression} -> expression) (\s@MetricDataQuery' {} a -> s {expression = a} :: MetricDataQuery)
 
 -- | A short name used to tie this object to the results in the response.
@@ -248,30 +247,30 @@ metricDataQuery_expression = Lens.lens (\MetricDataQuery' {expression} -> expres
 -- represents that data and can serve as a variable in the mathematical
 -- expression. The valid characters are letters, numbers, and underscore.
 -- The first character must be a lowercase letter.
-metricDataQuery_id :: Lens.Lens' MetricDataQuery Prelude.Text
+metricDataQuery_id :: Lens.Lens' MetricDataQuery Core.Text
 metricDataQuery_id = Lens.lens (\MetricDataQuery' {id} -> id) (\s@MetricDataQuery' {} a -> s {id = a} :: MetricDataQuery)
 
-instance Prelude.FromXML MetricDataQuery where
+instance Core.FromXML MetricDataQuery where
   parseXML x =
     MetricDataQuery'
-      Prelude.<$> (x Prelude..@? "MetricStat")
-      Prelude.<*> (x Prelude..@? "ReturnData")
-      Prelude.<*> (x Prelude..@? "Label")
-      Prelude.<*> (x Prelude..@? "Period")
-      Prelude.<*> (x Prelude..@? "Expression")
-      Prelude.<*> (x Prelude..@ "Id")
+      Core.<$> (x Core..@? "MetricStat")
+      Core.<*> (x Core..@? "ReturnData")
+      Core.<*> (x Core..@? "Label")
+      Core.<*> (x Core..@? "Period")
+      Core.<*> (x Core..@? "Expression")
+      Core.<*> (x Core..@ "Id")
 
-instance Prelude.Hashable MetricDataQuery
+instance Core.Hashable MetricDataQuery
 
-instance Prelude.NFData MetricDataQuery
+instance Core.NFData MetricDataQuery
 
-instance Prelude.ToQuery MetricDataQuery where
+instance Core.ToQuery MetricDataQuery where
   toQuery MetricDataQuery' {..} =
-    Prelude.mconcat
-      [ "MetricStat" Prelude.=: metricStat,
-        "ReturnData" Prelude.=: returnData,
-        "Label" Prelude.=: label,
-        "Period" Prelude.=: period,
-        "Expression" Prelude.=: expression,
-        "Id" Prelude.=: id
+    Core.mconcat
+      [ "MetricStat" Core.=: metricStat,
+        "ReturnData" Core.=: returnData,
+        "Label" Core.=: label,
+        "Period" Core.=: period,
+        "Expression" Core.=: expression,
+        "Id" Core.=: id
       ]

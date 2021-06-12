@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudDirectory.UpdateSchema
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data UpdateSchema = UpdateSchema'
   { -- | The Amazon Resource Name (ARN) of the development schema. For more
     -- information, see arns.
-    schemaArn :: Prelude.Text,
+    schemaArn :: Core.Text,
     -- | The name of the schema.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSchema' with all optional fields omitted.
@@ -72,9 +71,9 @@ data UpdateSchema = UpdateSchema'
 -- 'name', 'updateSchema_name' - The name of the schema.
 newUpdateSchema ::
   -- | 'schemaArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UpdateSchema
 newUpdateSchema pSchemaArn_ pName_ =
   UpdateSchema'
@@ -84,57 +83,55 @@ newUpdateSchema pSchemaArn_ pName_ =
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more
 -- information, see arns.
-updateSchema_schemaArn :: Lens.Lens' UpdateSchema Prelude.Text
+updateSchema_schemaArn :: Lens.Lens' UpdateSchema Core.Text
 updateSchema_schemaArn = Lens.lens (\UpdateSchema' {schemaArn} -> schemaArn) (\s@UpdateSchema' {} a -> s {schemaArn = a} :: UpdateSchema)
 
 -- | The name of the schema.
-updateSchema_name :: Lens.Lens' UpdateSchema Prelude.Text
+updateSchema_name :: Lens.Lens' UpdateSchema Core.Text
 updateSchema_name = Lens.lens (\UpdateSchema' {name} -> name) (\s@UpdateSchema' {} a -> s {name = a} :: UpdateSchema)
 
-instance Prelude.AWSRequest UpdateSchema where
-  type Rs UpdateSchema = UpdateSchemaResponse
+instance Core.AWSRequest UpdateSchema where
+  type AWSResponse UpdateSchema = UpdateSchemaResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSchemaResponse'
-            Prelude.<$> (x Prelude..?> "SchemaArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SchemaArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSchema
+instance Core.Hashable UpdateSchema
 
-instance Prelude.NFData UpdateSchema
+instance Core.NFData UpdateSchema
 
-instance Prelude.ToHeaders UpdateSchema where
+instance Core.ToHeaders UpdateSchema where
   toHeaders UpdateSchema' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# schemaArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# schemaArn]
 
-instance Prelude.ToJSON UpdateSchema where
+instance Core.ToJSON UpdateSchema where
   toJSON UpdateSchema' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath UpdateSchema where
+instance Core.ToPath UpdateSchema where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/schema/update"
 
-instance Prelude.ToQuery UpdateSchema where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSchema where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSchemaResponse' smart constructor.
 data UpdateSchemaResponse = UpdateSchemaResponse'
   { -- | The ARN that is associated with the updated schema. For more
     -- information, see arns.
-    schemaArn :: Prelude.Maybe Prelude.Text,
+    schemaArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSchemaResponse' with all optional fields omitted.
@@ -150,21 +147,21 @@ data UpdateSchemaResponse = UpdateSchemaResponse'
 -- 'httpStatus', 'updateSchemaResponse_httpStatus' - The response's http status code.
 newUpdateSchemaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSchemaResponse
 newUpdateSchemaResponse pHttpStatus_ =
   UpdateSchemaResponse'
-    { schemaArn = Prelude.Nothing,
+    { schemaArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN that is associated with the updated schema. For more
 -- information, see arns.
-updateSchemaResponse_schemaArn :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
+updateSchemaResponse_schemaArn :: Lens.Lens' UpdateSchemaResponse (Core.Maybe Core.Text)
 updateSchemaResponse_schemaArn = Lens.lens (\UpdateSchemaResponse' {schemaArn} -> schemaArn) (\s@UpdateSchemaResponse' {} a -> s {schemaArn = a} :: UpdateSchemaResponse)
 
 -- | The response's http status code.
-updateSchemaResponse_httpStatus :: Lens.Lens' UpdateSchemaResponse Prelude.Int
+updateSchemaResponse_httpStatus :: Lens.Lens' UpdateSchemaResponse Core.Int
 updateSchemaResponse_httpStatus = Lens.lens (\UpdateSchemaResponse' {httpStatus} -> httpStatus) (\s@UpdateSchemaResponse' {} a -> s {httpStatus = a} :: UpdateSchemaResponse)
 
-instance Prelude.NFData UpdateSchemaResponse
+instance Core.NFData UpdateSchemaResponse

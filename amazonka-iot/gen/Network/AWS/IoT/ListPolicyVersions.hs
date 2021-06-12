@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.IoT.ListPolicyVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,9 +51,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newListPolicyVersions' smart constructor.
 data ListPolicyVersions = ListPolicyVersions'
   { -- | The policy name.
-    policyName :: Prelude.Text
+    policyName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPolicyVersions' with all optional fields omitted.
@@ -67,55 +66,53 @@ data ListPolicyVersions = ListPolicyVersions'
 -- 'policyName', 'listPolicyVersions_policyName' - The policy name.
 newListPolicyVersions ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   ListPolicyVersions
 newListPolicyVersions pPolicyName_ =
   ListPolicyVersions' {policyName = pPolicyName_}
 
 -- | The policy name.
-listPolicyVersions_policyName :: Lens.Lens' ListPolicyVersions Prelude.Text
+listPolicyVersions_policyName :: Lens.Lens' ListPolicyVersions Core.Text
 listPolicyVersions_policyName = Lens.lens (\ListPolicyVersions' {policyName} -> policyName) (\s@ListPolicyVersions' {} a -> s {policyName = a} :: ListPolicyVersions)
 
-instance Prelude.AWSRequest ListPolicyVersions where
+instance Core.AWSRequest ListPolicyVersions where
   type
-    Rs ListPolicyVersions =
+    AWSResponse ListPolicyVersions =
       ListPolicyVersionsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPolicyVersionsResponse'
-            Prelude.<$> ( x Prelude..?> "policyVersions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "policyVersions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListPolicyVersions
+instance Core.Hashable ListPolicyVersions
 
-instance Prelude.NFData ListPolicyVersions
+instance Core.NFData ListPolicyVersions
 
-instance Prelude.ToHeaders ListPolicyVersions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListPolicyVersions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListPolicyVersions where
+instance Core.ToPath ListPolicyVersions where
   toPath ListPolicyVersions' {..} =
-    Prelude.mconcat
-      ["/policies/", Prelude.toBS policyName, "/version"]
+    Core.mconcat
+      ["/policies/", Core.toBS policyName, "/version"]
 
-instance Prelude.ToQuery ListPolicyVersions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListPolicyVersions where
+  toQuery = Core.const Core.mempty
 
 -- | The output from the ListPolicyVersions operation.
 --
 -- /See:/ 'newListPolicyVersionsResponse' smart constructor.
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
   { -- | The policy versions.
-    policyVersions :: Prelude.Maybe [PolicyVersion],
+    policyVersions :: Core.Maybe [PolicyVersion],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPolicyVersionsResponse' with all optional fields omitted.
@@ -130,21 +127,21 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 -- 'httpStatus', 'listPolicyVersionsResponse_httpStatus' - The response's http status code.
 newListPolicyVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPolicyVersionsResponse
 newListPolicyVersionsResponse pHttpStatus_ =
   ListPolicyVersionsResponse'
     { policyVersions =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The policy versions.
-listPolicyVersionsResponse_policyVersions :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe [PolicyVersion])
-listPolicyVersionsResponse_policyVersions = Lens.lens (\ListPolicyVersionsResponse' {policyVersions} -> policyVersions) (\s@ListPolicyVersionsResponse' {} a -> s {policyVersions = a} :: ListPolicyVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPolicyVersionsResponse_policyVersions :: Lens.Lens' ListPolicyVersionsResponse (Core.Maybe [PolicyVersion])
+listPolicyVersionsResponse_policyVersions = Lens.lens (\ListPolicyVersionsResponse' {policyVersions} -> policyVersions) (\s@ListPolicyVersionsResponse' {} a -> s {policyVersions = a} :: ListPolicyVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Prelude.Int
+listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Core.Int
 listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPolicyVersionsResponse' {} a -> s {httpStatus = a} :: ListPolicyVersionsResponse)
 
-instance Prelude.NFData ListPolicyVersionsResponse
+instance Core.NFData ListPolicyVersionsResponse

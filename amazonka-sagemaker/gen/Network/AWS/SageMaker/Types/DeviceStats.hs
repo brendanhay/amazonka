@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.DeviceStats where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of devices.
 --
 -- /See:/ 'newDeviceStats' smart constructor.
 data DeviceStats = DeviceStats'
   { -- | The number of devices connected with a heartbeat.
-    connectedDeviceCount :: Prelude.Integer,
+    connectedDeviceCount :: Core.Integer,
     -- | The number of registered devices.
-    registeredDeviceCount :: Prelude.Integer
+    registeredDeviceCount :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceStats' with all optional fields omitted.
@@ -47,9 +46,9 @@ data DeviceStats = DeviceStats'
 -- 'registeredDeviceCount', 'deviceStats_registeredDeviceCount' - The number of registered devices.
 newDeviceStats ::
   -- | 'connectedDeviceCount'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'registeredDeviceCount'
-  Prelude.Integer ->
+  Core.Integer ->
   DeviceStats
 newDeviceStats
   pConnectedDeviceCount_
@@ -61,23 +60,23 @@ newDeviceStats
       }
 
 -- | The number of devices connected with a heartbeat.
-deviceStats_connectedDeviceCount :: Lens.Lens' DeviceStats Prelude.Integer
+deviceStats_connectedDeviceCount :: Lens.Lens' DeviceStats Core.Integer
 deviceStats_connectedDeviceCount = Lens.lens (\DeviceStats' {connectedDeviceCount} -> connectedDeviceCount) (\s@DeviceStats' {} a -> s {connectedDeviceCount = a} :: DeviceStats)
 
 -- | The number of registered devices.
-deviceStats_registeredDeviceCount :: Lens.Lens' DeviceStats Prelude.Integer
+deviceStats_registeredDeviceCount :: Lens.Lens' DeviceStats Core.Integer
 deviceStats_registeredDeviceCount = Lens.lens (\DeviceStats' {registeredDeviceCount} -> registeredDeviceCount) (\s@DeviceStats' {} a -> s {registeredDeviceCount = a} :: DeviceStats)
 
-instance Prelude.FromJSON DeviceStats where
+instance Core.FromJSON DeviceStats where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceStats"
       ( \x ->
           DeviceStats'
-            Prelude.<$> (x Prelude..: "ConnectedDeviceCount")
-            Prelude.<*> (x Prelude..: "RegisteredDeviceCount")
+            Core.<$> (x Core..: "ConnectedDeviceCount")
+            Core.<*> (x Core..: "RegisteredDeviceCount")
       )
 
-instance Prelude.Hashable DeviceStats
+instance Core.Hashable DeviceStats
 
-instance Prelude.NFData DeviceStats
+instance Core.NFData DeviceStats

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,9 +77,9 @@ module Network.AWS.Kinesis.MergeShards
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -89,14 +88,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newMergeShards' smart constructor.
 data MergeShards = MergeShards'
   { -- | The name of the stream for the merge.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The shard ID of the shard to combine with the adjacent shard for the
     -- merge.
-    shardToMerge :: Prelude.Text,
+    shardToMerge :: Core.Text,
     -- | The shard ID of the adjacent shard for the merge.
-    adjacentShardToMerge :: Prelude.Text
+    adjacentShardToMerge :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MergeShards' with all optional fields omitted.
@@ -114,11 +113,11 @@ data MergeShards = MergeShards'
 -- 'adjacentShardToMerge', 'mergeShards_adjacentShardToMerge' - The shard ID of the adjacent shard for the merge.
 newMergeShards ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shardToMerge'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'adjacentShardToMerge'
-  Prelude.Text ->
+  Core.Text ->
   MergeShards
 newMergeShards
   pStreamName_
@@ -131,67 +130,62 @@ newMergeShards
       }
 
 -- | The name of the stream for the merge.
-mergeShards_streamName :: Lens.Lens' MergeShards Prelude.Text
+mergeShards_streamName :: Lens.Lens' MergeShards Core.Text
 mergeShards_streamName = Lens.lens (\MergeShards' {streamName} -> streamName) (\s@MergeShards' {} a -> s {streamName = a} :: MergeShards)
 
 -- | The shard ID of the shard to combine with the adjacent shard for the
 -- merge.
-mergeShards_shardToMerge :: Lens.Lens' MergeShards Prelude.Text
+mergeShards_shardToMerge :: Lens.Lens' MergeShards Core.Text
 mergeShards_shardToMerge = Lens.lens (\MergeShards' {shardToMerge} -> shardToMerge) (\s@MergeShards' {} a -> s {shardToMerge = a} :: MergeShards)
 
 -- | The shard ID of the adjacent shard for the merge.
-mergeShards_adjacentShardToMerge :: Lens.Lens' MergeShards Prelude.Text
+mergeShards_adjacentShardToMerge :: Lens.Lens' MergeShards Core.Text
 mergeShards_adjacentShardToMerge = Lens.lens (\MergeShards' {adjacentShardToMerge} -> adjacentShardToMerge) (\s@MergeShards' {} a -> s {adjacentShardToMerge = a} :: MergeShards)
 
-instance Prelude.AWSRequest MergeShards where
-  type Rs MergeShards = MergeShardsResponse
+instance Core.AWSRequest MergeShards where
+  type AWSResponse MergeShards = MergeShardsResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull MergeShardsResponse'
 
-instance Prelude.Hashable MergeShards
+instance Core.Hashable MergeShards
 
-instance Prelude.NFData MergeShards
+instance Core.NFData MergeShards
 
-instance Prelude.ToHeaders MergeShards where
+instance Core.ToHeaders MergeShards where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.MergeShards" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Kinesis_20131202.MergeShards" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON MergeShards where
+instance Core.ToJSON MergeShards where
   toJSON MergeShards' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just
-              ("ShardToMerge" Prelude..= shardToMerge),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardToMerge" Core..= shardToMerge),
+            Core.Just
               ( "AdjacentShardToMerge"
-                  Prelude..= adjacentShardToMerge
+                  Core..= adjacentShardToMerge
               )
           ]
       )
 
-instance Prelude.ToPath MergeShards where
-  toPath = Prelude.const "/"
+instance Core.ToPath MergeShards where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery MergeShards where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery MergeShards where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newMergeShardsResponse' smart constructor.
 data MergeShardsResponse = MergeShardsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MergeShardsResponse' with all optional fields omitted.
@@ -201,4 +195,4 @@ newMergeShardsResponse ::
   MergeShardsResponse
 newMergeShardsResponse = MergeShardsResponse'
 
-instance Prelude.NFData MergeShardsResponse
+instance Core.NFData MergeShardsResponse

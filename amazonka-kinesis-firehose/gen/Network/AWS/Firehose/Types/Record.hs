@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.Record where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The unit of data in a delivery stream.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data Record = Record'
   { -- | The data blob, which is base64-encoded when the blob is serialized. The
     -- maximum size of the data blob, before base64-encoding, is 1,000 KiB.
-    data' :: Prelude.Base64
+    data' :: Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Record' with all optional fields omitted.
@@ -49,10 +48,10 @@ data Record = Record'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newRecord ::
   -- | 'data''
-  Prelude.ByteString ->
+  Core.ByteString ->
   Record
 newRecord pData_ =
-  Record' {data' = Prelude._Base64 Lens.# pData_}
+  Record' {data' = Core._Base64 Lens.# pData_}
 
 -- | The data blob, which is base64-encoded when the blob is serialized. The
 -- maximum size of the data blob, before base64-encoding, is 1,000 KiB.--
@@ -60,16 +59,14 @@ newRecord pData_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-record_data :: Lens.Lens' Record Prelude.ByteString
-record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Prelude.. Prelude._Base64
+record_data :: Lens.Lens' Record Core.ByteString
+record_data = Lens.lens (\Record' {data'} -> data') (\s@Record' {} a -> s {data' = a} :: Record) Core.. Core._Base64
 
-instance Prelude.Hashable Record
+instance Core.Hashable Record
 
-instance Prelude.NFData Record
+instance Core.NFData Record
 
-instance Prelude.ToJSON Record where
+instance Core.ToJSON Record where
   toJSON Record' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Data" Prelude..= data')]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Data" Core..= data')])

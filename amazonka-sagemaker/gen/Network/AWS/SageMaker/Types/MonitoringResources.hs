@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringResources where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.MonitoringClusterConfig
 
 -- | Identifies the resources to deploy for a monitoring job.
@@ -32,7 +31,7 @@ data MonitoringResources = MonitoringResources'
     -- job.
     clusterConfig :: MonitoringClusterConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringResources' with all optional fields omitted.
@@ -59,24 +58,22 @@ newMonitoringResources pClusterConfig_ =
 monitoringResources_clusterConfig :: Lens.Lens' MonitoringResources MonitoringClusterConfig
 monitoringResources_clusterConfig = Lens.lens (\MonitoringResources' {clusterConfig} -> clusterConfig) (\s@MonitoringResources' {} a -> s {clusterConfig = a} :: MonitoringResources)
 
-instance Prelude.FromJSON MonitoringResources where
+instance Core.FromJSON MonitoringResources where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringResources"
       ( \x ->
           MonitoringResources'
-            Prelude.<$> (x Prelude..: "ClusterConfig")
+            Core.<$> (x Core..: "ClusterConfig")
       )
 
-instance Prelude.Hashable MonitoringResources
+instance Core.Hashable MonitoringResources
 
-instance Prelude.NFData MonitoringResources
+instance Core.NFData MonitoringResources
 
-instance Prelude.ToJSON MonitoringResources where
+instance Core.ToJSON MonitoringResources where
   toJSON MonitoringResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ClusterConfig" Prelude..= clusterConfig)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ClusterConfig" Core..= clusterConfig)]
       )

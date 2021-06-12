@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AnalysisAclRule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PortRange
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a network access control (ACL) rule.
 --
 -- /See:/ 'newAnalysisAclRule' smart constructor.
 data AnalysisAclRule = AnalysisAclRule'
   { -- | The range of ports.
-    portRange :: Prelude.Maybe PortRange,
+    portRange :: Core.Maybe PortRange,
     -- | Indicates whether to allow or deny traffic that matches the rule.
-    ruleAction :: Prelude.Maybe Prelude.Text,
+    ruleAction :: Core.Maybe Core.Text,
     -- | Indicates whether the rule is an outbound rule.
-    egress :: Prelude.Maybe Prelude.Bool,
+    egress :: Core.Maybe Core.Bool,
     -- | The IPv4 address range, in CIDR notation.
-    cidr :: Prelude.Maybe Prelude.Text,
+    cidr :: Core.Maybe Core.Text,
     -- | The protocol.
-    protocol :: Prelude.Maybe Prelude.Text,
+    protocol :: Core.Maybe Core.Text,
     -- | The rule number.
-    ruleNumber :: Prelude.Maybe Prelude.Int
+    ruleNumber :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalysisAclRule' with all optional fields omitted.
@@ -67,48 +66,48 @@ newAnalysisAclRule ::
   AnalysisAclRule
 newAnalysisAclRule =
   AnalysisAclRule'
-    { portRange = Prelude.Nothing,
-      ruleAction = Prelude.Nothing,
-      egress = Prelude.Nothing,
-      cidr = Prelude.Nothing,
-      protocol = Prelude.Nothing,
-      ruleNumber = Prelude.Nothing
+    { portRange = Core.Nothing,
+      ruleAction = Core.Nothing,
+      egress = Core.Nothing,
+      cidr = Core.Nothing,
+      protocol = Core.Nothing,
+      ruleNumber = Core.Nothing
     }
 
 -- | The range of ports.
-analysisAclRule_portRange :: Lens.Lens' AnalysisAclRule (Prelude.Maybe PortRange)
+analysisAclRule_portRange :: Lens.Lens' AnalysisAclRule (Core.Maybe PortRange)
 analysisAclRule_portRange = Lens.lens (\AnalysisAclRule' {portRange} -> portRange) (\s@AnalysisAclRule' {} a -> s {portRange = a} :: AnalysisAclRule)
 
 -- | Indicates whether to allow or deny traffic that matches the rule.
-analysisAclRule_ruleAction :: Lens.Lens' AnalysisAclRule (Prelude.Maybe Prelude.Text)
+analysisAclRule_ruleAction :: Lens.Lens' AnalysisAclRule (Core.Maybe Core.Text)
 analysisAclRule_ruleAction = Lens.lens (\AnalysisAclRule' {ruleAction} -> ruleAction) (\s@AnalysisAclRule' {} a -> s {ruleAction = a} :: AnalysisAclRule)
 
 -- | Indicates whether the rule is an outbound rule.
-analysisAclRule_egress :: Lens.Lens' AnalysisAclRule (Prelude.Maybe Prelude.Bool)
+analysisAclRule_egress :: Lens.Lens' AnalysisAclRule (Core.Maybe Core.Bool)
 analysisAclRule_egress = Lens.lens (\AnalysisAclRule' {egress} -> egress) (\s@AnalysisAclRule' {} a -> s {egress = a} :: AnalysisAclRule)
 
 -- | The IPv4 address range, in CIDR notation.
-analysisAclRule_cidr :: Lens.Lens' AnalysisAclRule (Prelude.Maybe Prelude.Text)
+analysisAclRule_cidr :: Lens.Lens' AnalysisAclRule (Core.Maybe Core.Text)
 analysisAclRule_cidr = Lens.lens (\AnalysisAclRule' {cidr} -> cidr) (\s@AnalysisAclRule' {} a -> s {cidr = a} :: AnalysisAclRule)
 
 -- | The protocol.
-analysisAclRule_protocol :: Lens.Lens' AnalysisAclRule (Prelude.Maybe Prelude.Text)
+analysisAclRule_protocol :: Lens.Lens' AnalysisAclRule (Core.Maybe Core.Text)
 analysisAclRule_protocol = Lens.lens (\AnalysisAclRule' {protocol} -> protocol) (\s@AnalysisAclRule' {} a -> s {protocol = a} :: AnalysisAclRule)
 
 -- | The rule number.
-analysisAclRule_ruleNumber :: Lens.Lens' AnalysisAclRule (Prelude.Maybe Prelude.Int)
+analysisAclRule_ruleNumber :: Lens.Lens' AnalysisAclRule (Core.Maybe Core.Int)
 analysisAclRule_ruleNumber = Lens.lens (\AnalysisAclRule' {ruleNumber} -> ruleNumber) (\s@AnalysisAclRule' {} a -> s {ruleNumber = a} :: AnalysisAclRule)
 
-instance Prelude.FromXML AnalysisAclRule where
+instance Core.FromXML AnalysisAclRule where
   parseXML x =
     AnalysisAclRule'
-      Prelude.<$> (x Prelude..@? "portRange")
-      Prelude.<*> (x Prelude..@? "ruleAction")
-      Prelude.<*> (x Prelude..@? "egress")
-      Prelude.<*> (x Prelude..@? "cidr")
-      Prelude.<*> (x Prelude..@? "protocol")
-      Prelude.<*> (x Prelude..@? "ruleNumber")
+      Core.<$> (x Core..@? "portRange")
+      Core.<*> (x Core..@? "ruleAction")
+      Core.<*> (x Core..@? "egress")
+      Core.<*> (x Core..@? "cidr")
+      Core.<*> (x Core..@? "protocol")
+      Core.<*> (x Core..@? "ruleNumber")
 
-instance Prelude.Hashable AnalysisAclRule
+instance Core.Hashable AnalysisAclRule
 
-instance Prelude.NFData AnalysisAclRule
+instance Core.NFData AnalysisAclRule

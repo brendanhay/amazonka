@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.TestingData where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Asset
 
 -- | The dataset used for testing. Optionally, if @AutoCreate@ is set, Amazon
@@ -32,11 +31,11 @@ import Network.AWS.Rekognition.Types.Asset
 data TestingData = TestingData'
   { -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset
     -- with an 80\/20 split of the training dataset.
-    autoCreate :: Prelude.Maybe Prelude.Bool,
+    autoCreate :: Core.Maybe Core.Bool,
     -- | The assets used for testing.
-    assets :: Prelude.Maybe [Asset]
+    assets :: Core.Maybe [Asset]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestingData' with all optional fields omitted.
@@ -54,38 +53,38 @@ newTestingData ::
   TestingData
 newTestingData =
   TestingData'
-    { autoCreate = Prelude.Nothing,
-      assets = Prelude.Nothing
+    { autoCreate = Core.Nothing,
+      assets = Core.Nothing
     }
 
 -- | If specified, Amazon Rekognition Custom Labels creates a testing dataset
 -- with an 80\/20 split of the training dataset.
-testingData_autoCreate :: Lens.Lens' TestingData (Prelude.Maybe Prelude.Bool)
+testingData_autoCreate :: Lens.Lens' TestingData (Core.Maybe Core.Bool)
 testingData_autoCreate = Lens.lens (\TestingData' {autoCreate} -> autoCreate) (\s@TestingData' {} a -> s {autoCreate = a} :: TestingData)
 
 -- | The assets used for testing.
-testingData_assets :: Lens.Lens' TestingData (Prelude.Maybe [Asset])
-testingData_assets = Lens.lens (\TestingData' {assets} -> assets) (\s@TestingData' {} a -> s {assets = a} :: TestingData) Prelude.. Lens.mapping Prelude._Coerce
+testingData_assets :: Lens.Lens' TestingData (Core.Maybe [Asset])
+testingData_assets = Lens.lens (\TestingData' {assets} -> assets) (\s@TestingData' {} a -> s {assets = a} :: TestingData) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON TestingData where
+instance Core.FromJSON TestingData where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TestingData"
       ( \x ->
           TestingData'
-            Prelude.<$> (x Prelude..:? "AutoCreate")
-            Prelude.<*> (x Prelude..:? "Assets" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "AutoCreate")
+            Core.<*> (x Core..:? "Assets" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable TestingData
+instance Core.Hashable TestingData
 
-instance Prelude.NFData TestingData
+instance Core.NFData TestingData
 
-instance Prelude.ToJSON TestingData where
+instance Core.ToJSON TestingData where
   toJSON TestingData' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AutoCreate" Prelude..=) Prelude.<$> autoCreate,
-            ("Assets" Prelude..=) Prelude.<$> assets
+    Core.object
+      ( Core.catMaybes
+          [ ("AutoCreate" Core..=) Core.<$> autoCreate,
+            ("Assets" Core..=) Core.<$> assets
           ]
       )

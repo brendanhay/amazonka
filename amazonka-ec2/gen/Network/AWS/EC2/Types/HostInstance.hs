@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.HostInstance where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance running on a Dedicated Host.
 --
 -- /See:/ 'newHostInstance' smart constructor.
 data HostInstance = HostInstance'
   { -- | The ID of the AWS account that owns the instance.
-    ownerId :: Prelude.Maybe Prelude.Text,
+    ownerId :: Core.Maybe Core.Text,
     -- | The ID of instance that is running on the Dedicated Host.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The instance type (for example, @m3.medium@) of the running instance.
-    instanceType :: Prelude.Maybe Prelude.Text
+    instanceType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HostInstance' with all optional fields omitted.
@@ -54,30 +53,30 @@ newHostInstance ::
   HostInstance
 newHostInstance =
   HostInstance'
-    { ownerId = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      instanceType = Prelude.Nothing
+    { ownerId = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceType = Core.Nothing
     }
 
 -- | The ID of the AWS account that owns the instance.
-hostInstance_ownerId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
+hostInstance_ownerId :: Lens.Lens' HostInstance (Core.Maybe Core.Text)
 hostInstance_ownerId = Lens.lens (\HostInstance' {ownerId} -> ownerId) (\s@HostInstance' {} a -> s {ownerId = a} :: HostInstance)
 
 -- | The ID of instance that is running on the Dedicated Host.
-hostInstance_instanceId :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
+hostInstance_instanceId :: Lens.Lens' HostInstance (Core.Maybe Core.Text)
 hostInstance_instanceId = Lens.lens (\HostInstance' {instanceId} -> instanceId) (\s@HostInstance' {} a -> s {instanceId = a} :: HostInstance)
 
 -- | The instance type (for example, @m3.medium@) of the running instance.
-hostInstance_instanceType :: Lens.Lens' HostInstance (Prelude.Maybe Prelude.Text)
+hostInstance_instanceType :: Lens.Lens' HostInstance (Core.Maybe Core.Text)
 hostInstance_instanceType = Lens.lens (\HostInstance' {instanceType} -> instanceType) (\s@HostInstance' {} a -> s {instanceType = a} :: HostInstance)
 
-instance Prelude.FromXML HostInstance where
+instance Core.FromXML HostInstance where
   parseXML x =
     HostInstance'
-      Prelude.<$> (x Prelude..@? "ownerId")
-      Prelude.<*> (x Prelude..@? "instanceId")
-      Prelude.<*> (x Prelude..@? "instanceType")
+      Core.<$> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "instanceType")
 
-instance Prelude.Hashable HostInstance
+instance Core.Hashable HostInstance
 
-instance Prelude.NFData HostInstance
+instance Core.NFData HostInstance

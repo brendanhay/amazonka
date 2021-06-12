@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -100,8 +99,8 @@ module Network.AWS.S3.PutBucketReplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -111,7 +110,7 @@ data PutBucketReplication = PutBucketReplication'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
@@ -119,14 +118,14 @@ data PutBucketReplication = PutBucketReplication'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | A token to allow Object Lock to be enabled for an existing bucket.
-    token :: Prelude.Maybe Prelude.Text,
+    token :: Core.Maybe Core.Text,
     -- | The name of the bucket
     bucket :: BucketName,
     replicationConfiguration :: ReplicationConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketReplication' with all optional fields omitted.
@@ -164,9 +163,9 @@ newPutBucketReplication
   pReplicationConfiguration_ =
     PutBucketReplication'
       { expectedBucketOwner =
-          Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
-        token = Prelude.Nothing,
+          Core.Nothing,
+        contentMD5 = Core.Nothing,
+        token = Core.Nothing,
         bucket = pBucket_,
         replicationConfiguration =
           pReplicationConfiguration_
@@ -175,7 +174,7 @@ newPutBucketReplication
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketReplication_expectedBucketOwner :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
+putBucketReplication_expectedBucketOwner :: Lens.Lens' PutBucketReplication (Core.Maybe Core.Text)
 putBucketReplication_expectedBucketOwner = Lens.lens (\PutBucketReplication' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketReplication' {} a -> s {expectedBucketOwner = a} :: PutBucketReplication)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
@@ -185,11 +184,11 @@ putBucketReplication_expectedBucketOwner = Lens.lens (\PutBucketReplication' {ex
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketReplication_contentMD5 :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
+putBucketReplication_contentMD5 :: Lens.Lens' PutBucketReplication (Core.Maybe Core.Text)
 putBucketReplication_contentMD5 = Lens.lens (\PutBucketReplication' {contentMD5} -> contentMD5) (\s@PutBucketReplication' {} a -> s {contentMD5 = a} :: PutBucketReplication)
 
 -- | A token to allow Object Lock to be enabled for an existing bucket.
-putBucketReplication_token :: Lens.Lens' PutBucketReplication (Prelude.Maybe Prelude.Text)
+putBucketReplication_token :: Lens.Lens' PutBucketReplication (Core.Maybe Core.Text)
 putBucketReplication_token = Lens.lens (\PutBucketReplication' {token} -> token) (\s@PutBucketReplication' {} a -> s {token = a} :: PutBucketReplication)
 
 -- | The name of the bucket
@@ -200,46 +199,45 @@ putBucketReplication_bucket = Lens.lens (\PutBucketReplication' {bucket} -> buck
 putBucketReplication_replicationConfiguration :: Lens.Lens' PutBucketReplication ReplicationConfiguration
 putBucketReplication_replicationConfiguration = Lens.lens (\PutBucketReplication' {replicationConfiguration} -> replicationConfiguration) (\s@PutBucketReplication' {} a -> s {replicationConfiguration = a} :: PutBucketReplication)
 
-instance Prelude.AWSRequest PutBucketReplication where
+instance Core.AWSRequest PutBucketReplication where
   type
-    Rs PutBucketReplication =
+    AWSResponse PutBucketReplication =
       PutBucketReplicationResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull PutBucketReplicationResponse'
 
-instance Prelude.Hashable PutBucketReplication
+instance Core.Hashable PutBucketReplication
 
-instance Prelude.NFData PutBucketReplication
+instance Core.NFData PutBucketReplication
 
-instance Prelude.ToElement PutBucketReplication where
+instance Core.ToElement PutBucketReplication where
   toElement PutBucketReplication' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}ReplicationConfiguration"
       replicationConfiguration
 
-instance Prelude.ToHeaders PutBucketReplication where
+instance Core.ToHeaders PutBucketReplication where
   toHeaders PutBucketReplication' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5,
-        "x-amz-bucket-object-lock-token" Prelude.=# token
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5,
+        "x-amz-bucket-object-lock-token" Core.=# token
       ]
 
-instance Prelude.ToPath PutBucketReplication where
+instance Core.ToPath PutBucketReplication where
   toPath PutBucketReplication' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutBucketReplication where
-  toQuery =
-    Prelude.const (Prelude.mconcat ["replication"])
+instance Core.ToQuery PutBucketReplication where
+  toQuery = Core.const (Core.mconcat ["replication"])
 
 -- | /See:/ 'newPutBucketReplicationResponse' smart constructor.
 data PutBucketReplicationResponse = PutBucketReplicationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketReplicationResponse' with all optional fields omitted.
@@ -250,4 +248,4 @@ newPutBucketReplicationResponse ::
 newPutBucketReplicationResponse =
   PutBucketReplicationResponse'
 
-instance Prelude.NFData PutBucketReplicationResponse
+instance Core.NFData PutBucketReplicationResponse

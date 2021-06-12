@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PrefixListId where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a prefix list ID.
 --
 -- /See:/ 'newPrefixListId' smart constructor.
 data PrefixListId = PrefixListId'
   { -- | The ID of the prefix.
-    prefixListId :: Prelude.Maybe Prelude.Text,
+    prefixListId :: Core.Maybe Core.Text,
     -- | A description for the security group rule that references this prefix
     -- list ID.
     --
     -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
     -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PrefixListId' with all optional fields omitted.
@@ -58,12 +57,12 @@ newPrefixListId ::
   PrefixListId
 newPrefixListId =
   PrefixListId'
-    { prefixListId = Prelude.Nothing,
-      description = Prelude.Nothing
+    { prefixListId = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The ID of the prefix.
-prefixListId_prefixListId :: Lens.Lens' PrefixListId (Prelude.Maybe Prelude.Text)
+prefixListId_prefixListId :: Lens.Lens' PrefixListId (Core.Maybe Core.Text)
 prefixListId_prefixListId = Lens.lens (\PrefixListId' {prefixListId} -> prefixListId) (\s@PrefixListId' {} a -> s {prefixListId = a} :: PrefixListId)
 
 -- | A description for the security group rule that references this prefix
@@ -71,22 +70,22 @@ prefixListId_prefixListId = Lens.lens (\PrefixListId' {prefixListId} -> prefixLi
 --
 -- Constraints: Up to 255 characters in length. Allowed characters are a-z,
 -- A-Z, 0-9, spaces, and ._-:\/()#,\@[]+=;{}!$*
-prefixListId_description :: Lens.Lens' PrefixListId (Prelude.Maybe Prelude.Text)
+prefixListId_description :: Lens.Lens' PrefixListId (Core.Maybe Core.Text)
 prefixListId_description = Lens.lens (\PrefixListId' {description} -> description) (\s@PrefixListId' {} a -> s {description = a} :: PrefixListId)
 
-instance Prelude.FromXML PrefixListId where
+instance Core.FromXML PrefixListId where
   parseXML x =
     PrefixListId'
-      Prelude.<$> (x Prelude..@? "prefixListId")
-      Prelude.<*> (x Prelude..@? "description")
+      Core.<$> (x Core..@? "prefixListId")
+      Core.<*> (x Core..@? "description")
 
-instance Prelude.Hashable PrefixListId
+instance Core.Hashable PrefixListId
 
-instance Prelude.NFData PrefixListId
+instance Core.NFData PrefixListId
 
-instance Prelude.ToQuery PrefixListId where
+instance Core.ToQuery PrefixListId where
   toQuery PrefixListId' {..} =
-    Prelude.mconcat
-      [ "PrefixListId" Prelude.=: prefixListId,
-        "Description" Prelude.=: description
+    Core.mconcat
+      [ "PrefixListId" Core.=: prefixListId,
+        "Description" Core.=: description
       ]

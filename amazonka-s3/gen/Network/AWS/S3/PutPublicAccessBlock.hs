@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,8 +63,8 @@ module Network.AWS.S3.PutPublicAccessBlock
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -75,12 +74,12 @@ data PutPublicAccessBlock = PutPublicAccessBlock'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
     -- you want to set.
     bucket :: BucketName,
@@ -92,7 +91,7 @@ data PutPublicAccessBlock = PutPublicAccessBlock'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     publicAccessBlockConfiguration :: PublicAccessBlockConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutPublicAccessBlock' with all optional fields omitted.
@@ -131,8 +130,8 @@ newPutPublicAccessBlock
   pPublicAccessBlockConfiguration_ =
     PutPublicAccessBlock'
       { expectedBucketOwner =
-          Prelude.Nothing,
-        contentMD5 = Prelude.Nothing,
+          Core.Nothing,
+        contentMD5 = Core.Nothing,
         bucket = pBucket_,
         publicAccessBlockConfiguration =
           pPublicAccessBlockConfiguration_
@@ -141,14 +140,14 @@ newPutPublicAccessBlock
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putPublicAccessBlock_expectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Prelude.Maybe Prelude.Text)
+putPublicAccessBlock_expectedBucketOwner :: Lens.Lens' PutPublicAccessBlock (Core.Maybe Core.Text)
 putPublicAccessBlock_expectedBucketOwner = Lens.lens (\PutPublicAccessBlock' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutPublicAccessBlock' {} a -> s {expectedBucketOwner = a} :: PutPublicAccessBlock)
 
 -- | The MD5 hash of the @PutPublicAccessBlock@ request body.
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putPublicAccessBlock_contentMD5 :: Lens.Lens' PutPublicAccessBlock (Prelude.Maybe Prelude.Text)
+putPublicAccessBlock_contentMD5 :: Lens.Lens' PutPublicAccessBlock (Core.Maybe Core.Text)
 putPublicAccessBlock_contentMD5 = Lens.lens (\PutPublicAccessBlock' {contentMD5} -> contentMD5) (\s@PutPublicAccessBlock' {} a -> s {contentMD5 = a} :: PutPublicAccessBlock)
 
 -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
@@ -165,46 +164,45 @@ putPublicAccessBlock_bucket = Lens.lens (\PutPublicAccessBlock' {bucket} -> buck
 putPublicAccessBlock_publicAccessBlockConfiguration :: Lens.Lens' PutPublicAccessBlock PublicAccessBlockConfiguration
 putPublicAccessBlock_publicAccessBlockConfiguration = Lens.lens (\PutPublicAccessBlock' {publicAccessBlockConfiguration} -> publicAccessBlockConfiguration) (\s@PutPublicAccessBlock' {} a -> s {publicAccessBlockConfiguration = a} :: PutPublicAccessBlock)
 
-instance Prelude.AWSRequest PutPublicAccessBlock where
+instance Core.AWSRequest PutPublicAccessBlock where
   type
-    Rs PutPublicAccessBlock =
+    AWSResponse PutPublicAccessBlock =
       PutPublicAccessBlockResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull PutPublicAccessBlockResponse'
 
-instance Prelude.Hashable PutPublicAccessBlock
+instance Core.Hashable PutPublicAccessBlock
 
-instance Prelude.NFData PutPublicAccessBlock
+instance Core.NFData PutPublicAccessBlock
 
-instance Prelude.ToElement PutPublicAccessBlock where
+instance Core.ToElement PutPublicAccessBlock where
   toElement PutPublicAccessBlock' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}PublicAccessBlockConfiguration"
       publicAccessBlockConfiguration
 
-instance Prelude.ToHeaders PutPublicAccessBlock where
+instance Core.ToHeaders PutPublicAccessBlock where
   toHeaders PutPublicAccessBlock' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5
       ]
 
-instance Prelude.ToPath PutPublicAccessBlock where
+instance Core.ToPath PutPublicAccessBlock where
   toPath PutPublicAccessBlock' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutPublicAccessBlock where
+instance Core.ToQuery PutPublicAccessBlock where
   toQuery =
-    Prelude.const
-      (Prelude.mconcat ["publicAccessBlock"])
+    Core.const (Core.mconcat ["publicAccessBlock"])
 
 -- | /See:/ 'newPutPublicAccessBlockResponse' smart constructor.
 data PutPublicAccessBlockResponse = PutPublicAccessBlockResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutPublicAccessBlockResponse' with all optional fields omitted.
@@ -215,4 +213,4 @@ newPutPublicAccessBlockResponse ::
 newPutPublicAccessBlockResponse =
   PutPublicAccessBlockResponse'
 
-instance Prelude.NFData PutPublicAccessBlockResponse
+instance Core.NFData PutPublicAccessBlockResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Glue.UpdateRegistry
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data UpdateRegistry = UpdateRegistry'
     registryId :: RegistryId,
     -- | A description of the registry. If description is not provided, this
     -- field will not be updated.
-    description :: Prelude.Text
+    description :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRegistry' with all optional fields omitted.
@@ -78,7 +77,7 @@ newUpdateRegistry ::
   -- | 'registryId'
   RegistryId ->
   -- | 'description'
-  Prelude.Text ->
+  Core.Text ->
   UpdateRegistry
 newUpdateRegistry pRegistryId_ pDescription_ =
   UpdateRegistry'
@@ -93,63 +92,63 @@ updateRegistry_registryId = Lens.lens (\UpdateRegistry' {registryId} -> registry
 
 -- | A description of the registry. If description is not provided, this
 -- field will not be updated.
-updateRegistry_description :: Lens.Lens' UpdateRegistry Prelude.Text
+updateRegistry_description :: Lens.Lens' UpdateRegistry Core.Text
 updateRegistry_description = Lens.lens (\UpdateRegistry' {description} -> description) (\s@UpdateRegistry' {} a -> s {description = a} :: UpdateRegistry)
 
-instance Prelude.AWSRequest UpdateRegistry where
-  type Rs UpdateRegistry = UpdateRegistryResponse
+instance Core.AWSRequest UpdateRegistry where
+  type
+    AWSResponse UpdateRegistry =
+      UpdateRegistryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateRegistryResponse'
-            Prelude.<$> (x Prelude..?> "RegistryName")
-            Prelude.<*> (x Prelude..?> "RegistryArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "RegistryName")
+            Core.<*> (x Core..?> "RegistryArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateRegistry
+instance Core.Hashable UpdateRegistry
 
-instance Prelude.NFData UpdateRegistry
+instance Core.NFData UpdateRegistry
 
-instance Prelude.ToHeaders UpdateRegistry where
+instance Core.ToHeaders UpdateRegistry where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.UpdateRegistry" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.UpdateRegistry" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateRegistry where
+instance Core.ToJSON UpdateRegistry where
   toJSON UpdateRegistry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("RegistryId" Prelude..= registryId),
-            Prelude.Just ("Description" Prelude..= description)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RegistryId" Core..= registryId),
+            Core.Just ("Description" Core..= description)
           ]
       )
 
-instance Prelude.ToPath UpdateRegistry where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateRegistry where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateRegistry where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateRegistry where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateRegistryResponse' smart constructor.
 data UpdateRegistryResponse = UpdateRegistryResponse'
   { -- | The name of the updated registry.
-    registryName :: Prelude.Maybe Prelude.Text,
+    registryName :: Core.Maybe Core.Text,
     -- | The Amazon Resource name (ARN) of the updated registry.
-    registryArn :: Prelude.Maybe Prelude.Text,
+    registryArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateRegistryResponse' with all optional fields omitted.
@@ -166,26 +165,26 @@ data UpdateRegistryResponse = UpdateRegistryResponse'
 -- 'httpStatus', 'updateRegistryResponse_httpStatus' - The response's http status code.
 newUpdateRegistryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateRegistryResponse
 newUpdateRegistryResponse pHttpStatus_ =
   UpdateRegistryResponse'
     { registryName =
-        Prelude.Nothing,
-      registryArn = Prelude.Nothing,
+        Core.Nothing,
+      registryArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the updated registry.
-updateRegistryResponse_registryName :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
+updateRegistryResponse_registryName :: Lens.Lens' UpdateRegistryResponse (Core.Maybe Core.Text)
 updateRegistryResponse_registryName = Lens.lens (\UpdateRegistryResponse' {registryName} -> registryName) (\s@UpdateRegistryResponse' {} a -> s {registryName = a} :: UpdateRegistryResponse)
 
 -- | The Amazon Resource name (ARN) of the updated registry.
-updateRegistryResponse_registryArn :: Lens.Lens' UpdateRegistryResponse (Prelude.Maybe Prelude.Text)
+updateRegistryResponse_registryArn :: Lens.Lens' UpdateRegistryResponse (Core.Maybe Core.Text)
 updateRegistryResponse_registryArn = Lens.lens (\UpdateRegistryResponse' {registryArn} -> registryArn) (\s@UpdateRegistryResponse' {} a -> s {registryArn = a} :: UpdateRegistryResponse)
 
 -- | The response's http status code.
-updateRegistryResponse_httpStatus :: Lens.Lens' UpdateRegistryResponse Prelude.Int
+updateRegistryResponse_httpStatus :: Lens.Lens' UpdateRegistryResponse Core.Int
 updateRegistryResponse_httpStatus = Lens.lens (\UpdateRegistryResponse' {httpStatus} -> httpStatus) (\s@UpdateRegistryResponse' {} a -> s {httpStatus = a} :: UpdateRegistryResponse)
 
-instance Prelude.NFData UpdateRegistryResponse
+instance Core.NFData UpdateRegistryResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Lightsail.GetLoadBalancerTlsCertificates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 data GetLoadBalancerTlsCertificates = GetLoadBalancerTlsCertificates'
   { -- | The name of the load balancer you associated with your SSL\/TLS
     -- certificate.
-    loadBalancerName :: Prelude.Text
+    loadBalancerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLoadBalancerTlsCertificates' with all optional fields omitted.
@@ -73,7 +72,7 @@ data GetLoadBalancerTlsCertificates = GetLoadBalancerTlsCertificates'
 -- certificate.
 newGetLoadBalancerTlsCertificates ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   GetLoadBalancerTlsCertificates
 newGetLoadBalancerTlsCertificates pLoadBalancerName_ =
   GetLoadBalancerTlsCertificates'
@@ -83,86 +82,69 @@ newGetLoadBalancerTlsCertificates pLoadBalancerName_ =
 
 -- | The name of the load balancer you associated with your SSL\/TLS
 -- certificate.
-getLoadBalancerTlsCertificates_loadBalancerName :: Lens.Lens' GetLoadBalancerTlsCertificates Prelude.Text
+getLoadBalancerTlsCertificates_loadBalancerName :: Lens.Lens' GetLoadBalancerTlsCertificates Core.Text
 getLoadBalancerTlsCertificates_loadBalancerName = Lens.lens (\GetLoadBalancerTlsCertificates' {loadBalancerName} -> loadBalancerName) (\s@GetLoadBalancerTlsCertificates' {} a -> s {loadBalancerName = a} :: GetLoadBalancerTlsCertificates)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetLoadBalancerTlsCertificates
   where
   type
-    Rs GetLoadBalancerTlsCertificates =
+    AWSResponse GetLoadBalancerTlsCertificates =
       GetLoadBalancerTlsCertificatesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLoadBalancerTlsCertificatesResponse'
-            Prelude.<$> ( x Prelude..?> "tlsCertificates"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "tlsCertificates" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    GetLoadBalancerTlsCertificates
+instance Core.Hashable GetLoadBalancerTlsCertificates
+
+instance Core.NFData GetLoadBalancerTlsCertificates
 
 instance
-  Prelude.NFData
-    GetLoadBalancerTlsCertificates
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetLoadBalancerTlsCertificates
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetLoadBalancerTlsCertificates" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetLoadBalancerTlsCertificates" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetLoadBalancerTlsCertificates
-  where
+instance Core.ToJSON GetLoadBalancerTlsCertificates where
   toJSON GetLoadBalancerTlsCertificates' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("loadBalancerName" Prelude..= loadBalancerName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("loadBalancerName" Core..= loadBalancerName)
           ]
       )
 
-instance
-  Prelude.ToPath
-    GetLoadBalancerTlsCertificates
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetLoadBalancerTlsCertificates where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetLoadBalancerTlsCertificates
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLoadBalancerTlsCertificates where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetLoadBalancerTlsCertificatesResponse' smart constructor.
 data GetLoadBalancerTlsCertificatesResponse = GetLoadBalancerTlsCertificatesResponse'
   { -- | An array of LoadBalancerTlsCertificate objects describing your SSL\/TLS
     -- certificates.
-    tlsCertificates :: Prelude.Maybe [LoadBalancerTlsCertificate],
+    tlsCertificates :: Core.Maybe [LoadBalancerTlsCertificate],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLoadBalancerTlsCertificatesResponse' with all optional fields omitted.
@@ -178,25 +160,25 @@ data GetLoadBalancerTlsCertificatesResponse = GetLoadBalancerTlsCertificatesResp
 -- 'httpStatus', 'getLoadBalancerTlsCertificatesResponse_httpStatus' - The response's http status code.
 newGetLoadBalancerTlsCertificatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetLoadBalancerTlsCertificatesResponse
 newGetLoadBalancerTlsCertificatesResponse
   pHttpStatus_ =
     GetLoadBalancerTlsCertificatesResponse'
       { tlsCertificates =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An array of LoadBalancerTlsCertificate objects describing your SSL\/TLS
 -- certificates.
-getLoadBalancerTlsCertificatesResponse_tlsCertificates :: Lens.Lens' GetLoadBalancerTlsCertificatesResponse (Prelude.Maybe [LoadBalancerTlsCertificate])
-getLoadBalancerTlsCertificatesResponse_tlsCertificates = Lens.lens (\GetLoadBalancerTlsCertificatesResponse' {tlsCertificates} -> tlsCertificates) (\s@GetLoadBalancerTlsCertificatesResponse' {} a -> s {tlsCertificates = a} :: GetLoadBalancerTlsCertificatesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getLoadBalancerTlsCertificatesResponse_tlsCertificates :: Lens.Lens' GetLoadBalancerTlsCertificatesResponse (Core.Maybe [LoadBalancerTlsCertificate])
+getLoadBalancerTlsCertificatesResponse_tlsCertificates = Lens.lens (\GetLoadBalancerTlsCertificatesResponse' {tlsCertificates} -> tlsCertificates) (\s@GetLoadBalancerTlsCertificatesResponse' {} a -> s {tlsCertificates = a} :: GetLoadBalancerTlsCertificatesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getLoadBalancerTlsCertificatesResponse_httpStatus :: Lens.Lens' GetLoadBalancerTlsCertificatesResponse Prelude.Int
+getLoadBalancerTlsCertificatesResponse_httpStatus :: Lens.Lens' GetLoadBalancerTlsCertificatesResponse Core.Int
 getLoadBalancerTlsCertificatesResponse_httpStatus = Lens.lens (\GetLoadBalancerTlsCertificatesResponse' {httpStatus} -> httpStatus) (\s@GetLoadBalancerTlsCertificatesResponse' {} a -> s {httpStatus = a} :: GetLoadBalancerTlsCertificatesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetLoadBalancerTlsCertificatesResponse

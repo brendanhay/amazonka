@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -23,8 +22,8 @@ module Network.AWS.CertificateManagerPCA.Types.GeneralName where
 import Network.AWS.CertificateManagerPCA.Types.ASN1Subject
 import Network.AWS.CertificateManagerPCA.Types.EdiPartyName
 import Network.AWS.CertificateManagerPCA.Types.OtherName
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an ASN.1 X.400 @GeneralName@ as defined in
 -- <https://tools.ietf.org/html/rfc5280 RFC 5280>. Only one of the
@@ -34,23 +33,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newGeneralName' smart constructor.
 data GeneralName = GeneralName'
   { -- | Represents @GeneralName@ as an @EdiPartyName@ object.
-    ediPartyName :: Prelude.Maybe EdiPartyName,
+    ediPartyName :: Core.Maybe EdiPartyName,
     -- | Represents @GeneralName@ using an @OtherName@ object.
-    otherName :: Prelude.Maybe OtherName,
+    otherName :: Core.Maybe OtherName,
     -- | Represents @GeneralName@ as a URI.
-    uniformResourceIdentifier :: Prelude.Maybe Prelude.Text,
+    uniformResourceIdentifier :: Core.Maybe Core.Text,
     -- | Represents @GeneralName@ as an IPv4 or IPv6 address.
-    ipAddress :: Prelude.Maybe Prelude.Text,
+    ipAddress :: Core.Maybe Core.Text,
     -- | Represents @GeneralName@ as a DNS name.
-    dnsName :: Prelude.Maybe Prelude.Text,
-    directoryName :: Prelude.Maybe ASN1Subject,
+    dnsName :: Core.Maybe Core.Text,
+    directoryName :: Core.Maybe ASN1Subject,
     -- | Represents @GeneralName@ as an
     -- <https://tools.ietf.org/html/rfc822 RFC 822> email address.
-    rfc822Name :: Prelude.Maybe Prelude.Text,
+    rfc822Name :: Core.Maybe Core.Text,
     -- | Represents @GeneralName@ as an object identifier (OID).
-    registeredId :: Prelude.Maybe Prelude.Text
+    registeredId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GeneralName' with all optional fields omitted.
@@ -80,84 +79,81 @@ newGeneralName ::
   GeneralName
 newGeneralName =
   GeneralName'
-    { ediPartyName = Prelude.Nothing,
-      otherName = Prelude.Nothing,
-      uniformResourceIdentifier = Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
-      dnsName = Prelude.Nothing,
-      directoryName = Prelude.Nothing,
-      rfc822Name = Prelude.Nothing,
-      registeredId = Prelude.Nothing
+    { ediPartyName = Core.Nothing,
+      otherName = Core.Nothing,
+      uniformResourceIdentifier = Core.Nothing,
+      ipAddress = Core.Nothing,
+      dnsName = Core.Nothing,
+      directoryName = Core.Nothing,
+      rfc822Name = Core.Nothing,
+      registeredId = Core.Nothing
     }
 
 -- | Represents @GeneralName@ as an @EdiPartyName@ object.
-generalName_ediPartyName :: Lens.Lens' GeneralName (Prelude.Maybe EdiPartyName)
+generalName_ediPartyName :: Lens.Lens' GeneralName (Core.Maybe EdiPartyName)
 generalName_ediPartyName = Lens.lens (\GeneralName' {ediPartyName} -> ediPartyName) (\s@GeneralName' {} a -> s {ediPartyName = a} :: GeneralName)
 
 -- | Represents @GeneralName@ using an @OtherName@ object.
-generalName_otherName :: Lens.Lens' GeneralName (Prelude.Maybe OtherName)
+generalName_otherName :: Lens.Lens' GeneralName (Core.Maybe OtherName)
 generalName_otherName = Lens.lens (\GeneralName' {otherName} -> otherName) (\s@GeneralName' {} a -> s {otherName = a} :: GeneralName)
 
 -- | Represents @GeneralName@ as a URI.
-generalName_uniformResourceIdentifier :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
+generalName_uniformResourceIdentifier :: Lens.Lens' GeneralName (Core.Maybe Core.Text)
 generalName_uniformResourceIdentifier = Lens.lens (\GeneralName' {uniformResourceIdentifier} -> uniformResourceIdentifier) (\s@GeneralName' {} a -> s {uniformResourceIdentifier = a} :: GeneralName)
 
 -- | Represents @GeneralName@ as an IPv4 or IPv6 address.
-generalName_ipAddress :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
+generalName_ipAddress :: Lens.Lens' GeneralName (Core.Maybe Core.Text)
 generalName_ipAddress = Lens.lens (\GeneralName' {ipAddress} -> ipAddress) (\s@GeneralName' {} a -> s {ipAddress = a} :: GeneralName)
 
 -- | Represents @GeneralName@ as a DNS name.
-generalName_dnsName :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
+generalName_dnsName :: Lens.Lens' GeneralName (Core.Maybe Core.Text)
 generalName_dnsName = Lens.lens (\GeneralName' {dnsName} -> dnsName) (\s@GeneralName' {} a -> s {dnsName = a} :: GeneralName)
 
 -- | Undocumented member.
-generalName_directoryName :: Lens.Lens' GeneralName (Prelude.Maybe ASN1Subject)
+generalName_directoryName :: Lens.Lens' GeneralName (Core.Maybe ASN1Subject)
 generalName_directoryName = Lens.lens (\GeneralName' {directoryName} -> directoryName) (\s@GeneralName' {} a -> s {directoryName = a} :: GeneralName)
 
 -- | Represents @GeneralName@ as an
 -- <https://tools.ietf.org/html/rfc822 RFC 822> email address.
-generalName_rfc822Name :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
+generalName_rfc822Name :: Lens.Lens' GeneralName (Core.Maybe Core.Text)
 generalName_rfc822Name = Lens.lens (\GeneralName' {rfc822Name} -> rfc822Name) (\s@GeneralName' {} a -> s {rfc822Name = a} :: GeneralName)
 
 -- | Represents @GeneralName@ as an object identifier (OID).
-generalName_registeredId :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
+generalName_registeredId :: Lens.Lens' GeneralName (Core.Maybe Core.Text)
 generalName_registeredId = Lens.lens (\GeneralName' {registeredId} -> registeredId) (\s@GeneralName' {} a -> s {registeredId = a} :: GeneralName)
 
-instance Prelude.FromJSON GeneralName where
+instance Core.FromJSON GeneralName where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GeneralName"
       ( \x ->
           GeneralName'
-            Prelude.<$> (x Prelude..:? "EdiPartyName")
-            Prelude.<*> (x Prelude..:? "OtherName")
-            Prelude.<*> (x Prelude..:? "UniformResourceIdentifier")
-            Prelude.<*> (x Prelude..:? "IpAddress")
-            Prelude.<*> (x Prelude..:? "DnsName")
-            Prelude.<*> (x Prelude..:? "DirectoryName")
-            Prelude.<*> (x Prelude..:? "Rfc822Name")
-            Prelude.<*> (x Prelude..:? "RegisteredId")
+            Core.<$> (x Core..:? "EdiPartyName")
+            Core.<*> (x Core..:? "OtherName")
+            Core.<*> (x Core..:? "UniformResourceIdentifier")
+            Core.<*> (x Core..:? "IpAddress")
+            Core.<*> (x Core..:? "DnsName")
+            Core.<*> (x Core..:? "DirectoryName")
+            Core.<*> (x Core..:? "Rfc822Name")
+            Core.<*> (x Core..:? "RegisteredId")
       )
 
-instance Prelude.Hashable GeneralName
+instance Core.Hashable GeneralName
 
-instance Prelude.NFData GeneralName
+instance Core.NFData GeneralName
 
-instance Prelude.ToJSON GeneralName where
+instance Core.ToJSON GeneralName where
   toJSON GeneralName' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EdiPartyName" Prelude..=)
-              Prelude.<$> ediPartyName,
-            ("OtherName" Prelude..=) Prelude.<$> otherName,
-            ("UniformResourceIdentifier" Prelude..=)
-              Prelude.<$> uniformResourceIdentifier,
-            ("IpAddress" Prelude..=) Prelude.<$> ipAddress,
-            ("DnsName" Prelude..=) Prelude.<$> dnsName,
-            ("DirectoryName" Prelude..=)
-              Prelude.<$> directoryName,
-            ("Rfc822Name" Prelude..=) Prelude.<$> rfc822Name,
-            ("RegisteredId" Prelude..=)
-              Prelude.<$> registeredId
+    Core.object
+      ( Core.catMaybes
+          [ ("EdiPartyName" Core..=) Core.<$> ediPartyName,
+            ("OtherName" Core..=) Core.<$> otherName,
+            ("UniformResourceIdentifier" Core..=)
+              Core.<$> uniformResourceIdentifier,
+            ("IpAddress" Core..=) Core.<$> ipAddress,
+            ("DnsName" Core..=) Core.<$> dnsName,
+            ("DirectoryName" Core..=) Core.<$> directoryName,
+            ("Rfc822Name" Core..=) Core.<$> rfc822Name,
+            ("RegisteredId" Core..=) Core.<$> registeredId
           ]
       )

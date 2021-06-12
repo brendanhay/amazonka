@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pricing.Types.AttributeValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The values of a given attribute, such as @Throughput Optimized HDD@ or
 -- @Provisioned IOPS@ for the @Amazon EC2@ @volumeType@ attribute.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAttributeValue' smart constructor.
 data AttributeValue = AttributeValue'
   { -- | The specific value of an @attributeName@.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeValue' with all optional fields omitted.
@@ -45,20 +44,20 @@ data AttributeValue = AttributeValue'
 newAttributeValue ::
   AttributeValue
 newAttributeValue =
-  AttributeValue' {value = Prelude.Nothing}
+  AttributeValue' {value = Core.Nothing}
 
 -- | The specific value of an @attributeName@.
-attributeValue_value :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
+attributeValue_value :: Lens.Lens' AttributeValue (Core.Maybe Core.Text)
 attributeValue_value = Lens.lens (\AttributeValue' {value} -> value) (\s@AttributeValue' {} a -> s {value = a} :: AttributeValue)
 
-instance Prelude.FromJSON AttributeValue where
+instance Core.FromJSON AttributeValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributeValue"
       ( \x ->
-          AttributeValue' Prelude.<$> (x Prelude..:? "Value")
+          AttributeValue' Core.<$> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable AttributeValue
+instance Core.Hashable AttributeValue
 
-instance Prelude.NFData AttributeValue
+instance Core.NFData AttributeValue

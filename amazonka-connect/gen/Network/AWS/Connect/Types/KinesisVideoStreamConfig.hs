@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,26 +20,26 @@
 module Network.AWS.Connect.Types.KinesisVideoStreamConfig where
 
 import Network.AWS.Connect.Types.EncryptionConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration information of a Kinesis video stream.
 --
 -- /See:/ 'newKinesisVideoStreamConfig' smart constructor.
 data KinesisVideoStreamConfig = KinesisVideoStreamConfig'
   { -- | The prefix of the video stream.
-    prefix :: Prelude.Text,
+    prefix :: Core.Text,
     -- | The number of hours data is retained in the stream. Kinesis Video
     -- Streams retains the data in a data store that is associated with the
     -- stream.
     --
     -- The default value is 0, indicating that the stream does not persist
     -- data.
-    retentionPeriodHours :: Prelude.Natural,
+    retentionPeriodHours :: Core.Natural,
     -- | The encryption configuration.
     encryptionConfig :: EncryptionConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KinesisVideoStreamConfig' with all optional fields omitted.
@@ -62,9 +61,9 @@ data KinesisVideoStreamConfig = KinesisVideoStreamConfig'
 -- 'encryptionConfig', 'kinesisVideoStreamConfig_encryptionConfig' - The encryption configuration.
 newKinesisVideoStreamConfig ::
   -- | 'prefix'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'retentionPeriodHours'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'encryptionConfig'
   EncryptionConfig ->
   KinesisVideoStreamConfig
@@ -79,7 +78,7 @@ newKinesisVideoStreamConfig
       }
 
 -- | The prefix of the video stream.
-kinesisVideoStreamConfig_prefix :: Lens.Lens' KinesisVideoStreamConfig Prelude.Text
+kinesisVideoStreamConfig_prefix :: Lens.Lens' KinesisVideoStreamConfig Core.Text
 kinesisVideoStreamConfig_prefix = Lens.lens (\KinesisVideoStreamConfig' {prefix} -> prefix) (\s@KinesisVideoStreamConfig' {} a -> s {prefix = a} :: KinesisVideoStreamConfig)
 
 -- | The number of hours data is retained in the stream. Kinesis Video
@@ -88,38 +87,38 @@ kinesisVideoStreamConfig_prefix = Lens.lens (\KinesisVideoStreamConfig' {prefix}
 --
 -- The default value is 0, indicating that the stream does not persist
 -- data.
-kinesisVideoStreamConfig_retentionPeriodHours :: Lens.Lens' KinesisVideoStreamConfig Prelude.Natural
+kinesisVideoStreamConfig_retentionPeriodHours :: Lens.Lens' KinesisVideoStreamConfig Core.Natural
 kinesisVideoStreamConfig_retentionPeriodHours = Lens.lens (\KinesisVideoStreamConfig' {retentionPeriodHours} -> retentionPeriodHours) (\s@KinesisVideoStreamConfig' {} a -> s {retentionPeriodHours = a} :: KinesisVideoStreamConfig)
 
 -- | The encryption configuration.
 kinesisVideoStreamConfig_encryptionConfig :: Lens.Lens' KinesisVideoStreamConfig EncryptionConfig
 kinesisVideoStreamConfig_encryptionConfig = Lens.lens (\KinesisVideoStreamConfig' {encryptionConfig} -> encryptionConfig) (\s@KinesisVideoStreamConfig' {} a -> s {encryptionConfig = a} :: KinesisVideoStreamConfig)
 
-instance Prelude.FromJSON KinesisVideoStreamConfig where
+instance Core.FromJSON KinesisVideoStreamConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KinesisVideoStreamConfig"
       ( \x ->
           KinesisVideoStreamConfig'
-            Prelude.<$> (x Prelude..: "Prefix")
-            Prelude.<*> (x Prelude..: "RetentionPeriodHours")
-            Prelude.<*> (x Prelude..: "EncryptionConfig")
+            Core.<$> (x Core..: "Prefix")
+            Core.<*> (x Core..: "RetentionPeriodHours")
+            Core.<*> (x Core..: "EncryptionConfig")
       )
 
-instance Prelude.Hashable KinesisVideoStreamConfig
+instance Core.Hashable KinesisVideoStreamConfig
 
-instance Prelude.NFData KinesisVideoStreamConfig
+instance Core.NFData KinesisVideoStreamConfig
 
-instance Prelude.ToJSON KinesisVideoStreamConfig where
+instance Core.ToJSON KinesisVideoStreamConfig where
   toJSON KinesisVideoStreamConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Prefix" Prelude..= prefix),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Prefix" Core..= prefix),
+            Core.Just
               ( "RetentionPeriodHours"
-                  Prelude..= retentionPeriodHours
+                  Core..= retentionPeriodHours
               ),
-            Prelude.Just
-              ("EncryptionConfig" Prelude..= encryptionConfig)
+            Core.Just
+              ("EncryptionConfig" Core..= encryptionConfig)
           ]
       )

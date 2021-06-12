@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.MultiplexGroupSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Multiplex Group Settings
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data MultiplexGroupSettings = MultiplexGroupSettings'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MultiplexGroupSettings' with all optional fields omitted.
@@ -39,16 +38,15 @@ newMultiplexGroupSettings ::
   MultiplexGroupSettings
 newMultiplexGroupSettings = MultiplexGroupSettings'
 
-instance Prelude.FromJSON MultiplexGroupSettings where
+instance Core.FromJSON MultiplexGroupSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MultiplexGroupSettings"
-      (\x -> Prelude.pure MultiplexGroupSettings')
+      (\x -> Core.pure MultiplexGroupSettings')
 
-instance Prelude.Hashable MultiplexGroupSettings
+instance Core.Hashable MultiplexGroupSettings
 
-instance Prelude.NFData MultiplexGroupSettings
+instance Core.NFData MultiplexGroupSettings
 
-instance Prelude.ToJSON MultiplexGroupSettings where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON MultiplexGroupSettings where
+  toJSON = Core.const (Core.Object Core.mempty)

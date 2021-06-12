@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.AssetAttributes where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types.NetworkInterface
 import Network.AWS.Inspector.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of attributes of the host from which the finding is
 -- generated.
@@ -31,28 +30,28 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAssetAttributes' smart constructor.
 data AssetAttributes = AssetAttributes'
   { -- | The hostname of the EC2 instance where the finding is generated.
-    hostname :: Prelude.Maybe Prelude.Text,
+    hostname :: Core.Maybe Core.Text,
     -- | The ID of the agent that is installed on the EC2 instance where the
     -- finding is generated.
-    agentId :: Prelude.Maybe Prelude.Text,
+    agentId :: Core.Maybe Core.Text,
     -- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2
     -- instance where the finding is generated.
-    amiId :: Prelude.Maybe Prelude.Text,
+    amiId :: Core.Maybe Core.Text,
     -- | The tags related to the EC2 instance where the finding is generated.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The list of IP v4 addresses of the EC2 instance where the finding is
     -- generated.
-    ipv4Addresses :: Prelude.Maybe [Prelude.Text],
+    ipv4Addresses :: Core.Maybe [Core.Text],
     -- | An array of the network interfaces interacting with the EC2 instance
     -- where the finding is generated.
-    networkInterfaces :: Prelude.Maybe [NetworkInterface],
+    networkInterfaces :: Core.Maybe [NetworkInterface],
     -- | The Auto Scaling group of the EC2 instance where the finding is
     -- generated.
-    autoScalingGroup :: Prelude.Maybe Prelude.Text,
+    autoScalingGroup :: Core.Maybe Core.Text,
     -- | The schema version of this data type.
-    schemaVersion :: Prelude.Natural
+    schemaVersion :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssetAttributes' with all optional fields omitted.
@@ -84,77 +83,73 @@ data AssetAttributes = AssetAttributes'
 -- 'schemaVersion', 'assetAttributes_schemaVersion' - The schema version of this data type.
 newAssetAttributes ::
   -- | 'schemaVersion'
-  Prelude.Natural ->
+  Core.Natural ->
   AssetAttributes
 newAssetAttributes pSchemaVersion_ =
   AssetAttributes'
-    { hostname = Prelude.Nothing,
-      agentId = Prelude.Nothing,
-      amiId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      ipv4Addresses = Prelude.Nothing,
-      networkInterfaces = Prelude.Nothing,
-      autoScalingGroup = Prelude.Nothing,
+    { hostname = Core.Nothing,
+      agentId = Core.Nothing,
+      amiId = Core.Nothing,
+      tags = Core.Nothing,
+      ipv4Addresses = Core.Nothing,
+      networkInterfaces = Core.Nothing,
+      autoScalingGroup = Core.Nothing,
       schemaVersion = pSchemaVersion_
     }
 
 -- | The hostname of the EC2 instance where the finding is generated.
-assetAttributes_hostname :: Lens.Lens' AssetAttributes (Prelude.Maybe Prelude.Text)
+assetAttributes_hostname :: Lens.Lens' AssetAttributes (Core.Maybe Core.Text)
 assetAttributes_hostname = Lens.lens (\AssetAttributes' {hostname} -> hostname) (\s@AssetAttributes' {} a -> s {hostname = a} :: AssetAttributes)
 
 -- | The ID of the agent that is installed on the EC2 instance where the
 -- finding is generated.
-assetAttributes_agentId :: Lens.Lens' AssetAttributes (Prelude.Maybe Prelude.Text)
+assetAttributes_agentId :: Lens.Lens' AssetAttributes (Core.Maybe Core.Text)
 assetAttributes_agentId = Lens.lens (\AssetAttributes' {agentId} -> agentId) (\s@AssetAttributes' {} a -> s {agentId = a} :: AssetAttributes)
 
 -- | The ID of the Amazon Machine Image (AMI) that is installed on the EC2
 -- instance where the finding is generated.
-assetAttributes_amiId :: Lens.Lens' AssetAttributes (Prelude.Maybe Prelude.Text)
+assetAttributes_amiId :: Lens.Lens' AssetAttributes (Core.Maybe Core.Text)
 assetAttributes_amiId = Lens.lens (\AssetAttributes' {amiId} -> amiId) (\s@AssetAttributes' {} a -> s {amiId = a} :: AssetAttributes)
 
 -- | The tags related to the EC2 instance where the finding is generated.
-assetAttributes_tags :: Lens.Lens' AssetAttributes (Prelude.Maybe [Tag])
-assetAttributes_tags = Lens.lens (\AssetAttributes' {tags} -> tags) (\s@AssetAttributes' {} a -> s {tags = a} :: AssetAttributes) Prelude.. Lens.mapping Prelude._Coerce
+assetAttributes_tags :: Lens.Lens' AssetAttributes (Core.Maybe [Tag])
+assetAttributes_tags = Lens.lens (\AssetAttributes' {tags} -> tags) (\s@AssetAttributes' {} a -> s {tags = a} :: AssetAttributes) Core.. Lens.mapping Lens._Coerce
 
 -- | The list of IP v4 addresses of the EC2 instance where the finding is
 -- generated.
-assetAttributes_ipv4Addresses :: Lens.Lens' AssetAttributes (Prelude.Maybe [Prelude.Text])
-assetAttributes_ipv4Addresses = Lens.lens (\AssetAttributes' {ipv4Addresses} -> ipv4Addresses) (\s@AssetAttributes' {} a -> s {ipv4Addresses = a} :: AssetAttributes) Prelude.. Lens.mapping Prelude._Coerce
+assetAttributes_ipv4Addresses :: Lens.Lens' AssetAttributes (Core.Maybe [Core.Text])
+assetAttributes_ipv4Addresses = Lens.lens (\AssetAttributes' {ipv4Addresses} -> ipv4Addresses) (\s@AssetAttributes' {} a -> s {ipv4Addresses = a} :: AssetAttributes) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of the network interfaces interacting with the EC2 instance
 -- where the finding is generated.
-assetAttributes_networkInterfaces :: Lens.Lens' AssetAttributes (Prelude.Maybe [NetworkInterface])
-assetAttributes_networkInterfaces = Lens.lens (\AssetAttributes' {networkInterfaces} -> networkInterfaces) (\s@AssetAttributes' {} a -> s {networkInterfaces = a} :: AssetAttributes) Prelude.. Lens.mapping Prelude._Coerce
+assetAttributes_networkInterfaces :: Lens.Lens' AssetAttributes (Core.Maybe [NetworkInterface])
+assetAttributes_networkInterfaces = Lens.lens (\AssetAttributes' {networkInterfaces} -> networkInterfaces) (\s@AssetAttributes' {} a -> s {networkInterfaces = a} :: AssetAttributes) Core.. Lens.mapping Lens._Coerce
 
 -- | The Auto Scaling group of the EC2 instance where the finding is
 -- generated.
-assetAttributes_autoScalingGroup :: Lens.Lens' AssetAttributes (Prelude.Maybe Prelude.Text)
+assetAttributes_autoScalingGroup :: Lens.Lens' AssetAttributes (Core.Maybe Core.Text)
 assetAttributes_autoScalingGroup = Lens.lens (\AssetAttributes' {autoScalingGroup} -> autoScalingGroup) (\s@AssetAttributes' {} a -> s {autoScalingGroup = a} :: AssetAttributes)
 
 -- | The schema version of this data type.
-assetAttributes_schemaVersion :: Lens.Lens' AssetAttributes Prelude.Natural
+assetAttributes_schemaVersion :: Lens.Lens' AssetAttributes Core.Natural
 assetAttributes_schemaVersion = Lens.lens (\AssetAttributes' {schemaVersion} -> schemaVersion) (\s@AssetAttributes' {} a -> s {schemaVersion = a} :: AssetAttributes)
 
-instance Prelude.FromJSON AssetAttributes where
+instance Core.FromJSON AssetAttributes where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AssetAttributes"
       ( \x ->
           AssetAttributes'
-            Prelude.<$> (x Prelude..:? "hostname")
-            Prelude.<*> (x Prelude..:? "agentId")
-            Prelude.<*> (x Prelude..:? "amiId")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "ipv4Addresses"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "networkInterfaces"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "autoScalingGroup")
-            Prelude.<*> (x Prelude..: "schemaVersion")
+            Core.<$> (x Core..:? "hostname")
+            Core.<*> (x Core..:? "agentId")
+            Core.<*> (x Core..:? "amiId")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ipv4Addresses" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "networkInterfaces" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "autoScalingGroup")
+            Core.<*> (x Core..: "schemaVersion")
       )
 
-instance Prelude.Hashable AssetAttributes
+instance Core.Hashable AssetAttributes
 
-instance Prelude.NFData AssetAttributes
+instance Core.NFData AssetAttributes

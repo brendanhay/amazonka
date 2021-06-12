@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.TlsContext where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the TLS context to use for the test authorizer request.
 --
 -- /See:/ 'newTlsContext' smart constructor.
 data TlsContext = TlsContext'
   { -- | The value of the @serverName@ key in a TLS authorization request.
-    serverName :: Prelude.Maybe Prelude.Text
+    serverName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TlsContext' with all optional fields omitted.
@@ -44,19 +43,19 @@ data TlsContext = TlsContext'
 newTlsContext ::
   TlsContext
 newTlsContext =
-  TlsContext' {serverName = Prelude.Nothing}
+  TlsContext' {serverName = Core.Nothing}
 
 -- | The value of the @serverName@ key in a TLS authorization request.
-tlsContext_serverName :: Lens.Lens' TlsContext (Prelude.Maybe Prelude.Text)
+tlsContext_serverName :: Lens.Lens' TlsContext (Core.Maybe Core.Text)
 tlsContext_serverName = Lens.lens (\TlsContext' {serverName} -> serverName) (\s@TlsContext' {} a -> s {serverName = a} :: TlsContext)
 
-instance Prelude.Hashable TlsContext
+instance Core.Hashable TlsContext
 
-instance Prelude.NFData TlsContext
+instance Core.NFData TlsContext
 
-instance Prelude.ToJSON TlsContext where
+instance Core.ToJSON TlsContext where
   toJSON TlsContext' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("serverName" Prelude..=) Prelude.<$> serverName]
+    Core.object
+      ( Core.catMaybes
+          [("serverName" Core..=) Core.<$> serverName]
       )

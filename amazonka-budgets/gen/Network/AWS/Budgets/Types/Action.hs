@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -27,16 +26,16 @@ import Network.AWS.Budgets.Types.ApprovalModel
 import Network.AWS.Budgets.Types.Definition
 import Network.AWS.Budgets.Types.NotificationType
 import Network.AWS.Budgets.Types.Subscriber
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A budget action resource.
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'
   { -- | A system-generated universally unique identifier (UUID) for the action.
-    actionId :: Prelude.Text,
-    budgetName :: Prelude.Text,
+    actionId :: Core.Text,
+    budgetName :: Core.Text,
     notificationType :: NotificationType,
     -- | The type of action. This defines the type of tasks that can be carried
     -- out by this action. This field also determines the format for
@@ -48,14 +47,14 @@ data Action = Action'
     definition :: Definition,
     -- | The role passed for action execution and reversion. Roles and actions
     -- must be in the same account.
-    executionRoleArn :: Prelude.Text,
+    executionRoleArn :: Core.Text,
     -- | This specifies if the action needs manual or automatic approval.
     approvalModel :: ApprovalModel,
     -- | The status of action.
     status :: ActionStatus,
-    subscribers :: Prelude.NonEmpty Subscriber
+    subscribers :: Core.NonEmpty Subscriber
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Action' with all optional fields omitted.
@@ -89,9 +88,9 @@ data Action = Action'
 -- 'subscribers', 'action_subscribers' - Undocumented member.
 newAction ::
   -- | 'actionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'notificationType'
   NotificationType ->
   -- | 'actionType'
@@ -101,13 +100,13 @@ newAction ::
   -- | 'definition'
   Definition ->
   -- | 'executionRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'approvalModel'
   ApprovalModel ->
   -- | 'status'
   ActionStatus ->
   -- | 'subscribers'
-  Prelude.NonEmpty Subscriber ->
+  Core.NonEmpty Subscriber ->
   Action
 newAction
   pActionId_
@@ -130,15 +129,15 @@ newAction
         executionRoleArn = pExecutionRoleArn_,
         approvalModel = pApprovalModel_,
         status = pStatus_,
-        subscribers = Prelude._Coerce Lens.# pSubscribers_
+        subscribers = Lens._Coerce Lens.# pSubscribers_
       }
 
 -- | A system-generated universally unique identifier (UUID) for the action.
-action_actionId :: Lens.Lens' Action Prelude.Text
+action_actionId :: Lens.Lens' Action Core.Text
 action_actionId = Lens.lens (\Action' {actionId} -> actionId) (\s@Action' {} a -> s {actionId = a} :: Action)
 
 -- | Undocumented member.
-action_budgetName :: Lens.Lens' Action Prelude.Text
+action_budgetName :: Lens.Lens' Action Core.Text
 action_budgetName = Lens.lens (\Action' {budgetName} -> budgetName) (\s@Action' {} a -> s {budgetName = a} :: Action)
 
 -- | Undocumented member.
@@ -161,7 +160,7 @@ action_definition = Lens.lens (\Action' {definition} -> definition) (\s@Action' 
 
 -- | The role passed for action execution and reversion. Roles and actions
 -- must be in the same account.
-action_executionRoleArn :: Lens.Lens' Action Prelude.Text
+action_executionRoleArn :: Lens.Lens' Action Core.Text
 action_executionRoleArn = Lens.lens (\Action' {executionRoleArn} -> executionRoleArn) (\s@Action' {} a -> s {executionRoleArn = a} :: Action)
 
 -- | This specifies if the action needs manual or automatic approval.
@@ -173,27 +172,27 @@ action_status :: Lens.Lens' Action ActionStatus
 action_status = Lens.lens (\Action' {status} -> status) (\s@Action' {} a -> s {status = a} :: Action)
 
 -- | Undocumented member.
-action_subscribers :: Lens.Lens' Action (Prelude.NonEmpty Subscriber)
-action_subscribers = Lens.lens (\Action' {subscribers} -> subscribers) (\s@Action' {} a -> s {subscribers = a} :: Action) Prelude.. Prelude._Coerce
+action_subscribers :: Lens.Lens' Action (Core.NonEmpty Subscriber)
+action_subscribers = Lens.lens (\Action' {subscribers} -> subscribers) (\s@Action' {} a -> s {subscribers = a} :: Action) Core.. Lens._Coerce
 
-instance Prelude.FromJSON Action where
+instance Core.FromJSON Action where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Action"
       ( \x ->
           Action'
-            Prelude.<$> (x Prelude..: "ActionId")
-            Prelude.<*> (x Prelude..: "BudgetName")
-            Prelude.<*> (x Prelude..: "NotificationType")
-            Prelude.<*> (x Prelude..: "ActionType")
-            Prelude.<*> (x Prelude..: "ActionThreshold")
-            Prelude.<*> (x Prelude..: "Definition")
-            Prelude.<*> (x Prelude..: "ExecutionRoleArn")
-            Prelude.<*> (x Prelude..: "ApprovalModel")
-            Prelude.<*> (x Prelude..: "Status")
-            Prelude.<*> (x Prelude..: "Subscribers")
+            Core.<$> (x Core..: "ActionId")
+            Core.<*> (x Core..: "BudgetName")
+            Core.<*> (x Core..: "NotificationType")
+            Core.<*> (x Core..: "ActionType")
+            Core.<*> (x Core..: "ActionThreshold")
+            Core.<*> (x Core..: "Definition")
+            Core.<*> (x Core..: "ExecutionRoleArn")
+            Core.<*> (x Core..: "ApprovalModel")
+            Core.<*> (x Core..: "Status")
+            Core.<*> (x Core..: "Subscribers")
       )
 
-instance Prelude.Hashable Action
+instance Core.Hashable Action
 
-instance Prelude.NFData Action
+instance Core.NFData Action

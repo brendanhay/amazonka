@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SpotFleetMonitoring where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes whether monitoring is enabled.
 --
@@ -31,9 +30,9 @@ data SpotFleetMonitoring = SpotFleetMonitoring'
   { -- | Enables monitoring for the instance.
     --
     -- Default: @false@
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SpotFleetMonitoring' with all optional fields omitted.
@@ -49,23 +48,23 @@ data SpotFleetMonitoring = SpotFleetMonitoring'
 newSpotFleetMonitoring ::
   SpotFleetMonitoring
 newSpotFleetMonitoring =
-  SpotFleetMonitoring' {enabled = Prelude.Nothing}
+  SpotFleetMonitoring' {enabled = Core.Nothing}
 
 -- | Enables monitoring for the instance.
 --
 -- Default: @false@
-spotFleetMonitoring_enabled :: Lens.Lens' SpotFleetMonitoring (Prelude.Maybe Prelude.Bool)
+spotFleetMonitoring_enabled :: Lens.Lens' SpotFleetMonitoring (Core.Maybe Core.Bool)
 spotFleetMonitoring_enabled = Lens.lens (\SpotFleetMonitoring' {enabled} -> enabled) (\s@SpotFleetMonitoring' {} a -> s {enabled = a} :: SpotFleetMonitoring)
 
-instance Prelude.FromXML SpotFleetMonitoring where
+instance Core.FromXML SpotFleetMonitoring where
   parseXML x =
     SpotFleetMonitoring'
-      Prelude.<$> (x Prelude..@? "enabled")
+      Core.<$> (x Core..@? "enabled")
 
-instance Prelude.Hashable SpotFleetMonitoring
+instance Core.Hashable SpotFleetMonitoring
 
-instance Prelude.NFData SpotFleetMonitoring
+instance Core.NFData SpotFleetMonitoring
 
-instance Prelude.ToQuery SpotFleetMonitoring where
+instance Core.ToQuery SpotFleetMonitoring where
   toQuery SpotFleetMonitoring' {..} =
-    Prelude.mconcat ["Enabled" Prelude.=: enabled]
+    Core.mconcat ["Enabled" Core.=: enabled]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.ElasticBeanstalk.DisassociateEnvironmentOperationsRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,9 +52,9 @@ import qualified Network.AWS.Response as Response
 data DisassociateEnvironmentOperationsRole = DisassociateEnvironmentOperationsRole'
   { -- | The name of the environment from which to disassociate the operations
     -- role.
-    environmentName :: Prelude.Text
+    environmentName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateEnvironmentOperationsRole' with all optional fields omitted.
@@ -69,7 +68,7 @@ data DisassociateEnvironmentOperationsRole = DisassociateEnvironmentOperationsRo
 -- role.
 newDisassociateEnvironmentOperationsRole ::
   -- | 'environmentName'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateEnvironmentOperationsRole
 newDisassociateEnvironmentOperationsRole
   pEnvironmentName_ =
@@ -80,15 +79,16 @@ newDisassociateEnvironmentOperationsRole
 
 -- | The name of the environment from which to disassociate the operations
 -- role.
-disassociateEnvironmentOperationsRole_environmentName :: Lens.Lens' DisassociateEnvironmentOperationsRole Prelude.Text
+disassociateEnvironmentOperationsRole_environmentName :: Lens.Lens' DisassociateEnvironmentOperationsRole Core.Text
 disassociateEnvironmentOperationsRole_environmentName = Lens.lens (\DisassociateEnvironmentOperationsRole' {environmentName} -> environmentName) (\s@DisassociateEnvironmentOperationsRole' {} a -> s {environmentName = a} :: DisassociateEnvironmentOperationsRole)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateEnvironmentOperationsRole
   where
   type
-    Rs DisassociateEnvironmentOperationsRole =
+    AWSResponse
+      DisassociateEnvironmentOperationsRole =
       DisassociateEnvironmentOperationsRoleResponse
   request = Request.postQuery defaultService
   response =
@@ -96,45 +96,44 @@ instance
       DisassociateEnvironmentOperationsRoleResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateEnvironmentOperationsRole
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateEnvironmentOperationsRole
 
 instance
-  Prelude.ToHeaders
-    DisassociateEnvironmentOperationsRole
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DisassociateEnvironmentOperationsRole
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DisassociateEnvironmentOperationsRole
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DisassociateEnvironmentOperationsRole
   where
   toQuery DisassociateEnvironmentOperationsRole' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DisassociateEnvironmentOperationsRole" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "EnvironmentName" Prelude.=: environmentName
+          Core.=: ( "DisassociateEnvironmentOperationsRole" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "EnvironmentName" Core.=: environmentName
       ]
 
 -- | /See:/ 'newDisassociateEnvironmentOperationsRoleResponse' smart constructor.
 data DisassociateEnvironmentOperationsRoleResponse = DisassociateEnvironmentOperationsRoleResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateEnvironmentOperationsRoleResponse' with all optional fields omitted.
@@ -146,5 +145,5 @@ newDisassociateEnvironmentOperationsRoleResponse =
   DisassociateEnvironmentOperationsRoleResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateEnvironmentOperationsRoleResponse

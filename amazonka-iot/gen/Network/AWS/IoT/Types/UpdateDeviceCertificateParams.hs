@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.UpdateDeviceCertificateParams where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.DeviceCertificateUpdateAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that changes the state of the
 -- device certificate to inactive.
@@ -33,7 +32,7 @@ data UpdateDeviceCertificateParams = UpdateDeviceCertificateParams'
     -- supported value is @DEACTIVATE@.
     action :: DeviceCertificateUpdateAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDeviceCertificateParams' with all optional fields omitted.
@@ -57,27 +56,22 @@ newUpdateDeviceCertificateParams pAction_ =
 updateDeviceCertificateParams_action :: Lens.Lens' UpdateDeviceCertificateParams DeviceCertificateUpdateAction
 updateDeviceCertificateParams_action = Lens.lens (\UpdateDeviceCertificateParams' {action} -> action) (\s@UpdateDeviceCertificateParams' {} a -> s {action = a} :: UpdateDeviceCertificateParams)
 
-instance
-  Prelude.FromJSON
-    UpdateDeviceCertificateParams
-  where
+instance Core.FromJSON UpdateDeviceCertificateParams where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UpdateDeviceCertificateParams"
       ( \x ->
           UpdateDeviceCertificateParams'
-            Prelude.<$> (x Prelude..: "action")
+            Core.<$> (x Core..: "action")
       )
 
-instance
-  Prelude.Hashable
-    UpdateDeviceCertificateParams
+instance Core.Hashable UpdateDeviceCertificateParams
 
-instance Prelude.NFData UpdateDeviceCertificateParams
+instance Core.NFData UpdateDeviceCertificateParams
 
-instance Prelude.ToJSON UpdateDeviceCertificateParams where
+instance Core.ToJSON UpdateDeviceCertificateParams where
   toJSON UpdateDeviceCertificateParams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("action" Prelude..= action)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("action" Core..= action)]
       )

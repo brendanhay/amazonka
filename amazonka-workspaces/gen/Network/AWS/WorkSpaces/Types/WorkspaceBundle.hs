@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.WorkspaceBundle where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.ComputeType
 import Network.AWS.WorkSpaces.Types.RootStorage
 import Network.AWS.WorkSpaces.Types.UserStorage
@@ -31,27 +30,27 @@ import Network.AWS.WorkSpaces.Types.UserStorage
 -- /See:/ 'newWorkspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
   { -- | The size of the root volume.
-    rootStorage :: Prelude.Maybe RootStorage,
+    rootStorage :: Core.Maybe RootStorage,
     -- | The bundle identifier.
-    bundleId :: Prelude.Maybe Prelude.Text,
+    bundleId :: Core.Maybe Core.Text,
     -- | The size of the user storage.
-    userStorage :: Prelude.Maybe UserStorage,
+    userStorage :: Core.Maybe UserStorage,
     -- | The image identifier of the bundle.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | The name of the bundle.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The owner of the bundle. This is the account identifier of the owner, or
     -- @AMAZON@ if the bundle is provided by AWS.
-    owner :: Prelude.Maybe Prelude.Text,
+    owner :: Core.Maybe Core.Text,
     -- | A description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The compute type. For more information, see
     -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
-    computeType :: Prelude.Maybe ComputeType,
+    computeType :: Core.Maybe ComputeType,
     -- | The last time that the bundle was updated.
-    lastUpdatedTime :: Prelude.Maybe Prelude.POSIX
+    lastUpdatedTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkspaceBundle' with all optional fields omitted.
@@ -84,72 +83,72 @@ newWorkspaceBundle ::
   WorkspaceBundle
 newWorkspaceBundle =
   WorkspaceBundle'
-    { rootStorage = Prelude.Nothing,
-      bundleId = Prelude.Nothing,
-      userStorage = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      description = Prelude.Nothing,
-      computeType = Prelude.Nothing,
-      lastUpdatedTime = Prelude.Nothing
+    { rootStorage = Core.Nothing,
+      bundleId = Core.Nothing,
+      userStorage = Core.Nothing,
+      imageId = Core.Nothing,
+      name = Core.Nothing,
+      owner = Core.Nothing,
+      description = Core.Nothing,
+      computeType = Core.Nothing,
+      lastUpdatedTime = Core.Nothing
     }
 
 -- | The size of the root volume.
-workspaceBundle_rootStorage :: Lens.Lens' WorkspaceBundle (Prelude.Maybe RootStorage)
+workspaceBundle_rootStorage :: Lens.Lens' WorkspaceBundle (Core.Maybe RootStorage)
 workspaceBundle_rootStorage = Lens.lens (\WorkspaceBundle' {rootStorage} -> rootStorage) (\s@WorkspaceBundle' {} a -> s {rootStorage = a} :: WorkspaceBundle)
 
 -- | The bundle identifier.
-workspaceBundle_bundleId :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
+workspaceBundle_bundleId :: Lens.Lens' WorkspaceBundle (Core.Maybe Core.Text)
 workspaceBundle_bundleId = Lens.lens (\WorkspaceBundle' {bundleId} -> bundleId) (\s@WorkspaceBundle' {} a -> s {bundleId = a} :: WorkspaceBundle)
 
 -- | The size of the user storage.
-workspaceBundle_userStorage :: Lens.Lens' WorkspaceBundle (Prelude.Maybe UserStorage)
+workspaceBundle_userStorage :: Lens.Lens' WorkspaceBundle (Core.Maybe UserStorage)
 workspaceBundle_userStorage = Lens.lens (\WorkspaceBundle' {userStorage} -> userStorage) (\s@WorkspaceBundle' {} a -> s {userStorage = a} :: WorkspaceBundle)
 
 -- | The image identifier of the bundle.
-workspaceBundle_imageId :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
+workspaceBundle_imageId :: Lens.Lens' WorkspaceBundle (Core.Maybe Core.Text)
 workspaceBundle_imageId = Lens.lens (\WorkspaceBundle' {imageId} -> imageId) (\s@WorkspaceBundle' {} a -> s {imageId = a} :: WorkspaceBundle)
 
 -- | The name of the bundle.
-workspaceBundle_name :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
+workspaceBundle_name :: Lens.Lens' WorkspaceBundle (Core.Maybe Core.Text)
 workspaceBundle_name = Lens.lens (\WorkspaceBundle' {name} -> name) (\s@WorkspaceBundle' {} a -> s {name = a} :: WorkspaceBundle)
 
 -- | The owner of the bundle. This is the account identifier of the owner, or
 -- @AMAZON@ if the bundle is provided by AWS.
-workspaceBundle_owner :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
+workspaceBundle_owner :: Lens.Lens' WorkspaceBundle (Core.Maybe Core.Text)
 workspaceBundle_owner = Lens.lens (\WorkspaceBundle' {owner} -> owner) (\s@WorkspaceBundle' {} a -> s {owner = a} :: WorkspaceBundle)
 
 -- | A description.
-workspaceBundle_description :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.Text)
+workspaceBundle_description :: Lens.Lens' WorkspaceBundle (Core.Maybe Core.Text)
 workspaceBundle_description = Lens.lens (\WorkspaceBundle' {description} -> description) (\s@WorkspaceBundle' {} a -> s {description = a} :: WorkspaceBundle)
 
 -- | The compute type. For more information, see
 -- <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles>.
-workspaceBundle_computeType :: Lens.Lens' WorkspaceBundle (Prelude.Maybe ComputeType)
+workspaceBundle_computeType :: Lens.Lens' WorkspaceBundle (Core.Maybe ComputeType)
 workspaceBundle_computeType = Lens.lens (\WorkspaceBundle' {computeType} -> computeType) (\s@WorkspaceBundle' {} a -> s {computeType = a} :: WorkspaceBundle)
 
 -- | The last time that the bundle was updated.
-workspaceBundle_lastUpdatedTime :: Lens.Lens' WorkspaceBundle (Prelude.Maybe Prelude.UTCTime)
-workspaceBundle_lastUpdatedTime = Lens.lens (\WorkspaceBundle' {lastUpdatedTime} -> lastUpdatedTime) (\s@WorkspaceBundle' {} a -> s {lastUpdatedTime = a} :: WorkspaceBundle) Prelude.. Lens.mapping Prelude._Time
+workspaceBundle_lastUpdatedTime :: Lens.Lens' WorkspaceBundle (Core.Maybe Core.UTCTime)
+workspaceBundle_lastUpdatedTime = Lens.lens (\WorkspaceBundle' {lastUpdatedTime} -> lastUpdatedTime) (\s@WorkspaceBundle' {} a -> s {lastUpdatedTime = a} :: WorkspaceBundle) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON WorkspaceBundle where
+instance Core.FromJSON WorkspaceBundle where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkspaceBundle"
       ( \x ->
           WorkspaceBundle'
-            Prelude.<$> (x Prelude..:? "RootStorage")
-            Prelude.<*> (x Prelude..:? "BundleId")
-            Prelude.<*> (x Prelude..:? "UserStorage")
-            Prelude.<*> (x Prelude..:? "ImageId")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Owner")
-            Prelude.<*> (x Prelude..:? "Description")
-            Prelude.<*> (x Prelude..:? "ComputeType")
-            Prelude.<*> (x Prelude..:? "LastUpdatedTime")
+            Core.<$> (x Core..:? "RootStorage")
+            Core.<*> (x Core..:? "BundleId")
+            Core.<*> (x Core..:? "UserStorage")
+            Core.<*> (x Core..:? "ImageId")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Owner")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "ComputeType")
+            Core.<*> (x Core..:? "LastUpdatedTime")
       )
 
-instance Prelude.Hashable WorkspaceBundle
+instance Core.Hashable WorkspaceBundle
 
-instance Prelude.NFData WorkspaceBundle
+instance Core.NFData WorkspaceBundle

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,18 +46,18 @@ module Network.AWS.Glue.StartMLEvaluationTaskRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartMLEvaluationTaskRun' smart constructor.
 data StartMLEvaluationTaskRun = StartMLEvaluationTaskRun'
   { -- | The unique identifier of the machine learning transform.
-    transformId :: Prelude.Text
+    transformId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMLEvaluationTaskRun' with all optional fields omitted.
@@ -71,7 +70,7 @@ data StartMLEvaluationTaskRun = StartMLEvaluationTaskRun'
 -- 'transformId', 'startMLEvaluationTaskRun_transformId' - The unique identifier of the machine learning transform.
 newStartMLEvaluationTaskRun ::
   -- | 'transformId'
-  Prelude.Text ->
+  Core.Text ->
   StartMLEvaluationTaskRun
 newStartMLEvaluationTaskRun pTransformId_ =
   StartMLEvaluationTaskRun'
@@ -80,64 +79,60 @@ newStartMLEvaluationTaskRun pTransformId_ =
     }
 
 -- | The unique identifier of the machine learning transform.
-startMLEvaluationTaskRun_transformId :: Lens.Lens' StartMLEvaluationTaskRun Prelude.Text
+startMLEvaluationTaskRun_transformId :: Lens.Lens' StartMLEvaluationTaskRun Core.Text
 startMLEvaluationTaskRun_transformId = Lens.lens (\StartMLEvaluationTaskRun' {transformId} -> transformId) (\s@StartMLEvaluationTaskRun' {} a -> s {transformId = a} :: StartMLEvaluationTaskRun)
 
-instance Prelude.AWSRequest StartMLEvaluationTaskRun where
+instance Core.AWSRequest StartMLEvaluationTaskRun where
   type
-    Rs StartMLEvaluationTaskRun =
+    AWSResponse StartMLEvaluationTaskRun =
       StartMLEvaluationTaskRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartMLEvaluationTaskRunResponse'
-            Prelude.<$> (x Prelude..?> "TaskRunId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TaskRunId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartMLEvaluationTaskRun
+instance Core.Hashable StartMLEvaluationTaskRun
 
-instance Prelude.NFData StartMLEvaluationTaskRun
+instance Core.NFData StartMLEvaluationTaskRun
 
-instance Prelude.ToHeaders StartMLEvaluationTaskRun where
+instance Core.ToHeaders StartMLEvaluationTaskRun where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.StartMLEvaluationTaskRun" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.StartMLEvaluationTaskRun" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartMLEvaluationTaskRun where
+instance Core.ToJSON StartMLEvaluationTaskRun where
   toJSON StartMLEvaluationTaskRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TransformId" Prelude..= transformId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TransformId" Core..= transformId)]
       )
 
-instance Prelude.ToPath StartMLEvaluationTaskRun where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartMLEvaluationTaskRun where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartMLEvaluationTaskRun where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartMLEvaluationTaskRun where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartMLEvaluationTaskRunResponse' smart constructor.
 data StartMLEvaluationTaskRunResponse = StartMLEvaluationTaskRunResponse'
   { -- | The unique identifier associated with this run.
-    taskRunId :: Prelude.Maybe Prelude.Text,
+    taskRunId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMLEvaluationTaskRunResponse' with all optional fields omitted.
@@ -152,23 +147,21 @@ data StartMLEvaluationTaskRunResponse = StartMLEvaluationTaskRunResponse'
 -- 'httpStatus', 'startMLEvaluationTaskRunResponse_httpStatus' - The response's http status code.
 newStartMLEvaluationTaskRunResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartMLEvaluationTaskRunResponse
 newStartMLEvaluationTaskRunResponse pHttpStatus_ =
   StartMLEvaluationTaskRunResponse'
     { taskRunId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique identifier associated with this run.
-startMLEvaluationTaskRunResponse_taskRunId :: Lens.Lens' StartMLEvaluationTaskRunResponse (Prelude.Maybe Prelude.Text)
+startMLEvaluationTaskRunResponse_taskRunId :: Lens.Lens' StartMLEvaluationTaskRunResponse (Core.Maybe Core.Text)
 startMLEvaluationTaskRunResponse_taskRunId = Lens.lens (\StartMLEvaluationTaskRunResponse' {taskRunId} -> taskRunId) (\s@StartMLEvaluationTaskRunResponse' {} a -> s {taskRunId = a} :: StartMLEvaluationTaskRunResponse)
 
 -- | The response's http status code.
-startMLEvaluationTaskRunResponse_httpStatus :: Lens.Lens' StartMLEvaluationTaskRunResponse Prelude.Int
+startMLEvaluationTaskRunResponse_httpStatus :: Lens.Lens' StartMLEvaluationTaskRunResponse Core.Int
 startMLEvaluationTaskRunResponse_httpStatus = Lens.lens (\StartMLEvaluationTaskRunResponse' {httpStatus} -> httpStatus) (\s@StartMLEvaluationTaskRunResponse' {} a -> s {httpStatus = a} :: StartMLEvaluationTaskRunResponse)
 
-instance
-  Prelude.NFData
-    StartMLEvaluationTaskRunResponse
+instance Core.NFData StartMLEvaluationTaskRunResponse

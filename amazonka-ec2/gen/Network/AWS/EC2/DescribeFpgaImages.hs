@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,30 +49,29 @@ module Network.AWS.EC2.DescribeFpgaImages
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeFpgaImages' smart constructor.
 data DescribeFpgaImages = DescribeFpgaImages'
   { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is
     -- the sender of the request), or an AWS owner alias (valid values are
     -- @amazon@ | @aws-marketplace@).
-    owners :: Prelude.Maybe [Prelude.Text],
+    owners :: Core.Maybe [Core.Text],
     -- | The AFI IDs.
-    fpgaImageIds :: Prelude.Maybe [Prelude.Text],
+    fpgaImageIds :: Core.Maybe [Core.Text],
     -- | The filters.
     --
     -- -   @create-time@ - The creation time of the AFI.
@@ -105,9 +103,9 @@ data DescribeFpgaImages = DescribeFpgaImages'
     --     regardless of the tag value.
     --
     -- -   @update-time@ - The time of the most recent update.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFpgaImages' with all optional fields omitted.
@@ -167,38 +165,38 @@ newDescribeFpgaImages ::
   DescribeFpgaImages
 newDescribeFpgaImages =
   DescribeFpgaImages'
-    { nextToken = Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      owners = Prelude.Nothing,
-      fpgaImageIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      owners = Core.Nothing,
+      fpgaImageIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token to retrieve the next page of results.
-describeFpgaImages_nextToken :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe Prelude.Text)
+describeFpgaImages_nextToken :: Lens.Lens' DescribeFpgaImages (Core.Maybe Core.Text)
 describeFpgaImages_nextToken = Lens.lens (\DescribeFpgaImages' {nextToken} -> nextToken) (\s@DescribeFpgaImages' {} a -> s {nextToken = a} :: DescribeFpgaImages)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeFpgaImages_dryRun :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe Prelude.Bool)
+describeFpgaImages_dryRun :: Lens.Lens' DescribeFpgaImages (Core.Maybe Core.Bool)
 describeFpgaImages_dryRun = Lens.lens (\DescribeFpgaImages' {dryRun} -> dryRun) (\s@DescribeFpgaImages' {} a -> s {dryRun = a} :: DescribeFpgaImages)
 
 -- | The maximum number of results to return in a single call.
-describeFpgaImages_maxResults :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe Prelude.Natural)
+describeFpgaImages_maxResults :: Lens.Lens' DescribeFpgaImages (Core.Maybe Core.Natural)
 describeFpgaImages_maxResults = Lens.lens (\DescribeFpgaImages' {maxResults} -> maxResults) (\s@DescribeFpgaImages' {} a -> s {maxResults = a} :: DescribeFpgaImages)
 
 -- | Filters the AFI by owner. Specify an AWS account ID, @self@ (owner is
 -- the sender of the request), or an AWS owner alias (valid values are
 -- @amazon@ | @aws-marketplace@).
-describeFpgaImages_owners :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe [Prelude.Text])
-describeFpgaImages_owners = Lens.lens (\DescribeFpgaImages' {owners} -> owners) (\s@DescribeFpgaImages' {} a -> s {owners = a} :: DescribeFpgaImages) Prelude.. Lens.mapping Prelude._Coerce
+describeFpgaImages_owners :: Lens.Lens' DescribeFpgaImages (Core.Maybe [Core.Text])
+describeFpgaImages_owners = Lens.lens (\DescribeFpgaImages' {owners} -> owners) (\s@DescribeFpgaImages' {} a -> s {owners = a} :: DescribeFpgaImages) Core.. Lens.mapping Lens._Coerce
 
 -- | The AFI IDs.
-describeFpgaImages_fpgaImageIds :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe [Prelude.Text])
-describeFpgaImages_fpgaImageIds = Lens.lens (\DescribeFpgaImages' {fpgaImageIds} -> fpgaImageIds) (\s@DescribeFpgaImages' {} a -> s {fpgaImageIds = a} :: DescribeFpgaImages) Prelude.. Lens.mapping Prelude._Coerce
+describeFpgaImages_fpgaImageIds :: Lens.Lens' DescribeFpgaImages (Core.Maybe [Core.Text])
+describeFpgaImages_fpgaImageIds = Lens.lens (\DescribeFpgaImages' {fpgaImageIds} -> fpgaImageIds) (\s@DescribeFpgaImages' {} a -> s {fpgaImageIds = a} :: DescribeFpgaImages) Core.. Lens.mapping Lens._Coerce
 
 -- | The filters.
 --
@@ -231,89 +229,87 @@ describeFpgaImages_fpgaImageIds = Lens.lens (\DescribeFpgaImages' {fpgaImageIds}
 --     regardless of the tag value.
 --
 -- -   @update-time@ - The time of the most recent update.
-describeFpgaImages_filters :: Lens.Lens' DescribeFpgaImages (Prelude.Maybe [Filter])
-describeFpgaImages_filters = Lens.lens (\DescribeFpgaImages' {filters} -> filters) (\s@DescribeFpgaImages' {} a -> s {filters = a} :: DescribeFpgaImages) Prelude.. Lens.mapping Prelude._Coerce
+describeFpgaImages_filters :: Lens.Lens' DescribeFpgaImages (Core.Maybe [Filter])
+describeFpgaImages_filters = Lens.lens (\DescribeFpgaImages' {filters} -> filters) (\s@DescribeFpgaImages' {} a -> s {filters = a} :: DescribeFpgaImages) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeFpgaImages where
+instance Core.AWSPager DescribeFpgaImages where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeFpgaImagesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeFpgaImagesResponse_fpgaImages
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeFpgaImages_nextToken
           Lens..~ rs
           Lens.^? describeFpgaImagesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeFpgaImages where
+instance Core.AWSRequest DescribeFpgaImages where
   type
-    Rs DescribeFpgaImages =
+    AWSResponse DescribeFpgaImages =
       DescribeFpgaImagesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeFpgaImagesResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "fpgaImageSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "fpgaImageSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeFpgaImages
+instance Core.Hashable DescribeFpgaImages
 
-instance Prelude.NFData DescribeFpgaImages
+instance Core.NFData DescribeFpgaImages
 
-instance Prelude.ToHeaders DescribeFpgaImages where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeFpgaImages where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeFpgaImages where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeFpgaImages where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeFpgaImages where
+instance Core.ToQuery DescribeFpgaImages where
   toQuery DescribeFpgaImages' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeFpgaImages" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Owner" Prelude.<$> owners),
-        Prelude.toQuery
-          ( Prelude.toQueryList "FpgaImageId"
-              Prelude.<$> fpgaImageIds
+          Core.=: ("DescribeFpgaImages" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Owner" Core.<$> owners),
+        Core.toQuery
+          ( Core.toQueryList "FpgaImageId"
+              Core.<$> fpgaImageIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeFpgaImagesResponse' smart constructor.
 data DescribeFpgaImagesResponse = DescribeFpgaImagesResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the FPGA images.
-    fpgaImages :: Prelude.Maybe [FpgaImage],
+    fpgaImages :: Core.Maybe [FpgaImage],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeFpgaImagesResponse' with all optional fields omitted.
@@ -331,27 +327,27 @@ data DescribeFpgaImagesResponse = DescribeFpgaImagesResponse'
 -- 'httpStatus', 'describeFpgaImagesResponse_httpStatus' - The response's http status code.
 newDescribeFpgaImagesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeFpgaImagesResponse
 newDescribeFpgaImagesResponse pHttpStatus_ =
   DescribeFpgaImagesResponse'
     { nextToken =
-        Prelude.Nothing,
-      fpgaImages = Prelude.Nothing,
+        Core.Nothing,
+      fpgaImages = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeFpgaImagesResponse_nextToken :: Lens.Lens' DescribeFpgaImagesResponse (Prelude.Maybe Prelude.Text)
+describeFpgaImagesResponse_nextToken :: Lens.Lens' DescribeFpgaImagesResponse (Core.Maybe Core.Text)
 describeFpgaImagesResponse_nextToken = Lens.lens (\DescribeFpgaImagesResponse' {nextToken} -> nextToken) (\s@DescribeFpgaImagesResponse' {} a -> s {nextToken = a} :: DescribeFpgaImagesResponse)
 
 -- | Information about the FPGA images.
-describeFpgaImagesResponse_fpgaImages :: Lens.Lens' DescribeFpgaImagesResponse (Prelude.Maybe [FpgaImage])
-describeFpgaImagesResponse_fpgaImages = Lens.lens (\DescribeFpgaImagesResponse' {fpgaImages} -> fpgaImages) (\s@DescribeFpgaImagesResponse' {} a -> s {fpgaImages = a} :: DescribeFpgaImagesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeFpgaImagesResponse_fpgaImages :: Lens.Lens' DescribeFpgaImagesResponse (Core.Maybe [FpgaImage])
+describeFpgaImagesResponse_fpgaImages = Lens.lens (\DescribeFpgaImagesResponse' {fpgaImages} -> fpgaImages) (\s@DescribeFpgaImagesResponse' {} a -> s {fpgaImages = a} :: DescribeFpgaImagesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeFpgaImagesResponse_httpStatus :: Lens.Lens' DescribeFpgaImagesResponse Prelude.Int
+describeFpgaImagesResponse_httpStatus :: Lens.Lens' DescribeFpgaImagesResponse Core.Int
 describeFpgaImagesResponse_httpStatus = Lens.lens (\DescribeFpgaImagesResponse' {httpStatus} -> httpStatus) (\s@DescribeFpgaImagesResponse' {} a -> s {httpStatus = a} :: DescribeFpgaImagesResponse)
 
-instance Prelude.NFData DescribeFpgaImagesResponse
+instance Core.NFData DescribeFpgaImagesResponse

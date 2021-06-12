@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,22 +40,22 @@ module Network.AWS.LexModels.DeleteSlotTypeVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteSlotTypeVersion' smart constructor.
 data DeleteSlotTypeVersion = DeleteSlotTypeVersion'
   { -- | The name of the slot type.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version of the slot type to delete. You cannot delete the @$LATEST@
     -- version of the slot type. To delete the @$LATEST@ version, use the
     -- DeleteSlotType operation.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSlotTypeVersion' with all optional fields omitted.
@@ -73,9 +72,9 @@ data DeleteSlotTypeVersion = DeleteSlotTypeVersion'
 -- DeleteSlotType operation.
 newDeleteSlotTypeVersion ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSlotTypeVersion
 newDeleteSlotTypeVersion pName_ pVersion_ =
   DeleteSlotTypeVersion'
@@ -84,55 +83,53 @@ newDeleteSlotTypeVersion pName_ pVersion_ =
     }
 
 -- | The name of the slot type.
-deleteSlotTypeVersion_name :: Lens.Lens' DeleteSlotTypeVersion Prelude.Text
+deleteSlotTypeVersion_name :: Lens.Lens' DeleteSlotTypeVersion Core.Text
 deleteSlotTypeVersion_name = Lens.lens (\DeleteSlotTypeVersion' {name} -> name) (\s@DeleteSlotTypeVersion' {} a -> s {name = a} :: DeleteSlotTypeVersion)
 
 -- | The version of the slot type to delete. You cannot delete the @$LATEST@
 -- version of the slot type. To delete the @$LATEST@ version, use the
 -- DeleteSlotType operation.
-deleteSlotTypeVersion_version :: Lens.Lens' DeleteSlotTypeVersion Prelude.Text
+deleteSlotTypeVersion_version :: Lens.Lens' DeleteSlotTypeVersion Core.Text
 deleteSlotTypeVersion_version = Lens.lens (\DeleteSlotTypeVersion' {version} -> version) (\s@DeleteSlotTypeVersion' {} a -> s {version = a} :: DeleteSlotTypeVersion)
 
-instance Prelude.AWSRequest DeleteSlotTypeVersion where
+instance Core.AWSRequest DeleteSlotTypeVersion where
   type
-    Rs DeleteSlotTypeVersion =
+    AWSResponse DeleteSlotTypeVersion =
       DeleteSlotTypeVersionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteSlotTypeVersionResponse'
 
-instance Prelude.Hashable DeleteSlotTypeVersion
+instance Core.Hashable DeleteSlotTypeVersion
 
-instance Prelude.NFData DeleteSlotTypeVersion
+instance Core.NFData DeleteSlotTypeVersion
 
-instance Prelude.ToHeaders DeleteSlotTypeVersion where
+instance Core.ToHeaders DeleteSlotTypeVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteSlotTypeVersion where
+instance Core.ToPath DeleteSlotTypeVersion where
   toPath DeleteSlotTypeVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/slottypes/",
-        Prelude.toBS name,
+        Core.toBS name,
         "/version/",
-        Prelude.toBS version
+        Core.toBS version
       ]
 
-instance Prelude.ToQuery DeleteSlotTypeVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSlotTypeVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteSlotTypeVersionResponse' smart constructor.
 data DeleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSlotTypeVersionResponse' with all optional fields omitted.
@@ -143,4 +140,4 @@ newDeleteSlotTypeVersionResponse ::
 newDeleteSlotTypeVersionResponse =
   DeleteSlotTypeVersionResponse'
 
-instance Prelude.NFData DeleteSlotTypeVersionResponse
+instance Core.NFData DeleteSlotTypeVersionResponse

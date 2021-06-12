@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.FailoverState where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.FailoverStatus
 
 -- | Contains the state of scheduled or in-process failover operations on an
@@ -48,15 +47,15 @@ data FailoverState = FailoverState'
     --     (GlobalCluster) was cancelled and the primary Aurora DB cluster and
     --     the selected secondary Aurora DB cluster are returning to their
     --     previous states.
-    status :: Prelude.Maybe FailoverStatus,
+    status :: Core.Maybe FailoverStatus,
     -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
     -- currently being promoted, and which is associated with this state.
-    toDbClusterArn :: Prelude.Maybe Prelude.Text,
+    toDbClusterArn :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
     -- currently being demoted, and which is associated with this state.
-    fromDbClusterArn :: Prelude.Maybe Prelude.Text
+    fromDbClusterArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailoverState' with all optional fields omitted.
@@ -93,9 +92,9 @@ newFailoverState ::
   FailoverState
 newFailoverState =
   FailoverState'
-    { status = Prelude.Nothing,
-      toDbClusterArn = Prelude.Nothing,
-      fromDbClusterArn = Prelude.Nothing
+    { status = Core.Nothing,
+      toDbClusterArn = Core.Nothing,
+      fromDbClusterArn = Core.Nothing
     }
 
 -- | The current status of the Aurora global database (GlobalCluster).
@@ -115,26 +114,26 @@ newFailoverState =
 --     (GlobalCluster) was cancelled and the primary Aurora DB cluster and
 --     the selected secondary Aurora DB cluster are returning to their
 --     previous states.
-failoverState_status :: Lens.Lens' FailoverState (Prelude.Maybe FailoverStatus)
+failoverState_status :: Lens.Lens' FailoverState (Core.Maybe FailoverStatus)
 failoverState_status = Lens.lens (\FailoverState' {status} -> status) (\s@FailoverState' {} a -> s {status = a} :: FailoverState)
 
 -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
 -- currently being promoted, and which is associated with this state.
-failoverState_toDbClusterArn :: Lens.Lens' FailoverState (Prelude.Maybe Prelude.Text)
+failoverState_toDbClusterArn :: Lens.Lens' FailoverState (Core.Maybe Core.Text)
 failoverState_toDbClusterArn = Lens.lens (\FailoverState' {toDbClusterArn} -> toDbClusterArn) (\s@FailoverState' {} a -> s {toDbClusterArn = a} :: FailoverState)
 
 -- | The Amazon Resource Name (ARN) of the Aurora DB cluster that is
 -- currently being demoted, and which is associated with this state.
-failoverState_fromDbClusterArn :: Lens.Lens' FailoverState (Prelude.Maybe Prelude.Text)
+failoverState_fromDbClusterArn :: Lens.Lens' FailoverState (Core.Maybe Core.Text)
 failoverState_fromDbClusterArn = Lens.lens (\FailoverState' {fromDbClusterArn} -> fromDbClusterArn) (\s@FailoverState' {} a -> s {fromDbClusterArn = a} :: FailoverState)
 
-instance Prelude.FromXML FailoverState where
+instance Core.FromXML FailoverState where
   parseXML x =
     FailoverState'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "ToDbClusterArn")
-      Prelude.<*> (x Prelude..@? "FromDbClusterArn")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "ToDbClusterArn")
+      Core.<*> (x Core..@? "FromDbClusterArn")
 
-instance Prelude.Hashable FailoverState
+instance Core.Hashable FailoverState
 
-instance Prelude.NFData FailoverState
+instance Core.NFData FailoverState

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -81,8 +80,8 @@ module Network.AWS.SWF.RegisterWorkflowType
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -100,7 +99,7 @@ data RegisterWorkflowType = RegisterWorkflowType'
     -- @defaultExecutionStartToCloseTimeout@; there is a one-year max limit on
     -- the time that a workflow execution can run. Exceeding this limit always
     -- causes the workflow execution to time out.
-    defaultExecutionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    defaultExecutionStartToCloseTimeout :: Core.Maybe Core.Text,
     -- | The default task priority to assign to the workflow type. If not
     -- assigned, then @0@ is used. Valid values are integers that range from
     -- Java\'s @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@
@@ -109,12 +108,12 @@ data RegisterWorkflowType = RegisterWorkflowType'
     -- For more information about setting task priority, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
-    defaultTaskPriority :: Prelude.Maybe Prelude.Text,
+    defaultTaskPriority :: Core.Maybe Core.Text,
     -- | If set, specifies the default task list to use for scheduling decision
     -- tasks for executions of this workflow type. This default is used only if
     -- a task list isn\'t provided when starting the execution through the
     -- StartWorkflowExecution Action or @StartChildWorkflowExecution@ Decision.
-    defaultTaskList :: Prelude.Maybe TaskList,
+    defaultTaskList :: Core.Maybe TaskList,
     -- | If set, specifies the default policy to use for the child workflow
     -- executions when a workflow execution of this type is terminated, by
     -- calling the TerminateWorkflowExecution action explicitly or due to an
@@ -133,9 +132,9 @@ data RegisterWorkflowType = RegisterWorkflowType'
     --
     -- -   @ABANDON@ – No action is taken. The child executions continue to
     --     run.
-    defaultChildPolicy :: Prelude.Maybe ChildPolicy,
+    defaultChildPolicy :: Core.Maybe ChildPolicy,
     -- | Textual description of the workflow type.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The default IAM role attached to this workflow type.
     --
     -- Executions of this workflow type need IAM roles to invoke Lambda
@@ -144,7 +143,7 @@ data RegisterWorkflowType = RegisterWorkflowType'
     -- more information, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
     -- in the /Amazon SWF Developer Guide/.
-    defaultLambdaRole :: Prelude.Maybe Prelude.Text,
+    defaultLambdaRole :: Core.Maybe Core.Text,
     -- | If set, specifies the default maximum duration of decision tasks for
     -- this workflow type. This default can be overridden when starting a
     -- workflow execution using the StartWorkflowExecution action or the
@@ -152,16 +151,16 @@ data RegisterWorkflowType = RegisterWorkflowType'
     --
     -- The duration is specified in seconds, an integer greater than or equal
     -- to @0@. You can use @NONE@ to specify unlimited duration.
-    defaultTaskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    defaultTaskStartToCloseTimeout :: Core.Maybe Core.Text,
     -- | The name of the domain in which to register the workflow type.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The name of the workflow type.
     --
     -- The specified string must not start or end with whitespace. It must not
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The version of the workflow type.
     --
     -- The workflow type consists of the name and version, the combination of
@@ -172,9 +171,9 @@ data RegisterWorkflowType = RegisterWorkflowType'
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterWorkflowType' with all optional fields omitted.
@@ -269,22 +268,22 @@ data RegisterWorkflowType = RegisterWorkflowType'
 -- /be/ the literal string @arn@.
 newRegisterWorkflowType ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   RegisterWorkflowType
 newRegisterWorkflowType pDomain_ pName_ pVersion_ =
   RegisterWorkflowType'
     { defaultExecutionStartToCloseTimeout =
-        Prelude.Nothing,
-      defaultTaskPriority = Prelude.Nothing,
-      defaultTaskList = Prelude.Nothing,
-      defaultChildPolicy = Prelude.Nothing,
-      description = Prelude.Nothing,
-      defaultLambdaRole = Prelude.Nothing,
-      defaultTaskStartToCloseTimeout = Prelude.Nothing,
+        Core.Nothing,
+      defaultTaskPriority = Core.Nothing,
+      defaultTaskList = Core.Nothing,
+      defaultChildPolicy = Core.Nothing,
+      description = Core.Nothing,
+      defaultLambdaRole = Core.Nothing,
+      defaultTaskStartToCloseTimeout = Core.Nothing,
       domain = pDomain_,
       name = pName_,
       version = pVersion_
@@ -301,7 +300,7 @@ newRegisterWorkflowType pDomain_ pName_ pVersion_ =
 -- @defaultExecutionStartToCloseTimeout@; there is a one-year max limit on
 -- the time that a workflow execution can run. Exceeding this limit always
 -- causes the workflow execution to time out.
-registerWorkflowType_defaultExecutionStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
+registerWorkflowType_defaultExecutionStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Core.Maybe Core.Text)
 registerWorkflowType_defaultExecutionStartToCloseTimeout = Lens.lens (\RegisterWorkflowType' {defaultExecutionStartToCloseTimeout} -> defaultExecutionStartToCloseTimeout) (\s@RegisterWorkflowType' {} a -> s {defaultExecutionStartToCloseTimeout = a} :: RegisterWorkflowType)
 
 -- | The default task priority to assign to the workflow type. If not
@@ -312,14 +311,14 @@ registerWorkflowType_defaultExecutionStartToCloseTimeout = Lens.lens (\RegisterW
 -- For more information about setting task priority, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
-registerWorkflowType_defaultTaskPriority :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
+registerWorkflowType_defaultTaskPriority :: Lens.Lens' RegisterWorkflowType (Core.Maybe Core.Text)
 registerWorkflowType_defaultTaskPriority = Lens.lens (\RegisterWorkflowType' {defaultTaskPriority} -> defaultTaskPriority) (\s@RegisterWorkflowType' {} a -> s {defaultTaskPriority = a} :: RegisterWorkflowType)
 
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if
 -- a task list isn\'t provided when starting the execution through the
 -- StartWorkflowExecution Action or @StartChildWorkflowExecution@ Decision.
-registerWorkflowType_defaultTaskList :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe TaskList)
+registerWorkflowType_defaultTaskList :: Lens.Lens' RegisterWorkflowType (Core.Maybe TaskList)
 registerWorkflowType_defaultTaskList = Lens.lens (\RegisterWorkflowType' {defaultTaskList} -> defaultTaskList) (\s@RegisterWorkflowType' {} a -> s {defaultTaskList = a} :: RegisterWorkflowType)
 
 -- | If set, specifies the default policy to use for the child workflow
@@ -340,11 +339,11 @@ registerWorkflowType_defaultTaskList = Lens.lens (\RegisterWorkflowType' {defaul
 --
 -- -   @ABANDON@ – No action is taken. The child executions continue to
 --     run.
-registerWorkflowType_defaultChildPolicy :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe ChildPolicy)
+registerWorkflowType_defaultChildPolicy :: Lens.Lens' RegisterWorkflowType (Core.Maybe ChildPolicy)
 registerWorkflowType_defaultChildPolicy = Lens.lens (\RegisterWorkflowType' {defaultChildPolicy} -> defaultChildPolicy) (\s@RegisterWorkflowType' {} a -> s {defaultChildPolicy = a} :: RegisterWorkflowType)
 
 -- | Textual description of the workflow type.
-registerWorkflowType_description :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
+registerWorkflowType_description :: Lens.Lens' RegisterWorkflowType (Core.Maybe Core.Text)
 registerWorkflowType_description = Lens.lens (\RegisterWorkflowType' {description} -> description) (\s@RegisterWorkflowType' {} a -> s {description = a} :: RegisterWorkflowType)
 
 -- | The default IAM role attached to this workflow type.
@@ -355,7 +354,7 @@ registerWorkflowType_description = Lens.lens (\RegisterWorkflowType' {descriptio
 -- more information, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
 -- in the /Amazon SWF Developer Guide/.
-registerWorkflowType_defaultLambdaRole :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
+registerWorkflowType_defaultLambdaRole :: Lens.Lens' RegisterWorkflowType (Core.Maybe Core.Text)
 registerWorkflowType_defaultLambdaRole = Lens.lens (\RegisterWorkflowType' {defaultLambdaRole} -> defaultLambdaRole) (\s@RegisterWorkflowType' {} a -> s {defaultLambdaRole = a} :: RegisterWorkflowType)
 
 -- | If set, specifies the default maximum duration of decision tasks for
@@ -365,11 +364,11 @@ registerWorkflowType_defaultLambdaRole = Lens.lens (\RegisterWorkflowType' {defa
 --
 -- The duration is specified in seconds, an integer greater than or equal
 -- to @0@. You can use @NONE@ to specify unlimited duration.
-registerWorkflowType_defaultTaskStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Prelude.Maybe Prelude.Text)
+registerWorkflowType_defaultTaskStartToCloseTimeout :: Lens.Lens' RegisterWorkflowType (Core.Maybe Core.Text)
 registerWorkflowType_defaultTaskStartToCloseTimeout = Lens.lens (\RegisterWorkflowType' {defaultTaskStartToCloseTimeout} -> defaultTaskStartToCloseTimeout) (\s@RegisterWorkflowType' {} a -> s {defaultTaskStartToCloseTimeout = a} :: RegisterWorkflowType)
 
 -- | The name of the domain in which to register the workflow type.
-registerWorkflowType_domain :: Lens.Lens' RegisterWorkflowType Prelude.Text
+registerWorkflowType_domain :: Lens.Lens' RegisterWorkflowType Core.Text
 registerWorkflowType_domain = Lens.lens (\RegisterWorkflowType' {domain} -> domain) (\s@RegisterWorkflowType' {} a -> s {domain = a} :: RegisterWorkflowType)
 
 -- | The name of the workflow type.
@@ -378,7 +377,7 @@ registerWorkflowType_domain = Lens.lens (\RegisterWorkflowType' {domain} -> doma
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
-registerWorkflowType_name :: Lens.Lens' RegisterWorkflowType Prelude.Text
+registerWorkflowType_name :: Lens.Lens' RegisterWorkflowType Core.Text
 registerWorkflowType_name = Lens.lens (\RegisterWorkflowType' {name} -> name) (\s@RegisterWorkflowType' {} a -> s {name = a} :: RegisterWorkflowType)
 
 -- | The version of the workflow type.
@@ -391,70 +390,67 @@ registerWorkflowType_name = Lens.lens (\RegisterWorkflowType' {name} -> name) (\
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
-registerWorkflowType_version :: Lens.Lens' RegisterWorkflowType Prelude.Text
+registerWorkflowType_version :: Lens.Lens' RegisterWorkflowType Core.Text
 registerWorkflowType_version = Lens.lens (\RegisterWorkflowType' {version} -> version) (\s@RegisterWorkflowType' {} a -> s {version = a} :: RegisterWorkflowType)
 
-instance Prelude.AWSRequest RegisterWorkflowType where
+instance Core.AWSRequest RegisterWorkflowType where
   type
-    Rs RegisterWorkflowType =
+    AWSResponse RegisterWorkflowType =
       RegisterWorkflowTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull RegisterWorkflowTypeResponse'
 
-instance Prelude.Hashable RegisterWorkflowType
+instance Core.Hashable RegisterWorkflowType
 
-instance Prelude.NFData RegisterWorkflowType
+instance Core.NFData RegisterWorkflowType
 
-instance Prelude.ToHeaders RegisterWorkflowType where
+instance Core.ToHeaders RegisterWorkflowType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.RegisterWorkflowType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.RegisterWorkflowType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterWorkflowType where
+instance Core.ToJSON RegisterWorkflowType where
   toJSON RegisterWorkflowType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("defaultExecutionStartToCloseTimeout" Prelude..=)
-              Prelude.<$> defaultExecutionStartToCloseTimeout,
-            ("defaultTaskPriority" Prelude..=)
-              Prelude.<$> defaultTaskPriority,
-            ("defaultTaskList" Prelude..=)
-              Prelude.<$> defaultTaskList,
-            ("defaultChildPolicy" Prelude..=)
-              Prelude.<$> defaultChildPolicy,
-            ("description" Prelude..=) Prelude.<$> description,
-            ("defaultLambdaRole" Prelude..=)
-              Prelude.<$> defaultLambdaRole,
-            ("defaultTaskStartToCloseTimeout" Prelude..=)
-              Prelude.<$> defaultTaskStartToCloseTimeout,
-            Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("version" Prelude..= version)
+    Core.object
+      ( Core.catMaybes
+          [ ("defaultExecutionStartToCloseTimeout" Core..=)
+              Core.<$> defaultExecutionStartToCloseTimeout,
+            ("defaultTaskPriority" Core..=)
+              Core.<$> defaultTaskPriority,
+            ("defaultTaskList" Core..=) Core.<$> defaultTaskList,
+            ("defaultChildPolicy" Core..=)
+              Core.<$> defaultChildPolicy,
+            ("description" Core..=) Core.<$> description,
+            ("defaultLambdaRole" Core..=)
+              Core.<$> defaultLambdaRole,
+            ("defaultTaskStartToCloseTimeout" Core..=)
+              Core.<$> defaultTaskStartToCloseTimeout,
+            Core.Just ("domain" Core..= domain),
+            Core.Just ("name" Core..= name),
+            Core.Just ("version" Core..= version)
           ]
       )
 
-instance Prelude.ToPath RegisterWorkflowType where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterWorkflowType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterWorkflowType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterWorkflowType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterWorkflowTypeResponse' smart constructor.
 data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterWorkflowTypeResponse' with all optional fields omitted.
@@ -465,4 +461,4 @@ newRegisterWorkflowTypeResponse ::
 newRegisterWorkflowTypeResponse =
   RegisterWorkflowTypeResponse'
 
-instance Prelude.NFData RegisterWorkflowTypeResponse
+instance Core.NFData RegisterWorkflowTypeResponse

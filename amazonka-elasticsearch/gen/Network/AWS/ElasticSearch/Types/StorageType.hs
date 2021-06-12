@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.StorageType where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.StorageTypeLimit
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | StorageTypes represents the list of storage related types and their
 -- attributes that are available for given InstanceType.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newStorageType' smart constructor.
 data StorageType = StorageType'
   { -- | List of limits that are applicable for given storage type.
-    storageTypeLimits :: Prelude.Maybe [StorageTypeLimit],
-    storageTypeName :: Prelude.Maybe Prelude.Text,
-    storageSubTypeName :: Prelude.Maybe Prelude.Text
+    storageTypeLimits :: Core.Maybe [StorageTypeLimit],
+    storageTypeName :: Core.Maybe Core.Text,
+    storageSubTypeName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StorageType' with all optional fields omitted.
@@ -53,36 +52,34 @@ newStorageType ::
   StorageType
 newStorageType =
   StorageType'
-    { storageTypeLimits = Prelude.Nothing,
-      storageTypeName = Prelude.Nothing,
-      storageSubTypeName = Prelude.Nothing
+    { storageTypeLimits = Core.Nothing,
+      storageTypeName = Core.Nothing,
+      storageSubTypeName = Core.Nothing
     }
 
 -- | List of limits that are applicable for given storage type.
-storageType_storageTypeLimits :: Lens.Lens' StorageType (Prelude.Maybe [StorageTypeLimit])
-storageType_storageTypeLimits = Lens.lens (\StorageType' {storageTypeLimits} -> storageTypeLimits) (\s@StorageType' {} a -> s {storageTypeLimits = a} :: StorageType) Prelude.. Lens.mapping Prelude._Coerce
+storageType_storageTypeLimits :: Lens.Lens' StorageType (Core.Maybe [StorageTypeLimit])
+storageType_storageTypeLimits = Lens.lens (\StorageType' {storageTypeLimits} -> storageTypeLimits) (\s@StorageType' {} a -> s {storageTypeLimits = a} :: StorageType) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-storageType_storageTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
+storageType_storageTypeName :: Lens.Lens' StorageType (Core.Maybe Core.Text)
 storageType_storageTypeName = Lens.lens (\StorageType' {storageTypeName} -> storageTypeName) (\s@StorageType' {} a -> s {storageTypeName = a} :: StorageType)
 
 -- | Undocumented member.
-storageType_storageSubTypeName :: Lens.Lens' StorageType (Prelude.Maybe Prelude.Text)
+storageType_storageSubTypeName :: Lens.Lens' StorageType (Core.Maybe Core.Text)
 storageType_storageSubTypeName = Lens.lens (\StorageType' {storageSubTypeName} -> storageSubTypeName) (\s@StorageType' {} a -> s {storageSubTypeName = a} :: StorageType)
 
-instance Prelude.FromJSON StorageType where
+instance Core.FromJSON StorageType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StorageType"
       ( \x ->
           StorageType'
-            Prelude.<$> ( x Prelude..:? "StorageTypeLimits"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "StorageTypeName")
-            Prelude.<*> (x Prelude..:? "StorageSubTypeName")
+            Core.<$> (x Core..:? "StorageTypeLimits" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "StorageTypeName")
+            Core.<*> (x Core..:? "StorageSubTypeName")
       )
 
-instance Prelude.Hashable StorageType
+instance Core.Hashable StorageType
 
-instance Prelude.NFData StorageType
+instance Core.NFData StorageType

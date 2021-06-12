@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.ChannelEgressEndpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for ChannelEgressEndpoint
 --
 -- /See:/ 'newChannelEgressEndpoint' smart constructor.
 data ChannelEgressEndpoint = ChannelEgressEndpoint'
   { -- | Public IP of where a channel\'s output comes from
-    sourceIp :: Prelude.Maybe Prelude.Text
+    sourceIp :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChannelEgressEndpoint' with all optional fields omitted.
@@ -44,21 +43,21 @@ data ChannelEgressEndpoint = ChannelEgressEndpoint'
 newChannelEgressEndpoint ::
   ChannelEgressEndpoint
 newChannelEgressEndpoint =
-  ChannelEgressEndpoint' {sourceIp = Prelude.Nothing}
+  ChannelEgressEndpoint' {sourceIp = Core.Nothing}
 
 -- | Public IP of where a channel\'s output comes from
-channelEgressEndpoint_sourceIp :: Lens.Lens' ChannelEgressEndpoint (Prelude.Maybe Prelude.Text)
+channelEgressEndpoint_sourceIp :: Lens.Lens' ChannelEgressEndpoint (Core.Maybe Core.Text)
 channelEgressEndpoint_sourceIp = Lens.lens (\ChannelEgressEndpoint' {sourceIp} -> sourceIp) (\s@ChannelEgressEndpoint' {} a -> s {sourceIp = a} :: ChannelEgressEndpoint)
 
-instance Prelude.FromJSON ChannelEgressEndpoint where
+instance Core.FromJSON ChannelEgressEndpoint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ChannelEgressEndpoint"
       ( \x ->
           ChannelEgressEndpoint'
-            Prelude.<$> (x Prelude..:? "sourceIp")
+            Core.<$> (x Core..:? "sourceIp")
       )
 
-instance Prelude.Hashable ChannelEgressEndpoint
+instance Core.Hashable ChannelEgressEndpoint
 
-instance Prelude.NFData ChannelEgressEndpoint
+instance Core.NFData ChannelEgressEndpoint

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MechanicalTurk.Types.Locale where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Locale data structure represents a geographical region or location.
 --
@@ -29,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Locale = Locale'
   { -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision
     -- code. For example, the code WA refers to the state of Washington.
-    subdivision :: Prelude.Maybe Prelude.Text,
+    subdivision :: Core.Maybe Core.Text,
     -- | The country of the locale. Must be a valid ISO 3166 country code. For
     -- example, the code US refers to the United States of America.
-    country :: Prelude.Text
+    country :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Locale' with all optional fields omitted.
@@ -51,43 +50,43 @@ data Locale = Locale'
 -- example, the code US refers to the United States of America.
 newLocale ::
   -- | 'country'
-  Prelude.Text ->
+  Core.Text ->
   Locale
 newLocale pCountry_ =
   Locale'
-    { subdivision = Prelude.Nothing,
+    { subdivision = Core.Nothing,
       country = pCountry_
     }
 
 -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision
 -- code. For example, the code WA refers to the state of Washington.
-locale_subdivision :: Lens.Lens' Locale (Prelude.Maybe Prelude.Text)
+locale_subdivision :: Lens.Lens' Locale (Core.Maybe Core.Text)
 locale_subdivision = Lens.lens (\Locale' {subdivision} -> subdivision) (\s@Locale' {} a -> s {subdivision = a} :: Locale)
 
 -- | The country of the locale. Must be a valid ISO 3166 country code. For
 -- example, the code US refers to the United States of America.
-locale_country :: Lens.Lens' Locale Prelude.Text
+locale_country :: Lens.Lens' Locale Core.Text
 locale_country = Lens.lens (\Locale' {country} -> country) (\s@Locale' {} a -> s {country = a} :: Locale)
 
-instance Prelude.FromJSON Locale where
+instance Core.FromJSON Locale where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Locale"
       ( \x ->
           Locale'
-            Prelude.<$> (x Prelude..:? "Subdivision")
-            Prelude.<*> (x Prelude..: "Country")
+            Core.<$> (x Core..:? "Subdivision")
+            Core.<*> (x Core..: "Country")
       )
 
-instance Prelude.Hashable Locale
+instance Core.Hashable Locale
 
-instance Prelude.NFData Locale
+instance Core.NFData Locale
 
-instance Prelude.ToJSON Locale where
+instance Core.ToJSON Locale where
   toJSON Locale' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Subdivision" Prelude..=) Prelude.<$> subdivision,
-            Prelude.Just ("Country" Prelude..= country)
+    Core.object
+      ( Core.catMaybes
+          [ ("Subdivision" Core..=) Core.<$> subdivision,
+            Core.Just ("Country" Core..= country)
           ]
       )

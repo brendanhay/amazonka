@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.DMS.DeleteReplicationInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 data DeleteReplicationInstance = DeleteReplicationInstance'
   { -- | The Amazon Resource Name (ARN) of the replication instance to be
     -- deleted.
-    replicationInstanceArn :: Prelude.Text
+    replicationInstanceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationInstance' with all optional fields omitted.
@@ -71,7 +70,7 @@ data DeleteReplicationInstance = DeleteReplicationInstance'
 -- deleted.
 newDeleteReplicationInstance ::
   -- | 'replicationInstanceArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReplicationInstance
 newDeleteReplicationInstance pReplicationInstanceArn_ =
   DeleteReplicationInstance'
@@ -81,68 +80,66 @@ newDeleteReplicationInstance pReplicationInstanceArn_ =
 
 -- | The Amazon Resource Name (ARN) of the replication instance to be
 -- deleted.
-deleteReplicationInstance_replicationInstanceArn :: Lens.Lens' DeleteReplicationInstance Prelude.Text
+deleteReplicationInstance_replicationInstanceArn :: Lens.Lens' DeleteReplicationInstance Core.Text
 deleteReplicationInstance_replicationInstanceArn = Lens.lens (\DeleteReplicationInstance' {replicationInstanceArn} -> replicationInstanceArn) (\s@DeleteReplicationInstance' {} a -> s {replicationInstanceArn = a} :: DeleteReplicationInstance)
 
-instance Prelude.AWSRequest DeleteReplicationInstance where
+instance Core.AWSRequest DeleteReplicationInstance where
   type
-    Rs DeleteReplicationInstance =
+    AWSResponse DeleteReplicationInstance =
       DeleteReplicationInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteReplicationInstanceResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationInstance")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReplicationInstance
+instance Core.Hashable DeleteReplicationInstance
 
-instance Prelude.NFData DeleteReplicationInstance
+instance Core.NFData DeleteReplicationInstance
 
-instance Prelude.ToHeaders DeleteReplicationInstance where
+instance Core.ToHeaders DeleteReplicationInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.DeleteReplicationInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.DeleteReplicationInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteReplicationInstance where
+instance Core.ToJSON DeleteReplicationInstance where
   toJSON DeleteReplicationInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ReplicationInstanceArn"
-                  Prelude..= replicationInstanceArn
+                  Core..= replicationInstanceArn
               )
           ]
       )
 
-instance Prelude.ToPath DeleteReplicationInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteReplicationInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteReplicationInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteReplicationInstance where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newDeleteReplicationInstanceResponse' smart constructor.
 data DeleteReplicationInstanceResponse = DeleteReplicationInstanceResponse'
   { -- | The replication instance that was deleted.
-    replicationInstance :: Prelude.Maybe ReplicationInstance,
+    replicationInstance :: Core.Maybe ReplicationInstance,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationInstanceResponse' with all optional fields omitted.
@@ -157,23 +154,23 @@ data DeleteReplicationInstanceResponse = DeleteReplicationInstanceResponse'
 -- 'httpStatus', 'deleteReplicationInstanceResponse_httpStatus' - The response's http status code.
 newDeleteReplicationInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteReplicationInstanceResponse
 newDeleteReplicationInstanceResponse pHttpStatus_ =
   DeleteReplicationInstanceResponse'
     { replicationInstance =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The replication instance that was deleted.
-deleteReplicationInstanceResponse_replicationInstance :: Lens.Lens' DeleteReplicationInstanceResponse (Prelude.Maybe ReplicationInstance)
+deleteReplicationInstanceResponse_replicationInstance :: Lens.Lens' DeleteReplicationInstanceResponse (Core.Maybe ReplicationInstance)
 deleteReplicationInstanceResponse_replicationInstance = Lens.lens (\DeleteReplicationInstanceResponse' {replicationInstance} -> replicationInstance) (\s@DeleteReplicationInstanceResponse' {} a -> s {replicationInstance = a} :: DeleteReplicationInstanceResponse)
 
 -- | The response's http status code.
-deleteReplicationInstanceResponse_httpStatus :: Lens.Lens' DeleteReplicationInstanceResponse Prelude.Int
+deleteReplicationInstanceResponse_httpStatus :: Lens.Lens' DeleteReplicationInstanceResponse Core.Int
 deleteReplicationInstanceResponse_httpStatus = Lens.lens (\DeleteReplicationInstanceResponse' {httpStatus} -> httpStatus) (\s@DeleteReplicationInstanceResponse' {} a -> s {httpStatus = a} :: DeleteReplicationInstanceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteReplicationInstanceResponse

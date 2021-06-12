@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.VideoDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains details about the output\'s video stream
 --
 -- /See:/ 'newVideoDetail' smart constructor.
 data VideoDetail = VideoDetail'
   { -- | Width in pixels for the output
-    widthInPx :: Prelude.Maybe Prelude.Int,
+    widthInPx :: Core.Maybe Core.Int,
     -- | Height in pixels for the output
-    heightInPx :: Prelude.Maybe Prelude.Int
+    heightInPx :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VideoDetail' with all optional fields omitted.
@@ -49,28 +48,28 @@ newVideoDetail ::
   VideoDetail
 newVideoDetail =
   VideoDetail'
-    { widthInPx = Prelude.Nothing,
-      heightInPx = Prelude.Nothing
+    { widthInPx = Core.Nothing,
+      heightInPx = Core.Nothing
     }
 
 -- | Width in pixels for the output
-videoDetail_widthInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
+videoDetail_widthInPx :: Lens.Lens' VideoDetail (Core.Maybe Core.Int)
 videoDetail_widthInPx = Lens.lens (\VideoDetail' {widthInPx} -> widthInPx) (\s@VideoDetail' {} a -> s {widthInPx = a} :: VideoDetail)
 
 -- | Height in pixels for the output
-videoDetail_heightInPx :: Lens.Lens' VideoDetail (Prelude.Maybe Prelude.Int)
+videoDetail_heightInPx :: Lens.Lens' VideoDetail (Core.Maybe Core.Int)
 videoDetail_heightInPx = Lens.lens (\VideoDetail' {heightInPx} -> heightInPx) (\s@VideoDetail' {} a -> s {heightInPx = a} :: VideoDetail)
 
-instance Prelude.FromJSON VideoDetail where
+instance Core.FromJSON VideoDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VideoDetail"
       ( \x ->
           VideoDetail'
-            Prelude.<$> (x Prelude..:? "widthInPx")
-            Prelude.<*> (x Prelude..:? "heightInPx")
+            Core.<$> (x Core..:? "widthInPx")
+            Core.<*> (x Core..:? "heightInPx")
       )
 
-instance Prelude.Hashable VideoDetail
+instance Core.Hashable VideoDetail
 
-instance Prelude.NFData VideoDetail
+instance Core.NFData VideoDetail

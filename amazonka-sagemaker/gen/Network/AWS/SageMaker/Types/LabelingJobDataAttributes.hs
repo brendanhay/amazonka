@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.LabelingJobDataAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ContentClassifier
 
 -- | Attributes of the data specified by the customer. Use these to describe
@@ -33,9 +32,9 @@ data LabelingJobDataAttributes = LabelingJobDataAttributes'
     -- information or adult content. Amazon SageMaker may restrict the Amazon
     -- Mechanical Turk workers that can view your task based on this
     -- information.
-    contentClassifiers :: Prelude.Maybe [ContentClassifier]
+    contentClassifiers :: Core.Maybe [ContentClassifier]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelingJobDataAttributes' with all optional fields omitted.
@@ -54,36 +53,36 @@ newLabelingJobDataAttributes ::
 newLabelingJobDataAttributes =
   LabelingJobDataAttributes'
     { contentClassifiers =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Declares that your content is free of personally identifiable
 -- information or adult content. Amazon SageMaker may restrict the Amazon
 -- Mechanical Turk workers that can view your task based on this
 -- information.
-labelingJobDataAttributes_contentClassifiers :: Lens.Lens' LabelingJobDataAttributes (Prelude.Maybe [ContentClassifier])
-labelingJobDataAttributes_contentClassifiers = Lens.lens (\LabelingJobDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@LabelingJobDataAttributes' {} a -> s {contentClassifiers = a} :: LabelingJobDataAttributes) Prelude.. Lens.mapping Prelude._Coerce
+labelingJobDataAttributes_contentClassifiers :: Lens.Lens' LabelingJobDataAttributes (Core.Maybe [ContentClassifier])
+labelingJobDataAttributes_contentClassifiers = Lens.lens (\LabelingJobDataAttributes' {contentClassifiers} -> contentClassifiers) (\s@LabelingJobDataAttributes' {} a -> s {contentClassifiers = a} :: LabelingJobDataAttributes) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON LabelingJobDataAttributes where
+instance Core.FromJSON LabelingJobDataAttributes where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LabelingJobDataAttributes"
       ( \x ->
           LabelingJobDataAttributes'
-            Prelude.<$> ( x Prelude..:? "ContentClassifiers"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "ContentClassifiers"
+                         Core..!= Core.mempty
+                     )
       )
 
-instance Prelude.Hashable LabelingJobDataAttributes
+instance Core.Hashable LabelingJobDataAttributes
 
-instance Prelude.NFData LabelingJobDataAttributes
+instance Core.NFData LabelingJobDataAttributes
 
-instance Prelude.ToJSON LabelingJobDataAttributes where
+instance Core.ToJSON LabelingJobDataAttributes where
   toJSON LabelingJobDataAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ContentClassifiers" Prelude..=)
-              Prelude.<$> contentClassifiers
+    Core.object
+      ( Core.catMaybes
+          [ ("ContentClassifiers" Core..=)
+              Core.<$> contentClassifiers
           ]
       )

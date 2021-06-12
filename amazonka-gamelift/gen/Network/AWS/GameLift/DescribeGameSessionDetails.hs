@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -78,10 +77,9 @@ module Network.AWS.GameLift.DescribeGameSessionDetails
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -92,24 +90,24 @@ data DescribeGameSessionDetails = DescribeGameSessionDetails'
   { -- | Token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A unique identifier for a fleet to retrieve all game sessions active on
     -- the fleet. You can use either the fleet ID or ARN value.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    fleetId :: Core.Maybe Core.Text,
     -- | A unique identifier for the game session to retrieve.
-    gameSessionId :: Prelude.Maybe Prelude.Text,
+    gameSessionId :: Core.Maybe Core.Text,
     -- | Game session status to filter results on. Possible game session statuses
     -- include @ACTIVE@, @TERMINATED@, @ACTIVATING@ and @TERMINATING@ (the last
     -- two are transitory).
-    statusFilter :: Prelude.Maybe Prelude.Text,
+    statusFilter :: Core.Maybe Core.Text,
     -- | A unique identifier for an alias associated with the fleet to retrieve
     -- all game sessions for. You can use either the alias ID or ARN value.
-    aliasId :: Prelude.Maybe Prelude.Text,
+    aliasId :: Core.Maybe Core.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeGameSessionDetails' with all optional fields omitted.
@@ -142,124 +140,118 @@ newDescribeGameSessionDetails ::
 newDescribeGameSessionDetails =
   DescribeGameSessionDetails'
     { nextToken =
-        Prelude.Nothing,
-      fleetId = Prelude.Nothing,
-      gameSessionId = Prelude.Nothing,
-      statusFilter = Prelude.Nothing,
-      aliasId = Prelude.Nothing,
-      limit = Prelude.Nothing
+        Core.Nothing,
+      fleetId = Core.Nothing,
+      gameSessionId = Core.Nothing,
+      statusFilter = Core.Nothing,
+      aliasId = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | Token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-describeGameSessionDetails_nextToken :: Lens.Lens' DescribeGameSessionDetails (Prelude.Maybe Prelude.Text)
+describeGameSessionDetails_nextToken :: Lens.Lens' DescribeGameSessionDetails (Core.Maybe Core.Text)
 describeGameSessionDetails_nextToken = Lens.lens (\DescribeGameSessionDetails' {nextToken} -> nextToken) (\s@DescribeGameSessionDetails' {} a -> s {nextToken = a} :: DescribeGameSessionDetails)
 
 -- | A unique identifier for a fleet to retrieve all game sessions active on
 -- the fleet. You can use either the fleet ID or ARN value.
-describeGameSessionDetails_fleetId :: Lens.Lens' DescribeGameSessionDetails (Prelude.Maybe Prelude.Text)
+describeGameSessionDetails_fleetId :: Lens.Lens' DescribeGameSessionDetails (Core.Maybe Core.Text)
 describeGameSessionDetails_fleetId = Lens.lens (\DescribeGameSessionDetails' {fleetId} -> fleetId) (\s@DescribeGameSessionDetails' {} a -> s {fleetId = a} :: DescribeGameSessionDetails)
 
 -- | A unique identifier for the game session to retrieve.
-describeGameSessionDetails_gameSessionId :: Lens.Lens' DescribeGameSessionDetails (Prelude.Maybe Prelude.Text)
+describeGameSessionDetails_gameSessionId :: Lens.Lens' DescribeGameSessionDetails (Core.Maybe Core.Text)
 describeGameSessionDetails_gameSessionId = Lens.lens (\DescribeGameSessionDetails' {gameSessionId} -> gameSessionId) (\s@DescribeGameSessionDetails' {} a -> s {gameSessionId = a} :: DescribeGameSessionDetails)
 
 -- | Game session status to filter results on. Possible game session statuses
 -- include @ACTIVE@, @TERMINATED@, @ACTIVATING@ and @TERMINATING@ (the last
 -- two are transitory).
-describeGameSessionDetails_statusFilter :: Lens.Lens' DescribeGameSessionDetails (Prelude.Maybe Prelude.Text)
+describeGameSessionDetails_statusFilter :: Lens.Lens' DescribeGameSessionDetails (Core.Maybe Core.Text)
 describeGameSessionDetails_statusFilter = Lens.lens (\DescribeGameSessionDetails' {statusFilter} -> statusFilter) (\s@DescribeGameSessionDetails' {} a -> s {statusFilter = a} :: DescribeGameSessionDetails)
 
 -- | A unique identifier for an alias associated with the fleet to retrieve
 -- all game sessions for. You can use either the alias ID or ARN value.
-describeGameSessionDetails_aliasId :: Lens.Lens' DescribeGameSessionDetails (Prelude.Maybe Prelude.Text)
+describeGameSessionDetails_aliasId :: Lens.Lens' DescribeGameSessionDetails (Core.Maybe Core.Text)
 describeGameSessionDetails_aliasId = Lens.lens (\DescribeGameSessionDetails' {aliasId} -> aliasId) (\s@DescribeGameSessionDetails' {} a -> s {aliasId = a} :: DescribeGameSessionDetails)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
-describeGameSessionDetails_limit :: Lens.Lens' DescribeGameSessionDetails (Prelude.Maybe Prelude.Natural)
+describeGameSessionDetails_limit :: Lens.Lens' DescribeGameSessionDetails (Core.Maybe Core.Natural)
 describeGameSessionDetails_limit = Lens.lens (\DescribeGameSessionDetails' {limit} -> limit) (\s@DescribeGameSessionDetails' {} a -> s {limit = a} :: DescribeGameSessionDetails)
 
-instance Pager.AWSPager DescribeGameSessionDetails where
+instance Core.AWSPager DescribeGameSessionDetails where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeGameSessionDetailsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeGameSessionDetailsResponse_gameSessionDetails
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeGameSessionDetails_nextToken
           Lens..~ rs
           Lens.^? describeGameSessionDetailsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeGameSessionDetails
-  where
+instance Core.AWSRequest DescribeGameSessionDetails where
   type
-    Rs DescribeGameSessionDetails =
+    AWSResponse DescribeGameSessionDetails =
       DescribeGameSessionDetailsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeGameSessionDetailsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "GameSessionDetails"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "GameSessionDetails"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGameSessionDetails
+instance Core.Hashable DescribeGameSessionDetails
 
-instance Prelude.NFData DescribeGameSessionDetails
+instance Core.NFData DescribeGameSessionDetails
 
-instance Prelude.ToHeaders DescribeGameSessionDetails where
+instance Core.ToHeaders DescribeGameSessionDetails where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DescribeGameSessionDetails" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DescribeGameSessionDetails" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeGameSessionDetails where
+instance Core.ToJSON DescribeGameSessionDetails where
   toJSON DescribeGameSessionDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("FleetId" Prelude..=) Prelude.<$> fleetId,
-            ("GameSessionId" Prelude..=)
-              Prelude.<$> gameSessionId,
-            ("StatusFilter" Prelude..=) Prelude.<$> statusFilter,
-            ("AliasId" Prelude..=) Prelude.<$> aliasId,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("FleetId" Core..=) Core.<$> fleetId,
+            ("GameSessionId" Core..=) Core.<$> gameSessionId,
+            ("StatusFilter" Core..=) Core.<$> statusFilter,
+            ("AliasId" Core..=) Core.<$> aliasId,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath DescribeGameSessionDetails where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeGameSessionDetails where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeGameSessionDetails where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeGameSessionDetails where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -268,15 +260,15 @@ data DescribeGameSessionDetailsResponse = DescribeGameSessionDetailsResponse'
   { -- | Token that indicates where to resume retrieving results on the next call
     -- to this operation. If no token is returned, these results represent the
     -- end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A collection of objects containing game session properties and the
     -- protection policy currently in force for each session matching the
     -- request.
-    gameSessionDetails :: Prelude.Maybe [GameSessionDetail],
+    gameSessionDetails :: Core.Maybe [GameSessionDetail],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeGameSessionDetailsResponse' with all optional fields omitted.
@@ -297,32 +289,32 @@ data DescribeGameSessionDetailsResponse = DescribeGameSessionDetailsResponse'
 -- 'httpStatus', 'describeGameSessionDetailsResponse_httpStatus' - The response's http status code.
 newDescribeGameSessionDetailsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeGameSessionDetailsResponse
 newDescribeGameSessionDetailsResponse pHttpStatus_ =
   DescribeGameSessionDetailsResponse'
     { nextToken =
-        Prelude.Nothing,
-      gameSessionDetails = Prelude.Nothing,
+        Core.Nothing,
+      gameSessionDetails = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Token that indicates where to resume retrieving results on the next call
 -- to this operation. If no token is returned, these results represent the
 -- end of the list.
-describeGameSessionDetailsResponse_nextToken :: Lens.Lens' DescribeGameSessionDetailsResponse (Prelude.Maybe Prelude.Text)
+describeGameSessionDetailsResponse_nextToken :: Lens.Lens' DescribeGameSessionDetailsResponse (Core.Maybe Core.Text)
 describeGameSessionDetailsResponse_nextToken = Lens.lens (\DescribeGameSessionDetailsResponse' {nextToken} -> nextToken) (\s@DescribeGameSessionDetailsResponse' {} a -> s {nextToken = a} :: DescribeGameSessionDetailsResponse)
 
 -- | A collection of objects containing game session properties and the
 -- protection policy currently in force for each session matching the
 -- request.
-describeGameSessionDetailsResponse_gameSessionDetails :: Lens.Lens' DescribeGameSessionDetailsResponse (Prelude.Maybe [GameSessionDetail])
-describeGameSessionDetailsResponse_gameSessionDetails = Lens.lens (\DescribeGameSessionDetailsResponse' {gameSessionDetails} -> gameSessionDetails) (\s@DescribeGameSessionDetailsResponse' {} a -> s {gameSessionDetails = a} :: DescribeGameSessionDetailsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeGameSessionDetailsResponse_gameSessionDetails :: Lens.Lens' DescribeGameSessionDetailsResponse (Core.Maybe [GameSessionDetail])
+describeGameSessionDetailsResponse_gameSessionDetails = Lens.lens (\DescribeGameSessionDetailsResponse' {gameSessionDetails} -> gameSessionDetails) (\s@DescribeGameSessionDetailsResponse' {} a -> s {gameSessionDetails = a} :: DescribeGameSessionDetailsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeGameSessionDetailsResponse_httpStatus :: Lens.Lens' DescribeGameSessionDetailsResponse Prelude.Int
+describeGameSessionDetailsResponse_httpStatus :: Lens.Lens' DescribeGameSessionDetailsResponse Core.Int
 describeGameSessionDetailsResponse_httpStatus = Lens.lens (\DescribeGameSessionDetailsResponse' {httpStatus} -> httpStatus) (\s@DescribeGameSessionDetailsResponse' {} a -> s {httpStatus = a} :: DescribeGameSessionDetailsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeGameSessionDetailsResponse

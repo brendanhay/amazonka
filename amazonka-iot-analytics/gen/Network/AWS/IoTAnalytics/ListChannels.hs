@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,23 +43,22 @@ module Network.AWS.IoTAnalytics.ListChannels
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListChannels' smart constructor.
 data ListChannels = ListChannels'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in this request.
     --
     -- The default value is 100.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListChannels' with all optional fields omitted.
@@ -79,82 +77,80 @@ newListChannels ::
   ListChannels
 newListChannels =
   ListChannels'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing
     }
 
 -- | The token for the next set of results.
-listChannels_nextToken :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Text)
+listChannels_nextToken :: Lens.Lens' ListChannels (Core.Maybe Core.Text)
 listChannels_nextToken = Lens.lens (\ListChannels' {nextToken} -> nextToken) (\s@ListChannels' {} a -> s {nextToken = a} :: ListChannels)
 
 -- | The maximum number of results to return in this request.
 --
 -- The default value is 100.
-listChannels_maxResults :: Lens.Lens' ListChannels (Prelude.Maybe Prelude.Natural)
+listChannels_maxResults :: Lens.Lens' ListChannels (Core.Maybe Core.Natural)
 listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) (\s@ListChannels' {} a -> s {maxResults = a} :: ListChannels)
 
-instance Pager.AWSPager ListChannels where
+instance Core.AWSPager ListChannels where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listChannelsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listChannelsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listChannelsResponse_channelSummaries
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listChannels_nextToken
           Lens..~ rs
-          Lens.^? listChannelsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listChannelsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListChannels where
-  type Rs ListChannels = ListChannelsResponse
+instance Core.AWSRequest ListChannels where
+  type AWSResponse ListChannels = ListChannelsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListChannelsResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "channelSummaries"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "channelSummaries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListChannels
+instance Core.Hashable ListChannels
 
-instance Prelude.NFData ListChannels
+instance Core.NFData ListChannels
 
-instance Prelude.ToHeaders ListChannels where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListChannels where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListChannels where
-  toPath = Prelude.const "/channels"
+instance Core.ToPath ListChannels where
+  toPath = Core.const "/channels"
 
-instance Prelude.ToQuery ListChannels where
+instance Core.ToQuery ListChannels where
   toQuery ListChannels' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
   { -- | The token to retrieve the next set of results, or @null@ if there are no
     -- more results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @ChannelSummary@ objects.
-    channelSummaries :: Prelude.Maybe [ChannelSummary],
+    channelSummaries :: Core.Maybe [ChannelSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListChannelsResponse' with all optional fields omitted.
@@ -172,26 +168,26 @@ data ListChannelsResponse = ListChannelsResponse'
 -- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.
 newListChannelsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListChannelsResponse
 newListChannelsResponse pHttpStatus_ =
   ListChannelsResponse'
-    { nextToken = Prelude.Nothing,
-      channelSummaries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      channelSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to retrieve the next set of results, or @null@ if there are no
 -- more results.
-listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Prelude.Maybe Prelude.Text)
+listChannelsResponse_nextToken :: Lens.Lens' ListChannelsResponse (Core.Maybe Core.Text)
 listChannelsResponse_nextToken = Lens.lens (\ListChannelsResponse' {nextToken} -> nextToken) (\s@ListChannelsResponse' {} a -> s {nextToken = a} :: ListChannelsResponse)
 
 -- | A list of @ChannelSummary@ objects.
-listChannelsResponse_channelSummaries :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [ChannelSummary])
-listChannelsResponse_channelSummaries = Lens.lens (\ListChannelsResponse' {channelSummaries} -> channelSummaries) (\s@ListChannelsResponse' {} a -> s {channelSummaries = a} :: ListChannelsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listChannelsResponse_channelSummaries :: Lens.Lens' ListChannelsResponse (Core.Maybe [ChannelSummary])
+listChannelsResponse_channelSummaries = Lens.lens (\ListChannelsResponse' {channelSummaries} -> channelSummaries) (\s@ListChannelsResponse' {} a -> s {channelSummaries = a} :: ListChannelsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listChannelsResponse_httpStatus :: Lens.Lens' ListChannelsResponse Prelude.Int
+listChannelsResponse_httpStatus :: Lens.Lens' ListChannelsResponse Core.Int
 listChannelsResponse_httpStatus = Lens.lens (\ListChannelsResponse' {httpStatus} -> httpStatus) (\s@ListChannelsResponse' {} a -> s {httpStatus = a} :: ListChannelsResponse)
 
-instance Prelude.NFData ListChannelsResponse
+instance Core.NFData ListChannelsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelQualityJobInput where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.EndpointInput
 import Network.AWS.SageMaker.Types.MonitoringGroundTruthS3Input
 
@@ -34,7 +33,7 @@ data ModelQualityJobInput = ModelQualityJobInput'
     -- | The ground truth label provided for the model.
     groundTruthS3Input :: MonitoringGroundTruthS3Input
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelQualityJobInput' with all optional fields omitted.
@@ -70,29 +69,26 @@ modelQualityJobInput_endpointInput = Lens.lens (\ModelQualityJobInput' {endpoint
 modelQualityJobInput_groundTruthS3Input :: Lens.Lens' ModelQualityJobInput MonitoringGroundTruthS3Input
 modelQualityJobInput_groundTruthS3Input = Lens.lens (\ModelQualityJobInput' {groundTruthS3Input} -> groundTruthS3Input) (\s@ModelQualityJobInput' {} a -> s {groundTruthS3Input = a} :: ModelQualityJobInput)
 
-instance Prelude.FromJSON ModelQualityJobInput where
+instance Core.FromJSON ModelQualityJobInput where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelQualityJobInput"
       ( \x ->
           ModelQualityJobInput'
-            Prelude.<$> (x Prelude..: "EndpointInput")
-            Prelude.<*> (x Prelude..: "GroundTruthS3Input")
+            Core.<$> (x Core..: "EndpointInput")
+            Core.<*> (x Core..: "GroundTruthS3Input")
       )
 
-instance Prelude.Hashable ModelQualityJobInput
+instance Core.Hashable ModelQualityJobInput
 
-instance Prelude.NFData ModelQualityJobInput
+instance Core.NFData ModelQualityJobInput
 
-instance Prelude.ToJSON ModelQualityJobInput where
+instance Core.ToJSON ModelQualityJobInput where
   toJSON ModelQualityJobInput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("EndpointInput" Prelude..= endpointInput),
-            Prelude.Just
-              ( "GroundTruthS3Input"
-                  Prelude..= groundTruthS3Input
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EndpointInput" Core..= endpointInput),
+            Core.Just
+              ("GroundTruthS3Input" Core..= groundTruthS3Input)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.UpgradeStepItem where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.UpgradeStatus
 import Network.AWS.ElasticSearch.Types.UpgradeStep
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a single step of the Upgrade or Upgrade Eligibility Check
 -- workflow.
@@ -37,22 +36,22 @@ data UpgradeStepItem = UpgradeStepItem'
     -- -   Succeeded
     -- -   Succeeded with Issues
     -- -   Failed
-    upgradeStepStatus :: Prelude.Maybe UpgradeStatus,
+    upgradeStepStatus :: Core.Maybe UpgradeStatus,
     -- | The Floating point value representing progress percentage of a
     -- particular step.
-    progressPercent :: Prelude.Maybe Prelude.Double,
+    progressPercent :: Core.Maybe Core.Double,
     -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
     -- does through:
     --
     -- -   PreUpgradeCheck
     -- -   Snapshot
     -- -   Upgrade
-    upgradeStep :: Prelude.Maybe UpgradeStep,
+    upgradeStep :: Core.Maybe UpgradeStep,
     -- | A list of strings containing detailed information about the errors
     -- encountered in a particular step.
-    issues :: Prelude.Maybe [Prelude.Text]
+    issues :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpgradeStepItem' with all optional fields omitted.
@@ -86,11 +85,10 @@ newUpgradeStepItem ::
   UpgradeStepItem
 newUpgradeStepItem =
   UpgradeStepItem'
-    { upgradeStepStatus =
-        Prelude.Nothing,
-      progressPercent = Prelude.Nothing,
-      upgradeStep = Prelude.Nothing,
-      issues = Prelude.Nothing
+    { upgradeStepStatus = Core.Nothing,
+      progressPercent = Core.Nothing,
+      upgradeStep = Core.Nothing,
+      issues = Core.Nothing
     }
 
 -- | The status of a particular step during an upgrade. The status can take
@@ -100,12 +98,12 @@ newUpgradeStepItem =
 -- -   Succeeded
 -- -   Succeeded with Issues
 -- -   Failed
-upgradeStepItem_upgradeStepStatus :: Lens.Lens' UpgradeStepItem (Prelude.Maybe UpgradeStatus)
+upgradeStepItem_upgradeStepStatus :: Lens.Lens' UpgradeStepItem (Core.Maybe UpgradeStatus)
 upgradeStepItem_upgradeStepStatus = Lens.lens (\UpgradeStepItem' {upgradeStepStatus} -> upgradeStepStatus) (\s@UpgradeStepItem' {} a -> s {upgradeStepStatus = a} :: UpgradeStepItem)
 
 -- | The Floating point value representing progress percentage of a
 -- particular step.
-upgradeStepItem_progressPercent :: Lens.Lens' UpgradeStepItem (Prelude.Maybe Prelude.Double)
+upgradeStepItem_progressPercent :: Lens.Lens' UpgradeStepItem (Core.Maybe Core.Double)
 upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent} -> progressPercent) (\s@UpgradeStepItem' {} a -> s {progressPercent = a} :: UpgradeStepItem)
 
 -- | Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check
@@ -114,26 +112,26 @@ upgradeStepItem_progressPercent = Lens.lens (\UpgradeStepItem' {progressPercent}
 -- -   PreUpgradeCheck
 -- -   Snapshot
 -- -   Upgrade
-upgradeStepItem_upgradeStep :: Lens.Lens' UpgradeStepItem (Prelude.Maybe UpgradeStep)
+upgradeStepItem_upgradeStep :: Lens.Lens' UpgradeStepItem (Core.Maybe UpgradeStep)
 upgradeStepItem_upgradeStep = Lens.lens (\UpgradeStepItem' {upgradeStep} -> upgradeStep) (\s@UpgradeStepItem' {} a -> s {upgradeStep = a} :: UpgradeStepItem)
 
 -- | A list of strings containing detailed information about the errors
 -- encountered in a particular step.
-upgradeStepItem_issues :: Lens.Lens' UpgradeStepItem (Prelude.Maybe [Prelude.Text])
-upgradeStepItem_issues = Lens.lens (\UpgradeStepItem' {issues} -> issues) (\s@UpgradeStepItem' {} a -> s {issues = a} :: UpgradeStepItem) Prelude.. Lens.mapping Prelude._Coerce
+upgradeStepItem_issues :: Lens.Lens' UpgradeStepItem (Core.Maybe [Core.Text])
+upgradeStepItem_issues = Lens.lens (\UpgradeStepItem' {issues} -> issues) (\s@UpgradeStepItem' {} a -> s {issues = a} :: UpgradeStepItem) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON UpgradeStepItem where
+instance Core.FromJSON UpgradeStepItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UpgradeStepItem"
       ( \x ->
           UpgradeStepItem'
-            Prelude.<$> (x Prelude..:? "UpgradeStepStatus")
-            Prelude.<*> (x Prelude..:? "ProgressPercent")
-            Prelude.<*> (x Prelude..:? "UpgradeStep")
-            Prelude.<*> (x Prelude..:? "Issues" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "UpgradeStepStatus")
+            Core.<*> (x Core..:? "ProgressPercent")
+            Core.<*> (x Core..:? "UpgradeStep")
+            Core.<*> (x Core..:? "Issues" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable UpgradeStepItem
+instance Core.Hashable UpgradeStepItem
 
-instance Prelude.NFData UpgradeStepItem
+instance Core.NFData UpgradeStepItem

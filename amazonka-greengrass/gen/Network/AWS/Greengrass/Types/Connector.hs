@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.Connector where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a connector. Connectors run on the Greengrass core and
 -- contain built-in integration with local infrastructure, device
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConnector' smart constructor.
 data Connector = Connector'
   { -- | The parameters or configuration that the connector uses.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The ARN of the connector.
-    connectorArn :: Prelude.Text,
+    connectorArn :: Core.Text,
     -- | A descriptive or arbitrary ID for the connector. This value must be
     -- unique within the connector definition version. Max length is 128
     -- characters with pattern [a-zA-Z0-9:_-]+.
-    id :: Prelude.Text
+    id :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Connector' with all optional fields omitted.
@@ -57,55 +56,52 @@ data Connector = Connector'
 -- characters with pattern [a-zA-Z0-9:_-]+.
 newConnector ::
   -- | 'connectorArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   Connector
 newConnector pConnectorArn_ pId_ =
   Connector'
-    { parameters = Prelude.Nothing,
+    { parameters = Core.Nothing,
       connectorArn = pConnectorArn_,
       id = pId_
     }
 
 -- | The parameters or configuration that the connector uses.
-connector_parameters :: Lens.Lens' Connector (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-connector_parameters = Lens.lens (\Connector' {parameters} -> parameters) (\s@Connector' {} a -> s {parameters = a} :: Connector) Prelude.. Lens.mapping Prelude._Coerce
+connector_parameters :: Lens.Lens' Connector (Core.Maybe (Core.HashMap Core.Text Core.Text))
+connector_parameters = Lens.lens (\Connector' {parameters} -> parameters) (\s@Connector' {} a -> s {parameters = a} :: Connector) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the connector.
-connector_connectorArn :: Lens.Lens' Connector Prelude.Text
+connector_connectorArn :: Lens.Lens' Connector Core.Text
 connector_connectorArn = Lens.lens (\Connector' {connectorArn} -> connectorArn) (\s@Connector' {} a -> s {connectorArn = a} :: Connector)
 
 -- | A descriptive or arbitrary ID for the connector. This value must be
 -- unique within the connector definition version. Max length is 128
 -- characters with pattern [a-zA-Z0-9:_-]+.
-connector_id :: Lens.Lens' Connector Prelude.Text
+connector_id :: Lens.Lens' Connector Core.Text
 connector_id = Lens.lens (\Connector' {id} -> id) (\s@Connector' {} a -> s {id = a} :: Connector)
 
-instance Prelude.FromJSON Connector where
+instance Core.FromJSON Connector where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Connector"
       ( \x ->
           Connector'
-            Prelude.<$> ( x Prelude..:? "Parameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "ConnectorArn")
-            Prelude.<*> (x Prelude..: "Id")
+            Core.<$> (x Core..:? "Parameters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "ConnectorArn")
+            Core.<*> (x Core..: "Id")
       )
 
-instance Prelude.Hashable Connector
+instance Core.Hashable Connector
 
-instance Prelude.NFData Connector
+instance Core.NFData Connector
 
-instance Prelude.ToJSON Connector where
+instance Core.ToJSON Connector where
   toJSON Connector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Parameters" Prelude..=) Prelude.<$> parameters,
-            Prelude.Just
-              ("ConnectorArn" Prelude..= connectorArn),
-            Prelude.Just ("Id" Prelude..= id)
+    Core.object
+      ( Core.catMaybes
+          [ ("Parameters" Core..=) Core.<$> parameters,
+            Core.Just ("ConnectorArn" Core..= connectorArn),
+            Core.Just ("Id" Core..= id)
           ]
       )

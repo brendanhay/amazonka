@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteDataQualityJobDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteDataQualityJobDefinition' smart constructor.
 data DeleteDataQualityJobDefinition = DeleteDataQualityJobDefinition'
   { -- | The name of the data quality monitoring job definition to delete.
-    jobDefinitionName :: Prelude.Text
+    jobDefinitionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDataQualityJobDefinition' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteDataQualityJobDefinition = DeleteDataQualityJobDefinition'
 -- 'jobDefinitionName', 'deleteDataQualityJobDefinition_jobDefinitionName' - The name of the data quality monitoring job definition to delete.
 newDeleteDataQualityJobDefinition ::
   -- | 'jobDefinitionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDataQualityJobDefinition
 newDeleteDataQualityJobDefinition pJobDefinitionName_ =
   DeleteDataQualityJobDefinition'
@@ -69,76 +68,61 @@ newDeleteDataQualityJobDefinition pJobDefinitionName_ =
     }
 
 -- | The name of the data quality monitoring job definition to delete.
-deleteDataQualityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteDataQualityJobDefinition Prelude.Text
+deleteDataQualityJobDefinition_jobDefinitionName :: Lens.Lens' DeleteDataQualityJobDefinition Core.Text
 deleteDataQualityJobDefinition_jobDefinitionName = Lens.lens (\DeleteDataQualityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DeleteDataQualityJobDefinition' {} a -> s {jobDefinitionName = a} :: DeleteDataQualityJobDefinition)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteDataQualityJobDefinition
   where
   type
-    Rs DeleteDataQualityJobDefinition =
+    AWSResponse DeleteDataQualityJobDefinition =
       DeleteDataQualityJobDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteDataQualityJobDefinitionResponse'
 
-instance
-  Prelude.Hashable
-    DeleteDataQualityJobDefinition
+instance Core.Hashable DeleteDataQualityJobDefinition
+
+instance Core.NFData DeleteDataQualityJobDefinition
 
 instance
-  Prelude.NFData
-    DeleteDataQualityJobDefinition
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteDataQualityJobDefinition
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteDataQualityJobDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteDataQualityJobDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DeleteDataQualityJobDefinition
-  where
+instance Core.ToJSON DeleteDataQualityJobDefinition where
   toJSON DeleteDataQualityJobDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("JobDefinitionName" Prelude..= jobDefinitionName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("JobDefinitionName" Core..= jobDefinitionName)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DeleteDataQualityJobDefinition
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDataQualityJobDefinition where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DeleteDataQualityJobDefinition
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDataQualityJobDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDataQualityJobDefinitionResponse' smart constructor.
 data DeleteDataQualityJobDefinitionResponse = DeleteDataQualityJobDefinitionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDataQualityJobDefinitionResponse' with all optional fields omitted.
@@ -150,5 +134,5 @@ newDeleteDataQualityJobDefinitionResponse =
   DeleteDataQualityJobDefinitionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteDataQualityJobDefinitionResponse

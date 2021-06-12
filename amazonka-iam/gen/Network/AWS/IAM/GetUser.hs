@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.IAM.GetUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,9 +59,9 @@ data GetUser = GetUser'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text
+    userName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUser' with all optional fields omitted.
@@ -81,7 +80,7 @@ data GetUser = GetUser'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newGetUser ::
   GetUser
-newGetUser = GetUser' {userName = Prelude.Nothing}
+newGetUser = GetUser' {userName = Core.Nothing}
 
 -- | The name of the user to get information about.
 --
@@ -90,39 +89,37 @@ newGetUser = GetUser' {userName = Prelude.Nothing}
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-getUser_userName :: Lens.Lens' GetUser (Prelude.Maybe Prelude.Text)
+getUser_userName :: Lens.Lens' GetUser (Core.Maybe Core.Text)
 getUser_userName = Lens.lens (\GetUser' {userName} -> userName) (\s@GetUser' {} a -> s {userName = a} :: GetUser)
 
-instance Prelude.AWSRequest GetUser where
-  type Rs GetUser = GetUserResponse
+instance Core.AWSRequest GetUser where
+  type AWSResponse GetUser = GetUserResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetUserResult"
       ( \s h x ->
           GetUserResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "User")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "User")
       )
 
-instance Prelude.Hashable GetUser
+instance Core.Hashable GetUser
 
-instance Prelude.NFData GetUser
+instance Core.NFData GetUser
 
-instance Prelude.ToHeaders GetUser where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetUser where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetUser where
+instance Core.ToQuery GetUser where
   toQuery GetUser' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("GetUser" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName
+    Core.mconcat
+      [ "Action" Core.=: ("GetUser" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName
       ]
 
 -- | Contains the response to a successful GetUser request.
@@ -130,7 +127,7 @@ instance Prelude.ToQuery GetUser where
 -- /See:/ 'newGetUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A structure containing details about the IAM user.
     --
     -- Due to a service issue, password last used data does not include
@@ -153,7 +150,7 @@ data GetUserResponse = GetUserResponse'
     -- because it is accurate for all dates.
     user :: User
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserResponse' with all optional fields omitted.
@@ -187,7 +184,7 @@ data GetUserResponse = GetUserResponse'
 -- because it is accurate for all dates.
 newGetUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'user'
   User ->
   GetUserResponse
@@ -198,7 +195,7 @@ newGetUserResponse pHttpStatus_ pUser_ =
     }
 
 -- | The response's http status code.
-getUserResponse_httpStatus :: Lens.Lens' GetUserResponse Prelude.Int
+getUserResponse_httpStatus :: Lens.Lens' GetUserResponse Core.Int
 getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpStatus) (\s@GetUserResponse' {} a -> s {httpStatus = a} :: GetUserResponse)
 
 -- | A structure containing details about the IAM user.
@@ -224,4 +221,4 @@ getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpSt
 getUserResponse_user :: Lens.Lens' GetUserResponse User
 getUserResponse_user = Lens.lens (\GetUserResponse' {user} -> user) (\s@GetUserResponse' {} a -> s {user = a} :: GetUserResponse)
 
-instance Prelude.NFData GetUserResponse
+instance Core.NFData GetUserResponse

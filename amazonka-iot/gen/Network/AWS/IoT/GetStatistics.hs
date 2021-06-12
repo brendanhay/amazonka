@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,25 +45,25 @@ module Network.AWS.IoT.GetStatistics
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetStatistics' smart constructor.
 data GetStatistics = GetStatistics'
   { -- | The name of the index to search. The default value is @AWS_Things@.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | The version of the query used to search.
-    queryVersion :: Prelude.Maybe Prelude.Text,
+    queryVersion :: Core.Maybe Core.Text,
     -- | The aggregation field name.
-    aggregationField :: Prelude.Maybe Prelude.Text,
+    aggregationField :: Core.Maybe Core.Text,
     -- | The query used to search. You can specify \"*\" for the query string to
     -- get the count of all indexed things in your AWS account.
-    queryString :: Prelude.Text
+    queryString :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetStatistics' with all optional fields omitted.
@@ -84,78 +83,80 @@ data GetStatistics = GetStatistics'
 -- get the count of all indexed things in your AWS account.
 newGetStatistics ::
   -- | 'queryString'
-  Prelude.Text ->
+  Core.Text ->
   GetStatistics
 newGetStatistics pQueryString_ =
   GetStatistics'
-    { indexName = Prelude.Nothing,
-      queryVersion = Prelude.Nothing,
-      aggregationField = Prelude.Nothing,
+    { indexName = Core.Nothing,
+      queryVersion = Core.Nothing,
+      aggregationField = Core.Nothing,
       queryString = pQueryString_
     }
 
 -- | The name of the index to search. The default value is @AWS_Things@.
-getStatistics_indexName :: Lens.Lens' GetStatistics (Prelude.Maybe Prelude.Text)
+getStatistics_indexName :: Lens.Lens' GetStatistics (Core.Maybe Core.Text)
 getStatistics_indexName = Lens.lens (\GetStatistics' {indexName} -> indexName) (\s@GetStatistics' {} a -> s {indexName = a} :: GetStatistics)
 
 -- | The version of the query used to search.
-getStatistics_queryVersion :: Lens.Lens' GetStatistics (Prelude.Maybe Prelude.Text)
+getStatistics_queryVersion :: Lens.Lens' GetStatistics (Core.Maybe Core.Text)
 getStatistics_queryVersion = Lens.lens (\GetStatistics' {queryVersion} -> queryVersion) (\s@GetStatistics' {} a -> s {queryVersion = a} :: GetStatistics)
 
 -- | The aggregation field name.
-getStatistics_aggregationField :: Lens.Lens' GetStatistics (Prelude.Maybe Prelude.Text)
+getStatistics_aggregationField :: Lens.Lens' GetStatistics (Core.Maybe Core.Text)
 getStatistics_aggregationField = Lens.lens (\GetStatistics' {aggregationField} -> aggregationField) (\s@GetStatistics' {} a -> s {aggregationField = a} :: GetStatistics)
 
 -- | The query used to search. You can specify \"*\" for the query string to
 -- get the count of all indexed things in your AWS account.
-getStatistics_queryString :: Lens.Lens' GetStatistics Prelude.Text
+getStatistics_queryString :: Lens.Lens' GetStatistics Core.Text
 getStatistics_queryString = Lens.lens (\GetStatistics' {queryString} -> queryString) (\s@GetStatistics' {} a -> s {queryString = a} :: GetStatistics)
 
-instance Prelude.AWSRequest GetStatistics where
-  type Rs GetStatistics = GetStatisticsResponse
+instance Core.AWSRequest GetStatistics where
+  type
+    AWSResponse GetStatistics =
+      GetStatisticsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetStatisticsResponse'
-            Prelude.<$> (x Prelude..?> "statistics")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "statistics")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetStatistics
+instance Core.Hashable GetStatistics
 
-instance Prelude.NFData GetStatistics
+instance Core.NFData GetStatistics
 
-instance Prelude.ToHeaders GetStatistics where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetStatistics where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetStatistics where
+instance Core.ToJSON GetStatistics where
   toJSON GetStatistics' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("indexName" Prelude..=) Prelude.<$> indexName,
-            ("queryVersion" Prelude..=) Prelude.<$> queryVersion,
-            ("aggregationField" Prelude..=)
-              Prelude.<$> aggregationField,
-            Prelude.Just ("queryString" Prelude..= queryString)
+    Core.object
+      ( Core.catMaybes
+          [ ("indexName" Core..=) Core.<$> indexName,
+            ("queryVersion" Core..=) Core.<$> queryVersion,
+            ("aggregationField" Core..=)
+              Core.<$> aggregationField,
+            Core.Just ("queryString" Core..= queryString)
           ]
       )
 
-instance Prelude.ToPath GetStatistics where
-  toPath = Prelude.const "/indices/statistics"
+instance Core.ToPath GetStatistics where
+  toPath = Core.const "/indices/statistics"
 
-instance Prelude.ToQuery GetStatistics where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetStatistics where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetStatisticsResponse' smart constructor.
 data GetStatisticsResponse = GetStatisticsResponse'
   { -- | The statistics returned by the Fleet Indexing service based on the query
     -- and aggregation field.
-    statistics :: Prelude.Maybe Statistics,
+    statistics :: Core.Maybe Statistics,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetStatisticsResponse' with all optional fields omitted.
@@ -171,22 +172,21 @@ data GetStatisticsResponse = GetStatisticsResponse'
 -- 'httpStatus', 'getStatisticsResponse_httpStatus' - The response's http status code.
 newGetStatisticsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetStatisticsResponse
 newGetStatisticsResponse pHttpStatus_ =
   GetStatisticsResponse'
-    { statistics =
-        Prelude.Nothing,
+    { statistics = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The statistics returned by the Fleet Indexing service based on the query
 -- and aggregation field.
-getStatisticsResponse_statistics :: Lens.Lens' GetStatisticsResponse (Prelude.Maybe Statistics)
+getStatisticsResponse_statistics :: Lens.Lens' GetStatisticsResponse (Core.Maybe Statistics)
 getStatisticsResponse_statistics = Lens.lens (\GetStatisticsResponse' {statistics} -> statistics) (\s@GetStatisticsResponse' {} a -> s {statistics = a} :: GetStatisticsResponse)
 
 -- | The response's http status code.
-getStatisticsResponse_httpStatus :: Lens.Lens' GetStatisticsResponse Prelude.Int
+getStatisticsResponse_httpStatus :: Lens.Lens' GetStatisticsResponse Core.Int
 getStatisticsResponse_httpStatus = Lens.lens (\GetStatisticsResponse' {httpStatus} -> httpStatus) (\s@GetStatisticsResponse' {} a -> s {httpStatus = a} :: GetStatisticsResponse)
 
-instance Prelude.NFData GetStatisticsResponse
+instance Core.NFData GetStatisticsResponse

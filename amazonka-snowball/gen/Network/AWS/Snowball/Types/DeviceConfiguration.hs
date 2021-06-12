@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.DeviceConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
 
 -- | The container for @SnowconeDeviceConfiguration@.
@@ -30,9 +29,9 @@ import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
 data DeviceConfiguration = DeviceConfiguration'
   { -- | Returns information about the device configuration for an AWS Snowcone
     -- job.
-    snowconeDeviceConfiguration :: Prelude.Maybe SnowconeDeviceConfiguration
+    snowconeDeviceConfiguration :: Core.Maybe SnowconeDeviceConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeviceConfiguration' with all optional fields omitted.
@@ -49,32 +48,32 @@ newDeviceConfiguration ::
 newDeviceConfiguration =
   DeviceConfiguration'
     { snowconeDeviceConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Returns information about the device configuration for an AWS Snowcone
 -- job.
-deviceConfiguration_snowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Prelude.Maybe SnowconeDeviceConfiguration)
+deviceConfiguration_snowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Core.Maybe SnowconeDeviceConfiguration)
 deviceConfiguration_snowconeDeviceConfiguration = Lens.lens (\DeviceConfiguration' {snowconeDeviceConfiguration} -> snowconeDeviceConfiguration) (\s@DeviceConfiguration' {} a -> s {snowconeDeviceConfiguration = a} :: DeviceConfiguration)
 
-instance Prelude.FromJSON DeviceConfiguration where
+instance Core.FromJSON DeviceConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeviceConfiguration"
       ( \x ->
           DeviceConfiguration'
-            Prelude.<$> (x Prelude..:? "SnowconeDeviceConfiguration")
+            Core.<$> (x Core..:? "SnowconeDeviceConfiguration")
       )
 
-instance Prelude.Hashable DeviceConfiguration
+instance Core.Hashable DeviceConfiguration
 
-instance Prelude.NFData DeviceConfiguration
+instance Core.NFData DeviceConfiguration
 
-instance Prelude.ToJSON DeviceConfiguration where
+instance Core.ToJSON DeviceConfiguration where
   toJSON DeviceConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SnowconeDeviceConfiguration" Prelude..=)
-              Prelude.<$> snowconeDeviceConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("SnowconeDeviceConfiguration" Core..=)
+              Core.<$> snowconeDeviceConfiguration
           ]
       )

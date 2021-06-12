@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,9 +62,9 @@ module Network.AWS.GameLift.DeleteMatchmakingRuleSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -76,9 +75,9 @@ data DeleteMatchmakingRuleSet = DeleteMatchmakingRuleSet'
   { -- | A unique identifier for a matchmaking rule set to be deleted. (Note: The
     -- rule set name is different from the optional \"name\" field in the rule
     -- set body.) You can use either the rule set name or ARN value.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMatchmakingRuleSet' with all optional fields omitted.
@@ -93,7 +92,7 @@ data DeleteMatchmakingRuleSet = DeleteMatchmakingRuleSet'
 -- set body.) You can use either the rule set name or ARN value.
 newDeleteMatchmakingRuleSet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteMatchmakingRuleSet
 newDeleteMatchmakingRuleSet pName_ =
   DeleteMatchmakingRuleSet' {name = pName_}
@@ -101,61 +100,57 @@ newDeleteMatchmakingRuleSet pName_ =
 -- | A unique identifier for a matchmaking rule set to be deleted. (Note: The
 -- rule set name is different from the optional \"name\" field in the rule
 -- set body.) You can use either the rule set name or ARN value.
-deleteMatchmakingRuleSet_name :: Lens.Lens' DeleteMatchmakingRuleSet Prelude.Text
+deleteMatchmakingRuleSet_name :: Lens.Lens' DeleteMatchmakingRuleSet Core.Text
 deleteMatchmakingRuleSet_name = Lens.lens (\DeleteMatchmakingRuleSet' {name} -> name) (\s@DeleteMatchmakingRuleSet' {} a -> s {name = a} :: DeleteMatchmakingRuleSet)
 
-instance Prelude.AWSRequest DeleteMatchmakingRuleSet where
+instance Core.AWSRequest DeleteMatchmakingRuleSet where
   type
-    Rs DeleteMatchmakingRuleSet =
+    AWSResponse DeleteMatchmakingRuleSet =
       DeleteMatchmakingRuleSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMatchmakingRuleSetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteMatchmakingRuleSet
+instance Core.Hashable DeleteMatchmakingRuleSet
 
-instance Prelude.NFData DeleteMatchmakingRuleSet
+instance Core.NFData DeleteMatchmakingRuleSet
 
-instance Prelude.ToHeaders DeleteMatchmakingRuleSet where
+instance Core.ToHeaders DeleteMatchmakingRuleSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.DeleteMatchmakingRuleSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.DeleteMatchmakingRuleSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteMatchmakingRuleSet where
+instance Core.ToJSON DeleteMatchmakingRuleSet where
   toJSON DeleteMatchmakingRuleSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteMatchmakingRuleSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteMatchmakingRuleSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteMatchmakingRuleSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteMatchmakingRuleSet where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'newDeleteMatchmakingRuleSetResponse' smart constructor.
 data DeleteMatchmakingRuleSetResponse = DeleteMatchmakingRuleSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteMatchmakingRuleSetResponse' with all optional fields omitted.
@@ -168,7 +163,7 @@ data DeleteMatchmakingRuleSetResponse = DeleteMatchmakingRuleSetResponse'
 -- 'httpStatus', 'deleteMatchmakingRuleSetResponse_httpStatus' - The response's http status code.
 newDeleteMatchmakingRuleSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteMatchmakingRuleSetResponse
 newDeleteMatchmakingRuleSetResponse pHttpStatus_ =
   DeleteMatchmakingRuleSetResponse'
@@ -177,9 +172,7 @@ newDeleteMatchmakingRuleSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteMatchmakingRuleSetResponse_httpStatus :: Lens.Lens' DeleteMatchmakingRuleSetResponse Prelude.Int
+deleteMatchmakingRuleSetResponse_httpStatus :: Lens.Lens' DeleteMatchmakingRuleSetResponse Core.Int
 deleteMatchmakingRuleSetResponse_httpStatus = Lens.lens (\DeleteMatchmakingRuleSetResponse' {httpStatus} -> httpStatus) (\s@DeleteMatchmakingRuleSetResponse' {} a -> s {httpStatus = a} :: DeleteMatchmakingRuleSetResponse)
 
-instance
-  Prelude.NFData
-    DeleteMatchmakingRuleSetResponse
+instance Core.NFData DeleteMatchmakingRuleSetResponse

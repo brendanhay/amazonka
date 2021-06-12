@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.PutTargetsResultEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a target that failed to be added to a rule.
 --
 -- /See:/ 'newPutTargetsResultEntry' smart constructor.
 data PutTargetsResultEntry = PutTargetsResultEntry'
   { -- | The ID of the target.
-    targetId :: Prelude.Maybe Prelude.Text,
+    targetId :: Core.Maybe Core.Text,
     -- | The error message that explains why the target addition failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code that indicates why the target addition failed. If the
     -- value is @ConcurrentModificationException@, too many requests were made
     -- at the same time.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutTargetsResultEntry' with all optional fields omitted.
@@ -57,36 +56,36 @@ newPutTargetsResultEntry ::
   PutTargetsResultEntry
 newPutTargetsResultEntry =
   PutTargetsResultEntry'
-    { targetId = Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { targetId = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The ID of the target.
-putTargetsResultEntry_targetId :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
+putTargetsResultEntry_targetId :: Lens.Lens' PutTargetsResultEntry (Core.Maybe Core.Text)
 putTargetsResultEntry_targetId = Lens.lens (\PutTargetsResultEntry' {targetId} -> targetId) (\s@PutTargetsResultEntry' {} a -> s {targetId = a} :: PutTargetsResultEntry)
 
 -- | The error message that explains why the target addition failed.
-putTargetsResultEntry_errorMessage :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
+putTargetsResultEntry_errorMessage :: Lens.Lens' PutTargetsResultEntry (Core.Maybe Core.Text)
 putTargetsResultEntry_errorMessage = Lens.lens (\PutTargetsResultEntry' {errorMessage} -> errorMessage) (\s@PutTargetsResultEntry' {} a -> s {errorMessage = a} :: PutTargetsResultEntry)
 
 -- | The error code that indicates why the target addition failed. If the
 -- value is @ConcurrentModificationException@, too many requests were made
 -- at the same time.
-putTargetsResultEntry_errorCode :: Lens.Lens' PutTargetsResultEntry (Prelude.Maybe Prelude.Text)
+putTargetsResultEntry_errorCode :: Lens.Lens' PutTargetsResultEntry (Core.Maybe Core.Text)
 putTargetsResultEntry_errorCode = Lens.lens (\PutTargetsResultEntry' {errorCode} -> errorCode) (\s@PutTargetsResultEntry' {} a -> s {errorCode = a} :: PutTargetsResultEntry)
 
-instance Prelude.FromJSON PutTargetsResultEntry where
+instance Core.FromJSON PutTargetsResultEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PutTargetsResultEntry"
       ( \x ->
           PutTargetsResultEntry'
-            Prelude.<$> (x Prelude..:? "TargetId")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "TargetId")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable PutTargetsResultEntry
+instance Core.Hashable PutTargetsResultEntry
 
-instance Prelude.NFData PutTargetsResultEntry
+instance Core.NFData PutTargetsResultEntry

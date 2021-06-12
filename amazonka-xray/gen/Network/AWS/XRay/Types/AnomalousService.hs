@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.AnomalousService where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.ServiceId
 
 -- | The service within the service graph that has anomalously high fault
@@ -29,9 +28,9 @@ import Network.AWS.XRay.Types.ServiceId
 --
 -- /See:/ 'newAnomalousService' smart constructor.
 data AnomalousService = AnomalousService'
-  { serviceId :: Prelude.Maybe ServiceId
+  { serviceId :: Core.Maybe ServiceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnomalousService' with all optional fields omitted.
@@ -45,21 +44,20 @@ data AnomalousService = AnomalousService'
 newAnomalousService ::
   AnomalousService
 newAnomalousService =
-  AnomalousService' {serviceId = Prelude.Nothing}
+  AnomalousService' {serviceId = Core.Nothing}
 
 -- | Undocumented member.
-anomalousService_serviceId :: Lens.Lens' AnomalousService (Prelude.Maybe ServiceId)
+anomalousService_serviceId :: Lens.Lens' AnomalousService (Core.Maybe ServiceId)
 anomalousService_serviceId = Lens.lens (\AnomalousService' {serviceId} -> serviceId) (\s@AnomalousService' {} a -> s {serviceId = a} :: AnomalousService)
 
-instance Prelude.FromJSON AnomalousService where
+instance Core.FromJSON AnomalousService where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AnomalousService"
       ( \x ->
-          AnomalousService'
-            Prelude.<$> (x Prelude..:? "ServiceId")
+          AnomalousService' Core.<$> (x Core..:? "ServiceId")
       )
 
-instance Prelude.Hashable AnomalousService
+instance Core.Hashable AnomalousService
 
-instance Prelude.NFData AnomalousService
+instance Core.NFData AnomalousService

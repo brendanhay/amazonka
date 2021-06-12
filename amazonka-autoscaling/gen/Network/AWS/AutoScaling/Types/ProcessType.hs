@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.ProcessType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a process type.
 --
@@ -50,9 +49,9 @@ data ProcessType = ProcessType'
     -- -   @ReplaceUnhealthy@
     --
     -- -   @ScheduledActions@
-    processName :: Prelude.Text
+    processName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessType' with all optional fields omitted.
@@ -83,7 +82,7 @@ data ProcessType = ProcessType'
 -- -   @ScheduledActions@
 newProcessType ::
   -- | 'processName'
-  Prelude.Text ->
+  Core.Text ->
   ProcessType
 newProcessType pProcessName_ =
   ProcessType' {processName = pProcessName_}
@@ -107,14 +106,13 @@ newProcessType pProcessName_ =
 -- -   @ReplaceUnhealthy@
 --
 -- -   @ScheduledActions@
-processType_processName :: Lens.Lens' ProcessType Prelude.Text
+processType_processName :: Lens.Lens' ProcessType Core.Text
 processType_processName = Lens.lens (\ProcessType' {processName} -> processName) (\s@ProcessType' {} a -> s {processName = a} :: ProcessType)
 
-instance Prelude.FromXML ProcessType where
+instance Core.FromXML ProcessType where
   parseXML x =
-    ProcessType'
-      Prelude.<$> (x Prelude..@ "ProcessName")
+    ProcessType' Core.<$> (x Core..@ "ProcessName")
 
-instance Prelude.Hashable ProcessType
+instance Core.Hashable ProcessType
 
-instance Prelude.NFData ProcessType
+instance Core.NFData ProcessType

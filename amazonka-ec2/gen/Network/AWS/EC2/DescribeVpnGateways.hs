@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.EC2.DescribeVpnGateways
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,11 +59,11 @@ data DescribeVpnGateways = DescribeVpnGateways'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more virtual private gateway IDs.
     --
     -- Default: Describes all your virtual private gateways.
-    vpnGatewayIds :: Prelude.Maybe [Prelude.Text],
+    vpnGatewayIds :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @amazon-side-asn@ - The Autonomous System Number (ASN) for the
@@ -96,9 +95,9 @@ data DescribeVpnGateways = DescribeVpnGateways'
     --     supported type is @ipsec.1@.
     --
     -- -   @vpn-gateway-id@ - The ID of the virtual private gateway.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpnGateways' with all optional fields omitted.
@@ -152,23 +151,23 @@ newDescribeVpnGateways ::
   DescribeVpnGateways
 newDescribeVpnGateways =
   DescribeVpnGateways'
-    { dryRun = Prelude.Nothing,
-      vpnGatewayIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { dryRun = Core.Nothing,
+      vpnGatewayIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeVpnGateways_dryRun :: Lens.Lens' DescribeVpnGateways (Prelude.Maybe Prelude.Bool)
+describeVpnGateways_dryRun :: Lens.Lens' DescribeVpnGateways (Core.Maybe Core.Bool)
 describeVpnGateways_dryRun = Lens.lens (\DescribeVpnGateways' {dryRun} -> dryRun) (\s@DescribeVpnGateways' {} a -> s {dryRun = a} :: DescribeVpnGateways)
 
 -- | One or more virtual private gateway IDs.
 --
 -- Default: Describes all your virtual private gateways.
-describeVpnGateways_vpnGatewayIds :: Lens.Lens' DescribeVpnGateways (Prelude.Maybe [Prelude.Text])
-describeVpnGateways_vpnGatewayIds = Lens.lens (\DescribeVpnGateways' {vpnGatewayIds} -> vpnGatewayIds) (\s@DescribeVpnGateways' {} a -> s {vpnGatewayIds = a} :: DescribeVpnGateways) Prelude.. Lens.mapping Prelude._Coerce
+describeVpnGateways_vpnGatewayIds :: Lens.Lens' DescribeVpnGateways (Core.Maybe [Core.Text])
+describeVpnGateways_vpnGatewayIds = Lens.lens (\DescribeVpnGateways' {vpnGatewayIds} -> vpnGatewayIds) (\s@DescribeVpnGateways' {} a -> s {vpnGatewayIds = a} :: DescribeVpnGateways) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -201,49 +200,47 @@ describeVpnGateways_vpnGatewayIds = Lens.lens (\DescribeVpnGateways' {vpnGateway
 --     supported type is @ipsec.1@.
 --
 -- -   @vpn-gateway-id@ - The ID of the virtual private gateway.
-describeVpnGateways_filters :: Lens.Lens' DescribeVpnGateways (Prelude.Maybe [Filter])
-describeVpnGateways_filters = Lens.lens (\DescribeVpnGateways' {filters} -> filters) (\s@DescribeVpnGateways' {} a -> s {filters = a} :: DescribeVpnGateways) Prelude.. Lens.mapping Prelude._Coerce
+describeVpnGateways_filters :: Lens.Lens' DescribeVpnGateways (Core.Maybe [Filter])
+describeVpnGateways_filters = Lens.lens (\DescribeVpnGateways' {filters} -> filters) (\s@DescribeVpnGateways' {} a -> s {filters = a} :: DescribeVpnGateways) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeVpnGateways where
+instance Core.AWSRequest DescribeVpnGateways where
   type
-    Rs DescribeVpnGateways =
+    AWSResponse DescribeVpnGateways =
       DescribeVpnGatewaysResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeVpnGatewaysResponse'
-            Prelude.<$> ( x Prelude..@? "vpnGatewaySet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "vpnGatewaySet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeVpnGateways
+instance Core.Hashable DescribeVpnGateways
 
-instance Prelude.NFData DescribeVpnGateways
+instance Core.NFData DescribeVpnGateways
 
-instance Prelude.ToHeaders DescribeVpnGateways where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeVpnGateways where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeVpnGateways where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeVpnGateways where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeVpnGateways where
+instance Core.ToQuery DescribeVpnGateways where
   toQuery DescribeVpnGateways' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeVpnGateways" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "VpnGatewayId"
-              Prelude.<$> vpnGatewayIds
+          Core.=: ("DescribeVpnGateways" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "VpnGatewayId"
+              Core.<$> vpnGatewayIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | Contains the output of DescribeVpnGateways.
@@ -251,11 +248,11 @@ instance Prelude.ToQuery DescribeVpnGateways where
 -- /See:/ 'newDescribeVpnGatewaysResponse' smart constructor.
 data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse'
   { -- | Information about one or more virtual private gateways.
-    vpnGateways :: Prelude.Maybe [VpnGateway],
+    vpnGateways :: Core.Maybe [VpnGateway],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeVpnGatewaysResponse' with all optional fields omitted.
@@ -270,21 +267,21 @@ data DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse'
 -- 'httpStatus', 'describeVpnGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeVpnGatewaysResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeVpnGatewaysResponse
 newDescribeVpnGatewaysResponse pHttpStatus_ =
   DescribeVpnGatewaysResponse'
     { vpnGateways =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about one or more virtual private gateways.
-describeVpnGatewaysResponse_vpnGateways :: Lens.Lens' DescribeVpnGatewaysResponse (Prelude.Maybe [VpnGateway])
-describeVpnGatewaysResponse_vpnGateways = Lens.lens (\DescribeVpnGatewaysResponse' {vpnGateways} -> vpnGateways) (\s@DescribeVpnGatewaysResponse' {} a -> s {vpnGateways = a} :: DescribeVpnGatewaysResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeVpnGatewaysResponse_vpnGateways :: Lens.Lens' DescribeVpnGatewaysResponse (Core.Maybe [VpnGateway])
+describeVpnGatewaysResponse_vpnGateways = Lens.lens (\DescribeVpnGatewaysResponse' {vpnGateways} -> vpnGateways) (\s@DescribeVpnGatewaysResponse' {} a -> s {vpnGateways = a} :: DescribeVpnGatewaysResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeVpnGatewaysResponse_httpStatus :: Lens.Lens' DescribeVpnGatewaysResponse Prelude.Int
+describeVpnGatewaysResponse_httpStatus :: Lens.Lens' DescribeVpnGatewaysResponse Core.Int
 describeVpnGatewaysResponse_httpStatus = Lens.lens (\DescribeVpnGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeVpnGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeVpnGatewaysResponse)
 
-instance Prelude.NFData DescribeVpnGatewaysResponse
+instance Core.NFData DescribeVpnGatewaysResponse

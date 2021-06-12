@@ -169,6 +169,7 @@ module Network.AWS.EFS.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.AccessPointDescription
 import Network.AWS.EFS.Types.BackupPolicy
 import Network.AWS.EFS.Types.BackupPolicyDescription
@@ -188,169 +189,166 @@ import Network.AWS.EFS.Types.Tag
 import Network.AWS.EFS.Types.ThroughputMode
 import Network.AWS.EFS.Types.TransitionToIARules
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-02-01@ of the Amazon Elastic File System SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "EFS",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "elasticfilesystem",
-      Prelude._svcSigningName = "elasticfilesystem",
-      Prelude._svcVersion = "2015-02-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseJSONError "EFS",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "EFS",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "elasticfilesystem",
+      Core._serviceSigningName = "elasticfilesystem",
+      Core._serviceVersion = "2015-02-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "EFS",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | Returned if the size of @SecurityGroups@ specified in the request is
 -- greater than five.
-_SecurityGroupLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SecurityGroupLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SecurityGroupLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SecurityGroupLimitExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Returned if a file system has mount targets.
-_FileSystemInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_FileSystemInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _FileSystemInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "FileSystemInUse"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | The service timed out trying to fulfill the request, and the client
 -- should try the call again.
-_DependencyTimeout :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DependencyTimeout :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DependencyTimeout =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DependencyTimeout"
-    Prelude.. Prelude.hasStatus 504
+    Core.. Core.hasStatus 504
 
 -- | Returned if the throughput mode or amount of provisioned throughput
 -- can\'t be changed because the throughput limit of 1024 MiB\/s has been
 -- reached.
-_ThroughputLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ThroughputLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ThroughputLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ThroughputLimitExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Returned if the access point you are trying to create already exists,
 -- with the creation token you provided in the request.
-_AccessPointAlreadyExists :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessPointAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessPointAlreadyExists =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessPointAlreadyExists"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if the AWS account has already created the maximum number of
 -- access points allowed per file system.
-_AccessPointLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessPointLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessPointLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessPointLimitExceeded"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | Returned if the @FileSystemPolicy@ is is malformed or contains an error
 -- such as an invalid parameter value or a missing required parameter.
 -- Returned in the case of a policy lockout safety check error.
-_InvalidPolicyException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidPolicyException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidPolicyException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Returned if the specified @AccessPointId@ value doesn\'t exist in the
 -- requester\'s AWS account.
-_AccessPointNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessPointNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AccessPointNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AccessPointNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Returned if the specified @FileSystemId@ value doesn\'t exist in the
 -- requester\'s AWS account.
-_FileSystemNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_FileSystemNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _FileSystemNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "FileSystemNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Returned if there is no subnet with ID @SubnetId@ provided in the
 -- request.
-_SubnetNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The calling account has reached the limit for elastic network interfaces
 -- for the specific AWS Region. The client should try to delete some
@@ -359,92 +357,90 @@ _SubnetNotFound =
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits>
 -- in the /Amazon VPC User Guide/ (see the Network interfaces per VPC entry
 -- in the table).
-_NetworkInterfaceLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NetworkInterfaceLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NetworkInterfaceLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NetworkInterfaceLimitExceeded"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if the file system you are trying to create already exists,
 -- with the creation token you provided.
-_FileSystemAlreadyExists :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_FileSystemAlreadyExists :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _FileSystemAlreadyExists =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "FileSystemAlreadyExists"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if you don’t wait at least 24 hours before changing the
 -- throughput mode, or decreasing the Provisioned Throughput value.
-_TooManyRequests :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRequests :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyRequests =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyRequests"
-    Prelude.. Prelude.hasStatus 429
+    Core.. Core.hasStatus 429
 
 -- | Returned if the AWS account has already created the maximum number of
 -- file systems allowed per account.
-_FileSystemLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_FileSystemLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _FileSystemLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "FileSystemLimitExceeded"
-    Prelude.. Prelude.hasStatus 403
+    Core.. Core.hasStatus 403
 
 -- | Returned if the mount target is not in the correct state for the
 -- operation.
-_IncorrectMountTargetState :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IncorrectMountTargetState :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IncorrectMountTargetState =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IncorrectMountTargetState"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if an error occurred on the server side.
-_InternalServerError :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServerError"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | Returned if there is no mount target with the specified ID found in the
 -- caller\'s account.
-_MountTargetNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MountTargetNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MountTargetNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MountTargetNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Returned if the AWS Backup service is not available in the region that
 -- the request was made.
-_ValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ValidationException"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | Returned if @IpAddress@ was not specified in the request and there are
 -- no free IP addresses in the subnet.
-_NoFreeAddressesInSubnet :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoFreeAddressesInSubnet :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _NoFreeAddressesInSubnet =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "NoFreeAddressesInSubnet"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if the request is malformed or contains an error such as an
 -- invalid parameter value or a missing required parameter.
-_BadRequest :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BadRequest :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _BadRequest =
-  Prelude._MatchServiceError
-    defaultService
-    "BadRequest"
-    Prelude.. Prelude.hasStatus 400
+  Core._MatchServiceError defaultService "BadRequest"
+    Core.. Core.hasStatus 400
 
 -- | Returned if there\'s not enough capacity to provision additional
 -- throughput. This value might be returned when you try to create a file
@@ -452,61 +448,61 @@ _BadRequest =
 -- provisioned throughput of an existing file system, or when you attempt
 -- to change an existing file system from bursting to provisioned
 -- throughput mode.
-_InsufficientThroughputCapacity :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InsufficientThroughputCapacity :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InsufficientThroughputCapacity =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InsufficientThroughputCapacity"
-    Prelude.. Prelude.hasStatus 503
+    Core.. Core.hasStatus 503
 
 -- | Returned if the default file system policy is in effect for the EFS file
 -- system specified.
-_PolicyNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PolicyNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PolicyNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PolicyNotFound"
-    Prelude.. Prelude.hasStatus 404
+    Core.. Core.hasStatus 404
 
 -- | Returned if the file system\'s lifecycle state is not \"available\".
-_IncorrectFileSystemLifeCycleState :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IncorrectFileSystemLifeCycleState =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IncorrectFileSystemLifeCycleState"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if the request specified an @IpAddress@ that is already in use
 -- in the subnet.
-_IpAddressInUse :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IpAddressInUse :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IpAddressInUse =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IpAddressInUse"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if the mount target would violate one of the specified
 -- restrictions based on the file system\'s existing mount targets.
-_MountTargetConflict :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MountTargetConflict :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _MountTargetConflict =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "MountTargetConflict"
-    Prelude.. Prelude.hasStatus 409
+    Core.. Core.hasStatus 409
 
 -- | Returned if one of the specified security groups doesn\'t exist in the
 -- subnet\'s VPC.
-_SecurityGroupNotFound :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SecurityGroupNotFound :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SecurityGroupNotFound =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SecurityGroupNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- |
-_UnsupportedAvailabilityZone :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedAvailabilityZone :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedAvailabilityZone =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedAvailabilityZone"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

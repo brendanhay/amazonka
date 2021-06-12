@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,17 +43,17 @@ module Network.AWS.CloudWatchEvents.DeactivateEventSource
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeactivateEventSource' smart constructor.
 data DeactivateEventSource = DeactivateEventSource'
   { -- | The name of the partner event source to deactivate.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeactivateEventSource' with all optional fields omitted.
@@ -67,60 +66,56 @@ data DeactivateEventSource = DeactivateEventSource'
 -- 'name', 'deactivateEventSource_name' - The name of the partner event source to deactivate.
 newDeactivateEventSource ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeactivateEventSource
 newDeactivateEventSource pName_ =
   DeactivateEventSource' {name = pName_}
 
 -- | The name of the partner event source to deactivate.
-deactivateEventSource_name :: Lens.Lens' DeactivateEventSource Prelude.Text
+deactivateEventSource_name :: Lens.Lens' DeactivateEventSource Core.Text
 deactivateEventSource_name = Lens.lens (\DeactivateEventSource' {name} -> name) (\s@DeactivateEventSource' {} a -> s {name = a} :: DeactivateEventSource)
 
-instance Prelude.AWSRequest DeactivateEventSource where
+instance Core.AWSRequest DeactivateEventSource where
   type
-    Rs DeactivateEventSource =
+    AWSResponse DeactivateEventSource =
       DeactivateEventSourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeactivateEventSourceResponse'
 
-instance Prelude.Hashable DeactivateEventSource
+instance Core.Hashable DeactivateEventSource
 
-instance Prelude.NFData DeactivateEventSource
+instance Core.NFData DeactivateEventSource
 
-instance Prelude.ToHeaders DeactivateEventSource where
+instance Core.ToHeaders DeactivateEventSource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.DeactivateEventSource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSEvents.DeactivateEventSource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeactivateEventSource where
+instance Core.ToJSON DeactivateEventSource where
   toJSON DeactivateEventSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeactivateEventSource where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeactivateEventSource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeactivateEventSource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeactivateEventSource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeactivateEventSourceResponse' smart constructor.
 data DeactivateEventSourceResponse = DeactivateEventSourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeactivateEventSourceResponse' with all optional fields omitted.
@@ -131,4 +126,4 @@ newDeactivateEventSourceResponse ::
 newDeactivateEventSourceResponse =
   DeactivateEventSourceResponse'
 
-instance Prelude.NFData DeactivateEventSourceResponse
+instance Core.NFData DeactivateEventSourceResponse

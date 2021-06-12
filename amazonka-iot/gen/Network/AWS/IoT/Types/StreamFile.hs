@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.StreamFile where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.S3Location
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a file to stream.
 --
 -- /See:/ 'newStreamFile' smart constructor.
 data StreamFile = StreamFile'
   { -- | The location of the file in S3.
-    s3Location :: Prelude.Maybe S3Location,
+    s3Location :: Core.Maybe S3Location,
     -- | The file ID.
-    fileId :: Prelude.Maybe Prelude.Natural
+    fileId :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamFile' with all optional fields omitted.
@@ -50,37 +49,37 @@ newStreamFile ::
   StreamFile
 newStreamFile =
   StreamFile'
-    { s3Location = Prelude.Nothing,
-      fileId = Prelude.Nothing
+    { s3Location = Core.Nothing,
+      fileId = Core.Nothing
     }
 
 -- | The location of the file in S3.
-streamFile_s3Location :: Lens.Lens' StreamFile (Prelude.Maybe S3Location)
+streamFile_s3Location :: Lens.Lens' StreamFile (Core.Maybe S3Location)
 streamFile_s3Location = Lens.lens (\StreamFile' {s3Location} -> s3Location) (\s@StreamFile' {} a -> s {s3Location = a} :: StreamFile)
 
 -- | The file ID.
-streamFile_fileId :: Lens.Lens' StreamFile (Prelude.Maybe Prelude.Natural)
+streamFile_fileId :: Lens.Lens' StreamFile (Core.Maybe Core.Natural)
 streamFile_fileId = Lens.lens (\StreamFile' {fileId} -> fileId) (\s@StreamFile' {} a -> s {fileId = a} :: StreamFile)
 
-instance Prelude.FromJSON StreamFile where
+instance Core.FromJSON StreamFile where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StreamFile"
       ( \x ->
           StreamFile'
-            Prelude.<$> (x Prelude..:? "s3Location")
-            Prelude.<*> (x Prelude..:? "fileId")
+            Core.<$> (x Core..:? "s3Location")
+            Core.<*> (x Core..:? "fileId")
       )
 
-instance Prelude.Hashable StreamFile
+instance Core.Hashable StreamFile
 
-instance Prelude.NFData StreamFile
+instance Core.NFData StreamFile
 
-instance Prelude.ToJSON StreamFile where
+instance Core.ToJSON StreamFile where
   toJSON StreamFile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("s3Location" Prelude..=) Prelude.<$> s3Location,
-            ("fileId" Prelude..=) Prelude.<$> fileId
+    Core.object
+      ( Core.catMaybes
+          [ ("s3Location" Core..=) Core.<$> s3Location,
+            ("fileId" Core..=) Core.<$> fileId
           ]
       )

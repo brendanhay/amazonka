@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.SamplingTargetDocument where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Temporary changes to a sampling rule configuration. To meet the global
 -- sampling target for a rule, X-Ray calculates a new reservoir for each
@@ -31,19 +30,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSamplingTargetDocument' smart constructor.
 data SamplingTargetDocument = SamplingTargetDocument'
   { -- | The number of requests per second that X-Ray allocated for this service.
-    reservoirQuota :: Prelude.Maybe Prelude.Int,
+    reservoirQuota :: Core.Maybe Core.Int,
     -- | The percentage of matching requests to instrument, after the reservoir
     -- is exhausted.
-    fixedRate :: Prelude.Maybe Prelude.Double,
+    fixedRate :: Core.Maybe Core.Double,
     -- | The name of the sampling rule.
-    ruleName :: Prelude.Maybe Prelude.Text,
+    ruleName :: Core.Maybe Core.Text,
     -- | When the reservoir quota expires.
-    reservoirQuotaTTL :: Prelude.Maybe Prelude.POSIX,
+    reservoirQuotaTTL :: Core.Maybe Core.POSIX,
     -- | The number of seconds for the service to wait before getting sampling
     -- targets again.
-    interval :: Prelude.Maybe Prelude.Int
+    interval :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SamplingTargetDocument' with all optional fields omitted.
@@ -69,48 +68,48 @@ newSamplingTargetDocument ::
 newSamplingTargetDocument =
   SamplingTargetDocument'
     { reservoirQuota =
-        Prelude.Nothing,
-      fixedRate = Prelude.Nothing,
-      ruleName = Prelude.Nothing,
-      reservoirQuotaTTL = Prelude.Nothing,
-      interval = Prelude.Nothing
+        Core.Nothing,
+      fixedRate = Core.Nothing,
+      ruleName = Core.Nothing,
+      reservoirQuotaTTL = Core.Nothing,
+      interval = Core.Nothing
     }
 
 -- | The number of requests per second that X-Ray allocated for this service.
-samplingTargetDocument_reservoirQuota :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Int)
+samplingTargetDocument_reservoirQuota :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.Int)
 samplingTargetDocument_reservoirQuota = Lens.lens (\SamplingTargetDocument' {reservoirQuota} -> reservoirQuota) (\s@SamplingTargetDocument' {} a -> s {reservoirQuota = a} :: SamplingTargetDocument)
 
 -- | The percentage of matching requests to instrument, after the reservoir
 -- is exhausted.
-samplingTargetDocument_fixedRate :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Double)
+samplingTargetDocument_fixedRate :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.Double)
 samplingTargetDocument_fixedRate = Lens.lens (\SamplingTargetDocument' {fixedRate} -> fixedRate) (\s@SamplingTargetDocument' {} a -> s {fixedRate = a} :: SamplingTargetDocument)
 
 -- | The name of the sampling rule.
-samplingTargetDocument_ruleName :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Text)
+samplingTargetDocument_ruleName :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.Text)
 samplingTargetDocument_ruleName = Lens.lens (\SamplingTargetDocument' {ruleName} -> ruleName) (\s@SamplingTargetDocument' {} a -> s {ruleName = a} :: SamplingTargetDocument)
 
 -- | When the reservoir quota expires.
-samplingTargetDocument_reservoirQuotaTTL :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.UTCTime)
-samplingTargetDocument_reservoirQuotaTTL = Lens.lens (\SamplingTargetDocument' {reservoirQuotaTTL} -> reservoirQuotaTTL) (\s@SamplingTargetDocument' {} a -> s {reservoirQuotaTTL = a} :: SamplingTargetDocument) Prelude.. Lens.mapping Prelude._Time
+samplingTargetDocument_reservoirQuotaTTL :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.UTCTime)
+samplingTargetDocument_reservoirQuotaTTL = Lens.lens (\SamplingTargetDocument' {reservoirQuotaTTL} -> reservoirQuotaTTL) (\s@SamplingTargetDocument' {} a -> s {reservoirQuotaTTL = a} :: SamplingTargetDocument) Core.. Lens.mapping Core._Time
 
 -- | The number of seconds for the service to wait before getting sampling
 -- targets again.
-samplingTargetDocument_interval :: Lens.Lens' SamplingTargetDocument (Prelude.Maybe Prelude.Int)
+samplingTargetDocument_interval :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.Int)
 samplingTargetDocument_interval = Lens.lens (\SamplingTargetDocument' {interval} -> interval) (\s@SamplingTargetDocument' {} a -> s {interval = a} :: SamplingTargetDocument)
 
-instance Prelude.FromJSON SamplingTargetDocument where
+instance Core.FromJSON SamplingTargetDocument where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SamplingTargetDocument"
       ( \x ->
           SamplingTargetDocument'
-            Prelude.<$> (x Prelude..:? "ReservoirQuota")
-            Prelude.<*> (x Prelude..:? "FixedRate")
-            Prelude.<*> (x Prelude..:? "RuleName")
-            Prelude.<*> (x Prelude..:? "ReservoirQuotaTTL")
-            Prelude.<*> (x Prelude..:? "Interval")
+            Core.<$> (x Core..:? "ReservoirQuota")
+            Core.<*> (x Core..:? "FixedRate")
+            Core.<*> (x Core..:? "RuleName")
+            Core.<*> (x Core..:? "ReservoirQuotaTTL")
+            Core.<*> (x Core..:? "Interval")
       )
 
-instance Prelude.Hashable SamplingTargetDocument
+instance Core.Hashable SamplingTargetDocument
 
-instance Prelude.NFData SamplingTargetDocument
+instance Core.NFData SamplingTargetDocument

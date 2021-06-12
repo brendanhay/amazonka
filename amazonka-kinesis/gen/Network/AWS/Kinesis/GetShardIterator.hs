@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -85,9 +84,9 @@ module Network.AWS.Kinesis.GetShardIterator
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Kinesis.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -98,7 +97,7 @@ data GetShardIterator = GetShardIterator'
   { -- | The sequence number of the data record in the shard from which to start
     -- reading. Used with shard iterator type AT_SEQUENCE_NUMBER and
     -- AFTER_SEQUENCE_NUMBER.
-    startingSequenceNumber :: Prelude.Maybe Prelude.Text,
+    startingSequenceNumber :: Core.Maybe Core.Text,
     -- | The time stamp of the data record from which to start reading. Used with
     -- shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date
     -- with precision in milliseconds. For example,
@@ -107,11 +106,11 @@ data GetShardIterator = GetShardIterator'
     -- next (later) record. If the time stamp is older than the current trim
     -- horizon, the iterator returned is for the oldest untrimmed data record
     -- (TRIM_HORIZON).
-    timestamp :: Prelude.Maybe Prelude.POSIX,
+    timestamp :: Core.Maybe Core.POSIX,
     -- | The name of the Amazon Kinesis data stream.
-    streamName :: Prelude.Text,
+    streamName :: Core.Text,
     -- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
-    shardId :: Prelude.Text,
+    shardId :: Core.Text,
     -- | Determines how the shard iterator is used to start reading data records
     -- from the shard.
     --
@@ -135,7 +134,7 @@ data GetShardIterator = GetShardIterator'
     --     shard, so that you always read the most recent data in the shard.
     shardIteratorType :: ShardIteratorType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetShardIterator' with all optional fields omitted.
@@ -185,9 +184,9 @@ data GetShardIterator = GetShardIterator'
 --     shard, so that you always read the most recent data in the shard.
 newGetShardIterator ::
   -- | 'streamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shardId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shardIteratorType'
   ShardIteratorType ->
   GetShardIterator
@@ -197,8 +196,8 @@ newGetShardIterator
   pShardIteratorType_ =
     GetShardIterator'
       { startingSequenceNumber =
-          Prelude.Nothing,
-        timestamp = Prelude.Nothing,
+          Core.Nothing,
+        timestamp = Core.Nothing,
         streamName = pStreamName_,
         shardId = pShardId_,
         shardIteratorType = pShardIteratorType_
@@ -207,7 +206,7 @@ newGetShardIterator
 -- | The sequence number of the data record in the shard from which to start
 -- reading. Used with shard iterator type AT_SEQUENCE_NUMBER and
 -- AFTER_SEQUENCE_NUMBER.
-getShardIterator_startingSequenceNumber :: Lens.Lens' GetShardIterator (Prelude.Maybe Prelude.Text)
+getShardIterator_startingSequenceNumber :: Lens.Lens' GetShardIterator (Core.Maybe Core.Text)
 getShardIterator_startingSequenceNumber = Lens.lens (\GetShardIterator' {startingSequenceNumber} -> startingSequenceNumber) (\s@GetShardIterator' {} a -> s {startingSequenceNumber = a} :: GetShardIterator)
 
 -- | The time stamp of the data record from which to start reading. Used with
@@ -218,15 +217,15 @@ getShardIterator_startingSequenceNumber = Lens.lens (\GetShardIterator' {startin
 -- next (later) record. If the time stamp is older than the current trim
 -- horizon, the iterator returned is for the oldest untrimmed data record
 -- (TRIM_HORIZON).
-getShardIterator_timestamp :: Lens.Lens' GetShardIterator (Prelude.Maybe Prelude.UTCTime)
-getShardIterator_timestamp = Lens.lens (\GetShardIterator' {timestamp} -> timestamp) (\s@GetShardIterator' {} a -> s {timestamp = a} :: GetShardIterator) Prelude.. Lens.mapping Prelude._Time
+getShardIterator_timestamp :: Lens.Lens' GetShardIterator (Core.Maybe Core.UTCTime)
+getShardIterator_timestamp = Lens.lens (\GetShardIterator' {timestamp} -> timestamp) (\s@GetShardIterator' {} a -> s {timestamp = a} :: GetShardIterator) Core.. Lens.mapping Core._Time
 
 -- | The name of the Amazon Kinesis data stream.
-getShardIterator_streamName :: Lens.Lens' GetShardIterator Prelude.Text
+getShardIterator_streamName :: Lens.Lens' GetShardIterator Core.Text
 getShardIterator_streamName = Lens.lens (\GetShardIterator' {streamName} -> streamName) (\s@GetShardIterator' {} a -> s {streamName = a} :: GetShardIterator)
 
 -- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
-getShardIterator_shardId :: Lens.Lens' GetShardIterator Prelude.Text
+getShardIterator_shardId :: Lens.Lens' GetShardIterator Core.Text
 getShardIterator_shardId = Lens.lens (\GetShardIterator' {shardId} -> shardId) (\s@GetShardIterator' {} a -> s {shardId = a} :: GetShardIterator)
 
 -- | Determines how the shard iterator is used to start reading data records
@@ -253,55 +252,55 @@ getShardIterator_shardId = Lens.lens (\GetShardIterator' {shardId} -> shardId) (
 getShardIterator_shardIteratorType :: Lens.Lens' GetShardIterator ShardIteratorType
 getShardIterator_shardIteratorType = Lens.lens (\GetShardIterator' {shardIteratorType} -> shardIteratorType) (\s@GetShardIterator' {} a -> s {shardIteratorType = a} :: GetShardIterator)
 
-instance Prelude.AWSRequest GetShardIterator where
-  type Rs GetShardIterator = GetShardIteratorResponse
+instance Core.AWSRequest GetShardIterator where
+  type
+    AWSResponse GetShardIterator =
+      GetShardIteratorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetShardIteratorResponse'
-            Prelude.<$> (x Prelude..?> "ShardIterator")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ShardIterator")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetShardIterator
+instance Core.Hashable GetShardIterator
 
-instance Prelude.NFData GetShardIterator
+instance Core.NFData GetShardIterator
 
-instance Prelude.ToHeaders GetShardIterator where
+instance Core.ToHeaders GetShardIterator where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Kinesis_20131202.GetShardIterator" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Kinesis_20131202.GetShardIterator" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetShardIterator where
+instance Core.ToJSON GetShardIterator where
   toJSON GetShardIterator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StartingSequenceNumber" Prelude..=)
-              Prelude.<$> startingSequenceNumber,
-            ("Timestamp" Prelude..=) Prelude.<$> timestamp,
-            Prelude.Just ("StreamName" Prelude..= streamName),
-            Prelude.Just ("ShardId" Prelude..= shardId),
-            Prelude.Just
-              ("ShardIteratorType" Prelude..= shardIteratorType)
+    Core.object
+      ( Core.catMaybes
+          [ ("StartingSequenceNumber" Core..=)
+              Core.<$> startingSequenceNumber,
+            ("Timestamp" Core..=) Core.<$> timestamp,
+            Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardId" Core..= shardId),
+            Core.Just
+              ("ShardIteratorType" Core..= shardIteratorType)
           ]
       )
 
-instance Prelude.ToPath GetShardIterator where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetShardIterator where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetShardIterator where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetShardIterator where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output for @GetShardIterator@.
 --
@@ -310,11 +309,11 @@ data GetShardIteratorResponse = GetShardIteratorResponse'
   { -- | The position in the shard from which to start reading data records
     -- sequentially. A shard iterator specifies this position using the
     -- sequence number of a data record in a shard.
-    shardIterator :: Prelude.Maybe Prelude.Text,
+    shardIterator :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetShardIteratorResponse' with all optional fields omitted.
@@ -331,23 +330,23 @@ data GetShardIteratorResponse = GetShardIteratorResponse'
 -- 'httpStatus', 'getShardIteratorResponse_httpStatus' - The response's http status code.
 newGetShardIteratorResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetShardIteratorResponse
 newGetShardIteratorResponse pHttpStatus_ =
   GetShardIteratorResponse'
     { shardIterator =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the
 -- sequence number of a data record in a shard.
-getShardIteratorResponse_shardIterator :: Lens.Lens' GetShardIteratorResponse (Prelude.Maybe Prelude.Text)
+getShardIteratorResponse_shardIterator :: Lens.Lens' GetShardIteratorResponse (Core.Maybe Core.Text)
 getShardIteratorResponse_shardIterator = Lens.lens (\GetShardIteratorResponse' {shardIterator} -> shardIterator) (\s@GetShardIteratorResponse' {} a -> s {shardIterator = a} :: GetShardIteratorResponse)
 
 -- | The response's http status code.
-getShardIteratorResponse_httpStatus :: Lens.Lens' GetShardIteratorResponse Prelude.Int
+getShardIteratorResponse_httpStatus :: Lens.Lens' GetShardIteratorResponse Core.Int
 getShardIteratorResponse_httpStatus = Lens.lens (\GetShardIteratorResponse' {httpStatus} -> httpStatus) (\s@GetShardIteratorResponse' {} a -> s {httpStatus = a} :: GetShardIteratorResponse)
 
-instance Prelude.NFData GetShardIteratorResponse
+instance Core.NFData GetShardIteratorResponse

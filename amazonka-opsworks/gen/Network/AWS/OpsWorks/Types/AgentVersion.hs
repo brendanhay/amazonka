@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.AgentVersion where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.StackConfigurationManager
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an agent version.
 --
 -- /See:/ 'newAgentVersion' smart constructor.
 data AgentVersion = AgentVersion'
   { -- | The agent version.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The configuration manager.
-    configurationManager :: Prelude.Maybe StackConfigurationManager
+    configurationManager :: Core.Maybe StackConfigurationManager
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AgentVersion' with all optional fields omitted.
@@ -50,28 +49,28 @@ newAgentVersion ::
   AgentVersion
 newAgentVersion =
   AgentVersion'
-    { version = Prelude.Nothing,
-      configurationManager = Prelude.Nothing
+    { version = Core.Nothing,
+      configurationManager = Core.Nothing
     }
 
 -- | The agent version.
-agentVersion_version :: Lens.Lens' AgentVersion (Prelude.Maybe Prelude.Text)
+agentVersion_version :: Lens.Lens' AgentVersion (Core.Maybe Core.Text)
 agentVersion_version = Lens.lens (\AgentVersion' {version} -> version) (\s@AgentVersion' {} a -> s {version = a} :: AgentVersion)
 
 -- | The configuration manager.
-agentVersion_configurationManager :: Lens.Lens' AgentVersion (Prelude.Maybe StackConfigurationManager)
+agentVersion_configurationManager :: Lens.Lens' AgentVersion (Core.Maybe StackConfigurationManager)
 agentVersion_configurationManager = Lens.lens (\AgentVersion' {configurationManager} -> configurationManager) (\s@AgentVersion' {} a -> s {configurationManager = a} :: AgentVersion)
 
-instance Prelude.FromJSON AgentVersion where
+instance Core.FromJSON AgentVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AgentVersion"
       ( \x ->
           AgentVersion'
-            Prelude.<$> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "ConfigurationManager")
+            Core.<$> (x Core..:? "Version")
+            Core.<*> (x Core..:? "ConfigurationManager")
       )
 
-instance Prelude.Hashable AgentVersion
+instance Core.Hashable AgentVersion
 
-instance Prelude.NFData AgentVersion
+instance Core.NFData AgentVersion

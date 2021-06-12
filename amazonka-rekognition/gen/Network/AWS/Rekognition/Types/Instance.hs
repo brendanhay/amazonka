@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.Instance where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.BoundingBox
 
 -- | An instance of a label returned by Amazon Rekognition Image
@@ -30,12 +29,12 @@ import Network.AWS.Rekognition.Types.BoundingBox
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The position of the label instance on the image.
-    boundingBox :: Prelude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe BoundingBox,
     -- | The confidence that Amazon Rekognition has in the accuracy of the
     -- bounding box.
-    confidence :: Prelude.Maybe Prelude.Double
+    confidence :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -53,29 +52,29 @@ newInstance ::
   Instance
 newInstance =
   Instance'
-    { boundingBox = Prelude.Nothing,
-      confidence = Prelude.Nothing
+    { boundingBox = Core.Nothing,
+      confidence = Core.Nothing
     }
 
 -- | The position of the label instance on the image.
-instance_boundingBox :: Lens.Lens' Instance (Prelude.Maybe BoundingBox)
+instance_boundingBox :: Lens.Lens' Instance (Core.Maybe BoundingBox)
 instance_boundingBox = Lens.lens (\Instance' {boundingBox} -> boundingBox) (\s@Instance' {} a -> s {boundingBox = a} :: Instance)
 
 -- | The confidence that Amazon Rekognition has in the accuracy of the
 -- bounding box.
-instance_confidence :: Lens.Lens' Instance (Prelude.Maybe Prelude.Double)
+instance_confidence :: Lens.Lens' Instance (Core.Maybe Core.Double)
 instance_confidence = Lens.lens (\Instance' {confidence} -> confidence) (\s@Instance' {} a -> s {confidence = a} :: Instance)
 
-instance Prelude.FromJSON Instance where
+instance Core.FromJSON Instance where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Instance"
       ( \x ->
           Instance'
-            Prelude.<$> (x Prelude..:? "BoundingBox")
-            Prelude.<*> (x Prelude..:? "Confidence")
+            Core.<$> (x Core..:? "BoundingBox")
+            Core.<*> (x Core..:? "Confidence")
       )
 
-instance Prelude.Hashable Instance
+instance Core.Hashable Instance
 
-instance Prelude.NFData Instance
+instance Core.NFData Instance

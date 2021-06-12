@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.Organizations.RegisterDelegatedAdministrator
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +58,12 @@ import qualified Network.AWS.Response as Response
 data RegisterDelegatedAdministrator = RegisterDelegatedAdministrator'
   { -- | The account ID number of the member account in the organization to
     -- register as a delegated administrator.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The service principal of the AWS service for which you want to make the
     -- member account a delegated administrator.
-    servicePrincipal :: Prelude.Text
+    servicePrincipal :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterDelegatedAdministrator' with all optional fields omitted.
@@ -81,9 +80,9 @@ data RegisterDelegatedAdministrator = RegisterDelegatedAdministrator'
 -- member account a delegated administrator.
 newRegisterDelegatedAdministrator ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'servicePrincipal'
-  Prelude.Text ->
+  Core.Text ->
   RegisterDelegatedAdministrator
 newRegisterDelegatedAdministrator
   pAccountId_
@@ -96,82 +95,67 @@ newRegisterDelegatedAdministrator
 
 -- | The account ID number of the member account in the organization to
 -- register as a delegated administrator.
-registerDelegatedAdministrator_accountId :: Lens.Lens' RegisterDelegatedAdministrator Prelude.Text
+registerDelegatedAdministrator_accountId :: Lens.Lens' RegisterDelegatedAdministrator Core.Text
 registerDelegatedAdministrator_accountId = Lens.lens (\RegisterDelegatedAdministrator' {accountId} -> accountId) (\s@RegisterDelegatedAdministrator' {} a -> s {accountId = a} :: RegisterDelegatedAdministrator)
 
 -- | The service principal of the AWS service for which you want to make the
 -- member account a delegated administrator.
-registerDelegatedAdministrator_servicePrincipal :: Lens.Lens' RegisterDelegatedAdministrator Prelude.Text
+registerDelegatedAdministrator_servicePrincipal :: Lens.Lens' RegisterDelegatedAdministrator Core.Text
 registerDelegatedAdministrator_servicePrincipal = Lens.lens (\RegisterDelegatedAdministrator' {servicePrincipal} -> servicePrincipal) (\s@RegisterDelegatedAdministrator' {} a -> s {servicePrincipal = a} :: RegisterDelegatedAdministrator)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     RegisterDelegatedAdministrator
   where
   type
-    Rs RegisterDelegatedAdministrator =
+    AWSResponse RegisterDelegatedAdministrator =
       RegisterDelegatedAdministratorResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       RegisterDelegatedAdministratorResponse'
 
-instance
-  Prelude.Hashable
-    RegisterDelegatedAdministrator
+instance Core.Hashable RegisterDelegatedAdministrator
+
+instance Core.NFData RegisterDelegatedAdministrator
 
 instance
-  Prelude.NFData
-    RegisterDelegatedAdministrator
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     RegisterDelegatedAdministrator
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.RegisterDelegatedAdministrator" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.RegisterDelegatedAdministrator" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    RegisterDelegatedAdministrator
-  where
+instance Core.ToJSON RegisterDelegatedAdministrator where
   toJSON RegisterDelegatedAdministrator' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountId" Prelude..= accountId),
-            Prelude.Just
-              ("ServicePrincipal" Prelude..= servicePrincipal)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just
+              ("ServicePrincipal" Core..= servicePrincipal)
           ]
       )
 
-instance
-  Prelude.ToPath
-    RegisterDelegatedAdministrator
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterDelegatedAdministrator where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    RegisterDelegatedAdministrator
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterDelegatedAdministrator where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterDelegatedAdministratorResponse' smart constructor.
 data RegisterDelegatedAdministratorResponse = RegisterDelegatedAdministratorResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterDelegatedAdministratorResponse' with all optional fields omitted.
@@ -183,5 +167,5 @@ newRegisterDelegatedAdministratorResponse =
   RegisterDelegatedAdministratorResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     RegisterDelegatedAdministratorResponse

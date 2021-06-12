@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.SSM.DeleteResourceDataSync
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -51,11 +50,11 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newDeleteResourceDataSync' smart constructor.
 data DeleteResourceDataSync = DeleteResourceDataSync'
   { -- | Specify the type of resource data sync to delete.
-    syncType :: Prelude.Maybe Prelude.Text,
+    syncType :: Core.Maybe Core.Text,
     -- | The name of the configuration to delete.
-    syncName :: Prelude.Text
+    syncName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceDataSync' with all optional fields omitted.
@@ -70,74 +69,72 @@ data DeleteResourceDataSync = DeleteResourceDataSync'
 -- 'syncName', 'deleteResourceDataSync_syncName' - The name of the configuration to delete.
 newDeleteResourceDataSync ::
   -- | 'syncName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteResourceDataSync
 newDeleteResourceDataSync pSyncName_ =
   DeleteResourceDataSync'
-    { syncType = Prelude.Nothing,
+    { syncType = Core.Nothing,
       syncName = pSyncName_
     }
 
 -- | Specify the type of resource data sync to delete.
-deleteResourceDataSync_syncType :: Lens.Lens' DeleteResourceDataSync (Prelude.Maybe Prelude.Text)
+deleteResourceDataSync_syncType :: Lens.Lens' DeleteResourceDataSync (Core.Maybe Core.Text)
 deleteResourceDataSync_syncType = Lens.lens (\DeleteResourceDataSync' {syncType} -> syncType) (\s@DeleteResourceDataSync' {} a -> s {syncType = a} :: DeleteResourceDataSync)
 
 -- | The name of the configuration to delete.
-deleteResourceDataSync_syncName :: Lens.Lens' DeleteResourceDataSync Prelude.Text
+deleteResourceDataSync_syncName :: Lens.Lens' DeleteResourceDataSync Core.Text
 deleteResourceDataSync_syncName = Lens.lens (\DeleteResourceDataSync' {syncName} -> syncName) (\s@DeleteResourceDataSync' {} a -> s {syncName = a} :: DeleteResourceDataSync)
 
-instance Prelude.AWSRequest DeleteResourceDataSync where
+instance Core.AWSRequest DeleteResourceDataSync where
   type
-    Rs DeleteResourceDataSync =
+    AWSResponse DeleteResourceDataSync =
       DeleteResourceDataSyncResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourceDataSyncResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteResourceDataSync
+instance Core.Hashable DeleteResourceDataSync
 
-instance Prelude.NFData DeleteResourceDataSync
+instance Core.NFData DeleteResourceDataSync
 
-instance Prelude.ToHeaders DeleteResourceDataSync where
+instance Core.ToHeaders DeleteResourceDataSync where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DeleteResourceDataSync" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DeleteResourceDataSync" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteResourceDataSync where
+instance Core.ToJSON DeleteResourceDataSync where
   toJSON DeleteResourceDataSync' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SyncType" Prelude..=) Prelude.<$> syncType,
-            Prelude.Just ("SyncName" Prelude..= syncName)
+    Core.object
+      ( Core.catMaybes
+          [ ("SyncType" Core..=) Core.<$> syncType,
+            Core.Just ("SyncName" Core..= syncName)
           ]
       )
 
-instance Prelude.ToPath DeleteResourceDataSync where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteResourceDataSync where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteResourceDataSync where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteResourceDataSync where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteResourceDataSyncResponse' smart constructor.
 data DeleteResourceDataSyncResponse = DeleteResourceDataSyncResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteResourceDataSyncResponse' with all optional fields omitted.
@@ -150,7 +147,7 @@ data DeleteResourceDataSyncResponse = DeleteResourceDataSyncResponse'
 -- 'httpStatus', 'deleteResourceDataSyncResponse_httpStatus' - The response's http status code.
 newDeleteResourceDataSyncResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteResourceDataSyncResponse
 newDeleteResourceDataSyncResponse pHttpStatus_ =
   DeleteResourceDataSyncResponse'
@@ -159,9 +156,7 @@ newDeleteResourceDataSyncResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteResourceDataSyncResponse_httpStatus :: Lens.Lens' DeleteResourceDataSyncResponse Prelude.Int
+deleteResourceDataSyncResponse_httpStatus :: Lens.Lens' DeleteResourceDataSyncResponse Core.Int
 deleteResourceDataSyncResponse_httpStatus = Lens.lens (\DeleteResourceDataSyncResponse' {httpStatus} -> httpStatus) (\s@DeleteResourceDataSyncResponse' {} a -> s {httpStatus = a} :: DeleteResourceDataSyncResponse)
 
-instance
-  Prelude.NFData
-    DeleteResourceDataSyncResponse
+instance Core.NFData DeleteResourceDataSyncResponse

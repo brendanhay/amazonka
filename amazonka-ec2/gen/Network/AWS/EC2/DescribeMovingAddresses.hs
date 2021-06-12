@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,22 +49,21 @@ module Network.AWS.EC2.DescribeMovingAddresses
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeMovingAddresses' smart constructor.
 data DescribeMovingAddresses = DescribeMovingAddresses'
   { -- | The token for the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return for the request in a single
     -- page. The remaining results of the initial request can be seen by
     -- sending another request with the returned @NextToken@ value. This value
@@ -73,16 +71,16 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
     -- this range, an error is returned.
     --
     -- Default: If no value is provided, the default is 1000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more Elastic IP addresses.
-    publicIps :: Prelude.Maybe [Prelude.Text],
+    publicIps :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @moving-status@ - The status of the Elastic IP address
     --     (@MovingToVpc@ | @RestoringToClassic@).
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMovingAddresses' with all optional fields omitted.
@@ -117,23 +115,22 @@ newDescribeMovingAddresses ::
   DescribeMovingAddresses
 newDescribeMovingAddresses =
   DescribeMovingAddresses'
-    { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      publicIps = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      publicIps = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token for the next page of results.
-describeMovingAddresses_nextToken :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Text)
+describeMovingAddresses_nextToken :: Lens.Lens' DescribeMovingAddresses (Core.Maybe Core.Text)
 describeMovingAddresses_nextToken = Lens.lens (\DescribeMovingAddresses' {nextToken} -> nextToken) (\s@DescribeMovingAddresses' {} a -> s {nextToken = a} :: DescribeMovingAddresses)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeMovingAddresses_dryRun :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Bool)
+describeMovingAddresses_dryRun :: Lens.Lens' DescribeMovingAddresses (Core.Maybe Core.Bool)
 describeMovingAddresses_dryRun = Lens.lens (\DescribeMovingAddresses' {dryRun} -> dryRun) (\s@DescribeMovingAddresses' {} a -> s {dryRun = a} :: DescribeMovingAddresses)
 
 -- | The maximum number of results to return for the request in a single
@@ -143,98 +140,95 @@ describeMovingAddresses_dryRun = Lens.lens (\DescribeMovingAddresses' {dryRun} -
 -- this range, an error is returned.
 --
 -- Default: If no value is provided, the default is 1000.
-describeMovingAddresses_maxResults :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe Prelude.Natural)
+describeMovingAddresses_maxResults :: Lens.Lens' DescribeMovingAddresses (Core.Maybe Core.Natural)
 describeMovingAddresses_maxResults = Lens.lens (\DescribeMovingAddresses' {maxResults} -> maxResults) (\s@DescribeMovingAddresses' {} a -> s {maxResults = a} :: DescribeMovingAddresses)
 
 -- | One or more Elastic IP addresses.
-describeMovingAddresses_publicIps :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe [Prelude.Text])
-describeMovingAddresses_publicIps = Lens.lens (\DescribeMovingAddresses' {publicIps} -> publicIps) (\s@DescribeMovingAddresses' {} a -> s {publicIps = a} :: DescribeMovingAddresses) Prelude.. Lens.mapping Prelude._Coerce
+describeMovingAddresses_publicIps :: Lens.Lens' DescribeMovingAddresses (Core.Maybe [Core.Text])
+describeMovingAddresses_publicIps = Lens.lens (\DescribeMovingAddresses' {publicIps} -> publicIps) (\s@DescribeMovingAddresses' {} a -> s {publicIps = a} :: DescribeMovingAddresses) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
 -- -   @moving-status@ - The status of the Elastic IP address
 --     (@MovingToVpc@ | @RestoringToClassic@).
-describeMovingAddresses_filters :: Lens.Lens' DescribeMovingAddresses (Prelude.Maybe [Filter])
-describeMovingAddresses_filters = Lens.lens (\DescribeMovingAddresses' {filters} -> filters) (\s@DescribeMovingAddresses' {} a -> s {filters = a} :: DescribeMovingAddresses) Prelude.. Lens.mapping Prelude._Coerce
+describeMovingAddresses_filters :: Lens.Lens' DescribeMovingAddresses (Core.Maybe [Filter])
+describeMovingAddresses_filters = Lens.lens (\DescribeMovingAddresses' {filters} -> filters) (\s@DescribeMovingAddresses' {} a -> s {filters = a} :: DescribeMovingAddresses) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeMovingAddresses where
+instance Core.AWSPager DescribeMovingAddresses where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeMovingAddressesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeMovingAddressesResponse_movingAddressStatuses
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeMovingAddresses_nextToken
           Lens..~ rs
           Lens.^? describeMovingAddressesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeMovingAddresses where
+instance Core.AWSRequest DescribeMovingAddresses where
   type
-    Rs DescribeMovingAddresses =
+    AWSResponse DescribeMovingAddresses =
       DescribeMovingAddressesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeMovingAddressesResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "movingAddressStatusSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "movingAddressStatusSet"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeMovingAddresses
+instance Core.Hashable DescribeMovingAddresses
 
-instance Prelude.NFData DescribeMovingAddresses
+instance Core.NFData DescribeMovingAddresses
 
-instance Prelude.ToHeaders DescribeMovingAddresses where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeMovingAddresses where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeMovingAddresses where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeMovingAddresses where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeMovingAddresses where
+instance Core.ToQuery DescribeMovingAddresses where
   toQuery DescribeMovingAddresses' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeMovingAddresses" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          ( Prelude.toQueryList "PublicIp"
-              Prelude.<$> publicIps
-          ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+          Core.=: ("DescribeMovingAddresses" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "PublicIp" Core.<$> publicIps),
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeMovingAddressesResponse' smart constructor.
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The status for each Elastic IP address.
-    movingAddressStatuses :: Prelude.Maybe [MovingAddressStatus],
+    movingAddressStatuses :: Core.Maybe [MovingAddressStatus],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeMovingAddressesResponse' with all optional fields omitted.
@@ -252,29 +246,27 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
 -- 'httpStatus', 'describeMovingAddressesResponse_httpStatus' - The response's http status code.
 newDescribeMovingAddressesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeMovingAddressesResponse
 newDescribeMovingAddressesResponse pHttpStatus_ =
   DescribeMovingAddressesResponse'
     { nextToken =
-        Prelude.Nothing,
-      movingAddressStatuses = Prelude.Nothing,
+        Core.Nothing,
+      movingAddressStatuses = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeMovingAddressesResponse_nextToken :: Lens.Lens' DescribeMovingAddressesResponse (Prelude.Maybe Prelude.Text)
+describeMovingAddressesResponse_nextToken :: Lens.Lens' DescribeMovingAddressesResponse (Core.Maybe Core.Text)
 describeMovingAddressesResponse_nextToken = Lens.lens (\DescribeMovingAddressesResponse' {nextToken} -> nextToken) (\s@DescribeMovingAddressesResponse' {} a -> s {nextToken = a} :: DescribeMovingAddressesResponse)
 
 -- | The status for each Elastic IP address.
-describeMovingAddressesResponse_movingAddressStatuses :: Lens.Lens' DescribeMovingAddressesResponse (Prelude.Maybe [MovingAddressStatus])
-describeMovingAddressesResponse_movingAddressStatuses = Lens.lens (\DescribeMovingAddressesResponse' {movingAddressStatuses} -> movingAddressStatuses) (\s@DescribeMovingAddressesResponse' {} a -> s {movingAddressStatuses = a} :: DescribeMovingAddressesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeMovingAddressesResponse_movingAddressStatuses :: Lens.Lens' DescribeMovingAddressesResponse (Core.Maybe [MovingAddressStatus])
+describeMovingAddressesResponse_movingAddressStatuses = Lens.lens (\DescribeMovingAddressesResponse' {movingAddressStatuses} -> movingAddressStatuses) (\s@DescribeMovingAddressesResponse' {} a -> s {movingAddressStatuses = a} :: DescribeMovingAddressesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeMovingAddressesResponse_httpStatus :: Lens.Lens' DescribeMovingAddressesResponse Prelude.Int
+describeMovingAddressesResponse_httpStatus :: Lens.Lens' DescribeMovingAddressesResponse Core.Int
 describeMovingAddressesResponse_httpStatus = Lens.lens (\DescribeMovingAddressesResponse' {httpStatus} -> httpStatus) (\s@DescribeMovingAddressesResponse' {} a -> s {httpStatus = a} :: DescribeMovingAddressesResponse)
 
-instance
-  Prelude.NFData
-    DescribeMovingAddressesResponse
+instance Core.NFData DescribeMovingAddressesResponse

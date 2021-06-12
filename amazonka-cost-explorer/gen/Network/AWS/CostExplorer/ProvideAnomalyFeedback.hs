@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,21 +40,21 @@ module Network.AWS.CostExplorer.ProvideAnomalyFeedback
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newProvideAnomalyFeedback' smart constructor.
 data ProvideAnomalyFeedback = ProvideAnomalyFeedback'
   { -- | A cost anomaly ID.
-    anomalyId :: Prelude.Text,
+    anomalyId :: Core.Text,
     -- | Describes whether the cost anomaly was a planned activity or you
     -- considered it an anomaly.
     feedback :: AnomalyFeedbackType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvideAnomalyFeedback' with all optional fields omitted.
@@ -71,7 +70,7 @@ data ProvideAnomalyFeedback = ProvideAnomalyFeedback'
 -- considered it an anomaly.
 newProvideAnomalyFeedback ::
   -- | 'anomalyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'feedback'
   AnomalyFeedbackType ->
   ProvideAnomalyFeedback
@@ -82,7 +81,7 @@ newProvideAnomalyFeedback pAnomalyId_ pFeedback_ =
     }
 
 -- | A cost anomaly ID.
-provideAnomalyFeedback_anomalyId :: Lens.Lens' ProvideAnomalyFeedback Prelude.Text
+provideAnomalyFeedback_anomalyId :: Lens.Lens' ProvideAnomalyFeedback Core.Text
 provideAnomalyFeedback_anomalyId = Lens.lens (\ProvideAnomalyFeedback' {anomalyId} -> anomalyId) (\s@ProvideAnomalyFeedback' {} a -> s {anomalyId = a} :: ProvideAnomalyFeedback)
 
 -- | Describes whether the cost anomaly was a planned activity or you
@@ -90,61 +89,59 @@ provideAnomalyFeedback_anomalyId = Lens.lens (\ProvideAnomalyFeedback' {anomalyI
 provideAnomalyFeedback_feedback :: Lens.Lens' ProvideAnomalyFeedback AnomalyFeedbackType
 provideAnomalyFeedback_feedback = Lens.lens (\ProvideAnomalyFeedback' {feedback} -> feedback) (\s@ProvideAnomalyFeedback' {} a -> s {feedback = a} :: ProvideAnomalyFeedback)
 
-instance Prelude.AWSRequest ProvideAnomalyFeedback where
+instance Core.AWSRequest ProvideAnomalyFeedback where
   type
-    Rs ProvideAnomalyFeedback =
+    AWSResponse ProvideAnomalyFeedback =
       ProvideAnomalyFeedbackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ProvideAnomalyFeedbackResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "AnomalyId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "AnomalyId")
       )
 
-instance Prelude.Hashable ProvideAnomalyFeedback
+instance Core.Hashable ProvideAnomalyFeedback
 
-instance Prelude.NFData ProvideAnomalyFeedback
+instance Core.NFData ProvideAnomalyFeedback
 
-instance Prelude.ToHeaders ProvideAnomalyFeedback where
+instance Core.ToHeaders ProvideAnomalyFeedback where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.ProvideAnomalyFeedback" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.ProvideAnomalyFeedback" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ProvideAnomalyFeedback where
+instance Core.ToJSON ProvideAnomalyFeedback where
   toJSON ProvideAnomalyFeedback' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AnomalyId" Prelude..= anomalyId),
-            Prelude.Just ("Feedback" Prelude..= feedback)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AnomalyId" Core..= anomalyId),
+            Core.Just ("Feedback" Core..= feedback)
           ]
       )
 
-instance Prelude.ToPath ProvideAnomalyFeedback where
-  toPath = Prelude.const "/"
+instance Core.ToPath ProvideAnomalyFeedback where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ProvideAnomalyFeedback where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ProvideAnomalyFeedback where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newProvideAnomalyFeedbackResponse' smart constructor.
 data ProvideAnomalyFeedbackResponse = ProvideAnomalyFeedbackResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ID of the modified cost anomaly.
-    anomalyId :: Prelude.Text
+    anomalyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProvideAnomalyFeedbackResponse' with all optional fields omitted.
@@ -159,9 +156,9 @@ data ProvideAnomalyFeedbackResponse = ProvideAnomalyFeedbackResponse'
 -- 'anomalyId', 'provideAnomalyFeedbackResponse_anomalyId' - The ID of the modified cost anomaly.
 newProvideAnomalyFeedbackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'anomalyId'
-  Prelude.Text ->
+  Core.Text ->
   ProvideAnomalyFeedbackResponse
 newProvideAnomalyFeedbackResponse
   pHttpStatus_
@@ -173,13 +170,11 @@ newProvideAnomalyFeedbackResponse
       }
 
 -- | The response's http status code.
-provideAnomalyFeedbackResponse_httpStatus :: Lens.Lens' ProvideAnomalyFeedbackResponse Prelude.Int
+provideAnomalyFeedbackResponse_httpStatus :: Lens.Lens' ProvideAnomalyFeedbackResponse Core.Int
 provideAnomalyFeedbackResponse_httpStatus = Lens.lens (\ProvideAnomalyFeedbackResponse' {httpStatus} -> httpStatus) (\s@ProvideAnomalyFeedbackResponse' {} a -> s {httpStatus = a} :: ProvideAnomalyFeedbackResponse)
 
 -- | The ID of the modified cost anomaly.
-provideAnomalyFeedbackResponse_anomalyId :: Lens.Lens' ProvideAnomalyFeedbackResponse Prelude.Text
+provideAnomalyFeedbackResponse_anomalyId :: Lens.Lens' ProvideAnomalyFeedbackResponse Core.Text
 provideAnomalyFeedbackResponse_anomalyId = Lens.lens (\ProvideAnomalyFeedbackResponse' {anomalyId} -> anomalyId) (\s@ProvideAnomalyFeedbackResponse' {} a -> s {anomalyId = a} :: ProvideAnomalyFeedbackResponse)
 
-instance
-  Prelude.NFData
-    ProvideAnomalyFeedbackResponse
+instance Core.NFData ProvideAnomalyFeedbackResponse

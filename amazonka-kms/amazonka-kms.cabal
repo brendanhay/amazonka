@@ -120,10 +120,10 @@ library
     Network.AWS.KMS.Verify
     Network.AWS.KMS.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-kms-test
   type:             exitcode-stdio-1.0
@@ -141,7 +141,7 @@ test-suite amazonka-kms-test
     Test.AWS.KMS.Internal
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-kms
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

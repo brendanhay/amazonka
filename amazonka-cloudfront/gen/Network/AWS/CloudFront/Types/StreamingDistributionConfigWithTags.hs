@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.StreamingDistributionConfigWithTags where
 
 import Network.AWS.CloudFront.Types.StreamingDistributionConfig
 import Network.AWS.CloudFront.Types.Tags
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A streaming distribution Configuration and a list of tags to be
 -- associated with the streaming distribution.
@@ -35,7 +34,7 @@ data StreamingDistributionConfigWithTags = StreamingDistributionConfigWithTags'
     -- | A complex type that contains zero or more @Tag@ elements.
     tags :: Tags
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamingDistributionConfigWithTags' with all optional fields omitted.
@@ -72,20 +71,20 @@ streamingDistributionConfigWithTags_tags :: Lens.Lens' StreamingDistributionConf
 streamingDistributionConfigWithTags_tags = Lens.lens (\StreamingDistributionConfigWithTags' {tags} -> tags) (\s@StreamingDistributionConfigWithTags' {} a -> s {tags = a} :: StreamingDistributionConfigWithTags)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     StreamingDistributionConfigWithTags
 
 instance
-  Prelude.NFData
+  Core.NFData
     StreamingDistributionConfigWithTags
 
 instance
-  Prelude.ToXML
+  Core.ToXML
     StreamingDistributionConfigWithTags
   where
   toXML StreamingDistributionConfigWithTags' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "StreamingDistributionConfig"
-          Prelude.@= streamingDistributionConfig,
-        "Tags" Prelude.@= tags
+          Core.@= streamingDistributionConfig,
+        "Tags" Core.@= tags
       ]

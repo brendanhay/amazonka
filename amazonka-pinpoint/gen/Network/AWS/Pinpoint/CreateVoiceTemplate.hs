@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.CreateVoiceTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,10 +53,10 @@ data CreateVoiceTemplate = CreateVoiceTemplate'
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     voiceTemplateRequest :: VoiceTemplateRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVoiceTemplate' with all optional fields omitted.
@@ -75,7 +74,7 @@ data CreateVoiceTemplate = CreateVoiceTemplate'
 -- 'voiceTemplateRequest', 'createVoiceTemplate_voiceTemplateRequest' - Undocumented member.
 newCreateVoiceTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'voiceTemplateRequest'
   VoiceTemplateRequest ->
   CreateVoiceTemplate
@@ -91,70 +90,65 @@ newCreateVoiceTemplate
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-createVoiceTemplate_templateName :: Lens.Lens' CreateVoiceTemplate Prelude.Text
+createVoiceTemplate_templateName :: Lens.Lens' CreateVoiceTemplate Core.Text
 createVoiceTemplate_templateName = Lens.lens (\CreateVoiceTemplate' {templateName} -> templateName) (\s@CreateVoiceTemplate' {} a -> s {templateName = a} :: CreateVoiceTemplate)
 
 -- | Undocumented member.
 createVoiceTemplate_voiceTemplateRequest :: Lens.Lens' CreateVoiceTemplate VoiceTemplateRequest
 createVoiceTemplate_voiceTemplateRequest = Lens.lens (\CreateVoiceTemplate' {voiceTemplateRequest} -> voiceTemplateRequest) (\s@CreateVoiceTemplate' {} a -> s {voiceTemplateRequest = a} :: CreateVoiceTemplate)
 
-instance Prelude.AWSRequest CreateVoiceTemplate where
+instance Core.AWSRequest CreateVoiceTemplate where
   type
-    Rs CreateVoiceTemplate =
+    AWSResponse CreateVoiceTemplate =
       CreateVoiceTemplateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateVoiceTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateVoiceTemplate
+instance Core.Hashable CreateVoiceTemplate
 
-instance Prelude.NFData CreateVoiceTemplate
+instance Core.NFData CreateVoiceTemplate
 
-instance Prelude.ToHeaders CreateVoiceTemplate where
+instance Core.ToHeaders CreateVoiceTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateVoiceTemplate where
+instance Core.ToJSON CreateVoiceTemplate where
   toJSON CreateVoiceTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "VoiceTemplateRequest"
-                  Prelude..= voiceTemplateRequest
+                  Core..= voiceTemplateRequest
               )
           ]
       )
 
-instance Prelude.ToPath CreateVoiceTemplate where
+instance Core.ToPath CreateVoiceTemplate where
   toPath CreateVoiceTemplate' {..} =
-    Prelude.mconcat
-      [ "/v1/templates/",
-        Prelude.toBS templateName,
-        "/voice"
-      ]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/voice"]
 
-instance Prelude.ToQuery CreateVoiceTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateVoiceTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateVoiceTemplateResponse' smart constructor.
 data CreateVoiceTemplateResponse = CreateVoiceTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     createTemplateMessageBody :: CreateTemplateMessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVoiceTemplateResponse' with all optional fields omitted.
@@ -169,7 +163,7 @@ data CreateVoiceTemplateResponse = CreateVoiceTemplateResponse'
 -- 'createTemplateMessageBody', 'createVoiceTemplateResponse_createTemplateMessageBody' - Undocumented member.
 newCreateVoiceTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'createTemplateMessageBody'
   CreateTemplateMessageBody ->
   CreateVoiceTemplateResponse
@@ -184,11 +178,11 @@ newCreateVoiceTemplateResponse
       }
 
 -- | The response's http status code.
-createVoiceTemplateResponse_httpStatus :: Lens.Lens' CreateVoiceTemplateResponse Prelude.Int
+createVoiceTemplateResponse_httpStatus :: Lens.Lens' CreateVoiceTemplateResponse Core.Int
 createVoiceTemplateResponse_httpStatus = Lens.lens (\CreateVoiceTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateVoiceTemplateResponse' {} a -> s {httpStatus = a} :: CreateVoiceTemplateResponse)
 
 -- | Undocumented member.
 createVoiceTemplateResponse_createTemplateMessageBody :: Lens.Lens' CreateVoiceTemplateResponse CreateTemplateMessageBody
 createVoiceTemplateResponse_createTemplateMessageBody = Lens.lens (\CreateVoiceTemplateResponse' {createTemplateMessageBody} -> createTemplateMessageBody) (\s@CreateVoiceTemplateResponse' {} a -> s {createTemplateMessageBody = a} :: CreateVoiceTemplateResponse)
 
-instance Prelude.NFData CreateVoiceTemplateResponse
+instance Core.NFData CreateVoiceTemplateResponse

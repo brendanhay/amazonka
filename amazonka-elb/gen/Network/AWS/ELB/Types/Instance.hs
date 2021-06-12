@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.Instance where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The ID of an EC2 instance.
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
   { -- | The instance ID.
-    instanceId :: Prelude.Maybe Prelude.Text
+    instanceId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Instance' with all optional fields omitted.
@@ -44,21 +43,20 @@ data Instance = Instance'
 -- 'instanceId', 'instance_instanceId' - The instance ID.
 newInstance ::
   Instance
-newInstance = Instance' {instanceId = Prelude.Nothing}
+newInstance = Instance' {instanceId = Core.Nothing}
 
 -- | The instance ID.
-instance_instanceId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_instanceId :: Lens.Lens' Instance (Core.Maybe Core.Text)
 instance_instanceId = Lens.lens (\Instance' {instanceId} -> instanceId) (\s@Instance' {} a -> s {instanceId = a} :: Instance)
 
-instance Prelude.FromXML Instance where
+instance Core.FromXML Instance where
   parseXML x =
-    Instance' Prelude.<$> (x Prelude..@? "InstanceId")
+    Instance' Core.<$> (x Core..@? "InstanceId")
 
-instance Prelude.Hashable Instance
+instance Core.Hashable Instance
 
-instance Prelude.NFData Instance
+instance Core.NFData Instance
 
-instance Prelude.ToQuery Instance where
+instance Core.ToQuery Instance where
   toQuery Instance' {..} =
-    Prelude.mconcat
-      ["InstanceId" Prelude.=: instanceId]
+    Core.mconcat ["InstanceId" Core.=: instanceId]

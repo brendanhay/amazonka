@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Phase1DHGroupNumbersRequestListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1
 -- IKE negotiations.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPhase1DHGroupNumbersRequestListValue' smart constructor.
 data Phase1DHGroupNumbersRequestListValue = Phase1DHGroupNumbersRequestListValue'
   { -- | The Diffie-Hellmann group number.
-    value :: Prelude.Maybe Prelude.Int
+    value :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Phase1DHGroupNumbersRequestListValue' with all optional fields omitted.
@@ -48,24 +47,24 @@ newPhase1DHGroupNumbersRequestListValue ::
 newPhase1DHGroupNumbersRequestListValue =
   Phase1DHGroupNumbersRequestListValue'
     { value =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Diffie-Hellmann group number.
-phase1DHGroupNumbersRequestListValue_value :: Lens.Lens' Phase1DHGroupNumbersRequestListValue (Prelude.Maybe Prelude.Int)
+phase1DHGroupNumbersRequestListValue_value :: Lens.Lens' Phase1DHGroupNumbersRequestListValue (Core.Maybe Core.Int)
 phase1DHGroupNumbersRequestListValue_value = Lens.lens (\Phase1DHGroupNumbersRequestListValue' {value} -> value) (\s@Phase1DHGroupNumbersRequestListValue' {} a -> s {value = a} :: Phase1DHGroupNumbersRequestListValue)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Phase1DHGroupNumbersRequestListValue
 
 instance
-  Prelude.NFData
+  Core.NFData
     Phase1DHGroupNumbersRequestListValue
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     Phase1DHGroupNumbersRequestListValue
   where
   toQuery Phase1DHGroupNumbersRequestListValue' {..} =
-    Prelude.mconcat ["Value" Prelude.=: value]
+    Core.mconcat ["Value" Core.=: value]

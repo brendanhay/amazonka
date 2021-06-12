@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Glue.UpdateDatabase
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,15 +50,15 @@ import qualified Network.AWS.Response as Response
 data UpdateDatabase = UpdateDatabase'
   { -- | The ID of the Data Catalog in which the metadata database resides. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the database to update in the catalog. For Hive
     -- compatibility, this is folded to lowercase.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A @DatabaseInput@ object specifying the new definition of the metadata
     -- database in the catalog.
     databaseInput :: DatabaseInput
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDatabase' with all optional fields omitted.
@@ -79,25 +78,25 @@ data UpdateDatabase = UpdateDatabase'
 -- database in the catalog.
 newUpdateDatabase ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'databaseInput'
   DatabaseInput ->
   UpdateDatabase
 newUpdateDatabase pName_ pDatabaseInput_ =
   UpdateDatabase'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       name = pName_,
       databaseInput = pDatabaseInput_
     }
 
 -- | The ID of the Data Catalog in which the metadata database resides. If
 -- none is provided, the AWS account ID is used by default.
-updateDatabase_catalogId :: Lens.Lens' UpdateDatabase (Prelude.Maybe Prelude.Text)
+updateDatabase_catalogId :: Lens.Lens' UpdateDatabase (Core.Maybe Core.Text)
 updateDatabase_catalogId = Lens.lens (\UpdateDatabase' {catalogId} -> catalogId) (\s@UpdateDatabase' {} a -> s {catalogId = a} :: UpdateDatabase)
 
 -- | The name of the database to update in the catalog. For Hive
 -- compatibility, this is folded to lowercase.
-updateDatabase_name :: Lens.Lens' UpdateDatabase Prelude.Text
+updateDatabase_name :: Lens.Lens' UpdateDatabase Core.Text
 updateDatabase_name = Lens.lens (\UpdateDatabase' {name} -> name) (\s@UpdateDatabase' {} a -> s {name = a} :: UpdateDatabase)
 
 -- | A @DatabaseInput@ object specifying the new definition of the metadata
@@ -105,56 +104,55 @@ updateDatabase_name = Lens.lens (\UpdateDatabase' {name} -> name) (\s@UpdateData
 updateDatabase_databaseInput :: Lens.Lens' UpdateDatabase DatabaseInput
 updateDatabase_databaseInput = Lens.lens (\UpdateDatabase' {databaseInput} -> databaseInput) (\s@UpdateDatabase' {} a -> s {databaseInput = a} :: UpdateDatabase)
 
-instance Prelude.AWSRequest UpdateDatabase where
-  type Rs UpdateDatabase = UpdateDatabaseResponse
+instance Core.AWSRequest UpdateDatabase where
+  type
+    AWSResponse UpdateDatabase =
+      UpdateDatabaseResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDatabaseResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateDatabase
+instance Core.Hashable UpdateDatabase
 
-instance Prelude.NFData UpdateDatabase
+instance Core.NFData UpdateDatabase
 
-instance Prelude.ToHeaders UpdateDatabase where
+instance Core.ToHeaders UpdateDatabase where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.UpdateDatabase" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.UpdateDatabase" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateDatabase where
+instance Core.ToJSON UpdateDatabase where
   toJSON UpdateDatabase' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just
-              ("DatabaseInput" Prelude..= databaseInput)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("DatabaseInput" Core..= databaseInput)
           ]
       )
 
-instance Prelude.ToPath UpdateDatabase where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateDatabase where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateDatabase where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDatabase where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDatabaseResponse' smart constructor.
 data UpdateDatabaseResponse = UpdateDatabaseResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDatabaseResponse' with all optional fields omitted.
@@ -167,13 +165,13 @@ data UpdateDatabaseResponse = UpdateDatabaseResponse'
 -- 'httpStatus', 'updateDatabaseResponse_httpStatus' - The response's http status code.
 newUpdateDatabaseResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateDatabaseResponse
 newUpdateDatabaseResponse pHttpStatus_ =
   UpdateDatabaseResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-updateDatabaseResponse_httpStatus :: Lens.Lens' UpdateDatabaseResponse Prelude.Int
+updateDatabaseResponse_httpStatus :: Lens.Lens' UpdateDatabaseResponse Core.Int
 updateDatabaseResponse_httpStatus = Lens.lens (\UpdateDatabaseResponse' {httpStatus} -> httpStatus) (\s@UpdateDatabaseResponse' {} a -> s {httpStatus = a} :: UpdateDatabaseResponse)
 
-instance Prelude.NFData UpdateDatabaseResponse
+instance Core.NFData UpdateDatabaseResponse

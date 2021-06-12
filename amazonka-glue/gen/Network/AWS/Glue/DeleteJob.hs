@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.Glue.DeleteJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteJob' smart constructor.
 data DeleteJob = DeleteJob'
   { -- | The name of the job definition to delete.
-    jobName :: Prelude.Text
+    jobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteJob' with all optional fields omitted.
@@ -65,64 +64,62 @@ data DeleteJob = DeleteJob'
 -- 'jobName', 'deleteJob_jobName' - The name of the job definition to delete.
 newDeleteJob ::
   -- | 'jobName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteJob
 newDeleteJob pJobName_ =
   DeleteJob' {jobName = pJobName_}
 
 -- | The name of the job definition to delete.
-deleteJob_jobName :: Lens.Lens' DeleteJob Prelude.Text
+deleteJob_jobName :: Lens.Lens' DeleteJob Core.Text
 deleteJob_jobName = Lens.lens (\DeleteJob' {jobName} -> jobName) (\s@DeleteJob' {} a -> s {jobName = a} :: DeleteJob)
 
-instance Prelude.AWSRequest DeleteJob where
-  type Rs DeleteJob = DeleteJobResponse
+instance Core.AWSRequest DeleteJob where
+  type AWSResponse DeleteJob = DeleteJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteJobResponse'
-            Prelude.<$> (x Prelude..?> "JobName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteJob
+instance Core.Hashable DeleteJob
 
-instance Prelude.NFData DeleteJob
+instance Core.NFData DeleteJob
 
-instance Prelude.ToHeaders DeleteJob where
+instance Core.ToHeaders DeleteJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.DeleteJob" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.DeleteJob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteJob where
+instance Core.ToJSON DeleteJob where
   toJSON DeleteJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobName" Prelude..= jobName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("JobName" Core..= jobName)]
       )
 
-instance Prelude.ToPath DeleteJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteJobResponse' smart constructor.
 data DeleteJobResponse = DeleteJobResponse'
   { -- | The name of the job definition that was deleted.
-    jobName :: Prelude.Maybe Prelude.Text,
+    jobName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteJobResponse' with all optional fields omitted.
@@ -137,20 +134,20 @@ data DeleteJobResponse = DeleteJobResponse'
 -- 'httpStatus', 'deleteJobResponse_httpStatus' - The response's http status code.
 newDeleteJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteJobResponse
 newDeleteJobResponse pHttpStatus_ =
   DeleteJobResponse'
-    { jobName = Prelude.Nothing,
+    { jobName = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the job definition that was deleted.
-deleteJobResponse_jobName :: Lens.Lens' DeleteJobResponse (Prelude.Maybe Prelude.Text)
+deleteJobResponse_jobName :: Lens.Lens' DeleteJobResponse (Core.Maybe Core.Text)
 deleteJobResponse_jobName = Lens.lens (\DeleteJobResponse' {jobName} -> jobName) (\s@DeleteJobResponse' {} a -> s {jobName = a} :: DeleteJobResponse)
 
 -- | The response's http status code.
-deleteJobResponse_httpStatus :: Lens.Lens' DeleteJobResponse Prelude.Int
+deleteJobResponse_httpStatus :: Lens.Lens' DeleteJobResponse Core.Int
 deleteJobResponse_httpStatus = Lens.lens (\DeleteJobResponse' {httpStatus} -> httpStatus) (\s@DeleteJobResponse' {} a -> s {httpStatus = a} :: DeleteJobResponse)
 
-instance Prelude.NFData DeleteJobResponse
+instance Core.NFData DeleteJobResponse

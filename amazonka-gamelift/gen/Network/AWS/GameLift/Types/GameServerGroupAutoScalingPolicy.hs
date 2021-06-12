@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.GameServerGroupAutoScalingPolicy where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types.TargetTrackingConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game
 -- server groups.__
@@ -42,7 +41,7 @@ data GameServerGroupAutoScalingPolicy = GameServerGroupAutoScalingPolicy'
     -- warm-up time can be useful, particularly with game servers that take a
     -- long time to start up, because it avoids prematurely starting new
     -- instances.
-    estimatedInstanceWarmup :: Prelude.Maybe Prelude.Natural,
+    estimatedInstanceWarmup :: Core.Maybe Core.Natural,
     -- | Settings for a target-based scaling policy applied to Auto Scaling
     -- group. These settings are used to create a target-based policy that
     -- tracks the GameLift FleetIQ metric @\"PercentUtilizedGameServers\"@ and
@@ -51,7 +50,7 @@ data GameServerGroupAutoScalingPolicy = GameServerGroupAutoScalingPolicy'
     -- metric returns to the target value.
     targetTrackingConfiguration :: TargetTrackingConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GameServerGroupAutoScalingPolicy' with all optional fields omitted.
@@ -81,7 +80,7 @@ newGameServerGroupAutoScalingPolicy
   pTargetTrackingConfiguration_ =
     GameServerGroupAutoScalingPolicy'
       { estimatedInstanceWarmup =
-          Prelude.Nothing,
+          Core.Nothing,
         targetTrackingConfiguration =
           pTargetTrackingConfiguration_
       }
@@ -91,7 +90,7 @@ newGameServerGroupAutoScalingPolicy
 -- warm-up time can be useful, particularly with game servers that take a
 -- long time to start up, because it avoids prematurely starting new
 -- instances.
-gameServerGroupAutoScalingPolicy_estimatedInstanceWarmup :: Lens.Lens' GameServerGroupAutoScalingPolicy (Prelude.Maybe Prelude.Natural)
+gameServerGroupAutoScalingPolicy_estimatedInstanceWarmup :: Lens.Lens' GameServerGroupAutoScalingPolicy (Core.Maybe Core.Natural)
 gameServerGroupAutoScalingPolicy_estimatedInstanceWarmup = Lens.lens (\GameServerGroupAutoScalingPolicy' {estimatedInstanceWarmup} -> estimatedInstanceWarmup) (\s@GameServerGroupAutoScalingPolicy' {} a -> s {estimatedInstanceWarmup = a} :: GameServerGroupAutoScalingPolicy)
 
 -- | Settings for a target-based scaling policy applied to Auto Scaling
@@ -104,25 +103,20 @@ gameServerGroupAutoScalingPolicy_targetTrackingConfiguration :: Lens.Lens' GameS
 gameServerGroupAutoScalingPolicy_targetTrackingConfiguration = Lens.lens (\GameServerGroupAutoScalingPolicy' {targetTrackingConfiguration} -> targetTrackingConfiguration) (\s@GameServerGroupAutoScalingPolicy' {} a -> s {targetTrackingConfiguration = a} :: GameServerGroupAutoScalingPolicy)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GameServerGroupAutoScalingPolicy
 
-instance
-  Prelude.NFData
-    GameServerGroupAutoScalingPolicy
+instance Core.NFData GameServerGroupAutoScalingPolicy
 
-instance
-  Prelude.ToJSON
-    GameServerGroupAutoScalingPolicy
-  where
+instance Core.ToJSON GameServerGroupAutoScalingPolicy where
   toJSON GameServerGroupAutoScalingPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EstimatedInstanceWarmup" Prelude..=)
-              Prelude.<$> estimatedInstanceWarmup,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("EstimatedInstanceWarmup" Core..=)
+              Core.<$> estimatedInstanceWarmup,
+            Core.Just
               ( "TargetTrackingConfiguration"
-                  Prelude..= targetTrackingConfiguration
+                  Core..= targetTrackingConfiguration
               )
           ]
       )

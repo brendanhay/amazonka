@@ -15,39 +15,38 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glacier.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.DescribeVault
 import Network.AWS.Glacier.Lens
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
-newVaultExists :: Waiter.Wait DescribeVault
+newVaultExists :: Core.Wait DescribeVault
 newVaultExists =
-  Waiter.Wait
-    { Waiter._waitName = "VaultExists",
-      Waiter._waitAttempts = 15,
-      Waiter._waitDelay = 3,
-      Waiter._waitAcceptors =
-        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
-          Waiter.matchError
+  Core.Wait
+    { Core._waitName = "VaultExists",
+      Core._waitAttempts = 15,
+      Core._waitDelay = 3,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptRetry
+            Core.AcceptRetry
         ]
     }
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
-newVaultNotExists :: Waiter.Wait DescribeVault
+newVaultNotExists :: Core.Wait DescribeVault
 newVaultNotExists =
-  Waiter.Wait
-    { Waiter._waitName = "VaultNotExists",
-      Waiter._waitAttempts = 15,
-      Waiter._waitDelay = 3,
-      Waiter._waitAcceptors =
-        [ Waiter.matchStatus 200 Waiter.AcceptRetry,
-          Waiter.matchError
+  Core.Wait
+    { Core._waitName = "VaultNotExists",
+      Core._waitAttempts = 15,
+      Core._waitDelay = 3,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptRetry,
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }

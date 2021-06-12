@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -25,8 +24,8 @@ import Network.AWS.CodeBuild.Types.EnvironmentType
 import Network.AWS.CodeBuild.Types.EnvironmentVariable
 import Network.AWS.CodeBuild.Types.ImagePullCredentialsType
 import Network.AWS.CodeBuild.Types.RegistryCredential
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the build environment of the build project.
 --
@@ -53,7 +52,7 @@ data ProjectEnvironment = ProjectEnvironment'
     -- @- nohup \/usr\/local\/bin\/dockerd --host=unix:\/\/\/var\/run\/docker.sock --host=tcp:\/\/0.0.0.0:2375 --storage-driver=overlay&@
     --
     -- @- timeout -t 15 sh -c \"until docker info; do echo .; sleep 1; done\"@
-    privilegedMode :: Prelude.Maybe Prelude.Bool,
+    privilegedMode :: Core.Maybe Core.Bool,
     -- | The type of credentials AWS CodeBuild uses to pull images in your build.
     -- There are two valid values:
     --
@@ -67,18 +66,18 @@ data ProjectEnvironment = ProjectEnvironment'
     -- When you use a cross-account or private registry image, you must use
     -- SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image,
     -- you must use CODEBUILD credentials.
-    imagePullCredentialsType :: Prelude.Maybe ImagePullCredentialsType,
+    imagePullCredentialsType :: Core.Maybe ImagePullCredentialsType,
     -- | The credentials for access to a private registry.
-    registryCredential :: Prelude.Maybe RegistryCredential,
+    registryCredential :: Core.Maybe RegistryCredential,
     -- | A set of environment variables to make available to builds for this
     -- build project.
-    environmentVariables :: Prelude.Maybe [EnvironmentVariable],
+    environmentVariables :: Core.Maybe [EnvironmentVariable],
     -- | The ARN of the Amazon S3 bucket, path prefix, and object key that
     -- contains the PEM-encoded certificate for the build project. For more
     -- information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate certificate>
     -- in the /AWS CodeBuild User Guide/.
-    certificate :: Prelude.Maybe Prelude.Text,
+    certificate :: Core.Maybe Core.Text,
     -- | The type of build environment to use for related builds.
     --
     -- -   The environment type @ARM_CONTAINER@ is available only in regions US
@@ -111,7 +110,7 @@ data ProjectEnvironment = ProjectEnvironment'
     --     \"sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,\"
     --     use
     --     @\<registry>\/\<repository>\@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf@.
-    image :: Prelude.Text,
+    image :: Core.Text,
     -- | Information about the compute resources the build project uses.
     -- Available values include:
     --
@@ -144,7 +143,7 @@ data ProjectEnvironment = ProjectEnvironment'
     -- in the /AWS CodeBuild User Guide./
     computeType :: ComputeType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectEnvironment' with all optional fields omitted.
@@ -268,18 +267,17 @@ newProjectEnvironment ::
   -- | 'type''
   EnvironmentType ->
   -- | 'image'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'computeType'
   ComputeType ->
   ProjectEnvironment
 newProjectEnvironment pType_ pImage_ pComputeType_ =
   ProjectEnvironment'
-    { privilegedMode =
-        Prelude.Nothing,
-      imagePullCredentialsType = Prelude.Nothing,
-      registryCredential = Prelude.Nothing,
-      environmentVariables = Prelude.Nothing,
-      certificate = Prelude.Nothing,
+    { privilegedMode = Core.Nothing,
+      imagePullCredentialsType = Core.Nothing,
+      registryCredential = Core.Nothing,
+      environmentVariables = Core.Nothing,
+      certificate = Core.Nothing,
       type' = pType_,
       image = pImage_,
       computeType = pComputeType_
@@ -306,7 +304,7 @@ newProjectEnvironment pType_ pImage_ pComputeType_ =
 -- @- nohup \/usr\/local\/bin\/dockerd --host=unix:\/\/\/var\/run\/docker.sock --host=tcp:\/\/0.0.0.0:2375 --storage-driver=overlay&@
 --
 -- @- timeout -t 15 sh -c \"until docker info; do echo .; sleep 1; done\"@
-projectEnvironment_privilegedMode :: Lens.Lens' ProjectEnvironment (Prelude.Maybe Prelude.Bool)
+projectEnvironment_privilegedMode :: Lens.Lens' ProjectEnvironment (Core.Maybe Core.Bool)
 projectEnvironment_privilegedMode = Lens.lens (\ProjectEnvironment' {privilegedMode} -> privilegedMode) (\s@ProjectEnvironment' {} a -> s {privilegedMode = a} :: ProjectEnvironment)
 
 -- | The type of credentials AWS CodeBuild uses to pull images in your build.
@@ -322,24 +320,24 @@ projectEnvironment_privilegedMode = Lens.lens (\ProjectEnvironment' {privilegedM
 -- When you use a cross-account or private registry image, you must use
 -- SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image,
 -- you must use CODEBUILD credentials.
-projectEnvironment_imagePullCredentialsType :: Lens.Lens' ProjectEnvironment (Prelude.Maybe ImagePullCredentialsType)
+projectEnvironment_imagePullCredentialsType :: Lens.Lens' ProjectEnvironment (Core.Maybe ImagePullCredentialsType)
 projectEnvironment_imagePullCredentialsType = Lens.lens (\ProjectEnvironment' {imagePullCredentialsType} -> imagePullCredentialsType) (\s@ProjectEnvironment' {} a -> s {imagePullCredentialsType = a} :: ProjectEnvironment)
 
 -- | The credentials for access to a private registry.
-projectEnvironment_registryCredential :: Lens.Lens' ProjectEnvironment (Prelude.Maybe RegistryCredential)
+projectEnvironment_registryCredential :: Lens.Lens' ProjectEnvironment (Core.Maybe RegistryCredential)
 projectEnvironment_registryCredential = Lens.lens (\ProjectEnvironment' {registryCredential} -> registryCredential) (\s@ProjectEnvironment' {} a -> s {registryCredential = a} :: ProjectEnvironment)
 
 -- | A set of environment variables to make available to builds for this
 -- build project.
-projectEnvironment_environmentVariables :: Lens.Lens' ProjectEnvironment (Prelude.Maybe [EnvironmentVariable])
-projectEnvironment_environmentVariables = Lens.lens (\ProjectEnvironment' {environmentVariables} -> environmentVariables) (\s@ProjectEnvironment' {} a -> s {environmentVariables = a} :: ProjectEnvironment) Prelude.. Lens.mapping Prelude._Coerce
+projectEnvironment_environmentVariables :: Lens.Lens' ProjectEnvironment (Core.Maybe [EnvironmentVariable])
+projectEnvironment_environmentVariables = Lens.lens (\ProjectEnvironment' {environmentVariables} -> environmentVariables) (\s@ProjectEnvironment' {} a -> s {environmentVariables = a} :: ProjectEnvironment) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the Amazon S3 bucket, path prefix, and object key that
 -- contains the PEM-encoded certificate for the build project. For more
 -- information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate certificate>
 -- in the /AWS CodeBuild User Guide/.
-projectEnvironment_certificate :: Lens.Lens' ProjectEnvironment (Prelude.Maybe Prelude.Text)
+projectEnvironment_certificate :: Lens.Lens' ProjectEnvironment (Core.Maybe Core.Text)
 projectEnvironment_certificate = Lens.lens (\ProjectEnvironment' {certificate} -> certificate) (\s@ProjectEnvironment' {} a -> s {certificate = a} :: ProjectEnvironment)
 
 -- | The type of build environment to use for related builds.
@@ -376,7 +374,7 @@ projectEnvironment_type = Lens.lens (\ProjectEnvironment' {type'} -> type') (\s@
 --     \"sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,\"
 --     use
 --     @\<registry>\/\<repository>\@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf@.
-projectEnvironment_image :: Lens.Lens' ProjectEnvironment Prelude.Text
+projectEnvironment_image :: Lens.Lens' ProjectEnvironment Core.Text
 projectEnvironment_image = Lens.lens (\ProjectEnvironment' {image} -> image) (\s@ProjectEnvironment' {} a -> s {image = a} :: ProjectEnvironment)
 
 -- | Information about the compute resources the build project uses.
@@ -412,43 +410,42 @@ projectEnvironment_image = Lens.lens (\ProjectEnvironment' {image} -> image) (\s
 projectEnvironment_computeType :: Lens.Lens' ProjectEnvironment ComputeType
 projectEnvironment_computeType = Lens.lens (\ProjectEnvironment' {computeType} -> computeType) (\s@ProjectEnvironment' {} a -> s {computeType = a} :: ProjectEnvironment)
 
-instance Prelude.FromJSON ProjectEnvironment where
+instance Core.FromJSON ProjectEnvironment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectEnvironment"
       ( \x ->
           ProjectEnvironment'
-            Prelude.<$> (x Prelude..:? "privilegedMode")
-            Prelude.<*> (x Prelude..:? "imagePullCredentialsType")
-            Prelude.<*> (x Prelude..:? "registryCredential")
-            Prelude.<*> ( x Prelude..:? "environmentVariables"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "certificate")
-            Prelude.<*> (x Prelude..: "type")
-            Prelude.<*> (x Prelude..: "image")
-            Prelude.<*> (x Prelude..: "computeType")
+            Core.<$> (x Core..:? "privilegedMode")
+            Core.<*> (x Core..:? "imagePullCredentialsType")
+            Core.<*> (x Core..:? "registryCredential")
+            Core.<*> ( x Core..:? "environmentVariables"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "certificate")
+            Core.<*> (x Core..: "type")
+            Core.<*> (x Core..: "image")
+            Core.<*> (x Core..: "computeType")
       )
 
-instance Prelude.Hashable ProjectEnvironment
+instance Core.Hashable ProjectEnvironment
 
-instance Prelude.NFData ProjectEnvironment
+instance Core.NFData ProjectEnvironment
 
-instance Prelude.ToJSON ProjectEnvironment where
+instance Core.ToJSON ProjectEnvironment where
   toJSON ProjectEnvironment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("privilegedMode" Prelude..=)
-              Prelude.<$> privilegedMode,
-            ("imagePullCredentialsType" Prelude..=)
-              Prelude.<$> imagePullCredentialsType,
-            ("registryCredential" Prelude..=)
-              Prelude.<$> registryCredential,
-            ("environmentVariables" Prelude..=)
-              Prelude.<$> environmentVariables,
-            ("certificate" Prelude..=) Prelude.<$> certificate,
-            Prelude.Just ("type" Prelude..= type'),
-            Prelude.Just ("image" Prelude..= image),
-            Prelude.Just ("computeType" Prelude..= computeType)
+    Core.object
+      ( Core.catMaybes
+          [ ("privilegedMode" Core..=) Core.<$> privilegedMode,
+            ("imagePullCredentialsType" Core..=)
+              Core.<$> imagePullCredentialsType,
+            ("registryCredential" Core..=)
+              Core.<$> registryCredential,
+            ("environmentVariables" Core..=)
+              Core.<$> environmentVariables,
+            ("certificate" Core..=) Core.<$> certificate,
+            Core.Just ("type" Core..= type'),
+            Core.Just ("image" Core..= image),
+            Core.Just ("computeType" Core..= computeType)
           ]
       )

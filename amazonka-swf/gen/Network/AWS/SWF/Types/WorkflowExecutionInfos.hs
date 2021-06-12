@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowExecutionInfos where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.WorkflowExecutionInfo
 
 -- | Contains a paginated list of information about workflow executions.
@@ -35,11 +34,11 @@ data WorkflowExecutionInfos = WorkflowExecutionInfos'
     --
     -- The configured @maximumPageSize@ determines how many results can be
     -- returned in a single call.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The list of workflow information structures.
     executionInfos :: [WorkflowExecutionInfo]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionInfos' with all optional fields omitted.
@@ -63,8 +62,8 @@ newWorkflowExecutionInfos ::
 newWorkflowExecutionInfos =
   WorkflowExecutionInfos'
     { nextPageToken =
-        Prelude.Nothing,
-      executionInfos = Prelude.mempty
+        Core.Nothing,
+      executionInfos = Core.mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -74,25 +73,23 @@ newWorkflowExecutionInfos =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-workflowExecutionInfos_nextPageToken :: Lens.Lens' WorkflowExecutionInfos (Prelude.Maybe Prelude.Text)
+workflowExecutionInfos_nextPageToken :: Lens.Lens' WorkflowExecutionInfos (Core.Maybe Core.Text)
 workflowExecutionInfos_nextPageToken = Lens.lens (\WorkflowExecutionInfos' {nextPageToken} -> nextPageToken) (\s@WorkflowExecutionInfos' {} a -> s {nextPageToken = a} :: WorkflowExecutionInfos)
 
 -- | The list of workflow information structures.
 workflowExecutionInfos_executionInfos :: Lens.Lens' WorkflowExecutionInfos [WorkflowExecutionInfo]
-workflowExecutionInfos_executionInfos = Lens.lens (\WorkflowExecutionInfos' {executionInfos} -> executionInfos) (\s@WorkflowExecutionInfos' {} a -> s {executionInfos = a} :: WorkflowExecutionInfos) Prelude.. Prelude._Coerce
+workflowExecutionInfos_executionInfos = Lens.lens (\WorkflowExecutionInfos' {executionInfos} -> executionInfos) (\s@WorkflowExecutionInfos' {} a -> s {executionInfos = a} :: WorkflowExecutionInfos) Core.. Lens._Coerce
 
-instance Prelude.FromJSON WorkflowExecutionInfos where
+instance Core.FromJSON WorkflowExecutionInfos where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowExecutionInfos"
       ( \x ->
           WorkflowExecutionInfos'
-            Prelude.<$> (x Prelude..:? "nextPageToken")
-            Prelude.<*> ( x Prelude..:? "executionInfos"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "nextPageToken")
+            Core.<*> (x Core..:? "executionInfos" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable WorkflowExecutionInfos
+instance Core.Hashable WorkflowExecutionInfos
 
-instance Prelude.NFData WorkflowExecutionInfos
+instance Core.NFData WorkflowExecutionInfos

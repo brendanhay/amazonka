@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,8 +61,8 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -77,9 +76,9 @@ import Network.AWS.SES.Types
 -- /See:/ 'newGetIdentityVerificationAttributes' smart constructor.
 data GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
   { -- | A list of identities.
-    identities :: [Prelude.Text]
+    identities :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityVerificationAttributes' with all optional fields omitted.
@@ -95,19 +94,19 @@ newGetIdentityVerificationAttributes ::
 newGetIdentityVerificationAttributes =
   GetIdentityVerificationAttributes'
     { identities =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A list of identities.
-getIdentityVerificationAttributes_identities :: Lens.Lens' GetIdentityVerificationAttributes [Prelude.Text]
-getIdentityVerificationAttributes_identities = Lens.lens (\GetIdentityVerificationAttributes' {identities} -> identities) (\s@GetIdentityVerificationAttributes' {} a -> s {identities = a} :: GetIdentityVerificationAttributes) Prelude.. Prelude._Coerce
+getIdentityVerificationAttributes_identities :: Lens.Lens' GetIdentityVerificationAttributes [Core.Text]
+getIdentityVerificationAttributes_identities = Lens.lens (\GetIdentityVerificationAttributes' {identities} -> identities) (\s@GetIdentityVerificationAttributes' {} a -> s {identities = a} :: GetIdentityVerificationAttributes) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetIdentityVerificationAttributes
   where
   type
-    Rs GetIdentityVerificationAttributes =
+    AWSResponse GetIdentityVerificationAttributes =
       GetIdentityVerificationAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -115,47 +114,46 @@ instance
       "GetIdentityVerificationAttributesResult"
       ( \s h x ->
           GetIdentityVerificationAttributesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Prelude..@? "VerificationAttributes"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.parseXMLMap "entry" "key" "value"
-                          )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "VerificationAttributes"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLMap "entry" "key" "value"
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetIdentityVerificationAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetIdentityVerificationAttributes
 
 instance
-  Prelude.ToHeaders
-    GetIdentityVerificationAttributes
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     GetIdentityVerificationAttributes
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    GetIdentityVerificationAttributes
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     GetIdentityVerificationAttributes
   where
   toQuery GetIdentityVerificationAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetIdentityVerificationAttributes" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+          Core.=: ( "GetIdentityVerificationAttributes" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
         "Identities"
-          Prelude.=: Prelude.toQueryList "member" identities
+          Core.=: Core.toQueryList "member" identities
       ]
 
 -- | The Amazon SES verification status of a list of identities. For domain
@@ -164,11 +162,11 @@ instance
 -- /See:/ 'newGetIdentityVerificationAttributesResponse' smart constructor.
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A map of Identities to IdentityVerificationAttributes objects.
-    verificationAttributes :: Prelude.HashMap Prelude.Text IdentityVerificationAttributes
+    verificationAttributes :: Core.HashMap Core.Text IdentityVerificationAttributes
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityVerificationAttributesResponse' with all optional fields omitted.
@@ -183,7 +181,7 @@ data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttribut
 -- 'verificationAttributes', 'getIdentityVerificationAttributesResponse_verificationAttributes' - A map of Identities to IdentityVerificationAttributes objects.
 newGetIdentityVerificationAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetIdentityVerificationAttributesResponse
 newGetIdentityVerificationAttributesResponse
   pHttpStatus_ =
@@ -191,17 +189,17 @@ newGetIdentityVerificationAttributesResponse
       { httpStatus =
           pHttpStatus_,
         verificationAttributes =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | The response's http status code.
-getIdentityVerificationAttributesResponse_httpStatus :: Lens.Lens' GetIdentityVerificationAttributesResponse Prelude.Int
+getIdentityVerificationAttributesResponse_httpStatus :: Lens.Lens' GetIdentityVerificationAttributesResponse Core.Int
 getIdentityVerificationAttributesResponse_httpStatus = Lens.lens (\GetIdentityVerificationAttributesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityVerificationAttributesResponse' {} a -> s {httpStatus = a} :: GetIdentityVerificationAttributesResponse)
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
-getIdentityVerificationAttributesResponse_verificationAttributes :: Lens.Lens' GetIdentityVerificationAttributesResponse (Prelude.HashMap Prelude.Text IdentityVerificationAttributes)
-getIdentityVerificationAttributesResponse_verificationAttributes = Lens.lens (\GetIdentityVerificationAttributesResponse' {verificationAttributes} -> verificationAttributes) (\s@GetIdentityVerificationAttributesResponse' {} a -> s {verificationAttributes = a} :: GetIdentityVerificationAttributesResponse) Prelude.. Prelude._Coerce
+getIdentityVerificationAttributesResponse_verificationAttributes :: Lens.Lens' GetIdentityVerificationAttributesResponse (Core.HashMap Core.Text IdentityVerificationAttributes)
+getIdentityVerificationAttributesResponse_verificationAttributes = Lens.lens (\GetIdentityVerificationAttributesResponse' {verificationAttributes} -> verificationAttributes) (\s@GetIdentityVerificationAttributesResponse' {} a -> s {verificationAttributes = a} :: GetIdentityVerificationAttributesResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetIdentityVerificationAttributesResponse

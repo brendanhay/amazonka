@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.PutRecordBatchResponseEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the result for an individual record from a PutRecordBatch
 -- request. If the record is successfully added to your delivery stream, it
@@ -31,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPutRecordBatchResponseEntry' smart constructor.
 data PutRecordBatchResponseEntry = PutRecordBatchResponseEntry'
   { -- | The ID of the record.
-    recordId :: Prelude.Maybe Prelude.Text,
+    recordId :: Core.Maybe Core.Text,
     -- | The error message for an individual record result.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code for an individual record result.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRecordBatchResponseEntry' with all optional fields omitted.
@@ -57,34 +56,34 @@ newPutRecordBatchResponseEntry ::
 newPutRecordBatchResponseEntry =
   PutRecordBatchResponseEntry'
     { recordId =
-        Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The ID of the record.
-putRecordBatchResponseEntry_recordId :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
+putRecordBatchResponseEntry_recordId :: Lens.Lens' PutRecordBatchResponseEntry (Core.Maybe Core.Text)
 putRecordBatchResponseEntry_recordId = Lens.lens (\PutRecordBatchResponseEntry' {recordId} -> recordId) (\s@PutRecordBatchResponseEntry' {} a -> s {recordId = a} :: PutRecordBatchResponseEntry)
 
 -- | The error message for an individual record result.
-putRecordBatchResponseEntry_errorMessage :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
+putRecordBatchResponseEntry_errorMessage :: Lens.Lens' PutRecordBatchResponseEntry (Core.Maybe Core.Text)
 putRecordBatchResponseEntry_errorMessage = Lens.lens (\PutRecordBatchResponseEntry' {errorMessage} -> errorMessage) (\s@PutRecordBatchResponseEntry' {} a -> s {errorMessage = a} :: PutRecordBatchResponseEntry)
 
 -- | The error code for an individual record result.
-putRecordBatchResponseEntry_errorCode :: Lens.Lens' PutRecordBatchResponseEntry (Prelude.Maybe Prelude.Text)
+putRecordBatchResponseEntry_errorCode :: Lens.Lens' PutRecordBatchResponseEntry (Core.Maybe Core.Text)
 putRecordBatchResponseEntry_errorCode = Lens.lens (\PutRecordBatchResponseEntry' {errorCode} -> errorCode) (\s@PutRecordBatchResponseEntry' {} a -> s {errorCode = a} :: PutRecordBatchResponseEntry)
 
-instance Prelude.FromJSON PutRecordBatchResponseEntry where
+instance Core.FromJSON PutRecordBatchResponseEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PutRecordBatchResponseEntry"
       ( \x ->
           PutRecordBatchResponseEntry'
-            Prelude.<$> (x Prelude..:? "RecordId")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "RecordId")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable PutRecordBatchResponseEntry
+instance Core.Hashable PutRecordBatchResponseEntry
 
-instance Prelude.NFData PutRecordBatchResponseEntry
+instance Core.NFData PutRecordBatchResponseEntry

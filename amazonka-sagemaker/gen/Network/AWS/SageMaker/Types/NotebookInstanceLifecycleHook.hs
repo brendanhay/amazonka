@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleHook where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the notebook instance lifecycle configuration script.
 --
@@ -45,9 +44,9 @@ import qualified Network.AWS.Prelude as Prelude
 data NotebookInstanceLifecycleHook = NotebookInstanceLifecycleHook'
   { -- | A base64-encoded string that contains a shell script for a notebook
     -- instance lifecycle configuration.
-    content :: Prelude.Maybe Prelude.Text
+    content :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NotebookInstanceLifecycleHook' with all optional fields omitted.
@@ -64,35 +63,30 @@ newNotebookInstanceLifecycleHook ::
 newNotebookInstanceLifecycleHook =
   NotebookInstanceLifecycleHook'
     { content =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A base64-encoded string that contains a shell script for a notebook
 -- instance lifecycle configuration.
-notebookInstanceLifecycleHook_content :: Lens.Lens' NotebookInstanceLifecycleHook (Prelude.Maybe Prelude.Text)
+notebookInstanceLifecycleHook_content :: Lens.Lens' NotebookInstanceLifecycleHook (Core.Maybe Core.Text)
 notebookInstanceLifecycleHook_content = Lens.lens (\NotebookInstanceLifecycleHook' {content} -> content) (\s@NotebookInstanceLifecycleHook' {} a -> s {content = a} :: NotebookInstanceLifecycleHook)
 
-instance
-  Prelude.FromJSON
-    NotebookInstanceLifecycleHook
-  where
+instance Core.FromJSON NotebookInstanceLifecycleHook where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "NotebookInstanceLifecycleHook"
       ( \x ->
           NotebookInstanceLifecycleHook'
-            Prelude.<$> (x Prelude..:? "Content")
+            Core.<$> (x Core..:? "Content")
       )
 
-instance
-  Prelude.Hashable
-    NotebookInstanceLifecycleHook
+instance Core.Hashable NotebookInstanceLifecycleHook
 
-instance Prelude.NFData NotebookInstanceLifecycleHook
+instance Core.NFData NotebookInstanceLifecycleHook
 
-instance Prelude.ToJSON NotebookInstanceLifecycleHook where
+instance Core.ToJSON NotebookInstanceLifecycleHook where
   toJSON NotebookInstanceLifecycleHook' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Content" Prelude..=) Prelude.<$> content]
+    Core.object
+      ( Core.catMaybes
+          [("Content" Core..=) Core.<$> content]
       )

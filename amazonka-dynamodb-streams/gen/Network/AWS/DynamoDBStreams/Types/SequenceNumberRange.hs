@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDBStreams.Types.SequenceNumberRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The beginning and ending sequence numbers for the stream records
 -- contained within a shard.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data SequenceNumberRange = SequenceNumberRange'
   { -- | The first sequence number for the stream records contained within a
     -- shard. String contains numeric characters only.
-    startingSequenceNumber :: Prelude.Maybe Prelude.Text,
+    startingSequenceNumber :: Core.Maybe Core.Text,
     -- | The last sequence number for the stream records contained within a
     -- shard. String contains numeric characters only.
-    endingSequenceNumber :: Prelude.Maybe Prelude.Text
+    endingSequenceNumber :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SequenceNumberRange' with all optional fields omitted.
@@ -55,30 +54,30 @@ newSequenceNumberRange ::
 newSequenceNumberRange =
   SequenceNumberRange'
     { startingSequenceNumber =
-        Prelude.Nothing,
-      endingSequenceNumber = Prelude.Nothing
+        Core.Nothing,
+      endingSequenceNumber = Core.Nothing
     }
 
 -- | The first sequence number for the stream records contained within a
 -- shard. String contains numeric characters only.
-sequenceNumberRange_startingSequenceNumber :: Lens.Lens' SequenceNumberRange (Prelude.Maybe Prelude.Text)
+sequenceNumberRange_startingSequenceNumber :: Lens.Lens' SequenceNumberRange (Core.Maybe Core.Text)
 sequenceNumberRange_startingSequenceNumber = Lens.lens (\SequenceNumberRange' {startingSequenceNumber} -> startingSequenceNumber) (\s@SequenceNumberRange' {} a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
 
 -- | The last sequence number for the stream records contained within a
 -- shard. String contains numeric characters only.
-sequenceNumberRange_endingSequenceNumber :: Lens.Lens' SequenceNumberRange (Prelude.Maybe Prelude.Text)
+sequenceNumberRange_endingSequenceNumber :: Lens.Lens' SequenceNumberRange (Core.Maybe Core.Text)
 sequenceNumberRange_endingSequenceNumber = Lens.lens (\SequenceNumberRange' {endingSequenceNumber} -> endingSequenceNumber) (\s@SequenceNumberRange' {} a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
 
-instance Prelude.FromJSON SequenceNumberRange where
+instance Core.FromJSON SequenceNumberRange where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SequenceNumberRange"
       ( \x ->
           SequenceNumberRange'
-            Prelude.<$> (x Prelude..:? "StartingSequenceNumber")
-            Prelude.<*> (x Prelude..:? "EndingSequenceNumber")
+            Core.<$> (x Core..:? "StartingSequenceNumber")
+            Core.<*> (x Core..:? "EndingSequenceNumber")
       )
 
-instance Prelude.Hashable SequenceNumberRange
+instance Core.Hashable SequenceNumberRange
 
-instance Prelude.NFData SequenceNumberRange
+instance Core.NFData SequenceNumberRange

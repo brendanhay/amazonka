@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.Support.AddAttachmentsToSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -68,7 +67,7 @@ data AddAttachmentsToSet = AddAttachmentsToSet'
     -- a new attachment set is created, and the ID of the set is returned in
     -- the response. If an @attachmentSetId@ is specified, the attachments are
     -- added to the specified set, if it exists.
-    attachmentSetId :: Prelude.Maybe Prelude.Text,
+    attachmentSetId :: Core.Maybe Core.Text,
     -- | One or more attachments to add to the set. You can add up to three
     -- attachments per set. The size limit is 5 MB per attachment.
     --
@@ -79,7 +78,7 @@ data AddAttachmentsToSet = AddAttachmentsToSet'
     -- attachment, such as @troubleshoot-screenshot.png@.
     attachments :: [Attachment]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddAttachmentsToSet' with all optional fields omitted.
@@ -107,15 +106,15 @@ newAddAttachmentsToSet ::
 newAddAttachmentsToSet =
   AddAttachmentsToSet'
     { attachmentSetId =
-        Prelude.Nothing,
-      attachments = Prelude.mempty
+        Core.Nothing,
+      attachments = Core.mempty
     }
 
 -- | The ID of the attachment set. If an @attachmentSetId@ is not specified,
 -- a new attachment set is created, and the ID of the set is returned in
 -- the response. If an @attachmentSetId@ is specified, the attachments are
 -- added to the specified set, if it exists.
-addAttachmentsToSet_attachmentSetId :: Lens.Lens' AddAttachmentsToSet (Prelude.Maybe Prelude.Text)
+addAttachmentsToSet_attachmentSetId :: Lens.Lens' AddAttachmentsToSet (Core.Maybe Core.Text)
 addAttachmentsToSet_attachmentSetId = Lens.lens (\AddAttachmentsToSet' {attachmentSetId} -> attachmentSetId) (\s@AddAttachmentsToSet' {} a -> s {attachmentSetId = a} :: AddAttachmentsToSet)
 
 -- | One or more attachments to add to the set. You can add up to three
@@ -127,56 +126,54 @@ addAttachmentsToSet_attachmentSetId = Lens.lens (\AddAttachmentsToSet' {attachme
 -- base64-encoded string. The value for @fileName@ is the name of the
 -- attachment, such as @troubleshoot-screenshot.png@.
 addAttachmentsToSet_attachments :: Lens.Lens' AddAttachmentsToSet [Attachment]
-addAttachmentsToSet_attachments = Lens.lens (\AddAttachmentsToSet' {attachments} -> attachments) (\s@AddAttachmentsToSet' {} a -> s {attachments = a} :: AddAttachmentsToSet) Prelude.. Prelude._Coerce
+addAttachmentsToSet_attachments = Lens.lens (\AddAttachmentsToSet' {attachments} -> attachments) (\s@AddAttachmentsToSet' {} a -> s {attachments = a} :: AddAttachmentsToSet) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddAttachmentsToSet where
+instance Core.AWSRequest AddAttachmentsToSet where
   type
-    Rs AddAttachmentsToSet =
+    AWSResponse AddAttachmentsToSet =
       AddAttachmentsToSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AddAttachmentsToSetResponse'
-            Prelude.<$> (x Prelude..?> "expiryTime")
-            Prelude.<*> (x Prelude..?> "attachmentSetId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "expiryTime")
+            Core.<*> (x Core..?> "attachmentSetId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddAttachmentsToSet
+instance Core.Hashable AddAttachmentsToSet
 
-instance Prelude.NFData AddAttachmentsToSet
+instance Core.NFData AddAttachmentsToSet
 
-instance Prelude.ToHeaders AddAttachmentsToSet where
+instance Core.ToHeaders AddAttachmentsToSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSSupport_20130415.AddAttachmentsToSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSSupport_20130415.AddAttachmentsToSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddAttachmentsToSet where
+instance Core.ToJSON AddAttachmentsToSet where
   toJSON AddAttachmentsToSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("attachmentSetId" Prelude..=)
-              Prelude.<$> attachmentSetId,
-            Prelude.Just ("attachments" Prelude..= attachments)
+    Core.object
+      ( Core.catMaybes
+          [ ("attachmentSetId" Core..=)
+              Core.<$> attachmentSetId,
+            Core.Just ("attachments" Core..= attachments)
           ]
       )
 
-instance Prelude.ToPath AddAttachmentsToSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddAttachmentsToSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddAttachmentsToSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddAttachmentsToSet where
+  toQuery = Core.const Core.mempty
 
 -- | The ID and expiry time of the attachment set returned by the
 -- AddAttachmentsToSet operation.
@@ -184,16 +181,16 @@ instance Prelude.ToQuery AddAttachmentsToSet where
 -- /See:/ 'newAddAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
   { -- | The time and date when the attachment set expires.
-    expiryTime :: Prelude.Maybe Prelude.Text,
+    expiryTime :: Core.Maybe Core.Text,
     -- | The ID of the attachment set. If an @attachmentSetId@ was not specified,
     -- a new attachment set is created, and the ID of the set is returned in
     -- the response. If an @attachmentSetId@ was specified, the attachments are
     -- added to the specified set, if it exists.
-    attachmentSetId :: Prelude.Maybe Prelude.Text,
+    attachmentSetId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddAttachmentsToSetResponse' with all optional fields omitted.
@@ -213,29 +210,29 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
 -- 'httpStatus', 'addAttachmentsToSetResponse_httpStatus' - The response's http status code.
 newAddAttachmentsToSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddAttachmentsToSetResponse
 newAddAttachmentsToSetResponse pHttpStatus_ =
   AddAttachmentsToSetResponse'
     { expiryTime =
-        Prelude.Nothing,
-      attachmentSetId = Prelude.Nothing,
+        Core.Nothing,
+      attachmentSetId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The time and date when the attachment set expires.
-addAttachmentsToSetResponse_expiryTime :: Lens.Lens' AddAttachmentsToSetResponse (Prelude.Maybe Prelude.Text)
+addAttachmentsToSetResponse_expiryTime :: Lens.Lens' AddAttachmentsToSetResponse (Core.Maybe Core.Text)
 addAttachmentsToSetResponse_expiryTime = Lens.lens (\AddAttachmentsToSetResponse' {expiryTime} -> expiryTime) (\s@AddAttachmentsToSetResponse' {} a -> s {expiryTime = a} :: AddAttachmentsToSetResponse)
 
 -- | The ID of the attachment set. If an @attachmentSetId@ was not specified,
 -- a new attachment set is created, and the ID of the set is returned in
 -- the response. If an @attachmentSetId@ was specified, the attachments are
 -- added to the specified set, if it exists.
-addAttachmentsToSetResponse_attachmentSetId :: Lens.Lens' AddAttachmentsToSetResponse (Prelude.Maybe Prelude.Text)
+addAttachmentsToSetResponse_attachmentSetId :: Lens.Lens' AddAttachmentsToSetResponse (Core.Maybe Core.Text)
 addAttachmentsToSetResponse_attachmentSetId = Lens.lens (\AddAttachmentsToSetResponse' {attachmentSetId} -> attachmentSetId) (\s@AddAttachmentsToSetResponse' {} a -> s {attachmentSetId = a} :: AddAttachmentsToSetResponse)
 
 -- | The response's http status code.
-addAttachmentsToSetResponse_httpStatus :: Lens.Lens' AddAttachmentsToSetResponse Prelude.Int
+addAttachmentsToSetResponse_httpStatus :: Lens.Lens' AddAttachmentsToSetResponse Core.Int
 addAttachmentsToSetResponse_httpStatus = Lens.lens (\AddAttachmentsToSetResponse' {httpStatus} -> httpStatus) (\s@AddAttachmentsToSetResponse' {} a -> s {httpStatus = a} :: AddAttachmentsToSetResponse)
 
-instance Prelude.NFData AddAttachmentsToSetResponse
+instance Core.NFData AddAttachmentsToSetResponse

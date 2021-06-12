@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.TargetTrackingConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game
 -- server groups.__
@@ -37,9 +36,9 @@ import qualified Network.AWS.Prelude as Prelude
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
   { -- | Desired value to use with a game server group target-based scaling
     -- policy.
-    targetValue :: Prelude.Double
+    targetValue :: Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetTrackingConfiguration' with all optional fields omitted.
@@ -53,7 +52,7 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- policy.
 newTargetTrackingConfiguration ::
   -- | 'targetValue'
-  Prelude.Double ->
+  Core.Double ->
   TargetTrackingConfiguration
 newTargetTrackingConfiguration pTargetValue_ =
   TargetTrackingConfiguration'
@@ -63,18 +62,16 @@ newTargetTrackingConfiguration pTargetValue_ =
 
 -- | Desired value to use with a game server group target-based scaling
 -- policy.
-targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Prelude.Double
+targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Core.Double
 targetTrackingConfiguration_targetValue = Lens.lens (\TargetTrackingConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingConfiguration' {} a -> s {targetValue = a} :: TargetTrackingConfiguration)
 
-instance Prelude.Hashable TargetTrackingConfiguration
+instance Core.Hashable TargetTrackingConfiguration
 
-instance Prelude.NFData TargetTrackingConfiguration
+instance Core.NFData TargetTrackingConfiguration
 
-instance Prelude.ToJSON TargetTrackingConfiguration where
+instance Core.ToJSON TargetTrackingConfiguration where
   toJSON TargetTrackingConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("TargetValue" Prelude..= targetValue)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TargetValue" Core..= targetValue)]
       )

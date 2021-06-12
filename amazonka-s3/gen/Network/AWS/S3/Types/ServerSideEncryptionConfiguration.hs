@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ServerSideEncryptionConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ServerSideEncryptionRule
 
@@ -33,7 +32,7 @@ data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
     -- configuration rule.
     rules :: [ServerSideEncryptionRule]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServerSideEncryptionConfiguration' with all optional fields omitted.
@@ -50,33 +49,30 @@ newServerSideEncryptionConfiguration ::
 newServerSideEncryptionConfiguration =
   ServerSideEncryptionConfiguration'
     { rules =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | Container for information about a particular server-side encryption
 -- configuration rule.
 serverSideEncryptionConfiguration_rules :: Lens.Lens' ServerSideEncryptionConfiguration [ServerSideEncryptionRule]
-serverSideEncryptionConfiguration_rules = Lens.lens (\ServerSideEncryptionConfiguration' {rules} -> rules) (\s@ServerSideEncryptionConfiguration' {} a -> s {rules = a} :: ServerSideEncryptionConfiguration) Prelude.. Prelude._Coerce
+serverSideEncryptionConfiguration_rules = Lens.lens (\ServerSideEncryptionConfiguration' {rules} -> rules) (\s@ServerSideEncryptionConfiguration' {} a -> s {rules = a} :: ServerSideEncryptionConfiguration) Core.. Lens._Coerce
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     ServerSideEncryptionConfiguration
   where
   parseXML x =
     ServerSideEncryptionConfiguration'
-      Prelude.<$> (Prelude.parseXMLList "Rule" x)
+      Core.<$> (Core.parseXMLList "Rule" x)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ServerSideEncryptionConfiguration
 
 instance
-  Prelude.NFData
+  Core.NFData
     ServerSideEncryptionConfiguration
 
-instance
-  Prelude.ToXML
-    ServerSideEncryptionConfiguration
-  where
+instance Core.ToXML ServerSideEncryptionConfiguration where
   toXML ServerSideEncryptionConfiguration' {..} =
-    Prelude.mconcat [Prelude.toXMLList "Rule" rules]
+    Core.mconcat [Core.toXMLList "Rule" rules]

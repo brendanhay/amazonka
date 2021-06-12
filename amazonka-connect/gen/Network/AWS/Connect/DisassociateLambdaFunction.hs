@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,20 +41,20 @@ module Network.AWS.Connect.DisassociateLambdaFunction
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateLambdaFunction' smart constructor.
 data DisassociateLambdaFunction = DisassociateLambdaFunction'
   { -- | The identifier of the Amazon Connect instance..
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the Lambda function being
     -- disassociated.
-    functionArn :: Prelude.Text
+    functionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateLambdaFunction' with all optional fields omitted.
@@ -71,9 +70,9 @@ data DisassociateLambdaFunction = DisassociateLambdaFunction'
 -- disassociated.
 newDisassociateLambdaFunction ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'functionArn'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateLambdaFunction
 newDisassociateLambdaFunction
   pInstanceId_
@@ -85,59 +84,53 @@ newDisassociateLambdaFunction
       }
 
 -- | The identifier of the Amazon Connect instance..
-disassociateLambdaFunction_instanceId :: Lens.Lens' DisassociateLambdaFunction Prelude.Text
+disassociateLambdaFunction_instanceId :: Lens.Lens' DisassociateLambdaFunction Core.Text
 disassociateLambdaFunction_instanceId = Lens.lens (\DisassociateLambdaFunction' {instanceId} -> instanceId) (\s@DisassociateLambdaFunction' {} a -> s {instanceId = a} :: DisassociateLambdaFunction)
 
 -- | The Amazon Resource Name (ARN) of the Lambda function being
 -- disassociated.
-disassociateLambdaFunction_functionArn :: Lens.Lens' DisassociateLambdaFunction Prelude.Text
+disassociateLambdaFunction_functionArn :: Lens.Lens' DisassociateLambdaFunction Core.Text
 disassociateLambdaFunction_functionArn = Lens.lens (\DisassociateLambdaFunction' {functionArn} -> functionArn) (\s@DisassociateLambdaFunction' {} a -> s {functionArn = a} :: DisassociateLambdaFunction)
 
-instance
-  Prelude.AWSRequest
-    DisassociateLambdaFunction
-  where
+instance Core.AWSRequest DisassociateLambdaFunction where
   type
-    Rs DisassociateLambdaFunction =
+    AWSResponse DisassociateLambdaFunction =
       DisassociateLambdaFunctionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DisassociateLambdaFunctionResponse'
 
-instance Prelude.Hashable DisassociateLambdaFunction
+instance Core.Hashable DisassociateLambdaFunction
 
-instance Prelude.NFData DisassociateLambdaFunction
+instance Core.NFData DisassociateLambdaFunction
 
-instance Prelude.ToHeaders DisassociateLambdaFunction where
+instance Core.ToHeaders DisassociateLambdaFunction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DisassociateLambdaFunction where
+instance Core.ToPath DisassociateLambdaFunction where
   toPath DisassociateLambdaFunction' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/instance/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/lambda-function"
       ]
 
-instance Prelude.ToQuery DisassociateLambdaFunction where
+instance Core.ToQuery DisassociateLambdaFunction where
   toQuery DisassociateLambdaFunction' {..} =
-    Prelude.mconcat
-      ["functionArn" Prelude.=: functionArn]
+    Core.mconcat ["functionArn" Core.=: functionArn]
 
 -- | /See:/ 'newDisassociateLambdaFunctionResponse' smart constructor.
 data DisassociateLambdaFunctionResponse = DisassociateLambdaFunctionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateLambdaFunctionResponse' with all optional fields omitted.
@@ -149,5 +142,5 @@ newDisassociateLambdaFunctionResponse =
   DisassociateLambdaFunctionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateLambdaFunctionResponse

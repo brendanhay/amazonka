@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelPackageValidationProfile where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TransformJobDefinition
 
 -- | Contains data, such as the inputs and targeted instance types that are
@@ -33,12 +32,12 @@ import Network.AWS.SageMaker.Types.TransformJobDefinition
 -- /See:/ 'newModelPackageValidationProfile' smart constructor.
 data ModelPackageValidationProfile = ModelPackageValidationProfile'
   { -- | The name of the profile for the model package.
-    profileName :: Prelude.Text,
+    profileName :: Core.Text,
     -- | The @TransformJobDefinition@ object that describes the transform job
     -- used for the validation of the model package.
     transformJobDefinition :: TransformJobDefinition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelPackageValidationProfile' with all optional fields omitted.
@@ -54,7 +53,7 @@ data ModelPackageValidationProfile = ModelPackageValidationProfile'
 -- used for the validation of the model package.
 newModelPackageValidationProfile ::
   -- | 'profileName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'transformJobDefinition'
   TransformJobDefinition ->
   ModelPackageValidationProfile
@@ -69,7 +68,7 @@ newModelPackageValidationProfile
       }
 
 -- | The name of the profile for the model package.
-modelPackageValidationProfile_profileName :: Lens.Lens' ModelPackageValidationProfile Prelude.Text
+modelPackageValidationProfile_profileName :: Lens.Lens' ModelPackageValidationProfile Core.Text
 modelPackageValidationProfile_profileName = Lens.lens (\ModelPackageValidationProfile' {profileName} -> profileName) (\s@ModelPackageValidationProfile' {} a -> s {profileName = a} :: ModelPackageValidationProfile)
 
 -- | The @TransformJobDefinition@ object that describes the transform job
@@ -77,33 +76,28 @@ modelPackageValidationProfile_profileName = Lens.lens (\ModelPackageValidationPr
 modelPackageValidationProfile_transformJobDefinition :: Lens.Lens' ModelPackageValidationProfile TransformJobDefinition
 modelPackageValidationProfile_transformJobDefinition = Lens.lens (\ModelPackageValidationProfile' {transformJobDefinition} -> transformJobDefinition) (\s@ModelPackageValidationProfile' {} a -> s {transformJobDefinition = a} :: ModelPackageValidationProfile)
 
-instance
-  Prelude.FromJSON
-    ModelPackageValidationProfile
-  where
+instance Core.FromJSON ModelPackageValidationProfile where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelPackageValidationProfile"
       ( \x ->
           ModelPackageValidationProfile'
-            Prelude.<$> (x Prelude..: "ProfileName")
-            Prelude.<*> (x Prelude..: "TransformJobDefinition")
+            Core.<$> (x Core..: "ProfileName")
+            Core.<*> (x Core..: "TransformJobDefinition")
       )
 
-instance
-  Prelude.Hashable
-    ModelPackageValidationProfile
+instance Core.Hashable ModelPackageValidationProfile
 
-instance Prelude.NFData ModelPackageValidationProfile
+instance Core.NFData ModelPackageValidationProfile
 
-instance Prelude.ToJSON ModelPackageValidationProfile where
+instance Core.ToJSON ModelPackageValidationProfile where
   toJSON ModelPackageValidationProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ProfileName" Prelude..= profileName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProfileName" Core..= profileName),
+            Core.Just
               ( "TransformJobDefinition"
-                  Prelude..= transformJobDefinition
+                  Core..= transformJobDefinition
               )
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.CopyPartResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | Container for all response elements.
@@ -29,11 +28,11 @@ import Network.AWS.S3.Internal
 -- /See:/ 'newCopyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
   { -- | Entity tag of the object.
-    eTag :: Prelude.Maybe ETag,
+    eTag :: Core.Maybe ETag,
     -- | Date and time at which the object was uploaded.
-    lastModified :: Prelude.Maybe Prelude.ISO8601
+    lastModified :: Core.Maybe Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CopyPartResult' with all optional fields omitted.
@@ -50,24 +49,24 @@ newCopyPartResult ::
   CopyPartResult
 newCopyPartResult =
   CopyPartResult'
-    { eTag = Prelude.Nothing,
-      lastModified = Prelude.Nothing
+    { eTag = Core.Nothing,
+      lastModified = Core.Nothing
     }
 
 -- | Entity tag of the object.
-copyPartResult_eTag :: Lens.Lens' CopyPartResult (Prelude.Maybe ETag)
+copyPartResult_eTag :: Lens.Lens' CopyPartResult (Core.Maybe ETag)
 copyPartResult_eTag = Lens.lens (\CopyPartResult' {eTag} -> eTag) (\s@CopyPartResult' {} a -> s {eTag = a} :: CopyPartResult)
 
 -- | Date and time at which the object was uploaded.
-copyPartResult_lastModified :: Lens.Lens' CopyPartResult (Prelude.Maybe Prelude.UTCTime)
-copyPartResult_lastModified = Lens.lens (\CopyPartResult' {lastModified} -> lastModified) (\s@CopyPartResult' {} a -> s {lastModified = a} :: CopyPartResult) Prelude.. Lens.mapping Prelude._Time
+copyPartResult_lastModified :: Lens.Lens' CopyPartResult (Core.Maybe Core.UTCTime)
+copyPartResult_lastModified = Lens.lens (\CopyPartResult' {lastModified} -> lastModified) (\s@CopyPartResult' {} a -> s {lastModified = a} :: CopyPartResult) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromXML CopyPartResult where
+instance Core.FromXML CopyPartResult where
   parseXML x =
     CopyPartResult'
-      Prelude.<$> (x Prelude..@? "ETag")
-      Prelude.<*> (x Prelude..@? "LastModified")
+      Core.<$> (x Core..@? "ETag")
+      Core.<*> (x Core..@? "LastModified")
 
-instance Prelude.Hashable CopyPartResult
+instance Core.Hashable CopyPartResult
 
-instance Prelude.NFData CopyPartResult
+instance Core.NFData CopyPartResult

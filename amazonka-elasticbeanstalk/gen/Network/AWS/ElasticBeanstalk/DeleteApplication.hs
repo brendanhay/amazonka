@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data DeleteApplication = DeleteApplication'
   { -- | When set to true, running environments will be terminated before
     -- deleting the application.
-    terminateEnvByForce :: Prelude.Maybe Prelude.Bool,
+    terminateEnvByForce :: Core.Maybe Core.Bool,
     -- | The name of the application to delete.
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplication' with all optional fields omitted.
@@ -73,56 +72,57 @@ data DeleteApplication = DeleteApplication'
 -- 'applicationName', 'deleteApplication_applicationName' - The name of the application to delete.
 newDeleteApplication ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApplication
 newDeleteApplication pApplicationName_ =
   DeleteApplication'
     { terminateEnvByForce =
-        Prelude.Nothing,
+        Core.Nothing,
       applicationName = pApplicationName_
     }
 
 -- | When set to true, running environments will be terminated before
 -- deleting the application.
-deleteApplication_terminateEnvByForce :: Lens.Lens' DeleteApplication (Prelude.Maybe Prelude.Bool)
+deleteApplication_terminateEnvByForce :: Lens.Lens' DeleteApplication (Core.Maybe Core.Bool)
 deleteApplication_terminateEnvByForce = Lens.lens (\DeleteApplication' {terminateEnvByForce} -> terminateEnvByForce) (\s@DeleteApplication' {} a -> s {terminateEnvByForce = a} :: DeleteApplication)
 
 -- | The name of the application to delete.
-deleteApplication_applicationName :: Lens.Lens' DeleteApplication Prelude.Text
+deleteApplication_applicationName :: Lens.Lens' DeleteApplication Core.Text
 deleteApplication_applicationName = Lens.lens (\DeleteApplication' {applicationName} -> applicationName) (\s@DeleteApplication' {} a -> s {applicationName = a} :: DeleteApplication)
 
-instance Prelude.AWSRequest DeleteApplication where
-  type Rs DeleteApplication = DeleteApplicationResponse
+instance Core.AWSRequest DeleteApplication where
+  type
+    AWSResponse DeleteApplication =
+      DeleteApplicationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteApplicationResponse'
 
-instance Prelude.Hashable DeleteApplication
+instance Core.Hashable DeleteApplication
 
-instance Prelude.NFData DeleteApplication
+instance Core.NFData DeleteApplication
 
-instance Prelude.ToHeaders DeleteApplication where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteApplication where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteApplication where
+instance Core.ToQuery DeleteApplication where
   toQuery DeleteApplication' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteApplication" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "TerminateEnvByForce" Prelude.=: terminateEnvByForce,
-        "ApplicationName" Prelude.=: applicationName
+          Core.=: ("DeleteApplication" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "TerminateEnvByForce" Core.=: terminateEnvByForce,
+        "ApplicationName" Core.=: applicationName
       ]
 
 -- | /See:/ 'newDeleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse = DeleteApplicationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationResponse' with all optional fields omitted.
@@ -133,4 +133,4 @@ newDeleteApplicationResponse ::
 newDeleteApplicationResponse =
   DeleteApplicationResponse'
 
-instance Prelude.NFData DeleteApplicationResponse
+instance Core.NFData DeleteApplicationResponse

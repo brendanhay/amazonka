@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CodePipeline.DeleteCustomActionType
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,11 +61,11 @@ data DeleteCustomActionType = DeleteCustomActionType'
     category :: ActionCategory,
     -- | The provider of the service used in the custom action, such as AWS
     -- CodeDeploy.
-    provider :: Prelude.Text,
+    provider :: Core.Text,
     -- | The version of the custom action to delete.
-    version :: Prelude.Text
+    version :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomActionType' with all optional fields omitted.
@@ -87,9 +86,9 @@ newDeleteCustomActionType ::
   -- | 'category'
   ActionCategory ->
   -- | 'provider'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'version'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCustomActionType
 newDeleteCustomActionType
   pCategory_
@@ -108,62 +107,60 @@ deleteCustomActionType_category = Lens.lens (\DeleteCustomActionType' {category}
 
 -- | The provider of the service used in the custom action, such as AWS
 -- CodeDeploy.
-deleteCustomActionType_provider :: Lens.Lens' DeleteCustomActionType Prelude.Text
+deleteCustomActionType_provider :: Lens.Lens' DeleteCustomActionType Core.Text
 deleteCustomActionType_provider = Lens.lens (\DeleteCustomActionType' {provider} -> provider) (\s@DeleteCustomActionType' {} a -> s {provider = a} :: DeleteCustomActionType)
 
 -- | The version of the custom action to delete.
-deleteCustomActionType_version :: Lens.Lens' DeleteCustomActionType Prelude.Text
+deleteCustomActionType_version :: Lens.Lens' DeleteCustomActionType Core.Text
 deleteCustomActionType_version = Lens.lens (\DeleteCustomActionType' {version} -> version) (\s@DeleteCustomActionType' {} a -> s {version = a} :: DeleteCustomActionType)
 
-instance Prelude.AWSRequest DeleteCustomActionType where
+instance Core.AWSRequest DeleteCustomActionType where
   type
-    Rs DeleteCustomActionType =
+    AWSResponse DeleteCustomActionType =
       DeleteCustomActionTypeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteCustomActionTypeResponse'
 
-instance Prelude.Hashable DeleteCustomActionType
+instance Core.Hashable DeleteCustomActionType
 
-instance Prelude.NFData DeleteCustomActionType
+instance Core.NFData DeleteCustomActionType
 
-instance Prelude.ToHeaders DeleteCustomActionType where
+instance Core.ToHeaders DeleteCustomActionType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.DeleteCustomActionType" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.DeleteCustomActionType" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteCustomActionType where
+instance Core.ToJSON DeleteCustomActionType where
   toJSON DeleteCustomActionType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("category" Prelude..= category),
-            Prelude.Just ("provider" Prelude..= provider),
-            Prelude.Just ("version" Prelude..= version)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("category" Core..= category),
+            Core.Just ("provider" Core..= provider),
+            Core.Just ("version" Core..= version)
           ]
       )
 
-instance Prelude.ToPath DeleteCustomActionType where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCustomActionType where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCustomActionType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteCustomActionType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteCustomActionTypeResponse' smart constructor.
 data DeleteCustomActionTypeResponse = DeleteCustomActionTypeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCustomActionTypeResponse' with all optional fields omitted.
@@ -174,6 +171,4 @@ newDeleteCustomActionTypeResponse ::
 newDeleteCustomActionTypeResponse =
   DeleteCustomActionTypeResponse'
 
-instance
-  Prelude.NFData
-    DeleteCustomActionTypeResponse
+instance Core.NFData DeleteCustomActionTypeResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayAttachmentAssociation where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.TransitGatewayAssociationState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an association.
 --
 -- /See:/ 'newTransitGatewayAttachmentAssociation' smart constructor.
 data TransitGatewayAttachmentAssociation = TransitGatewayAttachmentAssociation'
   { -- | The state of the association.
-    state :: Prelude.Maybe TransitGatewayAssociationState,
+    state :: Core.Maybe TransitGatewayAssociationState,
     -- | The ID of the route table for the transit gateway.
-    transitGatewayRouteTableId :: Prelude.Maybe Prelude.Text
+    transitGatewayRouteTableId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayAttachmentAssociation' with all optional fields omitted.
@@ -52,32 +51,32 @@ newTransitGatewayAttachmentAssociation ::
 newTransitGatewayAttachmentAssociation =
   TransitGatewayAttachmentAssociation'
     { state =
-        Prelude.Nothing,
+        Core.Nothing,
       transitGatewayRouteTableId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The state of the association.
-transitGatewayAttachmentAssociation_state :: Lens.Lens' TransitGatewayAttachmentAssociation (Prelude.Maybe TransitGatewayAssociationState)
+transitGatewayAttachmentAssociation_state :: Lens.Lens' TransitGatewayAttachmentAssociation (Core.Maybe TransitGatewayAssociationState)
 transitGatewayAttachmentAssociation_state = Lens.lens (\TransitGatewayAttachmentAssociation' {state} -> state) (\s@TransitGatewayAttachmentAssociation' {} a -> s {state = a} :: TransitGatewayAttachmentAssociation)
 
 -- | The ID of the route table for the transit gateway.
-transitGatewayAttachmentAssociation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentAssociation (Prelude.Maybe Prelude.Text)
+transitGatewayAttachmentAssociation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayAttachmentAssociation (Core.Maybe Core.Text)
 transitGatewayAttachmentAssociation_transitGatewayRouteTableId = Lens.lens (\TransitGatewayAttachmentAssociation' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayAttachmentAssociation' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayAttachmentAssociation)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     TransitGatewayAttachmentAssociation
   where
   parseXML x =
     TransitGatewayAttachmentAssociation'
-      Prelude.<$> (x Prelude..@? "state")
-      Prelude.<*> (x Prelude..@? "transitGatewayRouteTableId")
+      Core.<$> (x Core..@? "state")
+      Core.<*> (x Core..@? "transitGatewayRouteTableId")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TransitGatewayAttachmentAssociation
 
 instance
-  Prelude.NFData
+  Core.NFData
     TransitGatewayAttachmentAssociation

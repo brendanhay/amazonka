@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,18 +48,18 @@ module Network.AWS.ElastiCache.DeleteUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
   { -- | The ID of the user.
-    userId :: Prelude.Text
+    userId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -73,39 +72,37 @@ data DeleteUser = DeleteUser'
 -- 'userId', 'deleteUser_userId' - The ID of the user.
 newDeleteUser ::
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteUser
 newDeleteUser pUserId_ =
   DeleteUser' {userId = pUserId_}
 
 -- | The ID of the user.
-deleteUser_userId :: Lens.Lens' DeleteUser Prelude.Text
+deleteUser_userId :: Lens.Lens' DeleteUser Core.Text
 deleteUser_userId = Lens.lens (\DeleteUser' {userId} -> userId) (\s@DeleteUser' {} a -> s {userId = a} :: DeleteUser)
 
-instance Prelude.AWSRequest DeleteUser where
-  type Rs DeleteUser = User
+instance Core.AWSRequest DeleteUser where
+  type AWSResponse DeleteUser = User
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteUserResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable DeleteUser
+instance Core.Hashable DeleteUser
 
-instance Prelude.NFData DeleteUser
+instance Core.NFData DeleteUser
 
-instance Prelude.ToHeaders DeleteUser where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteUser where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUser where
+instance Core.ToQuery DeleteUser where
   toQuery DeleteUser' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteUser" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "UserId" Prelude.=: userId
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteUser" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "UserId" Core.=: userId
       ]

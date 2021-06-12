@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.SNSDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the topic ARN associated with an Amazon Simple Notification
 -- Service (Amazon SNS) event destination.
@@ -38,9 +37,9 @@ data SNSDestination = SNSDestination'
     -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
     -- Amazon SNS topics, see the
     -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-    topicARN :: Prelude.Text
+    topicARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SNSDestination' with all optional fields omitted.
@@ -57,7 +56,7 @@ data SNSDestination = SNSDestination'
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
 newSNSDestination ::
   -- | 'topicARN'
-  Prelude.Text ->
+  Core.Text ->
   SNSDestination
 newSNSDestination pTopicARN_ =
   SNSDestination' {topicARN = pTopicARN_}
@@ -67,18 +66,17 @@ newSNSDestination pTopicARN_ =
 -- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about
 -- Amazon SNS topics, see the
 -- <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide>.
-sNSDestination_topicARN :: Lens.Lens' SNSDestination Prelude.Text
+sNSDestination_topicARN :: Lens.Lens' SNSDestination Core.Text
 sNSDestination_topicARN = Lens.lens (\SNSDestination' {topicARN} -> topicARN) (\s@SNSDestination' {} a -> s {topicARN = a} :: SNSDestination)
 
-instance Prelude.FromXML SNSDestination where
+instance Core.FromXML SNSDestination where
   parseXML x =
-    SNSDestination'
-      Prelude.<$> (x Prelude..@ "TopicARN")
+    SNSDestination' Core.<$> (x Core..@ "TopicARN")
 
-instance Prelude.Hashable SNSDestination
+instance Core.Hashable SNSDestination
 
-instance Prelude.NFData SNSDestination
+instance Core.NFData SNSDestination
 
-instance Prelude.ToQuery SNSDestination where
+instance Core.ToQuery SNSDestination where
   toQuery SNSDestination' {..} =
-    Prelude.mconcat ["TopicARN" Prelude.=: topicARN]
+    Core.mconcat ["TopicARN" Core.=: topicARN]

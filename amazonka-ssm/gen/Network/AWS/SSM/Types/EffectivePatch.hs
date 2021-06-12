@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.EffectivePatch where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.Patch
 import Network.AWS.SSM.Types.PatchStatus
 
@@ -36,14 +35,14 @@ data EffectivePatch = EffectivePatch'
   { -- | Provides metadata for a patch, including information such as the KB ID,
     -- severity, classification and a URL for where more information can be
     -- obtained about the patch.
-    patch :: Prelude.Maybe Patch,
+    patch :: Core.Maybe Patch,
     -- | The status of the patch in a patch baseline. This includes information
     -- about whether the patch is currently approved, due to be approved by a
     -- rule, explicitly approved, or explicitly rejected and the date the patch
     -- was or will be approved.
-    patchStatus :: Prelude.Maybe PatchStatus
+    patchStatus :: Core.Maybe PatchStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EffectivePatch' with all optional fields omitted.
@@ -65,33 +64,33 @@ newEffectivePatch ::
   EffectivePatch
 newEffectivePatch =
   EffectivePatch'
-    { patch = Prelude.Nothing,
-      patchStatus = Prelude.Nothing
+    { patch = Core.Nothing,
+      patchStatus = Core.Nothing
     }
 
 -- | Provides metadata for a patch, including information such as the KB ID,
 -- severity, classification and a URL for where more information can be
 -- obtained about the patch.
-effectivePatch_patch :: Lens.Lens' EffectivePatch (Prelude.Maybe Patch)
+effectivePatch_patch :: Lens.Lens' EffectivePatch (Core.Maybe Patch)
 effectivePatch_patch = Lens.lens (\EffectivePatch' {patch} -> patch) (\s@EffectivePatch' {} a -> s {patch = a} :: EffectivePatch)
 
 -- | The status of the patch in a patch baseline. This includes information
 -- about whether the patch is currently approved, due to be approved by a
 -- rule, explicitly approved, or explicitly rejected and the date the patch
 -- was or will be approved.
-effectivePatch_patchStatus :: Lens.Lens' EffectivePatch (Prelude.Maybe PatchStatus)
+effectivePatch_patchStatus :: Lens.Lens' EffectivePatch (Core.Maybe PatchStatus)
 effectivePatch_patchStatus = Lens.lens (\EffectivePatch' {patchStatus} -> patchStatus) (\s@EffectivePatch' {} a -> s {patchStatus = a} :: EffectivePatch)
 
-instance Prelude.FromJSON EffectivePatch where
+instance Core.FromJSON EffectivePatch where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EffectivePatch"
       ( \x ->
           EffectivePatch'
-            Prelude.<$> (x Prelude..:? "Patch")
-            Prelude.<*> (x Prelude..:? "PatchStatus")
+            Core.<$> (x Core..:? "Patch")
+            Core.<*> (x Core..:? "PatchStatus")
       )
 
-instance Prelude.Hashable EffectivePatch
+instance Core.Hashable EffectivePatch
 
-instance Prelude.NFData EffectivePatch
+instance Core.NFData EffectivePatch

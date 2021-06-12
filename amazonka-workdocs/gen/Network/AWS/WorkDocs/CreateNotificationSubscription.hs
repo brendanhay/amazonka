@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.WorkDocs.CreateNotificationSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -57,17 +56,17 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newCreateNotificationSubscription' smart constructor.
 data CreateNotificationSubscription = CreateNotificationSubscription'
   { -- | The ID of the organization.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The endpoint to receive the notifications. If the protocol is HTTPS, the
     -- endpoint is a URL that begins with @https@.
-    endpoint :: Prelude.Text,
+    endpoint :: Core.Text,
     -- | The protocol to use. The supported value is https, which delivers
     -- JSON-encoded messages using HTTPS POST.
     protocol :: SubscriptionProtocolType,
     -- | The notification type.
     subscriptionType :: SubscriptionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNotificationSubscription' with all optional fields omitted.
@@ -88,9 +87,9 @@ data CreateNotificationSubscription = CreateNotificationSubscription'
 -- 'subscriptionType', 'createNotificationSubscription_subscriptionType' - The notification type.
 newCreateNotificationSubscription ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endpoint'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'protocol'
   SubscriptionProtocolType ->
   -- | 'subscriptionType'
@@ -110,12 +109,12 @@ newCreateNotificationSubscription
       }
 
 -- | The ID of the organization.
-createNotificationSubscription_organizationId :: Lens.Lens' CreateNotificationSubscription Prelude.Text
+createNotificationSubscription_organizationId :: Lens.Lens' CreateNotificationSubscription Core.Text
 createNotificationSubscription_organizationId = Lens.lens (\CreateNotificationSubscription' {organizationId} -> organizationId) (\s@CreateNotificationSubscription' {} a -> s {organizationId = a} :: CreateNotificationSubscription)
 
 -- | The endpoint to receive the notifications. If the protocol is HTTPS, the
 -- endpoint is a URL that begins with @https@.
-createNotificationSubscription_endpoint :: Lens.Lens' CreateNotificationSubscription Prelude.Text
+createNotificationSubscription_endpoint :: Lens.Lens' CreateNotificationSubscription Core.Text
 createNotificationSubscription_endpoint = Lens.lens (\CreateNotificationSubscription' {endpoint} -> endpoint) (\s@CreateNotificationSubscription' {} a -> s {endpoint = a} :: CreateNotificationSubscription)
 
 -- | The protocol to use. The supported value is https, which delivers
@@ -128,82 +127,67 @@ createNotificationSubscription_subscriptionType :: Lens.Lens' CreateNotification
 createNotificationSubscription_subscriptionType = Lens.lens (\CreateNotificationSubscription' {subscriptionType} -> subscriptionType) (\s@CreateNotificationSubscription' {} a -> s {subscriptionType = a} :: CreateNotificationSubscription)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateNotificationSubscription
   where
   type
-    Rs CreateNotificationSubscription =
+    AWSResponse CreateNotificationSubscription =
       CreateNotificationSubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateNotificationSubscriptionResponse'
-            Prelude.<$> (x Prelude..?> "Subscription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Subscription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    CreateNotificationSubscription
+instance Core.Hashable CreateNotificationSubscription
+
+instance Core.NFData CreateNotificationSubscription
 
 instance
-  Prelude.NFData
-    CreateNotificationSubscription
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     CreateNotificationSubscription
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    CreateNotificationSubscription
-  where
+instance Core.ToJSON CreateNotificationSubscription where
   toJSON CreateNotificationSubscription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Endpoint" Prelude..= endpoint),
-            Prelude.Just ("Protocol" Prelude..= protocol),
-            Prelude.Just
-              ("SubscriptionType" Prelude..= subscriptionType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Endpoint" Core..= endpoint),
+            Core.Just ("Protocol" Core..= protocol),
+            Core.Just
+              ("SubscriptionType" Core..= subscriptionType)
           ]
       )
 
-instance
-  Prelude.ToPath
-    CreateNotificationSubscription
-  where
+instance Core.ToPath CreateNotificationSubscription where
   toPath CreateNotificationSubscription' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/api/v1/organizations/",
-        Prelude.toBS organizationId,
+        Core.toBS organizationId,
         "/subscriptions"
       ]
 
-instance
-  Prelude.ToQuery
-    CreateNotificationSubscription
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateNotificationSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateNotificationSubscriptionResponse' smart constructor.
 data CreateNotificationSubscriptionResponse = CreateNotificationSubscriptionResponse'
   { -- | The subscription.
-    subscription :: Prelude.Maybe Subscription,
+    subscription :: Core.Maybe Subscription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNotificationSubscriptionResponse' with all optional fields omitted.
@@ -218,24 +202,24 @@ data CreateNotificationSubscriptionResponse = CreateNotificationSubscriptionResp
 -- 'httpStatus', 'createNotificationSubscriptionResponse_httpStatus' - The response's http status code.
 newCreateNotificationSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateNotificationSubscriptionResponse
 newCreateNotificationSubscriptionResponse
   pHttpStatus_ =
     CreateNotificationSubscriptionResponse'
       { subscription =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The subscription.
-createNotificationSubscriptionResponse_subscription :: Lens.Lens' CreateNotificationSubscriptionResponse (Prelude.Maybe Subscription)
+createNotificationSubscriptionResponse_subscription :: Lens.Lens' CreateNotificationSubscriptionResponse (Core.Maybe Subscription)
 createNotificationSubscriptionResponse_subscription = Lens.lens (\CreateNotificationSubscriptionResponse' {subscription} -> subscription) (\s@CreateNotificationSubscriptionResponse' {} a -> s {subscription = a} :: CreateNotificationSubscriptionResponse)
 
 -- | The response's http status code.
-createNotificationSubscriptionResponse_httpStatus :: Lens.Lens' CreateNotificationSubscriptionResponse Prelude.Int
+createNotificationSubscriptionResponse_httpStatus :: Lens.Lens' CreateNotificationSubscriptionResponse Core.Int
 createNotificationSubscriptionResponse_httpStatus = Lens.lens (\CreateNotificationSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateNotificationSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateNotificationSubscriptionResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateNotificationSubscriptionResponse

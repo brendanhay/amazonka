@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.DesiredWeightAndCapacity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies weight and capacity values for a production variant.
 --
 -- /See:/ 'newDesiredWeightAndCapacity' smart constructor.
 data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
   { -- | The variant\'s capacity.
-    desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
+    desiredInstanceCount :: Core.Maybe Core.Natural,
     -- | The variant\'s weight.
-    desiredWeight :: Prelude.Maybe Prelude.Double,
+    desiredWeight :: Core.Maybe Core.Double,
     -- | The name of the variant to update.
-    variantName :: Prelude.Text
+    variantName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DesiredWeightAndCapacity' with all optional fields omitted.
@@ -51,40 +50,39 @@ data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
 -- 'variantName', 'desiredWeightAndCapacity_variantName' - The name of the variant to update.
 newDesiredWeightAndCapacity ::
   -- | 'variantName'
-  Prelude.Text ->
+  Core.Text ->
   DesiredWeightAndCapacity
 newDesiredWeightAndCapacity pVariantName_ =
   DesiredWeightAndCapacity'
     { desiredInstanceCount =
-        Prelude.Nothing,
-      desiredWeight = Prelude.Nothing,
+        Core.Nothing,
+      desiredWeight = Core.Nothing,
       variantName = pVariantName_
     }
 
 -- | The variant\'s capacity.
-desiredWeightAndCapacity_desiredInstanceCount :: Lens.Lens' DesiredWeightAndCapacity (Prelude.Maybe Prelude.Natural)
+desiredWeightAndCapacity_desiredInstanceCount :: Lens.Lens' DesiredWeightAndCapacity (Core.Maybe Core.Natural)
 desiredWeightAndCapacity_desiredInstanceCount = Lens.lens (\DesiredWeightAndCapacity' {desiredInstanceCount} -> desiredInstanceCount) (\s@DesiredWeightAndCapacity' {} a -> s {desiredInstanceCount = a} :: DesiredWeightAndCapacity)
 
 -- | The variant\'s weight.
-desiredWeightAndCapacity_desiredWeight :: Lens.Lens' DesiredWeightAndCapacity (Prelude.Maybe Prelude.Double)
+desiredWeightAndCapacity_desiredWeight :: Lens.Lens' DesiredWeightAndCapacity (Core.Maybe Core.Double)
 desiredWeightAndCapacity_desiredWeight = Lens.lens (\DesiredWeightAndCapacity' {desiredWeight} -> desiredWeight) (\s@DesiredWeightAndCapacity' {} a -> s {desiredWeight = a} :: DesiredWeightAndCapacity)
 
 -- | The name of the variant to update.
-desiredWeightAndCapacity_variantName :: Lens.Lens' DesiredWeightAndCapacity Prelude.Text
+desiredWeightAndCapacity_variantName :: Lens.Lens' DesiredWeightAndCapacity Core.Text
 desiredWeightAndCapacity_variantName = Lens.lens (\DesiredWeightAndCapacity' {variantName} -> variantName) (\s@DesiredWeightAndCapacity' {} a -> s {variantName = a} :: DesiredWeightAndCapacity)
 
-instance Prelude.Hashable DesiredWeightAndCapacity
+instance Core.Hashable DesiredWeightAndCapacity
 
-instance Prelude.NFData DesiredWeightAndCapacity
+instance Core.NFData DesiredWeightAndCapacity
 
-instance Prelude.ToJSON DesiredWeightAndCapacity where
+instance Core.ToJSON DesiredWeightAndCapacity where
   toJSON DesiredWeightAndCapacity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DesiredInstanceCount" Prelude..=)
-              Prelude.<$> desiredInstanceCount,
-            ("DesiredWeight" Prelude..=)
-              Prelude.<$> desiredWeight,
-            Prelude.Just ("VariantName" Prelude..= variantName)
+    Core.object
+      ( Core.catMaybes
+          [ ("DesiredInstanceCount" Core..=)
+              Core.<$> desiredInstanceCount,
+            ("DesiredWeight" Core..=) Core.<$> desiredWeight,
+            Core.Just ("VariantName" Core..= variantName)
           ]
       )

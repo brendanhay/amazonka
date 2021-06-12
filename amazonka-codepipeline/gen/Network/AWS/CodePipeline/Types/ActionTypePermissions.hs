@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ActionTypePermissions where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details identifying the users with permissions to use the action type.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data ActionTypePermissions = ActionTypePermissions'
   { -- | A list of AWS account IDs with access to use the action type in their
     -- pipelines.
-    allowedAccounts :: Prelude.NonEmpty Prelude.Text
+    allowedAccounts :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionTypePermissions' with all optional fields omitted.
@@ -45,37 +44,37 @@ data ActionTypePermissions = ActionTypePermissions'
 -- pipelines.
 newActionTypePermissions ::
   -- | 'allowedAccounts'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   ActionTypePermissions
 newActionTypePermissions pAllowedAccounts_ =
   ActionTypePermissions'
     { allowedAccounts =
-        Prelude._Coerce Lens.# pAllowedAccounts_
+        Lens._Coerce Lens.# pAllowedAccounts_
     }
 
 -- | A list of AWS account IDs with access to use the action type in their
 -- pipelines.
-actionTypePermissions_allowedAccounts :: Lens.Lens' ActionTypePermissions (Prelude.NonEmpty Prelude.Text)
-actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Prelude.. Prelude._Coerce
+actionTypePermissions_allowedAccounts :: Lens.Lens' ActionTypePermissions (Core.NonEmpty Core.Text)
+actionTypePermissions_allowedAccounts = Lens.lens (\ActionTypePermissions' {allowedAccounts} -> allowedAccounts) (\s@ActionTypePermissions' {} a -> s {allowedAccounts = a} :: ActionTypePermissions) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ActionTypePermissions where
+instance Core.FromJSON ActionTypePermissions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionTypePermissions"
       ( \x ->
           ActionTypePermissions'
-            Prelude.<$> (x Prelude..: "allowedAccounts")
+            Core.<$> (x Core..: "allowedAccounts")
       )
 
-instance Prelude.Hashable ActionTypePermissions
+instance Core.Hashable ActionTypePermissions
 
-instance Prelude.NFData ActionTypePermissions
+instance Core.NFData ActionTypePermissions
 
-instance Prelude.ToJSON ActionTypePermissions where
+instance Core.ToJSON ActionTypePermissions where
   toJSON ActionTypePermissions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("allowedAccounts" Prelude..= allowedAccounts)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("allowedAccounts" Core..= allowedAccounts)
           ]
       )

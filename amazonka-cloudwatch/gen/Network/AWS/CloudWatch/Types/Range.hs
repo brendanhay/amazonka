@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatch.Types.Range where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies one range of days or times to exclude from use for training an
 -- anomaly detection model.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data Range = Range'
   { -- | The start time of the range to exclude. The format is
     -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-    startTime :: Prelude.ISO8601,
+    startTime :: Core.ISO8601,
     -- | The end time of the range to exclude. The format is
     -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-    endTime :: Prelude.ISO8601
+    endTime :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Range' with all optional fields omitted.
@@ -52,40 +51,39 @@ data Range = Range'
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
 newRange ::
   -- | 'startTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'endTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   Range
 newRange pStartTime_ pEndTime_ =
   Range'
-    { startTime =
-        Prelude._Time Lens.# pStartTime_,
-      endTime = Prelude._Time Lens.# pEndTime_
+    { startTime = Core._Time Lens.# pStartTime_,
+      endTime = Core._Time Lens.# pEndTime_
     }
 
 -- | The start time of the range to exclude. The format is
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-range_startTime :: Lens.Lens' Range Prelude.UTCTime
-range_startTime = Lens.lens (\Range' {startTime} -> startTime) (\s@Range' {} a -> s {startTime = a} :: Range) Prelude.. Prelude._Time
+range_startTime :: Lens.Lens' Range Core.UTCTime
+range_startTime = Lens.lens (\Range' {startTime} -> startTime) (\s@Range' {} a -> s {startTime = a} :: Range) Core.. Core._Time
 
 -- | The end time of the range to exclude. The format is
 -- @yyyy-MM-dd\'T\'HH:mm:ss@. For example, @2019-07-01T23:59:59@.
-range_endTime :: Lens.Lens' Range Prelude.UTCTime
-range_endTime = Lens.lens (\Range' {endTime} -> endTime) (\s@Range' {} a -> s {endTime = a} :: Range) Prelude.. Prelude._Time
+range_endTime :: Lens.Lens' Range Core.UTCTime
+range_endTime = Lens.lens (\Range' {endTime} -> endTime) (\s@Range' {} a -> s {endTime = a} :: Range) Core.. Core._Time
 
-instance Prelude.FromXML Range where
+instance Core.FromXML Range where
   parseXML x =
     Range'
-      Prelude.<$> (x Prelude..@ "StartTime")
-      Prelude.<*> (x Prelude..@ "EndTime")
+      Core.<$> (x Core..@ "StartTime")
+      Core.<*> (x Core..@ "EndTime")
 
-instance Prelude.Hashable Range
+instance Core.Hashable Range
 
-instance Prelude.NFData Range
+instance Core.NFData Range
 
-instance Prelude.ToQuery Range where
+instance Core.ToQuery Range where
   toQuery Range' {..} =
-    Prelude.mconcat
-      [ "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime
+    Core.mconcat
+      [ "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime
       ]

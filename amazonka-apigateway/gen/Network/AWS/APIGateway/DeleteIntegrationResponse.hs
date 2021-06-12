@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.APIGateway.DeleteIntegrationResponse
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,18 +49,18 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteIntegrationResponse' smart constructor.
 data DeleteIntegrationResponse = DeleteIntegrationResponse'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] Specifies a delete integration response request\'s resource
     -- identifier.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | [Required] Specifies a delete integration response request\'s HTTP
     -- method.
-    httpMethod :: Prelude.Text,
+    httpMethod :: Core.Text,
     -- | [Required] Specifies a delete integration response request\'s status
     -- code.
-    statusCode :: Prelude.Text
+    statusCode :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIntegrationResponse' with all optional fields omitted.
@@ -83,13 +82,13 @@ data DeleteIntegrationResponse = DeleteIntegrationResponse'
 -- code.
 newDeleteIntegrationResponse ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'httpMethod'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'statusCode'
-  Prelude.Text ->
+  Core.Text ->
   DeleteIntegrationResponse
 newDeleteIntegrationResponse
   pRestApiId_
@@ -104,67 +103,67 @@ newDeleteIntegrationResponse
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-deleteIntegrationResponse_restApiId :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
+deleteIntegrationResponse_restApiId :: Lens.Lens' DeleteIntegrationResponse Core.Text
 deleteIntegrationResponse_restApiId = Lens.lens (\DeleteIntegrationResponse' {restApiId} -> restApiId) (\s@DeleteIntegrationResponse' {} a -> s {restApiId = a} :: DeleteIntegrationResponse)
 
 -- | [Required] Specifies a delete integration response request\'s resource
 -- identifier.
-deleteIntegrationResponse_resourceId :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
+deleteIntegrationResponse_resourceId :: Lens.Lens' DeleteIntegrationResponse Core.Text
 deleteIntegrationResponse_resourceId = Lens.lens (\DeleteIntegrationResponse' {resourceId} -> resourceId) (\s@DeleteIntegrationResponse' {} a -> s {resourceId = a} :: DeleteIntegrationResponse)
 
 -- | [Required] Specifies a delete integration response request\'s HTTP
 -- method.
-deleteIntegrationResponse_httpMethod :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
+deleteIntegrationResponse_httpMethod :: Lens.Lens' DeleteIntegrationResponse Core.Text
 deleteIntegrationResponse_httpMethod = Lens.lens (\DeleteIntegrationResponse' {httpMethod} -> httpMethod) (\s@DeleteIntegrationResponse' {} a -> s {httpMethod = a} :: DeleteIntegrationResponse)
 
 -- | [Required] Specifies a delete integration response request\'s status
 -- code.
-deleteIntegrationResponse_statusCode :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
+deleteIntegrationResponse_statusCode :: Lens.Lens' DeleteIntegrationResponse Core.Text
 deleteIntegrationResponse_statusCode = Lens.lens (\DeleteIntegrationResponse' {statusCode} -> statusCode) (\s@DeleteIntegrationResponse' {} a -> s {statusCode = a} :: DeleteIntegrationResponse)
 
-instance Prelude.AWSRequest DeleteIntegrationResponse where
+instance Core.AWSRequest DeleteIntegrationResponse where
   type
-    Rs DeleteIntegrationResponse =
+    AWSResponse DeleteIntegrationResponse =
       DeleteIntegrationResponseResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull
       DeleteIntegrationResponseResponse'
 
-instance Prelude.Hashable DeleteIntegrationResponse
+instance Core.Hashable DeleteIntegrationResponse
 
-instance Prelude.NFData DeleteIntegrationResponse
+instance Core.NFData DeleteIntegrationResponse
 
-instance Prelude.ToHeaders DeleteIntegrationResponse where
+instance Core.ToHeaders DeleteIntegrationResponse where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteIntegrationResponse where
+instance Core.ToPath DeleteIntegrationResponse where
   toPath DeleteIntegrationResponse' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/resources/",
-        Prelude.toBS resourceId,
+        Core.toBS resourceId,
         "/methods/",
-        Prelude.toBS httpMethod,
+        Core.toBS httpMethod,
         "/integration/responses/",
-        Prelude.toBS statusCode
+        Core.toBS statusCode
       ]
 
-instance Prelude.ToQuery DeleteIntegrationResponse where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteIntegrationResponse where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteIntegrationResponseResponse' smart constructor.
 data DeleteIntegrationResponseResponse = DeleteIntegrationResponseResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIntegrationResponseResponse' with all optional fields omitted.
@@ -176,5 +175,5 @@ newDeleteIntegrationResponseResponse =
   DeleteIntegrationResponseResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteIntegrationResponseResponse

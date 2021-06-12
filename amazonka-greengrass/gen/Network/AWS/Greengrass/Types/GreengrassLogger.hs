@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.GreengrassLogger where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.LoggerComponent
 import Network.AWS.Greengrass.Types.LoggerLevel
 import Network.AWS.Greengrass.Types.LoggerType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a logger
 --
@@ -32,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data GreengrassLogger = GreengrassLogger'
   { -- | The amount of file space, in KB, to use if the local file system is used
     -- for logging purposes.
-    space :: Prelude.Maybe Prelude.Int,
+    space :: Core.Maybe Core.Int,
     -- | The type of log output which will be used.
     type' :: LoggerType,
     -- | The level of the logs.
@@ -40,11 +39,11 @@ data GreengrassLogger = GreengrassLogger'
     -- | A descriptive or arbitrary ID for the logger. This value must be unique
     -- within the logger definition version. Max length is 128 characters with
     -- pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The component that will be subject to logging.
     component :: LoggerComponent
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GreengrassLogger' with all optional fields omitted.
@@ -72,13 +71,13 @@ newGreengrassLogger ::
   -- | 'level'
   LoggerLevel ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'component'
   LoggerComponent ->
   GreengrassLogger
 newGreengrassLogger pType_ pLevel_ pId_ pComponent_ =
   GreengrassLogger'
-    { space = Prelude.Nothing,
+    { space = Core.Nothing,
       type' = pType_,
       level = pLevel_,
       id = pId_,
@@ -87,7 +86,7 @@ newGreengrassLogger pType_ pLevel_ pId_ pComponent_ =
 
 -- | The amount of file space, in KB, to use if the local file system is used
 -- for logging purposes.
-greengrassLogger_space :: Lens.Lens' GreengrassLogger (Prelude.Maybe Prelude.Int)
+greengrassLogger_space :: Lens.Lens' GreengrassLogger (Core.Maybe Core.Int)
 greengrassLogger_space = Lens.lens (\GreengrassLogger' {space} -> space) (\s@GreengrassLogger' {} a -> s {space = a} :: GreengrassLogger)
 
 -- | The type of log output which will be used.
@@ -101,38 +100,38 @@ greengrassLogger_level = Lens.lens (\GreengrassLogger' {level} -> level) (\s@Gre
 -- | A descriptive or arbitrary ID for the logger. This value must be unique
 -- within the logger definition version. Max length is 128 characters with
 -- pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-greengrassLogger_id :: Lens.Lens' GreengrassLogger Prelude.Text
+greengrassLogger_id :: Lens.Lens' GreengrassLogger Core.Text
 greengrassLogger_id = Lens.lens (\GreengrassLogger' {id} -> id) (\s@GreengrassLogger' {} a -> s {id = a} :: GreengrassLogger)
 
 -- | The component that will be subject to logging.
 greengrassLogger_component :: Lens.Lens' GreengrassLogger LoggerComponent
 greengrassLogger_component = Lens.lens (\GreengrassLogger' {component} -> component) (\s@GreengrassLogger' {} a -> s {component = a} :: GreengrassLogger)
 
-instance Prelude.FromJSON GreengrassLogger where
+instance Core.FromJSON GreengrassLogger where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GreengrassLogger"
       ( \x ->
           GreengrassLogger'
-            Prelude.<$> (x Prelude..:? "Space")
-            Prelude.<*> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Level")
-            Prelude.<*> (x Prelude..: "Id")
-            Prelude.<*> (x Prelude..: "Component")
+            Core.<$> (x Core..:? "Space")
+            Core.<*> (x Core..: "Type")
+            Core.<*> (x Core..: "Level")
+            Core.<*> (x Core..: "Id")
+            Core.<*> (x Core..: "Component")
       )
 
-instance Prelude.Hashable GreengrassLogger
+instance Core.Hashable GreengrassLogger
 
-instance Prelude.NFData GreengrassLogger
+instance Core.NFData GreengrassLogger
 
-instance Prelude.ToJSON GreengrassLogger where
+instance Core.ToJSON GreengrassLogger where
   toJSON GreengrassLogger' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Space" Prelude..=) Prelude.<$> space,
-            Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Level" Prelude..= level),
-            Prelude.Just ("Id" Prelude..= id),
-            Prelude.Just ("Component" Prelude..= component)
+    Core.object
+      ( Core.catMaybes
+          [ ("Space" Core..=) Core.<$> space,
+            Core.Just ("Type" Core..= type'),
+            Core.Just ("Level" Core..= level),
+            Core.Just ("Id" Core..= id),
+            Core.Just ("Component" Core..= component)
           ]
       )

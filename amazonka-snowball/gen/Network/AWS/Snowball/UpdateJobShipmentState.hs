@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.Snowball.UpdateJobShipmentState
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Snowball.Types
@@ -51,7 +50,7 @@ import Network.AWS.Snowball.Types
 data UpdateJobShipmentState = UpdateJobShipmentState'
   { -- | The job ID of the job whose shipment date you want to update, for
     -- example @JID123e4567-e89b-12d3-a456-426655440000@.
-    jobId :: Prelude.Text,
+    jobId :: Core.Text,
     -- | The state of a device when it is being shipped.
     --
     -- Set to @RECEIVED@ when the device arrives at your location.
@@ -59,7 +58,7 @@ data UpdateJobShipmentState = UpdateJobShipmentState'
     -- Set to @RETURNED@ when you have returned the device to AWS.
     shipmentState :: ShipmentState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateJobShipmentState' with all optional fields omitted.
@@ -79,7 +78,7 @@ data UpdateJobShipmentState = UpdateJobShipmentState'
 -- Set to @RETURNED@ when you have returned the device to AWS.
 newUpdateJobShipmentState ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shipmentState'
   ShipmentState ->
   UpdateJobShipmentState
@@ -91,7 +90,7 @@ newUpdateJobShipmentState pJobId_ pShipmentState_ =
 
 -- | The job ID of the job whose shipment date you want to update, for
 -- example @JID123e4567-e89b-12d3-a456-426655440000@.
-updateJobShipmentState_jobId :: Lens.Lens' UpdateJobShipmentState Prelude.Text
+updateJobShipmentState_jobId :: Lens.Lens' UpdateJobShipmentState Core.Text
 updateJobShipmentState_jobId = Lens.lens (\UpdateJobShipmentState' {jobId} -> jobId) (\s@UpdateJobShipmentState' {} a -> s {jobId = a} :: UpdateJobShipmentState)
 
 -- | The state of a device when it is being shipped.
@@ -102,59 +101,56 @@ updateJobShipmentState_jobId = Lens.lens (\UpdateJobShipmentState' {jobId} -> jo
 updateJobShipmentState_shipmentState :: Lens.Lens' UpdateJobShipmentState ShipmentState
 updateJobShipmentState_shipmentState = Lens.lens (\UpdateJobShipmentState' {shipmentState} -> shipmentState) (\s@UpdateJobShipmentState' {} a -> s {shipmentState = a} :: UpdateJobShipmentState)
 
-instance Prelude.AWSRequest UpdateJobShipmentState where
+instance Core.AWSRequest UpdateJobShipmentState where
   type
-    Rs UpdateJobShipmentState =
+    AWSResponse UpdateJobShipmentState =
       UpdateJobShipmentStateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateJobShipmentStateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateJobShipmentState
+instance Core.Hashable UpdateJobShipmentState
 
-instance Prelude.NFData UpdateJobShipmentState
+instance Core.NFData UpdateJobShipmentState
 
-instance Prelude.ToHeaders UpdateJobShipmentState where
+instance Core.ToHeaders UpdateJobShipmentState where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSIESnowballJobManagementService.UpdateJobShipmentState" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSIESnowballJobManagementService.UpdateJobShipmentState" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateJobShipmentState where
+instance Core.ToJSON UpdateJobShipmentState where
   toJSON UpdateJobShipmentState' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("JobId" Prelude..= jobId),
-            Prelude.Just
-              ("ShipmentState" Prelude..= shipmentState)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobId" Core..= jobId),
+            Core.Just ("ShipmentState" Core..= shipmentState)
           ]
       )
 
-instance Prelude.ToPath UpdateJobShipmentState where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateJobShipmentState where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateJobShipmentState where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateJobShipmentState where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateJobShipmentStateResponse' smart constructor.
 data UpdateJobShipmentStateResponse = UpdateJobShipmentStateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateJobShipmentStateResponse' with all optional fields omitted.
@@ -167,7 +163,7 @@ data UpdateJobShipmentStateResponse = UpdateJobShipmentStateResponse'
 -- 'httpStatus', 'updateJobShipmentStateResponse_httpStatus' - The response's http status code.
 newUpdateJobShipmentStateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateJobShipmentStateResponse
 newUpdateJobShipmentStateResponse pHttpStatus_ =
   UpdateJobShipmentStateResponse'
@@ -176,9 +172,7 @@ newUpdateJobShipmentStateResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateJobShipmentStateResponse_httpStatus :: Lens.Lens' UpdateJobShipmentStateResponse Prelude.Int
+updateJobShipmentStateResponse_httpStatus :: Lens.Lens' UpdateJobShipmentStateResponse Core.Int
 updateJobShipmentStateResponse_httpStatus = Lens.lens (\UpdateJobShipmentStateResponse' {httpStatus} -> httpStatus) (\s@UpdateJobShipmentStateResponse' {} a -> s {httpStatus = a} :: UpdateJobShipmentStateResponse)
 
-instance
-  Prelude.NFData
-    UpdateJobShipmentStateResponse
+instance Core.NFData UpdateJobShipmentStateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,25 +20,25 @@
 module Network.AWS.AppSync.Types.Type where
 
 import Network.AWS.AppSync.Types.TypeDefinitionFormat
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a type.
 --
 -- /See:/ 'newType' smart constructor.
 data Type = Type'
   { -- | The type format: SDL or JSON.
-    format :: Prelude.Maybe TypeDefinitionFormat,
+    format :: Core.Maybe TypeDefinitionFormat,
     -- | The type ARN.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The type name.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The type description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The type definition.
-    definition :: Prelude.Maybe Prelude.Text
+    definition :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Type' with all optional fields omitted.
@@ -62,46 +61,46 @@ newType ::
   Type
 newType =
   Type'
-    { format = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      definition = Prelude.Nothing
+    { format = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      definition = Core.Nothing
     }
 
 -- | The type format: SDL or JSON.
-type_format :: Lens.Lens' Type (Prelude.Maybe TypeDefinitionFormat)
+type_format :: Lens.Lens' Type (Core.Maybe TypeDefinitionFormat)
 type_format = Lens.lens (\Type' {format} -> format) (\s@Type' {} a -> s {format = a} :: Type)
 
 -- | The type ARN.
-type_arn :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
+type_arn :: Lens.Lens' Type (Core.Maybe Core.Text)
 type_arn = Lens.lens (\Type' {arn} -> arn) (\s@Type' {} a -> s {arn = a} :: Type)
 
 -- | The type name.
-type_name :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
+type_name :: Lens.Lens' Type (Core.Maybe Core.Text)
 type_name = Lens.lens (\Type' {name} -> name) (\s@Type' {} a -> s {name = a} :: Type)
 
 -- | The type description.
-type_description :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
+type_description :: Lens.Lens' Type (Core.Maybe Core.Text)
 type_description = Lens.lens (\Type' {description} -> description) (\s@Type' {} a -> s {description = a} :: Type)
 
 -- | The type definition.
-type_definition :: Lens.Lens' Type (Prelude.Maybe Prelude.Text)
+type_definition :: Lens.Lens' Type (Core.Maybe Core.Text)
 type_definition = Lens.lens (\Type' {definition} -> definition) (\s@Type' {} a -> s {definition = a} :: Type)
 
-instance Prelude.FromJSON Type where
+instance Core.FromJSON Type where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Type"
       ( \x ->
           Type'
-            Prelude.<$> (x Prelude..:? "format")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "definition")
+            Core.<$> (x Core..:? "format")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "definition")
       )
 
-instance Prelude.Hashable Type
+instance Core.Hashable Type
 
-instance Prelude.NFData Type
+instance Core.NFData Type

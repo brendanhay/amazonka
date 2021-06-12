@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.DynamoDBAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.DynamoKeyType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an action to write to a DynamoDB table.
 --
@@ -46,29 +45,29 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDynamoDBAction' smart constructor.
 data DynamoDBAction = DynamoDBAction'
   { -- | The range key value.
-    rangeKeyValue :: Prelude.Maybe Prelude.Text,
+    rangeKeyValue :: Core.Maybe Core.Text,
     -- | The range key type. Valid values are \"STRING\" or \"NUMBER\"
-    rangeKeyType :: Prelude.Maybe DynamoKeyType,
+    rangeKeyType :: Core.Maybe DynamoKeyType,
     -- | The type of operation to be performed. This follows the substitution
     -- template, so it can be @${operation}@, but the substitution must result
     -- in one of the following: @INSERT@, @UPDATE@, or @DELETE@.
-    operation :: Prelude.Maybe Prelude.Text,
+    operation :: Core.Maybe Core.Text,
     -- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
-    hashKeyType :: Prelude.Maybe DynamoKeyType,
+    hashKeyType :: Core.Maybe DynamoKeyType,
     -- | The range key name.
-    rangeKeyField :: Prelude.Maybe Prelude.Text,
+    rangeKeyField :: Core.Maybe Core.Text,
     -- | The action payload. This name can be customized.
-    payloadField :: Prelude.Maybe Prelude.Text,
+    payloadField :: Core.Maybe Core.Text,
     -- | The name of the DynamoDB table.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | The ARN of the IAM role that grants access to the DynamoDB table.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The hash key name.
-    hashKeyField :: Prelude.Text,
+    hashKeyField :: Core.Text,
     -- | The hash key value.
-    hashKeyValue :: Prelude.Text
+    hashKeyValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DynamoDBAction' with all optional fields omitted.
@@ -101,13 +100,13 @@ data DynamoDBAction = DynamoDBAction'
 -- 'hashKeyValue', 'dynamoDBAction_hashKeyValue' - The hash key value.
 newDynamoDBAction ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hashKeyField'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hashKeyValue'
-  Prelude.Text ->
+  Core.Text ->
   DynamoDBAction
 newDynamoDBAction
   pTableName_
@@ -115,12 +114,12 @@ newDynamoDBAction
   pHashKeyField_
   pHashKeyValue_ =
     DynamoDBAction'
-      { rangeKeyValue = Prelude.Nothing,
-        rangeKeyType = Prelude.Nothing,
-        operation = Prelude.Nothing,
-        hashKeyType = Prelude.Nothing,
-        rangeKeyField = Prelude.Nothing,
-        payloadField = Prelude.Nothing,
+      { rangeKeyValue = Core.Nothing,
+        rangeKeyType = Core.Nothing,
+        operation = Core.Nothing,
+        hashKeyType = Core.Nothing,
+        rangeKeyField = Core.Nothing,
+        payloadField = Core.Nothing,
         tableName = pTableName_,
         roleArn = pRoleArn_,
         hashKeyField = pHashKeyField_,
@@ -128,86 +127,82 @@ newDynamoDBAction
       }
 
 -- | The range key value.
-dynamoDBAction_rangeKeyValue :: Lens.Lens' DynamoDBAction (Prelude.Maybe Prelude.Text)
+dynamoDBAction_rangeKeyValue :: Lens.Lens' DynamoDBAction (Core.Maybe Core.Text)
 dynamoDBAction_rangeKeyValue = Lens.lens (\DynamoDBAction' {rangeKeyValue} -> rangeKeyValue) (\s@DynamoDBAction' {} a -> s {rangeKeyValue = a} :: DynamoDBAction)
 
 -- | The range key type. Valid values are \"STRING\" or \"NUMBER\"
-dynamoDBAction_rangeKeyType :: Lens.Lens' DynamoDBAction (Prelude.Maybe DynamoKeyType)
+dynamoDBAction_rangeKeyType :: Lens.Lens' DynamoDBAction (Core.Maybe DynamoKeyType)
 dynamoDBAction_rangeKeyType = Lens.lens (\DynamoDBAction' {rangeKeyType} -> rangeKeyType) (\s@DynamoDBAction' {} a -> s {rangeKeyType = a} :: DynamoDBAction)
 
 -- | The type of operation to be performed. This follows the substitution
 -- template, so it can be @${operation}@, but the substitution must result
 -- in one of the following: @INSERT@, @UPDATE@, or @DELETE@.
-dynamoDBAction_operation :: Lens.Lens' DynamoDBAction (Prelude.Maybe Prelude.Text)
+dynamoDBAction_operation :: Lens.Lens' DynamoDBAction (Core.Maybe Core.Text)
 dynamoDBAction_operation = Lens.lens (\DynamoDBAction' {operation} -> operation) (\s@DynamoDBAction' {} a -> s {operation = a} :: DynamoDBAction)
 
 -- | The hash key type. Valid values are \"STRING\" or \"NUMBER\"
-dynamoDBAction_hashKeyType :: Lens.Lens' DynamoDBAction (Prelude.Maybe DynamoKeyType)
+dynamoDBAction_hashKeyType :: Lens.Lens' DynamoDBAction (Core.Maybe DynamoKeyType)
 dynamoDBAction_hashKeyType = Lens.lens (\DynamoDBAction' {hashKeyType} -> hashKeyType) (\s@DynamoDBAction' {} a -> s {hashKeyType = a} :: DynamoDBAction)
 
 -- | The range key name.
-dynamoDBAction_rangeKeyField :: Lens.Lens' DynamoDBAction (Prelude.Maybe Prelude.Text)
+dynamoDBAction_rangeKeyField :: Lens.Lens' DynamoDBAction (Core.Maybe Core.Text)
 dynamoDBAction_rangeKeyField = Lens.lens (\DynamoDBAction' {rangeKeyField} -> rangeKeyField) (\s@DynamoDBAction' {} a -> s {rangeKeyField = a} :: DynamoDBAction)
 
 -- | The action payload. This name can be customized.
-dynamoDBAction_payloadField :: Lens.Lens' DynamoDBAction (Prelude.Maybe Prelude.Text)
+dynamoDBAction_payloadField :: Lens.Lens' DynamoDBAction (Core.Maybe Core.Text)
 dynamoDBAction_payloadField = Lens.lens (\DynamoDBAction' {payloadField} -> payloadField) (\s@DynamoDBAction' {} a -> s {payloadField = a} :: DynamoDBAction)
 
 -- | The name of the DynamoDB table.
-dynamoDBAction_tableName :: Lens.Lens' DynamoDBAction Prelude.Text
+dynamoDBAction_tableName :: Lens.Lens' DynamoDBAction Core.Text
 dynamoDBAction_tableName = Lens.lens (\DynamoDBAction' {tableName} -> tableName) (\s@DynamoDBAction' {} a -> s {tableName = a} :: DynamoDBAction)
 
 -- | The ARN of the IAM role that grants access to the DynamoDB table.
-dynamoDBAction_roleArn :: Lens.Lens' DynamoDBAction Prelude.Text
+dynamoDBAction_roleArn :: Lens.Lens' DynamoDBAction Core.Text
 dynamoDBAction_roleArn = Lens.lens (\DynamoDBAction' {roleArn} -> roleArn) (\s@DynamoDBAction' {} a -> s {roleArn = a} :: DynamoDBAction)
 
 -- | The hash key name.
-dynamoDBAction_hashKeyField :: Lens.Lens' DynamoDBAction Prelude.Text
+dynamoDBAction_hashKeyField :: Lens.Lens' DynamoDBAction Core.Text
 dynamoDBAction_hashKeyField = Lens.lens (\DynamoDBAction' {hashKeyField} -> hashKeyField) (\s@DynamoDBAction' {} a -> s {hashKeyField = a} :: DynamoDBAction)
 
 -- | The hash key value.
-dynamoDBAction_hashKeyValue :: Lens.Lens' DynamoDBAction Prelude.Text
+dynamoDBAction_hashKeyValue :: Lens.Lens' DynamoDBAction Core.Text
 dynamoDBAction_hashKeyValue = Lens.lens (\DynamoDBAction' {hashKeyValue} -> hashKeyValue) (\s@DynamoDBAction' {} a -> s {hashKeyValue = a} :: DynamoDBAction)
 
-instance Prelude.FromJSON DynamoDBAction where
+instance Core.FromJSON DynamoDBAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DynamoDBAction"
       ( \x ->
           DynamoDBAction'
-            Prelude.<$> (x Prelude..:? "rangeKeyValue")
-            Prelude.<*> (x Prelude..:? "rangeKeyType")
-            Prelude.<*> (x Prelude..:? "operation")
-            Prelude.<*> (x Prelude..:? "hashKeyType")
-            Prelude.<*> (x Prelude..:? "rangeKeyField")
-            Prelude.<*> (x Prelude..:? "payloadField")
-            Prelude.<*> (x Prelude..: "tableName")
-            Prelude.<*> (x Prelude..: "roleArn")
-            Prelude.<*> (x Prelude..: "hashKeyField")
-            Prelude.<*> (x Prelude..: "hashKeyValue")
+            Core.<$> (x Core..:? "rangeKeyValue")
+            Core.<*> (x Core..:? "rangeKeyType")
+            Core.<*> (x Core..:? "operation")
+            Core.<*> (x Core..:? "hashKeyType")
+            Core.<*> (x Core..:? "rangeKeyField")
+            Core.<*> (x Core..:? "payloadField")
+            Core.<*> (x Core..: "tableName")
+            Core.<*> (x Core..: "roleArn")
+            Core.<*> (x Core..: "hashKeyField")
+            Core.<*> (x Core..: "hashKeyValue")
       )
 
-instance Prelude.Hashable DynamoDBAction
+instance Core.Hashable DynamoDBAction
 
-instance Prelude.NFData DynamoDBAction
+instance Core.NFData DynamoDBAction
 
-instance Prelude.ToJSON DynamoDBAction where
+instance Core.ToJSON DynamoDBAction where
   toJSON DynamoDBAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("rangeKeyValue" Prelude..=)
-              Prelude.<$> rangeKeyValue,
-            ("rangeKeyType" Prelude..=) Prelude.<$> rangeKeyType,
-            ("operation" Prelude..=) Prelude.<$> operation,
-            ("hashKeyType" Prelude..=) Prelude.<$> hashKeyType,
-            ("rangeKeyField" Prelude..=)
-              Prelude.<$> rangeKeyField,
-            ("payloadField" Prelude..=) Prelude.<$> payloadField,
-            Prelude.Just ("tableName" Prelude..= tableName),
-            Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just
-              ("hashKeyField" Prelude..= hashKeyField),
-            Prelude.Just
-              ("hashKeyValue" Prelude..= hashKeyValue)
+    Core.object
+      ( Core.catMaybes
+          [ ("rangeKeyValue" Core..=) Core.<$> rangeKeyValue,
+            ("rangeKeyType" Core..=) Core.<$> rangeKeyType,
+            ("operation" Core..=) Core.<$> operation,
+            ("hashKeyType" Core..=) Core.<$> hashKeyType,
+            ("rangeKeyField" Core..=) Core.<$> rangeKeyField,
+            ("payloadField" Core..=) Core.<$> payloadField,
+            Core.Just ("tableName" Core..= tableName),
+            Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("hashKeyField" Core..= hashKeyField),
+            Core.Just ("hashKeyValue" Core..= hashKeyValue)
           ]
       )

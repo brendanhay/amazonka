@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.SES.SetIdentityHeadersInNotificationsEnabled
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -63,7 +62,7 @@ import Network.AWS.SES.Types
 data SetIdentityHeadersInNotificationsEnabled = SetIdentityHeadersInNotificationsEnabled'
   { -- | The identity for which to enable or disable headers in notifications.
     -- Examples: @user\@example.com@, @example.com@.
-    identity :: Prelude.Text,
+    identity :: Core.Text,
     -- | The notification type for which to enable or disable headers in
     -- notifications.
     notificationType :: NotificationType,
@@ -75,9 +74,9 @@ data SetIdentityHeadersInNotificationsEnabled = SetIdentityHeadersInNotification
     --
     -- This value can only be set when @NotificationType@ is already set to use
     -- a particular Amazon SNS topic.
-    enabled :: Prelude.Bool
+    enabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityHeadersInNotificationsEnabled' with all optional fields omitted.
@@ -103,11 +102,11 @@ data SetIdentityHeadersInNotificationsEnabled = SetIdentityHeadersInNotification
 -- a particular Amazon SNS topic.
 newSetIdentityHeadersInNotificationsEnabled ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'notificationType'
   NotificationType ->
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   SetIdentityHeadersInNotificationsEnabled
 newSetIdentityHeadersInNotificationsEnabled
   pIdentity_
@@ -123,7 +122,7 @@ newSetIdentityHeadersInNotificationsEnabled
 
 -- | The identity for which to enable or disable headers in notifications.
 -- Examples: @user\@example.com@, @example.com@.
-setIdentityHeadersInNotificationsEnabled_identity :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled Prelude.Text
+setIdentityHeadersInNotificationsEnabled_identity :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled Core.Text
 setIdentityHeadersInNotificationsEnabled_identity = Lens.lens (\SetIdentityHeadersInNotificationsEnabled' {identity} -> identity) (\s@SetIdentityHeadersInNotificationsEnabled' {} a -> s {identity = a} :: SetIdentityHeadersInNotificationsEnabled)
 
 -- | The notification type for which to enable or disable headers in
@@ -139,15 +138,16 @@ setIdentityHeadersInNotificationsEnabled_notificationType = Lens.lens (\SetIdent
 --
 -- This value can only be set when @NotificationType@ is already set to use
 -- a particular Amazon SNS topic.
-setIdentityHeadersInNotificationsEnabled_enabled :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled Prelude.Bool
+setIdentityHeadersInNotificationsEnabled_enabled :: Lens.Lens' SetIdentityHeadersInNotificationsEnabled Core.Bool
 setIdentityHeadersInNotificationsEnabled_enabled = Lens.lens (\SetIdentityHeadersInNotificationsEnabled' {enabled} -> enabled) (\s@SetIdentityHeadersInNotificationsEnabled' {} a -> s {enabled = a} :: SetIdentityHeadersInNotificationsEnabled)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     SetIdentityHeadersInNotificationsEnabled
   where
   type
-    Rs SetIdentityHeadersInNotificationsEnabled =
+    AWSResponse
+      SetIdentityHeadersInNotificationsEnabled =
       SetIdentityHeadersInNotificationsEnabledResponse
   request = Request.postQuery defaultService
   response =
@@ -155,44 +155,43 @@ instance
       "SetIdentityHeadersInNotificationsEnabledResult"
       ( \s h x ->
           SetIdentityHeadersInNotificationsEnabledResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SetIdentityHeadersInNotificationsEnabled
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetIdentityHeadersInNotificationsEnabled
 
 instance
-  Prelude.ToHeaders
-    SetIdentityHeadersInNotificationsEnabled
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     SetIdentityHeadersInNotificationsEnabled
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    SetIdentityHeadersInNotificationsEnabled
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     SetIdentityHeadersInNotificationsEnabled
   where
   toQuery SetIdentityHeadersInNotificationsEnabled' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "SetIdentityHeadersInNotificationsEnabled" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Prelude.=: identity,
-        "NotificationType" Prelude.=: notificationType,
-        "Enabled" Prelude.=: enabled
+          Core.=: ( "SetIdentityHeadersInNotificationsEnabled" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Identity" Core.=: identity,
+        "NotificationType" Core.=: notificationType,
+        "Enabled" Core.=: enabled
       ]
 
 -- | An empty element returned on a successful request.
@@ -200,9 +199,9 @@ instance
 -- /See:/ 'newSetIdentityHeadersInNotificationsEnabledResponse' smart constructor.
 data SetIdentityHeadersInNotificationsEnabledResponse = SetIdentityHeadersInNotificationsEnabledResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetIdentityHeadersInNotificationsEnabledResponse' with all optional fields omitted.
@@ -215,7 +214,7 @@ data SetIdentityHeadersInNotificationsEnabledResponse = SetIdentityHeadersInNoti
 -- 'httpStatus', 'setIdentityHeadersInNotificationsEnabledResponse_httpStatus' - The response's http status code.
 newSetIdentityHeadersInNotificationsEnabledResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetIdentityHeadersInNotificationsEnabledResponse
 newSetIdentityHeadersInNotificationsEnabledResponse
   pHttpStatus_ =
@@ -225,9 +224,9 @@ newSetIdentityHeadersInNotificationsEnabledResponse
       }
 
 -- | The response's http status code.
-setIdentityHeadersInNotificationsEnabledResponse_httpStatus :: Lens.Lens' SetIdentityHeadersInNotificationsEnabledResponse Prelude.Int
+setIdentityHeadersInNotificationsEnabledResponse_httpStatus :: Lens.Lens' SetIdentityHeadersInNotificationsEnabledResponse Core.Int
 setIdentityHeadersInNotificationsEnabledResponse_httpStatus = Lens.lens (\SetIdentityHeadersInNotificationsEnabledResponse' {httpStatus} -> httpStatus) (\s@SetIdentityHeadersInNotificationsEnabledResponse' {} a -> s {httpStatus = a} :: SetIdentityHeadersInNotificationsEnabledResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetIdentityHeadersInNotificationsEnabledResponse

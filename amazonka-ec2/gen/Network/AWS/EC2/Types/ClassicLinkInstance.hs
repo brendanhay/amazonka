@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,26 +19,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClassicLinkInstance where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.GroupIdentifier
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a linked EC2-Classic instance.
 --
 -- /See:/ 'newClassicLinkInstance' smart constructor.
 data ClassicLinkInstance = ClassicLinkInstance'
   { -- | A list of security groups.
-    groups :: Prelude.Maybe [GroupIdentifier],
+    groups :: Core.Maybe [GroupIdentifier],
     -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | Any tags assigned to the instance.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The ID of the VPC.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClassicLinkInstance' with all optional fields omitted.
@@ -60,40 +59,40 @@ newClassicLinkInstance ::
   ClassicLinkInstance
 newClassicLinkInstance =
   ClassicLinkInstance'
-    { groups = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+    { groups = Core.Nothing,
+      instanceId = Core.Nothing,
+      tags = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | A list of security groups.
-classicLinkInstance_groups :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe [GroupIdentifier])
-classicLinkInstance_groups = Lens.lens (\ClassicLinkInstance' {groups} -> groups) (\s@ClassicLinkInstance' {} a -> s {groups = a} :: ClassicLinkInstance) Prelude.. Lens.mapping Prelude._Coerce
+classicLinkInstance_groups :: Lens.Lens' ClassicLinkInstance (Core.Maybe [GroupIdentifier])
+classicLinkInstance_groups = Lens.lens (\ClassicLinkInstance' {groups} -> groups) (\s@ClassicLinkInstance' {} a -> s {groups = a} :: ClassicLinkInstance) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the instance.
-classicLinkInstance_instanceId :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe Prelude.Text)
+classicLinkInstance_instanceId :: Lens.Lens' ClassicLinkInstance (Core.Maybe Core.Text)
 classicLinkInstance_instanceId = Lens.lens (\ClassicLinkInstance' {instanceId} -> instanceId) (\s@ClassicLinkInstance' {} a -> s {instanceId = a} :: ClassicLinkInstance)
 
 -- | Any tags assigned to the instance.
-classicLinkInstance_tags :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe [Tag])
-classicLinkInstance_tags = Lens.lens (\ClassicLinkInstance' {tags} -> tags) (\s@ClassicLinkInstance' {} a -> s {tags = a} :: ClassicLinkInstance) Prelude.. Lens.mapping Prelude._Coerce
+classicLinkInstance_tags :: Lens.Lens' ClassicLinkInstance (Core.Maybe [Tag])
+classicLinkInstance_tags = Lens.lens (\ClassicLinkInstance' {tags} -> tags) (\s@ClassicLinkInstance' {} a -> s {tags = a} :: ClassicLinkInstance) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the VPC.
-classicLinkInstance_vpcId :: Lens.Lens' ClassicLinkInstance (Prelude.Maybe Prelude.Text)
+classicLinkInstance_vpcId :: Lens.Lens' ClassicLinkInstance (Core.Maybe Core.Text)
 classicLinkInstance_vpcId = Lens.lens (\ClassicLinkInstance' {vpcId} -> vpcId) (\s@ClassicLinkInstance' {} a -> s {vpcId = a} :: ClassicLinkInstance)
 
-instance Prelude.FromXML ClassicLinkInstance where
+instance Core.FromXML ClassicLinkInstance where
   parseXML x =
     ClassicLinkInstance'
-      Prelude.<$> ( x Prelude..@? "groupSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "instanceId")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "vpcId")
+      Core.<$> ( x Core..@? "groupSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "vpcId")
 
-instance Prelude.Hashable ClassicLinkInstance
+instance Core.Hashable ClassicLinkInstance
 
-instance Prelude.NFData ClassicLinkInstance
+instance Core.NFData ClassicLinkInstance

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.CharacterSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This data type is used as a response element in the action
 -- @DescribeDBEngineVersions@.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCharacterSet' smart constructor.
 data CharacterSet = CharacterSet'
   { -- | The name of the character set.
-    characterSetName :: Prelude.Maybe Prelude.Text,
+    characterSetName :: Core.Maybe Core.Text,
     -- | The description of the character set.
-    characterSetDescription :: Prelude.Maybe Prelude.Text
+    characterSetDescription :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CharacterSet' with all optional fields omitted.
@@ -50,24 +49,24 @@ newCharacterSet ::
   CharacterSet
 newCharacterSet =
   CharacterSet'
-    { characterSetName = Prelude.Nothing,
-      characterSetDescription = Prelude.Nothing
+    { characterSetName = Core.Nothing,
+      characterSetDescription = Core.Nothing
     }
 
 -- | The name of the character set.
-characterSet_characterSetName :: Lens.Lens' CharacterSet (Prelude.Maybe Prelude.Text)
+characterSet_characterSetName :: Lens.Lens' CharacterSet (Core.Maybe Core.Text)
 characterSet_characterSetName = Lens.lens (\CharacterSet' {characterSetName} -> characterSetName) (\s@CharacterSet' {} a -> s {characterSetName = a} :: CharacterSet)
 
 -- | The description of the character set.
-characterSet_characterSetDescription :: Lens.Lens' CharacterSet (Prelude.Maybe Prelude.Text)
+characterSet_characterSetDescription :: Lens.Lens' CharacterSet (Core.Maybe Core.Text)
 characterSet_characterSetDescription = Lens.lens (\CharacterSet' {characterSetDescription} -> characterSetDescription) (\s@CharacterSet' {} a -> s {characterSetDescription = a} :: CharacterSet)
 
-instance Prelude.FromXML CharacterSet where
+instance Core.FromXML CharacterSet where
   parseXML x =
     CharacterSet'
-      Prelude.<$> (x Prelude..@? "CharacterSetName")
-      Prelude.<*> (x Prelude..@? "CharacterSetDescription")
+      Core.<$> (x Core..@? "CharacterSetName")
+      Core.<*> (x Core..@? "CharacterSetDescription")
 
-instance Prelude.Hashable CharacterSet
+instance Core.Hashable CharacterSet
 
-instance Prelude.NFData CharacterSet
+instance Core.NFData CharacterSet

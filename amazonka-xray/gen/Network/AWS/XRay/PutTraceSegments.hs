@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -88,8 +87,8 @@ module Network.AWS.XRay.PutTraceSegments
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.XRay.Types
@@ -98,9 +97,9 @@ import Network.AWS.XRay.Types
 data PutTraceSegments = PutTraceSegments'
   { -- | A string containing a JSON document defining one or more segments or
     -- subsegments.
-    traceSegmentDocuments :: [Prelude.Text]
+    traceSegmentDocuments :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutTraceSegments' with all optional fields omitted.
@@ -117,59 +116,61 @@ newPutTraceSegments ::
 newPutTraceSegments =
   PutTraceSegments'
     { traceSegmentDocuments =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | A string containing a JSON document defining one or more segments or
 -- subsegments.
-putTraceSegments_traceSegmentDocuments :: Lens.Lens' PutTraceSegments [Prelude.Text]
-putTraceSegments_traceSegmentDocuments = Lens.lens (\PutTraceSegments' {traceSegmentDocuments} -> traceSegmentDocuments) (\s@PutTraceSegments' {} a -> s {traceSegmentDocuments = a} :: PutTraceSegments) Prelude.. Prelude._Coerce
+putTraceSegments_traceSegmentDocuments :: Lens.Lens' PutTraceSegments [Core.Text]
+putTraceSegments_traceSegmentDocuments = Lens.lens (\PutTraceSegments' {traceSegmentDocuments} -> traceSegmentDocuments) (\s@PutTraceSegments' {} a -> s {traceSegmentDocuments = a} :: PutTraceSegments) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutTraceSegments where
-  type Rs PutTraceSegments = PutTraceSegmentsResponse
+instance Core.AWSRequest PutTraceSegments where
+  type
+    AWSResponse PutTraceSegments =
+      PutTraceSegmentsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutTraceSegmentsResponse'
-            Prelude.<$> ( x Prelude..?> "UnprocessedTraceSegments"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "UnprocessedTraceSegments"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutTraceSegments
+instance Core.Hashable PutTraceSegments
 
-instance Prelude.NFData PutTraceSegments
+instance Core.NFData PutTraceSegments
 
-instance Prelude.ToHeaders PutTraceSegments where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PutTraceSegments where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON PutTraceSegments where
+instance Core.ToJSON PutTraceSegments where
   toJSON PutTraceSegments' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TraceSegmentDocuments"
-                  Prelude..= traceSegmentDocuments
+                  Core..= traceSegmentDocuments
               )
           ]
       )
 
-instance Prelude.ToPath PutTraceSegments where
-  toPath = Prelude.const "/TraceSegments"
+instance Core.ToPath PutTraceSegments where
+  toPath = Core.const "/TraceSegments"
 
-instance Prelude.ToQuery PutTraceSegments where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutTraceSegments where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutTraceSegmentsResponse' smart constructor.
 data PutTraceSegmentsResponse = PutTraceSegmentsResponse'
   { -- | Segments that failed processing.
-    unprocessedTraceSegments :: Prelude.Maybe [UnprocessedTraceSegment],
+    unprocessedTraceSegments :: Core.Maybe [UnprocessedTraceSegment],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutTraceSegmentsResponse' with all optional fields omitted.
@@ -184,21 +185,21 @@ data PutTraceSegmentsResponse = PutTraceSegmentsResponse'
 -- 'httpStatus', 'putTraceSegmentsResponse_httpStatus' - The response's http status code.
 newPutTraceSegmentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutTraceSegmentsResponse
 newPutTraceSegmentsResponse pHttpStatus_ =
   PutTraceSegmentsResponse'
     { unprocessedTraceSegments =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Segments that failed processing.
-putTraceSegmentsResponse_unprocessedTraceSegments :: Lens.Lens' PutTraceSegmentsResponse (Prelude.Maybe [UnprocessedTraceSegment])
-putTraceSegmentsResponse_unprocessedTraceSegments = Lens.lens (\PutTraceSegmentsResponse' {unprocessedTraceSegments} -> unprocessedTraceSegments) (\s@PutTraceSegmentsResponse' {} a -> s {unprocessedTraceSegments = a} :: PutTraceSegmentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+putTraceSegmentsResponse_unprocessedTraceSegments :: Lens.Lens' PutTraceSegmentsResponse (Core.Maybe [UnprocessedTraceSegment])
+putTraceSegmentsResponse_unprocessedTraceSegments = Lens.lens (\PutTraceSegmentsResponse' {unprocessedTraceSegments} -> unprocessedTraceSegments) (\s@PutTraceSegmentsResponse' {} a -> s {unprocessedTraceSegments = a} :: PutTraceSegmentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putTraceSegmentsResponse_httpStatus :: Lens.Lens' PutTraceSegmentsResponse Prelude.Int
+putTraceSegmentsResponse_httpStatus :: Lens.Lens' PutTraceSegmentsResponse Core.Int
 putTraceSegmentsResponse_httpStatus = Lens.lens (\PutTraceSegmentsResponse' {httpStatus} -> httpStatus) (\s@PutTraceSegmentsResponse' {} a -> s {httpStatus = a} :: PutTraceSegmentsResponse)
 
-instance Prelude.NFData PutTraceSegmentsResponse
+instance Core.NFData PutTraceSegmentsResponse

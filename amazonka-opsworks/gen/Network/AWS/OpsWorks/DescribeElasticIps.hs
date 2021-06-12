@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.OpsWorks.DescribeElasticIps
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,18 +61,18 @@ data DescribeElasticIps = DescribeElasticIps'
   { -- | The instance ID. If you include this parameter, @DescribeElasticIps@
     -- returns a description of the Elastic IP addresses associated with the
     -- specified instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
     -- a description of the Elastic IP addresses that are registered with the
     -- specified stack.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | An array of Elastic IP addresses to be described. If you include this
     -- parameter, @DescribeElasticIps@ returns a description of the specified
     -- Elastic IP addresses. Otherwise, it returns a description of every
     -- Elastic IP address.
-    ips :: Prelude.Maybe [Prelude.Text]
+    ips :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticIps' with all optional fields omitted.
@@ -99,79 +98,75 @@ newDescribeElasticIps ::
   DescribeElasticIps
 newDescribeElasticIps =
   DescribeElasticIps'
-    { instanceId = Prelude.Nothing,
-      stackId = Prelude.Nothing,
-      ips = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      stackId = Core.Nothing,
+      ips = Core.Nothing
     }
 
 -- | The instance ID. If you include this parameter, @DescribeElasticIps@
 -- returns a description of the Elastic IP addresses associated with the
 -- specified instance.
-describeElasticIps_instanceId :: Lens.Lens' DescribeElasticIps (Prelude.Maybe Prelude.Text)
+describeElasticIps_instanceId :: Lens.Lens' DescribeElasticIps (Core.Maybe Core.Text)
 describeElasticIps_instanceId = Lens.lens (\DescribeElasticIps' {instanceId} -> instanceId) (\s@DescribeElasticIps' {} a -> s {instanceId = a} :: DescribeElasticIps)
 
 -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
 -- a description of the Elastic IP addresses that are registered with the
 -- specified stack.
-describeElasticIps_stackId :: Lens.Lens' DescribeElasticIps (Prelude.Maybe Prelude.Text)
+describeElasticIps_stackId :: Lens.Lens' DescribeElasticIps (Core.Maybe Core.Text)
 describeElasticIps_stackId = Lens.lens (\DescribeElasticIps' {stackId} -> stackId) (\s@DescribeElasticIps' {} a -> s {stackId = a} :: DescribeElasticIps)
 
 -- | An array of Elastic IP addresses to be described. If you include this
 -- parameter, @DescribeElasticIps@ returns a description of the specified
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
-describeElasticIps_ips :: Lens.Lens' DescribeElasticIps (Prelude.Maybe [Prelude.Text])
-describeElasticIps_ips = Lens.lens (\DescribeElasticIps' {ips} -> ips) (\s@DescribeElasticIps' {} a -> s {ips = a} :: DescribeElasticIps) Prelude.. Lens.mapping Prelude._Coerce
+describeElasticIps_ips :: Lens.Lens' DescribeElasticIps (Core.Maybe [Core.Text])
+describeElasticIps_ips = Lens.lens (\DescribeElasticIps' {ips} -> ips) (\s@DescribeElasticIps' {} a -> s {ips = a} :: DescribeElasticIps) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeElasticIps where
+instance Core.AWSRequest DescribeElasticIps where
   type
-    Rs DescribeElasticIps =
+    AWSResponse DescribeElasticIps =
       DescribeElasticIpsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeElasticIpsResponse'
-            Prelude.<$> ( x Prelude..?> "ElasticIps"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ElasticIps" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeElasticIps
+instance Core.Hashable DescribeElasticIps
 
-instance Prelude.NFData DescribeElasticIps
+instance Core.NFData DescribeElasticIps
 
-instance Prelude.ToHeaders DescribeElasticIps where
+instance Core.ToHeaders DescribeElasticIps where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeElasticIps" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeElasticIps" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeElasticIps where
+instance Core.ToJSON DescribeElasticIps where
   toJSON DescribeElasticIps' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceId" Prelude..=) Prelude.<$> instanceId,
-            ("StackId" Prelude..=) Prelude.<$> stackId,
-            ("Ips" Prelude..=) Prelude.<$> ips
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceId" Core..=) Core.<$> instanceId,
+            ("StackId" Core..=) Core.<$> stackId,
+            ("Ips" Core..=) Core.<$> ips
           ]
       )
 
-instance Prelude.ToPath DescribeElasticIps where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeElasticIps where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeElasticIps where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeElasticIps where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeElasticIps@ request.
 --
@@ -179,11 +174,11 @@ instance Prelude.ToQuery DescribeElasticIps where
 data DescribeElasticIpsResponse = DescribeElasticIpsResponse'
   { -- | An @ElasticIps@ object that describes the specified Elastic IP
     -- addresses.
-    elasticIps :: Prelude.Maybe [ElasticIp],
+    elasticIps :: Core.Maybe [ElasticIp],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticIpsResponse' with all optional fields omitted.
@@ -199,22 +194,22 @@ data DescribeElasticIpsResponse = DescribeElasticIpsResponse'
 -- 'httpStatus', 'describeElasticIpsResponse_httpStatus' - The response's http status code.
 newDescribeElasticIpsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeElasticIpsResponse
 newDescribeElasticIpsResponse pHttpStatus_ =
   DescribeElasticIpsResponse'
     { elasticIps =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
-describeElasticIpsResponse_elasticIps :: Lens.Lens' DescribeElasticIpsResponse (Prelude.Maybe [ElasticIp])
-describeElasticIpsResponse_elasticIps = Lens.lens (\DescribeElasticIpsResponse' {elasticIps} -> elasticIps) (\s@DescribeElasticIpsResponse' {} a -> s {elasticIps = a} :: DescribeElasticIpsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeElasticIpsResponse_elasticIps :: Lens.Lens' DescribeElasticIpsResponse (Core.Maybe [ElasticIp])
+describeElasticIpsResponse_elasticIps = Lens.lens (\DescribeElasticIpsResponse' {elasticIps} -> elasticIps) (\s@DescribeElasticIpsResponse' {} a -> s {elasticIps = a} :: DescribeElasticIpsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeElasticIpsResponse_httpStatus :: Lens.Lens' DescribeElasticIpsResponse Prelude.Int
+describeElasticIpsResponse_httpStatus :: Lens.Lens' DescribeElasticIpsResponse Core.Int
 describeElasticIpsResponse_httpStatus = Lens.lens (\DescribeElasticIpsResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticIpsResponse' {} a -> s {httpStatus = a} :: DescribeElasticIpsResponse)
 
-instance Prelude.NFData DescribeElasticIpsResponse
+instance Core.NFData DescribeElasticIpsResponse

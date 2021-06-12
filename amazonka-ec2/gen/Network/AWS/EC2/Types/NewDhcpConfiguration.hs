@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,16 +19,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.NewDhcpConfiguration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newNewDhcpConfiguration' smart constructor.
 data NewDhcpConfiguration = NewDhcpConfiguration'
-  { key :: Prelude.Maybe Prelude.Text,
-    values :: Prelude.Maybe [Prelude.Text]
+  { key :: Core.Maybe Core.Text,
+    values :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NewDhcpConfiguration' with all optional fields omitted.
@@ -46,26 +45,26 @@ newNewDhcpConfiguration ::
   NewDhcpConfiguration
 newNewDhcpConfiguration =
   NewDhcpConfiguration'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
 
 -- | Undocumented member.
-newDhcpConfiguration_key :: Lens.Lens' NewDhcpConfiguration (Prelude.Maybe Prelude.Text)
+newDhcpConfiguration_key :: Lens.Lens' NewDhcpConfiguration (Core.Maybe Core.Text)
 newDhcpConfiguration_key = Lens.lens (\NewDhcpConfiguration' {key} -> key) (\s@NewDhcpConfiguration' {} a -> s {key = a} :: NewDhcpConfiguration)
 
 -- | Undocumented member.
-newDhcpConfiguration_values :: Lens.Lens' NewDhcpConfiguration (Prelude.Maybe [Prelude.Text])
-newDhcpConfiguration_values = Lens.lens (\NewDhcpConfiguration' {values} -> values) (\s@NewDhcpConfiguration' {} a -> s {values = a} :: NewDhcpConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+newDhcpConfiguration_values :: Lens.Lens' NewDhcpConfiguration (Core.Maybe [Core.Text])
+newDhcpConfiguration_values = Lens.lens (\NewDhcpConfiguration' {values} -> values) (\s@NewDhcpConfiguration' {} a -> s {values = a} :: NewDhcpConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable NewDhcpConfiguration
+instance Core.Hashable NewDhcpConfiguration
 
-instance Prelude.NFData NewDhcpConfiguration
+instance Core.NFData NewDhcpConfiguration
 
-instance Prelude.ToQuery NewDhcpConfiguration where
+instance Core.ToQuery NewDhcpConfiguration where
   toQuery NewDhcpConfiguration' {..} =
-    Prelude.mconcat
-      [ "Key" Prelude.=: key,
-        Prelude.toQuery
-          (Prelude.toQueryList "Value" Prelude.<$> values)
+    Core.mconcat
+      [ "Key" Core.=: key,
+        Core.toQuery
+          (Core.toQueryList "Value" Core.<$> values)
       ]

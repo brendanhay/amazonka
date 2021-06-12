@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,9 +35,9 @@ module Network.AWS.IoT.DeleteRegistrationCode
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data DeleteRegistrationCode = DeleteRegistrationCode'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistrationCode' with all optional fields omitted.
@@ -58,39 +57,39 @@ newDeleteRegistrationCode ::
   DeleteRegistrationCode
 newDeleteRegistrationCode = DeleteRegistrationCode'
 
-instance Prelude.AWSRequest DeleteRegistrationCode where
+instance Core.AWSRequest DeleteRegistrationCode where
   type
-    Rs DeleteRegistrationCode =
+    AWSResponse DeleteRegistrationCode =
       DeleteRegistrationCodeResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRegistrationCodeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteRegistrationCode
+instance Core.Hashable DeleteRegistrationCode
 
-instance Prelude.NFData DeleteRegistrationCode
+instance Core.NFData DeleteRegistrationCode
 
-instance Prelude.ToHeaders DeleteRegistrationCode where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteRegistrationCode where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteRegistrationCode where
-  toPath = Prelude.const "/registrationcode"
+instance Core.ToPath DeleteRegistrationCode where
+  toPath = Core.const "/registrationcode"
 
-instance Prelude.ToQuery DeleteRegistrationCode where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteRegistrationCode where
+  toQuery = Core.const Core.mempty
 
 -- | The output for the DeleteRegistrationCode operation.
 --
 -- /See:/ 'newDeleteRegistrationCodeResponse' smart constructor.
 data DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteRegistrationCodeResponse' with all optional fields omitted.
@@ -103,7 +102,7 @@ data DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
 -- 'httpStatus', 'deleteRegistrationCodeResponse_httpStatus' - The response's http status code.
 newDeleteRegistrationCodeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteRegistrationCodeResponse
 newDeleteRegistrationCodeResponse pHttpStatus_ =
   DeleteRegistrationCodeResponse'
@@ -112,9 +111,7 @@ newDeleteRegistrationCodeResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteRegistrationCodeResponse_httpStatus :: Lens.Lens' DeleteRegistrationCodeResponse Prelude.Int
+deleteRegistrationCodeResponse_httpStatus :: Lens.Lens' DeleteRegistrationCodeResponse Core.Int
 deleteRegistrationCodeResponse_httpStatus = Lens.lens (\DeleteRegistrationCodeResponse' {httpStatus} -> httpStatus) (\s@DeleteRegistrationCodeResponse' {} a -> s {httpStatus = a} :: DeleteRegistrationCodeResponse)
 
-instance
-  Prelude.NFData
-    DeleteRegistrationCodeResponse
+instance Core.NFData DeleteRegistrationCodeResponse

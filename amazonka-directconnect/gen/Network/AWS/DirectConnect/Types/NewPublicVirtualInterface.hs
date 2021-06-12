@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.NewPublicVirtualInterface where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.AddressFamily
 import Network.AWS.DirectConnect.Types.RouteFilterPrefix
 import Network.AWS.DirectConnect.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a public virtual interface.
 --
@@ -32,31 +31,31 @@ import qualified Network.AWS.Prelude as Prelude
 data NewPublicVirtualInterface = NewPublicVirtualInterface'
   { -- | The authentication key for BGP configuration. This string has a minimum
     -- length of 6 characters and and a maximun lenth of 80 characters.
-    authKey :: Prelude.Maybe Prelude.Text,
+    authKey :: Core.Maybe Core.Text,
     -- | The routes to be advertised to the AWS network in this Region. Applies
     -- to public virtual interfaces.
-    routeFilterPrefixes :: Prelude.Maybe [RouteFilterPrefix],
+    routeFilterPrefixes :: Core.Maybe [RouteFilterPrefix],
     -- | The tags associated with the public virtual interface.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
+    addressFamily :: Core.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
-    amazonAddress :: Prelude.Maybe Prelude.Text,
+    amazonAddress :: Core.Maybe Core.Text,
     -- | The IP address assigned to the customer interface.
-    customerAddress :: Prelude.Maybe Prelude.Text,
+    customerAddress :: Core.Maybe Core.Text,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
-    virtualInterfaceName :: Prelude.Text,
+    virtualInterfaceName :: Core.Text,
     -- | The ID of the VLAN.
-    vlan :: Prelude.Int,
+    vlan :: Core.Int,
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
     --
     -- The valid values are 1-2147483647.
-    asn :: Prelude.Int
+    asn :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NewPublicVirtualInterface' with all optional fields omitted.
@@ -92,24 +91,23 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface'
 -- The valid values are 1-2147483647.
 newNewPublicVirtualInterface ::
   -- | 'virtualInterfaceName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vlan'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'asn'
-  Prelude.Int ->
+  Core.Int ->
   NewPublicVirtualInterface
 newNewPublicVirtualInterface
   pVirtualInterfaceName_
   pVlan_
   pAsn_ =
     NewPublicVirtualInterface'
-      { authKey =
-          Prelude.Nothing,
-        routeFilterPrefixes = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        addressFamily = Prelude.Nothing,
-        amazonAddress = Prelude.Nothing,
-        customerAddress = Prelude.Nothing,
+      { authKey = Core.Nothing,
+        routeFilterPrefixes = Core.Nothing,
+        tags = Core.Nothing,
+        addressFamily = Core.Nothing,
+        amazonAddress = Core.Nothing,
+        customerAddress = Core.Nothing,
         virtualInterfaceName = pVirtualInterfaceName_,
         vlan = pVlan_,
         asn = pAsn_
@@ -117,70 +115,67 @@ newNewPublicVirtualInterface
 
 -- | The authentication key for BGP configuration. This string has a minimum
 -- length of 6 characters and and a maximun lenth of 80 characters.
-newPublicVirtualInterface_authKey :: Lens.Lens' NewPublicVirtualInterface (Prelude.Maybe Prelude.Text)
+newPublicVirtualInterface_authKey :: Lens.Lens' NewPublicVirtualInterface (Core.Maybe Core.Text)
 newPublicVirtualInterface_authKey = Lens.lens (\NewPublicVirtualInterface' {authKey} -> authKey) (\s@NewPublicVirtualInterface' {} a -> s {authKey = a} :: NewPublicVirtualInterface)
 
 -- | The routes to be advertised to the AWS network in this Region. Applies
 -- to public virtual interfaces.
-newPublicVirtualInterface_routeFilterPrefixes :: Lens.Lens' NewPublicVirtualInterface (Prelude.Maybe [RouteFilterPrefix])
-newPublicVirtualInterface_routeFilterPrefixes = Lens.lens (\NewPublicVirtualInterface' {routeFilterPrefixes} -> routeFilterPrefixes) (\s@NewPublicVirtualInterface' {} a -> s {routeFilterPrefixes = a} :: NewPublicVirtualInterface) Prelude.. Lens.mapping Prelude._Coerce
+newPublicVirtualInterface_routeFilterPrefixes :: Lens.Lens' NewPublicVirtualInterface (Core.Maybe [RouteFilterPrefix])
+newPublicVirtualInterface_routeFilterPrefixes = Lens.lens (\NewPublicVirtualInterface' {routeFilterPrefixes} -> routeFilterPrefixes) (\s@NewPublicVirtualInterface' {} a -> s {routeFilterPrefixes = a} :: NewPublicVirtualInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags associated with the public virtual interface.
-newPublicVirtualInterface_tags :: Lens.Lens' NewPublicVirtualInterface (Prelude.Maybe (Prelude.NonEmpty Tag))
-newPublicVirtualInterface_tags = Lens.lens (\NewPublicVirtualInterface' {tags} -> tags) (\s@NewPublicVirtualInterface' {} a -> s {tags = a} :: NewPublicVirtualInterface) Prelude.. Lens.mapping Prelude._Coerce
+newPublicVirtualInterface_tags :: Lens.Lens' NewPublicVirtualInterface (Core.Maybe (Core.NonEmpty Tag))
+newPublicVirtualInterface_tags = Lens.lens (\NewPublicVirtualInterface' {tags} -> tags) (\s@NewPublicVirtualInterface' {} a -> s {tags = a} :: NewPublicVirtualInterface) Core.. Lens.mapping Lens._Coerce
 
 -- | The address family for the BGP peer.
-newPublicVirtualInterface_addressFamily :: Lens.Lens' NewPublicVirtualInterface (Prelude.Maybe AddressFamily)
+newPublicVirtualInterface_addressFamily :: Lens.Lens' NewPublicVirtualInterface (Core.Maybe AddressFamily)
 newPublicVirtualInterface_addressFamily = Lens.lens (\NewPublicVirtualInterface' {addressFamily} -> addressFamily) (\s@NewPublicVirtualInterface' {} a -> s {addressFamily = a} :: NewPublicVirtualInterface)
 
 -- | The IP address assigned to the Amazon interface.
-newPublicVirtualInterface_amazonAddress :: Lens.Lens' NewPublicVirtualInterface (Prelude.Maybe Prelude.Text)
+newPublicVirtualInterface_amazonAddress :: Lens.Lens' NewPublicVirtualInterface (Core.Maybe Core.Text)
 newPublicVirtualInterface_amazonAddress = Lens.lens (\NewPublicVirtualInterface' {amazonAddress} -> amazonAddress) (\s@NewPublicVirtualInterface' {} a -> s {amazonAddress = a} :: NewPublicVirtualInterface)
 
 -- | The IP address assigned to the customer interface.
-newPublicVirtualInterface_customerAddress :: Lens.Lens' NewPublicVirtualInterface (Prelude.Maybe Prelude.Text)
+newPublicVirtualInterface_customerAddress :: Lens.Lens' NewPublicVirtualInterface (Core.Maybe Core.Text)
 newPublicVirtualInterface_customerAddress = Lens.lens (\NewPublicVirtualInterface' {customerAddress} -> customerAddress) (\s@NewPublicVirtualInterface' {} a -> s {customerAddress = a} :: NewPublicVirtualInterface)
 
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
-newPublicVirtualInterface_virtualInterfaceName :: Lens.Lens' NewPublicVirtualInterface Prelude.Text
+newPublicVirtualInterface_virtualInterfaceName :: Lens.Lens' NewPublicVirtualInterface Core.Text
 newPublicVirtualInterface_virtualInterfaceName = Lens.lens (\NewPublicVirtualInterface' {virtualInterfaceName} -> virtualInterfaceName) (\s@NewPublicVirtualInterface' {} a -> s {virtualInterfaceName = a} :: NewPublicVirtualInterface)
 
 -- | The ID of the VLAN.
-newPublicVirtualInterface_vlan :: Lens.Lens' NewPublicVirtualInterface Prelude.Int
+newPublicVirtualInterface_vlan :: Lens.Lens' NewPublicVirtualInterface Core.Int
 newPublicVirtualInterface_vlan = Lens.lens (\NewPublicVirtualInterface' {vlan} -> vlan) (\s@NewPublicVirtualInterface' {} a -> s {vlan = a} :: NewPublicVirtualInterface)
 
 -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
 --
 -- The valid values are 1-2147483647.
-newPublicVirtualInterface_asn :: Lens.Lens' NewPublicVirtualInterface Prelude.Int
+newPublicVirtualInterface_asn :: Lens.Lens' NewPublicVirtualInterface Core.Int
 newPublicVirtualInterface_asn = Lens.lens (\NewPublicVirtualInterface' {asn} -> asn) (\s@NewPublicVirtualInterface' {} a -> s {asn = a} :: NewPublicVirtualInterface)
 
-instance Prelude.Hashable NewPublicVirtualInterface
+instance Core.Hashable NewPublicVirtualInterface
 
-instance Prelude.NFData NewPublicVirtualInterface
+instance Core.NFData NewPublicVirtualInterface
 
-instance Prelude.ToJSON NewPublicVirtualInterface where
+instance Core.ToJSON NewPublicVirtualInterface where
   toJSON NewPublicVirtualInterface' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("authKey" Prelude..=) Prelude.<$> authKey,
-            ("routeFilterPrefixes" Prelude..=)
-              Prelude.<$> routeFilterPrefixes,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("addressFamily" Prelude..=)
-              Prelude.<$> addressFamily,
-            ("amazonAddress" Prelude..=)
-              Prelude.<$> amazonAddress,
-            ("customerAddress" Prelude..=)
-              Prelude.<$> customerAddress,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("authKey" Core..=) Core.<$> authKey,
+            ("routeFilterPrefixes" Core..=)
+              Core.<$> routeFilterPrefixes,
+            ("tags" Core..=) Core.<$> tags,
+            ("addressFamily" Core..=) Core.<$> addressFamily,
+            ("amazonAddress" Core..=) Core.<$> amazonAddress,
+            ("customerAddress" Core..=) Core.<$> customerAddress,
+            Core.Just
               ( "virtualInterfaceName"
-                  Prelude..= virtualInterfaceName
+                  Core..= virtualInterfaceName
               ),
-            Prelude.Just ("vlan" Prelude..= vlan),
-            Prelude.Just ("asn" Prelude..= asn)
+            Core.Just ("vlan" Core..= vlan),
+            Core.Just ("asn" Core..= asn)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ContextSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ContextSource
 
 -- | Lists a summary of the properties of a context. A context provides a
@@ -30,19 +29,19 @@ import Network.AWS.SageMaker.Types.ContextSource
 -- /See:/ 'newContextSummary' smart constructor.
 data ContextSummary = ContextSummary'
   { -- | The type of the context.
-    contextType :: Prelude.Maybe Prelude.Text,
+    contextType :: Core.Maybe Core.Text,
     -- | When the context was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | The name of the context.
-    contextName :: Prelude.Maybe Prelude.Text,
+    contextName :: Core.Maybe Core.Text,
     -- | The source of the context.
-    source :: Prelude.Maybe ContextSource,
+    source :: Core.Maybe ContextSource,
     -- | When the context was last modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the context.
-    contextArn :: Prelude.Maybe Prelude.Text
+    contextArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContextSummary' with all optional fields omitted.
@@ -67,52 +66,52 @@ newContextSummary ::
   ContextSummary
 newContextSummary =
   ContextSummary'
-    { contextType = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      contextName = Prelude.Nothing,
-      source = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      contextArn = Prelude.Nothing
+    { contextType = Core.Nothing,
+      creationTime = Core.Nothing,
+      contextName = Core.Nothing,
+      source = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      contextArn = Core.Nothing
     }
 
 -- | The type of the context.
-contextSummary_contextType :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.Text)
+contextSummary_contextType :: Lens.Lens' ContextSummary (Core.Maybe Core.Text)
 contextSummary_contextType = Lens.lens (\ContextSummary' {contextType} -> contextType) (\s@ContextSummary' {} a -> s {contextType = a} :: ContextSummary)
 
 -- | When the context was created.
-contextSummary_creationTime :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.UTCTime)
-contextSummary_creationTime = Lens.lens (\ContextSummary' {creationTime} -> creationTime) (\s@ContextSummary' {} a -> s {creationTime = a} :: ContextSummary) Prelude.. Lens.mapping Prelude._Time
+contextSummary_creationTime :: Lens.Lens' ContextSummary (Core.Maybe Core.UTCTime)
+contextSummary_creationTime = Lens.lens (\ContextSummary' {creationTime} -> creationTime) (\s@ContextSummary' {} a -> s {creationTime = a} :: ContextSummary) Core.. Lens.mapping Core._Time
 
 -- | The name of the context.
-contextSummary_contextName :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.Text)
+contextSummary_contextName :: Lens.Lens' ContextSummary (Core.Maybe Core.Text)
 contextSummary_contextName = Lens.lens (\ContextSummary' {contextName} -> contextName) (\s@ContextSummary' {} a -> s {contextName = a} :: ContextSummary)
 
 -- | The source of the context.
-contextSummary_source :: Lens.Lens' ContextSummary (Prelude.Maybe ContextSource)
+contextSummary_source :: Lens.Lens' ContextSummary (Core.Maybe ContextSource)
 contextSummary_source = Lens.lens (\ContextSummary' {source} -> source) (\s@ContextSummary' {} a -> s {source = a} :: ContextSummary)
 
 -- | When the context was last modified.
-contextSummary_lastModifiedTime :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.UTCTime)
-contextSummary_lastModifiedTime = Lens.lens (\ContextSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ContextSummary' {} a -> s {lastModifiedTime = a} :: ContextSummary) Prelude.. Lens.mapping Prelude._Time
+contextSummary_lastModifiedTime :: Lens.Lens' ContextSummary (Core.Maybe Core.UTCTime)
+contextSummary_lastModifiedTime = Lens.lens (\ContextSummary' {lastModifiedTime} -> lastModifiedTime) (\s@ContextSummary' {} a -> s {lastModifiedTime = a} :: ContextSummary) Core.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the context.
-contextSummary_contextArn :: Lens.Lens' ContextSummary (Prelude.Maybe Prelude.Text)
+contextSummary_contextArn :: Lens.Lens' ContextSummary (Core.Maybe Core.Text)
 contextSummary_contextArn = Lens.lens (\ContextSummary' {contextArn} -> contextArn) (\s@ContextSummary' {} a -> s {contextArn = a} :: ContextSummary)
 
-instance Prelude.FromJSON ContextSummary where
+instance Core.FromJSON ContextSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContextSummary"
       ( \x ->
           ContextSummary'
-            Prelude.<$> (x Prelude..:? "ContextType")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ContextName")
-            Prelude.<*> (x Prelude..:? "Source")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> (x Prelude..:? "ContextArn")
+            Core.<$> (x Core..:? "ContextType")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ContextName")
+            Core.<*> (x Core..:? "Source")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "ContextArn")
       )
 
-instance Prelude.Hashable ContextSummary
+instance Core.Hashable ContextSummary
 
-instance Prelude.NFData ContextSummary
+instance Core.NFData ContextSummary

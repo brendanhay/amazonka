@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.User where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.AttachedPermissionsBoundary
 import Network.AWS.IAM.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about an IAM user entity.
 --
@@ -41,7 +40,7 @@ data User = User'
   { -- | For more information about permissions boundaries, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
     -- in the /IAM User Guide/.
-    permissionsBoundary :: Prelude.Maybe AttachedPermissionsBoundary,
+    permissionsBoundary :: Core.Maybe AttachedPermissionsBoundary,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- user\'s password was last used to sign in to an AWS website. For a list
@@ -63,36 +62,36 @@ data User = User'
     -- used.
     --
     -- This value is returned only in the GetUser and ListUsers operations.
-    passwordLastUsed :: Prelude.Maybe Prelude.ISO8601,
+    passwordLastUsed :: Core.Maybe Core.ISO8601,
     -- | A list of tags that are associated with the user. For more information
     -- about tagging, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
     -- in the /IAM User Guide/.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The path to the user. For more information about paths, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
     --
     -- The ARN of the policy used to set the permissions boundary for the user.
-    path :: Prelude.Text,
+    path :: Core.Text,
     -- | The friendly name identifying the user.
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The stable and unique string identifying the user. For more information
     -- about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    userId :: Prelude.Text,
+    userId :: Core.Text,
     -- | The Amazon Resource Name (ARN) that identifies the user. For more
     -- information about ARNs and how to use ARNs in policies, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
     -- in the /IAM User Guide/.
-    arn :: Prelude.Text,
+    arn :: Core.Text,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
     -- user was created.
-    createDate :: Prelude.ISO8601
+    createDate :: Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'User' with all optional fields omitted.
@@ -156,32 +155,32 @@ data User = User'
 -- user was created.
 newUser ::
   -- | 'path'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'createDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   User
 newUser pPath_ pUserName_ pUserId_ pArn_ pCreateDate_ =
   User'
-    { permissionsBoundary = Prelude.Nothing,
-      passwordLastUsed = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { permissionsBoundary = Core.Nothing,
+      passwordLastUsed = Core.Nothing,
+      tags = Core.Nothing,
       path = pPath_,
       userName = pUserName_,
       userId = pUserId_,
       arn = pArn_,
-      createDate = Prelude._Time Lens.# pCreateDate_
+      createDate = Core._Time Lens.# pCreateDate_
     }
 
 -- | For more information about permissions boundaries, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions boundaries for IAM identities>
 -- in the /IAM User Guide/.
-user_permissionsBoundary :: Lens.Lens' User (Prelude.Maybe AttachedPermissionsBoundary)
+user_permissionsBoundary :: Lens.Lens' User (Core.Maybe AttachedPermissionsBoundary)
 user_permissionsBoundary = Lens.lens (\User' {permissionsBoundary} -> permissionsBoundary) (\s@User' {} a -> s {permissionsBoundary = a} :: User)
 
 -- | The date and time, in
@@ -205,62 +204,62 @@ user_permissionsBoundary = Lens.lens (\User' {permissionsBoundary} -> permission
 -- used.
 --
 -- This value is returned only in the GetUser and ListUsers operations.
-user_passwordLastUsed :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_passwordLastUsed = Lens.lens (\User' {passwordLastUsed} -> passwordLastUsed) (\s@User' {} a -> s {passwordLastUsed = a} :: User) Prelude.. Lens.mapping Prelude._Time
+user_passwordLastUsed :: Lens.Lens' User (Core.Maybe Core.UTCTime)
+user_passwordLastUsed = Lens.lens (\User' {passwordLastUsed} -> passwordLastUsed) (\s@User' {} a -> s {passwordLastUsed = a} :: User) Core.. Lens.mapping Core._Time
 
 -- | A list of tags that are associated with the user. For more information
 -- about tagging, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
-user_tags :: Lens.Lens' User (Prelude.Maybe [Tag])
-user_tags = Lens.lens (\User' {tags} -> tags) (\s@User' {} a -> s {tags = a} :: User) Prelude.. Lens.mapping Prelude._Coerce
+user_tags :: Lens.Lens' User (Core.Maybe [Tag])
+user_tags = Lens.lens (\User' {tags} -> tags) (\s@User' {} a -> s {tags = a} :: User) Core.. Lens.mapping Lens._Coerce
 
 -- | The path to the user. For more information about paths, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
 --
 -- The ARN of the policy used to set the permissions boundary for the user.
-user_path :: Lens.Lens' User Prelude.Text
+user_path :: Lens.Lens' User Core.Text
 user_path = Lens.lens (\User' {path} -> path) (\s@User' {} a -> s {path = a} :: User)
 
 -- | The friendly name identifying the user.
-user_userName :: Lens.Lens' User Prelude.Text
+user_userName :: Lens.Lens' User Core.Text
 user_userName = Lens.lens (\User' {userName} -> userName) (\s@User' {} a -> s {userName = a} :: User)
 
 -- | The stable and unique string identifying the user. For more information
 -- about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
-user_userId :: Lens.Lens' User Prelude.Text
+user_userId :: Lens.Lens' User Core.Text
 user_userId = Lens.lens (\User' {userId} -> userId) (\s@User' {} a -> s {userId = a} :: User)
 
 -- | The Amazon Resource Name (ARN) that identifies the user. For more
 -- information about ARNs and how to use ARNs in policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /IAM User Guide/.
-user_arn :: Lens.Lens' User Prelude.Text
+user_arn :: Lens.Lens' User Core.Text
 user_arn = Lens.lens (\User' {arn} -> arn) (\s@User' {} a -> s {arn = a} :: User)
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- user was created.
-user_createDate :: Lens.Lens' User Prelude.UTCTime
-user_createDate = Lens.lens (\User' {createDate} -> createDate) (\s@User' {} a -> s {createDate = a} :: User) Prelude.. Prelude._Time
+user_createDate :: Lens.Lens' User Core.UTCTime
+user_createDate = Lens.lens (\User' {createDate} -> createDate) (\s@User' {} a -> s {createDate = a} :: User) Core.. Core._Time
 
-instance Prelude.FromXML User where
+instance Core.FromXML User where
   parseXML x =
     User'
-      Prelude.<$> (x Prelude..@? "PermissionsBoundary")
-      Prelude.<*> (x Prelude..@? "PasswordLastUsed")
-      Prelude.<*> ( x Prelude..@? "Tags" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@ "Path")
-      Prelude.<*> (x Prelude..@ "UserName")
-      Prelude.<*> (x Prelude..@ "UserId")
-      Prelude.<*> (x Prelude..@ "Arn")
-      Prelude.<*> (x Prelude..@ "CreateDate")
+      Core.<$> (x Core..@? "PermissionsBoundary")
+      Core.<*> (x Core..@? "PasswordLastUsed")
+      Core.<*> ( x Core..@? "Tags" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@ "Path")
+      Core.<*> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "UserId")
+      Core.<*> (x Core..@ "Arn")
+      Core.<*> (x Core..@ "CreateDate")
 
-instance Prelude.Hashable User
+instance Core.Hashable User
 
-instance Prelude.NFData User
+instance Core.NFData User

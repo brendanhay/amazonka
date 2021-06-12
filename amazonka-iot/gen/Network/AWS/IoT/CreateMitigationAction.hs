@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,25 +48,25 @@ module Network.AWS.IoT.CreateMitigationAction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateMitigationAction' smart constructor.
 data CreateMitigationAction = CreateMitigationAction'
   { -- | Metadata that can be used to manage the mitigation action.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A friendly name for the action. Choose a friendly name that accurately
     -- describes the action (for example, @EnableLoggingAction@).
-    actionName :: Prelude.Text,
+    actionName :: Core.Text,
     -- | The ARN of the IAM role that is used to apply the mitigation action.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | Defines the type of action and the parameters for that action.
     actionParams :: MitigationActionParams
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateMitigationAction' with all optional fields omitted.
@@ -87,9 +86,9 @@ data CreateMitigationAction = CreateMitigationAction'
 -- 'actionParams', 'createMitigationAction_actionParams' - Defines the type of action and the parameters for that action.
 newCreateMitigationAction ::
   -- | 'actionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'actionParams'
   MitigationActionParams ->
   CreateMitigationAction
@@ -98,81 +97,78 @@ newCreateMitigationAction
   pRoleArn_
   pActionParams_ =
     CreateMitigationAction'
-      { tags = Prelude.Nothing,
+      { tags = Core.Nothing,
         actionName = pActionName_,
         roleArn = pRoleArn_,
         actionParams = pActionParams_
       }
 
 -- | Metadata that can be used to manage the mitigation action.
-createMitigationAction_tags :: Lens.Lens' CreateMitigationAction (Prelude.Maybe [Tag])
-createMitigationAction_tags = Lens.lens (\CreateMitigationAction' {tags} -> tags) (\s@CreateMitigationAction' {} a -> s {tags = a} :: CreateMitigationAction) Prelude.. Lens.mapping Prelude._Coerce
+createMitigationAction_tags :: Lens.Lens' CreateMitigationAction (Core.Maybe [Tag])
+createMitigationAction_tags = Lens.lens (\CreateMitigationAction' {tags} -> tags) (\s@CreateMitigationAction' {} a -> s {tags = a} :: CreateMitigationAction) Core.. Lens.mapping Lens._Coerce
 
 -- | A friendly name for the action. Choose a friendly name that accurately
 -- describes the action (for example, @EnableLoggingAction@).
-createMitigationAction_actionName :: Lens.Lens' CreateMitigationAction Prelude.Text
+createMitigationAction_actionName :: Lens.Lens' CreateMitigationAction Core.Text
 createMitigationAction_actionName = Lens.lens (\CreateMitigationAction' {actionName} -> actionName) (\s@CreateMitigationAction' {} a -> s {actionName = a} :: CreateMitigationAction)
 
 -- | The ARN of the IAM role that is used to apply the mitigation action.
-createMitigationAction_roleArn :: Lens.Lens' CreateMitigationAction Prelude.Text
+createMitigationAction_roleArn :: Lens.Lens' CreateMitigationAction Core.Text
 createMitigationAction_roleArn = Lens.lens (\CreateMitigationAction' {roleArn} -> roleArn) (\s@CreateMitigationAction' {} a -> s {roleArn = a} :: CreateMitigationAction)
 
 -- | Defines the type of action and the parameters for that action.
 createMitigationAction_actionParams :: Lens.Lens' CreateMitigationAction MitigationActionParams
 createMitigationAction_actionParams = Lens.lens (\CreateMitigationAction' {actionParams} -> actionParams) (\s@CreateMitigationAction' {} a -> s {actionParams = a} :: CreateMitigationAction)
 
-instance Prelude.AWSRequest CreateMitigationAction where
+instance Core.AWSRequest CreateMitigationAction where
   type
-    Rs CreateMitigationAction =
+    AWSResponse CreateMitigationAction =
       CreateMitigationActionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateMitigationActionResponse'
-            Prelude.<$> (x Prelude..?> "actionArn")
-            Prelude.<*> (x Prelude..?> "actionId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "actionArn")
+            Core.<*> (x Core..?> "actionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateMitigationAction
+instance Core.Hashable CreateMitigationAction
 
-instance Prelude.NFData CreateMitigationAction
+instance Core.NFData CreateMitigationAction
 
-instance Prelude.ToHeaders CreateMitigationAction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateMitigationAction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateMitigationAction where
+instance Core.ToJSON CreateMitigationAction where
   toJSON CreateMitigationAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just ("roleArn" Prelude..= roleArn),
-            Prelude.Just
-              ("actionParams" Prelude..= actionParams)
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("actionParams" Core..= actionParams)
           ]
       )
 
-instance Prelude.ToPath CreateMitigationAction where
+instance Core.ToPath CreateMitigationAction where
   toPath CreateMitigationAction' {..} =
-    Prelude.mconcat
-      [ "/mitigationactions/actions/",
-        Prelude.toBS actionName
-      ]
+    Core.mconcat
+      ["/mitigationactions/actions/", Core.toBS actionName]
 
-instance Prelude.ToQuery CreateMitigationAction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateMitigationAction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateMitigationActionResponse' smart constructor.
 data CreateMitigationActionResponse = CreateMitigationActionResponse'
   { -- | The ARN for the new mitigation action.
-    actionArn :: Prelude.Maybe Prelude.Text,
+    actionArn :: Core.Maybe Core.Text,
     -- | A unique identifier for the new mitigation action.
-    actionId :: Prelude.Maybe Prelude.Text,
+    actionId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateMitigationActionResponse' with all optional fields omitted.
@@ -189,28 +185,26 @@ data CreateMitigationActionResponse = CreateMitigationActionResponse'
 -- 'httpStatus', 'createMitigationActionResponse_httpStatus' - The response's http status code.
 newCreateMitigationActionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateMitigationActionResponse
 newCreateMitigationActionResponse pHttpStatus_ =
   CreateMitigationActionResponse'
     { actionArn =
-        Prelude.Nothing,
-      actionId = Prelude.Nothing,
+        Core.Nothing,
+      actionId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN for the new mitigation action.
-createMitigationActionResponse_actionArn :: Lens.Lens' CreateMitigationActionResponse (Prelude.Maybe Prelude.Text)
+createMitigationActionResponse_actionArn :: Lens.Lens' CreateMitigationActionResponse (Core.Maybe Core.Text)
 createMitigationActionResponse_actionArn = Lens.lens (\CreateMitigationActionResponse' {actionArn} -> actionArn) (\s@CreateMitigationActionResponse' {} a -> s {actionArn = a} :: CreateMitigationActionResponse)
 
 -- | A unique identifier for the new mitigation action.
-createMitigationActionResponse_actionId :: Lens.Lens' CreateMitigationActionResponse (Prelude.Maybe Prelude.Text)
+createMitigationActionResponse_actionId :: Lens.Lens' CreateMitigationActionResponse (Core.Maybe Core.Text)
 createMitigationActionResponse_actionId = Lens.lens (\CreateMitigationActionResponse' {actionId} -> actionId) (\s@CreateMitigationActionResponse' {} a -> s {actionId = a} :: CreateMitigationActionResponse)
 
 -- | The response's http status code.
-createMitigationActionResponse_httpStatus :: Lens.Lens' CreateMitigationActionResponse Prelude.Int
+createMitigationActionResponse_httpStatus :: Lens.Lens' CreateMitigationActionResponse Core.Int
 createMitigationActionResponse_httpStatus = Lens.lens (\CreateMitigationActionResponse' {httpStatus} -> httpStatus) (\s@CreateMitigationActionResponse' {} a -> s {httpStatus = a} :: CreateMitigationActionResponse)
 
-instance
-  Prelude.NFData
-    CreateMitigationActionResponse
+instance Core.NFData CreateMitigationActionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.Cloud9.CreateEnvironmentMembership
 where
 
 import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data CreateEnvironmentMembership = CreateEnvironmentMembership'
   { -- | The ID of the environment that contains the environment member you want
     -- to add.
-    environmentId :: Prelude.Text,
+    environmentId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the environment member you want to
     -- add.
-    userArn :: Prelude.Text,
+    userArn :: Core.Text,
     -- | The type of environment member permissions you want to associate with
     -- this environment member. Available values include:
     --
@@ -64,7 +63,7 @@ data CreateEnvironmentMembership = CreateEnvironmentMembership'
     -- -   @read-write@: Has read-write access to the environment.
     permissions :: MemberPermissions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEnvironmentMembership' with all optional fields omitted.
@@ -88,9 +87,9 @@ data CreateEnvironmentMembership = CreateEnvironmentMembership'
 -- -   @read-write@: Has read-write access to the environment.
 newCreateEnvironmentMembership ::
   -- | 'environmentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'permissions'
   MemberPermissions ->
   CreateEnvironmentMembership
@@ -107,12 +106,12 @@ newCreateEnvironmentMembership
 
 -- | The ID of the environment that contains the environment member you want
 -- to add.
-createEnvironmentMembership_environmentId :: Lens.Lens' CreateEnvironmentMembership Prelude.Text
+createEnvironmentMembership_environmentId :: Lens.Lens' CreateEnvironmentMembership Core.Text
 createEnvironmentMembership_environmentId = Lens.lens (\CreateEnvironmentMembership' {environmentId} -> environmentId) (\s@CreateEnvironmentMembership' {} a -> s {environmentId = a} :: CreateEnvironmentMembership)
 
 -- | The Amazon Resource Name (ARN) of the environment member you want to
 -- add.
-createEnvironmentMembership_userArn :: Lens.Lens' CreateEnvironmentMembership Prelude.Text
+createEnvironmentMembership_userArn :: Lens.Lens' CreateEnvironmentMembership Core.Text
 createEnvironmentMembership_userArn = Lens.lens (\CreateEnvironmentMembership' {userArn} -> userArn) (\s@CreateEnvironmentMembership' {} a -> s {userArn = a} :: CreateEnvironmentMembership)
 
 -- | The type of environment member permissions you want to associate with
@@ -124,69 +123,60 @@ createEnvironmentMembership_userArn = Lens.lens (\CreateEnvironmentMembership' {
 createEnvironmentMembership_permissions :: Lens.Lens' CreateEnvironmentMembership MemberPermissions
 createEnvironmentMembership_permissions = Lens.lens (\CreateEnvironmentMembership' {permissions} -> permissions) (\s@CreateEnvironmentMembership' {} a -> s {permissions = a} :: CreateEnvironmentMembership)
 
-instance
-  Prelude.AWSRequest
-    CreateEnvironmentMembership
-  where
+instance Core.AWSRequest CreateEnvironmentMembership where
   type
-    Rs CreateEnvironmentMembership =
+    AWSResponse CreateEnvironmentMembership =
       CreateEnvironmentMembershipResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentMembershipResponse'
-            Prelude.<$> (x Prelude..?> "membership")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "membership")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateEnvironmentMembership
+instance Core.Hashable CreateEnvironmentMembership
 
-instance Prelude.NFData CreateEnvironmentMembership
+instance Core.NFData CreateEnvironmentMembership
 
-instance
-  Prelude.ToHeaders
-    CreateEnvironmentMembership
-  where
+instance Core.ToHeaders CreateEnvironmentMembership where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateEnvironmentMembership where
+instance Core.ToJSON CreateEnvironmentMembership where
   toJSON CreateEnvironmentMembership' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("environmentId" Prelude..= environmentId),
-            Prelude.Just ("userArn" Prelude..= userArn),
-            Prelude.Just ("permissions" Prelude..= permissions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("environmentId" Core..= environmentId),
+            Core.Just ("userArn" Core..= userArn),
+            Core.Just ("permissions" Core..= permissions)
           ]
       )
 
-instance Prelude.ToPath CreateEnvironmentMembership where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateEnvironmentMembership where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateEnvironmentMembership where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateEnvironmentMembership where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateEnvironmentMembershipResponse' smart constructor.
 data CreateEnvironmentMembershipResponse = CreateEnvironmentMembershipResponse'
   { -- | Information about the environment member that was added.
-    membership :: Prelude.Maybe EnvironmentMember,
+    membership :: Core.Maybe EnvironmentMember,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEnvironmentMembershipResponse' with all optional fields omitted.
@@ -201,23 +191,23 @@ data CreateEnvironmentMembershipResponse = CreateEnvironmentMembershipResponse'
 -- 'httpStatus', 'createEnvironmentMembershipResponse_httpStatus' - The response's http status code.
 newCreateEnvironmentMembershipResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateEnvironmentMembershipResponse
 newCreateEnvironmentMembershipResponse pHttpStatus_ =
   CreateEnvironmentMembershipResponse'
     { membership =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the environment member that was added.
-createEnvironmentMembershipResponse_membership :: Lens.Lens' CreateEnvironmentMembershipResponse (Prelude.Maybe EnvironmentMember)
+createEnvironmentMembershipResponse_membership :: Lens.Lens' CreateEnvironmentMembershipResponse (Core.Maybe EnvironmentMember)
 createEnvironmentMembershipResponse_membership = Lens.lens (\CreateEnvironmentMembershipResponse' {membership} -> membership) (\s@CreateEnvironmentMembershipResponse' {} a -> s {membership = a} :: CreateEnvironmentMembershipResponse)
 
 -- | The response's http status code.
-createEnvironmentMembershipResponse_httpStatus :: Lens.Lens' CreateEnvironmentMembershipResponse Prelude.Int
+createEnvironmentMembershipResponse_httpStatus :: Lens.Lens' CreateEnvironmentMembershipResponse Core.Int
 createEnvironmentMembershipResponse_httpStatus = Lens.lens (\CreateEnvironmentMembershipResponse' {httpStatus} -> httpStatus) (\s@CreateEnvironmentMembershipResponse' {} a -> s {httpStatus = a} :: CreateEnvironmentMembershipResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateEnvironmentMembershipResponse

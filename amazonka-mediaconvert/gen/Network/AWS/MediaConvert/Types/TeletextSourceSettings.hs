@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.TeletextSourceSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings specific to Teletext caption sources, including Page number.
 --
@@ -30,9 +29,9 @@ data TeletextSourceSettings = TeletextSourceSettings'
   { -- | Use Page Number (PageNumber) to specify the three-digit hexadecimal page
     -- number that will be used for Teletext captions. Do not use this setting
     -- if you are passing through teletext from the input source to output.
-    pageNumber :: Prelude.Maybe Prelude.Text
+    pageNumber :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TeletextSourceSettings' with all optional fields omitted.
@@ -48,33 +47,30 @@ data TeletextSourceSettings = TeletextSourceSettings'
 newTeletextSourceSettings ::
   TeletextSourceSettings
 newTeletextSourceSettings =
-  TeletextSourceSettings'
-    { pageNumber =
-        Prelude.Nothing
-    }
+  TeletextSourceSettings' {pageNumber = Core.Nothing}
 
 -- | Use Page Number (PageNumber) to specify the three-digit hexadecimal page
 -- number that will be used for Teletext captions. Do not use this setting
 -- if you are passing through teletext from the input source to output.
-teletextSourceSettings_pageNumber :: Lens.Lens' TeletextSourceSettings (Prelude.Maybe Prelude.Text)
+teletextSourceSettings_pageNumber :: Lens.Lens' TeletextSourceSettings (Core.Maybe Core.Text)
 teletextSourceSettings_pageNumber = Lens.lens (\TeletextSourceSettings' {pageNumber} -> pageNumber) (\s@TeletextSourceSettings' {} a -> s {pageNumber = a} :: TeletextSourceSettings)
 
-instance Prelude.FromJSON TeletextSourceSettings where
+instance Core.FromJSON TeletextSourceSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TeletextSourceSettings"
       ( \x ->
           TeletextSourceSettings'
-            Prelude.<$> (x Prelude..:? "pageNumber")
+            Core.<$> (x Core..:? "pageNumber")
       )
 
-instance Prelude.Hashable TeletextSourceSettings
+instance Core.Hashable TeletextSourceSettings
 
-instance Prelude.NFData TeletextSourceSettings
+instance Core.NFData TeletextSourceSettings
 
-instance Prelude.ToJSON TeletextSourceSettings where
+instance Core.ToJSON TeletextSourceSettings where
   toJSON TeletextSourceSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("pageNumber" Prelude..=) Prelude.<$> pageNumber]
+    Core.object
+      ( Core.catMaybes
+          [("pageNumber" Core..=) Core.<$> pageNumber]
       )

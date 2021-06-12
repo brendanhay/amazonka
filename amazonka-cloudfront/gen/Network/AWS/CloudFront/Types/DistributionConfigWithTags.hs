@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudFront.Types.DistributionConfigWithTags where
 
 import Network.AWS.CloudFront.Types.DistributionConfig
 import Network.AWS.CloudFront.Types.Tags
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A distribution Configuration and a list of tags to be associated with
 -- the distribution.
@@ -35,7 +34,7 @@ data DistributionConfigWithTags = DistributionConfigWithTags'
     -- | A complex type that contains zero or more @Tag@ elements.
     tags :: Tags
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DistributionConfigWithTags' with all optional fields omitted.
@@ -71,13 +70,13 @@ distributionConfigWithTags_distributionConfig = Lens.lens (\DistributionConfigWi
 distributionConfigWithTags_tags :: Lens.Lens' DistributionConfigWithTags Tags
 distributionConfigWithTags_tags = Lens.lens (\DistributionConfigWithTags' {tags} -> tags) (\s@DistributionConfigWithTags' {} a -> s {tags = a} :: DistributionConfigWithTags)
 
-instance Prelude.Hashable DistributionConfigWithTags
+instance Core.Hashable DistributionConfigWithTags
 
-instance Prelude.NFData DistributionConfigWithTags
+instance Core.NFData DistributionConfigWithTags
 
-instance Prelude.ToXML DistributionConfigWithTags where
+instance Core.ToXML DistributionConfigWithTags where
   toXML DistributionConfigWithTags' {..} =
-    Prelude.mconcat
-      [ "DistributionConfig" Prelude.@= distributionConfig,
-        "Tags" Prelude.@= tags
+    Core.mconcat
+      [ "DistributionConfig" Core.@= distributionConfig,
+        "Tags" Core.@= tags
       ]

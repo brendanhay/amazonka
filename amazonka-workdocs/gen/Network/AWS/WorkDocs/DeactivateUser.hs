@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.WorkDocs.DeactivateUser
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -48,11 +47,11 @@ import Network.AWS.WorkDocs.Types
 data DeactivateUser = DeactivateUser'
   { -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The ID of the user.
-    userId :: Prelude.Text
+    userId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeactivateUser' with all optional fields omitted.
@@ -68,58 +67,56 @@ data DeactivateUser = DeactivateUser'
 -- 'userId', 'deactivateUser_userId' - The ID of the user.
 newDeactivateUser ::
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   DeactivateUser
 newDeactivateUser pUserId_ =
   DeactivateUser'
-    { authenticationToken =
-        Prelude.Nothing,
+    { authenticationToken = Core.Nothing,
       userId = pUserId_
     }
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-deactivateUser_authenticationToken :: Lens.Lens' DeactivateUser (Prelude.Maybe Prelude.Text)
-deactivateUser_authenticationToken = Lens.lens (\DeactivateUser' {authenticationToken} -> authenticationToken) (\s@DeactivateUser' {} a -> s {authenticationToken = a} :: DeactivateUser) Prelude.. Lens.mapping Prelude._Sensitive
+deactivateUser_authenticationToken :: Lens.Lens' DeactivateUser (Core.Maybe Core.Text)
+deactivateUser_authenticationToken = Lens.lens (\DeactivateUser' {authenticationToken} -> authenticationToken) (\s@DeactivateUser' {} a -> s {authenticationToken = a} :: DeactivateUser) Core.. Lens.mapping Core._Sensitive
 
 -- | The ID of the user.
-deactivateUser_userId :: Lens.Lens' DeactivateUser Prelude.Text
+deactivateUser_userId :: Lens.Lens' DeactivateUser Core.Text
 deactivateUser_userId = Lens.lens (\DeactivateUser' {userId} -> userId) (\s@DeactivateUser' {} a -> s {userId = a} :: DeactivateUser)
 
-instance Prelude.AWSRequest DeactivateUser where
-  type Rs DeactivateUser = DeactivateUserResponse
+instance Core.AWSRequest DeactivateUser where
+  type
+    AWSResponse DeactivateUser =
+      DeactivateUserResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeactivateUserResponse'
 
-instance Prelude.Hashable DeactivateUser
+instance Core.Hashable DeactivateUser
 
-instance Prelude.NFData DeactivateUser
+instance Core.NFData DeactivateUser
 
-instance Prelude.ToHeaders DeactivateUser where
+instance Core.ToHeaders DeactivateUser where
   toHeaders DeactivateUser' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToPath DeactivateUser where
+instance Core.ToPath DeactivateUser where
   toPath DeactivateUser' {..} =
-    Prelude.mconcat
-      [ "/api/v1/users/",
-        Prelude.toBS userId,
-        "/activation"
-      ]
+    Core.mconcat
+      ["/api/v1/users/", Core.toBS userId, "/activation"]
 
-instance Prelude.ToQuery DeactivateUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeactivateUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeactivateUserResponse' smart constructor.
 data DeactivateUserResponse = DeactivateUserResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeactivateUserResponse' with all optional fields omitted.
@@ -129,4 +126,4 @@ newDeactivateUserResponse ::
   DeactivateUserResponse
 newDeactivateUserResponse = DeactivateUserResponse'
 
-instance Prelude.NFData DeactivateUserResponse
+instance Core.NFData DeactivateUserResponse

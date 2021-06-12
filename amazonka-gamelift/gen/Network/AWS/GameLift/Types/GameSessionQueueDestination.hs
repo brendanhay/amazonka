@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.GameSessionQueueDestination where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Fleet designated in a game session queue. Requests for new game sessions
 -- in the queue are fulfilled by starting a new game session on any
@@ -40,9 +39,9 @@ data GameSessionQueueDestination = GameSessionQueueDestination'
   { -- | The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias.
     -- ARNs, which include a fleet ID or alias ID and a Region name, provide a
     -- unique identifier across all Regions.
-    destinationArn :: Prelude.Maybe Prelude.Text
+    destinationArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GameSessionQueueDestination' with all optional fields omitted.
@@ -60,33 +59,31 @@ newGameSessionQueueDestination ::
 newGameSessionQueueDestination =
   GameSessionQueueDestination'
     { destinationArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias.
 -- ARNs, which include a fleet ID or alias ID and a Region name, provide a
 -- unique identifier across all Regions.
-gameSessionQueueDestination_destinationArn :: Lens.Lens' GameSessionQueueDestination (Prelude.Maybe Prelude.Text)
+gameSessionQueueDestination_destinationArn :: Lens.Lens' GameSessionQueueDestination (Core.Maybe Core.Text)
 gameSessionQueueDestination_destinationArn = Lens.lens (\GameSessionQueueDestination' {destinationArn} -> destinationArn) (\s@GameSessionQueueDestination' {} a -> s {destinationArn = a} :: GameSessionQueueDestination)
 
-instance Prelude.FromJSON GameSessionQueueDestination where
+instance Core.FromJSON GameSessionQueueDestination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GameSessionQueueDestination"
       ( \x ->
           GameSessionQueueDestination'
-            Prelude.<$> (x Prelude..:? "DestinationArn")
+            Core.<$> (x Core..:? "DestinationArn")
       )
 
-instance Prelude.Hashable GameSessionQueueDestination
+instance Core.Hashable GameSessionQueueDestination
 
-instance Prelude.NFData GameSessionQueueDestination
+instance Core.NFData GameSessionQueueDestination
 
-instance Prelude.ToJSON GameSessionQueueDestination where
+instance Core.ToJSON GameSessionQueueDestination where
   toJSON GameSessionQueueDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DestinationArn" Prelude..=)
-              Prelude.<$> destinationArn
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("DestinationArn" Core..=) Core.<$> destinationArn]
       )

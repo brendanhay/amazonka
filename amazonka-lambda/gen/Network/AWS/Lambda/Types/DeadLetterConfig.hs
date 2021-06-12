@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.DeadLetterConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The
 -- <https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq dead-letter queue>
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data DeadLetterConfig = DeadLetterConfig'
   { -- | The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS
     -- topic.
-    targetArn :: Prelude.Maybe Prelude.Text
+    targetArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeadLetterConfig' with all optional fields omitted.
@@ -48,29 +47,28 @@ data DeadLetterConfig = DeadLetterConfig'
 newDeadLetterConfig ::
   DeadLetterConfig
 newDeadLetterConfig =
-  DeadLetterConfig' {targetArn = Prelude.Nothing}
+  DeadLetterConfig' {targetArn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS
 -- topic.
-deadLetterConfig_targetArn :: Lens.Lens' DeadLetterConfig (Prelude.Maybe Prelude.Text)
+deadLetterConfig_targetArn :: Lens.Lens' DeadLetterConfig (Core.Maybe Core.Text)
 deadLetterConfig_targetArn = Lens.lens (\DeadLetterConfig' {targetArn} -> targetArn) (\s@DeadLetterConfig' {} a -> s {targetArn = a} :: DeadLetterConfig)
 
-instance Prelude.FromJSON DeadLetterConfig where
+instance Core.FromJSON DeadLetterConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeadLetterConfig"
       ( \x ->
-          DeadLetterConfig'
-            Prelude.<$> (x Prelude..:? "TargetArn")
+          DeadLetterConfig' Core.<$> (x Core..:? "TargetArn")
       )
 
-instance Prelude.Hashable DeadLetterConfig
+instance Core.Hashable DeadLetterConfig
 
-instance Prelude.NFData DeadLetterConfig
+instance Core.NFData DeadLetterConfig
 
-instance Prelude.ToJSON DeadLetterConfig where
+instance Core.ToJSON DeadLetterConfig where
   toJSON DeadLetterConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("TargetArn" Prelude..=) Prelude.<$> targetArn]
+    Core.object
+      ( Core.catMaybes
+          [("TargetArn" Core..=) Core.<$> targetArn]
       )

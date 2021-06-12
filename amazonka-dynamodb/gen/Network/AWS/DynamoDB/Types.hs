@@ -884,6 +884,7 @@ module Network.AWS.DynamoDB.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ArchivalSummary
 import Network.AWS.DynamoDB.Types.AttributeAction
 import Network.AWS.DynamoDB.Types.AttributeDefinition
@@ -1012,233 +1013,229 @@ import Network.AWS.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
 import Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction
 import Network.AWS.DynamoDB.Types.WriteRequest
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-08-10@ of the Amazon DynamoDB SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "DynamoDB",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "dynamodb",
-      Prelude._svcSigningName = "dynamodb",
-      Prelude._svcVersion = "2012-08-10",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "DynamoDB",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "DynamoDB",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "dynamodb",
+      Core._serviceSigningName = "dynamodb",
+      Core._serviceVersion = "2012-08-10",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "DynamoDB",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
+        Core.Just "throttling"
       | Lens.has
-          ( Prelude.hasCode "TransactionInProgressException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "TransactionInProgressException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "still_processing"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "still_processing"
+      | Core.otherwise = Core.Nothing
 
 -- | The specified @ExportTime@ is outside of the point in time recovery
 -- window.
-_InvalidExportTimeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidExportTimeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidExportTimeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidExportTimeException"
 
 -- | A target table with the specified name already exists.
-_TableAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TableAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TableAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TableAlreadyExistsException"
 
 -- | The specified global table already exists.
-_GlobalTableAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_GlobalTableAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _GlobalTableAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "GlobalTableAlreadyExistsException"
 
 -- | A condition specified in the operation could not be evaluated.
-_ConditionalCheckFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConditionalCheckFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConditionalCheckFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConditionalCheckFailedException"
 
 -- | The specified replica is already part of the global table.
-_ReplicaAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReplicaAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReplicaAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReplicaAlreadyExistsException"
 
 -- | The transaction with the given request token is already in progress.
-_TransactionInProgressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TransactionInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TransactionInProgressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TransactionInProgressException"
 
 -- | The specified global table does not exist.
-_GlobalTableNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_GlobalTableNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _GlobalTableNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "GlobalTableNotFoundException"
 
 -- | An invalid restore time was specified. RestoreDateTime must be between
 -- EarliestRestorableDateTime and LatestRestorableDateTime.
-_InvalidRestoreTimeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRestoreTimeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidRestoreTimeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidRestoreTimeException"
 
 -- | Point in time recovery has not yet been enabled for this source table.
-_PointInTimeRecoveryUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PointInTimeRecoveryUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PointInTimeRecoveryUnavailableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PointInTimeRecoveryUnavailableException"
 
 -- | The specified export was not found.
-_ExportNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ExportNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ExportNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ExportNotFoundException"
 
 -- | There is another ongoing conflicting backup control plane operation on
 -- the table. The backup is either being created, deleted or restored to a
 -- table.
-_BackupInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BackupInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _BackupInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "BackupInUseException"
 
 -- | Backups have not yet been enabled for this table.
-_ContinuousBackupsUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ContinuousBackupsUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ContinuousBackupsUnavailableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ContinuousBackupsUnavailableException"
 
 -- | There was a conflict when writing to the specified S3 bucket.
-_ExportConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ExportConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ExportConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ExportConflictException"
 
 -- | There was an attempt to insert an item with the same primary key as an
 -- item that already exists in the DynamoDB table.
-_DuplicateItemException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateItemException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateItemException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateItemException"
 
 -- | A target table with the specified name is either being created or
 -- deleted.
-_TableInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TableInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TableInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TableInUseException"
 
 -- | Operation was rejected because there is an ongoing transaction for the
 -- item.
-_TransactionConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TransactionConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TransactionConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TransactionConflictException"
 
 -- | An error occurred on the server side.
-_InternalServerError :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InternalServerError"
 
 -- | Throughput exceeds the current throughput quota for your account. Please
 -- contact AWS Support at <https://aws.amazon.com/support AWS Support> to
 -- request a quota increase.
-_RequestLimitExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RequestLimitExceeded =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RequestLimitExceeded"
 
 -- | An item collection is too large. This exception is only returned for
 -- tables that have one or more local secondary indexes.
-_ItemCollectionSizeLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ItemCollectionSizeLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ItemCollectionSizeLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ItemCollectionSizeLimitExceededException"
 
 -- | The specified replica is no longer part of the global table.
-_ReplicaNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReplicaNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReplicaNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReplicaNotFoundException"
 
@@ -1389,18 +1386,18 @@ _ReplicaNotFoundException =
 --
 --         -   The provided expression refers to an attribute that does not
 --             exist in the item.
-_TransactionCanceledException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TransactionCanceledException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TransactionCanceledException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TransactionCanceledException"
 
 -- | The operation conflicts with the resource\'s availability. For example,
 -- you attempted to recreate an existing table, or tried to delete a table
 -- currently in the @CREATING@ state.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
@@ -1418,9 +1415,9 @@ _ResourceInUseException =
 -- DynamoDB might temporarily reduce the number of concurrent operations.
 --
 -- There is a soft account quota of 256 tables.
-_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
@@ -1431,46 +1428,46 @@ _LimitExceededException =
 -- go to
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff Error Retries and Exponential Backoff>
 -- in the /Amazon DynamoDB Developer Guide/.
-_ProvisionedThroughputExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ProvisionedThroughputExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ProvisionedThroughputExceededException"
 
 -- | The operation tried to access a nonexistent table or index. The resource
 -- might not be specified correctly, or its status might not be @ACTIVE@.
-_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | DynamoDB rejected the request because you retried a request with a
 -- different payload but with an idempotent token that was already used.
-_IdempotentParameterMismatchException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IdempotentParameterMismatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IdempotentParameterMismatchException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | Backup not found for the given BackupARN.
-_BackupNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BackupNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _BackupNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "BackupNotFoundException"
 
 -- | The operation tried to access a nonexistent index.
-_IndexNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IndexNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IndexNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IndexNotFoundException"
 
 -- | A source table with the name @TableName@ does not currently exist within
 -- the subscriber\'s account.
-_TableNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TableNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TableNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TableNotFoundException"

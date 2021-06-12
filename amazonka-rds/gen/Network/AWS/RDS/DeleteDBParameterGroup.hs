@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.RDS.DeleteDBParameterGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -56,9 +55,9 @@ data DeleteDBParameterGroup = DeleteDBParameterGroup'
     -- -   You can\'t delete a default DB parameter group
     --
     -- -   Can\'t be associated with any DB instances
-    dbParameterGroupName :: Prelude.Text
+    dbParameterGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBParameterGroup' with all optional fields omitted.
@@ -79,7 +78,7 @@ data DeleteDBParameterGroup = DeleteDBParameterGroup'
 -- -   Can\'t be associated with any DB instances
 newDeleteDBParameterGroup ::
   -- | 'dbParameterGroupName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDBParameterGroup
 newDeleteDBParameterGroup pDBParameterGroupName_ =
   DeleteDBParameterGroup'
@@ -96,44 +95,42 @@ newDeleteDBParameterGroup pDBParameterGroupName_ =
 -- -   You can\'t delete a default DB parameter group
 --
 -- -   Can\'t be associated with any DB instances
-deleteDBParameterGroup_dbParameterGroupName :: Lens.Lens' DeleteDBParameterGroup Prelude.Text
+deleteDBParameterGroup_dbParameterGroupName :: Lens.Lens' DeleteDBParameterGroup Core.Text
 deleteDBParameterGroup_dbParameterGroupName = Lens.lens (\DeleteDBParameterGroup' {dbParameterGroupName} -> dbParameterGroupName) (\s@DeleteDBParameterGroup' {} a -> s {dbParameterGroupName = a} :: DeleteDBParameterGroup)
 
-instance Prelude.AWSRequest DeleteDBParameterGroup where
+instance Core.AWSRequest DeleteDBParameterGroup where
   type
-    Rs DeleteDBParameterGroup =
+    AWSResponse DeleteDBParameterGroup =
       DeleteDBParameterGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteDBParameterGroupResponse'
 
-instance Prelude.Hashable DeleteDBParameterGroup
+instance Core.Hashable DeleteDBParameterGroup
 
-instance Prelude.NFData DeleteDBParameterGroup
+instance Core.NFData DeleteDBParameterGroup
 
-instance Prelude.ToHeaders DeleteDBParameterGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDBParameterGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDBParameterGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDBParameterGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDBParameterGroup where
+instance Core.ToQuery DeleteDBParameterGroup where
   toQuery DeleteDBParameterGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteDBParameterGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBParameterGroupName"
-          Prelude.=: dbParameterGroupName
+          Core.=: ("DeleteDBParameterGroup" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "DBParameterGroupName" Core.=: dbParameterGroupName
       ]
 
 -- | /See:/ 'newDeleteDBParameterGroupResponse' smart constructor.
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDBParameterGroupResponse' with all optional fields omitted.
@@ -144,6 +141,4 @@ newDeleteDBParameterGroupResponse ::
 newDeleteDBParameterGroupResponse =
   DeleteDBParameterGroupResponse'
 
-instance
-  Prelude.NFData
-    DeleteDBParameterGroupResponse
+instance Core.NFData DeleteDBParameterGroupResponse

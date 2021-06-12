@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.IoT.GetOTAUpdate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetOTAUpdate' smart constructor.
 data GetOTAUpdate = GetOTAUpdate'
   { -- | The OTA update ID.
-    otaUpdateId :: Prelude.Text
+    otaUpdateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOTAUpdate' with all optional fields omitted.
@@ -64,49 +63,49 @@ data GetOTAUpdate = GetOTAUpdate'
 -- 'otaUpdateId', 'getOTAUpdate_otaUpdateId' - The OTA update ID.
 newGetOTAUpdate ::
   -- | 'otaUpdateId'
-  Prelude.Text ->
+  Core.Text ->
   GetOTAUpdate
 newGetOTAUpdate pOtaUpdateId_ =
   GetOTAUpdate' {otaUpdateId = pOtaUpdateId_}
 
 -- | The OTA update ID.
-getOTAUpdate_otaUpdateId :: Lens.Lens' GetOTAUpdate Prelude.Text
+getOTAUpdate_otaUpdateId :: Lens.Lens' GetOTAUpdate Core.Text
 getOTAUpdate_otaUpdateId = Lens.lens (\GetOTAUpdate' {otaUpdateId} -> otaUpdateId) (\s@GetOTAUpdate' {} a -> s {otaUpdateId = a} :: GetOTAUpdate)
 
-instance Prelude.AWSRequest GetOTAUpdate where
-  type Rs GetOTAUpdate = GetOTAUpdateResponse
+instance Core.AWSRequest GetOTAUpdate where
+  type AWSResponse GetOTAUpdate = GetOTAUpdateResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetOTAUpdateResponse'
-            Prelude.<$> (x Prelude..?> "otaUpdateInfo")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "otaUpdateInfo")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetOTAUpdate
+instance Core.Hashable GetOTAUpdate
 
-instance Prelude.NFData GetOTAUpdate
+instance Core.NFData GetOTAUpdate
 
-instance Prelude.ToHeaders GetOTAUpdate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetOTAUpdate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetOTAUpdate where
+instance Core.ToPath GetOTAUpdate where
   toPath GetOTAUpdate' {..} =
-    Prelude.mconcat
-      ["/otaUpdates/", Prelude.toBS otaUpdateId]
+    Core.mconcat
+      ["/otaUpdates/", Core.toBS otaUpdateId]
 
-instance Prelude.ToQuery GetOTAUpdate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetOTAUpdate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetOTAUpdateResponse' smart constructor.
 data GetOTAUpdateResponse = GetOTAUpdateResponse'
   { -- | The OTA update info.
-    otaUpdateInfo :: Prelude.Maybe OTAUpdateInfo,
+    otaUpdateInfo :: Core.Maybe OTAUpdateInfo,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOTAUpdateResponse' with all optional fields omitted.
@@ -121,21 +120,20 @@ data GetOTAUpdateResponse = GetOTAUpdateResponse'
 -- 'httpStatus', 'getOTAUpdateResponse_httpStatus' - The response's http status code.
 newGetOTAUpdateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetOTAUpdateResponse
 newGetOTAUpdateResponse pHttpStatus_ =
   GetOTAUpdateResponse'
-    { otaUpdateInfo =
-        Prelude.Nothing,
+    { otaUpdateInfo = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The OTA update info.
-getOTAUpdateResponse_otaUpdateInfo :: Lens.Lens' GetOTAUpdateResponse (Prelude.Maybe OTAUpdateInfo)
+getOTAUpdateResponse_otaUpdateInfo :: Lens.Lens' GetOTAUpdateResponse (Core.Maybe OTAUpdateInfo)
 getOTAUpdateResponse_otaUpdateInfo = Lens.lens (\GetOTAUpdateResponse' {otaUpdateInfo} -> otaUpdateInfo) (\s@GetOTAUpdateResponse' {} a -> s {otaUpdateInfo = a} :: GetOTAUpdateResponse)
 
 -- | The response's http status code.
-getOTAUpdateResponse_httpStatus :: Lens.Lens' GetOTAUpdateResponse Prelude.Int
+getOTAUpdateResponse_httpStatus :: Lens.Lens' GetOTAUpdateResponse Core.Int
 getOTAUpdateResponse_httpStatus = Lens.lens (\GetOTAUpdateResponse' {httpStatus} -> httpStatus) (\s@GetOTAUpdateResponse' {} a -> s {httpStatus = a} :: GetOTAUpdateResponse)
 
-instance Prelude.NFData GetOTAUpdateResponse
+instance Core.NFData GetOTAUpdateResponse

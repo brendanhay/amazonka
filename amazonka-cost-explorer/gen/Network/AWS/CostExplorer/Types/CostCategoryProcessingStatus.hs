@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.CostCategoryStatus
 import Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The list of processing statuses for Cost Management products for a
 -- specific cost category.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCostCategoryProcessingStatus' smart constructor.
 data CostCategoryProcessingStatus = CostCategoryProcessingStatus'
   { -- | The process status for a specific cost category.
-    status :: Prelude.Maybe CostCategoryStatus,
+    status :: Core.Maybe CostCategoryStatus,
     -- | The Cost Management product name of the applied status.
-    component :: Prelude.Maybe CostCategoryStatusComponent
+    component :: Core.Maybe CostCategoryStatusComponent
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CostCategoryProcessingStatus' with all optional fields omitted.
@@ -53,33 +52,28 @@ newCostCategoryProcessingStatus ::
 newCostCategoryProcessingStatus =
   CostCategoryProcessingStatus'
     { status =
-        Prelude.Nothing,
-      component = Prelude.Nothing
+        Core.Nothing,
+      component = Core.Nothing
     }
 
 -- | The process status for a specific cost category.
-costCategoryProcessingStatus_status :: Lens.Lens' CostCategoryProcessingStatus (Prelude.Maybe CostCategoryStatus)
+costCategoryProcessingStatus_status :: Lens.Lens' CostCategoryProcessingStatus (Core.Maybe CostCategoryStatus)
 costCategoryProcessingStatus_status = Lens.lens (\CostCategoryProcessingStatus' {status} -> status) (\s@CostCategoryProcessingStatus' {} a -> s {status = a} :: CostCategoryProcessingStatus)
 
 -- | The Cost Management product name of the applied status.
-costCategoryProcessingStatus_component :: Lens.Lens' CostCategoryProcessingStatus (Prelude.Maybe CostCategoryStatusComponent)
+costCategoryProcessingStatus_component :: Lens.Lens' CostCategoryProcessingStatus (Core.Maybe CostCategoryStatusComponent)
 costCategoryProcessingStatus_component = Lens.lens (\CostCategoryProcessingStatus' {component} -> component) (\s@CostCategoryProcessingStatus' {} a -> s {component = a} :: CostCategoryProcessingStatus)
 
-instance
-  Prelude.FromJSON
-    CostCategoryProcessingStatus
-  where
+instance Core.FromJSON CostCategoryProcessingStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CostCategoryProcessingStatus"
       ( \x ->
           CostCategoryProcessingStatus'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Component")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "Component")
       )
 
-instance
-  Prelude.Hashable
-    CostCategoryProcessingStatus
+instance Core.Hashable CostCategoryProcessingStatus
 
-instance Prelude.NFData CostCategoryProcessingStatus
+instance Core.NFData CostCategoryProcessingStatus

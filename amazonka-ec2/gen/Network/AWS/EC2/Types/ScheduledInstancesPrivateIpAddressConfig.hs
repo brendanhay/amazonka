@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ScheduledInstancesPrivateIpAddressConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a private IPv4 address for a Scheduled Instance.
 --
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ScheduledInstancesPrivateIpAddressConfig = ScheduledInstancesPrivateIpAddressConfig'
   { -- | Indicates whether this is a primary IPv4 address. Otherwise, this is a
     -- secondary IPv4 address.
-    primary :: Prelude.Maybe Prelude.Bool,
+    primary :: Core.Maybe Core.Bool,
     -- | The IPv4 address.
-    privateIpAddress :: Prelude.Maybe Prelude.Text
+    privateIpAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesPrivateIpAddressConfig' with all optional fields omitted.
@@ -53,34 +52,33 @@ newScheduledInstancesPrivateIpAddressConfig ::
 newScheduledInstancesPrivateIpAddressConfig =
   ScheduledInstancesPrivateIpAddressConfig'
     { primary =
-        Prelude.Nothing,
-      privateIpAddress =
-        Prelude.Nothing
+        Core.Nothing,
+      privateIpAddress = Core.Nothing
     }
 
 -- | Indicates whether this is a primary IPv4 address. Otherwise, this is a
 -- secondary IPv4 address.
-scheduledInstancesPrivateIpAddressConfig_primary :: Lens.Lens' ScheduledInstancesPrivateIpAddressConfig (Prelude.Maybe Prelude.Bool)
+scheduledInstancesPrivateIpAddressConfig_primary :: Lens.Lens' ScheduledInstancesPrivateIpAddressConfig (Core.Maybe Core.Bool)
 scheduledInstancesPrivateIpAddressConfig_primary = Lens.lens (\ScheduledInstancesPrivateIpAddressConfig' {primary} -> primary) (\s@ScheduledInstancesPrivateIpAddressConfig' {} a -> s {primary = a} :: ScheduledInstancesPrivateIpAddressConfig)
 
 -- | The IPv4 address.
-scheduledInstancesPrivateIpAddressConfig_privateIpAddress :: Lens.Lens' ScheduledInstancesPrivateIpAddressConfig (Prelude.Maybe Prelude.Text)
+scheduledInstancesPrivateIpAddressConfig_privateIpAddress :: Lens.Lens' ScheduledInstancesPrivateIpAddressConfig (Core.Maybe Core.Text)
 scheduledInstancesPrivateIpAddressConfig_privateIpAddress = Lens.lens (\ScheduledInstancesPrivateIpAddressConfig' {privateIpAddress} -> privateIpAddress) (\s@ScheduledInstancesPrivateIpAddressConfig' {} a -> s {privateIpAddress = a} :: ScheduledInstancesPrivateIpAddressConfig)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ScheduledInstancesPrivateIpAddressConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     ScheduledInstancesPrivateIpAddressConfig
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ScheduledInstancesPrivateIpAddressConfig
   where
   toQuery ScheduledInstancesPrivateIpAddressConfig' {..} =
-    Prelude.mconcat
-      [ "Primary" Prelude.=: primary,
-        "PrivateIpAddress" Prelude.=: privateIpAddress
+    Core.mconcat
+      [ "Primary" Core.=: primary,
+        "PrivateIpAddress" Core.=: privateIpAddress
       ]

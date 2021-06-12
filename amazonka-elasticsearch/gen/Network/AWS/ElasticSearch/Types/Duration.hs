@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.Duration where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.TimeUnit
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies maintenance schedule duration: duration value and duration
 -- unit. See the
@@ -35,13 +34,13 @@ data Duration = Duration'
     -- HOURS. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    unit :: Prelude.Maybe TimeUnit,
+    unit :: Core.Maybe TimeUnit,
     -- | Integer to specify the value of a maintenance schedule duration. See the
     -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
     -- for more information.
-    value :: Prelude.Maybe Prelude.Natural
+    value :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Duration' with all optional fields omitted.
@@ -63,42 +62,41 @@ newDuration ::
   Duration
 newDuration =
   Duration'
-    { unit = Prelude.Nothing,
-      value = Prelude.Nothing
+    { unit = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | Specifies the unit of a maintenance schedule duration. Valid value is
 -- HOURS. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-duration_unit :: Lens.Lens' Duration (Prelude.Maybe TimeUnit)
+duration_unit :: Lens.Lens' Duration (Core.Maybe TimeUnit)
 duration_unit = Lens.lens (\Duration' {unit} -> unit) (\s@Duration' {} a -> s {unit = a} :: Duration)
 
 -- | Integer to specify the value of a maintenance schedule duration. See the
 -- <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/auto-tune.html Developer Guide>
 -- for more information.
-duration_value :: Lens.Lens' Duration (Prelude.Maybe Prelude.Natural)
+duration_value :: Lens.Lens' Duration (Core.Maybe Core.Natural)
 duration_value = Lens.lens (\Duration' {value} -> value) (\s@Duration' {} a -> s {value = a} :: Duration)
 
-instance Prelude.FromJSON Duration where
+instance Core.FromJSON Duration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Duration"
       ( \x ->
           Duration'
-            Prelude.<$> (x Prelude..:? "Unit")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Unit") Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Duration
+instance Core.Hashable Duration
 
-instance Prelude.NFData Duration
+instance Core.NFData Duration
 
-instance Prelude.ToJSON Duration where
+instance Core.ToJSON Duration where
   toJSON Duration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Unit" Prelude..=) Prelude.<$> unit,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Unit" Core..=) Core.<$> unit,
+            ("Value" Core..=) Core.<$> value
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudTrail.Types.Tag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A custom key-value pair associated with a resource such as a CloudTrail
 -- trail.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data Tag = Tag'
   { -- | The value in a key-value pair of a tag. The value must be no longer than
     -- 256 Unicode characters.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The key in a key-value pair. The key must be must be no longer than 128
     -- Unicode characters. The key must be unique for the resource to which it
     -- applies.
-    key :: Prelude.Text
+    key :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tag' with all optional fields omitted.
@@ -54,41 +53,40 @@ data Tag = Tag'
 -- applies.
 newTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   Tag
 newTag pKey_ =
-  Tag' {value = Prelude.Nothing, key = pKey_}
+  Tag' {value = Core.Nothing, key = pKey_}
 
 -- | The value in a key-value pair of a tag. The value must be no longer than
 -- 256 Unicode characters.
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value :: Lens.Lens' Tag (Core.Maybe Core.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 -- | The key in a key-value pair. The key must be must be no longer than 128
 -- Unicode characters. The key must be unique for the resource to which it
 -- applies.
-tag_key :: Lens.Lens' Tag Prelude.Text
+tag_key :: Lens.Lens' Tag Core.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
-instance Prelude.FromJSON Tag where
+instance Core.FromJSON Tag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Prelude..:? "Value")
-            Prelude.<*> (x Prelude..: "Key")
+            Core.<$> (x Core..:? "Value") Core.<*> (x Core..: "Key")
       )
 
-instance Prelude.Hashable Tag
+instance Core.Hashable Tag
 
-instance Prelude.NFData Tag
+instance Core.NFData Tag
 
-instance Prelude.ToJSON Tag where
+instance Core.ToJSON Tag where
   toJSON Tag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("Key" Prelude..= key)
+    Core.object
+      ( Core.catMaybes
+          [ ("Value" Core..=) Core.<$> value,
+            Core.Just ("Key" Core..= key)
           ]
       )

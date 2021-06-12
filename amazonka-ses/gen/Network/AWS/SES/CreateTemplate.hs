@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SES.CreateTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -60,7 +59,7 @@ data CreateTemplate = CreateTemplate'
     -- a text-only part.
     template :: Template
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTemplate' with all optional fields omitted.
@@ -84,43 +83,44 @@ newCreateTemplate pTemplate_ =
 createTemplate_template :: Lens.Lens' CreateTemplate Template
 createTemplate_template = Lens.lens (\CreateTemplate' {template} -> template) (\s@CreateTemplate' {} a -> s {template = a} :: CreateTemplate)
 
-instance Prelude.AWSRequest CreateTemplate where
-  type Rs CreateTemplate = CreateTemplateResponse
+instance Core.AWSRequest CreateTemplate where
+  type
+    AWSResponse CreateTemplate =
+      CreateTemplateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateTemplateResult"
       ( \s h x ->
           CreateTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateTemplate
+instance Core.Hashable CreateTemplate
 
-instance Prelude.NFData CreateTemplate
+instance Core.NFData CreateTemplate
 
-instance Prelude.ToHeaders CreateTemplate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateTemplate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateTemplate where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateTemplate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateTemplate where
+instance Core.ToQuery CreateTemplate where
   toQuery CreateTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateTemplate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Template" Prelude.=: template
+          Core.=: ("CreateTemplate" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Template" Core.=: template
       ]
 
 -- | /See:/ 'newCreateTemplateResponse' smart constructor.
 data CreateTemplateResponse = CreateTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTemplateResponse' with all optional fields omitted.
@@ -133,13 +133,13 @@ data CreateTemplateResponse = CreateTemplateResponse'
 -- 'httpStatus', 'createTemplateResponse_httpStatus' - The response's http status code.
 newCreateTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTemplateResponse
 newCreateTemplateResponse pHttpStatus_ =
   CreateTemplateResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-createTemplateResponse_httpStatus :: Lens.Lens' CreateTemplateResponse Prelude.Int
+createTemplateResponse_httpStatus :: Lens.Lens' CreateTemplateResponse Core.Int
 createTemplateResponse_httpStatus = Lens.lens (\CreateTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateTemplateResponse' {} a -> s {httpStatus = a} :: CreateTemplateResponse)
 
-instance Prelude.NFData CreateTemplateResponse
+instance Core.NFData CreateTemplateResponse

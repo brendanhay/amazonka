@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.ConnectionOAuthClientResponseParameters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the client response parameters for the connection when OAuth is
 -- specified as the authorization type.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConnectionOAuthClientResponseParameters' smart constructor.
 data ConnectionOAuthClientResponseParameters = ConnectionOAuthClientResponseParameters'
   { -- | The client ID associated with the response to the connection request.
-    clientID :: Prelude.Maybe Prelude.Text
+    clientID :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConnectionOAuthClientResponseParameters' with all optional fields omitted.
@@ -47,29 +46,29 @@ newConnectionOAuthClientResponseParameters ::
 newConnectionOAuthClientResponseParameters =
   ConnectionOAuthClientResponseParameters'
     { clientID =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The client ID associated with the response to the connection request.
-connectionOAuthClientResponseParameters_clientID :: Lens.Lens' ConnectionOAuthClientResponseParameters (Prelude.Maybe Prelude.Text)
+connectionOAuthClientResponseParameters_clientID :: Lens.Lens' ConnectionOAuthClientResponseParameters (Core.Maybe Core.Text)
 connectionOAuthClientResponseParameters_clientID = Lens.lens (\ConnectionOAuthClientResponseParameters' {clientID} -> clientID) (\s@ConnectionOAuthClientResponseParameters' {} a -> s {clientID = a} :: ConnectionOAuthClientResponseParameters)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ConnectionOAuthClientResponseParameters
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConnectionOAuthClientResponseParameters"
       ( \x ->
           ConnectionOAuthClientResponseParameters'
-            Prelude.<$> (x Prelude..:? "ClientID")
+            Core.<$> (x Core..:? "ClientID")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ConnectionOAuthClientResponseParameters
 
 instance
-  Prelude.NFData
+  Core.NFData
     ConnectionOAuthClientResponseParameters

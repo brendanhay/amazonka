@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.JobResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.Ec2AmiResource
 import Network.AWS.Snowball.Types.LambdaResource
 import Network.AWS.Snowball.Types.S3Resource
@@ -33,13 +32,13 @@ import Network.AWS.Snowball.Types.S3Resource
 -- /See:/ 'newJobResource' smart constructor.
 data JobResource = JobResource'
   { -- | An array of @S3Resource@ objects.
-    s3Resources :: Prelude.Maybe [S3Resource],
+    s3Resources :: Core.Maybe [S3Resource],
     -- | The Amazon Machine Images (AMIs) associated with this job.
-    ec2AmiResources :: Prelude.Maybe [Ec2AmiResource],
+    ec2AmiResources :: Core.Maybe [Ec2AmiResource],
     -- | The Python-language Lambda functions for this job.
-    lambdaResources :: Prelude.Maybe [LambdaResource]
+    lambdaResources :: Core.Maybe [LambdaResource]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobResource' with all optional fields omitted.
@@ -58,52 +57,45 @@ newJobResource ::
   JobResource
 newJobResource =
   JobResource'
-    { s3Resources = Prelude.Nothing,
-      ec2AmiResources = Prelude.Nothing,
-      lambdaResources = Prelude.Nothing
+    { s3Resources = Core.Nothing,
+      ec2AmiResources = Core.Nothing,
+      lambdaResources = Core.Nothing
     }
 
 -- | An array of @S3Resource@ objects.
-jobResource_s3Resources :: Lens.Lens' JobResource (Prelude.Maybe [S3Resource])
-jobResource_s3Resources = Lens.lens (\JobResource' {s3Resources} -> s3Resources) (\s@JobResource' {} a -> s {s3Resources = a} :: JobResource) Prelude.. Lens.mapping Prelude._Coerce
+jobResource_s3Resources :: Lens.Lens' JobResource (Core.Maybe [S3Resource])
+jobResource_s3Resources = Lens.lens (\JobResource' {s3Resources} -> s3Resources) (\s@JobResource' {} a -> s {s3Resources = a} :: JobResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Machine Images (AMIs) associated with this job.
-jobResource_ec2AmiResources :: Lens.Lens' JobResource (Prelude.Maybe [Ec2AmiResource])
-jobResource_ec2AmiResources = Lens.lens (\JobResource' {ec2AmiResources} -> ec2AmiResources) (\s@JobResource' {} a -> s {ec2AmiResources = a} :: JobResource) Prelude.. Lens.mapping Prelude._Coerce
+jobResource_ec2AmiResources :: Lens.Lens' JobResource (Core.Maybe [Ec2AmiResource])
+jobResource_ec2AmiResources = Lens.lens (\JobResource' {ec2AmiResources} -> ec2AmiResources) (\s@JobResource' {} a -> s {ec2AmiResources = a} :: JobResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The Python-language Lambda functions for this job.
-jobResource_lambdaResources :: Lens.Lens' JobResource (Prelude.Maybe [LambdaResource])
-jobResource_lambdaResources = Lens.lens (\JobResource' {lambdaResources} -> lambdaResources) (\s@JobResource' {} a -> s {lambdaResources = a} :: JobResource) Prelude.. Lens.mapping Prelude._Coerce
+jobResource_lambdaResources :: Lens.Lens' JobResource (Core.Maybe [LambdaResource])
+jobResource_lambdaResources = Lens.lens (\JobResource' {lambdaResources} -> lambdaResources) (\s@JobResource' {} a -> s {lambdaResources = a} :: JobResource) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON JobResource where
+instance Core.FromJSON JobResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobResource"
       ( \x ->
           JobResource'
-            Prelude.<$> ( x Prelude..:? "S3Resources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "Ec2AmiResources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "LambdaResources"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "S3Resources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Ec2AmiResources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "LambdaResources" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable JobResource
+instance Core.Hashable JobResource
 
-instance Prelude.NFData JobResource
+instance Core.NFData JobResource
 
-instance Prelude.ToJSON JobResource where
+instance Core.ToJSON JobResource where
   toJSON JobResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("S3Resources" Prelude..=) Prelude.<$> s3Resources,
-            ("Ec2AmiResources" Prelude..=)
-              Prelude.<$> ec2AmiResources,
-            ("LambdaResources" Prelude..=)
-              Prelude.<$> lambdaResources
+    Core.object
+      ( Core.catMaybes
+          [ ("S3Resources" Core..=) Core.<$> s3Resources,
+            ("Ec2AmiResources" Core..=) Core.<$> ec2AmiResources,
+            ("LambdaResources" Core..=)
+              Core.<$> lambdaResources
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.BlockPublicAccess where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on how the bucker owner\'s S3 Block Public Access
 -- settings are being applied to the S3 bucket. See
@@ -31,15 +30,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBlockPublicAccess' smart constructor.
 data BlockPublicAccess = BlockPublicAccess'
   { -- | Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
-    ignorePublicAcls :: Prelude.Maybe Prelude.Bool,
+    ignorePublicAcls :: Core.Maybe Core.Bool,
     -- | Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
-    blockPublicAcls :: Prelude.Maybe Prelude.Bool,
+    blockPublicAcls :: Core.Maybe Core.Bool,
     -- | Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
-    restrictPublicBuckets :: Prelude.Maybe Prelude.Bool,
+    restrictPublicBuckets :: Core.Maybe Core.Bool,
     -- | Indicates if S3 Block Public Access is set to @BlockPublicPolicy@.
-    blockPublicPolicy :: Prelude.Maybe Prelude.Bool
+    blockPublicPolicy :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BlockPublicAccess' with all optional fields omitted.
@@ -60,41 +59,40 @@ newBlockPublicAccess ::
   BlockPublicAccess
 newBlockPublicAccess =
   BlockPublicAccess'
-    { ignorePublicAcls =
-        Prelude.Nothing,
-      blockPublicAcls = Prelude.Nothing,
-      restrictPublicBuckets = Prelude.Nothing,
-      blockPublicPolicy = Prelude.Nothing
+    { ignorePublicAcls = Core.Nothing,
+      blockPublicAcls = Core.Nothing,
+      restrictPublicBuckets = Core.Nothing,
+      blockPublicPolicy = Core.Nothing
     }
 
 -- | Indicates if S3 Block Public Access is set to @IgnorePublicAcls@.
-blockPublicAccess_ignorePublicAcls :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
+blockPublicAccess_ignorePublicAcls :: Lens.Lens' BlockPublicAccess (Core.Maybe Core.Bool)
 blockPublicAccess_ignorePublicAcls = Lens.lens (\BlockPublicAccess' {ignorePublicAcls} -> ignorePublicAcls) (\s@BlockPublicAccess' {} a -> s {ignorePublicAcls = a} :: BlockPublicAccess)
 
 -- | Indicates if S3 Block Public Access is set to @BlockPublicAcls@.
-blockPublicAccess_blockPublicAcls :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
+blockPublicAccess_blockPublicAcls :: Lens.Lens' BlockPublicAccess (Core.Maybe Core.Bool)
 blockPublicAccess_blockPublicAcls = Lens.lens (\BlockPublicAccess' {blockPublicAcls} -> blockPublicAcls) (\s@BlockPublicAccess' {} a -> s {blockPublicAcls = a} :: BlockPublicAccess)
 
 -- | Indicates if S3 Block Public Access is set to @RestrictPublicBuckets@.
-blockPublicAccess_restrictPublicBuckets :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
+blockPublicAccess_restrictPublicBuckets :: Lens.Lens' BlockPublicAccess (Core.Maybe Core.Bool)
 blockPublicAccess_restrictPublicBuckets = Lens.lens (\BlockPublicAccess' {restrictPublicBuckets} -> restrictPublicBuckets) (\s@BlockPublicAccess' {} a -> s {restrictPublicBuckets = a} :: BlockPublicAccess)
 
 -- | Indicates if S3 Block Public Access is set to @BlockPublicPolicy@.
-blockPublicAccess_blockPublicPolicy :: Lens.Lens' BlockPublicAccess (Prelude.Maybe Prelude.Bool)
+blockPublicAccess_blockPublicPolicy :: Lens.Lens' BlockPublicAccess (Core.Maybe Core.Bool)
 blockPublicAccess_blockPublicPolicy = Lens.lens (\BlockPublicAccess' {blockPublicPolicy} -> blockPublicPolicy) (\s@BlockPublicAccess' {} a -> s {blockPublicPolicy = a} :: BlockPublicAccess)
 
-instance Prelude.FromJSON BlockPublicAccess where
+instance Core.FromJSON BlockPublicAccess where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BlockPublicAccess"
       ( \x ->
           BlockPublicAccess'
-            Prelude.<$> (x Prelude..:? "ignorePublicAcls")
-            Prelude.<*> (x Prelude..:? "blockPublicAcls")
-            Prelude.<*> (x Prelude..:? "restrictPublicBuckets")
-            Prelude.<*> (x Prelude..:? "blockPublicPolicy")
+            Core.<$> (x Core..:? "ignorePublicAcls")
+            Core.<*> (x Core..:? "blockPublicAcls")
+            Core.<*> (x Core..:? "restrictPublicBuckets")
+            Core.<*> (x Core..:? "blockPublicPolicy")
       )
 
-instance Prelude.Hashable BlockPublicAccess
+instance Core.Hashable BlockPublicAccess
 
-instance Prelude.NFData BlockPublicAccess
+instance Core.NFData BlockPublicAccess

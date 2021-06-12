@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Scte35TimeSignalApos where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
 import Network.AWS.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Scte35 Time Signal Apos
 --
@@ -32,15 +31,15 @@ data Scte35TimeSignalApos = Scte35TimeSignalApos'
   { -- | When specified, this offset (in milliseconds) is added to the input Ad
     -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
     -- does not apply to OOB messages.
-    adAvailOffset :: Prelude.Maybe Prelude.Int,
+    adAvailOffset :: Core.Maybe Core.Int,
     -- | When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set
     -- to 0 will no longer trigger blackouts or Ad Avail slates
-    noRegionalBlackoutFlag :: Prelude.Maybe Scte35AposNoRegionalBlackoutBehavior,
+    noRegionalBlackoutFlag :: Core.Maybe Scte35AposNoRegionalBlackoutBehavior,
     -- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
     -- to 0 will no longer trigger blackouts or Ad Avail slates
-    webDeliveryAllowedFlag :: Prelude.Maybe Scte35AposWebDeliveryAllowedBehavior
+    webDeliveryAllowedFlag :: Core.Maybe Scte35AposWebDeliveryAllowedBehavior
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scte35TimeSignalApos' with all optional fields omitted.
@@ -63,52 +62,50 @@ newScte35TimeSignalApos ::
   Scte35TimeSignalApos
 newScte35TimeSignalApos =
   Scte35TimeSignalApos'
-    { adAvailOffset =
-        Prelude.Nothing,
-      noRegionalBlackoutFlag = Prelude.Nothing,
-      webDeliveryAllowedFlag = Prelude.Nothing
+    { adAvailOffset = Core.Nothing,
+      noRegionalBlackoutFlag = Core.Nothing,
+      webDeliveryAllowedFlag = Core.Nothing
     }
 
 -- | When specified, this offset (in milliseconds) is added to the input Ad
 -- Avail PTS time. This only applies to embedded SCTE 104\/35 messages and
 -- does not apply to OOB messages.
-scte35TimeSignalApos_adAvailOffset :: Lens.Lens' Scte35TimeSignalApos (Prelude.Maybe Prelude.Int)
+scte35TimeSignalApos_adAvailOffset :: Lens.Lens' Scte35TimeSignalApos (Core.Maybe Core.Int)
 scte35TimeSignalApos_adAvailOffset = Lens.lens (\Scte35TimeSignalApos' {adAvailOffset} -> adAvailOffset) (\s@Scte35TimeSignalApos' {} a -> s {adAvailOffset = a} :: Scte35TimeSignalApos)
 
 -- | When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set
 -- to 0 will no longer trigger blackouts or Ad Avail slates
-scte35TimeSignalApos_noRegionalBlackoutFlag :: Lens.Lens' Scte35TimeSignalApos (Prelude.Maybe Scte35AposNoRegionalBlackoutBehavior)
+scte35TimeSignalApos_noRegionalBlackoutFlag :: Lens.Lens' Scte35TimeSignalApos (Core.Maybe Scte35AposNoRegionalBlackoutBehavior)
 scte35TimeSignalApos_noRegionalBlackoutFlag = Lens.lens (\Scte35TimeSignalApos' {noRegionalBlackoutFlag} -> noRegionalBlackoutFlag) (\s@Scte35TimeSignalApos' {} a -> s {noRegionalBlackoutFlag = a} :: Scte35TimeSignalApos)
 
 -- | When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set
 -- to 0 will no longer trigger blackouts or Ad Avail slates
-scte35TimeSignalApos_webDeliveryAllowedFlag :: Lens.Lens' Scte35TimeSignalApos (Prelude.Maybe Scte35AposWebDeliveryAllowedBehavior)
+scte35TimeSignalApos_webDeliveryAllowedFlag :: Lens.Lens' Scte35TimeSignalApos (Core.Maybe Scte35AposWebDeliveryAllowedBehavior)
 scte35TimeSignalApos_webDeliveryAllowedFlag = Lens.lens (\Scte35TimeSignalApos' {webDeliveryAllowedFlag} -> webDeliveryAllowedFlag) (\s@Scte35TimeSignalApos' {} a -> s {webDeliveryAllowedFlag = a} :: Scte35TimeSignalApos)
 
-instance Prelude.FromJSON Scte35TimeSignalApos where
+instance Core.FromJSON Scte35TimeSignalApos where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scte35TimeSignalApos"
       ( \x ->
           Scte35TimeSignalApos'
-            Prelude.<$> (x Prelude..:? "adAvailOffset")
-            Prelude.<*> (x Prelude..:? "noRegionalBlackoutFlag")
-            Prelude.<*> (x Prelude..:? "webDeliveryAllowedFlag")
+            Core.<$> (x Core..:? "adAvailOffset")
+            Core.<*> (x Core..:? "noRegionalBlackoutFlag")
+            Core.<*> (x Core..:? "webDeliveryAllowedFlag")
       )
 
-instance Prelude.Hashable Scte35TimeSignalApos
+instance Core.Hashable Scte35TimeSignalApos
 
-instance Prelude.NFData Scte35TimeSignalApos
+instance Core.NFData Scte35TimeSignalApos
 
-instance Prelude.ToJSON Scte35TimeSignalApos where
+instance Core.ToJSON Scte35TimeSignalApos where
   toJSON Scte35TimeSignalApos' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("adAvailOffset" Prelude..=)
-              Prelude.<$> adAvailOffset,
-            ("noRegionalBlackoutFlag" Prelude..=)
-              Prelude.<$> noRegionalBlackoutFlag,
-            ("webDeliveryAllowedFlag" Prelude..=)
-              Prelude.<$> webDeliveryAllowedFlag
+    Core.object
+      ( Core.catMaybes
+          [ ("adAvailOffset" Core..=) Core.<$> adAvailOffset,
+            ("noRegionalBlackoutFlag" Core..=)
+              Core.<$> noRegionalBlackoutFlag,
+            ("webDeliveryAllowedFlag" Core..=)
+              Core.<$> webDeliveryAllowedFlag
           ]
       )

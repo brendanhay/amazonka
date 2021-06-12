@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.ELB.RemoveTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ import qualified Network.AWS.Response as Response
 data RemoveTags = RemoveTags'
   { -- | The name of the load balancer. You can specify a maximum of one load
     -- balancer name.
-    loadBalancerNames :: [Prelude.Text],
+    loadBalancerNames :: [Core.Text],
     -- | The list of tag keys to remove.
-    tags :: Prelude.NonEmpty TagKeyOnly
+    tags :: Core.NonEmpty TagKeyOnly
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTags' with all optional fields omitted.
@@ -72,54 +71,52 @@ data RemoveTags = RemoveTags'
 -- 'tags', 'removeTags_tags' - The list of tag keys to remove.
 newRemoveTags ::
   -- | 'tags'
-  Prelude.NonEmpty TagKeyOnly ->
+  Core.NonEmpty TagKeyOnly ->
   RemoveTags
 newRemoveTags pTags_ =
   RemoveTags'
-    { loadBalancerNames = Prelude.mempty,
-      tags = Prelude._Coerce Lens.# pTags_
+    { loadBalancerNames = Core.mempty,
+      tags = Lens._Coerce Lens.# pTags_
     }
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
-removeTags_loadBalancerNames :: Lens.Lens' RemoveTags [Prelude.Text]
-removeTags_loadBalancerNames = Lens.lens (\RemoveTags' {loadBalancerNames} -> loadBalancerNames) (\s@RemoveTags' {} a -> s {loadBalancerNames = a} :: RemoveTags) Prelude.. Prelude._Coerce
+removeTags_loadBalancerNames :: Lens.Lens' RemoveTags [Core.Text]
+removeTags_loadBalancerNames = Lens.lens (\RemoveTags' {loadBalancerNames} -> loadBalancerNames) (\s@RemoveTags' {} a -> s {loadBalancerNames = a} :: RemoveTags) Core.. Lens._Coerce
 
 -- | The list of tag keys to remove.
-removeTags_tags :: Lens.Lens' RemoveTags (Prelude.NonEmpty TagKeyOnly)
-removeTags_tags = Lens.lens (\RemoveTags' {tags} -> tags) (\s@RemoveTags' {} a -> s {tags = a} :: RemoveTags) Prelude.. Prelude._Coerce
+removeTags_tags :: Lens.Lens' RemoveTags (Core.NonEmpty TagKeyOnly)
+removeTags_tags = Lens.lens (\RemoveTags' {tags} -> tags) (\s@RemoveTags' {} a -> s {tags = a} :: RemoveTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RemoveTags where
-  type Rs RemoveTags = RemoveTagsResponse
+instance Core.AWSRequest RemoveTags where
+  type AWSResponse RemoveTags = RemoveTagsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "RemoveTagsResult"
       ( \s h x ->
           RemoveTagsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveTags
+instance Core.Hashable RemoveTags
 
-instance Prelude.NFData RemoveTags
+instance Core.NFData RemoveTags
 
-instance Prelude.ToHeaders RemoveTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RemoveTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RemoveTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveTags where
+instance Core.ToQuery RemoveTags where
   toQuery RemoveTags' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("RemoveTags" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
+    Core.mconcat
+      [ "Action" Core.=: ("RemoveTags" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
         "LoadBalancerNames"
-          Prelude.=: Prelude.toQueryList "member" loadBalancerNames,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+          Core.=: Core.toQueryList "member" loadBalancerNames,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | Contains the output of RemoveTags.
@@ -127,9 +124,9 @@ instance Prelude.ToQuery RemoveTags where
 -- /See:/ 'newRemoveTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveTagsResponse' with all optional fields omitted.
@@ -142,13 +139,13 @@ data RemoveTagsResponse = RemoveTagsResponse'
 -- 'httpStatus', 'removeTagsResponse_httpStatus' - The response's http status code.
 newRemoveTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveTagsResponse
 newRemoveTagsResponse pHttpStatus_ =
   RemoveTagsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Prelude.Int
+removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Core.Int
 removeTagsResponse_httpStatus = Lens.lens (\RemoveTagsResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsResponse' {} a -> s {httpStatus = a} :: RemoveTagsResponse)
 
-instance Prelude.NFData RemoveTagsResponse
+instance Core.NFData RemoveTagsResponse

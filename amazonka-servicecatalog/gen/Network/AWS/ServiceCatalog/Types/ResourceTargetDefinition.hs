@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServiceCatalog.Types.RequiresRecreation
 import Network.AWS.ServiceCatalog.Types.ResourceAttribute
 
@@ -31,14 +30,14 @@ import Network.AWS.ServiceCatalog.Types.ResourceAttribute
 data ResourceTargetDefinition = ResourceTargetDefinition'
   { -- | If the attribute is @Properties@, indicates whether a change to this
     -- property causes the resource to be re-created.
-    requiresRecreation :: Prelude.Maybe RequiresRecreation,
+    requiresRecreation :: Core.Maybe RequiresRecreation,
     -- | If the attribute is @Properties@, the value is the name of the property.
     -- Otherwise, the value is null.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The attribute to be changed.
-    attribute :: Prelude.Maybe ResourceAttribute
+    attribute :: Core.Maybe ResourceAttribute
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceTargetDefinition' with all optional fields omitted.
@@ -60,36 +59,36 @@ newResourceTargetDefinition ::
 newResourceTargetDefinition =
   ResourceTargetDefinition'
     { requiresRecreation =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      attribute = Prelude.Nothing
+        Core.Nothing,
+      name = Core.Nothing,
+      attribute = Core.Nothing
     }
 
 -- | If the attribute is @Properties@, indicates whether a change to this
 -- property causes the resource to be re-created.
-resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe RequiresRecreation)
+resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Core.Maybe RequiresRecreation)
 resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefinition' {requiresRecreation} -> requiresRecreation) (\s@ResourceTargetDefinition' {} a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
 
 -- | If the attribute is @Properties@, the value is the name of the property.
 -- Otherwise, the value is null.
-resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe Prelude.Text)
+resourceTargetDefinition_name :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Core.Text)
 resourceTargetDefinition_name = Lens.lens (\ResourceTargetDefinition' {name} -> name) (\s@ResourceTargetDefinition' {} a -> s {name = a} :: ResourceTargetDefinition)
 
 -- | The attribute to be changed.
-resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe ResourceAttribute)
+resourceTargetDefinition_attribute :: Lens.Lens' ResourceTargetDefinition (Core.Maybe ResourceAttribute)
 resourceTargetDefinition_attribute = Lens.lens (\ResourceTargetDefinition' {attribute} -> attribute) (\s@ResourceTargetDefinition' {} a -> s {attribute = a} :: ResourceTargetDefinition)
 
-instance Prelude.FromJSON ResourceTargetDefinition where
+instance Core.FromJSON ResourceTargetDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceTargetDefinition"
       ( \x ->
           ResourceTargetDefinition'
-            Prelude.<$> (x Prelude..:? "RequiresRecreation")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Attribute")
+            Core.<$> (x Core..:? "RequiresRecreation")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Attribute")
       )
 
-instance Prelude.Hashable ResourceTargetDefinition
+instance Core.Hashable ResourceTargetDefinition
 
-instance Prelude.NFData ResourceTargetDefinition
+instance Core.NFData ResourceTargetDefinition

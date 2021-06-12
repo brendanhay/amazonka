@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProcessingClusterConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingInstanceType
 
 -- | Configuration for the cluster used to run a processing job.
@@ -31,18 +30,18 @@ data ProcessingClusterConfig = ProcessingClusterConfig'
   { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
     -- to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that run the processing job.
-    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    volumeKmsKeyId :: Core.Maybe Core.Text,
     -- | The number of ML compute instances to use in the processing job. For
     -- distributed processing jobs, specify a value greater than 1. The default
     -- value is 1.
-    instanceCount :: Prelude.Natural,
+    instanceCount :: Core.Natural,
     -- | The ML compute instance type for the processing job.
     instanceType :: ProcessingInstanceType,
     -- | The size of the ML storage volume in gigabytes that you want to
     -- provision. You must specify sufficient ML storage for your scenario.
-    volumeSizeInGB :: Prelude.Natural
+    volumeSizeInGB :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessingClusterConfig' with all optional fields omitted.
@@ -66,11 +65,11 @@ data ProcessingClusterConfig = ProcessingClusterConfig'
 -- provision. You must specify sufficient ML storage for your scenario.
 newProcessingClusterConfig ::
   -- | 'instanceCount'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'instanceType'
   ProcessingInstanceType ->
   -- | 'volumeSizeInGB'
-  Prelude.Natural ->
+  Core.Natural ->
   ProcessingClusterConfig
 newProcessingClusterConfig
   pInstanceCount_
@@ -78,7 +77,7 @@ newProcessingClusterConfig
   pVolumeSizeInGB_ =
     ProcessingClusterConfig'
       { volumeKmsKeyId =
-          Prelude.Nothing,
+          Core.Nothing,
         instanceCount = pInstanceCount_,
         instanceType = pInstanceType_,
         volumeSizeInGB = pVolumeSizeInGB_
@@ -87,13 +86,13 @@ newProcessingClusterConfig
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that run the processing job.
-processingClusterConfig_volumeKmsKeyId :: Lens.Lens' ProcessingClusterConfig (Prelude.Maybe Prelude.Text)
+processingClusterConfig_volumeKmsKeyId :: Lens.Lens' ProcessingClusterConfig (Core.Maybe Core.Text)
 processingClusterConfig_volumeKmsKeyId = Lens.lens (\ProcessingClusterConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@ProcessingClusterConfig' {} a -> s {volumeKmsKeyId = a} :: ProcessingClusterConfig)
 
 -- | The number of ML compute instances to use in the processing job. For
 -- distributed processing jobs, specify a value greater than 1. The default
 -- value is 1.
-processingClusterConfig_instanceCount :: Lens.Lens' ProcessingClusterConfig Prelude.Natural
+processingClusterConfig_instanceCount :: Lens.Lens' ProcessingClusterConfig Core.Natural
 processingClusterConfig_instanceCount = Lens.lens (\ProcessingClusterConfig' {instanceCount} -> instanceCount) (\s@ProcessingClusterConfig' {} a -> s {instanceCount = a} :: ProcessingClusterConfig)
 
 -- | The ML compute instance type for the processing job.
@@ -102,36 +101,32 @@ processingClusterConfig_instanceType = Lens.lens (\ProcessingClusterConfig' {ins
 
 -- | The size of the ML storage volume in gigabytes that you want to
 -- provision. You must specify sufficient ML storage for your scenario.
-processingClusterConfig_volumeSizeInGB :: Lens.Lens' ProcessingClusterConfig Prelude.Natural
+processingClusterConfig_volumeSizeInGB :: Lens.Lens' ProcessingClusterConfig Core.Natural
 processingClusterConfig_volumeSizeInGB = Lens.lens (\ProcessingClusterConfig' {volumeSizeInGB} -> volumeSizeInGB) (\s@ProcessingClusterConfig' {} a -> s {volumeSizeInGB = a} :: ProcessingClusterConfig)
 
-instance Prelude.FromJSON ProcessingClusterConfig where
+instance Core.FromJSON ProcessingClusterConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProcessingClusterConfig"
       ( \x ->
           ProcessingClusterConfig'
-            Prelude.<$> (x Prelude..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Prelude..: "InstanceCount")
-            Prelude.<*> (x Prelude..: "InstanceType")
-            Prelude.<*> (x Prelude..: "VolumeSizeInGB")
+            Core.<$> (x Core..:? "VolumeKmsKeyId")
+            Core.<*> (x Core..: "InstanceCount")
+            Core.<*> (x Core..: "InstanceType")
+            Core.<*> (x Core..: "VolumeSizeInGB")
       )
 
-instance Prelude.Hashable ProcessingClusterConfig
+instance Core.Hashable ProcessingClusterConfig
 
-instance Prelude.NFData ProcessingClusterConfig
+instance Core.NFData ProcessingClusterConfig
 
-instance Prelude.ToJSON ProcessingClusterConfig where
+instance Core.ToJSON ProcessingClusterConfig where
   toJSON ProcessingClusterConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Prelude..=)
-              Prelude.<$> volumeKmsKeyId,
-            Prelude.Just
-              ("InstanceCount" Prelude..= instanceCount),
-            Prelude.Just
-              ("InstanceType" Prelude..= instanceType),
-            Prelude.Just
-              ("VolumeSizeInGB" Prelude..= volumeSizeInGB)
+    Core.object
+      ( Core.catMaybes
+          [ ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            Core.Just ("InstanceCount" Core..= instanceCount),
+            Core.Just ("InstanceType" Core..= instanceType),
+            Core.Just ("VolumeSizeInGB" Core..= volumeSizeInGB)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTJobsData.Types.JobExecutionState where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTJobsData.Types.JobExecutionStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains data about the state of a job execution.
 --
@@ -31,15 +30,15 @@ data JobExecutionState = JobExecutionState'
   { -- | The status of the job execution. Can be one of: \"QUEUED\",
     -- \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or
     -- \"REMOVED\".
-    status :: Prelude.Maybe JobExecutionStatus,
+    status :: Core.Maybe JobExecutionStatus,
     -- | A collection of name\/value pairs that describe the status of the job
     -- execution.
-    statusDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    statusDetails :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The version of the job execution. Job execution versions are incremented
     -- each time they are updated by a device.
-    versionNumber :: Prelude.Maybe Prelude.Integer
+    versionNumber :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'JobExecutionState' with all optional fields omitted.
@@ -62,40 +61,38 @@ newJobExecutionState ::
   JobExecutionState
 newJobExecutionState =
   JobExecutionState'
-    { status = Prelude.Nothing,
-      statusDetails = Prelude.Nothing,
-      versionNumber = Prelude.Nothing
+    { status = Core.Nothing,
+      statusDetails = Core.Nothing,
+      versionNumber = Core.Nothing
     }
 
 -- | The status of the job execution. Can be one of: \"QUEUED\",
 -- \"IN_PROGRESS\", \"FAILED\", \"SUCCESS\", \"CANCELED\", \"REJECTED\", or
 -- \"REMOVED\".
-jobExecutionState_status :: Lens.Lens' JobExecutionState (Prelude.Maybe JobExecutionStatus)
+jobExecutionState_status :: Lens.Lens' JobExecutionState (Core.Maybe JobExecutionStatus)
 jobExecutionState_status = Lens.lens (\JobExecutionState' {status} -> status) (\s@JobExecutionState' {} a -> s {status = a} :: JobExecutionState)
 
 -- | A collection of name\/value pairs that describe the status of the job
 -- execution.
-jobExecutionState_statusDetails :: Lens.Lens' JobExecutionState (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-jobExecutionState_statusDetails = Lens.lens (\JobExecutionState' {statusDetails} -> statusDetails) (\s@JobExecutionState' {} a -> s {statusDetails = a} :: JobExecutionState) Prelude.. Lens.mapping Prelude._Coerce
+jobExecutionState_statusDetails :: Lens.Lens' JobExecutionState (Core.Maybe (Core.HashMap Core.Text Core.Text))
+jobExecutionState_statusDetails = Lens.lens (\JobExecutionState' {statusDetails} -> statusDetails) (\s@JobExecutionState' {} a -> s {statusDetails = a} :: JobExecutionState) Core.. Lens.mapping Lens._Coerce
 
 -- | The version of the job execution. Job execution versions are incremented
 -- each time they are updated by a device.
-jobExecutionState_versionNumber :: Lens.Lens' JobExecutionState (Prelude.Maybe Prelude.Integer)
+jobExecutionState_versionNumber :: Lens.Lens' JobExecutionState (Core.Maybe Core.Integer)
 jobExecutionState_versionNumber = Lens.lens (\JobExecutionState' {versionNumber} -> versionNumber) (\s@JobExecutionState' {} a -> s {versionNumber = a} :: JobExecutionState)
 
-instance Prelude.FromJSON JobExecutionState where
+instance Core.FromJSON JobExecutionState where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "JobExecutionState"
       ( \x ->
           JobExecutionState'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> ( x Prelude..:? "statusDetails"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "versionNumber")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "statusDetails" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "versionNumber")
       )
 
-instance Prelude.Hashable JobExecutionState
+instance Core.Hashable JobExecutionState
 
-instance Prelude.NFData JobExecutionState
+instance Core.NFData JobExecutionState

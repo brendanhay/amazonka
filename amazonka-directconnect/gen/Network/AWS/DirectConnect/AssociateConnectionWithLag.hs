@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,20 +72,20 @@ module Network.AWS.DirectConnect.AssociateConnectionWithLag
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
   { -- | The ID of the connection.
-    connectionId :: Prelude.Text,
+    connectionId :: Core.Text,
     -- | The ID of the LAG with which to associate the connection.
-    lagId :: Prelude.Text
+    lagId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociateConnectionWithLag' with all optional fields omitted.
@@ -101,9 +100,9 @@ data AssociateConnectionWithLag = AssociateConnectionWithLag'
 -- 'lagId', 'associateConnectionWithLag_lagId' - The ID of the LAG with which to associate the connection.
 newAssociateConnectionWithLag ::
   -- | 'connectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lagId'
-  Prelude.Text ->
+  Core.Text ->
   AssociateConnectionWithLag
 newAssociateConnectionWithLag pConnectionId_ pLagId_ =
   AssociateConnectionWithLag'
@@ -113,54 +112,50 @@ newAssociateConnectionWithLag pConnectionId_ pLagId_ =
     }
 
 -- | The ID of the connection.
-associateConnectionWithLag_connectionId :: Lens.Lens' AssociateConnectionWithLag Prelude.Text
+associateConnectionWithLag_connectionId :: Lens.Lens' AssociateConnectionWithLag Core.Text
 associateConnectionWithLag_connectionId = Lens.lens (\AssociateConnectionWithLag' {connectionId} -> connectionId) (\s@AssociateConnectionWithLag' {} a -> s {connectionId = a} :: AssociateConnectionWithLag)
 
 -- | The ID of the LAG with which to associate the connection.
-associateConnectionWithLag_lagId :: Lens.Lens' AssociateConnectionWithLag Prelude.Text
+associateConnectionWithLag_lagId :: Lens.Lens' AssociateConnectionWithLag Core.Text
 associateConnectionWithLag_lagId = Lens.lens (\AssociateConnectionWithLag' {lagId} -> lagId) (\s@AssociateConnectionWithLag' {} a -> s {lagId = a} :: AssociateConnectionWithLag)
 
-instance
-  Prelude.AWSRequest
-    AssociateConnectionWithLag
-  where
-  type Rs AssociateConnectionWithLag = Connection
+instance Core.AWSRequest AssociateConnectionWithLag where
+  type
+    AWSResponse AssociateConnectionWithLag =
+      Connection
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable AssociateConnectionWithLag
+instance Core.Hashable AssociateConnectionWithLag
 
-instance Prelude.NFData AssociateConnectionWithLag
+instance Core.NFData AssociateConnectionWithLag
 
-instance Prelude.ToHeaders AssociateConnectionWithLag where
+instance Core.ToHeaders AssociateConnectionWithLag where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.AssociateConnectionWithLag" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.AssociateConnectionWithLag" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AssociateConnectionWithLag where
+instance Core.ToJSON AssociateConnectionWithLag where
   toJSON AssociateConnectionWithLag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("connectionId" Prelude..= connectionId),
-            Prelude.Just ("lagId" Prelude..= lagId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just ("lagId" Core..= lagId)
           ]
       )
 
-instance Prelude.ToPath AssociateConnectionWithLag where
-  toPath = Prelude.const "/"
+instance Core.ToPath AssociateConnectionWithLag where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AssociateConnectionWithLag where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AssociateConnectionWithLag where
+  toQuery = Core.const Core.mempty

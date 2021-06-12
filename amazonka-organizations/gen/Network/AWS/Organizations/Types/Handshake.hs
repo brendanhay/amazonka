@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Organizations.Types.Handshake where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types.ActionType
 import Network.AWS.Organizations.Types.HandshakeParty
 import Network.AWS.Organizations.Types.HandshakeResource
 import Network.AWS.Organizations.Types.HandshakeState
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information that must be exchanged to securely establish a
 -- relationship between two accounts (an /originator/ and a /recipient/).
@@ -40,23 +39,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newHandshake' smart constructor.
 data Handshake = Handshake'
   { -- | The date and time that the handshake request was made.
-    requestedTimestamp :: Prelude.Maybe Prelude.POSIX,
+    requestedTimestamp :: Core.Maybe Core.POSIX,
     -- | Information about the two accounts that are participating in the
     -- handshake.
-    parties :: Prelude.Maybe [HandshakeParty],
+    parties :: Core.Maybe [HandshakeParty],
     -- | The Amazon Resource Name (ARN) of a handshake.
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
     -- in the /AWS Service Authorization Reference/.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique identifier (ID) of a handshake. The originating account
     -- creates the ID when it initiates the handshake.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
     -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
     -- digits.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The current state of the handshake. Use the state to trace the flow of
     -- the handshake through the process from its creation to its acceptance.
     -- The meaning of each of the valid values is as follows:
@@ -82,9 +81,9 @@ data Handshake = Handshake'
     -- -   __EXPIRED__: This handshake is no longer active because the
     --     originator did not receive a response of any kind from the recipient
     --     before the expiration time (15 days).
-    state :: Prelude.Maybe HandshakeState,
+    state :: Core.Maybe HandshakeState,
     -- | Additional information that is needed to process the handshake.
-    resources :: Prelude.Maybe [HandshakeResource],
+    resources :: Core.Maybe [HandshakeResource],
     -- | The type of handshake, indicating what action occurs when the recipient
     -- accepts the handshake. The following handshake types are supported:
     --
@@ -103,13 +102,13 @@ data Handshake = Handshake'
     --     @ENABLE_ALL_FEATURES@ invitation. It is sent only to the management
     --     account and signals the master that it can finalize the process to
     --     enable all features.
-    action :: Prelude.Maybe ActionType,
+    action :: Core.Maybe ActionType,
     -- | The date and time that the handshake expires. If the recipient of the
     -- handshake request fails to respond before the specified date and time,
     -- the handshake becomes inactive and is no longer valid.
-    expirationTimestamp :: Prelude.Maybe Prelude.POSIX
+    expirationTimestamp :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Handshake' with all optional fields omitted.
@@ -191,31 +190,31 @@ newHandshake ::
   Handshake
 newHandshake =
   Handshake'
-    { requestedTimestamp = Prelude.Nothing,
-      parties = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      state = Prelude.Nothing,
-      resources = Prelude.Nothing,
-      action = Prelude.Nothing,
-      expirationTimestamp = Prelude.Nothing
+    { requestedTimestamp = Core.Nothing,
+      parties = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      state = Core.Nothing,
+      resources = Core.Nothing,
+      action = Core.Nothing,
+      expirationTimestamp = Core.Nothing
     }
 
 -- | The date and time that the handshake request was made.
-handshake_requestedTimestamp :: Lens.Lens' Handshake (Prelude.Maybe Prelude.UTCTime)
-handshake_requestedTimestamp = Lens.lens (\Handshake' {requestedTimestamp} -> requestedTimestamp) (\s@Handshake' {} a -> s {requestedTimestamp = a} :: Handshake) Prelude.. Lens.mapping Prelude._Time
+handshake_requestedTimestamp :: Lens.Lens' Handshake (Core.Maybe Core.UTCTime)
+handshake_requestedTimestamp = Lens.lens (\Handshake' {requestedTimestamp} -> requestedTimestamp) (\s@Handshake' {} a -> s {requestedTimestamp = a} :: Handshake) Core.. Lens.mapping Core._Time
 
 -- | Information about the two accounts that are participating in the
 -- handshake.
-handshake_parties :: Lens.Lens' Handshake (Prelude.Maybe [HandshakeParty])
-handshake_parties = Lens.lens (\Handshake' {parties} -> parties) (\s@Handshake' {} a -> s {parties = a} :: Handshake) Prelude.. Lens.mapping Prelude._Coerce
+handshake_parties :: Lens.Lens' Handshake (Core.Maybe [HandshakeParty])
+handshake_parties = Lens.lens (\Handshake' {parties} -> parties) (\s@Handshake' {} a -> s {parties = a} :: Handshake) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of a handshake.
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
 -- in the /AWS Service Authorization Reference/.
-handshake_arn :: Lens.Lens' Handshake (Prelude.Maybe Prelude.Text)
+handshake_arn :: Lens.Lens' Handshake (Core.Maybe Core.Text)
 handshake_arn = Lens.lens (\Handshake' {arn} -> arn) (\s@Handshake' {} a -> s {arn = a} :: Handshake)
 
 -- | The unique identifier (ID) of a handshake. The originating account
@@ -224,7 +223,7 @@ handshake_arn = Lens.lens (\Handshake' {arn} -> arn) (\s@Handshake' {} a -> s {a
 -- The <http://wikipedia.org/wiki/regex regex pattern> for handshake ID
 -- string requires \"h-\" followed by from 8 to 32 lowercase letters or
 -- digits.
-handshake_id :: Lens.Lens' Handshake (Prelude.Maybe Prelude.Text)
+handshake_id :: Lens.Lens' Handshake (Core.Maybe Core.Text)
 handshake_id = Lens.lens (\Handshake' {id} -> id) (\s@Handshake' {} a -> s {id = a} :: Handshake)
 
 -- | The current state of the handshake. Use the state to trace the flow of
@@ -252,12 +251,12 @@ handshake_id = Lens.lens (\Handshake' {id} -> id) (\s@Handshake' {} a -> s {id =
 -- -   __EXPIRED__: This handshake is no longer active because the
 --     originator did not receive a response of any kind from the recipient
 --     before the expiration time (15 days).
-handshake_state :: Lens.Lens' Handshake (Prelude.Maybe HandshakeState)
+handshake_state :: Lens.Lens' Handshake (Core.Maybe HandshakeState)
 handshake_state = Lens.lens (\Handshake' {state} -> state) (\s@Handshake' {} a -> s {state = a} :: Handshake)
 
 -- | Additional information that is needed to process the handshake.
-handshake_resources :: Lens.Lens' Handshake (Prelude.Maybe [HandshakeResource])
-handshake_resources = Lens.lens (\Handshake' {resources} -> resources) (\s@Handshake' {} a -> s {resources = a} :: Handshake) Prelude.. Lens.mapping Prelude._Coerce
+handshake_resources :: Lens.Lens' Handshake (Core.Maybe [HandshakeResource])
+handshake_resources = Lens.lens (\Handshake' {resources} -> resources) (\s@Handshake' {} a -> s {resources = a} :: Handshake) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of handshake, indicating what action occurs when the recipient
 -- accepts the handshake. The following handshake types are supported:
@@ -277,33 +276,31 @@ handshake_resources = Lens.lens (\Handshake' {resources} -> resources) (\s@Hands
 --     @ENABLE_ALL_FEATURES@ invitation. It is sent only to the management
 --     account and signals the master that it can finalize the process to
 --     enable all features.
-handshake_action :: Lens.Lens' Handshake (Prelude.Maybe ActionType)
+handshake_action :: Lens.Lens' Handshake (Core.Maybe ActionType)
 handshake_action = Lens.lens (\Handshake' {action} -> action) (\s@Handshake' {} a -> s {action = a} :: Handshake)
 
 -- | The date and time that the handshake expires. If the recipient of the
 -- handshake request fails to respond before the specified date and time,
 -- the handshake becomes inactive and is no longer valid.
-handshake_expirationTimestamp :: Lens.Lens' Handshake (Prelude.Maybe Prelude.UTCTime)
-handshake_expirationTimestamp = Lens.lens (\Handshake' {expirationTimestamp} -> expirationTimestamp) (\s@Handshake' {} a -> s {expirationTimestamp = a} :: Handshake) Prelude.. Lens.mapping Prelude._Time
+handshake_expirationTimestamp :: Lens.Lens' Handshake (Core.Maybe Core.UTCTime)
+handshake_expirationTimestamp = Lens.lens (\Handshake' {expirationTimestamp} -> expirationTimestamp) (\s@Handshake' {} a -> s {expirationTimestamp = a} :: Handshake) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON Handshake where
+instance Core.FromJSON Handshake where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Handshake"
       ( \x ->
           Handshake'
-            Prelude.<$> (x Prelude..:? "RequestedTimestamp")
-            Prelude.<*> (x Prelude..:? "Parties" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "State")
-            Prelude.<*> ( x Prelude..:? "Resources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Action")
-            Prelude.<*> (x Prelude..:? "ExpirationTimestamp")
+            Core.<$> (x Core..:? "RequestedTimestamp")
+            Core.<*> (x Core..:? "Parties" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "Resources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Action")
+            Core.<*> (x Core..:? "ExpirationTimestamp")
       )
 
-instance Prelude.Hashable Handshake
+instance Core.Hashable Handshake
 
-instance Prelude.NFData Handshake
+instance Core.NFData Handshake

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SMS.StartAppReplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -49,9 +48,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newStartAppReplication' smart constructor.
 data StartAppReplication = StartAppReplication'
   { -- | The ID of the application.
-    appId :: Prelude.Maybe Prelude.Text
+    appId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAppReplication' with all optional fields omitted.
@@ -65,62 +64,58 @@ data StartAppReplication = StartAppReplication'
 newStartAppReplication ::
   StartAppReplication
 newStartAppReplication =
-  StartAppReplication' {appId = Prelude.Nothing}
+  StartAppReplication' {appId = Core.Nothing}
 
 -- | The ID of the application.
-startAppReplication_appId :: Lens.Lens' StartAppReplication (Prelude.Maybe Prelude.Text)
+startAppReplication_appId :: Lens.Lens' StartAppReplication (Core.Maybe Core.Text)
 startAppReplication_appId = Lens.lens (\StartAppReplication' {appId} -> appId) (\s@StartAppReplication' {} a -> s {appId = a} :: StartAppReplication)
 
-instance Prelude.AWSRequest StartAppReplication where
+instance Core.AWSRequest StartAppReplication where
   type
-    Rs StartAppReplication =
+    AWSResponse StartAppReplication =
       StartAppReplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartAppReplicationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartAppReplication
+instance Core.Hashable StartAppReplication
 
-instance Prelude.NFData StartAppReplication
+instance Core.NFData StartAppReplication
 
-instance Prelude.ToHeaders StartAppReplication where
+instance Core.ToHeaders StartAppReplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.StartAppReplication" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.StartAppReplication" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartAppReplication where
+instance Core.ToJSON StartAppReplication where
   toJSON StartAppReplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("appId" Prelude..=) Prelude.<$> appId]
-      )
+    Core.object
+      (Core.catMaybes [("appId" Core..=) Core.<$> appId])
 
-instance Prelude.ToPath StartAppReplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartAppReplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartAppReplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartAppReplication where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartAppReplicationResponse' smart constructor.
 data StartAppReplicationResponse = StartAppReplicationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartAppReplicationResponse' with all optional fields omitted.
@@ -133,7 +128,7 @@ data StartAppReplicationResponse = StartAppReplicationResponse'
 -- 'httpStatus', 'startAppReplicationResponse_httpStatus' - The response's http status code.
 newStartAppReplicationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartAppReplicationResponse
 newStartAppReplicationResponse pHttpStatus_ =
   StartAppReplicationResponse'
@@ -142,7 +137,7 @@ newStartAppReplicationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-startAppReplicationResponse_httpStatus :: Lens.Lens' StartAppReplicationResponse Prelude.Int
+startAppReplicationResponse_httpStatus :: Lens.Lens' StartAppReplicationResponse Core.Int
 startAppReplicationResponse_httpStatus = Lens.lens (\StartAppReplicationResponse' {httpStatus} -> httpStatus) (\s@StartAppReplicationResponse' {} a -> s {httpStatus = a} :: StartAppReplicationResponse)
 
-instance Prelude.NFData StartAppReplicationResponse
+instance Core.NFData StartAppReplicationResponse

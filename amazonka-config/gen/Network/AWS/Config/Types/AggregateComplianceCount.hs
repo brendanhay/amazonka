@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.AggregateComplianceCount where
 
 import Network.AWS.Config.Types.ComplianceSummary
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns the number of compliant and noncompliant rules for one or more
 -- accounts and regions in an aggregator.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAggregateComplianceCount' smart constructor.
 data AggregateComplianceCount = AggregateComplianceCount'
   { -- | The number of compliant and noncompliant AWS Config rules.
-    complianceSummary :: Prelude.Maybe ComplianceSummary,
+    complianceSummary :: Core.Maybe ComplianceSummary,
     -- | The 12-digit account ID or region based on the GroupByKey value.
-    groupName :: Prelude.Maybe Prelude.Text
+    groupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AggregateComplianceCount' with all optional fields omitted.
@@ -52,28 +51,28 @@ newAggregateComplianceCount ::
 newAggregateComplianceCount =
   AggregateComplianceCount'
     { complianceSummary =
-        Prelude.Nothing,
-      groupName = Prelude.Nothing
+        Core.Nothing,
+      groupName = Core.Nothing
     }
 
 -- | The number of compliant and noncompliant AWS Config rules.
-aggregateComplianceCount_complianceSummary :: Lens.Lens' AggregateComplianceCount (Prelude.Maybe ComplianceSummary)
+aggregateComplianceCount_complianceSummary :: Lens.Lens' AggregateComplianceCount (Core.Maybe ComplianceSummary)
 aggregateComplianceCount_complianceSummary = Lens.lens (\AggregateComplianceCount' {complianceSummary} -> complianceSummary) (\s@AggregateComplianceCount' {} a -> s {complianceSummary = a} :: AggregateComplianceCount)
 
 -- | The 12-digit account ID or region based on the GroupByKey value.
-aggregateComplianceCount_groupName :: Lens.Lens' AggregateComplianceCount (Prelude.Maybe Prelude.Text)
+aggregateComplianceCount_groupName :: Lens.Lens' AggregateComplianceCount (Core.Maybe Core.Text)
 aggregateComplianceCount_groupName = Lens.lens (\AggregateComplianceCount' {groupName} -> groupName) (\s@AggregateComplianceCount' {} a -> s {groupName = a} :: AggregateComplianceCount)
 
-instance Prelude.FromJSON AggregateComplianceCount where
+instance Core.FromJSON AggregateComplianceCount where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AggregateComplianceCount"
       ( \x ->
           AggregateComplianceCount'
-            Prelude.<$> (x Prelude..:? "ComplianceSummary")
-            Prelude.<*> (x Prelude..:? "GroupName")
+            Core.<$> (x Core..:? "ComplianceSummary")
+            Core.<*> (x Core..:? "GroupName")
       )
 
-instance Prelude.Hashable AggregateComplianceCount
+instance Core.Hashable AggregateComplianceCount
 
-instance Prelude.NFData AggregateComplianceCount
+instance Core.NFData AggregateComplianceCount

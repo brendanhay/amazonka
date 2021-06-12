@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.CachedMethods where
 
 import Network.AWS.CloudFront.Types.Method
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that controls whether CloudFront caches the response to
 -- requests using the specified HTTP methods. There are two choices:
@@ -42,12 +41,12 @@ data CachedMethods = CachedMethods'
     -- responses. Valid values are @2@ (for caching responses to @GET@ and
     -- @HEAD@ requests) and @3@ (for caching responses to @GET@, @HEAD@, and
     -- @OPTIONS@ requests).
-    quantity :: Prelude.Int,
+    quantity :: Core.Int,
     -- | A complex type that contains the HTTP methods that you want CloudFront
     -- to cache responses to.
     items :: [Method]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CachedMethods' with all optional fields omitted.
@@ -66,41 +65,41 @@ data CachedMethods = CachedMethods'
 -- to cache responses to.
 newCachedMethods ::
   -- | 'quantity'
-  Prelude.Int ->
+  Core.Int ->
   CachedMethods
 newCachedMethods pQuantity_ =
   CachedMethods'
     { quantity = pQuantity_,
-      items = Prelude.mempty
+      items = Core.mempty
     }
 
 -- | The number of HTTP methods for which you want CloudFront to cache
 -- responses. Valid values are @2@ (for caching responses to @GET@ and
 -- @HEAD@ requests) and @3@ (for caching responses to @GET@, @HEAD@, and
 -- @OPTIONS@ requests).
-cachedMethods_quantity :: Lens.Lens' CachedMethods Prelude.Int
+cachedMethods_quantity :: Lens.Lens' CachedMethods Core.Int
 cachedMethods_quantity = Lens.lens (\CachedMethods' {quantity} -> quantity) (\s@CachedMethods' {} a -> s {quantity = a} :: CachedMethods)
 
 -- | A complex type that contains the HTTP methods that you want CloudFront
 -- to cache responses to.
 cachedMethods_items :: Lens.Lens' CachedMethods [Method]
-cachedMethods_items = Lens.lens (\CachedMethods' {items} -> items) (\s@CachedMethods' {} a -> s {items = a} :: CachedMethods) Prelude.. Prelude._Coerce
+cachedMethods_items = Lens.lens (\CachedMethods' {items} -> items) (\s@CachedMethods' {} a -> s {items = a} :: CachedMethods) Core.. Lens._Coerce
 
-instance Prelude.FromXML CachedMethods where
+instance Core.FromXML CachedMethods where
   parseXML x =
     CachedMethods'
-      Prelude.<$> (x Prelude..@ "Quantity")
-      Prelude.<*> ( x Prelude..@? "Items" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.parseXMLList "Method"
-                  )
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@? "Items" Core..!@ Core.mempty
+                   Core.>>= Core.parseXMLList "Method"
+               )
 
-instance Prelude.Hashable CachedMethods
+instance Core.Hashable CachedMethods
 
-instance Prelude.NFData CachedMethods
+instance Core.NFData CachedMethods
 
-instance Prelude.ToXML CachedMethods where
+instance Core.ToXML CachedMethods where
   toXML CachedMethods' {..} =
-    Prelude.mconcat
-      [ "Quantity" Prelude.@= quantity,
-        "Items" Prelude.@= Prelude.toXMLList "Method" items
+    Core.mconcat
+      [ "Quantity" Core.@= quantity,
+        "Items" Core.@= Core.toXMLList "Method" items
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,9 @@ module Network.AWS.KMS.EnableKeyRotation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -83,9 +82,9 @@ data EnableKeyRotation = EnableKeyRotation'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableKeyRotation' with all optional fields omitted.
@@ -112,7 +111,7 @@ data EnableKeyRotation = EnableKeyRotation'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newEnableKeyRotation ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   EnableKeyRotation
 newEnableKeyRotation pKeyId_ =
   EnableKeyRotation' {keyId = pKeyId_}
@@ -132,52 +131,50 @@ newEnableKeyRotation pKeyId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-enableKeyRotation_keyId :: Lens.Lens' EnableKeyRotation Prelude.Text
+enableKeyRotation_keyId :: Lens.Lens' EnableKeyRotation Core.Text
 enableKeyRotation_keyId = Lens.lens (\EnableKeyRotation' {keyId} -> keyId) (\s@EnableKeyRotation' {} a -> s {keyId = a} :: EnableKeyRotation)
 
-instance Prelude.AWSRequest EnableKeyRotation where
-  type Rs EnableKeyRotation = EnableKeyRotationResponse
+instance Core.AWSRequest EnableKeyRotation where
+  type
+    AWSResponse EnableKeyRotation =
+      EnableKeyRotationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull EnableKeyRotationResponse'
 
-instance Prelude.Hashable EnableKeyRotation
+instance Core.Hashable EnableKeyRotation
 
-instance Prelude.NFData EnableKeyRotation
+instance Core.NFData EnableKeyRotation
 
-instance Prelude.ToHeaders EnableKeyRotation where
+instance Core.ToHeaders EnableKeyRotation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.EnableKeyRotation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "TrentService.EnableKeyRotation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableKeyRotation where
+instance Core.ToJSON EnableKeyRotation where
   toJSON EnableKeyRotation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Prelude..= keyId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
 
-instance Prelude.ToPath EnableKeyRotation where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableKeyRotation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableKeyRotation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableKeyRotation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableKeyRotationResponse' smart constructor.
 data EnableKeyRotationResponse = EnableKeyRotationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableKeyRotationResponse' with all optional fields omitted.
@@ -188,4 +185,4 @@ newEnableKeyRotationResponse ::
 newEnableKeyRotationResponse =
   EnableKeyRotationResponse'
 
-instance Prelude.NFData EnableKeyRotationResponse
+instance Core.NFData EnableKeyRotationResponse

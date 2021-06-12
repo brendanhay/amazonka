@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,19 +21,19 @@ module Network.AWS.CloudDirectory.Types.ObjectAttributeRange where
 
 import Network.AWS.CloudDirectory.Types.AttributeKey
 import Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of attributes.
 --
 -- /See:/ 'newObjectAttributeRange' smart constructor.
 data ObjectAttributeRange = ObjectAttributeRange'
   { -- | The range of attribute values being selected.
-    range :: Prelude.Maybe TypedAttributeValueRange,
+    range :: Core.Maybe TypedAttributeValueRange,
     -- | The key of the attribute that the attribute range covers.
-    attributeKey :: Prelude.Maybe AttributeKey
+    attributeKey :: Core.Maybe AttributeKey
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ObjectAttributeRange' with all optional fields omitted.
@@ -51,28 +50,27 @@ newObjectAttributeRange ::
   ObjectAttributeRange
 newObjectAttributeRange =
   ObjectAttributeRange'
-    { range = Prelude.Nothing,
-      attributeKey = Prelude.Nothing
+    { range = Core.Nothing,
+      attributeKey = Core.Nothing
     }
 
 -- | The range of attribute values being selected.
-objectAttributeRange_range :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe TypedAttributeValueRange)
+objectAttributeRange_range :: Lens.Lens' ObjectAttributeRange (Core.Maybe TypedAttributeValueRange)
 objectAttributeRange_range = Lens.lens (\ObjectAttributeRange' {range} -> range) (\s@ObjectAttributeRange' {} a -> s {range = a} :: ObjectAttributeRange)
 
 -- | The key of the attribute that the attribute range covers.
-objectAttributeRange_attributeKey :: Lens.Lens' ObjectAttributeRange (Prelude.Maybe AttributeKey)
+objectAttributeRange_attributeKey :: Lens.Lens' ObjectAttributeRange (Core.Maybe AttributeKey)
 objectAttributeRange_attributeKey = Lens.lens (\ObjectAttributeRange' {attributeKey} -> attributeKey) (\s@ObjectAttributeRange' {} a -> s {attributeKey = a} :: ObjectAttributeRange)
 
-instance Prelude.Hashable ObjectAttributeRange
+instance Core.Hashable ObjectAttributeRange
 
-instance Prelude.NFData ObjectAttributeRange
+instance Core.NFData ObjectAttributeRange
 
-instance Prelude.ToJSON ObjectAttributeRange where
+instance Core.ToJSON ObjectAttributeRange where
   toJSON ObjectAttributeRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Range" Prelude..=) Prelude.<$> range,
-            ("AttributeKey" Prelude..=)
-              Prelude.<$> attributeKey
+    Core.object
+      ( Core.catMaybes
+          [ ("Range" Core..=) Core.<$> range,
+            ("AttributeKey" Core..=) Core.<$> attributeKey
           ]
       )

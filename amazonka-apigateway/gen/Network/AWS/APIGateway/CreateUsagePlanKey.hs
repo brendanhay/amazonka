@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.APIGateway.CreateUsagePlanKey
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +57,14 @@ data CreateUsagePlanKey = CreateUsagePlanKey'
   { -- | [Required] The Id of the UsagePlan resource representing the usage plan
     -- containing the to-be-created UsagePlanKey resource representing a plan
     -- customer.
-    usagePlanId :: Prelude.Text,
+    usagePlanId :: Core.Text,
     -- | [Required] The identifier of a UsagePlanKey resource for a plan
     -- customer.
-    keyId :: Prelude.Text,
+    keyId :: Core.Text,
     -- | [Required] The type of a UsagePlanKey resource for a plan customer.
-    keyType :: Prelude.Text
+    keyType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUsagePlanKey' with all optional fields omitted.
@@ -85,11 +84,11 @@ data CreateUsagePlanKey = CreateUsagePlanKey'
 -- 'keyType', 'createUsagePlanKey_keyType' - [Required] The type of a UsagePlanKey resource for a plan customer.
 newCreateUsagePlanKey ::
   -- | 'usagePlanId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'keyType'
-  Prelude.Text ->
+  Core.Text ->
   CreateUsagePlanKey
 newCreateUsagePlanKey pUsagePlanId_ pKeyId_ pKeyType_ =
   CreateUsagePlanKey'
@@ -101,51 +100,51 @@ newCreateUsagePlanKey pUsagePlanId_ pKeyId_ pKeyType_ =
 -- | [Required] The Id of the UsagePlan resource representing the usage plan
 -- containing the to-be-created UsagePlanKey resource representing a plan
 -- customer.
-createUsagePlanKey_usagePlanId :: Lens.Lens' CreateUsagePlanKey Prelude.Text
+createUsagePlanKey_usagePlanId :: Lens.Lens' CreateUsagePlanKey Core.Text
 createUsagePlanKey_usagePlanId = Lens.lens (\CreateUsagePlanKey' {usagePlanId} -> usagePlanId) (\s@CreateUsagePlanKey' {} a -> s {usagePlanId = a} :: CreateUsagePlanKey)
 
 -- | [Required] The identifier of a UsagePlanKey resource for a plan
 -- customer.
-createUsagePlanKey_keyId :: Lens.Lens' CreateUsagePlanKey Prelude.Text
+createUsagePlanKey_keyId :: Lens.Lens' CreateUsagePlanKey Core.Text
 createUsagePlanKey_keyId = Lens.lens (\CreateUsagePlanKey' {keyId} -> keyId) (\s@CreateUsagePlanKey' {} a -> s {keyId = a} :: CreateUsagePlanKey)
 
 -- | [Required] The type of a UsagePlanKey resource for a plan customer.
-createUsagePlanKey_keyType :: Lens.Lens' CreateUsagePlanKey Prelude.Text
+createUsagePlanKey_keyType :: Lens.Lens' CreateUsagePlanKey Core.Text
 createUsagePlanKey_keyType = Lens.lens (\CreateUsagePlanKey' {keyType} -> keyType) (\s@CreateUsagePlanKey' {} a -> s {keyType = a} :: CreateUsagePlanKey)
 
-instance Prelude.AWSRequest CreateUsagePlanKey where
-  type Rs CreateUsagePlanKey = UsagePlanKey
+instance Core.AWSRequest CreateUsagePlanKey where
+  type AWSResponse CreateUsagePlanKey = UsagePlanKey
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable CreateUsagePlanKey
+instance Core.Hashable CreateUsagePlanKey
 
-instance Prelude.NFData CreateUsagePlanKey
+instance Core.NFData CreateUsagePlanKey
 
-instance Prelude.ToHeaders CreateUsagePlanKey where
+instance Core.ToHeaders CreateUsagePlanKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateUsagePlanKey where
+instance Core.ToJSON CreateUsagePlanKey where
   toJSON CreateUsagePlanKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("keyId" Prelude..= keyId),
-            Prelude.Just ("keyType" Prelude..= keyType)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("keyId" Core..= keyId),
+            Core.Just ("keyType" Core..= keyType)
           ]
       )
 
-instance Prelude.ToPath CreateUsagePlanKey where
+instance Core.ToPath CreateUsagePlanKey where
   toPath CreateUsagePlanKey' {..} =
-    Prelude.mconcat
-      ["/usageplans/", Prelude.toBS usagePlanId, "/keys"]
+    Core.mconcat
+      ["/usageplans/", Core.toBS usagePlanId, "/keys"]
 
-instance Prelude.ToQuery CreateUsagePlanKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateUsagePlanKey where
+  toQuery = Core.const Core.mempty

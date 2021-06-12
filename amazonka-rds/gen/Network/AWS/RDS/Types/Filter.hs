@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.Filter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter name and value pair that is used to return a more specific list
 -- of results from a describe operation. Filters can be used to match a set
@@ -45,11 +44,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
   { -- | The name of the filter. Filter names are case-sensitive.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | One or more filter values. Filter values are case-sensitive.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -64,27 +63,26 @@ data Filter = Filter'
 -- 'values', 'filter_values' - One or more filter values. Filter values are case-sensitive.
 newFilter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   Filter
 newFilter pName_ =
-  Filter' {name = pName_, values = Prelude.mempty}
+  Filter' {name = pName_, values = Core.mempty}
 
 -- | The name of the filter. Filter names are case-sensitive.
-filter_name :: Lens.Lens' Filter Prelude.Text
+filter_name :: Lens.Lens' Filter Core.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
 -- | One or more filter values. Filter values are case-sensitive.
-filter_values :: Lens.Lens' Filter [Prelude.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Prelude._Coerce
+filter_values :: Lens.Lens' Filter [Core.Text]
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens._Coerce
 
-instance Prelude.Hashable Filter
+instance Core.Hashable Filter
 
-instance Prelude.NFData Filter
+instance Core.NFData Filter
 
-instance Prelude.ToQuery Filter where
+instance Core.ToQuery Filter where
   toQuery Filter' {..} =
-    Prelude.mconcat
-      [ "Name" Prelude.=: name,
-        "Values"
-          Prelude.=: Prelude.toQueryList "Value" values
+    Core.mconcat
+      [ "Name" Core.=: name,
+        "Values" Core.=: Core.toQueryList "Value" values
       ]

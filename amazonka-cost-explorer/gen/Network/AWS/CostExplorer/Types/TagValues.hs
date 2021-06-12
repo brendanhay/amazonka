@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.TagValues where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.MatchOption
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The values that are available for a tag.
 --
@@ -36,15 +35,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newTagValues' smart constructor.
 data TagValues = TagValues'
   { -- | The key for the tag.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The specific value of the tag.
-    values :: Prelude.Maybe [Prelude.Text],
+    values :: Core.Maybe [Core.Text],
     -- | The match options that you can use to filter your results.
     -- @MatchOptions@ is only applicable for actions related to Cost Category.
     -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
-    matchOptions :: Prelude.Maybe [MatchOption]
+    matchOptions :: Core.Maybe [MatchOption]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagValues' with all optional fields omitted.
@@ -65,49 +64,46 @@ newTagValues ::
   TagValues
 newTagValues =
   TagValues'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing,
-      matchOptions = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing,
+      matchOptions = Core.Nothing
     }
 
 -- | The key for the tag.
-tagValues_key :: Lens.Lens' TagValues (Prelude.Maybe Prelude.Text)
+tagValues_key :: Lens.Lens' TagValues (Core.Maybe Core.Text)
 tagValues_key = Lens.lens (\TagValues' {key} -> key) (\s@TagValues' {} a -> s {key = a} :: TagValues)
 
 -- | The specific value of the tag.
-tagValues_values :: Lens.Lens' TagValues (Prelude.Maybe [Prelude.Text])
-tagValues_values = Lens.lens (\TagValues' {values} -> values) (\s@TagValues' {} a -> s {values = a} :: TagValues) Prelude.. Lens.mapping Prelude._Coerce
+tagValues_values :: Lens.Lens' TagValues (Core.Maybe [Core.Text])
+tagValues_values = Lens.lens (\TagValues' {values} -> values) (\s@TagValues' {} a -> s {values = a} :: TagValues) Core.. Lens.mapping Lens._Coerce
 
 -- | The match options that you can use to filter your results.
 -- @MatchOptions@ is only applicable for actions related to Cost Category.
 -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
-tagValues_matchOptions :: Lens.Lens' TagValues (Prelude.Maybe [MatchOption])
-tagValues_matchOptions = Lens.lens (\TagValues' {matchOptions} -> matchOptions) (\s@TagValues' {} a -> s {matchOptions = a} :: TagValues) Prelude.. Lens.mapping Prelude._Coerce
+tagValues_matchOptions :: Lens.Lens' TagValues (Core.Maybe [MatchOption])
+tagValues_matchOptions = Lens.lens (\TagValues' {matchOptions} -> matchOptions) (\s@TagValues' {} a -> s {matchOptions = a} :: TagValues) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON TagValues where
+instance Core.FromJSON TagValues where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TagValues"
       ( \x ->
           TagValues'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "MatchOptions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MatchOptions" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable TagValues
+instance Core.Hashable TagValues
 
-instance Prelude.NFData TagValues
+instance Core.NFData TagValues
 
-instance Prelude.ToJSON TagValues where
+instance Core.ToJSON TagValues where
   toJSON TagValues' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Values" Prelude..=) Prelude.<$> values,
-            ("MatchOptions" Prelude..=)
-              Prelude.<$> matchOptions
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Values" Core..=) Core.<$> values,
+            ("MatchOptions" Core..=) Core.<$> matchOptions
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,25 +49,24 @@ module Network.AWS.CloudWatchLogs.DescribeQueries
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeQueries' smart constructor.
 data DescribeQueries = DescribeQueries'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | Limits the returned queries to only those that have the specified
     -- status. Valid values are @Cancelled@, @Complete@, @Failed@, @Running@,
     -- and @Scheduled@.
-    status :: Prelude.Maybe QueryStatus,
+    status :: Core.Maybe QueryStatus,
     -- | Limits the number of returned queries to the specified number.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Limits the returned queries to only those for the specified log group.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeQueries' with all optional fields omitted.
@@ -91,109 +89,104 @@ newDescribeQueries ::
   DescribeQueries
 newDescribeQueries =
   DescribeQueries'
-    { nextToken = Prelude.Nothing,
-      status = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      status = Core.Nothing,
+      maxResults = Core.Nothing,
+      logGroupName = Core.Nothing
     }
 
 -- | Undocumented member.
-describeQueries_nextToken :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
+describeQueries_nextToken :: Lens.Lens' DescribeQueries (Core.Maybe Core.Text)
 describeQueries_nextToken = Lens.lens (\DescribeQueries' {nextToken} -> nextToken) (\s@DescribeQueries' {} a -> s {nextToken = a} :: DescribeQueries)
 
 -- | Limits the returned queries to only those that have the specified
 -- status. Valid values are @Cancelled@, @Complete@, @Failed@, @Running@,
 -- and @Scheduled@.
-describeQueries_status :: Lens.Lens' DescribeQueries (Prelude.Maybe QueryStatus)
+describeQueries_status :: Lens.Lens' DescribeQueries (Core.Maybe QueryStatus)
 describeQueries_status = Lens.lens (\DescribeQueries' {status} -> status) (\s@DescribeQueries' {} a -> s {status = a} :: DescribeQueries)
 
 -- | Limits the number of returned queries to the specified number.
-describeQueries_maxResults :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Natural)
+describeQueries_maxResults :: Lens.Lens' DescribeQueries (Core.Maybe Core.Natural)
 describeQueries_maxResults = Lens.lens (\DescribeQueries' {maxResults} -> maxResults) (\s@DescribeQueries' {} a -> s {maxResults = a} :: DescribeQueries)
 
 -- | Limits the returned queries to only those for the specified log group.
-describeQueries_logGroupName :: Lens.Lens' DescribeQueries (Prelude.Maybe Prelude.Text)
+describeQueries_logGroupName :: Lens.Lens' DescribeQueries (Core.Maybe Core.Text)
 describeQueries_logGroupName = Lens.lens (\DescribeQueries' {logGroupName} -> logGroupName) (\s@DescribeQueries' {} a -> s {logGroupName = a} :: DescribeQueries)
 
-instance Pager.AWSPager DescribeQueries where
+instance Core.AWSPager DescribeQueries where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeQueriesResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeQueriesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeQueriesResponse_queries Prelude.. Lens._Just
+            Lens.^? describeQueriesResponse_queries Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeQueries_nextToken
           Lens..~ rs
-          Lens.^? describeQueriesResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? describeQueriesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeQueries where
-  type Rs DescribeQueries = DescribeQueriesResponse
+instance Core.AWSRequest DescribeQueries where
+  type
+    AWSResponse DescribeQueries =
+      DescribeQueriesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeQueriesResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (x Prelude..?> "queries" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "queries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeQueries
+instance Core.Hashable DescribeQueries
 
-instance Prelude.NFData DescribeQueries
+instance Core.NFData DescribeQueries
 
-instance Prelude.ToHeaders DescribeQueries where
+instance Core.ToHeaders DescribeQueries where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.DescribeQueries" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Logs_20140328.DescribeQueries" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeQueries where
+instance Core.ToJSON DescribeQueries where
   toJSON DescribeQueries' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("status" Prelude..=) Prelude.<$> status,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("logGroupName" Prelude..=)
-              Prelude.<$> logGroupName
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("status" Core..=) Core.<$> status,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("logGroupName" Core..=) Core.<$> logGroupName
           ]
       )
 
-instance Prelude.ToPath DescribeQueries where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeQueries where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeQueries where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeQueries where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeQueriesResponse' smart constructor.
 data DescribeQueriesResponse = DescribeQueriesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | The list of queries that match the request.
-    queries :: Prelude.Maybe [QueryInfo],
+    queries :: Core.Maybe [QueryInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeQueriesResponse' with all optional fields omitted.
@@ -210,26 +203,25 @@ data DescribeQueriesResponse = DescribeQueriesResponse'
 -- 'httpStatus', 'describeQueriesResponse_httpStatus' - The response's http status code.
 newDescribeQueriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeQueriesResponse
 newDescribeQueriesResponse pHttpStatus_ =
   DescribeQueriesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      queries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      queries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describeQueriesResponse_nextToken :: Lens.Lens' DescribeQueriesResponse (Prelude.Maybe Prelude.Text)
+describeQueriesResponse_nextToken :: Lens.Lens' DescribeQueriesResponse (Core.Maybe Core.Text)
 describeQueriesResponse_nextToken = Lens.lens (\DescribeQueriesResponse' {nextToken} -> nextToken) (\s@DescribeQueriesResponse' {} a -> s {nextToken = a} :: DescribeQueriesResponse)
 
 -- | The list of queries that match the request.
-describeQueriesResponse_queries :: Lens.Lens' DescribeQueriesResponse (Prelude.Maybe [QueryInfo])
-describeQueriesResponse_queries = Lens.lens (\DescribeQueriesResponse' {queries} -> queries) (\s@DescribeQueriesResponse' {} a -> s {queries = a} :: DescribeQueriesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeQueriesResponse_queries :: Lens.Lens' DescribeQueriesResponse (Core.Maybe [QueryInfo])
+describeQueriesResponse_queries = Lens.lens (\DescribeQueriesResponse' {queries} -> queries) (\s@DescribeQueriesResponse' {} a -> s {queries = a} :: DescribeQueriesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeQueriesResponse_httpStatus :: Lens.Lens' DescribeQueriesResponse Prelude.Int
+describeQueriesResponse_httpStatus :: Lens.Lens' DescribeQueriesResponse Core.Int
 describeQueriesResponse_httpStatus = Lens.lens (\DescribeQueriesResponse' {httpStatus} -> httpStatus) (\s@DescribeQueriesResponse' {} a -> s {httpStatus = a} :: DescribeQueriesResponse)
 
-instance Prelude.NFData DescribeQueriesResponse
+instance Core.NFData DescribeQueriesResponse

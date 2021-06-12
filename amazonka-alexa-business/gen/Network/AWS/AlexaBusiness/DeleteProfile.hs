@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AlexaBusiness.DeleteProfile
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteProfile' smart constructor.
 data DeleteProfile = DeleteProfile'
   { -- | The ARN of the room profile to delete. Required.
-    profileArn :: Prelude.Maybe Prelude.Text
+    profileArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProfile' with all optional fields omitted.
@@ -64,60 +63,60 @@ data DeleteProfile = DeleteProfile'
 newDeleteProfile ::
   DeleteProfile
 newDeleteProfile =
-  DeleteProfile' {profileArn = Prelude.Nothing}
+  DeleteProfile' {profileArn = Core.Nothing}
 
 -- | The ARN of the room profile to delete. Required.
-deleteProfile_profileArn :: Lens.Lens' DeleteProfile (Prelude.Maybe Prelude.Text)
+deleteProfile_profileArn :: Lens.Lens' DeleteProfile (Core.Maybe Core.Text)
 deleteProfile_profileArn = Lens.lens (\DeleteProfile' {profileArn} -> profileArn) (\s@DeleteProfile' {} a -> s {profileArn = a} :: DeleteProfile)
 
-instance Prelude.AWSRequest DeleteProfile where
-  type Rs DeleteProfile = DeleteProfileResponse
+instance Core.AWSRequest DeleteProfile where
+  type
+    AWSResponse DeleteProfile =
+      DeleteProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProfileResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteProfile
+instance Core.Hashable DeleteProfile
 
-instance Prelude.NFData DeleteProfile
+instance Core.NFData DeleteProfile
 
-instance Prelude.ToHeaders DeleteProfile where
+instance Core.ToHeaders DeleteProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.DeleteProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.DeleteProfile" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteProfile where
+instance Core.ToJSON DeleteProfile where
   toJSON DeleteProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("ProfileArn" Prelude..=) Prelude.<$> profileArn]
+    Core.object
+      ( Core.catMaybes
+          [("ProfileArn" Core..=) Core.<$> profileArn]
       )
 
-instance Prelude.ToPath DeleteProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteProfileResponse' smart constructor.
 data DeleteProfileResponse = DeleteProfileResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteProfileResponse' with all optional fields omitted.
@@ -130,13 +129,13 @@ data DeleteProfileResponse = DeleteProfileResponse'
 -- 'httpStatus', 'deleteProfileResponse_httpStatus' - The response's http status code.
 newDeleteProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteProfileResponse
 newDeleteProfileResponse pHttpStatus_ =
   DeleteProfileResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteProfileResponse_httpStatus :: Lens.Lens' DeleteProfileResponse Prelude.Int
+deleteProfileResponse_httpStatus :: Lens.Lens' DeleteProfileResponse Core.Int
 deleteProfileResponse_httpStatus = Lens.lens (\DeleteProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteProfileResponse' {} a -> s {httpStatus = a} :: DeleteProfileResponse)
 
-instance Prelude.NFData DeleteProfileResponse
+instance Core.NFData DeleteProfileResponse

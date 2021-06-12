@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.DetectTextFilters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.DetectionFilter
 import Network.AWS.Rekognition.Types.RegionOfInterest
 
@@ -34,10 +33,10 @@ import Network.AWS.Rekognition.Types.RegionOfInterest
 data DetectTextFilters = DetectTextFilters'
   { -- | A Filter focusing on a certain area of the image. Uses a @BoundingBox@
     -- object to set the region of the image.
-    regionsOfInterest :: Prelude.Maybe [RegionOfInterest],
-    wordFilter :: Prelude.Maybe DetectionFilter
+    regionsOfInterest :: Core.Maybe [RegionOfInterest],
+    wordFilter :: Core.Maybe DetectionFilter
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DetectTextFilters' with all optional fields omitted.
@@ -56,29 +55,29 @@ newDetectTextFilters ::
 newDetectTextFilters =
   DetectTextFilters'
     { regionsOfInterest =
-        Prelude.Nothing,
-      wordFilter = Prelude.Nothing
+        Core.Nothing,
+      wordFilter = Core.Nothing
     }
 
 -- | A Filter focusing on a certain area of the image. Uses a @BoundingBox@
 -- object to set the region of the image.
-detectTextFilters_regionsOfInterest :: Lens.Lens' DetectTextFilters (Prelude.Maybe [RegionOfInterest])
-detectTextFilters_regionsOfInterest = Lens.lens (\DetectTextFilters' {regionsOfInterest} -> regionsOfInterest) (\s@DetectTextFilters' {} a -> s {regionsOfInterest = a} :: DetectTextFilters) Prelude.. Lens.mapping Prelude._Coerce
+detectTextFilters_regionsOfInterest :: Lens.Lens' DetectTextFilters (Core.Maybe [RegionOfInterest])
+detectTextFilters_regionsOfInterest = Lens.lens (\DetectTextFilters' {regionsOfInterest} -> regionsOfInterest) (\s@DetectTextFilters' {} a -> s {regionsOfInterest = a} :: DetectTextFilters) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-detectTextFilters_wordFilter :: Lens.Lens' DetectTextFilters (Prelude.Maybe DetectionFilter)
+detectTextFilters_wordFilter :: Lens.Lens' DetectTextFilters (Core.Maybe DetectionFilter)
 detectTextFilters_wordFilter = Lens.lens (\DetectTextFilters' {wordFilter} -> wordFilter) (\s@DetectTextFilters' {} a -> s {wordFilter = a} :: DetectTextFilters)
 
-instance Prelude.Hashable DetectTextFilters
+instance Core.Hashable DetectTextFilters
 
-instance Prelude.NFData DetectTextFilters
+instance Core.NFData DetectTextFilters
 
-instance Prelude.ToJSON DetectTextFilters where
+instance Core.ToJSON DetectTextFilters where
   toJSON DetectTextFilters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RegionsOfInterest" Prelude..=)
-              Prelude.<$> regionsOfInterest,
-            ("WordFilter" Prelude..=) Prelude.<$> wordFilter
+    Core.object
+      ( Core.catMaybes
+          [ ("RegionsOfInterest" Core..=)
+              Core.<$> regionsOfInterest,
+            ("WordFilter" Core..=) Core.<$> wordFilter
           ]
       )

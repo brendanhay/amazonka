@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Condition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 
 -- | A container for describing a condition that must be met for the
@@ -37,7 +36,7 @@ data Condition = Condition'
     -- is applied. Required when parent element @Condition@ is specified and
     -- sibling @KeyPrefixEquals@ is not specified. If both are specified, then
     -- both must be true for the redirect to be applied.
-    httpErrorCodeReturnedEquals :: Prelude.Maybe Prelude.Text,
+    httpErrorCodeReturnedEquals :: Core.Maybe Core.Text,
     -- | The object key name prefix when the redirect is applied. For example, to
     -- redirect requests for @ExamplePage.html@, the key prefix will be
     -- @ExamplePage.html@. To redirect request for all pages with the prefix
@@ -51,9 +50,9 @@ data Condition = Condition'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    keyPrefixEquals :: Prelude.Maybe Prelude.Text
+    keyPrefixEquals :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Condition' with all optional fields omitted.
@@ -87,8 +86,8 @@ newCondition ::
 newCondition =
   Condition'
     { httpErrorCodeReturnedEquals =
-        Prelude.Nothing,
-      keyPrefixEquals = Prelude.Nothing
+        Core.Nothing,
+      keyPrefixEquals = Core.Nothing
     }
 
 -- | The HTTP error code when the redirect is applied. In the event of an
@@ -96,7 +95,7 @@ newCondition =
 -- is applied. Required when parent element @Condition@ is specified and
 -- sibling @KeyPrefixEquals@ is not specified. If both are specified, then
 -- both must be true for the redirect to be applied.
-condition_httpErrorCodeReturnedEquals :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
+condition_httpErrorCodeReturnedEquals :: Lens.Lens' Condition (Core.Maybe Core.Text)
 condition_httpErrorCodeReturnedEquals = Lens.lens (\Condition' {httpErrorCodeReturnedEquals} -> httpErrorCodeReturnedEquals) (\s@Condition' {} a -> s {httpErrorCodeReturnedEquals = a} :: Condition)
 
 -- | The object key name prefix when the redirect is applied. For example, to
@@ -112,23 +111,23 @@ condition_httpErrorCodeReturnedEquals = Lens.lens (\Condition' {httpErrorCodeRet
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-condition_keyPrefixEquals :: Lens.Lens' Condition (Prelude.Maybe Prelude.Text)
+condition_keyPrefixEquals :: Lens.Lens' Condition (Core.Maybe Core.Text)
 condition_keyPrefixEquals = Lens.lens (\Condition' {keyPrefixEquals} -> keyPrefixEquals) (\s@Condition' {} a -> s {keyPrefixEquals = a} :: Condition)
 
-instance Prelude.FromXML Condition where
+instance Core.FromXML Condition where
   parseXML x =
     Condition'
-      Prelude.<$> (x Prelude..@? "HttpErrorCodeReturnedEquals")
-      Prelude.<*> (x Prelude..@? "KeyPrefixEquals")
+      Core.<$> (x Core..@? "HttpErrorCodeReturnedEquals")
+      Core.<*> (x Core..@? "KeyPrefixEquals")
 
-instance Prelude.Hashable Condition
+instance Core.Hashable Condition
 
-instance Prelude.NFData Condition
+instance Core.NFData Condition
 
-instance Prelude.ToXML Condition where
+instance Core.ToXML Condition where
   toXML Condition' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "HttpErrorCodeReturnedEquals"
-          Prelude.@= httpErrorCodeReturnedEquals,
-        "KeyPrefixEquals" Prelude.@= keyPrefixEquals
+          Core.@= httpErrorCodeReturnedEquals,
+        "KeyPrefixEquals" Core.@= keyPrefixEquals
       ]

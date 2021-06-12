@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsItemEventFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsItemEventFilterKey
 import Network.AWS.SSM.Types.OpsItemEventFilterOperator
 
@@ -35,12 +34,12 @@ data OpsItemEventFilter = OpsItemEventFilter'
     -- @OpsItemId@.
     key :: OpsItemEventFilterKey,
     -- | The values for the filter, consisting of one or more OpsItem IDs.
-    values :: [Prelude.Text],
+    values :: [Core.Text],
     -- | The operator used by the filter call. Currently, the only supported
     -- value is @Equal@.
     operator :: OpsItemEventFilterOperator
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsItemEventFilter' with all optional fields omitted.
@@ -66,7 +65,7 @@ newOpsItemEventFilter ::
 newOpsItemEventFilter pKey_ pOperator_ =
   OpsItemEventFilter'
     { key = pKey_,
-      values = Prelude.mempty,
+      values = Core.mempty,
       operator = pOperator_
     }
 
@@ -76,24 +75,24 @@ opsItemEventFilter_key :: Lens.Lens' OpsItemEventFilter OpsItemEventFilterKey
 opsItemEventFilter_key = Lens.lens (\OpsItemEventFilter' {key} -> key) (\s@OpsItemEventFilter' {} a -> s {key = a} :: OpsItemEventFilter)
 
 -- | The values for the filter, consisting of one or more OpsItem IDs.
-opsItemEventFilter_values :: Lens.Lens' OpsItemEventFilter [Prelude.Text]
-opsItemEventFilter_values = Lens.lens (\OpsItemEventFilter' {values} -> values) (\s@OpsItemEventFilter' {} a -> s {values = a} :: OpsItemEventFilter) Prelude.. Prelude._Coerce
+opsItemEventFilter_values :: Lens.Lens' OpsItemEventFilter [Core.Text]
+opsItemEventFilter_values = Lens.lens (\OpsItemEventFilter' {values} -> values) (\s@OpsItemEventFilter' {} a -> s {values = a} :: OpsItemEventFilter) Core.. Lens._Coerce
 
 -- | The operator used by the filter call. Currently, the only supported
 -- value is @Equal@.
 opsItemEventFilter_operator :: Lens.Lens' OpsItemEventFilter OpsItemEventFilterOperator
 opsItemEventFilter_operator = Lens.lens (\OpsItemEventFilter' {operator} -> operator) (\s@OpsItemEventFilter' {} a -> s {operator = a} :: OpsItemEventFilter)
 
-instance Prelude.Hashable OpsItemEventFilter
+instance Core.Hashable OpsItemEventFilter
 
-instance Prelude.NFData OpsItemEventFilter
+instance Core.NFData OpsItemEventFilter
 
-instance Prelude.ToJSON OpsItemEventFilter where
+instance Core.ToJSON OpsItemEventFilter where
   toJSON OpsItemEventFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values),
-            Prelude.Just ("Operator" Prelude..= operator)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values),
+            Core.Just ("Operator" Core..= operator)
           ]
       )

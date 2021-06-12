@@ -15,177 +15,176 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Waiters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.DescribeAddon
 import Network.AWS.EKS.DescribeCluster
 import Network.AWS.EKS.DescribeNodegroup
 import Network.AWS.EKS.Lens
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newClusterActive :: Waiter.Wait DescribeCluster
+newClusterActive :: Core.Wait DescribeCluster
 newClusterActive =
-  Waiter.Wait
-    { Waiter._waitName = "ClusterActive",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "ClusterActive",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "DELETING"
-            Waiter.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Core.. Lens._Just
+                Core.. cluster_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "FAILED"
-            Waiter.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Core.. Lens._Just
+                Core.. cluster_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "ACTIVE"
-            Waiter.AcceptSuccess
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptSuccess
+            ( describeClusterResponse_cluster Core.. Lens._Just
+                Core.. cluster_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 80 failed checks.
-newNodegroupActive :: Waiter.Wait DescribeNodegroup
+newNodegroupActive :: Core.Wait DescribeNodegroup
 newNodegroupActive =
-  Waiter.Wait
-    { Waiter._waitName = "NodegroupActive",
-      Waiter._waitAttempts = 80,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "NodegroupActive",
+      Core._waitAttempts = 80,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "CREATE_FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeNodegroupResponse_nodegroup
-                Prelude.. Lens._Just
-                Prelude.. nodegroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. nodegroup_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "ACTIVE"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
             ( describeNodegroupResponse_nodegroup
-                Prelude.. Lens._Just
-                Prelude.. nodegroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. nodegroup_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EKS.DescribeNodegroup' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newNodegroupDeleted :: Waiter.Wait DescribeNodegroup
+newNodegroupDeleted :: Core.Wait DescribeNodegroup
 newNodegroupDeleted =
-  Waiter.Wait
-    { Waiter._waitName = "NodegroupDeleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "NodegroupDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "DELETE_FAILED"
-            Waiter.AcceptFailure
+            Core.AcceptFailure
             ( describeNodegroupResponse_nodegroup
-                Prelude.. Lens._Just
-                Prelude.. nodegroup_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+                Core.. Lens._Just
+                Core.. nodegroup_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.EKS.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newClusterDeleted :: Waiter.Wait DescribeCluster
+newClusterDeleted :: Core.Wait DescribeCluster
 newClusterDeleted =
-  Waiter.Wait
-    { Waiter._waitName = "ClusterDeleted",
-      Waiter._waitAttempts = 40,
-      Waiter._waitDelay = 30,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "ClusterDeleted",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "ACTIVE"
-            Waiter.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Core.. Lens._Just
+                Core.. cluster_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "CREATING"
-            Waiter.AcceptFailure
-            ( describeClusterResponse_cluster Prelude.. Lens._Just
-                Prelude.. cluster_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptFailure
+            ( describeClusterResponse_cluster Core.. Lens._Just
+                Core.. cluster_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newAddonActive :: Waiter.Wait DescribeAddon
+newAddonActive :: Core.Wait DescribeAddon
 newAddonActive =
-  Waiter.Wait
-    { Waiter._waitName = "AddonActive",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 10,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "AddonActive",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 10,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "CREATE_FAILED"
-            Waiter.AcceptFailure
-            ( describeAddonResponse_addon Prelude.. Lens._Just
-                Prelude.. addon_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptFailure
+            ( describeAddonResponse_addon Core.. Lens._Just
+                Core.. addon_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchAll
+          Core.matchAll
             "ACTIVE"
-            Waiter.AcceptSuccess
-            ( describeAddonResponse_addon Prelude.. Lens._Just
-                Prelude.. addon_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptSuccess
+            ( describeAddonResponse_addon Core.. Lens._Just
+                Core.. addon_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             )
         ]
     }
 
 -- | Polls 'Network.AWS.EKS.DescribeAddon' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
-newAddonDeleted :: Waiter.Wait DescribeAddon
+newAddonDeleted :: Core.Wait DescribeAddon
 newAddonDeleted =
-  Waiter.Wait
-    { Waiter._waitName = "AddonDeleted",
-      Waiter._waitAttempts = 60,
-      Waiter._waitDelay = 10,
-      Waiter._waitAcceptors =
-        [ Waiter.matchAll
+  Core.Wait
+    { Core._waitName = "AddonDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 10,
+      Core._waitAcceptors =
+        [ Core.matchAll
             "DELETE_FAILED"
-            Waiter.AcceptFailure
-            ( describeAddonResponse_addon Prelude.. Lens._Just
-                Prelude.. addon_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Prelude.toTextCI
+            Core.AcceptFailure
+            ( describeAddonResponse_addon Core.. Lens._Just
+                Core.. addon_status
+                Core.. Lens._Just
+                Core.. Lens.to Core.toTextCI
             ),
-          Waiter.matchError
+          Core.matchError
             "ResourceNotFoundException"
-            Waiter.AcceptSuccess
+            Core.AcceptSuccess
         ]
     }

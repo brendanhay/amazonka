@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
 where
 
 import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,11 +57,11 @@ data UntagCertificateAuthority = UntagCertificateAuthority'
     -- This must be of the form:
     --
     -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-    certificateAuthorityArn :: Prelude.Text,
+    certificateAuthorityArn :: Core.Text,
     -- | List of tags to be removed from the CA.
-    tags :: Prelude.NonEmpty Tag
+    tags :: Core.NonEmpty Tag
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagCertificateAuthority' with all optional fields omitted.
@@ -81,9 +80,9 @@ data UntagCertificateAuthority = UntagCertificateAuthority'
 -- 'tags', 'untagCertificateAuthority_tags' - List of tags to be removed from the CA.
 newUntagCertificateAuthority ::
   -- | 'certificateAuthorityArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tags'
-  Prelude.NonEmpty Tag ->
+  Core.NonEmpty Tag ->
   UntagCertificateAuthority
 newUntagCertificateAuthority
   pCertificateAuthorityArn_
@@ -91,7 +90,7 @@ newUntagCertificateAuthority
     UntagCertificateAuthority'
       { certificateAuthorityArn =
           pCertificateAuthorityArn_,
-        tags = Prelude._Coerce Lens.# pTags_
+        tags = Lens._Coerce Lens.# pTags_
       }
 
 -- | The Amazon Resource Name (ARN) that was returned when you called
@@ -99,64 +98,62 @@ newUntagCertificateAuthority
 -- This must be of the form:
 --
 -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
-untagCertificateAuthority_certificateAuthorityArn :: Lens.Lens' UntagCertificateAuthority Prelude.Text
+untagCertificateAuthority_certificateAuthorityArn :: Lens.Lens' UntagCertificateAuthority Core.Text
 untagCertificateAuthority_certificateAuthorityArn = Lens.lens (\UntagCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@UntagCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: UntagCertificateAuthority)
 
 -- | List of tags to be removed from the CA.
-untagCertificateAuthority_tags :: Lens.Lens' UntagCertificateAuthority (Prelude.NonEmpty Tag)
-untagCertificateAuthority_tags = Lens.lens (\UntagCertificateAuthority' {tags} -> tags) (\s@UntagCertificateAuthority' {} a -> s {tags = a} :: UntagCertificateAuthority) Prelude.. Prelude._Coerce
+untagCertificateAuthority_tags :: Lens.Lens' UntagCertificateAuthority (Core.NonEmpty Tag)
+untagCertificateAuthority_tags = Lens.lens (\UntagCertificateAuthority' {tags} -> tags) (\s@UntagCertificateAuthority' {} a -> s {tags = a} :: UntagCertificateAuthority) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagCertificateAuthority where
+instance Core.AWSRequest UntagCertificateAuthority where
   type
-    Rs UntagCertificateAuthority =
+    AWSResponse UntagCertificateAuthority =
       UntagCertificateAuthorityResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UntagCertificateAuthorityResponse'
 
-instance Prelude.Hashable UntagCertificateAuthority
+instance Core.Hashable UntagCertificateAuthority
 
-instance Prelude.NFData UntagCertificateAuthority
+instance Core.NFData UntagCertificateAuthority
 
-instance Prelude.ToHeaders UntagCertificateAuthority where
+instance Core.ToHeaders UntagCertificateAuthority where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "ACMPrivateCA.UntagCertificateAuthority" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "ACMPrivateCA.UntagCertificateAuthority" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UntagCertificateAuthority where
+instance Core.ToJSON UntagCertificateAuthority where
   toJSON UntagCertificateAuthority' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "CertificateAuthorityArn"
-                  Prelude..= certificateAuthorityArn
+                  Core..= certificateAuthorityArn
               ),
-            Prelude.Just ("Tags" Prelude..= tags)
+            Core.Just ("Tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath UntagCertificateAuthority where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagCertificateAuthority where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagCertificateAuthority where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UntagCertificateAuthority where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUntagCertificateAuthorityResponse' smart constructor.
 data UntagCertificateAuthorityResponse = UntagCertificateAuthorityResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagCertificateAuthorityResponse' with all optional fields omitted.
@@ -168,5 +165,5 @@ newUntagCertificateAuthorityResponse =
   UntagCertificateAuthorityResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     UntagCertificateAuthorityResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.IAM.DeleteSigningCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,15 +56,15 @@ data DeleteSigningCertificate = DeleteSigningCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | The ID of the signing certificate to delete.
     --
     -- The format of this parameter, as described by its
     -- <http://wikipedia.org/wiki/regex regex> pattern, is a string of
     -- characters that can be upper- or lower-cased letters or digits.
-    certificateId :: Prelude.Text
+    certificateId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSigningCertificate' with all optional fields omitted.
@@ -89,12 +88,11 @@ data DeleteSigningCertificate = DeleteSigningCertificate'
 -- characters that can be upper- or lower-cased letters or digits.
 newDeleteSigningCertificate ::
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSigningCertificate
 newDeleteSigningCertificate pCertificateId_ =
   DeleteSigningCertificate'
-    { userName =
-        Prelude.Nothing,
+    { userName = Core.Nothing,
       certificateId = pCertificateId_
     }
 
@@ -104,7 +102,7 @@ newDeleteSigningCertificate pCertificateId_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-deleteSigningCertificate_userName :: Lens.Lens' DeleteSigningCertificate (Prelude.Maybe Prelude.Text)
+deleteSigningCertificate_userName :: Lens.Lens' DeleteSigningCertificate (Core.Maybe Core.Text)
 deleteSigningCertificate_userName = Lens.lens (\DeleteSigningCertificate' {userName} -> userName) (\s@DeleteSigningCertificate' {} a -> s {userName = a} :: DeleteSigningCertificate)
 
 -- | The ID of the signing certificate to delete.
@@ -112,44 +110,43 @@ deleteSigningCertificate_userName = Lens.lens (\DeleteSigningCertificate' {userN
 -- The format of this parameter, as described by its
 -- <http://wikipedia.org/wiki/regex regex> pattern, is a string of
 -- characters that can be upper- or lower-cased letters or digits.
-deleteSigningCertificate_certificateId :: Lens.Lens' DeleteSigningCertificate Prelude.Text
+deleteSigningCertificate_certificateId :: Lens.Lens' DeleteSigningCertificate Core.Text
 deleteSigningCertificate_certificateId = Lens.lens (\DeleteSigningCertificate' {certificateId} -> certificateId) (\s@DeleteSigningCertificate' {} a -> s {certificateId = a} :: DeleteSigningCertificate)
 
-instance Prelude.AWSRequest DeleteSigningCertificate where
+instance Core.AWSRequest DeleteSigningCertificate where
   type
-    Rs DeleteSigningCertificate =
+    AWSResponse DeleteSigningCertificate =
       DeleteSigningCertificateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       DeleteSigningCertificateResponse'
 
-instance Prelude.Hashable DeleteSigningCertificate
+instance Core.Hashable DeleteSigningCertificate
 
-instance Prelude.NFData DeleteSigningCertificate
+instance Core.NFData DeleteSigningCertificate
 
-instance Prelude.ToHeaders DeleteSigningCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteSigningCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteSigningCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSigningCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSigningCertificate where
+instance Core.ToQuery DeleteSigningCertificate where
   toQuery DeleteSigningCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteSigningCertificate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "CertificateId" Prelude.=: certificateId
+          Core.=: ("DeleteSigningCertificate" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "CertificateId" Core.=: certificateId
       ]
 
 -- | /See:/ 'newDeleteSigningCertificateResponse' smart constructor.
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSigningCertificateResponse' with all optional fields omitted.
@@ -160,6 +157,4 @@ newDeleteSigningCertificateResponse ::
 newDeleteSigningCertificateResponse =
   DeleteSigningCertificateResponse'
 
-instance
-  Prelude.NFData
-    DeleteSigningCertificateResponse
+instance Core.NFData DeleteSigningCertificateResponse

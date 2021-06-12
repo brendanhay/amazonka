@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.Pinpoint.GetJourney
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetJourney' smart constructor.
 data GetJourney = GetJourney'
   { -- | The unique identifier for the journey.
-    journeyId :: Prelude.Text,
+    journeyId :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJourney' with all optional fields omitted.
@@ -72,9 +71,9 @@ data GetJourney = GetJourney'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetJourney ::
   -- | 'journeyId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   GetJourney
 newGetJourney pJourneyId_ pApplicationId_ =
   GetJourney'
@@ -83,59 +82,57 @@ newGetJourney pJourneyId_ pApplicationId_ =
     }
 
 -- | The unique identifier for the journey.
-getJourney_journeyId :: Lens.Lens' GetJourney Prelude.Text
+getJourney_journeyId :: Lens.Lens' GetJourney Core.Text
 getJourney_journeyId = Lens.lens (\GetJourney' {journeyId} -> journeyId) (\s@GetJourney' {} a -> s {journeyId = a} :: GetJourney)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getJourney_applicationId :: Lens.Lens' GetJourney Prelude.Text
+getJourney_applicationId :: Lens.Lens' GetJourney Core.Text
 getJourney_applicationId = Lens.lens (\GetJourney' {applicationId} -> applicationId) (\s@GetJourney' {} a -> s {applicationId = a} :: GetJourney)
 
-instance Prelude.AWSRequest GetJourney where
-  type Rs GetJourney = GetJourneyResponse
+instance Core.AWSRequest GetJourney where
+  type AWSResponse GetJourney = GetJourneyResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetJourneyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetJourney
+instance Core.Hashable GetJourney
 
-instance Prelude.NFData GetJourney
+instance Core.NFData GetJourney
 
-instance Prelude.ToHeaders GetJourney where
+instance Core.ToHeaders GetJourney where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetJourney where
+instance Core.ToPath GetJourney where
   toPath GetJourney' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/journeys/",
-        Prelude.toBS journeyId
+        Core.toBS journeyId
       ]
 
-instance Prelude.ToQuery GetJourney where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJourney where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetJourneyResponse' smart constructor.
 data GetJourneyResponse = GetJourneyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     journeyResponse :: JourneyResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJourneyResponse' with all optional fields omitted.
@@ -150,7 +147,7 @@ data GetJourneyResponse = GetJourneyResponse'
 -- 'journeyResponse', 'getJourneyResponse_journeyResponse' - Undocumented member.
 newGetJourneyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'journeyResponse'
   JourneyResponse ->
   GetJourneyResponse
@@ -161,11 +158,11 @@ newGetJourneyResponse pHttpStatus_ pJourneyResponse_ =
     }
 
 -- | The response's http status code.
-getJourneyResponse_httpStatus :: Lens.Lens' GetJourneyResponse Prelude.Int
+getJourneyResponse_httpStatus :: Lens.Lens' GetJourneyResponse Core.Int
 getJourneyResponse_httpStatus = Lens.lens (\GetJourneyResponse' {httpStatus} -> httpStatus) (\s@GetJourneyResponse' {} a -> s {httpStatus = a} :: GetJourneyResponse)
 
 -- | Undocumented member.
 getJourneyResponse_journeyResponse :: Lens.Lens' GetJourneyResponse JourneyResponse
 getJourneyResponse_journeyResponse = Lens.lens (\GetJourneyResponse' {journeyResponse} -> journeyResponse) (\s@GetJourneyResponse' {} a -> s {journeyResponse = a} :: GetJourneyResponse)
 
-instance Prelude.NFData GetJourneyResponse
+instance Core.NFData GetJourneyResponse

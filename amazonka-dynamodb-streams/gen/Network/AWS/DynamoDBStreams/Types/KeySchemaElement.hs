@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDBStreams.Types.KeySchemaElement where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDBStreams.Types.KeyType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents /a single element/ of a key schema. A key schema specifies
 -- the attributes that make up the primary key of a table, or the key
@@ -41,7 +40,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
   { -- | The name of a key attribute.
-    attributeName :: Prelude.Text,
+    attributeName :: Core.Text,
     -- | The role that this key attribute will assume:
     --
     -- -   @HASH@ - partition key
@@ -59,7 +58,7 @@ data KeySchemaElement = KeySchemaElement'
     -- sort key value.
     keyType :: KeyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeySchemaElement' with all optional fields omitted.
@@ -88,7 +87,7 @@ data KeySchemaElement = KeySchemaElement'
 -- sort key value.
 newKeySchemaElement ::
   -- | 'attributeName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'keyType'
   KeyType ->
   KeySchemaElement
@@ -99,7 +98,7 @@ newKeySchemaElement pAttributeName_ pKeyType_ =
     }
 
 -- | The name of a key attribute.
-keySchemaElement_attributeName :: Lens.Lens' KeySchemaElement Prelude.Text
+keySchemaElement_attributeName :: Lens.Lens' KeySchemaElement Core.Text
 keySchemaElement_attributeName = Lens.lens (\KeySchemaElement' {attributeName} -> attributeName) (\s@KeySchemaElement' {} a -> s {attributeName = a} :: KeySchemaElement)
 
 -- | The role that this key attribute will assume:
@@ -120,16 +119,16 @@ keySchemaElement_attributeName = Lens.lens (\KeySchemaElement' {attributeName} -
 keySchemaElement_keyType :: Lens.Lens' KeySchemaElement KeyType
 keySchemaElement_keyType = Lens.lens (\KeySchemaElement' {keyType} -> keyType) (\s@KeySchemaElement' {} a -> s {keyType = a} :: KeySchemaElement)
 
-instance Prelude.FromJSON KeySchemaElement where
+instance Core.FromJSON KeySchemaElement where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeySchemaElement"
       ( \x ->
           KeySchemaElement'
-            Prelude.<$> (x Prelude..: "AttributeName")
-            Prelude.<*> (x Prelude..: "KeyType")
+            Core.<$> (x Core..: "AttributeName")
+            Core.<*> (x Core..: "KeyType")
       )
 
-instance Prelude.Hashable KeySchemaElement
+instance Core.Hashable KeySchemaElement
 
-instance Prelude.NFData KeySchemaElement
+instance Core.NFData KeySchemaElement

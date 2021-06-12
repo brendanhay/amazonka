@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SlotStartTimeRangeRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the time period for a Scheduled Instance to start its first
 -- schedule.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSlotStartTimeRangeRequest' smart constructor.
 data SlotStartTimeRangeRequest = SlotStartTimeRangeRequest'
   { -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-    earliestTime :: Prelude.Maybe Prelude.ISO8601,
+    earliestTime :: Core.Maybe Core.ISO8601,
     -- | The latest date and time, in UTC, for the Scheduled Instance to start.
-    latestTime :: Prelude.Maybe Prelude.ISO8601
+    latestTime :: Core.Maybe Core.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SlotStartTimeRangeRequest' with all optional fields omitted.
@@ -52,25 +51,25 @@ newSlotStartTimeRangeRequest ::
 newSlotStartTimeRangeRequest =
   SlotStartTimeRangeRequest'
     { earliestTime =
-        Prelude.Nothing,
-      latestTime = Prelude.Nothing
+        Core.Nothing,
+      latestTime = Core.Nothing
     }
 
 -- | The earliest date and time, in UTC, for the Scheduled Instance to start.
-slotStartTimeRangeRequest_earliestTime :: Lens.Lens' SlotStartTimeRangeRequest (Prelude.Maybe Prelude.UTCTime)
-slotStartTimeRangeRequest_earliestTime = Lens.lens (\SlotStartTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotStartTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotStartTimeRangeRequest) Prelude.. Lens.mapping Prelude._Time
+slotStartTimeRangeRequest_earliestTime :: Lens.Lens' SlotStartTimeRangeRequest (Core.Maybe Core.UTCTime)
+slotStartTimeRangeRequest_earliestTime = Lens.lens (\SlotStartTimeRangeRequest' {earliestTime} -> earliestTime) (\s@SlotStartTimeRangeRequest' {} a -> s {earliestTime = a} :: SlotStartTimeRangeRequest) Core.. Lens.mapping Core._Time
 
 -- | The latest date and time, in UTC, for the Scheduled Instance to start.
-slotStartTimeRangeRequest_latestTime :: Lens.Lens' SlotStartTimeRangeRequest (Prelude.Maybe Prelude.UTCTime)
-slotStartTimeRangeRequest_latestTime = Lens.lens (\SlotStartTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotStartTimeRangeRequest' {} a -> s {latestTime = a} :: SlotStartTimeRangeRequest) Prelude.. Lens.mapping Prelude._Time
+slotStartTimeRangeRequest_latestTime :: Lens.Lens' SlotStartTimeRangeRequest (Core.Maybe Core.UTCTime)
+slotStartTimeRangeRequest_latestTime = Lens.lens (\SlotStartTimeRangeRequest' {latestTime} -> latestTime) (\s@SlotStartTimeRangeRequest' {} a -> s {latestTime = a} :: SlotStartTimeRangeRequest) Core.. Lens.mapping Core._Time
 
-instance Prelude.Hashable SlotStartTimeRangeRequest
+instance Core.Hashable SlotStartTimeRangeRequest
 
-instance Prelude.NFData SlotStartTimeRangeRequest
+instance Core.NFData SlotStartTimeRangeRequest
 
-instance Prelude.ToQuery SlotStartTimeRangeRequest where
+instance Core.ToQuery SlotStartTimeRangeRequest where
   toQuery SlotStartTimeRangeRequest' {..} =
-    Prelude.mconcat
-      [ "EarliestTime" Prelude.=: earliestTime,
-        "LatestTime" Prelude.=: latestTime
+    Core.mconcat
+      [ "EarliestTime" Core.=: earliestTime,
+        "LatestTime" Core.=: latestTime
       ]

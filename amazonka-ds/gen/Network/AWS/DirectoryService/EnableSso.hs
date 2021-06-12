@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.DirectoryService.EnableSso
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,7 +55,7 @@ data EnableSso = EnableSso'
   { -- | The password of an alternate account to use to enable single-sign on.
     -- This is only used for AD Connector directories. For more information,
     -- see the /UserName/ parameter.
-    password :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    password :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The username of an alternate account to use to enable single-sign on.
     -- This is only used for AD Connector directories. This account must have
     -- privileges to add a service principal name.
@@ -66,11 +65,11 @@ data EnableSso = EnableSso'
     -- /UserName/ and /Password/ parameters. These credentials are only used to
     -- enable single sign-on and are not stored by the service. The AD
     -- Connector service account is not changed.
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | The identifier of the directory for which to enable single-sign on.
-    directoryId :: Prelude.Text
+    directoryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableSso' with all optional fields omitted.
@@ -97,20 +96,20 @@ data EnableSso = EnableSso'
 -- 'directoryId', 'enableSso_directoryId' - The identifier of the directory for which to enable single-sign on.
 newEnableSso ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   EnableSso
 newEnableSso pDirectoryId_ =
   EnableSso'
-    { password = Prelude.Nothing,
-      userName = Prelude.Nothing,
+    { password = Core.Nothing,
+      userName = Core.Nothing,
       directoryId = pDirectoryId_
     }
 
 -- | The password of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. For more information,
 -- see the /UserName/ parameter.
-enableSso_password :: Lens.Lens' EnableSso (Prelude.Maybe Prelude.Text)
-enableSso_password = Lens.lens (\EnableSso' {password} -> password) (\s@EnableSso' {} a -> s {password = a} :: EnableSso) Prelude.. Lens.mapping Prelude._Sensitive
+enableSso_password :: Lens.Lens' EnableSso (Core.Maybe Core.Text)
+enableSso_password = Lens.lens (\EnableSso' {password} -> password) (\s@EnableSso' {} a -> s {password = a} :: EnableSso) Core.. Lens.mapping Core._Sensitive
 
 -- | The username of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. This account must have
@@ -121,66 +120,64 @@ enableSso_password = Lens.lens (\EnableSso' {password} -> password) (\s@EnableSs
 -- /UserName/ and /Password/ parameters. These credentials are only used to
 -- enable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
-enableSso_userName :: Lens.Lens' EnableSso (Prelude.Maybe Prelude.Text)
+enableSso_userName :: Lens.Lens' EnableSso (Core.Maybe Core.Text)
 enableSso_userName = Lens.lens (\EnableSso' {userName} -> userName) (\s@EnableSso' {} a -> s {userName = a} :: EnableSso)
 
 -- | The identifier of the directory for which to enable single-sign on.
-enableSso_directoryId :: Lens.Lens' EnableSso Prelude.Text
+enableSso_directoryId :: Lens.Lens' EnableSso Core.Text
 enableSso_directoryId = Lens.lens (\EnableSso' {directoryId} -> directoryId) (\s@EnableSso' {} a -> s {directoryId = a} :: EnableSso)
 
-instance Prelude.AWSRequest EnableSso where
-  type Rs EnableSso = EnableSsoResponse
+instance Core.AWSRequest EnableSso where
+  type AWSResponse EnableSso = EnableSsoResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableSsoResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable EnableSso
+instance Core.Hashable EnableSso
 
-instance Prelude.NFData EnableSso
+instance Core.NFData EnableSso
 
-instance Prelude.ToHeaders EnableSso where
+instance Core.ToHeaders EnableSso where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.EnableSso" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.EnableSso" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableSso where
+instance Core.ToJSON EnableSso where
   toJSON EnableSso' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Password" Prelude..=) Prelude.<$> password,
-            ("UserName" Prelude..=) Prelude.<$> userName,
-            Prelude.Just ("DirectoryId" Prelude..= directoryId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Password" Core..=) Core.<$> password,
+            ("UserName" Core..=) Core.<$> userName,
+            Core.Just ("DirectoryId" Core..= directoryId)
           ]
       )
 
-instance Prelude.ToPath EnableSso where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableSso where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableSso where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableSso where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the results of the EnableSso operation.
 --
 -- /See:/ 'newEnableSsoResponse' smart constructor.
 data EnableSsoResponse = EnableSsoResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableSsoResponse' with all optional fields omitted.
@@ -193,13 +190,13 @@ data EnableSsoResponse = EnableSsoResponse'
 -- 'httpStatus', 'enableSsoResponse_httpStatus' - The response's http status code.
 newEnableSsoResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableSsoResponse
 newEnableSsoResponse pHttpStatus_ =
   EnableSsoResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-enableSsoResponse_httpStatus :: Lens.Lens' EnableSsoResponse Prelude.Int
+enableSsoResponse_httpStatus :: Lens.Lens' EnableSsoResponse Core.Int
 enableSsoResponse_httpStatus = Lens.lens (\EnableSsoResponse' {httpStatus} -> httpStatus) (\s@EnableSsoResponse' {} a -> s {httpStatus = a} :: EnableSsoResponse)
 
-instance Prelude.NFData EnableSsoResponse
+instance Core.NFData EnableSsoResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.ExcludedRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -39,9 +38,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newExcludedRule' smart constructor.
 data ExcludedRule = ExcludedRule'
   { -- | The unique identifier for the rule to exclude from the rule group.
-    ruleId :: Prelude.Text
+    ruleId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExcludedRule' with all optional fields omitted.
@@ -54,30 +53,28 @@ data ExcludedRule = ExcludedRule'
 -- 'ruleId', 'excludedRule_ruleId' - The unique identifier for the rule to exclude from the rule group.
 newExcludedRule ::
   -- | 'ruleId'
-  Prelude.Text ->
+  Core.Text ->
   ExcludedRule
 newExcludedRule pRuleId_ =
   ExcludedRule' {ruleId = pRuleId_}
 
 -- | The unique identifier for the rule to exclude from the rule group.
-excludedRule_ruleId :: Lens.Lens' ExcludedRule Prelude.Text
+excludedRule_ruleId :: Lens.Lens' ExcludedRule Core.Text
 excludedRule_ruleId = Lens.lens (\ExcludedRule' {ruleId} -> ruleId) (\s@ExcludedRule' {} a -> s {ruleId = a} :: ExcludedRule)
 
-instance Prelude.FromJSON ExcludedRule where
+instance Core.FromJSON ExcludedRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExcludedRule"
-      ( \x ->
-          ExcludedRule' Prelude.<$> (x Prelude..: "RuleId")
-      )
+      (\x -> ExcludedRule' Core.<$> (x Core..: "RuleId"))
 
-instance Prelude.Hashable ExcludedRule
+instance Core.Hashable ExcludedRule
 
-instance Prelude.NFData ExcludedRule
+instance Core.NFData ExcludedRule
 
-instance Prelude.ToJSON ExcludedRule where
+instance Core.ToJSON ExcludedRule where
   toJSON ExcludedRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("RuleId" Prelude..= ruleId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RuleId" Core..= ruleId)]
       )

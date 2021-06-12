@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,19 +37,19 @@ module Network.AWS.CognitoIdentityProvider.DeleteIdentityProvider
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteIdentityProvider' smart constructor.
 data DeleteIdentityProvider = DeleteIdentityProvider'
   { -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The identity provider name.
-    providerName :: Prelude.Text
+    providerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityProvider' with all optional fields omitted.
@@ -65,9 +64,9 @@ data DeleteIdentityProvider = DeleteIdentityProvider'
 -- 'providerName', 'deleteIdentityProvider_providerName' - The identity provider name.
 newDeleteIdentityProvider ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'providerName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteIdentityProvider
 newDeleteIdentityProvider pUserPoolId_ pProviderName_ =
   DeleteIdentityProvider'
@@ -76,62 +75,59 @@ newDeleteIdentityProvider pUserPoolId_ pProviderName_ =
     }
 
 -- | The user pool ID.
-deleteIdentityProvider_userPoolId :: Lens.Lens' DeleteIdentityProvider Prelude.Text
+deleteIdentityProvider_userPoolId :: Lens.Lens' DeleteIdentityProvider Core.Text
 deleteIdentityProvider_userPoolId = Lens.lens (\DeleteIdentityProvider' {userPoolId} -> userPoolId) (\s@DeleteIdentityProvider' {} a -> s {userPoolId = a} :: DeleteIdentityProvider)
 
 -- | The identity provider name.
-deleteIdentityProvider_providerName :: Lens.Lens' DeleteIdentityProvider Prelude.Text
+deleteIdentityProvider_providerName :: Lens.Lens' DeleteIdentityProvider Core.Text
 deleteIdentityProvider_providerName = Lens.lens (\DeleteIdentityProvider' {providerName} -> providerName) (\s@DeleteIdentityProvider' {} a -> s {providerName = a} :: DeleteIdentityProvider)
 
-instance Prelude.AWSRequest DeleteIdentityProvider where
+instance Core.AWSRequest DeleteIdentityProvider where
   type
-    Rs DeleteIdentityProvider =
+    AWSResponse DeleteIdentityProvider =
       DeleteIdentityProviderResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteIdentityProviderResponse'
 
-instance Prelude.Hashable DeleteIdentityProvider
+instance Core.Hashable DeleteIdentityProvider
 
-instance Prelude.NFData DeleteIdentityProvider
+instance Core.NFData DeleteIdentityProvider
 
-instance Prelude.ToHeaders DeleteIdentityProvider where
+instance Core.ToHeaders DeleteIdentityProvider where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.DeleteIdentityProvider" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.DeleteIdentityProvider" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteIdentityProvider where
+instance Core.ToJSON DeleteIdentityProvider where
   toJSON DeleteIdentityProvider' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
-            Prelude.Just
-              ("ProviderName" Prelude..= providerName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("ProviderName" Core..= providerName)
           ]
       )
 
-instance Prelude.ToPath DeleteIdentityProvider where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteIdentityProvider where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteIdentityProvider where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteIdentityProvider where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteIdentityProviderResponse' smart constructor.
 data DeleteIdentityProviderResponse = DeleteIdentityProviderResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteIdentityProviderResponse' with all optional fields omitted.
@@ -142,6 +138,4 @@ newDeleteIdentityProviderResponse ::
 newDeleteIdentityProviderResponse =
   DeleteIdentityProviderResponse'
 
-instance
-  Prelude.NFData
-    DeleteIdentityProviderResponse
+instance Core.NFData DeleteIdentityProviderResponse

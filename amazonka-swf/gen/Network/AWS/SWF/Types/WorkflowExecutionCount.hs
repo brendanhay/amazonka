@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.WorkflowExecutionCount where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the count of workflow executions returned from
 -- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions
@@ -31,11 +30,11 @@ data WorkflowExecutionCount = WorkflowExecutionCount'
   { -- | If set to true, indicates that the actual count was more than the
     -- maximum supported by this API and the count returned is the truncated
     -- value.
-    truncated :: Prelude.Maybe Prelude.Bool,
+    truncated :: Core.Maybe Core.Bool,
     -- | The number of workflow executions.
-    count :: Prelude.Natural
+    count :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowExecutionCount' with all optional fields omitted.
@@ -52,35 +51,34 @@ data WorkflowExecutionCount = WorkflowExecutionCount'
 -- 'count', 'workflowExecutionCount_count' - The number of workflow executions.
 newWorkflowExecutionCount ::
   -- | 'count'
-  Prelude.Natural ->
+  Core.Natural ->
   WorkflowExecutionCount
 newWorkflowExecutionCount pCount_ =
   WorkflowExecutionCount'
-    { truncated =
-        Prelude.Nothing,
+    { truncated = Core.Nothing,
       count = pCount_
     }
 
 -- | If set to true, indicates that the actual count was more than the
 -- maximum supported by this API and the count returned is the truncated
 -- value.
-workflowExecutionCount_truncated :: Lens.Lens' WorkflowExecutionCount (Prelude.Maybe Prelude.Bool)
+workflowExecutionCount_truncated :: Lens.Lens' WorkflowExecutionCount (Core.Maybe Core.Bool)
 workflowExecutionCount_truncated = Lens.lens (\WorkflowExecutionCount' {truncated} -> truncated) (\s@WorkflowExecutionCount' {} a -> s {truncated = a} :: WorkflowExecutionCount)
 
 -- | The number of workflow executions.
-workflowExecutionCount_count :: Lens.Lens' WorkflowExecutionCount Prelude.Natural
+workflowExecutionCount_count :: Lens.Lens' WorkflowExecutionCount Core.Natural
 workflowExecutionCount_count = Lens.lens (\WorkflowExecutionCount' {count} -> count) (\s@WorkflowExecutionCount' {} a -> s {count = a} :: WorkflowExecutionCount)
 
-instance Prelude.FromJSON WorkflowExecutionCount where
+instance Core.FromJSON WorkflowExecutionCount where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowExecutionCount"
       ( \x ->
           WorkflowExecutionCount'
-            Prelude.<$> (x Prelude..:? "truncated")
-            Prelude.<*> (x Prelude..: "count")
+            Core.<$> (x Core..:? "truncated")
+            Core.<*> (x Core..: "count")
       )
 
-instance Prelude.Hashable WorkflowExecutionCount
+instance Core.Hashable WorkflowExecutionCount
 
-instance Prelude.NFData WorkflowExecutionCount
+instance Core.NFData WorkflowExecutionCount

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,8 +59,8 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,31 +72,31 @@ data UpdateIdentityPool = UpdateIdentityPool'
     -- information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow>
     -- in the /Amazon Cognito Developer Guide/.
-    allowClassicFlow :: Prelude.Maybe Prelude.Bool,
+    allowClassicFlow :: Core.Maybe Core.Bool,
     -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your
     -- identity pool.
-    samlProviderARNs :: Prelude.Maybe [Prelude.Text],
+    samlProviderARNs :: Core.Maybe [Core.Text],
     -- | The tags that are assigned to the identity pool. A tag is a label that
     -- you can apply to identity pools to categorize and manage them in
     -- different ways, such as by purpose, owner, environment, or other
     -- criteria.
-    identityPoolTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    identityPoolTags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The ARNs of the OpenID Connect providers.
-    openIdConnectProviderARNs :: Prelude.Maybe [Prelude.Text],
+    openIdConnectProviderARNs :: Core.Maybe [Core.Text],
     -- | Optional key:value pairs mapping provider names to provider app IDs.
-    supportedLoginProviders :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    supportedLoginProviders :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A list representing an Amazon Cognito user pool and its client ID.
-    cognitoIdentityProviders :: Prelude.Maybe [CognitoIdentityProvider],
+    cognitoIdentityProviders :: Core.Maybe [CognitoIdentityProvider],
     -- | The \"domain\" by which Cognito will refer to your users.
-    developerProviderName :: Prelude.Maybe Prelude.Text,
+    developerProviderName :: Core.Maybe Core.Text,
     -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Prelude.Text,
+    identityPoolId :: Core.Text,
     -- | A string that you provide.
-    identityPoolName :: Prelude.Text,
+    identityPoolName :: Core.Text,
     -- | TRUE if the identity pool supports unauthenticated logins.
-    allowUnauthenticatedIdentities :: Prelude.Bool
+    allowUnauthenticatedIdentities :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateIdentityPool' with all optional fields omitted.
@@ -135,11 +134,11 @@ data UpdateIdentityPool = UpdateIdentityPool'
 -- 'allowUnauthenticatedIdentities', 'updateIdentityPool_allowUnauthenticatedIdentities' - TRUE if the identity pool supports unauthenticated logins.
 newUpdateIdentityPool ::
   -- | 'identityPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityPoolName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'allowUnauthenticatedIdentities'
-  Prelude.Bool ->
+  Core.Bool ->
   UpdateIdentityPool
 newUpdateIdentityPool
   pIdentityPoolId_
@@ -147,13 +146,13 @@ newUpdateIdentityPool
   pAllowUnauthenticatedIdentities_ =
     UpdateIdentityPool'
       { allowClassicFlow =
-          Prelude.Nothing,
-        samlProviderARNs = Prelude.Nothing,
-        identityPoolTags = Prelude.Nothing,
-        openIdConnectProviderARNs = Prelude.Nothing,
-        supportedLoginProviders = Prelude.Nothing,
-        cognitoIdentityProviders = Prelude.Nothing,
-        developerProviderName = Prelude.Nothing,
+          Core.Nothing,
+        samlProviderARNs = Core.Nothing,
+        identityPoolTags = Core.Nothing,
+        openIdConnectProviderARNs = Core.Nothing,
+        supportedLoginProviders = Core.Nothing,
+        cognitoIdentityProviders = Core.Nothing,
+        developerProviderName = Core.Nothing,
         identityPoolId = pIdentityPoolId_,
         identityPoolName = pIdentityPoolName_,
         allowUnauthenticatedIdentities =
@@ -164,106 +163,103 @@ newUpdateIdentityPool
 -- information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html Identity Pools (Federated Identities) Authentication Flow>
 -- in the /Amazon Cognito Developer Guide/.
-updateIdentityPool_allowClassicFlow :: Lens.Lens' UpdateIdentityPool (Prelude.Maybe Prelude.Bool)
+updateIdentityPool_allowClassicFlow :: Lens.Lens' UpdateIdentityPool (Core.Maybe Core.Bool)
 updateIdentityPool_allowClassicFlow = Lens.lens (\UpdateIdentityPool' {allowClassicFlow} -> allowClassicFlow) (\s@UpdateIdentityPool' {} a -> s {allowClassicFlow = a} :: UpdateIdentityPool)
 
 -- | An array of Amazon Resource Names (ARNs) of the SAML provider for your
 -- identity pool.
-updateIdentityPool_samlProviderARNs :: Lens.Lens' UpdateIdentityPool (Prelude.Maybe [Prelude.Text])
-updateIdentityPool_samlProviderARNs = Lens.lens (\UpdateIdentityPool' {samlProviderARNs} -> samlProviderARNs) (\s@UpdateIdentityPool' {} a -> s {samlProviderARNs = a} :: UpdateIdentityPool) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityPool_samlProviderARNs :: Lens.Lens' UpdateIdentityPool (Core.Maybe [Core.Text])
+updateIdentityPool_samlProviderARNs = Lens.lens (\UpdateIdentityPool' {samlProviderARNs} -> samlProviderARNs) (\s@UpdateIdentityPool' {} a -> s {samlProviderARNs = a} :: UpdateIdentityPool) Core.. Lens.mapping Lens._Coerce
 
 -- | The tags that are assigned to the identity pool. A tag is a label that
 -- you can apply to identity pools to categorize and manage them in
 -- different ways, such as by purpose, owner, environment, or other
 -- criteria.
-updateIdentityPool_identityPoolTags :: Lens.Lens' UpdateIdentityPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityPool_identityPoolTags = Lens.lens (\UpdateIdentityPool' {identityPoolTags} -> identityPoolTags) (\s@UpdateIdentityPool' {} a -> s {identityPoolTags = a} :: UpdateIdentityPool) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityPool_identityPoolTags :: Lens.Lens' UpdateIdentityPool (Core.Maybe (Core.HashMap Core.Text Core.Text))
+updateIdentityPool_identityPoolTags = Lens.lens (\UpdateIdentityPool' {identityPoolTags} -> identityPoolTags) (\s@UpdateIdentityPool' {} a -> s {identityPoolTags = a} :: UpdateIdentityPool) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARNs of the OpenID Connect providers.
-updateIdentityPool_openIdConnectProviderARNs :: Lens.Lens' UpdateIdentityPool (Prelude.Maybe [Prelude.Text])
-updateIdentityPool_openIdConnectProviderARNs = Lens.lens (\UpdateIdentityPool' {openIdConnectProviderARNs} -> openIdConnectProviderARNs) (\s@UpdateIdentityPool' {} a -> s {openIdConnectProviderARNs = a} :: UpdateIdentityPool) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityPool_openIdConnectProviderARNs :: Lens.Lens' UpdateIdentityPool (Core.Maybe [Core.Text])
+updateIdentityPool_openIdConnectProviderARNs = Lens.lens (\UpdateIdentityPool' {openIdConnectProviderARNs} -> openIdConnectProviderARNs) (\s@UpdateIdentityPool' {} a -> s {openIdConnectProviderARNs = a} :: UpdateIdentityPool) Core.. Lens.mapping Lens._Coerce
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-updateIdentityPool_supportedLoginProviders :: Lens.Lens' UpdateIdentityPool (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-updateIdentityPool_supportedLoginProviders = Lens.lens (\UpdateIdentityPool' {supportedLoginProviders} -> supportedLoginProviders) (\s@UpdateIdentityPool' {} a -> s {supportedLoginProviders = a} :: UpdateIdentityPool) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityPool_supportedLoginProviders :: Lens.Lens' UpdateIdentityPool (Core.Maybe (Core.HashMap Core.Text Core.Text))
+updateIdentityPool_supportedLoginProviders = Lens.lens (\UpdateIdentityPool' {supportedLoginProviders} -> supportedLoginProviders) (\s@UpdateIdentityPool' {} a -> s {supportedLoginProviders = a} :: UpdateIdentityPool) Core.. Lens.mapping Lens._Coerce
 
 -- | A list representing an Amazon Cognito user pool and its client ID.
-updateIdentityPool_cognitoIdentityProviders :: Lens.Lens' UpdateIdentityPool (Prelude.Maybe [CognitoIdentityProvider])
-updateIdentityPool_cognitoIdentityProviders = Lens.lens (\UpdateIdentityPool' {cognitoIdentityProviders} -> cognitoIdentityProviders) (\s@UpdateIdentityPool' {} a -> s {cognitoIdentityProviders = a} :: UpdateIdentityPool) Prelude.. Lens.mapping Prelude._Coerce
+updateIdentityPool_cognitoIdentityProviders :: Lens.Lens' UpdateIdentityPool (Core.Maybe [CognitoIdentityProvider])
+updateIdentityPool_cognitoIdentityProviders = Lens.lens (\UpdateIdentityPool' {cognitoIdentityProviders} -> cognitoIdentityProviders) (\s@UpdateIdentityPool' {} a -> s {cognitoIdentityProviders = a} :: UpdateIdentityPool) Core.. Lens.mapping Lens._Coerce
 
 -- | The \"domain\" by which Cognito will refer to your users.
-updateIdentityPool_developerProviderName :: Lens.Lens' UpdateIdentityPool (Prelude.Maybe Prelude.Text)
+updateIdentityPool_developerProviderName :: Lens.Lens' UpdateIdentityPool (Core.Maybe Core.Text)
 updateIdentityPool_developerProviderName = Lens.lens (\UpdateIdentityPool' {developerProviderName} -> developerProviderName) (\s@UpdateIdentityPool' {} a -> s {developerProviderName = a} :: UpdateIdentityPool)
 
 -- | An identity pool ID in the format REGION:GUID.
-updateIdentityPool_identityPoolId :: Lens.Lens' UpdateIdentityPool Prelude.Text
+updateIdentityPool_identityPoolId :: Lens.Lens' UpdateIdentityPool Core.Text
 updateIdentityPool_identityPoolId = Lens.lens (\UpdateIdentityPool' {identityPoolId} -> identityPoolId) (\s@UpdateIdentityPool' {} a -> s {identityPoolId = a} :: UpdateIdentityPool)
 
 -- | A string that you provide.
-updateIdentityPool_identityPoolName :: Lens.Lens' UpdateIdentityPool Prelude.Text
+updateIdentityPool_identityPoolName :: Lens.Lens' UpdateIdentityPool Core.Text
 updateIdentityPool_identityPoolName = Lens.lens (\UpdateIdentityPool' {identityPoolName} -> identityPoolName) (\s@UpdateIdentityPool' {} a -> s {identityPoolName = a} :: UpdateIdentityPool)
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-updateIdentityPool_allowUnauthenticatedIdentities :: Lens.Lens' UpdateIdentityPool Prelude.Bool
+updateIdentityPool_allowUnauthenticatedIdentities :: Lens.Lens' UpdateIdentityPool Core.Bool
 updateIdentityPool_allowUnauthenticatedIdentities = Lens.lens (\UpdateIdentityPool' {allowUnauthenticatedIdentities} -> allowUnauthenticatedIdentities) (\s@UpdateIdentityPool' {} a -> s {allowUnauthenticatedIdentities = a} :: UpdateIdentityPool)
 
-instance Prelude.AWSRequest UpdateIdentityPool where
-  type Rs UpdateIdentityPool = IdentityPool
+instance Core.AWSRequest UpdateIdentityPool where
+  type AWSResponse UpdateIdentityPool = IdentityPool
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable UpdateIdentityPool
+instance Core.Hashable UpdateIdentityPool
 
-instance Prelude.NFData UpdateIdentityPool
+instance Core.NFData UpdateIdentityPool
 
-instance Prelude.ToHeaders UpdateIdentityPool where
+instance Core.ToHeaders UpdateIdentityPool where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.UpdateIdentityPool" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.UpdateIdentityPool" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateIdentityPool where
+instance Core.ToJSON UpdateIdentityPool where
   toJSON UpdateIdentityPool' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AllowClassicFlow" Prelude..=)
-              Prelude.<$> allowClassicFlow,
-            ("SamlProviderARNs" Prelude..=)
-              Prelude.<$> samlProviderARNs,
-            ("IdentityPoolTags" Prelude..=)
-              Prelude.<$> identityPoolTags,
-            ("OpenIdConnectProviderARNs" Prelude..=)
-              Prelude.<$> openIdConnectProviderARNs,
-            ("SupportedLoginProviders" Prelude..=)
-              Prelude.<$> supportedLoginProviders,
-            ("CognitoIdentityProviders" Prelude..=)
-              Prelude.<$> cognitoIdentityProviders,
-            ("DeveloperProviderName" Prelude..=)
-              Prelude.<$> developerProviderName,
-            Prelude.Just
-              ("IdentityPoolId" Prelude..= identityPoolId),
-            Prelude.Just
-              ("IdentityPoolName" Prelude..= identityPoolName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("AllowClassicFlow" Core..=)
+              Core.<$> allowClassicFlow,
+            ("SamlProviderARNs" Core..=)
+              Core.<$> samlProviderARNs,
+            ("IdentityPoolTags" Core..=)
+              Core.<$> identityPoolTags,
+            ("OpenIdConnectProviderARNs" Core..=)
+              Core.<$> openIdConnectProviderARNs,
+            ("SupportedLoginProviders" Core..=)
+              Core.<$> supportedLoginProviders,
+            ("CognitoIdentityProviders" Core..=)
+              Core.<$> cognitoIdentityProviders,
+            ("DeveloperProviderName" Core..=)
+              Core.<$> developerProviderName,
+            Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            Core.Just
+              ("IdentityPoolName" Core..= identityPoolName),
+            Core.Just
               ( "AllowUnauthenticatedIdentities"
-                  Prelude..= allowUnauthenticatedIdentities
+                  Core..= allowUnauthenticatedIdentities
               )
           ]
       )
 
-instance Prelude.ToPath UpdateIdentityPool where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateIdentityPool where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateIdentityPool where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateIdentityPool where
+  toQuery = Core.const Core.mempty

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,9 @@ module Network.AWS.OpsWorks.DescribeCommands
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,17 +60,17 @@ data DescribeCommands = DescribeCommands'
   { -- | The deployment ID. If you include this parameter, @DescribeCommands@
     -- returns a description of the commands associated with the specified
     -- deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    deploymentId :: Core.Maybe Core.Text,
     -- | The instance ID. If you include this parameter, @DescribeCommands@
     -- returns a description of the commands associated with the specified
     -- instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | An array of command IDs. If you include this parameter,
     -- @DescribeCommands@ returns a description of the specified commands.
     -- Otherwise, it returns a description of every command.
-    commandIds :: Prelude.Maybe [Prelude.Text]
+    commandIds :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCommands' with all optional fields omitted.
@@ -96,75 +95,74 @@ newDescribeCommands ::
   DescribeCommands
 newDescribeCommands =
   DescribeCommands'
-    { deploymentId = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      commandIds = Prelude.Nothing
+    { deploymentId = Core.Nothing,
+      instanceId = Core.Nothing,
+      commandIds = Core.Nothing
     }
 
 -- | The deployment ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
 -- deployment.
-describeCommands_deploymentId :: Lens.Lens' DescribeCommands (Prelude.Maybe Prelude.Text)
+describeCommands_deploymentId :: Lens.Lens' DescribeCommands (Core.Maybe Core.Text)
 describeCommands_deploymentId = Lens.lens (\DescribeCommands' {deploymentId} -> deploymentId) (\s@DescribeCommands' {} a -> s {deploymentId = a} :: DescribeCommands)
 
 -- | The instance ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
 -- instance.
-describeCommands_instanceId :: Lens.Lens' DescribeCommands (Prelude.Maybe Prelude.Text)
+describeCommands_instanceId :: Lens.Lens' DescribeCommands (Core.Maybe Core.Text)
 describeCommands_instanceId = Lens.lens (\DescribeCommands' {instanceId} -> instanceId) (\s@DescribeCommands' {} a -> s {instanceId = a} :: DescribeCommands)
 
 -- | An array of command IDs. If you include this parameter,
 -- @DescribeCommands@ returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
-describeCommands_commandIds :: Lens.Lens' DescribeCommands (Prelude.Maybe [Prelude.Text])
-describeCommands_commandIds = Lens.lens (\DescribeCommands' {commandIds} -> commandIds) (\s@DescribeCommands' {} a -> s {commandIds = a} :: DescribeCommands) Prelude.. Lens.mapping Prelude._Coerce
+describeCommands_commandIds :: Lens.Lens' DescribeCommands (Core.Maybe [Core.Text])
+describeCommands_commandIds = Lens.lens (\DescribeCommands' {commandIds} -> commandIds) (\s@DescribeCommands' {} a -> s {commandIds = a} :: DescribeCommands) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribeCommands where
-  type Rs DescribeCommands = DescribeCommandsResponse
+instance Core.AWSRequest DescribeCommands where
+  type
+    AWSResponse DescribeCommands =
+      DescribeCommandsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeCommandsResponse'
-            Prelude.<$> (x Prelude..?> "Commands" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Commands" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCommands
+instance Core.Hashable DescribeCommands
 
-instance Prelude.NFData DescribeCommands
+instance Core.NFData DescribeCommands
 
-instance Prelude.ToHeaders DescribeCommands where
+instance Core.ToHeaders DescribeCommands where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.DescribeCommands" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.DescribeCommands" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeCommands where
+instance Core.ToJSON DescribeCommands where
   toJSON DescribeCommands' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DeploymentId" Prelude..=)
-              Prelude.<$> deploymentId,
-            ("InstanceId" Prelude..=) Prelude.<$> instanceId,
-            ("CommandIds" Prelude..=) Prelude.<$> commandIds
+    Core.object
+      ( Core.catMaybes
+          [ ("DeploymentId" Core..=) Core.<$> deploymentId,
+            ("InstanceId" Core..=) Core.<$> instanceId,
+            ("CommandIds" Core..=) Core.<$> commandIds
           ]
       )
 
-instance Prelude.ToPath DescribeCommands where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCommands where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCommands where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeCommands where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @DescribeCommands@ request.
 --
@@ -172,11 +170,11 @@ instance Prelude.ToQuery DescribeCommands where
 data DescribeCommandsResponse = DescribeCommandsResponse'
   { -- | An array of @Command@ objects that describe each of the specified
     -- commands.
-    commands :: Prelude.Maybe [Command],
+    commands :: Core.Maybe [Command],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCommandsResponse' with all optional fields omitted.
@@ -192,22 +190,21 @@ data DescribeCommandsResponse = DescribeCommandsResponse'
 -- 'httpStatus', 'describeCommandsResponse_httpStatus' - The response's http status code.
 newDescribeCommandsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCommandsResponse
 newDescribeCommandsResponse pHttpStatus_ =
   DescribeCommandsResponse'
-    { commands =
-        Prelude.Nothing,
+    { commands = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
-describeCommandsResponse_commands :: Lens.Lens' DescribeCommandsResponse (Prelude.Maybe [Command])
-describeCommandsResponse_commands = Lens.lens (\DescribeCommandsResponse' {commands} -> commands) (\s@DescribeCommandsResponse' {} a -> s {commands = a} :: DescribeCommandsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeCommandsResponse_commands :: Lens.Lens' DescribeCommandsResponse (Core.Maybe [Command])
+describeCommandsResponse_commands = Lens.lens (\DescribeCommandsResponse' {commands} -> commands) (\s@DescribeCommandsResponse' {} a -> s {commands = a} :: DescribeCommandsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeCommandsResponse_httpStatus :: Lens.Lens' DescribeCommandsResponse Prelude.Int
+describeCommandsResponse_httpStatus :: Lens.Lens' DescribeCommandsResponse Core.Int
 describeCommandsResponse_httpStatus = Lens.lens (\DescribeCommandsResponse' {httpStatus} -> httpStatus) (\s@DescribeCommandsResponse' {} a -> s {httpStatus = a} :: DescribeCommandsResponse)
 
-instance Prelude.NFData DescribeCommandsResponse
+instance Core.NFData DescribeCommandsResponse

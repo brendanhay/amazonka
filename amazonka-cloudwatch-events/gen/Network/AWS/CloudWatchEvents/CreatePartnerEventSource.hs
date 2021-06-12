@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,8 +66,8 @@ module Network.AWS.CloudWatchEvents.CreatePartnerEventSource
 where
 
 import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -79,12 +78,12 @@ data CreatePartnerEventSource = CreatePartnerEventSource'
     -- account that wants to use this partner event source must create a
     -- partner event bus with a name that matches the name of the partner event
     -- source.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The AWS account ID that is permitted to create a matching partner event
     -- bus for this partner event source.
-    account :: Prelude.Text
+    account :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePartnerEventSource' with all optional fields omitted.
@@ -104,9 +103,9 @@ data CreatePartnerEventSource = CreatePartnerEventSource'
 -- bus for this partner event source.
 newCreatePartnerEventSource ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'account'
-  Prelude.Text ->
+  Core.Text ->
   CreatePartnerEventSource
 newCreatePartnerEventSource pName_ pAccount_ =
   CreatePartnerEventSource'
@@ -119,69 +118,67 @@ newCreatePartnerEventSource pName_ pAccount_ =
 -- account that wants to use this partner event source must create a
 -- partner event bus with a name that matches the name of the partner event
 -- source.
-createPartnerEventSource_name :: Lens.Lens' CreatePartnerEventSource Prelude.Text
+createPartnerEventSource_name :: Lens.Lens' CreatePartnerEventSource Core.Text
 createPartnerEventSource_name = Lens.lens (\CreatePartnerEventSource' {name} -> name) (\s@CreatePartnerEventSource' {} a -> s {name = a} :: CreatePartnerEventSource)
 
 -- | The AWS account ID that is permitted to create a matching partner event
 -- bus for this partner event source.
-createPartnerEventSource_account :: Lens.Lens' CreatePartnerEventSource Prelude.Text
+createPartnerEventSource_account :: Lens.Lens' CreatePartnerEventSource Core.Text
 createPartnerEventSource_account = Lens.lens (\CreatePartnerEventSource' {account} -> account) (\s@CreatePartnerEventSource' {} a -> s {account = a} :: CreatePartnerEventSource)
 
-instance Prelude.AWSRequest CreatePartnerEventSource where
+instance Core.AWSRequest CreatePartnerEventSource where
   type
-    Rs CreatePartnerEventSource =
+    AWSResponse CreatePartnerEventSource =
       CreatePartnerEventSourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePartnerEventSourceResponse'
-            Prelude.<$> (x Prelude..?> "EventSourceArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EventSourceArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePartnerEventSource
+instance Core.Hashable CreatePartnerEventSource
 
-instance Prelude.NFData CreatePartnerEventSource
+instance Core.NFData CreatePartnerEventSource
 
-instance Prelude.ToHeaders CreatePartnerEventSource where
+instance Core.ToHeaders CreatePartnerEventSource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSEvents.CreatePartnerEventSource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSEvents.CreatePartnerEventSource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePartnerEventSource where
+instance Core.ToJSON CreatePartnerEventSource where
   toJSON CreatePartnerEventSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Account" Prelude..= account)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Account" Core..= account)
           ]
       )
 
-instance Prelude.ToPath CreatePartnerEventSource where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePartnerEventSource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePartnerEventSource where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePartnerEventSource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreatePartnerEventSourceResponse' smart constructor.
 data CreatePartnerEventSourceResponse = CreatePartnerEventSourceResponse'
   { -- | The ARN of the partner event source.
-    eventSourceArn :: Prelude.Maybe Prelude.Text,
+    eventSourceArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePartnerEventSourceResponse' with all optional fields omitted.
@@ -196,23 +193,21 @@ data CreatePartnerEventSourceResponse = CreatePartnerEventSourceResponse'
 -- 'httpStatus', 'createPartnerEventSourceResponse_httpStatus' - The response's http status code.
 newCreatePartnerEventSourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePartnerEventSourceResponse
 newCreatePartnerEventSourceResponse pHttpStatus_ =
   CreatePartnerEventSourceResponse'
     { eventSourceArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the partner event source.
-createPartnerEventSourceResponse_eventSourceArn :: Lens.Lens' CreatePartnerEventSourceResponse (Prelude.Maybe Prelude.Text)
+createPartnerEventSourceResponse_eventSourceArn :: Lens.Lens' CreatePartnerEventSourceResponse (Core.Maybe Core.Text)
 createPartnerEventSourceResponse_eventSourceArn = Lens.lens (\CreatePartnerEventSourceResponse' {eventSourceArn} -> eventSourceArn) (\s@CreatePartnerEventSourceResponse' {} a -> s {eventSourceArn = a} :: CreatePartnerEventSourceResponse)
 
 -- | The response's http status code.
-createPartnerEventSourceResponse_httpStatus :: Lens.Lens' CreatePartnerEventSourceResponse Prelude.Int
+createPartnerEventSourceResponse_httpStatus :: Lens.Lens' CreatePartnerEventSourceResponse Core.Int
 createPartnerEventSourceResponse_httpStatus = Lens.lens (\CreatePartnerEventSourceResponse' {httpStatus} -> httpStatus) (\s@CreatePartnerEventSourceResponse' {} a -> s {httpStatus = a} :: CreatePartnerEventSourceResponse)
 
-instance
-  Prelude.NFData
-    CreatePartnerEventSourceResponse
+instance Core.NFData CreatePartnerEventSourceResponse

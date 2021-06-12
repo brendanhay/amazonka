@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,30 +19,30 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.MetricDatapoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types.MetricUnit
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the metric data point.
 --
 -- /See:/ 'newMetricDatapoint' smart constructor.
 data MetricDatapoint = MetricDatapoint'
   { -- | The minimum.
-    minimum :: Prelude.Maybe Prelude.Double,
+    minimum :: Core.Maybe Core.Double,
     -- | The unit.
-    unit :: Prelude.Maybe MetricUnit,
+    unit :: Core.Maybe MetricUnit,
     -- | The sum.
-    sum :: Prelude.Maybe Prelude.Double,
+    sum :: Core.Maybe Core.Double,
     -- | The sample count.
-    sampleCount :: Prelude.Maybe Prelude.Double,
+    sampleCount :: Core.Maybe Core.Double,
     -- | The timestamp (e.g., @1479816991.349@).
-    timestamp :: Prelude.Maybe Prelude.POSIX,
+    timestamp :: Core.Maybe Core.POSIX,
     -- | The average.
-    average :: Prelude.Maybe Prelude.Double,
+    average :: Core.Maybe Core.Double,
     -- | The maximum.
-    maximum :: Prelude.Maybe Prelude.Double
+    maximum :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricDatapoint' with all optional fields omitted.
@@ -70,58 +69,58 @@ newMetricDatapoint ::
   MetricDatapoint
 newMetricDatapoint =
   MetricDatapoint'
-    { minimum = Prelude.Nothing,
-      unit = Prelude.Nothing,
-      sum = Prelude.Nothing,
-      sampleCount = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
-      average = Prelude.Nothing,
-      maximum = Prelude.Nothing
+    { minimum = Core.Nothing,
+      unit = Core.Nothing,
+      sum = Core.Nothing,
+      sampleCount = Core.Nothing,
+      timestamp = Core.Nothing,
+      average = Core.Nothing,
+      maximum = Core.Nothing
     }
 
 -- | The minimum.
-metricDatapoint_minimum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
+metricDatapoint_minimum :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
 metricDatapoint_minimum = Lens.lens (\MetricDatapoint' {minimum} -> minimum) (\s@MetricDatapoint' {} a -> s {minimum = a} :: MetricDatapoint)
 
 -- | The unit.
-metricDatapoint_unit :: Lens.Lens' MetricDatapoint (Prelude.Maybe MetricUnit)
+metricDatapoint_unit :: Lens.Lens' MetricDatapoint (Core.Maybe MetricUnit)
 metricDatapoint_unit = Lens.lens (\MetricDatapoint' {unit} -> unit) (\s@MetricDatapoint' {} a -> s {unit = a} :: MetricDatapoint)
 
 -- | The sum.
-metricDatapoint_sum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
+metricDatapoint_sum :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
 metricDatapoint_sum = Lens.lens (\MetricDatapoint' {sum} -> sum) (\s@MetricDatapoint' {} a -> s {sum = a} :: MetricDatapoint)
 
 -- | The sample count.
-metricDatapoint_sampleCount :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
+metricDatapoint_sampleCount :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
 metricDatapoint_sampleCount = Lens.lens (\MetricDatapoint' {sampleCount} -> sampleCount) (\s@MetricDatapoint' {} a -> s {sampleCount = a} :: MetricDatapoint)
 
 -- | The timestamp (e.g., @1479816991.349@).
-metricDatapoint_timestamp :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.UTCTime)
-metricDatapoint_timestamp = Lens.lens (\MetricDatapoint' {timestamp} -> timestamp) (\s@MetricDatapoint' {} a -> s {timestamp = a} :: MetricDatapoint) Prelude.. Lens.mapping Prelude._Time
+metricDatapoint_timestamp :: Lens.Lens' MetricDatapoint (Core.Maybe Core.UTCTime)
+metricDatapoint_timestamp = Lens.lens (\MetricDatapoint' {timestamp} -> timestamp) (\s@MetricDatapoint' {} a -> s {timestamp = a} :: MetricDatapoint) Core.. Lens.mapping Core._Time
 
 -- | The average.
-metricDatapoint_average :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
+metricDatapoint_average :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
 metricDatapoint_average = Lens.lens (\MetricDatapoint' {average} -> average) (\s@MetricDatapoint' {} a -> s {average = a} :: MetricDatapoint)
 
 -- | The maximum.
-metricDatapoint_maximum :: Lens.Lens' MetricDatapoint (Prelude.Maybe Prelude.Double)
+metricDatapoint_maximum :: Lens.Lens' MetricDatapoint (Core.Maybe Core.Double)
 metricDatapoint_maximum = Lens.lens (\MetricDatapoint' {maximum} -> maximum) (\s@MetricDatapoint' {} a -> s {maximum = a} :: MetricDatapoint)
 
-instance Prelude.FromJSON MetricDatapoint where
+instance Core.FromJSON MetricDatapoint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetricDatapoint"
       ( \x ->
           MetricDatapoint'
-            Prelude.<$> (x Prelude..:? "minimum")
-            Prelude.<*> (x Prelude..:? "unit")
-            Prelude.<*> (x Prelude..:? "sum")
-            Prelude.<*> (x Prelude..:? "sampleCount")
-            Prelude.<*> (x Prelude..:? "timestamp")
-            Prelude.<*> (x Prelude..:? "average")
-            Prelude.<*> (x Prelude..:? "maximum")
+            Core.<$> (x Core..:? "minimum")
+            Core.<*> (x Core..:? "unit")
+            Core.<*> (x Core..:? "sum")
+            Core.<*> (x Core..:? "sampleCount")
+            Core.<*> (x Core..:? "timestamp")
+            Core.<*> (x Core..:? "average")
+            Core.<*> (x Core..:? "maximum")
       )
 
-instance Prelude.Hashable MetricDatapoint
+instance Core.Hashable MetricDatapoint
 
-instance Prelude.NFData MetricDatapoint
+instance Core.NFData MetricDatapoint

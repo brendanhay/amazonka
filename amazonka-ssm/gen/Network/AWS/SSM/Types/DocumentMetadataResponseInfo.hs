@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.DocumentMetadataResponseInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.DocumentReviewerResponseSource
 
 -- | Details about the response to a document review request.
@@ -29,9 +28,9 @@ import Network.AWS.SSM.Types.DocumentReviewerResponseSource
 -- /See:/ 'newDocumentMetadataResponseInfo' smart constructor.
 data DocumentMetadataResponseInfo = DocumentMetadataResponseInfo'
   { -- | Details about a reviewer\'s response to a document review request.
-    reviewerResponse :: Prelude.Maybe [DocumentReviewerResponseSource]
+    reviewerResponse :: Core.Maybe [DocumentReviewerResponseSource]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentMetadataResponseInfo' with all optional fields omitted.
@@ -47,29 +46,22 @@ newDocumentMetadataResponseInfo ::
 newDocumentMetadataResponseInfo =
   DocumentMetadataResponseInfo'
     { reviewerResponse =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Details about a reviewer\'s response to a document review request.
-documentMetadataResponseInfo_reviewerResponse :: Lens.Lens' DocumentMetadataResponseInfo (Prelude.Maybe [DocumentReviewerResponseSource])
-documentMetadataResponseInfo_reviewerResponse = Lens.lens (\DocumentMetadataResponseInfo' {reviewerResponse} -> reviewerResponse) (\s@DocumentMetadataResponseInfo' {} a -> s {reviewerResponse = a} :: DocumentMetadataResponseInfo) Prelude.. Lens.mapping Prelude._Coerce
+documentMetadataResponseInfo_reviewerResponse :: Lens.Lens' DocumentMetadataResponseInfo (Core.Maybe [DocumentReviewerResponseSource])
+documentMetadataResponseInfo_reviewerResponse = Lens.lens (\DocumentMetadataResponseInfo' {reviewerResponse} -> reviewerResponse) (\s@DocumentMetadataResponseInfo' {} a -> s {reviewerResponse = a} :: DocumentMetadataResponseInfo) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromJSON
-    DocumentMetadataResponseInfo
-  where
+instance Core.FromJSON DocumentMetadataResponseInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentMetadataResponseInfo"
       ( \x ->
           DocumentMetadataResponseInfo'
-            Prelude.<$> ( x Prelude..:? "ReviewerResponse"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "ReviewerResponse" Core..!= Core.mempty)
       )
 
-instance
-  Prelude.Hashable
-    DocumentMetadataResponseInfo
+instance Core.Hashable DocumentMetadataResponseInfo
 
-instance Prelude.NFData DocumentMetadataResponseInfo
+instance Core.NFData DocumentMetadataResponseInfo

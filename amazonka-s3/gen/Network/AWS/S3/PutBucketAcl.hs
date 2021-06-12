@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -183,8 +182,8 @@ module Network.AWS.S3.PutBucketAcl
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -192,14 +191,14 @@ import Network.AWS.S3.Types
 -- | /See:/ 'newPutBucketAcl' smart constructor.
 data PutBucketAcl = PutBucketAcl'
   { -- | Allows grantee to list the objects in the bucket.
-    grantRead :: Prelude.Maybe Prelude.Text,
+    grantRead :: Core.Maybe Core.Text,
     -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | Contains the elements that set the ACL permissions for an object per
     -- grantee.
-    accessControlPolicy :: Prelude.Maybe AccessControlPolicy,
+    accessControlPolicy :: Core.Maybe AccessControlPolicy,
     -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
     -- used as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, go to
@@ -207,23 +206,23 @@ data PutBucketAcl = PutBucketAcl'
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS
     -- SDKs, this field is calculated automatically.
-    contentMD5 :: Prelude.Maybe Prelude.Text,
+    contentMD5 :: Core.Maybe Core.Text,
     -- | Allows grantee to write the ACL for the applicable bucket.
-    grantWriteACP :: Prelude.Maybe Prelude.Text,
+    grantWriteACP :: Core.Maybe Core.Text,
     -- | Allows grantee to read the bucket ACL.
-    grantReadACP :: Prelude.Maybe Prelude.Text,
+    grantReadACP :: Core.Maybe Core.Text,
     -- | The canned ACL to apply to the bucket.
-    acl :: Prelude.Maybe BucketCannedACL,
+    acl :: Core.Maybe BucketCannedACL,
     -- | Allows grantee to create, overwrite, and delete any object in the
     -- bucket.
-    grantWrite :: Prelude.Maybe Prelude.Text,
+    grantWrite :: Core.Maybe Core.Text,
     -- | Allows grantee the read, write, read ACP, and write ACP permissions on
     -- the bucket.
-    grantFullControl :: Prelude.Maybe Prelude.Text,
+    grantFullControl :: Core.Maybe Core.Text,
     -- | The bucket to which to apply the ACL.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketAcl' with all optional fields omitted.
@@ -269,31 +268,31 @@ newPutBucketAcl ::
   PutBucketAcl
 newPutBucketAcl pBucket_ =
   PutBucketAcl'
-    { grantRead = Prelude.Nothing,
-      expectedBucketOwner = Prelude.Nothing,
-      accessControlPolicy = Prelude.Nothing,
-      contentMD5 = Prelude.Nothing,
-      grantWriteACP = Prelude.Nothing,
-      grantReadACP = Prelude.Nothing,
-      acl = Prelude.Nothing,
-      grantWrite = Prelude.Nothing,
-      grantFullControl = Prelude.Nothing,
+    { grantRead = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      accessControlPolicy = Core.Nothing,
+      contentMD5 = Core.Nothing,
+      grantWriteACP = Core.Nothing,
+      grantReadACP = Core.Nothing,
+      acl = Core.Nothing,
+      grantWrite = Core.Nothing,
+      grantFullControl = Core.Nothing,
       bucket = pBucket_
     }
 
 -- | Allows grantee to list the objects in the bucket.
-putBucketAcl_grantRead :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_grantRead :: Lens.Lens' PutBucketAcl (Core.Maybe Core.Text)
 putBucketAcl_grantRead = Lens.lens (\PutBucketAcl' {grantRead} -> grantRead) (\s@PutBucketAcl' {} a -> s {grantRead = a} :: PutBucketAcl)
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketAcl_expectedBucketOwner :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_expectedBucketOwner :: Lens.Lens' PutBucketAcl (Core.Maybe Core.Text)
 putBucketAcl_expectedBucketOwner = Lens.lens (\PutBucketAcl' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketAcl' {} a -> s {expectedBucketOwner = a} :: PutBucketAcl)
 
 -- | Contains the elements that set the ACL permissions for an object per
 -- grantee.
-putBucketAcl_accessControlPolicy :: Lens.Lens' PutBucketAcl (Prelude.Maybe AccessControlPolicy)
+putBucketAcl_accessControlPolicy :: Lens.Lens' PutBucketAcl (Core.Maybe AccessControlPolicy)
 putBucketAcl_accessControlPolicy = Lens.lens (\PutBucketAcl' {accessControlPolicy} -> accessControlPolicy) (\s@PutBucketAcl' {} a -> s {accessControlPolicy = a} :: PutBucketAcl)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
@@ -303,77 +302,76 @@ putBucketAcl_accessControlPolicy = Lens.lens (\PutBucketAcl' {accessControlPolic
 --
 -- For requests made using the AWS Command Line Interface (CLI) or AWS
 -- SDKs, this field is calculated automatically.
-putBucketAcl_contentMD5 :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_contentMD5 :: Lens.Lens' PutBucketAcl (Core.Maybe Core.Text)
 putBucketAcl_contentMD5 = Lens.lens (\PutBucketAcl' {contentMD5} -> contentMD5) (\s@PutBucketAcl' {} a -> s {contentMD5 = a} :: PutBucketAcl)
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-putBucketAcl_grantWriteACP :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_grantWriteACP :: Lens.Lens' PutBucketAcl (Core.Maybe Core.Text)
 putBucketAcl_grantWriteACP = Lens.lens (\PutBucketAcl' {grantWriteACP} -> grantWriteACP) (\s@PutBucketAcl' {} a -> s {grantWriteACP = a} :: PutBucketAcl)
 
 -- | Allows grantee to read the bucket ACL.
-putBucketAcl_grantReadACP :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_grantReadACP :: Lens.Lens' PutBucketAcl (Core.Maybe Core.Text)
 putBucketAcl_grantReadACP = Lens.lens (\PutBucketAcl' {grantReadACP} -> grantReadACP) (\s@PutBucketAcl' {} a -> s {grantReadACP = a} :: PutBucketAcl)
 
 -- | The canned ACL to apply to the bucket.
-putBucketAcl_acl :: Lens.Lens' PutBucketAcl (Prelude.Maybe BucketCannedACL)
+putBucketAcl_acl :: Lens.Lens' PutBucketAcl (Core.Maybe BucketCannedACL)
 putBucketAcl_acl = Lens.lens (\PutBucketAcl' {acl} -> acl) (\s@PutBucketAcl' {} a -> s {acl = a} :: PutBucketAcl)
 
 -- | Allows grantee to create, overwrite, and delete any object in the
 -- bucket.
-putBucketAcl_grantWrite :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_grantWrite :: Lens.Lens' PutBucketAcl (Core.Maybe Core.Text)
 putBucketAcl_grantWrite = Lens.lens (\PutBucketAcl' {grantWrite} -> grantWrite) (\s@PutBucketAcl' {} a -> s {grantWrite = a} :: PutBucketAcl)
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
-putBucketAcl_grantFullControl :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_grantFullControl :: Lens.Lens' PutBucketAcl (Core.Maybe Core.Text)
 putBucketAcl_grantFullControl = Lens.lens (\PutBucketAcl' {grantFullControl} -> grantFullControl) (\s@PutBucketAcl' {} a -> s {grantFullControl = a} :: PutBucketAcl)
 
 -- | The bucket to which to apply the ACL.
 putBucketAcl_bucket :: Lens.Lens' PutBucketAcl BucketName
 putBucketAcl_bucket = Lens.lens (\PutBucketAcl' {bucket} -> bucket) (\s@PutBucketAcl' {} a -> s {bucket = a} :: PutBucketAcl)
 
-instance Prelude.AWSRequest PutBucketAcl where
-  type Rs PutBucketAcl = PutBucketAclResponse
+instance Core.AWSRequest PutBucketAcl where
+  type AWSResponse PutBucketAcl = PutBucketAclResponse
   request = Request.putXML defaultService
   response = Response.receiveNull PutBucketAclResponse'
 
-instance Prelude.Hashable PutBucketAcl
+instance Core.Hashable PutBucketAcl
 
-instance Prelude.NFData PutBucketAcl
+instance Core.NFData PutBucketAcl
 
-instance Prelude.ToElement PutBucketAcl where
+instance Core.ToElement PutBucketAcl where
   toElement PutBucketAcl' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}AccessControlPolicy"
       accessControlPolicy
 
-instance Prelude.ToHeaders PutBucketAcl where
+instance Core.ToHeaders PutBucketAcl where
   toHeaders PutBucketAcl' {..} =
-    Prelude.mconcat
-      [ "x-amz-grant-read" Prelude.=# grantRead,
+    Core.mconcat
+      [ "x-amz-grant-read" Core.=# grantRead,
         "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
-        "Content-MD5" Prelude.=# contentMD5,
-        "x-amz-grant-write-acp" Prelude.=# grantWriteACP,
-        "x-amz-grant-read-acp" Prelude.=# grantReadACP,
-        "x-amz-acl" Prelude.=# acl,
-        "x-amz-grant-write" Prelude.=# grantWrite,
-        "x-amz-grant-full-control"
-          Prelude.=# grantFullControl
+          Core.=# expectedBucketOwner,
+        "Content-MD5" Core.=# contentMD5,
+        "x-amz-grant-write-acp" Core.=# grantWriteACP,
+        "x-amz-grant-read-acp" Core.=# grantReadACP,
+        "x-amz-acl" Core.=# acl,
+        "x-amz-grant-write" Core.=# grantWrite,
+        "x-amz-grant-full-control" Core.=# grantFullControl
       ]
 
-instance Prelude.ToPath PutBucketAcl where
+instance Core.ToPath PutBucketAcl where
   toPath PutBucketAcl' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery PutBucketAcl where
-  toQuery = Prelude.const (Prelude.mconcat ["acl"])
+instance Core.ToQuery PutBucketAcl where
+  toQuery = Core.const (Core.mconcat ["acl"])
 
 -- | /See:/ 'newPutBucketAclResponse' smart constructor.
 data PutBucketAclResponse = PutBucketAclResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketAclResponse' with all optional fields omitted.
@@ -383,4 +381,4 @@ newPutBucketAclResponse ::
   PutBucketAclResponse
 newPutBucketAclResponse = PutBucketAclResponse'
 
-instance Prelude.NFData PutBucketAclResponse
+instance Core.NFData PutBucketAclResponse

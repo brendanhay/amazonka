@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -135,9 +134,9 @@ module Network.AWS.KMS.CreateKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -161,7 +160,7 @@ data CreateKey = CreateKey'
     -- and creates its key material in the associated AWS CloudHSM cluster. You
     -- must also use the @CustomKeyStoreId@ parameter to identify the custom
     -- key store. This value is valid only for symmetric CMKs.
-    origin :: Prelude.Maybe OriginType,
+    origin :: Core.Maybe OriginType,
     -- | Creates the CMK in the specified
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>
     -- and the key material in its associated AWS CloudHSM cluster. To create a
@@ -184,7 +183,7 @@ data CreateKey = CreateKey'
     -- feature in AWS KMS, which combines the convenience and extensive
     -- integration of AWS KMS with the isolation and control of a single-tenant
     -- key store.
-    customKeyStoreId :: Prelude.Maybe Prelude.Text,
+    customKeyStoreId :: Core.Maybe Core.Text,
     -- | A flag to indicate whether to bypass the key policy lockout safety
     -- check.
     --
@@ -200,7 +199,7 @@ data CreateKey = CreateKey'
     -- subsequent PutKeyPolicy request on the CMK.
     --
     -- The default value is false.
-    bypassPolicyLockoutSafetyCheck :: Prelude.Maybe Prelude.Bool,
+    bypassPolicyLockoutSafetyCheck :: Core.Maybe Core.Bool,
     -- | One or more tags. Each tag consists of a tag key and a tag value. Both
     -- the tag key and the tag value are required, but the tag value can be an
     -- empty (null) string.
@@ -216,12 +215,12 @@ data CreateKey = CreateKey'
     -- To use this parameter, you must have
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
     -- permission in an IAM policy.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A description of the CMK.
     --
     -- Use a description that helps you decide whether the CMK is appropriate
     -- for a task.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The key policy to attach to the CMK.
     --
     -- If you provide a key policy, it must meet the following criteria:
@@ -254,7 +253,7 @@ data CreateKey = CreateKey'
     -- For help writing and formatting a JSON policy document, see the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
     -- in the //IAM User Guide// .
-    policy :: Prelude.Maybe Prelude.Text,
+    policy :: Core.Maybe Core.Text,
     -- | Determines the
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
     -- for which you can use the CMK. The default value is @ENCRYPT_DECRYPT@.
@@ -269,7 +268,7 @@ data CreateKey = CreateKey'
     --     or @SIGN_VERIFY@.
     --
     -- -   For asymmetric CMKs with ECC key material, specify @SIGN_VERIFY@.
-    keyUsage :: Prelude.Maybe KeyUsageType,
+    keyUsage :: Core.Maybe KeyUsageType,
     -- | Specifies the type of CMK to create. The default value,
     -- @SYMMETRIC_DEFAULT@, creates a CMK with a 256-bit symmetric key for
     -- encryption and decryption. For help choosing a key spec for your CMK,
@@ -321,9 +320,9 @@ data CreateKey = CreateKey'
     --
     --     -   @ECC_SECG_P256K1@ (secp256k1), commonly used for
     --         cryptocurrencies.
-    customerMasterKeySpec :: Prelude.Maybe CustomerMasterKeySpec
+    customerMasterKeySpec :: Core.Maybe CustomerMasterKeySpec
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateKey' with all optional fields omitted.
@@ -515,14 +514,14 @@ newCreateKey ::
   CreateKey
 newCreateKey =
   CreateKey'
-    { origin = Prelude.Nothing,
-      customKeyStoreId = Prelude.Nothing,
-      bypassPolicyLockoutSafetyCheck = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
-      policy = Prelude.Nothing,
-      keyUsage = Prelude.Nothing,
-      customerMasterKeySpec = Prelude.Nothing
+    { origin = Core.Nothing,
+      customKeyStoreId = Core.Nothing,
+      bypassPolicyLockoutSafetyCheck = Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
+      policy = Core.Nothing,
+      keyUsage = Core.Nothing,
+      customerMasterKeySpec = Core.Nothing
     }
 
 -- | The source of the key material for the CMK. You cannot change the origin
@@ -543,7 +542,7 @@ newCreateKey =
 -- and creates its key material in the associated AWS CloudHSM cluster. You
 -- must also use the @CustomKeyStoreId@ parameter to identify the custom
 -- key store. This value is valid only for symmetric CMKs.
-createKey_origin :: Lens.Lens' CreateKey (Prelude.Maybe OriginType)
+createKey_origin :: Lens.Lens' CreateKey (Core.Maybe OriginType)
 createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} a -> s {origin = a} :: CreateKey)
 
 -- | Creates the CMK in the specified
@@ -568,7 +567,7 @@ createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} 
 -- feature in AWS KMS, which combines the convenience and extensive
 -- integration of AWS KMS with the isolation and control of a single-tenant
 -- key store.
-createKey_customKeyStoreId :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
+createKey_customKeyStoreId :: Lens.Lens' CreateKey (Core.Maybe Core.Text)
 createKey_customKeyStoreId = Lens.lens (\CreateKey' {customKeyStoreId} -> customKeyStoreId) (\s@CreateKey' {} a -> s {customKeyStoreId = a} :: CreateKey)
 
 -- | A flag to indicate whether to bypass the key policy lockout safety
@@ -586,7 +585,7 @@ createKey_customKeyStoreId = Lens.lens (\CreateKey' {customKeyStoreId} -> custom
 -- subsequent PutKeyPolicy request on the CMK.
 --
 -- The default value is false.
-createKey_bypassPolicyLockoutSafetyCheck :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Bool)
+createKey_bypassPolicyLockoutSafetyCheck :: Lens.Lens' CreateKey (Core.Maybe Core.Bool)
 createKey_bypassPolicyLockoutSafetyCheck = Lens.lens (\CreateKey' {bypassPolicyLockoutSafetyCheck} -> bypassPolicyLockoutSafetyCheck) (\s@CreateKey' {} a -> s {bypassPolicyLockoutSafetyCheck = a} :: CreateKey)
 
 -- | One or more tags. Each tag consists of a tag key and a tag value. Both
@@ -604,14 +603,14 @@ createKey_bypassPolicyLockoutSafetyCheck = Lens.lens (\CreateKey' {bypassPolicyL
 -- To use this parameter, you must have
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:TagResource>
 -- permission in an IAM policy.
-createKey_tags :: Lens.Lens' CreateKey (Prelude.Maybe [Tag])
-createKey_tags = Lens.lens (\CreateKey' {tags} -> tags) (\s@CreateKey' {} a -> s {tags = a} :: CreateKey) Prelude.. Lens.mapping Prelude._Coerce
+createKey_tags :: Lens.Lens' CreateKey (Core.Maybe [Tag])
+createKey_tags = Lens.lens (\CreateKey' {tags} -> tags) (\s@CreateKey' {} a -> s {tags = a} :: CreateKey) Core.. Lens.mapping Lens._Coerce
 
 -- | A description of the CMK.
 --
 -- Use a description that helps you decide whether the CMK is appropriate
 -- for a task.
-createKey_description :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
+createKey_description :: Lens.Lens' CreateKey (Core.Maybe Core.Text)
 createKey_description = Lens.lens (\CreateKey' {description} -> description) (\s@CreateKey' {} a -> s {description = a} :: CreateKey)
 
 -- | The key policy to attach to the CMK.
@@ -646,7 +645,7 @@ createKey_description = Lens.lens (\CreateKey' {description} -> description) (\s
 -- For help writing and formatting a JSON policy document, see the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
 -- in the //IAM User Guide// .
-createKey_policy :: Lens.Lens' CreateKey (Prelude.Maybe Prelude.Text)
+createKey_policy :: Lens.Lens' CreateKey (Core.Maybe Core.Text)
 createKey_policy = Lens.lens (\CreateKey' {policy} -> policy) (\s@CreateKey' {} a -> s {policy = a} :: CreateKey)
 
 -- | Determines the
@@ -663,7 +662,7 @@ createKey_policy = Lens.lens (\CreateKey' {policy} -> policy) (\s@CreateKey' {} 
 --     or @SIGN_VERIFY@.
 --
 -- -   For asymmetric CMKs with ECC key material, specify @SIGN_VERIFY@.
-createKey_keyUsage :: Lens.Lens' CreateKey (Prelude.Maybe KeyUsageType)
+createKey_keyUsage :: Lens.Lens' CreateKey (Core.Maybe KeyUsageType)
 createKey_keyUsage = Lens.lens (\CreateKey' {keyUsage} -> keyUsage) (\s@CreateKey' {} a -> s {keyUsage = a} :: CreateKey)
 
 -- | Specifies the type of CMK to create. The default value,
@@ -717,69 +716,67 @@ createKey_keyUsage = Lens.lens (\CreateKey' {keyUsage} -> keyUsage) (\s@CreateKe
 --
 --     -   @ECC_SECG_P256K1@ (secp256k1), commonly used for
 --         cryptocurrencies.
-createKey_customerMasterKeySpec :: Lens.Lens' CreateKey (Prelude.Maybe CustomerMasterKeySpec)
+createKey_customerMasterKeySpec :: Lens.Lens' CreateKey (Core.Maybe CustomerMasterKeySpec)
 createKey_customerMasterKeySpec = Lens.lens (\CreateKey' {customerMasterKeySpec} -> customerMasterKeySpec) (\s@CreateKey' {} a -> s {customerMasterKeySpec = a} :: CreateKey)
 
-instance Prelude.AWSRequest CreateKey where
-  type Rs CreateKey = CreateKeyResponse
+instance Core.AWSRequest CreateKey where
+  type AWSResponse CreateKey = CreateKeyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateKeyResponse'
-            Prelude.<$> (x Prelude..?> "KeyMetadata")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "KeyMetadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateKey
+instance Core.Hashable CreateKey
 
-instance Prelude.NFData CreateKey
+instance Core.NFData CreateKey
 
-instance Prelude.ToHeaders CreateKey where
+instance Core.ToHeaders CreateKey where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.CreateKey" :: Prelude.ByteString),
+              Core.=# ("TrentService.CreateKey" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateKey where
+instance Core.ToJSON CreateKey where
   toJSON CreateKey' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Origin" Prelude..=) Prelude.<$> origin,
-            ("CustomKeyStoreId" Prelude..=)
-              Prelude.<$> customKeyStoreId,
-            ("BypassPolicyLockoutSafetyCheck" Prelude..=)
-              Prelude.<$> bypassPolicyLockoutSafetyCheck,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            ("Policy" Prelude..=) Prelude.<$> policy,
-            ("KeyUsage" Prelude..=) Prelude.<$> keyUsage,
-            ("CustomerMasterKeySpec" Prelude..=)
-              Prelude.<$> customerMasterKeySpec
+    Core.object
+      ( Core.catMaybes
+          [ ("Origin" Core..=) Core.<$> origin,
+            ("CustomKeyStoreId" Core..=)
+              Core.<$> customKeyStoreId,
+            ("BypassPolicyLockoutSafetyCheck" Core..=)
+              Core.<$> bypassPolicyLockoutSafetyCheck,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            ("Policy" Core..=) Core.<$> policy,
+            ("KeyUsage" Core..=) Core.<$> keyUsage,
+            ("CustomerMasterKeySpec" Core..=)
+              Core.<$> customerMasterKeySpec
           ]
       )
 
-instance Prelude.ToPath CreateKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateKey where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateKey where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateKeyResponse' smart constructor.
 data CreateKeyResponse = CreateKeyResponse'
   { -- | Metadata associated with the CMK.
-    keyMetadata :: Prelude.Maybe KeyMetadata,
+    keyMetadata :: Core.Maybe KeyMetadata,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateKeyResponse' with all optional fields omitted.
@@ -794,20 +791,20 @@ data CreateKeyResponse = CreateKeyResponse'
 -- 'httpStatus', 'createKeyResponse_httpStatus' - The response's http status code.
 newCreateKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateKeyResponse
 newCreateKeyResponse pHttpStatus_ =
   CreateKeyResponse'
-    { keyMetadata = Prelude.Nothing,
+    { keyMetadata = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Metadata associated with the CMK.
-createKeyResponse_keyMetadata :: Lens.Lens' CreateKeyResponse (Prelude.Maybe KeyMetadata)
+createKeyResponse_keyMetadata :: Lens.Lens' CreateKeyResponse (Core.Maybe KeyMetadata)
 createKeyResponse_keyMetadata = Lens.lens (\CreateKeyResponse' {keyMetadata} -> keyMetadata) (\s@CreateKeyResponse' {} a -> s {keyMetadata = a} :: CreateKeyResponse)
 
 -- | The response's http status code.
-createKeyResponse_httpStatus :: Lens.Lens' CreateKeyResponse Prelude.Int
+createKeyResponse_httpStatus :: Lens.Lens' CreateKeyResponse Core.Int
 createKeyResponse_httpStatus = Lens.lens (\CreateKeyResponse' {httpStatus} -> httpStatus) (\s@CreateKeyResponse' {} a -> s {httpStatus = a} :: CreateKeyResponse)
 
-instance Prelude.NFData CreateKeyResponse
+instance Core.NFData CreateKeyResponse

@@ -57,14 +57,11 @@ module Network.AWS.S3.Encryption
 
     -- * Specifying Master Keys
     -- $master-key
-    KeyEnv,
-    Key,
+    Key (..),
     kmsKey,
     asymmetricKey,
     symmetricKey,
     newSecret,
-    master,
-    material,
 
     -- * Request Encryption/Decryption
     -- $requests
@@ -95,8 +92,6 @@ import Control.Monad.Reader
 import Network.AWS as AWS
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
-import Data.ByteString (ByteString)
-import Data.Text (Text)
 import Network.AWS.S3
 import Network.AWS.S3.Encryption.Decrypt
 import Network.AWS.S3.Encryption.Encrypt
@@ -136,13 +131,14 @@ newSecret = liftIO (getRandomBytes aesKeySize)
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 encrypt ::
+  MonadResource m =>
   Key ->
   Env ->
   PutObject ->
   m PutObjectResponse
 encrypt key env x = do
-  (a, _) <- encrypted x
-  send (set location Metadata a)
+  (a, _) <- encrypted key env x
+  send env (set location Metadata a)
 
 -- | Encrypt an object, storing the encryption envelope in an adjacent instruction
 -- file with the same 'ObjectKey' and 'defaultExtension'.
@@ -151,14 +147,15 @@ encrypt key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 encryptInstructions ::
+  MonadResource m =>
   Key ->
   Env ->
   PutObject ->
   m PutObjectResponse
 encryptInstructions key env x = do
-  (a, b) <- encrypted x
-  _ <- send b
-  send a
+  (a, b) <- encrypted key env x
+  _ <- send env b
+  send env a
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
 -- in the @x-amz-meta-*@ headers.
@@ -177,6 +174,7 @@ encryptInstructions key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 initiate ::
+  MonadResource m =>
   Key ->
   Env ->
   CreateMultipartUpload ->
@@ -185,8 +183,8 @@ initiate ::
       UploadPart -> Encrypted UploadPart
     )
 initiate key env x = do
-  (a, _) <- encrypted x
-  rs <- send (set location Metadata a)
+  (a, _) <- encrypted key env x
+  rs <- send env (set location Metadata a)
   return (rs, encryptPart a)
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
@@ -199,6 +197,7 @@ initiate key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 initiateInstructions ::
+  MonadResource m =>
   Key ->
   Env ->
   CreateMultipartUpload ->
@@ -207,9 +206,9 @@ initiateInstructions ::
       UploadPart -> Encrypted UploadPart
     )
 initiateInstructions key env x = do
-  (a, b) <- encrypted x
-  rs <- send a
-  _ <- send b
+  (a, b) <- encrypted key env x
+  rs <- send env a
+  _ <- send env b
   return (rs, encryptPart a)
 
 -- | Retrieve an object, parsing the envelope from any @x-amz-meta-*@ headers
@@ -217,14 +216,15 @@ initiateInstructions key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 decrypt ::
+  MonadResource m =>
   Key ->
   Env ->
   GetObject ->
   m GetObjectResponse
 decrypt key env x = do
   let (a, _) = decrypted x
-  Decrypted f <- send a
-  f Nothing
+  Decrypted f <- send env a
+  f key env Nothing
 
 -- | Retrieve an object and its adjacent instruction file. The instruction
 -- are retrieved and parsed first.
@@ -232,15 +232,16 @@ decrypt key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 decryptInstructions ::
+  MonadResource m =>
   Key ->
   Env ->
   GetObject ->
   m GetObjectResponse
 decryptInstructions key env x = do
   let (a, b) = decrypted x
-  Instructions g <- send b
-  Decrypted f <- send a
-  g >>= f . Just
+  Instructions g <- send env b
+  Decrypted f <- send env a
+  g key env >>= f key env . Just
 
 -- | Given a request to execute, such as 'AbortMultipartUpload' or 'DeleteObject',
 -- remove the adjacent instruction file, if it exists with the 'defaultExtension'.
@@ -248,14 +249,15 @@ decryptInstructions key env x = do
 --
 -- Throws 'EncryptionError', 'AWS.Error'.
 cleanupInstructions ::
-  RemoveInstructions a =>
-  Key ->
+  ( MonadResource m,
+    RemoveInstructions a
+  ) =>
   Env ->
   a ->
   m (AWSResponse a)
-cleanupInstructions key env x = do
-  rs <- send x
-  _ <- send (deleteInstructions x)
+cleanupInstructions env x = do
+  rs <- send env x
+  _ <- send env (deleteInstructions x)
   return rs
 
 -- $usage

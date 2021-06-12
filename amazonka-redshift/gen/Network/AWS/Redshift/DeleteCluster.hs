@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -62,8 +61,8 @@ module Network.AWS.Redshift.DeleteCluster
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -83,7 +82,7 @@ data DeleteCluster = DeleteCluster'
     -- -   First character must be a letter.
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    finalClusterSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    finalClusterSnapshotIdentifier :: Core.Maybe Core.Text,
     -- | Determines whether a final snapshot of the cluster is created before
     -- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
     -- is not created. If @false@, a final cluster snapshot is created before
@@ -93,14 +92,14 @@ data DeleteCluster = DeleteCluster'
     -- /SkipFinalClusterSnapshot/ is @false@.
     --
     -- Default: @false@
-    skipFinalClusterSnapshot :: Prelude.Maybe Prelude.Bool,
+    skipFinalClusterSnapshot :: Core.Maybe Core.Bool,
     -- | The number of days that a manual snapshot is retained. If the value is
     -- -1, the manual snapshot is retained indefinitely.
     --
     -- The value must be either -1 or an integer between 1 and 3,653.
     --
     -- The default value is -1.
-    finalClusterSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    finalClusterSnapshotRetentionPeriod :: Core.Maybe Core.Int,
     -- | The identifier of the cluster to be deleted.
     --
     -- Constraints:
@@ -112,9 +111,9 @@ data DeleteCluster = DeleteCluster'
     -- -   First character must be a letter.
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteCluster' with all optional fields omitted.
@@ -166,15 +165,14 @@ data DeleteCluster = DeleteCluster'
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 newDeleteCluster ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   DeleteCluster
 newDeleteCluster pClusterIdentifier_ =
   DeleteCluster'
     { finalClusterSnapshotIdentifier =
-        Prelude.Nothing,
-      skipFinalClusterSnapshot = Prelude.Nothing,
-      finalClusterSnapshotRetentionPeriod =
-        Prelude.Nothing,
+        Core.Nothing,
+      skipFinalClusterSnapshot = Core.Nothing,
+      finalClusterSnapshotRetentionPeriod = Core.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
 
@@ -189,7 +187,7 @@ newDeleteCluster pClusterIdentifier_ =
 -- -   First character must be a letter.
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-deleteCluster_finalClusterSnapshotIdentifier :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Text)
+deleteCluster_finalClusterSnapshotIdentifier :: Lens.Lens' DeleteCluster (Core.Maybe Core.Text)
 deleteCluster_finalClusterSnapshotIdentifier = Lens.lens (\DeleteCluster' {finalClusterSnapshotIdentifier} -> finalClusterSnapshotIdentifier) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotIdentifier = a} :: DeleteCluster)
 
 -- | Determines whether a final snapshot of the cluster is created before
@@ -201,7 +199,7 @@ deleteCluster_finalClusterSnapshotIdentifier = Lens.lens (\DeleteCluster' {final
 -- /SkipFinalClusterSnapshot/ is @false@.
 --
 -- Default: @false@
-deleteCluster_skipFinalClusterSnapshot :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Bool)
+deleteCluster_skipFinalClusterSnapshot :: Lens.Lens' DeleteCluster (Core.Maybe Core.Bool)
 deleteCluster_skipFinalClusterSnapshot = Lens.lens (\DeleteCluster' {skipFinalClusterSnapshot} -> skipFinalClusterSnapshot) (\s@DeleteCluster' {} a -> s {skipFinalClusterSnapshot = a} :: DeleteCluster)
 
 -- | The number of days that a manual snapshot is retained. If the value is
@@ -210,7 +208,7 @@ deleteCluster_skipFinalClusterSnapshot = Lens.lens (\DeleteCluster' {skipFinalCl
 -- The value must be either -1 or an integer between 1 and 3,653.
 --
 -- The default value is -1.
-deleteCluster_finalClusterSnapshotRetentionPeriod :: Lens.Lens' DeleteCluster (Prelude.Maybe Prelude.Int)
+deleteCluster_finalClusterSnapshotRetentionPeriod :: Lens.Lens' DeleteCluster (Core.Maybe Core.Int)
 deleteCluster_finalClusterSnapshotRetentionPeriod = Lens.lens (\DeleteCluster' {finalClusterSnapshotRetentionPeriod} -> finalClusterSnapshotRetentionPeriod) (\s@DeleteCluster' {} a -> s {finalClusterSnapshotRetentionPeriod = a} :: DeleteCluster)
 
 -- | The identifier of the cluster to be deleted.
@@ -224,54 +222,55 @@ deleteCluster_finalClusterSnapshotRetentionPeriod = Lens.lens (\DeleteCluster' {
 -- -   First character must be a letter.
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-deleteCluster_clusterIdentifier :: Lens.Lens' DeleteCluster Prelude.Text
+deleteCluster_clusterIdentifier :: Lens.Lens' DeleteCluster Core.Text
 deleteCluster_clusterIdentifier = Lens.lens (\DeleteCluster' {clusterIdentifier} -> clusterIdentifier) (\s@DeleteCluster' {} a -> s {clusterIdentifier = a} :: DeleteCluster)
 
-instance Prelude.AWSRequest DeleteCluster where
-  type Rs DeleteCluster = DeleteClusterResponse
+instance Core.AWSRequest DeleteCluster where
+  type
+    AWSResponse DeleteCluster =
+      DeleteClusterResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DeleteClusterResult"
       ( \s h x ->
           DeleteClusterResponse'
-            Prelude.<$> (x Prelude..@? "Cluster")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteCluster
+instance Core.Hashable DeleteCluster
 
-instance Prelude.NFData DeleteCluster
+instance Core.NFData DeleteCluster
 
-instance Prelude.ToHeaders DeleteCluster where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteCluster where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteCluster where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteCluster where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteCluster where
+instance Core.ToQuery DeleteCluster where
   toQuery DeleteCluster' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteCluster" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("DeleteCluster" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "FinalClusterSnapshotIdentifier"
-          Prelude.=: finalClusterSnapshotIdentifier,
+          Core.=: finalClusterSnapshotIdentifier,
         "SkipFinalClusterSnapshot"
-          Prelude.=: skipFinalClusterSnapshot,
+          Core.=: skipFinalClusterSnapshot,
         "FinalClusterSnapshotRetentionPeriod"
-          Prelude.=: finalClusterSnapshotRetentionPeriod,
-        "ClusterIdentifier" Prelude.=: clusterIdentifier
+          Core.=: finalClusterSnapshotRetentionPeriod,
+        "ClusterIdentifier" Core.=: clusterIdentifier
       ]
 
 -- | /See:/ 'newDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
-  { cluster :: Prelude.Maybe Cluster,
+  { cluster :: Core.Maybe Cluster,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClusterResponse' with all optional fields omitted.
@@ -286,20 +285,20 @@ data DeleteClusterResponse = DeleteClusterResponse'
 -- 'httpStatus', 'deleteClusterResponse_httpStatus' - The response's http status code.
 newDeleteClusterResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteClusterResponse
 newDeleteClusterResponse pHttpStatus_ =
   DeleteClusterResponse'
-    { cluster = Prelude.Nothing,
+    { cluster = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Prelude.Maybe Cluster)
+deleteClusterResponse_cluster :: Lens.Lens' DeleteClusterResponse (Core.Maybe Cluster)
 deleteClusterResponse_cluster = Lens.lens (\DeleteClusterResponse' {cluster} -> cluster) (\s@DeleteClusterResponse' {} a -> s {cluster = a} :: DeleteClusterResponse)
 
 -- | The response's http status code.
-deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Prelude.Int
+deleteClusterResponse_httpStatus :: Lens.Lens' DeleteClusterResponse Core.Int
 deleteClusterResponse_httpStatus = Lens.lens (\DeleteClusterResponse' {httpStatus} -> httpStatus) (\s@DeleteClusterResponse' {} a -> s {httpStatus = a} :: DeleteClusterResponse)
 
-instance Prelude.NFData DeleteClusterResponse
+instance Core.NFData DeleteClusterResponse

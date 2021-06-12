@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.SageMaker.EnableSagemakerServicecatalogPortfolio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -47,7 +46,7 @@ import Network.AWS.SageMaker.Types
 data EnableSagemakerServicecatalogPortfolio = EnableSagemakerServicecatalogPortfolio'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableSagemakerServicecatalogPortfolio' with all optional fields omitted.
@@ -59,71 +58,69 @@ newEnableSagemakerServicecatalogPortfolio =
   EnableSagemakerServicecatalogPortfolio'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     EnableSagemakerServicecatalogPortfolio
   where
   type
-    Rs EnableSagemakerServicecatalogPortfolio =
+    AWSResponse
+      EnableSagemakerServicecatalogPortfolio =
       EnableSagemakerServicecatalogPortfolioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableSagemakerServicecatalogPortfolioResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     EnableSagemakerServicecatalogPortfolio
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableSagemakerServicecatalogPortfolio
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     EnableSagemakerServicecatalogPortfolio
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.EnableSagemakerServicecatalogPortfolio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.EnableSagemakerServicecatalogPortfolio" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     EnableSagemakerServicecatalogPortfolio
   where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+  toJSON = Core.const (Core.Object Core.mempty)
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     EnableSagemakerServicecatalogPortfolio
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     EnableSagemakerServicecatalogPortfolio
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableSagemakerServicecatalogPortfolioResponse' smart constructor.
 data EnableSagemakerServicecatalogPortfolioResponse = EnableSagemakerServicecatalogPortfolioResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableSagemakerServicecatalogPortfolioResponse' with all optional fields omitted.
@@ -136,7 +133,7 @@ data EnableSagemakerServicecatalogPortfolioResponse = EnableSagemakerServicecata
 -- 'httpStatus', 'enableSagemakerServicecatalogPortfolioResponse_httpStatus' - The response's http status code.
 newEnableSagemakerServicecatalogPortfolioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableSagemakerServicecatalogPortfolioResponse
 newEnableSagemakerServicecatalogPortfolioResponse
   pHttpStatus_ =
@@ -146,9 +143,9 @@ newEnableSagemakerServicecatalogPortfolioResponse
       }
 
 -- | The response's http status code.
-enableSagemakerServicecatalogPortfolioResponse_httpStatus :: Lens.Lens' EnableSagemakerServicecatalogPortfolioResponse Prelude.Int
+enableSagemakerServicecatalogPortfolioResponse_httpStatus :: Lens.Lens' EnableSagemakerServicecatalogPortfolioResponse Core.Int
 enableSagemakerServicecatalogPortfolioResponse_httpStatus = Lens.lens (\EnableSagemakerServicecatalogPortfolioResponse' {httpStatus} -> httpStatus) (\s@EnableSagemakerServicecatalogPortfolioResponse' {} a -> s {httpStatus = a} :: EnableSagemakerServicecatalogPortfolioResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableSagemakerServicecatalogPortfolioResponse

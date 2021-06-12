@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,32 +47,32 @@ module Network.AWS.AppSync.CreateGraphqlApi
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateGraphqlApi' smart constructor.
 data CreateGraphqlApi = CreateGraphqlApi'
   { -- | The OpenID Connect configuration.
-    openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
+    openIDConnectConfig :: Core.Maybe OpenIDConnectConfig,
     -- | The Amazon Cognito user pool configuration.
-    userPoolConfig :: Prelude.Maybe UserPoolConfig,
+    userPoolConfig :: Core.Maybe UserPoolConfig,
     -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
-    xrayEnabled :: Prelude.Maybe Prelude.Bool,
+    xrayEnabled :: Core.Maybe Core.Bool,
     -- | A @TagMap@ object.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The Amazon CloudWatch Logs configuration.
-    logConfig :: Prelude.Maybe LogConfig,
+    logConfig :: Core.Maybe LogConfig,
     -- | A list of additional authentication providers for the @GraphqlApi@ API.
-    additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
+    additionalAuthenticationProviders :: Core.Maybe [AdditionalAuthenticationProvider],
     -- | A user-supplied name for the @GraphqlApi@.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user
     -- pools.
     authenticationType :: AuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGraphqlApi' with all optional fields omitted.
@@ -101,49 +100,49 @@ data CreateGraphqlApi = CreateGraphqlApi'
 -- pools.
 newCreateGraphqlApi ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authenticationType'
   AuthenticationType ->
   CreateGraphqlApi
 newCreateGraphqlApi pName_ pAuthenticationType_ =
   CreateGraphqlApi'
     { openIDConnectConfig =
-        Prelude.Nothing,
-      userPoolConfig = Prelude.Nothing,
-      xrayEnabled = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      logConfig = Prelude.Nothing,
-      additionalAuthenticationProviders = Prelude.Nothing,
+        Core.Nothing,
+      userPoolConfig = Core.Nothing,
+      xrayEnabled = Core.Nothing,
+      tags = Core.Nothing,
+      logConfig = Core.Nothing,
+      additionalAuthenticationProviders = Core.Nothing,
       name = pName_,
       authenticationType = pAuthenticationType_
     }
 
 -- | The OpenID Connect configuration.
-createGraphqlApi_openIDConnectConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe OpenIDConnectConfig)
+createGraphqlApi_openIDConnectConfig :: Lens.Lens' CreateGraphqlApi (Core.Maybe OpenIDConnectConfig)
 createGraphqlApi_openIDConnectConfig = Lens.lens (\CreateGraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@CreateGraphqlApi' {} a -> s {openIDConnectConfig = a} :: CreateGraphqlApi)
 
 -- | The Amazon Cognito user pool configuration.
-createGraphqlApi_userPoolConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe UserPoolConfig)
+createGraphqlApi_userPoolConfig :: Lens.Lens' CreateGraphqlApi (Core.Maybe UserPoolConfig)
 createGraphqlApi_userPoolConfig = Lens.lens (\CreateGraphqlApi' {userPoolConfig} -> userPoolConfig) (\s@CreateGraphqlApi' {} a -> s {userPoolConfig = a} :: CreateGraphqlApi)
 
 -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
-createGraphqlApi_xrayEnabled :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe Prelude.Bool)
+createGraphqlApi_xrayEnabled :: Lens.Lens' CreateGraphqlApi (Core.Maybe Core.Bool)
 createGraphqlApi_xrayEnabled = Lens.lens (\CreateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@CreateGraphqlApi' {} a -> s {xrayEnabled = a} :: CreateGraphqlApi)
 
 -- | A @TagMap@ object.
-createGraphqlApi_tags :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createGraphqlApi_tags = Lens.lens (\CreateGraphqlApi' {tags} -> tags) (\s@CreateGraphqlApi' {} a -> s {tags = a} :: CreateGraphqlApi) Prelude.. Lens.mapping Prelude._Coerce
+createGraphqlApi_tags :: Lens.Lens' CreateGraphqlApi (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createGraphqlApi_tags = Lens.lens (\CreateGraphqlApi' {tags} -> tags) (\s@CreateGraphqlApi' {} a -> s {tags = a} :: CreateGraphqlApi) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon CloudWatch Logs configuration.
-createGraphqlApi_logConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe LogConfig)
+createGraphqlApi_logConfig :: Lens.Lens' CreateGraphqlApi (Core.Maybe LogConfig)
 createGraphqlApi_logConfig = Lens.lens (\CreateGraphqlApi' {logConfig} -> logConfig) (\s@CreateGraphqlApi' {} a -> s {logConfig = a} :: CreateGraphqlApi)
 
 -- | A list of additional authentication providers for the @GraphqlApi@ API.
-createGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
-createGraphqlApi_additionalAuthenticationProviders = Lens.lens (\CreateGraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@CreateGraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: CreateGraphqlApi) Prelude.. Lens.mapping Prelude._Coerce
+createGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' CreateGraphqlApi (Core.Maybe [AdditionalAuthenticationProvider])
+createGraphqlApi_additionalAuthenticationProviders = Lens.lens (\CreateGraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@CreateGraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: CreateGraphqlApi) Core.. Lens.mapping Lens._Coerce
 
 -- | A user-supplied name for the @GraphqlApi@.
-createGraphqlApi_name :: Lens.Lens' CreateGraphqlApi Prelude.Text
+createGraphqlApi_name :: Lens.Lens' CreateGraphqlApi Core.Text
 createGraphqlApi_name = Lens.lens (\CreateGraphqlApi' {name} -> name) (\s@CreateGraphqlApi' {} a -> s {name = a} :: CreateGraphqlApi)
 
 -- | The authentication type: API key, AWS IAM, OIDC, or Amazon Cognito user
@@ -151,67 +150,64 @@ createGraphqlApi_name = Lens.lens (\CreateGraphqlApi' {name} -> name) (\s@Create
 createGraphqlApi_authenticationType :: Lens.Lens' CreateGraphqlApi AuthenticationType
 createGraphqlApi_authenticationType = Lens.lens (\CreateGraphqlApi' {authenticationType} -> authenticationType) (\s@CreateGraphqlApi' {} a -> s {authenticationType = a} :: CreateGraphqlApi)
 
-instance Prelude.AWSRequest CreateGraphqlApi where
-  type Rs CreateGraphqlApi = CreateGraphqlApiResponse
+instance Core.AWSRequest CreateGraphqlApi where
+  type
+    AWSResponse CreateGraphqlApi =
+      CreateGraphqlApiResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateGraphqlApiResponse'
-            Prelude.<$> (x Prelude..?> "graphqlApi")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "graphqlApi")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateGraphqlApi
+instance Core.Hashable CreateGraphqlApi
 
-instance Prelude.NFData CreateGraphqlApi
+instance Core.NFData CreateGraphqlApi
 
-instance Prelude.ToHeaders CreateGraphqlApi where
+instance Core.ToHeaders CreateGraphqlApi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateGraphqlApi where
+instance Core.ToJSON CreateGraphqlApi where
   toJSON CreateGraphqlApi' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("openIDConnectConfig" Prelude..=)
-              Prelude.<$> openIDConnectConfig,
-            ("userPoolConfig" Prelude..=)
-              Prelude.<$> userPoolConfig,
-            ("xrayEnabled" Prelude..=) Prelude.<$> xrayEnabled,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("logConfig" Prelude..=) Prelude.<$> logConfig,
-            ("additionalAuthenticationProviders" Prelude..=)
-              Prelude.<$> additionalAuthenticationProviders,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just
-              ( "authenticationType"
-                  Prelude..= authenticationType
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("openIDConnectConfig" Core..=)
+              Core.<$> openIDConnectConfig,
+            ("userPoolConfig" Core..=) Core.<$> userPoolConfig,
+            ("xrayEnabled" Core..=) Core.<$> xrayEnabled,
+            ("tags" Core..=) Core.<$> tags,
+            ("logConfig" Core..=) Core.<$> logConfig,
+            ("additionalAuthenticationProviders" Core..=)
+              Core.<$> additionalAuthenticationProviders,
+            Core.Just ("name" Core..= name),
+            Core.Just
+              ("authenticationType" Core..= authenticationType)
           ]
       )
 
-instance Prelude.ToPath CreateGraphqlApi where
-  toPath = Prelude.const "/v1/apis"
+instance Core.ToPath CreateGraphqlApi where
+  toPath = Core.const "/v1/apis"
 
-instance Prelude.ToQuery CreateGraphqlApi where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateGraphqlApi where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateGraphqlApiResponse' smart constructor.
 data CreateGraphqlApiResponse = CreateGraphqlApiResponse'
   { -- | The @GraphqlApi@.
-    graphqlApi :: Prelude.Maybe GraphqlApi,
+    graphqlApi :: Core.Maybe GraphqlApi,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateGraphqlApiResponse' with all optional fields omitted.
@@ -226,21 +222,21 @@ data CreateGraphqlApiResponse = CreateGraphqlApiResponse'
 -- 'httpStatus', 'createGraphqlApiResponse_httpStatus' - The response's http status code.
 newCreateGraphqlApiResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateGraphqlApiResponse
 newCreateGraphqlApiResponse pHttpStatus_ =
   CreateGraphqlApiResponse'
     { graphqlApi =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @GraphqlApi@.
-createGraphqlApiResponse_graphqlApi :: Lens.Lens' CreateGraphqlApiResponse (Prelude.Maybe GraphqlApi)
+createGraphqlApiResponse_graphqlApi :: Lens.Lens' CreateGraphqlApiResponse (Core.Maybe GraphqlApi)
 createGraphqlApiResponse_graphqlApi = Lens.lens (\CreateGraphqlApiResponse' {graphqlApi} -> graphqlApi) (\s@CreateGraphqlApiResponse' {} a -> s {graphqlApi = a} :: CreateGraphqlApiResponse)
 
 -- | The response's http status code.
-createGraphqlApiResponse_httpStatus :: Lens.Lens' CreateGraphqlApiResponse Prelude.Int
+createGraphqlApiResponse_httpStatus :: Lens.Lens' CreateGraphqlApiResponse Core.Int
 createGraphqlApiResponse_httpStatus = Lens.lens (\CreateGraphqlApiResponse' {httpStatus} -> httpStatus) (\s@CreateGraphqlApiResponse' {} a -> s {httpStatus = a} :: CreateGraphqlApiResponse)
 
-instance Prelude.NFData CreateGraphqlApiResponse
+instance Core.NFData CreateGraphqlApiResponse

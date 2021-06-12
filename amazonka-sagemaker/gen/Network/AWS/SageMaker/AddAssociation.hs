@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.SageMaker.AddAssociation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -71,13 +70,13 @@ data AddAssociation = AddAssociation'
     --
     -- -   Produced - The source generated the destination. For example, a
     --     training job produced a model artifact.
-    associationType :: Prelude.Maybe AssociationEdgeType,
+    associationType :: Core.Maybe AssociationEdgeType,
     -- | The ARN of the source.
-    sourceArn :: Prelude.Text,
+    sourceArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the destination.
-    destinationArn :: Prelude.Text
+    destinationArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddAssociation' with all optional fields omitted.
@@ -109,13 +108,13 @@ data AddAssociation = AddAssociation'
 -- 'destinationArn', 'addAssociation_destinationArn' - The Amazon Resource Name (ARN) of the destination.
 newAddAssociation ::
   -- | 'sourceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationArn'
-  Prelude.Text ->
+  Core.Text ->
   AddAssociation
 newAddAssociation pSourceArn_ pDestinationArn_ =
   AddAssociation'
-    { associationType = Prelude.Nothing,
+    { associationType = Core.Nothing,
       sourceArn = pSourceArn_,
       destinationArn = pDestinationArn_
     }
@@ -136,74 +135,73 @@ newAddAssociation pSourceArn_ pDestinationArn_ =
 --
 -- -   Produced - The source generated the destination. For example, a
 --     training job produced a model artifact.
-addAssociation_associationType :: Lens.Lens' AddAssociation (Prelude.Maybe AssociationEdgeType)
+addAssociation_associationType :: Lens.Lens' AddAssociation (Core.Maybe AssociationEdgeType)
 addAssociation_associationType = Lens.lens (\AddAssociation' {associationType} -> associationType) (\s@AddAssociation' {} a -> s {associationType = a} :: AddAssociation)
 
 -- | The ARN of the source.
-addAssociation_sourceArn :: Lens.Lens' AddAssociation Prelude.Text
+addAssociation_sourceArn :: Lens.Lens' AddAssociation Core.Text
 addAssociation_sourceArn = Lens.lens (\AddAssociation' {sourceArn} -> sourceArn) (\s@AddAssociation' {} a -> s {sourceArn = a} :: AddAssociation)
 
 -- | The Amazon Resource Name (ARN) of the destination.
-addAssociation_destinationArn :: Lens.Lens' AddAssociation Prelude.Text
+addAssociation_destinationArn :: Lens.Lens' AddAssociation Core.Text
 addAssociation_destinationArn = Lens.lens (\AddAssociation' {destinationArn} -> destinationArn) (\s@AddAssociation' {} a -> s {destinationArn = a} :: AddAssociation)
 
-instance Prelude.AWSRequest AddAssociation where
-  type Rs AddAssociation = AddAssociationResponse
+instance Core.AWSRequest AddAssociation where
+  type
+    AWSResponse AddAssociation =
+      AddAssociationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AddAssociationResponse'
-            Prelude.<$> (x Prelude..?> "DestinationArn")
-            Prelude.<*> (x Prelude..?> "SourceArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DestinationArn")
+            Core.<*> (x Core..?> "SourceArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddAssociation
+instance Core.Hashable AddAssociation
 
-instance Prelude.NFData AddAssociation
+instance Core.NFData AddAssociation
 
-instance Prelude.ToHeaders AddAssociation where
+instance Core.ToHeaders AddAssociation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.AddAssociation" :: Prelude.ByteString),
+              Core.=# ("SageMaker.AddAssociation" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddAssociation where
+instance Core.ToJSON AddAssociation where
   toJSON AddAssociation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AssociationType" Prelude..=)
-              Prelude.<$> associationType,
-            Prelude.Just ("SourceArn" Prelude..= sourceArn),
-            Prelude.Just
-              ("DestinationArn" Prelude..= destinationArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("AssociationType" Core..=)
+              Core.<$> associationType,
+            Core.Just ("SourceArn" Core..= sourceArn),
+            Core.Just ("DestinationArn" Core..= destinationArn)
           ]
       )
 
-instance Prelude.ToPath AddAssociation where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddAssociation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddAssociation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddAssociation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newAddAssociationResponse' smart constructor.
 data AddAssociationResponse = AddAssociationResponse'
   { -- | The Amazon Resource Name (ARN) of the destination.
-    destinationArn :: Prelude.Maybe Prelude.Text,
+    destinationArn :: Core.Maybe Core.Text,
     -- | The ARN of the source.
-    sourceArn :: Prelude.Maybe Prelude.Text,
+    sourceArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddAssociationResponse' with all optional fields omitted.
@@ -220,26 +218,26 @@ data AddAssociationResponse = AddAssociationResponse'
 -- 'httpStatus', 'addAssociationResponse_httpStatus' - The response's http status code.
 newAddAssociationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddAssociationResponse
 newAddAssociationResponse pHttpStatus_ =
   AddAssociationResponse'
     { destinationArn =
-        Prelude.Nothing,
-      sourceArn = Prelude.Nothing,
+        Core.Nothing,
+      sourceArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the destination.
-addAssociationResponse_destinationArn :: Lens.Lens' AddAssociationResponse (Prelude.Maybe Prelude.Text)
+addAssociationResponse_destinationArn :: Lens.Lens' AddAssociationResponse (Core.Maybe Core.Text)
 addAssociationResponse_destinationArn = Lens.lens (\AddAssociationResponse' {destinationArn} -> destinationArn) (\s@AddAssociationResponse' {} a -> s {destinationArn = a} :: AddAssociationResponse)
 
 -- | The ARN of the source.
-addAssociationResponse_sourceArn :: Lens.Lens' AddAssociationResponse (Prelude.Maybe Prelude.Text)
+addAssociationResponse_sourceArn :: Lens.Lens' AddAssociationResponse (Core.Maybe Core.Text)
 addAssociationResponse_sourceArn = Lens.lens (\AddAssociationResponse' {sourceArn} -> sourceArn) (\s@AddAssociationResponse' {} a -> s {sourceArn = a} :: AddAssociationResponse)
 
 -- | The response's http status code.
-addAssociationResponse_httpStatus :: Lens.Lens' AddAssociationResponse Prelude.Int
+addAssociationResponse_httpStatus :: Lens.Lens' AddAssociationResponse Core.Int
 addAssociationResponse_httpStatus = Lens.lens (\AddAssociationResponse' {httpStatus} -> httpStatus) (\s@AddAssociationResponse' {} a -> s {httpStatus = a} :: AddAssociationResponse)
 
-instance Prelude.NFData AddAssociationResponse
+instance Core.NFData AddAssociationResponse

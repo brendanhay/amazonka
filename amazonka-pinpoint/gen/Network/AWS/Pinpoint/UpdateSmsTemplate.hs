@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Pinpoint.UpdateSmsTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +73,7 @@ data UpdateSmsTemplate = UpdateSmsTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | Specifies whether to save the updates as a new version of the message
     -- template. Valid values are: true, save the updates as a new version;
     -- and, false, save the updates to (overwrite) the latest existing version
@@ -84,15 +83,15 @@ data UpdateSmsTemplate = UpdateSmsTemplate'
     -- the updates to (overwrites) the latest existing version of the template.
     -- If you specify a value of true for this parameter, don\'t specify a
     -- value for the version parameter. Otherwise, an error will occur.
-    createNewVersion :: Prelude.Maybe Prelude.Bool,
+    createNewVersion :: Core.Maybe Core.Bool,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text,
+    templateName :: Core.Text,
     sMSTemplateRequest :: SMSTemplateRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSmsTemplate' with all optional fields omitted.
@@ -143,7 +142,7 @@ data UpdateSmsTemplate = UpdateSmsTemplate'
 -- 'sMSTemplateRequest', 'updateSmsTemplate_sMSTemplateRequest' - Undocumented member.
 newUpdateSmsTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sMSTemplateRequest'
   SMSTemplateRequest ->
   UpdateSmsTemplate
@@ -151,8 +150,8 @@ newUpdateSmsTemplate
   pTemplateName_
   pSMSTemplateRequest_ =
     UpdateSmsTemplate'
-      { version = Prelude.Nothing,
-        createNewVersion = Prelude.Nothing,
+      { version = Core.Nothing,
+        createNewVersion = Core.Nothing,
         templateName = pTemplateName_,
         sMSTemplateRequest = pSMSTemplateRequest_
       }
@@ -179,7 +178,7 @@ newUpdateSmsTemplate
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-updateSmsTemplate_version :: Lens.Lens' UpdateSmsTemplate (Prelude.Maybe Prelude.Text)
+updateSmsTemplate_version :: Lens.Lens' UpdateSmsTemplate (Core.Maybe Core.Text)
 updateSmsTemplate_version = Lens.lens (\UpdateSmsTemplate' {version} -> version) (\s@UpdateSmsTemplate' {} a -> s {version = a} :: UpdateSmsTemplate)
 
 -- | Specifies whether to save the updates as a new version of the message
@@ -191,76 +190,74 @@ updateSmsTemplate_version = Lens.lens (\UpdateSmsTemplate' {version} -> version)
 -- the updates to (overwrites) the latest existing version of the template.
 -- If you specify a value of true for this parameter, don\'t specify a
 -- value for the version parameter. Otherwise, an error will occur.
-updateSmsTemplate_createNewVersion :: Lens.Lens' UpdateSmsTemplate (Prelude.Maybe Prelude.Bool)
+updateSmsTemplate_createNewVersion :: Lens.Lens' UpdateSmsTemplate (Core.Maybe Core.Bool)
 updateSmsTemplate_createNewVersion = Lens.lens (\UpdateSmsTemplate' {createNewVersion} -> createNewVersion) (\s@UpdateSmsTemplate' {} a -> s {createNewVersion = a} :: UpdateSmsTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-updateSmsTemplate_templateName :: Lens.Lens' UpdateSmsTemplate Prelude.Text
+updateSmsTemplate_templateName :: Lens.Lens' UpdateSmsTemplate Core.Text
 updateSmsTemplate_templateName = Lens.lens (\UpdateSmsTemplate' {templateName} -> templateName) (\s@UpdateSmsTemplate' {} a -> s {templateName = a} :: UpdateSmsTemplate)
 
 -- | Undocumented member.
 updateSmsTemplate_sMSTemplateRequest :: Lens.Lens' UpdateSmsTemplate SMSTemplateRequest
 updateSmsTemplate_sMSTemplateRequest = Lens.lens (\UpdateSmsTemplate' {sMSTemplateRequest} -> sMSTemplateRequest) (\s@UpdateSmsTemplate' {} a -> s {sMSTemplateRequest = a} :: UpdateSmsTemplate)
 
-instance Prelude.AWSRequest UpdateSmsTemplate where
-  type Rs UpdateSmsTemplate = UpdateSmsTemplateResponse
+instance Core.AWSRequest UpdateSmsTemplate where
+  type
+    AWSResponse UpdateSmsTemplate =
+      UpdateSmsTemplateResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateSmsTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateSmsTemplate
+instance Core.Hashable UpdateSmsTemplate
 
-instance Prelude.NFData UpdateSmsTemplate
+instance Core.NFData UpdateSmsTemplate
 
-instance Prelude.ToHeaders UpdateSmsTemplate where
+instance Core.ToHeaders UpdateSmsTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSmsTemplate where
+instance Core.ToJSON UpdateSmsTemplate where
   toJSON UpdateSmsTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "SMSTemplateRequest"
-                  Prelude..= sMSTemplateRequest
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("SMSTemplateRequest" Core..= sMSTemplateRequest)
           ]
       )
 
-instance Prelude.ToPath UpdateSmsTemplate where
+instance Core.ToPath UpdateSmsTemplate where
   toPath UpdateSmsTemplate' {..} =
-    Prelude.mconcat
-      ["/v1/templates/", Prelude.toBS templateName, "/sms"]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/sms"]
 
-instance Prelude.ToQuery UpdateSmsTemplate where
+instance Core.ToQuery UpdateSmsTemplate where
   toQuery UpdateSmsTemplate' {..} =
-    Prelude.mconcat
-      [ "version" Prelude.=: version,
-        "create-new-version" Prelude.=: createNewVersion
+    Core.mconcat
+      [ "version" Core.=: version,
+        "create-new-version" Core.=: createNewVersion
       ]
 
 -- | /See:/ 'newUpdateSmsTemplateResponse' smart constructor.
 data UpdateSmsTemplateResponse = UpdateSmsTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     messageBody :: MessageBody
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSmsTemplateResponse' with all optional fields omitted.
@@ -275,7 +272,7 @@ data UpdateSmsTemplateResponse = UpdateSmsTemplateResponse'
 -- 'messageBody', 'updateSmsTemplateResponse_messageBody' - Undocumented member.
 newUpdateSmsTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'messageBody'
   MessageBody ->
   UpdateSmsTemplateResponse
@@ -289,11 +286,11 @@ newUpdateSmsTemplateResponse
       }
 
 -- | The response's http status code.
-updateSmsTemplateResponse_httpStatus :: Lens.Lens' UpdateSmsTemplateResponse Prelude.Int
+updateSmsTemplateResponse_httpStatus :: Lens.Lens' UpdateSmsTemplateResponse Core.Int
 updateSmsTemplateResponse_httpStatus = Lens.lens (\UpdateSmsTemplateResponse' {httpStatus} -> httpStatus) (\s@UpdateSmsTemplateResponse' {} a -> s {httpStatus = a} :: UpdateSmsTemplateResponse)
 
 -- | Undocumented member.
 updateSmsTemplateResponse_messageBody :: Lens.Lens' UpdateSmsTemplateResponse MessageBody
 updateSmsTemplateResponse_messageBody = Lens.lens (\UpdateSmsTemplateResponse' {messageBody} -> messageBody) (\s@UpdateSmsTemplateResponse' {} a -> s {messageBody = a} :: UpdateSmsTemplateResponse)
 
-instance Prelude.NFData UpdateSmsTemplateResponse
+instance Core.NFData UpdateSmsTemplateResponse

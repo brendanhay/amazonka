@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.OpsWorks.CreateStack
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -102,7 +101,7 @@ data CreateStack = CreateStack'
     -- The default option is the current Amazon Linux version. For more
     -- information about supported operating systems, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems>.
-    defaultOs :: Prelude.Maybe Prelude.Text,
+    defaultOs :: Core.Maybe Core.Text,
     -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
     -- with the stack\'s layers.
     --
@@ -125,20 +124,20 @@ data CreateStack = CreateStack'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
+    useOpsworksSecurityGroups :: Core.Maybe Core.Bool,
     -- | Contains the information required to retrieve an app or cookbook from a
     -- repository. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
     -- or
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-    customCookbooksSource :: Prelude.Maybe Source,
+    customCookbooksSource :: Core.Maybe Source,
     -- | The stack\'s default Availability Zone, which must be in the specified
     -- region. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
     -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
     -- the same zone. For more information, see the @VpcId@ parameter
     -- description.
-    defaultAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    defaultAvailabilityZone :: Core.Maybe Core.Text,
     -- | The default AWS OpsWorks Stacks agent version. You have the following
     -- options:
     --
@@ -159,7 +158,7 @@ data CreateStack = CreateStack'
     --
     -- You can also specify an agent version when you create or update an
     -- instance, which overrides the stack\'s default setting.
-    agentVersion :: Prelude.Maybe Prelude.Text,
+    agentVersion :: Core.Maybe Core.Text,
     -- | A string that contains user-defined, custom JSON. It can be used to
     -- override the corresponding default stack configuration attribute values
     -- or to pass data to recipes. The string should be in the following
@@ -169,16 +168,16 @@ data CreateStack = CreateStack'
     --
     -- For more information about custom JSON, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-    customJson :: Prelude.Maybe Prelude.Text,
+    customJson :: Core.Maybe Core.Text,
     -- | The default root device type. This value is the default for all
     -- instances in the stack, but you can override it when you create an
     -- instance. The default option is @instance-store@. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-    defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
+    defaultRootDeviceType :: Core.Maybe RootDeviceType,
     -- | One or more user-defined key-value pairs to be added to the stack
     -- attributes.
-    attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
+    attributes :: Core.Maybe (Core.HashMap StackAttributesKeys (Core.Maybe Core.Text)),
     -- | The stack\'s host name theme, with spaces replaced by underscores. The
     -- theme is used to generate host names for the stack\'s instances. By
     -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
@@ -209,7 +208,7 @@ data CreateStack = CreateStack'
     --
     -- To obtain a generated host name, call @GetHostNameSuggestion@, which
     -- returns a host name based on the current theme.
-    hostnameTheme :: Prelude.Maybe Prelude.Text,
+    hostnameTheme :: Core.Maybe Core.Text,
     -- | A default Amazon EC2 key pair name. The default value is none. If you
     -- specify a key pair name, AWS OpsWorks installs the public key on the
     -- instance and you can use the private key with an SSH client to log in to
@@ -220,12 +219,12 @@ data CreateStack = CreateStack'
     -- You can override this setting by specifying a different key pair, or no
     -- key pair, when you
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-    defaultSshKeyName :: Prelude.Maybe Prelude.Text,
+    defaultSshKeyName :: Core.Maybe Core.Text,
     -- | The configuration manager. When you create a stack we recommend that you
     -- use the configuration manager to specify the Chef version: 12, 11.10, or
     -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
     -- Linux stacks is currently 12.
-    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    configurationManager :: Core.Maybe StackConfigurationManager,
     -- | The ID of the VPC that the stack is to be launched into. The VPC must be
     -- in the stack\'s region. All instances are launched into this VPC. You
     -- cannot change the ID later.
@@ -254,23 +253,23 @@ data CreateStack = CreateStack'
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
     -- For more information about default VPC and EC2-Classic, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-    vpcId :: Prelude.Maybe Prelude.Text,
+    vpcId :: Core.Maybe Core.Text,
     -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
     -- and the Berkshelf version on Chef 11.10 stacks. For more information,
     -- see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    chefConfiguration :: Prelude.Maybe ChefConfiguration,
+    chefConfiguration :: Core.Maybe ChefConfiguration,
     -- | The stack\'s default VPC subnet ID. This parameter is required if you
     -- specify a value for the @VpcId@ parameter. All instances are launched
     -- into this subnet unless you specify otherwise when you create the
     -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
     -- subnet must be in that zone. For information on default values and when
     -- this parameter is required, see the @VpcId@ parameter description.
-    defaultSubnetId :: Prelude.Maybe Prelude.Text,
+    defaultSubnetId :: Core.Maybe Core.Text,
     -- | Whether the stack uses custom cookbooks.
-    useCustomCookbooks :: Prelude.Maybe Prelude.Bool,
+    useCustomCookbooks :: Core.Maybe Core.Bool,
     -- | The stack name.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The stack\'s AWS region, such as @ap-south-1@. For more information
     -- about Amazon regions, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -291,20 +290,20 @@ data CreateStack = CreateStack'
     -- that you use regional endpoints for new stacks. The AWS CLI common
     -- @--region@ parameter always specifies a regional API endpoint; it cannot
     -- be used to specify a classic AWS OpsWorks Stacks region.
-    region :: Prelude.Text,
+    region :: Core.Text,
     -- | The stack\'s AWS Identity and Access Management (IAM) role, which allows
     -- AWS OpsWorks Stacks to work with AWS resources on your behalf. You must
     -- set this parameter to the Amazon Resource Name (ARN) for an existing IAM
     -- role. For more information about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    serviceRoleArn :: Prelude.Text,
+    serviceRoleArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
     -- profile for all of the stack\'s EC2 instances. For more information
     -- about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    defaultInstanceProfileArn :: Prelude.Text
+    defaultInstanceProfileArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStack' with all optional fields omitted.
@@ -546,13 +545,13 @@ data CreateStack = CreateStack'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 newCreateStack ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'region'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'defaultInstanceProfileArn'
-  Prelude.Text ->
+  Core.Text ->
   CreateStack
 newCreateStack
   pName_
@@ -560,21 +559,21 @@ newCreateStack
   pServiceRoleArn_
   pDefaultInstanceProfileArn_ =
     CreateStack'
-      { defaultOs = Prelude.Nothing,
-        useOpsworksSecurityGroups = Prelude.Nothing,
-        customCookbooksSource = Prelude.Nothing,
-        defaultAvailabilityZone = Prelude.Nothing,
-        agentVersion = Prelude.Nothing,
-        customJson = Prelude.Nothing,
-        defaultRootDeviceType = Prelude.Nothing,
-        attributes = Prelude.Nothing,
-        hostnameTheme = Prelude.Nothing,
-        defaultSshKeyName = Prelude.Nothing,
-        configurationManager = Prelude.Nothing,
-        vpcId = Prelude.Nothing,
-        chefConfiguration = Prelude.Nothing,
-        defaultSubnetId = Prelude.Nothing,
-        useCustomCookbooks = Prelude.Nothing,
+      { defaultOs = Core.Nothing,
+        useOpsworksSecurityGroups = Core.Nothing,
+        customCookbooksSource = Core.Nothing,
+        defaultAvailabilityZone = Core.Nothing,
+        agentVersion = Core.Nothing,
+        customJson = Core.Nothing,
+        defaultRootDeviceType = Core.Nothing,
+        attributes = Core.Nothing,
+        hostnameTheme = Core.Nothing,
+        defaultSshKeyName = Core.Nothing,
+        configurationManager = Core.Nothing,
+        vpcId = Core.Nothing,
+        chefConfiguration = Core.Nothing,
+        defaultSubnetId = Core.Nothing,
+        useCustomCookbooks = Core.Nothing,
         name = pName_,
         region = pRegion_,
         serviceRoleArn = pServiceRoleArn_,
@@ -612,7 +611,7 @@ newCreateStack
 -- The default option is the current Amazon Linux version. For more
 -- information about supported operating systems, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Stacks Operating Systems>.
-createStack_defaultOs :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_defaultOs :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_defaultOs = Lens.lens (\CreateStack' {defaultOs} -> defaultOs) (\s@CreateStack' {} a -> s {defaultOs = a} :: CreateStack)
 
 -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
@@ -637,7 +636,7 @@ createStack_defaultOs = Lens.lens (\CreateStack' {defaultOs} -> defaultOs) (\s@C
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-createStack_useOpsworksSecurityGroups :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
+createStack_useOpsworksSecurityGroups :: Lens.Lens' CreateStack (Core.Maybe Core.Bool)
 createStack_useOpsworksSecurityGroups = Lens.lens (\CreateStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CreateStack' {} a -> s {useOpsworksSecurityGroups = a} :: CreateStack)
 
 -- | Contains the information required to retrieve an app or cookbook from a
@@ -645,7 +644,7 @@ createStack_useOpsworksSecurityGroups = Lens.lens (\CreateStack' {useOpsworksSec
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
 -- or
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes>.
-createStack_customCookbooksSource :: Lens.Lens' CreateStack (Prelude.Maybe Source)
+createStack_customCookbooksSource :: Lens.Lens' CreateStack (Core.Maybe Source)
 createStack_customCookbooksSource = Lens.lens (\CreateStack' {customCookbooksSource} -> customCookbooksSource) (\s@CreateStack' {} a -> s {customCookbooksSource = a} :: CreateStack)
 
 -- | The stack\'s default Availability Zone, which must be in the specified
@@ -654,7 +653,7 @@ createStack_customCookbooksSource = Lens.lens (\CreateStack' {customCookbooksSou
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
-createStack_defaultAvailabilityZone :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_defaultAvailabilityZone :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_defaultAvailabilityZone = Lens.lens (\CreateStack' {defaultAvailabilityZone} -> defaultAvailabilityZone) (\s@CreateStack' {} a -> s {defaultAvailabilityZone = a} :: CreateStack)
 
 -- | The default AWS OpsWorks Stacks agent version. You have the following
@@ -677,7 +676,7 @@ createStack_defaultAvailabilityZone = Lens.lens (\CreateStack' {defaultAvailabil
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
-createStack_agentVersion :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_agentVersion :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_agentVersion = Lens.lens (\CreateStack' {agentVersion} -> agentVersion) (\s@CreateStack' {} a -> s {agentVersion = a} :: CreateStack)
 
 -- | A string that contains user-defined, custom JSON. It can be used to
@@ -689,7 +688,7 @@ createStack_agentVersion = Lens.lens (\CreateStack' {agentVersion} -> agentVersi
 --
 -- For more information about custom JSON, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-createStack_customJson :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_customJson :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_customJson = Lens.lens (\CreateStack' {customJson} -> customJson) (\s@CreateStack' {} a -> s {customJson = a} :: CreateStack)
 
 -- | The default root device type. This value is the default for all
@@ -697,13 +696,13 @@ createStack_customJson = Lens.lens (\CreateStack' {customJson} -> customJson) (\
 -- instance. The default option is @instance-store@. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-createStack_defaultRootDeviceType :: Lens.Lens' CreateStack (Prelude.Maybe RootDeviceType)
+createStack_defaultRootDeviceType :: Lens.Lens' CreateStack (Core.Maybe RootDeviceType)
 createStack_defaultRootDeviceType = Lens.lens (\CreateStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@CreateStack' {} a -> s {defaultRootDeviceType = a} :: CreateStack)
 
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
-createStack_attributes :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\s@CreateStack' {} a -> s {attributes = a} :: CreateStack) Prelude.. Lens.mapping Prelude._Coerce
+createStack_attributes :: Lens.Lens' CreateStack (Core.Maybe (Core.HashMap StackAttributesKeys (Core.Maybe Core.Text)))
+createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\s@CreateStack' {} a -> s {attributes = a} :: CreateStack) Core.. Lens.mapping Lens._Coerce
 
 -- | The stack\'s host name theme, with spaces replaced by underscores. The
 -- theme is used to generate host names for the stack\'s instances. By
@@ -735,7 +734,7 @@ createStack_attributes = Lens.lens (\CreateStack' {attributes} -> attributes) (\
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
-createStack_hostnameTheme :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_hostnameTheme :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_hostnameTheme = Lens.lens (\CreateStack' {hostnameTheme} -> hostnameTheme) (\s@CreateStack' {} a -> s {hostnameTheme = a} :: CreateStack)
 
 -- | A default Amazon EC2 key pair name. The default value is none. If you
@@ -748,14 +747,14 @@ createStack_hostnameTheme = Lens.lens (\CreateStack' {hostnameTheme} -> hostname
 -- You can override this setting by specifying a different key pair, or no
 -- key pair, when you
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-createStack_defaultSshKeyName :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_defaultSshKeyName :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_defaultSshKeyName = Lens.lens (\CreateStack' {defaultSshKeyName} -> defaultSshKeyName) (\s@CreateStack' {} a -> s {defaultSshKeyName = a} :: CreateStack)
 
 -- | The configuration manager. When you create a stack we recommend that you
 -- use the configuration manager to specify the Chef version: 12, 11.10, or
 -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
 -- Linux stacks is currently 12.
-createStack_configurationManager :: Lens.Lens' CreateStack (Prelude.Maybe StackConfigurationManager)
+createStack_configurationManager :: Lens.Lens' CreateStack (Core.Maybe StackConfigurationManager)
 createStack_configurationManager = Lens.lens (\CreateStack' {configurationManager} -> configurationManager) (\s@CreateStack' {} a -> s {configurationManager = a} :: CreateStack)
 
 -- | The ID of the VPC that the stack is to be launched into. The VPC must be
@@ -786,14 +785,14 @@ createStack_configurationManager = Lens.lens (\CreateStack' {configurationManage
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
 -- For more information about default VPC and EC2-Classic, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-createStack_vpcId :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_vpcId :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_vpcId = Lens.lens (\CreateStack' {vpcId} -> vpcId) (\s@CreateStack' {} a -> s {vpcId = a} :: CreateStack)
 
 -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-createStack_chefConfiguration :: Lens.Lens' CreateStack (Prelude.Maybe ChefConfiguration)
+createStack_chefConfiguration :: Lens.Lens' CreateStack (Core.Maybe ChefConfiguration)
 createStack_chefConfiguration = Lens.lens (\CreateStack' {chefConfiguration} -> chefConfiguration) (\s@CreateStack' {} a -> s {chefConfiguration = a} :: CreateStack)
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
@@ -802,15 +801,15 @@ createStack_chefConfiguration = Lens.lens (\CreateStack' {chefConfiguration} -> 
 -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
 -- subnet must be in that zone. For information on default values and when
 -- this parameter is required, see the @VpcId@ parameter description.
-createStack_defaultSubnetId :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
+createStack_defaultSubnetId :: Lens.Lens' CreateStack (Core.Maybe Core.Text)
 createStack_defaultSubnetId = Lens.lens (\CreateStack' {defaultSubnetId} -> defaultSubnetId) (\s@CreateStack' {} a -> s {defaultSubnetId = a} :: CreateStack)
 
 -- | Whether the stack uses custom cookbooks.
-createStack_useCustomCookbooks :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Bool)
+createStack_useCustomCookbooks :: Lens.Lens' CreateStack (Core.Maybe Core.Bool)
 createStack_useCustomCookbooks = Lens.lens (\CreateStack' {useCustomCookbooks} -> useCustomCookbooks) (\s@CreateStack' {} a -> s {useCustomCookbooks = a} :: CreateStack)
 
 -- | The stack name.
-createStack_name :: Lens.Lens' CreateStack Prelude.Text
+createStack_name :: Lens.Lens' CreateStack Core.Text
 createStack_name = Lens.lens (\CreateStack' {name} -> name) (\s@CreateStack' {} a -> s {name = a} :: CreateStack)
 
 -- | The stack\'s AWS region, such as @ap-south-1@. For more information
@@ -833,7 +832,7 @@ createStack_name = Lens.lens (\CreateStack' {name} -> name) (\s@CreateStack' {} 
 -- that you use regional endpoints for new stacks. The AWS CLI common
 -- @--region@ parameter always specifies a regional API endpoint; it cannot
 -- be used to specify a classic AWS OpsWorks Stacks region.
-createStack_region :: Lens.Lens' CreateStack Prelude.Text
+createStack_region :: Lens.Lens' CreateStack Core.Text
 createStack_region = Lens.lens (\CreateStack' {region} -> region) (\s@CreateStack' {} a -> s {region = a} :: CreateStack)
 
 -- | The stack\'s AWS Identity and Access Management (IAM) role, which allows
@@ -841,91 +840,84 @@ createStack_region = Lens.lens (\CreateStack' {region} -> region) (\s@CreateStac
 -- set this parameter to the Amazon Resource Name (ARN) for an existing IAM
 -- role. For more information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-createStack_serviceRoleArn :: Lens.Lens' CreateStack Prelude.Text
+createStack_serviceRoleArn :: Lens.Lens' CreateStack Core.Text
 createStack_serviceRoleArn = Lens.lens (\CreateStack' {serviceRoleArn} -> serviceRoleArn) (\s@CreateStack' {} a -> s {serviceRoleArn = a} :: CreateStack)
 
 -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
 -- profile for all of the stack\'s EC2 instances. For more information
 -- about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-createStack_defaultInstanceProfileArn :: Lens.Lens' CreateStack Prelude.Text
+createStack_defaultInstanceProfileArn :: Lens.Lens' CreateStack Core.Text
 createStack_defaultInstanceProfileArn = Lens.lens (\CreateStack' {defaultInstanceProfileArn} -> defaultInstanceProfileArn) (\s@CreateStack' {} a -> s {defaultInstanceProfileArn = a} :: CreateStack)
 
-instance Prelude.AWSRequest CreateStack where
-  type Rs CreateStack = CreateStackResponse
+instance Core.AWSRequest CreateStack where
+  type AWSResponse CreateStack = CreateStackResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateStackResponse'
-            Prelude.<$> (x Prelude..?> "StackId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StackId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStack
+instance Core.Hashable CreateStack
 
-instance Prelude.NFData CreateStack
+instance Core.NFData CreateStack
 
-instance Prelude.ToHeaders CreateStack where
+instance Core.ToHeaders CreateStack where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.CreateStack" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("OpsWorks_20130218.CreateStack" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateStack where
+instance Core.ToJSON CreateStack where
   toJSON CreateStack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultOs" Prelude..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Prelude..=)
-              Prelude.<$> useOpsworksSecurityGroups,
-            ("CustomCookbooksSource" Prelude..=)
-              Prelude.<$> customCookbooksSource,
-            ("DefaultAvailabilityZone" Prelude..=)
-              Prelude.<$> defaultAvailabilityZone,
-            ("AgentVersion" Prelude..=) Prelude.<$> agentVersion,
-            ("CustomJson" Prelude..=) Prelude.<$> customJson,
-            ("DefaultRootDeviceType" Prelude..=)
-              Prelude.<$> defaultRootDeviceType,
-            ("Attributes" Prelude..=) Prelude.<$> attributes,
-            ("HostnameTheme" Prelude..=)
-              Prelude.<$> hostnameTheme,
-            ("DefaultSshKeyName" Prelude..=)
-              Prelude.<$> defaultSshKeyName,
-            ("ConfigurationManager" Prelude..=)
-              Prelude.<$> configurationManager,
-            ("VpcId" Prelude..=) Prelude.<$> vpcId,
-            ("ChefConfiguration" Prelude..=)
-              Prelude.<$> chefConfiguration,
-            ("DefaultSubnetId" Prelude..=)
-              Prelude.<$> defaultSubnetId,
-            ("UseCustomCookbooks" Prelude..=)
-              Prelude.<$> useCustomCookbooks,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Region" Prelude..= region),
-            Prelude.Just
-              ("ServiceRoleArn" Prelude..= serviceRoleArn),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultOs" Core..=) Core.<$> defaultOs,
+            ("UseOpsworksSecurityGroups" Core..=)
+              Core.<$> useOpsworksSecurityGroups,
+            ("CustomCookbooksSource" Core..=)
+              Core.<$> customCookbooksSource,
+            ("DefaultAvailabilityZone" Core..=)
+              Core.<$> defaultAvailabilityZone,
+            ("AgentVersion" Core..=) Core.<$> agentVersion,
+            ("CustomJson" Core..=) Core.<$> customJson,
+            ("DefaultRootDeviceType" Core..=)
+              Core.<$> defaultRootDeviceType,
+            ("Attributes" Core..=) Core.<$> attributes,
+            ("HostnameTheme" Core..=) Core.<$> hostnameTheme,
+            ("DefaultSshKeyName" Core..=)
+              Core.<$> defaultSshKeyName,
+            ("ConfigurationManager" Core..=)
+              Core.<$> configurationManager,
+            ("VpcId" Core..=) Core.<$> vpcId,
+            ("ChefConfiguration" Core..=)
+              Core.<$> chefConfiguration,
+            ("DefaultSubnetId" Core..=) Core.<$> defaultSubnetId,
+            ("UseCustomCookbooks" Core..=)
+              Core.<$> useCustomCookbooks,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Region" Core..= region),
+            Core.Just ("ServiceRoleArn" Core..= serviceRoleArn),
+            Core.Just
               ( "DefaultInstanceProfileArn"
-                  Prelude..= defaultInstanceProfileArn
+                  Core..= defaultInstanceProfileArn
               )
           ]
       )
 
-instance Prelude.ToPath CreateStack where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateStack where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateStack where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateStack where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @CreateStack@ request.
 --
@@ -933,11 +925,11 @@ instance Prelude.ToQuery CreateStack where
 data CreateStackResponse = CreateStackResponse'
   { -- | The stack ID, which is an opaque string that you use to identify the
     -- stack when performing actions such as @DescribeStacks@.
-    stackId :: Prelude.Maybe Prelude.Text,
+    stackId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStackResponse' with all optional fields omitted.
@@ -953,21 +945,21 @@ data CreateStackResponse = CreateStackResponse'
 -- 'httpStatus', 'createStackResponse_httpStatus' - The response's http status code.
 newCreateStackResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateStackResponse
 newCreateStackResponse pHttpStatus_ =
   CreateStackResponse'
-    { stackId = Prelude.Nothing,
+    { stackId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The stack ID, which is an opaque string that you use to identify the
 -- stack when performing actions such as @DescribeStacks@.
-createStackResponse_stackId :: Lens.Lens' CreateStackResponse (Prelude.Maybe Prelude.Text)
+createStackResponse_stackId :: Lens.Lens' CreateStackResponse (Core.Maybe Core.Text)
 createStackResponse_stackId = Lens.lens (\CreateStackResponse' {stackId} -> stackId) (\s@CreateStackResponse' {} a -> s {stackId = a} :: CreateStackResponse)
 
 -- | The response's http status code.
-createStackResponse_httpStatus :: Lens.Lens' CreateStackResponse Prelude.Int
+createStackResponse_httpStatus :: Lens.Lens' CreateStackResponse Core.Int
 createStackResponse_httpStatus = Lens.lens (\CreateStackResponse' {httpStatus} -> httpStatus) (\s@CreateStackResponse' {} a -> s {httpStatus = a} :: CreateStackResponse)
 
-instance Prelude.NFData CreateStackResponse
+instance Core.NFData CreateStackResponse

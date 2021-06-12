@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.ResourceDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.EC2ResourceDetails
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on the resource.
 --
 -- /See:/ 'newResourceDetails' smart constructor.
 data ResourceDetails = ResourceDetails'
   { -- | Details on the Amazon EC2 resource.
-    eC2ResourceDetails :: Prelude.Maybe EC2ResourceDetails
+    eC2ResourceDetails :: Core.Maybe EC2ResourceDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceDetails' with all optional fields omitted.
@@ -45,24 +44,21 @@ data ResourceDetails = ResourceDetails'
 newResourceDetails ::
   ResourceDetails
 newResourceDetails =
-  ResourceDetails'
-    { eC2ResourceDetails =
-        Prelude.Nothing
-    }
+  ResourceDetails' {eC2ResourceDetails = Core.Nothing}
 
 -- | Details on the Amazon EC2 resource.
-resourceDetails_eC2ResourceDetails :: Lens.Lens' ResourceDetails (Prelude.Maybe EC2ResourceDetails)
+resourceDetails_eC2ResourceDetails :: Lens.Lens' ResourceDetails (Core.Maybe EC2ResourceDetails)
 resourceDetails_eC2ResourceDetails = Lens.lens (\ResourceDetails' {eC2ResourceDetails} -> eC2ResourceDetails) (\s@ResourceDetails' {} a -> s {eC2ResourceDetails = a} :: ResourceDetails)
 
-instance Prelude.FromJSON ResourceDetails where
+instance Core.FromJSON ResourceDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceDetails"
       ( \x ->
           ResourceDetails'
-            Prelude.<$> (x Prelude..:? "EC2ResourceDetails")
+            Core.<$> (x Core..:? "EC2ResourceDetails")
       )
 
-instance Prelude.Hashable ResourceDetails
+instance Core.Hashable ResourceDetails
 
-instance Prelude.NFData ResourceDetails
+instance Core.NFData ResourceDetails

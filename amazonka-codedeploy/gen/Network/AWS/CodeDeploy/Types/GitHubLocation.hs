@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeDeploy.Types.GitHubLocation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the location of application artifacts stored in
 -- GitHub.
@@ -30,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 data GitHubLocation = GitHubLocation'
   { -- | The SHA1 commit ID of the GitHub commit that represents the bundled
     -- artifacts for the application revision.
-    commitId :: Prelude.Maybe Prelude.Text,
+    commitId :: Core.Maybe Core.Text,
     -- | The GitHub account and repository pair that stores a reference to the
     -- commit that represents the bundled artifacts for the application
     -- revision.
     --
     -- Specified as account\/repository.
-    repository :: Prelude.Maybe Prelude.Text
+    repository :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GitHubLocation' with all optional fields omitted.
@@ -60,13 +59,13 @@ newGitHubLocation ::
   GitHubLocation
 newGitHubLocation =
   GitHubLocation'
-    { commitId = Prelude.Nothing,
-      repository = Prelude.Nothing
+    { commitId = Core.Nothing,
+      repository = Core.Nothing
     }
 
 -- | The SHA1 commit ID of the GitHub commit that represents the bundled
 -- artifacts for the application revision.
-gitHubLocation_commitId :: Lens.Lens' GitHubLocation (Prelude.Maybe Prelude.Text)
+gitHubLocation_commitId :: Lens.Lens' GitHubLocation (Core.Maybe Core.Text)
 gitHubLocation_commitId = Lens.lens (\GitHubLocation' {commitId} -> commitId) (\s@GitHubLocation' {} a -> s {commitId = a} :: GitHubLocation)
 
 -- | The GitHub account and repository pair that stores a reference to the
@@ -74,28 +73,28 @@ gitHubLocation_commitId = Lens.lens (\GitHubLocation' {commitId} -> commitId) (\
 -- revision.
 --
 -- Specified as account\/repository.
-gitHubLocation_repository :: Lens.Lens' GitHubLocation (Prelude.Maybe Prelude.Text)
+gitHubLocation_repository :: Lens.Lens' GitHubLocation (Core.Maybe Core.Text)
 gitHubLocation_repository = Lens.lens (\GitHubLocation' {repository} -> repository) (\s@GitHubLocation' {} a -> s {repository = a} :: GitHubLocation)
 
-instance Prelude.FromJSON GitHubLocation where
+instance Core.FromJSON GitHubLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GitHubLocation"
       ( \x ->
           GitHubLocation'
-            Prelude.<$> (x Prelude..:? "commitId")
-            Prelude.<*> (x Prelude..:? "repository")
+            Core.<$> (x Core..:? "commitId")
+            Core.<*> (x Core..:? "repository")
       )
 
-instance Prelude.Hashable GitHubLocation
+instance Core.Hashable GitHubLocation
 
-instance Prelude.NFData GitHubLocation
+instance Core.NFData GitHubLocation
 
-instance Prelude.ToJSON GitHubLocation where
+instance Core.ToJSON GitHubLocation where
   toJSON GitHubLocation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("commitId" Prelude..=) Prelude.<$> commitId,
-            ("repository" Prelude..=) Prelude.<$> repository
+    Core.object
+      ( Core.catMaybes
+          [ ("commitId" Core..=) Core.<$> commitId,
+            ("repository" Core..=) Core.<$> repository
           ]
       )

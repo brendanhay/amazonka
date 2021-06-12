@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudFront.Types.KeyGroupSummary where
 
 import Network.AWS.CloudFront.Types.KeyGroup
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a key group.
 --
@@ -31,7 +30,7 @@ data KeyGroupSummary = KeyGroupSummary'
   { -- | A key group.
     keyGroup :: KeyGroup
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyGroupSummary' with all optional fields omitted.
@@ -53,11 +52,10 @@ newKeyGroupSummary pKeyGroup_ =
 keyGroupSummary_keyGroup :: Lens.Lens' KeyGroupSummary KeyGroup
 keyGroupSummary_keyGroup = Lens.lens (\KeyGroupSummary' {keyGroup} -> keyGroup) (\s@KeyGroupSummary' {} a -> s {keyGroup = a} :: KeyGroupSummary)
 
-instance Prelude.FromXML KeyGroupSummary where
+instance Core.FromXML KeyGroupSummary where
   parseXML x =
-    KeyGroupSummary'
-      Prelude.<$> (x Prelude..@ "KeyGroup")
+    KeyGroupSummary' Core.<$> (x Core..@ "KeyGroup")
 
-instance Prelude.Hashable KeyGroupSummary
+instance Core.Hashable KeyGroupSummary
 
-instance Prelude.NFData KeyGroupSummary
+instance Core.NFData KeyGroupSummary

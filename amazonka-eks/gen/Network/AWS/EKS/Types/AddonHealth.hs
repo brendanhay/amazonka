@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.AddonHealth where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.AddonIssue
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The health of the add-on.
 --
 -- /See:/ 'newAddonHealth' smart constructor.
 data AddonHealth = AddonHealth'
   { -- | An object that represents the add-on\'s health issues.
-    issues :: Prelude.Maybe [AddonIssue]
+    issues :: Core.Maybe [AddonIssue]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddonHealth' with all optional fields omitted.
@@ -44,22 +43,21 @@ data AddonHealth = AddonHealth'
 -- 'issues', 'addonHealth_issues' - An object that represents the add-on\'s health issues.
 newAddonHealth ::
   AddonHealth
-newAddonHealth =
-  AddonHealth' {issues = Prelude.Nothing}
+newAddonHealth = AddonHealth' {issues = Core.Nothing}
 
 -- | An object that represents the add-on\'s health issues.
-addonHealth_issues :: Lens.Lens' AddonHealth (Prelude.Maybe [AddonIssue])
-addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Prelude.. Lens.mapping Prelude._Coerce
+addonHealth_issues :: Lens.Lens' AddonHealth (Core.Maybe [AddonIssue])
+addonHealth_issues = Lens.lens (\AddonHealth' {issues} -> issues) (\s@AddonHealth' {} a -> s {issues = a} :: AddonHealth) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AddonHealth where
+instance Core.FromJSON AddonHealth where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AddonHealth"
       ( \x ->
           AddonHealth'
-            Prelude.<$> (x Prelude..:? "issues" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "issues" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AddonHealth
+instance Core.Hashable AddonHealth
 
-instance Prelude.NFData AddonHealth
+instance Core.NFData AddonHealth

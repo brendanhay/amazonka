@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,8 +56,8 @@ module Network.AWS.CodeDeploy.BatchGetDeploymentTargets
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,11 +83,11 @@ data BatchGetDeploymentTargets = BatchGetDeploymentTargets'
     -- -   For deployments that are deployed with AWS CloudFormation, the
     --     target IDs are CloudFormation stack IDs. Their target type is
     --     @cloudFormationTarget@.
-    targetIds :: Prelude.Maybe [Prelude.Text],
+    targetIds :: Core.Maybe [Core.Text],
     -- | The unique ID of a deployment.
-    deploymentId :: Prelude.Maybe Prelude.Text
+    deploymentId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetDeploymentTargets' with all optional fields omitted.
@@ -125,8 +124,8 @@ newBatchGetDeploymentTargets ::
 newBatchGetDeploymentTargets =
   BatchGetDeploymentTargets'
     { targetIds =
-        Prelude.Nothing,
-      deploymentId = Prelude.Nothing
+        Core.Nothing,
+      deploymentId = Core.Nothing
     }
 
 -- | The unique IDs of the deployment targets. The compute platform of the
@@ -149,62 +148,57 @@ newBatchGetDeploymentTargets =
 -- -   For deployments that are deployed with AWS CloudFormation, the
 --     target IDs are CloudFormation stack IDs. Their target type is
 --     @cloudFormationTarget@.
-batchGetDeploymentTargets_targetIds :: Lens.Lens' BatchGetDeploymentTargets (Prelude.Maybe [Prelude.Text])
-batchGetDeploymentTargets_targetIds = Lens.lens (\BatchGetDeploymentTargets' {targetIds} -> targetIds) (\s@BatchGetDeploymentTargets' {} a -> s {targetIds = a} :: BatchGetDeploymentTargets) Prelude.. Lens.mapping Prelude._Coerce
+batchGetDeploymentTargets_targetIds :: Lens.Lens' BatchGetDeploymentTargets (Core.Maybe [Core.Text])
+batchGetDeploymentTargets_targetIds = Lens.lens (\BatchGetDeploymentTargets' {targetIds} -> targetIds) (\s@BatchGetDeploymentTargets' {} a -> s {targetIds = a} :: BatchGetDeploymentTargets) Core.. Lens.mapping Lens._Coerce
 
 -- | The unique ID of a deployment.
-batchGetDeploymentTargets_deploymentId :: Lens.Lens' BatchGetDeploymentTargets (Prelude.Maybe Prelude.Text)
+batchGetDeploymentTargets_deploymentId :: Lens.Lens' BatchGetDeploymentTargets (Core.Maybe Core.Text)
 batchGetDeploymentTargets_deploymentId = Lens.lens (\BatchGetDeploymentTargets' {deploymentId} -> deploymentId) (\s@BatchGetDeploymentTargets' {} a -> s {deploymentId = a} :: BatchGetDeploymentTargets)
 
-instance Prelude.AWSRequest BatchGetDeploymentTargets where
+instance Core.AWSRequest BatchGetDeploymentTargets where
   type
-    Rs BatchGetDeploymentTargets =
+    AWSResponse BatchGetDeploymentTargets =
       BatchGetDeploymentTargetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentTargetsResponse'
-            Prelude.<$> ( x Prelude..?> "deploymentTargets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "deploymentTargets" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchGetDeploymentTargets
+instance Core.Hashable BatchGetDeploymentTargets
 
-instance Prelude.NFData BatchGetDeploymentTargets
+instance Core.NFData BatchGetDeploymentTargets
 
-instance Prelude.ToHeaders BatchGetDeploymentTargets where
+instance Core.ToHeaders BatchGetDeploymentTargets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.BatchGetDeploymentTargets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.BatchGetDeploymentTargets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchGetDeploymentTargets where
+instance Core.ToJSON BatchGetDeploymentTargets where
   toJSON BatchGetDeploymentTargets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("targetIds" Prelude..=) Prelude.<$> targetIds,
-            ("deploymentId" Prelude..=)
-              Prelude.<$> deploymentId
+    Core.object
+      ( Core.catMaybes
+          [ ("targetIds" Core..=) Core.<$> targetIds,
+            ("deploymentId" Core..=) Core.<$> deploymentId
           ]
       )
 
-instance Prelude.ToPath BatchGetDeploymentTargets where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchGetDeploymentTargets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchGetDeploymentTargets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchGetDeploymentTargets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchGetDeploymentTargetsResponse' smart constructor.
 data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
@@ -222,11 +216,11 @@ data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
     --
     -- -   __CloudFormation__: The target object is an AWS CloudFormation
     --     blue\/green deployment.
-    deploymentTargets :: Prelude.Maybe [DeploymentTarget],
+    deploymentTargets :: Core.Maybe [DeploymentTarget],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetDeploymentTargetsResponse' with all optional fields omitted.
@@ -254,12 +248,12 @@ data BatchGetDeploymentTargetsResponse = BatchGetDeploymentTargetsResponse'
 -- 'httpStatus', 'batchGetDeploymentTargetsResponse_httpStatus' - The response's http status code.
 newBatchGetDeploymentTargetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchGetDeploymentTargetsResponse
 newBatchGetDeploymentTargetsResponse pHttpStatus_ =
   BatchGetDeploymentTargetsResponse'
     { deploymentTargets =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -277,13 +271,13 @@ newBatchGetDeploymentTargetsResponse pHttpStatus_ =
 --
 -- -   __CloudFormation__: The target object is an AWS CloudFormation
 --     blue\/green deployment.
-batchGetDeploymentTargetsResponse_deploymentTargets :: Lens.Lens' BatchGetDeploymentTargetsResponse (Prelude.Maybe [DeploymentTarget])
-batchGetDeploymentTargetsResponse_deploymentTargets = Lens.lens (\BatchGetDeploymentTargetsResponse' {deploymentTargets} -> deploymentTargets) (\s@BatchGetDeploymentTargetsResponse' {} a -> s {deploymentTargets = a} :: BatchGetDeploymentTargetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetDeploymentTargetsResponse_deploymentTargets :: Lens.Lens' BatchGetDeploymentTargetsResponse (Core.Maybe [DeploymentTarget])
+batchGetDeploymentTargetsResponse_deploymentTargets = Lens.lens (\BatchGetDeploymentTargetsResponse' {deploymentTargets} -> deploymentTargets) (\s@BatchGetDeploymentTargetsResponse' {} a -> s {deploymentTargets = a} :: BatchGetDeploymentTargetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchGetDeploymentTargetsResponse_httpStatus :: Lens.Lens' BatchGetDeploymentTargetsResponse Prelude.Int
+batchGetDeploymentTargetsResponse_httpStatus :: Lens.Lens' BatchGetDeploymentTargetsResponse Core.Int
 batchGetDeploymentTargetsResponse_httpStatus = Lens.lens (\BatchGetDeploymentTargetsResponse' {httpStatus} -> httpStatus) (\s@BatchGetDeploymentTargetsResponse' {} a -> s {httpStatus = a} :: BatchGetDeploymentTargetsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchGetDeploymentTargetsResponse

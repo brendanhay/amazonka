@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,10 +55,9 @@ module Network.AWS.Organizations.ListOrganizationalUnitsForParent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,7 +68,7 @@ data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -81,7 +79,7 @@ data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The unique identifier (ID) of the root or OU whose child OUs you want to
     -- list.
     --
@@ -95,9 +93,9 @@ data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
     --     followed by from 4 to 32 lowercase letters or digits (the ID of the
     --     root that the OU is in). This string is followed by a second \"-\"
     --     dash and from 8 to 32 additional lowercase letters or digits.
-    parentId :: Prelude.Text
+    parentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOrganizationalUnitsForParent' with all optional fields omitted.
@@ -139,13 +137,13 @@ data ListOrganizationalUnitsForParent = ListOrganizationalUnitsForParent'
 --     dash and from 8 to 32 additional lowercase letters or digits.
 newListOrganizationalUnitsForParent ::
   -- | 'parentId'
-  Prelude.Text ->
+  Core.Text ->
   ListOrganizationalUnitsForParent
 newListOrganizationalUnitsForParent pParentId_ =
   ListOrganizationalUnitsForParent'
     { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+        Core.Nothing,
+      maxResults = Core.Nothing,
       parentId = pParentId_
     }
 
@@ -154,7 +152,7 @@ newListOrganizationalUnitsForParent pParentId_ =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listOrganizationalUnitsForParent_nextToken :: Lens.Lens' ListOrganizationalUnitsForParent (Prelude.Maybe Prelude.Text)
+listOrganizationalUnitsForParent_nextToken :: Lens.Lens' ListOrganizationalUnitsForParent (Core.Maybe Core.Text)
 listOrganizationalUnitsForParent_nextToken = Lens.lens (\ListOrganizationalUnitsForParent' {nextToken} -> nextToken) (\s@ListOrganizationalUnitsForParent' {} a -> s {nextToken = a} :: ListOrganizationalUnitsForParent)
 
 -- | The total number of results that you want included on each page of the
@@ -167,7 +165,7 @@ listOrganizationalUnitsForParent_nextToken = Lens.lens (\ListOrganizationalUnits
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listOrganizationalUnitsForParent_maxResults :: Lens.Lens' ListOrganizationalUnitsForParent (Prelude.Maybe Prelude.Natural)
+listOrganizationalUnitsForParent_maxResults :: Lens.Lens' ListOrganizationalUnitsForParent (Core.Maybe Core.Natural)
 listOrganizationalUnitsForParent_maxResults = Lens.lens (\ListOrganizationalUnitsForParent' {maxResults} -> maxResults) (\s@ListOrganizationalUnitsForParent' {} a -> s {maxResults = a} :: ListOrganizationalUnitsForParent)
 
 -- | The unique identifier (ID) of the root or OU whose child OUs you want to
@@ -183,103 +181,93 @@ listOrganizationalUnitsForParent_maxResults = Lens.lens (\ListOrganizationalUnit
 --     followed by from 4 to 32 lowercase letters or digits (the ID of the
 --     root that the OU is in). This string is followed by a second \"-\"
 --     dash and from 8 to 32 additional lowercase letters or digits.
-listOrganizationalUnitsForParent_parentId :: Lens.Lens' ListOrganizationalUnitsForParent Prelude.Text
+listOrganizationalUnitsForParent_parentId :: Lens.Lens' ListOrganizationalUnitsForParent Core.Text
 listOrganizationalUnitsForParent_parentId = Lens.lens (\ListOrganizationalUnitsForParent' {parentId} -> parentId) (\s@ListOrganizationalUnitsForParent' {} a -> s {parentId = a} :: ListOrganizationalUnitsForParent)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     ListOrganizationalUnitsForParent
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listOrganizationalUnitsForParentResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listOrganizationalUnitsForParentResponse_organizationalUnits
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listOrganizationalUnitsForParent_nextToken
           Lens..~ rs
           Lens.^? listOrganizationalUnitsForParentResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListOrganizationalUnitsForParent
   where
   type
-    Rs ListOrganizationalUnitsForParent =
+    AWSResponse ListOrganizationalUnitsForParent =
       ListOrganizationalUnitsForParentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListOrganizationalUnitsForParentResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "OrganizationalUnits"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "OrganizationalUnits"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListOrganizationalUnitsForParent
 
-instance
-  Prelude.NFData
-    ListOrganizationalUnitsForParent
+instance Core.NFData ListOrganizationalUnitsForParent
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListOrganizationalUnitsForParent
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.ListOrganizationalUnitsForParent" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    ListOrganizationalUnitsForParent
-  where
+instance Core.ToJSON ListOrganizationalUnitsForParent where
   toJSON ListOrganizationalUnitsForParent' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("ParentId" Prelude..= parentId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("ParentId" Core..= parentId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    ListOrganizationalUnitsForParent
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListOrganizationalUnitsForParent where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListOrganizationalUnitsForParent
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListOrganizationalUnitsForParentResponse' smart constructor.
 data ListOrganizationalUnitsForParentResponse = ListOrganizationalUnitsForParentResponse'
@@ -288,13 +276,13 @@ data ListOrganizationalUnitsForParentResponse = ListOrganizationalUnitsForParent
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of the OUs in the specified root or parent OU.
-    organizationalUnits :: Prelude.Maybe [OrganizationalUnit],
+    organizationalUnits :: Core.Maybe [OrganizationalUnit],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOrganizationalUnitsForParentResponse' with all optional fields omitted.
@@ -315,15 +303,15 @@ data ListOrganizationalUnitsForParentResponse = ListOrganizationalUnitsForParent
 -- 'httpStatus', 'listOrganizationalUnitsForParentResponse_httpStatus' - The response's http status code.
 newListOrganizationalUnitsForParentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListOrganizationalUnitsForParentResponse
 newListOrganizationalUnitsForParentResponse
   pHttpStatus_ =
     ListOrganizationalUnitsForParentResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         organizationalUnits =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
@@ -332,17 +320,17 @@ newListOrganizationalUnitsForParentResponse
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listOrganizationalUnitsForParentResponse_nextToken :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Prelude.Maybe Prelude.Text)
+listOrganizationalUnitsForParentResponse_nextToken :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Core.Maybe Core.Text)
 listOrganizationalUnitsForParentResponse_nextToken = Lens.lens (\ListOrganizationalUnitsForParentResponse' {nextToken} -> nextToken) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {nextToken = a} :: ListOrganizationalUnitsForParentResponse)
 
 -- | A list of the OUs in the specified root or parent OU.
-listOrganizationalUnitsForParentResponse_organizationalUnits :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Prelude.Maybe [OrganizationalUnit])
-listOrganizationalUnitsForParentResponse_organizationalUnits = Lens.lens (\ListOrganizationalUnitsForParentResponse' {organizationalUnits} -> organizationalUnits) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {organizationalUnits = a} :: ListOrganizationalUnitsForParentResponse) Prelude.. Lens.mapping Prelude._Coerce
+listOrganizationalUnitsForParentResponse_organizationalUnits :: Lens.Lens' ListOrganizationalUnitsForParentResponse (Core.Maybe [OrganizationalUnit])
+listOrganizationalUnitsForParentResponse_organizationalUnits = Lens.lens (\ListOrganizationalUnitsForParentResponse' {organizationalUnits} -> organizationalUnits) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {organizationalUnits = a} :: ListOrganizationalUnitsForParentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOrganizationalUnitsForParentResponse_httpStatus :: Lens.Lens' ListOrganizationalUnitsForParentResponse Prelude.Int
+listOrganizationalUnitsForParentResponse_httpStatus :: Lens.Lens' ListOrganizationalUnitsForParentResponse Core.Int
 listOrganizationalUnitsForParentResponse_httpStatus = Lens.lens (\ListOrganizationalUnitsForParentResponse' {httpStatus} -> httpStatus) (\s@ListOrganizationalUnitsForParentResponse' {} a -> s {httpStatus = a} :: ListOrganizationalUnitsForParentResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListOrganizationalUnitsForParentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.Pinpoint.GetCampaign
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCampaign' smart constructor.
 data GetCampaign = GetCampaign'
   { -- | The unique identifier for the campaign.
-    campaignId :: Prelude.Text,
+    campaignId :: Core.Text,
     -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text
+    applicationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaign' with all optional fields omitted.
@@ -72,9 +71,9 @@ data GetCampaign = GetCampaign'
 -- as the __Project ID__ on the Amazon Pinpoint console.
 newGetCampaign ::
   -- | 'campaignId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   GetCampaign
 newGetCampaign pCampaignId_ pApplicationId_ =
   GetCampaign'
@@ -83,59 +82,57 @@ newGetCampaign pCampaignId_ pApplicationId_ =
     }
 
 -- | The unique identifier for the campaign.
-getCampaign_campaignId :: Lens.Lens' GetCampaign Prelude.Text
+getCampaign_campaignId :: Lens.Lens' GetCampaign Core.Text
 getCampaign_campaignId = Lens.lens (\GetCampaign' {campaignId} -> campaignId) (\s@GetCampaign' {} a -> s {campaignId = a} :: GetCampaign)
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-getCampaign_applicationId :: Lens.Lens' GetCampaign Prelude.Text
+getCampaign_applicationId :: Lens.Lens' GetCampaign Core.Text
 getCampaign_applicationId = Lens.lens (\GetCampaign' {applicationId} -> applicationId) (\s@GetCampaign' {} a -> s {applicationId = a} :: GetCampaign)
 
-instance Prelude.AWSRequest GetCampaign where
-  type Rs GetCampaign = GetCampaignResponse
+instance Core.AWSRequest GetCampaign where
+  type AWSResponse GetCampaign = GetCampaignResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetCampaignResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetCampaign
+instance Core.Hashable GetCampaign
 
-instance Prelude.NFData GetCampaign
+instance Core.NFData GetCampaign
 
-instance Prelude.ToHeaders GetCampaign where
+instance Core.ToHeaders GetCampaign where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetCampaign where
+instance Core.ToPath GetCampaign where
   toPath GetCampaign' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/campaigns/",
-        Prelude.toBS campaignId
+        Core.toBS campaignId
       ]
 
-instance Prelude.ToQuery GetCampaign where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetCampaign where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetCampaignResponse' smart constructor.
 data GetCampaignResponse = GetCampaignResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     campaignResponse :: CampaignResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetCampaignResponse' with all optional fields omitted.
@@ -150,7 +147,7 @@ data GetCampaignResponse = GetCampaignResponse'
 -- 'campaignResponse', 'getCampaignResponse_campaignResponse' - Undocumented member.
 newGetCampaignResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
   GetCampaignResponse
@@ -163,11 +160,11 @@ newGetCampaignResponse
       }
 
 -- | The response's http status code.
-getCampaignResponse_httpStatus :: Lens.Lens' GetCampaignResponse Prelude.Int
+getCampaignResponse_httpStatus :: Lens.Lens' GetCampaignResponse Core.Int
 getCampaignResponse_httpStatus = Lens.lens (\GetCampaignResponse' {httpStatus} -> httpStatus) (\s@GetCampaignResponse' {} a -> s {httpStatus = a} :: GetCampaignResponse)
 
 -- | Undocumented member.
 getCampaignResponse_campaignResponse :: Lens.Lens' GetCampaignResponse CampaignResponse
 getCampaignResponse_campaignResponse = Lens.lens (\GetCampaignResponse' {campaignResponse} -> campaignResponse) (\s@GetCampaignResponse' {} a -> s {campaignResponse = a} :: GetCampaignResponse)
 
-instance Prelude.NFData GetCampaignResponse
+instance Core.NFData GetCampaignResponse

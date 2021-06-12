@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -92,9 +91,9 @@ module Network.AWS.Glacier.UploadMultipartPart
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -108,22 +107,22 @@ data UploadMultipartPart = UploadMultipartPart'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text,
+    vaultName :: Core.Text,
     -- | The upload ID of the multipart upload.
-    uploadId :: Prelude.Text,
+    uploadId :: Core.Text,
     -- | Identifies the range of bytes in the assembled archive that will be
     -- uploaded in this part. Amazon S3 Glacier uses this information to
     -- assemble the archive in the proper sequence. The format of this header
     -- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
-    range :: Prelude.Text,
+    range :: Core.Text,
     -- | The SHA256 tree hash of the data being uploaded.
-    checksum :: Prelude.Text,
+    checksum :: Core.Text,
     -- | The data to upload.
-    body :: Prelude.HashedBody
+    body :: Core.HashedBody
   }
-  deriving (Prelude.Show, Prelude.Generic)
+  deriving (Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UploadMultipartPart' with all optional fields omitted.
@@ -153,17 +152,17 @@ data UploadMultipartPart = UploadMultipartPart'
 -- 'body', 'uploadMultipartPart_body' - The data to upload.
 newUploadMultipartPart ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'uploadId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'range'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'checksum'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'body'
-  Prelude.HashedBody ->
+  Core.HashedBody ->
   UploadMultipartPart
 newUploadMultipartPart
   pAccountId_
@@ -186,70 +185,70 @@ newUploadMultipartPart
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-uploadMultipartPart_accountId :: Lens.Lens' UploadMultipartPart Prelude.Text
+uploadMultipartPart_accountId :: Lens.Lens' UploadMultipartPart Core.Text
 uploadMultipartPart_accountId = Lens.lens (\UploadMultipartPart' {accountId} -> accountId) (\s@UploadMultipartPart' {} a -> s {accountId = a} :: UploadMultipartPart)
 
 -- | The name of the vault.
-uploadMultipartPart_vaultName :: Lens.Lens' UploadMultipartPart Prelude.Text
+uploadMultipartPart_vaultName :: Lens.Lens' UploadMultipartPart Core.Text
 uploadMultipartPart_vaultName = Lens.lens (\UploadMultipartPart' {vaultName} -> vaultName) (\s@UploadMultipartPart' {} a -> s {vaultName = a} :: UploadMultipartPart)
 
 -- | The upload ID of the multipart upload.
-uploadMultipartPart_uploadId :: Lens.Lens' UploadMultipartPart Prelude.Text
+uploadMultipartPart_uploadId :: Lens.Lens' UploadMultipartPart Core.Text
 uploadMultipartPart_uploadId = Lens.lens (\UploadMultipartPart' {uploadId} -> uploadId) (\s@UploadMultipartPart' {} a -> s {uploadId = a} :: UploadMultipartPart)
 
 -- | Identifies the range of bytes in the assembled archive that will be
 -- uploaded in this part. Amazon S3 Glacier uses this information to
 -- assemble the archive in the proper sequence. The format of this header
 -- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
-uploadMultipartPart_range :: Lens.Lens' UploadMultipartPart Prelude.Text
+uploadMultipartPart_range :: Lens.Lens' UploadMultipartPart Core.Text
 uploadMultipartPart_range = Lens.lens (\UploadMultipartPart' {range} -> range) (\s@UploadMultipartPart' {} a -> s {range = a} :: UploadMultipartPart)
 
 -- | The SHA256 tree hash of the data being uploaded.
-uploadMultipartPart_checksum :: Lens.Lens' UploadMultipartPart Prelude.Text
+uploadMultipartPart_checksum :: Lens.Lens' UploadMultipartPart Core.Text
 uploadMultipartPart_checksum = Lens.lens (\UploadMultipartPart' {checksum} -> checksum) (\s@UploadMultipartPart' {} a -> s {checksum = a} :: UploadMultipartPart)
 
 -- | The data to upload.
-uploadMultipartPart_body :: Lens.Lens' UploadMultipartPart Prelude.HashedBody
+uploadMultipartPart_body :: Lens.Lens' UploadMultipartPart Core.HashedBody
 uploadMultipartPart_body = Lens.lens (\UploadMultipartPart' {body} -> body) (\s@UploadMultipartPart' {} a -> s {body = a} :: UploadMultipartPart)
 
-instance Prelude.AWSRequest UploadMultipartPart where
+instance Core.AWSRequest UploadMultipartPart where
   type
-    Rs UploadMultipartPart =
+    AWSResponse UploadMultipartPart =
       UploadMultipartPartResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.putBody defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.putBody defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UploadMultipartPartResponse'
-            Prelude.<$> (h Prelude..#? "x-amz-sha256-tree-hash")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "x-amz-sha256-tree-hash")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.ToBody UploadMultipartPart where
-  toBody UploadMultipartPart' {..} = Prelude.toBody body
+instance Core.ToBody UploadMultipartPart where
+  toBody UploadMultipartPart' {..} = Core.toBody body
 
-instance Prelude.ToHeaders UploadMultipartPart where
+instance Core.ToHeaders UploadMultipartPart where
   toHeaders UploadMultipartPart' {..} =
-    Prelude.mconcat
-      [ "Content-Range" Prelude.=# range,
-        "x-amz-sha256-tree-hash" Prelude.=# checksum
+    Core.mconcat
+      [ "Content-Range" Core.=# range,
+        "x-amz-sha256-tree-hash" Core.=# checksum
       ]
 
-instance Prelude.ToPath UploadMultipartPart where
+instance Core.ToPath UploadMultipartPart where
   toPath UploadMultipartPart' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/multipart-uploads/",
-        Prelude.toBS uploadId
+        Core.toBS uploadId
       ]
 
-instance Prelude.ToQuery UploadMultipartPart where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UploadMultipartPart where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -257,11 +256,11 @@ instance Prelude.ToQuery UploadMultipartPart where
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
   { -- | The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded
     -- part.
-    checksum :: Prelude.Maybe Prelude.Text,
+    checksum :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UploadMultipartPartResponse' with all optional fields omitted.
@@ -277,22 +276,22 @@ data UploadMultipartPartResponse = UploadMultipartPartResponse'
 -- 'httpStatus', 'uploadMultipartPartResponse_httpStatus' - The response's http status code.
 newUploadMultipartPartResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UploadMultipartPartResponse
 newUploadMultipartPartResponse pHttpStatus_ =
   UploadMultipartPartResponse'
     { checksum =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded
 -- part.
-uploadMultipartPartResponse_checksum :: Lens.Lens' UploadMultipartPartResponse (Prelude.Maybe Prelude.Text)
+uploadMultipartPartResponse_checksum :: Lens.Lens' UploadMultipartPartResponse (Core.Maybe Core.Text)
 uploadMultipartPartResponse_checksum = Lens.lens (\UploadMultipartPartResponse' {checksum} -> checksum) (\s@UploadMultipartPartResponse' {} a -> s {checksum = a} :: UploadMultipartPartResponse)
 
 -- | The response's http status code.
-uploadMultipartPartResponse_httpStatus :: Lens.Lens' UploadMultipartPartResponse Prelude.Int
+uploadMultipartPartResponse_httpStatus :: Lens.Lens' UploadMultipartPartResponse Core.Int
 uploadMultipartPartResponse_httpStatus = Lens.lens (\UploadMultipartPartResponse' {httpStatus} -> httpStatus) (\s@UploadMultipartPartResponse' {} a -> s {httpStatus = a} :: UploadMultipartPartResponse)
 
-instance Prelude.NFData UploadMultipartPartResponse
+instance Core.NFData UploadMultipartPartResponse

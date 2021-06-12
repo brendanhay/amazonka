@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.SageMaker.DeleteDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -51,11 +50,11 @@ data DeleteDomain = DeleteDomain'
   { -- | The retention policy for this domain, which specifies whether resources
     -- will be retained after the Domain is deleted. By default, all resources
     -- are retained (not automatically deleted).
-    retentionPolicy :: Prelude.Maybe RetentionPolicy,
+    retentionPolicy :: Core.Maybe RetentionPolicy,
     -- | The domain ID.
-    domainId :: Prelude.Text
+    domainId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDomain' with all optional fields omitted.
@@ -72,67 +71,65 @@ data DeleteDomain = DeleteDomain'
 -- 'domainId', 'deleteDomain_domainId' - The domain ID.
 newDeleteDomain ::
   -- | 'domainId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDomain
 newDeleteDomain pDomainId_ =
   DeleteDomain'
-    { retentionPolicy = Prelude.Nothing,
+    { retentionPolicy = Core.Nothing,
       domainId = pDomainId_
     }
 
 -- | The retention policy for this domain, which specifies whether resources
 -- will be retained after the Domain is deleted. By default, all resources
 -- are retained (not automatically deleted).
-deleteDomain_retentionPolicy :: Lens.Lens' DeleteDomain (Prelude.Maybe RetentionPolicy)
+deleteDomain_retentionPolicy :: Lens.Lens' DeleteDomain (Core.Maybe RetentionPolicy)
 deleteDomain_retentionPolicy = Lens.lens (\DeleteDomain' {retentionPolicy} -> retentionPolicy) (\s@DeleteDomain' {} a -> s {retentionPolicy = a} :: DeleteDomain)
 
 -- | The domain ID.
-deleteDomain_domainId :: Lens.Lens' DeleteDomain Prelude.Text
+deleteDomain_domainId :: Lens.Lens' DeleteDomain Core.Text
 deleteDomain_domainId = Lens.lens (\DeleteDomain' {domainId} -> domainId) (\s@DeleteDomain' {} a -> s {domainId = a} :: DeleteDomain)
 
-instance Prelude.AWSRequest DeleteDomain where
-  type Rs DeleteDomain = DeleteDomainResponse
+instance Core.AWSRequest DeleteDomain where
+  type AWSResponse DeleteDomain = DeleteDomainResponse
   request = Request.postJSON defaultService
   response = Response.receiveNull DeleteDomainResponse'
 
-instance Prelude.Hashable DeleteDomain
+instance Core.Hashable DeleteDomain
 
-instance Prelude.NFData DeleteDomain
+instance Core.NFData DeleteDomain
 
-instance Prelude.ToHeaders DeleteDomain where
+instance Core.ToHeaders DeleteDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.DeleteDomain" :: Prelude.ByteString),
+              Core.=# ("SageMaker.DeleteDomain" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteDomain where
+instance Core.ToJSON DeleteDomain where
   toJSON DeleteDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RetentionPolicy" Prelude..=)
-              Prelude.<$> retentionPolicy,
-            Prelude.Just ("DomainId" Prelude..= domainId)
+    Core.object
+      ( Core.catMaybes
+          [ ("RetentionPolicy" Core..=)
+              Core.<$> retentionPolicy,
+            Core.Just ("DomainId" Core..= domainId)
           ]
       )
 
-instance Prelude.ToPath DeleteDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDomain where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDomainResponse' with all optional fields omitted.
@@ -142,4 +139,4 @@ newDeleteDomainResponse ::
   DeleteDomainResponse
 newDeleteDomainResponse = DeleteDomainResponse'
 
-instance Prelude.NFData DeleteDomainResponse
+instance Core.NFData DeleteDomainResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.OutputDataConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about how to store model training results (model
 -- artifacts).
@@ -65,12 +64,12 @@ data OutputDataConfig = OutputDataConfig'
     -- @CreateHyperParameterTuningJob@ requests. For more information, see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
     -- in the /AWS Key Management Service Developer Guide/.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | Identifies the S3 path where you want Amazon SageMaker to store the
     -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
-    s3OutputPath :: Prelude.Text
+    s3OutputPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputDataConfig' with all optional fields omitted.
@@ -122,11 +121,11 @@ data OutputDataConfig = OutputDataConfig'
 -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
 newOutputDataConfig ::
   -- | 's3OutputPath'
-  Prelude.Text ->
+  Core.Text ->
   OutputDataConfig
 newOutputDataConfig pS3OutputPath_ =
   OutputDataConfig'
-    { kmsKeyId = Prelude.Nothing,
+    { kmsKeyId = Core.Nothing,
       s3OutputPath = pS3OutputPath_
     }
 
@@ -167,34 +166,33 @@ newOutputDataConfig pS3OutputPath_ =
 -- @CreateHyperParameterTuningJob@ requests. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
 -- in the /AWS Key Management Service Developer Guide/.
-outputDataConfig_kmsKeyId :: Lens.Lens' OutputDataConfig (Prelude.Maybe Prelude.Text)
+outputDataConfig_kmsKeyId :: Lens.Lens' OutputDataConfig (Core.Maybe Core.Text)
 outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@OutputDataConfig' {} a -> s {kmsKeyId = a} :: OutputDataConfig)
 
 -- | Identifies the S3 path where you want Amazon SageMaker to store the
 -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
-outputDataConfig_s3OutputPath :: Lens.Lens' OutputDataConfig Prelude.Text
+outputDataConfig_s3OutputPath :: Lens.Lens' OutputDataConfig Core.Text
 outputDataConfig_s3OutputPath = Lens.lens (\OutputDataConfig' {s3OutputPath} -> s3OutputPath) (\s@OutputDataConfig' {} a -> s {s3OutputPath = a} :: OutputDataConfig)
 
-instance Prelude.FromJSON OutputDataConfig where
+instance Core.FromJSON OutputDataConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputDataConfig"
       ( \x ->
           OutputDataConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..: "S3OutputPath")
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..: "S3OutputPath")
       )
 
-instance Prelude.Hashable OutputDataConfig
+instance Core.Hashable OutputDataConfig
 
-instance Prelude.NFData OutputDataConfig
+instance Core.NFData OutputDataConfig
 
-instance Prelude.ToJSON OutputDataConfig where
+instance Core.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just
-              ("S3OutputPath" Prelude..= s3OutputPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just ("S3OutputPath" Core..= s3OutputPath)
           ]
       )

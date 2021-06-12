@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,9 +49,8 @@ module Network.AWS.RDS.DescribeDBInstances
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -68,7 +66,7 @@ data DescribeDBInstances = DescribeDBInstances'
     -- Constraints:
     --
     -- -   If supplied, must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
+    dbInstanceIdentifier :: Core.Maybe Core.Text,
     -- | A filter that specifies one or more DB instances to describe.
     --
     -- Supported filters:
@@ -92,12 +90,12 @@ data DescribeDBInstances = DescribeDBInstances'
     --
     -- -   @engine@ - Accepts engine names. The results list will only include
     --     information about the DB instances for these engines.
-    filters :: Prelude.Maybe [Filter],
+    filters :: Core.Maybe [Filter],
     -- | An optional pagination token provided by a previous
     -- @DescribeDBInstances@ request. If this parameter is specified, the
     -- response includes only records beyond the marker, up to the value
     -- specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that you can retrieve the
@@ -106,9 +104,9 @@ data DescribeDBInstances = DescribeDBInstances'
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDBInstances' with all optional fields omitted.
@@ -168,10 +166,10 @@ newDescribeDBInstances ::
 newDescribeDBInstances =
   DescribeDBInstances'
     { dbInstanceIdentifier =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The user-supplied instance identifier. If this parameter is specified,
@@ -181,7 +179,7 @@ newDescribeDBInstances =
 -- Constraints:
 --
 -- -   If supplied, must match the identifier of an existing DBInstance.
-describeDBInstances_dbInstanceIdentifier :: Lens.Lens' DescribeDBInstances (Prelude.Maybe Prelude.Text)
+describeDBInstances_dbInstanceIdentifier :: Lens.Lens' DescribeDBInstances (Core.Maybe Core.Text)
 describeDBInstances_dbInstanceIdentifier = Lens.lens (\DescribeDBInstances' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@DescribeDBInstances' {} a -> s {dbInstanceIdentifier = a} :: DescribeDBInstances)
 
 -- | A filter that specifies one or more DB instances to describe.
@@ -207,14 +205,14 @@ describeDBInstances_dbInstanceIdentifier = Lens.lens (\DescribeDBInstances' {dbI
 --
 -- -   @engine@ - Accepts engine names. The results list will only include
 --     information about the DB instances for these engines.
-describeDBInstances_filters :: Lens.Lens' DescribeDBInstances (Prelude.Maybe [Filter])
-describeDBInstances_filters = Lens.lens (\DescribeDBInstances' {filters} -> filters) (\s@DescribeDBInstances' {} a -> s {filters = a} :: DescribeDBInstances) Prelude.. Lens.mapping Prelude._Coerce
+describeDBInstances_filters :: Lens.Lens' DescribeDBInstances (Core.Maybe [Filter])
+describeDBInstances_filters = Lens.lens (\DescribeDBInstances' {filters} -> filters) (\s@DescribeDBInstances' {} a -> s {filters = a} :: DescribeDBInstances) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBInstances@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-describeDBInstances_marker :: Lens.Lens' DescribeDBInstances (Prelude.Maybe Prelude.Text)
+describeDBInstances_marker :: Lens.Lens' DescribeDBInstances (Core.Maybe Core.Text)
 describeDBInstances_marker = Lens.lens (\DescribeDBInstances' {marker} -> marker) (\s@DescribeDBInstances' {} a -> s {marker = a} :: DescribeDBInstances)
 
 -- | The maximum number of records to include in the response. If more
@@ -225,34 +223,32 @@ describeDBInstances_marker = Lens.lens (\DescribeDBInstances' {marker} -> marker
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
-describeDBInstances_maxRecords :: Lens.Lens' DescribeDBInstances (Prelude.Maybe Prelude.Int)
+describeDBInstances_maxRecords :: Lens.Lens' DescribeDBInstances (Core.Maybe Core.Int)
 describeDBInstances_maxRecords = Lens.lens (\DescribeDBInstances' {maxRecords} -> maxRecords) (\s@DescribeDBInstances' {} a -> s {maxRecords = a} :: DescribeDBInstances)
 
-instance Pager.AWSPager DescribeDBInstances where
+instance Core.AWSPager DescribeDBInstances where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeDBInstancesResponse_marker
-              Prelude.. Lens._Just
+            Lens.^? describeDBInstancesResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeDBInstancesResponse_dbInstances
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeDBInstances_marker
           Lens..~ rs
-          Lens.^? describeDBInstancesResponse_marker
-            Prelude.. Lens._Just
+          Lens.^? describeDBInstancesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeDBInstances where
+instance Core.AWSRequest DescribeDBInstances where
   type
-    Rs DescribeDBInstances =
+    AWSResponse DescribeDBInstances =
       DescribeDBInstancesResponse
   request = Request.postQuery defaultService
   response =
@@ -260,38 +256,35 @@ instance Prelude.AWSRequest DescribeDBInstances where
       "DescribeDBInstancesResult"
       ( \s h x ->
           DescribeDBInstancesResponse'
-            Prelude.<$> ( x Prelude..@? "DBInstances"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "DBInstance")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "DBInstances" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "DBInstance")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDBInstances
+instance Core.Hashable DescribeDBInstances
 
-instance Prelude.NFData DescribeDBInstances
+instance Core.NFData DescribeDBInstances
 
-instance Prelude.ToHeaders DescribeDBInstances where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeDBInstances where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeDBInstances where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeDBInstances where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeDBInstances where
+instance Core.ToQuery DescribeDBInstances where
   toQuery DescribeDBInstances' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeDBInstances" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "DBInstanceIdentifier"
-          Prelude.=: dbInstanceIdentifier,
+          Core.=: ("DescribeDBInstances" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,
         "Filters"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "Filter" Prelude.<$> filters),
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: Core.toQuery
+            (Core.toQueryList "Filter" Core.<$> filters),
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Contains the result of a successful invocation of the
@@ -300,15 +293,15 @@ instance Prelude.ToQuery DescribeDBInstances where
 -- /See:/ 'newDescribeDBInstancesResponse' smart constructor.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
   { -- | A list of @DBInstance@ instances.
-    dbInstances :: Prelude.Maybe [DBInstance],
+    dbInstances :: Core.Maybe [DBInstance],
     -- | An optional pagination token provided by a previous request. If this
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@ .
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDBInstancesResponse' with all optional fields omitted.
@@ -327,28 +320,28 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
 -- 'httpStatus', 'describeDBInstancesResponse_httpStatus' - The response's http status code.
 newDescribeDBInstancesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDBInstancesResponse
 newDescribeDBInstancesResponse pHttpStatus_ =
   DescribeDBInstancesResponse'
     { dbInstances =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of @DBInstance@ instances.
-describeDBInstancesResponse_dbInstances :: Lens.Lens' DescribeDBInstancesResponse (Prelude.Maybe [DBInstance])
-describeDBInstancesResponse_dbInstances = Lens.lens (\DescribeDBInstancesResponse' {dbInstances} -> dbInstances) (\s@DescribeDBInstancesResponse' {} a -> s {dbInstances = a} :: DescribeDBInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeDBInstancesResponse_dbInstances :: Lens.Lens' DescribeDBInstancesResponse (Core.Maybe [DBInstance])
+describeDBInstancesResponse_dbInstances = Lens.lens (\DescribeDBInstancesResponse' {dbInstances} -> dbInstances) (\s@DescribeDBInstancesResponse' {} a -> s {dbInstances = a} :: DescribeDBInstancesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@ .
-describeDBInstancesResponse_marker :: Lens.Lens' DescribeDBInstancesResponse (Prelude.Maybe Prelude.Text)
+describeDBInstancesResponse_marker :: Lens.Lens' DescribeDBInstancesResponse (Core.Maybe Core.Text)
 describeDBInstancesResponse_marker = Lens.lens (\DescribeDBInstancesResponse' {marker} -> marker) (\s@DescribeDBInstancesResponse' {} a -> s {marker = a} :: DescribeDBInstancesResponse)
 
 -- | The response's http status code.
-describeDBInstancesResponse_httpStatus :: Lens.Lens' DescribeDBInstancesResponse Prelude.Int
+describeDBInstancesResponse_httpStatus :: Lens.Lens' DescribeDBInstancesResponse Core.Int
 describeDBInstancesResponse_httpStatus = Lens.lens (\DescribeDBInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeDBInstancesResponse' {} a -> s {httpStatus = a} :: DescribeDBInstancesResponse)
 
-instance Prelude.NFData DescribeDBInstancesResponse
+instance Core.NFData DescribeDBInstancesResponse

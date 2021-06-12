@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.FunctionDefinitionVersion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types.Function
 import Network.AWS.Greengrass.Types.FunctionDefaultConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a function definition version.
 --
 -- /See:/ 'newFunctionDefinitionVersion' smart constructor.
 data FunctionDefinitionVersion = FunctionDefinitionVersion'
   { -- | A list of Lambda functions in this function definition version.
-    functions :: Prelude.Maybe [Function],
+    functions :: Core.Maybe [Function],
     -- | The default configuration that applies to all Lambda functions in this
     -- function definition version. Individual Lambda functions can override
     -- these settings.
-    defaultConfig :: Prelude.Maybe FunctionDefaultConfig
+    defaultConfig :: Core.Maybe FunctionDefaultConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FunctionDefinitionVersion' with all optional fields omitted.
@@ -56,42 +55,39 @@ newFunctionDefinitionVersion ::
 newFunctionDefinitionVersion =
   FunctionDefinitionVersion'
     { functions =
-        Prelude.Nothing,
-      defaultConfig = Prelude.Nothing
+        Core.Nothing,
+      defaultConfig = Core.Nothing
     }
 
 -- | A list of Lambda functions in this function definition version.
-functionDefinitionVersion_functions :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe [Function])
-functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {functions} -> functions) (\s@FunctionDefinitionVersion' {} a -> s {functions = a} :: FunctionDefinitionVersion) Prelude.. Lens.mapping Prelude._Coerce
+functionDefinitionVersion_functions :: Lens.Lens' FunctionDefinitionVersion (Core.Maybe [Function])
+functionDefinitionVersion_functions = Lens.lens (\FunctionDefinitionVersion' {functions} -> functions) (\s@FunctionDefinitionVersion' {} a -> s {functions = a} :: FunctionDefinitionVersion) Core.. Lens.mapping Lens._Coerce
 
 -- | The default configuration that applies to all Lambda functions in this
 -- function definition version. Individual Lambda functions can override
 -- these settings.
-functionDefinitionVersion_defaultConfig :: Lens.Lens' FunctionDefinitionVersion (Prelude.Maybe FunctionDefaultConfig)
+functionDefinitionVersion_defaultConfig :: Lens.Lens' FunctionDefinitionVersion (Core.Maybe FunctionDefaultConfig)
 functionDefinitionVersion_defaultConfig = Lens.lens (\FunctionDefinitionVersion' {defaultConfig} -> defaultConfig) (\s@FunctionDefinitionVersion' {} a -> s {defaultConfig = a} :: FunctionDefinitionVersion)
 
-instance Prelude.FromJSON FunctionDefinitionVersion where
+instance Core.FromJSON FunctionDefinitionVersion where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FunctionDefinitionVersion"
       ( \x ->
           FunctionDefinitionVersion'
-            Prelude.<$> ( x Prelude..:? "Functions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "DefaultConfig")
+            Core.<$> (x Core..:? "Functions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "DefaultConfig")
       )
 
-instance Prelude.Hashable FunctionDefinitionVersion
+instance Core.Hashable FunctionDefinitionVersion
 
-instance Prelude.NFData FunctionDefinitionVersion
+instance Core.NFData FunctionDefinitionVersion
 
-instance Prelude.ToJSON FunctionDefinitionVersion where
+instance Core.ToJSON FunctionDefinitionVersion where
   toJSON FunctionDefinitionVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Functions" Prelude..=) Prelude.<$> functions,
-            ("DefaultConfig" Prelude..=)
-              Prelude.<$> defaultConfig
+    Core.object
+      ( Core.catMaybes
+          [ ("Functions" Core..=) Core.<$> functions,
+            ("DefaultConfig" Core..=) Core.<$> defaultConfig
           ]
       )

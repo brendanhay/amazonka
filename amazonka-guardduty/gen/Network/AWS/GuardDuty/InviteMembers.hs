@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.GuardDuty.InviteMembers
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,19 +55,19 @@ import qualified Network.AWS.Response as Response
 data InviteMembers = InviteMembers'
   { -- | The invitation message that you want to send to the accounts that
     -- you\'re inviting to GuardDuty as members.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | A Boolean value that specifies whether you want to disable email
     -- notification to the accounts that you are inviting to GuardDuty as
     -- members.
-    disableEmailNotification :: Prelude.Maybe Prelude.Bool,
+    disableEmailNotification :: Core.Maybe Core.Bool,
     -- | The unique ID of the detector of the GuardDuty account that you want to
     -- invite members with.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | A list of account IDs of the accounts that you want to invite to
     -- GuardDuty as members.
-    accountIds :: Prelude.NonEmpty Prelude.Text
+    accountIds :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InviteMembers' with all optional fields omitted.
@@ -92,98 +91,98 @@ data InviteMembers = InviteMembers'
 -- GuardDuty as members.
 newInviteMembers ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accountIds'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   InviteMembers
 newInviteMembers pDetectorId_ pAccountIds_ =
   InviteMembers'
-    { message = Prelude.Nothing,
-      disableEmailNotification = Prelude.Nothing,
+    { message = Core.Nothing,
+      disableEmailNotification = Core.Nothing,
       detectorId = pDetectorId_,
-      accountIds = Prelude._Coerce Lens.# pAccountIds_
+      accountIds = Lens._Coerce Lens.# pAccountIds_
     }
 
 -- | The invitation message that you want to send to the accounts that
 -- you\'re inviting to GuardDuty as members.
-inviteMembers_message :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Text)
+inviteMembers_message :: Lens.Lens' InviteMembers (Core.Maybe Core.Text)
 inviteMembers_message = Lens.lens (\InviteMembers' {message} -> message) (\s@InviteMembers' {} a -> s {message = a} :: InviteMembers)
 
 -- | A Boolean value that specifies whether you want to disable email
 -- notification to the accounts that you are inviting to GuardDuty as
 -- members.
-inviteMembers_disableEmailNotification :: Lens.Lens' InviteMembers (Prelude.Maybe Prelude.Bool)
+inviteMembers_disableEmailNotification :: Lens.Lens' InviteMembers (Core.Maybe Core.Bool)
 inviteMembers_disableEmailNotification = Lens.lens (\InviteMembers' {disableEmailNotification} -> disableEmailNotification) (\s@InviteMembers' {} a -> s {disableEmailNotification = a} :: InviteMembers)
 
 -- | The unique ID of the detector of the GuardDuty account that you want to
 -- invite members with.
-inviteMembers_detectorId :: Lens.Lens' InviteMembers Prelude.Text
+inviteMembers_detectorId :: Lens.Lens' InviteMembers Core.Text
 inviteMembers_detectorId = Lens.lens (\InviteMembers' {detectorId} -> detectorId) (\s@InviteMembers' {} a -> s {detectorId = a} :: InviteMembers)
 
 -- | A list of account IDs of the accounts that you want to invite to
 -- GuardDuty as members.
-inviteMembers_accountIds :: Lens.Lens' InviteMembers (Prelude.NonEmpty Prelude.Text)
-inviteMembers_accountIds = Lens.lens (\InviteMembers' {accountIds} -> accountIds) (\s@InviteMembers' {} a -> s {accountIds = a} :: InviteMembers) Prelude.. Prelude._Coerce
+inviteMembers_accountIds :: Lens.Lens' InviteMembers (Core.NonEmpty Core.Text)
+inviteMembers_accountIds = Lens.lens (\InviteMembers' {accountIds} -> accountIds) (\s@InviteMembers' {} a -> s {accountIds = a} :: InviteMembers) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest InviteMembers where
-  type Rs InviteMembers = InviteMembersResponse
+instance Core.AWSRequest InviteMembers where
+  type
+    AWSResponse InviteMembers =
+      InviteMembersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           InviteMembersResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "unprocessedAccounts"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "unprocessedAccounts"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable InviteMembers
+instance Core.Hashable InviteMembers
 
-instance Prelude.NFData InviteMembers
+instance Core.NFData InviteMembers
 
-instance Prelude.ToHeaders InviteMembers where
+instance Core.ToHeaders InviteMembers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON InviteMembers where
+instance Core.ToJSON InviteMembers where
   toJSON InviteMembers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("message" Prelude..=) Prelude.<$> message,
-            ("disableEmailNotification" Prelude..=)
-              Prelude.<$> disableEmailNotification,
-            Prelude.Just ("accountIds" Prelude..= accountIds)
+    Core.object
+      ( Core.catMaybes
+          [ ("message" Core..=) Core.<$> message,
+            ("disableEmailNotification" Core..=)
+              Core.<$> disableEmailNotification,
+            Core.Just ("accountIds" Core..= accountIds)
           ]
       )
 
-instance Prelude.ToPath InviteMembers where
+instance Core.ToPath InviteMembers where
   toPath InviteMembers' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/member/invite"
       ]
 
-instance Prelude.ToQuery InviteMembers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery InviteMembers where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newInviteMembersResponse' smart constructor.
 data InviteMembersResponse = InviteMembersResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of objects that contain the unprocessed account and a result
     -- string that explains why it was unprocessed.
     unprocessedAccounts :: [UnprocessedAccount]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InviteMembersResponse' with all optional fields omitted.
@@ -199,21 +198,21 @@ data InviteMembersResponse = InviteMembersResponse'
 -- string that explains why it was unprocessed.
 newInviteMembersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   InviteMembersResponse
 newInviteMembersResponse pHttpStatus_ =
   InviteMembersResponse'
     { httpStatus = pHttpStatus_,
-      unprocessedAccounts = Prelude.mempty
+      unprocessedAccounts = Core.mempty
     }
 
 -- | The response's http status code.
-inviteMembersResponse_httpStatus :: Lens.Lens' InviteMembersResponse Prelude.Int
+inviteMembersResponse_httpStatus :: Lens.Lens' InviteMembersResponse Core.Int
 inviteMembersResponse_httpStatus = Lens.lens (\InviteMembersResponse' {httpStatus} -> httpStatus) (\s@InviteMembersResponse' {} a -> s {httpStatus = a} :: InviteMembersResponse)
 
 -- | A list of objects that contain the unprocessed account and a result
 -- string that explains why it was unprocessed.
 inviteMembersResponse_unprocessedAccounts :: Lens.Lens' InviteMembersResponse [UnprocessedAccount]
-inviteMembersResponse_unprocessedAccounts = Lens.lens (\InviteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@InviteMembersResponse' {} a -> s {unprocessedAccounts = a} :: InviteMembersResponse) Prelude.. Prelude._Coerce
+inviteMembersResponse_unprocessedAccounts = Lens.lens (\InviteMembersResponse' {unprocessedAccounts} -> unprocessedAccounts) (\s@InviteMembersResponse' {} a -> s {unprocessedAccounts = a} :: InviteMembersResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData InviteMembersResponse
+instance Core.NFData InviteMembersResponse

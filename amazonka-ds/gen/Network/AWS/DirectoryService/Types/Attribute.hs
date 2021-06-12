@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectoryService.Types.Attribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a named directory attribute.
 --
 -- /See:/ 'newAttribute' smart constructor.
 data Attribute = Attribute'
   { -- | The name of the attribute.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The value of the attribute.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Attribute' with all optional fields omitted.
@@ -49,37 +48,36 @@ newAttribute ::
   Attribute
 newAttribute =
   Attribute'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the attribute.
-attribute_name :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_name :: Lens.Lens' Attribute (Core.Maybe Core.Text)
 attribute_name = Lens.lens (\Attribute' {name} -> name) (\s@Attribute' {} a -> s {name = a} :: Attribute)
 
 -- | The value of the attribute.
-attribute_value :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_value :: Lens.Lens' Attribute (Core.Maybe Core.Text)
 attribute_value = Lens.lens (\Attribute' {value} -> value) (\s@Attribute' {} a -> s {value = a} :: Attribute)
 
-instance Prelude.FromJSON Attribute where
+instance Core.FromJSON Attribute where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Attribute"
       ( \x ->
           Attribute'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Attribute
+instance Core.Hashable Attribute
 
-instance Prelude.NFData Attribute
+instance Core.NFData Attribute
 
-instance Prelude.ToJSON Attribute where
+instance Core.ToJSON Attribute where
   toJSON Attribute' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("Value" Core..=) Core.<$> value
           ]
       )

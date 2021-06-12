@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.ContainerDatasetAction where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.ResourceConfiguration
 import Network.AWS.IoTAnalytics.Types.Variable
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information required to run the @containerAction@ to produce dataset
 -- contents.
@@ -34,20 +33,20 @@ data ContainerDatasetAction = ContainerDatasetAction'
     -- containerized application (basically, parameters passed to the
     -- application). Each variable must have a name and a value given by one of
     -- @stringValue@, @datasetContentVersionValue@, or @outputFileUriValue@.
-    variables :: Prelude.Maybe [Variable],
+    variables :: Core.Maybe [Variable],
     -- | The ARN of the Docker container stored in your account. The Docker
     -- container contains an application and required support libraries and is
     -- used to generate dataset contents.
-    image :: Prelude.Text,
+    image :: Core.Text,
     -- | The ARN of the role that gives permission to the system to access
     -- required resources to run the @containerAction@. This includes, at
     -- minimum, permission to retrieve the dataset contents that are the input
     -- to the containerized application.
-    executionRoleArn :: Prelude.Text,
+    executionRoleArn :: Core.Text,
     -- | Configuration of the resource that executes the @containerAction@.
     resourceConfiguration :: ResourceConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContainerDatasetAction' with all optional fields omitted.
@@ -74,9 +73,9 @@ data ContainerDatasetAction = ContainerDatasetAction'
 -- 'resourceConfiguration', 'containerDatasetAction_resourceConfiguration' - Configuration of the resource that executes the @containerAction@.
 newContainerDatasetAction ::
   -- | 'image'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'executionRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceConfiguration'
   ResourceConfiguration ->
   ContainerDatasetAction
@@ -85,8 +84,7 @@ newContainerDatasetAction
   pExecutionRoleArn_
   pResourceConfiguration_ =
     ContainerDatasetAction'
-      { variables =
-          Prelude.Nothing,
+      { variables = Core.Nothing,
         image = pImage_,
         executionRoleArn = pExecutionRoleArn_,
         resourceConfiguration = pResourceConfiguration_
@@ -96,55 +94,53 @@ newContainerDatasetAction
 -- containerized application (basically, parameters passed to the
 -- application). Each variable must have a name and a value given by one of
 -- @stringValue@, @datasetContentVersionValue@, or @outputFileUriValue@.
-containerDatasetAction_variables :: Lens.Lens' ContainerDatasetAction (Prelude.Maybe [Variable])
-containerDatasetAction_variables = Lens.lens (\ContainerDatasetAction' {variables} -> variables) (\s@ContainerDatasetAction' {} a -> s {variables = a} :: ContainerDatasetAction) Prelude.. Lens.mapping Prelude._Coerce
+containerDatasetAction_variables :: Lens.Lens' ContainerDatasetAction (Core.Maybe [Variable])
+containerDatasetAction_variables = Lens.lens (\ContainerDatasetAction' {variables} -> variables) (\s@ContainerDatasetAction' {} a -> s {variables = a} :: ContainerDatasetAction) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the Docker container stored in your account. The Docker
 -- container contains an application and required support libraries and is
 -- used to generate dataset contents.
-containerDatasetAction_image :: Lens.Lens' ContainerDatasetAction Prelude.Text
+containerDatasetAction_image :: Lens.Lens' ContainerDatasetAction Core.Text
 containerDatasetAction_image = Lens.lens (\ContainerDatasetAction' {image} -> image) (\s@ContainerDatasetAction' {} a -> s {image = a} :: ContainerDatasetAction)
 
 -- | The ARN of the role that gives permission to the system to access
 -- required resources to run the @containerAction@. This includes, at
 -- minimum, permission to retrieve the dataset contents that are the input
 -- to the containerized application.
-containerDatasetAction_executionRoleArn :: Lens.Lens' ContainerDatasetAction Prelude.Text
+containerDatasetAction_executionRoleArn :: Lens.Lens' ContainerDatasetAction Core.Text
 containerDatasetAction_executionRoleArn = Lens.lens (\ContainerDatasetAction' {executionRoleArn} -> executionRoleArn) (\s@ContainerDatasetAction' {} a -> s {executionRoleArn = a} :: ContainerDatasetAction)
 
 -- | Configuration of the resource that executes the @containerAction@.
 containerDatasetAction_resourceConfiguration :: Lens.Lens' ContainerDatasetAction ResourceConfiguration
 containerDatasetAction_resourceConfiguration = Lens.lens (\ContainerDatasetAction' {resourceConfiguration} -> resourceConfiguration) (\s@ContainerDatasetAction' {} a -> s {resourceConfiguration = a} :: ContainerDatasetAction)
 
-instance Prelude.FromJSON ContainerDatasetAction where
+instance Core.FromJSON ContainerDatasetAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContainerDatasetAction"
       ( \x ->
           ContainerDatasetAction'
-            Prelude.<$> ( x Prelude..:? "variables"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "image")
-            Prelude.<*> (x Prelude..: "executionRoleArn")
-            Prelude.<*> (x Prelude..: "resourceConfiguration")
+            Core.<$> (x Core..:? "variables" Core..!= Core.mempty)
+            Core.<*> (x Core..: "image")
+            Core.<*> (x Core..: "executionRoleArn")
+            Core.<*> (x Core..: "resourceConfiguration")
       )
 
-instance Prelude.Hashable ContainerDatasetAction
+instance Core.Hashable ContainerDatasetAction
 
-instance Prelude.NFData ContainerDatasetAction
+instance Core.NFData ContainerDatasetAction
 
-instance Prelude.ToJSON ContainerDatasetAction where
+instance Core.ToJSON ContainerDatasetAction where
   toJSON ContainerDatasetAction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("variables" Prelude..=) Prelude.<$> variables,
-            Prelude.Just ("image" Prelude..= image),
-            Prelude.Just
-              ("executionRoleArn" Prelude..= executionRoleArn),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("variables" Core..=) Core.<$> variables,
+            Core.Just ("image" Core..= image),
+            Core.Just
+              ("executionRoleArn" Core..= executionRoleArn),
+            Core.Just
               ( "resourceConfiguration"
-                  Prelude..= resourceConfiguration
+                  Core..= resourceConfiguration
               )
           ]
       )

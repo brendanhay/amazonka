@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.HyperParameterTuningJobWarmStartType
 import Network.AWS.SageMaker.Types.ParentHyperParameterTuningJob
 
@@ -50,7 +49,7 @@ data HyperParameterTuningJobWarmStartConfig = HyperParameterTuningJobWarmStartCo
     --
     -- Hyperparameter tuning jobs created before October 1, 2018 cannot be used
     -- as parent jobs for warm start tuning jobs.
-    parentHyperParameterTuningJobs :: Prelude.NonEmpty ParentHyperParameterTuningJob,
+    parentHyperParameterTuningJobs :: Core.NonEmpty ParentHyperParameterTuningJob,
     -- | Specifies one of the following:
     --
     -- [IDENTICAL_DATA_AND_ALGORITHM]
@@ -80,7 +79,7 @@ data HyperParameterTuningJobWarmStartConfig = HyperParameterTuningJobWarmStartCo
     --     be the same as for all parent jobs.
     warmStartType :: HyperParameterTuningJobWarmStartType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HyperParameterTuningJobWarmStartConfig' with all optional fields omitted.
@@ -127,7 +126,7 @@ data HyperParameterTuningJobWarmStartConfig = HyperParameterTuningJobWarmStartCo
 --     be the same as for all parent jobs.
 newHyperParameterTuningJobWarmStartConfig ::
   -- | 'parentHyperParameterTuningJobs'
-  Prelude.NonEmpty ParentHyperParameterTuningJob ->
+  Core.NonEmpty ParentHyperParameterTuningJob ->
   -- | 'warmStartType'
   HyperParameterTuningJobWarmStartType ->
   HyperParameterTuningJobWarmStartConfig
@@ -136,7 +135,7 @@ newHyperParameterTuningJobWarmStartConfig
   pWarmStartType_ =
     HyperParameterTuningJobWarmStartConfig'
       { parentHyperParameterTuningJobs =
-          Prelude._Coerce
+          Lens._Coerce
             Lens.# pParentHyperParameterTuningJobs_,
         warmStartType = pWarmStartType_
       }
@@ -148,8 +147,8 @@ newHyperParameterTuningJobWarmStartConfig
 --
 -- Hyperparameter tuning jobs created before October 1, 2018 cannot be used
 -- as parent jobs for warm start tuning jobs.
-hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs :: Lens.Lens' HyperParameterTuningJobWarmStartConfig (Prelude.NonEmpty ParentHyperParameterTuningJob)
-hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {parentHyperParameterTuningJobs} -> parentHyperParameterTuningJobs) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {parentHyperParameterTuningJobs = a} :: HyperParameterTuningJobWarmStartConfig) Prelude.. Prelude._Coerce
+hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs :: Lens.Lens' HyperParameterTuningJobWarmStartConfig (Core.NonEmpty ParentHyperParameterTuningJob)
+hyperParameterTuningJobWarmStartConfig_parentHyperParameterTuningJobs = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {parentHyperParameterTuningJobs} -> parentHyperParameterTuningJobs) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {parentHyperParameterTuningJobs = a} :: HyperParameterTuningJobWarmStartConfig) Core.. Lens._Coerce
 
 -- | Specifies one of the following:
 --
@@ -182,38 +181,37 @@ hyperParameterTuningJobWarmStartConfig_warmStartType :: Lens.Lens' HyperParamete
 hyperParameterTuningJobWarmStartConfig_warmStartType = Lens.lens (\HyperParameterTuningJobWarmStartConfig' {warmStartType} -> warmStartType) (\s@HyperParameterTuningJobWarmStartConfig' {} a -> s {warmStartType = a} :: HyperParameterTuningJobWarmStartConfig)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     HyperParameterTuningJobWarmStartConfig
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HyperParameterTuningJobWarmStartConfig"
       ( \x ->
           HyperParameterTuningJobWarmStartConfig'
-            Prelude.<$> (x Prelude..: "ParentHyperParameterTuningJobs")
-            Prelude.<*> (x Prelude..: "WarmStartType")
+            Core.<$> (x Core..: "ParentHyperParameterTuningJobs")
+            Core.<*> (x Core..: "WarmStartType")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     HyperParameterTuningJobWarmStartConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     HyperParameterTuningJobWarmStartConfig
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     HyperParameterTuningJobWarmStartConfig
   where
   toJSON HyperParameterTuningJobWarmStartConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ParentHyperParameterTuningJobs"
-                  Prelude..= parentHyperParameterTuningJobs
+                  Core..= parentHyperParameterTuningJobs
               ),
-            Prelude.Just
-              ("WarmStartType" Prelude..= warmStartType)
+            Core.Just ("WarmStartType" Core..= warmStartType)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.EC2.CreateVpnConnectionRoute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,11 +54,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateVpnConnectionRoute' smart constructor.
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute'
   { -- | The CIDR block associated with the local subnet of the customer network.
-    destinationCidrBlock :: Prelude.Text,
+    destinationCidrBlock :: Core.Text,
     -- | The ID of the VPN connection.
-    vpnConnectionId :: Prelude.Text
+    vpnConnectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpnConnectionRoute' with all optional fields omitted.
@@ -74,9 +73,9 @@ data CreateVpnConnectionRoute = CreateVpnConnectionRoute'
 -- 'vpnConnectionId', 'createVpnConnectionRoute_vpnConnectionId' - The ID of the VPN connection.
 newCreateVpnConnectionRoute ::
   -- | 'destinationCidrBlock'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpnConnectionId'
-  Prelude.Text ->
+  Core.Text ->
   CreateVpnConnectionRoute
 newCreateVpnConnectionRoute
   pDestinationCidrBlock_
@@ -88,49 +87,47 @@ newCreateVpnConnectionRoute
       }
 
 -- | The CIDR block associated with the local subnet of the customer network.
-createVpnConnectionRoute_destinationCidrBlock :: Lens.Lens' CreateVpnConnectionRoute Prelude.Text
+createVpnConnectionRoute_destinationCidrBlock :: Lens.Lens' CreateVpnConnectionRoute Core.Text
 createVpnConnectionRoute_destinationCidrBlock = Lens.lens (\CreateVpnConnectionRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@CreateVpnConnectionRoute' {} a -> s {destinationCidrBlock = a} :: CreateVpnConnectionRoute)
 
 -- | The ID of the VPN connection.
-createVpnConnectionRoute_vpnConnectionId :: Lens.Lens' CreateVpnConnectionRoute Prelude.Text
+createVpnConnectionRoute_vpnConnectionId :: Lens.Lens' CreateVpnConnectionRoute Core.Text
 createVpnConnectionRoute_vpnConnectionId = Lens.lens (\CreateVpnConnectionRoute' {vpnConnectionId} -> vpnConnectionId) (\s@CreateVpnConnectionRoute' {} a -> s {vpnConnectionId = a} :: CreateVpnConnectionRoute)
 
-instance Prelude.AWSRequest CreateVpnConnectionRoute where
+instance Core.AWSRequest CreateVpnConnectionRoute where
   type
-    Rs CreateVpnConnectionRoute =
+    AWSResponse CreateVpnConnectionRoute =
       CreateVpnConnectionRouteResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       CreateVpnConnectionRouteResponse'
 
-instance Prelude.Hashable CreateVpnConnectionRoute
+instance Core.Hashable CreateVpnConnectionRoute
 
-instance Prelude.NFData CreateVpnConnectionRoute
+instance Core.NFData CreateVpnConnectionRoute
 
-instance Prelude.ToHeaders CreateVpnConnectionRoute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateVpnConnectionRoute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateVpnConnectionRoute where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateVpnConnectionRoute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateVpnConnectionRoute where
+instance Core.ToQuery CreateVpnConnectionRoute where
   toQuery CreateVpnConnectionRoute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateVpnConnectionRoute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DestinationCidrBlock"
-          Prelude.=: destinationCidrBlock,
-        "VpnConnectionId" Prelude.=: vpnConnectionId
+          Core.=: ("CreateVpnConnectionRoute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DestinationCidrBlock" Core.=: destinationCidrBlock,
+        "VpnConnectionId" Core.=: vpnConnectionId
       ]
 
 -- | /See:/ 'newCreateVpnConnectionRouteResponse' smart constructor.
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateVpnConnectionRouteResponse' with all optional fields omitted.
@@ -141,6 +138,4 @@ newCreateVpnConnectionRouteResponse ::
 newCreateVpnConnectionRouteResponse =
   CreateVpnConnectionRouteResponse'
 
-instance
-  Prelude.NFData
-    CreateVpnConnectionRouteResponse
+instance Core.NFData CreateVpnConnectionRouteResponse

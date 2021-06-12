@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,9 +37,9 @@ module Network.AWS.EC2.DeleteInternetGateway
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +49,11 @@ data DeleteInternetGateway = DeleteInternetGateway'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the internet gateway.
-    internetGatewayId :: Prelude.Text
+    internetGatewayId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInternetGateway' with all optional fields omitted.
@@ -72,11 +71,11 @@ data DeleteInternetGateway = DeleteInternetGateway'
 -- 'internetGatewayId', 'deleteInternetGateway_internetGatewayId' - The ID of the internet gateway.
 newDeleteInternetGateway ::
   -- | 'internetGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteInternetGateway
 newDeleteInternetGateway pInternetGatewayId_ =
   DeleteInternetGateway'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       internetGatewayId = pInternetGatewayId_
     }
 
@@ -84,47 +83,46 @@ newDeleteInternetGateway pInternetGatewayId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteInternetGateway_dryRun :: Lens.Lens' DeleteInternetGateway (Prelude.Maybe Prelude.Bool)
+deleteInternetGateway_dryRun :: Lens.Lens' DeleteInternetGateway (Core.Maybe Core.Bool)
 deleteInternetGateway_dryRun = Lens.lens (\DeleteInternetGateway' {dryRun} -> dryRun) (\s@DeleteInternetGateway' {} a -> s {dryRun = a} :: DeleteInternetGateway)
 
 -- | The ID of the internet gateway.
-deleteInternetGateway_internetGatewayId :: Lens.Lens' DeleteInternetGateway Prelude.Text
+deleteInternetGateway_internetGatewayId :: Lens.Lens' DeleteInternetGateway Core.Text
 deleteInternetGateway_internetGatewayId = Lens.lens (\DeleteInternetGateway' {internetGatewayId} -> internetGatewayId) (\s@DeleteInternetGateway' {} a -> s {internetGatewayId = a} :: DeleteInternetGateway)
 
-instance Prelude.AWSRequest DeleteInternetGateway where
+instance Core.AWSRequest DeleteInternetGateway where
   type
-    Rs DeleteInternetGateway =
+    AWSResponse DeleteInternetGateway =
       DeleteInternetGatewayResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteInternetGatewayResponse'
 
-instance Prelude.Hashable DeleteInternetGateway
+instance Core.Hashable DeleteInternetGateway
 
-instance Prelude.NFData DeleteInternetGateway
+instance Core.NFData DeleteInternetGateway
 
-instance Prelude.ToHeaders DeleteInternetGateway where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteInternetGateway where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteInternetGateway where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteInternetGateway where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteInternetGateway where
+instance Core.ToQuery DeleteInternetGateway where
   toQuery DeleteInternetGateway' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteInternetGateway" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "InternetGatewayId" Prelude.=: internetGatewayId
+          Core.=: ("DeleteInternetGateway" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "InternetGatewayId" Core.=: internetGatewayId
       ]
 
 -- | /See:/ 'newDeleteInternetGatewayResponse' smart constructor.
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteInternetGatewayResponse' with all optional fields omitted.
@@ -135,4 +133,4 @@ newDeleteInternetGatewayResponse ::
 newDeleteInternetGatewayResponse =
   DeleteInternetGatewayResponse'
 
-instance Prelude.NFData DeleteInternetGatewayResponse
+instance Core.NFData DeleteInternetGatewayResponse

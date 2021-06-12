@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.RightsizingRecommendationMetadata where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.LookbackPeriodInDays
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for this recommendation set.
 --
 -- /See:/ 'newRightsizingRecommendationMetadata' smart constructor.
 data RightsizingRecommendationMetadata = RightsizingRecommendationMetadata'
   { -- | The ID for this specific recommendation.
-    recommendationId :: Prelude.Maybe Prelude.Text,
+    recommendationId :: Core.Maybe Core.Text,
     -- | Additional metadata that may be applicable to the recommendation.
-    additionalMetadata :: Prelude.Maybe Prelude.Text,
+    additionalMetadata :: Core.Maybe Core.Text,
     -- | How many days of previous usage that AWS considers when making this
     -- recommendation.
-    lookbackPeriodInDays :: Prelude.Maybe LookbackPeriodInDays,
+    lookbackPeriodInDays :: Core.Maybe LookbackPeriodInDays,
     -- | The timestamp for when AWS made this recommendation.
-    generationTimestamp :: Prelude.Maybe Prelude.Text
+    generationTimestamp :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RightsizingRecommendationMetadata' with all optional fields omitted.
@@ -61,48 +60,48 @@ newRightsizingRecommendationMetadata ::
 newRightsizingRecommendationMetadata =
   RightsizingRecommendationMetadata'
     { recommendationId =
-        Prelude.Nothing,
-      additionalMetadata = Prelude.Nothing,
-      lookbackPeriodInDays = Prelude.Nothing,
-      generationTimestamp = Prelude.Nothing
+        Core.Nothing,
+      additionalMetadata = Core.Nothing,
+      lookbackPeriodInDays = Core.Nothing,
+      generationTimestamp = Core.Nothing
     }
 
 -- | The ID for this specific recommendation.
-rightsizingRecommendationMetadata_recommendationId :: Lens.Lens' RightsizingRecommendationMetadata (Prelude.Maybe Prelude.Text)
+rightsizingRecommendationMetadata_recommendationId :: Lens.Lens' RightsizingRecommendationMetadata (Core.Maybe Core.Text)
 rightsizingRecommendationMetadata_recommendationId = Lens.lens (\RightsizingRecommendationMetadata' {recommendationId} -> recommendationId) (\s@RightsizingRecommendationMetadata' {} a -> s {recommendationId = a} :: RightsizingRecommendationMetadata)
 
 -- | Additional metadata that may be applicable to the recommendation.
-rightsizingRecommendationMetadata_additionalMetadata :: Lens.Lens' RightsizingRecommendationMetadata (Prelude.Maybe Prelude.Text)
+rightsizingRecommendationMetadata_additionalMetadata :: Lens.Lens' RightsizingRecommendationMetadata (Core.Maybe Core.Text)
 rightsizingRecommendationMetadata_additionalMetadata = Lens.lens (\RightsizingRecommendationMetadata' {additionalMetadata} -> additionalMetadata) (\s@RightsizingRecommendationMetadata' {} a -> s {additionalMetadata = a} :: RightsizingRecommendationMetadata)
 
 -- | How many days of previous usage that AWS considers when making this
 -- recommendation.
-rightsizingRecommendationMetadata_lookbackPeriodInDays :: Lens.Lens' RightsizingRecommendationMetadata (Prelude.Maybe LookbackPeriodInDays)
+rightsizingRecommendationMetadata_lookbackPeriodInDays :: Lens.Lens' RightsizingRecommendationMetadata (Core.Maybe LookbackPeriodInDays)
 rightsizingRecommendationMetadata_lookbackPeriodInDays = Lens.lens (\RightsizingRecommendationMetadata' {lookbackPeriodInDays} -> lookbackPeriodInDays) (\s@RightsizingRecommendationMetadata' {} a -> s {lookbackPeriodInDays = a} :: RightsizingRecommendationMetadata)
 
 -- | The timestamp for when AWS made this recommendation.
-rightsizingRecommendationMetadata_generationTimestamp :: Lens.Lens' RightsizingRecommendationMetadata (Prelude.Maybe Prelude.Text)
+rightsizingRecommendationMetadata_generationTimestamp :: Lens.Lens' RightsizingRecommendationMetadata (Core.Maybe Core.Text)
 rightsizingRecommendationMetadata_generationTimestamp = Lens.lens (\RightsizingRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@RightsizingRecommendationMetadata' {} a -> s {generationTimestamp = a} :: RightsizingRecommendationMetadata)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     RightsizingRecommendationMetadata
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RightsizingRecommendationMetadata"
       ( \x ->
           RightsizingRecommendationMetadata'
-            Prelude.<$> (x Prelude..:? "RecommendationId")
-            Prelude.<*> (x Prelude..:? "AdditionalMetadata")
-            Prelude.<*> (x Prelude..:? "LookbackPeriodInDays")
-            Prelude.<*> (x Prelude..:? "GenerationTimestamp")
+            Core.<$> (x Core..:? "RecommendationId")
+            Core.<*> (x Core..:? "AdditionalMetadata")
+            Core.<*> (x Core..:? "LookbackPeriodInDays")
+            Core.<*> (x Core..:? "GenerationTimestamp")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     RightsizingRecommendationMetadata
 
 instance
-  Prelude.NFData
+  Core.NFData
     RightsizingRecommendationMetadata

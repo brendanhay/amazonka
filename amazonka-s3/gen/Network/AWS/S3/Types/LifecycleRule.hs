@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.LifecycleRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.AbortIncompleteMultipartUpload
 import Network.AWS.S3.Types.ExpirationStatus
@@ -37,7 +36,7 @@ import Network.AWS.S3.Types.Transition
 data LifecycleRule = LifecycleRule'
   { -- | Specifies the expiration for the lifecycle of the object in the form of
     -- date, days and, whether the object has a delete marker.
-    expiration :: Prelude.Maybe LifecycleExpiration,
+    expiration :: Core.Maybe LifecycleExpiration,
     -- | Prefix identifying one or more objects to which the rule applies. This
     -- is No longer used; use @Filter@ instead.
     --
@@ -45,28 +44,28 @@ data LifecycleRule = LifecycleRule'
     -- (such as carriage returns) when using XML requests. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | Specifies the transition rule for the lifecycle rule that describes when
     -- noncurrent objects transition to a specific storage class. If your
     -- bucket is versioning-enabled (or versioning is suspended), you can set
     -- this action to request that Amazon S3 transition noncurrent object
     -- versions to a specific storage class at a set period in the object\'s
     -- lifetime.
-    noncurrentVersionTransitions :: Prelude.Maybe [NoncurrentVersionTransition],
+    noncurrentVersionTransitions :: Core.Maybe [NoncurrentVersionTransition],
     -- | Unique identifier for the rule. The value cannot be longer than 255
     -- characters.
-    id :: Prelude.Maybe Prelude.Text,
-    noncurrentVersionExpiration :: Prelude.Maybe NoncurrentVersionExpiration,
+    id :: Core.Maybe Core.Text,
+    noncurrentVersionExpiration :: Core.Maybe NoncurrentVersionExpiration,
     -- | Specifies when an Amazon S3 object transitions to a specified storage
     -- class.
-    transitions :: Prelude.Maybe [Transition],
-    abortIncompleteMultipartUpload :: Prelude.Maybe AbortIncompleteMultipartUpload,
-    filter' :: Prelude.Maybe LifecycleRuleFilter,
+    transitions :: Core.Maybe [Transition],
+    abortIncompleteMultipartUpload :: Core.Maybe AbortIncompleteMultipartUpload,
+    filter' :: Core.Maybe LifecycleRuleFilter,
     -- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
     -- the rule is not currently being applied.
     status :: ExpirationStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecycleRule' with all optional fields omitted.
@@ -114,20 +113,20 @@ newLifecycleRule ::
   LifecycleRule
 newLifecycleRule pStatus_ =
   LifecycleRule'
-    { expiration = Prelude.Nothing,
-      prefix = Prelude.Nothing,
-      noncurrentVersionTransitions = Prelude.Nothing,
-      id = Prelude.Nothing,
-      noncurrentVersionExpiration = Prelude.Nothing,
-      transitions = Prelude.Nothing,
-      abortIncompleteMultipartUpload = Prelude.Nothing,
-      filter' = Prelude.Nothing,
+    { expiration = Core.Nothing,
+      prefix = Core.Nothing,
+      noncurrentVersionTransitions = Core.Nothing,
+      id = Core.Nothing,
+      noncurrentVersionExpiration = Core.Nothing,
+      transitions = Core.Nothing,
+      abortIncompleteMultipartUpload = Core.Nothing,
+      filter' = Core.Nothing,
       status = pStatus_
     }
 
 -- | Specifies the expiration for the lifecycle of the object in the form of
 -- date, days and, whether the object has a delete marker.
-lifecycleRule_expiration :: Lens.Lens' LifecycleRule (Prelude.Maybe LifecycleExpiration)
+lifecycleRule_expiration :: Lens.Lens' LifecycleRule (Core.Maybe LifecycleExpiration)
 lifecycleRule_expiration = Lens.lens (\LifecycleRule' {expiration} -> expiration) (\s@LifecycleRule' {} a -> s {expiration = a} :: LifecycleRule)
 
 -- | Prefix identifying one or more objects to which the rule applies. This
@@ -137,7 +136,7 @@ lifecycleRule_expiration = Lens.lens (\LifecycleRule' {expiration} -> expiration
 -- (such as carriage returns) when using XML requests. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints>.
-lifecycleRule_prefix :: Lens.Lens' LifecycleRule (Prelude.Maybe Prelude.Text)
+lifecycleRule_prefix :: Lens.Lens' LifecycleRule (Core.Maybe Core.Text)
 lifecycleRule_prefix = Lens.lens (\LifecycleRule' {prefix} -> prefix) (\s@LifecycleRule' {} a -> s {prefix = a} :: LifecycleRule)
 
 -- | Specifies the transition rule for the lifecycle rule that describes when
@@ -146,29 +145,29 @@ lifecycleRule_prefix = Lens.lens (\LifecycleRule' {prefix} -> prefix) (\s@Lifecy
 -- this action to request that Amazon S3 transition noncurrent object
 -- versions to a specific storage class at a set period in the object\'s
 -- lifetime.
-lifecycleRule_noncurrentVersionTransitions :: Lens.Lens' LifecycleRule (Prelude.Maybe [NoncurrentVersionTransition])
-lifecycleRule_noncurrentVersionTransitions = Lens.lens (\LifecycleRule' {noncurrentVersionTransitions} -> noncurrentVersionTransitions) (\s@LifecycleRule' {} a -> s {noncurrentVersionTransitions = a} :: LifecycleRule) Prelude.. Lens.mapping Prelude._Coerce
+lifecycleRule_noncurrentVersionTransitions :: Lens.Lens' LifecycleRule (Core.Maybe [NoncurrentVersionTransition])
+lifecycleRule_noncurrentVersionTransitions = Lens.lens (\LifecycleRule' {noncurrentVersionTransitions} -> noncurrentVersionTransitions) (\s@LifecycleRule' {} a -> s {noncurrentVersionTransitions = a} :: LifecycleRule) Core.. Lens.mapping Lens._Coerce
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
-lifecycleRule_id :: Lens.Lens' LifecycleRule (Prelude.Maybe Prelude.Text)
+lifecycleRule_id :: Lens.Lens' LifecycleRule (Core.Maybe Core.Text)
 lifecycleRule_id = Lens.lens (\LifecycleRule' {id} -> id) (\s@LifecycleRule' {} a -> s {id = a} :: LifecycleRule)
 
 -- | Undocumented member.
-lifecycleRule_noncurrentVersionExpiration :: Lens.Lens' LifecycleRule (Prelude.Maybe NoncurrentVersionExpiration)
+lifecycleRule_noncurrentVersionExpiration :: Lens.Lens' LifecycleRule (Core.Maybe NoncurrentVersionExpiration)
 lifecycleRule_noncurrentVersionExpiration = Lens.lens (\LifecycleRule' {noncurrentVersionExpiration} -> noncurrentVersionExpiration) (\s@LifecycleRule' {} a -> s {noncurrentVersionExpiration = a} :: LifecycleRule)
 
 -- | Specifies when an Amazon S3 object transitions to a specified storage
 -- class.
-lifecycleRule_transitions :: Lens.Lens' LifecycleRule (Prelude.Maybe [Transition])
-lifecycleRule_transitions = Lens.lens (\LifecycleRule' {transitions} -> transitions) (\s@LifecycleRule' {} a -> s {transitions = a} :: LifecycleRule) Prelude.. Lens.mapping Prelude._Coerce
+lifecycleRule_transitions :: Lens.Lens' LifecycleRule (Core.Maybe [Transition])
+lifecycleRule_transitions = Lens.lens (\LifecycleRule' {transitions} -> transitions) (\s@LifecycleRule' {} a -> s {transitions = a} :: LifecycleRule) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-lifecycleRule_abortIncompleteMultipartUpload :: Lens.Lens' LifecycleRule (Prelude.Maybe AbortIncompleteMultipartUpload)
+lifecycleRule_abortIncompleteMultipartUpload :: Lens.Lens' LifecycleRule (Core.Maybe AbortIncompleteMultipartUpload)
 lifecycleRule_abortIncompleteMultipartUpload = Lens.lens (\LifecycleRule' {abortIncompleteMultipartUpload} -> abortIncompleteMultipartUpload) (\s@LifecycleRule' {} a -> s {abortIncompleteMultipartUpload = a} :: LifecycleRule)
 
 -- | Undocumented member.
-lifecycleRule_filter :: Lens.Lens' LifecycleRule (Prelude.Maybe LifecycleRuleFilter)
+lifecycleRule_filter :: Lens.Lens' LifecycleRule (Core.Maybe LifecycleRuleFilter)
 lifecycleRule_filter = Lens.lens (\LifecycleRule' {filter'} -> filter') (\s@LifecycleRule' {} a -> s {filter' = a} :: LifecycleRule)
 
 -- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
@@ -176,44 +175,42 @@ lifecycleRule_filter = Lens.lens (\LifecycleRule' {filter'} -> filter') (\s@Life
 lifecycleRule_status :: Lens.Lens' LifecycleRule ExpirationStatus
 lifecycleRule_status = Lens.lens (\LifecycleRule' {status} -> status) (\s@LifecycleRule' {} a -> s {status = a} :: LifecycleRule)
 
-instance Prelude.FromXML LifecycleRule where
+instance Core.FromXML LifecycleRule where
   parseXML x =
     LifecycleRule'
-      Prelude.<$> (x Prelude..@? "Expiration")
-      Prelude.<*> (x Prelude..@? "Prefix")
-      Prelude.<*> ( Prelude.may
-                      (Prelude.parseXMLList "NoncurrentVersionTransition")
-                      x
-                  )
-      Prelude.<*> (x Prelude..@? "ID")
-      Prelude.<*> (x Prelude..@? "NoncurrentVersionExpiration")
-      Prelude.<*> (Prelude.may (Prelude.parseXMLList "Transition") x)
-      Prelude.<*> (x Prelude..@? "AbortIncompleteMultipartUpload")
-      Prelude.<*> (x Prelude..@? "Filter")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@? "Expiration")
+      Core.<*> (x Core..@? "Prefix")
+      Core.<*> ( Core.may
+                   (Core.parseXMLList "NoncurrentVersionTransition")
+                   x
+               )
+      Core.<*> (x Core..@? "ID")
+      Core.<*> (x Core..@? "NoncurrentVersionExpiration")
+      Core.<*> (Core.may (Core.parseXMLList "Transition") x)
+      Core.<*> (x Core..@? "AbortIncompleteMultipartUpload")
+      Core.<*> (x Core..@? "Filter")
+      Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable LifecycleRule
+instance Core.Hashable LifecycleRule
 
-instance Prelude.NFData LifecycleRule
+instance Core.NFData LifecycleRule
 
-instance Prelude.ToXML LifecycleRule where
+instance Core.ToXML LifecycleRule where
   toXML LifecycleRule' {..} =
-    Prelude.mconcat
-      [ "Expiration" Prelude.@= expiration,
-        "Prefix" Prelude.@= prefix,
-        Prelude.toXML
-          ( Prelude.toXMLList "NoncurrentVersionTransition"
-              Prelude.<$> noncurrentVersionTransitions
+    Core.mconcat
+      [ "Expiration" Core.@= expiration,
+        "Prefix" Core.@= prefix,
+        Core.toXML
+          ( Core.toXMLList "NoncurrentVersionTransition"
+              Core.<$> noncurrentVersionTransitions
           ),
-        "ID" Prelude.@= id,
+        "ID" Core.@= id,
         "NoncurrentVersionExpiration"
-          Prelude.@= noncurrentVersionExpiration,
-        Prelude.toXML
-          ( Prelude.toXMLList "Transition"
-              Prelude.<$> transitions
-          ),
+          Core.@= noncurrentVersionExpiration,
+        Core.toXML
+          (Core.toXMLList "Transition" Core.<$> transitions),
         "AbortIncompleteMultipartUpload"
-          Prelude.@= abortIncompleteMultipartUpload,
-        "Filter" Prelude.@= filter',
-        "Status" Prelude.@= status
+          Core.@= abortIncompleteMultipartUpload,
+        "Filter" Core.@= filter',
+        "Status" Core.@= status
       ]

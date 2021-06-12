@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CloudSearch.Types.IndexFieldStatus where
 
 import Network.AWS.CloudSearch.Types.IndexField
 import Network.AWS.CloudSearch.Types.OptionStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The value of an @IndexField@ and its current status.
 --
@@ -32,7 +31,7 @@ data IndexFieldStatus = IndexFieldStatus'
   { options :: IndexField,
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IndexFieldStatus' with all optional fields omitted.
@@ -65,12 +64,11 @@ indexFieldStatus_options = Lens.lens (\IndexFieldStatus' {options} -> options) (
 indexFieldStatus_status :: Lens.Lens' IndexFieldStatus OptionStatus
 indexFieldStatus_status = Lens.lens (\IndexFieldStatus' {status} -> status) (\s@IndexFieldStatus' {} a -> s {status = a} :: IndexFieldStatus)
 
-instance Prelude.FromXML IndexFieldStatus where
+instance Core.FromXML IndexFieldStatus where
   parseXML x =
     IndexFieldStatus'
-      Prelude.<$> (x Prelude..@ "Options")
-      Prelude.<*> (x Prelude..@ "Status")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
 
-instance Prelude.Hashable IndexFieldStatus
+instance Core.Hashable IndexFieldStatus
 
-instance Prelude.NFData IndexFieldStatus
+instance Core.NFData IndexFieldStatus

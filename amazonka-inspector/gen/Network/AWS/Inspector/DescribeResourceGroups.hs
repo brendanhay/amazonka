@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,18 +41,18 @@ module Network.AWS.Inspector.DescribeResourceGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeResourceGroups' smart constructor.
 data DescribeResourceGroups = DescribeResourceGroups'
   { -- | The ARN that specifies the resource group that you want to describe.
-    resourceGroupArns :: Prelude.NonEmpty Prelude.Text
+    resourceGroupArns :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeResourceGroups' with all optional fields omitted.
@@ -66,81 +65,75 @@ data DescribeResourceGroups = DescribeResourceGroups'
 -- 'resourceGroupArns', 'describeResourceGroups_resourceGroupArns' - The ARN that specifies the resource group that you want to describe.
 newDescribeResourceGroups ::
   -- | 'resourceGroupArns'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   DescribeResourceGroups
 newDescribeResourceGroups pResourceGroupArns_ =
   DescribeResourceGroups'
     { resourceGroupArns =
-        Prelude._Coerce Lens.# pResourceGroupArns_
+        Lens._Coerce Lens.# pResourceGroupArns_
     }
 
 -- | The ARN that specifies the resource group that you want to describe.
-describeResourceGroups_resourceGroupArns :: Lens.Lens' DescribeResourceGroups (Prelude.NonEmpty Prelude.Text)
-describeResourceGroups_resourceGroupArns = Lens.lens (\DescribeResourceGroups' {resourceGroupArns} -> resourceGroupArns) (\s@DescribeResourceGroups' {} a -> s {resourceGroupArns = a} :: DescribeResourceGroups) Prelude.. Prelude._Coerce
+describeResourceGroups_resourceGroupArns :: Lens.Lens' DescribeResourceGroups (Core.NonEmpty Core.Text)
+describeResourceGroups_resourceGroupArns = Lens.lens (\DescribeResourceGroups' {resourceGroupArns} -> resourceGroupArns) (\s@DescribeResourceGroups' {} a -> s {resourceGroupArns = a} :: DescribeResourceGroups) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DescribeResourceGroups where
+instance Core.AWSRequest DescribeResourceGroups where
   type
-    Rs DescribeResourceGroups =
+    AWSResponse DescribeResourceGroups =
       DescribeResourceGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeResourceGroupsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "resourceGroups"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "failedItems"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "resourceGroups" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "failedItems" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable DescribeResourceGroups
+instance Core.Hashable DescribeResourceGroups
 
-instance Prelude.NFData DescribeResourceGroups
+instance Core.NFData DescribeResourceGroups
 
-instance Prelude.ToHeaders DescribeResourceGroups where
+instance Core.ToHeaders DescribeResourceGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.DescribeResourceGroups" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.DescribeResourceGroups" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeResourceGroups where
+instance Core.ToJSON DescribeResourceGroups where
   toJSON DescribeResourceGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("resourceGroupArns" Prelude..= resourceGroupArns)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("resourceGroupArns" Core..= resourceGroupArns)
           ]
       )
 
-instance Prelude.ToPath DescribeResourceGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeResourceGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeResourceGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeResourceGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeResourceGroupsResponse' smart constructor.
 data DescribeResourceGroupsResponse = DescribeResourceGroupsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | Information about a resource group.
     resourceGroups :: [ResourceGroup],
     -- | Resource group details that cannot be described. An error code is
     -- provided for each failed item.
-    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
+    failedItems :: Core.HashMap Core.Text FailedItemDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeResourceGroupsResponse' with all optional fields omitted.
@@ -158,29 +151,27 @@ data DescribeResourceGroupsResponse = DescribeResourceGroupsResponse'
 -- provided for each failed item.
 newDescribeResourceGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeResourceGroupsResponse
 newDescribeResourceGroupsResponse pHttpStatus_ =
   DescribeResourceGroupsResponse'
     { httpStatus =
         pHttpStatus_,
-      resourceGroups = Prelude.mempty,
-      failedItems = Prelude.mempty
+      resourceGroups = Core.mempty,
+      failedItems = Core.mempty
     }
 
 -- | The response's http status code.
-describeResourceGroupsResponse_httpStatus :: Lens.Lens' DescribeResourceGroupsResponse Prelude.Int
+describeResourceGroupsResponse_httpStatus :: Lens.Lens' DescribeResourceGroupsResponse Core.Int
 describeResourceGroupsResponse_httpStatus = Lens.lens (\DescribeResourceGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeResourceGroupsResponse' {} a -> s {httpStatus = a} :: DescribeResourceGroupsResponse)
 
 -- | Information about a resource group.
 describeResourceGroupsResponse_resourceGroups :: Lens.Lens' DescribeResourceGroupsResponse [ResourceGroup]
-describeResourceGroupsResponse_resourceGroups = Lens.lens (\DescribeResourceGroupsResponse' {resourceGroups} -> resourceGroups) (\s@DescribeResourceGroupsResponse' {} a -> s {resourceGroups = a} :: DescribeResourceGroupsResponse) Prelude.. Prelude._Coerce
+describeResourceGroupsResponse_resourceGroups = Lens.lens (\DescribeResourceGroupsResponse' {resourceGroups} -> resourceGroups) (\s@DescribeResourceGroupsResponse' {} a -> s {resourceGroups = a} :: DescribeResourceGroupsResponse) Core.. Lens._Coerce
 
 -- | Resource group details that cannot be described. An error code is
 -- provided for each failed item.
-describeResourceGroupsResponse_failedItems :: Lens.Lens' DescribeResourceGroupsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
-describeResourceGroupsResponse_failedItems = Lens.lens (\DescribeResourceGroupsResponse' {failedItems} -> failedItems) (\s@DescribeResourceGroupsResponse' {} a -> s {failedItems = a} :: DescribeResourceGroupsResponse) Prelude.. Prelude._Coerce
+describeResourceGroupsResponse_failedItems :: Lens.Lens' DescribeResourceGroupsResponse (Core.HashMap Core.Text FailedItemDetails)
+describeResourceGroupsResponse_failedItems = Lens.lens (\DescribeResourceGroupsResponse' {failedItems} -> failedItems) (\s@DescribeResourceGroupsResponse' {} a -> s {failedItems = a} :: DescribeResourceGroupsResponse) Core.. Lens._Coerce
 
-instance
-  Prelude.NFData
-    DescribeResourceGroupsResponse
+instance Core.NFData DescribeResourceGroupsResponse

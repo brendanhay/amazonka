@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.IoT.TransferCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,14 +63,14 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newTransferCertificate' smart constructor.
 data TransferCertificate = TransferCertificate'
   { -- | The transfer message.
-    transferMessage :: Prelude.Maybe Prelude.Text,
+    transferMessage :: Core.Maybe Core.Text,
     -- | The ID of the certificate. (The last part of the certificate ARN
     -- contains the certificate ID.)
-    certificateId :: Prelude.Text,
+    certificateId :: Core.Text,
     -- | The AWS account.
-    targetAwsAccount :: Prelude.Text
+    targetAwsAccount :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransferCertificate' with all optional fields omitted.
@@ -89,84 +88,82 @@ data TransferCertificate = TransferCertificate'
 -- 'targetAwsAccount', 'transferCertificate_targetAwsAccount' - The AWS account.
 newTransferCertificate ::
   -- | 'certificateId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'targetAwsAccount'
-  Prelude.Text ->
+  Core.Text ->
   TransferCertificate
 newTransferCertificate
   pCertificateId_
   pTargetAwsAccount_ =
     TransferCertificate'
       { transferMessage =
-          Prelude.Nothing,
+          Core.Nothing,
         certificateId = pCertificateId_,
         targetAwsAccount = pTargetAwsAccount_
       }
 
 -- | The transfer message.
-transferCertificate_transferMessage :: Lens.Lens' TransferCertificate (Prelude.Maybe Prelude.Text)
+transferCertificate_transferMessage :: Lens.Lens' TransferCertificate (Core.Maybe Core.Text)
 transferCertificate_transferMessage = Lens.lens (\TransferCertificate' {transferMessage} -> transferMessage) (\s@TransferCertificate' {} a -> s {transferMessage = a} :: TransferCertificate)
 
 -- | The ID of the certificate. (The last part of the certificate ARN
 -- contains the certificate ID.)
-transferCertificate_certificateId :: Lens.Lens' TransferCertificate Prelude.Text
+transferCertificate_certificateId :: Lens.Lens' TransferCertificate Core.Text
 transferCertificate_certificateId = Lens.lens (\TransferCertificate' {certificateId} -> certificateId) (\s@TransferCertificate' {} a -> s {certificateId = a} :: TransferCertificate)
 
 -- | The AWS account.
-transferCertificate_targetAwsAccount :: Lens.Lens' TransferCertificate Prelude.Text
+transferCertificate_targetAwsAccount :: Lens.Lens' TransferCertificate Core.Text
 transferCertificate_targetAwsAccount = Lens.lens (\TransferCertificate' {targetAwsAccount} -> targetAwsAccount) (\s@TransferCertificate' {} a -> s {targetAwsAccount = a} :: TransferCertificate)
 
-instance Prelude.AWSRequest TransferCertificate where
+instance Core.AWSRequest TransferCertificate where
   type
-    Rs TransferCertificate =
+    AWSResponse TransferCertificate =
       TransferCertificateResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           TransferCertificateResponse'
-            Prelude.<$> (x Prelude..?> "transferredCertificateArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "transferredCertificateArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TransferCertificate
+instance Core.Hashable TransferCertificate
 
-instance Prelude.NFData TransferCertificate
+instance Core.NFData TransferCertificate
 
-instance Prelude.ToHeaders TransferCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TransferCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON TransferCertificate where
+instance Core.ToJSON TransferCertificate where
   toJSON TransferCertificate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("transferMessage" Prelude..=)
-              Prelude.<$> transferMessage
+    Core.object
+      ( Core.catMaybes
+          [ ("transferMessage" Core..=)
+              Core.<$> transferMessage
           ]
       )
 
-instance Prelude.ToPath TransferCertificate where
+instance Core.ToPath TransferCertificate where
   toPath TransferCertificate' {..} =
-    Prelude.mconcat
-      [ "/transfer-certificate/",
-        Prelude.toBS certificateId
-      ]
+    Core.mconcat
+      ["/transfer-certificate/", Core.toBS certificateId]
 
-instance Prelude.ToQuery TransferCertificate where
+instance Core.ToQuery TransferCertificate where
   toQuery TransferCertificate' {..} =
-    Prelude.mconcat
-      ["targetAwsAccount" Prelude.=: targetAwsAccount]
+    Core.mconcat
+      ["targetAwsAccount" Core.=: targetAwsAccount]
 
 -- | The output from the TransferCertificate operation.
 --
 -- /See:/ 'newTransferCertificateResponse' smart constructor.
 data TransferCertificateResponse = TransferCertificateResponse'
   { -- | The ARN of the certificate.
-    transferredCertificateArn :: Prelude.Maybe Prelude.Text,
+    transferredCertificateArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransferCertificateResponse' with all optional fields omitted.
@@ -181,21 +178,21 @@ data TransferCertificateResponse = TransferCertificateResponse'
 -- 'httpStatus', 'transferCertificateResponse_httpStatus' - The response's http status code.
 newTransferCertificateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TransferCertificateResponse
 newTransferCertificateResponse pHttpStatus_ =
   TransferCertificateResponse'
     { transferredCertificateArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the certificate.
-transferCertificateResponse_transferredCertificateArn :: Lens.Lens' TransferCertificateResponse (Prelude.Maybe Prelude.Text)
+transferCertificateResponse_transferredCertificateArn :: Lens.Lens' TransferCertificateResponse (Core.Maybe Core.Text)
 transferCertificateResponse_transferredCertificateArn = Lens.lens (\TransferCertificateResponse' {transferredCertificateArn} -> transferredCertificateArn) (\s@TransferCertificateResponse' {} a -> s {transferredCertificateArn = a} :: TransferCertificateResponse)
 
 -- | The response's http status code.
-transferCertificateResponse_httpStatus :: Lens.Lens' TransferCertificateResponse Prelude.Int
+transferCertificateResponse_httpStatus :: Lens.Lens' TransferCertificateResponse Core.Int
 transferCertificateResponse_httpStatus = Lens.lens (\TransferCertificateResponse' {httpStatus} -> httpStatus) (\s@TransferCertificateResponse' {} a -> s {httpStatus = a} :: TransferCertificateResponse)
 
-instance Prelude.NFData TransferCertificateResponse
+instance Core.NFData TransferCertificateResponse

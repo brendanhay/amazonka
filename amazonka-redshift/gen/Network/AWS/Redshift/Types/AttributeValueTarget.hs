@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.AttributeValueTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes an attribute value.
@@ -29,9 +28,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newAttributeValueTarget' smart constructor.
 data AttributeValueTarget = AttributeValueTarget'
   { -- | The value of the attribute.
-    attributeValue :: Prelude.Maybe Prelude.Text
+    attributeValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeValueTarget' with all optional fields omitted.
@@ -47,18 +46,18 @@ newAttributeValueTarget ::
 newAttributeValueTarget =
   AttributeValueTarget'
     { attributeValue =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The value of the attribute.
-attributeValueTarget_attributeValue :: Lens.Lens' AttributeValueTarget (Prelude.Maybe Prelude.Text)
+attributeValueTarget_attributeValue :: Lens.Lens' AttributeValueTarget (Core.Maybe Core.Text)
 attributeValueTarget_attributeValue = Lens.lens (\AttributeValueTarget' {attributeValue} -> attributeValue) (\s@AttributeValueTarget' {} a -> s {attributeValue = a} :: AttributeValueTarget)
 
-instance Prelude.FromXML AttributeValueTarget where
+instance Core.FromXML AttributeValueTarget where
   parseXML x =
     AttributeValueTarget'
-      Prelude.<$> (x Prelude..@? "AttributeValue")
+      Core.<$> (x Core..@? "AttributeValue")
 
-instance Prelude.Hashable AttributeValueTarget
+instance Core.Hashable AttributeValueTarget
 
-instance Prelude.NFData AttributeValueTarget
+instance Core.NFData AttributeValueTarget

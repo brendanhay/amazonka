@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.QueryStringConditionConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.QueryStringKeyValuePair
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a query string condition.
 --
@@ -43,9 +42,9 @@ data QueryStringConditionConfig = QueryStringConditionConfig'
     --
     -- If you specify multiple key\/value pairs or values, the condition is
     -- satisfied if one of them is found in the query string.
-    values :: Prelude.Maybe [QueryStringKeyValuePair]
+    values :: Core.Maybe [QueryStringKeyValuePair]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryStringConditionConfig' with all optional fields omitted.
@@ -67,10 +66,7 @@ data QueryStringConditionConfig = QueryStringConditionConfig'
 newQueryStringConditionConfig ::
   QueryStringConditionConfig
 newQueryStringConditionConfig =
-  QueryStringConditionConfig'
-    { values =
-        Prelude.Nothing
-    }
+  QueryStringConditionConfig' {values = Core.Nothing}
 
 -- | One or more key\/value pairs or values to find in the query string. The
 -- maximum size of each string is 128 characters. The comparison is case
@@ -81,24 +77,24 @@ newQueryStringConditionConfig =
 --
 -- If you specify multiple key\/value pairs or values, the condition is
 -- satisfied if one of them is found in the query string.
-queryStringConditionConfig_values :: Lens.Lens' QueryStringConditionConfig (Prelude.Maybe [QueryStringKeyValuePair])
-queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {values} -> values) (\s@QueryStringConditionConfig' {} a -> s {values = a} :: QueryStringConditionConfig) Prelude.. Lens.mapping Prelude._Coerce
+queryStringConditionConfig_values :: Lens.Lens' QueryStringConditionConfig (Core.Maybe [QueryStringKeyValuePair])
+queryStringConditionConfig_values = Lens.lens (\QueryStringConditionConfig' {values} -> values) (\s@QueryStringConditionConfig' {} a -> s {values = a} :: QueryStringConditionConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML QueryStringConditionConfig where
+instance Core.FromXML QueryStringConditionConfig where
   parseXML x =
     QueryStringConditionConfig'
-      Prelude.<$> ( x Prelude..@? "Values" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> ( x Core..@? "Values" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable QueryStringConditionConfig
+instance Core.Hashable QueryStringConditionConfig
 
-instance Prelude.NFData QueryStringConditionConfig
+instance Core.NFData QueryStringConditionConfig
 
-instance Prelude.ToQuery QueryStringConditionConfig where
+instance Core.ToQuery QueryStringConditionConfig where
   toQuery QueryStringConditionConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Values"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> values)
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> values)
       ]

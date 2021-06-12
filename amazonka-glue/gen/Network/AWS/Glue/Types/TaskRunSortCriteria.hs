@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.TaskRunSortCriteria where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.SortDirectionType
 import Network.AWS.Glue.Types.TaskRunSortColumnType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The sorting criteria that are used to sort the list of task runs for the
 -- machine learning transform.
@@ -37,7 +36,7 @@ data TaskRunSortCriteria = TaskRunSortCriteria'
     -- machine learning transform.
     sortDirection :: SortDirectionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TaskRunSortCriteria' with all optional fields omitted.
@@ -74,16 +73,15 @@ taskRunSortCriteria_column = Lens.lens (\TaskRunSortCriteria' {column} -> column
 taskRunSortCriteria_sortDirection :: Lens.Lens' TaskRunSortCriteria SortDirectionType
 taskRunSortCriteria_sortDirection = Lens.lens (\TaskRunSortCriteria' {sortDirection} -> sortDirection) (\s@TaskRunSortCriteria' {} a -> s {sortDirection = a} :: TaskRunSortCriteria)
 
-instance Prelude.Hashable TaskRunSortCriteria
+instance Core.Hashable TaskRunSortCriteria
 
-instance Prelude.NFData TaskRunSortCriteria
+instance Core.NFData TaskRunSortCriteria
 
-instance Prelude.ToJSON TaskRunSortCriteria where
+instance Core.ToJSON TaskRunSortCriteria where
   toJSON TaskRunSortCriteria' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Column" Prelude..= column),
-            Prelude.Just
-              ("SortDirection" Prelude..= sortDirection)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Column" Core..= column),
+            Core.Just ("SortDirection" Core..= sortDirection)
           ]
       )

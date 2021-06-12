@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.Dimension where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | For the metric that the CloudWatch alarm is associated with, a complex
@@ -31,12 +30,12 @@ import Network.AWS.Route53.Internal
 data Dimension = Dimension'
   { -- | For the metric that the CloudWatch alarm is associated with, the name of
     -- one dimension.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | For the metric that the CloudWatch alarm is associated with, the value
     -- of one dimension.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Dimension' with all optional fields omitted.
@@ -53,29 +52,28 @@ data Dimension = Dimension'
 -- of one dimension.
 newDimension ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Dimension
 newDimension pName_ pValue_ =
   Dimension' {name = pName_, value = pValue_}
 
 -- | For the metric that the CloudWatch alarm is associated with, the name of
 -- one dimension.
-dimension_name :: Lens.Lens' Dimension Prelude.Text
+dimension_name :: Lens.Lens' Dimension Core.Text
 dimension_name = Lens.lens (\Dimension' {name} -> name) (\s@Dimension' {} a -> s {name = a} :: Dimension)
 
 -- | For the metric that the CloudWatch alarm is associated with, the value
 -- of one dimension.
-dimension_value :: Lens.Lens' Dimension Prelude.Text
+dimension_value :: Lens.Lens' Dimension Core.Text
 dimension_value = Lens.lens (\Dimension' {value} -> value) (\s@Dimension' {} a -> s {value = a} :: Dimension)
 
-instance Prelude.FromXML Dimension where
+instance Core.FromXML Dimension where
   parseXML x =
     Dimension'
-      Prelude.<$> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "Value")
+      Core.<$> (x Core..@ "Name") Core.<*> (x Core..@ "Value")
 
-instance Prelude.Hashable Dimension
+instance Core.Hashable Dimension
 
-instance Prelude.NFData Dimension
+instance Core.NFData Dimension

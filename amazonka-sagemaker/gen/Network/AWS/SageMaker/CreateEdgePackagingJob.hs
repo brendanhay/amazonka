@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SageMaker.CreateEdgePackagingJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -56,26 +55,26 @@ import Network.AWS.SageMaker.Types
 data CreateEdgePackagingJob = CreateEdgePackagingJob'
   { -- | The CMK to use when encrypting the EBS volume the edge packaging job
     -- runs on.
-    resourceKey :: Prelude.Maybe Prelude.Text,
+    resourceKey :: Core.Maybe Core.Text,
     -- | Creates tags for the packaging job.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The name of the edge packaging job.
-    edgePackagingJobName :: Prelude.Text,
+    edgePackagingJobName :: Core.Text,
     -- | The name of the SageMaker Neo compilation job that will be used to
     -- locate model artifacts for packaging.
-    compilationJobName :: Prelude.Text,
+    compilationJobName :: Core.Text,
     -- | The name of the model.
-    modelName :: Prelude.Text,
+    modelName :: Core.Text,
     -- | The version of the model.
-    modelVersion :: Prelude.Text,
+    modelVersion :: Core.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
     -- SageMaker to download and upload the model, and to contact SageMaker
     -- Neo.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | Provides information about the output location for the packaged model.
     outputConfig :: EdgeOutputConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEdgePackagingJob' with all optional fields omitted.
@@ -106,15 +105,15 @@ data CreateEdgePackagingJob = CreateEdgePackagingJob'
 -- 'outputConfig', 'createEdgePackagingJob_outputConfig' - Provides information about the output location for the packaged model.
 newCreateEdgePackagingJob ::
   -- | 'edgePackagingJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'compilationJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'modelVersion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'outputConfig'
   EdgeOutputConfig ->
   CreateEdgePackagingJob
@@ -126,9 +125,8 @@ newCreateEdgePackagingJob
   pRoleArn_
   pOutputConfig_ =
     CreateEdgePackagingJob'
-      { resourceKey =
-          Prelude.Nothing,
-        tags = Prelude.Nothing,
+      { resourceKey = Core.Nothing,
+        tags = Core.Nothing,
         edgePackagingJobName = pEdgePackagingJobName_,
         compilationJobName = pCompilationJobName_,
         modelName = pModelName_,
@@ -139,100 +137,96 @@ newCreateEdgePackagingJob
 
 -- | The CMK to use when encrypting the EBS volume the edge packaging job
 -- runs on.
-createEdgePackagingJob_resourceKey :: Lens.Lens' CreateEdgePackagingJob (Prelude.Maybe Prelude.Text)
+createEdgePackagingJob_resourceKey :: Lens.Lens' CreateEdgePackagingJob (Core.Maybe Core.Text)
 createEdgePackagingJob_resourceKey = Lens.lens (\CreateEdgePackagingJob' {resourceKey} -> resourceKey) (\s@CreateEdgePackagingJob' {} a -> s {resourceKey = a} :: CreateEdgePackagingJob)
 
 -- | Creates tags for the packaging job.
-createEdgePackagingJob_tags :: Lens.Lens' CreateEdgePackagingJob (Prelude.Maybe [Tag])
-createEdgePackagingJob_tags = Lens.lens (\CreateEdgePackagingJob' {tags} -> tags) (\s@CreateEdgePackagingJob' {} a -> s {tags = a} :: CreateEdgePackagingJob) Prelude.. Lens.mapping Prelude._Coerce
+createEdgePackagingJob_tags :: Lens.Lens' CreateEdgePackagingJob (Core.Maybe [Tag])
+createEdgePackagingJob_tags = Lens.lens (\CreateEdgePackagingJob' {tags} -> tags) (\s@CreateEdgePackagingJob' {} a -> s {tags = a} :: CreateEdgePackagingJob) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the edge packaging job.
-createEdgePackagingJob_edgePackagingJobName :: Lens.Lens' CreateEdgePackagingJob Prelude.Text
+createEdgePackagingJob_edgePackagingJobName :: Lens.Lens' CreateEdgePackagingJob Core.Text
 createEdgePackagingJob_edgePackagingJobName = Lens.lens (\CreateEdgePackagingJob' {edgePackagingJobName} -> edgePackagingJobName) (\s@CreateEdgePackagingJob' {} a -> s {edgePackagingJobName = a} :: CreateEdgePackagingJob)
 
 -- | The name of the SageMaker Neo compilation job that will be used to
 -- locate model artifacts for packaging.
-createEdgePackagingJob_compilationJobName :: Lens.Lens' CreateEdgePackagingJob Prelude.Text
+createEdgePackagingJob_compilationJobName :: Lens.Lens' CreateEdgePackagingJob Core.Text
 createEdgePackagingJob_compilationJobName = Lens.lens (\CreateEdgePackagingJob' {compilationJobName} -> compilationJobName) (\s@CreateEdgePackagingJob' {} a -> s {compilationJobName = a} :: CreateEdgePackagingJob)
 
 -- | The name of the model.
-createEdgePackagingJob_modelName :: Lens.Lens' CreateEdgePackagingJob Prelude.Text
+createEdgePackagingJob_modelName :: Lens.Lens' CreateEdgePackagingJob Core.Text
 createEdgePackagingJob_modelName = Lens.lens (\CreateEdgePackagingJob' {modelName} -> modelName) (\s@CreateEdgePackagingJob' {} a -> s {modelName = a} :: CreateEdgePackagingJob)
 
 -- | The version of the model.
-createEdgePackagingJob_modelVersion :: Lens.Lens' CreateEdgePackagingJob Prelude.Text
+createEdgePackagingJob_modelVersion :: Lens.Lens' CreateEdgePackagingJob Core.Text
 createEdgePackagingJob_modelVersion = Lens.lens (\CreateEdgePackagingJob' {modelVersion} -> modelVersion) (\s@CreateEdgePackagingJob' {} a -> s {modelVersion = a} :: CreateEdgePackagingJob)
 
 -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
 -- SageMaker to download and upload the model, and to contact SageMaker
 -- Neo.
-createEdgePackagingJob_roleArn :: Lens.Lens' CreateEdgePackagingJob Prelude.Text
+createEdgePackagingJob_roleArn :: Lens.Lens' CreateEdgePackagingJob Core.Text
 createEdgePackagingJob_roleArn = Lens.lens (\CreateEdgePackagingJob' {roleArn} -> roleArn) (\s@CreateEdgePackagingJob' {} a -> s {roleArn = a} :: CreateEdgePackagingJob)
 
 -- | Provides information about the output location for the packaged model.
 createEdgePackagingJob_outputConfig :: Lens.Lens' CreateEdgePackagingJob EdgeOutputConfig
 createEdgePackagingJob_outputConfig = Lens.lens (\CreateEdgePackagingJob' {outputConfig} -> outputConfig) (\s@CreateEdgePackagingJob' {} a -> s {outputConfig = a} :: CreateEdgePackagingJob)
 
-instance Prelude.AWSRequest CreateEdgePackagingJob where
+instance Core.AWSRequest CreateEdgePackagingJob where
   type
-    Rs CreateEdgePackagingJob =
+    AWSResponse CreateEdgePackagingJob =
       CreateEdgePackagingJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       CreateEdgePackagingJobResponse'
 
-instance Prelude.Hashable CreateEdgePackagingJob
+instance Core.Hashable CreateEdgePackagingJob
 
-instance Prelude.NFData CreateEdgePackagingJob
+instance Core.NFData CreateEdgePackagingJob
 
-instance Prelude.ToHeaders CreateEdgePackagingJob where
+instance Core.ToHeaders CreateEdgePackagingJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateEdgePackagingJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.CreateEdgePackagingJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateEdgePackagingJob where
+instance Core.ToJSON CreateEdgePackagingJob where
   toJSON CreateEdgePackagingJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceKey" Prelude..=) Prelude.<$> resourceKey,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceKey" Core..=) Core.<$> resourceKey,
+            ("Tags" Core..=) Core.<$> tags,
+            Core.Just
               ( "EdgePackagingJobName"
-                  Prelude..= edgePackagingJobName
+                  Core..= edgePackagingJobName
               ),
-            Prelude.Just
-              ("CompilationJobName" Prelude..= compilationJobName),
-            Prelude.Just ("ModelName" Prelude..= modelName),
-            Prelude.Just
-              ("ModelVersion" Prelude..= modelVersion),
-            Prelude.Just ("RoleArn" Prelude..= roleArn),
-            Prelude.Just
-              ("OutputConfig" Prelude..= outputConfig)
+            Core.Just
+              ("CompilationJobName" Core..= compilationJobName),
+            Core.Just ("ModelName" Core..= modelName),
+            Core.Just ("ModelVersion" Core..= modelVersion),
+            Core.Just ("RoleArn" Core..= roleArn),
+            Core.Just ("OutputConfig" Core..= outputConfig)
           ]
       )
 
-instance Prelude.ToPath CreateEdgePackagingJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateEdgePackagingJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateEdgePackagingJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateEdgePackagingJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateEdgePackagingJobResponse' smart constructor.
 data CreateEdgePackagingJobResponse = CreateEdgePackagingJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateEdgePackagingJobResponse' with all optional fields omitted.
@@ -243,6 +237,4 @@ newCreateEdgePackagingJobResponse ::
 newCreateEdgePackagingJobResponse =
   CreateEdgePackagingJobResponse'
 
-instance
-  Prelude.NFData
-    CreateEdgePackagingJobResponse
+instance Core.NFData CreateEdgePackagingJobResponse

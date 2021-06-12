@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,16 +40,16 @@ module Network.AWS.Lambda.DeleteFunctionEventInvokeConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteFunctionEventInvokeConfig' smart constructor.
 data DeleteFunctionEventInvokeConfig = DeleteFunctionEventInvokeConfig'
   { -- | A version number or alias name.
-    qualifier :: Prelude.Maybe Prelude.Text,
+    qualifier :: Core.Maybe Core.Text,
     -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
@@ -66,9 +65,9 @@ data DeleteFunctionEventInvokeConfig = DeleteFunctionEventInvokeConfig'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Prelude.Text
+    functionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionEventInvokeConfig' with all optional fields omitted.
@@ -97,17 +96,17 @@ data DeleteFunctionEventInvokeConfig = DeleteFunctionEventInvokeConfig'
 -- function name, it is limited to 64 characters in length.
 newDeleteFunctionEventInvokeConfig ::
   -- | 'functionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFunctionEventInvokeConfig
 newDeleteFunctionEventInvokeConfig pFunctionName_ =
   DeleteFunctionEventInvokeConfig'
     { qualifier =
-        Prelude.Nothing,
+        Core.Nothing,
       functionName = pFunctionName_
     }
 
 -- | A version number or alias name.
-deleteFunctionEventInvokeConfig_qualifier :: Lens.Lens' DeleteFunctionEventInvokeConfig (Prelude.Maybe Prelude.Text)
+deleteFunctionEventInvokeConfig_qualifier :: Lens.Lens' DeleteFunctionEventInvokeConfig (Core.Maybe Core.Text)
 deleteFunctionEventInvokeConfig_qualifier = Lens.lens (\DeleteFunctionEventInvokeConfig' {qualifier} -> qualifier) (\s@DeleteFunctionEventInvokeConfig' {} a -> s {qualifier = a} :: DeleteFunctionEventInvokeConfig)
 
 -- | The name of the Lambda function, version, or alias.
@@ -125,15 +124,15 @@ deleteFunctionEventInvokeConfig_qualifier = Lens.lens (\DeleteFunctionEventInvok
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-deleteFunctionEventInvokeConfig_functionName :: Lens.Lens' DeleteFunctionEventInvokeConfig Prelude.Text
+deleteFunctionEventInvokeConfig_functionName :: Lens.Lens' DeleteFunctionEventInvokeConfig Core.Text
 deleteFunctionEventInvokeConfig_functionName = Lens.lens (\DeleteFunctionEventInvokeConfig' {functionName} -> functionName) (\s@DeleteFunctionEventInvokeConfig' {} a -> s {functionName = a} :: DeleteFunctionEventInvokeConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteFunctionEventInvokeConfig
   where
   type
-    Rs DeleteFunctionEventInvokeConfig =
+    AWSResponse DeleteFunctionEventInvokeConfig =
       DeleteFunctionEventInvokeConfigResponse
   request = Request.delete defaultService
   response =
@@ -141,42 +140,34 @@ instance
       DeleteFunctionEventInvokeConfigResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteFunctionEventInvokeConfig
 
-instance
-  Prelude.NFData
-    DeleteFunctionEventInvokeConfig
+instance Core.NFData DeleteFunctionEventInvokeConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteFunctionEventInvokeConfig
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DeleteFunctionEventInvokeConfig
-  where
+instance Core.ToPath DeleteFunctionEventInvokeConfig where
   toPath DeleteFunctionEventInvokeConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2019-09-25/functions/",
-        Prelude.toBS functionName,
+        Core.toBS functionName,
         "/event-invoke-config"
       ]
 
-instance
-  Prelude.ToQuery
-    DeleteFunctionEventInvokeConfig
-  where
+instance Core.ToQuery DeleteFunctionEventInvokeConfig where
   toQuery DeleteFunctionEventInvokeConfig' {..} =
-    Prelude.mconcat ["Qualifier" Prelude.=: qualifier]
+    Core.mconcat ["Qualifier" Core.=: qualifier]
 
 -- | /See:/ 'newDeleteFunctionEventInvokeConfigResponse' smart constructor.
 data DeleteFunctionEventInvokeConfigResponse = DeleteFunctionEventInvokeConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionEventInvokeConfigResponse' with all optional fields omitted.
@@ -188,5 +179,5 @@ newDeleteFunctionEventInvokeConfigResponse =
   DeleteFunctionEventInvokeConfigResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteFunctionEventInvokeConfigResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AudioTrack where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Audio Track
 --
 -- /See:/ 'newAudioTrack' smart constructor.
 data AudioTrack = AudioTrack'
   { -- | 1-based integer value that maps to a specific audio track
-    track :: Prelude.Natural
+    track :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AudioTrack' with all optional fields omitted.
@@ -43,29 +42,25 @@ data AudioTrack = AudioTrack'
 -- 'track', 'audioTrack_track' - 1-based integer value that maps to a specific audio track
 newAudioTrack ::
   -- | 'track'
-  Prelude.Natural ->
+  Core.Natural ->
   AudioTrack
 newAudioTrack pTrack_ = AudioTrack' {track = pTrack_}
 
 -- | 1-based integer value that maps to a specific audio track
-audioTrack_track :: Lens.Lens' AudioTrack Prelude.Natural
+audioTrack_track :: Lens.Lens' AudioTrack Core.Natural
 audioTrack_track = Lens.lens (\AudioTrack' {track} -> track) (\s@AudioTrack' {} a -> s {track = a} :: AudioTrack)
 
-instance Prelude.FromJSON AudioTrack where
+instance Core.FromJSON AudioTrack where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AudioTrack"
-      ( \x ->
-          AudioTrack' Prelude.<$> (x Prelude..: "track")
-      )
+      (\x -> AudioTrack' Core.<$> (x Core..: "track"))
 
-instance Prelude.Hashable AudioTrack
+instance Core.Hashable AudioTrack
 
-instance Prelude.NFData AudioTrack
+instance Core.NFData AudioTrack
 
-instance Prelude.ToJSON AudioTrack where
+instance Core.ToJSON AudioTrack where
   toJSON AudioTrack' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("track" Prelude..= track)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("track" Core..= track)])

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.AlexaBusiness.GetProfile
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetProfile' smart constructor.
 data GetProfile = GetProfile'
   { -- | The ARN of the room profile for which to request details. Required.
-    profileArn :: Prelude.Maybe Prelude.Text
+    profileArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetProfile' with all optional fields omitted.
@@ -65,63 +64,59 @@ data GetProfile = GetProfile'
 newGetProfile ::
   GetProfile
 newGetProfile =
-  GetProfile' {profileArn = Prelude.Nothing}
+  GetProfile' {profileArn = Core.Nothing}
 
 -- | The ARN of the room profile for which to request details. Required.
-getProfile_profileArn :: Lens.Lens' GetProfile (Prelude.Maybe Prelude.Text)
+getProfile_profileArn :: Lens.Lens' GetProfile (Core.Maybe Core.Text)
 getProfile_profileArn = Lens.lens (\GetProfile' {profileArn} -> profileArn) (\s@GetProfile' {} a -> s {profileArn = a} :: GetProfile)
 
-instance Prelude.AWSRequest GetProfile where
-  type Rs GetProfile = GetProfileResponse
+instance Core.AWSRequest GetProfile where
+  type AWSResponse GetProfile = GetProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetProfileResponse'
-            Prelude.<$> (x Prelude..?> "Profile")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Profile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetProfile
+instance Core.Hashable GetProfile
 
-instance Prelude.NFData GetProfile
+instance Core.NFData GetProfile
 
-instance Prelude.ToHeaders GetProfile where
+instance Core.ToHeaders GetProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.GetProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AlexaForBusiness.GetProfile" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetProfile where
+instance Core.ToJSON GetProfile where
   toJSON GetProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("ProfileArn" Prelude..=) Prelude.<$> profileArn]
+    Core.object
+      ( Core.catMaybes
+          [("ProfileArn" Core..=) Core.<$> profileArn]
       )
 
-instance Prelude.ToPath GetProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetProfileResponse' smart constructor.
 data GetProfileResponse = GetProfileResponse'
   { -- | The details of the room profile requested. Required.
-    profile :: Prelude.Maybe Profile,
+    profile :: Core.Maybe Profile,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetProfileResponse' with all optional fields omitted.
@@ -136,20 +131,20 @@ data GetProfileResponse = GetProfileResponse'
 -- 'httpStatus', 'getProfileResponse_httpStatus' - The response's http status code.
 newGetProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetProfileResponse
 newGetProfileResponse pHttpStatus_ =
   GetProfileResponse'
-    { profile = Prelude.Nothing,
+    { profile = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The details of the room profile requested. Required.
-getProfileResponse_profile :: Lens.Lens' GetProfileResponse (Prelude.Maybe Profile)
+getProfileResponse_profile :: Lens.Lens' GetProfileResponse (Core.Maybe Profile)
 getProfileResponse_profile = Lens.lens (\GetProfileResponse' {profile} -> profile) (\s@GetProfileResponse' {} a -> s {profile = a} :: GetProfileResponse)
 
 -- | The response's http status code.
-getProfileResponse_httpStatus :: Lens.Lens' GetProfileResponse Prelude.Int
+getProfileResponse_httpStatus :: Lens.Lens' GetProfileResponse Core.Int
 getProfileResponse_httpStatus = Lens.lens (\GetProfileResponse' {httpStatus} -> httpStatus) (\s@GetProfileResponse' {} a -> s {httpStatus = a} :: GetProfileResponse)
 
-instance Prelude.NFData GetProfileResponse
+instance Core.NFData GetProfileResponse

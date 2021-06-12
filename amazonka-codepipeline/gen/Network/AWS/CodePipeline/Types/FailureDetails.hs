@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,21 +20,21 @@
 module Network.AWS.CodePipeline.Types.FailureDetails where
 
 import Network.AWS.CodePipeline.Types.FailureType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about failure details.
 --
 -- /See:/ 'newFailureDetails' smart constructor.
 data FailureDetails = FailureDetails'
   { -- | The external ID of the run of the action that failed.
-    externalExecutionId :: Prelude.Maybe Prelude.Text,
+    externalExecutionId :: Core.Maybe Core.Text,
     -- | The type of the failure.
     type' :: FailureType,
     -- | The message about the failure.
-    message :: Prelude.Text
+    message :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FailureDetails' with all optional fields omitted.
@@ -54,18 +53,17 @@ newFailureDetails ::
   -- | 'type''
   FailureType ->
   -- | 'message'
-  Prelude.Text ->
+  Core.Text ->
   FailureDetails
 newFailureDetails pType_ pMessage_ =
   FailureDetails'
-    { externalExecutionId =
-        Prelude.Nothing,
+    { externalExecutionId = Core.Nothing,
       type' = pType_,
       message = pMessage_
     }
 
 -- | The external ID of the run of the action that failed.
-failureDetails_externalExecutionId :: Lens.Lens' FailureDetails (Prelude.Maybe Prelude.Text)
+failureDetails_externalExecutionId :: Lens.Lens' FailureDetails (Core.Maybe Core.Text)
 failureDetails_externalExecutionId = Lens.lens (\FailureDetails' {externalExecutionId} -> externalExecutionId) (\s@FailureDetails' {} a -> s {externalExecutionId = a} :: FailureDetails)
 
 -- | The type of the failure.
@@ -73,20 +71,20 @@ failureDetails_type :: Lens.Lens' FailureDetails FailureType
 failureDetails_type = Lens.lens (\FailureDetails' {type'} -> type') (\s@FailureDetails' {} a -> s {type' = a} :: FailureDetails)
 
 -- | The message about the failure.
-failureDetails_message :: Lens.Lens' FailureDetails Prelude.Text
+failureDetails_message :: Lens.Lens' FailureDetails Core.Text
 failureDetails_message = Lens.lens (\FailureDetails' {message} -> message) (\s@FailureDetails' {} a -> s {message = a} :: FailureDetails)
 
-instance Prelude.Hashable FailureDetails
+instance Core.Hashable FailureDetails
 
-instance Prelude.NFData FailureDetails
+instance Core.NFData FailureDetails
 
-instance Prelude.ToJSON FailureDetails where
+instance Core.ToJSON FailureDetails where
   toJSON FailureDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("externalExecutionId" Prelude..=)
-              Prelude.<$> externalExecutionId,
-            Prelude.Just ("type" Prelude..= type'),
-            Prelude.Just ("message" Prelude..= message)
+    Core.object
+      ( Core.catMaybes
+          [ ("externalExecutionId" Core..=)
+              Core.<$> externalExecutionId,
+            Core.Just ("type" Core..= type'),
+            Core.Just ("message" Core..= message)
           ]
       )

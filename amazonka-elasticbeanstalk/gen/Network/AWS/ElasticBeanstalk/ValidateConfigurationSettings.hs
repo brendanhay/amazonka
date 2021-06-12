@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,19 +59,19 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings'
   { -- | The name of the configuration template to validate the settings against.
     --
     -- Condition: You cannot specify both this and an environment name.
-    templateName :: Prelude.Maybe Prelude.Text,
+    templateName :: Core.Maybe Core.Text,
     -- | The name of the environment to validate the settings against.
     --
     -- Condition: You cannot specify both this and a configuration template
     -- name.
-    environmentName :: Prelude.Maybe Prelude.Text,
+    environmentName :: Core.Maybe Core.Text,
     -- | The name of the application that the configuration template or
     -- environment belongs to.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | A list of the options and desired values to evaluate.
     optionSettings :: [ConfigurationOptionSetting]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidateConfigurationSettings' with all optional fields omitted.
@@ -97,45 +96,45 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings'
 -- 'optionSettings', 'validateConfigurationSettings_optionSettings' - A list of the options and desired values to evaluate.
 newValidateConfigurationSettings ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   ValidateConfigurationSettings
 newValidateConfigurationSettings pApplicationName_ =
   ValidateConfigurationSettings'
     { templateName =
-        Prelude.Nothing,
-      environmentName = Prelude.Nothing,
+        Core.Nothing,
+      environmentName = Core.Nothing,
       applicationName = pApplicationName_,
-      optionSettings = Prelude.mempty
+      optionSettings = Core.mempty
     }
 
 -- | The name of the configuration template to validate the settings against.
 --
 -- Condition: You cannot specify both this and an environment name.
-validateConfigurationSettings_templateName :: Lens.Lens' ValidateConfigurationSettings (Prelude.Maybe Prelude.Text)
+validateConfigurationSettings_templateName :: Lens.Lens' ValidateConfigurationSettings (Core.Maybe Core.Text)
 validateConfigurationSettings_templateName = Lens.lens (\ValidateConfigurationSettings' {templateName} -> templateName) (\s@ValidateConfigurationSettings' {} a -> s {templateName = a} :: ValidateConfigurationSettings)
 
 -- | The name of the environment to validate the settings against.
 --
 -- Condition: You cannot specify both this and a configuration template
 -- name.
-validateConfigurationSettings_environmentName :: Lens.Lens' ValidateConfigurationSettings (Prelude.Maybe Prelude.Text)
+validateConfigurationSettings_environmentName :: Lens.Lens' ValidateConfigurationSettings (Core.Maybe Core.Text)
 validateConfigurationSettings_environmentName = Lens.lens (\ValidateConfigurationSettings' {environmentName} -> environmentName) (\s@ValidateConfigurationSettings' {} a -> s {environmentName = a} :: ValidateConfigurationSettings)
 
 -- | The name of the application that the configuration template or
 -- environment belongs to.
-validateConfigurationSettings_applicationName :: Lens.Lens' ValidateConfigurationSettings Prelude.Text
+validateConfigurationSettings_applicationName :: Lens.Lens' ValidateConfigurationSettings Core.Text
 validateConfigurationSettings_applicationName = Lens.lens (\ValidateConfigurationSettings' {applicationName} -> applicationName) (\s@ValidateConfigurationSettings' {} a -> s {applicationName = a} :: ValidateConfigurationSettings)
 
 -- | A list of the options and desired values to evaluate.
 validateConfigurationSettings_optionSettings :: Lens.Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-validateConfigurationSettings_optionSettings = Lens.lens (\ValidateConfigurationSettings' {optionSettings} -> optionSettings) (\s@ValidateConfigurationSettings' {} a -> s {optionSettings = a} :: ValidateConfigurationSettings) Prelude.. Prelude._Coerce
+validateConfigurationSettings_optionSettings = Lens.lens (\ValidateConfigurationSettings' {optionSettings} -> optionSettings) (\s@ValidateConfigurationSettings' {} a -> s {optionSettings = a} :: ValidateConfigurationSettings) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ValidateConfigurationSettings
   where
   type
-    Rs ValidateConfigurationSettings =
+    AWSResponse ValidateConfigurationSettings =
       ValidateConfigurationSettingsResponse
   request = Request.postQuery defaultService
   response =
@@ -143,44 +142,33 @@ instance
       "ValidateConfigurationSettingsResult"
       ( \s h x ->
           ValidateConfigurationSettingsResponse'
-            Prelude.<$> ( x Prelude..@? "Messages" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Messages" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ValidateConfigurationSettings
+instance Core.Hashable ValidateConfigurationSettings
 
-instance Prelude.NFData ValidateConfigurationSettings
+instance Core.NFData ValidateConfigurationSettings
 
-instance
-  Prelude.ToHeaders
-    ValidateConfigurationSettings
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ValidateConfigurationSettings where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ValidateConfigurationSettings where
-  toPath = Prelude.const "/"
+instance Core.ToPath ValidateConfigurationSettings where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ValidateConfigurationSettings
-  where
+instance Core.ToQuery ValidateConfigurationSettings where
   toQuery ValidateConfigurationSettings' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ValidateConfigurationSettings" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "TemplateName" Prelude.=: templateName,
-        "EnvironmentName" Prelude.=: environmentName,
-        "ApplicationName" Prelude.=: applicationName,
+          Core.=: ("ValidateConfigurationSettings" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "TemplateName" Core.=: templateName,
+        "EnvironmentName" Core.=: environmentName,
+        "ApplicationName" Core.=: applicationName,
         "OptionSettings"
-          Prelude.=: Prelude.toQueryList "member" optionSettings
+          Core.=: Core.toQueryList "member" optionSettings
       ]
 
 -- | Provides a list of validation messages.
@@ -188,11 +176,11 @@ instance
 -- /See:/ 'newValidateConfigurationSettingsResponse' smart constructor.
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
   { -- | A list of ValidationMessage.
-    messages :: Prelude.Maybe [ValidationMessage],
+    messages :: Core.Maybe [ValidationMessage],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValidateConfigurationSettingsResponse' with all optional fields omitted.
@@ -207,23 +195,23 @@ data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRespon
 -- 'httpStatus', 'validateConfigurationSettingsResponse_httpStatus' - The response's http status code.
 newValidateConfigurationSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ValidateConfigurationSettingsResponse
 newValidateConfigurationSettingsResponse pHttpStatus_ =
   ValidateConfigurationSettingsResponse'
     { messages =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of ValidationMessage.
-validateConfigurationSettingsResponse_messages :: Lens.Lens' ValidateConfigurationSettingsResponse (Prelude.Maybe [ValidationMessage])
-validateConfigurationSettingsResponse_messages = Lens.lens (\ValidateConfigurationSettingsResponse' {messages} -> messages) (\s@ValidateConfigurationSettingsResponse' {} a -> s {messages = a} :: ValidateConfigurationSettingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+validateConfigurationSettingsResponse_messages :: Lens.Lens' ValidateConfigurationSettingsResponse (Core.Maybe [ValidationMessage])
+validateConfigurationSettingsResponse_messages = Lens.lens (\ValidateConfigurationSettingsResponse' {messages} -> messages) (\s@ValidateConfigurationSettingsResponse' {} a -> s {messages = a} :: ValidateConfigurationSettingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-validateConfigurationSettingsResponse_httpStatus :: Lens.Lens' ValidateConfigurationSettingsResponse Prelude.Int
+validateConfigurationSettingsResponse_httpStatus :: Lens.Lens' ValidateConfigurationSettingsResponse Core.Int
 validateConfigurationSettingsResponse_httpStatus = Lens.lens (\ValidateConfigurationSettingsResponse' {httpStatus} -> httpStatus) (\s@ValidateConfigurationSettingsResponse' {} a -> s {httpStatus = a} :: ValidateConfigurationSettingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ValidateConfigurationSettingsResponse

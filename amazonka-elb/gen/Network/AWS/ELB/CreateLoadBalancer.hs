@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,9 +60,9 @@ module Network.AWS.ELB.CreateLoadBalancer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,7 +77,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
     --
     -- You can add more Availability Zones after you create the load balancer
     -- using EnableAvailabilityZonesForLoadBalancer.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The type of a load balancer. Valid only for load balancers in a VPC.
     --
     -- By default, Elastic Load Balancing creates an Internet-facing load
@@ -89,26 +88,26 @@ data CreateLoadBalancer = CreateLoadBalancer'
     --
     -- Specify @internal@ to create a load balancer with a DNS name that
     -- resolves to private IP addresses.
-    scheme :: Prelude.Maybe Prelude.Text,
+    scheme :: Core.Maybe Core.Text,
     -- | The IDs of the security groups to assign to the load balancer.
-    securityGroups :: Prelude.Maybe [Prelude.Text],
+    securityGroups :: Core.Maybe [Core.Text],
     -- | A list of tags to assign to the load balancer.
     --
     -- For more information about tagging your load balancer, see
     -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
     -- in the /Classic Load Balancers Guide/.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The IDs of the subnets in your VPC to attach to the load balancer.
     -- Specify one subnet per Availability Zone specified in
     -- @AvailabilityZones@.
-    subnets :: Prelude.Maybe [Prelude.Text],
+    subnets :: Core.Maybe [Core.Text],
     -- | The name of the load balancer.
     --
     -- This name must be unique within your set of load balancers for the
     -- region, must have a maximum of 32 characters, must contain only
     -- alphanumeric characters or hyphens, and cannot begin or end with a
     -- hyphen.
-    loadBalancerName :: Prelude.Text,
+    loadBalancerName :: Core.Text,
     -- | The listeners.
     --
     -- For more information, see
@@ -116,7 +115,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
     -- in the /Classic Load Balancers Guide/.
     listeners :: [Listener]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancer' with all optional fields omitted.
@@ -171,18 +170,18 @@ data CreateLoadBalancer = CreateLoadBalancer'
 -- in the /Classic Load Balancers Guide/.
 newCreateLoadBalancer ::
   -- | 'loadBalancerName'
-  Prelude.Text ->
+  Core.Text ->
   CreateLoadBalancer
 newCreateLoadBalancer pLoadBalancerName_ =
   CreateLoadBalancer'
     { availabilityZones =
-        Prelude.Nothing,
-      scheme = Prelude.Nothing,
-      securityGroups = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      subnets = Prelude.Nothing,
+        Core.Nothing,
+      scheme = Core.Nothing,
+      securityGroups = Core.Nothing,
+      tags = Core.Nothing,
+      subnets = Core.Nothing,
       loadBalancerName = pLoadBalancerName_,
-      listeners = Prelude.mempty
+      listeners = Core.mempty
     }
 
 -- | One or more Availability Zones from the same region as the load
@@ -192,8 +191,8 @@ newCreateLoadBalancer pLoadBalancerName_ =
 --
 -- You can add more Availability Zones after you create the load balancer
 -- using EnableAvailabilityZonesForLoadBalancer.
-createLoadBalancer_availabilityZones :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_availabilityZones = Lens.lens (\CreateLoadBalancer' {availabilityZones} -> availabilityZones) (\s@CreateLoadBalancer' {} a -> s {availabilityZones = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancer_availabilityZones :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Core.Text])
+createLoadBalancer_availabilityZones = Lens.lens (\CreateLoadBalancer' {availabilityZones} -> availabilityZones) (\s@CreateLoadBalancer' {} a -> s {availabilityZones = a} :: CreateLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
@@ -205,26 +204,26 @@ createLoadBalancer_availabilityZones = Lens.lens (\CreateLoadBalancer' {availabi
 --
 -- Specify @internal@ to create a load balancer with a DNS name that
 -- resolves to private IP addresses.
-createLoadBalancer_scheme :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe Prelude.Text)
+createLoadBalancer_scheme :: Lens.Lens' CreateLoadBalancer (Core.Maybe Core.Text)
 createLoadBalancer_scheme = Lens.lens (\CreateLoadBalancer' {scheme} -> scheme) (\s@CreateLoadBalancer' {} a -> s {scheme = a} :: CreateLoadBalancer)
 
 -- | The IDs of the security groups to assign to the load balancer.
-createLoadBalancer_securityGroups :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGroups} -> securityGroups) (\s@CreateLoadBalancer' {} a -> s {securityGroups = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancer_securityGroups :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Core.Text])
+createLoadBalancer_securityGroups = Lens.lens (\CreateLoadBalancer' {securityGroups} -> securityGroups) (\s@CreateLoadBalancer' {} a -> s {securityGroups = a} :: CreateLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of tags to assign to the load balancer.
 --
 -- For more information about tagging your load balancer, see
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer>
 -- in the /Classic Load Balancers Guide/.
-createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe (Prelude.NonEmpty Tag))
-createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancer_tags :: Lens.Lens' CreateLoadBalancer (Core.Maybe (Core.NonEmpty Tag))
+createLoadBalancer_tags = Lens.lens (\CreateLoadBalancer' {tags} -> tags) (\s@CreateLoadBalancer' {} a -> s {tags = a} :: CreateLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
 -- @AvailabilityZones@.
-createLoadBalancer_subnets :: Lens.Lens' CreateLoadBalancer (Prelude.Maybe [Prelude.Text])
-createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnets) (\s@CreateLoadBalancer' {} a -> s {subnets = a} :: CreateLoadBalancer) Prelude.. Lens.mapping Prelude._Coerce
+createLoadBalancer_subnets :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Core.Text])
+createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnets) (\s@CreateLoadBalancer' {} a -> s {subnets = a} :: CreateLoadBalancer) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the load balancer.
 --
@@ -232,7 +231,7 @@ createLoadBalancer_subnets = Lens.lens (\CreateLoadBalancer' {subnets} -> subnet
 -- region, must have a maximum of 32 characters, must contain only
 -- alphanumeric characters or hyphens, and cannot begin or end with a
 -- hyphen.
-createLoadBalancer_loadBalancerName :: Lens.Lens' CreateLoadBalancer Prelude.Text
+createLoadBalancer_loadBalancerName :: Lens.Lens' CreateLoadBalancer Core.Text
 createLoadBalancer_loadBalancerName = Lens.lens (\CreateLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@CreateLoadBalancer' {} a -> s {loadBalancerName = a} :: CreateLoadBalancer)
 
 -- | The listeners.
@@ -241,11 +240,11 @@ createLoadBalancer_loadBalancerName = Lens.lens (\CreateLoadBalancer' {loadBalan
 -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer>
 -- in the /Classic Load Balancers Guide/.
 createLoadBalancer_listeners :: Lens.Lens' CreateLoadBalancer [Listener]
-createLoadBalancer_listeners = Lens.lens (\CreateLoadBalancer' {listeners} -> listeners) (\s@CreateLoadBalancer' {} a -> s {listeners = a} :: CreateLoadBalancer) Prelude.. Prelude._Coerce
+createLoadBalancer_listeners = Lens.lens (\CreateLoadBalancer' {listeners} -> listeners) (\s@CreateLoadBalancer' {} a -> s {listeners = a} :: CreateLoadBalancer) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateLoadBalancer where
+instance Core.AWSRequest CreateLoadBalancer where
   type
-    Rs CreateLoadBalancer =
+    AWSResponse CreateLoadBalancer =
       CreateLoadBalancerResponse
   request = Request.postQuery defaultService
   response =
@@ -253,47 +252,44 @@ instance Prelude.AWSRequest CreateLoadBalancer where
       "CreateLoadBalancerResult"
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Prelude.<$> (x Prelude..@? "DNSName")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DNSName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLoadBalancer
+instance Core.Hashable CreateLoadBalancer
 
-instance Prelude.NFData CreateLoadBalancer
+instance Core.NFData CreateLoadBalancer
 
-instance Prelude.ToHeaders CreateLoadBalancer where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateLoadBalancer where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateLoadBalancer where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateLoadBalancer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateLoadBalancer where
+instance Core.ToQuery CreateLoadBalancer where
   toQuery CreateLoadBalancer' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateLoadBalancer" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
+          Core.=: ("CreateLoadBalancer" :: Core.ByteString),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
         "AvailabilityZones"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> availabilityZones
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> availabilityZones
             ),
-        "Scheme" Prelude.=: scheme,
+        "Scheme" Core.=: scheme,
         "SecurityGroups"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> securityGroups
-            ),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> securityGroups),
         "Tags"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> tags),
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> tags),
         "Subnets"
-          Prelude.=: Prelude.toQuery
-            (Prelude.toQueryList "member" Prelude.<$> subnets),
-        "LoadBalancerName" Prelude.=: loadBalancerName,
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> subnets),
+        "LoadBalancerName" Core.=: loadBalancerName,
         "Listeners"
-          Prelude.=: Prelude.toQueryList "member" listeners
+          Core.=: Core.toQueryList "member" listeners
       ]
 
 -- | Contains the output for CreateLoadBalancer.
@@ -301,11 +297,11 @@ instance Prelude.ToQuery CreateLoadBalancer where
 -- /See:/ 'newCreateLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
   { -- | The DNS name of the load balancer.
-    dNSName :: Prelude.Maybe Prelude.Text,
+    dNSName :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLoadBalancerResponse' with all optional fields omitted.
@@ -320,21 +316,20 @@ data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
 -- 'httpStatus', 'createLoadBalancerResponse_httpStatus' - The response's http status code.
 newCreateLoadBalancerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateLoadBalancerResponse
 newCreateLoadBalancerResponse pHttpStatus_ =
   CreateLoadBalancerResponse'
-    { dNSName =
-        Prelude.Nothing,
+    { dNSName = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The DNS name of the load balancer.
-createLoadBalancerResponse_dNSName :: Lens.Lens' CreateLoadBalancerResponse (Prelude.Maybe Prelude.Text)
+createLoadBalancerResponse_dNSName :: Lens.Lens' CreateLoadBalancerResponse (Core.Maybe Core.Text)
 createLoadBalancerResponse_dNSName = Lens.lens (\CreateLoadBalancerResponse' {dNSName} -> dNSName) (\s@CreateLoadBalancerResponse' {} a -> s {dNSName = a} :: CreateLoadBalancerResponse)
 
 -- | The response's http status code.
-createLoadBalancerResponse_httpStatus :: Lens.Lens' CreateLoadBalancerResponse Prelude.Int
+createLoadBalancerResponse_httpStatus :: Lens.Lens' CreateLoadBalancerResponse Core.Int
 createLoadBalancerResponse_httpStatus = Lens.lens (\CreateLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@CreateLoadBalancerResponse' {} a -> s {httpStatus = a} :: CreateLoadBalancerResponse)
 
-instance Prelude.NFData CreateLoadBalancerResponse
+instance Core.NFData CreateLoadBalancerResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.UpdateTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 import Network.AWS.Redshift.Types.SupportedOperation
 
@@ -30,13 +29,13 @@ import Network.AWS.Redshift.Types.SupportedOperation
 -- /See:/ 'newUpdateTarget' smart constructor.
 data UpdateTarget = UpdateTarget'
   { -- | A list of operations supported by the maintenance track.
-    supportedOperations :: Prelude.Maybe [SupportedOperation],
+    supportedOperations :: Core.Maybe [SupportedOperation],
     -- | The cluster version for the new maintenance track.
-    databaseVersion :: Prelude.Maybe Prelude.Text,
+    databaseVersion :: Core.Maybe Core.Text,
     -- | The name of the new maintenance track.
-    maintenanceTrackName :: Prelude.Maybe Prelude.Text
+    maintenanceTrackName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTarget' with all optional fields omitted.
@@ -55,35 +54,33 @@ newUpdateTarget ::
   UpdateTarget
 newUpdateTarget =
   UpdateTarget'
-    { supportedOperations =
-        Prelude.Nothing,
-      databaseVersion = Prelude.Nothing,
-      maintenanceTrackName = Prelude.Nothing
+    { supportedOperations = Core.Nothing,
+      databaseVersion = Core.Nothing,
+      maintenanceTrackName = Core.Nothing
     }
 
 -- | A list of operations supported by the maintenance track.
-updateTarget_supportedOperations :: Lens.Lens' UpdateTarget (Prelude.Maybe [SupportedOperation])
-updateTarget_supportedOperations = Lens.lens (\UpdateTarget' {supportedOperations} -> supportedOperations) (\s@UpdateTarget' {} a -> s {supportedOperations = a} :: UpdateTarget) Prelude.. Lens.mapping Prelude._Coerce
+updateTarget_supportedOperations :: Lens.Lens' UpdateTarget (Core.Maybe [SupportedOperation])
+updateTarget_supportedOperations = Lens.lens (\UpdateTarget' {supportedOperations} -> supportedOperations) (\s@UpdateTarget' {} a -> s {supportedOperations = a} :: UpdateTarget) Core.. Lens.mapping Lens._Coerce
 
 -- | The cluster version for the new maintenance track.
-updateTarget_databaseVersion :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
+updateTarget_databaseVersion :: Lens.Lens' UpdateTarget (Core.Maybe Core.Text)
 updateTarget_databaseVersion = Lens.lens (\UpdateTarget' {databaseVersion} -> databaseVersion) (\s@UpdateTarget' {} a -> s {databaseVersion = a} :: UpdateTarget)
 
 -- | The name of the new maintenance track.
-updateTarget_maintenanceTrackName :: Lens.Lens' UpdateTarget (Prelude.Maybe Prelude.Text)
+updateTarget_maintenanceTrackName :: Lens.Lens' UpdateTarget (Core.Maybe Core.Text)
 updateTarget_maintenanceTrackName = Lens.lens (\UpdateTarget' {maintenanceTrackName} -> maintenanceTrackName) (\s@UpdateTarget' {} a -> s {maintenanceTrackName = a} :: UpdateTarget)
 
-instance Prelude.FromXML UpdateTarget where
+instance Core.FromXML UpdateTarget where
   parseXML x =
     UpdateTarget'
-      Prelude.<$> ( x Prelude..@? "SupportedOperations"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "SupportedOperation")
-                  )
-      Prelude.<*> (x Prelude..@? "DatabaseVersion")
-      Prelude.<*> (x Prelude..@? "MaintenanceTrackName")
+      Core.<$> ( x Core..@? "SupportedOperations"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "SupportedOperation")
+               )
+      Core.<*> (x Core..@? "DatabaseVersion")
+      Core.<*> (x Core..@? "MaintenanceTrackName")
 
-instance Prelude.Hashable UpdateTarget
+instance Core.Hashable UpdateTarget
 
-instance Prelude.NFData UpdateTarget
+instance Core.NFData UpdateTarget

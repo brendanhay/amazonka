@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.HumanLoopRequestSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AwsManagedHumanLoopRequestSource
 
 -- | Container for configuring the source of human task requests.
@@ -33,7 +32,7 @@ data HumanLoopRequestSource = HumanLoopRequestSource'
     -- are different based on the integration source. Valid values:
     awsManagedHumanLoopRequestSource :: AwsManagedHumanLoopRequestSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HumanLoopRequestSource' with all optional fields omitted.
@@ -63,26 +62,26 @@ newHumanLoopRequestSource
 humanLoopRequestSource_awsManagedHumanLoopRequestSource :: Lens.Lens' HumanLoopRequestSource AwsManagedHumanLoopRequestSource
 humanLoopRequestSource_awsManagedHumanLoopRequestSource = Lens.lens (\HumanLoopRequestSource' {awsManagedHumanLoopRequestSource} -> awsManagedHumanLoopRequestSource) (\s@HumanLoopRequestSource' {} a -> s {awsManagedHumanLoopRequestSource = a} :: HumanLoopRequestSource)
 
-instance Prelude.FromJSON HumanLoopRequestSource where
+instance Core.FromJSON HumanLoopRequestSource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HumanLoopRequestSource"
       ( \x ->
           HumanLoopRequestSource'
-            Prelude.<$> (x Prelude..: "AwsManagedHumanLoopRequestSource")
+            Core.<$> (x Core..: "AwsManagedHumanLoopRequestSource")
       )
 
-instance Prelude.Hashable HumanLoopRequestSource
+instance Core.Hashable HumanLoopRequestSource
 
-instance Prelude.NFData HumanLoopRequestSource
+instance Core.NFData HumanLoopRequestSource
 
-instance Prelude.ToJSON HumanLoopRequestSource where
+instance Core.ToJSON HumanLoopRequestSource where
   toJSON HumanLoopRequestSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "AwsManagedHumanLoopRequestSource"
-                  Prelude..= awsManagedHumanLoopRequestSource
+                  Core..= awsManagedHumanLoopRequestSource
               )
           ]
       )

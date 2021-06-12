@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.FMS.PutNotificationChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,12 +53,12 @@ import qualified Network.AWS.Response as Response
 data PutNotificationChannel = PutNotificationChannel'
   { -- | The Amazon Resource Name (ARN) of the SNS topic that collects
     -- notifications from AWS Firewall Manager.
-    snsTopicArn :: Prelude.Text,
+    snsTopicArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to
     -- record AWS Firewall Manager activity.
-    snsRoleName :: Prelude.Text
+    snsRoleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutNotificationChannel' with all optional fields omitted.
@@ -76,9 +75,9 @@ data PutNotificationChannel = PutNotificationChannel'
 -- record AWS Firewall Manager activity.
 newPutNotificationChannel ::
   -- | 'snsTopicArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'snsRoleName'
-  Prelude.Text ->
+  Core.Text ->
   PutNotificationChannel
 newPutNotificationChannel pSnsTopicArn_ pSnsRoleName_ =
   PutNotificationChannel'
@@ -89,62 +88,60 @@ newPutNotificationChannel pSnsTopicArn_ pSnsRoleName_ =
 
 -- | The Amazon Resource Name (ARN) of the SNS topic that collects
 -- notifications from AWS Firewall Manager.
-putNotificationChannel_snsTopicArn :: Lens.Lens' PutNotificationChannel Prelude.Text
+putNotificationChannel_snsTopicArn :: Lens.Lens' PutNotificationChannel Core.Text
 putNotificationChannel_snsTopicArn = Lens.lens (\PutNotificationChannel' {snsTopicArn} -> snsTopicArn) (\s@PutNotificationChannel' {} a -> s {snsTopicArn = a} :: PutNotificationChannel)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to
 -- record AWS Firewall Manager activity.
-putNotificationChannel_snsRoleName :: Lens.Lens' PutNotificationChannel Prelude.Text
+putNotificationChannel_snsRoleName :: Lens.Lens' PutNotificationChannel Core.Text
 putNotificationChannel_snsRoleName = Lens.lens (\PutNotificationChannel' {snsRoleName} -> snsRoleName) (\s@PutNotificationChannel' {} a -> s {snsRoleName = a} :: PutNotificationChannel)
 
-instance Prelude.AWSRequest PutNotificationChannel where
+instance Core.AWSRequest PutNotificationChannel where
   type
-    Rs PutNotificationChannel =
+    AWSResponse PutNotificationChannel =
       PutNotificationChannelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       PutNotificationChannelResponse'
 
-instance Prelude.Hashable PutNotificationChannel
+instance Core.Hashable PutNotificationChannel
 
-instance Prelude.NFData PutNotificationChannel
+instance Core.NFData PutNotificationChannel
 
-instance Prelude.ToHeaders PutNotificationChannel where
+instance Core.ToHeaders PutNotificationChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.PutNotificationChannel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.PutNotificationChannel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutNotificationChannel where
+instance Core.ToJSON PutNotificationChannel where
   toJSON PutNotificationChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SnsTopicArn" Prelude..= snsTopicArn),
-            Prelude.Just ("SnsRoleName" Prelude..= snsRoleName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SnsTopicArn" Core..= snsTopicArn),
+            Core.Just ("SnsRoleName" Core..= snsRoleName)
           ]
       )
 
-instance Prelude.ToPath PutNotificationChannel where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutNotificationChannel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutNotificationChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutNotificationChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutNotificationChannelResponse' smart constructor.
 data PutNotificationChannelResponse = PutNotificationChannelResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutNotificationChannelResponse' with all optional fields omitted.
@@ -155,6 +152,4 @@ newPutNotificationChannelResponse ::
 newPutNotificationChannelResponse =
   PutNotificationChannelResponse'
 
-instance
-  Prelude.NFData
-    PutNotificationChannelResponse
+instance Core.NFData PutNotificationChannelResponse

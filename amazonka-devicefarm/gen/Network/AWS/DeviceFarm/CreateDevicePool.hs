@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.DeviceFarm.CreateDevicePool
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,17 +61,17 @@ data CreateDevicePool = CreateDevicePool'
     --
     -- By specifying the maximum number of devices, you can control the costs
     -- that you incur by running tests.
-    maxDevices :: Prelude.Maybe Prelude.Int,
+    maxDevices :: Core.Maybe Core.Int,
     -- | The device pool\'s description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The ARN of the project for the device pool.
-    projectArn :: Prelude.Text,
+    projectArn :: Core.Text,
     -- | The device pool\'s name.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The device pool\'s rules.
     rules :: [Rule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDevicePool' with all optional fields omitted.
@@ -100,17 +99,17 @@ data CreateDevicePool = CreateDevicePool'
 -- 'rules', 'createDevicePool_rules' - The device pool\'s rules.
 newCreateDevicePool ::
   -- | 'projectArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreateDevicePool
 newCreateDevicePool pProjectArn_ pName_ =
   CreateDevicePool'
-    { maxDevices = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { maxDevices = Core.Nothing,
+      description = Core.Nothing,
       projectArn = pProjectArn_,
       name = pName_,
-      rules = Prelude.mempty
+      rules = Core.mempty
     }
 
 -- | The number of devices that Device Farm can add to your device pool.
@@ -121,83 +120,83 @@ newCreateDevicePool pProjectArn_ pName_ =
 --
 -- By specifying the maximum number of devices, you can control the costs
 -- that you incur by running tests.
-createDevicePool_maxDevices :: Lens.Lens' CreateDevicePool (Prelude.Maybe Prelude.Int)
+createDevicePool_maxDevices :: Lens.Lens' CreateDevicePool (Core.Maybe Core.Int)
 createDevicePool_maxDevices = Lens.lens (\CreateDevicePool' {maxDevices} -> maxDevices) (\s@CreateDevicePool' {} a -> s {maxDevices = a} :: CreateDevicePool)
 
 -- | The device pool\'s description.
-createDevicePool_description :: Lens.Lens' CreateDevicePool (Prelude.Maybe Prelude.Text)
+createDevicePool_description :: Lens.Lens' CreateDevicePool (Core.Maybe Core.Text)
 createDevicePool_description = Lens.lens (\CreateDevicePool' {description} -> description) (\s@CreateDevicePool' {} a -> s {description = a} :: CreateDevicePool)
 
 -- | The ARN of the project for the device pool.
-createDevicePool_projectArn :: Lens.Lens' CreateDevicePool Prelude.Text
+createDevicePool_projectArn :: Lens.Lens' CreateDevicePool Core.Text
 createDevicePool_projectArn = Lens.lens (\CreateDevicePool' {projectArn} -> projectArn) (\s@CreateDevicePool' {} a -> s {projectArn = a} :: CreateDevicePool)
 
 -- | The device pool\'s name.
-createDevicePool_name :: Lens.Lens' CreateDevicePool Prelude.Text
+createDevicePool_name :: Lens.Lens' CreateDevicePool Core.Text
 createDevicePool_name = Lens.lens (\CreateDevicePool' {name} -> name) (\s@CreateDevicePool' {} a -> s {name = a} :: CreateDevicePool)
 
 -- | The device pool\'s rules.
 createDevicePool_rules :: Lens.Lens' CreateDevicePool [Rule]
-createDevicePool_rules = Lens.lens (\CreateDevicePool' {rules} -> rules) (\s@CreateDevicePool' {} a -> s {rules = a} :: CreateDevicePool) Prelude.. Prelude._Coerce
+createDevicePool_rules = Lens.lens (\CreateDevicePool' {rules} -> rules) (\s@CreateDevicePool' {} a -> s {rules = a} :: CreateDevicePool) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest CreateDevicePool where
-  type Rs CreateDevicePool = CreateDevicePoolResponse
+instance Core.AWSRequest CreateDevicePool where
+  type
+    AWSResponse CreateDevicePool =
+      CreateDevicePoolResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateDevicePoolResponse'
-            Prelude.<$> (x Prelude..?> "devicePool")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "devicePool")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDevicePool
+instance Core.Hashable CreateDevicePool
 
-instance Prelude.NFData CreateDevicePool
+instance Core.NFData CreateDevicePool
 
-instance Prelude.ToHeaders CreateDevicePool where
+instance Core.ToHeaders CreateDevicePool where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.CreateDevicePool" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.CreateDevicePool" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateDevicePool where
+instance Core.ToJSON CreateDevicePool where
   toJSON CreateDevicePool' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("maxDevices" Prelude..=) Prelude.<$> maxDevices,
-            ("description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("projectArn" Prelude..= projectArn),
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("rules" Prelude..= rules)
+    Core.object
+      ( Core.catMaybes
+          [ ("maxDevices" Core..=) Core.<$> maxDevices,
+            ("description" Core..=) Core.<$> description,
+            Core.Just ("projectArn" Core..= projectArn),
+            Core.Just ("name" Core..= name),
+            Core.Just ("rules" Core..= rules)
           ]
       )
 
-instance Prelude.ToPath CreateDevicePool where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDevicePool where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDevicePool where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDevicePool where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the result of a create device pool request.
 --
 -- /See:/ 'newCreateDevicePoolResponse' smart constructor.
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
   { -- | The newly created device pool.
-    devicePool :: Prelude.Maybe DevicePool,
+    devicePool :: Core.Maybe DevicePool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDevicePoolResponse' with all optional fields omitted.
@@ -212,21 +211,21 @@ data CreateDevicePoolResponse = CreateDevicePoolResponse'
 -- 'httpStatus', 'createDevicePoolResponse_httpStatus' - The response's http status code.
 newCreateDevicePoolResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDevicePoolResponse
 newCreateDevicePoolResponse pHttpStatus_ =
   CreateDevicePoolResponse'
     { devicePool =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The newly created device pool.
-createDevicePoolResponse_devicePool :: Lens.Lens' CreateDevicePoolResponse (Prelude.Maybe DevicePool)
+createDevicePoolResponse_devicePool :: Lens.Lens' CreateDevicePoolResponse (Core.Maybe DevicePool)
 createDevicePoolResponse_devicePool = Lens.lens (\CreateDevicePoolResponse' {devicePool} -> devicePool) (\s@CreateDevicePoolResponse' {} a -> s {devicePool = a} :: CreateDevicePoolResponse)
 
 -- | The response's http status code.
-createDevicePoolResponse_httpStatus :: Lens.Lens' CreateDevicePoolResponse Prelude.Int
+createDevicePoolResponse_httpStatus :: Lens.Lens' CreateDevicePoolResponse Core.Int
 createDevicePoolResponse_httpStatus = Lens.lens (\CreateDevicePoolResponse' {httpStatus} -> httpStatus) (\s@CreateDevicePoolResponse' {} a -> s {httpStatus = a} :: CreateDevicePoolResponse)
 
-instance Prelude.NFData CreateDevicePoolResponse
+instance Core.NFData CreateDevicePoolResponse

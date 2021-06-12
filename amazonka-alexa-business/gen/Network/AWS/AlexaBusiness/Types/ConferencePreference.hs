@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.ConferencePreference where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The default conference provider that is used if no other scheduled
 -- meetings are detected.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConferencePreference' smart constructor.
 data ConferencePreference = ConferencePreference'
   { -- | The ARN of the default conference provider.
-    defaultConferenceProviderArn :: Prelude.Maybe Prelude.Text
+    defaultConferenceProviderArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConferencePreference' with all optional fields omitted.
@@ -47,31 +46,31 @@ newConferencePreference ::
 newConferencePreference =
   ConferencePreference'
     { defaultConferenceProviderArn =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ARN of the default conference provider.
-conferencePreference_defaultConferenceProviderArn :: Lens.Lens' ConferencePreference (Prelude.Maybe Prelude.Text)
+conferencePreference_defaultConferenceProviderArn :: Lens.Lens' ConferencePreference (Core.Maybe Core.Text)
 conferencePreference_defaultConferenceProviderArn = Lens.lens (\ConferencePreference' {defaultConferenceProviderArn} -> defaultConferenceProviderArn) (\s@ConferencePreference' {} a -> s {defaultConferenceProviderArn = a} :: ConferencePreference)
 
-instance Prelude.FromJSON ConferencePreference where
+instance Core.FromJSON ConferencePreference where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConferencePreference"
       ( \x ->
           ConferencePreference'
-            Prelude.<$> (x Prelude..:? "DefaultConferenceProviderArn")
+            Core.<$> (x Core..:? "DefaultConferenceProviderArn")
       )
 
-instance Prelude.Hashable ConferencePreference
+instance Core.Hashable ConferencePreference
 
-instance Prelude.NFData ConferencePreference
+instance Core.NFData ConferencePreference
 
-instance Prelude.ToJSON ConferencePreference where
+instance Core.ToJSON ConferencePreference where
   toJSON ConferencePreference' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultConferenceProviderArn" Prelude..=)
-              Prelude.<$> defaultConferenceProviderArn
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultConferenceProviderArn" Core..=)
+              Core.<$> defaultConferenceProviderArn
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AssociatedRole where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the associated IAM roles.
 --
@@ -31,17 +30,17 @@ data AssociatedRole = AssociatedRole'
   { -- | The key of the Amazon S3 object ey where the certificate, certificate
     -- chain, and encrypted private key bundle is stored. The object key is
     -- formated as follows: @role_arn@\/@certificate_arn@.
-    certificateS3ObjectKey :: Prelude.Maybe Prelude.Text,
+    certificateS3ObjectKey :: Core.Maybe Core.Text,
     -- | The ID of the KMS customer master key (CMK) used to encrypt the private
     -- key.
-    encryptionKmsKeyId :: Prelude.Maybe Prelude.Text,
+    encryptionKmsKeyId :: Core.Maybe Core.Text,
     -- | The name of the Amazon S3 bucket in which the Amazon S3 object is
     -- stored.
-    certificateS3BucketName :: Prelude.Maybe Prelude.Text,
+    certificateS3BucketName :: Core.Maybe Core.Text,
     -- | The ARN of the associated IAM role.
-    associatedRoleArn :: Prelude.Maybe Prelude.Text
+    associatedRoleArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociatedRole' with all optional fields omitted.
@@ -67,40 +66,40 @@ newAssociatedRole ::
 newAssociatedRole =
   AssociatedRole'
     { certificateS3ObjectKey =
-        Prelude.Nothing,
-      encryptionKmsKeyId = Prelude.Nothing,
-      certificateS3BucketName = Prelude.Nothing,
-      associatedRoleArn = Prelude.Nothing
+        Core.Nothing,
+      encryptionKmsKeyId = Core.Nothing,
+      certificateS3BucketName = Core.Nothing,
+      associatedRoleArn = Core.Nothing
     }
 
 -- | The key of the Amazon S3 object ey where the certificate, certificate
 -- chain, and encrypted private key bundle is stored. The object key is
 -- formated as follows: @role_arn@\/@certificate_arn@.
-associatedRole_certificateS3ObjectKey :: Lens.Lens' AssociatedRole (Prelude.Maybe Prelude.Text)
+associatedRole_certificateS3ObjectKey :: Lens.Lens' AssociatedRole (Core.Maybe Core.Text)
 associatedRole_certificateS3ObjectKey = Lens.lens (\AssociatedRole' {certificateS3ObjectKey} -> certificateS3ObjectKey) (\s@AssociatedRole' {} a -> s {certificateS3ObjectKey = a} :: AssociatedRole)
 
 -- | The ID of the KMS customer master key (CMK) used to encrypt the private
 -- key.
-associatedRole_encryptionKmsKeyId :: Lens.Lens' AssociatedRole (Prelude.Maybe Prelude.Text)
+associatedRole_encryptionKmsKeyId :: Lens.Lens' AssociatedRole (Core.Maybe Core.Text)
 associatedRole_encryptionKmsKeyId = Lens.lens (\AssociatedRole' {encryptionKmsKeyId} -> encryptionKmsKeyId) (\s@AssociatedRole' {} a -> s {encryptionKmsKeyId = a} :: AssociatedRole)
 
 -- | The name of the Amazon S3 bucket in which the Amazon S3 object is
 -- stored.
-associatedRole_certificateS3BucketName :: Lens.Lens' AssociatedRole (Prelude.Maybe Prelude.Text)
+associatedRole_certificateS3BucketName :: Lens.Lens' AssociatedRole (Core.Maybe Core.Text)
 associatedRole_certificateS3BucketName = Lens.lens (\AssociatedRole' {certificateS3BucketName} -> certificateS3BucketName) (\s@AssociatedRole' {} a -> s {certificateS3BucketName = a} :: AssociatedRole)
 
 -- | The ARN of the associated IAM role.
-associatedRole_associatedRoleArn :: Lens.Lens' AssociatedRole (Prelude.Maybe Prelude.Text)
+associatedRole_associatedRoleArn :: Lens.Lens' AssociatedRole (Core.Maybe Core.Text)
 associatedRole_associatedRoleArn = Lens.lens (\AssociatedRole' {associatedRoleArn} -> associatedRoleArn) (\s@AssociatedRole' {} a -> s {associatedRoleArn = a} :: AssociatedRole)
 
-instance Prelude.FromXML AssociatedRole where
+instance Core.FromXML AssociatedRole where
   parseXML x =
     AssociatedRole'
-      Prelude.<$> (x Prelude..@? "certificateS3ObjectKey")
-      Prelude.<*> (x Prelude..@? "encryptionKmsKeyId")
-      Prelude.<*> (x Prelude..@? "certificateS3BucketName")
-      Prelude.<*> (x Prelude..@? "associatedRoleArn")
+      Core.<$> (x Core..@? "certificateS3ObjectKey")
+      Core.<*> (x Core..@? "encryptionKmsKeyId")
+      Core.<*> (x Core..@? "certificateS3BucketName")
+      Core.<*> (x Core..@? "associatedRoleArn")
 
-instance Prelude.Hashable AssociatedRole
+instance Core.Hashable AssociatedRole
 
-instance Prelude.NFData AssociatedRole
+instance Core.NFData AssociatedRole

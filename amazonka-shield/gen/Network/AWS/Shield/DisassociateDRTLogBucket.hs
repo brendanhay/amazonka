@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.Shield.DisassociateDRTLogBucket
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -58,9 +57,9 @@ import Network.AWS.Shield.Types
 -- | /See:/ 'newDisassociateDRTLogBucket' smart constructor.
 data DisassociateDRTLogBucket = DisassociateDRTLogBucket'
   { -- | The Amazon S3 bucket that contains your AWS WAF logs.
-    logBucket :: Prelude.Text
+    logBucket :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateDRTLogBucket' with all optional fields omitted.
@@ -73,65 +72,63 @@ data DisassociateDRTLogBucket = DisassociateDRTLogBucket'
 -- 'logBucket', 'disassociateDRTLogBucket_logBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
 newDisassociateDRTLogBucket ::
   -- | 'logBucket'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateDRTLogBucket
 newDisassociateDRTLogBucket pLogBucket_ =
   DisassociateDRTLogBucket' {logBucket = pLogBucket_}
 
 -- | The Amazon S3 bucket that contains your AWS WAF logs.
-disassociateDRTLogBucket_logBucket :: Lens.Lens' DisassociateDRTLogBucket Prelude.Text
+disassociateDRTLogBucket_logBucket :: Lens.Lens' DisassociateDRTLogBucket Core.Text
 disassociateDRTLogBucket_logBucket = Lens.lens (\DisassociateDRTLogBucket' {logBucket} -> logBucket) (\s@DisassociateDRTLogBucket' {} a -> s {logBucket = a} :: DisassociateDRTLogBucket)
 
-instance Prelude.AWSRequest DisassociateDRTLogBucket where
+instance Core.AWSRequest DisassociateDRTLogBucket where
   type
-    Rs DisassociateDRTLogBucket =
+    AWSResponse DisassociateDRTLogBucket =
       DisassociateDRTLogBucketResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDRTLogBucketResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateDRTLogBucket
+instance Core.Hashable DisassociateDRTLogBucket
 
-instance Prelude.NFData DisassociateDRTLogBucket
+instance Core.NFData DisassociateDRTLogBucket
 
-instance Prelude.ToHeaders DisassociateDRTLogBucket where
+instance Core.ToHeaders DisassociateDRTLogBucket where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.DisassociateDRTLogBucket" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.DisassociateDRTLogBucket" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateDRTLogBucket where
+instance Core.ToJSON DisassociateDRTLogBucket where
   toJSON DisassociateDRTLogBucket' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("LogBucket" Prelude..= logBucket)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("LogBucket" Core..= logBucket)]
       )
 
-instance Prelude.ToPath DisassociateDRTLogBucket where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateDRTLogBucket where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateDRTLogBucket where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateDRTLogBucket where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateDRTLogBucketResponse' smart constructor.
 data DisassociateDRTLogBucketResponse = DisassociateDRTLogBucketResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateDRTLogBucketResponse' with all optional fields omitted.
@@ -144,7 +141,7 @@ data DisassociateDRTLogBucketResponse = DisassociateDRTLogBucketResponse'
 -- 'httpStatus', 'disassociateDRTLogBucketResponse_httpStatus' - The response's http status code.
 newDisassociateDRTLogBucketResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateDRTLogBucketResponse
 newDisassociateDRTLogBucketResponse pHttpStatus_ =
   DisassociateDRTLogBucketResponse'
@@ -153,9 +150,7 @@ newDisassociateDRTLogBucketResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateDRTLogBucketResponse_httpStatus :: Lens.Lens' DisassociateDRTLogBucketResponse Prelude.Int
+disassociateDRTLogBucketResponse_httpStatus :: Lens.Lens' DisassociateDRTLogBucketResponse Core.Int
 disassociateDRTLogBucketResponse_httpStatus = Lens.lens (\DisassociateDRTLogBucketResponse' {httpStatus} -> httpStatus) (\s@DisassociateDRTLogBucketResponse' {} a -> s {httpStatus = a} :: DisassociateDRTLogBucketResponse)
 
-instance
-  Prelude.NFData
-    DisassociateDRTLogBucketResponse
+instance Core.NFData DisassociateDRTLogBucketResponse

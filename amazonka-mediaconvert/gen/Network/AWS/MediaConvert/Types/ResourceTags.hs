@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.ResourceTags where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) and tags for an AWS Elemental
 -- MediaConvert resource.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceTags' smart constructor.
 data ResourceTags = ResourceTags'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The tags for the resource.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceTags' with all optional fields omitted.
@@ -50,28 +49,28 @@ newResourceTags ::
   ResourceTags
 newResourceTags =
   ResourceTags'
-    { arn = Prelude.Nothing,
-      tags = Prelude.Nothing
+    { arn = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
-resourceTags_arn :: Lens.Lens' ResourceTags (Prelude.Maybe Prelude.Text)
+resourceTags_arn :: Lens.Lens' ResourceTags (Core.Maybe Core.Text)
 resourceTags_arn = Lens.lens (\ResourceTags' {arn} -> arn) (\s@ResourceTags' {} a -> s {arn = a} :: ResourceTags)
 
 -- | The tags for the resource.
-resourceTags_tags :: Lens.Lens' ResourceTags (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Prelude.. Lens.mapping Prelude._Coerce
+resourceTags_tags :: Lens.Lens' ResourceTags (Core.Maybe (Core.HashMap Core.Text Core.Text))
+resourceTags_tags = Lens.lens (\ResourceTags' {tags} -> tags) (\s@ResourceTags' {} a -> s {tags = a} :: ResourceTags) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON ResourceTags where
+instance Core.FromJSON ResourceTags where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceTags"
       ( \x ->
           ResourceTags'
-            Prelude.<$> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ResourceTags
+instance Core.Hashable ResourceTags
 
-instance Prelude.NFData ResourceTags
+instance Core.NFData ResourceTags

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -62,14 +61,14 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
     -- parameter is required if your IAM user has a policy containing a
     -- snapshot resource element that specifies anything other than * for the
     -- cluster name.
-    snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    snapshotClusterIdentifier :: Core.Maybe Core.Text,
     -- | The identifier of the snapshot that the account can no longer access.
-    snapshotIdentifier :: Prelude.Text,
+    snapshotIdentifier :: Core.Text,
     -- | The identifier of the AWS customer account that can no longer restore
     -- the specified snapshot.
-    accountWithRestoreAccess :: Prelude.Text
+    accountWithRestoreAccess :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeSnapshotAccess' with all optional fields omitted.
@@ -90,16 +89,16 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
 -- the specified snapshot.
 newRevokeSnapshotAccess ::
   -- | 'snapshotIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accountWithRestoreAccess'
-  Prelude.Text ->
+  Core.Text ->
   RevokeSnapshotAccess
 newRevokeSnapshotAccess
   pSnapshotIdentifier_
   pAccountWithRestoreAccess_ =
     RevokeSnapshotAccess'
       { snapshotClusterIdentifier =
-          Prelude.Nothing,
+          Core.Nothing,
         snapshotIdentifier = pSnapshotIdentifier_,
         accountWithRestoreAccess =
           pAccountWithRestoreAccess_
@@ -109,21 +108,21 @@ newRevokeSnapshotAccess
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
-revokeSnapshotAccess_snapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Prelude.Maybe Prelude.Text)
+revokeSnapshotAccess_snapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Core.Maybe Core.Text)
 revokeSnapshotAccess_snapshotClusterIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotClusterIdentifier = a} :: RevokeSnapshotAccess)
 
 -- | The identifier of the snapshot that the account can no longer access.
-revokeSnapshotAccess_snapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess Prelude.Text
+revokeSnapshotAccess_snapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess Core.Text
 revokeSnapshotAccess_snapshotIdentifier = Lens.lens (\RevokeSnapshotAccess' {snapshotIdentifier} -> snapshotIdentifier) (\s@RevokeSnapshotAccess' {} a -> s {snapshotIdentifier = a} :: RevokeSnapshotAccess)
 
 -- | The identifier of the AWS customer account that can no longer restore
 -- the specified snapshot.
-revokeSnapshotAccess_accountWithRestoreAccess :: Lens.Lens' RevokeSnapshotAccess Prelude.Text
+revokeSnapshotAccess_accountWithRestoreAccess :: Lens.Lens' RevokeSnapshotAccess Core.Text
 revokeSnapshotAccess_accountWithRestoreAccess = Lens.lens (\RevokeSnapshotAccess' {accountWithRestoreAccess} -> accountWithRestoreAccess) (\s@RevokeSnapshotAccess' {} a -> s {accountWithRestoreAccess = a} :: RevokeSnapshotAccess)
 
-instance Prelude.AWSRequest RevokeSnapshotAccess where
+instance Core.AWSRequest RevokeSnapshotAccess where
   type
-    Rs RevokeSnapshotAccess =
+    AWSResponse RevokeSnapshotAccess =
       RevokeSnapshotAccessResponse
   request = Request.postQuery defaultService
   response =
@@ -131,41 +130,40 @@ instance Prelude.AWSRequest RevokeSnapshotAccess where
       "RevokeSnapshotAccessResult"
       ( \s h x ->
           RevokeSnapshotAccessResponse'
-            Prelude.<$> (x Prelude..@? "Snapshot")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Snapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeSnapshotAccess
+instance Core.Hashable RevokeSnapshotAccess
 
-instance Prelude.NFData RevokeSnapshotAccess
+instance Core.NFData RevokeSnapshotAccess
 
-instance Prelude.ToHeaders RevokeSnapshotAccess where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RevokeSnapshotAccess where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RevokeSnapshotAccess where
-  toPath = Prelude.const "/"
+instance Core.ToPath RevokeSnapshotAccess where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RevokeSnapshotAccess where
+instance Core.ToQuery RevokeSnapshotAccess where
   toQuery RevokeSnapshotAccess' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RevokeSnapshotAccess" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+          Core.=: ("RevokeSnapshotAccess" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
         "SnapshotClusterIdentifier"
-          Prelude.=: snapshotClusterIdentifier,
-        "SnapshotIdentifier" Prelude.=: snapshotIdentifier,
+          Core.=: snapshotClusterIdentifier,
+        "SnapshotIdentifier" Core.=: snapshotIdentifier,
         "AccountWithRestoreAccess"
-          Prelude.=: accountWithRestoreAccess
+          Core.=: accountWithRestoreAccess
       ]
 
 -- | /See:/ 'newRevokeSnapshotAccessResponse' smart constructor.
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-  { snapshot :: Prelude.Maybe Snapshot,
+  { snapshot :: Core.Maybe Snapshot,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeSnapshotAccessResponse' with all optional fields omitted.
@@ -180,21 +178,21 @@ data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
 -- 'httpStatus', 'revokeSnapshotAccessResponse_httpStatus' - The response's http status code.
 newRevokeSnapshotAccessResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RevokeSnapshotAccessResponse
 newRevokeSnapshotAccessResponse pHttpStatus_ =
   RevokeSnapshotAccessResponse'
     { snapshot =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-revokeSnapshotAccessResponse_snapshot :: Lens.Lens' RevokeSnapshotAccessResponse (Prelude.Maybe Snapshot)
+revokeSnapshotAccessResponse_snapshot :: Lens.Lens' RevokeSnapshotAccessResponse (Core.Maybe Snapshot)
 revokeSnapshotAccessResponse_snapshot = Lens.lens (\RevokeSnapshotAccessResponse' {snapshot} -> snapshot) (\s@RevokeSnapshotAccessResponse' {} a -> s {snapshot = a} :: RevokeSnapshotAccessResponse)
 
 -- | The response's http status code.
-revokeSnapshotAccessResponse_httpStatus :: Lens.Lens' RevokeSnapshotAccessResponse Prelude.Int
+revokeSnapshotAccessResponse_httpStatus :: Lens.Lens' RevokeSnapshotAccessResponse Core.Int
 revokeSnapshotAccessResponse_httpStatus = Lens.lens (\RevokeSnapshotAccessResponse' {httpStatus} -> httpStatus) (\s@RevokeSnapshotAccessResponse' {} a -> s {httpStatus = a} :: RevokeSnapshotAccessResponse)
 
-instance Prelude.NFData RevokeSnapshotAccessResponse
+instance Core.NFData RevokeSnapshotAccessResponse

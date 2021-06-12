@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.DocumentRequires where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An SSM document required by the current document.
 --
 -- /See:/ 'newDocumentRequires' smart constructor.
 data DocumentRequires = DocumentRequires'
   { -- | The document version required by the current document.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the required SSM document. The name can be an Amazon
     -- Resource Name (ARN).
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DocumentRequires' with all optional fields omitted.
@@ -49,42 +48,41 @@ data DocumentRequires = DocumentRequires'
 -- Resource Name (ARN).
 newDocumentRequires ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DocumentRequires
 newDocumentRequires pName_ =
   DocumentRequires'
-    { version = Prelude.Nothing,
+    { version = Core.Nothing,
       name = pName_
     }
 
 -- | The document version required by the current document.
-documentRequires_version :: Lens.Lens' DocumentRequires (Prelude.Maybe Prelude.Text)
+documentRequires_version :: Lens.Lens' DocumentRequires (Core.Maybe Core.Text)
 documentRequires_version = Lens.lens (\DocumentRequires' {version} -> version) (\s@DocumentRequires' {} a -> s {version = a} :: DocumentRequires)
 
 -- | The name of the required SSM document. The name can be an Amazon
 -- Resource Name (ARN).
-documentRequires_name :: Lens.Lens' DocumentRequires Prelude.Text
+documentRequires_name :: Lens.Lens' DocumentRequires Core.Text
 documentRequires_name = Lens.lens (\DocumentRequires' {name} -> name) (\s@DocumentRequires' {} a -> s {name = a} :: DocumentRequires)
 
-instance Prelude.FromJSON DocumentRequires where
+instance Core.FromJSON DocumentRequires where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DocumentRequires"
       ( \x ->
           DocumentRequires'
-            Prelude.<$> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..:? "Version") Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable DocumentRequires
+instance Core.Hashable DocumentRequires
 
-instance Prelude.NFData DocumentRequires
+instance Core.NFData DocumentRequires
 
-instance Prelude.ToJSON DocumentRequires where
+instance Core.ToJSON DocumentRequires where
   toJSON DocumentRequires' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Version" Prelude..=) Prelude.<$> version,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("Version" Core..=) Core.<$> version,
+            Core.Just ("Name" Core..= name)
           ]
       )

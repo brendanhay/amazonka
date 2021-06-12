@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudFormation.DescribeStackSetOperation
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -66,14 +65,14 @@ data DescribeStackSetOperation = DescribeStackSetOperation'
     --     the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
     --     in the /AWS CloudFormation User Guide/.
-    callAs :: Prelude.Maybe CallAs,
+    callAs :: Core.Maybe CallAs,
     -- | The name or the unique stack ID of the stack set for the stack
     -- operation.
-    stackSetName :: Prelude.Text,
+    stackSetName :: Core.Text,
     -- | The unique ID of the stack set operation.
-    operationId :: Prelude.Text
+    operationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackSetOperation' with all optional fields omitted.
@@ -106,16 +105,15 @@ data DescribeStackSetOperation = DescribeStackSetOperation'
 -- 'operationId', 'describeStackSetOperation_operationId' - The unique ID of the stack set operation.
 newDescribeStackSetOperation ::
   -- | 'stackSetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'operationId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeStackSetOperation
 newDescribeStackSetOperation
   pStackSetName_
   pOperationId_ =
     DescribeStackSetOperation'
-      { callAs =
-          Prelude.Nothing,
+      { callAs = Core.Nothing,
         stackSetName = pStackSetName_,
         operationId = pOperationId_
       }
@@ -136,21 +134,21 @@ newDescribeStackSetOperation
 --     the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
 --     in the /AWS CloudFormation User Guide/.
-describeStackSetOperation_callAs :: Lens.Lens' DescribeStackSetOperation (Prelude.Maybe CallAs)
+describeStackSetOperation_callAs :: Lens.Lens' DescribeStackSetOperation (Core.Maybe CallAs)
 describeStackSetOperation_callAs = Lens.lens (\DescribeStackSetOperation' {callAs} -> callAs) (\s@DescribeStackSetOperation' {} a -> s {callAs = a} :: DescribeStackSetOperation)
 
 -- | The name or the unique stack ID of the stack set for the stack
 -- operation.
-describeStackSetOperation_stackSetName :: Lens.Lens' DescribeStackSetOperation Prelude.Text
+describeStackSetOperation_stackSetName :: Lens.Lens' DescribeStackSetOperation Core.Text
 describeStackSetOperation_stackSetName = Lens.lens (\DescribeStackSetOperation' {stackSetName} -> stackSetName) (\s@DescribeStackSetOperation' {} a -> s {stackSetName = a} :: DescribeStackSetOperation)
 
 -- | The unique ID of the stack set operation.
-describeStackSetOperation_operationId :: Lens.Lens' DescribeStackSetOperation Prelude.Text
+describeStackSetOperation_operationId :: Lens.Lens' DescribeStackSetOperation Core.Text
 describeStackSetOperation_operationId = Lens.lens (\DescribeStackSetOperation' {operationId} -> operationId) (\s@DescribeStackSetOperation' {} a -> s {operationId = a} :: DescribeStackSetOperation)
 
-instance Prelude.AWSRequest DescribeStackSetOperation where
+instance Core.AWSRequest DescribeStackSetOperation where
   type
-    Rs DescribeStackSetOperation =
+    AWSResponse DescribeStackSetOperation =
       DescribeStackSetOperationResponse
   request = Request.postQuery defaultService
   response =
@@ -158,40 +156,39 @@ instance Prelude.AWSRequest DescribeStackSetOperation where
       "DescribeStackSetOperationResult"
       ( \s h x ->
           DescribeStackSetOperationResponse'
-            Prelude.<$> (x Prelude..@? "StackSetOperation")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "StackSetOperation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeStackSetOperation
+instance Core.Hashable DescribeStackSetOperation
 
-instance Prelude.NFData DescribeStackSetOperation
+instance Core.NFData DescribeStackSetOperation
 
-instance Prelude.ToHeaders DescribeStackSetOperation where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeStackSetOperation where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeStackSetOperation where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeStackSetOperation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeStackSetOperation where
+instance Core.ToQuery DescribeStackSetOperation where
   toQuery DescribeStackSetOperation' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeStackSetOperation" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "CallAs" Prelude.=: callAs,
-        "StackSetName" Prelude.=: stackSetName,
-        "OperationId" Prelude.=: operationId
+          Core.=: ("DescribeStackSetOperation" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "CallAs" Core.=: callAs,
+        "StackSetName" Core.=: stackSetName,
+        "OperationId" Core.=: operationId
       ]
 
 -- | /See:/ 'newDescribeStackSetOperationResponse' smart constructor.
 data DescribeStackSetOperationResponse = DescribeStackSetOperationResponse'
   { -- | The specified stack set operation.
-    stackSetOperation :: Prelude.Maybe StackSetOperation,
+    stackSetOperation :: Core.Maybe StackSetOperation,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeStackSetOperationResponse' with all optional fields omitted.
@@ -206,23 +203,23 @@ data DescribeStackSetOperationResponse = DescribeStackSetOperationResponse'
 -- 'httpStatus', 'describeStackSetOperationResponse_httpStatus' - The response's http status code.
 newDescribeStackSetOperationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeStackSetOperationResponse
 newDescribeStackSetOperationResponse pHttpStatus_ =
   DescribeStackSetOperationResponse'
     { stackSetOperation =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The specified stack set operation.
-describeStackSetOperationResponse_stackSetOperation :: Lens.Lens' DescribeStackSetOperationResponse (Prelude.Maybe StackSetOperation)
+describeStackSetOperationResponse_stackSetOperation :: Lens.Lens' DescribeStackSetOperationResponse (Core.Maybe StackSetOperation)
 describeStackSetOperationResponse_stackSetOperation = Lens.lens (\DescribeStackSetOperationResponse' {stackSetOperation} -> stackSetOperation) (\s@DescribeStackSetOperationResponse' {} a -> s {stackSetOperation = a} :: DescribeStackSetOperationResponse)
 
 -- | The response's http status code.
-describeStackSetOperationResponse_httpStatus :: Lens.Lens' DescribeStackSetOperationResponse Prelude.Int
+describeStackSetOperationResponse_httpStatus :: Lens.Lens' DescribeStackSetOperationResponse Core.Int
 describeStackSetOperationResponse_httpStatus = Lens.lens (\DescribeStackSetOperationResponse' {httpStatus} -> httpStatus) (\s@DescribeStackSetOperationResponse' {} a -> s {httpStatus = a} :: DescribeStackSetOperationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeStackSetOperationResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.SageMaker.CreateUserProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -61,26 +60,26 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateUserProfile' smart constructor.
 data CreateUserProfile = CreateUserProfile'
   { -- | A collection of settings.
-    userSettings :: Prelude.Maybe UserSettings,
+    userSettings :: Core.Maybe UserSettings,
     -- | Each tag consists of a key and an optional value. Tag keys must be
     -- unique per resource.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A specifier for the type of value specified in SingleSignOnUserValue.
     -- Currently, the only supported value is \"UserName\". If the Domain\'s
     -- AuthMode is SSO, this field is required. If the Domain\'s AuthMode is
     -- not SSO, this field cannot be specified.
-    singleSignOnUserIdentifier :: Prelude.Maybe Prelude.Text,
+    singleSignOnUserIdentifier :: Core.Maybe Core.Text,
     -- | The username of the associated AWS Single Sign-On User for this
     -- UserProfile. If the Domain\'s AuthMode is SSO, this field is required,
     -- and must match a valid username of a user in your directory. If the
     -- Domain\'s AuthMode is not SSO, this field cannot be specified.
-    singleSignOnUserValue :: Prelude.Maybe Prelude.Text,
+    singleSignOnUserValue :: Core.Maybe Core.Text,
     -- | The ID of the associated Domain.
-    domainId :: Prelude.Text,
+    domainId :: Core.Text,
     -- | A name for the UserProfile.
-    userProfileName :: Prelude.Text
+    userProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserProfile' with all optional fields omitted.
@@ -110,112 +109,109 @@ data CreateUserProfile = CreateUserProfile'
 -- 'userProfileName', 'createUserProfile_userProfileName' - A name for the UserProfile.
 newCreateUserProfile ::
   -- | 'domainId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userProfileName'
-  Prelude.Text ->
+  Core.Text ->
   CreateUserProfile
 newCreateUserProfile pDomainId_ pUserProfileName_ =
   CreateUserProfile'
-    { userSettings = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      singleSignOnUserIdentifier = Prelude.Nothing,
-      singleSignOnUserValue = Prelude.Nothing,
+    { userSettings = Core.Nothing,
+      tags = Core.Nothing,
+      singleSignOnUserIdentifier = Core.Nothing,
+      singleSignOnUserValue = Core.Nothing,
       domainId = pDomainId_,
       userProfileName = pUserProfileName_
     }
 
 -- | A collection of settings.
-createUserProfile_userSettings :: Lens.Lens' CreateUserProfile (Prelude.Maybe UserSettings)
+createUserProfile_userSettings :: Lens.Lens' CreateUserProfile (Core.Maybe UserSettings)
 createUserProfile_userSettings = Lens.lens (\CreateUserProfile' {userSettings} -> userSettings) (\s@CreateUserProfile' {} a -> s {userSettings = a} :: CreateUserProfile)
 
 -- | Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource.
-createUserProfile_tags :: Lens.Lens' CreateUserProfile (Prelude.Maybe [Tag])
-createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@CreateUserProfile' {} a -> s {tags = a} :: CreateUserProfile) Prelude.. Lens.mapping Prelude._Coerce
+createUserProfile_tags :: Lens.Lens' CreateUserProfile (Core.Maybe [Tag])
+createUserProfile_tags = Lens.lens (\CreateUserProfile' {tags} -> tags) (\s@CreateUserProfile' {} a -> s {tags = a} :: CreateUserProfile) Core.. Lens.mapping Lens._Coerce
 
 -- | A specifier for the type of value specified in SingleSignOnUserValue.
 -- Currently, the only supported value is \"UserName\". If the Domain\'s
 -- AuthMode is SSO, this field is required. If the Domain\'s AuthMode is
 -- not SSO, this field cannot be specified.
-createUserProfile_singleSignOnUserIdentifier :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
+createUserProfile_singleSignOnUserIdentifier :: Lens.Lens' CreateUserProfile (Core.Maybe Core.Text)
 createUserProfile_singleSignOnUserIdentifier = Lens.lens (\CreateUserProfile' {singleSignOnUserIdentifier} -> singleSignOnUserIdentifier) (\s@CreateUserProfile' {} a -> s {singleSignOnUserIdentifier = a} :: CreateUserProfile)
 
 -- | The username of the associated AWS Single Sign-On User for this
 -- UserProfile. If the Domain\'s AuthMode is SSO, this field is required,
 -- and must match a valid username of a user in your directory. If the
 -- Domain\'s AuthMode is not SSO, this field cannot be specified.
-createUserProfile_singleSignOnUserValue :: Lens.Lens' CreateUserProfile (Prelude.Maybe Prelude.Text)
+createUserProfile_singleSignOnUserValue :: Lens.Lens' CreateUserProfile (Core.Maybe Core.Text)
 createUserProfile_singleSignOnUserValue = Lens.lens (\CreateUserProfile' {singleSignOnUserValue} -> singleSignOnUserValue) (\s@CreateUserProfile' {} a -> s {singleSignOnUserValue = a} :: CreateUserProfile)
 
 -- | The ID of the associated Domain.
-createUserProfile_domainId :: Lens.Lens' CreateUserProfile Prelude.Text
+createUserProfile_domainId :: Lens.Lens' CreateUserProfile Core.Text
 createUserProfile_domainId = Lens.lens (\CreateUserProfile' {domainId} -> domainId) (\s@CreateUserProfile' {} a -> s {domainId = a} :: CreateUserProfile)
 
 -- | A name for the UserProfile.
-createUserProfile_userProfileName :: Lens.Lens' CreateUserProfile Prelude.Text
+createUserProfile_userProfileName :: Lens.Lens' CreateUserProfile Core.Text
 createUserProfile_userProfileName = Lens.lens (\CreateUserProfile' {userProfileName} -> userProfileName) (\s@CreateUserProfile' {} a -> s {userProfileName = a} :: CreateUserProfile)
 
-instance Prelude.AWSRequest CreateUserProfile where
-  type Rs CreateUserProfile = CreateUserProfileResponse
+instance Core.AWSRequest CreateUserProfile where
+  type
+    AWSResponse CreateUserProfile =
+      CreateUserProfileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateUserProfileResponse'
-            Prelude.<$> (x Prelude..?> "UserProfileArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserProfileArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateUserProfile
+instance Core.Hashable CreateUserProfile
 
-instance Prelude.NFData CreateUserProfile
+instance Core.NFData CreateUserProfile
 
-instance Prelude.ToHeaders CreateUserProfile where
+instance Core.ToHeaders CreateUserProfile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreateUserProfile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("SageMaker.CreateUserProfile" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateUserProfile where
+instance Core.ToJSON CreateUserProfile where
   toJSON CreateUserProfile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("UserSettings" Prelude..=)
-              Prelude.<$> userSettings,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("SingleSignOnUserIdentifier" Prelude..=)
-              Prelude.<$> singleSignOnUserIdentifier,
-            ("SingleSignOnUserValue" Prelude..=)
-              Prelude.<$> singleSignOnUserValue,
-            Prelude.Just ("DomainId" Prelude..= domainId),
-            Prelude.Just
-              ("UserProfileName" Prelude..= userProfileName)
+    Core.object
+      ( Core.catMaybes
+          [ ("UserSettings" Core..=) Core.<$> userSettings,
+            ("Tags" Core..=) Core.<$> tags,
+            ("SingleSignOnUserIdentifier" Core..=)
+              Core.<$> singleSignOnUserIdentifier,
+            ("SingleSignOnUserValue" Core..=)
+              Core.<$> singleSignOnUserValue,
+            Core.Just ("DomainId" Core..= domainId),
+            Core.Just
+              ("UserProfileName" Core..= userProfileName)
           ]
       )
 
-instance Prelude.ToPath CreateUserProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateUserProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateUserProfile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateUserProfile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateUserProfileResponse' smart constructor.
 data CreateUserProfileResponse = CreateUserProfileResponse'
   { -- | The user profile Amazon Resource Name (ARN).
-    userProfileArn :: Prelude.Maybe Prelude.Text,
+    userProfileArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateUserProfileResponse' with all optional fields omitted.
@@ -230,21 +226,21 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 -- 'httpStatus', 'createUserProfileResponse_httpStatus' - The response's http status code.
 newCreateUserProfileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateUserProfileResponse
 newCreateUserProfileResponse pHttpStatus_ =
   CreateUserProfileResponse'
     { userProfileArn =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The user profile Amazon Resource Name (ARN).
-createUserProfileResponse_userProfileArn :: Lens.Lens' CreateUserProfileResponse (Prelude.Maybe Prelude.Text)
+createUserProfileResponse_userProfileArn :: Lens.Lens' CreateUserProfileResponse (Core.Maybe Core.Text)
 createUserProfileResponse_userProfileArn = Lens.lens (\CreateUserProfileResponse' {userProfileArn} -> userProfileArn) (\s@CreateUserProfileResponse' {} a -> s {userProfileArn = a} :: CreateUserProfileResponse)
 
 -- | The response's http status code.
-createUserProfileResponse_httpStatus :: Lens.Lens' CreateUserProfileResponse Prelude.Int
+createUserProfileResponse_httpStatus :: Lens.Lens' CreateUserProfileResponse Core.Int
 createUserProfileResponse_httpStatus = Lens.lens (\CreateUserProfileResponse' {httpStatus} -> httpStatus) (\s@CreateUserProfileResponse' {} a -> s {httpStatus = a} :: CreateUserProfileResponse)
 
-instance Prelude.NFData CreateUserProfileResponse
+instance Core.NFData CreateUserProfileResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearchDomains.Types.SuggestionMatch where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An autocomplete suggestion that matches the query string specified in a
 -- @SuggestRequest@.
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data SuggestionMatch = SuggestionMatch'
   { -- | The string that matches the query string specified in the
     -- @SuggestRequest@.
-    suggestion :: Prelude.Maybe Prelude.Text,
+    suggestion :: Core.Maybe Core.Text,
     -- | The document ID of the suggested document.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The relevance score of a suggested match.
-    score :: Prelude.Maybe Prelude.Integer
+    score :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SuggestionMatch' with all optional fields omitted.
@@ -56,35 +55,35 @@ newSuggestionMatch ::
   SuggestionMatch
 newSuggestionMatch =
   SuggestionMatch'
-    { suggestion = Prelude.Nothing,
-      id = Prelude.Nothing,
-      score = Prelude.Nothing
+    { suggestion = Core.Nothing,
+      id = Core.Nothing,
+      score = Core.Nothing
     }
 
 -- | The string that matches the query string specified in the
 -- @SuggestRequest@.
-suggestionMatch_suggestion :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
+suggestionMatch_suggestion :: Lens.Lens' SuggestionMatch (Core.Maybe Core.Text)
 suggestionMatch_suggestion = Lens.lens (\SuggestionMatch' {suggestion} -> suggestion) (\s@SuggestionMatch' {} a -> s {suggestion = a} :: SuggestionMatch)
 
 -- | The document ID of the suggested document.
-suggestionMatch_id :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Text)
+suggestionMatch_id :: Lens.Lens' SuggestionMatch (Core.Maybe Core.Text)
 suggestionMatch_id = Lens.lens (\SuggestionMatch' {id} -> id) (\s@SuggestionMatch' {} a -> s {id = a} :: SuggestionMatch)
 
 -- | The relevance score of a suggested match.
-suggestionMatch_score :: Lens.Lens' SuggestionMatch (Prelude.Maybe Prelude.Integer)
+suggestionMatch_score :: Lens.Lens' SuggestionMatch (Core.Maybe Core.Integer)
 suggestionMatch_score = Lens.lens (\SuggestionMatch' {score} -> score) (\s@SuggestionMatch' {} a -> s {score = a} :: SuggestionMatch)
 
-instance Prelude.FromJSON SuggestionMatch where
+instance Core.FromJSON SuggestionMatch where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SuggestionMatch"
       ( \x ->
           SuggestionMatch'
-            Prelude.<$> (x Prelude..:? "suggestion")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "score")
+            Core.<$> (x Core..:? "suggestion")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "score")
       )
 
-instance Prelude.Hashable SuggestionMatch
+instance Core.Hashable SuggestionMatch
 
-instance Prelude.NFData SuggestionMatch
+instance Core.NFData SuggestionMatch

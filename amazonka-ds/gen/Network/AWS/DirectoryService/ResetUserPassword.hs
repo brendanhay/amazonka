@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,9 +57,9 @@ module Network.AWS.DirectoryService.ResetUserPassword
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,13 +67,13 @@ import qualified Network.AWS.Response as Response
 data ResetUserPassword = ResetUserPassword'
   { -- | Identifier of the AWS Managed Microsoft AD or Simple AD directory in
     -- which the user resides.
-    directoryId :: Prelude.Text,
+    directoryId :: Core.Text,
     -- | The user name of the user whose password will be reset.
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The new password that will be reset.
-    newPassword' :: Prelude.Sensitive Prelude.Text
+    newPassword' :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetUserPassword' with all optional fields omitted.
@@ -92,11 +91,11 @@ data ResetUserPassword = ResetUserPassword'
 -- 'newPassword'', 'resetUserPassword_newPassword' - The new password that will be reset.
 newResetUserPassword ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newPassword''
-  Prelude.Text ->
+  Core.Text ->
   ResetUserPassword
 newResetUserPassword
   pDirectoryId_
@@ -105,75 +104,73 @@ newResetUserPassword
     ResetUserPassword'
       { directoryId = pDirectoryId_,
         userName = pUserName_,
-        newPassword' =
-          Prelude._Sensitive Lens.# pNewPassword_
+        newPassword' = Core._Sensitive Lens.# pNewPassword_
       }
 
 -- | Identifier of the AWS Managed Microsoft AD or Simple AD directory in
 -- which the user resides.
-resetUserPassword_directoryId :: Lens.Lens' ResetUserPassword Prelude.Text
+resetUserPassword_directoryId :: Lens.Lens' ResetUserPassword Core.Text
 resetUserPassword_directoryId = Lens.lens (\ResetUserPassword' {directoryId} -> directoryId) (\s@ResetUserPassword' {} a -> s {directoryId = a} :: ResetUserPassword)
 
 -- | The user name of the user whose password will be reset.
-resetUserPassword_userName :: Lens.Lens' ResetUserPassword Prelude.Text
+resetUserPassword_userName :: Lens.Lens' ResetUserPassword Core.Text
 resetUserPassword_userName = Lens.lens (\ResetUserPassword' {userName} -> userName) (\s@ResetUserPassword' {} a -> s {userName = a} :: ResetUserPassword)
 
 -- | The new password that will be reset.
-resetUserPassword_newPassword :: Lens.Lens' ResetUserPassword Prelude.Text
-resetUserPassword_newPassword = Lens.lens (\ResetUserPassword' {newPassword'} -> newPassword') (\s@ResetUserPassword' {} a -> s {newPassword' = a} :: ResetUserPassword) Prelude.. Prelude._Sensitive
+resetUserPassword_newPassword :: Lens.Lens' ResetUserPassword Core.Text
+resetUserPassword_newPassword = Lens.lens (\ResetUserPassword' {newPassword'} -> newPassword') (\s@ResetUserPassword' {} a -> s {newPassword' = a} :: ResetUserPassword) Core.. Core._Sensitive
 
-instance Prelude.AWSRequest ResetUserPassword where
-  type Rs ResetUserPassword = ResetUserPasswordResponse
+instance Core.AWSRequest ResetUserPassword where
+  type
+    AWSResponse ResetUserPassword =
+      ResetUserPasswordResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ResetUserPasswordResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ResetUserPassword
+instance Core.Hashable ResetUserPassword
 
-instance Prelude.NFData ResetUserPassword
+instance Core.NFData ResetUserPassword
 
-instance Prelude.ToHeaders ResetUserPassword where
+instance Core.ToHeaders ResetUserPassword where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.ResetUserPassword" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.ResetUserPassword" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ResetUserPassword where
+instance Core.ToJSON ResetUserPassword where
   toJSON ResetUserPassword' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("DirectoryId" Prelude..= directoryId),
-            Prelude.Just ("UserName" Prelude..= userName),
-            Prelude.Just
-              ("NewPassword" Prelude..= newPassword')
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("UserName" Core..= userName),
+            Core.Just ("NewPassword" Core..= newPassword')
           ]
       )
 
-instance Prelude.ToPath ResetUserPassword where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResetUserPassword where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResetUserPassword where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ResetUserPassword where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newResetUserPasswordResponse' smart constructor.
 data ResetUserPasswordResponse = ResetUserPasswordResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetUserPasswordResponse' with all optional fields omitted.
@@ -186,7 +183,7 @@ data ResetUserPasswordResponse = ResetUserPasswordResponse'
 -- 'httpStatus', 'resetUserPasswordResponse_httpStatus' - The response's http status code.
 newResetUserPasswordResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ResetUserPasswordResponse
 newResetUserPasswordResponse pHttpStatus_ =
   ResetUserPasswordResponse'
@@ -195,7 +192,7 @@ newResetUserPasswordResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-resetUserPasswordResponse_httpStatus :: Lens.Lens' ResetUserPasswordResponse Prelude.Int
+resetUserPasswordResponse_httpStatus :: Lens.Lens' ResetUserPasswordResponse Core.Int
 resetUserPasswordResponse_httpStatus = Lens.lens (\ResetUserPasswordResponse' {httpStatus} -> httpStatus) (\s@ResetUserPasswordResponse' {} a -> s {httpStatus = a} :: ResetUserPasswordResponse)
 
-instance Prelude.NFData ResetUserPasswordResponse
+instance Core.NFData ResetUserPasswordResponse

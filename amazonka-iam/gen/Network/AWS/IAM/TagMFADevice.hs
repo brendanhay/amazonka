@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,9 +65,9 @@ module Network.AWS.IAM.TagMFADevice
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,12 +81,12 @@ data TagMFADevice = TagMFADevice'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    serialNumber :: Prelude.Text,
+    serialNumber :: Core.Text,
     -- | The list of tags that you want to attach to the IAM virtual MFA device.
     -- Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagMFADevice' with all optional fields omitted.
@@ -110,12 +109,12 @@ data TagMFADevice = TagMFADevice'
 -- Each tag consists of a key name and an associated value.
 newTagMFADevice ::
   -- | 'serialNumber'
-  Prelude.Text ->
+  Core.Text ->
   TagMFADevice
 newTagMFADevice pSerialNumber_ =
   TagMFADevice'
     { serialNumber = pSerialNumber_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The unique identifier for the IAM virtual MFA device to which you want
@@ -126,45 +125,44 @@ newTagMFADevice pSerialNumber_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagMFADevice_serialNumber :: Lens.Lens' TagMFADevice Prelude.Text
+tagMFADevice_serialNumber :: Lens.Lens' TagMFADevice Core.Text
 tagMFADevice_serialNumber = Lens.lens (\TagMFADevice' {serialNumber} -> serialNumber) (\s@TagMFADevice' {} a -> s {serialNumber = a} :: TagMFADevice)
 
 -- | The list of tags that you want to attach to the IAM virtual MFA device.
 -- Each tag consists of a key name and an associated value.
 tagMFADevice_tags :: Lens.Lens' TagMFADevice [Tag]
-tagMFADevice_tags = Lens.lens (\TagMFADevice' {tags} -> tags) (\s@TagMFADevice' {} a -> s {tags = a} :: TagMFADevice) Prelude.. Prelude._Coerce
+tagMFADevice_tags = Lens.lens (\TagMFADevice' {tags} -> tags) (\s@TagMFADevice' {} a -> s {tags = a} :: TagMFADevice) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagMFADevice where
-  type Rs TagMFADevice = TagMFADeviceResponse
+instance Core.AWSRequest TagMFADevice where
+  type AWSResponse TagMFADevice = TagMFADeviceResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull TagMFADeviceResponse'
 
-instance Prelude.Hashable TagMFADevice
+instance Core.Hashable TagMFADevice
 
-instance Prelude.NFData TagMFADevice
+instance Core.NFData TagMFADevice
 
-instance Prelude.ToHeaders TagMFADevice where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagMFADevice where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TagMFADevice where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagMFADevice where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagMFADevice where
+instance Core.ToQuery TagMFADevice where
   toQuery TagMFADevice' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("TagMFADevice" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "SerialNumber" Prelude.=: serialNumber,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+          Core.=: ("TagMFADevice" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "SerialNumber" Core.=: serialNumber,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagMFADeviceResponse' smart constructor.
 data TagMFADeviceResponse = TagMFADeviceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagMFADeviceResponse' with all optional fields omitted.
@@ -174,4 +172,4 @@ newTagMFADeviceResponse ::
   TagMFADeviceResponse
 newTagMFADeviceResponse = TagMFADeviceResponse'
 
-instance Prelude.NFData TagMFADeviceResponse
+instance Core.NFData TagMFADeviceResponse

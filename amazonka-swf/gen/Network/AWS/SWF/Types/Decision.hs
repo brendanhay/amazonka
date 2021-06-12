@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.Decision where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.CancelTimerDecisionAttributes
 import Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes
 import Network.AWS.SWF.Types.CompleteWorkflowExecutionDecisionAttributes
@@ -219,47 +218,47 @@ import Network.AWS.SWF.Types.StartTimerDecisionAttributes
 data Decision = Decision'
   { -- | Provides the details of the @CompleteWorkflowExecution@ decision. It
     -- isn\'t set for other decision types.
-    completeWorkflowExecutionDecisionAttributes :: Prelude.Maybe CompleteWorkflowExecutionDecisionAttributes,
+    completeWorkflowExecutionDecisionAttributes :: Core.Maybe CompleteWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @StartChildWorkflowExecution@ decision. It
     -- isn\'t set for other decision types.
-    startChildWorkflowExecutionDecisionAttributes :: Prelude.Maybe StartChildWorkflowExecutionDecisionAttributes,
+    startChildWorkflowExecutionDecisionAttributes :: Core.Maybe StartChildWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @RequestCancelExternalWorkflowExecution@
     -- decision. It isn\'t set for other decision types.
-    requestCancelExternalWorkflowExecutionDecisionAttributes :: Prelude.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes,
+    requestCancelExternalWorkflowExecutionDecisionAttributes :: Core.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @FailWorkflowExecution@ decision. It isn\'t
     -- set for other decision types.
-    failWorkflowExecutionDecisionAttributes :: Prelude.Maybe FailWorkflowExecutionDecisionAttributes,
+    failWorkflowExecutionDecisionAttributes :: Core.Maybe FailWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @CancelWorkflowExecution@ decision. It
     -- isn\'t set for other decision types.
-    cancelWorkflowExecutionDecisionAttributes :: Prelude.Maybe CancelWorkflowExecutionDecisionAttributes,
+    cancelWorkflowExecutionDecisionAttributes :: Core.Maybe CancelWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @StartTimer@ decision. It isn\'t set for
     -- other decision types.
-    startTimerDecisionAttributes :: Prelude.Maybe StartTimerDecisionAttributes,
+    startTimerDecisionAttributes :: Core.Maybe StartTimerDecisionAttributes,
     -- | Provides the details of the @RequestCancelActivityTask@ decision. It
     -- isn\'t set for other decision types.
-    requestCancelActivityTaskDecisionAttributes :: Prelude.Maybe RequestCancelActivityTaskDecisionAttributes,
+    requestCancelActivityTaskDecisionAttributes :: Core.Maybe RequestCancelActivityTaskDecisionAttributes,
     -- | Provides the details of the @RecordMarker@ decision. It isn\'t set for
     -- other decision types.
-    recordMarkerDecisionAttributes :: Prelude.Maybe RecordMarkerDecisionAttributes,
+    recordMarkerDecisionAttributes :: Core.Maybe RecordMarkerDecisionAttributes,
     -- | Provides the details of the @SignalExternalWorkflowExecution@ decision.
     -- It isn\'t set for other decision types.
-    signalExternalWorkflowExecutionDecisionAttributes :: Prelude.Maybe SignalExternalWorkflowExecutionDecisionAttributes,
+    signalExternalWorkflowExecutionDecisionAttributes :: Core.Maybe SignalExternalWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @ScheduleActivityTask@ decision. It isn\'t
     -- set for other decision types.
-    scheduleActivityTaskDecisionAttributes :: Prelude.Maybe ScheduleActivityTaskDecisionAttributes,
+    scheduleActivityTaskDecisionAttributes :: Core.Maybe ScheduleActivityTaskDecisionAttributes,
     -- | Provides the details of the @ScheduleLambdaFunction@ decision. It isn\'t
     -- set for other decision types.
-    scheduleLambdaFunctionDecisionAttributes :: Prelude.Maybe ScheduleLambdaFunctionDecisionAttributes,
+    scheduleLambdaFunctionDecisionAttributes :: Core.Maybe ScheduleLambdaFunctionDecisionAttributes,
     -- | Provides the details of the @ContinueAsNewWorkflowExecution@ decision.
     -- It isn\'t set for other decision types.
-    continueAsNewWorkflowExecutionDecisionAttributes :: Prelude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes,
+    continueAsNewWorkflowExecutionDecisionAttributes :: Core.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes,
     -- | Provides the details of the @CancelTimer@ decision. It isn\'t set for
     -- other decision types.
-    cancelTimerDecisionAttributes :: Prelude.Maybe CancelTimerDecisionAttributes,
+    cancelTimerDecisionAttributes :: Core.Maybe CancelTimerDecisionAttributes,
     -- | Specifies the type of the decision.
     decisionType :: DecisionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Decision' with all optional fields omitted.
@@ -316,153 +315,146 @@ newDecision ::
 newDecision pDecisionType_ =
   Decision'
     { completeWorkflowExecutionDecisionAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       startChildWorkflowExecutionDecisionAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       requestCancelExternalWorkflowExecutionDecisionAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       failWorkflowExecutionDecisionAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       cancelWorkflowExecutionDecisionAttributes =
-        Prelude.Nothing,
-      startTimerDecisionAttributes = Prelude.Nothing,
+        Core.Nothing,
+      startTimerDecisionAttributes = Core.Nothing,
       requestCancelActivityTaskDecisionAttributes =
-        Prelude.Nothing,
-      recordMarkerDecisionAttributes = Prelude.Nothing,
+        Core.Nothing,
+      recordMarkerDecisionAttributes = Core.Nothing,
       signalExternalWorkflowExecutionDecisionAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       scheduleActivityTaskDecisionAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       scheduleLambdaFunctionDecisionAttributes =
-        Prelude.Nothing,
+        Core.Nothing,
       continueAsNewWorkflowExecutionDecisionAttributes =
-        Prelude.Nothing,
-      cancelTimerDecisionAttributes = Prelude.Nothing,
+        Core.Nothing,
+      cancelTimerDecisionAttributes = Core.Nothing,
       decisionType = pDecisionType_
     }
 
 -- | Provides the details of the @CompleteWorkflowExecution@ decision. It
 -- isn\'t set for other decision types.
-decision_completeWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe CompleteWorkflowExecutionDecisionAttributes)
+decision_completeWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe CompleteWorkflowExecutionDecisionAttributes)
 decision_completeWorkflowExecutionDecisionAttributes = Lens.lens (\Decision' {completeWorkflowExecutionDecisionAttributes} -> completeWorkflowExecutionDecisionAttributes) (\s@Decision' {} a -> s {completeWorkflowExecutionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @StartChildWorkflowExecution@ decision. It
 -- isn\'t set for other decision types.
-decision_startChildWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe StartChildWorkflowExecutionDecisionAttributes)
+decision_startChildWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe StartChildWorkflowExecutionDecisionAttributes)
 decision_startChildWorkflowExecutionDecisionAttributes = Lens.lens (\Decision' {startChildWorkflowExecutionDecisionAttributes} -> startChildWorkflowExecutionDecisionAttributes) (\s@Decision' {} a -> s {startChildWorkflowExecutionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @RequestCancelExternalWorkflowExecution@
 -- decision. It isn\'t set for other decision types.
-decision_requestCancelExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
+decision_requestCancelExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes)
 decision_requestCancelExternalWorkflowExecutionDecisionAttributes = Lens.lens (\Decision' {requestCancelExternalWorkflowExecutionDecisionAttributes} -> requestCancelExternalWorkflowExecutionDecisionAttributes) (\s@Decision' {} a -> s {requestCancelExternalWorkflowExecutionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @FailWorkflowExecution@ decision. It isn\'t
 -- set for other decision types.
-decision_failWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe FailWorkflowExecutionDecisionAttributes)
+decision_failWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe FailWorkflowExecutionDecisionAttributes)
 decision_failWorkflowExecutionDecisionAttributes = Lens.lens (\Decision' {failWorkflowExecutionDecisionAttributes} -> failWorkflowExecutionDecisionAttributes) (\s@Decision' {} a -> s {failWorkflowExecutionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @CancelWorkflowExecution@ decision. It
 -- isn\'t set for other decision types.
-decision_cancelWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe CancelWorkflowExecutionDecisionAttributes)
+decision_cancelWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe CancelWorkflowExecutionDecisionAttributes)
 decision_cancelWorkflowExecutionDecisionAttributes = Lens.lens (\Decision' {cancelWorkflowExecutionDecisionAttributes} -> cancelWorkflowExecutionDecisionAttributes) (\s@Decision' {} a -> s {cancelWorkflowExecutionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @StartTimer@ decision. It isn\'t set for
 -- other decision types.
-decision_startTimerDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe StartTimerDecisionAttributes)
+decision_startTimerDecisionAttributes :: Lens.Lens' Decision (Core.Maybe StartTimerDecisionAttributes)
 decision_startTimerDecisionAttributes = Lens.lens (\Decision' {startTimerDecisionAttributes} -> startTimerDecisionAttributes) (\s@Decision' {} a -> s {startTimerDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @RequestCancelActivityTask@ decision. It
 -- isn\'t set for other decision types.
-decision_requestCancelActivityTaskDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe RequestCancelActivityTaskDecisionAttributes)
+decision_requestCancelActivityTaskDecisionAttributes :: Lens.Lens' Decision (Core.Maybe RequestCancelActivityTaskDecisionAttributes)
 decision_requestCancelActivityTaskDecisionAttributes = Lens.lens (\Decision' {requestCancelActivityTaskDecisionAttributes} -> requestCancelActivityTaskDecisionAttributes) (\s@Decision' {} a -> s {requestCancelActivityTaskDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @RecordMarker@ decision. It isn\'t set for
 -- other decision types.
-decision_recordMarkerDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe RecordMarkerDecisionAttributes)
+decision_recordMarkerDecisionAttributes :: Lens.Lens' Decision (Core.Maybe RecordMarkerDecisionAttributes)
 decision_recordMarkerDecisionAttributes = Lens.lens (\Decision' {recordMarkerDecisionAttributes} -> recordMarkerDecisionAttributes) (\s@Decision' {} a -> s {recordMarkerDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @SignalExternalWorkflowExecution@ decision.
 -- It isn\'t set for other decision types.
-decision_signalExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe SignalExternalWorkflowExecutionDecisionAttributes)
+decision_signalExternalWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe SignalExternalWorkflowExecutionDecisionAttributes)
 decision_signalExternalWorkflowExecutionDecisionAttributes = Lens.lens (\Decision' {signalExternalWorkflowExecutionDecisionAttributes} -> signalExternalWorkflowExecutionDecisionAttributes) (\s@Decision' {} a -> s {signalExternalWorkflowExecutionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @ScheduleActivityTask@ decision. It isn\'t
 -- set for other decision types.
-decision_scheduleActivityTaskDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe ScheduleActivityTaskDecisionAttributes)
+decision_scheduleActivityTaskDecisionAttributes :: Lens.Lens' Decision (Core.Maybe ScheduleActivityTaskDecisionAttributes)
 decision_scheduleActivityTaskDecisionAttributes = Lens.lens (\Decision' {scheduleActivityTaskDecisionAttributes} -> scheduleActivityTaskDecisionAttributes) (\s@Decision' {} a -> s {scheduleActivityTaskDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @ScheduleLambdaFunction@ decision. It isn\'t
 -- set for other decision types.
-decision_scheduleLambdaFunctionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe ScheduleLambdaFunctionDecisionAttributes)
+decision_scheduleLambdaFunctionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe ScheduleLambdaFunctionDecisionAttributes)
 decision_scheduleLambdaFunctionDecisionAttributes = Lens.lens (\Decision' {scheduleLambdaFunctionDecisionAttributes} -> scheduleLambdaFunctionDecisionAttributes) (\s@Decision' {} a -> s {scheduleLambdaFunctionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @ContinueAsNewWorkflowExecution@ decision.
 -- It isn\'t set for other decision types.
-decision_continueAsNewWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
+decision_continueAsNewWorkflowExecutionDecisionAttributes :: Lens.Lens' Decision (Core.Maybe ContinueAsNewWorkflowExecutionDecisionAttributes)
 decision_continueAsNewWorkflowExecutionDecisionAttributes = Lens.lens (\Decision' {continueAsNewWorkflowExecutionDecisionAttributes} -> continueAsNewWorkflowExecutionDecisionAttributes) (\s@Decision' {} a -> s {continueAsNewWorkflowExecutionDecisionAttributes = a} :: Decision)
 
 -- | Provides the details of the @CancelTimer@ decision. It isn\'t set for
 -- other decision types.
-decision_cancelTimerDecisionAttributes :: Lens.Lens' Decision (Prelude.Maybe CancelTimerDecisionAttributes)
+decision_cancelTimerDecisionAttributes :: Lens.Lens' Decision (Core.Maybe CancelTimerDecisionAttributes)
 decision_cancelTimerDecisionAttributes = Lens.lens (\Decision' {cancelTimerDecisionAttributes} -> cancelTimerDecisionAttributes) (\s@Decision' {} a -> s {cancelTimerDecisionAttributes = a} :: Decision)
 
 -- | Specifies the type of the decision.
 decision_decisionType :: Lens.Lens' Decision DecisionType
 decision_decisionType = Lens.lens (\Decision' {decisionType} -> decisionType) (\s@Decision' {} a -> s {decisionType = a} :: Decision)
 
-instance Prelude.Hashable Decision
+instance Core.Hashable Decision
 
-instance Prelude.NFData Decision
+instance Core.NFData Decision
 
-instance Prelude.ToJSON Decision where
+instance Core.ToJSON Decision where
   toJSON Decision' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
+    Core.object
+      ( Core.catMaybes
           [ ( "completeWorkflowExecutionDecisionAttributes"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> completeWorkflowExecutionDecisionAttributes,
+              Core.<$> completeWorkflowExecutionDecisionAttributes,
             ( "startChildWorkflowExecutionDecisionAttributes"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> startChildWorkflowExecutionDecisionAttributes,
+              Core.<$> startChildWorkflowExecutionDecisionAttributes,
             ( "requestCancelExternalWorkflowExecutionDecisionAttributes"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> requestCancelExternalWorkflowExecutionDecisionAttributes,
-            ( "failWorkflowExecutionDecisionAttributes"
-                Prelude..=
-            )
-              Prelude.<$> failWorkflowExecutionDecisionAttributes,
-            ( "cancelWorkflowExecutionDecisionAttributes"
-                Prelude..=
-            )
-              Prelude.<$> cancelWorkflowExecutionDecisionAttributes,
-            ("startTimerDecisionAttributes" Prelude..=)
-              Prelude.<$> startTimerDecisionAttributes,
+              Core.<$> requestCancelExternalWorkflowExecutionDecisionAttributes,
+            ("failWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> failWorkflowExecutionDecisionAttributes,
+            ("cancelWorkflowExecutionDecisionAttributes" Core..=)
+              Core.<$> cancelWorkflowExecutionDecisionAttributes,
+            ("startTimerDecisionAttributes" Core..=)
+              Core.<$> startTimerDecisionAttributes,
             ( "requestCancelActivityTaskDecisionAttributes"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> requestCancelActivityTaskDecisionAttributes,
-            ("recordMarkerDecisionAttributes" Prelude..=)
-              Prelude.<$> recordMarkerDecisionAttributes,
+              Core.<$> requestCancelActivityTaskDecisionAttributes,
+            ("recordMarkerDecisionAttributes" Core..=)
+              Core.<$> recordMarkerDecisionAttributes,
             ( "signalExternalWorkflowExecutionDecisionAttributes"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> signalExternalWorkflowExecutionDecisionAttributes,
-            ("scheduleActivityTaskDecisionAttributes" Prelude..=)
-              Prelude.<$> scheduleActivityTaskDecisionAttributes,
-            ( "scheduleLambdaFunctionDecisionAttributes"
-                Prelude..=
-            )
-              Prelude.<$> scheduleLambdaFunctionDecisionAttributes,
+              Core.<$> signalExternalWorkflowExecutionDecisionAttributes,
+            ("scheduleActivityTaskDecisionAttributes" Core..=)
+              Core.<$> scheduleActivityTaskDecisionAttributes,
+            ("scheduleLambdaFunctionDecisionAttributes" Core..=)
+              Core.<$> scheduleLambdaFunctionDecisionAttributes,
             ( "continueAsNewWorkflowExecutionDecisionAttributes"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> continueAsNewWorkflowExecutionDecisionAttributes,
-            ("cancelTimerDecisionAttributes" Prelude..=)
-              Prelude.<$> cancelTimerDecisionAttributes,
-            Prelude.Just
-              ("decisionType" Prelude..= decisionType)
+              Core.<$> continueAsNewWorkflowExecutionDecisionAttributes,
+            ("cancelTimerDecisionAttributes" Core..=)
+              Core.<$> cancelTimerDecisionAttributes,
+            Core.Just ("decisionType" Core..= decisionType)
           ]
       )

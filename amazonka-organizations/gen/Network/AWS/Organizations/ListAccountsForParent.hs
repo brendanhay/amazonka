@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,10 +59,9 @@ module Network.AWS.Organizations.ListAccountsForParent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,7 +72,7 @@ data ListAccountsForParent = ListAccountsForParent'
     -- indicates that more output is available. Set this parameter to the value
     -- of the previous call\'s @NextToken@ response to indicate where the
     -- output should continue from.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The total number of results that you want included on each page of the
     -- response. If you do not include this parameter, it defaults to a value
     -- that is specific to the operation. If additional items exist beyond the
@@ -85,12 +83,12 @@ data ListAccountsForParent = ListAccountsForParent'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The unique identifier (ID) for the parent root or organization unit (OU)
     -- whose accounts you want to list.
-    parentId :: Prelude.Text
+    parentId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAccountsForParent' with all optional fields omitted.
@@ -121,12 +119,12 @@ data ListAccountsForParent = ListAccountsForParent'
 -- whose accounts you want to list.
 newListAccountsForParent ::
   -- | 'parentId'
-  Prelude.Text ->
+  Core.Text ->
   ListAccountsForParent
 newListAccountsForParent pParentId_ =
   ListAccountsForParent'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       parentId = pParentId_
     }
 
@@ -135,7 +133,7 @@ newListAccountsForParent pParentId_ =
 -- indicates that more output is available. Set this parameter to the value
 -- of the previous call\'s @NextToken@ response to indicate where the
 -- output should continue from.
-listAccountsForParent_nextToken :: Lens.Lens' ListAccountsForParent (Prelude.Maybe Prelude.Text)
+listAccountsForParent_nextToken :: Lens.Lens' ListAccountsForParent (Core.Maybe Core.Text)
 listAccountsForParent_nextToken = Lens.lens (\ListAccountsForParent' {nextToken} -> nextToken) (\s@ListAccountsForParent' {} a -> s {nextToken = a} :: ListAccountsForParent)
 
 -- | The total number of results that you want included on each page of the
@@ -148,84 +146,82 @@ listAccountsForParent_nextToken = Lens.lens (\ListAccountsForParent' {nextToken}
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listAccountsForParent_maxResults :: Lens.Lens' ListAccountsForParent (Prelude.Maybe Prelude.Natural)
+listAccountsForParent_maxResults :: Lens.Lens' ListAccountsForParent (Core.Maybe Core.Natural)
 listAccountsForParent_maxResults = Lens.lens (\ListAccountsForParent' {maxResults} -> maxResults) (\s@ListAccountsForParent' {} a -> s {maxResults = a} :: ListAccountsForParent)
 
 -- | The unique identifier (ID) for the parent root or organization unit (OU)
 -- whose accounts you want to list.
-listAccountsForParent_parentId :: Lens.Lens' ListAccountsForParent Prelude.Text
+listAccountsForParent_parentId :: Lens.Lens' ListAccountsForParent Core.Text
 listAccountsForParent_parentId = Lens.lens (\ListAccountsForParent' {parentId} -> parentId) (\s@ListAccountsForParent' {} a -> s {parentId = a} :: ListAccountsForParent)
 
-instance Pager.AWSPager ListAccountsForParent where
+instance Core.AWSPager ListAccountsForParent where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listAccountsForParentResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listAccountsForParentResponse_accounts
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAccountsForParent_nextToken
           Lens..~ rs
           Lens.^? listAccountsForParentResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAccountsForParent where
+instance Core.AWSRequest ListAccountsForParent where
   type
-    Rs ListAccountsForParent =
+    AWSResponse ListAccountsForParent =
       ListAccountsForParentResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAccountsForParentResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Accounts" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Accounts" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAccountsForParent
+instance Core.Hashable ListAccountsForParent
 
-instance Prelude.NFData ListAccountsForParent
+instance Core.NFData ListAccountsForParent
 
-instance Prelude.ToHeaders ListAccountsForParent where
+instance Core.ToHeaders ListAccountsForParent where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSOrganizationsV20161128.ListAccountsForParent" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSOrganizationsV20161128.ListAccountsForParent" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAccountsForParent where
+instance Core.ToJSON ListAccountsForParent where
   toJSON ListAccountsForParent' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("ParentId" Prelude..= parentId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("ParentId" Core..= parentId)
           ]
       )
 
-instance Prelude.ToPath ListAccountsForParent where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAccountsForParent where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAccountsForParent where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAccountsForParent where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAccountsForParentResponse' smart constructor.
 data ListAccountsForParentResponse = ListAccountsForParentResponse'
@@ -234,13 +230,13 @@ data ListAccountsForParentResponse = ListAccountsForParentResponse'
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of the accounts in the specified root or OU.
-    accounts :: Prelude.Maybe [Account],
+    accounts :: Core.Maybe [Account],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAccountsForParentResponse' with all optional fields omitted.
@@ -261,13 +257,13 @@ data ListAccountsForParentResponse = ListAccountsForParentResponse'
 -- 'httpStatus', 'listAccountsForParentResponse_httpStatus' - The response's http status code.
 newListAccountsForParentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAccountsForParentResponse
 newListAccountsForParentResponse pHttpStatus_ =
   ListAccountsForParentResponse'
     { nextToken =
-        Prelude.Nothing,
-      accounts = Prelude.Nothing,
+        Core.Nothing,
+      accounts = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -276,15 +272,15 @@ newListAccountsForParentResponse pHttpStatus_ =
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
-listAccountsForParentResponse_nextToken :: Lens.Lens' ListAccountsForParentResponse (Prelude.Maybe Prelude.Text)
+listAccountsForParentResponse_nextToken :: Lens.Lens' ListAccountsForParentResponse (Core.Maybe Core.Text)
 listAccountsForParentResponse_nextToken = Lens.lens (\ListAccountsForParentResponse' {nextToken} -> nextToken) (\s@ListAccountsForParentResponse' {} a -> s {nextToken = a} :: ListAccountsForParentResponse)
 
 -- | A list of the accounts in the specified root or OU.
-listAccountsForParentResponse_accounts :: Lens.Lens' ListAccountsForParentResponse (Prelude.Maybe [Account])
-listAccountsForParentResponse_accounts = Lens.lens (\ListAccountsForParentResponse' {accounts} -> accounts) (\s@ListAccountsForParentResponse' {} a -> s {accounts = a} :: ListAccountsForParentResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAccountsForParentResponse_accounts :: Lens.Lens' ListAccountsForParentResponse (Core.Maybe [Account])
+listAccountsForParentResponse_accounts = Lens.lens (\ListAccountsForParentResponse' {accounts} -> accounts) (\s@ListAccountsForParentResponse' {} a -> s {accounts = a} :: ListAccountsForParentResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAccountsForParentResponse_httpStatus :: Lens.Lens' ListAccountsForParentResponse Prelude.Int
+listAccountsForParentResponse_httpStatus :: Lens.Lens' ListAccountsForParentResponse Core.Int
 listAccountsForParentResponse_httpStatus = Lens.lens (\ListAccountsForParentResponse' {httpStatus} -> httpStatus) (\s@ListAccountsForParentResponse' {} a -> s {httpStatus = a} :: ListAccountsForParentResponse)
 
-instance Prelude.NFData ListAccountsForParentResponse
+instance Core.NFData ListAccountsForParentResponse

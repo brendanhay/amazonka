@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeStar.Types.ProjectStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An indication of whether a project creation or deletion is failed or
 -- successful.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ProjectStatus = ProjectStatus'
   { -- | In the case of a project creation or deletion failure, a reason for the
     -- failure.
-    reason :: Prelude.Maybe Prelude.Text,
+    reason :: Core.Maybe Core.Text,
     -- | The phase of completion for a project creation or deletion.
-    state :: Prelude.Text
+    state :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProjectStatus' with all optional fields omitted.
@@ -50,33 +49,32 @@ data ProjectStatus = ProjectStatus'
 -- 'state', 'projectStatus_state' - The phase of completion for a project creation or deletion.
 newProjectStatus ::
   -- | 'state'
-  Prelude.Text ->
+  Core.Text ->
   ProjectStatus
 newProjectStatus pState_ =
   ProjectStatus'
-    { reason = Prelude.Nothing,
+    { reason = Core.Nothing,
       state = pState_
     }
 
 -- | In the case of a project creation or deletion failure, a reason for the
 -- failure.
-projectStatus_reason :: Lens.Lens' ProjectStatus (Prelude.Maybe Prelude.Text)
+projectStatus_reason :: Lens.Lens' ProjectStatus (Core.Maybe Core.Text)
 projectStatus_reason = Lens.lens (\ProjectStatus' {reason} -> reason) (\s@ProjectStatus' {} a -> s {reason = a} :: ProjectStatus)
 
 -- | The phase of completion for a project creation or deletion.
-projectStatus_state :: Lens.Lens' ProjectStatus Prelude.Text
+projectStatus_state :: Lens.Lens' ProjectStatus Core.Text
 projectStatus_state = Lens.lens (\ProjectStatus' {state} -> state) (\s@ProjectStatus' {} a -> s {state = a} :: ProjectStatus)
 
-instance Prelude.FromJSON ProjectStatus where
+instance Core.FromJSON ProjectStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProjectStatus"
       ( \x ->
           ProjectStatus'
-            Prelude.<$> (x Prelude..:? "reason")
-            Prelude.<*> (x Prelude..: "state")
+            Core.<$> (x Core..:? "reason") Core.<*> (x Core..: "state")
       )
 
-instance Prelude.Hashable ProjectStatus
+instance Core.Hashable ProjectStatus
 
-instance Prelude.NFData ProjectStatus
+instance Core.NFData ProjectStatus

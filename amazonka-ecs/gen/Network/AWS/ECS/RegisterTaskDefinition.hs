@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -79,9 +78,9 @@ module Network.AWS.ECS.RegisterTaskDefinition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -93,7 +92,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    taskRoleArn :: Prelude.Maybe Prelude.Text,
+    taskRoleArn :: Core.Maybe Core.Text,
     -- | The amount of memory (in MiB) used by the task. It can be expressed as
     -- an integer using MiB, for example @1024@, or as a string using GB, for
     -- example @1GB@ or @1 GB@, in a task definition. String values are
@@ -124,7 +123,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --
     -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
     --     Available @cpu@ values: 4096 (4 vCPU)
-    memory :: Prelude.Maybe Prelude.Text,
+    memory :: Core.Maybe Core.Text,
     -- | The process namespace to use for the containers in the task. The valid
     -- values are @host@ or @task@. If @host@ is specified, then all containers
     -- within the tasks that specified the @host@ PID mode on the same
@@ -141,30 +140,30 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --
     -- This parameter is not supported for Windows containers or tasks using
     -- the Fargate launch type.
-    pidMode :: Prelude.Maybe PidMode,
+    pidMode :: Core.Maybe PidMode,
     -- | The task launch type that Amazon ECS should validate the task definition
     -- against. This ensures that the task definition parameters are compatible
     -- with the specified launch type. If no value is specified, it defaults to
     -- @EC2@.
-    requiresCompatibilities :: Prelude.Maybe [Compatibility],
+    requiresCompatibilities :: Core.Maybe [Compatibility],
     -- | The Amazon Resource Name (ARN) of the task execution role that grants
     -- the Amazon ECS container agent permission to make AWS API calls on your
     -- behalf. The task execution IAM role is required depending on the
     -- requirements of your task. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    executionRoleArn :: Prelude.Maybe Prelude.Text,
+    executionRoleArn :: Core.Maybe Core.Text,
     -- | A list of volume definitions in JSON format that containers in your task
     -- may use.
-    volumes :: Prelude.Maybe [Volume],
+    volumes :: Core.Maybe [Volume],
     -- | The Elastic Inference accelerators to use for the containers in the
     -- task.
-    inferenceAccelerators :: Prelude.Maybe [InferenceAccelerator],
+    inferenceAccelerators :: Core.Maybe [InferenceAccelerator],
     -- | An array of placement constraint objects to use for the task. You can
     -- specify a maximum of 10 constraints per task (this limit includes
     -- constraints in the task definition and those specified at runtime).
-    placementConstraints :: Prelude.Maybe [TaskDefinitionPlacementConstraint],
-    proxyConfiguration :: Prelude.Maybe ProxyConfiguration,
+    placementConstraints :: Core.Maybe [TaskDefinitionPlacementConstraint],
+    proxyConfiguration :: Core.Maybe ProxyConfiguration,
     -- | The IPC resource namespace to use for the containers in the task. The
     -- valid values are @host@, @task@, or @none@. If @host@ is specified, then
     -- all containers within the tasks that specified the @host@ IPC mode on
@@ -197,7 +196,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --
     -- This parameter is not supported for Windows containers or tasks using
     -- the Fargate launch type.
-    ipcMode :: Prelude.Maybe IpcMode,
+    ipcMode :: Core.Maybe IpcMode,
     -- | The metadata that you apply to the task definition to help you
     -- categorize and organize them. Each tag consists of a key and an optional
     -- value, both of which you define.
@@ -226,7 +225,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The number of CPU units used by the task. It can be expressed as an
     -- integer using CPU units, for example @1024@, or as a string using vCPUs,
     -- for example @1 vCPU@ or @1 vcpu@, in a task definition. String values
@@ -259,7 +258,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --
     -- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
     --     30720 (30 GB) in increments of 1024 (1 GB)
-    cpu :: Prelude.Maybe Prelude.Text,
+    cpu :: Core.Maybe Core.Text,
     -- | The Docker networking mode to use for the containers in the task. The
     -- valid values are @none@, @bridge@, @awsvpc@, and @host@. If no network
     -- mode is specified, the default is @bridge@.
@@ -307,17 +306,17 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- For more information, see
     -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
     -- in the /Docker run reference/.
-    networkMode :: Prelude.Maybe NetworkMode,
+    networkMode :: Core.Maybe NetworkMode,
     -- | You must specify a @family@ for a task definition, which allows you to
     -- track multiple versions of the same task definition. The @family@ is
     -- used as a name for your task definition. Up to 255 letters (uppercase
     -- and lowercase), numbers, and hyphens are allowed.
-    family :: Prelude.Text,
+    family :: Core.Text,
     -- | A list of container definitions in JSON format that describe the
     -- different containers that make up your task.
     containerDefinitions :: [ContainerDefinition]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterTaskDefinition' with all optional fields omitted.
@@ -558,26 +557,25 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- different containers that make up your task.
 newRegisterTaskDefinition ::
   -- | 'family'
-  Prelude.Text ->
+  Core.Text ->
   RegisterTaskDefinition
 newRegisterTaskDefinition pFamily_ =
   RegisterTaskDefinition'
-    { taskRoleArn =
-        Prelude.Nothing,
-      memory = Prelude.Nothing,
-      pidMode = Prelude.Nothing,
-      requiresCompatibilities = Prelude.Nothing,
-      executionRoleArn = Prelude.Nothing,
-      volumes = Prelude.Nothing,
-      inferenceAccelerators = Prelude.Nothing,
-      placementConstraints = Prelude.Nothing,
-      proxyConfiguration = Prelude.Nothing,
-      ipcMode = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      cpu = Prelude.Nothing,
-      networkMode = Prelude.Nothing,
+    { taskRoleArn = Core.Nothing,
+      memory = Core.Nothing,
+      pidMode = Core.Nothing,
+      requiresCompatibilities = Core.Nothing,
+      executionRoleArn = Core.Nothing,
+      volumes = Core.Nothing,
+      inferenceAccelerators = Core.Nothing,
+      placementConstraints = Core.Nothing,
+      proxyConfiguration = Core.Nothing,
+      ipcMode = Core.Nothing,
+      tags = Core.Nothing,
+      cpu = Core.Nothing,
+      networkMode = Core.Nothing,
       family = pFamily_,
-      containerDefinitions = Prelude.mempty
+      containerDefinitions = Core.mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the IAM role that
@@ -586,7 +584,7 @@ newRegisterTaskDefinition pFamily_ =
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-registerTaskDefinition_taskRoleArn :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
+registerTaskDefinition_taskRoleArn :: Lens.Lens' RegisterTaskDefinition (Core.Maybe Core.Text)
 registerTaskDefinition_taskRoleArn = Lens.lens (\RegisterTaskDefinition' {taskRoleArn} -> taskRoleArn) (\s@RegisterTaskDefinition' {} a -> s {taskRoleArn = a} :: RegisterTaskDefinition)
 
 -- | The amount of memory (in MiB) used by the task. It can be expressed as
@@ -619,7 +617,7 @@ registerTaskDefinition_taskRoleArn = Lens.lens (\RegisterTaskDefinition' {taskRo
 --
 -- -   Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) -
 --     Available @cpu@ values: 4096 (4 vCPU)
-registerTaskDefinition_memory :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
+registerTaskDefinition_memory :: Lens.Lens' RegisterTaskDefinition (Core.Maybe Core.Text)
 registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> memory) (\s@RegisterTaskDefinition' {} a -> s {memory = a} :: RegisterTaskDefinition)
 
 -- | The process namespace to use for the containers in the task. The valid
@@ -638,15 +636,15 @@ registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> 
 --
 -- This parameter is not supported for Windows containers or tasks using
 -- the Fargate launch type.
-registerTaskDefinition_pidMode :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe PidMode)
+registerTaskDefinition_pidMode :: Lens.Lens' RegisterTaskDefinition (Core.Maybe PidMode)
 registerTaskDefinition_pidMode = Lens.lens (\RegisterTaskDefinition' {pidMode} -> pidMode) (\s@RegisterTaskDefinition' {} a -> s {pidMode = a} :: RegisterTaskDefinition)
 
 -- | The task launch type that Amazon ECS should validate the task definition
 -- against. This ensures that the task definition parameters are compatible
 -- with the specified launch type. If no value is specified, it defaults to
 -- @EC2@.
-registerTaskDefinition_requiresCompatibilities :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Compatibility])
-registerTaskDefinition_requiresCompatibilities = Lens.lens (\RegisterTaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@RegisterTaskDefinition' {} a -> s {requiresCompatibilities = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerTaskDefinition_requiresCompatibilities :: Lens.Lens' RegisterTaskDefinition (Core.Maybe [Compatibility])
+registerTaskDefinition_requiresCompatibilities = Lens.lens (\RegisterTaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@RegisterTaskDefinition' {} a -> s {requiresCompatibilities = a} :: RegisterTaskDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the task execution role that grants
 -- the Amazon ECS container agent permission to make AWS API calls on your
@@ -654,27 +652,27 @@ registerTaskDefinition_requiresCompatibilities = Lens.lens (\RegisterTaskDefinit
 -- requirements of your task. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-registerTaskDefinition_executionRoleArn :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
+registerTaskDefinition_executionRoleArn :: Lens.Lens' RegisterTaskDefinition (Core.Maybe Core.Text)
 registerTaskDefinition_executionRoleArn = Lens.lens (\RegisterTaskDefinition' {executionRoleArn} -> executionRoleArn) (\s@RegisterTaskDefinition' {} a -> s {executionRoleArn = a} :: RegisterTaskDefinition)
 
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
-registerTaskDefinition_volumes :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Volume])
-registerTaskDefinition_volumes = Lens.lens (\RegisterTaskDefinition' {volumes} -> volumes) (\s@RegisterTaskDefinition' {} a -> s {volumes = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerTaskDefinition_volumes :: Lens.Lens' RegisterTaskDefinition (Core.Maybe [Volume])
+registerTaskDefinition_volumes = Lens.lens (\RegisterTaskDefinition' {volumes} -> volumes) (\s@RegisterTaskDefinition' {} a -> s {volumes = a} :: RegisterTaskDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The Elastic Inference accelerators to use for the containers in the
 -- task.
-registerTaskDefinition_inferenceAccelerators :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [InferenceAccelerator])
-registerTaskDefinition_inferenceAccelerators = Lens.lens (\RegisterTaskDefinition' {inferenceAccelerators} -> inferenceAccelerators) (\s@RegisterTaskDefinition' {} a -> s {inferenceAccelerators = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerTaskDefinition_inferenceAccelerators :: Lens.Lens' RegisterTaskDefinition (Core.Maybe [InferenceAccelerator])
+registerTaskDefinition_inferenceAccelerators = Lens.lens (\RegisterTaskDefinition' {inferenceAccelerators} -> inferenceAccelerators) (\s@RegisterTaskDefinition' {} a -> s {inferenceAccelerators = a} :: RegisterTaskDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of placement constraint objects to use for the task. You can
 -- specify a maximum of 10 constraints per task (this limit includes
 -- constraints in the task definition and those specified at runtime).
-registerTaskDefinition_placementConstraints :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [TaskDefinitionPlacementConstraint])
-registerTaskDefinition_placementConstraints = Lens.lens (\RegisterTaskDefinition' {placementConstraints} -> placementConstraints) (\s@RegisterTaskDefinition' {} a -> s {placementConstraints = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerTaskDefinition_placementConstraints :: Lens.Lens' RegisterTaskDefinition (Core.Maybe [TaskDefinitionPlacementConstraint])
+registerTaskDefinition_placementConstraints = Lens.lens (\RegisterTaskDefinition' {placementConstraints} -> placementConstraints) (\s@RegisterTaskDefinition' {} a -> s {placementConstraints = a} :: RegisterTaskDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-registerTaskDefinition_proxyConfiguration :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe ProxyConfiguration)
+registerTaskDefinition_proxyConfiguration :: Lens.Lens' RegisterTaskDefinition (Core.Maybe ProxyConfiguration)
 registerTaskDefinition_proxyConfiguration = Lens.lens (\RegisterTaskDefinition' {proxyConfiguration} -> proxyConfiguration) (\s@RegisterTaskDefinition' {} a -> s {proxyConfiguration = a} :: RegisterTaskDefinition)
 
 -- | The IPC resource namespace to use for the containers in the task. The
@@ -709,7 +707,7 @@ registerTaskDefinition_proxyConfiguration = Lens.lens (\RegisterTaskDefinition' 
 --
 -- This parameter is not supported for Windows containers or tasks using
 -- the Fargate launch type.
-registerTaskDefinition_ipcMode :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe IpcMode)
+registerTaskDefinition_ipcMode :: Lens.Lens' RegisterTaskDefinition (Core.Maybe IpcMode)
 registerTaskDefinition_ipcMode = Lens.lens (\RegisterTaskDefinition' {ipcMode} -> ipcMode) (\s@RegisterTaskDefinition' {} a -> s {ipcMode = a} :: RegisterTaskDefinition)
 
 -- | The metadata that you apply to the task definition to help you
@@ -740,8 +738,8 @@ registerTaskDefinition_ipcMode = Lens.lens (\RegisterTaskDefinition' {ipcMode} -
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-registerTaskDefinition_tags :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Tag])
-registerTaskDefinition_tags = Lens.lens (\RegisterTaskDefinition' {tags} -> tags) (\s@RegisterTaskDefinition' {} a -> s {tags = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Prelude._Coerce
+registerTaskDefinition_tags :: Lens.Lens' RegisterTaskDefinition (Core.Maybe [Tag])
+registerTaskDefinition_tags = Lens.lens (\RegisterTaskDefinition' {tags} -> tags) (\s@RegisterTaskDefinition' {} a -> s {tags = a} :: RegisterTaskDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of CPU units used by the task. It can be expressed as an
 -- integer using CPU units, for example @1024@, or as a string using vCPUs,
@@ -775,7 +773,7 @@ registerTaskDefinition_tags = Lens.lens (\RegisterTaskDefinition' {tags} -> tags
 --
 -- -   4096 (4 vCPU) - Available @memory@ values: Between 8192 (8 GB) and
 --     30720 (30 GB) in increments of 1024 (1 GB)
-registerTaskDefinition_cpu :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe Prelude.Text)
+registerTaskDefinition_cpu :: Lens.Lens' RegisterTaskDefinition (Core.Maybe Core.Text)
 registerTaskDefinition_cpu = Lens.lens (\RegisterTaskDefinition' {cpu} -> cpu) (\s@RegisterTaskDefinition' {} a -> s {cpu = a} :: RegisterTaskDefinition)
 
 -- | The Docker networking mode to use for the containers in the task. The
@@ -825,100 +823,98 @@ registerTaskDefinition_cpu = Lens.lens (\RegisterTaskDefinition' {cpu} -> cpu) (
 -- For more information, see
 -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
 -- in the /Docker run reference/.
-registerTaskDefinition_networkMode :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe NetworkMode)
+registerTaskDefinition_networkMode :: Lens.Lens' RegisterTaskDefinition (Core.Maybe NetworkMode)
 registerTaskDefinition_networkMode = Lens.lens (\RegisterTaskDefinition' {networkMode} -> networkMode) (\s@RegisterTaskDefinition' {} a -> s {networkMode = a} :: RegisterTaskDefinition)
 
 -- | You must specify a @family@ for a task definition, which allows you to
 -- track multiple versions of the same task definition. The @family@ is
 -- used as a name for your task definition. Up to 255 letters (uppercase
 -- and lowercase), numbers, and hyphens are allowed.
-registerTaskDefinition_family :: Lens.Lens' RegisterTaskDefinition Prelude.Text
+registerTaskDefinition_family :: Lens.Lens' RegisterTaskDefinition Core.Text
 registerTaskDefinition_family = Lens.lens (\RegisterTaskDefinition' {family} -> family) (\s@RegisterTaskDefinition' {} a -> s {family = a} :: RegisterTaskDefinition)
 
 -- | A list of container definitions in JSON format that describe the
 -- different containers that make up your task.
 registerTaskDefinition_containerDefinitions :: Lens.Lens' RegisterTaskDefinition [ContainerDefinition]
-registerTaskDefinition_containerDefinitions = Lens.lens (\RegisterTaskDefinition' {containerDefinitions} -> containerDefinitions) (\s@RegisterTaskDefinition' {} a -> s {containerDefinitions = a} :: RegisterTaskDefinition) Prelude.. Prelude._Coerce
+registerTaskDefinition_containerDefinitions = Lens.lens (\RegisterTaskDefinition' {containerDefinitions} -> containerDefinitions) (\s@RegisterTaskDefinition' {} a -> s {containerDefinitions = a} :: RegisterTaskDefinition) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RegisterTaskDefinition where
+instance Core.AWSRequest RegisterTaskDefinition where
   type
-    Rs RegisterTaskDefinition =
+    AWSResponse RegisterTaskDefinition =
       RegisterTaskDefinitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterTaskDefinitionResponse'
-            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "taskDefinition")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "taskDefinition")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterTaskDefinition
+instance Core.Hashable RegisterTaskDefinition
 
-instance Prelude.NFData RegisterTaskDefinition
+instance Core.NFData RegisterTaskDefinition
 
-instance Prelude.ToHeaders RegisterTaskDefinition where
+instance Core.ToHeaders RegisterTaskDefinition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterTaskDefinition where
+instance Core.ToJSON RegisterTaskDefinition where
   toJSON RegisterTaskDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("taskRoleArn" Prelude..=) Prelude.<$> taskRoleArn,
-            ("memory" Prelude..=) Prelude.<$> memory,
-            ("pidMode" Prelude..=) Prelude.<$> pidMode,
-            ("requiresCompatibilities" Prelude..=)
-              Prelude.<$> requiresCompatibilities,
-            ("executionRoleArn" Prelude..=)
-              Prelude.<$> executionRoleArn,
-            ("volumes" Prelude..=) Prelude.<$> volumes,
-            ("inferenceAccelerators" Prelude..=)
-              Prelude.<$> inferenceAccelerators,
-            ("placementConstraints" Prelude..=)
-              Prelude.<$> placementConstraints,
-            ("proxyConfiguration" Prelude..=)
-              Prelude.<$> proxyConfiguration,
-            ("ipcMode" Prelude..=) Prelude.<$> ipcMode,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("cpu" Prelude..=) Prelude.<$> cpu,
-            ("networkMode" Prelude..=) Prelude.<$> networkMode,
-            Prelude.Just ("family" Prelude..= family),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("taskRoleArn" Core..=) Core.<$> taskRoleArn,
+            ("memory" Core..=) Core.<$> memory,
+            ("pidMode" Core..=) Core.<$> pidMode,
+            ("requiresCompatibilities" Core..=)
+              Core.<$> requiresCompatibilities,
+            ("executionRoleArn" Core..=)
+              Core.<$> executionRoleArn,
+            ("volumes" Core..=) Core.<$> volumes,
+            ("inferenceAccelerators" Core..=)
+              Core.<$> inferenceAccelerators,
+            ("placementConstraints" Core..=)
+              Core.<$> placementConstraints,
+            ("proxyConfiguration" Core..=)
+              Core.<$> proxyConfiguration,
+            ("ipcMode" Core..=) Core.<$> ipcMode,
+            ("tags" Core..=) Core.<$> tags,
+            ("cpu" Core..=) Core.<$> cpu,
+            ("networkMode" Core..=) Core.<$> networkMode,
+            Core.Just ("family" Core..= family),
+            Core.Just
               ( "containerDefinitions"
-                  Prelude..= containerDefinitions
+                  Core..= containerDefinitions
               )
           ]
       )
 
-instance Prelude.ToPath RegisterTaskDefinition where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterTaskDefinition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterTaskDefinition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterTaskDefinition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterTaskDefinitionResponse' smart constructor.
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
   { -- | The list of tags associated with the task definition.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The full description of the registered task definition.
-    taskDefinition :: Prelude.Maybe TaskDefinition,
+    taskDefinition :: Core.Maybe TaskDefinition,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterTaskDefinitionResponse' with all optional fields omitted.
@@ -935,28 +931,26 @@ data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
 -- 'httpStatus', 'registerTaskDefinitionResponse_httpStatus' - The response's http status code.
 newRegisterTaskDefinitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterTaskDefinitionResponse
 newRegisterTaskDefinitionResponse pHttpStatus_ =
   RegisterTaskDefinitionResponse'
     { tags =
-        Prelude.Nothing,
-      taskDefinition = Prelude.Nothing,
+        Core.Nothing,
+      taskDefinition = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The list of tags associated with the task definition.
-registerTaskDefinitionResponse_tags :: Lens.Lens' RegisterTaskDefinitionResponse (Prelude.Maybe [Tag])
-registerTaskDefinitionResponse_tags = Lens.lens (\RegisterTaskDefinitionResponse' {tags} -> tags) (\s@RegisterTaskDefinitionResponse' {} a -> s {tags = a} :: RegisterTaskDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+registerTaskDefinitionResponse_tags :: Lens.Lens' RegisterTaskDefinitionResponse (Core.Maybe [Tag])
+registerTaskDefinitionResponse_tags = Lens.lens (\RegisterTaskDefinitionResponse' {tags} -> tags) (\s@RegisterTaskDefinitionResponse' {} a -> s {tags = a} :: RegisterTaskDefinitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The full description of the registered task definition.
-registerTaskDefinitionResponse_taskDefinition :: Lens.Lens' RegisterTaskDefinitionResponse (Prelude.Maybe TaskDefinition)
+registerTaskDefinitionResponse_taskDefinition :: Lens.Lens' RegisterTaskDefinitionResponse (Core.Maybe TaskDefinition)
 registerTaskDefinitionResponse_taskDefinition = Lens.lens (\RegisterTaskDefinitionResponse' {taskDefinition} -> taskDefinition) (\s@RegisterTaskDefinitionResponse' {} a -> s {taskDefinition = a} :: RegisterTaskDefinitionResponse)
 
 -- | The response's http status code.
-registerTaskDefinitionResponse_httpStatus :: Lens.Lens' RegisterTaskDefinitionResponse Prelude.Int
+registerTaskDefinitionResponse_httpStatus :: Lens.Lens' RegisterTaskDefinitionResponse Core.Int
 registerTaskDefinitionResponse_httpStatus = Lens.lens (\RegisterTaskDefinitionResponse' {httpStatus} -> httpStatus) (\s@RegisterTaskDefinitionResponse' {} a -> s {httpStatus = a} :: RegisterTaskDefinitionResponse)
 
-instance
-  Prelude.NFData
-    RegisterTaskDefinitionResponse
+instance Core.NFData RegisterTaskDefinitionResponse

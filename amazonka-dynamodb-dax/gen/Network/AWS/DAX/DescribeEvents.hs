@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,10 +54,9 @@ module Network.AWS.DAX.DescribeEvents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DAX.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,29 +66,29 @@ data DescribeEvents = DescribeEvents'
     -- pagination of results from this action. If this parameter is specified,
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The number of minutes\' worth of events to retrieve.
-    duration :: Prelude.Maybe Prelude.Int,
+    duration :: Core.Maybe Core.Int,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The beginning of the time interval to retrieve events for, specified in
     -- ISO 8601 format.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The identifier of the event source for which events will be returned. If
     -- not specified, then all sources are included in the response.
-    sourceName :: Prelude.Maybe Prelude.Text,
+    sourceName :: Core.Maybe Core.Text,
     -- | The end of the time interval for which to retrieve events, specified in
     -- ISO 8601 format.
-    endTime :: Prelude.Maybe Prelude.POSIX,
+    endTime :: Core.Maybe Core.POSIX,
     -- | The event source to retrieve events for. If no value is specified, all
     -- events are returned.
-    sourceType :: Prelude.Maybe SourceType
+    sourceType :: Core.Maybe SourceType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEvents' with all optional fields omitted.
@@ -128,24 +126,24 @@ newDescribeEvents ::
   DescribeEvents
 newDescribeEvents =
   DescribeEvents'
-    { nextToken = Prelude.Nothing,
-      duration = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      sourceName = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      sourceType = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      duration = Core.Nothing,
+      maxResults = Core.Nothing,
+      startTime = Core.Nothing,
+      sourceName = Core.Nothing,
+      endTime = Core.Nothing,
+      sourceType = Core.Nothing
     }
 
 -- | An optional token returned from a prior request. Use this token for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
-describeEvents_nextToken :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_nextToken :: Lens.Lens' DescribeEvents (Core.Maybe Core.Text)
 describeEvents_nextToken = Lens.lens (\DescribeEvents' {nextToken} -> nextToken) (\s@DescribeEvents' {} a -> s {nextToken = a} :: DescribeEvents)
 
 -- | The number of minutes\' worth of events to retrieve.
-describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_duration :: Lens.Lens' DescribeEvents (Core.Maybe Core.Int)
 describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
 
 -- | The maximum number of results to include in the response. If more
@@ -153,108 +151,107 @@ describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
-describeEvents_maxResults :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_maxResults :: Lens.Lens' DescribeEvents (Core.Maybe Core.Int)
 describeEvents_maxResults = Lens.lens (\DescribeEvents' {maxResults} -> maxResults) (\s@DescribeEvents' {} a -> s {maxResults = a} :: DescribeEvents)
 
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format.
-describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Time
+describeEvents_startTime :: Lens.Lens' DescribeEvents (Core.Maybe Core.UTCTime)
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Core.. Lens.mapping Core._Time
 
 -- | The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
-describeEvents_sourceName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_sourceName :: Lens.Lens' DescribeEvents (Core.Maybe Core.Text)
 describeEvents_sourceName = Lens.lens (\DescribeEvents' {sourceName} -> sourceName) (\s@DescribeEvents' {} a -> s {sourceName = a} :: DescribeEvents)
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format.
-describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Time
+describeEvents_endTime :: Lens.Lens' DescribeEvents (Core.Maybe Core.UTCTime)
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Core.. Lens.mapping Core._Time
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
-describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
+describeEvents_sourceType :: Lens.Lens' DescribeEvents (Core.Maybe SourceType)
 describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
 
-instance Pager.AWSPager DescribeEvents where
+instance Core.AWSPager DescribeEvents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? describeEventsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeEventsResponse_events Prelude.. Lens._Just
+            Lens.^? describeEventsResponse_events Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeEvents_nextToken
           Lens..~ rs
-          Lens.^? describeEventsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeEventsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeEvents where
-  type Rs DescribeEvents = DescribeEventsResponse
+instance Core.AWSRequest DescribeEvents where
+  type
+    AWSResponse DescribeEvents =
+      DescribeEventsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Events" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Events" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEvents
+instance Core.Hashable DescribeEvents
 
-instance Prelude.NFData DescribeEvents
+instance Core.NFData DescribeEvents
 
-instance Prelude.ToHeaders DescribeEvents where
+instance Core.ToHeaders DescribeEvents where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonDAXV3.DescribeEvents" :: Prelude.ByteString),
+              Core.=# ("AmazonDAXV3.DescribeEvents" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeEvents where
+instance Core.ToJSON DescribeEvents where
   toJSON DescribeEvents' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Duration" Prelude..=) Prelude.<$> duration,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("StartTime" Prelude..=) Prelude.<$> startTime,
-            ("SourceName" Prelude..=) Prelude.<$> sourceName,
-            ("EndTime" Prelude..=) Prelude.<$> endTime,
-            ("SourceType" Prelude..=) Prelude.<$> sourceType
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Duration" Core..=) Core.<$> duration,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("StartTime" Core..=) Core.<$> startTime,
+            ("SourceName" Core..=) Core.<$> sourceName,
+            ("EndTime" Core..=) Core.<$> endTime,
+            ("SourceType" Core..=) Core.<$> sourceType
           ]
       )
 
-instance Prelude.ToPath DescribeEvents where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEvents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEvents where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeEvents where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
   { -- | Provides an identifier to allow retrieval of paginated results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of events. Each element in the array represents one event.
-    events :: Prelude.Maybe [Event],
+    events :: Core.Maybe [Event],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventsResponse' with all optional fields omitted.
@@ -271,26 +268,25 @@ data DescribeEventsResponse = DescribeEventsResponse'
 -- 'httpStatus', 'describeEventsResponse_httpStatus' - The response's http status code.
 newDescribeEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventsResponse
 newDescribeEventsResponse pHttpStatus_ =
   DescribeEventsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      events = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      events = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeEventsResponse_nextToken :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe Prelude.Text)
+describeEventsResponse_nextToken :: Lens.Lens' DescribeEventsResponse (Core.Maybe Core.Text)
 describeEventsResponse_nextToken = Lens.lens (\DescribeEventsResponse' {nextToken} -> nextToken) (\s@DescribeEventsResponse' {} a -> s {nextToken = a} :: DescribeEventsResponse)
 
 -- | An array of events. Each element in the array represents one event.
-describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [Event])
-describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Core.Maybe [Event])
+describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int
+describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Core.Int
 describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsResponse' {} a -> s {httpStatus = a} :: DescribeEventsResponse)
 
-instance Prelude.NFData DescribeEventsResponse
+instance Core.NFData DescribeEventsResponse

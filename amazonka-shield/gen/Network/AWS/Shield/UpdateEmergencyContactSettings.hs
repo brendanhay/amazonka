@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Shield.UpdateEmergencyContactSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -56,9 +55,9 @@ data UpdateEmergencyContactSettings = UpdateEmergencyContactSettings'
     --
     -- If you have proactive engagement enabled, the contact list must include
     -- at least one phone number.
-    emergencyContactList :: Prelude.Maybe [EmergencyContact]
+    emergencyContactList :: Core.Maybe [EmergencyContact]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEmergencyContactSettings' with all optional fields omitted.
@@ -79,7 +78,7 @@ newUpdateEmergencyContactSettings ::
 newUpdateEmergencyContactSettings =
   UpdateEmergencyContactSettings'
     { emergencyContactList =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A list of email addresses and phone numbers that the DDoS Response Team
@@ -88,80 +87,65 @@ newUpdateEmergencyContactSettings =
 --
 -- If you have proactive engagement enabled, the contact list must include
 -- at least one phone number.
-updateEmergencyContactSettings_emergencyContactList :: Lens.Lens' UpdateEmergencyContactSettings (Prelude.Maybe [EmergencyContact])
-updateEmergencyContactSettings_emergencyContactList = Lens.lens (\UpdateEmergencyContactSettings' {emergencyContactList} -> emergencyContactList) (\s@UpdateEmergencyContactSettings' {} a -> s {emergencyContactList = a} :: UpdateEmergencyContactSettings) Prelude.. Lens.mapping Prelude._Coerce
+updateEmergencyContactSettings_emergencyContactList :: Lens.Lens' UpdateEmergencyContactSettings (Core.Maybe [EmergencyContact])
+updateEmergencyContactSettings_emergencyContactList = Lens.lens (\UpdateEmergencyContactSettings' {emergencyContactList} -> emergencyContactList) (\s@UpdateEmergencyContactSettings' {} a -> s {emergencyContactList = a} :: UpdateEmergencyContactSettings) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateEmergencyContactSettings
   where
   type
-    Rs UpdateEmergencyContactSettings =
+    AWSResponse UpdateEmergencyContactSettings =
       UpdateEmergencyContactSettingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEmergencyContactSettingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    UpdateEmergencyContactSettings
+instance Core.Hashable UpdateEmergencyContactSettings
+
+instance Core.NFData UpdateEmergencyContactSettings
 
 instance
-  Prelude.NFData
-    UpdateEmergencyContactSettings
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateEmergencyContactSettings
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.UpdateEmergencyContactSettings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.UpdateEmergencyContactSettings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateEmergencyContactSettings
-  where
+instance Core.ToJSON UpdateEmergencyContactSettings where
   toJSON UpdateEmergencyContactSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EmergencyContactList" Prelude..=)
-              Prelude.<$> emergencyContactList
+    Core.object
+      ( Core.catMaybes
+          [ ("EmergencyContactList" Core..=)
+              Core.<$> emergencyContactList
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateEmergencyContactSettings
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateEmergencyContactSettings where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    UpdateEmergencyContactSettings
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateEmergencyContactSettings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateEmergencyContactSettingsResponse' smart constructor.
 data UpdateEmergencyContactSettingsResponse = UpdateEmergencyContactSettingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateEmergencyContactSettingsResponse' with all optional fields omitted.
@@ -174,7 +158,7 @@ data UpdateEmergencyContactSettingsResponse = UpdateEmergencyContactSettingsResp
 -- 'httpStatus', 'updateEmergencyContactSettingsResponse_httpStatus' - The response's http status code.
 newUpdateEmergencyContactSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateEmergencyContactSettingsResponse
 newUpdateEmergencyContactSettingsResponse
   pHttpStatus_ =
@@ -184,9 +168,9 @@ newUpdateEmergencyContactSettingsResponse
       }
 
 -- | The response's http status code.
-updateEmergencyContactSettingsResponse_httpStatus :: Lens.Lens' UpdateEmergencyContactSettingsResponse Prelude.Int
+updateEmergencyContactSettingsResponse_httpStatus :: Lens.Lens' UpdateEmergencyContactSettingsResponse Core.Int
 updateEmergencyContactSettingsResponse_httpStatus = Lens.lens (\UpdateEmergencyContactSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateEmergencyContactSettingsResponse' {} a -> s {httpStatus = a} :: UpdateEmergencyContactSettingsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateEmergencyContactSettingsResponse

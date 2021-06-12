@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,18 +43,18 @@ module Network.AWS.OpsWorks.UnassignVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUnassignVolume' smart constructor.
 data UnassignVolume = UnassignVolume'
   { -- | The volume ID.
-    volumeId :: Prelude.Text
+    volumeId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignVolume' with all optional fields omitted.
@@ -68,58 +67,58 @@ data UnassignVolume = UnassignVolume'
 -- 'volumeId', 'unassignVolume_volumeId' - The volume ID.
 newUnassignVolume ::
   -- | 'volumeId'
-  Prelude.Text ->
+  Core.Text ->
   UnassignVolume
 newUnassignVolume pVolumeId_ =
   UnassignVolume' {volumeId = pVolumeId_}
 
 -- | The volume ID.
-unassignVolume_volumeId :: Lens.Lens' UnassignVolume Prelude.Text
+unassignVolume_volumeId :: Lens.Lens' UnassignVolume Core.Text
 unassignVolume_volumeId = Lens.lens (\UnassignVolume' {volumeId} -> volumeId) (\s@UnassignVolume' {} a -> s {volumeId = a} :: UnassignVolume)
 
-instance Prelude.AWSRequest UnassignVolume where
-  type Rs UnassignVolume = UnassignVolumeResponse
+instance Core.AWSRequest UnassignVolume where
+  type
+    AWSResponse UnassignVolume =
+      UnassignVolumeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UnassignVolumeResponse'
 
-instance Prelude.Hashable UnassignVolume
+instance Core.Hashable UnassignVolume
 
-instance Prelude.NFData UnassignVolume
+instance Core.NFData UnassignVolume
 
-instance Prelude.ToHeaders UnassignVolume where
+instance Core.ToHeaders UnassignVolume where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.UnassignVolume" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.UnassignVolume" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UnassignVolume where
+instance Core.ToJSON UnassignVolume where
   toJSON UnassignVolume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("VolumeId" Prelude..= volumeId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("VolumeId" Core..= volumeId)]
       )
 
-instance Prelude.ToPath UnassignVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath UnassignVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UnassignVolume where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UnassignVolume where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUnassignVolumeResponse' smart constructor.
 data UnassignVolumeResponse = UnassignVolumeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignVolumeResponse' with all optional fields omitted.
@@ -129,4 +128,4 @@ newUnassignVolumeResponse ::
   UnassignVolumeResponse
 newUnassignVolumeResponse = UnassignVolumeResponse'
 
-instance Prelude.NFData UnassignVolumeResponse
+instance Core.NFData UnassignVolumeResponse

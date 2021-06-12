@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.LexRuntime.GetSession
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexRuntime.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,16 +59,16 @@ data GetSession = GetSession'
     --
     -- When you specify a filter, only intents with their @checkpointLabel@
     -- field set to that string are returned.
-    checkpointLabelFilter :: Prelude.Maybe Prelude.Text,
+    checkpointLabelFilter :: Core.Maybe Core.Text,
     -- | The name of the bot that contains the session data.
-    botName :: Prelude.Text,
+    botName :: Core.Text,
     -- | The alias in use for the bot that contains the session data.
-    botAlias :: Prelude.Text,
+    botAlias :: Core.Text,
     -- | The ID of the client application user. Amazon Lex uses this to identify
     -- a user\'s conversation with your bot.
-    userId :: Prelude.Text
+    userId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSession' with all optional fields omitted.
@@ -93,16 +92,15 @@ data GetSession = GetSession'
 -- a user\'s conversation with your bot.
 newGetSession ::
   -- | 'botName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'botAlias'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userId'
-  Prelude.Text ->
+  Core.Text ->
   GetSession
 newGetSession pBotName_ pBotAlias_ pUserId_ =
   GetSession'
-    { checkpointLabelFilter =
-        Prelude.Nothing,
+    { checkpointLabelFilter = Core.Nothing,
       botName = pBotName_,
       botAlias = pBotAlias_,
       userId = pUserId_
@@ -113,75 +111,69 @@ newGetSession pBotName_ pBotAlias_ pUserId_ =
 --
 -- When you specify a filter, only intents with their @checkpointLabel@
 -- field set to that string are returned.
-getSession_checkpointLabelFilter :: Lens.Lens' GetSession (Prelude.Maybe Prelude.Text)
+getSession_checkpointLabelFilter :: Lens.Lens' GetSession (Core.Maybe Core.Text)
 getSession_checkpointLabelFilter = Lens.lens (\GetSession' {checkpointLabelFilter} -> checkpointLabelFilter) (\s@GetSession' {} a -> s {checkpointLabelFilter = a} :: GetSession)
 
 -- | The name of the bot that contains the session data.
-getSession_botName :: Lens.Lens' GetSession Prelude.Text
+getSession_botName :: Lens.Lens' GetSession Core.Text
 getSession_botName = Lens.lens (\GetSession' {botName} -> botName) (\s@GetSession' {} a -> s {botName = a} :: GetSession)
 
 -- | The alias in use for the bot that contains the session data.
-getSession_botAlias :: Lens.Lens' GetSession Prelude.Text
+getSession_botAlias :: Lens.Lens' GetSession Core.Text
 getSession_botAlias = Lens.lens (\GetSession' {botAlias} -> botAlias) (\s@GetSession' {} a -> s {botAlias = a} :: GetSession)
 
 -- | The ID of the client application user. Amazon Lex uses this to identify
 -- a user\'s conversation with your bot.
-getSession_userId :: Lens.Lens' GetSession Prelude.Text
+getSession_userId :: Lens.Lens' GetSession Core.Text
 getSession_userId = Lens.lens (\GetSession' {userId} -> userId) (\s@GetSession' {} a -> s {userId = a} :: GetSession)
 
-instance Prelude.AWSRequest GetSession where
-  type Rs GetSession = GetSessionResponse
+instance Core.AWSRequest GetSession where
+  type AWSResponse GetSession = GetSessionResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSessionResponse'
-            Prelude.<$> ( x Prelude..?> "sessionAttributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "dialogAction")
-            Prelude.<*> (x Prelude..?> "sessionId")
-            Prelude.<*> ( x Prelude..?> "recentIntentSummaryView"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..?> "activeContexts"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "sessionAttributes" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "dialogAction")
+            Core.<*> (x Core..?> "sessionId")
+            Core.<*> ( x Core..?> "recentIntentSummaryView"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "activeContexts" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSession
+instance Core.Hashable GetSession
 
-instance Prelude.NFData GetSession
+instance Core.NFData GetSession
 
-instance Prelude.ToHeaders GetSession where
+instance Core.ToHeaders GetSession where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetSession where
+instance Core.ToPath GetSession where
   toPath GetSession' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/bot/",
-        Prelude.toBS botName,
+        Core.toBS botName,
         "/alias/",
-        Prelude.toBS botAlias,
+        Core.toBS botAlias,
         "/user/",
-        Prelude.toBS userId,
+        Core.toBS userId,
         "/session/"
       ]
 
-instance Prelude.ToQuery GetSession where
+instance Core.ToQuery GetSession where
   toQuery GetSession' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "checkpointLabelFilter"
-          Prelude.=: checkpointLabelFilter
+          Core.=: checkpointLabelFilter
       ]
 
 -- | /See:/ 'newGetSessionResponse' smart constructor.
@@ -189,11 +181,11 @@ data GetSessionResponse = GetSessionResponse'
   { -- | Map of key\/value pairs representing the session-specific context
     -- information. It contains application information passed between Amazon
     -- Lex and a client application.
-    sessionAttributes :: Prelude.Maybe (Prelude.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    sessionAttributes :: Core.Maybe (Core.Sensitive (Core.HashMap Core.Text Core.Text)),
     -- | Describes the current state of the bot.
-    dialogAction :: Prelude.Maybe DialogAction,
+    dialogAction :: Core.Maybe DialogAction,
     -- | A unique identifier for the session.
-    sessionId :: Prelude.Maybe Prelude.Text,
+    sessionId :: Core.Maybe Core.Text,
     -- | An array of information about the intents used in the session. The array
     -- can contain a maximum of three summaries. If more than three intents are
     -- used in the session, the @recentIntentSummaryView@ operation contains
@@ -201,18 +193,18 @@ data GetSessionResponse = GetSessionResponse'
     --
     -- If you set the @checkpointLabelFilter@ parameter in the request, the
     -- array contains only the intents with the specified label.
-    recentIntentSummaryView :: Prelude.Maybe [IntentSummary],
+    recentIntentSummaryView :: Core.Maybe [IntentSummary],
     -- | A list of active contexts for the session. A context can be set when an
     -- intent is fulfilled or by calling the @PostContent@, @PostText@, or
     -- @PutSession@ operation.
     --
     -- You can use a context to control the intents that can follow up an
     -- intent, or to modify the operation of your application.
-    activeContexts :: Prelude.Maybe (Prelude.Sensitive [ActiveContext]),
+    activeContexts :: Core.Maybe (Core.Sensitive [ActiveContext]),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSessionResponse' with all optional fields omitted.
@@ -248,31 +240,31 @@ data GetSessionResponse = GetSessionResponse'
 -- 'httpStatus', 'getSessionResponse_httpStatus' - The response's http status code.
 newGetSessionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSessionResponse
 newGetSessionResponse pHttpStatus_ =
   GetSessionResponse'
     { sessionAttributes =
-        Prelude.Nothing,
-      dialogAction = Prelude.Nothing,
-      sessionId = Prelude.Nothing,
-      recentIntentSummaryView = Prelude.Nothing,
-      activeContexts = Prelude.Nothing,
+        Core.Nothing,
+      dialogAction = Core.Nothing,
+      sessionId = Core.Nothing,
+      recentIntentSummaryView = Core.Nothing,
+      activeContexts = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Map of key\/value pairs representing the session-specific context
 -- information. It contains application information passed between Amazon
 -- Lex and a client application.
-getSessionResponse_sessionAttributes :: Lens.Lens' GetSessionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSessionResponse_sessionAttributes = Lens.lens (\GetSessionResponse' {sessionAttributes} -> sessionAttributes) (\s@GetSessionResponse' {} a -> s {sessionAttributes = a} :: GetSessionResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+getSessionResponse_sessionAttributes :: Lens.Lens' GetSessionResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getSessionResponse_sessionAttributes = Lens.lens (\GetSessionResponse' {sessionAttributes} -> sessionAttributes) (\s@GetSessionResponse' {} a -> s {sessionAttributes = a} :: GetSessionResponse) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | Describes the current state of the bot.
-getSessionResponse_dialogAction :: Lens.Lens' GetSessionResponse (Prelude.Maybe DialogAction)
+getSessionResponse_dialogAction :: Lens.Lens' GetSessionResponse (Core.Maybe DialogAction)
 getSessionResponse_dialogAction = Lens.lens (\GetSessionResponse' {dialogAction} -> dialogAction) (\s@GetSessionResponse' {} a -> s {dialogAction = a} :: GetSessionResponse)
 
 -- | A unique identifier for the session.
-getSessionResponse_sessionId :: Lens.Lens' GetSessionResponse (Prelude.Maybe Prelude.Text)
+getSessionResponse_sessionId :: Lens.Lens' GetSessionResponse (Core.Maybe Core.Text)
 getSessionResponse_sessionId = Lens.lens (\GetSessionResponse' {sessionId} -> sessionId) (\s@GetSessionResponse' {} a -> s {sessionId = a} :: GetSessionResponse)
 
 -- | An array of information about the intents used in the session. The array
@@ -282,8 +274,8 @@ getSessionResponse_sessionId = Lens.lens (\GetSessionResponse' {sessionId} -> se
 --
 -- If you set the @checkpointLabelFilter@ parameter in the request, the
 -- array contains only the intents with the specified label.
-getSessionResponse_recentIntentSummaryView :: Lens.Lens' GetSessionResponse (Prelude.Maybe [IntentSummary])
-getSessionResponse_recentIntentSummaryView = Lens.lens (\GetSessionResponse' {recentIntentSummaryView} -> recentIntentSummaryView) (\s@GetSessionResponse' {} a -> s {recentIntentSummaryView = a} :: GetSessionResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSessionResponse_recentIntentSummaryView :: Lens.Lens' GetSessionResponse (Core.Maybe [IntentSummary])
+getSessionResponse_recentIntentSummaryView = Lens.lens (\GetSessionResponse' {recentIntentSummaryView} -> recentIntentSummaryView) (\s@GetSessionResponse' {} a -> s {recentIntentSummaryView = a} :: GetSessionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of active contexts for the session. A context can be set when an
 -- intent is fulfilled or by calling the @PostContent@, @PostText@, or
@@ -291,11 +283,11 @@ getSessionResponse_recentIntentSummaryView = Lens.lens (\GetSessionResponse' {re
 --
 -- You can use a context to control the intents that can follow up an
 -- intent, or to modify the operation of your application.
-getSessionResponse_activeContexts :: Lens.Lens' GetSessionResponse (Prelude.Maybe [ActiveContext])
-getSessionResponse_activeContexts = Lens.lens (\GetSessionResponse' {activeContexts} -> activeContexts) (\s@GetSessionResponse' {} a -> s {activeContexts = a} :: GetSessionResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Coerce)
+getSessionResponse_activeContexts :: Lens.Lens' GetSessionResponse (Core.Maybe [ActiveContext])
+getSessionResponse_activeContexts = Lens.lens (\GetSessionResponse' {activeContexts} -> activeContexts) (\s@GetSessionResponse' {} a -> s {activeContexts = a} :: GetSessionResponse) Core.. Lens.mapping (Core._Sensitive Core.. Lens._Coerce)
 
 -- | The response's http status code.
-getSessionResponse_httpStatus :: Lens.Lens' GetSessionResponse Prelude.Int
+getSessionResponse_httpStatus :: Lens.Lens' GetSessionResponse Core.Int
 getSessionResponse_httpStatus = Lens.lens (\GetSessionResponse' {httpStatus} -> httpStatus) (\s@GetSessionResponse' {} a -> s {httpStatus = a} :: GetSessionResponse)
 
-instance Prelude.NFData GetSessionResponse
+instance Core.NFData GetSessionResponse

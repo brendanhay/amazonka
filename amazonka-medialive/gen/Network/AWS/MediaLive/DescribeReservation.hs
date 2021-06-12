@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,9 +56,9 @@ module Network.AWS.MediaLive.DescribeReservation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,9 +67,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeReservation' smart constructor.
 data DescribeReservation = DescribeReservation'
   { -- | Unique reservation ID, e.g. \'1234567\'
-    reservationId :: Prelude.Text
+    reservationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservation' with all optional fields omitted.
@@ -83,7 +82,7 @@ data DescribeReservation = DescribeReservation'
 -- 'reservationId', 'describeReservation_reservationId' - Unique reservation ID, e.g. \'1234567\'
 newDescribeReservation ::
   -- | 'reservationId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeReservation
 newDescribeReservation pReservationId_ =
   DescribeReservation'
@@ -92,61 +91,59 @@ newDescribeReservation pReservationId_ =
     }
 
 -- | Unique reservation ID, e.g. \'1234567\'
-describeReservation_reservationId :: Lens.Lens' DescribeReservation Prelude.Text
+describeReservation_reservationId :: Lens.Lens' DescribeReservation Core.Text
 describeReservation_reservationId = Lens.lens (\DescribeReservation' {reservationId} -> reservationId) (\s@DescribeReservation' {} a -> s {reservationId = a} :: DescribeReservation)
 
-instance Prelude.AWSRequest DescribeReservation where
+instance Core.AWSRequest DescribeReservation where
   type
-    Rs DescribeReservation =
+    AWSResponse DescribeReservation =
       DescribeReservationResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeReservationResponse'
-            Prelude.<$> (x Prelude..?> "end")
-            Prelude.<*> (x Prelude..?> "duration")
-            Prelude.<*> (x Prelude..?> "durationUnits")
-            Prelude.<*> (x Prelude..?> "arn")
-            Prelude.<*> (x Prelude..?> "offeringId")
-            Prelude.<*> (x Prelude..?> "currencyCode")
-            Prelude.<*> (x Prelude..?> "resourceSpecification")
-            Prelude.<*> (x Prelude..?> "state")
-            Prelude.<*> (x Prelude..?> "name")
-            Prelude.<*> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "offeringDescription")
-            Prelude.<*> (x Prelude..?> "count")
-            Prelude.<*> (x Prelude..?> "fixedPrice")
-            Prelude.<*> (x Prelude..?> "usagePrice")
-            Prelude.<*> (x Prelude..?> "offeringType")
-            Prelude.<*> (x Prelude..?> "region")
-            Prelude.<*> (x Prelude..?> "start")
-            Prelude.<*> (x Prelude..?> "reservationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "end")
+            Core.<*> (x Core..?> "duration")
+            Core.<*> (x Core..?> "durationUnits")
+            Core.<*> (x Core..?> "arn")
+            Core.<*> (x Core..?> "offeringId")
+            Core.<*> (x Core..?> "currencyCode")
+            Core.<*> (x Core..?> "resourceSpecification")
+            Core.<*> (x Core..?> "state")
+            Core.<*> (x Core..?> "name")
+            Core.<*> (x Core..?> "tags" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "offeringDescription")
+            Core.<*> (x Core..?> "count")
+            Core.<*> (x Core..?> "fixedPrice")
+            Core.<*> (x Core..?> "usagePrice")
+            Core.<*> (x Core..?> "offeringType")
+            Core.<*> (x Core..?> "region")
+            Core.<*> (x Core..?> "start")
+            Core.<*> (x Core..?> "reservationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeReservation
+instance Core.Hashable DescribeReservation
 
-instance Prelude.NFData DescribeReservation
+instance Core.NFData DescribeReservation
 
-instance Prelude.ToHeaders DescribeReservation where
+instance Core.ToHeaders DescribeReservation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DescribeReservation where
+instance Core.ToPath DescribeReservation where
   toPath DescribeReservation' {..} =
-    Prelude.mconcat
-      ["/prod/reservations/", Prelude.toBS reservationId]
+    Core.mconcat
+      ["/prod/reservations/", Core.toBS reservationId]
 
-instance Prelude.ToQuery DescribeReservation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeReservation where
+  toQuery = Core.const Core.mempty
 
 -- | Placeholder documentation for DescribeReservationResponse
 --
@@ -154,50 +151,50 @@ instance Prelude.ToQuery DescribeReservation where
 data DescribeReservationResponse = DescribeReservationResponse'
   { -- | Reservation UTC end date and time in ISO-8601 format, e.g.
     -- \'2019-03-01T00:00:00\'
-    end :: Prelude.Maybe Prelude.Text,
+    end :: Core.Maybe Core.Text,
     -- | Lease duration, e.g. \'12\'
-    duration :: Prelude.Maybe Prelude.Int,
+    duration :: Core.Maybe Core.Int,
     -- | Units for duration, e.g. \'MONTHS\'
-    durationUnits :: Prelude.Maybe OfferingDurationUnits,
+    durationUnits :: Core.Maybe OfferingDurationUnits,
     -- | Unique reservation ARN, e.g.
     -- \'arn:aws:medialive:us-west-2:123456789012:reservation:1234567\'
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | Unique offering ID, e.g. \'87654321\'
-    offeringId :: Prelude.Maybe Prelude.Text,
+    offeringId :: Core.Maybe Core.Text,
     -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
     -- \'USD\'
-    currencyCode :: Prelude.Maybe Prelude.Text,
+    currencyCode :: Core.Maybe Core.Text,
     -- | Resource configuration details
-    resourceSpecification :: Prelude.Maybe ReservationResourceSpecification,
+    resourceSpecification :: Core.Maybe ReservationResourceSpecification,
     -- | Current state of reservation, e.g. \'ACTIVE\'
-    state :: Prelude.Maybe ReservationState,
+    state :: Core.Maybe ReservationState,
     -- | User specified reservation name
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A collection of key-value pairs
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
     -- standard VQ in US West (Oregon)\'
-    offeringDescription :: Prelude.Maybe Prelude.Text,
+    offeringDescription :: Core.Maybe Core.Text,
     -- | Number of reserved resources
-    count :: Prelude.Maybe Prelude.Int,
+    count :: Core.Maybe Core.Int,
     -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
     -- NO_UPFRONT offering
-    fixedPrice :: Prelude.Maybe Prelude.Double,
+    fixedPrice :: Core.Maybe Core.Double,
     -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
-    usagePrice :: Prelude.Maybe Prelude.Double,
+    usagePrice :: Core.Maybe Core.Double,
     -- | Offering type, e.g. \'NO_UPFRONT\'
-    offeringType :: Prelude.Maybe OfferingType,
+    offeringType :: Core.Maybe OfferingType,
     -- | AWS region, e.g. \'us-west-2\'
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | Reservation UTC start date and time in ISO-8601 format, e.g.
     -- \'2018-03-01T00:00:00\'
-    start :: Prelude.Maybe Prelude.Text,
+    start :: Core.Maybe Core.Text,
     -- | Unique reservation ID, e.g. \'1234567\'
-    reservationId :: Prelude.Maybe Prelude.Text,
+    reservationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservationResponse' with all optional fields omitted.
@@ -252,111 +249,111 @@ data DescribeReservationResponse = DescribeReservationResponse'
 -- 'httpStatus', 'describeReservationResponse_httpStatus' - The response's http status code.
 newDescribeReservationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReservationResponse
 newDescribeReservationResponse pHttpStatus_ =
   DescribeReservationResponse'
-    { end = Prelude.Nothing,
-      duration = Prelude.Nothing,
-      durationUnits = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      offeringId = Prelude.Nothing,
-      currencyCode = Prelude.Nothing,
-      resourceSpecification = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      offeringDescription = Prelude.Nothing,
-      count = Prelude.Nothing,
-      fixedPrice = Prelude.Nothing,
-      usagePrice = Prelude.Nothing,
-      offeringType = Prelude.Nothing,
-      region = Prelude.Nothing,
-      start = Prelude.Nothing,
-      reservationId = Prelude.Nothing,
+    { end = Core.Nothing,
+      duration = Core.Nothing,
+      durationUnits = Core.Nothing,
+      arn = Core.Nothing,
+      offeringId = Core.Nothing,
+      currencyCode = Core.Nothing,
+      resourceSpecification = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      offeringDescription = Core.Nothing,
+      count = Core.Nothing,
+      fixedPrice = Core.Nothing,
+      usagePrice = Core.Nothing,
+      offeringType = Core.Nothing,
+      region = Core.Nothing,
+      start = Core.Nothing,
+      reservationId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Reservation UTC end date and time in ISO-8601 format, e.g.
 -- \'2019-03-01T00:00:00\'
-describeReservationResponse_end :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_end :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_end = Lens.lens (\DescribeReservationResponse' {end} -> end) (\s@DescribeReservationResponse' {} a -> s {end = a} :: DescribeReservationResponse)
 
 -- | Lease duration, e.g. \'12\'
-describeReservationResponse_duration :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Int)
+describeReservationResponse_duration :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Int)
 describeReservationResponse_duration = Lens.lens (\DescribeReservationResponse' {duration} -> duration) (\s@DescribeReservationResponse' {} a -> s {duration = a} :: DescribeReservationResponse)
 
 -- | Units for duration, e.g. \'MONTHS\'
-describeReservationResponse_durationUnits :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe OfferingDurationUnits)
+describeReservationResponse_durationUnits :: Lens.Lens' DescribeReservationResponse (Core.Maybe OfferingDurationUnits)
 describeReservationResponse_durationUnits = Lens.lens (\DescribeReservationResponse' {durationUnits} -> durationUnits) (\s@DescribeReservationResponse' {} a -> s {durationUnits = a} :: DescribeReservationResponse)
 
 -- | Unique reservation ARN, e.g.
 -- \'arn:aws:medialive:us-west-2:123456789012:reservation:1234567\'
-describeReservationResponse_arn :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_arn :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_arn = Lens.lens (\DescribeReservationResponse' {arn} -> arn) (\s@DescribeReservationResponse' {} a -> s {arn = a} :: DescribeReservationResponse)
 
 -- | Unique offering ID, e.g. \'87654321\'
-describeReservationResponse_offeringId :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_offeringId :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_offeringId = Lens.lens (\DescribeReservationResponse' {offeringId} -> offeringId) (\s@DescribeReservationResponse' {} a -> s {offeringId = a} :: DescribeReservationResponse)
 
 -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
 -- \'USD\'
-describeReservationResponse_currencyCode :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_currencyCode :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_currencyCode = Lens.lens (\DescribeReservationResponse' {currencyCode} -> currencyCode) (\s@DescribeReservationResponse' {} a -> s {currencyCode = a} :: DescribeReservationResponse)
 
 -- | Resource configuration details
-describeReservationResponse_resourceSpecification :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe ReservationResourceSpecification)
+describeReservationResponse_resourceSpecification :: Lens.Lens' DescribeReservationResponse (Core.Maybe ReservationResourceSpecification)
 describeReservationResponse_resourceSpecification = Lens.lens (\DescribeReservationResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeReservationResponse' {} a -> s {resourceSpecification = a} :: DescribeReservationResponse)
 
 -- | Current state of reservation, e.g. \'ACTIVE\'
-describeReservationResponse_state :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe ReservationState)
+describeReservationResponse_state :: Lens.Lens' DescribeReservationResponse (Core.Maybe ReservationState)
 describeReservationResponse_state = Lens.lens (\DescribeReservationResponse' {state} -> state) (\s@DescribeReservationResponse' {} a -> s {state = a} :: DescribeReservationResponse)
 
 -- | User specified reservation name
-describeReservationResponse_name :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_name :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_name = Lens.lens (\DescribeReservationResponse' {name} -> name) (\s@DescribeReservationResponse' {} a -> s {name = a} :: DescribeReservationResponse)
 
 -- | A collection of key-value pairs
-describeReservationResponse_tags :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeReservationResponse_tags = Lens.lens (\DescribeReservationResponse' {tags} -> tags) (\s@DescribeReservationResponse' {} a -> s {tags = a} :: DescribeReservationResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeReservationResponse_tags :: Lens.Lens' DescribeReservationResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+describeReservationResponse_tags = Lens.lens (\DescribeReservationResponse' {tags} -> tags) (\s@DescribeReservationResponse' {} a -> s {tags = a} :: DescribeReservationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
 -- standard VQ in US West (Oregon)\'
-describeReservationResponse_offeringDescription :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_offeringDescription :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_offeringDescription = Lens.lens (\DescribeReservationResponse' {offeringDescription} -> offeringDescription) (\s@DescribeReservationResponse' {} a -> s {offeringDescription = a} :: DescribeReservationResponse)
 
 -- | Number of reserved resources
-describeReservationResponse_count :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Int)
+describeReservationResponse_count :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Int)
 describeReservationResponse_count = Lens.lens (\DescribeReservationResponse' {count} -> count) (\s@DescribeReservationResponse' {} a -> s {count = a} :: DescribeReservationResponse)
 
 -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
 -- NO_UPFRONT offering
-describeReservationResponse_fixedPrice :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Double)
+describeReservationResponse_fixedPrice :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Double)
 describeReservationResponse_fixedPrice = Lens.lens (\DescribeReservationResponse' {fixedPrice} -> fixedPrice) (\s@DescribeReservationResponse' {} a -> s {fixedPrice = a} :: DescribeReservationResponse)
 
 -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
-describeReservationResponse_usagePrice :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Double)
+describeReservationResponse_usagePrice :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Double)
 describeReservationResponse_usagePrice = Lens.lens (\DescribeReservationResponse' {usagePrice} -> usagePrice) (\s@DescribeReservationResponse' {} a -> s {usagePrice = a} :: DescribeReservationResponse)
 
 -- | Offering type, e.g. \'NO_UPFRONT\'
-describeReservationResponse_offeringType :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe OfferingType)
+describeReservationResponse_offeringType :: Lens.Lens' DescribeReservationResponse (Core.Maybe OfferingType)
 describeReservationResponse_offeringType = Lens.lens (\DescribeReservationResponse' {offeringType} -> offeringType) (\s@DescribeReservationResponse' {} a -> s {offeringType = a} :: DescribeReservationResponse)
 
 -- | AWS region, e.g. \'us-west-2\'
-describeReservationResponse_region :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_region :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_region = Lens.lens (\DescribeReservationResponse' {region} -> region) (\s@DescribeReservationResponse' {} a -> s {region = a} :: DescribeReservationResponse)
 
 -- | Reservation UTC start date and time in ISO-8601 format, e.g.
 -- \'2018-03-01T00:00:00\'
-describeReservationResponse_start :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_start :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_start = Lens.lens (\DescribeReservationResponse' {start} -> start) (\s@DescribeReservationResponse' {} a -> s {start = a} :: DescribeReservationResponse)
 
 -- | Unique reservation ID, e.g. \'1234567\'
-describeReservationResponse_reservationId :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_reservationId :: Lens.Lens' DescribeReservationResponse (Core.Maybe Core.Text)
 describeReservationResponse_reservationId = Lens.lens (\DescribeReservationResponse' {reservationId} -> reservationId) (\s@DescribeReservationResponse' {} a -> s {reservationId = a} :: DescribeReservationResponse)
 
 -- | The response's http status code.
-describeReservationResponse_httpStatus :: Lens.Lens' DescribeReservationResponse Prelude.Int
+describeReservationResponse_httpStatus :: Lens.Lens' DescribeReservationResponse Core.Int
 describeReservationResponse_httpStatus = Lens.lens (\DescribeReservationResponse' {httpStatus} -> httpStatus) (\s@DescribeReservationResponse' {} a -> s {httpStatus = a} :: DescribeReservationResponse)
 
-instance Prelude.NFData DescribeReservationResponse
+instance Core.NFData DescribeReservationResponse

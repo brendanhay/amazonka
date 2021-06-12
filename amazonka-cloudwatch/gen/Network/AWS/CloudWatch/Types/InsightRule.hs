@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,29 +19,29 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatch.Types.InsightRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This structure contains the definition for a Contributor Insights rule.
 --
 -- /See:/ 'newInsightRule' smart constructor.
 data InsightRule = InsightRule'
   { -- | The name of the rule.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | Indicates whether the rule is enabled or disabled.
-    state :: Prelude.Text,
+    state :: Core.Text,
     -- | For rules that you create, this is always
     -- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For built-in rules,
     -- this is @{\"Name\": \"ServiceLogRule\", \"Version\": 1}@
-    schema :: Prelude.Text,
+    schema :: Core.Text,
     -- | The definition of the rule, as a JSON object. The definition contains
     -- the keywords used to define contributors, the value to aggregate on if
     -- this rule returns a sum instead of a count, and the filters. For details
     -- on the valid syntax, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax>.
-    definition :: Prelude.Text
+    definition :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InsightRule' with all optional fields omitted.
@@ -67,13 +66,13 @@ data InsightRule = InsightRule'
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax>.
 newInsightRule ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'state'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'schema'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'definition'
-  Prelude.Text ->
+  Core.Text ->
   InsightRule
 newInsightRule pName_ pState_ pSchema_ pDefinition_ =
   InsightRule'
@@ -84,17 +83,17 @@ newInsightRule pName_ pState_ pSchema_ pDefinition_ =
     }
 
 -- | The name of the rule.
-insightRule_name :: Lens.Lens' InsightRule Prelude.Text
+insightRule_name :: Lens.Lens' InsightRule Core.Text
 insightRule_name = Lens.lens (\InsightRule' {name} -> name) (\s@InsightRule' {} a -> s {name = a} :: InsightRule)
 
 -- | Indicates whether the rule is enabled or disabled.
-insightRule_state :: Lens.Lens' InsightRule Prelude.Text
+insightRule_state :: Lens.Lens' InsightRule Core.Text
 insightRule_state = Lens.lens (\InsightRule' {state} -> state) (\s@InsightRule' {} a -> s {state = a} :: InsightRule)
 
 -- | For rules that you create, this is always
 -- @{\"Name\": \"CloudWatchLogRule\", \"Version\": 1}@. For built-in rules,
 -- this is @{\"Name\": \"ServiceLogRule\", \"Version\": 1}@
-insightRule_schema :: Lens.Lens' InsightRule Prelude.Text
+insightRule_schema :: Lens.Lens' InsightRule Core.Text
 insightRule_schema = Lens.lens (\InsightRule' {schema} -> schema) (\s@InsightRule' {} a -> s {schema = a} :: InsightRule)
 
 -- | The definition of the rule, as a JSON object. The definition contains
@@ -102,17 +101,17 @@ insightRule_schema = Lens.lens (\InsightRule' {schema} -> schema) (\s@InsightRul
 -- this rule returns a sum instead of a count, and the filters. For details
 -- on the valid syntax, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html Contributor Insights Rule Syntax>.
-insightRule_definition :: Lens.Lens' InsightRule Prelude.Text
+insightRule_definition :: Lens.Lens' InsightRule Core.Text
 insightRule_definition = Lens.lens (\InsightRule' {definition} -> definition) (\s@InsightRule' {} a -> s {definition = a} :: InsightRule)
 
-instance Prelude.FromXML InsightRule where
+instance Core.FromXML InsightRule where
   parseXML x =
     InsightRule'
-      Prelude.<$> (x Prelude..@ "Name")
-      Prelude.<*> (x Prelude..@ "State")
-      Prelude.<*> (x Prelude..@ "Schema")
-      Prelude.<*> (x Prelude..@ "Definition")
+      Core.<$> (x Core..@ "Name")
+      Core.<*> (x Core..@ "State")
+      Core.<*> (x Core..@ "Schema")
+      Core.<*> (x Core..@ "Definition")
 
-instance Prelude.Hashable InsightRule
+instance Core.Hashable InsightRule
 
-instance Prelude.NFData InsightRule
+instance Core.NFData InsightRule

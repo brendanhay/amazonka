@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.AppStream.DeleteUser
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ data DeleteUser = DeleteUser'
   { -- | The email address of the user.
     --
     -- Users\' email addresses are case-sensitive.
-    userName :: Prelude.Sensitive Prelude.Text,
+    userName :: Core.Sensitive Core.Text,
     -- | The authentication type for the user. You must specify USERPOOL.
     authenticationType :: AuthenticationType
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUser' with all optional fields omitted.
@@ -72,80 +71,76 @@ data DeleteUser = DeleteUser'
 -- 'authenticationType', 'deleteUser_authenticationType' - The authentication type for the user. You must specify USERPOOL.
 newDeleteUser ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'authenticationType'
   AuthenticationType ->
   DeleteUser
 newDeleteUser pUserName_ pAuthenticationType_ =
   DeleteUser'
     { userName =
-        Prelude._Sensitive Lens.# pUserName_,
+        Core._Sensitive Lens.# pUserName_,
       authenticationType = pAuthenticationType_
     }
 
 -- | The email address of the user.
 --
 -- Users\' email addresses are case-sensitive.
-deleteUser_userName :: Lens.Lens' DeleteUser Prelude.Text
-deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@DeleteUser' {} a -> s {userName = a} :: DeleteUser) Prelude.. Prelude._Sensitive
+deleteUser_userName :: Lens.Lens' DeleteUser Core.Text
+deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@DeleteUser' {} a -> s {userName = a} :: DeleteUser) Core.. Core._Sensitive
 
 -- | The authentication type for the user. You must specify USERPOOL.
 deleteUser_authenticationType :: Lens.Lens' DeleteUser AuthenticationType
 deleteUser_authenticationType = Lens.lens (\DeleteUser' {authenticationType} -> authenticationType) (\s@DeleteUser' {} a -> s {authenticationType = a} :: DeleteUser)
 
-instance Prelude.AWSRequest DeleteUser where
-  type Rs DeleteUser = DeleteUserResponse
+instance Core.AWSRequest DeleteUser where
+  type AWSResponse DeleteUser = DeleteUserResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteUser
+instance Core.Hashable DeleteUser
 
-instance Prelude.NFData DeleteUser
+instance Core.NFData DeleteUser
 
-instance Prelude.ToHeaders DeleteUser where
+instance Core.ToHeaders DeleteUser where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DeleteUser" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DeleteUser" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteUser where
+instance Core.ToJSON DeleteUser where
   toJSON DeleteUser' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("UserName" Prelude..= userName),
-            Prelude.Just
-              ( "AuthenticationType"
-                  Prelude..= authenticationType
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserName" Core..= userName),
+            Core.Just
+              ("AuthenticationType" Core..= authenticationType)
           ]
       )
 
-instance Prelude.ToPath DeleteUser where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteUser where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteUser where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteUser where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteUserResponse' with all optional fields omitted.
@@ -158,13 +153,13 @@ data DeleteUserResponse = DeleteUserResponse'
 -- 'httpStatus', 'deleteUserResponse_httpStatus' - The response's http status code.
 newDeleteUserResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteUserResponse
 newDeleteUserResponse pHttpStatus_ =
   DeleteUserResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Prelude.Int
+deleteUserResponse_httpStatus :: Lens.Lens' DeleteUserResponse Core.Int
 deleteUserResponse_httpStatus = Lens.lens (\DeleteUserResponse' {httpStatus} -> httpStatus) (\s@DeleteUserResponse' {} a -> s {httpStatus = a} :: DeleteUserResponse)
 
-instance Prelude.NFData DeleteUserResponse
+instance Core.NFData DeleteUserResponse

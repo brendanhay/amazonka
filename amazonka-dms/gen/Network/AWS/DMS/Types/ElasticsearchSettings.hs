@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.ElasticsearchSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that defines an Elasticsearch endpoint.
 --
@@ -29,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ElasticsearchSettings = ElasticsearchSettings'
   { -- | The maximum number of seconds for which DMS retries failed API requests
     -- to the Elasticsearch cluster.
-    errorRetryDuration :: Prelude.Maybe Prelude.Int,
+    errorRetryDuration :: Core.Maybe Core.Int,
     -- | The maximum percentage of records that can fail to be written before a
     -- full load operation stops.
     --
@@ -38,14 +37,14 @@ data ElasticsearchSettings = ElasticsearchSettings'
     -- monitoring during the last 10 minutes of an Observation Window. If
     -- transfer of all records fail in the last 10 minutes, the full load
     -- operation stops.
-    fullLoadErrorPercentage :: Prelude.Maybe Prelude.Int,
+    fullLoadErrorPercentage :: Core.Maybe Core.Int,
     -- | The Amazon Resource Name (ARN) used by service to access the IAM role.
-    serviceAccessRoleArn :: Prelude.Text,
+    serviceAccessRoleArn :: Core.Text,
     -- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a
     -- transport protocol (http\/https) is not specified.
-    endpointUri :: Prelude.Text
+    endpointUri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticsearchSettings' with all optional fields omitted.
@@ -73,24 +72,24 @@ data ElasticsearchSettings = ElasticsearchSettings'
 -- transport protocol (http\/https) is not specified.
 newElasticsearchSettings ::
   -- | 'serviceAccessRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'endpointUri'
-  Prelude.Text ->
+  Core.Text ->
   ElasticsearchSettings
 newElasticsearchSettings
   pServiceAccessRoleArn_
   pEndpointUri_ =
     ElasticsearchSettings'
       { errorRetryDuration =
-          Prelude.Nothing,
-        fullLoadErrorPercentage = Prelude.Nothing,
+          Core.Nothing,
+        fullLoadErrorPercentage = Core.Nothing,
         serviceAccessRoleArn = pServiceAccessRoleArn_,
         endpointUri = pEndpointUri_
       }
 
 -- | The maximum number of seconds for which DMS retries failed API requests
 -- to the Elasticsearch cluster.
-elasticsearchSettings_errorRetryDuration :: Lens.Lens' ElasticsearchSettings (Prelude.Maybe Prelude.Int)
+elasticsearchSettings_errorRetryDuration :: Lens.Lens' ElasticsearchSettings (Core.Maybe Core.Int)
 elasticsearchSettings_errorRetryDuration = Lens.lens (\ElasticsearchSettings' {errorRetryDuration} -> errorRetryDuration) (\s@ElasticsearchSettings' {} a -> s {errorRetryDuration = a} :: ElasticsearchSettings)
 
 -- | The maximum percentage of records that can fail to be written before a
@@ -101,46 +100,46 @@ elasticsearchSettings_errorRetryDuration = Lens.lens (\ElasticsearchSettings' {e
 -- monitoring during the last 10 minutes of an Observation Window. If
 -- transfer of all records fail in the last 10 minutes, the full load
 -- operation stops.
-elasticsearchSettings_fullLoadErrorPercentage :: Lens.Lens' ElasticsearchSettings (Prelude.Maybe Prelude.Int)
+elasticsearchSettings_fullLoadErrorPercentage :: Lens.Lens' ElasticsearchSettings (Core.Maybe Core.Int)
 elasticsearchSettings_fullLoadErrorPercentage = Lens.lens (\ElasticsearchSettings' {fullLoadErrorPercentage} -> fullLoadErrorPercentage) (\s@ElasticsearchSettings' {} a -> s {fullLoadErrorPercentage = a} :: ElasticsearchSettings)
 
 -- | The Amazon Resource Name (ARN) used by service to access the IAM role.
-elasticsearchSettings_serviceAccessRoleArn :: Lens.Lens' ElasticsearchSettings Prelude.Text
+elasticsearchSettings_serviceAccessRoleArn :: Lens.Lens' ElasticsearchSettings Core.Text
 elasticsearchSettings_serviceAccessRoleArn = Lens.lens (\ElasticsearchSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@ElasticsearchSettings' {} a -> s {serviceAccessRoleArn = a} :: ElasticsearchSettings)
 
 -- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a
 -- transport protocol (http\/https) is not specified.
-elasticsearchSettings_endpointUri :: Lens.Lens' ElasticsearchSettings Prelude.Text
+elasticsearchSettings_endpointUri :: Lens.Lens' ElasticsearchSettings Core.Text
 elasticsearchSettings_endpointUri = Lens.lens (\ElasticsearchSettings' {endpointUri} -> endpointUri) (\s@ElasticsearchSettings' {} a -> s {endpointUri = a} :: ElasticsearchSettings)
 
-instance Prelude.FromJSON ElasticsearchSettings where
+instance Core.FromJSON ElasticsearchSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ElasticsearchSettings"
       ( \x ->
           ElasticsearchSettings'
-            Prelude.<$> (x Prelude..:? "ErrorRetryDuration")
-            Prelude.<*> (x Prelude..:? "FullLoadErrorPercentage")
-            Prelude.<*> (x Prelude..: "ServiceAccessRoleArn")
-            Prelude.<*> (x Prelude..: "EndpointUri")
+            Core.<$> (x Core..:? "ErrorRetryDuration")
+            Core.<*> (x Core..:? "FullLoadErrorPercentage")
+            Core.<*> (x Core..: "ServiceAccessRoleArn")
+            Core.<*> (x Core..: "EndpointUri")
       )
 
-instance Prelude.Hashable ElasticsearchSettings
+instance Core.Hashable ElasticsearchSettings
 
-instance Prelude.NFData ElasticsearchSettings
+instance Core.NFData ElasticsearchSettings
 
-instance Prelude.ToJSON ElasticsearchSettings where
+instance Core.ToJSON ElasticsearchSettings where
   toJSON ElasticsearchSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ErrorRetryDuration" Prelude..=)
-              Prelude.<$> errorRetryDuration,
-            ("FullLoadErrorPercentage" Prelude..=)
-              Prelude.<$> fullLoadErrorPercentage,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("ErrorRetryDuration" Core..=)
+              Core.<$> errorRetryDuration,
+            ("FullLoadErrorPercentage" Core..=)
+              Core.<$> fullLoadErrorPercentage,
+            Core.Just
               ( "ServiceAccessRoleArn"
-                  Prelude..= serviceAccessRoleArn
+                  Core..= serviceAccessRoleArn
               ),
-            Prelude.Just ("EndpointUri" Prelude..= endpointUri)
+            Core.Just ("EndpointUri" Core..= endpointUri)
           ]
       )

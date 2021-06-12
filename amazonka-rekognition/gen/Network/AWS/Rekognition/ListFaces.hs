@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.Rekognition.ListFaces
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -66,13 +64,13 @@ data ListFaces = ListFaces'
     -- retrieve), Amazon Rekognition returns a pagination token in the
     -- response. You can use this pagination token to retrieve the next set of
     -- faces.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Maximum number of faces to return.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | ID of the collection from which to list the faces.
-    collectionId :: Prelude.Text
+    collectionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFaces' with all optional fields omitted.
@@ -92,12 +90,12 @@ data ListFaces = ListFaces'
 -- 'collectionId', 'listFaces_collectionId' - ID of the collection from which to list the faces.
 newListFaces ::
   -- | 'collectionId'
-  Prelude.Text ->
+  Core.Text ->
   ListFaces
 newListFaces pCollectionId_ =
   ListFaces'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       collectionId = pCollectionId_
     }
 
@@ -105,99 +103,94 @@ newListFaces pCollectionId_ =
 -- retrieve), Amazon Rekognition returns a pagination token in the
 -- response. You can use this pagination token to retrieve the next set of
 -- faces.
-listFaces_nextToken :: Lens.Lens' ListFaces (Prelude.Maybe Prelude.Text)
+listFaces_nextToken :: Lens.Lens' ListFaces (Core.Maybe Core.Text)
 listFaces_nextToken = Lens.lens (\ListFaces' {nextToken} -> nextToken) (\s@ListFaces' {} a -> s {nextToken = a} :: ListFaces)
 
 -- | Maximum number of faces to return.
-listFaces_maxResults :: Lens.Lens' ListFaces (Prelude.Maybe Prelude.Natural)
+listFaces_maxResults :: Lens.Lens' ListFaces (Core.Maybe Core.Natural)
 listFaces_maxResults = Lens.lens (\ListFaces' {maxResults} -> maxResults) (\s@ListFaces' {} a -> s {maxResults = a} :: ListFaces)
 
 -- | ID of the collection from which to list the faces.
-listFaces_collectionId :: Lens.Lens' ListFaces Prelude.Text
+listFaces_collectionId :: Lens.Lens' ListFaces Core.Text
 listFaces_collectionId = Lens.lens (\ListFaces' {collectionId} -> collectionId) (\s@ListFaces' {} a -> s {collectionId = a} :: ListFaces)
 
-instance Pager.AWSPager ListFaces where
+instance Core.AWSPager ListFaces where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listFacesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listFacesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listFacesResponse_faces Prelude.. Lens._Just
+            Lens.^? listFacesResponse_faces Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listFaces_nextToken
           Lens..~ rs
-          Lens.^? listFacesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listFacesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListFaces where
-  type Rs ListFaces = ListFacesResponse
+instance Core.AWSRequest ListFaces where
+  type AWSResponse ListFaces = ListFacesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListFacesResponse'
-            Prelude.<$> (x Prelude..?> "FaceModelVersion")
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Faces" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "FaceModelVersion")
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Faces" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListFaces
+instance Core.Hashable ListFaces
 
-instance Prelude.NFData ListFaces
+instance Core.NFData ListFaces
 
-instance Prelude.ToHeaders ListFaces where
+instance Core.ToHeaders ListFaces where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "RekognitionService.ListFaces" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("RekognitionService.ListFaces" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListFaces where
+instance Core.ToJSON ListFaces where
   toJSON ListFaces' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("CollectionId" Prelude..= collectionId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("CollectionId" Core..= collectionId)
           ]
       )
 
-instance Prelude.ToPath ListFaces where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListFaces where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListFaces where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListFaces where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListFacesResponse' smart constructor.
 data ListFacesResponse = ListFacesResponse'
   { -- | Version number of the face detection model associated with the input
     -- collection (@CollectionId@).
-    faceModelVersion :: Prelude.Maybe Prelude.Text,
+    faceModelVersion :: Core.Maybe Core.Text,
     -- | If the response is truncated, Amazon Rekognition returns this token that
     -- you can use in the subsequent request to retrieve the next set of faces.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of @Face@ objects.
-    faces :: Prelude.Maybe [Face],
+    faces :: Core.Maybe [Face],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFacesResponse' with all optional fields omitted.
@@ -218,33 +211,32 @@ data ListFacesResponse = ListFacesResponse'
 -- 'httpStatus', 'listFacesResponse_httpStatus' - The response's http status code.
 newListFacesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListFacesResponse
 newListFacesResponse pHttpStatus_ =
   ListFacesResponse'
-    { faceModelVersion =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      faces = Prelude.Nothing,
+    { faceModelVersion = Core.Nothing,
+      nextToken = Core.Nothing,
+      faces = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Version number of the face detection model associated with the input
 -- collection (@CollectionId@).
-listFacesResponse_faceModelVersion :: Lens.Lens' ListFacesResponse (Prelude.Maybe Prelude.Text)
+listFacesResponse_faceModelVersion :: Lens.Lens' ListFacesResponse (Core.Maybe Core.Text)
 listFacesResponse_faceModelVersion = Lens.lens (\ListFacesResponse' {faceModelVersion} -> faceModelVersion) (\s@ListFacesResponse' {} a -> s {faceModelVersion = a} :: ListFacesResponse)
 
 -- | If the response is truncated, Amazon Rekognition returns this token that
 -- you can use in the subsequent request to retrieve the next set of faces.
-listFacesResponse_nextToken :: Lens.Lens' ListFacesResponse (Prelude.Maybe Prelude.Text)
+listFacesResponse_nextToken :: Lens.Lens' ListFacesResponse (Core.Maybe Core.Text)
 listFacesResponse_nextToken = Lens.lens (\ListFacesResponse' {nextToken} -> nextToken) (\s@ListFacesResponse' {} a -> s {nextToken = a} :: ListFacesResponse)
 
 -- | An array of @Face@ objects.
-listFacesResponse_faces :: Lens.Lens' ListFacesResponse (Prelude.Maybe [Face])
-listFacesResponse_faces = Lens.lens (\ListFacesResponse' {faces} -> faces) (\s@ListFacesResponse' {} a -> s {faces = a} :: ListFacesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listFacesResponse_faces :: Lens.Lens' ListFacesResponse (Core.Maybe [Face])
+listFacesResponse_faces = Lens.lens (\ListFacesResponse' {faces} -> faces) (\s@ListFacesResponse' {} a -> s {faces = a} :: ListFacesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listFacesResponse_httpStatus :: Lens.Lens' ListFacesResponse Prelude.Int
+listFacesResponse_httpStatus :: Lens.Lens' ListFacesResponse Core.Int
 listFacesResponse_httpStatus = Lens.lens (\ListFacesResponse' {httpStatus} -> httpStatus) (\s@ListFacesResponse' {} a -> s {httpStatus = a} :: ListFacesResponse)
 
-instance Prelude.NFData ListFacesResponse
+instance Core.NFData ListFacesResponse

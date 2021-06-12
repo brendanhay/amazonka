@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.Queue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a queue.
 --
 -- /See:/ 'newQueue' smart constructor.
 data Queue = Queue'
   { -- | The name of the queue.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The URL of the queue.
-    url :: Prelude.Maybe Prelude.Text
+    url :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Queue' with all optional fields omitted.
@@ -48,25 +47,21 @@ data Queue = Queue'
 newQueue ::
   Queue
 newQueue =
-  Queue'
-    { name = Prelude.Nothing,
-      url = Prelude.Nothing
-    }
+  Queue' {name = Core.Nothing, url = Core.Nothing}
 
 -- | The name of the queue.
-queue_name :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_name :: Lens.Lens' Queue (Core.Maybe Core.Text)
 queue_name = Lens.lens (\Queue' {name} -> name) (\s@Queue' {} a -> s {name = a} :: Queue)
 
 -- | The URL of the queue.
-queue_url :: Lens.Lens' Queue (Prelude.Maybe Prelude.Text)
+queue_url :: Lens.Lens' Queue (Core.Maybe Core.Text)
 queue_url = Lens.lens (\Queue' {url} -> url) (\s@Queue' {} a -> s {url = a} :: Queue)
 
-instance Prelude.FromXML Queue where
+instance Core.FromXML Queue where
   parseXML x =
     Queue'
-      Prelude.<$> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "URL")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "URL")
 
-instance Prelude.Hashable Queue
+instance Core.Hashable Queue
 
-instance Prelude.NFData Queue
+instance Core.NFData Queue

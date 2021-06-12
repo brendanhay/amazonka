@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,17 +43,17 @@ module Network.AWS.CodePipeline.DeleteWebhook
 where
 
 import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteWebhook' smart constructor.
 data DeleteWebhook = DeleteWebhook'
   { -- | The name of the webhook you want to delete.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteWebhook' with all optional fields omitted.
@@ -67,63 +66,61 @@ data DeleteWebhook = DeleteWebhook'
 -- 'name', 'deleteWebhook_name' - The name of the webhook you want to delete.
 newDeleteWebhook ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteWebhook
 newDeleteWebhook pName_ =
   DeleteWebhook' {name = pName_}
 
 -- | The name of the webhook you want to delete.
-deleteWebhook_name :: Lens.Lens' DeleteWebhook Prelude.Text
+deleteWebhook_name :: Lens.Lens' DeleteWebhook Core.Text
 deleteWebhook_name = Lens.lens (\DeleteWebhook' {name} -> name) (\s@DeleteWebhook' {} a -> s {name = a} :: DeleteWebhook)
 
-instance Prelude.AWSRequest DeleteWebhook where
-  type Rs DeleteWebhook = DeleteWebhookResponse
+instance Core.AWSRequest DeleteWebhook where
+  type
+    AWSResponse DeleteWebhook =
+      DeleteWebhookResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWebhookResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteWebhook
+instance Core.Hashable DeleteWebhook
 
-instance Prelude.NFData DeleteWebhook
+instance Core.NFData DeleteWebhook
 
-instance Prelude.ToHeaders DeleteWebhook where
+instance Core.ToHeaders DeleteWebhook where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodePipeline_20150709.DeleteWebhook" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodePipeline_20150709.DeleteWebhook" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteWebhook where
+instance Core.ToJSON DeleteWebhook where
   toJSON DeleteWebhook' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])
 
-instance Prelude.ToPath DeleteWebhook where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteWebhook where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteWebhook where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteWebhook where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteWebhookResponse' smart constructor.
 data DeleteWebhookResponse = DeleteWebhookResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteWebhookResponse' with all optional fields omitted.
@@ -136,13 +133,13 @@ data DeleteWebhookResponse = DeleteWebhookResponse'
 -- 'httpStatus', 'deleteWebhookResponse_httpStatus' - The response's http status code.
 newDeleteWebhookResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteWebhookResponse
 newDeleteWebhookResponse pHttpStatus_ =
   DeleteWebhookResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteWebhookResponse_httpStatus :: Lens.Lens' DeleteWebhookResponse Prelude.Int
+deleteWebhookResponse_httpStatus :: Lens.Lens' DeleteWebhookResponse Core.Int
 deleteWebhookResponse_httpStatus = Lens.lens (\DeleteWebhookResponse' {httpStatus} -> httpStatus) (\s@DeleteWebhookResponse' {} a -> s {httpStatus = a} :: DeleteWebhookResponse)
 
-instance Prelude.NFData DeleteWebhookResponse
+instance Core.NFData DeleteWebhookResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.ServerlessApplicationRepository.PutApplicationPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServerlessApplicationRepository.Types
@@ -53,11 +52,11 @@ import Network.AWS.ServerlessApplicationRepository.Types
 -- | /See:/ 'newPutApplicationPolicy' smart constructor.
 data PutApplicationPolicy = PutApplicationPolicy'
   { -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | An array of policy statements applied to the application.
     statements :: [ApplicationPolicyStatement]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutApplicationPolicy' with all optional fields omitted.
@@ -72,79 +71,75 @@ data PutApplicationPolicy = PutApplicationPolicy'
 -- 'statements', 'putApplicationPolicy_statements' - An array of policy statements applied to the application.
 newPutApplicationPolicy ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   PutApplicationPolicy
 newPutApplicationPolicy pApplicationId_ =
   PutApplicationPolicy'
     { applicationId =
         pApplicationId_,
-      statements = Prelude.mempty
+      statements = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the application.
-putApplicationPolicy_applicationId :: Lens.Lens' PutApplicationPolicy Prelude.Text
+putApplicationPolicy_applicationId :: Lens.Lens' PutApplicationPolicy Core.Text
 putApplicationPolicy_applicationId = Lens.lens (\PutApplicationPolicy' {applicationId} -> applicationId) (\s@PutApplicationPolicy' {} a -> s {applicationId = a} :: PutApplicationPolicy)
 
 -- | An array of policy statements applied to the application.
 putApplicationPolicy_statements :: Lens.Lens' PutApplicationPolicy [ApplicationPolicyStatement]
-putApplicationPolicy_statements = Lens.lens (\PutApplicationPolicy' {statements} -> statements) (\s@PutApplicationPolicy' {} a -> s {statements = a} :: PutApplicationPolicy) Prelude.. Prelude._Coerce
+putApplicationPolicy_statements = Lens.lens (\PutApplicationPolicy' {statements} -> statements) (\s@PutApplicationPolicy' {} a -> s {statements = a} :: PutApplicationPolicy) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutApplicationPolicy where
+instance Core.AWSRequest PutApplicationPolicy where
   type
-    Rs PutApplicationPolicy =
+    AWSResponse PutApplicationPolicy =
       PutApplicationPolicyResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutApplicationPolicyResponse'
-            Prelude.<$> ( x Prelude..?> "statements"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "statements" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutApplicationPolicy
+instance Core.Hashable PutApplicationPolicy
 
-instance Prelude.NFData PutApplicationPolicy
+instance Core.NFData PutApplicationPolicy
 
-instance Prelude.ToHeaders PutApplicationPolicy where
+instance Core.ToHeaders PutApplicationPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutApplicationPolicy where
+instance Core.ToJSON PutApplicationPolicy where
   toJSON PutApplicationPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("statements" Prelude..= statements)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("statements" Core..= statements)]
       )
 
-instance Prelude.ToPath PutApplicationPolicy where
+instance Core.ToPath PutApplicationPolicy where
   toPath PutApplicationPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/applications/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/policy"
       ]
 
-instance Prelude.ToQuery PutApplicationPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutApplicationPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutApplicationPolicyResponse' smart constructor.
 data PutApplicationPolicyResponse = PutApplicationPolicyResponse'
   { -- | An array of policy statements applied to the application.
-    statements :: Prelude.Maybe [ApplicationPolicyStatement],
+    statements :: Core.Maybe [ApplicationPolicyStatement],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutApplicationPolicyResponse' with all optional fields omitted.
@@ -159,21 +154,21 @@ data PutApplicationPolicyResponse = PutApplicationPolicyResponse'
 -- 'httpStatus', 'putApplicationPolicyResponse_httpStatus' - The response's http status code.
 newPutApplicationPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutApplicationPolicyResponse
 newPutApplicationPolicyResponse pHttpStatus_ =
   PutApplicationPolicyResponse'
     { statements =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of policy statements applied to the application.
-putApplicationPolicyResponse_statements :: Lens.Lens' PutApplicationPolicyResponse (Prelude.Maybe [ApplicationPolicyStatement])
-putApplicationPolicyResponse_statements = Lens.lens (\PutApplicationPolicyResponse' {statements} -> statements) (\s@PutApplicationPolicyResponse' {} a -> s {statements = a} :: PutApplicationPolicyResponse) Prelude.. Lens.mapping Prelude._Coerce
+putApplicationPolicyResponse_statements :: Lens.Lens' PutApplicationPolicyResponse (Core.Maybe [ApplicationPolicyStatement])
+putApplicationPolicyResponse_statements = Lens.lens (\PutApplicationPolicyResponse' {statements} -> statements) (\s@PutApplicationPolicyResponse' {} a -> s {statements = a} :: PutApplicationPolicyResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putApplicationPolicyResponse_httpStatus :: Lens.Lens' PutApplicationPolicyResponse Prelude.Int
+putApplicationPolicyResponse_httpStatus :: Lens.Lens' PutApplicationPolicyResponse Core.Int
 putApplicationPolicyResponse_httpStatus = Lens.lens (\PutApplicationPolicyResponse' {httpStatus} -> httpStatus) (\s@PutApplicationPolicyResponse' {} a -> s {httpStatus = a} :: PutApplicationPolicyResponse)
 
-instance Prelude.NFData PutApplicationPolicyResponse
+instance Core.NFData PutApplicationPolicyResponse

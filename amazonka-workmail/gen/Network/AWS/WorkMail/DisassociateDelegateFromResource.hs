@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.WorkMail.DisassociateDelegateFromResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -50,15 +49,15 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newDisassociateDelegateFromResource' smart constructor.
 data DisassociateDelegateFromResource = DisassociateDelegateFromResource'
   { -- | The identifier for the organization under which the resource exists.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The identifier of the resource from which delegates\' set members are
     -- removed.
-    resourceId :: Prelude.Text,
+    resourceId :: Core.Text,
     -- | The identifier for the member (user, group) to be removed from the
     -- resource\'s delegates.
-    entityId :: Prelude.Text
+    entityId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateDelegateFromResource' with all optional fields omitted.
@@ -77,11 +76,11 @@ data DisassociateDelegateFromResource = DisassociateDelegateFromResource'
 -- resource\'s delegates.
 newDisassociateDelegateFromResource ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'entityId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateDelegateFromResource
 newDisassociateDelegateFromResource
   pOrganizationId_
@@ -95,92 +94,81 @@ newDisassociateDelegateFromResource
       }
 
 -- | The identifier for the organization under which the resource exists.
-disassociateDelegateFromResource_organizationId :: Lens.Lens' DisassociateDelegateFromResource Prelude.Text
+disassociateDelegateFromResource_organizationId :: Lens.Lens' DisassociateDelegateFromResource Core.Text
 disassociateDelegateFromResource_organizationId = Lens.lens (\DisassociateDelegateFromResource' {organizationId} -> organizationId) (\s@DisassociateDelegateFromResource' {} a -> s {organizationId = a} :: DisassociateDelegateFromResource)
 
 -- | The identifier of the resource from which delegates\' set members are
 -- removed.
-disassociateDelegateFromResource_resourceId :: Lens.Lens' DisassociateDelegateFromResource Prelude.Text
+disassociateDelegateFromResource_resourceId :: Lens.Lens' DisassociateDelegateFromResource Core.Text
 disassociateDelegateFromResource_resourceId = Lens.lens (\DisassociateDelegateFromResource' {resourceId} -> resourceId) (\s@DisassociateDelegateFromResource' {} a -> s {resourceId = a} :: DisassociateDelegateFromResource)
 
 -- | The identifier for the member (user, group) to be removed from the
 -- resource\'s delegates.
-disassociateDelegateFromResource_entityId :: Lens.Lens' DisassociateDelegateFromResource Prelude.Text
+disassociateDelegateFromResource_entityId :: Lens.Lens' DisassociateDelegateFromResource Core.Text
 disassociateDelegateFromResource_entityId = Lens.lens (\DisassociateDelegateFromResource' {entityId} -> entityId) (\s@DisassociateDelegateFromResource' {} a -> s {entityId = a} :: DisassociateDelegateFromResource)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateDelegateFromResource
   where
   type
-    Rs DisassociateDelegateFromResource =
+    AWSResponse DisassociateDelegateFromResource =
       DisassociateDelegateFromResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDelegateFromResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateDelegateFromResource
 
-instance
-  Prelude.NFData
-    DisassociateDelegateFromResource
+instance Core.NFData DisassociateDelegateFromResource
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateDelegateFromResource
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.DisassociateDelegateFromResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.DisassociateDelegateFromResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DisassociateDelegateFromResource
-  where
+instance Core.ToJSON DisassociateDelegateFromResource where
   toJSON DisassociateDelegateFromResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("OrganizationId" Prelude..= organizationId),
-            Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just ("EntityId" Prelude..= entityId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("EntityId" Core..= entityId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DisassociateDelegateFromResource
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateDelegateFromResource where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisassociateDelegateFromResource
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateDelegateFromResourceResponse' smart constructor.
 data DisassociateDelegateFromResourceResponse = DisassociateDelegateFromResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateDelegateFromResourceResponse' with all optional fields omitted.
@@ -193,7 +181,7 @@ data DisassociateDelegateFromResourceResponse = DisassociateDelegateFromResource
 -- 'httpStatus', 'disassociateDelegateFromResourceResponse_httpStatus' - The response's http status code.
 newDisassociateDelegateFromResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateDelegateFromResourceResponse
 newDisassociateDelegateFromResourceResponse
   pHttpStatus_ =
@@ -203,9 +191,9 @@ newDisassociateDelegateFromResourceResponse
       }
 
 -- | The response's http status code.
-disassociateDelegateFromResourceResponse_httpStatus :: Lens.Lens' DisassociateDelegateFromResourceResponse Prelude.Int
+disassociateDelegateFromResourceResponse_httpStatus :: Lens.Lens' DisassociateDelegateFromResourceResponse Core.Int
 disassociateDelegateFromResourceResponse_httpStatus = Lens.lens (\DisassociateDelegateFromResourceResponse' {httpStatus} -> httpStatus) (\s@DisassociateDelegateFromResourceResponse' {} a -> s {httpStatus = a} :: DisassociateDelegateFromResourceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateDelegateFromResourceResponse

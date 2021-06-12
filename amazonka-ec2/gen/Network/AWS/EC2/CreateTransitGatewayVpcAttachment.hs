@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,34 +51,34 @@ module Network.AWS.EC2.CreateTransitGatewayVpcAttachment
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTransitGatewayVpcAttachment' smart constructor.
 data CreateTransitGatewayVpcAttachment = CreateTransitGatewayVpcAttachment'
   { -- | The tags to apply to the VPC attachment.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The VPC attachment options.
-    options :: Prelude.Maybe CreateTransitGatewayVpcAttachmentRequestOptions,
+    options :: Core.Maybe CreateTransitGatewayVpcAttachmentRequestOptions,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Prelude.Text,
+    transitGatewayId :: Core.Text,
     -- | The ID of the VPC.
-    vpcId :: Prelude.Text,
+    vpcId :: Core.Text,
     -- | The IDs of one or more subnets. You can specify only one subnet per
     -- Availability Zone. You must specify at least one subnet, but we
     -- recommend that you specify two subnets for better availability. The
     -- transit gateway uses one IP address from each specified subnet.
-    subnetIds :: [Prelude.Text]
+    subnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayVpcAttachment' with all optional fields omitted.
@@ -108,120 +107,119 @@ data CreateTransitGatewayVpcAttachment = CreateTransitGatewayVpcAttachment'
 -- transit gateway uses one IP address from each specified subnet.
 newCreateTransitGatewayVpcAttachment ::
   -- | 'transitGatewayId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vpcId'
-  Prelude.Text ->
+  Core.Text ->
   CreateTransitGatewayVpcAttachment
 newCreateTransitGatewayVpcAttachment
   pTransitGatewayId_
   pVpcId_ =
     CreateTransitGatewayVpcAttachment'
       { tagSpecifications =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        options = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
+        options = Core.Nothing,
         transitGatewayId = pTransitGatewayId_,
         vpcId = pVpcId_,
-        subnetIds = Prelude.mempty
+        subnetIds = Core.mempty
       }
 
 -- | The tags to apply to the VPC attachment.
-createTransitGatewayVpcAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe [TagSpecification])
-createTransitGatewayVpcAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayVpcAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayVpcAttachment) Prelude.. Lens.mapping Prelude._Coerce
+createTransitGatewayVpcAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayVpcAttachment (Core.Maybe [TagSpecification])
+createTransitGatewayVpcAttachment_tagSpecifications = Lens.lens (\CreateTransitGatewayVpcAttachment' {tagSpecifications} -> tagSpecifications) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {tagSpecifications = a} :: CreateTransitGatewayVpcAttachment) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createTransitGatewayVpcAttachment_dryRun :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe Prelude.Bool)
+createTransitGatewayVpcAttachment_dryRun :: Lens.Lens' CreateTransitGatewayVpcAttachment (Core.Maybe Core.Bool)
 createTransitGatewayVpcAttachment_dryRun = Lens.lens (\CreateTransitGatewayVpcAttachment' {dryRun} -> dryRun) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {dryRun = a} :: CreateTransitGatewayVpcAttachment)
 
 -- | The VPC attachment options.
-createTransitGatewayVpcAttachment_options :: Lens.Lens' CreateTransitGatewayVpcAttachment (Prelude.Maybe CreateTransitGatewayVpcAttachmentRequestOptions)
+createTransitGatewayVpcAttachment_options :: Lens.Lens' CreateTransitGatewayVpcAttachment (Core.Maybe CreateTransitGatewayVpcAttachmentRequestOptions)
 createTransitGatewayVpcAttachment_options = Lens.lens (\CreateTransitGatewayVpcAttachment' {options} -> options) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {options = a} :: CreateTransitGatewayVpcAttachment)
 
 -- | The ID of the transit gateway.
-createTransitGatewayVpcAttachment_transitGatewayId :: Lens.Lens' CreateTransitGatewayVpcAttachment Prelude.Text
+createTransitGatewayVpcAttachment_transitGatewayId :: Lens.Lens' CreateTransitGatewayVpcAttachment Core.Text
 createTransitGatewayVpcAttachment_transitGatewayId = Lens.lens (\CreateTransitGatewayVpcAttachment' {transitGatewayId} -> transitGatewayId) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {transitGatewayId = a} :: CreateTransitGatewayVpcAttachment)
 
 -- | The ID of the VPC.
-createTransitGatewayVpcAttachment_vpcId :: Lens.Lens' CreateTransitGatewayVpcAttachment Prelude.Text
+createTransitGatewayVpcAttachment_vpcId :: Lens.Lens' CreateTransitGatewayVpcAttachment Core.Text
 createTransitGatewayVpcAttachment_vpcId = Lens.lens (\CreateTransitGatewayVpcAttachment' {vpcId} -> vpcId) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {vpcId = a} :: CreateTransitGatewayVpcAttachment)
 
 -- | The IDs of one or more subnets. You can specify only one subnet per
 -- Availability Zone. You must specify at least one subnet, but we
 -- recommend that you specify two subnets for better availability. The
 -- transit gateway uses one IP address from each specified subnet.
-createTransitGatewayVpcAttachment_subnetIds :: Lens.Lens' CreateTransitGatewayVpcAttachment [Prelude.Text]
-createTransitGatewayVpcAttachment_subnetIds = Lens.lens (\CreateTransitGatewayVpcAttachment' {subnetIds} -> subnetIds) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {subnetIds = a} :: CreateTransitGatewayVpcAttachment) Prelude.. Prelude._Coerce
+createTransitGatewayVpcAttachment_subnetIds :: Lens.Lens' CreateTransitGatewayVpcAttachment [Core.Text]
+createTransitGatewayVpcAttachment_subnetIds = Lens.lens (\CreateTransitGatewayVpcAttachment' {subnetIds} -> subnetIds) (\s@CreateTransitGatewayVpcAttachment' {} a -> s {subnetIds = a} :: CreateTransitGatewayVpcAttachment) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     CreateTransitGatewayVpcAttachment
   where
   type
-    Rs CreateTransitGatewayVpcAttachment =
+    AWSResponse CreateTransitGatewayVpcAttachment =
       CreateTransitGatewayVpcAttachmentResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayVpcAttachmentResponse'
-            Prelude.<$> (x Prelude..@? "transitGatewayVpcAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayVpcAttachment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CreateTransitGatewayVpcAttachment
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTransitGatewayVpcAttachment
 
 instance
-  Prelude.ToHeaders
-    CreateTransitGatewayVpcAttachment
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     CreateTransitGatewayVpcAttachment
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    CreateTransitGatewayVpcAttachment
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     CreateTransitGatewayVpcAttachment
   where
   toQuery CreateTransitGatewayVpcAttachment' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "CreateTransitGatewayVpcAttachment" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecifications"
-              Prelude.<$> tagSpecifications
+          Core.=: ( "CreateTransitGatewayVpcAttachment" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecifications"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "Options" Prelude.=: options,
-        "TransitGatewayId" Prelude.=: transitGatewayId,
-        "VpcId" Prelude.=: vpcId,
-        Prelude.toQueryList "SubnetIds" subnetIds
+        "DryRun" Core.=: dryRun,
+        "Options" Core.=: options,
+        "TransitGatewayId" Core.=: transitGatewayId,
+        "VpcId" Core.=: vpcId,
+        Core.toQueryList "SubnetIds" subnetIds
       ]
 
 -- | /See:/ 'newCreateTransitGatewayVpcAttachmentResponse' smart constructor.
 data CreateTransitGatewayVpcAttachmentResponse = CreateTransitGatewayVpcAttachmentResponse'
   { -- | Information about the VPC attachment.
-    transitGatewayVpcAttachment :: Prelude.Maybe TransitGatewayVpcAttachment,
+    transitGatewayVpcAttachment :: Core.Maybe TransitGatewayVpcAttachment,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateTransitGatewayVpcAttachmentResponse' with all optional fields omitted.
@@ -236,24 +234,24 @@ data CreateTransitGatewayVpcAttachmentResponse = CreateTransitGatewayVpcAttachme
 -- 'httpStatus', 'createTransitGatewayVpcAttachmentResponse_httpStatus' - The response's http status code.
 newCreateTransitGatewayVpcAttachmentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateTransitGatewayVpcAttachmentResponse
 newCreateTransitGatewayVpcAttachmentResponse
   pHttpStatus_ =
     CreateTransitGatewayVpcAttachmentResponse'
       { transitGatewayVpcAttachment =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the VPC attachment.
-createTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' CreateTransitGatewayVpcAttachmentResponse (Prelude.Maybe TransitGatewayVpcAttachment)
+createTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment :: Lens.Lens' CreateTransitGatewayVpcAttachmentResponse (Core.Maybe TransitGatewayVpcAttachment)
 createTransitGatewayVpcAttachmentResponse_transitGatewayVpcAttachment = Lens.lens (\CreateTransitGatewayVpcAttachmentResponse' {transitGatewayVpcAttachment} -> transitGatewayVpcAttachment) (\s@CreateTransitGatewayVpcAttachmentResponse' {} a -> s {transitGatewayVpcAttachment = a} :: CreateTransitGatewayVpcAttachmentResponse)
 
 -- | The response's http status code.
-createTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' CreateTransitGatewayVpcAttachmentResponse Prelude.Int
+createTransitGatewayVpcAttachmentResponse_httpStatus :: Lens.Lens' CreateTransitGatewayVpcAttachmentResponse Core.Int
 createTransitGatewayVpcAttachmentResponse_httpStatus = Lens.lens (\CreateTransitGatewayVpcAttachmentResponse' {httpStatus} -> httpStatus) (\s@CreateTransitGatewayVpcAttachmentResponse' {} a -> s {httpStatus = a} :: CreateTransitGatewayVpcAttachmentResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateTransitGatewayVpcAttachmentResponse

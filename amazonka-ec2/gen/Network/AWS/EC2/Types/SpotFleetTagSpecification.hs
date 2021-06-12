@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SpotFleetTagSpecification where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ResourceType
 import Network.AWS.EC2.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The tags for a Spot Fleet resource.
 --
@@ -35,11 +34,11 @@ data SpotFleetTagSpecification = SpotFleetTagSpecification'
     -- the @TagSpecifications@ parameter in
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html SpotFleetRequestConfigData>
     -- .
-    resourceType :: Prelude.Maybe ResourceType,
+    resourceType :: Core.Maybe ResourceType,
     -- | The tags.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SpotFleetTagSpecification' with all optional fields omitted.
@@ -61,8 +60,8 @@ newSpotFleetTagSpecification ::
 newSpotFleetTagSpecification =
   SpotFleetTagSpecification'
     { resourceType =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
+        Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The type of resource. Currently, the only resource type that is
@@ -70,29 +69,28 @@ newSpotFleetTagSpecification =
 -- the @TagSpecifications@ parameter in
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html SpotFleetRequestConfigData>
 -- .
-spotFleetTagSpecification_resourceType :: Lens.Lens' SpotFleetTagSpecification (Prelude.Maybe ResourceType)
+spotFleetTagSpecification_resourceType :: Lens.Lens' SpotFleetTagSpecification (Core.Maybe ResourceType)
 spotFleetTagSpecification_resourceType = Lens.lens (\SpotFleetTagSpecification' {resourceType} -> resourceType) (\s@SpotFleetTagSpecification' {} a -> s {resourceType = a} :: SpotFleetTagSpecification)
 
 -- | The tags.
-spotFleetTagSpecification_tags :: Lens.Lens' SpotFleetTagSpecification (Prelude.Maybe [Tag])
-spotFleetTagSpecification_tags = Lens.lens (\SpotFleetTagSpecification' {tags} -> tags) (\s@SpotFleetTagSpecification' {} a -> s {tags = a} :: SpotFleetTagSpecification) Prelude.. Lens.mapping Prelude._Coerce
+spotFleetTagSpecification_tags :: Lens.Lens' SpotFleetTagSpecification (Core.Maybe [Tag])
+spotFleetTagSpecification_tags = Lens.lens (\SpotFleetTagSpecification' {tags} -> tags) (\s@SpotFleetTagSpecification' {} a -> s {tags = a} :: SpotFleetTagSpecification) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML SpotFleetTagSpecification where
+instance Core.FromXML SpotFleetTagSpecification where
   parseXML x =
     SpotFleetTagSpecification'
-      Prelude.<$> (x Prelude..@? "resourceType")
-      Prelude.<*> ( x Prelude..@? "tag" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> (x Core..@? "resourceType")
+      Core.<*> ( x Core..@? "tag" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable SpotFleetTagSpecification
+instance Core.Hashable SpotFleetTagSpecification
 
-instance Prelude.NFData SpotFleetTagSpecification
+instance Core.NFData SpotFleetTagSpecification
 
-instance Prelude.ToQuery SpotFleetTagSpecification where
+instance Core.ToQuery SpotFleetTagSpecification where
   toQuery SpotFleetTagSpecification' {..} =
-    Prelude.mconcat
-      [ "ResourceType" Prelude.=: resourceType,
-        Prelude.toQuery
-          (Prelude.toQueryList "Tag" Prelude.<$> tags)
+    Core.mconcat
+      [ "ResourceType" Core.=: resourceType,
+        Core.toQuery (Core.toQueryList "Tag" Core.<$> tags)
       ]

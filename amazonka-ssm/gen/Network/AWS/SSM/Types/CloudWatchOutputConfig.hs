@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.CloudWatchOutputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Configuration options for sending command output to CloudWatch Logs.
 --
@@ -31,11 +30,11 @@ data CloudWatchOutputConfig = CloudWatchOutputConfig'
     -- output. If you don\'t specify a group name, Systems Manager
     -- automatically creates a log group for you. The log group uses the
     -- following naming format: aws\/ssm\//SystemsManagerDocumentName/.
-    cloudWatchLogGroupName :: Prelude.Maybe Prelude.Text,
+    cloudWatchLogGroupName :: Core.Maybe Core.Text,
     -- | Enables Systems Manager to send command output to CloudWatch Logs.
-    cloudWatchOutputEnabled :: Prelude.Maybe Prelude.Bool
+    cloudWatchOutputEnabled :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudWatchOutputConfig' with all optional fields omitted.
@@ -56,42 +55,42 @@ newCloudWatchOutputConfig ::
 newCloudWatchOutputConfig =
   CloudWatchOutputConfig'
     { cloudWatchLogGroupName =
-        Prelude.Nothing,
-      cloudWatchOutputEnabled = Prelude.Nothing
+        Core.Nothing,
+      cloudWatchOutputEnabled = Core.Nothing
     }
 
 -- | The name of the CloudWatch log group where you want to send command
 -- output. If you don\'t specify a group name, Systems Manager
 -- automatically creates a log group for you. The log group uses the
 -- following naming format: aws\/ssm\//SystemsManagerDocumentName/.
-cloudWatchOutputConfig_cloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Text)
+cloudWatchOutputConfig_cloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Core.Maybe Core.Text)
 cloudWatchOutputConfig_cloudWatchLogGroupName = Lens.lens (\CloudWatchOutputConfig' {cloudWatchLogGroupName} -> cloudWatchLogGroupName) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchLogGroupName = a} :: CloudWatchOutputConfig)
 
 -- | Enables Systems Manager to send command output to CloudWatch Logs.
-cloudWatchOutputConfig_cloudWatchOutputEnabled :: Lens.Lens' CloudWatchOutputConfig (Prelude.Maybe Prelude.Bool)
+cloudWatchOutputConfig_cloudWatchOutputEnabled :: Lens.Lens' CloudWatchOutputConfig (Core.Maybe Core.Bool)
 cloudWatchOutputConfig_cloudWatchOutputEnabled = Lens.lens (\CloudWatchOutputConfig' {cloudWatchOutputEnabled} -> cloudWatchOutputEnabled) (\s@CloudWatchOutputConfig' {} a -> s {cloudWatchOutputEnabled = a} :: CloudWatchOutputConfig)
 
-instance Prelude.FromJSON CloudWatchOutputConfig where
+instance Core.FromJSON CloudWatchOutputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CloudWatchOutputConfig"
       ( \x ->
           CloudWatchOutputConfig'
-            Prelude.<$> (x Prelude..:? "CloudWatchLogGroupName")
-            Prelude.<*> (x Prelude..:? "CloudWatchOutputEnabled")
+            Core.<$> (x Core..:? "CloudWatchLogGroupName")
+            Core.<*> (x Core..:? "CloudWatchOutputEnabled")
       )
 
-instance Prelude.Hashable CloudWatchOutputConfig
+instance Core.Hashable CloudWatchOutputConfig
 
-instance Prelude.NFData CloudWatchOutputConfig
+instance Core.NFData CloudWatchOutputConfig
 
-instance Prelude.ToJSON CloudWatchOutputConfig where
+instance Core.ToJSON CloudWatchOutputConfig where
   toJSON CloudWatchOutputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CloudWatchLogGroupName" Prelude..=)
-              Prelude.<$> cloudWatchLogGroupName,
-            ("CloudWatchOutputEnabled" Prelude..=)
-              Prelude.<$> cloudWatchOutputEnabled
+    Core.object
+      ( Core.catMaybes
+          [ ("CloudWatchLogGroupName" Core..=)
+              Core.<$> cloudWatchLogGroupName,
+            ("CloudWatchOutputEnabled" Core..=)
+              Core.<$> cloudWatchOutputEnabled
           ]
       )

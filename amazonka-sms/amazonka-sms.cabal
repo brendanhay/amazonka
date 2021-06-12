@@ -133,10 +133,10 @@ library
     Network.AWS.SMS.UpdateReplicationJob
     Network.AWS.SMS.Waiters
 
-  reexported-modules: Network.AWS.Prelude
+  reexported-modules: Network.AWS
   build-depends:
-    , amazonka-core  >=1.6.1 && <1.6.2
-    , base           >=4.13  && <5
+    , amazonka  >=1.6.1 && <1.6.2
+    , base      >=4.13  && <5
 
 test-suite amazonka-sms-test
   type:             exitcode-stdio-1.0
@@ -154,7 +154,7 @@ test-suite amazonka-sms-test
     Test.AWS.SMS.Internal
 
   build-depends:
-    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka              >=1.6.1 && <1.6.2
     , amazonka-sms
     , amazonka-test         >=1.6.1 && <1.6.2
     , base

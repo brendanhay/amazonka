@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.ResetInstanceAttribute
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,7 +58,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The attribute to reset.
     --
     -- You can only reset the following attributes: @kernel@ | @ramdisk@ |
@@ -67,9 +66,9 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
     -- ModifyInstanceAttribute.
     attribute :: InstanceAttributeName,
     -- | The ID of the instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetInstanceAttribute' with all optional fields omitted.
@@ -95,11 +94,11 @@ newResetInstanceAttribute ::
   -- | 'attribute'
   InstanceAttributeName ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ResetInstanceAttribute
 newResetInstanceAttribute pAttribute_ pInstanceId_ =
   ResetInstanceAttribute'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       attribute = pAttribute_,
       instanceId = pInstanceId_
     }
@@ -108,7 +107,7 @@ newResetInstanceAttribute pAttribute_ pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-resetInstanceAttribute_dryRun :: Lens.Lens' ResetInstanceAttribute (Prelude.Maybe Prelude.Bool)
+resetInstanceAttribute_dryRun :: Lens.Lens' ResetInstanceAttribute (Core.Maybe Core.Bool)
 resetInstanceAttribute_dryRun = Lens.lens (\ResetInstanceAttribute' {dryRun} -> dryRun) (\s@ResetInstanceAttribute' {} a -> s {dryRun = a} :: ResetInstanceAttribute)
 
 -- | The attribute to reset.
@@ -120,45 +119,44 @@ resetInstanceAttribute_attribute :: Lens.Lens' ResetInstanceAttribute InstanceAt
 resetInstanceAttribute_attribute = Lens.lens (\ResetInstanceAttribute' {attribute} -> attribute) (\s@ResetInstanceAttribute' {} a -> s {attribute = a} :: ResetInstanceAttribute)
 
 -- | The ID of the instance.
-resetInstanceAttribute_instanceId :: Lens.Lens' ResetInstanceAttribute Prelude.Text
+resetInstanceAttribute_instanceId :: Lens.Lens' ResetInstanceAttribute Core.Text
 resetInstanceAttribute_instanceId = Lens.lens (\ResetInstanceAttribute' {instanceId} -> instanceId) (\s@ResetInstanceAttribute' {} a -> s {instanceId = a} :: ResetInstanceAttribute)
 
-instance Prelude.AWSRequest ResetInstanceAttribute where
+instance Core.AWSRequest ResetInstanceAttribute where
   type
-    Rs ResetInstanceAttribute =
+    AWSResponse ResetInstanceAttribute =
       ResetInstanceAttributeResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       ResetInstanceAttributeResponse'
 
-instance Prelude.Hashable ResetInstanceAttribute
+instance Core.Hashable ResetInstanceAttribute
 
-instance Prelude.NFData ResetInstanceAttribute
+instance Core.NFData ResetInstanceAttribute
 
-instance Prelude.ToHeaders ResetInstanceAttribute where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ResetInstanceAttribute where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ResetInstanceAttribute where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResetInstanceAttribute where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResetInstanceAttribute where
+instance Core.ToQuery ResetInstanceAttribute where
   toQuery ResetInstanceAttribute' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ResetInstanceAttribute" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "Attribute" Prelude.=: attribute,
-        "InstanceId" Prelude.=: instanceId
+          Core.=: ("ResetInstanceAttribute" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "Attribute" Core.=: attribute,
+        "InstanceId" Core.=: instanceId
       ]
 
 -- | /See:/ 'newResetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResetInstanceAttributeResponse' with all optional fields omitted.
@@ -169,6 +167,4 @@ newResetInstanceAttributeResponse ::
 newResetInstanceAttributeResponse =
   ResetInstanceAttributeResponse'
 
-instance
-  Prelude.NFData
-    ResetInstanceAttributeResponse
+instance Core.NFData ResetInstanceAttributeResponse

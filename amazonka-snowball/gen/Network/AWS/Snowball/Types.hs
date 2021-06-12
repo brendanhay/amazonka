@@ -235,8 +235,8 @@ module Network.AWS.Snowball.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 import Network.AWS.Snowball.Types.Address
 import Network.AWS.Snowball.Types.ClusterListEntry
@@ -270,90 +270,87 @@ import Network.AWS.Snowball.Types.TaxDocuments
 import Network.AWS.Snowball.Types.WirelessConnection
 
 -- | API version @2016-06-30@ of the Amazon Import/Export Snowball SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "Snowball",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "snowball",
-      Prelude._svcSigningName = "snowball",
-      Prelude._svcVersion = "2016-06-30",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseJSONError "Snowball",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "Snowball",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "snowball",
+      Core._serviceSigningName = "snowball",
+      Core._serviceVersion = "2016-06-30",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseJSONError "Snowball",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The specified resource can\'t be found. Check the information you
 -- provided in your last request, and try again.
-_InvalidResourceException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidResourceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidResourceException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidResourceException"
 
 -- | Job or cluster creation failed. One or more inputs were invalid. Confirm
 -- that the CreateClusterRequest$SnowballType value supports your
 -- CreateJobRequest$JobType, and try again.
-_InvalidInputCombinationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInputCombinationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidInputCombinationException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidInputCombinationException"
 
@@ -361,75 +358,75 @@ _InvalidInputCombinationException =
 -- less than five nodes for your cluster and you have more nodes to create
 -- for this cluster, try again and create jobs until your cluster has
 -- exactly five notes.
-_ClusterLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClusterLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ClusterLimitExceededException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ClusterLimitExceededException"
 
 -- | The address provided was invalid. Check the address with your region\'s
 -- carrier, and try again.
-_InvalidAddressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidAddressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidAddressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidAddressException"
 
 -- | The @NextToken@ string was altered unexpectedly, and the operation has
 -- stopped. Run the operation without changing the @NextToken@ string, and
 -- try again.
-_InvalidNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | You get this exception if you call @CreateReturnShippingLabel@ and a
 -- valid return shipping label already exists. In this case, use
 -- @DescribeReturnShippingLabel@ to get the url.
-_ReturnShippingLabelAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ReturnShippingLabelAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ReturnShippingLabelAlreadyExistsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ReturnShippingLabelAlreadyExistsException"
 
 -- | The address is either outside the serviceable area for your region, or
 -- an error occurred. Check the address with your region\'s carrier and try
 -- again. If the issue persists, contact AWS Support.
-_UnsupportedAddressException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedAddressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedAddressException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedAddressException"
 
 -- | You get this exception when you call @CreateReturnShippingLabel@ more
 -- than once when other requests are not completed.
-_ConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | Your IAM user lacks the necessary Amazon EC2 permissions to perform the
 -- attempted action.
-_Ec2RequestFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_Ec2RequestFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _Ec2RequestFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "Ec2RequestFailedException"
 
 -- | The action can\'t be performed because the job\'s current state doesn\'t
 -- allow that action to be performed.
-_InvalidJobStateException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidJobStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidJobStateException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidJobStateException"
 
 -- | The provided AWS Key Management Service key lacks the permissions to
 -- perform the specified CreateJob or UpdateJob action.
-_KMSRequestFailedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_KMSRequestFailedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _KMSRequestFailedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "KMSRequestFailedException"

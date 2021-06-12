@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Hdr10Settings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Hdr10 Settings
 --
@@ -30,13 +29,13 @@ data Hdr10Settings = Hdr10Settings'
   { -- | Maximum Content Light Level An integer metadata value defining the
     -- maximum light level, in nits, of any single pixel within an encoded HDR
     -- video stream or file.
-    maxCll :: Prelude.Maybe Prelude.Natural,
+    maxCll :: Core.Maybe Core.Natural,
     -- | Maximum Frame Average Light Level An integer metadata value defining the
     -- maximum average light level, in nits, for any single frame within an
     -- encoded HDR video stream or file.
-    maxFall :: Prelude.Maybe Prelude.Natural
+    maxFall :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Hdr10Settings' with all optional fields omitted.
@@ -57,41 +56,41 @@ newHdr10Settings ::
   Hdr10Settings
 newHdr10Settings =
   Hdr10Settings'
-    { maxCll = Prelude.Nothing,
-      maxFall = Prelude.Nothing
+    { maxCll = Core.Nothing,
+      maxFall = Core.Nothing
     }
 
 -- | Maximum Content Light Level An integer metadata value defining the
 -- maximum light level, in nits, of any single pixel within an encoded HDR
 -- video stream or file.
-hdr10Settings_maxCll :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
+hdr10Settings_maxCll :: Lens.Lens' Hdr10Settings (Core.Maybe Core.Natural)
 hdr10Settings_maxCll = Lens.lens (\Hdr10Settings' {maxCll} -> maxCll) (\s@Hdr10Settings' {} a -> s {maxCll = a} :: Hdr10Settings)
 
 -- | Maximum Frame Average Light Level An integer metadata value defining the
 -- maximum average light level, in nits, for any single frame within an
 -- encoded HDR video stream or file.
-hdr10Settings_maxFall :: Lens.Lens' Hdr10Settings (Prelude.Maybe Prelude.Natural)
+hdr10Settings_maxFall :: Lens.Lens' Hdr10Settings (Core.Maybe Core.Natural)
 hdr10Settings_maxFall = Lens.lens (\Hdr10Settings' {maxFall} -> maxFall) (\s@Hdr10Settings' {} a -> s {maxFall = a} :: Hdr10Settings)
 
-instance Prelude.FromJSON Hdr10Settings where
+instance Core.FromJSON Hdr10Settings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Hdr10Settings"
       ( \x ->
           Hdr10Settings'
-            Prelude.<$> (x Prelude..:? "maxCll")
-            Prelude.<*> (x Prelude..:? "maxFall")
+            Core.<$> (x Core..:? "maxCll")
+            Core.<*> (x Core..:? "maxFall")
       )
 
-instance Prelude.Hashable Hdr10Settings
+instance Core.Hashable Hdr10Settings
 
-instance Prelude.NFData Hdr10Settings
+instance Core.NFData Hdr10Settings
 
-instance Prelude.ToJSON Hdr10Settings where
+instance Core.ToJSON Hdr10Settings where
   toJSON Hdr10Settings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("maxCll" Prelude..=) Prelude.<$> maxCll,
-            ("maxFall" Prelude..=) Prelude.<$> maxFall
+    Core.object
+      ( Core.catMaybes
+          [ ("maxCll" Core..=) Core.<$> maxCll,
+            ("maxFall" Core..=) Core.<$> maxFall
           ]
       )

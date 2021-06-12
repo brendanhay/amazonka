@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.Message where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.Body
 import Network.AWS.SES.Types.Content
 
@@ -35,7 +34,7 @@ data Message = Message'
     -- | The message body.
     body :: Body
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Message' with all optional fields omitted.
@@ -67,13 +66,11 @@ message_subject = Lens.lens (\Message' {subject} -> subject) (\s@Message' {} a -
 message_body :: Lens.Lens' Message Body
 message_body = Lens.lens (\Message' {body} -> body) (\s@Message' {} a -> s {body = a} :: Message)
 
-instance Prelude.Hashable Message
+instance Core.Hashable Message
 
-instance Prelude.NFData Message
+instance Core.NFData Message
 
-instance Prelude.ToQuery Message where
+instance Core.ToQuery Message where
   toQuery Message' {..} =
-    Prelude.mconcat
-      [ "Subject" Prelude.=: subject,
-        "Body" Prelude.=: body
-      ]
+    Core.mconcat
+      ["Subject" Core.=: subject, "Body" Core.=: body]

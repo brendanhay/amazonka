@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.APIGateway.GetDocumentationVersion
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetDocumentationVersion' smart constructor.
 data GetDocumentationVersion = GetDocumentationVersion'
   { -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The version identifier of the to-be-retrieved documentation
     -- snapshot.
-    documentationVersion :: Prelude.Text
+    documentationVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetDocumentationVersion' with all optional fields omitted.
@@ -74,9 +73,9 @@ data GetDocumentationVersion = GetDocumentationVersion'
 -- snapshot.
 newGetDocumentationVersion ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'documentationVersion'
-  Prelude.Text ->
+  Core.Text ->
   GetDocumentationVersion
 newGetDocumentationVersion
   pRestApiId_
@@ -87,44 +86,44 @@ newGetDocumentationVersion
       }
 
 -- | [Required] The string identifier of the associated RestApi.
-getDocumentationVersion_restApiId :: Lens.Lens' GetDocumentationVersion Prelude.Text
+getDocumentationVersion_restApiId :: Lens.Lens' GetDocumentationVersion Core.Text
 getDocumentationVersion_restApiId = Lens.lens (\GetDocumentationVersion' {restApiId} -> restApiId) (\s@GetDocumentationVersion' {} a -> s {restApiId = a} :: GetDocumentationVersion)
 
 -- | [Required] The version identifier of the to-be-retrieved documentation
 -- snapshot.
-getDocumentationVersion_documentationVersion :: Lens.Lens' GetDocumentationVersion Prelude.Text
+getDocumentationVersion_documentationVersion :: Lens.Lens' GetDocumentationVersion Core.Text
 getDocumentationVersion_documentationVersion = Lens.lens (\GetDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@GetDocumentationVersion' {} a -> s {documentationVersion = a} :: GetDocumentationVersion)
 
-instance Prelude.AWSRequest GetDocumentationVersion where
+instance Core.AWSRequest GetDocumentationVersion where
   type
-    Rs GetDocumentationVersion =
+    AWSResponse GetDocumentationVersion =
       DocumentationVersion
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetDocumentationVersion
+instance Core.Hashable GetDocumentationVersion
 
-instance Prelude.NFData GetDocumentationVersion
+instance Core.NFData GetDocumentationVersion
 
-instance Prelude.ToHeaders GetDocumentationVersion where
+instance Core.ToHeaders GetDocumentationVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetDocumentationVersion where
+instance Core.ToPath GetDocumentationVersion where
   toPath GetDocumentationVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/restapis/",
-        Prelude.toBS restApiId,
+        Core.toBS restApiId,
         "/documentation/versions/",
-        Prelude.toBS documentationVersion
+        Core.toBS documentationVersion
       ]
 
-instance Prelude.ToQuery GetDocumentationVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetDocumentationVersion where
+  toQuery = Core.const Core.mempty

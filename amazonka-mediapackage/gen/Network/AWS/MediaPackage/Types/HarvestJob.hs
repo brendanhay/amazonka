@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaPackage.Types.HarvestJob where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaPackage.Types.S3Destination
 import Network.AWS.MediaPackage.Types.Status
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A HarvestJob resource configuration
 --
@@ -33,26 +32,26 @@ data HarvestJob = HarvestJob'
     -- Event to listen for HarvestJobs as they succeed or fail. In the event of
     -- failure, the CloudWatch Event will include an explanation of why the
     -- HarvestJob failed.
-    status :: Prelude.Maybe Status,
-    s3Destination :: Prelude.Maybe S3Destination,
+    status :: Core.Maybe Status,
+    s3Destination :: Core.Maybe S3Destination,
     -- | The ID of the Channel that the HarvestJob will harvest from.
-    channelId :: Prelude.Maybe Prelude.Text,
+    channelId :: Core.Maybe Core.Text,
     -- | The start of the time-window which will be harvested.
-    startTime :: Prelude.Maybe Prelude.Text,
+    startTime :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The ID of the HarvestJob. The ID must be unique within the region and it
     -- cannot be changed after the HarvestJob is submitted.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The time the HarvestJob was submitted
-    createdAt :: Prelude.Maybe Prelude.Text,
+    createdAt :: Core.Maybe Core.Text,
     -- | The ID of the OriginEndpoint that the HarvestJob will harvest from. This
     -- cannot be changed after the HarvestJob is submitted.
-    originEndpointId :: Prelude.Maybe Prelude.Text,
+    originEndpointId :: Core.Maybe Core.Text,
     -- | The end of the time-window which will be harvested.
-    endTime :: Prelude.Maybe Prelude.Text
+    endTime :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HarvestJob' with all optional fields omitted.
@@ -88,75 +87,75 @@ newHarvestJob ::
   HarvestJob
 newHarvestJob =
   HarvestJob'
-    { status = Prelude.Nothing,
-      s3Destination = Prelude.Nothing,
-      channelId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      originEndpointId = Prelude.Nothing,
-      endTime = Prelude.Nothing
+    { status = Core.Nothing,
+      s3Destination = Core.Nothing,
+      channelId = Core.Nothing,
+      startTime = Core.Nothing,
+      arn = Core.Nothing,
+      id = Core.Nothing,
+      createdAt = Core.Nothing,
+      originEndpointId = Core.Nothing,
+      endTime = Core.Nothing
     }
 
 -- | The current status of the HarvestJob. Consider setting up a CloudWatch
 -- Event to listen for HarvestJobs as they succeed or fail. In the event of
 -- failure, the CloudWatch Event will include an explanation of why the
 -- HarvestJob failed.
-harvestJob_status :: Lens.Lens' HarvestJob (Prelude.Maybe Status)
+harvestJob_status :: Lens.Lens' HarvestJob (Core.Maybe Status)
 harvestJob_status = Lens.lens (\HarvestJob' {status} -> status) (\s@HarvestJob' {} a -> s {status = a} :: HarvestJob)
 
 -- | Undocumented member.
-harvestJob_s3Destination :: Lens.Lens' HarvestJob (Prelude.Maybe S3Destination)
+harvestJob_s3Destination :: Lens.Lens' HarvestJob (Core.Maybe S3Destination)
 harvestJob_s3Destination = Lens.lens (\HarvestJob' {s3Destination} -> s3Destination) (\s@HarvestJob' {} a -> s {s3Destination = a} :: HarvestJob)
 
 -- | The ID of the Channel that the HarvestJob will harvest from.
-harvestJob_channelId :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
+harvestJob_channelId :: Lens.Lens' HarvestJob (Core.Maybe Core.Text)
 harvestJob_channelId = Lens.lens (\HarvestJob' {channelId} -> channelId) (\s@HarvestJob' {} a -> s {channelId = a} :: HarvestJob)
 
 -- | The start of the time-window which will be harvested.
-harvestJob_startTime :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
+harvestJob_startTime :: Lens.Lens' HarvestJob (Core.Maybe Core.Text)
 harvestJob_startTime = Lens.lens (\HarvestJob' {startTime} -> startTime) (\s@HarvestJob' {} a -> s {startTime = a} :: HarvestJob)
 
 -- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
-harvestJob_arn :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
+harvestJob_arn :: Lens.Lens' HarvestJob (Core.Maybe Core.Text)
 harvestJob_arn = Lens.lens (\HarvestJob' {arn} -> arn) (\s@HarvestJob' {} a -> s {arn = a} :: HarvestJob)
 
 -- | The ID of the HarvestJob. The ID must be unique within the region and it
 -- cannot be changed after the HarvestJob is submitted.
-harvestJob_id :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
+harvestJob_id :: Lens.Lens' HarvestJob (Core.Maybe Core.Text)
 harvestJob_id = Lens.lens (\HarvestJob' {id} -> id) (\s@HarvestJob' {} a -> s {id = a} :: HarvestJob)
 
 -- | The time the HarvestJob was submitted
-harvestJob_createdAt :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
+harvestJob_createdAt :: Lens.Lens' HarvestJob (Core.Maybe Core.Text)
 harvestJob_createdAt = Lens.lens (\HarvestJob' {createdAt} -> createdAt) (\s@HarvestJob' {} a -> s {createdAt = a} :: HarvestJob)
 
 -- | The ID of the OriginEndpoint that the HarvestJob will harvest from. This
 -- cannot be changed after the HarvestJob is submitted.
-harvestJob_originEndpointId :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
+harvestJob_originEndpointId :: Lens.Lens' HarvestJob (Core.Maybe Core.Text)
 harvestJob_originEndpointId = Lens.lens (\HarvestJob' {originEndpointId} -> originEndpointId) (\s@HarvestJob' {} a -> s {originEndpointId = a} :: HarvestJob)
 
 -- | The end of the time-window which will be harvested.
-harvestJob_endTime :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
+harvestJob_endTime :: Lens.Lens' HarvestJob (Core.Maybe Core.Text)
 harvestJob_endTime = Lens.lens (\HarvestJob' {endTime} -> endTime) (\s@HarvestJob' {} a -> s {endTime = a} :: HarvestJob)
 
-instance Prelude.FromJSON HarvestJob where
+instance Core.FromJSON HarvestJob where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HarvestJob"
       ( \x ->
           HarvestJob'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "s3Destination")
-            Prelude.<*> (x Prelude..:? "channelId")
-            Prelude.<*> (x Prelude..:? "startTime")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "originEndpointId")
-            Prelude.<*> (x Prelude..:? "endTime")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "s3Destination")
+            Core.<*> (x Core..:? "channelId")
+            Core.<*> (x Core..:? "startTime")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "originEndpointId")
+            Core.<*> (x Core..:? "endTime")
       )
 
-instance Prelude.Hashable HarvestJob
+instance Core.Hashable HarvestJob
 
-instance Prelude.NFData HarvestJob
+instance Core.NFData HarvestJob

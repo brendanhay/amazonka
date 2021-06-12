@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Discovery.Types.AgentNetworkInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Network details about the host where the agent\/connector resides.
 --
 -- /See:/ 'newAgentNetworkInfo' smart constructor.
 data AgentNetworkInfo = AgentNetworkInfo'
   { -- | The MAC address for the host where the agent\/connector resides.
-    macAddress :: Prelude.Maybe Prelude.Text,
+    macAddress :: Core.Maybe Core.Text,
     -- | The IP address for the host where the agent\/connector resides.
-    ipAddress :: Prelude.Maybe Prelude.Text
+    ipAddress :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AgentNetworkInfo' with all optional fields omitted.
@@ -49,28 +48,28 @@ newAgentNetworkInfo ::
   AgentNetworkInfo
 newAgentNetworkInfo =
   AgentNetworkInfo'
-    { macAddress = Prelude.Nothing,
-      ipAddress = Prelude.Nothing
+    { macAddress = Core.Nothing,
+      ipAddress = Core.Nothing
     }
 
 -- | The MAC address for the host where the agent\/connector resides.
-agentNetworkInfo_macAddress :: Lens.Lens' AgentNetworkInfo (Prelude.Maybe Prelude.Text)
+agentNetworkInfo_macAddress :: Lens.Lens' AgentNetworkInfo (Core.Maybe Core.Text)
 agentNetworkInfo_macAddress = Lens.lens (\AgentNetworkInfo' {macAddress} -> macAddress) (\s@AgentNetworkInfo' {} a -> s {macAddress = a} :: AgentNetworkInfo)
 
 -- | The IP address for the host where the agent\/connector resides.
-agentNetworkInfo_ipAddress :: Lens.Lens' AgentNetworkInfo (Prelude.Maybe Prelude.Text)
+agentNetworkInfo_ipAddress :: Lens.Lens' AgentNetworkInfo (Core.Maybe Core.Text)
 agentNetworkInfo_ipAddress = Lens.lens (\AgentNetworkInfo' {ipAddress} -> ipAddress) (\s@AgentNetworkInfo' {} a -> s {ipAddress = a} :: AgentNetworkInfo)
 
-instance Prelude.FromJSON AgentNetworkInfo where
+instance Core.FromJSON AgentNetworkInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AgentNetworkInfo"
       ( \x ->
           AgentNetworkInfo'
-            Prelude.<$> (x Prelude..:? "macAddress")
-            Prelude.<*> (x Prelude..:? "ipAddress")
+            Core.<$> (x Core..:? "macAddress")
+            Core.<*> (x Core..:? "ipAddress")
       )
 
-instance Prelude.Hashable AgentNetworkInfo
+instance Core.Hashable AgentNetworkInfo
 
-instance Prelude.NFData AgentNetworkInfo
+instance Core.NFData AgentNetworkInfo

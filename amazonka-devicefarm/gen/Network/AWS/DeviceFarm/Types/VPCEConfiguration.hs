@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DeviceFarm.Types.VPCEConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an Amazon Virtual Private Cloud (VPC) endpoint configuration.
 --
@@ -29,20 +28,20 @@ import qualified Network.AWS.Prelude as Prelude
 data VPCEConfiguration = VPCEConfiguration'
   { -- | The friendly name you give to your VPC endpoint configuration to manage
     -- your configurations more easily.
-    vpceConfigurationName :: Prelude.Maybe Prelude.Text,
+    vpceConfigurationName :: Core.Maybe Core.Text,
     -- | An optional description that provides details about your VPC endpoint
     -- configuration.
-    vpceConfigurationDescription :: Prelude.Maybe Prelude.Text,
+    vpceConfigurationDescription :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The DNS name that maps to the private IP address of the service you want
     -- to access.
-    serviceDnsName :: Prelude.Maybe Prelude.Text,
+    serviceDnsName :: Core.Maybe Core.Text,
     -- | The name of the VPC endpoint service running in your AWS account that
     -- you want Device Farm to test.
-    vpceServiceName :: Prelude.Maybe Prelude.Text
+    vpceServiceName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VPCEConfiguration' with all optional fields omitted.
@@ -70,50 +69,50 @@ newVPCEConfiguration ::
 newVPCEConfiguration =
   VPCEConfiguration'
     { vpceConfigurationName =
-        Prelude.Nothing,
-      vpceConfigurationDescription = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      serviceDnsName = Prelude.Nothing,
-      vpceServiceName = Prelude.Nothing
+        Core.Nothing,
+      vpceConfigurationDescription = Core.Nothing,
+      arn = Core.Nothing,
+      serviceDnsName = Core.Nothing,
+      vpceServiceName = Core.Nothing
     }
 
 -- | The friendly name you give to your VPC endpoint configuration to manage
 -- your configurations more easily.
-vPCEConfiguration_vpceConfigurationName :: Lens.Lens' VPCEConfiguration (Prelude.Maybe Prelude.Text)
+vPCEConfiguration_vpceConfigurationName :: Lens.Lens' VPCEConfiguration (Core.Maybe Core.Text)
 vPCEConfiguration_vpceConfigurationName = Lens.lens (\VPCEConfiguration' {vpceConfigurationName} -> vpceConfigurationName) (\s@VPCEConfiguration' {} a -> s {vpceConfigurationName = a} :: VPCEConfiguration)
 
 -- | An optional description that provides details about your VPC endpoint
 -- configuration.
-vPCEConfiguration_vpceConfigurationDescription :: Lens.Lens' VPCEConfiguration (Prelude.Maybe Prelude.Text)
+vPCEConfiguration_vpceConfigurationDescription :: Lens.Lens' VPCEConfiguration (Core.Maybe Core.Text)
 vPCEConfiguration_vpceConfigurationDescription = Lens.lens (\VPCEConfiguration' {vpceConfigurationDescription} -> vpceConfigurationDescription) (\s@VPCEConfiguration' {} a -> s {vpceConfigurationDescription = a} :: VPCEConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration.
-vPCEConfiguration_arn :: Lens.Lens' VPCEConfiguration (Prelude.Maybe Prelude.Text)
+vPCEConfiguration_arn :: Lens.Lens' VPCEConfiguration (Core.Maybe Core.Text)
 vPCEConfiguration_arn = Lens.lens (\VPCEConfiguration' {arn} -> arn) (\s@VPCEConfiguration' {} a -> s {arn = a} :: VPCEConfiguration)
 
 -- | The DNS name that maps to the private IP address of the service you want
 -- to access.
-vPCEConfiguration_serviceDnsName :: Lens.Lens' VPCEConfiguration (Prelude.Maybe Prelude.Text)
+vPCEConfiguration_serviceDnsName :: Lens.Lens' VPCEConfiguration (Core.Maybe Core.Text)
 vPCEConfiguration_serviceDnsName = Lens.lens (\VPCEConfiguration' {serviceDnsName} -> serviceDnsName) (\s@VPCEConfiguration' {} a -> s {serviceDnsName = a} :: VPCEConfiguration)
 
 -- | The name of the VPC endpoint service running in your AWS account that
 -- you want Device Farm to test.
-vPCEConfiguration_vpceServiceName :: Lens.Lens' VPCEConfiguration (Prelude.Maybe Prelude.Text)
+vPCEConfiguration_vpceServiceName :: Lens.Lens' VPCEConfiguration (Core.Maybe Core.Text)
 vPCEConfiguration_vpceServiceName = Lens.lens (\VPCEConfiguration' {vpceServiceName} -> vpceServiceName) (\s@VPCEConfiguration' {} a -> s {vpceServiceName = a} :: VPCEConfiguration)
 
-instance Prelude.FromJSON VPCEConfiguration where
+instance Core.FromJSON VPCEConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VPCEConfiguration"
       ( \x ->
           VPCEConfiguration'
-            Prelude.<$> (x Prelude..:? "vpceConfigurationName")
-            Prelude.<*> (x Prelude..:? "vpceConfigurationDescription")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "serviceDnsName")
-            Prelude.<*> (x Prelude..:? "vpceServiceName")
+            Core.<$> (x Core..:? "vpceConfigurationName")
+            Core.<*> (x Core..:? "vpceConfigurationDescription")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "serviceDnsName")
+            Core.<*> (x Core..:? "vpceServiceName")
       )
 
-instance Prelude.Hashable VPCEConfiguration
+instance Core.Hashable VPCEConfiguration
 
-instance Prelude.NFData VPCEConfiguration
+instance Core.NFData VPCEConfiguration

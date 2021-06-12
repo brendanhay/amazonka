@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.TimecodeConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.TimecodeConfigSource
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Timecode Config
 --
@@ -32,7 +31,7 @@ data TimecodeConfig = TimecodeConfig'
     -- the input timecode. Discrepancies below this threshold are permitted to
     -- avoid unnecessary discontinuities in the output timecode. No timecode
     -- sync when this is not specified.
-    syncThreshold :: Prelude.Maybe Prelude.Natural,
+    syncThreshold :: Core.Maybe Core.Natural,
     -- | Identifies the source for the timecode that will be associated with the
     -- events outputs. -Embedded (embedded): Initialize the output timecode
     -- with timecode from the the source. If no embedded timecode is detected
@@ -42,7 +41,7 @@ data TimecodeConfig = TimecodeConfig'
     -- 00:00:00:00.
     source :: TimecodeConfigSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TimecodeConfig' with all optional fields omitted.
@@ -70,7 +69,7 @@ newTimecodeConfig ::
   TimecodeConfig
 newTimecodeConfig pSource_ =
   TimecodeConfig'
-    { syncThreshold = Prelude.Nothing,
+    { syncThreshold = Core.Nothing,
       source = pSource_
     }
 
@@ -78,7 +77,7 @@ newTimecodeConfig pSource_ =
 -- the input timecode. Discrepancies below this threshold are permitted to
 -- avoid unnecessary discontinuities in the output timecode. No timecode
 -- sync when this is not specified.
-timecodeConfig_syncThreshold :: Lens.Lens' TimecodeConfig (Prelude.Maybe Prelude.Natural)
+timecodeConfig_syncThreshold :: Lens.Lens' TimecodeConfig (Core.Maybe Core.Natural)
 timecodeConfig_syncThreshold = Lens.lens (\TimecodeConfig' {syncThreshold} -> syncThreshold) (\s@TimecodeConfig' {} a -> s {syncThreshold = a} :: TimecodeConfig)
 
 -- | Identifies the source for the timecode that will be associated with the
@@ -91,26 +90,25 @@ timecodeConfig_syncThreshold = Lens.lens (\TimecodeConfig' {syncThreshold} -> sy
 timecodeConfig_source :: Lens.Lens' TimecodeConfig TimecodeConfigSource
 timecodeConfig_source = Lens.lens (\TimecodeConfig' {source} -> source) (\s@TimecodeConfig' {} a -> s {source = a} :: TimecodeConfig)
 
-instance Prelude.FromJSON TimecodeConfig where
+instance Core.FromJSON TimecodeConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TimecodeConfig"
       ( \x ->
           TimecodeConfig'
-            Prelude.<$> (x Prelude..:? "syncThreshold")
-            Prelude.<*> (x Prelude..: "source")
+            Core.<$> (x Core..:? "syncThreshold")
+            Core.<*> (x Core..: "source")
       )
 
-instance Prelude.Hashable TimecodeConfig
+instance Core.Hashable TimecodeConfig
 
-instance Prelude.NFData TimecodeConfig
+instance Core.NFData TimecodeConfig
 
-instance Prelude.ToJSON TimecodeConfig where
+instance Core.ToJSON TimecodeConfig where
   toJSON TimecodeConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("syncThreshold" Prelude..=)
-              Prelude.<$> syncThreshold,
-            Prelude.Just ("source" Prelude..= source)
+    Core.object
+      ( Core.catMaybes
+          [ ("syncThreshold" Core..=) Core.<$> syncThreshold,
+            Core.Just ("source" Core..= source)
           ]
       )

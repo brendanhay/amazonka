@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EFS.Types.BackupPolicyDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EFS.Types.BackupPolicy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newBackupPolicyDescription' smart constructor.
 data BackupPolicyDescription = BackupPolicyDescription'
   { -- | Describes the file system\'s backup policy, indicating whether automatic
     -- backups are turned on or off..
-    backupPolicy :: Prelude.Maybe BackupPolicy
+    backupPolicy :: Core.Maybe BackupPolicy
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BackupPolicyDescription' with all optional fields omitted.
@@ -47,23 +46,23 @@ newBackupPolicyDescription ::
 newBackupPolicyDescription =
   BackupPolicyDescription'
     { backupPolicy =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Describes the file system\'s backup policy, indicating whether automatic
 -- backups are turned on or off..
-backupPolicyDescription_backupPolicy :: Lens.Lens' BackupPolicyDescription (Prelude.Maybe BackupPolicy)
+backupPolicyDescription_backupPolicy :: Lens.Lens' BackupPolicyDescription (Core.Maybe BackupPolicy)
 backupPolicyDescription_backupPolicy = Lens.lens (\BackupPolicyDescription' {backupPolicy} -> backupPolicy) (\s@BackupPolicyDescription' {} a -> s {backupPolicy = a} :: BackupPolicyDescription)
 
-instance Prelude.FromJSON BackupPolicyDescription where
+instance Core.FromJSON BackupPolicyDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BackupPolicyDescription"
       ( \x ->
           BackupPolicyDescription'
-            Prelude.<$> (x Prelude..:? "BackupPolicy")
+            Core.<$> (x Core..:? "BackupPolicy")
       )
 
-instance Prelude.Hashable BackupPolicyDescription
+instance Core.Hashable BackupPolicyDescription
 
-instance Prelude.NFData BackupPolicyDescription
+instance Core.NFData BackupPolicyDescription

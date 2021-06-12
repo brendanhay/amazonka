@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.EvaluationMetrics where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.FindMatchesMetrics
 import Network.AWS.Glue.Types.TransformType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Evaluation metrics provide an estimate of the quality of your machine
 -- learning transform.
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEvaluationMetrics' smart constructor.
 data EvaluationMetrics = EvaluationMetrics'
   { -- | The evaluation metrics for the find matches algorithm.
-    findMatchesMetrics :: Prelude.Maybe FindMatchesMetrics,
+    findMatchesMetrics :: Core.Maybe FindMatchesMetrics,
     -- | The type of machine learning transform.
     transformType :: TransformType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EvaluationMetrics' with all optional fields omitted.
@@ -55,28 +54,28 @@ newEvaluationMetrics ::
 newEvaluationMetrics pTransformType_ =
   EvaluationMetrics'
     { findMatchesMetrics =
-        Prelude.Nothing,
+        Core.Nothing,
       transformType = pTransformType_
     }
 
 -- | The evaluation metrics for the find matches algorithm.
-evaluationMetrics_findMatchesMetrics :: Lens.Lens' EvaluationMetrics (Prelude.Maybe FindMatchesMetrics)
+evaluationMetrics_findMatchesMetrics :: Lens.Lens' EvaluationMetrics (Core.Maybe FindMatchesMetrics)
 evaluationMetrics_findMatchesMetrics = Lens.lens (\EvaluationMetrics' {findMatchesMetrics} -> findMatchesMetrics) (\s@EvaluationMetrics' {} a -> s {findMatchesMetrics = a} :: EvaluationMetrics)
 
 -- | The type of machine learning transform.
 evaluationMetrics_transformType :: Lens.Lens' EvaluationMetrics TransformType
 evaluationMetrics_transformType = Lens.lens (\EvaluationMetrics' {transformType} -> transformType) (\s@EvaluationMetrics' {} a -> s {transformType = a} :: EvaluationMetrics)
 
-instance Prelude.FromJSON EvaluationMetrics where
+instance Core.FromJSON EvaluationMetrics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EvaluationMetrics"
       ( \x ->
           EvaluationMetrics'
-            Prelude.<$> (x Prelude..:? "FindMatchesMetrics")
-            Prelude.<*> (x Prelude..: "TransformType")
+            Core.<$> (x Core..:? "FindMatchesMetrics")
+            Core.<*> (x Core..: "TransformType")
       )
 
-instance Prelude.Hashable EvaluationMetrics
+instance Core.Hashable EvaluationMetrics
 
-instance Prelude.NFData EvaluationMetrics
+instance Core.NFData EvaluationMetrics

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.OutputGroup where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Output
 import Network.AWS.MediaLive.Types.OutputGroupSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Output groups for this Live Event. Output groups contain information
 -- about where streams should be distributed.
@@ -33,12 +32,12 @@ data OutputGroup = OutputGroup'
   { -- | Custom output group name optionally defined by the user. Only letters,
     -- numbers, and the underscore character allowed; only 32 characters
     -- allowed.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     outputs :: [Output],
     -- | Settings associated with the output group.
     outputGroupSettings :: OutputGroupSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OutputGroup' with all optional fields omitted.
@@ -61,49 +60,47 @@ newOutputGroup ::
   OutputGroup
 newOutputGroup pOutputGroupSettings_ =
   OutputGroup'
-    { name = Prelude.Nothing,
-      outputs = Prelude.mempty,
+    { name = Core.Nothing,
+      outputs = Core.mempty,
       outputGroupSettings = pOutputGroupSettings_
     }
 
 -- | Custom output group name optionally defined by the user. Only letters,
 -- numbers, and the underscore character allowed; only 32 characters
 -- allowed.
-outputGroup_name :: Lens.Lens' OutputGroup (Prelude.Maybe Prelude.Text)
+outputGroup_name :: Lens.Lens' OutputGroup (Core.Maybe Core.Text)
 outputGroup_name = Lens.lens (\OutputGroup' {name} -> name) (\s@OutputGroup' {} a -> s {name = a} :: OutputGroup)
 
 -- | Undocumented member.
 outputGroup_outputs :: Lens.Lens' OutputGroup [Output]
-outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputGroup' {} a -> s {outputs = a} :: OutputGroup) Prelude.. Prelude._Coerce
+outputGroup_outputs = Lens.lens (\OutputGroup' {outputs} -> outputs) (\s@OutputGroup' {} a -> s {outputs = a} :: OutputGroup) Core.. Lens._Coerce
 
 -- | Settings associated with the output group.
 outputGroup_outputGroupSettings :: Lens.Lens' OutputGroup OutputGroupSettings
 outputGroup_outputGroupSettings = Lens.lens (\OutputGroup' {outputGroupSettings} -> outputGroupSettings) (\s@OutputGroup' {} a -> s {outputGroupSettings = a} :: OutputGroup)
 
-instance Prelude.FromJSON OutputGroup where
+instance Core.FromJSON OutputGroup where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OutputGroup"
       ( \x ->
           OutputGroup'
-            Prelude.<$> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "outputs" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "outputGroupSettings")
+            Core.<$> (x Core..:? "name")
+            Core.<*> (x Core..:? "outputs" Core..!= Core.mempty)
+            Core.<*> (x Core..: "outputGroupSettings")
       )
 
-instance Prelude.Hashable OutputGroup
+instance Core.Hashable OutputGroup
 
-instance Prelude.NFData OutputGroup
+instance Core.NFData OutputGroup
 
-instance Prelude.ToJSON OutputGroup where
+instance Core.ToJSON OutputGroup where
   toJSON OutputGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("name" Prelude..=) Prelude.<$> name,
-            Prelude.Just ("outputs" Prelude..= outputs),
-            Prelude.Just
-              ( "outputGroupSettings"
-                  Prelude..= outputGroupSettings
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("name" Core..=) Core.<$> name,
+            Core.Just ("outputs" Core..= outputs),
+            Core.Just
+              ("outputGroupSettings" Core..= outputGroupSettings)
           ]
       )

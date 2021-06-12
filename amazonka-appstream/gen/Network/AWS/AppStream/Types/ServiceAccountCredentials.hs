@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppStream.Types.ServiceAccountCredentials where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the credentials for the service account used by the fleet or
 -- image builder to connect to the directory.
@@ -32,11 +31,11 @@ data ServiceAccountCredentials = ServiceAccountCredentials'
     -- privileges: create computer objects, join computers to the domain, and
     -- change\/reset the password on descendant computer objects for the
     -- organizational units specified.
-    accountName :: Prelude.Sensitive Prelude.Text,
+    accountName :: Core.Sensitive Core.Text,
     -- | The password for the account.
-    accountPassword :: Prelude.Sensitive Prelude.Text
+    accountPassword :: Core.Sensitive Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ServiceAccountCredentials' with all optional fields omitted.
@@ -54,51 +53,51 @@ data ServiceAccountCredentials = ServiceAccountCredentials'
 -- 'accountPassword', 'serviceAccountCredentials_accountPassword' - The password for the account.
 newServiceAccountCredentials ::
   -- | 'accountName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accountPassword'
-  Prelude.Text ->
+  Core.Text ->
   ServiceAccountCredentials
 newServiceAccountCredentials
   pAccountName_
   pAccountPassword_ =
     ServiceAccountCredentials'
       { accountName =
-          Prelude._Sensitive Lens.# pAccountName_,
+          Core._Sensitive Lens.# pAccountName_,
         accountPassword =
-          Prelude._Sensitive Lens.# pAccountPassword_
+          Core._Sensitive Lens.# pAccountPassword_
       }
 
 -- | The user name of the account. This account must have the following
 -- privileges: create computer objects, join computers to the domain, and
 -- change\/reset the password on descendant computer objects for the
 -- organizational units specified.
-serviceAccountCredentials_accountName :: Lens.Lens' ServiceAccountCredentials Prelude.Text
-serviceAccountCredentials_accountName = Lens.lens (\ServiceAccountCredentials' {accountName} -> accountName) (\s@ServiceAccountCredentials' {} a -> s {accountName = a} :: ServiceAccountCredentials) Prelude.. Prelude._Sensitive
+serviceAccountCredentials_accountName :: Lens.Lens' ServiceAccountCredentials Core.Text
+serviceAccountCredentials_accountName = Lens.lens (\ServiceAccountCredentials' {accountName} -> accountName) (\s@ServiceAccountCredentials' {} a -> s {accountName = a} :: ServiceAccountCredentials) Core.. Core._Sensitive
 
 -- | The password for the account.
-serviceAccountCredentials_accountPassword :: Lens.Lens' ServiceAccountCredentials Prelude.Text
-serviceAccountCredentials_accountPassword = Lens.lens (\ServiceAccountCredentials' {accountPassword} -> accountPassword) (\s@ServiceAccountCredentials' {} a -> s {accountPassword = a} :: ServiceAccountCredentials) Prelude.. Prelude._Sensitive
+serviceAccountCredentials_accountPassword :: Lens.Lens' ServiceAccountCredentials Core.Text
+serviceAccountCredentials_accountPassword = Lens.lens (\ServiceAccountCredentials' {accountPassword} -> accountPassword) (\s@ServiceAccountCredentials' {} a -> s {accountPassword = a} :: ServiceAccountCredentials) Core.. Core._Sensitive
 
-instance Prelude.FromJSON ServiceAccountCredentials where
+instance Core.FromJSON ServiceAccountCredentials where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ServiceAccountCredentials"
       ( \x ->
           ServiceAccountCredentials'
-            Prelude.<$> (x Prelude..: "AccountName")
-            Prelude.<*> (x Prelude..: "AccountPassword")
+            Core.<$> (x Core..: "AccountName")
+            Core.<*> (x Core..: "AccountPassword")
       )
 
-instance Prelude.Hashable ServiceAccountCredentials
+instance Core.Hashable ServiceAccountCredentials
 
-instance Prelude.NFData ServiceAccountCredentials
+instance Core.NFData ServiceAccountCredentials
 
-instance Prelude.ToJSON ServiceAccountCredentials where
+instance Core.ToJSON ServiceAccountCredentials where
   toJSON ServiceAccountCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("AccountName" Prelude..= accountName),
-            Prelude.Just
-              ("AccountPassword" Prelude..= accountPassword)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountName" Core..= accountName),
+            Core.Just
+              ("AccountPassword" Core..= accountPassword)
           ]
       )

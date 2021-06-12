@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -72,9 +71,9 @@ module Network.AWS.KinesisAnalytics.AddApplicationOutput
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,14 +83,14 @@ import qualified Network.AWS.Response as Response
 data AddApplicationOutput = AddApplicationOutput'
   { -- | Name of the application to which you want to add the output
     -- configuration.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | Version of the application to which you want to add the output
     -- configuration. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get the current application version. If the version
     -- specified is not the current version, the
     -- @ConcurrentModificationException@ is returned.
-    currentApplicationVersionId :: Prelude.Natural,
+    currentApplicationVersionId :: Core.Natural,
     -- | An array of objects, each describing one output configuration. In the
     -- output configuration, you specify the name of an in-application stream,
     -- a destination (that is, an Amazon Kinesis stream, an Amazon Kinesis
@@ -99,7 +98,7 @@ data AddApplicationOutput = AddApplicationOutput'
     -- formation to use when writing to the destination.
     output :: Output
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddApplicationOutput' with all optional fields omitted.
@@ -126,9 +125,9 @@ data AddApplicationOutput = AddApplicationOutput'
 -- formation to use when writing to the destination.
 newAddApplicationOutput ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'currentApplicationVersionId'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'output'
   Output ->
   AddApplicationOutput
@@ -146,7 +145,7 @@ newAddApplicationOutput
 
 -- | Name of the application to which you want to add the output
 -- configuration.
-addApplicationOutput_applicationName :: Lens.Lens' AddApplicationOutput Prelude.Text
+addApplicationOutput_applicationName :: Lens.Lens' AddApplicationOutput Core.Text
 addApplicationOutput_applicationName = Lens.lens (\AddApplicationOutput' {applicationName} -> applicationName) (\s@AddApplicationOutput' {} a -> s {applicationName = a} :: AddApplicationOutput)
 
 -- | Version of the application to which you want to add the output
@@ -155,7 +154,7 @@ addApplicationOutput_applicationName = Lens.lens (\AddApplicationOutput' {applic
 -- operation to get the current application version. If the version
 -- specified is not the current version, the
 -- @ConcurrentModificationException@ is returned.
-addApplicationOutput_currentApplicationVersionId :: Lens.Lens' AddApplicationOutput Prelude.Natural
+addApplicationOutput_currentApplicationVersionId :: Lens.Lens' AddApplicationOutput Core.Natural
 addApplicationOutput_currentApplicationVersionId = Lens.lens (\AddApplicationOutput' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@AddApplicationOutput' {} a -> s {currentApplicationVersionId = a} :: AddApplicationOutput)
 
 -- | An array of objects, each describing one output configuration. In the
@@ -166,65 +165,63 @@ addApplicationOutput_currentApplicationVersionId = Lens.lens (\AddApplicationOut
 addApplicationOutput_output :: Lens.Lens' AddApplicationOutput Output
 addApplicationOutput_output = Lens.lens (\AddApplicationOutput' {output} -> output) (\s@AddApplicationOutput' {} a -> s {output = a} :: AddApplicationOutput)
 
-instance Prelude.AWSRequest AddApplicationOutput where
+instance Core.AWSRequest AddApplicationOutput where
   type
-    Rs AddApplicationOutput =
+    AWSResponse AddApplicationOutput =
       AddApplicationOutputResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationOutputResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AddApplicationOutput
+instance Core.Hashable AddApplicationOutput
 
-instance Prelude.NFData AddApplicationOutput
+instance Core.NFData AddApplicationOutput
 
-instance Prelude.ToHeaders AddApplicationOutput where
+instance Core.ToHeaders AddApplicationOutput where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.AddApplicationOutput" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.AddApplicationOutput" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AddApplicationOutput where
+instance Core.ToJSON AddApplicationOutput where
   toJSON AddApplicationOutput' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ApplicationName" Prelude..= applicationName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ApplicationName" Core..= applicationName),
+            Core.Just
               ( "CurrentApplicationVersionId"
-                  Prelude..= currentApplicationVersionId
+                  Core..= currentApplicationVersionId
               ),
-            Prelude.Just ("Output" Prelude..= output)
+            Core.Just ("Output" Core..= output)
           ]
       )
 
-instance Prelude.ToPath AddApplicationOutput where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddApplicationOutput where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddApplicationOutput where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AddApplicationOutput where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newAddApplicationOutputResponse' smart constructor.
 data AddApplicationOutputResponse = AddApplicationOutputResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddApplicationOutputResponse' with all optional fields omitted.
@@ -237,7 +234,7 @@ data AddApplicationOutputResponse = AddApplicationOutputResponse'
 -- 'httpStatus', 'addApplicationOutputResponse_httpStatus' - The response's http status code.
 newAddApplicationOutputResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AddApplicationOutputResponse
 newAddApplicationOutputResponse pHttpStatus_ =
   AddApplicationOutputResponse'
@@ -246,7 +243,7 @@ newAddApplicationOutputResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-addApplicationOutputResponse_httpStatus :: Lens.Lens' AddApplicationOutputResponse Prelude.Int
+addApplicationOutputResponse_httpStatus :: Lens.Lens' AddApplicationOutputResponse Core.Int
 addApplicationOutputResponse_httpStatus = Lens.lens (\AddApplicationOutputResponse' {httpStatus} -> httpStatus) (\s@AddApplicationOutputResponse' {} a -> s {httpStatus = a} :: AddApplicationOutputResponse)
 
-instance Prelude.NFData AddApplicationOutputResponse
+instance Core.NFData AddApplicationOutputResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.PutPartnerEventsResultEntry where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an event that a partner tried to generate, but failed.
 --
 -- /See:/ 'newPutPartnerEventsResultEntry' smart constructor.
 data PutPartnerEventsResultEntry = PutPartnerEventsResultEntry'
   { -- | The ID of the event.
-    eventId :: Prelude.Maybe Prelude.Text,
+    eventId :: Core.Maybe Core.Text,
     -- | The error message that explains why the event submission failed.
-    errorMessage :: Prelude.Maybe Prelude.Text,
+    errorMessage :: Core.Maybe Core.Text,
     -- | The error code that indicates why the event submission failed.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutPartnerEventsResultEntry' with all optional fields omitted.
@@ -54,34 +53,34 @@ newPutPartnerEventsResultEntry ::
 newPutPartnerEventsResultEntry =
   PutPartnerEventsResultEntry'
     { eventId =
-        Prelude.Nothing,
-      errorMessage = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+        Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | The ID of the event.
-putPartnerEventsResultEntry_eventId :: Lens.Lens' PutPartnerEventsResultEntry (Prelude.Maybe Prelude.Text)
+putPartnerEventsResultEntry_eventId :: Lens.Lens' PutPartnerEventsResultEntry (Core.Maybe Core.Text)
 putPartnerEventsResultEntry_eventId = Lens.lens (\PutPartnerEventsResultEntry' {eventId} -> eventId) (\s@PutPartnerEventsResultEntry' {} a -> s {eventId = a} :: PutPartnerEventsResultEntry)
 
 -- | The error message that explains why the event submission failed.
-putPartnerEventsResultEntry_errorMessage :: Lens.Lens' PutPartnerEventsResultEntry (Prelude.Maybe Prelude.Text)
+putPartnerEventsResultEntry_errorMessage :: Lens.Lens' PutPartnerEventsResultEntry (Core.Maybe Core.Text)
 putPartnerEventsResultEntry_errorMessage = Lens.lens (\PutPartnerEventsResultEntry' {errorMessage} -> errorMessage) (\s@PutPartnerEventsResultEntry' {} a -> s {errorMessage = a} :: PutPartnerEventsResultEntry)
 
 -- | The error code that indicates why the event submission failed.
-putPartnerEventsResultEntry_errorCode :: Lens.Lens' PutPartnerEventsResultEntry (Prelude.Maybe Prelude.Text)
+putPartnerEventsResultEntry_errorCode :: Lens.Lens' PutPartnerEventsResultEntry (Core.Maybe Core.Text)
 putPartnerEventsResultEntry_errorCode = Lens.lens (\PutPartnerEventsResultEntry' {errorCode} -> errorCode) (\s@PutPartnerEventsResultEntry' {} a -> s {errorCode = a} :: PutPartnerEventsResultEntry)
 
-instance Prelude.FromJSON PutPartnerEventsResultEntry where
+instance Core.FromJSON PutPartnerEventsResultEntry where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PutPartnerEventsResultEntry"
       ( \x ->
           PutPartnerEventsResultEntry'
-            Prelude.<$> (x Prelude..:? "EventId")
-            Prelude.<*> (x Prelude..:? "ErrorMessage")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "EventId")
+            Core.<*> (x Core..:? "ErrorMessage")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable PutPartnerEventsResultEntry
+instance Core.Hashable PutPartnerEventsResultEntry
 
-instance Prelude.NFData PutPartnerEventsResultEntry
+instance Core.NFData PutPartnerEventsResultEntry

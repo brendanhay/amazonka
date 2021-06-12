@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AddPrefixListEntry where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An entry for a prefix list.
 --
@@ -31,11 +30,11 @@ data AddPrefixListEntry = AddPrefixListEntry'
   { -- | A description for the entry.
     --
     -- Constraints: Up to 255 characters in length.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The CIDR block.
-    cidr :: Prelude.Text
+    cidr :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddPrefixListEntry' with all optional fields omitted.
@@ -52,31 +51,31 @@ data AddPrefixListEntry = AddPrefixListEntry'
 -- 'cidr', 'addPrefixListEntry_cidr' - The CIDR block.
 newAddPrefixListEntry ::
   -- | 'cidr'
-  Prelude.Text ->
+  Core.Text ->
   AddPrefixListEntry
 newAddPrefixListEntry pCidr_ =
   AddPrefixListEntry'
-    { description = Prelude.Nothing,
+    { description = Core.Nothing,
       cidr = pCidr_
     }
 
 -- | A description for the entry.
 --
 -- Constraints: Up to 255 characters in length.
-addPrefixListEntry_description :: Lens.Lens' AddPrefixListEntry (Prelude.Maybe Prelude.Text)
+addPrefixListEntry_description :: Lens.Lens' AddPrefixListEntry (Core.Maybe Core.Text)
 addPrefixListEntry_description = Lens.lens (\AddPrefixListEntry' {description} -> description) (\s@AddPrefixListEntry' {} a -> s {description = a} :: AddPrefixListEntry)
 
 -- | The CIDR block.
-addPrefixListEntry_cidr :: Lens.Lens' AddPrefixListEntry Prelude.Text
+addPrefixListEntry_cidr :: Lens.Lens' AddPrefixListEntry Core.Text
 addPrefixListEntry_cidr = Lens.lens (\AddPrefixListEntry' {cidr} -> cidr) (\s@AddPrefixListEntry' {} a -> s {cidr = a} :: AddPrefixListEntry)
 
-instance Prelude.Hashable AddPrefixListEntry
+instance Core.Hashable AddPrefixListEntry
 
-instance Prelude.NFData AddPrefixListEntry
+instance Core.NFData AddPrefixListEntry
 
-instance Prelude.ToQuery AddPrefixListEntry where
+instance Core.ToQuery AddPrefixListEntry where
   toQuery AddPrefixListEntry' {..} =
-    Prelude.mconcat
-      [ "Description" Prelude.=: description,
-        "Cidr" Prelude.=: cidr
+    Core.mconcat
+      [ "Description" Core.=: description,
+        "Cidr" Core.=: cidr
       ]

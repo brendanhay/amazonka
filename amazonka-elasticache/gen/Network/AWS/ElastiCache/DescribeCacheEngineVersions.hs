@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,10 +47,9 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,11 +59,11 @@ import qualified Network.AWS.Response as Response
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
   { -- | If @true@, specifies that only the default version of the specified
     -- engine or engine and major version combination is to be returned.
-    defaultOnly :: Prelude.Maybe Prelude.Bool,
+    defaultOnly :: Core.Maybe Core.Bool,
     -- | The cache engine version to return.
     --
     -- Example: @1.4.14@
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    engineVersion :: Core.Maybe Core.Text,
     -- | The name of a specific cache parameter group family to return details
     -- for.
     --
@@ -80,14 +78,14 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
     -- -   First character must be a letter
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens
-    cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
+    cacheParameterGroupFamily :: Core.Maybe Core.Text,
     -- | The cache engine to return. Valid values: @memcached@ | @redis@
-    engine :: Prelude.Maybe Prelude.Text,
+    engine :: Core.Maybe Core.Text,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -95,9 +93,9 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCacheEngineVersions' with all optional fields omitted.
@@ -148,23 +146,23 @@ newDescribeCacheEngineVersions ::
 newDescribeCacheEngineVersions =
   DescribeCacheEngineVersions'
     { defaultOnly =
-        Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
-      cacheParameterGroupFamily = Prelude.Nothing,
-      engine = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+        Core.Nothing,
+      engineVersion = Core.Nothing,
+      cacheParameterGroupFamily = Core.Nothing,
+      engine = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | If @true@, specifies that only the default version of the specified
 -- engine or engine and major version combination is to be returned.
-describeCacheEngineVersions_defaultOnly :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Bool)
+describeCacheEngineVersions_defaultOnly :: Lens.Lens' DescribeCacheEngineVersions (Core.Maybe Core.Bool)
 describeCacheEngineVersions_defaultOnly = Lens.lens (\DescribeCacheEngineVersions' {defaultOnly} -> defaultOnly) (\s@DescribeCacheEngineVersions' {} a -> s {defaultOnly = a} :: DescribeCacheEngineVersions)
 
 -- | The cache engine version to return.
 --
 -- Example: @1.4.14@
-describeCacheEngineVersions_engineVersion :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_engineVersion :: Lens.Lens' DescribeCacheEngineVersions (Core.Maybe Core.Text)
 describeCacheEngineVersions_engineVersion = Lens.lens (\DescribeCacheEngineVersions' {engineVersion} -> engineVersion) (\s@DescribeCacheEngineVersions' {} a -> s {engineVersion = a} :: DescribeCacheEngineVersions)
 
 -- | The name of a specific cache parameter group family to return details
@@ -181,18 +179,18 @@ describeCacheEngineVersions_engineVersion = Lens.lens (\DescribeCacheEngineVersi
 -- -   First character must be a letter
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-describeCacheEngineVersions_cacheParameterGroupFamily :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_cacheParameterGroupFamily :: Lens.Lens' DescribeCacheEngineVersions (Core.Maybe Core.Text)
 describeCacheEngineVersions_cacheParameterGroupFamily = Lens.lens (\DescribeCacheEngineVersions' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@DescribeCacheEngineVersions' {} a -> s {cacheParameterGroupFamily = a} :: DescribeCacheEngineVersions)
 
 -- | The cache engine to return. Valid values: @memcached@ | @redis@
-describeCacheEngineVersions_engine :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_engine :: Lens.Lens' DescribeCacheEngineVersions (Core.Maybe Core.Text)
 describeCacheEngineVersions_engine = Lens.lens (\DescribeCacheEngineVersions' {engine} -> engine) (\s@DescribeCacheEngineVersions' {} a -> s {engine = a} :: DescribeCacheEngineVersions)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeCacheEngineVersions_marker :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersions_marker :: Lens.Lens' DescribeCacheEngineVersions (Core.Maybe Core.Text)
 describeCacheEngineVersions_marker = Lens.lens (\DescribeCacheEngineVersions' {marker} -> marker) (\s@DescribeCacheEngineVersions' {} a -> s {marker = a} :: DescribeCacheEngineVersions)
 
 -- | The maximum number of records to include in the response. If more
@@ -202,37 +200,34 @@ describeCacheEngineVersions_marker = Lens.lens (\DescribeCacheEngineVersions' {m
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeCacheEngineVersions_maxRecords :: Lens.Lens' DescribeCacheEngineVersions (Prelude.Maybe Prelude.Int)
+describeCacheEngineVersions_maxRecords :: Lens.Lens' DescribeCacheEngineVersions (Core.Maybe Core.Int)
 describeCacheEngineVersions_maxRecords = Lens.lens (\DescribeCacheEngineVersions' {maxRecords} -> maxRecords) (\s@DescribeCacheEngineVersions' {} a -> s {maxRecords = a} :: DescribeCacheEngineVersions)
 
-instance Pager.AWSPager DescribeCacheEngineVersions where
+instance Core.AWSPager DescribeCacheEngineVersions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeCacheEngineVersionsResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeCacheEngineVersionsResponse_cacheEngineVersions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeCacheEngineVersions_marker
           Lens..~ rs
           Lens.^? describeCacheEngineVersionsResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeCacheEngineVersions
-  where
+instance Core.AWSRequest DescribeCacheEngineVersions where
   type
-    Rs DescribeCacheEngineVersions =
+    AWSResponse DescribeCacheEngineVersions =
       DescribeCacheEngineVersionsResponse
   request = Request.postQuery defaultService
   response =
@@ -240,44 +235,37 @@ instance
       "DescribeCacheEngineVersionsResult"
       ( \s h x ->
           DescribeCacheEngineVersionsResponse'
-            Prelude.<$> ( x Prelude..@? "CacheEngineVersions"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may
-                              (Prelude.parseXMLList "CacheEngineVersion")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "CacheEngineVersions"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "CacheEngineVersion")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeCacheEngineVersions
+instance Core.Hashable DescribeCacheEngineVersions
 
-instance Prelude.NFData DescribeCacheEngineVersions
+instance Core.NFData DescribeCacheEngineVersions
 
-instance
-  Prelude.ToHeaders
-    DescribeCacheEngineVersions
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeCacheEngineVersions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeCacheEngineVersions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeCacheEngineVersions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeCacheEngineVersions where
+instance Core.ToQuery DescribeCacheEngineVersions where
   toQuery DescribeCacheEngineVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeCacheEngineVersions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "DefaultOnly" Prelude.=: defaultOnly,
-        "EngineVersion" Prelude.=: engineVersion,
+          Core.=: ("DescribeCacheEngineVersions" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "DefaultOnly" Core.=: defaultOnly,
+        "EngineVersion" Core.=: engineVersion,
         "CacheParameterGroupFamily"
-          Prelude.=: cacheParameterGroupFamily,
-        "Engine" Prelude.=: engine,
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: cacheParameterGroupFamily,
+        "Engine" Core.=: engine,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Represents the output of a DescribeCacheEngineVersions operation.
@@ -286,13 +274,13 @@ instance Prelude.ToQuery DescribeCacheEngineVersions where
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
   { -- | A list of cache engine version details. Each element in the list
     -- contains detailed information about one cache engine version.
-    cacheEngineVersions :: Prelude.Maybe [CacheEngineVersion],
+    cacheEngineVersions :: Core.Maybe [CacheEngineVersion],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeCacheEngineVersionsResponse' with all optional fields omitted.
@@ -310,29 +298,29 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
 -- 'httpStatus', 'describeCacheEngineVersionsResponse_httpStatus' - The response's http status code.
 newDescribeCacheEngineVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeCacheEngineVersionsResponse
 newDescribeCacheEngineVersionsResponse pHttpStatus_ =
   DescribeCacheEngineVersionsResponse'
     { cacheEngineVersions =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of cache engine version details. Each element in the list
 -- contains detailed information about one cache engine version.
-describeCacheEngineVersionsResponse_cacheEngineVersions :: Lens.Lens' DescribeCacheEngineVersionsResponse (Prelude.Maybe [CacheEngineVersion])
-describeCacheEngineVersionsResponse_cacheEngineVersions = Lens.lens (\DescribeCacheEngineVersionsResponse' {cacheEngineVersions} -> cacheEngineVersions) (\s@DescribeCacheEngineVersionsResponse' {} a -> s {cacheEngineVersions = a} :: DescribeCacheEngineVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeCacheEngineVersionsResponse_cacheEngineVersions :: Lens.Lens' DescribeCacheEngineVersionsResponse (Core.Maybe [CacheEngineVersion])
+describeCacheEngineVersionsResponse_cacheEngineVersions = Lens.lens (\DescribeCacheEngineVersionsResponse' {cacheEngineVersions} -> cacheEngineVersions) (\s@DescribeCacheEngineVersionsResponse' {} a -> s {cacheEngineVersions = a} :: DescribeCacheEngineVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeCacheEngineVersionsResponse_marker :: Lens.Lens' DescribeCacheEngineVersionsResponse (Prelude.Maybe Prelude.Text)
+describeCacheEngineVersionsResponse_marker :: Lens.Lens' DescribeCacheEngineVersionsResponse (Core.Maybe Core.Text)
 describeCacheEngineVersionsResponse_marker = Lens.lens (\DescribeCacheEngineVersionsResponse' {marker} -> marker) (\s@DescribeCacheEngineVersionsResponse' {} a -> s {marker = a} :: DescribeCacheEngineVersionsResponse)
 
 -- | The response's http status code.
-describeCacheEngineVersionsResponse_httpStatus :: Lens.Lens' DescribeCacheEngineVersionsResponse Prelude.Int
+describeCacheEngineVersionsResponse_httpStatus :: Lens.Lens' DescribeCacheEngineVersionsResponse Core.Int
 describeCacheEngineVersionsResponse_httpStatus = Lens.lens (\DescribeCacheEngineVersionsResponse' {httpStatus} -> httpStatus) (\s@DescribeCacheEngineVersionsResponse' {} a -> s {httpStatus = a} :: DescribeCacheEngineVersionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeCacheEngineVersionsResponse

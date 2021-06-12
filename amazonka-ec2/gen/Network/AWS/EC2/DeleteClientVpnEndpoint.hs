@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.EC2.DeleteClientVpnEndpoint
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ data DeleteClientVpnEndpoint = DeleteClientVpnEndpoint'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the Client VPN to be deleted.
-    clientVpnEndpointId :: Prelude.Text
+    clientVpnEndpointId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClientVpnEndpoint' with all optional fields omitted.
@@ -76,11 +75,11 @@ data DeleteClientVpnEndpoint = DeleteClientVpnEndpoint'
 -- 'clientVpnEndpointId', 'deleteClientVpnEndpoint_clientVpnEndpointId' - The ID of the Client VPN to be deleted.
 newDeleteClientVpnEndpoint ::
   -- | 'clientVpnEndpointId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteClientVpnEndpoint
 newDeleteClientVpnEndpoint pClientVpnEndpointId_ =
   DeleteClientVpnEndpoint'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       clientVpnEndpointId = pClientVpnEndpointId_
     }
 
@@ -88,55 +87,54 @@ newDeleteClientVpnEndpoint pClientVpnEndpointId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteClientVpnEndpoint_dryRun :: Lens.Lens' DeleteClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
+deleteClientVpnEndpoint_dryRun :: Lens.Lens' DeleteClientVpnEndpoint (Core.Maybe Core.Bool)
 deleteClientVpnEndpoint_dryRun = Lens.lens (\DeleteClientVpnEndpoint' {dryRun} -> dryRun) (\s@DeleteClientVpnEndpoint' {} a -> s {dryRun = a} :: DeleteClientVpnEndpoint)
 
 -- | The ID of the Client VPN to be deleted.
-deleteClientVpnEndpoint_clientVpnEndpointId :: Lens.Lens' DeleteClientVpnEndpoint Prelude.Text
+deleteClientVpnEndpoint_clientVpnEndpointId :: Lens.Lens' DeleteClientVpnEndpoint Core.Text
 deleteClientVpnEndpoint_clientVpnEndpointId = Lens.lens (\DeleteClientVpnEndpoint' {clientVpnEndpointId} -> clientVpnEndpointId) (\s@DeleteClientVpnEndpoint' {} a -> s {clientVpnEndpointId = a} :: DeleteClientVpnEndpoint)
 
-instance Prelude.AWSRequest DeleteClientVpnEndpoint where
+instance Core.AWSRequest DeleteClientVpnEndpoint where
   type
-    Rs DeleteClientVpnEndpoint =
+    AWSResponse DeleteClientVpnEndpoint =
       DeleteClientVpnEndpointResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteClientVpnEndpointResponse'
-            Prelude.<$> (x Prelude..@? "status")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteClientVpnEndpoint
+instance Core.Hashable DeleteClientVpnEndpoint
 
-instance Prelude.NFData DeleteClientVpnEndpoint
+instance Core.NFData DeleteClientVpnEndpoint
 
-instance Prelude.ToHeaders DeleteClientVpnEndpoint where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteClientVpnEndpoint where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteClientVpnEndpoint where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteClientVpnEndpoint where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteClientVpnEndpoint where
+instance Core.ToQuery DeleteClientVpnEndpoint where
   toQuery DeleteClientVpnEndpoint' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteClientVpnEndpoint" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "ClientVpnEndpointId" Prelude.=: clientVpnEndpointId
+          Core.=: ("DeleteClientVpnEndpoint" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "ClientVpnEndpointId" Core.=: clientVpnEndpointId
       ]
 
 -- | /See:/ 'newDeleteClientVpnEndpointResponse' smart constructor.
 data DeleteClientVpnEndpointResponse = DeleteClientVpnEndpointResponse'
   { -- | The current state of the Client VPN endpoint.
-    status :: Prelude.Maybe ClientVpnEndpointStatus,
+    status :: Core.Maybe ClientVpnEndpointStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteClientVpnEndpointResponse' with all optional fields omitted.
@@ -151,23 +149,21 @@ data DeleteClientVpnEndpointResponse = DeleteClientVpnEndpointResponse'
 -- 'httpStatus', 'deleteClientVpnEndpointResponse_httpStatus' - The response's http status code.
 newDeleteClientVpnEndpointResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteClientVpnEndpointResponse
 newDeleteClientVpnEndpointResponse pHttpStatus_ =
   DeleteClientVpnEndpointResponse'
     { status =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current state of the Client VPN endpoint.
-deleteClientVpnEndpointResponse_status :: Lens.Lens' DeleteClientVpnEndpointResponse (Prelude.Maybe ClientVpnEndpointStatus)
+deleteClientVpnEndpointResponse_status :: Lens.Lens' DeleteClientVpnEndpointResponse (Core.Maybe ClientVpnEndpointStatus)
 deleteClientVpnEndpointResponse_status = Lens.lens (\DeleteClientVpnEndpointResponse' {status} -> status) (\s@DeleteClientVpnEndpointResponse' {} a -> s {status = a} :: DeleteClientVpnEndpointResponse)
 
 -- | The response's http status code.
-deleteClientVpnEndpointResponse_httpStatus :: Lens.Lens' DeleteClientVpnEndpointResponse Prelude.Int
+deleteClientVpnEndpointResponse_httpStatus :: Lens.Lens' DeleteClientVpnEndpointResponse Core.Int
 deleteClientVpnEndpointResponse_httpStatus = Lens.lens (\DeleteClientVpnEndpointResponse' {httpStatus} -> httpStatus) (\s@DeleteClientVpnEndpointResponse' {} a -> s {httpStatus = a} :: DeleteClientVpnEndpointResponse)
 
-instance
-  Prelude.NFData
-    DeleteClientVpnEndpointResponse
+instance Core.NFData DeleteClientVpnEndpointResponse

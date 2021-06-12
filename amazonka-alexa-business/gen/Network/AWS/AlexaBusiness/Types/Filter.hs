@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.Filter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A filter name and value pair that is used to return a more specific list
 -- of results. Filters can be used to match a set of resources by various
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
   { -- | The key of a filter.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | The values of a filter.
-    values :: [Prelude.Text]
+    values :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Filter' with all optional fields omitted.
@@ -49,28 +48,28 @@ data Filter = Filter'
 -- 'values', 'filter_values' - The values of a filter.
 newFilter ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   Filter
 newFilter pKey_ =
-  Filter' {key = pKey_, values = Prelude.mempty}
+  Filter' {key = pKey_, values = Core.mempty}
 
 -- | The key of a filter.
-filter_key :: Lens.Lens' Filter Prelude.Text
+filter_key :: Lens.Lens' Filter Core.Text
 filter_key = Lens.lens (\Filter' {key} -> key) (\s@Filter' {} a -> s {key = a} :: Filter)
 
 -- | The values of a filter.
-filter_values :: Lens.Lens' Filter [Prelude.Text]
-filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Prelude.. Prelude._Coerce
+filter_values :: Lens.Lens' Filter [Core.Text]
+filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {values = a} :: Filter) Core.. Lens._Coerce
 
-instance Prelude.Hashable Filter
+instance Core.Hashable Filter
 
-instance Prelude.NFData Filter
+instance Core.NFData Filter
 
-instance Prelude.ToJSON Filter where
+instance Core.ToJSON Filter where
   toJSON Filter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

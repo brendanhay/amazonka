@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudSearch.CreateDomain
 where
 
 import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,9 +56,9 @@ data CreateDomain = CreateDomain'
     -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with
     -- a letter or number and be at least 3 and no more than 28 characters
     -- long.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDomain' with all optional fields omitted.
@@ -75,7 +74,7 @@ data CreateDomain = CreateDomain'
 -- long.
 newCreateDomain ::
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   CreateDomain
 newCreateDomain pDomainName_ =
   CreateDomain' {domainName = pDomainName_}
@@ -84,39 +83,38 @@ newCreateDomain pDomainName_ =
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with
 -- a letter or number and be at least 3 and no more than 28 characters
 -- long.
-createDomain_domainName :: Lens.Lens' CreateDomain Prelude.Text
+createDomain_domainName :: Lens.Lens' CreateDomain Core.Text
 createDomain_domainName = Lens.lens (\CreateDomain' {domainName} -> domainName) (\s@CreateDomain' {} a -> s {domainName = a} :: CreateDomain)
 
-instance Prelude.AWSRequest CreateDomain where
-  type Rs CreateDomain = CreateDomainResponse
+instance Core.AWSRequest CreateDomain where
+  type AWSResponse CreateDomain = CreateDomainResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CreateDomainResult"
       ( \s h x ->
           CreateDomainResponse'
-            Prelude.<$> (x Prelude..@? "DomainStatus")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DomainStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDomain
+instance Core.Hashable CreateDomain
 
-instance Prelude.NFData CreateDomain
+instance Core.NFData CreateDomain
 
-instance Prelude.ToHeaders CreateDomain where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDomain where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateDomain where
+instance Core.ToQuery CreateDomain where
   toQuery CreateDomain' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateDomain" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
-        "DomainName" Prelude.=: domainName
+          Core.=: ("CreateDomain" :: Core.ByteString),
+        "Version" Core.=: ("2013-01-01" :: Core.ByteString),
+        "DomainName" Core.=: domainName
       ]
 
 -- | The result of a @CreateDomainRequest@. Contains the status of a newly
@@ -124,11 +122,11 @@ instance Prelude.ToQuery CreateDomain where
 --
 -- /See:/ 'newCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { domainStatus :: Prelude.Maybe DomainStatus,
+  { domainStatus :: Core.Maybe DomainStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDomainResponse' with all optional fields omitted.
@@ -143,21 +141,20 @@ data CreateDomainResponse = CreateDomainResponse'
 -- 'httpStatus', 'createDomainResponse_httpStatus' - The response's http status code.
 newCreateDomainResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDomainResponse
 newCreateDomainResponse pHttpStatus_ =
   CreateDomainResponse'
-    { domainStatus =
-        Prelude.Nothing,
+    { domainStatus = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-createDomainResponse_domainStatus :: Lens.Lens' CreateDomainResponse (Prelude.Maybe DomainStatus)
+createDomainResponse_domainStatus :: Lens.Lens' CreateDomainResponse (Core.Maybe DomainStatus)
 createDomainResponse_domainStatus = Lens.lens (\CreateDomainResponse' {domainStatus} -> domainStatus) (\s@CreateDomainResponse' {} a -> s {domainStatus = a} :: CreateDomainResponse)
 
 -- | The response's http status code.
-createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Prelude.Int
+createDomainResponse_httpStatus :: Lens.Lens' CreateDomainResponse Core.Int
 createDomainResponse_httpStatus = Lens.lens (\CreateDomainResponse' {httpStatus} -> httpStatus) (\s@CreateDomainResponse' {} a -> s {httpStatus = a} :: CreateDomainResponse)
 
-instance Prelude.NFData CreateDomainResponse
+instance Core.NFData CreateDomainResponse

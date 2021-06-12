@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.WorkMail.DescribeGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -55,11 +54,11 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newDescribeGroup' smart constructor.
 data DescribeGroup = DescribeGroup'
   { -- | The identifier for the organization under which the group exists.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The identifier for the group to be described.
-    groupId :: Prelude.Text
+    groupId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeGroup' with all optional fields omitted.
@@ -74,9 +73,9 @@ data DescribeGroup = DescribeGroup'
 -- 'groupId', 'describeGroup_groupId' - The identifier for the group to be described.
 newDescribeGroup ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'groupId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeGroup
 newDescribeGroup pOrganizationId_ pGroupId_ =
   DescribeGroup'
@@ -85,85 +84,82 @@ newDescribeGroup pOrganizationId_ pGroupId_ =
     }
 
 -- | The identifier for the organization under which the group exists.
-describeGroup_organizationId :: Lens.Lens' DescribeGroup Prelude.Text
+describeGroup_organizationId :: Lens.Lens' DescribeGroup Core.Text
 describeGroup_organizationId = Lens.lens (\DescribeGroup' {organizationId} -> organizationId) (\s@DescribeGroup' {} a -> s {organizationId = a} :: DescribeGroup)
 
 -- | The identifier for the group to be described.
-describeGroup_groupId :: Lens.Lens' DescribeGroup Prelude.Text
+describeGroup_groupId :: Lens.Lens' DescribeGroup Core.Text
 describeGroup_groupId = Lens.lens (\DescribeGroup' {groupId} -> groupId) (\s@DescribeGroup' {} a -> s {groupId = a} :: DescribeGroup)
 
-instance Prelude.AWSRequest DescribeGroup where
-  type Rs DescribeGroup = DescribeGroupResponse
+instance Core.AWSRequest DescribeGroup where
+  type
+    AWSResponse DescribeGroup =
+      DescribeGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeGroupResponse'
-            Prelude.<$> (x Prelude..?> "EnabledDate")
-            Prelude.<*> (x Prelude..?> "GroupId")
-            Prelude.<*> (x Prelude..?> "State")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "Email")
-            Prelude.<*> (x Prelude..?> "DisabledDate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "EnabledDate")
+            Core.<*> (x Core..?> "GroupId")
+            Core.<*> (x Core..?> "State")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "Email")
+            Core.<*> (x Core..?> "DisabledDate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeGroup
+instance Core.Hashable DescribeGroup
 
-instance Prelude.NFData DescribeGroup
+instance Core.NFData DescribeGroup
 
-instance Prelude.ToHeaders DescribeGroup where
+instance Core.ToHeaders DescribeGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.DescribeGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("WorkMailService.DescribeGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeGroup where
+instance Core.ToJSON DescribeGroup where
   toJSON DescribeGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("OrganizationId" Prelude..= organizationId),
-            Prelude.Just ("GroupId" Prelude..= groupId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("GroupId" Core..= groupId)
           ]
       )
 
-instance Prelude.ToPath DescribeGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeGroupResponse' smart constructor.
 data DescribeGroupResponse = DescribeGroupResponse'
   { -- | The date and time when a user was registered to WorkMail, in UNIX epoch
     -- time format.
-    enabledDate :: Prelude.Maybe Prelude.POSIX,
+    enabledDate :: Core.Maybe Core.POSIX,
     -- | The identifier of the described group.
-    groupId :: Prelude.Maybe Prelude.Text,
+    groupId :: Core.Maybe Core.Text,
     -- | The state of the user: enabled (registered to Amazon WorkMail) or
     -- disabled (deregistered or never registered to WorkMail).
-    state :: Prelude.Maybe EntityState,
+    state :: Core.Maybe EntityState,
     -- | The name of the described group.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The email of the described group.
-    email :: Prelude.Maybe Prelude.Text,
+    email :: Core.Maybe Core.Text,
     -- | The date and time when a user was deregistered from WorkMail, in UNIX
     -- epoch time format.
-    disabledDate :: Prelude.Maybe Prelude.POSIX,
+    disabledDate :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeGroupResponse' with all optional fields omitted.
@@ -191,49 +187,48 @@ data DescribeGroupResponse = DescribeGroupResponse'
 -- 'httpStatus', 'describeGroupResponse_httpStatus' - The response's http status code.
 newDescribeGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeGroupResponse
 newDescribeGroupResponse pHttpStatus_ =
   DescribeGroupResponse'
-    { enabledDate =
-        Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      state = Prelude.Nothing,
-      name = Prelude.Nothing,
-      email = Prelude.Nothing,
-      disabledDate = Prelude.Nothing,
+    { enabledDate = Core.Nothing,
+      groupId = Core.Nothing,
+      state = Core.Nothing,
+      name = Core.Nothing,
+      email = Core.Nothing,
+      disabledDate = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date and time when a user was registered to WorkMail, in UNIX epoch
 -- time format.
-describeGroupResponse_enabledDate :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeGroupResponse_enabledDate = Lens.lens (\DescribeGroupResponse' {enabledDate} -> enabledDate) (\s@DescribeGroupResponse' {} a -> s {enabledDate = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Prelude._Time
+describeGroupResponse_enabledDate :: Lens.Lens' DescribeGroupResponse (Core.Maybe Core.UTCTime)
+describeGroupResponse_enabledDate = Lens.lens (\DescribeGroupResponse' {enabledDate} -> enabledDate) (\s@DescribeGroupResponse' {} a -> s {enabledDate = a} :: DescribeGroupResponse) Core.. Lens.mapping Core._Time
 
 -- | The identifier of the described group.
-describeGroupResponse_groupId :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
+describeGroupResponse_groupId :: Lens.Lens' DescribeGroupResponse (Core.Maybe Core.Text)
 describeGroupResponse_groupId = Lens.lens (\DescribeGroupResponse' {groupId} -> groupId) (\s@DescribeGroupResponse' {} a -> s {groupId = a} :: DescribeGroupResponse)
 
 -- | The state of the user: enabled (registered to Amazon WorkMail) or
 -- disabled (deregistered or never registered to WorkMail).
-describeGroupResponse_state :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe EntityState)
+describeGroupResponse_state :: Lens.Lens' DescribeGroupResponse (Core.Maybe EntityState)
 describeGroupResponse_state = Lens.lens (\DescribeGroupResponse' {state} -> state) (\s@DescribeGroupResponse' {} a -> s {state = a} :: DescribeGroupResponse)
 
 -- | The name of the described group.
-describeGroupResponse_name :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
+describeGroupResponse_name :: Lens.Lens' DescribeGroupResponse (Core.Maybe Core.Text)
 describeGroupResponse_name = Lens.lens (\DescribeGroupResponse' {name} -> name) (\s@DescribeGroupResponse' {} a -> s {name = a} :: DescribeGroupResponse)
 
 -- | The email of the described group.
-describeGroupResponse_email :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.Text)
+describeGroupResponse_email :: Lens.Lens' DescribeGroupResponse (Core.Maybe Core.Text)
 describeGroupResponse_email = Lens.lens (\DescribeGroupResponse' {email} -> email) (\s@DescribeGroupResponse' {} a -> s {email = a} :: DescribeGroupResponse)
 
 -- | The date and time when a user was deregistered from WorkMail, in UNIX
 -- epoch time format.
-describeGroupResponse_disabledDate :: Lens.Lens' DescribeGroupResponse (Prelude.Maybe Prelude.UTCTime)
-describeGroupResponse_disabledDate = Lens.lens (\DescribeGroupResponse' {disabledDate} -> disabledDate) (\s@DescribeGroupResponse' {} a -> s {disabledDate = a} :: DescribeGroupResponse) Prelude.. Lens.mapping Prelude._Time
+describeGroupResponse_disabledDate :: Lens.Lens' DescribeGroupResponse (Core.Maybe Core.UTCTime)
+describeGroupResponse_disabledDate = Lens.lens (\DescribeGroupResponse' {disabledDate} -> disabledDate) (\s@DescribeGroupResponse' {} a -> s {disabledDate = a} :: DescribeGroupResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-describeGroupResponse_httpStatus :: Lens.Lens' DescribeGroupResponse Prelude.Int
+describeGroupResponse_httpStatus :: Lens.Lens' DescribeGroupResponse Core.Int
 describeGroupResponse_httpStatus = Lens.lens (\DescribeGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeGroupResponse' {} a -> s {httpStatus = a} :: DescribeGroupResponse)
 
-instance Prelude.NFData DescribeGroupResponse
+instance Core.NFData DescribeGroupResponse

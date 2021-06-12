@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.VariantProperty where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.VariantPropertyType
 
 -- | Specifies a production variant property type for an Endpoint.
@@ -47,7 +46,7 @@ data VariantProperty = VariantProperty'
     -- -   @DataCaptureConfig@: (Not currently supported.)
     variantPropertyType :: VariantPropertyType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VariantProperty' with all optional fields omitted.
@@ -92,17 +91,15 @@ newVariantProperty pVariantPropertyType_ =
 variantProperty_variantPropertyType :: Lens.Lens' VariantProperty VariantPropertyType
 variantProperty_variantPropertyType = Lens.lens (\VariantProperty' {variantPropertyType} -> variantPropertyType) (\s@VariantProperty' {} a -> s {variantPropertyType = a} :: VariantProperty)
 
-instance Prelude.Hashable VariantProperty
+instance Core.Hashable VariantProperty
 
-instance Prelude.NFData VariantProperty
+instance Core.NFData VariantProperty
 
-instance Prelude.ToJSON VariantProperty where
+instance Core.ToJSON VariantProperty where
   toJSON VariantProperty' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "VariantPropertyType"
-                  Prelude..= variantPropertyType
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("VariantPropertyType" Core..= variantPropertyType)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,36 +19,36 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AuthorizerDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.AuthorizerStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The authorizer description.
 --
 -- /See:/ 'newAuthorizerDescription' smart constructor.
 data AuthorizerDescription = AuthorizerDescription'
   { -- | The UNIX timestamp of when the authorizer was last updated.
-    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedDate :: Core.Maybe Core.POSIX,
     -- | The status of the authorizer.
-    status :: Prelude.Maybe AuthorizerStatus,
+    status :: Core.Maybe AuthorizerStatus,
     -- | The authorizer ARN.
-    authorizerArn :: Prelude.Maybe Prelude.Text,
+    authorizerArn :: Core.Maybe Core.Text,
     -- | The authorizer\'s Lambda function ARN.
-    authorizerFunctionArn :: Prelude.Maybe Prelude.Text,
+    authorizerFunctionArn :: Core.Maybe Core.Text,
     -- | The UNIX timestamp of when the authorizer was created.
-    creationDate :: Prelude.Maybe Prelude.POSIX,
+    creationDate :: Core.Maybe Core.POSIX,
     -- | The public keys used to validate the token signature returned by your
     -- custom authentication service.
-    tokenSigningPublicKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tokenSigningPublicKeys :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The authorizer name.
-    authorizerName :: Prelude.Maybe Prelude.Text,
+    authorizerName :: Core.Maybe Core.Text,
     -- | Specifies whether AWS IoT validates the token signature in an
     -- authorization request.
-    signingDisabled :: Prelude.Maybe Prelude.Bool,
+    signingDisabled :: Core.Maybe Core.Bool,
     -- | The key used to extract the token from the HTTP headers.
-    tokenKeyName :: Prelude.Maybe Prelude.Text
+    tokenKeyName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthorizerDescription' with all optional fields omitted.
@@ -83,74 +82,74 @@ newAuthorizerDescription ::
 newAuthorizerDescription =
   AuthorizerDescription'
     { lastModifiedDate =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
-      authorizerArn = Prelude.Nothing,
-      authorizerFunctionArn = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
-      tokenSigningPublicKeys = Prelude.Nothing,
-      authorizerName = Prelude.Nothing,
-      signingDisabled = Prelude.Nothing,
-      tokenKeyName = Prelude.Nothing
+        Core.Nothing,
+      status = Core.Nothing,
+      authorizerArn = Core.Nothing,
+      authorizerFunctionArn = Core.Nothing,
+      creationDate = Core.Nothing,
+      tokenSigningPublicKeys = Core.Nothing,
+      authorizerName = Core.Nothing,
+      signingDisabled = Core.Nothing,
+      tokenKeyName = Core.Nothing
     }
 
 -- | The UNIX timestamp of when the authorizer was last updated.
-authorizerDescription_lastModifiedDate :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.UTCTime)
-authorizerDescription_lastModifiedDate = Lens.lens (\AuthorizerDescription' {lastModifiedDate} -> lastModifiedDate) (\s@AuthorizerDescription' {} a -> s {lastModifiedDate = a} :: AuthorizerDescription) Prelude.. Lens.mapping Prelude._Time
+authorizerDescription_lastModifiedDate :: Lens.Lens' AuthorizerDescription (Core.Maybe Core.UTCTime)
+authorizerDescription_lastModifiedDate = Lens.lens (\AuthorizerDescription' {lastModifiedDate} -> lastModifiedDate) (\s@AuthorizerDescription' {} a -> s {lastModifiedDate = a} :: AuthorizerDescription) Core.. Lens.mapping Core._Time
 
 -- | The status of the authorizer.
-authorizerDescription_status :: Lens.Lens' AuthorizerDescription (Prelude.Maybe AuthorizerStatus)
+authorizerDescription_status :: Lens.Lens' AuthorizerDescription (Core.Maybe AuthorizerStatus)
 authorizerDescription_status = Lens.lens (\AuthorizerDescription' {status} -> status) (\s@AuthorizerDescription' {} a -> s {status = a} :: AuthorizerDescription)
 
 -- | The authorizer ARN.
-authorizerDescription_authorizerArn :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
+authorizerDescription_authorizerArn :: Lens.Lens' AuthorizerDescription (Core.Maybe Core.Text)
 authorizerDescription_authorizerArn = Lens.lens (\AuthorizerDescription' {authorizerArn} -> authorizerArn) (\s@AuthorizerDescription' {} a -> s {authorizerArn = a} :: AuthorizerDescription)
 
 -- | The authorizer\'s Lambda function ARN.
-authorizerDescription_authorizerFunctionArn :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
+authorizerDescription_authorizerFunctionArn :: Lens.Lens' AuthorizerDescription (Core.Maybe Core.Text)
 authorizerDescription_authorizerFunctionArn = Lens.lens (\AuthorizerDescription' {authorizerFunctionArn} -> authorizerFunctionArn) (\s@AuthorizerDescription' {} a -> s {authorizerFunctionArn = a} :: AuthorizerDescription)
 
 -- | The UNIX timestamp of when the authorizer was created.
-authorizerDescription_creationDate :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.UTCTime)
-authorizerDescription_creationDate = Lens.lens (\AuthorizerDescription' {creationDate} -> creationDate) (\s@AuthorizerDescription' {} a -> s {creationDate = a} :: AuthorizerDescription) Prelude.. Lens.mapping Prelude._Time
+authorizerDescription_creationDate :: Lens.Lens' AuthorizerDescription (Core.Maybe Core.UTCTime)
+authorizerDescription_creationDate = Lens.lens (\AuthorizerDescription' {creationDate} -> creationDate) (\s@AuthorizerDescription' {} a -> s {creationDate = a} :: AuthorizerDescription) Core.. Lens.mapping Core._Time
 
 -- | The public keys used to validate the token signature returned by your
 -- custom authentication service.
-authorizerDescription_tokenSigningPublicKeys :: Lens.Lens' AuthorizerDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-authorizerDescription_tokenSigningPublicKeys = Lens.lens (\AuthorizerDescription' {tokenSigningPublicKeys} -> tokenSigningPublicKeys) (\s@AuthorizerDescription' {} a -> s {tokenSigningPublicKeys = a} :: AuthorizerDescription) Prelude.. Lens.mapping Prelude._Coerce
+authorizerDescription_tokenSigningPublicKeys :: Lens.Lens' AuthorizerDescription (Core.Maybe (Core.HashMap Core.Text Core.Text))
+authorizerDescription_tokenSigningPublicKeys = Lens.lens (\AuthorizerDescription' {tokenSigningPublicKeys} -> tokenSigningPublicKeys) (\s@AuthorizerDescription' {} a -> s {tokenSigningPublicKeys = a} :: AuthorizerDescription) Core.. Lens.mapping Lens._Coerce
 
 -- | The authorizer name.
-authorizerDescription_authorizerName :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
+authorizerDescription_authorizerName :: Lens.Lens' AuthorizerDescription (Core.Maybe Core.Text)
 authorizerDescription_authorizerName = Lens.lens (\AuthorizerDescription' {authorizerName} -> authorizerName) (\s@AuthorizerDescription' {} a -> s {authorizerName = a} :: AuthorizerDescription)
 
 -- | Specifies whether AWS IoT validates the token signature in an
 -- authorization request.
-authorizerDescription_signingDisabled :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Bool)
+authorizerDescription_signingDisabled :: Lens.Lens' AuthorizerDescription (Core.Maybe Core.Bool)
 authorizerDescription_signingDisabled = Lens.lens (\AuthorizerDescription' {signingDisabled} -> signingDisabled) (\s@AuthorizerDescription' {} a -> s {signingDisabled = a} :: AuthorizerDescription)
 
 -- | The key used to extract the token from the HTTP headers.
-authorizerDescription_tokenKeyName :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
+authorizerDescription_tokenKeyName :: Lens.Lens' AuthorizerDescription (Core.Maybe Core.Text)
 authorizerDescription_tokenKeyName = Lens.lens (\AuthorizerDescription' {tokenKeyName} -> tokenKeyName) (\s@AuthorizerDescription' {} a -> s {tokenKeyName = a} :: AuthorizerDescription)
 
-instance Prelude.FromJSON AuthorizerDescription where
+instance Core.FromJSON AuthorizerDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AuthorizerDescription"
       ( \x ->
           AuthorizerDescription'
-            Prelude.<$> (x Prelude..:? "lastModifiedDate")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "authorizerArn")
-            Prelude.<*> (x Prelude..:? "authorizerFunctionArn")
-            Prelude.<*> (x Prelude..:? "creationDate")
-            Prelude.<*> ( x Prelude..:? "tokenSigningPublicKeys"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "authorizerName")
-            Prelude.<*> (x Prelude..:? "signingDisabled")
-            Prelude.<*> (x Prelude..:? "tokenKeyName")
+            Core.<$> (x Core..:? "lastModifiedDate")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "authorizerArn")
+            Core.<*> (x Core..:? "authorizerFunctionArn")
+            Core.<*> (x Core..:? "creationDate")
+            Core.<*> ( x Core..:? "tokenSigningPublicKeys"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "authorizerName")
+            Core.<*> (x Core..:? "signingDisabled")
+            Core.<*> (x Core..:? "tokenKeyName")
       )
 
-instance Prelude.Hashable AuthorizerDescription
+instance Core.Hashable AuthorizerDescription
 
-instance Prelude.NFData AuthorizerDescription
+instance Core.NFData AuthorizerDescription

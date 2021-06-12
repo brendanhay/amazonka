@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.Scte35Descriptor
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for a SCTE-35 time_signal.
 --
@@ -31,7 +30,7 @@ data Scte35TimeSignalScheduleActionSettings = Scte35TimeSignalScheduleActionSett
   { -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
     scte35Descriptors :: [Scte35Descriptor]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Scte35TimeSignalScheduleActionSettings' with all optional fields omitted.
@@ -47,43 +46,43 @@ newScte35TimeSignalScheduleActionSettings ::
 newScte35TimeSignalScheduleActionSettings =
   Scte35TimeSignalScheduleActionSettings'
     { scte35Descriptors =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
 scte35TimeSignalScheduleActionSettings_scte35Descriptors :: Lens.Lens' Scte35TimeSignalScheduleActionSettings [Scte35Descriptor]
-scte35TimeSignalScheduleActionSettings_scte35Descriptors = Lens.lens (\Scte35TimeSignalScheduleActionSettings' {scte35Descriptors} -> scte35Descriptors) (\s@Scte35TimeSignalScheduleActionSettings' {} a -> s {scte35Descriptors = a} :: Scte35TimeSignalScheduleActionSettings) Prelude.. Prelude._Coerce
+scte35TimeSignalScheduleActionSettings_scte35Descriptors = Lens.lens (\Scte35TimeSignalScheduleActionSettings' {scte35Descriptors} -> scte35Descriptors) (\s@Scte35TimeSignalScheduleActionSettings' {} a -> s {scte35Descriptors = a} :: Scte35TimeSignalScheduleActionSettings) Core.. Lens._Coerce
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     Scte35TimeSignalScheduleActionSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Scte35TimeSignalScheduleActionSettings"
       ( \x ->
           Scte35TimeSignalScheduleActionSettings'
-            Prelude.<$> ( x Prelude..:? "scte35Descriptors"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> ( x Core..:? "scte35Descriptors"
+                         Core..!= Core.mempty
+                     )
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Scte35TimeSignalScheduleActionSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     Scte35TimeSignalScheduleActionSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     Scte35TimeSignalScheduleActionSettings
   where
   toJSON Scte35TimeSignalScheduleActionSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("scte35Descriptors" Prelude..= scte35Descriptors)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("scte35Descriptors" Core..= scte35Descriptors)
           ]
       )

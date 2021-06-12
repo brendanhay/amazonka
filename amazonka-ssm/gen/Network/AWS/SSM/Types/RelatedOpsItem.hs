@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.RelatedOpsItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An OpsItems that shares something in common with the current OpsItem.
 -- For example, related OpsItems can include OpsItems with similar error
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRelatedOpsItem' smart constructor.
 data RelatedOpsItem = RelatedOpsItem'
   { -- | The ID of an OpsItem related to the current OpsItem.
-    opsItemId :: Prelude.Text
+    opsItemId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RelatedOpsItem' with all optional fields omitted.
@@ -45,31 +44,30 @@ data RelatedOpsItem = RelatedOpsItem'
 -- 'opsItemId', 'relatedOpsItem_opsItemId' - The ID of an OpsItem related to the current OpsItem.
 newRelatedOpsItem ::
   -- | 'opsItemId'
-  Prelude.Text ->
+  Core.Text ->
   RelatedOpsItem
 newRelatedOpsItem pOpsItemId_ =
   RelatedOpsItem' {opsItemId = pOpsItemId_}
 
 -- | The ID of an OpsItem related to the current OpsItem.
-relatedOpsItem_opsItemId :: Lens.Lens' RelatedOpsItem Prelude.Text
+relatedOpsItem_opsItemId :: Lens.Lens' RelatedOpsItem Core.Text
 relatedOpsItem_opsItemId = Lens.lens (\RelatedOpsItem' {opsItemId} -> opsItemId) (\s@RelatedOpsItem' {} a -> s {opsItemId = a} :: RelatedOpsItem)
 
-instance Prelude.FromJSON RelatedOpsItem where
+instance Core.FromJSON RelatedOpsItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RelatedOpsItem"
       ( \x ->
-          RelatedOpsItem'
-            Prelude.<$> (x Prelude..: "OpsItemId")
+          RelatedOpsItem' Core.<$> (x Core..: "OpsItemId")
       )
 
-instance Prelude.Hashable RelatedOpsItem
+instance Core.Hashable RelatedOpsItem
 
-instance Prelude.NFData RelatedOpsItem
+instance Core.NFData RelatedOpsItem
 
-instance Prelude.ToJSON RelatedOpsItem where
+instance Core.ToJSON RelatedOpsItem where
   toJSON RelatedOpsItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("OpsItemId" Prelude..= opsItemId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("OpsItemId" Core..= opsItemId)]
       )

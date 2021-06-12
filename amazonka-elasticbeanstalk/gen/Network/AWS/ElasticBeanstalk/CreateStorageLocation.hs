@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data CreateStorageLocation = CreateStorageLocation'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStorageLocation' with all optional fields omitted.
@@ -62,9 +61,9 @@ newCreateStorageLocation ::
   CreateStorageLocation
 newCreateStorageLocation = CreateStorageLocation'
 
-instance Prelude.AWSRequest CreateStorageLocation where
+instance Core.AWSRequest CreateStorageLocation where
   type
-    Rs CreateStorageLocation =
+    AWSResponse CreateStorageLocation =
       CreateStorageLocationResponse
   request = Request.postQuery defaultService
   response =
@@ -72,28 +71,27 @@ instance Prelude.AWSRequest CreateStorageLocation where
       "CreateStorageLocationResult"
       ( \s h x ->
           CreateStorageLocationResponse'
-            Prelude.<$> (x Prelude..@? "S3Bucket")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "S3Bucket")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateStorageLocation
+instance Core.Hashable CreateStorageLocation
 
-instance Prelude.NFData CreateStorageLocation
+instance Core.NFData CreateStorageLocation
 
-instance Prelude.ToHeaders CreateStorageLocation where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateStorageLocation where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateStorageLocation where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateStorageLocation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateStorageLocation where
+instance Core.ToQuery CreateStorageLocation where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ("CreateStorageLocation" :: Prelude.ByteString),
-            "Version"
-              Prelude.=: ("2010-12-01" :: Prelude.ByteString)
+              Core.=: ("CreateStorageLocation" :: Core.ByteString),
+            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
           ]
       )
 
@@ -102,11 +100,11 @@ instance Prelude.ToQuery CreateStorageLocation where
 -- /See:/ 'newCreateStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
   { -- | The name of the Amazon S3 bucket created.
-    s3Bucket :: Prelude.Maybe Prelude.Text,
+    s3Bucket :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateStorageLocationResponse' with all optional fields omitted.
@@ -121,21 +119,21 @@ data CreateStorageLocationResponse = CreateStorageLocationResponse'
 -- 'httpStatus', 'createStorageLocationResponse_httpStatus' - The response's http status code.
 newCreateStorageLocationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateStorageLocationResponse
 newCreateStorageLocationResponse pHttpStatus_ =
   CreateStorageLocationResponse'
     { s3Bucket =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the Amazon S3 bucket created.
-createStorageLocationResponse_s3Bucket :: Lens.Lens' CreateStorageLocationResponse (Prelude.Maybe Prelude.Text)
+createStorageLocationResponse_s3Bucket :: Lens.Lens' CreateStorageLocationResponse (Core.Maybe Core.Text)
 createStorageLocationResponse_s3Bucket = Lens.lens (\CreateStorageLocationResponse' {s3Bucket} -> s3Bucket) (\s@CreateStorageLocationResponse' {} a -> s {s3Bucket = a} :: CreateStorageLocationResponse)
 
 -- | The response's http status code.
-createStorageLocationResponse_httpStatus :: Lens.Lens' CreateStorageLocationResponse Prelude.Int
+createStorageLocationResponse_httpStatus :: Lens.Lens' CreateStorageLocationResponse Core.Int
 createStorageLocationResponse_httpStatus = Lens.lens (\CreateStorageLocationResponse' {httpStatus} -> httpStatus) (\s@CreateStorageLocationResponse' {} a -> s {httpStatus = a} :: CreateStorageLocationResponse)
 
-instance Prelude.NFData CreateStorageLocationResponse
+instance Core.NFData CreateStorageLocationResponse

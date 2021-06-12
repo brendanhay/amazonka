@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.KeyValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair.
 --
 -- /See:/ 'newKeyValue' smart constructor.
 data KeyValue = KeyValue'
   { -- | The unique identifier of a key-value pair.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value part of the identified key.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyValue' with all optional fields omitted.
@@ -48,28 +47,25 @@ data KeyValue = KeyValue'
 newKeyValue ::
   KeyValue
 newKeyValue =
-  KeyValue'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
-    }
+  KeyValue' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The unique identifier of a key-value pair.
-keyValue_key :: Lens.Lens' KeyValue (Prelude.Maybe Prelude.Text)
+keyValue_key :: Lens.Lens' KeyValue (Core.Maybe Core.Text)
 keyValue_key = Lens.lens (\KeyValue' {key} -> key) (\s@KeyValue' {} a -> s {key = a} :: KeyValue)
 
 -- | The value part of the identified key.
-keyValue_value :: Lens.Lens' KeyValue (Prelude.Maybe Prelude.Text)
+keyValue_value :: Lens.Lens' KeyValue (Core.Maybe Core.Text)
 keyValue_value = Lens.lens (\KeyValue' {value} -> value) (\s@KeyValue' {} a -> s {value = a} :: KeyValue)
 
-instance Prelude.Hashable KeyValue
+instance Core.Hashable KeyValue
 
-instance Prelude.NFData KeyValue
+instance Core.NFData KeyValue
 
-instance Prelude.ToJSON KeyValue where
+instance Core.ToJSON KeyValue where
   toJSON KeyValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Value" Prelude..=) Prelude.<$> value
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Value" Core..=) Core.<$> value
           ]
       )

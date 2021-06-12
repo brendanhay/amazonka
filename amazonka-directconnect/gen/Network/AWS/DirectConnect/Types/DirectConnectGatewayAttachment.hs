@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState
 import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an attachment between a Direct Connect gateway and a
 -- virtual interface.
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDirectConnectGatewayAttachment' smart constructor.
 data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
   { -- | The error message if the state of an object failed to advance.
-    stateChangeError :: Prelude.Maybe Prelude.Text,
+    stateChangeError :: Core.Maybe Core.Text,
     -- | The state of the attachment. The following are the possible values:
     --
     -- -   @attaching@: The initial state after a virtual interface is created
@@ -45,19 +44,19 @@ data DirectConnectGatewayAttachment = DirectConnectGatewayAttachment'
     -- -   @detached@: The virtual interface is detached from the Direct
     --     Connect gateway. Traffic flow between the Direct Connect gateway and
     --     virtual interface is stopped.
-    attachmentState :: Prelude.Maybe DirectConnectGatewayAttachmentState,
+    attachmentState :: Core.Maybe DirectConnectGatewayAttachmentState,
     -- | The ID of the AWS account that owns the virtual interface.
-    virtualInterfaceOwnerAccount :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceOwnerAccount :: Core.Maybe Core.Text,
     -- | The AWS Region where the virtual interface is located.
-    virtualInterfaceRegion :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceRegion :: Core.Maybe Core.Text,
     -- | The type of attachment.
-    attachmentType :: Prelude.Maybe DirectConnectGatewayAttachmentType,
+    attachmentType :: Core.Maybe DirectConnectGatewayAttachmentType,
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Prelude.Maybe Prelude.Text,
+    virtualInterfaceId :: Core.Maybe Core.Text,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Prelude.Maybe Prelude.Text
+    directConnectGatewayId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DirectConnectGatewayAttachment' with all optional fields omitted.
@@ -97,18 +96,17 @@ newDirectConnectGatewayAttachment ::
 newDirectConnectGatewayAttachment =
   DirectConnectGatewayAttachment'
     { stateChangeError =
-        Prelude.Nothing,
-      attachmentState = Prelude.Nothing,
-      virtualInterfaceOwnerAccount =
-        Prelude.Nothing,
-      virtualInterfaceRegion = Prelude.Nothing,
-      attachmentType = Prelude.Nothing,
-      virtualInterfaceId = Prelude.Nothing,
-      directConnectGatewayId = Prelude.Nothing
+        Core.Nothing,
+      attachmentState = Core.Nothing,
+      virtualInterfaceOwnerAccount = Core.Nothing,
+      virtualInterfaceRegion = Core.Nothing,
+      attachmentType = Core.Nothing,
+      virtualInterfaceId = Core.Nothing,
+      directConnectGatewayId = Core.Nothing
     }
 
 -- | The error message if the state of an object failed to advance.
-directConnectGatewayAttachment_stateChangeError :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
+directConnectGatewayAttachment_stateChangeError :: Lens.Lens' DirectConnectGatewayAttachment (Core.Maybe Core.Text)
 directConnectGatewayAttachment_stateChangeError = Lens.lens (\DirectConnectGatewayAttachment' {stateChangeError} -> stateChangeError) (\s@DirectConnectGatewayAttachment' {} a -> s {stateChangeError = a} :: DirectConnectGatewayAttachment)
 
 -- | The state of the attachment. The following are the possible values:
@@ -124,51 +122,44 @@ directConnectGatewayAttachment_stateChangeError = Lens.lens (\DirectConnectGatew
 -- -   @detached@: The virtual interface is detached from the Direct
 --     Connect gateway. Traffic flow between the Direct Connect gateway and
 --     virtual interface is stopped.
-directConnectGatewayAttachment_attachmentState :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe DirectConnectGatewayAttachmentState)
+directConnectGatewayAttachment_attachmentState :: Lens.Lens' DirectConnectGatewayAttachment (Core.Maybe DirectConnectGatewayAttachmentState)
 directConnectGatewayAttachment_attachmentState = Lens.lens (\DirectConnectGatewayAttachment' {attachmentState} -> attachmentState) (\s@DirectConnectGatewayAttachment' {} a -> s {attachmentState = a} :: DirectConnectGatewayAttachment)
 
 -- | The ID of the AWS account that owns the virtual interface.
-directConnectGatewayAttachment_virtualInterfaceOwnerAccount :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
+directConnectGatewayAttachment_virtualInterfaceOwnerAccount :: Lens.Lens' DirectConnectGatewayAttachment (Core.Maybe Core.Text)
 directConnectGatewayAttachment_virtualInterfaceOwnerAccount = Lens.lens (\DirectConnectGatewayAttachment' {virtualInterfaceOwnerAccount} -> virtualInterfaceOwnerAccount) (\s@DirectConnectGatewayAttachment' {} a -> s {virtualInterfaceOwnerAccount = a} :: DirectConnectGatewayAttachment)
 
 -- | The AWS Region where the virtual interface is located.
-directConnectGatewayAttachment_virtualInterfaceRegion :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
+directConnectGatewayAttachment_virtualInterfaceRegion :: Lens.Lens' DirectConnectGatewayAttachment (Core.Maybe Core.Text)
 directConnectGatewayAttachment_virtualInterfaceRegion = Lens.lens (\DirectConnectGatewayAttachment' {virtualInterfaceRegion} -> virtualInterfaceRegion) (\s@DirectConnectGatewayAttachment' {} a -> s {virtualInterfaceRegion = a} :: DirectConnectGatewayAttachment)
 
 -- | The type of attachment.
-directConnectGatewayAttachment_attachmentType :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe DirectConnectGatewayAttachmentType)
+directConnectGatewayAttachment_attachmentType :: Lens.Lens' DirectConnectGatewayAttachment (Core.Maybe DirectConnectGatewayAttachmentType)
 directConnectGatewayAttachment_attachmentType = Lens.lens (\DirectConnectGatewayAttachment' {attachmentType} -> attachmentType) (\s@DirectConnectGatewayAttachment' {} a -> s {attachmentType = a} :: DirectConnectGatewayAttachment)
 
 -- | The ID of the virtual interface.
-directConnectGatewayAttachment_virtualInterfaceId :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
+directConnectGatewayAttachment_virtualInterfaceId :: Lens.Lens' DirectConnectGatewayAttachment (Core.Maybe Core.Text)
 directConnectGatewayAttachment_virtualInterfaceId = Lens.lens (\DirectConnectGatewayAttachment' {virtualInterfaceId} -> virtualInterfaceId) (\s@DirectConnectGatewayAttachment' {} a -> s {virtualInterfaceId = a} :: DirectConnectGatewayAttachment)
 
 -- | The ID of the Direct Connect gateway.
-directConnectGatewayAttachment_directConnectGatewayId :: Lens.Lens' DirectConnectGatewayAttachment (Prelude.Maybe Prelude.Text)
+directConnectGatewayAttachment_directConnectGatewayId :: Lens.Lens' DirectConnectGatewayAttachment (Core.Maybe Core.Text)
 directConnectGatewayAttachment_directConnectGatewayId = Lens.lens (\DirectConnectGatewayAttachment' {directConnectGatewayId} -> directConnectGatewayId) (\s@DirectConnectGatewayAttachment' {} a -> s {directConnectGatewayId = a} :: DirectConnectGatewayAttachment)
 
-instance
-  Prelude.FromJSON
-    DirectConnectGatewayAttachment
-  where
+instance Core.FromJSON DirectConnectGatewayAttachment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DirectConnectGatewayAttachment"
       ( \x ->
           DirectConnectGatewayAttachment'
-            Prelude.<$> (x Prelude..:? "stateChangeError")
-            Prelude.<*> (x Prelude..:? "attachmentState")
-            Prelude.<*> (x Prelude..:? "virtualInterfaceOwnerAccount")
-            Prelude.<*> (x Prelude..:? "virtualInterfaceRegion")
-            Prelude.<*> (x Prelude..:? "attachmentType")
-            Prelude.<*> (x Prelude..:? "virtualInterfaceId")
-            Prelude.<*> (x Prelude..:? "directConnectGatewayId")
+            Core.<$> (x Core..:? "stateChangeError")
+            Core.<*> (x Core..:? "attachmentState")
+            Core.<*> (x Core..:? "virtualInterfaceOwnerAccount")
+            Core.<*> (x Core..:? "virtualInterfaceRegion")
+            Core.<*> (x Core..:? "attachmentType")
+            Core.<*> (x Core..:? "virtualInterfaceId")
+            Core.<*> (x Core..:? "directConnectGatewayId")
       )
 
-instance
-  Prelude.Hashable
-    DirectConnectGatewayAttachment
+instance Core.Hashable DirectConnectGatewayAttachment
 
-instance
-  Prelude.NFData
-    DirectConnectGatewayAttachment
+instance Core.NFData DirectConnectGatewayAttachment

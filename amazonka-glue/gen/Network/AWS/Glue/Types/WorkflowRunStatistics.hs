@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.WorkflowRunStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Workflow run statistics provides statistics about the workflow run.
 --
 -- /See:/ 'newWorkflowRunStatistics' smart constructor.
 data WorkflowRunStatistics = WorkflowRunStatistics'
   { -- | Total number of Actions that timed out.
-    timeoutActions :: Prelude.Maybe Prelude.Int,
+    timeoutActions :: Core.Maybe Core.Int,
     -- | Total number of Actions that have succeeded.
-    succeededActions :: Prelude.Maybe Prelude.Int,
+    succeededActions :: Core.Maybe Core.Int,
     -- | Total number Actions in running state.
-    runningActions :: Prelude.Maybe Prelude.Int,
+    runningActions :: Core.Maybe Core.Int,
     -- | Total number of Actions in the workflow run.
-    totalActions :: Prelude.Maybe Prelude.Int,
+    totalActions :: Core.Maybe Core.Int,
     -- | Total number of Actions that have stopped.
-    stoppedActions :: Prelude.Maybe Prelude.Int,
+    stoppedActions :: Core.Maybe Core.Int,
     -- | Total number of Actions that have failed.
-    failedActions :: Prelude.Maybe Prelude.Int
+    failedActions :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WorkflowRunStatistics' with all optional fields omitted.
@@ -66,52 +65,52 @@ newWorkflowRunStatistics ::
 newWorkflowRunStatistics =
   WorkflowRunStatistics'
     { timeoutActions =
-        Prelude.Nothing,
-      succeededActions = Prelude.Nothing,
-      runningActions = Prelude.Nothing,
-      totalActions = Prelude.Nothing,
-      stoppedActions = Prelude.Nothing,
-      failedActions = Prelude.Nothing
+        Core.Nothing,
+      succeededActions = Core.Nothing,
+      runningActions = Core.Nothing,
+      totalActions = Core.Nothing,
+      stoppedActions = Core.Nothing,
+      failedActions = Core.Nothing
     }
 
 -- | Total number of Actions that timed out.
-workflowRunStatistics_timeoutActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_timeoutActions :: Lens.Lens' WorkflowRunStatistics (Core.Maybe Core.Int)
 workflowRunStatistics_timeoutActions = Lens.lens (\WorkflowRunStatistics' {timeoutActions} -> timeoutActions) (\s@WorkflowRunStatistics' {} a -> s {timeoutActions = a} :: WorkflowRunStatistics)
 
 -- | Total number of Actions that have succeeded.
-workflowRunStatistics_succeededActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_succeededActions :: Lens.Lens' WorkflowRunStatistics (Core.Maybe Core.Int)
 workflowRunStatistics_succeededActions = Lens.lens (\WorkflowRunStatistics' {succeededActions} -> succeededActions) (\s@WorkflowRunStatistics' {} a -> s {succeededActions = a} :: WorkflowRunStatistics)
 
 -- | Total number Actions in running state.
-workflowRunStatistics_runningActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_runningActions :: Lens.Lens' WorkflowRunStatistics (Core.Maybe Core.Int)
 workflowRunStatistics_runningActions = Lens.lens (\WorkflowRunStatistics' {runningActions} -> runningActions) (\s@WorkflowRunStatistics' {} a -> s {runningActions = a} :: WorkflowRunStatistics)
 
 -- | Total number of Actions in the workflow run.
-workflowRunStatistics_totalActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_totalActions :: Lens.Lens' WorkflowRunStatistics (Core.Maybe Core.Int)
 workflowRunStatistics_totalActions = Lens.lens (\WorkflowRunStatistics' {totalActions} -> totalActions) (\s@WorkflowRunStatistics' {} a -> s {totalActions = a} :: WorkflowRunStatistics)
 
 -- | Total number of Actions that have stopped.
-workflowRunStatistics_stoppedActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_stoppedActions :: Lens.Lens' WorkflowRunStatistics (Core.Maybe Core.Int)
 workflowRunStatistics_stoppedActions = Lens.lens (\WorkflowRunStatistics' {stoppedActions} -> stoppedActions) (\s@WorkflowRunStatistics' {} a -> s {stoppedActions = a} :: WorkflowRunStatistics)
 
 -- | Total number of Actions that have failed.
-workflowRunStatistics_failedActions :: Lens.Lens' WorkflowRunStatistics (Prelude.Maybe Prelude.Int)
+workflowRunStatistics_failedActions :: Lens.Lens' WorkflowRunStatistics (Core.Maybe Core.Int)
 workflowRunStatistics_failedActions = Lens.lens (\WorkflowRunStatistics' {failedActions} -> failedActions) (\s@WorkflowRunStatistics' {} a -> s {failedActions = a} :: WorkflowRunStatistics)
 
-instance Prelude.FromJSON WorkflowRunStatistics where
+instance Core.FromJSON WorkflowRunStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WorkflowRunStatistics"
       ( \x ->
           WorkflowRunStatistics'
-            Prelude.<$> (x Prelude..:? "TimeoutActions")
-            Prelude.<*> (x Prelude..:? "SucceededActions")
-            Prelude.<*> (x Prelude..:? "RunningActions")
-            Prelude.<*> (x Prelude..:? "TotalActions")
-            Prelude.<*> (x Prelude..:? "StoppedActions")
-            Prelude.<*> (x Prelude..:? "FailedActions")
+            Core.<$> (x Core..:? "TimeoutActions")
+            Core.<*> (x Core..:? "SucceededActions")
+            Core.<*> (x Core..:? "RunningActions")
+            Core.<*> (x Core..:? "TotalActions")
+            Core.<*> (x Core..:? "StoppedActions")
+            Core.<*> (x Core..:? "FailedActions")
       )
 
-instance Prelude.Hashable WorkflowRunStatistics
+instance Core.Hashable WorkflowRunStatistics
 
-instance Prelude.NFData WorkflowRunStatistics
+instance Core.NFData WorkflowRunStatistics

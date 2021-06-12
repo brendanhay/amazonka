@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,8 +67,8 @@ module Network.AWS.SecretsManager.GetSecretValue
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -86,7 +85,7 @@ data GetSecretValue = GetSecretValue'
     -- This value is typically a
     -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
     -- value with 32 hexadecimal digits.
-    versionId :: Prelude.Maybe Prelude.Text,
+    versionId :: Core.Maybe Core.Text,
     -- | Specifies the secret version that you want to retrieve by the staging
     -- label attached to the version.
     --
@@ -96,7 +95,7 @@ data GetSecretValue = GetSecretValue'
     -- specify either a @VersionStage@ or @VersionId@, then the default is to
     -- perform the operation on the version with the @VersionStage@ value of
     -- @AWSCURRENT@.
-    versionStage :: Prelude.Maybe Prelude.Text,
+    versionStage :: Core.Maybe Core.Text,
     -- | Specifies the secret containing the version that you want to retrieve.
     -- You can specify either the Amazon Resource Name (ARN) or the friendly
     -- name of the secret.
@@ -119,9 +118,9 @@ data GetSecretValue = GetSecretValue'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text
+    secretId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSecretValue' with all optional fields omitted.
@@ -176,12 +175,12 @@ data GetSecretValue = GetSecretValue'
 -- /AccessDeniedException/ error, depending on your permissions.
 newGetSecretValue ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   GetSecretValue
 newGetSecretValue pSecretId_ =
   GetSecretValue'
-    { versionId = Prelude.Nothing,
-      versionStage = Prelude.Nothing,
+    { versionId = Core.Nothing,
+      versionStage = Core.Nothing,
       secretId = pSecretId_
     }
 
@@ -195,7 +194,7 @@ newGetSecretValue pSecretId_ =
 -- This value is typically a
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
 -- value with 32 hexadecimal digits.
-getSecretValue_versionId :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
+getSecretValue_versionId :: Lens.Lens' GetSecretValue (Core.Maybe Core.Text)
 getSecretValue_versionId = Lens.lens (\GetSecretValue' {versionId} -> versionId) (\s@GetSecretValue' {} a -> s {versionId = a} :: GetSecretValue)
 
 -- | Specifies the secret version that you want to retrieve by the staging
@@ -207,7 +206,7 @@ getSecretValue_versionId = Lens.lens (\GetSecretValue' {versionId} -> versionId)
 -- specify either a @VersionStage@ or @VersionId@, then the default is to
 -- perform the operation on the version with the @VersionStage@ value of
 -- @AWSCURRENT@.
-getSecretValue_versionStage :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
+getSecretValue_versionStage :: Lens.Lens' GetSecretValue (Core.Maybe Core.Text)
 getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> versionStage) (\s@GetSecretValue' {} a -> s {versionStage = a} :: GetSecretValue)
 
 -- | Specifies the secret containing the version that you want to retrieve.
@@ -232,65 +231,63 @@ getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> vers
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-getSecretValue_secretId :: Lens.Lens' GetSecretValue Prelude.Text
+getSecretValue_secretId :: Lens.Lens' GetSecretValue Core.Text
 getSecretValue_secretId = Lens.lens (\GetSecretValue' {secretId} -> secretId) (\s@GetSecretValue' {} a -> s {secretId = a} :: GetSecretValue)
 
-instance Prelude.AWSRequest GetSecretValue where
-  type Rs GetSecretValue = GetSecretValueResponse
+instance Core.AWSRequest GetSecretValue where
+  type
+    AWSResponse GetSecretValue =
+      GetSecretValueResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSecretValueResponse'
-            Prelude.<$> (x Prelude..?> "CreatedDate")
-            Prelude.<*> (x Prelude..?> "SecretBinary")
-            Prelude.<*> (x Prelude..?> "VersionStages")
-            Prelude.<*> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "VersionId")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "SecretString")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "CreatedDate")
+            Core.<*> (x Core..?> "SecretBinary")
+            Core.<*> (x Core..?> "VersionStages")
+            Core.<*> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "VersionId")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "SecretString")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSecretValue
+instance Core.Hashable GetSecretValue
 
-instance Prelude.NFData GetSecretValue
+instance Core.NFData GetSecretValue
 
-instance Prelude.ToHeaders GetSecretValue where
+instance Core.ToHeaders GetSecretValue where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.GetSecretValue" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("secretsmanager.GetSecretValue" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetSecretValue where
+instance Core.ToJSON GetSecretValue where
   toJSON GetSecretValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VersionId" Prelude..=) Prelude.<$> versionId,
-            ("VersionStage" Prelude..=) Prelude.<$> versionStage,
-            Prelude.Just ("SecretId" Prelude..= secretId)
+    Core.object
+      ( Core.catMaybes
+          [ ("VersionId" Core..=) Core.<$> versionId,
+            ("VersionStage" Core..=) Core.<$> versionStage,
+            Core.Just ("SecretId" Core..= secretId)
           ]
       )
 
-instance Prelude.ToPath GetSecretValue where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSecretValue where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSecretValue where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSecretValue where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSecretValueResponse' smart constructor.
 data GetSecretValueResponse = GetSecretValueResponse'
   { -- | The date and time that this version of the secret was created.
-    createdDate :: Prelude.Maybe Prelude.POSIX,
+    createdDate :: Core.Maybe Core.POSIX,
     -- | The decrypted part of the protected secret information that was
     -- originally provided as binary data in the form of a byte array. The
     -- response parameter represents the binary data as a
@@ -302,16 +299,16 @@ data GetSecretValueResponse = GetSecretValueResponse'
     -- If you store custom information in this field of the secret, then you
     -- must code your Lambda rotation function to parse and interpret whatever
     -- you store in the @SecretString@ or @SecretBinary@ fields.
-    secretBinary :: Prelude.Maybe (Prelude.Sensitive Prelude.Base64),
+    secretBinary :: Core.Maybe (Core.Sensitive Core.Base64),
     -- | A list of all of the staging labels currently attached to this version
     -- of the secret.
-    versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    versionStages :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The ARN of the secret.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The unique identifier of this version of the secret.
-    versionId :: Prelude.Maybe Prelude.Text,
+    versionId :: Core.Maybe Core.Text,
     -- | The friendly name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The decrypted part of the protected secret information that was
     -- originally provided as a string.
     --
@@ -325,11 +322,11 @@ data GetSecretValueResponse = GetSecretValueResponse'
     -- Manager console, or by using the __Other secret type__ in the console,
     -- then you must code your Lambda rotation function to parse and interpret
     -- those values.
-    secretString :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    secretString :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSecretValueResponse' with all optional fields omitted.
@@ -383,24 +380,23 @@ data GetSecretValueResponse = GetSecretValueResponse'
 -- 'httpStatus', 'getSecretValueResponse_httpStatus' - The response's http status code.
 newGetSecretValueResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSecretValueResponse
 newGetSecretValueResponse pHttpStatus_ =
   GetSecretValueResponse'
-    { createdDate =
-        Prelude.Nothing,
-      secretBinary = Prelude.Nothing,
-      versionStages = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
-      name = Prelude.Nothing,
-      secretString = Prelude.Nothing,
+    { createdDate = Core.Nothing,
+      secretBinary = Core.Nothing,
+      versionStages = Core.Nothing,
+      arn = Core.Nothing,
+      versionId = Core.Nothing,
+      name = Core.Nothing,
+      secretString = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The date and time that this version of the secret was created.
-getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
-getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Prelude._Time
+getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Core.Maybe Core.UTCTime)
+getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Core.. Lens.mapping Core._Time
 
 -- | The decrypted part of the protected secret information that was
 -- originally provided as binary data in the form of a byte array. The
@@ -417,24 +413,24 @@ getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {create
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getSecretValueResponse_secretBinary :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.ByteString)
-getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secretBinary} -> secretBinary) (\s@GetSecretValueResponse' {} a -> s {secretBinary = a} :: GetSecretValueResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Base64)
+getSecretValueResponse_secretBinary :: Lens.Lens' GetSecretValueResponse (Core.Maybe Core.ByteString)
+getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secretBinary} -> secretBinary) (\s@GetSecretValueResponse' {} a -> s {secretBinary = a} :: GetSecretValueResponse) Core.. Lens.mapping (Core._Sensitive Core.. Core._Base64)
 
 -- | A list of all of the staging labels currently attached to this version
 -- of the secret.
-getSecretValueResponse_versionStages :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {versionStages} -> versionStages) (\s@GetSecretValueResponse' {} a -> s {versionStages = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Prelude._Coerce
+getSecretValueResponse_versionStages :: Lens.Lens' GetSecretValueResponse (Core.Maybe (Core.NonEmpty Core.Text))
+getSecretValueResponse_versionStages = Lens.lens (\GetSecretValueResponse' {versionStages} -> versionStages) (\s@GetSecretValueResponse' {} a -> s {versionStages = a} :: GetSecretValueResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the secret.
-getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Core.Maybe Core.Text)
 getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (\s@GetSecretValueResponse' {} a -> s {arn = a} :: GetSecretValueResponse)
 
 -- | The unique identifier of this version of the secret.
-getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_versionId :: Lens.Lens' GetSecretValueResponse (Core.Maybe Core.Text)
 getSecretValueResponse_versionId = Lens.lens (\GetSecretValueResponse' {versionId} -> versionId) (\s@GetSecretValueResponse' {} a -> s {versionId = a} :: GetSecretValueResponse)
 
 -- | The friendly name of the secret.
-getSecretValueResponse_name :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
+getSecretValueResponse_name :: Lens.Lens' GetSecretValueResponse (Core.Maybe Core.Text)
 getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name) (\s@GetSecretValueResponse' {} a -> s {name = a} :: GetSecretValueResponse)
 
 -- | The decrypted part of the protected secret information that was
@@ -450,11 +446,11 @@ getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name
 -- Manager console, or by using the __Other secret type__ in the console,
 -- then you must code your Lambda rotation function to parse and interpret
 -- those values.
-getSecretValueResponse_secretString :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
-getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secretString} -> secretString) (\s@GetSecretValueResponse' {} a -> s {secretString = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Prelude._Sensitive
+getSecretValueResponse_secretString :: Lens.Lens' GetSecretValueResponse (Core.Maybe Core.Text)
+getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secretString} -> secretString) (\s@GetSecretValueResponse' {} a -> s {secretString = a} :: GetSecretValueResponse) Core.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
-getSecretValueResponse_httpStatus :: Lens.Lens' GetSecretValueResponse Prelude.Int
+getSecretValueResponse_httpStatus :: Lens.Lens' GetSecretValueResponse Core.Int
 getSecretValueResponse_httpStatus = Lens.lens (\GetSecretValueResponse' {httpStatus} -> httpStatus) (\s@GetSecretValueResponse' {} a -> s {httpStatus = a} :: GetSecretValueResponse)
 
-instance Prelude.NFData GetSecretValueResponse
+instance Core.NFData GetSecretValueResponse

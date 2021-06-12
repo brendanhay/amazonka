@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SMS.DeleteReplicationJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
@@ -52,9 +51,9 @@ import Network.AWS.SMS.Types
 -- | /See:/ 'newDeleteReplicationJob' smart constructor.
 data DeleteReplicationJob = DeleteReplicationJob'
   { -- | The ID of the replication job.
-    replicationJobId :: Prelude.Text
+    replicationJobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationJob' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DeleteReplicationJob = DeleteReplicationJob'
 -- 'replicationJobId', 'deleteReplicationJob_replicationJobId' - The ID of the replication job.
 newDeleteReplicationJob ::
   -- | 'replicationJobId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteReplicationJob
 newDeleteReplicationJob pReplicationJobId_ =
   DeleteReplicationJob'
@@ -76,61 +75,59 @@ newDeleteReplicationJob pReplicationJobId_ =
     }
 
 -- | The ID of the replication job.
-deleteReplicationJob_replicationJobId :: Lens.Lens' DeleteReplicationJob Prelude.Text
+deleteReplicationJob_replicationJobId :: Lens.Lens' DeleteReplicationJob Core.Text
 deleteReplicationJob_replicationJobId = Lens.lens (\DeleteReplicationJob' {replicationJobId} -> replicationJobId) (\s@DeleteReplicationJob' {} a -> s {replicationJobId = a} :: DeleteReplicationJob)
 
-instance Prelude.AWSRequest DeleteReplicationJob where
+instance Core.AWSRequest DeleteReplicationJob where
   type
-    Rs DeleteReplicationJob =
+    AWSResponse DeleteReplicationJob =
       DeleteReplicationJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteReplicationJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteReplicationJob
+instance Core.Hashable DeleteReplicationJob
 
-instance Prelude.NFData DeleteReplicationJob
+instance Core.NFData DeleteReplicationJob
 
-instance Prelude.ToHeaders DeleteReplicationJob where
+instance Core.ToHeaders DeleteReplicationJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteReplicationJob where
+instance Core.ToJSON DeleteReplicationJob where
   toJSON DeleteReplicationJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("replicationJobId" Prelude..= replicationJobId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("replicationJobId" Core..= replicationJobId)
           ]
       )
 
-instance Prelude.ToPath DeleteReplicationJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteReplicationJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteReplicationJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteReplicationJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteReplicationJobResponse' smart constructor.
 data DeleteReplicationJobResponse = DeleteReplicationJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteReplicationJobResponse' with all optional fields omitted.
@@ -143,7 +140,7 @@ data DeleteReplicationJobResponse = DeleteReplicationJobResponse'
 -- 'httpStatus', 'deleteReplicationJobResponse_httpStatus' - The response's http status code.
 newDeleteReplicationJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteReplicationJobResponse
 newDeleteReplicationJobResponse pHttpStatus_ =
   DeleteReplicationJobResponse'
@@ -152,7 +149,7 @@ newDeleteReplicationJobResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteReplicationJobResponse_httpStatus :: Lens.Lens' DeleteReplicationJobResponse Prelude.Int
+deleteReplicationJobResponse_httpStatus :: Lens.Lens' DeleteReplicationJobResponse Core.Int
 deleteReplicationJobResponse_httpStatus = Lens.lens (\DeleteReplicationJobResponse' {httpStatus} -> httpStatus) (\s@DeleteReplicationJobResponse' {} a -> s {httpStatus = a} :: DeleteReplicationJobResponse)
 
-instance Prelude.NFData DeleteReplicationJobResponse
+instance Core.NFData DeleteReplicationJobResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types.PipelineConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The pipeline configuration for a resolver of kind @PIPELINE@.
 --
 -- /See:/ 'newPipelineConfig' smart constructor.
 data PipelineConfig = PipelineConfig'
   { -- | A list of @Function@ objects.
-    functions :: Prelude.Maybe [Prelude.Text]
+    functions :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelineConfig' with all optional fields omitted.
@@ -44,30 +43,28 @@ data PipelineConfig = PipelineConfig'
 newPipelineConfig ::
   PipelineConfig
 newPipelineConfig =
-  PipelineConfig' {functions = Prelude.Nothing}
+  PipelineConfig' {functions = Core.Nothing}
 
 -- | A list of @Function@ objects.
-pipelineConfig_functions :: Lens.Lens' PipelineConfig (Prelude.Maybe [Prelude.Text])
-pipelineConfig_functions = Lens.lens (\PipelineConfig' {functions} -> functions) (\s@PipelineConfig' {} a -> s {functions = a} :: PipelineConfig) Prelude.. Lens.mapping Prelude._Coerce
+pipelineConfig_functions :: Lens.Lens' PipelineConfig (Core.Maybe [Core.Text])
+pipelineConfig_functions = Lens.lens (\PipelineConfig' {functions} -> functions) (\s@PipelineConfig' {} a -> s {functions = a} :: PipelineConfig) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON PipelineConfig where
+instance Core.FromJSON PipelineConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelineConfig"
       ( \x ->
           PipelineConfig'
-            Prelude.<$> ( x Prelude..:? "functions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "functions" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable PipelineConfig
+instance Core.Hashable PipelineConfig
 
-instance Prelude.NFData PipelineConfig
+instance Core.NFData PipelineConfig
 
-instance Prelude.ToJSON PipelineConfig where
+instance Core.ToJSON PipelineConfig where
   toJSON PipelineConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("functions" Prelude..=) Prelude.<$> functions]
+    Core.object
+      ( Core.catMaybes
+          [("functions" Core..=) Core.<$> functions]
       )

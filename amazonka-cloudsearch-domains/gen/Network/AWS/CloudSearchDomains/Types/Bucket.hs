@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearchDomains.Types.Bucket where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A container for facet information.
 --
 -- /See:/ 'newBucket' smart constructor.
 data Bucket = Bucket'
   { -- | The facet value being counted.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The number of hits that contain the facet value in the specified facet
     -- field.
-    count :: Prelude.Maybe Prelude.Integer
+    count :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Bucket' with all optional fields omitted.
@@ -50,30 +49,26 @@ data Bucket = Bucket'
 newBucket ::
   Bucket
 newBucket =
-  Bucket'
-    { value = Prelude.Nothing,
-      count = Prelude.Nothing
-    }
+  Bucket' {value = Core.Nothing, count = Core.Nothing}
 
 -- | The facet value being counted.
-bucket_value :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Text)
+bucket_value :: Lens.Lens' Bucket (Core.Maybe Core.Text)
 bucket_value = Lens.lens (\Bucket' {value} -> value) (\s@Bucket' {} a -> s {value = a} :: Bucket)
 
 -- | The number of hits that contain the facet value in the specified facet
 -- field.
-bucket_count :: Lens.Lens' Bucket (Prelude.Maybe Prelude.Integer)
+bucket_count :: Lens.Lens' Bucket (Core.Maybe Core.Integer)
 bucket_count = Lens.lens (\Bucket' {count} -> count) (\s@Bucket' {} a -> s {count = a} :: Bucket)
 
-instance Prelude.FromJSON Bucket where
+instance Core.FromJSON Bucket where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Bucket"
       ( \x ->
           Bucket'
-            Prelude.<$> (x Prelude..:? "value")
-            Prelude.<*> (x Prelude..:? "count")
+            Core.<$> (x Core..:? "value") Core.<*> (x Core..:? "count")
       )
 
-instance Prelude.Hashable Bucket
+instance Core.Hashable Bucket
 
-instance Prelude.NFData Bucket
+instance Core.NFData Bucket

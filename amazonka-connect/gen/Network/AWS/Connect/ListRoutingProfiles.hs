@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.Connect.ListRoutingProfiles
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,13 +62,13 @@ data ListRoutingProfiles = ListRoutingProfiles'
   { -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return per page.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRoutingProfiles' with all optional fields omitted.
@@ -89,107 +87,103 @@ data ListRoutingProfiles = ListRoutingProfiles'
 -- 'instanceId', 'listRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance.
 newListRoutingProfiles ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ListRoutingProfiles
 newListRoutingProfiles pInstanceId_ =
   ListRoutingProfiles'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       instanceId = pInstanceId_
     }
 
 -- | The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
 -- results.
-listRoutingProfiles_nextToken :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Text)
+listRoutingProfiles_nextToken :: Lens.Lens' ListRoutingProfiles (Core.Maybe Core.Text)
 listRoutingProfiles_nextToken = Lens.lens (\ListRoutingProfiles' {nextToken} -> nextToken) (\s@ListRoutingProfiles' {} a -> s {nextToken = a} :: ListRoutingProfiles)
 
 -- | The maximum number of results to return per page.
-listRoutingProfiles_maxResults :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Natural)
+listRoutingProfiles_maxResults :: Lens.Lens' ListRoutingProfiles (Core.Maybe Core.Natural)
 listRoutingProfiles_maxResults = Lens.lens (\ListRoutingProfiles' {maxResults} -> maxResults) (\s@ListRoutingProfiles' {} a -> s {maxResults = a} :: ListRoutingProfiles)
 
 -- | The identifier of the Amazon Connect instance.
-listRoutingProfiles_instanceId :: Lens.Lens' ListRoutingProfiles Prelude.Text
+listRoutingProfiles_instanceId :: Lens.Lens' ListRoutingProfiles Core.Text
 listRoutingProfiles_instanceId = Lens.lens (\ListRoutingProfiles' {instanceId} -> instanceId) (\s@ListRoutingProfiles' {} a -> s {instanceId = a} :: ListRoutingProfiles)
 
-instance Pager.AWSPager ListRoutingProfiles where
+instance Core.AWSPager ListRoutingProfiles where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listRoutingProfilesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listRoutingProfilesResponse_routingProfileSummaryList
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listRoutingProfiles_nextToken
           Lens..~ rs
           Lens.^? listRoutingProfilesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListRoutingProfiles where
+instance Core.AWSRequest ListRoutingProfiles where
   type
-    Rs ListRoutingProfiles =
+    AWSResponse ListRoutingProfiles =
       ListRoutingProfilesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListRoutingProfilesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "RoutingProfileSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "RoutingProfileSummaryList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListRoutingProfiles
+instance Core.Hashable ListRoutingProfiles
 
-instance Prelude.NFData ListRoutingProfiles
+instance Core.NFData ListRoutingProfiles
 
-instance Prelude.ToHeaders ListRoutingProfiles where
+instance Core.ToHeaders ListRoutingProfiles where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListRoutingProfiles where
+instance Core.ToPath ListRoutingProfiles where
   toPath ListRoutingProfiles' {..} =
-    Prelude.mconcat
-      [ "/routing-profiles-summary/",
-        Prelude.toBS instanceId
-      ]
+    Core.mconcat
+      ["/routing-profiles-summary/", Core.toBS instanceId]
 
-instance Prelude.ToQuery ListRoutingProfiles where
+instance Core.ToQuery ListRoutingProfiles where
   toQuery ListRoutingProfiles' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListRoutingProfilesResponse' smart constructor.
 data ListRoutingProfilesResponse = ListRoutingProfilesResponse'
   { -- | If there are additional results, this is the token for the next set of
     -- results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the routing profiles.
-    routingProfileSummaryList :: Prelude.Maybe [RoutingProfileSummary],
+    routingProfileSummaryList :: Core.Maybe [RoutingProfileSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListRoutingProfilesResponse' with all optional fields omitted.
@@ -207,27 +201,27 @@ data ListRoutingProfilesResponse = ListRoutingProfilesResponse'
 -- 'httpStatus', 'listRoutingProfilesResponse_httpStatus' - The response's http status code.
 newListRoutingProfilesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListRoutingProfilesResponse
 newListRoutingProfilesResponse pHttpStatus_ =
   ListRoutingProfilesResponse'
     { nextToken =
-        Prelude.Nothing,
-      routingProfileSummaryList = Prelude.Nothing,
+        Core.Nothing,
+      routingProfileSummaryList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If there are additional results, this is the token for the next set of
 -- results.
-listRoutingProfilesResponse_nextToken :: Lens.Lens' ListRoutingProfilesResponse (Prelude.Maybe Prelude.Text)
+listRoutingProfilesResponse_nextToken :: Lens.Lens' ListRoutingProfilesResponse (Core.Maybe Core.Text)
 listRoutingProfilesResponse_nextToken = Lens.lens (\ListRoutingProfilesResponse' {nextToken} -> nextToken) (\s@ListRoutingProfilesResponse' {} a -> s {nextToken = a} :: ListRoutingProfilesResponse)
 
 -- | Information about the routing profiles.
-listRoutingProfilesResponse_routingProfileSummaryList :: Lens.Lens' ListRoutingProfilesResponse (Prelude.Maybe [RoutingProfileSummary])
-listRoutingProfilesResponse_routingProfileSummaryList = Lens.lens (\ListRoutingProfilesResponse' {routingProfileSummaryList} -> routingProfileSummaryList) (\s@ListRoutingProfilesResponse' {} a -> s {routingProfileSummaryList = a} :: ListRoutingProfilesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listRoutingProfilesResponse_routingProfileSummaryList :: Lens.Lens' ListRoutingProfilesResponse (Core.Maybe [RoutingProfileSummary])
+listRoutingProfilesResponse_routingProfileSummaryList = Lens.lens (\ListRoutingProfilesResponse' {routingProfileSummaryList} -> routingProfileSummaryList) (\s@ListRoutingProfilesResponse' {} a -> s {routingProfileSummaryList = a} :: ListRoutingProfilesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listRoutingProfilesResponse_httpStatus :: Lens.Lens' ListRoutingProfilesResponse Prelude.Int
+listRoutingProfilesResponse_httpStatus :: Lens.Lens' ListRoutingProfilesResponse Core.Int
 listRoutingProfilesResponse_httpStatus = Lens.lens (\ListRoutingProfilesResponse' {httpStatus} -> httpStatus) (\s@ListRoutingProfilesResponse' {} a -> s {httpStatus = a} :: ListRoutingProfilesResponse)
 
-instance Prelude.NFData ListRoutingProfilesResponse
+instance Core.NFData ListRoutingProfilesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SES.Types.BulkEmailDestinationStatus where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SES.Types.BulkEmailStatus
 
 -- | An object that contains the response from the @SendBulkTemplatedEmail@
@@ -78,15 +77,15 @@ data BulkEmailDestinationStatus = BulkEmailDestinationStatus'
     --
     -- -   @Failed@: Amazon SES was unable to process your request. See the
     --     error message for additional information.
-    status :: Prelude.Maybe BulkEmailStatus,
+    status :: Core.Maybe BulkEmailStatus,
     -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
     -- operation.
-    messageId :: Prelude.Maybe Prelude.Text,
+    messageId :: Core.Maybe Core.Text,
     -- | A description of an error that prevented a message being sent using the
     -- @SendBulkTemplatedEmail@ operation.
-    error :: Prelude.Maybe Prelude.Text
+    error :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BulkEmailDestinationStatus' with all optional fields omitted.
@@ -155,10 +154,9 @@ newBulkEmailDestinationStatus ::
   BulkEmailDestinationStatus
 newBulkEmailDestinationStatus =
   BulkEmailDestinationStatus'
-    { status =
-        Prelude.Nothing,
-      messageId = Prelude.Nothing,
-      error = Prelude.Nothing
+    { status = Core.Nothing,
+      messageId = Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | The status of a message sent using the @SendBulkTemplatedEmail@
@@ -210,26 +208,26 @@ newBulkEmailDestinationStatus =
 --
 -- -   @Failed@: Amazon SES was unable to process your request. See the
 --     error message for additional information.
-bulkEmailDestinationStatus_status :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe BulkEmailStatus)
+bulkEmailDestinationStatus_status :: Lens.Lens' BulkEmailDestinationStatus (Core.Maybe BulkEmailStatus)
 bulkEmailDestinationStatus_status = Lens.lens (\BulkEmailDestinationStatus' {status} -> status) (\s@BulkEmailDestinationStatus' {} a -> s {status = a} :: BulkEmailDestinationStatus)
 
 -- | The unique message identifier returned from the @SendBulkTemplatedEmail@
 -- operation.
-bulkEmailDestinationStatus_messageId :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
+bulkEmailDestinationStatus_messageId :: Lens.Lens' BulkEmailDestinationStatus (Core.Maybe Core.Text)
 bulkEmailDestinationStatus_messageId = Lens.lens (\BulkEmailDestinationStatus' {messageId} -> messageId) (\s@BulkEmailDestinationStatus' {} a -> s {messageId = a} :: BulkEmailDestinationStatus)
 
 -- | A description of an error that prevented a message being sent using the
 -- @SendBulkTemplatedEmail@ operation.
-bulkEmailDestinationStatus_error :: Lens.Lens' BulkEmailDestinationStatus (Prelude.Maybe Prelude.Text)
+bulkEmailDestinationStatus_error :: Lens.Lens' BulkEmailDestinationStatus (Core.Maybe Core.Text)
 bulkEmailDestinationStatus_error = Lens.lens (\BulkEmailDestinationStatus' {error} -> error) (\s@BulkEmailDestinationStatus' {} a -> s {error = a} :: BulkEmailDestinationStatus)
 
-instance Prelude.FromXML BulkEmailDestinationStatus where
+instance Core.FromXML BulkEmailDestinationStatus where
   parseXML x =
     BulkEmailDestinationStatus'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "MessageId")
-      Prelude.<*> (x Prelude..@? "Error")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "MessageId")
+      Core.<*> (x Core..@? "Error")
 
-instance Prelude.Hashable BulkEmailDestinationStatus
+instance Core.Hashable BulkEmailDestinationStatus
 
-instance Prelude.NFData BulkEmailDestinationStatus
+instance Core.NFData BulkEmailDestinationStatus

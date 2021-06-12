@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The summary of the lifecycle policy preview request.
 --
 -- /See:/ 'newLifecyclePolicyPreviewSummary' smart constructor.
 data LifecyclePolicyPreviewSummary = LifecyclePolicyPreviewSummary'
   { -- | The number of expiring images.
-    expiringImageTotalCount :: Prelude.Maybe Prelude.Natural
+    expiringImageTotalCount :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecyclePolicyPreviewSummary' with all optional fields omitted.
@@ -46,27 +45,22 @@ newLifecyclePolicyPreviewSummary ::
 newLifecyclePolicyPreviewSummary =
   LifecyclePolicyPreviewSummary'
     { expiringImageTotalCount =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The number of expiring images.
-lifecyclePolicyPreviewSummary_expiringImageTotalCount :: Lens.Lens' LifecyclePolicyPreviewSummary (Prelude.Maybe Prelude.Natural)
+lifecyclePolicyPreviewSummary_expiringImageTotalCount :: Lens.Lens' LifecyclePolicyPreviewSummary (Core.Maybe Core.Natural)
 lifecyclePolicyPreviewSummary_expiringImageTotalCount = Lens.lens (\LifecyclePolicyPreviewSummary' {expiringImageTotalCount} -> expiringImageTotalCount) (\s@LifecyclePolicyPreviewSummary' {} a -> s {expiringImageTotalCount = a} :: LifecyclePolicyPreviewSummary)
 
-instance
-  Prelude.FromJSON
-    LifecyclePolicyPreviewSummary
-  where
+instance Core.FromJSON LifecyclePolicyPreviewSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LifecyclePolicyPreviewSummary"
       ( \x ->
           LifecyclePolicyPreviewSummary'
-            Prelude.<$> (x Prelude..:? "expiringImageTotalCount")
+            Core.<$> (x Core..:? "expiringImageTotalCount")
       )
 
-instance
-  Prelude.Hashable
-    LifecyclePolicyPreviewSummary
+instance Core.Hashable LifecyclePolicyPreviewSummary
 
-instance Prelude.NFData LifecyclePolicyPreviewSummary
+instance Core.NFData LifecyclePolicyPreviewSummary

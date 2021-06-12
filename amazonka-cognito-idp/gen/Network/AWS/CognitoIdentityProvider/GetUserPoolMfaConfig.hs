@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,17 +42,17 @@ module Network.AWS.CognitoIdentityProvider.GetUserPoolMfaConfig
 where
 
 import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetUserPoolMfaConfig' smart constructor.
 data GetUserPoolMfaConfig = GetUserPoolMfaConfig'
   { -- | The user pool ID.
-    userPoolId :: Prelude.Text
+    userPoolId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserPoolMfaConfig' with all optional fields omitted.
@@ -66,68 +65,66 @@ data GetUserPoolMfaConfig = GetUserPoolMfaConfig'
 -- 'userPoolId', 'getUserPoolMfaConfig_userPoolId' - The user pool ID.
 newGetUserPoolMfaConfig ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   GetUserPoolMfaConfig
 newGetUserPoolMfaConfig pUserPoolId_ =
   GetUserPoolMfaConfig' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID.
-getUserPoolMfaConfig_userPoolId :: Lens.Lens' GetUserPoolMfaConfig Prelude.Text
+getUserPoolMfaConfig_userPoolId :: Lens.Lens' GetUserPoolMfaConfig Core.Text
 getUserPoolMfaConfig_userPoolId = Lens.lens (\GetUserPoolMfaConfig' {userPoolId} -> userPoolId) (\s@GetUserPoolMfaConfig' {} a -> s {userPoolId = a} :: GetUserPoolMfaConfig)
 
-instance Prelude.AWSRequest GetUserPoolMfaConfig where
+instance Core.AWSRequest GetUserPoolMfaConfig where
   type
-    Rs GetUserPoolMfaConfig =
+    AWSResponse GetUserPoolMfaConfig =
       GetUserPoolMfaConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetUserPoolMfaConfigResponse'
-            Prelude.<$> (x Prelude..?> "SoftwareTokenMfaConfiguration")
-            Prelude.<*> (x Prelude..?> "SmsMfaConfiguration")
-            Prelude.<*> (x Prelude..?> "MfaConfiguration")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "SoftwareTokenMfaConfiguration")
+            Core.<*> (x Core..?> "SmsMfaConfiguration")
+            Core.<*> (x Core..?> "MfaConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetUserPoolMfaConfig
+instance Core.Hashable GetUserPoolMfaConfig
 
-instance Prelude.NFData GetUserPoolMfaConfig
+instance Core.NFData GetUserPoolMfaConfig
 
-instance Prelude.ToHeaders GetUserPoolMfaConfig where
+instance Core.ToHeaders GetUserPoolMfaConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityProviderService.GetUserPoolMfaConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetUserPoolMfaConfig where
+instance Core.ToJSON GetUserPoolMfaConfig where
   toJSON GetUserPoolMfaConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("UserPoolId" Prelude..= userPoolId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("UserPoolId" Core..= userPoolId)]
       )
 
-instance Prelude.ToPath GetUserPoolMfaConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetUserPoolMfaConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetUserPoolMfaConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetUserPoolMfaConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetUserPoolMfaConfigResponse' smart constructor.
 data GetUserPoolMfaConfigResponse = GetUserPoolMfaConfigResponse'
   { -- | The software token multi-factor (MFA) configuration.
-    softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
+    softwareTokenMfaConfiguration :: Core.Maybe SoftwareTokenMfaConfigType,
     -- | The SMS text message multi-factor (MFA) configuration.
-    smsMfaConfiguration :: Prelude.Maybe SmsMfaConfigType,
+    smsMfaConfiguration :: Core.Maybe SmsMfaConfigType,
     -- | The multi-factor (MFA) configuration. Valid values include:
     --
     -- -   @OFF@ MFA will not be used for any users.
@@ -136,11 +133,11 @@ data GetUserPoolMfaConfigResponse = GetUserPoolMfaConfigResponse'
     --
     -- -   @OPTIONAL@ MFA will be required only for individual users who have
     --     an MFA factor enabled.
-    mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
+    mfaConfiguration :: Core.Maybe UserPoolMfaType,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserPoolMfaConfigResponse' with all optional fields omitted.
@@ -166,23 +163,23 @@ data GetUserPoolMfaConfigResponse = GetUserPoolMfaConfigResponse'
 -- 'httpStatus', 'getUserPoolMfaConfigResponse_httpStatus' - The response's http status code.
 newGetUserPoolMfaConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetUserPoolMfaConfigResponse
 newGetUserPoolMfaConfigResponse pHttpStatus_ =
   GetUserPoolMfaConfigResponse'
     { softwareTokenMfaConfiguration =
-        Prelude.Nothing,
-      smsMfaConfiguration = Prelude.Nothing,
-      mfaConfiguration = Prelude.Nothing,
+        Core.Nothing,
+      smsMfaConfiguration = Core.Nothing,
+      mfaConfiguration = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The software token multi-factor (MFA) configuration.
-getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Prelude.Maybe SoftwareTokenMfaConfigType)
+getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Core.Maybe SoftwareTokenMfaConfigType)
 getUserPoolMfaConfigResponse_softwareTokenMfaConfiguration = Lens.lens (\GetUserPoolMfaConfigResponse' {softwareTokenMfaConfiguration} -> softwareTokenMfaConfiguration) (\s@GetUserPoolMfaConfigResponse' {} a -> s {softwareTokenMfaConfiguration = a} :: GetUserPoolMfaConfigResponse)
 
 -- | The SMS text message multi-factor (MFA) configuration.
-getUserPoolMfaConfigResponse_smsMfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Prelude.Maybe SmsMfaConfigType)
+getUserPoolMfaConfigResponse_smsMfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Core.Maybe SmsMfaConfigType)
 getUserPoolMfaConfigResponse_smsMfaConfiguration = Lens.lens (\GetUserPoolMfaConfigResponse' {smsMfaConfiguration} -> smsMfaConfiguration) (\s@GetUserPoolMfaConfigResponse' {} a -> s {smsMfaConfiguration = a} :: GetUserPoolMfaConfigResponse)
 
 -- | The multi-factor (MFA) configuration. Valid values include:
@@ -193,11 +190,11 @@ getUserPoolMfaConfigResponse_smsMfaConfiguration = Lens.lens (\GetUserPoolMfaCon
 --
 -- -   @OPTIONAL@ MFA will be required only for individual users who have
 --     an MFA factor enabled.
-getUserPoolMfaConfigResponse_mfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Prelude.Maybe UserPoolMfaType)
+getUserPoolMfaConfigResponse_mfaConfiguration :: Lens.Lens' GetUserPoolMfaConfigResponse (Core.Maybe UserPoolMfaType)
 getUserPoolMfaConfigResponse_mfaConfiguration = Lens.lens (\GetUserPoolMfaConfigResponse' {mfaConfiguration} -> mfaConfiguration) (\s@GetUserPoolMfaConfigResponse' {} a -> s {mfaConfiguration = a} :: GetUserPoolMfaConfigResponse)
 
 -- | The response's http status code.
-getUserPoolMfaConfigResponse_httpStatus :: Lens.Lens' GetUserPoolMfaConfigResponse Prelude.Int
+getUserPoolMfaConfigResponse_httpStatus :: Lens.Lens' GetUserPoolMfaConfigResponse Core.Int
 getUserPoolMfaConfigResponse_httpStatus = Lens.lens (\GetUserPoolMfaConfigResponse' {httpStatus} -> httpStatus) (\s@GetUserPoolMfaConfigResponse' {} a -> s {httpStatus = a} :: GetUserPoolMfaConfigResponse)
 
-instance Prelude.NFData GetUserPoolMfaConfigResponse
+instance Core.NFData GetUserPoolMfaConfigResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.WavSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.WavCodingMode
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Wav Settings
 --
@@ -30,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data WavSettings = WavSettings'
   { -- | The audio coding mode for the WAV audio. The mode determines the number
     -- of channels in the audio.
-    codingMode :: Prelude.Maybe WavCodingMode,
+    codingMode :: Core.Maybe WavCodingMode,
     -- | Bits per sample.
-    bitDepth :: Prelude.Maybe Prelude.Double,
+    bitDepth :: Core.Maybe Core.Double,
     -- | Sample rate in Hz.
-    sampleRate :: Prelude.Maybe Prelude.Double
+    sampleRate :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WavSettings' with all optional fields omitted.
@@ -56,45 +55,45 @@ newWavSettings ::
   WavSettings
 newWavSettings =
   WavSettings'
-    { codingMode = Prelude.Nothing,
-      bitDepth = Prelude.Nothing,
-      sampleRate = Prelude.Nothing
+    { codingMode = Core.Nothing,
+      bitDepth = Core.Nothing,
+      sampleRate = Core.Nothing
     }
 
 -- | The audio coding mode for the WAV audio. The mode determines the number
 -- of channels in the audio.
-wavSettings_codingMode :: Lens.Lens' WavSettings (Prelude.Maybe WavCodingMode)
+wavSettings_codingMode :: Lens.Lens' WavSettings (Core.Maybe WavCodingMode)
 wavSettings_codingMode = Lens.lens (\WavSettings' {codingMode} -> codingMode) (\s@WavSettings' {} a -> s {codingMode = a} :: WavSettings)
 
 -- | Bits per sample.
-wavSettings_bitDepth :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Double)
+wavSettings_bitDepth :: Lens.Lens' WavSettings (Core.Maybe Core.Double)
 wavSettings_bitDepth = Lens.lens (\WavSettings' {bitDepth} -> bitDepth) (\s@WavSettings' {} a -> s {bitDepth = a} :: WavSettings)
 
 -- | Sample rate in Hz.
-wavSettings_sampleRate :: Lens.Lens' WavSettings (Prelude.Maybe Prelude.Double)
+wavSettings_sampleRate :: Lens.Lens' WavSettings (Core.Maybe Core.Double)
 wavSettings_sampleRate = Lens.lens (\WavSettings' {sampleRate} -> sampleRate) (\s@WavSettings' {} a -> s {sampleRate = a} :: WavSettings)
 
-instance Prelude.FromJSON WavSettings where
+instance Core.FromJSON WavSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WavSettings"
       ( \x ->
           WavSettings'
-            Prelude.<$> (x Prelude..:? "codingMode")
-            Prelude.<*> (x Prelude..:? "bitDepth")
-            Prelude.<*> (x Prelude..:? "sampleRate")
+            Core.<$> (x Core..:? "codingMode")
+            Core.<*> (x Core..:? "bitDepth")
+            Core.<*> (x Core..:? "sampleRate")
       )
 
-instance Prelude.Hashable WavSettings
+instance Core.Hashable WavSettings
 
-instance Prelude.NFData WavSettings
+instance Core.NFData WavSettings
 
-instance Prelude.ToJSON WavSettings where
+instance Core.ToJSON WavSettings where
   toJSON WavSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("codingMode" Prelude..=) Prelude.<$> codingMode,
-            ("bitDepth" Prelude..=) Prelude.<$> bitDepth,
-            ("sampleRate" Prelude..=) Prelude.<$> sampleRate
+    Core.object
+      ( Core.catMaybes
+          [ ("codingMode" Core..=) Core.<$> codingMode,
+            ("bitDepth" Core..=) Core.<$> bitDepth,
+            ("sampleRate" Core..=) Core.<$> sampleRate
           ]
       )

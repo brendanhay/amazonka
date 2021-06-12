@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PrefixList where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes prefixes for AWS services.
 --
 -- /See:/ 'newPrefixList' smart constructor.
 data PrefixList = PrefixList'
   { -- | The name of the prefix.
-    prefixListName :: Prelude.Maybe Prelude.Text,
+    prefixListName :: Core.Maybe Core.Text,
     -- | The IP address range of the AWS service.
-    cidrs :: Prelude.Maybe [Prelude.Text],
+    cidrs :: Core.Maybe [Core.Text],
     -- | The ID of the prefix.
-    prefixListId :: Prelude.Maybe Prelude.Text
+    prefixListId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PrefixList' with all optional fields omitted.
@@ -54,32 +53,32 @@ newPrefixList ::
   PrefixList
 newPrefixList =
   PrefixList'
-    { prefixListName = Prelude.Nothing,
-      cidrs = Prelude.Nothing,
-      prefixListId = Prelude.Nothing
+    { prefixListName = Core.Nothing,
+      cidrs = Core.Nothing,
+      prefixListId = Core.Nothing
     }
 
 -- | The name of the prefix.
-prefixList_prefixListName :: Lens.Lens' PrefixList (Prelude.Maybe Prelude.Text)
+prefixList_prefixListName :: Lens.Lens' PrefixList (Core.Maybe Core.Text)
 prefixList_prefixListName = Lens.lens (\PrefixList' {prefixListName} -> prefixListName) (\s@PrefixList' {} a -> s {prefixListName = a} :: PrefixList)
 
 -- | The IP address range of the AWS service.
-prefixList_cidrs :: Lens.Lens' PrefixList (Prelude.Maybe [Prelude.Text])
-prefixList_cidrs = Lens.lens (\PrefixList' {cidrs} -> cidrs) (\s@PrefixList' {} a -> s {cidrs = a} :: PrefixList) Prelude.. Lens.mapping Prelude._Coerce
+prefixList_cidrs :: Lens.Lens' PrefixList (Core.Maybe [Core.Text])
+prefixList_cidrs = Lens.lens (\PrefixList' {cidrs} -> cidrs) (\s@PrefixList' {} a -> s {cidrs = a} :: PrefixList) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the prefix.
-prefixList_prefixListId :: Lens.Lens' PrefixList (Prelude.Maybe Prelude.Text)
+prefixList_prefixListId :: Lens.Lens' PrefixList (Core.Maybe Core.Text)
 prefixList_prefixListId = Lens.lens (\PrefixList' {prefixListId} -> prefixListId) (\s@PrefixList' {} a -> s {prefixListId = a} :: PrefixList)
 
-instance Prelude.FromXML PrefixList where
+instance Core.FromXML PrefixList where
   parseXML x =
     PrefixList'
-      Prelude.<$> (x Prelude..@? "prefixListName")
-      Prelude.<*> ( x Prelude..@? "cidrSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "prefixListId")
+      Core.<$> (x Core..@? "prefixListName")
+      Core.<*> ( x Core..@? "cidrSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "prefixListId")
 
-instance Prelude.Hashable PrefixList
+instance Core.Hashable PrefixList
 
-instance Prelude.NFData PrefixList
+instance Core.NFData PrefixList

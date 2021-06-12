@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.MxfSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MxfAfdSignaling
 import Network.AWS.MediaConvert.Types.MxfProfile
-import qualified Network.AWS.Prelude as Prelude
 
 -- | MXF settings
 --
@@ -35,7 +34,7 @@ data MxfSettings = MxfSettings'
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/codecs-supported-with-each-mxf-profile.html.
     -- For more information about the automatic selection behavior, see
     -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/default-automatic-selection-of-mxf-profiles.html.
-    profile :: Prelude.Maybe MxfProfile,
+    profile :: Core.Maybe MxfProfile,
     -- | Optional. When you have AFD signaling set up in your output video
     -- stream, use this setting to choose whether to also include it in the MXF
     -- wrapper. Choose Don\'t copy (NO_COPY) to exclude AFD signaling from the
@@ -45,9 +44,9 @@ data MxfSettings = MxfSettings'
     -- video stream. Related settings: To set up your output to include or
     -- exclude AFD values, see AfdSignaling, under VideoDescription. On the
     -- console, find AFD signaling under the output\'s video encoding settings.
-    afdSignaling :: Prelude.Maybe MxfAfdSignaling
+    afdSignaling :: Core.Maybe MxfAfdSignaling
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MxfSettings' with all optional fields omitted.
@@ -77,8 +76,8 @@ newMxfSettings ::
   MxfSettings
 newMxfSettings =
   MxfSettings'
-    { profile = Prelude.Nothing,
-      afdSignaling = Prelude.Nothing
+    { profile = Core.Nothing,
+      afdSignaling = Core.Nothing
     }
 
 -- | Specify the MXF profile, also called shim, for this output. When you
@@ -87,7 +86,7 @@ newMxfSettings =
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/codecs-supported-with-each-mxf-profile.html.
 -- For more information about the automatic selection behavior, see
 -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/default-automatic-selection-of-mxf-profiles.html.
-mxfSettings_profile :: Lens.Lens' MxfSettings (Prelude.Maybe MxfProfile)
+mxfSettings_profile :: Lens.Lens' MxfSettings (Core.Maybe MxfProfile)
 mxfSettings_profile = Lens.lens (\MxfSettings' {profile} -> profile) (\s@MxfSettings' {} a -> s {profile = a} :: MxfSettings)
 
 -- | Optional. When you have AFD signaling set up in your output video
@@ -99,29 +98,28 @@ mxfSettings_profile = Lens.lens (\MxfSettings' {profile} -> profile) (\s@MxfSett
 -- video stream. Related settings: To set up your output to include or
 -- exclude AFD values, see AfdSignaling, under VideoDescription. On the
 -- console, find AFD signaling under the output\'s video encoding settings.
-mxfSettings_afdSignaling :: Lens.Lens' MxfSettings (Prelude.Maybe MxfAfdSignaling)
+mxfSettings_afdSignaling :: Lens.Lens' MxfSettings (Core.Maybe MxfAfdSignaling)
 mxfSettings_afdSignaling = Lens.lens (\MxfSettings' {afdSignaling} -> afdSignaling) (\s@MxfSettings' {} a -> s {afdSignaling = a} :: MxfSettings)
 
-instance Prelude.FromJSON MxfSettings where
+instance Core.FromJSON MxfSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MxfSettings"
       ( \x ->
           MxfSettings'
-            Prelude.<$> (x Prelude..:? "profile")
-            Prelude.<*> (x Prelude..:? "afdSignaling")
+            Core.<$> (x Core..:? "profile")
+            Core.<*> (x Core..:? "afdSignaling")
       )
 
-instance Prelude.Hashable MxfSettings
+instance Core.Hashable MxfSettings
 
-instance Prelude.NFData MxfSettings
+instance Core.NFData MxfSettings
 
-instance Prelude.ToJSON MxfSettings where
+instance Core.ToJSON MxfSettings where
   toJSON MxfSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("profile" Prelude..=) Prelude.<$> profile,
-            ("afdSignaling" Prelude..=)
-              Prelude.<$> afdSignaling
+    Core.object
+      ( Core.catMaybes
+          [ ("profile" Core..=) Core.<$> profile,
+            ("afdSignaling" Core..=) Core.<$> afdSignaling
           ]
       )

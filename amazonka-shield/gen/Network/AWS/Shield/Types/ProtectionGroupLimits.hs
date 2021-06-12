@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.ProtectionGroupLimits where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
 
 -- | Limits settings on protection groups for your subscription.
@@ -29,12 +28,12 @@ import Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
 -- /See:/ 'newProtectionGroupLimits' smart constructor.
 data ProtectionGroupLimits = ProtectionGroupLimits'
   { -- | The maximum number of protection groups that you can have at one time.
-    maxProtectionGroups :: Prelude.Integer,
+    maxProtectionGroups :: Core.Integer,
     -- | Limits settings by pattern type in the protection groups for your
     -- subscription.
     patternTypeLimits :: ProtectionGroupPatternTypeLimits
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProtectionGroupLimits' with all optional fields omitted.
@@ -50,7 +49,7 @@ data ProtectionGroupLimits = ProtectionGroupLimits'
 -- subscription.
 newProtectionGroupLimits ::
   -- | 'maxProtectionGroups'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'patternTypeLimits'
   ProtectionGroupPatternTypeLimits ->
   ProtectionGroupLimits
@@ -64,7 +63,7 @@ newProtectionGroupLimits
       }
 
 -- | The maximum number of protection groups that you can have at one time.
-protectionGroupLimits_maxProtectionGroups :: Lens.Lens' ProtectionGroupLimits Prelude.Integer
+protectionGroupLimits_maxProtectionGroups :: Lens.Lens' ProtectionGroupLimits Core.Integer
 protectionGroupLimits_maxProtectionGroups = Lens.lens (\ProtectionGroupLimits' {maxProtectionGroups} -> maxProtectionGroups) (\s@ProtectionGroupLimits' {} a -> s {maxProtectionGroups = a} :: ProtectionGroupLimits)
 
 -- | Limits settings by pattern type in the protection groups for your
@@ -72,16 +71,16 @@ protectionGroupLimits_maxProtectionGroups = Lens.lens (\ProtectionGroupLimits' {
 protectionGroupLimits_patternTypeLimits :: Lens.Lens' ProtectionGroupLimits ProtectionGroupPatternTypeLimits
 protectionGroupLimits_patternTypeLimits = Lens.lens (\ProtectionGroupLimits' {patternTypeLimits} -> patternTypeLimits) (\s@ProtectionGroupLimits' {} a -> s {patternTypeLimits = a} :: ProtectionGroupLimits)
 
-instance Prelude.FromJSON ProtectionGroupLimits where
+instance Core.FromJSON ProtectionGroupLimits where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProtectionGroupLimits"
       ( \x ->
           ProtectionGroupLimits'
-            Prelude.<$> (x Prelude..: "MaxProtectionGroups")
-            Prelude.<*> (x Prelude..: "PatternTypeLimits")
+            Core.<$> (x Core..: "MaxProtectionGroups")
+            Core.<*> (x Core..: "PatternTypeLimits")
       )
 
-instance Prelude.Hashable ProtectionGroupLimits
+instance Core.Hashable ProtectionGroupLimits
 
-instance Prelude.NFData ProtectionGroupLimits
+instance Core.NFData ProtectionGroupLimits

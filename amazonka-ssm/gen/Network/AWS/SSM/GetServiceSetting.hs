@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.SSM.GetServiceSetting
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -72,9 +71,9 @@ data GetServiceSetting = GetServiceSetting'
     -- @\/ssm\/parameter-store\/default-parameter-tier@,
     -- @\/ssm\/parameter-store\/high-throughput-enabled@, or
     -- @\/ssm\/managed-instance\/activation-tier@.
-    settingId :: Prelude.Text
+    settingId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServiceSetting' with all optional fields omitted.
@@ -92,7 +91,7 @@ data GetServiceSetting = GetServiceSetting'
 -- @\/ssm\/managed-instance\/activation-tier@.
 newGetServiceSetting ::
   -- | 'settingId'
-  Prelude.Text ->
+  Core.Text ->
   GetServiceSetting
 newGetServiceSetting pSettingId_ =
   GetServiceSetting' {settingId = pSettingId_}
@@ -103,62 +102,60 @@ newGetServiceSetting pSettingId_ =
 -- @\/ssm\/parameter-store\/default-parameter-tier@,
 -- @\/ssm\/parameter-store\/high-throughput-enabled@, or
 -- @\/ssm\/managed-instance\/activation-tier@.
-getServiceSetting_settingId :: Lens.Lens' GetServiceSetting Prelude.Text
+getServiceSetting_settingId :: Lens.Lens' GetServiceSetting Core.Text
 getServiceSetting_settingId = Lens.lens (\GetServiceSetting' {settingId} -> settingId) (\s@GetServiceSetting' {} a -> s {settingId = a} :: GetServiceSetting)
 
-instance Prelude.AWSRequest GetServiceSetting where
-  type Rs GetServiceSetting = GetServiceSettingResponse
+instance Core.AWSRequest GetServiceSetting where
+  type
+    AWSResponse GetServiceSetting =
+      GetServiceSettingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetServiceSettingResponse'
-            Prelude.<$> (x Prelude..?> "ServiceSetting")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ServiceSetting")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetServiceSetting
+instance Core.Hashable GetServiceSetting
 
-instance Prelude.NFData GetServiceSetting
+instance Core.NFData GetServiceSetting
 
-instance Prelude.ToHeaders GetServiceSetting where
+instance Core.ToHeaders GetServiceSetting where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.GetServiceSetting" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AmazonSSM.GetServiceSetting" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetServiceSetting where
+instance Core.ToJSON GetServiceSetting where
   toJSON GetServiceSetting' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("SettingId" Prelude..= settingId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SettingId" Core..= settingId)]
       )
 
-instance Prelude.ToPath GetServiceSetting where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetServiceSetting where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetServiceSetting where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetServiceSetting where
+  toQuery = Core.const Core.mempty
 
 -- | The query result body of the GetServiceSetting API action.
 --
 -- /See:/ 'newGetServiceSettingResponse' smart constructor.
 data GetServiceSettingResponse = GetServiceSettingResponse'
   { -- | The query result of the current service setting.
-    serviceSetting :: Prelude.Maybe ServiceSetting,
+    serviceSetting :: Core.Maybe ServiceSetting,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetServiceSettingResponse' with all optional fields omitted.
@@ -173,21 +170,21 @@ data GetServiceSettingResponse = GetServiceSettingResponse'
 -- 'httpStatus', 'getServiceSettingResponse_httpStatus' - The response's http status code.
 newGetServiceSettingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetServiceSettingResponse
 newGetServiceSettingResponse pHttpStatus_ =
   GetServiceSettingResponse'
     { serviceSetting =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The query result of the current service setting.
-getServiceSettingResponse_serviceSetting :: Lens.Lens' GetServiceSettingResponse (Prelude.Maybe ServiceSetting)
+getServiceSettingResponse_serviceSetting :: Lens.Lens' GetServiceSettingResponse (Core.Maybe ServiceSetting)
 getServiceSettingResponse_serviceSetting = Lens.lens (\GetServiceSettingResponse' {serviceSetting} -> serviceSetting) (\s@GetServiceSettingResponse' {} a -> s {serviceSetting = a} :: GetServiceSettingResponse)
 
 -- | The response's http status code.
-getServiceSettingResponse_httpStatus :: Lens.Lens' GetServiceSettingResponse Prelude.Int
+getServiceSettingResponse_httpStatus :: Lens.Lens' GetServiceSettingResponse Core.Int
 getServiceSettingResponse_httpStatus = Lens.lens (\GetServiceSettingResponse' {httpStatus} -> httpStatus) (\s@GetServiceSettingResponse' {} a -> s {httpStatus = a} :: GetServiceSettingResponse)
 
-instance Prelude.NFData GetServiceSettingResponse
+instance Core.NFData GetServiceSettingResponse

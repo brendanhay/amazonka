@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.QLDB.CancelJournalKinesisStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.QLDB.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -55,11 +54,11 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCancelJournalKinesisStream' smart constructor.
 data CancelJournalKinesisStream = CancelJournalKinesisStream'
   { -- | The name of the ledger.
-    ledgerName :: Prelude.Text,
+    ledgerName :: Core.Text,
     -- | The unique ID that QLDB assigns to each QLDB journal stream.
-    streamId :: Prelude.Text
+    streamId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelJournalKinesisStream' with all optional fields omitted.
@@ -74,9 +73,9 @@ data CancelJournalKinesisStream = CancelJournalKinesisStream'
 -- 'streamId', 'cancelJournalKinesisStream_streamId' - The unique ID that QLDB assigns to each QLDB journal stream.
 newCancelJournalKinesisStream ::
   -- | 'ledgerName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'streamId'
-  Prelude.Text ->
+  Core.Text ->
   CancelJournalKinesisStream
 newCancelJournalKinesisStream pLedgerName_ pStreamId_ =
   CancelJournalKinesisStream'
@@ -86,64 +85,59 @@ newCancelJournalKinesisStream pLedgerName_ pStreamId_ =
     }
 
 -- | The name of the ledger.
-cancelJournalKinesisStream_ledgerName :: Lens.Lens' CancelJournalKinesisStream Prelude.Text
+cancelJournalKinesisStream_ledgerName :: Lens.Lens' CancelJournalKinesisStream Core.Text
 cancelJournalKinesisStream_ledgerName = Lens.lens (\CancelJournalKinesisStream' {ledgerName} -> ledgerName) (\s@CancelJournalKinesisStream' {} a -> s {ledgerName = a} :: CancelJournalKinesisStream)
 
 -- | The unique ID that QLDB assigns to each QLDB journal stream.
-cancelJournalKinesisStream_streamId :: Lens.Lens' CancelJournalKinesisStream Prelude.Text
+cancelJournalKinesisStream_streamId :: Lens.Lens' CancelJournalKinesisStream Core.Text
 cancelJournalKinesisStream_streamId = Lens.lens (\CancelJournalKinesisStream' {streamId} -> streamId) (\s@CancelJournalKinesisStream' {} a -> s {streamId = a} :: CancelJournalKinesisStream)
 
-instance
-  Prelude.AWSRequest
-    CancelJournalKinesisStream
-  where
+instance Core.AWSRequest CancelJournalKinesisStream where
   type
-    Rs CancelJournalKinesisStream =
+    AWSResponse CancelJournalKinesisStream =
       CancelJournalKinesisStreamResponse
   request = Request.delete defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelJournalKinesisStreamResponse'
-            Prelude.<$> (x Prelude..?> "StreamId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "StreamId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelJournalKinesisStream
+instance Core.Hashable CancelJournalKinesisStream
 
-instance Prelude.NFData CancelJournalKinesisStream
+instance Core.NFData CancelJournalKinesisStream
 
-instance Prelude.ToHeaders CancelJournalKinesisStream where
+instance Core.ToHeaders CancelJournalKinesisStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath CancelJournalKinesisStream where
+instance Core.ToPath CancelJournalKinesisStream where
   toPath CancelJournalKinesisStream' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/ledgers/",
-        Prelude.toBS ledgerName,
+        Core.toBS ledgerName,
         "/journal-kinesis-streams/",
-        Prelude.toBS streamId
+        Core.toBS streamId
       ]
 
-instance Prelude.ToQuery CancelJournalKinesisStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelJournalKinesisStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelJournalKinesisStreamResponse' smart constructor.
 data CancelJournalKinesisStreamResponse = CancelJournalKinesisStreamResponse'
   { -- | The unique ID that QLDB assigns to each QLDB journal stream.
-    streamId :: Prelude.Maybe Prelude.Text,
+    streamId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelJournalKinesisStreamResponse' with all optional fields omitted.
@@ -158,23 +152,23 @@ data CancelJournalKinesisStreamResponse = CancelJournalKinesisStreamResponse'
 -- 'httpStatus', 'cancelJournalKinesisStreamResponse_httpStatus' - The response's http status code.
 newCancelJournalKinesisStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelJournalKinesisStreamResponse
 newCancelJournalKinesisStreamResponse pHttpStatus_ =
   CancelJournalKinesisStreamResponse'
     { streamId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The unique ID that QLDB assigns to each QLDB journal stream.
-cancelJournalKinesisStreamResponse_streamId :: Lens.Lens' CancelJournalKinesisStreamResponse (Prelude.Maybe Prelude.Text)
+cancelJournalKinesisStreamResponse_streamId :: Lens.Lens' CancelJournalKinesisStreamResponse (Core.Maybe Core.Text)
 cancelJournalKinesisStreamResponse_streamId = Lens.lens (\CancelJournalKinesisStreamResponse' {streamId} -> streamId) (\s@CancelJournalKinesisStreamResponse' {} a -> s {streamId = a} :: CancelJournalKinesisStreamResponse)
 
 -- | The response's http status code.
-cancelJournalKinesisStreamResponse_httpStatus :: Lens.Lens' CancelJournalKinesisStreamResponse Prelude.Int
+cancelJournalKinesisStreamResponse_httpStatus :: Lens.Lens' CancelJournalKinesisStreamResponse Core.Int
 cancelJournalKinesisStreamResponse_httpStatus = Lens.lens (\CancelJournalKinesisStreamResponse' {httpStatus} -> httpStatus) (\s@CancelJournalKinesisStreamResponse' {} a -> s {httpStatus = a} :: CancelJournalKinesisStreamResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CancelJournalKinesisStreamResponse

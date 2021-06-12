@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,8 @@ module Network.AWS.StepFunctions.GetExecutionHistory
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -74,23 +72,23 @@ data GetExecutionHistory = GetExecutionHistory'
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
     -- an expired pagination token will return an /HTTP 400 InvalidToken/
     -- error.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results that are returned per call. You can use
     -- @nextToken@ to obtain further pages of results. The default is 100 and
     -- the maximum allowed page size is 1000. A value of 0 uses the default.
     --
     -- This is only an upper limit. The actual number of results returned per
     -- call might be fewer than the specified maximum.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Lists events in descending order of their @timeStamp@.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
+    reverseOrder :: Core.Maybe Core.Bool,
     -- | You can select whether execution data (input or output of a history
     -- event) is returned. The default is @true@.
-    includeExecutionData :: Prelude.Maybe Prelude.Bool,
+    includeExecutionData :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the execution.
-    executionArn :: Prelude.Text
+    executionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetExecutionHistory' with all optional fields omitted.
@@ -122,14 +120,14 @@ data GetExecutionHistory = GetExecutionHistory'
 -- 'executionArn', 'getExecutionHistory_executionArn' - The Amazon Resource Name (ARN) of the execution.
 newGetExecutionHistory ::
   -- | 'executionArn'
-  Prelude.Text ->
+  Core.Text ->
   GetExecutionHistory
 newGetExecutionHistory pExecutionArn_ =
   GetExecutionHistory'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      reverseOrder = Prelude.Nothing,
-      includeExecutionData = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      reverseOrder = Core.Nothing,
+      includeExecutionData = Core.Nothing,
       executionArn = pExecutionArn_
     }
 
@@ -139,7 +137,7 @@ newGetExecutionHistory pExecutionArn_ =
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an /HTTP 400 InvalidToken/
 -- error.
-getExecutionHistory_nextToken :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Text)
+getExecutionHistory_nextToken :: Lens.Lens' GetExecutionHistory (Core.Maybe Core.Text)
 getExecutionHistory_nextToken = Lens.lens (\GetExecutionHistory' {nextToken} -> nextToken) (\s@GetExecutionHistory' {} a -> s {nextToken = a} :: GetExecutionHistory)
 
 -- | The maximum number of results that are returned per call. You can use
@@ -148,93 +146,90 @@ getExecutionHistory_nextToken = Lens.lens (\GetExecutionHistory' {nextToken} -> 
 --
 -- This is only an upper limit. The actual number of results returned per
 -- call might be fewer than the specified maximum.
-getExecutionHistory_maxResults :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Natural)
+getExecutionHistory_maxResults :: Lens.Lens' GetExecutionHistory (Core.Maybe Core.Natural)
 getExecutionHistory_maxResults = Lens.lens (\GetExecutionHistory' {maxResults} -> maxResults) (\s@GetExecutionHistory' {} a -> s {maxResults = a} :: GetExecutionHistory)
 
 -- | Lists events in descending order of their @timeStamp@.
-getExecutionHistory_reverseOrder :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
+getExecutionHistory_reverseOrder :: Lens.Lens' GetExecutionHistory (Core.Maybe Core.Bool)
 getExecutionHistory_reverseOrder = Lens.lens (\GetExecutionHistory' {reverseOrder} -> reverseOrder) (\s@GetExecutionHistory' {} a -> s {reverseOrder = a} :: GetExecutionHistory)
 
 -- | You can select whether execution data (input or output of a history
 -- event) is returned. The default is @true@.
-getExecutionHistory_includeExecutionData :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
+getExecutionHistory_includeExecutionData :: Lens.Lens' GetExecutionHistory (Core.Maybe Core.Bool)
 getExecutionHistory_includeExecutionData = Lens.lens (\GetExecutionHistory' {includeExecutionData} -> includeExecutionData) (\s@GetExecutionHistory' {} a -> s {includeExecutionData = a} :: GetExecutionHistory)
 
 -- | The Amazon Resource Name (ARN) of the execution.
-getExecutionHistory_executionArn :: Lens.Lens' GetExecutionHistory Prelude.Text
+getExecutionHistory_executionArn :: Lens.Lens' GetExecutionHistory Core.Text
 getExecutionHistory_executionArn = Lens.lens (\GetExecutionHistory' {executionArn} -> executionArn) (\s@GetExecutionHistory' {} a -> s {executionArn = a} :: GetExecutionHistory)
 
-instance Pager.AWSPager GetExecutionHistory where
+instance Core.AWSPager GetExecutionHistory where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? getExecutionHistoryResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. getExecutionHistoryResponse_events) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& getExecutionHistory_nextToken
           Lens..~ rs
           Lens.^? getExecutionHistoryResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest GetExecutionHistory where
+instance Core.AWSRequest GetExecutionHistory where
   type
-    Rs GetExecutionHistory =
+    AWSResponse GetExecutionHistory =
       GetExecutionHistoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetExecutionHistoryResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "events" Prelude..!@ Prelude.mempty)
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "events" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable GetExecutionHistory
+instance Core.Hashable GetExecutionHistory
 
-instance Prelude.NFData GetExecutionHistory
+instance Core.NFData GetExecutionHistory
 
-instance Prelude.ToHeaders GetExecutionHistory where
+instance Core.ToHeaders GetExecutionHistory where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSStepFunctions.GetExecutionHistory" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSStepFunctions.GetExecutionHistory" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetExecutionHistory where
+instance Core.ToJSON GetExecutionHistory where
   toJSON GetExecutionHistory' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("reverseOrder" Prelude..=) Prelude.<$> reverseOrder,
-            ("includeExecutionData" Prelude..=)
-              Prelude.<$> includeExecutionData,
-            Prelude.Just
-              ("executionArn" Prelude..= executionArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("reverseOrder" Core..=) Core.<$> reverseOrder,
+            ("includeExecutionData" Core..=)
+              Core.<$> includeExecutionData,
+            Core.Just ("executionArn" Core..= executionArn)
           ]
       )
 
-instance Prelude.ToPath GetExecutionHistory where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetExecutionHistory where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetExecutionHistory where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetExecutionHistory where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetExecutionHistoryResponse' smart constructor.
 data GetExecutionHistoryResponse = GetExecutionHistoryResponse'
@@ -244,13 +239,13 @@ data GetExecutionHistoryResponse = GetExecutionHistoryResponse'
     -- arguments unchanged. Each pagination token expires after 24 hours. Using
     -- an expired pagination token will return an /HTTP 400 InvalidToken/
     -- error.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The list of events that occurred in the execution.
     events :: [HistoryEvent]
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetExecutionHistoryResponse' with all optional fields omitted.
@@ -272,14 +267,14 @@ data GetExecutionHistoryResponse = GetExecutionHistoryResponse'
 -- 'events', 'getExecutionHistoryResponse_events' - The list of events that occurred in the execution.
 newGetExecutionHistoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetExecutionHistoryResponse
 newGetExecutionHistoryResponse pHttpStatus_ =
   GetExecutionHistoryResponse'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_,
-      events = Prelude.mempty
+      events = Core.mempty
     }
 
 -- | If @nextToken@ is returned, there are more results available. The value
@@ -288,15 +283,15 @@ newGetExecutionHistoryResponse pHttpStatus_ =
 -- arguments unchanged. Each pagination token expires after 24 hours. Using
 -- an expired pagination token will return an /HTTP 400 InvalidToken/
 -- error.
-getExecutionHistoryResponse_nextToken :: Lens.Lens' GetExecutionHistoryResponse (Prelude.Maybe Prelude.Text)
+getExecutionHistoryResponse_nextToken :: Lens.Lens' GetExecutionHistoryResponse (Core.Maybe Core.Text)
 getExecutionHistoryResponse_nextToken = Lens.lens (\GetExecutionHistoryResponse' {nextToken} -> nextToken) (\s@GetExecutionHistoryResponse' {} a -> s {nextToken = a} :: GetExecutionHistoryResponse)
 
 -- | The response's http status code.
-getExecutionHistoryResponse_httpStatus :: Lens.Lens' GetExecutionHistoryResponse Prelude.Int
+getExecutionHistoryResponse_httpStatus :: Lens.Lens' GetExecutionHistoryResponse Core.Int
 getExecutionHistoryResponse_httpStatus = Lens.lens (\GetExecutionHistoryResponse' {httpStatus} -> httpStatus) (\s@GetExecutionHistoryResponse' {} a -> s {httpStatus = a} :: GetExecutionHistoryResponse)
 
 -- | The list of events that occurred in the execution.
 getExecutionHistoryResponse_events :: Lens.Lens' GetExecutionHistoryResponse [HistoryEvent]
-getExecutionHistoryResponse_events = Lens.lens (\GetExecutionHistoryResponse' {events} -> events) (\s@GetExecutionHistoryResponse' {} a -> s {events = a} :: GetExecutionHistoryResponse) Prelude.. Prelude._Coerce
+getExecutionHistoryResponse_events = Lens.lens (\GetExecutionHistoryResponse' {events} -> events) (\s@GetExecutionHistoryResponse' {} a -> s {events = a} :: GetExecutionHistoryResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetExecutionHistoryResponse
+instance Core.NFData GetExecutionHistoryResponse

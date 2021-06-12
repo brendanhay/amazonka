@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The start and end of the timestamp range for the requested media.
 --
@@ -49,7 +48,7 @@ data DASHTimestampRange = DASHTimestampRange'
     -- This value is inclusive. The @EndTimestamp@ is compared to the
     -- (starting) timestamp of the fragment. Fragments that start before the
     -- @EndTimestamp@ value and continue past it are included in the session.
-    endTimestamp :: Prelude.Maybe Prelude.POSIX,
+    endTimestamp :: Core.Maybe Core.POSIX,
     -- | The start of the timestamp range for the requested media.
     --
     -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@
@@ -59,9 +58,9 @@ data DASHTimestampRange = DASHTimestampRange'
     -- @StartTimestamp@ and continue past it are included in the session. If
     -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
     -- be later than the stream head.
-    startTimestamp :: Prelude.Maybe Prelude.POSIX
+    startTimestamp :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DASHTimestampRange' with all optional fields omitted.
@@ -100,8 +99,8 @@ newDASHTimestampRange ::
   DASHTimestampRange
 newDASHTimestampRange =
   DASHTimestampRange'
-    { endTimestamp = Prelude.Nothing,
-      startTimestamp = Prelude.Nothing
+    { endTimestamp = Core.Nothing,
+      startTimestamp = Core.Nothing
     }
 
 -- | The end of the timestamp range for the requested media. This value must
@@ -119,8 +118,8 @@ newDASHTimestampRange =
 -- This value is inclusive. The @EndTimestamp@ is compared to the
 -- (starting) timestamp of the fragment. Fragments that start before the
 -- @EndTimestamp@ value and continue past it are included in the session.
-dASHTimestampRange_endTimestamp :: Lens.Lens' DASHTimestampRange (Prelude.Maybe Prelude.UTCTime)
-dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp} -> endTimestamp) (\s@DASHTimestampRange' {} a -> s {endTimestamp = a} :: DASHTimestampRange) Prelude.. Lens.mapping Prelude._Time
+dASHTimestampRange_endTimestamp :: Lens.Lens' DASHTimestampRange (Core.Maybe Core.UTCTime)
+dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp} -> endTimestamp) (\s@DASHTimestampRange' {} a -> s {endTimestamp = a} :: DASHTimestampRange) Core.. Lens.mapping Core._Time
 
 -- | The start of the timestamp range for the requested media.
 --
@@ -131,20 +130,18 @@ dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp}
 -- @StartTimestamp@ and continue past it are included in the session. If
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
-dASHTimestampRange_startTimestamp :: Lens.Lens' DASHTimestampRange (Prelude.Maybe Prelude.UTCTime)
-dASHTimestampRange_startTimestamp = Lens.lens (\DASHTimestampRange' {startTimestamp} -> startTimestamp) (\s@DASHTimestampRange' {} a -> s {startTimestamp = a} :: DASHTimestampRange) Prelude.. Lens.mapping Prelude._Time
+dASHTimestampRange_startTimestamp :: Lens.Lens' DASHTimestampRange (Core.Maybe Core.UTCTime)
+dASHTimestampRange_startTimestamp = Lens.lens (\DASHTimestampRange' {startTimestamp} -> startTimestamp) (\s@DASHTimestampRange' {} a -> s {startTimestamp = a} :: DASHTimestampRange) Core.. Lens.mapping Core._Time
 
-instance Prelude.Hashable DASHTimestampRange
+instance Core.Hashable DASHTimestampRange
 
-instance Prelude.NFData DASHTimestampRange
+instance Core.NFData DASHTimestampRange
 
-instance Prelude.ToJSON DASHTimestampRange where
+instance Core.ToJSON DASHTimestampRange where
   toJSON DASHTimestampRange' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EndTimestamp" Prelude..=)
-              Prelude.<$> endTimestamp,
-            ("StartTimestamp" Prelude..=)
-              Prelude.<$> startTimestamp
+    Core.object
+      ( Core.catMaybes
+          [ ("EndTimestamp" Core..=) Core.<$> endTimestamp,
+            ("StartTimestamp" Core..=) Core.<$> startTimestamp
           ]
       )

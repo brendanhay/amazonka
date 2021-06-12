@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.AvailBlanking where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AvailBlankingState
 import Network.AWS.MediaLive.Types.InputLocation
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Avail Blanking
 --
@@ -31,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data AvailBlanking = AvailBlanking'
   { -- | When set to enabled, causes video, audio and captions to be blanked when
     -- insertion metadata is added.
-    state :: Prelude.Maybe AvailBlankingState,
+    state :: Core.Maybe AvailBlankingState,
     -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
     -- images are supported.
-    availBlankingImage :: Prelude.Maybe InputLocation
+    availBlankingImage :: Core.Maybe InputLocation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailBlanking' with all optional fields omitted.
@@ -55,40 +54,40 @@ newAvailBlanking ::
   AvailBlanking
 newAvailBlanking =
   AvailBlanking'
-    { state = Prelude.Nothing,
-      availBlankingImage = Prelude.Nothing
+    { state = Core.Nothing,
+      availBlankingImage = Core.Nothing
     }
 
 -- | When set to enabled, causes video, audio and captions to be blanked when
 -- insertion metadata is added.
-availBlanking_state :: Lens.Lens' AvailBlanking (Prelude.Maybe AvailBlankingState)
+availBlanking_state :: Lens.Lens' AvailBlanking (Core.Maybe AvailBlankingState)
 availBlanking_state = Lens.lens (\AvailBlanking' {state} -> state) (\s@AvailBlanking' {} a -> s {state = a} :: AvailBlanking)
 
 -- | Blanking image to be used. Leave empty for solid black. Only bmp and png
 -- images are supported.
-availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Prelude.Maybe InputLocation)
+availBlanking_availBlankingImage :: Lens.Lens' AvailBlanking (Core.Maybe InputLocation)
 availBlanking_availBlankingImage = Lens.lens (\AvailBlanking' {availBlankingImage} -> availBlankingImage) (\s@AvailBlanking' {} a -> s {availBlankingImage = a} :: AvailBlanking)
 
-instance Prelude.FromJSON AvailBlanking where
+instance Core.FromJSON AvailBlanking where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AvailBlanking"
       ( \x ->
           AvailBlanking'
-            Prelude.<$> (x Prelude..:? "state")
-            Prelude.<*> (x Prelude..:? "availBlankingImage")
+            Core.<$> (x Core..:? "state")
+            Core.<*> (x Core..:? "availBlankingImage")
       )
 
-instance Prelude.Hashable AvailBlanking
+instance Core.Hashable AvailBlanking
 
-instance Prelude.NFData AvailBlanking
+instance Core.NFData AvailBlanking
 
-instance Prelude.ToJSON AvailBlanking where
+instance Core.ToJSON AvailBlanking where
   toJSON AvailBlanking' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("state" Prelude..=) Prelude.<$> state,
-            ("availBlankingImage" Prelude..=)
-              Prelude.<$> availBlankingImage
+    Core.object
+      ( Core.catMaybes
+          [ ("state" Core..=) Core.<$> state,
+            ("availBlankingImage" Core..=)
+              Core.<$> availBlankingImage
           ]
       )

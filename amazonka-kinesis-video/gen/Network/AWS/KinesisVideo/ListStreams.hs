@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.KinesisVideo.ListStreams
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideo.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,16 +58,16 @@ data ListStreams = ListStreams'
     -- operation is truncated, the call returns the @NextToken@ in the
     -- response. To get another batch of streams, provide this token in your
     -- next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of streams to return in the response. The default is
     -- 10,000.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Optional: Returns only streams that satisfy a specific condition.
     -- Currently, you can specify only the prefix of a stream name as a
     -- condition.
-    streamNameCondition :: Prelude.Maybe StreamNameCondition
+    streamNameCondition :: Core.Maybe StreamNameCondition
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStreams' with all optional fields omitted.
@@ -94,99 +92,96 @@ newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      streamNameCondition = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      streamNameCondition = Core.Nothing
     }
 
 -- | If you specify this parameter, when the result of a @ListStreams@
 -- operation is truncated, the call returns the @NextToken@ in the
 -- response. To get another batch of streams, provide this token in your
 -- next request.
-listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
+listStreams_nextToken :: Lens.Lens' ListStreams (Core.Maybe Core.Text)
 listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
 -- | The maximum number of streams to return in the response. The default is
 -- 10,000.
-listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
+listStreams_maxResults :: Lens.Lens' ListStreams (Core.Maybe Core.Natural)
 listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
 
 -- | Optional: Returns only streams that satisfy a specific condition.
 -- Currently, you can specify only the prefix of a stream name as a
 -- condition.
-listStreams_streamNameCondition :: Lens.Lens' ListStreams (Prelude.Maybe StreamNameCondition)
+listStreams_streamNameCondition :: Lens.Lens' ListStreams (Core.Maybe StreamNameCondition)
 listStreams_streamNameCondition = Lens.lens (\ListStreams' {streamNameCondition} -> streamNameCondition) (\s@ListStreams' {} a -> s {streamNameCondition = a} :: ListStreams)
 
-instance Pager.AWSPager ListStreams where
+instance Core.AWSPager ListStreams where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listStreamsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listStreamsResponse_streamInfoList
-              Prelude.. Lens._Just
+            Lens.^? listStreamsResponse_streamInfoList Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listStreams_nextToken
           Lens..~ rs
-          Lens.^? listStreamsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listStreamsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListStreams where
-  type Rs ListStreams = ListStreamsResponse
+instance Core.AWSRequest ListStreams where
+  type AWSResponse ListStreams = ListStreamsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "StreamInfoList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "StreamInfoList" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListStreams
+instance Core.Hashable ListStreams
 
-instance Prelude.NFData ListStreams
+instance Core.NFData ListStreams
 
-instance Prelude.ToHeaders ListStreams where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListStreams where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON ListStreams where
+instance Core.ToJSON ListStreams where
   toJSON ListStreams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("StreamNameCondition" Prelude..=)
-              Prelude.<$> streamNameCondition
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("StreamNameCondition" Core..=)
+              Core.<$> streamNameCondition
           ]
       )
 
-instance Prelude.ToPath ListStreams where
-  toPath = Prelude.const "/listStreams"
+instance Core.ToPath ListStreams where
+  toPath = Core.const "/listStreams"
 
-instance Prelude.ToQuery ListStreams where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListStreams where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
   { -- | If the response is truncated, the call returns this element with a
     -- token. To get the next batch of streams, use this token in your next
     -- request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of @StreamInfo@ objects.
-    streamInfoList :: Prelude.Maybe [StreamInfo],
+    streamInfoList :: Core.Maybe [StreamInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListStreamsResponse' with all optional fields omitted.
@@ -205,27 +200,27 @@ data ListStreamsResponse = ListStreamsResponse'
 -- 'httpStatus', 'listStreamsResponse_httpStatus' - The response's http status code.
 newListStreamsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListStreamsResponse
 newListStreamsResponse pHttpStatus_ =
   ListStreamsResponse'
-    { nextToken = Prelude.Nothing,
-      streamInfoList = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      streamInfoList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the response is truncated, the call returns this element with a
 -- token. To get the next batch of streams, use this token in your next
 -- request.
-listStreamsResponse_nextToken :: Lens.Lens' ListStreamsResponse (Prelude.Maybe Prelude.Text)
+listStreamsResponse_nextToken :: Lens.Lens' ListStreamsResponse (Core.Maybe Core.Text)
 listStreamsResponse_nextToken = Lens.lens (\ListStreamsResponse' {nextToken} -> nextToken) (\s@ListStreamsResponse' {} a -> s {nextToken = a} :: ListStreamsResponse)
 
 -- | An array of @StreamInfo@ objects.
-listStreamsResponse_streamInfoList :: Lens.Lens' ListStreamsResponse (Prelude.Maybe [StreamInfo])
-listStreamsResponse_streamInfoList = Lens.lens (\ListStreamsResponse' {streamInfoList} -> streamInfoList) (\s@ListStreamsResponse' {} a -> s {streamInfoList = a} :: ListStreamsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listStreamsResponse_streamInfoList :: Lens.Lens' ListStreamsResponse (Core.Maybe [StreamInfo])
+listStreamsResponse_streamInfoList = Lens.lens (\ListStreamsResponse' {streamInfoList} -> streamInfoList) (\s@ListStreamsResponse' {} a -> s {streamInfoList = a} :: ListStreamsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Prelude.Int
+listStreamsResponse_httpStatus :: Lens.Lens' ListStreamsResponse Core.Int
 listStreamsResponse_httpStatus = Lens.lens (\ListStreamsResponse' {httpStatus} -> httpStatus) (\s@ListStreamsResponse' {} a -> s {httpStatus = a} :: ListStreamsResponse)
 
-instance Prelude.NFData ListStreamsResponse
+instance Core.NFData ListStreamsResponse

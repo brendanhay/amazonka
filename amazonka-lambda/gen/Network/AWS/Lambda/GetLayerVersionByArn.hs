@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,18 +47,18 @@ module Network.AWS.Lambda.GetLayerVersionByArn
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetLayerVersionByArn' smart constructor.
 data GetLayerVersionByArn = GetLayerVersionByArn'
   { -- | The ARN of the layer version.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLayerVersionByArn' with all optional fields omitted.
@@ -72,35 +71,35 @@ data GetLayerVersionByArn = GetLayerVersionByArn'
 -- 'arn', 'getLayerVersionByArn_arn' - The ARN of the layer version.
 newGetLayerVersionByArn ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetLayerVersionByArn
 newGetLayerVersionByArn pArn_ =
   GetLayerVersionByArn' {arn = pArn_}
 
 -- | The ARN of the layer version.
-getLayerVersionByArn_arn :: Lens.Lens' GetLayerVersionByArn Prelude.Text
+getLayerVersionByArn_arn :: Lens.Lens' GetLayerVersionByArn Core.Text
 getLayerVersionByArn_arn = Lens.lens (\GetLayerVersionByArn' {arn} -> arn) (\s@GetLayerVersionByArn' {} a -> s {arn = a} :: GetLayerVersionByArn)
 
-instance Prelude.AWSRequest GetLayerVersionByArn where
+instance Core.AWSRequest GetLayerVersionByArn where
   type
-    Rs GetLayerVersionByArn =
+    AWSResponse GetLayerVersionByArn =
       GetLayerVersionResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetLayerVersionByArn
+instance Core.Hashable GetLayerVersionByArn
 
-instance Prelude.NFData GetLayerVersionByArn
+instance Core.NFData GetLayerVersionByArn
 
-instance Prelude.ToHeaders GetLayerVersionByArn where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetLayerVersionByArn where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetLayerVersionByArn where
-  toPath = Prelude.const "/2018-10-31/layers"
+instance Core.ToPath GetLayerVersionByArn where
+  toPath = Core.const "/2018-10-31/layers"
 
-instance Prelude.ToQuery GetLayerVersionByArn where
+instance Core.ToQuery GetLayerVersionByArn where
   toQuery GetLayerVersionByArn' {..} =
-    Prelude.mconcat
-      ["Arn" Prelude.=: arn, "find=LayerVersion"]
+    Core.mconcat
+      ["Arn" Core.=: arn, "find=LayerVersion"]

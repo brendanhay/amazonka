@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.CodeCommit.GetFile
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,15 +59,15 @@ data GetFile = GetFile'
     -- the file. For example, you can specify a full commit ID, a tag, a branch
     -- name, or a reference such as refs\/heads\/master. If none is provided,
     -- the head commit is used.
-    commitSpecifier :: Prelude.Maybe Prelude.Text,
+    commitSpecifier :: Core.Maybe Core.Text,
     -- | The name of the repository that contains the file.
-    repositoryName :: Prelude.Text,
+    repositoryName :: Core.Text,
     -- | The fully qualified path to the file, including the full name and
     -- extension of the file. For example, \/examples\/file.md is the fully
     -- qualified path to a file named file.md in a folder named examples.
-    filePath :: Prelude.Text
+    filePath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFile' with all optional fields omitted.
@@ -90,13 +89,13 @@ data GetFile = GetFile'
 -- qualified path to a file named file.md in a folder named examples.
 newGetFile ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'filePath'
-  Prelude.Text ->
+  Core.Text ->
   GetFile
 newGetFile pRepositoryName_ pFilePath_ =
   GetFile'
-    { commitSpecifier = Prelude.Nothing,
+    { commitSpecifier = Core.Nothing,
       repositoryName = pRepositoryName_,
       filePath = pFilePath_
     }
@@ -105,84 +104,79 @@ newGetFile pRepositoryName_ pFilePath_ =
 -- the file. For example, you can specify a full commit ID, a tag, a branch
 -- name, or a reference such as refs\/heads\/master. If none is provided,
 -- the head commit is used.
-getFile_commitSpecifier :: Lens.Lens' GetFile (Prelude.Maybe Prelude.Text)
+getFile_commitSpecifier :: Lens.Lens' GetFile (Core.Maybe Core.Text)
 getFile_commitSpecifier = Lens.lens (\GetFile' {commitSpecifier} -> commitSpecifier) (\s@GetFile' {} a -> s {commitSpecifier = a} :: GetFile)
 
 -- | The name of the repository that contains the file.
-getFile_repositoryName :: Lens.Lens' GetFile Prelude.Text
+getFile_repositoryName :: Lens.Lens' GetFile Core.Text
 getFile_repositoryName = Lens.lens (\GetFile' {repositoryName} -> repositoryName) (\s@GetFile' {} a -> s {repositoryName = a} :: GetFile)
 
 -- | The fully qualified path to the file, including the full name and
 -- extension of the file. For example, \/examples\/file.md is the fully
 -- qualified path to a file named file.md in a folder named examples.
-getFile_filePath :: Lens.Lens' GetFile Prelude.Text
+getFile_filePath :: Lens.Lens' GetFile Core.Text
 getFile_filePath = Lens.lens (\GetFile' {filePath} -> filePath) (\s@GetFile' {} a -> s {filePath = a} :: GetFile)
 
-instance Prelude.AWSRequest GetFile where
-  type Rs GetFile = GetFileResponse
+instance Core.AWSRequest GetFile where
+  type AWSResponse GetFile = GetFileResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetFileResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "commitId")
-            Prelude.<*> (x Prelude..:> "blobId")
-            Prelude.<*> (x Prelude..:> "filePath")
-            Prelude.<*> (x Prelude..:> "fileMode")
-            Prelude.<*> (x Prelude..:> "fileSize")
-            Prelude.<*> (x Prelude..:> "fileContent")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "commitId")
+            Core.<*> (x Core..:> "blobId")
+            Core.<*> (x Core..:> "filePath")
+            Core.<*> (x Core..:> "fileMode")
+            Core.<*> (x Core..:> "fileSize")
+            Core.<*> (x Core..:> "fileContent")
       )
 
-instance Prelude.Hashable GetFile
+instance Core.Hashable GetFile
 
-instance Prelude.NFData GetFile
+instance Core.NFData GetFile
 
-instance Prelude.ToHeaders GetFile where
+instance Core.ToHeaders GetFile where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.GetFile" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("CodeCommit_20150413.GetFile" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetFile where
+instance Core.ToJSON GetFile where
   toJSON GetFile' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("commitSpecifier" Prelude..=)
-              Prelude.<$> commitSpecifier,
-            Prelude.Just
-              ("repositoryName" Prelude..= repositoryName),
-            Prelude.Just ("filePath" Prelude..= filePath)
+    Core.object
+      ( Core.catMaybes
+          [ ("commitSpecifier" Core..=)
+              Core.<$> commitSpecifier,
+            Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("filePath" Core..= filePath)
           ]
       )
 
-instance Prelude.ToPath GetFile where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetFile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetFile where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetFile where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetFileResponse' smart constructor.
 data GetFileResponse = GetFileResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The full commit ID of the commit that contains the content returned by
     -- GetFile.
-    commitId :: Prelude.Text,
+    commitId :: Core.Text,
     -- | The blob ID of the object that represents the file content.
-    blobId :: Prelude.Text,
+    blobId :: Core.Text,
     -- | The fully qualified path to the specified file. Returns the name and
     -- extension of the file.
-    filePath :: Prelude.Text,
+    filePath :: Core.Text,
     -- | The extrapolated file mode permissions of the blob. Valid values include
     -- strings such as EXECUTABLE and not numeric values.
     --
@@ -191,12 +185,12 @@ data GetFileResponse = GetFileResponse'
     -- See the supported return values.
     fileMode :: FileModeTypeEnum,
     -- | The size of the contents of the file, in bytes.
-    fileSize :: Prelude.Integer,
+    fileSize :: Core.Integer,
     -- | The base-64 encoded binary data object that represents the content of
     -- the file.
-    fileContent :: Prelude.Base64
+    fileContent :: Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetFileResponse' with all optional fields omitted.
@@ -233,19 +227,19 @@ data GetFileResponse = GetFileResponse'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newGetFileResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'commitId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'blobId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'filePath'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'fileMode'
   FileModeTypeEnum ->
   -- | 'fileSize'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'fileContent'
-  Prelude.ByteString ->
+  Core.ByteString ->
   GetFileResponse
 newGetFileResponse
   pHttpStatus_
@@ -262,25 +256,25 @@ newGetFileResponse
         filePath = pFilePath_,
         fileMode = pFileMode_,
         fileSize = pFileSize_,
-        fileContent = Prelude._Base64 Lens.# pFileContent_
+        fileContent = Core._Base64 Lens.# pFileContent_
       }
 
 -- | The response's http status code.
-getFileResponse_httpStatus :: Lens.Lens' GetFileResponse Prelude.Int
+getFileResponse_httpStatus :: Lens.Lens' GetFileResponse Core.Int
 getFileResponse_httpStatus = Lens.lens (\GetFileResponse' {httpStatus} -> httpStatus) (\s@GetFileResponse' {} a -> s {httpStatus = a} :: GetFileResponse)
 
 -- | The full commit ID of the commit that contains the content returned by
 -- GetFile.
-getFileResponse_commitId :: Lens.Lens' GetFileResponse Prelude.Text
+getFileResponse_commitId :: Lens.Lens' GetFileResponse Core.Text
 getFileResponse_commitId = Lens.lens (\GetFileResponse' {commitId} -> commitId) (\s@GetFileResponse' {} a -> s {commitId = a} :: GetFileResponse)
 
 -- | The blob ID of the object that represents the file content.
-getFileResponse_blobId :: Lens.Lens' GetFileResponse Prelude.Text
+getFileResponse_blobId :: Lens.Lens' GetFileResponse Core.Text
 getFileResponse_blobId = Lens.lens (\GetFileResponse' {blobId} -> blobId) (\s@GetFileResponse' {} a -> s {blobId = a} :: GetFileResponse)
 
 -- | The fully qualified path to the specified file. Returns the name and
 -- extension of the file.
-getFileResponse_filePath :: Lens.Lens' GetFileResponse Prelude.Text
+getFileResponse_filePath :: Lens.Lens' GetFileResponse Core.Text
 getFileResponse_filePath = Lens.lens (\GetFileResponse' {filePath} -> filePath) (\s@GetFileResponse' {} a -> s {filePath = a} :: GetFileResponse)
 
 -- | The extrapolated file mode permissions of the blob. Valid values include
@@ -293,7 +287,7 @@ getFileResponse_fileMode :: Lens.Lens' GetFileResponse FileModeTypeEnum
 getFileResponse_fileMode = Lens.lens (\GetFileResponse' {fileMode} -> fileMode) (\s@GetFileResponse' {} a -> s {fileMode = a} :: GetFileResponse)
 
 -- | The size of the contents of the file, in bytes.
-getFileResponse_fileSize :: Lens.Lens' GetFileResponse Prelude.Integer
+getFileResponse_fileSize :: Lens.Lens' GetFileResponse Core.Integer
 getFileResponse_fileSize = Lens.lens (\GetFileResponse' {fileSize} -> fileSize) (\s@GetFileResponse' {} a -> s {fileSize = a} :: GetFileResponse)
 
 -- | The base-64 encoded binary data object that represents the content of
@@ -302,7 +296,7 @@ getFileResponse_fileSize = Lens.lens (\GetFileResponse' {fileSize} -> fileSize) 
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getFileResponse_fileContent :: Lens.Lens' GetFileResponse Prelude.ByteString
-getFileResponse_fileContent = Lens.lens (\GetFileResponse' {fileContent} -> fileContent) (\s@GetFileResponse' {} a -> s {fileContent = a} :: GetFileResponse) Prelude.. Prelude._Base64
+getFileResponse_fileContent :: Lens.Lens' GetFileResponse Core.ByteString
+getFileResponse_fileContent = Lens.lens (\GetFileResponse' {fileContent} -> fileContent) (\s@GetFileResponse' {} a -> s {fileContent = a} :: GetFileResponse) Core.. Core._Base64
 
-instance Prelude.NFData GetFileResponse
+instance Core.NFData GetFileResponse

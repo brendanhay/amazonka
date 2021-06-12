@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.EC2.GetEbsDefaultKmsKeyId
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,9 +58,9 @@ data GetEbsDefaultKmsKeyId = GetEbsDefaultKmsKeyId'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEbsDefaultKmsKeyId' with all optional fields omitted.
@@ -78,57 +77,56 @@ data GetEbsDefaultKmsKeyId = GetEbsDefaultKmsKeyId'
 newGetEbsDefaultKmsKeyId ::
   GetEbsDefaultKmsKeyId
 newGetEbsDefaultKmsKeyId =
-  GetEbsDefaultKmsKeyId' {dryRun = Prelude.Nothing}
+  GetEbsDefaultKmsKeyId' {dryRun = Core.Nothing}
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-getEbsDefaultKmsKeyId_dryRun :: Lens.Lens' GetEbsDefaultKmsKeyId (Prelude.Maybe Prelude.Bool)
+getEbsDefaultKmsKeyId_dryRun :: Lens.Lens' GetEbsDefaultKmsKeyId (Core.Maybe Core.Bool)
 getEbsDefaultKmsKeyId_dryRun = Lens.lens (\GetEbsDefaultKmsKeyId' {dryRun} -> dryRun) (\s@GetEbsDefaultKmsKeyId' {} a -> s {dryRun = a} :: GetEbsDefaultKmsKeyId)
 
-instance Prelude.AWSRequest GetEbsDefaultKmsKeyId where
+instance Core.AWSRequest GetEbsDefaultKmsKeyId where
   type
-    Rs GetEbsDefaultKmsKeyId =
+    AWSResponse GetEbsDefaultKmsKeyId =
       GetEbsDefaultKmsKeyIdResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetEbsDefaultKmsKeyIdResponse'
-            Prelude.<$> (x Prelude..@? "kmsKeyId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "kmsKeyId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetEbsDefaultKmsKeyId
+instance Core.Hashable GetEbsDefaultKmsKeyId
 
-instance Prelude.NFData GetEbsDefaultKmsKeyId
+instance Core.NFData GetEbsDefaultKmsKeyId
 
-instance Prelude.ToHeaders GetEbsDefaultKmsKeyId where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetEbsDefaultKmsKeyId where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetEbsDefaultKmsKeyId where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetEbsDefaultKmsKeyId where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetEbsDefaultKmsKeyId where
+instance Core.ToQuery GetEbsDefaultKmsKeyId where
   toQuery GetEbsDefaultKmsKeyId' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetEbsDefaultKmsKeyId" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun
+          Core.=: ("GetEbsDefaultKmsKeyId" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun
       ]
 
 -- | /See:/ 'newGetEbsDefaultKmsKeyIdResponse' smart constructor.
 data GetEbsDefaultKmsKeyIdResponse = GetEbsDefaultKmsKeyIdResponse'
   { -- | The Amazon Resource Name (ARN) of the default CMK for encryption by
     -- default.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEbsDefaultKmsKeyIdResponse' with all optional fields omitted.
@@ -144,22 +142,22 @@ data GetEbsDefaultKmsKeyIdResponse = GetEbsDefaultKmsKeyIdResponse'
 -- 'httpStatus', 'getEbsDefaultKmsKeyIdResponse_httpStatus' - The response's http status code.
 newGetEbsDefaultKmsKeyIdResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetEbsDefaultKmsKeyIdResponse
 newGetEbsDefaultKmsKeyIdResponse pHttpStatus_ =
   GetEbsDefaultKmsKeyIdResponse'
     { kmsKeyId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the default CMK for encryption by
 -- default.
-getEbsDefaultKmsKeyIdResponse_kmsKeyId :: Lens.Lens' GetEbsDefaultKmsKeyIdResponse (Prelude.Maybe Prelude.Text)
+getEbsDefaultKmsKeyIdResponse_kmsKeyId :: Lens.Lens' GetEbsDefaultKmsKeyIdResponse (Core.Maybe Core.Text)
 getEbsDefaultKmsKeyIdResponse_kmsKeyId = Lens.lens (\GetEbsDefaultKmsKeyIdResponse' {kmsKeyId} -> kmsKeyId) (\s@GetEbsDefaultKmsKeyIdResponse' {} a -> s {kmsKeyId = a} :: GetEbsDefaultKmsKeyIdResponse)
 
 -- | The response's http status code.
-getEbsDefaultKmsKeyIdResponse_httpStatus :: Lens.Lens' GetEbsDefaultKmsKeyIdResponse Prelude.Int
+getEbsDefaultKmsKeyIdResponse_httpStatus :: Lens.Lens' GetEbsDefaultKmsKeyIdResponse Core.Int
 getEbsDefaultKmsKeyIdResponse_httpStatus = Lens.lens (\GetEbsDefaultKmsKeyIdResponse' {httpStatus} -> httpStatus) (\s@GetEbsDefaultKmsKeyIdResponse' {} a -> s {httpStatus = a} :: GetEbsDefaultKmsKeyIdResponse)
 
-instance Prelude.NFData GetEbsDefaultKmsKeyIdResponse
+instance Core.NFData GetEbsDefaultKmsKeyIdResponse

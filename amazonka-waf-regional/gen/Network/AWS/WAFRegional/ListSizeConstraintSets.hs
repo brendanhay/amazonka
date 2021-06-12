@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.WAFRegional.ListSizeConstraintSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -66,15 +65,15 @@ data ListSizeConstraintSets = ListSizeConstraintSets'
     -- @ListSizeConstraintSets@ requests, specify the value of @NextMarker@
     -- from the previous response to get information about another batch of
     -- @SizeConstraintSets@.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | Specifies the number of @SizeConstraintSet@ objects that you want AWS
     -- WAF to return for this request. If you have more @SizeConstraintSets@
     -- objects than the number you specify for @Limit@, the response includes a
     -- @NextMarker@ value that you can use to get another batch of
     -- @SizeConstraintSet@ objects.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSizeConstraintSets' with all optional fields omitted.
@@ -101,9 +100,8 @@ newListSizeConstraintSets ::
   ListSizeConstraintSets
 newListSizeConstraintSets =
   ListSizeConstraintSets'
-    { nextMarker =
-        Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextMarker = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | If you specify a value for @Limit@ and you have more
@@ -113,7 +111,7 @@ newListSizeConstraintSets =
 -- @ListSizeConstraintSets@ requests, specify the value of @NextMarker@
 -- from the previous response to get information about another batch of
 -- @SizeConstraintSets@.
-listSizeConstraintSets_nextMarker :: Lens.Lens' ListSizeConstraintSets (Prelude.Maybe Prelude.Text)
+listSizeConstraintSets_nextMarker :: Lens.Lens' ListSizeConstraintSets (Core.Maybe Core.Text)
 listSizeConstraintSets_nextMarker = Lens.lens (\ListSizeConstraintSets' {nextMarker} -> nextMarker) (\s@ListSizeConstraintSets' {} a -> s {nextMarker = a} :: ListSizeConstraintSets)
 
 -- | Specifies the number of @SizeConstraintSet@ objects that you want AWS
@@ -121,73 +119,71 @@ listSizeConstraintSets_nextMarker = Lens.lens (\ListSizeConstraintSets' {nextMar
 -- objects than the number you specify for @Limit@, the response includes a
 -- @NextMarker@ value that you can use to get another batch of
 -- @SizeConstraintSet@ objects.
-listSizeConstraintSets_limit :: Lens.Lens' ListSizeConstraintSets (Prelude.Maybe Prelude.Natural)
+listSizeConstraintSets_limit :: Lens.Lens' ListSizeConstraintSets (Core.Maybe Core.Natural)
 listSizeConstraintSets_limit = Lens.lens (\ListSizeConstraintSets' {limit} -> limit) (\s@ListSizeConstraintSets' {} a -> s {limit = a} :: ListSizeConstraintSets)
 
-instance Prelude.AWSRequest ListSizeConstraintSets where
+instance Core.AWSRequest ListSizeConstraintSets where
   type
-    Rs ListSizeConstraintSets =
+    AWSResponse ListSizeConstraintSets =
       ListSizeConstraintSetsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSizeConstraintSetsResponse'
-            Prelude.<$> ( x Prelude..?> "SizeConstraintSets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextMarker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "SizeConstraintSets"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSizeConstraintSets
+instance Core.Hashable ListSizeConstraintSets
 
-instance Prelude.NFData ListSizeConstraintSets
+instance Core.NFData ListSizeConstraintSets
 
-instance Prelude.ToHeaders ListSizeConstraintSets where
+instance Core.ToHeaders ListSizeConstraintSets where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.ListSizeConstraintSets" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.ListSizeConstraintSets" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListSizeConstraintSets where
+instance Core.ToJSON ListSizeConstraintSets where
   toJSON ListSizeConstraintSets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath ListSizeConstraintSets where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSizeConstraintSets where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSizeConstraintSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListSizeConstraintSets where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListSizeConstraintSetsResponse' smart constructor.
 data ListSizeConstraintSetsResponse = ListSizeConstraintSetsResponse'
   { -- | An array of SizeConstraintSetSummary objects.
-    sizeConstraintSets :: Prelude.Maybe [SizeConstraintSetSummary],
+    sizeConstraintSets :: Core.Maybe [SizeConstraintSetSummary],
     -- | If you have more @SizeConstraintSet@ objects than the number that you
     -- specified for @Limit@ in the request, the response includes a
     -- @NextMarker@ value. To list more @SizeConstraintSet@ objects, submit
     -- another @ListSizeConstraintSets@ request, and specify the @NextMarker@
     -- value from the response in the @NextMarker@ value in the next request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSizeConstraintSetsResponse' with all optional fields omitted.
@@ -208,32 +204,30 @@ data ListSizeConstraintSetsResponse = ListSizeConstraintSetsResponse'
 -- 'httpStatus', 'listSizeConstraintSetsResponse_httpStatus' - The response's http status code.
 newListSizeConstraintSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSizeConstraintSetsResponse
 newListSizeConstraintSetsResponse pHttpStatus_ =
   ListSizeConstraintSetsResponse'
     { sizeConstraintSets =
-        Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+        Core.Nothing,
+      nextMarker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of SizeConstraintSetSummary objects.
-listSizeConstraintSetsResponse_sizeConstraintSets :: Lens.Lens' ListSizeConstraintSetsResponse (Prelude.Maybe [SizeConstraintSetSummary])
-listSizeConstraintSetsResponse_sizeConstraintSets = Lens.lens (\ListSizeConstraintSetsResponse' {sizeConstraintSets} -> sizeConstraintSets) (\s@ListSizeConstraintSetsResponse' {} a -> s {sizeConstraintSets = a} :: ListSizeConstraintSetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSizeConstraintSetsResponse_sizeConstraintSets :: Lens.Lens' ListSizeConstraintSetsResponse (Core.Maybe [SizeConstraintSetSummary])
+listSizeConstraintSetsResponse_sizeConstraintSets = Lens.lens (\ListSizeConstraintSetsResponse' {sizeConstraintSets} -> sizeConstraintSets) (\s@ListSizeConstraintSetsResponse' {} a -> s {sizeConstraintSets = a} :: ListSizeConstraintSetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | If you have more @SizeConstraintSet@ objects than the number that you
 -- specified for @Limit@ in the request, the response includes a
 -- @NextMarker@ value. To list more @SizeConstraintSet@ objects, submit
 -- another @ListSizeConstraintSets@ request, and specify the @NextMarker@
 -- value from the response in the @NextMarker@ value in the next request.
-listSizeConstraintSetsResponse_nextMarker :: Lens.Lens' ListSizeConstraintSetsResponse (Prelude.Maybe Prelude.Text)
+listSizeConstraintSetsResponse_nextMarker :: Lens.Lens' ListSizeConstraintSetsResponse (Core.Maybe Core.Text)
 listSizeConstraintSetsResponse_nextMarker = Lens.lens (\ListSizeConstraintSetsResponse' {nextMarker} -> nextMarker) (\s@ListSizeConstraintSetsResponse' {} a -> s {nextMarker = a} :: ListSizeConstraintSetsResponse)
 
 -- | The response's http status code.
-listSizeConstraintSetsResponse_httpStatus :: Lens.Lens' ListSizeConstraintSetsResponse Prelude.Int
+listSizeConstraintSetsResponse_httpStatus :: Lens.Lens' ListSizeConstraintSetsResponse Core.Int
 listSizeConstraintSetsResponse_httpStatus = Lens.lens (\ListSizeConstraintSetsResponse' {httpStatus} -> httpStatus) (\s@ListSizeConstraintSetsResponse' {} a -> s {httpStatus = a} :: ListSizeConstraintSetsResponse)
 
-instance
-  Prelude.NFData
-    ListSizeConstraintSetsResponse
+instance Core.NFData ListSizeConstraintSetsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.IamInstanceProfile where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the EC2 instance profile.
 --
 -- /See:/ 'newIamInstanceProfile' smart constructor.
 data IamInstanceProfile = IamInstanceProfile'
   { -- | The profile ARN of the EC2 instance.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The profile ID of the EC2 instance.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IamInstanceProfile' with all optional fields omitted.
@@ -49,28 +48,27 @@ newIamInstanceProfile ::
   IamInstanceProfile
 newIamInstanceProfile =
   IamInstanceProfile'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The profile ARN of the EC2 instance.
-iamInstanceProfile_arn :: Lens.Lens' IamInstanceProfile (Prelude.Maybe Prelude.Text)
+iamInstanceProfile_arn :: Lens.Lens' IamInstanceProfile (Core.Maybe Core.Text)
 iamInstanceProfile_arn = Lens.lens (\IamInstanceProfile' {arn} -> arn) (\s@IamInstanceProfile' {} a -> s {arn = a} :: IamInstanceProfile)
 
 -- | The profile ID of the EC2 instance.
-iamInstanceProfile_id :: Lens.Lens' IamInstanceProfile (Prelude.Maybe Prelude.Text)
+iamInstanceProfile_id :: Lens.Lens' IamInstanceProfile (Core.Maybe Core.Text)
 iamInstanceProfile_id = Lens.lens (\IamInstanceProfile' {id} -> id) (\s@IamInstanceProfile' {} a -> s {id = a} :: IamInstanceProfile)
 
-instance Prelude.FromJSON IamInstanceProfile where
+instance Core.FromJSON IamInstanceProfile where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IamInstanceProfile"
       ( \x ->
           IamInstanceProfile'
-            Prelude.<$> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "id")
+            Core.<$> (x Core..:? "arn") Core.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable IamInstanceProfile
+instance Core.Hashable IamInstanceProfile
 
-instance Prelude.NFData IamInstanceProfile
+instance Core.NFData IamInstanceProfile

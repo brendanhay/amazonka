@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CapacityReservationPreference
 import Network.AWS.EC2.Types.CapacityReservationTarget
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an instance\'s Capacity Reservation targeting option. You can
 -- specify only one option at a time. Use the
@@ -45,12 +44,12 @@ data LaunchTemplateCapacityReservationSpecificationRequest = LaunchTemplateCapac
     --
     -- -   @none@ - The instance avoids running in a Capacity Reservation even
     --     if one is available. The instance runs in On-Demand capacity.
-    capacityReservationPreference :: Prelude.Maybe CapacityReservationPreference,
+    capacityReservationPreference :: Core.Maybe CapacityReservationPreference,
     -- | Information about the target Capacity Reservation or Capacity
     -- Reservation group.
-    capacityReservationTarget :: Prelude.Maybe CapacityReservationTarget
+    capacityReservationTarget :: Core.Maybe CapacityReservationTarget
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateCapacityReservationSpecificationRequest' with all optional fields omitted.
@@ -77,9 +76,9 @@ newLaunchTemplateCapacityReservationSpecificationRequest ::
 newLaunchTemplateCapacityReservationSpecificationRequest =
   LaunchTemplateCapacityReservationSpecificationRequest'
     { capacityReservationPreference =
-        Prelude.Nothing,
+        Core.Nothing,
       capacityReservationTarget =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Indicates the instance\'s Capacity Reservation preferences. Possible
@@ -91,31 +90,31 @@ newLaunchTemplateCapacityReservationSpecificationRequest =
 --
 -- -   @none@ - The instance avoids running in a Capacity Reservation even
 --     if one is available. The instance runs in On-Demand capacity.
-launchTemplateCapacityReservationSpecificationRequest_capacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Prelude.Maybe CapacityReservationPreference)
+launchTemplateCapacityReservationSpecificationRequest_capacityReservationPreference :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Core.Maybe CapacityReservationPreference)
 launchTemplateCapacityReservationSpecificationRequest_capacityReservationPreference = Lens.lens (\LaunchTemplateCapacityReservationSpecificationRequest' {capacityReservationPreference} -> capacityReservationPreference) (\s@LaunchTemplateCapacityReservationSpecificationRequest' {} a -> s {capacityReservationPreference = a} :: LaunchTemplateCapacityReservationSpecificationRequest)
 
 -- | Information about the target Capacity Reservation or Capacity
 -- Reservation group.
-launchTemplateCapacityReservationSpecificationRequest_capacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Prelude.Maybe CapacityReservationTarget)
+launchTemplateCapacityReservationSpecificationRequest_capacityReservationTarget :: Lens.Lens' LaunchTemplateCapacityReservationSpecificationRequest (Core.Maybe CapacityReservationTarget)
 launchTemplateCapacityReservationSpecificationRequest_capacityReservationTarget = Lens.lens (\LaunchTemplateCapacityReservationSpecificationRequest' {capacityReservationTarget} -> capacityReservationTarget) (\s@LaunchTemplateCapacityReservationSpecificationRequest' {} a -> s {capacityReservationTarget = a} :: LaunchTemplateCapacityReservationSpecificationRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateCapacityReservationSpecificationRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateCapacityReservationSpecificationRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     LaunchTemplateCapacityReservationSpecificationRequest
   where
   toQuery
     LaunchTemplateCapacityReservationSpecificationRequest' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "CapacityReservationPreference"
-            Prelude.=: capacityReservationPreference,
+            Core.=: capacityReservationPreference,
           "CapacityReservationTarget"
-            Prelude.=: capacityReservationTarget
+            Core.=: capacityReservationTarget
         ]

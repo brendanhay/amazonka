@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.DirectoryService.ListIpRoutes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,15 +54,15 @@ import qualified Network.AWS.Response as Response
 data ListIpRoutes = ListIpRoutes'
   { -- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
     -- Pass null if this is the first call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Maximum number of items to return. If this value is zero, the maximum
     -- number of items is specified by the limitations of the operation.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | Identifier (ID) of the directory for which you want to retrieve the IP
     -- addresses.
-    directoryId :: Prelude.Text
+    directoryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIpRoutes' with all optional fields omitted.
@@ -84,111 +82,106 @@ data ListIpRoutes = ListIpRoutes'
 -- addresses.
 newListIpRoutes ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   ListIpRoutes
 newListIpRoutes pDirectoryId_ =
   ListIpRoutes'
-    { nextToken = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      limit = Core.Nothing,
       directoryId = pDirectoryId_
     }
 
 -- | The /ListIpRoutes.NextToken/ value from a previous call to ListIpRoutes.
 -- Pass null if this is the first call.
-listIpRoutes_nextToken :: Lens.Lens' ListIpRoutes (Prelude.Maybe Prelude.Text)
+listIpRoutes_nextToken :: Lens.Lens' ListIpRoutes (Core.Maybe Core.Text)
 listIpRoutes_nextToken = Lens.lens (\ListIpRoutes' {nextToken} -> nextToken) (\s@ListIpRoutes' {} a -> s {nextToken = a} :: ListIpRoutes)
 
 -- | Maximum number of items to return. If this value is zero, the maximum
 -- number of items is specified by the limitations of the operation.
-listIpRoutes_limit :: Lens.Lens' ListIpRoutes (Prelude.Maybe Prelude.Natural)
+listIpRoutes_limit :: Lens.Lens' ListIpRoutes (Core.Maybe Core.Natural)
 listIpRoutes_limit = Lens.lens (\ListIpRoutes' {limit} -> limit) (\s@ListIpRoutes' {} a -> s {limit = a} :: ListIpRoutes)
 
 -- | Identifier (ID) of the directory for which you want to retrieve the IP
 -- addresses.
-listIpRoutes_directoryId :: Lens.Lens' ListIpRoutes Prelude.Text
+listIpRoutes_directoryId :: Lens.Lens' ListIpRoutes Core.Text
 listIpRoutes_directoryId = Lens.lens (\ListIpRoutes' {directoryId} -> directoryId) (\s@ListIpRoutes' {} a -> s {directoryId = a} :: ListIpRoutes)
 
-instance Pager.AWSPager ListIpRoutes where
+instance Core.AWSPager ListIpRoutes where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listIpRoutesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listIpRoutesResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listIpRoutesResponse_ipRoutesInfo
-              Prelude.. Lens._Just
+            Lens.^? listIpRoutesResponse_ipRoutesInfo Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listIpRoutes_nextToken
           Lens..~ rs
-          Lens.^? listIpRoutesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listIpRoutesResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListIpRoutes where
-  type Rs ListIpRoutes = ListIpRoutesResponse
+instance Core.AWSRequest ListIpRoutes where
+  type AWSResponse ListIpRoutes = ListIpRoutesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListIpRoutesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "IpRoutesInfo"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "IpRoutesInfo" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListIpRoutes
+instance Core.Hashable ListIpRoutes
 
-instance Prelude.NFData ListIpRoutes
+instance Core.NFData ListIpRoutes
 
-instance Prelude.ToHeaders ListIpRoutes where
+instance Core.ToHeaders ListIpRoutes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.ListIpRoutes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.ListIpRoutes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListIpRoutes where
+instance Core.ToJSON ListIpRoutes where
   toJSON ListIpRoutes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("DirectoryId" Prelude..= directoryId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("DirectoryId" Core..= directoryId)
           ]
       )
 
-instance Prelude.ToPath ListIpRoutes where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListIpRoutes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListIpRoutes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListIpRoutes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListIpRoutesResponse' smart constructor.
 data ListIpRoutesResponse = ListIpRoutesResponse'
   { -- | If not null, more results are available. Pass this value for the
     -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
     -- the next set of items.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of IpRoutes.
-    ipRoutesInfo :: Prelude.Maybe [IpRouteInfo],
+    ipRoutesInfo :: Core.Maybe [IpRouteInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListIpRoutesResponse' with all optional fields omitted.
@@ -207,27 +200,27 @@ data ListIpRoutesResponse = ListIpRoutesResponse'
 -- 'httpStatus', 'listIpRoutesResponse_httpStatus' - The response's http status code.
 newListIpRoutesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListIpRoutesResponse
 newListIpRoutesResponse pHttpStatus_ =
   ListIpRoutesResponse'
-    { nextToken = Prelude.Nothing,
-      ipRoutesInfo = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      ipRoutesInfo = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to ListIpRoutes to retrieve
 -- the next set of items.
-listIpRoutesResponse_nextToken :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe Prelude.Text)
+listIpRoutesResponse_nextToken :: Lens.Lens' ListIpRoutesResponse (Core.Maybe Core.Text)
 listIpRoutesResponse_nextToken = Lens.lens (\ListIpRoutesResponse' {nextToken} -> nextToken) (\s@ListIpRoutesResponse' {} a -> s {nextToken = a} :: ListIpRoutesResponse)
 
 -- | A list of IpRoutes.
-listIpRoutesResponse_ipRoutesInfo :: Lens.Lens' ListIpRoutesResponse (Prelude.Maybe [IpRouteInfo])
-listIpRoutesResponse_ipRoutesInfo = Lens.lens (\ListIpRoutesResponse' {ipRoutesInfo} -> ipRoutesInfo) (\s@ListIpRoutesResponse' {} a -> s {ipRoutesInfo = a} :: ListIpRoutesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listIpRoutesResponse_ipRoutesInfo :: Lens.Lens' ListIpRoutesResponse (Core.Maybe [IpRouteInfo])
+listIpRoutesResponse_ipRoutesInfo = Lens.lens (\ListIpRoutesResponse' {ipRoutesInfo} -> ipRoutesInfo) (\s@ListIpRoutesResponse' {} a -> s {ipRoutesInfo = a} :: ListIpRoutesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listIpRoutesResponse_httpStatus :: Lens.Lens' ListIpRoutesResponse Prelude.Int
+listIpRoutesResponse_httpStatus :: Lens.Lens' ListIpRoutesResponse Core.Int
 listIpRoutesResponse_httpStatus = Lens.lens (\ListIpRoutesResponse' {httpStatus} -> httpStatus) (\s@ListIpRoutesResponse' {} a -> s {httpStatus = a} :: ListIpRoutesResponse)
 
-instance Prelude.NFData ListIpRoutesResponse
+instance Core.NFData ListIpRoutesResponse

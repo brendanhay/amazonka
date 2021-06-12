@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.ComplianceStringFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ComplianceQueryOperatorType
 
 -- | One or more filters. Use a filter to return a more specific list of
@@ -30,14 +29,14 @@ import Network.AWS.SSM.Types.ComplianceQueryOperatorType
 -- /See:/ 'newComplianceStringFilter' smart constructor.
 data ComplianceStringFilter = ComplianceStringFilter'
   { -- | The name of the filter.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The value for which to search.
-    values :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    values :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The type of comparison that should be performed for the value: Equal,
     -- NotEqual, BeginWith, LessThan, or GreaterThan.
-    type' :: Prelude.Maybe ComplianceQueryOperatorType
+    type' :: Core.Maybe ComplianceQueryOperatorType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComplianceStringFilter' with all optional fields omitted.
@@ -57,34 +56,34 @@ newComplianceStringFilter ::
   ComplianceStringFilter
 newComplianceStringFilter =
   ComplianceStringFilter'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The name of the filter.
-complianceStringFilter_key :: Lens.Lens' ComplianceStringFilter (Prelude.Maybe Prelude.Text)
+complianceStringFilter_key :: Lens.Lens' ComplianceStringFilter (Core.Maybe Core.Text)
 complianceStringFilter_key = Lens.lens (\ComplianceStringFilter' {key} -> key) (\s@ComplianceStringFilter' {} a -> s {key = a} :: ComplianceStringFilter)
 
 -- | The value for which to search.
-complianceStringFilter_values :: Lens.Lens' ComplianceStringFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-complianceStringFilter_values = Lens.lens (\ComplianceStringFilter' {values} -> values) (\s@ComplianceStringFilter' {} a -> s {values = a} :: ComplianceStringFilter) Prelude.. Lens.mapping Prelude._Coerce
+complianceStringFilter_values :: Lens.Lens' ComplianceStringFilter (Core.Maybe (Core.NonEmpty Core.Text))
+complianceStringFilter_values = Lens.lens (\ComplianceStringFilter' {values} -> values) (\s@ComplianceStringFilter' {} a -> s {values = a} :: ComplianceStringFilter) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of comparison that should be performed for the value: Equal,
 -- NotEqual, BeginWith, LessThan, or GreaterThan.
-complianceStringFilter_type :: Lens.Lens' ComplianceStringFilter (Prelude.Maybe ComplianceQueryOperatorType)
+complianceStringFilter_type :: Lens.Lens' ComplianceStringFilter (Core.Maybe ComplianceQueryOperatorType)
 complianceStringFilter_type = Lens.lens (\ComplianceStringFilter' {type'} -> type') (\s@ComplianceStringFilter' {} a -> s {type' = a} :: ComplianceStringFilter)
 
-instance Prelude.Hashable ComplianceStringFilter
+instance Core.Hashable ComplianceStringFilter
 
-instance Prelude.NFData ComplianceStringFilter
+instance Core.NFData ComplianceStringFilter
 
-instance Prelude.ToJSON ComplianceStringFilter where
+instance Core.ToJSON ComplianceStringFilter where
   toJSON ComplianceStringFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Values" Prelude..=) Prelude.<$> values,
-            ("Type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Values" Core..=) Core.<$> values,
+            ("Type" Core..=) Core.<$> type'
           ]
       )

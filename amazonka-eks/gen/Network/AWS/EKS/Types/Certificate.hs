@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.Certificate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the @certificate-authority-data@ for your
 -- cluster.
@@ -31,9 +30,9 @@ data Certificate = Certificate'
   { -- | The Base64-encoded certificate data required to communicate with your
     -- cluster. Add this to the @certificate-authority-data@ section of the
     -- @kubeconfig@ file for your cluster.
-    data' :: Prelude.Maybe Prelude.Text
+    data' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Certificate' with all optional fields omitted.
@@ -48,23 +47,20 @@ data Certificate = Certificate'
 -- @kubeconfig@ file for your cluster.
 newCertificate ::
   Certificate
-newCertificate =
-  Certificate' {data' = Prelude.Nothing}
+newCertificate = Certificate' {data' = Core.Nothing}
 
 -- | The Base64-encoded certificate data required to communicate with your
 -- cluster. Add this to the @certificate-authority-data@ section of the
 -- @kubeconfig@ file for your cluster.
-certificate_data :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_data :: Lens.Lens' Certificate (Core.Maybe Core.Text)
 certificate_data = Lens.lens (\Certificate' {data'} -> data') (\s@Certificate' {} a -> s {data' = a} :: Certificate)
 
-instance Prelude.FromJSON Certificate where
+instance Core.FromJSON Certificate where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Certificate"
-      ( \x ->
-          Certificate' Prelude.<$> (x Prelude..:? "data")
-      )
+      (\x -> Certificate' Core.<$> (x Core..:? "data"))
 
-instance Prelude.Hashable Certificate
+instance Core.Hashable Certificate
 
-instance Prelude.NFData Certificate
+instance Core.NFData Certificate

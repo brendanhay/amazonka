@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -152,8 +151,8 @@ module Network.AWS.S3.SelectObjectContent
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -170,11 +169,11 @@ import Network.AWS.S3.Types
 -- /See:/ 'newSelectObjectContent' smart constructor.
 data SelectObjectContent = SelectObjectContent'
   { -- | Specifies if periodic request progress information should be enabled.
-    requestProgress :: Prelude.Maybe RequestProgress,
+    requestProgress :: Core.Maybe RequestProgress,
     -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | Specifies the byte range of the object to get the records from. A record
     -- is processed when its first byte is contained by the range. This
     -- parameter is optional, but when specified, it must not be empty. See RFC
@@ -192,22 +191,22 @@ data SelectObjectContent = SelectObjectContent'
     --
     -- -   @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ - process only the
     --     records within the last 50 bytes of the file.
-    scanRange :: Prelude.Maybe ScanRange,
+    scanRange :: Core.Maybe ScanRange,
     -- | The SSE Customer Key MD5. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
+    sSECustomerKeyMD5 :: Core.Maybe Core.Text,
     -- | The SSE Algorithm used to encrypt the object. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    sSECustomerAlgorithm :: Core.Maybe Core.Text,
     -- | The SSE Customer Key. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-    sSECustomerKey :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    sSECustomerKey :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The S3 bucket.
     bucket :: BucketName,
     -- | The object key.
     key :: ObjectKey,
     -- | The expression that is used to query the object.
-    expression :: Prelude.Text,
+    expression :: Core.Text,
     -- | The type of the provided expression (for example, SQL).
     expressionType :: ExpressionType,
     -- | Describes the format of the data in the object that is being queried.
@@ -216,7 +215,7 @@ data SelectObjectContent = SelectObjectContent'
     -- response.
     outputSerialization :: OutputSerialization
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SelectObjectContent' with all optional fields omitted.
@@ -277,7 +276,7 @@ newSelectObjectContent ::
   -- | 'key'
   ObjectKey ->
   -- | 'expression'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'expressionType'
   ExpressionType ->
   -- | 'inputSerialization'
@@ -294,12 +293,12 @@ newSelectObjectContent
   pOutputSerialization_ =
     SelectObjectContent'
       { requestProgress =
-          Prelude.Nothing,
-        expectedBucketOwner = Prelude.Nothing,
-        scanRange = Prelude.Nothing,
-        sSECustomerKeyMD5 = Prelude.Nothing,
-        sSECustomerAlgorithm = Prelude.Nothing,
-        sSECustomerKey = Prelude.Nothing,
+          Core.Nothing,
+        expectedBucketOwner = Core.Nothing,
+        scanRange = Core.Nothing,
+        sSECustomerKeyMD5 = Core.Nothing,
+        sSECustomerAlgorithm = Core.Nothing,
+        sSECustomerKey = Core.Nothing,
         bucket = pBucket_,
         key = pKey_,
         expression = pExpression_,
@@ -309,13 +308,13 @@ newSelectObjectContent
       }
 
 -- | Specifies if periodic request progress information should be enabled.
-selectObjectContent_requestProgress :: Lens.Lens' SelectObjectContent (Prelude.Maybe RequestProgress)
+selectObjectContent_requestProgress :: Lens.Lens' SelectObjectContent (Core.Maybe RequestProgress)
 selectObjectContent_requestProgress = Lens.lens (\SelectObjectContent' {requestProgress} -> requestProgress) (\s@SelectObjectContent' {} a -> s {requestProgress = a} :: SelectObjectContent)
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-selectObjectContent_expectedBucketOwner :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_expectedBucketOwner :: Lens.Lens' SelectObjectContent (Core.Maybe Core.Text)
 selectObjectContent_expectedBucketOwner = Lens.lens (\SelectObjectContent' {expectedBucketOwner} -> expectedBucketOwner) (\s@SelectObjectContent' {} a -> s {expectedBucketOwner = a} :: SelectObjectContent)
 
 -- | Specifies the byte range of the object to get the records from. A record
@@ -335,23 +334,23 @@ selectObjectContent_expectedBucketOwner = Lens.lens (\SelectObjectContent' {expe
 --
 -- -   @\<scanrange>\<end>50\<\/end>\<\/scanrange>@ - process only the
 --     records within the last 50 bytes of the file.
-selectObjectContent_scanRange :: Lens.Lens' SelectObjectContent (Prelude.Maybe ScanRange)
+selectObjectContent_scanRange :: Lens.Lens' SelectObjectContent (Core.Maybe ScanRange)
 selectObjectContent_scanRange = Lens.lens (\SelectObjectContent' {scanRange} -> scanRange) (\s@SelectObjectContent' {} a -> s {scanRange = a} :: SelectObjectContent)
 
 -- | The SSE Customer Key MD5. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-selectObjectContent_sSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerKeyMD5 :: Lens.Lens' SelectObjectContent (Core.Maybe Core.Text)
 selectObjectContent_sSECustomerKeyMD5 = Lens.lens (\SelectObjectContent' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@SelectObjectContent' {} a -> s {sSECustomerKeyMD5 = a} :: SelectObjectContent)
 
 -- | The SSE Algorithm used to encrypt the object. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-selectObjectContent_sSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
+selectObjectContent_sSECustomerAlgorithm :: Lens.Lens' SelectObjectContent (Core.Maybe Core.Text)
 selectObjectContent_sSECustomerAlgorithm = Lens.lens (\SelectObjectContent' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@SelectObjectContent' {} a -> s {sSECustomerAlgorithm = a} :: SelectObjectContent)
 
 -- | The SSE Customer Key. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Server-Side Encryption (Using Customer-Provided Encryption Keys>.
-selectObjectContent_sSECustomerKey :: Lens.Lens' SelectObjectContent (Prelude.Maybe Prelude.Text)
-selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Prelude.. Lens.mapping Prelude._Sensitive
+selectObjectContent_sSECustomerKey :: Lens.Lens' SelectObjectContent (Core.Maybe Core.Text)
+selectObjectContent_sSECustomerKey = Lens.lens (\SelectObjectContent' {sSECustomerKey} -> sSECustomerKey) (\s@SelectObjectContent' {} a -> s {sSECustomerKey = a} :: SelectObjectContent) Core.. Lens.mapping Core._Sensitive
 
 -- | The S3 bucket.
 selectObjectContent_bucket :: Lens.Lens' SelectObjectContent BucketName
@@ -362,7 +361,7 @@ selectObjectContent_key :: Lens.Lens' SelectObjectContent ObjectKey
 selectObjectContent_key = Lens.lens (\SelectObjectContent' {key} -> key) (\s@SelectObjectContent' {} a -> s {key = a} :: SelectObjectContent)
 
 -- | The expression that is used to query the object.
-selectObjectContent_expression :: Lens.Lens' SelectObjectContent Prelude.Text
+selectObjectContent_expression :: Lens.Lens' SelectObjectContent Core.Text
 selectObjectContent_expression = Lens.lens (\SelectObjectContent' {expression} -> expression) (\s@SelectObjectContent' {} a -> s {expression = a} :: SelectObjectContent)
 
 -- | The type of the provided expression (for example, SQL).
@@ -378,70 +377,69 @@ selectObjectContent_inputSerialization = Lens.lens (\SelectObjectContent' {input
 selectObjectContent_outputSerialization :: Lens.Lens' SelectObjectContent OutputSerialization
 selectObjectContent_outputSerialization = Lens.lens (\SelectObjectContent' {outputSerialization} -> outputSerialization) (\s@SelectObjectContent' {} a -> s {outputSerialization = a} :: SelectObjectContent)
 
-instance Prelude.AWSRequest SelectObjectContent where
+instance Core.AWSRequest SelectObjectContent where
   type
-    Rs SelectObjectContent =
+    AWSResponse SelectObjectContent =
       SelectObjectContentResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           SelectObjectContentResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SelectObjectContent
+instance Core.Hashable SelectObjectContent
 
-instance Prelude.NFData SelectObjectContent
+instance Core.NFData SelectObjectContent
 
-instance Prelude.ToElement SelectObjectContent where
+instance Core.ToElement SelectObjectContent where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}SelectObjectContentRequest"
 
-instance Prelude.ToHeaders SelectObjectContent where
+instance Core.ToHeaders SelectObjectContent where
   toHeaders SelectObjectContent' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner,
+          Core.=# expectedBucketOwner,
         "x-amz-server-side-encryption-customer-key-MD5"
-          Prelude.=# sSECustomerKeyMD5,
+          Core.=# sSECustomerKeyMD5,
         "x-amz-server-side-encryption-customer-algorithm"
-          Prelude.=# sSECustomerAlgorithm,
+          Core.=# sSECustomerAlgorithm,
         "x-amz-server-side-encryption-customer-key"
-          Prelude.=# sSECustomerKey
+          Core.=# sSECustomerKey
       ]
 
-instance Prelude.ToPath SelectObjectContent where
+instance Core.ToPath SelectObjectContent where
   toPath SelectObjectContent' {..} =
-    Prelude.mconcat
-      ["/", Prelude.toBS bucket, "/", Prelude.toBS key]
+    Core.mconcat
+      ["/", Core.toBS bucket, "/", Core.toBS key]
 
-instance Prelude.ToQuery SelectObjectContent where
+instance Core.ToQuery SelectObjectContent where
   toQuery =
-    Prelude.const
-      (Prelude.mconcat ["select&select-type=2"])
+    Core.const (Core.mconcat ["select&select-type=2"])
 
-instance Prelude.ToXML SelectObjectContent where
+instance Core.ToXML SelectObjectContent where
   toXML SelectObjectContent' {..} =
-    Prelude.mconcat
-      [ "RequestProgress" Prelude.@= requestProgress,
-        "ScanRange" Prelude.@= scanRange,
-        "Expression" Prelude.@= expression,
-        "ExpressionType" Prelude.@= expressionType,
-        "InputSerialization" Prelude.@= inputSerialization,
-        "OutputSerialization" Prelude.@= outputSerialization
+    Core.mconcat
+      [ "RequestProgress" Core.@= requestProgress,
+        "ScanRange" Core.@= scanRange,
+        "Expression" Core.@= expression,
+        "ExpressionType" Core.@= expressionType,
+        "InputSerialization" Core.@= inputSerialization,
+        "OutputSerialization" Core.@= outputSerialization
       ]
 
 -- | /See:/ 'newSelectObjectContentResponse' smart constructor.
 data SelectObjectContentResponse = SelectObjectContentResponse'
   { -- | The array of results.
-    payload :: Prelude.Maybe SelectObjectContentEventStream,
+    payload :: Core.Maybe SelectObjectContentEventStream,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SelectObjectContentResponse' with all optional fields omitted.
@@ -456,21 +454,21 @@ data SelectObjectContentResponse = SelectObjectContentResponse'
 -- 'httpStatus', 'selectObjectContentResponse_httpStatus' - The response's http status code.
 newSelectObjectContentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SelectObjectContentResponse
 newSelectObjectContentResponse pHttpStatus_ =
   SelectObjectContentResponse'
     { payload =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The array of results.
-selectObjectContentResponse_payload :: Lens.Lens' SelectObjectContentResponse (Prelude.Maybe SelectObjectContentEventStream)
+selectObjectContentResponse_payload :: Lens.Lens' SelectObjectContentResponse (Core.Maybe SelectObjectContentEventStream)
 selectObjectContentResponse_payload = Lens.lens (\SelectObjectContentResponse' {payload} -> payload) (\s@SelectObjectContentResponse' {} a -> s {payload = a} :: SelectObjectContentResponse)
 
 -- | The response's http status code.
-selectObjectContentResponse_httpStatus :: Lens.Lens' SelectObjectContentResponse Prelude.Int
+selectObjectContentResponse_httpStatus :: Lens.Lens' SelectObjectContentResponse Core.Int
 selectObjectContentResponse_httpStatus = Lens.lens (\SelectObjectContentResponse' {httpStatus} -> httpStatus) (\s@SelectObjectContentResponse' {} a -> s {httpStatus = a} :: SelectObjectContentResponse)
 
-instance Prelude.NFData SelectObjectContentResponse
+instance Core.NFData SelectObjectContentResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.TagOptionDetail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a TagOption.
 --
 -- /See:/ 'newTagOptionDetail' smart constructor.
 data TagOptionDetail = TagOptionDetail'
   { -- | The TagOption key.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Core.Maybe Core.Text,
     -- | The TagOption identifier.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The TagOption active state.
-    active :: Prelude.Maybe Prelude.Bool,
+    active :: Core.Maybe Core.Bool,
     -- | The AWS account Id of the owner account that created the TagOption.
-    owner :: Prelude.Maybe Prelude.Text,
+    owner :: Core.Maybe Core.Text,
     -- | The TagOption value.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagOptionDetail' with all optional fields omitted.
@@ -61,46 +60,46 @@ newTagOptionDetail ::
   TagOptionDetail
 newTagOptionDetail =
   TagOptionDetail'
-    { key = Prelude.Nothing,
-      id = Prelude.Nothing,
-      active = Prelude.Nothing,
-      owner = Prelude.Nothing,
-      value = Prelude.Nothing
+    { key = Core.Nothing,
+      id = Core.Nothing,
+      active = Core.Nothing,
+      owner = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The TagOption key.
-tagOptionDetail_key :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Text)
+tagOptionDetail_key :: Lens.Lens' TagOptionDetail (Core.Maybe Core.Text)
 tagOptionDetail_key = Lens.lens (\TagOptionDetail' {key} -> key) (\s@TagOptionDetail' {} a -> s {key = a} :: TagOptionDetail)
 
 -- | The TagOption identifier.
-tagOptionDetail_id :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Text)
+tagOptionDetail_id :: Lens.Lens' TagOptionDetail (Core.Maybe Core.Text)
 tagOptionDetail_id = Lens.lens (\TagOptionDetail' {id} -> id) (\s@TagOptionDetail' {} a -> s {id = a} :: TagOptionDetail)
 
 -- | The TagOption active state.
-tagOptionDetail_active :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Bool)
+tagOptionDetail_active :: Lens.Lens' TagOptionDetail (Core.Maybe Core.Bool)
 tagOptionDetail_active = Lens.lens (\TagOptionDetail' {active} -> active) (\s@TagOptionDetail' {} a -> s {active = a} :: TagOptionDetail)
 
 -- | The AWS account Id of the owner account that created the TagOption.
-tagOptionDetail_owner :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Text)
+tagOptionDetail_owner :: Lens.Lens' TagOptionDetail (Core.Maybe Core.Text)
 tagOptionDetail_owner = Lens.lens (\TagOptionDetail' {owner} -> owner) (\s@TagOptionDetail' {} a -> s {owner = a} :: TagOptionDetail)
 
 -- | The TagOption value.
-tagOptionDetail_value :: Lens.Lens' TagOptionDetail (Prelude.Maybe Prelude.Text)
+tagOptionDetail_value :: Lens.Lens' TagOptionDetail (Core.Maybe Core.Text)
 tagOptionDetail_value = Lens.lens (\TagOptionDetail' {value} -> value) (\s@TagOptionDetail' {} a -> s {value = a} :: TagOptionDetail)
 
-instance Prelude.FromJSON TagOptionDetail where
+instance Core.FromJSON TagOptionDetail where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TagOptionDetail"
       ( \x ->
           TagOptionDetail'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Active")
-            Prelude.<*> (x Prelude..:? "Owner")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Active")
+            Core.<*> (x Core..:? "Owner")
+            Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable TagOptionDetail
+instance Core.Hashable TagOptionDetail
 
-instance Prelude.NFData TagOptionDetail
+instance Core.NFData TagOptionDetail

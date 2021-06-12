@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ECR.StartLifecyclePolicyPreview
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,14 +57,14 @@ data StartLifecyclePolicyPreview = StartLifecyclePolicyPreview'
   { -- | The AWS account ID associated with the registry that contains the
     -- repository. If you do not specify a registry, the default registry is
     -- assumed.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The policy to be evaluated against. If you do not specify a policy, the
     -- current policy for the repository is used.
-    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
+    lifecyclePolicyText :: Core.Maybe Core.Text,
     -- | The name of the repository to be evaluated.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartLifecyclePolicyPreview' with all optional fields omitted.
@@ -85,104 +84,95 @@ data StartLifecyclePolicyPreview = StartLifecyclePolicyPreview'
 -- 'repositoryName', 'startLifecyclePolicyPreview_repositoryName' - The name of the repository to be evaluated.
 newStartLifecyclePolicyPreview ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   StartLifecyclePolicyPreview
 newStartLifecyclePolicyPreview pRepositoryName_ =
   StartLifecyclePolicyPreview'
     { registryId =
-        Prelude.Nothing,
-      lifecyclePolicyText = Prelude.Nothing,
+        Core.Nothing,
+      lifecyclePolicyText = Core.Nothing,
       repositoryName = pRepositoryName_
     }
 
 -- | The AWS account ID associated with the registry that contains the
 -- repository. If you do not specify a registry, the default registry is
 -- assumed.
-startLifecyclePolicyPreview_registryId :: Lens.Lens' StartLifecyclePolicyPreview (Prelude.Maybe Prelude.Text)
+startLifecyclePolicyPreview_registryId :: Lens.Lens' StartLifecyclePolicyPreview (Core.Maybe Core.Text)
 startLifecyclePolicyPreview_registryId = Lens.lens (\StartLifecyclePolicyPreview' {registryId} -> registryId) (\s@StartLifecyclePolicyPreview' {} a -> s {registryId = a} :: StartLifecyclePolicyPreview)
 
 -- | The policy to be evaluated against. If you do not specify a policy, the
 -- current policy for the repository is used.
-startLifecyclePolicyPreview_lifecyclePolicyText :: Lens.Lens' StartLifecyclePolicyPreview (Prelude.Maybe Prelude.Text)
+startLifecyclePolicyPreview_lifecyclePolicyText :: Lens.Lens' StartLifecyclePolicyPreview (Core.Maybe Core.Text)
 startLifecyclePolicyPreview_lifecyclePolicyText = Lens.lens (\StartLifecyclePolicyPreview' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@StartLifecyclePolicyPreview' {} a -> s {lifecyclePolicyText = a} :: StartLifecyclePolicyPreview)
 
 -- | The name of the repository to be evaluated.
-startLifecyclePolicyPreview_repositoryName :: Lens.Lens' StartLifecyclePolicyPreview Prelude.Text
+startLifecyclePolicyPreview_repositoryName :: Lens.Lens' StartLifecyclePolicyPreview Core.Text
 startLifecyclePolicyPreview_repositoryName = Lens.lens (\StartLifecyclePolicyPreview' {repositoryName} -> repositoryName) (\s@StartLifecyclePolicyPreview' {} a -> s {repositoryName = a} :: StartLifecyclePolicyPreview)
 
-instance
-  Prelude.AWSRequest
-    StartLifecyclePolicyPreview
-  where
+instance Core.AWSRequest StartLifecyclePolicyPreview where
   type
-    Rs StartLifecyclePolicyPreview =
+    AWSResponse StartLifecyclePolicyPreview =
       StartLifecyclePolicyPreviewResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartLifecyclePolicyPreviewResponse'
-            Prelude.<$> (x Prelude..?> "status")
-            Prelude.<*> (x Prelude..?> "registryId")
-            Prelude.<*> (x Prelude..?> "repositoryName")
-            Prelude.<*> (x Prelude..?> "lifecyclePolicyText")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "status")
+            Core.<*> (x Core..?> "registryId")
+            Core.<*> (x Core..?> "repositoryName")
+            Core.<*> (x Core..?> "lifecyclePolicyText")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartLifecyclePolicyPreview
+instance Core.Hashable StartLifecyclePolicyPreview
 
-instance Prelude.NFData StartLifecyclePolicyPreview
+instance Core.NFData StartLifecyclePolicyPreview
 
-instance
-  Prelude.ToHeaders
-    StartLifecyclePolicyPreview
-  where
+instance Core.ToHeaders StartLifecyclePolicyPreview where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartLifecyclePolicyPreview where
+instance Core.ToJSON StartLifecyclePolicyPreview where
   toJSON StartLifecyclePolicyPreview' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("registryId" Prelude..=) Prelude.<$> registryId,
-            ("lifecyclePolicyText" Prelude..=)
-              Prelude.<$> lifecyclePolicyText,
-            Prelude.Just
-              ("repositoryName" Prelude..= repositoryName)
+    Core.object
+      ( Core.catMaybes
+          [ ("registryId" Core..=) Core.<$> registryId,
+            ("lifecyclePolicyText" Core..=)
+              Core.<$> lifecyclePolicyText,
+            Core.Just ("repositoryName" Core..= repositoryName)
           ]
       )
 
-instance Prelude.ToPath StartLifecyclePolicyPreview where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartLifecyclePolicyPreview where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartLifecyclePolicyPreview where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartLifecyclePolicyPreview where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartLifecyclePolicyPreviewResponse' smart constructor.
 data StartLifecyclePolicyPreviewResponse = StartLifecyclePolicyPreviewResponse'
   { -- | The status of the lifecycle policy preview request.
-    status :: Prelude.Maybe LifecyclePolicyPreviewStatus,
+    status :: Core.Maybe LifecyclePolicyPreviewStatus,
     -- | The registry ID associated with the request.
-    registryId :: Prelude.Maybe Prelude.Text,
+    registryId :: Core.Maybe Core.Text,
     -- | The repository name associated with the request.
-    repositoryName :: Prelude.Maybe Prelude.Text,
+    repositoryName :: Core.Maybe Core.Text,
     -- | The JSON repository policy text.
-    lifecyclePolicyText :: Prelude.Maybe Prelude.Text,
+    lifecyclePolicyText :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartLifecyclePolicyPreviewResponse' with all optional fields omitted.
@@ -203,38 +193,38 @@ data StartLifecyclePolicyPreviewResponse = StartLifecyclePolicyPreviewResponse'
 -- 'httpStatus', 'startLifecyclePolicyPreviewResponse_httpStatus' - The response's http status code.
 newStartLifecyclePolicyPreviewResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartLifecyclePolicyPreviewResponse
 newStartLifecyclePolicyPreviewResponse pHttpStatus_ =
   StartLifecyclePolicyPreviewResponse'
     { status =
-        Prelude.Nothing,
-      registryId = Prelude.Nothing,
-      repositoryName = Prelude.Nothing,
-      lifecyclePolicyText = Prelude.Nothing,
+        Core.Nothing,
+      registryId = Core.Nothing,
+      repositoryName = Core.Nothing,
+      lifecyclePolicyText = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the lifecycle policy preview request.
-startLifecyclePolicyPreviewResponse_status :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe LifecyclePolicyPreviewStatus)
+startLifecyclePolicyPreviewResponse_status :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Core.Maybe LifecyclePolicyPreviewStatus)
 startLifecyclePolicyPreviewResponse_status = Lens.lens (\StartLifecyclePolicyPreviewResponse' {status} -> status) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {status = a} :: StartLifecyclePolicyPreviewResponse)
 
 -- | The registry ID associated with the request.
-startLifecyclePolicyPreviewResponse_registryId :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
+startLifecyclePolicyPreviewResponse_registryId :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Core.Maybe Core.Text)
 startLifecyclePolicyPreviewResponse_registryId = Lens.lens (\StartLifecyclePolicyPreviewResponse' {registryId} -> registryId) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {registryId = a} :: StartLifecyclePolicyPreviewResponse)
 
 -- | The repository name associated with the request.
-startLifecyclePolicyPreviewResponse_repositoryName :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
+startLifecyclePolicyPreviewResponse_repositoryName :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Core.Maybe Core.Text)
 startLifecyclePolicyPreviewResponse_repositoryName = Lens.lens (\StartLifecyclePolicyPreviewResponse' {repositoryName} -> repositoryName) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {repositoryName = a} :: StartLifecyclePolicyPreviewResponse)
 
 -- | The JSON repository policy text.
-startLifecyclePolicyPreviewResponse_lifecyclePolicyText :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Prelude.Maybe Prelude.Text)
+startLifecyclePolicyPreviewResponse_lifecyclePolicyText :: Lens.Lens' StartLifecyclePolicyPreviewResponse (Core.Maybe Core.Text)
 startLifecyclePolicyPreviewResponse_lifecyclePolicyText = Lens.lens (\StartLifecyclePolicyPreviewResponse' {lifecyclePolicyText} -> lifecyclePolicyText) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {lifecyclePolicyText = a} :: StartLifecyclePolicyPreviewResponse)
 
 -- | The response's http status code.
-startLifecyclePolicyPreviewResponse_httpStatus :: Lens.Lens' StartLifecyclePolicyPreviewResponse Prelude.Int
+startLifecyclePolicyPreviewResponse_httpStatus :: Lens.Lens' StartLifecyclePolicyPreviewResponse Core.Int
 startLifecyclePolicyPreviewResponse_httpStatus = Lens.lens (\StartLifecyclePolicyPreviewResponse' {httpStatus} -> httpStatus) (\s@StartLifecyclePolicyPreviewResponse' {} a -> s {httpStatus = a} :: StartLifecyclePolicyPreviewResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartLifecyclePolicyPreviewResponse

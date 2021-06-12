@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ReservedInstancesId where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the ID of a Reserved Instance.
 --
 -- /See:/ 'newReservedInstancesId' smart constructor.
 data ReservedInstancesId = ReservedInstancesId'
   { -- | The ID of the Reserved Instance.
-    reservedInstancesId :: Prelude.Maybe Prelude.Text
+    reservedInstancesId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReservedInstancesId' with all optional fields omitted.
@@ -47,18 +46,18 @@ newReservedInstancesId ::
 newReservedInstancesId =
   ReservedInstancesId'
     { reservedInstancesId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the Reserved Instance.
-reservedInstancesId_reservedInstancesId :: Lens.Lens' ReservedInstancesId (Prelude.Maybe Prelude.Text)
+reservedInstancesId_reservedInstancesId :: Lens.Lens' ReservedInstancesId (Core.Maybe Core.Text)
 reservedInstancesId_reservedInstancesId = Lens.lens (\ReservedInstancesId' {reservedInstancesId} -> reservedInstancesId) (\s@ReservedInstancesId' {} a -> s {reservedInstancesId = a} :: ReservedInstancesId)
 
-instance Prelude.FromXML ReservedInstancesId where
+instance Core.FromXML ReservedInstancesId where
   parseXML x =
     ReservedInstancesId'
-      Prelude.<$> (x Prelude..@? "reservedInstancesId")
+      Core.<$> (x Core..@? "reservedInstancesId")
 
-instance Prelude.Hashable ReservedInstancesId
+instance Core.Hashable ReservedInstancesId
 
-instance Prelude.NFData ReservedInstancesId
+instance Core.NFData ReservedInstancesId

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ActionTypeProperty where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about each property specified in the action
 -- configuration, such as the description and key name that display for the
@@ -30,23 +29,23 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newActionTypeProperty' smart constructor.
 data ActionTypeProperty = ActionTypeProperty'
   { -- | The description of the property that is displayed to users.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | Indicates that the property is used with polling. An action type can
     -- have up to one queryable property. If it has one, that property must be
     -- both required and not secret.
-    queryable :: Prelude.Maybe Prelude.Bool,
+    queryable :: Core.Maybe Core.Bool,
     -- | The property name that is displayed to users.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | Whether the configuration property is an optional value.
-    optional :: Prelude.Bool,
+    optional :: Core.Bool,
     -- | Whether the configuration property is a key.
-    key :: Prelude.Bool,
+    key :: Core.Bool,
     -- | Whether to omit the field value entered by the customer in the log. If
     -- @true@, the value is not saved in CloudTrail logs for the action
     -- execution.
-    noEcho :: Prelude.Bool
+    noEcho :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ActionTypeProperty' with all optional fields omitted.
@@ -73,13 +72,13 @@ data ActionTypeProperty = ActionTypeProperty'
 -- execution.
 newActionTypeProperty ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'optional'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'key'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'noEcho'
-  Prelude.Bool ->
+  Core.Bool ->
   ActionTypeProperty
 newActionTypeProperty
   pName_
@@ -87,8 +86,8 @@ newActionTypeProperty
   pKey_
   pNoEcho_ =
     ActionTypeProperty'
-      { description = Prelude.Nothing,
-        queryable = Prelude.Nothing,
+      { description = Core.Nothing,
+        queryable = Core.Nothing,
         name = pName_,
         optional = pOptional_,
         key = pKey_,
@@ -96,60 +95,60 @@ newActionTypeProperty
       }
 
 -- | The description of the property that is displayed to users.
-actionTypeProperty_description :: Lens.Lens' ActionTypeProperty (Prelude.Maybe Prelude.Text)
+actionTypeProperty_description :: Lens.Lens' ActionTypeProperty (Core.Maybe Core.Text)
 actionTypeProperty_description = Lens.lens (\ActionTypeProperty' {description} -> description) (\s@ActionTypeProperty' {} a -> s {description = a} :: ActionTypeProperty)
 
 -- | Indicates that the property is used with polling. An action type can
 -- have up to one queryable property. If it has one, that property must be
 -- both required and not secret.
-actionTypeProperty_queryable :: Lens.Lens' ActionTypeProperty (Prelude.Maybe Prelude.Bool)
+actionTypeProperty_queryable :: Lens.Lens' ActionTypeProperty (Core.Maybe Core.Bool)
 actionTypeProperty_queryable = Lens.lens (\ActionTypeProperty' {queryable} -> queryable) (\s@ActionTypeProperty' {} a -> s {queryable = a} :: ActionTypeProperty)
 
 -- | The property name that is displayed to users.
-actionTypeProperty_name :: Lens.Lens' ActionTypeProperty Prelude.Text
+actionTypeProperty_name :: Lens.Lens' ActionTypeProperty Core.Text
 actionTypeProperty_name = Lens.lens (\ActionTypeProperty' {name} -> name) (\s@ActionTypeProperty' {} a -> s {name = a} :: ActionTypeProperty)
 
 -- | Whether the configuration property is an optional value.
-actionTypeProperty_optional :: Lens.Lens' ActionTypeProperty Prelude.Bool
+actionTypeProperty_optional :: Lens.Lens' ActionTypeProperty Core.Bool
 actionTypeProperty_optional = Lens.lens (\ActionTypeProperty' {optional} -> optional) (\s@ActionTypeProperty' {} a -> s {optional = a} :: ActionTypeProperty)
 
 -- | Whether the configuration property is a key.
-actionTypeProperty_key :: Lens.Lens' ActionTypeProperty Prelude.Bool
+actionTypeProperty_key :: Lens.Lens' ActionTypeProperty Core.Bool
 actionTypeProperty_key = Lens.lens (\ActionTypeProperty' {key} -> key) (\s@ActionTypeProperty' {} a -> s {key = a} :: ActionTypeProperty)
 
 -- | Whether to omit the field value entered by the customer in the log. If
 -- @true@, the value is not saved in CloudTrail logs for the action
 -- execution.
-actionTypeProperty_noEcho :: Lens.Lens' ActionTypeProperty Prelude.Bool
+actionTypeProperty_noEcho :: Lens.Lens' ActionTypeProperty Core.Bool
 actionTypeProperty_noEcho = Lens.lens (\ActionTypeProperty' {noEcho} -> noEcho) (\s@ActionTypeProperty' {} a -> s {noEcho = a} :: ActionTypeProperty)
 
-instance Prelude.FromJSON ActionTypeProperty where
+instance Core.FromJSON ActionTypeProperty where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ActionTypeProperty"
       ( \x ->
           ActionTypeProperty'
-            Prelude.<$> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "queryable")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "optional")
-            Prelude.<*> (x Prelude..: "key")
-            Prelude.<*> (x Prelude..: "noEcho")
+            Core.<$> (x Core..:? "description")
+            Core.<*> (x Core..:? "queryable")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "optional")
+            Core.<*> (x Core..: "key")
+            Core.<*> (x Core..: "noEcho")
       )
 
-instance Prelude.Hashable ActionTypeProperty
+instance Core.Hashable ActionTypeProperty
 
-instance Prelude.NFData ActionTypeProperty
+instance Core.NFData ActionTypeProperty
 
-instance Prelude.ToJSON ActionTypeProperty where
+instance Core.ToJSON ActionTypeProperty where
   toJSON ActionTypeProperty' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("description" Prelude..=) Prelude.<$> description,
-            ("queryable" Prelude..=) Prelude.<$> queryable,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("optional" Prelude..= optional),
-            Prelude.Just ("key" Prelude..= key),
-            Prelude.Just ("noEcho" Prelude..= noEcho)
+    Core.object
+      ( Core.catMaybes
+          [ ("description" Core..=) Core.<$> description,
+            ("queryable" Core..=) Core.<$> queryable,
+            Core.Just ("name" Core..= name),
+            Core.Just ("optional" Core..= optional),
+            Core.Just ("key" Core..= key),
+            Core.Just ("noEcho" Core..= noEcho)
           ]
       )

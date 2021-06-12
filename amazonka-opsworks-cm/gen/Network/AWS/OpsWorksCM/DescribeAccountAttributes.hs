@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.OpsWorksCM.DescribeAccountAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data DescribeAccountAttributes = DescribeAccountAttributes'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountAttributes' with all optional fields omitted.
@@ -60,58 +59,53 @@ newDescribeAccountAttributes ::
 newDescribeAccountAttributes =
   DescribeAccountAttributes'
 
-instance Prelude.AWSRequest DescribeAccountAttributes where
+instance Core.AWSRequest DescribeAccountAttributes where
   type
-    Rs DescribeAccountAttributes =
+    AWSResponse DescribeAccountAttributes =
       DescribeAccountAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> ( x Prelude..?> "Attributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Attributes" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeAccountAttributes
+instance Core.Hashable DescribeAccountAttributes
 
-instance Prelude.NFData DescribeAccountAttributes
+instance Core.NFData DescribeAccountAttributes
 
-instance Prelude.ToHeaders DescribeAccountAttributes where
+instance Core.ToHeaders DescribeAccountAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.DescribeAccountAttributes" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.DescribeAccountAttributes" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeAccountAttributes where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DescribeAccountAttributes where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DescribeAccountAttributes where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAccountAttributes where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeAccountAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeAccountAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
   { -- | The attributes that are currently set for the account.
-    attributes :: Prelude.Maybe [AccountAttribute],
+    attributes :: Core.Maybe [AccountAttribute],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAccountAttributesResponse' with all optional fields omitted.
@@ -126,23 +120,23 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 -- 'httpStatus', 'describeAccountAttributesResponse_httpStatus' - The response's http status code.
 newDescribeAccountAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAccountAttributesResponse
 newDescribeAccountAttributesResponse pHttpStatus_ =
   DescribeAccountAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The attributes that are currently set for the account.
-describeAccountAttributesResponse_attributes :: Lens.Lens' DescribeAccountAttributesResponse (Prelude.Maybe [AccountAttribute])
-describeAccountAttributesResponse_attributes = Lens.lens (\DescribeAccountAttributesResponse' {attributes} -> attributes) (\s@DescribeAccountAttributesResponse' {} a -> s {attributes = a} :: DescribeAccountAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAccountAttributesResponse_attributes :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe [AccountAttribute])
+describeAccountAttributesResponse_attributes = Lens.lens (\DescribeAccountAttributesResponse' {attributes} -> attributes) (\s@DescribeAccountAttributesResponse' {} a -> s {attributes = a} :: DescribeAccountAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Prelude.Int
+describeAccountAttributesResponse_httpStatus :: Lens.Lens' DescribeAccountAttributesResponse Core.Int
 describeAccountAttributesResponse_httpStatus = Lens.lens (\DescribeAccountAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountAttributesResponse' {} a -> s {httpStatus = a} :: DescribeAccountAttributesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAccountAttributesResponse

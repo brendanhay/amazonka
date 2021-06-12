@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeStar.Types.UserProfileSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a user\'s profile in AWS CodeStar.
 --
 -- /See:/ 'newUserProfileSummary' smart constructor.
 data UserProfileSummary = UserProfileSummary'
   { -- | The Amazon Resource Name (ARN) of the user in IAM.
-    userArn :: Prelude.Maybe Prelude.Text,
+    userArn :: Core.Maybe Core.Text,
     -- | The SSH public key associated with the user in AWS CodeStar. If a
     -- project owner allows the user remote access to project resources, this
     -- public key will be used along with the user\'s private key for SSH
     -- access.
-    sshPublicKey :: Prelude.Maybe Prelude.Text,
+    sshPublicKey :: Core.Maybe Core.Text,
     -- | The display name of a user in AWS CodeStar. For example, this could be
     -- set to both first and last name (\"Mary Major\") or a single name
     -- (\"Mary\"). The display name is also used to generate the initial icon
@@ -44,11 +43,11 @@ data UserProfileSummary = UserProfileSummary'
     -- with more than one space (for example \"Mary Jane Major\") would
     -- generate an initial icon using the first character and the first
     -- character after the space (\"MJ\", not \"MM\").
-    displayName :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    displayName :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The email address associated with the user.
-    emailAddress :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    emailAddress :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserProfileSummary' with all optional fields omitted.
@@ -81,21 +80,21 @@ newUserProfileSummary ::
   UserProfileSummary
 newUserProfileSummary =
   UserProfileSummary'
-    { userArn = Prelude.Nothing,
-      sshPublicKey = Prelude.Nothing,
-      displayName = Prelude.Nothing,
-      emailAddress = Prelude.Nothing
+    { userArn = Core.Nothing,
+      sshPublicKey = Core.Nothing,
+      displayName = Core.Nothing,
+      emailAddress = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
-userProfileSummary_userArn :: Lens.Lens' UserProfileSummary (Prelude.Maybe Prelude.Text)
+userProfileSummary_userArn :: Lens.Lens' UserProfileSummary (Core.Maybe Core.Text)
 userProfileSummary_userArn = Lens.lens (\UserProfileSummary' {userArn} -> userArn) (\s@UserProfileSummary' {} a -> s {userArn = a} :: UserProfileSummary)
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 -- project owner allows the user remote access to project resources, this
 -- public key will be used along with the user\'s private key for SSH
 -- access.
-userProfileSummary_sshPublicKey :: Lens.Lens' UserProfileSummary (Prelude.Maybe Prelude.Text)
+userProfileSummary_sshPublicKey :: Lens.Lens' UserProfileSummary (Core.Maybe Core.Text)
 userProfileSummary_sshPublicKey = Lens.lens (\UserProfileSummary' {sshPublicKey} -> sshPublicKey) (\s@UserProfileSummary' {} a -> s {sshPublicKey = a} :: UserProfileSummary)
 
 -- | The display name of a user in AWS CodeStar. For example, this could be
@@ -108,25 +107,25 @@ userProfileSummary_sshPublicKey = Lens.lens (\UserProfileSummary' {sshPublicKey}
 -- with more than one space (for example \"Mary Jane Major\") would
 -- generate an initial icon using the first character and the first
 -- character after the space (\"MJ\", not \"MM\").
-userProfileSummary_displayName :: Lens.Lens' UserProfileSummary (Prelude.Maybe Prelude.Text)
-userProfileSummary_displayName = Lens.lens (\UserProfileSummary' {displayName} -> displayName) (\s@UserProfileSummary' {} a -> s {displayName = a} :: UserProfileSummary) Prelude.. Lens.mapping Prelude._Sensitive
+userProfileSummary_displayName :: Lens.Lens' UserProfileSummary (Core.Maybe Core.Text)
+userProfileSummary_displayName = Lens.lens (\UserProfileSummary' {displayName} -> displayName) (\s@UserProfileSummary' {} a -> s {displayName = a} :: UserProfileSummary) Core.. Lens.mapping Core._Sensitive
 
 -- | The email address associated with the user.
-userProfileSummary_emailAddress :: Lens.Lens' UserProfileSummary (Prelude.Maybe Prelude.Text)
-userProfileSummary_emailAddress = Lens.lens (\UserProfileSummary' {emailAddress} -> emailAddress) (\s@UserProfileSummary' {} a -> s {emailAddress = a} :: UserProfileSummary) Prelude.. Lens.mapping Prelude._Sensitive
+userProfileSummary_emailAddress :: Lens.Lens' UserProfileSummary (Core.Maybe Core.Text)
+userProfileSummary_emailAddress = Lens.lens (\UserProfileSummary' {emailAddress} -> emailAddress) (\s@UserProfileSummary' {} a -> s {emailAddress = a} :: UserProfileSummary) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromJSON UserProfileSummary where
+instance Core.FromJSON UserProfileSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserProfileSummary"
       ( \x ->
           UserProfileSummary'
-            Prelude.<$> (x Prelude..:? "userArn")
-            Prelude.<*> (x Prelude..:? "sshPublicKey")
-            Prelude.<*> (x Prelude..:? "displayName")
-            Prelude.<*> (x Prelude..:? "emailAddress")
+            Core.<$> (x Core..:? "userArn")
+            Core.<*> (x Core..:? "sshPublicKey")
+            Core.<*> (x Core..:? "displayName")
+            Core.<*> (x Core..:? "emailAddress")
       )
 
-instance Prelude.Hashable UserProfileSummary
+instance Core.Hashable UserProfileSummary
 
-instance Prelude.NFData UserProfileSummary
+instance Core.NFData UserProfileSummary

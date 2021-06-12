@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.OperatingSystem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.OperatingSystemType
 
 -- | The operating system that the image is running.
@@ -29,9 +28,9 @@ import Network.AWS.WorkSpaces.Types.OperatingSystemType
 -- /See:/ 'newOperatingSystem' smart constructor.
 data OperatingSystem = OperatingSystem'
   { -- | The operating system.
-    type' :: Prelude.Maybe OperatingSystemType
+    type' :: Core.Maybe OperatingSystemType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OperatingSystem' with all optional fields omitted.
@@ -45,20 +44,20 @@ data OperatingSystem = OperatingSystem'
 newOperatingSystem ::
   OperatingSystem
 newOperatingSystem =
-  OperatingSystem' {type' = Prelude.Nothing}
+  OperatingSystem' {type' = Core.Nothing}
 
 -- | The operating system.
-operatingSystem_type :: Lens.Lens' OperatingSystem (Prelude.Maybe OperatingSystemType)
+operatingSystem_type :: Lens.Lens' OperatingSystem (Core.Maybe OperatingSystemType)
 operatingSystem_type = Lens.lens (\OperatingSystem' {type'} -> type') (\s@OperatingSystem' {} a -> s {type' = a} :: OperatingSystem)
 
-instance Prelude.FromJSON OperatingSystem where
+instance Core.FromJSON OperatingSystem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OperatingSystem"
       ( \x ->
-          OperatingSystem' Prelude.<$> (x Prelude..:? "Type")
+          OperatingSystem' Core.<$> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable OperatingSystem
+instance Core.Hashable OperatingSystem
 
-instance Prelude.NFData OperatingSystem
+instance Core.NFData OperatingSystem

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -24,8 +23,8 @@ import Network.AWS.Batch.Types.CRAllocationStrategy
 import Network.AWS.Batch.Types.CRType
 import Network.AWS.Batch.Types.Ec2Configuration
 import Network.AWS.Batch.Types.LaunchTemplateSpecification
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an AWS Batch compute resource. For more
 -- information, see
@@ -42,7 +41,7 @@ data ComputeResource = ComputeResource'
     -- not support launch templates.) If security groups are specified using
     -- both @securityGroupIds@ and @launchTemplate@, the values in
     -- @securityGroupIds@ will be used.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | The maximum percentage that a Spot Instance price can be when compared
     -- with the On-Demand price for that instance type before instances are
     -- launched. For example, if your maximum percentage is 20%, then the Spot
@@ -53,20 +52,20 @@ data ComputeResource = ComputeResource'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    bidPercentage :: Prelude.Maybe Prelude.Int,
+    bidPercentage :: Core.Maybe Core.Int,
     -- | The minimum number of Amazon EC2 vCPUs that an environment should
     -- maintain (even if the compute environment is @DISABLED@).
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    minvCpus :: Prelude.Maybe Prelude.Int,
+    minvCpus :: Core.Maybe Core.Int,
     -- | The Amazon EC2 key pair that\'s used for instances launched in the
     -- compute environment. You can use this key pair to log in to your
     -- instances with SSH.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    ec2KeyPair :: Prelude.Maybe Prelude.Text,
+    ec2KeyPair :: Core.Maybe Core.Text,
     -- | The Amazon EC2 placement group to associate with your compute resources.
     -- If you intend to submit multi-node parallel jobs to your compute
     -- environment, you should consider creating a cluster placement group and
@@ -79,7 +78,7 @@ data ComputeResource = ComputeResource'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    placementGroup :: Prelude.Maybe Prelude.Text,
+    placementGroup :: Core.Maybe Core.Text,
     -- | The launch template to use for your compute resources. Any other compute
     -- resource parameters that you specify in a CreateComputeEnvironment API
     -- operation override the same parameters in the launch template. You must
@@ -90,7 +89,7 @@ data ComputeResource = ComputeResource'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
+    launchTemplate :: Core.Maybe LaunchTemplateSpecification,
     -- | The Amazon Machine Image (AMI) ID used for instances launched in the
     -- compute environment. This parameter is overridden by the
     -- @imageIdOverride@ member of the @Ec2Configuration@ structure.
@@ -106,7 +105,7 @@ data ComputeResource = ComputeResource'
     -- ECS-optimized Amazon Linux 2 AMI. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html Amazon ECS-optimized Amazon Linux 2 AMI>
     -- in the /Amazon Elastic Container Service Developer Guide/.
-    imageId :: Prelude.Maybe Prelude.Text,
+    imageId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role
     -- applied to a @SPOT@ compute environment. This role is required if the
     -- allocation strategy set to @BEST_FIT@ or if the allocation strategy
@@ -124,14 +123,14 @@ data ComputeResource = ComputeResource'
     -- Instances. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot Instances not tagged on creation>
     -- in the /AWS Batch User Guide/.
-    spotIamFleetRole :: Prelude.Maybe Prelude.Text,
+    spotIamFleetRole :: Core.Maybe Core.Text,
     -- | Provides information used to select Amazon Machine Images (AMIs) for EC2
     -- instances in the compute environment. If @Ec2Configuration@ isn\'t
     -- specified, the default is @ECS_AL1@.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    ec2Configuration :: Prelude.Maybe [Ec2Configuration],
+    ec2Configuration :: Core.Maybe [Ec2Configuration],
     -- | Key-value pair tags to be applied to EC2 resources that are launched in
     -- the compute environment. For AWS Batch, these take the form of
     -- \"String1\": \"String2\", where String1 is the tag key and String2 is
@@ -145,14 +144,14 @@ data ComputeResource = ComputeResource'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The desired number of Amazon EC2 vCPUS in the compute environment. AWS
     -- Batch modifies this value between the minimum and maximum values, based
     -- on job queue demand.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    desiredvCpus :: Prelude.Maybe Prelude.Int,
+    desiredvCpus :: Core.Maybe Core.Int,
     -- | The allocation strategy to use for the compute resource if not enough
     -- instances of the best fitting instance type can be allocated. This might
     -- be because of availability of the instance type in the Region or
@@ -195,7 +194,7 @@ data ComputeResource = ComputeResource'
     -- strategies, AWS Batch might need to go above @maxvCpus@ to meet your
     -- capacity requirements. In this event, AWS Batch never exceeds @maxvCpus@
     -- by more than a single instance.
-    allocationStrategy :: Prelude.Maybe CRAllocationStrategy,
+    allocationStrategy :: Core.Maybe CRAllocationStrategy,
     -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
     -- compute environment. You can specify the short name or full Amazon
     -- Resource Name (ARN) of an instance profile. For example,
@@ -207,7 +206,7 @@ data ComputeResource = ComputeResource'
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    instanceRole :: Prelude.Maybe Prelude.Text,
+    instanceRole :: Core.Maybe Core.Text,
     -- | The instances types that can be launched. You can specify instance
     -- families to launch any instance type within those families (for example,
     -- @c5@ or @p3@), or you can specify specific sizes within a family (such
@@ -227,7 +226,7 @@ data ComputeResource = ComputeResource'
     -- instance families. In Regions that don\'t have instance types from those
     -- instance families, instance types from the C5, M5. and R5 instance
     -- families are used.
-    instanceTypes :: Prelude.Maybe [Prelude.Text],
+    instanceTypes :: Core.Maybe [Core.Text],
     -- | The type of compute environment: @EC2@, @SPOT@, @FARGATE@, or
     -- @FARGATE_SPOT@. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html Compute Environments>
@@ -246,16 +245,16 @@ data ComputeResource = ComputeResource'
     -- meet your capacity requirements. In this event, AWS Batch will never go
     -- above @maxvCpus@ by more than a single instance (e.g., no more than a
     -- single instance from among those specified in your compute environment).
-    maxvCpus :: Prelude.Int,
+    maxvCpus :: Core.Int,
     -- | The VPC subnets into which the compute resources are launched. These
     -- subnets must be within the same VPC. This parameter is required for jobs
     -- running on Fargate resources, where it can contain up to 16 subnets. For
     -- more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
     -- in the /Amazon VPC User Guide/.
-    subnets :: [Prelude.Text]
+    subnets :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComputeResource' with all optional fields omitted.
@@ -488,28 +487,27 @@ newComputeResource ::
   -- | 'type''
   CRType ->
   -- | 'maxvCpus'
-  Prelude.Int ->
+  Core.Int ->
   ComputeResource
 newComputeResource pType_ pMaxvCpus_ =
   ComputeResource'
-    { securityGroupIds =
-        Prelude.Nothing,
-      bidPercentage = Prelude.Nothing,
-      minvCpus = Prelude.Nothing,
-      ec2KeyPair = Prelude.Nothing,
-      placementGroup = Prelude.Nothing,
-      launchTemplate = Prelude.Nothing,
-      imageId = Prelude.Nothing,
-      spotIamFleetRole = Prelude.Nothing,
-      ec2Configuration = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      desiredvCpus = Prelude.Nothing,
-      allocationStrategy = Prelude.Nothing,
-      instanceRole = Prelude.Nothing,
-      instanceTypes = Prelude.Nothing,
+    { securityGroupIds = Core.Nothing,
+      bidPercentage = Core.Nothing,
+      minvCpus = Core.Nothing,
+      ec2KeyPair = Core.Nothing,
+      placementGroup = Core.Nothing,
+      launchTemplate = Core.Nothing,
+      imageId = Core.Nothing,
+      spotIamFleetRole = Core.Nothing,
+      ec2Configuration = Core.Nothing,
+      tags = Core.Nothing,
+      desiredvCpus = Core.Nothing,
+      allocationStrategy = Core.Nothing,
+      instanceRole = Core.Nothing,
+      instanceTypes = Core.Nothing,
       type' = pType_,
       maxvCpus = pMaxvCpus_,
-      subnets = Prelude.mempty
+      subnets = Core.mempty
     }
 
 -- | The Amazon EC2 security groups associated with instances launched in the
@@ -520,8 +518,8 @@ newComputeResource pType_ pMaxvCpus_ =
 -- not support launch templates.) If security groups are specified using
 -- both @securityGroupIds@ and @launchTemplate@, the values in
 -- @securityGroupIds@ will be used.
-computeResource_securityGroupIds :: Lens.Lens' ComputeResource (Prelude.Maybe [Prelude.Text])
-computeResource_securityGroupIds = Lens.lens (\ComputeResource' {securityGroupIds} -> securityGroupIds) (\s@ComputeResource' {} a -> s {securityGroupIds = a} :: ComputeResource) Prelude.. Lens.mapping Prelude._Coerce
+computeResource_securityGroupIds :: Lens.Lens' ComputeResource (Core.Maybe [Core.Text])
+computeResource_securityGroupIds = Lens.lens (\ComputeResource' {securityGroupIds} -> securityGroupIds) (\s@ComputeResource' {} a -> s {securityGroupIds = a} :: ComputeResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum percentage that a Spot Instance price can be when compared
 -- with the On-Demand price for that instance type before instances are
@@ -533,7 +531,7 @@ computeResource_securityGroupIds = Lens.lens (\ComputeResource' {securityGroupId
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_bidPercentage :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Int)
+computeResource_bidPercentage :: Lens.Lens' ComputeResource (Core.Maybe Core.Int)
 computeResource_bidPercentage = Lens.lens (\ComputeResource' {bidPercentage} -> bidPercentage) (\s@ComputeResource' {} a -> s {bidPercentage = a} :: ComputeResource)
 
 -- | The minimum number of Amazon EC2 vCPUs that an environment should
@@ -541,7 +539,7 @@ computeResource_bidPercentage = Lens.lens (\ComputeResource' {bidPercentage} -> 
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_minvCpus :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Int)
+computeResource_minvCpus :: Lens.Lens' ComputeResource (Core.Maybe Core.Int)
 computeResource_minvCpus = Lens.lens (\ComputeResource' {minvCpus} -> minvCpus) (\s@ComputeResource' {} a -> s {minvCpus = a} :: ComputeResource)
 
 -- | The Amazon EC2 key pair that\'s used for instances launched in the
@@ -550,7 +548,7 @@ computeResource_minvCpus = Lens.lens (\ComputeResource' {minvCpus} -> minvCpus) 
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_ec2KeyPair :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Text)
+computeResource_ec2KeyPair :: Lens.Lens' ComputeResource (Core.Maybe Core.Text)
 computeResource_ec2KeyPair = Lens.lens (\ComputeResource' {ec2KeyPair} -> ec2KeyPair) (\s@ComputeResource' {} a -> s {ec2KeyPair = a} :: ComputeResource)
 
 -- | The Amazon EC2 placement group to associate with your compute resources.
@@ -565,7 +563,7 @@ computeResource_ec2KeyPair = Lens.lens (\ComputeResource' {ec2KeyPair} -> ec2Key
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_placementGroup :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Text)
+computeResource_placementGroup :: Lens.Lens' ComputeResource (Core.Maybe Core.Text)
 computeResource_placementGroup = Lens.lens (\ComputeResource' {placementGroup} -> placementGroup) (\s@ComputeResource' {} a -> s {placementGroup = a} :: ComputeResource)
 
 -- | The launch template to use for your compute resources. Any other compute
@@ -578,7 +576,7 @@ computeResource_placementGroup = Lens.lens (\ComputeResource' {placementGroup} -
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_launchTemplate :: Lens.Lens' ComputeResource (Prelude.Maybe LaunchTemplateSpecification)
+computeResource_launchTemplate :: Lens.Lens' ComputeResource (Core.Maybe LaunchTemplateSpecification)
 computeResource_launchTemplate = Lens.lens (\ComputeResource' {launchTemplate} -> launchTemplate) (\s@ComputeResource' {} a -> s {launchTemplate = a} :: ComputeResource)
 
 -- | The Amazon Machine Image (AMI) ID used for instances launched in the
@@ -596,7 +594,7 @@ computeResource_launchTemplate = Lens.lens (\ComputeResource' {launchTemplate} -
 -- ECS-optimized Amazon Linux 2 AMI. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html Amazon ECS-optimized Amazon Linux 2 AMI>
 -- in the /Amazon Elastic Container Service Developer Guide/.
-computeResource_imageId :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Text)
+computeResource_imageId :: Lens.Lens' ComputeResource (Core.Maybe Core.Text)
 computeResource_imageId = Lens.lens (\ComputeResource' {imageId} -> imageId) (\s@ComputeResource' {} a -> s {imageId = a} :: ComputeResource)
 
 -- | The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role
@@ -616,7 +614,7 @@ computeResource_imageId = Lens.lens (\ComputeResource' {imageId} -> imageId) (\s
 -- Instances. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#spot-instance-no-tag Spot Instances not tagged on creation>
 -- in the /AWS Batch User Guide/.
-computeResource_spotIamFleetRole :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Text)
+computeResource_spotIamFleetRole :: Lens.Lens' ComputeResource (Core.Maybe Core.Text)
 computeResource_spotIamFleetRole = Lens.lens (\ComputeResource' {spotIamFleetRole} -> spotIamFleetRole) (\s@ComputeResource' {} a -> s {spotIamFleetRole = a} :: ComputeResource)
 
 -- | Provides information used to select Amazon Machine Images (AMIs) for EC2
@@ -625,8 +623,8 @@ computeResource_spotIamFleetRole = Lens.lens (\ComputeResource' {spotIamFleetRol
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_ec2Configuration :: Lens.Lens' ComputeResource (Prelude.Maybe [Ec2Configuration])
-computeResource_ec2Configuration = Lens.lens (\ComputeResource' {ec2Configuration} -> ec2Configuration) (\s@ComputeResource' {} a -> s {ec2Configuration = a} :: ComputeResource) Prelude.. Lens.mapping Prelude._Coerce
+computeResource_ec2Configuration :: Lens.Lens' ComputeResource (Core.Maybe [Ec2Configuration])
+computeResource_ec2Configuration = Lens.lens (\ComputeResource' {ec2Configuration} -> ec2Configuration) (\s@ComputeResource' {} a -> s {ec2Configuration = a} :: ComputeResource) Core.. Lens.mapping Lens._Coerce
 
 -- | Key-value pair tags to be applied to EC2 resources that are launched in
 -- the compute environment. For AWS Batch, these take the form of
@@ -641,8 +639,8 @@ computeResource_ec2Configuration = Lens.lens (\ComputeResource' {ec2Configuratio
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_tags :: Lens.Lens' ComputeResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-computeResource_tags = Lens.lens (\ComputeResource' {tags} -> tags) (\s@ComputeResource' {} a -> s {tags = a} :: ComputeResource) Prelude.. Lens.mapping Prelude._Coerce
+computeResource_tags :: Lens.Lens' ComputeResource (Core.Maybe (Core.HashMap Core.Text Core.Text))
+computeResource_tags = Lens.lens (\ComputeResource' {tags} -> tags) (\s@ComputeResource' {} a -> s {tags = a} :: ComputeResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The desired number of Amazon EC2 vCPUS in the compute environment. AWS
 -- Batch modifies this value between the minimum and maximum values, based
@@ -650,7 +648,7 @@ computeResource_tags = Lens.lens (\ComputeResource' {tags} -> tags) (\s@ComputeR
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_desiredvCpus :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Int)
+computeResource_desiredvCpus :: Lens.Lens' ComputeResource (Core.Maybe Core.Int)
 computeResource_desiredvCpus = Lens.lens (\ComputeResource' {desiredvCpus} -> desiredvCpus) (\s@ComputeResource' {} a -> s {desiredvCpus = a} :: ComputeResource)
 
 -- | The allocation strategy to use for the compute resource if not enough
@@ -695,7 +693,7 @@ computeResource_desiredvCpus = Lens.lens (\ComputeResource' {desiredvCpus} -> de
 -- strategies, AWS Batch might need to go above @maxvCpus@ to meet your
 -- capacity requirements. In this event, AWS Batch never exceeds @maxvCpus@
 -- by more than a single instance.
-computeResource_allocationStrategy :: Lens.Lens' ComputeResource (Prelude.Maybe CRAllocationStrategy)
+computeResource_allocationStrategy :: Lens.Lens' ComputeResource (Core.Maybe CRAllocationStrategy)
 computeResource_allocationStrategy = Lens.lens (\ComputeResource' {allocationStrategy} -> allocationStrategy) (\s@ComputeResource' {} a -> s {allocationStrategy = a} :: ComputeResource)
 
 -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
@@ -709,7 +707,7 @@ computeResource_allocationStrategy = Lens.lens (\ComputeResource' {allocationStr
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResource_instanceRole :: Lens.Lens' ComputeResource (Prelude.Maybe Prelude.Text)
+computeResource_instanceRole :: Lens.Lens' ComputeResource (Core.Maybe Core.Text)
 computeResource_instanceRole = Lens.lens (\ComputeResource' {instanceRole} -> instanceRole) (\s@ComputeResource' {} a -> s {instanceRole = a} :: ComputeResource)
 
 -- | The instances types that can be launched. You can specify instance
@@ -731,8 +729,8 @@ computeResource_instanceRole = Lens.lens (\ComputeResource' {instanceRole} -> in
 -- instance families. In Regions that don\'t have instance types from those
 -- instance families, instance types from the C5, M5. and R5 instance
 -- families are used.
-computeResource_instanceTypes :: Lens.Lens' ComputeResource (Prelude.Maybe [Prelude.Text])
-computeResource_instanceTypes = Lens.lens (\ComputeResource' {instanceTypes} -> instanceTypes) (\s@ComputeResource' {} a -> s {instanceTypes = a} :: ComputeResource) Prelude.. Lens.mapping Prelude._Coerce
+computeResource_instanceTypes :: Lens.Lens' ComputeResource (Core.Maybe [Core.Text])
+computeResource_instanceTypes = Lens.lens (\ComputeResource' {instanceTypes} -> instanceTypes) (\s@ComputeResource' {} a -> s {instanceTypes = a} :: ComputeResource) Core.. Lens.mapping Lens._Coerce
 
 -- | The type of compute environment: @EC2@, @SPOT@, @FARGATE@, or
 -- @FARGATE_SPOT@. For more information, see
@@ -754,7 +752,7 @@ computeResource_type = Lens.lens (\ComputeResource' {type'} -> type') (\s@Comput
 -- meet your capacity requirements. In this event, AWS Batch will never go
 -- above @maxvCpus@ by more than a single instance (e.g., no more than a
 -- single instance from among those specified in your compute environment).
-computeResource_maxvCpus :: Lens.Lens' ComputeResource Prelude.Int
+computeResource_maxvCpus :: Lens.Lens' ComputeResource Core.Int
 computeResource_maxvCpus = Lens.lens (\ComputeResource' {maxvCpus} -> maxvCpus) (\s@ComputeResource' {} a -> s {maxvCpus = a} :: ComputeResource)
 
 -- | The VPC subnets into which the compute resources are launched. These
@@ -763,72 +761,62 @@ computeResource_maxvCpus = Lens.lens (\ComputeResource' {maxvCpus} -> maxvCpus) 
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html VPCs and Subnets>
 -- in the /Amazon VPC User Guide/.
-computeResource_subnets :: Lens.Lens' ComputeResource [Prelude.Text]
-computeResource_subnets = Lens.lens (\ComputeResource' {subnets} -> subnets) (\s@ComputeResource' {} a -> s {subnets = a} :: ComputeResource) Prelude.. Prelude._Coerce
+computeResource_subnets :: Lens.Lens' ComputeResource [Core.Text]
+computeResource_subnets = Lens.lens (\ComputeResource' {subnets} -> subnets) (\s@ComputeResource' {} a -> s {subnets = a} :: ComputeResource) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ComputeResource where
+instance Core.FromJSON ComputeResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComputeResource"
       ( \x ->
           ComputeResource'
-            Prelude.<$> ( x Prelude..:? "securityGroupIds"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "bidPercentage")
-            Prelude.<*> (x Prelude..:? "minvCpus")
-            Prelude.<*> (x Prelude..:? "ec2KeyPair")
-            Prelude.<*> (x Prelude..:? "placementGroup")
-            Prelude.<*> (x Prelude..:? "launchTemplate")
-            Prelude.<*> (x Prelude..:? "imageId")
-            Prelude.<*> (x Prelude..:? "spotIamFleetRole")
-            Prelude.<*> ( x Prelude..:? "ec2Configuration"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "desiredvCpus")
-            Prelude.<*> (x Prelude..:? "allocationStrategy")
-            Prelude.<*> (x Prelude..:? "instanceRole")
-            Prelude.<*> ( x Prelude..:? "instanceTypes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "type")
-            Prelude.<*> (x Prelude..: "maxvCpus")
-            Prelude.<*> (x Prelude..:? "subnets" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "securityGroupIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "bidPercentage")
+            Core.<*> (x Core..:? "minvCpus")
+            Core.<*> (x Core..:? "ec2KeyPair")
+            Core.<*> (x Core..:? "placementGroup")
+            Core.<*> (x Core..:? "launchTemplate")
+            Core.<*> (x Core..:? "imageId")
+            Core.<*> (x Core..:? "spotIamFleetRole")
+            Core.<*> (x Core..:? "ec2Configuration" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "desiredvCpus")
+            Core.<*> (x Core..:? "allocationStrategy")
+            Core.<*> (x Core..:? "instanceRole")
+            Core.<*> (x Core..:? "instanceTypes" Core..!= Core.mempty)
+            Core.<*> (x Core..: "type")
+            Core.<*> (x Core..: "maxvCpus")
+            Core.<*> (x Core..:? "subnets" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ComputeResource
+instance Core.Hashable ComputeResource
 
-instance Prelude.NFData ComputeResource
+instance Core.NFData ComputeResource
 
-instance Prelude.ToJSON ComputeResource where
+instance Core.ToJSON ComputeResource where
   toJSON ComputeResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("securityGroupIds" Prelude..=)
-              Prelude.<$> securityGroupIds,
-            ("bidPercentage" Prelude..=)
-              Prelude.<$> bidPercentage,
-            ("minvCpus" Prelude..=) Prelude.<$> minvCpus,
-            ("ec2KeyPair" Prelude..=) Prelude.<$> ec2KeyPair,
-            ("placementGroup" Prelude..=)
-              Prelude.<$> placementGroup,
-            ("launchTemplate" Prelude..=)
-              Prelude.<$> launchTemplate,
-            ("imageId" Prelude..=) Prelude.<$> imageId,
-            ("spotIamFleetRole" Prelude..=)
-              Prelude.<$> spotIamFleetRole,
-            ("ec2Configuration" Prelude..=)
-              Prelude.<$> ec2Configuration,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("desiredvCpus" Prelude..=) Prelude.<$> desiredvCpus,
-            ("allocationStrategy" Prelude..=)
-              Prelude.<$> allocationStrategy,
-            ("instanceRole" Prelude..=) Prelude.<$> instanceRole,
-            ("instanceTypes" Prelude..=)
-              Prelude.<$> instanceTypes,
-            Prelude.Just ("type" Prelude..= type'),
-            Prelude.Just ("maxvCpus" Prelude..= maxvCpus),
-            Prelude.Just ("subnets" Prelude..= subnets)
+    Core.object
+      ( Core.catMaybes
+          [ ("securityGroupIds" Core..=)
+              Core.<$> securityGroupIds,
+            ("bidPercentage" Core..=) Core.<$> bidPercentage,
+            ("minvCpus" Core..=) Core.<$> minvCpus,
+            ("ec2KeyPair" Core..=) Core.<$> ec2KeyPair,
+            ("placementGroup" Core..=) Core.<$> placementGroup,
+            ("launchTemplate" Core..=) Core.<$> launchTemplate,
+            ("imageId" Core..=) Core.<$> imageId,
+            ("spotIamFleetRole" Core..=)
+              Core.<$> spotIamFleetRole,
+            ("ec2Configuration" Core..=)
+              Core.<$> ec2Configuration,
+            ("tags" Core..=) Core.<$> tags,
+            ("desiredvCpus" Core..=) Core.<$> desiredvCpus,
+            ("allocationStrategy" Core..=)
+              Core.<$> allocationStrategy,
+            ("instanceRole" Core..=) Core.<$> instanceRole,
+            ("instanceTypes" Core..=) Core.<$> instanceTypes,
+            Core.Just ("type" Core..= type'),
+            Core.Just ("maxvCpus" Core..= maxvCpus),
+            Core.Just ("subnets" Core..= subnets)
           ]
       )

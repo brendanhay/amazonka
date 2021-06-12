@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.SimpleEmail where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.SimpleEmailPart
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the contents of an email message, composed of a subject, a
 -- text part, and an HTML part.
@@ -33,15 +32,15 @@ data SimpleEmail = SimpleEmail'
     -- plain text format for email clients that don\'t render HTML content and
     -- clients that are connected to high-latency networks, such as mobile
     -- devices.
-    textPart :: Prelude.Maybe SimpleEmailPart,
+    textPart :: Core.Maybe SimpleEmailPart,
     -- | The subject line, or title, of the email.
-    subject :: Prelude.Maybe SimpleEmailPart,
+    subject :: Core.Maybe SimpleEmailPart,
     -- | The body of the email message, in HTML format. We recommend using HTML
     -- format for email clients that render HTML content. You can include
     -- links, formatted text, and more in an HTML message.
-    htmlPart :: Prelude.Maybe SimpleEmailPart
+    htmlPart :: Core.Maybe SimpleEmailPart
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SimpleEmail' with all optional fields omitted.
@@ -65,38 +64,38 @@ newSimpleEmail ::
   SimpleEmail
 newSimpleEmail =
   SimpleEmail'
-    { textPart = Prelude.Nothing,
-      subject = Prelude.Nothing,
-      htmlPart = Prelude.Nothing
+    { textPart = Core.Nothing,
+      subject = Core.Nothing,
+      htmlPart = Core.Nothing
     }
 
 -- | The body of the email message, in plain text format. We recommend using
 -- plain text format for email clients that don\'t render HTML content and
 -- clients that are connected to high-latency networks, such as mobile
 -- devices.
-simpleEmail_textPart :: Lens.Lens' SimpleEmail (Prelude.Maybe SimpleEmailPart)
+simpleEmail_textPart :: Lens.Lens' SimpleEmail (Core.Maybe SimpleEmailPart)
 simpleEmail_textPart = Lens.lens (\SimpleEmail' {textPart} -> textPart) (\s@SimpleEmail' {} a -> s {textPart = a} :: SimpleEmail)
 
 -- | The subject line, or title, of the email.
-simpleEmail_subject :: Lens.Lens' SimpleEmail (Prelude.Maybe SimpleEmailPart)
+simpleEmail_subject :: Lens.Lens' SimpleEmail (Core.Maybe SimpleEmailPart)
 simpleEmail_subject = Lens.lens (\SimpleEmail' {subject} -> subject) (\s@SimpleEmail' {} a -> s {subject = a} :: SimpleEmail)
 
 -- | The body of the email message, in HTML format. We recommend using HTML
 -- format for email clients that render HTML content. You can include
 -- links, formatted text, and more in an HTML message.
-simpleEmail_htmlPart :: Lens.Lens' SimpleEmail (Prelude.Maybe SimpleEmailPart)
+simpleEmail_htmlPart :: Lens.Lens' SimpleEmail (Core.Maybe SimpleEmailPart)
 simpleEmail_htmlPart = Lens.lens (\SimpleEmail' {htmlPart} -> htmlPart) (\s@SimpleEmail' {} a -> s {htmlPart = a} :: SimpleEmail)
 
-instance Prelude.Hashable SimpleEmail
+instance Core.Hashable SimpleEmail
 
-instance Prelude.NFData SimpleEmail
+instance Core.NFData SimpleEmail
 
-instance Prelude.ToJSON SimpleEmail where
+instance Core.ToJSON SimpleEmail where
   toJSON SimpleEmail' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TextPart" Prelude..=) Prelude.<$> textPart,
-            ("Subject" Prelude..=) Prelude.<$> subject,
-            ("HtmlPart" Prelude..=) Prelude.<$> htmlPart
+    Core.object
+      ( Core.catMaybes
+          [ ("TextPart" Core..=) Core.<$> textPart,
+            ("Subject" Core..=) Core.<$> subject,
+            ("HtmlPart" Core..=) Core.<$> htmlPart
           ]
       )

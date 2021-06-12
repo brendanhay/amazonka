@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.MonitoringConstraintsResource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The constraints resource for a monitoring job.
 --
 -- /See:/ 'newMonitoringConstraintsResource' smart constructor.
 data MonitoringConstraintsResource = MonitoringConstraintsResource'
   { -- | The Amazon S3 URI for the constraints resource.
-    s3Uri :: Prelude.Maybe Prelude.Text
+    s3Uri :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MonitoringConstraintsResource' with all optional fields omitted.
@@ -46,34 +45,27 @@ newMonitoringConstraintsResource ::
 newMonitoringConstraintsResource =
   MonitoringConstraintsResource'
     { s3Uri =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The Amazon S3 URI for the constraints resource.
-monitoringConstraintsResource_s3Uri :: Lens.Lens' MonitoringConstraintsResource (Prelude.Maybe Prelude.Text)
+monitoringConstraintsResource_s3Uri :: Lens.Lens' MonitoringConstraintsResource (Core.Maybe Core.Text)
 monitoringConstraintsResource_s3Uri = Lens.lens (\MonitoringConstraintsResource' {s3Uri} -> s3Uri) (\s@MonitoringConstraintsResource' {} a -> s {s3Uri = a} :: MonitoringConstraintsResource)
 
-instance
-  Prelude.FromJSON
-    MonitoringConstraintsResource
-  where
+instance Core.FromJSON MonitoringConstraintsResource where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MonitoringConstraintsResource"
       ( \x ->
           MonitoringConstraintsResource'
-            Prelude.<$> (x Prelude..:? "S3Uri")
+            Core.<$> (x Core..:? "S3Uri")
       )
 
-instance
-  Prelude.Hashable
-    MonitoringConstraintsResource
+instance Core.Hashable MonitoringConstraintsResource
 
-instance Prelude.NFData MonitoringConstraintsResource
+instance Core.NFData MonitoringConstraintsResource
 
-instance Prelude.ToJSON MonitoringConstraintsResource where
+instance Core.ToJSON MonitoringConstraintsResource where
   toJSON MonitoringConstraintsResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("S3Uri" Prelude..=) Prelude.<$> s3Uri]
-      )
+    Core.object
+      (Core.catMaybes [("S3Uri" Core..=) Core.<$> s3Uri])

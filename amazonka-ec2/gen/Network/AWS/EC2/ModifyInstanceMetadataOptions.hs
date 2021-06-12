@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,9 @@ module Network.AWS.EC2.ModifyInstanceMetadataOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,20 +64,20 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | This parameter enables or disables the HTTP metadata endpoint on your
     -- instances. If the parameter is not specified, the existing state is
     -- maintained.
     --
     -- If you specify a value of @disabled@, you will not be able to access
     -- your instance metadata.
-    httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState,
+    httpEndpoint :: Core.Maybe InstanceMetadataEndpointState,
     -- | The desired HTTP PUT response hop limit for instance metadata requests.
     -- The larger the number, the further instance metadata requests can
     -- travel. If no parameter is specified, the existing state is maintained.
     --
     -- Possible values: Integers from 1 to 64
-    httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
+    httpPutResponseHopLimit :: Core.Maybe Core.Int,
     -- | The state of token usage for your instance metadata requests. If the
     -- parameter is not specified in the request, the default state is
     -- @optional@.
@@ -93,11 +92,11 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
     -- instance metadata retrieval requests. In this state, retrieving the IAM
     -- role credential always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
-    httpTokens :: Prelude.Maybe HttpTokensState,
+    httpTokens :: Core.Maybe HttpTokensState,
     -- | The ID of the instance.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceMetadataOptions' with all optional fields omitted.
@@ -143,15 +142,15 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
 -- 'instanceId', 'modifyInstanceMetadataOptions_instanceId' - The ID of the instance.
 newModifyInstanceMetadataOptions ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyInstanceMetadataOptions
 newModifyInstanceMetadataOptions pInstanceId_ =
   ModifyInstanceMetadataOptions'
     { dryRun =
-        Prelude.Nothing,
-      httpEndpoint = Prelude.Nothing,
-      httpPutResponseHopLimit = Prelude.Nothing,
-      httpTokens = Prelude.Nothing,
+        Core.Nothing,
+      httpEndpoint = Core.Nothing,
+      httpPutResponseHopLimit = Core.Nothing,
+      httpTokens = Core.Nothing,
       instanceId = pInstanceId_
     }
 
@@ -159,7 +158,7 @@ newModifyInstanceMetadataOptions pInstanceId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyInstanceMetadataOptions_dryRun :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe Prelude.Bool)
+modifyInstanceMetadataOptions_dryRun :: Lens.Lens' ModifyInstanceMetadataOptions (Core.Maybe Core.Bool)
 modifyInstanceMetadataOptions_dryRun = Lens.lens (\ModifyInstanceMetadataOptions' {dryRun} -> dryRun) (\s@ModifyInstanceMetadataOptions' {} a -> s {dryRun = a} :: ModifyInstanceMetadataOptions)
 
 -- | This parameter enables or disables the HTTP metadata endpoint on your
@@ -168,7 +167,7 @@ modifyInstanceMetadataOptions_dryRun = Lens.lens (\ModifyInstanceMetadataOptions
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
-modifyInstanceMetadataOptions_httpEndpoint :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe InstanceMetadataEndpointState)
+modifyInstanceMetadataOptions_httpEndpoint :: Lens.Lens' ModifyInstanceMetadataOptions (Core.Maybe InstanceMetadataEndpointState)
 modifyInstanceMetadataOptions_httpEndpoint = Lens.lens (\ModifyInstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: ModifyInstanceMetadataOptions)
 
 -- | The desired HTTP PUT response hop limit for instance metadata requests.
@@ -176,7 +175,7 @@ modifyInstanceMetadataOptions_httpEndpoint = Lens.lens (\ModifyInstanceMetadataO
 -- travel. If no parameter is specified, the existing state is maintained.
 --
 -- Possible values: Integers from 1 to 64
-modifyInstanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe Prelude.Int)
+modifyInstanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' ModifyInstanceMetadataOptions (Core.Maybe Core.Int)
 modifyInstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\ModifyInstanceMetadataOptions' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpPutResponseHopLimit = a} :: ModifyInstanceMetadataOptions)
 
 -- | The state of token usage for your instance metadata requests. If the
@@ -193,75 +192,64 @@ modifyInstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\ModifyInstan
 -- instance metadata retrieval requests. In this state, retrieving the IAM
 -- role credential always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
-modifyInstanceMetadataOptions_httpTokens :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe HttpTokensState)
+modifyInstanceMetadataOptions_httpTokens :: Lens.Lens' ModifyInstanceMetadataOptions (Core.Maybe HttpTokensState)
 modifyInstanceMetadataOptions_httpTokens = Lens.lens (\ModifyInstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpTokens = a} :: ModifyInstanceMetadataOptions)
 
 -- | The ID of the instance.
-modifyInstanceMetadataOptions_instanceId :: Lens.Lens' ModifyInstanceMetadataOptions Prelude.Text
+modifyInstanceMetadataOptions_instanceId :: Lens.Lens' ModifyInstanceMetadataOptions Core.Text
 modifyInstanceMetadataOptions_instanceId = Lens.lens (\ModifyInstanceMetadataOptions' {instanceId} -> instanceId) (\s@ModifyInstanceMetadataOptions' {} a -> s {instanceId = a} :: ModifyInstanceMetadataOptions)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyInstanceMetadataOptions
   where
   type
-    Rs ModifyInstanceMetadataOptions =
+    AWSResponse ModifyInstanceMetadataOptions =
       ModifyInstanceMetadataOptionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyInstanceMetadataOptionsResponse'
-            Prelude.<$> (x Prelude..@? "instanceMetadataOptions")
-            Prelude.<*> (x Prelude..@? "instanceId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "instanceMetadataOptions")
+            Core.<*> (x Core..@? "instanceId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ModifyInstanceMetadataOptions
+instance Core.Hashable ModifyInstanceMetadataOptions
 
-instance Prelude.NFData ModifyInstanceMetadataOptions
+instance Core.NFData ModifyInstanceMetadataOptions
 
-instance
-  Prelude.ToHeaders
-    ModifyInstanceMetadataOptions
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyInstanceMetadataOptions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyInstanceMetadataOptions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyInstanceMetadataOptions where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    ModifyInstanceMetadataOptions
-  where
+instance Core.ToQuery ModifyInstanceMetadataOptions where
   toQuery ModifyInstanceMetadataOptions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyInstanceMetadataOptions" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "HttpEndpoint" Prelude.=: httpEndpoint,
+          Core.=: ("ModifyInstanceMetadataOptions" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "HttpEndpoint" Core.=: httpEndpoint,
         "HttpPutResponseHopLimit"
-          Prelude.=: httpPutResponseHopLimit,
-        "HttpTokens" Prelude.=: httpTokens,
-        "InstanceId" Prelude.=: instanceId
+          Core.=: httpPutResponseHopLimit,
+        "HttpTokens" Core.=: httpTokens,
+        "InstanceId" Core.=: instanceId
       ]
 
 -- | /See:/ 'newModifyInstanceMetadataOptionsResponse' smart constructor.
 data ModifyInstanceMetadataOptionsResponse = ModifyInstanceMetadataOptionsResponse'
   { -- | The metadata options for the instance.
-    instanceMetadataOptions :: Prelude.Maybe InstanceMetadataOptionsResponse,
+    instanceMetadataOptions :: Core.Maybe InstanceMetadataOptionsResponse,
     -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyInstanceMetadataOptionsResponse' with all optional fields omitted.
@@ -278,28 +266,28 @@ data ModifyInstanceMetadataOptionsResponse = ModifyInstanceMetadataOptionsRespon
 -- 'httpStatus', 'modifyInstanceMetadataOptionsResponse_httpStatus' - The response's http status code.
 newModifyInstanceMetadataOptionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyInstanceMetadataOptionsResponse
 newModifyInstanceMetadataOptionsResponse pHttpStatus_ =
   ModifyInstanceMetadataOptionsResponse'
     { instanceMetadataOptions =
-        Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+        Core.Nothing,
+      instanceId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The metadata options for the instance.
-modifyInstanceMetadataOptionsResponse_instanceMetadataOptions :: Lens.Lens' ModifyInstanceMetadataOptionsResponse (Prelude.Maybe InstanceMetadataOptionsResponse)
+modifyInstanceMetadataOptionsResponse_instanceMetadataOptions :: Lens.Lens' ModifyInstanceMetadataOptionsResponse (Core.Maybe InstanceMetadataOptionsResponse)
 modifyInstanceMetadataOptionsResponse_instanceMetadataOptions = Lens.lens (\ModifyInstanceMetadataOptionsResponse' {instanceMetadataOptions} -> instanceMetadataOptions) (\s@ModifyInstanceMetadataOptionsResponse' {} a -> s {instanceMetadataOptions = a} :: ModifyInstanceMetadataOptionsResponse)
 
 -- | The ID of the instance.
-modifyInstanceMetadataOptionsResponse_instanceId :: Lens.Lens' ModifyInstanceMetadataOptionsResponse (Prelude.Maybe Prelude.Text)
+modifyInstanceMetadataOptionsResponse_instanceId :: Lens.Lens' ModifyInstanceMetadataOptionsResponse (Core.Maybe Core.Text)
 modifyInstanceMetadataOptionsResponse_instanceId = Lens.lens (\ModifyInstanceMetadataOptionsResponse' {instanceId} -> instanceId) (\s@ModifyInstanceMetadataOptionsResponse' {} a -> s {instanceId = a} :: ModifyInstanceMetadataOptionsResponse)
 
 -- | The response's http status code.
-modifyInstanceMetadataOptionsResponse_httpStatus :: Lens.Lens' ModifyInstanceMetadataOptionsResponse Prelude.Int
+modifyInstanceMetadataOptionsResponse_httpStatus :: Lens.Lens' ModifyInstanceMetadataOptionsResponse Core.Int
 modifyInstanceMetadataOptionsResponse_httpStatus = Lens.lens (\ModifyInstanceMetadataOptionsResponse' {httpStatus} -> httpStatus) (\s@ModifyInstanceMetadataOptionsResponse' {} a -> s {httpStatus = a} :: ModifyInstanceMetadataOptionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyInstanceMetadataOptionsResponse

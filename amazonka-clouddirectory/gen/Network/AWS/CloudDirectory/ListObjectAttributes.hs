@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,34 +48,33 @@ module Network.AWS.CloudDirectory.ListObjectAttributes
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to be retrieved in a single call. This is an
     -- approximate number.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | Represents the manner and timing in which the successful write or update
     -- of an object is reflected in a subsequent read operation of that same
     -- object.
-    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    consistencyLevel :: Core.Maybe ConsistencyLevel,
     -- | Used to filter the list of object attributes that are associated with a
     -- certain facet.
-    facetFilter :: Prelude.Maybe SchemaFacet,
+    facetFilter :: Core.Maybe SchemaFacet,
     -- | The Amazon Resource Name (ARN) that is associated with the Directory
     -- where the object resides. For more information, see arns.
-    directoryArn :: Prelude.Text,
+    directoryArn :: Core.Text,
     -- | The reference that identifies the object whose attributes will be
     -- listed.
     objectReference :: ObjectReference
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListObjectAttributes' with all optional fields omitted.
@@ -105,7 +103,7 @@ data ListObjectAttributes = ListObjectAttributes'
 -- listed.
 newListObjectAttributes ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'objectReference'
   ObjectReference ->
   ListObjectAttributes
@@ -113,37 +111,37 @@ newListObjectAttributes
   pDirectoryArn_
   pObjectReference_ =
     ListObjectAttributes'
-      { nextToken = Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        consistencyLevel = Prelude.Nothing,
-        facetFilter = Prelude.Nothing,
+      { nextToken = Core.Nothing,
+        maxResults = Core.Nothing,
+        consistencyLevel = Core.Nothing,
+        facetFilter = Core.Nothing,
         directoryArn = pDirectoryArn_,
         objectReference = pObjectReference_
       }
 
 -- | The pagination token.
-listObjectAttributes_nextToken :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Text)
+listObjectAttributes_nextToken :: Lens.Lens' ListObjectAttributes (Core.Maybe Core.Text)
 listObjectAttributes_nextToken = Lens.lens (\ListObjectAttributes' {nextToken} -> nextToken) (\s@ListObjectAttributes' {} a -> s {nextToken = a} :: ListObjectAttributes)
 
 -- | The maximum number of items to be retrieved in a single call. This is an
 -- approximate number.
-listObjectAttributes_maxResults :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Natural)
+listObjectAttributes_maxResults :: Lens.Lens' ListObjectAttributes (Core.Maybe Core.Natural)
 listObjectAttributes_maxResults = Lens.lens (\ListObjectAttributes' {maxResults} -> maxResults) (\s@ListObjectAttributes' {} a -> s {maxResults = a} :: ListObjectAttributes)
 
 -- | Represents the manner and timing in which the successful write or update
 -- of an object is reflected in a subsequent read operation of that same
 -- object.
-listObjectAttributes_consistencyLevel :: Lens.Lens' ListObjectAttributes (Prelude.Maybe ConsistencyLevel)
+listObjectAttributes_consistencyLevel :: Lens.Lens' ListObjectAttributes (Core.Maybe ConsistencyLevel)
 listObjectAttributes_consistencyLevel = Lens.lens (\ListObjectAttributes' {consistencyLevel} -> consistencyLevel) (\s@ListObjectAttributes' {} a -> s {consistencyLevel = a} :: ListObjectAttributes)
 
 -- | Used to filter the list of object attributes that are associated with a
 -- certain facet.
-listObjectAttributes_facetFilter :: Lens.Lens' ListObjectAttributes (Prelude.Maybe SchemaFacet)
+listObjectAttributes_facetFilter :: Lens.Lens' ListObjectAttributes (Core.Maybe SchemaFacet)
 listObjectAttributes_facetFilter = Lens.lens (\ListObjectAttributes' {facetFilter} -> facetFilter) (\s@ListObjectAttributes' {} a -> s {facetFilter = a} :: ListObjectAttributes)
 
 -- | The Amazon Resource Name (ARN) that is associated with the Directory
 -- where the object resides. For more information, see arns.
-listObjectAttributes_directoryArn :: Lens.Lens' ListObjectAttributes Prelude.Text
+listObjectAttributes_directoryArn :: Lens.Lens' ListObjectAttributes Core.Text
 listObjectAttributes_directoryArn = Lens.lens (\ListObjectAttributes' {directoryArn} -> directoryArn) (\s@ListObjectAttributes' {} a -> s {directoryArn = a} :: ListObjectAttributes)
 
 -- | The reference that identifies the object whose attributes will be
@@ -151,87 +149,84 @@ listObjectAttributes_directoryArn = Lens.lens (\ListObjectAttributes' {directory
 listObjectAttributes_objectReference :: Lens.Lens' ListObjectAttributes ObjectReference
 listObjectAttributes_objectReference = Lens.lens (\ListObjectAttributes' {objectReference} -> objectReference) (\s@ListObjectAttributes' {} a -> s {objectReference = a} :: ListObjectAttributes)
 
-instance Pager.AWSPager ListObjectAttributes where
+instance Core.AWSPager ListObjectAttributes where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listObjectAttributesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listObjectAttributesResponse_attributes
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listObjectAttributes_nextToken
           Lens..~ rs
           Lens.^? listObjectAttributesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListObjectAttributes where
+instance Core.AWSRequest ListObjectAttributes where
   type
-    Rs ListObjectAttributes =
+    AWSResponse ListObjectAttributes =
       ListObjectAttributesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListObjectAttributesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Attributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Attributes" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListObjectAttributes
+instance Core.Hashable ListObjectAttributes
 
-instance Prelude.NFData ListObjectAttributes
+instance Core.NFData ListObjectAttributes
 
-instance Prelude.ToHeaders ListObjectAttributes where
+instance Core.ToHeaders ListObjectAttributes where
   toHeaders ListObjectAttributes' {..} =
-    Prelude.mconcat
-      [ "x-amz-consistency-level"
-          Prelude.=# consistencyLevel,
-        "x-amz-data-partition" Prelude.=# directoryArn
+    Core.mconcat
+      [ "x-amz-consistency-level" Core.=# consistencyLevel,
+        "x-amz-data-partition" Core.=# directoryArn
       ]
 
-instance Prelude.ToJSON ListObjectAttributes where
+instance Core.ToJSON ListObjectAttributes where
   toJSON ListObjectAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("FacetFilter" Prelude..=) Prelude.<$> facetFilter,
-            Prelude.Just
-              ("ObjectReference" Prelude..= objectReference)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("FacetFilter" Core..=) Core.<$> facetFilter,
+            Core.Just
+              ("ObjectReference" Core..= objectReference)
           ]
       )
 
-instance Prelude.ToPath ListObjectAttributes where
+instance Core.ToPath ListObjectAttributes where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/object/attributes"
 
-instance Prelude.ToQuery ListObjectAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListObjectAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Attributes map that is associated with the object. @AttributeArn@ is the
     -- key, and attribute value is the value.
-    attributes :: Prelude.Maybe [AttributeKeyAndValue],
+    attributes :: Core.Maybe [AttributeKeyAndValue],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListObjectAttributesResponse' with all optional fields omitted.
@@ -249,27 +244,27 @@ data ListObjectAttributesResponse = ListObjectAttributesResponse'
 -- 'httpStatus', 'listObjectAttributesResponse_httpStatus' - The response's http status code.
 newListObjectAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListObjectAttributesResponse
 newListObjectAttributesResponse pHttpStatus_ =
   ListObjectAttributesResponse'
     { nextToken =
-        Prelude.Nothing,
-      attributes = Prelude.Nothing,
+        Core.Nothing,
+      attributes = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token.
-listObjectAttributesResponse_nextToken :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
+listObjectAttributesResponse_nextToken :: Lens.Lens' ListObjectAttributesResponse (Core.Maybe Core.Text)
 listObjectAttributesResponse_nextToken = Lens.lens (\ListObjectAttributesResponse' {nextToken} -> nextToken) (\s@ListObjectAttributesResponse' {} a -> s {nextToken = a} :: ListObjectAttributesResponse)
 
 -- | Attributes map that is associated with the object. @AttributeArn@ is the
 -- key, and attribute value is the value.
-listObjectAttributesResponse_attributes :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
-listObjectAttributesResponse_attributes = Lens.lens (\ListObjectAttributesResponse' {attributes} -> attributes) (\s@ListObjectAttributesResponse' {} a -> s {attributes = a} :: ListObjectAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listObjectAttributesResponse_attributes :: Lens.Lens' ListObjectAttributesResponse (Core.Maybe [AttributeKeyAndValue])
+listObjectAttributesResponse_attributes = Lens.lens (\ListObjectAttributesResponse' {attributes} -> attributes) (\s@ListObjectAttributesResponse' {} a -> s {attributes = a} :: ListObjectAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listObjectAttributesResponse_httpStatus :: Lens.Lens' ListObjectAttributesResponse Prelude.Int
+listObjectAttributesResponse_httpStatus :: Lens.Lens' ListObjectAttributesResponse Core.Int
 listObjectAttributesResponse_httpStatus = Lens.lens (\ListObjectAttributesResponse' {httpStatus} -> httpStatus) (\s@ListObjectAttributesResponse' {} a -> s {httpStatus = a} :: ListObjectAttributesResponse)
 
-instance Prelude.NFData ListObjectAttributesResponse
+instance Core.NFData ListObjectAttributesResponse

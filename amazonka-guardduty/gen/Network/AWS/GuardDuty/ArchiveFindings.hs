@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.GuardDuty.ArchiveFindings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data ArchiveFindings = ArchiveFindings'
   { -- | The ID of the detector that specifies the GuardDuty service whose
     -- findings you want to archive.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The IDs of the findings that you want to archive.
-    findingIds :: [Prelude.Text]
+    findingIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArchiveFindings' with all optional fields omitted.
@@ -74,72 +73,72 @@ data ArchiveFindings = ArchiveFindings'
 -- 'findingIds', 'archiveFindings_findingIds' - The IDs of the findings that you want to archive.
 newArchiveFindings ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   ArchiveFindings
 newArchiveFindings pDetectorId_ =
   ArchiveFindings'
     { detectorId = pDetectorId_,
-      findingIds = Prelude.mempty
+      findingIds = Core.mempty
     }
 
 -- | The ID of the detector that specifies the GuardDuty service whose
 -- findings you want to archive.
-archiveFindings_detectorId :: Lens.Lens' ArchiveFindings Prelude.Text
+archiveFindings_detectorId :: Lens.Lens' ArchiveFindings Core.Text
 archiveFindings_detectorId = Lens.lens (\ArchiveFindings' {detectorId} -> detectorId) (\s@ArchiveFindings' {} a -> s {detectorId = a} :: ArchiveFindings)
 
 -- | The IDs of the findings that you want to archive.
-archiveFindings_findingIds :: Lens.Lens' ArchiveFindings [Prelude.Text]
-archiveFindings_findingIds = Lens.lens (\ArchiveFindings' {findingIds} -> findingIds) (\s@ArchiveFindings' {} a -> s {findingIds = a} :: ArchiveFindings) Prelude.. Prelude._Coerce
+archiveFindings_findingIds :: Lens.Lens' ArchiveFindings [Core.Text]
+archiveFindings_findingIds = Lens.lens (\ArchiveFindings' {findingIds} -> findingIds) (\s@ArchiveFindings' {} a -> s {findingIds = a} :: ArchiveFindings) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest ArchiveFindings where
-  type Rs ArchiveFindings = ArchiveFindingsResponse
+instance Core.AWSRequest ArchiveFindings where
+  type
+    AWSResponse ArchiveFindings =
+      ArchiveFindingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           ArchiveFindingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ArchiveFindings
+instance Core.Hashable ArchiveFindings
 
-instance Prelude.NFData ArchiveFindings
+instance Core.NFData ArchiveFindings
 
-instance Prelude.ToHeaders ArchiveFindings where
+instance Core.ToHeaders ArchiveFindings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ArchiveFindings where
+instance Core.ToJSON ArchiveFindings where
   toJSON ArchiveFindings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("findingIds" Prelude..= findingIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("findingIds" Core..= findingIds)]
       )
 
-instance Prelude.ToPath ArchiveFindings where
+instance Core.ToPath ArchiveFindings where
   toPath ArchiveFindings' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/findings/archive"
       ]
 
-instance Prelude.ToQuery ArchiveFindings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ArchiveFindings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newArchiveFindingsResponse' smart constructor.
 data ArchiveFindingsResponse = ArchiveFindingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArchiveFindingsResponse' with all optional fields omitted.
@@ -152,13 +151,13 @@ data ArchiveFindingsResponse = ArchiveFindingsResponse'
 -- 'httpStatus', 'archiveFindingsResponse_httpStatus' - The response's http status code.
 newArchiveFindingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ArchiveFindingsResponse
 newArchiveFindingsResponse pHttpStatus_ =
   ArchiveFindingsResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-archiveFindingsResponse_httpStatus :: Lens.Lens' ArchiveFindingsResponse Prelude.Int
+archiveFindingsResponse_httpStatus :: Lens.Lens' ArchiveFindingsResponse Core.Int
 archiveFindingsResponse_httpStatus = Lens.lens (\ArchiveFindingsResponse' {httpStatus} -> httpStatus) (\s@ArchiveFindingsResponse' {} a -> s {httpStatus = a} :: ArchiveFindingsResponse)
 
-instance Prelude.NFData ArchiveFindingsResponse
+instance Core.NFData ArchiveFindingsResponse

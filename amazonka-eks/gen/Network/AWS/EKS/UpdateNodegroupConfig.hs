@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.EKS.UpdateNodegroupConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,20 +57,20 @@ import qualified Network.AWS.Response as Response
 data UpdateNodegroupConfig = UpdateNodegroupConfig'
   { -- | The scaling configuration details for the Auto Scaling group after the
     -- update.
-    scalingConfig :: Prelude.Maybe NodegroupScalingConfig,
+    scalingConfig :: Core.Maybe NodegroupScalingConfig,
     -- | The Kubernetes labels to be applied to the nodes in the node group after
     -- the update.
-    labels :: Prelude.Maybe UpdateLabelsPayload,
+    labels :: Core.Maybe UpdateLabelsPayload,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name of the Amazon EKS cluster that the managed node group resides
     -- in.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | The name of the managed node group to update.
-    nodegroupName :: Prelude.Text
+    nodegroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateNodegroupConfig' with all optional fields omitted.
@@ -96,106 +95,103 @@ data UpdateNodegroupConfig = UpdateNodegroupConfig'
 -- 'nodegroupName', 'updateNodegroupConfig_nodegroupName' - The name of the managed node group to update.
 newUpdateNodegroupConfig ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'nodegroupName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateNodegroupConfig
 newUpdateNodegroupConfig
   pClusterName_
   pNodegroupName_ =
     UpdateNodegroupConfig'
       { scalingConfig =
-          Prelude.Nothing,
-        labels = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
+          Core.Nothing,
+        labels = Core.Nothing,
+        clientRequestToken = Core.Nothing,
         clusterName = pClusterName_,
         nodegroupName = pNodegroupName_
       }
 
 -- | The scaling configuration details for the Auto Scaling group after the
 -- update.
-updateNodegroupConfig_scalingConfig :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe NodegroupScalingConfig)
+updateNodegroupConfig_scalingConfig :: Lens.Lens' UpdateNodegroupConfig (Core.Maybe NodegroupScalingConfig)
 updateNodegroupConfig_scalingConfig = Lens.lens (\UpdateNodegroupConfig' {scalingConfig} -> scalingConfig) (\s@UpdateNodegroupConfig' {} a -> s {scalingConfig = a} :: UpdateNodegroupConfig)
 
 -- | The Kubernetes labels to be applied to the nodes in the node group after
 -- the update.
-updateNodegroupConfig_labels :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe UpdateLabelsPayload)
+updateNodegroupConfig_labels :: Lens.Lens' UpdateNodegroupConfig (Core.Maybe UpdateLabelsPayload)
 updateNodegroupConfig_labels = Lens.lens (\UpdateNodegroupConfig' {labels} -> labels) (\s@UpdateNodegroupConfig' {} a -> s {labels = a} :: UpdateNodegroupConfig)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-updateNodegroupConfig_clientRequestToken :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe Prelude.Text)
+updateNodegroupConfig_clientRequestToken :: Lens.Lens' UpdateNodegroupConfig (Core.Maybe Core.Text)
 updateNodegroupConfig_clientRequestToken = Lens.lens (\UpdateNodegroupConfig' {clientRequestToken} -> clientRequestToken) (\s@UpdateNodegroupConfig' {} a -> s {clientRequestToken = a} :: UpdateNodegroupConfig)
 
 -- | The name of the Amazon EKS cluster that the managed node group resides
 -- in.
-updateNodegroupConfig_clusterName :: Lens.Lens' UpdateNodegroupConfig Prelude.Text
+updateNodegroupConfig_clusterName :: Lens.Lens' UpdateNodegroupConfig Core.Text
 updateNodegroupConfig_clusterName = Lens.lens (\UpdateNodegroupConfig' {clusterName} -> clusterName) (\s@UpdateNodegroupConfig' {} a -> s {clusterName = a} :: UpdateNodegroupConfig)
 
 -- | The name of the managed node group to update.
-updateNodegroupConfig_nodegroupName :: Lens.Lens' UpdateNodegroupConfig Prelude.Text
+updateNodegroupConfig_nodegroupName :: Lens.Lens' UpdateNodegroupConfig Core.Text
 updateNodegroupConfig_nodegroupName = Lens.lens (\UpdateNodegroupConfig' {nodegroupName} -> nodegroupName) (\s@UpdateNodegroupConfig' {} a -> s {nodegroupName = a} :: UpdateNodegroupConfig)
 
-instance Prelude.AWSRequest UpdateNodegroupConfig where
+instance Core.AWSRequest UpdateNodegroupConfig where
   type
-    Rs UpdateNodegroupConfig =
+    AWSResponse UpdateNodegroupConfig =
       UpdateNodegroupConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateNodegroupConfigResponse'
-            Prelude.<$> (x Prelude..?> "update")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "update")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateNodegroupConfig
+instance Core.Hashable UpdateNodegroupConfig
 
-instance Prelude.NFData UpdateNodegroupConfig
+instance Core.NFData UpdateNodegroupConfig
 
-instance Prelude.ToHeaders UpdateNodegroupConfig where
+instance Core.ToHeaders UpdateNodegroupConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateNodegroupConfig where
+instance Core.ToJSON UpdateNodegroupConfig where
   toJSON UpdateNodegroupConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("scalingConfig" Prelude..=)
-              Prelude.<$> scalingConfig,
-            ("labels" Prelude..=) Prelude.<$> labels,
-            ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken
+    Core.object
+      ( Core.catMaybes
+          [ ("scalingConfig" Core..=) Core.<$> scalingConfig,
+            ("labels" Core..=) Core.<$> labels,
+            ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken
           ]
       )
 
-instance Prelude.ToPath UpdateNodegroupConfig where
+instance Core.ToPath UpdateNodegroupConfig where
   toPath UpdateNodegroupConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/node-groups/",
-        Prelude.toBS nodegroupName,
+        Core.toBS nodegroupName,
         "/update-config"
       ]
 
-instance Prelude.ToQuery UpdateNodegroupConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateNodegroupConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateNodegroupConfigResponse' smart constructor.
 data UpdateNodegroupConfigResponse = UpdateNodegroupConfigResponse'
-  { update :: Prelude.Maybe Update,
+  { update :: Core.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateNodegroupConfigResponse' with all optional fields omitted.
@@ -210,21 +206,21 @@ data UpdateNodegroupConfigResponse = UpdateNodegroupConfigResponse'
 -- 'httpStatus', 'updateNodegroupConfigResponse_httpStatus' - The response's http status code.
 newUpdateNodegroupConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateNodegroupConfigResponse
 newUpdateNodegroupConfigResponse pHttpStatus_ =
   UpdateNodegroupConfigResponse'
     { update =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateNodegroupConfigResponse_update :: Lens.Lens' UpdateNodegroupConfigResponse (Prelude.Maybe Update)
+updateNodegroupConfigResponse_update :: Lens.Lens' UpdateNodegroupConfigResponse (Core.Maybe Update)
 updateNodegroupConfigResponse_update = Lens.lens (\UpdateNodegroupConfigResponse' {update} -> update) (\s@UpdateNodegroupConfigResponse' {} a -> s {update = a} :: UpdateNodegroupConfigResponse)
 
 -- | The response's http status code.
-updateNodegroupConfigResponse_httpStatus :: Lens.Lens' UpdateNodegroupConfigResponse Prelude.Int
+updateNodegroupConfigResponse_httpStatus :: Lens.Lens' UpdateNodegroupConfigResponse Core.Int
 updateNodegroupConfigResponse_httpStatus = Lens.lens (\UpdateNodegroupConfigResponse' {httpStatus} -> httpStatus) (\s@UpdateNodegroupConfigResponse' {} a -> s {httpStatus = a} :: UpdateNodegroupConfigResponse)
 
-instance Prelude.NFData UpdateNodegroupConfigResponse
+instance Core.NFData UpdateNodegroupConfigResponse

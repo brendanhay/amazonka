@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.BucketLifecycleConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.LifecycleRule
 
@@ -35,7 +34,7 @@ data BucketLifecycleConfiguration = BucketLifecycleConfiguration'
   { -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
     rules :: [LifecycleRule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BucketLifecycleConfiguration' with all optional fields omitted.
@@ -49,21 +48,16 @@ data BucketLifecycleConfiguration = BucketLifecycleConfiguration'
 newBucketLifecycleConfiguration ::
   BucketLifecycleConfiguration
 newBucketLifecycleConfiguration =
-  BucketLifecycleConfiguration'
-    { rules =
-        Prelude.mempty
-    }
+  BucketLifecycleConfiguration' {rules = Core.mempty}
 
 -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
 bucketLifecycleConfiguration_rules :: Lens.Lens' BucketLifecycleConfiguration [LifecycleRule]
-bucketLifecycleConfiguration_rules = Lens.lens (\BucketLifecycleConfiguration' {rules} -> rules) (\s@BucketLifecycleConfiguration' {} a -> s {rules = a} :: BucketLifecycleConfiguration) Prelude.. Prelude._Coerce
+bucketLifecycleConfiguration_rules = Lens.lens (\BucketLifecycleConfiguration' {rules} -> rules) (\s@BucketLifecycleConfiguration' {} a -> s {rules = a} :: BucketLifecycleConfiguration) Core.. Lens._Coerce
 
-instance
-  Prelude.Hashable
-    BucketLifecycleConfiguration
+instance Core.Hashable BucketLifecycleConfiguration
 
-instance Prelude.NFData BucketLifecycleConfiguration
+instance Core.NFData BucketLifecycleConfiguration
 
-instance Prelude.ToXML BucketLifecycleConfiguration where
+instance Core.ToXML BucketLifecycleConfiguration where
   toXML BucketLifecycleConfiguration' {..} =
-    Prelude.mconcat [Prelude.toXMLList "Rule" rules]
+    Core.mconcat [Core.toXMLList "Rule" rules]

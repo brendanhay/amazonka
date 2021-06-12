@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,21 +21,21 @@ module Network.AWS.CodePipeline.Types.StageDeclaration where
 
 import Network.AWS.CodePipeline.Types.ActionDeclaration
 import Network.AWS.CodePipeline.Types.BlockerDeclaration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about a stage and its definition.
 --
 -- /See:/ 'newStageDeclaration' smart constructor.
 data StageDeclaration = StageDeclaration'
   { -- | Reserved for future use.
-    blockers :: Prelude.Maybe [BlockerDeclaration],
+    blockers :: Core.Maybe [BlockerDeclaration],
     -- | The name of the stage.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The actions included in a stage.
     actions :: [ActionDeclaration]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StageDeclaration' with all optional fields omitted.
@@ -53,48 +52,48 @@ data StageDeclaration = StageDeclaration'
 -- 'actions', 'stageDeclaration_actions' - The actions included in a stage.
 newStageDeclaration ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   StageDeclaration
 newStageDeclaration pName_ =
   StageDeclaration'
-    { blockers = Prelude.Nothing,
+    { blockers = Core.Nothing,
       name = pName_,
-      actions = Prelude.mempty
+      actions = Core.mempty
     }
 
 -- | Reserved for future use.
-stageDeclaration_blockers :: Lens.Lens' StageDeclaration (Prelude.Maybe [BlockerDeclaration])
-stageDeclaration_blockers = Lens.lens (\StageDeclaration' {blockers} -> blockers) (\s@StageDeclaration' {} a -> s {blockers = a} :: StageDeclaration) Prelude.. Lens.mapping Prelude._Coerce
+stageDeclaration_blockers :: Lens.Lens' StageDeclaration (Core.Maybe [BlockerDeclaration])
+stageDeclaration_blockers = Lens.lens (\StageDeclaration' {blockers} -> blockers) (\s@StageDeclaration' {} a -> s {blockers = a} :: StageDeclaration) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the stage.
-stageDeclaration_name :: Lens.Lens' StageDeclaration Prelude.Text
+stageDeclaration_name :: Lens.Lens' StageDeclaration Core.Text
 stageDeclaration_name = Lens.lens (\StageDeclaration' {name} -> name) (\s@StageDeclaration' {} a -> s {name = a} :: StageDeclaration)
 
 -- | The actions included in a stage.
 stageDeclaration_actions :: Lens.Lens' StageDeclaration [ActionDeclaration]
-stageDeclaration_actions = Lens.lens (\StageDeclaration' {actions} -> actions) (\s@StageDeclaration' {} a -> s {actions = a} :: StageDeclaration) Prelude.. Prelude._Coerce
+stageDeclaration_actions = Lens.lens (\StageDeclaration' {actions} -> actions) (\s@StageDeclaration' {} a -> s {actions = a} :: StageDeclaration) Core.. Lens._Coerce
 
-instance Prelude.FromJSON StageDeclaration where
+instance Core.FromJSON StageDeclaration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "StageDeclaration"
       ( \x ->
           StageDeclaration'
-            Prelude.<$> (x Prelude..:? "blockers" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..:? "actions" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "blockers" Core..!= Core.mempty)
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..:? "actions" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable StageDeclaration
+instance Core.Hashable StageDeclaration
 
-instance Prelude.NFData StageDeclaration
+instance Core.NFData StageDeclaration
 
-instance Prelude.ToJSON StageDeclaration where
+instance Core.ToJSON StageDeclaration where
   toJSON StageDeclaration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("blockers" Prelude..=) Prelude.<$> blockers,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("actions" Prelude..= actions)
+    Core.object
+      ( Core.catMaybes
+          [ ("blockers" Core..=) Core.<$> blockers,
+            Core.Just ("name" Core..= name),
+            Core.Just ("actions" Core..= actions)
           ]
       )

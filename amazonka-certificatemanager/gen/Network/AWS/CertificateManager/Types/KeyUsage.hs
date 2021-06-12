@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CertificateManager.Types.KeyUsage where
 
 import Network.AWS.CertificateManager.Types.KeyUsageName
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Key Usage X.509 v3 extension defines the purpose of the public key
 -- contained in the certificate.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newKeyUsage' smart constructor.
 data KeyUsage = KeyUsage'
   { -- | A string value that contains a Key Usage extension name.
-    name :: Prelude.Maybe KeyUsageName
+    name :: Core.Maybe KeyUsageName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KeyUsage' with all optional fields omitted.
@@ -45,18 +44,18 @@ data KeyUsage = KeyUsage'
 -- 'name', 'keyUsage_name' - A string value that contains a Key Usage extension name.
 newKeyUsage ::
   KeyUsage
-newKeyUsage = KeyUsage' {name = Prelude.Nothing}
+newKeyUsage = KeyUsage' {name = Core.Nothing}
 
 -- | A string value that contains a Key Usage extension name.
-keyUsage_name :: Lens.Lens' KeyUsage (Prelude.Maybe KeyUsageName)
+keyUsage_name :: Lens.Lens' KeyUsage (Core.Maybe KeyUsageName)
 keyUsage_name = Lens.lens (\KeyUsage' {name} -> name) (\s@KeyUsage' {} a -> s {name = a} :: KeyUsage)
 
-instance Prelude.FromJSON KeyUsage where
+instance Core.FromJSON KeyUsage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KeyUsage"
-      (\x -> KeyUsage' Prelude.<$> (x Prelude..:? "Name"))
+      (\x -> KeyUsage' Core.<$> (x Core..:? "Name"))
 
-instance Prelude.Hashable KeyUsage
+instance Core.Hashable KeyUsage
 
-instance Prelude.NFData KeyUsage
+instance Core.NFData KeyUsage

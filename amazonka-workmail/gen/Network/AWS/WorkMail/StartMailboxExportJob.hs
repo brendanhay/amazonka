@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.WorkMail.StartMailboxExportJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -60,25 +59,25 @@ import Network.AWS.WorkMail.Types
 -- | /See:/ 'newStartMailboxExportJob' smart constructor.
 data StartMailboxExportJob = StartMailboxExportJob'
   { -- | The mailbox export job description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The idempotency token for the client request.
-    clientToken :: Prelude.Text,
+    clientToken :: Core.Text,
     -- | The identifier associated with the organization.
-    organizationId :: Prelude.Text,
+    organizationId :: Core.Text,
     -- | The identifier of the user or resource associated with the mailbox.
-    entityId :: Prelude.Text,
+    entityId :: Core.Text,
     -- | The ARN of the AWS Identity and Access Management (IAM) role that grants
     -- write permission to the S3 bucket.
-    roleArn :: Prelude.Text,
+    roleArn :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management
     -- Service (AWS KMS) key that encrypts the exported mailbox content.
-    kmsKeyArn :: Prelude.Text,
+    kmsKeyArn :: Core.Text,
     -- | The name of the S3 bucket.
-    s3BucketName :: Prelude.Text,
+    s3BucketName :: Core.Text,
     -- | The S3 bucket prefix.
-    s3Prefix :: Prelude.Text
+    s3Prefix :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMailboxExportJob' with all optional fields omitted.
@@ -107,19 +106,19 @@ data StartMailboxExportJob = StartMailboxExportJob'
 -- 's3Prefix', 'startMailboxExportJob_s3Prefix' - The S3 bucket prefix.
 newStartMailboxExportJob ::
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'entityId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'roleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'kmsKeyArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 's3BucketName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 's3Prefix'
-  Prelude.Text ->
+  Core.Text ->
   StartMailboxExportJob
 newStartMailboxExportJob
   pClientToken_
@@ -130,8 +129,7 @@ newStartMailboxExportJob
   pS3BucketName_
   pS3Prefix_ =
     StartMailboxExportJob'
-      { description =
-          Prelude.Nothing,
+      { description = Core.Nothing,
         clientToken = pClientToken_,
         organizationId = pOrganizationId_,
         entityId = pEntityId_,
@@ -142,102 +140,98 @@ newStartMailboxExportJob
       }
 
 -- | The mailbox export job description.
-startMailboxExportJob_description :: Lens.Lens' StartMailboxExportJob (Prelude.Maybe Prelude.Text)
+startMailboxExportJob_description :: Lens.Lens' StartMailboxExportJob (Core.Maybe Core.Text)
 startMailboxExportJob_description = Lens.lens (\StartMailboxExportJob' {description} -> description) (\s@StartMailboxExportJob' {} a -> s {description = a} :: StartMailboxExportJob)
 
 -- | The idempotency token for the client request.
-startMailboxExportJob_clientToken :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_clientToken :: Lens.Lens' StartMailboxExportJob Core.Text
 startMailboxExportJob_clientToken = Lens.lens (\StartMailboxExportJob' {clientToken} -> clientToken) (\s@StartMailboxExportJob' {} a -> s {clientToken = a} :: StartMailboxExportJob)
 
 -- | The identifier associated with the organization.
-startMailboxExportJob_organizationId :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_organizationId :: Lens.Lens' StartMailboxExportJob Core.Text
 startMailboxExportJob_organizationId = Lens.lens (\StartMailboxExportJob' {organizationId} -> organizationId) (\s@StartMailboxExportJob' {} a -> s {organizationId = a} :: StartMailboxExportJob)
 
 -- | The identifier of the user or resource associated with the mailbox.
-startMailboxExportJob_entityId :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_entityId :: Lens.Lens' StartMailboxExportJob Core.Text
 startMailboxExportJob_entityId = Lens.lens (\StartMailboxExportJob' {entityId} -> entityId) (\s@StartMailboxExportJob' {} a -> s {entityId = a} :: StartMailboxExportJob)
 
 -- | The ARN of the AWS Identity and Access Management (IAM) role that grants
 -- write permission to the S3 bucket.
-startMailboxExportJob_roleArn :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_roleArn :: Lens.Lens' StartMailboxExportJob Core.Text
 startMailboxExportJob_roleArn = Lens.lens (\StartMailboxExportJob' {roleArn} -> roleArn) (\s@StartMailboxExportJob' {} a -> s {roleArn = a} :: StartMailboxExportJob)
 
 -- | The Amazon Resource Name (ARN) of the symmetric AWS Key Management
 -- Service (AWS KMS) key that encrypts the exported mailbox content.
-startMailboxExportJob_kmsKeyArn :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_kmsKeyArn :: Lens.Lens' StartMailboxExportJob Core.Text
 startMailboxExportJob_kmsKeyArn = Lens.lens (\StartMailboxExportJob' {kmsKeyArn} -> kmsKeyArn) (\s@StartMailboxExportJob' {} a -> s {kmsKeyArn = a} :: StartMailboxExportJob)
 
 -- | The name of the S3 bucket.
-startMailboxExportJob_s3BucketName :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_s3BucketName :: Lens.Lens' StartMailboxExportJob Core.Text
 startMailboxExportJob_s3BucketName = Lens.lens (\StartMailboxExportJob' {s3BucketName} -> s3BucketName) (\s@StartMailboxExportJob' {} a -> s {s3BucketName = a} :: StartMailboxExportJob)
 
 -- | The S3 bucket prefix.
-startMailboxExportJob_s3Prefix :: Lens.Lens' StartMailboxExportJob Prelude.Text
+startMailboxExportJob_s3Prefix :: Lens.Lens' StartMailboxExportJob Core.Text
 startMailboxExportJob_s3Prefix = Lens.lens (\StartMailboxExportJob' {s3Prefix} -> s3Prefix) (\s@StartMailboxExportJob' {} a -> s {s3Prefix = a} :: StartMailboxExportJob)
 
-instance Prelude.AWSRequest StartMailboxExportJob where
+instance Core.AWSRequest StartMailboxExportJob where
   type
-    Rs StartMailboxExportJob =
+    AWSResponse StartMailboxExportJob =
       StartMailboxExportJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartMailboxExportJobResponse'
-            Prelude.<$> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartMailboxExportJob
+instance Core.Hashable StartMailboxExportJob
 
-instance Prelude.NFData StartMailboxExportJob
+instance Core.NFData StartMailboxExportJob
 
-instance Prelude.ToHeaders StartMailboxExportJob where
+instance Core.ToHeaders StartMailboxExportJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "WorkMailService.StartMailboxExportJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "WorkMailService.StartMailboxExportJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartMailboxExportJob where
+instance Core.ToJSON StartMailboxExportJob where
   toJSON StartMailboxExportJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("ClientToken" Prelude..= clientToken),
-            Prelude.Just
-              ("OrganizationId" Prelude..= organizationId),
-            Prelude.Just ("EntityId" Prelude..= entityId),
-            Prelude.Just ("RoleArn" Prelude..= roleArn),
-            Prelude.Just ("KmsKeyArn" Prelude..= kmsKeyArn),
-            Prelude.Just
-              ("S3BucketName" Prelude..= s3BucketName),
-            Prelude.Just ("S3Prefix" Prelude..= s3Prefix)
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            Core.Just ("ClientToken" Core..= clientToken),
+            Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("EntityId" Core..= entityId),
+            Core.Just ("RoleArn" Core..= roleArn),
+            Core.Just ("KmsKeyArn" Core..= kmsKeyArn),
+            Core.Just ("S3BucketName" Core..= s3BucketName),
+            Core.Just ("S3Prefix" Core..= s3Prefix)
           ]
       )
 
-instance Prelude.ToPath StartMailboxExportJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartMailboxExportJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartMailboxExportJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartMailboxExportJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartMailboxExportJobResponse' smart constructor.
 data StartMailboxExportJobResponse = StartMailboxExportJobResponse'
   { -- | The job ID.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartMailboxExportJobResponse' with all optional fields omitted.
@@ -252,21 +246,21 @@ data StartMailboxExportJobResponse = StartMailboxExportJobResponse'
 -- 'httpStatus', 'startMailboxExportJobResponse_httpStatus' - The response's http status code.
 newStartMailboxExportJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartMailboxExportJobResponse
 newStartMailboxExportJobResponse pHttpStatus_ =
   StartMailboxExportJobResponse'
     { jobId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The job ID.
-startMailboxExportJobResponse_jobId :: Lens.Lens' StartMailboxExportJobResponse (Prelude.Maybe Prelude.Text)
+startMailboxExportJobResponse_jobId :: Lens.Lens' StartMailboxExportJobResponse (Core.Maybe Core.Text)
 startMailboxExportJobResponse_jobId = Lens.lens (\StartMailboxExportJobResponse' {jobId} -> jobId) (\s@StartMailboxExportJobResponse' {} a -> s {jobId = a} :: StartMailboxExportJobResponse)
 
 -- | The response's http status code.
-startMailboxExportJobResponse_httpStatus :: Lens.Lens' StartMailboxExportJobResponse Prelude.Int
+startMailboxExportJobResponse_httpStatus :: Lens.Lens' StartMailboxExportJobResponse Core.Int
 startMailboxExportJobResponse_httpStatus = Lens.lens (\StartMailboxExportJobResponse' {httpStatus} -> httpStatus) (\s@StartMailboxExportJobResponse' {} a -> s {httpStatus = a} :: StartMailboxExportJobResponse)
 
-instance Prelude.NFData StartMailboxExportJobResponse
+instance Core.NFData StartMailboxExportJobResponse

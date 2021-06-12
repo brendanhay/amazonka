@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.BuildNotDeleted where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a build that could not be successfully deleted.
 --
 -- /See:/ 'newBuildNotDeleted' smart constructor.
 data BuildNotDeleted = BuildNotDeleted'
   { -- | The ID of the build that could not be successfully deleted.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Additional information about the build that could not be successfully
     -- deleted.
-    statusCode :: Prelude.Maybe Prelude.Text
+    statusCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BuildNotDeleted' with all optional fields omitted.
@@ -51,29 +50,28 @@ newBuildNotDeleted ::
   BuildNotDeleted
 newBuildNotDeleted =
   BuildNotDeleted'
-    { id = Prelude.Nothing,
-      statusCode = Prelude.Nothing
+    { id = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | The ID of the build that could not be successfully deleted.
-buildNotDeleted_id :: Lens.Lens' BuildNotDeleted (Prelude.Maybe Prelude.Text)
+buildNotDeleted_id :: Lens.Lens' BuildNotDeleted (Core.Maybe Core.Text)
 buildNotDeleted_id = Lens.lens (\BuildNotDeleted' {id} -> id) (\s@BuildNotDeleted' {} a -> s {id = a} :: BuildNotDeleted)
 
 -- | Additional information about the build that could not be successfully
 -- deleted.
-buildNotDeleted_statusCode :: Lens.Lens' BuildNotDeleted (Prelude.Maybe Prelude.Text)
+buildNotDeleted_statusCode :: Lens.Lens' BuildNotDeleted (Core.Maybe Core.Text)
 buildNotDeleted_statusCode = Lens.lens (\BuildNotDeleted' {statusCode} -> statusCode) (\s@BuildNotDeleted' {} a -> s {statusCode = a} :: BuildNotDeleted)
 
-instance Prelude.FromJSON BuildNotDeleted where
+instance Core.FromJSON BuildNotDeleted where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BuildNotDeleted"
       ( \x ->
           BuildNotDeleted'
-            Prelude.<$> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "statusCode")
+            Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "statusCode")
       )
 
-instance Prelude.Hashable BuildNotDeleted
+instance Core.Hashable BuildNotDeleted
 
-instance Prelude.NFData BuildNotDeleted
+instance Core.NFData BuildNotDeleted

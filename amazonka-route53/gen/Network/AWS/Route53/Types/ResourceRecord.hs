@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.ResourceRecord where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | Information specific to the resource record.
@@ -41,9 +40,9 @@ data ResourceRecord = ResourceRecord'
     -- and @SOA@.
     --
     -- If you\'re creating an alias resource record set, omit @Value@.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceRecord' with all optional fields omitted.
@@ -66,7 +65,7 @@ data ResourceRecord = ResourceRecord'
 -- If you\'re creating an alias resource record set, omit @Value@.
 newResourceRecord ::
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   ResourceRecord
 newResourceRecord pValue_ =
   ResourceRecord' {value = pValue_}
@@ -82,17 +81,17 @@ newResourceRecord pValue_ =
 -- and @SOA@.
 --
 -- If you\'re creating an alias resource record set, omit @Value@.
-resourceRecord_value :: Lens.Lens' ResourceRecord Prelude.Text
+resourceRecord_value :: Lens.Lens' ResourceRecord Core.Text
 resourceRecord_value = Lens.lens (\ResourceRecord' {value} -> value) (\s@ResourceRecord' {} a -> s {value = a} :: ResourceRecord)
 
-instance Prelude.FromXML ResourceRecord where
+instance Core.FromXML ResourceRecord where
   parseXML x =
-    ResourceRecord' Prelude.<$> (x Prelude..@ "Value")
+    ResourceRecord' Core.<$> (x Core..@ "Value")
 
-instance Prelude.Hashable ResourceRecord
+instance Core.Hashable ResourceRecord
 
-instance Prelude.NFData ResourceRecord
+instance Core.NFData ResourceRecord
 
-instance Prelude.ToXML ResourceRecord where
+instance Core.ToXML ResourceRecord where
   toXML ResourceRecord' {..} =
-    Prelude.mconcat ["Value" Prelude.@= value]
+    Core.mconcat ["Value" Core.@= value]

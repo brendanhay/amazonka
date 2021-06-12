@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.NoncurrentVersionTransition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.TransitionStorageClass
 
@@ -41,11 +40,11 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition'
     -- days calculations, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent>
     -- in the /Amazon Simple Storage Service Developer Guide/.
-    noncurrentDays :: Prelude.Int,
+    noncurrentDays :: Core.Int,
     -- | The class of storage used to store the object.
     storageClass :: TransitionStorageClass
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'NoncurrentVersionTransition' with all optional fields omitted.
@@ -64,7 +63,7 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition'
 -- 'storageClass', 'noncurrentVersionTransition_storageClass' - The class of storage used to store the object.
 newNoncurrentVersionTransition ::
   -- | 'noncurrentDays'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'storageClass'
   TransitionStorageClass ->
   NoncurrentVersionTransition
@@ -82,26 +81,26 @@ newNoncurrentVersionTransition
 -- days calculations, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent>
 -- in the /Amazon Simple Storage Service Developer Guide/.
-noncurrentVersionTransition_noncurrentDays :: Lens.Lens' NoncurrentVersionTransition Prelude.Int
+noncurrentVersionTransition_noncurrentDays :: Lens.Lens' NoncurrentVersionTransition Core.Int
 noncurrentVersionTransition_noncurrentDays = Lens.lens (\NoncurrentVersionTransition' {noncurrentDays} -> noncurrentDays) (\s@NoncurrentVersionTransition' {} a -> s {noncurrentDays = a} :: NoncurrentVersionTransition)
 
 -- | The class of storage used to store the object.
 noncurrentVersionTransition_storageClass :: Lens.Lens' NoncurrentVersionTransition TransitionStorageClass
 noncurrentVersionTransition_storageClass = Lens.lens (\NoncurrentVersionTransition' {storageClass} -> storageClass) (\s@NoncurrentVersionTransition' {} a -> s {storageClass = a} :: NoncurrentVersionTransition)
 
-instance Prelude.FromXML NoncurrentVersionTransition where
+instance Core.FromXML NoncurrentVersionTransition where
   parseXML x =
     NoncurrentVersionTransition'
-      Prelude.<$> (x Prelude..@ "NoncurrentDays")
-      Prelude.<*> (x Prelude..@ "StorageClass")
+      Core.<$> (x Core..@ "NoncurrentDays")
+      Core.<*> (x Core..@ "StorageClass")
 
-instance Prelude.Hashable NoncurrentVersionTransition
+instance Core.Hashable NoncurrentVersionTransition
 
-instance Prelude.NFData NoncurrentVersionTransition
+instance Core.NFData NoncurrentVersionTransition
 
-instance Prelude.ToXML NoncurrentVersionTransition where
+instance Core.ToXML NoncurrentVersionTransition where
   toXML NoncurrentVersionTransition' {..} =
-    Prelude.mconcat
-      [ "NoncurrentDays" Prelude.@= noncurrentDays,
-        "StorageClass" Prelude.@= storageClass
+    Core.mconcat
+      [ "NoncurrentDays" Core.@= noncurrentDays,
+        "StorageClass" Core.@= storageClass
       ]

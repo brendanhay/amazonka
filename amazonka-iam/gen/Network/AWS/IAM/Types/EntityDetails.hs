@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.EntityDetails where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.EntityInfo
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains details about when the IAM entities (users or
 -- roles) were last used in an attempt to access the specified AWS service.
@@ -40,12 +39,12 @@ data EntityDetails = EntityDetails'
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
-    lastAuthenticated :: Prelude.Maybe Prelude.ISO8601,
+    lastAuthenticated :: Core.Maybe Core.ISO8601,
     -- | The @EntityInfo@ object that contains details about the entity (user or
     -- role).
     entityInfo :: EntityInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EntityDetails' with all optional fields omitted.
@@ -72,7 +71,7 @@ newEntityDetails ::
   EntityDetails
 newEntityDetails pEntityInfo_ =
   EntityDetails'
-    { lastAuthenticated = Prelude.Nothing,
+    { lastAuthenticated = Core.Nothing,
       entityInfo = pEntityInfo_
     }
 
@@ -84,20 +83,20 @@ newEntityDetails pEntityInfo_ =
 -- This field is null if no IAM entities attempted to access the service
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
-entityDetails_lastAuthenticated :: Lens.Lens' EntityDetails (Prelude.Maybe Prelude.UTCTime)
-entityDetails_lastAuthenticated = Lens.lens (\EntityDetails' {lastAuthenticated} -> lastAuthenticated) (\s@EntityDetails' {} a -> s {lastAuthenticated = a} :: EntityDetails) Prelude.. Lens.mapping Prelude._Time
+entityDetails_lastAuthenticated :: Lens.Lens' EntityDetails (Core.Maybe Core.UTCTime)
+entityDetails_lastAuthenticated = Lens.lens (\EntityDetails' {lastAuthenticated} -> lastAuthenticated) (\s@EntityDetails' {} a -> s {lastAuthenticated = a} :: EntityDetails) Core.. Lens.mapping Core._Time
 
 -- | The @EntityInfo@ object that contains details about the entity (user or
 -- role).
 entityDetails_entityInfo :: Lens.Lens' EntityDetails EntityInfo
 entityDetails_entityInfo = Lens.lens (\EntityDetails' {entityInfo} -> entityInfo) (\s@EntityDetails' {} a -> s {entityInfo = a} :: EntityDetails)
 
-instance Prelude.FromXML EntityDetails where
+instance Core.FromXML EntityDetails where
   parseXML x =
     EntityDetails'
-      Prelude.<$> (x Prelude..@? "LastAuthenticated")
-      Prelude.<*> (x Prelude..@ "EntityInfo")
+      Core.<$> (x Core..@? "LastAuthenticated")
+      Core.<*> (x Core..@ "EntityInfo")
 
-instance Prelude.Hashable EntityDetails
+instance Core.Hashable EntityDetails
 
-instance Prelude.NFData EntityDetails
+instance Core.NFData EntityDetails

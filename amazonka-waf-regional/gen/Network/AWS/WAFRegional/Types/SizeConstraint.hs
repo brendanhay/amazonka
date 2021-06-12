@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.SizeConstraint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ComparisonOperator
 import Network.AWS.WAFRegional.Types.FieldToMatch
 import Network.AWS.WAFRegional.Types.TextTransformation
@@ -158,9 +157,9 @@ data SizeConstraint = SizeConstraint'
     -- If you specify @URI@ for the value of @Type@, the \/ in the URI counts
     -- as one character. For example, the URI @\/logo.jpg@ is nine characters
     -- long.
-    size :: Prelude.Natural
+    size :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SizeConstraint' with all optional fields omitted.
@@ -293,7 +292,7 @@ newSizeConstraint ::
   -- | 'comparisonOperator'
   ComparisonOperator ->
   -- | 'size'
-  Prelude.Natural ->
+  Core.Natural ->
   SizeConstraint
 newSizeConstraint
   pFieldToMatch_
@@ -428,35 +427,34 @@ sizeConstraint_comparisonOperator = Lens.lens (\SizeConstraint' {comparisonOpera
 -- If you specify @URI@ for the value of @Type@, the \/ in the URI counts
 -- as one character. For example, the URI @\/logo.jpg@ is nine characters
 -- long.
-sizeConstraint_size :: Lens.Lens' SizeConstraint Prelude.Natural
+sizeConstraint_size :: Lens.Lens' SizeConstraint Core.Natural
 sizeConstraint_size = Lens.lens (\SizeConstraint' {size} -> size) (\s@SizeConstraint' {} a -> s {size = a} :: SizeConstraint)
 
-instance Prelude.FromJSON SizeConstraint where
+instance Core.FromJSON SizeConstraint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SizeConstraint"
       ( \x ->
           SizeConstraint'
-            Prelude.<$> (x Prelude..: "FieldToMatch")
-            Prelude.<*> (x Prelude..: "TextTransformation")
-            Prelude.<*> (x Prelude..: "ComparisonOperator")
-            Prelude.<*> (x Prelude..: "Size")
+            Core.<$> (x Core..: "FieldToMatch")
+            Core.<*> (x Core..: "TextTransformation")
+            Core.<*> (x Core..: "ComparisonOperator")
+            Core.<*> (x Core..: "Size")
       )
 
-instance Prelude.Hashable SizeConstraint
+instance Core.Hashable SizeConstraint
 
-instance Prelude.NFData SizeConstraint
+instance Core.NFData SizeConstraint
 
-instance Prelude.ToJSON SizeConstraint where
+instance Core.ToJSON SizeConstraint where
   toJSON SizeConstraint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("FieldToMatch" Prelude..= fieldToMatch),
-            Prelude.Just
-              ("TextTransformation" Prelude..= textTransformation),
-            Prelude.Just
-              ("ComparisonOperator" Prelude..= comparisonOperator),
-            Prelude.Just ("Size" Prelude..= size)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FieldToMatch" Core..= fieldToMatch),
+            Core.Just
+              ("TextTransformation" Core..= textTransformation),
+            Core.Just
+              ("ComparisonOperator" Core..= comparisonOperator),
+            Core.Just ("Size" Core..= size)
           ]
       )

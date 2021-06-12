@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CodeCommit.PutRepositoryTriggers
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,11 +53,11 @@ import qualified Network.AWS.Response as Response
 data PutRepositoryTriggers = PutRepositoryTriggers'
   { -- | The name of the repository where you want to create or update the
     -- trigger.
-    repositoryName :: Prelude.Text,
+    repositoryName :: Core.Text,
     -- | The JSON block of configuration information for each trigger.
     triggers :: [RepositoryTrigger]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRepositoryTriggers' with all optional fields omitted.
@@ -74,82 +73,79 @@ data PutRepositoryTriggers = PutRepositoryTriggers'
 -- 'triggers', 'putRepositoryTriggers_triggers' - The JSON block of configuration information for each trigger.
 newPutRepositoryTriggers ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   PutRepositoryTriggers
 newPutRepositoryTriggers pRepositoryName_ =
   PutRepositoryTriggers'
     { repositoryName =
         pRepositoryName_,
-      triggers = Prelude.mempty
+      triggers = Core.mempty
     }
 
 -- | The name of the repository where you want to create or update the
 -- trigger.
-putRepositoryTriggers_repositoryName :: Lens.Lens' PutRepositoryTriggers Prelude.Text
+putRepositoryTriggers_repositoryName :: Lens.Lens' PutRepositoryTriggers Core.Text
 putRepositoryTriggers_repositoryName = Lens.lens (\PutRepositoryTriggers' {repositoryName} -> repositoryName) (\s@PutRepositoryTriggers' {} a -> s {repositoryName = a} :: PutRepositoryTriggers)
 
 -- | The JSON block of configuration information for each trigger.
 putRepositoryTriggers_triggers :: Lens.Lens' PutRepositoryTriggers [RepositoryTrigger]
-putRepositoryTriggers_triggers = Lens.lens (\PutRepositoryTriggers' {triggers} -> triggers) (\s@PutRepositoryTriggers' {} a -> s {triggers = a} :: PutRepositoryTriggers) Prelude.. Prelude._Coerce
+putRepositoryTriggers_triggers = Lens.lens (\PutRepositoryTriggers' {triggers} -> triggers) (\s@PutRepositoryTriggers' {} a -> s {triggers = a} :: PutRepositoryTriggers) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest PutRepositoryTriggers where
+instance Core.AWSRequest PutRepositoryTriggers where
   type
-    Rs PutRepositoryTriggers =
+    AWSResponse PutRepositoryTriggers =
       PutRepositoryTriggersResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutRepositoryTriggersResponse'
-            Prelude.<$> (x Prelude..?> "configurationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "configurationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutRepositoryTriggers
+instance Core.Hashable PutRepositoryTriggers
 
-instance Prelude.NFData PutRepositoryTriggers
+instance Core.NFData PutRepositoryTriggers
 
-instance Prelude.ToHeaders PutRepositoryTriggers where
+instance Core.ToHeaders PutRepositoryTriggers where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.PutRepositoryTriggers" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.PutRepositoryTriggers" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutRepositoryTriggers where
+instance Core.ToJSON PutRepositoryTriggers where
   toJSON PutRepositoryTriggers' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("repositoryName" Prelude..= repositoryName),
-            Prelude.Just ("triggers" Prelude..= triggers)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("triggers" Core..= triggers)
           ]
       )
 
-instance Prelude.ToPath PutRepositoryTriggers where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutRepositoryTriggers where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutRepositoryTriggers where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutRepositoryTriggers where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a put repository triggers operation.
 --
 -- /See:/ 'newPutRepositoryTriggersResponse' smart constructor.
 data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
   { -- | The system-generated unique ID for the create or update operation.
-    configurationId :: Prelude.Maybe Prelude.Text,
+    configurationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRepositoryTriggersResponse' with all optional fields omitted.
@@ -164,21 +160,21 @@ data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
 -- 'httpStatus', 'putRepositoryTriggersResponse_httpStatus' - The response's http status code.
 newPutRepositoryTriggersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutRepositoryTriggersResponse
 newPutRepositoryTriggersResponse pHttpStatus_ =
   PutRepositoryTriggersResponse'
     { configurationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The system-generated unique ID for the create or update operation.
-putRepositoryTriggersResponse_configurationId :: Lens.Lens' PutRepositoryTriggersResponse (Prelude.Maybe Prelude.Text)
+putRepositoryTriggersResponse_configurationId :: Lens.Lens' PutRepositoryTriggersResponse (Core.Maybe Core.Text)
 putRepositoryTriggersResponse_configurationId = Lens.lens (\PutRepositoryTriggersResponse' {configurationId} -> configurationId) (\s@PutRepositoryTriggersResponse' {} a -> s {configurationId = a} :: PutRepositoryTriggersResponse)
 
 -- | The response's http status code.
-putRepositoryTriggersResponse_httpStatus :: Lens.Lens' PutRepositoryTriggersResponse Prelude.Int
+putRepositoryTriggersResponse_httpStatus :: Lens.Lens' PutRepositoryTriggersResponse Core.Int
 putRepositoryTriggersResponse_httpStatus = Lens.lens (\PutRepositoryTriggersResponse' {httpStatus} -> httpStatus) (\s@PutRepositoryTriggersResponse' {} a -> s {httpStatus = a} :: PutRepositoryTriggersResponse)
 
-instance Prelude.NFData PutRepositoryTriggersResponse
+instance Core.NFData PutRepositoryTriggersResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,22 +20,22 @@
 module Network.AWS.Connect.Types.UseCase where
 
 import Network.AWS.Connect.Types.UseCaseType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the use case.
 --
 -- /See:/ 'newUseCase' smart constructor.
 data UseCase = UseCase'
   { -- | The Amazon Resource Name (ARN) for the use case.
-    useCaseArn :: Prelude.Maybe Prelude.Text,
+    useCaseArn :: Core.Maybe Core.Text,
     -- | The type of use case to associate to the AppIntegration association.
     -- Each AppIntegration association can have only one of each use case type.
-    useCaseType :: Prelude.Maybe UseCaseType,
+    useCaseType :: Core.Maybe UseCaseType,
     -- | The identifier for the use case.
-    useCaseId :: Prelude.Maybe Prelude.Text
+    useCaseId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UseCase' with all optional fields omitted.
@@ -56,35 +55,35 @@ newUseCase ::
   UseCase
 newUseCase =
   UseCase'
-    { useCaseArn = Prelude.Nothing,
-      useCaseType = Prelude.Nothing,
-      useCaseId = Prelude.Nothing
+    { useCaseArn = Core.Nothing,
+      useCaseType = Core.Nothing,
+      useCaseId = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the use case.
-useCase_useCaseArn :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
+useCase_useCaseArn :: Lens.Lens' UseCase (Core.Maybe Core.Text)
 useCase_useCaseArn = Lens.lens (\UseCase' {useCaseArn} -> useCaseArn) (\s@UseCase' {} a -> s {useCaseArn = a} :: UseCase)
 
 -- | The type of use case to associate to the AppIntegration association.
 -- Each AppIntegration association can have only one of each use case type.
-useCase_useCaseType :: Lens.Lens' UseCase (Prelude.Maybe UseCaseType)
+useCase_useCaseType :: Lens.Lens' UseCase (Core.Maybe UseCaseType)
 useCase_useCaseType = Lens.lens (\UseCase' {useCaseType} -> useCaseType) (\s@UseCase' {} a -> s {useCaseType = a} :: UseCase)
 
 -- | The identifier for the use case.
-useCase_useCaseId :: Lens.Lens' UseCase (Prelude.Maybe Prelude.Text)
+useCase_useCaseId :: Lens.Lens' UseCase (Core.Maybe Core.Text)
 useCase_useCaseId = Lens.lens (\UseCase' {useCaseId} -> useCaseId) (\s@UseCase' {} a -> s {useCaseId = a} :: UseCase)
 
-instance Prelude.FromJSON UseCase where
+instance Core.FromJSON UseCase where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UseCase"
       ( \x ->
           UseCase'
-            Prelude.<$> (x Prelude..:? "UseCaseArn")
-            Prelude.<*> (x Prelude..:? "UseCaseType")
-            Prelude.<*> (x Prelude..:? "UseCaseId")
+            Core.<$> (x Core..:? "UseCaseArn")
+            Core.<*> (x Core..:? "UseCaseType")
+            Core.<*> (x Core..:? "UseCaseId")
       )
 
-instance Prelude.Hashable UseCase
+instance Core.Hashable UseCase
 
-instance Prelude.NFData UseCase
+instance Core.NFData UseCase

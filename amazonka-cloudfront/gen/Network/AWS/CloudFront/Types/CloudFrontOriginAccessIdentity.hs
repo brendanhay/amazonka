@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,23 +20,23 @@
 module Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentity where
 
 import Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityConfig
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | CloudFront origin access identity.
 --
 -- /See:/ 'newCloudFrontOriginAccessIdentity' smart constructor.
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
   { -- | The current configuration information for the identity.
-    cloudFrontOriginAccessIdentityConfig :: Prelude.Maybe CloudFrontOriginAccessIdentityConfig,
+    cloudFrontOriginAccessIdentityConfig :: Core.Maybe CloudFrontOriginAccessIdentityConfig,
     -- | The ID for the origin access identity, for example, @E74FTE3AJFJ256A@.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The Amazon S3 canonical user ID for the origin access identity, used
     -- when giving the origin access identity read permission to an object in
     -- Amazon S3.
-    s3CanonicalUserId :: Prelude.Text
+    s3CanonicalUserId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudFrontOriginAccessIdentity' with all optional fields omitted.
@@ -56,50 +55,41 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
 -- Amazon S3.
 newCloudFrontOriginAccessIdentity ::
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 's3CanonicalUserId'
-  Prelude.Text ->
+  Core.Text ->
   CloudFrontOriginAccessIdentity
 newCloudFrontOriginAccessIdentity
   pId_
   pS3CanonicalUserId_ =
     CloudFrontOriginAccessIdentity'
       { cloudFrontOriginAccessIdentityConfig =
-          Prelude.Nothing,
+          Core.Nothing,
         id = pId_,
         s3CanonicalUserId = pS3CanonicalUserId_
       }
 
 -- | The current configuration information for the identity.
-cloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig :: Lens.Lens' CloudFrontOriginAccessIdentity (Prelude.Maybe CloudFrontOriginAccessIdentityConfig)
+cloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig :: Lens.Lens' CloudFrontOriginAccessIdentity (Core.Maybe CloudFrontOriginAccessIdentityConfig)
 cloudFrontOriginAccessIdentity_cloudFrontOriginAccessIdentityConfig = Lens.lens (\CloudFrontOriginAccessIdentity' {cloudFrontOriginAccessIdentityConfig} -> cloudFrontOriginAccessIdentityConfig) (\s@CloudFrontOriginAccessIdentity' {} a -> s {cloudFrontOriginAccessIdentityConfig = a} :: CloudFrontOriginAccessIdentity)
 
 -- | The ID for the origin access identity, for example, @E74FTE3AJFJ256A@.
-cloudFrontOriginAccessIdentity_id :: Lens.Lens' CloudFrontOriginAccessIdentity Prelude.Text
+cloudFrontOriginAccessIdentity_id :: Lens.Lens' CloudFrontOriginAccessIdentity Core.Text
 cloudFrontOriginAccessIdentity_id = Lens.lens (\CloudFrontOriginAccessIdentity' {id} -> id) (\s@CloudFrontOriginAccessIdentity' {} a -> s {id = a} :: CloudFrontOriginAccessIdentity)
 
 -- | The Amazon S3 canonical user ID for the origin access identity, used
 -- when giving the origin access identity read permission to an object in
 -- Amazon S3.
-cloudFrontOriginAccessIdentity_s3CanonicalUserId :: Lens.Lens' CloudFrontOriginAccessIdentity Prelude.Text
+cloudFrontOriginAccessIdentity_s3CanonicalUserId :: Lens.Lens' CloudFrontOriginAccessIdentity Core.Text
 cloudFrontOriginAccessIdentity_s3CanonicalUserId = Lens.lens (\CloudFrontOriginAccessIdentity' {s3CanonicalUserId} -> s3CanonicalUserId) (\s@CloudFrontOriginAccessIdentity' {} a -> s {s3CanonicalUserId = a} :: CloudFrontOriginAccessIdentity)
 
-instance
-  Prelude.FromXML
-    CloudFrontOriginAccessIdentity
-  where
+instance Core.FromXML CloudFrontOriginAccessIdentity where
   parseXML x =
     CloudFrontOriginAccessIdentity'
-      Prelude.<$> ( x
-                      Prelude..@? "CloudFrontOriginAccessIdentityConfig"
-                  )
-      Prelude.<*> (x Prelude..@ "Id")
-      Prelude.<*> (x Prelude..@ "S3CanonicalUserId")
+      Core.<$> (x Core..@? "CloudFrontOriginAccessIdentityConfig")
+      Core.<*> (x Core..@ "Id")
+      Core.<*> (x Core..@ "S3CanonicalUserId")
 
-instance
-  Prelude.Hashable
-    CloudFrontOriginAccessIdentity
+instance Core.Hashable CloudFrontOriginAccessIdentity
 
-instance
-  Prelude.NFData
-    CloudFrontOriginAccessIdentity
+instance Core.NFData CloudFrontOriginAccessIdentity

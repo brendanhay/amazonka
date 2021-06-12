@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.SageMaker.CreateContext
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -58,20 +57,20 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateContext' smart constructor.
 data CreateContext = CreateContext'
   { -- | A list of tags to apply to the context.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A list of properties to add to the context.
-    properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    properties :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The description of the context.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the context. Must be unique to your account in an AWS
     -- Region.
-    contextName :: Prelude.Text,
+    contextName :: Core.Text,
     -- | The source type, ID, and URI.
     source :: ContextSource,
     -- | The context type.
-    contextType :: Prelude.Text
+    contextType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContext' with all optional fields omitted.
@@ -95,37 +94,37 @@ data CreateContext = CreateContext'
 -- 'contextType', 'createContext_contextType' - The context type.
 newCreateContext ::
   -- | 'contextName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'source'
   ContextSource ->
   -- | 'contextType'
-  Prelude.Text ->
+  Core.Text ->
   CreateContext
 newCreateContext pContextName_ pSource_ pContextType_ =
   CreateContext'
-    { tags = Prelude.Nothing,
-      properties = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tags = Core.Nothing,
+      properties = Core.Nothing,
+      description = Core.Nothing,
       contextName = pContextName_,
       source = pSource_,
       contextType = pContextType_
     }
 
 -- | A list of tags to apply to the context.
-createContext_tags :: Lens.Lens' CreateContext (Prelude.Maybe [Tag])
-createContext_tags = Lens.lens (\CreateContext' {tags} -> tags) (\s@CreateContext' {} a -> s {tags = a} :: CreateContext) Prelude.. Lens.mapping Prelude._Coerce
+createContext_tags :: Lens.Lens' CreateContext (Core.Maybe [Tag])
+createContext_tags = Lens.lens (\CreateContext' {tags} -> tags) (\s@CreateContext' {} a -> s {tags = a} :: CreateContext) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of properties to add to the context.
-createContext_properties :: Lens.Lens' CreateContext (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-createContext_properties = Lens.lens (\CreateContext' {properties} -> properties) (\s@CreateContext' {} a -> s {properties = a} :: CreateContext) Prelude.. Lens.mapping Prelude._Coerce
+createContext_properties :: Lens.Lens' CreateContext (Core.Maybe (Core.HashMap Core.Text Core.Text))
+createContext_properties = Lens.lens (\CreateContext' {properties} -> properties) (\s@CreateContext' {} a -> s {properties = a} :: CreateContext) Core.. Lens.mapping Lens._Coerce
 
 -- | The description of the context.
-createContext_description :: Lens.Lens' CreateContext (Prelude.Maybe Prelude.Text)
+createContext_description :: Lens.Lens' CreateContext (Core.Maybe Core.Text)
 createContext_description = Lens.lens (\CreateContext' {description} -> description) (\s@CreateContext' {} a -> s {description = a} :: CreateContext)
 
 -- | The name of the context. Must be unique to your account in an AWS
 -- Region.
-createContext_contextName :: Lens.Lens' CreateContext Prelude.Text
+createContext_contextName :: Lens.Lens' CreateContext Core.Text
 createContext_contextName = Lens.lens (\CreateContext' {contextName} -> contextName) (\s@CreateContext' {} a -> s {contextName = a} :: CreateContext)
 
 -- | The source type, ID, and URI.
@@ -133,64 +132,64 @@ createContext_source :: Lens.Lens' CreateContext ContextSource
 createContext_source = Lens.lens (\CreateContext' {source} -> source) (\s@CreateContext' {} a -> s {source = a} :: CreateContext)
 
 -- | The context type.
-createContext_contextType :: Lens.Lens' CreateContext Prelude.Text
+createContext_contextType :: Lens.Lens' CreateContext Core.Text
 createContext_contextType = Lens.lens (\CreateContext' {contextType} -> contextType) (\s@CreateContext' {} a -> s {contextType = a} :: CreateContext)
 
-instance Prelude.AWSRequest CreateContext where
-  type Rs CreateContext = CreateContextResponse
+instance Core.AWSRequest CreateContext where
+  type
+    AWSResponse CreateContext =
+      CreateContextResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateContextResponse'
-            Prelude.<$> (x Prelude..?> "ContextArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ContextArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateContext
+instance Core.Hashable CreateContext
 
-instance Prelude.NFData CreateContext
+instance Core.NFData CreateContext
 
-instance Prelude.ToHeaders CreateContext where
+instance Core.ToHeaders CreateContext where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.CreateContext" :: Prelude.ByteString),
+              Core.=# ("SageMaker.CreateContext" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateContext where
+instance Core.ToJSON CreateContext where
   toJSON CreateContext' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Properties" Prelude..=) Prelude.<$> properties,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("ContextName" Prelude..= contextName),
-            Prelude.Just ("Source" Prelude..= source),
-            Prelude.Just ("ContextType" Prelude..= contextType)
+    Core.object
+      ( Core.catMaybes
+          [ ("Tags" Core..=) Core.<$> tags,
+            ("Properties" Core..=) Core.<$> properties,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("ContextName" Core..= contextName),
+            Core.Just ("Source" Core..= source),
+            Core.Just ("ContextType" Core..= contextType)
           ]
       )
 
-instance Prelude.ToPath CreateContext where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateContext where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateContext where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateContext where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateContextResponse' smart constructor.
 data CreateContextResponse = CreateContextResponse'
   { -- | The Amazon Resource Name (ARN) of the context.
-    contextArn :: Prelude.Maybe Prelude.Text,
+    contextArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateContextResponse' with all optional fields omitted.
@@ -205,21 +204,20 @@ data CreateContextResponse = CreateContextResponse'
 -- 'httpStatus', 'createContextResponse_httpStatus' - The response's http status code.
 newCreateContextResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateContextResponse
 newCreateContextResponse pHttpStatus_ =
   CreateContextResponse'
-    { contextArn =
-        Prelude.Nothing,
+    { contextArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the context.
-createContextResponse_contextArn :: Lens.Lens' CreateContextResponse (Prelude.Maybe Prelude.Text)
+createContextResponse_contextArn :: Lens.Lens' CreateContextResponse (Core.Maybe Core.Text)
 createContextResponse_contextArn = Lens.lens (\CreateContextResponse' {contextArn} -> contextArn) (\s@CreateContextResponse' {} a -> s {contextArn = a} :: CreateContextResponse)
 
 -- | The response's http status code.
-createContextResponse_httpStatus :: Lens.Lens' CreateContextResponse Prelude.Int
+createContextResponse_httpStatus :: Lens.Lens' CreateContextResponse Core.Int
 createContextResponse_httpStatus = Lens.lens (\CreateContextResponse' {httpStatus} -> httpStatus) (\s@CreateContextResponse' {} a -> s {httpStatus = a} :: CreateContextResponse)
 
-instance Prelude.NFData CreateContextResponse
+instance Core.NFData CreateContextResponse

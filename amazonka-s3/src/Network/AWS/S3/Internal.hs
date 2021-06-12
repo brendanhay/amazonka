@@ -38,13 +38,8 @@ module Network.AWS.S3.Internal
     , getWebsiteEndpoint
     ) where
 
-import Data.String (IsString)
-
-import Network.AWS.Data.Log
-import Network.AWS.Data.XML
-import Network.AWS.Lens     (IndexedTraversal', Iso', Prism', Traversal')
-import Network.AWS.Lens     (iso, prism, traversed, _1, _2)
-import Network.AWS.Prelude
+import Network.AWS.Lens (IndexedTraversal', Iso', Prism', Traversal', iso, prism, traversed, _1, _2)
+import Network.AWS.Core
 import qualified Data.Text as Text
 
 newtype BucketName = BucketName Text
@@ -53,8 +48,8 @@ newtype BucketName = BucketName Text
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
+        
+        
         , Generic
         , IsString
         , FromText
@@ -78,8 +73,8 @@ newtype ETag = ETag ByteString
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
+        
+        
         , Generic
         , IsString
         , FromText
@@ -100,8 +95,8 @@ newtype ObjectVersionId = ObjectVersionId Text
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
+        
+        
         , Generic
         , IsString
         , FromText
@@ -122,8 +117,8 @@ newtype LocationConstraint = LocationConstraint { constraintRegion :: Region }
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
+        
+        
         , Generic
         , ToText
         , ToByteString
@@ -160,8 +155,8 @@ newtype ObjectKey = ObjectKey Text
         , Ord
         , Read
         , Show
-        , Data
-        , Typeable
+        
+        
         , Generic
         , IsString
         , FromText

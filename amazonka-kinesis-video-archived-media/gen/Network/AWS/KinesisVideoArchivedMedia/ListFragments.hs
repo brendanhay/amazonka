@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -79,10 +78,9 @@ module Network.AWS.KinesisVideoArchivedMedia.ListFragments
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoArchivedMedia.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -90,24 +88,24 @@ import qualified Network.AWS.Response as Response
 data ListFragments = ListFragments'
   { -- | A token to specify where to start paginating. This is the
     -- ListFragmentsOutput$NextToken from a previously truncated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The total number of fragments to return. If the total number of
     -- fragments available is more than the value specified in @max-results@,
     -- then a ListFragmentsOutput$NextToken is provided in the output that you
     -- can use to resume pagination.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
     -- fragment list. Specify either this parameter or the @StreamName@
     -- parameter.
-    streamARN :: Prelude.Maybe Prelude.Text,
+    streamARN :: Core.Maybe Core.Text,
     -- | The name of the stream from which to retrieve a fragment list. Specify
     -- either this parameter or the @StreamARN@ parameter.
-    streamName :: Prelude.Maybe Prelude.Text,
+    streamName :: Core.Maybe Core.Text,
     -- | Describes the timestamp range and timestamp origin for the range of
     -- fragments to return.
-    fragmentSelector :: Prelude.Maybe FragmentSelector
+    fragmentSelector :: Core.Maybe FragmentSelector
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFragments' with all optional fields omitted.
@@ -138,113 +136,113 @@ newListFragments ::
   ListFragments
 newListFragments =
   ListFragments'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      streamARN = Prelude.Nothing,
-      streamName = Prelude.Nothing,
-      fragmentSelector = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      streamARN = Core.Nothing,
+      streamName = Core.Nothing,
+      fragmentSelector = Core.Nothing
     }
 
 -- | A token to specify where to start paginating. This is the
 -- ListFragmentsOutput$NextToken from a previously truncated response.
-listFragments_nextToken :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Text)
+listFragments_nextToken :: Lens.Lens' ListFragments (Core.Maybe Core.Text)
 listFragments_nextToken = Lens.lens (\ListFragments' {nextToken} -> nextToken) (\s@ListFragments' {} a -> s {nextToken = a} :: ListFragments)
 
 -- | The total number of fragments to return. If the total number of
 -- fragments available is more than the value specified in @max-results@,
 -- then a ListFragmentsOutput$NextToken is provided in the output that you
 -- can use to resume pagination.
-listFragments_maxResults :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Natural)
+listFragments_maxResults :: Lens.Lens' ListFragments (Core.Maybe Core.Natural)
 listFragments_maxResults = Lens.lens (\ListFragments' {maxResults} -> maxResults) (\s@ListFragments' {} a -> s {maxResults = a} :: ListFragments)
 
 -- | The Amazon Resource Name (ARN) of the stream from which to retrieve a
 -- fragment list. Specify either this parameter or the @StreamName@
 -- parameter.
-listFragments_streamARN :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Text)
+listFragments_streamARN :: Lens.Lens' ListFragments (Core.Maybe Core.Text)
 listFragments_streamARN = Lens.lens (\ListFragments' {streamARN} -> streamARN) (\s@ListFragments' {} a -> s {streamARN = a} :: ListFragments)
 
 -- | The name of the stream from which to retrieve a fragment list. Specify
 -- either this parameter or the @StreamARN@ parameter.
-listFragments_streamName :: Lens.Lens' ListFragments (Prelude.Maybe Prelude.Text)
+listFragments_streamName :: Lens.Lens' ListFragments (Core.Maybe Core.Text)
 listFragments_streamName = Lens.lens (\ListFragments' {streamName} -> streamName) (\s@ListFragments' {} a -> s {streamName = a} :: ListFragments)
 
 -- | Describes the timestamp range and timestamp origin for the range of
 -- fragments to return.
-listFragments_fragmentSelector :: Lens.Lens' ListFragments (Prelude.Maybe FragmentSelector)
+listFragments_fragmentSelector :: Lens.Lens' ListFragments (Core.Maybe FragmentSelector)
 listFragments_fragmentSelector = Lens.lens (\ListFragments' {fragmentSelector} -> fragmentSelector) (\s@ListFragments' {} a -> s {fragmentSelector = a} :: ListFragments)
 
-instance Pager.AWSPager ListFragments where
+instance Core.AWSPager ListFragments where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listFragmentsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listFragmentsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listFragmentsResponse_fragments Prelude.. Lens._Just
+            Lens.^? listFragmentsResponse_fragments Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listFragments_nextToken
           Lens..~ rs
-          Lens.^? listFragmentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listFragmentsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListFragments where
-  type Rs ListFragments = ListFragmentsResponse
+instance Core.AWSRequest ListFragments where
+  type
+    AWSResponse ListFragments =
+      ListFragmentsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListFragmentsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Fragments"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Fragments" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListFragments
+instance Core.Hashable ListFragments
 
-instance Prelude.NFData ListFragments
+instance Core.NFData ListFragments
 
-instance Prelude.ToHeaders ListFragments where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListFragments where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON ListFragments where
+instance Core.ToJSON ListFragments where
   toJSON ListFragments' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("StreamARN" Prelude..=) Prelude.<$> streamARN,
-            ("StreamName" Prelude..=) Prelude.<$> streamName,
-            ("FragmentSelector" Prelude..=)
-              Prelude.<$> fragmentSelector
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName,
+            ("FragmentSelector" Core..=)
+              Core.<$> fragmentSelector
           ]
       )
 
-instance Prelude.ToPath ListFragments where
-  toPath = Prelude.const "/listFragments"
+instance Core.ToPath ListFragments where
+  toPath = Core.const "/listFragments"
 
-instance Prelude.ToQuery ListFragments where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListFragments where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListFragmentsResponse' smart constructor.
 data ListFragmentsResponse = ListFragmentsResponse'
   { -- | If the returned list is truncated, the operation returns this token to
     -- use to retrieve the next page of results. This value is @null@ when
     -- there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of archived Fragment objects from the stream that meet the
     -- selector criteria. Results are in no specific order, even across pages.
-    fragments :: Prelude.Maybe [Fragment],
+    fragments :: Core.Maybe [Fragment],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFragmentsResponse' with all optional fields omitted.
@@ -264,28 +262,28 @@ data ListFragmentsResponse = ListFragmentsResponse'
 -- 'httpStatus', 'listFragmentsResponse_httpStatus' - The response's http status code.
 newListFragmentsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListFragmentsResponse
 newListFragmentsResponse pHttpStatus_ =
   ListFragmentsResponse'
-    { nextToken = Prelude.Nothing,
-      fragments = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      fragments = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | If the returned list is truncated, the operation returns this token to
 -- use to retrieve the next page of results. This value is @null@ when
 -- there are no more results to return.
-listFragmentsResponse_nextToken :: Lens.Lens' ListFragmentsResponse (Prelude.Maybe Prelude.Text)
+listFragmentsResponse_nextToken :: Lens.Lens' ListFragmentsResponse (Core.Maybe Core.Text)
 listFragmentsResponse_nextToken = Lens.lens (\ListFragmentsResponse' {nextToken} -> nextToken) (\s@ListFragmentsResponse' {} a -> s {nextToken = a} :: ListFragmentsResponse)
 
 -- | A list of archived Fragment objects from the stream that meet the
 -- selector criteria. Results are in no specific order, even across pages.
-listFragmentsResponse_fragments :: Lens.Lens' ListFragmentsResponse (Prelude.Maybe [Fragment])
-listFragmentsResponse_fragments = Lens.lens (\ListFragmentsResponse' {fragments} -> fragments) (\s@ListFragmentsResponse' {} a -> s {fragments = a} :: ListFragmentsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listFragmentsResponse_fragments :: Lens.Lens' ListFragmentsResponse (Core.Maybe [Fragment])
+listFragmentsResponse_fragments = Lens.lens (\ListFragmentsResponse' {fragments} -> fragments) (\s@ListFragmentsResponse' {} a -> s {fragments = a} :: ListFragmentsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listFragmentsResponse_httpStatus :: Lens.Lens' ListFragmentsResponse Prelude.Int
+listFragmentsResponse_httpStatus :: Lens.Lens' ListFragmentsResponse Core.Int
 listFragmentsResponse_httpStatus = Lens.lens (\ListFragmentsResponse' {httpStatus} -> httpStatus) (\s@ListFragmentsResponse' {} a -> s {httpStatus = a} :: ListFragmentsResponse)
 
-instance Prelude.NFData ListFragmentsResponse
+instance Core.NFData ListFragmentsResponse

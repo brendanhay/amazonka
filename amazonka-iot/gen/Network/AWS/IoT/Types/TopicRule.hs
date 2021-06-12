@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,33 +19,33 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.TopicRule where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.Action
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a rule.
 --
 -- /See:/ 'newTopicRule' smart constructor.
 data TopicRule = TopicRule'
   { -- | The name of the rule.
-    ruleName :: Prelude.Maybe Prelude.Text,
+    ruleName :: Core.Maybe Core.Text,
     -- | The action to perform when an error occurs.
-    errorAction :: Prelude.Maybe Action,
+    errorAction :: Core.Maybe Action,
     -- | The version of the SQL rules engine to use when evaluating the rule.
-    awsIotSqlVersion :: Prelude.Maybe Prelude.Text,
+    awsIotSqlVersion :: Core.Maybe Core.Text,
     -- | The date and time the rule was created.
-    createdAt :: Prelude.Maybe Prelude.POSIX,
+    createdAt :: Core.Maybe Core.POSIX,
     -- | The actions associated with the rule.
-    actions :: Prelude.Maybe [Action],
+    actions :: Core.Maybe [Action],
     -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Prelude.Maybe Prelude.Bool,
+    ruleDisabled :: Core.Maybe Core.Bool,
     -- | The description of the rule.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The SQL statement used to query the topic. When using a SQL query with
     -- multiple lines, be sure to escape the newline characters.
-    sql :: Prelude.Maybe Prelude.Text
+    sql :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TopicRule' with all optional fields omitted.
@@ -76,65 +75,65 @@ newTopicRule ::
   TopicRule
 newTopicRule =
   TopicRule'
-    { ruleName = Prelude.Nothing,
-      errorAction = Prelude.Nothing,
-      awsIotSqlVersion = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      actions = Prelude.Nothing,
-      ruleDisabled = Prelude.Nothing,
-      description = Prelude.Nothing,
-      sql = Prelude.Nothing
+    { ruleName = Core.Nothing,
+      errorAction = Core.Nothing,
+      awsIotSqlVersion = Core.Nothing,
+      createdAt = Core.Nothing,
+      actions = Core.Nothing,
+      ruleDisabled = Core.Nothing,
+      description = Core.Nothing,
+      sql = Core.Nothing
     }
 
 -- | The name of the rule.
-topicRule_ruleName :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.Text)
+topicRule_ruleName :: Lens.Lens' TopicRule (Core.Maybe Core.Text)
 topicRule_ruleName = Lens.lens (\TopicRule' {ruleName} -> ruleName) (\s@TopicRule' {} a -> s {ruleName = a} :: TopicRule)
 
 -- | The action to perform when an error occurs.
-topicRule_errorAction :: Lens.Lens' TopicRule (Prelude.Maybe Action)
+topicRule_errorAction :: Lens.Lens' TopicRule (Core.Maybe Action)
 topicRule_errorAction = Lens.lens (\TopicRule' {errorAction} -> errorAction) (\s@TopicRule' {} a -> s {errorAction = a} :: TopicRule)
 
 -- | The version of the SQL rules engine to use when evaluating the rule.
-topicRule_awsIotSqlVersion :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.Text)
+topicRule_awsIotSqlVersion :: Lens.Lens' TopicRule (Core.Maybe Core.Text)
 topicRule_awsIotSqlVersion = Lens.lens (\TopicRule' {awsIotSqlVersion} -> awsIotSqlVersion) (\s@TopicRule' {} a -> s {awsIotSqlVersion = a} :: TopicRule)
 
 -- | The date and time the rule was created.
-topicRule_createdAt :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.UTCTime)
-topicRule_createdAt = Lens.lens (\TopicRule' {createdAt} -> createdAt) (\s@TopicRule' {} a -> s {createdAt = a} :: TopicRule) Prelude.. Lens.mapping Prelude._Time
+topicRule_createdAt :: Lens.Lens' TopicRule (Core.Maybe Core.UTCTime)
+topicRule_createdAt = Lens.lens (\TopicRule' {createdAt} -> createdAt) (\s@TopicRule' {} a -> s {createdAt = a} :: TopicRule) Core.. Lens.mapping Core._Time
 
 -- | The actions associated with the rule.
-topicRule_actions :: Lens.Lens' TopicRule (Prelude.Maybe [Action])
-topicRule_actions = Lens.lens (\TopicRule' {actions} -> actions) (\s@TopicRule' {} a -> s {actions = a} :: TopicRule) Prelude.. Lens.mapping Prelude._Coerce
+topicRule_actions :: Lens.Lens' TopicRule (Core.Maybe [Action])
+topicRule_actions = Lens.lens (\TopicRule' {actions} -> actions) (\s@TopicRule' {} a -> s {actions = a} :: TopicRule) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether the rule is disabled.
-topicRule_ruleDisabled :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.Bool)
+topicRule_ruleDisabled :: Lens.Lens' TopicRule (Core.Maybe Core.Bool)
 topicRule_ruleDisabled = Lens.lens (\TopicRule' {ruleDisabled} -> ruleDisabled) (\s@TopicRule' {} a -> s {ruleDisabled = a} :: TopicRule)
 
 -- | The description of the rule.
-topicRule_description :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.Text)
+topicRule_description :: Lens.Lens' TopicRule (Core.Maybe Core.Text)
 topicRule_description = Lens.lens (\TopicRule' {description} -> description) (\s@TopicRule' {} a -> s {description = a} :: TopicRule)
 
 -- | The SQL statement used to query the topic. When using a SQL query with
 -- multiple lines, be sure to escape the newline characters.
-topicRule_sql :: Lens.Lens' TopicRule (Prelude.Maybe Prelude.Text)
+topicRule_sql :: Lens.Lens' TopicRule (Core.Maybe Core.Text)
 topicRule_sql = Lens.lens (\TopicRule' {sql} -> sql) (\s@TopicRule' {} a -> s {sql = a} :: TopicRule)
 
-instance Prelude.FromJSON TopicRule where
+instance Core.FromJSON TopicRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TopicRule"
       ( \x ->
           TopicRule'
-            Prelude.<$> (x Prelude..:? "ruleName")
-            Prelude.<*> (x Prelude..:? "errorAction")
-            Prelude.<*> (x Prelude..:? "awsIotSqlVersion")
-            Prelude.<*> (x Prelude..:? "createdAt")
-            Prelude.<*> (x Prelude..:? "actions" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "ruleDisabled")
-            Prelude.<*> (x Prelude..:? "description")
-            Prelude.<*> (x Prelude..:? "sql")
+            Core.<$> (x Core..:? "ruleName")
+            Core.<*> (x Core..:? "errorAction")
+            Core.<*> (x Core..:? "awsIotSqlVersion")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "actions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ruleDisabled")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "sql")
       )
 
-instance Prelude.Hashable TopicRule
+instance Core.Hashable TopicRule
 
-instance Prelude.NFData TopicRule
+instance Core.NFData TopicRule

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SES.CreateReceiptRuleSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -65,9 +64,9 @@ data CreateReceiptRuleSet = CreateReceiptRuleSet'
     -- -   Start and end with a letter or number.
     --
     -- -   Contain less than 64 characters.
-    ruleSetName :: Prelude.Text
+    ruleSetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReceiptRuleSet' with all optional fields omitted.
@@ -87,7 +86,7 @@ data CreateReceiptRuleSet = CreateReceiptRuleSet'
 -- -   Contain less than 64 characters.
 newCreateReceiptRuleSet ::
   -- | 'ruleSetName'
-  Prelude.Text ->
+  Core.Text ->
   CreateReceiptRuleSet
 newCreateReceiptRuleSet pRuleSetName_ =
   CreateReceiptRuleSet' {ruleSetName = pRuleSetName_}
@@ -100,12 +99,12 @@ newCreateReceiptRuleSet pRuleSetName_ =
 -- -   Start and end with a letter or number.
 --
 -- -   Contain less than 64 characters.
-createReceiptRuleSet_ruleSetName :: Lens.Lens' CreateReceiptRuleSet Prelude.Text
+createReceiptRuleSet_ruleSetName :: Lens.Lens' CreateReceiptRuleSet Core.Text
 createReceiptRuleSet_ruleSetName = Lens.lens (\CreateReceiptRuleSet' {ruleSetName} -> ruleSetName) (\s@CreateReceiptRuleSet' {} a -> s {ruleSetName = a} :: CreateReceiptRuleSet)
 
-instance Prelude.AWSRequest CreateReceiptRuleSet where
+instance Core.AWSRequest CreateReceiptRuleSet where
   type
-    Rs CreateReceiptRuleSet =
+    AWSResponse CreateReceiptRuleSet =
       CreateReceiptRuleSetResponse
   request = Request.postQuery defaultService
   response =
@@ -113,27 +112,26 @@ instance Prelude.AWSRequest CreateReceiptRuleSet where
       "CreateReceiptRuleSetResult"
       ( \s h x ->
           CreateReceiptRuleSetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateReceiptRuleSet
+instance Core.Hashable CreateReceiptRuleSet
 
-instance Prelude.NFData CreateReceiptRuleSet
+instance Core.NFData CreateReceiptRuleSet
 
-instance Prelude.ToHeaders CreateReceiptRuleSet where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateReceiptRuleSet where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateReceiptRuleSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateReceiptRuleSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateReceiptRuleSet where
+instance Core.ToQuery CreateReceiptRuleSet where
   toQuery CreateReceiptRuleSet' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateReceiptRuleSet" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "RuleSetName" Prelude.=: ruleSetName
+          Core.=: ("CreateReceiptRuleSet" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "RuleSetName" Core.=: ruleSetName
       ]
 
 -- | An empty element returned on a successful request.
@@ -141,9 +139,9 @@ instance Prelude.ToQuery CreateReceiptRuleSet where
 -- /See:/ 'newCreateReceiptRuleSetResponse' smart constructor.
 data CreateReceiptRuleSetResponse = CreateReceiptRuleSetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateReceiptRuleSetResponse' with all optional fields omitted.
@@ -156,7 +154,7 @@ data CreateReceiptRuleSetResponse = CreateReceiptRuleSetResponse'
 -- 'httpStatus', 'createReceiptRuleSetResponse_httpStatus' - The response's http status code.
 newCreateReceiptRuleSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateReceiptRuleSetResponse
 newCreateReceiptRuleSetResponse pHttpStatus_ =
   CreateReceiptRuleSetResponse'
@@ -165,7 +163,7 @@ newCreateReceiptRuleSetResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createReceiptRuleSetResponse_httpStatus :: Lens.Lens' CreateReceiptRuleSetResponse Prelude.Int
+createReceiptRuleSetResponse_httpStatus :: Lens.Lens' CreateReceiptRuleSetResponse Core.Int
 createReceiptRuleSetResponse_httpStatus = Lens.lens (\CreateReceiptRuleSetResponse' {httpStatus} -> httpStatus) (\s@CreateReceiptRuleSetResponse' {} a -> s {httpStatus = a} :: CreateReceiptRuleSetResponse)
 
-instance Prelude.NFData CreateReceiptRuleSetResponse
+instance Core.NFData CreateReceiptRuleSetResponse

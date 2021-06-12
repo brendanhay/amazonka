@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeIdentity' smart constructor.
 data DescribeIdentity = DescribeIdentity'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Text
+    identityId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeIdentity' with all optional fields omitted.
@@ -71,50 +70,50 @@ data DescribeIdentity = DescribeIdentity'
 -- 'identityId', 'describeIdentity_identityId' - A unique identifier in the format REGION:GUID.
 newDescribeIdentity ::
   -- | 'identityId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeIdentity
 newDescribeIdentity pIdentityId_ =
   DescribeIdentity' {identityId = pIdentityId_}
 
 -- | A unique identifier in the format REGION:GUID.
-describeIdentity_identityId :: Lens.Lens' DescribeIdentity Prelude.Text
+describeIdentity_identityId :: Lens.Lens' DescribeIdentity Core.Text
 describeIdentity_identityId = Lens.lens (\DescribeIdentity' {identityId} -> identityId) (\s@DescribeIdentity' {} a -> s {identityId = a} :: DescribeIdentity)
 
-instance Prelude.AWSRequest DescribeIdentity where
-  type Rs DescribeIdentity = IdentityDescription
+instance Core.AWSRequest DescribeIdentity where
+  type
+    AWSResponse DescribeIdentity =
+      IdentityDescription
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable DescribeIdentity
+instance Core.Hashable DescribeIdentity
 
-instance Prelude.NFData DescribeIdentity
+instance Core.NFData DescribeIdentity
 
-instance Prelude.ToHeaders DescribeIdentity where
+instance Core.ToHeaders DescribeIdentity where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.DescribeIdentity" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.DescribeIdentity" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeIdentity where
+instance Core.ToJSON DescribeIdentity where
   toJSON DescribeIdentity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("IdentityId" Prelude..= identityId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("IdentityId" Core..= identityId)]
       )
 
-instance Prelude.ToPath DescribeIdentity where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeIdentity where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeIdentity where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeIdentity where
+  toQuery = Core.const Core.mempty

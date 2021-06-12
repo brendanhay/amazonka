@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServerlessApplicationRepository.Types.Version where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ServerlessApplicationRepository.Types.Capability
 import Network.AWS.ServerlessApplicationRepository.Types.ParameterDefinition
 
@@ -33,19 +32,19 @@ data Version = Version'
     -- for this version of your application.
     --
     -- Maximum size 50 MB
-    sourceCodeArchiveUrl :: Prelude.Maybe Prelude.Text,
+    sourceCodeArchiveUrl :: Core.Maybe Core.Text,
     -- | A link to a public repository for the source code of your application,
     -- for example the URL of a specific GitHub commit.
-    sourceCodeUrl :: Prelude.Maybe Prelude.Text,
+    sourceCodeUrl :: Core.Maybe Core.Text,
     -- | A link to the packaged AWS SAM template of your application.
-    templateUrl :: Prelude.Text,
+    templateUrl :: Core.Text,
     -- | An array of parameter types supported by the application.
     parameterDefinitions :: [ParameterDefinition],
     -- | Whether all of the AWS resources contained in this application are
     -- supported in the region in which it is being retrieved.
-    resourcesSupported :: Prelude.Bool,
+    resourcesSupported :: Core.Bool,
     -- | The date and time this resource was created.
-    creationTime :: Prelude.Text,
+    creationTime :: Core.Text,
     -- | A list of values that you must specify before you can deploy certain
     -- applications. Some applications might include resources that can affect
     -- permissions in your AWS account, for example, by creating new AWS
@@ -86,13 +85,13 @@ data Version = Version'
     -- an application that requires capabilities, the call will fail.
     requiredCapabilities :: [Capability],
     -- | The application Amazon Resource Name (ARN).
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The semantic version of the application:
     --
     -- <https://semver.org/>
-    semanticVersion :: Prelude.Text
+    semanticVersion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Version' with all optional fields omitted.
@@ -165,15 +164,15 @@ data Version = Version'
 -- <https://semver.org/>
 newVersion ::
   -- | 'templateUrl'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourcesSupported'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'creationTime'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'semanticVersion'
-  Prelude.Text ->
+  Core.Text ->
   Version
 newVersion
   pTemplateUrl_
@@ -182,13 +181,13 @@ newVersion
   pApplicationId_
   pSemanticVersion_ =
     Version'
-      { sourceCodeArchiveUrl = Prelude.Nothing,
-        sourceCodeUrl = Prelude.Nothing,
+      { sourceCodeArchiveUrl = Core.Nothing,
+        sourceCodeUrl = Core.Nothing,
         templateUrl = pTemplateUrl_,
-        parameterDefinitions = Prelude.mempty,
+        parameterDefinitions = Core.mempty,
         resourcesSupported = pResourcesSupported_,
         creationTime = pCreationTime_,
-        requiredCapabilities = Prelude.mempty,
+        requiredCapabilities = Core.mempty,
         applicationId = pApplicationId_,
         semanticVersion = pSemanticVersion_
       }
@@ -197,29 +196,29 @@ newVersion
 -- for this version of your application.
 --
 -- Maximum size 50 MB
-version_sourceCodeArchiveUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
+version_sourceCodeArchiveUrl :: Lens.Lens' Version (Core.Maybe Core.Text)
 version_sourceCodeArchiveUrl = Lens.lens (\Version' {sourceCodeArchiveUrl} -> sourceCodeArchiveUrl) (\s@Version' {} a -> s {sourceCodeArchiveUrl = a} :: Version)
 
 -- | A link to a public repository for the source code of your application,
 -- for example the URL of a specific GitHub commit.
-version_sourceCodeUrl :: Lens.Lens' Version (Prelude.Maybe Prelude.Text)
+version_sourceCodeUrl :: Lens.Lens' Version (Core.Maybe Core.Text)
 version_sourceCodeUrl = Lens.lens (\Version' {sourceCodeUrl} -> sourceCodeUrl) (\s@Version' {} a -> s {sourceCodeUrl = a} :: Version)
 
 -- | A link to the packaged AWS SAM template of your application.
-version_templateUrl :: Lens.Lens' Version Prelude.Text
+version_templateUrl :: Lens.Lens' Version Core.Text
 version_templateUrl = Lens.lens (\Version' {templateUrl} -> templateUrl) (\s@Version' {} a -> s {templateUrl = a} :: Version)
 
 -- | An array of parameter types supported by the application.
 version_parameterDefinitions :: Lens.Lens' Version [ParameterDefinition]
-version_parameterDefinitions = Lens.lens (\Version' {parameterDefinitions} -> parameterDefinitions) (\s@Version' {} a -> s {parameterDefinitions = a} :: Version) Prelude.. Prelude._Coerce
+version_parameterDefinitions = Lens.lens (\Version' {parameterDefinitions} -> parameterDefinitions) (\s@Version' {} a -> s {parameterDefinitions = a} :: Version) Core.. Lens._Coerce
 
 -- | Whether all of the AWS resources contained in this application are
 -- supported in the region in which it is being retrieved.
-version_resourcesSupported :: Lens.Lens' Version Prelude.Bool
+version_resourcesSupported :: Lens.Lens' Version Core.Bool
 version_resourcesSupported = Lens.lens (\Version' {resourcesSupported} -> resourcesSupported) (\s@Version' {} a -> s {resourcesSupported = a} :: Version)
 
 -- | The date and time this resource was created.
-version_creationTime :: Lens.Lens' Version Prelude.Text
+version_creationTime :: Lens.Lens' Version Core.Text
 version_creationTime = Lens.lens (\Version' {creationTime} -> creationTime) (\s@Version' {} a -> s {creationTime = a} :: Version)
 
 -- | A list of values that you must specify before you can deploy certain
@@ -261,39 +260,39 @@ version_creationTime = Lens.lens (\Version' {creationTime} -> creationTime) (\s@
 -- application before deploying. If you don\'t specify this parameter for
 -- an application that requires capabilities, the call will fail.
 version_requiredCapabilities :: Lens.Lens' Version [Capability]
-version_requiredCapabilities = Lens.lens (\Version' {requiredCapabilities} -> requiredCapabilities) (\s@Version' {} a -> s {requiredCapabilities = a} :: Version) Prelude.. Prelude._Coerce
+version_requiredCapabilities = Lens.lens (\Version' {requiredCapabilities} -> requiredCapabilities) (\s@Version' {} a -> s {requiredCapabilities = a} :: Version) Core.. Lens._Coerce
 
 -- | The application Amazon Resource Name (ARN).
-version_applicationId :: Lens.Lens' Version Prelude.Text
+version_applicationId :: Lens.Lens' Version Core.Text
 version_applicationId = Lens.lens (\Version' {applicationId} -> applicationId) (\s@Version' {} a -> s {applicationId = a} :: Version)
 
 -- | The semantic version of the application:
 --
 -- <https://semver.org/>
-version_semanticVersion :: Lens.Lens' Version Prelude.Text
+version_semanticVersion :: Lens.Lens' Version Core.Text
 version_semanticVersion = Lens.lens (\Version' {semanticVersion} -> semanticVersion) (\s@Version' {} a -> s {semanticVersion = a} :: Version)
 
-instance Prelude.FromJSON Version where
+instance Core.FromJSON Version where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Version"
       ( \x ->
           Version'
-            Prelude.<$> (x Prelude..:? "sourceCodeArchiveUrl")
-            Prelude.<*> (x Prelude..:? "sourceCodeUrl")
-            Prelude.<*> (x Prelude..: "templateUrl")
-            Prelude.<*> ( x Prelude..:? "parameterDefinitions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "resourcesSupported")
-            Prelude.<*> (x Prelude..: "creationTime")
-            Prelude.<*> ( x Prelude..:? "requiredCapabilities"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "applicationId")
-            Prelude.<*> (x Prelude..: "semanticVersion")
+            Core.<$> (x Core..:? "sourceCodeArchiveUrl")
+            Core.<*> (x Core..:? "sourceCodeUrl")
+            Core.<*> (x Core..: "templateUrl")
+            Core.<*> ( x Core..:? "parameterDefinitions"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "resourcesSupported")
+            Core.<*> (x Core..: "creationTime")
+            Core.<*> ( x Core..:? "requiredCapabilities"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "applicationId")
+            Core.<*> (x Core..: "semanticVersion")
       )
 
-instance Prelude.Hashable Version
+instance Core.Hashable Version
 
-instance Prelude.NFData Version
+instance Core.NFData Version

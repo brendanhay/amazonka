@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.EmbeddedDestinationSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings specific to embedded\/ancillary caption outputs, including
 -- 608\/708 Channel destination number.
@@ -39,16 +38,16 @@ data EmbeddedDestinationSettings = EmbeddedDestinationSettings'
     -- (destination608ChannelNumber) for the 708 service number. For more
     -- information, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.
-    destination708ServiceNumber :: Prelude.Maybe Prelude.Natural,
+    destination708ServiceNumber :: Core.Maybe Core.Natural,
     -- | Ignore this setting unless your input captions are SCC format and your
     -- output captions are embedded in the video stream. Specify a CC number
     -- for each captions channel in this output. If you have two channels,
     -- choose CC numbers that aren\'t in the same field. For example, choose 1
     -- and 3. For more information, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.
-    destination608ChannelNumber :: Prelude.Maybe Prelude.Natural
+    destination608ChannelNumber :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EmbeddedDestinationSettings' with all optional fields omitted.
@@ -81,8 +80,8 @@ newEmbeddedDestinationSettings ::
 newEmbeddedDestinationSettings =
   EmbeddedDestinationSettings'
     { destination708ServiceNumber =
-        Prelude.Nothing,
-      destination608ChannelNumber = Prelude.Nothing
+        Core.Nothing,
+      destination608ChannelNumber = Core.Nothing
     }
 
 -- | Ignore this setting unless your input captions are SCC format and you
@@ -96,7 +95,7 @@ newEmbeddedDestinationSettings =
 -- (destination608ChannelNumber) for the 708 service number. For more
 -- information, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.
-embeddedDestinationSettings_destination708ServiceNumber :: Lens.Lens' EmbeddedDestinationSettings (Prelude.Maybe Prelude.Natural)
+embeddedDestinationSettings_destination708ServiceNumber :: Lens.Lens' EmbeddedDestinationSettings (Core.Maybe Core.Natural)
 embeddedDestinationSettings_destination708ServiceNumber = Lens.lens (\EmbeddedDestinationSettings' {destination708ServiceNumber} -> destination708ServiceNumber) (\s@EmbeddedDestinationSettings' {} a -> s {destination708ServiceNumber = a} :: EmbeddedDestinationSettings)
 
 -- | Ignore this setting unless your input captions are SCC format and your
@@ -105,30 +104,30 @@ embeddedDestinationSettings_destination708ServiceNumber = Lens.lens (\EmbeddedDe
 -- choose CC numbers that aren\'t in the same field. For example, choose 1
 -- and 3. For more information, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/dual-scc-to-embedded.
-embeddedDestinationSettings_destination608ChannelNumber :: Lens.Lens' EmbeddedDestinationSettings (Prelude.Maybe Prelude.Natural)
+embeddedDestinationSettings_destination608ChannelNumber :: Lens.Lens' EmbeddedDestinationSettings (Core.Maybe Core.Natural)
 embeddedDestinationSettings_destination608ChannelNumber = Lens.lens (\EmbeddedDestinationSettings' {destination608ChannelNumber} -> destination608ChannelNumber) (\s@EmbeddedDestinationSettings' {} a -> s {destination608ChannelNumber = a} :: EmbeddedDestinationSettings)
 
-instance Prelude.FromJSON EmbeddedDestinationSettings where
+instance Core.FromJSON EmbeddedDestinationSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EmbeddedDestinationSettings"
       ( \x ->
           EmbeddedDestinationSettings'
-            Prelude.<$> (x Prelude..:? "destination708ServiceNumber")
-            Prelude.<*> (x Prelude..:? "destination608ChannelNumber")
+            Core.<$> (x Core..:? "destination708ServiceNumber")
+            Core.<*> (x Core..:? "destination608ChannelNumber")
       )
 
-instance Prelude.Hashable EmbeddedDestinationSettings
+instance Core.Hashable EmbeddedDestinationSettings
 
-instance Prelude.NFData EmbeddedDestinationSettings
+instance Core.NFData EmbeddedDestinationSettings
 
-instance Prelude.ToJSON EmbeddedDestinationSettings where
+instance Core.ToJSON EmbeddedDestinationSettings where
   toJSON EmbeddedDestinationSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("destination708ServiceNumber" Prelude..=)
-              Prelude.<$> destination708ServiceNumber,
-            ("destination608ChannelNumber" Prelude..=)
-              Prelude.<$> destination608ChannelNumber
+    Core.object
+      ( Core.catMaybes
+          [ ("destination708ServiceNumber" Core..=)
+              Core.<$> destination708ServiceNumber,
+            ("destination608ChannelNumber" Core..=)
+              Core.<$> destination608ChannelNumber
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,35 +50,35 @@ module Network.AWS.EC2.CreateLaunchTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateLaunchTemplate' smart constructor.
 data CreateLaunchTemplate = CreateLaunchTemplate'
   { -- | The tags to apply to the launch template during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | A description for the first version of the launch template.
-    versionDescription :: Prelude.Maybe Prelude.Text,
+    versionDescription :: Core.Maybe Core.Text,
     -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     --
     -- Constraint: Maximum 128 ASCII characters.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | A name for the launch template.
-    launchTemplateName :: Prelude.Text,
+    launchTemplateName :: Core.Text,
     -- | The information for the launch template.
     launchTemplateData :: RequestLaunchTemplateData
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLaunchTemplate' with all optional fields omitted.
@@ -109,7 +108,7 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
 -- 'launchTemplateData', 'createLaunchTemplate_launchTemplateData' - The information for the launch template.
 newCreateLaunchTemplate ::
   -- | 'launchTemplateName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'launchTemplateData'
   RequestLaunchTemplateData ->
   CreateLaunchTemplate
@@ -118,27 +117,27 @@ newCreateLaunchTemplate
   pLaunchTemplateData_ =
     CreateLaunchTemplate'
       { tagSpecifications =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        versionDescription = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
+        versionDescription = Core.Nothing,
+        clientToken = Core.Nothing,
         launchTemplateName = pLaunchTemplateName_,
         launchTemplateData = pLaunchTemplateData_
       }
 
 -- | The tags to apply to the launch template during creation.
-createLaunchTemplate_tagSpecifications :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe [TagSpecification])
-createLaunchTemplate_tagSpecifications = Lens.lens (\CreateLaunchTemplate' {tagSpecifications} -> tagSpecifications) (\s@CreateLaunchTemplate' {} a -> s {tagSpecifications = a} :: CreateLaunchTemplate) Prelude.. Lens.mapping Prelude._Coerce
+createLaunchTemplate_tagSpecifications :: Lens.Lens' CreateLaunchTemplate (Core.Maybe [TagSpecification])
+createLaunchTemplate_tagSpecifications = Lens.lens (\CreateLaunchTemplate' {tagSpecifications} -> tagSpecifications) (\s@CreateLaunchTemplate' {} a -> s {tagSpecifications = a} :: CreateLaunchTemplate) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createLaunchTemplate_dryRun :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Bool)
+createLaunchTemplate_dryRun :: Lens.Lens' CreateLaunchTemplate (Core.Maybe Core.Bool)
 createLaunchTemplate_dryRun = Lens.lens (\CreateLaunchTemplate' {dryRun} -> dryRun) (\s@CreateLaunchTemplate' {} a -> s {dryRun = a} :: CreateLaunchTemplate)
 
 -- | A description for the first version of the launch template.
-createLaunchTemplate_versionDescription :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
+createLaunchTemplate_versionDescription :: Lens.Lens' CreateLaunchTemplate (Core.Maybe Core.Text)
 createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {versionDescription} -> versionDescription) (\s@CreateLaunchTemplate' {} a -> s {versionDescription = a} :: CreateLaunchTemplate)
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -146,71 +145,70 @@ createLaunchTemplate_versionDescription = Lens.lens (\CreateLaunchTemplate' {ver
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraint: Maximum 128 ASCII characters.
-createLaunchTemplate_clientToken :: Lens.Lens' CreateLaunchTemplate (Prelude.Maybe Prelude.Text)
+createLaunchTemplate_clientToken :: Lens.Lens' CreateLaunchTemplate (Core.Maybe Core.Text)
 createLaunchTemplate_clientToken = Lens.lens (\CreateLaunchTemplate' {clientToken} -> clientToken) (\s@CreateLaunchTemplate' {} a -> s {clientToken = a} :: CreateLaunchTemplate)
 
 -- | A name for the launch template.
-createLaunchTemplate_launchTemplateName :: Lens.Lens' CreateLaunchTemplate Prelude.Text
+createLaunchTemplate_launchTemplateName :: Lens.Lens' CreateLaunchTemplate Core.Text
 createLaunchTemplate_launchTemplateName = Lens.lens (\CreateLaunchTemplate' {launchTemplateName} -> launchTemplateName) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateName = a} :: CreateLaunchTemplate)
 
 -- | The information for the launch template.
 createLaunchTemplate_launchTemplateData :: Lens.Lens' CreateLaunchTemplate RequestLaunchTemplateData
 createLaunchTemplate_launchTemplateData = Lens.lens (\CreateLaunchTemplate' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplate)
 
-instance Prelude.AWSRequest CreateLaunchTemplate where
+instance Core.AWSRequest CreateLaunchTemplate where
   type
-    Rs CreateLaunchTemplate =
+    AWSResponse CreateLaunchTemplate =
       CreateLaunchTemplateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateLaunchTemplateResponse'
-            Prelude.<$> (x Prelude..@? "launchTemplate")
-            Prelude.<*> (x Prelude..@? "warning")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "launchTemplate")
+            Core.<*> (x Core..@? "warning")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateLaunchTemplate
+instance Core.Hashable CreateLaunchTemplate
 
-instance Prelude.NFData CreateLaunchTemplate
+instance Core.NFData CreateLaunchTemplate
 
-instance Prelude.ToHeaders CreateLaunchTemplate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateLaunchTemplate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateLaunchTemplate where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateLaunchTemplate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateLaunchTemplate where
+instance Core.ToQuery CreateLaunchTemplate where
   toQuery CreateLaunchTemplate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateLaunchTemplate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateLaunchTemplate" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "VersionDescription" Prelude.=: versionDescription,
-        "ClientToken" Prelude.=: clientToken,
-        "LaunchTemplateName" Prelude.=: launchTemplateName,
-        "LaunchTemplateData" Prelude.=: launchTemplateData
+        "DryRun" Core.=: dryRun,
+        "VersionDescription" Core.=: versionDescription,
+        "ClientToken" Core.=: clientToken,
+        "LaunchTemplateName" Core.=: launchTemplateName,
+        "LaunchTemplateData" Core.=: launchTemplateData
       ]
 
 -- | /See:/ 'newCreateLaunchTemplateResponse' smart constructor.
 data CreateLaunchTemplateResponse = CreateLaunchTemplateResponse'
   { -- | Information about the launch template.
-    launchTemplate :: Prelude.Maybe LaunchTemplate,
+    launchTemplate :: Core.Maybe LaunchTemplate,
     -- | If the launch template contains parameters or parameter combinations
     -- that are not valid, an error code and an error message are returned for
     -- each issue that\'s found.
-    warning :: Prelude.Maybe ValidationWarning,
+    warning :: Core.Maybe ValidationWarning,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateLaunchTemplateResponse' with all optional fields omitted.
@@ -229,28 +227,28 @@ data CreateLaunchTemplateResponse = CreateLaunchTemplateResponse'
 -- 'httpStatus', 'createLaunchTemplateResponse_httpStatus' - The response's http status code.
 newCreateLaunchTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateLaunchTemplateResponse
 newCreateLaunchTemplateResponse pHttpStatus_ =
   CreateLaunchTemplateResponse'
     { launchTemplate =
-        Prelude.Nothing,
-      warning = Prelude.Nothing,
+        Core.Nothing,
+      warning = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the launch template.
-createLaunchTemplateResponse_launchTemplate :: Lens.Lens' CreateLaunchTemplateResponse (Prelude.Maybe LaunchTemplate)
+createLaunchTemplateResponse_launchTemplate :: Lens.Lens' CreateLaunchTemplateResponse (Core.Maybe LaunchTemplate)
 createLaunchTemplateResponse_launchTemplate = Lens.lens (\CreateLaunchTemplateResponse' {launchTemplate} -> launchTemplate) (\s@CreateLaunchTemplateResponse' {} a -> s {launchTemplate = a} :: CreateLaunchTemplateResponse)
 
 -- | If the launch template contains parameters or parameter combinations
 -- that are not valid, an error code and an error message are returned for
 -- each issue that\'s found.
-createLaunchTemplateResponse_warning :: Lens.Lens' CreateLaunchTemplateResponse (Prelude.Maybe ValidationWarning)
+createLaunchTemplateResponse_warning :: Lens.Lens' CreateLaunchTemplateResponse (Core.Maybe ValidationWarning)
 createLaunchTemplateResponse_warning = Lens.lens (\CreateLaunchTemplateResponse' {warning} -> warning) (\s@CreateLaunchTemplateResponse' {} a -> s {warning = a} :: CreateLaunchTemplateResponse)
 
 -- | The response's http status code.
-createLaunchTemplateResponse_httpStatus :: Lens.Lens' CreateLaunchTemplateResponse Prelude.Int
+createLaunchTemplateResponse_httpStatus :: Lens.Lens' CreateLaunchTemplateResponse Core.Int
 createLaunchTemplateResponse_httpStatus = Lens.lens (\CreateLaunchTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateLaunchTemplateResponse' {} a -> s {httpStatus = a} :: CreateLaunchTemplateResponse)
 
-instance Prelude.NFData CreateLaunchTemplateResponse
+instance Core.NFData CreateLaunchTemplateResponse

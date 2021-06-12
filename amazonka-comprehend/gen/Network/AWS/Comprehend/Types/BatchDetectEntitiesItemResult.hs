@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult where
 
 import Network.AWS.Comprehend.Types.Entity
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The result of calling the operation. The operation returns one object
 -- for each document that is successfully processed by the operation.
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newBatchDetectEntitiesItemResult' smart constructor.
 data BatchDetectEntitiesItemResult = BatchDetectEntitiesItemResult'
   { -- | The zero-based index of the document in the input list.
-    index :: Prelude.Maybe Prelude.Int,
+    index :: Core.Maybe Core.Int,
     -- | One or more Entity objects, one for each entity detected in the
     -- document.
-    entities :: Prelude.Maybe [Entity]
+    entities :: Core.Maybe [Entity]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDetectEntitiesItemResult' with all optional fields omitted.
@@ -54,36 +53,29 @@ newBatchDetectEntitiesItemResult ::
 newBatchDetectEntitiesItemResult =
   BatchDetectEntitiesItemResult'
     { index =
-        Prelude.Nothing,
-      entities = Prelude.Nothing
+        Core.Nothing,
+      entities = Core.Nothing
     }
 
 -- | The zero-based index of the document in the input list.
-batchDetectEntitiesItemResult_index :: Lens.Lens' BatchDetectEntitiesItemResult (Prelude.Maybe Prelude.Int)
+batchDetectEntitiesItemResult_index :: Lens.Lens' BatchDetectEntitiesItemResult (Core.Maybe Core.Int)
 batchDetectEntitiesItemResult_index = Lens.lens (\BatchDetectEntitiesItemResult' {index} -> index) (\s@BatchDetectEntitiesItemResult' {} a -> s {index = a} :: BatchDetectEntitiesItemResult)
 
 -- | One or more Entity objects, one for each entity detected in the
 -- document.
-batchDetectEntitiesItemResult_entities :: Lens.Lens' BatchDetectEntitiesItemResult (Prelude.Maybe [Entity])
-batchDetectEntitiesItemResult_entities = Lens.lens (\BatchDetectEntitiesItemResult' {entities} -> entities) (\s@BatchDetectEntitiesItemResult' {} a -> s {entities = a} :: BatchDetectEntitiesItemResult) Prelude.. Lens.mapping Prelude._Coerce
+batchDetectEntitiesItemResult_entities :: Lens.Lens' BatchDetectEntitiesItemResult (Core.Maybe [Entity])
+batchDetectEntitiesItemResult_entities = Lens.lens (\BatchDetectEntitiesItemResult' {entities} -> entities) (\s@BatchDetectEntitiesItemResult' {} a -> s {entities = a} :: BatchDetectEntitiesItemResult) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromJSON
-    BatchDetectEntitiesItemResult
-  where
+instance Core.FromJSON BatchDetectEntitiesItemResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchDetectEntitiesItemResult"
       ( \x ->
           BatchDetectEntitiesItemResult'
-            Prelude.<$> (x Prelude..:? "Index")
-            Prelude.<*> ( x Prelude..:? "Entities"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Index")
+            Core.<*> (x Core..:? "Entities" Core..!= Core.mempty)
       )
 
-instance
-  Prelude.Hashable
-    BatchDetectEntitiesItemResult
+instance Core.Hashable BatchDetectEntitiesItemResult
 
-instance Prelude.NFData BatchDetectEntitiesItemResult
+instance Core.NFData BatchDetectEntitiesItemResult

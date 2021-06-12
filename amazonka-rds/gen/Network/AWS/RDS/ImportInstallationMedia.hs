@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,8 +50,8 @@ module Network.AWS.RDS.ImportInstallationMedia
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,7 +60,7 @@ import qualified Network.AWS.Response as Response
 data ImportInstallationMedia = ImportInstallationMedia'
   { -- | The identifier of the custom Availability Zone (AZ) to import the
     -- installation media to.
-    customAvailabilityZoneId :: Prelude.Text,
+    customAvailabilityZoneId :: Core.Text,
     -- | The name of the database engine to be used for this instance.
     --
     -- The list only includes supported DB engines that require an on-premises
@@ -76,7 +75,7 @@ data ImportInstallationMedia = ImportInstallationMedia'
     -- -   @sqlserver-ex@
     --
     -- -   @sqlserver-web@
-    engine :: Prelude.Text,
+    engine :: Core.Text,
     -- | The version number of the database engine to use.
     --
     -- For a list of valid engine versions, call DescribeDBEngineVersions.
@@ -90,19 +89,19 @@ data ImportInstallationMedia = ImportInstallationMedia'
     -- See
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport Microsoft SQL Server Versions on Amazon RDS>
     -- in the /Amazon RDS User Guide./
-    engineVersion :: Prelude.Text,
+    engineVersion :: Core.Text,
     -- | The path to the installation medium for the specified DB engine.
     --
     -- Example:
     -- @SQLServerISO\/en_sql_server_2016_enterprise_x64_dvd_8701793.iso@
-    engineInstallationMediaPath :: Prelude.Text,
+    engineInstallationMediaPath :: Core.Text,
     -- | The path to the installation medium for the operating system associated
     -- with the specified DB engine.
     --
     -- Example: @WindowsISO\/en_windows_server_2016_x64_dvd_9327751.iso@
-    oSInstallationMediaPath :: Prelude.Text
+    oSInstallationMediaPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImportInstallationMedia' with all optional fields omitted.
@@ -155,15 +154,15 @@ data ImportInstallationMedia = ImportInstallationMedia'
 -- Example: @WindowsISO\/en_windows_server_2016_x64_dvd_9327751.iso@
 newImportInstallationMedia ::
   -- | 'customAvailabilityZoneId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'engine'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'engineVersion'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'engineInstallationMediaPath'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'oSInstallationMediaPath'
-  Prelude.Text ->
+  Core.Text ->
   ImportInstallationMedia
 newImportInstallationMedia
   pCustomAvailabilityZoneId_
@@ -184,7 +183,7 @@ newImportInstallationMedia
 
 -- | The identifier of the custom Availability Zone (AZ) to import the
 -- installation media to.
-importInstallationMedia_customAvailabilityZoneId :: Lens.Lens' ImportInstallationMedia Prelude.Text
+importInstallationMedia_customAvailabilityZoneId :: Lens.Lens' ImportInstallationMedia Core.Text
 importInstallationMedia_customAvailabilityZoneId = Lens.lens (\ImportInstallationMedia' {customAvailabilityZoneId} -> customAvailabilityZoneId) (\s@ImportInstallationMedia' {} a -> s {customAvailabilityZoneId = a} :: ImportInstallationMedia)
 
 -- | The name of the database engine to be used for this instance.
@@ -201,7 +200,7 @@ importInstallationMedia_customAvailabilityZoneId = Lens.lens (\ImportInstallatio
 -- -   @sqlserver-ex@
 --
 -- -   @sqlserver-web@
-importInstallationMedia_engine :: Lens.Lens' ImportInstallationMedia Prelude.Text
+importInstallationMedia_engine :: Lens.Lens' ImportInstallationMedia Core.Text
 importInstallationMedia_engine = Lens.lens (\ImportInstallationMedia' {engine} -> engine) (\s@ImportInstallationMedia' {} a -> s {engine = a} :: ImportInstallationMedia)
 
 -- | The version number of the database engine to use.
@@ -217,54 +216,55 @@ importInstallationMedia_engine = Lens.lens (\ImportInstallationMedia' {engine} -
 -- See
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport Microsoft SQL Server Versions on Amazon RDS>
 -- in the /Amazon RDS User Guide./
-importInstallationMedia_engineVersion :: Lens.Lens' ImportInstallationMedia Prelude.Text
+importInstallationMedia_engineVersion :: Lens.Lens' ImportInstallationMedia Core.Text
 importInstallationMedia_engineVersion = Lens.lens (\ImportInstallationMedia' {engineVersion} -> engineVersion) (\s@ImportInstallationMedia' {} a -> s {engineVersion = a} :: ImportInstallationMedia)
 
 -- | The path to the installation medium for the specified DB engine.
 --
 -- Example:
 -- @SQLServerISO\/en_sql_server_2016_enterprise_x64_dvd_8701793.iso@
-importInstallationMedia_engineInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Prelude.Text
+importInstallationMedia_engineInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Core.Text
 importInstallationMedia_engineInstallationMediaPath = Lens.lens (\ImportInstallationMedia' {engineInstallationMediaPath} -> engineInstallationMediaPath) (\s@ImportInstallationMedia' {} a -> s {engineInstallationMediaPath = a} :: ImportInstallationMedia)
 
 -- | The path to the installation medium for the operating system associated
 -- with the specified DB engine.
 --
 -- Example: @WindowsISO\/en_windows_server_2016_x64_dvd_9327751.iso@
-importInstallationMedia_oSInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Prelude.Text
+importInstallationMedia_oSInstallationMediaPath :: Lens.Lens' ImportInstallationMedia Core.Text
 importInstallationMedia_oSInstallationMediaPath = Lens.lens (\ImportInstallationMedia' {oSInstallationMediaPath} -> oSInstallationMediaPath) (\s@ImportInstallationMedia' {} a -> s {oSInstallationMediaPath = a} :: ImportInstallationMedia)
 
-instance Prelude.AWSRequest ImportInstallationMedia where
-  type Rs ImportInstallationMedia = InstallationMedia
+instance Core.AWSRequest ImportInstallationMedia where
+  type
+    AWSResponse ImportInstallationMedia =
+      InstallationMedia
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ImportInstallationMediaResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable ImportInstallationMedia
+instance Core.Hashable ImportInstallationMedia
 
-instance Prelude.NFData ImportInstallationMedia
+instance Core.NFData ImportInstallationMedia
 
-instance Prelude.ToHeaders ImportInstallationMedia where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ImportInstallationMedia where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ImportInstallationMedia where
-  toPath = Prelude.const "/"
+instance Core.ToPath ImportInstallationMedia where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ImportInstallationMedia where
+instance Core.ToQuery ImportInstallationMedia where
   toQuery ImportInstallationMedia' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ImportInstallationMedia" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+          Core.=: ("ImportInstallationMedia" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
         "CustomAvailabilityZoneId"
-          Prelude.=: customAvailabilityZoneId,
-        "Engine" Prelude.=: engine,
-        "EngineVersion" Prelude.=: engineVersion,
+          Core.=: customAvailabilityZoneId,
+        "Engine" Core.=: engine,
+        "EngineVersion" Core.=: engineVersion,
         "EngineInstallationMediaPath"
-          Prelude.=: engineInstallationMediaPath,
+          Core.=: engineInstallationMediaPath,
         "OSInstallationMediaPath"
-          Prelude.=: oSInstallationMediaPath
+          Core.=: oSInstallationMediaPath
       ]

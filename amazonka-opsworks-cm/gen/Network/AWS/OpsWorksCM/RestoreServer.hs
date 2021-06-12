@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,9 +59,9 @@ module Network.AWS.OpsWorksCM.RestoreServer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -73,16 +72,16 @@ data RestoreServer = RestoreServer'
     -- values are @m5.large@, @r5.xlarge@, and @r5.2xlarge@. If you do not
     -- specify this parameter, RestoreServer uses the instance type from the
     -- specified backup.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | The name of the key pair to set on the new EC2 instance. This can be
     -- helpful if the administrator no longer has the SSH key.
-    keyPair :: Prelude.Maybe Prelude.Text,
+    keyPair :: Core.Maybe Core.Text,
     -- | The ID of the backup that you want to use to restore a server.
-    backupId :: Prelude.Text,
+    backupId :: Core.Text,
     -- | The name of the server that you want to restore.
-    serverName :: Prelude.Text
+    serverName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreServer' with all optional fields omitted.
@@ -106,14 +105,14 @@ data RestoreServer = RestoreServer'
 -- 'serverName', 'restoreServer_serverName' - The name of the server that you want to restore.
 newRestoreServer ::
   -- | 'backupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serverName'
-  Prelude.Text ->
+  Core.Text ->
   RestoreServer
 newRestoreServer pBackupId_ pServerName_ =
   RestoreServer'
-    { instanceType = Prelude.Nothing,
-      keyPair = Prelude.Nothing,
+    { instanceType = Core.Nothing,
+      keyPair = Core.Nothing,
       backupId = pBackupId_,
       serverName = pServerName_
     }
@@ -123,75 +122,74 @@ newRestoreServer pBackupId_ pServerName_ =
 -- values are @m5.large@, @r5.xlarge@, and @r5.2xlarge@. If you do not
 -- specify this parameter, RestoreServer uses the instance type from the
 -- specified backup.
-restoreServer_instanceType :: Lens.Lens' RestoreServer (Prelude.Maybe Prelude.Text)
+restoreServer_instanceType :: Lens.Lens' RestoreServer (Core.Maybe Core.Text)
 restoreServer_instanceType = Lens.lens (\RestoreServer' {instanceType} -> instanceType) (\s@RestoreServer' {} a -> s {instanceType = a} :: RestoreServer)
 
 -- | The name of the key pair to set on the new EC2 instance. This can be
 -- helpful if the administrator no longer has the SSH key.
-restoreServer_keyPair :: Lens.Lens' RestoreServer (Prelude.Maybe Prelude.Text)
+restoreServer_keyPair :: Lens.Lens' RestoreServer (Core.Maybe Core.Text)
 restoreServer_keyPair = Lens.lens (\RestoreServer' {keyPair} -> keyPair) (\s@RestoreServer' {} a -> s {keyPair = a} :: RestoreServer)
 
 -- | The ID of the backup that you want to use to restore a server.
-restoreServer_backupId :: Lens.Lens' RestoreServer Prelude.Text
+restoreServer_backupId :: Lens.Lens' RestoreServer Core.Text
 restoreServer_backupId = Lens.lens (\RestoreServer' {backupId} -> backupId) (\s@RestoreServer' {} a -> s {backupId = a} :: RestoreServer)
 
 -- | The name of the server that you want to restore.
-restoreServer_serverName :: Lens.Lens' RestoreServer Prelude.Text
+restoreServer_serverName :: Lens.Lens' RestoreServer Core.Text
 restoreServer_serverName = Lens.lens (\RestoreServer' {serverName} -> serverName) (\s@RestoreServer' {} a -> s {serverName = a} :: RestoreServer)
 
-instance Prelude.AWSRequest RestoreServer where
-  type Rs RestoreServer = RestoreServerResponse
+instance Core.AWSRequest RestoreServer where
+  type
+    AWSResponse RestoreServer =
+      RestoreServerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RestoreServerResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreServer
+instance Core.Hashable RestoreServer
 
-instance Prelude.NFData RestoreServer
+instance Core.NFData RestoreServer
 
-instance Prelude.ToHeaders RestoreServer where
+instance Core.ToHeaders RestoreServer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorksCM_V2016_11_01.RestoreServer" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorksCM_V2016_11_01.RestoreServer" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RestoreServer where
+instance Core.ToJSON RestoreServer where
   toJSON RestoreServer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceType" Prelude..=)
-              Prelude.<$> instanceType,
-            ("KeyPair" Prelude..=) Prelude.<$> keyPair,
-            Prelude.Just ("BackupId" Prelude..= backupId),
-            Prelude.Just ("ServerName" Prelude..= serverName)
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceType" Core..=) Core.<$> instanceType,
+            ("KeyPair" Core..=) Core.<$> keyPair,
+            Core.Just ("BackupId" Core..= backupId),
+            Core.Just ("ServerName" Core..= serverName)
           ]
       )
 
-instance Prelude.ToPath RestoreServer where
-  toPath = Prelude.const "/"
+instance Core.ToPath RestoreServer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RestoreServer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RestoreServer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRestoreServerResponse' smart constructor.
 data RestoreServerResponse = RestoreServerResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RestoreServerResponse' with all optional fields omitted.
@@ -204,13 +202,13 @@ data RestoreServerResponse = RestoreServerResponse'
 -- 'httpStatus', 'restoreServerResponse_httpStatus' - The response's http status code.
 newRestoreServerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RestoreServerResponse
 newRestoreServerResponse pHttpStatus_ =
   RestoreServerResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-restoreServerResponse_httpStatus :: Lens.Lens' RestoreServerResponse Prelude.Int
+restoreServerResponse_httpStatus :: Lens.Lens' RestoreServerResponse Core.Int
 restoreServerResponse_httpStatus = Lens.lens (\RestoreServerResponse' {httpStatus} -> httpStatus) (\s@RestoreServerResponse' {} a -> s {httpStatus = a} :: RestoreServerResponse)
 
-instance Prelude.NFData RestoreServerResponse
+instance Core.NFData RestoreServerResponse

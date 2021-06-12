@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Transcribe.Types.TranscriptionJobSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Types.ContentRedaction
 import Network.AWS.Transcribe.Types.LanguageCode
 import Network.AWS.Transcribe.Types.ModelSettings
@@ -33,25 +32,25 @@ import Network.AWS.Transcribe.Types.TranscriptionJobStatus
 -- /See:/ 'newTranscriptionJobSummary' smart constructor.
 data TranscriptionJobSummary = TranscriptionJobSummary'
   { -- | The language code for the input speech.
-    languageCode :: Prelude.Maybe LanguageCode,
+    languageCode :: Core.Maybe LanguageCode,
     -- | The content redaction settings of the transcription job.
-    contentRedaction :: Prelude.Maybe ContentRedaction,
+    contentRedaction :: Core.Maybe ContentRedaction,
     -- | A timestamp that shows when the job was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
+    creationTime :: Core.Maybe Core.POSIX,
     -- | A timestamp that shows when the job was completed.
-    completionTime :: Prelude.Maybe Prelude.POSIX,
+    completionTime :: Core.Maybe Core.POSIX,
     -- | The name of the transcription job.
-    transcriptionJobName :: Prelude.Maybe Prelude.Text,
+    transcriptionJobName :: Core.Maybe Core.Text,
     -- | Whether automatic language identification was enabled for a
     -- transcription job.
-    identifyLanguage :: Prelude.Maybe Prelude.Bool,
+    identifyLanguage :: Core.Maybe Core.Bool,
     -- | A timestamp that shows when the job started processing.
-    startTime :: Prelude.Maybe Prelude.POSIX,
+    startTime :: Core.Maybe Core.POSIX,
     -- | The status of the transcription job. When the status is @COMPLETED@, use
     -- the @GetTranscriptionJob@ operation to get the results of the
     -- transcription.
-    transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
-    modelSettings :: Prelude.Maybe ModelSettings,
+    transcriptionJobStatus :: Core.Maybe TranscriptionJobStatus,
+    modelSettings :: Core.Maybe ModelSettings,
     -- | Indicates the location of the output of the transcription job.
     --
     -- If the value is @CUSTOMER_BUCKET@ then the location is the S3 bucket
@@ -61,16 +60,16 @@ data TranscriptionJobSummary = TranscriptionJobSummary'
     -- If the value is @SERVICE_BUCKET@ then the output is stored by Amazon
     -- Transcribe and can be retrieved using the URI in the
     -- @GetTranscriptionJob@ response\'s @TranscriptFileUri@ field.
-    outputLocationType :: Prelude.Maybe OutputLocationType,
+    outputLocationType :: Core.Maybe OutputLocationType,
     -- | A value between zero and one that Amazon Transcribe assigned to the
     -- language it identified in the source audio. A higher score indicates
     -- that Amazon Transcribe is more confident in the language it identified.
-    identifiedLanguageScore :: Prelude.Maybe Prelude.Double,
+    identifiedLanguageScore :: Core.Maybe Core.Double,
     -- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
     -- error.
-    failureReason :: Prelude.Maybe Prelude.Text
+    failureReason :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TranscriptionJobSummary' with all optional fields omitted.
@@ -122,57 +121,57 @@ newTranscriptionJobSummary ::
 newTranscriptionJobSummary =
   TranscriptionJobSummary'
     { languageCode =
-        Prelude.Nothing,
-      contentRedaction = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      completionTime = Prelude.Nothing,
-      transcriptionJobName = Prelude.Nothing,
-      identifyLanguage = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      transcriptionJobStatus = Prelude.Nothing,
-      modelSettings = Prelude.Nothing,
-      outputLocationType = Prelude.Nothing,
-      identifiedLanguageScore = Prelude.Nothing,
-      failureReason = Prelude.Nothing
+        Core.Nothing,
+      contentRedaction = Core.Nothing,
+      creationTime = Core.Nothing,
+      completionTime = Core.Nothing,
+      transcriptionJobName = Core.Nothing,
+      identifyLanguage = Core.Nothing,
+      startTime = Core.Nothing,
+      transcriptionJobStatus = Core.Nothing,
+      modelSettings = Core.Nothing,
+      outputLocationType = Core.Nothing,
+      identifiedLanguageScore = Core.Nothing,
+      failureReason = Core.Nothing
     }
 
 -- | The language code for the input speech.
-transcriptionJobSummary_languageCode :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe LanguageCode)
+transcriptionJobSummary_languageCode :: Lens.Lens' TranscriptionJobSummary (Core.Maybe LanguageCode)
 transcriptionJobSummary_languageCode = Lens.lens (\TranscriptionJobSummary' {languageCode} -> languageCode) (\s@TranscriptionJobSummary' {} a -> s {languageCode = a} :: TranscriptionJobSummary)
 
 -- | The content redaction settings of the transcription job.
-transcriptionJobSummary_contentRedaction :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe ContentRedaction)
+transcriptionJobSummary_contentRedaction :: Lens.Lens' TranscriptionJobSummary (Core.Maybe ContentRedaction)
 transcriptionJobSummary_contentRedaction = Lens.lens (\TranscriptionJobSummary' {contentRedaction} -> contentRedaction) (\s@TranscriptionJobSummary' {} a -> s {contentRedaction = a} :: TranscriptionJobSummary)
 
 -- | A timestamp that shows when the job was created.
-transcriptionJobSummary_creationTime :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-transcriptionJobSummary_creationTime = Lens.lens (\TranscriptionJobSummary' {creationTime} -> creationTime) (\s@TranscriptionJobSummary' {} a -> s {creationTime = a} :: TranscriptionJobSummary) Prelude.. Lens.mapping Prelude._Time
+transcriptionJobSummary_creationTime :: Lens.Lens' TranscriptionJobSummary (Core.Maybe Core.UTCTime)
+transcriptionJobSummary_creationTime = Lens.lens (\TranscriptionJobSummary' {creationTime} -> creationTime) (\s@TranscriptionJobSummary' {} a -> s {creationTime = a} :: TranscriptionJobSummary) Core.. Lens.mapping Core._Time
 
 -- | A timestamp that shows when the job was completed.
-transcriptionJobSummary_completionTime :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-transcriptionJobSummary_completionTime = Lens.lens (\TranscriptionJobSummary' {completionTime} -> completionTime) (\s@TranscriptionJobSummary' {} a -> s {completionTime = a} :: TranscriptionJobSummary) Prelude.. Lens.mapping Prelude._Time
+transcriptionJobSummary_completionTime :: Lens.Lens' TranscriptionJobSummary (Core.Maybe Core.UTCTime)
+transcriptionJobSummary_completionTime = Lens.lens (\TranscriptionJobSummary' {completionTime} -> completionTime) (\s@TranscriptionJobSummary' {} a -> s {completionTime = a} :: TranscriptionJobSummary) Core.. Lens.mapping Core._Time
 
 -- | The name of the transcription job.
-transcriptionJobSummary_transcriptionJobName :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe Prelude.Text)
+transcriptionJobSummary_transcriptionJobName :: Lens.Lens' TranscriptionJobSummary (Core.Maybe Core.Text)
 transcriptionJobSummary_transcriptionJobName = Lens.lens (\TranscriptionJobSummary' {transcriptionJobName} -> transcriptionJobName) (\s@TranscriptionJobSummary' {} a -> s {transcriptionJobName = a} :: TranscriptionJobSummary)
 
 -- | Whether automatic language identification was enabled for a
 -- transcription job.
-transcriptionJobSummary_identifyLanguage :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe Prelude.Bool)
+transcriptionJobSummary_identifyLanguage :: Lens.Lens' TranscriptionJobSummary (Core.Maybe Core.Bool)
 transcriptionJobSummary_identifyLanguage = Lens.lens (\TranscriptionJobSummary' {identifyLanguage} -> identifyLanguage) (\s@TranscriptionJobSummary' {} a -> s {identifyLanguage = a} :: TranscriptionJobSummary)
 
 -- | A timestamp that shows when the job started processing.
-transcriptionJobSummary_startTime :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-transcriptionJobSummary_startTime = Lens.lens (\TranscriptionJobSummary' {startTime} -> startTime) (\s@TranscriptionJobSummary' {} a -> s {startTime = a} :: TranscriptionJobSummary) Prelude.. Lens.mapping Prelude._Time
+transcriptionJobSummary_startTime :: Lens.Lens' TranscriptionJobSummary (Core.Maybe Core.UTCTime)
+transcriptionJobSummary_startTime = Lens.lens (\TranscriptionJobSummary' {startTime} -> startTime) (\s@TranscriptionJobSummary' {} a -> s {startTime = a} :: TranscriptionJobSummary) Core.. Lens.mapping Core._Time
 
 -- | The status of the transcription job. When the status is @COMPLETED@, use
 -- the @GetTranscriptionJob@ operation to get the results of the
 -- transcription.
-transcriptionJobSummary_transcriptionJobStatus :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe TranscriptionJobStatus)
+transcriptionJobSummary_transcriptionJobStatus :: Lens.Lens' TranscriptionJobSummary (Core.Maybe TranscriptionJobStatus)
 transcriptionJobSummary_transcriptionJobStatus = Lens.lens (\TranscriptionJobSummary' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@TranscriptionJobSummary' {} a -> s {transcriptionJobStatus = a} :: TranscriptionJobSummary)
 
 -- | Undocumented member.
-transcriptionJobSummary_modelSettings :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe ModelSettings)
+transcriptionJobSummary_modelSettings :: Lens.Lens' TranscriptionJobSummary (Core.Maybe ModelSettings)
 transcriptionJobSummary_modelSettings = Lens.lens (\TranscriptionJobSummary' {modelSettings} -> modelSettings) (\s@TranscriptionJobSummary' {} a -> s {modelSettings = a} :: TranscriptionJobSummary)
 
 -- | Indicates the location of the output of the transcription job.
@@ -184,40 +183,40 @@ transcriptionJobSummary_modelSettings = Lens.lens (\TranscriptionJobSummary' {mo
 -- If the value is @SERVICE_BUCKET@ then the output is stored by Amazon
 -- Transcribe and can be retrieved using the URI in the
 -- @GetTranscriptionJob@ response\'s @TranscriptFileUri@ field.
-transcriptionJobSummary_outputLocationType :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe OutputLocationType)
+transcriptionJobSummary_outputLocationType :: Lens.Lens' TranscriptionJobSummary (Core.Maybe OutputLocationType)
 transcriptionJobSummary_outputLocationType = Lens.lens (\TranscriptionJobSummary' {outputLocationType} -> outputLocationType) (\s@TranscriptionJobSummary' {} a -> s {outputLocationType = a} :: TranscriptionJobSummary)
 
 -- | A value between zero and one that Amazon Transcribe assigned to the
 -- language it identified in the source audio. A higher score indicates
 -- that Amazon Transcribe is more confident in the language it identified.
-transcriptionJobSummary_identifiedLanguageScore :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe Prelude.Double)
+transcriptionJobSummary_identifiedLanguageScore :: Lens.Lens' TranscriptionJobSummary (Core.Maybe Core.Double)
 transcriptionJobSummary_identifiedLanguageScore = Lens.lens (\TranscriptionJobSummary' {identifiedLanguageScore} -> identifiedLanguageScore) (\s@TranscriptionJobSummary' {} a -> s {identifiedLanguageScore = a} :: TranscriptionJobSummary)
 
 -- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
 -- error.
-transcriptionJobSummary_failureReason :: Lens.Lens' TranscriptionJobSummary (Prelude.Maybe Prelude.Text)
+transcriptionJobSummary_failureReason :: Lens.Lens' TranscriptionJobSummary (Core.Maybe Core.Text)
 transcriptionJobSummary_failureReason = Lens.lens (\TranscriptionJobSummary' {failureReason} -> failureReason) (\s@TranscriptionJobSummary' {} a -> s {failureReason = a} :: TranscriptionJobSummary)
 
-instance Prelude.FromJSON TranscriptionJobSummary where
+instance Core.FromJSON TranscriptionJobSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TranscriptionJobSummary"
       ( \x ->
           TranscriptionJobSummary'
-            Prelude.<$> (x Prelude..:? "LanguageCode")
-            Prelude.<*> (x Prelude..:? "ContentRedaction")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "CompletionTime")
-            Prelude.<*> (x Prelude..:? "TranscriptionJobName")
-            Prelude.<*> (x Prelude..:? "IdentifyLanguage")
-            Prelude.<*> (x Prelude..:? "StartTime")
-            Prelude.<*> (x Prelude..:? "TranscriptionJobStatus")
-            Prelude.<*> (x Prelude..:? "ModelSettings")
-            Prelude.<*> (x Prelude..:? "OutputLocationType")
-            Prelude.<*> (x Prelude..:? "IdentifiedLanguageScore")
-            Prelude.<*> (x Prelude..:? "FailureReason")
+            Core.<$> (x Core..:? "LanguageCode")
+            Core.<*> (x Core..:? "ContentRedaction")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "CompletionTime")
+            Core.<*> (x Core..:? "TranscriptionJobName")
+            Core.<*> (x Core..:? "IdentifyLanguage")
+            Core.<*> (x Core..:? "StartTime")
+            Core.<*> (x Core..:? "TranscriptionJobStatus")
+            Core.<*> (x Core..:? "ModelSettings")
+            Core.<*> (x Core..:? "OutputLocationType")
+            Core.<*> (x Core..:? "IdentifiedLanguageScore")
+            Core.<*> (x Core..:? "FailureReason")
       )
 
-instance Prelude.Hashable TranscriptionJobSummary
+instance Core.Hashable TranscriptionJobSummary
 
-instance Prelude.NFData TranscriptionJobSummary
+instance Core.NFData TranscriptionJobSummary

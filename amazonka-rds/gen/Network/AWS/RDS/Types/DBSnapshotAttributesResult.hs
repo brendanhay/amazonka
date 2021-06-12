@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBSnapshotAttributesResult where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types.DBSnapshotAttribute
 
 -- | Contains the results of a successful call to the
@@ -34,11 +33,11 @@ import Network.AWS.RDS.Types.DBSnapshotAttribute
 -- /See:/ 'newDBSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
   { -- | The identifier of the manual DB snapshot that the attributes apply to.
-    dbSnapshotIdentifier :: Prelude.Maybe Prelude.Text,
+    dbSnapshotIdentifier :: Core.Maybe Core.Text,
     -- | The list of attributes and values for the manual DB snapshot.
-    dbSnapshotAttributes :: Prelude.Maybe [DBSnapshotAttribute]
+    dbSnapshotAttributes :: Core.Maybe [DBSnapshotAttribute]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBSnapshotAttributesResult' with all optional fields omitted.
@@ -56,28 +55,27 @@ newDBSnapshotAttributesResult ::
 newDBSnapshotAttributesResult =
   DBSnapshotAttributesResult'
     { dbSnapshotIdentifier =
-        Prelude.Nothing,
-      dbSnapshotAttributes = Prelude.Nothing
+        Core.Nothing,
+      dbSnapshotAttributes = Core.Nothing
     }
 
 -- | The identifier of the manual DB snapshot that the attributes apply to.
-dbSnapshotAttributesResult_dbSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe Prelude.Text)
+dbSnapshotAttributesResult_dbSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Core.Maybe Core.Text)
 dbSnapshotAttributesResult_dbSnapshotIdentifier = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotIdentifier = a} :: DBSnapshotAttributesResult)
 
 -- | The list of attributes and values for the manual DB snapshot.
-dbSnapshotAttributesResult_dbSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Prelude.Maybe [DBSnapshotAttribute])
-dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotAttributes} -> dbSnapshotAttributes) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult) Prelude.. Lens.mapping Prelude._Coerce
+dbSnapshotAttributesResult_dbSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Core.Maybe [DBSnapshotAttribute])
+dbSnapshotAttributesResult_dbSnapshotAttributes = Lens.lens (\DBSnapshotAttributesResult' {dbSnapshotAttributes} -> dbSnapshotAttributes) (\s@DBSnapshotAttributesResult' {} a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML DBSnapshotAttributesResult where
+instance Core.FromXML DBSnapshotAttributesResult where
   parseXML x =
     DBSnapshotAttributesResult'
-      Prelude.<$> (x Prelude..@? "DBSnapshotIdentifier")
-      Prelude.<*> ( x Prelude..@? "DBSnapshotAttributes"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "DBSnapshotAttribute")
-                  )
+      Core.<$> (x Core..@? "DBSnapshotIdentifier")
+      Core.<*> ( x Core..@? "DBSnapshotAttributes"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "DBSnapshotAttribute")
+               )
 
-instance Prelude.Hashable DBSnapshotAttributesResult
+instance Core.Hashable DBSnapshotAttributesResult
 
-instance Prelude.NFData DBSnapshotAttributesResult
+instance Core.NFData DBSnapshotAttributesResult

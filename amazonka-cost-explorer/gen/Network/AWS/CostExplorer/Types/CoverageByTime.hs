@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.CoverageByTime where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.Coverage
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.ReservationCoverageGroup
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Reservation coverage for a specified period, in hours.
 --
 -- /See:/ 'newCoverageByTime' smart constructor.
 data CoverageByTime = CoverageByTime'
   { -- | The groups of instances that the reservation covered.
-    groups :: Prelude.Maybe [ReservationCoverageGroup],
+    groups :: Core.Maybe [ReservationCoverageGroup],
     -- | The period that this coverage was used over.
-    timePeriod :: Prelude.Maybe DateInterval,
+    timePeriod :: Core.Maybe DateInterval,
     -- | The total reservation coverage, in hours.
-    total :: Prelude.Maybe Coverage
+    total :: Core.Maybe Coverage
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CoverageByTime' with all optional fields omitted.
@@ -56,34 +55,34 @@ newCoverageByTime ::
   CoverageByTime
 newCoverageByTime =
   CoverageByTime'
-    { groups = Prelude.Nothing,
-      timePeriod = Prelude.Nothing,
-      total = Prelude.Nothing
+    { groups = Core.Nothing,
+      timePeriod = Core.Nothing,
+      total = Core.Nothing
     }
 
 -- | The groups of instances that the reservation covered.
-coverageByTime_groups :: Lens.Lens' CoverageByTime (Prelude.Maybe [ReservationCoverageGroup])
-coverageByTime_groups = Lens.lens (\CoverageByTime' {groups} -> groups) (\s@CoverageByTime' {} a -> s {groups = a} :: CoverageByTime) Prelude.. Lens.mapping Prelude._Coerce
+coverageByTime_groups :: Lens.Lens' CoverageByTime (Core.Maybe [ReservationCoverageGroup])
+coverageByTime_groups = Lens.lens (\CoverageByTime' {groups} -> groups) (\s@CoverageByTime' {} a -> s {groups = a} :: CoverageByTime) Core.. Lens.mapping Lens._Coerce
 
 -- | The period that this coverage was used over.
-coverageByTime_timePeriod :: Lens.Lens' CoverageByTime (Prelude.Maybe DateInterval)
+coverageByTime_timePeriod :: Lens.Lens' CoverageByTime (Core.Maybe DateInterval)
 coverageByTime_timePeriod = Lens.lens (\CoverageByTime' {timePeriod} -> timePeriod) (\s@CoverageByTime' {} a -> s {timePeriod = a} :: CoverageByTime)
 
 -- | The total reservation coverage, in hours.
-coverageByTime_total :: Lens.Lens' CoverageByTime (Prelude.Maybe Coverage)
+coverageByTime_total :: Lens.Lens' CoverageByTime (Core.Maybe Coverage)
 coverageByTime_total = Lens.lens (\CoverageByTime' {total} -> total) (\s@CoverageByTime' {} a -> s {total = a} :: CoverageByTime)
 
-instance Prelude.FromJSON CoverageByTime where
+instance Core.FromJSON CoverageByTime where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CoverageByTime"
       ( \x ->
           CoverageByTime'
-            Prelude.<$> (x Prelude..:? "Groups" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "TimePeriod")
-            Prelude.<*> (x Prelude..:? "Total")
+            Core.<$> (x Core..:? "Groups" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "TimePeriod")
+            Core.<*> (x Core..:? "Total")
       )
 
-instance Prelude.Hashable CoverageByTime
+instance Core.Hashable CoverageByTime
 
-instance Prelude.NFData CoverageByTime
+instance Core.NFData CoverageByTime

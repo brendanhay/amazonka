@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.OpsWorks.ListTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,14 +52,14 @@ import qualified Network.AWS.Response as Response
 data ListTags = ListTags'
   { -- | Do not use. A validation exception occurs if you add a @NextToken@
     -- parameter to a @ListTagsRequest@ call.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Do not use. A validation exception occurs if you add a @MaxResults@
     -- parameter to a @ListTagsRequest@ call.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The stack or layer\'s Amazon Resource Number (ARN).
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTags' with all optional fields omitted.
@@ -79,73 +78,71 @@ data ListTags = ListTags'
 -- 'resourceArn', 'listTags_resourceArn' - The stack or layer\'s Amazon Resource Number (ARN).
 newListTags ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   ListTags
 newListTags pResourceArn_ =
   ListTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       resourceArn = pResourceArn_
     }
 
 -- | Do not use. A validation exception occurs if you add a @NextToken@
 -- parameter to a @ListTagsRequest@ call.
-listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
+listTags_nextToken :: Lens.Lens' ListTags (Core.Maybe Core.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
 -- | Do not use. A validation exception occurs if you add a @MaxResults@
 -- parameter to a @ListTagsRequest@ call.
-listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Int)
+listTags_maxResults :: Lens.Lens' ListTags (Core.Maybe Core.Int)
 listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
 -- | The stack or layer\'s Amazon Resource Number (ARN).
-listTags_resourceArn :: Lens.Lens' ListTags Prelude.Text
+listTags_resourceArn :: Lens.Lens' ListTags Core.Text
 listTags_resourceArn = Lens.lens (\ListTags' {resourceArn} -> resourceArn) (\s@ListTags' {} a -> s {resourceArn = a} :: ListTags)
 
-instance Prelude.AWSRequest ListTags where
-  type Rs ListTags = ListTagsResponse
+instance Core.AWSRequest ListTags where
+  type AWSResponse ListTags = ListTagsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTags
+instance Core.Hashable ListTags
 
-instance Prelude.NFData ListTags
+instance Core.NFData ListTags
 
-instance Prelude.ToHeaders ListTags where
+instance Core.ToHeaders ListTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("OpsWorks_20130218.ListTags" :: Prelude.ByteString),
+              Core.=# ("OpsWorks_20130218.ListTags" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTags where
+instance Core.ToJSON ListTags where
   toJSON ListTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("ResourceArn" Prelude..= resourceArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("ResourceArn" Core..= resourceArn)
           ]
       )
 
-instance Prelude.ToPath ListTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTags where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the response to a @ListTags@ request.
 --
@@ -156,14 +153,14 @@ data ListTagsResponse = ListTagsResponse'
     -- object\'s @NextToken@ parameter to get the next set of results. If the
     -- previous paginated request returned all of the remaining results, this
     -- parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A set of key-value pairs that contain tag keys and tag values that are
     -- attached to a stack or layer.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsResponse' with all optional fields omitted.
@@ -185,12 +182,12 @@ data ListTagsResponse = ListTagsResponse'
 -- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
 newListTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
-      tags = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -199,16 +196,16 @@ newListTagsResponse pHttpStatus_ =
 -- object\'s @NextToken@ parameter to get the next set of results. If the
 -- previous paginated request returned all of the remaining results, this
 -- parameter is set to @null@.
-listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
+listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Core.Maybe Core.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
 -- | A set of key-value pairs that contain tag keys and tag values that are
 -- attached to a stack or layer.
-listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
+listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Core.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
-instance Prelude.NFData ListTagsResponse
+instance Core.NFData ListTagsResponse

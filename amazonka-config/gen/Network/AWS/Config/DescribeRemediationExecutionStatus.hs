@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,8 @@ module Network.AWS.Config.DescribeRemediationExecutionStatus
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,18 +59,18 @@ import qualified Network.AWS.Response as Response
 data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of resource keys to be processed with the current request. Each
     -- element in the list consists of the resource type and resource ID.
-    resourceKeys :: Prelude.Maybe (Prelude.NonEmpty ResourceKey),
+    resourceKeys :: Core.Maybe (Core.NonEmpty ResourceKey),
     -- | The maximum number of RemediationExecutionStatuses returned on each
     -- page. The default is maximum. If you specify 0, AWS Config uses the
     -- default.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | A list of AWS Config rule names.
-    configRuleName :: Prelude.Text
+    configRuleName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRemediationExecutionStatus' with all optional fields omitted.
@@ -95,146 +93,143 @@ data DescribeRemediationExecutionStatus = DescribeRemediationExecutionStatus'
 -- 'configRuleName', 'describeRemediationExecutionStatus_configRuleName' - A list of AWS Config rule names.
 newDescribeRemediationExecutionStatus ::
   -- | 'configRuleName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeRemediationExecutionStatus
 newDescribeRemediationExecutionStatus
   pConfigRuleName_ =
     DescribeRemediationExecutionStatus'
       { nextToken =
-          Prelude.Nothing,
-        resourceKeys = Prelude.Nothing,
-        limit = Prelude.Nothing,
+          Core.Nothing,
+        resourceKeys = Core.Nothing,
+        limit = Core.Nothing,
         configRuleName = pConfigRuleName_
       }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeRemediationExecutionStatus_nextToken :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Text)
+describeRemediationExecutionStatus_nextToken :: Lens.Lens' DescribeRemediationExecutionStatus (Core.Maybe Core.Text)
 describeRemediationExecutionStatus_nextToken = Lens.lens (\DescribeRemediationExecutionStatus' {nextToken} -> nextToken) (\s@DescribeRemediationExecutionStatus' {} a -> s {nextToken = a} :: DescribeRemediationExecutionStatus)
 
 -- | A list of resource keys to be processed with the current request. Each
 -- element in the list consists of the resource type and resource ID.
-describeRemediationExecutionStatus_resourceKeys :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe (Prelude.NonEmpty ResourceKey))
-describeRemediationExecutionStatus_resourceKeys = Lens.lens (\DescribeRemediationExecutionStatus' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExecutionStatus' {} a -> s {resourceKeys = a} :: DescribeRemediationExecutionStatus) Prelude.. Lens.mapping Prelude._Coerce
+describeRemediationExecutionStatus_resourceKeys :: Lens.Lens' DescribeRemediationExecutionStatus (Core.Maybe (Core.NonEmpty ResourceKey))
+describeRemediationExecutionStatus_resourceKeys = Lens.lens (\DescribeRemediationExecutionStatus' {resourceKeys} -> resourceKeys) (\s@DescribeRemediationExecutionStatus' {} a -> s {resourceKeys = a} :: DescribeRemediationExecutionStatus) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of RemediationExecutionStatuses returned on each
 -- page. The default is maximum. If you specify 0, AWS Config uses the
 -- default.
-describeRemediationExecutionStatus_limit :: Lens.Lens' DescribeRemediationExecutionStatus (Prelude.Maybe Prelude.Natural)
+describeRemediationExecutionStatus_limit :: Lens.Lens' DescribeRemediationExecutionStatus (Core.Maybe Core.Natural)
 describeRemediationExecutionStatus_limit = Lens.lens (\DescribeRemediationExecutionStatus' {limit} -> limit) (\s@DescribeRemediationExecutionStatus' {} a -> s {limit = a} :: DescribeRemediationExecutionStatus)
 
 -- | A list of AWS Config rule names.
-describeRemediationExecutionStatus_configRuleName :: Lens.Lens' DescribeRemediationExecutionStatus Prelude.Text
+describeRemediationExecutionStatus_configRuleName :: Lens.Lens' DescribeRemediationExecutionStatus Core.Text
 describeRemediationExecutionStatus_configRuleName = Lens.lens (\DescribeRemediationExecutionStatus' {configRuleName} -> configRuleName) (\s@DescribeRemediationExecutionStatus' {} a -> s {configRuleName = a} :: DescribeRemediationExecutionStatus)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeRemediationExecutionStatus
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeRemediationExecutionStatusResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeRemediationExecutionStatusResponse_remediationExecutionStatuses
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeRemediationExecutionStatus_nextToken
           Lens..~ rs
           Lens.^? describeRemediationExecutionStatusResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeRemediationExecutionStatus
   where
   type
-    Rs DescribeRemediationExecutionStatus =
+    AWSResponse DescribeRemediationExecutionStatus =
       DescribeRemediationExecutionStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeRemediationExecutionStatusResponse'
-            Prelude.<$> ( x Prelude..?> "RemediationExecutionStatuses"
-                            Prelude..!@ Prelude.mempty
-                        )
-              Prelude.<*> (x Prelude..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "RemediationExecutionStatuses"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeRemediationExecutionStatus
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeRemediationExecutionStatus
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeRemediationExecutionStatus
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.DescribeRemediationExecutionStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.DescribeRemediationExecutionStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeRemediationExecutionStatus
   where
   toJSON DescribeRemediationExecutionStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("ResourceKeys" Prelude..=) Prelude.<$> resourceKeys,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just
-              ("ConfigRuleName" Prelude..= configRuleName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("ResourceKeys" Core..=) Core.<$> resourceKeys,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("ConfigRuleName" Core..= configRuleName)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeRemediationExecutionStatus
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeRemediationExecutionStatus
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeRemediationExecutionStatusResponse' smart constructor.
 data DescribeRemediationExecutionStatusResponse = DescribeRemediationExecutionStatusResponse'
   { -- | Returns a list of remediation execution statuses objects.
-    remediationExecutionStatuses :: Prelude.Maybe [RemediationExecutionStatus],
+    remediationExecutionStatuses :: Core.Maybe [RemediationExecutionStatus],
     -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeRemediationExecutionStatusResponse' with all optional fields omitted.
@@ -252,30 +247,30 @@ data DescribeRemediationExecutionStatusResponse = DescribeRemediationExecutionSt
 -- 'httpStatus', 'describeRemediationExecutionStatusResponse_httpStatus' - The response's http status code.
 newDescribeRemediationExecutionStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeRemediationExecutionStatusResponse
 newDescribeRemediationExecutionStatusResponse
   pHttpStatus_ =
     DescribeRemediationExecutionStatusResponse'
       { remediationExecutionStatuses =
-          Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+          Core.Nothing,
+        nextToken = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns a list of remediation execution statuses objects.
-describeRemediationExecutionStatusResponse_remediationExecutionStatuses :: Lens.Lens' DescribeRemediationExecutionStatusResponse (Prelude.Maybe [RemediationExecutionStatus])
-describeRemediationExecutionStatusResponse_remediationExecutionStatuses = Lens.lens (\DescribeRemediationExecutionStatusResponse' {remediationExecutionStatuses} -> remediationExecutionStatuses) (\s@DescribeRemediationExecutionStatusResponse' {} a -> s {remediationExecutionStatuses = a} :: DescribeRemediationExecutionStatusResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeRemediationExecutionStatusResponse_remediationExecutionStatuses :: Lens.Lens' DescribeRemediationExecutionStatusResponse (Core.Maybe [RemediationExecutionStatus])
+describeRemediationExecutionStatusResponse_remediationExecutionStatuses = Lens.lens (\DescribeRemediationExecutionStatusResponse' {remediationExecutionStatuses} -> remediationExecutionStatuses) (\s@DescribeRemediationExecutionStatusResponse' {} a -> s {remediationExecutionStatuses = a} :: DescribeRemediationExecutionStatusResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-describeRemediationExecutionStatusResponse_nextToken :: Lens.Lens' DescribeRemediationExecutionStatusResponse (Prelude.Maybe Prelude.Text)
+describeRemediationExecutionStatusResponse_nextToken :: Lens.Lens' DescribeRemediationExecutionStatusResponse (Core.Maybe Core.Text)
 describeRemediationExecutionStatusResponse_nextToken = Lens.lens (\DescribeRemediationExecutionStatusResponse' {nextToken} -> nextToken) (\s@DescribeRemediationExecutionStatusResponse' {} a -> s {nextToken = a} :: DescribeRemediationExecutionStatusResponse)
 
 -- | The response's http status code.
-describeRemediationExecutionStatusResponse_httpStatus :: Lens.Lens' DescribeRemediationExecutionStatusResponse Prelude.Int
+describeRemediationExecutionStatusResponse_httpStatus :: Lens.Lens' DescribeRemediationExecutionStatusResponse Core.Int
 describeRemediationExecutionStatusResponse_httpStatus = Lens.lens (\DescribeRemediationExecutionStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeRemediationExecutionStatusResponse' {} a -> s {httpStatus = a} :: DescribeRemediationExecutionStatusResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeRemediationExecutionStatusResponse

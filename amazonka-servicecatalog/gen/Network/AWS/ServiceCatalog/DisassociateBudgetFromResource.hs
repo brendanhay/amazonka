@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.ServiceCatalog.DisassociateBudgetFromResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -49,12 +48,12 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newDisassociateBudgetFromResource' smart constructor.
 data DisassociateBudgetFromResource = DisassociateBudgetFromResource'
   { -- | The name of the budget you want to disassociate.
-    budgetName :: Prelude.Text,
+    budgetName :: Core.Text,
     -- | The resource identifier you want to disassociate from. Either a
     -- portfolio-id or a product-id.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateBudgetFromResource' with all optional fields omitted.
@@ -70,9 +69,9 @@ data DisassociateBudgetFromResource = DisassociateBudgetFromResource'
 -- portfolio-id or a product-id.
 newDisassociateBudgetFromResource ::
   -- | 'budgetName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   DisassociateBudgetFromResource
 newDisassociateBudgetFromResource
   pBudgetName_
@@ -84,85 +83,70 @@ newDisassociateBudgetFromResource
       }
 
 -- | The name of the budget you want to disassociate.
-disassociateBudgetFromResource_budgetName :: Lens.Lens' DisassociateBudgetFromResource Prelude.Text
+disassociateBudgetFromResource_budgetName :: Lens.Lens' DisassociateBudgetFromResource Core.Text
 disassociateBudgetFromResource_budgetName = Lens.lens (\DisassociateBudgetFromResource' {budgetName} -> budgetName) (\s@DisassociateBudgetFromResource' {} a -> s {budgetName = a} :: DisassociateBudgetFromResource)
 
 -- | The resource identifier you want to disassociate from. Either a
 -- portfolio-id or a product-id.
-disassociateBudgetFromResource_resourceId :: Lens.Lens' DisassociateBudgetFromResource Prelude.Text
+disassociateBudgetFromResource_resourceId :: Lens.Lens' DisassociateBudgetFromResource Core.Text
 disassociateBudgetFromResource_resourceId = Lens.lens (\DisassociateBudgetFromResource' {resourceId} -> resourceId) (\s@DisassociateBudgetFromResource' {} a -> s {resourceId = a} :: DisassociateBudgetFromResource)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateBudgetFromResource
   where
   type
-    Rs DisassociateBudgetFromResource =
+    AWSResponse DisassociateBudgetFromResource =
       DisassociateBudgetFromResourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateBudgetFromResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DisassociateBudgetFromResource
+instance Core.Hashable DisassociateBudgetFromResource
+
+instance Core.NFData DisassociateBudgetFromResource
 
 instance
-  Prelude.NFData
-    DisassociateBudgetFromResource
-
-instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateBudgetFromResource
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.DisassociateBudgetFromResource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.DisassociateBudgetFromResource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DisassociateBudgetFromResource
-  where
+instance Core.ToJSON DisassociateBudgetFromResource where
   toJSON DisassociateBudgetFromResource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("BudgetName" Prelude..= budgetName),
-            Prelude.Just ("ResourceId" Prelude..= resourceId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
-instance
-  Prelude.ToPath
-    DisassociateBudgetFromResource
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateBudgetFromResource where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DisassociateBudgetFromResource
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateBudgetFromResource where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateBudgetFromResourceResponse' smart constructor.
 data DisassociateBudgetFromResourceResponse = DisassociateBudgetFromResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateBudgetFromResourceResponse' with all optional fields omitted.
@@ -175,7 +159,7 @@ data DisassociateBudgetFromResourceResponse = DisassociateBudgetFromResourceResp
 -- 'httpStatus', 'disassociateBudgetFromResourceResponse_httpStatus' - The response's http status code.
 newDisassociateBudgetFromResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateBudgetFromResourceResponse
 newDisassociateBudgetFromResourceResponse
   pHttpStatus_ =
@@ -185,9 +169,9 @@ newDisassociateBudgetFromResourceResponse
       }
 
 -- | The response's http status code.
-disassociateBudgetFromResourceResponse_httpStatus :: Lens.Lens' DisassociateBudgetFromResourceResponse Prelude.Int
+disassociateBudgetFromResourceResponse_httpStatus :: Lens.Lens' DisassociateBudgetFromResourceResponse Core.Int
 disassociateBudgetFromResourceResponse_httpStatus = Lens.lens (\DisassociateBudgetFromResourceResponse' {httpStatus} -> httpStatus) (\s@DisassociateBudgetFromResourceResponse' {} a -> s {httpStatus = a} :: DisassociateBudgetFromResourceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateBudgetFromResourceResponse

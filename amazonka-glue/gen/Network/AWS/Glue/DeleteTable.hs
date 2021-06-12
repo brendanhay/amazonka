@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.Glue.DeleteTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,15 +61,15 @@ import qualified Network.AWS.Response as Response
 data DeleteTable = DeleteTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the table to be deleted. For Hive compatibility, this name
     -- is entirely lowercase.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTable' with all optional fields omitted.
@@ -90,82 +89,79 @@ data DeleteTable = DeleteTable'
 -- is entirely lowercase.
 newDeleteTable ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTable
 newDeleteTable pDatabaseName_ pName_ =
   DeleteTable'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       databaseName = pDatabaseName_,
       name = pName_
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
 -- the AWS account ID is used by default.
-deleteTable_catalogId :: Lens.Lens' DeleteTable (Prelude.Maybe Prelude.Text)
+deleteTable_catalogId :: Lens.Lens' DeleteTable (Core.Maybe Core.Text)
 deleteTable_catalogId = Lens.lens (\DeleteTable' {catalogId} -> catalogId) (\s@DeleteTable' {} a -> s {catalogId = a} :: DeleteTable)
 
 -- | The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
-deleteTable_databaseName :: Lens.Lens' DeleteTable Prelude.Text
+deleteTable_databaseName :: Lens.Lens' DeleteTable Core.Text
 deleteTable_databaseName = Lens.lens (\DeleteTable' {databaseName} -> databaseName) (\s@DeleteTable' {} a -> s {databaseName = a} :: DeleteTable)
 
 -- | The name of the table to be deleted. For Hive compatibility, this name
 -- is entirely lowercase.
-deleteTable_name :: Lens.Lens' DeleteTable Prelude.Text
+deleteTable_name :: Lens.Lens' DeleteTable Core.Text
 deleteTable_name = Lens.lens (\DeleteTable' {name} -> name) (\s@DeleteTable' {} a -> s {name = a} :: DeleteTable)
 
-instance Prelude.AWSRequest DeleteTable where
-  type Rs DeleteTable = DeleteTableResponse
+instance Core.AWSRequest DeleteTable where
+  type AWSResponse DeleteTable = DeleteTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTableResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteTable
+instance Core.Hashable DeleteTable
 
-instance Prelude.NFData DeleteTable
+instance Core.NFData DeleteTable
 
-instance Prelude.ToHeaders DeleteTable where
+instance Core.ToHeaders DeleteTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.DeleteTable" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.DeleteTable" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTable where
+instance Core.ToJSON DeleteTable where
   toJSON DeleteTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath DeleteTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTable where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTableResponse' smart constructor.
 data DeleteTableResponse = DeleteTableResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTableResponse' with all optional fields omitted.
@@ -178,13 +174,13 @@ data DeleteTableResponse = DeleteTableResponse'
 -- 'httpStatus', 'deleteTableResponse_httpStatus' - The response's http status code.
 newDeleteTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTableResponse
 newDeleteTableResponse pHttpStatus_ =
   DeleteTableResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteTableResponse_httpStatus :: Lens.Lens' DeleteTableResponse Prelude.Int
+deleteTableResponse_httpStatus :: Lens.Lens' DeleteTableResponse Core.Int
 deleteTableResponse_httpStatus = Lens.lens (\DeleteTableResponse' {httpStatus} -> httpStatus) (\s@DeleteTableResponse' {} a -> s {httpStatus = a} :: DeleteTableResponse)
 
-instance Prelude.NFData DeleteTableResponse
+instance Core.NFData DeleteTableResponse

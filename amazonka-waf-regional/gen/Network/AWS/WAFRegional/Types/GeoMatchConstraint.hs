@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.GeoMatchConstraint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.GeoMatchConstraintType
 import Network.AWS.WAFRegional.Types.GeoMatchConstraintValue
 
@@ -45,7 +44,7 @@ data GeoMatchConstraint = GeoMatchConstraint'
     -- | The country that you want AWS WAF to search for.
     value :: GeoMatchConstraintValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GeoMatchConstraint' with all optional fields omitted.
@@ -80,25 +79,24 @@ geoMatchConstraint_type = Lens.lens (\GeoMatchConstraint' {type'} -> type') (\s@
 geoMatchConstraint_value :: Lens.Lens' GeoMatchConstraint GeoMatchConstraintValue
 geoMatchConstraint_value = Lens.lens (\GeoMatchConstraint' {value} -> value) (\s@GeoMatchConstraint' {} a -> s {value = a} :: GeoMatchConstraint)
 
-instance Prelude.FromJSON GeoMatchConstraint where
+instance Core.FromJSON GeoMatchConstraint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GeoMatchConstraint"
       ( \x ->
           GeoMatchConstraint'
-            Prelude.<$> (x Prelude..: "Type")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable GeoMatchConstraint
+instance Core.Hashable GeoMatchConstraint
 
-instance Prelude.NFData GeoMatchConstraint
+instance Core.NFData GeoMatchConstraint
 
-instance Prelude.ToJSON GeoMatchConstraint where
+instance Core.ToJSON GeoMatchConstraint where
   toJSON GeoMatchConstraint' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Type" Prelude..= type'),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            Core.Just ("Value" Core..= value)
           ]
       )

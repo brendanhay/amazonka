@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.EC2.DeleteTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +54,7 @@ data DeleteTags = DeleteTags'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The tags to delete. Specify a tag key and an optional tag value to
     -- delete specific tags. If you specify a tag key without a tag value, we
     -- delete any tag with this key regardless of its value. If you specify a
@@ -65,14 +64,14 @@ data DeleteTags = DeleteTags'
     -- If you omit this parameter, we delete all user-defined tags for the
     -- specified resources. We do not delete AWS-generated tags (tags that have
     -- the @aws:@ prefix).
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The IDs of the resources, separated by spaces.
     --
     -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
     -- request into smaller batches.
-    resources :: [Prelude.Text]
+    resources :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTags' with all optional fields omitted.
@@ -105,16 +104,16 @@ newDeleteTags ::
   DeleteTags
 newDeleteTags =
   DeleteTags'
-    { dryRun = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      resources = Prelude.mempty
+    { dryRun = Core.Nothing,
+      tags = Core.Nothing,
+      resources = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteTags_dryRun :: Lens.Lens' DeleteTags (Prelude.Maybe Prelude.Bool)
+deleteTags_dryRun :: Lens.Lens' DeleteTags (Core.Maybe Core.Bool)
 deleteTags_dryRun = Lens.lens (\DeleteTags' {dryRun} -> dryRun) (\s@DeleteTags' {} a -> s {dryRun = a} :: DeleteTags)
 
 -- | The tags to delete. Specify a tag key and an optional tag value to
@@ -126,49 +125,46 @@ deleteTags_dryRun = Lens.lens (\DeleteTags' {dryRun} -> dryRun) (\s@DeleteTags' 
 -- If you omit this parameter, we delete all user-defined tags for the
 -- specified resources. We do not delete AWS-generated tags (tags that have
 -- the @aws:@ prefix).
-deleteTags_tags :: Lens.Lens' DeleteTags (Prelude.Maybe [Tag])
-deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Prelude.. Lens.mapping Prelude._Coerce
+deleteTags_tags :: Lens.Lens' DeleteTags (Core.Maybe [Tag])
+deleteTags_tags = Lens.lens (\DeleteTags' {tags} -> tags) (\s@DeleteTags' {} a -> s {tags = a} :: DeleteTags) Core.. Lens.mapping Lens._Coerce
 
 -- | The IDs of the resources, separated by spaces.
 --
 -- Constraints: Up to 1000 resource IDs. We recommend breaking up this
 -- request into smaller batches.
-deleteTags_resources :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_resources = Lens.lens (\DeleteTags' {resources} -> resources) (\s@DeleteTags' {} a -> s {resources = a} :: DeleteTags) Prelude.. Prelude._Coerce
+deleteTags_resources :: Lens.Lens' DeleteTags [Core.Text]
+deleteTags_resources = Lens.lens (\DeleteTags' {resources} -> resources) (\s@DeleteTags' {} a -> s {resources = a} :: DeleteTags) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest DeleteTags where
-  type Rs DeleteTags = DeleteTagsResponse
+instance Core.AWSRequest DeleteTags where
+  type AWSResponse DeleteTags = DeleteTagsResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Prelude.Hashable DeleteTags
+instance Core.Hashable DeleteTags
 
-instance Prelude.NFData DeleteTags
+instance Core.NFData DeleteTags
 
-instance Prelude.ToHeaders DeleteTags where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteTags where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTags where
+instance Core.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("DeleteTags" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          (Prelude.toQueryList "Tag" Prelude.<$> tags),
-        Prelude.toQueryList "ResourceId" resources
+    Core.mconcat
+      [ "Action" Core.=: ("DeleteTags" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        Core.toQuery (Core.toQueryList "Tag" Core.<$> tags),
+        Core.toQueryList "ResourceId" resources
       ]
 
 -- | /See:/ 'newDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
@@ -178,4 +174,4 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Prelude.NFData DeleteTagsResponse
+instance Core.NFData DeleteTagsResponse

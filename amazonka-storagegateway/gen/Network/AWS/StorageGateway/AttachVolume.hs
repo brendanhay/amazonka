@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.StorageGateway.AttachVolume
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -67,25 +66,25 @@ data AttachVolume = AttachVolume'
     --
     -- If you don\'t specify a value, Storage Gateway uses the value that was
     -- previously used for this volume as the new target name.
-    targetName :: Prelude.Maybe Prelude.Text,
+    targetName :: Core.Maybe Core.Text,
     -- | The unique device ID or other distinguishing data that identifies the
     -- local disk used to create the volume. This value is only required when
     -- you are attaching a stored volume.
-    diskId :: Prelude.Maybe Prelude.Text,
+    diskId :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the gateway that you want to attach
     -- the volume to.
-    gatewayARN :: Prelude.Text,
+    gatewayARN :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the volume to attach to the specified
     -- gateway.
-    volumeARN :: Prelude.Text,
+    volumeARN :: Core.Text,
     -- | The network interface of the gateway on which to expose the iSCSI
     -- target. Only IPv4 addresses are accepted. Use DescribeGatewayInformation
     -- to get a list of the network interfaces available on a gateway.
     --
     -- Valid Values: A valid IP address.
-    networkInterfaceId :: Prelude.Text
+    networkInterfaceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachVolume' with all optional fields omitted.
@@ -121,19 +120,19 @@ data AttachVolume = AttachVolume'
 -- Valid Values: A valid IP address.
 newAttachVolume ::
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'volumeARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'networkInterfaceId'
-  Prelude.Text ->
+  Core.Text ->
   AttachVolume
 newAttachVolume
   pGatewayARN_
   pVolumeARN_
   pNetworkInterfaceId_ =
     AttachVolume'
-      { targetName = Prelude.Nothing,
-        diskId = Prelude.Nothing,
+      { targetName = Core.Nothing,
+        diskId = Core.Nothing,
         gatewayARN = pGatewayARN_,
         volumeARN = pVolumeARN_,
         networkInterfaceId = pNetworkInterfaceId_
@@ -147,23 +146,23 @@ newAttachVolume
 --
 -- If you don\'t specify a value, Storage Gateway uses the value that was
 -- previously used for this volume as the new target name.
-attachVolume_targetName :: Lens.Lens' AttachVolume (Prelude.Maybe Prelude.Text)
+attachVolume_targetName :: Lens.Lens' AttachVolume (Core.Maybe Core.Text)
 attachVolume_targetName = Lens.lens (\AttachVolume' {targetName} -> targetName) (\s@AttachVolume' {} a -> s {targetName = a} :: AttachVolume)
 
 -- | The unique device ID or other distinguishing data that identifies the
 -- local disk used to create the volume. This value is only required when
 -- you are attaching a stored volume.
-attachVolume_diskId :: Lens.Lens' AttachVolume (Prelude.Maybe Prelude.Text)
+attachVolume_diskId :: Lens.Lens' AttachVolume (Core.Maybe Core.Text)
 attachVolume_diskId = Lens.lens (\AttachVolume' {diskId} -> diskId) (\s@AttachVolume' {} a -> s {diskId = a} :: AttachVolume)
 
 -- | The Amazon Resource Name (ARN) of the gateway that you want to attach
 -- the volume to.
-attachVolume_gatewayARN :: Lens.Lens' AttachVolume Prelude.Text
+attachVolume_gatewayARN :: Lens.Lens' AttachVolume Core.Text
 attachVolume_gatewayARN = Lens.lens (\AttachVolume' {gatewayARN} -> gatewayARN) (\s@AttachVolume' {} a -> s {gatewayARN = a} :: AttachVolume)
 
 -- | The Amazon Resource Name (ARN) of the volume to attach to the specified
 -- gateway.
-attachVolume_volumeARN :: Lens.Lens' AttachVolume Prelude.Text
+attachVolume_volumeARN :: Lens.Lens' AttachVolume Core.Text
 attachVolume_volumeARN = Lens.lens (\AttachVolume' {volumeARN} -> volumeARN) (\s@AttachVolume' {} a -> s {volumeARN = a} :: AttachVolume)
 
 -- | The network interface of the gateway on which to expose the iSCSI
@@ -171,60 +170,56 @@ attachVolume_volumeARN = Lens.lens (\AttachVolume' {volumeARN} -> volumeARN) (\s
 -- to get a list of the network interfaces available on a gateway.
 --
 -- Valid Values: A valid IP address.
-attachVolume_networkInterfaceId :: Lens.Lens' AttachVolume Prelude.Text
+attachVolume_networkInterfaceId :: Lens.Lens' AttachVolume Core.Text
 attachVolume_networkInterfaceId = Lens.lens (\AttachVolume' {networkInterfaceId} -> networkInterfaceId) (\s@AttachVolume' {} a -> s {networkInterfaceId = a} :: AttachVolume)
 
-instance Prelude.AWSRequest AttachVolume where
-  type Rs AttachVolume = AttachVolumeResponse
+instance Core.AWSRequest AttachVolume where
+  type AWSResponse AttachVolume = AttachVolumeResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           AttachVolumeResponse'
-            Prelude.<$> (x Prelude..?> "VolumeARN")
-            Prelude.<*> (x Prelude..?> "TargetARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "VolumeARN")
+            Core.<*> (x Core..?> "TargetARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable AttachVolume
+instance Core.Hashable AttachVolume
 
-instance Prelude.NFData AttachVolume
+instance Core.NFData AttachVolume
 
-instance Prelude.ToHeaders AttachVolume where
+instance Core.ToHeaders AttachVolume where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.AttachVolume" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.AttachVolume" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON AttachVolume where
+instance Core.ToJSON AttachVolume where
   toJSON AttachVolume' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TargetName" Prelude..=) Prelude.<$> targetName,
-            ("DiskId" Prelude..=) Prelude.<$> diskId,
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
-            Prelude.Just ("VolumeARN" Prelude..= volumeARN),
-            Prelude.Just
-              ( "NetworkInterfaceId"
-                  Prelude..= networkInterfaceId
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("TargetName" Core..=) Core.<$> targetName,
+            ("DiskId" Core..=) Core.<$> diskId,
+            Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("VolumeARN" Core..= volumeARN),
+            Core.Just
+              ("NetworkInterfaceId" Core..= networkInterfaceId)
           ]
       )
 
-instance Prelude.ToPath AttachVolume where
-  toPath = Prelude.const "/"
+instance Core.ToPath AttachVolume where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AttachVolume where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AttachVolume where
+  toQuery = Core.const Core.mempty
 
 -- | AttachVolumeOutput
 --
@@ -232,14 +227,14 @@ instance Prelude.ToQuery AttachVolume where
 data AttachVolumeResponse = AttachVolumeResponse'
   { -- | The Amazon Resource Name (ARN) of the volume that was attached to the
     -- gateway.
-    volumeARN :: Prelude.Maybe Prelude.Text,
+    volumeARN :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the volume target, which includes the
     -- iSCSI name for the initiator that was used to connect to the target.
-    targetARN :: Prelude.Maybe Prelude.Text,
+    targetARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachVolumeResponse' with all optional fields omitted.
@@ -258,27 +253,27 @@ data AttachVolumeResponse = AttachVolumeResponse'
 -- 'httpStatus', 'attachVolumeResponse_httpStatus' - The response's http status code.
 newAttachVolumeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   AttachVolumeResponse
 newAttachVolumeResponse pHttpStatus_ =
   AttachVolumeResponse'
-    { volumeARN = Prelude.Nothing,
-      targetARN = Prelude.Nothing,
+    { volumeARN = Core.Nothing,
+      targetARN = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume that was attached to the
 -- gateway.
-attachVolumeResponse_volumeARN :: Lens.Lens' AttachVolumeResponse (Prelude.Maybe Prelude.Text)
+attachVolumeResponse_volumeARN :: Lens.Lens' AttachVolumeResponse (Core.Maybe Core.Text)
 attachVolumeResponse_volumeARN = Lens.lens (\AttachVolumeResponse' {volumeARN} -> volumeARN) (\s@AttachVolumeResponse' {} a -> s {volumeARN = a} :: AttachVolumeResponse)
 
 -- | The Amazon Resource Name (ARN) of the volume target, which includes the
 -- iSCSI name for the initiator that was used to connect to the target.
-attachVolumeResponse_targetARN :: Lens.Lens' AttachVolumeResponse (Prelude.Maybe Prelude.Text)
+attachVolumeResponse_targetARN :: Lens.Lens' AttachVolumeResponse (Core.Maybe Core.Text)
 attachVolumeResponse_targetARN = Lens.lens (\AttachVolumeResponse' {targetARN} -> targetARN) (\s@AttachVolumeResponse' {} a -> s {targetARN = a} :: AttachVolumeResponse)
 
 -- | The response's http status code.
-attachVolumeResponse_httpStatus :: Lens.Lens' AttachVolumeResponse Prelude.Int
+attachVolumeResponse_httpStatus :: Lens.Lens' AttachVolumeResponse Core.Int
 attachVolumeResponse_httpStatus = Lens.lens (\AttachVolumeResponse' {httpStatus} -> httpStatus) (\s@AttachVolumeResponse' {} a -> s {httpStatus = a} :: AttachVolumeResponse)
 
-instance Prelude.NFData AttachVolumeResponse
+instance Core.NFData AttachVolumeResponse

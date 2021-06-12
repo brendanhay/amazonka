@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.EC2.ModifyIdentityIdFormat
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,7 +74,7 @@ data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
   { -- | The ARN of the principal, which can be an IAM user, IAM role, or the
     -- root user. Specify @all@ to modify the ID format for all IAM users, IAM
     -- roles, and the root user of the account.
-    principalArn :: Prelude.Text,
+    principalArn :: Core.Text,
     -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
     -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
     -- @export-task@ | @flow-log@ | @image@ | @import-task@ |
@@ -88,11 +87,11 @@ data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
     --
     -- Alternatively, use the @all-current@ option to include all resource
     -- types that are currently within their opt-in period for longer IDs.
-    resource :: Prelude.Text,
+    resource :: Core.Text,
     -- | Indicates whether the resource should use longer IDs (17-character IDs)
-    useLongIds :: Prelude.Bool
+    useLongIds :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyIdentityIdFormat' with all optional fields omitted.
@@ -122,11 +121,11 @@ data ModifyIdentityIdFormat = ModifyIdentityIdFormat'
 -- 'useLongIds', 'modifyIdentityIdFormat_useLongIds' - Indicates whether the resource should use longer IDs (17-character IDs)
 newModifyIdentityIdFormat ::
   -- | 'principalArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'useLongIds'
-  Prelude.Bool ->
+  Core.Bool ->
   ModifyIdentityIdFormat
 newModifyIdentityIdFormat
   pPrincipalArn_
@@ -142,7 +141,7 @@ newModifyIdentityIdFormat
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the
 -- root user. Specify @all@ to modify the ID format for all IAM users, IAM
 -- roles, and the root user of the account.
-modifyIdentityIdFormat_principalArn :: Lens.Lens' ModifyIdentityIdFormat Prelude.Text
+modifyIdentityIdFormat_principalArn :: Lens.Lens' ModifyIdentityIdFormat Core.Text
 modifyIdentityIdFormat_principalArn = Lens.lens (\ModifyIdentityIdFormat' {principalArn} -> principalArn) (\s@ModifyIdentityIdFormat' {} a -> s {principalArn = a} :: ModifyIdentityIdFormat)
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
@@ -157,49 +156,48 @@ modifyIdentityIdFormat_principalArn = Lens.lens (\ModifyIdentityIdFormat' {princ
 --
 -- Alternatively, use the @all-current@ option to include all resource
 -- types that are currently within their opt-in period for longer IDs.
-modifyIdentityIdFormat_resource :: Lens.Lens' ModifyIdentityIdFormat Prelude.Text
+modifyIdentityIdFormat_resource :: Lens.Lens' ModifyIdentityIdFormat Core.Text
 modifyIdentityIdFormat_resource = Lens.lens (\ModifyIdentityIdFormat' {resource} -> resource) (\s@ModifyIdentityIdFormat' {} a -> s {resource = a} :: ModifyIdentityIdFormat)
 
 -- | Indicates whether the resource should use longer IDs (17-character IDs)
-modifyIdentityIdFormat_useLongIds :: Lens.Lens' ModifyIdentityIdFormat Prelude.Bool
+modifyIdentityIdFormat_useLongIds :: Lens.Lens' ModifyIdentityIdFormat Core.Bool
 modifyIdentityIdFormat_useLongIds = Lens.lens (\ModifyIdentityIdFormat' {useLongIds} -> useLongIds) (\s@ModifyIdentityIdFormat' {} a -> s {useLongIds = a} :: ModifyIdentityIdFormat)
 
-instance Prelude.AWSRequest ModifyIdentityIdFormat where
+instance Core.AWSRequest ModifyIdentityIdFormat where
   type
-    Rs ModifyIdentityIdFormat =
+    AWSResponse ModifyIdentityIdFormat =
       ModifyIdentityIdFormatResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       ModifyIdentityIdFormatResponse'
 
-instance Prelude.Hashable ModifyIdentityIdFormat
+instance Core.Hashable ModifyIdentityIdFormat
 
-instance Prelude.NFData ModifyIdentityIdFormat
+instance Core.NFData ModifyIdentityIdFormat
 
-instance Prelude.ToHeaders ModifyIdentityIdFormat where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyIdentityIdFormat where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyIdentityIdFormat where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyIdentityIdFormat where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyIdentityIdFormat where
+instance Core.ToQuery ModifyIdentityIdFormat where
   toQuery ModifyIdentityIdFormat' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyIdentityIdFormat" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "PrincipalArn" Prelude.=: principalArn,
-        "Resource" Prelude.=: resource,
-        "UseLongIds" Prelude.=: useLongIds
+          Core.=: ("ModifyIdentityIdFormat" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "PrincipalArn" Core.=: principalArn,
+        "Resource" Core.=: resource,
+        "UseLongIds" Core.=: useLongIds
       ]
 
 -- | /See:/ 'newModifyIdentityIdFormatResponse' smart constructor.
 data ModifyIdentityIdFormatResponse = ModifyIdentityIdFormatResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyIdentityIdFormatResponse' with all optional fields omitted.
@@ -210,6 +208,4 @@ newModifyIdentityIdFormatResponse ::
 newModifyIdentityIdFormatResponse =
   ModifyIdentityIdFormatResponse'
 
-instance
-  Prelude.NFData
-    ModifyIdentityIdFormatResponse
+instance Core.NFData ModifyIdentityIdFormatResponse

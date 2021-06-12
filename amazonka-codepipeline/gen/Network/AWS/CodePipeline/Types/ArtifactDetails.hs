@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.ArtifactDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns information about the details of an artifact.
 --
 -- /See:/ 'newArtifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
   { -- | The minimum number of artifacts allowed for the action type.
-    minimumCount :: Prelude.Natural,
+    minimumCount :: Core.Natural,
     -- | The maximum number of artifacts allowed for the action type.
-    maximumCount :: Prelude.Natural
+    maximumCount :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ArtifactDetails' with all optional fields omitted.
@@ -47,9 +46,9 @@ data ArtifactDetails = ArtifactDetails'
 -- 'maximumCount', 'artifactDetails_maximumCount' - The maximum number of artifacts allowed for the action type.
 newArtifactDetails ::
   -- | 'minimumCount'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'maximumCount'
-  Prelude.Natural ->
+  Core.Natural ->
   ArtifactDetails
 newArtifactDetails pMinimumCount_ pMaximumCount_ =
   ArtifactDetails'
@@ -58,34 +57,32 @@ newArtifactDetails pMinimumCount_ pMaximumCount_ =
     }
 
 -- | The minimum number of artifacts allowed for the action type.
-artifactDetails_minimumCount :: Lens.Lens' ArtifactDetails Prelude.Natural
+artifactDetails_minimumCount :: Lens.Lens' ArtifactDetails Core.Natural
 artifactDetails_minimumCount = Lens.lens (\ArtifactDetails' {minimumCount} -> minimumCount) (\s@ArtifactDetails' {} a -> s {minimumCount = a} :: ArtifactDetails)
 
 -- | The maximum number of artifacts allowed for the action type.
-artifactDetails_maximumCount :: Lens.Lens' ArtifactDetails Prelude.Natural
+artifactDetails_maximumCount :: Lens.Lens' ArtifactDetails Core.Natural
 artifactDetails_maximumCount = Lens.lens (\ArtifactDetails' {maximumCount} -> maximumCount) (\s@ArtifactDetails' {} a -> s {maximumCount = a} :: ArtifactDetails)
 
-instance Prelude.FromJSON ArtifactDetails where
+instance Core.FromJSON ArtifactDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ArtifactDetails"
       ( \x ->
           ArtifactDetails'
-            Prelude.<$> (x Prelude..: "minimumCount")
-            Prelude.<*> (x Prelude..: "maximumCount")
+            Core.<$> (x Core..: "minimumCount")
+            Core.<*> (x Core..: "maximumCount")
       )
 
-instance Prelude.Hashable ArtifactDetails
+instance Core.Hashable ArtifactDetails
 
-instance Prelude.NFData ArtifactDetails
+instance Core.NFData ArtifactDetails
 
-instance Prelude.ToJSON ArtifactDetails where
+instance Core.ToJSON ArtifactDetails where
   toJSON ArtifactDetails' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("minimumCount" Prelude..= minimumCount),
-            Prelude.Just
-              ("maximumCount" Prelude..= maximumCount)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("minimumCount" Core..= minimumCount),
+            Core.Just ("maximumCount" Core..= maximumCount)
           ]
       )

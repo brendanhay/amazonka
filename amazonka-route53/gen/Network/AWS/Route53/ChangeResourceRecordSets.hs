@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -129,8 +128,8 @@ module Network.AWS.Route53.ChangeResourceRecordSets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -147,7 +146,7 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets'
     -- element.
     changeBatch :: ChangeBatch
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChangeResourceRecordSets' with all optional fields omitted.
@@ -187,53 +186,52 @@ changeResourceRecordSets_hostedZoneId = Lens.lens (\ChangeResourceRecordSets' {h
 changeResourceRecordSets_changeBatch :: Lens.Lens' ChangeResourceRecordSets ChangeBatch
 changeResourceRecordSets_changeBatch = Lens.lens (\ChangeResourceRecordSets' {changeBatch} -> changeBatch) (\s@ChangeResourceRecordSets' {} a -> s {changeBatch = a} :: ChangeResourceRecordSets)
 
-instance Prelude.AWSRequest ChangeResourceRecordSets where
+instance Core.AWSRequest ChangeResourceRecordSets where
   type
-    Rs ChangeResourceRecordSets =
+    AWSResponse ChangeResourceRecordSets =
       ChangeResourceRecordSetsResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ChangeResourceRecordSetsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ChangeInfo")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable ChangeResourceRecordSets
+instance Core.Hashable ChangeResourceRecordSets
 
-instance Prelude.NFData ChangeResourceRecordSets
+instance Core.NFData ChangeResourceRecordSets
 
-instance Prelude.ToElement ChangeResourceRecordSets where
+instance Core.ToElement ChangeResourceRecordSets where
   toElement =
-    Prelude.mkElement
+    Core.mkElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeResourceRecordSetsRequest"
 
-instance Prelude.ToHeaders ChangeResourceRecordSets where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ChangeResourceRecordSets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ChangeResourceRecordSets where
+instance Core.ToPath ChangeResourceRecordSets where
   toPath ChangeResourceRecordSets' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/hostedzone/",
-        Prelude.toBS hostedZoneId,
+        Core.toBS hostedZoneId,
         "/rrset/"
       ]
 
-instance Prelude.ToQuery ChangeResourceRecordSets where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ChangeResourceRecordSets where
+  toQuery = Core.const Core.mempty
 
-instance Prelude.ToXML ChangeResourceRecordSets where
+instance Core.ToXML ChangeResourceRecordSets where
   toXML ChangeResourceRecordSets' {..} =
-    Prelude.mconcat
-      ["ChangeBatch" Prelude.@= changeBatch]
+    Core.mconcat ["ChangeBatch" Core.@= changeBatch]
 
 -- | A complex type containing the response for the request.
 --
 -- /See:/ 'newChangeResourceRecordSetsResponse' smart constructor.
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains information about changes made to your
     -- hosted zone.
     --
@@ -242,7 +240,7 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
     -- action to get detailed information about the change.
     changeInfo :: ChangeInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ChangeResourceRecordSetsResponse' with all optional fields omitted.
@@ -262,7 +260,7 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
 -- action to get detailed information about the change.
 newChangeResourceRecordSetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   ChangeResourceRecordSetsResponse
@@ -276,7 +274,7 @@ newChangeResourceRecordSetsResponse
       }
 
 -- | The response's http status code.
-changeResourceRecordSetsResponse_httpStatus :: Lens.Lens' ChangeResourceRecordSetsResponse Prelude.Int
+changeResourceRecordSetsResponse_httpStatus :: Lens.Lens' ChangeResourceRecordSetsResponse Core.Int
 changeResourceRecordSetsResponse_httpStatus = Lens.lens (\ChangeResourceRecordSetsResponse' {httpStatus} -> httpStatus) (\s@ChangeResourceRecordSetsResponse' {} a -> s {httpStatus = a} :: ChangeResourceRecordSetsResponse)
 
 -- | A complex type that contains information about changes made to your
@@ -288,6 +286,4 @@ changeResourceRecordSetsResponse_httpStatus = Lens.lens (\ChangeResourceRecordSe
 changeResourceRecordSetsResponse_changeInfo :: Lens.Lens' ChangeResourceRecordSetsResponse ChangeInfo
 changeResourceRecordSetsResponse_changeInfo = Lens.lens (\ChangeResourceRecordSetsResponse' {changeInfo} -> changeInfo) (\s@ChangeResourceRecordSetsResponse' {} a -> s {changeInfo = a} :: ChangeResourceRecordSetsResponse)
 
-instance
-  Prelude.NFData
-    ChangeResourceRecordSetsResponse
+instance Core.NFData ChangeResourceRecordSetsResponse

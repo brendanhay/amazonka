@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.ProcessorFeature where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the processor features of a DB instance class.
 --
@@ -74,11 +73,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ProcessorFeature = ProcessorFeature'
   { -- | The name of the processor feature. Valid names are @coreCount@ and
     -- @threadsPerCore@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The value of a processor feature name.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessorFeature' with all optional fields omitted.
@@ -96,30 +95,29 @@ newProcessorFeature ::
   ProcessorFeature
 newProcessorFeature =
   ProcessorFeature'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the processor feature. Valid names are @coreCount@ and
 -- @threadsPerCore@.
-processorFeature_name :: Lens.Lens' ProcessorFeature (Prelude.Maybe Prelude.Text)
+processorFeature_name :: Lens.Lens' ProcessorFeature (Core.Maybe Core.Text)
 processorFeature_name = Lens.lens (\ProcessorFeature' {name} -> name) (\s@ProcessorFeature' {} a -> s {name = a} :: ProcessorFeature)
 
 -- | The value of a processor feature name.
-processorFeature_value :: Lens.Lens' ProcessorFeature (Prelude.Maybe Prelude.Text)
+processorFeature_value :: Lens.Lens' ProcessorFeature (Core.Maybe Core.Text)
 processorFeature_value = Lens.lens (\ProcessorFeature' {value} -> value) (\s@ProcessorFeature' {} a -> s {value = a} :: ProcessorFeature)
 
-instance Prelude.FromXML ProcessorFeature where
+instance Core.FromXML ProcessorFeature where
   parseXML x =
     ProcessorFeature'
-      Prelude.<$> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "Value")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")
 
-instance Prelude.Hashable ProcessorFeature
+instance Core.Hashable ProcessorFeature
 
-instance Prelude.NFData ProcessorFeature
+instance Core.NFData ProcessorFeature
 
-instance Prelude.ToQuery ProcessorFeature where
+instance Core.ToQuery ProcessorFeature where
   toQuery ProcessorFeature' {..} =
-    Prelude.mconcat
-      ["Name" Prelude.=: name, "Value" Prelude.=: value]
+    Core.mconcat
+      ["Name" Core.=: name, "Value" Core.=: value]

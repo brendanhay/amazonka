@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,9 +56,9 @@ module Network.AWS.MarketplaceAnalytics.GenerateDataSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceAnalytics.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -74,12 +73,12 @@ data GenerateDataSet = GenerateDataSet'
     -- \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix
     -- directory structure does not exist, it will be created. If no prefix is
     -- provided, the data set will be published to the S3 bucket root.
-    destinationS3Prefix :: Prelude.Maybe Prelude.Text,
+    destinationS3Prefix :: Core.Maybe Core.Text,
     -- | (Optional) Key-value pairs which will be returned, unmodified, in the
     -- Amazon SNS notification message and the data set metadata file. These
     -- key-value pairs can be used to correlated responses with tracking
     -- information from other systems.
-    customerDefinedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    customerDefinedValues :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The desired data set type.
     --
     -- -   __customer_subscriber_hourly_monthly_subscriptions__
@@ -204,17 +203,17 @@ data GenerateDataSet = GenerateDataSet'
     -- with day-level granularity for the desired day. For these data sets we
     -- will look backwards in time over the range of 31 days until the first
     -- data set is found (the latest one).
-    dataSetPublicationDate :: Prelude.POSIX,
+    dataSetPublicationDate :: Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
     -- policy to interact with the provided AWS services.
-    roleNameArn :: Prelude.Text,
+    roleNameArn :: Core.Text,
     -- | The name (friendly name, not ARN) of the destination S3 bucket.
-    destinationS3BucketName :: Prelude.Text,
+    destinationS3BucketName :: Core.Text,
     -- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when
     -- the data set has been published or if an error has occurred.
-    snsTopicArn :: Prelude.Text
+    snsTopicArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateDataSet' with all optional fields omitted.
@@ -373,13 +372,13 @@ newGenerateDataSet ::
   -- | 'dataSetType'
   DataSetType ->
   -- | 'dataSetPublicationDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'roleNameArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationS3BucketName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'snsTopicArn'
-  Prelude.Text ->
+  Core.Text ->
   GenerateDataSet
 newGenerateDataSet
   pDataSetType_
@@ -389,11 +388,11 @@ newGenerateDataSet
   pSnsTopicArn_ =
     GenerateDataSet'
       { destinationS3Prefix =
-          Prelude.Nothing,
-        customerDefinedValues = Prelude.Nothing,
+          Core.Nothing,
+        customerDefinedValues = Core.Nothing,
         dataSetType = pDataSetType_,
         dataSetPublicationDate =
-          Prelude._Time Lens.# pDataSetPublicationDate_,
+          Core._Time Lens.# pDataSetPublicationDate_,
         roleNameArn = pRoleNameArn_,
         destinationS3BucketName = pDestinationS3BucketName_,
         snsTopicArn = pSnsTopicArn_
@@ -406,15 +405,15 @@ newGenerateDataSet
 -- \"s3:\/\/mybucket\/myprefix\/mydatasets\/outputfile\". If the prefix
 -- directory structure does not exist, it will be created. If no prefix is
 -- provided, the data set will be published to the S3 bucket root.
-generateDataSet_destinationS3Prefix :: Lens.Lens' GenerateDataSet (Prelude.Maybe Prelude.Text)
+generateDataSet_destinationS3Prefix :: Lens.Lens' GenerateDataSet (Core.Maybe Core.Text)
 generateDataSet_destinationS3Prefix = Lens.lens (\GenerateDataSet' {destinationS3Prefix} -> destinationS3Prefix) (\s@GenerateDataSet' {} a -> s {destinationS3Prefix = a} :: GenerateDataSet)
 
 -- | (Optional) Key-value pairs which will be returned, unmodified, in the
 -- Amazon SNS notification message and the data set metadata file. These
 -- key-value pairs can be used to correlated responses with tracking
 -- information from other systems.
-generateDataSet_customerDefinedValues :: Lens.Lens' GenerateDataSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-generateDataSet_customerDefinedValues = Lens.lens (\GenerateDataSet' {customerDefinedValues} -> customerDefinedValues) (\s@GenerateDataSet' {} a -> s {customerDefinedValues = a} :: GenerateDataSet) Prelude.. Lens.mapping Prelude._Coerce
+generateDataSet_customerDefinedValues :: Lens.Lens' GenerateDataSet (Core.Maybe (Core.HashMap Core.Text Core.Text))
+generateDataSet_customerDefinedValues = Lens.lens (\GenerateDataSet' {customerDefinedValues} -> customerDefinedValues) (\s@GenerateDataSet' {} a -> s {customerDefinedValues = a} :: GenerateDataSet) Core.. Lens.mapping Lens._Coerce
 
 -- | The desired data set type.
 --
@@ -542,80 +541,80 @@ generateDataSet_dataSetType = Lens.lens (\GenerateDataSet' {dataSetType} -> data
 -- with day-level granularity for the desired day. For these data sets we
 -- will look backwards in time over the range of 31 days until the first
 -- data set is found (the latest one).
-generateDataSet_dataSetPublicationDate :: Lens.Lens' GenerateDataSet Prelude.UTCTime
-generateDataSet_dataSetPublicationDate = Lens.lens (\GenerateDataSet' {dataSetPublicationDate} -> dataSetPublicationDate) (\s@GenerateDataSet' {} a -> s {dataSetPublicationDate = a} :: GenerateDataSet) Prelude.. Prelude._Time
+generateDataSet_dataSetPublicationDate :: Lens.Lens' GenerateDataSet Core.UTCTime
+generateDataSet_dataSetPublicationDate = Lens.lens (\GenerateDataSet' {dataSetPublicationDate} -> dataSetPublicationDate) (\s@GenerateDataSet' {} a -> s {dataSetPublicationDate = a} :: GenerateDataSet) Core.. Core._Time
 
 -- | The Amazon Resource Name (ARN) of the Role with an attached permissions
 -- policy to interact with the provided AWS services.
-generateDataSet_roleNameArn :: Lens.Lens' GenerateDataSet Prelude.Text
+generateDataSet_roleNameArn :: Lens.Lens' GenerateDataSet Core.Text
 generateDataSet_roleNameArn = Lens.lens (\GenerateDataSet' {roleNameArn} -> roleNameArn) (\s@GenerateDataSet' {} a -> s {roleNameArn = a} :: GenerateDataSet)
 
 -- | The name (friendly name, not ARN) of the destination S3 bucket.
-generateDataSet_destinationS3BucketName :: Lens.Lens' GenerateDataSet Prelude.Text
+generateDataSet_destinationS3BucketName :: Lens.Lens' GenerateDataSet Core.Text
 generateDataSet_destinationS3BucketName = Lens.lens (\GenerateDataSet' {destinationS3BucketName} -> destinationS3BucketName) (\s@GenerateDataSet' {} a -> s {destinationS3BucketName = a} :: GenerateDataSet)
 
 -- | Amazon Resource Name (ARN) for the SNS Topic that will be notified when
 -- the data set has been published or if an error has occurred.
-generateDataSet_snsTopicArn :: Lens.Lens' GenerateDataSet Prelude.Text
+generateDataSet_snsTopicArn :: Lens.Lens' GenerateDataSet Core.Text
 generateDataSet_snsTopicArn = Lens.lens (\GenerateDataSet' {snsTopicArn} -> snsTopicArn) (\s@GenerateDataSet' {} a -> s {snsTopicArn = a} :: GenerateDataSet)
 
-instance Prelude.AWSRequest GenerateDataSet where
-  type Rs GenerateDataSet = GenerateDataSetResponse
+instance Core.AWSRequest GenerateDataSet where
+  type
+    AWSResponse GenerateDataSet =
+      GenerateDataSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GenerateDataSetResponse'
-            Prelude.<$> (x Prelude..?> "dataSetRequestId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "dataSetRequestId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GenerateDataSet
+instance Core.Hashable GenerateDataSet
 
-instance Prelude.NFData GenerateDataSet
+instance Core.NFData GenerateDataSet
 
-instance Prelude.ToHeaders GenerateDataSet where
+instance Core.ToHeaders GenerateDataSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MarketplaceCommerceAnalytics20150701.GenerateDataSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MarketplaceCommerceAnalytics20150701.GenerateDataSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GenerateDataSet where
+instance Core.ToJSON GenerateDataSet where
   toJSON GenerateDataSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("destinationS3Prefix" Prelude..=)
-              Prelude.<$> destinationS3Prefix,
-            ("customerDefinedValues" Prelude..=)
-              Prelude.<$> customerDefinedValues,
-            Prelude.Just ("dataSetType" Prelude..= dataSetType),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("destinationS3Prefix" Core..=)
+              Core.<$> destinationS3Prefix,
+            ("customerDefinedValues" Core..=)
+              Core.<$> customerDefinedValues,
+            Core.Just ("dataSetType" Core..= dataSetType),
+            Core.Just
               ( "dataSetPublicationDate"
-                  Prelude..= dataSetPublicationDate
+                  Core..= dataSetPublicationDate
               ),
-            Prelude.Just ("roleNameArn" Prelude..= roleNameArn),
-            Prelude.Just
+            Core.Just ("roleNameArn" Core..= roleNameArn),
+            Core.Just
               ( "destinationS3BucketName"
-                  Prelude..= destinationS3BucketName
+                  Core..= destinationS3BucketName
               ),
-            Prelude.Just ("snsTopicArn" Prelude..= snsTopicArn)
+            Core.Just ("snsTopicArn" Core..= snsTopicArn)
           ]
       )
 
-instance Prelude.ToPath GenerateDataSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath GenerateDataSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GenerateDataSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GenerateDataSet where
+  toQuery = Core.const Core.mempty
 
 -- | Container for the result of the GenerateDataSet operation.
 --
@@ -624,11 +623,11 @@ data GenerateDataSetResponse = GenerateDataSetResponse'
   { -- | A unique identifier representing a specific request to the
     -- GenerateDataSet operation. This identifier can be used to correlate a
     -- request with notifications from the SNS topic.
-    dataSetRequestId :: Prelude.Maybe Prelude.Text,
+    dataSetRequestId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GenerateDataSetResponse' with all optional fields omitted.
@@ -645,23 +644,23 @@ data GenerateDataSetResponse = GenerateDataSetResponse'
 -- 'httpStatus', 'generateDataSetResponse_httpStatus' - The response's http status code.
 newGenerateDataSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GenerateDataSetResponse
 newGenerateDataSetResponse pHttpStatus_ =
   GenerateDataSetResponse'
     { dataSetRequestId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier representing a specific request to the
 -- GenerateDataSet operation. This identifier can be used to correlate a
 -- request with notifications from the SNS topic.
-generateDataSetResponse_dataSetRequestId :: Lens.Lens' GenerateDataSetResponse (Prelude.Maybe Prelude.Text)
+generateDataSetResponse_dataSetRequestId :: Lens.Lens' GenerateDataSetResponse (Core.Maybe Core.Text)
 generateDataSetResponse_dataSetRequestId = Lens.lens (\GenerateDataSetResponse' {dataSetRequestId} -> dataSetRequestId) (\s@GenerateDataSetResponse' {} a -> s {dataSetRequestId = a} :: GenerateDataSetResponse)
 
 -- | The response's http status code.
-generateDataSetResponse_httpStatus :: Lens.Lens' GenerateDataSetResponse Prelude.Int
+generateDataSetResponse_httpStatus :: Lens.Lens' GenerateDataSetResponse Core.Int
 generateDataSetResponse_httpStatus = Lens.lens (\GenerateDataSetResponse' {httpStatus} -> httpStatus) (\s@GenerateDataSetResponse' {} a -> s {httpStatus = a} :: GenerateDataSetResponse)
 
-instance Prelude.NFData GenerateDataSetResponse
+instance Core.NFData GenerateDataSetResponse

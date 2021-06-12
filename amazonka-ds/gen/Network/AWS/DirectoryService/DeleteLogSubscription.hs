@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,18 +38,18 @@ module Network.AWS.DirectoryService.DeleteLogSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteLogSubscription' smart constructor.
 data DeleteLogSubscription = DeleteLogSubscription'
   { -- | Identifier of the directory whose log subscription you want to delete.
-    directoryId :: Prelude.Text
+    directoryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLogSubscription' with all optional fields omitted.
@@ -63,67 +62,63 @@ data DeleteLogSubscription = DeleteLogSubscription'
 -- 'directoryId', 'deleteLogSubscription_directoryId' - Identifier of the directory whose log subscription you want to delete.
 newDeleteLogSubscription ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteLogSubscription
 newDeleteLogSubscription pDirectoryId_ =
   DeleteLogSubscription' {directoryId = pDirectoryId_}
 
 -- | Identifier of the directory whose log subscription you want to delete.
-deleteLogSubscription_directoryId :: Lens.Lens' DeleteLogSubscription Prelude.Text
+deleteLogSubscription_directoryId :: Lens.Lens' DeleteLogSubscription Core.Text
 deleteLogSubscription_directoryId = Lens.lens (\DeleteLogSubscription' {directoryId} -> directoryId) (\s@DeleteLogSubscription' {} a -> s {directoryId = a} :: DeleteLogSubscription)
 
-instance Prelude.AWSRequest DeleteLogSubscription where
+instance Core.AWSRequest DeleteLogSubscription where
   type
-    Rs DeleteLogSubscription =
+    AWSResponse DeleteLogSubscription =
       DeleteLogSubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLogSubscriptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteLogSubscription
+instance Core.Hashable DeleteLogSubscription
 
-instance Prelude.NFData DeleteLogSubscription
+instance Core.NFData DeleteLogSubscription
 
-instance Prelude.ToHeaders DeleteLogSubscription where
+instance Core.ToHeaders DeleteLogSubscription where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DeleteLogSubscription" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DeleteLogSubscription" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteLogSubscription where
+instance Core.ToJSON DeleteLogSubscription where
   toJSON DeleteLogSubscription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DirectoryId" Prelude..= directoryId)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DirectoryId" Core..= directoryId)]
       )
 
-instance Prelude.ToPath DeleteLogSubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteLogSubscription where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteLogSubscription where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteLogSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteLogSubscriptionResponse' smart constructor.
 data DeleteLogSubscriptionResponse = DeleteLogSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteLogSubscriptionResponse' with all optional fields omitted.
@@ -136,7 +131,7 @@ data DeleteLogSubscriptionResponse = DeleteLogSubscriptionResponse'
 -- 'httpStatus', 'deleteLogSubscriptionResponse_httpStatus' - The response's http status code.
 newDeleteLogSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteLogSubscriptionResponse
 newDeleteLogSubscriptionResponse pHttpStatus_ =
   DeleteLogSubscriptionResponse'
@@ -145,7 +140,7 @@ newDeleteLogSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-deleteLogSubscriptionResponse_httpStatus :: Lens.Lens' DeleteLogSubscriptionResponse Prelude.Int
+deleteLogSubscriptionResponse_httpStatus :: Lens.Lens' DeleteLogSubscriptionResponse Core.Int
 deleteLogSubscriptionResponse_httpStatus = Lens.lens (\DeleteLogSubscriptionResponse' {httpStatus} -> httpStatus) (\s@DeleteLogSubscriptionResponse' {} a -> s {httpStatus = a} :: DeleteLogSubscriptionResponse)
 
-instance Prelude.NFData DeleteLogSubscriptionResponse
+instance Core.NFData DeleteLogSubscriptionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.ResourceFilters where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Filters the results by resource account ID, region, resource ID, and
 -- resource name.
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceFilters' smart constructor.
 data ResourceFilters = ResourceFilters'
   { -- | The ID of the resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The 12-digit source account ID.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | The source region.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The name of the resource.
-    resourceName :: Prelude.Maybe Prelude.Text
+    resourceName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceFilters' with all optional fields omitted.
@@ -58,40 +57,39 @@ newResourceFilters ::
   ResourceFilters
 newResourceFilters =
   ResourceFilters'
-    { resourceId = Prelude.Nothing,
-      accountId = Prelude.Nothing,
-      region = Prelude.Nothing,
-      resourceName = Prelude.Nothing
+    { resourceId = Core.Nothing,
+      accountId = Core.Nothing,
+      region = Core.Nothing,
+      resourceName = Core.Nothing
     }
 
 -- | The ID of the resource.
-resourceFilters_resourceId :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
+resourceFilters_resourceId :: Lens.Lens' ResourceFilters (Core.Maybe Core.Text)
 resourceFilters_resourceId = Lens.lens (\ResourceFilters' {resourceId} -> resourceId) (\s@ResourceFilters' {} a -> s {resourceId = a} :: ResourceFilters)
 
 -- | The 12-digit source account ID.
-resourceFilters_accountId :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
+resourceFilters_accountId :: Lens.Lens' ResourceFilters (Core.Maybe Core.Text)
 resourceFilters_accountId = Lens.lens (\ResourceFilters' {accountId} -> accountId) (\s@ResourceFilters' {} a -> s {accountId = a} :: ResourceFilters)
 
 -- | The source region.
-resourceFilters_region :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
+resourceFilters_region :: Lens.Lens' ResourceFilters (Core.Maybe Core.Text)
 resourceFilters_region = Lens.lens (\ResourceFilters' {region} -> region) (\s@ResourceFilters' {} a -> s {region = a} :: ResourceFilters)
 
 -- | The name of the resource.
-resourceFilters_resourceName :: Lens.Lens' ResourceFilters (Prelude.Maybe Prelude.Text)
+resourceFilters_resourceName :: Lens.Lens' ResourceFilters (Core.Maybe Core.Text)
 resourceFilters_resourceName = Lens.lens (\ResourceFilters' {resourceName} -> resourceName) (\s@ResourceFilters' {} a -> s {resourceName = a} :: ResourceFilters)
 
-instance Prelude.Hashable ResourceFilters
+instance Core.Hashable ResourceFilters
 
-instance Prelude.NFData ResourceFilters
+instance Core.NFData ResourceFilters
 
-instance Prelude.ToJSON ResourceFilters where
+instance Core.ToJSON ResourceFilters where
   toJSON ResourceFilters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ResourceId" Prelude..=) Prelude.<$> resourceId,
-            ("AccountId" Prelude..=) Prelude.<$> accountId,
-            ("Region" Prelude..=) Prelude.<$> region,
-            ("ResourceName" Prelude..=)
-              Prelude.<$> resourceName
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceId" Core..=) Core.<$> resourceId,
+            ("AccountId" Core..=) Core.<$> accountId,
+            ("Region" Core..=) Core.<$> region,
+            ("ResourceName" Core..=) Core.<$> resourceName
           ]
       )

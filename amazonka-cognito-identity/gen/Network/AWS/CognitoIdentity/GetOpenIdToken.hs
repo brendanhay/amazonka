@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
 where
 
 import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,11 +62,11 @@ data GetOpenIdToken = GetOpenIdToken'
     -- access_token returned from the provider\'s authflow. For
     -- accounts.google.com, an Amazon Cognito user pool provider, or any other
     -- OpenID Connect provider, always include the @id_token@.
-    logins :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    logins :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A unique identifier in the format REGION:GUID.
-    identityId :: Prelude.Text
+    identityId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOpenIdToken' with all optional fields omitted.
@@ -86,11 +85,11 @@ data GetOpenIdToken = GetOpenIdToken'
 -- 'identityId', 'getOpenIdToken_identityId' - A unique identifier in the format REGION:GUID.
 newGetOpenIdToken ::
   -- | 'identityId'
-  Prelude.Text ->
+  Core.Text ->
   GetOpenIdToken
 newGetOpenIdToken pIdentityId_ =
   GetOpenIdToken'
-    { logins = Prelude.Nothing,
+    { logins = Core.Nothing,
       identityId = pIdentityId_
     }
 
@@ -99,58 +98,58 @@ newGetOpenIdToken pIdentityId_ =
 -- access_token returned from the provider\'s authflow. For
 -- accounts.google.com, an Amazon Cognito user pool provider, or any other
 -- OpenID Connect provider, always include the @id_token@.
-getOpenIdToken_logins :: Lens.Lens' GetOpenIdToken (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getOpenIdToken_logins = Lens.lens (\GetOpenIdToken' {logins} -> logins) (\s@GetOpenIdToken' {} a -> s {logins = a} :: GetOpenIdToken) Prelude.. Lens.mapping Prelude._Coerce
+getOpenIdToken_logins :: Lens.Lens' GetOpenIdToken (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getOpenIdToken_logins = Lens.lens (\GetOpenIdToken' {logins} -> logins) (\s@GetOpenIdToken' {} a -> s {logins = a} :: GetOpenIdToken) Core.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier in the format REGION:GUID.
-getOpenIdToken_identityId :: Lens.Lens' GetOpenIdToken Prelude.Text
+getOpenIdToken_identityId :: Lens.Lens' GetOpenIdToken Core.Text
 getOpenIdToken_identityId = Lens.lens (\GetOpenIdToken' {identityId} -> identityId) (\s@GetOpenIdToken' {} a -> s {identityId = a} :: GetOpenIdToken)
 
-instance Prelude.AWSRequest GetOpenIdToken where
-  type Rs GetOpenIdToken = GetOpenIdTokenResponse
+instance Core.AWSRequest GetOpenIdToken where
+  type
+    AWSResponse GetOpenIdToken =
+      GetOpenIdTokenResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetOpenIdTokenResponse'
-            Prelude.<$> (x Prelude..?> "IdentityId")
-            Prelude.<*> (x Prelude..?> "Token")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "IdentityId")
+            Core.<*> (x Core..?> "Token")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetOpenIdToken
+instance Core.Hashable GetOpenIdToken
 
-instance Prelude.NFData GetOpenIdToken
+instance Core.NFData GetOpenIdToken
 
-instance Prelude.ToHeaders GetOpenIdToken where
+instance Core.ToHeaders GetOpenIdToken where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSCognitoIdentityService.GetOpenIdToken" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSCognitoIdentityService.GetOpenIdToken" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetOpenIdToken where
+instance Core.ToJSON GetOpenIdToken where
   toJSON GetOpenIdToken' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Logins" Prelude..=) Prelude.<$> logins,
-            Prelude.Just ("IdentityId" Prelude..= identityId)
+    Core.object
+      ( Core.catMaybes
+          [ ("Logins" Core..=) Core.<$> logins,
+            Core.Just ("IdentityId" Core..= identityId)
           ]
       )
 
-instance Prelude.ToPath GetOpenIdToken where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetOpenIdToken where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetOpenIdToken where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetOpenIdToken where
+  toQuery = Core.const Core.mempty
 
 -- | Returned in response to a successful GetOpenIdToken request.
 --
@@ -158,13 +157,13 @@ instance Prelude.ToQuery GetOpenIdToken where
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
   { -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
     -- returned may not match the one passed on input.
-    identityId :: Prelude.Maybe Prelude.Text,
+    identityId :: Core.Maybe Core.Text,
     -- | An OpenID token, valid for 10 minutes.
-    token :: Prelude.Maybe Prelude.Text,
+    token :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOpenIdTokenResponse' with all optional fields omitted.
@@ -182,27 +181,26 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
 -- 'httpStatus', 'getOpenIdTokenResponse_httpStatus' - The response's http status code.
 newGetOpenIdTokenResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetOpenIdTokenResponse
 newGetOpenIdTokenResponse pHttpStatus_ =
   GetOpenIdTokenResponse'
-    { identityId =
-        Prelude.Nothing,
-      token = Prelude.Nothing,
+    { identityId = Core.Nothing,
+      token = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
-getOpenIdTokenResponse_identityId :: Lens.Lens' GetOpenIdTokenResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenResponse_identityId :: Lens.Lens' GetOpenIdTokenResponse (Core.Maybe Core.Text)
 getOpenIdTokenResponse_identityId = Lens.lens (\GetOpenIdTokenResponse' {identityId} -> identityId) (\s@GetOpenIdTokenResponse' {} a -> s {identityId = a} :: GetOpenIdTokenResponse)
 
 -- | An OpenID token, valid for 10 minutes.
-getOpenIdTokenResponse_token :: Lens.Lens' GetOpenIdTokenResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenResponse_token :: Lens.Lens' GetOpenIdTokenResponse (Core.Maybe Core.Text)
 getOpenIdTokenResponse_token = Lens.lens (\GetOpenIdTokenResponse' {token} -> token) (\s@GetOpenIdTokenResponse' {} a -> s {token = a} :: GetOpenIdTokenResponse)
 
 -- | The response's http status code.
-getOpenIdTokenResponse_httpStatus :: Lens.Lens' GetOpenIdTokenResponse Prelude.Int
+getOpenIdTokenResponse_httpStatus :: Lens.Lens' GetOpenIdTokenResponse Core.Int
 getOpenIdTokenResponse_httpStatus = Lens.lens (\GetOpenIdTokenResponse' {httpStatus} -> httpStatus) (\s@GetOpenIdTokenResponse' {} a -> s {httpStatus = a} :: GetOpenIdTokenResponse)
 
-instance Prelude.NFData GetOpenIdTokenResponse
+instance Core.NFData GetOpenIdTokenResponse

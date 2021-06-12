@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.SSM.GetOpsItem
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,9 +58,9 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetOpsItem' smart constructor.
 data GetOpsItem = GetOpsItem'
   { -- | The ID of the OpsItem that you want to get.
-    opsItemId :: Prelude.Text
+    opsItemId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOpsItem' with all optional fields omitted.
@@ -74,64 +73,62 @@ data GetOpsItem = GetOpsItem'
 -- 'opsItemId', 'getOpsItem_opsItemId' - The ID of the OpsItem that you want to get.
 newGetOpsItem ::
   -- | 'opsItemId'
-  Prelude.Text ->
+  Core.Text ->
   GetOpsItem
 newGetOpsItem pOpsItemId_ =
   GetOpsItem' {opsItemId = pOpsItemId_}
 
 -- | The ID of the OpsItem that you want to get.
-getOpsItem_opsItemId :: Lens.Lens' GetOpsItem Prelude.Text
+getOpsItem_opsItemId :: Lens.Lens' GetOpsItem Core.Text
 getOpsItem_opsItemId = Lens.lens (\GetOpsItem' {opsItemId} -> opsItemId) (\s@GetOpsItem' {} a -> s {opsItemId = a} :: GetOpsItem)
 
-instance Prelude.AWSRequest GetOpsItem where
-  type Rs GetOpsItem = GetOpsItemResponse
+instance Core.AWSRequest GetOpsItem where
+  type AWSResponse GetOpsItem = GetOpsItemResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetOpsItemResponse'
-            Prelude.<$> (x Prelude..?> "OpsItem")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OpsItem")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetOpsItem
+instance Core.Hashable GetOpsItem
 
-instance Prelude.NFData GetOpsItem
+instance Core.NFData GetOpsItem
 
-instance Prelude.ToHeaders GetOpsItem where
+instance Core.ToHeaders GetOpsItem where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonSSM.GetOpsItem" :: Prelude.ByteString),
+              Core.=# ("AmazonSSM.GetOpsItem" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetOpsItem where
+instance Core.ToJSON GetOpsItem where
   toJSON GetOpsItem' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("OpsItemId" Prelude..= opsItemId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("OpsItemId" Core..= opsItemId)]
       )
 
-instance Prelude.ToPath GetOpsItem where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetOpsItem where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetOpsItem where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetOpsItem where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetOpsItemResponse' smart constructor.
 data GetOpsItemResponse = GetOpsItemResponse'
   { -- | The OpsItem.
-    opsItem :: Prelude.Maybe OpsItem,
+    opsItem :: Core.Maybe OpsItem,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetOpsItemResponse' with all optional fields omitted.
@@ -146,20 +143,20 @@ data GetOpsItemResponse = GetOpsItemResponse'
 -- 'httpStatus', 'getOpsItemResponse_httpStatus' - The response's http status code.
 newGetOpsItemResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetOpsItemResponse
 newGetOpsItemResponse pHttpStatus_ =
   GetOpsItemResponse'
-    { opsItem = Prelude.Nothing,
+    { opsItem = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The OpsItem.
-getOpsItemResponse_opsItem :: Lens.Lens' GetOpsItemResponse (Prelude.Maybe OpsItem)
+getOpsItemResponse_opsItem :: Lens.Lens' GetOpsItemResponse (Core.Maybe OpsItem)
 getOpsItemResponse_opsItem = Lens.lens (\GetOpsItemResponse' {opsItem} -> opsItem) (\s@GetOpsItemResponse' {} a -> s {opsItem = a} :: GetOpsItemResponse)
 
 -- | The response's http status code.
-getOpsItemResponse_httpStatus :: Lens.Lens' GetOpsItemResponse Prelude.Int
+getOpsItemResponse_httpStatus :: Lens.Lens' GetOpsItemResponse Core.Int
 getOpsItemResponse_httpStatus = Lens.lens (\GetOpsItemResponse' {httpStatus} -> httpStatus) (\s@GetOpsItemResponse' {} a -> s {httpStatus = a} :: GetOpsItemResponse)
 
-instance Prelude.NFData GetOpsItemResponse
+instance Core.NFData GetOpsItemResponse

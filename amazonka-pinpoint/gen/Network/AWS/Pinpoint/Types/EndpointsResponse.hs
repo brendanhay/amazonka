@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.EndpointsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointResponse
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about all the endpoints that are associated with a
 -- user ID.
@@ -33,7 +32,7 @@ data EndpointsResponse = EndpointsResponse'
     -- user ID.
     item :: [EndpointResponse]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EndpointsResponse' with all optional fields omitted.
@@ -48,22 +47,22 @@ data EndpointsResponse = EndpointsResponse'
 newEndpointsResponse ::
   EndpointsResponse
 newEndpointsResponse =
-  EndpointsResponse' {item = Prelude.mempty}
+  EndpointsResponse' {item = Core.mempty}
 
 -- | An array of responses, one for each endpoint that\'s associated with the
 -- user ID.
 endpointsResponse_item :: Lens.Lens' EndpointsResponse [EndpointResponse]
-endpointsResponse_item = Lens.lens (\EndpointsResponse' {item} -> item) (\s@EndpointsResponse' {} a -> s {item = a} :: EndpointsResponse) Prelude.. Prelude._Coerce
+endpointsResponse_item = Lens.lens (\EndpointsResponse' {item} -> item) (\s@EndpointsResponse' {} a -> s {item = a} :: EndpointsResponse) Core.. Lens._Coerce
 
-instance Prelude.FromJSON EndpointsResponse where
+instance Core.FromJSON EndpointsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EndpointsResponse"
       ( \x ->
           EndpointsResponse'
-            Prelude.<$> (x Prelude..:? "Item" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "Item" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable EndpointsResponse
+instance Core.Hashable EndpointsResponse
 
-instance Prelude.NFData EndpointsResponse
+instance Core.NFData EndpointsResponse

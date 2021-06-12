@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,18 +60,18 @@ module Network.AWS.Lambda.GetEventSourceMapping
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetEventSourceMapping' smart constructor.
 data GetEventSourceMapping = GetEventSourceMapping'
   { -- | The identifier of the event source mapping.
-    uuid :: Prelude.Text
+    uuid :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetEventSourceMapping' with all optional fields omitted.
@@ -85,37 +84,37 @@ data GetEventSourceMapping = GetEventSourceMapping'
 -- 'uuid', 'getEventSourceMapping_uuid' - The identifier of the event source mapping.
 newGetEventSourceMapping ::
   -- | 'uuid'
-  Prelude.Text ->
+  Core.Text ->
   GetEventSourceMapping
 newGetEventSourceMapping pUUID_ =
   GetEventSourceMapping' {uuid = pUUID_}
 
 -- | The identifier of the event source mapping.
-getEventSourceMapping_uuid :: Lens.Lens' GetEventSourceMapping Prelude.Text
+getEventSourceMapping_uuid :: Lens.Lens' GetEventSourceMapping Core.Text
 getEventSourceMapping_uuid = Lens.lens (\GetEventSourceMapping' {uuid} -> uuid) (\s@GetEventSourceMapping' {} a -> s {uuid = a} :: GetEventSourceMapping)
 
-instance Prelude.AWSRequest GetEventSourceMapping where
+instance Core.AWSRequest GetEventSourceMapping where
   type
-    Rs GetEventSourceMapping =
+    AWSResponse GetEventSourceMapping =
       EventSourceMappingConfiguration
   request = Request.get defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable GetEventSourceMapping
+instance Core.Hashable GetEventSourceMapping
 
-instance Prelude.NFData GetEventSourceMapping
+instance Core.NFData GetEventSourceMapping
 
-instance Prelude.ToHeaders GetEventSourceMapping where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetEventSourceMapping where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetEventSourceMapping where
+instance Core.ToPath GetEventSourceMapping where
   toPath GetEventSourceMapping' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-03-31/event-source-mappings/",
-        Prelude.toBS uuid
+        Core.toBS uuid
       ]
 
-instance Prelude.ToQuery GetEventSourceMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetEventSourceMapping where
+  toQuery = Core.const Core.mempty

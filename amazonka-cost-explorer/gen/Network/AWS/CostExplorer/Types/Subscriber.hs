@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.Subscriber where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.SubscriberStatus
 import Network.AWS.CostExplorer.Types.SubscriberType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The recipient of @AnomalySubscription@ notifications.
 --
 -- /See:/ 'newSubscriber' smart constructor.
 data Subscriber = Subscriber'
   { -- | Indicates if the subscriber accepts the notifications.
-    status :: Prelude.Maybe SubscriberStatus,
+    status :: Core.Maybe SubscriberStatus,
     -- | The email address or SNS Amazon Resource Name (ARN), depending on the
     -- @Type@.
-    address :: Prelude.Maybe Prelude.Text,
+    address :: Core.Maybe Core.Text,
     -- | The notification delivery channel.
-    type' :: Prelude.Maybe SubscriberType
+    type' :: Core.Maybe SubscriberType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Subscriber' with all optional fields omitted.
@@ -57,45 +56,45 @@ newSubscriber ::
   Subscriber
 newSubscriber =
   Subscriber'
-    { status = Prelude.Nothing,
-      address = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { status = Core.Nothing,
+      address = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | Indicates if the subscriber accepts the notifications.
-subscriber_status :: Lens.Lens' Subscriber (Prelude.Maybe SubscriberStatus)
+subscriber_status :: Lens.Lens' Subscriber (Core.Maybe SubscriberStatus)
 subscriber_status = Lens.lens (\Subscriber' {status} -> status) (\s@Subscriber' {} a -> s {status = a} :: Subscriber)
 
 -- | The email address or SNS Amazon Resource Name (ARN), depending on the
 -- @Type@.
-subscriber_address :: Lens.Lens' Subscriber (Prelude.Maybe Prelude.Text)
+subscriber_address :: Lens.Lens' Subscriber (Core.Maybe Core.Text)
 subscriber_address = Lens.lens (\Subscriber' {address} -> address) (\s@Subscriber' {} a -> s {address = a} :: Subscriber)
 
 -- | The notification delivery channel.
-subscriber_type :: Lens.Lens' Subscriber (Prelude.Maybe SubscriberType)
+subscriber_type :: Lens.Lens' Subscriber (Core.Maybe SubscriberType)
 subscriber_type = Lens.lens (\Subscriber' {type'} -> type') (\s@Subscriber' {} a -> s {type' = a} :: Subscriber)
 
-instance Prelude.FromJSON Subscriber where
+instance Core.FromJSON Subscriber where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Subscriber"
       ( \x ->
           Subscriber'
-            Prelude.<$> (x Prelude..:? "Status")
-            Prelude.<*> (x Prelude..:? "Address")
-            Prelude.<*> (x Prelude..:? "Type")
+            Core.<$> (x Core..:? "Status")
+            Core.<*> (x Core..:? "Address")
+            Core.<*> (x Core..:? "Type")
       )
 
-instance Prelude.Hashable Subscriber
+instance Core.Hashable Subscriber
 
-instance Prelude.NFData Subscriber
+instance Core.NFData Subscriber
 
-instance Prelude.ToJSON Subscriber where
+instance Core.ToJSON Subscriber where
   toJSON Subscriber' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Status" Prelude..=) Prelude.<$> status,
-            ("Address" Prelude..=) Prelude.<$> address,
-            ("Type" Prelude..=) Prelude.<$> type'
+    Core.object
+      ( Core.catMaybes
+          [ ("Status" Core..=) Core.<$> status,
+            ("Address" Core..=) Core.<$> address,
+            ("Type" Core..=) Core.<$> type'
           ]
       )

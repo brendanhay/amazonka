@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,31 +19,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.CaptionDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.CaptionDestinationSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Caption Description
 --
 -- /See:/ 'newCaptionDescription' smart constructor.
 data CaptionDescription = CaptionDescription'
   { -- | ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
-    languageCode :: Prelude.Maybe Prelude.Text,
+    languageCode :: Core.Maybe Core.Text,
     -- | Human readable information to indicate captions available for players
     -- (eg. English, or Spanish).
-    languageDescription :: Prelude.Maybe Prelude.Text,
+    languageDescription :: Core.Maybe Core.Text,
     -- | Additional settings for captions destination that depend on the
     -- destination type.
-    destinationSettings :: Prelude.Maybe CaptionDestinationSettings,
+    destinationSettings :: Core.Maybe CaptionDestinationSettings,
     -- | Specifies which input caption selector to use as a caption source when
     -- generating output captions. This field should match a captionSelector
     -- name.
-    captionSelectorName :: Prelude.Text,
+    captionSelectorName :: Core.Text,
     -- | Name of the caption description. Used to associate a caption description
     -- with an output. Names must be unique within an event.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CaptionDescription' with all optional fields omitted.
@@ -70,75 +69,72 @@ data CaptionDescription = CaptionDescription'
 -- with an output. Names must be unique within an event.
 newCaptionDescription ::
   -- | 'captionSelectorName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CaptionDescription
 newCaptionDescription pCaptionSelectorName_ pName_ =
   CaptionDescription'
-    { languageCode = Prelude.Nothing,
-      languageDescription = Prelude.Nothing,
-      destinationSettings = Prelude.Nothing,
+    { languageCode = Core.Nothing,
+      languageDescription = Core.Nothing,
+      destinationSettings = Core.Nothing,
       captionSelectorName = pCaptionSelectorName_,
       name = pName_
     }
 
 -- | ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
-captionDescription_languageCode :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
+captionDescription_languageCode :: Lens.Lens' CaptionDescription (Core.Maybe Core.Text)
 captionDescription_languageCode = Lens.lens (\CaptionDescription' {languageCode} -> languageCode) (\s@CaptionDescription' {} a -> s {languageCode = a} :: CaptionDescription)
 
 -- | Human readable information to indicate captions available for players
 -- (eg. English, or Spanish).
-captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Prelude.Maybe Prelude.Text)
+captionDescription_languageDescription :: Lens.Lens' CaptionDescription (Core.Maybe Core.Text)
 captionDescription_languageDescription = Lens.lens (\CaptionDescription' {languageDescription} -> languageDescription) (\s@CaptionDescription' {} a -> s {languageDescription = a} :: CaptionDescription)
 
 -- | Additional settings for captions destination that depend on the
 -- destination type.
-captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Prelude.Maybe CaptionDestinationSettings)
+captionDescription_destinationSettings :: Lens.Lens' CaptionDescription (Core.Maybe CaptionDestinationSettings)
 captionDescription_destinationSettings = Lens.lens (\CaptionDescription' {destinationSettings} -> destinationSettings) (\s@CaptionDescription' {} a -> s {destinationSettings = a} :: CaptionDescription)
 
 -- | Specifies which input caption selector to use as a caption source when
 -- generating output captions. This field should match a captionSelector
 -- name.
-captionDescription_captionSelectorName :: Lens.Lens' CaptionDescription Prelude.Text
+captionDescription_captionSelectorName :: Lens.Lens' CaptionDescription Core.Text
 captionDescription_captionSelectorName = Lens.lens (\CaptionDescription' {captionSelectorName} -> captionSelectorName) (\s@CaptionDescription' {} a -> s {captionSelectorName = a} :: CaptionDescription)
 
 -- | Name of the caption description. Used to associate a caption description
 -- with an output. Names must be unique within an event.
-captionDescription_name :: Lens.Lens' CaptionDescription Prelude.Text
+captionDescription_name :: Lens.Lens' CaptionDescription Core.Text
 captionDescription_name = Lens.lens (\CaptionDescription' {name} -> name) (\s@CaptionDescription' {} a -> s {name = a} :: CaptionDescription)
 
-instance Prelude.FromJSON CaptionDescription where
+instance Core.FromJSON CaptionDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CaptionDescription"
       ( \x ->
           CaptionDescription'
-            Prelude.<$> (x Prelude..:? "languageCode")
-            Prelude.<*> (x Prelude..:? "languageDescription")
-            Prelude.<*> (x Prelude..:? "destinationSettings")
-            Prelude.<*> (x Prelude..: "captionSelectorName")
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..:? "languageCode")
+            Core.<*> (x Core..:? "languageDescription")
+            Core.<*> (x Core..:? "destinationSettings")
+            Core.<*> (x Core..: "captionSelectorName")
+            Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable CaptionDescription
+instance Core.Hashable CaptionDescription
 
-instance Prelude.NFData CaptionDescription
+instance Core.NFData CaptionDescription
 
-instance Prelude.ToJSON CaptionDescription where
+instance Core.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("languageCode" Prelude..=)
-              Prelude.<$> languageCode,
-            ("languageDescription" Prelude..=)
-              Prelude.<$> languageDescription,
-            ("destinationSettings" Prelude..=)
-              Prelude.<$> destinationSettings,
-            Prelude.Just
-              ( "captionSelectorName"
-                  Prelude..= captionSelectorName
-              ),
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("languageCode" Core..=) Core.<$> languageCode,
+            ("languageDescription" Core..=)
+              Core.<$> languageDescription,
+            ("destinationSettings" Core..=)
+              Core.<$> destinationSettings,
+            Core.Just
+              ("captionSelectorName" Core..= captionSelectorName),
+            Core.Just ("name" Core..= name)
           ]
       )

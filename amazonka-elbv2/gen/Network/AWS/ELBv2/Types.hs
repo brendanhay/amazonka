@@ -388,6 +388,7 @@ module Network.AWS.ELBv2.Types
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.Action
 import Network.AWS.ELBv2.Types.ActionTypeEnum
 import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
@@ -438,380 +439,377 @@ import Network.AWS.ELBv2.Types.TargetHealthReasonEnum
 import Network.AWS.ELBv2.Types.TargetHealthStateEnum
 import Network.AWS.ELBv2.Types.TargetTypeEnum
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-12-01@ of the Amazon Elastic Load Balancing SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "ELBv2",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "elasticloadbalancing",
-      Prelude._svcSigningName = "elasticloadbalancing",
-      Prelude._svcVersion = "2015-12-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError = Prelude.parseXMLError "ELBv2",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "ELBv2",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "elasticloadbalancing",
+      Core._serviceSigningName = "elasticloadbalancing",
+      Core._serviceVersion = "2015-12-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError = Core.parseXMLError "ELBv2",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | The specified security group does not exist.
-_InvalidSecurityGroupException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSecurityGroupException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSecurityGroupException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSecurityGroup"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified ALPN policy is not supported.
-_ALPNPolicyNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ALPNPolicyNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ALPNPolicyNotSupportedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ALPNPolicyNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested configuration is not valid.
-_InvalidConfigurationRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidConfigurationRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidConfigurationRequestException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidConfigurationRequest"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of tags per load balancer.
-_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTagsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTags"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The health of the specified targets could not be retrieved due to an
 -- internal error.
-_HealthUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HealthUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _HealthUnavailableException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "HealthUnavailable"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The specified priority is in use.
-_PriorityInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PriorityInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _PriorityInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "PriorityInUse"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A tag key was specified more than once.
-_DuplicateTagKeysException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateTagKeysException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateTagKeysException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateTagKeys"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified Availability Zone is not supported.
-_AvailabilityZoneNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AvailabilityZoneNotSupportedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AvailabilityZoneNotSupportedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AvailabilityZoneNotSupported"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of unique target groups per load
 -- balancer across all listeners. If a target group is used by multiple
 -- actions for a load balancer, it is counted as only one use.
-_TooManyUniqueTargetGroupsPerLoadBalancerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyUniqueTargetGroupsPerLoadBalancerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyUniqueTargetGroupsPerLoadBalancerException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyUniqueTargetGroupsPerLoadBalancer"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified configuration is not valid with this protocol.
-_IncompatibleProtocolsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IncompatibleProtocolsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _IncompatibleProtocolsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "IncompatibleProtocols"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of rules per load balancer.
-_TooManyRulesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRulesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyRulesException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyRules"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of actions per rule.
-_TooManyActionsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyActionsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyActionsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyActions"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | This operation is not allowed.
-_OperationNotPermittedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OperationNotPermittedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _OperationNotPermittedException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "OperationNotPermitted"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of load balancers per target
 -- group.
-_TargetGroupAssociationLimitException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TargetGroupAssociationLimitException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TargetGroupAssociationLimitException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TargetGroupAssociationLimit"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of times a target can be
 -- registered with a load balancer.
-_TooManyRegistrationsForTargetIdException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRegistrationsForTargetIdException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyRegistrationsForTargetIdException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyRegistrationsForTargetId"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified listener does not exist.
-_ListenerNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ListenerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ListenerNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ListenerNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified subnet does not exist.
-_SubnetNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SubnetNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SubnetNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified target does not exist, is not in the same VPC as the
 -- target group, or has an unsupported instance type.
-_InvalidTargetException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTargetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidTargetException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidTarget"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified protocol is not supported.
-_UnsupportedProtocolException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedProtocolException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _UnsupportedProtocolException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "UnsupportedProtocol"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A specified resource is in use.
-_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUse"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified allocation ID does not exist.
-_AllocationIdNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AllocationIdNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AllocationIdNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AllocationIdNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of load balancers for your AWS
 -- account.
-_TooManyLoadBalancersException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyLoadBalancersException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyLoadBalancersException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyLoadBalancers"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified certificate does not exist.
-_CertificateNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_CertificateNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _CertificateNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "CertificateNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A target group with the specified name already exists.
-_DuplicateTargetGroupNameException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateTargetGroupNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateTargetGroupNameException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateTargetGroupName"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A listener with the specified port already exists.
-_DuplicateListenerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateListenerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateListenerException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateListener"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified load balancer does not exist.
-_LoadBalancerNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LoadBalancerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LoadBalancerNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LoadBalancerNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of certificates per load
 -- balancer.
-_TooManyCertificatesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyCertificatesException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyCertificatesException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyCertificates"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested scheme is not valid.
-_InvalidSchemeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSchemeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSchemeException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidScheme"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified SSL policy does not exist.
-_SSLPolicyNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SSLPolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _SSLPolicyNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "SSLPolicyNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified subnet is out of available addresses.
-_InvalidSubnetException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubnetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidSubnetException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidSubnet"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of target groups for your AWS
 -- account.
-_TooManyTargetGroupsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTargetGroupsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTargetGroupsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTargetGroups"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | A load balancer with the specified name already exists.
-_DuplicateLoadBalancerNameException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateLoadBalancerNameException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _DuplicateLoadBalancerNameException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "DuplicateLoadBalancerName"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of listeners per load balancer.
-_TooManyListenersException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyListenersException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyListenersException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyListeners"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The requested action is not valid.
-_InvalidLoadBalancerActionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidLoadBalancerActionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidLoadBalancerActionException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidLoadBalancerAction"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You\'ve reached the limit on the number of targets.
-_TooManyTargetsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTargetsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TooManyTargetsException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TooManyTargets"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified rule does not exist.
-_RuleNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RuleNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _RuleNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "RuleNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The specified target group does not exist.
-_TargetGroupNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TargetGroupNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _TargetGroupNotFoundException =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "TargetGroupNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

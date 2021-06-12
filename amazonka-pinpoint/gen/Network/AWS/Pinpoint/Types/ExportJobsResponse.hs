@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.ExportJobsResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.ExportJobResponse
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information about all the export jobs that are associated with
 -- an application or segment. An export job is a job that exports endpoint
@@ -33,13 +32,13 @@ data ExportJobsResponse = ExportJobsResponse'
   { -- | The string to use in a subsequent request to get the next page of
     -- results in a paginated response. This value is null if there are no
     -- additional pages.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | An array of responses, one for each export job that\'s associated with
     -- the application (Export Jobs resource) or segment (Segment Export Jobs
     -- resource).
     item :: [ExportJobResponse]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ExportJobsResponse' with all optional fields omitted.
@@ -60,32 +59,32 @@ newExportJobsResponse ::
   ExportJobsResponse
 newExportJobsResponse =
   ExportJobsResponse'
-    { nextToken = Prelude.Nothing,
-      item = Prelude.mempty
+    { nextToken = Core.Nothing,
+      item = Core.mempty
     }
 
 -- | The string to use in a subsequent request to get the next page of
 -- results in a paginated response. This value is null if there are no
 -- additional pages.
-exportJobsResponse_nextToken :: Lens.Lens' ExportJobsResponse (Prelude.Maybe Prelude.Text)
+exportJobsResponse_nextToken :: Lens.Lens' ExportJobsResponse (Core.Maybe Core.Text)
 exportJobsResponse_nextToken = Lens.lens (\ExportJobsResponse' {nextToken} -> nextToken) (\s@ExportJobsResponse' {} a -> s {nextToken = a} :: ExportJobsResponse)
 
 -- | An array of responses, one for each export job that\'s associated with
 -- the application (Export Jobs resource) or segment (Segment Export Jobs
 -- resource).
 exportJobsResponse_item :: Lens.Lens' ExportJobsResponse [ExportJobResponse]
-exportJobsResponse_item = Lens.lens (\ExportJobsResponse' {item} -> item) (\s@ExportJobsResponse' {} a -> s {item = a} :: ExportJobsResponse) Prelude.. Prelude._Coerce
+exportJobsResponse_item = Lens.lens (\ExportJobsResponse' {item} -> item) (\s@ExportJobsResponse' {} a -> s {item = a} :: ExportJobsResponse) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ExportJobsResponse where
+instance Core.FromJSON ExportJobsResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ExportJobsResponse"
       ( \x ->
           ExportJobsResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> (x Prelude..:? "Item" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Item" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ExportJobsResponse
+instance Core.Hashable ExportJobsResponse
 
-instance Prelude.NFData ExportJobsResponse
+instance Core.NFData ExportJobsResponse

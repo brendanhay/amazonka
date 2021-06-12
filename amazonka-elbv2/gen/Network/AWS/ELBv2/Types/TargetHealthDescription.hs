@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELBv2.Types.TargetHealthDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types.TargetDescription
 import Network.AWS.ELBv2.Types.TargetHealth
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the health of a target.
 --
 -- /See:/ 'newTargetHealthDescription' smart constructor.
 data TargetHealthDescription = TargetHealthDescription'
   { -- | The port to use to connect with the target.
-    healthCheckPort :: Prelude.Maybe Prelude.Text,
+    healthCheckPort :: Core.Maybe Core.Text,
     -- | The description of the target.
-    target :: Prelude.Maybe TargetDescription,
+    target :: Core.Maybe TargetDescription,
     -- | The health information for the target.
-    targetHealth :: Prelude.Maybe TargetHealth
+    targetHealth :: Core.Maybe TargetHealth
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetHealthDescription' with all optional fields omitted.
@@ -56,30 +55,30 @@ newTargetHealthDescription ::
 newTargetHealthDescription =
   TargetHealthDescription'
     { healthCheckPort =
-        Prelude.Nothing,
-      target = Prelude.Nothing,
-      targetHealth = Prelude.Nothing
+        Core.Nothing,
+      target = Core.Nothing,
+      targetHealth = Core.Nothing
     }
 
 -- | The port to use to connect with the target.
-targetHealthDescription_healthCheckPort :: Lens.Lens' TargetHealthDescription (Prelude.Maybe Prelude.Text)
+targetHealthDescription_healthCheckPort :: Lens.Lens' TargetHealthDescription (Core.Maybe Core.Text)
 targetHealthDescription_healthCheckPort = Lens.lens (\TargetHealthDescription' {healthCheckPort} -> healthCheckPort) (\s@TargetHealthDescription' {} a -> s {healthCheckPort = a} :: TargetHealthDescription)
 
 -- | The description of the target.
-targetHealthDescription_target :: Lens.Lens' TargetHealthDescription (Prelude.Maybe TargetDescription)
+targetHealthDescription_target :: Lens.Lens' TargetHealthDescription (Core.Maybe TargetDescription)
 targetHealthDescription_target = Lens.lens (\TargetHealthDescription' {target} -> target) (\s@TargetHealthDescription' {} a -> s {target = a} :: TargetHealthDescription)
 
 -- | The health information for the target.
-targetHealthDescription_targetHealth :: Lens.Lens' TargetHealthDescription (Prelude.Maybe TargetHealth)
+targetHealthDescription_targetHealth :: Lens.Lens' TargetHealthDescription (Core.Maybe TargetHealth)
 targetHealthDescription_targetHealth = Lens.lens (\TargetHealthDescription' {targetHealth} -> targetHealth) (\s@TargetHealthDescription' {} a -> s {targetHealth = a} :: TargetHealthDescription)
 
-instance Prelude.FromXML TargetHealthDescription where
+instance Core.FromXML TargetHealthDescription where
   parseXML x =
     TargetHealthDescription'
-      Prelude.<$> (x Prelude..@? "HealthCheckPort")
-      Prelude.<*> (x Prelude..@? "Target")
-      Prelude.<*> (x Prelude..@? "TargetHealth")
+      Core.<$> (x Core..@? "HealthCheckPort")
+      Core.<*> (x Core..@? "Target")
+      Core.<*> (x Core..@? "TargetHealth")
 
-instance Prelude.Hashable TargetHealthDescription
+instance Core.Hashable TargetHealthDescription
 
-instance Prelude.NFData TargetHealthDescription
+instance Core.NFData TargetHealthDescription

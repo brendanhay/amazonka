@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodePipeline.Types.WebhookFilterRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The event criteria that specify when a webhook notification is sent to
 -- your URL.
@@ -38,16 +37,16 @@ data WebhookFilterRule = WebhookFilterRule'
     -- @MatchEquals@ value is evaluated as \"refs\/heads\/master\". For a list
     -- of action configuration properties for built-in action types, see
     -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements>.
-    matchEquals :: Prelude.Maybe Prelude.Text,
+    matchEquals :: Core.Maybe Core.Text,
     -- | A JsonPath expression that is applied to the body\/payload of the
     -- webhook. The value selected by the JsonPath expression must match the
     -- value specified in the @MatchEquals@ field. Otherwise, the request is
     -- ignored. For more information, see
     -- <https://github.com/json-path/JsonPath Java JsonPath implementation> in
     -- GitHub.
-    jsonPath :: Prelude.Text
+    jsonPath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'WebhookFilterRule' with all optional fields omitted.
@@ -76,11 +75,11 @@ data WebhookFilterRule = WebhookFilterRule'
 -- GitHub.
 newWebhookFilterRule ::
   -- | 'jsonPath'
-  Prelude.Text ->
+  Core.Text ->
   WebhookFilterRule
 newWebhookFilterRule pJsonPath_ =
   WebhookFilterRule'
-    { matchEquals = Prelude.Nothing,
+    { matchEquals = Core.Nothing,
       jsonPath = pJsonPath_
     }
 
@@ -94,7 +93,7 @@ newWebhookFilterRule pJsonPath_ =
 -- @MatchEquals@ value is evaluated as \"refs\/heads\/master\". For a list
 -- of action configuration properties for built-in action types, see
 -- <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements>.
-webhookFilterRule_matchEquals :: Lens.Lens' WebhookFilterRule (Prelude.Maybe Prelude.Text)
+webhookFilterRule_matchEquals :: Lens.Lens' WebhookFilterRule (Core.Maybe Core.Text)
 webhookFilterRule_matchEquals = Lens.lens (\WebhookFilterRule' {matchEquals} -> matchEquals) (\s@WebhookFilterRule' {} a -> s {matchEquals = a} :: WebhookFilterRule)
 
 -- | A JsonPath expression that is applied to the body\/payload of the
@@ -103,28 +102,28 @@ webhookFilterRule_matchEquals = Lens.lens (\WebhookFilterRule' {matchEquals} -> 
 -- ignored. For more information, see
 -- <https://github.com/json-path/JsonPath Java JsonPath implementation> in
 -- GitHub.
-webhookFilterRule_jsonPath :: Lens.Lens' WebhookFilterRule Prelude.Text
+webhookFilterRule_jsonPath :: Lens.Lens' WebhookFilterRule Core.Text
 webhookFilterRule_jsonPath = Lens.lens (\WebhookFilterRule' {jsonPath} -> jsonPath) (\s@WebhookFilterRule' {} a -> s {jsonPath = a} :: WebhookFilterRule)
 
-instance Prelude.FromJSON WebhookFilterRule where
+instance Core.FromJSON WebhookFilterRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "WebhookFilterRule"
       ( \x ->
           WebhookFilterRule'
-            Prelude.<$> (x Prelude..:? "matchEquals")
-            Prelude.<*> (x Prelude..: "jsonPath")
+            Core.<$> (x Core..:? "matchEquals")
+            Core.<*> (x Core..: "jsonPath")
       )
 
-instance Prelude.Hashable WebhookFilterRule
+instance Core.Hashable WebhookFilterRule
 
-instance Prelude.NFData WebhookFilterRule
+instance Core.NFData WebhookFilterRule
 
-instance Prelude.ToJSON WebhookFilterRule where
+instance Core.ToJSON WebhookFilterRule where
   toJSON WebhookFilterRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("matchEquals" Prelude..=) Prelude.<$> matchEquals,
-            Prelude.Just ("jsonPath" Prelude..= jsonPath)
+    Core.object
+      ( Core.catMaybes
+          [ ("matchEquals" Core..=) Core.<$> matchEquals,
+            Core.Just ("jsonPath" Core..= jsonPath)
           ]
       )

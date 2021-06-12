@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.OpsWorks.Types.LifecycleEventConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the lifecycle event configuration
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data LifecycleEventConfiguration = LifecycleEventConfiguration'
   { -- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event
     -- configuration.
-    shutdown :: Prelude.Maybe ShutdownEventConfiguration
+    shutdown :: Core.Maybe ShutdownEventConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecycleEventConfiguration' with all optional fields omitted.
@@ -49,30 +48,30 @@ newLifecycleEventConfiguration ::
 newLifecycleEventConfiguration =
   LifecycleEventConfiguration'
     { shutdown =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event
 -- configuration.
-lifecycleEventConfiguration_shutdown :: Lens.Lens' LifecycleEventConfiguration (Prelude.Maybe ShutdownEventConfiguration)
+lifecycleEventConfiguration_shutdown :: Lens.Lens' LifecycleEventConfiguration (Core.Maybe ShutdownEventConfiguration)
 lifecycleEventConfiguration_shutdown = Lens.lens (\LifecycleEventConfiguration' {shutdown} -> shutdown) (\s@LifecycleEventConfiguration' {} a -> s {shutdown = a} :: LifecycleEventConfiguration)
 
-instance Prelude.FromJSON LifecycleEventConfiguration where
+instance Core.FromJSON LifecycleEventConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LifecycleEventConfiguration"
       ( \x ->
           LifecycleEventConfiguration'
-            Prelude.<$> (x Prelude..:? "Shutdown")
+            Core.<$> (x Core..:? "Shutdown")
       )
 
-instance Prelude.Hashable LifecycleEventConfiguration
+instance Core.Hashable LifecycleEventConfiguration
 
-instance Prelude.NFData LifecycleEventConfiguration
+instance Core.NFData LifecycleEventConfiguration
 
-instance Prelude.ToJSON LifecycleEventConfiguration where
+instance Core.ToJSON LifecycleEventConfiguration where
   toJSON LifecycleEventConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Shutdown" Prelude..=) Prelude.<$> shutdown]
+    Core.object
+      ( Core.catMaybes
+          [("Shutdown" Core..=) Core.<$> shutdown]
       )

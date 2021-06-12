@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,36 +55,36 @@ module Network.AWS.EC2.CreateFpgaImage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateFpgaImage' smart constructor.
 data CreateFpgaImage = CreateFpgaImage'
   { -- | The tags to apply to the FPGA image during creation.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | A name for the AFI.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A description for the AFI.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The location in Amazon S3 for the output logs.
-    logsStorageLocation :: Prelude.Maybe StorageLocation,
+    logsStorageLocation :: Core.Maybe StorageLocation,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency>.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The location of the encrypted design checkpoint in Amazon S3. The input
     -- must be a tarball.
     inputStorageLocation :: StorageLocation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateFpgaImage' with all optional fields omitted.
@@ -120,43 +119,42 @@ newCreateFpgaImage ::
   CreateFpgaImage
 newCreateFpgaImage pInputStorageLocation_ =
   CreateFpgaImage'
-    { tagSpecifications =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      name = Prelude.Nothing,
-      description = Prelude.Nothing,
-      logsStorageLocation = Prelude.Nothing,
-      clientToken = Prelude.Nothing,
+    { tagSpecifications = Core.Nothing,
+      dryRun = Core.Nothing,
+      name = Core.Nothing,
+      description = Core.Nothing,
+      logsStorageLocation = Core.Nothing,
+      clientToken = Core.Nothing,
       inputStorageLocation = pInputStorageLocation_
     }
 
 -- | The tags to apply to the FPGA image during creation.
-createFpgaImage_tagSpecifications :: Lens.Lens' CreateFpgaImage (Prelude.Maybe [TagSpecification])
-createFpgaImage_tagSpecifications = Lens.lens (\CreateFpgaImage' {tagSpecifications} -> tagSpecifications) (\s@CreateFpgaImage' {} a -> s {tagSpecifications = a} :: CreateFpgaImage) Prelude.. Lens.mapping Prelude._Coerce
+createFpgaImage_tagSpecifications :: Lens.Lens' CreateFpgaImage (Core.Maybe [TagSpecification])
+createFpgaImage_tagSpecifications = Lens.lens (\CreateFpgaImage' {tagSpecifications} -> tagSpecifications) (\s@CreateFpgaImage' {} a -> s {tagSpecifications = a} :: CreateFpgaImage) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createFpgaImage_dryRun :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Bool)
+createFpgaImage_dryRun :: Lens.Lens' CreateFpgaImage (Core.Maybe Core.Bool)
 createFpgaImage_dryRun = Lens.lens (\CreateFpgaImage' {dryRun} -> dryRun) (\s@CreateFpgaImage' {} a -> s {dryRun = a} :: CreateFpgaImage)
 
 -- | A name for the AFI.
-createFpgaImage_name :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Text)
+createFpgaImage_name :: Lens.Lens' CreateFpgaImage (Core.Maybe Core.Text)
 createFpgaImage_name = Lens.lens (\CreateFpgaImage' {name} -> name) (\s@CreateFpgaImage' {} a -> s {name = a} :: CreateFpgaImage)
 
 -- | A description for the AFI.
-createFpgaImage_description :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Text)
+createFpgaImage_description :: Lens.Lens' CreateFpgaImage (Core.Maybe Core.Text)
 createFpgaImage_description = Lens.lens (\CreateFpgaImage' {description} -> description) (\s@CreateFpgaImage' {} a -> s {description = a} :: CreateFpgaImage)
 
 -- | The location in Amazon S3 for the output logs.
-createFpgaImage_logsStorageLocation :: Lens.Lens' CreateFpgaImage (Prelude.Maybe StorageLocation)
+createFpgaImage_logsStorageLocation :: Lens.Lens' CreateFpgaImage (Core.Maybe StorageLocation)
 createFpgaImage_logsStorageLocation = Lens.lens (\CreateFpgaImage' {logsStorageLocation} -> logsStorageLocation) (\s@CreateFpgaImage' {} a -> s {logsStorageLocation = a} :: CreateFpgaImage)
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency>.
-createFpgaImage_clientToken :: Lens.Lens' CreateFpgaImage (Prelude.Maybe Prelude.Text)
+createFpgaImage_clientToken :: Lens.Lens' CreateFpgaImage (Core.Maybe Core.Text)
 createFpgaImage_clientToken = Lens.lens (\CreateFpgaImage' {clientToken} -> clientToken) (\s@CreateFpgaImage' {} a -> s {clientToken = a} :: CreateFpgaImage)
 
 -- | The location of the encrypted design checkpoint in Amazon S3. The input
@@ -164,58 +162,58 @@ createFpgaImage_clientToken = Lens.lens (\CreateFpgaImage' {clientToken} -> clie
 createFpgaImage_inputStorageLocation :: Lens.Lens' CreateFpgaImage StorageLocation
 createFpgaImage_inputStorageLocation = Lens.lens (\CreateFpgaImage' {inputStorageLocation} -> inputStorageLocation) (\s@CreateFpgaImage' {} a -> s {inputStorageLocation = a} :: CreateFpgaImage)
 
-instance Prelude.AWSRequest CreateFpgaImage where
-  type Rs CreateFpgaImage = CreateFpgaImageResponse
+instance Core.AWSRequest CreateFpgaImage where
+  type
+    AWSResponse CreateFpgaImage =
+      CreateFpgaImageResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateFpgaImageResponse'
-            Prelude.<$> (x Prelude..@? "fpgaImageGlobalId")
-            Prelude.<*> (x Prelude..@? "fpgaImageId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "fpgaImageGlobalId")
+            Core.<*> (x Core..@? "fpgaImageId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateFpgaImage
+instance Core.Hashable CreateFpgaImage
 
-instance Prelude.NFData CreateFpgaImage
+instance Core.NFData CreateFpgaImage
 
-instance Prelude.ToHeaders CreateFpgaImage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateFpgaImage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateFpgaImage where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateFpgaImage where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateFpgaImage where
+instance Core.ToQuery CreateFpgaImage where
   toQuery CreateFpgaImage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateFpgaImage" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateFpgaImage" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "Name" Prelude.=: name,
-        "Description" Prelude.=: description,
-        "LogsStorageLocation" Prelude.=: logsStorageLocation,
-        "ClientToken" Prelude.=: clientToken,
-        "InputStorageLocation"
-          Prelude.=: inputStorageLocation
+        "DryRun" Core.=: dryRun,
+        "Name" Core.=: name,
+        "Description" Core.=: description,
+        "LogsStorageLocation" Core.=: logsStorageLocation,
+        "ClientToken" Core.=: clientToken,
+        "InputStorageLocation" Core.=: inputStorageLocation
       ]
 
 -- | /See:/ 'newCreateFpgaImageResponse' smart constructor.
 data CreateFpgaImageResponse = CreateFpgaImageResponse'
   { -- | The global FPGA image identifier (AGFI ID).
-    fpgaImageGlobalId :: Prelude.Maybe Prelude.Text,
+    fpgaImageGlobalId :: Core.Maybe Core.Text,
     -- | The FPGA image identifier (AFI ID).
-    fpgaImageId :: Prelude.Maybe Prelude.Text,
+    fpgaImageId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateFpgaImageResponse' with all optional fields omitted.
@@ -232,26 +230,26 @@ data CreateFpgaImageResponse = CreateFpgaImageResponse'
 -- 'httpStatus', 'createFpgaImageResponse_httpStatus' - The response's http status code.
 newCreateFpgaImageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateFpgaImageResponse
 newCreateFpgaImageResponse pHttpStatus_ =
   CreateFpgaImageResponse'
     { fpgaImageGlobalId =
-        Prelude.Nothing,
-      fpgaImageId = Prelude.Nothing,
+        Core.Nothing,
+      fpgaImageId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The global FPGA image identifier (AGFI ID).
-createFpgaImageResponse_fpgaImageGlobalId :: Lens.Lens' CreateFpgaImageResponse (Prelude.Maybe Prelude.Text)
+createFpgaImageResponse_fpgaImageGlobalId :: Lens.Lens' CreateFpgaImageResponse (Core.Maybe Core.Text)
 createFpgaImageResponse_fpgaImageGlobalId = Lens.lens (\CreateFpgaImageResponse' {fpgaImageGlobalId} -> fpgaImageGlobalId) (\s@CreateFpgaImageResponse' {} a -> s {fpgaImageGlobalId = a} :: CreateFpgaImageResponse)
 
 -- | The FPGA image identifier (AFI ID).
-createFpgaImageResponse_fpgaImageId :: Lens.Lens' CreateFpgaImageResponse (Prelude.Maybe Prelude.Text)
+createFpgaImageResponse_fpgaImageId :: Lens.Lens' CreateFpgaImageResponse (Core.Maybe Core.Text)
 createFpgaImageResponse_fpgaImageId = Lens.lens (\CreateFpgaImageResponse' {fpgaImageId} -> fpgaImageId) (\s@CreateFpgaImageResponse' {} a -> s {fpgaImageId = a} :: CreateFpgaImageResponse)
 
 -- | The response's http status code.
-createFpgaImageResponse_httpStatus :: Lens.Lens' CreateFpgaImageResponse Prelude.Int
+createFpgaImageResponse_httpStatus :: Lens.Lens' CreateFpgaImageResponse Core.Int
 createFpgaImageResponse_httpStatus = Lens.lens (\CreateFpgaImageResponse' {httpStatus} -> httpStatus) (\s@CreateFpgaImageResponse' {} a -> s {httpStatus = a} :: CreateFpgaImageResponse)
 
-instance Prelude.NFData CreateFpgaImageResponse
+instance Core.NFData CreateFpgaImageResponse

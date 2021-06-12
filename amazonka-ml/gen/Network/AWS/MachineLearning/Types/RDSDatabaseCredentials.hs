@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.RDSDatabaseCredentials where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The database credentials to connect to a database on an RDS DB instance.
 --
 -- /See:/ 'newRDSDatabaseCredentials' smart constructor.
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-  { username :: Prelude.Text,
-    password :: Prelude.Text
+  { username :: Core.Text,
+    password :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RDSDatabaseCredentials' with all optional fields omitted.
@@ -45,9 +44,9 @@ data RDSDatabaseCredentials = RDSDatabaseCredentials'
 -- 'password', 'rDSDatabaseCredentials_password' - Undocumented member.
 newRDSDatabaseCredentials ::
   -- | 'username'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'password'
-  Prelude.Text ->
+  Core.Text ->
   RDSDatabaseCredentials
 newRDSDatabaseCredentials pUsername_ pPassword_ =
   RDSDatabaseCredentials'
@@ -56,22 +55,22 @@ newRDSDatabaseCredentials pUsername_ pPassword_ =
     }
 
 -- | Undocumented member.
-rDSDatabaseCredentials_username :: Lens.Lens' RDSDatabaseCredentials Prelude.Text
+rDSDatabaseCredentials_username :: Lens.Lens' RDSDatabaseCredentials Core.Text
 rDSDatabaseCredentials_username = Lens.lens (\RDSDatabaseCredentials' {username} -> username) (\s@RDSDatabaseCredentials' {} a -> s {username = a} :: RDSDatabaseCredentials)
 
 -- | Undocumented member.
-rDSDatabaseCredentials_password :: Lens.Lens' RDSDatabaseCredentials Prelude.Text
+rDSDatabaseCredentials_password :: Lens.Lens' RDSDatabaseCredentials Core.Text
 rDSDatabaseCredentials_password = Lens.lens (\RDSDatabaseCredentials' {password} -> password) (\s@RDSDatabaseCredentials' {} a -> s {password = a} :: RDSDatabaseCredentials)
 
-instance Prelude.Hashable RDSDatabaseCredentials
+instance Core.Hashable RDSDatabaseCredentials
 
-instance Prelude.NFData RDSDatabaseCredentials
+instance Core.NFData RDSDatabaseCredentials
 
-instance Prelude.ToJSON RDSDatabaseCredentials where
+instance Core.ToJSON RDSDatabaseCredentials where
   toJSON RDSDatabaseCredentials' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Username" Prelude..= username),
-            Prelude.Just ("Password" Prelude..= password)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Username" Core..= username),
+            Core.Just ("Password" Core..= password)
           ]
       )

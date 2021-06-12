@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -64,9 +63,9 @@ module Network.AWS.EC2.ModifyIdFormat
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -84,11 +83,11 @@ data ModifyIdFormat = ModifyIdFormat'
     --
     -- Alternatively, use the @all-current@ option to include all resource
     -- types that are currently within their opt-in period for longer IDs.
-    resource :: Prelude.Text,
+    resource :: Core.Text,
     -- | Indicate whether the resource should use longer IDs (17-character IDs).
-    useLongIds :: Prelude.Bool
+    useLongIds :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyIdFormat' with all optional fields omitted.
@@ -114,9 +113,9 @@ data ModifyIdFormat = ModifyIdFormat'
 -- 'useLongIds', 'modifyIdFormat_useLongIds' - Indicate whether the resource should use longer IDs (17-character IDs).
 newModifyIdFormat ::
   -- | 'resource'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'useLongIds'
-  Prelude.Bool ->
+  Core.Bool ->
   ModifyIdFormat
 newModifyIdFormat pResource_ pUseLongIds_ =
   ModifyIdFormat'
@@ -136,45 +135,46 @@ newModifyIdFormat pResource_ pUseLongIds_ =
 --
 -- Alternatively, use the @all-current@ option to include all resource
 -- types that are currently within their opt-in period for longer IDs.
-modifyIdFormat_resource :: Lens.Lens' ModifyIdFormat Prelude.Text
+modifyIdFormat_resource :: Lens.Lens' ModifyIdFormat Core.Text
 modifyIdFormat_resource = Lens.lens (\ModifyIdFormat' {resource} -> resource) (\s@ModifyIdFormat' {} a -> s {resource = a} :: ModifyIdFormat)
 
 -- | Indicate whether the resource should use longer IDs (17-character IDs).
-modifyIdFormat_useLongIds :: Lens.Lens' ModifyIdFormat Prelude.Bool
+modifyIdFormat_useLongIds :: Lens.Lens' ModifyIdFormat Core.Bool
 modifyIdFormat_useLongIds = Lens.lens (\ModifyIdFormat' {useLongIds} -> useLongIds) (\s@ModifyIdFormat' {} a -> s {useLongIds = a} :: ModifyIdFormat)
 
-instance Prelude.AWSRequest ModifyIdFormat where
-  type Rs ModifyIdFormat = ModifyIdFormatResponse
+instance Core.AWSRequest ModifyIdFormat where
+  type
+    AWSResponse ModifyIdFormat =
+      ModifyIdFormatResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull ModifyIdFormatResponse'
 
-instance Prelude.Hashable ModifyIdFormat
+instance Core.Hashable ModifyIdFormat
 
-instance Prelude.NFData ModifyIdFormat
+instance Core.NFData ModifyIdFormat
 
-instance Prelude.ToHeaders ModifyIdFormat where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyIdFormat where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyIdFormat where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyIdFormat where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyIdFormat where
+instance Core.ToQuery ModifyIdFormat where
   toQuery ModifyIdFormat' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyIdFormat" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "Resource" Prelude.=: resource,
-        "UseLongIds" Prelude.=: useLongIds
+          Core.=: ("ModifyIdFormat" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "Resource" Core.=: resource,
+        "UseLongIds" Core.=: useLongIds
       ]
 
 -- | /See:/ 'newModifyIdFormatResponse' smart constructor.
 data ModifyIdFormatResponse = ModifyIdFormatResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyIdFormatResponse' with all optional fields omitted.
@@ -184,4 +184,4 @@ newModifyIdFormatResponse ::
   ModifyIdFormatResponse
 newModifyIdFormatResponse = ModifyIdFormatResponse'
 
-instance Prelude.NFData ModifyIdFormatResponse
+instance Core.NFData ModifyIdFormatResponse

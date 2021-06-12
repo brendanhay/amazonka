@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.QLDB.Types.ValueHolder where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that can contain a value in multiple encoding formats.
 --
 -- /See:/ 'newValueHolder' smart constructor.
 data ValueHolder = ValueHolder'
   { -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
-    ionText :: Prelude.Maybe (Prelude.Sensitive Prelude.Text)
+    ionText :: Core.Maybe (Core.Sensitive Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ValueHolder' with all optional fields omitted.
@@ -43,28 +42,25 @@ data ValueHolder = ValueHolder'
 -- 'ionText', 'valueHolder_ionText' - An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
 newValueHolder ::
   ValueHolder
-newValueHolder =
-  ValueHolder' {ionText = Prelude.Nothing}
+newValueHolder = ValueHolder' {ionText = Core.Nothing}
 
 -- | An Amazon Ion plaintext value contained in a @ValueHolder@ structure.
-valueHolder_ionText :: Lens.Lens' ValueHolder (Prelude.Maybe Prelude.Text)
-valueHolder_ionText = Lens.lens (\ValueHolder' {ionText} -> ionText) (\s@ValueHolder' {} a -> s {ionText = a} :: ValueHolder) Prelude.. Lens.mapping Prelude._Sensitive
+valueHolder_ionText :: Lens.Lens' ValueHolder (Core.Maybe Core.Text)
+valueHolder_ionText = Lens.lens (\ValueHolder' {ionText} -> ionText) (\s@ValueHolder' {} a -> s {ionText = a} :: ValueHolder) Core.. Lens.mapping Core._Sensitive
 
-instance Prelude.FromJSON ValueHolder where
+instance Core.FromJSON ValueHolder where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ValueHolder"
-      ( \x ->
-          ValueHolder' Prelude.<$> (x Prelude..:? "IonText")
-      )
+      (\x -> ValueHolder' Core.<$> (x Core..:? "IonText"))
 
-instance Prelude.Hashable ValueHolder
+instance Core.Hashable ValueHolder
 
-instance Prelude.NFData ValueHolder
+instance Core.NFData ValueHolder
 
-instance Prelude.ToJSON ValueHolder where
+instance Core.ToJSON ValueHolder where
   toJSON ValueHolder' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("IonText" Prelude..=) Prelude.<$> ionText]
+    Core.object
+      ( Core.catMaybes
+          [("IonText" Core..=) Core.<$> ionText]
       )

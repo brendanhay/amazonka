@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.Shield.EnableProactiveEngagement
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -48,7 +47,7 @@ import Network.AWS.Shield.Types
 data EnableProactiveEngagement = EnableProactiveEngagement'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableProactiveEngagement' with all optional fields omitted.
@@ -59,53 +58,50 @@ newEnableProactiveEngagement ::
 newEnableProactiveEngagement =
   EnableProactiveEngagement'
 
-instance Prelude.AWSRequest EnableProactiveEngagement where
+instance Core.AWSRequest EnableProactiveEngagement where
   type
-    Rs EnableProactiveEngagement =
+    AWSResponse EnableProactiveEngagement =
       EnableProactiveEngagementResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableProactiveEngagementResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable EnableProactiveEngagement
+instance Core.Hashable EnableProactiveEngagement
 
-instance Prelude.NFData EnableProactiveEngagement
+instance Core.NFData EnableProactiveEngagement
 
-instance Prelude.ToHeaders EnableProactiveEngagement where
+instance Core.ToHeaders EnableProactiveEngagement where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.EnableProactiveEngagement" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.EnableProactiveEngagement" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON EnableProactiveEngagement where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON EnableProactiveEngagement where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath EnableProactiveEngagement where
-  toPath = Prelude.const "/"
+instance Core.ToPath EnableProactiveEngagement where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery EnableProactiveEngagement where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableProactiveEngagement where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableProactiveEngagementResponse' smart constructor.
 data EnableProactiveEngagementResponse = EnableProactiveEngagementResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableProactiveEngagementResponse' with all optional fields omitted.
@@ -118,7 +114,7 @@ data EnableProactiveEngagementResponse = EnableProactiveEngagementResponse'
 -- 'httpStatus', 'enableProactiveEngagementResponse_httpStatus' - The response's http status code.
 newEnableProactiveEngagementResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   EnableProactiveEngagementResponse
 newEnableProactiveEngagementResponse pHttpStatus_ =
   EnableProactiveEngagementResponse'
@@ -127,9 +123,9 @@ newEnableProactiveEngagementResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-enableProactiveEngagementResponse_httpStatus :: Lens.Lens' EnableProactiveEngagementResponse Prelude.Int
+enableProactiveEngagementResponse_httpStatus :: Lens.Lens' EnableProactiveEngagementResponse Core.Int
 enableProactiveEngagementResponse_httpStatus = Lens.lens (\EnableProactiveEngagementResponse' {httpStatus} -> httpStatus) (\s@EnableProactiveEngagementResponse' {} a -> s {httpStatus = a} :: EnableProactiveEngagementResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     EnableProactiveEngagementResponse

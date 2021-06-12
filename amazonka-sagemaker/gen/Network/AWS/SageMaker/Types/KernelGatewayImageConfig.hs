@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.KernelGatewayImageConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.FileSystemConfig
 import Network.AWS.SageMaker.Types.KernelSpec
 
@@ -32,11 +31,11 @@ import Network.AWS.SageMaker.Types.KernelSpec
 data KernelGatewayImageConfig = KernelGatewayImageConfig'
   { -- | The Amazon Elastic File System (EFS) storage configuration for a
     -- SageMaker image.
-    fileSystemConfig :: Prelude.Maybe FileSystemConfig,
+    fileSystemConfig :: Core.Maybe FileSystemConfig,
     -- | The specification of the Jupyter kernels in the image.
-    kernelSpecs :: Prelude.NonEmpty KernelSpec
+    kernelSpecs :: Core.NonEmpty KernelSpec
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KernelGatewayImageConfig' with all optional fields omitted.
@@ -52,45 +51,44 @@ data KernelGatewayImageConfig = KernelGatewayImageConfig'
 -- 'kernelSpecs', 'kernelGatewayImageConfig_kernelSpecs' - The specification of the Jupyter kernels in the image.
 newKernelGatewayImageConfig ::
   -- | 'kernelSpecs'
-  Prelude.NonEmpty KernelSpec ->
+  Core.NonEmpty KernelSpec ->
   KernelGatewayImageConfig
 newKernelGatewayImageConfig pKernelSpecs_ =
   KernelGatewayImageConfig'
     { fileSystemConfig =
-        Prelude.Nothing,
-      kernelSpecs =
-        Prelude._Coerce Lens.# pKernelSpecs_
+        Core.Nothing,
+      kernelSpecs = Lens._Coerce Lens.# pKernelSpecs_
     }
 
 -- | The Amazon Elastic File System (EFS) storage configuration for a
 -- SageMaker image.
-kernelGatewayImageConfig_fileSystemConfig :: Lens.Lens' KernelGatewayImageConfig (Prelude.Maybe FileSystemConfig)
+kernelGatewayImageConfig_fileSystemConfig :: Lens.Lens' KernelGatewayImageConfig (Core.Maybe FileSystemConfig)
 kernelGatewayImageConfig_fileSystemConfig = Lens.lens (\KernelGatewayImageConfig' {fileSystemConfig} -> fileSystemConfig) (\s@KernelGatewayImageConfig' {} a -> s {fileSystemConfig = a} :: KernelGatewayImageConfig)
 
 -- | The specification of the Jupyter kernels in the image.
-kernelGatewayImageConfig_kernelSpecs :: Lens.Lens' KernelGatewayImageConfig (Prelude.NonEmpty KernelSpec)
-kernelGatewayImageConfig_kernelSpecs = Lens.lens (\KernelGatewayImageConfig' {kernelSpecs} -> kernelSpecs) (\s@KernelGatewayImageConfig' {} a -> s {kernelSpecs = a} :: KernelGatewayImageConfig) Prelude.. Prelude._Coerce
+kernelGatewayImageConfig_kernelSpecs :: Lens.Lens' KernelGatewayImageConfig (Core.NonEmpty KernelSpec)
+kernelGatewayImageConfig_kernelSpecs = Lens.lens (\KernelGatewayImageConfig' {kernelSpecs} -> kernelSpecs) (\s@KernelGatewayImageConfig' {} a -> s {kernelSpecs = a} :: KernelGatewayImageConfig) Core.. Lens._Coerce
 
-instance Prelude.FromJSON KernelGatewayImageConfig where
+instance Core.FromJSON KernelGatewayImageConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KernelGatewayImageConfig"
       ( \x ->
           KernelGatewayImageConfig'
-            Prelude.<$> (x Prelude..:? "FileSystemConfig")
-            Prelude.<*> (x Prelude..: "KernelSpecs")
+            Core.<$> (x Core..:? "FileSystemConfig")
+            Core.<*> (x Core..: "KernelSpecs")
       )
 
-instance Prelude.Hashable KernelGatewayImageConfig
+instance Core.Hashable KernelGatewayImageConfig
 
-instance Prelude.NFData KernelGatewayImageConfig
+instance Core.NFData KernelGatewayImageConfig
 
-instance Prelude.ToJSON KernelGatewayImageConfig where
+instance Core.ToJSON KernelGatewayImageConfig where
   toJSON KernelGatewayImageConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FileSystemConfig" Prelude..=)
-              Prelude.<$> fileSystemConfig,
-            Prelude.Just ("KernelSpecs" Prelude..= kernelSpecs)
+    Core.object
+      ( Core.catMaybes
+          [ ("FileSystemConfig" Core..=)
+              Core.<$> fileSystemConfig,
+            Core.Just ("KernelSpecs" Core..= kernelSpecs)
           ]
       )

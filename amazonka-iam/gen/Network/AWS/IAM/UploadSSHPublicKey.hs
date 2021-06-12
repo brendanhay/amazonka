@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.IAM.UploadSSHPublicKey
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,7 +61,7 @@ data UploadSSHPublicKey = UploadSSHPublicKey'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text,
+    userName :: Core.Text,
     -- | The SSH public key. The public key must be encoded in ssh-rsa format or
     -- PEM format. The minimum bit-length of the public key is 2048 bits. For
     -- example, you can generate a 2048-bit key, and the resulting PEM file is
@@ -79,9 +78,9 @@ data UploadSSHPublicKey = UploadSSHPublicKey'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    sSHPublicKeyBody :: Prelude.Text
+    sSHPublicKeyBody :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UploadSSHPublicKey' with all optional fields omitted.
@@ -116,9 +115,9 @@ data UploadSSHPublicKey = UploadSSHPublicKey'
 --     carriage return (@\\u000D@)
 newUploadSSHPublicKey ::
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sSHPublicKeyBody'
-  Prelude.Text ->
+  Core.Text ->
   UploadSSHPublicKey
 newUploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
   UploadSSHPublicKey'
@@ -132,7 +131,7 @@ newUploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-uploadSSHPublicKey_userName :: Lens.Lens' UploadSSHPublicKey Prelude.Text
+uploadSSHPublicKey_userName :: Lens.Lens' UploadSSHPublicKey Core.Text
 uploadSSHPublicKey_userName = Lens.lens (\UploadSSHPublicKey' {userName} -> userName) (\s@UploadSSHPublicKey' {} a -> s {userName = a} :: UploadSSHPublicKey)
 
 -- | The SSH public key. The public key must be encoded in ssh-rsa format or
@@ -151,12 +150,12 @@ uploadSSHPublicKey_userName = Lens.lens (\UploadSSHPublicKey' {userName} -> user
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-uploadSSHPublicKey_sSHPublicKeyBody :: Lens.Lens' UploadSSHPublicKey Prelude.Text
+uploadSSHPublicKey_sSHPublicKeyBody :: Lens.Lens' UploadSSHPublicKey Core.Text
 uploadSSHPublicKey_sSHPublicKeyBody = Lens.lens (\UploadSSHPublicKey' {sSHPublicKeyBody} -> sSHPublicKeyBody) (\s@UploadSSHPublicKey' {} a -> s {sSHPublicKeyBody = a} :: UploadSSHPublicKey)
 
-instance Prelude.AWSRequest UploadSSHPublicKey where
+instance Core.AWSRequest UploadSSHPublicKey where
   type
-    Rs UploadSSHPublicKey =
+    AWSResponse UploadSSHPublicKey =
       UploadSSHPublicKeyResponse
   request = Request.postQuery defaultService
   response =
@@ -164,29 +163,28 @@ instance Prelude.AWSRequest UploadSSHPublicKey where
       "UploadSSHPublicKeyResult"
       ( \s h x ->
           UploadSSHPublicKeyResponse'
-            Prelude.<$> (x Prelude..@? "SSHPublicKey")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "SSHPublicKey")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UploadSSHPublicKey
+instance Core.Hashable UploadSSHPublicKey
 
-instance Prelude.NFData UploadSSHPublicKey
+instance Core.NFData UploadSSHPublicKey
 
-instance Prelude.ToHeaders UploadSSHPublicKey where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UploadSSHPublicKey where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UploadSSHPublicKey where
-  toPath = Prelude.const "/"
+instance Core.ToPath UploadSSHPublicKey where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UploadSSHPublicKey where
+instance Core.ToQuery UploadSSHPublicKey where
   toQuery UploadSSHPublicKey' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UploadSSHPublicKey" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "SSHPublicKeyBody" Prelude.=: sSHPublicKeyBody
+          Core.=: ("UploadSSHPublicKey" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "SSHPublicKeyBody" Core.=: sSHPublicKeyBody
       ]
 
 -- | Contains the response to a successful UploadSSHPublicKey request.
@@ -194,11 +192,11 @@ instance Prelude.ToQuery UploadSSHPublicKey where
 -- /See:/ 'newUploadSSHPublicKeyResponse' smart constructor.
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
   { -- | Contains information about the SSH public key.
-    sSHPublicKey :: Prelude.Maybe SSHPublicKey,
+    sSHPublicKey :: Core.Maybe SSHPublicKey,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UploadSSHPublicKeyResponse' with all optional fields omitted.
@@ -213,21 +211,21 @@ data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
 -- 'httpStatus', 'uploadSSHPublicKeyResponse_httpStatus' - The response's http status code.
 newUploadSSHPublicKeyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UploadSSHPublicKeyResponse
 newUploadSSHPublicKeyResponse pHttpStatus_ =
   UploadSSHPublicKeyResponse'
     { sSHPublicKey =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Contains information about the SSH public key.
-uploadSSHPublicKeyResponse_sSHPublicKey :: Lens.Lens' UploadSSHPublicKeyResponse (Prelude.Maybe SSHPublicKey)
+uploadSSHPublicKeyResponse_sSHPublicKey :: Lens.Lens' UploadSSHPublicKeyResponse (Core.Maybe SSHPublicKey)
 uploadSSHPublicKeyResponse_sSHPublicKey = Lens.lens (\UploadSSHPublicKeyResponse' {sSHPublicKey} -> sSHPublicKey) (\s@UploadSSHPublicKeyResponse' {} a -> s {sSHPublicKey = a} :: UploadSSHPublicKeyResponse)
 
 -- | The response's http status code.
-uploadSSHPublicKeyResponse_httpStatus :: Lens.Lens' UploadSSHPublicKeyResponse Prelude.Int
+uploadSSHPublicKeyResponse_httpStatus :: Lens.Lens' UploadSSHPublicKeyResponse Core.Int
 uploadSSHPublicKeyResponse_httpStatus = Lens.lens (\UploadSSHPublicKeyResponse' {httpStatus} -> httpStatus) (\s@UploadSSHPublicKeyResponse' {} a -> s {httpStatus = a} :: UploadSSHPublicKeyResponse)
 
-instance Prelude.NFData UploadSSHPublicKeyResponse
+instance Core.NFData UploadSSHPublicKeyResponse

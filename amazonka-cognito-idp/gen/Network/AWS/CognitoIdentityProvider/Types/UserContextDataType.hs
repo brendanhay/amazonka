@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CognitoIdentityProvider.Types.UserContextDataType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
@@ -32,9 +31,9 @@ data UserContextDataType = UserContextDataType'
   { -- | Contextual data such as the user\'s device fingerprint, IP address, or
     -- location used for evaluating the risk of an unexpected event by Amazon
     -- Cognito advanced security.
-    encodedData :: Prelude.Maybe Prelude.Text
+    encodedData :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserContextDataType' with all optional fields omitted.
@@ -50,21 +49,21 @@ data UserContextDataType = UserContextDataType'
 newUserContextDataType ::
   UserContextDataType
 newUserContextDataType =
-  UserContextDataType' {encodedData = Prelude.Nothing}
+  UserContextDataType' {encodedData = Core.Nothing}
 
 -- | Contextual data such as the user\'s device fingerprint, IP address, or
 -- location used for evaluating the risk of an unexpected event by Amazon
 -- Cognito advanced security.
-userContextDataType_encodedData :: Lens.Lens' UserContextDataType (Prelude.Maybe Prelude.Text)
+userContextDataType_encodedData :: Lens.Lens' UserContextDataType (Core.Maybe Core.Text)
 userContextDataType_encodedData = Lens.lens (\UserContextDataType' {encodedData} -> encodedData) (\s@UserContextDataType' {} a -> s {encodedData = a} :: UserContextDataType)
 
-instance Prelude.Hashable UserContextDataType
+instance Core.Hashable UserContextDataType
 
-instance Prelude.NFData UserContextDataType
+instance Core.NFData UserContextDataType
 
-instance Prelude.ToJSON UserContextDataType where
+instance Core.ToJSON UserContextDataType where
   toJSON UserContextDataType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("EncodedData" Prelude..=) Prelude.<$> encodedData]
+    Core.object
+      ( Core.catMaybes
+          [("EncodedData" Core..=) Core.<$> encodedData]
       )

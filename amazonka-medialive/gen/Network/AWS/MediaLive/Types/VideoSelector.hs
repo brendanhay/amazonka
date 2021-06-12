@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.VideoSelector where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.VideoSelectorColorSpace
 import Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage
 import Network.AWS.MediaLive.Types.VideoSelectorSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a particular video stream within an input source. An input may
 -- have only a single video selector.
@@ -40,15 +39,15 @@ data VideoSelector = VideoSelector'
     -- data is correct. force means to always use the value in colorSpace.
     -- Choose force if your input usually has no color space data or might have
     -- unreliable color space data.
-    colorSpaceUsage :: Prelude.Maybe VideoSelectorColorSpaceUsage,
+    colorSpaceUsage :: Core.Maybe VideoSelectorColorSpaceUsage,
     -- | The video selector settings.
-    selectorSettings :: Prelude.Maybe VideoSelectorSettings,
+    selectorSettings :: Core.Maybe VideoSelectorSettings,
     -- | Specifies the color space of an input. This setting works in tandem with
     -- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to
     -- determine if any conversion will be performed.
-    colorSpace :: Prelude.Maybe VideoSelectorColorSpace
+    colorSpace :: Core.Maybe VideoSelectorColorSpace
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VideoSelector' with all optional fields omitted.
@@ -77,9 +76,9 @@ newVideoSelector ::
   VideoSelector
 newVideoSelector =
   VideoSelector'
-    { colorSpaceUsage = Prelude.Nothing,
-      selectorSettings = Prelude.Nothing,
-      colorSpace = Prelude.Nothing
+    { colorSpaceUsage = Core.Nothing,
+      selectorSettings = Core.Nothing,
+      colorSpace = Core.Nothing
     }
 
 -- | Applies only if colorSpace is a value other than follow. This field
@@ -91,42 +90,42 @@ newVideoSelector =
 -- data is correct. force means to always use the value in colorSpace.
 -- Choose force if your input usually has no color space data or might have
 -- unreliable color space data.
-videoSelector_colorSpaceUsage :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorColorSpaceUsage)
+videoSelector_colorSpaceUsage :: Lens.Lens' VideoSelector (Core.Maybe VideoSelectorColorSpaceUsage)
 videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> colorSpaceUsage) (\s@VideoSelector' {} a -> s {colorSpaceUsage = a} :: VideoSelector)
 
 -- | The video selector settings.
-videoSelector_selectorSettings :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorSettings)
+videoSelector_selectorSettings :: Lens.Lens' VideoSelector (Core.Maybe VideoSelectorSettings)
 videoSelector_selectorSettings = Lens.lens (\VideoSelector' {selectorSettings} -> selectorSettings) (\s@VideoSelector' {} a -> s {selectorSettings = a} :: VideoSelector)
 
 -- | Specifies the color space of an input. This setting works in tandem with
 -- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to
 -- determine if any conversion will be performed.
-videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe VideoSelectorColorSpace)
+videoSelector_colorSpace :: Lens.Lens' VideoSelector (Core.Maybe VideoSelectorColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
 
-instance Prelude.FromJSON VideoSelector where
+instance Core.FromJSON VideoSelector where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VideoSelector"
       ( \x ->
           VideoSelector'
-            Prelude.<$> (x Prelude..:? "colorSpaceUsage")
-            Prelude.<*> (x Prelude..:? "selectorSettings")
-            Prelude.<*> (x Prelude..:? "colorSpace")
+            Core.<$> (x Core..:? "colorSpaceUsage")
+            Core.<*> (x Core..:? "selectorSettings")
+            Core.<*> (x Core..:? "colorSpace")
       )
 
-instance Prelude.Hashable VideoSelector
+instance Core.Hashable VideoSelector
 
-instance Prelude.NFData VideoSelector
+instance Core.NFData VideoSelector
 
-instance Prelude.ToJSON VideoSelector where
+instance Core.ToJSON VideoSelector where
   toJSON VideoSelector' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("colorSpaceUsage" Prelude..=)
-              Prelude.<$> colorSpaceUsage,
-            ("selectorSettings" Prelude..=)
-              Prelude.<$> selectorSettings,
-            ("colorSpace" Prelude..=) Prelude.<$> colorSpace
+    Core.object
+      ( Core.catMaybes
+          [ ("colorSpaceUsage" Core..=)
+              Core.<$> colorSpaceUsage,
+            ("selectorSettings" Core..=)
+              Core.<$> selectorSettings,
+            ("colorSpace" Core..=) Core.<$> colorSpace
           ]
       )

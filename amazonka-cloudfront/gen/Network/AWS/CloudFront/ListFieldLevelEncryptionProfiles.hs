@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,15 +51,15 @@ import qualified Network.AWS.Response as Response
 data ListFieldLevelEncryptionProfiles = ListFieldLevelEncryptionProfiles'
   { -- | The maximum number of field-level encryption profiles you want in the
     -- response body.
-    maxItems :: Prelude.Maybe Prelude.Text,
+    maxItems :: Core.Maybe Core.Text,
     -- | Use this when paginating results to indicate where to begin in your list
     -- of profiles. The results include profiles in the list that occur after
     -- the marker. To get the next page of results, set the @Marker@ to the
     -- value of the @NextMarker@ from the current page\'s response (which is
     -- also the ID of the last profile on that page).
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFieldLevelEncryptionProfiles' with all optional fields omitted.
@@ -83,13 +82,13 @@ newListFieldLevelEncryptionProfiles ::
 newListFieldLevelEncryptionProfiles =
   ListFieldLevelEncryptionProfiles'
     { maxItems =
-        Prelude.Nothing,
-      marker = Prelude.Nothing
+        Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The maximum number of field-level encryption profiles you want in the
 -- response body.
-listFieldLevelEncryptionProfiles_maxItems :: Lens.Lens' ListFieldLevelEncryptionProfiles (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionProfiles_maxItems :: Lens.Lens' ListFieldLevelEncryptionProfiles (Core.Maybe Core.Text)
 listFieldLevelEncryptionProfiles_maxItems = Lens.lens (\ListFieldLevelEncryptionProfiles' {maxItems} -> maxItems) (\s@ListFieldLevelEncryptionProfiles' {} a -> s {maxItems = a} :: ListFieldLevelEncryptionProfiles)
 
 -- | Use this when paginating results to indicate where to begin in your list
@@ -97,66 +96,61 @@ listFieldLevelEncryptionProfiles_maxItems = Lens.lens (\ListFieldLevelEncryption
 -- the marker. To get the next page of results, set the @Marker@ to the
 -- value of the @NextMarker@ from the current page\'s response (which is
 -- also the ID of the last profile on that page).
-listFieldLevelEncryptionProfiles_marker :: Lens.Lens' ListFieldLevelEncryptionProfiles (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionProfiles_marker :: Lens.Lens' ListFieldLevelEncryptionProfiles (Core.Maybe Core.Text)
 listFieldLevelEncryptionProfiles_marker = Lens.lens (\ListFieldLevelEncryptionProfiles' {marker} -> marker) (\s@ListFieldLevelEncryptionProfiles' {} a -> s {marker = a} :: ListFieldLevelEncryptionProfiles)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ListFieldLevelEncryptionProfiles
   where
   type
-    Rs ListFieldLevelEncryptionProfiles =
+    AWSResponse ListFieldLevelEncryptionProfiles =
       ListFieldLevelEncryptionProfilesResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ListFieldLevelEncryptionProfilesResponse'
-            Prelude.<$> (Prelude.parseXML x)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ListFieldLevelEncryptionProfiles
 
-instance
-  Prelude.NFData
-    ListFieldLevelEncryptionProfiles
+instance Core.NFData ListFieldLevelEncryptionProfiles
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     ListFieldLevelEncryptionProfiles
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    ListFieldLevelEncryptionProfiles
-  where
+instance Core.ToPath ListFieldLevelEncryptionProfiles where
   toPath =
-    Prelude.const
+    Core.const
       "/2020-05-31/field-level-encryption-profile"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     ListFieldLevelEncryptionProfiles
   where
   toQuery ListFieldLevelEncryptionProfiles' {..} =
-    Prelude.mconcat
-      [ "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListFieldLevelEncryptionProfilesResponse' smart constructor.
 data ListFieldLevelEncryptionProfilesResponse = ListFieldLevelEncryptionProfilesResponse'
   { -- | Returns a list of the field-level encryption profiles that have been
     -- created in CloudFront for this account.
-    fieldLevelEncryptionProfileList :: Prelude.Maybe FieldLevelEncryptionProfileList,
+    fieldLevelEncryptionProfileList :: Core.Maybe FieldLevelEncryptionProfileList,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFieldLevelEncryptionProfilesResponse' with all optional fields omitted.
@@ -172,25 +166,25 @@ data ListFieldLevelEncryptionProfilesResponse = ListFieldLevelEncryptionProfiles
 -- 'httpStatus', 'listFieldLevelEncryptionProfilesResponse_httpStatus' - The response's http status code.
 newListFieldLevelEncryptionProfilesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListFieldLevelEncryptionProfilesResponse
 newListFieldLevelEncryptionProfilesResponse
   pHttpStatus_ =
     ListFieldLevelEncryptionProfilesResponse'
       { fieldLevelEncryptionProfileList =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns a list of the field-level encryption profiles that have been
 -- created in CloudFront for this account.
-listFieldLevelEncryptionProfilesResponse_fieldLevelEncryptionProfileList :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse (Prelude.Maybe FieldLevelEncryptionProfileList)
+listFieldLevelEncryptionProfilesResponse_fieldLevelEncryptionProfileList :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse (Core.Maybe FieldLevelEncryptionProfileList)
 listFieldLevelEncryptionProfilesResponse_fieldLevelEncryptionProfileList = Lens.lens (\ListFieldLevelEncryptionProfilesResponse' {fieldLevelEncryptionProfileList} -> fieldLevelEncryptionProfileList) (\s@ListFieldLevelEncryptionProfilesResponse' {} a -> s {fieldLevelEncryptionProfileList = a} :: ListFieldLevelEncryptionProfilesResponse)
 
 -- | The response's http status code.
-listFieldLevelEncryptionProfilesResponse_httpStatus :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse Prelude.Int
+listFieldLevelEncryptionProfilesResponse_httpStatus :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse Core.Int
 listFieldLevelEncryptionProfilesResponse_httpStatus = Lens.lens (\ListFieldLevelEncryptionProfilesResponse' {httpStatus} -> httpStatus) (\s@ListFieldLevelEncryptionProfilesResponse' {} a -> s {httpStatus = a} :: ListFieldLevelEncryptionProfilesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListFieldLevelEncryptionProfilesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,9 +65,9 @@ module Network.AWS.DynamoDB.UpdateTable
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,9 +80,9 @@ data UpdateTable = UpdateTable'
     -- You receive a @ResourceInUseException@ if you try to enable a stream on
     -- a table that already has a stream, or if you try to disable a stream on
     -- a table that doesn\'t have a stream.
-    streamSpecification :: Prelude.Maybe StreamSpecification,
+    streamSpecification :: Core.Maybe StreamSpecification,
     -- | The new server-side encryption settings for the specified table.
-    sSESpecification :: Prelude.Maybe SSESpecification,
+    sSESpecification :: Core.Maybe SSESpecification,
     -- | Controls how you are charged for read and write throughput and how you
     -- manage capacity. When switching from pay-per-request to provisioned
     -- capacity, initial provisioned capacity values must be set. The initial
@@ -98,11 +97,11 @@ data UpdateTable = UpdateTable'
     -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
     --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
     --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-    billingMode :: Prelude.Maybe BillingMode,
+    billingMode :: Core.Maybe BillingMode,
     -- | An array of attributes that describe the key schema for the table and
     -- indexes. If you are adding a new global secondary index to the table,
     -- @AttributeDefinitions@ must include the key element(s) of the new index.
-    attributeDefinitions :: Prelude.Maybe [AttributeDefinition],
+    attributeDefinitions :: Core.Maybe [AttributeDefinition],
     -- | An array of one or more global secondary indexes for the table. For each
     -- index in the array, you can request one action:
     --
@@ -119,21 +118,21 @@ data UpdateTable = UpdateTable'
     -- For more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
     -- in the /Amazon DynamoDB Developer Guide/.
-    globalSecondaryIndexUpdates :: Prelude.Maybe [GlobalSecondaryIndexUpdate],
+    globalSecondaryIndexUpdates :: Core.Maybe [GlobalSecondaryIndexUpdate],
     -- | The new provisioned throughput settings for the specified table or
     -- index.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    provisionedThroughput :: Core.Maybe ProvisionedThroughput,
     -- | A list of replica update actions (create, delete, or update) for the
     -- table.
     --
     -- This property only applies to
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
     -- of global tables.
-    replicaUpdates :: Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate),
+    replicaUpdates :: Core.Maybe (Core.NonEmpty ReplicationGroupUpdate),
     -- | The name of the table to be updated.
-    tableName :: Prelude.Text
+    tableName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTable' with all optional fields omitted.
@@ -200,17 +199,17 @@ data UpdateTable = UpdateTable'
 -- 'tableName', 'updateTable_tableName' - The name of the table to be updated.
 newUpdateTable ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateTable
 newUpdateTable pTableName_ =
   UpdateTable'
-    { streamSpecification = Prelude.Nothing,
-      sSESpecification = Prelude.Nothing,
-      billingMode = Prelude.Nothing,
-      attributeDefinitions = Prelude.Nothing,
-      globalSecondaryIndexUpdates = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
-      replicaUpdates = Prelude.Nothing,
+    { streamSpecification = Core.Nothing,
+      sSESpecification = Core.Nothing,
+      billingMode = Core.Nothing,
+      attributeDefinitions = Core.Nothing,
+      globalSecondaryIndexUpdates = Core.Nothing,
+      provisionedThroughput = Core.Nothing,
+      replicaUpdates = Core.Nothing,
       tableName = pTableName_
     }
 
@@ -219,11 +218,11 @@ newUpdateTable pTableName_ =
 -- You receive a @ResourceInUseException@ if you try to enable a stream on
 -- a table that already has a stream, or if you try to disable a stream on
 -- a table that doesn\'t have a stream.
-updateTable_streamSpecification :: Lens.Lens' UpdateTable (Prelude.Maybe StreamSpecification)
+updateTable_streamSpecification :: Lens.Lens' UpdateTable (Core.Maybe StreamSpecification)
 updateTable_streamSpecification = Lens.lens (\UpdateTable' {streamSpecification} -> streamSpecification) (\s@UpdateTable' {} a -> s {streamSpecification = a} :: UpdateTable)
 
 -- | The new server-side encryption settings for the specified table.
-updateTable_sSESpecification :: Lens.Lens' UpdateTable (Prelude.Maybe SSESpecification)
+updateTable_sSESpecification :: Lens.Lens' UpdateTable (Core.Maybe SSESpecification)
 updateTable_sSESpecification = Lens.lens (\UpdateTable' {sSESpecification} -> sSESpecification) (\s@UpdateTable' {} a -> s {sSESpecification = a} :: UpdateTable)
 
 -- | Controls how you are charged for read and write throughput and how you
@@ -240,14 +239,14 @@ updateTable_sSESpecification = Lens.lens (\UpdateTable' {sSESpecification} -> sS
 -- -   @PAY_PER_REQUEST@ - We recommend using @PAY_PER_REQUEST@ for
 --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
-updateTable_billingMode :: Lens.Lens' UpdateTable (Prelude.Maybe BillingMode)
+updateTable_billingMode :: Lens.Lens' UpdateTable (Core.Maybe BillingMode)
 updateTable_billingMode = Lens.lens (\UpdateTable' {billingMode} -> billingMode) (\s@UpdateTable' {} a -> s {billingMode = a} :: UpdateTable)
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes. If you are adding a new global secondary index to the table,
 -- @AttributeDefinitions@ must include the key element(s) of the new index.
-updateTable_attributeDefinitions :: Lens.Lens' UpdateTable (Prelude.Maybe [AttributeDefinition])
-updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinitions} -> attributeDefinitions) (\s@UpdateTable' {} a -> s {attributeDefinitions = a} :: UpdateTable) Prelude.. Lens.mapping Prelude._Coerce
+updateTable_attributeDefinitions :: Lens.Lens' UpdateTable (Core.Maybe [AttributeDefinition])
+updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinitions} -> attributeDefinitions) (\s@UpdateTable' {} a -> s {attributeDefinitions = a} :: UpdateTable) Core.. Lens.mapping Lens._Coerce
 
 -- | An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
@@ -265,12 +264,12 @@ updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinition
 -- For more information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
 -- in the /Amazon DynamoDB Developer Guide/.
-updateTable_globalSecondaryIndexUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe [GlobalSecondaryIndexUpdate])
-updateTable_globalSecondaryIndexUpdates = Lens.lens (\UpdateTable' {globalSecondaryIndexUpdates} -> globalSecondaryIndexUpdates) (\s@UpdateTable' {} a -> s {globalSecondaryIndexUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Prelude._Coerce
+updateTable_globalSecondaryIndexUpdates :: Lens.Lens' UpdateTable (Core.Maybe [GlobalSecondaryIndexUpdate])
+updateTable_globalSecondaryIndexUpdates = Lens.lens (\UpdateTable' {globalSecondaryIndexUpdates} -> globalSecondaryIndexUpdates) (\s@UpdateTable' {} a -> s {globalSecondaryIndexUpdates = a} :: UpdateTable) Core.. Lens.mapping Lens._Coerce
 
 -- | The new provisioned throughput settings for the specified table or
 -- index.
-updateTable_provisionedThroughput :: Lens.Lens' UpdateTable (Prelude.Maybe ProvisionedThroughput)
+updateTable_provisionedThroughput :: Lens.Lens' UpdateTable (Core.Maybe ProvisionedThroughput)
 updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThroughput} -> provisionedThroughput) (\s@UpdateTable' {} a -> s {provisionedThroughput = a} :: UpdateTable)
 
 -- | A list of replica update actions (create, delete, or update) for the
@@ -279,80 +278,75 @@ updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThrough
 -- This property only applies to
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
 -- of global tables.
-updateTable_replicaUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate))
-updateTable_replicaUpdates = Lens.lens (\UpdateTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateTable' {} a -> s {replicaUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Prelude._Coerce
+updateTable_replicaUpdates :: Lens.Lens' UpdateTable (Core.Maybe (Core.NonEmpty ReplicationGroupUpdate))
+updateTable_replicaUpdates = Lens.lens (\UpdateTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateTable' {} a -> s {replicaUpdates = a} :: UpdateTable) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the table to be updated.
-updateTable_tableName :: Lens.Lens' UpdateTable Prelude.Text
+updateTable_tableName :: Lens.Lens' UpdateTable Core.Text
 updateTable_tableName = Lens.lens (\UpdateTable' {tableName} -> tableName) (\s@UpdateTable' {} a -> s {tableName = a} :: UpdateTable)
 
-instance Prelude.AWSRequest UpdateTable where
-  type Rs UpdateTable = UpdateTableResponse
+instance Core.AWSRequest UpdateTable where
+  type AWSResponse UpdateTable = UpdateTableResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateTableResponse'
-            Prelude.<$> (x Prelude..?> "TableDescription")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TableDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTable
+instance Core.Hashable UpdateTable
 
-instance Prelude.NFData UpdateTable
+instance Core.NFData UpdateTable
 
-instance Prelude.ToHeaders UpdateTable where
+instance Core.ToHeaders UpdateTable where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DynamoDB_20120810.UpdateTable" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DynamoDB_20120810.UpdateTable" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTable where
+instance Core.ToJSON UpdateTable where
   toJSON UpdateTable' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StreamSpecification" Prelude..=)
-              Prelude.<$> streamSpecification,
-            ("SSESpecification" Prelude..=)
-              Prelude.<$> sSESpecification,
-            ("BillingMode" Prelude..=) Prelude.<$> billingMode,
-            ("AttributeDefinitions" Prelude..=)
-              Prelude.<$> attributeDefinitions,
-            ("GlobalSecondaryIndexUpdates" Prelude..=)
-              Prelude.<$> globalSecondaryIndexUpdates,
-            ("ProvisionedThroughput" Prelude..=)
-              Prelude.<$> provisionedThroughput,
-            ("ReplicaUpdates" Prelude..=)
-              Prelude.<$> replicaUpdates,
-            Prelude.Just ("TableName" Prelude..= tableName)
+    Core.object
+      ( Core.catMaybes
+          [ ("StreamSpecification" Core..=)
+              Core.<$> streamSpecification,
+            ("SSESpecification" Core..=)
+              Core.<$> sSESpecification,
+            ("BillingMode" Core..=) Core.<$> billingMode,
+            ("AttributeDefinitions" Core..=)
+              Core.<$> attributeDefinitions,
+            ("GlobalSecondaryIndexUpdates" Core..=)
+              Core.<$> globalSecondaryIndexUpdates,
+            ("ProvisionedThroughput" Core..=)
+              Core.<$> provisionedThroughput,
+            ("ReplicaUpdates" Core..=) Core.<$> replicaUpdates,
+            Core.Just ("TableName" Core..= tableName)
           ]
       )
 
-instance Prelude.ToPath UpdateTable where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTable where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTable where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTable where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of an @UpdateTable@ operation.
 --
 -- /See:/ 'newUpdateTableResponse' smart constructor.
 data UpdateTableResponse = UpdateTableResponse'
   { -- | Represents the properties of the table.
-    tableDescription :: Prelude.Maybe TableDescription,
+    tableDescription :: Core.Maybe TableDescription,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTableResponse' with all optional fields omitted.
@@ -367,21 +361,21 @@ data UpdateTableResponse = UpdateTableResponse'
 -- 'httpStatus', 'updateTableResponse_httpStatus' - The response's http status code.
 newUpdateTableResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTableResponse
 newUpdateTableResponse pHttpStatus_ =
   UpdateTableResponse'
     { tableDescription =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Represents the properties of the table.
-updateTableResponse_tableDescription :: Lens.Lens' UpdateTableResponse (Prelude.Maybe TableDescription)
+updateTableResponse_tableDescription :: Lens.Lens' UpdateTableResponse (Core.Maybe TableDescription)
 updateTableResponse_tableDescription = Lens.lens (\UpdateTableResponse' {tableDescription} -> tableDescription) (\s@UpdateTableResponse' {} a -> s {tableDescription = a} :: UpdateTableResponse)
 
 -- | The response's http status code.
-updateTableResponse_httpStatus :: Lens.Lens' UpdateTableResponse Prelude.Int
+updateTableResponse_httpStatus :: Lens.Lens' UpdateTableResponse Core.Int
 updateTableResponse_httpStatus = Lens.lens (\UpdateTableResponse' {httpStatus} -> httpStatus) (\s@UpdateTableResponse' {} a -> s {httpStatus = a} :: UpdateTableResponse)
 
-instance Prelude.NFData UpdateTableResponse
+instance Core.NFData UpdateTableResponse

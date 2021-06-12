@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.BatchSuccessfulResultModel where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details from a successful operation
 --
 -- /See:/ 'newBatchSuccessfulResultModel' smart constructor.
 data BatchSuccessfulResultModel = BatchSuccessfulResultModel'
   { -- | ARN of the resource
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | ID of the resource
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Current state of the resource
-    state :: Prelude.Maybe Prelude.Text
+    state :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchSuccessfulResultModel' with all optional fields omitted.
@@ -53,34 +52,34 @@ newBatchSuccessfulResultModel ::
   BatchSuccessfulResultModel
 newBatchSuccessfulResultModel =
   BatchSuccessfulResultModel'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      state = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      state = Core.Nothing
     }
 
 -- | ARN of the resource
-batchSuccessfulResultModel_arn :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
+batchSuccessfulResultModel_arn :: Lens.Lens' BatchSuccessfulResultModel (Core.Maybe Core.Text)
 batchSuccessfulResultModel_arn = Lens.lens (\BatchSuccessfulResultModel' {arn} -> arn) (\s@BatchSuccessfulResultModel' {} a -> s {arn = a} :: BatchSuccessfulResultModel)
 
 -- | ID of the resource
-batchSuccessfulResultModel_id :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
+batchSuccessfulResultModel_id :: Lens.Lens' BatchSuccessfulResultModel (Core.Maybe Core.Text)
 batchSuccessfulResultModel_id = Lens.lens (\BatchSuccessfulResultModel' {id} -> id) (\s@BatchSuccessfulResultModel' {} a -> s {id = a} :: BatchSuccessfulResultModel)
 
 -- | Current state of the resource
-batchSuccessfulResultModel_state :: Lens.Lens' BatchSuccessfulResultModel (Prelude.Maybe Prelude.Text)
+batchSuccessfulResultModel_state :: Lens.Lens' BatchSuccessfulResultModel (Core.Maybe Core.Text)
 batchSuccessfulResultModel_state = Lens.lens (\BatchSuccessfulResultModel' {state} -> state) (\s@BatchSuccessfulResultModel' {} a -> s {state = a} :: BatchSuccessfulResultModel)
 
-instance Prelude.FromJSON BatchSuccessfulResultModel where
+instance Core.FromJSON BatchSuccessfulResultModel where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchSuccessfulResultModel"
       ( \x ->
           BatchSuccessfulResultModel'
-            Prelude.<$> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "state")
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "state")
       )
 
-instance Prelude.Hashable BatchSuccessfulResultModel
+instance Core.Hashable BatchSuccessfulResultModel
 
-instance Prelude.NFData BatchSuccessfulResultModel
+instance Core.NFData BatchSuccessfulResultModel

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,20 +36,20 @@ module Network.AWS.MQ.DeleteTags
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
   { -- | An array of tag keys to delete
-    tagKeys :: [Prelude.Text],
+    tagKeys :: [Core.Text],
     -- | The Amazon Resource Name (ARN) of the resource tag.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTags' with all optional fields omitted.
@@ -65,59 +64,54 @@ data DeleteTags = DeleteTags'
 -- 'resourceArn', 'deleteTags_resourceArn' - The Amazon Resource Name (ARN) of the resource tag.
 newDeleteTags ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTags
 newDeleteTags pResourceArn_ =
   DeleteTags'
-    { tagKeys = Prelude.mempty,
+    { tagKeys = Core.mempty,
       resourceArn = pResourceArn_
     }
 
 -- | An array of tag keys to delete
-deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
-deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Prelude._Coerce
+deleteTags_tagKeys :: Lens.Lens' DeleteTags [Core.Text]
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Core.. Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the resource tag.
-deleteTags_resourceArn :: Lens.Lens' DeleteTags Prelude.Text
+deleteTags_resourceArn :: Lens.Lens' DeleteTags Core.Text
 deleteTags_resourceArn = Lens.lens (\DeleteTags' {resourceArn} -> resourceArn) (\s@DeleteTags' {} a -> s {resourceArn = a} :: DeleteTags)
 
-instance Prelude.AWSRequest DeleteTags where
-  type Rs DeleteTags = DeleteTagsResponse
+instance Core.AWSRequest DeleteTags where
+  type AWSResponse DeleteTags = DeleteTagsResponse
   request = Request.delete defaultService
   response = Response.receiveNull DeleteTagsResponse'
 
-instance Prelude.Hashable DeleteTags
+instance Core.Hashable DeleteTags
 
-instance Prelude.NFData DeleteTags
+instance Core.NFData DeleteTags
 
-instance Prelude.ToHeaders DeleteTags where
+instance Core.ToHeaders DeleteTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteTags where
+instance Core.ToPath DeleteTags where
   toPath DeleteTags' {..} =
-    Prelude.mconcat
-      ["/v1/tags/", Prelude.toBS resourceArn]
+    Core.mconcat ["/v1/tags/", Core.toBS resourceArn]
 
-instance Prelude.ToQuery DeleteTags where
+instance Core.ToQuery DeleteTags where
   toQuery DeleteTags' {..} =
-    Prelude.mconcat
-      [ "tagKeys"
-          Prelude.=: Prelude.toQueryList "member" tagKeys
-      ]
+    Core.mconcat
+      ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
 
 -- | /See:/ 'newDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
@@ -127,4 +121,4 @@ newDeleteTagsResponse ::
   DeleteTagsResponse
 newDeleteTagsResponse = DeleteTagsResponse'
 
-instance Prelude.NFData DeleteTagsResponse
+instance Core.NFData DeleteTagsResponse

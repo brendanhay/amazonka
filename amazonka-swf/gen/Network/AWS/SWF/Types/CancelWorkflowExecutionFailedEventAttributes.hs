@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.CancelWorkflowExecutionFailedEventAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SWF.Types.CancelWorkflowExecutionFailedCause
 
 -- | Provides the details of the @CancelWorkflowExecutionFailed@ event.
@@ -42,9 +41,9 @@ data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFaile
     -- for this cancellation request. This information can be useful for
     -- diagnosing problems by tracing back the chain of events leading up to
     -- this event.
-    decisionTaskCompletedEventId :: Prelude.Integer
+    decisionTaskCompletedEventId :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelWorkflowExecutionFailedEventAttributes' with all optional fields omitted.
@@ -72,7 +71,7 @@ newCancelWorkflowExecutionFailedEventAttributes ::
   -- | 'cause'
   CancelWorkflowExecutionFailedCause ->
   -- | 'decisionTaskCompletedEventId'
-  Prelude.Integer ->
+  Core.Integer ->
   CancelWorkflowExecutionFailedEventAttributes
 newCancelWorkflowExecutionFailedEventAttributes
   pCause_
@@ -100,26 +99,26 @@ cancelWorkflowExecutionFailedEventAttributes_cause = Lens.lens (\CancelWorkflowE
 -- for this cancellation request. This information can be useful for
 -- diagnosing problems by tracing back the chain of events leading up to
 -- this event.
-cancelWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' CancelWorkflowExecutionFailedEventAttributes Prelude.Integer
+cancelWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId :: Lens.Lens' CancelWorkflowExecutionFailedEventAttributes Core.Integer
 cancelWorkflowExecutionFailedEventAttributes_decisionTaskCompletedEventId = Lens.lens (\CancelWorkflowExecutionFailedEventAttributes' {decisionTaskCompletedEventId} -> decisionTaskCompletedEventId) (\s@CancelWorkflowExecutionFailedEventAttributes' {} a -> s {decisionTaskCompletedEventId = a} :: CancelWorkflowExecutionFailedEventAttributes)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     CancelWorkflowExecutionFailedEventAttributes
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CancelWorkflowExecutionFailedEventAttributes"
       ( \x ->
           CancelWorkflowExecutionFailedEventAttributes'
-            Prelude.<$> (x Prelude..: "cause")
-              Prelude.<*> (x Prelude..: "decisionTaskCompletedEventId")
+            Core.<$> (x Core..: "cause")
+              Core.<*> (x Core..: "decisionTaskCompletedEventId")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     CancelWorkflowExecutionFailedEventAttributes
 
 instance
-  Prelude.NFData
+  Core.NFData
     CancelWorkflowExecutionFailedEventAttributes

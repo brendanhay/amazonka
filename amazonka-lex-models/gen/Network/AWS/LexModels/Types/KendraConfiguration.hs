@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.LexModels.Types.KendraConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides configuration information for the AMAZON.KendraSearchIntent
 -- intent. When you use this intent, Amazon Lex searches the specified
@@ -37,20 +36,20 @@ data KendraConfiguration = KendraConfiguration'
     -- <http://docs.aws.amazon.com/kendra/latest/dg/filtering.html Filtering queries>.
     --
     -- You can override this filter string with a new filter string at runtime.
-    queryFilterString :: Prelude.Maybe Prelude.Text,
+    queryFilterString :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon Kendra index that you want
     -- the AMAZON.KendraSearchIntent intent to search. The index must be in the
     -- same account and Region as the Amazon Lex bot. If the Amazon Kendra
     -- index does not exist, you get an exception when you call the @PutIntent@
     -- operation.
-    kendraIndex :: Prelude.Text,
+    kendraIndex :: Core.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that has permission to
     -- search the Amazon Kendra index. The role must be in the same account and
     -- Region as the Amazon Lex bot. If the role does not exist, you get an
     -- exception when you call the @PutIntent@ operation.
-    role' :: Prelude.Text
+    role' :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KendraConfiguration' with all optional fields omitted.
@@ -79,14 +78,14 @@ data KendraConfiguration = KendraConfiguration'
 -- exception when you call the @PutIntent@ operation.
 newKendraConfiguration ::
   -- | 'kendraIndex'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'role''
-  Prelude.Text ->
+  Core.Text ->
   KendraConfiguration
 newKendraConfiguration pKendraIndex_ pRole_ =
   KendraConfiguration'
     { queryFilterString =
-        Prelude.Nothing,
+        Core.Nothing,
       kendraIndex = pKendraIndex_,
       role' = pRole_
     }
@@ -97,7 +96,7 @@ newKendraConfiguration pKendraIndex_ pRole_ =
 -- <http://docs.aws.amazon.com/kendra/latest/dg/filtering.html Filtering queries>.
 --
 -- You can override this filter string with a new filter string at runtime.
-kendraConfiguration_queryFilterString :: Lens.Lens' KendraConfiguration (Prelude.Maybe Prelude.Text)
+kendraConfiguration_queryFilterString :: Lens.Lens' KendraConfiguration (Core.Maybe Core.Text)
 kendraConfiguration_queryFilterString = Lens.lens (\KendraConfiguration' {queryFilterString} -> queryFilterString) (\s@KendraConfiguration' {} a -> s {queryFilterString = a} :: KendraConfiguration)
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kendra index that you want
@@ -105,38 +104,38 @@ kendraConfiguration_queryFilterString = Lens.lens (\KendraConfiguration' {queryF
 -- same account and Region as the Amazon Lex bot. If the Amazon Kendra
 -- index does not exist, you get an exception when you call the @PutIntent@
 -- operation.
-kendraConfiguration_kendraIndex :: Lens.Lens' KendraConfiguration Prelude.Text
+kendraConfiguration_kendraIndex :: Lens.Lens' KendraConfiguration Core.Text
 kendraConfiguration_kendraIndex = Lens.lens (\KendraConfiguration' {kendraIndex} -> kendraIndex) (\s@KendraConfiguration' {} a -> s {kendraIndex = a} :: KendraConfiguration)
 
 -- | The Amazon Resource Name (ARN) of an IAM role that has permission to
 -- search the Amazon Kendra index. The role must be in the same account and
 -- Region as the Amazon Lex bot. If the role does not exist, you get an
 -- exception when you call the @PutIntent@ operation.
-kendraConfiguration_role :: Lens.Lens' KendraConfiguration Prelude.Text
+kendraConfiguration_role :: Lens.Lens' KendraConfiguration Core.Text
 kendraConfiguration_role = Lens.lens (\KendraConfiguration' {role'} -> role') (\s@KendraConfiguration' {} a -> s {role' = a} :: KendraConfiguration)
 
-instance Prelude.FromJSON KendraConfiguration where
+instance Core.FromJSON KendraConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KendraConfiguration"
       ( \x ->
           KendraConfiguration'
-            Prelude.<$> (x Prelude..:? "queryFilterString")
-            Prelude.<*> (x Prelude..: "kendraIndex")
-            Prelude.<*> (x Prelude..: "role")
+            Core.<$> (x Core..:? "queryFilterString")
+            Core.<*> (x Core..: "kendraIndex")
+            Core.<*> (x Core..: "role")
       )
 
-instance Prelude.Hashable KendraConfiguration
+instance Core.Hashable KendraConfiguration
 
-instance Prelude.NFData KendraConfiguration
+instance Core.NFData KendraConfiguration
 
-instance Prelude.ToJSON KendraConfiguration where
+instance Core.ToJSON KendraConfiguration where
   toJSON KendraConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("queryFilterString" Prelude..=)
-              Prelude.<$> queryFilterString,
-            Prelude.Just ("kendraIndex" Prelude..= kendraIndex),
-            Prelude.Just ("role" Prelude..= role')
+    Core.object
+      ( Core.catMaybes
+          [ ("queryFilterString" Core..=)
+              Core.<$> queryFilterString,
+            Core.Just ("kendraIndex" Core..= kendraIndex),
+            Core.Just ("role" Core..= role')
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.MediaStore.GetLifecyclePolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data GetLifecyclePolicy = GetLifecyclePolicy'
   { -- | The name of the container that the object lifecycle policy is assigned
     -- to.
-    containerName :: Prelude.Text
+    containerName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLifecyclePolicy' with all optional fields omitted.
@@ -66,7 +65,7 @@ data GetLifecyclePolicy = GetLifecyclePolicy'
 -- to.
 newGetLifecyclePolicy ::
   -- | 'containerName'
-  Prelude.Text ->
+  Core.Text ->
   GetLifecyclePolicy
 newGetLifecyclePolicy pContainerName_ =
   GetLifecyclePolicy'
@@ -76,64 +75,60 @@ newGetLifecyclePolicy pContainerName_ =
 
 -- | The name of the container that the object lifecycle policy is assigned
 -- to.
-getLifecyclePolicy_containerName :: Lens.Lens' GetLifecyclePolicy Prelude.Text
+getLifecyclePolicy_containerName :: Lens.Lens' GetLifecyclePolicy Core.Text
 getLifecyclePolicy_containerName = Lens.lens (\GetLifecyclePolicy' {containerName} -> containerName) (\s@GetLifecyclePolicy' {} a -> s {containerName = a} :: GetLifecyclePolicy)
 
-instance Prelude.AWSRequest GetLifecyclePolicy where
+instance Core.AWSRequest GetLifecyclePolicy where
   type
-    Rs GetLifecyclePolicy =
+    AWSResponse GetLifecyclePolicy =
       GetLifecyclePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "LifecyclePolicy")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "LifecyclePolicy")
       )
 
-instance Prelude.Hashable GetLifecyclePolicy
+instance Core.Hashable GetLifecyclePolicy
 
-instance Prelude.NFData GetLifecyclePolicy
+instance Core.NFData GetLifecyclePolicy
 
-instance Prelude.ToHeaders GetLifecyclePolicy where
+instance Core.ToHeaders GetLifecyclePolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.GetLifecyclePolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "MediaStore_20170901.GetLifecyclePolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetLifecyclePolicy where
+instance Core.ToJSON GetLifecyclePolicy where
   toJSON GetLifecyclePolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ContainerName" Prelude..= containerName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
       )
 
-instance Prelude.ToPath GetLifecyclePolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetLifecyclePolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetLifecyclePolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetLifecyclePolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetLifecyclePolicyResponse' smart constructor.
 data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The object lifecycle policy that is assigned to the container.
-    lifecyclePolicy :: Prelude.Text
+    lifecyclePolicy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetLifecyclePolicyResponse' with all optional fields omitted.
@@ -148,9 +143,9 @@ data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
 -- 'lifecyclePolicy', 'getLifecyclePolicyResponse_lifecyclePolicy' - The object lifecycle policy that is assigned to the container.
 newGetLifecyclePolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'lifecyclePolicy'
-  Prelude.Text ->
+  Core.Text ->
   GetLifecyclePolicyResponse
 newGetLifecyclePolicyResponse
   pHttpStatus_
@@ -162,11 +157,11 @@ newGetLifecyclePolicyResponse
       }
 
 -- | The response's http status code.
-getLifecyclePolicyResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyResponse Prelude.Int
+getLifecyclePolicyResponse_httpStatus :: Lens.Lens' GetLifecyclePolicyResponse Core.Int
 getLifecyclePolicyResponse_httpStatus = Lens.lens (\GetLifecyclePolicyResponse' {httpStatus} -> httpStatus) (\s@GetLifecyclePolicyResponse' {} a -> s {httpStatus = a} :: GetLifecyclePolicyResponse)
 
 -- | The object lifecycle policy that is assigned to the container.
-getLifecyclePolicyResponse_lifecyclePolicy :: Lens.Lens' GetLifecyclePolicyResponse Prelude.Text
+getLifecyclePolicyResponse_lifecyclePolicy :: Lens.Lens' GetLifecyclePolicyResponse Core.Text
 getLifecyclePolicyResponse_lifecyclePolicy = Lens.lens (\GetLifecyclePolicyResponse' {lifecyclePolicy} -> lifecyclePolicy) (\s@GetLifecyclePolicyResponse' {} a -> s {lifecyclePolicy = a} :: GetLifecyclePolicyResponse)
 
-instance Prelude.NFData GetLifecyclePolicyResponse
+instance Core.NFData GetLifecyclePolicyResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,8 +51,8 @@ module Network.AWS.S3.HeadBucket
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -63,7 +62,7 @@ data HeadBucket = HeadBucket'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The bucket name.
     --
     -- When using this API with an access point, you must direct requests to
@@ -86,7 +85,7 @@ data HeadBucket = HeadBucket'
     -- in the /Amazon Simple Storage Service Developer Guide/.
     bucket :: BucketName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HeadBucket' with all optional fields omitted.
@@ -126,14 +125,14 @@ newHeadBucket ::
   HeadBucket
 newHeadBucket pBucket_ =
   HeadBucket'
-    { expectedBucketOwner = Prelude.Nothing,
+    { expectedBucketOwner = Core.Nothing,
       bucket = pBucket_
     }
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-headBucket_expectedBucketOwner :: Lens.Lens' HeadBucket (Prelude.Maybe Prelude.Text)
+headBucket_expectedBucketOwner :: Lens.Lens' HeadBucket (Core.Maybe Core.Text)
 headBucket_expectedBucketOwner = Lens.lens (\HeadBucket' {expectedBucketOwner} -> expectedBucketOwner) (\s@HeadBucket' {} a -> s {expectedBucketOwner = a} :: HeadBucket)
 
 -- | The bucket name.
@@ -159,34 +158,34 @@ headBucket_expectedBucketOwner = Lens.lens (\HeadBucket' {expectedBucketOwner} -
 headBucket_bucket :: Lens.Lens' HeadBucket BucketName
 headBucket_bucket = Lens.lens (\HeadBucket' {bucket} -> bucket) (\s@HeadBucket' {} a -> s {bucket = a} :: HeadBucket)
 
-instance Prelude.AWSRequest HeadBucket where
-  type Rs HeadBucket = HeadBucketResponse
+instance Core.AWSRequest HeadBucket where
+  type AWSResponse HeadBucket = HeadBucketResponse
   request = Request.head' defaultService
   response = Response.receiveNull HeadBucketResponse'
 
-instance Prelude.Hashable HeadBucket
+instance Core.Hashable HeadBucket
 
-instance Prelude.NFData HeadBucket
+instance Core.NFData HeadBucket
 
-instance Prelude.ToHeaders HeadBucket where
+instance Core.ToHeaders HeadBucket where
   toHeaders HeadBucket' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath HeadBucket where
+instance Core.ToPath HeadBucket where
   toPath HeadBucket' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance Prelude.ToQuery HeadBucket where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery HeadBucket where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newHeadBucketResponse' smart constructor.
 data HeadBucketResponse = HeadBucketResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HeadBucketResponse' with all optional fields omitted.
@@ -196,4 +195,4 @@ newHeadBucketResponse ::
   HeadBucketResponse
 newHeadBucketResponse = HeadBucketResponse'
 
-instance Prelude.NFData HeadBucketResponse
+instance Core.NFData HeadBucketResponse

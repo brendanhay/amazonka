@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,15 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AutoScaling.Types.EnabledMetric where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an enabled metric.
 --
 -- /See:/ 'newEnabledMetric' smart constructor.
 data EnabledMetric = EnabledMetric'
   { -- | The granularity of the metric. The only valid value is @1Minute@.
-    granularity :: Prelude.Maybe Prelude.Text,
+    granularity :: Core.Maybe Core.Text,
     -- | One of the following metrics:
     --
     -- -   @GroupMinSize@
@@ -56,9 +55,9 @@ data EnabledMetric = EnabledMetric'
     -- -   @GroupTerminatingCapacity@
     --
     -- -   @GroupTotalCapacity@
-    metric :: Prelude.Maybe Prelude.Text
+    metric :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnabledMetric' with all optional fields omitted.
@@ -101,12 +100,12 @@ newEnabledMetric ::
   EnabledMetric
 newEnabledMetric =
   EnabledMetric'
-    { granularity = Prelude.Nothing,
-      metric = Prelude.Nothing
+    { granularity = Core.Nothing,
+      metric = Core.Nothing
     }
 
 -- | The granularity of the metric. The only valid value is @1Minute@.
-enabledMetric_granularity :: Lens.Lens' EnabledMetric (Prelude.Maybe Prelude.Text)
+enabledMetric_granularity :: Lens.Lens' EnabledMetric (Core.Maybe Core.Text)
 enabledMetric_granularity = Lens.lens (\EnabledMetric' {granularity} -> granularity) (\s@EnabledMetric' {} a -> s {granularity = a} :: EnabledMetric)
 
 -- | One of the following metrics:
@@ -136,15 +135,15 @@ enabledMetric_granularity = Lens.lens (\EnabledMetric' {granularity} -> granular
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
-enabledMetric_metric :: Lens.Lens' EnabledMetric (Prelude.Maybe Prelude.Text)
+enabledMetric_metric :: Lens.Lens' EnabledMetric (Core.Maybe Core.Text)
 enabledMetric_metric = Lens.lens (\EnabledMetric' {metric} -> metric) (\s@EnabledMetric' {} a -> s {metric = a} :: EnabledMetric)
 
-instance Prelude.FromXML EnabledMetric where
+instance Core.FromXML EnabledMetric where
   parseXML x =
     EnabledMetric'
-      Prelude.<$> (x Prelude..@? "Granularity")
-      Prelude.<*> (x Prelude..@? "Metric")
+      Core.<$> (x Core..@? "Granularity")
+      Core.<*> (x Core..@? "Metric")
 
-instance Prelude.Hashable EnabledMetric
+instance Core.Hashable EnabledMetric
 
-instance Prelude.NFData EnabledMetric
+instance Core.NFData EnabledMetric

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBParameterGroupNameMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the result of a successful invocation of the
 -- @ModifyDBParameterGroup@ or @ResetDBParameterGroup@ action.
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDBParameterGroupNameMessage' smart constructor.
 data DBParameterGroupNameMessage = DBParameterGroupNameMessage'
   { -- | The name of the DB parameter group.
-    dbParameterGroupName :: Prelude.Maybe Prelude.Text
+    dbParameterGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBParameterGroupNameMessage' with all optional fields omitted.
@@ -47,18 +46,18 @@ newDBParameterGroupNameMessage ::
 newDBParameterGroupNameMessage =
   DBParameterGroupNameMessage'
     { dbParameterGroupName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the DB parameter group.
-dbParameterGroupNameMessage_dbParameterGroupName :: Lens.Lens' DBParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
+dbParameterGroupNameMessage_dbParameterGroupName :: Lens.Lens' DBParameterGroupNameMessage (Core.Maybe Core.Text)
 dbParameterGroupNameMessage_dbParameterGroupName = Lens.lens (\DBParameterGroupNameMessage' {dbParameterGroupName} -> dbParameterGroupName) (\s@DBParameterGroupNameMessage' {} a -> s {dbParameterGroupName = a} :: DBParameterGroupNameMessage)
 
-instance Prelude.FromXML DBParameterGroupNameMessage where
+instance Core.FromXML DBParameterGroupNameMessage where
   parseXML x =
     DBParameterGroupNameMessage'
-      Prelude.<$> (x Prelude..@? "DBParameterGroupName")
+      Core.<$> (x Core..@? "DBParameterGroupName")
 
-instance Prelude.Hashable DBParameterGroupNameMessage
+instance Core.Hashable DBParameterGroupNameMessage
 
-instance Prelude.NFData DBParameterGroupNameMessage
+instance Core.NFData DBParameterGroupNameMessage

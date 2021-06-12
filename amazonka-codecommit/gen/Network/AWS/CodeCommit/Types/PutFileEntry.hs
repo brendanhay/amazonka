@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,27 +21,27 @@ module Network.AWS.CodeCommit.Types.PutFileEntry where
 
 import Network.AWS.CodeCommit.Types.FileModeTypeEnum
 import Network.AWS.CodeCommit.Types.SourceFileSpecifier
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a file added or updated as part of a commit.
 --
 -- /See:/ 'newPutFileEntry' smart constructor.
 data PutFileEntry = PutFileEntry'
   { -- | The content of the file, if a source file is not specified.
-    fileContent :: Prelude.Maybe Prelude.Base64,
+    fileContent :: Core.Maybe Core.Base64,
     -- | The name and full path of the file that contains the changes you want to
     -- make as part of the commit, if you are not providing the file content
     -- directly.
-    sourceFile :: Prelude.Maybe SourceFileSpecifier,
+    sourceFile :: Core.Maybe SourceFileSpecifier,
     -- | The extrapolated file mode permissions for the file. Valid values
     -- include EXECUTABLE and NORMAL.
-    fileMode :: Prelude.Maybe FileModeTypeEnum,
+    fileMode :: Core.Maybe FileModeTypeEnum,
     -- | The full path to the file in the repository, including the name of the
     -- file.
-    filePath :: Prelude.Text
+    filePath :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutFileEntry' with all optional fields omitted.
@@ -69,13 +68,13 @@ data PutFileEntry = PutFileEntry'
 -- file.
 newPutFileEntry ::
   -- | 'filePath'
-  Prelude.Text ->
+  Core.Text ->
   PutFileEntry
 newPutFileEntry pFilePath_ =
   PutFileEntry'
-    { fileContent = Prelude.Nothing,
-      sourceFile = Prelude.Nothing,
-      fileMode = Prelude.Nothing,
+    { fileContent = Core.Nothing,
+      sourceFile = Core.Nothing,
+      fileMode = Core.Nothing,
       filePath = pFilePath_
     }
 
@@ -84,36 +83,36 @@ newPutFileEntry pFilePath_ =
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-putFileEntry_fileContent :: Lens.Lens' PutFileEntry (Prelude.Maybe Prelude.ByteString)
-putFileEntry_fileContent = Lens.lens (\PutFileEntry' {fileContent} -> fileContent) (\s@PutFileEntry' {} a -> s {fileContent = a} :: PutFileEntry) Prelude.. Lens.mapping Prelude._Base64
+putFileEntry_fileContent :: Lens.Lens' PutFileEntry (Core.Maybe Core.ByteString)
+putFileEntry_fileContent = Lens.lens (\PutFileEntry' {fileContent} -> fileContent) (\s@PutFileEntry' {} a -> s {fileContent = a} :: PutFileEntry) Core.. Lens.mapping Core._Base64
 
 -- | The name and full path of the file that contains the changes you want to
 -- make as part of the commit, if you are not providing the file content
 -- directly.
-putFileEntry_sourceFile :: Lens.Lens' PutFileEntry (Prelude.Maybe SourceFileSpecifier)
+putFileEntry_sourceFile :: Lens.Lens' PutFileEntry (Core.Maybe SourceFileSpecifier)
 putFileEntry_sourceFile = Lens.lens (\PutFileEntry' {sourceFile} -> sourceFile) (\s@PutFileEntry' {} a -> s {sourceFile = a} :: PutFileEntry)
 
 -- | The extrapolated file mode permissions for the file. Valid values
 -- include EXECUTABLE and NORMAL.
-putFileEntry_fileMode :: Lens.Lens' PutFileEntry (Prelude.Maybe FileModeTypeEnum)
+putFileEntry_fileMode :: Lens.Lens' PutFileEntry (Core.Maybe FileModeTypeEnum)
 putFileEntry_fileMode = Lens.lens (\PutFileEntry' {fileMode} -> fileMode) (\s@PutFileEntry' {} a -> s {fileMode = a} :: PutFileEntry)
 
 -- | The full path to the file in the repository, including the name of the
 -- file.
-putFileEntry_filePath :: Lens.Lens' PutFileEntry Prelude.Text
+putFileEntry_filePath :: Lens.Lens' PutFileEntry Core.Text
 putFileEntry_filePath = Lens.lens (\PutFileEntry' {filePath} -> filePath) (\s@PutFileEntry' {} a -> s {filePath = a} :: PutFileEntry)
 
-instance Prelude.Hashable PutFileEntry
+instance Core.Hashable PutFileEntry
 
-instance Prelude.NFData PutFileEntry
+instance Core.NFData PutFileEntry
 
-instance Prelude.ToJSON PutFileEntry where
+instance Core.ToJSON PutFileEntry where
   toJSON PutFileEntry' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("fileContent" Prelude..=) Prelude.<$> fileContent,
-            ("sourceFile" Prelude..=) Prelude.<$> sourceFile,
-            ("fileMode" Prelude..=) Prelude.<$> fileMode,
-            Prelude.Just ("filePath" Prelude..= filePath)
+    Core.object
+      ( Core.catMaybes
+          [ ("fileContent" Core..=) Core.<$> fileContent,
+            ("sourceFile" Core..=) Core.<$> sourceFile,
+            ("fileMode" Core..=) Core.<$> fileMode,
+            Core.Just ("filePath" Core..= filePath)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.PlacementType where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Amazon EC2 Availability Zone configuration of the cluster (job
 -- flow).
@@ -35,13 +34,13 @@ data PlacementType = PlacementType'
     --
     -- The instance fleet configuration is available only in Amazon EMR
     -- versions 4.8.0 and later, excluding 5.0.x versions.
-    availabilityZones :: Prelude.Maybe [Prelude.Text],
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is
     -- used for uniform instance groups, while @AvailabilityZones@ (plural) is
     -- used for instance fleets.
-    availabilityZone :: Prelude.Maybe Prelude.Text
+    availabilityZone :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlacementType' with all optional fields omitted.
@@ -66,8 +65,8 @@ newPlacementType ::
   PlacementType
 newPlacementType =
   PlacementType'
-    { availabilityZones = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing
+    { availabilityZones = Core.Nothing,
+      availabilityZone = Core.Nothing
     }
 
 -- | When multiple Availability Zones are specified, Amazon EMR evaluates
@@ -77,26 +76,26 @@ newPlacementType =
 --
 -- The instance fleet configuration is available only in Amazon EMR
 -- versions 4.8.0 and later, excluding 5.0.x versions.
-placementType_availabilityZones :: Lens.Lens' PlacementType (Prelude.Maybe [Prelude.Text])
-placementType_availabilityZones = Lens.lens (\PlacementType' {availabilityZones} -> availabilityZones) (\s@PlacementType' {} a -> s {availabilityZones = a} :: PlacementType) Prelude.. Lens.mapping Prelude._Coerce
+placementType_availabilityZones :: Lens.Lens' PlacementType (Core.Maybe [Core.Text])
+placementType_availabilityZones = Lens.lens (\PlacementType' {availabilityZones} -> availabilityZones) (\s@PlacementType' {} a -> s {availabilityZones = a} :: PlacementType) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is
 -- used for uniform instance groups, while @AvailabilityZones@ (plural) is
 -- used for instance fleets.
-placementType_availabilityZone :: Lens.Lens' PlacementType (Prelude.Maybe Prelude.Text)
+placementType_availabilityZone :: Lens.Lens' PlacementType (Core.Maybe Core.Text)
 placementType_availabilityZone = Lens.lens (\PlacementType' {availabilityZone} -> availabilityZone) (\s@PlacementType' {} a -> s {availabilityZone = a} :: PlacementType)
 
-instance Prelude.Hashable PlacementType
+instance Core.Hashable PlacementType
 
-instance Prelude.NFData PlacementType
+instance Core.NFData PlacementType
 
-instance Prelude.ToJSON PlacementType where
+instance Core.ToJSON PlacementType where
   toJSON PlacementType' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AvailabilityZones" Prelude..=)
-              Prelude.<$> availabilityZones,
-            ("AvailabilityZone" Prelude..=)
-              Prelude.<$> availabilityZone
+    Core.object
+      ( Core.catMaybes
+          [ ("AvailabilityZones" Core..=)
+              Core.<$> availabilityZones,
+            ("AvailabilityZone" Core..=)
+              Core.<$> availabilityZone
           ]
       )

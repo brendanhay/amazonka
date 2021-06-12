@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.DeploymentController where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.DeploymentControllerType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The deployment controller to use for the service. For more information,
 -- see
@@ -55,7 +54,7 @@ data DeploymentController = DeploymentController'
     --     deployment process for an Amazon ECS service.
     type' :: DeploymentControllerType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeploymentController' with all optional fields omitted.
@@ -119,22 +118,19 @@ newDeploymentController pType_ =
 deploymentController_type :: Lens.Lens' DeploymentController DeploymentControllerType
 deploymentController_type = Lens.lens (\DeploymentController' {type'} -> type') (\s@DeploymentController' {} a -> s {type' = a} :: DeploymentController)
 
-instance Prelude.FromJSON DeploymentController where
+instance Core.FromJSON DeploymentController where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeploymentController"
       ( \x ->
-          DeploymentController'
-            Prelude.<$> (x Prelude..: "type")
+          DeploymentController' Core.<$> (x Core..: "type")
       )
 
-instance Prelude.Hashable DeploymentController
+instance Core.Hashable DeploymentController
 
-instance Prelude.NFData DeploymentController
+instance Core.NFData DeploymentController
 
-instance Prelude.ToJSON DeploymentController where
+instance Core.ToJSON DeploymentController where
   toJSON DeploymentController' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("type" Prelude..= type')]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("type" Core..= type')])

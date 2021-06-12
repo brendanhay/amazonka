@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,10 +51,9 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -64,9 +62,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeReservedInstancesModifications' smart constructor.
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
   { -- | The token to retrieve the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | IDs for the submitted modification request.
-    reservedInstancesModificationIds :: Prelude.Maybe [Prelude.Text],
+    reservedInstancesModificationIds :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @client-token@ - The idempotency token for the modification request.
@@ -104,9 +102,9 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     --
     -- -   @update-date@ - The time when the modification request was last
     --     updated.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstancesModifications' with all optional fields omitted.
@@ -162,19 +160,19 @@ newDescribeReservedInstancesModifications ::
 newDescribeReservedInstancesModifications =
   DescribeReservedInstancesModifications'
     { nextToken =
-        Prelude.Nothing,
+        Core.Nothing,
       reservedInstancesModificationIds =
-        Prelude.Nothing,
-      filters = Prelude.Nothing
+        Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The token to retrieve the next page of results.
-describeReservedInstancesModifications_nextToken :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe Prelude.Text)
+describeReservedInstancesModifications_nextToken :: Lens.Lens' DescribeReservedInstancesModifications (Core.Maybe Core.Text)
 describeReservedInstancesModifications_nextToken = Lens.lens (\DescribeReservedInstancesModifications' {nextToken} -> nextToken) (\s@DescribeReservedInstancesModifications' {} a -> s {nextToken = a} :: DescribeReservedInstancesModifications)
 
 -- | IDs for the submitted modification request.
-describeReservedInstancesModifications_reservedInstancesModificationIds :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe [Prelude.Text])
-describeReservedInstancesModifications_reservedInstancesModificationIds = Lens.lens (\DescribeReservedInstancesModifications' {reservedInstancesModificationIds} -> reservedInstancesModificationIds) (\s@DescribeReservedInstancesModifications' {} a -> s {reservedInstancesModificationIds = a} :: DescribeReservedInstancesModifications) Prelude.. Lens.mapping Prelude._Coerce
+describeReservedInstancesModifications_reservedInstancesModificationIds :: Lens.Lens' DescribeReservedInstancesModifications (Core.Maybe [Core.Text])
+describeReservedInstancesModifications_reservedInstancesModificationIds = Lens.lens (\DescribeReservedInstancesModifications' {reservedInstancesModificationIds} -> reservedInstancesModificationIds) (\s@DescribeReservedInstancesModifications' {} a -> s {reservedInstancesModificationIds = a} :: DescribeReservedInstancesModifications) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
@@ -213,94 +211,93 @@ describeReservedInstancesModifications_reservedInstancesModificationIds = Lens.l
 --
 -- -   @update-date@ - The time when the modification request was last
 --     updated.
-describeReservedInstancesModifications_filters :: Lens.Lens' DescribeReservedInstancesModifications (Prelude.Maybe [Filter])
-describeReservedInstancesModifications_filters = Lens.lens (\DescribeReservedInstancesModifications' {filters} -> filters) (\s@DescribeReservedInstancesModifications' {} a -> s {filters = a} :: DescribeReservedInstancesModifications) Prelude.. Lens.mapping Prelude._Coerce
+describeReservedInstancesModifications_filters :: Lens.Lens' DescribeReservedInstancesModifications (Core.Maybe [Filter])
+describeReservedInstancesModifications_filters = Lens.lens (\DescribeReservedInstancesModifications' {filters} -> filters) (\s@DescribeReservedInstancesModifications' {} a -> s {filters = a} :: DescribeReservedInstancesModifications) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeReservedInstancesModifications
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeReservedInstancesModificationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeReservedInstancesModificationsResponse_reservedInstancesModifications
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeReservedInstancesModifications_nextToken
           Lens..~ rs
             Lens.^? describeReservedInstancesModificationsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeReservedInstancesModifications
   where
   type
-    Rs DescribeReservedInstancesModifications =
+    AWSResponse
+      DescribeReservedInstancesModifications =
       DescribeReservedInstancesModificationsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesModificationsResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-              Prelude.<*> ( x Prelude..@? "reservedInstancesModificationsSet"
-                              Prelude..!@ Prelude.mempty
-                              Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+              Core.<*> ( x Core..@? "reservedInstancesModificationsSet"
+                           Core..!@ Core.mempty
+                           Core.>>= Core.may (Core.parseXMLList "item")
+                       )
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeReservedInstancesModifications
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReservedInstancesModifications
 
 instance
-  Prelude.ToHeaders
-    DescribeReservedInstancesModifications
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DescribeReservedInstancesModifications
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DescribeReservedInstancesModifications
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DescribeReservedInstancesModifications
   where
   toQuery DescribeReservedInstancesModifications' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeReservedInstancesModifications" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        Prelude.toQuery
-          ( Prelude.toQueryList
-              "ReservedInstancesModificationId"
-              Prelude.<$> reservedInstancesModificationIds
+          Core.=: ( "DescribeReservedInstancesModifications" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        Core.toQuery
+          ( Core.toQueryList "ReservedInstancesModificationId"
+              Core.<$> reservedInstancesModificationIds
           ),
-        Prelude.toQuery
-          (Prelude.toQueryList "Filter" Prelude.<$> filters)
+        Core.toQuery
+          (Core.toQueryList "Filter" Core.<$> filters)
       ]
 
 -- | Contains the output of DescribeReservedInstancesModifications.
@@ -309,13 +306,13 @@ instance
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The Reserved Instance modification information.
-    reservedInstancesModifications :: Prelude.Maybe [ReservedInstancesModification],
+    reservedInstancesModifications :: Core.Maybe [ReservedInstancesModification],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeReservedInstancesModificationsResponse' with all optional fields omitted.
@@ -333,31 +330,31 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 -- 'httpStatus', 'describeReservedInstancesModificationsResponse_httpStatus' - The response's http status code.
 newDescribeReservedInstancesModificationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeReservedInstancesModificationsResponse
 newDescribeReservedInstancesModificationsResponse
   pHttpStatus_ =
     DescribeReservedInstancesModificationsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         reservedInstancesModifications =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-describeReservedInstancesModificationsResponse_nextToken :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Prelude.Maybe Prelude.Text)
+describeReservedInstancesModificationsResponse_nextToken :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Core.Maybe Core.Text)
 describeReservedInstancesModificationsResponse_nextToken = Lens.lens (\DescribeReservedInstancesModificationsResponse' {nextToken} -> nextToken) (\s@DescribeReservedInstancesModificationsResponse' {} a -> s {nextToken = a} :: DescribeReservedInstancesModificationsResponse)
 
 -- | The Reserved Instance modification information.
-describeReservedInstancesModificationsResponse_reservedInstancesModifications :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Prelude.Maybe [ReservedInstancesModification])
-describeReservedInstancesModificationsResponse_reservedInstancesModifications = Lens.lens (\DescribeReservedInstancesModificationsResponse' {reservedInstancesModifications} -> reservedInstancesModifications) (\s@DescribeReservedInstancesModificationsResponse' {} a -> s {reservedInstancesModifications = a} :: DescribeReservedInstancesModificationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeReservedInstancesModificationsResponse_reservedInstancesModifications :: Lens.Lens' DescribeReservedInstancesModificationsResponse (Core.Maybe [ReservedInstancesModification])
+describeReservedInstancesModificationsResponse_reservedInstancesModifications = Lens.lens (\DescribeReservedInstancesModificationsResponse' {reservedInstancesModifications} -> reservedInstancesModifications) (\s@DescribeReservedInstancesModificationsResponse' {} a -> s {reservedInstancesModifications = a} :: DescribeReservedInstancesModificationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeReservedInstancesModificationsResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesModificationsResponse Prelude.Int
+describeReservedInstancesModificationsResponse_httpStatus :: Lens.Lens' DescribeReservedInstancesModificationsResponse Core.Int
 describeReservedInstancesModificationsResponse_httpStatus = Lens.lens (\DescribeReservedInstancesModificationsResponse' {httpStatus} -> httpStatus) (\s@DescribeReservedInstancesModificationsResponse' {} a -> s {httpStatus = a} :: DescribeReservedInstancesModificationsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeReservedInstancesModificationsResponse

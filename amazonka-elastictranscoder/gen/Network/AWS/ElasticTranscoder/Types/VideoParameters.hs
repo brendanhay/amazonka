@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.VideoParameters where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.PresetWatermark
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The @VideoParameters@ structure.
 --
@@ -49,7 +48,7 @@ data VideoParameters = VideoParameters'
     --
     -- Alternately, this can be achieved by setting @FrameRate@ to auto and
     -- having the same values for @MaxFrameRate@ and @KeyframesMaxDist@.
-    keyframesMaxDist :: Prelude.Maybe Prelude.Text,
+    keyframesMaxDist :: Core.Maybe Core.Text,
     -- | __Profile (H.264\/VP8\/VP9 Only)__
     --
     -- The H.264 profile that you want to use for the output file. Elastic
@@ -199,7 +198,7 @@ data VideoParameters = VideoParameters'
     --
     -- The number of times you want the output gif to loop. Valid values
     -- include @Infinite@ and integers between @0@ and @100@, inclusive.
-    codecOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    codecOptions :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | Applicable only when the value of Video:Codec is one of @H.264@,
     -- @MPEG2@, or @VP8@.
     --
@@ -213,12 +212,12 @@ data VideoParameters = VideoParameters'
     -- -   @false@: The distance between key frames can vary.
     --
     -- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
-    fixedGOP :: Prelude.Maybe Prelude.Text,
+    fixedGOP :: Core.Maybe Core.Text,
     -- | The video codec for the output file. Valid values include @gif@,
     -- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
     -- when the container type is @webm@, @gif@ when the container type is
     -- @gif@, and @mpeg2@ when the container type is @mpg@.
-    codec :: Prelude.Maybe Prelude.Text,
+    codec :: Core.Maybe Core.Text,
     -- | Settings for the size, location, and opacity of graphics that you want
     -- Elastic Transcoder to overlay over videos that are transcoded using this
     -- preset. You can specify settings for up to four watermarks. Watermarks
@@ -234,17 +233,17 @@ data VideoParameters = VideoParameters'
     -- transcoded videos. You can specify fewer graphics in the job than you
     -- specify watermark settings in the preset, which allows you to use the
     -- same preset for up to four watermarks that have different dimensions.
-    watermarks :: Prelude.Maybe [PresetWatermark],
+    watermarks :: Core.Maybe [PresetWatermark],
     -- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
     -- rate of the input video for the frame rate of the output video. Specify
     -- the maximum frame rate that you want Elastic Transcoder to use when the
     -- frame rate of the input video is greater than the desired maximum frame
     -- rate of the output video. Valid values include: @10@, @15@, @23.97@,
     -- @24@, @25@, @29.97@, @30@, @60@.
-    maxFrameRate :: Prelude.Maybe Prelude.Text,
+    maxFrameRate :: Core.Maybe Core.Text,
     -- | The value that Elastic Transcoder adds to the metadata in the output
     -- file.
-    displayAspectRatio :: Prelude.Maybe Prelude.Text,
+    displayAspectRatio :: Core.Maybe Core.Text,
     -- | Specify one of the following values to control scaling of the output
     -- video:
     --
@@ -279,7 +278,7 @@ data VideoParameters = VideoParameters'
     --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
     --     value. If you specify this option, Elastic Transcoder does not scale
     --     the video up.
-    sizingPolicy :: Prelude.Maybe Prelude.Text,
+    sizingPolicy :: Core.Maybe Core.Text,
     -- | The frames per second for the video stream in the output file. Valid
     -- values include:
     --
@@ -328,7 +327,7 @@ data VideoParameters = VideoParameters'
     -- -   4 - 62914560
     --
     -- -   4.1 - 62914560
-    frameRate :: Prelude.Maybe Prelude.Text,
+    frameRate :: Core.Maybe Core.Text,
     -- | To better control resolution and aspect ratio of output videos, we
     -- recommend that you use the values @MaxWidth@, @MaxHeight@,
     -- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
@@ -347,12 +346,12 @@ data VideoParameters = VideoParameters'
     -- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
     -- (black bars on the sides) or letterboxing (black bars on the top and
     -- bottom) to maintain the aspect ratio of the active region of the video.
-    aspectRatio :: Prelude.Maybe Prelude.Text,
+    aspectRatio :: Core.Maybe Core.Text,
     -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
     -- bars to the top and bottom and\/or left and right sides of the output
     -- video to make the total size of the output video match the values that
     -- you specified for @MaxWidth@ and @MaxHeight@.
-    paddingPolicy :: Prelude.Maybe Prelude.Text,
+    paddingPolicy :: Core.Maybe Core.Text,
     -- | To better control resolution and aspect ratio of output videos, we
     -- recommend that you use the values @MaxWidth@, @MaxHeight@,
     -- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
@@ -411,11 +410,11 @@ data VideoParameters = VideoParameters'
     --     -   4 - 2097152
     --
     --     -   4.1 - 2097152
-    resolution :: Prelude.Maybe Prelude.Text,
+    resolution :: Core.Maybe Core.Text,
     -- | The maximum height of the output video in pixels. If you specify @auto@,
     -- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
     -- specify a numeric value, enter an even integer between 96 and 3072.
-    maxHeight :: Prelude.Maybe Prelude.Text,
+    maxHeight :: Core.Maybe Core.Text,
     -- | The bit rate of the video stream in the output file, in
     -- kilobits\/second. Valid values depend on the values of @Level@ and
     -- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
@@ -447,13 +446,13 @@ data VideoParameters = VideoParameters'
     -- -   4 - 20000 : 25000
     --
     -- -   4.1 - 50000 : 62500
-    bitRate :: Prelude.Maybe Prelude.Text,
+    bitRate :: Core.Maybe Core.Text,
     -- | The maximum width of the output video in pixels. If you specify @auto@,
     -- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
     -- specify a numeric value, enter an even integer between 128 and 4096.
-    maxWidth :: Prelude.Maybe Prelude.Text
+    maxWidth :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VideoParameters' with all optional fields omitted.
@@ -890,22 +889,21 @@ newVideoParameters ::
   VideoParameters
 newVideoParameters =
   VideoParameters'
-    { keyframesMaxDist =
-        Prelude.Nothing,
-      codecOptions = Prelude.Nothing,
-      fixedGOP = Prelude.Nothing,
-      codec = Prelude.Nothing,
-      watermarks = Prelude.Nothing,
-      maxFrameRate = Prelude.Nothing,
-      displayAspectRatio = Prelude.Nothing,
-      sizingPolicy = Prelude.Nothing,
-      frameRate = Prelude.Nothing,
-      aspectRatio = Prelude.Nothing,
-      paddingPolicy = Prelude.Nothing,
-      resolution = Prelude.Nothing,
-      maxHeight = Prelude.Nothing,
-      bitRate = Prelude.Nothing,
-      maxWidth = Prelude.Nothing
+    { keyframesMaxDist = Core.Nothing,
+      codecOptions = Core.Nothing,
+      fixedGOP = Core.Nothing,
+      codec = Core.Nothing,
+      watermarks = Core.Nothing,
+      maxFrameRate = Core.Nothing,
+      displayAspectRatio = Core.Nothing,
+      sizingPolicy = Core.Nothing,
+      frameRate = Core.Nothing,
+      aspectRatio = Core.Nothing,
+      paddingPolicy = Core.Nothing,
+      resolution = Core.Nothing,
+      maxHeight = Core.Nothing,
+      bitRate = Core.Nothing,
+      maxWidth = Core.Nothing
     }
 
 -- | Applicable only when the value of Video:Codec is one of @H.264@,
@@ -929,7 +927,7 @@ newVideoParameters =
 --
 -- Alternately, this can be achieved by setting @FrameRate@ to auto and
 -- having the same values for @MaxFrameRate@ and @KeyframesMaxDist@.
-videoParameters_keyframesMaxDist :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_keyframesMaxDist :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_keyframesMaxDist = Lens.lens (\VideoParameters' {keyframesMaxDist} -> keyframesMaxDist) (\s@VideoParameters' {} a -> s {keyframesMaxDist = a} :: VideoParameters)
 
 -- | __Profile (H.264\/VP8\/VP9 Only)__
@@ -1081,8 +1079,8 @@ videoParameters_keyframesMaxDist = Lens.lens (\VideoParameters' {keyframesMaxDis
 --
 -- The number of times you want the output gif to loop. Valid values
 -- include @Infinite@ and integers between @0@ and @100@, inclusive.
-videoParameters_codecOptions :: Lens.Lens' VideoParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-videoParameters_codecOptions = Lens.lens (\VideoParameters' {codecOptions} -> codecOptions) (\s@VideoParameters' {} a -> s {codecOptions = a} :: VideoParameters) Prelude.. Lens.mapping Prelude._Coerce
+videoParameters_codecOptions :: Lens.Lens' VideoParameters (Core.Maybe (Core.HashMap Core.Text Core.Text))
+videoParameters_codecOptions = Lens.lens (\VideoParameters' {codecOptions} -> codecOptions) (\s@VideoParameters' {} a -> s {codecOptions = a} :: VideoParameters) Core.. Lens.mapping Lens._Coerce
 
 -- | Applicable only when the value of Video:Codec is one of @H.264@,
 -- @MPEG2@, or @VP8@.
@@ -1097,14 +1095,14 @@ videoParameters_codecOptions = Lens.lens (\VideoParameters' {codecOptions} -> co
 -- -   @false@: The distance between key frames can vary.
 --
 -- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
-videoParameters_fixedGOP :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_fixedGOP :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_fixedGOP = Lens.lens (\VideoParameters' {fixedGOP} -> fixedGOP) (\s@VideoParameters' {} a -> s {fixedGOP = a} :: VideoParameters)
 
 -- | The video codec for the output file. Valid values include @gif@,
 -- @H.264@, @mpeg2@, @vp8@, and @vp9@. You can only specify @vp8@ and @vp9@
 -- when the container type is @webm@, @gif@ when the container type is
 -- @gif@, and @mpeg2@ when the container type is @mpg@.
-videoParameters_codec :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_codec :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_codec = Lens.lens (\VideoParameters' {codec} -> codec) (\s@VideoParameters' {} a -> s {codec = a} :: VideoParameters)
 
 -- | Settings for the size, location, and opacity of graphics that you want
@@ -1122,8 +1120,8 @@ videoParameters_codec = Lens.lens (\VideoParameters' {codec} -> codec) (\s@Video
 -- transcoded videos. You can specify fewer graphics in the job than you
 -- specify watermark settings in the preset, which allows you to use the
 -- same preset for up to four watermarks that have different dimensions.
-videoParameters_watermarks :: Lens.Lens' VideoParameters (Prelude.Maybe [PresetWatermark])
-videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> watermarks) (\s@VideoParameters' {} a -> s {watermarks = a} :: VideoParameters) Prelude.. Lens.mapping Prelude._Coerce
+videoParameters_watermarks :: Lens.Lens' VideoParameters (Core.Maybe [PresetWatermark])
+videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> watermarks) (\s@VideoParameters' {} a -> s {watermarks = a} :: VideoParameters) Core.. Lens.mapping Lens._Coerce
 
 -- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
 -- rate of the input video for the frame rate of the output video. Specify
@@ -1131,12 +1129,12 @@ videoParameters_watermarks = Lens.lens (\VideoParameters' {watermarks} -> waterm
 -- frame rate of the input video is greater than the desired maximum frame
 -- rate of the output video. Valid values include: @10@, @15@, @23.97@,
 -- @24@, @25@, @29.97@, @30@, @60@.
-videoParameters_maxFrameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_maxFrameRate :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_maxFrameRate = Lens.lens (\VideoParameters' {maxFrameRate} -> maxFrameRate) (\s@VideoParameters' {} a -> s {maxFrameRate = a} :: VideoParameters)
 
 -- | The value that Elastic Transcoder adds to the metadata in the output
 -- file.
-videoParameters_displayAspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_displayAspectRatio :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_displayAspectRatio = Lens.lens (\VideoParameters' {displayAspectRatio} -> displayAspectRatio) (\s@VideoParameters' {} a -> s {displayAspectRatio = a} :: VideoParameters)
 
 -- | Specify one of the following values to control scaling of the output
@@ -1173,7 +1171,7 @@ videoParameters_displayAspectRatio = Lens.lens (\VideoParameters' {displayAspect
 --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     the video up.
-videoParameters_sizingPolicy :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_sizingPolicy :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_sizingPolicy = Lens.lens (\VideoParameters' {sizingPolicy} -> sizingPolicy) (\s@VideoParameters' {} a -> s {sizingPolicy = a} :: VideoParameters)
 
 -- | The frames per second for the video stream in the output file. Valid
@@ -1224,7 +1222,7 @@ videoParameters_sizingPolicy = Lens.lens (\VideoParameters' {sizingPolicy} -> si
 -- -   4 - 62914560
 --
 -- -   4.1 - 62914560
-videoParameters_frameRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_frameRate :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_frameRate = Lens.lens (\VideoParameters' {frameRate} -> frameRate) (\s@VideoParameters' {} a -> s {frameRate = a} :: VideoParameters)
 
 -- | To better control resolution and aspect ratio of output videos, we
@@ -1245,14 +1243,14 @@ videoParameters_frameRate = Lens.lens (\VideoParameters' {frameRate} -> frameRat
 -- aspect ratio of the input file, Elastic Transcoder adds pillarboxing
 -- (black bars on the sides) or letterboxing (black bars on the top and
 -- bottom) to maintain the aspect ratio of the active region of the video.
-videoParameters_aspectRatio :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_aspectRatio :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_aspectRatio = Lens.lens (\VideoParameters' {aspectRatio} -> aspectRatio) (\s@VideoParameters' {} a -> s {aspectRatio = a} :: VideoParameters)
 
 -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
 -- bars to the top and bottom and\/or left and right sides of the output
 -- video to make the total size of the output video match the values that
 -- you specified for @MaxWidth@ and @MaxHeight@.
-videoParameters_paddingPolicy :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_paddingPolicy :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_paddingPolicy = Lens.lens (\VideoParameters' {paddingPolicy} -> paddingPolicy) (\s@VideoParameters' {} a -> s {paddingPolicy = a} :: VideoParameters)
 
 -- | To better control resolution and aspect ratio of output videos, we
@@ -1313,13 +1311,13 @@ videoParameters_paddingPolicy = Lens.lens (\VideoParameters' {paddingPolicy} -> 
 --     -   4 - 2097152
 --
 --     -   4.1 - 2097152
-videoParameters_resolution :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_resolution :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_resolution = Lens.lens (\VideoParameters' {resolution} -> resolution) (\s@VideoParameters' {} a -> s {resolution = a} :: VideoParameters)
 
 -- | The maximum height of the output video in pixels. If you specify @auto@,
 -- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
 -- specify a numeric value, enter an even integer between 96 and 3072.
-videoParameters_maxHeight :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_maxHeight :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_maxHeight = Lens.lens (\VideoParameters' {maxHeight} -> maxHeight) (\s@VideoParameters' {} a -> s {maxHeight = a} :: VideoParameters)
 
 -- | The bit rate of the video stream in the output file, in
@@ -1353,67 +1351,62 @@ videoParameters_maxHeight = Lens.lens (\VideoParameters' {maxHeight} -> maxHeigh
 -- -   4 - 20000 : 25000
 --
 -- -   4.1 - 50000 : 62500
-videoParameters_bitRate :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_bitRate :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_bitRate = Lens.lens (\VideoParameters' {bitRate} -> bitRate) (\s@VideoParameters' {} a -> s {bitRate = a} :: VideoParameters)
 
 -- | The maximum width of the output video in pixels. If you specify @auto@,
 -- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
 -- specify a numeric value, enter an even integer between 128 and 4096.
-videoParameters_maxWidth :: Lens.Lens' VideoParameters (Prelude.Maybe Prelude.Text)
+videoParameters_maxWidth :: Lens.Lens' VideoParameters (Core.Maybe Core.Text)
 videoParameters_maxWidth = Lens.lens (\VideoParameters' {maxWidth} -> maxWidth) (\s@VideoParameters' {} a -> s {maxWidth = a} :: VideoParameters)
 
-instance Prelude.FromJSON VideoParameters where
+instance Core.FromJSON VideoParameters where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VideoParameters"
       ( \x ->
           VideoParameters'
-            Prelude.<$> (x Prelude..:? "KeyframesMaxDist")
-            Prelude.<*> ( x Prelude..:? "CodecOptions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "FixedGOP")
-            Prelude.<*> (x Prelude..:? "Codec")
-            Prelude.<*> ( x Prelude..:? "Watermarks"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "MaxFrameRate")
-            Prelude.<*> (x Prelude..:? "DisplayAspectRatio")
-            Prelude.<*> (x Prelude..:? "SizingPolicy")
-            Prelude.<*> (x Prelude..:? "FrameRate")
-            Prelude.<*> (x Prelude..:? "AspectRatio")
-            Prelude.<*> (x Prelude..:? "PaddingPolicy")
-            Prelude.<*> (x Prelude..:? "Resolution")
-            Prelude.<*> (x Prelude..:? "MaxHeight")
-            Prelude.<*> (x Prelude..:? "BitRate")
-            Prelude.<*> (x Prelude..:? "MaxWidth")
+            Core.<$> (x Core..:? "KeyframesMaxDist")
+            Core.<*> (x Core..:? "CodecOptions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "FixedGOP")
+            Core.<*> (x Core..:? "Codec")
+            Core.<*> (x Core..:? "Watermarks" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MaxFrameRate")
+            Core.<*> (x Core..:? "DisplayAspectRatio")
+            Core.<*> (x Core..:? "SizingPolicy")
+            Core.<*> (x Core..:? "FrameRate")
+            Core.<*> (x Core..:? "AspectRatio")
+            Core.<*> (x Core..:? "PaddingPolicy")
+            Core.<*> (x Core..:? "Resolution")
+            Core.<*> (x Core..:? "MaxHeight")
+            Core.<*> (x Core..:? "BitRate")
+            Core.<*> (x Core..:? "MaxWidth")
       )
 
-instance Prelude.Hashable VideoParameters
+instance Core.Hashable VideoParameters
 
-instance Prelude.NFData VideoParameters
+instance Core.NFData VideoParameters
 
-instance Prelude.ToJSON VideoParameters where
+instance Core.ToJSON VideoParameters where
   toJSON VideoParameters' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KeyframesMaxDist" Prelude..=)
-              Prelude.<$> keyframesMaxDist,
-            ("CodecOptions" Prelude..=) Prelude.<$> codecOptions,
-            ("FixedGOP" Prelude..=) Prelude.<$> fixedGOP,
-            ("Codec" Prelude..=) Prelude.<$> codec,
-            ("Watermarks" Prelude..=) Prelude.<$> watermarks,
-            ("MaxFrameRate" Prelude..=) Prelude.<$> maxFrameRate,
-            ("DisplayAspectRatio" Prelude..=)
-              Prelude.<$> displayAspectRatio,
-            ("SizingPolicy" Prelude..=) Prelude.<$> sizingPolicy,
-            ("FrameRate" Prelude..=) Prelude.<$> frameRate,
-            ("AspectRatio" Prelude..=) Prelude.<$> aspectRatio,
-            ("PaddingPolicy" Prelude..=)
-              Prelude.<$> paddingPolicy,
-            ("Resolution" Prelude..=) Prelude.<$> resolution,
-            ("MaxHeight" Prelude..=) Prelude.<$> maxHeight,
-            ("BitRate" Prelude..=) Prelude.<$> bitRate,
-            ("MaxWidth" Prelude..=) Prelude.<$> maxWidth
+    Core.object
+      ( Core.catMaybes
+          [ ("KeyframesMaxDist" Core..=)
+              Core.<$> keyframesMaxDist,
+            ("CodecOptions" Core..=) Core.<$> codecOptions,
+            ("FixedGOP" Core..=) Core.<$> fixedGOP,
+            ("Codec" Core..=) Core.<$> codec,
+            ("Watermarks" Core..=) Core.<$> watermarks,
+            ("MaxFrameRate" Core..=) Core.<$> maxFrameRate,
+            ("DisplayAspectRatio" Core..=)
+              Core.<$> displayAspectRatio,
+            ("SizingPolicy" Core..=) Core.<$> sizingPolicy,
+            ("FrameRate" Core..=) Core.<$> frameRate,
+            ("AspectRatio" Core..=) Core.<$> aspectRatio,
+            ("PaddingPolicy" Core..=) Core.<$> paddingPolicy,
+            ("Resolution" Core..=) Core.<$> resolution,
+            ("MaxHeight" Core..=) Core.<$> maxHeight,
+            ("BitRate" Core..=) Core.<$> bitRate,
+            ("MaxWidth" Core..=) Core.<$> maxWidth
           ]
       )

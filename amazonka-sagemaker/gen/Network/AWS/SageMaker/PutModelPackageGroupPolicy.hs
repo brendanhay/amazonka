@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.SageMaker.PutModelPackageGroupPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -53,11 +52,11 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newPutModelPackageGroupPolicy' smart constructor.
 data PutModelPackageGroupPolicy = PutModelPackageGroupPolicy'
   { -- | The name of the model group to add a resource policy to.
-    modelPackageGroupName :: Prelude.Text,
+    modelPackageGroupName :: Core.Text,
     -- | The resource policy for the model group.
-    resourcePolicy :: Prelude.Text
+    resourcePolicy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutModelPackageGroupPolicy' with all optional fields omitted.
@@ -72,9 +71,9 @@ data PutModelPackageGroupPolicy = PutModelPackageGroupPolicy'
 -- 'resourcePolicy', 'putModelPackageGroupPolicy_resourcePolicy' - The resource policy for the model group.
 newPutModelPackageGroupPolicy ::
   -- | 'modelPackageGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourcePolicy'
-  Prelude.Text ->
+  Core.Text ->
   PutModelPackageGroupPolicy
 newPutModelPackageGroupPolicy
   pModelPackageGroupName_
@@ -86,75 +85,69 @@ newPutModelPackageGroupPolicy
       }
 
 -- | The name of the model group to add a resource policy to.
-putModelPackageGroupPolicy_modelPackageGroupName :: Lens.Lens' PutModelPackageGroupPolicy Prelude.Text
+putModelPackageGroupPolicy_modelPackageGroupName :: Lens.Lens' PutModelPackageGroupPolicy Core.Text
 putModelPackageGroupPolicy_modelPackageGroupName = Lens.lens (\PutModelPackageGroupPolicy' {modelPackageGroupName} -> modelPackageGroupName) (\s@PutModelPackageGroupPolicy' {} a -> s {modelPackageGroupName = a} :: PutModelPackageGroupPolicy)
 
 -- | The resource policy for the model group.
-putModelPackageGroupPolicy_resourcePolicy :: Lens.Lens' PutModelPackageGroupPolicy Prelude.Text
+putModelPackageGroupPolicy_resourcePolicy :: Lens.Lens' PutModelPackageGroupPolicy Core.Text
 putModelPackageGroupPolicy_resourcePolicy = Lens.lens (\PutModelPackageGroupPolicy' {resourcePolicy} -> resourcePolicy) (\s@PutModelPackageGroupPolicy' {} a -> s {resourcePolicy = a} :: PutModelPackageGroupPolicy)
 
-instance
-  Prelude.AWSRequest
-    PutModelPackageGroupPolicy
-  where
+instance Core.AWSRequest PutModelPackageGroupPolicy where
   type
-    Rs PutModelPackageGroupPolicy =
+    AWSResponse PutModelPackageGroupPolicy =
       PutModelPackageGroupPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutModelPackageGroupPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "ModelPackageGroupArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "ModelPackageGroupArn")
       )
 
-instance Prelude.Hashable PutModelPackageGroupPolicy
+instance Core.Hashable PutModelPackageGroupPolicy
 
-instance Prelude.NFData PutModelPackageGroupPolicy
+instance Core.NFData PutModelPackageGroupPolicy
 
-instance Prelude.ToHeaders PutModelPackageGroupPolicy where
+instance Core.ToHeaders PutModelPackageGroupPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.PutModelPackageGroupPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.PutModelPackageGroupPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutModelPackageGroupPolicy where
+instance Core.ToJSON PutModelPackageGroupPolicy where
   toJSON PutModelPackageGroupPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ModelPackageGroupName"
-                  Prelude..= modelPackageGroupName
+                  Core..= modelPackageGroupName
               ),
-            Prelude.Just
-              ("ResourcePolicy" Prelude..= resourcePolicy)
+            Core.Just ("ResourcePolicy" Core..= resourcePolicy)
           ]
       )
 
-instance Prelude.ToPath PutModelPackageGroupPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutModelPackageGroupPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutModelPackageGroupPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutModelPackageGroupPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutModelPackageGroupPolicyResponse' smart constructor.
 data PutModelPackageGroupPolicyResponse = PutModelPackageGroupPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The Amazon Resource Name (ARN) of the model package group.
-    modelPackageGroupArn :: Prelude.Text
+    modelPackageGroupArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutModelPackageGroupPolicyResponse' with all optional fields omitted.
@@ -169,9 +162,9 @@ data PutModelPackageGroupPolicyResponse = PutModelPackageGroupPolicyResponse'
 -- 'modelPackageGroupArn', 'putModelPackageGroupPolicyResponse_modelPackageGroupArn' - The Amazon Resource Name (ARN) of the model package group.
 newPutModelPackageGroupPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'modelPackageGroupArn'
-  Prelude.Text ->
+  Core.Text ->
   PutModelPackageGroupPolicyResponse
 newPutModelPackageGroupPolicyResponse
   pHttpStatus_
@@ -184,13 +177,13 @@ newPutModelPackageGroupPolicyResponse
       }
 
 -- | The response's http status code.
-putModelPackageGroupPolicyResponse_httpStatus :: Lens.Lens' PutModelPackageGroupPolicyResponse Prelude.Int
+putModelPackageGroupPolicyResponse_httpStatus :: Lens.Lens' PutModelPackageGroupPolicyResponse Core.Int
 putModelPackageGroupPolicyResponse_httpStatus = Lens.lens (\PutModelPackageGroupPolicyResponse' {httpStatus} -> httpStatus) (\s@PutModelPackageGroupPolicyResponse' {} a -> s {httpStatus = a} :: PutModelPackageGroupPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the model package group.
-putModelPackageGroupPolicyResponse_modelPackageGroupArn :: Lens.Lens' PutModelPackageGroupPolicyResponse Prelude.Text
+putModelPackageGroupPolicyResponse_modelPackageGroupArn :: Lens.Lens' PutModelPackageGroupPolicyResponse Core.Text
 putModelPackageGroupPolicyResponse_modelPackageGroupArn = Lens.lens (\PutModelPackageGroupPolicyResponse' {modelPackageGroupArn} -> modelPackageGroupArn) (\s@PutModelPackageGroupPolicyResponse' {} a -> s {modelPackageGroupArn = a} :: PutModelPackageGroupPolicyResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutModelPackageGroupPolicyResponse

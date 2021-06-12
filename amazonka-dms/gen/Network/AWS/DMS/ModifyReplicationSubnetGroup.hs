@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.DMS.ModifyReplicationSubnetGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,13 +52,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newModifyReplicationSubnetGroup' smart constructor.
 data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
   { -- | A description for the replication instance subnet group.
-    replicationSubnetGroupDescription :: Prelude.Maybe Prelude.Text,
+    replicationSubnetGroupDescription :: Core.Maybe Core.Text,
     -- | The name of the replication instance subnet group.
-    replicationSubnetGroupIdentifier :: Prelude.Text,
+    replicationSubnetGroupIdentifier :: Core.Text,
     -- | A list of subnet IDs.
-    subnetIds :: [Prelude.Text]
+    subnetIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationSubnetGroup' with all optional fields omitted.
@@ -76,100 +75,90 @@ data ModifyReplicationSubnetGroup = ModifyReplicationSubnetGroup'
 -- 'subnetIds', 'modifyReplicationSubnetGroup_subnetIds' - A list of subnet IDs.
 newModifyReplicationSubnetGroup ::
   -- | 'replicationSubnetGroupIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ModifyReplicationSubnetGroup
 newModifyReplicationSubnetGroup
   pReplicationSubnetGroupIdentifier_ =
     ModifyReplicationSubnetGroup'
       { replicationSubnetGroupDescription =
-          Prelude.Nothing,
+          Core.Nothing,
         replicationSubnetGroupIdentifier =
           pReplicationSubnetGroupIdentifier_,
-        subnetIds = Prelude.mempty
+        subnetIds = Core.mempty
       }
 
 -- | A description for the replication instance subnet group.
-modifyReplicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' ModifyReplicationSubnetGroup (Prelude.Maybe Prelude.Text)
+modifyReplicationSubnetGroup_replicationSubnetGroupDescription :: Lens.Lens' ModifyReplicationSubnetGroup (Core.Maybe Core.Text)
 modifyReplicationSubnetGroup_replicationSubnetGroupDescription = Lens.lens (\ModifyReplicationSubnetGroup' {replicationSubnetGroupDescription} -> replicationSubnetGroupDescription) (\s@ModifyReplicationSubnetGroup' {} a -> s {replicationSubnetGroupDescription = a} :: ModifyReplicationSubnetGroup)
 
 -- | The name of the replication instance subnet group.
-modifyReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' ModifyReplicationSubnetGroup Prelude.Text
+modifyReplicationSubnetGroup_replicationSubnetGroupIdentifier :: Lens.Lens' ModifyReplicationSubnetGroup Core.Text
 modifyReplicationSubnetGroup_replicationSubnetGroupIdentifier = Lens.lens (\ModifyReplicationSubnetGroup' {replicationSubnetGroupIdentifier} -> replicationSubnetGroupIdentifier) (\s@ModifyReplicationSubnetGroup' {} a -> s {replicationSubnetGroupIdentifier = a} :: ModifyReplicationSubnetGroup)
 
 -- | A list of subnet IDs.
-modifyReplicationSubnetGroup_subnetIds :: Lens.Lens' ModifyReplicationSubnetGroup [Prelude.Text]
-modifyReplicationSubnetGroup_subnetIds = Lens.lens (\ModifyReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyReplicationSubnetGroup' {} a -> s {subnetIds = a} :: ModifyReplicationSubnetGroup) Prelude.. Prelude._Coerce
+modifyReplicationSubnetGroup_subnetIds :: Lens.Lens' ModifyReplicationSubnetGroup [Core.Text]
+modifyReplicationSubnetGroup_subnetIds = Lens.lens (\ModifyReplicationSubnetGroup' {subnetIds} -> subnetIds) (\s@ModifyReplicationSubnetGroup' {} a -> s {subnetIds = a} :: ModifyReplicationSubnetGroup) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    ModifyReplicationSubnetGroup
-  where
+instance Core.AWSRequest ModifyReplicationSubnetGroup where
   type
-    Rs ModifyReplicationSubnetGroup =
+    AWSResponse ModifyReplicationSubnetGroup =
       ModifyReplicationSubnetGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ModifyReplicationSubnetGroupResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationSubnetGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationSubnetGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ModifyReplicationSubnetGroup
+instance Core.Hashable ModifyReplicationSubnetGroup
 
-instance Prelude.NFData ModifyReplicationSubnetGroup
+instance Core.NFData ModifyReplicationSubnetGroup
 
-instance
-  Prelude.ToHeaders
-    ModifyReplicationSubnetGroup
-  where
+instance Core.ToHeaders ModifyReplicationSubnetGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.ModifyReplicationSubnetGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.ModifyReplicationSubnetGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ModifyReplicationSubnetGroup where
+instance Core.ToJSON ModifyReplicationSubnetGroup where
   toJSON ModifyReplicationSubnetGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ReplicationSubnetGroupDescription" Prelude..=)
-              Prelude.<$> replicationSubnetGroupDescription,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("ReplicationSubnetGroupDescription" Core..=)
+              Core.<$> replicationSubnetGroupDescription,
+            Core.Just
               ( "ReplicationSubnetGroupIdentifier"
-                  Prelude..= replicationSubnetGroupIdentifier
+                  Core..= replicationSubnetGroupIdentifier
               ),
-            Prelude.Just ("SubnetIds" Prelude..= subnetIds)
+            Core.Just ("SubnetIds" Core..= subnetIds)
           ]
       )
 
-instance Prelude.ToPath ModifyReplicationSubnetGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyReplicationSubnetGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyReplicationSubnetGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ModifyReplicationSubnetGroup where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newModifyReplicationSubnetGroupResponse' smart constructor.
 data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse'
   { -- | The modified replication subnet group.
-    replicationSubnetGroup :: Prelude.Maybe ReplicationSubnetGroup,
+    replicationSubnetGroup :: Core.Maybe ReplicationSubnetGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationSubnetGroupResponse' with all optional fields omitted.
@@ -184,23 +173,23 @@ data ModifyReplicationSubnetGroupResponse = ModifyReplicationSubnetGroupResponse
 -- 'httpStatus', 'modifyReplicationSubnetGroupResponse_httpStatus' - The response's http status code.
 newModifyReplicationSubnetGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyReplicationSubnetGroupResponse
 newModifyReplicationSubnetGroupResponse pHttpStatus_ =
   ModifyReplicationSubnetGroupResponse'
     { replicationSubnetGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The modified replication subnet group.
-modifyReplicationSubnetGroupResponse_replicationSubnetGroup :: Lens.Lens' ModifyReplicationSubnetGroupResponse (Prelude.Maybe ReplicationSubnetGroup)
+modifyReplicationSubnetGroupResponse_replicationSubnetGroup :: Lens.Lens' ModifyReplicationSubnetGroupResponse (Core.Maybe ReplicationSubnetGroup)
 modifyReplicationSubnetGroupResponse_replicationSubnetGroup = Lens.lens (\ModifyReplicationSubnetGroupResponse' {replicationSubnetGroup} -> replicationSubnetGroup) (\s@ModifyReplicationSubnetGroupResponse' {} a -> s {replicationSubnetGroup = a} :: ModifyReplicationSubnetGroupResponse)
 
 -- | The response's http status code.
-modifyReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyReplicationSubnetGroupResponse Prelude.Int
+modifyReplicationSubnetGroupResponse_httpStatus :: Lens.Lens' ModifyReplicationSubnetGroupResponse Core.Int
 modifyReplicationSubnetGroupResponse_httpStatus = Lens.lens (\ModifyReplicationSubnetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyReplicationSubnetGroupResponse' {} a -> s {httpStatus = a} :: ModifyReplicationSubnetGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyReplicationSubnetGroupResponse

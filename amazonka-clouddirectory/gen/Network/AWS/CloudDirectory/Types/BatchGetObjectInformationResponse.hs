@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse where
 
 import Network.AWS.CloudDirectory.Types.SchemaFacet
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a GetObjectInformation response operation.
 --
 -- /See:/ 'newBatchGetObjectInformationResponse' smart constructor.
 data BatchGetObjectInformationResponse = BatchGetObjectInformationResponse'
   { -- | The facets attached to the specified object.
-    schemaFacets :: Prelude.Maybe [SchemaFacet],
+    schemaFacets :: Core.Maybe [SchemaFacet],
     -- | The @ObjectIdentifier@ of the specified object.
-    objectIdentifier :: Prelude.Maybe Prelude.Text
+    objectIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchGetObjectInformationResponse' with all optional fields omitted.
@@ -51,37 +50,35 @@ newBatchGetObjectInformationResponse ::
 newBatchGetObjectInformationResponse =
   BatchGetObjectInformationResponse'
     { schemaFacets =
-        Prelude.Nothing,
-      objectIdentifier = Prelude.Nothing
+        Core.Nothing,
+      objectIdentifier = Core.Nothing
     }
 
 -- | The facets attached to the specified object.
-batchGetObjectInformationResponse_schemaFacets :: Lens.Lens' BatchGetObjectInformationResponse (Prelude.Maybe [SchemaFacet])
-batchGetObjectInformationResponse_schemaFacets = Lens.lens (\BatchGetObjectInformationResponse' {schemaFacets} -> schemaFacets) (\s@BatchGetObjectInformationResponse' {} a -> s {schemaFacets = a} :: BatchGetObjectInformationResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchGetObjectInformationResponse_schemaFacets :: Lens.Lens' BatchGetObjectInformationResponse (Core.Maybe [SchemaFacet])
+batchGetObjectInformationResponse_schemaFacets = Lens.lens (\BatchGetObjectInformationResponse' {schemaFacets} -> schemaFacets) (\s@BatchGetObjectInformationResponse' {} a -> s {schemaFacets = a} :: BatchGetObjectInformationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The @ObjectIdentifier@ of the specified object.
-batchGetObjectInformationResponse_objectIdentifier :: Lens.Lens' BatchGetObjectInformationResponse (Prelude.Maybe Prelude.Text)
+batchGetObjectInformationResponse_objectIdentifier :: Lens.Lens' BatchGetObjectInformationResponse (Core.Maybe Core.Text)
 batchGetObjectInformationResponse_objectIdentifier = Lens.lens (\BatchGetObjectInformationResponse' {objectIdentifier} -> objectIdentifier) (\s@BatchGetObjectInformationResponse' {} a -> s {objectIdentifier = a} :: BatchGetObjectInformationResponse)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchGetObjectInformationResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchGetObjectInformationResponse"
       ( \x ->
           BatchGetObjectInformationResponse'
-            Prelude.<$> ( x Prelude..:? "SchemaFacets"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ObjectIdentifier")
+            Core.<$> (x Core..:? "SchemaFacets" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ObjectIdentifier")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchGetObjectInformationResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchGetObjectInformationResponse

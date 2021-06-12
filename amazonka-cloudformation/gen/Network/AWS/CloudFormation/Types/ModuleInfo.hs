@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFormation.Types.ModuleInfo where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the module from which the resource was
 -- created, if the resource was created from a module included in the stack
@@ -45,7 +44,7 @@ data ModuleInfo = ModuleInfo'
     -- For more information, see
     -- <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
     -- in the /CloudFormation User Guide/.
-    logicalIdHierarchy :: Prelude.Maybe Prelude.Text,
+    logicalIdHierarchy :: Core.Maybe Core.Text,
     -- | A concantenated list of the the module type or types containing the
     -- resource. Module types are listed starting with the inner-most nested
     -- module, and separated by @\/@.
@@ -55,9 +54,9 @@ data ModuleInfo = ModuleInfo'
     -- type @AWS::Second::Example::MODULE@.
     --
     -- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@
-    typeHierarchy :: Prelude.Maybe Prelude.Text
+    typeHierarchy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModuleInfo' with all optional fields omitted.
@@ -93,8 +92,8 @@ newModuleInfo ::
   ModuleInfo
 newModuleInfo =
   ModuleInfo'
-    { logicalIdHierarchy = Prelude.Nothing,
-      typeHierarchy = Prelude.Nothing
+    { logicalIdHierarchy = Core.Nothing,
+      typeHierarchy = Core.Nothing
     }
 
 -- | A concantenated list of the logical IDs of the module or modules
@@ -109,7 +108,7 @@ newModuleInfo =
 -- For more information, see
 -- <AWSCloudFormation/latest/UserGuide/modules.html#module-ref-resources Referencing resources in a module>
 -- in the /CloudFormation User Guide/.
-moduleInfo_logicalIdHierarchy :: Lens.Lens' ModuleInfo (Prelude.Maybe Prelude.Text)
+moduleInfo_logicalIdHierarchy :: Lens.Lens' ModuleInfo (Core.Maybe Core.Text)
 moduleInfo_logicalIdHierarchy = Lens.lens (\ModuleInfo' {logicalIdHierarchy} -> logicalIdHierarchy) (\s@ModuleInfo' {} a -> s {logicalIdHierarchy = a} :: ModuleInfo)
 
 -- | A concantenated list of the the module type or types containing the
@@ -121,15 +120,15 @@ moduleInfo_logicalIdHierarchy = Lens.lens (\ModuleInfo' {logicalIdHierarchy} -> 
 -- type @AWS::Second::Example::MODULE@.
 --
 -- @AWS::First::Example::MODULE\/AWS::Second::Example::MODULE@
-moduleInfo_typeHierarchy :: Lens.Lens' ModuleInfo (Prelude.Maybe Prelude.Text)
+moduleInfo_typeHierarchy :: Lens.Lens' ModuleInfo (Core.Maybe Core.Text)
 moduleInfo_typeHierarchy = Lens.lens (\ModuleInfo' {typeHierarchy} -> typeHierarchy) (\s@ModuleInfo' {} a -> s {typeHierarchy = a} :: ModuleInfo)
 
-instance Prelude.FromXML ModuleInfo where
+instance Core.FromXML ModuleInfo where
   parseXML x =
     ModuleInfo'
-      Prelude.<$> (x Prelude..@? "LogicalIdHierarchy")
-      Prelude.<*> (x Prelude..@? "TypeHierarchy")
+      Core.<$> (x Core..@? "LogicalIdHierarchy")
+      Core.<*> (x Core..@? "TypeHierarchy")
 
-instance Prelude.Hashable ModuleInfo
+instance Core.Hashable ModuleInfo
 
-instance Prelude.NFData ModuleInfo
+instance Core.NFData ModuleInfo

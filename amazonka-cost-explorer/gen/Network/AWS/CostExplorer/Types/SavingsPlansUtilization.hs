@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.SavingsPlansUtilization where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The measurement of how well you are using your existing Savings Plans.
 --
@@ -29,18 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 data SavingsPlansUtilization = SavingsPlansUtilization'
   { -- | The amount of your Savings Plans commitment that was not consumed from
     -- Savings Plans eligible usage in a specific period.
-    unusedCommitment :: Prelude.Maybe Prelude.Text,
+    unusedCommitment :: Core.Maybe Core.Text,
     -- | The amount of your Savings Plans commitment that was consumed from
     -- Savings Plans eligible usage in a specific period.
-    usedCommitment :: Prelude.Maybe Prelude.Text,
+    usedCommitment :: Core.Maybe Core.Text,
     -- | The total amount of Savings Plans commitment that\'s been purchased in
     -- an account (or set of accounts).
-    totalCommitment :: Prelude.Maybe Prelude.Text,
+    totalCommitment :: Core.Maybe Core.Text,
     -- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your
     -- Savings Plans.
-    utilizationPercentage :: Prelude.Maybe Prelude.Text
+    utilizationPercentage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SavingsPlansUtilization' with all optional fields omitted.
@@ -66,44 +65,44 @@ newSavingsPlansUtilization ::
 newSavingsPlansUtilization =
   SavingsPlansUtilization'
     { unusedCommitment =
-        Prelude.Nothing,
-      usedCommitment = Prelude.Nothing,
-      totalCommitment = Prelude.Nothing,
-      utilizationPercentage = Prelude.Nothing
+        Core.Nothing,
+      usedCommitment = Core.Nothing,
+      totalCommitment = Core.Nothing,
+      utilizationPercentage = Core.Nothing
     }
 
 -- | The amount of your Savings Plans commitment that was not consumed from
 -- Savings Plans eligible usage in a specific period.
-savingsPlansUtilization_unusedCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
+savingsPlansUtilization_unusedCommitment :: Lens.Lens' SavingsPlansUtilization (Core.Maybe Core.Text)
 savingsPlansUtilization_unusedCommitment = Lens.lens (\SavingsPlansUtilization' {unusedCommitment} -> unusedCommitment) (\s@SavingsPlansUtilization' {} a -> s {unusedCommitment = a} :: SavingsPlansUtilization)
 
 -- | The amount of your Savings Plans commitment that was consumed from
 -- Savings Plans eligible usage in a specific period.
-savingsPlansUtilization_usedCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
+savingsPlansUtilization_usedCommitment :: Lens.Lens' SavingsPlansUtilization (Core.Maybe Core.Text)
 savingsPlansUtilization_usedCommitment = Lens.lens (\SavingsPlansUtilization' {usedCommitment} -> usedCommitment) (\s@SavingsPlansUtilization' {} a -> s {usedCommitment = a} :: SavingsPlansUtilization)
 
 -- | The total amount of Savings Plans commitment that\'s been purchased in
 -- an account (or set of accounts).
-savingsPlansUtilization_totalCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
+savingsPlansUtilization_totalCommitment :: Lens.Lens' SavingsPlansUtilization (Core.Maybe Core.Text)
 savingsPlansUtilization_totalCommitment = Lens.lens (\SavingsPlansUtilization' {totalCommitment} -> totalCommitment) (\s@SavingsPlansUtilization' {} a -> s {totalCommitment = a} :: SavingsPlansUtilization)
 
 -- | The amount of @UsedCommitment@ divided by the @TotalCommitment@ for your
 -- Savings Plans.
-savingsPlansUtilization_utilizationPercentage :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
+savingsPlansUtilization_utilizationPercentage :: Lens.Lens' SavingsPlansUtilization (Core.Maybe Core.Text)
 savingsPlansUtilization_utilizationPercentage = Lens.lens (\SavingsPlansUtilization' {utilizationPercentage} -> utilizationPercentage) (\s@SavingsPlansUtilization' {} a -> s {utilizationPercentage = a} :: SavingsPlansUtilization)
 
-instance Prelude.FromJSON SavingsPlansUtilization where
+instance Core.FromJSON SavingsPlansUtilization where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SavingsPlansUtilization"
       ( \x ->
           SavingsPlansUtilization'
-            Prelude.<$> (x Prelude..:? "UnusedCommitment")
-            Prelude.<*> (x Prelude..:? "UsedCommitment")
-            Prelude.<*> (x Prelude..:? "TotalCommitment")
-            Prelude.<*> (x Prelude..:? "UtilizationPercentage")
+            Core.<$> (x Core..:? "UnusedCommitment")
+            Core.<*> (x Core..:? "UsedCommitment")
+            Core.<*> (x Core..:? "TotalCommitment")
+            Core.<*> (x Core..:? "UtilizationPercentage")
       )
 
-instance Prelude.Hashable SavingsPlansUtilization
+instance Core.Hashable SavingsPlansUtilization
 
-instance Prelude.NFData SavingsPlansUtilization
+instance Core.NFData SavingsPlansUtilization

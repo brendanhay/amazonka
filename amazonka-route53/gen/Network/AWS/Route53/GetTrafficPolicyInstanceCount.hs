@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,8 +37,8 @@ module Network.AWS.Route53.GetTrafficPolicyInstanceCount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -51,7 +50,7 @@ import Network.AWS.Route53.Types
 data GetTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTrafficPolicyInstanceCount' with all optional fields omitted.
@@ -63,43 +62,34 @@ newGetTrafficPolicyInstanceCount =
   GetTrafficPolicyInstanceCount'
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetTrafficPolicyInstanceCount
   where
   type
-    Rs GetTrafficPolicyInstanceCount =
+    AWSResponse GetTrafficPolicyInstanceCount =
       GetTrafficPolicyInstanceCountResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetTrafficPolicyInstanceCountResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "TrafficPolicyInstanceCount")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "TrafficPolicyInstanceCount")
       )
 
-instance
-  Prelude.Hashable
-    GetTrafficPolicyInstanceCount
+instance Core.Hashable GetTrafficPolicyInstanceCount
 
-instance Prelude.NFData GetTrafficPolicyInstanceCount
+instance Core.NFData GetTrafficPolicyInstanceCount
 
-instance
-  Prelude.ToHeaders
-    GetTrafficPolicyInstanceCount
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetTrafficPolicyInstanceCount where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetTrafficPolicyInstanceCount where
+instance Core.ToPath GetTrafficPolicyInstanceCount where
   toPath =
-    Prelude.const
-      "/2013-04-01/trafficpolicyinstancecount"
+    Core.const "/2013-04-01/trafficpolicyinstancecount"
 
-instance
-  Prelude.ToQuery
-    GetTrafficPolicyInstanceCount
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTrafficPolicyInstanceCount where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains information about the resource record sets
 -- that Amazon Route 53 created based on a specified traffic policy.
@@ -107,12 +97,12 @@ instance
 -- /See:/ 'newGetTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The number of traffic policy instances that are associated with the
     -- current AWS account.
-    trafficPolicyInstanceCount :: Prelude.Int
+    trafficPolicyInstanceCount :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTrafficPolicyInstanceCountResponse' with all optional fields omitted.
@@ -128,9 +118,9 @@ data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountRespon
 -- current AWS account.
 newGetTrafficPolicyInstanceCountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'trafficPolicyInstanceCount'
-  Prelude.Int ->
+  Core.Int ->
   GetTrafficPolicyInstanceCountResponse
 newGetTrafficPolicyInstanceCountResponse
   pHttpStatus_
@@ -143,14 +133,14 @@ newGetTrafficPolicyInstanceCountResponse
       }
 
 -- | The response's http status code.
-getTrafficPolicyInstanceCountResponse_httpStatus :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Prelude.Int
+getTrafficPolicyInstanceCountResponse_httpStatus :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Core.Int
 getTrafficPolicyInstanceCountResponse_httpStatus = Lens.lens (\GetTrafficPolicyInstanceCountResponse' {httpStatus} -> httpStatus) (\s@GetTrafficPolicyInstanceCountResponse' {} a -> s {httpStatus = a} :: GetTrafficPolicyInstanceCountResponse)
 
 -- | The number of traffic policy instances that are associated with the
 -- current AWS account.
-getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Prelude.Int
+getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Core.Int
 getTrafficPolicyInstanceCountResponse_trafficPolicyInstanceCount = Lens.lens (\GetTrafficPolicyInstanceCountResponse' {trafficPolicyInstanceCount} -> trafficPolicyInstanceCount) (\s@GetTrafficPolicyInstanceCountResponse' {} a -> s {trafficPolicyInstanceCount = a} :: GetTrafficPolicyInstanceCountResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetTrafficPolicyInstanceCountResponse

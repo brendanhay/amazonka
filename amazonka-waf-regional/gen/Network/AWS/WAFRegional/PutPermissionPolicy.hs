@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -79,8 +78,8 @@ module Network.AWS.WAFRegional.PutPermissionPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
@@ -89,11 +88,11 @@ import Network.AWS.WAFRegional.Types
 data PutPermissionPolicy = PutPermissionPolicy'
   { -- | The Amazon Resource Name (ARN) of the RuleGroup to which you want to
     -- attach the policy.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | The policy to attach to the specified RuleGroup.
-    policy :: Prelude.Text
+    policy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutPermissionPolicy' with all optional fields omitted.
@@ -109,9 +108,9 @@ data PutPermissionPolicy = PutPermissionPolicy'
 -- 'policy', 'putPermissionPolicy_policy' - The policy to attach to the specified RuleGroup.
 newPutPermissionPolicy ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policy'
-  Prelude.Text ->
+  Core.Text ->
   PutPermissionPolicy
 newPutPermissionPolicy pResourceArn_ pPolicy_ =
   PutPermissionPolicy'
@@ -121,65 +120,63 @@ newPutPermissionPolicy pResourceArn_ pPolicy_ =
 
 -- | The Amazon Resource Name (ARN) of the RuleGroup to which you want to
 -- attach the policy.
-putPermissionPolicy_resourceArn :: Lens.Lens' PutPermissionPolicy Prelude.Text
+putPermissionPolicy_resourceArn :: Lens.Lens' PutPermissionPolicy Core.Text
 putPermissionPolicy_resourceArn = Lens.lens (\PutPermissionPolicy' {resourceArn} -> resourceArn) (\s@PutPermissionPolicy' {} a -> s {resourceArn = a} :: PutPermissionPolicy)
 
 -- | The policy to attach to the specified RuleGroup.
-putPermissionPolicy_policy :: Lens.Lens' PutPermissionPolicy Prelude.Text
+putPermissionPolicy_policy :: Lens.Lens' PutPermissionPolicy Core.Text
 putPermissionPolicy_policy = Lens.lens (\PutPermissionPolicy' {policy} -> policy) (\s@PutPermissionPolicy' {} a -> s {policy = a} :: PutPermissionPolicy)
 
-instance Prelude.AWSRequest PutPermissionPolicy where
+instance Core.AWSRequest PutPermissionPolicy where
   type
-    Rs PutPermissionPolicy =
+    AWSResponse PutPermissionPolicy =
       PutPermissionPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutPermissionPolicyResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutPermissionPolicy
+instance Core.Hashable PutPermissionPolicy
 
-instance Prelude.NFData PutPermissionPolicy
+instance Core.NFData PutPermissionPolicy
 
-instance Prelude.ToHeaders PutPermissionPolicy where
+instance Core.ToHeaders PutPermissionPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_Regional_20161128.PutPermissionPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_Regional_20161128.PutPermissionPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutPermissionPolicy where
+instance Core.ToJSON PutPermissionPolicy where
   toJSON PutPermissionPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("ResourceArn" Prelude..= resourceArn),
-            Prelude.Just ("Policy" Prelude..= policy)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("Policy" Core..= policy)
           ]
       )
 
-instance Prelude.ToPath PutPermissionPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutPermissionPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutPermissionPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutPermissionPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutPermissionPolicyResponse' smart constructor.
 data PutPermissionPolicyResponse = PutPermissionPolicyResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutPermissionPolicyResponse' with all optional fields omitted.
@@ -192,7 +189,7 @@ data PutPermissionPolicyResponse = PutPermissionPolicyResponse'
 -- 'httpStatus', 'putPermissionPolicyResponse_httpStatus' - The response's http status code.
 newPutPermissionPolicyResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutPermissionPolicyResponse
 newPutPermissionPolicyResponse pHttpStatus_ =
   PutPermissionPolicyResponse'
@@ -201,7 +198,7 @@ newPutPermissionPolicyResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-putPermissionPolicyResponse_httpStatus :: Lens.Lens' PutPermissionPolicyResponse Prelude.Int
+putPermissionPolicyResponse_httpStatus :: Lens.Lens' PutPermissionPolicyResponse Core.Int
 putPermissionPolicyResponse_httpStatus = Lens.lens (\PutPermissionPolicyResponse' {httpStatus} -> httpStatus) (\s@PutPermissionPolicyResponse' {} a -> s {httpStatus = a} :: PutPermissionPolicyResponse)
 
-instance Prelude.NFData PutPermissionPolicyResponse
+instance Core.NFData PutPermissionPolicyResponse

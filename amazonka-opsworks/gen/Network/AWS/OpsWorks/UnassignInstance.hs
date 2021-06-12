@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,18 +44,18 @@ module Network.AWS.OpsWorks.UnassignInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUnassignInstance' smart constructor.
 data UnassignInstance = UnassignInstance'
   { -- | The instance ID.
-    instanceId :: Prelude.Text
+    instanceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignInstance' with all optional fields omitted.
@@ -69,58 +68,58 @@ data UnassignInstance = UnassignInstance'
 -- 'instanceId', 'unassignInstance_instanceId' - The instance ID.
 newUnassignInstance ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   UnassignInstance
 newUnassignInstance pInstanceId_ =
   UnassignInstance' {instanceId = pInstanceId_}
 
 -- | The instance ID.
-unassignInstance_instanceId :: Lens.Lens' UnassignInstance Prelude.Text
+unassignInstance_instanceId :: Lens.Lens' UnassignInstance Core.Text
 unassignInstance_instanceId = Lens.lens (\UnassignInstance' {instanceId} -> instanceId) (\s@UnassignInstance' {} a -> s {instanceId = a} :: UnassignInstance)
 
-instance Prelude.AWSRequest UnassignInstance where
-  type Rs UnassignInstance = UnassignInstanceResponse
+instance Core.AWSRequest UnassignInstance where
+  type
+    AWSResponse UnassignInstance =
+      UnassignInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UnassignInstanceResponse'
 
-instance Prelude.Hashable UnassignInstance
+instance Core.Hashable UnassignInstance
 
-instance Prelude.NFData UnassignInstance
+instance Core.NFData UnassignInstance
 
-instance Prelude.ToHeaders UnassignInstance where
+instance Core.ToHeaders UnassignInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OpsWorks_20130218.UnassignInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OpsWorks_20130218.UnassignInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UnassignInstance where
+instance Core.ToJSON UnassignInstance where
   toJSON UnassignInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("InstanceId" Prelude..= instanceId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("InstanceId" Core..= instanceId)]
       )
 
-instance Prelude.ToPath UnassignInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath UnassignInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UnassignInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UnassignInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUnassignInstanceResponse' smart constructor.
 data UnassignInstanceResponse = UnassignInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnassignInstanceResponse' with all optional fields omitted.
@@ -131,4 +130,4 @@ newUnassignInstanceResponse ::
 newUnassignInstanceResponse =
   UnassignInstanceResponse'
 
-instance Prelude.NFData UnassignInstanceResponse
+instance Core.NFData UnassignInstanceResponse

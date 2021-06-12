@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -73,8 +72,8 @@ module Network.AWS.CloudHSM.CreateHsm
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -86,25 +85,25 @@ data CreateHsm = CreateHsm'
     --
     -- If an IP address is not specified, an IP address will be randomly chosen
     -- from the CIDR range of the subnet.
-    eniIp :: Prelude.Maybe Prelude.Text,
+    eniIp :: Core.Maybe Core.Text,
     -- | The IP address for the syslog monitoring server. The AWS CloudHSM
     -- service only supports one syslog monitoring server.
-    syslogIp :: Prelude.Maybe Prelude.Text,
+    syslogIp :: Core.Maybe Core.Text,
     -- | The external ID from @IamRoleArn@, if present.
-    externalId :: Prelude.Maybe Prelude.Text,
+    externalId :: Core.Maybe Core.Text,
     -- | A user-defined token to ensure idempotence. Subsequent calls to this
     -- operation with the same token will be ignored.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The identifier of the subnet in your VPC in which to place the HSM.
-    subnetId :: Prelude.Text,
+    subnetId :: Core.Text,
     -- | The SSH public key to install on the HSM.
-    sshKey :: Prelude.Text,
+    sshKey :: Core.Text,
     -- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an
     -- ENI on your behalf.
-    iamRoleArn :: Prelude.Text,
+    iamRoleArn :: Core.Text,
     subscriptionType :: SubscriptionType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHsm' with all optional fields omitted.
@@ -137,11 +136,11 @@ data CreateHsm = CreateHsm'
 -- 'subscriptionType', 'createHsm_subscriptionType' - Undocumented member.
 newCreateHsm ::
   -- | 'subnetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'sshKey'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'iamRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'subscriptionType'
   SubscriptionType ->
   CreateHsm
@@ -151,10 +150,10 @@ newCreateHsm
   pIamRoleArn_
   pSubscriptionType_ =
     CreateHsm'
-      { eniIp = Prelude.Nothing,
-        syslogIp = Prelude.Nothing,
-        externalId = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { eniIp = Core.Nothing,
+        syslogIp = Core.Nothing,
+        externalId = Core.Nothing,
+        clientToken = Core.Nothing,
         subnetId = pSubnetId_,
         sshKey = pSshKey_,
         iamRoleArn = pIamRoleArn_,
@@ -165,102 +164,100 @@ newCreateHsm
 --
 -- If an IP address is not specified, an IP address will be randomly chosen
 -- from the CIDR range of the subnet.
-createHsm_eniIp :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_eniIp :: Lens.Lens' CreateHsm (Core.Maybe Core.Text)
 createHsm_eniIp = Lens.lens (\CreateHsm' {eniIp} -> eniIp) (\s@CreateHsm' {} a -> s {eniIp = a} :: CreateHsm)
 
 -- | The IP address for the syslog monitoring server. The AWS CloudHSM
 -- service only supports one syslog monitoring server.
-createHsm_syslogIp :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_syslogIp :: Lens.Lens' CreateHsm (Core.Maybe Core.Text)
 createHsm_syslogIp = Lens.lens (\CreateHsm' {syslogIp} -> syslogIp) (\s@CreateHsm' {} a -> s {syslogIp = a} :: CreateHsm)
 
 -- | The external ID from @IamRoleArn@, if present.
-createHsm_externalId :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_externalId :: Lens.Lens' CreateHsm (Core.Maybe Core.Text)
 createHsm_externalId = Lens.lens (\CreateHsm' {externalId} -> externalId) (\s@CreateHsm' {} a -> s {externalId = a} :: CreateHsm)
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this
 -- operation with the same token will be ignored.
-createHsm_clientToken :: Lens.Lens' CreateHsm (Prelude.Maybe Prelude.Text)
+createHsm_clientToken :: Lens.Lens' CreateHsm (Core.Maybe Core.Text)
 createHsm_clientToken = Lens.lens (\CreateHsm' {clientToken} -> clientToken) (\s@CreateHsm' {} a -> s {clientToken = a} :: CreateHsm)
 
 -- | The identifier of the subnet in your VPC in which to place the HSM.
-createHsm_subnetId :: Lens.Lens' CreateHsm Prelude.Text
+createHsm_subnetId :: Lens.Lens' CreateHsm Core.Text
 createHsm_subnetId = Lens.lens (\CreateHsm' {subnetId} -> subnetId) (\s@CreateHsm' {} a -> s {subnetId = a} :: CreateHsm)
 
 -- | The SSH public key to install on the HSM.
-createHsm_sshKey :: Lens.Lens' CreateHsm Prelude.Text
+createHsm_sshKey :: Lens.Lens' CreateHsm Core.Text
 createHsm_sshKey = Lens.lens (\CreateHsm' {sshKey} -> sshKey) (\s@CreateHsm' {} a -> s {sshKey = a} :: CreateHsm)
 
 -- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an
 -- ENI on your behalf.
-createHsm_iamRoleArn :: Lens.Lens' CreateHsm Prelude.Text
+createHsm_iamRoleArn :: Lens.Lens' CreateHsm Core.Text
 createHsm_iamRoleArn = Lens.lens (\CreateHsm' {iamRoleArn} -> iamRoleArn) (\s@CreateHsm' {} a -> s {iamRoleArn = a} :: CreateHsm)
 
 -- | Undocumented member.
 createHsm_subscriptionType :: Lens.Lens' CreateHsm SubscriptionType
 createHsm_subscriptionType = Lens.lens (\CreateHsm' {subscriptionType} -> subscriptionType) (\s@CreateHsm' {} a -> s {subscriptionType = a} :: CreateHsm)
 
-instance Prelude.AWSRequest CreateHsm where
-  type Rs CreateHsm = CreateHsmResponse
+instance Core.AWSRequest CreateHsm where
+  type AWSResponse CreateHsm = CreateHsmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateHsmResponse'
-            Prelude.<$> (x Prelude..?> "HsmArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "HsmArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateHsm
+instance Core.Hashable CreateHsm
 
-instance Prelude.NFData CreateHsm
+instance Core.NFData CreateHsm
 
-instance Prelude.ToHeaders CreateHsm where
+instance Core.ToHeaders CreateHsm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.CreateHsm" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.CreateHsm" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateHsm where
+instance Core.ToJSON CreateHsm where
   toJSON CreateHsm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EniIp" Prelude..=) Prelude.<$> eniIp,
-            ("SyslogIp" Prelude..=) Prelude.<$> syslogIp,
-            ("ExternalId" Prelude..=) Prelude.<$> externalId,
-            ("ClientToken" Prelude..=) Prelude.<$> clientToken,
-            Prelude.Just ("SubnetId" Prelude..= subnetId),
-            Prelude.Just ("SshKey" Prelude..= sshKey),
-            Prelude.Just ("IamRoleArn" Prelude..= iamRoleArn),
-            Prelude.Just
-              ("SubscriptionType" Prelude..= subscriptionType)
+    Core.object
+      ( Core.catMaybes
+          [ ("EniIp" Core..=) Core.<$> eniIp,
+            ("SyslogIp" Core..=) Core.<$> syslogIp,
+            ("ExternalId" Core..=) Core.<$> externalId,
+            ("ClientToken" Core..=) Core.<$> clientToken,
+            Core.Just ("SubnetId" Core..= subnetId),
+            Core.Just ("SshKey" Core..= sshKey),
+            Core.Just ("IamRoleArn" Core..= iamRoleArn),
+            Core.Just
+              ("SubscriptionType" Core..= subscriptionType)
           ]
       )
 
-instance Prelude.ToPath CreateHsm where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateHsm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateHsm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateHsm where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of the @CreateHsm@ operation.
 --
 -- /See:/ 'newCreateHsmResponse' smart constructor.
 data CreateHsmResponse = CreateHsmResponse'
   { -- | The ARN of the HSM.
-    hsmArn :: Prelude.Maybe Prelude.Text,
+    hsmArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateHsmResponse' with all optional fields omitted.
@@ -275,20 +272,20 @@ data CreateHsmResponse = CreateHsmResponse'
 -- 'httpStatus', 'createHsmResponse_httpStatus' - The response's http status code.
 newCreateHsmResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateHsmResponse
 newCreateHsmResponse pHttpStatus_ =
   CreateHsmResponse'
-    { hsmArn = Prelude.Nothing,
+    { hsmArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the HSM.
-createHsmResponse_hsmArn :: Lens.Lens' CreateHsmResponse (Prelude.Maybe Prelude.Text)
+createHsmResponse_hsmArn :: Lens.Lens' CreateHsmResponse (Core.Maybe Core.Text)
 createHsmResponse_hsmArn = Lens.lens (\CreateHsmResponse' {hsmArn} -> hsmArn) (\s@CreateHsmResponse' {} a -> s {hsmArn = a} :: CreateHsmResponse)
 
 -- | The response's http status code.
-createHsmResponse_httpStatus :: Lens.Lens' CreateHsmResponse Prelude.Int
+createHsmResponse_httpStatus :: Lens.Lens' CreateHsmResponse Core.Int
 createHsmResponse_httpStatus = Lens.lens (\CreateHsmResponse' {httpStatus} -> httpStatus) (\s@CreateHsmResponse' {} a -> s {httpStatus = a} :: CreateHsmResponse)
 
-instance Prelude.NFData CreateHsmResponse
+instance Core.NFData CreateHsmResponse

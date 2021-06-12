@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.KubernetesNetworkConfigResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Kubernetes network configuration for the cluster.
 --
@@ -32,9 +31,9 @@ data KubernetesNetworkConfigResponse = KubernetesNetworkConfigResponse'
     -- Kubernetes assigns addresses from either the 10.100.0.0\/16 or
     -- 172.20.0.0\/16 CIDR blocks. If this was specified, then it was specified
     -- when the cluster was created and it cannot be changed.
-    serviceIpv4Cidr :: Prelude.Maybe Prelude.Text
+    serviceIpv4Cidr :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'KubernetesNetworkConfigResponse' with all optional fields omitted.
@@ -54,7 +53,7 @@ newKubernetesNetworkConfigResponse ::
 newKubernetesNetworkConfigResponse =
   KubernetesNetworkConfigResponse'
     { serviceIpv4Cidr =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The CIDR block that Kubernetes service IP addresses are assigned from.
@@ -62,25 +61,23 @@ newKubernetesNetworkConfigResponse =
 -- Kubernetes assigns addresses from either the 10.100.0.0\/16 or
 -- 172.20.0.0\/16 CIDR blocks. If this was specified, then it was specified
 -- when the cluster was created and it cannot be changed.
-kubernetesNetworkConfigResponse_serviceIpv4Cidr :: Lens.Lens' KubernetesNetworkConfigResponse (Prelude.Maybe Prelude.Text)
+kubernetesNetworkConfigResponse_serviceIpv4Cidr :: Lens.Lens' KubernetesNetworkConfigResponse (Core.Maybe Core.Text)
 kubernetesNetworkConfigResponse_serviceIpv4Cidr = Lens.lens (\KubernetesNetworkConfigResponse' {serviceIpv4Cidr} -> serviceIpv4Cidr) (\s@KubernetesNetworkConfigResponse' {} a -> s {serviceIpv4Cidr = a} :: KubernetesNetworkConfigResponse)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     KubernetesNetworkConfigResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "KubernetesNetworkConfigResponse"
       ( \x ->
           KubernetesNetworkConfigResponse'
-            Prelude.<$> (x Prelude..:? "serviceIpv4Cidr")
+            Core.<$> (x Core..:? "serviceIpv4Cidr")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     KubernetesNetworkConfigResponse
 
-instance
-  Prelude.NFData
-    KubernetesNetworkConfigResponse
+instance Core.NFData KubernetesNetworkConfigResponse

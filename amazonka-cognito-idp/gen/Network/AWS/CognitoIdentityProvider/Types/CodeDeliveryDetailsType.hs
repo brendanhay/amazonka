@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,21 +20,21 @@
 module Network.AWS.CognitoIdentityProvider.Types.CodeDeliveryDetailsType where
 
 import Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The code delivery details being returned from the server.
 --
 -- /See:/ 'newCodeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
   { -- | The delivery medium (email message or phone number).
-    deliveryMedium :: Prelude.Maybe DeliveryMediumType,
+    deliveryMedium :: Core.Maybe DeliveryMediumType,
     -- | The attribute name.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    attributeName :: Core.Maybe Core.Text,
     -- | The destination for the code delivery details.
-    destination :: Prelude.Maybe Prelude.Text
+    destination :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CodeDeliveryDetailsType' with all optional fields omitted.
@@ -55,34 +54,34 @@ newCodeDeliveryDetailsType ::
 newCodeDeliveryDetailsType =
   CodeDeliveryDetailsType'
     { deliveryMedium =
-        Prelude.Nothing,
-      attributeName = Prelude.Nothing,
-      destination = Prelude.Nothing
+        Core.Nothing,
+      attributeName = Core.Nothing,
+      destination = Core.Nothing
     }
 
 -- | The delivery medium (email message or phone number).
-codeDeliveryDetailsType_deliveryMedium :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe DeliveryMediumType)
+codeDeliveryDetailsType_deliveryMedium :: Lens.Lens' CodeDeliveryDetailsType (Core.Maybe DeliveryMediumType)
 codeDeliveryDetailsType_deliveryMedium = Lens.lens (\CodeDeliveryDetailsType' {deliveryMedium} -> deliveryMedium) (\s@CodeDeliveryDetailsType' {} a -> s {deliveryMedium = a} :: CodeDeliveryDetailsType)
 
 -- | The attribute name.
-codeDeliveryDetailsType_attributeName :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
+codeDeliveryDetailsType_attributeName :: Lens.Lens' CodeDeliveryDetailsType (Core.Maybe Core.Text)
 codeDeliveryDetailsType_attributeName = Lens.lens (\CodeDeliveryDetailsType' {attributeName} -> attributeName) (\s@CodeDeliveryDetailsType' {} a -> s {attributeName = a} :: CodeDeliveryDetailsType)
 
 -- | The destination for the code delivery details.
-codeDeliveryDetailsType_destination :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
+codeDeliveryDetailsType_destination :: Lens.Lens' CodeDeliveryDetailsType (Core.Maybe Core.Text)
 codeDeliveryDetailsType_destination = Lens.lens (\CodeDeliveryDetailsType' {destination} -> destination) (\s@CodeDeliveryDetailsType' {} a -> s {destination = a} :: CodeDeliveryDetailsType)
 
-instance Prelude.FromJSON CodeDeliveryDetailsType where
+instance Core.FromJSON CodeDeliveryDetailsType where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CodeDeliveryDetailsType"
       ( \x ->
           CodeDeliveryDetailsType'
-            Prelude.<$> (x Prelude..:? "DeliveryMedium")
-            Prelude.<*> (x Prelude..:? "AttributeName")
-            Prelude.<*> (x Prelude..:? "Destination")
+            Core.<$> (x Core..:? "DeliveryMedium")
+            Core.<*> (x Core..:? "AttributeName")
+            Core.<*> (x Core..:? "Destination")
       )
 
-instance Prelude.Hashable CodeDeliveryDetailsType
+instance Core.Hashable CodeDeliveryDetailsType
 
-instance Prelude.NFData CodeDeliveryDetailsType
+instance Core.NFData CodeDeliveryDetailsType

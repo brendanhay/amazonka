@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.APIGateway.Types.Authorizer where
 
 import Network.AWS.APIGateway.Types.AuthorizerType
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an authorization layer for methods. If enabled on a method,
 -- API Gateway will activate the authorizer when a client calls the method.
@@ -40,21 +39,21 @@ data Authorizer = Authorizer'
     -- is a match. Otherwise, it will return a 401 Unauthorized response
     -- without calling the Lambda function. The validation expression does not
     -- apply to the @REQUEST@ authorizer.
-    identityValidationExpression :: Prelude.Maybe Prelude.Text,
+    identityValidationExpression :: Core.Maybe Core.Text,
     -- | Specifies the required credentials as an IAM role for API Gateway to
     -- invoke the authorizer. To specify an IAM role for API Gateway to assume,
     -- use the role\'s Amazon Resource Name (ARN). To use resource-based
     -- permissions on the Lambda function, specify null.
-    authorizerCredentials :: Prelude.Maybe Prelude.Text,
+    authorizerCredentials :: Core.Maybe Core.Text,
     -- | The identifier for the authorizer resource.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | [Required] The name of the authorizer.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
     -- authorizer. Each element is of this format:
     -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
     -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
-    providerARNs :: Prelude.Maybe [Prelude.Text],
+    providerARNs :: Core.Maybe [Core.Text],
     -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
     -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
     -- function URI, for example,
@@ -66,7 +65,7 @@ data Authorizer = Authorizer'
     -- the path to the resource, including the initial @\/@. For Lambda
     -- functions, this is usually of the form
     -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
-    authorizerUri :: Prelude.Maybe Prelude.Text,
+    authorizerUri :: Core.Maybe Core.Text,
     -- | The identity source for which authorization is requested.
     --
     -- -   For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required
@@ -89,22 +88,22 @@ data Authorizer = Authorizer'
     --     function. The valid value is a string of comma-separated mapping
     --     expressions of the specified request parameters. When the
     --     authorization caching is not enabled, this property is optional.
-    identitySource :: Prelude.Maybe Prelude.Text,
+    identitySource :: Core.Maybe Core.Text,
     -- | The authorizer type. Valid values are @TOKEN@ for a Lambda function
     -- using a single authorization token submitted in a custom header,
     -- @REQUEST@ for a Lambda function using incoming request parameters, and
     -- @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
-    type' :: Prelude.Maybe AuthorizerType,
+    type' :: Core.Maybe AuthorizerType,
     -- | Optional customer-defined field, used in OpenAPI imports and exports
     -- without functional impact.
-    authType :: Prelude.Maybe Prelude.Text,
+    authType :: Core.Maybe Core.Text,
     -- | The TTL in seconds of cached authorizer results. If it equals 0,
     -- authorization caching is disabled. If it is greater than 0, API Gateway
     -- will cache authorizer responses. If this field is not set, the default
     -- value is 300. The maximum value is 3600, or 1 hour.
-    authorizerResultTtlInSeconds :: Prelude.Maybe Prelude.Int
+    authorizerResultTtlInSeconds :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Authorizer' with all optional fields omitted.
@@ -189,16 +188,16 @@ newAuthorizer ::
 newAuthorizer =
   Authorizer'
     { identityValidationExpression =
-        Prelude.Nothing,
-      authorizerCredentials = Prelude.Nothing,
-      id = Prelude.Nothing,
-      name = Prelude.Nothing,
-      providerARNs = Prelude.Nothing,
-      authorizerUri = Prelude.Nothing,
-      identitySource = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      authType = Prelude.Nothing,
-      authorizerResultTtlInSeconds = Prelude.Nothing
+        Core.Nothing,
+      authorizerCredentials = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      providerARNs = Core.Nothing,
+      authorizerUri = Core.Nothing,
+      identitySource = Core.Nothing,
+      type' = Core.Nothing,
+      authType = Core.Nothing,
+      authorizerResultTtlInSeconds = Core.Nothing
     }
 
 -- | A validation expression for the incoming identity token. For @TOKEN@
@@ -209,30 +208,30 @@ newAuthorizer =
 -- is a match. Otherwise, it will return a 401 Unauthorized response
 -- without calling the Lambda function. The validation expression does not
 -- apply to the @REQUEST@ authorizer.
-authorizer_identityValidationExpression :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
+authorizer_identityValidationExpression :: Lens.Lens' Authorizer (Core.Maybe Core.Text)
 authorizer_identityValidationExpression = Lens.lens (\Authorizer' {identityValidationExpression} -> identityValidationExpression) (\s@Authorizer' {} a -> s {identityValidationExpression = a} :: Authorizer)
 
 -- | Specifies the required credentials as an IAM role for API Gateway to
 -- invoke the authorizer. To specify an IAM role for API Gateway to assume,
 -- use the role\'s Amazon Resource Name (ARN). To use resource-based
 -- permissions on the Lambda function, specify null.
-authorizer_authorizerCredentials :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
+authorizer_authorizerCredentials :: Lens.Lens' Authorizer (Core.Maybe Core.Text)
 authorizer_authorizerCredentials = Lens.lens (\Authorizer' {authorizerCredentials} -> authorizerCredentials) (\s@Authorizer' {} a -> s {authorizerCredentials = a} :: Authorizer)
 
 -- | The identifier for the authorizer resource.
-authorizer_id :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
+authorizer_id :: Lens.Lens' Authorizer (Core.Maybe Core.Text)
 authorizer_id = Lens.lens (\Authorizer' {id} -> id) (\s@Authorizer' {} a -> s {id = a} :: Authorizer)
 
 -- | [Required] The name of the authorizer.
-authorizer_name :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
+authorizer_name :: Lens.Lens' Authorizer (Core.Maybe Core.Text)
 authorizer_name = Lens.lens (\Authorizer' {name} -> name) (\s@Authorizer' {} a -> s {name = a} :: Authorizer)
 
 -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
 -- authorizer. Each element is of this format:
 -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
 -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
-authorizer_providerARNs :: Lens.Lens' Authorizer (Prelude.Maybe [Prelude.Text])
-authorizer_providerARNs = Lens.lens (\Authorizer' {providerARNs} -> providerARNs) (\s@Authorizer' {} a -> s {providerARNs = a} :: Authorizer) Prelude.. Lens.mapping Prelude._Coerce
+authorizer_providerARNs :: Lens.Lens' Authorizer (Core.Maybe [Core.Text])
+authorizer_providerARNs = Lens.lens (\Authorizer' {providerARNs} -> providerARNs) (\s@Authorizer' {} a -> s {providerARNs = a} :: Authorizer) Core.. Lens.mapping Lens._Coerce
 
 -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
 -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
@@ -245,7 +244,7 @@ authorizer_providerARNs = Lens.lens (\Authorizer' {providerARNs} -> providerARNs
 -- the path to the resource, including the initial @\/@. For Lambda
 -- functions, this is usually of the form
 -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
-authorizer_authorizerUri :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
+authorizer_authorizerUri :: Lens.Lens' Authorizer (Core.Maybe Core.Text)
 authorizer_authorizerUri = Lens.lens (\Authorizer' {authorizerUri} -> authorizerUri) (\s@Authorizer' {} a -> s {authorizerUri = a} :: Authorizer)
 
 -- | The identity source for which authorization is requested.
@@ -270,48 +269,46 @@ authorizer_authorizerUri = Lens.lens (\Authorizer' {authorizerUri} -> authorizer
 --     function. The valid value is a string of comma-separated mapping
 --     expressions of the specified request parameters. When the
 --     authorization caching is not enabled, this property is optional.
-authorizer_identitySource :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
+authorizer_identitySource :: Lens.Lens' Authorizer (Core.Maybe Core.Text)
 authorizer_identitySource = Lens.lens (\Authorizer' {identitySource} -> identitySource) (\s@Authorizer' {} a -> s {identitySource = a} :: Authorizer)
 
 -- | The authorizer type. Valid values are @TOKEN@ for a Lambda function
 -- using a single authorization token submitted in a custom header,
 -- @REQUEST@ for a Lambda function using incoming request parameters, and
 -- @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.
-authorizer_type :: Lens.Lens' Authorizer (Prelude.Maybe AuthorizerType)
+authorizer_type :: Lens.Lens' Authorizer (Core.Maybe AuthorizerType)
 authorizer_type = Lens.lens (\Authorizer' {type'} -> type') (\s@Authorizer' {} a -> s {type' = a} :: Authorizer)
 
 -- | Optional customer-defined field, used in OpenAPI imports and exports
 -- without functional impact.
-authorizer_authType :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Text)
+authorizer_authType :: Lens.Lens' Authorizer (Core.Maybe Core.Text)
 authorizer_authType = Lens.lens (\Authorizer' {authType} -> authType) (\s@Authorizer' {} a -> s {authType = a} :: Authorizer)
 
 -- | The TTL in seconds of cached authorizer results. If it equals 0,
 -- authorization caching is disabled. If it is greater than 0, API Gateway
 -- will cache authorizer responses. If this field is not set, the default
 -- value is 300. The maximum value is 3600, or 1 hour.
-authorizer_authorizerResultTtlInSeconds :: Lens.Lens' Authorizer (Prelude.Maybe Prelude.Int)
+authorizer_authorizerResultTtlInSeconds :: Lens.Lens' Authorizer (Core.Maybe Core.Int)
 authorizer_authorizerResultTtlInSeconds = Lens.lens (\Authorizer' {authorizerResultTtlInSeconds} -> authorizerResultTtlInSeconds) (\s@Authorizer' {} a -> s {authorizerResultTtlInSeconds = a} :: Authorizer)
 
-instance Prelude.FromJSON Authorizer where
+instance Core.FromJSON Authorizer where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Authorizer"
       ( \x ->
           Authorizer'
-            Prelude.<$> (x Prelude..:? "identityValidationExpression")
-            Prelude.<*> (x Prelude..:? "authorizerCredentials")
-            Prelude.<*> (x Prelude..:? "id")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> ( x Prelude..:? "providerARNs"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "authorizerUri")
-            Prelude.<*> (x Prelude..:? "identitySource")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "authType")
-            Prelude.<*> (x Prelude..:? "authorizerResultTtlInSeconds")
+            Core.<$> (x Core..:? "identityValidationExpression")
+            Core.<*> (x Core..:? "authorizerCredentials")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "providerARNs" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "authorizerUri")
+            Core.<*> (x Core..:? "identitySource")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "authType")
+            Core.<*> (x Core..:? "authorizerResultTtlInSeconds")
       )
 
-instance Prelude.Hashable Authorizer
+instance Core.Hashable Authorizer
 
-instance Prelude.NFData Authorizer
+instance Core.NFData Authorizer

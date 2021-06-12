@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.StepFunctions.StopExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StepFunctions.Types
@@ -53,13 +52,13 @@ import Network.AWS.StepFunctions.Types
 -- | /See:/ 'newStopExecution' smart constructor.
 data StopExecution = StopExecution'
   { -- | A more detailed explanation of the cause of the failure.
-    cause :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    cause :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The error code of the failure.
-    error :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    error :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The Amazon Resource Name (ARN) of the execution to stop.
-    executionArn :: Prelude.Text
+    executionArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopExecution' with all optional fields omitted.
@@ -76,82 +75,81 @@ data StopExecution = StopExecution'
 -- 'executionArn', 'stopExecution_executionArn' - The Amazon Resource Name (ARN) of the execution to stop.
 newStopExecution ::
   -- | 'executionArn'
-  Prelude.Text ->
+  Core.Text ->
   StopExecution
 newStopExecution pExecutionArn_ =
   StopExecution'
-    { cause = Prelude.Nothing,
-      error = Prelude.Nothing,
+    { cause = Core.Nothing,
+      error = Core.Nothing,
       executionArn = pExecutionArn_
     }
 
 -- | A more detailed explanation of the cause of the failure.
-stopExecution_cause :: Lens.Lens' StopExecution (Prelude.Maybe Prelude.Text)
-stopExecution_cause = Lens.lens (\StopExecution' {cause} -> cause) (\s@StopExecution' {} a -> s {cause = a} :: StopExecution) Prelude.. Lens.mapping Prelude._Sensitive
+stopExecution_cause :: Lens.Lens' StopExecution (Core.Maybe Core.Text)
+stopExecution_cause = Lens.lens (\StopExecution' {cause} -> cause) (\s@StopExecution' {} a -> s {cause = a} :: StopExecution) Core.. Lens.mapping Core._Sensitive
 
 -- | The error code of the failure.
-stopExecution_error :: Lens.Lens' StopExecution (Prelude.Maybe Prelude.Text)
-stopExecution_error = Lens.lens (\StopExecution' {error} -> error) (\s@StopExecution' {} a -> s {error = a} :: StopExecution) Prelude.. Lens.mapping Prelude._Sensitive
+stopExecution_error :: Lens.Lens' StopExecution (Core.Maybe Core.Text)
+stopExecution_error = Lens.lens (\StopExecution' {error} -> error) (\s@StopExecution' {} a -> s {error = a} :: StopExecution) Core.. Lens.mapping Core._Sensitive
 
 -- | The Amazon Resource Name (ARN) of the execution to stop.
-stopExecution_executionArn :: Lens.Lens' StopExecution Prelude.Text
+stopExecution_executionArn :: Lens.Lens' StopExecution Core.Text
 stopExecution_executionArn = Lens.lens (\StopExecution' {executionArn} -> executionArn) (\s@StopExecution' {} a -> s {executionArn = a} :: StopExecution)
 
-instance Prelude.AWSRequest StopExecution where
-  type Rs StopExecution = StopExecutionResponse
+instance Core.AWSRequest StopExecution where
+  type
+    AWSResponse StopExecution =
+      StopExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopExecutionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "stopDate")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "stopDate")
       )
 
-instance Prelude.Hashable StopExecution
+instance Core.Hashable StopExecution
 
-instance Prelude.NFData StopExecution
+instance Core.NFData StopExecution
 
-instance Prelude.ToHeaders StopExecution where
+instance Core.ToHeaders StopExecution where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSStepFunctions.StopExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSStepFunctions.StopExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopExecution where
+instance Core.ToJSON StopExecution where
   toJSON StopExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("cause" Prelude..=) Prelude.<$> cause,
-            ("error" Prelude..=) Prelude.<$> error,
-            Prelude.Just
-              ("executionArn" Prelude..= executionArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("cause" Core..=) Core.<$> cause,
+            ("error" Core..=) Core.<$> error,
+            Core.Just ("executionArn" Core..= executionArn)
           ]
       )
 
-instance Prelude.ToPath StopExecution where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopExecution where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopExecution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopExecution where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopExecutionResponse' smart constructor.
 data StopExecutionResponse = StopExecutionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The date the execution is stopped.
-    stopDate :: Prelude.POSIX
+    stopDate :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopExecutionResponse' with all optional fields omitted.
@@ -166,22 +164,22 @@ data StopExecutionResponse = StopExecutionResponse'
 -- 'stopDate', 'stopExecutionResponse_stopDate' - The date the execution is stopped.
 newStopExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'stopDate'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   StopExecutionResponse
 newStopExecutionResponse pHttpStatus_ pStopDate_ =
   StopExecutionResponse'
     { httpStatus = pHttpStatus_,
-      stopDate = Prelude._Time Lens.# pStopDate_
+      stopDate = Core._Time Lens.# pStopDate_
     }
 
 -- | The response's http status code.
-stopExecutionResponse_httpStatus :: Lens.Lens' StopExecutionResponse Prelude.Int
+stopExecutionResponse_httpStatus :: Lens.Lens' StopExecutionResponse Core.Int
 stopExecutionResponse_httpStatus = Lens.lens (\StopExecutionResponse' {httpStatus} -> httpStatus) (\s@StopExecutionResponse' {} a -> s {httpStatus = a} :: StopExecutionResponse)
 
 -- | The date the execution is stopped.
-stopExecutionResponse_stopDate :: Lens.Lens' StopExecutionResponse Prelude.UTCTime
-stopExecutionResponse_stopDate = Lens.lens (\StopExecutionResponse' {stopDate} -> stopDate) (\s@StopExecutionResponse' {} a -> s {stopDate = a} :: StopExecutionResponse) Prelude.. Prelude._Time
+stopExecutionResponse_stopDate :: Lens.Lens' StopExecutionResponse Core.UTCTime
+stopExecutionResponse_stopDate = Lens.lens (\StopExecutionResponse' {stopDate} -> stopDate) (\s@StopExecutionResponse' {} a -> s {stopDate = a} :: StopExecutionResponse) Core.. Core._Time
 
-instance Prelude.NFData StopExecutionResponse
+instance Core.NFData StopExecutionResponse

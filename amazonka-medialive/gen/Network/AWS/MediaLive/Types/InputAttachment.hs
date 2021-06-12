@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputAttachment where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings
 import Network.AWS.MediaLive.Types.InputSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for InputAttachment
 --
 -- /See:/ 'newInputAttachment' smart constructor.
 data InputAttachment = InputAttachment'
   { -- | Settings of an input (caption selector, etc.)
-    inputSettings :: Prelude.Maybe InputSettings,
+    inputSettings :: Core.Maybe InputSettings,
     -- | The ID of the input
-    inputId :: Prelude.Maybe Prelude.Text,
+    inputId :: Core.Maybe Core.Text,
     -- | User-specified name for the attachment. This is required if the user
     -- wants to use this input in an input switch action.
-    inputAttachmentName :: Prelude.Maybe Prelude.Text,
+    inputAttachmentName :: Core.Maybe Core.Text,
     -- | User-specified settings for defining what the conditions are for
     -- declaring the input unhealthy and failing over to a different input.
-    automaticInputFailoverSettings :: Prelude.Maybe AutomaticInputFailoverSettings
+    automaticInputFailoverSettings :: Core.Maybe AutomaticInputFailoverSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputAttachment' with all optional fields omitted.
@@ -63,56 +62,55 @@ newInputAttachment ::
   InputAttachment
 newInputAttachment =
   InputAttachment'
-    { inputSettings = Prelude.Nothing,
-      inputId = Prelude.Nothing,
-      inputAttachmentName = Prelude.Nothing,
-      automaticInputFailoverSettings = Prelude.Nothing
+    { inputSettings = Core.Nothing,
+      inputId = Core.Nothing,
+      inputAttachmentName = Core.Nothing,
+      automaticInputFailoverSettings = Core.Nothing
     }
 
 -- | Settings of an input (caption selector, etc.)
-inputAttachment_inputSettings :: Lens.Lens' InputAttachment (Prelude.Maybe InputSettings)
+inputAttachment_inputSettings :: Lens.Lens' InputAttachment (Core.Maybe InputSettings)
 inputAttachment_inputSettings = Lens.lens (\InputAttachment' {inputSettings} -> inputSettings) (\s@InputAttachment' {} a -> s {inputSettings = a} :: InputAttachment)
 
 -- | The ID of the input
-inputAttachment_inputId :: Lens.Lens' InputAttachment (Prelude.Maybe Prelude.Text)
+inputAttachment_inputId :: Lens.Lens' InputAttachment (Core.Maybe Core.Text)
 inputAttachment_inputId = Lens.lens (\InputAttachment' {inputId} -> inputId) (\s@InputAttachment' {} a -> s {inputId = a} :: InputAttachment)
 
 -- | User-specified name for the attachment. This is required if the user
 -- wants to use this input in an input switch action.
-inputAttachment_inputAttachmentName :: Lens.Lens' InputAttachment (Prelude.Maybe Prelude.Text)
+inputAttachment_inputAttachmentName :: Lens.Lens' InputAttachment (Core.Maybe Core.Text)
 inputAttachment_inputAttachmentName = Lens.lens (\InputAttachment' {inputAttachmentName} -> inputAttachmentName) (\s@InputAttachment' {} a -> s {inputAttachmentName = a} :: InputAttachment)
 
 -- | User-specified settings for defining what the conditions are for
 -- declaring the input unhealthy and failing over to a different input.
-inputAttachment_automaticInputFailoverSettings :: Lens.Lens' InputAttachment (Prelude.Maybe AutomaticInputFailoverSettings)
+inputAttachment_automaticInputFailoverSettings :: Lens.Lens' InputAttachment (Core.Maybe AutomaticInputFailoverSettings)
 inputAttachment_automaticInputFailoverSettings = Lens.lens (\InputAttachment' {automaticInputFailoverSettings} -> automaticInputFailoverSettings) (\s@InputAttachment' {} a -> s {automaticInputFailoverSettings = a} :: InputAttachment)
 
-instance Prelude.FromJSON InputAttachment where
+instance Core.FromJSON InputAttachment where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputAttachment"
       ( \x ->
           InputAttachment'
-            Prelude.<$> (x Prelude..:? "inputSettings")
-            Prelude.<*> (x Prelude..:? "inputId")
-            Prelude.<*> (x Prelude..:? "inputAttachmentName")
-            Prelude.<*> (x Prelude..:? "automaticInputFailoverSettings")
+            Core.<$> (x Core..:? "inputSettings")
+            Core.<*> (x Core..:? "inputId")
+            Core.<*> (x Core..:? "inputAttachmentName")
+            Core.<*> (x Core..:? "automaticInputFailoverSettings")
       )
 
-instance Prelude.Hashable InputAttachment
+instance Core.Hashable InputAttachment
 
-instance Prelude.NFData InputAttachment
+instance Core.NFData InputAttachment
 
-instance Prelude.ToJSON InputAttachment where
+instance Core.ToJSON InputAttachment where
   toJSON InputAttachment' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("inputSettings" Prelude..=)
-              Prelude.<$> inputSettings,
-            ("inputId" Prelude..=) Prelude.<$> inputId,
-            ("inputAttachmentName" Prelude..=)
-              Prelude.<$> inputAttachmentName,
-            ("automaticInputFailoverSettings" Prelude..=)
-              Prelude.<$> automaticInputFailoverSettings
+    Core.object
+      ( Core.catMaybes
+          [ ("inputSettings" Core..=) Core.<$> inputSettings,
+            ("inputId" Core..=) Core.<$> inputId,
+            ("inputAttachmentName" Core..=)
+              Core.<$> inputAttachmentName,
+            ("automaticInputFailoverSettings" Core..=)
+              Core.<$> automaticInputFailoverSettings
           ]
       )

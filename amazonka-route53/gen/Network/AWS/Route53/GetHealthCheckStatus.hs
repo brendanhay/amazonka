@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Route53.GetHealthCheckStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -58,9 +57,9 @@ data GetHealthCheckStatus = GetHealthCheckStatus'
     -- use the Amazon Route 53 console or the CloudWatch console. You can\'t
     -- use @GetHealthCheckStatus@ to get the status of a calculated health
     -- check.
-    healthCheckId :: Prelude.Text
+    healthCheckId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetHealthCheckStatus' with all optional fields omitted.
@@ -80,7 +79,7 @@ data GetHealthCheckStatus = GetHealthCheckStatus'
 -- check.
 newGetHealthCheckStatus ::
   -- | 'healthCheckId'
-  Prelude.Text ->
+  Core.Text ->
   GetHealthCheckStatus
 newGetHealthCheckStatus pHealthCheckId_ =
   GetHealthCheckStatus'
@@ -96,55 +95,55 @@ newGetHealthCheckStatus pHealthCheckId_ =
 -- use the Amazon Route 53 console or the CloudWatch console. You can\'t
 -- use @GetHealthCheckStatus@ to get the status of a calculated health
 -- check.
-getHealthCheckStatus_healthCheckId :: Lens.Lens' GetHealthCheckStatus Prelude.Text
+getHealthCheckStatus_healthCheckId :: Lens.Lens' GetHealthCheckStatus Core.Text
 getHealthCheckStatus_healthCheckId = Lens.lens (\GetHealthCheckStatus' {healthCheckId} -> healthCheckId) (\s@GetHealthCheckStatus' {} a -> s {healthCheckId = a} :: GetHealthCheckStatus)
 
-instance Prelude.AWSRequest GetHealthCheckStatus where
+instance Core.AWSRequest GetHealthCheckStatus where
   type
-    Rs GetHealthCheckStatus =
+    AWSResponse GetHealthCheckStatus =
       GetHealthCheckStatusResponse
   request = Request.get defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           GetHealthCheckStatusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "HealthCheckObservations"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "HealthCheckObservation"
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "HealthCheckObservations"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "HealthCheckObservation"
+                     )
       )
 
-instance Prelude.Hashable GetHealthCheckStatus
+instance Core.Hashable GetHealthCheckStatus
 
-instance Prelude.NFData GetHealthCheckStatus
+instance Core.NFData GetHealthCheckStatus
 
-instance Prelude.ToHeaders GetHealthCheckStatus where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetHealthCheckStatus where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetHealthCheckStatus where
+instance Core.ToPath GetHealthCheckStatus where
   toPath GetHealthCheckStatus' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/healthcheck/",
-        Prelude.toBS healthCheckId,
+        Core.toBS healthCheckId,
         "/status"
       ]
 
-instance Prelude.ToQuery GetHealthCheckStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetHealthCheckStatus where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains the response to a @GetHealthCheck@ request.
 --
 -- /See:/ 'newGetHealthCheckStatusResponse' smart constructor.
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list that contains one @HealthCheckObservation@ element for each
     -- Amazon Route 53 health checker that is reporting a status about the
     -- health check endpoint.
     healthCheckObservations :: [HealthCheckObservation]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetHealthCheckStatusResponse' with all optional fields omitted.
@@ -161,23 +160,23 @@ data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
 -- health check endpoint.
 newGetHealthCheckStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetHealthCheckStatusResponse
 newGetHealthCheckStatusResponse pHttpStatus_ =
   GetHealthCheckStatusResponse'
     { httpStatus =
         pHttpStatus_,
-      healthCheckObservations = Prelude.mempty
+      healthCheckObservations = Core.mempty
     }
 
 -- | The response's http status code.
-getHealthCheckStatusResponse_httpStatus :: Lens.Lens' GetHealthCheckStatusResponse Prelude.Int
+getHealthCheckStatusResponse_httpStatus :: Lens.Lens' GetHealthCheckStatusResponse Core.Int
 getHealthCheckStatusResponse_httpStatus = Lens.lens (\GetHealthCheckStatusResponse' {httpStatus} -> httpStatus) (\s@GetHealthCheckStatusResponse' {} a -> s {httpStatus = a} :: GetHealthCheckStatusResponse)
 
 -- | A list that contains one @HealthCheckObservation@ element for each
 -- Amazon Route 53 health checker that is reporting a status about the
 -- health check endpoint.
 getHealthCheckStatusResponse_healthCheckObservations :: Lens.Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
-getHealthCheckStatusResponse_healthCheckObservations = Lens.lens (\GetHealthCheckStatusResponse' {healthCheckObservations} -> healthCheckObservations) (\s@GetHealthCheckStatusResponse' {} a -> s {healthCheckObservations = a} :: GetHealthCheckStatusResponse) Prelude.. Prelude._Coerce
+getHealthCheckStatusResponse_healthCheckObservations = Lens.lens (\GetHealthCheckStatusResponse' {healthCheckObservations} -> healthCheckObservations) (\s@GetHealthCheckStatusResponse' {} a -> s {healthCheckObservations = a} :: GetHealthCheckStatusResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetHealthCheckStatusResponse
+instance Core.NFData GetHealthCheckStatusResponse

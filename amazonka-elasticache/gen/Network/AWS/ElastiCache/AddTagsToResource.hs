@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,9 +51,9 @@ module Network.AWS.ElastiCache.AddTagsToResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -70,12 +69,12 @@ data AddTagsToResource = AddTagsToResource'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-    resourceName :: Prelude.Text,
+    resourceName :: Core.Text,
     -- | A list of cost allocation tags to be added to this resource. A tag is a
     -- key-value pair. A tag key must be accompanied by a tag value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddTagsToResource' with all optional fields omitted.
@@ -98,12 +97,12 @@ data AddTagsToResource = AddTagsToResource'
 -- key-value pair. A tag key must be accompanied by a tag value.
 newAddTagsToResource ::
   -- | 'resourceName'
-  Prelude.Text ->
+  Core.Text ->
   AddTagsToResource
 newAddTagsToResource pResourceName_ =
   AddTagsToResource'
     { resourceName = pResourceName_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the resource to which the tags are to
@@ -114,39 +113,38 @@ newAddTagsToResource pResourceName_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
-addTagsToResource_resourceName :: Lens.Lens' AddTagsToResource Prelude.Text
+addTagsToResource_resourceName :: Lens.Lens' AddTagsToResource Core.Text
 addTagsToResource_resourceName = Lens.lens (\AddTagsToResource' {resourceName} -> resourceName) (\s@AddTagsToResource' {} a -> s {resourceName = a} :: AddTagsToResource)
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
-addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Prelude._Coerce
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest AddTagsToResource where
-  type Rs AddTagsToResource = TagListMessage
+instance Core.AWSRequest AddTagsToResource where
+  type AWSResponse AddTagsToResource = TagListMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "AddTagsToResourceResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable AddTagsToResource
+instance Core.Hashable AddTagsToResource
 
-instance Prelude.NFData AddTagsToResource
+instance Core.NFData AddTagsToResource
 
-instance Prelude.ToHeaders AddTagsToResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders AddTagsToResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath AddTagsToResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath AddTagsToResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery AddTagsToResource where
+instance Core.ToQuery AddTagsToResource where
   toQuery AddTagsToResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("AddTagsToResource" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "ResourceName" Prelude.=: resourceName,
-        "Tags" Prelude.=: Prelude.toQueryList "Tag" tags
+          Core.=: ("AddTagsToResource" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "ResourceName" Core.=: resourceName,
+        "Tags" Core.=: Core.toQueryList "Tag" tags
       ]

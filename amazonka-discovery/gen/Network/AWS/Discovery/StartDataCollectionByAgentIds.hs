@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.Discovery.StartDataCollectionByAgentIds
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,9 +55,9 @@ data StartDataCollectionByAgentIds = StartDataCollectionByAgentIds'
     -- agents\/connectors and you do not have permission to contact some of
     -- those agents\/connectors, the system does not throw an exception.
     -- Instead, the system shows @Failed@ in the /Description/ field.
-    agentIds :: [Prelude.Text]
+    agentIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDataCollectionByAgentIds' with all optional fields omitted.
@@ -81,7 +80,7 @@ newStartDataCollectionByAgentIds ::
 newStartDataCollectionByAgentIds =
   StartDataCollectionByAgentIds'
     { agentIds =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | The IDs of the agents or connectors from which to start collecting data.
@@ -92,66 +91,56 @@ newStartDataCollectionByAgentIds =
 -- agents\/connectors and you do not have permission to contact some of
 -- those agents\/connectors, the system does not throw an exception.
 -- Instead, the system shows @Failed@ in the /Description/ field.
-startDataCollectionByAgentIds_agentIds :: Lens.Lens' StartDataCollectionByAgentIds [Prelude.Text]
-startDataCollectionByAgentIds_agentIds = Lens.lens (\StartDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StartDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StartDataCollectionByAgentIds) Prelude.. Prelude._Coerce
+startDataCollectionByAgentIds_agentIds :: Lens.Lens' StartDataCollectionByAgentIds [Core.Text]
+startDataCollectionByAgentIds_agentIds = Lens.lens (\StartDataCollectionByAgentIds' {agentIds} -> agentIds) (\s@StartDataCollectionByAgentIds' {} a -> s {agentIds = a} :: StartDataCollectionByAgentIds) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     StartDataCollectionByAgentIds
   where
   type
-    Rs StartDataCollectionByAgentIds =
+    AWSResponse StartDataCollectionByAgentIds =
       StartDataCollectionByAgentIdsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartDataCollectionByAgentIdsResponse'
-            Prelude.<$> ( x Prelude..?> "agentsConfigurationStatus"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..?> "agentsConfigurationStatus"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    StartDataCollectionByAgentIds
+instance Core.Hashable StartDataCollectionByAgentIds
 
-instance Prelude.NFData StartDataCollectionByAgentIds
+instance Core.NFData StartDataCollectionByAgentIds
 
-instance
-  Prelude.ToHeaders
-    StartDataCollectionByAgentIds
-  where
+instance Core.ToHeaders StartDataCollectionByAgentIds where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.StartDataCollectionByAgentIds" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartDataCollectionByAgentIds where
+instance Core.ToJSON StartDataCollectionByAgentIds where
   toJSON StartDataCollectionByAgentIds' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("agentIds" Prelude..= agentIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("agentIds" Core..= agentIds)]
       )
 
-instance Prelude.ToPath StartDataCollectionByAgentIds where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartDataCollectionByAgentIds where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    StartDataCollectionByAgentIds
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartDataCollectionByAgentIds where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartDataCollectionByAgentIdsResponse' smart constructor.
 data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsResponse'
@@ -159,11 +148,11 @@ data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsRespon
     -- collecting data. Information includes the agent\/connector ID, a
     -- description of the operation performed, and whether the agent\/connector
     -- configuration was updated.
-    agentsConfigurationStatus :: Prelude.Maybe [AgentConfigurationStatus],
+    agentsConfigurationStatus :: Core.Maybe [AgentConfigurationStatus],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartDataCollectionByAgentIdsResponse' with all optional fields omitted.
@@ -181,12 +170,12 @@ data StartDataCollectionByAgentIdsResponse = StartDataCollectionByAgentIdsRespon
 -- 'httpStatus', 'startDataCollectionByAgentIdsResponse_httpStatus' - The response's http status code.
 newStartDataCollectionByAgentIdsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartDataCollectionByAgentIdsResponse
 newStartDataCollectionByAgentIdsResponse pHttpStatus_ =
   StartDataCollectionByAgentIdsResponse'
     { agentsConfigurationStatus =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -194,13 +183,13 @@ newStartDataCollectionByAgentIdsResponse pHttpStatus_ =
 -- collecting data. Information includes the agent\/connector ID, a
 -- description of the operation performed, and whether the agent\/connector
 -- configuration was updated.
-startDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse (Prelude.Maybe [AgentConfigurationStatus])
-startDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StartDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StartDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StartDataCollectionByAgentIdsResponse) Prelude.. Lens.mapping Prelude._Coerce
+startDataCollectionByAgentIdsResponse_agentsConfigurationStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse (Core.Maybe [AgentConfigurationStatus])
+startDataCollectionByAgentIdsResponse_agentsConfigurationStatus = Lens.lens (\StartDataCollectionByAgentIdsResponse' {agentsConfigurationStatus} -> agentsConfigurationStatus) (\s@StartDataCollectionByAgentIdsResponse' {} a -> s {agentsConfigurationStatus = a} :: StartDataCollectionByAgentIdsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-startDataCollectionByAgentIdsResponse_httpStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse Prelude.Int
+startDataCollectionByAgentIdsResponse_httpStatus :: Lens.Lens' StartDataCollectionByAgentIdsResponse Core.Int
 startDataCollectionByAgentIdsResponse_httpStatus = Lens.lens (\StartDataCollectionByAgentIdsResponse' {httpStatus} -> httpStatus) (\s@StartDataCollectionByAgentIdsResponse' {} a -> s {httpStatus = a} :: StartDataCollectionByAgentIdsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     StartDataCollectionByAgentIdsResponse

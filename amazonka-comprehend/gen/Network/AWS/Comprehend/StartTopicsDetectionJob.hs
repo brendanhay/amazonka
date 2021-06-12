@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Comprehend.StartTopicsDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,7 +60,7 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
     -- (VPC) containing the resources you are using for your topic detection
     -- job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-    vpcConfig :: Prelude.Maybe VpcConfig,
+    vpcConfig :: Core.Maybe VpcConfig,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -71,14 +70,14 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
     --
     -- -   Amazon Resource Name (ARN) of a KMS Key:
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-    volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
+    volumeKmsKeyId :: Core.Maybe Core.Text,
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Comprehend generates one.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The number of topics to detect.
-    numberOfTopics :: Prelude.Maybe Prelude.Natural,
+    numberOfTopics :: Core.Maybe Core.Natural,
     -- | The identifier of the job.
-    jobName :: Prelude.Maybe Prelude.Text,
+    jobName :: Core.Maybe Core.Text,
     -- | Specifies the format and location of the input data for the job.
     inputDataConfig :: InputDataConfig,
     -- | Specifies where to send the output files. The output is a compressed
@@ -90,9 +89,9 @@ data StartTopicsDetectionJob = StartTopicsDetectionJob'
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
     -- For more information, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
-    dataAccessRoleArn :: Prelude.Text
+    dataAccessRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartTopicsDetectionJob' with all optional fields omitted.
@@ -141,19 +140,18 @@ newStartTopicsDetectionJob ::
   -- | 'outputDataConfig'
   OutputDataConfig ->
   -- | 'dataAccessRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   StartTopicsDetectionJob
 newStartTopicsDetectionJob
   pInputDataConfig_
   pOutputDataConfig_
   pDataAccessRoleArn_ =
     StartTopicsDetectionJob'
-      { vpcConfig =
-          Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
-        clientRequestToken = Prelude.Nothing,
-        numberOfTopics = Prelude.Nothing,
-        jobName = Prelude.Nothing,
+      { vpcConfig = Core.Nothing,
+        volumeKmsKeyId = Core.Nothing,
+        clientRequestToken = Core.Nothing,
+        numberOfTopics = Core.Nothing,
+        jobName = Core.Nothing,
         inputDataConfig = pInputDataConfig_,
         outputDataConfig = pOutputDataConfig_,
         dataAccessRoleArn = pDataAccessRoleArn_
@@ -163,7 +161,7 @@ newStartTopicsDetectionJob
 -- (VPC) containing the resources you are using for your topic detection
 -- job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
-startTopicsDetectionJob_vpcConfig :: Lens.Lens' StartTopicsDetectionJob (Prelude.Maybe VpcConfig)
+startTopicsDetectionJob_vpcConfig :: Lens.Lens' StartTopicsDetectionJob (Core.Maybe VpcConfig)
 startTopicsDetectionJob_vpcConfig = Lens.lens (\StartTopicsDetectionJob' {vpcConfig} -> vpcConfig) (\s@StartTopicsDetectionJob' {} a -> s {vpcConfig = a} :: StartTopicsDetectionJob)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
@@ -175,20 +173,20 @@ startTopicsDetectionJob_vpcConfig = Lens.lens (\StartTopicsDetectionJob' {vpcCon
 --
 -- -   Amazon Resource Name (ARN) of a KMS Key:
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
-startTopicsDetectionJob_volumeKmsKeyId :: Lens.Lens' StartTopicsDetectionJob (Prelude.Maybe Prelude.Text)
+startTopicsDetectionJob_volumeKmsKeyId :: Lens.Lens' StartTopicsDetectionJob (Core.Maybe Core.Text)
 startTopicsDetectionJob_volumeKmsKeyId = Lens.lens (\StartTopicsDetectionJob' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@StartTopicsDetectionJob' {} a -> s {volumeKmsKeyId = a} :: StartTopicsDetectionJob)
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Comprehend generates one.
-startTopicsDetectionJob_clientRequestToken :: Lens.Lens' StartTopicsDetectionJob (Prelude.Maybe Prelude.Text)
+startTopicsDetectionJob_clientRequestToken :: Lens.Lens' StartTopicsDetectionJob (Core.Maybe Core.Text)
 startTopicsDetectionJob_clientRequestToken = Lens.lens (\StartTopicsDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartTopicsDetectionJob' {} a -> s {clientRequestToken = a} :: StartTopicsDetectionJob)
 
 -- | The number of topics to detect.
-startTopicsDetectionJob_numberOfTopics :: Lens.Lens' StartTopicsDetectionJob (Prelude.Maybe Prelude.Natural)
+startTopicsDetectionJob_numberOfTopics :: Lens.Lens' StartTopicsDetectionJob (Core.Maybe Core.Natural)
 startTopicsDetectionJob_numberOfTopics = Lens.lens (\StartTopicsDetectionJob' {numberOfTopics} -> numberOfTopics) (\s@StartTopicsDetectionJob' {} a -> s {numberOfTopics = a} :: StartTopicsDetectionJob)
 
 -- | The identifier of the job.
-startTopicsDetectionJob_jobName :: Lens.Lens' StartTopicsDetectionJob (Prelude.Maybe Prelude.Text)
+startTopicsDetectionJob_jobName :: Lens.Lens' StartTopicsDetectionJob (Core.Maybe Core.Text)
 startTopicsDetectionJob_jobName = Lens.lens (\StartTopicsDetectionJob' {jobName} -> jobName) (\s@StartTopicsDetectionJob' {} a -> s {jobName = a} :: StartTopicsDetectionJob)
 
 -- | Specifies the format and location of the input data for the job.
@@ -206,68 +204,64 @@ startTopicsDetectionJob_outputDataConfig = Lens.lens (\StartTopicsDetectionJob' 
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
 -- For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions>.
-startTopicsDetectionJob_dataAccessRoleArn :: Lens.Lens' StartTopicsDetectionJob Prelude.Text
+startTopicsDetectionJob_dataAccessRoleArn :: Lens.Lens' StartTopicsDetectionJob Core.Text
 startTopicsDetectionJob_dataAccessRoleArn = Lens.lens (\StartTopicsDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartTopicsDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartTopicsDetectionJob)
 
-instance Prelude.AWSRequest StartTopicsDetectionJob where
+instance Core.AWSRequest StartTopicsDetectionJob where
   type
-    Rs StartTopicsDetectionJob =
+    AWSResponse StartTopicsDetectionJob =
       StartTopicsDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartTopicsDetectionJobResponse'
-            Prelude.<$> (x Prelude..?> "JobStatus")
-            Prelude.<*> (x Prelude..?> "JobId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobStatus")
+            Core.<*> (x Core..?> "JobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartTopicsDetectionJob
+instance Core.Hashable StartTopicsDetectionJob
 
-instance Prelude.NFData StartTopicsDetectionJob
+instance Core.NFData StartTopicsDetectionJob
 
-instance Prelude.ToHeaders StartTopicsDetectionJob where
+instance Core.ToHeaders StartTopicsDetectionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.StartTopicsDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.StartTopicsDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartTopicsDetectionJob where
+instance Core.ToJSON StartTopicsDetectionJob where
   toJSON StartTopicsDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VpcConfig" Prelude..=) Prelude.<$> vpcConfig,
-            ("VolumeKmsKeyId" Prelude..=)
-              Prelude.<$> volumeKmsKeyId,
-            ("ClientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            ("NumberOfTopics" Prelude..=)
-              Prelude.<$> numberOfTopics,
-            ("JobName" Prelude..=) Prelude.<$> jobName,
-            Prelude.Just
-              ("InputDataConfig" Prelude..= inputDataConfig),
-            Prelude.Just
-              ("OutputDataConfig" Prelude..= outputDataConfig),
-            Prelude.Just
-              ("DataAccessRoleArn" Prelude..= dataAccessRoleArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("VpcConfig" Core..=) Core.<$> vpcConfig,
+            ("VolumeKmsKeyId" Core..=) Core.<$> volumeKmsKeyId,
+            ("ClientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            ("NumberOfTopics" Core..=) Core.<$> numberOfTopics,
+            ("JobName" Core..=) Core.<$> jobName,
+            Core.Just
+              ("InputDataConfig" Core..= inputDataConfig),
+            Core.Just
+              ("OutputDataConfig" Core..= outputDataConfig),
+            Core.Just
+              ("DataAccessRoleArn" Core..= dataAccessRoleArn)
           ]
       )
 
-instance Prelude.ToPath StartTopicsDetectionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartTopicsDetectionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartTopicsDetectionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartTopicsDetectionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartTopicsDetectionJobResponse' smart constructor.
 data StartTopicsDetectionJobResponse = StartTopicsDetectionJobResponse'
@@ -282,14 +276,14 @@ data StartTopicsDetectionJobResponse = StartTopicsDetectionJobResponse'
     --
     -- -   FAILED - The job did not complete. To get details, use the
     --     @DescribeTopicDetectionJob@ operation.
-    jobStatus :: Prelude.Maybe JobStatus,
+    jobStatus :: Core.Maybe JobStatus,
     -- | The identifier generated for the job. To get the status of the job, use
     -- this identifier with the @DescribeTopicDetectionJob@ operation.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartTopicsDetectionJobResponse' with all optional fields omitted.
@@ -317,13 +311,13 @@ data StartTopicsDetectionJobResponse = StartTopicsDetectionJobResponse'
 -- 'httpStatus', 'startTopicsDetectionJobResponse_httpStatus' - The response's http status code.
 newStartTopicsDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartTopicsDetectionJobResponse
 newStartTopicsDetectionJobResponse pHttpStatus_ =
   StartTopicsDetectionJobResponse'
     { jobStatus =
-        Prelude.Nothing,
-      jobId = Prelude.Nothing,
+        Core.Nothing,
+      jobId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -338,18 +332,16 @@ newStartTopicsDetectionJobResponse pHttpStatus_ =
 --
 -- -   FAILED - The job did not complete. To get details, use the
 --     @DescribeTopicDetectionJob@ operation.
-startTopicsDetectionJobResponse_jobStatus :: Lens.Lens' StartTopicsDetectionJobResponse (Prelude.Maybe JobStatus)
+startTopicsDetectionJobResponse_jobStatus :: Lens.Lens' StartTopicsDetectionJobResponse (Core.Maybe JobStatus)
 startTopicsDetectionJobResponse_jobStatus = Lens.lens (\StartTopicsDetectionJobResponse' {jobStatus} -> jobStatus) (\s@StartTopicsDetectionJobResponse' {} a -> s {jobStatus = a} :: StartTopicsDetectionJobResponse)
 
 -- | The identifier generated for the job. To get the status of the job, use
 -- this identifier with the @DescribeTopicDetectionJob@ operation.
-startTopicsDetectionJobResponse_jobId :: Lens.Lens' StartTopicsDetectionJobResponse (Prelude.Maybe Prelude.Text)
+startTopicsDetectionJobResponse_jobId :: Lens.Lens' StartTopicsDetectionJobResponse (Core.Maybe Core.Text)
 startTopicsDetectionJobResponse_jobId = Lens.lens (\StartTopicsDetectionJobResponse' {jobId} -> jobId) (\s@StartTopicsDetectionJobResponse' {} a -> s {jobId = a} :: StartTopicsDetectionJobResponse)
 
 -- | The response's http status code.
-startTopicsDetectionJobResponse_httpStatus :: Lens.Lens' StartTopicsDetectionJobResponse Prelude.Int
+startTopicsDetectionJobResponse_httpStatus :: Lens.Lens' StartTopicsDetectionJobResponse Core.Int
 startTopicsDetectionJobResponse_httpStatus = Lens.lens (\StartTopicsDetectionJobResponse' {httpStatus} -> httpStatus) (\s@StartTopicsDetectionJobResponse' {} a -> s {httpStatus = a} :: StartTopicsDetectionJobResponse)
 
-instance
-  Prelude.NFData
-    StartTopicsDetectionJobResponse
+instance Core.NFData StartTopicsDetectionJobResponse

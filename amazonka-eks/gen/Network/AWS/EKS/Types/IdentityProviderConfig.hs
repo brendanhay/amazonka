@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.IdentityProviderConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an identity provider configuration.
 --
 -- /See:/ 'newIdentityProviderConfig' smart constructor.
 data IdentityProviderConfig = IdentityProviderConfig'
   { -- | The type of the identity provider configuration.
-    type' :: Prelude.Text,
+    type' :: Core.Text,
     -- | The name of the identity provider configuration.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IdentityProviderConfig' with all optional fields omitted.
@@ -47,9 +46,9 @@ data IdentityProviderConfig = IdentityProviderConfig'
 -- 'name', 'identityProviderConfig_name' - The name of the identity provider configuration.
 newIdentityProviderConfig ::
   -- | 'type''
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   IdentityProviderConfig
 newIdentityProviderConfig pType_ pName_ =
   IdentityProviderConfig'
@@ -58,32 +57,31 @@ newIdentityProviderConfig pType_ pName_ =
     }
 
 -- | The type of the identity provider configuration.
-identityProviderConfig_type :: Lens.Lens' IdentityProviderConfig Prelude.Text
+identityProviderConfig_type :: Lens.Lens' IdentityProviderConfig Core.Text
 identityProviderConfig_type = Lens.lens (\IdentityProviderConfig' {type'} -> type') (\s@IdentityProviderConfig' {} a -> s {type' = a} :: IdentityProviderConfig)
 
 -- | The name of the identity provider configuration.
-identityProviderConfig_name :: Lens.Lens' IdentityProviderConfig Prelude.Text
+identityProviderConfig_name :: Lens.Lens' IdentityProviderConfig Core.Text
 identityProviderConfig_name = Lens.lens (\IdentityProviderConfig' {name} -> name) (\s@IdentityProviderConfig' {} a -> s {name = a} :: IdentityProviderConfig)
 
-instance Prelude.FromJSON IdentityProviderConfig where
+instance Core.FromJSON IdentityProviderConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IdentityProviderConfig"
       ( \x ->
           IdentityProviderConfig'
-            Prelude.<$> (x Prelude..: "type")
-            Prelude.<*> (x Prelude..: "name")
+            Core.<$> (x Core..: "type") Core.<*> (x Core..: "name")
       )
 
-instance Prelude.Hashable IdentityProviderConfig
+instance Core.Hashable IdentityProviderConfig
 
-instance Prelude.NFData IdentityProviderConfig
+instance Core.NFData IdentityProviderConfig
 
-instance Prelude.ToJSON IdentityProviderConfig where
+instance Core.ToJSON IdentityProviderConfig where
   toJSON IdentityProviderConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("type" Prelude..= type'),
-            Prelude.Just ("name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("type" Core..= type'),
+            Core.Just ("name" Core..= name)
           ]
       )

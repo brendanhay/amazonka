@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.ElasticSearch.DissociatePackage
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 data DissociatePackage = DissociatePackage'
   { -- | Internal ID of the package that you want to associate with a domain. Use
     -- @DescribePackages@ to find this value.
-    packageID :: Prelude.Text,
+    packageID :: Core.Text,
     -- | Name of the domain that you want to associate the package with.
-    domainName :: Prelude.Text
+    domainName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DissociatePackage' with all optional fields omitted.
@@ -73,9 +72,9 @@ data DissociatePackage = DissociatePackage'
 -- 'domainName', 'dissociatePackage_domainName' - Name of the domain that you want to associate the package with.
 newDissociatePackage ::
   -- | 'packageID'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'domainName'
-  Prelude.Text ->
+  Core.Text ->
   DissociatePackage
 newDissociatePackage pPackageID_ pDomainName_ =
   DissociatePackage'
@@ -85,57 +84,58 @@ newDissociatePackage pPackageID_ pDomainName_ =
 
 -- | Internal ID of the package that you want to associate with a domain. Use
 -- @DescribePackages@ to find this value.
-dissociatePackage_packageID :: Lens.Lens' DissociatePackage Prelude.Text
+dissociatePackage_packageID :: Lens.Lens' DissociatePackage Core.Text
 dissociatePackage_packageID = Lens.lens (\DissociatePackage' {packageID} -> packageID) (\s@DissociatePackage' {} a -> s {packageID = a} :: DissociatePackage)
 
 -- | Name of the domain that you want to associate the package with.
-dissociatePackage_domainName :: Lens.Lens' DissociatePackage Prelude.Text
+dissociatePackage_domainName :: Lens.Lens' DissociatePackage Core.Text
 dissociatePackage_domainName = Lens.lens (\DissociatePackage' {domainName} -> domainName) (\s@DissociatePackage' {} a -> s {domainName = a} :: DissociatePackage)
 
-instance Prelude.AWSRequest DissociatePackage where
-  type Rs DissociatePackage = DissociatePackageResponse
+instance Core.AWSRequest DissociatePackage where
+  type
+    AWSResponse DissociatePackage =
+      DissociatePackageResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DissociatePackageResponse'
-            Prelude.<$> (x Prelude..?> "DomainPackageDetails")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DomainPackageDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DissociatePackage
+instance Core.Hashable DissociatePackage
 
-instance Prelude.NFData DissociatePackage
+instance Core.NFData DissociatePackage
 
-instance Prelude.ToHeaders DissociatePackage where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DissociatePackage where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON DissociatePackage where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DissociatePackage where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DissociatePackage where
+instance Core.ToPath DissociatePackage where
   toPath DissociatePackage' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2015-01-01/packages/dissociate/",
-        Prelude.toBS packageID,
+        Core.toBS packageID,
         "/",
-        Prelude.toBS domainName
+        Core.toBS domainName
       ]
 
-instance Prelude.ToQuery DissociatePackage where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DissociatePackage where
+  toQuery = Core.const Core.mempty
 
 -- | Container for response returned by @ DissociatePackage @ operation.
 --
 -- /See:/ 'newDissociatePackageResponse' smart constructor.
 data DissociatePackageResponse = DissociatePackageResponse'
   { -- | @DomainPackageDetails@
-    domainPackageDetails :: Prelude.Maybe DomainPackageDetails,
+    domainPackageDetails :: Core.Maybe DomainPackageDetails,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DissociatePackageResponse' with all optional fields omitted.
@@ -150,21 +150,21 @@ data DissociatePackageResponse = DissociatePackageResponse'
 -- 'httpStatus', 'dissociatePackageResponse_httpStatus' - The response's http status code.
 newDissociatePackageResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DissociatePackageResponse
 newDissociatePackageResponse pHttpStatus_ =
   DissociatePackageResponse'
     { domainPackageDetails =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | @DomainPackageDetails@
-dissociatePackageResponse_domainPackageDetails :: Lens.Lens' DissociatePackageResponse (Prelude.Maybe DomainPackageDetails)
+dissociatePackageResponse_domainPackageDetails :: Lens.Lens' DissociatePackageResponse (Core.Maybe DomainPackageDetails)
 dissociatePackageResponse_domainPackageDetails = Lens.lens (\DissociatePackageResponse' {domainPackageDetails} -> domainPackageDetails) (\s@DissociatePackageResponse' {} a -> s {domainPackageDetails = a} :: DissociatePackageResponse)
 
 -- | The response's http status code.
-dissociatePackageResponse_httpStatus :: Lens.Lens' DissociatePackageResponse Prelude.Int
+dissociatePackageResponse_httpStatus :: Lens.Lens' DissociatePackageResponse Core.Int
 dissociatePackageResponse_httpStatus = Lens.lens (\DissociatePackageResponse' {httpStatus} -> httpStatus) (\s@DissociatePackageResponse' {} a -> s {httpStatus = a} :: DissociatePackageResponse)
 
-instance Prelude.NFData DissociatePackageResponse
+instance Core.NFData DissociatePackageResponse

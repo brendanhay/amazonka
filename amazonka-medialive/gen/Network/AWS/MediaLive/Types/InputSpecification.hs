@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,24 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.InputSpecification where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.InputCodec
 import Network.AWS.MediaLive.Types.InputMaximumBitrate
 import Network.AWS.MediaLive.Types.InputResolution
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for InputSpecification
 --
 -- /See:/ 'newInputSpecification' smart constructor.
 data InputSpecification = InputSpecification'
   { -- | Input codec
-    codec :: Prelude.Maybe InputCodec,
+    codec :: Core.Maybe InputCodec,
     -- | Maximum input bitrate, categorized coarsely
-    maximumBitrate :: Prelude.Maybe InputMaximumBitrate,
+    maximumBitrate :: Core.Maybe InputMaximumBitrate,
     -- | Input resolution, categorized coarsely
-    resolution :: Prelude.Maybe InputResolution
+    resolution :: Core.Maybe InputResolution
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputSpecification' with all optional fields omitted.
@@ -56,45 +55,44 @@ newInputSpecification ::
   InputSpecification
 newInputSpecification =
   InputSpecification'
-    { codec = Prelude.Nothing,
-      maximumBitrate = Prelude.Nothing,
-      resolution = Prelude.Nothing
+    { codec = Core.Nothing,
+      maximumBitrate = Core.Nothing,
+      resolution = Core.Nothing
     }
 
 -- | Input codec
-inputSpecification_codec :: Lens.Lens' InputSpecification (Prelude.Maybe InputCodec)
+inputSpecification_codec :: Lens.Lens' InputSpecification (Core.Maybe InputCodec)
 inputSpecification_codec = Lens.lens (\InputSpecification' {codec} -> codec) (\s@InputSpecification' {} a -> s {codec = a} :: InputSpecification)
 
 -- | Maximum input bitrate, categorized coarsely
-inputSpecification_maximumBitrate :: Lens.Lens' InputSpecification (Prelude.Maybe InputMaximumBitrate)
+inputSpecification_maximumBitrate :: Lens.Lens' InputSpecification (Core.Maybe InputMaximumBitrate)
 inputSpecification_maximumBitrate = Lens.lens (\InputSpecification' {maximumBitrate} -> maximumBitrate) (\s@InputSpecification' {} a -> s {maximumBitrate = a} :: InputSpecification)
 
 -- | Input resolution, categorized coarsely
-inputSpecification_resolution :: Lens.Lens' InputSpecification (Prelude.Maybe InputResolution)
+inputSpecification_resolution :: Lens.Lens' InputSpecification (Core.Maybe InputResolution)
 inputSpecification_resolution = Lens.lens (\InputSpecification' {resolution} -> resolution) (\s@InputSpecification' {} a -> s {resolution = a} :: InputSpecification)
 
-instance Prelude.FromJSON InputSpecification where
+instance Core.FromJSON InputSpecification where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputSpecification"
       ( \x ->
           InputSpecification'
-            Prelude.<$> (x Prelude..:? "codec")
-            Prelude.<*> (x Prelude..:? "maximumBitrate")
-            Prelude.<*> (x Prelude..:? "resolution")
+            Core.<$> (x Core..:? "codec")
+            Core.<*> (x Core..:? "maximumBitrate")
+            Core.<*> (x Core..:? "resolution")
       )
 
-instance Prelude.Hashable InputSpecification
+instance Core.Hashable InputSpecification
 
-instance Prelude.NFData InputSpecification
+instance Core.NFData InputSpecification
 
-instance Prelude.ToJSON InputSpecification where
+instance Core.ToJSON InputSpecification where
   toJSON InputSpecification' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("codec" Prelude..=) Prelude.<$> codec,
-            ("maximumBitrate" Prelude..=)
-              Prelude.<$> maximumBitrate,
-            ("resolution" Prelude..=) Prelude.<$> resolution
+    Core.object
+      ( Core.catMaybes
+          [ ("codec" Core..=) Core.<$> codec,
+            ("maximumBitrate" Core..=) Core.<$> maximumBitrate,
+            ("resolution" Core..=) Core.<$> resolution
           ]
       )

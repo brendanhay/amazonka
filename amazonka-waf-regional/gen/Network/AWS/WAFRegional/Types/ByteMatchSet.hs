@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.ByteMatchSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAFRegional.Types.ByteMatchTuple
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -47,7 +46,7 @@ import Network.AWS.WAFRegional.Types.ByteMatchTuple
 data ByteMatchSet = ByteMatchSet'
   { -- | A friendly name or description of the ByteMatchSet. You can\'t change
     -- @Name@ after you create a @ByteMatchSet@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The @ByteMatchSetId@ for a @ByteMatchSet@. You use @ByteMatchSetId@ to
     -- get information about a @ByteMatchSet@ (see GetByteMatchSet), update a
     -- @ByteMatchSet@ (see UpdateByteMatchSet), insert a @ByteMatchSet@ into a
@@ -56,14 +55,14 @@ data ByteMatchSet = ByteMatchSet'
     --
     -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
     -- ListByteMatchSets.
-    byteMatchSetId :: Prelude.Text,
+    byteMatchSetId :: Core.Text,
     -- | Specifies the bytes (typically a string that corresponds with ASCII
     -- characters) that you want AWS WAF to search for in web requests, the
     -- location in requests that you want AWS WAF to search, and other
     -- settings.
     byteMatchTuples :: [ByteMatchTuple]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ByteMatchSet' with all optional fields omitted.
@@ -91,18 +90,18 @@ data ByteMatchSet = ByteMatchSet'
 -- settings.
 newByteMatchSet ::
   -- | 'byteMatchSetId'
-  Prelude.Text ->
+  Core.Text ->
   ByteMatchSet
 newByteMatchSet pByteMatchSetId_ =
   ByteMatchSet'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       byteMatchSetId = pByteMatchSetId_,
-      byteMatchTuples = Prelude.mempty
+      byteMatchTuples = Core.mempty
     }
 
 -- | A friendly name or description of the ByteMatchSet. You can\'t change
 -- @Name@ after you create a @ByteMatchSet@.
-byteMatchSet_name :: Lens.Lens' ByteMatchSet (Prelude.Maybe Prelude.Text)
+byteMatchSet_name :: Lens.Lens' ByteMatchSet (Core.Maybe Core.Text)
 byteMatchSet_name = Lens.lens (\ByteMatchSet' {name} -> name) (\s@ByteMatchSet' {} a -> s {name = a} :: ByteMatchSet)
 
 -- | The @ByteMatchSetId@ for a @ByteMatchSet@. You use @ByteMatchSetId@ to
@@ -113,7 +112,7 @@ byteMatchSet_name = Lens.lens (\ByteMatchSet' {name} -> name) (\s@ByteMatchSet' 
 --
 -- @ByteMatchSetId@ is returned by CreateByteMatchSet and by
 -- ListByteMatchSets.
-byteMatchSet_byteMatchSetId :: Lens.Lens' ByteMatchSet Prelude.Text
+byteMatchSet_byteMatchSetId :: Lens.Lens' ByteMatchSet Core.Text
 byteMatchSet_byteMatchSetId = Lens.lens (\ByteMatchSet' {byteMatchSetId} -> byteMatchSetId) (\s@ByteMatchSet' {} a -> s {byteMatchSetId = a} :: ByteMatchSet)
 
 -- | Specifies the bytes (typically a string that corresponds with ASCII
@@ -121,21 +120,19 @@ byteMatchSet_byteMatchSetId = Lens.lens (\ByteMatchSet' {byteMatchSetId} -> byte
 -- location in requests that you want AWS WAF to search, and other
 -- settings.
 byteMatchSet_byteMatchTuples :: Lens.Lens' ByteMatchSet [ByteMatchTuple]
-byteMatchSet_byteMatchTuples = Lens.lens (\ByteMatchSet' {byteMatchTuples} -> byteMatchTuples) (\s@ByteMatchSet' {} a -> s {byteMatchTuples = a} :: ByteMatchSet) Prelude.. Prelude._Coerce
+byteMatchSet_byteMatchTuples = Lens.lens (\ByteMatchSet' {byteMatchTuples} -> byteMatchTuples) (\s@ByteMatchSet' {} a -> s {byteMatchTuples = a} :: ByteMatchSet) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ByteMatchSet where
+instance Core.FromJSON ByteMatchSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ByteMatchSet"
       ( \x ->
           ByteMatchSet'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..: "ByteMatchSetId")
-            Prelude.<*> ( x Prelude..:? "ByteMatchTuples"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..: "ByteMatchSetId")
+            Core.<*> (x Core..:? "ByteMatchTuples" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ByteMatchSet
+instance Core.Hashable ByteMatchSet
 
-instance Prelude.NFData ByteMatchSet
+instance Core.NFData ByteMatchSet

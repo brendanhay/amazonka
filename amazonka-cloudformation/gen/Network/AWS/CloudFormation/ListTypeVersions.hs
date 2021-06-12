@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,8 +46,8 @@ module Network.AWS.CloudFormation.ListTypeVersions
 where
 
 import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,24 +57,24 @@ data ListTypeVersions = ListTypeVersions'
     -- information.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    typeName :: Prelude.Maybe Prelude.Text,
+    typeName :: Core.Maybe Core.Text,
     -- | If the previous paginated request didn\'t return all of the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call this action again and
     -- assign that token to the request object\'s @NextToken@ parameter. If
     -- there are no remaining results, the previous response object\'s
     -- @NextToken@ parameter is set to @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
     -- a @NextToken@ value that you can assign to the @NextToken@ request
     -- parameter to get the next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The Amazon Resource Name (ARN) of the extension for which you want
     -- version summary information.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The deprecation status of the extension versions that you want to get
     -- summary information about.
     --
@@ -89,13 +88,13 @@ data ListTypeVersions = ListTypeVersions'
     --     longer be used in CloudFormation operations.
     --
     -- The default is @LIVE@.
-    deprecatedStatus :: Prelude.Maybe DeprecatedStatus,
+    deprecatedStatus :: Core.Maybe DeprecatedStatus,
     -- | The kind of the extension.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-    type' :: Prelude.Maybe RegistryType
+    type' :: Core.Maybe RegistryType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTypeVersions' with all optional fields omitted.
@@ -148,19 +147,19 @@ newListTypeVersions ::
   ListTypeVersions
 newListTypeVersions =
   ListTypeVersions'
-    { typeName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      deprecatedStatus = Prelude.Nothing,
-      type' = Prelude.Nothing
+    { typeName = Core.Nothing,
+      nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      arn = Core.Nothing,
+      deprecatedStatus = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The name of the extension for which you want version summary
 -- information.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-listTypeVersions_typeName :: Lens.Lens' ListTypeVersions (Prelude.Maybe Prelude.Text)
+listTypeVersions_typeName :: Lens.Lens' ListTypeVersions (Core.Maybe Core.Text)
 listTypeVersions_typeName = Lens.lens (\ListTypeVersions' {typeName} -> typeName) (\s@ListTypeVersions' {} a -> s {typeName = a} :: ListTypeVersions)
 
 -- | If the previous paginated request didn\'t return all of the remaining
@@ -169,21 +168,21 @@ listTypeVersions_typeName = Lens.lens (\ListTypeVersions' {typeName} -> typeName
 -- assign that token to the request object\'s @NextToken@ parameter. If
 -- there are no remaining results, the previous response object\'s
 -- @NextToken@ parameter is set to @null@.
-listTypeVersions_nextToken :: Lens.Lens' ListTypeVersions (Prelude.Maybe Prelude.Text)
+listTypeVersions_nextToken :: Lens.Lens' ListTypeVersions (Core.Maybe Core.Text)
 listTypeVersions_nextToken = Lens.lens (\ListTypeVersions' {nextToken} -> nextToken) (\s@ListTypeVersions' {} a -> s {nextToken = a} :: ListTypeVersions)
 
 -- | The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
 -- a @NextToken@ value that you can assign to the @NextToken@ request
 -- parameter to get the next set of results.
-listTypeVersions_maxResults :: Lens.Lens' ListTypeVersions (Prelude.Maybe Prelude.Natural)
+listTypeVersions_maxResults :: Lens.Lens' ListTypeVersions (Core.Maybe Core.Natural)
 listTypeVersions_maxResults = Lens.lens (\ListTypeVersions' {maxResults} -> maxResults) (\s@ListTypeVersions' {} a -> s {maxResults = a} :: ListTypeVersions)
 
 -- | The Amazon Resource Name (ARN) of the extension for which you want
 -- version summary information.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-listTypeVersions_arn :: Lens.Lens' ListTypeVersions (Prelude.Maybe Prelude.Text)
+listTypeVersions_arn :: Lens.Lens' ListTypeVersions (Core.Maybe Core.Text)
 listTypeVersions_arn = Lens.lens (\ListTypeVersions' {arn} -> arn) (\s@ListTypeVersions' {} a -> s {arn = a} :: ListTypeVersions)
 
 -- | The deprecation status of the extension versions that you want to get
@@ -199,54 +198,55 @@ listTypeVersions_arn = Lens.lens (\ListTypeVersions' {arn} -> arn) (\s@ListTypeV
 --     longer be used in CloudFormation operations.
 --
 -- The default is @LIVE@.
-listTypeVersions_deprecatedStatus :: Lens.Lens' ListTypeVersions (Prelude.Maybe DeprecatedStatus)
+listTypeVersions_deprecatedStatus :: Lens.Lens' ListTypeVersions (Core.Maybe DeprecatedStatus)
 listTypeVersions_deprecatedStatus = Lens.lens (\ListTypeVersions' {deprecatedStatus} -> deprecatedStatus) (\s@ListTypeVersions' {} a -> s {deprecatedStatus = a} :: ListTypeVersions)
 
 -- | The kind of the extension.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@, or @Arn@.
-listTypeVersions_type :: Lens.Lens' ListTypeVersions (Prelude.Maybe RegistryType)
+listTypeVersions_type :: Lens.Lens' ListTypeVersions (Core.Maybe RegistryType)
 listTypeVersions_type = Lens.lens (\ListTypeVersions' {type'} -> type') (\s@ListTypeVersions' {} a -> s {type' = a} :: ListTypeVersions)
 
-instance Prelude.AWSRequest ListTypeVersions where
-  type Rs ListTypeVersions = ListTypeVersionsResponse
+instance Core.AWSRequest ListTypeVersions where
+  type
+    AWSResponse ListTypeVersions =
+      ListTypeVersionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListTypeVersionsResult"
       ( \s h x ->
           ListTypeVersionsResponse'
-            Prelude.<$> (x Prelude..@? "NextToken")
-            Prelude.<*> ( x Prelude..@? "TypeVersionSummaries"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "TypeVersionSummaries"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTypeVersions
+instance Core.Hashable ListTypeVersions
 
-instance Prelude.NFData ListTypeVersions
+instance Core.NFData ListTypeVersions
 
-instance Prelude.ToHeaders ListTypeVersions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTypeVersions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTypeVersions where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTypeVersions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTypeVersions where
+instance Core.ToQuery ListTypeVersions where
   toQuery ListTypeVersions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListTypeVersions" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
-        "TypeName" Prelude.=: typeName,
-        "NextToken" Prelude.=: nextToken,
-        "MaxResults" Prelude.=: maxResults,
-        "Arn" Prelude.=: arn,
-        "DeprecatedStatus" Prelude.=: deprecatedStatus,
-        "Type" Prelude.=: type'
+          Core.=: ("ListTypeVersions" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-15" :: Core.ByteString),
+        "TypeName" Core.=: typeName,
+        "NextToken" Core.=: nextToken,
+        "MaxResults" Core.=: maxResults,
+        "Arn" Core.=: arn,
+        "DeprecatedStatus" Core.=: deprecatedStatus,
+        "Type" Core.=: type'
       ]
 
 -- | /See:/ 'newListTypeVersionsResponse' smart constructor.
@@ -256,14 +256,14 @@ data ListTypeVersionsResponse = ListTypeVersionsResponse'
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If the request returns all results, @NextToken@ is set to
     -- @null@.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of @TypeVersionSummary@ structures that contain information about
     -- the specified extension\'s versions.
-    typeVersionSummaries :: Prelude.Maybe [TypeVersionSummary],
+    typeVersionSummaries :: Core.Maybe [TypeVersionSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTypeVersionsResponse' with all optional fields omitted.
@@ -285,13 +285,12 @@ data ListTypeVersionsResponse = ListTypeVersionsResponse'
 -- 'httpStatus', 'listTypeVersionsResponse_httpStatus' - The response's http status code.
 newListTypeVersionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTypeVersionsResponse
 newListTypeVersionsResponse pHttpStatus_ =
   ListTypeVersionsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      typeVersionSummaries = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      typeVersionSummaries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -300,16 +299,16 @@ newListTypeVersionsResponse pHttpStatus_ =
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If the request returns all results, @NextToken@ is set to
 -- @null@.
-listTypeVersionsResponse_nextToken :: Lens.Lens' ListTypeVersionsResponse (Prelude.Maybe Prelude.Text)
+listTypeVersionsResponse_nextToken :: Lens.Lens' ListTypeVersionsResponse (Core.Maybe Core.Text)
 listTypeVersionsResponse_nextToken = Lens.lens (\ListTypeVersionsResponse' {nextToken} -> nextToken) (\s@ListTypeVersionsResponse' {} a -> s {nextToken = a} :: ListTypeVersionsResponse)
 
 -- | A list of @TypeVersionSummary@ structures that contain information about
 -- the specified extension\'s versions.
-listTypeVersionsResponse_typeVersionSummaries :: Lens.Lens' ListTypeVersionsResponse (Prelude.Maybe [TypeVersionSummary])
-listTypeVersionsResponse_typeVersionSummaries = Lens.lens (\ListTypeVersionsResponse' {typeVersionSummaries} -> typeVersionSummaries) (\s@ListTypeVersionsResponse' {} a -> s {typeVersionSummaries = a} :: ListTypeVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTypeVersionsResponse_typeVersionSummaries :: Lens.Lens' ListTypeVersionsResponse (Core.Maybe [TypeVersionSummary])
+listTypeVersionsResponse_typeVersionSummaries = Lens.lens (\ListTypeVersionsResponse' {typeVersionSummaries} -> typeVersionSummaries) (\s@ListTypeVersionsResponse' {} a -> s {typeVersionSummaries = a} :: ListTypeVersionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTypeVersionsResponse_httpStatus :: Lens.Lens' ListTypeVersionsResponse Prelude.Int
+listTypeVersionsResponse_httpStatus :: Lens.Lens' ListTypeVersionsResponse Core.Int
 listTypeVersionsResponse_httpStatus = Lens.lens (\ListTypeVersionsResponse' {httpStatus} -> httpStatus) (\s@ListTypeVersionsResponse' {} a -> s {httpStatus = a} :: ListTypeVersionsResponse)
 
-instance Prelude.NFData ListTypeVersionsResponse
+instance Core.NFData ListTypeVersionsResponse

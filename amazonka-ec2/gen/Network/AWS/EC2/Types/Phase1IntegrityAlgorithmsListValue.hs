@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsListValue where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The integrity algorithm for phase 1 IKE negotiations.
 --
 -- /See:/ 'newPhase1IntegrityAlgorithmsListValue' smart constructor.
 data Phase1IntegrityAlgorithmsListValue = Phase1IntegrityAlgorithmsListValue'
   { -- | The value for the integrity algorithm.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Phase1IntegrityAlgorithmsListValue' with all optional fields omitted.
@@ -47,25 +46,25 @@ newPhase1IntegrityAlgorithmsListValue ::
 newPhase1IntegrityAlgorithmsListValue =
   Phase1IntegrityAlgorithmsListValue'
     { value =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The value for the integrity algorithm.
-phase1IntegrityAlgorithmsListValue_value :: Lens.Lens' Phase1IntegrityAlgorithmsListValue (Prelude.Maybe Prelude.Text)
+phase1IntegrityAlgorithmsListValue_value :: Lens.Lens' Phase1IntegrityAlgorithmsListValue (Core.Maybe Core.Text)
 phase1IntegrityAlgorithmsListValue_value = Lens.lens (\Phase1IntegrityAlgorithmsListValue' {value} -> value) (\s@Phase1IntegrityAlgorithmsListValue' {} a -> s {value = a} :: Phase1IntegrityAlgorithmsListValue)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     Phase1IntegrityAlgorithmsListValue
   where
   parseXML x =
     Phase1IntegrityAlgorithmsListValue'
-      Prelude.<$> (x Prelude..@? "value")
+      Core.<$> (x Core..@? "value")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     Phase1IntegrityAlgorithmsListValue
 
 instance
-  Prelude.NFData
+  Core.NFData
     Phase1IntegrityAlgorithmsListValue

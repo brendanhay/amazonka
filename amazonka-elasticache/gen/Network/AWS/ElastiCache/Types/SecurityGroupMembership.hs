@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.SecurityGroupMembership where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a single cache security group and its status.
 --
@@ -30,11 +29,11 @@ data SecurityGroupMembership = SecurityGroupMembership'
   { -- | The status of the cache security group membership. The status changes
     -- whenever a cache security group is modified, or when the cache security
     -- groups assigned to a cluster are modified.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The identifier of the cache security group.
-    securityGroupId :: Prelude.Maybe Prelude.Text
+    securityGroupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityGroupMembership' with all optional fields omitted.
@@ -53,26 +52,26 @@ newSecurityGroupMembership ::
   SecurityGroupMembership
 newSecurityGroupMembership =
   SecurityGroupMembership'
-    { status = Prelude.Nothing,
-      securityGroupId = Prelude.Nothing
+    { status = Core.Nothing,
+      securityGroupId = Core.Nothing
     }
 
 -- | The status of the cache security group membership. The status changes
 -- whenever a cache security group is modified, or when the cache security
 -- groups assigned to a cluster are modified.
-securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
+securityGroupMembership_status :: Lens.Lens' SecurityGroupMembership (Core.Maybe Core.Text)
 securityGroupMembership_status = Lens.lens (\SecurityGroupMembership' {status} -> status) (\s@SecurityGroupMembership' {} a -> s {status = a} :: SecurityGroupMembership)
 
 -- | The identifier of the cache security group.
-securityGroupMembership_securityGroupId :: Lens.Lens' SecurityGroupMembership (Prelude.Maybe Prelude.Text)
+securityGroupMembership_securityGroupId :: Lens.Lens' SecurityGroupMembership (Core.Maybe Core.Text)
 securityGroupMembership_securityGroupId = Lens.lens (\SecurityGroupMembership' {securityGroupId} -> securityGroupId) (\s@SecurityGroupMembership' {} a -> s {securityGroupId = a} :: SecurityGroupMembership)
 
-instance Prelude.FromXML SecurityGroupMembership where
+instance Core.FromXML SecurityGroupMembership where
   parseXML x =
     SecurityGroupMembership'
-      Prelude.<$> (x Prelude..@? "Status")
-      Prelude.<*> (x Prelude..@? "SecurityGroupId")
+      Core.<$> (x Core..@? "Status")
+      Core.<*> (x Core..@? "SecurityGroupId")
 
-instance Prelude.Hashable SecurityGroupMembership
+instance Core.Hashable SecurityGroupMembership
 
-instance Prelude.NFData SecurityGroupMembership
+instance Core.NFData SecurityGroupMembership

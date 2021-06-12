@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,25 +43,25 @@ module Network.AWS.DirectoryService.DescribeLDAPSSettings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectoryService.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeLDAPSSettings' smart constructor.
 data DescribeLDAPSSettings = DescribeLDAPSSettings'
   { -- | The type of next token used for pagination.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The type of LDAP security to enable. Currently only the value @Client@
     -- is supported.
-    type' :: Prelude.Maybe LDAPSType,
+    type' :: Core.Maybe LDAPSType,
     -- | Specifies the number of items that should be displayed on one page.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The identifier of the directory.
-    directoryId :: Prelude.Text
+    directoryId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLDAPSSettings' with all optional fields omitted.
@@ -82,98 +81,94 @@ data DescribeLDAPSSettings = DescribeLDAPSSettings'
 -- 'directoryId', 'describeLDAPSSettings_directoryId' - The identifier of the directory.
 newDescribeLDAPSSettings ::
   -- | 'directoryId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeLDAPSSettings
 newDescribeLDAPSSettings pDirectoryId_ =
   DescribeLDAPSSettings'
-    { nextToken = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      type' = Core.Nothing,
+      limit = Core.Nothing,
       directoryId = pDirectoryId_
     }
 
 -- | The type of next token used for pagination.
-describeLDAPSSettings_nextToken :: Lens.Lens' DescribeLDAPSSettings (Prelude.Maybe Prelude.Text)
+describeLDAPSSettings_nextToken :: Lens.Lens' DescribeLDAPSSettings (Core.Maybe Core.Text)
 describeLDAPSSettings_nextToken = Lens.lens (\DescribeLDAPSSettings' {nextToken} -> nextToken) (\s@DescribeLDAPSSettings' {} a -> s {nextToken = a} :: DescribeLDAPSSettings)
 
 -- | The type of LDAP security to enable. Currently only the value @Client@
 -- is supported.
-describeLDAPSSettings_type :: Lens.Lens' DescribeLDAPSSettings (Prelude.Maybe LDAPSType)
+describeLDAPSSettings_type :: Lens.Lens' DescribeLDAPSSettings (Core.Maybe LDAPSType)
 describeLDAPSSettings_type = Lens.lens (\DescribeLDAPSSettings' {type'} -> type') (\s@DescribeLDAPSSettings' {} a -> s {type' = a} :: DescribeLDAPSSettings)
 
 -- | Specifies the number of items that should be displayed on one page.
-describeLDAPSSettings_limit :: Lens.Lens' DescribeLDAPSSettings (Prelude.Maybe Prelude.Natural)
+describeLDAPSSettings_limit :: Lens.Lens' DescribeLDAPSSettings (Core.Maybe Core.Natural)
 describeLDAPSSettings_limit = Lens.lens (\DescribeLDAPSSettings' {limit} -> limit) (\s@DescribeLDAPSSettings' {} a -> s {limit = a} :: DescribeLDAPSSettings)
 
 -- | The identifier of the directory.
-describeLDAPSSettings_directoryId :: Lens.Lens' DescribeLDAPSSettings Prelude.Text
+describeLDAPSSettings_directoryId :: Lens.Lens' DescribeLDAPSSettings Core.Text
 describeLDAPSSettings_directoryId = Lens.lens (\DescribeLDAPSSettings' {directoryId} -> directoryId) (\s@DescribeLDAPSSettings' {} a -> s {directoryId = a} :: DescribeLDAPSSettings)
 
-instance Prelude.AWSRequest DescribeLDAPSSettings where
+instance Core.AWSRequest DescribeLDAPSSettings where
   type
-    Rs DescribeLDAPSSettings =
+    AWSResponse DescribeLDAPSSettings =
       DescribeLDAPSSettingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLDAPSSettingsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "LDAPSSettingsInfo"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "LDAPSSettingsInfo" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLDAPSSettings
+instance Core.Hashable DescribeLDAPSSettings
 
-instance Prelude.NFData DescribeLDAPSSettings
+instance Core.NFData DescribeLDAPSSettings
 
-instance Prelude.ToHeaders DescribeLDAPSSettings where
+instance Core.ToHeaders DescribeLDAPSSettings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DirectoryService_20150416.DescribeLDAPSSettings" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DirectoryService_20150416.DescribeLDAPSSettings" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeLDAPSSettings where
+instance Core.ToJSON DescribeLDAPSSettings where
   toJSON DescribeLDAPSSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Type" Prelude..=) Prelude.<$> type',
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just ("DirectoryId" Prelude..= directoryId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Type" Core..=) Core.<$> type',
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just ("DirectoryId" Core..= directoryId)
           ]
       )
 
-instance Prelude.ToPath DescribeLDAPSSettings where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLDAPSSettings where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLDAPSSettings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLDAPSSettings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeLDAPSSettingsResponse' smart constructor.
 data DescribeLDAPSSettingsResponse = DescribeLDAPSSettingsResponse'
   { -- | The next token used to retrieve the LDAPS settings if the number of
     -- setting types exceeds page limit and there is another page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about LDAP security for the specified directory, including
     -- status of enablement, state last updated date time, and the reason for
     -- the state.
-    lDAPSSettingsInfo :: Prelude.Maybe [LDAPSSettingInfo],
+    lDAPSSettingsInfo :: Core.Maybe [LDAPSSettingInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLDAPSSettingsResponse' with all optional fields omitted.
@@ -193,29 +188,29 @@ data DescribeLDAPSSettingsResponse = DescribeLDAPSSettingsResponse'
 -- 'httpStatus', 'describeLDAPSSettingsResponse_httpStatus' - The response's http status code.
 newDescribeLDAPSSettingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLDAPSSettingsResponse
 newDescribeLDAPSSettingsResponse pHttpStatus_ =
   DescribeLDAPSSettingsResponse'
     { nextToken =
-        Prelude.Nothing,
-      lDAPSSettingsInfo = Prelude.Nothing,
+        Core.Nothing,
+      lDAPSSettingsInfo = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The next token used to retrieve the LDAPS settings if the number of
 -- setting types exceeds page limit and there is another page.
-describeLDAPSSettingsResponse_nextToken :: Lens.Lens' DescribeLDAPSSettingsResponse (Prelude.Maybe Prelude.Text)
+describeLDAPSSettingsResponse_nextToken :: Lens.Lens' DescribeLDAPSSettingsResponse (Core.Maybe Core.Text)
 describeLDAPSSettingsResponse_nextToken = Lens.lens (\DescribeLDAPSSettingsResponse' {nextToken} -> nextToken) (\s@DescribeLDAPSSettingsResponse' {} a -> s {nextToken = a} :: DescribeLDAPSSettingsResponse)
 
 -- | Information about LDAP security for the specified directory, including
 -- status of enablement, state last updated date time, and the reason for
 -- the state.
-describeLDAPSSettingsResponse_lDAPSSettingsInfo :: Lens.Lens' DescribeLDAPSSettingsResponse (Prelude.Maybe [LDAPSSettingInfo])
-describeLDAPSSettingsResponse_lDAPSSettingsInfo = Lens.lens (\DescribeLDAPSSettingsResponse' {lDAPSSettingsInfo} -> lDAPSSettingsInfo) (\s@DescribeLDAPSSettingsResponse' {} a -> s {lDAPSSettingsInfo = a} :: DescribeLDAPSSettingsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLDAPSSettingsResponse_lDAPSSettingsInfo :: Lens.Lens' DescribeLDAPSSettingsResponse (Core.Maybe [LDAPSSettingInfo])
+describeLDAPSSettingsResponse_lDAPSSettingsInfo = Lens.lens (\DescribeLDAPSSettingsResponse' {lDAPSSettingsInfo} -> lDAPSSettingsInfo) (\s@DescribeLDAPSSettingsResponse' {} a -> s {lDAPSSettingsInfo = a} :: DescribeLDAPSSettingsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLDAPSSettingsResponse_httpStatus :: Lens.Lens' DescribeLDAPSSettingsResponse Prelude.Int
+describeLDAPSSettingsResponse_httpStatus :: Lens.Lens' DescribeLDAPSSettingsResponse Core.Int
 describeLDAPSSettingsResponse_httpStatus = Lens.lens (\DescribeLDAPSSettingsResponse' {httpStatus} -> httpStatus) (\s@DescribeLDAPSSettingsResponse' {} a -> s {httpStatus = a} :: DescribeLDAPSSettingsResponse)
 
-instance Prelude.NFData DescribeLDAPSSettingsResponse
+instance Core.NFData DescribeLDAPSSettingsResponse

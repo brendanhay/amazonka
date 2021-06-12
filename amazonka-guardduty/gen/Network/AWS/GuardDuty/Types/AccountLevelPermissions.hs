@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.AccountLevelPermissions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.BlockPublicAccess
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the account level permissions on the S3
 -- bucket.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data AccountLevelPermissions = AccountLevelPermissions'
   { -- | Describes the S3 Block Public Access settings of the bucket\'s parent
     -- account.
-    blockPublicAccess :: Prelude.Maybe BlockPublicAccess
+    blockPublicAccess :: Core.Maybe BlockPublicAccess
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AccountLevelPermissions' with all optional fields omitted.
@@ -50,23 +49,23 @@ newAccountLevelPermissions ::
 newAccountLevelPermissions =
   AccountLevelPermissions'
     { blockPublicAccess =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Describes the S3 Block Public Access settings of the bucket\'s parent
 -- account.
-accountLevelPermissions_blockPublicAccess :: Lens.Lens' AccountLevelPermissions (Prelude.Maybe BlockPublicAccess)
+accountLevelPermissions_blockPublicAccess :: Lens.Lens' AccountLevelPermissions (Core.Maybe BlockPublicAccess)
 accountLevelPermissions_blockPublicAccess = Lens.lens (\AccountLevelPermissions' {blockPublicAccess} -> blockPublicAccess) (\s@AccountLevelPermissions' {} a -> s {blockPublicAccess = a} :: AccountLevelPermissions)
 
-instance Prelude.FromJSON AccountLevelPermissions where
+instance Core.FromJSON AccountLevelPermissions where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AccountLevelPermissions"
       ( \x ->
           AccountLevelPermissions'
-            Prelude.<$> (x Prelude..:? "blockPublicAccess")
+            Core.<$> (x Core..:? "blockPublicAccess")
       )
 
-instance Prelude.Hashable AccountLevelPermissions
+instance Core.Hashable AccountLevelPermissions
 
-instance Prelude.NFData AccountLevelPermissions
+instance Core.NFData AccountLevelPermissions

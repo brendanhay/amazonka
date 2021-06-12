@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.SQS.PurgeQueue
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SQS.Types
@@ -62,9 +61,9 @@ data PurgeQueue = PurgeQueue'
     -- messages.
     --
     -- Queue URLs and names are case-sensitive.
-    queueUrl :: Prelude.Text
+    queueUrl :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurgeQueue' with all optional fields omitted.
@@ -80,7 +79,7 @@ data PurgeQueue = PurgeQueue'
 -- Queue URLs and names are case-sensitive.
 newPurgeQueue ::
   -- | 'queueUrl'
-  Prelude.Text ->
+  Core.Text ->
   PurgeQueue
 newPurgeQueue pQueueUrl_ =
   PurgeQueue' {queueUrl = pQueueUrl_}
@@ -89,39 +88,37 @@ newPurgeQueue pQueueUrl_ =
 -- messages.
 --
 -- Queue URLs and names are case-sensitive.
-purgeQueue_queueUrl :: Lens.Lens' PurgeQueue Prelude.Text
+purgeQueue_queueUrl :: Lens.Lens' PurgeQueue Core.Text
 purgeQueue_queueUrl = Lens.lens (\PurgeQueue' {queueUrl} -> queueUrl) (\s@PurgeQueue' {} a -> s {queueUrl = a} :: PurgeQueue)
 
-instance Prelude.AWSRequest PurgeQueue where
-  type Rs PurgeQueue = PurgeQueueResponse
+instance Core.AWSRequest PurgeQueue where
+  type AWSResponse PurgeQueue = PurgeQueueResponse
   request = Request.postQuery defaultService
   response = Response.receiveNull PurgeQueueResponse'
 
-instance Prelude.Hashable PurgeQueue
+instance Core.Hashable PurgeQueue
 
-instance Prelude.NFData PurgeQueue
+instance Core.NFData PurgeQueue
 
-instance Prelude.ToHeaders PurgeQueue where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders PurgeQueue where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath PurgeQueue where
-  toPath = Prelude.const "/"
+instance Core.ToPath PurgeQueue where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PurgeQueue where
+instance Core.ToQuery PurgeQueue where
   toQuery PurgeQueue' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("PurgeQueue" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-11-05" :: Prelude.ByteString),
-        "QueueUrl" Prelude.=: queueUrl
+    Core.mconcat
+      [ "Action" Core.=: ("PurgeQueue" :: Core.ByteString),
+        "Version" Core.=: ("2012-11-05" :: Core.ByteString),
+        "QueueUrl" Core.=: queueUrl
       ]
 
 -- | /See:/ 'newPurgeQueueResponse' smart constructor.
 data PurgeQueueResponse = PurgeQueueResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PurgeQueueResponse' with all optional fields omitted.
@@ -131,4 +128,4 @@ newPurgeQueueResponse ::
   PurgeQueueResponse
 newPurgeQueueResponse = PurgeQueueResponse'
 
-instance Prelude.NFData PurgeQueueResponse
+instance Core.NFData PurgeQueueResponse

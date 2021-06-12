@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,9 +69,9 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,13 +79,13 @@ import qualified Network.AWS.Response as Response
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
   { -- | The ID of the connection on which the private virtual interface is
     -- provisioned.
-    connectionId :: Prelude.Text,
+    connectionId :: Core.Text,
     -- | The ID of the AWS account that owns the virtual private interface.
-    ownerAccount :: Prelude.Text,
+    ownerAccount :: Core.Text,
     -- | Information about the private virtual interface.
     newPrivateVirtualInterfaceAllocation' :: NewPrivateVirtualInterfaceAllocation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AllocatePrivateVirtualInterface' with all optional fields omitted.
@@ -104,9 +103,9 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
 -- 'newPrivateVirtualInterfaceAllocation'', 'allocatePrivateVirtualInterface_newPrivateVirtualInterfaceAllocation' - Information about the private virtual interface.
 newAllocatePrivateVirtualInterface ::
   -- | 'connectionId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'ownerAccount'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'newPrivateVirtualInterfaceAllocation''
   NewPrivateVirtualInterfaceAllocation ->
   AllocatePrivateVirtualInterface
@@ -124,11 +123,11 @@ newAllocatePrivateVirtualInterface
 
 -- | The ID of the connection on which the private virtual interface is
 -- provisioned.
-allocatePrivateVirtualInterface_connectionId :: Lens.Lens' AllocatePrivateVirtualInterface Prelude.Text
+allocatePrivateVirtualInterface_connectionId :: Lens.Lens' AllocatePrivateVirtualInterface Core.Text
 allocatePrivateVirtualInterface_connectionId = Lens.lens (\AllocatePrivateVirtualInterface' {connectionId} -> connectionId) (\s@AllocatePrivateVirtualInterface' {} a -> s {connectionId = a} :: AllocatePrivateVirtualInterface)
 
 -- | The ID of the AWS account that owns the virtual private interface.
-allocatePrivateVirtualInterface_ownerAccount :: Lens.Lens' AllocatePrivateVirtualInterface Prelude.Text
+allocatePrivateVirtualInterface_ownerAccount :: Lens.Lens' AllocatePrivateVirtualInterface Core.Text
 allocatePrivateVirtualInterface_ownerAccount = Lens.lens (\AllocatePrivateVirtualInterface' {ownerAccount} -> ownerAccount) (\s@AllocatePrivateVirtualInterface' {} a -> s {ownerAccount = a} :: AllocatePrivateVirtualInterface)
 
 -- | Information about the private virtual interface.
@@ -136,69 +135,54 @@ allocatePrivateVirtualInterface_newPrivateVirtualInterfaceAllocation :: Lens.Len
 allocatePrivateVirtualInterface_newPrivateVirtualInterfaceAllocation = Lens.lens (\AllocatePrivateVirtualInterface' {newPrivateVirtualInterfaceAllocation'} -> newPrivateVirtualInterfaceAllocation') (\s@AllocatePrivateVirtualInterface' {} a -> s {newPrivateVirtualInterfaceAllocation' = a} :: AllocatePrivateVirtualInterface)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     AllocatePrivateVirtualInterface
   where
   type
-    Rs AllocatePrivateVirtualInterface =
+    AWSResponse AllocatePrivateVirtualInterface =
       VirtualInterface
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     AllocatePrivateVirtualInterface
 
-instance
-  Prelude.NFData
-    AllocatePrivateVirtualInterface
+instance Core.NFData AllocatePrivateVirtualInterface
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     AllocatePrivateVirtualInterface
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "OvertureService.AllocatePrivateVirtualInterface" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "OvertureService.AllocatePrivateVirtualInterface" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    AllocatePrivateVirtualInterface
-  where
+instance Core.ToJSON AllocatePrivateVirtualInterface where
   toJSON AllocatePrivateVirtualInterface' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("connectionId" Prelude..= connectionId),
-            Prelude.Just
-              ("ownerAccount" Prelude..= ownerAccount),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just ("ownerAccount" Core..= ownerAccount),
+            Core.Just
               ( "newPrivateVirtualInterfaceAllocation"
-                  Prelude..= newPrivateVirtualInterfaceAllocation'
+                  Core..= newPrivateVirtualInterfaceAllocation'
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    AllocatePrivateVirtualInterface
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath AllocatePrivateVirtualInterface where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    AllocatePrivateVirtualInterface
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery AllocatePrivateVirtualInterface where
+  toQuery = Core.const Core.mempty

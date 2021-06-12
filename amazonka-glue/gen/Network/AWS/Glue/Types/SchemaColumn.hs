@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SchemaColumn where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A key-value pair representing a column and data type that this transform
 -- can run against. The @Schema@ parameter of the @MLTransform@ may contain
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSchemaColumn' smart constructor.
 data SchemaColumn = SchemaColumn'
   { -- | The name of the column.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The type of data in the column.
-    dataType :: Prelude.Maybe Prelude.Text
+    dataType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SchemaColumn' with all optional fields omitted.
@@ -51,37 +50,36 @@ newSchemaColumn ::
   SchemaColumn
 newSchemaColumn =
   SchemaColumn'
-    { name = Prelude.Nothing,
-      dataType = Prelude.Nothing
+    { name = Core.Nothing,
+      dataType = Core.Nothing
     }
 
 -- | The name of the column.
-schemaColumn_name :: Lens.Lens' SchemaColumn (Prelude.Maybe Prelude.Text)
+schemaColumn_name :: Lens.Lens' SchemaColumn (Core.Maybe Core.Text)
 schemaColumn_name = Lens.lens (\SchemaColumn' {name} -> name) (\s@SchemaColumn' {} a -> s {name = a} :: SchemaColumn)
 
 -- | The type of data in the column.
-schemaColumn_dataType :: Lens.Lens' SchemaColumn (Prelude.Maybe Prelude.Text)
+schemaColumn_dataType :: Lens.Lens' SchemaColumn (Core.Maybe Core.Text)
 schemaColumn_dataType = Lens.lens (\SchemaColumn' {dataType} -> dataType) (\s@SchemaColumn' {} a -> s {dataType = a} :: SchemaColumn)
 
-instance Prelude.FromJSON SchemaColumn where
+instance Core.FromJSON SchemaColumn where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SchemaColumn"
       ( \x ->
           SchemaColumn'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "DataType")
+            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "DataType")
       )
 
-instance Prelude.Hashable SchemaColumn
+instance Core.Hashable SchemaColumn
 
-instance Prelude.NFData SchemaColumn
+instance Core.NFData SchemaColumn
 
-instance Prelude.ToJSON SchemaColumn where
+instance Core.ToJSON SchemaColumn where
   toJSON SchemaColumn' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Name" Prelude..=) Prelude.<$> name,
-            ("DataType" Prelude..=) Prelude.<$> dataType
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("DataType" Core..=) Core.<$> dataType
           ]
       )

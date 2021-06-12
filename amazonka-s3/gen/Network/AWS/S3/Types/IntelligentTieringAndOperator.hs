@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.IntelligentTieringAndOperator where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.Tag
 
@@ -32,12 +31,12 @@ import Network.AWS.S3.Types.Tag
 data IntelligentTieringAndOperator = IntelligentTieringAndOperator'
   { -- | An object key name prefix that identifies the subset of objects to which
     -- the configuration applies.
-    prefix :: Prelude.Maybe Prelude.Text,
+    prefix :: Core.Maybe Core.Text,
     -- | All of these tags must exist in the object\'s tag set in order for the
     -- configuration to apply.
-    tags :: Prelude.Maybe [Tag]
+    tags :: Core.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IntelligentTieringAndOperator' with all optional fields omitted.
@@ -57,42 +56,36 @@ newIntelligentTieringAndOperator ::
 newIntelligentTieringAndOperator =
   IntelligentTieringAndOperator'
     { prefix =
-        Prelude.Nothing,
-      tags = Prelude.Nothing
+        Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which
 -- the configuration applies.
-intelligentTieringAndOperator_prefix :: Lens.Lens' IntelligentTieringAndOperator (Prelude.Maybe Prelude.Text)
+intelligentTieringAndOperator_prefix :: Lens.Lens' IntelligentTieringAndOperator (Core.Maybe Core.Text)
 intelligentTieringAndOperator_prefix = Lens.lens (\IntelligentTieringAndOperator' {prefix} -> prefix) (\s@IntelligentTieringAndOperator' {} a -> s {prefix = a} :: IntelligentTieringAndOperator)
 
 -- | All of these tags must exist in the object\'s tag set in order for the
 -- configuration to apply.
-intelligentTieringAndOperator_tags :: Lens.Lens' IntelligentTieringAndOperator (Prelude.Maybe [Tag])
-intelligentTieringAndOperator_tags = Lens.lens (\IntelligentTieringAndOperator' {tags} -> tags) (\s@IntelligentTieringAndOperator' {} a -> s {tags = a} :: IntelligentTieringAndOperator) Prelude.. Lens.mapping Prelude._Coerce
+intelligentTieringAndOperator_tags :: Lens.Lens' IntelligentTieringAndOperator (Core.Maybe [Tag])
+intelligentTieringAndOperator_tags = Lens.lens (\IntelligentTieringAndOperator' {tags} -> tags) (\s@IntelligentTieringAndOperator' {} a -> s {tags = a} :: IntelligentTieringAndOperator) Core.. Lens.mapping Lens._Coerce
 
-instance
-  Prelude.FromXML
-    IntelligentTieringAndOperator
-  where
+instance Core.FromXML IntelligentTieringAndOperator where
   parseXML x =
     IntelligentTieringAndOperator'
-      Prelude.<$> (x Prelude..@? "Prefix")
-      Prelude.<*> ( x Prelude..@? "Tag" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "Tag")
-                  )
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> ( x Core..@? "Tag" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "Tag")
+               )
 
-instance
-  Prelude.Hashable
-    IntelligentTieringAndOperator
+instance Core.Hashable IntelligentTieringAndOperator
 
-instance Prelude.NFData IntelligentTieringAndOperator
+instance Core.NFData IntelligentTieringAndOperator
 
-instance Prelude.ToXML IntelligentTieringAndOperator where
+instance Core.ToXML IntelligentTieringAndOperator where
   toXML IntelligentTieringAndOperator' {..} =
-    Prelude.mconcat
-      [ "Prefix" Prelude.@= prefix,
+    Core.mconcat
+      [ "Prefix" Core.@= prefix,
         "Tag"
-          Prelude.@= Prelude.toXML
-            (Prelude.toXMLList "Tag" Prelude.<$> tags)
+          Core.@= Core.toXML (Core.toXMLList "Tag" Core.<$> tags)
       ]

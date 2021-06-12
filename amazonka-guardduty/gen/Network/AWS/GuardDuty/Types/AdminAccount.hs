@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.AdminAccount where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.AdminStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The account within the organization specified as the GuardDuty delegated
 -- administrator.
@@ -30,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAdminAccount' smart constructor.
 data AdminAccount = AdminAccount'
   { -- | The AWS account ID for the account.
-    adminAccountId :: Prelude.Maybe Prelude.Text,
+    adminAccountId :: Core.Maybe Core.Text,
     -- | Indicates whether the account is enabled as the delegated administrator.
-    adminStatus :: Prelude.Maybe AdminStatus
+    adminStatus :: Core.Maybe AdminStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AdminAccount' with all optional fields omitted.
@@ -51,28 +50,28 @@ newAdminAccount ::
   AdminAccount
 newAdminAccount =
   AdminAccount'
-    { adminAccountId = Prelude.Nothing,
-      adminStatus = Prelude.Nothing
+    { adminAccountId = Core.Nothing,
+      adminStatus = Core.Nothing
     }
 
 -- | The AWS account ID for the account.
-adminAccount_adminAccountId :: Lens.Lens' AdminAccount (Prelude.Maybe Prelude.Text)
+adminAccount_adminAccountId :: Lens.Lens' AdminAccount (Core.Maybe Core.Text)
 adminAccount_adminAccountId = Lens.lens (\AdminAccount' {adminAccountId} -> adminAccountId) (\s@AdminAccount' {} a -> s {adminAccountId = a} :: AdminAccount)
 
 -- | Indicates whether the account is enabled as the delegated administrator.
-adminAccount_adminStatus :: Lens.Lens' AdminAccount (Prelude.Maybe AdminStatus)
+adminAccount_adminStatus :: Lens.Lens' AdminAccount (Core.Maybe AdminStatus)
 adminAccount_adminStatus = Lens.lens (\AdminAccount' {adminStatus} -> adminStatus) (\s@AdminAccount' {} a -> s {adminStatus = a} :: AdminAccount)
 
-instance Prelude.FromJSON AdminAccount where
+instance Core.FromJSON AdminAccount where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AdminAccount"
       ( \x ->
           AdminAccount'
-            Prelude.<$> (x Prelude..:? "adminAccountId")
-            Prelude.<*> (x Prelude..:? "adminStatus")
+            Core.<$> (x Core..:? "adminAccountId")
+            Core.<*> (x Core..:? "adminStatus")
       )
 
-instance Prelude.Hashable AdminAccount
+instance Core.Hashable AdminAccount
 
-instance Prelude.NFData AdminAccount
+instance Core.NFData AdminAccount

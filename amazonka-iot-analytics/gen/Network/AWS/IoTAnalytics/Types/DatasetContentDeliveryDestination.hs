@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
 import Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The destination to which dataset contents are delivered.
 --
 -- /See:/ 'newDatasetContentDeliveryDestination' smart constructor.
 data DatasetContentDeliveryDestination = DatasetContentDeliveryDestination'
   { -- | Configuration information for delivery of dataset contents to Amazon S3.
-    s3DestinationConfiguration :: Prelude.Maybe S3DestinationConfiguration,
+    s3DestinationConfiguration :: Core.Maybe S3DestinationConfiguration,
     -- | Configuration information for delivery of dataset contents to AWS IoT
     -- Events.
-    iotEventsDestinationConfiguration :: Prelude.Maybe IotEventsDestinationConfiguration
+    iotEventsDestinationConfiguration :: Core.Maybe IotEventsDestinationConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DatasetContentDeliveryDestination' with all optional fields omitted.
@@ -54,51 +53,51 @@ newDatasetContentDeliveryDestination ::
 newDatasetContentDeliveryDestination =
   DatasetContentDeliveryDestination'
     { s3DestinationConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       iotEventsDestinationConfiguration =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Configuration information for delivery of dataset contents to Amazon S3.
-datasetContentDeliveryDestination_s3DestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Prelude.Maybe S3DestinationConfiguration)
+datasetContentDeliveryDestination_s3DestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Core.Maybe S3DestinationConfiguration)
 datasetContentDeliveryDestination_s3DestinationConfiguration = Lens.lens (\DatasetContentDeliveryDestination' {s3DestinationConfiguration} -> s3DestinationConfiguration) (\s@DatasetContentDeliveryDestination' {} a -> s {s3DestinationConfiguration = a} :: DatasetContentDeliveryDestination)
 
 -- | Configuration information for delivery of dataset contents to AWS IoT
 -- Events.
-datasetContentDeliveryDestination_iotEventsDestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Prelude.Maybe IotEventsDestinationConfiguration)
+datasetContentDeliveryDestination_iotEventsDestinationConfiguration :: Lens.Lens' DatasetContentDeliveryDestination (Core.Maybe IotEventsDestinationConfiguration)
 datasetContentDeliveryDestination_iotEventsDestinationConfiguration = Lens.lens (\DatasetContentDeliveryDestination' {iotEventsDestinationConfiguration} -> iotEventsDestinationConfiguration) (\s@DatasetContentDeliveryDestination' {} a -> s {iotEventsDestinationConfiguration = a} :: DatasetContentDeliveryDestination)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     DatasetContentDeliveryDestination
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DatasetContentDeliveryDestination"
       ( \x ->
           DatasetContentDeliveryDestination'
-            Prelude.<$> (x Prelude..:? "s3DestinationConfiguration")
-            Prelude.<*> (x Prelude..:? "iotEventsDestinationConfiguration")
+            Core.<$> (x Core..:? "s3DestinationConfiguration")
+            Core.<*> (x Core..:? "iotEventsDestinationConfiguration")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DatasetContentDeliveryDestination
 
 instance
-  Prelude.NFData
+  Core.NFData
     DatasetContentDeliveryDestination
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DatasetContentDeliveryDestination
   where
   toJSON DatasetContentDeliveryDestination' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("s3DestinationConfiguration" Prelude..=)
-              Prelude.<$> s3DestinationConfiguration,
-            ("iotEventsDestinationConfiguration" Prelude..=)
-              Prelude.<$> iotEventsDestinationConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("s3DestinationConfiguration" Core..=)
+              Core.<$> s3DestinationConfiguration,
+            ("iotEventsDestinationConfiguration" Core..=)
+              Core.<$> iotEventsDestinationConfiguration
           ]
       )

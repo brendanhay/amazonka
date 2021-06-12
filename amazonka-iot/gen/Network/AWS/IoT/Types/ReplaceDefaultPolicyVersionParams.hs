@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.PolicyTemplateName
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Parameters to define a mitigation action that adds a blank policy to
 -- restrict permissions.
@@ -33,7 +32,7 @@ data ReplaceDefaultPolicyVersionParams = ReplaceDefaultPolicyVersionParams'
     -- @BLANK_POLICY@.
     templateName :: PolicyTemplateName
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplaceDefaultPolicyVersionParams' with all optional fields omitted.
@@ -61,33 +60,31 @@ replaceDefaultPolicyVersionParams_templateName :: Lens.Lens' ReplaceDefaultPolic
 replaceDefaultPolicyVersionParams_templateName = Lens.lens (\ReplaceDefaultPolicyVersionParams' {templateName} -> templateName) (\s@ReplaceDefaultPolicyVersionParams' {} a -> s {templateName = a} :: ReplaceDefaultPolicyVersionParams)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     ReplaceDefaultPolicyVersionParams
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ReplaceDefaultPolicyVersionParams"
       ( \x ->
           ReplaceDefaultPolicyVersionParams'
-            Prelude.<$> (x Prelude..: "templateName")
+            Core.<$> (x Core..: "templateName")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ReplaceDefaultPolicyVersionParams
 
 instance
-  Prelude.NFData
+  Core.NFData
     ReplaceDefaultPolicyVersionParams
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ReplaceDefaultPolicyVersionParams
   where
   toJSON ReplaceDefaultPolicyVersionParams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("templateName" Prelude..= templateName)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("templateName" Core..= templateName)]
       )

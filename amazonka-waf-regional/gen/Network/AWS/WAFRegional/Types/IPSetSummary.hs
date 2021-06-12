@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAFRegional.Types.IPSetSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
@@ -38,12 +37,12 @@ import qualified Network.AWS.Prelude as Prelude
 data IPSetSummary = IPSetSummary'
   { -- | The @IPSetId@ for an IPSet. You can use @IPSetId@ in a GetIPSet request
     -- to get detailed information about an IPSet.
-    iPSetId :: Prelude.Text,
+    iPSetId :: Core.Text,
     -- | A friendly name or description of the IPSet. You can\'t change the name
     -- of an @IPSet@ after you create it.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IPSetSummary' with all optional fields omitted.
@@ -60,33 +59,32 @@ data IPSetSummary = IPSetSummary'
 -- of an @IPSet@ after you create it.
 newIPSetSummary ::
   -- | 'iPSetId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   IPSetSummary
 newIPSetSummary pIPSetId_ pName_ =
   IPSetSummary' {iPSetId = pIPSetId_, name = pName_}
 
 -- | The @IPSetId@ for an IPSet. You can use @IPSetId@ in a GetIPSet request
 -- to get detailed information about an IPSet.
-iPSetSummary_iPSetId :: Lens.Lens' IPSetSummary Prelude.Text
+iPSetSummary_iPSetId :: Lens.Lens' IPSetSummary Core.Text
 iPSetSummary_iPSetId = Lens.lens (\IPSetSummary' {iPSetId} -> iPSetId) (\s@IPSetSummary' {} a -> s {iPSetId = a} :: IPSetSummary)
 
 -- | A friendly name or description of the IPSet. You can\'t change the name
 -- of an @IPSet@ after you create it.
-iPSetSummary_name :: Lens.Lens' IPSetSummary Prelude.Text
+iPSetSummary_name :: Lens.Lens' IPSetSummary Core.Text
 iPSetSummary_name = Lens.lens (\IPSetSummary' {name} -> name) (\s@IPSetSummary' {} a -> s {name = a} :: IPSetSummary)
 
-instance Prelude.FromJSON IPSetSummary where
+instance Core.FromJSON IPSetSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IPSetSummary"
       ( \x ->
           IPSetSummary'
-            Prelude.<$> (x Prelude..: "IPSetId")
-            Prelude.<*> (x Prelude..: "Name")
+            Core.<$> (x Core..: "IPSetId") Core.<*> (x Core..: "Name")
       )
 
-instance Prelude.Hashable IPSetSummary
+instance Core.Hashable IPSetSummary
 
-instance Prelude.NFData IPSetSummary
+instance Core.NFData IPSetSummary

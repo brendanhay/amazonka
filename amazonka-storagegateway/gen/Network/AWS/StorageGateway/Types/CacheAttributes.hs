@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.CacheAttributes where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Lists refresh cache information.
 --
@@ -34,9 +33,9 @@ data CacheAttributes = CacheAttributes'
     -- seconds.
     --
     -- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-    cacheStaleTimeoutInSeconds :: Prelude.Maybe Prelude.Int
+    cacheStaleTimeoutInSeconds :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CacheAttributes' with all optional fields omitted.
@@ -58,7 +57,7 @@ newCacheAttributes ::
 newCacheAttributes =
   CacheAttributes'
     { cacheStaleTimeoutInSeconds =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | Refreshes a file share\'s cache by using Time To Live (TTL). TTL is the
@@ -68,27 +67,27 @@ newCacheAttributes =
 -- seconds.
 --
 -- Valid Values: 300 to 2,592,000 seconds (5 minutes to 30 days)
-cacheAttributes_cacheStaleTimeoutInSeconds :: Lens.Lens' CacheAttributes (Prelude.Maybe Prelude.Int)
+cacheAttributes_cacheStaleTimeoutInSeconds :: Lens.Lens' CacheAttributes (Core.Maybe Core.Int)
 cacheAttributes_cacheStaleTimeoutInSeconds = Lens.lens (\CacheAttributes' {cacheStaleTimeoutInSeconds} -> cacheStaleTimeoutInSeconds) (\s@CacheAttributes' {} a -> s {cacheStaleTimeoutInSeconds = a} :: CacheAttributes)
 
-instance Prelude.FromJSON CacheAttributes where
+instance Core.FromJSON CacheAttributes where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CacheAttributes"
       ( \x ->
           CacheAttributes'
-            Prelude.<$> (x Prelude..:? "CacheStaleTimeoutInSeconds")
+            Core.<$> (x Core..:? "CacheStaleTimeoutInSeconds")
       )
 
-instance Prelude.Hashable CacheAttributes
+instance Core.Hashable CacheAttributes
 
-instance Prelude.NFData CacheAttributes
+instance Core.NFData CacheAttributes
 
-instance Prelude.ToJSON CacheAttributes where
+instance Core.ToJSON CacheAttributes where
   toJSON CacheAttributes' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CacheStaleTimeoutInSeconds" Prelude..=)
-              Prelude.<$> cacheStaleTimeoutInSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("CacheStaleTimeoutInSeconds" Core..=)
+              Core.<$> cacheStaleTimeoutInSeconds
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,8 +44,8 @@ module Network.AWS.Transcribe.GetTranscriptionJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -54,9 +53,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newGetTranscriptionJob' smart constructor.
 data GetTranscriptionJob = GetTranscriptionJob'
   { -- | The name of the job.
-    transcriptionJobName :: Prelude.Text
+    transcriptionJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTranscriptionJob' with all optional fields omitted.
@@ -69,7 +68,7 @@ data GetTranscriptionJob = GetTranscriptionJob'
 -- 'transcriptionJobName', 'getTranscriptionJob_transcriptionJobName' - The name of the job.
 newGetTranscriptionJob ::
   -- | 'transcriptionJobName'
-  Prelude.Text ->
+  Core.Text ->
   GetTranscriptionJob
 newGetTranscriptionJob pTranscriptionJobName_ =
   GetTranscriptionJob'
@@ -78,66 +77,64 @@ newGetTranscriptionJob pTranscriptionJobName_ =
     }
 
 -- | The name of the job.
-getTranscriptionJob_transcriptionJobName :: Lens.Lens' GetTranscriptionJob Prelude.Text
+getTranscriptionJob_transcriptionJobName :: Lens.Lens' GetTranscriptionJob Core.Text
 getTranscriptionJob_transcriptionJobName = Lens.lens (\GetTranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@GetTranscriptionJob' {} a -> s {transcriptionJobName = a} :: GetTranscriptionJob)
 
-instance Prelude.AWSRequest GetTranscriptionJob where
+instance Core.AWSRequest GetTranscriptionJob where
   type
-    Rs GetTranscriptionJob =
+    AWSResponse GetTranscriptionJob =
       GetTranscriptionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetTranscriptionJobResponse'
-            Prelude.<$> (x Prelude..?> "TranscriptionJob")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TranscriptionJob")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetTranscriptionJob
+instance Core.Hashable GetTranscriptionJob
 
-instance Prelude.NFData GetTranscriptionJob
+instance Core.NFData GetTranscriptionJob
 
-instance Prelude.ToHeaders GetTranscriptionJob where
+instance Core.ToHeaders GetTranscriptionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.GetTranscriptionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.GetTranscriptionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetTranscriptionJob where
+instance Core.ToJSON GetTranscriptionJob where
   toJSON GetTranscriptionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TranscriptionJobName"
-                  Prelude..= transcriptionJobName
+                  Core..= transcriptionJobName
               )
           ]
       )
 
-instance Prelude.ToPath GetTranscriptionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetTranscriptionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetTranscriptionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetTranscriptionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetTranscriptionJobResponse' smart constructor.
 data GetTranscriptionJobResponse = GetTranscriptionJobResponse'
   { -- | An object that contains the results of the transcription job.
-    transcriptionJob :: Prelude.Maybe TranscriptionJob,
+    transcriptionJob :: Core.Maybe TranscriptionJob,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetTranscriptionJobResponse' with all optional fields omitted.
@@ -152,21 +149,21 @@ data GetTranscriptionJobResponse = GetTranscriptionJobResponse'
 -- 'httpStatus', 'getTranscriptionJobResponse_httpStatus' - The response's http status code.
 newGetTranscriptionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetTranscriptionJobResponse
 newGetTranscriptionJobResponse pHttpStatus_ =
   GetTranscriptionJobResponse'
     { transcriptionJob =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains the results of the transcription job.
-getTranscriptionJobResponse_transcriptionJob :: Lens.Lens' GetTranscriptionJobResponse (Prelude.Maybe TranscriptionJob)
+getTranscriptionJobResponse_transcriptionJob :: Lens.Lens' GetTranscriptionJobResponse (Core.Maybe TranscriptionJob)
 getTranscriptionJobResponse_transcriptionJob = Lens.lens (\GetTranscriptionJobResponse' {transcriptionJob} -> transcriptionJob) (\s@GetTranscriptionJobResponse' {} a -> s {transcriptionJob = a} :: GetTranscriptionJobResponse)
 
 -- | The response's http status code.
-getTranscriptionJobResponse_httpStatus :: Lens.Lens' GetTranscriptionJobResponse Prelude.Int
+getTranscriptionJobResponse_httpStatus :: Lens.Lens' GetTranscriptionJobResponse Core.Int
 getTranscriptionJobResponse_httpStatus = Lens.lens (\GetTranscriptionJobResponse' {httpStatus} -> httpStatus) (\s@GetTranscriptionJobResponse' {} a -> s {httpStatus = a} :: GetTranscriptionJobResponse)
 
-instance Prelude.NFData GetTranscriptionJobResponse
+instance Core.NFData GetTranscriptionJobResponse

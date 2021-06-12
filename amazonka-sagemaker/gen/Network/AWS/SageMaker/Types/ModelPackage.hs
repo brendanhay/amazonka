@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelPackage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.InferenceSpecification
 import Network.AWS.SageMaker.Types.MetadataProperties
 import Network.AWS.SageMaker.Types.ModelApprovalStatus
@@ -37,23 +36,23 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'newModelPackage' smart constructor.
 data ModelPackage = ModelPackage'
-  { sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
+  { sourceAlgorithmSpecification :: Core.Maybe SourceAlgorithmSpecification,
     -- | The version number of a versioned model.
-    modelPackageVersion :: Prelude.Maybe Prelude.Natural,
-    metadataProperties :: Prelude.Maybe MetadataProperties,
+    modelPackageVersion :: Core.Maybe Core.Natural,
+    metadataProperties :: Core.Maybe MetadataProperties,
     -- | The time that the model package was created.
-    creationTime :: Prelude.Maybe Prelude.POSIX,
-    validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
-    modelPackageStatusDetails :: Prelude.Maybe ModelPackageStatusDetails,
+    creationTime :: Core.Maybe Core.POSIX,
+    validationSpecification :: Core.Maybe ModelPackageValidationSpecification,
+    modelPackageStatusDetails :: Core.Maybe ModelPackageStatusDetails,
     -- | Metrics for the model.
-    modelMetrics :: Prelude.Maybe ModelMetrics,
+    modelMetrics :: Core.Maybe ModelMetrics,
     -- | Whether the model package is to be certified to be listed on AWS
     -- Marketplace. For information about listing model packages on AWS
     -- Marketplace, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html List Your Algorithm or Model Package on AWS Marketplace>.
-    certifyForMarketplace :: Prelude.Maybe Prelude.Bool,
+    certifyForMarketplace :: Core.Maybe Core.Bool,
     -- | The name of the model.
-    modelPackageName :: Prelude.Maybe Prelude.Text,
+    modelPackageName :: Core.Maybe Core.Text,
     -- | The approval status of the model. This can be one of the following
     -- values.
     --
@@ -63,14 +62,14 @@ data ModelPackage = ModelPackage'
     --
     -- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual
     --     approval.
-    modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
+    modelApprovalStatus :: Core.Maybe ModelApprovalStatus,
     -- | A description provided when the model approval is set.
-    approvalDescription :: Prelude.Maybe Prelude.Text,
+    approvalDescription :: Core.Maybe Core.Text,
     -- | A list of the tags associated with the model package. For more
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
     -- in the /AWS General Reference Guide/.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The status of the model package. This can be one of the following
     -- values.
     --
@@ -84,20 +83,20 @@ data ModelPackage = ModelPackage'
     -- -   @FAILED@ - The model package failed.
     --
     -- -   @DELETING@ - The model package is in the process of being deleted.
-    modelPackageStatus :: Prelude.Maybe ModelPackageStatus,
+    modelPackageStatus :: Core.Maybe ModelPackageStatus,
     -- | The last time the model package was modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
-    inferenceSpecification :: Prelude.Maybe InferenceSpecification,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
+    inferenceSpecification :: Core.Maybe InferenceSpecification,
     -- | The description of the model package.
-    modelPackageDescription :: Prelude.Maybe Prelude.Text,
-    createdBy :: Prelude.Maybe UserContext,
+    modelPackageDescription :: Core.Maybe Core.Text,
+    createdBy :: Core.Maybe UserContext,
     -- | The Amazon Resource Name (ARN) of the model package.
-    modelPackageArn :: Prelude.Maybe Prelude.Text,
-    lastModifiedBy :: Prelude.Maybe UserContext,
+    modelPackageArn :: Core.Maybe Core.Text,
+    lastModifiedBy :: Core.Maybe UserContext,
     -- | The model group to which the model belongs.
-    modelPackageGroupName :: Prelude.Maybe Prelude.Text
+    modelPackageGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelPackage' with all optional fields omitted.
@@ -177,65 +176,65 @@ newModelPackage ::
 newModelPackage =
   ModelPackage'
     { sourceAlgorithmSpecification =
-        Prelude.Nothing,
-      modelPackageVersion = Prelude.Nothing,
-      metadataProperties = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      validationSpecification = Prelude.Nothing,
-      modelPackageStatusDetails = Prelude.Nothing,
-      modelMetrics = Prelude.Nothing,
-      certifyForMarketplace = Prelude.Nothing,
-      modelPackageName = Prelude.Nothing,
-      modelApprovalStatus = Prelude.Nothing,
-      approvalDescription = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      modelPackageStatus = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
-      inferenceSpecification = Prelude.Nothing,
-      modelPackageDescription = Prelude.Nothing,
-      createdBy = Prelude.Nothing,
-      modelPackageArn = Prelude.Nothing,
-      lastModifiedBy = Prelude.Nothing,
-      modelPackageGroupName = Prelude.Nothing
+        Core.Nothing,
+      modelPackageVersion = Core.Nothing,
+      metadataProperties = Core.Nothing,
+      creationTime = Core.Nothing,
+      validationSpecification = Core.Nothing,
+      modelPackageStatusDetails = Core.Nothing,
+      modelMetrics = Core.Nothing,
+      certifyForMarketplace = Core.Nothing,
+      modelPackageName = Core.Nothing,
+      modelApprovalStatus = Core.Nothing,
+      approvalDescription = Core.Nothing,
+      tags = Core.Nothing,
+      modelPackageStatus = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      inferenceSpecification = Core.Nothing,
+      modelPackageDescription = Core.Nothing,
+      createdBy = Core.Nothing,
+      modelPackageArn = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      modelPackageGroupName = Core.Nothing
     }
 
 -- | Undocumented member.
-modelPackage_sourceAlgorithmSpecification :: Lens.Lens' ModelPackage (Prelude.Maybe SourceAlgorithmSpecification)
+modelPackage_sourceAlgorithmSpecification :: Lens.Lens' ModelPackage (Core.Maybe SourceAlgorithmSpecification)
 modelPackage_sourceAlgorithmSpecification = Lens.lens (\ModelPackage' {sourceAlgorithmSpecification} -> sourceAlgorithmSpecification) (\s@ModelPackage' {} a -> s {sourceAlgorithmSpecification = a} :: ModelPackage)
 
 -- | The version number of a versioned model.
-modelPackage_modelPackageVersion :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Natural)
+modelPackage_modelPackageVersion :: Lens.Lens' ModelPackage (Core.Maybe Core.Natural)
 modelPackage_modelPackageVersion = Lens.lens (\ModelPackage' {modelPackageVersion} -> modelPackageVersion) (\s@ModelPackage' {} a -> s {modelPackageVersion = a} :: ModelPackage)
 
 -- | Undocumented member.
-modelPackage_metadataProperties :: Lens.Lens' ModelPackage (Prelude.Maybe MetadataProperties)
+modelPackage_metadataProperties :: Lens.Lens' ModelPackage (Core.Maybe MetadataProperties)
 modelPackage_metadataProperties = Lens.lens (\ModelPackage' {metadataProperties} -> metadataProperties) (\s@ModelPackage' {} a -> s {metadataProperties = a} :: ModelPackage)
 
 -- | The time that the model package was created.
-modelPackage_creationTime :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.UTCTime)
-modelPackage_creationTime = Lens.lens (\ModelPackage' {creationTime} -> creationTime) (\s@ModelPackage' {} a -> s {creationTime = a} :: ModelPackage) Prelude.. Lens.mapping Prelude._Time
+modelPackage_creationTime :: Lens.Lens' ModelPackage (Core.Maybe Core.UTCTime)
+modelPackage_creationTime = Lens.lens (\ModelPackage' {creationTime} -> creationTime) (\s@ModelPackage' {} a -> s {creationTime = a} :: ModelPackage) Core.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-modelPackage_validationSpecification :: Lens.Lens' ModelPackage (Prelude.Maybe ModelPackageValidationSpecification)
+modelPackage_validationSpecification :: Lens.Lens' ModelPackage (Core.Maybe ModelPackageValidationSpecification)
 modelPackage_validationSpecification = Lens.lens (\ModelPackage' {validationSpecification} -> validationSpecification) (\s@ModelPackage' {} a -> s {validationSpecification = a} :: ModelPackage)
 
 -- | Undocumented member.
-modelPackage_modelPackageStatusDetails :: Lens.Lens' ModelPackage (Prelude.Maybe ModelPackageStatusDetails)
+modelPackage_modelPackageStatusDetails :: Lens.Lens' ModelPackage (Core.Maybe ModelPackageStatusDetails)
 modelPackage_modelPackageStatusDetails = Lens.lens (\ModelPackage' {modelPackageStatusDetails} -> modelPackageStatusDetails) (\s@ModelPackage' {} a -> s {modelPackageStatusDetails = a} :: ModelPackage)
 
 -- | Metrics for the model.
-modelPackage_modelMetrics :: Lens.Lens' ModelPackage (Prelude.Maybe ModelMetrics)
+modelPackage_modelMetrics :: Lens.Lens' ModelPackage (Core.Maybe ModelMetrics)
 modelPackage_modelMetrics = Lens.lens (\ModelPackage' {modelMetrics} -> modelMetrics) (\s@ModelPackage' {} a -> s {modelMetrics = a} :: ModelPackage)
 
 -- | Whether the model package is to be certified to be listed on AWS
 -- Marketplace. For information about listing model packages on AWS
 -- Marketplace, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-mkt-list.html List Your Algorithm or Model Package on AWS Marketplace>.
-modelPackage_certifyForMarketplace :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Bool)
+modelPackage_certifyForMarketplace :: Lens.Lens' ModelPackage (Core.Maybe Core.Bool)
 modelPackage_certifyForMarketplace = Lens.lens (\ModelPackage' {certifyForMarketplace} -> certifyForMarketplace) (\s@ModelPackage' {} a -> s {certifyForMarketplace = a} :: ModelPackage)
 
 -- | The name of the model.
-modelPackage_modelPackageName :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Text)
+modelPackage_modelPackageName :: Lens.Lens' ModelPackage (Core.Maybe Core.Text)
 modelPackage_modelPackageName = Lens.lens (\ModelPackage' {modelPackageName} -> modelPackageName) (\s@ModelPackage' {} a -> s {modelPackageName = a} :: ModelPackage)
 
 -- | The approval status of the model. This can be one of the following
@@ -247,19 +246,19 @@ modelPackage_modelPackageName = Lens.lens (\ModelPackage' {modelPackageName} -> 
 --
 -- -   @PENDING_MANUAL_APPROVAL@ - The model is waiting for manual
 --     approval.
-modelPackage_modelApprovalStatus :: Lens.Lens' ModelPackage (Prelude.Maybe ModelApprovalStatus)
+modelPackage_modelApprovalStatus :: Lens.Lens' ModelPackage (Core.Maybe ModelApprovalStatus)
 modelPackage_modelApprovalStatus = Lens.lens (\ModelPackage' {modelApprovalStatus} -> modelApprovalStatus) (\s@ModelPackage' {} a -> s {modelApprovalStatus = a} :: ModelPackage)
 
 -- | A description provided when the model approval is set.
-modelPackage_approvalDescription :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Text)
+modelPackage_approvalDescription :: Lens.Lens' ModelPackage (Core.Maybe Core.Text)
 modelPackage_approvalDescription = Lens.lens (\ModelPackage' {approvalDescription} -> approvalDescription) (\s@ModelPackage' {} a -> s {approvalDescription = a} :: ModelPackage)
 
 -- | A list of the tags associated with the model package. For more
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
 -- in the /AWS General Reference Guide/.
-modelPackage_tags :: Lens.Lens' ModelPackage (Prelude.Maybe [Tag])
-modelPackage_tags = Lens.lens (\ModelPackage' {tags} -> tags) (\s@ModelPackage' {} a -> s {tags = a} :: ModelPackage) Prelude.. Lens.mapping Prelude._Coerce
+modelPackage_tags :: Lens.Lens' ModelPackage (Core.Maybe [Tag])
+modelPackage_tags = Lens.lens (\ModelPackage' {tags} -> tags) (\s@ModelPackage' {} a -> s {tags = a} :: ModelPackage) Core.. Lens.mapping Lens._Coerce
 
 -- | The status of the model package. This can be one of the following
 -- values.
@@ -274,65 +273,65 @@ modelPackage_tags = Lens.lens (\ModelPackage' {tags} -> tags) (\s@ModelPackage' 
 -- -   @FAILED@ - The model package failed.
 --
 -- -   @DELETING@ - The model package is in the process of being deleted.
-modelPackage_modelPackageStatus :: Lens.Lens' ModelPackage (Prelude.Maybe ModelPackageStatus)
+modelPackage_modelPackageStatus :: Lens.Lens' ModelPackage (Core.Maybe ModelPackageStatus)
 modelPackage_modelPackageStatus = Lens.lens (\ModelPackage' {modelPackageStatus} -> modelPackageStatus) (\s@ModelPackage' {} a -> s {modelPackageStatus = a} :: ModelPackage)
 
 -- | The last time the model package was modified.
-modelPackage_lastModifiedTime :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.UTCTime)
-modelPackage_lastModifiedTime = Lens.lens (\ModelPackage' {lastModifiedTime} -> lastModifiedTime) (\s@ModelPackage' {} a -> s {lastModifiedTime = a} :: ModelPackage) Prelude.. Lens.mapping Prelude._Time
+modelPackage_lastModifiedTime :: Lens.Lens' ModelPackage (Core.Maybe Core.UTCTime)
+modelPackage_lastModifiedTime = Lens.lens (\ModelPackage' {lastModifiedTime} -> lastModifiedTime) (\s@ModelPackage' {} a -> s {lastModifiedTime = a} :: ModelPackage) Core.. Lens.mapping Core._Time
 
 -- | Undocumented member.
-modelPackage_inferenceSpecification :: Lens.Lens' ModelPackage (Prelude.Maybe InferenceSpecification)
+modelPackage_inferenceSpecification :: Lens.Lens' ModelPackage (Core.Maybe InferenceSpecification)
 modelPackage_inferenceSpecification = Lens.lens (\ModelPackage' {inferenceSpecification} -> inferenceSpecification) (\s@ModelPackage' {} a -> s {inferenceSpecification = a} :: ModelPackage)
 
 -- | The description of the model package.
-modelPackage_modelPackageDescription :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Text)
+modelPackage_modelPackageDescription :: Lens.Lens' ModelPackage (Core.Maybe Core.Text)
 modelPackage_modelPackageDescription = Lens.lens (\ModelPackage' {modelPackageDescription} -> modelPackageDescription) (\s@ModelPackage' {} a -> s {modelPackageDescription = a} :: ModelPackage)
 
 -- | Undocumented member.
-modelPackage_createdBy :: Lens.Lens' ModelPackage (Prelude.Maybe UserContext)
+modelPackage_createdBy :: Lens.Lens' ModelPackage (Core.Maybe UserContext)
 modelPackage_createdBy = Lens.lens (\ModelPackage' {createdBy} -> createdBy) (\s@ModelPackage' {} a -> s {createdBy = a} :: ModelPackage)
 
 -- | The Amazon Resource Name (ARN) of the model package.
-modelPackage_modelPackageArn :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Text)
+modelPackage_modelPackageArn :: Lens.Lens' ModelPackage (Core.Maybe Core.Text)
 modelPackage_modelPackageArn = Lens.lens (\ModelPackage' {modelPackageArn} -> modelPackageArn) (\s@ModelPackage' {} a -> s {modelPackageArn = a} :: ModelPackage)
 
 -- | Undocumented member.
-modelPackage_lastModifiedBy :: Lens.Lens' ModelPackage (Prelude.Maybe UserContext)
+modelPackage_lastModifiedBy :: Lens.Lens' ModelPackage (Core.Maybe UserContext)
 modelPackage_lastModifiedBy = Lens.lens (\ModelPackage' {lastModifiedBy} -> lastModifiedBy) (\s@ModelPackage' {} a -> s {lastModifiedBy = a} :: ModelPackage)
 
 -- | The model group to which the model belongs.
-modelPackage_modelPackageGroupName :: Lens.Lens' ModelPackage (Prelude.Maybe Prelude.Text)
+modelPackage_modelPackageGroupName :: Lens.Lens' ModelPackage (Core.Maybe Core.Text)
 modelPackage_modelPackageGroupName = Lens.lens (\ModelPackage' {modelPackageGroupName} -> modelPackageGroupName) (\s@ModelPackage' {} a -> s {modelPackageGroupName = a} :: ModelPackage)
 
-instance Prelude.FromJSON ModelPackage where
+instance Core.FromJSON ModelPackage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelPackage"
       ( \x ->
           ModelPackage'
-            Prelude.<$> (x Prelude..:? "SourceAlgorithmSpecification")
-            Prelude.<*> (x Prelude..:? "ModelPackageVersion")
-            Prelude.<*> (x Prelude..:? "MetadataProperties")
-            Prelude.<*> (x Prelude..:? "CreationTime")
-            Prelude.<*> (x Prelude..:? "ValidationSpecification")
-            Prelude.<*> (x Prelude..:? "ModelPackageStatusDetails")
-            Prelude.<*> (x Prelude..:? "ModelMetrics")
-            Prelude.<*> (x Prelude..:? "CertifyForMarketplace")
-            Prelude.<*> (x Prelude..:? "ModelPackageName")
-            Prelude.<*> (x Prelude..:? "ModelApprovalStatus")
-            Prelude.<*> (x Prelude..:? "ApprovalDescription")
-            Prelude.<*> (x Prelude..:? "Tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "ModelPackageStatus")
-            Prelude.<*> (x Prelude..:? "LastModifiedTime")
-            Prelude.<*> (x Prelude..:? "InferenceSpecification")
-            Prelude.<*> (x Prelude..:? "ModelPackageDescription")
-            Prelude.<*> (x Prelude..:? "CreatedBy")
-            Prelude.<*> (x Prelude..:? "ModelPackageArn")
-            Prelude.<*> (x Prelude..:? "LastModifiedBy")
-            Prelude.<*> (x Prelude..:? "ModelPackageGroupName")
+            Core.<$> (x Core..:? "SourceAlgorithmSpecification")
+            Core.<*> (x Core..:? "ModelPackageVersion")
+            Core.<*> (x Core..:? "MetadataProperties")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "ValidationSpecification")
+            Core.<*> (x Core..:? "ModelPackageStatusDetails")
+            Core.<*> (x Core..:? "ModelMetrics")
+            Core.<*> (x Core..:? "CertifyForMarketplace")
+            Core.<*> (x Core..:? "ModelPackageName")
+            Core.<*> (x Core..:? "ModelApprovalStatus")
+            Core.<*> (x Core..:? "ApprovalDescription")
+            Core.<*> (x Core..:? "Tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ModelPackageStatus")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "InferenceSpecification")
+            Core.<*> (x Core..:? "ModelPackageDescription")
+            Core.<*> (x Core..:? "CreatedBy")
+            Core.<*> (x Core..:? "ModelPackageArn")
+            Core.<*> (x Core..:? "LastModifiedBy")
+            Core.<*> (x Core..:? "ModelPackageGroupName")
       )
 
-instance Prelude.Hashable ModelPackage
+instance Core.Hashable ModelPackage
 
-instance Prelude.NFData ModelPackage
+instance Core.NFData ModelPackage

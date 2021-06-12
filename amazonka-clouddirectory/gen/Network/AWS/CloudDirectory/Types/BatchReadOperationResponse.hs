@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,19 +21,19 @@ module Network.AWS.CloudDirectory.Types.BatchReadOperationResponse where
 
 import Network.AWS.CloudDirectory.Types.BatchReadException
 import Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a @BatchRead@ response operation.
 --
 -- /See:/ 'newBatchReadOperationResponse' smart constructor.
 data BatchReadOperationResponse = BatchReadOperationResponse'
   { -- | Identifies which operation in a batch has succeeded.
-    successfulResponse :: Prelude.Maybe BatchReadSuccessfulResponse,
+    successfulResponse :: Core.Maybe BatchReadSuccessfulResponse,
     -- | Identifies which operation in a batch has failed.
-    exceptionResponse :: Prelude.Maybe BatchReadException
+    exceptionResponse :: Core.Maybe BatchReadException
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchReadOperationResponse' with all optional fields omitted.
@@ -52,28 +51,28 @@ newBatchReadOperationResponse ::
 newBatchReadOperationResponse =
   BatchReadOperationResponse'
     { successfulResponse =
-        Prelude.Nothing,
-      exceptionResponse = Prelude.Nothing
+        Core.Nothing,
+      exceptionResponse = Core.Nothing
     }
 
 -- | Identifies which operation in a batch has succeeded.
-batchReadOperationResponse_successfulResponse :: Lens.Lens' BatchReadOperationResponse (Prelude.Maybe BatchReadSuccessfulResponse)
+batchReadOperationResponse_successfulResponse :: Lens.Lens' BatchReadOperationResponse (Core.Maybe BatchReadSuccessfulResponse)
 batchReadOperationResponse_successfulResponse = Lens.lens (\BatchReadOperationResponse' {successfulResponse} -> successfulResponse) (\s@BatchReadOperationResponse' {} a -> s {successfulResponse = a} :: BatchReadOperationResponse)
 
 -- | Identifies which operation in a batch has failed.
-batchReadOperationResponse_exceptionResponse :: Lens.Lens' BatchReadOperationResponse (Prelude.Maybe BatchReadException)
+batchReadOperationResponse_exceptionResponse :: Lens.Lens' BatchReadOperationResponse (Core.Maybe BatchReadException)
 batchReadOperationResponse_exceptionResponse = Lens.lens (\BatchReadOperationResponse' {exceptionResponse} -> exceptionResponse) (\s@BatchReadOperationResponse' {} a -> s {exceptionResponse = a} :: BatchReadOperationResponse)
 
-instance Prelude.FromJSON BatchReadOperationResponse where
+instance Core.FromJSON BatchReadOperationResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchReadOperationResponse"
       ( \x ->
           BatchReadOperationResponse'
-            Prelude.<$> (x Prelude..:? "SuccessfulResponse")
-            Prelude.<*> (x Prelude..:? "ExceptionResponse")
+            Core.<$> (x Core..:? "SuccessfulResponse")
+            Core.<*> (x Core..:? "ExceptionResponse")
       )
 
-instance Prelude.Hashable BatchReadOperationResponse
+instance Core.Hashable BatchReadOperationResponse
 
-instance Prelude.NFData BatchReadOperationResponse
+instance Core.NFData BatchReadOperationResponse

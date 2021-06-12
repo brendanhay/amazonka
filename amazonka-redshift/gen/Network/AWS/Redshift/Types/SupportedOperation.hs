@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Redshift.Types.SupportedOperation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Internal
 
 -- | Describes the operations that are allowed on a maintenance track.
@@ -29,9 +28,9 @@ import Network.AWS.Redshift.Internal
 -- /See:/ 'newSupportedOperation' smart constructor.
 data SupportedOperation = SupportedOperation'
   { -- | A list of the supported operations.
-    operationName :: Prelude.Maybe Prelude.Text
+    operationName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SupportedOperation' with all optional fields omitted.
@@ -45,20 +44,17 @@ data SupportedOperation = SupportedOperation'
 newSupportedOperation ::
   SupportedOperation
 newSupportedOperation =
-  SupportedOperation'
-    { operationName =
-        Prelude.Nothing
-    }
+  SupportedOperation' {operationName = Core.Nothing}
 
 -- | A list of the supported operations.
-supportedOperation_operationName :: Lens.Lens' SupportedOperation (Prelude.Maybe Prelude.Text)
+supportedOperation_operationName :: Lens.Lens' SupportedOperation (Core.Maybe Core.Text)
 supportedOperation_operationName = Lens.lens (\SupportedOperation' {operationName} -> operationName) (\s@SupportedOperation' {} a -> s {operationName = a} :: SupportedOperation)
 
-instance Prelude.FromXML SupportedOperation where
+instance Core.FromXML SupportedOperation where
   parseXML x =
     SupportedOperation'
-      Prelude.<$> (x Prelude..@? "OperationName")
+      Core.<$> (x Core..@? "OperationName")
 
-instance Prelude.Hashable SupportedOperation
+instance Core.Hashable SupportedOperation
 
-instance Prelude.NFData SupportedOperation
+instance Core.NFData SupportedOperation

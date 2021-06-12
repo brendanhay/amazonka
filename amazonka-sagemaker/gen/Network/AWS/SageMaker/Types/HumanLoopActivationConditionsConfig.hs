@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.HumanLoopActivationConditionsConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Defines under what conditions SageMaker creates a human loop. Used
 -- within . See for the required format of activation conditions.
@@ -34,9 +33,9 @@ data HumanLoopActivationConditionsConfig = HumanLoopActivationConditionsConfig'
     -- Textract. For more information about how to structure the JSON, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI>
     -- in the /Amazon SageMaker Developer Guide/.
-    humanLoopActivationConditions :: Prelude.Text
+    humanLoopActivationConditions :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HumanLoopActivationConditionsConfig' with all optional fields omitted.
@@ -54,7 +53,7 @@ data HumanLoopActivationConditionsConfig = HumanLoopActivationConditionsConfig'
 -- in the /Amazon SageMaker Developer Guide/.
 newHumanLoopActivationConditionsConfig ::
   -- | 'humanLoopActivationConditions'
-  Prelude.Text ->
+  Core.Text ->
   HumanLoopActivationConditionsConfig
 newHumanLoopActivationConditionsConfig
   pHumanLoopActivationConditions_ =
@@ -69,39 +68,39 @@ newHumanLoopActivationConditionsConfig
 -- Textract. For more information about how to structure the JSON, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI>
 -- in the /Amazon SageMaker Developer Guide/.
-humanLoopActivationConditionsConfig_humanLoopActivationConditions :: Lens.Lens' HumanLoopActivationConditionsConfig Prelude.Text
+humanLoopActivationConditionsConfig_humanLoopActivationConditions :: Lens.Lens' HumanLoopActivationConditionsConfig Core.Text
 humanLoopActivationConditionsConfig_humanLoopActivationConditions = Lens.lens (\HumanLoopActivationConditionsConfig' {humanLoopActivationConditions} -> humanLoopActivationConditions) (\s@HumanLoopActivationConditionsConfig' {} a -> s {humanLoopActivationConditions = a} :: HumanLoopActivationConditionsConfig)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     HumanLoopActivationConditionsConfig
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HumanLoopActivationConditionsConfig"
       ( \x ->
           HumanLoopActivationConditionsConfig'
-            Prelude.<$> (x Prelude..: "HumanLoopActivationConditions")
+            Core.<$> (x Core..: "HumanLoopActivationConditions")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     HumanLoopActivationConditionsConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     HumanLoopActivationConditionsConfig
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     HumanLoopActivationConditionsConfig
   where
   toJSON HumanLoopActivationConditionsConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "HumanLoopActivationConditions"
-                  Prelude..= humanLoopActivationConditions
+                  Core..= humanLoopActivationConditions
               )
           ]
       )

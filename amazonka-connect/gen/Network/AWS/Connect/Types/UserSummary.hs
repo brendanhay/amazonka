@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.UserSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains summary information about a user.
 --
 -- /See:/ 'newUserSummary' smart constructor.
 data UserSummary = UserSummary'
   { -- | The Amazon Resource Name (ARN) of the user account.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier of the user account.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The Amazon Connect user name of the user account.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserSummary' with all optional fields omitted.
@@ -53,34 +52,34 @@ newUserSummary ::
   UserSummary
 newUserSummary =
   UserSummary'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      username = Prelude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      username = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user account.
-userSummary_arn :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
+userSummary_arn :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
 userSummary_arn = Lens.lens (\UserSummary' {arn} -> arn) (\s@UserSummary' {} a -> s {arn = a} :: UserSummary)
 
 -- | The identifier of the user account.
-userSummary_id :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
+userSummary_id :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
 userSummary_id = Lens.lens (\UserSummary' {id} -> id) (\s@UserSummary' {} a -> s {id = a} :: UserSummary)
 
 -- | The Amazon Connect user name of the user account.
-userSummary_username :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
+userSummary_username :: Lens.Lens' UserSummary (Core.Maybe Core.Text)
 userSummary_username = Lens.lens (\UserSummary' {username} -> username) (\s@UserSummary' {} a -> s {username = a} :: UserSummary)
 
-instance Prelude.FromJSON UserSummary where
+instance Core.FromJSON UserSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserSummary"
       ( \x ->
           UserSummary'
-            Prelude.<$> (x Prelude..:? "Arn")
-            Prelude.<*> (x Prelude..:? "Id")
-            Prelude.<*> (x Prelude..:? "Username")
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Username")
       )
 
-instance Prelude.Hashable UserSummary
+instance Core.Hashable UserSummary
 
-instance Prelude.NFData UserSummary
+instance Core.NFData UserSummary

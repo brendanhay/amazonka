@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.Transcribe.DeleteTranscriptionJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -46,9 +45,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newDeleteTranscriptionJob' smart constructor.
 data DeleteTranscriptionJob = DeleteTranscriptionJob'
   { -- | The name of the transcription job to be deleted.
-    transcriptionJobName :: Prelude.Text
+    transcriptionJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTranscriptionJob' with all optional fields omitted.
@@ -61,7 +60,7 @@ data DeleteTranscriptionJob = DeleteTranscriptionJob'
 -- 'transcriptionJobName', 'deleteTranscriptionJob_transcriptionJobName' - The name of the transcription job to be deleted.
 newDeleteTranscriptionJob ::
   -- | 'transcriptionJobName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteTranscriptionJob
 newDeleteTranscriptionJob pTranscriptionJobName_ =
   DeleteTranscriptionJob'
@@ -70,59 +69,57 @@ newDeleteTranscriptionJob pTranscriptionJobName_ =
     }
 
 -- | The name of the transcription job to be deleted.
-deleteTranscriptionJob_transcriptionJobName :: Lens.Lens' DeleteTranscriptionJob Prelude.Text
+deleteTranscriptionJob_transcriptionJobName :: Lens.Lens' DeleteTranscriptionJob Core.Text
 deleteTranscriptionJob_transcriptionJobName = Lens.lens (\DeleteTranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@DeleteTranscriptionJob' {} a -> s {transcriptionJobName = a} :: DeleteTranscriptionJob)
 
-instance Prelude.AWSRequest DeleteTranscriptionJob where
+instance Core.AWSRequest DeleteTranscriptionJob where
   type
-    Rs DeleteTranscriptionJob =
+    AWSResponse DeleteTranscriptionJob =
       DeleteTranscriptionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteTranscriptionJobResponse'
 
-instance Prelude.Hashable DeleteTranscriptionJob
+instance Core.Hashable DeleteTranscriptionJob
 
-instance Prelude.NFData DeleteTranscriptionJob
+instance Core.NFData DeleteTranscriptionJob
 
-instance Prelude.ToHeaders DeleteTranscriptionJob where
+instance Core.ToHeaders DeleteTranscriptionJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.DeleteTranscriptionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.DeleteTranscriptionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteTranscriptionJob where
+instance Core.ToJSON DeleteTranscriptionJob where
   toJSON DeleteTranscriptionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TranscriptionJobName"
-                  Prelude..= transcriptionJobName
+                  Core..= transcriptionJobName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteTranscriptionJob where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteTranscriptionJob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteTranscriptionJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteTranscriptionJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTranscriptionJobResponse' smart constructor.
 data DeleteTranscriptionJobResponse = DeleteTranscriptionJobResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTranscriptionJobResponse' with all optional fields omitted.
@@ -133,6 +130,4 @@ newDeleteTranscriptionJobResponse ::
 newDeleteTranscriptionJobResponse =
   DeleteTranscriptionJobResponse'
 
-instance
-  Prelude.NFData
-    DeleteTranscriptionJobResponse
+instance Core.NFData DeleteTranscriptionJobResponse

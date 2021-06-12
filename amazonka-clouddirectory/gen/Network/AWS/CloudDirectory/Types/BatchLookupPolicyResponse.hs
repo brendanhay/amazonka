@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,21 +20,21 @@
 module Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse where
 
 import Network.AWS.CloudDirectory.Types.PolicyToPath
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a LookupPolicy response operation.
 --
 -- /See:/ 'newBatchLookupPolicyResponse' smart constructor.
 data BatchLookupPolicyResponse = BatchLookupPolicyResponse'
   { -- | The pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Provides list of path to policies. Policies contain @PolicyId@,
     -- @ObjectIdentifier@, and @PolicyType@. For more information, see
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies>.
-    policyToPathList :: Prelude.Maybe [PolicyToPath]
+    policyToPathList :: Core.Maybe [PolicyToPath]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchLookupPolicyResponse' with all optional fields omitted.
@@ -55,32 +54,30 @@ newBatchLookupPolicyResponse ::
 newBatchLookupPolicyResponse =
   BatchLookupPolicyResponse'
     { nextToken =
-        Prelude.Nothing,
-      policyToPathList = Prelude.Nothing
+        Core.Nothing,
+      policyToPathList = Core.Nothing
     }
 
 -- | The pagination token.
-batchLookupPolicyResponse_nextToken :: Lens.Lens' BatchLookupPolicyResponse (Prelude.Maybe Prelude.Text)
+batchLookupPolicyResponse_nextToken :: Lens.Lens' BatchLookupPolicyResponse (Core.Maybe Core.Text)
 batchLookupPolicyResponse_nextToken = Lens.lens (\BatchLookupPolicyResponse' {nextToken} -> nextToken) (\s@BatchLookupPolicyResponse' {} a -> s {nextToken = a} :: BatchLookupPolicyResponse)
 
 -- | Provides list of path to policies. Policies contain @PolicyId@,
 -- @ObjectIdentifier@, and @PolicyType@. For more information, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies>.
-batchLookupPolicyResponse_policyToPathList :: Lens.Lens' BatchLookupPolicyResponse (Prelude.Maybe [PolicyToPath])
-batchLookupPolicyResponse_policyToPathList = Lens.lens (\BatchLookupPolicyResponse' {policyToPathList} -> policyToPathList) (\s@BatchLookupPolicyResponse' {} a -> s {policyToPathList = a} :: BatchLookupPolicyResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchLookupPolicyResponse_policyToPathList :: Lens.Lens' BatchLookupPolicyResponse (Core.Maybe [PolicyToPath])
+batchLookupPolicyResponse_policyToPathList = Lens.lens (\BatchLookupPolicyResponse' {policyToPathList} -> policyToPathList) (\s@BatchLookupPolicyResponse' {} a -> s {policyToPathList = a} :: BatchLookupPolicyResponse) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON BatchLookupPolicyResponse where
+instance Core.FromJSON BatchLookupPolicyResponse where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchLookupPolicyResponse"
       ( \x ->
           BatchLookupPolicyResponse'
-            Prelude.<$> (x Prelude..:? "NextToken")
-            Prelude.<*> ( x Prelude..:? "PolicyToPathList"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "PolicyToPathList" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable BatchLookupPolicyResponse
+instance Core.Hashable BatchLookupPolicyResponse
 
-instance Prelude.NFData BatchLookupPolicyResponse
+instance Core.NFData BatchLookupPolicyResponse

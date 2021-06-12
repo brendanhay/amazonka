@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,22 +41,22 @@ module Network.AWS.Glue.GetMapping
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetMapping' smart constructor.
 data GetMapping = GetMapping'
   { -- | A list of target tables.
-    sinks :: Prelude.Maybe [CatalogEntry],
+    sinks :: Core.Maybe [CatalogEntry],
     -- | Parameters for the mapping.
-    location :: Prelude.Maybe Location,
+    location :: Core.Maybe Location,
     -- | Specifies the source table.
     source :: CatalogEntry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMapping' with all optional fields omitted.
@@ -78,75 +77,73 @@ newGetMapping ::
   GetMapping
 newGetMapping pSource_ =
   GetMapping'
-    { sinks = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { sinks = Core.Nothing,
+      location = Core.Nothing,
       source = pSource_
     }
 
 -- | A list of target tables.
-getMapping_sinks :: Lens.Lens' GetMapping (Prelude.Maybe [CatalogEntry])
-getMapping_sinks = Lens.lens (\GetMapping' {sinks} -> sinks) (\s@GetMapping' {} a -> s {sinks = a} :: GetMapping) Prelude.. Lens.mapping Prelude._Coerce
+getMapping_sinks :: Lens.Lens' GetMapping (Core.Maybe [CatalogEntry])
+getMapping_sinks = Lens.lens (\GetMapping' {sinks} -> sinks) (\s@GetMapping' {} a -> s {sinks = a} :: GetMapping) Core.. Lens.mapping Lens._Coerce
 
 -- | Parameters for the mapping.
-getMapping_location :: Lens.Lens' GetMapping (Prelude.Maybe Location)
+getMapping_location :: Lens.Lens' GetMapping (Core.Maybe Location)
 getMapping_location = Lens.lens (\GetMapping' {location} -> location) (\s@GetMapping' {} a -> s {location = a} :: GetMapping)
 
 -- | Specifies the source table.
 getMapping_source :: Lens.Lens' GetMapping CatalogEntry
 getMapping_source = Lens.lens (\GetMapping' {source} -> source) (\s@GetMapping' {} a -> s {source = a} :: GetMapping)
 
-instance Prelude.AWSRequest GetMapping where
-  type Rs GetMapping = GetMappingResponse
+instance Core.AWSRequest GetMapping where
+  type AWSResponse GetMapping = GetMappingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetMappingResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "Mapping" Prelude..!@ Prelude.mempty)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "Mapping" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable GetMapping
+instance Core.Hashable GetMapping
 
-instance Prelude.NFData GetMapping
+instance Core.NFData GetMapping
 
-instance Prelude.ToHeaders GetMapping where
+instance Core.ToHeaders GetMapping where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.GetMapping" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.GetMapping" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetMapping where
+instance Core.ToJSON GetMapping where
   toJSON GetMapping' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Sinks" Prelude..=) Prelude.<$> sinks,
-            ("Location" Prelude..=) Prelude.<$> location,
-            Prelude.Just ("Source" Prelude..= source)
+    Core.object
+      ( Core.catMaybes
+          [ ("Sinks" Core..=) Core.<$> sinks,
+            ("Location" Core..=) Core.<$> location,
+            Core.Just ("Source" Core..= source)
           ]
       )
 
-instance Prelude.ToPath GetMapping where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetMapping where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetMapping where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMapping where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetMappingResponse' smart constructor.
 data GetMappingResponse = GetMappingResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of mappings to the specified targets.
     mapping :: [MappingEntry]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMappingResponse' with all optional fields omitted.
@@ -161,20 +158,20 @@ data GetMappingResponse = GetMappingResponse'
 -- 'mapping', 'getMappingResponse_mapping' - A list of mappings to the specified targets.
 newGetMappingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetMappingResponse
 newGetMappingResponse pHttpStatus_ =
   GetMappingResponse'
     { httpStatus = pHttpStatus_,
-      mapping = Prelude.mempty
+      mapping = Core.mempty
     }
 
 -- | The response's http status code.
-getMappingResponse_httpStatus :: Lens.Lens' GetMappingResponse Prelude.Int
+getMappingResponse_httpStatus :: Lens.Lens' GetMappingResponse Core.Int
 getMappingResponse_httpStatus = Lens.lens (\GetMappingResponse' {httpStatus} -> httpStatus) (\s@GetMappingResponse' {} a -> s {httpStatus = a} :: GetMappingResponse)
 
 -- | A list of mappings to the specified targets.
 getMappingResponse_mapping :: Lens.Lens' GetMappingResponse [MappingEntry]
-getMappingResponse_mapping = Lens.lens (\GetMappingResponse' {mapping} -> mapping) (\s@GetMappingResponse' {} a -> s {mapping = a} :: GetMappingResponse) Prelude.. Prelude._Coerce
+getMappingResponse_mapping = Lens.lens (\GetMappingResponse' {mapping} -> mapping) (\s@GetMappingResponse' {} a -> s {mapping = a} :: GetMappingResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetMappingResponse
+instance Core.NFData GetMappingResponse

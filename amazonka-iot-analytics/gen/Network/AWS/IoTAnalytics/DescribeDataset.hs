@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.IoTAnalytics.DescribeDataset
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDataset' smart constructor.
 data DescribeDataset = DescribeDataset'
   { -- | The name of the data set whose information is retrieved.
-    datasetName :: Prelude.Text
+    datasetName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDataset' with all optional fields omitted.
@@ -64,49 +63,50 @@ data DescribeDataset = DescribeDataset'
 -- 'datasetName', 'describeDataset_datasetName' - The name of the data set whose information is retrieved.
 newDescribeDataset ::
   -- | 'datasetName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeDataset
 newDescribeDataset pDatasetName_ =
   DescribeDataset' {datasetName = pDatasetName_}
 
 -- | The name of the data set whose information is retrieved.
-describeDataset_datasetName :: Lens.Lens' DescribeDataset Prelude.Text
+describeDataset_datasetName :: Lens.Lens' DescribeDataset Core.Text
 describeDataset_datasetName = Lens.lens (\DescribeDataset' {datasetName} -> datasetName) (\s@DescribeDataset' {} a -> s {datasetName = a} :: DescribeDataset)
 
-instance Prelude.AWSRequest DescribeDataset where
-  type Rs DescribeDataset = DescribeDatasetResponse
+instance Core.AWSRequest DescribeDataset where
+  type
+    AWSResponse DescribeDataset =
+      DescribeDatasetResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeDatasetResponse'
-            Prelude.<$> (x Prelude..?> "dataset")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "dataset")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeDataset
+instance Core.Hashable DescribeDataset
 
-instance Prelude.NFData DescribeDataset
+instance Core.NFData DescribeDataset
 
-instance Prelude.ToHeaders DescribeDataset where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeDataset where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeDataset where
+instance Core.ToPath DescribeDataset where
   toPath DescribeDataset' {..} =
-    Prelude.mconcat
-      ["/datasets/", Prelude.toBS datasetName]
+    Core.mconcat ["/datasets/", Core.toBS datasetName]
 
-instance Prelude.ToQuery DescribeDataset where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeDataset where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeDatasetResponse' smart constructor.
 data DescribeDatasetResponse = DescribeDatasetResponse'
   { -- | An object that contains information about the data set.
-    dataset :: Prelude.Maybe Dataset,
+    dataset :: Core.Maybe Dataset,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDatasetResponse' with all optional fields omitted.
@@ -121,20 +121,20 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 -- 'httpStatus', 'describeDatasetResponse_httpStatus' - The response's http status code.
 newDescribeDatasetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDatasetResponse
 newDescribeDatasetResponse pHttpStatus_ =
   DescribeDatasetResponse'
-    { dataset = Prelude.Nothing,
+    { dataset = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about the data set.
-describeDatasetResponse_dataset :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Dataset)
+describeDatasetResponse_dataset :: Lens.Lens' DescribeDatasetResponse (Core.Maybe Dataset)
 describeDatasetResponse_dataset = Lens.lens (\DescribeDatasetResponse' {dataset} -> dataset) (\s@DescribeDatasetResponse' {} a -> s {dataset = a} :: DescribeDatasetResponse)
 
 -- | The response's http status code.
-describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Prelude.Int
+describeDatasetResponse_httpStatus :: Lens.Lens' DescribeDatasetResponse Core.Int
 describeDatasetResponse_httpStatus = Lens.lens (\DescribeDatasetResponse' {httpStatus} -> httpStatus) (\s@DescribeDatasetResponse' {} a -> s {httpStatus = a} :: DescribeDatasetResponse)
 
-instance Prelude.NFData DescribeDatasetResponse
+instance Core.NFData DescribeDatasetResponse

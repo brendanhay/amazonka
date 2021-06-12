@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideo.Types.SingleMasterConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains the configuration for the @SINGLE_MASTER@
 -- channel type.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data SingleMasterConfiguration = SingleMasterConfiguration'
   { -- | The period of time a signaling channel retains underlivered messages
     -- before they are discarded.
-    messageTtlSeconds :: Prelude.Maybe Prelude.Natural
+    messageTtlSeconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SingleMasterConfiguration' with all optional fields omitted.
@@ -49,32 +48,32 @@ newSingleMasterConfiguration ::
 newSingleMasterConfiguration =
   SingleMasterConfiguration'
     { messageTtlSeconds =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The period of time a signaling channel retains underlivered messages
 -- before they are discarded.
-singleMasterConfiguration_messageTtlSeconds :: Lens.Lens' SingleMasterConfiguration (Prelude.Maybe Prelude.Natural)
+singleMasterConfiguration_messageTtlSeconds :: Lens.Lens' SingleMasterConfiguration (Core.Maybe Core.Natural)
 singleMasterConfiguration_messageTtlSeconds = Lens.lens (\SingleMasterConfiguration' {messageTtlSeconds} -> messageTtlSeconds) (\s@SingleMasterConfiguration' {} a -> s {messageTtlSeconds = a} :: SingleMasterConfiguration)
 
-instance Prelude.FromJSON SingleMasterConfiguration where
+instance Core.FromJSON SingleMasterConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SingleMasterConfiguration"
       ( \x ->
           SingleMasterConfiguration'
-            Prelude.<$> (x Prelude..:? "MessageTtlSeconds")
+            Core.<$> (x Core..:? "MessageTtlSeconds")
       )
 
-instance Prelude.Hashable SingleMasterConfiguration
+instance Core.Hashable SingleMasterConfiguration
 
-instance Prelude.NFData SingleMasterConfiguration
+instance Core.NFData SingleMasterConfiguration
 
-instance Prelude.ToJSON SingleMasterConfiguration where
+instance Core.ToJSON SingleMasterConfiguration where
   toJSON SingleMasterConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MessageTtlSeconds" Prelude..=)
-              Prelude.<$> messageTtlSeconds
+    Core.object
+      ( Core.catMaybes
+          [ ("MessageTtlSeconds" Core..=)
+              Core.<$> messageTtlSeconds
           ]
       )

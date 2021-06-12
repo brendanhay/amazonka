@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,22 +46,21 @@ module Network.AWS.Lambda.ListCodeSigningConfigs
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListCodeSigningConfigs' smart constructor.
 data ListCodeSigningConfigs = ListCodeSigningConfigs'
   { -- | Maximum number of items to return.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Specify the pagination token that\'s returned by a previous request to
     -- retrieve the next page of results.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCodeSigningConfigs' with all optional fields omitted.
@@ -80,85 +78,85 @@ newListCodeSigningConfigs ::
   ListCodeSigningConfigs
 newListCodeSigningConfigs =
   ListCodeSigningConfigs'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Maximum number of items to return.
-listCodeSigningConfigs_maxItems :: Lens.Lens' ListCodeSigningConfigs (Prelude.Maybe Prelude.Natural)
+listCodeSigningConfigs_maxItems :: Lens.Lens' ListCodeSigningConfigs (Core.Maybe Core.Natural)
 listCodeSigningConfigs_maxItems = Lens.lens (\ListCodeSigningConfigs' {maxItems} -> maxItems) (\s@ListCodeSigningConfigs' {} a -> s {maxItems = a} :: ListCodeSigningConfigs)
 
 -- | Specify the pagination token that\'s returned by a previous request to
 -- retrieve the next page of results.
-listCodeSigningConfigs_marker :: Lens.Lens' ListCodeSigningConfigs (Prelude.Maybe Prelude.Text)
+listCodeSigningConfigs_marker :: Lens.Lens' ListCodeSigningConfigs (Core.Maybe Core.Text)
 listCodeSigningConfigs_marker = Lens.lens (\ListCodeSigningConfigs' {marker} -> marker) (\s@ListCodeSigningConfigs' {} a -> s {marker = a} :: ListCodeSigningConfigs)
 
-instance Pager.AWSPager ListCodeSigningConfigs where
+instance Core.AWSPager ListCodeSigningConfigs where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listCodeSigningConfigsResponse_nextMarker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listCodeSigningConfigsResponse_codeSigningConfigs
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listCodeSigningConfigs_marker
           Lens..~ rs
           Lens.^? listCodeSigningConfigsResponse_nextMarker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListCodeSigningConfigs where
+instance Core.AWSRequest ListCodeSigningConfigs where
   type
-    Rs ListCodeSigningConfigs =
+    AWSResponse ListCodeSigningConfigs =
       ListCodeSigningConfigsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListCodeSigningConfigsResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> ( x Prelude..?> "CodeSigningConfigs"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> ( x Core..?> "CodeSigningConfigs"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListCodeSigningConfigs
+instance Core.Hashable ListCodeSigningConfigs
 
-instance Prelude.NFData ListCodeSigningConfigs
+instance Core.NFData ListCodeSigningConfigs
 
-instance Prelude.ToHeaders ListCodeSigningConfigs where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListCodeSigningConfigs where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListCodeSigningConfigs where
+instance Core.ToPath ListCodeSigningConfigs where
   toPath =
-    Prelude.const "/2020-04-22/code-signing-configs/"
+    Core.const "/2020-04-22/code-signing-configs/"
 
-instance Prelude.ToQuery ListCodeSigningConfigs where
+instance Core.ToQuery ListCodeSigningConfigs where
   toQuery ListCodeSigningConfigs' {..} =
-    Prelude.mconcat
-      [ "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+    Core.mconcat
+      [ "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newListCodeSigningConfigsResponse' smart constructor.
 data ListCodeSigningConfigsResponse = ListCodeSigningConfigsResponse'
   { -- | The pagination token that\'s included if more results are available.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | The code signing configurations
-    codeSigningConfigs :: Prelude.Maybe [CodeSigningConfig],
+    codeSigningConfigs :: Core.Maybe [CodeSigningConfig],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListCodeSigningConfigsResponse' with all optional fields omitted.
@@ -175,28 +173,26 @@ data ListCodeSigningConfigsResponse = ListCodeSigningConfigsResponse'
 -- 'httpStatus', 'listCodeSigningConfigsResponse_httpStatus' - The response's http status code.
 newListCodeSigningConfigsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListCodeSigningConfigsResponse
 newListCodeSigningConfigsResponse pHttpStatus_ =
   ListCodeSigningConfigsResponse'
     { nextMarker =
-        Prelude.Nothing,
-      codeSigningConfigs = Prelude.Nothing,
+        Core.Nothing,
+      codeSigningConfigs = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The pagination token that\'s included if more results are available.
-listCodeSigningConfigsResponse_nextMarker :: Lens.Lens' ListCodeSigningConfigsResponse (Prelude.Maybe Prelude.Text)
+listCodeSigningConfigsResponse_nextMarker :: Lens.Lens' ListCodeSigningConfigsResponse (Core.Maybe Core.Text)
 listCodeSigningConfigsResponse_nextMarker = Lens.lens (\ListCodeSigningConfigsResponse' {nextMarker} -> nextMarker) (\s@ListCodeSigningConfigsResponse' {} a -> s {nextMarker = a} :: ListCodeSigningConfigsResponse)
 
 -- | The code signing configurations
-listCodeSigningConfigsResponse_codeSigningConfigs :: Lens.Lens' ListCodeSigningConfigsResponse (Prelude.Maybe [CodeSigningConfig])
-listCodeSigningConfigsResponse_codeSigningConfigs = Lens.lens (\ListCodeSigningConfigsResponse' {codeSigningConfigs} -> codeSigningConfigs) (\s@ListCodeSigningConfigsResponse' {} a -> s {codeSigningConfigs = a} :: ListCodeSigningConfigsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listCodeSigningConfigsResponse_codeSigningConfigs :: Lens.Lens' ListCodeSigningConfigsResponse (Core.Maybe [CodeSigningConfig])
+listCodeSigningConfigsResponse_codeSigningConfigs = Lens.lens (\ListCodeSigningConfigsResponse' {codeSigningConfigs} -> codeSigningConfigs) (\s@ListCodeSigningConfigsResponse' {} a -> s {codeSigningConfigs = a} :: ListCodeSigningConfigsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listCodeSigningConfigsResponse_httpStatus :: Lens.Lens' ListCodeSigningConfigsResponse Prelude.Int
+listCodeSigningConfigsResponse_httpStatus :: Lens.Lens' ListCodeSigningConfigsResponse Core.Int
 listCodeSigningConfigsResponse_httpStatus = Lens.lens (\ListCodeSigningConfigsResponse' {httpStatus} -> httpStatus) (\s@ListCodeSigningConfigsResponse' {} a -> s {httpStatus = a} :: ListCodeSigningConfigsResponse)
 
-instance
-  Prelude.NFData
-    ListCodeSigningConfigsResponse
+instance Core.NFData ListCodeSigningConfigsResponse

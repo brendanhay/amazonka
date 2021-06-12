@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -74,8 +73,8 @@ module Network.AWS.SSM.LabelParameterVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -85,13 +84,13 @@ data LabelParameterVersion = LabelParameterVersion'
   { -- | The specific version of the parameter on which you want to attach one or
     -- more labels. If no version is specified, the system attaches the label
     -- to the latest version.
-    parameterVersion :: Prelude.Maybe Prelude.Integer,
+    parameterVersion :: Core.Maybe Core.Integer,
     -- | The parameter name on which you want to attach one or more labels.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | One or more labels to attach to the specified parameter version.
-    labels :: Prelude.NonEmpty Prelude.Text
+    labels :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelParameterVersion' with all optional fields omitted.
@@ -110,81 +109,79 @@ data LabelParameterVersion = LabelParameterVersion'
 -- 'labels', 'labelParameterVersion_labels' - One or more labels to attach to the specified parameter version.
 newLabelParameterVersion ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'labels'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   LabelParameterVersion
 newLabelParameterVersion pName_ pLabels_ =
   LabelParameterVersion'
     { parameterVersion =
-        Prelude.Nothing,
+        Core.Nothing,
       name = pName_,
-      labels = Prelude._Coerce Lens.# pLabels_
+      labels = Lens._Coerce Lens.# pLabels_
     }
 
 -- | The specific version of the parameter on which you want to attach one or
 -- more labels. If no version is specified, the system attaches the label
 -- to the latest version.
-labelParameterVersion_parameterVersion :: Lens.Lens' LabelParameterVersion (Prelude.Maybe Prelude.Integer)
+labelParameterVersion_parameterVersion :: Lens.Lens' LabelParameterVersion (Core.Maybe Core.Integer)
 labelParameterVersion_parameterVersion = Lens.lens (\LabelParameterVersion' {parameterVersion} -> parameterVersion) (\s@LabelParameterVersion' {} a -> s {parameterVersion = a} :: LabelParameterVersion)
 
 -- | The parameter name on which you want to attach one or more labels.
-labelParameterVersion_name :: Lens.Lens' LabelParameterVersion Prelude.Text
+labelParameterVersion_name :: Lens.Lens' LabelParameterVersion Core.Text
 labelParameterVersion_name = Lens.lens (\LabelParameterVersion' {name} -> name) (\s@LabelParameterVersion' {} a -> s {name = a} :: LabelParameterVersion)
 
 -- | One or more labels to attach to the specified parameter version.
-labelParameterVersion_labels :: Lens.Lens' LabelParameterVersion (Prelude.NonEmpty Prelude.Text)
-labelParameterVersion_labels = Lens.lens (\LabelParameterVersion' {labels} -> labels) (\s@LabelParameterVersion' {} a -> s {labels = a} :: LabelParameterVersion) Prelude.. Prelude._Coerce
+labelParameterVersion_labels :: Lens.Lens' LabelParameterVersion (Core.NonEmpty Core.Text)
+labelParameterVersion_labels = Lens.lens (\LabelParameterVersion' {labels} -> labels) (\s@LabelParameterVersion' {} a -> s {labels = a} :: LabelParameterVersion) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest LabelParameterVersion where
+instance Core.AWSRequest LabelParameterVersion where
   type
-    Rs LabelParameterVersion =
+    AWSResponse LabelParameterVersion =
       LabelParameterVersionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           LabelParameterVersionResponse'
-            Prelude.<$> (x Prelude..?> "InvalidLabels")
-            Prelude.<*> (x Prelude..?> "ParameterVersion")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "InvalidLabels")
+            Core.<*> (x Core..?> "ParameterVersion")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable LabelParameterVersion
+instance Core.Hashable LabelParameterVersion
 
-instance Prelude.NFData LabelParameterVersion
+instance Core.NFData LabelParameterVersion
 
-instance Prelude.ToHeaders LabelParameterVersion where
+instance Core.ToHeaders LabelParameterVersion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.LabelParameterVersion" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.LabelParameterVersion" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON LabelParameterVersion where
+instance Core.ToJSON LabelParameterVersion where
   toJSON LabelParameterVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ParameterVersion" Prelude..=)
-              Prelude.<$> parameterVersion,
-            Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Labels" Prelude..= labels)
+    Core.object
+      ( Core.catMaybes
+          [ ("ParameterVersion" Core..=)
+              Core.<$> parameterVersion,
+            Core.Just ("Name" Core..= name),
+            Core.Just ("Labels" Core..= labels)
           ]
       )
 
-instance Prelude.ToPath LabelParameterVersion where
-  toPath = Prelude.const "/"
+instance Core.ToPath LabelParameterVersion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery LabelParameterVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery LabelParameterVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newLabelParameterVersionResponse' smart constructor.
 data LabelParameterVersionResponse = LabelParameterVersionResponse'
@@ -192,13 +189,13 @@ data LabelParameterVersionResponse = LabelParameterVersionResponse'
     -- parameter label requirements, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters>
     -- in the /AWS Systems Manager User Guide/.
-    invalidLabels :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    invalidLabels :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The version of the parameter that has been labeled.
-    parameterVersion :: Prelude.Maybe Prelude.Integer,
+    parameterVersion :: Core.Maybe Core.Integer,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LabelParameterVersionResponse' with all optional fields omitted.
@@ -218,13 +215,13 @@ data LabelParameterVersionResponse = LabelParameterVersionResponse'
 -- 'httpStatus', 'labelParameterVersionResponse_httpStatus' - The response's http status code.
 newLabelParameterVersionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   LabelParameterVersionResponse
 newLabelParameterVersionResponse pHttpStatus_ =
   LabelParameterVersionResponse'
     { invalidLabels =
-        Prelude.Nothing,
-      parameterVersion = Prelude.Nothing,
+        Core.Nothing,
+      parameterVersion = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -232,15 +229,15 @@ newLabelParameterVersionResponse pHttpStatus_ =
 -- parameter label requirements, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html Labeling parameters>
 -- in the /AWS Systems Manager User Guide/.
-labelParameterVersionResponse_invalidLabels :: Lens.Lens' LabelParameterVersionResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-labelParameterVersionResponse_invalidLabels = Lens.lens (\LabelParameterVersionResponse' {invalidLabels} -> invalidLabels) (\s@LabelParameterVersionResponse' {} a -> s {invalidLabels = a} :: LabelParameterVersionResponse) Prelude.. Lens.mapping Prelude._Coerce
+labelParameterVersionResponse_invalidLabels :: Lens.Lens' LabelParameterVersionResponse (Core.Maybe (Core.NonEmpty Core.Text))
+labelParameterVersionResponse_invalidLabels = Lens.lens (\LabelParameterVersionResponse' {invalidLabels} -> invalidLabels) (\s@LabelParameterVersionResponse' {} a -> s {invalidLabels = a} :: LabelParameterVersionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The version of the parameter that has been labeled.
-labelParameterVersionResponse_parameterVersion :: Lens.Lens' LabelParameterVersionResponse (Prelude.Maybe Prelude.Integer)
+labelParameterVersionResponse_parameterVersion :: Lens.Lens' LabelParameterVersionResponse (Core.Maybe Core.Integer)
 labelParameterVersionResponse_parameterVersion = Lens.lens (\LabelParameterVersionResponse' {parameterVersion} -> parameterVersion) (\s@LabelParameterVersionResponse' {} a -> s {parameterVersion = a} :: LabelParameterVersionResponse)
 
 -- | The response's http status code.
-labelParameterVersionResponse_httpStatus :: Lens.Lens' LabelParameterVersionResponse Prelude.Int
+labelParameterVersionResponse_httpStatus :: Lens.Lens' LabelParameterVersionResponse Core.Int
 labelParameterVersionResponse_httpStatus = Lens.lens (\LabelParameterVersionResponse' {httpStatus} -> httpStatus) (\s@LabelParameterVersionResponse' {} a -> s {httpStatus = a} :: LabelParameterVersionResponse)
 
-instance Prelude.NFData LabelParameterVersionResponse
+instance Core.NFData LabelParameterVersionResponse

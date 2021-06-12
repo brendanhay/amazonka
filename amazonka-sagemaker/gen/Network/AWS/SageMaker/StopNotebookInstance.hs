@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.SageMaker.StopNotebookInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -55,9 +54,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newStopNotebookInstance' smart constructor.
 data StopNotebookInstance = StopNotebookInstance'
   { -- | The name of the notebook instance to terminate.
-    notebookInstanceName :: Prelude.Text
+    notebookInstanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopNotebookInstance' with all optional fields omitted.
@@ -70,7 +69,7 @@ data StopNotebookInstance = StopNotebookInstance'
 -- 'notebookInstanceName', 'stopNotebookInstance_notebookInstanceName' - The name of the notebook instance to terminate.
 newStopNotebookInstance ::
   -- | 'notebookInstanceName'
-  Prelude.Text ->
+  Core.Text ->
   StopNotebookInstance
 newStopNotebookInstance pNotebookInstanceName_ =
   StopNotebookInstance'
@@ -79,58 +78,56 @@ newStopNotebookInstance pNotebookInstanceName_ =
     }
 
 -- | The name of the notebook instance to terminate.
-stopNotebookInstance_notebookInstanceName :: Lens.Lens' StopNotebookInstance Prelude.Text
+stopNotebookInstance_notebookInstanceName :: Lens.Lens' StopNotebookInstance Core.Text
 stopNotebookInstance_notebookInstanceName = Lens.lens (\StopNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@StopNotebookInstance' {} a -> s {notebookInstanceName = a} :: StopNotebookInstance)
 
-instance Prelude.AWSRequest StopNotebookInstance where
+instance Core.AWSRequest StopNotebookInstance where
   type
-    Rs StopNotebookInstance =
+    AWSResponse StopNotebookInstance =
       StopNotebookInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull StopNotebookInstanceResponse'
 
-instance Prelude.Hashable StopNotebookInstance
+instance Core.Hashable StopNotebookInstance
 
-instance Prelude.NFData StopNotebookInstance
+instance Core.NFData StopNotebookInstance
 
-instance Prelude.ToHeaders StopNotebookInstance where
+instance Core.ToHeaders StopNotebookInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.StopNotebookInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.StopNotebookInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopNotebookInstance where
+instance Core.ToJSON StopNotebookInstance where
   toJSON StopNotebookInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "NotebookInstanceName"
-                  Prelude..= notebookInstanceName
+                  Core..= notebookInstanceName
               )
           ]
       )
 
-instance Prelude.ToPath StopNotebookInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopNotebookInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopNotebookInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopNotebookInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopNotebookInstanceResponse' smart constructor.
 data StopNotebookInstanceResponse = StopNotebookInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopNotebookInstanceResponse' with all optional fields omitted.
@@ -141,4 +138,4 @@ newStopNotebookInstanceResponse ::
 newStopNotebookInstanceResponse =
   StopNotebookInstanceResponse'
 
-instance Prelude.NFData StopNotebookInstanceResponse
+instance Core.NFData StopNotebookInstanceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.UpdateApnsVoipChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data UpdateApnsVoipChannel = UpdateApnsVoipChannel'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     aPNSVoipChannelRequest :: APNSVoipChannelRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApnsVoipChannel' with all optional fields omitted.
@@ -71,7 +70,7 @@ data UpdateApnsVoipChannel = UpdateApnsVoipChannel'
 -- 'aPNSVoipChannelRequest', 'updateApnsVoipChannel_aPNSVoipChannelRequest' - Undocumented member.
 newUpdateApnsVoipChannel ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'aPNSVoipChannelRequest'
   APNSVoipChannelRequest ->
   UpdateApnsVoipChannel
@@ -86,70 +85,68 @@ newUpdateApnsVoipChannel
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-updateApnsVoipChannel_applicationId :: Lens.Lens' UpdateApnsVoipChannel Prelude.Text
+updateApnsVoipChannel_applicationId :: Lens.Lens' UpdateApnsVoipChannel Core.Text
 updateApnsVoipChannel_applicationId = Lens.lens (\UpdateApnsVoipChannel' {applicationId} -> applicationId) (\s@UpdateApnsVoipChannel' {} a -> s {applicationId = a} :: UpdateApnsVoipChannel)
 
 -- | Undocumented member.
 updateApnsVoipChannel_aPNSVoipChannelRequest :: Lens.Lens' UpdateApnsVoipChannel APNSVoipChannelRequest
 updateApnsVoipChannel_aPNSVoipChannelRequest = Lens.lens (\UpdateApnsVoipChannel' {aPNSVoipChannelRequest} -> aPNSVoipChannelRequest) (\s@UpdateApnsVoipChannel' {} a -> s {aPNSVoipChannelRequest = a} :: UpdateApnsVoipChannel)
 
-instance Prelude.AWSRequest UpdateApnsVoipChannel where
+instance Core.AWSRequest UpdateApnsVoipChannel where
   type
-    Rs UpdateApnsVoipChannel =
+    AWSResponse UpdateApnsVoipChannel =
       UpdateApnsVoipChannelResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateApnsVoipChannelResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable UpdateApnsVoipChannel
+instance Core.Hashable UpdateApnsVoipChannel
 
-instance Prelude.NFData UpdateApnsVoipChannel
+instance Core.NFData UpdateApnsVoipChannel
 
-instance Prelude.ToHeaders UpdateApnsVoipChannel where
+instance Core.ToHeaders UpdateApnsVoipChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateApnsVoipChannel where
+instance Core.ToJSON UpdateApnsVoipChannel where
   toJSON UpdateApnsVoipChannel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "APNSVoipChannelRequest"
-                  Prelude..= aPNSVoipChannelRequest
+                  Core..= aPNSVoipChannelRequest
               )
           ]
       )
 
-instance Prelude.ToPath UpdateApnsVoipChannel where
+instance Core.ToPath UpdateApnsVoipChannel where
   toPath UpdateApnsVoipChannel' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/channels/apns_voip"
       ]
 
-instance Prelude.ToQuery UpdateApnsVoipChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateApnsVoipChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateApnsVoipChannelResponse' smart constructor.
 data UpdateApnsVoipChannelResponse = UpdateApnsVoipChannelResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     aPNSVoipChannelResponse :: APNSVoipChannelResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApnsVoipChannelResponse' with all optional fields omitted.
@@ -164,7 +161,7 @@ data UpdateApnsVoipChannelResponse = UpdateApnsVoipChannelResponse'
 -- 'aPNSVoipChannelResponse', 'updateApnsVoipChannelResponse_aPNSVoipChannelResponse' - Undocumented member.
 newUpdateApnsVoipChannelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'aPNSVoipChannelResponse'
   APNSVoipChannelResponse ->
   UpdateApnsVoipChannelResponse
@@ -179,11 +176,11 @@ newUpdateApnsVoipChannelResponse
       }
 
 -- | The response's http status code.
-updateApnsVoipChannelResponse_httpStatus :: Lens.Lens' UpdateApnsVoipChannelResponse Prelude.Int
+updateApnsVoipChannelResponse_httpStatus :: Lens.Lens' UpdateApnsVoipChannelResponse Core.Int
 updateApnsVoipChannelResponse_httpStatus = Lens.lens (\UpdateApnsVoipChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateApnsVoipChannelResponse' {} a -> s {httpStatus = a} :: UpdateApnsVoipChannelResponse)
 
 -- | Undocumented member.
 updateApnsVoipChannelResponse_aPNSVoipChannelResponse :: Lens.Lens' UpdateApnsVoipChannelResponse APNSVoipChannelResponse
 updateApnsVoipChannelResponse_aPNSVoipChannelResponse = Lens.lens (\UpdateApnsVoipChannelResponse' {aPNSVoipChannelResponse} -> aPNSVoipChannelResponse) (\s@UpdateApnsVoipChannelResponse' {} a -> s {aPNSVoipChannelResponse = a} :: UpdateApnsVoipChannelResponse)
 
-instance Prelude.NFData UpdateApnsVoipChannelResponse
+instance Core.NFData UpdateApnsVoipChannelResponse

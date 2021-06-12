@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.GeoLocation where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the location of the remote IP address.
 --
 -- /See:/ 'newGeoLocation' smart constructor.
 data GeoLocation = GeoLocation'
   { -- | The latitude information of the remote IP address.
-    lat :: Prelude.Maybe Prelude.Double,
+    lat :: Core.Maybe Core.Double,
     -- | The longitude information of the remote IP address.
-    lon :: Prelude.Maybe Prelude.Double
+    lon :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GeoLocation' with all optional fields omitted.
@@ -49,28 +48,27 @@ newGeoLocation ::
   GeoLocation
 newGeoLocation =
   GeoLocation'
-    { lat = Prelude.Nothing,
-      lon = Prelude.Nothing
+    { lat = Core.Nothing,
+      lon = Core.Nothing
     }
 
 -- | The latitude information of the remote IP address.
-geoLocation_lat :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Double)
+geoLocation_lat :: Lens.Lens' GeoLocation (Core.Maybe Core.Double)
 geoLocation_lat = Lens.lens (\GeoLocation' {lat} -> lat) (\s@GeoLocation' {} a -> s {lat = a} :: GeoLocation)
 
 -- | The longitude information of the remote IP address.
-geoLocation_lon :: Lens.Lens' GeoLocation (Prelude.Maybe Prelude.Double)
+geoLocation_lon :: Lens.Lens' GeoLocation (Core.Maybe Core.Double)
 geoLocation_lon = Lens.lens (\GeoLocation' {lon} -> lon) (\s@GeoLocation' {} a -> s {lon = a} :: GeoLocation)
 
-instance Prelude.FromJSON GeoLocation where
+instance Core.FromJSON GeoLocation where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "GeoLocation"
       ( \x ->
           GeoLocation'
-            Prelude.<$> (x Prelude..:? "lat")
-            Prelude.<*> (x Prelude..:? "lon")
+            Core.<$> (x Core..:? "lat") Core.<*> (x Core..:? "lon")
       )
 
-instance Prelude.Hashable GeoLocation
+instance Core.Hashable GeoLocation
 
-instance Prelude.NFData GeoLocation
+instance Core.NFData GeoLocation

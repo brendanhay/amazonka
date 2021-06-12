@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the output of a @BatchUpdate@ response operation.
 --
 -- /See:/ 'newBatchUpdateObjectAttributesResponse' smart constructor.
 data BatchUpdateObjectAttributesResponse = BatchUpdateObjectAttributesResponse'
   { -- | ID that is associated with the object.
-    objectIdentifier :: Prelude.Maybe Prelude.Text
+    objectIdentifier :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchUpdateObjectAttributesResponse' with all optional fields omitted.
@@ -46,29 +45,29 @@ newBatchUpdateObjectAttributesResponse ::
 newBatchUpdateObjectAttributesResponse =
   BatchUpdateObjectAttributesResponse'
     { objectIdentifier =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | ID that is associated with the object.
-batchUpdateObjectAttributesResponse_objectIdentifier :: Lens.Lens' BatchUpdateObjectAttributesResponse (Prelude.Maybe Prelude.Text)
+batchUpdateObjectAttributesResponse_objectIdentifier :: Lens.Lens' BatchUpdateObjectAttributesResponse (Core.Maybe Core.Text)
 batchUpdateObjectAttributesResponse_objectIdentifier = Lens.lens (\BatchUpdateObjectAttributesResponse' {objectIdentifier} -> objectIdentifier) (\s@BatchUpdateObjectAttributesResponse' {} a -> s {objectIdentifier = a} :: BatchUpdateObjectAttributesResponse)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     BatchUpdateObjectAttributesResponse
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BatchUpdateObjectAttributesResponse"
       ( \x ->
           BatchUpdateObjectAttributesResponse'
-            Prelude.<$> (x Prelude..:? "ObjectIdentifier")
+            Core.<$> (x Core..:? "ObjectIdentifier")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchUpdateObjectAttributesResponse
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchUpdateObjectAttributesResponse

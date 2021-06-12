@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,15 +61,15 @@ import qualified Network.AWS.Response as Response
 data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus'
   { -- | The unique ID of a deployment. Pass this ID to a Lambda function that
     -- validates a deployment lifecycle event.
-    deploymentId :: Prelude.Maybe Prelude.Text,
+    deploymentId :: Core.Maybe Core.Text,
     -- | The result of a Lambda function that validates a deployment lifecycle
     -- event (@Succeeded@ or @Failed@).
-    status :: Prelude.Maybe LifecycleEventStatus,
+    status :: Core.Maybe LifecycleEventStatus,
     -- | The execution ID of a deployment\'s lifecycle hook. A deployment
     -- lifecycle hook is specified in the @hooks@ section of the AppSpec file.
-    lifecycleEventHookExecutionId :: Prelude.Maybe Prelude.Text
+    lifecycleEventHookExecutionId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLifecycleEventHookExecutionStatus' with all optional fields omitted.
@@ -93,105 +92,102 @@ newPutLifecycleEventHookExecutionStatus ::
 newPutLifecycleEventHookExecutionStatus =
   PutLifecycleEventHookExecutionStatus'
     { deploymentId =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+        Core.Nothing,
+      status = Core.Nothing,
       lifecycleEventHookExecutionId =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The unique ID of a deployment. Pass this ID to a Lambda function that
 -- validates a deployment lifecycle event.
-putLifecycleEventHookExecutionStatus_deploymentId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Prelude.Maybe Prelude.Text)
+putLifecycleEventHookExecutionStatus_deploymentId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Core.Maybe Core.Text)
 putLifecycleEventHookExecutionStatus_deploymentId = Lens.lens (\PutLifecycleEventHookExecutionStatus' {deploymentId} -> deploymentId) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {deploymentId = a} :: PutLifecycleEventHookExecutionStatus)
 
 -- | The result of a Lambda function that validates a deployment lifecycle
 -- event (@Succeeded@ or @Failed@).
-putLifecycleEventHookExecutionStatus_status :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Prelude.Maybe LifecycleEventStatus)
+putLifecycleEventHookExecutionStatus_status :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Core.Maybe LifecycleEventStatus)
 putLifecycleEventHookExecutionStatus_status = Lens.lens (\PutLifecycleEventHookExecutionStatus' {status} -> status) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {status = a} :: PutLifecycleEventHookExecutionStatus)
 
 -- | The execution ID of a deployment\'s lifecycle hook. A deployment
 -- lifecycle hook is specified in the @hooks@ section of the AppSpec file.
-putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Prelude.Maybe Prelude.Text)
+putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Core.Maybe Core.Text)
 putLifecycleEventHookExecutionStatus_lifecycleEventHookExecutionId = Lens.lens (\PutLifecycleEventHookExecutionStatus' {lifecycleEventHookExecutionId} -> lifecycleEventHookExecutionId) (\s@PutLifecycleEventHookExecutionStatus' {} a -> s {lifecycleEventHookExecutionId = a} :: PutLifecycleEventHookExecutionStatus)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutLifecycleEventHookExecutionStatus
   where
   type
-    Rs PutLifecycleEventHookExecutionStatus =
+    AWSResponse PutLifecycleEventHookExecutionStatus =
       PutLifecycleEventHookExecutionStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutLifecycleEventHookExecutionStatusResponse'
-            Prelude.<$> (x Prelude..?> "lifecycleEventHookExecutionId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "lifecycleEventHookExecutionId")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     PutLifecycleEventHookExecutionStatus
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutLifecycleEventHookExecutionStatus
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     PutLifecycleEventHookExecutionStatus
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     PutLifecycleEventHookExecutionStatus
   where
   toJSON PutLifecycleEventHookExecutionStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deploymentId" Prelude..=)
-              Prelude.<$> deploymentId,
-            ("status" Prelude..=) Prelude.<$> status,
-            ("lifecycleEventHookExecutionId" Prelude..=)
-              Prelude.<$> lifecycleEventHookExecutionId
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentId" Core..=) Core.<$> deploymentId,
+            ("status" Core..=) Core.<$> status,
+            ("lifecycleEventHookExecutionId" Core..=)
+              Core.<$> lifecycleEventHookExecutionId
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     PutLifecycleEventHookExecutionStatus
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     PutLifecycleEventHookExecutionStatus
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutLifecycleEventHookExecutionStatusResponse' smart constructor.
 data PutLifecycleEventHookExecutionStatusResponse = PutLifecycleEventHookExecutionStatusResponse'
   { -- | The execution ID of the lifecycle event hook. A hook is specified in the
     -- @hooks@ section of the deployment\'s AppSpec file.
-    lifecycleEventHookExecutionId :: Prelude.Maybe Prelude.Text,
+    lifecycleEventHookExecutionId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutLifecycleEventHookExecutionStatusResponse' with all optional fields omitted.
@@ -207,25 +203,25 @@ data PutLifecycleEventHookExecutionStatusResponse = PutLifecycleEventHookExecuti
 -- 'httpStatus', 'putLifecycleEventHookExecutionStatusResponse_httpStatus' - The response's http status code.
 newPutLifecycleEventHookExecutionStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutLifecycleEventHookExecutionStatusResponse
 newPutLifecycleEventHookExecutionStatusResponse
   pHttpStatus_ =
     PutLifecycleEventHookExecutionStatusResponse'
       { lifecycleEventHookExecutionId =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The execution ID of the lifecycle event hook. A hook is specified in the
 -- @hooks@ section of the deployment\'s AppSpec file.
-putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse (Prelude.Maybe Prelude.Text)
+putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse (Core.Maybe Core.Text)
 putLifecycleEventHookExecutionStatusResponse_lifecycleEventHookExecutionId = Lens.lens (\PutLifecycleEventHookExecutionStatusResponse' {lifecycleEventHookExecutionId} -> lifecycleEventHookExecutionId) (\s@PutLifecycleEventHookExecutionStatusResponse' {} a -> s {lifecycleEventHookExecutionId = a} :: PutLifecycleEventHookExecutionStatusResponse)
 
 -- | The response's http status code.
-putLifecycleEventHookExecutionStatusResponse_httpStatus :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse Prelude.Int
+putLifecycleEventHookExecutionStatusResponse_httpStatus :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse Core.Int
 putLifecycleEventHookExecutionStatusResponse_httpStatus = Lens.lens (\PutLifecycleEventHookExecutionStatusResponse' {httpStatus} -> httpStatus) (\s@PutLifecycleEventHookExecutionStatusResponse' {} a -> s {httpStatus = a} :: PutLifecycleEventHookExecutionStatusResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutLifecycleEventHookExecutionStatusResponse

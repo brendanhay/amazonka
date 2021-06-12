@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lambda.Types.ImageConfigError where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Error response to GetFunctionConfiguration.
 --
 -- /See:/ 'newImageConfigError' smart constructor.
 data ImageConfigError = ImageConfigError'
   { -- | Error message.
-    message :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    message :: Core.Maybe (Core.Sensitive Core.Text),
     -- | Error code.
-    errorCode :: Prelude.Maybe Prelude.Text
+    errorCode :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ImageConfigError' with all optional fields omitted.
@@ -49,28 +48,28 @@ newImageConfigError ::
   ImageConfigError
 newImageConfigError =
   ImageConfigError'
-    { message = Prelude.Nothing,
-      errorCode = Prelude.Nothing
+    { message = Core.Nothing,
+      errorCode = Core.Nothing
     }
 
 -- | Error message.
-imageConfigError_message :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
-imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Prelude.. Lens.mapping Prelude._Sensitive
+imageConfigError_message :: Lens.Lens' ImageConfigError (Core.Maybe Core.Text)
+imageConfigError_message = Lens.lens (\ImageConfigError' {message} -> message) (\s@ImageConfigError' {} a -> s {message = a} :: ImageConfigError) Core.. Lens.mapping Core._Sensitive
 
 -- | Error code.
-imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Prelude.Maybe Prelude.Text)
+imageConfigError_errorCode :: Lens.Lens' ImageConfigError (Core.Maybe Core.Text)
 imageConfigError_errorCode = Lens.lens (\ImageConfigError' {errorCode} -> errorCode) (\s@ImageConfigError' {} a -> s {errorCode = a} :: ImageConfigError)
 
-instance Prelude.FromJSON ImageConfigError where
+instance Core.FromJSON ImageConfigError where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ImageConfigError"
       ( \x ->
           ImageConfigError'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "ErrorCode")
+            Core.<$> (x Core..:? "Message")
+            Core.<*> (x Core..:? "ErrorCode")
       )
 
-instance Prelude.Hashable ImageConfigError
+instance Core.Hashable ImageConfigError
 
-instance Prelude.NFData ImageConfigError
+instance Core.NFData ImageConfigError

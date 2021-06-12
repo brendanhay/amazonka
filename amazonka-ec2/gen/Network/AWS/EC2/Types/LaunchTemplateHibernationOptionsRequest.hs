@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateHibernationOptionsRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether the instance is configured for hibernation. This
 -- parameter is valid only if the instance meets the
@@ -34,9 +33,9 @@ data LaunchTemplateHibernationOptionsRequest = LaunchTemplateHibernationOptionsR
     -- hibernation.
     --
     -- Default: @false@
-    configured :: Prelude.Maybe Prelude.Bool
+    configured :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateHibernationOptionsRequest' with all optional fields omitted.
@@ -55,28 +54,27 @@ newLaunchTemplateHibernationOptionsRequest ::
 newLaunchTemplateHibernationOptionsRequest =
   LaunchTemplateHibernationOptionsRequest'
     { configured =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | If you set this parameter to @true@, the instance is enabled for
 -- hibernation.
 --
 -- Default: @false@
-launchTemplateHibernationOptionsRequest_configured :: Lens.Lens' LaunchTemplateHibernationOptionsRequest (Prelude.Maybe Prelude.Bool)
+launchTemplateHibernationOptionsRequest_configured :: Lens.Lens' LaunchTemplateHibernationOptionsRequest (Core.Maybe Core.Bool)
 launchTemplateHibernationOptionsRequest_configured = Lens.lens (\LaunchTemplateHibernationOptionsRequest' {configured} -> configured) (\s@LaunchTemplateHibernationOptionsRequest' {} a -> s {configured = a} :: LaunchTemplateHibernationOptionsRequest)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     LaunchTemplateHibernationOptionsRequest
 
 instance
-  Prelude.NFData
+  Core.NFData
     LaunchTemplateHibernationOptionsRequest
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     LaunchTemplateHibernationOptionsRequest
   where
   toQuery LaunchTemplateHibernationOptionsRequest' {..} =
-    Prelude.mconcat
-      ["Configured" Prelude.=: configured]
+    Core.mconcat ["Configured" Core.=: configured]

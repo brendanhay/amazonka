@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -54,7 +53,7 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newSetPlatformApplicationAttributes' smart constructor.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
   { -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-    platformApplicationArn :: Prelude.Text,
+    platformApplicationArn :: Core.Text,
     -- | A map of the platform application attributes. Attributes in this map
     -- include the following:
     --
@@ -90,9 +89,9 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
     --
     -- -   @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of
     --     successfully delivered messages.
-    attributes :: Prelude.HashMap Prelude.Text Prelude.Text
+    attributes :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetPlatformApplicationAttributes' with all optional fields omitted.
@@ -141,18 +140,18 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
 --     successfully delivered messages.
 newSetPlatformApplicationAttributes ::
   -- | 'platformApplicationArn'
-  Prelude.Text ->
+  Core.Text ->
   SetPlatformApplicationAttributes
 newSetPlatformApplicationAttributes
   pPlatformApplicationArn_ =
     SetPlatformApplicationAttributes'
       { platformApplicationArn =
           pPlatformApplicationArn_,
-        attributes = Prelude.mempty
+        attributes = Core.mempty
       }
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-setPlatformApplicationAttributes_platformApplicationArn :: Lens.Lens' SetPlatformApplicationAttributes Prelude.Text
+setPlatformApplicationAttributes_platformApplicationArn :: Lens.Lens' SetPlatformApplicationAttributes Core.Text
 setPlatformApplicationAttributes_platformApplicationArn = Lens.lens (\SetPlatformApplicationAttributes' {platformApplicationArn} -> platformApplicationArn) (\s@SetPlatformApplicationAttributes' {} a -> s {platformApplicationArn = a} :: SetPlatformApplicationAttributes)
 
 -- | A map of the platform application attributes. Attributes in this map
@@ -190,15 +189,15 @@ setPlatformApplicationAttributes_platformApplicationArn = Lens.lens (\SetPlatfor
 --
 -- -   @SuccessFeedbackSampleRate@ – Sample rate percentage (0-100) of
 --     successfully delivered messages.
-setPlatformApplicationAttributes_attributes :: Lens.Lens' SetPlatformApplicationAttributes (Prelude.HashMap Prelude.Text Prelude.Text)
-setPlatformApplicationAttributes_attributes = Lens.lens (\SetPlatformApplicationAttributes' {attributes} -> attributes) (\s@SetPlatformApplicationAttributes' {} a -> s {attributes = a} :: SetPlatformApplicationAttributes) Prelude.. Prelude._Coerce
+setPlatformApplicationAttributes_attributes :: Lens.Lens' SetPlatformApplicationAttributes (Core.HashMap Core.Text Core.Text)
+setPlatformApplicationAttributes_attributes = Lens.lens (\SetPlatformApplicationAttributes' {attributes} -> attributes) (\s@SetPlatformApplicationAttributes' {} a -> s {attributes = a} :: SetPlatformApplicationAttributes) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     SetPlatformApplicationAttributes
   where
   type
-    Rs SetPlatformApplicationAttributes =
+    AWSResponse SetPlatformApplicationAttributes =
       SetPlatformApplicationAttributesResponse
   request = Request.postQuery defaultService
   response =
@@ -206,48 +205,42 @@ instance
       SetPlatformApplicationAttributesResponse'
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     SetPlatformApplicationAttributes
 
-instance
-  Prelude.NFData
-    SetPlatformApplicationAttributes
+instance Core.NFData SetPlatformApplicationAttributes
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     SetPlatformApplicationAttributes
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
+
+instance Core.ToPath SetPlatformApplicationAttributes where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
-    SetPlatformApplicationAttributes
-  where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
+  Core.ToQuery
     SetPlatformApplicationAttributes
   where
   toQuery SetPlatformApplicationAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "SetPlatformApplicationAttributes" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
+          Core.=: ( "SetPlatformApplicationAttributes" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
         "PlatformApplicationArn"
-          Prelude.=: platformApplicationArn,
+          Core.=: platformApplicationArn,
         "Attributes"
-          Prelude.=: Prelude.toQueryMap "entry" "key" "value" attributes
+          Core.=: Core.toQueryMap "entry" "key" "value" attributes
       ]
 
 -- | /See:/ 'newSetPlatformApplicationAttributesResponse' smart constructor.
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetPlatformApplicationAttributesResponse' with all optional fields omitted.
@@ -259,5 +252,5 @@ newSetPlatformApplicationAttributesResponse =
   SetPlatformApplicationAttributesResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     SetPlatformApplicationAttributesResponse

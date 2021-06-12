@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,8 +41,8 @@ module Network.AWS.Comprehend.DescribeDominantLanguageDetectionJob
 where
 
 import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data DescribeDominantLanguageDetectionJob = DescribeDominantLanguageDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The
     -- operation returns this identifier in its response.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDominantLanguageDetectionJob' with all optional fields omitted.
@@ -67,7 +66,7 @@ data DescribeDominantLanguageDetectionJob = DescribeDominantLanguageDetectionJob
 -- operation returns this identifier in its response.
 newDescribeDominantLanguageDetectionJob ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeDominantLanguageDetectionJob
 newDescribeDominantLanguageDetectionJob pJobId_ =
   DescribeDominantLanguageDetectionJob'
@@ -77,84 +76,78 @@ newDescribeDominantLanguageDetectionJob pJobId_ =
 
 -- | The identifier that Amazon Comprehend generated for the job. The
 -- operation returns this identifier in its response.
-describeDominantLanguageDetectionJob_jobId :: Lens.Lens' DescribeDominantLanguageDetectionJob Prelude.Text
+describeDominantLanguageDetectionJob_jobId :: Lens.Lens' DescribeDominantLanguageDetectionJob Core.Text
 describeDominantLanguageDetectionJob_jobId = Lens.lens (\DescribeDominantLanguageDetectionJob' {jobId} -> jobId) (\s@DescribeDominantLanguageDetectionJob' {} a -> s {jobId = a} :: DescribeDominantLanguageDetectionJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeDominantLanguageDetectionJob
   where
   type
-    Rs DescribeDominantLanguageDetectionJob =
+    AWSResponse DescribeDominantLanguageDetectionJob =
       DescribeDominantLanguageDetectionJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeDominantLanguageDetectionJobResponse'
-            Prelude.<$> ( x
-                            Prelude..?> "DominantLanguageDetectionJobProperties"
-                        )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "DominantLanguageDetectionJobProperties")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeDominantLanguageDetectionJob
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDominantLanguageDetectionJob
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeDominantLanguageDetectionJob
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Comprehend_20171127.DescribeDominantLanguageDetectionJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Comprehend_20171127.DescribeDominantLanguageDetectionJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DescribeDominantLanguageDetectionJob
   where
   toJSON DescribeDominantLanguageDetectionJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("JobId" Prelude..= jobId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DescribeDominantLanguageDetectionJob
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeDominantLanguageDetectionJob
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeDominantLanguageDetectionJobResponse' smart constructor.
 data DescribeDominantLanguageDetectionJobResponse = DescribeDominantLanguageDetectionJobResponse'
   { -- | An object that contains the properties associated with a dominant
     -- language detection job.
-    dominantLanguageDetectionJobProperties :: Prelude.Maybe DominantLanguageDetectionJobProperties,
+    dominantLanguageDetectionJobProperties :: Core.Maybe DominantLanguageDetectionJobProperties,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeDominantLanguageDetectionJobResponse' with all optional fields omitted.
@@ -170,25 +163,25 @@ data DescribeDominantLanguageDetectionJobResponse = DescribeDominantLanguageDete
 -- 'httpStatus', 'describeDominantLanguageDetectionJobResponse_httpStatus' - The response's http status code.
 newDescribeDominantLanguageDetectionJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeDominantLanguageDetectionJobResponse
 newDescribeDominantLanguageDetectionJobResponse
   pHttpStatus_ =
     DescribeDominantLanguageDetectionJobResponse'
       { dominantLanguageDetectionJobProperties =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object that contains the properties associated with a dominant
 -- language detection job.
-describeDominantLanguageDetectionJobResponse_dominantLanguageDetectionJobProperties :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse (Prelude.Maybe DominantLanguageDetectionJobProperties)
+describeDominantLanguageDetectionJobResponse_dominantLanguageDetectionJobProperties :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse (Core.Maybe DominantLanguageDetectionJobProperties)
 describeDominantLanguageDetectionJobResponse_dominantLanguageDetectionJobProperties = Lens.lens (\DescribeDominantLanguageDetectionJobResponse' {dominantLanguageDetectionJobProperties} -> dominantLanguageDetectionJobProperties) (\s@DescribeDominantLanguageDetectionJobResponse' {} a -> s {dominantLanguageDetectionJobProperties = a} :: DescribeDominantLanguageDetectionJobResponse)
 
 -- | The response's http status code.
-describeDominantLanguageDetectionJobResponse_httpStatus :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse Prelude.Int
+describeDominantLanguageDetectionJobResponse_httpStatus :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse Core.Int
 describeDominantLanguageDetectionJobResponse_httpStatus = Lens.lens (\DescribeDominantLanguageDetectionJobResponse' {httpStatus} -> httpStatus) (\s@DescribeDominantLanguageDetectionJobResponse' {} a -> s {httpStatus = a} :: DescribeDominantLanguageDetectionJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeDominantLanguageDetectionJobResponse

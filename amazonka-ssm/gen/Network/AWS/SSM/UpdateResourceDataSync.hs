@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.SSM.UpdateResourceDataSync
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,14 +58,14 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newUpdateResourceDataSync' smart constructor.
 data UpdateResourceDataSync = UpdateResourceDataSync'
   { -- | The name of the resource data sync you want to update.
-    syncName :: Prelude.Text,
+    syncName :: Core.Text,
     -- | The type of resource data sync. The supported @SyncType@ is
     -- SyncFromSource.
-    syncType :: Prelude.Text,
+    syncType :: Core.Text,
     -- | Specify information about the data sources to synchronize.
     syncSource :: ResourceDataSyncSource
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceDataSync' with all optional fields omitted.
@@ -84,9 +83,9 @@ data UpdateResourceDataSync = UpdateResourceDataSync'
 -- 'syncSource', 'updateResourceDataSync_syncSource' - Specify information about the data sources to synchronize.
 newUpdateResourceDataSync ::
   -- | 'syncName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'syncType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'syncSource'
   ResourceDataSyncSource ->
   UpdateResourceDataSync
@@ -101,71 +100,69 @@ newUpdateResourceDataSync
       }
 
 -- | The name of the resource data sync you want to update.
-updateResourceDataSync_syncName :: Lens.Lens' UpdateResourceDataSync Prelude.Text
+updateResourceDataSync_syncName :: Lens.Lens' UpdateResourceDataSync Core.Text
 updateResourceDataSync_syncName = Lens.lens (\UpdateResourceDataSync' {syncName} -> syncName) (\s@UpdateResourceDataSync' {} a -> s {syncName = a} :: UpdateResourceDataSync)
 
 -- | The type of resource data sync. The supported @SyncType@ is
 -- SyncFromSource.
-updateResourceDataSync_syncType :: Lens.Lens' UpdateResourceDataSync Prelude.Text
+updateResourceDataSync_syncType :: Lens.Lens' UpdateResourceDataSync Core.Text
 updateResourceDataSync_syncType = Lens.lens (\UpdateResourceDataSync' {syncType} -> syncType) (\s@UpdateResourceDataSync' {} a -> s {syncType = a} :: UpdateResourceDataSync)
 
 -- | Specify information about the data sources to synchronize.
 updateResourceDataSync_syncSource :: Lens.Lens' UpdateResourceDataSync ResourceDataSyncSource
 updateResourceDataSync_syncSource = Lens.lens (\UpdateResourceDataSync' {syncSource} -> syncSource) (\s@UpdateResourceDataSync' {} a -> s {syncSource = a} :: UpdateResourceDataSync)
 
-instance Prelude.AWSRequest UpdateResourceDataSync where
+instance Core.AWSRequest UpdateResourceDataSync where
   type
-    Rs UpdateResourceDataSync =
+    AWSResponse UpdateResourceDataSync =
       UpdateResourceDataSyncResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceDataSyncResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateResourceDataSync
+instance Core.Hashable UpdateResourceDataSync
 
-instance Prelude.NFData UpdateResourceDataSync
+instance Core.NFData UpdateResourceDataSync
 
-instance Prelude.ToHeaders UpdateResourceDataSync where
+instance Core.ToHeaders UpdateResourceDataSync where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.UpdateResourceDataSync" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.UpdateResourceDataSync" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateResourceDataSync where
+instance Core.ToJSON UpdateResourceDataSync where
   toJSON UpdateResourceDataSync' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SyncName" Prelude..= syncName),
-            Prelude.Just ("SyncType" Prelude..= syncType),
-            Prelude.Just ("SyncSource" Prelude..= syncSource)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SyncName" Core..= syncName),
+            Core.Just ("SyncType" Core..= syncType),
+            Core.Just ("SyncSource" Core..= syncSource)
           ]
       )
 
-instance Prelude.ToPath UpdateResourceDataSync where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateResourceDataSync where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateResourceDataSync where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateResourceDataSync where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateResourceDataSyncResponse' smart constructor.
 data UpdateResourceDataSyncResponse = UpdateResourceDataSyncResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateResourceDataSyncResponse' with all optional fields omitted.
@@ -178,7 +175,7 @@ data UpdateResourceDataSyncResponse = UpdateResourceDataSyncResponse'
 -- 'httpStatus', 'updateResourceDataSyncResponse_httpStatus' - The response's http status code.
 newUpdateResourceDataSyncResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateResourceDataSyncResponse
 newUpdateResourceDataSyncResponse pHttpStatus_ =
   UpdateResourceDataSyncResponse'
@@ -187,9 +184,7 @@ newUpdateResourceDataSyncResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateResourceDataSyncResponse_httpStatus :: Lens.Lens' UpdateResourceDataSyncResponse Prelude.Int
+updateResourceDataSyncResponse_httpStatus :: Lens.Lens' UpdateResourceDataSyncResponse Core.Int
 updateResourceDataSyncResponse_httpStatus = Lens.lens (\UpdateResourceDataSyncResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceDataSyncResponse' {} a -> s {httpStatus = a} :: UpdateResourceDataSyncResponse)
 
-instance
-  Prelude.NFData
-    UpdateResourceDataSyncResponse
+instance Core.NFData UpdateResourceDataSyncResponse

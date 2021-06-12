@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CodeCommit.Types.RepositoryTrigger where
 
 import Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a trigger for a repository.
 --
@@ -30,25 +29,25 @@ import qualified Network.AWS.Prelude as Prelude
 data RepositoryTrigger = RepositoryTrigger'
   { -- | Any custom data associated with the trigger to be included in the
     -- information sent to the target of the trigger.
-    customData :: Prelude.Maybe Prelude.Text,
+    customData :: Core.Maybe Core.Text,
     -- | The branches to be included in the trigger configuration. If you specify
     -- an empty array, the trigger applies to all branches.
     --
     -- Although no content is required in the array, you must include the array
     -- itself.
-    branches :: Prelude.Maybe [Prelude.Text],
+    branches :: Core.Maybe [Core.Text],
     -- | The name of the trigger.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The ARN of the resource that is the target for a trigger (for example,
     -- the ARN of a topic in Amazon SNS).
-    destinationArn :: Prelude.Text,
+    destinationArn :: Core.Text,
     -- | The repository events that cause the trigger to run actions in another
     -- service, such as sending a notification through Amazon SNS.
     --
     -- The valid value \"all\" cannot be used with any other values.
     events :: [RepositoryTriggerEventEnum]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RepositoryTrigger' with all optional fields omitted.
@@ -78,22 +77,22 @@ data RepositoryTrigger = RepositoryTrigger'
 -- The valid value \"all\" cannot be used with any other values.
 newRepositoryTrigger ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationArn'
-  Prelude.Text ->
+  Core.Text ->
   RepositoryTrigger
 newRepositoryTrigger pName_ pDestinationArn_ =
   RepositoryTrigger'
-    { customData = Prelude.Nothing,
-      branches = Prelude.Nothing,
+    { customData = Core.Nothing,
+      branches = Core.Nothing,
       name = pName_,
       destinationArn = pDestinationArn_,
-      events = Prelude.mempty
+      events = Core.mempty
     }
 
 -- | Any custom data associated with the trigger to be included in the
 -- information sent to the target of the trigger.
-repositoryTrigger_customData :: Lens.Lens' RepositoryTrigger (Prelude.Maybe Prelude.Text)
+repositoryTrigger_customData :: Lens.Lens' RepositoryTrigger (Core.Maybe Core.Text)
 repositoryTrigger_customData = Lens.lens (\RepositoryTrigger' {customData} -> customData) (\s@RepositoryTrigger' {} a -> s {customData = a} :: RepositoryTrigger)
 
 -- | The branches to be included in the trigger configuration. If you specify
@@ -101,16 +100,16 @@ repositoryTrigger_customData = Lens.lens (\RepositoryTrigger' {customData} -> cu
 --
 -- Although no content is required in the array, you must include the array
 -- itself.
-repositoryTrigger_branches :: Lens.Lens' RepositoryTrigger (Prelude.Maybe [Prelude.Text])
-repositoryTrigger_branches = Lens.lens (\RepositoryTrigger' {branches} -> branches) (\s@RepositoryTrigger' {} a -> s {branches = a} :: RepositoryTrigger) Prelude.. Lens.mapping Prelude._Coerce
+repositoryTrigger_branches :: Lens.Lens' RepositoryTrigger (Core.Maybe [Core.Text])
+repositoryTrigger_branches = Lens.lens (\RepositoryTrigger' {branches} -> branches) (\s@RepositoryTrigger' {} a -> s {branches = a} :: RepositoryTrigger) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the trigger.
-repositoryTrigger_name :: Lens.Lens' RepositoryTrigger Prelude.Text
+repositoryTrigger_name :: Lens.Lens' RepositoryTrigger Core.Text
 repositoryTrigger_name = Lens.lens (\RepositoryTrigger' {name} -> name) (\s@RepositoryTrigger' {} a -> s {name = a} :: RepositoryTrigger)
 
 -- | The ARN of the resource that is the target for a trigger (for example,
 -- the ARN of a topic in Amazon SNS).
-repositoryTrigger_destinationArn :: Lens.Lens' RepositoryTrigger Prelude.Text
+repositoryTrigger_destinationArn :: Lens.Lens' RepositoryTrigger Core.Text
 repositoryTrigger_destinationArn = Lens.lens (\RepositoryTrigger' {destinationArn} -> destinationArn) (\s@RepositoryTrigger' {} a -> s {destinationArn = a} :: RepositoryTrigger)
 
 -- | The repository events that cause the trigger to run actions in another
@@ -118,34 +117,33 @@ repositoryTrigger_destinationArn = Lens.lens (\RepositoryTrigger' {destinationAr
 --
 -- The valid value \"all\" cannot be used with any other values.
 repositoryTrigger_events :: Lens.Lens' RepositoryTrigger [RepositoryTriggerEventEnum]
-repositoryTrigger_events = Lens.lens (\RepositoryTrigger' {events} -> events) (\s@RepositoryTrigger' {} a -> s {events = a} :: RepositoryTrigger) Prelude.. Prelude._Coerce
+repositoryTrigger_events = Lens.lens (\RepositoryTrigger' {events} -> events) (\s@RepositoryTrigger' {} a -> s {events = a} :: RepositoryTrigger) Core.. Lens._Coerce
 
-instance Prelude.FromJSON RepositoryTrigger where
+instance Core.FromJSON RepositoryTrigger where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RepositoryTrigger"
       ( \x ->
           RepositoryTrigger'
-            Prelude.<$> (x Prelude..:? "customData")
-            Prelude.<*> (x Prelude..:? "branches" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "destinationArn")
-            Prelude.<*> (x Prelude..:? "events" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "customData")
+            Core.<*> (x Core..:? "branches" Core..!= Core.mempty)
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "destinationArn")
+            Core.<*> (x Core..:? "events" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable RepositoryTrigger
+instance Core.Hashable RepositoryTrigger
 
-instance Prelude.NFData RepositoryTrigger
+instance Core.NFData RepositoryTrigger
 
-instance Prelude.ToJSON RepositoryTrigger where
+instance Core.ToJSON RepositoryTrigger where
   toJSON RepositoryTrigger' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("customData" Prelude..=) Prelude.<$> customData,
-            ("branches" Prelude..=) Prelude.<$> branches,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just
-              ("destinationArn" Prelude..= destinationArn),
-            Prelude.Just ("events" Prelude..= events)
+    Core.object
+      ( Core.catMaybes
+          [ ("customData" Core..=) Core.<$> customData,
+            ("branches" Core..=) Core.<$> branches,
+            Core.Just ("name" Core..= name),
+            Core.Just ("destinationArn" Core..= destinationArn),
+            Core.Just ("events" Core..= events)
           ]
       )

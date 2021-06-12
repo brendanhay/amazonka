@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
@@ -62,16 +61,16 @@ import Network.AWS.StorageGateway.Types
 data RetrieveTapeArchive = RetrieveTapeArchive'
   { -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve
     -- from the virtual tape shelf (VTS).
-    tapeARN :: Prelude.Text,
+    tapeARN :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
     -- virtual tape to. Use the ListGateways operation to return a list of
     -- gateways for your account and AWS Region.
     --
     -- You retrieve archived virtual tapes to only one gateway and the gateway
     -- must be a tape gateway.
-    gatewayARN :: Prelude.Text
+    gatewayARN :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetrieveTapeArchive' with all optional fields omitted.
@@ -92,9 +91,9 @@ data RetrieveTapeArchive = RetrieveTapeArchive'
 -- must be a tape gateway.
 newRetrieveTapeArchive ::
   -- | 'tapeARN'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'gatewayARN'
-  Prelude.Text ->
+  Core.Text ->
   RetrieveTapeArchive
 newRetrieveTapeArchive pTapeARN_ pGatewayARN_ =
   RetrieveTapeArchive'
@@ -104,7 +103,7 @@ newRetrieveTapeArchive pTapeARN_ pGatewayARN_ =
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve
 -- from the virtual tape shelf (VTS).
-retrieveTapeArchive_tapeARN :: Lens.Lens' RetrieveTapeArchive Prelude.Text
+retrieveTapeArchive_tapeARN :: Lens.Lens' RetrieveTapeArchive Core.Text
 retrieveTapeArchive_tapeARN = Lens.lens (\RetrieveTapeArchive' {tapeARN} -> tapeARN) (\s@RetrieveTapeArchive' {} a -> s {tapeARN = a} :: RetrieveTapeArchive)
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
@@ -113,66 +112,64 @@ retrieveTapeArchive_tapeARN = Lens.lens (\RetrieveTapeArchive' {tapeARN} -> tape
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway
 -- must be a tape gateway.
-retrieveTapeArchive_gatewayARN :: Lens.Lens' RetrieveTapeArchive Prelude.Text
+retrieveTapeArchive_gatewayARN :: Lens.Lens' RetrieveTapeArchive Core.Text
 retrieveTapeArchive_gatewayARN = Lens.lens (\RetrieveTapeArchive' {gatewayARN} -> gatewayARN) (\s@RetrieveTapeArchive' {} a -> s {gatewayARN = a} :: RetrieveTapeArchive)
 
-instance Prelude.AWSRequest RetrieveTapeArchive where
+instance Core.AWSRequest RetrieveTapeArchive where
   type
-    Rs RetrieveTapeArchive =
+    AWSResponse RetrieveTapeArchive =
       RetrieveTapeArchiveResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RetrieveTapeArchiveResponse'
-            Prelude.<$> (x Prelude..?> "TapeARN")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TapeARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RetrieveTapeArchive
+instance Core.Hashable RetrieveTapeArchive
 
-instance Prelude.NFData RetrieveTapeArchive
+instance Core.NFData RetrieveTapeArchive
 
-instance Prelude.ToHeaders RetrieveTapeArchive where
+instance Core.ToHeaders RetrieveTapeArchive where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StorageGateway_20130630.RetrieveTapeArchive" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StorageGateway_20130630.RetrieveTapeArchive" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RetrieveTapeArchive where
+instance Core.ToJSON RetrieveTapeArchive where
   toJSON RetrieveTapeArchive' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("TapeARN" Prelude..= tapeARN),
-            Prelude.Just ("GatewayARN" Prelude..= gatewayARN)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TapeARN" Core..= tapeARN),
+            Core.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )
 
-instance Prelude.ToPath RetrieveTapeArchive where
-  toPath = Prelude.const "/"
+instance Core.ToPath RetrieveTapeArchive where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RetrieveTapeArchive where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RetrieveTapeArchive where
+  toQuery = Core.const Core.mempty
 
 -- | RetrieveTapeArchiveOutput
 --
 -- /See:/ 'newRetrieveTapeArchiveResponse' smart constructor.
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
   { -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
-    tapeARN :: Prelude.Maybe Prelude.Text,
+    tapeARN :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RetrieveTapeArchiveResponse' with all optional fields omitted.
@@ -187,21 +184,21 @@ data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
 -- 'httpStatus', 'retrieveTapeArchiveResponse_httpStatus' - The response's http status code.
 newRetrieveTapeArchiveResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RetrieveTapeArchiveResponse
 newRetrieveTapeArchiveResponse pHttpStatus_ =
   RetrieveTapeArchiveResponse'
     { tapeARN =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
-retrieveTapeArchiveResponse_tapeARN :: Lens.Lens' RetrieveTapeArchiveResponse (Prelude.Maybe Prelude.Text)
+retrieveTapeArchiveResponse_tapeARN :: Lens.Lens' RetrieveTapeArchiveResponse (Core.Maybe Core.Text)
 retrieveTapeArchiveResponse_tapeARN = Lens.lens (\RetrieveTapeArchiveResponse' {tapeARN} -> tapeARN) (\s@RetrieveTapeArchiveResponse' {} a -> s {tapeARN = a} :: RetrieveTapeArchiveResponse)
 
 -- | The response's http status code.
-retrieveTapeArchiveResponse_httpStatus :: Lens.Lens' RetrieveTapeArchiveResponse Prelude.Int
+retrieveTapeArchiveResponse_httpStatus :: Lens.Lens' RetrieveTapeArchiveResponse Core.Int
 retrieveTapeArchiveResponse_httpStatus = Lens.lens (\RetrieveTapeArchiveResponse' {httpStatus} -> httpStatus) (\s@RetrieveTapeArchiveResponse' {} a -> s {httpStatus = a} :: RetrieveTapeArchiveResponse)
 
-instance Prelude.NFData RetrieveTapeArchiveResponse
+instance Core.NFData RetrieveTapeArchiveResponse

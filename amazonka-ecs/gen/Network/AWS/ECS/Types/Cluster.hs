@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.Cluster where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.Attachment
 import Network.AWS.ECS.Types.CapacityProviderStrategyItem
 import Network.AWS.ECS.Types.ClusterSetting
 import Network.AWS.ECS.Types.KeyValuePair
 import Network.AWS.ECS.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A regional grouping of one or more container instances on which you can
 -- run task requests. Each account receives a default cluster the first
@@ -41,7 +40,7 @@ data Cluster = Cluster'
     -- cluster, the AWS account ID of the cluster owner, the @cluster@
     -- namespace, and then the cluster name. For example,
     -- @arn:aws:ecs:region:012345678910:cluster\/test@.
-    clusterArn :: Prelude.Maybe Prelude.Text,
+    clusterArn :: Core.Maybe Core.Text,
     -- | The status of the cluster. The following are the possible states that
     -- will be returned.
     --
@@ -66,13 +65,13 @@ data Cluster = Cluster'
     --     remain discoverable in your account for a period of time. However,
     --     this behavior is subject to change in the future, so you should not
     --     rely on @INACTIVE@ clusters persisting.
-    status :: Prelude.Maybe Prelude.Text,
+    status :: Core.Maybe Core.Text,
     -- | The number of services that are running on the cluster in an @ACTIVE@
     -- state. You can view these services with ListServices.
-    activeServicesCount :: Prelude.Maybe Prelude.Int,
+    activeServicesCount :: Core.Maybe Core.Int,
     -- | The number of container instances registered into the cluster. This
     -- includes container instances in both @ACTIVE@ and @DRAINING@ status.
-    registeredContainerInstancesCount :: Prelude.Maybe Prelude.Int,
+    registeredContainerInstancesCount :: Core.Maybe Core.Int,
     -- | Additional information about your clusters that are separated by launch
     -- type, including:
     --
@@ -91,13 +90,13 @@ data Cluster = Cluster'
     -- -   drainingEC2ServiceCount
     --
     -- -   drainingFargateServiceCount
-    statistics :: Prelude.Maybe [KeyValuePair],
+    statistics :: Core.Maybe [KeyValuePair],
     -- | The default capacity provider strategy for the cluster. When services or
     -- tasks are run in the cluster with no launch type or capacity provider
     -- strategy specified, the default capacity provider strategy is used.
-    defaultCapacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
+    defaultCapacityProviderStrategy :: Core.Maybe [CapacityProviderStrategyItem],
     -- | The number of tasks in the cluster that are in the @PENDING@ state.
-    pendingTasksCount :: Prelude.Maybe Prelude.Int,
+    pendingTasksCount :: Core.Maybe Core.Int,
     -- | The metadata that you apply to the cluster to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define.
@@ -126,7 +125,7 @@ data Cluster = Cluster'
     --     use. You cannot edit or delete tag keys or values with this prefix.
     --     Tags with this prefix do not count against your tags per resource
     --     limit.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The status of the capacity providers associated with the cluster. The
     -- following are the states that will be returned:
     --
@@ -139,22 +138,22 @@ data Cluster = Cluster'
     --
     -- [UPDATE_FAILED]
     --     The capacity provider updates failed.
-    attachmentsStatus :: Prelude.Maybe Prelude.Text,
+    attachmentsStatus :: Core.Maybe Core.Text,
     -- | The capacity providers associated with the cluster.
-    capacityProviders :: Prelude.Maybe [Prelude.Text],
+    capacityProviders :: Core.Maybe [Core.Text],
     -- | A user-generated string that you use to identify your cluster.
-    clusterName :: Prelude.Maybe Prelude.Text,
+    clusterName :: Core.Maybe Core.Text,
     -- | The settings for the cluster. This parameter indicates whether
     -- CloudWatch Container Insights is enabled or disabled for a cluster.
-    settings :: Prelude.Maybe [ClusterSetting],
+    settings :: Core.Maybe [ClusterSetting],
     -- | The resources attached to a cluster. When using a capacity provider with
     -- a cluster, the Auto Scaling plan that is created will be returned as a
     -- cluster attachment.
-    attachments :: Prelude.Maybe [Attachment],
+    attachments :: Core.Maybe [Attachment],
     -- | The number of tasks in the cluster that are in the @RUNNING@ state.
-    runningTasksCount :: Prelude.Maybe Prelude.Int
+    runningTasksCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Cluster' with all optional fields omitted.
@@ -284,20 +283,20 @@ newCluster ::
   Cluster
 newCluster =
   Cluster'
-    { clusterArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      activeServicesCount = Prelude.Nothing,
-      registeredContainerInstancesCount = Prelude.Nothing,
-      statistics = Prelude.Nothing,
-      defaultCapacityProviderStrategy = Prelude.Nothing,
-      pendingTasksCount = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      attachmentsStatus = Prelude.Nothing,
-      capacityProviders = Prelude.Nothing,
-      clusterName = Prelude.Nothing,
-      settings = Prelude.Nothing,
-      attachments = Prelude.Nothing,
-      runningTasksCount = Prelude.Nothing
+    { clusterArn = Core.Nothing,
+      status = Core.Nothing,
+      activeServicesCount = Core.Nothing,
+      registeredContainerInstancesCount = Core.Nothing,
+      statistics = Core.Nothing,
+      defaultCapacityProviderStrategy = Core.Nothing,
+      pendingTasksCount = Core.Nothing,
+      tags = Core.Nothing,
+      attachmentsStatus = Core.Nothing,
+      capacityProviders = Core.Nothing,
+      clusterName = Core.Nothing,
+      settings = Core.Nothing,
+      attachments = Core.Nothing,
+      runningTasksCount = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN
@@ -305,7 +304,7 @@ newCluster =
 -- cluster, the AWS account ID of the cluster owner, the @cluster@
 -- namespace, and then the cluster name. For example,
 -- @arn:aws:ecs:region:012345678910:cluster\/test@.
-cluster_clusterArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_clusterArn :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluster' {} a -> s {clusterArn = a} :: Cluster)
 
 -- | The status of the cluster. The following are the possible states that
@@ -332,17 +331,17 @@ cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluste
 --     remain discoverable in your account for a period of time. However,
 --     this behavior is subject to change in the future, so you should not
 --     rely on @INACTIVE@ clusters persisting.
-cluster_status :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_status :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
 -- | The number of services that are running on the cluster in an @ACTIVE@
 -- state. You can view these services with ListServices.
-cluster_activeServicesCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_activeServicesCount :: Lens.Lens' Cluster (Core.Maybe Core.Int)
 cluster_activeServicesCount = Lens.lens (\Cluster' {activeServicesCount} -> activeServicesCount) (\s@Cluster' {} a -> s {activeServicesCount = a} :: Cluster)
 
 -- | The number of container instances registered into the cluster. This
 -- includes container instances in both @ACTIVE@ and @DRAINING@ status.
-cluster_registeredContainerInstancesCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_registeredContainerInstancesCount :: Lens.Lens' Cluster (Core.Maybe Core.Int)
 cluster_registeredContainerInstancesCount = Lens.lens (\Cluster' {registeredContainerInstancesCount} -> registeredContainerInstancesCount) (\s@Cluster' {} a -> s {registeredContainerInstancesCount = a} :: Cluster)
 
 -- | Additional information about your clusters that are separated by launch
@@ -363,17 +362,17 @@ cluster_registeredContainerInstancesCount = Lens.lens (\Cluster' {registeredCont
 -- -   drainingEC2ServiceCount
 --
 -- -   drainingFargateServiceCount
-cluster_statistics :: Lens.Lens' Cluster (Prelude.Maybe [KeyValuePair])
-cluster_statistics = Lens.lens (\Cluster' {statistics} -> statistics) (\s@Cluster' {} a -> s {statistics = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_statistics :: Lens.Lens' Cluster (Core.Maybe [KeyValuePair])
+cluster_statistics = Lens.lens (\Cluster' {statistics} -> statistics) (\s@Cluster' {} a -> s {statistics = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The default capacity provider strategy for the cluster. When services or
 -- tasks are run in the cluster with no launch type or capacity provider
 -- strategy specified, the default capacity provider strategy is used.
-cluster_defaultCapacityProviderStrategy :: Lens.Lens' Cluster (Prelude.Maybe [CapacityProviderStrategyItem])
-cluster_defaultCapacityProviderStrategy = Lens.lens (\Cluster' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@Cluster' {} a -> s {defaultCapacityProviderStrategy = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_defaultCapacityProviderStrategy :: Lens.Lens' Cluster (Core.Maybe [CapacityProviderStrategyItem])
+cluster_defaultCapacityProviderStrategy = Lens.lens (\Cluster' {defaultCapacityProviderStrategy} -> defaultCapacityProviderStrategy) (\s@Cluster' {} a -> s {defaultCapacityProviderStrategy = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of tasks in the cluster that are in the @PENDING@ state.
-cluster_pendingTasksCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_pendingTasksCount :: Lens.Lens' Cluster (Core.Maybe Core.Int)
 cluster_pendingTasksCount = Lens.lens (\Cluster' {pendingTasksCount} -> pendingTasksCount) (\s@Cluster' {} a -> s {pendingTasksCount = a} :: Cluster)
 
 -- | The metadata that you apply to the cluster to help you categorize and
@@ -404,8 +403,8 @@ cluster_pendingTasksCount = Lens.lens (\Cluster' {pendingTasksCount} -> pendingT
 --     use. You cannot edit or delete tag keys or values with this prefix.
 --     Tags with this prefix do not count against your tags per resource
 --     limit.
-cluster_tags :: Lens.Lens' Cluster (Prelude.Maybe [Tag])
-cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_tags :: Lens.Lens' Cluster (Core.Maybe [Tag])
+cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The status of the capacity providers associated with the cluster. The
 -- following are the states that will be returned:
@@ -419,62 +418,56 @@ cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags
 --
 -- [UPDATE_FAILED]
 --     The capacity provider updates failed.
-cluster_attachmentsStatus :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_attachmentsStatus :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_attachmentsStatus = Lens.lens (\Cluster' {attachmentsStatus} -> attachmentsStatus) (\s@Cluster' {} a -> s {attachmentsStatus = a} :: Cluster)
 
 -- | The capacity providers associated with the cluster.
-cluster_capacityProviders :: Lens.Lens' Cluster (Prelude.Maybe [Prelude.Text])
-cluster_capacityProviders = Lens.lens (\Cluster' {capacityProviders} -> capacityProviders) (\s@Cluster' {} a -> s {capacityProviders = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_capacityProviders :: Lens.Lens' Cluster (Core.Maybe [Core.Text])
+cluster_capacityProviders = Lens.lens (\Cluster' {capacityProviders} -> capacityProviders) (\s@Cluster' {} a -> s {capacityProviders = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | A user-generated string that you use to identify your cluster.
-cluster_clusterName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_clusterName :: Lens.Lens' Cluster (Core.Maybe Core.Text)
 cluster_clusterName = Lens.lens (\Cluster' {clusterName} -> clusterName) (\s@Cluster' {} a -> s {clusterName = a} :: Cluster)
 
 -- | The settings for the cluster. This parameter indicates whether
 -- CloudWatch Container Insights is enabled or disabled for a cluster.
-cluster_settings :: Lens.Lens' Cluster (Prelude.Maybe [ClusterSetting])
-cluster_settings = Lens.lens (\Cluster' {settings} -> settings) (\s@Cluster' {} a -> s {settings = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_settings :: Lens.Lens' Cluster (Core.Maybe [ClusterSetting])
+cluster_settings = Lens.lens (\Cluster' {settings} -> settings) (\s@Cluster' {} a -> s {settings = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The resources attached to a cluster. When using a capacity provider with
 -- a cluster, the Auto Scaling plan that is created will be returned as a
 -- cluster attachment.
-cluster_attachments :: Lens.Lens' Cluster (Prelude.Maybe [Attachment])
-cluster_attachments = Lens.lens (\Cluster' {attachments} -> attachments) (\s@Cluster' {} a -> s {attachments = a} :: Cluster) Prelude.. Lens.mapping Prelude._Coerce
+cluster_attachments :: Lens.Lens' Cluster (Core.Maybe [Attachment])
+cluster_attachments = Lens.lens (\Cluster' {attachments} -> attachments) (\s@Cluster' {} a -> s {attachments = a} :: Cluster) Core.. Lens.mapping Lens._Coerce
 
 -- | The number of tasks in the cluster that are in the @RUNNING@ state.
-cluster_runningTasksCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_runningTasksCount :: Lens.Lens' Cluster (Core.Maybe Core.Int)
 cluster_runningTasksCount = Lens.lens (\Cluster' {runningTasksCount} -> runningTasksCount) (\s@Cluster' {} a -> s {runningTasksCount = a} :: Cluster)
 
-instance Prelude.FromJSON Cluster where
+instance Core.FromJSON Cluster where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Cluster"
       ( \x ->
           Cluster'
-            Prelude.<$> (x Prelude..:? "clusterArn")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "activeServicesCount")
-            Prelude.<*> (x Prelude..:? "registeredContainerInstancesCount")
-            Prelude.<*> ( x Prelude..:? "statistics"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "defaultCapacityProviderStrategy"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "pendingTasksCount")
-            Prelude.<*> (x Prelude..:? "tags" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "attachmentsStatus")
-            Prelude.<*> ( x Prelude..:? "capacityProviders"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "clusterName")
-            Prelude.<*> (x Prelude..:? "settings" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "attachments"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "runningTasksCount")
+            Core.<$> (x Core..:? "clusterArn")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "activeServicesCount")
+            Core.<*> (x Core..:? "registeredContainerInstancesCount")
+            Core.<*> (x Core..:? "statistics" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "defaultCapacityProviderStrategy"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..:? "pendingTasksCount")
+            Core.<*> (x Core..:? "tags" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "attachmentsStatus")
+            Core.<*> (x Core..:? "capacityProviders" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "clusterName")
+            Core.<*> (x Core..:? "settings" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "attachments" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "runningTasksCount")
       )
 
-instance Prelude.Hashable Cluster
+instance Core.Hashable Cluster
 
-instance Prelude.NFData Cluster
+instance Core.NFData Cluster

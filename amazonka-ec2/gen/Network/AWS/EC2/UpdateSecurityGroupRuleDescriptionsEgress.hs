@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,18 +60,18 @@ data UpdateSecurityGroupRuleDescriptionsEgress = UpdateSecurityGroupRuleDescript
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | [Default VPC] The name of the security group. You must specify either
     -- the security group ID or the security group name in the request.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The ID of the security group. You must specify either the security group
     -- ID or the security group name in the request. For security groups in a
     -- nondefault VPC, you must specify the security group ID.
-    groupId :: Prelude.Maybe Prelude.Text,
+    groupId :: Core.Maybe Core.Text,
     -- | The IP permissions for the security group rule.
     ipPermissions :: [IpPermission]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSecurityGroupRuleDescriptionsEgress' with all optional fields omitted.
@@ -100,97 +99,97 @@ newUpdateSecurityGroupRuleDescriptionsEgress ::
 newUpdateSecurityGroupRuleDescriptionsEgress =
   UpdateSecurityGroupRuleDescriptionsEgress'
     { dryRun =
-        Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing,
-      ipPermissions = Prelude.mempty
+        Core.Nothing,
+      groupName = Core.Nothing,
+      groupId = Core.Nothing,
+      ipPermissions = Core.mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-updateSecurityGroupRuleDescriptionsEgress_dryRun :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Bool)
+updateSecurityGroupRuleDescriptionsEgress_dryRun :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Core.Maybe Core.Bool)
 updateSecurityGroupRuleDescriptionsEgress_dryRun = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {dryRun} -> dryRun) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {dryRun = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
 
 -- | [Default VPC] The name of the security group. You must specify either
 -- the security group ID or the security group name in the request.
-updateSecurityGroupRuleDescriptionsEgress_groupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Text)
+updateSecurityGroupRuleDescriptionsEgress_groupName :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Core.Maybe Core.Text)
 updateSecurityGroupRuleDescriptionsEgress_groupName = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {groupName} -> groupName) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {groupName = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
 
 -- | The ID of the security group. You must specify either the security group
 -- ID or the security group name in the request. For security groups in a
 -- nondefault VPC, you must specify the security group ID.
-updateSecurityGroupRuleDescriptionsEgress_groupId :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Prelude.Maybe Prelude.Text)
+updateSecurityGroupRuleDescriptionsEgress_groupId :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress (Core.Maybe Core.Text)
 updateSecurityGroupRuleDescriptionsEgress_groupId = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {groupId} -> groupId) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {groupId = a} :: UpdateSecurityGroupRuleDescriptionsEgress)
 
 -- | The IP permissions for the security group rule.
 updateSecurityGroupRuleDescriptionsEgress_ipPermissions :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgress [IpPermission]
-updateSecurityGroupRuleDescriptionsEgress_ipPermissions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {ipPermissions} -> ipPermissions) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsEgress) Prelude.. Prelude._Coerce
+updateSecurityGroupRuleDescriptionsEgress_ipPermissions = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgress' {ipPermissions} -> ipPermissions) (\s@UpdateSecurityGroupRuleDescriptionsEgress' {} a -> s {ipPermissions = a} :: UpdateSecurityGroupRuleDescriptionsEgress) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateSecurityGroupRuleDescriptionsEgress
   where
   type
-    Rs UpdateSecurityGroupRuleDescriptionsEgress =
+    AWSResponse
+      UpdateSecurityGroupRuleDescriptionsEgress =
       UpdateSecurityGroupRuleDescriptionsEgressResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           UpdateSecurityGroupRuleDescriptionsEgressResponse'
-            Prelude.<$> (x Prelude..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateSecurityGroupRuleDescriptionsEgress
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateSecurityGroupRuleDescriptionsEgress
 
 instance
-  Prelude.ToHeaders
-    UpdateSecurityGroupRuleDescriptionsEgress
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     UpdateSecurityGroupRuleDescriptionsEgress
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    UpdateSecurityGroupRuleDescriptionsEgress
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     UpdateSecurityGroupRuleDescriptionsEgress
   where
   toQuery
     UpdateSecurityGroupRuleDescriptionsEgress' {..} =
-      Prelude.mconcat
+      Core.mconcat
         [ "Action"
-            Prelude.=: ( "UpdateSecurityGroupRuleDescriptionsEgress" ::
-                           Prelude.ByteString
-                       ),
-          "Version"
-            Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-          "DryRun" Prelude.=: dryRun,
-          "GroupName" Prelude.=: groupName,
-          "GroupId" Prelude.=: groupId,
-          Prelude.toQueryList "IpPermissions" ipPermissions
+            Core.=: ( "UpdateSecurityGroupRuleDescriptionsEgress" ::
+                        Core.ByteString
+                    ),
+          "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+          "DryRun" Core.=: dryRun,
+          "GroupName" Core.=: groupName,
+          "GroupId" Core.=: groupId,
+          Core.toQueryList "IpPermissions" ipPermissions
         ]
 
 -- | /See:/ 'newUpdateSecurityGroupRuleDescriptionsEgressResponse' smart constructor.
 data UpdateSecurityGroupRuleDescriptionsEgressResponse = UpdateSecurityGroupRuleDescriptionsEgressResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSecurityGroupRuleDescriptionsEgressResponse' with all optional fields omitted.
@@ -205,25 +204,25 @@ data UpdateSecurityGroupRuleDescriptionsEgressResponse = UpdateSecurityGroupRule
 -- 'httpStatus', 'updateSecurityGroupRuleDescriptionsEgressResponse_httpStatus' - The response's http status code.
 newUpdateSecurityGroupRuleDescriptionsEgressResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSecurityGroupRuleDescriptionsEgressResponse
 newUpdateSecurityGroupRuleDescriptionsEgressResponse
   pHttpStatus_ =
     UpdateSecurityGroupRuleDescriptionsEgressResponse'
       { return' =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus =
           pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, returns an error.
-updateSecurityGroupRuleDescriptionsEgressResponse_return :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse (Prelude.Maybe Prelude.Bool)
+updateSecurityGroupRuleDescriptionsEgressResponse_return :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse (Core.Maybe Core.Bool)
 updateSecurityGroupRuleDescriptionsEgressResponse_return = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgressResponse' {return'} -> return') (\s@UpdateSecurityGroupRuleDescriptionsEgressResponse' {} a -> s {return' = a} :: UpdateSecurityGroupRuleDescriptionsEgressResponse)
 
 -- | The response's http status code.
-updateSecurityGroupRuleDescriptionsEgressResponse_httpStatus :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse Prelude.Int
+updateSecurityGroupRuleDescriptionsEgressResponse_httpStatus :: Lens.Lens' UpdateSecurityGroupRuleDescriptionsEgressResponse Core.Int
 updateSecurityGroupRuleDescriptionsEgressResponse_httpStatus = Lens.lens (\UpdateSecurityGroupRuleDescriptionsEgressResponse' {httpStatus} -> httpStatus) (\s@UpdateSecurityGroupRuleDescriptionsEgressResponse' {} a -> s {httpStatus = a} :: UpdateSecurityGroupRuleDescriptionsEgressResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateSecurityGroupRuleDescriptionsEgressResponse

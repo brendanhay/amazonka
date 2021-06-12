@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LoadBalancersConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClassicLoadBalancersConfig
 import Network.AWS.EC2.Types.TargetGroupsConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the Classic Load Balancers and target groups to attach to a
 -- Spot Fleet request.
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLoadBalancersConfig' smart constructor.
 data LoadBalancersConfig = LoadBalancersConfig'
   { -- | The Classic Load Balancers.
-    classicLoadBalancersConfig :: Prelude.Maybe ClassicLoadBalancersConfig,
+    classicLoadBalancersConfig :: Core.Maybe ClassicLoadBalancersConfig,
     -- | The target groups.
-    targetGroupsConfig :: Prelude.Maybe TargetGroupsConfig
+    targetGroupsConfig :: Core.Maybe TargetGroupsConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadBalancersConfig' with all optional fields omitted.
@@ -54,32 +53,32 @@ newLoadBalancersConfig ::
 newLoadBalancersConfig =
   LoadBalancersConfig'
     { classicLoadBalancersConfig =
-        Prelude.Nothing,
-      targetGroupsConfig = Prelude.Nothing
+        Core.Nothing,
+      targetGroupsConfig = Core.Nothing
     }
 
 -- | The Classic Load Balancers.
-loadBalancersConfig_classicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Prelude.Maybe ClassicLoadBalancersConfig)
+loadBalancersConfig_classicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Core.Maybe ClassicLoadBalancersConfig)
 loadBalancersConfig_classicLoadBalancersConfig = Lens.lens (\LoadBalancersConfig' {classicLoadBalancersConfig} -> classicLoadBalancersConfig) (\s@LoadBalancersConfig' {} a -> s {classicLoadBalancersConfig = a} :: LoadBalancersConfig)
 
 -- | The target groups.
-loadBalancersConfig_targetGroupsConfig :: Lens.Lens' LoadBalancersConfig (Prelude.Maybe TargetGroupsConfig)
+loadBalancersConfig_targetGroupsConfig :: Lens.Lens' LoadBalancersConfig (Core.Maybe TargetGroupsConfig)
 loadBalancersConfig_targetGroupsConfig = Lens.lens (\LoadBalancersConfig' {targetGroupsConfig} -> targetGroupsConfig) (\s@LoadBalancersConfig' {} a -> s {targetGroupsConfig = a} :: LoadBalancersConfig)
 
-instance Prelude.FromXML LoadBalancersConfig where
+instance Core.FromXML LoadBalancersConfig where
   parseXML x =
     LoadBalancersConfig'
-      Prelude.<$> (x Prelude..@? "classicLoadBalancersConfig")
-      Prelude.<*> (x Prelude..@? "targetGroupsConfig")
+      Core.<$> (x Core..@? "classicLoadBalancersConfig")
+      Core.<*> (x Core..@? "targetGroupsConfig")
 
-instance Prelude.Hashable LoadBalancersConfig
+instance Core.Hashable LoadBalancersConfig
 
-instance Prelude.NFData LoadBalancersConfig
+instance Core.NFData LoadBalancersConfig
 
-instance Prelude.ToQuery LoadBalancersConfig where
+instance Core.ToQuery LoadBalancersConfig where
   toQuery LoadBalancersConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "ClassicLoadBalancersConfig"
-          Prelude.=: classicLoadBalancersConfig,
-        "TargetGroupsConfig" Prelude.=: targetGroupsConfig
+          Core.=: classicLoadBalancersConfig,
+        "TargetGroupsConfig" Core.=: targetGroupsConfig
       ]

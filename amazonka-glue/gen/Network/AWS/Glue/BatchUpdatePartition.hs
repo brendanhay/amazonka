@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Glue.BatchUpdatePartition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,17 +52,17 @@ import qualified Network.AWS.Response as Response
 data BatchUpdatePartition = BatchUpdatePartition'
   { -- | The ID of the catalog in which the partition is to be updated.
     -- Currently, this should be the AWS account ID.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the metadata database in which the partition is to be
     -- updated.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the metadata table in which the partition is to be updated.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to
     -- update.
-    entries :: Prelude.NonEmpty BatchUpdatePartitionRequestEntry
+    entries :: Core.NonEmpty BatchUpdatePartitionRequestEntry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchUpdatePartition' with all optional fields omitted.
@@ -85,101 +84,96 @@ data BatchUpdatePartition = BatchUpdatePartition'
 -- update.
 newBatchUpdatePartition ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'entries'
-  Prelude.NonEmpty BatchUpdatePartitionRequestEntry ->
+  Core.NonEmpty BatchUpdatePartitionRequestEntry ->
   BatchUpdatePartition
 newBatchUpdatePartition
   pDatabaseName_
   pTableName_
   pEntries_ =
     BatchUpdatePartition'
-      { catalogId = Prelude.Nothing,
+      { catalogId = Core.Nothing,
         databaseName = pDatabaseName_,
         tableName = pTableName_,
-        entries = Prelude._Coerce Lens.# pEntries_
+        entries = Lens._Coerce Lens.# pEntries_
       }
 
 -- | The ID of the catalog in which the partition is to be updated.
 -- Currently, this should be the AWS account ID.
-batchUpdatePartition_catalogId :: Lens.Lens' BatchUpdatePartition (Prelude.Maybe Prelude.Text)
+batchUpdatePartition_catalogId :: Lens.Lens' BatchUpdatePartition (Core.Maybe Core.Text)
 batchUpdatePartition_catalogId = Lens.lens (\BatchUpdatePartition' {catalogId} -> catalogId) (\s@BatchUpdatePartition' {} a -> s {catalogId = a} :: BatchUpdatePartition)
 
 -- | The name of the metadata database in which the partition is to be
 -- updated.
-batchUpdatePartition_databaseName :: Lens.Lens' BatchUpdatePartition Prelude.Text
+batchUpdatePartition_databaseName :: Lens.Lens' BatchUpdatePartition Core.Text
 batchUpdatePartition_databaseName = Lens.lens (\BatchUpdatePartition' {databaseName} -> databaseName) (\s@BatchUpdatePartition' {} a -> s {databaseName = a} :: BatchUpdatePartition)
 
 -- | The name of the metadata table in which the partition is to be updated.
-batchUpdatePartition_tableName :: Lens.Lens' BatchUpdatePartition Prelude.Text
+batchUpdatePartition_tableName :: Lens.Lens' BatchUpdatePartition Core.Text
 batchUpdatePartition_tableName = Lens.lens (\BatchUpdatePartition' {tableName} -> tableName) (\s@BatchUpdatePartition' {} a -> s {tableName = a} :: BatchUpdatePartition)
 
 -- | A list of up to 100 @BatchUpdatePartitionRequestEntry@ objects to
 -- update.
-batchUpdatePartition_entries :: Lens.Lens' BatchUpdatePartition (Prelude.NonEmpty BatchUpdatePartitionRequestEntry)
-batchUpdatePartition_entries = Lens.lens (\BatchUpdatePartition' {entries} -> entries) (\s@BatchUpdatePartition' {} a -> s {entries = a} :: BatchUpdatePartition) Prelude.. Prelude._Coerce
+batchUpdatePartition_entries :: Lens.Lens' BatchUpdatePartition (Core.NonEmpty BatchUpdatePartitionRequestEntry)
+batchUpdatePartition_entries = Lens.lens (\BatchUpdatePartition' {entries} -> entries) (\s@BatchUpdatePartition' {} a -> s {entries = a} :: BatchUpdatePartition) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchUpdatePartition where
+instance Core.AWSRequest BatchUpdatePartition where
   type
-    Rs BatchUpdatePartition =
+    AWSResponse BatchUpdatePartition =
       BatchUpdatePartitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchUpdatePartitionResponse'
-            Prelude.<$> (x Prelude..?> "Errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchUpdatePartition
+instance Core.Hashable BatchUpdatePartition
 
-instance Prelude.NFData BatchUpdatePartition
+instance Core.NFData BatchUpdatePartition
 
-instance Prelude.ToHeaders BatchUpdatePartition where
+instance Core.ToHeaders BatchUpdatePartition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.BatchUpdatePartition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.BatchUpdatePartition" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchUpdatePartition where
+instance Core.ToJSON BatchUpdatePartition where
   toJSON BatchUpdatePartition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just ("Entries" Prelude..= entries)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("Entries" Core..= entries)
           ]
       )
 
-instance Prelude.ToPath BatchUpdatePartition where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchUpdatePartition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchUpdatePartition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchUpdatePartition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchUpdatePartitionResponse' smart constructor.
 data BatchUpdatePartitionResponse = BatchUpdatePartitionResponse'
   { -- | The errors encountered when trying to update the requested partitions. A
     -- list of @BatchUpdatePartitionFailureEntry@ objects.
-    errors :: Prelude.Maybe [BatchUpdatePartitionFailureEntry],
+    errors :: Core.Maybe [BatchUpdatePartitionFailureEntry],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchUpdatePartitionResponse' with all optional fields omitted.
@@ -195,22 +189,22 @@ data BatchUpdatePartitionResponse = BatchUpdatePartitionResponse'
 -- 'httpStatus', 'batchUpdatePartitionResponse_httpStatus' - The response's http status code.
 newBatchUpdatePartitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchUpdatePartitionResponse
 newBatchUpdatePartitionResponse pHttpStatus_ =
   BatchUpdatePartitionResponse'
     { errors =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The errors encountered when trying to update the requested partitions. A
 -- list of @BatchUpdatePartitionFailureEntry@ objects.
-batchUpdatePartitionResponse_errors :: Lens.Lens' BatchUpdatePartitionResponse (Prelude.Maybe [BatchUpdatePartitionFailureEntry])
-batchUpdatePartitionResponse_errors = Lens.lens (\BatchUpdatePartitionResponse' {errors} -> errors) (\s@BatchUpdatePartitionResponse' {} a -> s {errors = a} :: BatchUpdatePartitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchUpdatePartitionResponse_errors :: Lens.Lens' BatchUpdatePartitionResponse (Core.Maybe [BatchUpdatePartitionFailureEntry])
+batchUpdatePartitionResponse_errors = Lens.lens (\BatchUpdatePartitionResponse' {errors} -> errors) (\s@BatchUpdatePartitionResponse' {} a -> s {errors = a} :: BatchUpdatePartitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchUpdatePartitionResponse_httpStatus :: Lens.Lens' BatchUpdatePartitionResponse Prelude.Int
+batchUpdatePartitionResponse_httpStatus :: Lens.Lens' BatchUpdatePartitionResponse Core.Int
 batchUpdatePartitionResponse_httpStatus = Lens.lens (\BatchUpdatePartitionResponse' {httpStatus} -> httpStatus) (\s@BatchUpdatePartitionResponse' {} a -> s {httpStatus = a} :: BatchUpdatePartitionResponse)
 
-instance Prelude.NFData BatchUpdatePartitionResponse
+instance Core.NFData BatchUpdatePartitionResponse

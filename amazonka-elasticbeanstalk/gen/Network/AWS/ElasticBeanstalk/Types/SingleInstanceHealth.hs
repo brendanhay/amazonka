@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticBeanstalk.Types.SingleInstanceHealth where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics
 import Network.AWS.ElasticBeanstalk.Types.Deployment
 import Network.AWS.ElasticBeanstalk.Types.SystemStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Detailed health information about an Amazon EC2 instance in your Elastic
 -- Beanstalk environment.
@@ -32,32 +31,32 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSingleInstanceHealth' smart constructor.
 data SingleInstanceHealth = SingleInstanceHealth'
   { -- | The ID of the Amazon EC2 instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The instance\'s type.
-    instanceType :: Prelude.Maybe Prelude.Text,
+    instanceType :: Core.Maybe Core.Text,
     -- | Represents the color indicator that gives you information about the
     -- health of the EC2 instance. For more information, see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
-    color :: Prelude.Maybe Prelude.Text,
+    color :: Core.Maybe Core.Text,
     -- | Represents the causes, which provide more information about the current
     -- health status.
-    causes :: Prelude.Maybe [Prelude.Text],
+    causes :: Core.Maybe [Core.Text],
     -- | The availability zone in which the instance runs.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | Information about the most recent deployment to an instance.
-    deployment :: Prelude.Maybe Deployment,
+    deployment :: Core.Maybe Deployment,
     -- | The time at which the EC2 instance was launched.
-    launchedAt :: Prelude.Maybe Prelude.ISO8601,
+    launchedAt :: Core.Maybe Core.ISO8601,
     -- | Returns the health status of the specified instance. For more
     -- information, see
     -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
-    healthStatus :: Prelude.Maybe Prelude.Text,
+    healthStatus :: Core.Maybe Core.Text,
     -- | Operating system metrics from the instance.
-    system :: Prelude.Maybe SystemStatus,
+    system :: Core.Maybe SystemStatus,
     -- | Request metrics from your application.
-    applicationMetrics :: Prelude.Maybe ApplicationMetrics
+    applicationMetrics :: Core.Maybe ApplicationMetrics
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SingleInstanceHealth' with all optional fields omitted.
@@ -95,79 +94,79 @@ newSingleInstanceHealth ::
   SingleInstanceHealth
 newSingleInstanceHealth =
   SingleInstanceHealth'
-    { instanceId = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
-      color = Prelude.Nothing,
-      causes = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      deployment = Prelude.Nothing,
-      launchedAt = Prelude.Nothing,
-      healthStatus = Prelude.Nothing,
-      system = Prelude.Nothing,
-      applicationMetrics = Prelude.Nothing
+    { instanceId = Core.Nothing,
+      instanceType = Core.Nothing,
+      color = Core.Nothing,
+      causes = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      deployment = Core.Nothing,
+      launchedAt = Core.Nothing,
+      healthStatus = Core.Nothing,
+      system = Core.Nothing,
+      applicationMetrics = Core.Nothing
     }
 
 -- | The ID of the Amazon EC2 instance.
-singleInstanceHealth_instanceId :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.Text)
+singleInstanceHealth_instanceId :: Lens.Lens' SingleInstanceHealth (Core.Maybe Core.Text)
 singleInstanceHealth_instanceId = Lens.lens (\SingleInstanceHealth' {instanceId} -> instanceId) (\s@SingleInstanceHealth' {} a -> s {instanceId = a} :: SingleInstanceHealth)
 
 -- | The instance\'s type.
-singleInstanceHealth_instanceType :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.Text)
+singleInstanceHealth_instanceType :: Lens.Lens' SingleInstanceHealth (Core.Maybe Core.Text)
 singleInstanceHealth_instanceType = Lens.lens (\SingleInstanceHealth' {instanceType} -> instanceType) (\s@SingleInstanceHealth' {} a -> s {instanceType = a} :: SingleInstanceHealth)
 
 -- | Represents the color indicator that gives you information about the
 -- health of the EC2 instance. For more information, see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
-singleInstanceHealth_color :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.Text)
+singleInstanceHealth_color :: Lens.Lens' SingleInstanceHealth (Core.Maybe Core.Text)
 singleInstanceHealth_color = Lens.lens (\SingleInstanceHealth' {color} -> color) (\s@SingleInstanceHealth' {} a -> s {color = a} :: SingleInstanceHealth)
 
 -- | Represents the causes, which provide more information about the current
 -- health status.
-singleInstanceHealth_causes :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe [Prelude.Text])
-singleInstanceHealth_causes = Lens.lens (\SingleInstanceHealth' {causes} -> causes) (\s@SingleInstanceHealth' {} a -> s {causes = a} :: SingleInstanceHealth) Prelude.. Lens.mapping Prelude._Coerce
+singleInstanceHealth_causes :: Lens.Lens' SingleInstanceHealth (Core.Maybe [Core.Text])
+singleInstanceHealth_causes = Lens.lens (\SingleInstanceHealth' {causes} -> causes) (\s@SingleInstanceHealth' {} a -> s {causes = a} :: SingleInstanceHealth) Core.. Lens.mapping Lens._Coerce
 
 -- | The availability zone in which the instance runs.
-singleInstanceHealth_availabilityZone :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.Text)
+singleInstanceHealth_availabilityZone :: Lens.Lens' SingleInstanceHealth (Core.Maybe Core.Text)
 singleInstanceHealth_availabilityZone = Lens.lens (\SingleInstanceHealth' {availabilityZone} -> availabilityZone) (\s@SingleInstanceHealth' {} a -> s {availabilityZone = a} :: SingleInstanceHealth)
 
 -- | Information about the most recent deployment to an instance.
-singleInstanceHealth_deployment :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Deployment)
+singleInstanceHealth_deployment :: Lens.Lens' SingleInstanceHealth (Core.Maybe Deployment)
 singleInstanceHealth_deployment = Lens.lens (\SingleInstanceHealth' {deployment} -> deployment) (\s@SingleInstanceHealth' {} a -> s {deployment = a} :: SingleInstanceHealth)
 
 -- | The time at which the EC2 instance was launched.
-singleInstanceHealth_launchedAt :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.UTCTime)
-singleInstanceHealth_launchedAt = Lens.lens (\SingleInstanceHealth' {launchedAt} -> launchedAt) (\s@SingleInstanceHealth' {} a -> s {launchedAt = a} :: SingleInstanceHealth) Prelude.. Lens.mapping Prelude._Time
+singleInstanceHealth_launchedAt :: Lens.Lens' SingleInstanceHealth (Core.Maybe Core.UTCTime)
+singleInstanceHealth_launchedAt = Lens.lens (\SingleInstanceHealth' {launchedAt} -> launchedAt) (\s@SingleInstanceHealth' {} a -> s {launchedAt = a} :: SingleInstanceHealth) Core.. Lens.mapping Core._Time
 
 -- | Returns the health status of the specified instance. For more
 -- information, see
 -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
-singleInstanceHealth_healthStatus :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe Prelude.Text)
+singleInstanceHealth_healthStatus :: Lens.Lens' SingleInstanceHealth (Core.Maybe Core.Text)
 singleInstanceHealth_healthStatus = Lens.lens (\SingleInstanceHealth' {healthStatus} -> healthStatus) (\s@SingleInstanceHealth' {} a -> s {healthStatus = a} :: SingleInstanceHealth)
 
 -- | Operating system metrics from the instance.
-singleInstanceHealth_system :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe SystemStatus)
+singleInstanceHealth_system :: Lens.Lens' SingleInstanceHealth (Core.Maybe SystemStatus)
 singleInstanceHealth_system = Lens.lens (\SingleInstanceHealth' {system} -> system) (\s@SingleInstanceHealth' {} a -> s {system = a} :: SingleInstanceHealth)
 
 -- | Request metrics from your application.
-singleInstanceHealth_applicationMetrics :: Lens.Lens' SingleInstanceHealth (Prelude.Maybe ApplicationMetrics)
+singleInstanceHealth_applicationMetrics :: Lens.Lens' SingleInstanceHealth (Core.Maybe ApplicationMetrics)
 singleInstanceHealth_applicationMetrics = Lens.lens (\SingleInstanceHealth' {applicationMetrics} -> applicationMetrics) (\s@SingleInstanceHealth' {} a -> s {applicationMetrics = a} :: SingleInstanceHealth)
 
-instance Prelude.FromXML SingleInstanceHealth where
+instance Core.FromXML SingleInstanceHealth where
   parseXML x =
     SingleInstanceHealth'
-      Prelude.<$> (x Prelude..@? "InstanceId")
-      Prelude.<*> (x Prelude..@? "InstanceType")
-      Prelude.<*> (x Prelude..@? "Color")
-      Prelude.<*> ( x Prelude..@? "Causes" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
-      Prelude.<*> (x Prelude..@? "AvailabilityZone")
-      Prelude.<*> (x Prelude..@? "Deployment")
-      Prelude.<*> (x Prelude..@? "LaunchedAt")
-      Prelude.<*> (x Prelude..@? "HealthStatus")
-      Prelude.<*> (x Prelude..@? "System")
-      Prelude.<*> (x Prelude..@? "ApplicationMetrics")
+      Core.<$> (x Core..@? "InstanceId")
+      Core.<*> (x Core..@? "InstanceType")
+      Core.<*> (x Core..@? "Color")
+      Core.<*> ( x Core..@? "Causes" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
+      Core.<*> (x Core..@? "AvailabilityZone")
+      Core.<*> (x Core..@? "Deployment")
+      Core.<*> (x Core..@? "LaunchedAt")
+      Core.<*> (x Core..@? "HealthStatus")
+      Core.<*> (x Core..@? "System")
+      Core.<*> (x Core..@? "ApplicationMetrics")
 
-instance Prelude.Hashable SingleInstanceHealth
+instance Core.Hashable SingleInstanceHealth
 
-instance Prelude.NFData SingleInstanceHealth
+instance Core.NFData SingleInstanceHealth

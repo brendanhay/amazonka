@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.GroupIdentifier where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a security group.
 --
 -- /See:/ 'newGroupIdentifier' smart constructor.
 data GroupIdentifier = GroupIdentifier'
   { -- | The name of the security group.
-    groupName :: Prelude.Maybe Prelude.Text,
+    groupName :: Core.Maybe Core.Text,
     -- | The ID of the security group.
-    groupId :: Prelude.Maybe Prelude.Text
+    groupId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupIdentifier' with all optional fields omitted.
@@ -50,31 +49,31 @@ newGroupIdentifier ::
   GroupIdentifier
 newGroupIdentifier =
   GroupIdentifier'
-    { groupName = Prelude.Nothing,
-      groupId = Prelude.Nothing
+    { groupName = Core.Nothing,
+      groupId = Core.Nothing
     }
 
 -- | The name of the security group.
-groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
+groupIdentifier_groupName :: Lens.Lens' GroupIdentifier (Core.Maybe Core.Text)
 groupIdentifier_groupName = Lens.lens (\GroupIdentifier' {groupName} -> groupName) (\s@GroupIdentifier' {} a -> s {groupName = a} :: GroupIdentifier)
 
 -- | The ID of the security group.
-groupIdentifier_groupId :: Lens.Lens' GroupIdentifier (Prelude.Maybe Prelude.Text)
+groupIdentifier_groupId :: Lens.Lens' GroupIdentifier (Core.Maybe Core.Text)
 groupIdentifier_groupId = Lens.lens (\GroupIdentifier' {groupId} -> groupId) (\s@GroupIdentifier' {} a -> s {groupId = a} :: GroupIdentifier)
 
-instance Prelude.FromXML GroupIdentifier where
+instance Core.FromXML GroupIdentifier where
   parseXML x =
     GroupIdentifier'
-      Prelude.<$> (x Prelude..@? "groupName")
-      Prelude.<*> (x Prelude..@? "groupId")
+      Core.<$> (x Core..@? "groupName")
+      Core.<*> (x Core..@? "groupId")
 
-instance Prelude.Hashable GroupIdentifier
+instance Core.Hashable GroupIdentifier
 
-instance Prelude.NFData GroupIdentifier
+instance Core.NFData GroupIdentifier
 
-instance Prelude.ToQuery GroupIdentifier where
+instance Core.ToQuery GroupIdentifier where
   toQuery GroupIdentifier' {..} =
-    Prelude.mconcat
-      [ "GroupName" Prelude.=: groupName,
-        "GroupId" Prelude.=: groupId
+    Core.mconcat
+      [ "GroupName" Core.=: groupName,
+        "GroupId" Core.=: groupId
       ]

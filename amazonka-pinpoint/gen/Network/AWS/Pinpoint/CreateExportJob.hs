@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.Pinpoint.CreateExportJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,10 +50,10 @@ import qualified Network.AWS.Response as Response
 data CreateExportJob = CreateExportJob'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     exportJobRequest :: ExportJobRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateExportJob' with all optional fields omitted.
@@ -70,7 +69,7 @@ data CreateExportJob = CreateExportJob'
 -- 'exportJobRequest', 'createExportJob_exportJobRequest' - Undocumented member.
 newCreateExportJob ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'exportJobRequest'
   ExportJobRequest ->
   CreateExportJob
@@ -82,66 +81,66 @@ newCreateExportJob pApplicationId_ pExportJobRequest_ =
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-createExportJob_applicationId :: Lens.Lens' CreateExportJob Prelude.Text
+createExportJob_applicationId :: Lens.Lens' CreateExportJob Core.Text
 createExportJob_applicationId = Lens.lens (\CreateExportJob' {applicationId} -> applicationId) (\s@CreateExportJob' {} a -> s {applicationId = a} :: CreateExportJob)
 
 -- | Undocumented member.
 createExportJob_exportJobRequest :: Lens.Lens' CreateExportJob ExportJobRequest
 createExportJob_exportJobRequest = Lens.lens (\CreateExportJob' {exportJobRequest} -> exportJobRequest) (\s@CreateExportJob' {} a -> s {exportJobRequest = a} :: CreateExportJob)
 
-instance Prelude.AWSRequest CreateExportJob where
-  type Rs CreateExportJob = CreateExportJobResponse
+instance Core.AWSRequest CreateExportJob where
+  type
+    AWSResponse CreateExportJob =
+      CreateExportJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateExportJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateExportJob
+instance Core.Hashable CreateExportJob
 
-instance Prelude.NFData CreateExportJob
+instance Core.NFData CreateExportJob
 
-instance Prelude.ToHeaders CreateExportJob where
+instance Core.ToHeaders CreateExportJob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateExportJob where
+instance Core.ToJSON CreateExportJob where
   toJSON CreateExportJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ExportJobRequest" Prelude..= exportJobRequest)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ExportJobRequest" Core..= exportJobRequest)
           ]
       )
 
-instance Prelude.ToPath CreateExportJob where
+instance Core.ToPath CreateExportJob where
   toPath CreateExportJob' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apps/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/jobs/export"
       ]
 
-instance Prelude.ToQuery CreateExportJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateExportJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateExportJobResponse' smart constructor.
 data CreateExportJobResponse = CreateExportJobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     exportJobResponse :: ExportJobResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateExportJobResponse' with all optional fields omitted.
@@ -156,7 +155,7 @@ data CreateExportJobResponse = CreateExportJobResponse'
 -- 'exportJobResponse', 'createExportJobResponse_exportJobResponse' - Undocumented member.
 newCreateExportJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'exportJobResponse'
   ExportJobResponse ->
   CreateExportJobResponse
@@ -169,11 +168,11 @@ newCreateExportJobResponse
       }
 
 -- | The response's http status code.
-createExportJobResponse_httpStatus :: Lens.Lens' CreateExportJobResponse Prelude.Int
+createExportJobResponse_httpStatus :: Lens.Lens' CreateExportJobResponse Core.Int
 createExportJobResponse_httpStatus = Lens.lens (\CreateExportJobResponse' {httpStatus} -> httpStatus) (\s@CreateExportJobResponse' {} a -> s {httpStatus = a} :: CreateExportJobResponse)
 
 -- | Undocumented member.
 createExportJobResponse_exportJobResponse :: Lens.Lens' CreateExportJobResponse ExportJobResponse
 createExportJobResponse_exportJobResponse = Lens.lens (\CreateExportJobResponse' {exportJobResponse} -> exportJobResponse) (\s@CreateExportJobResponse' {} a -> s {exportJobResponse = a} :: CreateExportJobResponse)
 
-instance Prelude.NFData CreateExportJobResponse
+instance Core.NFData CreateExportJobResponse

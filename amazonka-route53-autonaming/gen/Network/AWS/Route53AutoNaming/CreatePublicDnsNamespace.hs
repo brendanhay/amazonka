@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -50,8 +49,8 @@ module Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -62,18 +61,18 @@ data CreatePublicDnsNamespace = CreatePublicDnsNamespace'
     -- @CreatePublicDnsNamespace@ requests to be retried without the risk of
     -- executing the operation twice. @CreatorRequestId@ can be any unique
     -- string, for example, a date\/time stamp.
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
+    creatorRequestId :: Core.Maybe Core.Text,
     -- | The tags to add to the namespace. Each tag consists of a key and an
     -- optional value, both of which you define. Tag keys can have a maximum
     -- character length of 128 characters, and tag values can have a maximum
     -- length of 256 characters.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | A description for the namespace.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name that you want to assign to this namespace.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePublicDnsNamespace' with all optional fields omitted.
@@ -98,14 +97,14 @@ data CreatePublicDnsNamespace = CreatePublicDnsNamespace'
 -- 'name', 'createPublicDnsNamespace_name' - The name that you want to assign to this namespace.
 newCreatePublicDnsNamespace ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   CreatePublicDnsNamespace
 newCreatePublicDnsNamespace pName_ =
   CreatePublicDnsNamespace'
     { creatorRequestId =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+        Core.Nothing,
+      tags = Core.Nothing,
+      description = Core.Nothing,
       name = pName_
     }
 
@@ -113,84 +112,82 @@ newCreatePublicDnsNamespace pName_ =
 -- @CreatePublicDnsNamespace@ requests to be retried without the risk of
 -- executing the operation twice. @CreatorRequestId@ can be any unique
 -- string, for example, a date\/time stamp.
-createPublicDnsNamespace_creatorRequestId :: Lens.Lens' CreatePublicDnsNamespace (Prelude.Maybe Prelude.Text)
+createPublicDnsNamespace_creatorRequestId :: Lens.Lens' CreatePublicDnsNamespace (Core.Maybe Core.Text)
 createPublicDnsNamespace_creatorRequestId = Lens.lens (\CreatePublicDnsNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreatePublicDnsNamespace' {} a -> s {creatorRequestId = a} :: CreatePublicDnsNamespace)
 
 -- | The tags to add to the namespace. Each tag consists of a key and an
 -- optional value, both of which you define. Tag keys can have a maximum
 -- character length of 128 characters, and tag values can have a maximum
 -- length of 256 characters.
-createPublicDnsNamespace_tags :: Lens.Lens' CreatePublicDnsNamespace (Prelude.Maybe [Tag])
-createPublicDnsNamespace_tags = Lens.lens (\CreatePublicDnsNamespace' {tags} -> tags) (\s@CreatePublicDnsNamespace' {} a -> s {tags = a} :: CreatePublicDnsNamespace) Prelude.. Lens.mapping Prelude._Coerce
+createPublicDnsNamespace_tags :: Lens.Lens' CreatePublicDnsNamespace (Core.Maybe [Tag])
+createPublicDnsNamespace_tags = Lens.lens (\CreatePublicDnsNamespace' {tags} -> tags) (\s@CreatePublicDnsNamespace' {} a -> s {tags = a} :: CreatePublicDnsNamespace) Core.. Lens.mapping Lens._Coerce
 
 -- | A description for the namespace.
-createPublicDnsNamespace_description :: Lens.Lens' CreatePublicDnsNamespace (Prelude.Maybe Prelude.Text)
+createPublicDnsNamespace_description :: Lens.Lens' CreatePublicDnsNamespace (Core.Maybe Core.Text)
 createPublicDnsNamespace_description = Lens.lens (\CreatePublicDnsNamespace' {description} -> description) (\s@CreatePublicDnsNamespace' {} a -> s {description = a} :: CreatePublicDnsNamespace)
 
 -- | The name that you want to assign to this namespace.
-createPublicDnsNamespace_name :: Lens.Lens' CreatePublicDnsNamespace Prelude.Text
+createPublicDnsNamespace_name :: Lens.Lens' CreatePublicDnsNamespace Core.Text
 createPublicDnsNamespace_name = Lens.lens (\CreatePublicDnsNamespace' {name} -> name) (\s@CreatePublicDnsNamespace' {} a -> s {name = a} :: CreatePublicDnsNamespace)
 
-instance Prelude.AWSRequest CreatePublicDnsNamespace where
+instance Core.AWSRequest CreatePublicDnsNamespace where
   type
-    Rs CreatePublicDnsNamespace =
+    AWSResponse CreatePublicDnsNamespace =
       CreatePublicDnsNamespaceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePublicDnsNamespaceResponse'
-            Prelude.<$> (x Prelude..?> "OperationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OperationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePublicDnsNamespace
+instance Core.Hashable CreatePublicDnsNamespace
 
-instance Prelude.NFData CreatePublicDnsNamespace
+instance Core.NFData CreatePublicDnsNamespace
 
-instance Prelude.ToHeaders CreatePublicDnsNamespace where
+instance Core.ToHeaders CreatePublicDnsNamespace where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.CreatePublicDnsNamespace" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePublicDnsNamespace where
+instance Core.ToJSON CreatePublicDnsNamespace where
   toJSON CreatePublicDnsNamespace' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CreatorRequestId" Prelude..=)
-              Prelude.<$> creatorRequestId,
-            ("Tags" Prelude..=) Prelude.<$> tags,
-            ("Description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("Name" Prelude..= name)
+    Core.object
+      ( Core.catMaybes
+          [ ("CreatorRequestId" Core..=)
+              Core.<$> creatorRequestId,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Description" Core..=) Core.<$> description,
+            Core.Just ("Name" Core..= name)
           ]
       )
 
-instance Prelude.ToPath CreatePublicDnsNamespace where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePublicDnsNamespace where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePublicDnsNamespace where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePublicDnsNamespace where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreatePublicDnsNamespaceResponse' smart constructor.
 data CreatePublicDnsNamespaceResponse = CreatePublicDnsNamespaceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePublicDnsNamespaceResponse' with all optional fields omitted.
@@ -207,25 +204,23 @@ data CreatePublicDnsNamespaceResponse = CreatePublicDnsNamespaceResponse'
 -- 'httpStatus', 'createPublicDnsNamespaceResponse_httpStatus' - The response's http status code.
 newCreatePublicDnsNamespaceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePublicDnsNamespaceResponse
 newCreatePublicDnsNamespaceResponse pHttpStatus_ =
   CreatePublicDnsNamespaceResponse'
     { operationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-createPublicDnsNamespaceResponse_operationId :: Lens.Lens' CreatePublicDnsNamespaceResponse (Prelude.Maybe Prelude.Text)
+createPublicDnsNamespaceResponse_operationId :: Lens.Lens' CreatePublicDnsNamespaceResponse (Core.Maybe Core.Text)
 createPublicDnsNamespaceResponse_operationId = Lens.lens (\CreatePublicDnsNamespaceResponse' {operationId} -> operationId) (\s@CreatePublicDnsNamespaceResponse' {} a -> s {operationId = a} :: CreatePublicDnsNamespaceResponse)
 
 -- | The response's http status code.
-createPublicDnsNamespaceResponse_httpStatus :: Lens.Lens' CreatePublicDnsNamespaceResponse Prelude.Int
+createPublicDnsNamespaceResponse_httpStatus :: Lens.Lens' CreatePublicDnsNamespaceResponse Core.Int
 createPublicDnsNamespaceResponse_httpStatus = Lens.lens (\CreatePublicDnsNamespaceResponse' {httpStatus} -> httpStatus) (\s@CreatePublicDnsNamespaceResponse' {} a -> s {httpStatus = a} :: CreatePublicDnsNamespaceResponse)
 
-instance
-  Prelude.NFData
-    CreatePublicDnsNamespaceResponse
+instance Core.NFData CreatePublicDnsNamespaceResponse

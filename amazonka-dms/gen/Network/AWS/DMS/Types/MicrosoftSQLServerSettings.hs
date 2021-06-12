@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DMS.Types.MicrosoftSQLServerSettings where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types.SafeguardPolicy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides information that defines a Microsoft SQL Server endpoint.
 --
@@ -32,7 +31,7 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- BCP. When the target table contains an identity column that does not
     -- exist in the source table, you must disable the use BCP for loading
     -- table option.
-    useBcpFullLoad :: Prelude.Maybe Prelude.Bool,
+    useBcpFullLoad :: Core.Maybe Core.Bool,
     -- | Use this attribute to minimize the need to access the backup log and
     -- enable AWS DMS to prevent truncation using one of the following two
     -- methods.
@@ -52,22 +51,22 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- DMS task can access the database at any given time. Therefore, if you
     -- need to run parallel AWS DMS tasks against the same database, use the
     -- default method.
-    safeguardPolicy :: Prelude.Maybe SafeguardPolicy,
+    safeguardPolicy :: Core.Maybe SafeguardPolicy,
     -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the SQL Server endpoint connection
     -- details.
-    secretsManagerSecretId :: Prelude.Maybe Prelude.Text,
+    secretsManagerSecretId :: Core.Maybe Core.Text,
     -- | Fully qualified domain name of the endpoint.
-    serverName :: Prelude.Maybe Prelude.Text,
+    serverName :: Core.Maybe Core.Text,
     -- | Endpoint connection password.
-    password :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    password :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The maximum size of the packets (in bytes) used to transfer data using
     -- BCP.
-    bcpPacketSize :: Prelude.Maybe Prelude.Int,
+    bcpPacketSize :: Core.Maybe Core.Int,
     -- | Endpoint TCP port.
-    port :: Prelude.Maybe Prelude.Int,
+    port :: Core.Maybe Core.Int,
     -- | Endpoint connection user name.
-    username :: Prelude.Maybe Prelude.Text,
+    username :: Core.Maybe Core.Text,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
     -- DMS as the trusted entity and grants the required permissions to access
     -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
@@ -82,23 +81,23 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- @SecretsManagerSecretId@ required to access it, see
     -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
     -- in the /AWS Database Migration Service User Guide/.
-    secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    secretsManagerAccessRoleArn :: Core.Maybe Core.Text,
     -- | Specifies a file group for the AWS DMS internal tables. When the
     -- replication task starts, all the internal AWS DMS control tables
     -- (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created for
     -- the specified file group.
-    controlTablesFileGroup :: Prelude.Maybe Prelude.Text,
+    controlTablesFileGroup :: Core.Maybe Core.Text,
     -- | When this attribute is set to @Y@, AWS DMS only reads changes from
     -- transaction log backups and doesn\'t read from the active transaction
     -- log file during ongoing replication. Setting this parameter to @Y@
     -- enables you to control active transaction log file growth during full
     -- load and ongoing replication tasks. However, it can add some source
     -- latency to ongoing replication.
-    readBackupOnly :: Prelude.Maybe Prelude.Bool,
+    readBackupOnly :: Core.Maybe Core.Bool,
     -- | Database name for the endpoint.
-    databaseName :: Prelude.Maybe Prelude.Text
+    databaseName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MicrosoftSQLServerSettings' with all optional fields omitted.
@@ -181,25 +180,25 @@ newMicrosoftSQLServerSettings ::
 newMicrosoftSQLServerSettings =
   MicrosoftSQLServerSettings'
     { useBcpFullLoad =
-        Prelude.Nothing,
-      safeguardPolicy = Prelude.Nothing,
-      secretsManagerSecretId = Prelude.Nothing,
-      serverName = Prelude.Nothing,
-      password = Prelude.Nothing,
-      bcpPacketSize = Prelude.Nothing,
-      port = Prelude.Nothing,
-      username = Prelude.Nothing,
-      secretsManagerAccessRoleArn = Prelude.Nothing,
-      controlTablesFileGroup = Prelude.Nothing,
-      readBackupOnly = Prelude.Nothing,
-      databaseName = Prelude.Nothing
+        Core.Nothing,
+      safeguardPolicy = Core.Nothing,
+      secretsManagerSecretId = Core.Nothing,
+      serverName = Core.Nothing,
+      password = Core.Nothing,
+      bcpPacketSize = Core.Nothing,
+      port = Core.Nothing,
+      username = Core.Nothing,
+      secretsManagerAccessRoleArn = Core.Nothing,
+      controlTablesFileGroup = Core.Nothing,
+      readBackupOnly = Core.Nothing,
+      databaseName = Core.Nothing
     }
 
 -- | Use this to attribute to transfer data for full-load operations using
 -- BCP. When the target table contains an identity column that does not
 -- exist in the source table, you must disable the use BCP for loading
 -- table option.
-microsoftSQLServerSettings_useBcpFullLoad :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
+microsoftSQLServerSettings_useBcpFullLoad :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Bool)
 microsoftSQLServerSettings_useBcpFullLoad = Lens.lens (\MicrosoftSQLServerSettings' {useBcpFullLoad} -> useBcpFullLoad) (\s@MicrosoftSQLServerSettings' {} a -> s {useBcpFullLoad = a} :: MicrosoftSQLServerSettings)
 
 -- | Use this attribute to minimize the need to access the backup log and
@@ -221,34 +220,34 @@ microsoftSQLServerSettings_useBcpFullLoad = Lens.lens (\MicrosoftSQLServerSettin
 -- DMS task can access the database at any given time. Therefore, if you
 -- need to run parallel AWS DMS tasks against the same database, use the
 -- default method.
-microsoftSQLServerSettings_safeguardPolicy :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe SafeguardPolicy)
+microsoftSQLServerSettings_safeguardPolicy :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe SafeguardPolicy)
 microsoftSQLServerSettings_safeguardPolicy = Lens.lens (\MicrosoftSQLServerSettings' {safeguardPolicy} -> safeguardPolicy) (\s@MicrosoftSQLServerSettings' {} a -> s {safeguardPolicy = a} :: MicrosoftSQLServerSettings)
 
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the SQL Server endpoint connection
 -- details.
-microsoftSQLServerSettings_secretsManagerSecretId :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
+microsoftSQLServerSettings_secretsManagerSecretId :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Text)
 microsoftSQLServerSettings_secretsManagerSecretId = Lens.lens (\MicrosoftSQLServerSettings' {secretsManagerSecretId} -> secretsManagerSecretId) (\s@MicrosoftSQLServerSettings' {} a -> s {secretsManagerSecretId = a} :: MicrosoftSQLServerSettings)
 
 -- | Fully qualified domain name of the endpoint.
-microsoftSQLServerSettings_serverName :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
+microsoftSQLServerSettings_serverName :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Text)
 microsoftSQLServerSettings_serverName = Lens.lens (\MicrosoftSQLServerSettings' {serverName} -> serverName) (\s@MicrosoftSQLServerSettings' {} a -> s {serverName = a} :: MicrosoftSQLServerSettings)
 
 -- | Endpoint connection password.
-microsoftSQLServerSettings_password :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
-microsoftSQLServerSettings_password = Lens.lens (\MicrosoftSQLServerSettings' {password} -> password) (\s@MicrosoftSQLServerSettings' {} a -> s {password = a} :: MicrosoftSQLServerSettings) Prelude.. Lens.mapping Prelude._Sensitive
+microsoftSQLServerSettings_password :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Text)
+microsoftSQLServerSettings_password = Lens.lens (\MicrosoftSQLServerSettings' {password} -> password) (\s@MicrosoftSQLServerSettings' {} a -> s {password = a} :: MicrosoftSQLServerSettings) Core.. Lens.mapping Core._Sensitive
 
 -- | The maximum size of the packets (in bytes) used to transfer data using
 -- BCP.
-microsoftSQLServerSettings_bcpPacketSize :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Int)
+microsoftSQLServerSettings_bcpPacketSize :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Int)
 microsoftSQLServerSettings_bcpPacketSize = Lens.lens (\MicrosoftSQLServerSettings' {bcpPacketSize} -> bcpPacketSize) (\s@MicrosoftSQLServerSettings' {} a -> s {bcpPacketSize = a} :: MicrosoftSQLServerSettings)
 
 -- | Endpoint TCP port.
-microsoftSQLServerSettings_port :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Int)
+microsoftSQLServerSettings_port :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Int)
 microsoftSQLServerSettings_port = Lens.lens (\MicrosoftSQLServerSettings' {port} -> port) (\s@MicrosoftSQLServerSettings' {} a -> s {port = a} :: MicrosoftSQLServerSettings)
 
 -- | Endpoint connection user name.
-microsoftSQLServerSettings_username :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
+microsoftSQLServerSettings_username :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Text)
 microsoftSQLServerSettings_username = Lens.lens (\MicrosoftSQLServerSettings' {username} -> username) (\s@MicrosoftSQLServerSettings' {} a -> s {username = a} :: MicrosoftSQLServerSettings)
 
 -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
@@ -265,14 +264,14 @@ microsoftSQLServerSettings_username = Lens.lens (\MicrosoftSQLServerSettings' {u
 -- @SecretsManagerSecretId@ required to access it, see
 -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
 -- in the /AWS Database Migration Service User Guide/.
-microsoftSQLServerSettings_secretsManagerAccessRoleArn :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
+microsoftSQLServerSettings_secretsManagerAccessRoleArn :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Text)
 microsoftSQLServerSettings_secretsManagerAccessRoleArn = Lens.lens (\MicrosoftSQLServerSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@MicrosoftSQLServerSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: MicrosoftSQLServerSettings)
 
 -- | Specifies a file group for the AWS DMS internal tables. When the
 -- replication task starts, all the internal AWS DMS control tables
 -- (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created for
 -- the specified file group.
-microsoftSQLServerSettings_controlTablesFileGroup :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
+microsoftSQLServerSettings_controlTablesFileGroup :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Text)
 microsoftSQLServerSettings_controlTablesFileGroup = Lens.lens (\MicrosoftSQLServerSettings' {controlTablesFileGroup} -> controlTablesFileGroup) (\s@MicrosoftSQLServerSettings' {} a -> s {controlTablesFileGroup = a} :: MicrosoftSQLServerSettings)
 
 -- | When this attribute is set to @Y@, AWS DMS only reads changes from
@@ -281,60 +280,55 @@ microsoftSQLServerSettings_controlTablesFileGroup = Lens.lens (\MicrosoftSQLServ
 -- enables you to control active transaction log file growth during full
 -- load and ongoing replication tasks. However, it can add some source
 -- latency to ongoing replication.
-microsoftSQLServerSettings_readBackupOnly :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
+microsoftSQLServerSettings_readBackupOnly :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Bool)
 microsoftSQLServerSettings_readBackupOnly = Lens.lens (\MicrosoftSQLServerSettings' {readBackupOnly} -> readBackupOnly) (\s@MicrosoftSQLServerSettings' {} a -> s {readBackupOnly = a} :: MicrosoftSQLServerSettings)
 
 -- | Database name for the endpoint.
-microsoftSQLServerSettings_databaseName :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
+microsoftSQLServerSettings_databaseName :: Lens.Lens' MicrosoftSQLServerSettings (Core.Maybe Core.Text)
 microsoftSQLServerSettings_databaseName = Lens.lens (\MicrosoftSQLServerSettings' {databaseName} -> databaseName) (\s@MicrosoftSQLServerSettings' {} a -> s {databaseName = a} :: MicrosoftSQLServerSettings)
 
-instance Prelude.FromJSON MicrosoftSQLServerSettings where
+instance Core.FromJSON MicrosoftSQLServerSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MicrosoftSQLServerSettings"
       ( \x ->
           MicrosoftSQLServerSettings'
-            Prelude.<$> (x Prelude..:? "UseBcpFullLoad")
-            Prelude.<*> (x Prelude..:? "SafeguardPolicy")
-            Prelude.<*> (x Prelude..:? "SecretsManagerSecretId")
-            Prelude.<*> (x Prelude..:? "ServerName")
-            Prelude.<*> (x Prelude..:? "Password")
-            Prelude.<*> (x Prelude..:? "BcpPacketSize")
-            Prelude.<*> (x Prelude..:? "Port")
-            Prelude.<*> (x Prelude..:? "Username")
-            Prelude.<*> (x Prelude..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Prelude..:? "ControlTablesFileGroup")
-            Prelude.<*> (x Prelude..:? "ReadBackupOnly")
-            Prelude.<*> (x Prelude..:? "DatabaseName")
+            Core.<$> (x Core..:? "UseBcpFullLoad")
+            Core.<*> (x Core..:? "SafeguardPolicy")
+            Core.<*> (x Core..:? "SecretsManagerSecretId")
+            Core.<*> (x Core..:? "ServerName")
+            Core.<*> (x Core..:? "Password")
+            Core.<*> (x Core..:? "BcpPacketSize")
+            Core.<*> (x Core..:? "Port")
+            Core.<*> (x Core..:? "Username")
+            Core.<*> (x Core..:? "SecretsManagerAccessRoleArn")
+            Core.<*> (x Core..:? "ControlTablesFileGroup")
+            Core.<*> (x Core..:? "ReadBackupOnly")
+            Core.<*> (x Core..:? "DatabaseName")
       )
 
-instance Prelude.Hashable MicrosoftSQLServerSettings
+instance Core.Hashable MicrosoftSQLServerSettings
 
-instance Prelude.NFData MicrosoftSQLServerSettings
+instance Core.NFData MicrosoftSQLServerSettings
 
-instance Prelude.ToJSON MicrosoftSQLServerSettings where
+instance Core.ToJSON MicrosoftSQLServerSettings where
   toJSON MicrosoftSQLServerSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("UseBcpFullLoad" Prelude..=)
-              Prelude.<$> useBcpFullLoad,
-            ("SafeguardPolicy" Prelude..=)
-              Prelude.<$> safeguardPolicy,
-            ("SecretsManagerSecretId" Prelude..=)
-              Prelude.<$> secretsManagerSecretId,
-            ("ServerName" Prelude..=) Prelude.<$> serverName,
-            ("Password" Prelude..=) Prelude.<$> password,
-            ("BcpPacketSize" Prelude..=)
-              Prelude.<$> bcpPacketSize,
-            ("Port" Prelude..=) Prelude.<$> port,
-            ("Username" Prelude..=) Prelude.<$> username,
-            ("SecretsManagerAccessRoleArn" Prelude..=)
-              Prelude.<$> secretsManagerAccessRoleArn,
-            ("ControlTablesFileGroup" Prelude..=)
-              Prelude.<$> controlTablesFileGroup,
-            ("ReadBackupOnly" Prelude..=)
-              Prelude.<$> readBackupOnly,
-            ("DatabaseName" Prelude..=)
-              Prelude.<$> databaseName
+    Core.object
+      ( Core.catMaybes
+          [ ("UseBcpFullLoad" Core..=) Core.<$> useBcpFullLoad,
+            ("SafeguardPolicy" Core..=) Core.<$> safeguardPolicy,
+            ("SecretsManagerSecretId" Core..=)
+              Core.<$> secretsManagerSecretId,
+            ("ServerName" Core..=) Core.<$> serverName,
+            ("Password" Core..=) Core.<$> password,
+            ("BcpPacketSize" Core..=) Core.<$> bcpPacketSize,
+            ("Port" Core..=) Core.<$> port,
+            ("Username" Core..=) Core.<$> username,
+            ("SecretsManagerAccessRoleArn" Core..=)
+              Core.<$> secretsManagerAccessRoleArn,
+            ("ControlTablesFileGroup" Core..=)
+              Core.<$> controlTablesFileGroup,
+            ("ReadBackupOnly" Core..=) Core.<$> readBackupOnly,
+            ("DatabaseName" Core..=) Core.<$> databaseName
           ]
       )

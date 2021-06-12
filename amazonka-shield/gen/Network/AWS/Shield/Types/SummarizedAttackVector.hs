@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.SummarizedAttackVector where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Shield.Types.SummarizedCounter
 
 -- | A summary of information about the attack.
@@ -29,11 +28,11 @@ import Network.AWS.Shield.Types.SummarizedCounter
 -- /See:/ 'newSummarizedAttackVector' smart constructor.
 data SummarizedAttackVector = SummarizedAttackVector'
   { -- | The list of counters that describe the details of the attack.
-    vectorCounters :: Prelude.Maybe [SummarizedCounter],
+    vectorCounters :: Core.Maybe [SummarizedCounter],
     -- | The attack type, for example, SNMP reflection or SYN flood.
-    vectorType :: Prelude.Text
+    vectorType :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SummarizedAttackVector' with all optional fields omitted.
@@ -48,35 +47,33 @@ data SummarizedAttackVector = SummarizedAttackVector'
 -- 'vectorType', 'summarizedAttackVector_vectorType' - The attack type, for example, SNMP reflection or SYN flood.
 newSummarizedAttackVector ::
   -- | 'vectorType'
-  Prelude.Text ->
+  Core.Text ->
   SummarizedAttackVector
 newSummarizedAttackVector pVectorType_ =
   SummarizedAttackVector'
     { vectorCounters =
-        Prelude.Nothing,
+        Core.Nothing,
       vectorType = pVectorType_
     }
 
 -- | The list of counters that describe the details of the attack.
-summarizedAttackVector_vectorCounters :: Lens.Lens' SummarizedAttackVector (Prelude.Maybe [SummarizedCounter])
-summarizedAttackVector_vectorCounters = Lens.lens (\SummarizedAttackVector' {vectorCounters} -> vectorCounters) (\s@SummarizedAttackVector' {} a -> s {vectorCounters = a} :: SummarizedAttackVector) Prelude.. Lens.mapping Prelude._Coerce
+summarizedAttackVector_vectorCounters :: Lens.Lens' SummarizedAttackVector (Core.Maybe [SummarizedCounter])
+summarizedAttackVector_vectorCounters = Lens.lens (\SummarizedAttackVector' {vectorCounters} -> vectorCounters) (\s@SummarizedAttackVector' {} a -> s {vectorCounters = a} :: SummarizedAttackVector) Core.. Lens.mapping Lens._Coerce
 
 -- | The attack type, for example, SNMP reflection or SYN flood.
-summarizedAttackVector_vectorType :: Lens.Lens' SummarizedAttackVector Prelude.Text
+summarizedAttackVector_vectorType :: Lens.Lens' SummarizedAttackVector Core.Text
 summarizedAttackVector_vectorType = Lens.lens (\SummarizedAttackVector' {vectorType} -> vectorType) (\s@SummarizedAttackVector' {} a -> s {vectorType = a} :: SummarizedAttackVector)
 
-instance Prelude.FromJSON SummarizedAttackVector where
+instance Core.FromJSON SummarizedAttackVector where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SummarizedAttackVector"
       ( \x ->
           SummarizedAttackVector'
-            Prelude.<$> ( x Prelude..:? "VectorCounters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "VectorType")
+            Core.<$> (x Core..:? "VectorCounters" Core..!= Core.mempty)
+            Core.<*> (x Core..: "VectorType")
       )
 
-instance Prelude.Hashable SummarizedAttackVector
+instance Core.Hashable SummarizedAttackVector
 
-instance Prelude.NFData SummarizedAttackVector
+instance Core.NFData SummarizedAttackVector

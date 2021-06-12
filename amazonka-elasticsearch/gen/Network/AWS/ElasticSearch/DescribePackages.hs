@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.ElasticSearch.DescribePackages
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,14 +56,14 @@ data DescribePackages = DescribePackages'
   { -- | Used for pagination. Only necessary if a previous API call includes a
     -- non-null NextToken value. If provided, returns results for the next
     -- page.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Limits results to a maximum number of packages.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | Only returns packages that match the @DescribePackagesFilterList@
     -- values.
-    filters :: Prelude.Maybe [DescribePackagesFilter]
+    filters :: Core.Maybe [DescribePackagesFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePackages' with all optional fields omitted.
@@ -86,75 +85,76 @@ newDescribePackages ::
   DescribePackages
 newDescribePackages =
   DescribePackages'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | Used for pagination. Only necessary if a previous API call includes a
 -- non-null NextToken value. If provided, returns results for the next
 -- page.
-describePackages_nextToken :: Lens.Lens' DescribePackages (Prelude.Maybe Prelude.Text)
+describePackages_nextToken :: Lens.Lens' DescribePackages (Core.Maybe Core.Text)
 describePackages_nextToken = Lens.lens (\DescribePackages' {nextToken} -> nextToken) (\s@DescribePackages' {} a -> s {nextToken = a} :: DescribePackages)
 
 -- | Limits results to a maximum number of packages.
-describePackages_maxResults :: Lens.Lens' DescribePackages (Prelude.Maybe Prelude.Int)
+describePackages_maxResults :: Lens.Lens' DescribePackages (Core.Maybe Core.Int)
 describePackages_maxResults = Lens.lens (\DescribePackages' {maxResults} -> maxResults) (\s@DescribePackages' {} a -> s {maxResults = a} :: DescribePackages)
 
 -- | Only returns packages that match the @DescribePackagesFilterList@
 -- values.
-describePackages_filters :: Lens.Lens' DescribePackages (Prelude.Maybe [DescribePackagesFilter])
-describePackages_filters = Lens.lens (\DescribePackages' {filters} -> filters) (\s@DescribePackages' {} a -> s {filters = a} :: DescribePackages) Prelude.. Lens.mapping Prelude._Coerce
+describePackages_filters :: Lens.Lens' DescribePackages (Core.Maybe [DescribePackagesFilter])
+describePackages_filters = Lens.lens (\DescribePackages' {filters} -> filters) (\s@DescribePackages' {} a -> s {filters = a} :: DescribePackages) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.AWSRequest DescribePackages where
-  type Rs DescribePackages = DescribePackagesResponse
+instance Core.AWSRequest DescribePackages where
+  type
+    AWSResponse DescribePackages =
+      DescribePackagesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribePackagesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "PackageDetailsList"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "PackageDetailsList"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribePackages
+instance Core.Hashable DescribePackages
 
-instance Prelude.NFData DescribePackages
+instance Core.NFData DescribePackages
 
-instance Prelude.ToHeaders DescribePackages where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribePackages where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON DescribePackages where
+instance Core.ToJSON DescribePackages where
   toJSON DescribePackages' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath DescribePackages where
-  toPath =
-    Prelude.const "/2015-01-01/packages/describe"
+instance Core.ToPath DescribePackages where
+  toPath = Core.const "/2015-01-01/packages/describe"
 
-instance Prelude.ToQuery DescribePackages where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribePackages where
+  toQuery = Core.const Core.mempty
 
 -- | Container for response returned by @ DescribePackages @ operation.
 --
 -- /See:/ 'newDescribePackagesResponse' smart constructor.
 data DescribePackagesResponse = DescribePackagesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { nextToken :: Core.Maybe Core.Text,
     -- | List of @PackageDetails@ objects.
-    packageDetailsList :: Prelude.Maybe [PackageDetails],
+    packageDetailsList :: Core.Maybe [PackageDetails],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribePackagesResponse' with all optional fields omitted.
@@ -171,26 +171,25 @@ data DescribePackagesResponse = DescribePackagesResponse'
 -- 'httpStatus', 'describePackagesResponse_httpStatus' - The response's http status code.
 newDescribePackagesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribePackagesResponse
 newDescribePackagesResponse pHttpStatus_ =
   DescribePackagesResponse'
-    { nextToken =
-        Prelude.Nothing,
-      packageDetailsList = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      packageDetailsList = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-describePackagesResponse_nextToken :: Lens.Lens' DescribePackagesResponse (Prelude.Maybe Prelude.Text)
+describePackagesResponse_nextToken :: Lens.Lens' DescribePackagesResponse (Core.Maybe Core.Text)
 describePackagesResponse_nextToken = Lens.lens (\DescribePackagesResponse' {nextToken} -> nextToken) (\s@DescribePackagesResponse' {} a -> s {nextToken = a} :: DescribePackagesResponse)
 
 -- | List of @PackageDetails@ objects.
-describePackagesResponse_packageDetailsList :: Lens.Lens' DescribePackagesResponse (Prelude.Maybe [PackageDetails])
-describePackagesResponse_packageDetailsList = Lens.lens (\DescribePackagesResponse' {packageDetailsList} -> packageDetailsList) (\s@DescribePackagesResponse' {} a -> s {packageDetailsList = a} :: DescribePackagesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describePackagesResponse_packageDetailsList :: Lens.Lens' DescribePackagesResponse (Core.Maybe [PackageDetails])
+describePackagesResponse_packageDetailsList = Lens.lens (\DescribePackagesResponse' {packageDetailsList} -> packageDetailsList) (\s@DescribePackagesResponse' {} a -> s {packageDetailsList = a} :: DescribePackagesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describePackagesResponse_httpStatus :: Lens.Lens' DescribePackagesResponse Prelude.Int
+describePackagesResponse_httpStatus :: Lens.Lens' DescribePackagesResponse Core.Int
 describePackagesResponse_httpStatus = Lens.lens (\DescribePackagesResponse' {httpStatus} -> httpStatus) (\s@DescribePackagesResponse' {} a -> s {httpStatus = a} :: DescribePackagesResponse)
 
-instance Prelude.NFData DescribePackagesResponse
+instance Core.NFData DescribePackagesResponse

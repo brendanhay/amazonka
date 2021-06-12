@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Glue.GetUserDefinedFunction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,13 +51,13 @@ import qualified Network.AWS.Response as Response
 data GetUserDefinedFunction = GetUserDefinedFunction'
   { -- | The ID of the Data Catalog where the function to be retrieved is
     -- located. If none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database where the function is located.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the function.
-    functionName :: Prelude.Text
+    functionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserDefinedFunction' with all optional fields omitted.
@@ -76,91 +75,86 @@ data GetUserDefinedFunction = GetUserDefinedFunction'
 -- 'functionName', 'getUserDefinedFunction_functionName' - The name of the function.
 newGetUserDefinedFunction ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'functionName'
-  Prelude.Text ->
+  Core.Text ->
   GetUserDefinedFunction
 newGetUserDefinedFunction
   pDatabaseName_
   pFunctionName_ =
     GetUserDefinedFunction'
-      { catalogId =
-          Prelude.Nothing,
+      { catalogId = Core.Nothing,
         databaseName = pDatabaseName_,
         functionName = pFunctionName_
       }
 
 -- | The ID of the Data Catalog where the function to be retrieved is
 -- located. If none is provided, the AWS account ID is used by default.
-getUserDefinedFunction_catalogId :: Lens.Lens' GetUserDefinedFunction (Prelude.Maybe Prelude.Text)
+getUserDefinedFunction_catalogId :: Lens.Lens' GetUserDefinedFunction (Core.Maybe Core.Text)
 getUserDefinedFunction_catalogId = Lens.lens (\GetUserDefinedFunction' {catalogId} -> catalogId) (\s@GetUserDefinedFunction' {} a -> s {catalogId = a} :: GetUserDefinedFunction)
 
 -- | The name of the catalog database where the function is located.
-getUserDefinedFunction_databaseName :: Lens.Lens' GetUserDefinedFunction Prelude.Text
+getUserDefinedFunction_databaseName :: Lens.Lens' GetUserDefinedFunction Core.Text
 getUserDefinedFunction_databaseName = Lens.lens (\GetUserDefinedFunction' {databaseName} -> databaseName) (\s@GetUserDefinedFunction' {} a -> s {databaseName = a} :: GetUserDefinedFunction)
 
 -- | The name of the function.
-getUserDefinedFunction_functionName :: Lens.Lens' GetUserDefinedFunction Prelude.Text
+getUserDefinedFunction_functionName :: Lens.Lens' GetUserDefinedFunction Core.Text
 getUserDefinedFunction_functionName = Lens.lens (\GetUserDefinedFunction' {functionName} -> functionName) (\s@GetUserDefinedFunction' {} a -> s {functionName = a} :: GetUserDefinedFunction)
 
-instance Prelude.AWSRequest GetUserDefinedFunction where
+instance Core.AWSRequest GetUserDefinedFunction where
   type
-    Rs GetUserDefinedFunction =
+    AWSResponse GetUserDefinedFunction =
       GetUserDefinedFunctionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetUserDefinedFunctionResponse'
-            Prelude.<$> (x Prelude..?> "UserDefinedFunction")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "UserDefinedFunction")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetUserDefinedFunction
+instance Core.Hashable GetUserDefinedFunction
 
-instance Prelude.NFData GetUserDefinedFunction
+instance Core.NFData GetUserDefinedFunction
 
-instance Prelude.ToHeaders GetUserDefinedFunction where
+instance Core.ToHeaders GetUserDefinedFunction where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.GetUserDefinedFunction" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSGlue.GetUserDefinedFunction" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetUserDefinedFunction where
+instance Core.ToJSON GetUserDefinedFunction where
   toJSON GetUserDefinedFunction' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just
-              ("FunctionName" Prelude..= functionName)
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("FunctionName" Core..= functionName)
           ]
       )
 
-instance Prelude.ToPath GetUserDefinedFunction where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetUserDefinedFunction where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetUserDefinedFunction where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetUserDefinedFunction where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetUserDefinedFunctionResponse' smart constructor.
 data GetUserDefinedFunctionResponse = GetUserDefinedFunctionResponse'
   { -- | The requested function definition.
-    userDefinedFunction :: Prelude.Maybe UserDefinedFunction,
+    userDefinedFunction :: Core.Maybe UserDefinedFunction,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetUserDefinedFunctionResponse' with all optional fields omitted.
@@ -175,23 +169,21 @@ data GetUserDefinedFunctionResponse = GetUserDefinedFunctionResponse'
 -- 'httpStatus', 'getUserDefinedFunctionResponse_httpStatus' - The response's http status code.
 newGetUserDefinedFunctionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetUserDefinedFunctionResponse
 newGetUserDefinedFunctionResponse pHttpStatus_ =
   GetUserDefinedFunctionResponse'
     { userDefinedFunction =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The requested function definition.
-getUserDefinedFunctionResponse_userDefinedFunction :: Lens.Lens' GetUserDefinedFunctionResponse (Prelude.Maybe UserDefinedFunction)
+getUserDefinedFunctionResponse_userDefinedFunction :: Lens.Lens' GetUserDefinedFunctionResponse (Core.Maybe UserDefinedFunction)
 getUserDefinedFunctionResponse_userDefinedFunction = Lens.lens (\GetUserDefinedFunctionResponse' {userDefinedFunction} -> userDefinedFunction) (\s@GetUserDefinedFunctionResponse' {} a -> s {userDefinedFunction = a} :: GetUserDefinedFunctionResponse)
 
 -- | The response's http status code.
-getUserDefinedFunctionResponse_httpStatus :: Lens.Lens' GetUserDefinedFunctionResponse Prelude.Int
+getUserDefinedFunctionResponse_httpStatus :: Lens.Lens' GetUserDefinedFunctionResponse Core.Int
 getUserDefinedFunctionResponse_httpStatus = Lens.lens (\GetUserDefinedFunctionResponse' {httpStatus} -> httpStatus) (\s@GetUserDefinedFunctionResponse' {} a -> s {httpStatus = a} :: GetUserDefinedFunctionResponse)
 
-instance
-  Prelude.NFData
-    GetUserDefinedFunctionResponse
+instance Core.NFData GetUserDefinedFunctionResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.Redshift.CancelResize
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -64,9 +63,9 @@ import qualified Network.AWS.Response as Response
 data CancelResize = CancelResize'
   { -- | The unique identifier for the cluster that you want to cancel a resize
     -- operation for.
-    clusterIdentifier :: Prelude.Text
+    clusterIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelResize' with all optional fields omitted.
@@ -80,7 +79,7 @@ data CancelResize = CancelResize'
 -- operation for.
 newCancelResize ::
   -- | 'clusterIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   CancelResize
 newCancelResize pClusterIdentifier_ =
   CancelResize'
@@ -90,33 +89,32 @@ newCancelResize pClusterIdentifier_ =
 
 -- | The unique identifier for the cluster that you want to cancel a resize
 -- operation for.
-cancelResize_clusterIdentifier :: Lens.Lens' CancelResize Prelude.Text
+cancelResize_clusterIdentifier :: Lens.Lens' CancelResize Core.Text
 cancelResize_clusterIdentifier = Lens.lens (\CancelResize' {clusterIdentifier} -> clusterIdentifier) (\s@CancelResize' {} a -> s {clusterIdentifier = a} :: CancelResize)
 
-instance Prelude.AWSRequest CancelResize where
-  type Rs CancelResize = ResizeProgressMessage
+instance Core.AWSRequest CancelResize where
+  type AWSResponse CancelResize = ResizeProgressMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "CancelResizeResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable CancelResize
+instance Core.Hashable CancelResize
 
-instance Prelude.NFData CancelResize
+instance Core.NFData CancelResize
 
-instance Prelude.ToHeaders CancelResize where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelResize where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelResize where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelResize where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelResize where
+instance Core.ToQuery CancelResize where
   toQuery CancelResize' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelResize" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
-        "ClusterIdentifier" Prelude.=: clusterIdentifier
+          Core.=: ("CancelResize" :: Core.ByteString),
+        "Version" Core.=: ("2012-12-01" :: Core.ByteString),
+        "ClusterIdentifier" Core.=: clusterIdentifier
       ]

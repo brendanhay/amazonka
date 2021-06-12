@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudFront.Types.StreamingLoggingConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A complex type that controls whether access logs are written for this
 -- streaming distribution.
@@ -35,17 +34,17 @@ data StreamingLoggingConfig = StreamingLoggingConfig'
     -- @empty Bucket@ and @Prefix@ elements. If you specify @false@ for
     -- @Enabled@ but you specify values for @Bucket@ and @Prefix@, the values
     -- are automatically deleted.
-    enabled :: Prelude.Bool,
+    enabled :: Core.Bool,
     -- | The Amazon S3 bucket to store the access logs in, for example,
     -- @myawslogbucket.s3.amazonaws.com@.
-    bucket :: Prelude.Text,
+    bucket :: Core.Text,
     -- | An optional string that you want CloudFront to prefix to the access log
     -- filenames for this streaming distribution, for example, @myprefix\/@. If
     -- you want to enable logging, but you don\'t want to specify a prefix, you
     -- still must include an empty @Prefix@ element in the @Logging@ element.
-    prefix :: Prelude.Text
+    prefix :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StreamingLoggingConfig' with all optional fields omitted.
@@ -72,11 +71,11 @@ data StreamingLoggingConfig = StreamingLoggingConfig'
 -- still must include an empty @Prefix@ element in the @Logging@ element.
 newStreamingLoggingConfig ::
   -- | 'enabled'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'bucket'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'prefix'
-  Prelude.Text ->
+  Core.Text ->
   StreamingLoggingConfig
 newStreamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
   StreamingLoggingConfig'
@@ -92,36 +91,36 @@ newStreamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
 -- @empty Bucket@ and @Prefix@ elements. If you specify @false@ for
 -- @Enabled@ but you specify values for @Bucket@ and @Prefix@, the values
 -- are automatically deleted.
-streamingLoggingConfig_enabled :: Lens.Lens' StreamingLoggingConfig Prelude.Bool
+streamingLoggingConfig_enabled :: Lens.Lens' StreamingLoggingConfig Core.Bool
 streamingLoggingConfig_enabled = Lens.lens (\StreamingLoggingConfig' {enabled} -> enabled) (\s@StreamingLoggingConfig' {} a -> s {enabled = a} :: StreamingLoggingConfig)
 
 -- | The Amazon S3 bucket to store the access logs in, for example,
 -- @myawslogbucket.s3.amazonaws.com@.
-streamingLoggingConfig_bucket :: Lens.Lens' StreamingLoggingConfig Prelude.Text
+streamingLoggingConfig_bucket :: Lens.Lens' StreamingLoggingConfig Core.Text
 streamingLoggingConfig_bucket = Lens.lens (\StreamingLoggingConfig' {bucket} -> bucket) (\s@StreamingLoggingConfig' {} a -> s {bucket = a} :: StreamingLoggingConfig)
 
 -- | An optional string that you want CloudFront to prefix to the access log
 -- filenames for this streaming distribution, for example, @myprefix\/@. If
 -- you want to enable logging, but you don\'t want to specify a prefix, you
 -- still must include an empty @Prefix@ element in the @Logging@ element.
-streamingLoggingConfig_prefix :: Lens.Lens' StreamingLoggingConfig Prelude.Text
+streamingLoggingConfig_prefix :: Lens.Lens' StreamingLoggingConfig Core.Text
 streamingLoggingConfig_prefix = Lens.lens (\StreamingLoggingConfig' {prefix} -> prefix) (\s@StreamingLoggingConfig' {} a -> s {prefix = a} :: StreamingLoggingConfig)
 
-instance Prelude.FromXML StreamingLoggingConfig where
+instance Core.FromXML StreamingLoggingConfig where
   parseXML x =
     StreamingLoggingConfig'
-      Prelude.<$> (x Prelude..@ "Enabled")
-      Prelude.<*> (x Prelude..@ "Bucket")
-      Prelude.<*> (x Prelude..@ "Prefix")
+      Core.<$> (x Core..@ "Enabled")
+      Core.<*> (x Core..@ "Bucket")
+      Core.<*> (x Core..@ "Prefix")
 
-instance Prelude.Hashable StreamingLoggingConfig
+instance Core.Hashable StreamingLoggingConfig
 
-instance Prelude.NFData StreamingLoggingConfig
+instance Core.NFData StreamingLoggingConfig
 
-instance Prelude.ToXML StreamingLoggingConfig where
+instance Core.ToXML StreamingLoggingConfig where
   toXML StreamingLoggingConfig' {..} =
-    Prelude.mconcat
-      [ "Enabled" Prelude.@= enabled,
-        "Bucket" Prelude.@= bucket,
-        "Prefix" Prelude.@= prefix
+    Core.mconcat
+      [ "Enabled" Core.@= enabled,
+        "Bucket" Core.@= bucket,
+        "Prefix" Core.@= prefix
       ]

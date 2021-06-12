@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.SES.GetIdentityPolicies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
@@ -74,14 +73,14 @@ data GetIdentityPolicies = GetIdentityPolicies'
     -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
     --
     -- To successfully call this API, you must own the identity.
-    identity :: Prelude.Text,
+    identity :: Core.Text,
     -- | A list of the names of policies to be retrieved. You can retrieve a
     -- maximum of 20 policies at a time. If you do not know the names of the
     -- policies that are attached to the identity, you can use
     -- @ListIdentityPolicies@.
-    policyNames :: [Prelude.Text]
+    policyNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityPolicies' with all optional fields omitted.
@@ -104,12 +103,12 @@ data GetIdentityPolicies = GetIdentityPolicies'
 -- @ListIdentityPolicies@.
 newGetIdentityPolicies ::
   -- | 'identity'
-  Prelude.Text ->
+  Core.Text ->
   GetIdentityPolicies
 newGetIdentityPolicies pIdentity_ =
   GetIdentityPolicies'
     { identity = pIdentity_,
-      policyNames = Prelude.mempty
+      policyNames = Core.mempty
     }
 
 -- | The identity for which the policies will be retrieved. You can specify
@@ -118,19 +117,19 @@ newGetIdentityPolicies pIdentity_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-getIdentityPolicies_identity :: Lens.Lens' GetIdentityPolicies Prelude.Text
+getIdentityPolicies_identity :: Lens.Lens' GetIdentityPolicies Core.Text
 getIdentityPolicies_identity = Lens.lens (\GetIdentityPolicies' {identity} -> identity) (\s@GetIdentityPolicies' {} a -> s {identity = a} :: GetIdentityPolicies)
 
 -- | A list of the names of policies to be retrieved. You can retrieve a
 -- maximum of 20 policies at a time. If you do not know the names of the
 -- policies that are attached to the identity, you can use
 -- @ListIdentityPolicies@.
-getIdentityPolicies_policyNames :: Lens.Lens' GetIdentityPolicies [Prelude.Text]
-getIdentityPolicies_policyNames = Lens.lens (\GetIdentityPolicies' {policyNames} -> policyNames) (\s@GetIdentityPolicies' {} a -> s {policyNames = a} :: GetIdentityPolicies) Prelude.. Prelude._Coerce
+getIdentityPolicies_policyNames :: Lens.Lens' GetIdentityPolicies [Core.Text]
+getIdentityPolicies_policyNames = Lens.lens (\GetIdentityPolicies' {policyNames} -> policyNames) (\s@GetIdentityPolicies' {} a -> s {policyNames = a} :: GetIdentityPolicies) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest GetIdentityPolicies where
+instance Core.AWSRequest GetIdentityPolicies where
   type
-    Rs GetIdentityPolicies =
+    AWSResponse GetIdentityPolicies =
       GetIdentityPoliciesResponse
   request = Request.postQuery defaultService
   response =
@@ -138,32 +137,31 @@ instance Prelude.AWSRequest GetIdentityPolicies where
       "GetIdentityPoliciesResult"
       ( \s h x ->
           GetIdentityPoliciesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "Policies" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLMap "entry" "key" "value"
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "Policies" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLMap "entry" "key" "value"
+                     )
       )
 
-instance Prelude.Hashable GetIdentityPolicies
+instance Core.Hashable GetIdentityPolicies
 
-instance Prelude.NFData GetIdentityPolicies
+instance Core.NFData GetIdentityPolicies
 
-instance Prelude.ToHeaders GetIdentityPolicies where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetIdentityPolicies where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetIdentityPolicies where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetIdentityPolicies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetIdentityPolicies where
+instance Core.ToQuery GetIdentityPolicies where
   toQuery GetIdentityPolicies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("GetIdentityPolicies" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Identity" Prelude.=: identity,
+          Core.=: ("GetIdentityPolicies" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Identity" Core.=: identity,
         "PolicyNames"
-          Prelude.=: Prelude.toQueryList "member" policyNames
+          Core.=: Core.toQueryList "member" policyNames
       ]
 
 -- | Represents the requested sending authorization policies.
@@ -171,11 +169,11 @@ instance Prelude.ToQuery GetIdentityPolicies where
 -- /See:/ 'newGetIdentityPoliciesResponse' smart constructor.
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A map of policy names to policies.
-    policies :: Prelude.HashMap Prelude.Text Prelude.Text
+    policies :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetIdentityPoliciesResponse' with all optional fields omitted.
@@ -190,21 +188,21 @@ data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
 -- 'policies', 'getIdentityPoliciesResponse_policies' - A map of policy names to policies.
 newGetIdentityPoliciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetIdentityPoliciesResponse
 newGetIdentityPoliciesResponse pHttpStatus_ =
   GetIdentityPoliciesResponse'
     { httpStatus =
         pHttpStatus_,
-      policies = Prelude.mempty
+      policies = Core.mempty
     }
 
 -- | The response's http status code.
-getIdentityPoliciesResponse_httpStatus :: Lens.Lens' GetIdentityPoliciesResponse Prelude.Int
+getIdentityPoliciesResponse_httpStatus :: Lens.Lens' GetIdentityPoliciesResponse Core.Int
 getIdentityPoliciesResponse_httpStatus = Lens.lens (\GetIdentityPoliciesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityPoliciesResponse' {} a -> s {httpStatus = a} :: GetIdentityPoliciesResponse)
 
 -- | A map of policy names to policies.
-getIdentityPoliciesResponse_policies :: Lens.Lens' GetIdentityPoliciesResponse (Prelude.HashMap Prelude.Text Prelude.Text)
-getIdentityPoliciesResponse_policies = Lens.lens (\GetIdentityPoliciesResponse' {policies} -> policies) (\s@GetIdentityPoliciesResponse' {} a -> s {policies = a} :: GetIdentityPoliciesResponse) Prelude.. Prelude._Coerce
+getIdentityPoliciesResponse_policies :: Lens.Lens' GetIdentityPoliciesResponse (Core.HashMap Core.Text Core.Text)
+getIdentityPoliciesResponse_policies = Lens.lens (\GetIdentityPoliciesResponse' {policies} -> policies) (\s@GetIdentityPoliciesResponse' {} a -> s {policies = a} :: GetIdentityPoliciesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData GetIdentityPoliciesResponse
+instance Core.NFData GetIdentityPoliciesResponse

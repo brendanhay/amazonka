@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.FMS.Types.ProtocolsListDataSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details of the AWS Firewall Manager protocols list.
 --
 -- /See:/ 'newProtocolsListDataSummary' smart constructor.
 data ProtocolsListDataSummary = ProtocolsListDataSummary'
   { -- | The name of the specified protocols list.
-    listName :: Prelude.Maybe Prelude.Text,
+    listName :: Core.Maybe Core.Text,
     -- | An array of protocols in the AWS Firewall Manager protocols list.
-    protocolsList :: Prelude.Maybe [Prelude.Text],
+    protocolsList :: Core.Maybe [Core.Text],
     -- | The Amazon Resource Name (ARN) of the specified protocols list.
-    listArn :: Prelude.Maybe Prelude.Text,
+    listArn :: Core.Maybe Core.Text,
     -- | The ID of the specified protocols list.
-    listId :: Prelude.Maybe Prelude.Text
+    listId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProtocolsListDataSummary' with all optional fields omitted.
@@ -57,43 +56,40 @@ newProtocolsListDataSummary ::
   ProtocolsListDataSummary
 newProtocolsListDataSummary =
   ProtocolsListDataSummary'
-    { listName =
-        Prelude.Nothing,
-      protocolsList = Prelude.Nothing,
-      listArn = Prelude.Nothing,
-      listId = Prelude.Nothing
+    { listName = Core.Nothing,
+      protocolsList = Core.Nothing,
+      listArn = Core.Nothing,
+      listId = Core.Nothing
     }
 
 -- | The name of the specified protocols list.
-protocolsListDataSummary_listName :: Lens.Lens' ProtocolsListDataSummary (Prelude.Maybe Prelude.Text)
+protocolsListDataSummary_listName :: Lens.Lens' ProtocolsListDataSummary (Core.Maybe Core.Text)
 protocolsListDataSummary_listName = Lens.lens (\ProtocolsListDataSummary' {listName} -> listName) (\s@ProtocolsListDataSummary' {} a -> s {listName = a} :: ProtocolsListDataSummary)
 
 -- | An array of protocols in the AWS Firewall Manager protocols list.
-protocolsListDataSummary_protocolsList :: Lens.Lens' ProtocolsListDataSummary (Prelude.Maybe [Prelude.Text])
-protocolsListDataSummary_protocolsList = Lens.lens (\ProtocolsListDataSummary' {protocolsList} -> protocolsList) (\s@ProtocolsListDataSummary' {} a -> s {protocolsList = a} :: ProtocolsListDataSummary) Prelude.. Lens.mapping Prelude._Coerce
+protocolsListDataSummary_protocolsList :: Lens.Lens' ProtocolsListDataSummary (Core.Maybe [Core.Text])
+protocolsListDataSummary_protocolsList = Lens.lens (\ProtocolsListDataSummary' {protocolsList} -> protocolsList) (\s@ProtocolsListDataSummary' {} a -> s {protocolsList = a} :: ProtocolsListDataSummary) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the specified protocols list.
-protocolsListDataSummary_listArn :: Lens.Lens' ProtocolsListDataSummary (Prelude.Maybe Prelude.Text)
+protocolsListDataSummary_listArn :: Lens.Lens' ProtocolsListDataSummary (Core.Maybe Core.Text)
 protocolsListDataSummary_listArn = Lens.lens (\ProtocolsListDataSummary' {listArn} -> listArn) (\s@ProtocolsListDataSummary' {} a -> s {listArn = a} :: ProtocolsListDataSummary)
 
 -- | The ID of the specified protocols list.
-protocolsListDataSummary_listId :: Lens.Lens' ProtocolsListDataSummary (Prelude.Maybe Prelude.Text)
+protocolsListDataSummary_listId :: Lens.Lens' ProtocolsListDataSummary (Core.Maybe Core.Text)
 protocolsListDataSummary_listId = Lens.lens (\ProtocolsListDataSummary' {listId} -> listId) (\s@ProtocolsListDataSummary' {} a -> s {listId = a} :: ProtocolsListDataSummary)
 
-instance Prelude.FromJSON ProtocolsListDataSummary where
+instance Core.FromJSON ProtocolsListDataSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProtocolsListDataSummary"
       ( \x ->
           ProtocolsListDataSummary'
-            Prelude.<$> (x Prelude..:? "ListName")
-            Prelude.<*> ( x Prelude..:? "ProtocolsList"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "ListArn")
-            Prelude.<*> (x Prelude..:? "ListId")
+            Core.<$> (x Core..:? "ListName")
+            Core.<*> (x Core..:? "ProtocolsList" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ListArn")
+            Core.<*> (x Core..:? "ListId")
       )
 
-instance Prelude.Hashable ProtocolsListDataSummary
+instance Core.Hashable ProtocolsListDataSummary
 
-instance Prelude.NFData ProtocolsListDataSummary
+instance Core.NFData ProtocolsListDataSummary

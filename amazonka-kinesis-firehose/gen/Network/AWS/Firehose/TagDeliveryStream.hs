@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -52,20 +51,20 @@ module Network.AWS.Firehose.TagDeliveryStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTagDeliveryStream' smart constructor.
 data TagDeliveryStream = TagDeliveryStream'
   { -- | The name of the delivery stream to which you want to add the tags.
-    deliveryStreamName :: Prelude.Text,
+    deliveryStreamName :: Core.Text,
     -- | A set of key-value pairs to use to create the tags.
-    tags :: Prelude.NonEmpty Tag
+    tags :: Core.NonEmpty Tag
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagDeliveryStream' with all optional fields omitted.
@@ -80,76 +79,76 @@ data TagDeliveryStream = TagDeliveryStream'
 -- 'tags', 'tagDeliveryStream_tags' - A set of key-value pairs to use to create the tags.
 newTagDeliveryStream ::
   -- | 'deliveryStreamName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tags'
-  Prelude.NonEmpty Tag ->
+  Core.NonEmpty Tag ->
   TagDeliveryStream
 newTagDeliveryStream pDeliveryStreamName_ pTags_ =
   TagDeliveryStream'
     { deliveryStreamName =
         pDeliveryStreamName_,
-      tags = Prelude._Coerce Lens.# pTags_
+      tags = Lens._Coerce Lens.# pTags_
     }
 
 -- | The name of the delivery stream to which you want to add the tags.
-tagDeliveryStream_deliveryStreamName :: Lens.Lens' TagDeliveryStream Prelude.Text
+tagDeliveryStream_deliveryStreamName :: Lens.Lens' TagDeliveryStream Core.Text
 tagDeliveryStream_deliveryStreamName = Lens.lens (\TagDeliveryStream' {deliveryStreamName} -> deliveryStreamName) (\s@TagDeliveryStream' {} a -> s {deliveryStreamName = a} :: TagDeliveryStream)
 
 -- | A set of key-value pairs to use to create the tags.
-tagDeliveryStream_tags :: Lens.Lens' TagDeliveryStream (Prelude.NonEmpty Tag)
-tagDeliveryStream_tags = Lens.lens (\TagDeliveryStream' {tags} -> tags) (\s@TagDeliveryStream' {} a -> s {tags = a} :: TagDeliveryStream) Prelude.. Prelude._Coerce
+tagDeliveryStream_tags :: Lens.Lens' TagDeliveryStream (Core.NonEmpty Tag)
+tagDeliveryStream_tags = Lens.lens (\TagDeliveryStream' {tags} -> tags) (\s@TagDeliveryStream' {} a -> s {tags = a} :: TagDeliveryStream) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagDeliveryStream where
-  type Rs TagDeliveryStream = TagDeliveryStreamResponse
+instance Core.AWSRequest TagDeliveryStream where
+  type
+    AWSResponse TagDeliveryStream =
+      TagDeliveryStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           TagDeliveryStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TagDeliveryStream
+instance Core.Hashable TagDeliveryStream
 
-instance Prelude.NFData TagDeliveryStream
+instance Core.NFData TagDeliveryStream
 
-instance Prelude.ToHeaders TagDeliveryStream where
+instance Core.ToHeaders TagDeliveryStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Firehose_20150804.TagDeliveryStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Firehose_20150804.TagDeliveryStream" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON TagDeliveryStream where
+instance Core.ToJSON TagDeliveryStream where
   toJSON TagDeliveryStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DeliveryStreamName" Prelude..= deliveryStreamName),
-            Prelude.Just ("Tags" Prelude..= tags)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just ("Tags" Core..= tags)
           ]
       )
 
-instance Prelude.ToPath TagDeliveryStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagDeliveryStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagDeliveryStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery TagDeliveryStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newTagDeliveryStreamResponse' smart constructor.
 data TagDeliveryStreamResponse = TagDeliveryStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagDeliveryStreamResponse' with all optional fields omitted.
@@ -162,7 +161,7 @@ data TagDeliveryStreamResponse = TagDeliveryStreamResponse'
 -- 'httpStatus', 'tagDeliveryStreamResponse_httpStatus' - The response's http status code.
 newTagDeliveryStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TagDeliveryStreamResponse
 newTagDeliveryStreamResponse pHttpStatus_ =
   TagDeliveryStreamResponse'
@@ -171,7 +170,7 @@ newTagDeliveryStreamResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-tagDeliveryStreamResponse_httpStatus :: Lens.Lens' TagDeliveryStreamResponse Prelude.Int
+tagDeliveryStreamResponse_httpStatus :: Lens.Lens' TagDeliveryStreamResponse Core.Int
 tagDeliveryStreamResponse_httpStatus = Lens.lens (\TagDeliveryStreamResponse' {httpStatus} -> httpStatus) (\s@TagDeliveryStreamResponse' {} a -> s {httpStatus = a} :: TagDeliveryStreamResponse)
 
-instance Prelude.NFData TagDeliveryStreamResponse
+instance Core.NFData TagDeliveryStreamResponse

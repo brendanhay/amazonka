@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.CodeCommit.BatchAssociateApprovalRuleTemplateWithRepositories
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,14 +52,14 @@ import qualified Network.AWS.Response as Response
 data BatchAssociateApprovalRuleTemplateWithRepositories = BatchAssociateApprovalRuleTemplateWithRepositories'
   { -- | The name of the template you want to associate with one or more
     -- repositories.
-    approvalRuleTemplateName :: Prelude.Text,
+    approvalRuleTemplateName :: Core.Text,
     -- | The names of the repositories you want to associate with the template.
     --
     -- The length constraint limit is for each string in the array. The array
     -- itself can be empty.
-    repositoryNames :: [Prelude.Text]
+    repositoryNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAssociateApprovalRuleTemplateWithRepositories' with all optional fields omitted.
@@ -79,7 +78,7 @@ data BatchAssociateApprovalRuleTemplateWithRepositories = BatchAssociateApproval
 -- itself can be empty.
 newBatchAssociateApprovalRuleTemplateWithRepositories ::
   -- | 'approvalRuleTemplateName'
-  Prelude.Text ->
+  Core.Text ->
   BatchAssociateApprovalRuleTemplateWithRepositories
 newBatchAssociateApprovalRuleTemplateWithRepositories
   pApprovalRuleTemplateName_ =
@@ -87,27 +86,27 @@ newBatchAssociateApprovalRuleTemplateWithRepositories
       { approvalRuleTemplateName =
           pApprovalRuleTemplateName_,
         repositoryNames =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | The name of the template you want to associate with one or more
 -- repositories.
-batchAssociateApprovalRuleTemplateWithRepositories_approvalRuleTemplateName :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories Prelude.Text
+batchAssociateApprovalRuleTemplateWithRepositories_approvalRuleTemplateName :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories Core.Text
 batchAssociateApprovalRuleTemplateWithRepositories_approvalRuleTemplateName = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositories' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@BatchAssociateApprovalRuleTemplateWithRepositories' {} a -> s {approvalRuleTemplateName = a} :: BatchAssociateApprovalRuleTemplateWithRepositories)
 
 -- | The names of the repositories you want to associate with the template.
 --
 -- The length constraint limit is for each string in the array. The array
 -- itself can be empty.
-batchAssociateApprovalRuleTemplateWithRepositories_repositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories [Prelude.Text]
-batchAssociateApprovalRuleTemplateWithRepositories_repositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositories' {repositoryNames} -> repositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositories' {} a -> s {repositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositories) Prelude.. Prelude._Coerce
+batchAssociateApprovalRuleTemplateWithRepositories_repositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositories [Core.Text]
+batchAssociateApprovalRuleTemplateWithRepositories_repositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositories' {repositoryNames} -> repositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositories' {} a -> s {repositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositories) Core.. Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   type
-    Rs
+    AWSResponse
       BatchAssociateApprovalRuleTemplateWithRepositories =
       BatchAssociateApprovalRuleTemplateWithRepositoriesResponse
   request = Request.postJSON defaultService
@@ -115,80 +114,78 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Prelude..?> "associatedRepositoryNames"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Prelude..?> "errors" Prelude..!@ Prelude.mempty)
+            Core.<$> (Core.pure (Core.fromEnum s))
+              Core.<*> ( x Core..?> "associatedRepositoryNames"
+                           Core..!@ Core.mempty
+                       )
+              Core.<*> (x Core..?> "errors" Core..!@ Core.mempty)
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     BatchAssociateApprovalRuleTemplateWithRepositories
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchAssociateApprovalRuleTemplateWithRepositories
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
   toJSON
     BatchAssociateApprovalRuleTemplateWithRepositories' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ Prelude.Just
+      Core.object
+        ( Core.catMaybes
+            [ Core.Just
                 ( "approvalRuleTemplateName"
-                    Prelude..= approvalRuleTemplateName
+                    Core..= approvalRuleTemplateName
                 ),
-              Prelude.Just
-                ("repositoryNames" Prelude..= repositoryNames)
+              Core.Just
+                ("repositoryNames" Core..= repositoryNames)
             ]
         )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     BatchAssociateApprovalRuleTemplateWithRepositories
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchAssociateApprovalRuleTemplateWithRepositoriesResponse' smart constructor.
 data BatchAssociateApprovalRuleTemplateWithRepositoriesResponse = BatchAssociateApprovalRuleTemplateWithRepositoriesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of names of the repositories that have been associated with the
     -- template.
-    associatedRepositoryNames :: [Prelude.Text],
+    associatedRepositoryNames :: [Core.Text],
     -- | A list of any errors that might have occurred while attempting to create
     -- the association between the template and the repositories.
     errors :: [BatchAssociateApprovalRuleTemplateWithRepositoriesError]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' with all optional fields omitted.
@@ -207,7 +204,7 @@ data BatchAssociateApprovalRuleTemplateWithRepositoriesResponse = BatchAssociate
 -- the association between the template and the repositories.
 newBatchAssociateApprovalRuleTemplateWithRepositoriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchAssociateApprovalRuleTemplateWithRepositoriesResponse
 newBatchAssociateApprovalRuleTemplateWithRepositoriesResponse
   pHttpStatus_ =
@@ -215,25 +212,25 @@ newBatchAssociateApprovalRuleTemplateWithRepositoriesResponse
       { httpStatus =
           pHttpStatus_,
         associatedRepositoryNames =
-          Prelude.mempty,
+          Core.mempty,
         errors =
-          Prelude.mempty
+          Core.mempty
       }
 
 -- | The response's http status code.
-batchAssociateApprovalRuleTemplateWithRepositoriesResponse_httpStatus :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse Prelude.Int
+batchAssociateApprovalRuleTemplateWithRepositoriesResponse_httpStatus :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse Core.Int
 batchAssociateApprovalRuleTemplateWithRepositoriesResponse_httpStatus = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {httpStatus} -> httpStatus) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {httpStatus = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse)
 
 -- | A list of names of the repositories that have been associated with the
 -- template.
-batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [Prelude.Text]
-batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {associatedRepositoryNames} -> associatedRepositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {associatedRepositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Prelude.. Prelude._Coerce
+batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [Core.Text]
+batchAssociateApprovalRuleTemplateWithRepositoriesResponse_associatedRepositoryNames = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {associatedRepositoryNames} -> associatedRepositoryNames) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {associatedRepositoryNames = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Core.. Lens._Coerce
 
 -- | A list of any errors that might have occurred while attempting to create
 -- the association between the template and the repositories.
 batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors :: Lens.Lens' BatchAssociateApprovalRuleTemplateWithRepositoriesResponse [BatchAssociateApprovalRuleTemplateWithRepositoriesError]
-batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {errors} -> errors) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {errors = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Prelude.. Prelude._Coerce
+batchAssociateApprovalRuleTemplateWithRepositoriesResponse_errors = Lens.lens (\BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {errors} -> errors) (\s@BatchAssociateApprovalRuleTemplateWithRepositoriesResponse' {} a -> s {errors = a} :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     BatchAssociateApprovalRuleTemplateWithRepositoriesResponse

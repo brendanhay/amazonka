@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.USD where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents an amount of money in United States dollars\/
 --
 -- /See:/ 'newUSD' smart constructor.
 data USD = USD'
   { -- | The whole number of dollars in the amount.
-    dollars :: Prelude.Maybe Prelude.Natural,
+    dollars :: Core.Maybe Core.Natural,
     -- | The fractional portion, in cents, of the amount.
-    cents :: Prelude.Maybe Prelude.Natural,
+    cents :: Core.Maybe Core.Natural,
     -- | Fractions of a cent, in tenths.
-    tenthFractionsOfACent :: Prelude.Maybe Prelude.Natural
+    tenthFractionsOfACent :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'USD' with all optional fields omitted.
@@ -53,45 +52,45 @@ newUSD ::
   USD
 newUSD =
   USD'
-    { dollars = Prelude.Nothing,
-      cents = Prelude.Nothing,
-      tenthFractionsOfACent = Prelude.Nothing
+    { dollars = Core.Nothing,
+      cents = Core.Nothing,
+      tenthFractionsOfACent = Core.Nothing
     }
 
 -- | The whole number of dollars in the amount.
-usd_dollars :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
+usd_dollars :: Lens.Lens' USD (Core.Maybe Core.Natural)
 usd_dollars = Lens.lens (\USD' {dollars} -> dollars) (\s@USD' {} a -> s {dollars = a} :: USD)
 
 -- | The fractional portion, in cents, of the amount.
-usd_cents :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
+usd_cents :: Lens.Lens' USD (Core.Maybe Core.Natural)
 usd_cents = Lens.lens (\USD' {cents} -> cents) (\s@USD' {} a -> s {cents = a} :: USD)
 
 -- | Fractions of a cent, in tenths.
-usd_tenthFractionsOfACent :: Lens.Lens' USD (Prelude.Maybe Prelude.Natural)
+usd_tenthFractionsOfACent :: Lens.Lens' USD (Core.Maybe Core.Natural)
 usd_tenthFractionsOfACent = Lens.lens (\USD' {tenthFractionsOfACent} -> tenthFractionsOfACent) (\s@USD' {} a -> s {tenthFractionsOfACent = a} :: USD)
 
-instance Prelude.FromJSON USD where
+instance Core.FromJSON USD where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "USD"
       ( \x ->
           USD'
-            Prelude.<$> (x Prelude..:? "Dollars")
-            Prelude.<*> (x Prelude..:? "Cents")
-            Prelude.<*> (x Prelude..:? "TenthFractionsOfACent")
+            Core.<$> (x Core..:? "Dollars")
+            Core.<*> (x Core..:? "Cents")
+            Core.<*> (x Core..:? "TenthFractionsOfACent")
       )
 
-instance Prelude.Hashable USD
+instance Core.Hashable USD
 
-instance Prelude.NFData USD
+instance Core.NFData USD
 
-instance Prelude.ToJSON USD where
+instance Core.ToJSON USD where
   toJSON USD' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Dollars" Prelude..=) Prelude.<$> dollars,
-            ("Cents" Prelude..=) Prelude.<$> cents,
-            ("TenthFractionsOfACent" Prelude..=)
-              Prelude.<$> tenthFractionsOfACent
+    Core.object
+      ( Core.catMaybes
+          [ ("Dollars" Core..=) Core.<$> dollars,
+            ("Cents" Core..=) Core.<$> cents,
+            ("TenthFractionsOfACent" Core..=)
+              Core.<$> tenthFractionsOfACent
           ]
       )

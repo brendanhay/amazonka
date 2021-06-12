@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ServiceCatalog.Types.ParameterConstraints where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The constraints that the administrator has put on the parameter.
 --
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 data ParameterConstraints = ParameterConstraints'
   { -- | A numeric value that determines the largest numeric value you want to
     -- allow for @Number@ types.
-    maxValue :: Prelude.Maybe Prelude.Text,
+    maxValue :: Core.Maybe Core.Text,
     -- | An integer value that determines the smallest number of characters you
     -- want to allow for @String@ types.
-    minLength :: Prelude.Maybe Prelude.Text,
+    minLength :: Core.Maybe Core.Text,
     -- | The values that the administrator has allowed for the parameter.
-    allowedValues :: Prelude.Maybe [Prelude.Text],
+    allowedValues :: Core.Maybe [Core.Text],
     -- | A numeric value that determines the smallest numeric value you want to
     -- allow for @Number@ types.
-    minValue :: Prelude.Maybe Prelude.Text,
+    minValue :: Core.Maybe Core.Text,
     -- | A string that explains a constraint when the constraint is violated. For
     -- example, without a constraint description, a parameter that has an
     -- allowed pattern of @[A-Za-z0-9]+@ displays the following error message
@@ -50,16 +49,16 @@ data ParameterConstraints = ParameterConstraints'
     -- customized error message:
     --
     -- @Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.@
-    constraintDescription :: Prelude.Maybe Prelude.Text,
+    constraintDescription :: Core.Maybe Core.Text,
     -- | An integer value that determines the largest number of characters you
     -- want to allow for @String@ types.
-    maxLength :: Prelude.Maybe Prelude.Text,
+    maxLength :: Core.Maybe Core.Text,
     -- | A regular expression that represents the patterns that allow for
     -- @String@ types. The pattern must match the entire parameter value
     -- provided.
-    allowedPattern :: Prelude.Maybe Prelude.Text
+    allowedPattern :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ParameterConstraints' with all optional fields omitted.
@@ -103,32 +102,32 @@ newParameterConstraints ::
   ParameterConstraints
 newParameterConstraints =
   ParameterConstraints'
-    { maxValue = Prelude.Nothing,
-      minLength = Prelude.Nothing,
-      allowedValues = Prelude.Nothing,
-      minValue = Prelude.Nothing,
-      constraintDescription = Prelude.Nothing,
-      maxLength = Prelude.Nothing,
-      allowedPattern = Prelude.Nothing
+    { maxValue = Core.Nothing,
+      minLength = Core.Nothing,
+      allowedValues = Core.Nothing,
+      minValue = Core.Nothing,
+      constraintDescription = Core.Nothing,
+      maxLength = Core.Nothing,
+      allowedPattern = Core.Nothing
     }
 
 -- | A numeric value that determines the largest numeric value you want to
 -- allow for @Number@ types.
-parameterConstraints_maxValue :: Lens.Lens' ParameterConstraints (Prelude.Maybe Prelude.Text)
+parameterConstraints_maxValue :: Lens.Lens' ParameterConstraints (Core.Maybe Core.Text)
 parameterConstraints_maxValue = Lens.lens (\ParameterConstraints' {maxValue} -> maxValue) (\s@ParameterConstraints' {} a -> s {maxValue = a} :: ParameterConstraints)
 
 -- | An integer value that determines the smallest number of characters you
 -- want to allow for @String@ types.
-parameterConstraints_minLength :: Lens.Lens' ParameterConstraints (Prelude.Maybe Prelude.Text)
+parameterConstraints_minLength :: Lens.Lens' ParameterConstraints (Core.Maybe Core.Text)
 parameterConstraints_minLength = Lens.lens (\ParameterConstraints' {minLength} -> minLength) (\s@ParameterConstraints' {} a -> s {minLength = a} :: ParameterConstraints)
 
 -- | The values that the administrator has allowed for the parameter.
-parameterConstraints_allowedValues :: Lens.Lens' ParameterConstraints (Prelude.Maybe [Prelude.Text])
-parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedValues} -> allowedValues) (\s@ParameterConstraints' {} a -> s {allowedValues = a} :: ParameterConstraints) Prelude.. Lens.mapping Prelude._Coerce
+parameterConstraints_allowedValues :: Lens.Lens' ParameterConstraints (Core.Maybe [Core.Text])
+parameterConstraints_allowedValues = Lens.lens (\ParameterConstraints' {allowedValues} -> allowedValues) (\s@ParameterConstraints' {} a -> s {allowedValues = a} :: ParameterConstraints) Core.. Lens.mapping Lens._Coerce
 
 -- | A numeric value that determines the smallest numeric value you want to
 -- allow for @Number@ types.
-parameterConstraints_minValue :: Lens.Lens' ParameterConstraints (Prelude.Maybe Prelude.Text)
+parameterConstraints_minValue :: Lens.Lens' ParameterConstraints (Core.Maybe Core.Text)
 parameterConstraints_minValue = Lens.lens (\ParameterConstraints' {minValue} -> minValue) (\s@ParameterConstraints' {} a -> s {minValue = a} :: ParameterConstraints)
 
 -- | A string that explains a constraint when the constraint is violated. For
@@ -143,37 +142,35 @@ parameterConstraints_minValue = Lens.lens (\ParameterConstraints' {minValue} -> 
 -- customized error message:
 --
 -- @Malformed input-Parameter MyParameter must only contain uppercase and lowercase letters and numbers.@
-parameterConstraints_constraintDescription :: Lens.Lens' ParameterConstraints (Prelude.Maybe Prelude.Text)
+parameterConstraints_constraintDescription :: Lens.Lens' ParameterConstraints (Core.Maybe Core.Text)
 parameterConstraints_constraintDescription = Lens.lens (\ParameterConstraints' {constraintDescription} -> constraintDescription) (\s@ParameterConstraints' {} a -> s {constraintDescription = a} :: ParameterConstraints)
 
 -- | An integer value that determines the largest number of characters you
 -- want to allow for @String@ types.
-parameterConstraints_maxLength :: Lens.Lens' ParameterConstraints (Prelude.Maybe Prelude.Text)
+parameterConstraints_maxLength :: Lens.Lens' ParameterConstraints (Core.Maybe Core.Text)
 parameterConstraints_maxLength = Lens.lens (\ParameterConstraints' {maxLength} -> maxLength) (\s@ParameterConstraints' {} a -> s {maxLength = a} :: ParameterConstraints)
 
 -- | A regular expression that represents the patterns that allow for
 -- @String@ types. The pattern must match the entire parameter value
 -- provided.
-parameterConstraints_allowedPattern :: Lens.Lens' ParameterConstraints (Prelude.Maybe Prelude.Text)
+parameterConstraints_allowedPattern :: Lens.Lens' ParameterConstraints (Core.Maybe Core.Text)
 parameterConstraints_allowedPattern = Lens.lens (\ParameterConstraints' {allowedPattern} -> allowedPattern) (\s@ParameterConstraints' {} a -> s {allowedPattern = a} :: ParameterConstraints)
 
-instance Prelude.FromJSON ParameterConstraints where
+instance Core.FromJSON ParameterConstraints where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ParameterConstraints"
       ( \x ->
           ParameterConstraints'
-            Prelude.<$> (x Prelude..:? "MaxValue")
-            Prelude.<*> (x Prelude..:? "MinLength")
-            Prelude.<*> ( x Prelude..:? "AllowedValues"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "MinValue")
-            Prelude.<*> (x Prelude..:? "ConstraintDescription")
-            Prelude.<*> (x Prelude..:? "MaxLength")
-            Prelude.<*> (x Prelude..:? "AllowedPattern")
+            Core.<$> (x Core..:? "MaxValue")
+            Core.<*> (x Core..:? "MinLength")
+            Core.<*> (x Core..:? "AllowedValues" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MinValue")
+            Core.<*> (x Core..:? "ConstraintDescription")
+            Core.<*> (x Core..:? "MaxLength")
+            Core.<*> (x Core..:? "AllowedPattern")
       )
 
-instance Prelude.Hashable ParameterConstraints
+instance Core.Hashable ParameterConstraints
 
-instance Prelude.NFData ParameterConstraints
+instance Core.NFData ParameterConstraints

@@ -482,158 +482,156 @@ import Network.AWS.AutoScaling.Types.SuspendedProcess
 import Network.AWS.AutoScaling.Types.Tag
 import Network.AWS.AutoScaling.Types.TagDescription
 import Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2011-01-01@ of the Amazon Auto Scaling SDK configuration.
-defaultService :: Prelude.Service
+defaultService :: Core.Service
 defaultService =
-  Prelude.Service
-    { Prelude._svcAbbrev = "AutoScaling",
-      Prelude._svcSigner = Sign.v4,
-      Prelude._svcEndpointPrefix = "autoscaling",
-      Prelude._svcSigningName = "autoscaling",
-      Prelude._svcVersion = "2011-01-01",
-      Prelude._svcEndpoint =
-        Prelude.defaultEndpoint defaultService,
-      Prelude._svcTimeout = Prelude.Just 70,
-      Prelude._svcCheck = Prelude.statusSuccess,
-      Prelude._svcError =
-        Prelude.parseXMLError "AutoScaling",
-      Prelude._svcRetry = retry
+  Core.Service
+    { Core._serviceAbbrev = "AutoScaling",
+      Core._serviceSigner = Sign.v4,
+      Core._serviceEndpointPrefix = "autoscaling",
+      Core._serviceSigningName = "autoscaling",
+      Core._serviceVersion = "2011-01-01",
+      Core._serviceEndpoint =
+        Core.defaultEndpoint defaultService,
+      Core._serviceTimeout = Core.Just 70,
+      Core._serviceCheck = Core.statusSuccess,
+      Core._serviceError =
+        Core.parseXMLError "AutoScaling",
+      Core._serviceRetry = retry
     }
   where
     retry =
-      Prelude.Exponential
-        { Prelude._retryBase = 5.0e-2,
-          Prelude._retryGrowth = 2,
-          Prelude._retryAttempts = 5,
-          Prelude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
-      | Lens.has (Prelude.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+      | Lens.has (Core.hasStatus 504) e =
+        Core.Just "gateway_timeout"
       | Lens.has
-          ( Prelude.hasCode
+          ( Core.hasCode
               "ProvisionedThroughputExceededException"
-              Prelude.. Prelude.hasStatus 400
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
-      | Lens.has (Prelude.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
-      | Lens.has (Prelude.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
-      | Lens.has (Prelude.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 503) e =
+        Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 502) e =
+        Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 429) e =
+        Core.Just "too_many_requests"
       | Lens.has
-          ( Prelude.hasCode "RequestThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+        Core.Just "request_throttled_exception"
       | Lens.has
-          ( Prelude.hasCode "ThrottledException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
-      | Lens.has (Prelude.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
-      | Lens.has (Prelude.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 509) e =
+        Core.Just "limit_exceeded"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
       | Lens.has
-          ( Prelude.hasCode "ThrottlingException"
-              Prelude.. Prelude.hasStatus 400
+          ( Core.hasCode "ThrottlingException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+        Core.Just "throttling_exception"
       | Lens.has
-          ( Prelude.hasCode "Throttling"
-              Prelude.. Prelude.hasStatus 400
-          )
+          (Core.hasCode "Throttling" Core.. Core.hasStatus 400)
           e =
-        Prelude.Just "throttling"
-      | Prelude.otherwise = Prelude.Nothing
+        Core.Just "throttling"
+      | Core.otherwise = Core.Nothing
 
 -- | You already have an Auto Scaling group or launch configuration with this
 -- name.
-_AlreadyExistsFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AlreadyExistsFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _AlreadyExistsFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "AlreadyExists"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The operation can\'t be performed because the resource is in use.
-_ResourceInUseFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceInUseFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceInUse"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You have already reached a limit for your Amazon EC2 Auto Scaling
 -- resources (for example, Auto Scaling groups, launch configurations, or
 -- lifecycle hooks). For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html DescribeAccountLimits>
 -- in the /Amazon EC2 Auto Scaling API Reference/.
-_LimitExceededFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _LimitExceededFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "LimitExceeded"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request failed because an active instance refresh operation already
 -- exists for the specified Auto Scaling group.
-_InstanceRefreshInProgressFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InstanceRefreshInProgressFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InstanceRefreshInProgressFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InstanceRefreshInProgress"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The operation can\'t be performed because there are scaling activities
 -- in progress.
-_ScalingActivityInProgressFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ScalingActivityInProgressFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ScalingActivityInProgressFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ScalingActivityInProgress"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | The request failed because an active instance refresh for the specified
 -- Auto Scaling group was not found.
-_ActiveInstanceRefreshNotFoundFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ActiveInstanceRefreshNotFoundFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ActiveInstanceRefreshNotFoundFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ActiveInstanceRefreshNotFound"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400
 
 -- | You already have a pending update to an Amazon EC2 Auto Scaling resource
 -- (for example, an Auto Scaling group, instance, or load balancer).
-_ResourceContentionFault :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceContentionFault :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ResourceContentionFault =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ResourceContention"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The service-linked role is not yet ready for use.
-_ServiceLinkedRoleFailure :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceLinkedRoleFailure :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _ServiceLinkedRoleFailure =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "ServiceLinkedRoleFailure"
-    Prelude.. Prelude.hasStatus 500
+    Core.. Core.hasStatus 500
 
 -- | The @NextToken@ value is not valid.
-_InvalidNextToken :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextToken :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
 _InvalidNextToken =
-  Prelude._MatchServiceError
+  Core._MatchServiceError
     defaultService
     "InvalidNextToken"
-    Prelude.. Prelude.hasStatus 400
+    Core.. Core.hasStatus 400

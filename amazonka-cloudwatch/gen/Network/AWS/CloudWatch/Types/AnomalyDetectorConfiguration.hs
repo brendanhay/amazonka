@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration where
 
 import Network.AWS.CloudWatch.Types.Range
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration specifies details about how the anomaly detection
 -- model is to be trained, including time ranges to exclude from use for
@@ -37,14 +36,14 @@ data AnomalyDetectorConfiguration = AnomalyDetectorConfiguration'
     -- To specify a time zone, use the name of the time zone as specified in
     -- the standard tz database. For more information, see
     -- <https://en.wikipedia.org/wiki/Tz_database tz database>.
-    metricTimezone :: Prelude.Maybe Prelude.Text,
+    metricTimezone :: Core.Maybe Core.Text,
     -- | An array of time ranges to exclude from use when the anomaly detection
     -- model is trained. Use this to make sure that events that could cause
     -- unusual values for the metric, such as deployments, aren\'t used when
     -- CloudWatch creates the model.
-    excludedTimeRanges :: Prelude.Maybe [Range]
+    excludedTimeRanges :: Core.Maybe [Range]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnomalyDetectorConfiguration' with all optional fields omitted.
@@ -71,8 +70,8 @@ newAnomalyDetectorConfiguration ::
 newAnomalyDetectorConfiguration =
   AnomalyDetectorConfiguration'
     { metricTimezone =
-        Prelude.Nothing,
-      excludedTimeRanges = Prelude.Nothing
+        Core.Nothing,
+      excludedTimeRanges = Core.Nothing
     }
 
 -- | The time zone to use for the metric. This is useful to enable the model
@@ -82,38 +81,35 @@ newAnomalyDetectorConfiguration =
 -- To specify a time zone, use the name of the time zone as specified in
 -- the standard tz database. For more information, see
 -- <https://en.wikipedia.org/wiki/Tz_database tz database>.
-anomalyDetectorConfiguration_metricTimezone :: Lens.Lens' AnomalyDetectorConfiguration (Prelude.Maybe Prelude.Text)
+anomalyDetectorConfiguration_metricTimezone :: Lens.Lens' AnomalyDetectorConfiguration (Core.Maybe Core.Text)
 anomalyDetectorConfiguration_metricTimezone = Lens.lens (\AnomalyDetectorConfiguration' {metricTimezone} -> metricTimezone) (\s@AnomalyDetectorConfiguration' {} a -> s {metricTimezone = a} :: AnomalyDetectorConfiguration)
 
 -- | An array of time ranges to exclude from use when the anomaly detection
 -- model is trained. Use this to make sure that events that could cause
 -- unusual values for the metric, such as deployments, aren\'t used when
 -- CloudWatch creates the model.
-anomalyDetectorConfiguration_excludedTimeRanges :: Lens.Lens' AnomalyDetectorConfiguration (Prelude.Maybe [Range])
-anomalyDetectorConfiguration_excludedTimeRanges = Lens.lens (\AnomalyDetectorConfiguration' {excludedTimeRanges} -> excludedTimeRanges) (\s@AnomalyDetectorConfiguration' {} a -> s {excludedTimeRanges = a} :: AnomalyDetectorConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+anomalyDetectorConfiguration_excludedTimeRanges :: Lens.Lens' AnomalyDetectorConfiguration (Core.Maybe [Range])
+anomalyDetectorConfiguration_excludedTimeRanges = Lens.lens (\AnomalyDetectorConfiguration' {excludedTimeRanges} -> excludedTimeRanges) (\s@AnomalyDetectorConfiguration' {} a -> s {excludedTimeRanges = a} :: AnomalyDetectorConfiguration) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML AnomalyDetectorConfiguration where
+instance Core.FromXML AnomalyDetectorConfiguration where
   parseXML x =
     AnomalyDetectorConfiguration'
-      Prelude.<$> (x Prelude..@? "MetricTimezone")
-      Prelude.<*> ( x Prelude..@? "ExcludedTimeRanges"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "MetricTimezone")
+      Core.<*> ( x Core..@? "ExcludedTimeRanges" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance
-  Prelude.Hashable
-    AnomalyDetectorConfiguration
+instance Core.Hashable AnomalyDetectorConfiguration
 
-instance Prelude.NFData AnomalyDetectorConfiguration
+instance Core.NFData AnomalyDetectorConfiguration
 
-instance Prelude.ToQuery AnomalyDetectorConfiguration where
+instance Core.ToQuery AnomalyDetectorConfiguration where
   toQuery AnomalyDetectorConfiguration' {..} =
-    Prelude.mconcat
-      [ "MetricTimezone" Prelude.=: metricTimezone,
+    Core.mconcat
+      [ "MetricTimezone" Core.=: metricTimezone,
         "ExcludedTimeRanges"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> excludedTimeRanges
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> excludedTimeRanges
             )
       ]

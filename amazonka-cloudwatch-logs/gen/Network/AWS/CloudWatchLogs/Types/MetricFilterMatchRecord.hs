@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a matched event.
 --
 -- /See:/ 'newMetricFilterMatchRecord' smart constructor.
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
   { -- | The event number.
-    eventNumber :: Prelude.Maybe Prelude.Integer,
+    eventNumber :: Core.Maybe Core.Integer,
     -- | The raw event data.
-    eventMessage :: Prelude.Maybe Prelude.Text,
+    eventMessage :: Core.Maybe Core.Text,
     -- | The values extracted from the event data by the filter.
-    extractedValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
+    extractedValues :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MetricFilterMatchRecord' with all optional fields omitted.
@@ -54,36 +53,34 @@ newMetricFilterMatchRecord ::
 newMetricFilterMatchRecord =
   MetricFilterMatchRecord'
     { eventNumber =
-        Prelude.Nothing,
-      eventMessage = Prelude.Nothing,
-      extractedValues = Prelude.Nothing
+        Core.Nothing,
+      eventMessage = Core.Nothing,
+      extractedValues = Core.Nothing
     }
 
 -- | The event number.
-metricFilterMatchRecord_eventNumber :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Integer)
+metricFilterMatchRecord_eventNumber :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe Core.Integer)
 metricFilterMatchRecord_eventNumber = Lens.lens (\MetricFilterMatchRecord' {eventNumber} -> eventNumber) (\s@MetricFilterMatchRecord' {} a -> s {eventNumber = a} :: MetricFilterMatchRecord)
 
 -- | The raw event data.
-metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe Prelude.Text)
+metricFilterMatchRecord_eventMessage :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe Core.Text)
 metricFilterMatchRecord_eventMessage = Lens.lens (\MetricFilterMatchRecord' {eventMessage} -> eventMessage) (\s@MetricFilterMatchRecord' {} a -> s {eventMessage = a} :: MetricFilterMatchRecord)
 
 -- | The values extracted from the event data by the filter.
-metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Prelude.. Lens.mapping Prelude._Coerce
+metricFilterMatchRecord_extractedValues :: Lens.Lens' MetricFilterMatchRecord (Core.Maybe (Core.HashMap Core.Text Core.Text))
+metricFilterMatchRecord_extractedValues = Lens.lens (\MetricFilterMatchRecord' {extractedValues} -> extractedValues) (\s@MetricFilterMatchRecord' {} a -> s {extractedValues = a} :: MetricFilterMatchRecord) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON MetricFilterMatchRecord where
+instance Core.FromJSON MetricFilterMatchRecord where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MetricFilterMatchRecord"
       ( \x ->
           MetricFilterMatchRecord'
-            Prelude.<$> (x Prelude..:? "eventNumber")
-            Prelude.<*> (x Prelude..:? "eventMessage")
-            Prelude.<*> ( x Prelude..:? "extractedValues"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "eventNumber")
+            Core.<*> (x Core..:? "eventMessage")
+            Core.<*> (x Core..:? "extractedValues" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable MetricFilterMatchRecord
+instance Core.Hashable MetricFilterMatchRecord
 
-instance Prelude.NFData MetricFilterMatchRecord
+instance Core.NFData MetricFilterMatchRecord

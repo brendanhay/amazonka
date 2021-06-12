@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MachineLearning.Types.RDSDataSpec where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types.RDSDatabase
 import Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The data specification of an Amazon Relational Database Service (Amazon
 -- RDS) @DataSource@.
@@ -116,7 +115,7 @@ data RDSDataSpec = RDSDataSpec'
     --
     --     Datasource for training:
     --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
-    dataRearrangement :: Prelude.Maybe Prelude.Text,
+    dataRearrangement :: Core.Maybe Core.Text,
     -- | A JSON string that represents the schema for an Amazon RDS @DataSource@.
     -- The @DataSchema@ defines the structure of the observation data in the
     -- data file(s) referenced in the @DataSource@.
@@ -150,44 +149,44 @@ data RDSDataSpec = RDSDataSpec'
     -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
     --
     -- \"excludedVariableNames\": [ \"F6\" ] }
-    dataSchema :: Prelude.Maybe Prelude.Text,
+    dataSchema :: Core.Maybe Core.Text,
     -- | The Amazon S3 location of the @DataSchema@.
-    dataSchemaUri :: Prelude.Maybe Prelude.Text,
+    dataSchemaUri :: Core.Maybe Core.Text,
     -- | Describes the @DatabaseName@ and @InstanceIdentifier@ of an Amazon RDS
     -- database.
     databaseInformation :: RDSDatabase,
     -- | The query that is used to retrieve the observation data for the
     -- @DataSource@.
-    selectSqlQuery :: Prelude.Text,
+    selectSqlQuery :: Core.Text,
     -- | The AWS Identity and Access Management (IAM) credentials that are used
     -- connect to the Amazon RDS database.
     databaseCredentials :: RDSDatabaseCredentials,
     -- | The Amazon S3 location for staging Amazon RDS data. The data retrieved
     -- from Amazon RDS using @SelectSqlQuery@ is stored in this location.
-    s3StagingLocation :: Prelude.Text,
+    s3StagingLocation :: Core.Text,
     -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic
     -- Compute Cloud (Amazon EC2) instance to carry out the copy operation from
     -- Amazon RDS to an Amazon S3 task. For more information, see
     -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
     -- for data pipelines.
-    resourceRole :: Prelude.Text,
+    resourceRole :: Core.Text,
     -- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service
     -- to monitor the progress of the copy task from Amazon RDS to Amazon S3.
     -- For more information, see
     -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
     -- for data pipelines.
-    serviceRole :: Prelude.Text,
+    serviceRole :: Core.Text,
     -- | The subnet ID to be used to access a VPC-based RDS DB instance. This
     -- attribute is used by Data Pipeline to carry out the copy task from
     -- Amazon RDS to Amazon S3.
-    subnetId :: Prelude.Text,
+    subnetId :: Core.Text,
     -- | The security group IDs to be used to access a VPC-based RDS DB instance.
     -- Ensure that there are appropriate ingress rules set up to allow access
     -- to the RDS DB instance. This attribute is used by Data Pipeline to carry
     -- out the copy operation from Amazon RDS to an Amazon S3 task.
-    securityGroupIds :: [Prelude.Text]
+    securityGroupIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RDSDataSpec' with all optional fields omitted.
@@ -356,17 +355,17 @@ newRDSDataSpec ::
   -- | 'databaseInformation'
   RDSDatabase ->
   -- | 'selectSqlQuery'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'databaseCredentials'
   RDSDatabaseCredentials ->
   -- | 's3StagingLocation'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resourceRole'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'serviceRole'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'subnetId'
-  Prelude.Text ->
+  Core.Text ->
   RDSDataSpec
 newRDSDataSpec
   pDatabaseInformation_
@@ -377,9 +376,9 @@ newRDSDataSpec
   pServiceRole_
   pSubnetId_ =
     RDSDataSpec'
-      { dataRearrangement = Prelude.Nothing,
-        dataSchema = Prelude.Nothing,
-        dataSchemaUri = Prelude.Nothing,
+      { dataRearrangement = Core.Nothing,
+        dataSchema = Core.Nothing,
+        dataSchemaUri = Core.Nothing,
         databaseInformation = pDatabaseInformation_,
         selectSqlQuery = pSelectSqlQuery_,
         databaseCredentials = pDatabaseCredentials_,
@@ -387,7 +386,7 @@ newRDSDataSpec
         resourceRole = pResourceRole_,
         serviceRole = pServiceRole_,
         subnetId = pSubnetId_,
-        securityGroupIds = Prelude.mempty
+        securityGroupIds = Core.mempty
       }
 
 -- | A JSON string that represents the splitting and rearrangement processing
@@ -476,7 +475,7 @@ newRDSDataSpec
 --
 --     Datasource for training:
 --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
-rDSDataSpec_dataRearrangement :: Lens.Lens' RDSDataSpec (Prelude.Maybe Prelude.Text)
+rDSDataSpec_dataRearrangement :: Lens.Lens' RDSDataSpec (Core.Maybe Core.Text)
 rDSDataSpec_dataRearrangement = Lens.lens (\RDSDataSpec' {dataRearrangement} -> dataRearrangement) (\s@RDSDataSpec' {} a -> s {dataRearrangement = a} :: RDSDataSpec)
 
 -- | A JSON string that represents the schema for an Amazon RDS @DataSource@.
@@ -512,11 +511,11 @@ rDSDataSpec_dataRearrangement = Lens.lens (\RDSDataSpec' {dataRearrangement} -> 
 -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
 --
 -- \"excludedVariableNames\": [ \"F6\" ] }
-rDSDataSpec_dataSchema :: Lens.Lens' RDSDataSpec (Prelude.Maybe Prelude.Text)
+rDSDataSpec_dataSchema :: Lens.Lens' RDSDataSpec (Core.Maybe Core.Text)
 rDSDataSpec_dataSchema = Lens.lens (\RDSDataSpec' {dataSchema} -> dataSchema) (\s@RDSDataSpec' {} a -> s {dataSchema = a} :: RDSDataSpec)
 
 -- | The Amazon S3 location of the @DataSchema@.
-rDSDataSpec_dataSchemaUri :: Lens.Lens' RDSDataSpec (Prelude.Maybe Prelude.Text)
+rDSDataSpec_dataSchemaUri :: Lens.Lens' RDSDataSpec (Core.Maybe Core.Text)
 rDSDataSpec_dataSchemaUri = Lens.lens (\RDSDataSpec' {dataSchemaUri} -> dataSchemaUri) (\s@RDSDataSpec' {} a -> s {dataSchemaUri = a} :: RDSDataSpec)
 
 -- | Describes the @DatabaseName@ and @InstanceIdentifier@ of an Amazon RDS
@@ -526,7 +525,7 @@ rDSDataSpec_databaseInformation = Lens.lens (\RDSDataSpec' {databaseInformation}
 
 -- | The query that is used to retrieve the observation data for the
 -- @DataSource@.
-rDSDataSpec_selectSqlQuery :: Lens.Lens' RDSDataSpec Prelude.Text
+rDSDataSpec_selectSqlQuery :: Lens.Lens' RDSDataSpec Core.Text
 rDSDataSpec_selectSqlQuery = Lens.lens (\RDSDataSpec' {selectSqlQuery} -> selectSqlQuery) (\s@RDSDataSpec' {} a -> s {selectSqlQuery = a} :: RDSDataSpec)
 
 -- | The AWS Identity and Access Management (IAM) credentials that are used
@@ -536,7 +535,7 @@ rDSDataSpec_databaseCredentials = Lens.lens (\RDSDataSpec' {databaseCredentials}
 
 -- | The Amazon S3 location for staging Amazon RDS data. The data retrieved
 -- from Amazon RDS using @SelectSqlQuery@ is stored in this location.
-rDSDataSpec_s3StagingLocation :: Lens.Lens' RDSDataSpec Prelude.Text
+rDSDataSpec_s3StagingLocation :: Lens.Lens' RDSDataSpec Core.Text
 rDSDataSpec_s3StagingLocation = Lens.lens (\RDSDataSpec' {s3StagingLocation} -> s3StagingLocation) (\s@RDSDataSpec' {} a -> s {s3StagingLocation = a} :: RDSDataSpec)
 
 -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic
@@ -544,7 +543,7 @@ rDSDataSpec_s3StagingLocation = Lens.lens (\RDSDataSpec' {s3StagingLocation} -> 
 -- Amazon RDS to an Amazon S3 task. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
-rDSDataSpec_resourceRole :: Lens.Lens' RDSDataSpec Prelude.Text
+rDSDataSpec_resourceRole :: Lens.Lens' RDSDataSpec Core.Text
 rDSDataSpec_resourceRole = Lens.lens (\RDSDataSpec' {resourceRole} -> resourceRole) (\s@RDSDataSpec' {} a -> s {resourceRole = a} :: RDSDataSpec)
 
 -- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service
@@ -552,52 +551,45 @@ rDSDataSpec_resourceRole = Lens.lens (\RDSDataSpec' {resourceRole} -> resourceRo
 -- For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
-rDSDataSpec_serviceRole :: Lens.Lens' RDSDataSpec Prelude.Text
+rDSDataSpec_serviceRole :: Lens.Lens' RDSDataSpec Core.Text
 rDSDataSpec_serviceRole = Lens.lens (\RDSDataSpec' {serviceRole} -> serviceRole) (\s@RDSDataSpec' {} a -> s {serviceRole = a} :: RDSDataSpec)
 
 -- | The subnet ID to be used to access a VPC-based RDS DB instance. This
 -- attribute is used by Data Pipeline to carry out the copy task from
 -- Amazon RDS to Amazon S3.
-rDSDataSpec_subnetId :: Lens.Lens' RDSDataSpec Prelude.Text
+rDSDataSpec_subnetId :: Lens.Lens' RDSDataSpec Core.Text
 rDSDataSpec_subnetId = Lens.lens (\RDSDataSpec' {subnetId} -> subnetId) (\s@RDSDataSpec' {} a -> s {subnetId = a} :: RDSDataSpec)
 
 -- | The security group IDs to be used to access a VPC-based RDS DB instance.
 -- Ensure that there are appropriate ingress rules set up to allow access
 -- to the RDS DB instance. This attribute is used by Data Pipeline to carry
 -- out the copy operation from Amazon RDS to an Amazon S3 task.
-rDSDataSpec_securityGroupIds :: Lens.Lens' RDSDataSpec [Prelude.Text]
-rDSDataSpec_securityGroupIds = Lens.lens (\RDSDataSpec' {securityGroupIds} -> securityGroupIds) (\s@RDSDataSpec' {} a -> s {securityGroupIds = a} :: RDSDataSpec) Prelude.. Prelude._Coerce
+rDSDataSpec_securityGroupIds :: Lens.Lens' RDSDataSpec [Core.Text]
+rDSDataSpec_securityGroupIds = Lens.lens (\RDSDataSpec' {securityGroupIds} -> securityGroupIds) (\s@RDSDataSpec' {} a -> s {securityGroupIds = a} :: RDSDataSpec) Core.. Lens._Coerce
 
-instance Prelude.Hashable RDSDataSpec
+instance Core.Hashable RDSDataSpec
 
-instance Prelude.NFData RDSDataSpec
+instance Core.NFData RDSDataSpec
 
-instance Prelude.ToJSON RDSDataSpec where
+instance Core.ToJSON RDSDataSpec where
   toJSON RDSDataSpec' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DataRearrangement" Prelude..=)
-              Prelude.<$> dataRearrangement,
-            ("DataSchema" Prelude..=) Prelude.<$> dataSchema,
-            ("DataSchemaUri" Prelude..=)
-              Prelude.<$> dataSchemaUri,
-            Prelude.Just
-              ( "DatabaseInformation"
-                  Prelude..= databaseInformation
-              ),
-            Prelude.Just
-              ("SelectSqlQuery" Prelude..= selectSqlQuery),
-            Prelude.Just
-              ( "DatabaseCredentials"
-                  Prelude..= databaseCredentials
-              ),
-            Prelude.Just
-              ("S3StagingLocation" Prelude..= s3StagingLocation),
-            Prelude.Just
-              ("ResourceRole" Prelude..= resourceRole),
-            Prelude.Just ("ServiceRole" Prelude..= serviceRole),
-            Prelude.Just ("SubnetId" Prelude..= subnetId),
-            Prelude.Just
-              ("SecurityGroupIds" Prelude..= securityGroupIds)
+    Core.object
+      ( Core.catMaybes
+          [ ("DataRearrangement" Core..=)
+              Core.<$> dataRearrangement,
+            ("DataSchema" Core..=) Core.<$> dataSchema,
+            ("DataSchemaUri" Core..=) Core.<$> dataSchemaUri,
+            Core.Just
+              ("DatabaseInformation" Core..= databaseInformation),
+            Core.Just ("SelectSqlQuery" Core..= selectSqlQuery),
+            Core.Just
+              ("DatabaseCredentials" Core..= databaseCredentials),
+            Core.Just
+              ("S3StagingLocation" Core..= s3StagingLocation),
+            Core.Just ("ResourceRole" Core..= resourceRole),
+            Core.Just ("ServiceRole" Core..= serviceRole),
+            Core.Just ("SubnetId" Core..= subnetId),
+            Core.Just
+              ("SecurityGroupIds" Core..= securityGroupIds)
           ]
       )

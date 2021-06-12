@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.EncryptionConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.Provider
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The encryption configuration for the cluster.
 --
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data EncryptionConfig = EncryptionConfig'
   { -- | Specifies the resources to be encrypted. The only supported value is
     -- \"secrets\".
-    resources :: Prelude.Maybe [Prelude.Text],
+    resources :: Core.Maybe [Core.Text],
     -- | AWS Key Management Service (AWS KMS) customer master key (CMK). Either
     -- the ARN or the alias can be used.
-    provider :: Prelude.Maybe Provider
+    provider :: Core.Maybe Provider
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EncryptionConfig' with all optional fields omitted.
@@ -54,41 +53,39 @@ newEncryptionConfig ::
   EncryptionConfig
 newEncryptionConfig =
   EncryptionConfig'
-    { resources = Prelude.Nothing,
-      provider = Prelude.Nothing
+    { resources = Core.Nothing,
+      provider = Core.Nothing
     }
 
 -- | Specifies the resources to be encrypted. The only supported value is
 -- \"secrets\".
-encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Prelude.Maybe [Prelude.Text])
-encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Prelude.. Lens.mapping Prelude._Coerce
+encryptionConfig_resources :: Lens.Lens' EncryptionConfig (Core.Maybe [Core.Text])
+encryptionConfig_resources = Lens.lens (\EncryptionConfig' {resources} -> resources) (\s@EncryptionConfig' {} a -> s {resources = a} :: EncryptionConfig) Core.. Lens.mapping Lens._Coerce
 
 -- | AWS Key Management Service (AWS KMS) customer master key (CMK). Either
 -- the ARN or the alias can be used.
-encryptionConfig_provider :: Lens.Lens' EncryptionConfig (Prelude.Maybe Provider)
+encryptionConfig_provider :: Lens.Lens' EncryptionConfig (Core.Maybe Provider)
 encryptionConfig_provider = Lens.lens (\EncryptionConfig' {provider} -> provider) (\s@EncryptionConfig' {} a -> s {provider = a} :: EncryptionConfig)
 
-instance Prelude.FromJSON EncryptionConfig where
+instance Core.FromJSON EncryptionConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EncryptionConfig"
       ( \x ->
           EncryptionConfig'
-            Prelude.<$> ( x Prelude..:? "resources"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "provider")
+            Core.<$> (x Core..:? "resources" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "provider")
       )
 
-instance Prelude.Hashable EncryptionConfig
+instance Core.Hashable EncryptionConfig
 
-instance Prelude.NFData EncryptionConfig
+instance Core.NFData EncryptionConfig
 
-instance Prelude.ToJSON EncryptionConfig where
+instance Core.ToJSON EncryptionConfig where
   toJSON EncryptionConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("resources" Prelude..=) Prelude.<$> resources,
-            ("provider" Prelude..=) Prelude.<$> provider
+    Core.object
+      ( Core.catMaybes
+          [ ("resources" Core..=) Core.<$> resources,
+            ("provider" Core..=) Core.<$> provider
           ]
       )

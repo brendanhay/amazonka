@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IAM.Types.ContextEntry where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types.ContextKeyTypeEnum
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about a condition context key. It includes the name
 -- of the key and specifies the value (or values, if the context key
@@ -37,15 +36,15 @@ data ContextEntry = ContextEntry'
   { -- | The value (or values, if the condition context key supports multiple
     -- values) to provide to the simulation when the key is referenced by a
     -- @Condition@ element in an input policy.
-    contextKeyValues :: Prelude.Maybe [Prelude.Text],
+    contextKeyValues :: Core.Maybe [Core.Text],
     -- | The full name of a condition context key, including the service prefix.
     -- For example, @aws:SourceIp@ or @s3:VersionId@.
-    contextKeyName :: Prelude.Maybe Prelude.Text,
+    contextKeyName :: Core.Maybe Core.Text,
     -- | The data type of the value (or values) specified in the
     -- @ContextKeyValues@ parameter.
-    contextKeyType :: Prelude.Maybe ContextKeyTypeEnum
+    contextKeyType :: Core.Maybe ContextKeyTypeEnum
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContextEntry' with all optional fields omitted.
@@ -68,39 +67,39 @@ newContextEntry ::
   ContextEntry
 newContextEntry =
   ContextEntry'
-    { contextKeyValues = Prelude.Nothing,
-      contextKeyName = Prelude.Nothing,
-      contextKeyType = Prelude.Nothing
+    { contextKeyValues = Core.Nothing,
+      contextKeyName = Core.Nothing,
+      contextKeyType = Core.Nothing
     }
 
 -- | The value (or values, if the condition context key supports multiple
 -- values) to provide to the simulation when the key is referenced by a
 -- @Condition@ element in an input policy.
-contextEntry_contextKeyValues :: Lens.Lens' ContextEntry (Prelude.Maybe [Prelude.Text])
-contextEntry_contextKeyValues = Lens.lens (\ContextEntry' {contextKeyValues} -> contextKeyValues) (\s@ContextEntry' {} a -> s {contextKeyValues = a} :: ContextEntry) Prelude.. Lens.mapping Prelude._Coerce
+contextEntry_contextKeyValues :: Lens.Lens' ContextEntry (Core.Maybe [Core.Text])
+contextEntry_contextKeyValues = Lens.lens (\ContextEntry' {contextKeyValues} -> contextKeyValues) (\s@ContextEntry' {} a -> s {contextKeyValues = a} :: ContextEntry) Core.. Lens.mapping Lens._Coerce
 
 -- | The full name of a condition context key, including the service prefix.
 -- For example, @aws:SourceIp@ or @s3:VersionId@.
-contextEntry_contextKeyName :: Lens.Lens' ContextEntry (Prelude.Maybe Prelude.Text)
+contextEntry_contextKeyName :: Lens.Lens' ContextEntry (Core.Maybe Core.Text)
 contextEntry_contextKeyName = Lens.lens (\ContextEntry' {contextKeyName} -> contextKeyName) (\s@ContextEntry' {} a -> s {contextKeyName = a} :: ContextEntry)
 
 -- | The data type of the value (or values) specified in the
 -- @ContextKeyValues@ parameter.
-contextEntry_contextKeyType :: Lens.Lens' ContextEntry (Prelude.Maybe ContextKeyTypeEnum)
+contextEntry_contextKeyType :: Lens.Lens' ContextEntry (Core.Maybe ContextKeyTypeEnum)
 contextEntry_contextKeyType = Lens.lens (\ContextEntry' {contextKeyType} -> contextKeyType) (\s@ContextEntry' {} a -> s {contextKeyType = a} :: ContextEntry)
 
-instance Prelude.Hashable ContextEntry
+instance Core.Hashable ContextEntry
 
-instance Prelude.NFData ContextEntry
+instance Core.NFData ContextEntry
 
-instance Prelude.ToQuery ContextEntry where
+instance Core.ToQuery ContextEntry where
   toQuery ContextEntry' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "ContextKeyValues"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> contextKeyValues
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> contextKeyValues
             ),
-        "ContextKeyName" Prelude.=: contextKeyName,
-        "ContextKeyType" Prelude.=: contextKeyType
+        "ContextKeyName" Core.=: contextKeyName,
+        "ContextKeyType" Core.=: contextKeyType
       ]

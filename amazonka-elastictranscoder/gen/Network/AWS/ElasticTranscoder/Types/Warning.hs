@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.Warning where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -36,11 +35,11 @@ data Warning = Warning'
     -- pipeline.
     --
     -- AWS KMS keys must be in the same region as the pipeline.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The code of the cross-regional warning.
-    code :: Prelude.Maybe Prelude.Text
+    code :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Warning' with all optional fields omitted.
@@ -60,31 +59,30 @@ newWarning ::
   Warning
 newWarning =
   Warning'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | The message explaining what resources are in a different region from the
 -- pipeline.
 --
 -- AWS KMS keys must be in the same region as the pipeline.
-warning_message :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
+warning_message :: Lens.Lens' Warning (Core.Maybe Core.Text)
 warning_message = Lens.lens (\Warning' {message} -> message) (\s@Warning' {} a -> s {message = a} :: Warning)
 
 -- | The code of the cross-regional warning.
-warning_code :: Lens.Lens' Warning (Prelude.Maybe Prelude.Text)
+warning_code :: Lens.Lens' Warning (Core.Maybe Core.Text)
 warning_code = Lens.lens (\Warning' {code} -> code) (\s@Warning' {} a -> s {code = a} :: Warning)
 
-instance Prelude.FromJSON Warning where
+instance Core.FromJSON Warning where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Warning"
       ( \x ->
           Warning'
-            Prelude.<$> (x Prelude..:? "Message")
-            Prelude.<*> (x Prelude..:? "Code")
+            Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "Code")
       )
 
-instance Prelude.Hashable Warning
+instance Core.Hashable Warning
 
-instance Prelude.NFData Warning
+instance Core.NFData Warning

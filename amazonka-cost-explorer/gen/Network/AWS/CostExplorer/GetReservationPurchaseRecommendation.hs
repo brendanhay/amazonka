@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -70,44 +69,44 @@ module Network.AWS.CostExplorer.GetReservationPurchaseRecommendation
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetReservationPurchaseRecommendation' smart constructor.
 data GetReservationPurchaseRecommendation = GetReservationPurchaseRecommendation'
   { -- | The account ID that is associated with the recommendation.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | The reservation purchase option that you want recommendations for.
-    paymentOption :: Prelude.Maybe PaymentOption,
+    paymentOption :: Core.Maybe PaymentOption,
     -- | The number of recommendations that you want returned in a single
     -- response object.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The account scope that you want your recommendations for. Amazon Web
     -- Services calculates recommendations including the management account and
     -- member accounts if the value is set to @PAYER@. If the value is
     -- @LINKED@, recommendations are calculated for individual member accounts
     -- only.
-    accountScope :: Prelude.Maybe AccountScope,
+    accountScope :: Core.Maybe AccountScope,
     -- | The hardware specifications for the service instances that you want
     -- recommendations for, such as standard or convertible Amazon EC2
     -- instances.
-    serviceSpecification :: Prelude.Maybe ServiceSpecification,
+    serviceSpecification :: Core.Maybe ServiceSpecification,
     -- | The reservation term that you want recommendations for.
-    termInYears :: Prelude.Maybe TermInYears,
+    termInYears :: Core.Maybe TermInYears,
     -- | The pagination token that indicates the next set of results that you
     -- want to retrieve.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The number of previous days that you want AWS to consider when it
     -- calculates your recommendations.
-    lookbackPeriodInDays :: Prelude.Maybe LookbackPeriodInDays,
-    filter' :: Prelude.Maybe Expression,
+    lookbackPeriodInDays :: Core.Maybe LookbackPeriodInDays,
+    filter' :: Core.Maybe Expression,
     -- | The specific service that you want recommendations for.
-    service :: Prelude.Text
+    service :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetReservationPurchaseRecommendation' with all optional fields omitted.
@@ -147,36 +146,34 @@ data GetReservationPurchaseRecommendation = GetReservationPurchaseRecommendation
 -- 'service', 'getReservationPurchaseRecommendation_service' - The specific service that you want recommendations for.
 newGetReservationPurchaseRecommendation ::
   -- | 'service'
-  Prelude.Text ->
+  Core.Text ->
   GetReservationPurchaseRecommendation
 newGetReservationPurchaseRecommendation pService_ =
   GetReservationPurchaseRecommendation'
     { accountId =
-        Prelude.Nothing,
-      paymentOption = Prelude.Nothing,
-      pageSize = Prelude.Nothing,
-      accountScope = Prelude.Nothing,
-      serviceSpecification =
-        Prelude.Nothing,
-      termInYears = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
-      lookbackPeriodInDays =
-        Prelude.Nothing,
-      filter' = Prelude.Nothing,
+        Core.Nothing,
+      paymentOption = Core.Nothing,
+      pageSize = Core.Nothing,
+      accountScope = Core.Nothing,
+      serviceSpecification = Core.Nothing,
+      termInYears = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      lookbackPeriodInDays = Core.Nothing,
+      filter' = Core.Nothing,
       service = pService_
     }
 
 -- | The account ID that is associated with the recommendation.
-getReservationPurchaseRecommendation_accountId :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe Prelude.Text)
+getReservationPurchaseRecommendation_accountId :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Core.Text)
 getReservationPurchaseRecommendation_accountId = Lens.lens (\GetReservationPurchaseRecommendation' {accountId} -> accountId) (\s@GetReservationPurchaseRecommendation' {} a -> s {accountId = a} :: GetReservationPurchaseRecommendation)
 
 -- | The reservation purchase option that you want recommendations for.
-getReservationPurchaseRecommendation_paymentOption :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe PaymentOption)
+getReservationPurchaseRecommendation_paymentOption :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe PaymentOption)
 getReservationPurchaseRecommendation_paymentOption = Lens.lens (\GetReservationPurchaseRecommendation' {paymentOption} -> paymentOption) (\s@GetReservationPurchaseRecommendation' {} a -> s {paymentOption = a} :: GetReservationPurchaseRecommendation)
 
 -- | The number of recommendations that you want returned in a single
 -- response object.
-getReservationPurchaseRecommendation_pageSize :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe Prelude.Natural)
+getReservationPurchaseRecommendation_pageSize :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Core.Natural)
 getReservationPurchaseRecommendation_pageSize = Lens.lens (\GetReservationPurchaseRecommendation' {pageSize} -> pageSize) (\s@GetReservationPurchaseRecommendation' {} a -> s {pageSize = a} :: GetReservationPurchaseRecommendation)
 
 -- | The account scope that you want your recommendations for. Amazon Web
@@ -184,132 +181,126 @@ getReservationPurchaseRecommendation_pageSize = Lens.lens (\GetReservationPurcha
 -- member accounts if the value is set to @PAYER@. If the value is
 -- @LINKED@, recommendations are calculated for individual member accounts
 -- only.
-getReservationPurchaseRecommendation_accountScope :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe AccountScope)
+getReservationPurchaseRecommendation_accountScope :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe AccountScope)
 getReservationPurchaseRecommendation_accountScope = Lens.lens (\GetReservationPurchaseRecommendation' {accountScope} -> accountScope) (\s@GetReservationPurchaseRecommendation' {} a -> s {accountScope = a} :: GetReservationPurchaseRecommendation)
 
 -- | The hardware specifications for the service instances that you want
 -- recommendations for, such as standard or convertible Amazon EC2
 -- instances.
-getReservationPurchaseRecommendation_serviceSpecification :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe ServiceSpecification)
+getReservationPurchaseRecommendation_serviceSpecification :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe ServiceSpecification)
 getReservationPurchaseRecommendation_serviceSpecification = Lens.lens (\GetReservationPurchaseRecommendation' {serviceSpecification} -> serviceSpecification) (\s@GetReservationPurchaseRecommendation' {} a -> s {serviceSpecification = a} :: GetReservationPurchaseRecommendation)
 
 -- | The reservation term that you want recommendations for.
-getReservationPurchaseRecommendation_termInYears :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe TermInYears)
+getReservationPurchaseRecommendation_termInYears :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe TermInYears)
 getReservationPurchaseRecommendation_termInYears = Lens.lens (\GetReservationPurchaseRecommendation' {termInYears} -> termInYears) (\s@GetReservationPurchaseRecommendation' {} a -> s {termInYears = a} :: GetReservationPurchaseRecommendation)
 
 -- | The pagination token that indicates the next set of results that you
 -- want to retrieve.
-getReservationPurchaseRecommendation_nextPageToken :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe Prelude.Text)
+getReservationPurchaseRecommendation_nextPageToken :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Core.Text)
 getReservationPurchaseRecommendation_nextPageToken = Lens.lens (\GetReservationPurchaseRecommendation' {nextPageToken} -> nextPageToken) (\s@GetReservationPurchaseRecommendation' {} a -> s {nextPageToken = a} :: GetReservationPurchaseRecommendation)
 
 -- | The number of previous days that you want AWS to consider when it
 -- calculates your recommendations.
-getReservationPurchaseRecommendation_lookbackPeriodInDays :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe LookbackPeriodInDays)
+getReservationPurchaseRecommendation_lookbackPeriodInDays :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe LookbackPeriodInDays)
 getReservationPurchaseRecommendation_lookbackPeriodInDays = Lens.lens (\GetReservationPurchaseRecommendation' {lookbackPeriodInDays} -> lookbackPeriodInDays) (\s@GetReservationPurchaseRecommendation' {} a -> s {lookbackPeriodInDays = a} :: GetReservationPurchaseRecommendation)
 
 -- | Undocumented member.
-getReservationPurchaseRecommendation_filter :: Lens.Lens' GetReservationPurchaseRecommendation (Prelude.Maybe Expression)
+getReservationPurchaseRecommendation_filter :: Lens.Lens' GetReservationPurchaseRecommendation (Core.Maybe Expression)
 getReservationPurchaseRecommendation_filter = Lens.lens (\GetReservationPurchaseRecommendation' {filter'} -> filter') (\s@GetReservationPurchaseRecommendation' {} a -> s {filter' = a} :: GetReservationPurchaseRecommendation)
 
 -- | The specific service that you want recommendations for.
-getReservationPurchaseRecommendation_service :: Lens.Lens' GetReservationPurchaseRecommendation Prelude.Text
+getReservationPurchaseRecommendation_service :: Lens.Lens' GetReservationPurchaseRecommendation Core.Text
 getReservationPurchaseRecommendation_service = Lens.lens (\GetReservationPurchaseRecommendation' {service} -> service) (\s@GetReservationPurchaseRecommendation' {} a -> s {service = a} :: GetReservationPurchaseRecommendation)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetReservationPurchaseRecommendation
   where
   type
-    Rs GetReservationPurchaseRecommendation =
+    AWSResponse GetReservationPurchaseRecommendation =
       GetReservationPurchaseRecommendationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetReservationPurchaseRecommendationResponse'
-            Prelude.<$> (x Prelude..?> "Metadata")
-              Prelude.<*> ( x Prelude..?> "Recommendations"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Prelude..?> "NextPageToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Metadata")
+              Core.<*> (x Core..?> "Recommendations" Core..!@ Core.mempty)
+              Core.<*> (x Core..?> "NextPageToken")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetReservationPurchaseRecommendation
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetReservationPurchaseRecommendation
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetReservationPurchaseRecommendation
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSInsightsIndexService.GetReservationPurchaseRecommendation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSInsightsIndexService.GetReservationPurchaseRecommendation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     GetReservationPurchaseRecommendation
   where
   toJSON GetReservationPurchaseRecommendation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("AccountId" Prelude..=) Prelude.<$> accountId,
-            ("PaymentOption" Prelude..=)
-              Prelude.<$> paymentOption,
-            ("PageSize" Prelude..=) Prelude.<$> pageSize,
-            ("AccountScope" Prelude..=) Prelude.<$> accountScope,
-            ("ServiceSpecification" Prelude..=)
-              Prelude.<$> serviceSpecification,
-            ("TermInYears" Prelude..=) Prelude.<$> termInYears,
-            ("NextPageToken" Prelude..=)
-              Prelude.<$> nextPageToken,
-            ("LookbackPeriodInDays" Prelude..=)
-              Prelude.<$> lookbackPeriodInDays,
-            ("Filter" Prelude..=) Prelude.<$> filter',
-            Prelude.Just ("Service" Prelude..= service)
+    Core.object
+      ( Core.catMaybes
+          [ ("AccountId" Core..=) Core.<$> accountId,
+            ("PaymentOption" Core..=) Core.<$> paymentOption,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("AccountScope" Core..=) Core.<$> accountScope,
+            ("ServiceSpecification" Core..=)
+              Core.<$> serviceSpecification,
+            ("TermInYears" Core..=) Core.<$> termInYears,
+            ("NextPageToken" Core..=) Core.<$> nextPageToken,
+            ("LookbackPeriodInDays" Core..=)
+              Core.<$> lookbackPeriodInDays,
+            ("Filter" Core..=) Core.<$> filter',
+            Core.Just ("Service" Core..= service)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     GetReservationPurchaseRecommendation
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetReservationPurchaseRecommendation
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetReservationPurchaseRecommendationResponse' smart constructor.
 data GetReservationPurchaseRecommendationResponse = GetReservationPurchaseRecommendationResponse'
   { -- | Information about this specific recommendation call, such as the time
     -- stamp for when Cost Explorer generated this recommendation.
-    metadata :: Prelude.Maybe ReservationPurchaseRecommendationMetadata,
+    metadata :: Core.Maybe ReservationPurchaseRecommendationMetadata,
     -- | Recommendations for reservations to purchase.
-    recommendations :: Prelude.Maybe [ReservationPurchaseRecommendation],
+    recommendations :: Core.Maybe [ReservationPurchaseRecommendation],
     -- | The pagination token for the next set of retrievable results.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetReservationPurchaseRecommendationResponse' with all optional fields omitted.
@@ -329,37 +320,36 @@ data GetReservationPurchaseRecommendationResponse = GetReservationPurchaseRecomm
 -- 'httpStatus', 'getReservationPurchaseRecommendationResponse_httpStatus' - The response's http status code.
 newGetReservationPurchaseRecommendationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetReservationPurchaseRecommendationResponse
 newGetReservationPurchaseRecommendationResponse
   pHttpStatus_ =
     GetReservationPurchaseRecommendationResponse'
       { metadata =
-          Prelude.Nothing,
+          Core.Nothing,
         recommendations =
-          Prelude.Nothing,
-        nextPageToken =
-          Prelude.Nothing,
+          Core.Nothing,
+        nextPageToken = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about this specific recommendation call, such as the time
 -- stamp for when Cost Explorer generated this recommendation.
-getReservationPurchaseRecommendationResponse_metadata :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Prelude.Maybe ReservationPurchaseRecommendationMetadata)
+getReservationPurchaseRecommendationResponse_metadata :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Core.Maybe ReservationPurchaseRecommendationMetadata)
 getReservationPurchaseRecommendationResponse_metadata = Lens.lens (\GetReservationPurchaseRecommendationResponse' {metadata} -> metadata) (\s@GetReservationPurchaseRecommendationResponse' {} a -> s {metadata = a} :: GetReservationPurchaseRecommendationResponse)
 
 -- | Recommendations for reservations to purchase.
-getReservationPurchaseRecommendationResponse_recommendations :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Prelude.Maybe [ReservationPurchaseRecommendation])
-getReservationPurchaseRecommendationResponse_recommendations = Lens.lens (\GetReservationPurchaseRecommendationResponse' {recommendations} -> recommendations) (\s@GetReservationPurchaseRecommendationResponse' {} a -> s {recommendations = a} :: GetReservationPurchaseRecommendationResponse) Prelude.. Lens.mapping Prelude._Coerce
+getReservationPurchaseRecommendationResponse_recommendations :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Core.Maybe [ReservationPurchaseRecommendation])
+getReservationPurchaseRecommendationResponse_recommendations = Lens.lens (\GetReservationPurchaseRecommendationResponse' {recommendations} -> recommendations) (\s@GetReservationPurchaseRecommendationResponse' {} a -> s {recommendations = a} :: GetReservationPurchaseRecommendationResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The pagination token for the next set of retrievable results.
-getReservationPurchaseRecommendationResponse_nextPageToken :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Prelude.Maybe Prelude.Text)
+getReservationPurchaseRecommendationResponse_nextPageToken :: Lens.Lens' GetReservationPurchaseRecommendationResponse (Core.Maybe Core.Text)
 getReservationPurchaseRecommendationResponse_nextPageToken = Lens.lens (\GetReservationPurchaseRecommendationResponse' {nextPageToken} -> nextPageToken) (\s@GetReservationPurchaseRecommendationResponse' {} a -> s {nextPageToken = a} :: GetReservationPurchaseRecommendationResponse)
 
 -- | The response's http status code.
-getReservationPurchaseRecommendationResponse_httpStatus :: Lens.Lens' GetReservationPurchaseRecommendationResponse Prelude.Int
+getReservationPurchaseRecommendationResponse_httpStatus :: Lens.Lens' GetReservationPurchaseRecommendationResponse Core.Int
 getReservationPurchaseRecommendationResponse_httpStatus = Lens.lens (\GetReservationPurchaseRecommendationResponse' {httpStatus} -> httpStatus) (\s@GetReservationPurchaseRecommendationResponse' {} a -> s {httpStatus = a} :: GetReservationPurchaseRecommendationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetReservationPurchaseRecommendationResponse

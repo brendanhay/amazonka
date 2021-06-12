@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.CodeCommit.GetBlob
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,11 +52,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetBlob' smart constructor.
 data GetBlob = GetBlob'
   { -- | The name of the repository that contains the blob.
-    repositoryName :: Prelude.Text,
+    repositoryName :: Core.Text,
     -- | The ID of the blob, which is its SHA-1 pointer.
-    blobId :: Prelude.Text
+    blobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBlob' with all optional fields omitted.
@@ -72,9 +71,9 @@ data GetBlob = GetBlob'
 -- 'blobId', 'getBlob_blobId' - The ID of the blob, which is its SHA-1 pointer.
 newGetBlob ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'blobId'
-  Prelude.Text ->
+  Core.Text ->
   GetBlob
 newGetBlob pRepositoryName_ pBlobId_ =
   GetBlob'
@@ -83,69 +82,64 @@ newGetBlob pRepositoryName_ pBlobId_ =
     }
 
 -- | The name of the repository that contains the blob.
-getBlob_repositoryName :: Lens.Lens' GetBlob Prelude.Text
+getBlob_repositoryName :: Lens.Lens' GetBlob Core.Text
 getBlob_repositoryName = Lens.lens (\GetBlob' {repositoryName} -> repositoryName) (\s@GetBlob' {} a -> s {repositoryName = a} :: GetBlob)
 
 -- | The ID of the blob, which is its SHA-1 pointer.
-getBlob_blobId :: Lens.Lens' GetBlob Prelude.Text
+getBlob_blobId :: Lens.Lens' GetBlob Core.Text
 getBlob_blobId = Lens.lens (\GetBlob' {blobId} -> blobId) (\s@GetBlob' {} a -> s {blobId = a} :: GetBlob)
 
-instance Prelude.AWSRequest GetBlob where
-  type Rs GetBlob = GetBlobResponse
+instance Core.AWSRequest GetBlob where
+  type AWSResponse GetBlob = GetBlobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetBlobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "content")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "content")
       )
 
-instance Prelude.Hashable GetBlob
+instance Core.Hashable GetBlob
 
-instance Prelude.NFData GetBlob
+instance Core.NFData GetBlob
 
-instance Prelude.ToHeaders GetBlob where
+instance Core.ToHeaders GetBlob where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.GetBlob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("CodeCommit_20150413.GetBlob" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetBlob where
+instance Core.ToJSON GetBlob where
   toJSON GetBlob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("repositoryName" Prelude..= repositoryName),
-            Prelude.Just ("blobId" Prelude..= blobId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("blobId" Core..= blobId)
           ]
       )
 
-instance Prelude.ToPath GetBlob where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetBlob where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetBlob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetBlob where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a get blob operation.
 --
 -- /See:/ 'newGetBlobResponse' smart constructor.
 data GetBlobResponse = GetBlobResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The content of the blob, usually a file.
-    content :: Prelude.Base64
+    content :: Core.Base64
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetBlobResponse' with all optional fields omitted.
@@ -164,18 +158,18 @@ data GetBlobResponse = GetBlobResponse'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 newGetBlobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'content'
-  Prelude.ByteString ->
+  Core.ByteString ->
   GetBlobResponse
 newGetBlobResponse pHttpStatus_ pContent_ =
   GetBlobResponse'
     { httpStatus = pHttpStatus_,
-      content = Prelude._Base64 Lens.# pContent_
+      content = Core._Base64 Lens.# pContent_
     }
 
 -- | The response's http status code.
-getBlobResponse_httpStatus :: Lens.Lens' GetBlobResponse Prelude.Int
+getBlobResponse_httpStatus :: Lens.Lens' GetBlobResponse Core.Int
 getBlobResponse_httpStatus = Lens.lens (\GetBlobResponse' {httpStatus} -> httpStatus) (\s@GetBlobResponse' {} a -> s {httpStatus = a} :: GetBlobResponse)
 
 -- | The content of the blob, usually a file.--
@@ -183,7 +177,7 @@ getBlobResponse_httpStatus = Lens.lens (\GetBlobResponse' {httpStatus} -> httpSt
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-getBlobResponse_content :: Lens.Lens' GetBlobResponse Prelude.ByteString
-getBlobResponse_content = Lens.lens (\GetBlobResponse' {content} -> content) (\s@GetBlobResponse' {} a -> s {content = a} :: GetBlobResponse) Prelude.. Prelude._Base64
+getBlobResponse_content :: Lens.Lens' GetBlobResponse Core.ByteString
+getBlobResponse_content = Lens.lens (\GetBlobResponse' {content} -> content) (\s@GetBlobResponse' {} a -> s {content = a} :: GetBlobResponse) Core.. Core._Base64
 
-instance Prelude.NFData GetBlobResponse
+instance Core.NFData GetBlobResponse

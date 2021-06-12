@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.Athena.Types.ResultSet where
 
 import Network.AWS.Athena.Types.ResultSetMetadata
 import Network.AWS.Athena.Types.Row
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata and rows that comprise a query result set. The metadata
 -- describes the column structure and data types. To return a @ResultSet@
@@ -32,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResultSet' smart constructor.
 data ResultSet = ResultSet'
   { -- | The rows in the table.
-    rows :: Prelude.Maybe [Row],
+    rows :: Core.Maybe [Row],
     -- | The metadata that describes the column structure and data types of a
     -- table of query results.
-    resultSetMetadata :: Prelude.Maybe ResultSetMetadata
+    resultSetMetadata :: Core.Maybe ResultSetMetadata
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResultSet' with all optional fields omitted.
@@ -55,29 +54,29 @@ newResultSet ::
   ResultSet
 newResultSet =
   ResultSet'
-    { rows = Prelude.Nothing,
-      resultSetMetadata = Prelude.Nothing
+    { rows = Core.Nothing,
+      resultSetMetadata = Core.Nothing
     }
 
 -- | The rows in the table.
-resultSet_rows :: Lens.Lens' ResultSet (Prelude.Maybe [Row])
-resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Prelude.. Lens.mapping Prelude._Coerce
+resultSet_rows :: Lens.Lens' ResultSet (Core.Maybe [Row])
+resultSet_rows = Lens.lens (\ResultSet' {rows} -> rows) (\s@ResultSet' {} a -> s {rows = a} :: ResultSet) Core.. Lens.mapping Lens._Coerce
 
 -- | The metadata that describes the column structure and data types of a
 -- table of query results.
-resultSet_resultSetMetadata :: Lens.Lens' ResultSet (Prelude.Maybe ResultSetMetadata)
+resultSet_resultSetMetadata :: Lens.Lens' ResultSet (Core.Maybe ResultSetMetadata)
 resultSet_resultSetMetadata = Lens.lens (\ResultSet' {resultSetMetadata} -> resultSetMetadata) (\s@ResultSet' {} a -> s {resultSetMetadata = a} :: ResultSet)
 
-instance Prelude.FromJSON ResultSet where
+instance Core.FromJSON ResultSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResultSet"
       ( \x ->
           ResultSet'
-            Prelude.<$> (x Prelude..:? "Rows" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "ResultSetMetadata")
+            Core.<$> (x Core..:? "Rows" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ResultSetMetadata")
       )
 
-instance Prelude.Hashable ResultSet
+instance Core.Hashable ResultSet
 
-instance Prelude.NFData ResultSet
+instance Core.NFData ResultSet

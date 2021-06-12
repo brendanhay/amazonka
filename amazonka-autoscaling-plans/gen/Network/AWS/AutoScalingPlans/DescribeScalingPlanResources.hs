@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,26 +46,25 @@ module Network.AWS.AutoScalingPlans.DescribeScalingPlanResources
 where
 
 import Network.AWS.AutoScalingPlans.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeScalingPlanResources' smart constructor.
 data DescribeScalingPlanResources = DescribeScalingPlanResources'
   { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of scalable resources to return. The value must be
     -- between 1 and 50. The default value is 50.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | The name of the scaling plan.
-    scalingPlanName :: Prelude.Text,
+    scalingPlanName :: Core.Text,
     -- | The version number of the scaling plan. Currently, the only valid value
     -- is @1@.
-    scalingPlanVersion :: Prelude.Integer
+    scalingPlanVersion :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingPlanResources' with all optional fields omitted.
@@ -87,136 +85,124 @@ data DescribeScalingPlanResources = DescribeScalingPlanResources'
 -- is @1@.
 newDescribeScalingPlanResources ::
   -- | 'scalingPlanName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalingPlanVersion'
-  Prelude.Integer ->
+  Core.Integer ->
   DescribeScalingPlanResources
 newDescribeScalingPlanResources
   pScalingPlanName_
   pScalingPlanVersion_ =
     DescribeScalingPlanResources'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_
       }
 
 -- | The token for the next set of results.
-describeScalingPlanResources_nextToken :: Lens.Lens' DescribeScalingPlanResources (Prelude.Maybe Prelude.Text)
+describeScalingPlanResources_nextToken :: Lens.Lens' DescribeScalingPlanResources (Core.Maybe Core.Text)
 describeScalingPlanResources_nextToken = Lens.lens (\DescribeScalingPlanResources' {nextToken} -> nextToken) (\s@DescribeScalingPlanResources' {} a -> s {nextToken = a} :: DescribeScalingPlanResources)
 
 -- | The maximum number of scalable resources to return. The value must be
 -- between 1 and 50. The default value is 50.
-describeScalingPlanResources_maxResults :: Lens.Lens' DescribeScalingPlanResources (Prelude.Maybe Prelude.Int)
+describeScalingPlanResources_maxResults :: Lens.Lens' DescribeScalingPlanResources (Core.Maybe Core.Int)
 describeScalingPlanResources_maxResults = Lens.lens (\DescribeScalingPlanResources' {maxResults} -> maxResults) (\s@DescribeScalingPlanResources' {} a -> s {maxResults = a} :: DescribeScalingPlanResources)
 
 -- | The name of the scaling plan.
-describeScalingPlanResources_scalingPlanName :: Lens.Lens' DescribeScalingPlanResources Prelude.Text
+describeScalingPlanResources_scalingPlanName :: Lens.Lens' DescribeScalingPlanResources Core.Text
 describeScalingPlanResources_scalingPlanName = Lens.lens (\DescribeScalingPlanResources' {scalingPlanName} -> scalingPlanName) (\s@DescribeScalingPlanResources' {} a -> s {scalingPlanName = a} :: DescribeScalingPlanResources)
 
 -- | The version number of the scaling plan. Currently, the only valid value
 -- is @1@.
-describeScalingPlanResources_scalingPlanVersion :: Lens.Lens' DescribeScalingPlanResources Prelude.Integer
+describeScalingPlanResources_scalingPlanVersion :: Lens.Lens' DescribeScalingPlanResources Core.Integer
 describeScalingPlanResources_scalingPlanVersion = Lens.lens (\DescribeScalingPlanResources' {scalingPlanVersion} -> scalingPlanVersion) (\s@DescribeScalingPlanResources' {} a -> s {scalingPlanVersion = a} :: DescribeScalingPlanResources)
 
-instance Pager.AWSPager DescribeScalingPlanResources where
+instance Core.AWSPager DescribeScalingPlanResources where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeScalingPlanResourcesResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeScalingPlanResourcesResponse_scalingPlanResources
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeScalingPlanResources_nextToken
           Lens..~ rs
           Lens.^? describeScalingPlanResourcesResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    DescribeScalingPlanResources
-  where
+instance Core.AWSRequest DescribeScalingPlanResources where
   type
-    Rs DescribeScalingPlanResources =
+    AWSResponse DescribeScalingPlanResources =
       DescribeScalingPlanResourcesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeScalingPlanResourcesResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ScalingPlanResources"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> ( x Core..?> "ScalingPlanResources"
+                         Core..!@ Core.mempty
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    DescribeScalingPlanResources
+instance Core.Hashable DescribeScalingPlanResources
 
-instance Prelude.NFData DescribeScalingPlanResources
+instance Core.NFData DescribeScalingPlanResources
 
-instance
-  Prelude.ToHeaders
-    DescribeScalingPlanResources
-  where
+instance Core.ToHeaders DescribeScalingPlanResources where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeScalingPlanResources where
+instance Core.ToJSON DescribeScalingPlanResources where
   toJSON DescribeScalingPlanResources' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("ScalingPlanName" Prelude..= scalingPlanName),
-            Prelude.Just
-              ( "ScalingPlanVersion"
-                  Prelude..= scalingPlanVersion
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just
+              ("ScalingPlanName" Core..= scalingPlanName),
+            Core.Just
+              ("ScalingPlanVersion" Core..= scalingPlanVersion)
           ]
       )
 
-instance Prelude.ToPath DescribeScalingPlanResources where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeScalingPlanResources where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeScalingPlanResources where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeScalingPlanResources where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeScalingPlanResourcesResponse' smart constructor.
 data DescribeScalingPlanResourcesResponse = DescribeScalingPlanResourcesResponse'
   { -- | The token required to get the next set of results. This value is @null@
     -- if there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Information about the scalable resources.
-    scalingPlanResources :: Prelude.Maybe [ScalingPlanResource],
+    scalingPlanResources :: Core.Maybe [ScalingPlanResource],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeScalingPlanResourcesResponse' with all optional fields omitted.
@@ -234,30 +220,29 @@ data DescribeScalingPlanResourcesResponse = DescribeScalingPlanResourcesResponse
 -- 'httpStatus', 'describeScalingPlanResourcesResponse_httpStatus' - The response's http status code.
 newDescribeScalingPlanResourcesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeScalingPlanResourcesResponse
 newDescribeScalingPlanResourcesResponse pHttpStatus_ =
   DescribeScalingPlanResourcesResponse'
     { nextToken =
-        Prelude.Nothing,
-      scalingPlanResources =
-        Prelude.Nothing,
+        Core.Nothing,
+      scalingPlanResources = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token required to get the next set of results. This value is @null@
 -- if there are no more results to return.
-describeScalingPlanResourcesResponse_nextToken :: Lens.Lens' DescribeScalingPlanResourcesResponse (Prelude.Maybe Prelude.Text)
+describeScalingPlanResourcesResponse_nextToken :: Lens.Lens' DescribeScalingPlanResourcesResponse (Core.Maybe Core.Text)
 describeScalingPlanResourcesResponse_nextToken = Lens.lens (\DescribeScalingPlanResourcesResponse' {nextToken} -> nextToken) (\s@DescribeScalingPlanResourcesResponse' {} a -> s {nextToken = a} :: DescribeScalingPlanResourcesResponse)
 
 -- | Information about the scalable resources.
-describeScalingPlanResourcesResponse_scalingPlanResources :: Lens.Lens' DescribeScalingPlanResourcesResponse (Prelude.Maybe [ScalingPlanResource])
-describeScalingPlanResourcesResponse_scalingPlanResources = Lens.lens (\DescribeScalingPlanResourcesResponse' {scalingPlanResources} -> scalingPlanResources) (\s@DescribeScalingPlanResourcesResponse' {} a -> s {scalingPlanResources = a} :: DescribeScalingPlanResourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeScalingPlanResourcesResponse_scalingPlanResources :: Lens.Lens' DescribeScalingPlanResourcesResponse (Core.Maybe [ScalingPlanResource])
+describeScalingPlanResourcesResponse_scalingPlanResources = Lens.lens (\DescribeScalingPlanResourcesResponse' {scalingPlanResources} -> scalingPlanResources) (\s@DescribeScalingPlanResourcesResponse' {} a -> s {scalingPlanResources = a} :: DescribeScalingPlanResourcesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeScalingPlanResourcesResponse_httpStatus :: Lens.Lens' DescribeScalingPlanResourcesResponse Prelude.Int
+describeScalingPlanResourcesResponse_httpStatus :: Lens.Lens' DescribeScalingPlanResourcesResponse Core.Int
 describeScalingPlanResourcesResponse_httpStatus = Lens.lens (\DescribeScalingPlanResourcesResponse' {httpStatus} -> httpStatus) (\s@DescribeScalingPlanResourcesResponse' {} a -> s {httpStatus = a} :: DescribeScalingPlanResourcesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeScalingPlanResourcesResponse

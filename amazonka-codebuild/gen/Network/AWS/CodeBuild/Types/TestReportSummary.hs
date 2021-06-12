@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CodeBuild.Types.TestReportSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a test report.
 --
@@ -29,15 +28,15 @@ import qualified Network.AWS.Prelude as Prelude
 data TestReportSummary = TestReportSummary'
   { -- | The number of test cases in this @TestReportSummary@. The total includes
     -- truncated test cases.
-    total :: Prelude.Int,
+    total :: Core.Int,
     -- | A map that contains the number of each type of status returned by the
     -- test results in this @TestReportSummary@.
-    statusCounts :: Prelude.HashMap Prelude.Text Prelude.Int,
+    statusCounts :: Core.HashMap Core.Text Core.Int,
     -- | The number of nanoseconds it took to run all of the test cases in this
     -- report.
-    durationInNanoSeconds :: Prelude.Integer
+    durationInNanoSeconds :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TestReportSummary' with all optional fields omitted.
@@ -57,45 +56,43 @@ data TestReportSummary = TestReportSummary'
 -- report.
 newTestReportSummary ::
   -- | 'total'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'durationInNanoSeconds'
-  Prelude.Integer ->
+  Core.Integer ->
   TestReportSummary
 newTestReportSummary pTotal_ pDurationInNanoSeconds_ =
   TestReportSummary'
     { total = pTotal_,
-      statusCounts = Prelude.mempty,
+      statusCounts = Core.mempty,
       durationInNanoSeconds = pDurationInNanoSeconds_
     }
 
 -- | The number of test cases in this @TestReportSummary@. The total includes
 -- truncated test cases.
-testReportSummary_total :: Lens.Lens' TestReportSummary Prelude.Int
+testReportSummary_total :: Lens.Lens' TestReportSummary Core.Int
 testReportSummary_total = Lens.lens (\TestReportSummary' {total} -> total) (\s@TestReportSummary' {} a -> s {total = a} :: TestReportSummary)
 
 -- | A map that contains the number of each type of status returned by the
 -- test results in this @TestReportSummary@.
-testReportSummary_statusCounts :: Lens.Lens' TestReportSummary (Prelude.HashMap Prelude.Text Prelude.Int)
-testReportSummary_statusCounts = Lens.lens (\TestReportSummary' {statusCounts} -> statusCounts) (\s@TestReportSummary' {} a -> s {statusCounts = a} :: TestReportSummary) Prelude.. Prelude._Coerce
+testReportSummary_statusCounts :: Lens.Lens' TestReportSummary (Core.HashMap Core.Text Core.Int)
+testReportSummary_statusCounts = Lens.lens (\TestReportSummary' {statusCounts} -> statusCounts) (\s@TestReportSummary' {} a -> s {statusCounts = a} :: TestReportSummary) Core.. Lens._Coerce
 
 -- | The number of nanoseconds it took to run all of the test cases in this
 -- report.
-testReportSummary_durationInNanoSeconds :: Lens.Lens' TestReportSummary Prelude.Integer
+testReportSummary_durationInNanoSeconds :: Lens.Lens' TestReportSummary Core.Integer
 testReportSummary_durationInNanoSeconds = Lens.lens (\TestReportSummary' {durationInNanoSeconds} -> durationInNanoSeconds) (\s@TestReportSummary' {} a -> s {durationInNanoSeconds = a} :: TestReportSummary)
 
-instance Prelude.FromJSON TestReportSummary where
+instance Core.FromJSON TestReportSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TestReportSummary"
       ( \x ->
           TestReportSummary'
-            Prelude.<$> (x Prelude..: "total")
-            Prelude.<*> ( x Prelude..:? "statusCounts"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "durationInNanoSeconds")
+            Core.<$> (x Core..: "total")
+            Core.<*> (x Core..:? "statusCounts" Core..!= Core.mempty)
+            Core.<*> (x Core..: "durationInNanoSeconds")
       )
 
-instance Prelude.Hashable TestReportSummary
+instance Core.Hashable TestReportSummary
 
-instance Prelude.NFData TestReportSummary
+instance Core.NFData TestReportSummary

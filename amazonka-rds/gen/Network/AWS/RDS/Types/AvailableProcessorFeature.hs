@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.AvailableProcessorFeature where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the available processor feature information for the DB instance
 -- class of a DB instance.
@@ -33,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAvailableProcessorFeature' smart constructor.
 data AvailableProcessorFeature = AvailableProcessorFeature'
   { -- | The allowed values for the processor feature of the DB instance class.
-    allowedValues :: Prelude.Maybe Prelude.Text,
+    allowedValues :: Core.Maybe Core.Text,
     -- | The name of the processor feature. Valid names are @coreCount@ and
     -- @threadsPerCore@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The default value for the processor feature of the DB instance class.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AvailableProcessorFeature' with all optional fields omitted.
@@ -61,31 +60,31 @@ newAvailableProcessorFeature ::
 newAvailableProcessorFeature =
   AvailableProcessorFeature'
     { allowedValues =
-        Prelude.Nothing,
-      name = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+        Core.Nothing,
+      name = Core.Nothing,
+      defaultValue = Core.Nothing
     }
 
 -- | The allowed values for the processor feature of the DB instance class.
-availableProcessorFeature_allowedValues :: Lens.Lens' AvailableProcessorFeature (Prelude.Maybe Prelude.Text)
+availableProcessorFeature_allowedValues :: Lens.Lens' AvailableProcessorFeature (Core.Maybe Core.Text)
 availableProcessorFeature_allowedValues = Lens.lens (\AvailableProcessorFeature' {allowedValues} -> allowedValues) (\s@AvailableProcessorFeature' {} a -> s {allowedValues = a} :: AvailableProcessorFeature)
 
 -- | The name of the processor feature. Valid names are @coreCount@ and
 -- @threadsPerCore@.
-availableProcessorFeature_name :: Lens.Lens' AvailableProcessorFeature (Prelude.Maybe Prelude.Text)
+availableProcessorFeature_name :: Lens.Lens' AvailableProcessorFeature (Core.Maybe Core.Text)
 availableProcessorFeature_name = Lens.lens (\AvailableProcessorFeature' {name} -> name) (\s@AvailableProcessorFeature' {} a -> s {name = a} :: AvailableProcessorFeature)
 
 -- | The default value for the processor feature of the DB instance class.
-availableProcessorFeature_defaultValue :: Lens.Lens' AvailableProcessorFeature (Prelude.Maybe Prelude.Text)
+availableProcessorFeature_defaultValue :: Lens.Lens' AvailableProcessorFeature (Core.Maybe Core.Text)
 availableProcessorFeature_defaultValue = Lens.lens (\AvailableProcessorFeature' {defaultValue} -> defaultValue) (\s@AvailableProcessorFeature' {} a -> s {defaultValue = a} :: AvailableProcessorFeature)
 
-instance Prelude.FromXML AvailableProcessorFeature where
+instance Core.FromXML AvailableProcessorFeature where
   parseXML x =
     AvailableProcessorFeature'
-      Prelude.<$> (x Prelude..@? "AllowedValues")
-      Prelude.<*> (x Prelude..@? "Name")
-      Prelude.<*> (x Prelude..@? "DefaultValue")
+      Core.<$> (x Core..@? "AllowedValues")
+      Core.<*> (x Core..@? "Name")
+      Core.<*> (x Core..@? "DefaultValue")
 
-instance Prelude.Hashable AvailableProcessorFeature
+instance Core.Hashable AvailableProcessorFeature
 
-instance Prelude.NFData AvailableProcessorFeature
+instance Core.NFData AvailableProcessorFeature

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AssociationStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.AssociationStatusCode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a target network association.
 --
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 data AssociationStatus = AssociationStatus'
   { -- | A message about the status of the target network association, if
     -- applicable.
-    message :: Prelude.Maybe Prelude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The state of the target network association.
-    code :: Prelude.Maybe AssociationStatusCode
+    code :: Core.Maybe AssociationStatusCode
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AssociationStatus' with all optional fields omitted.
@@ -53,25 +52,24 @@ newAssociationStatus ::
   AssociationStatus
 newAssociationStatus =
   AssociationStatus'
-    { message = Prelude.Nothing,
-      code = Prelude.Nothing
+    { message = Core.Nothing,
+      code = Core.Nothing
     }
 
 -- | A message about the status of the target network association, if
 -- applicable.
-associationStatus_message :: Lens.Lens' AssociationStatus (Prelude.Maybe Prelude.Text)
+associationStatus_message :: Lens.Lens' AssociationStatus (Core.Maybe Core.Text)
 associationStatus_message = Lens.lens (\AssociationStatus' {message} -> message) (\s@AssociationStatus' {} a -> s {message = a} :: AssociationStatus)
 
 -- | The state of the target network association.
-associationStatus_code :: Lens.Lens' AssociationStatus (Prelude.Maybe AssociationStatusCode)
+associationStatus_code :: Lens.Lens' AssociationStatus (Core.Maybe AssociationStatusCode)
 associationStatus_code = Lens.lens (\AssociationStatus' {code} -> code) (\s@AssociationStatus' {} a -> s {code = a} :: AssociationStatus)
 
-instance Prelude.FromXML AssociationStatus where
+instance Core.FromXML AssociationStatus where
   parseXML x =
     AssociationStatus'
-      Prelude.<$> (x Prelude..@? "message")
-      Prelude.<*> (x Prelude..@? "code")
+      Core.<$> (x Core..@? "message") Core.<*> (x Core..@? "code")
 
-instance Prelude.Hashable AssociationStatus
+instance Core.Hashable AssociationStatus
 
-instance Prelude.NFData AssociationStatus
+instance Core.NFData AssociationStatus

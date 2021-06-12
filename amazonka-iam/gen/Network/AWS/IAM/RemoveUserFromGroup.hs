@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,9 +36,9 @@ module Network.AWS.IAM.RemoveUserFromGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,16 +50,16 @@ data RemoveUserFromGroup = RemoveUserFromGroup'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Prelude.Text,
+    groupName :: Core.Text,
     -- | The name of the user to remove.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Text
+    userName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveUserFromGroup' with all optional fields omitted.
@@ -85,9 +84,9 @@ data RemoveUserFromGroup = RemoveUserFromGroup'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newRemoveUserFromGroup ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userName'
-  Prelude.Text ->
+  Core.Text ->
   RemoveUserFromGroup
 newRemoveUserFromGroup pGroupName_ pUserName_ =
   RemoveUserFromGroup'
@@ -101,7 +100,7 @@ newRemoveUserFromGroup pGroupName_ pUserName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-removeUserFromGroup_groupName :: Lens.Lens' RemoveUserFromGroup Prelude.Text
+removeUserFromGroup_groupName :: Lens.Lens' RemoveUserFromGroup Core.Text
 removeUserFromGroup_groupName = Lens.lens (\RemoveUserFromGroup' {groupName} -> groupName) (\s@RemoveUserFromGroup' {} a -> s {groupName = a} :: RemoveUserFromGroup)
 
 -- | The name of the user to remove.
@@ -110,43 +109,42 @@ removeUserFromGroup_groupName = Lens.lens (\RemoveUserFromGroup' {groupName} -> 
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-removeUserFromGroup_userName :: Lens.Lens' RemoveUserFromGroup Prelude.Text
+removeUserFromGroup_userName :: Lens.Lens' RemoveUserFromGroup Core.Text
 removeUserFromGroup_userName = Lens.lens (\RemoveUserFromGroup' {userName} -> userName) (\s@RemoveUserFromGroup' {} a -> s {userName = a} :: RemoveUserFromGroup)
 
-instance Prelude.AWSRequest RemoveUserFromGroup where
+instance Core.AWSRequest RemoveUserFromGroup where
   type
-    Rs RemoveUserFromGroup =
+    AWSResponse RemoveUserFromGroup =
       RemoveUserFromGroupResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull RemoveUserFromGroupResponse'
 
-instance Prelude.Hashable RemoveUserFromGroup
+instance Core.Hashable RemoveUserFromGroup
 
-instance Prelude.NFData RemoveUserFromGroup
+instance Core.NFData RemoveUserFromGroup
 
-instance Prelude.ToHeaders RemoveUserFromGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RemoveUserFromGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RemoveUserFromGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveUserFromGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveUserFromGroup where
+instance Core.ToQuery RemoveUserFromGroup where
   toQuery RemoveUserFromGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RemoveUserFromGroup" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "GroupName" Prelude.=: groupName,
-        "UserName" Prelude.=: userName
+          Core.=: ("RemoveUserFromGroup" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "GroupName" Core.=: groupName,
+        "UserName" Core.=: userName
       ]
 
 -- | /See:/ 'newRemoveUserFromGroupResponse' smart constructor.
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveUserFromGroupResponse' with all optional fields omitted.
@@ -157,4 +155,4 @@ newRemoveUserFromGroupResponse ::
 newRemoveUserFromGroupResponse =
   RemoveUserFromGroupResponse'
 
-instance Prelude.NFData RemoveUserFromGroupResponse
+instance Core.NFData RemoveUserFromGroupResponse

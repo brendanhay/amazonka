@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Firehose.Types.SourceDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Firehose.Types.KinesisStreamSourceDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details about a Kinesis data stream used as the source for a Kinesis
 -- Data Firehose delivery stream.
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data SourceDescription = SourceDescription'
   { -- | The KinesisStreamSourceDescription value for the source Kinesis data
     -- stream.
-    kinesisStreamSourceDescription :: Prelude.Maybe KinesisStreamSourceDescription
+    kinesisStreamSourceDescription :: Core.Maybe KinesisStreamSourceDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SourceDescription' with all optional fields omitted.
@@ -50,23 +49,23 @@ newSourceDescription ::
 newSourceDescription =
   SourceDescription'
     { kinesisStreamSourceDescription =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The KinesisStreamSourceDescription value for the source Kinesis data
 -- stream.
-sourceDescription_kinesisStreamSourceDescription :: Lens.Lens' SourceDescription (Prelude.Maybe KinesisStreamSourceDescription)
+sourceDescription_kinesisStreamSourceDescription :: Lens.Lens' SourceDescription (Core.Maybe KinesisStreamSourceDescription)
 sourceDescription_kinesisStreamSourceDescription = Lens.lens (\SourceDescription' {kinesisStreamSourceDescription} -> kinesisStreamSourceDescription) (\s@SourceDescription' {} a -> s {kinesisStreamSourceDescription = a} :: SourceDescription)
 
-instance Prelude.FromJSON SourceDescription where
+instance Core.FromJSON SourceDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SourceDescription"
       ( \x ->
           SourceDescription'
-            Prelude.<$> (x Prelude..:? "KinesisStreamSourceDescription")
+            Core.<$> (x Core..:? "KinesisStreamSourceDescription")
       )
 
-instance Prelude.Hashable SourceDescription
+instance Core.Hashable SourceDescription
 
-instance Prelude.NFData SourceDescription
+instance Core.NFData SourceDescription

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.Endpoint where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an account-specific API endpoint.
 --
 -- /See:/ 'newEndpoint' smart constructor.
 data Endpoint = Endpoint'
   { -- | URL of endpoint
-    url :: Prelude.Maybe Prelude.Text
+    url :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Endpoint' with all optional fields omitted.
@@ -43,18 +42,18 @@ data Endpoint = Endpoint'
 -- 'url', 'endpoint_url' - URL of endpoint
 newEndpoint ::
   Endpoint
-newEndpoint = Endpoint' {url = Prelude.Nothing}
+newEndpoint = Endpoint' {url = Core.Nothing}
 
 -- | URL of endpoint
-endpoint_url :: Lens.Lens' Endpoint (Prelude.Maybe Prelude.Text)
+endpoint_url :: Lens.Lens' Endpoint (Core.Maybe Core.Text)
 endpoint_url = Lens.lens (\Endpoint' {url} -> url) (\s@Endpoint' {} a -> s {url = a} :: Endpoint)
 
-instance Prelude.FromJSON Endpoint where
+instance Core.FromJSON Endpoint where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Endpoint"
-      (\x -> Endpoint' Prelude.<$> (x Prelude..:? "url"))
+      (\x -> Endpoint' Core.<$> (x Core..:? "url"))
 
-instance Prelude.Hashable Endpoint
+instance Core.Hashable Endpoint
 
-instance Prelude.NFData Endpoint
+instance Core.NFData Endpoint

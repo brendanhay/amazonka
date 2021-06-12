@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ProcessingOutputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.ProcessingOutput
 
 -- | Configuration for uploading output from the processing container.
@@ -32,12 +31,12 @@ data ProcessingOutputConfig = ProcessingOutputConfig'
     -- to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS
     -- key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The
     -- @KmsKeyId@ is applied to all outputs.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    kmsKeyId :: Core.Maybe Core.Text,
     -- | An array of outputs configuring the data to upload from the processing
     -- container.
     outputs :: [ProcessingOutput]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ProcessingOutputConfig' with all optional fields omitted.
@@ -58,41 +57,41 @@ newProcessingOutputConfig ::
   ProcessingOutputConfig
 newProcessingOutputConfig =
   ProcessingOutputConfig'
-    { kmsKeyId = Prelude.Nothing,
-      outputs = Prelude.mempty
+    { kmsKeyId = Core.Nothing,
+      outputs = Core.mempty
     }
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
 -- to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS
 -- key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The
 -- @KmsKeyId@ is applied to all outputs.
-processingOutputConfig_kmsKeyId :: Lens.Lens' ProcessingOutputConfig (Prelude.Maybe Prelude.Text)
+processingOutputConfig_kmsKeyId :: Lens.Lens' ProcessingOutputConfig (Core.Maybe Core.Text)
 processingOutputConfig_kmsKeyId = Lens.lens (\ProcessingOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@ProcessingOutputConfig' {} a -> s {kmsKeyId = a} :: ProcessingOutputConfig)
 
 -- | An array of outputs configuring the data to upload from the processing
 -- container.
 processingOutputConfig_outputs :: Lens.Lens' ProcessingOutputConfig [ProcessingOutput]
-processingOutputConfig_outputs = Lens.lens (\ProcessingOutputConfig' {outputs} -> outputs) (\s@ProcessingOutputConfig' {} a -> s {outputs = a} :: ProcessingOutputConfig) Prelude.. Prelude._Coerce
+processingOutputConfig_outputs = Lens.lens (\ProcessingOutputConfig' {outputs} -> outputs) (\s@ProcessingOutputConfig' {} a -> s {outputs = a} :: ProcessingOutputConfig) Core.. Lens._Coerce
 
-instance Prelude.FromJSON ProcessingOutputConfig where
+instance Core.FromJSON ProcessingOutputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ProcessingOutputConfig"
       ( \x ->
           ProcessingOutputConfig'
-            Prelude.<$> (x Prelude..:? "KmsKeyId")
-            Prelude.<*> (x Prelude..:? "Outputs" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "KmsKeyId")
+            Core.<*> (x Core..:? "Outputs" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable ProcessingOutputConfig
+instance Core.Hashable ProcessingOutputConfig
 
-instance Prelude.NFData ProcessingOutputConfig
+instance Core.NFData ProcessingOutputConfig
 
-instance Prelude.ToJSON ProcessingOutputConfig where
+instance Core.ToJSON ProcessingOutputConfig where
   toJSON ProcessingOutputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
-            Prelude.Just ("Outputs" Prelude..= outputs)
+    Core.object
+      ( Core.catMaybes
+          [ ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            Core.Just ("Outputs" Core..= outputs)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.MigrationHub.CreateProgressUpdateStream
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,12 +54,12 @@ import qualified Network.AWS.Response as Response
 data CreateProgressUpdateStream = CreateProgressUpdateStream'
   { -- | Optional boolean flag to indicate whether any effect should take place.
     -- Used to test if the caller has permission to make the call.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The name of the ProgressUpdateStream. /Do not store personal data in
     -- this field./
-    progressUpdateStreamName :: Prelude.Text
+    progressUpdateStreamName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProgressUpdateStream' with all optional fields omitted.
@@ -77,85 +76,79 @@ data CreateProgressUpdateStream = CreateProgressUpdateStream'
 -- this field./
 newCreateProgressUpdateStream ::
   -- | 'progressUpdateStreamName'
-  Prelude.Text ->
+  Core.Text ->
   CreateProgressUpdateStream
 newCreateProgressUpdateStream
   pProgressUpdateStreamName_ =
     CreateProgressUpdateStream'
-      { dryRun =
-          Prelude.Nothing,
+      { dryRun = Core.Nothing,
         progressUpdateStreamName =
           pProgressUpdateStreamName_
       }
 
 -- | Optional boolean flag to indicate whether any effect should take place.
 -- Used to test if the caller has permission to make the call.
-createProgressUpdateStream_dryRun :: Lens.Lens' CreateProgressUpdateStream (Prelude.Maybe Prelude.Bool)
+createProgressUpdateStream_dryRun :: Lens.Lens' CreateProgressUpdateStream (Core.Maybe Core.Bool)
 createProgressUpdateStream_dryRun = Lens.lens (\CreateProgressUpdateStream' {dryRun} -> dryRun) (\s@CreateProgressUpdateStream' {} a -> s {dryRun = a} :: CreateProgressUpdateStream)
 
 -- | The name of the ProgressUpdateStream. /Do not store personal data in
 -- this field./
-createProgressUpdateStream_progressUpdateStreamName :: Lens.Lens' CreateProgressUpdateStream Prelude.Text
+createProgressUpdateStream_progressUpdateStreamName :: Lens.Lens' CreateProgressUpdateStream Core.Text
 createProgressUpdateStream_progressUpdateStreamName = Lens.lens (\CreateProgressUpdateStream' {progressUpdateStreamName} -> progressUpdateStreamName) (\s@CreateProgressUpdateStream' {} a -> s {progressUpdateStreamName = a} :: CreateProgressUpdateStream)
 
-instance
-  Prelude.AWSRequest
-    CreateProgressUpdateStream
-  where
+instance Core.AWSRequest CreateProgressUpdateStream where
   type
-    Rs CreateProgressUpdateStream =
+    AWSResponse CreateProgressUpdateStream =
       CreateProgressUpdateStreamResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateProgressUpdateStreamResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateProgressUpdateStream
+instance Core.Hashable CreateProgressUpdateStream
 
-instance Prelude.NFData CreateProgressUpdateStream
+instance Core.NFData CreateProgressUpdateStream
 
-instance Prelude.ToHeaders CreateProgressUpdateStream where
+instance Core.ToHeaders CreateProgressUpdateStream where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSMigrationHub.CreateProgressUpdateStream" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSMigrationHub.CreateProgressUpdateStream" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateProgressUpdateStream where
+instance Core.ToJSON CreateProgressUpdateStream where
   toJSON CreateProgressUpdateStream' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("DryRun" Core..=) Core.<$> dryRun,
+            Core.Just
               ( "ProgressUpdateStreamName"
-                  Prelude..= progressUpdateStreamName
+                  Core..= progressUpdateStreamName
               )
           ]
       )
 
-instance Prelude.ToPath CreateProgressUpdateStream where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateProgressUpdateStream where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateProgressUpdateStream where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateProgressUpdateStream where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateProgressUpdateStreamResponse' smart constructor.
 data CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateProgressUpdateStreamResponse' with all optional fields omitted.
@@ -168,7 +161,7 @@ data CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
 -- 'httpStatus', 'createProgressUpdateStreamResponse_httpStatus' - The response's http status code.
 newCreateProgressUpdateStreamResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateProgressUpdateStreamResponse
 newCreateProgressUpdateStreamResponse pHttpStatus_ =
   CreateProgressUpdateStreamResponse'
@@ -177,9 +170,9 @@ newCreateProgressUpdateStreamResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-createProgressUpdateStreamResponse_httpStatus :: Lens.Lens' CreateProgressUpdateStreamResponse Prelude.Int
+createProgressUpdateStreamResponse_httpStatus :: Lens.Lens' CreateProgressUpdateStreamResponse Core.Int
 createProgressUpdateStreamResponse_httpStatus = Lens.lens (\CreateProgressUpdateStreamResponse' {httpStatus} -> httpStatus) (\s@CreateProgressUpdateStreamResponse' {} a -> s {httpStatus = a} :: CreateProgressUpdateStreamResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateProgressUpdateStreamResponse

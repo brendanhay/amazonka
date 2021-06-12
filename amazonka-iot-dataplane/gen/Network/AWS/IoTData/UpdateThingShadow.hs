@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.IoTData.UpdateThingShadow
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoTData.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,13 +56,13 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newUpdateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
   { -- | The name of the shadow.
-    shadowName :: Prelude.Maybe Prelude.Text,
+    shadowName :: Core.Maybe Core.Text,
     -- | The name of the thing.
-    thingName :: Prelude.Text,
+    thingName :: Core.Text,
     -- | The state information, in JSON format.
-    payload :: Prelude.ByteString
+    payload :: Core.ByteString
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateThingShadow' with all optional fields omitted.
@@ -80,70 +79,71 @@ data UpdateThingShadow = UpdateThingShadow'
 -- 'payload', 'updateThingShadow_payload' - The state information, in JSON format.
 newUpdateThingShadow ::
   -- | 'thingName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'payload'
-  Prelude.ByteString ->
+  Core.ByteString ->
   UpdateThingShadow
 newUpdateThingShadow pThingName_ pPayload_ =
   UpdateThingShadow'
-    { shadowName = Prelude.Nothing,
+    { shadowName = Core.Nothing,
       thingName = pThingName_,
       payload = pPayload_
     }
 
 -- | The name of the shadow.
-updateThingShadow_shadowName :: Lens.Lens' UpdateThingShadow (Prelude.Maybe Prelude.Text)
+updateThingShadow_shadowName :: Lens.Lens' UpdateThingShadow (Core.Maybe Core.Text)
 updateThingShadow_shadowName = Lens.lens (\UpdateThingShadow' {shadowName} -> shadowName) (\s@UpdateThingShadow' {} a -> s {shadowName = a} :: UpdateThingShadow)
 
 -- | The name of the thing.
-updateThingShadow_thingName :: Lens.Lens' UpdateThingShadow Prelude.Text
+updateThingShadow_thingName :: Lens.Lens' UpdateThingShadow Core.Text
 updateThingShadow_thingName = Lens.lens (\UpdateThingShadow' {thingName} -> thingName) (\s@UpdateThingShadow' {} a -> s {thingName = a} :: UpdateThingShadow)
 
 -- | The state information, in JSON format.
-updateThingShadow_payload :: Lens.Lens' UpdateThingShadow Prelude.ByteString
+updateThingShadow_payload :: Lens.Lens' UpdateThingShadow Core.ByteString
 updateThingShadow_payload = Lens.lens (\UpdateThingShadow' {payload} -> payload) (\s@UpdateThingShadow' {} a -> s {payload = a} :: UpdateThingShadow)
 
-instance Prelude.AWSRequest UpdateThingShadow where
-  type Rs UpdateThingShadow = UpdateThingShadowResponse
+instance Core.AWSRequest UpdateThingShadow where
+  type
+    AWSResponse UpdateThingShadow =
+      UpdateThingShadowResponse
   request = Request.postBody defaultService
   response =
     Response.receiveBytes
       ( \s h x ->
           UpdateThingShadowResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just x))
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.Just x))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateThingShadow
+instance Core.Hashable UpdateThingShadow
 
-instance Prelude.NFData UpdateThingShadow
+instance Core.NFData UpdateThingShadow
 
-instance Prelude.ToBody UpdateThingShadow where
-  toBody UpdateThingShadow' {..} =
-    Prelude.toBody payload
+instance Core.ToBody UpdateThingShadow where
+  toBody UpdateThingShadow' {..} = Core.toBody payload
 
-instance Prelude.ToHeaders UpdateThingShadow where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateThingShadow where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateThingShadow where
+instance Core.ToPath UpdateThingShadow where
   toPath UpdateThingShadow' {..} =
-    Prelude.mconcat
-      ["/things/", Prelude.toBS thingName, "/shadow"]
+    Core.mconcat
+      ["/things/", Core.toBS thingName, "/shadow"]
 
-instance Prelude.ToQuery UpdateThingShadow where
+instance Core.ToQuery UpdateThingShadow where
   toQuery UpdateThingShadow' {..} =
-    Prelude.mconcat ["name" Prelude.=: shadowName]
+    Core.mconcat ["name" Core.=: shadowName]
 
 -- | The output from the UpdateThingShadow operation.
 --
 -- /See:/ 'newUpdateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
   { -- | The state information, in JSON format.
-    payload :: Prelude.Maybe Prelude.ByteString,
+    payload :: Core.Maybe Core.ByteString,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateThingShadowResponse' with all optional fields omitted.
@@ -158,21 +158,20 @@ data UpdateThingShadowResponse = UpdateThingShadowResponse'
 -- 'httpStatus', 'updateThingShadowResponse_httpStatus' - The response's http status code.
 newUpdateThingShadowResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateThingShadowResponse
 newUpdateThingShadowResponse pHttpStatus_ =
   UpdateThingShadowResponse'
-    { payload =
-        Prelude.Nothing,
+    { payload = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The state information, in JSON format.
-updateThingShadowResponse_payload :: Lens.Lens' UpdateThingShadowResponse (Prelude.Maybe Prelude.ByteString)
+updateThingShadowResponse_payload :: Lens.Lens' UpdateThingShadowResponse (Core.Maybe Core.ByteString)
 updateThingShadowResponse_payload = Lens.lens (\UpdateThingShadowResponse' {payload} -> payload) (\s@UpdateThingShadowResponse' {} a -> s {payload = a} :: UpdateThingShadowResponse)
 
 -- | The response's http status code.
-updateThingShadowResponse_httpStatus :: Lens.Lens' UpdateThingShadowResponse Prelude.Int
+updateThingShadowResponse_httpStatus :: Lens.Lens' UpdateThingShadowResponse Core.Int
 updateThingShadowResponse_httpStatus = Lens.lens (\UpdateThingShadowResponse' {httpStatus} -> httpStatus) (\s@UpdateThingShadowResponse' {} a -> s {httpStatus = a} :: UpdateThingShadowResponse)
 
-instance Prelude.NFData UpdateThingShadowResponse
+instance Core.NFData UpdateThingShadowResponse

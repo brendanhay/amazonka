@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.IoT.GetJobDocument
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetJobDocument' smart constructor.
 data GetJobDocument = GetJobDocument'
   { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Prelude.Text
+    jobId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobDocument' with all optional fields omitted.
@@ -64,49 +63,51 @@ data GetJobDocument = GetJobDocument'
 -- 'jobId', 'getJobDocument_jobId' - The unique identifier you assigned to this job when it was created.
 newGetJobDocument ::
   -- | 'jobId'
-  Prelude.Text ->
+  Core.Text ->
   GetJobDocument
 newGetJobDocument pJobId_ =
   GetJobDocument' {jobId = pJobId_}
 
 -- | The unique identifier you assigned to this job when it was created.
-getJobDocument_jobId :: Lens.Lens' GetJobDocument Prelude.Text
+getJobDocument_jobId :: Lens.Lens' GetJobDocument Core.Text
 getJobDocument_jobId = Lens.lens (\GetJobDocument' {jobId} -> jobId) (\s@GetJobDocument' {} a -> s {jobId = a} :: GetJobDocument)
 
-instance Prelude.AWSRequest GetJobDocument where
-  type Rs GetJobDocument = GetJobDocumentResponse
+instance Core.AWSRequest GetJobDocument where
+  type
+    AWSResponse GetJobDocument =
+      GetJobDocumentResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetJobDocumentResponse'
-            Prelude.<$> (x Prelude..?> "document")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "document")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetJobDocument
+instance Core.Hashable GetJobDocument
 
-instance Prelude.NFData GetJobDocument
+instance Core.NFData GetJobDocument
 
-instance Prelude.ToHeaders GetJobDocument where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetJobDocument where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath GetJobDocument where
+instance Core.ToPath GetJobDocument where
   toPath GetJobDocument' {..} =
-    Prelude.mconcat
-      ["/jobs/", Prelude.toBS jobId, "/job-document"]
+    Core.mconcat
+      ["/jobs/", Core.toBS jobId, "/job-document"]
 
-instance Prelude.ToQuery GetJobDocument where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetJobDocument where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetJobDocumentResponse' smart constructor.
 data GetJobDocumentResponse = GetJobDocumentResponse'
   { -- | The job document content.
-    document :: Prelude.Maybe Prelude.Text,
+    document :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetJobDocumentResponse' with all optional fields omitted.
@@ -121,20 +122,20 @@ data GetJobDocumentResponse = GetJobDocumentResponse'
 -- 'httpStatus', 'getJobDocumentResponse_httpStatus' - The response's http status code.
 newGetJobDocumentResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetJobDocumentResponse
 newGetJobDocumentResponse pHttpStatus_ =
   GetJobDocumentResponse'
-    { document = Prelude.Nothing,
+    { document = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The job document content.
-getJobDocumentResponse_document :: Lens.Lens' GetJobDocumentResponse (Prelude.Maybe Prelude.Text)
+getJobDocumentResponse_document :: Lens.Lens' GetJobDocumentResponse (Core.Maybe Core.Text)
 getJobDocumentResponse_document = Lens.lens (\GetJobDocumentResponse' {document} -> document) (\s@GetJobDocumentResponse' {} a -> s {document = a} :: GetJobDocumentResponse)
 
 -- | The response's http status code.
-getJobDocumentResponse_httpStatus :: Lens.Lens' GetJobDocumentResponse Prelude.Int
+getJobDocumentResponse_httpStatus :: Lens.Lens' GetJobDocumentResponse Core.Int
 getJobDocumentResponse_httpStatus = Lens.lens (\GetJobDocumentResponse' {httpStatus} -> httpStatus) (\s@GetJobDocumentResponse' {} a -> s {httpStatus = a} :: GetJobDocumentResponse)
 
-instance Prelude.NFData GetJobDocumentResponse
+instance Core.NFData GetJobDocumentResponse

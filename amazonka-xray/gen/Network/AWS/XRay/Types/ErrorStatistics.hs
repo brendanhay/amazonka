@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.ErrorStatistics where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about requests that failed with a 4xx Client Error status
 -- code.
@@ -30,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ErrorStatistics = ErrorStatistics'
   { -- | The number of requests that failed with untracked 4xx Client Error
     -- status codes.
-    otherCount :: Prelude.Maybe Prelude.Integer,
+    otherCount :: Core.Maybe Core.Integer,
     -- | The number of requests that failed with a 419 throttling status code.
-    throttleCount :: Prelude.Maybe Prelude.Integer,
+    throttleCount :: Core.Maybe Core.Integer,
     -- | The total number of requests that failed with a 4xx Client Error status
     -- code.
-    totalCount :: Prelude.Maybe Prelude.Integer
+    totalCount :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ErrorStatistics' with all optional fields omitted.
@@ -58,36 +57,36 @@ newErrorStatistics ::
   ErrorStatistics
 newErrorStatistics =
   ErrorStatistics'
-    { otherCount = Prelude.Nothing,
-      throttleCount = Prelude.Nothing,
-      totalCount = Prelude.Nothing
+    { otherCount = Core.Nothing,
+      throttleCount = Core.Nothing,
+      totalCount = Core.Nothing
     }
 
 -- | The number of requests that failed with untracked 4xx Client Error
 -- status codes.
-errorStatistics_otherCount :: Lens.Lens' ErrorStatistics (Prelude.Maybe Prelude.Integer)
+errorStatistics_otherCount :: Lens.Lens' ErrorStatistics (Core.Maybe Core.Integer)
 errorStatistics_otherCount = Lens.lens (\ErrorStatistics' {otherCount} -> otherCount) (\s@ErrorStatistics' {} a -> s {otherCount = a} :: ErrorStatistics)
 
 -- | The number of requests that failed with a 419 throttling status code.
-errorStatistics_throttleCount :: Lens.Lens' ErrorStatistics (Prelude.Maybe Prelude.Integer)
+errorStatistics_throttleCount :: Lens.Lens' ErrorStatistics (Core.Maybe Core.Integer)
 errorStatistics_throttleCount = Lens.lens (\ErrorStatistics' {throttleCount} -> throttleCount) (\s@ErrorStatistics' {} a -> s {throttleCount = a} :: ErrorStatistics)
 
 -- | The total number of requests that failed with a 4xx Client Error status
 -- code.
-errorStatistics_totalCount :: Lens.Lens' ErrorStatistics (Prelude.Maybe Prelude.Integer)
+errorStatistics_totalCount :: Lens.Lens' ErrorStatistics (Core.Maybe Core.Integer)
 errorStatistics_totalCount = Lens.lens (\ErrorStatistics' {totalCount} -> totalCount) (\s@ErrorStatistics' {} a -> s {totalCount = a} :: ErrorStatistics)
 
-instance Prelude.FromJSON ErrorStatistics where
+instance Core.FromJSON ErrorStatistics where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ErrorStatistics"
       ( \x ->
           ErrorStatistics'
-            Prelude.<$> (x Prelude..:? "OtherCount")
-            Prelude.<*> (x Prelude..:? "ThrottleCount")
-            Prelude.<*> (x Prelude..:? "TotalCount")
+            Core.<$> (x Core..:? "OtherCount")
+            Core.<*> (x Core..:? "ThrottleCount")
+            Core.<*> (x Core..:? "TotalCount")
       )
 
-instance Prelude.Hashable ErrorStatistics
+instance Core.Hashable ErrorStatistics
 
-instance Prelude.NFData ErrorStatistics
+instance Core.NFData ErrorStatistics

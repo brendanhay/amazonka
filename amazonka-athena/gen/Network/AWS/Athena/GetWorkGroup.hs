@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,17 +40,17 @@ module Network.AWS.Athena.GetWorkGroup
 where
 
 import Network.AWS.Athena.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetWorkGroup' smart constructor.
 data GetWorkGroup = GetWorkGroup'
   { -- | The name of the workgroup.
-    workGroup :: Prelude.Text
+    workGroup :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWorkGroup' with all optional fields omitted.
@@ -64,64 +63,62 @@ data GetWorkGroup = GetWorkGroup'
 -- 'workGroup', 'getWorkGroup_workGroup' - The name of the workgroup.
 newGetWorkGroup ::
   -- | 'workGroup'
-  Prelude.Text ->
+  Core.Text ->
   GetWorkGroup
 newGetWorkGroup pWorkGroup_ =
   GetWorkGroup' {workGroup = pWorkGroup_}
 
 -- | The name of the workgroup.
-getWorkGroup_workGroup :: Lens.Lens' GetWorkGroup Prelude.Text
+getWorkGroup_workGroup :: Lens.Lens' GetWorkGroup Core.Text
 getWorkGroup_workGroup = Lens.lens (\GetWorkGroup' {workGroup} -> workGroup) (\s@GetWorkGroup' {} a -> s {workGroup = a} :: GetWorkGroup)
 
-instance Prelude.AWSRequest GetWorkGroup where
-  type Rs GetWorkGroup = GetWorkGroupResponse
+instance Core.AWSRequest GetWorkGroup where
+  type AWSResponse GetWorkGroup = GetWorkGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetWorkGroupResponse'
-            Prelude.<$> (x Prelude..?> "WorkGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "WorkGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetWorkGroup
+instance Core.Hashable GetWorkGroup
 
-instance Prelude.NFData GetWorkGroup
+instance Core.NFData GetWorkGroup
 
-instance Prelude.ToHeaders GetWorkGroup where
+instance Core.ToHeaders GetWorkGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonAthena.GetWorkGroup" :: Prelude.ByteString),
+              Core.=# ("AmazonAthena.GetWorkGroup" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetWorkGroup where
+instance Core.ToJSON GetWorkGroup where
   toJSON GetWorkGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("WorkGroup" Prelude..= workGroup)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WorkGroup" Core..= workGroup)]
       )
 
-instance Prelude.ToPath GetWorkGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetWorkGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetWorkGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetWorkGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetWorkGroupResponse' smart constructor.
 data GetWorkGroupResponse = GetWorkGroupResponse'
   { -- | Information about the workgroup.
-    workGroup :: Prelude.Maybe WorkGroup,
+    workGroup :: Core.Maybe WorkGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetWorkGroupResponse' with all optional fields omitted.
@@ -136,20 +133,20 @@ data GetWorkGroupResponse = GetWorkGroupResponse'
 -- 'httpStatus', 'getWorkGroupResponse_httpStatus' - The response's http status code.
 newGetWorkGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetWorkGroupResponse
 newGetWorkGroupResponse pHttpStatus_ =
   GetWorkGroupResponse'
-    { workGroup = Prelude.Nothing,
+    { workGroup = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the workgroup.
-getWorkGroupResponse_workGroup :: Lens.Lens' GetWorkGroupResponse (Prelude.Maybe WorkGroup)
+getWorkGroupResponse_workGroup :: Lens.Lens' GetWorkGroupResponse (Core.Maybe WorkGroup)
 getWorkGroupResponse_workGroup = Lens.lens (\GetWorkGroupResponse' {workGroup} -> workGroup) (\s@GetWorkGroupResponse' {} a -> s {workGroup = a} :: GetWorkGroupResponse)
 
 -- | The response's http status code.
-getWorkGroupResponse_httpStatus :: Lens.Lens' GetWorkGroupResponse Prelude.Int
+getWorkGroupResponse_httpStatus :: Lens.Lens' GetWorkGroupResponse Core.Int
 getWorkGroupResponse_httpStatus = Lens.lens (\GetWorkGroupResponse' {httpStatus} -> httpStatus) (\s@GetWorkGroupResponse' {} a -> s {httpStatus = a} :: GetWorkGroupResponse)
 
-instance Prelude.NFData GetWorkGroupResponse
+instance Core.NFData GetWorkGroupResponse

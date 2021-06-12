@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -68,9 +67,8 @@ module Network.AWS.SecretsManager.ListSecretVersionIds
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -82,7 +80,7 @@ data ListSecretVersionIds = ListSecretVersionIds'
     -- available. In a subsequent call, set it to the value of the previous
     -- call @NextToken@ response to indicate where the output should continue
     -- from.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | (Optional) Limits the number of results you want to include in the
     -- response. If you don\'t include this parameter, it defaults to a value
     -- that\'s specific to the operation. If additional items exist beyond the
@@ -93,12 +91,12 @@ data ListSecretVersionIds = ListSecretVersionIds'
     -- maximum even when there are more results available. You should check
     -- @NextToken@ after every operation to ensure that you receive all of the
     -- results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | (Optional) Specifies that you want the results to include versions that
     -- do not have any staging labels attached to them. Such versions are
     -- considered deprecated and are subject to deletion by Secrets Manager as
     -- needed.
-    includeDeprecated :: Prelude.Maybe Prelude.Bool,
+    includeDeprecated :: Core.Maybe Core.Bool,
     -- | The identifier for the secret containing the versions you want to list.
     -- You can specify either the Amazon Resource Name (ARN) or the friendly
     -- name of the secret.
@@ -121,9 +119,9 @@ data ListSecretVersionIds = ListSecretVersionIds'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text
+    secretId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSecretVersionIds' with all optional fields omitted.
@@ -179,13 +177,13 @@ data ListSecretVersionIds = ListSecretVersionIds'
 -- /AccessDeniedException/ error, depending on your permissions.
 newListSecretVersionIds ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   ListSecretVersionIds
 newListSecretVersionIds pSecretId_ =
   ListSecretVersionIds'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      includeDeprecated = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      includeDeprecated = Core.Nothing,
       secretId = pSecretId_
     }
 
@@ -194,7 +192,7 @@ newListSecretVersionIds pSecretId_ =
 -- available. In a subsequent call, set it to the value of the previous
 -- call @NextToken@ response to indicate where the output should continue
 -- from.
-listSecretVersionIds_nextToken :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Text)
+listSecretVersionIds_nextToken :: Lens.Lens' ListSecretVersionIds (Core.Maybe Core.Text)
 listSecretVersionIds_nextToken = Lens.lens (\ListSecretVersionIds' {nextToken} -> nextToken) (\s@ListSecretVersionIds' {} a -> s {nextToken = a} :: ListSecretVersionIds)
 
 -- | (Optional) Limits the number of results you want to include in the
@@ -207,14 +205,14 @@ listSecretVersionIds_nextToken = Lens.lens (\ListSecretVersionIds' {nextToken} -
 -- maximum even when there are more results available. You should check
 -- @NextToken@ after every operation to ensure that you receive all of the
 -- results.
-listSecretVersionIds_maxResults :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Natural)
+listSecretVersionIds_maxResults :: Lens.Lens' ListSecretVersionIds (Core.Maybe Core.Natural)
 listSecretVersionIds_maxResults = Lens.lens (\ListSecretVersionIds' {maxResults} -> maxResults) (\s@ListSecretVersionIds' {} a -> s {maxResults = a} :: ListSecretVersionIds)
 
 -- | (Optional) Specifies that you want the results to include versions that
 -- do not have any staging labels attached to them. Such versions are
 -- considered deprecated and are subject to deletion by Secrets Manager as
 -- needed.
-listSecretVersionIds_includeDeprecated :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Bool)
+listSecretVersionIds_includeDeprecated :: Lens.Lens' ListSecretVersionIds (Core.Maybe Core.Bool)
 listSecretVersionIds_includeDeprecated = Lens.lens (\ListSecretVersionIds' {includeDeprecated} -> includeDeprecated) (\s@ListSecretVersionIds' {} a -> s {includeDeprecated = a} :: ListSecretVersionIds)
 
 -- | The identifier for the secret containing the versions you want to list.
@@ -239,83 +237,81 @@ listSecretVersionIds_includeDeprecated = Lens.lens (\ListSecretVersionIds' {incl
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-listSecretVersionIds_secretId :: Lens.Lens' ListSecretVersionIds Prelude.Text
+listSecretVersionIds_secretId :: Lens.Lens' ListSecretVersionIds Core.Text
 listSecretVersionIds_secretId = Lens.lens (\ListSecretVersionIds' {secretId} -> secretId) (\s@ListSecretVersionIds' {} a -> s {secretId = a} :: ListSecretVersionIds)
 
-instance Pager.AWSPager ListSecretVersionIds where
+instance Core.AWSPager ListSecretVersionIds where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSecretVersionIdsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listSecretVersionIdsResponse_versions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSecretVersionIds_nextToken
           Lens..~ rs
           Lens.^? listSecretVersionIdsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSecretVersionIds where
+instance Core.AWSRequest ListSecretVersionIds where
   type
-    Rs ListSecretVersionIds =
+    AWSResponse ListSecretVersionIds =
       ListSecretVersionIdsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListSecretVersionIdsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "Versions" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Versions" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListSecretVersionIds
+instance Core.Hashable ListSecretVersionIds
 
-instance Prelude.NFData ListSecretVersionIds
+instance Core.NFData ListSecretVersionIds
 
-instance Prelude.ToHeaders ListSecretVersionIds where
+instance Core.ToHeaders ListSecretVersionIds where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.ListSecretVersionIds" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "secretsmanager.ListSecretVersionIds" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListSecretVersionIds where
+instance Core.ToJSON ListSecretVersionIds where
   toJSON ListSecretVersionIds' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("IncludeDeprecated" Prelude..=)
-              Prelude.<$> includeDeprecated,
-            Prelude.Just ("SecretId" Prelude..= secretId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("IncludeDeprecated" Core..=)
+              Core.<$> includeDeprecated,
+            Core.Just ("SecretId" Core..= secretId)
           ]
       )
 
-instance Prelude.ToPath ListSecretVersionIds where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSecretVersionIds where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSecretVersionIds where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListSecretVersionIds where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListSecretVersionIdsResponse' smart constructor.
 data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
@@ -327,9 +323,9 @@ data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
     -- continue processing and get the next part of the output. You should
     -- repeat this until the @NextToken@ response element comes back empty (as
     -- @null@).
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of the currently available versions of the specified secret.
-    versions :: Prelude.Maybe [SecretVersionsListEntry],
+    versions :: Core.Maybe [SecretVersionsListEntry],
     -- | The Amazon Resource Name (ARN) for the secret.
     --
     -- Secrets Manager automatically adds several random characters to the name
@@ -339,13 +335,13 @@ data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
     -- previously deleted, then users with access to the old secret /don\'t/
     -- automatically get access to the new secret because the ARNs are
     -- different.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The friendly name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSecretVersionIdsResponse' with all optional fields omitted.
@@ -381,15 +377,15 @@ data ListSecretVersionIdsResponse = ListSecretVersionIdsResponse'
 -- 'httpStatus', 'listSecretVersionIdsResponse_httpStatus' - The response's http status code.
 newListSecretVersionIdsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSecretVersionIdsResponse
 newListSecretVersionIdsResponse pHttpStatus_ =
   ListSecretVersionIdsResponse'
     { nextToken =
-        Prelude.Nothing,
-      versions = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+        Core.Nothing,
+      versions = Core.Nothing,
+      arn = Core.Nothing,
+      name = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -401,12 +397,12 @@ newListSecretVersionIdsResponse pHttpStatus_ =
 -- continue processing and get the next part of the output. You should
 -- repeat this until the @NextToken@ response element comes back empty (as
 -- @null@).
-listSecretVersionIdsResponse_nextToken :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe Prelude.Text)
+listSecretVersionIdsResponse_nextToken :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe Core.Text)
 listSecretVersionIdsResponse_nextToken = Lens.lens (\ListSecretVersionIdsResponse' {nextToken} -> nextToken) (\s@ListSecretVersionIdsResponse' {} a -> s {nextToken = a} :: ListSecretVersionIdsResponse)
 
 -- | The list of the currently available versions of the specified secret.
-listSecretVersionIdsResponse_versions :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe [SecretVersionsListEntry])
-listSecretVersionIdsResponse_versions = Lens.lens (\ListSecretVersionIdsResponse' {versions} -> versions) (\s@ListSecretVersionIdsResponse' {} a -> s {versions = a} :: ListSecretVersionIdsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listSecretVersionIdsResponse_versions :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe [SecretVersionsListEntry])
+listSecretVersionIdsResponse_versions = Lens.lens (\ListSecretVersionIdsResponse' {versions} -> versions) (\s@ListSecretVersionIdsResponse' {} a -> s {versions = a} :: ListSecretVersionIdsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) for the secret.
 --
@@ -417,15 +413,15 @@ listSecretVersionIdsResponse_versions = Lens.lens (\ListSecretVersionIdsResponse
 -- previously deleted, then users with access to the old secret /don\'t/
 -- automatically get access to the new secret because the ARNs are
 -- different.
-listSecretVersionIdsResponse_arn :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe Prelude.Text)
+listSecretVersionIdsResponse_arn :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe Core.Text)
 listSecretVersionIdsResponse_arn = Lens.lens (\ListSecretVersionIdsResponse' {arn} -> arn) (\s@ListSecretVersionIdsResponse' {} a -> s {arn = a} :: ListSecretVersionIdsResponse)
 
 -- | The friendly name of the secret.
-listSecretVersionIdsResponse_name :: Lens.Lens' ListSecretVersionIdsResponse (Prelude.Maybe Prelude.Text)
+listSecretVersionIdsResponse_name :: Lens.Lens' ListSecretVersionIdsResponse (Core.Maybe Core.Text)
 listSecretVersionIdsResponse_name = Lens.lens (\ListSecretVersionIdsResponse' {name} -> name) (\s@ListSecretVersionIdsResponse' {} a -> s {name = a} :: ListSecretVersionIdsResponse)
 
 -- | The response's http status code.
-listSecretVersionIdsResponse_httpStatus :: Lens.Lens' ListSecretVersionIdsResponse Prelude.Int
+listSecretVersionIdsResponse_httpStatus :: Lens.Lens' ListSecretVersionIdsResponse Core.Int
 listSecretVersionIdsResponse_httpStatus = Lens.lens (\ListSecretVersionIdsResponse' {httpStatus} -> httpStatus) (\s@ListSecretVersionIdsResponse' {} a -> s {httpStatus = a} :: ListSecretVersionIdsResponse)
 
-instance Prelude.NFData ListSecretVersionIdsResponse
+instance Core.NFData ListSecretVersionIdsResponse

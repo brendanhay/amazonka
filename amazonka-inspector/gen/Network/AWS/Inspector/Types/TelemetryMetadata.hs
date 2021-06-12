@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Inspector.Types.TelemetryMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata about the Amazon Inspector application data metrics
 -- collected by the agent. This data type is used as the response element
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 data TelemetryMetadata = TelemetryMetadata'
   { -- | The data size of messages that the agent sends to the Amazon Inspector
     -- service.
-    dataSize :: Prelude.Maybe Prelude.Integer,
+    dataSize :: Core.Maybe Core.Integer,
     -- | A specific type of behavioral data that is collected by the agent.
-    messageType :: Prelude.Text,
+    messageType :: Core.Text,
     -- | The count of messages that the agent sends to the Amazon Inspector
     -- service.
-    count :: Prelude.Integer
+    count :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TelemetryMetadata' with all optional fields omitted.
@@ -57,42 +56,42 @@ data TelemetryMetadata = TelemetryMetadata'
 -- service.
 newTelemetryMetadata ::
   -- | 'messageType'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'count'
-  Prelude.Integer ->
+  Core.Integer ->
   TelemetryMetadata
 newTelemetryMetadata pMessageType_ pCount_ =
   TelemetryMetadata'
-    { dataSize = Prelude.Nothing,
+    { dataSize = Core.Nothing,
       messageType = pMessageType_,
       count = pCount_
     }
 
 -- | The data size of messages that the agent sends to the Amazon Inspector
 -- service.
-telemetryMetadata_dataSize :: Lens.Lens' TelemetryMetadata (Prelude.Maybe Prelude.Integer)
+telemetryMetadata_dataSize :: Lens.Lens' TelemetryMetadata (Core.Maybe Core.Integer)
 telemetryMetadata_dataSize = Lens.lens (\TelemetryMetadata' {dataSize} -> dataSize) (\s@TelemetryMetadata' {} a -> s {dataSize = a} :: TelemetryMetadata)
 
 -- | A specific type of behavioral data that is collected by the agent.
-telemetryMetadata_messageType :: Lens.Lens' TelemetryMetadata Prelude.Text
+telemetryMetadata_messageType :: Lens.Lens' TelemetryMetadata Core.Text
 telemetryMetadata_messageType = Lens.lens (\TelemetryMetadata' {messageType} -> messageType) (\s@TelemetryMetadata' {} a -> s {messageType = a} :: TelemetryMetadata)
 
 -- | The count of messages that the agent sends to the Amazon Inspector
 -- service.
-telemetryMetadata_count :: Lens.Lens' TelemetryMetadata Prelude.Integer
+telemetryMetadata_count :: Lens.Lens' TelemetryMetadata Core.Integer
 telemetryMetadata_count = Lens.lens (\TelemetryMetadata' {count} -> count) (\s@TelemetryMetadata' {} a -> s {count = a} :: TelemetryMetadata)
 
-instance Prelude.FromJSON TelemetryMetadata where
+instance Core.FromJSON TelemetryMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TelemetryMetadata"
       ( \x ->
           TelemetryMetadata'
-            Prelude.<$> (x Prelude..:? "dataSize")
-            Prelude.<*> (x Prelude..: "messageType")
-            Prelude.<*> (x Prelude..: "count")
+            Core.<$> (x Core..:? "dataSize")
+            Core.<*> (x Core..: "messageType")
+            Core.<*> (x Core..: "count")
       )
 
-instance Prelude.Hashable TelemetryMetadata
+instance Core.Hashable TelemetryMetadata
 
-instance Prelude.NFData TelemetryMetadata
+instance Core.NFData TelemetryMetadata

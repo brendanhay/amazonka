@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.APIGateway.PutRestApi
 where
 
 import Network.AWS.APIGateway.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,24 +70,24 @@ import qualified Network.AWS.Response as Response
 data PutRestApi = PutRestApi'
   { -- | The @mode@ query parameter to specify the update mode. Valid values are
     -- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
-    mode :: Prelude.Maybe PutMode,
+    mode :: Core.Maybe PutMode,
     -- | Custom header parameters as part of the request. For example, to exclude
     -- DocumentationParts from an imported API, set @ignore=documentation@ as a
     -- @parameters@ value, as in the AWS CLI command of
     -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    parameters :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | A query parameter to indicate whether to rollback the API update
     -- (@true@) or not (@false@) when a warning is encountered. The default
     -- value is @false@.
-    failOnWarnings :: Prelude.Maybe Prelude.Bool,
+    failOnWarnings :: Core.Maybe Core.Bool,
     -- | [Required] The string identifier of the associated RestApi.
-    restApiId :: Prelude.Text,
+    restApiId :: Core.Text,
     -- | [Required] The PUT request body containing external API definitions.
     -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
     -- maximum size of the API definition file is 6MB.
-    body :: Prelude.ByteString
+    body :: Core.ByteString
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRestApi' with all optional fields omitted.
@@ -117,83 +116,82 @@ data PutRestApi = PutRestApi'
 -- maximum size of the API definition file is 6MB.
 newPutRestApi ::
   -- | 'restApiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'body'
-  Prelude.ByteString ->
+  Core.ByteString ->
   PutRestApi
 newPutRestApi pRestApiId_ pBody_ =
   PutRestApi'
-    { mode = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      failOnWarnings = Prelude.Nothing,
+    { mode = Core.Nothing,
+      parameters = Core.Nothing,
+      failOnWarnings = Core.Nothing,
       restApiId = pRestApiId_,
       body = pBody_
     }
 
 -- | The @mode@ query parameter to specify the update mode. Valid values are
 -- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
-putRestApi_mode :: Lens.Lens' PutRestApi (Prelude.Maybe PutMode)
+putRestApi_mode :: Lens.Lens' PutRestApi (Core.Maybe PutMode)
 putRestApi_mode = Lens.lens (\PutRestApi' {mode} -> mode) (\s@PutRestApi' {} a -> s {mode = a} :: PutRestApi)
 
 -- | Custom header parameters as part of the request. For example, to exclude
 -- DocumentationParts from an imported API, set @ignore=documentation@ as a
 -- @parameters@ value, as in the AWS CLI command of
 -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
-putRestApi_parameters :: Lens.Lens' PutRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-putRestApi_parameters = Lens.lens (\PutRestApi' {parameters} -> parameters) (\s@PutRestApi' {} a -> s {parameters = a} :: PutRestApi) Prelude.. Lens.mapping Prelude._Coerce
+putRestApi_parameters :: Lens.Lens' PutRestApi (Core.Maybe (Core.HashMap Core.Text Core.Text))
+putRestApi_parameters = Lens.lens (\PutRestApi' {parameters} -> parameters) (\s@PutRestApi' {} a -> s {parameters = a} :: PutRestApi) Core.. Lens.mapping Lens._Coerce
 
 -- | A query parameter to indicate whether to rollback the API update
 -- (@true@) or not (@false@) when a warning is encountered. The default
 -- value is @false@.
-putRestApi_failOnWarnings :: Lens.Lens' PutRestApi (Prelude.Maybe Prelude.Bool)
+putRestApi_failOnWarnings :: Lens.Lens' PutRestApi (Core.Maybe Core.Bool)
 putRestApi_failOnWarnings = Lens.lens (\PutRestApi' {failOnWarnings} -> failOnWarnings) (\s@PutRestApi' {} a -> s {failOnWarnings = a} :: PutRestApi)
 
 -- | [Required] The string identifier of the associated RestApi.
-putRestApi_restApiId :: Lens.Lens' PutRestApi Prelude.Text
+putRestApi_restApiId :: Lens.Lens' PutRestApi Core.Text
 putRestApi_restApiId = Lens.lens (\PutRestApi' {restApiId} -> restApiId) (\s@PutRestApi' {} a -> s {restApiId = a} :: PutRestApi)
 
 -- | [Required] The PUT request body containing external API definitions.
 -- Currently, only OpenAPI definition JSON\/YAML files are supported. The
 -- maximum size of the API definition file is 6MB.
-putRestApi_body :: Lens.Lens' PutRestApi Prelude.ByteString
+putRestApi_body :: Lens.Lens' PutRestApi Core.ByteString
 putRestApi_body = Lens.lens (\PutRestApi' {body} -> body) (\s@PutRestApi' {} a -> s {body = a} :: PutRestApi)
 
-instance Prelude.AWSRequest PutRestApi where
-  type Rs PutRestApi = RestApi
+instance Core.AWSRequest PutRestApi where
+  type AWSResponse PutRestApi = RestApi
   request = Request.putBody defaultService
   response =
     Response.receiveJSON
-      (\s h x -> Prelude.eitherParseJSON x)
+      (\s h x -> Core.eitherParseJSON x)
 
-instance Prelude.Hashable PutRestApi
+instance Core.Hashable PutRestApi
 
-instance Prelude.NFData PutRestApi
+instance Core.NFData PutRestApi
 
-instance Prelude.ToBody PutRestApi where
-  toBody PutRestApi' {..} = Prelude.toBody body
+instance Core.ToBody PutRestApi where
+  toBody PutRestApi' {..} = Core.toBody body
 
-instance Prelude.ToHeaders PutRestApi where
+instance Core.ToHeaders PutRestApi where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Accept"
-              Prelude.=# ("application/json" :: Prelude.ByteString)
+              Core.=# ("application/json" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath PutRestApi where
+instance Core.ToPath PutRestApi where
   toPath PutRestApi' {..} =
-    Prelude.mconcat
-      ["/restapis/", Prelude.toBS restApiId]
+    Core.mconcat ["/restapis/", Core.toBS restApiId]
 
-instance Prelude.ToQuery PutRestApi where
+instance Core.ToQuery PutRestApi where
   toQuery PutRestApi' {..} =
-    Prelude.mconcat
-      [ "mode" Prelude.=: mode,
+    Core.mconcat
+      [ "mode" Core.=: mode,
         "parameters"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryMap "entry" "key" "value"
-                Prelude.<$> parameters
+          Core.=: Core.toQuery
+            ( Core.toQueryMap "entry" "key" "value"
+                Core.<$> parameters
             ),
-        "failonwarnings" Prelude.=: failOnWarnings
+        "failonwarnings" Core.=: failOnWarnings
       ]

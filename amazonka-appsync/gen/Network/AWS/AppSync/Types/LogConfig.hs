@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.AppSync.Types.LogConfig where
 
 import Network.AWS.AppSync.Types.FieldLogLevel
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The CloudWatch Logs configuration.
 --
@@ -31,7 +30,7 @@ data LogConfig = LogConfig'
   { -- | Set to TRUE to exclude sections that contain information such as
     -- headers, context, and evaluated mapping templates, regardless of logging
     -- level.
-    excludeVerboseContent :: Prelude.Maybe Prelude.Bool,
+    excludeVerboseContent :: Core.Maybe Core.Bool,
     -- | The field logging level. Values can be NONE, ERROR, or ALL.
     --
     -- -   __NONE__: No field-level logs are captured.
@@ -56,9 +55,9 @@ data LogConfig = LogConfig'
     fieldLogLevel :: FieldLogLevel,
     -- | The service role that AWS AppSync will assume to publish to Amazon
     -- CloudWatch logs in your account.
-    cloudWatchLogsRoleArn :: Prelude.Text
+    cloudWatchLogsRoleArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LogConfig' with all optional fields omitted.
@@ -100,11 +99,11 @@ newLogConfig ::
   -- | 'fieldLogLevel'
   FieldLogLevel ->
   -- | 'cloudWatchLogsRoleArn'
-  Prelude.Text ->
+  Core.Text ->
   LogConfig
 newLogConfig pFieldLogLevel_ pCloudWatchLogsRoleArn_ =
   LogConfig'
-    { excludeVerboseContent = Prelude.Nothing,
+    { excludeVerboseContent = Core.Nothing,
       fieldLogLevel = pFieldLogLevel_,
       cloudWatchLogsRoleArn = pCloudWatchLogsRoleArn_
     }
@@ -112,7 +111,7 @@ newLogConfig pFieldLogLevel_ pCloudWatchLogsRoleArn_ =
 -- | Set to TRUE to exclude sections that contain information such as
 -- headers, context, and evaluated mapping templates, regardless of logging
 -- level.
-logConfig_excludeVerboseContent :: Lens.Lens' LogConfig (Prelude.Maybe Prelude.Bool)
+logConfig_excludeVerboseContent :: Lens.Lens' LogConfig (Core.Maybe Core.Bool)
 logConfig_excludeVerboseContent = Lens.lens (\LogConfig' {excludeVerboseContent} -> excludeVerboseContent) (\s@LogConfig' {} a -> s {excludeVerboseContent = a} :: LogConfig)
 
 -- | The field logging level. Values can be NONE, ERROR, or ALL.
@@ -141,35 +140,34 @@ logConfig_fieldLogLevel = Lens.lens (\LogConfig' {fieldLogLevel} -> fieldLogLeve
 
 -- | The service role that AWS AppSync will assume to publish to Amazon
 -- CloudWatch logs in your account.
-logConfig_cloudWatchLogsRoleArn :: Lens.Lens' LogConfig Prelude.Text
+logConfig_cloudWatchLogsRoleArn :: Lens.Lens' LogConfig Core.Text
 logConfig_cloudWatchLogsRoleArn = Lens.lens (\LogConfig' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@LogConfig' {} a -> s {cloudWatchLogsRoleArn = a} :: LogConfig)
 
-instance Prelude.FromJSON LogConfig where
+instance Core.FromJSON LogConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "LogConfig"
       ( \x ->
           LogConfig'
-            Prelude.<$> (x Prelude..:? "excludeVerboseContent")
-            Prelude.<*> (x Prelude..: "fieldLogLevel")
-            Prelude.<*> (x Prelude..: "cloudWatchLogsRoleArn")
+            Core.<$> (x Core..:? "excludeVerboseContent")
+            Core.<*> (x Core..: "fieldLogLevel")
+            Core.<*> (x Core..: "cloudWatchLogsRoleArn")
       )
 
-instance Prelude.Hashable LogConfig
+instance Core.Hashable LogConfig
 
-instance Prelude.NFData LogConfig
+instance Core.NFData LogConfig
 
-instance Prelude.ToJSON LogConfig where
+instance Core.ToJSON LogConfig where
   toJSON LogConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("excludeVerboseContent" Prelude..=)
-              Prelude.<$> excludeVerboseContent,
-            Prelude.Just
-              ("fieldLogLevel" Prelude..= fieldLogLevel),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("excludeVerboseContent" Core..=)
+              Core.<$> excludeVerboseContent,
+            Core.Just ("fieldLogLevel" Core..= fieldLogLevel),
+            Core.Just
               ( "cloudWatchLogsRoleArn"
-                  Prelude..= cloudWatchLogsRoleArn
+                  Core..= cloudWatchLogsRoleArn
               )
           ]
       )

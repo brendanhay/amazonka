@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.ResourceGroups.GetGroupConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
 import qualified Network.AWS.Response as Response
@@ -57,9 +56,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetGroupConfiguration' smart constructor.
 data GetGroupConfiguration = GetGroupConfiguration'
   { -- | The name or the ARN of the resource group.
-    group' :: Prelude.Maybe Prelude.Text
+    group' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroupConfiguration' with all optional fields omitted.
@@ -73,55 +72,53 @@ data GetGroupConfiguration = GetGroupConfiguration'
 newGetGroupConfiguration ::
   GetGroupConfiguration
 newGetGroupConfiguration =
-  GetGroupConfiguration' {group' = Prelude.Nothing}
+  GetGroupConfiguration' {group' = Core.Nothing}
 
 -- | The name or the ARN of the resource group.
-getGroupConfiguration_group :: Lens.Lens' GetGroupConfiguration (Prelude.Maybe Prelude.Text)
+getGroupConfiguration_group :: Lens.Lens' GetGroupConfiguration (Core.Maybe Core.Text)
 getGroupConfiguration_group = Lens.lens (\GetGroupConfiguration' {group'} -> group') (\s@GetGroupConfiguration' {} a -> s {group' = a} :: GetGroupConfiguration)
 
-instance Prelude.AWSRequest GetGroupConfiguration where
+instance Core.AWSRequest GetGroupConfiguration where
   type
-    Rs GetGroupConfiguration =
+    AWSResponse GetGroupConfiguration =
       GetGroupConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetGroupConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "GroupConfiguration")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GroupConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetGroupConfiguration
+instance Core.Hashable GetGroupConfiguration
 
-instance Prelude.NFData GetGroupConfiguration
+instance Core.NFData GetGroupConfiguration
 
-instance Prelude.ToHeaders GetGroupConfiguration where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetGroupConfiguration where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetGroupConfiguration where
+instance Core.ToJSON GetGroupConfiguration where
   toJSON GetGroupConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("Group" Prelude..=) Prelude.<$> group']
-      )
+    Core.object
+      (Core.catMaybes [("Group" Core..=) Core.<$> group'])
 
-instance Prelude.ToPath GetGroupConfiguration where
-  toPath = Prelude.const "/get-group-configuration"
+instance Core.ToPath GetGroupConfiguration where
+  toPath = Core.const "/get-group-configuration"
 
-instance Prelude.ToQuery GetGroupConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetGroupConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetGroupConfigurationResponse' smart constructor.
 data GetGroupConfigurationResponse = GetGroupConfigurationResponse'
   { -- | The service configuration associated with the specified group. For
     -- details about the service configuration syntax, see
     -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
-    groupConfiguration :: Prelude.Maybe GroupConfiguration,
+    groupConfiguration :: Core.Maybe GroupConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetGroupConfigurationResponse' with all optional fields omitted.
@@ -138,23 +135,23 @@ data GetGroupConfigurationResponse = GetGroupConfigurationResponse'
 -- 'httpStatus', 'getGroupConfigurationResponse_httpStatus' - The response's http status code.
 newGetGroupConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetGroupConfigurationResponse
 newGetGroupConfigurationResponse pHttpStatus_ =
   GetGroupConfigurationResponse'
     { groupConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The service configuration associated with the specified group. For
 -- details about the service configuration syntax, see
 -- <https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html Service configurations for resource groups>.
-getGroupConfigurationResponse_groupConfiguration :: Lens.Lens' GetGroupConfigurationResponse (Prelude.Maybe GroupConfiguration)
+getGroupConfigurationResponse_groupConfiguration :: Lens.Lens' GetGroupConfigurationResponse (Core.Maybe GroupConfiguration)
 getGroupConfigurationResponse_groupConfiguration = Lens.lens (\GetGroupConfigurationResponse' {groupConfiguration} -> groupConfiguration) (\s@GetGroupConfigurationResponse' {} a -> s {groupConfiguration = a} :: GetGroupConfigurationResponse)
 
 -- | The response's http status code.
-getGroupConfigurationResponse_httpStatus :: Lens.Lens' GetGroupConfigurationResponse Prelude.Int
+getGroupConfigurationResponse_httpStatus :: Lens.Lens' GetGroupConfigurationResponse Core.Int
 getGroupConfigurationResponse_httpStatus = Lens.lens (\GetGroupConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetGroupConfigurationResponse' {} a -> s {httpStatus = a} :: GetGroupConfigurationResponse)
 
-instance Prelude.NFData GetGroupConfigurationResponse
+instance Core.NFData GetGroupConfigurationResponse

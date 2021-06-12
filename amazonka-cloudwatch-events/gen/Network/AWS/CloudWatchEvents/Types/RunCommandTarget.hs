@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchEvents.Types.RunCommandTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the EC2 instances that are to be sent the command,
 -- specified as key-value pairs. Each @RunCommandTarget@ block can include
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newRunCommandTarget' smart constructor.
 data RunCommandTarget = RunCommandTarget'
   { -- | Can be either @tag:@ /tag-key/ or @InstanceIds@.
-    key :: Prelude.Text,
+    key :: Core.Text,
     -- | If @Key@ is @tag:@ /tag-key/, @Values@ is a list of tag values. If @Key@
     -- is @InstanceIds@, @Values@ is a list of Amazon EC2 instance IDs.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RunCommandTarget' with all optional fields omitted.
@@ -51,44 +50,43 @@ data RunCommandTarget = RunCommandTarget'
 -- is @InstanceIds@, @Values@ is a list of Amazon EC2 instance IDs.
 newRunCommandTarget ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   RunCommandTarget
 newRunCommandTarget pKey_ pValues_ =
   RunCommandTarget'
     { key = pKey_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | Can be either @tag:@ /tag-key/ or @InstanceIds@.
-runCommandTarget_key :: Lens.Lens' RunCommandTarget Prelude.Text
+runCommandTarget_key :: Lens.Lens' RunCommandTarget Core.Text
 runCommandTarget_key = Lens.lens (\RunCommandTarget' {key} -> key) (\s@RunCommandTarget' {} a -> s {key = a} :: RunCommandTarget)
 
 -- | If @Key@ is @tag:@ /tag-key/, @Values@ is a list of tag values. If @Key@
 -- is @InstanceIds@, @Values@ is a list of Amazon EC2 instance IDs.
-runCommandTarget_values :: Lens.Lens' RunCommandTarget (Prelude.NonEmpty Prelude.Text)
-runCommandTarget_values = Lens.lens (\RunCommandTarget' {values} -> values) (\s@RunCommandTarget' {} a -> s {values = a} :: RunCommandTarget) Prelude.. Prelude._Coerce
+runCommandTarget_values :: Lens.Lens' RunCommandTarget (Core.NonEmpty Core.Text)
+runCommandTarget_values = Lens.lens (\RunCommandTarget' {values} -> values) (\s@RunCommandTarget' {} a -> s {values = a} :: RunCommandTarget) Core.. Lens._Coerce
 
-instance Prelude.FromJSON RunCommandTarget where
+instance Core.FromJSON RunCommandTarget where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "RunCommandTarget"
       ( \x ->
           RunCommandTarget'
-            Prelude.<$> (x Prelude..: "Key")
-            Prelude.<*> (x Prelude..: "Values")
+            Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Values")
       )
 
-instance Prelude.Hashable RunCommandTarget
+instance Core.Hashable RunCommandTarget
 
-instance Prelude.NFData RunCommandTarget
+instance Core.NFData RunCommandTarget
 
-instance Prelude.ToJSON RunCommandTarget where
+instance Core.ToJSON RunCommandTarget where
   toJSON RunCommandTarget' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Key" Prelude..= key),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("Values" Core..= values)
           ]
       )

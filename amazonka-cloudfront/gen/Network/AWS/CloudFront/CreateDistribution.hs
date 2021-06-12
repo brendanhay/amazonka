@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.CloudFront.CreateDistribution
 where
 
 import Network.AWS.CloudFront.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,7 +67,7 @@ data CreateDistribution = CreateDistribution'
   { -- | The distribution\'s configuration information.
     distributionConfig :: DistributionConfig
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDistribution' with all optional fields omitted.
@@ -93,54 +92,54 @@ newCreateDistribution pDistributionConfig_ =
 createDistribution_distributionConfig :: Lens.Lens' CreateDistribution DistributionConfig
 createDistribution_distributionConfig = Lens.lens (\CreateDistribution' {distributionConfig} -> distributionConfig) (\s@CreateDistribution' {} a -> s {distributionConfig = a} :: CreateDistribution)
 
-instance Prelude.AWSRequest CreateDistribution where
+instance Core.AWSRequest CreateDistribution where
   type
-    Rs CreateDistribution =
+    AWSResponse CreateDistribution =
       CreateDistributionResponse
   request = Request.postXML defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateDistributionResponse'
-            Prelude.<$> (h Prelude..#? "ETag")
-            Prelude.<*> (Prelude.parseXML x)
-            Prelude.<*> (h Prelude..#? "Location")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "ETag")
+            Core.<*> (Core.parseXML x)
+            Core.<*> (h Core..#? "Location")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateDistribution
+instance Core.Hashable CreateDistribution
 
-instance Prelude.NFData CreateDistribution
+instance Core.NFData CreateDistribution
 
-instance Prelude.ToElement CreateDistribution where
+instance Core.ToElement CreateDistribution where
   toElement CreateDistribution' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}DistributionConfig"
       distributionConfig
 
-instance Prelude.ToHeaders CreateDistribution where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateDistribution where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateDistribution where
-  toPath = Prelude.const "/2020-05-31/distribution"
+instance Core.ToPath CreateDistribution where
+  toPath = Core.const "/2020-05-31/distribution"
 
-instance Prelude.ToQuery CreateDistribution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateDistribution where
+  toQuery = Core.const Core.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'newCreateDistributionResponse' smart constructor.
 data CreateDistributionResponse = CreateDistributionResponse'
   { -- | The current version of the distribution created.
-    eTag :: Prelude.Maybe Prelude.Text,
+    eTag :: Core.Maybe Core.Text,
     -- | The distribution\'s information.
-    distribution :: Prelude.Maybe Distribution,
+    distribution :: Core.Maybe Distribution,
     -- | The fully qualified URI of the new distribution resource just created.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateDistributionResponse' with all optional fields omitted.
@@ -159,30 +158,30 @@ data CreateDistributionResponse = CreateDistributionResponse'
 -- 'httpStatus', 'createDistributionResponse_httpStatus' - The response's http status code.
 newCreateDistributionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateDistributionResponse
 newCreateDistributionResponse pHttpStatus_ =
   CreateDistributionResponse'
-    { eTag = Prelude.Nothing,
-      distribution = Prelude.Nothing,
-      location = Prelude.Nothing,
+    { eTag = Core.Nothing,
+      distribution = Core.Nothing,
+      location = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The current version of the distribution created.
-createDistributionResponse_eTag :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Prelude.Text)
+createDistributionResponse_eTag :: Lens.Lens' CreateDistributionResponse (Core.Maybe Core.Text)
 createDistributionResponse_eTag = Lens.lens (\CreateDistributionResponse' {eTag} -> eTag) (\s@CreateDistributionResponse' {} a -> s {eTag = a} :: CreateDistributionResponse)
 
 -- | The distribution\'s information.
-createDistributionResponse_distribution :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Distribution)
+createDistributionResponse_distribution :: Lens.Lens' CreateDistributionResponse (Core.Maybe Distribution)
 createDistributionResponse_distribution = Lens.lens (\CreateDistributionResponse' {distribution} -> distribution) (\s@CreateDistributionResponse' {} a -> s {distribution = a} :: CreateDistributionResponse)
 
 -- | The fully qualified URI of the new distribution resource just created.
-createDistributionResponse_location :: Lens.Lens' CreateDistributionResponse (Prelude.Maybe Prelude.Text)
+createDistributionResponse_location :: Lens.Lens' CreateDistributionResponse (Core.Maybe Core.Text)
 createDistributionResponse_location = Lens.lens (\CreateDistributionResponse' {location} -> location) (\s@CreateDistributionResponse' {} a -> s {location = a} :: CreateDistributionResponse)
 
 -- | The response's http status code.
-createDistributionResponse_httpStatus :: Lens.Lens' CreateDistributionResponse Prelude.Int
+createDistributionResponse_httpStatus :: Lens.Lens' CreateDistributionResponse Core.Int
 createDistributionResponse_httpStatus = Lens.lens (\CreateDistributionResponse' {httpStatus} -> httpStatus) (\s@CreateDistributionResponse' {} a -> s {httpStatus = a} :: CreateDistributionResponse)
 
-instance Prelude.NFData CreateDistributionResponse
+instance Core.NFData CreateDistributionResponse

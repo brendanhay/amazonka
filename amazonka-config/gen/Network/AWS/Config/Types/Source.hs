@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.Config.Types.Source where
 
 import Network.AWS.Config.Types.Owner
 import Network.AWS.Config.Types.SourceDetail
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Provides the AWS Config rule owner (AWS or customer), the rule
 -- identifier, and the events that trigger the evaluation of your AWS
@@ -33,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Source = Source'
   { -- | Provides the source and type of the event that causes AWS Config to
     -- evaluate your AWS resources.
-    sourceDetails :: Prelude.Maybe [SourceDetail],
+    sourceDetails :: Core.Maybe [SourceDetail],
     -- | Indicates whether AWS or the customer owns and manages the AWS Config
     -- rule.
     owner :: Owner,
@@ -45,9 +44,9 @@ data Source = Source'
     -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
     -- the rule\'s AWS Lambda function, such as
     -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
-    sourceIdentifier :: Prelude.Text
+    sourceIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Source' with all optional fields omitted.
@@ -75,19 +74,19 @@ newSource ::
   -- | 'owner'
   Owner ->
   -- | 'sourceIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   Source
 newSource pOwner_ pSourceIdentifier_ =
   Source'
-    { sourceDetails = Prelude.Nothing,
+    { sourceDetails = Core.Nothing,
       owner = pOwner_,
       sourceIdentifier = pSourceIdentifier_
     }
 
 -- | Provides the source and type of the event that causes AWS Config to
 -- evaluate your AWS resources.
-source_sourceDetails :: Lens.Lens' Source (Prelude.Maybe [SourceDetail])
-source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Prelude.. Lens.mapping Prelude._Coerce
+source_sourceDetails :: Lens.Lens' Source (Core.Maybe [SourceDetail])
+source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether AWS or the customer owns and manages the AWS Config
 -- rule.
@@ -102,34 +101,31 @@ source_owner = Lens.lens (\Source' {owner} -> owner) (\s@Source' {} a -> s {owne
 -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
 -- the rule\'s AWS Lambda function, such as
 -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
-source_sourceIdentifier :: Lens.Lens' Source Prelude.Text
+source_sourceIdentifier :: Lens.Lens' Source Core.Text
 source_sourceIdentifier = Lens.lens (\Source' {sourceIdentifier} -> sourceIdentifier) (\s@Source' {} a -> s {sourceIdentifier = a} :: Source)
 
-instance Prelude.FromJSON Source where
+instance Core.FromJSON Source where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> ( x Prelude..:? "SourceDetails"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "Owner")
-            Prelude.<*> (x Prelude..: "SourceIdentifier")
+            Core.<$> (x Core..:? "SourceDetails" Core..!= Core.mempty)
+            Core.<*> (x Core..: "Owner")
+            Core.<*> (x Core..: "SourceIdentifier")
       )
 
-instance Prelude.Hashable Source
+instance Core.Hashable Source
 
-instance Prelude.NFData Source
+instance Core.NFData Source
 
-instance Prelude.ToJSON Source where
+instance Core.ToJSON Source where
   toJSON Source' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SourceDetails" Prelude..=)
-              Prelude.<$> sourceDetails,
-            Prelude.Just ("Owner" Prelude..= owner),
-            Prelude.Just
-              ("SourceIdentifier" Prelude..= sourceIdentifier)
+    Core.object
+      ( Core.catMaybes
+          [ ("SourceDetails" Core..=) Core.<$> sourceDetails,
+            Core.Just ("Owner" Core..= owner),
+            Core.Just
+              ("SourceIdentifier" Core..= sourceIdentifier)
           ]
       )

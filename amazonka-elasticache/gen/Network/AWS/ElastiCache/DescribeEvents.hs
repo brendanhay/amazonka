@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,10 +54,9 @@ module Network.AWS.ElastiCache.DescribeEvents
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,28 +65,28 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
   { -- | The number of minutes worth of events to retrieve.
-    duration :: Prelude.Maybe Prelude.Int,
+    duration :: Core.Maybe Core.Int,
     -- | The beginning of the time interval to retrieve events for, specified in
     -- ISO 8601 format.
     --
     -- __Example:__ 2017-03-30T07:03:49.555Z
-    startTime :: Prelude.Maybe Prelude.ISO8601,
+    startTime :: Core.Maybe Core.ISO8601,
     -- | The end of the time interval for which to retrieve events, specified in
     -- ISO 8601 format.
     --
     -- __Example:__ 2017-03-30T07:03:49.555Z
-    endTime :: Prelude.Maybe Prelude.ISO8601,
+    endTime :: Core.Maybe Core.ISO8601,
     -- | The identifier of the event source for which events are returned. If not
     -- specified, all sources are included in the response.
-    sourceIdentifier :: Prelude.Maybe Prelude.Text,
+    sourceIdentifier :: Core.Maybe Core.Text,
     -- | The event source to retrieve events for. If no value is specified, all
     -- events are returned.
-    sourceType :: Prelude.Maybe SourceType,
+    sourceType :: Core.Maybe SourceType,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -96,9 +94,9 @@ data DescribeEvents = DescribeEvents'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEvents' with all optional fields omitted.
@@ -142,48 +140,48 @@ newDescribeEvents ::
   DescribeEvents
 newDescribeEvents =
   DescribeEvents'
-    { duration = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      endTime = Prelude.Nothing,
-      sourceIdentifier = Prelude.Nothing,
-      sourceType = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+    { duration = Core.Nothing,
+      startTime = Core.Nothing,
+      endTime = Core.Nothing,
+      sourceIdentifier = Core.Nothing,
+      sourceType = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The number of minutes worth of events to retrieve.
-describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_duration :: Lens.Lens' DescribeEvents (Core.Maybe Core.Int)
 describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
 
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format.
 --
 -- __Example:__ 2017-03-30T07:03:49.555Z
-describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Time
+describeEvents_startTime :: Lens.Lens' DescribeEvents (Core.Maybe Core.UTCTime)
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Core.. Lens.mapping Core._Time
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format.
 --
 -- __Example:__ 2017-03-30T07:03:49.555Z
-describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
-describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Time
+describeEvents_endTime :: Lens.Lens' DescribeEvents (Core.Maybe Core.UTCTime)
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Core.. Lens.mapping Core._Time
 
 -- | The identifier of the event source for which events are returned. If not
 -- specified, all sources are included in the response.
-describeEvents_sourceIdentifier :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_sourceIdentifier :: Lens.Lens' DescribeEvents (Core.Maybe Core.Text)
 describeEvents_sourceIdentifier = Lens.lens (\DescribeEvents' {sourceIdentifier} -> sourceIdentifier) (\s@DescribeEvents' {} a -> s {sourceIdentifier = a} :: DescribeEvents)
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
-describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
+describeEvents_sourceType :: Lens.Lens' DescribeEvents (Core.Maybe SourceType)
 describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_marker :: Lens.Lens' DescribeEvents (Core.Maybe Core.Text)
 describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
 -- | The maximum number of records to include in the response. If more
@@ -193,67 +191,68 @@ describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@Desc
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Core.Maybe Core.Int)
 describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
 
-instance Pager.AWSPager DescribeEvents where
+instance Core.AWSPager DescribeEvents where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? describeEventsResponse_marker Prelude.. Lens._Just
+            Lens.^? describeEventsResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? describeEventsResponse_events Prelude.. Lens._Just
+            Lens.^? describeEventsResponse_events Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeEvents_marker
           Lens..~ rs
-          Lens.^? describeEventsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeEventsResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeEvents where
-  type Rs DescribeEvents = DescribeEventsResponse
+instance Core.AWSRequest DescribeEvents where
+  type
+    AWSResponse DescribeEvents =
+      DescribeEventsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "DescribeEventsResult"
       ( \s h x ->
           DescribeEventsResponse'
-            Prelude.<$> ( x Prelude..@? "Events" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "Event")
-                        )
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Events" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "Event")
+                     )
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeEvents
+instance Core.Hashable DescribeEvents
 
-instance Prelude.NFData DescribeEvents
+instance Core.NFData DescribeEvents
 
-instance Prelude.ToHeaders DescribeEvents where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeEvents where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeEvents where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeEvents where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeEvents where
+instance Core.ToQuery DescribeEvents where
   toQuery DescribeEvents' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeEvents" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "Duration" Prelude.=: duration,
-        "StartTime" Prelude.=: startTime,
-        "EndTime" Prelude.=: endTime,
-        "SourceIdentifier" Prelude.=: sourceIdentifier,
-        "SourceType" Prelude.=: sourceType,
-        "Marker" Prelude.=: marker,
-        "MaxRecords" Prelude.=: maxRecords
+          Core.=: ("DescribeEvents" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "Duration" Core.=: duration,
+        "StartTime" Core.=: startTime,
+        "EndTime" Core.=: endTime,
+        "SourceIdentifier" Core.=: sourceIdentifier,
+        "SourceType" Core.=: sourceType,
+        "Marker" Core.=: marker,
+        "MaxRecords" Core.=: maxRecords
       ]
 
 -- | Represents the output of a @DescribeEvents@ operation.
@@ -262,13 +261,13 @@ instance Prelude.ToQuery DescribeEvents where
 data DescribeEventsResponse = DescribeEventsResponse'
   { -- | A list of events. Each element in the list contains detailed information
     -- about one event.
-    events :: Prelude.Maybe [Event],
+    events :: Core.Maybe [Event],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeEventsResponse' with all optional fields omitted.
@@ -286,26 +285,26 @@ data DescribeEventsResponse = DescribeEventsResponse'
 -- 'httpStatus', 'describeEventsResponse_httpStatus' - The response's http status code.
 newDescribeEventsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeEventsResponse
 newDescribeEventsResponse pHttpStatus_ =
   DescribeEventsResponse'
-    { events = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { events = Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
-describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [Event])
-describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Core.Maybe [Event])
+describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeEventsResponse_marker :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe Prelude.Text)
+describeEventsResponse_marker :: Lens.Lens' DescribeEventsResponse (Core.Maybe Core.Text)
 describeEventsResponse_marker = Lens.lens (\DescribeEventsResponse' {marker} -> marker) (\s@DescribeEventsResponse' {} a -> s {marker = a} :: DescribeEventsResponse)
 
 -- | The response's http status code.
-describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int
+describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Core.Int
 describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsResponse' {} a -> s {httpStatus = a} :: DescribeEventsResponse)
 
-instance Prelude.NFData DescribeEventsResponse
+instance Core.NFData DescribeEventsResponse

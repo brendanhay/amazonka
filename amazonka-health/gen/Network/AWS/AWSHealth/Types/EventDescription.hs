@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AWSHealth.Types.EventDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The detailed description of the event. Included in the information
 -- returned by the
@@ -31,9 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEventDescription' smart constructor.
 data EventDescription = EventDescription'
   { -- | The most recent description of the event.
-    latestDescription :: Prelude.Maybe Prelude.Text
+    latestDescription :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventDescription' with all optional fields omitted.
@@ -47,24 +46,21 @@ data EventDescription = EventDescription'
 newEventDescription ::
   EventDescription
 newEventDescription =
-  EventDescription'
-    { latestDescription =
-        Prelude.Nothing
-    }
+  EventDescription' {latestDescription = Core.Nothing}
 
 -- | The most recent description of the event.
-eventDescription_latestDescription :: Lens.Lens' EventDescription (Prelude.Maybe Prelude.Text)
+eventDescription_latestDescription :: Lens.Lens' EventDescription (Core.Maybe Core.Text)
 eventDescription_latestDescription = Lens.lens (\EventDescription' {latestDescription} -> latestDescription) (\s@EventDescription' {} a -> s {latestDescription = a} :: EventDescription)
 
-instance Prelude.FromJSON EventDescription where
+instance Core.FromJSON EventDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "EventDescription"
       ( \x ->
           EventDescription'
-            Prelude.<$> (x Prelude..:? "latestDescription")
+            Core.<$> (x Core..:? "latestDescription")
       )
 
-instance Prelude.Hashable EventDescription
+instance Core.Hashable EventDescription
 
-instance Prelude.NFData EventDescription
+instance Core.NFData EventDescription

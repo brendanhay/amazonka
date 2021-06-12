@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,9 @@ module Network.AWS.Glue.StartJobRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,12 +58,12 @@ import qualified Network.AWS.Response as Response
 data StartJobRun = StartJobRun'
   { -- | The name of the @SecurityConfiguration@ structure to be used with this
     -- job run.
-    securityConfiguration :: Prelude.Maybe Prelude.Text,
+    securityConfiguration :: Core.Maybe Core.Text,
     -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
     -- can consume resources before it is terminated and enters @TIMEOUT@
     -- status. The default is 2,880 minutes (48 hours). This overrides the
     -- timeout value set in the parent job.
-    timeout :: Prelude.Maybe Prelude.Natural,
+    timeout :: Core.Maybe Core.Natural,
     -- | The number of AWS Glue data processing units (DPUs) that can be
     -- allocated when this job runs. A DPU is a relative measure of processing
     -- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -84,15 +83,15 @@ data StartJobRun = StartJobRun'
     --     (@JobCommand.Name@=\"glueetl\"), you can allocate from 2 to 100
     --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
     --     DPU allocation.
-    maxCapacity :: Prelude.Maybe Prelude.Double,
+    maxCapacity :: Core.Maybe Core.Double,
     -- | Specifies configuration properties of a job run notification.
-    notificationProperty :: Prelude.Maybe NotificationProperty,
+    notificationProperty :: Core.Maybe NotificationProperty,
     -- | The number of workers of a defined @workerType@ that are allocated when
     -- a job runs.
     --
     -- The maximum number of workers you can define are 299 for @G.1X@, and 149
     -- for @G.2X@.
-    numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    numberOfWorkers :: Core.Maybe Core.Int,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
     -- a value of Standard, G.1X, or G.2X.
     --
@@ -104,9 +103,9 @@ data StartJobRun = StartJobRun'
     --
     -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
     --     memory and a 128GB disk, and 1 executor per worker.
-    workerType :: Prelude.Maybe WorkerType,
+    workerType :: Core.Maybe WorkerType,
     -- | The ID of a previous @JobRun@ to retry.
-    jobRunId :: Prelude.Maybe Prelude.Text,
+    jobRunId :: Core.Maybe Core.Text,
     -- | The job arguments specifically for this run. For this job run, they
     -- replace the default arguments set in the job definition itself.
     --
@@ -122,7 +121,7 @@ data StartJobRun = StartJobRun'
     -- up your job, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
     -- topic in the developer guide.
-    arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    arguments :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | This field is deprecated. Use @MaxCapacity@ instead.
     --
     -- The number of AWS Glue data processing units (DPUs) to allocate to this
@@ -130,11 +129,11 @@ data StartJobRun = StartJobRun'
     -- a relative measure of processing power that consists of 4 vCPUs of
     -- compute capacity and 16 GB of memory. For more information, see the
     -- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-    allocatedCapacity :: Prelude.Maybe Prelude.Int,
+    allocatedCapacity :: Core.Maybe Core.Int,
     -- | The name of the job definition to use.
-    jobName :: Prelude.Text
+    jobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartJobRun' with all optional fields omitted.
@@ -221,33 +220,32 @@ data StartJobRun = StartJobRun'
 -- 'jobName', 'startJobRun_jobName' - The name of the job definition to use.
 newStartJobRun ::
   -- | 'jobName'
-  Prelude.Text ->
+  Core.Text ->
   StartJobRun
 newStartJobRun pJobName_ =
   StartJobRun'
-    { securityConfiguration =
-        Prelude.Nothing,
-      timeout = Prelude.Nothing,
-      maxCapacity = Prelude.Nothing,
-      notificationProperty = Prelude.Nothing,
-      numberOfWorkers = Prelude.Nothing,
-      workerType = Prelude.Nothing,
-      jobRunId = Prelude.Nothing,
-      arguments = Prelude.Nothing,
-      allocatedCapacity = Prelude.Nothing,
+    { securityConfiguration = Core.Nothing,
+      timeout = Core.Nothing,
+      maxCapacity = Core.Nothing,
+      notificationProperty = Core.Nothing,
+      numberOfWorkers = Core.Nothing,
+      workerType = Core.Nothing,
+      jobRunId = Core.Nothing,
+      arguments = Core.Nothing,
+      allocatedCapacity = Core.Nothing,
       jobName = pJobName_
     }
 
 -- | The name of the @SecurityConfiguration@ structure to be used with this
 -- job run.
-startJobRun_securityConfiguration :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
+startJobRun_securityConfiguration :: Lens.Lens' StartJobRun (Core.Maybe Core.Text)
 startJobRun_securityConfiguration = Lens.lens (\StartJobRun' {securityConfiguration} -> securityConfiguration) (\s@StartJobRun' {} a -> s {securityConfiguration = a} :: StartJobRun)
 
 -- | The @JobRun@ timeout in minutes. This is the maximum time that a job run
 -- can consume resources before it is terminated and enters @TIMEOUT@
 -- status. The default is 2,880 minutes (48 hours). This overrides the
 -- timeout value set in the parent job.
-startJobRun_timeout :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Natural)
+startJobRun_timeout :: Lens.Lens' StartJobRun (Core.Maybe Core.Natural)
 startJobRun_timeout = Lens.lens (\StartJobRun' {timeout} -> timeout) (\s@StartJobRun' {} a -> s {timeout = a} :: StartJobRun)
 
 -- | The number of AWS Glue data processing units (DPUs) that can be
@@ -269,11 +267,11 @@ startJobRun_timeout = Lens.lens (\StartJobRun' {timeout} -> timeout) (\s@StartJo
 --     (@JobCommand.Name@=\"glueetl\"), you can allocate from 2 to 100
 --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
 --     DPU allocation.
-startJobRun_maxCapacity :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Double)
+startJobRun_maxCapacity :: Lens.Lens' StartJobRun (Core.Maybe Core.Double)
 startJobRun_maxCapacity = Lens.lens (\StartJobRun' {maxCapacity} -> maxCapacity) (\s@StartJobRun' {} a -> s {maxCapacity = a} :: StartJobRun)
 
 -- | Specifies configuration properties of a job run notification.
-startJobRun_notificationProperty :: Lens.Lens' StartJobRun (Prelude.Maybe NotificationProperty)
+startJobRun_notificationProperty :: Lens.Lens' StartJobRun (Core.Maybe NotificationProperty)
 startJobRun_notificationProperty = Lens.lens (\StartJobRun' {notificationProperty} -> notificationProperty) (\s@StartJobRun' {} a -> s {notificationProperty = a} :: StartJobRun)
 
 -- | The number of workers of a defined @workerType@ that are allocated when
@@ -281,7 +279,7 @@ startJobRun_notificationProperty = Lens.lens (\StartJobRun' {notificationPropert
 --
 -- The maximum number of workers you can define are 299 for @G.1X@, and 149
 -- for @G.2X@.
-startJobRun_numberOfWorkers :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Int)
+startJobRun_numberOfWorkers :: Lens.Lens' StartJobRun (Core.Maybe Core.Int)
 startJobRun_numberOfWorkers = Lens.lens (\StartJobRun' {numberOfWorkers} -> numberOfWorkers) (\s@StartJobRun' {} a -> s {numberOfWorkers = a} :: StartJobRun)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
@@ -295,11 +293,11 @@ startJobRun_numberOfWorkers = Lens.lens (\StartJobRun' {numberOfWorkers} -> numb
 --
 -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
 --     memory and a 128GB disk, and 1 executor per worker.
-startJobRun_workerType :: Lens.Lens' StartJobRun (Prelude.Maybe WorkerType)
+startJobRun_workerType :: Lens.Lens' StartJobRun (Core.Maybe WorkerType)
 startJobRun_workerType = Lens.lens (\StartJobRun' {workerType} -> workerType) (\s@StartJobRun' {} a -> s {workerType = a} :: StartJobRun)
 
 -- | The ID of a previous @JobRun@ to retry.
-startJobRun_jobRunId :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
+startJobRun_jobRunId :: Lens.Lens' StartJobRun (Core.Maybe Core.Text)
 startJobRun_jobRunId = Lens.lens (\StartJobRun' {jobRunId} -> jobRunId) (\s@StartJobRun' {} a -> s {jobRunId = a} :: StartJobRun)
 
 -- | The job arguments specifically for this run. For this job run, they
@@ -317,8 +315,8 @@ startJobRun_jobRunId = Lens.lens (\StartJobRun' {jobRunId} -> jobRunId) (\s@Star
 -- up your job, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
 -- topic in the developer guide.
-startJobRun_arguments :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-startJobRun_arguments = Lens.lens (\StartJobRun' {arguments} -> arguments) (\s@StartJobRun' {} a -> s {arguments = a} :: StartJobRun) Prelude.. Lens.mapping Prelude._Coerce
+startJobRun_arguments :: Lens.Lens' StartJobRun (Core.Maybe (Core.HashMap Core.Text Core.Text))
+startJobRun_arguments = Lens.lens (\StartJobRun' {arguments} -> arguments) (\s@StartJobRun' {} a -> s {arguments = a} :: StartJobRun) Core.. Lens.mapping Lens._Coerce
 
 -- | This field is deprecated. Use @MaxCapacity@ instead.
 --
@@ -327,76 +325,73 @@ startJobRun_arguments = Lens.lens (\StartJobRun' {arguments} -> arguments) (\s@S
 -- a relative measure of processing power that consists of 4 vCPUs of
 -- compute capacity and 16 GB of memory. For more information, see the
 -- <https://docs.aws.amazon.com/https:/aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-startJobRun_allocatedCapacity :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Int)
+startJobRun_allocatedCapacity :: Lens.Lens' StartJobRun (Core.Maybe Core.Int)
 startJobRun_allocatedCapacity = Lens.lens (\StartJobRun' {allocatedCapacity} -> allocatedCapacity) (\s@StartJobRun' {} a -> s {allocatedCapacity = a} :: StartJobRun)
 
 -- | The name of the job definition to use.
-startJobRun_jobName :: Lens.Lens' StartJobRun Prelude.Text
+startJobRun_jobName :: Lens.Lens' StartJobRun Core.Text
 startJobRun_jobName = Lens.lens (\StartJobRun' {jobName} -> jobName) (\s@StartJobRun' {} a -> s {jobName = a} :: StartJobRun)
 
-instance Prelude.AWSRequest StartJobRun where
-  type Rs StartJobRun = StartJobRunResponse
+instance Core.AWSRequest StartJobRun where
+  type AWSResponse StartJobRun = StartJobRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartJobRunResponse'
-            Prelude.<$> (x Prelude..?> "JobRunId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "JobRunId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartJobRun
+instance Core.Hashable StartJobRun
 
-instance Prelude.NFData StartJobRun
+instance Core.NFData StartJobRun
 
-instance Prelude.ToHeaders StartJobRun where
+instance Core.ToHeaders StartJobRun where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AWSGlue.StartJobRun" :: Prelude.ByteString),
+              Core.=# ("AWSGlue.StartJobRun" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartJobRun where
+instance Core.ToJSON StartJobRun where
   toJSON StartJobRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SecurityConfiguration" Prelude..=)
-              Prelude.<$> securityConfiguration,
-            ("Timeout" Prelude..=) Prelude.<$> timeout,
-            ("MaxCapacity" Prelude..=) Prelude.<$> maxCapacity,
-            ("NotificationProperty" Prelude..=)
-              Prelude.<$> notificationProperty,
-            ("NumberOfWorkers" Prelude..=)
-              Prelude.<$> numberOfWorkers,
-            ("WorkerType" Prelude..=) Prelude.<$> workerType,
-            ("JobRunId" Prelude..=) Prelude.<$> jobRunId,
-            ("Arguments" Prelude..=) Prelude.<$> arguments,
-            ("AllocatedCapacity" Prelude..=)
-              Prelude.<$> allocatedCapacity,
-            Prelude.Just ("JobName" Prelude..= jobName)
+    Core.object
+      ( Core.catMaybes
+          [ ("SecurityConfiguration" Core..=)
+              Core.<$> securityConfiguration,
+            ("Timeout" Core..=) Core.<$> timeout,
+            ("MaxCapacity" Core..=) Core.<$> maxCapacity,
+            ("NotificationProperty" Core..=)
+              Core.<$> notificationProperty,
+            ("NumberOfWorkers" Core..=) Core.<$> numberOfWorkers,
+            ("WorkerType" Core..=) Core.<$> workerType,
+            ("JobRunId" Core..=) Core.<$> jobRunId,
+            ("Arguments" Core..=) Core.<$> arguments,
+            ("AllocatedCapacity" Core..=)
+              Core.<$> allocatedCapacity,
+            Core.Just ("JobName" Core..= jobName)
           ]
       )
 
-instance Prelude.ToPath StartJobRun where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartJobRun where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartJobRun where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartJobRun where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStartJobRunResponse' smart constructor.
 data StartJobRunResponse = StartJobRunResponse'
   { -- | The ID assigned to this job run.
-    jobRunId :: Prelude.Maybe Prelude.Text,
+    jobRunId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartJobRunResponse' with all optional fields omitted.
@@ -411,20 +406,20 @@ data StartJobRunResponse = StartJobRunResponse'
 -- 'httpStatus', 'startJobRunResponse_httpStatus' - The response's http status code.
 newStartJobRunResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartJobRunResponse
 newStartJobRunResponse pHttpStatus_ =
   StartJobRunResponse'
-    { jobRunId = Prelude.Nothing,
+    { jobRunId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ID assigned to this job run.
-startJobRunResponse_jobRunId :: Lens.Lens' StartJobRunResponse (Prelude.Maybe Prelude.Text)
+startJobRunResponse_jobRunId :: Lens.Lens' StartJobRunResponse (Core.Maybe Core.Text)
 startJobRunResponse_jobRunId = Lens.lens (\StartJobRunResponse' {jobRunId} -> jobRunId) (\s@StartJobRunResponse' {} a -> s {jobRunId = a} :: StartJobRunResponse)
 
 -- | The response's http status code.
-startJobRunResponse_httpStatus :: Lens.Lens' StartJobRunResponse Prelude.Int
+startJobRunResponse_httpStatus :: Lens.Lens' StartJobRunResponse Core.Int
 startJobRunResponse_httpStatus = Lens.lens (\StartJobRunResponse' {httpStatus} -> httpStatus) (\s@StartJobRunResponse' {} a -> s {httpStatus = a} :: StartJobRunResponse)
 
-instance Prelude.NFData StartJobRunResponse
+instance Core.NFData StartJobRunResponse

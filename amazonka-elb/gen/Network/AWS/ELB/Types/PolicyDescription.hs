@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ELB.Types.PolicyDescription where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Internal
 import Network.AWS.ELB.Types.PolicyAttributeDescription
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a policy.
 --
 -- /See:/ 'newPolicyDescription' smart constructor.
 data PolicyDescription = PolicyDescription'
   { -- | The name of the policy.
-    policyName :: Prelude.Maybe Prelude.Text,
+    policyName :: Core.Maybe Core.Text,
     -- | The name of the policy type.
-    policyTypeName :: Prelude.Maybe Prelude.Text,
+    policyTypeName :: Core.Maybe Core.Text,
     -- | The policy attributes.
-    policyAttributeDescriptions :: Prelude.Maybe [PolicyAttributeDescription]
+    policyAttributeDescriptions :: Core.Maybe [PolicyAttributeDescription]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PolicyDescription' with all optional fields omitted.
@@ -55,33 +54,33 @@ newPolicyDescription ::
   PolicyDescription
 newPolicyDescription =
   PolicyDescription'
-    { policyName = Prelude.Nothing,
-      policyTypeName = Prelude.Nothing,
-      policyAttributeDescriptions = Prelude.Nothing
+    { policyName = Core.Nothing,
+      policyTypeName = Core.Nothing,
+      policyAttributeDescriptions = Core.Nothing
     }
 
 -- | The name of the policy.
-policyDescription_policyName :: Lens.Lens' PolicyDescription (Prelude.Maybe Prelude.Text)
+policyDescription_policyName :: Lens.Lens' PolicyDescription (Core.Maybe Core.Text)
 policyDescription_policyName = Lens.lens (\PolicyDescription' {policyName} -> policyName) (\s@PolicyDescription' {} a -> s {policyName = a} :: PolicyDescription)
 
 -- | The name of the policy type.
-policyDescription_policyTypeName :: Lens.Lens' PolicyDescription (Prelude.Maybe Prelude.Text)
+policyDescription_policyTypeName :: Lens.Lens' PolicyDescription (Core.Maybe Core.Text)
 policyDescription_policyTypeName = Lens.lens (\PolicyDescription' {policyTypeName} -> policyTypeName) (\s@PolicyDescription' {} a -> s {policyTypeName = a} :: PolicyDescription)
 
 -- | The policy attributes.
-policyDescription_policyAttributeDescriptions :: Lens.Lens' PolicyDescription (Prelude.Maybe [PolicyAttributeDescription])
-policyDescription_policyAttributeDescriptions = Lens.lens (\PolicyDescription' {policyAttributeDescriptions} -> policyAttributeDescriptions) (\s@PolicyDescription' {} a -> s {policyAttributeDescriptions = a} :: PolicyDescription) Prelude.. Lens.mapping Prelude._Coerce
+policyDescription_policyAttributeDescriptions :: Lens.Lens' PolicyDescription (Core.Maybe [PolicyAttributeDescription])
+policyDescription_policyAttributeDescriptions = Lens.lens (\PolicyDescription' {policyAttributeDescriptions} -> policyAttributeDescriptions) (\s@PolicyDescription' {} a -> s {policyAttributeDescriptions = a} :: PolicyDescription) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML PolicyDescription where
+instance Core.FromXML PolicyDescription where
   parseXML x =
     PolicyDescription'
-      Prelude.<$> (x Prelude..@? "PolicyName")
-      Prelude.<*> (x Prelude..@? "PolicyTypeName")
-      Prelude.<*> ( x Prelude..@? "PolicyAttributeDescriptions"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                  )
+      Core.<$> (x Core..@? "PolicyName")
+      Core.<*> (x Core..@? "PolicyTypeName")
+      Core.<*> ( x Core..@? "PolicyAttributeDescriptions"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "member")
+               )
 
-instance Prelude.Hashable PolicyDescription
+instance Core.Hashable PolicyDescription
 
-instance Prelude.NFData PolicyDescription
+instance Core.NFData PolicyDescription

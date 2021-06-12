@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.Tiering where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.IntelligentTieringAccessTier
 
@@ -36,13 +35,13 @@ data Tiering = Tiering'
     -- number of days specified for Archive Access tier must be at least 90
     -- days and Deep Archive Access tier must be at least 180 days. The maximum
     -- can be up to 2 years (730 days).
-    days :: Prelude.Int,
+    days :: Core.Int,
     -- | S3 Intelligent-Tiering access tier. See
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access Storage class for automatically optimizing frequently and infrequently accessed objects>
     -- for a list of access tiers in the S3 Intelligent-Tiering storage class.
     accessTier :: IntelligentTieringAccessTier
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Tiering' with all optional fields omitted.
@@ -63,7 +62,7 @@ data Tiering = Tiering'
 -- for a list of access tiers in the S3 Intelligent-Tiering storage class.
 newTiering ::
   -- | 'days'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'accessTier'
   IntelligentTieringAccessTier ->
   Tiering
@@ -75,7 +74,7 @@ newTiering pDays_ pAccessTier_ =
 -- number of days specified for Archive Access tier must be at least 90
 -- days and Deep Archive Access tier must be at least 180 days. The maximum
 -- can be up to 2 years (730 days).
-tiering_days :: Lens.Lens' Tiering Prelude.Int
+tiering_days :: Lens.Lens' Tiering Core.Int
 tiering_days = Lens.lens (\Tiering' {days} -> days) (\s@Tiering' {} a -> s {days = a} :: Tiering)
 
 -- | S3 Intelligent-Tiering access tier. See
@@ -84,19 +83,18 @@ tiering_days = Lens.lens (\Tiering' {days} -> days) (\s@Tiering' {} a -> s {days
 tiering_accessTier :: Lens.Lens' Tiering IntelligentTieringAccessTier
 tiering_accessTier = Lens.lens (\Tiering' {accessTier} -> accessTier) (\s@Tiering' {} a -> s {accessTier = a} :: Tiering)
 
-instance Prelude.FromXML Tiering where
+instance Core.FromXML Tiering where
   parseXML x =
     Tiering'
-      Prelude.<$> (x Prelude..@ "Days")
-      Prelude.<*> (x Prelude..@ "AccessTier")
+      Core.<$> (x Core..@ "Days") Core.<*> (x Core..@ "AccessTier")
 
-instance Prelude.Hashable Tiering
+instance Core.Hashable Tiering
 
-instance Prelude.NFData Tiering
+instance Core.NFData Tiering
 
-instance Prelude.ToXML Tiering where
+instance Core.ToXML Tiering where
   toXML Tiering' {..} =
-    Prelude.mconcat
-      [ "Days" Prelude.@= days,
-        "AccessTier" Prelude.@= accessTier
+    Core.mconcat
+      [ "Days" Core.@= days,
+        "AccessTier" Core.@= accessTier
       ]

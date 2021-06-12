@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,9 +58,9 @@ module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -81,7 +80,7 @@ data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
     --
     -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
     --     carriage return (@\\u000D@)
-    policyInputList :: Prelude.Maybe [Prelude.Text],
+    policyInputList :: Core.Maybe [Core.Text],
     -- | The ARN of a user, group, or role whose policies contain the context
     -- keys that you want listed. If you specify a user, the list includes
     -- context keys that are found in all policies that are attached to the
@@ -94,9 +93,9 @@ data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /AWS General Reference/.
-    policySourceArn :: Prelude.Text
+    policySourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContextKeysForPrincipalPolicy' with all optional fields omitted.
@@ -135,12 +134,12 @@ data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
 -- in the /AWS General Reference/.
 newGetContextKeysForPrincipalPolicy ::
   -- | 'policySourceArn'
-  Prelude.Text ->
+  Core.Text ->
   GetContextKeysForPrincipalPolicy
 newGetContextKeysForPrincipalPolicy pPolicySourceArn_ =
   GetContextKeysForPrincipalPolicy'
     { policyInputList =
-        Prelude.Nothing,
+        Core.Nothing,
       policySourceArn = pPolicySourceArn_
     }
 
@@ -158,8 +157,8 @@ newGetContextKeysForPrincipalPolicy pPolicySourceArn_ =
 --
 -- -   The special characters tab (@\\u0009@), line feed (@\\u000A@), and
 --     carriage return (@\\u000D@)
-getContextKeysForPrincipalPolicy_policyInputList :: Lens.Lens' GetContextKeysForPrincipalPolicy (Prelude.Maybe [Prelude.Text])
-getContextKeysForPrincipalPolicy_policyInputList = Lens.lens (\GetContextKeysForPrincipalPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForPrincipalPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForPrincipalPolicy) Prelude.. Lens.mapping Prelude._Coerce
+getContextKeysForPrincipalPolicy_policyInputList :: Lens.Lens' GetContextKeysForPrincipalPolicy (Core.Maybe [Core.Text])
+getContextKeysForPrincipalPolicy_policyInputList = Lens.lens (\GetContextKeysForPrincipalPolicy' {policyInputList} -> policyInputList) (\s@GetContextKeysForPrincipalPolicy' {} a -> s {policyInputList = a} :: GetContextKeysForPrincipalPolicy) Core.. Lens.mapping Lens._Coerce
 
 -- | The ARN of a user, group, or role whose policies contain the context
 -- keys that you want listed. If you specify a user, the list includes
@@ -173,58 +172,50 @@ getContextKeysForPrincipalPolicy_policyInputList = Lens.lens (\GetContextKeysFor
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /AWS General Reference/.
-getContextKeysForPrincipalPolicy_policySourceArn :: Lens.Lens' GetContextKeysForPrincipalPolicy Prelude.Text
+getContextKeysForPrincipalPolicy_policySourceArn :: Lens.Lens' GetContextKeysForPrincipalPolicy Core.Text
 getContextKeysForPrincipalPolicy_policySourceArn = Lens.lens (\GetContextKeysForPrincipalPolicy' {policySourceArn} -> policySourceArn) (\s@GetContextKeysForPrincipalPolicy' {} a -> s {policySourceArn = a} :: GetContextKeysForPrincipalPolicy)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetContextKeysForPrincipalPolicy
   where
   type
-    Rs GetContextKeysForPrincipalPolicy =
+    AWSResponse GetContextKeysForPrincipalPolicy =
       GetContextKeysForPolicyResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "GetContextKeysForPrincipalPolicyResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetContextKeysForPrincipalPolicy
 
-instance
-  Prelude.NFData
-    GetContextKeysForPrincipalPolicy
+instance Core.NFData GetContextKeysForPrincipalPolicy
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetContextKeysForPrincipalPolicy
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
+
+instance Core.ToPath GetContextKeysForPrincipalPolicy where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToPath
-    GetContextKeysForPrincipalPolicy
-  where
-  toPath = Prelude.const "/"
-
-instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetContextKeysForPrincipalPolicy
   where
   toQuery GetContextKeysForPrincipalPolicy' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "GetContextKeysForPrincipalPolicy" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+          Core.=: ( "GetContextKeysForPrincipalPolicy" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
         "PolicyInputList"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> policyInputList
-            ),
-        "PolicySourceArn" Prelude.=: policySourceArn
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> policyInputList),
+        "PolicySourceArn" Core.=: policySourceArn
       ]

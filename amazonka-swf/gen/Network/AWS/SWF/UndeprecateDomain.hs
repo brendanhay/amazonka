@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,8 +60,8 @@ module Network.AWS.SWF.UndeprecateDomain
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -70,9 +69,9 @@ import Network.AWS.SWF.Types
 -- | /See:/ 'newUndeprecateDomain' smart constructor.
 data UndeprecateDomain = UndeprecateDomain'
   { -- | The name of the domain of the deprecated workflow type.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UndeprecateDomain' with all optional fields omitted.
@@ -85,58 +84,56 @@ data UndeprecateDomain = UndeprecateDomain'
 -- 'name', 'undeprecateDomain_name' - The name of the domain of the deprecated workflow type.
 newUndeprecateDomain ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   UndeprecateDomain
 newUndeprecateDomain pName_ =
   UndeprecateDomain' {name = pName_}
 
 -- | The name of the domain of the deprecated workflow type.
-undeprecateDomain_name :: Lens.Lens' UndeprecateDomain Prelude.Text
+undeprecateDomain_name :: Lens.Lens' UndeprecateDomain Core.Text
 undeprecateDomain_name = Lens.lens (\UndeprecateDomain' {name} -> name) (\s@UndeprecateDomain' {} a -> s {name = a} :: UndeprecateDomain)
 
-instance Prelude.AWSRequest UndeprecateDomain where
-  type Rs UndeprecateDomain = UndeprecateDomainResponse
+instance Core.AWSRequest UndeprecateDomain where
+  type
+    AWSResponse UndeprecateDomain =
+      UndeprecateDomainResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UndeprecateDomainResponse'
 
-instance Prelude.Hashable UndeprecateDomain
+instance Core.Hashable UndeprecateDomain
 
-instance Prelude.NFData UndeprecateDomain
+instance Core.NFData UndeprecateDomain
 
-instance Prelude.ToHeaders UndeprecateDomain where
+instance Core.ToHeaders UndeprecateDomain where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.UndeprecateDomain" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.UndeprecateDomain" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UndeprecateDomain where
+instance Core.ToJSON UndeprecateDomain where
   toJSON UndeprecateDomain' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])
 
-instance Prelude.ToPath UndeprecateDomain where
-  toPath = Prelude.const "/"
+instance Core.ToPath UndeprecateDomain where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UndeprecateDomain where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UndeprecateDomain where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUndeprecateDomainResponse' smart constructor.
 data UndeprecateDomainResponse = UndeprecateDomainResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UndeprecateDomainResponse' with all optional fields omitted.
@@ -147,4 +144,4 @@ newUndeprecateDomainResponse ::
 newUndeprecateDomainResponse =
   UndeprecateDomainResponse'
 
-instance Prelude.NFData UndeprecateDomainResponse
+instance Core.NFData UndeprecateDomainResponse

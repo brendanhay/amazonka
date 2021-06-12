@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.Application where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | With Amazon EMR release version 4.0 and later, the only accepted
 -- parameter is the application name. To pass arguments to applications,
@@ -39,17 +38,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newApplication' smart constructor.
 data Application = Application'
   { -- | Arguments for Amazon EMR to pass to the application.
-    args :: Prelude.Maybe [Prelude.Text],
+    args :: Core.Maybe [Core.Text],
     -- | This option is for advanced users only. This is meta information about
     -- third-party applications that third-party vendors use for testing
     -- purposes.
-    additionalInfo :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    additionalInfo :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The version of the application.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the application.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Application' with all optional fields omitted.
@@ -72,56 +71,53 @@ newApplication ::
   Application
 newApplication =
   Application'
-    { args = Prelude.Nothing,
-      additionalInfo = Prelude.Nothing,
-      version = Prelude.Nothing,
-      name = Prelude.Nothing
+    { args = Core.Nothing,
+      additionalInfo = Core.Nothing,
+      version = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | Arguments for Amazon EMR to pass to the application.
-application_args :: Lens.Lens' Application (Prelude.Maybe [Prelude.Text])
-application_args = Lens.lens (\Application' {args} -> args) (\s@Application' {} a -> s {args = a} :: Application) Prelude.. Lens.mapping Prelude._Coerce
+application_args :: Lens.Lens' Application (Core.Maybe [Core.Text])
+application_args = Lens.lens (\Application' {args} -> args) (\s@Application' {} a -> s {args = a} :: Application) Core.. Lens.mapping Lens._Coerce
 
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
 -- purposes.
-application_additionalInfo :: Lens.Lens' Application (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-application_additionalInfo = Lens.lens (\Application' {additionalInfo} -> additionalInfo) (\s@Application' {} a -> s {additionalInfo = a} :: Application) Prelude.. Lens.mapping Prelude._Coerce
+application_additionalInfo :: Lens.Lens' Application (Core.Maybe (Core.HashMap Core.Text Core.Text))
+application_additionalInfo = Lens.lens (\Application' {additionalInfo} -> additionalInfo) (\s@Application' {} a -> s {additionalInfo = a} :: Application) Core.. Lens.mapping Lens._Coerce
 
 -- | The version of the application.
-application_version :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_version :: Lens.Lens' Application (Core.Maybe Core.Text)
 application_version = Lens.lens (\Application' {version} -> version) (\s@Application' {} a -> s {version = a} :: Application)
 
 -- | The name of the application.
-application_name :: Lens.Lens' Application (Prelude.Maybe Prelude.Text)
+application_name :: Lens.Lens' Application (Core.Maybe Core.Text)
 application_name = Lens.lens (\Application' {name} -> name) (\s@Application' {} a -> s {name = a} :: Application)
 
-instance Prelude.FromJSON Application where
+instance Core.FromJSON Application where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Application"
       ( \x ->
           Application'
-            Prelude.<$> (x Prelude..:? "Args" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "AdditionalInfo"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Version")
-            Prelude.<*> (x Prelude..:? "Name")
+            Core.<$> (x Core..:? "Args" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "AdditionalInfo" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (x Core..:? "Name")
       )
 
-instance Prelude.Hashable Application
+instance Core.Hashable Application
 
-instance Prelude.NFData Application
+instance Core.NFData Application
 
-instance Prelude.ToJSON Application where
+instance Core.ToJSON Application where
   toJSON Application' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Args" Prelude..=) Prelude.<$> args,
-            ("AdditionalInfo" Prelude..=)
-              Prelude.<$> additionalInfo,
-            ("Version" Prelude..=) Prelude.<$> version,
-            ("Name" Prelude..=) Prelude.<$> name
+    Core.object
+      ( Core.catMaybes
+          [ ("Args" Core..=) Core.<$> args,
+            ("AdditionalInfo" Core..=) Core.<$> additionalInfo,
+            ("Version" Core..=) Core.<$> version,
+            ("Name" Core..=) Core.<$> name
           ]
       )

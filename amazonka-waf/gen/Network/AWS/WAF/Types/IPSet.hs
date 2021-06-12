@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WAF.Types.IPSet where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WAF.Types.IPSetDescriptor
 
 -- | This is __AWS WAF Classic__ documentation. For more information, see
@@ -49,14 +48,14 @@ import Network.AWS.WAF.Types.IPSetDescriptor
 data IPSet = IPSet'
   { -- | A friendly name or description of the IPSet. You can\'t change the name
     -- of an @IPSet@ after you create it.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The @IPSetId@ for an @IPSet@. You use @IPSetId@ to get information about
     -- an @IPSet@ (see GetIPSet), update an @IPSet@ (see UpdateIPSet), insert
     -- an @IPSet@ into a @Rule@ or delete one from a @Rule@ (see UpdateRule),
     -- and delete an @IPSet@ from AWS WAF (see DeleteIPSet).
     --
     -- @IPSetId@ is returned by CreateIPSet and by ListIPSets.
-    iPSetId :: Prelude.Text,
+    iPSetId :: Core.Text,
     -- | The IP address type (@IPV4@ or @IPV6@) and the IP address range (in CIDR
     -- notation) that web requests originate from. If the @WebACL@ is
     -- associated with a CloudFront distribution and the viewer did not use an
@@ -64,7 +63,7 @@ data IPSet = IPSet'
     -- the c-ip field in the CloudFront access logs.
     iPSetDescriptors :: [IPSetDescriptor]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IPSet' with all optional fields omitted.
@@ -91,18 +90,18 @@ data IPSet = IPSet'
 -- the c-ip field in the CloudFront access logs.
 newIPSet ::
   -- | 'iPSetId'
-  Prelude.Text ->
+  Core.Text ->
   IPSet
 newIPSet pIPSetId_ =
   IPSet'
-    { name = Prelude.Nothing,
+    { name = Core.Nothing,
       iPSetId = pIPSetId_,
-      iPSetDescriptors = Prelude.mempty
+      iPSetDescriptors = Core.mempty
     }
 
 -- | A friendly name or description of the IPSet. You can\'t change the name
 -- of an @IPSet@ after you create it.
-iPSet_name :: Lens.Lens' IPSet (Prelude.Maybe Prelude.Text)
+iPSet_name :: Lens.Lens' IPSet (Core.Maybe Core.Text)
 iPSet_name = Lens.lens (\IPSet' {name} -> name) (\s@IPSet' {} a -> s {name = a} :: IPSet)
 
 -- | The @IPSetId@ for an @IPSet@. You use @IPSetId@ to get information about
@@ -111,7 +110,7 @@ iPSet_name = Lens.lens (\IPSet' {name} -> name) (\s@IPSet' {} a -> s {name = a} 
 -- and delete an @IPSet@ from AWS WAF (see DeleteIPSet).
 --
 -- @IPSetId@ is returned by CreateIPSet and by ListIPSets.
-iPSet_iPSetId :: Lens.Lens' IPSet Prelude.Text
+iPSet_iPSetId :: Lens.Lens' IPSet Core.Text
 iPSet_iPSetId = Lens.lens (\IPSet' {iPSetId} -> iPSetId) (\s@IPSet' {} a -> s {iPSetId = a} :: IPSet)
 
 -- | The IP address type (@IPV4@ or @IPV6@) and the IP address range (in CIDR
@@ -120,21 +119,19 @@ iPSet_iPSetId = Lens.lens (\IPSet' {iPSetId} -> iPSetId) (\s@IPSet' {} a -> s {i
 -- HTTP proxy or a load balancer to send the request, this is the value of
 -- the c-ip field in the CloudFront access logs.
 iPSet_iPSetDescriptors :: Lens.Lens' IPSet [IPSetDescriptor]
-iPSet_iPSetDescriptors = Lens.lens (\IPSet' {iPSetDescriptors} -> iPSetDescriptors) (\s@IPSet' {} a -> s {iPSetDescriptors = a} :: IPSet) Prelude.. Prelude._Coerce
+iPSet_iPSetDescriptors = Lens.lens (\IPSet' {iPSetDescriptors} -> iPSetDescriptors) (\s@IPSet' {} a -> s {iPSetDescriptors = a} :: IPSet) Core.. Lens._Coerce
 
-instance Prelude.FromJSON IPSet where
+instance Core.FromJSON IPSet where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IPSet"
       ( \x ->
           IPSet'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..: "IPSetId")
-            Prelude.<*> ( x Prelude..:? "IPSetDescriptors"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..: "IPSetId")
+            Core.<*> (x Core..:? "IPSetDescriptors" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable IPSet
+instance Core.Hashable IPSet
 
-instance Prelude.NFData IPSet
+instance Core.NFData IPSet

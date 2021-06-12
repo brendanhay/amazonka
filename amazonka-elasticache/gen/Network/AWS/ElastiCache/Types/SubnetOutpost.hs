@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.SubnetOutpost where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The ID of the outpost subnet.
 --
 -- /See:/ 'newSubnetOutpost' smart constructor.
 data SubnetOutpost = SubnetOutpost'
   { -- | The outpost ARN of the subnet.
-    subnetOutpostArn :: Prelude.Maybe Prelude.Text
+    subnetOutpostArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SubnetOutpost' with all optional fields omitted.
@@ -44,17 +43,17 @@ data SubnetOutpost = SubnetOutpost'
 newSubnetOutpost ::
   SubnetOutpost
 newSubnetOutpost =
-  SubnetOutpost' {subnetOutpostArn = Prelude.Nothing}
+  SubnetOutpost' {subnetOutpostArn = Core.Nothing}
 
 -- | The outpost ARN of the subnet.
-subnetOutpost_subnetOutpostArn :: Lens.Lens' SubnetOutpost (Prelude.Maybe Prelude.Text)
+subnetOutpost_subnetOutpostArn :: Lens.Lens' SubnetOutpost (Core.Maybe Core.Text)
 subnetOutpost_subnetOutpostArn = Lens.lens (\SubnetOutpost' {subnetOutpostArn} -> subnetOutpostArn) (\s@SubnetOutpost' {} a -> s {subnetOutpostArn = a} :: SubnetOutpost)
 
-instance Prelude.FromXML SubnetOutpost where
+instance Core.FromXML SubnetOutpost where
   parseXML x =
     SubnetOutpost'
-      Prelude.<$> (x Prelude..@? "SubnetOutpostArn")
+      Core.<$> (x Core..@? "SubnetOutpostArn")
 
-instance Prelude.Hashable SubnetOutpost
+instance Core.Hashable SubnetOutpost
 
-instance Prelude.NFData SubnetOutpost
+instance Core.NFData SubnetOutpost

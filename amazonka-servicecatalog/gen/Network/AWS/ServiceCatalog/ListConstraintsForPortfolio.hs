@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,8 @@ module Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
@@ -57,12 +55,12 @@ import Network.AWS.ServiceCatalog.Types
 -- | /See:/ 'newListConstraintsForPortfolio' smart constructor.
 data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
   { -- | The maximum number of items to return with this call.
-    pageSize :: Prelude.Maybe Prelude.Natural,
+    pageSize :: Core.Maybe Core.Natural,
     -- | The page token for the next set of results. To retrieve the first set of
     -- results, use null.
-    pageToken :: Prelude.Maybe Prelude.Text,
+    pageToken :: Core.Maybe Core.Text,
     -- | The product identifier.
-    productId :: Prelude.Maybe Prelude.Text,
+    productId :: Core.Maybe Core.Text,
     -- | The language code.
     --
     -- -   @en@ - English (default)
@@ -70,11 +68,11 @@ data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
     -- -   @jp@ - Japanese
     --
     -- -   @zh@ - Chinese
-    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    acceptLanguage :: Core.Maybe Core.Text,
     -- | The portfolio identifier.
-    portfolioId :: Prelude.Text
+    portfolioId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListConstraintsForPortfolio' with all optional fields omitted.
@@ -102,29 +100,29 @@ data ListConstraintsForPortfolio = ListConstraintsForPortfolio'
 -- 'portfolioId', 'listConstraintsForPortfolio_portfolioId' - The portfolio identifier.
 newListConstraintsForPortfolio ::
   -- | 'portfolioId'
-  Prelude.Text ->
+  Core.Text ->
   ListConstraintsForPortfolio
 newListConstraintsForPortfolio pPortfolioId_ =
   ListConstraintsForPortfolio'
     { pageSize =
-        Prelude.Nothing,
-      pageToken = Prelude.Nothing,
-      productId = Prelude.Nothing,
-      acceptLanguage = Prelude.Nothing,
+        Core.Nothing,
+      pageToken = Core.Nothing,
+      productId = Core.Nothing,
+      acceptLanguage = Core.Nothing,
       portfolioId = pPortfolioId_
     }
 
 -- | The maximum number of items to return with this call.
-listConstraintsForPortfolio_pageSize :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Natural)
+listConstraintsForPortfolio_pageSize :: Lens.Lens' ListConstraintsForPortfolio (Core.Maybe Core.Natural)
 listConstraintsForPortfolio_pageSize = Lens.lens (\ListConstraintsForPortfolio' {pageSize} -> pageSize) (\s@ListConstraintsForPortfolio' {} a -> s {pageSize = a} :: ListConstraintsForPortfolio)
 
 -- | The page token for the next set of results. To retrieve the first set of
 -- results, use null.
-listConstraintsForPortfolio_pageToken :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
+listConstraintsForPortfolio_pageToken :: Lens.Lens' ListConstraintsForPortfolio (Core.Maybe Core.Text)
 listConstraintsForPortfolio_pageToken = Lens.lens (\ListConstraintsForPortfolio' {pageToken} -> pageToken) (\s@ListConstraintsForPortfolio' {} a -> s {pageToken = a} :: ListConstraintsForPortfolio)
 
 -- | The product identifier.
-listConstraintsForPortfolio_productId :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
+listConstraintsForPortfolio_productId :: Lens.Lens' ListConstraintsForPortfolio (Core.Maybe Core.Text)
 listConstraintsForPortfolio_productId = Lens.lens (\ListConstraintsForPortfolio' {productId} -> productId) (\s@ListConstraintsForPortfolio' {} a -> s {productId = a} :: ListConstraintsForPortfolio)
 
 -- | The language code.
@@ -134,106 +132,95 @@ listConstraintsForPortfolio_productId = Lens.lens (\ListConstraintsForPortfolio'
 -- -   @jp@ - Japanese
 --
 -- -   @zh@ - Chinese
-listConstraintsForPortfolio_acceptLanguage :: Lens.Lens' ListConstraintsForPortfolio (Prelude.Maybe Prelude.Text)
+listConstraintsForPortfolio_acceptLanguage :: Lens.Lens' ListConstraintsForPortfolio (Core.Maybe Core.Text)
 listConstraintsForPortfolio_acceptLanguage = Lens.lens (\ListConstraintsForPortfolio' {acceptLanguage} -> acceptLanguage) (\s@ListConstraintsForPortfolio' {} a -> s {acceptLanguage = a} :: ListConstraintsForPortfolio)
 
 -- | The portfolio identifier.
-listConstraintsForPortfolio_portfolioId :: Lens.Lens' ListConstraintsForPortfolio Prelude.Text
+listConstraintsForPortfolio_portfolioId :: Lens.Lens' ListConstraintsForPortfolio Core.Text
 listConstraintsForPortfolio_portfolioId = Lens.lens (\ListConstraintsForPortfolio' {portfolioId} -> portfolioId) (\s@ListConstraintsForPortfolio' {} a -> s {portfolioId = a} :: ListConstraintsForPortfolio)
 
-instance Pager.AWSPager ListConstraintsForPortfolio where
+instance Core.AWSPager ListConstraintsForPortfolio where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listConstraintsForPortfolioResponse_nextPageToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? listConstraintsForPortfolioResponse_constraintDetails
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listConstraintsForPortfolio_pageToken
           Lens..~ rs
           Lens.^? listConstraintsForPortfolioResponse_nextPageToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance
-  Prelude.AWSRequest
-    ListConstraintsForPortfolio
-  where
+instance Core.AWSRequest ListConstraintsForPortfolio where
   type
-    Rs ListConstraintsForPortfolio =
+    AWSResponse ListConstraintsForPortfolio =
       ListConstraintsForPortfolioResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListConstraintsForPortfolioResponse'
-            Prelude.<$> ( x Prelude..?> "ConstraintDetails"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..?> "NextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ConstraintDetails" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListConstraintsForPortfolio
+instance Core.Hashable ListConstraintsForPortfolio
 
-instance Prelude.NFData ListConstraintsForPortfolio
+instance Core.NFData ListConstraintsForPortfolio
 
-instance
-  Prelude.ToHeaders
-    ListConstraintsForPortfolio
-  where
+instance Core.ToHeaders ListConstraintsForPortfolio where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWS242ServiceCatalogService.ListConstraintsForPortfolio" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWS242ServiceCatalogService.ListConstraintsForPortfolio" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListConstraintsForPortfolio where
+instance Core.ToJSON ListConstraintsForPortfolio where
   toJSON ListConstraintsForPortfolio' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
-            ("PageToken" Prelude..=) Prelude.<$> pageToken,
-            ("ProductId" Prelude..=) Prelude.<$> productId,
-            ("AcceptLanguage" Prelude..=)
-              Prelude.<$> acceptLanguage,
-            Prelude.Just ("PortfolioId" Prelude..= portfolioId)
+    Core.object
+      ( Core.catMaybes
+          [ ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("ProductId" Core..=) Core.<$> productId,
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            Core.Just ("PortfolioId" Core..= portfolioId)
           ]
       )
 
-instance Prelude.ToPath ListConstraintsForPortfolio where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListConstraintsForPortfolio where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListConstraintsForPortfolio where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListConstraintsForPortfolio where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListConstraintsForPortfolioResponse' smart constructor.
 data ListConstraintsForPortfolioResponse = ListConstraintsForPortfolioResponse'
   { -- | Information about the constraints.
-    constraintDetails :: Prelude.Maybe [ConstraintDetail],
+    constraintDetails :: Core.Maybe [ConstraintDetail],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListConstraintsForPortfolioResponse' with all optional fields omitted.
@@ -251,29 +238,29 @@ data ListConstraintsForPortfolioResponse = ListConstraintsForPortfolioResponse'
 -- 'httpStatus', 'listConstraintsForPortfolioResponse_httpStatus' - The response's http status code.
 newListConstraintsForPortfolioResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListConstraintsForPortfolioResponse
 newListConstraintsForPortfolioResponse pHttpStatus_ =
   ListConstraintsForPortfolioResponse'
     { constraintDetails =
-        Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the constraints.
-listConstraintsForPortfolioResponse_constraintDetails :: Lens.Lens' ListConstraintsForPortfolioResponse (Prelude.Maybe [ConstraintDetail])
-listConstraintsForPortfolioResponse_constraintDetails = Lens.lens (\ListConstraintsForPortfolioResponse' {constraintDetails} -> constraintDetails) (\s@ListConstraintsForPortfolioResponse' {} a -> s {constraintDetails = a} :: ListConstraintsForPortfolioResponse) Prelude.. Lens.mapping Prelude._Coerce
+listConstraintsForPortfolioResponse_constraintDetails :: Lens.Lens' ListConstraintsForPortfolioResponse (Core.Maybe [ConstraintDetail])
+listConstraintsForPortfolioResponse_constraintDetails = Lens.lens (\ListConstraintsForPortfolioResponse' {constraintDetails} -> constraintDetails) (\s@ListConstraintsForPortfolioResponse' {} a -> s {constraintDetails = a} :: ListConstraintsForPortfolioResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
-listConstraintsForPortfolioResponse_nextPageToken :: Lens.Lens' ListConstraintsForPortfolioResponse (Prelude.Maybe Prelude.Text)
+listConstraintsForPortfolioResponse_nextPageToken :: Lens.Lens' ListConstraintsForPortfolioResponse (Core.Maybe Core.Text)
 listConstraintsForPortfolioResponse_nextPageToken = Lens.lens (\ListConstraintsForPortfolioResponse' {nextPageToken} -> nextPageToken) (\s@ListConstraintsForPortfolioResponse' {} a -> s {nextPageToken = a} :: ListConstraintsForPortfolioResponse)
 
 -- | The response's http status code.
-listConstraintsForPortfolioResponse_httpStatus :: Lens.Lens' ListConstraintsForPortfolioResponse Prelude.Int
+listConstraintsForPortfolioResponse_httpStatus :: Lens.Lens' ListConstraintsForPortfolioResponse Core.Int
 listConstraintsForPortfolioResponse_httpStatus = Lens.lens (\ListConstraintsForPortfolioResponse' {httpStatus} -> httpStatus) (\s@ListConstraintsForPortfolioResponse' {} a -> s {httpStatus = a} :: ListConstraintsForPortfolioResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListConstraintsForPortfolioResponse

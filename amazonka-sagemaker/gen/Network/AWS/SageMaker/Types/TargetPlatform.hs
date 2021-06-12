@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.TargetPlatform where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.TargetPlatformAccelerator
 import Network.AWS.SageMaker.Types.TargetPlatformArch
 import Network.AWS.SageMaker.Types.TargetPlatformOs
@@ -40,7 +39,7 @@ data TargetPlatform = TargetPlatform'
     -- -   @MALI@: ARM Mali graphics processor
     --
     -- -   @INTEL_GRAPHICS@: Integrated Intel graphics
-    accelerator :: Prelude.Maybe TargetPlatformAccelerator,
+    accelerator :: Core.Maybe TargetPlatformAccelerator,
     -- | Specifies a target platform OS.
     --
     -- -   @LINUX@: Linux-based operating systems.
@@ -63,7 +62,7 @@ data TargetPlatform = TargetPlatform'
     --     platform.
     arch :: TargetPlatformArch
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TargetPlatform' with all optional fields omitted.
@@ -110,7 +109,7 @@ newTargetPlatform ::
   TargetPlatform
 newTargetPlatform pOs_ pArch_ =
   TargetPlatform'
-    { accelerator = Prelude.Nothing,
+    { accelerator = Core.Nothing,
       os = pOs_,
       arch = pArch_
     }
@@ -123,7 +122,7 @@ newTargetPlatform pOs_ pArch_ =
 -- -   @MALI@: ARM Mali graphics processor
 --
 -- -   @INTEL_GRAPHICS@: Integrated Intel graphics
-targetPlatform_accelerator :: Lens.Lens' TargetPlatform (Prelude.Maybe TargetPlatformAccelerator)
+targetPlatform_accelerator :: Lens.Lens' TargetPlatform (Core.Maybe TargetPlatformAccelerator)
 targetPlatform_accelerator = Lens.lens (\TargetPlatform' {accelerator} -> accelerator) (\s@TargetPlatform' {} a -> s {accelerator = a} :: TargetPlatform)
 
 -- | Specifies a target platform OS.
@@ -151,27 +150,27 @@ targetPlatform_os = Lens.lens (\TargetPlatform' {os} -> os) (\s@TargetPlatform' 
 targetPlatform_arch :: Lens.Lens' TargetPlatform TargetPlatformArch
 targetPlatform_arch = Lens.lens (\TargetPlatform' {arch} -> arch) (\s@TargetPlatform' {} a -> s {arch = a} :: TargetPlatform)
 
-instance Prelude.FromJSON TargetPlatform where
+instance Core.FromJSON TargetPlatform where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TargetPlatform"
       ( \x ->
           TargetPlatform'
-            Prelude.<$> (x Prelude..:? "Accelerator")
-            Prelude.<*> (x Prelude..: "Os")
-            Prelude.<*> (x Prelude..: "Arch")
+            Core.<$> (x Core..:? "Accelerator")
+            Core.<*> (x Core..: "Os")
+            Core.<*> (x Core..: "Arch")
       )
 
-instance Prelude.Hashable TargetPlatform
+instance Core.Hashable TargetPlatform
 
-instance Prelude.NFData TargetPlatform
+instance Core.NFData TargetPlatform
 
-instance Prelude.ToJSON TargetPlatform where
+instance Core.ToJSON TargetPlatform where
   toJSON TargetPlatform' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Accelerator" Prelude..=) Prelude.<$> accelerator,
-            Prelude.Just ("Os" Prelude..= os),
-            Prelude.Just ("Arch" Prelude..= arch)
+    Core.object
+      ( Core.catMaybes
+          [ ("Accelerator" Core..=) Core.<$> accelerator,
+            Core.Just ("Os" Core..= os),
+            Core.Just ("Arch" Core..= arch)
           ]
       )

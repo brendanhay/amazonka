@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.ELBv2.SetRulePriorities
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,7 +54,7 @@ data SetRulePriorities = SetRulePriorities'
   { -- | The rule priorities.
     rulePriorities :: [RulePriorityPair]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetRulePriorities' with all optional fields omitted.
@@ -69,55 +68,56 @@ data SetRulePriorities = SetRulePriorities'
 newSetRulePriorities ::
   SetRulePriorities
 newSetRulePriorities =
-  SetRulePriorities' {rulePriorities = Prelude.mempty}
+  SetRulePriorities' {rulePriorities = Core.mempty}
 
 -- | The rule priorities.
 setRulePriorities_rulePriorities :: Lens.Lens' SetRulePriorities [RulePriorityPair]
-setRulePriorities_rulePriorities = Lens.lens (\SetRulePriorities' {rulePriorities} -> rulePriorities) (\s@SetRulePriorities' {} a -> s {rulePriorities = a} :: SetRulePriorities) Prelude.. Prelude._Coerce
+setRulePriorities_rulePriorities = Lens.lens (\SetRulePriorities' {rulePriorities} -> rulePriorities) (\s@SetRulePriorities' {} a -> s {rulePriorities = a} :: SetRulePriorities) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest SetRulePriorities where
-  type Rs SetRulePriorities = SetRulePrioritiesResponse
+instance Core.AWSRequest SetRulePriorities where
+  type
+    AWSResponse SetRulePriorities =
+      SetRulePrioritiesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "SetRulePrioritiesResult"
       ( \s h x ->
           SetRulePrioritiesResponse'
-            Prelude.<$> ( x Prelude..@? "Rules" Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "Rules" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SetRulePriorities
+instance Core.Hashable SetRulePriorities
 
-instance Prelude.NFData SetRulePriorities
+instance Core.NFData SetRulePriorities
 
-instance Prelude.ToHeaders SetRulePriorities where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetRulePriorities where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath SetRulePriorities where
-  toPath = Prelude.const "/"
+instance Core.ToPath SetRulePriorities where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SetRulePriorities where
+instance Core.ToQuery SetRulePriorities where
   toQuery SetRulePriorities' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("SetRulePriorities" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+          Core.=: ("SetRulePriorities" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
         "RulePriorities"
-          Prelude.=: Prelude.toQueryList "member" rulePriorities
+          Core.=: Core.toQueryList "member" rulePriorities
       ]
 
 -- | /See:/ 'newSetRulePrioritiesResponse' smart constructor.
 data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
   { -- | Information about the rules.
-    rules :: Prelude.Maybe [Rule],
+    rules :: Core.Maybe [Rule],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetRulePrioritiesResponse' with all optional fields omitted.
@@ -132,20 +132,20 @@ data SetRulePrioritiesResponse = SetRulePrioritiesResponse'
 -- 'httpStatus', 'setRulePrioritiesResponse_httpStatus' - The response's http status code.
 newSetRulePrioritiesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SetRulePrioritiesResponse
 newSetRulePrioritiesResponse pHttpStatus_ =
   SetRulePrioritiesResponse'
-    { rules = Prelude.Nothing,
+    { rules = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the rules.
-setRulePrioritiesResponse_rules :: Lens.Lens' SetRulePrioritiesResponse (Prelude.Maybe [Rule])
-setRulePrioritiesResponse_rules = Lens.lens (\SetRulePrioritiesResponse' {rules} -> rules) (\s@SetRulePrioritiesResponse' {} a -> s {rules = a} :: SetRulePrioritiesResponse) Prelude.. Lens.mapping Prelude._Coerce
+setRulePrioritiesResponse_rules :: Lens.Lens' SetRulePrioritiesResponse (Core.Maybe [Rule])
+setRulePrioritiesResponse_rules = Lens.lens (\SetRulePrioritiesResponse' {rules} -> rules) (\s@SetRulePrioritiesResponse' {} a -> s {rules = a} :: SetRulePrioritiesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-setRulePrioritiesResponse_httpStatus :: Lens.Lens' SetRulePrioritiesResponse Prelude.Int
+setRulePrioritiesResponse_httpStatus :: Lens.Lens' SetRulePrioritiesResponse Core.Int
 setRulePrioritiesResponse_httpStatus = Lens.lens (\SetRulePrioritiesResponse' {httpStatus} -> httpStatus) (\s@SetRulePrioritiesResponse' {} a -> s {httpStatus = a} :: SetRulePrioritiesResponse)
 
-instance Prelude.NFData SetRulePrioritiesResponse
+instance Core.NFData SetRulePrioritiesResponse

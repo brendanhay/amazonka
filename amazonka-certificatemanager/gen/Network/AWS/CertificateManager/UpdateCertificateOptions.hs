@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CertificateManager.UpdateCertificateOptions
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,7 +50,7 @@ data UpdateCertificateOptions = UpdateCertificateOptions'
   { -- | ARN of the requested certificate to update. This must be of the form:
     --
     -- @arn:aws:acm:us-east-1:account:certificate\/12345678-1234-1234-1234-123456789012 @
-    certificateArn :: Prelude.Text,
+    certificateArn :: Core.Text,
     -- | Use to update the options for your certificate. Currently, you can
     -- specify whether to add your certificate to a transparency log.
     -- Certificate transparency makes it possible to detect SSL\/TLS
@@ -60,7 +59,7 @@ data UpdateCertificateOptions = UpdateCertificateOptions'
     -- message in a browser.
     options :: CertificateOptions
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCertificateOptions' with all optional fields omitted.
@@ -82,7 +81,7 @@ data UpdateCertificateOptions = UpdateCertificateOptions'
 -- message in a browser.
 newUpdateCertificateOptions ::
   -- | 'certificateArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'options'
   CertificateOptions ->
   UpdateCertificateOptions
@@ -98,7 +97,7 @@ newUpdateCertificateOptions
 -- | ARN of the requested certificate to update. This must be of the form:
 --
 -- @arn:aws:acm:us-east-1:account:certificate\/12345678-1234-1234-1234-123456789012 @
-updateCertificateOptions_certificateArn :: Lens.Lens' UpdateCertificateOptions Prelude.Text
+updateCertificateOptions_certificateArn :: Lens.Lens' UpdateCertificateOptions Core.Text
 updateCertificateOptions_certificateArn = Lens.lens (\UpdateCertificateOptions' {certificateArn} -> certificateArn) (\s@UpdateCertificateOptions' {} a -> s {certificateArn = a} :: UpdateCertificateOptions)
 
 -- | Use to update the options for your certificate. Currently, you can
@@ -110,55 +109,52 @@ updateCertificateOptions_certificateArn = Lens.lens (\UpdateCertificateOptions' 
 updateCertificateOptions_options :: Lens.Lens' UpdateCertificateOptions CertificateOptions
 updateCertificateOptions_options = Lens.lens (\UpdateCertificateOptions' {options} -> options) (\s@UpdateCertificateOptions' {} a -> s {options = a} :: UpdateCertificateOptions)
 
-instance Prelude.AWSRequest UpdateCertificateOptions where
+instance Core.AWSRequest UpdateCertificateOptions where
   type
-    Rs UpdateCertificateOptions =
+    AWSResponse UpdateCertificateOptions =
       UpdateCertificateOptionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       UpdateCertificateOptionsResponse'
 
-instance Prelude.Hashable UpdateCertificateOptions
+instance Core.Hashable UpdateCertificateOptions
 
-instance Prelude.NFData UpdateCertificateOptions
+instance Core.NFData UpdateCertificateOptions
 
-instance Prelude.ToHeaders UpdateCertificateOptions where
+instance Core.ToHeaders UpdateCertificateOptions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.UpdateCertificateOptions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.UpdateCertificateOptions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateCertificateOptions where
+instance Core.ToJSON UpdateCertificateOptions where
   toJSON UpdateCertificateOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("CertificateArn" Prelude..= certificateArn),
-            Prelude.Just ("Options" Prelude..= options)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CertificateArn" Core..= certificateArn),
+            Core.Just ("Options" Core..= options)
           ]
       )
 
-instance Prelude.ToPath UpdateCertificateOptions where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateCertificateOptions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateCertificateOptions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateCertificateOptions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateCertificateOptionsResponse' smart constructor.
 data UpdateCertificateOptionsResponse = UpdateCertificateOptionsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateCertificateOptionsResponse' with all optional fields omitted.
@@ -169,6 +165,4 @@ newUpdateCertificateOptionsResponse ::
 newUpdateCertificateOptionsResponse =
   UpdateCertificateOptionsResponse'
 
-instance
-  Prelude.NFData
-    UpdateCertificateOptionsResponse
+instance Core.NFData UpdateCertificateOptionsResponse

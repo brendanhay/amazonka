@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,25 +47,25 @@ module Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateEnclaveCertificateIamRole' smart constructor.
 data DisassociateEnclaveCertificateIamRole = DisassociateEnclaveCertificateIamRole'
   { -- | The ARN of the IAM role to disassociate.
-    roleArn :: Prelude.Maybe Prelude.Text,
+    roleArn :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ARN of the ACM certificate from which to disassociate the IAM role.
-    certificateArn :: Prelude.Maybe Prelude.Text
+    certificateArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateEnclaveCertificateIamRole' with all optional fields omitted.
@@ -89,87 +88,87 @@ newDisassociateEnclaveCertificateIamRole ::
 newDisassociateEnclaveCertificateIamRole =
   DisassociateEnclaveCertificateIamRole'
     { roleArn =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      certificateArn = Prelude.Nothing
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      certificateArn = Core.Nothing
     }
 
 -- | The ARN of the IAM role to disassociate.
-disassociateEnclaveCertificateIamRole_roleArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
+disassociateEnclaveCertificateIamRole_roleArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Core.Maybe Core.Text)
 disassociateEnclaveCertificateIamRole_roleArn = Lens.lens (\DisassociateEnclaveCertificateIamRole' {roleArn} -> roleArn) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {roleArn = a} :: DisassociateEnclaveCertificateIamRole)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateEnclaveCertificateIamRole_dryRun :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Bool)
+disassociateEnclaveCertificateIamRole_dryRun :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Core.Maybe Core.Bool)
 disassociateEnclaveCertificateIamRole_dryRun = Lens.lens (\DisassociateEnclaveCertificateIamRole' {dryRun} -> dryRun) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {dryRun = a} :: DisassociateEnclaveCertificateIamRole)
 
 -- | The ARN of the ACM certificate from which to disassociate the IAM role.
-disassociateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
+disassociateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' DisassociateEnclaveCertificateIamRole (Core.Maybe Core.Text)
 disassociateEnclaveCertificateIamRole_certificateArn = Lens.lens (\DisassociateEnclaveCertificateIamRole' {certificateArn} -> certificateArn) (\s@DisassociateEnclaveCertificateIamRole' {} a -> s {certificateArn = a} :: DisassociateEnclaveCertificateIamRole)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateEnclaveCertificateIamRole
   where
   type
-    Rs DisassociateEnclaveCertificateIamRole =
+    AWSResponse
+      DisassociateEnclaveCertificateIamRole =
       DisassociateEnclaveCertificateIamRoleResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DisassociateEnclaveCertificateIamRoleResponse'
-            Prelude.<$> (x Prelude..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateEnclaveCertificateIamRole
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateEnclaveCertificateIamRole
 
 instance
-  Prelude.ToHeaders
-    DisassociateEnclaveCertificateIamRole
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     DisassociateEnclaveCertificateIamRole
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    DisassociateEnclaveCertificateIamRole
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     DisassociateEnclaveCertificateIamRole
   where
   toQuery DisassociateEnclaveCertificateIamRole' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DisassociateEnclaveCertificateIamRole" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "RoleArn" Prelude.=: roleArn,
-        "DryRun" Prelude.=: dryRun,
-        "CertificateArn" Prelude.=: certificateArn
+          Core.=: ( "DisassociateEnclaveCertificateIamRole" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "RoleArn" Core.=: roleArn,
+        "DryRun" Core.=: dryRun,
+        "CertificateArn" Core.=: certificateArn
       ]
 
 -- | /See:/ 'newDisassociateEnclaveCertificateIamRoleResponse' smart constructor.
 data DisassociateEnclaveCertificateIamRoleResponse = DisassociateEnclaveCertificateIamRoleResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    return' :: Prelude.Maybe Prelude.Bool,
+    return' :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateEnclaveCertificateIamRoleResponse' with all optional fields omitted.
@@ -184,24 +183,24 @@ data DisassociateEnclaveCertificateIamRoleResponse = DisassociateEnclaveCertific
 -- 'httpStatus', 'disassociateEnclaveCertificateIamRoleResponse_httpStatus' - The response's http status code.
 newDisassociateEnclaveCertificateIamRoleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateEnclaveCertificateIamRoleResponse
 newDisassociateEnclaveCertificateIamRoleResponse
   pHttpStatus_ =
     DisassociateEnclaveCertificateIamRoleResponse'
       { return' =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-disassociateEnclaveCertificateIamRoleResponse_return :: Lens.Lens' DisassociateEnclaveCertificateIamRoleResponse (Prelude.Maybe Prelude.Bool)
+disassociateEnclaveCertificateIamRoleResponse_return :: Lens.Lens' DisassociateEnclaveCertificateIamRoleResponse (Core.Maybe Core.Bool)
 disassociateEnclaveCertificateIamRoleResponse_return = Lens.lens (\DisassociateEnclaveCertificateIamRoleResponse' {return'} -> return') (\s@DisassociateEnclaveCertificateIamRoleResponse' {} a -> s {return' = a} :: DisassociateEnclaveCertificateIamRoleResponse)
 
 -- | The response's http status code.
-disassociateEnclaveCertificateIamRoleResponse_httpStatus :: Lens.Lens' DisassociateEnclaveCertificateIamRoleResponse Prelude.Int
+disassociateEnclaveCertificateIamRoleResponse_httpStatus :: Lens.Lens' DisassociateEnclaveCertificateIamRoleResponse Core.Int
 disassociateEnclaveCertificateIamRoleResponse_httpStatus = Lens.lens (\DisassociateEnclaveCertificateIamRoleResponse' {httpStatus} -> httpStatus) (\s@DisassociateEnclaveCertificateIamRoleResponse' {} a -> s {httpStatus = a} :: DisassociateEnclaveCertificateIamRoleResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateEnclaveCertificateIamRoleResponse

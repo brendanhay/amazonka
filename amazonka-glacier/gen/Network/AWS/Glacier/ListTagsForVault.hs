@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Glacier.ListTagsForVault
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,11 +58,11 @@ data ListTagsForVault = ListTagsForVault'
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForVault' with all optional fields omitted.
@@ -82,9 +81,9 @@ data ListTagsForVault = ListTagsForVault'
 -- 'vaultName', 'listTagsForVault_vaultName' - The name of the vault.
 newListTagsForVault ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   ListTagsForVault
 newListTagsForVault pAccountId_ pVaultName_ =
   ListTagsForVault'
@@ -97,45 +96,47 @@ newListTagsForVault pAccountId_ pVaultName_ =
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-listTagsForVault_accountId :: Lens.Lens' ListTagsForVault Prelude.Text
+listTagsForVault_accountId :: Lens.Lens' ListTagsForVault Core.Text
 listTagsForVault_accountId = Lens.lens (\ListTagsForVault' {accountId} -> accountId) (\s@ListTagsForVault' {} a -> s {accountId = a} :: ListTagsForVault)
 
 -- | The name of the vault.
-listTagsForVault_vaultName :: Lens.Lens' ListTagsForVault Prelude.Text
+listTagsForVault_vaultName :: Lens.Lens' ListTagsForVault Core.Text
 listTagsForVault_vaultName = Lens.lens (\ListTagsForVault' {vaultName} -> vaultName) (\s@ListTagsForVault' {} a -> s {vaultName = a} :: ListTagsForVault)
 
-instance Prelude.AWSRequest ListTagsForVault where
-  type Rs ListTagsForVault = ListTagsForVaultResponse
+instance Core.AWSRequest ListTagsForVault where
+  type
+    AWSResponse ListTagsForVault =
+      ListTagsForVaultResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.get defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsForVaultResponse'
-            Prelude.<$> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Tags" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForVault
+instance Core.Hashable ListTagsForVault
 
-instance Prelude.NFData ListTagsForVault
+instance Core.NFData ListTagsForVault
 
-instance Prelude.ToHeaders ListTagsForVault where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTagsForVault where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTagsForVault where
+instance Core.ToPath ListTagsForVault where
   toPath ListTagsForVault' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/tags"
       ]
 
-instance Prelude.ToQuery ListTagsForVault where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTagsForVault where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
@@ -143,11 +144,11 @@ instance Prelude.ToQuery ListTagsForVault where
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
   { -- | The tags attached to the vault. Each tag is composed of a key and a
     -- value.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForVaultResponse' with all optional fields omitted.
@@ -163,21 +164,21 @@ data ListTagsForVaultResponse = ListTagsForVaultResponse'
 -- 'httpStatus', 'listTagsForVaultResponse_httpStatus' - The response's http status code.
 newListTagsForVaultResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsForVaultResponse
 newListTagsForVaultResponse pHttpStatus_ =
   ListTagsForVaultResponse'
-    { tags = Prelude.Nothing,
+    { tags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The tags attached to the vault. Each tag is composed of a key and a
 -- value.
-listTagsForVaultResponse_tags :: Lens.Lens' ListTagsForVaultResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> tags) (\s@ListTagsForVaultResponse' {} a -> s {tags = a} :: ListTagsForVaultResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsForVaultResponse_tags :: Lens.Lens' ListTagsForVaultResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> tags) (\s@ListTagsForVaultResponse' {} a -> s {tags = a} :: ListTagsForVaultResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForVaultResponse_httpStatus :: Lens.Lens' ListTagsForVaultResponse Prelude.Int
+listTagsForVaultResponse_httpStatus :: Lens.Lens' ListTagsForVaultResponse Core.Int
 listTagsForVaultResponse_httpStatus = Lens.lens (\ListTagsForVaultResponse' {httpStatus} -> httpStatus) (\s@ListTagsForVaultResponse' {} a -> s {httpStatus = a} :: ListTagsForVaultResponse)
 
-instance Prelude.NFData ListTagsForVaultResponse
+instance Core.NFData ListTagsForVaultResponse

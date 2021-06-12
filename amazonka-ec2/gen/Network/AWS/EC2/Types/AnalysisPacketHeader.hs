@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.AnalysisPacketHeader where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.PortRange
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a header. Reflects any changes made by a component as traffic
 -- passes through. The fields of an inbound header are null except for the
@@ -32,17 +31,17 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAnalysisPacketHeader' smart constructor.
 data AnalysisPacketHeader = AnalysisPacketHeader'
   { -- | The destination addresses.
-    destinationAddresses :: Prelude.Maybe [Prelude.Text],
+    destinationAddresses :: Core.Maybe [Core.Text],
     -- | The source addresses.
-    sourceAddresses :: Prelude.Maybe [Prelude.Text],
+    sourceAddresses :: Core.Maybe [Core.Text],
     -- | The destination port ranges.
-    destinationPortRanges :: Prelude.Maybe [PortRange],
+    destinationPortRanges :: Core.Maybe [PortRange],
     -- | The protocol.
-    protocol :: Prelude.Maybe Prelude.Text,
+    protocol :: Core.Maybe Core.Text,
     -- | The source port ranges.
-    sourcePortRanges :: Prelude.Maybe [PortRange]
+    sourcePortRanges :: Core.Maybe [PortRange]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AnalysisPacketHeader' with all optional fields omitted.
@@ -66,54 +65,52 @@ newAnalysisPacketHeader ::
 newAnalysisPacketHeader =
   AnalysisPacketHeader'
     { destinationAddresses =
-        Prelude.Nothing,
-      sourceAddresses = Prelude.Nothing,
-      destinationPortRanges = Prelude.Nothing,
-      protocol = Prelude.Nothing,
-      sourcePortRanges = Prelude.Nothing
+        Core.Nothing,
+      sourceAddresses = Core.Nothing,
+      destinationPortRanges = Core.Nothing,
+      protocol = Core.Nothing,
+      sourcePortRanges = Core.Nothing
     }
 
 -- | The destination addresses.
-analysisPacketHeader_destinationAddresses :: Lens.Lens' AnalysisPacketHeader (Prelude.Maybe [Prelude.Text])
-analysisPacketHeader_destinationAddresses = Lens.lens (\AnalysisPacketHeader' {destinationAddresses} -> destinationAddresses) (\s@AnalysisPacketHeader' {} a -> s {destinationAddresses = a} :: AnalysisPacketHeader) Prelude.. Lens.mapping Prelude._Coerce
+analysisPacketHeader_destinationAddresses :: Lens.Lens' AnalysisPacketHeader (Core.Maybe [Core.Text])
+analysisPacketHeader_destinationAddresses = Lens.lens (\AnalysisPacketHeader' {destinationAddresses} -> destinationAddresses) (\s@AnalysisPacketHeader' {} a -> s {destinationAddresses = a} :: AnalysisPacketHeader) Core.. Lens.mapping Lens._Coerce
 
 -- | The source addresses.
-analysisPacketHeader_sourceAddresses :: Lens.Lens' AnalysisPacketHeader (Prelude.Maybe [Prelude.Text])
-analysisPacketHeader_sourceAddresses = Lens.lens (\AnalysisPacketHeader' {sourceAddresses} -> sourceAddresses) (\s@AnalysisPacketHeader' {} a -> s {sourceAddresses = a} :: AnalysisPacketHeader) Prelude.. Lens.mapping Prelude._Coerce
+analysisPacketHeader_sourceAddresses :: Lens.Lens' AnalysisPacketHeader (Core.Maybe [Core.Text])
+analysisPacketHeader_sourceAddresses = Lens.lens (\AnalysisPacketHeader' {sourceAddresses} -> sourceAddresses) (\s@AnalysisPacketHeader' {} a -> s {sourceAddresses = a} :: AnalysisPacketHeader) Core.. Lens.mapping Lens._Coerce
 
 -- | The destination port ranges.
-analysisPacketHeader_destinationPortRanges :: Lens.Lens' AnalysisPacketHeader (Prelude.Maybe [PortRange])
-analysisPacketHeader_destinationPortRanges = Lens.lens (\AnalysisPacketHeader' {destinationPortRanges} -> destinationPortRanges) (\s@AnalysisPacketHeader' {} a -> s {destinationPortRanges = a} :: AnalysisPacketHeader) Prelude.. Lens.mapping Prelude._Coerce
+analysisPacketHeader_destinationPortRanges :: Lens.Lens' AnalysisPacketHeader (Core.Maybe [PortRange])
+analysisPacketHeader_destinationPortRanges = Lens.lens (\AnalysisPacketHeader' {destinationPortRanges} -> destinationPortRanges) (\s@AnalysisPacketHeader' {} a -> s {destinationPortRanges = a} :: AnalysisPacketHeader) Core.. Lens.mapping Lens._Coerce
 
 -- | The protocol.
-analysisPacketHeader_protocol :: Lens.Lens' AnalysisPacketHeader (Prelude.Maybe Prelude.Text)
+analysisPacketHeader_protocol :: Lens.Lens' AnalysisPacketHeader (Core.Maybe Core.Text)
 analysisPacketHeader_protocol = Lens.lens (\AnalysisPacketHeader' {protocol} -> protocol) (\s@AnalysisPacketHeader' {} a -> s {protocol = a} :: AnalysisPacketHeader)
 
 -- | The source port ranges.
-analysisPacketHeader_sourcePortRanges :: Lens.Lens' AnalysisPacketHeader (Prelude.Maybe [PortRange])
-analysisPacketHeader_sourcePortRanges = Lens.lens (\AnalysisPacketHeader' {sourcePortRanges} -> sourcePortRanges) (\s@AnalysisPacketHeader' {} a -> s {sourcePortRanges = a} :: AnalysisPacketHeader) Prelude.. Lens.mapping Prelude._Coerce
+analysisPacketHeader_sourcePortRanges :: Lens.Lens' AnalysisPacketHeader (Core.Maybe [PortRange])
+analysisPacketHeader_sourcePortRanges = Lens.lens (\AnalysisPacketHeader' {sourcePortRanges} -> sourcePortRanges) (\s@AnalysisPacketHeader' {} a -> s {sourcePortRanges = a} :: AnalysisPacketHeader) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML AnalysisPacketHeader where
+instance Core.FromXML AnalysisPacketHeader where
   parseXML x =
     AnalysisPacketHeader'
-      Prelude.<$> ( x Prelude..@? "destinationAddressSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "sourceAddressSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "destinationPortRangeSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "protocol")
-      Prelude.<*> ( x Prelude..@? "sourcePortRangeSet"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
+      Core.<$> ( x Core..@? "destinationAddressSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "sourceAddressSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "destinationPortRangeSet"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "protocol")
+      Core.<*> ( x Core..@? "sourcePortRangeSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
 
-instance Prelude.Hashable AnalysisPacketHeader
+instance Core.Hashable AnalysisPacketHeader
 
-instance Prelude.NFData AnalysisPacketHeader
+instance Core.NFData AnalysisPacketHeader

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,8 +43,8 @@ module Network.AWS.Shield.DisassociateDRTRole
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -54,7 +53,7 @@ import Network.AWS.Shield.Types
 data DisassociateDRTRole = DisassociateDRTRole'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateDRTRole' with all optional fields omitted.
@@ -64,53 +63,50 @@ newDisassociateDRTRole ::
   DisassociateDRTRole
 newDisassociateDRTRole = DisassociateDRTRole'
 
-instance Prelude.AWSRequest DisassociateDRTRole where
+instance Core.AWSRequest DisassociateDRTRole where
   type
-    Rs DisassociateDRTRole =
+    AWSResponse DisassociateDRTRole =
       DisassociateDRTRoleResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDRTRoleResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DisassociateDRTRole
+instance Core.Hashable DisassociateDRTRole
 
-instance Prelude.NFData DisassociateDRTRole
+instance Core.NFData DisassociateDRTRole
 
-instance Prelude.ToHeaders DisassociateDRTRole where
+instance Core.ToHeaders DisassociateDRTRole where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.DisassociateDRTRole" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.DisassociateDRTRole" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DisassociateDRTRole where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DisassociateDRTRole where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DisassociateDRTRole where
-  toPath = Prelude.const "/"
+instance Core.ToPath DisassociateDRTRole where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DisassociateDRTRole where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DisassociateDRTRole where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateDRTRoleResponse' smart constructor.
 data DisassociateDRTRoleResponse = DisassociateDRTRoleResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateDRTRoleResponse' with all optional fields omitted.
@@ -123,7 +119,7 @@ data DisassociateDRTRoleResponse = DisassociateDRTRoleResponse'
 -- 'httpStatus', 'disassociateDRTRoleResponse_httpStatus' - The response's http status code.
 newDisassociateDRTRoleResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateDRTRoleResponse
 newDisassociateDRTRoleResponse pHttpStatus_ =
   DisassociateDRTRoleResponse'
@@ -132,7 +128,7 @@ newDisassociateDRTRoleResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-disassociateDRTRoleResponse_httpStatus :: Lens.Lens' DisassociateDRTRoleResponse Prelude.Int
+disassociateDRTRoleResponse_httpStatus :: Lens.Lens' DisassociateDRTRoleResponse Core.Int
 disassociateDRTRoleResponse_httpStatus = Lens.lens (\DisassociateDRTRoleResponse' {httpStatus} -> httpStatus) (\s@DisassociateDRTRoleResponse' {} a -> s {httpStatus = a} :: DisassociateDRTRoleResponse)
 
-instance Prelude.NFData DisassociateDRTRoleResponse
+instance Core.NFData DisassociateDRTRoleResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.XRay.Types.TelemetryRecord where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.XRay.Types.BackendConnectionErrors
 
 -- |
 --
 -- /See:/ 'newTelemetryRecord' smart constructor.
 data TelemetryRecord = TelemetryRecord'
-  { segmentsSpilloverCount :: Prelude.Maybe Prelude.Int,
-    backendConnectionErrors :: Prelude.Maybe BackendConnectionErrors,
-    segmentsRejectedCount :: Prelude.Maybe Prelude.Int,
-    segmentsSentCount :: Prelude.Maybe Prelude.Int,
-    segmentsReceivedCount :: Prelude.Maybe Prelude.Int,
-    timestamp :: Prelude.POSIX
+  { segmentsSpilloverCount :: Core.Maybe Core.Int,
+    backendConnectionErrors :: Core.Maybe BackendConnectionErrors,
+    segmentsRejectedCount :: Core.Maybe Core.Int,
+    segmentsSentCount :: Core.Maybe Core.Int,
+    segmentsReceivedCount :: Core.Maybe Core.Int,
+    timestamp :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TelemetryRecord' with all optional fields omitted.
@@ -58,61 +57,61 @@ data TelemetryRecord = TelemetryRecord'
 -- 'timestamp', 'telemetryRecord_timestamp' -
 newTelemetryRecord ::
   -- | 'timestamp'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   TelemetryRecord
 newTelemetryRecord pTimestamp_ =
   TelemetryRecord'
     { segmentsSpilloverCount =
-        Prelude.Nothing,
-      backendConnectionErrors = Prelude.Nothing,
-      segmentsRejectedCount = Prelude.Nothing,
-      segmentsSentCount = Prelude.Nothing,
-      segmentsReceivedCount = Prelude.Nothing,
-      timestamp = Prelude._Time Lens.# pTimestamp_
+        Core.Nothing,
+      backendConnectionErrors = Core.Nothing,
+      segmentsRejectedCount = Core.Nothing,
+      segmentsSentCount = Core.Nothing,
+      segmentsReceivedCount = Core.Nothing,
+      timestamp = Core._Time Lens.# pTimestamp_
     }
 
 -- |
-telemetryRecord_segmentsSpilloverCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
+telemetryRecord_segmentsSpilloverCount :: Lens.Lens' TelemetryRecord (Core.Maybe Core.Int)
 telemetryRecord_segmentsSpilloverCount = Lens.lens (\TelemetryRecord' {segmentsSpilloverCount} -> segmentsSpilloverCount) (\s@TelemetryRecord' {} a -> s {segmentsSpilloverCount = a} :: TelemetryRecord)
 
 -- |
-telemetryRecord_backendConnectionErrors :: Lens.Lens' TelemetryRecord (Prelude.Maybe BackendConnectionErrors)
+telemetryRecord_backendConnectionErrors :: Lens.Lens' TelemetryRecord (Core.Maybe BackendConnectionErrors)
 telemetryRecord_backendConnectionErrors = Lens.lens (\TelemetryRecord' {backendConnectionErrors} -> backendConnectionErrors) (\s@TelemetryRecord' {} a -> s {backendConnectionErrors = a} :: TelemetryRecord)
 
 -- |
-telemetryRecord_segmentsRejectedCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
+telemetryRecord_segmentsRejectedCount :: Lens.Lens' TelemetryRecord (Core.Maybe Core.Int)
 telemetryRecord_segmentsRejectedCount = Lens.lens (\TelemetryRecord' {segmentsRejectedCount} -> segmentsRejectedCount) (\s@TelemetryRecord' {} a -> s {segmentsRejectedCount = a} :: TelemetryRecord)
 
 -- |
-telemetryRecord_segmentsSentCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
+telemetryRecord_segmentsSentCount :: Lens.Lens' TelemetryRecord (Core.Maybe Core.Int)
 telemetryRecord_segmentsSentCount = Lens.lens (\TelemetryRecord' {segmentsSentCount} -> segmentsSentCount) (\s@TelemetryRecord' {} a -> s {segmentsSentCount = a} :: TelemetryRecord)
 
 -- |
-telemetryRecord_segmentsReceivedCount :: Lens.Lens' TelemetryRecord (Prelude.Maybe Prelude.Int)
+telemetryRecord_segmentsReceivedCount :: Lens.Lens' TelemetryRecord (Core.Maybe Core.Int)
 telemetryRecord_segmentsReceivedCount = Lens.lens (\TelemetryRecord' {segmentsReceivedCount} -> segmentsReceivedCount) (\s@TelemetryRecord' {} a -> s {segmentsReceivedCount = a} :: TelemetryRecord)
 
 -- |
-telemetryRecord_timestamp :: Lens.Lens' TelemetryRecord Prelude.UTCTime
-telemetryRecord_timestamp = Lens.lens (\TelemetryRecord' {timestamp} -> timestamp) (\s@TelemetryRecord' {} a -> s {timestamp = a} :: TelemetryRecord) Prelude.. Prelude._Time
+telemetryRecord_timestamp :: Lens.Lens' TelemetryRecord Core.UTCTime
+telemetryRecord_timestamp = Lens.lens (\TelemetryRecord' {timestamp} -> timestamp) (\s@TelemetryRecord' {} a -> s {timestamp = a} :: TelemetryRecord) Core.. Core._Time
 
-instance Prelude.Hashable TelemetryRecord
+instance Core.Hashable TelemetryRecord
 
-instance Prelude.NFData TelemetryRecord
+instance Core.NFData TelemetryRecord
 
-instance Prelude.ToJSON TelemetryRecord where
+instance Core.ToJSON TelemetryRecord where
   toJSON TelemetryRecord' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SegmentsSpilloverCount" Prelude..=)
-              Prelude.<$> segmentsSpilloverCount,
-            ("BackendConnectionErrors" Prelude..=)
-              Prelude.<$> backendConnectionErrors,
-            ("SegmentsRejectedCount" Prelude..=)
-              Prelude.<$> segmentsRejectedCount,
-            ("SegmentsSentCount" Prelude..=)
-              Prelude.<$> segmentsSentCount,
-            ("SegmentsReceivedCount" Prelude..=)
-              Prelude.<$> segmentsReceivedCount,
-            Prelude.Just ("Timestamp" Prelude..= timestamp)
+    Core.object
+      ( Core.catMaybes
+          [ ("SegmentsSpilloverCount" Core..=)
+              Core.<$> segmentsSpilloverCount,
+            ("BackendConnectionErrors" Core..=)
+              Core.<$> backendConnectionErrors,
+            ("SegmentsRejectedCount" Core..=)
+              Core.<$> segmentsRejectedCount,
+            ("SegmentsSentCount" Core..=)
+              Core.<$> segmentsSentCount,
+            ("SegmentsReceivedCount" Core..=)
+              Core.<$> segmentsReceivedCount,
+            Core.Just ("Timestamp" Core..= timestamp)
           ]
       )

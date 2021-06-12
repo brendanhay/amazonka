@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -96,9 +95,9 @@ module Network.AWS.GameLift.ClaimGameServer
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -107,18 +106,18 @@ data ClaimGameServer = ClaimGameServer'
   { -- | A set of custom game server properties, formatted as a single string
     -- value. This data is passed to a game client or service when it requests
     -- information on game servers using ListGameServers or ClaimGameServer.
-    gameServerData :: Prelude.Maybe Prelude.Text,
+    gameServerData :: Core.Maybe Core.Text,
     -- | A custom string that uniquely identifies the game server to claim. If
     -- this parameter is left empty, GameLift FleetIQ searches for an available
     -- game server in the specified game server group.
-    gameServerId :: Prelude.Maybe Prelude.Text,
+    gameServerId :: Core.Maybe Core.Text,
     -- | A unique identifier for the game server group where the game server is
     -- running. Use either the GameServerGroup name or ARN value.. If you are
     -- not specifying a game server to claim, this value identifies where you
     -- want GameLift FleetIQ to look for an available game server to claim.
-    gameServerGroupName :: Prelude.Text
+    gameServerGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClaimGameServer' with all optional fields omitted.
@@ -142,90 +141,87 @@ data ClaimGameServer = ClaimGameServer'
 -- want GameLift FleetIQ to look for an available game server to claim.
 newClaimGameServer ::
   -- | 'gameServerGroupName'
-  Prelude.Text ->
+  Core.Text ->
   ClaimGameServer
 newClaimGameServer pGameServerGroupName_ =
   ClaimGameServer'
-    { gameServerData = Prelude.Nothing,
-      gameServerId = Prelude.Nothing,
+    { gameServerData = Core.Nothing,
+      gameServerId = Core.Nothing,
       gameServerGroupName = pGameServerGroupName_
     }
 
 -- | A set of custom game server properties, formatted as a single string
 -- value. This data is passed to a game client or service when it requests
 -- information on game servers using ListGameServers or ClaimGameServer.
-claimGameServer_gameServerData :: Lens.Lens' ClaimGameServer (Prelude.Maybe Prelude.Text)
+claimGameServer_gameServerData :: Lens.Lens' ClaimGameServer (Core.Maybe Core.Text)
 claimGameServer_gameServerData = Lens.lens (\ClaimGameServer' {gameServerData} -> gameServerData) (\s@ClaimGameServer' {} a -> s {gameServerData = a} :: ClaimGameServer)
 
 -- | A custom string that uniquely identifies the game server to claim. If
 -- this parameter is left empty, GameLift FleetIQ searches for an available
 -- game server in the specified game server group.
-claimGameServer_gameServerId :: Lens.Lens' ClaimGameServer (Prelude.Maybe Prelude.Text)
+claimGameServer_gameServerId :: Lens.Lens' ClaimGameServer (Core.Maybe Core.Text)
 claimGameServer_gameServerId = Lens.lens (\ClaimGameServer' {gameServerId} -> gameServerId) (\s@ClaimGameServer' {} a -> s {gameServerId = a} :: ClaimGameServer)
 
 -- | A unique identifier for the game server group where the game server is
 -- running. Use either the GameServerGroup name or ARN value.. If you are
 -- not specifying a game server to claim, this value identifies where you
 -- want GameLift FleetIQ to look for an available game server to claim.
-claimGameServer_gameServerGroupName :: Lens.Lens' ClaimGameServer Prelude.Text
+claimGameServer_gameServerGroupName :: Lens.Lens' ClaimGameServer Core.Text
 claimGameServer_gameServerGroupName = Lens.lens (\ClaimGameServer' {gameServerGroupName} -> gameServerGroupName) (\s@ClaimGameServer' {} a -> s {gameServerGroupName = a} :: ClaimGameServer)
 
-instance Prelude.AWSRequest ClaimGameServer where
-  type Rs ClaimGameServer = ClaimGameServerResponse
+instance Core.AWSRequest ClaimGameServer where
+  type
+    AWSResponse ClaimGameServer =
+      ClaimGameServerResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ClaimGameServerResponse'
-            Prelude.<$> (x Prelude..?> "GameServer")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GameServer")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ClaimGameServer
+instance Core.Hashable ClaimGameServer
 
-instance Prelude.NFData ClaimGameServer
+instance Core.NFData ClaimGameServer
 
-instance Prelude.ToHeaders ClaimGameServer where
+instance Core.ToHeaders ClaimGameServer where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.ClaimGameServer" :: Prelude.ByteString),
+              Core.=# ("GameLift.ClaimGameServer" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ClaimGameServer where
+instance Core.ToJSON ClaimGameServer where
   toJSON ClaimGameServer' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("GameServerData" Prelude..=)
-              Prelude.<$> gameServerData,
-            ("GameServerId" Prelude..=) Prelude.<$> gameServerId,
-            Prelude.Just
-              ( "GameServerGroupName"
-                  Prelude..= gameServerGroupName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("GameServerData" Core..=) Core.<$> gameServerData,
+            ("GameServerId" Core..=) Core.<$> gameServerId,
+            Core.Just
+              ("GameServerGroupName" Core..= gameServerGroupName)
           ]
       )
 
-instance Prelude.ToPath ClaimGameServer where
-  toPath = Prelude.const "/"
+instance Core.ToPath ClaimGameServer where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ClaimGameServer where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ClaimGameServer where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newClaimGameServerResponse' smart constructor.
 data ClaimGameServerResponse = ClaimGameServerResponse'
   { -- | Object that describes the newly claimed game server.
-    gameServer :: Prelude.Maybe GameServer,
+    gameServer :: Core.Maybe GameServer,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClaimGameServerResponse' with all optional fields omitted.
@@ -240,21 +236,20 @@ data ClaimGameServerResponse = ClaimGameServerResponse'
 -- 'httpStatus', 'claimGameServerResponse_httpStatus' - The response's http status code.
 newClaimGameServerResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ClaimGameServerResponse
 newClaimGameServerResponse pHttpStatus_ =
   ClaimGameServerResponse'
-    { gameServer =
-        Prelude.Nothing,
+    { gameServer = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Object that describes the newly claimed game server.
-claimGameServerResponse_gameServer :: Lens.Lens' ClaimGameServerResponse (Prelude.Maybe GameServer)
+claimGameServerResponse_gameServer :: Lens.Lens' ClaimGameServerResponse (Core.Maybe GameServer)
 claimGameServerResponse_gameServer = Lens.lens (\ClaimGameServerResponse' {gameServer} -> gameServer) (\s@ClaimGameServerResponse' {} a -> s {gameServer = a} :: ClaimGameServerResponse)
 
 -- | The response's http status code.
-claimGameServerResponse_httpStatus :: Lens.Lens' ClaimGameServerResponse Prelude.Int
+claimGameServerResponse_httpStatus :: Lens.Lens' ClaimGameServerResponse Core.Int
 claimGameServerResponse_httpStatus = Lens.lens (\ClaimGameServerResponse' {httpStatus} -> httpStatus) (\s@ClaimGameServerResponse' {} a -> s {httpStatus = a} :: ClaimGameServerResponse)
 
-instance Prelude.NFData ClaimGameServerResponse
+instance Core.NFData ClaimGameServerResponse

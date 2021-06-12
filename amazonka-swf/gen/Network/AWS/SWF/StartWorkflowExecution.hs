@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -92,8 +91,8 @@ module Network.AWS.SWF.StartWorkflowExecution
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
@@ -104,7 +103,7 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- should be meaningful to the workflow you are starting. This @input@ is
     -- made available to the new workflow execution in the
     -- @WorkflowExecutionStarted@ history event.
-    input :: Prelude.Maybe Prelude.Text,
+    input :: Core.Maybe Core.Text,
     -- | The IAM role to attach to this workflow execution.
     --
     -- Executions of this workflow type need IAM roles to invoke Lambda
@@ -113,7 +112,7 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- history event. For more information, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
     -- in the /Amazon SWF Developer Guide/.
-    lambdaRole :: Prelude.Maybe Prelude.Text,
+    lambdaRole :: Core.Maybe Core.Text,
     -- | If set, specifies the policy to use for the child workflow executions of
     -- this workflow execution if it is terminated, by calling the
     -- TerminateWorkflowExecution action explicitly or due to an expired
@@ -136,7 +135,7 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- default for the workflow type or through this parameter. If neither this
     -- parameter is set nor a default child policy was specified at
     -- registration time then a fault is returned.
-    childPolicy :: Prelude.Maybe ChildPolicy,
+    childPolicy :: Core.Maybe ChildPolicy,
     -- | The task list to use for the decision tasks generated for this workflow
     -- execution. This overrides the @defaultTaskList@ specified when
     -- registering the workflow type.
@@ -150,7 +149,7 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
-    taskList :: Prelude.Maybe TaskList,
+    taskList :: Core.Maybe TaskList,
     -- | The task priority to use for this workflow execution. This overrides any
     -- default priority that was assigned when the workflow type was
     -- registered. If not set, then the default task priority for the workflow
@@ -161,7 +160,7 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- For more information about setting task priority, see
     -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
     -- in the /Amazon SWF Developer Guide/.
-    taskPriority :: Prelude.Maybe Prelude.Text,
+    taskPriority :: Core.Maybe Core.Text,
     -- | The total duration for this workflow execution. This overrides the
     -- defaultExecutionStartToCloseTimeout specified when registering the
     -- workflow type.
@@ -176,7 +175,7 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- this parameter or as a default when the workflow type is registered. If
     -- neither this parameter nor a default execution start-to-close timeout is
     -- specified, a fault is returned.
-    executionStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    executionStartToCloseTimeout :: Core.Maybe Core.Text,
     -- | Specifies the maximum duration of decision tasks for this workflow
     -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
     -- specified when registering the workflow type using RegisterWorkflowType.
@@ -189,14 +188,14 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- parameter. If neither this parameter is set nor a default task
     -- start-to-close timeout was specified at registration time then a fault
     -- is returned.
-    taskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
+    taskStartToCloseTimeout :: Core.Maybe Core.Text,
     -- | The list of tags to associate with the workflow execution. You can
     -- specify a maximum of 5 tags. You can list workflow executions with a
     -- specific tag by calling ListOpenWorkflowExecutions or
     -- ListClosedWorkflowExecutions and specifying a TagFilter.
-    tagList :: Prelude.Maybe [Prelude.Text],
+    tagList :: Core.Maybe [Core.Text],
     -- | The name of the domain in which the workflow execution is created.
-    domain :: Prelude.Text,
+    domain :: Core.Text,
     -- | The user defined identifier associated with the workflow execution. You
     -- can use this to associate a custom identifier with the workflow
     -- execution. You may specify the same identifier if a workflow execution
@@ -208,11 +207,11 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
-    workflowId :: Prelude.Text,
+    workflowId :: Core.Text,
     -- | The type of the workflow to start.
     workflowType :: WorkflowType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartWorkflowExecution' with all optional fields omitted.
@@ -334,9 +333,9 @@ data StartWorkflowExecution = StartWorkflowExecution'
 -- 'workflowType', 'startWorkflowExecution_workflowType' - The type of the workflow to start.
 newStartWorkflowExecution ::
   -- | 'domain'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workflowId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'workflowType'
   WorkflowType ->
   StartWorkflowExecution
@@ -345,14 +344,14 @@ newStartWorkflowExecution
   pWorkflowId_
   pWorkflowType_ =
     StartWorkflowExecution'
-      { input = Prelude.Nothing,
-        lambdaRole = Prelude.Nothing,
-        childPolicy = Prelude.Nothing,
-        taskList = Prelude.Nothing,
-        taskPriority = Prelude.Nothing,
-        executionStartToCloseTimeout = Prelude.Nothing,
-        taskStartToCloseTimeout = Prelude.Nothing,
-        tagList = Prelude.Nothing,
+      { input = Core.Nothing,
+        lambdaRole = Core.Nothing,
+        childPolicy = Core.Nothing,
+        taskList = Core.Nothing,
+        taskPriority = Core.Nothing,
+        executionStartToCloseTimeout = Core.Nothing,
+        taskStartToCloseTimeout = Core.Nothing,
+        tagList = Core.Nothing,
         domain = pDomain_,
         workflowId = pWorkflowId_,
         workflowType = pWorkflowType_
@@ -362,7 +361,7 @@ newStartWorkflowExecution
 -- should be meaningful to the workflow you are starting. This @input@ is
 -- made available to the new workflow execution in the
 -- @WorkflowExecutionStarted@ history event.
-startWorkflowExecution_input :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe Prelude.Text)
+startWorkflowExecution_input :: Lens.Lens' StartWorkflowExecution (Core.Maybe Core.Text)
 startWorkflowExecution_input = Lens.lens (\StartWorkflowExecution' {input} -> input) (\s@StartWorkflowExecution' {} a -> s {input = a} :: StartWorkflowExecution)
 
 -- | The IAM role to attach to this workflow execution.
@@ -373,7 +372,7 @@ startWorkflowExecution_input = Lens.lens (\StartWorkflowExecution' {input} -> in
 -- history event. For more information, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html>
 -- in the /Amazon SWF Developer Guide/.
-startWorkflowExecution_lambdaRole :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe Prelude.Text)
+startWorkflowExecution_lambdaRole :: Lens.Lens' StartWorkflowExecution (Core.Maybe Core.Text)
 startWorkflowExecution_lambdaRole = Lens.lens (\StartWorkflowExecution' {lambdaRole} -> lambdaRole) (\s@StartWorkflowExecution' {} a -> s {lambdaRole = a} :: StartWorkflowExecution)
 
 -- | If set, specifies the policy to use for the child workflow executions of
@@ -398,7 +397,7 @@ startWorkflowExecution_lambdaRole = Lens.lens (\StartWorkflowExecution' {lambdaR
 -- default for the workflow type or through this parameter. If neither this
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault is returned.
-startWorkflowExecution_childPolicy :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe ChildPolicy)
+startWorkflowExecution_childPolicy :: Lens.Lens' StartWorkflowExecution (Core.Maybe ChildPolicy)
 startWorkflowExecution_childPolicy = Lens.lens (\StartWorkflowExecution' {childPolicy} -> childPolicy) (\s@StartWorkflowExecution' {} a -> s {childPolicy = a} :: StartWorkflowExecution)
 
 -- | The task list to use for the decision tasks generated for this workflow
@@ -414,7 +413,7 @@ startWorkflowExecution_childPolicy = Lens.lens (\StartWorkflowExecution' {childP
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
-startWorkflowExecution_taskList :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe TaskList)
+startWorkflowExecution_taskList :: Lens.Lens' StartWorkflowExecution (Core.Maybe TaskList)
 startWorkflowExecution_taskList = Lens.lens (\StartWorkflowExecution' {taskList} -> taskList) (\s@StartWorkflowExecution' {} a -> s {taskList = a} :: StartWorkflowExecution)
 
 -- | The task priority to use for this workflow execution. This overrides any
@@ -427,7 +426,7 @@ startWorkflowExecution_taskList = Lens.lens (\StartWorkflowExecution' {taskList}
 -- For more information about setting task priority, see
 -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon SWF Developer Guide/.
-startWorkflowExecution_taskPriority :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe Prelude.Text)
+startWorkflowExecution_taskPriority :: Lens.Lens' StartWorkflowExecution (Core.Maybe Core.Text)
 startWorkflowExecution_taskPriority = Lens.lens (\StartWorkflowExecution' {taskPriority} -> taskPriority) (\s@StartWorkflowExecution' {} a -> s {taskPriority = a} :: StartWorkflowExecution)
 
 -- | The total duration for this workflow execution. This overrides the
@@ -444,7 +443,7 @@ startWorkflowExecution_taskPriority = Lens.lens (\StartWorkflowExecution' {taskP
 -- this parameter or as a default when the workflow type is registered. If
 -- neither this parameter nor a default execution start-to-close timeout is
 -- specified, a fault is returned.
-startWorkflowExecution_executionStartToCloseTimeout :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe Prelude.Text)
+startWorkflowExecution_executionStartToCloseTimeout :: Lens.Lens' StartWorkflowExecution (Core.Maybe Core.Text)
 startWorkflowExecution_executionStartToCloseTimeout = Lens.lens (\StartWorkflowExecution' {executionStartToCloseTimeout} -> executionStartToCloseTimeout) (\s@StartWorkflowExecution' {} a -> s {executionStartToCloseTimeout = a} :: StartWorkflowExecution)
 
 -- | Specifies the maximum duration of decision tasks for this workflow
@@ -459,18 +458,18 @@ startWorkflowExecution_executionStartToCloseTimeout = Lens.lens (\StartWorkflowE
 -- parameter. If neither this parameter is set nor a default task
 -- start-to-close timeout was specified at registration time then a fault
 -- is returned.
-startWorkflowExecution_taskStartToCloseTimeout :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe Prelude.Text)
+startWorkflowExecution_taskStartToCloseTimeout :: Lens.Lens' StartWorkflowExecution (Core.Maybe Core.Text)
 startWorkflowExecution_taskStartToCloseTimeout = Lens.lens (\StartWorkflowExecution' {taskStartToCloseTimeout} -> taskStartToCloseTimeout) (\s@StartWorkflowExecution' {} a -> s {taskStartToCloseTimeout = a} :: StartWorkflowExecution)
 
 -- | The list of tags to associate with the workflow execution. You can
 -- specify a maximum of 5 tags. You can list workflow executions with a
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-startWorkflowExecution_tagList :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe [Prelude.Text])
-startWorkflowExecution_tagList = Lens.lens (\StartWorkflowExecution' {tagList} -> tagList) (\s@StartWorkflowExecution' {} a -> s {tagList = a} :: StartWorkflowExecution) Prelude.. Lens.mapping Prelude._Coerce
+startWorkflowExecution_tagList :: Lens.Lens' StartWorkflowExecution (Core.Maybe [Core.Text])
+startWorkflowExecution_tagList = Lens.lens (\StartWorkflowExecution' {tagList} -> tagList) (\s@StartWorkflowExecution' {} a -> s {tagList = a} :: StartWorkflowExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the domain in which the workflow execution is created.
-startWorkflowExecution_domain :: Lens.Lens' StartWorkflowExecution Prelude.Text
+startWorkflowExecution_domain :: Lens.Lens' StartWorkflowExecution Core.Text
 startWorkflowExecution_domain = Lens.lens (\StartWorkflowExecution' {domain} -> domain) (\s@StartWorkflowExecution' {} a -> s {domain = a} :: StartWorkflowExecution)
 
 -- | The user defined identifier associated with the workflow execution. You
@@ -484,71 +483,68 @@ startWorkflowExecution_domain = Lens.lens (\StartWorkflowExecution' {domain} -> 
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
-startWorkflowExecution_workflowId :: Lens.Lens' StartWorkflowExecution Prelude.Text
+startWorkflowExecution_workflowId :: Lens.Lens' StartWorkflowExecution Core.Text
 startWorkflowExecution_workflowId = Lens.lens (\StartWorkflowExecution' {workflowId} -> workflowId) (\s@StartWorkflowExecution' {} a -> s {workflowId = a} :: StartWorkflowExecution)
 
 -- | The type of the workflow to start.
 startWorkflowExecution_workflowType :: Lens.Lens' StartWorkflowExecution WorkflowType
 startWorkflowExecution_workflowType = Lens.lens (\StartWorkflowExecution' {workflowType} -> workflowType) (\s@StartWorkflowExecution' {} a -> s {workflowType = a} :: StartWorkflowExecution)
 
-instance Prelude.AWSRequest StartWorkflowExecution where
+instance Core.AWSRequest StartWorkflowExecution where
   type
-    Rs StartWorkflowExecution =
+    AWSResponse StartWorkflowExecution =
       StartWorkflowExecutionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StartWorkflowExecutionResponse'
-            Prelude.<$> (x Prelude..?> "runId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "runId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StartWorkflowExecution
+instance Core.Hashable StartWorkflowExecution
 
-instance Prelude.NFData StartWorkflowExecution
+instance Core.NFData StartWorkflowExecution
 
-instance Prelude.ToHeaders StartWorkflowExecution where
+instance Core.ToHeaders StartWorkflowExecution where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SimpleWorkflowService.StartWorkflowExecution" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SimpleWorkflowService.StartWorkflowExecution" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.0" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.0" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StartWorkflowExecution where
+instance Core.ToJSON StartWorkflowExecution where
   toJSON StartWorkflowExecution' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("input" Prelude..=) Prelude.<$> input,
-            ("lambdaRole" Prelude..=) Prelude.<$> lambdaRole,
-            ("childPolicy" Prelude..=) Prelude.<$> childPolicy,
-            ("taskList" Prelude..=) Prelude.<$> taskList,
-            ("taskPriority" Prelude..=) Prelude.<$> taskPriority,
-            ("executionStartToCloseTimeout" Prelude..=)
-              Prelude.<$> executionStartToCloseTimeout,
-            ("taskStartToCloseTimeout" Prelude..=)
-              Prelude.<$> taskStartToCloseTimeout,
-            ("tagList" Prelude..=) Prelude.<$> tagList,
-            Prelude.Just ("domain" Prelude..= domain),
-            Prelude.Just ("workflowId" Prelude..= workflowId),
-            Prelude.Just
-              ("workflowType" Prelude..= workflowType)
+    Core.object
+      ( Core.catMaybes
+          [ ("input" Core..=) Core.<$> input,
+            ("lambdaRole" Core..=) Core.<$> lambdaRole,
+            ("childPolicy" Core..=) Core.<$> childPolicy,
+            ("taskList" Core..=) Core.<$> taskList,
+            ("taskPriority" Core..=) Core.<$> taskPriority,
+            ("executionStartToCloseTimeout" Core..=)
+              Core.<$> executionStartToCloseTimeout,
+            ("taskStartToCloseTimeout" Core..=)
+              Core.<$> taskStartToCloseTimeout,
+            ("tagList" Core..=) Core.<$> tagList,
+            Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowId" Core..= workflowId),
+            Core.Just ("workflowType" Core..= workflowType)
           ]
       )
 
-instance Prelude.ToPath StartWorkflowExecution where
-  toPath = Prelude.const "/"
+instance Core.ToPath StartWorkflowExecution where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StartWorkflowExecution where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StartWorkflowExecution where
+  toQuery = Core.const Core.mempty
 
 -- | Specifies the @runId@ of a workflow execution.
 --
@@ -557,11 +553,11 @@ data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
   { -- | The @runId@ of a workflow execution. This ID is generated by the service
     -- and can be used to uniquely identify the workflow execution within a
     -- domain.
-    runId :: Prelude.Maybe Prelude.Text,
+    runId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StartWorkflowExecutionResponse' with all optional fields omitted.
@@ -578,25 +574,23 @@ data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
 -- 'httpStatus', 'startWorkflowExecutionResponse_httpStatus' - The response's http status code.
 newStartWorkflowExecutionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StartWorkflowExecutionResponse
 newStartWorkflowExecutionResponse pHttpStatus_ =
   StartWorkflowExecutionResponse'
     { runId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The @runId@ of a workflow execution. This ID is generated by the service
 -- and can be used to uniquely identify the workflow execution within a
 -- domain.
-startWorkflowExecutionResponse_runId :: Lens.Lens' StartWorkflowExecutionResponse (Prelude.Maybe Prelude.Text)
+startWorkflowExecutionResponse_runId :: Lens.Lens' StartWorkflowExecutionResponse (Core.Maybe Core.Text)
 startWorkflowExecutionResponse_runId = Lens.lens (\StartWorkflowExecutionResponse' {runId} -> runId) (\s@StartWorkflowExecutionResponse' {} a -> s {runId = a} :: StartWorkflowExecutionResponse)
 
 -- | The response's http status code.
-startWorkflowExecutionResponse_httpStatus :: Lens.Lens' StartWorkflowExecutionResponse Prelude.Int
+startWorkflowExecutionResponse_httpStatus :: Lens.Lens' StartWorkflowExecutionResponse Core.Int
 startWorkflowExecutionResponse_httpStatus = Lens.lens (\StartWorkflowExecutionResponse' {httpStatus} -> httpStatus) (\s@StartWorkflowExecutionResponse' {} a -> s {httpStatus = a} :: StartWorkflowExecutionResponse)
 
-instance
-  Prelude.NFData
-    StartWorkflowExecutionResponse
+instance Core.NFData StartWorkflowExecutionResponse

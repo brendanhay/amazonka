@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.TriggeringDataset where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the dataset whose content generation triggers the new
 -- dataset content generation.
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data TriggeringDataset = TriggeringDataset'
   { -- | The name of the dataset whose content generation triggers the new
     -- dataset content generation.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TriggeringDataset' with all optional fields omitted.
@@ -46,31 +45,29 @@ data TriggeringDataset = TriggeringDataset'
 -- dataset content generation.
 newTriggeringDataset ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   TriggeringDataset
 newTriggeringDataset pName_ =
   TriggeringDataset' {name = pName_}
 
 -- | The name of the dataset whose content generation triggers the new
 -- dataset content generation.
-triggeringDataset_name :: Lens.Lens' TriggeringDataset Prelude.Text
+triggeringDataset_name :: Lens.Lens' TriggeringDataset Core.Text
 triggeringDataset_name = Lens.lens (\TriggeringDataset' {name} -> name) (\s@TriggeringDataset' {} a -> s {name = a} :: TriggeringDataset)
 
-instance Prelude.FromJSON TriggeringDataset where
+instance Core.FromJSON TriggeringDataset where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "TriggeringDataset"
       ( \x ->
-          TriggeringDataset' Prelude.<$> (x Prelude..: "name")
+          TriggeringDataset' Core.<$> (x Core..: "name")
       )
 
-instance Prelude.Hashable TriggeringDataset
+instance Core.Hashable TriggeringDataset
 
-instance Prelude.NFData TriggeringDataset
+instance Core.NFData TriggeringDataset
 
-instance Prelude.ToJSON TriggeringDataset where
+instance Core.ToJSON TriggeringDataset where
   toJSON TriggeringDataset' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("name" Core..= name)])

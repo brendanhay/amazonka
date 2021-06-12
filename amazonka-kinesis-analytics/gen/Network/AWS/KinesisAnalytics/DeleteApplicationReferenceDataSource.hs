@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,31 +54,31 @@ module Network.AWS.KinesisAnalytics.DeleteApplicationReferenceDataSource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteApplicationReferenceDataSource' smart constructor.
 data DeleteApplicationReferenceDataSource = DeleteApplicationReferenceDataSource'
   { -- | Name of an existing application.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | Version of the application. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get the current application version. If the version
     -- specified is not the current version, the
     -- @ConcurrentModificationException@ is returned.
-    currentApplicationVersionId :: Prelude.Natural,
+    currentApplicationVersionId :: Core.Natural,
     -- | ID of the reference data source. When you add a reference data source to
     -- your application using the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_AddApplicationReferenceDataSource.html AddApplicationReferenceDataSource>,
     -- Amazon Kinesis Analytics assigns an ID. You can use the
     -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
     -- operation to get the reference ID.
-    referenceId :: Prelude.Text
+    referenceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationReferenceDataSource' with all optional fields omitted.
@@ -105,11 +104,11 @@ data DeleteApplicationReferenceDataSource = DeleteApplicationReferenceDataSource
 -- operation to get the reference ID.
 newDeleteApplicationReferenceDataSource ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'currentApplicationVersionId'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'referenceId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApplicationReferenceDataSource
 newDeleteApplicationReferenceDataSource
   pApplicationName_
@@ -124,7 +123,7 @@ newDeleteApplicationReferenceDataSource
       }
 
 -- | Name of an existing application.
-deleteApplicationReferenceDataSource_applicationName :: Lens.Lens' DeleteApplicationReferenceDataSource Prelude.Text
+deleteApplicationReferenceDataSource_applicationName :: Lens.Lens' DeleteApplicationReferenceDataSource Core.Text
 deleteApplicationReferenceDataSource_applicationName = Lens.lens (\DeleteApplicationReferenceDataSource' {applicationName} -> applicationName) (\s@DeleteApplicationReferenceDataSource' {} a -> s {applicationName = a} :: DeleteApplicationReferenceDataSource)
 
 -- | Version of the application. You can use the
@@ -132,7 +131,7 @@ deleteApplicationReferenceDataSource_applicationName = Lens.lens (\DeleteApplica
 -- operation to get the current application version. If the version
 -- specified is not the current version, the
 -- @ConcurrentModificationException@ is returned.
-deleteApplicationReferenceDataSource_currentApplicationVersionId :: Lens.Lens' DeleteApplicationReferenceDataSource Prelude.Natural
+deleteApplicationReferenceDataSource_currentApplicationVersionId :: Lens.Lens' DeleteApplicationReferenceDataSource Core.Natural
 deleteApplicationReferenceDataSource_currentApplicationVersionId = Lens.lens (\DeleteApplicationReferenceDataSource' {currentApplicationVersionId} -> currentApplicationVersionId) (\s@DeleteApplicationReferenceDataSource' {} a -> s {currentApplicationVersionId = a} :: DeleteApplicationReferenceDataSource)
 
 -- | ID of the reference data source. When you add a reference data source to
@@ -141,85 +140,83 @@ deleteApplicationReferenceDataSource_currentApplicationVersionId = Lens.lens (\D
 -- Amazon Kinesis Analytics assigns an ID. You can use the
 -- <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html DescribeApplication>
 -- operation to get the reference ID.
-deleteApplicationReferenceDataSource_referenceId :: Lens.Lens' DeleteApplicationReferenceDataSource Prelude.Text
+deleteApplicationReferenceDataSource_referenceId :: Lens.Lens' DeleteApplicationReferenceDataSource Core.Text
 deleteApplicationReferenceDataSource_referenceId = Lens.lens (\DeleteApplicationReferenceDataSource' {referenceId} -> referenceId) (\s@DeleteApplicationReferenceDataSource' {} a -> s {referenceId = a} :: DeleteApplicationReferenceDataSource)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DeleteApplicationReferenceDataSource
   where
   type
-    Rs DeleteApplicationReferenceDataSource =
+    AWSResponse DeleteApplicationReferenceDataSource =
       DeleteApplicationReferenceDataSourceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationReferenceDataSourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DeleteApplicationReferenceDataSource
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteApplicationReferenceDataSource
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DeleteApplicationReferenceDataSource
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "KinesisAnalytics_20150814.DeleteApplicationReferenceDataSource" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DeleteApplicationReferenceDataSource
   where
   toJSON DeleteApplicationReferenceDataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ApplicationName" Prelude..= applicationName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ApplicationName" Core..= applicationName),
+            Core.Just
               ( "CurrentApplicationVersionId"
-                  Prelude..= currentApplicationVersionId
+                  Core..= currentApplicationVersionId
               ),
-            Prelude.Just ("ReferenceId" Prelude..= referenceId)
+            Core.Just ("ReferenceId" Core..= referenceId)
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DeleteApplicationReferenceDataSource
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DeleteApplicationReferenceDataSource
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteApplicationReferenceDataSourceResponse' smart constructor.
 data DeleteApplicationReferenceDataSourceResponse = DeleteApplicationReferenceDataSourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApplicationReferenceDataSourceResponse' with all optional fields omitted.
@@ -232,7 +229,7 @@ data DeleteApplicationReferenceDataSourceResponse = DeleteApplicationReferenceDa
 -- 'httpStatus', 'deleteApplicationReferenceDataSourceResponse_httpStatus' - The response's http status code.
 newDeleteApplicationReferenceDataSourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteApplicationReferenceDataSourceResponse
 newDeleteApplicationReferenceDataSourceResponse
   pHttpStatus_ =
@@ -242,9 +239,9 @@ newDeleteApplicationReferenceDataSourceResponse
       }
 
 -- | The response's http status code.
-deleteApplicationReferenceDataSourceResponse_httpStatus :: Lens.Lens' DeleteApplicationReferenceDataSourceResponse Prelude.Int
+deleteApplicationReferenceDataSourceResponse_httpStatus :: Lens.Lens' DeleteApplicationReferenceDataSourceResponse Core.Int
 deleteApplicationReferenceDataSourceResponse_httpStatus = Lens.lens (\DeleteApplicationReferenceDataSourceResponse' {httpStatus} -> httpStatus) (\s@DeleteApplicationReferenceDataSourceResponse' {} a -> s {httpStatus = a} :: DeleteApplicationReferenceDataSourceResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteApplicationReferenceDataSourceResponse

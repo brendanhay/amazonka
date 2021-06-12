@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EC2.ModifyVpcEndpointConnectionNotification
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,18 +54,18 @@ import qualified Network.AWS.Response as Response
 data ModifyVpcEndpointConnectionNotification = ModifyVpcEndpointConnectionNotification'
   { -- | One or more events for the endpoint. Valid values are @Accept@,
     -- @Connect@, @Delete@, and @Reject@.
-    connectionEvents :: Prelude.Maybe [Prelude.Text],
+    connectionEvents :: Core.Maybe [Core.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ARN for the SNS topic for the notification.
-    connectionNotificationArn :: Prelude.Maybe Prelude.Text,
+    connectionNotificationArn :: Core.Maybe Core.Text,
     -- | The ID of the notification.
-    connectionNotificationId :: Prelude.Text
+    connectionNotificationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpointConnectionNotification' with all optional fields omitted.
@@ -89,107 +88,107 @@ data ModifyVpcEndpointConnectionNotification = ModifyVpcEndpointConnectionNotifi
 -- 'connectionNotificationId', 'modifyVpcEndpointConnectionNotification_connectionNotificationId' - The ID of the notification.
 newModifyVpcEndpointConnectionNotification ::
   -- | 'connectionNotificationId'
-  Prelude.Text ->
+  Core.Text ->
   ModifyVpcEndpointConnectionNotification
 newModifyVpcEndpointConnectionNotification
   pConnectionNotificationId_ =
     ModifyVpcEndpointConnectionNotification'
       { connectionEvents =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
         connectionNotificationArn =
-          Prelude.Nothing,
+          Core.Nothing,
         connectionNotificationId =
           pConnectionNotificationId_
       }
 
 -- | One or more events for the endpoint. Valid values are @Accept@,
 -- @Connect@, @Delete@, and @Reject@.
-modifyVpcEndpointConnectionNotification_connectionEvents :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe [Prelude.Text])
-modifyVpcEndpointConnectionNotification_connectionEvents = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionEvents} -> connectionEvents) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionEvents = a} :: ModifyVpcEndpointConnectionNotification) Prelude.. Lens.mapping Prelude._Coerce
+modifyVpcEndpointConnectionNotification_connectionEvents :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Core.Maybe [Core.Text])
+modifyVpcEndpointConnectionNotification_connectionEvents = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionEvents} -> connectionEvents) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionEvents = a} :: ModifyVpcEndpointConnectionNotification) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-modifyVpcEndpointConnectionNotification_dryRun :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Bool)
+modifyVpcEndpointConnectionNotification_dryRun :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Core.Maybe Core.Bool)
 modifyVpcEndpointConnectionNotification_dryRun = Lens.lens (\ModifyVpcEndpointConnectionNotification' {dryRun} -> dryRun) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {dryRun = a} :: ModifyVpcEndpointConnectionNotification)
 
 -- | The ARN for the SNS topic for the notification.
-modifyVpcEndpointConnectionNotification_connectionNotificationArn :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe Prelude.Text)
+modifyVpcEndpointConnectionNotification_connectionNotificationArn :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Core.Maybe Core.Text)
 modifyVpcEndpointConnectionNotification_connectionNotificationArn = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionNotificationArn} -> connectionNotificationArn) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionNotificationArn = a} :: ModifyVpcEndpointConnectionNotification)
 
 -- | The ID of the notification.
-modifyVpcEndpointConnectionNotification_connectionNotificationId :: Lens.Lens' ModifyVpcEndpointConnectionNotification Prelude.Text
+modifyVpcEndpointConnectionNotification_connectionNotificationId :: Lens.Lens' ModifyVpcEndpointConnectionNotification Core.Text
 modifyVpcEndpointConnectionNotification_connectionNotificationId = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionNotificationId} -> connectionNotificationId) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionNotificationId = a} :: ModifyVpcEndpointConnectionNotification)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     ModifyVpcEndpointConnectionNotification
   where
   type
-    Rs ModifyVpcEndpointConnectionNotification =
+    AWSResponse
+      ModifyVpcEndpointConnectionNotification =
       ModifyVpcEndpointConnectionNotificationResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointConnectionNotificationResponse'
-            Prelude.<$> (x Prelude..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "return")
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ModifyVpcEndpointConnectionNotification
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyVpcEndpointConnectionNotification
 
 instance
-  Prelude.ToHeaders
-    ModifyVpcEndpointConnectionNotification
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     ModifyVpcEndpointConnectionNotification
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    ModifyVpcEndpointConnectionNotification
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     ModifyVpcEndpointConnectionNotification
   where
   toQuery ModifyVpcEndpointConnectionNotification' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "ModifyVpcEndpointConnectionNotification" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "ConnectionEvents"
-              Prelude.<$> connectionEvents
+          Core.=: ( "ModifyVpcEndpointConnectionNotification" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "ConnectionEvents"
+              Core.<$> connectionEvents
           ),
-        "DryRun" Prelude.=: dryRun,
+        "DryRun" Core.=: dryRun,
         "ConnectionNotificationArn"
-          Prelude.=: connectionNotificationArn,
+          Core.=: connectionNotificationArn,
         "ConnectionNotificationId"
-          Prelude.=: connectionNotificationId
+          Core.=: connectionNotificationId
       ]
 
 -- | /See:/ 'newModifyVpcEndpointConnectionNotificationResponse' smart constructor.
 data ModifyVpcEndpointConnectionNotificationResponse = ModifyVpcEndpointConnectionNotificationResponse'
   { -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-    returnValue :: Prelude.Maybe Prelude.Bool,
+    returnValue :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyVpcEndpointConnectionNotificationResponse' with all optional fields omitted.
@@ -204,24 +203,24 @@ data ModifyVpcEndpointConnectionNotificationResponse = ModifyVpcEndpointConnecti
 -- 'httpStatus', 'modifyVpcEndpointConnectionNotificationResponse_httpStatus' - The response's http status code.
 newModifyVpcEndpointConnectionNotificationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyVpcEndpointConnectionNotificationResponse
 newModifyVpcEndpointConnectionNotificationResponse
   pHttpStatus_ =
     ModifyVpcEndpointConnectionNotificationResponse'
       { returnValue =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-modifyVpcEndpointConnectionNotificationResponse_returnValue :: Lens.Lens' ModifyVpcEndpointConnectionNotificationResponse (Prelude.Maybe Prelude.Bool)
+modifyVpcEndpointConnectionNotificationResponse_returnValue :: Lens.Lens' ModifyVpcEndpointConnectionNotificationResponse (Core.Maybe Core.Bool)
 modifyVpcEndpointConnectionNotificationResponse_returnValue = Lens.lens (\ModifyVpcEndpointConnectionNotificationResponse' {returnValue} -> returnValue) (\s@ModifyVpcEndpointConnectionNotificationResponse' {} a -> s {returnValue = a} :: ModifyVpcEndpointConnectionNotificationResponse)
 
 -- | The response's http status code.
-modifyVpcEndpointConnectionNotificationResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointConnectionNotificationResponse Prelude.Int
+modifyVpcEndpointConnectionNotificationResponse_httpStatus :: Lens.Lens' ModifyVpcEndpointConnectionNotificationResponse Core.Int
 modifyVpcEndpointConnectionNotificationResponse_httpStatus = Lens.lens (\ModifyVpcEndpointConnectionNotificationResponse' {httpStatus} -> httpStatus) (\s@ModifyVpcEndpointConnectionNotificationResponse' {} a -> s {httpStatus = a} :: ModifyVpcEndpointConnectionNotificationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ModifyVpcEndpointConnectionNotificationResponse

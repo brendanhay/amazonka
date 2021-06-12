@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.EC2.CancelExportTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,9 +48,9 @@ import qualified Network.AWS.Response as Response
 data CancelExportTask = CancelExportTask'
   { -- | The ID of the export task. This is the ID returned by
     -- @CreateInstanceExportTask@.
-    exportTaskId :: Prelude.Text
+    exportTaskId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelExportTask' with all optional fields omitted.
@@ -65,47 +64,48 @@ data CancelExportTask = CancelExportTask'
 -- @CreateInstanceExportTask@.
 newCancelExportTask ::
   -- | 'exportTaskId'
-  Prelude.Text ->
+  Core.Text ->
   CancelExportTask
 newCancelExportTask pExportTaskId_ =
   CancelExportTask' {exportTaskId = pExportTaskId_}
 
 -- | The ID of the export task. This is the ID returned by
 -- @CreateInstanceExportTask@.
-cancelExportTask_exportTaskId :: Lens.Lens' CancelExportTask Prelude.Text
+cancelExportTask_exportTaskId :: Lens.Lens' CancelExportTask Core.Text
 cancelExportTask_exportTaskId = Lens.lens (\CancelExportTask' {exportTaskId} -> exportTaskId) (\s@CancelExportTask' {} a -> s {exportTaskId = a} :: CancelExportTask)
 
-instance Prelude.AWSRequest CancelExportTask where
-  type Rs CancelExportTask = CancelExportTaskResponse
+instance Core.AWSRequest CancelExportTask where
+  type
+    AWSResponse CancelExportTask =
+      CancelExportTaskResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull CancelExportTaskResponse'
 
-instance Prelude.Hashable CancelExportTask
+instance Core.Hashable CancelExportTask
 
-instance Prelude.NFData CancelExportTask
+instance Core.NFData CancelExportTask
 
-instance Prelude.ToHeaders CancelExportTask where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CancelExportTask where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CancelExportTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelExportTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelExportTask where
+instance Core.ToQuery CancelExportTask where
   toQuery CancelExportTask' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CancelExportTask" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "ExportTaskId" Prelude.=: exportTaskId
+          Core.=: ("CancelExportTask" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "ExportTaskId" Core.=: exportTaskId
       ]
 
 -- | /See:/ 'newCancelExportTaskResponse' smart constructor.
 data CancelExportTaskResponse = CancelExportTaskResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelExportTaskResponse' with all optional fields omitted.
@@ -116,4 +116,4 @@ newCancelExportTaskResponse ::
 newCancelExportTaskResponse =
   CancelExportTaskResponse'
 
-instance Prelude.NFData CancelExportTaskResponse
+instance Core.NFData CancelExportTaskResponse

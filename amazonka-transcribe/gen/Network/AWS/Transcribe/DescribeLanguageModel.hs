@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.Transcribe.DescribeLanguageModel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
@@ -56,9 +55,9 @@ import Network.AWS.Transcribe.Types
 data DescribeLanguageModel = DescribeLanguageModel'
   { -- | The name of the custom language model you submit to get more
     -- information.
-    modelName :: Prelude.Text
+    modelName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLanguageModel' with all optional fields omitted.
@@ -72,70 +71,68 @@ data DescribeLanguageModel = DescribeLanguageModel'
 -- information.
 newDescribeLanguageModel ::
   -- | 'modelName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeLanguageModel
 newDescribeLanguageModel pModelName_ =
   DescribeLanguageModel' {modelName = pModelName_}
 
 -- | The name of the custom language model you submit to get more
 -- information.
-describeLanguageModel_modelName :: Lens.Lens' DescribeLanguageModel Prelude.Text
+describeLanguageModel_modelName :: Lens.Lens' DescribeLanguageModel Core.Text
 describeLanguageModel_modelName = Lens.lens (\DescribeLanguageModel' {modelName} -> modelName) (\s@DescribeLanguageModel' {} a -> s {modelName = a} :: DescribeLanguageModel)
 
-instance Prelude.AWSRequest DescribeLanguageModel where
+instance Core.AWSRequest DescribeLanguageModel where
   type
-    Rs DescribeLanguageModel =
+    AWSResponse DescribeLanguageModel =
       DescribeLanguageModelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeLanguageModelResponse'
-            Prelude.<$> (x Prelude..?> "LanguageModel")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "LanguageModel")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeLanguageModel
+instance Core.Hashable DescribeLanguageModel
 
-instance Prelude.NFData DescribeLanguageModel
+instance Core.NFData DescribeLanguageModel
 
-instance Prelude.ToHeaders DescribeLanguageModel where
+instance Core.ToHeaders DescribeLanguageModel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Transcribe.DescribeLanguageModel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Transcribe.DescribeLanguageModel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeLanguageModel where
+instance Core.ToJSON DescribeLanguageModel where
   toJSON DescribeLanguageModel' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("ModelName" Prelude..= modelName)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ModelName" Core..= modelName)]
       )
 
-instance Prelude.ToPath DescribeLanguageModel where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLanguageModel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeLanguageModel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeLanguageModel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeLanguageModelResponse' smart constructor.
 data DescribeLanguageModelResponse = DescribeLanguageModelResponse'
   { -- | The name of the custom language model you requested more information
     -- about.
-    languageModel :: Prelude.Maybe LanguageModel,
+    languageModel :: Core.Maybe LanguageModel,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLanguageModelResponse' with all optional fields omitted.
@@ -151,22 +148,22 @@ data DescribeLanguageModelResponse = DescribeLanguageModelResponse'
 -- 'httpStatus', 'describeLanguageModelResponse_httpStatus' - The response's http status code.
 newDescribeLanguageModelResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLanguageModelResponse
 newDescribeLanguageModelResponse pHttpStatus_ =
   DescribeLanguageModelResponse'
     { languageModel =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The name of the custom language model you requested more information
 -- about.
-describeLanguageModelResponse_languageModel :: Lens.Lens' DescribeLanguageModelResponse (Prelude.Maybe LanguageModel)
+describeLanguageModelResponse_languageModel :: Lens.Lens' DescribeLanguageModelResponse (Core.Maybe LanguageModel)
 describeLanguageModelResponse_languageModel = Lens.lens (\DescribeLanguageModelResponse' {languageModel} -> languageModel) (\s@DescribeLanguageModelResponse' {} a -> s {languageModel = a} :: DescribeLanguageModelResponse)
 
 -- | The response's http status code.
-describeLanguageModelResponse_httpStatus :: Lens.Lens' DescribeLanguageModelResponse Prelude.Int
+describeLanguageModelResponse_httpStatus :: Lens.Lens' DescribeLanguageModelResponse Core.Int
 describeLanguageModelResponse_httpStatus = Lens.lens (\DescribeLanguageModelResponse' {httpStatus} -> httpStatus) (\s@DescribeLanguageModelResponse' {} a -> s {httpStatus = a} :: DescribeLanguageModelResponse)
 
-instance Prelude.NFData DescribeLanguageModelResponse
+instance Core.NFData DescribeLanguageModelResponse

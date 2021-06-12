@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.Identity where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.OIDC
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing an identity provider.
 --
@@ -30,9 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 data Identity = Identity'
   { -- | An object representing the <https://openid.net/connect/ OpenID Connect>
     -- identity provider information.
-    oidc :: Prelude.Maybe OIDC
+    oidc :: Core.Maybe OIDC
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Identity' with all optional fields omitted.
@@ -46,19 +45,19 @@ data Identity = Identity'
 -- identity provider information.
 newIdentity ::
   Identity
-newIdentity = Identity' {oidc = Prelude.Nothing}
+newIdentity = Identity' {oidc = Core.Nothing}
 
 -- | An object representing the <https://openid.net/connect/ OpenID Connect>
 -- identity provider information.
-identity_oidc :: Lens.Lens' Identity (Prelude.Maybe OIDC)
+identity_oidc :: Lens.Lens' Identity (Core.Maybe OIDC)
 identity_oidc = Lens.lens (\Identity' {oidc} -> oidc) (\s@Identity' {} a -> s {oidc = a} :: Identity)
 
-instance Prelude.FromJSON Identity where
+instance Core.FromJSON Identity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Identity"
-      (\x -> Identity' Prelude.<$> (x Prelude..:? "oidc"))
+      (\x -> Identity' Core.<$> (x Core..:? "oidc"))
 
-instance Prelude.Hashable Identity
+instance Core.Hashable Identity
 
-instance Prelude.NFData Identity
+instance Core.NFData Identity

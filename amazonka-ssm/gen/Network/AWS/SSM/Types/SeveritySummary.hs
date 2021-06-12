@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.SeveritySummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The number of managed instances found for each patch severity level
 -- defined in the request filter.
@@ -31,29 +30,29 @@ data SeveritySummary = SeveritySummary'
   { -- | The total number of resources or compliance items that have a severity
     -- level of low. Low severity is determined by the organization that
     -- published the compliance items.
-    lowCount :: Prelude.Maybe Prelude.Int,
+    lowCount :: Core.Maybe Core.Int,
     -- | The total number of resources or compliance items that have a severity
     -- level of medium. Medium severity is determined by the organization that
     -- published the compliance items.
-    mediumCount :: Prelude.Maybe Prelude.Int,
+    mediumCount :: Core.Maybe Core.Int,
     -- | The total number of resources or compliance items that have a severity
     -- level of critical. Critical severity is determined by the organization
     -- that published the compliance items.
-    criticalCount :: Prelude.Maybe Prelude.Int,
+    criticalCount :: Core.Maybe Core.Int,
     -- | The total number of resources or compliance items that have a severity
     -- level of high. High severity is determined by the organization that
     -- published the compliance items.
-    highCount :: Prelude.Maybe Prelude.Int,
+    highCount :: Core.Maybe Core.Int,
     -- | The total number of resources or compliance items that have a severity
     -- level of unspecified. Unspecified severity is determined by the
     -- organization that published the compliance items.
-    unspecifiedCount :: Prelude.Maybe Prelude.Int,
+    unspecifiedCount :: Core.Maybe Core.Int,
     -- | The total number of resources or compliance items that have a severity
     -- level of informational. Informational severity is determined by the
     -- organization that published the compliance items.
-    informationalCount :: Prelude.Maybe Prelude.Int
+    informationalCount :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SeveritySummary' with all optional fields omitted.
@@ -90,64 +89,64 @@ newSeveritySummary ::
   SeveritySummary
 newSeveritySummary =
   SeveritySummary'
-    { lowCount = Prelude.Nothing,
-      mediumCount = Prelude.Nothing,
-      criticalCount = Prelude.Nothing,
-      highCount = Prelude.Nothing,
-      unspecifiedCount = Prelude.Nothing,
-      informationalCount = Prelude.Nothing
+    { lowCount = Core.Nothing,
+      mediumCount = Core.Nothing,
+      criticalCount = Core.Nothing,
+      highCount = Core.Nothing,
+      unspecifiedCount = Core.Nothing,
+      informationalCount = Core.Nothing
     }
 
 -- | The total number of resources or compliance items that have a severity
 -- level of low. Low severity is determined by the organization that
 -- published the compliance items.
-severitySummary_lowCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
+severitySummary_lowCount :: Lens.Lens' SeveritySummary (Core.Maybe Core.Int)
 severitySummary_lowCount = Lens.lens (\SeveritySummary' {lowCount} -> lowCount) (\s@SeveritySummary' {} a -> s {lowCount = a} :: SeveritySummary)
 
 -- | The total number of resources or compliance items that have a severity
 -- level of medium. Medium severity is determined by the organization that
 -- published the compliance items.
-severitySummary_mediumCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
+severitySummary_mediumCount :: Lens.Lens' SeveritySummary (Core.Maybe Core.Int)
 severitySummary_mediumCount = Lens.lens (\SeveritySummary' {mediumCount} -> mediumCount) (\s@SeveritySummary' {} a -> s {mediumCount = a} :: SeveritySummary)
 
 -- | The total number of resources or compliance items that have a severity
 -- level of critical. Critical severity is determined by the organization
 -- that published the compliance items.
-severitySummary_criticalCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
+severitySummary_criticalCount :: Lens.Lens' SeveritySummary (Core.Maybe Core.Int)
 severitySummary_criticalCount = Lens.lens (\SeveritySummary' {criticalCount} -> criticalCount) (\s@SeveritySummary' {} a -> s {criticalCount = a} :: SeveritySummary)
 
 -- | The total number of resources or compliance items that have a severity
 -- level of high. High severity is determined by the organization that
 -- published the compliance items.
-severitySummary_highCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
+severitySummary_highCount :: Lens.Lens' SeveritySummary (Core.Maybe Core.Int)
 severitySummary_highCount = Lens.lens (\SeveritySummary' {highCount} -> highCount) (\s@SeveritySummary' {} a -> s {highCount = a} :: SeveritySummary)
 
 -- | The total number of resources or compliance items that have a severity
 -- level of unspecified. Unspecified severity is determined by the
 -- organization that published the compliance items.
-severitySummary_unspecifiedCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
+severitySummary_unspecifiedCount :: Lens.Lens' SeveritySummary (Core.Maybe Core.Int)
 severitySummary_unspecifiedCount = Lens.lens (\SeveritySummary' {unspecifiedCount} -> unspecifiedCount) (\s@SeveritySummary' {} a -> s {unspecifiedCount = a} :: SeveritySummary)
 
 -- | The total number of resources or compliance items that have a severity
 -- level of informational. Informational severity is determined by the
 -- organization that published the compliance items.
-severitySummary_informationalCount :: Lens.Lens' SeveritySummary (Prelude.Maybe Prelude.Int)
+severitySummary_informationalCount :: Lens.Lens' SeveritySummary (Core.Maybe Core.Int)
 severitySummary_informationalCount = Lens.lens (\SeveritySummary' {informationalCount} -> informationalCount) (\s@SeveritySummary' {} a -> s {informationalCount = a} :: SeveritySummary)
 
-instance Prelude.FromJSON SeveritySummary where
+instance Core.FromJSON SeveritySummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SeveritySummary"
       ( \x ->
           SeveritySummary'
-            Prelude.<$> (x Prelude..:? "LowCount")
-            Prelude.<*> (x Prelude..:? "MediumCount")
-            Prelude.<*> (x Prelude..:? "CriticalCount")
-            Prelude.<*> (x Prelude..:? "HighCount")
-            Prelude.<*> (x Prelude..:? "UnspecifiedCount")
-            Prelude.<*> (x Prelude..:? "InformationalCount")
+            Core.<$> (x Core..:? "LowCount")
+            Core.<*> (x Core..:? "MediumCount")
+            Core.<*> (x Core..:? "CriticalCount")
+            Core.<*> (x Core..:? "HighCount")
+            Core.<*> (x Core..:? "UnspecifiedCount")
+            Core.<*> (x Core..:? "InformationalCount")
       )
 
-instance Prelude.Hashable SeveritySummary
+instance Core.Hashable SeveritySummary
 
-instance Prelude.NFData SeveritySummary
+instance Core.NFData SeveritySummary

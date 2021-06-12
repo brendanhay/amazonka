@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.MotionImageInserter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MotionImageInsertionFramerate
 import Network.AWS.MediaConvert.Types.MotionImageInsertionMode
 import Network.AWS.MediaConvert.Types.MotionImageInsertionOffset
 import Network.AWS.MediaConvert.Types.MotionImagePlayback
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Overlay motion graphics on top of your video at the time that you
 -- specify.
@@ -34,7 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 data MotionImageInserter = MotionImageInserter'
   { -- | Choose the type of motion graphic asset that you are providing for your
     -- overlay. You can choose either a .mov file or a series of .png files.
-    insertionMode :: Prelude.Maybe MotionImageInsertionMode,
+    insertionMode :: Core.Maybe MotionImageInsertionMode,
     -- | Specify the .mov file or series of .png files that you want to overlay
     -- on your video. For .png files, provide the file name of the first file
     -- in the series. Make sure that the names of the .png files end with
@@ -46,7 +45,7 @@ data MotionImageInserter = MotionImageInserter'
     -- there can be only 10 images in the sequence, with the last image being
     -- overlay_9.png. But if the first image is overlay_00.png, there can be
     -- 100 images in the sequence.
-    input :: Prelude.Maybe Prelude.Text,
+    input :: Core.Maybe Core.Text,
     -- | Specify when the motion overlay begins. Use timecode format (HH:MM:SS:FF
     -- or HH:MM:SS;FF). Make sure that the timecode you provide here takes into
     -- account how you have set up your timecode configuration under both job
@@ -59,10 +58,10 @@ data MotionImageInserter = MotionImageInserter'
     -- Find job-wide and input timecode configuration settings in your JSON job
     -- settings specification at settings>timecodeConfig>source and
     -- settings>inputs>timecodeSource.
-    startTime :: Prelude.Maybe Prelude.Text,
+    startTime :: Core.Maybe Core.Text,
     -- | Specify whether your motion graphic overlay repeats on a loop or plays
     -- only once.
-    playback :: Prelude.Maybe MotionImagePlayback,
+    playback :: Core.Maybe MotionImagePlayback,
     -- | If your motion graphic asset is a .mov file, keep this setting
     -- unspecified. If your motion graphic asset is a series of .png files,
     -- specify the frame rate of the overlay in frames per second, as a
@@ -71,16 +70,16 @@ data MotionImageInserter = MotionImageInserter'
     -- overlay duration. For example, if you want a 30-second overlay at 30
     -- fps, you should have 900 .png images. This overlay frame rate doesn\'t
     -- need to match the frame rate of the underlying video.
-    framerate :: Prelude.Maybe MotionImageInsertionFramerate,
+    framerate :: Core.Maybe MotionImageInsertionFramerate,
     -- | Use Offset to specify the placement of your motion graphic overlay on
     -- the video frame. Specify in pixels, from the upper-left corner of the
     -- frame. If you don\'t specify an offset, the service scales your overlay
     -- to the full size of the frame. Otherwise, the service inserts the
     -- overlay at its native resolution and scales the size up or down with any
     -- video scaling.
-    offset :: Prelude.Maybe MotionImageInsertionOffset
+    offset :: Core.Maybe MotionImageInsertionOffset
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MotionImageInserter' with all optional fields omitted.
@@ -140,18 +139,17 @@ newMotionImageInserter ::
   MotionImageInserter
 newMotionImageInserter =
   MotionImageInserter'
-    { insertionMode =
-        Prelude.Nothing,
-      input = Prelude.Nothing,
-      startTime = Prelude.Nothing,
-      playback = Prelude.Nothing,
-      framerate = Prelude.Nothing,
-      offset = Prelude.Nothing
+    { insertionMode = Core.Nothing,
+      input = Core.Nothing,
+      startTime = Core.Nothing,
+      playback = Core.Nothing,
+      framerate = Core.Nothing,
+      offset = Core.Nothing
     }
 
 -- | Choose the type of motion graphic asset that you are providing for your
 -- overlay. You can choose either a .mov file or a series of .png files.
-motionImageInserter_insertionMode :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImageInsertionMode)
+motionImageInserter_insertionMode :: Lens.Lens' MotionImageInserter (Core.Maybe MotionImageInsertionMode)
 motionImageInserter_insertionMode = Lens.lens (\MotionImageInserter' {insertionMode} -> insertionMode) (\s@MotionImageInserter' {} a -> s {insertionMode = a} :: MotionImageInserter)
 
 -- | Specify the .mov file or series of .png files that you want to overlay
@@ -165,7 +163,7 @@ motionImageInserter_insertionMode = Lens.lens (\MotionImageInserter' {insertionM
 -- there can be only 10 images in the sequence, with the last image being
 -- overlay_9.png. But if the first image is overlay_00.png, there can be
 -- 100 images in the sequence.
-motionImageInserter_input :: Lens.Lens' MotionImageInserter (Prelude.Maybe Prelude.Text)
+motionImageInserter_input :: Lens.Lens' MotionImageInserter (Core.Maybe Core.Text)
 motionImageInserter_input = Lens.lens (\MotionImageInserter' {input} -> input) (\s@MotionImageInserter' {} a -> s {input = a} :: MotionImageInserter)
 
 -- | Specify when the motion overlay begins. Use timecode format (HH:MM:SS:FF
@@ -180,12 +178,12 @@ motionImageInserter_input = Lens.lens (\MotionImageInserter' {input} -> input) (
 -- Find job-wide and input timecode configuration settings in your JSON job
 -- settings specification at settings>timecodeConfig>source and
 -- settings>inputs>timecodeSource.
-motionImageInserter_startTime :: Lens.Lens' MotionImageInserter (Prelude.Maybe Prelude.Text)
+motionImageInserter_startTime :: Lens.Lens' MotionImageInserter (Core.Maybe Core.Text)
 motionImageInserter_startTime = Lens.lens (\MotionImageInserter' {startTime} -> startTime) (\s@MotionImageInserter' {} a -> s {startTime = a} :: MotionImageInserter)
 
 -- | Specify whether your motion graphic overlay repeats on a loop or plays
 -- only once.
-motionImageInserter_playback :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImagePlayback)
+motionImageInserter_playback :: Lens.Lens' MotionImageInserter (Core.Maybe MotionImagePlayback)
 motionImageInserter_playback = Lens.lens (\MotionImageInserter' {playback} -> playback) (\s@MotionImageInserter' {} a -> s {playback = a} :: MotionImageInserter)
 
 -- | If your motion graphic asset is a .mov file, keep this setting
@@ -196,7 +194,7 @@ motionImageInserter_playback = Lens.lens (\MotionImageInserter' {playback} -> pl
 -- overlay duration. For example, if you want a 30-second overlay at 30
 -- fps, you should have 900 .png images. This overlay frame rate doesn\'t
 -- need to match the frame rate of the underlying video.
-motionImageInserter_framerate :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImageInsertionFramerate)
+motionImageInserter_framerate :: Lens.Lens' MotionImageInserter (Core.Maybe MotionImageInsertionFramerate)
 motionImageInserter_framerate = Lens.lens (\MotionImageInserter' {framerate} -> framerate) (\s@MotionImageInserter' {} a -> s {framerate = a} :: MotionImageInserter)
 
 -- | Use Offset to specify the placement of your motion graphic overlay on
@@ -205,37 +203,36 @@ motionImageInserter_framerate = Lens.lens (\MotionImageInserter' {framerate} -> 
 -- to the full size of the frame. Otherwise, the service inserts the
 -- overlay at its native resolution and scales the size up or down with any
 -- video scaling.
-motionImageInserter_offset :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImageInsertionOffset)
+motionImageInserter_offset :: Lens.Lens' MotionImageInserter (Core.Maybe MotionImageInsertionOffset)
 motionImageInserter_offset = Lens.lens (\MotionImageInserter' {offset} -> offset) (\s@MotionImageInserter' {} a -> s {offset = a} :: MotionImageInserter)
 
-instance Prelude.FromJSON MotionImageInserter where
+instance Core.FromJSON MotionImageInserter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MotionImageInserter"
       ( \x ->
           MotionImageInserter'
-            Prelude.<$> (x Prelude..:? "insertionMode")
-            Prelude.<*> (x Prelude..:? "input")
-            Prelude.<*> (x Prelude..:? "startTime")
-            Prelude.<*> (x Prelude..:? "playback")
-            Prelude.<*> (x Prelude..:? "framerate")
-            Prelude.<*> (x Prelude..:? "offset")
+            Core.<$> (x Core..:? "insertionMode")
+            Core.<*> (x Core..:? "input")
+            Core.<*> (x Core..:? "startTime")
+            Core.<*> (x Core..:? "playback")
+            Core.<*> (x Core..:? "framerate")
+            Core.<*> (x Core..:? "offset")
       )
 
-instance Prelude.Hashable MotionImageInserter
+instance Core.Hashable MotionImageInserter
 
-instance Prelude.NFData MotionImageInserter
+instance Core.NFData MotionImageInserter
 
-instance Prelude.ToJSON MotionImageInserter where
+instance Core.ToJSON MotionImageInserter where
   toJSON MotionImageInserter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("insertionMode" Prelude..=)
-              Prelude.<$> insertionMode,
-            ("input" Prelude..=) Prelude.<$> input,
-            ("startTime" Prelude..=) Prelude.<$> startTime,
-            ("playback" Prelude..=) Prelude.<$> playback,
-            ("framerate" Prelude..=) Prelude.<$> framerate,
-            ("offset" Prelude..=) Prelude.<$> offset
+    Core.object
+      ( Core.catMaybes
+          [ ("insertionMode" Core..=) Core.<$> insertionMode,
+            ("input" Core..=) Core.<$> input,
+            ("startTime" Core..=) Core.<$> startTime,
+            ("playback" Core..=) Core.<$> playback,
+            ("framerate" Core..=) Core.<$> framerate,
+            ("offset" Core..=) Core.<$> offset
           ]
       )

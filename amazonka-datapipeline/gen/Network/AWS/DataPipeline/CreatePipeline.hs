@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.DataPipeline.CreatePipeline
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DataPipeline.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,13 +57,13 @@ data CreatePipeline = CreatePipeline'
     -- control access to pipelines. For more information, see
     -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
     -- in the /AWS Data Pipeline Developer Guide/.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The description for the pipeline.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name for the pipeline. You can use the same name for multiple
     -- pipelines associated with your AWS account, because AWS Data Pipeline
     -- assigns each pipeline a unique pipeline identifier.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A unique identifier. This identifier is not the same as the pipeline
     -- identifier assigned by AWS Data Pipeline. You are responsible for
     -- defining the format and ensuring the uniqueness of this identifier. You
@@ -77,9 +76,9 @@ data CreatePipeline = CreatePipeline'
     -- you\'ll receive the pipeline identifier from the previous attempt. The
     -- uniqueness of the name and unique identifier combination is scoped to
     -- the AWS account or IAM user credentials.
-    uniqueId :: Prelude.Text
+    uniqueId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePipeline' with all optional fields omitted.
@@ -114,14 +113,14 @@ data CreatePipeline = CreatePipeline'
 -- the AWS account or IAM user credentials.
 newCreatePipeline ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'uniqueId'
-  Prelude.Text ->
+  Core.Text ->
   CreatePipeline
 newCreatePipeline pName_ pUniqueId_ =
   CreatePipeline'
-    { tags = Prelude.Nothing,
-      description = Prelude.Nothing,
+    { tags = Core.Nothing,
+      description = Core.Nothing,
       name = pName_,
       uniqueId = pUniqueId_
     }
@@ -130,17 +129,17 @@ newCreatePipeline pName_ pUniqueId_ =
 -- control access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
-createPipeline_tags :: Lens.Lens' CreatePipeline (Prelude.Maybe [Tag])
-createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Prelude._Coerce
+createPipeline_tags :: Lens.Lens' CreatePipeline (Core.Maybe [Tag])
+createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Core.. Lens.mapping Lens._Coerce
 
 -- | The description for the pipeline.
-createPipeline_description :: Lens.Lens' CreatePipeline (Prelude.Maybe Prelude.Text)
+createPipeline_description :: Lens.Lens' CreatePipeline (Core.Maybe Core.Text)
 createPipeline_description = Lens.lens (\CreatePipeline' {description} -> description) (\s@CreatePipeline' {} a -> s {description = a} :: CreatePipeline)
 
 -- | The name for the pipeline. You can use the same name for multiple
 -- pipelines associated with your AWS account, because AWS Data Pipeline
 -- assigns each pipeline a unique pipeline identifier.
-createPipeline_name :: Lens.Lens' CreatePipeline Prelude.Text
+createPipeline_name :: Lens.Lens' CreatePipeline Core.Text
 createPipeline_name = Lens.lens (\CreatePipeline' {name} -> name) (\s@CreatePipeline' {} a -> s {name = a} :: CreatePipeline)
 
 -- | A unique identifier. This identifier is not the same as the pipeline
@@ -155,67 +154,65 @@ createPipeline_name = Lens.lens (\CreatePipeline' {name} -> name) (\s@CreatePipe
 -- you\'ll receive the pipeline identifier from the previous attempt. The
 -- uniqueness of the name and unique identifier combination is scoped to
 -- the AWS account or IAM user credentials.
-createPipeline_uniqueId :: Lens.Lens' CreatePipeline Prelude.Text
+createPipeline_uniqueId :: Lens.Lens' CreatePipeline Core.Text
 createPipeline_uniqueId = Lens.lens (\CreatePipeline' {uniqueId} -> uniqueId) (\s@CreatePipeline' {} a -> s {uniqueId = a} :: CreatePipeline)
 
-instance Prelude.AWSRequest CreatePipeline where
-  type Rs CreatePipeline = CreatePipelineResponse
+instance Core.AWSRequest CreatePipeline where
+  type
+    AWSResponse CreatePipeline =
+      CreatePipelineResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePipelineResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "pipelineId")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "pipelineId")
       )
 
-instance Prelude.Hashable CreatePipeline
+instance Core.Hashable CreatePipeline
 
-instance Prelude.NFData CreatePipeline
+instance Core.NFData CreatePipeline
 
-instance Prelude.ToHeaders CreatePipeline where
+instance Core.ToHeaders CreatePipeline where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DataPipeline.CreatePipeline" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("DataPipeline.CreatePipeline" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePipeline where
+instance Core.ToJSON CreatePipeline where
   toJSON CreatePipeline' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("tags" Prelude..=) Prelude.<$> tags,
-            ("description" Prelude..=) Prelude.<$> description,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("uniqueId" Prelude..= uniqueId)
+    Core.object
+      ( Core.catMaybes
+          [ ("tags" Core..=) Core.<$> tags,
+            ("description" Core..=) Core.<$> description,
+            Core.Just ("name" Core..= name),
+            Core.Just ("uniqueId" Core..= uniqueId)
           ]
       )
 
-instance Prelude.ToPath CreatePipeline where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePipeline where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePipeline where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePipeline where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of CreatePipeline.
 --
 -- /See:/ 'newCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
     -- example, @df-06372391ZG65EXAMPLE@.
-    pipelineId :: Prelude.Text
+    pipelineId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePipelineResponse' with all optional fields omitted.
@@ -231,9 +228,9 @@ data CreatePipelineResponse = CreatePipelineResponse'
 -- example, @df-06372391ZG65EXAMPLE@.
 newCreatePipelineResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'pipelineId'
-  Prelude.Text ->
+  Core.Text ->
   CreatePipelineResponse
 newCreatePipelineResponse pHttpStatus_ pPipelineId_ =
   CreatePipelineResponse'
@@ -242,12 +239,12 @@ newCreatePipelineResponse pHttpStatus_ pPipelineId_ =
     }
 
 -- | The response's http status code.
-createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Prelude.Int
+createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Core.Int
 createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpStatus} -> httpStatus) (\s@CreatePipelineResponse' {} a -> s {httpStatus = a} :: CreatePipelineResponse)
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
 -- example, @df-06372391ZG65EXAMPLE@.
-createPipelineResponse_pipelineId :: Lens.Lens' CreatePipelineResponse Prelude.Text
+createPipelineResponse_pipelineId :: Lens.Lens' CreatePipelineResponse Core.Text
 createPipelineResponse_pipelineId = Lens.lens (\CreatePipelineResponse' {pipelineId} -> pipelineId) (\s@CreatePipelineResponse' {} a -> s {pipelineId = a} :: CreatePipelineResponse)
 
-instance Prelude.NFData CreatePipelineResponse
+instance Core.NFData CreatePipelineResponse

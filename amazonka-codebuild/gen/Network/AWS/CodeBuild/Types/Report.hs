@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -25,8 +24,8 @@ import Network.AWS.CodeBuild.Types.ReportExportConfig
 import Network.AWS.CodeBuild.Types.ReportStatusType
 import Network.AWS.CodeBuild.Types.ReportType
 import Network.AWS.CodeBuild.Types.TestReportSummary
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the results from running a series of test cases during
 -- the run of a build project. The test cases are specified in the
@@ -38,28 +37,28 @@ import qualified Network.AWS.Prelude as Prelude
 data Report = Report'
   { -- | A @CodeCoverageReportSummary@ object that contains a code coverage
     -- summary for this report.
-    codeCoverageSummary :: Prelude.Maybe CodeCoverageReportSummary,
+    codeCoverageSummary :: Core.Maybe CodeCoverageReportSummary,
     -- | The ARN of the report group associated with this report.
-    reportGroupArn :: Prelude.Maybe Prelude.Text,
+    reportGroupArn :: Core.Maybe Core.Text,
     -- | The status of this report.
-    status :: Prelude.Maybe ReportStatusType,
+    status :: Core.Maybe ReportStatusType,
     -- | Information about where the raw data used to generate this report was
     -- exported.
-    exportConfig :: Prelude.Maybe ReportExportConfig,
+    exportConfig :: Core.Maybe ReportExportConfig,
     -- | The ARN of the report run.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | A @TestReportSummary@ object that contains information about this test
     -- report.
-    testSummary :: Prelude.Maybe TestReportSummary,
+    testSummary :: Core.Maybe TestReportSummary,
     -- | The name of the report that was run.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time a report expires. A report expires 30 days after it is
     -- created. An expired report is not available to view in CodeBuild.
-    expired :: Prelude.Maybe Prelude.POSIX,
+    expired :: Core.Maybe Core.POSIX,
     -- | The ARN of the build run that generated this report.
-    executionId :: Prelude.Maybe Prelude.Text,
+    executionId :: Core.Maybe Core.Text,
     -- | The date and time this report run occurred.
-    created :: Prelude.Maybe Prelude.POSIX,
+    created :: Core.Maybe Core.POSIX,
     -- | The type of the report that was run.
     --
     -- [CODE_COVERAGE]
@@ -67,13 +66,13 @@ data Report = Report'
     --
     -- [TEST]
     --     A test report.
-    type' :: Prelude.Maybe ReportType,
+    type' :: Core.Maybe ReportType,
     -- | A boolean that specifies if this report run is truncated. The list of
     -- test cases is truncated after the maximum number of test cases is
     -- reached.
-    truncated :: Prelude.Maybe Prelude.Bool
+    truncated :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Report' with all optional fields omitted.
@@ -122,63 +121,63 @@ newReport ::
   Report
 newReport =
   Report'
-    { codeCoverageSummary = Prelude.Nothing,
-      reportGroupArn = Prelude.Nothing,
-      status = Prelude.Nothing,
-      exportConfig = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      testSummary = Prelude.Nothing,
-      name = Prelude.Nothing,
-      expired = Prelude.Nothing,
-      executionId = Prelude.Nothing,
-      created = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      truncated = Prelude.Nothing
+    { codeCoverageSummary = Core.Nothing,
+      reportGroupArn = Core.Nothing,
+      status = Core.Nothing,
+      exportConfig = Core.Nothing,
+      arn = Core.Nothing,
+      testSummary = Core.Nothing,
+      name = Core.Nothing,
+      expired = Core.Nothing,
+      executionId = Core.Nothing,
+      created = Core.Nothing,
+      type' = Core.Nothing,
+      truncated = Core.Nothing
     }
 
 -- | A @CodeCoverageReportSummary@ object that contains a code coverage
 -- summary for this report.
-report_codeCoverageSummary :: Lens.Lens' Report (Prelude.Maybe CodeCoverageReportSummary)
+report_codeCoverageSummary :: Lens.Lens' Report (Core.Maybe CodeCoverageReportSummary)
 report_codeCoverageSummary = Lens.lens (\Report' {codeCoverageSummary} -> codeCoverageSummary) (\s@Report' {} a -> s {codeCoverageSummary = a} :: Report)
 
 -- | The ARN of the report group associated with this report.
-report_reportGroupArn :: Lens.Lens' Report (Prelude.Maybe Prelude.Text)
+report_reportGroupArn :: Lens.Lens' Report (Core.Maybe Core.Text)
 report_reportGroupArn = Lens.lens (\Report' {reportGroupArn} -> reportGroupArn) (\s@Report' {} a -> s {reportGroupArn = a} :: Report)
 
 -- | The status of this report.
-report_status :: Lens.Lens' Report (Prelude.Maybe ReportStatusType)
+report_status :: Lens.Lens' Report (Core.Maybe ReportStatusType)
 report_status = Lens.lens (\Report' {status} -> status) (\s@Report' {} a -> s {status = a} :: Report)
 
 -- | Information about where the raw data used to generate this report was
 -- exported.
-report_exportConfig :: Lens.Lens' Report (Prelude.Maybe ReportExportConfig)
+report_exportConfig :: Lens.Lens' Report (Core.Maybe ReportExportConfig)
 report_exportConfig = Lens.lens (\Report' {exportConfig} -> exportConfig) (\s@Report' {} a -> s {exportConfig = a} :: Report)
 
 -- | The ARN of the report run.
-report_arn :: Lens.Lens' Report (Prelude.Maybe Prelude.Text)
+report_arn :: Lens.Lens' Report (Core.Maybe Core.Text)
 report_arn = Lens.lens (\Report' {arn} -> arn) (\s@Report' {} a -> s {arn = a} :: Report)
 
 -- | A @TestReportSummary@ object that contains information about this test
 -- report.
-report_testSummary :: Lens.Lens' Report (Prelude.Maybe TestReportSummary)
+report_testSummary :: Lens.Lens' Report (Core.Maybe TestReportSummary)
 report_testSummary = Lens.lens (\Report' {testSummary} -> testSummary) (\s@Report' {} a -> s {testSummary = a} :: Report)
 
 -- | The name of the report that was run.
-report_name :: Lens.Lens' Report (Prelude.Maybe Prelude.Text)
+report_name :: Lens.Lens' Report (Core.Maybe Core.Text)
 report_name = Lens.lens (\Report' {name} -> name) (\s@Report' {} a -> s {name = a} :: Report)
 
 -- | The date and time a report expires. A report expires 30 days after it is
 -- created. An expired report is not available to view in CodeBuild.
-report_expired :: Lens.Lens' Report (Prelude.Maybe Prelude.UTCTime)
-report_expired = Lens.lens (\Report' {expired} -> expired) (\s@Report' {} a -> s {expired = a} :: Report) Prelude.. Lens.mapping Prelude._Time
+report_expired :: Lens.Lens' Report (Core.Maybe Core.UTCTime)
+report_expired = Lens.lens (\Report' {expired} -> expired) (\s@Report' {} a -> s {expired = a} :: Report) Core.. Lens.mapping Core._Time
 
 -- | The ARN of the build run that generated this report.
-report_executionId :: Lens.Lens' Report (Prelude.Maybe Prelude.Text)
+report_executionId :: Lens.Lens' Report (Core.Maybe Core.Text)
 report_executionId = Lens.lens (\Report' {executionId} -> executionId) (\s@Report' {} a -> s {executionId = a} :: Report)
 
 -- | The date and time this report run occurred.
-report_created :: Lens.Lens' Report (Prelude.Maybe Prelude.UTCTime)
-report_created = Lens.lens (\Report' {created} -> created) (\s@Report' {} a -> s {created = a} :: Report) Prelude.. Lens.mapping Prelude._Time
+report_created :: Lens.Lens' Report (Core.Maybe Core.UTCTime)
+report_created = Lens.lens (\Report' {created} -> created) (\s@Report' {} a -> s {created = a} :: Report) Core.. Lens.mapping Core._Time
 
 -- | The type of the report that was run.
 --
@@ -187,35 +186,35 @@ report_created = Lens.lens (\Report' {created} -> created) (\s@Report' {} a -> s
 --
 -- [TEST]
 --     A test report.
-report_type :: Lens.Lens' Report (Prelude.Maybe ReportType)
+report_type :: Lens.Lens' Report (Core.Maybe ReportType)
 report_type = Lens.lens (\Report' {type'} -> type') (\s@Report' {} a -> s {type' = a} :: Report)
 
 -- | A boolean that specifies if this report run is truncated. The list of
 -- test cases is truncated after the maximum number of test cases is
 -- reached.
-report_truncated :: Lens.Lens' Report (Prelude.Maybe Prelude.Bool)
+report_truncated :: Lens.Lens' Report (Core.Maybe Core.Bool)
 report_truncated = Lens.lens (\Report' {truncated} -> truncated) (\s@Report' {} a -> s {truncated = a} :: Report)
 
-instance Prelude.FromJSON Report where
+instance Core.FromJSON Report where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Report"
       ( \x ->
           Report'
-            Prelude.<$> (x Prelude..:? "codeCoverageSummary")
-            Prelude.<*> (x Prelude..:? "reportGroupArn")
-            Prelude.<*> (x Prelude..:? "status")
-            Prelude.<*> (x Prelude..:? "exportConfig")
-            Prelude.<*> (x Prelude..:? "arn")
-            Prelude.<*> (x Prelude..:? "testSummary")
-            Prelude.<*> (x Prelude..:? "name")
-            Prelude.<*> (x Prelude..:? "expired")
-            Prelude.<*> (x Prelude..:? "executionId")
-            Prelude.<*> (x Prelude..:? "created")
-            Prelude.<*> (x Prelude..:? "type")
-            Prelude.<*> (x Prelude..:? "truncated")
+            Core.<$> (x Core..:? "codeCoverageSummary")
+            Core.<*> (x Core..:? "reportGroupArn")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "exportConfig")
+            Core.<*> (x Core..:? "arn")
+            Core.<*> (x Core..:? "testSummary")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "expired")
+            Core.<*> (x Core..:? "executionId")
+            Core.<*> (x Core..:? "created")
+            Core.<*> (x Core..:? "type")
+            Core.<*> (x Core..:? "truncated")
       )
 
-instance Prelude.Hashable Report
+instance Core.Hashable Report
 
-instance Prelude.NFData Report
+instance Core.NFData Report

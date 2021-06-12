@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.ResourceCreationLimitPolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A policy that limits the number of game sessions a player can create on
 -- the same fleet. This optional policy gives game owners control over how
@@ -39,12 +38,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceCreationLimitPolicy' smart constructor.
 data ResourceCreationLimitPolicy = ResourceCreationLimitPolicy'
   { -- | The time span used in evaluating the resource creation limit policy.
-    policyPeriodInMinutes :: Prelude.Maybe Prelude.Natural,
+    policyPeriodInMinutes :: Core.Maybe Core.Natural,
     -- | The maximum number of game sessions that an individual can create during
     -- the policy period.
-    newGameSessionsPerCreator' :: Prelude.Maybe Prelude.Natural
+    newGameSessionsPerCreator' :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceCreationLimitPolicy' with all optional fields omitted.
@@ -63,40 +62,40 @@ newResourceCreationLimitPolicy ::
 newResourceCreationLimitPolicy =
   ResourceCreationLimitPolicy'
     { policyPeriodInMinutes =
-        Prelude.Nothing,
-      newGameSessionsPerCreator' = Prelude.Nothing
+        Core.Nothing,
+      newGameSessionsPerCreator' = Core.Nothing
     }
 
 -- | The time span used in evaluating the resource creation limit policy.
-resourceCreationLimitPolicy_policyPeriodInMinutes :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
+resourceCreationLimitPolicy_policyPeriodInMinutes :: Lens.Lens' ResourceCreationLimitPolicy (Core.Maybe Core.Natural)
 resourceCreationLimitPolicy_policyPeriodInMinutes = Lens.lens (\ResourceCreationLimitPolicy' {policyPeriodInMinutes} -> policyPeriodInMinutes) (\s@ResourceCreationLimitPolicy' {} a -> s {policyPeriodInMinutes = a} :: ResourceCreationLimitPolicy)
 
 -- | The maximum number of game sessions that an individual can create during
 -- the policy period.
-resourceCreationLimitPolicy_newGameSessionsPerCreator :: Lens.Lens' ResourceCreationLimitPolicy (Prelude.Maybe Prelude.Natural)
+resourceCreationLimitPolicy_newGameSessionsPerCreator :: Lens.Lens' ResourceCreationLimitPolicy (Core.Maybe Core.Natural)
 resourceCreationLimitPolicy_newGameSessionsPerCreator = Lens.lens (\ResourceCreationLimitPolicy' {newGameSessionsPerCreator'} -> newGameSessionsPerCreator') (\s@ResourceCreationLimitPolicy' {} a -> s {newGameSessionsPerCreator' = a} :: ResourceCreationLimitPolicy)
 
-instance Prelude.FromJSON ResourceCreationLimitPolicy where
+instance Core.FromJSON ResourceCreationLimitPolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceCreationLimitPolicy"
       ( \x ->
           ResourceCreationLimitPolicy'
-            Prelude.<$> (x Prelude..:? "PolicyPeriodInMinutes")
-            Prelude.<*> (x Prelude..:? "NewGameSessionsPerCreator")
+            Core.<$> (x Core..:? "PolicyPeriodInMinutes")
+            Core.<*> (x Core..:? "NewGameSessionsPerCreator")
       )
 
-instance Prelude.Hashable ResourceCreationLimitPolicy
+instance Core.Hashable ResourceCreationLimitPolicy
 
-instance Prelude.NFData ResourceCreationLimitPolicy
+instance Core.NFData ResourceCreationLimitPolicy
 
-instance Prelude.ToJSON ResourceCreationLimitPolicy where
+instance Core.ToJSON ResourceCreationLimitPolicy where
   toJSON ResourceCreationLimitPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PolicyPeriodInMinutes" Prelude..=)
-              Prelude.<$> policyPeriodInMinutes,
-            ("NewGameSessionsPerCreator" Prelude..=)
-              Prelude.<$> newGameSessionsPerCreator'
+    Core.object
+      ( Core.catMaybes
+          [ ("PolicyPeriodInMinutes" Core..=)
+              Core.<$> policyPeriodInMinutes,
+            ("NewGameSessionsPerCreator" Core..=)
+              Core.<$> newGameSessionsPerCreator'
           ]
       )

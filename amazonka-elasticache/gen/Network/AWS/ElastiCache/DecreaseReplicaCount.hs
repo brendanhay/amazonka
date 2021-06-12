@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.ElastiCache.DecreaseReplicaCount
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,23 +70,23 @@ data DecreaseReplicaCount = DecreaseReplicaCount'
     --
     -- -   Redis (cluster mode enabled): 0 (though you will not be able to
     --     failover to a replica if your primary node fails)
-    newReplicaCount' :: Prelude.Maybe Prelude.Int,
+    newReplicaCount' :: Core.Maybe Core.Int,
     -- | A list of the node ids to remove from the replication group or node
     -- group (shard).
-    replicasToRemove :: Prelude.Maybe [Prelude.Text],
+    replicasToRemove :: Core.Maybe [Core.Text],
     -- | A list of @ConfigureShard@ objects that can be used to configure each
     -- shard in a Redis (cluster mode enabled) replication group. The
     -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
     -- and @PreferredAvailabilityZones@.
-    replicaConfiguration :: Prelude.Maybe [ConfigureShard],
+    replicaConfiguration :: Core.Maybe [ConfigureShard],
     -- | The id of the replication group from which you want to remove replica
     -- nodes.
-    replicationGroupId :: Prelude.Text,
+    replicationGroupId :: Core.Text,
     -- | If @True@, the number of replica nodes is decreased immediately.
     -- @ApplyImmediately=False@ is not currently supported.
-    applyImmediately :: Prelude.Bool
+    applyImmediately :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecreaseReplicaCount' with all optional fields omitted.
@@ -129,18 +128,18 @@ data DecreaseReplicaCount = DecreaseReplicaCount'
 -- @ApplyImmediately=False@ is not currently supported.
 newDecreaseReplicaCount ::
   -- | 'replicationGroupId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'applyImmediately'
-  Prelude.Bool ->
+  Core.Bool ->
   DecreaseReplicaCount
 newDecreaseReplicaCount
   pReplicationGroupId_
   pApplyImmediately_ =
     DecreaseReplicaCount'
       { newReplicaCount' =
-          Prelude.Nothing,
-        replicasToRemove = Prelude.Nothing,
-        replicaConfiguration = Prelude.Nothing,
+          Core.Nothing,
+        replicasToRemove = Core.Nothing,
+        replicaConfiguration = Core.Nothing,
         replicationGroupId = pReplicationGroupId_,
         applyImmediately = pApplyImmediately_
       }
@@ -161,34 +160,34 @@ newDecreaseReplicaCount
 --
 -- -   Redis (cluster mode enabled): 0 (though you will not be able to
 --     failover to a replica if your primary node fails)
-decreaseReplicaCount_newReplicaCount :: Lens.Lens' DecreaseReplicaCount (Prelude.Maybe Prelude.Int)
+decreaseReplicaCount_newReplicaCount :: Lens.Lens' DecreaseReplicaCount (Core.Maybe Core.Int)
 decreaseReplicaCount_newReplicaCount = Lens.lens (\DecreaseReplicaCount' {newReplicaCount'} -> newReplicaCount') (\s@DecreaseReplicaCount' {} a -> s {newReplicaCount' = a} :: DecreaseReplicaCount)
 
 -- | A list of the node ids to remove from the replication group or node
 -- group (shard).
-decreaseReplicaCount_replicasToRemove :: Lens.Lens' DecreaseReplicaCount (Prelude.Maybe [Prelude.Text])
-decreaseReplicaCount_replicasToRemove = Lens.lens (\DecreaseReplicaCount' {replicasToRemove} -> replicasToRemove) (\s@DecreaseReplicaCount' {} a -> s {replicasToRemove = a} :: DecreaseReplicaCount) Prelude.. Lens.mapping Prelude._Coerce
+decreaseReplicaCount_replicasToRemove :: Lens.Lens' DecreaseReplicaCount (Core.Maybe [Core.Text])
+decreaseReplicaCount_replicasToRemove = Lens.lens (\DecreaseReplicaCount' {replicasToRemove} -> replicasToRemove) (\s@DecreaseReplicaCount' {} a -> s {replicasToRemove = a} :: DecreaseReplicaCount) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of @ConfigureShard@ objects that can be used to configure each
 -- shard in a Redis (cluster mode enabled) replication group. The
 -- @ConfigureShard@ has three members: @NewReplicaCount@, @NodeGroupId@,
 -- and @PreferredAvailabilityZones@.
-decreaseReplicaCount_replicaConfiguration :: Lens.Lens' DecreaseReplicaCount (Prelude.Maybe [ConfigureShard])
-decreaseReplicaCount_replicaConfiguration = Lens.lens (\DecreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@DecreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: DecreaseReplicaCount) Prelude.. Lens.mapping Prelude._Coerce
+decreaseReplicaCount_replicaConfiguration :: Lens.Lens' DecreaseReplicaCount (Core.Maybe [ConfigureShard])
+decreaseReplicaCount_replicaConfiguration = Lens.lens (\DecreaseReplicaCount' {replicaConfiguration} -> replicaConfiguration) (\s@DecreaseReplicaCount' {} a -> s {replicaConfiguration = a} :: DecreaseReplicaCount) Core.. Lens.mapping Lens._Coerce
 
 -- | The id of the replication group from which you want to remove replica
 -- nodes.
-decreaseReplicaCount_replicationGroupId :: Lens.Lens' DecreaseReplicaCount Prelude.Text
+decreaseReplicaCount_replicationGroupId :: Lens.Lens' DecreaseReplicaCount Core.Text
 decreaseReplicaCount_replicationGroupId = Lens.lens (\DecreaseReplicaCount' {replicationGroupId} -> replicationGroupId) (\s@DecreaseReplicaCount' {} a -> s {replicationGroupId = a} :: DecreaseReplicaCount)
 
 -- | If @True@, the number of replica nodes is decreased immediately.
 -- @ApplyImmediately=False@ is not currently supported.
-decreaseReplicaCount_applyImmediately :: Lens.Lens' DecreaseReplicaCount Prelude.Bool
+decreaseReplicaCount_applyImmediately :: Lens.Lens' DecreaseReplicaCount Core.Bool
 decreaseReplicaCount_applyImmediately = Lens.lens (\DecreaseReplicaCount' {applyImmediately} -> applyImmediately) (\s@DecreaseReplicaCount' {} a -> s {applyImmediately = a} :: DecreaseReplicaCount)
 
-instance Prelude.AWSRequest DecreaseReplicaCount where
+instance Core.AWSRequest DecreaseReplicaCount where
   type
-    Rs DecreaseReplicaCount =
+    AWSResponse DecreaseReplicaCount =
       DecreaseReplicaCountResponse
   request = Request.postQuery defaultService
   response =
@@ -196,49 +195,48 @@ instance Prelude.AWSRequest DecreaseReplicaCount where
       "DecreaseReplicaCountResult"
       ( \s h x ->
           DecreaseReplicaCountResponse'
-            Prelude.<$> (x Prelude..@? "ReplicationGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ReplicationGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DecreaseReplicaCount
+instance Core.Hashable DecreaseReplicaCount
 
-instance Prelude.NFData DecreaseReplicaCount
+instance Core.NFData DecreaseReplicaCount
 
-instance Prelude.ToHeaders DecreaseReplicaCount where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DecreaseReplicaCount where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DecreaseReplicaCount where
-  toPath = Prelude.const "/"
+instance Core.ToPath DecreaseReplicaCount where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DecreaseReplicaCount where
+instance Core.ToQuery DecreaseReplicaCount where
   toQuery DecreaseReplicaCount' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DecreaseReplicaCount" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
-        "NewReplicaCount" Prelude.=: newReplicaCount',
+          Core.=: ("DecreaseReplicaCount" :: Core.ByteString),
+        "Version" Core.=: ("2015-02-02" :: Core.ByteString),
+        "NewReplicaCount" Core.=: newReplicaCount',
         "ReplicasToRemove"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> replicasToRemove
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Core.<$> replicasToRemove
             ),
         "ReplicaConfiguration"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "ConfigureShard"
-                Prelude.<$> replicaConfiguration
+          Core.=: Core.toQuery
+            ( Core.toQueryList "ConfigureShard"
+                Core.<$> replicaConfiguration
             ),
-        "ReplicationGroupId" Prelude.=: replicationGroupId,
-        "ApplyImmediately" Prelude.=: applyImmediately
+        "ReplicationGroupId" Core.=: replicationGroupId,
+        "ApplyImmediately" Core.=: applyImmediately
       ]
 
 -- | /See:/ 'newDecreaseReplicaCountResponse' smart constructor.
 data DecreaseReplicaCountResponse = DecreaseReplicaCountResponse'
-  { replicationGroup :: Prelude.Maybe ReplicationGroup,
+  { replicationGroup :: Core.Maybe ReplicationGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DecreaseReplicaCountResponse' with all optional fields omitted.
@@ -253,21 +251,21 @@ data DecreaseReplicaCountResponse = DecreaseReplicaCountResponse'
 -- 'httpStatus', 'decreaseReplicaCountResponse_httpStatus' - The response's http status code.
 newDecreaseReplicaCountResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DecreaseReplicaCountResponse
 newDecreaseReplicaCountResponse pHttpStatus_ =
   DecreaseReplicaCountResponse'
     { replicationGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-decreaseReplicaCountResponse_replicationGroup :: Lens.Lens' DecreaseReplicaCountResponse (Prelude.Maybe ReplicationGroup)
+decreaseReplicaCountResponse_replicationGroup :: Lens.Lens' DecreaseReplicaCountResponse (Core.Maybe ReplicationGroup)
 decreaseReplicaCountResponse_replicationGroup = Lens.lens (\DecreaseReplicaCountResponse' {replicationGroup} -> replicationGroup) (\s@DecreaseReplicaCountResponse' {} a -> s {replicationGroup = a} :: DecreaseReplicaCountResponse)
 
 -- | The response's http status code.
-decreaseReplicaCountResponse_httpStatus :: Lens.Lens' DecreaseReplicaCountResponse Prelude.Int
+decreaseReplicaCountResponse_httpStatus :: Lens.Lens' DecreaseReplicaCountResponse Core.Int
 decreaseReplicaCountResponse_httpStatus = Lens.lens (\DecreaseReplicaCountResponse' {httpStatus} -> httpStatus) (\s@DecreaseReplicaCountResponse' {} a -> s {httpStatus = a} :: DecreaseReplicaCountResponse)
 
-instance Prelude.NFData DecreaseReplicaCountResponse
+instance Core.NFData DecreaseReplicaCountResponse

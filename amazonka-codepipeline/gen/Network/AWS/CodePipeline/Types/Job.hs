@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,25 +20,25 @@
 module Network.AWS.CodePipeline.Types.Job where
 
 import Network.AWS.CodePipeline.Types.JobData
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about a job.
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
   { -- | The ID of the AWS account to use when performing the job.
-    accountId :: Prelude.Maybe Prelude.Text,
+    accountId :: Core.Maybe Core.Text,
     -- | A system-generated random number that AWS CodePipeline uses to ensure
     -- that the job is being worked on by only one job worker. Use this number
     -- in an AcknowledgeJob request.
-    nonce :: Prelude.Maybe Prelude.Text,
+    nonce :: Core.Maybe Core.Text,
     -- | Other data about a job.
-    data' :: Prelude.Maybe JobData,
+    data' :: Core.Maybe JobData,
     -- | The unique system-generated ID of the job.
-    id :: Prelude.Maybe Prelude.Text
+    id :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Job' with all optional fields omitted.
@@ -62,42 +61,42 @@ newJob ::
   Job
 newJob =
   Job'
-    { accountId = Prelude.Nothing,
-      nonce = Prelude.Nothing,
-      data' = Prelude.Nothing,
-      id = Prelude.Nothing
+    { accountId = Core.Nothing,
+      nonce = Core.Nothing,
+      data' = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The ID of the AWS account to use when performing the job.
-job_accountId :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_accountId :: Lens.Lens' Job (Core.Maybe Core.Text)
 job_accountId = Lens.lens (\Job' {accountId} -> accountId) (\s@Job' {} a -> s {accountId = a} :: Job)
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. Use this number
 -- in an AcknowledgeJob request.
-job_nonce :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_nonce :: Lens.Lens' Job (Core.Maybe Core.Text)
 job_nonce = Lens.lens (\Job' {nonce} -> nonce) (\s@Job' {} a -> s {nonce = a} :: Job)
 
 -- | Other data about a job.
-job_data :: Lens.Lens' Job (Prelude.Maybe JobData)
+job_data :: Lens.Lens' Job (Core.Maybe JobData)
 job_data = Lens.lens (\Job' {data'} -> data') (\s@Job' {} a -> s {data' = a} :: Job)
 
 -- | The unique system-generated ID of the job.
-job_id :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
+job_id :: Lens.Lens' Job (Core.Maybe Core.Text)
 job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
 
-instance Prelude.FromJSON Job where
+instance Core.FromJSON Job where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Prelude..:? "accountId")
-            Prelude.<*> (x Prelude..:? "nonce")
-            Prelude.<*> (x Prelude..:? "data")
-            Prelude.<*> (x Prelude..:? "id")
+            Core.<$> (x Core..:? "accountId")
+            Core.<*> (x Core..:? "nonce")
+            Core.<*> (x Core..:? "data")
+            Core.<*> (x Core..:? "id")
       )
 
-instance Prelude.Hashable Job
+instance Core.Hashable Job
 
-instance Prelude.NFData Job
+instance Core.NFData Job

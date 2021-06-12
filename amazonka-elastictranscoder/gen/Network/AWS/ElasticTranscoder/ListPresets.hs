@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,10 +45,9 @@ module Network.AWS.ElasticTranscoder.ListPresets
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -60,13 +58,13 @@ data ListPresets = ListPresets'
   { -- | To list presets in chronological order by the date and time that they
     -- were created, enter @true@. To list presets in reverse chronological
     -- order, enter @false@.
-    ascending :: Prelude.Maybe Prelude.Text,
+    ascending :: Core.Maybe Core.Text,
     -- | When Elastic Transcoder returns more than one page of results, use
     -- @pageToken@ in subsequent @GET@ requests to get each successive page of
     -- results.
-    pageToken :: Prelude.Maybe Prelude.Text
+    pageToken :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPresets' with all optional fields omitted.
@@ -87,70 +85,68 @@ newListPresets ::
   ListPresets
 newListPresets =
   ListPresets'
-    { ascending = Prelude.Nothing,
-      pageToken = Prelude.Nothing
+    { ascending = Core.Nothing,
+      pageToken = Core.Nothing
     }
 
 -- | To list presets in chronological order by the date and time that they
 -- were created, enter @true@. To list presets in reverse chronological
 -- order, enter @false@.
-listPresets_ascending :: Lens.Lens' ListPresets (Prelude.Maybe Prelude.Text)
+listPresets_ascending :: Lens.Lens' ListPresets (Core.Maybe Core.Text)
 listPresets_ascending = Lens.lens (\ListPresets' {ascending} -> ascending) (\s@ListPresets' {} a -> s {ascending = a} :: ListPresets)
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-listPresets_pageToken :: Lens.Lens' ListPresets (Prelude.Maybe Prelude.Text)
+listPresets_pageToken :: Lens.Lens' ListPresets (Core.Maybe Core.Text)
 listPresets_pageToken = Lens.lens (\ListPresets' {pageToken} -> pageToken) (\s@ListPresets' {} a -> s {pageToken = a} :: ListPresets)
 
-instance Pager.AWSPager ListPresets where
+instance Core.AWSPager ListPresets where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listPresetsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Lens.^? listPresetsResponse_nextPageToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listPresetsResponse_presets Prelude.. Lens._Just
+            Lens.^? listPresetsResponse_presets Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listPresets_pageToken
           Lens..~ rs
-          Lens.^? listPresetsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Lens.^? listPresetsResponse_nextPageToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListPresets where
-  type Rs ListPresets = ListPresetsResponse
+instance Core.AWSRequest ListPresets where
+  type AWSResponse ListPresets = ListPresetsResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListPresetsResponse'
-            Prelude.<$> (x Prelude..?> "Presets" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "NextPageToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Presets" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListPresets
+instance Core.Hashable ListPresets
 
-instance Prelude.NFData ListPresets
+instance Core.NFData ListPresets
 
-instance Prelude.ToHeaders ListPresets where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListPresets where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListPresets where
-  toPath = Prelude.const "/2012-09-25/presets"
+instance Core.ToPath ListPresets where
+  toPath = Core.const "/2012-09-25/presets"
 
-instance Prelude.ToQuery ListPresets where
+instance Core.ToQuery ListPresets where
   toQuery ListPresets' {..} =
-    Prelude.mconcat
-      [ "Ascending" Prelude.=: ascending,
-        "PageToken" Prelude.=: pageToken
+    Core.mconcat
+      [ "Ascending" Core.=: ascending,
+        "PageToken" Core.=: pageToken
       ]
 
 -- | The @ListPresetsResponse@ structure.
@@ -158,16 +154,16 @@ instance Prelude.ToQuery ListPresets where
 -- /See:/ 'newListPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
   { -- | An array of @Preset@ objects.
-    presets :: Prelude.Maybe [Preset],
+    presets :: Core.Maybe [Preset],
     -- | A value that you use to access the second and subsequent pages of
     -- results, if any. When the presets fit on one page or when you\'ve
     -- reached the last page of results, the value of @NextPageToken@ is
     -- @null@.
-    nextPageToken :: Prelude.Maybe Prelude.Text,
+    nextPageToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListPresetsResponse' with all optional fields omitted.
@@ -187,28 +183,28 @@ data ListPresetsResponse = ListPresetsResponse'
 -- 'httpStatus', 'listPresetsResponse_httpStatus' - The response's http status code.
 newListPresetsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListPresetsResponse
 newListPresetsResponse pHttpStatus_ =
   ListPresetsResponse'
-    { presets = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { presets = Core.Nothing,
+      nextPageToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of @Preset@ objects.
-listPresetsResponse_presets :: Lens.Lens' ListPresetsResponse (Prelude.Maybe [Preset])
-listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> presets) (\s@ListPresetsResponse' {} a -> s {presets = a} :: ListPresetsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listPresetsResponse_presets :: Lens.Lens' ListPresetsResponse (Core.Maybe [Preset])
+listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> presets) (\s@ListPresetsResponse' {} a -> s {presets = a} :: ListPresetsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
 -- reached the last page of results, the value of @NextPageToken@ is
 -- @null@.
-listPresetsResponse_nextPageToken :: Lens.Lens' ListPresetsResponse (Prelude.Maybe Prelude.Text)
+listPresetsResponse_nextPageToken :: Lens.Lens' ListPresetsResponse (Core.Maybe Core.Text)
 listPresetsResponse_nextPageToken = Lens.lens (\ListPresetsResponse' {nextPageToken} -> nextPageToken) (\s@ListPresetsResponse' {} a -> s {nextPageToken = a} :: ListPresetsResponse)
 
 -- | The response's http status code.
-listPresetsResponse_httpStatus :: Lens.Lens' ListPresetsResponse Prelude.Int
+listPresetsResponse_httpStatus :: Lens.Lens' ListPresetsResponse Core.Int
 listPresetsResponse_httpStatus = Lens.lens (\ListPresetsResponse' {httpStatus} -> httpStatus) (\s@ListPresetsResponse' {} a -> s {httpStatus = a} :: ListPresetsResponse)
 
-instance Prelude.NFData ListPresetsResponse
+instance Core.NFData ListPresetsResponse

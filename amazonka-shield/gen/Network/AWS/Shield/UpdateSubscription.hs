@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Shield.UpdateSubscription
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -54,9 +53,9 @@ data UpdateSubscription = UpdateSubscription'
     -- submitting an @UpdateSubscription@ request. If the @UpdateSubscription@
     -- request does not included a value for @AutoRenew@, the existing value
     -- for @AutoRenew@ remains unchanged.
-    autoRenew :: Prelude.Maybe AutoRenew
+    autoRenew :: Core.Maybe AutoRenew
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscription' with all optional fields omitted.
@@ -75,7 +74,7 @@ data UpdateSubscription = UpdateSubscription'
 newUpdateSubscription ::
   UpdateSubscription
 newUpdateSubscription =
-  UpdateSubscription' {autoRenew = Prelude.Nothing}
+  UpdateSubscription' {autoRenew = Core.Nothing}
 
 -- | When you initally create a subscription, @AutoRenew@ is set to
 -- @ENABLED@. If @ENABLED@, the subscription will be automatically renewed
@@ -83,59 +82,57 @@ newUpdateSubscription =
 -- submitting an @UpdateSubscription@ request. If the @UpdateSubscription@
 -- request does not included a value for @AutoRenew@, the existing value
 -- for @AutoRenew@ remains unchanged.
-updateSubscription_autoRenew :: Lens.Lens' UpdateSubscription (Prelude.Maybe AutoRenew)
+updateSubscription_autoRenew :: Lens.Lens' UpdateSubscription (Core.Maybe AutoRenew)
 updateSubscription_autoRenew = Lens.lens (\UpdateSubscription' {autoRenew} -> autoRenew) (\s@UpdateSubscription' {} a -> s {autoRenew = a} :: UpdateSubscription)
 
-instance Prelude.AWSRequest UpdateSubscription where
+instance Core.AWSRequest UpdateSubscription where
   type
-    Rs UpdateSubscription =
+    AWSResponse UpdateSubscription =
       UpdateSubscriptionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSubscriptionResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateSubscription
+instance Core.Hashable UpdateSubscription
 
-instance Prelude.NFData UpdateSubscription
+instance Core.NFData UpdateSubscription
 
-instance Prelude.ToHeaders UpdateSubscription where
+instance Core.ToHeaders UpdateSubscription where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.UpdateSubscription" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.UpdateSubscription" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateSubscription where
+instance Core.ToJSON UpdateSubscription where
   toJSON UpdateSubscription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("AutoRenew" Prelude..=) Prelude.<$> autoRenew]
+    Core.object
+      ( Core.catMaybes
+          [("AutoRenew" Core..=) Core.<$> autoRenew]
       )
 
-instance Prelude.ToPath UpdateSubscription where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateSubscription where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateSubscription where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateSubscription where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateSubscriptionResponse' smart constructor.
 data UpdateSubscriptionResponse = UpdateSubscriptionResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateSubscriptionResponse' with all optional fields omitted.
@@ -148,7 +145,7 @@ data UpdateSubscriptionResponse = UpdateSubscriptionResponse'
 -- 'httpStatus', 'updateSubscriptionResponse_httpStatus' - The response's http status code.
 newUpdateSubscriptionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateSubscriptionResponse
 newUpdateSubscriptionResponse pHttpStatus_ =
   UpdateSubscriptionResponse'
@@ -157,7 +154,7 @@ newUpdateSubscriptionResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateSubscriptionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionResponse Prelude.Int
+updateSubscriptionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionResponse Core.Int
 updateSubscriptionResponse_httpStatus = Lens.lens (\UpdateSubscriptionResponse' {httpStatus} -> httpStatus) (\s@UpdateSubscriptionResponse' {} a -> s {httpStatus = a} :: UpdateSubscriptionResponse)
 
-instance Prelude.NFData UpdateSubscriptionResponse
+instance Core.NFData UpdateSubscriptionResponse

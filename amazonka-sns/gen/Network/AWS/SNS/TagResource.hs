@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -58,8 +57,8 @@ module Network.AWS.SNS.TagResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
@@ -67,12 +66,12 @@ import Network.AWS.SNS.Types
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The ARN of the topic to which to add tags.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | The tags to be added to the specified topic. A tag consists of a
     -- required key and an optional value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResource' with all optional fields omitted.
@@ -88,61 +87,59 @@ data TagResource = TagResource'
 -- required key and an optional value.
 newTagResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   TagResource
 newTagResource pResourceArn_ =
   TagResource'
     { resourceArn = pResourceArn_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The ARN of the topic to which to add tags.
-tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
+tagResource_resourceArn :: Lens.Lens' TagResource Core.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | The tags to be added to the specified topic. A tag consists of a
 -- required key and an optional value.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Prelude._Coerce
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
+instance Core.AWSRequest TagResource where
+  type AWSResponse TagResource = TagResourceResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "TagResourceResult"
       ( \s h x ->
           TagResourceResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable TagResource
+instance Core.Hashable TagResource
 
-instance Prelude.NFData TagResource
+instance Core.NFData TagResource
 
-instance Prelude.ToHeaders TagResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TagResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagResource where
+instance Core.ToQuery TagResource where
   toQuery TagResource' {..} =
-    Prelude.mconcat
-      [ "Action"
-          Prelude.=: ("TagResource" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
-        "ResourceArn" Prelude.=: resourceArn,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+    Core.mconcat
+      [ "Action" Core.=: ("TagResource" :: Core.ByteString),
+        "Version" Core.=: ("2010-03-31" :: Core.ByteString),
+        "ResourceArn" Core.=: resourceArn,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagResourceResponse' with all optional fields omitted.
@@ -155,13 +152,13 @@ data TagResourceResponse = TagResourceResponse'
 -- 'httpStatus', 'tagResourceResponse_httpStatus' - The response's http status code.
 newTagResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TagResourceResponse
 newTagResourceResponse pHttpStatus_ =
   TagResourceResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
+tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Core.Int
 tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
-instance Prelude.NFData TagResourceResponse
+instance Core.NFData TagResourceResponse

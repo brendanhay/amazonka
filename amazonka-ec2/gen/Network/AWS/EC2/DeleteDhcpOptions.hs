@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.EC2.DeleteDhcpOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,11 +51,11 @@ data DeleteDhcpOptions = DeleteDhcpOptions'
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The ID of the DHCP options set.
-    dhcpOptionsId :: Prelude.Text
+    dhcpOptionsId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDhcpOptions' with all optional fields omitted.
@@ -74,11 +73,11 @@ data DeleteDhcpOptions = DeleteDhcpOptions'
 -- 'dhcpOptionsId', 'deleteDhcpOptions_dhcpOptionsId' - The ID of the DHCP options set.
 newDeleteDhcpOptions ::
   -- | 'dhcpOptionsId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDhcpOptions
 newDeleteDhcpOptions pDhcpOptionsId_ =
   DeleteDhcpOptions'
-    { dryRun = Prelude.Nothing,
+    { dryRun = Core.Nothing,
       dhcpOptionsId = pDhcpOptionsId_
     }
 
@@ -86,45 +85,46 @@ newDeleteDhcpOptions pDhcpOptionsId_ =
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteDhcpOptions_dryRun :: Lens.Lens' DeleteDhcpOptions (Prelude.Maybe Prelude.Bool)
+deleteDhcpOptions_dryRun :: Lens.Lens' DeleteDhcpOptions (Core.Maybe Core.Bool)
 deleteDhcpOptions_dryRun = Lens.lens (\DeleteDhcpOptions' {dryRun} -> dryRun) (\s@DeleteDhcpOptions' {} a -> s {dryRun = a} :: DeleteDhcpOptions)
 
 -- | The ID of the DHCP options set.
-deleteDhcpOptions_dhcpOptionsId :: Lens.Lens' DeleteDhcpOptions Prelude.Text
+deleteDhcpOptions_dhcpOptionsId :: Lens.Lens' DeleteDhcpOptions Core.Text
 deleteDhcpOptions_dhcpOptionsId = Lens.lens (\DeleteDhcpOptions' {dhcpOptionsId} -> dhcpOptionsId) (\s@DeleteDhcpOptions' {} a -> s {dhcpOptionsId = a} :: DeleteDhcpOptions)
 
-instance Prelude.AWSRequest DeleteDhcpOptions where
-  type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse
+instance Core.AWSRequest DeleteDhcpOptions where
+  type
+    AWSResponse DeleteDhcpOptions =
+      DeleteDhcpOptionsResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull DeleteDhcpOptionsResponse'
 
-instance Prelude.Hashable DeleteDhcpOptions
+instance Core.Hashable DeleteDhcpOptions
 
-instance Prelude.NFData DeleteDhcpOptions
+instance Core.NFData DeleteDhcpOptions
 
-instance Prelude.ToHeaders DeleteDhcpOptions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteDhcpOptions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteDhcpOptions where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteDhcpOptions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteDhcpOptions where
+instance Core.ToQuery DeleteDhcpOptions where
   toQuery DeleteDhcpOptions' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DeleteDhcpOptions" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Prelude.=: dryRun,
-        "DhcpOptionsId" Prelude.=: dhcpOptionsId
+          Core.=: ("DeleteDhcpOptions" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "DryRun" Core.=: dryRun,
+        "DhcpOptionsId" Core.=: dhcpOptionsId
       ]
 
 -- | /See:/ 'newDeleteDhcpOptionsResponse' smart constructor.
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDhcpOptionsResponse' with all optional fields omitted.
@@ -135,4 +135,4 @@ newDeleteDhcpOptionsResponse ::
 newDeleteDhcpOptionsResponse =
   DeleteDhcpOptionsResponse'
 
-instance Prelude.NFData DeleteDhcpOptionsResponse
+instance Core.NFData DeleteDhcpOptionsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Rekognition.Types.FaceRecord where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types.Face
 import Network.AWS.Rekognition.Types.FaceDetail
 
@@ -32,12 +31,12 @@ import Network.AWS.Rekognition.Types.FaceDetail
 -- /See:/ 'newFaceRecord' smart constructor.
 data FaceRecord = FaceRecord'
   { -- | Structure containing attributes of the face that the algorithm detected.
-    faceDetail :: Prelude.Maybe FaceDetail,
+    faceDetail :: Core.Maybe FaceDetail,
     -- | Describes the face properties such as the bounding box, face ID, image
     -- ID of the input image, and external image ID that you assigned.
-    face :: Prelude.Maybe Face
+    face :: Core.Maybe Face
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FaceRecord' with all optional fields omitted.
@@ -55,29 +54,29 @@ newFaceRecord ::
   FaceRecord
 newFaceRecord =
   FaceRecord'
-    { faceDetail = Prelude.Nothing,
-      face = Prelude.Nothing
+    { faceDetail = Core.Nothing,
+      face = Core.Nothing
     }
 
 -- | Structure containing attributes of the face that the algorithm detected.
-faceRecord_faceDetail :: Lens.Lens' FaceRecord (Prelude.Maybe FaceDetail)
+faceRecord_faceDetail :: Lens.Lens' FaceRecord (Core.Maybe FaceDetail)
 faceRecord_faceDetail = Lens.lens (\FaceRecord' {faceDetail} -> faceDetail) (\s@FaceRecord' {} a -> s {faceDetail = a} :: FaceRecord)
 
 -- | Describes the face properties such as the bounding box, face ID, image
 -- ID of the input image, and external image ID that you assigned.
-faceRecord_face :: Lens.Lens' FaceRecord (Prelude.Maybe Face)
+faceRecord_face :: Lens.Lens' FaceRecord (Core.Maybe Face)
 faceRecord_face = Lens.lens (\FaceRecord' {face} -> face) (\s@FaceRecord' {} a -> s {face = a} :: FaceRecord)
 
-instance Prelude.FromJSON FaceRecord where
+instance Core.FromJSON FaceRecord where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FaceRecord"
       ( \x ->
           FaceRecord'
-            Prelude.<$> (x Prelude..:? "FaceDetail")
-            Prelude.<*> (x Prelude..:? "Face")
+            Core.<$> (x Core..:? "FaceDetail")
+            Core.<*> (x Core..:? "Face")
       )
 
-instance Prelude.Hashable FaceRecord
+instance Core.Hashable FaceRecord
 
-instance Prelude.NFData FaceRecord
+instance Core.NFData FaceRecord

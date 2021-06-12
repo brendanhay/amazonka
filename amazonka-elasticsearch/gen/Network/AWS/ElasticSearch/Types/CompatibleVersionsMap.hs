@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.CompatibleVersionsMap where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A map from an @ ElasticsearchVersion @ to a list of compatible
 -- @ ElasticsearchVersion @ s to which the domain can be upgraded.
@@ -29,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newCompatibleVersionsMap' smart constructor.
 data CompatibleVersionsMap = CompatibleVersionsMap'
   { -- | The current version of Elasticsearch on which a domain is.
-    sourceVersion :: Prelude.Maybe Prelude.Text,
-    targetVersions :: Prelude.Maybe [Prelude.Text]
+    sourceVersion :: Core.Maybe Core.Text,
+    targetVersions :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CompatibleVersionsMap' with all optional fields omitted.
@@ -50,30 +49,28 @@ newCompatibleVersionsMap ::
 newCompatibleVersionsMap =
   CompatibleVersionsMap'
     { sourceVersion =
-        Prelude.Nothing,
-      targetVersions = Prelude.Nothing
+        Core.Nothing,
+      targetVersions = Core.Nothing
     }
 
 -- | The current version of Elasticsearch on which a domain is.
-compatibleVersionsMap_sourceVersion :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe Prelude.Text)
+compatibleVersionsMap_sourceVersion :: Lens.Lens' CompatibleVersionsMap (Core.Maybe Core.Text)
 compatibleVersionsMap_sourceVersion = Lens.lens (\CompatibleVersionsMap' {sourceVersion} -> sourceVersion) (\s@CompatibleVersionsMap' {} a -> s {sourceVersion = a} :: CompatibleVersionsMap)
 
 -- | Undocumented member.
-compatibleVersionsMap_targetVersions :: Lens.Lens' CompatibleVersionsMap (Prelude.Maybe [Prelude.Text])
-compatibleVersionsMap_targetVersions = Lens.lens (\CompatibleVersionsMap' {targetVersions} -> targetVersions) (\s@CompatibleVersionsMap' {} a -> s {targetVersions = a} :: CompatibleVersionsMap) Prelude.. Lens.mapping Prelude._Coerce
+compatibleVersionsMap_targetVersions :: Lens.Lens' CompatibleVersionsMap (Core.Maybe [Core.Text])
+compatibleVersionsMap_targetVersions = Lens.lens (\CompatibleVersionsMap' {targetVersions} -> targetVersions) (\s@CompatibleVersionsMap' {} a -> s {targetVersions = a} :: CompatibleVersionsMap) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON CompatibleVersionsMap where
+instance Core.FromJSON CompatibleVersionsMap where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CompatibleVersionsMap"
       ( \x ->
           CompatibleVersionsMap'
-            Prelude.<$> (x Prelude..:? "SourceVersion")
-            Prelude.<*> ( x Prelude..:? "TargetVersions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "SourceVersion")
+            Core.<*> (x Core..:? "TargetVersions" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable CompatibleVersionsMap
+instance Core.Hashable CompatibleVersionsMap
 
-instance Prelude.NFData CompatibleVersionsMap
+instance Core.NFData CompatibleVersionsMap

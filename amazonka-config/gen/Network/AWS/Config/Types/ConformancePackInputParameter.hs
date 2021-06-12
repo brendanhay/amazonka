@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Config.Types.ConformancePackInputParameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Input parameters in the form of key-value pairs for the conformance
 -- pack, both of which you define. Keys can have a maximum character length
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newConformancePackInputParameter' smart constructor.
 data ConformancePackInputParameter = ConformancePackInputParameter'
   { -- | One part of a key-value pair.
-    parameterName :: Prelude.Text,
+    parameterName :: Core.Text,
     -- | Another part of the key-value pair.
-    parameterValue :: Prelude.Text
+    parameterValue :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ConformancePackInputParameter' with all optional fields omitted.
@@ -50,9 +49,9 @@ data ConformancePackInputParameter = ConformancePackInputParameter'
 -- 'parameterValue', 'conformancePackInputParameter_parameterValue' - Another part of the key-value pair.
 newConformancePackInputParameter ::
   -- | 'parameterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'parameterValue'
-  Prelude.Text ->
+  Core.Text ->
   ConformancePackInputParameter
 newConformancePackInputParameter
   pParameterName_
@@ -64,39 +63,32 @@ newConformancePackInputParameter
       }
 
 -- | One part of a key-value pair.
-conformancePackInputParameter_parameterName :: Lens.Lens' ConformancePackInputParameter Prelude.Text
+conformancePackInputParameter_parameterName :: Lens.Lens' ConformancePackInputParameter Core.Text
 conformancePackInputParameter_parameterName = Lens.lens (\ConformancePackInputParameter' {parameterName} -> parameterName) (\s@ConformancePackInputParameter' {} a -> s {parameterName = a} :: ConformancePackInputParameter)
 
 -- | Another part of the key-value pair.
-conformancePackInputParameter_parameterValue :: Lens.Lens' ConformancePackInputParameter Prelude.Text
+conformancePackInputParameter_parameterValue :: Lens.Lens' ConformancePackInputParameter Core.Text
 conformancePackInputParameter_parameterValue = Lens.lens (\ConformancePackInputParameter' {parameterValue} -> parameterValue) (\s@ConformancePackInputParameter' {} a -> s {parameterValue = a} :: ConformancePackInputParameter)
 
-instance
-  Prelude.FromJSON
-    ConformancePackInputParameter
-  where
+instance Core.FromJSON ConformancePackInputParameter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ConformancePackInputParameter"
       ( \x ->
           ConformancePackInputParameter'
-            Prelude.<$> (x Prelude..: "ParameterName")
-            Prelude.<*> (x Prelude..: "ParameterValue")
+            Core.<$> (x Core..: "ParameterName")
+            Core.<*> (x Core..: "ParameterValue")
       )
 
-instance
-  Prelude.Hashable
-    ConformancePackInputParameter
+instance Core.Hashable ConformancePackInputParameter
 
-instance Prelude.NFData ConformancePackInputParameter
+instance Core.NFData ConformancePackInputParameter
 
-instance Prelude.ToJSON ConformancePackInputParameter where
+instance Core.ToJSON ConformancePackInputParameter where
   toJSON ConformancePackInputParameter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ParameterName" Prelude..= parameterName),
-            Prelude.Just
-              ("ParameterValue" Prelude..= parameterValue)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParameterName" Core..= parameterName),
+            Core.Just ("ParameterValue" Core..= parameterValue)
           ]
       )

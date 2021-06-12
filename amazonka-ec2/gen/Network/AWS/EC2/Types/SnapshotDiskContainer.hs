@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.SnapshotDiskContainer where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.UserBucket
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The disk container object for the import snapshot request.
 --
@@ -32,16 +31,16 @@ data SnapshotDiskContainer = SnapshotDiskContainer'
   { -- | The format of the disk image being imported.
     --
     -- Valid values: @VHD@ | @VMDK@ | @RAW@
-    format :: Prelude.Maybe Prelude.Text,
+    format :: Core.Maybe Core.Text,
     -- | The Amazon S3 bucket for the disk image.
-    userBucket :: Prelude.Maybe UserBucket,
+    userBucket :: Core.Maybe UserBucket,
     -- | The description of the disk image being imported.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The URL to the Amazon S3-based disk image being imported. It can either
     -- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
-    url :: Prelude.Maybe Prelude.Text
+    url :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SnapshotDiskContainer' with all optional fields omitted.
@@ -65,40 +64,40 @@ newSnapshotDiskContainer ::
   SnapshotDiskContainer
 newSnapshotDiskContainer =
   SnapshotDiskContainer'
-    { format = Prelude.Nothing,
-      userBucket = Prelude.Nothing,
-      description = Prelude.Nothing,
-      url = Prelude.Nothing
+    { format = Core.Nothing,
+      userBucket = Core.Nothing,
+      description = Core.Nothing,
+      url = Core.Nothing
     }
 
 -- | The format of the disk image being imported.
 --
 -- Valid values: @VHD@ | @VMDK@ | @RAW@
-snapshotDiskContainer_format :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
+snapshotDiskContainer_format :: Lens.Lens' SnapshotDiskContainer (Core.Maybe Core.Text)
 snapshotDiskContainer_format = Lens.lens (\SnapshotDiskContainer' {format} -> format) (\s@SnapshotDiskContainer' {} a -> s {format = a} :: SnapshotDiskContainer)
 
 -- | The Amazon S3 bucket for the disk image.
-snapshotDiskContainer_userBucket :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe UserBucket)
+snapshotDiskContainer_userBucket :: Lens.Lens' SnapshotDiskContainer (Core.Maybe UserBucket)
 snapshotDiskContainer_userBucket = Lens.lens (\SnapshotDiskContainer' {userBucket} -> userBucket) (\s@SnapshotDiskContainer' {} a -> s {userBucket = a} :: SnapshotDiskContainer)
 
 -- | The description of the disk image being imported.
-snapshotDiskContainer_description :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
+snapshotDiskContainer_description :: Lens.Lens' SnapshotDiskContainer (Core.Maybe Core.Text)
 snapshotDiskContainer_description = Lens.lens (\SnapshotDiskContainer' {description} -> description) (\s@SnapshotDiskContainer' {} a -> s {description = a} :: SnapshotDiskContainer)
 
 -- | The URL to the Amazon S3-based disk image being imported. It can either
 -- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
-snapshotDiskContainer_url :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
+snapshotDiskContainer_url :: Lens.Lens' SnapshotDiskContainer (Core.Maybe Core.Text)
 snapshotDiskContainer_url = Lens.lens (\SnapshotDiskContainer' {url} -> url) (\s@SnapshotDiskContainer' {} a -> s {url = a} :: SnapshotDiskContainer)
 
-instance Prelude.Hashable SnapshotDiskContainer
+instance Core.Hashable SnapshotDiskContainer
 
-instance Prelude.NFData SnapshotDiskContainer
+instance Core.NFData SnapshotDiskContainer
 
-instance Prelude.ToQuery SnapshotDiskContainer where
+instance Core.ToQuery SnapshotDiskContainer where
   toQuery SnapshotDiskContainer' {..} =
-    Prelude.mconcat
-      [ "Format" Prelude.=: format,
-        "UserBucket" Prelude.=: userBucket,
-        "Description" Prelude.=: description,
-        "Url" Prelude.=: url
+    Core.mconcat
+      [ "Format" Core.=: format,
+        "UserBucket" Core.=: userBucket,
+        "Description" Core.=: description,
+        "Url" Core.=: url
       ]

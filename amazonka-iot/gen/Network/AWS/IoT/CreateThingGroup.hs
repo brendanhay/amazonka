@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,24 +48,24 @@ module Network.AWS.IoT.CreateThingGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateThingGroup' smart constructor.
 data CreateThingGroup = CreateThingGroup'
   { -- | The name of the parent thing group.
-    parentGroupName :: Prelude.Maybe Prelude.Text,
+    parentGroupName :: Core.Maybe Core.Text,
     -- | Metadata which can be used to manage the thing group.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The thing group properties.
-    thingGroupProperties :: Prelude.Maybe ThingGroupProperties,
+    thingGroupProperties :: Core.Maybe ThingGroupProperties,
     -- | The thing group name to create.
-    thingGroupName :: Prelude.Text
+    thingGroupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateThingGroup' with all optional fields omitted.
@@ -85,85 +84,86 @@ data CreateThingGroup = CreateThingGroup'
 -- 'thingGroupName', 'createThingGroup_thingGroupName' - The thing group name to create.
 newCreateThingGroup ::
   -- | 'thingGroupName'
-  Prelude.Text ->
+  Core.Text ->
   CreateThingGroup
 newCreateThingGroup pThingGroupName_ =
   CreateThingGroup'
-    { parentGroupName =
-        Prelude.Nothing,
-      tags = Prelude.Nothing,
-      thingGroupProperties = Prelude.Nothing,
+    { parentGroupName = Core.Nothing,
+      tags = Core.Nothing,
+      thingGroupProperties = Core.Nothing,
       thingGroupName = pThingGroupName_
     }
 
 -- | The name of the parent thing group.
-createThingGroup_parentGroupName :: Lens.Lens' CreateThingGroup (Prelude.Maybe Prelude.Text)
+createThingGroup_parentGroupName :: Lens.Lens' CreateThingGroup (Core.Maybe Core.Text)
 createThingGroup_parentGroupName = Lens.lens (\CreateThingGroup' {parentGroupName} -> parentGroupName) (\s@CreateThingGroup' {} a -> s {parentGroupName = a} :: CreateThingGroup)
 
 -- | Metadata which can be used to manage the thing group.
-createThingGroup_tags :: Lens.Lens' CreateThingGroup (Prelude.Maybe [Tag])
-createThingGroup_tags = Lens.lens (\CreateThingGroup' {tags} -> tags) (\s@CreateThingGroup' {} a -> s {tags = a} :: CreateThingGroup) Prelude.. Lens.mapping Prelude._Coerce
+createThingGroup_tags :: Lens.Lens' CreateThingGroup (Core.Maybe [Tag])
+createThingGroup_tags = Lens.lens (\CreateThingGroup' {tags} -> tags) (\s@CreateThingGroup' {} a -> s {tags = a} :: CreateThingGroup) Core.. Lens.mapping Lens._Coerce
 
 -- | The thing group properties.
-createThingGroup_thingGroupProperties :: Lens.Lens' CreateThingGroup (Prelude.Maybe ThingGroupProperties)
+createThingGroup_thingGroupProperties :: Lens.Lens' CreateThingGroup (Core.Maybe ThingGroupProperties)
 createThingGroup_thingGroupProperties = Lens.lens (\CreateThingGroup' {thingGroupProperties} -> thingGroupProperties) (\s@CreateThingGroup' {} a -> s {thingGroupProperties = a} :: CreateThingGroup)
 
 -- | The thing group name to create.
-createThingGroup_thingGroupName :: Lens.Lens' CreateThingGroup Prelude.Text
+createThingGroup_thingGroupName :: Lens.Lens' CreateThingGroup Core.Text
 createThingGroup_thingGroupName = Lens.lens (\CreateThingGroup' {thingGroupName} -> thingGroupName) (\s@CreateThingGroup' {} a -> s {thingGroupName = a} :: CreateThingGroup)
 
-instance Prelude.AWSRequest CreateThingGroup where
-  type Rs CreateThingGroup = CreateThingGroupResponse
+instance Core.AWSRequest CreateThingGroup where
+  type
+    AWSResponse CreateThingGroup =
+      CreateThingGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateThingGroupResponse'
-            Prelude.<$> (x Prelude..?> "thingGroupArn")
-            Prelude.<*> (x Prelude..?> "thingGroupName")
-            Prelude.<*> (x Prelude..?> "thingGroupId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "thingGroupArn")
+            Core.<*> (x Core..?> "thingGroupName")
+            Core.<*> (x Core..?> "thingGroupId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateThingGroup
+instance Core.Hashable CreateThingGroup
 
-instance Prelude.NFData CreateThingGroup
+instance Core.NFData CreateThingGroup
 
-instance Prelude.ToHeaders CreateThingGroup where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateThingGroup where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON CreateThingGroup where
+instance Core.ToJSON CreateThingGroup where
   toJSON CreateThingGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("parentGroupName" Prelude..=)
-              Prelude.<$> parentGroupName,
-            ("tags" Prelude..=) Prelude.<$> tags,
-            ("thingGroupProperties" Prelude..=)
-              Prelude.<$> thingGroupProperties
+    Core.object
+      ( Core.catMaybes
+          [ ("parentGroupName" Core..=)
+              Core.<$> parentGroupName,
+            ("tags" Core..=) Core.<$> tags,
+            ("thingGroupProperties" Core..=)
+              Core.<$> thingGroupProperties
           ]
       )
 
-instance Prelude.ToPath CreateThingGroup where
+instance Core.ToPath CreateThingGroup where
   toPath CreateThingGroup' {..} =
-    Prelude.mconcat
-      ["/thing-groups/", Prelude.toBS thingGroupName]
+    Core.mconcat
+      ["/thing-groups/", Core.toBS thingGroupName]
 
-instance Prelude.ToQuery CreateThingGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateThingGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateThingGroupResponse' smart constructor.
 data CreateThingGroupResponse = CreateThingGroupResponse'
   { -- | The thing group ARN.
-    thingGroupArn :: Prelude.Maybe Prelude.Text,
+    thingGroupArn :: Core.Maybe Core.Text,
     -- | The thing group name.
-    thingGroupName :: Prelude.Maybe Prelude.Text,
+    thingGroupName :: Core.Maybe Core.Text,
     -- | The thing group ID.
-    thingGroupId :: Prelude.Maybe Prelude.Text,
+    thingGroupId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateThingGroupResponse' with all optional fields omitted.
@@ -182,31 +182,31 @@ data CreateThingGroupResponse = CreateThingGroupResponse'
 -- 'httpStatus', 'createThingGroupResponse_httpStatus' - The response's http status code.
 newCreateThingGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateThingGroupResponse
 newCreateThingGroupResponse pHttpStatus_ =
   CreateThingGroupResponse'
     { thingGroupArn =
-        Prelude.Nothing,
-      thingGroupName = Prelude.Nothing,
-      thingGroupId = Prelude.Nothing,
+        Core.Nothing,
+      thingGroupName = Core.Nothing,
+      thingGroupId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The thing group ARN.
-createThingGroupResponse_thingGroupArn :: Lens.Lens' CreateThingGroupResponse (Prelude.Maybe Prelude.Text)
+createThingGroupResponse_thingGroupArn :: Lens.Lens' CreateThingGroupResponse (Core.Maybe Core.Text)
 createThingGroupResponse_thingGroupArn = Lens.lens (\CreateThingGroupResponse' {thingGroupArn} -> thingGroupArn) (\s@CreateThingGroupResponse' {} a -> s {thingGroupArn = a} :: CreateThingGroupResponse)
 
 -- | The thing group name.
-createThingGroupResponse_thingGroupName :: Lens.Lens' CreateThingGroupResponse (Prelude.Maybe Prelude.Text)
+createThingGroupResponse_thingGroupName :: Lens.Lens' CreateThingGroupResponse (Core.Maybe Core.Text)
 createThingGroupResponse_thingGroupName = Lens.lens (\CreateThingGroupResponse' {thingGroupName} -> thingGroupName) (\s@CreateThingGroupResponse' {} a -> s {thingGroupName = a} :: CreateThingGroupResponse)
 
 -- | The thing group ID.
-createThingGroupResponse_thingGroupId :: Lens.Lens' CreateThingGroupResponse (Prelude.Maybe Prelude.Text)
+createThingGroupResponse_thingGroupId :: Lens.Lens' CreateThingGroupResponse (Core.Maybe Core.Text)
 createThingGroupResponse_thingGroupId = Lens.lens (\CreateThingGroupResponse' {thingGroupId} -> thingGroupId) (\s@CreateThingGroupResponse' {} a -> s {thingGroupId = a} :: CreateThingGroupResponse)
 
 -- | The response's http status code.
-createThingGroupResponse_httpStatus :: Lens.Lens' CreateThingGroupResponse Prelude.Int
+createThingGroupResponse_httpStatus :: Lens.Lens' CreateThingGroupResponse Core.Int
 createThingGroupResponse_httpStatus = Lens.lens (\CreateThingGroupResponse' {httpStatus} -> httpStatus) (\s@CreateThingGroupResponse' {} a -> s {httpStatus = a} :: CreateThingGroupResponse)
 
-instance Prelude.NFData CreateThingGroupResponse
+instance Core.NFData CreateThingGroupResponse

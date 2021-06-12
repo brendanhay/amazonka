@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -86,9 +85,9 @@ module Network.AWS.KinesisVideoMedia.GetMedia
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisVideoMedia.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -96,15 +95,15 @@ import qualified Network.AWS.Response as Response
 data GetMedia = GetMedia'
   { -- | The ARN of the stream from where you want to get the media content. If
     -- you don\'t specify the @streamARN@, you must specify the @streamName@.
-    streamARN :: Prelude.Maybe Prelude.Text,
+    streamARN :: Core.Maybe Core.Text,
     -- | The Kinesis video stream name from where you want to get the media
     -- content. If you don\'t specify the @streamName@, you must specify the
     -- @streamARN@.
-    streamName :: Prelude.Maybe Prelude.Text,
+    streamName :: Core.Maybe Core.Text,
     -- | Identifies the starting chunk to get from the specified stream.
     startSelector :: StartSelector
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMedia' with all optional fields omitted.
@@ -128,68 +127,67 @@ newGetMedia ::
   GetMedia
 newGetMedia pStartSelector_ =
   GetMedia'
-    { streamARN = Prelude.Nothing,
-      streamName = Prelude.Nothing,
+    { streamARN = Core.Nothing,
+      streamName = Core.Nothing,
       startSelector = pStartSelector_
     }
 
 -- | The ARN of the stream from where you want to get the media content. If
 -- you don\'t specify the @streamARN@, you must specify the @streamName@.
-getMedia_streamARN :: Lens.Lens' GetMedia (Prelude.Maybe Prelude.Text)
+getMedia_streamARN :: Lens.Lens' GetMedia (Core.Maybe Core.Text)
 getMedia_streamARN = Lens.lens (\GetMedia' {streamARN} -> streamARN) (\s@GetMedia' {} a -> s {streamARN = a} :: GetMedia)
 
 -- | The Kinesis video stream name from where you want to get the media
 -- content. If you don\'t specify the @streamName@, you must specify the
 -- @streamARN@.
-getMedia_streamName :: Lens.Lens' GetMedia (Prelude.Maybe Prelude.Text)
+getMedia_streamName :: Lens.Lens' GetMedia (Core.Maybe Core.Text)
 getMedia_streamName = Lens.lens (\GetMedia' {streamName} -> streamName) (\s@GetMedia' {} a -> s {streamName = a} :: GetMedia)
 
 -- | Identifies the starting chunk to get from the specified stream.
 getMedia_startSelector :: Lens.Lens' GetMedia StartSelector
 getMedia_startSelector = Lens.lens (\GetMedia' {startSelector} -> startSelector) (\s@GetMedia' {} a -> s {startSelector = a} :: GetMedia)
 
-instance Prelude.AWSRequest GetMedia where
-  type Rs GetMedia = GetMediaResponse
+instance Core.AWSRequest GetMedia where
+  type AWSResponse GetMedia = GetMediaResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveBody
       ( \s h x ->
           GetMediaResponse'
-            Prelude.<$> (h Prelude..#? "Content-Type")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.pure x)
+            Core.<$> (h Core..#? "Content-Type")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.pure x)
       )
 
-instance Prelude.Hashable GetMedia
+instance Core.Hashable GetMedia
 
-instance Prelude.NFData GetMedia
+instance Core.NFData GetMedia
 
-instance Prelude.ToHeaders GetMedia where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders GetMedia where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON GetMedia where
+instance Core.ToJSON GetMedia where
   toJSON GetMedia' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("StreamARN" Prelude..=) Prelude.<$> streamARN,
-            ("StreamName" Prelude..=) Prelude.<$> streamName,
-            Prelude.Just
-              ("StartSelector" Prelude..= startSelector)
+    Core.object
+      ( Core.catMaybes
+          [ ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName,
+            Core.Just ("StartSelector" Core..= startSelector)
           ]
       )
 
-instance Prelude.ToPath GetMedia where
-  toPath = Prelude.const "/getMedia"
+instance Core.ToPath GetMedia where
+  toPath = Core.const "/getMedia"
 
-instance Prelude.ToQuery GetMedia where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetMedia where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetMediaResponse' smart constructor.
 data GetMediaResponse = GetMediaResponse'
   { -- | The content type of the requested media.
-    contentType :: Prelude.Maybe Prelude.Text,
+    contentType :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The payload Kinesis Video Streams returns is a sequence of chunks from
     -- the specified stream. For information about the chunks, see . The chunks
     -- that Kinesis Video Streams returns in the @GetMedia@ call also include
@@ -242,9 +240,9 @@ data GetMediaResponse = GetMediaResponse'
     -- -   4506 - Unable to find the KMS key specified in the stream
     --
     -- -   5000 - Internal error
-    payload :: Prelude.RsBody
+    payload :: Core.ResponseBody
   }
-  deriving (Prelude.Show, Prelude.Generic)
+  deriving (Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetMediaResponse' with all optional fields omitted.
@@ -312,23 +310,23 @@ data GetMediaResponse = GetMediaResponse'
 -- -   5000 - Internal error
 newGetMediaResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'payload'
-  Prelude.RsBody ->
+  Core.ResponseBody ->
   GetMediaResponse
 newGetMediaResponse pHttpStatus_ pPayload_ =
   GetMediaResponse'
-    { contentType = Prelude.Nothing,
+    { contentType = Core.Nothing,
       httpStatus = pHttpStatus_,
       payload = pPayload_
     }
 
 -- | The content type of the requested media.
-getMediaResponse_contentType :: Lens.Lens' GetMediaResponse (Prelude.Maybe Prelude.Text)
+getMediaResponse_contentType :: Lens.Lens' GetMediaResponse (Core.Maybe Core.Text)
 getMediaResponse_contentType = Lens.lens (\GetMediaResponse' {contentType} -> contentType) (\s@GetMediaResponse' {} a -> s {contentType = a} :: GetMediaResponse)
 
 -- | The response's http status code.
-getMediaResponse_httpStatus :: Lens.Lens' GetMediaResponse Prelude.Int
+getMediaResponse_httpStatus :: Lens.Lens' GetMediaResponse Core.Int
 getMediaResponse_httpStatus = Lens.lens (\GetMediaResponse' {httpStatus} -> httpStatus) (\s@GetMediaResponse' {} a -> s {httpStatus = a} :: GetMediaResponse)
 
 -- | The payload Kinesis Video Streams returns is a sequence of chunks from
@@ -383,5 +381,5 @@ getMediaResponse_httpStatus = Lens.lens (\GetMediaResponse' {httpStatus} -> http
 -- -   4506 - Unable to find the KMS key specified in the stream
 --
 -- -   5000 - Internal error
-getMediaResponse_payload :: Lens.Lens' GetMediaResponse Prelude.RsBody
+getMediaResponse_payload :: Lens.Lens' GetMediaResponse Core.ResponseBody
 getMediaResponse_payload = Lens.lens (\GetMediaResponse' {payload} -> payload) (\s@GetMediaResponse' {} a -> s {payload = a} :: GetMediaResponse)

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.UiTemplate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The Liquid template for the worker user interface.
 --
 -- /See:/ 'newUiTemplate' smart constructor.
 data UiTemplate = UiTemplate'
   { -- | The content of the Liquid template for the worker user interface.
-    content :: Prelude.Text
+    content :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UiTemplate' with all optional fields omitted.
@@ -43,22 +42,22 @@ data UiTemplate = UiTemplate'
 -- 'content', 'uiTemplate_content' - The content of the Liquid template for the worker user interface.
 newUiTemplate ::
   -- | 'content'
-  Prelude.Text ->
+  Core.Text ->
   UiTemplate
 newUiTemplate pContent_ =
   UiTemplate' {content = pContent_}
 
 -- | The content of the Liquid template for the worker user interface.
-uiTemplate_content :: Lens.Lens' UiTemplate Prelude.Text
+uiTemplate_content :: Lens.Lens' UiTemplate Core.Text
 uiTemplate_content = Lens.lens (\UiTemplate' {content} -> content) (\s@UiTemplate' {} a -> s {content = a} :: UiTemplate)
 
-instance Prelude.Hashable UiTemplate
+instance Core.Hashable UiTemplate
 
-instance Prelude.NFData UiTemplate
+instance Core.NFData UiTemplate
 
-instance Prelude.ToJSON UiTemplate where
+instance Core.ToJSON UiTemplate where
   toJSON UiTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Content" Prelude..= content)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Content" Core..= content)]
       )

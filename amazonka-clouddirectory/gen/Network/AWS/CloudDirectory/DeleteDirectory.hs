@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,17 +42,17 @@ module Network.AWS.CloudDirectory.DeleteDirectory
 where
 
 import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteDirectory' smart constructor.
 data DeleteDirectory = DeleteDirectory'
   { -- | The ARN of the directory to delete.
-    directoryArn :: Prelude.Text
+    directoryArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDirectory' with all optional fields omitted.
@@ -66,55 +65,56 @@ data DeleteDirectory = DeleteDirectory'
 -- 'directoryArn', 'deleteDirectory_directoryArn' - The ARN of the directory to delete.
 newDeleteDirectory ::
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDirectory
 newDeleteDirectory pDirectoryArn_ =
   DeleteDirectory' {directoryArn = pDirectoryArn_}
 
 -- | The ARN of the directory to delete.
-deleteDirectory_directoryArn :: Lens.Lens' DeleteDirectory Prelude.Text
+deleteDirectory_directoryArn :: Lens.Lens' DeleteDirectory Core.Text
 deleteDirectory_directoryArn = Lens.lens (\DeleteDirectory' {directoryArn} -> directoryArn) (\s@DeleteDirectory' {} a -> s {directoryArn = a} :: DeleteDirectory)
 
-instance Prelude.AWSRequest DeleteDirectory where
-  type Rs DeleteDirectory = DeleteDirectoryResponse
+instance Core.AWSRequest DeleteDirectory where
+  type
+    AWSResponse DeleteDirectory =
+      DeleteDirectoryResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteDirectoryResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "DirectoryArn")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "DirectoryArn")
       )
 
-instance Prelude.Hashable DeleteDirectory
+instance Core.Hashable DeleteDirectory
 
-instance Prelude.NFData DeleteDirectory
+instance Core.NFData DeleteDirectory
 
-instance Prelude.ToHeaders DeleteDirectory where
+instance Core.ToHeaders DeleteDirectory where
   toHeaders DeleteDirectory' {..} =
-    Prelude.mconcat
-      ["x-amz-data-partition" Prelude.=# directoryArn]
+    Core.mconcat
+      ["x-amz-data-partition" Core.=# directoryArn]
 
-instance Prelude.ToJSON DeleteDirectory where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DeleteDirectory where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DeleteDirectory where
+instance Core.ToPath DeleteDirectory where
   toPath =
-    Prelude.const
+    Core.const
       "/amazonclouddirectory/2017-01-11/directory"
 
-instance Prelude.ToQuery DeleteDirectory where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteDirectory where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteDirectoryResponse' smart constructor.
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The ARN of the deleted directory.
-    directoryArn :: Prelude.Text
+    directoryArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteDirectoryResponse' with all optional fields omitted.
@@ -129,9 +129,9 @@ data DeleteDirectoryResponse = DeleteDirectoryResponse'
 -- 'directoryArn', 'deleteDirectoryResponse_directoryArn' - The ARN of the deleted directory.
 newDeleteDirectoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'directoryArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteDirectoryResponse
 newDeleteDirectoryResponse
   pHttpStatus_
@@ -142,11 +142,11 @@ newDeleteDirectoryResponse
       }
 
 -- | The response's http status code.
-deleteDirectoryResponse_httpStatus :: Lens.Lens' DeleteDirectoryResponse Prelude.Int
+deleteDirectoryResponse_httpStatus :: Lens.Lens' DeleteDirectoryResponse Core.Int
 deleteDirectoryResponse_httpStatus = Lens.lens (\DeleteDirectoryResponse' {httpStatus} -> httpStatus) (\s@DeleteDirectoryResponse' {} a -> s {httpStatus = a} :: DeleteDirectoryResponse)
 
 -- | The ARN of the deleted directory.
-deleteDirectoryResponse_directoryArn :: Lens.Lens' DeleteDirectoryResponse Prelude.Text
+deleteDirectoryResponse_directoryArn :: Lens.Lens' DeleteDirectoryResponse Core.Text
 deleteDirectoryResponse_directoryArn = Lens.lens (\DeleteDirectoryResponse' {directoryArn} -> directoryArn) (\s@DeleteDirectoryResponse' {} a -> s {directoryArn = a} :: DeleteDirectoryResponse)
 
-instance Prelude.NFData DeleteDirectoryResponse
+instance Core.NFData DeleteDirectoryResponse

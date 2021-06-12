@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.AlexaBusiness.RevokeInvitation
 where
 
 import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,11 +49,11 @@ import qualified Network.AWS.Response as Response
 data RevokeInvitation = RevokeInvitation'
   { -- | The ARN of the user for whom to revoke an enrollment invitation.
     -- Required.
-    userArn :: Prelude.Maybe Prelude.Text,
+    userArn :: Core.Maybe Core.Text,
     -- | The ARN of the enrollment invitation to revoke. Required.
-    enrollmentId :: Prelude.Maybe Prelude.Text
+    enrollmentId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeInvitation' with all optional fields omitted.
@@ -72,70 +71,69 @@ newRevokeInvitation ::
   RevokeInvitation
 newRevokeInvitation =
   RevokeInvitation'
-    { userArn = Prelude.Nothing,
-      enrollmentId = Prelude.Nothing
+    { userArn = Core.Nothing,
+      enrollmentId = Core.Nothing
     }
 
 -- | The ARN of the user for whom to revoke an enrollment invitation.
 -- Required.
-revokeInvitation_userArn :: Lens.Lens' RevokeInvitation (Prelude.Maybe Prelude.Text)
+revokeInvitation_userArn :: Lens.Lens' RevokeInvitation (Core.Maybe Core.Text)
 revokeInvitation_userArn = Lens.lens (\RevokeInvitation' {userArn} -> userArn) (\s@RevokeInvitation' {} a -> s {userArn = a} :: RevokeInvitation)
 
 -- | The ARN of the enrollment invitation to revoke. Required.
-revokeInvitation_enrollmentId :: Lens.Lens' RevokeInvitation (Prelude.Maybe Prelude.Text)
+revokeInvitation_enrollmentId :: Lens.Lens' RevokeInvitation (Core.Maybe Core.Text)
 revokeInvitation_enrollmentId = Lens.lens (\RevokeInvitation' {enrollmentId} -> enrollmentId) (\s@RevokeInvitation' {} a -> s {enrollmentId = a} :: RevokeInvitation)
 
-instance Prelude.AWSRequest RevokeInvitation where
-  type Rs RevokeInvitation = RevokeInvitationResponse
+instance Core.AWSRequest RevokeInvitation where
+  type
+    AWSResponse RevokeInvitation =
+      RevokeInvitationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           RevokeInvitationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RevokeInvitation
+instance Core.Hashable RevokeInvitation
 
-instance Prelude.NFData RevokeInvitation
+instance Core.NFData RevokeInvitation
 
-instance Prelude.ToHeaders RevokeInvitation where
+instance Core.ToHeaders RevokeInvitation where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AlexaForBusiness.RevokeInvitation" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AlexaForBusiness.RevokeInvitation" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RevokeInvitation where
+instance Core.ToJSON RevokeInvitation where
   toJSON RevokeInvitation' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("UserArn" Prelude..=) Prelude.<$> userArn,
-            ("EnrollmentId" Prelude..=)
-              Prelude.<$> enrollmentId
+    Core.object
+      ( Core.catMaybes
+          [ ("UserArn" Core..=) Core.<$> userArn,
+            ("EnrollmentId" Core..=) Core.<$> enrollmentId
           ]
       )
 
-instance Prelude.ToPath RevokeInvitation where
-  toPath = Prelude.const "/"
+instance Core.ToPath RevokeInvitation where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RevokeInvitation where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RevokeInvitation where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRevokeInvitationResponse' smart constructor.
 data RevokeInvitationResponse = RevokeInvitationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RevokeInvitationResponse' with all optional fields omitted.
@@ -148,7 +146,7 @@ data RevokeInvitationResponse = RevokeInvitationResponse'
 -- 'httpStatus', 'revokeInvitationResponse_httpStatus' - The response's http status code.
 newRevokeInvitationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RevokeInvitationResponse
 newRevokeInvitationResponse pHttpStatus_ =
   RevokeInvitationResponse'
@@ -157,7 +155,7 @@ newRevokeInvitationResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-revokeInvitationResponse_httpStatus :: Lens.Lens' RevokeInvitationResponse Prelude.Int
+revokeInvitationResponse_httpStatus :: Lens.Lens' RevokeInvitationResponse Core.Int
 revokeInvitationResponse_httpStatus = Lens.lens (\RevokeInvitationResponse' {httpStatus} -> httpStatus) (\s@RevokeInvitationResponse' {} a -> s {httpStatus = a} :: RevokeInvitationResponse)
 
-instance Prelude.NFData RevokeInvitationResponse
+instance Core.NFData RevokeInvitationResponse

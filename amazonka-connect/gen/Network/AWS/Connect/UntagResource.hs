@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -38,19 +37,19 @@ module Network.AWS.Connect.UntagResource
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Prelude.Text,
+    resourceArn :: Core.Text,
     -- | The tag keys.
-    tagKeys :: Prelude.NonEmpty Prelude.Text
+    tagKeys :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResource' with all optional fields omitted.
@@ -65,62 +64,59 @@ data UntagResource = UntagResource'
 -- 'tagKeys', 'untagResource_tagKeys' - The tag keys.
 newUntagResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tagKeys'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   UntagResource
 newUntagResource pResourceArn_ pTagKeys_ =
   UntagResource'
     { resourceArn = pResourceArn_,
-      tagKeys = Prelude._Coerce Lens.# pTagKeys_
+      tagKeys = Lens._Coerce Lens.# pTagKeys_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource.
-untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
+untagResource_resourceArn :: Lens.Lens' UntagResource Core.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
 -- | The tag keys.
-untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
-untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Prelude._Coerce
+untagResource_tagKeys :: Lens.Lens' UntagResource (Core.NonEmpty Core.Text)
+untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagResource where
-  type Rs UntagResource = UntagResourceResponse
+instance Core.AWSRequest UntagResource where
+  type
+    AWSResponse UntagResource =
+      UntagResourceResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull UntagResourceResponse'
 
-instance Prelude.Hashable UntagResource
+instance Core.Hashable UntagResource
 
-instance Prelude.NFData UntagResource
+instance Core.NFData UntagResource
 
-instance Prelude.ToHeaders UntagResource where
+instance Core.ToHeaders UntagResource where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath UntagResource where
+instance Core.ToPath UntagResource where
   toPath UntagResource' {..} =
-    Prelude.mconcat
-      ["/tags/", Prelude.toBS resourceArn]
+    Core.mconcat ["/tags/", Core.toBS resourceArn]
 
-instance Prelude.ToQuery UntagResource where
+instance Core.ToQuery UntagResource where
   toQuery UntagResource' {..} =
-    Prelude.mconcat
-      [ "tagKeys"
-          Prelude.=: Prelude.toQueryList "member" tagKeys
-      ]
+    Core.mconcat
+      ["tagKeys" Core.=: Core.toQueryList "member" tagKeys]
 
 -- | /See:/ 'newUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagResourceResponse' with all optional fields omitted.
@@ -130,4 +126,4 @@ newUntagResourceResponse ::
   UntagResourceResponse
 newUntagResourceResponse = UntagResourceResponse'
 
-instance Prelude.NFData UntagResourceResponse
+instance Core.NFData UntagResourceResponse

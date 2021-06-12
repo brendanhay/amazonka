@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -77,9 +76,9 @@ module Network.AWS.GameLift.ResumeGameServerGroup
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -87,11 +86,11 @@ import qualified Network.AWS.Response as Response
 data ResumeGameServerGroup = ResumeGameServerGroup'
   { -- | A unique identifier for the game server group. Use either the
     -- GameServerGroup name or ARN value.
-    gameServerGroupName :: Prelude.Text,
+    gameServerGroupName :: Core.Text,
     -- | The activity to resume for this game server group.
-    resumeActions :: Prelude.NonEmpty GameServerGroupAction
+    resumeActions :: Core.NonEmpty GameServerGroupAction
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResumeGameServerGroup' with all optional fields omitted.
@@ -107,9 +106,9 @@ data ResumeGameServerGroup = ResumeGameServerGroup'
 -- 'resumeActions', 'resumeGameServerGroup_resumeActions' - The activity to resume for this game server group.
 newResumeGameServerGroup ::
   -- | 'gameServerGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'resumeActions'
-  Prelude.NonEmpty GameServerGroupAction ->
+  Core.NonEmpty GameServerGroupAction ->
   ResumeGameServerGroup
 newResumeGameServerGroup
   pGameServerGroupName_
@@ -117,79 +116,73 @@ newResumeGameServerGroup
     ResumeGameServerGroup'
       { gameServerGroupName =
           pGameServerGroupName_,
-        resumeActions =
-          Prelude._Coerce Lens.# pResumeActions_
+        resumeActions = Lens._Coerce Lens.# pResumeActions_
       }
 
 -- | A unique identifier for the game server group. Use either the
 -- GameServerGroup name or ARN value.
-resumeGameServerGroup_gameServerGroupName :: Lens.Lens' ResumeGameServerGroup Prelude.Text
+resumeGameServerGroup_gameServerGroupName :: Lens.Lens' ResumeGameServerGroup Core.Text
 resumeGameServerGroup_gameServerGroupName = Lens.lens (\ResumeGameServerGroup' {gameServerGroupName} -> gameServerGroupName) (\s@ResumeGameServerGroup' {} a -> s {gameServerGroupName = a} :: ResumeGameServerGroup)
 
 -- | The activity to resume for this game server group.
-resumeGameServerGroup_resumeActions :: Lens.Lens' ResumeGameServerGroup (Prelude.NonEmpty GameServerGroupAction)
-resumeGameServerGroup_resumeActions = Lens.lens (\ResumeGameServerGroup' {resumeActions} -> resumeActions) (\s@ResumeGameServerGroup' {} a -> s {resumeActions = a} :: ResumeGameServerGroup) Prelude.. Prelude._Coerce
+resumeGameServerGroup_resumeActions :: Lens.Lens' ResumeGameServerGroup (Core.NonEmpty GameServerGroupAction)
+resumeGameServerGroup_resumeActions = Lens.lens (\ResumeGameServerGroup' {resumeActions} -> resumeActions) (\s@ResumeGameServerGroup' {} a -> s {resumeActions = a} :: ResumeGameServerGroup) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest ResumeGameServerGroup where
+instance Core.AWSRequest ResumeGameServerGroup where
   type
-    Rs ResumeGameServerGroup =
+    AWSResponse ResumeGameServerGroup =
       ResumeGameServerGroupResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ResumeGameServerGroupResponse'
-            Prelude.<$> (x Prelude..?> "GameServerGroup")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "GameServerGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ResumeGameServerGroup
+instance Core.Hashable ResumeGameServerGroup
 
-instance Prelude.NFData ResumeGameServerGroup
+instance Core.NFData ResumeGameServerGroup
 
-instance Prelude.ToHeaders ResumeGameServerGroup where
+instance Core.ToHeaders ResumeGameServerGroup where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.ResumeGameServerGroup" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "GameLift.ResumeGameServerGroup" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ResumeGameServerGroup where
+instance Core.ToJSON ResumeGameServerGroup where
   toJSON ResumeGameServerGroup' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "GameServerGroupName"
-                  Prelude..= gameServerGroupName
-              ),
-            Prelude.Just
-              ("ResumeActions" Prelude..= resumeActions)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("GameServerGroupName" Core..= gameServerGroupName),
+            Core.Just ("ResumeActions" Core..= resumeActions)
           ]
       )
 
-instance Prelude.ToPath ResumeGameServerGroup where
-  toPath = Prelude.const "/"
+instance Core.ToPath ResumeGameServerGroup where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ResumeGameServerGroup where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ResumeGameServerGroup where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newResumeGameServerGroupResponse' smart constructor.
 data ResumeGameServerGroupResponse = ResumeGameServerGroupResponse'
   { -- | An object that describes the game server group resource, with the
     -- @SuspendedActions@ property updated to reflect the resumed activity.
-    gameServerGroup :: Prelude.Maybe GameServerGroup,
+    gameServerGroup :: Core.Maybe GameServerGroup,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResumeGameServerGroupResponse' with all optional fields omitted.
@@ -205,22 +198,22 @@ data ResumeGameServerGroupResponse = ResumeGameServerGroupResponse'
 -- 'httpStatus', 'resumeGameServerGroupResponse_httpStatus' - The response's http status code.
 newResumeGameServerGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ResumeGameServerGroupResponse
 newResumeGameServerGroupResponse pHttpStatus_ =
   ResumeGameServerGroupResponse'
     { gameServerGroup =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes the game server group resource, with the
 -- @SuspendedActions@ property updated to reflect the resumed activity.
-resumeGameServerGroupResponse_gameServerGroup :: Lens.Lens' ResumeGameServerGroupResponse (Prelude.Maybe GameServerGroup)
+resumeGameServerGroupResponse_gameServerGroup :: Lens.Lens' ResumeGameServerGroupResponse (Core.Maybe GameServerGroup)
 resumeGameServerGroupResponse_gameServerGroup = Lens.lens (\ResumeGameServerGroupResponse' {gameServerGroup} -> gameServerGroup) (\s@ResumeGameServerGroupResponse' {} a -> s {gameServerGroup = a} :: ResumeGameServerGroupResponse)
 
 -- | The response's http status code.
-resumeGameServerGroupResponse_httpStatus :: Lens.Lens' ResumeGameServerGroupResponse Prelude.Int
+resumeGameServerGroupResponse_httpStatus :: Lens.Lens' ResumeGameServerGroupResponse Core.Int
 resumeGameServerGroupResponse_httpStatus = Lens.lens (\ResumeGameServerGroupResponse' {httpStatus} -> httpStatus) (\s@ResumeGameServerGroupResponse' {} a -> s {httpStatus = a} :: ResumeGameServerGroupResponse)
 
-instance Prelude.NFData ResumeGameServerGroupResponse
+instance Core.NFData ResumeGameServerGroupResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AlexaBusiness.Types.PSTNDialIn where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The information for public switched telephone network (PSTN)
 -- conferencing.
@@ -29,19 +28,19 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPSTNDialIn' smart constructor.
 data PSTNDialIn = PSTNDialIn'
   { -- | The zip code.
-    countryCode :: Prelude.Text,
+    countryCode :: Core.Text,
     -- | The phone number to call to join the conference.
-    phoneNumber :: Prelude.Text,
+    phoneNumber :: Core.Text,
     -- | The delay duration before Alexa enters the conference ID with dual-tone
     -- multi-frequency (DTMF). Each number on the dial pad corresponds to a
     -- DTMF tone, which is how we send data over the telephone network.
-    oneClickIdDelay :: Prelude.Text,
+    oneClickIdDelay :: Core.Text,
     -- | The delay duration before Alexa enters the conference pin with dual-tone
     -- multi-frequency (DTMF). Each number on the dial pad corresponds to a
     -- DTMF tone, which is how we send data over the telephone network.
-    oneClickPinDelay :: Prelude.Text
+    oneClickPinDelay :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PSTNDialIn' with all optional fields omitted.
@@ -64,13 +63,13 @@ data PSTNDialIn = PSTNDialIn'
 -- DTMF tone, which is how we send data over the telephone network.
 newPSTNDialIn ::
   -- | 'countryCode'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'phoneNumber'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'oneClickIdDelay'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'oneClickPinDelay'
-  Prelude.Text ->
+  Core.Text ->
   PSTNDialIn
 newPSTNDialIn
   pCountryCode_
@@ -85,50 +84,50 @@ newPSTNDialIn
       }
 
 -- | The zip code.
-pSTNDialIn_countryCode :: Lens.Lens' PSTNDialIn Prelude.Text
+pSTNDialIn_countryCode :: Lens.Lens' PSTNDialIn Core.Text
 pSTNDialIn_countryCode = Lens.lens (\PSTNDialIn' {countryCode} -> countryCode) (\s@PSTNDialIn' {} a -> s {countryCode = a} :: PSTNDialIn)
 
 -- | The phone number to call to join the conference.
-pSTNDialIn_phoneNumber :: Lens.Lens' PSTNDialIn Prelude.Text
+pSTNDialIn_phoneNumber :: Lens.Lens' PSTNDialIn Core.Text
 pSTNDialIn_phoneNumber = Lens.lens (\PSTNDialIn' {phoneNumber} -> phoneNumber) (\s@PSTNDialIn' {} a -> s {phoneNumber = a} :: PSTNDialIn)
 
 -- | The delay duration before Alexa enters the conference ID with dual-tone
 -- multi-frequency (DTMF). Each number on the dial pad corresponds to a
 -- DTMF tone, which is how we send data over the telephone network.
-pSTNDialIn_oneClickIdDelay :: Lens.Lens' PSTNDialIn Prelude.Text
+pSTNDialIn_oneClickIdDelay :: Lens.Lens' PSTNDialIn Core.Text
 pSTNDialIn_oneClickIdDelay = Lens.lens (\PSTNDialIn' {oneClickIdDelay} -> oneClickIdDelay) (\s@PSTNDialIn' {} a -> s {oneClickIdDelay = a} :: PSTNDialIn)
 
 -- | The delay duration before Alexa enters the conference pin with dual-tone
 -- multi-frequency (DTMF). Each number on the dial pad corresponds to a
 -- DTMF tone, which is how we send data over the telephone network.
-pSTNDialIn_oneClickPinDelay :: Lens.Lens' PSTNDialIn Prelude.Text
+pSTNDialIn_oneClickPinDelay :: Lens.Lens' PSTNDialIn Core.Text
 pSTNDialIn_oneClickPinDelay = Lens.lens (\PSTNDialIn' {oneClickPinDelay} -> oneClickPinDelay) (\s@PSTNDialIn' {} a -> s {oneClickPinDelay = a} :: PSTNDialIn)
 
-instance Prelude.FromJSON PSTNDialIn where
+instance Core.FromJSON PSTNDialIn where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PSTNDialIn"
       ( \x ->
           PSTNDialIn'
-            Prelude.<$> (x Prelude..: "CountryCode")
-            Prelude.<*> (x Prelude..: "PhoneNumber")
-            Prelude.<*> (x Prelude..: "OneClickIdDelay")
-            Prelude.<*> (x Prelude..: "OneClickPinDelay")
+            Core.<$> (x Core..: "CountryCode")
+            Core.<*> (x Core..: "PhoneNumber")
+            Core.<*> (x Core..: "OneClickIdDelay")
+            Core.<*> (x Core..: "OneClickPinDelay")
       )
 
-instance Prelude.Hashable PSTNDialIn
+instance Core.Hashable PSTNDialIn
 
-instance Prelude.NFData PSTNDialIn
+instance Core.NFData PSTNDialIn
 
-instance Prelude.ToJSON PSTNDialIn where
+instance Core.ToJSON PSTNDialIn where
   toJSON PSTNDialIn' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("CountryCode" Prelude..= countryCode),
-            Prelude.Just ("PhoneNumber" Prelude..= phoneNumber),
-            Prelude.Just
-              ("OneClickIdDelay" Prelude..= oneClickIdDelay),
-            Prelude.Just
-              ("OneClickPinDelay" Prelude..= oneClickPinDelay)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CountryCode" Core..= countryCode),
+            Core.Just ("PhoneNumber" Core..= phoneNumber),
+            Core.Just
+              ("OneClickIdDelay" Core..= oneClickIdDelay),
+            Core.Just
+              ("OneClickPinDelay" Core..= oneClickPinDelay)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EKS.Types.AddonVersionInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types.Compatibility
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an add-on version.
 --
 -- /See:/ 'newAddonVersionInfo' smart constructor.
 data AddonVersionInfo = AddonVersionInfo'
   { -- | An object that represents the compatibilities of a version.
-    compatibilities :: Prelude.Maybe [Compatibility],
+    compatibilities :: Core.Maybe [Compatibility],
     -- | The architectures that the version supports.
-    architecture :: Prelude.Maybe [Prelude.Text],
+    architecture :: Core.Maybe [Core.Text],
     -- | The version of the add-on.
-    addonVersion :: Prelude.Maybe Prelude.Text
+    addonVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AddonVersionInfo' with all optional fields omitted.
@@ -54,39 +53,34 @@ newAddonVersionInfo ::
   AddonVersionInfo
 newAddonVersionInfo =
   AddonVersionInfo'
-    { compatibilities =
-        Prelude.Nothing,
-      architecture = Prelude.Nothing,
-      addonVersion = Prelude.Nothing
+    { compatibilities = Core.Nothing,
+      architecture = Core.Nothing,
+      addonVersion = Core.Nothing
     }
 
 -- | An object that represents the compatibilities of a version.
-addonVersionInfo_compatibilities :: Lens.Lens' AddonVersionInfo (Prelude.Maybe [Compatibility])
-addonVersionInfo_compatibilities = Lens.lens (\AddonVersionInfo' {compatibilities} -> compatibilities) (\s@AddonVersionInfo' {} a -> s {compatibilities = a} :: AddonVersionInfo) Prelude.. Lens.mapping Prelude._Coerce
+addonVersionInfo_compatibilities :: Lens.Lens' AddonVersionInfo (Core.Maybe [Compatibility])
+addonVersionInfo_compatibilities = Lens.lens (\AddonVersionInfo' {compatibilities} -> compatibilities) (\s@AddonVersionInfo' {} a -> s {compatibilities = a} :: AddonVersionInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The architectures that the version supports.
-addonVersionInfo_architecture :: Lens.Lens' AddonVersionInfo (Prelude.Maybe [Prelude.Text])
-addonVersionInfo_architecture = Lens.lens (\AddonVersionInfo' {architecture} -> architecture) (\s@AddonVersionInfo' {} a -> s {architecture = a} :: AddonVersionInfo) Prelude.. Lens.mapping Prelude._Coerce
+addonVersionInfo_architecture :: Lens.Lens' AddonVersionInfo (Core.Maybe [Core.Text])
+addonVersionInfo_architecture = Lens.lens (\AddonVersionInfo' {architecture} -> architecture) (\s@AddonVersionInfo' {} a -> s {architecture = a} :: AddonVersionInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The version of the add-on.
-addonVersionInfo_addonVersion :: Lens.Lens' AddonVersionInfo (Prelude.Maybe Prelude.Text)
+addonVersionInfo_addonVersion :: Lens.Lens' AddonVersionInfo (Core.Maybe Core.Text)
 addonVersionInfo_addonVersion = Lens.lens (\AddonVersionInfo' {addonVersion} -> addonVersion) (\s@AddonVersionInfo' {} a -> s {addonVersion = a} :: AddonVersionInfo)
 
-instance Prelude.FromJSON AddonVersionInfo where
+instance Core.FromJSON AddonVersionInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AddonVersionInfo"
       ( \x ->
           AddonVersionInfo'
-            Prelude.<$> ( x Prelude..:? "compatibilities"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "architecture"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "addonVersion")
+            Core.<$> (x Core..:? "compatibilities" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "architecture" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "addonVersion")
       )
 
-instance Prelude.Hashable AddonVersionInfo
+instance Core.Hashable AddonVersionInfo
 
-instance Prelude.NFData AddonVersionInfo
+instance Core.NFData AddonVersionInfo

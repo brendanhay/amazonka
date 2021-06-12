@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,17 +39,17 @@ module Network.AWS.AppStream.DeleteFleet
 where
 
 import Network.AWS.AppStream.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteFleet' smart constructor.
 data DeleteFleet = DeleteFleet'
   { -- | The name of the fleet.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFleet' with all optional fields omitted.
@@ -63,62 +62,58 @@ data DeleteFleet = DeleteFleet'
 -- 'name', 'deleteFleet_name' - The name of the fleet.
 newDeleteFleet ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFleet
 newDeleteFleet pName_ = DeleteFleet' {name = pName_}
 
 -- | The name of the fleet.
-deleteFleet_name :: Lens.Lens' DeleteFleet Prelude.Text
+deleteFleet_name :: Lens.Lens' DeleteFleet Core.Text
 deleteFleet_name = Lens.lens (\DeleteFleet' {name} -> name) (\s@DeleteFleet' {} a -> s {name = a} :: DeleteFleet)
 
-instance Prelude.AWSRequest DeleteFleet where
-  type Rs DeleteFleet = DeleteFleetResponse
+instance Core.AWSRequest DeleteFleet where
+  type AWSResponse DeleteFleet = DeleteFleetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFleetResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteFleet
+instance Core.Hashable DeleteFleet
 
-instance Prelude.NFData DeleteFleet
+instance Core.NFData DeleteFleet
 
-instance Prelude.ToHeaders DeleteFleet where
+instance Core.ToHeaders DeleteFleet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "PhotonAdminProxyService.DeleteFleet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "PhotonAdminProxyService.DeleteFleet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteFleet where
+instance Core.ToJSON DeleteFleet where
   toJSON DeleteFleet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
-instance Prelude.ToPath DeleteFleet where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteFleet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteFleet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteFleet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteFleetResponse' smart constructor.
 data DeleteFleetResponse = DeleteFleetResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFleetResponse' with all optional fields omitted.
@@ -131,13 +126,13 @@ data DeleteFleetResponse = DeleteFleetResponse'
 -- 'httpStatus', 'deleteFleetResponse_httpStatus' - The response's http status code.
 newDeleteFleetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteFleetResponse
 newDeleteFleetResponse pHttpStatus_ =
   DeleteFleetResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteFleetResponse_httpStatus :: Lens.Lens' DeleteFleetResponse Prelude.Int
+deleteFleetResponse_httpStatus :: Lens.Lens' DeleteFleetResponse Core.Int
 deleteFleetResponse_httpStatus = Lens.lens (\DeleteFleetResponse' {httpStatus} -> httpStatus) (\s@DeleteFleetResponse' {} a -> s {httpStatus = a} :: DeleteFleetResponse)
 
-instance Prelude.NFData DeleteFleetResponse
+instance Core.NFData DeleteFleetResponse

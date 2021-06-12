@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,31 +47,30 @@ module Network.AWS.EC2.DescribeImportImageTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeImportImageTasks' smart constructor.
 data DescribeImportImageTasks = DescribeImportImageTasks'
   { -- | A token that indicates the next page of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The IDs of the import image tasks.
-    importTaskIds :: Prelude.Maybe [Prelude.Text],
+    importTaskIds :: Core.Maybe [Core.Text],
     -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | Filter tasks using the @task-state@ filter and one of the following
     -- values: @active@, @completed@, @deleting@, or @deleted@.
-    filters :: Prelude.Maybe [Filter]
+    filters :: Core.Maybe [Filter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeImportImageTasks' with all optional fields omitted.
@@ -99,117 +97,114 @@ newDescribeImportImageTasks ::
   DescribeImportImageTasks
 newDescribeImportImageTasks =
   DescribeImportImageTasks'
-    { nextToken =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      importTaskIds = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      importTaskIds = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | A token that indicates the next page of results.
-describeImportImageTasks_nextToken :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Text)
+describeImportImageTasks_nextToken :: Lens.Lens' DescribeImportImageTasks (Core.Maybe Core.Text)
 describeImportImageTasks_nextToken = Lens.lens (\DescribeImportImageTasks' {nextToken} -> nextToken) (\s@DescribeImportImageTasks' {} a -> s {nextToken = a} :: DescribeImportImageTasks)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describeImportImageTasks_dryRun :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Bool)
+describeImportImageTasks_dryRun :: Lens.Lens' DescribeImportImageTasks (Core.Maybe Core.Bool)
 describeImportImageTasks_dryRun = Lens.lens (\DescribeImportImageTasks' {dryRun} -> dryRun) (\s@DescribeImportImageTasks' {} a -> s {dryRun = a} :: DescribeImportImageTasks)
 
 -- | The IDs of the import image tasks.
-describeImportImageTasks_importTaskIds :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe [Prelude.Text])
-describeImportImageTasks_importTaskIds = Lens.lens (\DescribeImportImageTasks' {importTaskIds} -> importTaskIds) (\s@DescribeImportImageTasks' {} a -> s {importTaskIds = a} :: DescribeImportImageTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeImportImageTasks_importTaskIds :: Lens.Lens' DescribeImportImageTasks (Core.Maybe [Core.Text])
+describeImportImageTasks_importTaskIds = Lens.lens (\DescribeImportImageTasks' {importTaskIds} -> importTaskIds) (\s@DescribeImportImageTasks' {} a -> s {importTaskIds = a} :: DescribeImportImageTasks) Core.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of results to return in a single call.
-describeImportImageTasks_maxResults :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe Prelude.Int)
+describeImportImageTasks_maxResults :: Lens.Lens' DescribeImportImageTasks (Core.Maybe Core.Int)
 describeImportImageTasks_maxResults = Lens.lens (\DescribeImportImageTasks' {maxResults} -> maxResults) (\s@DescribeImportImageTasks' {} a -> s {maxResults = a} :: DescribeImportImageTasks)
 
 -- | Filter tasks using the @task-state@ filter and one of the following
 -- values: @active@, @completed@, @deleting@, or @deleted@.
-describeImportImageTasks_filters :: Lens.Lens' DescribeImportImageTasks (Prelude.Maybe [Filter])
-describeImportImageTasks_filters = Lens.lens (\DescribeImportImageTasks' {filters} -> filters) (\s@DescribeImportImageTasks' {} a -> s {filters = a} :: DescribeImportImageTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeImportImageTasks_filters :: Lens.Lens' DescribeImportImageTasks (Core.Maybe [Filter])
+describeImportImageTasks_filters = Lens.lens (\DescribeImportImageTasks' {filters} -> filters) (\s@DescribeImportImageTasks' {} a -> s {filters = a} :: DescribeImportImageTasks) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeImportImageTasks where
+instance Core.AWSPager DescribeImportImageTasks where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeImportImageTasksResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeImportImageTasksResponse_importImageTasks
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeImportImageTasks_nextToken
           Lens..~ rs
           Lens.^? describeImportImageTasksResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeImportImageTasks where
+instance Core.AWSRequest DescribeImportImageTasks where
   type
-    Rs DescribeImportImageTasks =
+    AWSResponse DescribeImportImageTasks =
       DescribeImportImageTasksResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DescribeImportImageTasksResponse'
-            Prelude.<$> (x Prelude..@? "nextToken")
-            Prelude.<*> ( x Prelude..@? "importImageTaskSet"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "importImageTaskSet" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "item")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeImportImageTasks
+instance Core.Hashable DescribeImportImageTasks
 
-instance Prelude.NFData DescribeImportImageTasks
+instance Core.NFData DescribeImportImageTasks
 
-instance Prelude.ToHeaders DescribeImportImageTasks where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeImportImageTasks where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DescribeImportImageTasks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeImportImageTasks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeImportImageTasks where
+instance Core.ToQuery DescribeImportImageTasks where
   toQuery DescribeImportImageTasks' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("DescribeImportImageTasks" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        "NextToken" Prelude.=: nextToken,
-        "DryRun" Prelude.=: dryRun,
-        Prelude.toQuery
-          ( Prelude.toQueryList "ImportTaskId"
-              Prelude.<$> importTaskIds
+          Core.=: ("DescribeImportImageTasks" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        "NextToken" Core.=: nextToken,
+        "DryRun" Core.=: dryRun,
+        Core.toQuery
+          ( Core.toQueryList "ImportTaskId"
+              Core.<$> importTaskIds
           ),
-        "MaxResults" Prelude.=: maxResults,
-        Prelude.toQuery
-          (Prelude.toQueryList "Filters" Prelude.<$> filters)
+        "MaxResults" Core.=: maxResults,
+        Core.toQuery
+          (Core.toQueryList "Filters" Core.<$> filters)
       ]
 
 -- | /See:/ 'newDescribeImportImageTasksResponse' smart constructor.
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
   { -- | The token to use to get the next page of results. This value is @null@
     -- when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of zero or more import image tasks that are currently active or
     -- were completed or canceled in the previous 7 days.
-    importImageTasks :: Prelude.Maybe [ImportImageTask],
+    importImageTasks :: Core.Maybe [ImportImageTask],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeImportImageTasksResponse' with all optional fields omitted.
@@ -228,30 +223,28 @@ data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
 -- 'httpStatus', 'describeImportImageTasksResponse_httpStatus' - The response's http status code.
 newDescribeImportImageTasksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeImportImageTasksResponse
 newDescribeImportImageTasksResponse pHttpStatus_ =
   DescribeImportImageTasksResponse'
     { nextToken =
-        Prelude.Nothing,
-      importImageTasks = Prelude.Nothing,
+        Core.Nothing,
+      importImageTasks = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.
-describeImportImageTasksResponse_nextToken :: Lens.Lens' DescribeImportImageTasksResponse (Prelude.Maybe Prelude.Text)
+describeImportImageTasksResponse_nextToken :: Lens.Lens' DescribeImportImageTasksResponse (Core.Maybe Core.Text)
 describeImportImageTasksResponse_nextToken = Lens.lens (\DescribeImportImageTasksResponse' {nextToken} -> nextToken) (\s@DescribeImportImageTasksResponse' {} a -> s {nextToken = a} :: DescribeImportImageTasksResponse)
 
 -- | A list of zero or more import image tasks that are currently active or
 -- were completed or canceled in the previous 7 days.
-describeImportImageTasksResponse_importImageTasks :: Lens.Lens' DescribeImportImageTasksResponse (Prelude.Maybe [ImportImageTask])
-describeImportImageTasksResponse_importImageTasks = Lens.lens (\DescribeImportImageTasksResponse' {importImageTasks} -> importImageTasks) (\s@DescribeImportImageTasksResponse' {} a -> s {importImageTasks = a} :: DescribeImportImageTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeImportImageTasksResponse_importImageTasks :: Lens.Lens' DescribeImportImageTasksResponse (Core.Maybe [ImportImageTask])
+describeImportImageTasksResponse_importImageTasks = Lens.lens (\DescribeImportImageTasksResponse' {importImageTasks} -> importImageTasks) (\s@DescribeImportImageTasksResponse' {} a -> s {importImageTasks = a} :: DescribeImportImageTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeImportImageTasksResponse_httpStatus :: Lens.Lens' DescribeImportImageTasksResponse Prelude.Int
+describeImportImageTasksResponse_httpStatus :: Lens.Lens' DescribeImportImageTasksResponse Core.Int
 describeImportImageTasksResponse_httpStatus = Lens.lens (\DescribeImportImageTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeImportImageTasksResponse' {} a -> s {httpStatus = a} :: DescribeImportImageTasksResponse)
 
-instance
-  Prelude.NFData
-    DescribeImportImageTasksResponse
+instance Core.NFData DescribeImportImageTasksResponse

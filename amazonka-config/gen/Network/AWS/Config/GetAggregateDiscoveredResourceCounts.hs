@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -56,8 +55,8 @@ module Network.AWS.Config.GetAggregateDiscoveredResourceCounts
 where
 
 import Network.AWS.Config.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,19 +64,19 @@ import qualified Network.AWS.Response as Response
 data GetAggregateDiscoveredResourceCounts = GetAggregateDiscoveredResourceCounts'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Filters the results based on the @ResourceCountFilters@ object.
-    filters :: Prelude.Maybe ResourceCountFilters,
+    filters :: Core.Maybe ResourceCountFilters,
     -- | The key to group the resource counts.
-    groupByKey :: Prelude.Maybe ResourceCountGroupKey,
+    groupByKey :: Core.Maybe ResourceCountGroupKey,
     -- | The maximum number of GroupedResourceCount objects returned on each
     -- page. The default is 1000. You cannot specify a number greater than
     -- 1000. If you specify 0, AWS Config uses the default.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Prelude.Text
+    configurationAggregatorName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAggregateDiscoveredResourceCounts' with all optional fields omitted.
@@ -101,137 +100,135 @@ data GetAggregateDiscoveredResourceCounts = GetAggregateDiscoveredResourceCounts
 -- 'configurationAggregatorName', 'getAggregateDiscoveredResourceCounts_configurationAggregatorName' - The name of the configuration aggregator.
 newGetAggregateDiscoveredResourceCounts ::
   -- | 'configurationAggregatorName'
-  Prelude.Text ->
+  Core.Text ->
   GetAggregateDiscoveredResourceCounts
 newGetAggregateDiscoveredResourceCounts
   pConfigurationAggregatorName_ =
     GetAggregateDiscoveredResourceCounts'
       { nextToken =
-          Prelude.Nothing,
-        filters = Prelude.Nothing,
-        groupByKey = Prelude.Nothing,
-        limit = Prelude.Nothing,
+          Core.Nothing,
+        filters = Core.Nothing,
+        groupByKey = Core.Nothing,
+        limit = Core.Nothing,
         configurationAggregatorName =
           pConfigurationAggregatorName_
       }
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-getAggregateDiscoveredResourceCounts_nextToken :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Prelude.Maybe Prelude.Text)
+getAggregateDiscoveredResourceCounts_nextToken :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Core.Maybe Core.Text)
 getAggregateDiscoveredResourceCounts_nextToken = Lens.lens (\GetAggregateDiscoveredResourceCounts' {nextToken} -> nextToken) (\s@GetAggregateDiscoveredResourceCounts' {} a -> s {nextToken = a} :: GetAggregateDiscoveredResourceCounts)
 
 -- | Filters the results based on the @ResourceCountFilters@ object.
-getAggregateDiscoveredResourceCounts_filters :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Prelude.Maybe ResourceCountFilters)
+getAggregateDiscoveredResourceCounts_filters :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Core.Maybe ResourceCountFilters)
 getAggregateDiscoveredResourceCounts_filters = Lens.lens (\GetAggregateDiscoveredResourceCounts' {filters} -> filters) (\s@GetAggregateDiscoveredResourceCounts' {} a -> s {filters = a} :: GetAggregateDiscoveredResourceCounts)
 
 -- | The key to group the resource counts.
-getAggregateDiscoveredResourceCounts_groupByKey :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Prelude.Maybe ResourceCountGroupKey)
+getAggregateDiscoveredResourceCounts_groupByKey :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Core.Maybe ResourceCountGroupKey)
 getAggregateDiscoveredResourceCounts_groupByKey = Lens.lens (\GetAggregateDiscoveredResourceCounts' {groupByKey} -> groupByKey) (\s@GetAggregateDiscoveredResourceCounts' {} a -> s {groupByKey = a} :: GetAggregateDiscoveredResourceCounts)
 
 -- | The maximum number of GroupedResourceCount objects returned on each
 -- page. The default is 1000. You cannot specify a number greater than
 -- 1000. If you specify 0, AWS Config uses the default.
-getAggregateDiscoveredResourceCounts_limit :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Prelude.Maybe Prelude.Natural)
+getAggregateDiscoveredResourceCounts_limit :: Lens.Lens' GetAggregateDiscoveredResourceCounts (Core.Maybe Core.Natural)
 getAggregateDiscoveredResourceCounts_limit = Lens.lens (\GetAggregateDiscoveredResourceCounts' {limit} -> limit) (\s@GetAggregateDiscoveredResourceCounts' {} a -> s {limit = a} :: GetAggregateDiscoveredResourceCounts)
 
 -- | The name of the configuration aggregator.
-getAggregateDiscoveredResourceCounts_configurationAggregatorName :: Lens.Lens' GetAggregateDiscoveredResourceCounts Prelude.Text
+getAggregateDiscoveredResourceCounts_configurationAggregatorName :: Lens.Lens' GetAggregateDiscoveredResourceCounts Core.Text
 getAggregateDiscoveredResourceCounts_configurationAggregatorName = Lens.lens (\GetAggregateDiscoveredResourceCounts' {configurationAggregatorName} -> configurationAggregatorName) (\s@GetAggregateDiscoveredResourceCounts' {} a -> s {configurationAggregatorName = a} :: GetAggregateDiscoveredResourceCounts)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetAggregateDiscoveredResourceCounts
   where
   type
-    Rs GetAggregateDiscoveredResourceCounts =
+    AWSResponse GetAggregateDiscoveredResourceCounts =
       GetAggregateDiscoveredResourceCountsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAggregateDiscoveredResourceCountsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-              Prelude.<*> ( x Prelude..?> "GroupedResourceCounts"
-                              Prelude..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Prelude..?> "GroupByKey")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Prelude..:> "TotalDiscoveredResources")
+            Core.<$> (x Core..?> "NextToken")
+              Core.<*> ( x Core..?> "GroupedResourceCounts"
+                           Core..!@ Core.mempty
+                       )
+              Core.<*> (x Core..?> "GroupByKey")
+              Core.<*> (Core.pure (Core.fromEnum s))
+              Core.<*> (x Core..:> "TotalDiscoveredResources")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetAggregateDiscoveredResourceCounts
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetAggregateDiscoveredResourceCounts
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetAggregateDiscoveredResourceCounts
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "StarlingDoveService.GetAggregateDiscoveredResourceCounts" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "StarlingDoveService.GetAggregateDiscoveredResourceCounts" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     GetAggregateDiscoveredResourceCounts
   where
   toJSON GetAggregateDiscoveredResourceCounts' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("Filters" Prelude..=) Prelude.<$> filters,
-            ("GroupByKey" Prelude..=) Prelude.<$> groupByKey,
-            ("Limit" Prelude..=) Prelude.<$> limit,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("Filters" Core..=) Core.<$> filters,
+            ("GroupByKey" Core..=) Core.<$> groupByKey,
+            ("Limit" Core..=) Core.<$> limit,
+            Core.Just
               ( "ConfigurationAggregatorName"
-                  Prelude..= configurationAggregatorName
+                  Core..= configurationAggregatorName
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     GetAggregateDiscoveredResourceCounts
   where
-  toPath = Prelude.const "/"
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     GetAggregateDiscoveredResourceCounts
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAggregateDiscoveredResourceCountsResponse' smart constructor.
 data GetAggregateDiscoveredResourceCountsResponse = GetAggregateDiscoveredResourceCountsResponse'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Returns a list of GroupedResourceCount objects.
-    groupedResourceCounts :: Prelude.Maybe [GroupedResourceCount],
+    groupedResourceCounts :: Core.Maybe [GroupedResourceCount],
     -- | The key passed into the request object. If @GroupByKey@ is not provided,
     -- the result will be empty.
-    groupByKey :: Prelude.Maybe Prelude.Text,
+    groupByKey :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The total number of resources that are present in an aggregator with the
     -- filters that you provide.
-    totalDiscoveredResources :: Prelude.Integer
+    totalDiscoveredResources :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAggregateDiscoveredResourceCountsResponse' with all optional fields omitted.
@@ -255,19 +252,19 @@ data GetAggregateDiscoveredResourceCountsResponse = GetAggregateDiscoveredResour
 -- filters that you provide.
 newGetAggregateDiscoveredResourceCountsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'totalDiscoveredResources'
-  Prelude.Integer ->
+  Core.Integer ->
   GetAggregateDiscoveredResourceCountsResponse
 newGetAggregateDiscoveredResourceCountsResponse
   pHttpStatus_
   pTotalDiscoveredResources_ =
     GetAggregateDiscoveredResourceCountsResponse'
       { nextToken =
-          Prelude.Nothing,
+          Core.Nothing,
         groupedResourceCounts =
-          Prelude.Nothing,
-        groupByKey = Prelude.Nothing,
+          Core.Nothing,
+        groupByKey = Core.Nothing,
         httpStatus = pHttpStatus_,
         totalDiscoveredResources =
           pTotalDiscoveredResources_
@@ -275,27 +272,27 @@ newGetAggregateDiscoveredResourceCountsResponse
 
 -- | The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
-getAggregateDiscoveredResourceCountsResponse_nextToken :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Prelude.Maybe Prelude.Text)
+getAggregateDiscoveredResourceCountsResponse_nextToken :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Core.Maybe Core.Text)
 getAggregateDiscoveredResourceCountsResponse_nextToken = Lens.lens (\GetAggregateDiscoveredResourceCountsResponse' {nextToken} -> nextToken) (\s@GetAggregateDiscoveredResourceCountsResponse' {} a -> s {nextToken = a} :: GetAggregateDiscoveredResourceCountsResponse)
 
 -- | Returns a list of GroupedResourceCount objects.
-getAggregateDiscoveredResourceCountsResponse_groupedResourceCounts :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Prelude.Maybe [GroupedResourceCount])
-getAggregateDiscoveredResourceCountsResponse_groupedResourceCounts = Lens.lens (\GetAggregateDiscoveredResourceCountsResponse' {groupedResourceCounts} -> groupedResourceCounts) (\s@GetAggregateDiscoveredResourceCountsResponse' {} a -> s {groupedResourceCounts = a} :: GetAggregateDiscoveredResourceCountsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getAggregateDiscoveredResourceCountsResponse_groupedResourceCounts :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Core.Maybe [GroupedResourceCount])
+getAggregateDiscoveredResourceCountsResponse_groupedResourceCounts = Lens.lens (\GetAggregateDiscoveredResourceCountsResponse' {groupedResourceCounts} -> groupedResourceCounts) (\s@GetAggregateDiscoveredResourceCountsResponse' {} a -> s {groupedResourceCounts = a} :: GetAggregateDiscoveredResourceCountsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The key passed into the request object. If @GroupByKey@ is not provided,
 -- the result will be empty.
-getAggregateDiscoveredResourceCountsResponse_groupByKey :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Prelude.Maybe Prelude.Text)
+getAggregateDiscoveredResourceCountsResponse_groupByKey :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse (Core.Maybe Core.Text)
 getAggregateDiscoveredResourceCountsResponse_groupByKey = Lens.lens (\GetAggregateDiscoveredResourceCountsResponse' {groupByKey} -> groupByKey) (\s@GetAggregateDiscoveredResourceCountsResponse' {} a -> s {groupByKey = a} :: GetAggregateDiscoveredResourceCountsResponse)
 
 -- | The response's http status code.
-getAggregateDiscoveredResourceCountsResponse_httpStatus :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Prelude.Int
+getAggregateDiscoveredResourceCountsResponse_httpStatus :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Core.Int
 getAggregateDiscoveredResourceCountsResponse_httpStatus = Lens.lens (\GetAggregateDiscoveredResourceCountsResponse' {httpStatus} -> httpStatus) (\s@GetAggregateDiscoveredResourceCountsResponse' {} a -> s {httpStatus = a} :: GetAggregateDiscoveredResourceCountsResponse)
 
 -- | The total number of resources that are present in an aggregator with the
 -- filters that you provide.
-getAggregateDiscoveredResourceCountsResponse_totalDiscoveredResources :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Prelude.Integer
+getAggregateDiscoveredResourceCountsResponse_totalDiscoveredResources :: Lens.Lens' GetAggregateDiscoveredResourceCountsResponse Core.Integer
 getAggregateDiscoveredResourceCountsResponse_totalDiscoveredResources = Lens.lens (\GetAggregateDiscoveredResourceCountsResponse' {totalDiscoveredResources} -> totalDiscoveredResources) (\s@GetAggregateDiscoveredResourceCountsResponse' {} a -> s {totalDiscoveredResources = a} :: GetAggregateDiscoveredResourceCountsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetAggregateDiscoveredResourceCountsResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.CodeCommit.GetApprovalRuleTemplate
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 data GetApprovalRuleTemplate = GetApprovalRuleTemplate'
   { -- | The name of the approval rule template for which you want to get
     -- information.
-    approvalRuleTemplateName :: Prelude.Text
+    approvalRuleTemplateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApprovalRuleTemplate' with all optional fields omitted.
@@ -66,7 +65,7 @@ data GetApprovalRuleTemplate = GetApprovalRuleTemplate'
 -- information.
 newGetApprovalRuleTemplate ::
   -- | 'approvalRuleTemplateName'
-  Prelude.Text ->
+  Core.Text ->
   GetApprovalRuleTemplate
 newGetApprovalRuleTemplate pApprovalRuleTemplateName_ =
   GetApprovalRuleTemplate'
@@ -76,66 +75,64 @@ newGetApprovalRuleTemplate pApprovalRuleTemplateName_ =
 
 -- | The name of the approval rule template for which you want to get
 -- information.
-getApprovalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' GetApprovalRuleTemplate Prelude.Text
+getApprovalRuleTemplate_approvalRuleTemplateName :: Lens.Lens' GetApprovalRuleTemplate Core.Text
 getApprovalRuleTemplate_approvalRuleTemplateName = Lens.lens (\GetApprovalRuleTemplate' {approvalRuleTemplateName} -> approvalRuleTemplateName) (\s@GetApprovalRuleTemplate' {} a -> s {approvalRuleTemplateName = a} :: GetApprovalRuleTemplate)
 
-instance Prelude.AWSRequest GetApprovalRuleTemplate where
+instance Core.AWSRequest GetApprovalRuleTemplate where
   type
-    Rs GetApprovalRuleTemplate =
+    AWSResponse GetApprovalRuleTemplate =
       GetApprovalRuleTemplateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetApprovalRuleTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "approvalRuleTemplate")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "approvalRuleTemplate")
       )
 
-instance Prelude.Hashable GetApprovalRuleTemplate
+instance Core.Hashable GetApprovalRuleTemplate
 
-instance Prelude.NFData GetApprovalRuleTemplate
+instance Core.NFData GetApprovalRuleTemplate
 
-instance Prelude.ToHeaders GetApprovalRuleTemplate where
+instance Core.ToHeaders GetApprovalRuleTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.GetApprovalRuleTemplate" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.GetApprovalRuleTemplate" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetApprovalRuleTemplate where
+instance Core.ToJSON GetApprovalRuleTemplate where
   toJSON GetApprovalRuleTemplate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "approvalRuleTemplateName"
-                  Prelude..= approvalRuleTemplateName
+                  Core..= approvalRuleTemplateName
               )
           ]
       )
 
-instance Prelude.ToPath GetApprovalRuleTemplate where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetApprovalRuleTemplate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetApprovalRuleTemplate where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetApprovalRuleTemplate where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetApprovalRuleTemplateResponse' smart constructor.
 data GetApprovalRuleTemplateResponse = GetApprovalRuleTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The content and structure of the approval rule template.
     approvalRuleTemplate :: ApprovalRuleTemplate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetApprovalRuleTemplateResponse' with all optional fields omitted.
@@ -150,7 +147,7 @@ data GetApprovalRuleTemplateResponse = GetApprovalRuleTemplateResponse'
 -- 'approvalRuleTemplate', 'getApprovalRuleTemplateResponse_approvalRuleTemplate' - The content and structure of the approval rule template.
 newGetApprovalRuleTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'approvalRuleTemplate'
   ApprovalRuleTemplate ->
   GetApprovalRuleTemplateResponse
@@ -165,13 +162,11 @@ newGetApprovalRuleTemplateResponse
       }
 
 -- | The response's http status code.
-getApprovalRuleTemplateResponse_httpStatus :: Lens.Lens' GetApprovalRuleTemplateResponse Prelude.Int
+getApprovalRuleTemplateResponse_httpStatus :: Lens.Lens' GetApprovalRuleTemplateResponse Core.Int
 getApprovalRuleTemplateResponse_httpStatus = Lens.lens (\GetApprovalRuleTemplateResponse' {httpStatus} -> httpStatus) (\s@GetApprovalRuleTemplateResponse' {} a -> s {httpStatus = a} :: GetApprovalRuleTemplateResponse)
 
 -- | The content and structure of the approval rule template.
 getApprovalRuleTemplateResponse_approvalRuleTemplate :: Lens.Lens' GetApprovalRuleTemplateResponse ApprovalRuleTemplate
 getApprovalRuleTemplateResponse_approvalRuleTemplate = Lens.lens (\GetApprovalRuleTemplateResponse' {approvalRuleTemplate} -> approvalRuleTemplate) (\s@GetApprovalRuleTemplateResponse' {} a -> s {approvalRuleTemplate = a} :: GetApprovalRuleTemplateResponse)
 
-instance
-  Prelude.NFData
-    GetApprovalRuleTemplateResponse
+instance Core.NFData GetApprovalRuleTemplateResponse

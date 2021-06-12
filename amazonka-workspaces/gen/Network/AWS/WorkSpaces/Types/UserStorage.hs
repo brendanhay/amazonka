@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.WorkSpaces.Types.UserStorage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the user storage for a WorkSpace bundle.
 --
 -- /See:/ 'newUserStorage' smart constructor.
 data UserStorage = UserStorage'
   { -- | The size of the user storage.
-    capacity :: Prelude.Maybe Prelude.Text
+    capacity :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UserStorage' with all optional fields omitted.
@@ -44,20 +43,20 @@ data UserStorage = UserStorage'
 newUserStorage ::
   UserStorage
 newUserStorage =
-  UserStorage' {capacity = Prelude.Nothing}
+  UserStorage' {capacity = Core.Nothing}
 
 -- | The size of the user storage.
-userStorage_capacity :: Lens.Lens' UserStorage (Prelude.Maybe Prelude.Text)
+userStorage_capacity :: Lens.Lens' UserStorage (Core.Maybe Core.Text)
 userStorage_capacity = Lens.lens (\UserStorage' {capacity} -> capacity) (\s@UserStorage' {} a -> s {capacity = a} :: UserStorage)
 
-instance Prelude.FromJSON UserStorage where
+instance Core.FromJSON UserStorage where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UserStorage"
       ( \x ->
-          UserStorage' Prelude.<$> (x Prelude..:? "Capacity")
+          UserStorage' Core.<$> (x Core..:? "Capacity")
       )
 
-instance Prelude.Hashable UserStorage
+instance Core.Hashable UserStorage
 
-instance Prelude.NFData UserStorage
+instance Core.NFData UserStorage

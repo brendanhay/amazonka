@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -51,9 +50,9 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELB.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,9 +62,9 @@ import qualified Network.AWS.Response as Response
 data DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
   { -- | The names of the policy types. If no names are specified, describes all
     -- policy types defined by Elastic Load Balancing.
-    policyTypeNames :: Prelude.Maybe [Prelude.Text]
+    policyTypeNames :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancerPolicyTypes' with all optional fields omitted.
@@ -82,20 +81,20 @@ newDescribeLoadBalancerPolicyTypes ::
 newDescribeLoadBalancerPolicyTypes =
   DescribeLoadBalancerPolicyTypes'
     { policyTypeNames =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
-describeLoadBalancerPolicyTypes_policyTypeNames :: Lens.Lens' DescribeLoadBalancerPolicyTypes (Prelude.Maybe [Prelude.Text])
-describeLoadBalancerPolicyTypes_policyTypeNames = Lens.lens (\DescribeLoadBalancerPolicyTypes' {policyTypeNames} -> policyTypeNames) (\s@DescribeLoadBalancerPolicyTypes' {} a -> s {policyTypeNames = a} :: DescribeLoadBalancerPolicyTypes) Prelude.. Lens.mapping Prelude._Coerce
+describeLoadBalancerPolicyTypes_policyTypeNames :: Lens.Lens' DescribeLoadBalancerPolicyTypes (Core.Maybe [Core.Text])
+describeLoadBalancerPolicyTypes_policyTypeNames = Lens.lens (\DescribeLoadBalancerPolicyTypes' {policyTypeNames} -> policyTypeNames) (\s@DescribeLoadBalancerPolicyTypes' {} a -> s {policyTypeNames = a} :: DescribeLoadBalancerPolicyTypes) Core.. Lens.mapping Lens._Coerce
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeLoadBalancerPolicyTypes
   where
   type
-    Rs DescribeLoadBalancerPolicyTypes =
+    AWSResponse DescribeLoadBalancerPolicyTypes =
       DescribeLoadBalancerPolicyTypesResponse
   request = Request.postQuery defaultService
   response =
@@ -103,50 +102,39 @@ instance
       "DescribeLoadBalancerPolicyTypesResult"
       ( \s h x ->
           DescribeLoadBalancerPolicyTypesResponse'
-            Prelude.<$> ( x Prelude..@? "PolicyTypeDescriptions"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "PolicyTypeDescriptions"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeLoadBalancerPolicyTypes
 
-instance
-  Prelude.NFData
-    DescribeLoadBalancerPolicyTypes
+instance Core.NFData DescribeLoadBalancerPolicyTypes
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeLoadBalancerPolicyTypes
   where
-  toHeaders = Prelude.const Prelude.mempty
+  toHeaders = Core.const Core.mempty
 
-instance
-  Prelude.ToPath
-    DescribeLoadBalancerPolicyTypes
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeLoadBalancerPolicyTypes where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeLoadBalancerPolicyTypes
-  where
+instance Core.ToQuery DescribeLoadBalancerPolicyTypes where
   toQuery DescribeLoadBalancerPolicyTypes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "DescribeLoadBalancerPolicyTypes" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
+          Core.=: ( "DescribeLoadBalancerPolicyTypes" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2012-06-01" :: Core.ByteString),
         "PolicyTypeNames"
-          Prelude.=: Prelude.toQuery
-            ( Prelude.toQueryList "member"
-                Prelude.<$> policyTypeNames
-            )
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Core.<$> policyTypeNames)
       ]
 
 -- | Contains the output of DescribeLoadBalancerPolicyTypes.
@@ -154,11 +142,11 @@ instance
 -- /See:/ 'newDescribeLoadBalancerPolicyTypesResponse' smart constructor.
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
   { -- | Information about the policy types.
-    policyTypeDescriptions :: Prelude.Maybe [PolicyTypeDescription],
+    policyTypeDescriptions :: Core.Maybe [PolicyTypeDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeLoadBalancerPolicyTypesResponse' with all optional fields omitted.
@@ -173,24 +161,24 @@ data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesRe
 -- 'httpStatus', 'describeLoadBalancerPolicyTypesResponse_httpStatus' - The response's http status code.
 newDescribeLoadBalancerPolicyTypesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeLoadBalancerPolicyTypesResponse
 newDescribeLoadBalancerPolicyTypesResponse
   pHttpStatus_ =
     DescribeLoadBalancerPolicyTypesResponse'
       { policyTypeDescriptions =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Information about the policy types.
-describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions :: Lens.Lens' DescribeLoadBalancerPolicyTypesResponse (Prelude.Maybe [PolicyTypeDescription])
-describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions = Lens.lens (\DescribeLoadBalancerPolicyTypesResponse' {policyTypeDescriptions} -> policyTypeDescriptions) (\s@DescribeLoadBalancerPolicyTypesResponse' {} a -> s {policyTypeDescriptions = a} :: DescribeLoadBalancerPolicyTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions :: Lens.Lens' DescribeLoadBalancerPolicyTypesResponse (Core.Maybe [PolicyTypeDescription])
+describeLoadBalancerPolicyTypesResponse_policyTypeDescriptions = Lens.lens (\DescribeLoadBalancerPolicyTypesResponse' {policyTypeDescriptions} -> policyTypeDescriptions) (\s@DescribeLoadBalancerPolicyTypesResponse' {} a -> s {policyTypeDescriptions = a} :: DescribeLoadBalancerPolicyTypesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeLoadBalancerPolicyTypesResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerPolicyTypesResponse Prelude.Int
+describeLoadBalancerPolicyTypesResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerPolicyTypesResponse Core.Int
 describeLoadBalancerPolicyTypesResponse_httpStatus = Lens.lens (\DescribeLoadBalancerPolicyTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancerPolicyTypesResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancerPolicyTypesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeLoadBalancerPolicyTypesResponse

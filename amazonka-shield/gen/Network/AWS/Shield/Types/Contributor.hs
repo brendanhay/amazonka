@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Shield.Types.Contributor where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A contributor to the attack and their contribution.
 --
@@ -31,12 +30,12 @@ data Contributor = Contributor'
     -- @AttackPropertyIdentifier@. For example, if the
     -- @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@, the @Name@ could be
     -- @United States@.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The contribution of this contributor expressed in Protection units. For
     -- example @10,000@.
-    value :: Prelude.Maybe Prelude.Integer
+    value :: Core.Maybe Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Contributor' with all optional fields omitted.
@@ -57,32 +56,31 @@ newContributor ::
   Contributor
 newContributor =
   Contributor'
-    { name = Prelude.Nothing,
-      value = Prelude.Nothing
+    { name = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the contributor. This is dependent on the
 -- @AttackPropertyIdentifier@. For example, if the
 -- @AttackPropertyIdentifier@ is @SOURCE_COUNTRY@, the @Name@ could be
 -- @United States@.
-contributor_name :: Lens.Lens' Contributor (Prelude.Maybe Prelude.Text)
+contributor_name :: Lens.Lens' Contributor (Core.Maybe Core.Text)
 contributor_name = Lens.lens (\Contributor' {name} -> name) (\s@Contributor' {} a -> s {name = a} :: Contributor)
 
 -- | The contribution of this contributor expressed in Protection units. For
 -- example @10,000@.
-contributor_value :: Lens.Lens' Contributor (Prelude.Maybe Prelude.Integer)
+contributor_value :: Lens.Lens' Contributor (Core.Maybe Core.Integer)
 contributor_value = Lens.lens (\Contributor' {value} -> value) (\s@Contributor' {} a -> s {value = a} :: Contributor)
 
-instance Prelude.FromJSON Contributor where
+instance Core.FromJSON Contributor where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Contributor"
       ( \x ->
           Contributor'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Value")
+            Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Value")
       )
 
-instance Prelude.Hashable Contributor
+instance Core.Hashable Contributor
 
-instance Prelude.NFData Contributor
+instance Core.NFData Contributor

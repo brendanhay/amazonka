@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the auto scaling settings of a global secondary index for a
 -- replica that will be modified.
@@ -30,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newReplicaGlobalSecondaryIndexAutoScalingUpdate' smart constructor.
 data ReplicaGlobalSecondaryIndexAutoScalingUpdate = ReplicaGlobalSecondaryIndexAutoScalingUpdate'
   { -- | The name of the global secondary index.
-    indexName :: Prelude.Maybe Prelude.Text,
-    provisionedReadCapacityAutoScalingUpdate :: Prelude.Maybe AutoScalingSettingsUpdate
+    indexName :: Core.Maybe Core.Text,
+    provisionedReadCapacityAutoScalingUpdate :: Core.Maybe AutoScalingSettingsUpdate
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicaGlobalSecondaryIndexAutoScalingUpdate' with all optional fields omitted.
@@ -51,39 +50,37 @@ newReplicaGlobalSecondaryIndexAutoScalingUpdate ::
 newReplicaGlobalSecondaryIndexAutoScalingUpdate =
   ReplicaGlobalSecondaryIndexAutoScalingUpdate'
     { indexName =
-        Prelude.Nothing,
+        Core.Nothing,
       provisionedReadCapacityAutoScalingUpdate =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the global secondary index.
-replicaGlobalSecondaryIndexAutoScalingUpdate_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingUpdate (Prelude.Maybe Prelude.Text)
+replicaGlobalSecondaryIndexAutoScalingUpdate_indexName :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingUpdate (Core.Maybe Core.Text)
 replicaGlobalSecondaryIndexAutoScalingUpdate_indexName = Lens.lens (\ReplicaGlobalSecondaryIndexAutoScalingUpdate' {indexName} -> indexName) (\s@ReplicaGlobalSecondaryIndexAutoScalingUpdate' {} a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexAutoScalingUpdate)
 
 -- | Undocumented member.
-replicaGlobalSecondaryIndexAutoScalingUpdate_provisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingUpdate (Prelude.Maybe AutoScalingSettingsUpdate)
+replicaGlobalSecondaryIndexAutoScalingUpdate_provisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingUpdate (Core.Maybe AutoScalingSettingsUpdate)
 replicaGlobalSecondaryIndexAutoScalingUpdate_provisionedReadCapacityAutoScalingUpdate = Lens.lens (\ReplicaGlobalSecondaryIndexAutoScalingUpdate' {provisionedReadCapacityAutoScalingUpdate} -> provisionedReadCapacityAutoScalingUpdate) (\s@ReplicaGlobalSecondaryIndexAutoScalingUpdate' {} a -> s {provisionedReadCapacityAutoScalingUpdate = a} :: ReplicaGlobalSecondaryIndexAutoScalingUpdate)
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ReplicaGlobalSecondaryIndexAutoScalingUpdate
 
 instance
-  Prelude.NFData
+  Core.NFData
     ReplicaGlobalSecondaryIndexAutoScalingUpdate
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     ReplicaGlobalSecondaryIndexAutoScalingUpdate
   where
   toJSON
     ReplicaGlobalSecondaryIndexAutoScalingUpdate' {..} =
-      Prelude.object
-        ( Prelude.catMaybes
-            [ ("IndexName" Prelude..=) Prelude.<$> indexName,
-              ( "ProvisionedReadCapacityAutoScalingUpdate"
-                  Prelude..=
-              )
-                Prelude.<$> provisionedReadCapacityAutoScalingUpdate
+      Core.object
+        ( Core.catMaybes
+            [ ("IndexName" Core..=) Core.<$> indexName,
+              ("ProvisionedReadCapacityAutoScalingUpdate" Core..=)
+                Core.<$> provisionedReadCapacityAutoScalingUpdate
             ]
         )

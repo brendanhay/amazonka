@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,8 +47,8 @@ module Network.AWS.CodeCommit.GetRepository
 where
 
 import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newGetRepository' smart constructor.
 data GetRepository = GetRepository'
   { -- | The name of the repository to get information about.
-    repositoryName :: Prelude.Text
+    repositoryName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRepository' with all optional fields omitted.
@@ -73,70 +72,70 @@ data GetRepository = GetRepository'
 -- 'repositoryName', 'getRepository_repositoryName' - The name of the repository to get information about.
 newGetRepository ::
   -- | 'repositoryName'
-  Prelude.Text ->
+  Core.Text ->
   GetRepository
 newGetRepository pRepositoryName_ =
   GetRepository' {repositoryName = pRepositoryName_}
 
 -- | The name of the repository to get information about.
-getRepository_repositoryName :: Lens.Lens' GetRepository Prelude.Text
+getRepository_repositoryName :: Lens.Lens' GetRepository Core.Text
 getRepository_repositoryName = Lens.lens (\GetRepository' {repositoryName} -> repositoryName) (\s@GetRepository' {} a -> s {repositoryName = a} :: GetRepository)
 
-instance Prelude.AWSRequest GetRepository where
-  type Rs GetRepository = GetRepositoryResponse
+instance Core.AWSRequest GetRepository where
+  type
+    AWSResponse GetRepository =
+      GetRepositoryResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRepositoryResponse'
-            Prelude.<$> (x Prelude..?> "repositoryMetadata")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "repositoryMetadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetRepository
+instance Core.Hashable GetRepository
 
-instance Prelude.NFData GetRepository
+instance Core.NFData GetRepository
 
-instance Prelude.ToHeaders GetRepository where
+instance Core.ToHeaders GetRepository where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeCommit_20150413.GetRepository" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeCommit_20150413.GetRepository" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetRepository where
+instance Core.ToJSON GetRepository where
   toJSON GetRepository' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("repositoryName" Prelude..= repositoryName)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("repositoryName" Core..= repositoryName)
           ]
       )
 
-instance Prelude.ToPath GetRepository where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRepository where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetRepository where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRepository where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a get repository operation.
 --
 -- /See:/ 'newGetRepositoryResponse' smart constructor.
 data GetRepositoryResponse = GetRepositoryResponse'
   { -- | Information about the repository.
-    repositoryMetadata :: Prelude.Maybe RepositoryMetadata,
+    repositoryMetadata :: Core.Maybe RepositoryMetadata,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRepositoryResponse' with all optional fields omitted.
@@ -151,21 +150,21 @@ data GetRepositoryResponse = GetRepositoryResponse'
 -- 'httpStatus', 'getRepositoryResponse_httpStatus' - The response's http status code.
 newGetRepositoryResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRepositoryResponse
 newGetRepositoryResponse pHttpStatus_ =
   GetRepositoryResponse'
     { repositoryMetadata =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the repository.
-getRepositoryResponse_repositoryMetadata :: Lens.Lens' GetRepositoryResponse (Prelude.Maybe RepositoryMetadata)
+getRepositoryResponse_repositoryMetadata :: Lens.Lens' GetRepositoryResponse (Core.Maybe RepositoryMetadata)
 getRepositoryResponse_repositoryMetadata = Lens.lens (\GetRepositoryResponse' {repositoryMetadata} -> repositoryMetadata) (\s@GetRepositoryResponse' {} a -> s {repositoryMetadata = a} :: GetRepositoryResponse)
 
 -- | The response's http status code.
-getRepositoryResponse_httpStatus :: Lens.Lens' GetRepositoryResponse Prelude.Int
+getRepositoryResponse_httpStatus :: Lens.Lens' GetRepositoryResponse Core.Int
 getRepositoryResponse_httpStatus = Lens.lens (\GetRepositoryResponse' {httpStatus} -> httpStatus) (\s@GetRepositoryResponse' {} a -> s {httpStatus = a} :: GetRepositoryResponse)
 
-instance Prelude.NFData GetRepositoryResponse
+instance Core.NFData GetRepositoryResponse

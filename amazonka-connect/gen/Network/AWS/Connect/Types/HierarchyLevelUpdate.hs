@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Connect.Types.HierarchyLevelUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the hierarchy level to update.
 --
@@ -29,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 data HierarchyLevelUpdate = HierarchyLevelUpdate'
   { -- | The name of the user hierarchy level. Must not be more than 50
     -- characters.
-    name :: Prelude.Text
+    name :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HierarchyLevelUpdate' with all optional fields omitted.
@@ -45,23 +44,21 @@ data HierarchyLevelUpdate = HierarchyLevelUpdate'
 -- characters.
 newHierarchyLevelUpdate ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   HierarchyLevelUpdate
 newHierarchyLevelUpdate pName_ =
   HierarchyLevelUpdate' {name = pName_}
 
 -- | The name of the user hierarchy level. Must not be more than 50
 -- characters.
-hierarchyLevelUpdate_name :: Lens.Lens' HierarchyLevelUpdate Prelude.Text
+hierarchyLevelUpdate_name :: Lens.Lens' HierarchyLevelUpdate Core.Text
 hierarchyLevelUpdate_name = Lens.lens (\HierarchyLevelUpdate' {name} -> name) (\s@HierarchyLevelUpdate' {} a -> s {name = a} :: HierarchyLevelUpdate)
 
-instance Prelude.Hashable HierarchyLevelUpdate
+instance Core.Hashable HierarchyLevelUpdate
 
-instance Prelude.NFData HierarchyLevelUpdate
+instance Core.NFData HierarchyLevelUpdate
 
-instance Prelude.ToJSON HierarchyLevelUpdate where
+instance Core.ToJSON HierarchyLevelUpdate where
   toJSON HierarchyLevelUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("Name" Prelude..= name)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("Name" Core..= name)])

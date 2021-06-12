@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.S3Target where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a data store in Amazon Simple Storage Service (Amazon S3).
 --
@@ -30,15 +29,15 @@ data S3Target = S3Target'
   { -- | The name of a connection which allows a job or crawler to access data in
     -- Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon
     -- VPC).
-    connectionName :: Prelude.Maybe Prelude.Text,
+    connectionName :: Core.Maybe Core.Text,
     -- | A list of glob patterns used to exclude from the crawl. For more
     -- information, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-    exclusions :: Prelude.Maybe [Prelude.Text],
+    exclusions :: Core.Maybe [Core.Text],
     -- | The path to the Amazon S3 target.
-    path :: Prelude.Maybe Prelude.Text
+    path :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'S3Target' with all optional fields omitted.
@@ -61,51 +60,48 @@ newS3Target ::
   S3Target
 newS3Target =
   S3Target'
-    { connectionName = Prelude.Nothing,
-      exclusions = Prelude.Nothing,
-      path = Prelude.Nothing
+    { connectionName = Core.Nothing,
+      exclusions = Core.Nothing,
+      path = Core.Nothing
     }
 
 -- | The name of a connection which allows a job or crawler to access data in
 -- Amazon S3 within an Amazon Virtual Private Cloud environment (Amazon
 -- VPC).
-s3Target_connectionName :: Lens.Lens' S3Target (Prelude.Maybe Prelude.Text)
+s3Target_connectionName :: Lens.Lens' S3Target (Core.Maybe Core.Text)
 s3Target_connectionName = Lens.lens (\S3Target' {connectionName} -> connectionName) (\s@S3Target' {} a -> s {connectionName = a} :: S3Target)
 
 -- | A list of glob patterns used to exclude from the crawl. For more
 -- information, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler>.
-s3Target_exclusions :: Lens.Lens' S3Target (Prelude.Maybe [Prelude.Text])
-s3Target_exclusions = Lens.lens (\S3Target' {exclusions} -> exclusions) (\s@S3Target' {} a -> s {exclusions = a} :: S3Target) Prelude.. Lens.mapping Prelude._Coerce
+s3Target_exclusions :: Lens.Lens' S3Target (Core.Maybe [Core.Text])
+s3Target_exclusions = Lens.lens (\S3Target' {exclusions} -> exclusions) (\s@S3Target' {} a -> s {exclusions = a} :: S3Target) Core.. Lens.mapping Lens._Coerce
 
 -- | The path to the Amazon S3 target.
-s3Target_path :: Lens.Lens' S3Target (Prelude.Maybe Prelude.Text)
+s3Target_path :: Lens.Lens' S3Target (Core.Maybe Core.Text)
 s3Target_path = Lens.lens (\S3Target' {path} -> path) (\s@S3Target' {} a -> s {path = a} :: S3Target)
 
-instance Prelude.FromJSON S3Target where
+instance Core.FromJSON S3Target where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "S3Target"
       ( \x ->
           S3Target'
-            Prelude.<$> (x Prelude..:? "ConnectionName")
-            Prelude.<*> ( x Prelude..:? "Exclusions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "Path")
+            Core.<$> (x Core..:? "ConnectionName")
+            Core.<*> (x Core..:? "Exclusions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "Path")
       )
 
-instance Prelude.Hashable S3Target
+instance Core.Hashable S3Target
 
-instance Prelude.NFData S3Target
+instance Core.NFData S3Target
 
-instance Prelude.ToJSON S3Target where
+instance Core.ToJSON S3Target where
   toJSON S3Target' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ConnectionName" Prelude..=)
-              Prelude.<$> connectionName,
-            ("Exclusions" Prelude..=) Prelude.<$> exclusions,
-            ("Path" Prelude..=) Prelude.<$> path
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionName" Core..=) Core.<$> connectionName,
+            ("Exclusions" Core..=) Core.<$> exclusions,
+            ("Path" Core..=) Core.<$> path
           ]
       )

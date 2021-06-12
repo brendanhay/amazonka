@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,8 +48,8 @@ module Network.AWS.SSM.ListInventoryEntries
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,20 +58,20 @@ import Network.AWS.SSM.Types
 data ListInventoryEntries = ListInventoryEntries'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | One or more filters. Use a filter to return a more specific list of
     -- results.
-    filters :: Prelude.Maybe (Prelude.NonEmpty InventoryFilter),
+    filters :: Core.Maybe (Core.NonEmpty InventoryFilter),
     -- | The instance ID for which you want inventory information.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The type of inventory item for which you want information.
-    typeName :: Prelude.Text
+    typeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInventoryEntries' with all optional fields omitted.
@@ -97,117 +96,115 @@ data ListInventoryEntries = ListInventoryEntries'
 -- 'typeName', 'listInventoryEntries_typeName' - The type of inventory item for which you want information.
 newListInventoryEntries ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'typeName'
-  Prelude.Text ->
+  Core.Text ->
   ListInventoryEntries
 newListInventoryEntries pInstanceId_ pTypeName_ =
   ListInventoryEntries'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing,
       instanceId = pInstanceId_,
       typeName = pTypeName_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-listInventoryEntries_nextToken :: Lens.Lens' ListInventoryEntries (Prelude.Maybe Prelude.Text)
+listInventoryEntries_nextToken :: Lens.Lens' ListInventoryEntries (Core.Maybe Core.Text)
 listInventoryEntries_nextToken = Lens.lens (\ListInventoryEntries' {nextToken} -> nextToken) (\s@ListInventoryEntries' {} a -> s {nextToken = a} :: ListInventoryEntries)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-listInventoryEntries_maxResults :: Lens.Lens' ListInventoryEntries (Prelude.Maybe Prelude.Natural)
+listInventoryEntries_maxResults :: Lens.Lens' ListInventoryEntries (Core.Maybe Core.Natural)
 listInventoryEntries_maxResults = Lens.lens (\ListInventoryEntries' {maxResults} -> maxResults) (\s@ListInventoryEntries' {} a -> s {maxResults = a} :: ListInventoryEntries)
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
-listInventoryEntries_filters :: Lens.Lens' ListInventoryEntries (Prelude.Maybe (Prelude.NonEmpty InventoryFilter))
-listInventoryEntries_filters = Lens.lens (\ListInventoryEntries' {filters} -> filters) (\s@ListInventoryEntries' {} a -> s {filters = a} :: ListInventoryEntries) Prelude.. Lens.mapping Prelude._Coerce
+listInventoryEntries_filters :: Lens.Lens' ListInventoryEntries (Core.Maybe (Core.NonEmpty InventoryFilter))
+listInventoryEntries_filters = Lens.lens (\ListInventoryEntries' {filters} -> filters) (\s@ListInventoryEntries' {} a -> s {filters = a} :: ListInventoryEntries) Core.. Lens.mapping Lens._Coerce
 
 -- | The instance ID for which you want inventory information.
-listInventoryEntries_instanceId :: Lens.Lens' ListInventoryEntries Prelude.Text
+listInventoryEntries_instanceId :: Lens.Lens' ListInventoryEntries Core.Text
 listInventoryEntries_instanceId = Lens.lens (\ListInventoryEntries' {instanceId} -> instanceId) (\s@ListInventoryEntries' {} a -> s {instanceId = a} :: ListInventoryEntries)
 
 -- | The type of inventory item for which you want information.
-listInventoryEntries_typeName :: Lens.Lens' ListInventoryEntries Prelude.Text
+listInventoryEntries_typeName :: Lens.Lens' ListInventoryEntries Core.Text
 listInventoryEntries_typeName = Lens.lens (\ListInventoryEntries' {typeName} -> typeName) (\s@ListInventoryEntries' {} a -> s {typeName = a} :: ListInventoryEntries)
 
-instance Prelude.AWSRequest ListInventoryEntries where
+instance Core.AWSRequest ListInventoryEntries where
   type
-    Rs ListInventoryEntries =
+    AWSResponse ListInventoryEntries =
       ListInventoryEntriesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListInventoryEntriesResponse'
-            Prelude.<$> (x Prelude..?> "TypeName")
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (x Prelude..?> "InstanceId")
-            Prelude.<*> (x Prelude..?> "CaptureTime")
-            Prelude.<*> (x Prelude..?> "SchemaVersion")
-            Prelude.<*> (x Prelude..?> "Entries" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "TypeName")
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "InstanceId")
+            Core.<*> (x Core..?> "CaptureTime")
+            Core.<*> (x Core..?> "SchemaVersion")
+            Core.<*> (x Core..?> "Entries" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListInventoryEntries
+instance Core.Hashable ListInventoryEntries
 
-instance Prelude.NFData ListInventoryEntries
+instance Core.NFData ListInventoryEntries
 
-instance Prelude.ToHeaders ListInventoryEntries where
+instance Core.ToHeaders ListInventoryEntries where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.ListInventoryEntries" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.ListInventoryEntries" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListInventoryEntries where
+instance Core.ToJSON ListInventoryEntries where
   toJSON ListInventoryEntries' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters,
-            Prelude.Just ("InstanceId" Prelude..= instanceId),
-            Prelude.Just ("TypeName" Prelude..= typeName)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters,
+            Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("TypeName" Core..= typeName)
           ]
       )
 
-instance Prelude.ToPath ListInventoryEntries where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListInventoryEntries where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListInventoryEntries where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListInventoryEntries where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListInventoryEntriesResponse' smart constructor.
 data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
   { -- | The type of inventory item returned by the request.
-    typeName :: Prelude.Maybe Prelude.Text,
+    typeName :: Core.Maybe Core.Text,
     -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The instance ID targeted by the request to query inventory information.
-    instanceId :: Prelude.Maybe Prelude.Text,
+    instanceId :: Core.Maybe Core.Text,
     -- | The time that inventory information was collected for the instance(s).
-    captureTime :: Prelude.Maybe Prelude.Text,
+    captureTime :: Core.Maybe Core.Text,
     -- | The inventory schema version used by the instance(s).
-    schemaVersion :: Prelude.Maybe Prelude.Text,
+    schemaVersion :: Core.Maybe Core.Text,
     -- | A list of inventory items on the instance(s).
-    entries :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
+    entries :: Core.Maybe [Core.HashMap Core.Text Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListInventoryEntriesResponse' with all optional fields omitted.
@@ -233,47 +230,47 @@ data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
 -- 'httpStatus', 'listInventoryEntriesResponse_httpStatus' - The response's http status code.
 newListInventoryEntriesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListInventoryEntriesResponse
 newListInventoryEntriesResponse pHttpStatus_ =
   ListInventoryEntriesResponse'
     { typeName =
-        Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      captureTime = Prelude.Nothing,
-      schemaVersion = Prelude.Nothing,
-      entries = Prelude.Nothing,
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      instanceId = Core.Nothing,
+      captureTime = Core.Nothing,
+      schemaVersion = Core.Nothing,
+      entries = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The type of inventory item returned by the request.
-listInventoryEntriesResponse_typeName :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
+listInventoryEntriesResponse_typeName :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Core.Text)
 listInventoryEntriesResponse_typeName = Lens.lens (\ListInventoryEntriesResponse' {typeName} -> typeName) (\s@ListInventoryEntriesResponse' {} a -> s {typeName = a} :: ListInventoryEntriesResponse)
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-listInventoryEntriesResponse_nextToken :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
+listInventoryEntriesResponse_nextToken :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Core.Text)
 listInventoryEntriesResponse_nextToken = Lens.lens (\ListInventoryEntriesResponse' {nextToken} -> nextToken) (\s@ListInventoryEntriesResponse' {} a -> s {nextToken = a} :: ListInventoryEntriesResponse)
 
 -- | The instance ID targeted by the request to query inventory information.
-listInventoryEntriesResponse_instanceId :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
+listInventoryEntriesResponse_instanceId :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Core.Text)
 listInventoryEntriesResponse_instanceId = Lens.lens (\ListInventoryEntriesResponse' {instanceId} -> instanceId) (\s@ListInventoryEntriesResponse' {} a -> s {instanceId = a} :: ListInventoryEntriesResponse)
 
 -- | The time that inventory information was collected for the instance(s).
-listInventoryEntriesResponse_captureTime :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
+listInventoryEntriesResponse_captureTime :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Core.Text)
 listInventoryEntriesResponse_captureTime = Lens.lens (\ListInventoryEntriesResponse' {captureTime} -> captureTime) (\s@ListInventoryEntriesResponse' {} a -> s {captureTime = a} :: ListInventoryEntriesResponse)
 
 -- | The inventory schema version used by the instance(s).
-listInventoryEntriesResponse_schemaVersion :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
+listInventoryEntriesResponse_schemaVersion :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Core.Text)
 listInventoryEntriesResponse_schemaVersion = Lens.lens (\ListInventoryEntriesResponse' {schemaVersion} -> schemaVersion) (\s@ListInventoryEntriesResponse' {} a -> s {schemaVersion = a} :: ListInventoryEntriesResponse)
 
 -- | A list of inventory items on the instance(s).
-listInventoryEntriesResponse_entries :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
-listInventoryEntriesResponse_entries = Lens.lens (\ListInventoryEntriesResponse' {entries} -> entries) (\s@ListInventoryEntriesResponse' {} a -> s {entries = a} :: ListInventoryEntriesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listInventoryEntriesResponse_entries :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe [Core.HashMap Core.Text Core.Text])
+listInventoryEntriesResponse_entries = Lens.lens (\ListInventoryEntriesResponse' {entries} -> entries) (\s@ListInventoryEntriesResponse' {} a -> s {entries = a} :: ListInventoryEntriesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listInventoryEntriesResponse_httpStatus :: Lens.Lens' ListInventoryEntriesResponse Prelude.Int
+listInventoryEntriesResponse_httpStatus :: Lens.Lens' ListInventoryEntriesResponse Core.Int
 listInventoryEntriesResponse_httpStatus = Lens.lens (\ListInventoryEntriesResponse' {httpStatus} -> httpStatus) (\s@ListInventoryEntriesResponse' {} a -> s {httpStatus = a} :: ListInventoryEntriesResponse)
 
-instance Prelude.NFData ListInventoryEntriesResponse
+instance Core.NFData ListInventoryEntriesResponse

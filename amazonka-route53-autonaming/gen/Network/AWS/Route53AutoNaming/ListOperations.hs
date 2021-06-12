@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.Route53AutoNaming.ListOperations
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -65,20 +63,20 @@ data ListOperations = ListOperations'
     -- first @MaxResults@ operations matched the specified criteria but that
     -- subsequent groups of @MaxResults@ operations do contain operations that
     -- match the criteria.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items that you want AWS Cloud Map to return in the
     -- response to a @ListOperations@ request. If you don\'t specify a value
     -- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A complex type that contains specifications for the operations that you
     -- want to list, for example, operations that you started between a
     -- specified start date and end date.
     --
     -- If you specify more than one filter, an operation must match all filters
     -- to be returned by @ListOperations@.
-    filters :: Prelude.Maybe [OperationFilter]
+    filters :: Core.Maybe [OperationFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOperations' with all optional fields omitted.
@@ -114,9 +112,9 @@ newListOperations ::
   ListOperations
 newListOperations =
   ListOperations'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | For the first @ListOperations@ request, omit this value.
@@ -130,13 +128,13 @@ newListOperations =
 -- first @MaxResults@ operations matched the specified criteria but that
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
-listOperations_nextToken :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
+listOperations_nextToken :: Lens.Lens' ListOperations (Core.Maybe Core.Text)
 listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken) (\s@ListOperations' {} a -> s {nextToken = a} :: ListOperations)
 
 -- | The maximum number of items that you want AWS Cloud Map to return in the
 -- response to a @ListOperations@ request. If you don\'t specify a value
 -- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
-listOperations_maxResults :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Natural)
+listOperations_maxResults :: Lens.Lens' ListOperations (Core.Maybe Core.Natural)
 listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResults) (\s@ListOperations' {} a -> s {maxResults = a} :: ListOperations)
 
 -- | A complex type that contains specifications for the operations that you
@@ -145,78 +143,74 @@ listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResul
 --
 -- If you specify more than one filter, an operation must match all filters
 -- to be returned by @ListOperations@.
-listOperations_filters :: Lens.Lens' ListOperations (Prelude.Maybe [OperationFilter])
-listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@ListOperations' {} a -> s {filters = a} :: ListOperations) Prelude.. Lens.mapping Prelude._Coerce
+listOperations_filters :: Lens.Lens' ListOperations (Core.Maybe [OperationFilter])
+listOperations_filters = Lens.lens (\ListOperations' {filters} -> filters) (\s@ListOperations' {} a -> s {filters = a} :: ListOperations) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager ListOperations where
+instance Core.AWSPager ListOperations where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listOperationsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listOperationsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listOperationsResponse_operations
-              Prelude.. Lens._Just
+            Lens.^? listOperationsResponse_operations Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listOperations_nextToken
           Lens..~ rs
-          Lens.^? listOperationsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listOperationsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListOperations where
-  type Rs ListOperations = ListOperationsResponse
+instance Core.AWSRequest ListOperations where
+  type
+    AWSResponse ListOperations =
+      ListOperationsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListOperationsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "Operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "Operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListOperations
+instance Core.Hashable ListOperations
 
-instance Prelude.NFData ListOperations
+instance Core.NFData ListOperations
 
-instance Prelude.ToHeaders ListOperations where
+instance Core.ToHeaders ListOperations where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.ListOperations" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.ListOperations" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListOperations where
+instance Core.ToJSON ListOperations where
   toJSON ListOperations' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("Filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("Filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath ListOperations where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListOperations where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListOperations where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListOperations where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListOperationsResponse' smart constructor.
 data ListOperationsResponse = ListOperationsResponse'
@@ -229,14 +223,14 @@ data ListOperationsResponse = ListOperationsResponse'
     -- first @MaxResults@ operations matched the specified criteria but that
     -- subsequent groups of @MaxResults@ operations do contain operations that
     -- match the criteria.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Summary information about the operations that match the specified
     -- criteria.
-    operations :: Prelude.Maybe [OperationSummary],
+    operations :: Core.Maybe [OperationSummary],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListOperationsResponse' with all optional fields omitted.
@@ -262,13 +256,12 @@ data ListOperationsResponse = ListOperationsResponse'
 -- 'httpStatus', 'listOperationsResponse_httpStatus' - The response's http status code.
 newListOperationsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListOperationsResponse
 newListOperationsResponse pHttpStatus_ =
   ListOperationsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      operations = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -281,16 +274,16 @@ newListOperationsResponse pHttpStatus_ =
 -- first @MaxResults@ operations matched the specified criteria but that
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
-listOperationsResponse_nextToken :: Lens.Lens' ListOperationsResponse (Prelude.Maybe Prelude.Text)
+listOperationsResponse_nextToken :: Lens.Lens' ListOperationsResponse (Core.Maybe Core.Text)
 listOperationsResponse_nextToken = Lens.lens (\ListOperationsResponse' {nextToken} -> nextToken) (\s@ListOperationsResponse' {} a -> s {nextToken = a} :: ListOperationsResponse)
 
 -- | Summary information about the operations that match the specified
 -- criteria.
-listOperationsResponse_operations :: Lens.Lens' ListOperationsResponse (Prelude.Maybe [OperationSummary])
-listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listOperationsResponse_operations :: Lens.Lens' ListOperationsResponse (Core.Maybe [OperationSummary])
+listOperationsResponse_operations = Lens.lens (\ListOperationsResponse' {operations} -> operations) (\s@ListOperationsResponse' {} a -> s {operations = a} :: ListOperationsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listOperationsResponse_httpStatus :: Lens.Lens' ListOperationsResponse Prelude.Int
+listOperationsResponse_httpStatus :: Lens.Lens' ListOperationsResponse Core.Int
 listOperationsResponse_httpStatus = Lens.lens (\ListOperationsResponse' {httpStatus} -> httpStatus) (\s@ListOperationsResponse' {} a -> s {httpStatus = a} :: ListOperationsResponse)
 
-instance Prelude.NFData ListOperationsResponse
+instance Core.NFData ListOperationsResponse

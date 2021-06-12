@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.UpdateActionResultsMessage where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.ProcessedUpdateAction
 import Network.AWS.ElastiCache.Types.UnprocessedUpdateAction
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newUpdateActionResultsMessage' smart constructor.
 data UpdateActionResultsMessage = UpdateActionResultsMessage'
   { -- | Update actions that have been processed successfully
-    processedUpdateActions :: Prelude.Maybe [ProcessedUpdateAction],
+    processedUpdateActions :: Core.Maybe [ProcessedUpdateAction],
     -- | Update actions that haven\'t been processed successfully
-    unprocessedUpdateActions :: Prelude.Maybe [UnprocessedUpdateAction]
+    unprocessedUpdateActions :: Core.Maybe [UnprocessedUpdateAction]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateActionResultsMessage' with all optional fields omitted.
@@ -50,32 +49,31 @@ newUpdateActionResultsMessage ::
 newUpdateActionResultsMessage =
   UpdateActionResultsMessage'
     { processedUpdateActions =
-        Prelude.Nothing,
-      unprocessedUpdateActions = Prelude.Nothing
+        Core.Nothing,
+      unprocessedUpdateActions = Core.Nothing
     }
 
 -- | Update actions that have been processed successfully
-updateActionResultsMessage_processedUpdateActions :: Lens.Lens' UpdateActionResultsMessage (Prelude.Maybe [ProcessedUpdateAction])
-updateActionResultsMessage_processedUpdateActions = Lens.lens (\UpdateActionResultsMessage' {processedUpdateActions} -> processedUpdateActions) (\s@UpdateActionResultsMessage' {} a -> s {processedUpdateActions = a} :: UpdateActionResultsMessage) Prelude.. Lens.mapping Prelude._Coerce
+updateActionResultsMessage_processedUpdateActions :: Lens.Lens' UpdateActionResultsMessage (Core.Maybe [ProcessedUpdateAction])
+updateActionResultsMessage_processedUpdateActions = Lens.lens (\UpdateActionResultsMessage' {processedUpdateActions} -> processedUpdateActions) (\s@UpdateActionResultsMessage' {} a -> s {processedUpdateActions = a} :: UpdateActionResultsMessage) Core.. Lens.mapping Lens._Coerce
 
 -- | Update actions that haven\'t been processed successfully
-updateActionResultsMessage_unprocessedUpdateActions :: Lens.Lens' UpdateActionResultsMessage (Prelude.Maybe [UnprocessedUpdateAction])
-updateActionResultsMessage_unprocessedUpdateActions = Lens.lens (\UpdateActionResultsMessage' {unprocessedUpdateActions} -> unprocessedUpdateActions) (\s@UpdateActionResultsMessage' {} a -> s {unprocessedUpdateActions = a} :: UpdateActionResultsMessage) Prelude.. Lens.mapping Prelude._Coerce
+updateActionResultsMessage_unprocessedUpdateActions :: Lens.Lens' UpdateActionResultsMessage (Core.Maybe [UnprocessedUpdateAction])
+updateActionResultsMessage_unprocessedUpdateActions = Lens.lens (\UpdateActionResultsMessage' {unprocessedUpdateActions} -> unprocessedUpdateActions) (\s@UpdateActionResultsMessage' {} a -> s {unprocessedUpdateActions = a} :: UpdateActionResultsMessage) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML UpdateActionResultsMessage where
+instance Core.FromXML UpdateActionResultsMessage where
   parseXML x =
     UpdateActionResultsMessage'
-      Prelude.<$> ( x Prelude..@? "ProcessedUpdateActions"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "ProcessedUpdateAction")
-                  )
-      Prelude.<*> ( x Prelude..@? "UnprocessedUpdateActions"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may
-                        (Prelude.parseXMLList "UnprocessedUpdateAction")
-                  )
+      Core.<$> ( x Core..@? "ProcessedUpdateActions"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "ProcessedUpdateAction")
+               )
+      Core.<*> ( x Core..@? "UnprocessedUpdateActions"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may
+                     (Core.parseXMLList "UnprocessedUpdateAction")
+               )
 
-instance Prelude.Hashable UpdateActionResultsMessage
+instance Core.Hashable UpdateActionResultsMessage
 
-instance Prelude.NFData UpdateActionResultsMessage
+instance Core.NFData UpdateActionResultsMessage

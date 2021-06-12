@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.Parameter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Assigns a value to a named Pipeline parameter.
 --
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 data Parameter = Parameter'
   { -- | The name of the parameter to assign a value to. This parameter name must
     -- match a named parameter in the pipeline definition.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | The literal value for the parameter.
-    value :: Prelude.Text
+    value :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Parameter' with all optional fields omitted.
@@ -49,41 +48,40 @@ data Parameter = Parameter'
 -- 'value', 'parameter_value' - The literal value for the parameter.
 newParameter ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
-  Prelude.Text ->
+  Core.Text ->
   Parameter
 newParameter pName_ pValue_ =
   Parameter' {name = pName_, value = pValue_}
 
 -- | The name of the parameter to assign a value to. This parameter name must
 -- match a named parameter in the pipeline definition.
-parameter_name :: Lens.Lens' Parameter Prelude.Text
+parameter_name :: Lens.Lens' Parameter Core.Text
 parameter_name = Lens.lens (\Parameter' {name} -> name) (\s@Parameter' {} a -> s {name = a} :: Parameter)
 
 -- | The literal value for the parameter.
-parameter_value :: Lens.Lens' Parameter Prelude.Text
+parameter_value :: Lens.Lens' Parameter Core.Text
 parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter)
 
-instance Prelude.FromJSON Parameter where
+instance Core.FromJSON Parameter where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Parameter"
       ( \x ->
           Parameter'
-            Prelude.<$> (x Prelude..: "Name")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable Parameter
+instance Core.Hashable Parameter
 
-instance Prelude.NFData Parameter
+instance Core.NFData Parameter
 
-instance Prelude.ToJSON Parameter where
+instance Core.ToJSON Parameter where
   toJSON Parameter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Value" Core..= value)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,8 +40,8 @@ module Network.AWS.SageMaker.DeleteNotebookInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -50,9 +49,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteNotebookInstance' smart constructor.
 data DeleteNotebookInstance = DeleteNotebookInstance'
   { -- | The name of the Amazon SageMaker notebook instance to delete.
-    notebookInstanceName :: Prelude.Text
+    notebookInstanceName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotebookInstance' with all optional fields omitted.
@@ -65,7 +64,7 @@ data DeleteNotebookInstance = DeleteNotebookInstance'
 -- 'notebookInstanceName', 'deleteNotebookInstance_notebookInstanceName' - The name of the Amazon SageMaker notebook instance to delete.
 newDeleteNotebookInstance ::
   -- | 'notebookInstanceName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteNotebookInstance
 newDeleteNotebookInstance pNotebookInstanceName_ =
   DeleteNotebookInstance'
@@ -74,59 +73,57 @@ newDeleteNotebookInstance pNotebookInstanceName_ =
     }
 
 -- | The name of the Amazon SageMaker notebook instance to delete.
-deleteNotebookInstance_notebookInstanceName :: Lens.Lens' DeleteNotebookInstance Prelude.Text
+deleteNotebookInstance_notebookInstanceName :: Lens.Lens' DeleteNotebookInstance Core.Text
 deleteNotebookInstance_notebookInstanceName = Lens.lens (\DeleteNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@DeleteNotebookInstance' {} a -> s {notebookInstanceName = a} :: DeleteNotebookInstance)
 
-instance Prelude.AWSRequest DeleteNotebookInstance where
+instance Core.AWSRequest DeleteNotebookInstance where
   type
-    Rs DeleteNotebookInstance =
+    AWSResponse DeleteNotebookInstance =
       DeleteNotebookInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteNotebookInstanceResponse'
 
-instance Prelude.Hashable DeleteNotebookInstance
+instance Core.Hashable DeleteNotebookInstance
 
-instance Prelude.NFData DeleteNotebookInstance
+instance Core.NFData DeleteNotebookInstance
 
-instance Prelude.ToHeaders DeleteNotebookInstance where
+instance Core.ToHeaders DeleteNotebookInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteNotebookInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteNotebookInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteNotebookInstance where
+instance Core.ToJSON DeleteNotebookInstance where
   toJSON DeleteNotebookInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "NotebookInstanceName"
-                  Prelude..= notebookInstanceName
+                  Core..= notebookInstanceName
               )
           ]
       )
 
-instance Prelude.ToPath DeleteNotebookInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNotebookInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteNotebookInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteNotebookInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNotebookInstanceResponse' smart constructor.
 data DeleteNotebookInstanceResponse = DeleteNotebookInstanceResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotebookInstanceResponse' with all optional fields omitted.
@@ -137,6 +134,4 @@ newDeleteNotebookInstanceResponse ::
 newDeleteNotebookInstanceResponse =
   DeleteNotebookInstanceResponse'
 
-instance
-  Prelude.NFData
-    DeleteNotebookInstanceResponse
+instance Core.NFData DeleteNotebookInstanceResponse

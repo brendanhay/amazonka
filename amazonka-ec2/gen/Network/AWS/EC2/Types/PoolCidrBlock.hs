@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.PoolCidrBlock where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a CIDR block for an address pool.
 --
 -- /See:/ 'newPoolCidrBlock' smart constructor.
 data PoolCidrBlock = PoolCidrBlock'
   { -- | The CIDR block.
-    cidr :: Prelude.Maybe Prelude.Text
+    cidr :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PoolCidrBlock' with all optional fields omitted.
@@ -45,17 +44,17 @@ data PoolCidrBlock = PoolCidrBlock'
 newPoolCidrBlock ::
   PoolCidrBlock
 newPoolCidrBlock =
-  PoolCidrBlock' {cidr = Prelude.Nothing}
+  PoolCidrBlock' {cidr = Core.Nothing}
 
 -- | The CIDR block.
-poolCidrBlock_cidr :: Lens.Lens' PoolCidrBlock (Prelude.Maybe Prelude.Text)
+poolCidrBlock_cidr :: Lens.Lens' PoolCidrBlock (Core.Maybe Core.Text)
 poolCidrBlock_cidr = Lens.lens (\PoolCidrBlock' {cidr} -> cidr) (\s@PoolCidrBlock' {} a -> s {cidr = a} :: PoolCidrBlock)
 
-instance Prelude.FromXML PoolCidrBlock where
+instance Core.FromXML PoolCidrBlock where
   parseXML x =
     PoolCidrBlock'
-      Prelude.<$> (x Prelude..@? "poolCidrBlock")
+      Core.<$> (x Core..@? "poolCidrBlock")
 
-instance Prelude.Hashable PoolCidrBlock
+instance Core.Hashable PoolCidrBlock
 
-instance Prelude.NFData PoolCidrBlock
+instance Core.NFData PoolCidrBlock

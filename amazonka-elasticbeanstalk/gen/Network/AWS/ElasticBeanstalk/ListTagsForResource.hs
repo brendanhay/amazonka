@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.ElasticBeanstalk.ListTagsForResource
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,9 +57,9 @@ data ListTagsForResource = ListTagsForResource'
     -- requested.
     --
     -- Must be the ARN of an Elastic Beanstalk resource.
-    resourceArn :: Prelude.Text
+    resourceArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResource' with all optional fields omitted.
@@ -76,7 +75,7 @@ data ListTagsForResource = ListTagsForResource'
 -- Must be the ARN of an Elastic Beanstalk resource.
 newListTagsForResource ::
   -- | 'resourceArn'
-  Prelude.Text ->
+  Core.Text ->
   ListTagsForResource
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
@@ -85,12 +84,12 @@ newListTagsForResource pResourceArn_ =
 -- requested.
 --
 -- Must be the ARN of an Elastic Beanstalk resource.
-listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
+listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Core.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 
-instance Prelude.AWSRequest ListTagsForResource where
+instance Core.AWSRequest ListTagsForResource where
   type
-    Rs ListTagsForResource =
+    AWSResponse ListTagsForResource =
       ListTagsForResourceResponse
   request = Request.postQuery defaultService
   response =
@@ -98,45 +97,43 @@ instance Prelude.AWSRequest ListTagsForResource where
       "ListTagsForResourceResult"
       ( \s h x ->
           ListTagsForResourceResponse'
-            Prelude.<$> (x Prelude..@? "ResourceArn")
-            Prelude.<*> ( x Prelude..@? "ResourceTags"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "ResourceArn")
+            Core.<*> ( x Core..@? "ResourceTags" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Core.Hashable ListTagsForResource
 
-instance Prelude.NFData ListTagsForResource
+instance Core.NFData ListTagsForResource
 
-instance Prelude.ToHeaders ListTagsForResource where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListTagsForResource where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListTagsForResource where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTagsForResource where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTagsForResource where
+instance Core.ToQuery ListTagsForResource where
   toQuery ListTagsForResource' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListTagsForResource" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "ResourceArn" Prelude.=: resourceArn
+          Core.=: ("ListTagsForResource" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "ResourceArn" Core.=: resourceArn
       ]
 
 -- | /See:/ 'newListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The Amazon Resource Name (ARN) of the resource for which a tag list was
     -- requested.
-    resourceArn :: Prelude.Maybe Prelude.Text,
+    resourceArn :: Core.Maybe Core.Text,
     -- | A list of tag key-value pairs.
-    resourceTags :: Prelude.Maybe [Tag],
+    resourceTags :: Core.Maybe [Tag],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
@@ -154,27 +151,27 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 -- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
 newListTagsForResourceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
 newListTagsForResourceResponse pHttpStatus_ =
   ListTagsForResourceResponse'
     { resourceArn =
-        Prelude.Nothing,
-      resourceTags = Prelude.Nothing,
+        Core.Nothing,
+      resourceTags = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the resource for which a tag list was
 -- requested.
-listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe Prelude.Text)
+listTagsForResourceResponse_resourceArn :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Core.Text)
 listTagsForResourceResponse_resourceArn = Lens.lens (\ListTagsForResourceResponse' {resourceArn} -> resourceArn) (\s@ListTagsForResourceResponse' {} a -> s {resourceArn = a} :: ListTagsForResourceResponse)
 
 -- | A list of tag key-value pairs.
-listTagsForResourceResponse_resourceTags :: Lens.Lens' ListTagsForResourceResponse (Prelude.Maybe [Tag])
-listTagsForResourceResponse_resourceTags = Lens.lens (\ListTagsForResourceResponse' {resourceTags} -> resourceTags) (\s@ListTagsForResourceResponse' {} a -> s {resourceTags = a} :: ListTagsForResourceResponse) Prelude.. Lens.mapping Prelude._Coerce
+listTagsForResourceResponse_resourceTags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe [Tag])
+listTagsForResourceResponse_resourceTags = Lens.lens (\ListTagsForResourceResponse' {resourceTags} -> resourceTags) (\s@ListTagsForResourceResponse' {} a -> s {resourceTags = a} :: ListTagsForResourceResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
+listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
 listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Core.NFData ListTagsForResourceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Budgets.Types.IamActionDefinition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The AWS Identity and Access Management (IAM) action definition details.
 --
 -- /See:/ 'newIamActionDefinition' smart constructor.
 data IamActionDefinition = IamActionDefinition'
   { -- | A list of groups to be attached. There must be at least one group.
-    groups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    groups :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | A list of roles to be attached. There must be at least one role.
-    roles :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    roles :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | A list of users to be attached. There must be at least one user.
-    users :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    users :: Core.Maybe (Core.NonEmpty Core.Text),
     -- | The Amazon Resource Name (ARN) of the policy to be attached.
-    policyArn :: Prelude.Text
+    policyArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'IamActionDefinition' with all optional fields omitted.
@@ -55,55 +54,55 @@ data IamActionDefinition = IamActionDefinition'
 -- 'policyArn', 'iamActionDefinition_policyArn' - The Amazon Resource Name (ARN) of the policy to be attached.
 newIamActionDefinition ::
   -- | 'policyArn'
-  Prelude.Text ->
+  Core.Text ->
   IamActionDefinition
 newIamActionDefinition pPolicyArn_ =
   IamActionDefinition'
-    { groups = Prelude.Nothing,
-      roles = Prelude.Nothing,
-      users = Prelude.Nothing,
+    { groups = Core.Nothing,
+      roles = Core.Nothing,
+      users = Core.Nothing,
       policyArn = pPolicyArn_
     }
 
 -- | A list of groups to be attached. There must be at least one group.
-iamActionDefinition_groups :: Lens.Lens' IamActionDefinition (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-iamActionDefinition_groups = Lens.lens (\IamActionDefinition' {groups} -> groups) (\s@IamActionDefinition' {} a -> s {groups = a} :: IamActionDefinition) Prelude.. Lens.mapping Prelude._Coerce
+iamActionDefinition_groups :: Lens.Lens' IamActionDefinition (Core.Maybe (Core.NonEmpty Core.Text))
+iamActionDefinition_groups = Lens.lens (\IamActionDefinition' {groups} -> groups) (\s@IamActionDefinition' {} a -> s {groups = a} :: IamActionDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of roles to be attached. There must be at least one role.
-iamActionDefinition_roles :: Lens.Lens' IamActionDefinition (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-iamActionDefinition_roles = Lens.lens (\IamActionDefinition' {roles} -> roles) (\s@IamActionDefinition' {} a -> s {roles = a} :: IamActionDefinition) Prelude.. Lens.mapping Prelude._Coerce
+iamActionDefinition_roles :: Lens.Lens' IamActionDefinition (Core.Maybe (Core.NonEmpty Core.Text))
+iamActionDefinition_roles = Lens.lens (\IamActionDefinition' {roles} -> roles) (\s@IamActionDefinition' {} a -> s {roles = a} :: IamActionDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of users to be attached. There must be at least one user.
-iamActionDefinition_users :: Lens.Lens' IamActionDefinition (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-iamActionDefinition_users = Lens.lens (\IamActionDefinition' {users} -> users) (\s@IamActionDefinition' {} a -> s {users = a} :: IamActionDefinition) Prelude.. Lens.mapping Prelude._Coerce
+iamActionDefinition_users :: Lens.Lens' IamActionDefinition (Core.Maybe (Core.NonEmpty Core.Text))
+iamActionDefinition_users = Lens.lens (\IamActionDefinition' {users} -> users) (\s@IamActionDefinition' {} a -> s {users = a} :: IamActionDefinition) Core.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the policy to be attached.
-iamActionDefinition_policyArn :: Lens.Lens' IamActionDefinition Prelude.Text
+iamActionDefinition_policyArn :: Lens.Lens' IamActionDefinition Core.Text
 iamActionDefinition_policyArn = Lens.lens (\IamActionDefinition' {policyArn} -> policyArn) (\s@IamActionDefinition' {} a -> s {policyArn = a} :: IamActionDefinition)
 
-instance Prelude.FromJSON IamActionDefinition where
+instance Core.FromJSON IamActionDefinition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "IamActionDefinition"
       ( \x ->
           IamActionDefinition'
-            Prelude.<$> (x Prelude..:? "Groups")
-            Prelude.<*> (x Prelude..:? "Roles")
-            Prelude.<*> (x Prelude..:? "Users")
-            Prelude.<*> (x Prelude..: "PolicyArn")
+            Core.<$> (x Core..:? "Groups")
+            Core.<*> (x Core..:? "Roles")
+            Core.<*> (x Core..:? "Users")
+            Core.<*> (x Core..: "PolicyArn")
       )
 
-instance Prelude.Hashable IamActionDefinition
+instance Core.Hashable IamActionDefinition
 
-instance Prelude.NFData IamActionDefinition
+instance Core.NFData IamActionDefinition
 
-instance Prelude.ToJSON IamActionDefinition where
+instance Core.ToJSON IamActionDefinition where
   toJSON IamActionDefinition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Groups" Prelude..=) Prelude.<$> groups,
-            ("Roles" Prelude..=) Prelude.<$> roles,
-            ("Users" Prelude..=) Prelude.<$> users,
-            Prelude.Just ("PolicyArn" Prelude..= policyArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("Groups" Core..=) Core.<$> groups,
+            ("Roles" Core..=) Core.<$> roles,
+            ("Users" Core..=) Core.<$> users,
+            Core.Just ("PolicyArn" Core..= policyArn)
           ]
       )

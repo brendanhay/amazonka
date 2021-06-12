@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.CreateCampaign
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,10 +51,10 @@ import qualified Network.AWS.Response as Response
 data CreateCampaign = CreateCampaign'
   { -- | The unique identifier for the application. This identifier is displayed
     -- as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     writeCampaignRequest :: WriteCampaignRequest
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCampaign' with all optional fields omitted.
@@ -71,7 +70,7 @@ data CreateCampaign = CreateCampaign'
 -- 'writeCampaignRequest', 'createCampaign_writeCampaignRequest' - Undocumented member.
 newCreateCampaign ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'writeCampaignRequest'
   WriteCampaignRequest ->
   CreateCampaign
@@ -85,68 +84,65 @@ newCreateCampaign
 
 -- | The unique identifier for the application. This identifier is displayed
 -- as the __Project ID__ on the Amazon Pinpoint console.
-createCampaign_applicationId :: Lens.Lens' CreateCampaign Prelude.Text
+createCampaign_applicationId :: Lens.Lens' CreateCampaign Core.Text
 createCampaign_applicationId = Lens.lens (\CreateCampaign' {applicationId} -> applicationId) (\s@CreateCampaign' {} a -> s {applicationId = a} :: CreateCampaign)
 
 -- | Undocumented member.
 createCampaign_writeCampaignRequest :: Lens.Lens' CreateCampaign WriteCampaignRequest
 createCampaign_writeCampaignRequest = Lens.lens (\CreateCampaign' {writeCampaignRequest} -> writeCampaignRequest) (\s@CreateCampaign' {} a -> s {writeCampaignRequest = a} :: CreateCampaign)
 
-instance Prelude.AWSRequest CreateCampaign where
-  type Rs CreateCampaign = CreateCampaignResponse
+instance Core.AWSRequest CreateCampaign where
+  type
+    AWSResponse CreateCampaign =
+      CreateCampaignResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateCampaignResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable CreateCampaign
+instance Core.Hashable CreateCampaign
 
-instance Prelude.NFData CreateCampaign
+instance Core.NFData CreateCampaign
 
-instance Prelude.ToHeaders CreateCampaign where
+instance Core.ToHeaders CreateCampaign where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateCampaign where
+instance Core.ToJSON CreateCampaign where
   toJSON CreateCampaign' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "WriteCampaignRequest"
-                  Prelude..= writeCampaignRequest
+                  Core..= writeCampaignRequest
               )
           ]
       )
 
-instance Prelude.ToPath CreateCampaign where
+instance Core.ToPath CreateCampaign where
   toPath CreateCampaign' {..} =
-    Prelude.mconcat
-      [ "/v1/apps/",
-        Prelude.toBS applicationId,
-        "/campaigns"
-      ]
+    Core.mconcat
+      ["/v1/apps/", Core.toBS applicationId, "/campaigns"]
 
-instance Prelude.ToQuery CreateCampaign where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateCampaign where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateCampaignResponse' smart constructor.
 data CreateCampaignResponse = CreateCampaignResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     campaignResponse :: CampaignResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateCampaignResponse' with all optional fields omitted.
@@ -161,7 +157,7 @@ data CreateCampaignResponse = CreateCampaignResponse'
 -- 'campaignResponse', 'createCampaignResponse_campaignResponse' - Undocumented member.
 newCreateCampaignResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'campaignResponse'
   CampaignResponse ->
   CreateCampaignResponse
@@ -174,11 +170,11 @@ newCreateCampaignResponse
       }
 
 -- | The response's http status code.
-createCampaignResponse_httpStatus :: Lens.Lens' CreateCampaignResponse Prelude.Int
+createCampaignResponse_httpStatus :: Lens.Lens' CreateCampaignResponse Core.Int
 createCampaignResponse_httpStatus = Lens.lens (\CreateCampaignResponse' {httpStatus} -> httpStatus) (\s@CreateCampaignResponse' {} a -> s {httpStatus = a} :: CreateCampaignResponse)
 
 -- | Undocumented member.
 createCampaignResponse_campaignResponse :: Lens.Lens' CreateCampaignResponse CampaignResponse
 createCampaignResponse_campaignResponse = Lens.lens (\CreateCampaignResponse' {campaignResponse} -> campaignResponse) (\s@CreateCampaignResponse' {} a -> s {campaignResponse = a} :: CreateCampaignResponse)
 
-instance Prelude.NFData CreateCampaignResponse
+instance Core.NFData CreateCampaignResponse

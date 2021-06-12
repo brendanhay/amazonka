@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.UdpContainerSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.M2tsSettings
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Udp Container Settings
 --
 -- /See:/ 'newUdpContainerSettings' smart constructor.
 data UdpContainerSettings = UdpContainerSettings'
-  { m2tsSettings :: Prelude.Maybe M2tsSettings
+  { m2tsSettings :: Core.Maybe M2tsSettings
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UdpContainerSettings' with all optional fields omitted.
@@ -44,33 +43,28 @@ data UdpContainerSettings = UdpContainerSettings'
 newUdpContainerSettings ::
   UdpContainerSettings
 newUdpContainerSettings =
-  UdpContainerSettings'
-    { m2tsSettings =
-        Prelude.Nothing
-    }
+  UdpContainerSettings' {m2tsSettings = Core.Nothing}
 
 -- | Undocumented member.
-udpContainerSettings_m2tsSettings :: Lens.Lens' UdpContainerSettings (Prelude.Maybe M2tsSettings)
+udpContainerSettings_m2tsSettings :: Lens.Lens' UdpContainerSettings (Core.Maybe M2tsSettings)
 udpContainerSettings_m2tsSettings = Lens.lens (\UdpContainerSettings' {m2tsSettings} -> m2tsSettings) (\s@UdpContainerSettings' {} a -> s {m2tsSettings = a} :: UdpContainerSettings)
 
-instance Prelude.FromJSON UdpContainerSettings where
+instance Core.FromJSON UdpContainerSettings where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "UdpContainerSettings"
       ( \x ->
           UdpContainerSettings'
-            Prelude.<$> (x Prelude..:? "m2tsSettings")
+            Core.<$> (x Core..:? "m2tsSettings")
       )
 
-instance Prelude.Hashable UdpContainerSettings
+instance Core.Hashable UdpContainerSettings
 
-instance Prelude.NFData UdpContainerSettings
+instance Core.NFData UdpContainerSettings
 
-instance Prelude.ToJSON UdpContainerSettings where
+instance Core.ToJSON UdpContainerSettings where
   toJSON UdpContainerSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("m2tsSettings" Prelude..=)
-              Prelude.<$> m2tsSettings
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("m2tsSettings" Core..=) Core.<$> m2tsSettings]
       )

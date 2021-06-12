@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.OrganizationConformancePack where
 
 import Network.AWS.Config.Types.ConformancePackInputParameter
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An organization conformance pack that has information about conformance
 -- packs that AWS Config creates in member accounts.
@@ -32,24 +31,24 @@ data OrganizationConformancePack = OrganizationConformancePack'
   { -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
     --
     -- This field is optional.
-    deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
+    deliveryS3Bucket :: Core.Maybe Core.Text,
     -- | Any folder structure you want to add to an Amazon S3 bucket.
     --
     -- This field is optional.
-    deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
+    deliveryS3KeyPrefix :: Core.Maybe Core.Text,
     -- | A comma-separated list of accounts excluded from organization
     -- conformance pack.
-    excludedAccounts :: Prelude.Maybe [Prelude.Text],
+    excludedAccounts :: Core.Maybe [Core.Text],
     -- | A list of @ConformancePackInputParameter@ objects.
-    conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
+    conformancePackInputParameters :: Core.Maybe [ConformancePackInputParameter],
     -- | The name you assign to an organization conformance pack.
-    organizationConformancePackName :: Prelude.Text,
+    organizationConformancePackName :: Core.Text,
     -- | Amazon Resource Name (ARN) of organization conformance pack.
-    organizationConformancePackArn :: Prelude.Text,
+    organizationConformancePackArn :: Core.Text,
     -- | Last time when organization conformation pack was updated.
-    lastUpdateTime :: Prelude.POSIX
+    lastUpdateTime :: Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OrganizationConformancePack' with all optional fields omitted.
@@ -79,11 +78,11 @@ data OrganizationConformancePack = OrganizationConformancePack'
 -- 'lastUpdateTime', 'organizationConformancePack_lastUpdateTime' - Last time when organization conformation pack was updated.
 newOrganizationConformancePack ::
   -- | 'organizationConformancePackName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationConformancePackArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'lastUpdateTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   OrganizationConformancePack
 newOrganizationConformancePack
   pOrganizationConformancePackName_
@@ -91,71 +90,68 @@ newOrganizationConformancePack
   pLastUpdateTime_ =
     OrganizationConformancePack'
       { deliveryS3Bucket =
-          Prelude.Nothing,
-        deliveryS3KeyPrefix = Prelude.Nothing,
-        excludedAccounts = Prelude.Nothing,
-        conformancePackInputParameters =
-          Prelude.Nothing,
+          Core.Nothing,
+        deliveryS3KeyPrefix = Core.Nothing,
+        excludedAccounts = Core.Nothing,
+        conformancePackInputParameters = Core.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_,
         organizationConformancePackArn =
           pOrganizationConformancePackArn_,
         lastUpdateTime =
-          Prelude._Time Lens.# pLastUpdateTime_
+          Core._Time Lens.# pLastUpdateTime_
       }
 
 -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
 --
 -- This field is optional.
-organizationConformancePack_deliveryS3Bucket :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe Prelude.Text)
+organizationConformancePack_deliveryS3Bucket :: Lens.Lens' OrganizationConformancePack (Core.Maybe Core.Text)
 organizationConformancePack_deliveryS3Bucket = Lens.lens (\OrganizationConformancePack' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@OrganizationConformancePack' {} a -> s {deliveryS3Bucket = a} :: OrganizationConformancePack)
 
 -- | Any folder structure you want to add to an Amazon S3 bucket.
 --
 -- This field is optional.
-organizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe Prelude.Text)
+organizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' OrganizationConformancePack (Core.Maybe Core.Text)
 organizationConformancePack_deliveryS3KeyPrefix = Lens.lens (\OrganizationConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@OrganizationConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: OrganizationConformancePack)
 
 -- | A comma-separated list of accounts excluded from organization
 -- conformance pack.
-organizationConformancePack_excludedAccounts :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [Prelude.Text])
-organizationConformancePack_excludedAccounts = Lens.lens (\OrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConformancePack' {} a -> s {excludedAccounts = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Prelude._Coerce
+organizationConformancePack_excludedAccounts :: Lens.Lens' OrganizationConformancePack (Core.Maybe [Core.Text])
+organizationConformancePack_excludedAccounts = Lens.lens (\OrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@OrganizationConformancePack' {} a -> s {excludedAccounts = a} :: OrganizationConformancePack) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of @ConformancePackInputParameter@ objects.
-organizationConformancePack_conformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
-organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Prelude.. Lens.mapping Prelude._Coerce
+organizationConformancePack_conformancePackInputParameters :: Lens.Lens' OrganizationConformancePack (Core.Maybe [ConformancePackInputParameter])
+organizationConformancePack_conformancePackInputParameters = Lens.lens (\OrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@OrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: OrganizationConformancePack) Core.. Lens.mapping Lens._Coerce
 
 -- | The name you assign to an organization conformance pack.
-organizationConformancePack_organizationConformancePackName :: Lens.Lens' OrganizationConformancePack Prelude.Text
+organizationConformancePack_organizationConformancePackName :: Lens.Lens' OrganizationConformancePack Core.Text
 organizationConformancePack_organizationConformancePackName = Lens.lens (\OrganizationConformancePack' {organizationConformancePackName} -> organizationConformancePackName) (\s@OrganizationConformancePack' {} a -> s {organizationConformancePackName = a} :: OrganizationConformancePack)
 
 -- | Amazon Resource Name (ARN) of organization conformance pack.
-organizationConformancePack_organizationConformancePackArn :: Lens.Lens' OrganizationConformancePack Prelude.Text
+organizationConformancePack_organizationConformancePackArn :: Lens.Lens' OrganizationConformancePack Core.Text
 organizationConformancePack_organizationConformancePackArn = Lens.lens (\OrganizationConformancePack' {organizationConformancePackArn} -> organizationConformancePackArn) (\s@OrganizationConformancePack' {} a -> s {organizationConformancePackArn = a} :: OrganizationConformancePack)
 
 -- | Last time when organization conformation pack was updated.
-organizationConformancePack_lastUpdateTime :: Lens.Lens' OrganizationConformancePack Prelude.UTCTime
-organizationConformancePack_lastUpdateTime = Lens.lens (\OrganizationConformancePack' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePack' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePack) Prelude.. Prelude._Time
+organizationConformancePack_lastUpdateTime :: Lens.Lens' OrganizationConformancePack Core.UTCTime
+organizationConformancePack_lastUpdateTime = Lens.lens (\OrganizationConformancePack' {lastUpdateTime} -> lastUpdateTime) (\s@OrganizationConformancePack' {} a -> s {lastUpdateTime = a} :: OrganizationConformancePack) Core.. Core._Time
 
-instance Prelude.FromJSON OrganizationConformancePack where
+instance Core.FromJSON OrganizationConformancePack where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OrganizationConformancePack"
       ( \x ->
           OrganizationConformancePack'
-            Prelude.<$> (x Prelude..:? "DeliveryS3Bucket")
-            Prelude.<*> (x Prelude..:? "DeliveryS3KeyPrefix")
-            Prelude.<*> ( x Prelude..:? "ExcludedAccounts"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> ( x Prelude..:? "ConformancePackInputParameters"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "OrganizationConformancePackName")
-            Prelude.<*> (x Prelude..: "OrganizationConformancePackArn")
-            Prelude.<*> (x Prelude..: "LastUpdateTime")
+            Core.<$> (x Core..:? "DeliveryS3Bucket")
+            Core.<*> (x Core..:? "DeliveryS3KeyPrefix")
+            Core.<*> (x Core..:? "ExcludedAccounts" Core..!= Core.mempty)
+            Core.<*> ( x Core..:? "ConformancePackInputParameters"
+                         Core..!= Core.mempty
+                     )
+            Core.<*> (x Core..: "OrganizationConformancePackName")
+            Core.<*> (x Core..: "OrganizationConformancePackArn")
+            Core.<*> (x Core..: "LastUpdateTime")
       )
 
-instance Prelude.Hashable OrganizationConformancePack
+instance Core.Hashable OrganizationConformancePack
 
-instance Prelude.NFData OrganizationConformancePack
+instance Core.NFData OrganizationConformancePack

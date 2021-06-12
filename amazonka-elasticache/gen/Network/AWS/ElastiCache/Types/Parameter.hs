@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElastiCache.Types.Parameter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.ChangeType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an individual setting that controls some aspect of ElastiCache
 -- behavior.
@@ -34,27 +33,27 @@ data Parameter = Parameter'
     -- or wait until the next maintenance window\'s reboot. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster>.
-    changeType :: Prelude.Maybe ChangeType,
+    changeType :: Core.Maybe ChangeType,
     -- | The valid range of values for the parameter.
-    allowedValues :: Prelude.Maybe Prelude.Text,
+    allowedValues :: Core.Maybe Core.Text,
     -- | The source of the parameter.
-    source :: Prelude.Maybe Prelude.Text,
+    source :: Core.Maybe Core.Text,
     -- | The value of the parameter.
-    parameterValue :: Prelude.Maybe Prelude.Text,
+    parameterValue :: Core.Maybe Core.Text,
     -- | The name of the parameter.
-    parameterName :: Prelude.Maybe Prelude.Text,
+    parameterName :: Core.Maybe Core.Text,
     -- | A description of the parameter.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The valid data type for the parameter.
-    dataType :: Prelude.Maybe Prelude.Text,
+    dataType :: Core.Maybe Core.Text,
     -- | Indicates whether (@true@) or not (@false@) the parameter can be
     -- modified. Some parameters have security or operational implications that
     -- prevent them from being changed.
-    isModifiable :: Prelude.Maybe Prelude.Bool,
+    isModifiable :: Core.Maybe Core.Bool,
     -- | The earliest cache engine version to which the parameter can apply.
-    minimumEngineVersion :: Prelude.Maybe Prelude.Text
+    minimumEngineVersion :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Parameter' with all optional fields omitted.
@@ -91,15 +90,15 @@ newParameter ::
   Parameter
 newParameter =
   Parameter'
-    { changeType = Prelude.Nothing,
-      allowedValues = Prelude.Nothing,
-      source = Prelude.Nothing,
-      parameterValue = Prelude.Nothing,
-      parameterName = Prelude.Nothing,
-      description = Prelude.Nothing,
-      dataType = Prelude.Nothing,
-      isModifiable = Prelude.Nothing,
-      minimumEngineVersion = Prelude.Nothing
+    { changeType = Core.Nothing,
+      allowedValues = Core.Nothing,
+      source = Core.Nothing,
+      parameterValue = Core.Nothing,
+      parameterName = Core.Nothing,
+      description = Core.Nothing,
+      dataType = Core.Nothing,
+      isModifiable = Core.Nothing,
+      minimumEngineVersion = Core.Nothing
     }
 
 -- | Indicates whether a change to the parameter is applied immediately or
@@ -107,56 +106,56 @@ newParameter =
 -- or wait until the next maintenance window\'s reboot. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html Rebooting a Cluster>.
-parameter_changeType :: Lens.Lens' Parameter (Prelude.Maybe ChangeType)
+parameter_changeType :: Lens.Lens' Parameter (Core.Maybe ChangeType)
 parameter_changeType = Lens.lens (\Parameter' {changeType} -> changeType) (\s@Parameter' {} a -> s {changeType = a} :: Parameter)
 
 -- | The valid range of values for the parameter.
-parameter_allowedValues :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_allowedValues :: Lens.Lens' Parameter (Core.Maybe Core.Text)
 parameter_allowedValues = Lens.lens (\Parameter' {allowedValues} -> allowedValues) (\s@Parameter' {} a -> s {allowedValues = a} :: Parameter)
 
 -- | The source of the parameter.
-parameter_source :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_source :: Lens.Lens' Parameter (Core.Maybe Core.Text)
 parameter_source = Lens.lens (\Parameter' {source} -> source) (\s@Parameter' {} a -> s {source = a} :: Parameter)
 
 -- | The value of the parameter.
-parameter_parameterValue :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_parameterValue :: Lens.Lens' Parameter (Core.Maybe Core.Text)
 parameter_parameterValue = Lens.lens (\Parameter' {parameterValue} -> parameterValue) (\s@Parameter' {} a -> s {parameterValue = a} :: Parameter)
 
 -- | The name of the parameter.
-parameter_parameterName :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_parameterName :: Lens.Lens' Parameter (Core.Maybe Core.Text)
 parameter_parameterName = Lens.lens (\Parameter' {parameterName} -> parameterName) (\s@Parameter' {} a -> s {parameterName = a} :: Parameter)
 
 -- | A description of the parameter.
-parameter_description :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_description :: Lens.Lens' Parameter (Core.Maybe Core.Text)
 parameter_description = Lens.lens (\Parameter' {description} -> description) (\s@Parameter' {} a -> s {description = a} :: Parameter)
 
 -- | The valid data type for the parameter.
-parameter_dataType :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_dataType :: Lens.Lens' Parameter (Core.Maybe Core.Text)
 parameter_dataType = Lens.lens (\Parameter' {dataType} -> dataType) (\s@Parameter' {} a -> s {dataType = a} :: Parameter)
 
 -- | Indicates whether (@true@) or not (@false@) the parameter can be
 -- modified. Some parameters have security or operational implications that
 -- prevent them from being changed.
-parameter_isModifiable :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Bool)
+parameter_isModifiable :: Lens.Lens' Parameter (Core.Maybe Core.Bool)
 parameter_isModifiable = Lens.lens (\Parameter' {isModifiable} -> isModifiable) (\s@Parameter' {} a -> s {isModifiable = a} :: Parameter)
 
 -- | The earliest cache engine version to which the parameter can apply.
-parameter_minimumEngineVersion :: Lens.Lens' Parameter (Prelude.Maybe Prelude.Text)
+parameter_minimumEngineVersion :: Lens.Lens' Parameter (Core.Maybe Core.Text)
 parameter_minimumEngineVersion = Lens.lens (\Parameter' {minimumEngineVersion} -> minimumEngineVersion) (\s@Parameter' {} a -> s {minimumEngineVersion = a} :: Parameter)
 
-instance Prelude.FromXML Parameter where
+instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
-      Prelude.<$> (x Prelude..@? "ChangeType")
-      Prelude.<*> (x Prelude..@? "AllowedValues")
-      Prelude.<*> (x Prelude..@? "Source")
-      Prelude.<*> (x Prelude..@? "ParameterValue")
-      Prelude.<*> (x Prelude..@? "ParameterName")
-      Prelude.<*> (x Prelude..@? "Description")
-      Prelude.<*> (x Prelude..@? "DataType")
-      Prelude.<*> (x Prelude..@? "IsModifiable")
-      Prelude.<*> (x Prelude..@? "MinimumEngineVersion")
+      Core.<$> (x Core..@? "ChangeType")
+      Core.<*> (x Core..@? "AllowedValues")
+      Core.<*> (x Core..@? "Source")
+      Core.<*> (x Core..@? "ParameterValue")
+      Core.<*> (x Core..@? "ParameterName")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "DataType")
+      Core.<*> (x Core..@? "IsModifiable")
+      Core.<*> (x Core..@? "MinimumEngineVersion")
 
-instance Prelude.Hashable Parameter
+instance Core.Hashable Parameter
 
-instance Prelude.NFData Parameter
+instance Core.NFData Parameter

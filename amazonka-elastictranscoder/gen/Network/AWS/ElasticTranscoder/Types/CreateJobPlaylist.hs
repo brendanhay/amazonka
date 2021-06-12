@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticTranscoder.Types.CreateJobPlaylist where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticTranscoder.Types.HlsContentProtection
 import Network.AWS.ElasticTranscoder.Types.PlayReadyDrm
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the master playlist.
 --
@@ -31,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data CreateJobPlaylist = CreateJobPlaylist'
   { -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
     -- the output files associated with this playlist.
-    playReadyDrm :: Prelude.Maybe PlayReadyDrm,
+    playReadyDrm :: Core.Maybe PlayReadyDrm,
     -- | For each output in this job that you want to include in a master
     -- playlist, the value of the @Outputs:Key@ object.
     --
@@ -72,13 +71,13 @@ data CreateJobPlaylist = CreateJobPlaylist'
     -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
     -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
     -- must be the same for all outputs.
-    outputKeys :: Prelude.Maybe [Prelude.Text],
+    outputKeys :: Core.Maybe [Core.Text],
     -- | The format of the output playlist. Valid formats include @HLSv3@,
     -- @HLSv4@, and @Smooth@.
-    format :: Prelude.Maybe Prelude.Text,
+    format :: Core.Maybe Core.Text,
     -- | The HLS content protection settings, if any, that you want Elastic
     -- Transcoder to apply to the output files associated with this playlist.
-    hlsContentProtection :: Prelude.Maybe HlsContentProtection,
+    hlsContentProtection :: Core.Maybe HlsContentProtection,
     -- | The name that you want Elastic Transcoder to assign to the master
     -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
     -- character, the section of the name before the last @\/@ must be
@@ -89,9 +88,9 @@ data CreateJobPlaylist = CreateJobPlaylist'
     -- the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists, and @.ism@ and
     -- @.ismc@ for @Smooth@ playlists). If you include a file extension in
     -- @Name@, the file name will have two extensions.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateJobPlaylist' with all optional fields omitted.
@@ -165,16 +164,16 @@ newCreateJobPlaylist ::
   CreateJobPlaylist
 newCreateJobPlaylist =
   CreateJobPlaylist'
-    { playReadyDrm = Prelude.Nothing,
-      outputKeys = Prelude.Nothing,
-      format = Prelude.Nothing,
-      hlsContentProtection = Prelude.Nothing,
-      name = Prelude.Nothing
+    { playReadyDrm = Core.Nothing,
+      outputKeys = Core.Nothing,
+      format = Core.Nothing,
+      hlsContentProtection = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
-createJobPlaylist_playReadyDrm :: Lens.Lens' CreateJobPlaylist (Prelude.Maybe PlayReadyDrm)
+createJobPlaylist_playReadyDrm :: Lens.Lens' CreateJobPlaylist (Core.Maybe PlayReadyDrm)
 createJobPlaylist_playReadyDrm = Lens.lens (\CreateJobPlaylist' {playReadyDrm} -> playReadyDrm) (\s@CreateJobPlaylist' {} a -> s {playReadyDrm = a} :: CreateJobPlaylist)
 
 -- | For each output in this job that you want to include in a master
@@ -217,17 +216,17 @@ createJobPlaylist_playReadyDrm = Lens.lens (\CreateJobPlaylist' {playReadyDrm} -
 -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
-createJobPlaylist_outputKeys :: Lens.Lens' CreateJobPlaylist (Prelude.Maybe [Prelude.Text])
-createJobPlaylist_outputKeys = Lens.lens (\CreateJobPlaylist' {outputKeys} -> outputKeys) (\s@CreateJobPlaylist' {} a -> s {outputKeys = a} :: CreateJobPlaylist) Prelude.. Lens.mapping Prelude._Coerce
+createJobPlaylist_outputKeys :: Lens.Lens' CreateJobPlaylist (Core.Maybe [Core.Text])
+createJobPlaylist_outputKeys = Lens.lens (\CreateJobPlaylist' {outputKeys} -> outputKeys) (\s@CreateJobPlaylist' {} a -> s {outputKeys = a} :: CreateJobPlaylist) Core.. Lens.mapping Lens._Coerce
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
-createJobPlaylist_format :: Lens.Lens' CreateJobPlaylist (Prelude.Maybe Prelude.Text)
+createJobPlaylist_format :: Lens.Lens' CreateJobPlaylist (Core.Maybe Core.Text)
 createJobPlaylist_format = Lens.lens (\CreateJobPlaylist' {format} -> format) (\s@CreateJobPlaylist' {} a -> s {format = a} :: CreateJobPlaylist)
 
 -- | The HLS content protection settings, if any, that you want Elastic
 -- Transcoder to apply to the output files associated with this playlist.
-createJobPlaylist_hlsContentProtection :: Lens.Lens' CreateJobPlaylist (Prelude.Maybe HlsContentProtection)
+createJobPlaylist_hlsContentProtection :: Lens.Lens' CreateJobPlaylist (Core.Maybe HlsContentProtection)
 createJobPlaylist_hlsContentProtection = Lens.lens (\CreateJobPlaylist' {hlsContentProtection} -> hlsContentProtection) (\s@CreateJobPlaylist' {} a -> s {hlsContentProtection = a} :: CreateJobPlaylist)
 
 -- | The name that you want Elastic Transcoder to assign to the master
@@ -240,23 +239,22 @@ createJobPlaylist_hlsContentProtection = Lens.lens (\CreateJobPlaylist' {hlsCont
 -- the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists, and @.ism@ and
 -- @.ismc@ for @Smooth@ playlists). If you include a file extension in
 -- @Name@, the file name will have two extensions.
-createJobPlaylist_name :: Lens.Lens' CreateJobPlaylist (Prelude.Maybe Prelude.Text)
+createJobPlaylist_name :: Lens.Lens' CreateJobPlaylist (Core.Maybe Core.Text)
 createJobPlaylist_name = Lens.lens (\CreateJobPlaylist' {name} -> name) (\s@CreateJobPlaylist' {} a -> s {name = a} :: CreateJobPlaylist)
 
-instance Prelude.Hashable CreateJobPlaylist
+instance Core.Hashable CreateJobPlaylist
 
-instance Prelude.NFData CreateJobPlaylist
+instance Core.NFData CreateJobPlaylist
 
-instance Prelude.ToJSON CreateJobPlaylist where
+instance Core.ToJSON CreateJobPlaylist where
   toJSON CreateJobPlaylist' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PlayReadyDrm" Prelude..=)
-              Prelude.<$> playReadyDrm,
-            ("OutputKeys" Prelude..=) Prelude.<$> outputKeys,
-            ("Format" Prelude..=) Prelude.<$> format,
-            ("HlsContentProtection" Prelude..=)
-              Prelude.<$> hlsContentProtection,
-            ("Name" Prelude..=) Prelude.<$> name
+    Core.object
+      ( Core.catMaybes
+          [ ("PlayReadyDrm" Core..=) Core.<$> playReadyDrm,
+            ("OutputKeys" Core..=) Core.<$> outputKeys,
+            ("Format" Core..=) Core.<$> format,
+            ("HlsContentProtection" Core..=)
+              Core.<$> hlsContentProtection,
+            ("Name" Core..=) Core.<$> name
           ]
       )

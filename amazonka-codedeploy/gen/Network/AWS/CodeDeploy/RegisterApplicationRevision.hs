@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
 where
 
 import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,15 +48,15 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newRegisterApplicationRevision' smart constructor.
 data RegisterApplicationRevision = RegisterApplicationRevision'
   { -- | A comment about the revision.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of an AWS CodeDeploy application associated with the IAM user
     -- or AWS account.
-    applicationName :: Prelude.Text,
+    applicationName :: Core.Text,
     -- | Information about the application revision to register, including type
     -- and location.
     revision :: RevisionLocation
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterApplicationRevision' with all optional fields omitted.
@@ -76,7 +75,7 @@ data RegisterApplicationRevision = RegisterApplicationRevision'
 -- and location.
 newRegisterApplicationRevision ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'revision'
   RevisionLocation ->
   RegisterApplicationRevision
@@ -85,18 +84,18 @@ newRegisterApplicationRevision
   pRevision_ =
     RegisterApplicationRevision'
       { description =
-          Prelude.Nothing,
+          Core.Nothing,
         applicationName = pApplicationName_,
         revision = pRevision_
       }
 
 -- | A comment about the revision.
-registerApplicationRevision_description :: Lens.Lens' RegisterApplicationRevision (Prelude.Maybe Prelude.Text)
+registerApplicationRevision_description :: Lens.Lens' RegisterApplicationRevision (Core.Maybe Core.Text)
 registerApplicationRevision_description = Lens.lens (\RegisterApplicationRevision' {description} -> description) (\s@RegisterApplicationRevision' {} a -> s {description = a} :: RegisterApplicationRevision)
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user
 -- or AWS account.
-registerApplicationRevision_applicationName :: Lens.Lens' RegisterApplicationRevision Prelude.Text
+registerApplicationRevision_applicationName :: Lens.Lens' RegisterApplicationRevision Core.Text
 registerApplicationRevision_applicationName = Lens.lens (\RegisterApplicationRevision' {applicationName} -> applicationName) (\s@RegisterApplicationRevision' {} a -> s {applicationName = a} :: RegisterApplicationRevision)
 
 -- | Information about the application revision to register, including type
@@ -104,62 +103,54 @@ registerApplicationRevision_applicationName = Lens.lens (\RegisterApplicationRev
 registerApplicationRevision_revision :: Lens.Lens' RegisterApplicationRevision RevisionLocation
 registerApplicationRevision_revision = Lens.lens (\RegisterApplicationRevision' {revision} -> revision) (\s@RegisterApplicationRevision' {} a -> s {revision = a} :: RegisterApplicationRevision)
 
-instance
-  Prelude.AWSRequest
-    RegisterApplicationRevision
-  where
+instance Core.AWSRequest RegisterApplicationRevision where
   type
-    Rs RegisterApplicationRevision =
+    AWSResponse RegisterApplicationRevision =
       RegisterApplicationRevisionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       RegisterApplicationRevisionResponse'
 
-instance Prelude.Hashable RegisterApplicationRevision
+instance Core.Hashable RegisterApplicationRevision
 
-instance Prelude.NFData RegisterApplicationRevision
+instance Core.NFData RegisterApplicationRevision
 
-instance
-  Prelude.ToHeaders
-    RegisterApplicationRevision
-  where
+instance Core.ToHeaders RegisterApplicationRevision where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CodeDeploy_20141006.RegisterApplicationRevision" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CodeDeploy_20141006.RegisterApplicationRevision" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterApplicationRevision where
+instance Core.ToJSON RegisterApplicationRevision where
   toJSON RegisterApplicationRevision' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("description" Prelude..=) Prelude.<$> description,
-            Prelude.Just
-              ("applicationName" Prelude..= applicationName),
-            Prelude.Just ("revision" Prelude..= revision)
+    Core.object
+      ( Core.catMaybes
+          [ ("description" Core..=) Core.<$> description,
+            Core.Just
+              ("applicationName" Core..= applicationName),
+            Core.Just ("revision" Core..= revision)
           ]
       )
 
-instance Prelude.ToPath RegisterApplicationRevision where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterApplicationRevision where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterApplicationRevision where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterApplicationRevision where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterApplicationRevisionResponse' smart constructor.
 data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterApplicationRevisionResponse' with all optional fields omitted.
@@ -171,5 +162,5 @@ newRegisterApplicationRevisionResponse =
   RegisterApplicationRevisionResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     RegisterApplicationRevisionResponse

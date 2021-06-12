@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,19 +40,19 @@ module Network.AWS.AppSync.DeleteType
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteType' smart constructor.
 data DeleteType = DeleteType'
   { -- | The API ID.
-    apiId :: Prelude.Text,
+    apiId :: Core.Text,
     -- | The type name.
-    typeName :: Prelude.Text
+    typeName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteType' with all optional fields omitted.
@@ -68,64 +67,62 @@ data DeleteType = DeleteType'
 -- 'typeName', 'deleteType_typeName' - The type name.
 newDeleteType ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'typeName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteType
 newDeleteType pApiId_ pTypeName_ =
   DeleteType' {apiId = pApiId_, typeName = pTypeName_}
 
 -- | The API ID.
-deleteType_apiId :: Lens.Lens' DeleteType Prelude.Text
+deleteType_apiId :: Lens.Lens' DeleteType Core.Text
 deleteType_apiId = Lens.lens (\DeleteType' {apiId} -> apiId) (\s@DeleteType' {} a -> s {apiId = a} :: DeleteType)
 
 -- | The type name.
-deleteType_typeName :: Lens.Lens' DeleteType Prelude.Text
+deleteType_typeName :: Lens.Lens' DeleteType Core.Text
 deleteType_typeName = Lens.lens (\DeleteType' {typeName} -> typeName) (\s@DeleteType' {} a -> s {typeName = a} :: DeleteType)
 
-instance Prelude.AWSRequest DeleteType where
-  type Rs DeleteType = DeleteTypeResponse
+instance Core.AWSRequest DeleteType where
+  type AWSResponse DeleteType = DeleteTypeResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTypeResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteType
+instance Core.Hashable DeleteType
 
-instance Prelude.NFData DeleteType
+instance Core.NFData DeleteType
 
-instance Prelude.ToHeaders DeleteType where
+instance Core.ToHeaders DeleteType where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteType where
+instance Core.ToPath DeleteType where
   toPath DeleteType' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/v1/apis/",
-        Prelude.toBS apiId,
+        Core.toBS apiId,
         "/types/",
-        Prelude.toBS typeName
+        Core.toBS typeName
       ]
 
-instance Prelude.ToQuery DeleteType where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteType where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteTypeResponse' smart constructor.
 data DeleteTypeResponse = DeleteTypeResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteTypeResponse' with all optional fields omitted.
@@ -138,13 +135,13 @@ data DeleteTypeResponse = DeleteTypeResponse'
 -- 'httpStatus', 'deleteTypeResponse_httpStatus' - The response's http status code.
 newDeleteTypeResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteTypeResponse
 newDeleteTypeResponse pHttpStatus_ =
   DeleteTypeResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteTypeResponse_httpStatus :: Lens.Lens' DeleteTypeResponse Prelude.Int
+deleteTypeResponse_httpStatus :: Lens.Lens' DeleteTypeResponse Core.Int
 deleteTypeResponse_httpStatus = Lens.lens (\DeleteTypeResponse' {httpStatus} -> httpStatus) (\s@DeleteTypeResponse' {} a -> s {httpStatus = a} :: DeleteTypeResponse)
 
-instance Prelude.NFData DeleteTypeResponse
+instance Core.NFData DeleteTypeResponse

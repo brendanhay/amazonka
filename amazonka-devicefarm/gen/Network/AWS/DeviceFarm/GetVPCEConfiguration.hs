@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,9 +40,9 @@ module Network.AWS.DeviceFarm.GetVPCEConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DeviceFarm.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,9 +50,9 @@ import qualified Network.AWS.Response as Response
 data GetVPCEConfiguration = GetVPCEConfiguration'
   { -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
     -- want to describe.
-    arn :: Prelude.Text
+    arn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetVPCEConfiguration' with all optional fields omitted.
@@ -67,70 +66,66 @@ data GetVPCEConfiguration = GetVPCEConfiguration'
 -- want to describe.
 newGetVPCEConfiguration ::
   -- | 'arn'
-  Prelude.Text ->
+  Core.Text ->
   GetVPCEConfiguration
 newGetVPCEConfiguration pArn_ =
   GetVPCEConfiguration' {arn = pArn_}
 
 -- | The Amazon Resource Name (ARN) of the VPC endpoint configuration you
 -- want to describe.
-getVPCEConfiguration_arn :: Lens.Lens' GetVPCEConfiguration Prelude.Text
+getVPCEConfiguration_arn :: Lens.Lens' GetVPCEConfiguration Core.Text
 getVPCEConfiguration_arn = Lens.lens (\GetVPCEConfiguration' {arn} -> arn) (\s@GetVPCEConfiguration' {} a -> s {arn = a} :: GetVPCEConfiguration)
 
-instance Prelude.AWSRequest GetVPCEConfiguration where
+instance Core.AWSRequest GetVPCEConfiguration where
   type
-    Rs GetVPCEConfiguration =
+    AWSResponse GetVPCEConfiguration =
       GetVPCEConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetVPCEConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "vpceConfiguration")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "vpceConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetVPCEConfiguration
+instance Core.Hashable GetVPCEConfiguration
 
-instance Prelude.NFData GetVPCEConfiguration
+instance Core.NFData GetVPCEConfiguration
 
-instance Prelude.ToHeaders GetVPCEConfiguration where
+instance Core.ToHeaders GetVPCEConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "DeviceFarm_20150623.GetVPCEConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "DeviceFarm_20150623.GetVPCEConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetVPCEConfiguration where
+instance Core.ToJSON GetVPCEConfiguration where
   toJSON GetVPCEConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("arn" Prelude..= arn)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("arn" Core..= arn)])
 
-instance Prelude.ToPath GetVPCEConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetVPCEConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetVPCEConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetVPCEConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetVPCEConfigurationResponse' smart constructor.
 data GetVPCEConfigurationResponse = GetVPCEConfigurationResponse'
   { -- | An object that contains information about your VPC endpoint
     -- configuration.
-    vpceConfiguration :: Prelude.Maybe VPCEConfiguration,
+    vpceConfiguration :: Core.Maybe VPCEConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetVPCEConfigurationResponse' with all optional fields omitted.
@@ -146,22 +141,22 @@ data GetVPCEConfigurationResponse = GetVPCEConfigurationResponse'
 -- 'httpStatus', 'getVPCEConfigurationResponse_httpStatus' - The response's http status code.
 newGetVPCEConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetVPCEConfigurationResponse
 newGetVPCEConfigurationResponse pHttpStatus_ =
   GetVPCEConfigurationResponse'
     { vpceConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that contains information about your VPC endpoint
 -- configuration.
-getVPCEConfigurationResponse_vpceConfiguration :: Lens.Lens' GetVPCEConfigurationResponse (Prelude.Maybe VPCEConfiguration)
+getVPCEConfigurationResponse_vpceConfiguration :: Lens.Lens' GetVPCEConfigurationResponse (Core.Maybe VPCEConfiguration)
 getVPCEConfigurationResponse_vpceConfiguration = Lens.lens (\GetVPCEConfigurationResponse' {vpceConfiguration} -> vpceConfiguration) (\s@GetVPCEConfigurationResponse' {} a -> s {vpceConfiguration = a} :: GetVPCEConfigurationResponse)
 
 -- | The response's http status code.
-getVPCEConfigurationResponse_httpStatus :: Lens.Lens' GetVPCEConfigurationResponse Prelude.Int
+getVPCEConfigurationResponse_httpStatus :: Lens.Lens' GetVPCEConfigurationResponse Core.Int
 getVPCEConfigurationResponse_httpStatus = Lens.lens (\GetVPCEConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetVPCEConfigurationResponse' {} a -> s {httpStatus = a} :: GetVPCEConfigurationResponse)
 
-instance Prelude.NFData GetVPCEConfigurationResponse
+instance Core.NFData GetVPCEConfigurationResponse

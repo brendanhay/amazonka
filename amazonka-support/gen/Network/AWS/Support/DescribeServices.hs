@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -63,8 +62,8 @@ module Network.AWS.Support.DescribeServices
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Support.Types
@@ -72,14 +71,14 @@ import Network.AWS.Support.Types
 -- | /See:/ 'newDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
   { -- | A JSON-formatted list of service codes available for AWS services.
-    serviceCodeList :: Prelude.Maybe [Prelude.Text],
+    serviceCodeList :: Core.Maybe [Core.Text],
     -- | The ISO 639-1 code for the language in which AWS provides support. AWS
     -- Support currently supports English (\"en\") and Japanese (\"ja\").
     -- Language parameters must be passed explicitly for operations that take
     -- them.
-    language :: Prelude.Maybe Prelude.Text
+    language :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeServices' with all optional fields omitted.
@@ -99,78 +98,77 @@ newDescribeServices ::
   DescribeServices
 newDescribeServices =
   DescribeServices'
-    { serviceCodeList =
-        Prelude.Nothing,
-      language = Prelude.Nothing
+    { serviceCodeList = Core.Nothing,
+      language = Core.Nothing
     }
 
 -- | A JSON-formatted list of service codes available for AWS services.
-describeServices_serviceCodeList :: Lens.Lens' DescribeServices (Prelude.Maybe [Prelude.Text])
-describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeList} -> serviceCodeList) (\s@DescribeServices' {} a -> s {serviceCodeList = a} :: DescribeServices) Prelude.. Lens.mapping Prelude._Coerce
+describeServices_serviceCodeList :: Lens.Lens' DescribeServices (Core.Maybe [Core.Text])
+describeServices_serviceCodeList = Lens.lens (\DescribeServices' {serviceCodeList} -> serviceCodeList) (\s@DescribeServices' {} a -> s {serviceCodeList = a} :: DescribeServices) Core.. Lens.mapping Lens._Coerce
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-describeServices_language :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
+describeServices_language :: Lens.Lens' DescribeServices (Core.Maybe Core.Text)
 describeServices_language = Lens.lens (\DescribeServices' {language} -> language) (\s@DescribeServices' {} a -> s {language = a} :: DescribeServices)
 
-instance Prelude.AWSRequest DescribeServices where
-  type Rs DescribeServices = DescribeServicesResponse
+instance Core.AWSRequest DescribeServices where
+  type
+    AWSResponse DescribeServices =
+      DescribeServicesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeServicesResponse'
-            Prelude.<$> (x Prelude..?> "services" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "services" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeServices
+instance Core.Hashable DescribeServices
 
-instance Prelude.NFData DescribeServices
+instance Core.NFData DescribeServices
 
-instance Prelude.ToHeaders DescribeServices where
+instance Core.ToHeaders DescribeServices where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSSupport_20130415.DescribeServices" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSSupport_20130415.DescribeServices" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeServices where
+instance Core.ToJSON DescribeServices where
   toJSON DescribeServices' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("serviceCodeList" Prelude..=)
-              Prelude.<$> serviceCodeList,
-            ("language" Prelude..=) Prelude.<$> language
+    Core.object
+      ( Core.catMaybes
+          [ ("serviceCodeList" Core..=)
+              Core.<$> serviceCodeList,
+            ("language" Core..=) Core.<$> language
           ]
       )
 
-instance Prelude.ToPath DescribeServices where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeServices where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeServices where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeServices where
+  toQuery = Core.const Core.mempty
 
 -- | The list of AWS services returned by the DescribeServices operation.
 --
 -- /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
   { -- | A JSON-formatted list of AWS services.
-    services :: Prelude.Maybe [SupportService],
+    services :: Core.Maybe [SupportService],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeServicesResponse' with all optional fields omitted.
@@ -185,21 +183,20 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
 newDescribeServicesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeServicesResponse
 newDescribeServicesResponse pHttpStatus_ =
   DescribeServicesResponse'
-    { services =
-        Prelude.Nothing,
+    { services = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A JSON-formatted list of AWS services.
-describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [SupportService])
-describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Core.Maybe [SupportService])
+describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Prelude.Int
+describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Core.Int
 describeServicesResponse_httpStatus = Lens.lens (\DescribeServicesResponse' {httpStatus} -> httpStatus) (\s@DescribeServicesResponse' {} a -> s {httpStatus = a} :: DescribeServicesResponse)
 
-instance Prelude.NFData DescribeServicesResponse
+instance Core.NFData DescribeServicesResponse

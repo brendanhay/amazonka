@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Batch.Types.ComputeResourceUpdate where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing the attributes of a compute environment that can
 -- be updated. For more information, see
@@ -35,13 +34,13 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- resources, where it can contain up to 5 security groups. This can\'t be
     -- specified for EC2 compute resources. Providing an empty list is handled
     -- as if this parameter wasn\'t specified and no change is made.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    securityGroupIds :: Core.Maybe [Core.Text],
     -- | The minimum number of Amazon EC2 vCPUs that an environment should
     -- maintain.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    minvCpus :: Prelude.Maybe Prelude.Int,
+    minvCpus :: Core.Maybe Core.Int,
     -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
     --
     -- With both @BEST_FIT_PROGRESSIVE@ and @SPOT_CAPACITY_OPTIMIZED@
@@ -49,12 +48,12 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- meet your capacity requirements. In this event, AWS Batch will never go
     -- above @maxvCpus@ by more than a single instance (e.g., no more than a
     -- single instance from among those specified in your compute environment).
-    maxvCpus :: Prelude.Maybe Prelude.Int,
+    maxvCpus :: Core.Maybe Core.Int,
     -- | The desired number of Amazon EC2 vCPUS in the compute environment.
     --
     -- This parameter isn\'t applicable to jobs running on Fargate resources,
     -- and shouldn\'t be specified.
-    desiredvCpus :: Prelude.Maybe Prelude.Int,
+    desiredvCpus :: Core.Maybe Core.Int,
     -- | The VPC subnets that the compute resources are launched into. This
     -- parameter is required for jobs running on Fargate compute resources,
     -- where it can contain up to 16 subnets. For more information, see
@@ -62,9 +61,9 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- in the /Amazon VPC User Guide/. This can\'t be specified for EC2 compute
     -- resources. Providing an empty list will be handled as if this parameter
     -- wasn\'t specified and no change is made.
-    subnets :: Prelude.Maybe [Prelude.Text]
+    subnets :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComputeResourceUpdate' with all optional fields omitted.
@@ -111,11 +110,11 @@ newComputeResourceUpdate ::
 newComputeResourceUpdate =
   ComputeResourceUpdate'
     { securityGroupIds =
-        Prelude.Nothing,
-      minvCpus = Prelude.Nothing,
-      maxvCpus = Prelude.Nothing,
-      desiredvCpus = Prelude.Nothing,
-      subnets = Prelude.Nothing
+        Core.Nothing,
+      minvCpus = Core.Nothing,
+      maxvCpus = Core.Nothing,
+      desiredvCpus = Core.Nothing,
+      subnets = Core.Nothing
     }
 
 -- | The Amazon EC2 security groups associated with instances launched in the
@@ -123,15 +122,15 @@ newComputeResourceUpdate =
 -- resources, where it can contain up to 5 security groups. This can\'t be
 -- specified for EC2 compute resources. Providing an empty list is handled
 -- as if this parameter wasn\'t specified and no change is made.
-computeResourceUpdate_securityGroupIds :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
-computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {securityGroupIds} -> securityGroupIds) (\s@ComputeResourceUpdate' {} a -> s {securityGroupIds = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Prelude._Coerce
+computeResourceUpdate_securityGroupIds :: Lens.Lens' ComputeResourceUpdate (Core.Maybe [Core.Text])
+computeResourceUpdate_securityGroupIds = Lens.lens (\ComputeResourceUpdate' {securityGroupIds} -> securityGroupIds) (\s@ComputeResourceUpdate' {} a -> s {securityGroupIds = a} :: ComputeResourceUpdate) Core.. Lens.mapping Lens._Coerce
 
 -- | The minimum number of Amazon EC2 vCPUs that an environment should
 -- maintain.
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResourceUpdate_minvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
+computeResourceUpdate_minvCpus :: Lens.Lens' ComputeResourceUpdate (Core.Maybe Core.Int)
 computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -> minvCpus) (\s@ComputeResourceUpdate' {} a -> s {minvCpus = a} :: ComputeResourceUpdate)
 
 -- | The maximum number of Amazon EC2 vCPUs that an environment can reach.
@@ -141,14 +140,14 @@ computeResourceUpdate_minvCpus = Lens.lens (\ComputeResourceUpdate' {minvCpus} -
 -- meet your capacity requirements. In this event, AWS Batch will never go
 -- above @maxvCpus@ by more than a single instance (e.g., no more than a
 -- single instance from among those specified in your compute environment).
-computeResourceUpdate_maxvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
+computeResourceUpdate_maxvCpus :: Lens.Lens' ComputeResourceUpdate (Core.Maybe Core.Int)
 computeResourceUpdate_maxvCpus = Lens.lens (\ComputeResourceUpdate' {maxvCpus} -> maxvCpus) (\s@ComputeResourceUpdate' {} a -> s {maxvCpus = a} :: ComputeResourceUpdate)
 
 -- | The desired number of Amazon EC2 vCPUS in the compute environment.
 --
 -- This parameter isn\'t applicable to jobs running on Fargate resources,
 -- and shouldn\'t be specified.
-computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
+computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Core.Maybe Core.Int)
 computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 
 -- | The VPC subnets that the compute resources are launched into. This
@@ -158,22 +157,22 @@ computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desired
 -- in the /Amazon VPC User Guide/. This can\'t be specified for EC2 compute
 -- resources. Providing an empty list will be handled as if this parameter
 -- wasn\'t specified and no change is made.
-computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe [Prelude.Text])
-computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Prelude.. Lens.mapping Prelude._Coerce
+computeResourceUpdate_subnets :: Lens.Lens' ComputeResourceUpdate (Core.Maybe [Core.Text])
+computeResourceUpdate_subnets = Lens.lens (\ComputeResourceUpdate' {subnets} -> subnets) (\s@ComputeResourceUpdate' {} a -> s {subnets = a} :: ComputeResourceUpdate) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable ComputeResourceUpdate
+instance Core.Hashable ComputeResourceUpdate
 
-instance Prelude.NFData ComputeResourceUpdate
+instance Core.NFData ComputeResourceUpdate
 
-instance Prelude.ToJSON ComputeResourceUpdate where
+instance Core.ToJSON ComputeResourceUpdate where
   toJSON ComputeResourceUpdate' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("securityGroupIds" Prelude..=)
-              Prelude.<$> securityGroupIds,
-            ("minvCpus" Prelude..=) Prelude.<$> minvCpus,
-            ("maxvCpus" Prelude..=) Prelude.<$> maxvCpus,
-            ("desiredvCpus" Prelude..=) Prelude.<$> desiredvCpus,
-            ("subnets" Prelude..=) Prelude.<$> subnets
+    Core.object
+      ( Core.catMaybes
+          [ ("securityGroupIds" Core..=)
+              Core.<$> securityGroupIds,
+            ("minvCpus" Core..=) Core.<$> minvCpus,
+            ("maxvCpus" Core..=) Core.<$> maxvCpus,
+            ("desiredvCpus" Core..=) Core.<$> desiredvCpus,
+            ("subnets" Core..=) Core.<$> subnets
           ]
       )

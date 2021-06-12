@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Athena.Types.QueryExecutionContext where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The database and data catalog context in which the query execution
 -- occurs.
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newQueryExecutionContext' smart constructor.
 data QueryExecutionContext = QueryExecutionContext'
   { -- | The name of the data catalog used in the query execution.
-    catalog :: Prelude.Maybe Prelude.Text,
+    catalog :: Core.Maybe Core.Text,
     -- | The name of the database used in the query execution.
-    database :: Prelude.Maybe Prelude.Text
+    database :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'QueryExecutionContext' with all optional fields omitted.
@@ -50,37 +49,37 @@ newQueryExecutionContext ::
   QueryExecutionContext
 newQueryExecutionContext =
   QueryExecutionContext'
-    { catalog = Prelude.Nothing,
-      database = Prelude.Nothing
+    { catalog = Core.Nothing,
+      database = Core.Nothing
     }
 
 -- | The name of the data catalog used in the query execution.
-queryExecutionContext_catalog :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
+queryExecutionContext_catalog :: Lens.Lens' QueryExecutionContext (Core.Maybe Core.Text)
 queryExecutionContext_catalog = Lens.lens (\QueryExecutionContext' {catalog} -> catalog) (\s@QueryExecutionContext' {} a -> s {catalog = a} :: QueryExecutionContext)
 
 -- | The name of the database used in the query execution.
-queryExecutionContext_database :: Lens.Lens' QueryExecutionContext (Prelude.Maybe Prelude.Text)
+queryExecutionContext_database :: Lens.Lens' QueryExecutionContext (Core.Maybe Core.Text)
 queryExecutionContext_database = Lens.lens (\QueryExecutionContext' {database} -> database) (\s@QueryExecutionContext' {} a -> s {database = a} :: QueryExecutionContext)
 
-instance Prelude.FromJSON QueryExecutionContext where
+instance Core.FromJSON QueryExecutionContext where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "QueryExecutionContext"
       ( \x ->
           QueryExecutionContext'
-            Prelude.<$> (x Prelude..:? "Catalog")
-            Prelude.<*> (x Prelude..:? "Database")
+            Core.<$> (x Core..:? "Catalog")
+            Core.<*> (x Core..:? "Database")
       )
 
-instance Prelude.Hashable QueryExecutionContext
+instance Core.Hashable QueryExecutionContext
 
-instance Prelude.NFData QueryExecutionContext
+instance Core.NFData QueryExecutionContext
 
-instance Prelude.ToJSON QueryExecutionContext where
+instance Core.ToJSON QueryExecutionContext where
   toJSON QueryExecutionContext' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Catalog" Prelude..=) Prelude.<$> catalog,
-            ("Database" Prelude..=) Prelude.<$> database
+    Core.object
+      ( Core.catMaybes
+          [ ("Catalog" Core..=) Core.<$> catalog,
+            ("Database" Core..=) Core.<$> database
           ]
       )

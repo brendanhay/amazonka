@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.StorageGateway.Types.AutomaticTapeCreationRule where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | An automatic tape creation policy consists of automatic tape creation
 -- rules where each rule defines when and how to create new tapes. For more
@@ -33,13 +32,13 @@ data AutomaticTapeCreationRule = AutomaticTapeCreationRule'
   { -- | Set to @true@ to indicate that tapes are to be archived as
     -- write-once-read-many (WORM). Set to @false@ when WORM is not enabled for
     -- tapes.
-    worm :: Prelude.Maybe Prelude.Bool,
+    worm :: Core.Maybe Core.Bool,
     -- | A prefix that you append to the barcode of the virtual tape that you are
     -- creating. This prefix makes the barcode unique.
     --
     -- The prefix must be 1-4 characters in length and must be one of the
     -- uppercase letters from A to Z.
-    tapeBarcodePrefix :: Prelude.Text,
+    tapeBarcodePrefix :: Core.Text,
     -- | The ID of the pool that you want to add your tape to for archiving. The
     -- tape in this pool is archived in the Amazon S3 storage class that is
     -- associated with the pool. When you use your backup application to eject
@@ -47,18 +46,18 @@ data AutomaticTapeCreationRule = AutomaticTapeCreationRule'
     -- Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-    poolId :: Prelude.Text,
+    poolId :: Core.Text,
     -- | The size, in bytes, of the virtual tape capacity.
-    tapeSizeInBytes :: Prelude.Integer,
+    tapeSizeInBytes :: Core.Integer,
     -- | The minimum number of available virtual tapes that the gateway maintains
     -- at all times. If the number of tapes on the gateway goes below this
     -- value, the gateway creates as many new tapes as are needed to have
     -- @MinimumNumTapes@ on the gateway. For more information about automatic
     -- tape creation, see
     -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically>.
-    minimumNumTapes :: Prelude.Natural
+    minimumNumTapes :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AutomaticTapeCreationRule' with all optional fields omitted.
@@ -96,13 +95,13 @@ data AutomaticTapeCreationRule = AutomaticTapeCreationRule'
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically>.
 newAutomaticTapeCreationRule ::
   -- | 'tapeBarcodePrefix'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'poolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tapeSizeInBytes'
-  Prelude.Integer ->
+  Core.Integer ->
   -- | 'minimumNumTapes'
-  Prelude.Natural ->
+  Core.Natural ->
   AutomaticTapeCreationRule
 newAutomaticTapeCreationRule
   pTapeBarcodePrefix_
@@ -110,7 +109,7 @@ newAutomaticTapeCreationRule
   pTapeSizeInBytes_
   pMinimumNumTapes_ =
     AutomaticTapeCreationRule'
-      { worm = Prelude.Nothing,
+      { worm = Core.Nothing,
         tapeBarcodePrefix = pTapeBarcodePrefix_,
         poolId = pPoolId_,
         tapeSizeInBytes = pTapeSizeInBytes_,
@@ -120,7 +119,7 @@ newAutomaticTapeCreationRule
 -- | Set to @true@ to indicate that tapes are to be archived as
 -- write-once-read-many (WORM). Set to @false@ when WORM is not enabled for
 -- tapes.
-automaticTapeCreationRule_worm :: Lens.Lens' AutomaticTapeCreationRule (Prelude.Maybe Prelude.Bool)
+automaticTapeCreationRule_worm :: Lens.Lens' AutomaticTapeCreationRule (Core.Maybe Core.Bool)
 automaticTapeCreationRule_worm = Lens.lens (\AutomaticTapeCreationRule' {worm} -> worm) (\s@AutomaticTapeCreationRule' {} a -> s {worm = a} :: AutomaticTapeCreationRule)
 
 -- | A prefix that you append to the barcode of the virtual tape that you are
@@ -128,7 +127,7 @@ automaticTapeCreationRule_worm = Lens.lens (\AutomaticTapeCreationRule' {worm} -
 --
 -- The prefix must be 1-4 characters in length and must be one of the
 -- uppercase letters from A to Z.
-automaticTapeCreationRule_tapeBarcodePrefix :: Lens.Lens' AutomaticTapeCreationRule Prelude.Text
+automaticTapeCreationRule_tapeBarcodePrefix :: Lens.Lens' AutomaticTapeCreationRule Core.Text
 automaticTapeCreationRule_tapeBarcodePrefix = Lens.lens (\AutomaticTapeCreationRule' {tapeBarcodePrefix} -> tapeBarcodePrefix) (\s@AutomaticTapeCreationRule' {} a -> s {tapeBarcodePrefix = a} :: AutomaticTapeCreationRule)
 
 -- | The ID of the pool that you want to add your tape to for archiving. The
@@ -138,11 +137,11 @@ automaticTapeCreationRule_tapeBarcodePrefix = Lens.lens (\AutomaticTapeCreationR
 -- Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
-automaticTapeCreationRule_poolId :: Lens.Lens' AutomaticTapeCreationRule Prelude.Text
+automaticTapeCreationRule_poolId :: Lens.Lens' AutomaticTapeCreationRule Core.Text
 automaticTapeCreationRule_poolId = Lens.lens (\AutomaticTapeCreationRule' {poolId} -> poolId) (\s@AutomaticTapeCreationRule' {} a -> s {poolId = a} :: AutomaticTapeCreationRule)
 
 -- | The size, in bytes, of the virtual tape capacity.
-automaticTapeCreationRule_tapeSizeInBytes :: Lens.Lens' AutomaticTapeCreationRule Prelude.Integer
+automaticTapeCreationRule_tapeSizeInBytes :: Lens.Lens' AutomaticTapeCreationRule Core.Integer
 automaticTapeCreationRule_tapeSizeInBytes = Lens.lens (\AutomaticTapeCreationRule' {tapeSizeInBytes} -> tapeSizeInBytes) (\s@AutomaticTapeCreationRule' {} a -> s {tapeSizeInBytes = a} :: AutomaticTapeCreationRule)
 
 -- | The minimum number of available virtual tapes that the gateway maintains
@@ -151,37 +150,37 @@ automaticTapeCreationRule_tapeSizeInBytes = Lens.lens (\AutomaticTapeCreationRul
 -- @MinimumNumTapes@ on the gateway. For more information about automatic
 -- tape creation, see
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedCreateTapes.html#CreateTapesAutomatically Creating Tapes Automatically>.
-automaticTapeCreationRule_minimumNumTapes :: Lens.Lens' AutomaticTapeCreationRule Prelude.Natural
+automaticTapeCreationRule_minimumNumTapes :: Lens.Lens' AutomaticTapeCreationRule Core.Natural
 automaticTapeCreationRule_minimumNumTapes = Lens.lens (\AutomaticTapeCreationRule' {minimumNumTapes} -> minimumNumTapes) (\s@AutomaticTapeCreationRule' {} a -> s {minimumNumTapes = a} :: AutomaticTapeCreationRule)
 
-instance Prelude.FromJSON AutomaticTapeCreationRule where
+instance Core.FromJSON AutomaticTapeCreationRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AutomaticTapeCreationRule"
       ( \x ->
           AutomaticTapeCreationRule'
-            Prelude.<$> (x Prelude..:? "Worm")
-            Prelude.<*> (x Prelude..: "TapeBarcodePrefix")
-            Prelude.<*> (x Prelude..: "PoolId")
-            Prelude.<*> (x Prelude..: "TapeSizeInBytes")
-            Prelude.<*> (x Prelude..: "MinimumNumTapes")
+            Core.<$> (x Core..:? "Worm")
+            Core.<*> (x Core..: "TapeBarcodePrefix")
+            Core.<*> (x Core..: "PoolId")
+            Core.<*> (x Core..: "TapeSizeInBytes")
+            Core.<*> (x Core..: "MinimumNumTapes")
       )
 
-instance Prelude.Hashable AutomaticTapeCreationRule
+instance Core.Hashable AutomaticTapeCreationRule
 
-instance Prelude.NFData AutomaticTapeCreationRule
+instance Core.NFData AutomaticTapeCreationRule
 
-instance Prelude.ToJSON AutomaticTapeCreationRule where
+instance Core.ToJSON AutomaticTapeCreationRule where
   toJSON AutomaticTapeCreationRule' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Worm" Prelude..=) Prelude.<$> worm,
-            Prelude.Just
-              ("TapeBarcodePrefix" Prelude..= tapeBarcodePrefix),
-            Prelude.Just ("PoolId" Prelude..= poolId),
-            Prelude.Just
-              ("TapeSizeInBytes" Prelude..= tapeSizeInBytes),
-            Prelude.Just
-              ("MinimumNumTapes" Prelude..= minimumNumTapes)
+    Core.object
+      ( Core.catMaybes
+          [ ("Worm" Core..=) Core.<$> worm,
+            Core.Just
+              ("TapeBarcodePrefix" Core..= tapeBarcodePrefix),
+            Core.Just ("PoolId" Core..= poolId),
+            Core.Just
+              ("TapeSizeInBytes" Core..= tapeSizeInBytes),
+            Core.Just
+              ("MinimumNumTapes" Core..= minimumNumTapes)
           ]
       )

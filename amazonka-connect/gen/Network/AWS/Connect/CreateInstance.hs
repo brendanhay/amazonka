@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,27 +52,27 @@ module Network.AWS.Connect.CreateInstance
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateInstance' smart constructor.
 data CreateInstance = CreateInstance'
   { -- | The name for your instance.
-    instanceAlias :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    instanceAlias :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The identifier for the directory.
-    directoryId :: Prelude.Maybe Prelude.Text,
+    directoryId :: Core.Maybe Core.Text,
     -- | The idempotency token.
-    clientToken :: Prelude.Maybe Prelude.Text,
+    clientToken :: Core.Maybe Core.Text,
     -- | The type of identity management for your Amazon Connect users.
     identityManagementType :: DirectoryType,
     -- | Your contact center handles incoming contacts.
-    inboundCallsEnabled :: Prelude.Bool,
+    inboundCallsEnabled :: Core.Bool,
     -- | Your contact center allows outbound calls.
-    outboundCallsEnabled :: Prelude.Bool
+    outboundCallsEnabled :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstance' with all optional fields omitted.
@@ -98,33 +97,33 @@ newCreateInstance ::
   -- | 'identityManagementType'
   DirectoryType ->
   -- | 'inboundCallsEnabled'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'outboundCallsEnabled'
-  Prelude.Bool ->
+  Core.Bool ->
   CreateInstance
 newCreateInstance
   pIdentityManagementType_
   pInboundCallsEnabled_
   pOutboundCallsEnabled_ =
     CreateInstance'
-      { instanceAlias = Prelude.Nothing,
-        directoryId = Prelude.Nothing,
-        clientToken = Prelude.Nothing,
+      { instanceAlias = Core.Nothing,
+        directoryId = Core.Nothing,
+        clientToken = Core.Nothing,
         identityManagementType = pIdentityManagementType_,
         inboundCallsEnabled = pInboundCallsEnabled_,
         outboundCallsEnabled = pOutboundCallsEnabled_
       }
 
 -- | The name for your instance.
-createInstance_instanceAlias :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
-createInstance_instanceAlias = Lens.lens (\CreateInstance' {instanceAlias} -> instanceAlias) (\s@CreateInstance' {} a -> s {instanceAlias = a} :: CreateInstance) Prelude.. Lens.mapping Prelude._Sensitive
+createInstance_instanceAlias :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
+createInstance_instanceAlias = Lens.lens (\CreateInstance' {instanceAlias} -> instanceAlias) (\s@CreateInstance' {} a -> s {instanceAlias = a} :: CreateInstance) Core.. Lens.mapping Core._Sensitive
 
 -- | The identifier for the directory.
-createInstance_directoryId :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
+createInstance_directoryId :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
 createInstance_directoryId = Lens.lens (\CreateInstance' {directoryId} -> directoryId) (\s@CreateInstance' {} a -> s {directoryId = a} :: CreateInstance)
 
 -- | The idempotency token.
-createInstance_clientToken :: Lens.Lens' CreateInstance (Prelude.Maybe Prelude.Text)
+createInstance_clientToken :: Lens.Lens' CreateInstance (Core.Maybe Core.Text)
 createInstance_clientToken = Lens.lens (\CreateInstance' {clientToken} -> clientToken) (\s@CreateInstance' {} a -> s {clientToken = a} :: CreateInstance)
 
 -- | The type of identity management for your Amazon Connect users.
@@ -132,79 +131,76 @@ createInstance_identityManagementType :: Lens.Lens' CreateInstance DirectoryType
 createInstance_identityManagementType = Lens.lens (\CreateInstance' {identityManagementType} -> identityManagementType) (\s@CreateInstance' {} a -> s {identityManagementType = a} :: CreateInstance)
 
 -- | Your contact center handles incoming contacts.
-createInstance_inboundCallsEnabled :: Lens.Lens' CreateInstance Prelude.Bool
+createInstance_inboundCallsEnabled :: Lens.Lens' CreateInstance Core.Bool
 createInstance_inboundCallsEnabled = Lens.lens (\CreateInstance' {inboundCallsEnabled} -> inboundCallsEnabled) (\s@CreateInstance' {} a -> s {inboundCallsEnabled = a} :: CreateInstance)
 
 -- | Your contact center allows outbound calls.
-createInstance_outboundCallsEnabled :: Lens.Lens' CreateInstance Prelude.Bool
+createInstance_outboundCallsEnabled :: Lens.Lens' CreateInstance Core.Bool
 createInstance_outboundCallsEnabled = Lens.lens (\CreateInstance' {outboundCallsEnabled} -> outboundCallsEnabled) (\s@CreateInstance' {} a -> s {outboundCallsEnabled = a} :: CreateInstance)
 
-instance Prelude.AWSRequest CreateInstance where
-  type Rs CreateInstance = CreateInstanceResponse
+instance Core.AWSRequest CreateInstance where
+  type
+    AWSResponse CreateInstance =
+      CreateInstanceResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreateInstanceResponse'
-            Prelude.<$> (x Prelude..?> "Arn")
-            Prelude.<*> (x Prelude..?> "Id")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Arn")
+            Core.<*> (x Core..?> "Id")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateInstance
+instance Core.Hashable CreateInstance
 
-instance Prelude.NFData CreateInstance
+instance Core.NFData CreateInstance
 
-instance Prelude.ToHeaders CreateInstance where
+instance Core.ToHeaders CreateInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreateInstance where
+instance Core.ToJSON CreateInstance where
   toJSON CreateInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("InstanceAlias" Prelude..=)
-              Prelude.<$> instanceAlias,
-            ("DirectoryId" Prelude..=) Prelude.<$> directoryId,
-            ("ClientToken" Prelude..=) Prelude.<$> clientToken,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceAlias" Core..=) Core.<$> instanceAlias,
+            ("DirectoryId" Core..=) Core.<$> directoryId,
+            ("ClientToken" Core..=) Core.<$> clientToken,
+            Core.Just
               ( "IdentityManagementType"
-                  Prelude..= identityManagementType
+                  Core..= identityManagementType
               ),
-            Prelude.Just
-              ( "InboundCallsEnabled"
-                  Prelude..= inboundCallsEnabled
-              ),
-            Prelude.Just
+            Core.Just
+              ("InboundCallsEnabled" Core..= inboundCallsEnabled),
+            Core.Just
               ( "OutboundCallsEnabled"
-                  Prelude..= outboundCallsEnabled
+                  Core..= outboundCallsEnabled
               )
           ]
       )
 
-instance Prelude.ToPath CreateInstance where
-  toPath = Prelude.const "/instance"
+instance Core.ToPath CreateInstance where
+  toPath = Core.const "/instance"
 
-instance Prelude.ToQuery CreateInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreateInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreateInstanceResponse' smart constructor.
 data CreateInstanceResponse = CreateInstanceResponse'
   { -- | The Amazon Resource Name (ARN) of the instance.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The identifier for the instance.
-    id :: Prelude.Maybe Prelude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateInstanceResponse' with all optional fields omitted.
@@ -221,25 +217,25 @@ data CreateInstanceResponse = CreateInstanceResponse'
 -- 'httpStatus', 'createInstanceResponse_httpStatus' - The response's http status code.
 newCreateInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateInstanceResponse
 newCreateInstanceResponse pHttpStatus_ =
   CreateInstanceResponse'
-    { arn = Prelude.Nothing,
-      id = Prelude.Nothing,
+    { arn = Core.Nothing,
+      id = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the instance.
-createInstanceResponse_arn :: Lens.Lens' CreateInstanceResponse (Prelude.Maybe Prelude.Text)
+createInstanceResponse_arn :: Lens.Lens' CreateInstanceResponse (Core.Maybe Core.Text)
 createInstanceResponse_arn = Lens.lens (\CreateInstanceResponse' {arn} -> arn) (\s@CreateInstanceResponse' {} a -> s {arn = a} :: CreateInstanceResponse)
 
 -- | The identifier for the instance.
-createInstanceResponse_id :: Lens.Lens' CreateInstanceResponse (Prelude.Maybe Prelude.Text)
+createInstanceResponse_id :: Lens.Lens' CreateInstanceResponse (Core.Maybe Core.Text)
 createInstanceResponse_id = Lens.lens (\CreateInstanceResponse' {id} -> id) (\s@CreateInstanceResponse' {} a -> s {id = a} :: CreateInstanceResponse)
 
 -- | The response's http status code.
-createInstanceResponse_httpStatus :: Lens.Lens' CreateInstanceResponse Prelude.Int
+createInstanceResponse_httpStatus :: Lens.Lens' CreateInstanceResponse Core.Int
 createInstanceResponse_httpStatus = Lens.lens (\CreateInstanceResponse' {httpStatus} -> httpStatus) (\s@CreateInstanceResponse' {} a -> s {httpStatus = a} :: CreateInstanceResponse)
 
-instance Prelude.NFData CreateInstanceResponse
+instance Core.NFData CreateInstanceResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.DMS.ModifyReplicationTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -67,26 +66,26 @@ import qualified Network.AWS.Response as Response
 data ModifyReplicationTask = ModifyReplicationTask'
   { -- | The migration type. Valid values: @full-load@ | @cdc@ |
     -- @full-load-and-cdc@
-    migrationType :: Prelude.Maybe MigrationTypeValue,
+    migrationType :: Core.Maybe MigrationTypeValue,
     -- | Supplemental information that the task requires to migrate the data for
     -- certain source and target endpoints. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
     -- in the /AWS Database Migration Service User Guide./
-    taskData :: Prelude.Maybe Prelude.Text,
+    taskData :: Core.Maybe Core.Text,
     -- | JSON file that contains settings for the task, such as task metadata
     -- settings.
-    replicationTaskSettings :: Prelude.Maybe Prelude.Text,
+    replicationTaskSettings :: Core.Maybe Core.Text,
     -- | When using the AWS CLI or boto3, provide the path of the JSON file that
     -- contains the table mappings. Precede the path with @file:\/\/@. When
     -- working with the DMS API, provide the JSON as the parameter value, for
     -- example: @--table-mappings file:\/\/mappingfile.json@
-    tableMappings :: Prelude.Maybe Prelude.Text,
+    tableMappings :: Core.Maybe Core.Text,
     -- | Indicates the start time for a change data capture (CDC) operation. Use
     -- either CdcStartTime or CdcStartPosition to specify when you want a CDC
     -- operation to start. Specifying both values results in an error.
     --
     -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Prelude.Maybe Prelude.POSIX,
+    cdcStartTime :: Core.Maybe Core.POSIX,
     -- | Indicates when you want a change data capture (CDC) operation to stop.
     -- The value can be either server time or commit time.
     --
@@ -95,7 +94,7 @@ data ModifyReplicationTask = ModifyReplicationTask'
     --
     -- Commit time example: --cdc-stop-position “commit_time:
     -- 2018-02-09T12:12:12 “
-    cdcStopPosition :: Prelude.Maybe Prelude.Text,
+    cdcStopPosition :: Core.Maybe Core.Text,
     -- | Indicates when you want a change data capture (CDC) operation to start.
     -- Use either CdcStartPosition or CdcStartTime to specify when you want a
     -- CDC operation to start. Specifying both values results in an error.
@@ -115,7 +114,7 @@ data ModifyReplicationTask = ModifyReplicationTask'
     -- connection attribute to the name of this logical replication slot. For
     -- more information, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
-    cdcStartPosition :: Prelude.Maybe Prelude.Text,
+    cdcStartPosition :: Core.Maybe Core.Text,
     -- | The replication task identifier.
     --
     -- Constraints:
@@ -125,11 +124,11 @@ data ModifyReplicationTask = ModifyReplicationTask'
     -- -   First character must be a letter.
     --
     -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-    replicationTaskIdentifier :: Prelude.Maybe Prelude.Text,
+    replicationTaskIdentifier :: Core.Maybe Core.Text,
     -- | The Amazon Resource Name (ARN) of the replication task.
-    replicationTaskArn :: Prelude.Text
+    replicationTaskArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationTask' with all optional fields omitted.
@@ -203,44 +202,44 @@ data ModifyReplicationTask = ModifyReplicationTask'
 -- 'replicationTaskArn', 'modifyReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
 newModifyReplicationTask ::
   -- | 'replicationTaskArn'
-  Prelude.Text ->
+  Core.Text ->
   ModifyReplicationTask
 newModifyReplicationTask pReplicationTaskArn_ =
   ModifyReplicationTask'
     { migrationType =
-        Prelude.Nothing,
-      taskData = Prelude.Nothing,
-      replicationTaskSettings = Prelude.Nothing,
-      tableMappings = Prelude.Nothing,
-      cdcStartTime = Prelude.Nothing,
-      cdcStopPosition = Prelude.Nothing,
-      cdcStartPosition = Prelude.Nothing,
-      replicationTaskIdentifier = Prelude.Nothing,
+        Core.Nothing,
+      taskData = Core.Nothing,
+      replicationTaskSettings = Core.Nothing,
+      tableMappings = Core.Nothing,
+      cdcStartTime = Core.Nothing,
+      cdcStopPosition = Core.Nothing,
+      cdcStartPosition = Core.Nothing,
+      replicationTaskIdentifier = Core.Nothing,
       replicationTaskArn = pReplicationTaskArn_
     }
 
 -- | The migration type. Valid values: @full-load@ | @cdc@ |
 -- @full-load-and-cdc@
-modifyReplicationTask_migrationType :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe MigrationTypeValue)
+modifyReplicationTask_migrationType :: Lens.Lens' ModifyReplicationTask (Core.Maybe MigrationTypeValue)
 modifyReplicationTask_migrationType = Lens.lens (\ModifyReplicationTask' {migrationType} -> migrationType) (\s@ModifyReplicationTask' {} a -> s {migrationType = a} :: ModifyReplicationTask)
 
 -- | Supplemental information that the task requires to migrate the data for
 -- certain source and target endpoints. For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html Specifying Supplemental Data for Task Settings>
 -- in the /AWS Database Migration Service User Guide./
-modifyReplicationTask_taskData :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
+modifyReplicationTask_taskData :: Lens.Lens' ModifyReplicationTask (Core.Maybe Core.Text)
 modifyReplicationTask_taskData = Lens.lens (\ModifyReplicationTask' {taskData} -> taskData) (\s@ModifyReplicationTask' {} a -> s {taskData = a} :: ModifyReplicationTask)
 
 -- | JSON file that contains settings for the task, such as task metadata
 -- settings.
-modifyReplicationTask_replicationTaskSettings :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
+modifyReplicationTask_replicationTaskSettings :: Lens.Lens' ModifyReplicationTask (Core.Maybe Core.Text)
 modifyReplicationTask_replicationTaskSettings = Lens.lens (\ModifyReplicationTask' {replicationTaskSettings} -> replicationTaskSettings) (\s@ModifyReplicationTask' {} a -> s {replicationTaskSettings = a} :: ModifyReplicationTask)
 
 -- | When using the AWS CLI or boto3, provide the path of the JSON file that
 -- contains the table mappings. Precede the path with @file:\/\/@. When
 -- working with the DMS API, provide the JSON as the parameter value, for
 -- example: @--table-mappings file:\/\/mappingfile.json@
-modifyReplicationTask_tableMappings :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
+modifyReplicationTask_tableMappings :: Lens.Lens' ModifyReplicationTask (Core.Maybe Core.Text)
 modifyReplicationTask_tableMappings = Lens.lens (\ModifyReplicationTask' {tableMappings} -> tableMappings) (\s@ModifyReplicationTask' {} a -> s {tableMappings = a} :: ModifyReplicationTask)
 
 -- | Indicates the start time for a change data capture (CDC) operation. Use
@@ -248,8 +247,8 @@ modifyReplicationTask_tableMappings = Lens.lens (\ModifyReplicationTask' {tableM
 -- operation to start. Specifying both values results in an error.
 --
 -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-modifyReplicationTask_cdcStartTime :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.UTCTime)
-modifyReplicationTask_cdcStartTime = Lens.lens (\ModifyReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@ModifyReplicationTask' {} a -> s {cdcStartTime = a} :: ModifyReplicationTask) Prelude.. Lens.mapping Prelude._Time
+modifyReplicationTask_cdcStartTime :: Lens.Lens' ModifyReplicationTask (Core.Maybe Core.UTCTime)
+modifyReplicationTask_cdcStartTime = Lens.lens (\ModifyReplicationTask' {cdcStartTime} -> cdcStartTime) (\s@ModifyReplicationTask' {} a -> s {cdcStartTime = a} :: ModifyReplicationTask) Core.. Lens.mapping Core._Time
 
 -- | Indicates when you want a change data capture (CDC) operation to stop.
 -- The value can be either server time or commit time.
@@ -259,7 +258,7 @@ modifyReplicationTask_cdcStartTime = Lens.lens (\ModifyReplicationTask' {cdcStar
 --
 -- Commit time example: --cdc-stop-position “commit_time:
 -- 2018-02-09T12:12:12 “
-modifyReplicationTask_cdcStopPosition :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
+modifyReplicationTask_cdcStopPosition :: Lens.Lens' ModifyReplicationTask (Core.Maybe Core.Text)
 modifyReplicationTask_cdcStopPosition = Lens.lens (\ModifyReplicationTask' {cdcStopPosition} -> cdcStopPosition) (\s@ModifyReplicationTask' {} a -> s {cdcStopPosition = a} :: ModifyReplicationTask)
 
 -- | Indicates when you want a change data capture (CDC) operation to start.
@@ -281,7 +280,7 @@ modifyReplicationTask_cdcStopPosition = Lens.lens (\ModifyReplicationTask' {cdcS
 -- connection attribute to the name of this logical replication slot. For
 -- more information, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for AWS DMS>.
-modifyReplicationTask_cdcStartPosition :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
+modifyReplicationTask_cdcStartPosition :: Lens.Lens' ModifyReplicationTask (Core.Maybe Core.Text)
 modifyReplicationTask_cdcStartPosition = Lens.lens (\ModifyReplicationTask' {cdcStartPosition} -> cdcStartPosition) (\s@ModifyReplicationTask' {} a -> s {cdcStartPosition = a} :: ModifyReplicationTask)
 
 -- | The replication task identifier.
@@ -293,86 +292,79 @@ modifyReplicationTask_cdcStartPosition = Lens.lens (\ModifyReplicationTask' {cdc
 -- -   First character must be a letter.
 --
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-modifyReplicationTask_replicationTaskIdentifier :: Lens.Lens' ModifyReplicationTask (Prelude.Maybe Prelude.Text)
+modifyReplicationTask_replicationTaskIdentifier :: Lens.Lens' ModifyReplicationTask (Core.Maybe Core.Text)
 modifyReplicationTask_replicationTaskIdentifier = Lens.lens (\ModifyReplicationTask' {replicationTaskIdentifier} -> replicationTaskIdentifier) (\s@ModifyReplicationTask' {} a -> s {replicationTaskIdentifier = a} :: ModifyReplicationTask)
 
 -- | The Amazon Resource Name (ARN) of the replication task.
-modifyReplicationTask_replicationTaskArn :: Lens.Lens' ModifyReplicationTask Prelude.Text
+modifyReplicationTask_replicationTaskArn :: Lens.Lens' ModifyReplicationTask Core.Text
 modifyReplicationTask_replicationTaskArn = Lens.lens (\ModifyReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@ModifyReplicationTask' {} a -> s {replicationTaskArn = a} :: ModifyReplicationTask)
 
-instance Prelude.AWSRequest ModifyReplicationTask where
+instance Core.AWSRequest ModifyReplicationTask where
   type
-    Rs ModifyReplicationTask =
+    AWSResponse ModifyReplicationTask =
       ModifyReplicationTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ModifyReplicationTaskResponse'
-            Prelude.<$> (x Prelude..?> "ReplicationTask")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ReplicationTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyReplicationTask
+instance Core.Hashable ModifyReplicationTask
 
-instance Prelude.NFData ModifyReplicationTask
+instance Core.NFData ModifyReplicationTask
 
-instance Prelude.ToHeaders ModifyReplicationTask where
+instance Core.ToHeaders ModifyReplicationTask where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonDMSv20160101.ModifyReplicationTask" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonDMSv20160101.ModifyReplicationTask" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ModifyReplicationTask where
+instance Core.ToJSON ModifyReplicationTask where
   toJSON ModifyReplicationTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("MigrationType" Prelude..=)
-              Prelude.<$> migrationType,
-            ("TaskData" Prelude..=) Prelude.<$> taskData,
-            ("ReplicationTaskSettings" Prelude..=)
-              Prelude.<$> replicationTaskSettings,
-            ("TableMappings" Prelude..=)
-              Prelude.<$> tableMappings,
-            ("CdcStartTime" Prelude..=) Prelude.<$> cdcStartTime,
-            ("CdcStopPosition" Prelude..=)
-              Prelude.<$> cdcStopPosition,
-            ("CdcStartPosition" Prelude..=)
-              Prelude.<$> cdcStartPosition,
-            ("ReplicationTaskIdentifier" Prelude..=)
-              Prelude.<$> replicationTaskIdentifier,
-            Prelude.Just
-              ( "ReplicationTaskArn"
-                  Prelude..= replicationTaskArn
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("MigrationType" Core..=) Core.<$> migrationType,
+            ("TaskData" Core..=) Core.<$> taskData,
+            ("ReplicationTaskSettings" Core..=)
+              Core.<$> replicationTaskSettings,
+            ("TableMappings" Core..=) Core.<$> tableMappings,
+            ("CdcStartTime" Core..=) Core.<$> cdcStartTime,
+            ("CdcStopPosition" Core..=) Core.<$> cdcStopPosition,
+            ("CdcStartPosition" Core..=)
+              Core.<$> cdcStartPosition,
+            ("ReplicationTaskIdentifier" Core..=)
+              Core.<$> replicationTaskIdentifier,
+            Core.Just
+              ("ReplicationTaskArn" Core..= replicationTaskArn)
           ]
       )
 
-instance Prelude.ToPath ModifyReplicationTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyReplicationTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyReplicationTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ModifyReplicationTask where
+  toQuery = Core.const Core.mempty
 
 -- |
 --
 -- /See:/ 'newModifyReplicationTaskResponse' smart constructor.
 data ModifyReplicationTaskResponse = ModifyReplicationTaskResponse'
   { -- | The replication task that was modified.
-    replicationTask :: Prelude.Maybe ReplicationTask,
+    replicationTask :: Core.Maybe ReplicationTask,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyReplicationTaskResponse' with all optional fields omitted.
@@ -387,21 +379,21 @@ data ModifyReplicationTaskResponse = ModifyReplicationTaskResponse'
 -- 'httpStatus', 'modifyReplicationTaskResponse_httpStatus' - The response's http status code.
 newModifyReplicationTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyReplicationTaskResponse
 newModifyReplicationTaskResponse pHttpStatus_ =
   ModifyReplicationTaskResponse'
     { replicationTask =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The replication task that was modified.
-modifyReplicationTaskResponse_replicationTask :: Lens.Lens' ModifyReplicationTaskResponse (Prelude.Maybe ReplicationTask)
+modifyReplicationTaskResponse_replicationTask :: Lens.Lens' ModifyReplicationTaskResponse (Core.Maybe ReplicationTask)
 modifyReplicationTaskResponse_replicationTask = Lens.lens (\ModifyReplicationTaskResponse' {replicationTask} -> replicationTask) (\s@ModifyReplicationTaskResponse' {} a -> s {replicationTask = a} :: ModifyReplicationTaskResponse)
 
 -- | The response's http status code.
-modifyReplicationTaskResponse_httpStatus :: Lens.Lens' ModifyReplicationTaskResponse Prelude.Int
+modifyReplicationTaskResponse_httpStatus :: Lens.Lens' ModifyReplicationTaskResponse Core.Int
 modifyReplicationTaskResponse_httpStatus = Lens.lens (\ModifyReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@ModifyReplicationTaskResponse' {} a -> s {httpStatus = a} :: ModifyReplicationTaskResponse)
 
-instance Prelude.NFData ModifyReplicationTaskResponse
+instance Core.NFData ModifyReplicationTaskResponse

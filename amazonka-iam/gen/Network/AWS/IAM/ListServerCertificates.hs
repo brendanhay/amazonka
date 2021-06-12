@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,10 +60,9 @@ module Network.AWS.IAM.ListServerCertificates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,7 +80,7 @@ data ListServerCertificates = ListServerCertificates'
     -- contain any ASCII character from the ! (@\\u0021@) through the DEL
     -- character (@\\u007F@), including most punctuation characters, digits,
     -- and upper and lowercased letters.
-    pathPrefix :: Prelude.Maybe Prelude.Text,
+    pathPrefix :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -92,14 +90,14 @@ data ListServerCertificates = ListServerCertificates'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListServerCertificates' with all optional fields omitted.
@@ -140,10 +138,9 @@ newListServerCertificates ::
   ListServerCertificates
 newListServerCertificates =
   ListServerCertificates'
-    { pathPrefix =
-        Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { pathPrefix = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The path prefix for filtering the results. For example:
@@ -158,7 +155,7 @@ newListServerCertificates =
 -- contain any ASCII character from the ! (@\\u0021@) through the DEL
 -- character (@\\u007F@), including most punctuation characters, digits,
 -- and upper and lowercased letters.
-listServerCertificates_pathPrefix :: Lens.Lens' ListServerCertificates (Prelude.Maybe Prelude.Text)
+listServerCertificates_pathPrefix :: Lens.Lens' ListServerCertificates (Core.Maybe Core.Text)
 listServerCertificates_pathPrefix = Lens.lens (\ListServerCertificates' {pathPrefix} -> pathPrefix) (\s@ListServerCertificates' {} a -> s {pathPrefix = a} :: ListServerCertificates)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -170,41 +167,41 @@ listServerCertificates_pathPrefix = Lens.lens (\ListServerCertificates' {pathPre
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listServerCertificates_maxItems :: Lens.Lens' ListServerCertificates (Prelude.Maybe Prelude.Natural)
+listServerCertificates_maxItems :: Lens.Lens' ListServerCertificates (Core.Maybe Core.Natural)
 listServerCertificates_maxItems = Lens.lens (\ListServerCertificates' {maxItems} -> maxItems) (\s@ListServerCertificates' {} a -> s {maxItems = a} :: ListServerCertificates)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listServerCertificates_marker :: Lens.Lens' ListServerCertificates (Prelude.Maybe Prelude.Text)
+listServerCertificates_marker :: Lens.Lens' ListServerCertificates (Core.Maybe Core.Text)
 listServerCertificates_marker = Lens.lens (\ListServerCertificates' {marker} -> marker) (\s@ListServerCertificates' {} a -> s {marker = a} :: ListServerCertificates)
 
-instance Pager.AWSPager ListServerCertificates where
+instance Core.AWSPager ListServerCertificates where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listServerCertificatesResponse_isTruncated
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
             Lens.^? listServerCertificatesResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listServerCertificates_marker
           Lens..~ rs
           Lens.^? listServerCertificatesResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListServerCertificates where
+instance Core.AWSRequest ListServerCertificates where
   type
-    Rs ListServerCertificates =
+    AWSResponse ListServerCertificates =
       ListServerCertificatesResponse
   request = Request.postQuery defaultService
   response =
@@ -212,35 +209,34 @@ instance Prelude.AWSRequest ListServerCertificates where
       "ListServerCertificatesResult"
       ( \s h x ->
           ListServerCertificatesResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "ServerCertificateMetadataList"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "ServerCertificateMetadataList"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListServerCertificates
+instance Core.Hashable ListServerCertificates
 
-instance Prelude.NFData ListServerCertificates
+instance Core.NFData ListServerCertificates
 
-instance Prelude.ToHeaders ListServerCertificates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListServerCertificates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListServerCertificates where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListServerCertificates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListServerCertificates where
+instance Core.ToQuery ListServerCertificates where
   toQuery ListServerCertificates' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListServerCertificates" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "PathPrefix" Prelude.=: pathPrefix,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+          Core.=: ("ListServerCertificates" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "PathPrefix" Core.=: pathPrefix,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the response to a successful ListServerCertificates request.
@@ -254,17 +250,17 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of server certificates.
     serverCertificateMetadataList :: [ServerCertificateMetadata]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListServerCertificatesResponse' with all optional fields omitted.
@@ -291,16 +287,15 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse'
 -- 'serverCertificateMetadataList', 'listServerCertificatesResponse_serverCertificateMetadataList' - A list of server certificates.
 newListServerCertificatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListServerCertificatesResponse
 newListServerCertificatesResponse pHttpStatus_ =
   ListServerCertificatesResponse'
     { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      serverCertificateMetadataList =
-        Prelude.mempty
+      serverCertificateMetadataList = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -310,23 +305,21 @@ newListServerCertificatesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listServerCertificatesResponse_isTruncated :: Lens.Lens' ListServerCertificatesResponse (Prelude.Maybe Prelude.Bool)
+listServerCertificatesResponse_isTruncated :: Lens.Lens' ListServerCertificatesResponse (Core.Maybe Core.Bool)
 listServerCertificatesResponse_isTruncated = Lens.lens (\ListServerCertificatesResponse' {isTruncated} -> isTruncated) (\s@ListServerCertificatesResponse' {} a -> s {isTruncated = a} :: ListServerCertificatesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listServerCertificatesResponse_marker :: Lens.Lens' ListServerCertificatesResponse (Prelude.Maybe Prelude.Text)
+listServerCertificatesResponse_marker :: Lens.Lens' ListServerCertificatesResponse (Core.Maybe Core.Text)
 listServerCertificatesResponse_marker = Lens.lens (\ListServerCertificatesResponse' {marker} -> marker) (\s@ListServerCertificatesResponse' {} a -> s {marker = a} :: ListServerCertificatesResponse)
 
 -- | The response's http status code.
-listServerCertificatesResponse_httpStatus :: Lens.Lens' ListServerCertificatesResponse Prelude.Int
+listServerCertificatesResponse_httpStatus :: Lens.Lens' ListServerCertificatesResponse Core.Int
 listServerCertificatesResponse_httpStatus = Lens.lens (\ListServerCertificatesResponse' {httpStatus} -> httpStatus) (\s@ListServerCertificatesResponse' {} a -> s {httpStatus = a} :: ListServerCertificatesResponse)
 
 -- | A list of server certificates.
 listServerCertificatesResponse_serverCertificateMetadataList :: Lens.Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
-listServerCertificatesResponse_serverCertificateMetadataList = Lens.lens (\ListServerCertificatesResponse' {serverCertificateMetadataList} -> serverCertificateMetadataList) (\s@ListServerCertificatesResponse' {} a -> s {serverCertificateMetadataList = a} :: ListServerCertificatesResponse) Prelude.. Prelude._Coerce
+listServerCertificatesResponse_serverCertificateMetadataList = Lens.lens (\ListServerCertificatesResponse' {serverCertificateMetadataList} -> serverCertificateMetadataList) (\s@ListServerCertificatesResponse' {} a -> s {serverCertificateMetadataList = a} :: ListServerCertificatesResponse) Core.. Lens._Coerce
 
-instance
-  Prelude.NFData
-    ListServerCertificatesResponse
+instance Core.NFData ListServerCertificatesResponse

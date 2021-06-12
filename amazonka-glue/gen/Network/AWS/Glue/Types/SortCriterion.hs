@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Glue.Types.SortCriterion where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types.Sort
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a field to sort by and a sort order.
 --
 -- /See:/ 'newSortCriterion' smart constructor.
 data SortCriterion = SortCriterion'
   { -- | The name of the field on which to sort.
-    fieldName :: Prelude.Maybe Prelude.Text,
+    fieldName :: Core.Maybe Core.Text,
     -- | An ascending or descending sort.
-    sort :: Prelude.Maybe Sort
+    sort :: Core.Maybe Sort
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SortCriterion' with all optional fields omitted.
@@ -50,27 +49,27 @@ newSortCriterion ::
   SortCriterion
 newSortCriterion =
   SortCriterion'
-    { fieldName = Prelude.Nothing,
-      sort = Prelude.Nothing
+    { fieldName = Core.Nothing,
+      sort = Core.Nothing
     }
 
 -- | The name of the field on which to sort.
-sortCriterion_fieldName :: Lens.Lens' SortCriterion (Prelude.Maybe Prelude.Text)
+sortCriterion_fieldName :: Lens.Lens' SortCriterion (Core.Maybe Core.Text)
 sortCriterion_fieldName = Lens.lens (\SortCriterion' {fieldName} -> fieldName) (\s@SortCriterion' {} a -> s {fieldName = a} :: SortCriterion)
 
 -- | An ascending or descending sort.
-sortCriterion_sort :: Lens.Lens' SortCriterion (Prelude.Maybe Sort)
+sortCriterion_sort :: Lens.Lens' SortCriterion (Core.Maybe Sort)
 sortCriterion_sort = Lens.lens (\SortCriterion' {sort} -> sort) (\s@SortCriterion' {} a -> s {sort = a} :: SortCriterion)
 
-instance Prelude.Hashable SortCriterion
+instance Core.Hashable SortCriterion
 
-instance Prelude.NFData SortCriterion
+instance Core.NFData SortCriterion
 
-instance Prelude.ToJSON SortCriterion where
+instance Core.ToJSON SortCriterion where
   toJSON SortCriterion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FieldName" Prelude..=) Prelude.<$> fieldName,
-            ("Sort" Prelude..=) Prelude.<$> sort
+    Core.object
+      ( Core.catMaybes
+          [ ("FieldName" Core..=) Core.<$> fieldName,
+            ("Sort" Core..=) Core.<$> sort
           ]
       )

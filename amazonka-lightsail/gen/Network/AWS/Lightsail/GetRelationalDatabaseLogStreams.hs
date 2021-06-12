@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,18 +40,18 @@ module Network.AWS.Lightsail.GetRelationalDatabaseLogStreams
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetRelationalDatabaseLogStreams' smart constructor.
 data GetRelationalDatabaseLogStreams = GetRelationalDatabaseLogStreams'
   { -- | The name of your database for which to get log streams.
-    relationalDatabaseName :: Prelude.Text
+    relationalDatabaseName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseLogStreams' with all optional fields omitted.
@@ -65,7 +64,7 @@ data GetRelationalDatabaseLogStreams = GetRelationalDatabaseLogStreams'
 -- 'relationalDatabaseName', 'getRelationalDatabaseLogStreams_relationalDatabaseName' - The name of your database for which to get log streams.
 newGetRelationalDatabaseLogStreams ::
   -- | 'relationalDatabaseName'
-  Prelude.Text ->
+  Core.Text ->
   GetRelationalDatabaseLogStreams
 newGetRelationalDatabaseLogStreams
   pRelationalDatabaseName_ =
@@ -75,88 +74,73 @@ newGetRelationalDatabaseLogStreams
       }
 
 -- | The name of your database for which to get log streams.
-getRelationalDatabaseLogStreams_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseLogStreams Prelude.Text
+getRelationalDatabaseLogStreams_relationalDatabaseName :: Lens.Lens' GetRelationalDatabaseLogStreams Core.Text
 getRelationalDatabaseLogStreams_relationalDatabaseName = Lens.lens (\GetRelationalDatabaseLogStreams' {relationalDatabaseName} -> relationalDatabaseName) (\s@GetRelationalDatabaseLogStreams' {} a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseLogStreams)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     GetRelationalDatabaseLogStreams
   where
   type
-    Rs GetRelationalDatabaseLogStreams =
+    AWSResponse GetRelationalDatabaseLogStreams =
       GetRelationalDatabaseLogStreamsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseLogStreamsResponse'
-            Prelude.<$> ( x Prelude..?> "logStreams"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "logStreams" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     GetRelationalDatabaseLogStreams
 
-instance
-  Prelude.NFData
-    GetRelationalDatabaseLogStreams
+instance Core.NFData GetRelationalDatabaseLogStreams
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     GetRelationalDatabaseLogStreams
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.GetRelationalDatabaseLogStreams" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Lightsail_20161128.GetRelationalDatabaseLogStreams" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    GetRelationalDatabaseLogStreams
-  where
+instance Core.ToJSON GetRelationalDatabaseLogStreams where
   toJSON GetRelationalDatabaseLogStreams' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "relationalDatabaseName"
-                  Prelude..= relationalDatabaseName
+                  Core..= relationalDatabaseName
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    GetRelationalDatabaseLogStreams
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetRelationalDatabaseLogStreams where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    GetRelationalDatabaseLogStreams
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetRelationalDatabaseLogStreams where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetRelationalDatabaseLogStreamsResponse' smart constructor.
 data GetRelationalDatabaseLogStreamsResponse = GetRelationalDatabaseLogStreamsResponse'
   { -- | An object describing the result of your get relational database log
     -- streams request.
-    logStreams :: Prelude.Maybe [Prelude.Text],
+    logStreams :: Core.Maybe [Core.Text],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetRelationalDatabaseLogStreamsResponse' with all optional fields omitted.
@@ -172,25 +156,25 @@ data GetRelationalDatabaseLogStreamsResponse = GetRelationalDatabaseLogStreamsRe
 -- 'httpStatus', 'getRelationalDatabaseLogStreamsResponse_httpStatus' - The response's http status code.
 newGetRelationalDatabaseLogStreamsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetRelationalDatabaseLogStreamsResponse
 newGetRelationalDatabaseLogStreamsResponse
   pHttpStatus_ =
     GetRelationalDatabaseLogStreamsResponse'
       { logStreams =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | An object describing the result of your get relational database log
 -- streams request.
-getRelationalDatabaseLogStreamsResponse_logStreams :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse (Prelude.Maybe [Prelude.Text])
-getRelationalDatabaseLogStreamsResponse_logStreams = Lens.lens (\GetRelationalDatabaseLogStreamsResponse' {logStreams} -> logStreams) (\s@GetRelationalDatabaseLogStreamsResponse' {} a -> s {logStreams = a} :: GetRelationalDatabaseLogStreamsResponse) Prelude.. Lens.mapping Prelude._Coerce
+getRelationalDatabaseLogStreamsResponse_logStreams :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse (Core.Maybe [Core.Text])
+getRelationalDatabaseLogStreamsResponse_logStreams = Lens.lens (\GetRelationalDatabaseLogStreamsResponse' {logStreams} -> logStreams) (\s@GetRelationalDatabaseLogStreamsResponse' {} a -> s {logStreams = a} :: GetRelationalDatabaseLogStreamsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getRelationalDatabaseLogStreamsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse Prelude.Int
+getRelationalDatabaseLogStreamsResponse_httpStatus :: Lens.Lens' GetRelationalDatabaseLogStreamsResponse Core.Int
 getRelationalDatabaseLogStreamsResponse_httpStatus = Lens.lens (\GetRelationalDatabaseLogStreamsResponse' {httpStatus} -> httpStatus) (\s@GetRelationalDatabaseLogStreamsResponse' {} a -> s {httpStatus = a} :: GetRelationalDatabaseLogStreamsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     GetRelationalDatabaseLogStreamsResponse

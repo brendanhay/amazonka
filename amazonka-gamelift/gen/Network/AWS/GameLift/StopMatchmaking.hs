@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -67,9 +66,9 @@ module Network.AWS.GameLift.StopMatchmaking
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -78,9 +77,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newStopMatchmaking' smart constructor.
 data StopMatchmaking = StopMatchmaking'
   { -- | A unique identifier for a matchmaking ticket.
-    ticketId :: Prelude.Text
+    ticketId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopMatchmaking' with all optional fields omitted.
@@ -93,61 +92,61 @@ data StopMatchmaking = StopMatchmaking'
 -- 'ticketId', 'stopMatchmaking_ticketId' - A unique identifier for a matchmaking ticket.
 newStopMatchmaking ::
   -- | 'ticketId'
-  Prelude.Text ->
+  Core.Text ->
   StopMatchmaking
 newStopMatchmaking pTicketId_ =
   StopMatchmaking' {ticketId = pTicketId_}
 
 -- | A unique identifier for a matchmaking ticket.
-stopMatchmaking_ticketId :: Lens.Lens' StopMatchmaking Prelude.Text
+stopMatchmaking_ticketId :: Lens.Lens' StopMatchmaking Core.Text
 stopMatchmaking_ticketId = Lens.lens (\StopMatchmaking' {ticketId} -> ticketId) (\s@StopMatchmaking' {} a -> s {ticketId = a} :: StopMatchmaking)
 
-instance Prelude.AWSRequest StopMatchmaking where
-  type Rs StopMatchmaking = StopMatchmakingResponse
+instance Core.AWSRequest StopMatchmaking where
+  type
+    AWSResponse StopMatchmaking =
+      StopMatchmakingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopMatchmakingResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopMatchmaking
+instance Core.Hashable StopMatchmaking
 
-instance Prelude.NFData StopMatchmaking
+instance Core.NFData StopMatchmaking
 
-instance Prelude.ToHeaders StopMatchmaking where
+instance Core.ToHeaders StopMatchmaking where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("GameLift.StopMatchmaking" :: Prelude.ByteString),
+              Core.=# ("GameLift.StopMatchmaking" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopMatchmaking where
+instance Core.ToJSON StopMatchmaking where
   toJSON StopMatchmaking' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("TicketId" Prelude..= ticketId)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TicketId" Core..= ticketId)]
       )
 
-instance Prelude.ToPath StopMatchmaking where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopMatchmaking where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopMatchmaking where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopMatchmaking where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopMatchmakingResponse' smart constructor.
 data StopMatchmakingResponse = StopMatchmakingResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopMatchmakingResponse' with all optional fields omitted.
@@ -160,13 +159,13 @@ data StopMatchmakingResponse = StopMatchmakingResponse'
 -- 'httpStatus', 'stopMatchmakingResponse_httpStatus' - The response's http status code.
 newStopMatchmakingResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopMatchmakingResponse
 newStopMatchmakingResponse pHttpStatus_ =
   StopMatchmakingResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-stopMatchmakingResponse_httpStatus :: Lens.Lens' StopMatchmakingResponse Prelude.Int
+stopMatchmakingResponse_httpStatus :: Lens.Lens' StopMatchmakingResponse Core.Int
 stopMatchmakingResponse_httpStatus = Lens.lens (\StopMatchmakingResponse' {httpStatus} -> httpStatus) (\s@StopMatchmakingResponse' {} a -> s {httpStatus = a} :: StopMatchmakingResponse)
 
-instance Prelude.NFData StopMatchmakingResponse
+instance Core.NFData StopMatchmakingResponse

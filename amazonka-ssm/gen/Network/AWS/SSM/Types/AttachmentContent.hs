@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.AttachmentContent where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.AttachmentHashType
 
 -- | A structure that includes attributes that describe a document
@@ -30,17 +29,17 @@ import Network.AWS.SSM.Types.AttachmentHashType
 -- /See:/ 'newAttachmentContent' smart constructor.
 data AttachmentContent = AttachmentContent'
   { -- | The cryptographic hash value of the document content.
-    hash :: Prelude.Maybe Prelude.Text,
+    hash :: Core.Maybe Core.Text,
     -- | The name of an attachment.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The URL location of the attachment content.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Core.Maybe Core.Text,
     -- | The size of an attachment in bytes.
-    size :: Prelude.Maybe Prelude.Integer,
+    size :: Core.Maybe Core.Integer,
     -- | The hash algorithm used to calculate the hash value.
-    hashType :: Prelude.Maybe AttachmentHashType
+    hashType :: Core.Maybe AttachmentHashType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttachmentContent' with all optional fields omitted.
@@ -63,46 +62,46 @@ newAttachmentContent ::
   AttachmentContent
 newAttachmentContent =
   AttachmentContent'
-    { hash = Prelude.Nothing,
-      name = Prelude.Nothing,
-      url = Prelude.Nothing,
-      size = Prelude.Nothing,
-      hashType = Prelude.Nothing
+    { hash = Core.Nothing,
+      name = Core.Nothing,
+      url = Core.Nothing,
+      size = Core.Nothing,
+      hashType = Core.Nothing
     }
 
 -- | The cryptographic hash value of the document content.
-attachmentContent_hash :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Text)
+attachmentContent_hash :: Lens.Lens' AttachmentContent (Core.Maybe Core.Text)
 attachmentContent_hash = Lens.lens (\AttachmentContent' {hash} -> hash) (\s@AttachmentContent' {} a -> s {hash = a} :: AttachmentContent)
 
 -- | The name of an attachment.
-attachmentContent_name :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Text)
+attachmentContent_name :: Lens.Lens' AttachmentContent (Core.Maybe Core.Text)
 attachmentContent_name = Lens.lens (\AttachmentContent' {name} -> name) (\s@AttachmentContent' {} a -> s {name = a} :: AttachmentContent)
 
 -- | The URL location of the attachment content.
-attachmentContent_url :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Text)
+attachmentContent_url :: Lens.Lens' AttachmentContent (Core.Maybe Core.Text)
 attachmentContent_url = Lens.lens (\AttachmentContent' {url} -> url) (\s@AttachmentContent' {} a -> s {url = a} :: AttachmentContent)
 
 -- | The size of an attachment in bytes.
-attachmentContent_size :: Lens.Lens' AttachmentContent (Prelude.Maybe Prelude.Integer)
+attachmentContent_size :: Lens.Lens' AttachmentContent (Core.Maybe Core.Integer)
 attachmentContent_size = Lens.lens (\AttachmentContent' {size} -> size) (\s@AttachmentContent' {} a -> s {size = a} :: AttachmentContent)
 
 -- | The hash algorithm used to calculate the hash value.
-attachmentContent_hashType :: Lens.Lens' AttachmentContent (Prelude.Maybe AttachmentHashType)
+attachmentContent_hashType :: Lens.Lens' AttachmentContent (Core.Maybe AttachmentHashType)
 attachmentContent_hashType = Lens.lens (\AttachmentContent' {hashType} -> hashType) (\s@AttachmentContent' {} a -> s {hashType = a} :: AttachmentContent)
 
-instance Prelude.FromJSON AttachmentContent where
+instance Core.FromJSON AttachmentContent where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttachmentContent"
       ( \x ->
           AttachmentContent'
-            Prelude.<$> (x Prelude..:? "Hash")
-            Prelude.<*> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "Url")
-            Prelude.<*> (x Prelude..:? "Size")
-            Prelude.<*> (x Prelude..:? "HashType")
+            Core.<$> (x Core..:? "Hash")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Url")
+            Core.<*> (x Core..:? "Size")
+            Core.<*> (x Core..:? "HashType")
       )
 
-instance Prelude.Hashable AttachmentContent
+instance Core.Hashable AttachmentContent
 
-instance Prelude.NFData AttachmentContent
+instance Core.NFData AttachmentContent

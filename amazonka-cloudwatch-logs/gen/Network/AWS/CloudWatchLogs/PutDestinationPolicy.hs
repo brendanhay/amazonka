@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,21 +41,21 @@ module Network.AWS.CloudWatchLogs.PutDestinationPolicy
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutDestinationPolicy' smart constructor.
 data PutDestinationPolicy = PutDestinationPolicy'
   { -- | A name for an existing destination.
-    destinationName :: Prelude.Text,
+    destinationName :: Core.Text,
     -- | An IAM policy document that authorizes cross-account users to deliver
     -- their log events to the associated destination. This can be up to 5120
     -- bytes.
-    accessPolicy :: Prelude.Text
+    accessPolicy :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDestinationPolicy' with all optional fields omitted.
@@ -73,9 +72,9 @@ data PutDestinationPolicy = PutDestinationPolicy'
 -- bytes.
 newPutDestinationPolicy ::
   -- | 'destinationName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'accessPolicy'
-  Prelude.Text ->
+  Core.Text ->
   PutDestinationPolicy
 newPutDestinationPolicy
   pDestinationName_
@@ -87,64 +86,61 @@ newPutDestinationPolicy
       }
 
 -- | A name for an existing destination.
-putDestinationPolicy_destinationName :: Lens.Lens' PutDestinationPolicy Prelude.Text
+putDestinationPolicy_destinationName :: Lens.Lens' PutDestinationPolicy Core.Text
 putDestinationPolicy_destinationName = Lens.lens (\PutDestinationPolicy' {destinationName} -> destinationName) (\s@PutDestinationPolicy' {} a -> s {destinationName = a} :: PutDestinationPolicy)
 
 -- | An IAM policy document that authorizes cross-account users to deliver
 -- their log events to the associated destination. This can be up to 5120
 -- bytes.
-putDestinationPolicy_accessPolicy :: Lens.Lens' PutDestinationPolicy Prelude.Text
+putDestinationPolicy_accessPolicy :: Lens.Lens' PutDestinationPolicy Core.Text
 putDestinationPolicy_accessPolicy = Lens.lens (\PutDestinationPolicy' {accessPolicy} -> accessPolicy) (\s@PutDestinationPolicy' {} a -> s {accessPolicy = a} :: PutDestinationPolicy)
 
-instance Prelude.AWSRequest PutDestinationPolicy where
+instance Core.AWSRequest PutDestinationPolicy where
   type
-    Rs PutDestinationPolicy =
+    AWSResponse PutDestinationPolicy =
       PutDestinationPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull PutDestinationPolicyResponse'
 
-instance Prelude.Hashable PutDestinationPolicy
+instance Core.Hashable PutDestinationPolicy
 
-instance Prelude.NFData PutDestinationPolicy
+instance Core.NFData PutDestinationPolicy
 
-instance Prelude.ToHeaders PutDestinationPolicy where
+instance Core.ToHeaders PutDestinationPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.PutDestinationPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.PutDestinationPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutDestinationPolicy where
+instance Core.ToJSON PutDestinationPolicy where
   toJSON PutDestinationPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("destinationName" Prelude..= destinationName),
-            Prelude.Just
-              ("accessPolicy" Prelude..= accessPolicy)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("destinationName" Core..= destinationName),
+            Core.Just ("accessPolicy" Core..= accessPolicy)
           ]
       )
 
-instance Prelude.ToPath PutDestinationPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutDestinationPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutDestinationPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutDestinationPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutDestinationPolicyResponse' smart constructor.
 data PutDestinationPolicyResponse = PutDestinationPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutDestinationPolicyResponse' with all optional fields omitted.
@@ -155,4 +151,4 @@ newPutDestinationPolicyResponse ::
 newPutDestinationPolicyResponse =
   PutDestinationPolicyResponse'
 
-instance Prelude.NFData PutDestinationPolicyResponse
+instance Core.NFData PutDestinationPolicyResponse

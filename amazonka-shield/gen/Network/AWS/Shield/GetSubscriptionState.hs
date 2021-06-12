@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,8 +36,8 @@ module Network.AWS.Shield.GetSubscriptionState
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
@@ -47,7 +46,7 @@ import Network.AWS.Shield.Types
 data GetSubscriptionState = GetSubscriptionState'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionState' with all optional fields omitted.
@@ -57,56 +56,53 @@ newGetSubscriptionState ::
   GetSubscriptionState
 newGetSubscriptionState = GetSubscriptionState'
 
-instance Prelude.AWSRequest GetSubscriptionState where
+instance Core.AWSRequest GetSubscriptionState where
   type
-    Rs GetSubscriptionState =
+    AWSResponse GetSubscriptionState =
       GetSubscriptionStateResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSubscriptionStateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "SubscriptionState")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "SubscriptionState")
       )
 
-instance Prelude.Hashable GetSubscriptionState
+instance Core.Hashable GetSubscriptionState
 
-instance Prelude.NFData GetSubscriptionState
+instance Core.NFData GetSubscriptionState
 
-instance Prelude.ToHeaders GetSubscriptionState where
+instance Core.ToHeaders GetSubscriptionState where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSShield_20160616.GetSubscriptionState" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSShield_20160616.GetSubscriptionState" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetSubscriptionState where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetSubscriptionState where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetSubscriptionState where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSubscriptionState where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSubscriptionState where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSubscriptionState where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSubscriptionStateResponse' smart constructor.
 data GetSubscriptionStateResponse = GetSubscriptionStateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The status of the subscription.
     subscriptionState :: SubscriptionState
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSubscriptionStateResponse' with all optional fields omitted.
@@ -121,7 +117,7 @@ data GetSubscriptionStateResponse = GetSubscriptionStateResponse'
 -- 'subscriptionState', 'getSubscriptionStateResponse_subscriptionState' - The status of the subscription.
 newGetSubscriptionStateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'subscriptionState'
   SubscriptionState ->
   GetSubscriptionStateResponse
@@ -135,11 +131,11 @@ newGetSubscriptionStateResponse
       }
 
 -- | The response's http status code.
-getSubscriptionStateResponse_httpStatus :: Lens.Lens' GetSubscriptionStateResponse Prelude.Int
+getSubscriptionStateResponse_httpStatus :: Lens.Lens' GetSubscriptionStateResponse Core.Int
 getSubscriptionStateResponse_httpStatus = Lens.lens (\GetSubscriptionStateResponse' {httpStatus} -> httpStatus) (\s@GetSubscriptionStateResponse' {} a -> s {httpStatus = a} :: GetSubscriptionStateResponse)
 
 -- | The status of the subscription.
 getSubscriptionStateResponse_subscriptionState :: Lens.Lens' GetSubscriptionStateResponse SubscriptionState
 getSubscriptionStateResponse_subscriptionState = Lens.lens (\GetSubscriptionStateResponse' {subscriptionState} -> subscriptionState) (\s@GetSubscriptionStateResponse' {} a -> s {subscriptionState = a} :: GetSubscriptionStateResponse)
 
-instance Prelude.NFData GetSubscriptionStateResponse
+instance Core.NFData GetSubscriptionStateResponse

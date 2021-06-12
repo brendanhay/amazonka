@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.Glue.BatchDeletePartition
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,16 +52,16 @@ import qualified Network.AWS.Response as Response
 data BatchDeletePartition = BatchDeletePartition'
   { -- | The ID of the Data Catalog where the partition to be deleted resides. If
     -- none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
+    catalogId :: Core.Maybe Core.Text,
     -- | The name of the catalog database in which the table in question resides.
-    databaseName :: Prelude.Text,
+    databaseName :: Core.Text,
     -- | The name of the table that contains the partitions to be deleted.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | A list of @PartitionInput@ structures that define the partitions to be
     -- deleted.
     partitionsToDelete :: [PartitionValueList]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeletePartition' with all optional fields omitted.
@@ -83,97 +82,90 @@ data BatchDeletePartition = BatchDeletePartition'
 -- deleted.
 newBatchDeletePartition ::
   -- | 'databaseName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   BatchDeletePartition
 newBatchDeletePartition pDatabaseName_ pTableName_ =
   BatchDeletePartition'
-    { catalogId = Prelude.Nothing,
+    { catalogId = Core.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_,
-      partitionsToDelete = Prelude.mempty
+      partitionsToDelete = Core.mempty
     }
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If
 -- none is provided, the AWS account ID is used by default.
-batchDeletePartition_catalogId :: Lens.Lens' BatchDeletePartition (Prelude.Maybe Prelude.Text)
+batchDeletePartition_catalogId :: Lens.Lens' BatchDeletePartition (Core.Maybe Core.Text)
 batchDeletePartition_catalogId = Lens.lens (\BatchDeletePartition' {catalogId} -> catalogId) (\s@BatchDeletePartition' {} a -> s {catalogId = a} :: BatchDeletePartition)
 
 -- | The name of the catalog database in which the table in question resides.
-batchDeletePartition_databaseName :: Lens.Lens' BatchDeletePartition Prelude.Text
+batchDeletePartition_databaseName :: Lens.Lens' BatchDeletePartition Core.Text
 batchDeletePartition_databaseName = Lens.lens (\BatchDeletePartition' {databaseName} -> databaseName) (\s@BatchDeletePartition' {} a -> s {databaseName = a} :: BatchDeletePartition)
 
 -- | The name of the table that contains the partitions to be deleted.
-batchDeletePartition_tableName :: Lens.Lens' BatchDeletePartition Prelude.Text
+batchDeletePartition_tableName :: Lens.Lens' BatchDeletePartition Core.Text
 batchDeletePartition_tableName = Lens.lens (\BatchDeletePartition' {tableName} -> tableName) (\s@BatchDeletePartition' {} a -> s {tableName = a} :: BatchDeletePartition)
 
 -- | A list of @PartitionInput@ structures that define the partitions to be
 -- deleted.
 batchDeletePartition_partitionsToDelete :: Lens.Lens' BatchDeletePartition [PartitionValueList]
-batchDeletePartition_partitionsToDelete = Lens.lens (\BatchDeletePartition' {partitionsToDelete} -> partitionsToDelete) (\s@BatchDeletePartition' {} a -> s {partitionsToDelete = a} :: BatchDeletePartition) Prelude.. Prelude._Coerce
+batchDeletePartition_partitionsToDelete = Lens.lens (\BatchDeletePartition' {partitionsToDelete} -> partitionsToDelete) (\s@BatchDeletePartition' {} a -> s {partitionsToDelete = a} :: BatchDeletePartition) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest BatchDeletePartition where
+instance Core.AWSRequest BatchDeletePartition where
   type
-    Rs BatchDeletePartition =
+    AWSResponse BatchDeletePartition =
       BatchDeletePartitionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           BatchDeletePartitionResponse'
-            Prelude.<$> (x Prelude..?> "Errors" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Errors" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable BatchDeletePartition
+instance Core.Hashable BatchDeletePartition
 
-instance Prelude.NFData BatchDeletePartition
+instance Core.NFData BatchDeletePartition
 
-instance Prelude.ToHeaders BatchDeletePartition where
+instance Core.ToHeaders BatchDeletePartition where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.BatchDeletePartition" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.BatchDeletePartition" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON BatchDeletePartition where
+instance Core.ToJSON BatchDeletePartition where
   toJSON BatchDeletePartition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
-            Prelude.Just
-              ("DatabaseName" Prelude..= databaseName),
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ( "PartitionsToDelete"
-                  Prelude..= partitionsToDelete
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("PartitionsToDelete" Core..= partitionsToDelete)
           ]
       )
 
-instance Prelude.ToPath BatchDeletePartition where
-  toPath = Prelude.const "/"
+instance Core.ToPath BatchDeletePartition where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery BatchDeletePartition where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery BatchDeletePartition where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newBatchDeletePartitionResponse' smart constructor.
 data BatchDeletePartitionResponse = BatchDeletePartitionResponse'
   { -- | The errors encountered when trying to delete the requested partitions.
-    errors :: Prelude.Maybe [PartitionError],
+    errors :: Core.Maybe [PartitionError],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BatchDeletePartitionResponse' with all optional fields omitted.
@@ -188,21 +180,21 @@ data BatchDeletePartitionResponse = BatchDeletePartitionResponse'
 -- 'httpStatus', 'batchDeletePartitionResponse_httpStatus' - The response's http status code.
 newBatchDeletePartitionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   BatchDeletePartitionResponse
 newBatchDeletePartitionResponse pHttpStatus_ =
   BatchDeletePartitionResponse'
     { errors =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The errors encountered when trying to delete the requested partitions.
-batchDeletePartitionResponse_errors :: Lens.Lens' BatchDeletePartitionResponse (Prelude.Maybe [PartitionError])
-batchDeletePartitionResponse_errors = Lens.lens (\BatchDeletePartitionResponse' {errors} -> errors) (\s@BatchDeletePartitionResponse' {} a -> s {errors = a} :: BatchDeletePartitionResponse) Prelude.. Lens.mapping Prelude._Coerce
+batchDeletePartitionResponse_errors :: Lens.Lens' BatchDeletePartitionResponse (Core.Maybe [PartitionError])
+batchDeletePartitionResponse_errors = Lens.lens (\BatchDeletePartitionResponse' {errors} -> errors) (\s@BatchDeletePartitionResponse' {} a -> s {errors = a} :: BatchDeletePartitionResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-batchDeletePartitionResponse_httpStatus :: Lens.Lens' BatchDeletePartitionResponse Prelude.Int
+batchDeletePartitionResponse_httpStatus :: Lens.Lens' BatchDeletePartitionResponse Core.Int
 batchDeletePartitionResponse_httpStatus = Lens.lens (\BatchDeletePartitionResponse' {httpStatus} -> httpStatus) (\s@BatchDeletePartitionResponse' {} a -> s {httpStatus = a} :: BatchDeletePartitionResponse)
 
-instance Prelude.NFData BatchDeletePartitionResponse
+instance Core.NFData BatchDeletePartitionResponse

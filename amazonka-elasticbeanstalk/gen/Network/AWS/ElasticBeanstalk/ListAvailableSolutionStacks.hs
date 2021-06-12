@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -49,7 +48,7 @@ import qualified Network.AWS.Response as Response
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAvailableSolutionStacks' with all optional fields omitted.
@@ -60,12 +59,9 @@ newListAvailableSolutionStacks ::
 newListAvailableSolutionStacks =
   ListAvailableSolutionStacks'
 
-instance
-  Prelude.AWSRequest
-    ListAvailableSolutionStacks
-  where
+instance Core.AWSRequest ListAvailableSolutionStacks where
   type
-    Rs ListAvailableSolutionStacks =
+    AWSResponse ListAvailableSolutionStacks =
       ListAvailableSolutionStacksResponse
   request = Request.postQuery defaultService
   response =
@@ -73,40 +69,33 @@ instance
       "ListAvailableSolutionStacksResult"
       ( \s h x ->
           ListAvailableSolutionStacksResponse'
-            Prelude.<$> ( x Prelude..@? "SolutionStacks"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> ( x Prelude..@? "SolutionStackDetails"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> ( x Core..@? "SolutionStacks" Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> ( x Core..@? "SolutionStackDetails"
+                         Core..!@ Core.mempty
+                         Core.>>= Core.may (Core.parseXMLList "member")
+                     )
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAvailableSolutionStacks
+instance Core.Hashable ListAvailableSolutionStacks
 
-instance Prelude.NFData ListAvailableSolutionStacks
+instance Core.NFData ListAvailableSolutionStacks
 
-instance
-  Prelude.ToHeaders
-    ListAvailableSolutionStacks
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListAvailableSolutionStacks where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListAvailableSolutionStacks where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAvailableSolutionStacks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAvailableSolutionStacks where
+instance Core.ToQuery ListAvailableSolutionStacks where
   toQuery =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Action"
-              Prelude.=: ( "ListAvailableSolutionStacks" ::
-                             Prelude.ByteString
-                         ),
-            "Version"
-              Prelude.=: ("2010-12-01" :: Prelude.ByteString)
+              Core.=: ("ListAvailableSolutionStacks" :: Core.ByteString),
+            "Version" Core.=: ("2010-12-01" :: Core.ByteString)
           ]
       )
 
@@ -115,13 +104,13 @@ instance Prelude.ToQuery ListAvailableSolutionStacks where
 -- /See:/ 'newListAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
   { -- | A list of available solution stacks.
-    solutionStacks :: Prelude.Maybe [Prelude.Text],
+    solutionStacks :: Core.Maybe [Core.Text],
     -- | A list of available solution stacks and their SolutionStackDescription.
-    solutionStackDetails :: Prelude.Maybe [SolutionStackDescription],
+    solutionStackDetails :: Core.Maybe [SolutionStackDescription],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAvailableSolutionStacksResponse' with all optional fields omitted.
@@ -138,28 +127,28 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
 -- 'httpStatus', 'listAvailableSolutionStacksResponse_httpStatus' - The response's http status code.
 newListAvailableSolutionStacksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAvailableSolutionStacksResponse
 newListAvailableSolutionStacksResponse pHttpStatus_ =
   ListAvailableSolutionStacksResponse'
     { solutionStacks =
-        Prelude.Nothing,
-      solutionStackDetails = Prelude.Nothing,
+        Core.Nothing,
+      solutionStackDetails = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A list of available solution stacks.
-listAvailableSolutionStacksResponse_solutionStacks :: Lens.Lens' ListAvailableSolutionStacksResponse (Prelude.Maybe [Prelude.Text])
-listAvailableSolutionStacksResponse_solutionStacks = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStacks} -> solutionStacks) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStacks = a} :: ListAvailableSolutionStacksResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAvailableSolutionStacksResponse_solutionStacks :: Lens.Lens' ListAvailableSolutionStacksResponse (Core.Maybe [Core.Text])
+listAvailableSolutionStacksResponse_solutionStacks = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStacks} -> solutionStacks) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStacks = a} :: ListAvailableSolutionStacksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A list of available solution stacks and their SolutionStackDescription.
-listAvailableSolutionStacksResponse_solutionStackDetails :: Lens.Lens' ListAvailableSolutionStacksResponse (Prelude.Maybe [SolutionStackDescription])
-listAvailableSolutionStacksResponse_solutionStackDetails = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStackDetails} -> solutionStackDetails) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStackDetails = a} :: ListAvailableSolutionStacksResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAvailableSolutionStacksResponse_solutionStackDetails :: Lens.Lens' ListAvailableSolutionStacksResponse (Core.Maybe [SolutionStackDescription])
+listAvailableSolutionStacksResponse_solutionStackDetails = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStackDetails} -> solutionStackDetails) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStackDetails = a} :: ListAvailableSolutionStacksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-listAvailableSolutionStacksResponse_httpStatus :: Lens.Lens' ListAvailableSolutionStacksResponse Prelude.Int
+listAvailableSolutionStacksResponse_httpStatus :: Lens.Lens' ListAvailableSolutionStacksResponse Core.Int
 listAvailableSolutionStacksResponse_httpStatus = Lens.lens (\ListAvailableSolutionStacksResponse' {httpStatus} -> httpStatus) (\s@ListAvailableSolutionStacksResponse' {} a -> s {httpStatus = a} :: ListAvailableSolutionStacksResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     ListAvailableSolutionStacksResponse

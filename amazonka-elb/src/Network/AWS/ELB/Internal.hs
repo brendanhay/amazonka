@@ -15,7 +15,7 @@ module Network.AWS.ELB.Internal
     ( getAccountId
     ) where
 
-import Network.AWS.Prelude
+import Network.AWS.Core
 
 -- | This account identifier is used when attaching a policy to your S3 bucket
 -- allowing ELB to upload and write access logs.

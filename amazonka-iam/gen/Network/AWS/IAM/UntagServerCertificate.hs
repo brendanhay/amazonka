@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.IAM.UntagServerCertificate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -62,12 +61,12 @@ data UntagServerCertificate = UntagServerCertificate'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    serverCertificateName :: Prelude.Text,
+    serverCertificateName :: Core.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified IAM server certificate.
-    tagKeys :: [Prelude.Text]
+    tagKeys :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagServerCertificate' with all optional fields omitted.
@@ -89,13 +88,13 @@ data UntagServerCertificate = UntagServerCertificate'
 -- keys are removed from the specified IAM server certificate.
 newUntagServerCertificate ::
   -- | 'serverCertificateName'
-  Prelude.Text ->
+  Core.Text ->
   UntagServerCertificate
 newUntagServerCertificate pServerCertificateName_ =
   UntagServerCertificate'
     { serverCertificateName =
         pServerCertificateName_,
-      tagKeys = Prelude.mempty
+      tagKeys = Core.mempty
     }
 
 -- | The name of the IAM server certificate from which you want to remove
@@ -105,51 +104,49 @@ newUntagServerCertificate pServerCertificateName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-untagServerCertificate_serverCertificateName :: Lens.Lens' UntagServerCertificate Prelude.Text
+untagServerCertificate_serverCertificateName :: Lens.Lens' UntagServerCertificate Core.Text
 untagServerCertificate_serverCertificateName = Lens.lens (\UntagServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@UntagServerCertificate' {} a -> s {serverCertificateName = a} :: UntagServerCertificate)
 
 -- | A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified IAM server certificate.
-untagServerCertificate_tagKeys :: Lens.Lens' UntagServerCertificate [Prelude.Text]
-untagServerCertificate_tagKeys = Lens.lens (\UntagServerCertificate' {tagKeys} -> tagKeys) (\s@UntagServerCertificate' {} a -> s {tagKeys = a} :: UntagServerCertificate) Prelude.. Prelude._Coerce
+untagServerCertificate_tagKeys :: Lens.Lens' UntagServerCertificate [Core.Text]
+untagServerCertificate_tagKeys = Lens.lens (\UntagServerCertificate' {tagKeys} -> tagKeys) (\s@UntagServerCertificate' {} a -> s {tagKeys = a} :: UntagServerCertificate) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UntagServerCertificate where
+instance Core.AWSRequest UntagServerCertificate where
   type
-    Rs UntagServerCertificate =
+    AWSResponse UntagServerCertificate =
       UntagServerCertificateResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull
       UntagServerCertificateResponse'
 
-instance Prelude.Hashable UntagServerCertificate
+instance Core.Hashable UntagServerCertificate
 
-instance Prelude.NFData UntagServerCertificate
+instance Core.NFData UntagServerCertificate
 
-instance Prelude.ToHeaders UntagServerCertificate where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UntagServerCertificate where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UntagServerCertificate where
-  toPath = Prelude.const "/"
+instance Core.ToPath UntagServerCertificate where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UntagServerCertificate where
+instance Core.ToQuery UntagServerCertificate where
   toQuery UntagServerCertificate' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UntagServerCertificate" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+          Core.=: ("UntagServerCertificate" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
         "ServerCertificateName"
-          Prelude.=: serverCertificateName,
-        "TagKeys"
-          Prelude.=: Prelude.toQueryList "member" tagKeys
+          Core.=: serverCertificateName,
+        "TagKeys" Core.=: Core.toQueryList "member" tagKeys
       ]
 
 -- | /See:/ 'newUntagServerCertificateResponse' smart constructor.
 data UntagServerCertificateResponse = UntagServerCertificateResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UntagServerCertificateResponse' with all optional fields omitted.
@@ -160,6 +157,4 @@ newUntagServerCertificateResponse ::
 newUntagServerCertificateResponse =
   UntagServerCertificateResponse'
 
-instance
-  Prelude.NFData
-    UntagServerCertificateResponse
+instance Core.NFData UntagServerCertificateResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ElasticGpuSpecificationResponse where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an elastic GPU.
 --
 -- /See:/ 'newElasticGpuSpecificationResponse' smart constructor.
 data ElasticGpuSpecificationResponse = ElasticGpuSpecificationResponse'
   { -- | The elastic GPU type.
-    type' :: Prelude.Maybe Prelude.Text
+    type' :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ElasticGpuSpecificationResponse' with all optional fields omitted.
@@ -47,25 +46,20 @@ newElasticGpuSpecificationResponse ::
 newElasticGpuSpecificationResponse =
   ElasticGpuSpecificationResponse'
     { type' =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The elastic GPU type.
-elasticGpuSpecificationResponse_type :: Lens.Lens' ElasticGpuSpecificationResponse (Prelude.Maybe Prelude.Text)
+elasticGpuSpecificationResponse_type :: Lens.Lens' ElasticGpuSpecificationResponse (Core.Maybe Core.Text)
 elasticGpuSpecificationResponse_type = Lens.lens (\ElasticGpuSpecificationResponse' {type'} -> type') (\s@ElasticGpuSpecificationResponse' {} a -> s {type' = a} :: ElasticGpuSpecificationResponse)
 
-instance
-  Prelude.FromXML
-    ElasticGpuSpecificationResponse
-  where
+instance Core.FromXML ElasticGpuSpecificationResponse where
   parseXML x =
     ElasticGpuSpecificationResponse'
-      Prelude.<$> (x Prelude..@? "type")
+      Core.<$> (x Core..@? "type")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     ElasticGpuSpecificationResponse
 
-instance
-  Prelude.NFData
-    ElasticGpuSpecificationResponse
+instance Core.NFData ElasticGpuSpecificationResponse

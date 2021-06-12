@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Snowball.Types.ShippingDetails where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Snowball.Types.Shipment
 import Network.AWS.Snowball.Types.ShippingOption
 
@@ -47,15 +46,15 @@ data ShippingDetails = ShippingDetails'
     --
     -- -   In the United States of America (US), you have access to one-day
     --     shipping and two-day shipping.
-    shippingOption :: Prelude.Maybe ShippingOption,
+    shippingOption :: Core.Maybe ShippingOption,
     -- | The @Status@ and @TrackingNumber@ values for a Snow device being
     -- delivered to the address that you specified for a particular job.
-    outboundShipment :: Prelude.Maybe Shipment,
+    outboundShipment :: Core.Maybe Shipment,
     -- | The @Status@ and @TrackingNumber@ values for a Snow device being
     -- returned to AWS for a particular job.
-    inboundShipment :: Prelude.Maybe Shipment
+    inboundShipment :: Core.Maybe Shipment
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ShippingDetails' with all optional fields omitted.
@@ -92,9 +91,9 @@ newShippingDetails ::
   ShippingDetails
 newShippingDetails =
   ShippingDetails'
-    { shippingOption = Prelude.Nothing,
-      outboundShipment = Prelude.Nothing,
-      inboundShipment = Prelude.Nothing
+    { shippingOption = Core.Nothing,
+      outboundShipment = Core.Nothing,
+      inboundShipment = Core.Nothing
     }
 
 -- | The shipping speed for a particular job. This speed doesn\'t dictate how
@@ -114,30 +113,30 @@ newShippingDetails =
 --
 -- -   In the United States of America (US), you have access to one-day
 --     shipping and two-day shipping.
-shippingDetails_shippingOption :: Lens.Lens' ShippingDetails (Prelude.Maybe ShippingOption)
+shippingDetails_shippingOption :: Lens.Lens' ShippingDetails (Core.Maybe ShippingOption)
 shippingDetails_shippingOption = Lens.lens (\ShippingDetails' {shippingOption} -> shippingOption) (\s@ShippingDetails' {} a -> s {shippingOption = a} :: ShippingDetails)
 
 -- | The @Status@ and @TrackingNumber@ values for a Snow device being
 -- delivered to the address that you specified for a particular job.
-shippingDetails_outboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
+shippingDetails_outboundShipment :: Lens.Lens' ShippingDetails (Core.Maybe Shipment)
 shippingDetails_outboundShipment = Lens.lens (\ShippingDetails' {outboundShipment} -> outboundShipment) (\s@ShippingDetails' {} a -> s {outboundShipment = a} :: ShippingDetails)
 
 -- | The @Status@ and @TrackingNumber@ values for a Snow device being
 -- returned to AWS for a particular job.
-shippingDetails_inboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
+shippingDetails_inboundShipment :: Lens.Lens' ShippingDetails (Core.Maybe Shipment)
 shippingDetails_inboundShipment = Lens.lens (\ShippingDetails' {inboundShipment} -> inboundShipment) (\s@ShippingDetails' {} a -> s {inboundShipment = a} :: ShippingDetails)
 
-instance Prelude.FromJSON ShippingDetails where
+instance Core.FromJSON ShippingDetails where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ShippingDetails"
       ( \x ->
           ShippingDetails'
-            Prelude.<$> (x Prelude..:? "ShippingOption")
-            Prelude.<*> (x Prelude..:? "OutboundShipment")
-            Prelude.<*> (x Prelude..:? "InboundShipment")
+            Core.<$> (x Core..:? "ShippingOption")
+            Core.<*> (x Core..:? "OutboundShipment")
+            Core.<*> (x Core..:? "InboundShipment")
       )
 
-instance Prelude.Hashable ShippingDetails
+instance Core.Hashable ShippingDetails
 
-instance Prelude.NFData ShippingDetails
+instance Core.NFData ShippingDetails

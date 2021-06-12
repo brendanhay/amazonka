@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,15 +19,15 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudSearch.Types.Limits where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newLimits' smart constructor.
 data Limits = Limits'
-  { maximumReplicationCount :: Prelude.Natural,
-    maximumPartitionCount :: Prelude.Natural
+  { maximumReplicationCount :: Core.Natural,
+    maximumPartitionCount :: Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Limits' with all optional fields omitted.
@@ -43,9 +42,9 @@ data Limits = Limits'
 -- 'maximumPartitionCount', 'limits_maximumPartitionCount' - Undocumented member.
 newLimits ::
   -- | 'maximumReplicationCount'
-  Prelude.Natural ->
+  Core.Natural ->
   -- | 'maximumPartitionCount'
-  Prelude.Natural ->
+  Core.Natural ->
   Limits
 newLimits
   pMaximumReplicationCount_
@@ -57,19 +56,19 @@ newLimits
       }
 
 -- | Undocumented member.
-limits_maximumReplicationCount :: Lens.Lens' Limits Prelude.Natural
+limits_maximumReplicationCount :: Lens.Lens' Limits Core.Natural
 limits_maximumReplicationCount = Lens.lens (\Limits' {maximumReplicationCount} -> maximumReplicationCount) (\s@Limits' {} a -> s {maximumReplicationCount = a} :: Limits)
 
 -- | Undocumented member.
-limits_maximumPartitionCount :: Lens.Lens' Limits Prelude.Natural
+limits_maximumPartitionCount :: Lens.Lens' Limits Core.Natural
 limits_maximumPartitionCount = Lens.lens (\Limits' {maximumPartitionCount} -> maximumPartitionCount) (\s@Limits' {} a -> s {maximumPartitionCount = a} :: Limits)
 
-instance Prelude.FromXML Limits where
+instance Core.FromXML Limits where
   parseXML x =
     Limits'
-      Prelude.<$> (x Prelude..@ "MaximumReplicationCount")
-      Prelude.<*> (x Prelude..@ "MaximumPartitionCount")
+      Core.<$> (x Core..@ "MaximumReplicationCount")
+      Core.<*> (x Core..@ "MaximumPartitionCount")
 
-instance Prelude.Hashable Limits
+instance Core.Hashable Limits
 
-instance Prelude.NFData Limits
+instance Core.NFData Limits

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,19 +41,19 @@ module Network.AWS.Connect.GetContactAttributes
 where
 
 import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetContactAttributes' smart constructor.
 data GetContactAttributes = GetContactAttributes'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | The identifier of the initial contact.
-    initialContactId :: Prelude.Text
+    initialContactId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContactAttributes' with all optional fields omitted.
@@ -69,9 +68,9 @@ data GetContactAttributes = GetContactAttributes'
 -- 'initialContactId', 'getContactAttributes_initialContactId' - The identifier of the initial contact.
 newGetContactAttributes ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'initialContactId'
-  Prelude.Text ->
+  Core.Text ->
   GetContactAttributes
 newGetContactAttributes
   pInstanceId_
@@ -82,63 +81,59 @@ newGetContactAttributes
       }
 
 -- | The identifier of the Amazon Connect instance.
-getContactAttributes_instanceId :: Lens.Lens' GetContactAttributes Prelude.Text
+getContactAttributes_instanceId :: Lens.Lens' GetContactAttributes Core.Text
 getContactAttributes_instanceId = Lens.lens (\GetContactAttributes' {instanceId} -> instanceId) (\s@GetContactAttributes' {} a -> s {instanceId = a} :: GetContactAttributes)
 
 -- | The identifier of the initial contact.
-getContactAttributes_initialContactId :: Lens.Lens' GetContactAttributes Prelude.Text
+getContactAttributes_initialContactId :: Lens.Lens' GetContactAttributes Core.Text
 getContactAttributes_initialContactId = Lens.lens (\GetContactAttributes' {initialContactId} -> initialContactId) (\s@GetContactAttributes' {} a -> s {initialContactId = a} :: GetContactAttributes)
 
-instance Prelude.AWSRequest GetContactAttributes where
+instance Core.AWSRequest GetContactAttributes where
   type
-    Rs GetContactAttributes =
+    AWSResponse GetContactAttributes =
       GetContactAttributesResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetContactAttributesResponse'
-            Prelude.<$> ( x Prelude..?> "Attributes"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Attributes" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetContactAttributes
+instance Core.Hashable GetContactAttributes
 
-instance Prelude.NFData GetContactAttributes
+instance Core.NFData GetContactAttributes
 
-instance Prelude.ToHeaders GetContactAttributes where
+instance Core.ToHeaders GetContactAttributes where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetContactAttributes where
+instance Core.ToPath GetContactAttributes where
   toPath GetContactAttributes' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/contact/attributes/",
-        Prelude.toBS instanceId,
+        Core.toBS instanceId,
         "/",
-        Prelude.toBS initialContactId
+        Core.toBS initialContactId
       ]
 
-instance Prelude.ToQuery GetContactAttributes where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetContactAttributes where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetContactAttributesResponse' smart constructor.
 data GetContactAttributesResponse = GetContactAttributesResponse'
   { -- | Information about the attributes.
-    attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    attributes :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetContactAttributesResponse' with all optional fields omitted.
@@ -153,21 +148,21 @@ data GetContactAttributesResponse = GetContactAttributesResponse'
 -- 'httpStatus', 'getContactAttributesResponse_httpStatus' - The response's http status code.
 newGetContactAttributesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetContactAttributesResponse
 newGetContactAttributesResponse pHttpStatus_ =
   GetContactAttributesResponse'
     { attributes =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the attributes.
-getContactAttributesResponse_attributes :: Lens.Lens' GetContactAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getContactAttributesResponse_attributes = Lens.lens (\GetContactAttributesResponse' {attributes} -> attributes) (\s@GetContactAttributesResponse' {} a -> s {attributes = a} :: GetContactAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
+getContactAttributesResponse_attributes :: Lens.Lens' GetContactAttributesResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+getContactAttributesResponse_attributes = Lens.lens (\GetContactAttributesResponse' {attributes} -> attributes) (\s@GetContactAttributesResponse' {} a -> s {attributes = a} :: GetContactAttributesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-getContactAttributesResponse_httpStatus :: Lens.Lens' GetContactAttributesResponse Prelude.Int
+getContactAttributesResponse_httpStatus :: Lens.Lens' GetContactAttributesResponse Core.Int
 getContactAttributesResponse_httpStatus = Lens.lens (\GetContactAttributesResponse' {httpStatus} -> httpStatus) (\s@GetContactAttributesResponse' {} a -> s {httpStatus = a} :: GetContactAttributesResponse)
 
-instance Prelude.NFData GetContactAttributesResponse
+instance Core.NFData GetContactAttributesResponse

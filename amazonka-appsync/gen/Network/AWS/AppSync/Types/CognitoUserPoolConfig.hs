@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types.CognitoUserPoolConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an Amazon Cognito user pool configuration.
 --
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 data CognitoUserPoolConfig = CognitoUserPoolConfig'
   { -- | A regular expression for validating the incoming Amazon Cognito user
     -- pool app client ID.
-    appIdClientRegex :: Prelude.Maybe Prelude.Text,
+    appIdClientRegex :: Core.Maybe Core.Text,
     -- | The user pool ID.
-    userPoolId :: Prelude.Text,
+    userPoolId :: Core.Text,
     -- | The AWS Region in which the user pool was created.
-    awsRegion :: Prelude.Text
+    awsRegion :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CognitoUserPoolConfig' with all optional fields omitted.
@@ -53,53 +52,53 @@ data CognitoUserPoolConfig = CognitoUserPoolConfig'
 -- 'awsRegion', 'cognitoUserPoolConfig_awsRegion' - The AWS Region in which the user pool was created.
 newCognitoUserPoolConfig ::
   -- | 'userPoolId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'awsRegion'
-  Prelude.Text ->
+  Core.Text ->
   CognitoUserPoolConfig
 newCognitoUserPoolConfig pUserPoolId_ pAwsRegion_ =
   CognitoUserPoolConfig'
     { appIdClientRegex =
-        Prelude.Nothing,
+        Core.Nothing,
       userPoolId = pUserPoolId_,
       awsRegion = pAwsRegion_
     }
 
 -- | A regular expression for validating the incoming Amazon Cognito user
 -- pool app client ID.
-cognitoUserPoolConfig_appIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Prelude.Maybe Prelude.Text)
+cognitoUserPoolConfig_appIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Core.Maybe Core.Text)
 cognitoUserPoolConfig_appIdClientRegex = Lens.lens (\CognitoUserPoolConfig' {appIdClientRegex} -> appIdClientRegex) (\s@CognitoUserPoolConfig' {} a -> s {appIdClientRegex = a} :: CognitoUserPoolConfig)
 
 -- | The user pool ID.
-cognitoUserPoolConfig_userPoolId :: Lens.Lens' CognitoUserPoolConfig Prelude.Text
+cognitoUserPoolConfig_userPoolId :: Lens.Lens' CognitoUserPoolConfig Core.Text
 cognitoUserPoolConfig_userPoolId = Lens.lens (\CognitoUserPoolConfig' {userPoolId} -> userPoolId) (\s@CognitoUserPoolConfig' {} a -> s {userPoolId = a} :: CognitoUserPoolConfig)
 
 -- | The AWS Region in which the user pool was created.
-cognitoUserPoolConfig_awsRegion :: Lens.Lens' CognitoUserPoolConfig Prelude.Text
+cognitoUserPoolConfig_awsRegion :: Lens.Lens' CognitoUserPoolConfig Core.Text
 cognitoUserPoolConfig_awsRegion = Lens.lens (\CognitoUserPoolConfig' {awsRegion} -> awsRegion) (\s@CognitoUserPoolConfig' {} a -> s {awsRegion = a} :: CognitoUserPoolConfig)
 
-instance Prelude.FromJSON CognitoUserPoolConfig where
+instance Core.FromJSON CognitoUserPoolConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CognitoUserPoolConfig"
       ( \x ->
           CognitoUserPoolConfig'
-            Prelude.<$> (x Prelude..:? "appIdClientRegex")
-            Prelude.<*> (x Prelude..: "userPoolId")
-            Prelude.<*> (x Prelude..: "awsRegion")
+            Core.<$> (x Core..:? "appIdClientRegex")
+            Core.<*> (x Core..: "userPoolId")
+            Core.<*> (x Core..: "awsRegion")
       )
 
-instance Prelude.Hashable CognitoUserPoolConfig
+instance Core.Hashable CognitoUserPoolConfig
 
-instance Prelude.NFData CognitoUserPoolConfig
+instance Core.NFData CognitoUserPoolConfig
 
-instance Prelude.ToJSON CognitoUserPoolConfig where
+instance Core.ToJSON CognitoUserPoolConfig where
   toJSON CognitoUserPoolConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("appIdClientRegex" Prelude..=)
-              Prelude.<$> appIdClientRegex,
-            Prelude.Just ("userPoolId" Prelude..= userPoolId),
-            Prelude.Just ("awsRegion" Prelude..= awsRegion)
+    Core.object
+      ( Core.catMaybes
+          [ ("appIdClientRegex" Core..=)
+              Core.<$> appIdClientRegex,
+            Core.Just ("userPoolId" Core..= userPoolId),
+            Core.Just ("awsRegion" Core..= awsRegion)
           ]
       )

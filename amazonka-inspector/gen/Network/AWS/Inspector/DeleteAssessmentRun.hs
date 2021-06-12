@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -37,18 +36,18 @@ module Network.AWS.Inspector.DeleteAssessmentRun
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Inspector.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteAssessmentRun' smart constructor.
 data DeleteAssessmentRun = DeleteAssessmentRun'
   { -- | The ARN that specifies the assessment run that you want to delete.
-    assessmentRunArn :: Prelude.Text
+    assessmentRunArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAssessmentRun' with all optional fields omitted.
@@ -61,7 +60,7 @@ data DeleteAssessmentRun = DeleteAssessmentRun'
 -- 'assessmentRunArn', 'deleteAssessmentRun_assessmentRunArn' - The ARN that specifies the assessment run that you want to delete.
 newDeleteAssessmentRun ::
   -- | 'assessmentRunArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAssessmentRun
 newDeleteAssessmentRun pAssessmentRunArn_ =
   DeleteAssessmentRun'
@@ -70,56 +69,54 @@ newDeleteAssessmentRun pAssessmentRunArn_ =
     }
 
 -- | The ARN that specifies the assessment run that you want to delete.
-deleteAssessmentRun_assessmentRunArn :: Lens.Lens' DeleteAssessmentRun Prelude.Text
+deleteAssessmentRun_assessmentRunArn :: Lens.Lens' DeleteAssessmentRun Core.Text
 deleteAssessmentRun_assessmentRunArn = Lens.lens (\DeleteAssessmentRun' {assessmentRunArn} -> assessmentRunArn) (\s@DeleteAssessmentRun' {} a -> s {assessmentRunArn = a} :: DeleteAssessmentRun)
 
-instance Prelude.AWSRequest DeleteAssessmentRun where
+instance Core.AWSRequest DeleteAssessmentRun where
   type
-    Rs DeleteAssessmentRun =
+    AWSResponse DeleteAssessmentRun =
       DeleteAssessmentRunResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteAssessmentRunResponse'
 
-instance Prelude.Hashable DeleteAssessmentRun
+instance Core.Hashable DeleteAssessmentRun
 
-instance Prelude.NFData DeleteAssessmentRun
+instance Core.NFData DeleteAssessmentRun
 
-instance Prelude.ToHeaders DeleteAssessmentRun where
+instance Core.ToHeaders DeleteAssessmentRun where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "InspectorService.DeleteAssessmentRun" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "InspectorService.DeleteAssessmentRun" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAssessmentRun where
+instance Core.ToJSON DeleteAssessmentRun where
   toJSON DeleteAssessmentRun' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("assessmentRunArn" Prelude..= assessmentRunArn)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("assessmentRunArn" Core..= assessmentRunArn)
           ]
       )
 
-instance Prelude.ToPath DeleteAssessmentRun where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAssessmentRun where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAssessmentRun where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAssessmentRun where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAssessmentRunResponse' smart constructor.
 data DeleteAssessmentRunResponse = DeleteAssessmentRunResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAssessmentRunResponse' with all optional fields omitted.
@@ -130,4 +127,4 @@ newDeleteAssessmentRunResponse ::
 newDeleteAssessmentRunResponse =
   DeleteAssessmentRunResponse'
 
-instance Prelude.NFData DeleteAssessmentRunResponse
+instance Core.NFData DeleteAssessmentRunResponse

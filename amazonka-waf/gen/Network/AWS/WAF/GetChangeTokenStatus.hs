@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -59,8 +58,8 @@ module Network.AWS.WAF.GetChangeTokenStatus
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WAF.Types
@@ -69,9 +68,9 @@ import Network.AWS.WAF.Types
 data GetChangeTokenStatus = GetChangeTokenStatus'
   { -- | The change token for which you want to get the status. This change token
     -- was previously returned in the @GetChangeToken@ response.
-    changeToken :: Prelude.Text
+    changeToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetChangeTokenStatus' with all optional fields omitted.
@@ -85,71 +84,67 @@ data GetChangeTokenStatus = GetChangeTokenStatus'
 -- was previously returned in the @GetChangeToken@ response.
 newGetChangeTokenStatus ::
   -- | 'changeToken'
-  Prelude.Text ->
+  Core.Text ->
   GetChangeTokenStatus
 newGetChangeTokenStatus pChangeToken_ =
   GetChangeTokenStatus' {changeToken = pChangeToken_}
 
 -- | The change token for which you want to get the status. This change token
 -- was previously returned in the @GetChangeToken@ response.
-getChangeTokenStatus_changeToken :: Lens.Lens' GetChangeTokenStatus Prelude.Text
+getChangeTokenStatus_changeToken :: Lens.Lens' GetChangeTokenStatus Core.Text
 getChangeTokenStatus_changeToken = Lens.lens (\GetChangeTokenStatus' {changeToken} -> changeToken) (\s@GetChangeTokenStatus' {} a -> s {changeToken = a} :: GetChangeTokenStatus)
 
-instance Prelude.AWSRequest GetChangeTokenStatus where
+instance Core.AWSRequest GetChangeTokenStatus where
   type
-    Rs GetChangeTokenStatus =
+    AWSResponse GetChangeTokenStatus =
       GetChangeTokenStatusResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetChangeTokenStatusResponse'
-            Prelude.<$> (x Prelude..?> "ChangeTokenStatus")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ChangeTokenStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetChangeTokenStatus
+instance Core.Hashable GetChangeTokenStatus
 
-instance Prelude.NFData GetChangeTokenStatus
+instance Core.NFData GetChangeTokenStatus
 
-instance Prelude.ToHeaders GetChangeTokenStatus where
+instance Core.ToHeaders GetChangeTokenStatus where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSWAF_20150824.GetChangeTokenStatus" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSWAF_20150824.GetChangeTokenStatus" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetChangeTokenStatus where
+instance Core.ToJSON GetChangeTokenStatus where
   toJSON GetChangeTokenStatus' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ChangeToken" Prelude..= changeToken)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ChangeToken" Core..= changeToken)]
       )
 
-instance Prelude.ToPath GetChangeTokenStatus where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetChangeTokenStatus where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetChangeTokenStatus where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetChangeTokenStatus where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetChangeTokenStatusResponse' smart constructor.
 data GetChangeTokenStatusResponse = GetChangeTokenStatusResponse'
   { -- | The status of the change token.
-    changeTokenStatus :: Prelude.Maybe ChangeTokenStatus,
+    changeTokenStatus :: Core.Maybe ChangeTokenStatus,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetChangeTokenStatusResponse' with all optional fields omitted.
@@ -164,21 +159,21 @@ data GetChangeTokenStatusResponse = GetChangeTokenStatusResponse'
 -- 'httpStatus', 'getChangeTokenStatusResponse_httpStatus' - The response's http status code.
 newGetChangeTokenStatusResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetChangeTokenStatusResponse
 newGetChangeTokenStatusResponse pHttpStatus_ =
   GetChangeTokenStatusResponse'
     { changeTokenStatus =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status of the change token.
-getChangeTokenStatusResponse_changeTokenStatus :: Lens.Lens' GetChangeTokenStatusResponse (Prelude.Maybe ChangeTokenStatus)
+getChangeTokenStatusResponse_changeTokenStatus :: Lens.Lens' GetChangeTokenStatusResponse (Core.Maybe ChangeTokenStatus)
 getChangeTokenStatusResponse_changeTokenStatus = Lens.lens (\GetChangeTokenStatusResponse' {changeTokenStatus} -> changeTokenStatus) (\s@GetChangeTokenStatusResponse' {} a -> s {changeTokenStatus = a} :: GetChangeTokenStatusResponse)
 
 -- | The response's http status code.
-getChangeTokenStatusResponse_httpStatus :: Lens.Lens' GetChangeTokenStatusResponse Prelude.Int
+getChangeTokenStatusResponse_httpStatus :: Lens.Lens' GetChangeTokenStatusResponse Core.Int
 getChangeTokenStatusResponse_httpStatus = Lens.lens (\GetChangeTokenStatusResponse' {httpStatus} -> httpStatus) (\s@GetChangeTokenStatusResponse' {} a -> s {httpStatus = a} :: GetChangeTokenStatusResponse)
 
-instance Prelude.NFData GetChangeTokenStatusResponse
+instance Core.NFData GetChangeTokenStatusResponse

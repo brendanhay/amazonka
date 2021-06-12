@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GameLift.Types.PlayerLatencyPolicy where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Queue setting that determines the highest latency allowed for individual
 -- players when placing a game session. When a latency policy is in force,
@@ -42,12 +41,12 @@ data PlayerLatencyPolicy = PlayerLatencyPolicy'
   { -- | The length of time, in seconds, that the policy is enforced while
     -- placing a new game session. A null value for this property means that
     -- the policy is enforced until the queue times out.
-    policyDurationSeconds :: Prelude.Maybe Prelude.Natural,
+    policyDurationSeconds :: Core.Maybe Core.Natural,
     -- | The maximum latency value that is allowed for any player, in
     -- milliseconds. All policies must have a value set for this property.
-    maximumIndividualPlayerLatencyMilliseconds :: Prelude.Maybe Prelude.Natural
+    maximumIndividualPlayerLatencyMilliseconds :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlayerLatencyPolicy' with all optional fields omitted.
@@ -68,47 +67,47 @@ newPlayerLatencyPolicy ::
 newPlayerLatencyPolicy =
   PlayerLatencyPolicy'
     { policyDurationSeconds =
-        Prelude.Nothing,
+        Core.Nothing,
       maximumIndividualPlayerLatencyMilliseconds =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The length of time, in seconds, that the policy is enforced while
 -- placing a new game session. A null value for this property means that
 -- the policy is enforced until the queue times out.
-playerLatencyPolicy_policyDurationSeconds :: Lens.Lens' PlayerLatencyPolicy (Prelude.Maybe Prelude.Natural)
+playerLatencyPolicy_policyDurationSeconds :: Lens.Lens' PlayerLatencyPolicy (Core.Maybe Core.Natural)
 playerLatencyPolicy_policyDurationSeconds = Lens.lens (\PlayerLatencyPolicy' {policyDurationSeconds} -> policyDurationSeconds) (\s@PlayerLatencyPolicy' {} a -> s {policyDurationSeconds = a} :: PlayerLatencyPolicy)
 
 -- | The maximum latency value that is allowed for any player, in
 -- milliseconds. All policies must have a value set for this property.
-playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds :: Lens.Lens' PlayerLatencyPolicy (Prelude.Maybe Prelude.Natural)
+playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds :: Lens.Lens' PlayerLatencyPolicy (Core.Maybe Core.Natural)
 playerLatencyPolicy_maximumIndividualPlayerLatencyMilliseconds = Lens.lens (\PlayerLatencyPolicy' {maximumIndividualPlayerLatencyMilliseconds} -> maximumIndividualPlayerLatencyMilliseconds) (\s@PlayerLatencyPolicy' {} a -> s {maximumIndividualPlayerLatencyMilliseconds = a} :: PlayerLatencyPolicy)
 
-instance Prelude.FromJSON PlayerLatencyPolicy where
+instance Core.FromJSON PlayerLatencyPolicy where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PlayerLatencyPolicy"
       ( \x ->
           PlayerLatencyPolicy'
-            Prelude.<$> (x Prelude..:? "PolicyDurationSeconds")
-            Prelude.<*> ( x
-                            Prelude..:? "MaximumIndividualPlayerLatencyMilliseconds"
-                        )
+            Core.<$> (x Core..:? "PolicyDurationSeconds")
+            Core.<*> ( x
+                         Core..:? "MaximumIndividualPlayerLatencyMilliseconds"
+                     )
       )
 
-instance Prelude.Hashable PlayerLatencyPolicy
+instance Core.Hashable PlayerLatencyPolicy
 
-instance Prelude.NFData PlayerLatencyPolicy
+instance Core.NFData PlayerLatencyPolicy
 
-instance Prelude.ToJSON PlayerLatencyPolicy where
+instance Core.ToJSON PlayerLatencyPolicy where
   toJSON PlayerLatencyPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PolicyDurationSeconds" Prelude..=)
-              Prelude.<$> policyDurationSeconds,
+    Core.object
+      ( Core.catMaybes
+          [ ("PolicyDurationSeconds" Core..=)
+              Core.<$> policyDurationSeconds,
             ( "MaximumIndividualPlayerLatencyMilliseconds"
-                Prelude..=
+                Core..=
             )
-              Prelude.<$> maximumIndividualPlayerLatencyMilliseconds
+              Core.<$> maximumIndividualPlayerLatencyMilliseconds
           ]
       )

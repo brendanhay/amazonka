@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SWF.Types.ResourceTag where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Tags are key-value pairs that can be associated with Amazon SWF state
 -- machines and activities.
@@ -32,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
   { -- | The value of a tag.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The key of a tag.
-    key :: Prelude.Text
+    key :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResourceTag' with all optional fields omitted.
@@ -51,38 +50,37 @@ data ResourceTag = ResourceTag'
 -- 'key', 'resourceTag_key' - The key of a tag.
 newResourceTag ::
   -- | 'key'
-  Prelude.Text ->
+  Core.Text ->
   ResourceTag
 newResourceTag pKey_ =
-  ResourceTag' {value = Prelude.Nothing, key = pKey_}
+  ResourceTag' {value = Core.Nothing, key = pKey_}
 
 -- | The value of a tag.
-resourceTag_value :: Lens.Lens' ResourceTag (Prelude.Maybe Prelude.Text)
+resourceTag_value :: Lens.Lens' ResourceTag (Core.Maybe Core.Text)
 resourceTag_value = Lens.lens (\ResourceTag' {value} -> value) (\s@ResourceTag' {} a -> s {value = a} :: ResourceTag)
 
 -- | The key of a tag.
-resourceTag_key :: Lens.Lens' ResourceTag Prelude.Text
+resourceTag_key :: Lens.Lens' ResourceTag Core.Text
 resourceTag_key = Lens.lens (\ResourceTag' {key} -> key) (\s@ResourceTag' {} a -> s {key = a} :: ResourceTag)
 
-instance Prelude.FromJSON ResourceTag where
+instance Core.FromJSON ResourceTag where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResourceTag"
       ( \x ->
           ResourceTag'
-            Prelude.<$> (x Prelude..:? "value")
-            Prelude.<*> (x Prelude..: "key")
+            Core.<$> (x Core..:? "value") Core.<*> (x Core..: "key")
       )
 
-instance Prelude.Hashable ResourceTag
+instance Core.Hashable ResourceTag
 
-instance Prelude.NFData ResourceTag
+instance Core.NFData ResourceTag
 
-instance Prelude.ToJSON ResourceTag where
+instance Core.ToJSON ResourceTag where
   toJSON ResourceTag' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("value" Prelude..=) Prelude.<$> value,
-            Prelude.Just ("key" Prelude..= key)
+    Core.object
+      ( Core.catMaybes
+          [ ("value" Core..=) Core.<$> value,
+            Core.Just ("key" Core..= key)
           ]
       )

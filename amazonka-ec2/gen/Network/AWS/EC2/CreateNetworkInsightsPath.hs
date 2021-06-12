@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,39 +52,39 @@ module Network.AWS.EC2.CreateNetworkInsightsPath
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateNetworkInsightsPath' smart constructor.
 data CreateNetworkInsightsPath = CreateNetworkInsightsPath'
   { -- | The tags to add to the path.
-    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    tagSpecifications :: Core.Maybe [TagSpecification],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
-    dryRun :: Prelude.Maybe Prelude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The IP address of the AWS resource that is the destination of the path.
-    destinationIp :: Prelude.Maybe Prelude.Text,
+    destinationIp :: Core.Maybe Core.Text,
     -- | The IP address of the AWS resource that is the source of the path.
-    sourceIp :: Prelude.Maybe Prelude.Text,
+    sourceIp :: Core.Maybe Core.Text,
     -- | The destination port.
-    destinationPort :: Prelude.Maybe Prelude.Natural,
+    destinationPort :: Core.Maybe Core.Natural,
     -- | The AWS resource that is the source of the path.
-    source :: Prelude.Text,
+    source :: Core.Text,
     -- | The AWS resource that is the destination of the path.
-    destination :: Prelude.Text,
+    destination :: Core.Text,
     -- | The protocol.
     protocol :: Protocol,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-    clientToken :: Prelude.Text
+    clientToken :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkInsightsPath' with all optional fields omitted.
@@ -119,13 +118,13 @@ data CreateNetworkInsightsPath = CreateNetworkInsightsPath'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
 newCreateNetworkInsightsPath ::
   -- | 'source'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destination'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'protocol'
   Protocol ->
   -- | 'clientToken'
-  Prelude.Text ->
+  Core.Text ->
   CreateNetworkInsightsPath
 newCreateNetworkInsightsPath
   pSource_
@@ -134,11 +133,11 @@ newCreateNetworkInsightsPath
   pClientToken_ =
     CreateNetworkInsightsPath'
       { tagSpecifications =
-          Prelude.Nothing,
-        dryRun = Prelude.Nothing,
-        destinationIp = Prelude.Nothing,
-        sourceIp = Prelude.Nothing,
-        destinationPort = Prelude.Nothing,
+          Core.Nothing,
+        dryRun = Core.Nothing,
+        destinationIp = Core.Nothing,
+        sourceIp = Core.Nothing,
+        destinationPort = Core.Nothing,
         source = pSource_,
         destination = pDestination_,
         protocol = pProtocol_,
@@ -146,34 +145,34 @@ newCreateNetworkInsightsPath
       }
 
 -- | The tags to add to the path.
-createNetworkInsightsPath_tagSpecifications :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe [TagSpecification])
-createNetworkInsightsPath_tagSpecifications = Lens.lens (\CreateNetworkInsightsPath' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkInsightsPath' {} a -> s {tagSpecifications = a} :: CreateNetworkInsightsPath) Prelude.. Lens.mapping Prelude._Coerce
+createNetworkInsightsPath_tagSpecifications :: Lens.Lens' CreateNetworkInsightsPath (Core.Maybe [TagSpecification])
+createNetworkInsightsPath_tagSpecifications = Lens.lens (\CreateNetworkInsightsPath' {tagSpecifications} -> tagSpecifications) (\s@CreateNetworkInsightsPath' {} a -> s {tagSpecifications = a} :: CreateNetworkInsightsPath) Core.. Lens.mapping Lens._Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-createNetworkInsightsPath_dryRun :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Bool)
+createNetworkInsightsPath_dryRun :: Lens.Lens' CreateNetworkInsightsPath (Core.Maybe Core.Bool)
 createNetworkInsightsPath_dryRun = Lens.lens (\CreateNetworkInsightsPath' {dryRun} -> dryRun) (\s@CreateNetworkInsightsPath' {} a -> s {dryRun = a} :: CreateNetworkInsightsPath)
 
 -- | The IP address of the AWS resource that is the destination of the path.
-createNetworkInsightsPath_destinationIp :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Text)
+createNetworkInsightsPath_destinationIp :: Lens.Lens' CreateNetworkInsightsPath (Core.Maybe Core.Text)
 createNetworkInsightsPath_destinationIp = Lens.lens (\CreateNetworkInsightsPath' {destinationIp} -> destinationIp) (\s@CreateNetworkInsightsPath' {} a -> s {destinationIp = a} :: CreateNetworkInsightsPath)
 
 -- | The IP address of the AWS resource that is the source of the path.
-createNetworkInsightsPath_sourceIp :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Text)
+createNetworkInsightsPath_sourceIp :: Lens.Lens' CreateNetworkInsightsPath (Core.Maybe Core.Text)
 createNetworkInsightsPath_sourceIp = Lens.lens (\CreateNetworkInsightsPath' {sourceIp} -> sourceIp) (\s@CreateNetworkInsightsPath' {} a -> s {sourceIp = a} :: CreateNetworkInsightsPath)
 
 -- | The destination port.
-createNetworkInsightsPath_destinationPort :: Lens.Lens' CreateNetworkInsightsPath (Prelude.Maybe Prelude.Natural)
+createNetworkInsightsPath_destinationPort :: Lens.Lens' CreateNetworkInsightsPath (Core.Maybe Core.Natural)
 createNetworkInsightsPath_destinationPort = Lens.lens (\CreateNetworkInsightsPath' {destinationPort} -> destinationPort) (\s@CreateNetworkInsightsPath' {} a -> s {destinationPort = a} :: CreateNetworkInsightsPath)
 
 -- | The AWS resource that is the source of the path.
-createNetworkInsightsPath_source :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
+createNetworkInsightsPath_source :: Lens.Lens' CreateNetworkInsightsPath Core.Text
 createNetworkInsightsPath_source = Lens.lens (\CreateNetworkInsightsPath' {source} -> source) (\s@CreateNetworkInsightsPath' {} a -> s {source = a} :: CreateNetworkInsightsPath)
 
 -- | The AWS resource that is the destination of the path.
-createNetworkInsightsPath_destination :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
+createNetworkInsightsPath_destination :: Lens.Lens' CreateNetworkInsightsPath Core.Text
 createNetworkInsightsPath_destination = Lens.lens (\CreateNetworkInsightsPath' {destination} -> destination) (\s@CreateNetworkInsightsPath' {} a -> s {destination = a} :: CreateNetworkInsightsPath)
 
 -- | The protocol.
@@ -183,61 +182,60 @@ createNetworkInsightsPath_protocol = Lens.lens (\CreateNetworkInsightsPath' {pro
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-createNetworkInsightsPath_clientToken :: Lens.Lens' CreateNetworkInsightsPath Prelude.Text
+createNetworkInsightsPath_clientToken :: Lens.Lens' CreateNetworkInsightsPath Core.Text
 createNetworkInsightsPath_clientToken = Lens.lens (\CreateNetworkInsightsPath' {clientToken} -> clientToken) (\s@CreateNetworkInsightsPath' {} a -> s {clientToken = a} :: CreateNetworkInsightsPath)
 
-instance Prelude.AWSRequest CreateNetworkInsightsPath where
+instance Core.AWSRequest CreateNetworkInsightsPath where
   type
-    Rs CreateNetworkInsightsPath =
+    AWSResponse CreateNetworkInsightsPath =
       CreateNetworkInsightsPathResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           CreateNetworkInsightsPathResponse'
-            Prelude.<$> (x Prelude..@? "networkInsightsPath")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "networkInsightsPath")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreateNetworkInsightsPath
+instance Core.Hashable CreateNetworkInsightsPath
 
-instance Prelude.NFData CreateNetworkInsightsPath
+instance Core.NFData CreateNetworkInsightsPath
 
-instance Prelude.ToHeaders CreateNetworkInsightsPath where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders CreateNetworkInsightsPath where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath CreateNetworkInsightsPath where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreateNetworkInsightsPath where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreateNetworkInsightsPath where
+instance Core.ToQuery CreateNetworkInsightsPath where
   toQuery CreateNetworkInsightsPath' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("CreateNetworkInsightsPath" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
-        Prelude.toQuery
-          ( Prelude.toQueryList "TagSpecification"
-              Prelude.<$> tagSpecifications
+          Core.=: ("CreateNetworkInsightsPath" :: Core.ByteString),
+        "Version" Core.=: ("2016-11-15" :: Core.ByteString),
+        Core.toQuery
+          ( Core.toQueryList "TagSpecification"
+              Core.<$> tagSpecifications
           ),
-        "DryRun" Prelude.=: dryRun,
-        "DestinationIp" Prelude.=: destinationIp,
-        "SourceIp" Prelude.=: sourceIp,
-        "DestinationPort" Prelude.=: destinationPort,
-        "Source" Prelude.=: source,
-        "Destination" Prelude.=: destination,
-        "Protocol" Prelude.=: protocol,
-        "ClientToken" Prelude.=: clientToken
+        "DryRun" Core.=: dryRun,
+        "DestinationIp" Core.=: destinationIp,
+        "SourceIp" Core.=: sourceIp,
+        "DestinationPort" Core.=: destinationPort,
+        "Source" Core.=: source,
+        "Destination" Core.=: destination,
+        "Protocol" Core.=: protocol,
+        "ClientToken" Core.=: clientToken
       ]
 
 -- | /See:/ 'newCreateNetworkInsightsPathResponse' smart constructor.
 data CreateNetworkInsightsPathResponse = CreateNetworkInsightsPathResponse'
   { -- | Information about the path.
-    networkInsightsPath :: Prelude.Maybe NetworkInsightsPath,
+    networkInsightsPath :: Core.Maybe NetworkInsightsPath,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreateNetworkInsightsPathResponse' with all optional fields omitted.
@@ -252,23 +250,23 @@ data CreateNetworkInsightsPathResponse = CreateNetworkInsightsPathResponse'
 -- 'httpStatus', 'createNetworkInsightsPathResponse_httpStatus' - The response's http status code.
 newCreateNetworkInsightsPathResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreateNetworkInsightsPathResponse
 newCreateNetworkInsightsPathResponse pHttpStatus_ =
   CreateNetworkInsightsPathResponse'
     { networkInsightsPath =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the path.
-createNetworkInsightsPathResponse_networkInsightsPath :: Lens.Lens' CreateNetworkInsightsPathResponse (Prelude.Maybe NetworkInsightsPath)
+createNetworkInsightsPathResponse_networkInsightsPath :: Lens.Lens' CreateNetworkInsightsPathResponse (Core.Maybe NetworkInsightsPath)
 createNetworkInsightsPathResponse_networkInsightsPath = Lens.lens (\CreateNetworkInsightsPathResponse' {networkInsightsPath} -> networkInsightsPath) (\s@CreateNetworkInsightsPathResponse' {} a -> s {networkInsightsPath = a} :: CreateNetworkInsightsPathResponse)
 
 -- | The response's http status code.
-createNetworkInsightsPathResponse_httpStatus :: Lens.Lens' CreateNetworkInsightsPathResponse Prelude.Int
+createNetworkInsightsPathResponse_httpStatus :: Lens.Lens' CreateNetworkInsightsPathResponse Core.Int
 createNetworkInsightsPathResponse_httpStatus = Lens.lens (\CreateNetworkInsightsPathResponse' {httpStatus} -> httpStatus) (\s@CreateNetworkInsightsPathResponse' {} a -> s {httpStatus = a} :: CreateNetworkInsightsPathResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     CreateNetworkInsightsPathResponse

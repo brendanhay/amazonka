@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.EndpointTypesElement
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the delivery configuration settings for sending a campaign or
 -- campaign treatment through a custom channel. This object is required if
@@ -34,7 +33,7 @@ data CustomDeliveryConfiguration = CustomDeliveryConfiguration'
   { -- | The types of endpoints to send the campaign or treatment to. Each valid
     -- value maps to a type of channel that you can associate with an endpoint
     -- by using the ChannelType property of an endpoint.
-    endpointTypes :: Prelude.Maybe [EndpointTypesElement],
+    endpointTypes :: Core.Maybe [EndpointTypesElement],
     -- | The destination to send the campaign or treatment to. This value can be
     -- one of the following:
     --
@@ -44,9 +43,9 @@ data CustomDeliveryConfiguration = CustomDeliveryConfiguration'
     -- -   The URL for a web application or service that supports HTTPS and can
     --     receive the message. The URL has to be a full URL, including the
     --     HTTPS protocol.
-    deliveryUri :: Prelude.Text
+    deliveryUri :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CustomDeliveryConfiguration' with all optional fields omitted.
@@ -71,20 +70,20 @@ data CustomDeliveryConfiguration = CustomDeliveryConfiguration'
 --     HTTPS protocol.
 newCustomDeliveryConfiguration ::
   -- | 'deliveryUri'
-  Prelude.Text ->
+  Core.Text ->
   CustomDeliveryConfiguration
 newCustomDeliveryConfiguration pDeliveryUri_ =
   CustomDeliveryConfiguration'
     { endpointTypes =
-        Prelude.Nothing,
+        Core.Nothing,
       deliveryUri = pDeliveryUri_
     }
 
 -- | The types of endpoints to send the campaign or treatment to. Each valid
 -- value maps to a type of channel that you can associate with an endpoint
 -- by using the ChannelType property of an endpoint.
-customDeliveryConfiguration_endpointTypes :: Lens.Lens' CustomDeliveryConfiguration (Prelude.Maybe [EndpointTypesElement])
-customDeliveryConfiguration_endpointTypes = Lens.lens (\CustomDeliveryConfiguration' {endpointTypes} -> endpointTypes) (\s@CustomDeliveryConfiguration' {} a -> s {endpointTypes = a} :: CustomDeliveryConfiguration) Prelude.. Lens.mapping Prelude._Coerce
+customDeliveryConfiguration_endpointTypes :: Lens.Lens' CustomDeliveryConfiguration (Core.Maybe [EndpointTypesElement])
+customDeliveryConfiguration_endpointTypes = Lens.lens (\CustomDeliveryConfiguration' {endpointTypes} -> endpointTypes) (\s@CustomDeliveryConfiguration' {} a -> s {endpointTypes = a} :: CustomDeliveryConfiguration) Core.. Lens.mapping Lens._Coerce
 
 -- | The destination to send the campaign or treatment to. This value can be
 -- one of the following:
@@ -95,31 +94,28 @@ customDeliveryConfiguration_endpointTypes = Lens.lens (\CustomDeliveryConfigurat
 -- -   The URL for a web application or service that supports HTTPS and can
 --     receive the message. The URL has to be a full URL, including the
 --     HTTPS protocol.
-customDeliveryConfiguration_deliveryUri :: Lens.Lens' CustomDeliveryConfiguration Prelude.Text
+customDeliveryConfiguration_deliveryUri :: Lens.Lens' CustomDeliveryConfiguration Core.Text
 customDeliveryConfiguration_deliveryUri = Lens.lens (\CustomDeliveryConfiguration' {deliveryUri} -> deliveryUri) (\s@CustomDeliveryConfiguration' {} a -> s {deliveryUri = a} :: CustomDeliveryConfiguration)
 
-instance Prelude.FromJSON CustomDeliveryConfiguration where
+instance Core.FromJSON CustomDeliveryConfiguration where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CustomDeliveryConfiguration"
       ( \x ->
           CustomDeliveryConfiguration'
-            Prelude.<$> ( x Prelude..:? "EndpointTypes"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..: "DeliveryUri")
+            Core.<$> (x Core..:? "EndpointTypes" Core..!= Core.mempty)
+            Core.<*> (x Core..: "DeliveryUri")
       )
 
-instance Prelude.Hashable CustomDeliveryConfiguration
+instance Core.Hashable CustomDeliveryConfiguration
 
-instance Prelude.NFData CustomDeliveryConfiguration
+instance Core.NFData CustomDeliveryConfiguration
 
-instance Prelude.ToJSON CustomDeliveryConfiguration where
+instance Core.ToJSON CustomDeliveryConfiguration where
   toJSON CustomDeliveryConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("EndpointTypes" Prelude..=)
-              Prelude.<$> endpointTypes,
-            Prelude.Just ("DeliveryUri" Prelude..= deliveryUri)
+    Core.object
+      ( Core.catMaybes
+          [ ("EndpointTypes" Core..=) Core.<$> endpointTypes,
+            Core.Just ("DeliveryUri" Core..= deliveryUri)
           ]
       )

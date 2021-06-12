@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.GuardDuty.UnarchiveFindings
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUnarchiveFindings' smart constructor.
 data UnarchiveFindings = UnarchiveFindings'
   { -- | The ID of the detector associated with the findings to unarchive.
-    detectorId :: Prelude.Text,
+    detectorId :: Core.Text,
     -- | The IDs of the findings to unarchive.
-    findingIds :: [Prelude.Text]
+    findingIds :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnarchiveFindings' with all optional fields omitted.
@@ -68,71 +67,71 @@ data UnarchiveFindings = UnarchiveFindings'
 -- 'findingIds', 'unarchiveFindings_findingIds' - The IDs of the findings to unarchive.
 newUnarchiveFindings ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   UnarchiveFindings
 newUnarchiveFindings pDetectorId_ =
   UnarchiveFindings'
     { detectorId = pDetectorId_,
-      findingIds = Prelude.mempty
+      findingIds = Core.mempty
     }
 
 -- | The ID of the detector associated with the findings to unarchive.
-unarchiveFindings_detectorId :: Lens.Lens' UnarchiveFindings Prelude.Text
+unarchiveFindings_detectorId :: Lens.Lens' UnarchiveFindings Core.Text
 unarchiveFindings_detectorId = Lens.lens (\UnarchiveFindings' {detectorId} -> detectorId) (\s@UnarchiveFindings' {} a -> s {detectorId = a} :: UnarchiveFindings)
 
 -- | The IDs of the findings to unarchive.
-unarchiveFindings_findingIds :: Lens.Lens' UnarchiveFindings [Prelude.Text]
-unarchiveFindings_findingIds = Lens.lens (\UnarchiveFindings' {findingIds} -> findingIds) (\s@UnarchiveFindings' {} a -> s {findingIds = a} :: UnarchiveFindings) Prelude.. Prelude._Coerce
+unarchiveFindings_findingIds :: Lens.Lens' UnarchiveFindings [Core.Text]
+unarchiveFindings_findingIds = Lens.lens (\UnarchiveFindings' {findingIds} -> findingIds) (\s@UnarchiveFindings' {} a -> s {findingIds = a} :: UnarchiveFindings) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest UnarchiveFindings where
-  type Rs UnarchiveFindings = UnarchiveFindingsResponse
+instance Core.AWSRequest UnarchiveFindings where
+  type
+    AWSResponse UnarchiveFindings =
+      UnarchiveFindingsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UnarchiveFindingsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UnarchiveFindings
+instance Core.Hashable UnarchiveFindings
 
-instance Prelude.NFData UnarchiveFindings
+instance Core.NFData UnarchiveFindings
 
-instance Prelude.ToHeaders UnarchiveFindings where
+instance Core.ToHeaders UnarchiveFindings where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UnarchiveFindings where
+instance Core.ToJSON UnarchiveFindings where
   toJSON UnarchiveFindings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("findingIds" Prelude..= findingIds)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("findingIds" Core..= findingIds)]
       )
 
-instance Prelude.ToPath UnarchiveFindings where
+instance Core.ToPath UnarchiveFindings where
   toPath UnarchiveFindings' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/detector/",
-        Prelude.toBS detectorId,
+        Core.toBS detectorId,
         "/findings/unarchive"
       ]
 
-instance Prelude.ToQuery UnarchiveFindings where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UnarchiveFindings where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUnarchiveFindingsResponse' smart constructor.
 data UnarchiveFindingsResponse = UnarchiveFindingsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnarchiveFindingsResponse' with all optional fields omitted.
@@ -145,7 +144,7 @@ data UnarchiveFindingsResponse = UnarchiveFindingsResponse'
 -- 'httpStatus', 'unarchiveFindingsResponse_httpStatus' - The response's http status code.
 newUnarchiveFindingsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UnarchiveFindingsResponse
 newUnarchiveFindingsResponse pHttpStatus_ =
   UnarchiveFindingsResponse'
@@ -154,7 +153,7 @@ newUnarchiveFindingsResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-unarchiveFindingsResponse_httpStatus :: Lens.Lens' UnarchiveFindingsResponse Prelude.Int
+unarchiveFindingsResponse_httpStatus :: Lens.Lens' UnarchiveFindingsResponse Core.Int
 unarchiveFindingsResponse_httpStatus = Lens.lens (\UnarchiveFindingsResponse' {httpStatus} -> httpStatus) (\s@UnarchiveFindingsResponse' {} a -> s {httpStatus = a} :: UnarchiveFindingsResponse)
 
-instance Prelude.NFData UnarchiveFindingsResponse
+instance Core.NFData UnarchiveFindingsResponse

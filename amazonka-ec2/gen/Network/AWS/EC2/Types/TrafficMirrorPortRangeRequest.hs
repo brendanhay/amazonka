@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the Traffic Mirror filter rule port range.
 --
@@ -30,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data TrafficMirrorPortRangeRequest = TrafficMirrorPortRangeRequest'
   { -- | The first port in the Traffic Mirror port range. This applies to the TCP
     -- and UDP protocols.
-    fromPort :: Prelude.Maybe Prelude.Int,
+    fromPort :: Core.Maybe Core.Int,
     -- | The last port in the Traffic Mirror port range. This applies to the TCP
     -- and UDP protocols.
-    toPort :: Prelude.Maybe Prelude.Int
+    toPort :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TrafficMirrorPortRangeRequest' with all optional fields omitted.
@@ -55,32 +54,27 @@ newTrafficMirrorPortRangeRequest ::
 newTrafficMirrorPortRangeRequest =
   TrafficMirrorPortRangeRequest'
     { fromPort =
-        Prelude.Nothing,
-      toPort = Prelude.Nothing
+        Core.Nothing,
+      toPort = Core.Nothing
     }
 
 -- | The first port in the Traffic Mirror port range. This applies to the TCP
 -- and UDP protocols.
-trafficMirrorPortRangeRequest_fromPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Prelude.Maybe Prelude.Int)
+trafficMirrorPortRangeRequest_fromPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Core.Maybe Core.Int)
 trafficMirrorPortRangeRequest_fromPort = Lens.lens (\TrafficMirrorPortRangeRequest' {fromPort} -> fromPort) (\s@TrafficMirrorPortRangeRequest' {} a -> s {fromPort = a} :: TrafficMirrorPortRangeRequest)
 
 -- | The last port in the Traffic Mirror port range. This applies to the TCP
 -- and UDP protocols.
-trafficMirrorPortRangeRequest_toPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Prelude.Maybe Prelude.Int)
+trafficMirrorPortRangeRequest_toPort :: Lens.Lens' TrafficMirrorPortRangeRequest (Core.Maybe Core.Int)
 trafficMirrorPortRangeRequest_toPort = Lens.lens (\TrafficMirrorPortRangeRequest' {toPort} -> toPort) (\s@TrafficMirrorPortRangeRequest' {} a -> s {toPort = a} :: TrafficMirrorPortRangeRequest)
 
-instance
-  Prelude.Hashable
-    TrafficMirrorPortRangeRequest
+instance Core.Hashable TrafficMirrorPortRangeRequest
 
-instance Prelude.NFData TrafficMirrorPortRangeRequest
+instance Core.NFData TrafficMirrorPortRangeRequest
 
-instance
-  Prelude.ToQuery
-    TrafficMirrorPortRangeRequest
-  where
+instance Core.ToQuery TrafficMirrorPortRangeRequest where
   toQuery TrafficMirrorPortRangeRequest' {..} =
-    Prelude.mconcat
-      [ "FromPort" Prelude.=: fromPort,
-        "ToPort" Prelude.=: toPort
+    Core.mconcat
+      [ "FromPort" Core.=: fromPort,
+        "ToPort" Core.=: toPort
       ]

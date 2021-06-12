@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LoadPermissionModifications where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.LoadPermissionRequest
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes modifications to the load permissions of an Amazon FPGA image
 -- (AFI).
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newLoadPermissionModifications' smart constructor.
 data LoadPermissionModifications = LoadPermissionModifications'
   { -- | The load permissions to add.
-    add :: Prelude.Maybe [LoadPermissionRequest],
+    add :: Core.Maybe [LoadPermissionRequest],
     -- | The load permissions to remove.
-    remove :: Prelude.Maybe [LoadPermissionRequest]
+    remove :: Core.Maybe [LoadPermissionRequest]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LoadPermissionModifications' with all optional fields omitted.
@@ -52,27 +51,26 @@ newLoadPermissionModifications ::
   LoadPermissionModifications
 newLoadPermissionModifications =
   LoadPermissionModifications'
-    { add = Prelude.Nothing,
-      remove = Prelude.Nothing
+    { add = Core.Nothing,
+      remove = Core.Nothing
     }
 
 -- | The load permissions to add.
-loadPermissionModifications_add :: Lens.Lens' LoadPermissionModifications (Prelude.Maybe [LoadPermissionRequest])
-loadPermissionModifications_add = Lens.lens (\LoadPermissionModifications' {add} -> add) (\s@LoadPermissionModifications' {} a -> s {add = a} :: LoadPermissionModifications) Prelude.. Lens.mapping Prelude._Coerce
+loadPermissionModifications_add :: Lens.Lens' LoadPermissionModifications (Core.Maybe [LoadPermissionRequest])
+loadPermissionModifications_add = Lens.lens (\LoadPermissionModifications' {add} -> add) (\s@LoadPermissionModifications' {} a -> s {add = a} :: LoadPermissionModifications) Core.. Lens.mapping Lens._Coerce
 
 -- | The load permissions to remove.
-loadPermissionModifications_remove :: Lens.Lens' LoadPermissionModifications (Prelude.Maybe [LoadPermissionRequest])
-loadPermissionModifications_remove = Lens.lens (\LoadPermissionModifications' {remove} -> remove) (\s@LoadPermissionModifications' {} a -> s {remove = a} :: LoadPermissionModifications) Prelude.. Lens.mapping Prelude._Coerce
+loadPermissionModifications_remove :: Lens.Lens' LoadPermissionModifications (Core.Maybe [LoadPermissionRequest])
+loadPermissionModifications_remove = Lens.lens (\LoadPermissionModifications' {remove} -> remove) (\s@LoadPermissionModifications' {} a -> s {remove = a} :: LoadPermissionModifications) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.Hashable LoadPermissionModifications
+instance Core.Hashable LoadPermissionModifications
 
-instance Prelude.NFData LoadPermissionModifications
+instance Core.NFData LoadPermissionModifications
 
-instance Prelude.ToQuery LoadPermissionModifications where
+instance Core.ToQuery LoadPermissionModifications where
   toQuery LoadPermissionModifications' {..} =
-    Prelude.mconcat
-      [ Prelude.toQuery
-          (Prelude.toQueryList "Add" Prelude.<$> add),
-        Prelude.toQuery
-          (Prelude.toQueryList "Remove" Prelude.<$> remove)
+    Core.mconcat
+      [ Core.toQuery (Core.toQueryList "Add" Core.<$> add),
+        Core.toQuery
+          (Core.toQueryList "Remove" Core.<$> remove)
       ]

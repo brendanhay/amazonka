@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -71,8 +70,8 @@ module Network.AWS.S3.PutBucketMetricsConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
@@ -82,15 +81,15 @@ data PutBucketMetricsConfiguration = PutBucketMetricsConfiguration'
   { -- | The account id of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
-    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    expectedBucketOwner :: Core.Maybe Core.Text,
     -- | The name of the bucket for which the metrics configuration is set.
     bucket :: BucketName,
     -- | The ID used to identify the metrics configuration.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | Specifies the metrics configuration.
     metricsConfiguration :: MetricsConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketMetricsConfiguration' with all optional fields omitted.
@@ -113,7 +112,7 @@ newPutBucketMetricsConfiguration ::
   -- | 'bucket'
   BucketName ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'metricsConfiguration'
   MetricsConfiguration ->
   PutBucketMetricsConfiguration
@@ -123,7 +122,7 @@ newPutBucketMetricsConfiguration
   pMetricsConfiguration_ =
     PutBucketMetricsConfiguration'
       { expectedBucketOwner =
-          Prelude.Nothing,
+          Core.Nothing,
         bucket = pBucket_,
         id = pId_,
         metricsConfiguration =
@@ -133,7 +132,7 @@ newPutBucketMetricsConfiguration
 -- | The account id of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
-putBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketMetricsConfiguration (Prelude.Maybe Prelude.Text)
+putBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketMetricsConfiguration (Core.Maybe Core.Text)
 putBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\PutBucketMetricsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketMetricsConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketMetricsConfiguration)
 
 -- | The name of the bucket for which the metrics configuration is set.
@@ -141,7 +140,7 @@ putBucketMetricsConfiguration_bucket :: Lens.Lens' PutBucketMetricsConfiguration
 putBucketMetricsConfiguration_bucket = Lens.lens (\PutBucketMetricsConfiguration' {bucket} -> bucket) (\s@PutBucketMetricsConfiguration' {} a -> s {bucket = a} :: PutBucketMetricsConfiguration)
 
 -- | The ID used to identify the metrics configuration.
-putBucketMetricsConfiguration_id :: Lens.Lens' PutBucketMetricsConfiguration Prelude.Text
+putBucketMetricsConfiguration_id :: Lens.Lens' PutBucketMetricsConfiguration Core.Text
 putBucketMetricsConfiguration_id = Lens.lens (\PutBucketMetricsConfiguration' {id} -> id) (\s@PutBucketMetricsConfiguration' {} a -> s {id = a} :: PutBucketMetricsConfiguration)
 
 -- | Specifies the metrics configuration.
@@ -149,58 +148,47 @@ putBucketMetricsConfiguration_metricsConfiguration :: Lens.Lens' PutBucketMetric
 putBucketMetricsConfiguration_metricsConfiguration = Lens.lens (\PutBucketMetricsConfiguration' {metricsConfiguration} -> metricsConfiguration) (\s@PutBucketMetricsConfiguration' {} a -> s {metricsConfiguration = a} :: PutBucketMetricsConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     PutBucketMetricsConfiguration
   where
   type
-    Rs PutBucketMetricsConfiguration =
+    AWSResponse PutBucketMetricsConfiguration =
       PutBucketMetricsConfigurationResponse
   request = Request.putXML defaultService
   response =
     Response.receiveNull
       PutBucketMetricsConfigurationResponse'
 
-instance
-  Prelude.Hashable
-    PutBucketMetricsConfiguration
+instance Core.Hashable PutBucketMetricsConfiguration
 
-instance Prelude.NFData PutBucketMetricsConfiguration
+instance Core.NFData PutBucketMetricsConfiguration
 
-instance
-  Prelude.ToElement
-    PutBucketMetricsConfiguration
-  where
+instance Core.ToElement PutBucketMetricsConfiguration where
   toElement PutBucketMetricsConfiguration' {..} =
-    Prelude.mkElement
+    Core.mkElement
       "{http://s3.amazonaws.com/doc/2006-03-01/}MetricsConfiguration"
       metricsConfiguration
 
-instance
-  Prelude.ToHeaders
-    PutBucketMetricsConfiguration
-  where
+instance Core.ToHeaders PutBucketMetricsConfiguration where
   toHeaders PutBucketMetricsConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "x-amz-expected-bucket-owner"
-          Prelude.=# expectedBucketOwner
+          Core.=# expectedBucketOwner
       ]
 
-instance Prelude.ToPath PutBucketMetricsConfiguration where
+instance Core.ToPath PutBucketMetricsConfiguration where
   toPath PutBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["/", Prelude.toBS bucket]
+    Core.mconcat ["/", Core.toBS bucket]
 
-instance
-  Prelude.ToQuery
-    PutBucketMetricsConfiguration
-  where
+instance Core.ToQuery PutBucketMetricsConfiguration where
   toQuery PutBucketMetricsConfiguration' {..} =
-    Prelude.mconcat ["id" Prelude.=: id, "metrics"]
+    Core.mconcat ["id" Core.=: id, "metrics"]
 
 -- | /See:/ 'newPutBucketMetricsConfigurationResponse' smart constructor.
 data PutBucketMetricsConfigurationResponse = PutBucketMetricsConfigurationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutBucketMetricsConfigurationResponse' with all optional fields omitted.
@@ -212,5 +200,5 @@ newPutBucketMetricsConfigurationResponse =
   PutBucketMetricsConfigurationResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     PutBucketMetricsConfigurationResponse

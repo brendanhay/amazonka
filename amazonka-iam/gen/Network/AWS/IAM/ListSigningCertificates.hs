@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,10 +56,9 @@ module Network.AWS.IAM.ListSigningCertificates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,7 +70,7 @@ data ListSigningCertificates = ListSigningCertificates'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    userName :: Prelude.Maybe Prelude.Text,
+    userName :: Core.Maybe Core.Text,
     -- | Use this only when paginating results to indicate the maximum number of
     -- items you want in the response. If additional items exist beyond the
     -- maximum you specify, the @IsTruncated@ response element is @true@.
@@ -82,14 +80,14 @@ data ListSigningCertificates = ListSigningCertificates'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSigningCertificates' with all optional fields omitted.
@@ -124,10 +122,9 @@ newListSigningCertificates ::
   ListSigningCertificates
 newListSigningCertificates =
   ListSigningCertificates'
-    { userName =
-        Prelude.Nothing,
-      maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { userName = Core.Nothing,
+      maxItems = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The name of the IAM user whose signing certificates you want to examine.
@@ -136,7 +133,7 @@ newListSigningCertificates =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listSigningCertificates_userName :: Lens.Lens' ListSigningCertificates (Prelude.Maybe Prelude.Text)
+listSigningCertificates_userName :: Lens.Lens' ListSigningCertificates (Core.Maybe Core.Text)
 listSigningCertificates_userName = Lens.lens (\ListSigningCertificates' {userName} -> userName) (\s@ListSigningCertificates' {} a -> s {userName = a} :: ListSigningCertificates)
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -148,41 +145,41 @@ listSigningCertificates_userName = Lens.lens (\ListSigningCertificates' {userNam
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listSigningCertificates_maxItems :: Lens.Lens' ListSigningCertificates (Prelude.Maybe Prelude.Natural)
+listSigningCertificates_maxItems :: Lens.Lens' ListSigningCertificates (Core.Maybe Core.Natural)
 listSigningCertificates_maxItems = Lens.lens (\ListSigningCertificates' {maxItems} -> maxItems) (\s@ListSigningCertificates' {} a -> s {maxItems = a} :: ListSigningCertificates)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listSigningCertificates_marker :: Lens.Lens' ListSigningCertificates (Prelude.Maybe Prelude.Text)
+listSigningCertificates_marker :: Lens.Lens' ListSigningCertificates (Core.Maybe Core.Text)
 listSigningCertificates_marker = Lens.lens (\ListSigningCertificates' {marker} -> marker) (\s@ListSigningCertificates' {} a -> s {marker = a} :: ListSigningCertificates)
 
-instance Pager.AWSPager ListSigningCertificates where
+instance Core.AWSPager ListSigningCertificates where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listSigningCertificatesResponse_isTruncated
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
             Lens.^? listSigningCertificatesResponse_marker
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listSigningCertificates_marker
           Lens..~ rs
           Lens.^? listSigningCertificatesResponse_marker
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest ListSigningCertificates where
+instance Core.AWSRequest ListSigningCertificates where
   type
-    Rs ListSigningCertificates =
+    AWSResponse ListSigningCertificates =
       ListSigningCertificatesResponse
   request = Request.postQuery defaultService
   response =
@@ -190,35 +187,33 @@ instance Prelude.AWSRequest ListSigningCertificates where
       "ListSigningCertificatesResult"
       ( \s h x ->
           ListSigningCertificatesResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "Certificates"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "Certificates" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListSigningCertificates
+instance Core.Hashable ListSigningCertificates
 
-instance Prelude.NFData ListSigningCertificates
+instance Core.NFData ListSigningCertificates
 
-instance Prelude.ToHeaders ListSigningCertificates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListSigningCertificates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListSigningCertificates where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListSigningCertificates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListSigningCertificates where
+instance Core.ToQuery ListSigningCertificates where
   toQuery ListSigningCertificates' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListSigningCertificates" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "UserName" Prelude.=: userName,
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker
+          Core.=: ("ListSigningCertificates" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "UserName" Core.=: userName,
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker
       ]
 
 -- | Contains the response to a successful ListSigningCertificates request.
@@ -232,17 +227,17 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of the user\'s signing certificate information.
     certificates :: [SigningCertificate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListSigningCertificatesResponse' with all optional fields omitted.
@@ -269,15 +264,15 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
 -- 'certificates', 'listSigningCertificatesResponse_certificates' - A list of the user\'s signing certificate information.
 newListSigningCertificatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListSigningCertificatesResponse
 newListSigningCertificatesResponse pHttpStatus_ =
   ListSigningCertificatesResponse'
     { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      certificates = Prelude.mempty
+      certificates = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -287,23 +282,21 @@ newListSigningCertificatesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listSigningCertificatesResponse_isTruncated :: Lens.Lens' ListSigningCertificatesResponse (Prelude.Maybe Prelude.Bool)
+listSigningCertificatesResponse_isTruncated :: Lens.Lens' ListSigningCertificatesResponse (Core.Maybe Core.Bool)
 listSigningCertificatesResponse_isTruncated = Lens.lens (\ListSigningCertificatesResponse' {isTruncated} -> isTruncated) (\s@ListSigningCertificatesResponse' {} a -> s {isTruncated = a} :: ListSigningCertificatesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listSigningCertificatesResponse_marker :: Lens.Lens' ListSigningCertificatesResponse (Prelude.Maybe Prelude.Text)
+listSigningCertificatesResponse_marker :: Lens.Lens' ListSigningCertificatesResponse (Core.Maybe Core.Text)
 listSigningCertificatesResponse_marker = Lens.lens (\ListSigningCertificatesResponse' {marker} -> marker) (\s@ListSigningCertificatesResponse' {} a -> s {marker = a} :: ListSigningCertificatesResponse)
 
 -- | The response's http status code.
-listSigningCertificatesResponse_httpStatus :: Lens.Lens' ListSigningCertificatesResponse Prelude.Int
+listSigningCertificatesResponse_httpStatus :: Lens.Lens' ListSigningCertificatesResponse Core.Int
 listSigningCertificatesResponse_httpStatus = Lens.lens (\ListSigningCertificatesResponse' {httpStatus} -> httpStatus) (\s@ListSigningCertificatesResponse' {} a -> s {httpStatus = a} :: ListSigningCertificatesResponse)
 
 -- | A list of the user\'s signing certificate information.
 listSigningCertificatesResponse_certificates :: Lens.Lens' ListSigningCertificatesResponse [SigningCertificate]
-listSigningCertificatesResponse_certificates = Lens.lens (\ListSigningCertificatesResponse' {certificates} -> certificates) (\s@ListSigningCertificatesResponse' {} a -> s {certificates = a} :: ListSigningCertificatesResponse) Prelude.. Prelude._Coerce
+listSigningCertificatesResponse_certificates = Lens.lens (\ListSigningCertificatesResponse' {certificates} -> certificates) (\s@ListSigningCertificatesResponse' {} a -> s {certificates = a} :: ListSigningCertificatesResponse) Core.. Lens._Coerce
 
-instance
-  Prelude.NFData
-    ListSigningCertificatesResponse
+instance Core.NFData ListSigningCertificatesResponse

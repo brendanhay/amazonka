@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,10 +44,9 @@ module Network.AWS.GuardDuty.ListFilters
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,15 +56,15 @@ data ListFilters = ListFilters'
     -- this parameter to null on your first call to the list action. For
     -- subsequent calls to the action, fill nextToken in the request with the
     -- value of NextToken from the previous response to continue listing data.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | You can use this parameter to indicate the maximum number of items that
     -- you want in the response. The default value is 50. The maximum value is
     -- 50.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The unique ID of the detector that the filter is associated with.
-    detectorId :: Prelude.Text
+    detectorId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFilters' with all optional fields omitted.
@@ -88,12 +86,12 @@ data ListFilters = ListFilters'
 -- 'detectorId', 'listFilters_detectorId' - The unique ID of the detector that the filter is associated with.
 newListFilters ::
   -- | 'detectorId'
-  Prelude.Text ->
+  Core.Text ->
   ListFilters
 newListFilters pDetectorId_ =
   ListFilters'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       detectorId = pDetectorId_
     }
 
@@ -101,88 +99,84 @@ newListFilters pDetectorId_ =
 -- this parameter to null on your first call to the list action. For
 -- subsequent calls to the action, fill nextToken in the request with the
 -- value of NextToken from the previous response to continue listing data.
-listFilters_nextToken :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Text)
+listFilters_nextToken :: Lens.Lens' ListFilters (Core.Maybe Core.Text)
 listFilters_nextToken = Lens.lens (\ListFilters' {nextToken} -> nextToken) (\s@ListFilters' {} a -> s {nextToken = a} :: ListFilters)
 
 -- | You can use this parameter to indicate the maximum number of items that
 -- you want in the response. The default value is 50. The maximum value is
 -- 50.
-listFilters_maxResults :: Lens.Lens' ListFilters (Prelude.Maybe Prelude.Natural)
+listFilters_maxResults :: Lens.Lens' ListFilters (Core.Maybe Core.Natural)
 listFilters_maxResults = Lens.lens (\ListFilters' {maxResults} -> maxResults) (\s@ListFilters' {} a -> s {maxResults = a} :: ListFilters)
 
 -- | The unique ID of the detector that the filter is associated with.
-listFilters_detectorId :: Lens.Lens' ListFilters Prelude.Text
+listFilters_detectorId :: Lens.Lens' ListFilters Core.Text
 listFilters_detectorId = Lens.lens (\ListFilters' {detectorId} -> detectorId) (\s@ListFilters' {} a -> s {detectorId = a} :: ListFilters)
 
-instance Pager.AWSPager ListFilters where
+instance Core.AWSPager ListFilters where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listFiltersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listFiltersResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         (rs Lens.^. listFiltersResponse_filterNames) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listFilters_nextToken
           Lens..~ rs
-          Lens.^? listFiltersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listFiltersResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListFilters where
-  type Rs ListFilters = ListFiltersResponse
+instance Core.AWSRequest ListFilters where
+  type AWSResponse ListFilters = ListFiltersResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListFiltersResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "filterNames"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "filterNames" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListFilters
+instance Core.Hashable ListFilters
 
-instance Prelude.NFData ListFilters
+instance Core.NFData ListFilters
 
-instance Prelude.ToHeaders ListFilters where
+instance Core.ToHeaders ListFilters where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath ListFilters where
+instance Core.ToPath ListFilters where
   toPath ListFilters' {..} =
-    Prelude.mconcat
-      ["/detector/", Prelude.toBS detectorId, "/filter"]
+    Core.mconcat
+      ["/detector/", Core.toBS detectorId, "/filter"]
 
-instance Prelude.ToQuery ListFilters where
+instance Core.ToQuery ListFilters where
   toQuery ListFilters' {..} =
-    Prelude.mconcat
-      [ "nextToken" Prelude.=: nextToken,
-        "maxResults" Prelude.=: maxResults
+    Core.mconcat
+      [ "nextToken" Core.=: nextToken,
+        "maxResults" Core.=: maxResults
       ]
 
 -- | /See:/ 'newListFiltersResponse' smart constructor.
 data ListFiltersResponse = ListFiltersResponse'
   { -- | The pagination parameter to be used on the next list operation to
     -- retrieve more items.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of filter names.
-    filterNames :: [Prelude.Text]
+    filterNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListFiltersResponse' with all optional fields omitted.
@@ -200,26 +194,26 @@ data ListFiltersResponse = ListFiltersResponse'
 -- 'filterNames', 'listFiltersResponse_filterNames' - A list of filter names.
 newListFiltersResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListFiltersResponse
 newListFiltersResponse pHttpStatus_ =
   ListFiltersResponse'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      filterNames = Prelude.mempty
+      filterNames = Core.mempty
     }
 
 -- | The pagination parameter to be used on the next list operation to
 -- retrieve more items.
-listFiltersResponse_nextToken :: Lens.Lens' ListFiltersResponse (Prelude.Maybe Prelude.Text)
+listFiltersResponse_nextToken :: Lens.Lens' ListFiltersResponse (Core.Maybe Core.Text)
 listFiltersResponse_nextToken = Lens.lens (\ListFiltersResponse' {nextToken} -> nextToken) (\s@ListFiltersResponse' {} a -> s {nextToken = a} :: ListFiltersResponse)
 
 -- | The response's http status code.
-listFiltersResponse_httpStatus :: Lens.Lens' ListFiltersResponse Prelude.Int
+listFiltersResponse_httpStatus :: Lens.Lens' ListFiltersResponse Core.Int
 listFiltersResponse_httpStatus = Lens.lens (\ListFiltersResponse' {httpStatus} -> httpStatus) (\s@ListFiltersResponse' {} a -> s {httpStatus = a} :: ListFiltersResponse)
 
 -- | A list of filter names.
-listFiltersResponse_filterNames :: Lens.Lens' ListFiltersResponse [Prelude.Text]
-listFiltersResponse_filterNames = Lens.lens (\ListFiltersResponse' {filterNames} -> filterNames) (\s@ListFiltersResponse' {} a -> s {filterNames = a} :: ListFiltersResponse) Prelude.. Prelude._Coerce
+listFiltersResponse_filterNames :: Lens.Lens' ListFiltersResponse [Core.Text]
+listFiltersResponse_filterNames = Lens.lens (\ListFiltersResponse' {filterNames} -> filterNames) (\s@ListFiltersResponse' {} a -> s {filterNames = a} :: ListFiltersResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListFiltersResponse
+instance Core.NFData ListFiltersResponse

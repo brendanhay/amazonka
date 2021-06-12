@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,20 +19,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.LaunchTemplateOverrides where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.InstanceType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes overrides for a launch template.
 --
 -- /See:/ 'newLaunchTemplateOverrides' smart constructor.
 data LaunchTemplateOverrides = LaunchTemplateOverrides'
   { -- | The instance type.
-    instanceType :: Prelude.Maybe InstanceType,
+    instanceType :: Core.Maybe InstanceType,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
     -- Instance.
-    spotPrice :: Prelude.Maybe Prelude.Text,
+    spotPrice :: Core.Maybe Core.Text,
     -- | The priority for the launch template override. If
     -- __OnDemandAllocationStrategy__ is set to @prioritized@, Spot Fleet uses
     -- priority to determine which launch template override to use first in
@@ -41,15 +40,15 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- Valid values are whole numbers starting at @0@. The lower the number,
     -- the higher the priority. If no number is set, the launch template
     -- override has the lowest priority.
-    priority :: Prelude.Maybe Prelude.Double,
+    priority :: Core.Maybe Core.Double,
     -- | The Availability Zone in which to launch the instances.
-    availabilityZone :: Prelude.Maybe Prelude.Text,
+    availabilityZone :: Core.Maybe Core.Text,
     -- | The ID of the subnet in which to launch the instances.
-    subnetId :: Prelude.Maybe Prelude.Text,
+    subnetId :: Core.Maybe Core.Text,
     -- | The number of units provided by the specified instance type.
-    weightedCapacity :: Prelude.Maybe Prelude.Double
+    weightedCapacity :: Core.Maybe Core.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateOverrides' with all optional fields omitted.
@@ -82,21 +81,21 @@ newLaunchTemplateOverrides ::
 newLaunchTemplateOverrides =
   LaunchTemplateOverrides'
     { instanceType =
-        Prelude.Nothing,
-      spotPrice = Prelude.Nothing,
-      priority = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
-      subnetId = Prelude.Nothing,
-      weightedCapacity = Prelude.Nothing
+        Core.Nothing,
+      spotPrice = Core.Nothing,
+      priority = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      subnetId = Core.Nothing,
+      weightedCapacity = Core.Nothing
     }
 
 -- | The instance type.
-launchTemplateOverrides_instanceType :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe InstanceType)
+launchTemplateOverrides_instanceType :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe InstanceType)
 launchTemplateOverrides_instanceType = Lens.lens (\LaunchTemplateOverrides' {instanceType} -> instanceType) (\s@LaunchTemplateOverrides' {} a -> s {instanceType = a} :: LaunchTemplateOverrides)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance.
-launchTemplateOverrides_spotPrice :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+launchTemplateOverrides_spotPrice :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe Core.Text)
 launchTemplateOverrides_spotPrice = Lens.lens (\LaunchTemplateOverrides' {spotPrice} -> spotPrice) (\s@LaunchTemplateOverrides' {} a -> s {spotPrice = a} :: LaunchTemplateOverrides)
 
 -- | The priority for the launch template override. If
@@ -106,42 +105,42 @@ launchTemplateOverrides_spotPrice = Lens.lens (\LaunchTemplateOverrides' {spotPr
 -- Valid values are whole numbers starting at @0@. The lower the number,
 -- the higher the priority. If no number is set, the launch template
 -- override has the lowest priority.
-launchTemplateOverrides_priority :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
+launchTemplateOverrides_priority :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe Core.Double)
 launchTemplateOverrides_priority = Lens.lens (\LaunchTemplateOverrides' {priority} -> priority) (\s@LaunchTemplateOverrides' {} a -> s {priority = a} :: LaunchTemplateOverrides)
 
 -- | The Availability Zone in which to launch the instances.
-launchTemplateOverrides_availabilityZone :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+launchTemplateOverrides_availabilityZone :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe Core.Text)
 launchTemplateOverrides_availabilityZone = Lens.lens (\LaunchTemplateOverrides' {availabilityZone} -> availabilityZone) (\s@LaunchTemplateOverrides' {} a -> s {availabilityZone = a} :: LaunchTemplateOverrides)
 
 -- | The ID of the subnet in which to launch the instances.
-launchTemplateOverrides_subnetId :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
+launchTemplateOverrides_subnetId :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe Core.Text)
 launchTemplateOverrides_subnetId = Lens.lens (\LaunchTemplateOverrides' {subnetId} -> subnetId) (\s@LaunchTemplateOverrides' {} a -> s {subnetId = a} :: LaunchTemplateOverrides)
 
 -- | The number of units provided by the specified instance type.
-launchTemplateOverrides_weightedCapacity :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Double)
+launchTemplateOverrides_weightedCapacity :: Lens.Lens' LaunchTemplateOverrides (Core.Maybe Core.Double)
 launchTemplateOverrides_weightedCapacity = Lens.lens (\LaunchTemplateOverrides' {weightedCapacity} -> weightedCapacity) (\s@LaunchTemplateOverrides' {} a -> s {weightedCapacity = a} :: LaunchTemplateOverrides)
 
-instance Prelude.FromXML LaunchTemplateOverrides where
+instance Core.FromXML LaunchTemplateOverrides where
   parseXML x =
     LaunchTemplateOverrides'
-      Prelude.<$> (x Prelude..@? "instanceType")
-      Prelude.<*> (x Prelude..@? "spotPrice")
-      Prelude.<*> (x Prelude..@? "priority")
-      Prelude.<*> (x Prelude..@? "availabilityZone")
-      Prelude.<*> (x Prelude..@? "subnetId")
-      Prelude.<*> (x Prelude..@? "weightedCapacity")
+      Core.<$> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "spotPrice")
+      Core.<*> (x Core..@? "priority")
+      Core.<*> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "subnetId")
+      Core.<*> (x Core..@? "weightedCapacity")
 
-instance Prelude.Hashable LaunchTemplateOverrides
+instance Core.Hashable LaunchTemplateOverrides
 
-instance Prelude.NFData LaunchTemplateOverrides
+instance Core.NFData LaunchTemplateOverrides
 
-instance Prelude.ToQuery LaunchTemplateOverrides where
+instance Core.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =
-    Prelude.mconcat
-      [ "InstanceType" Prelude.=: instanceType,
-        "SpotPrice" Prelude.=: spotPrice,
-        "Priority" Prelude.=: priority,
-        "AvailabilityZone" Prelude.=: availabilityZone,
-        "SubnetId" Prelude.=: subnetId,
-        "WeightedCapacity" Prelude.=: weightedCapacity
+    Core.mconcat
+      [ "InstanceType" Core.=: instanceType,
+        "SpotPrice" Core.=: spotPrice,
+        "Priority" Core.=: priority,
+        "AvailabilityZone" Core.=: availabilityZone,
+        "SubnetId" Core.=: subnetId,
+        "WeightedCapacity" Core.=: weightedCapacity
       ]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBClusterParameterGroupNameMessage where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- |
 --
@@ -38,9 +37,9 @@ data DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens
     --
     -- This value is stored as a lowercase string.
-    dbClusterParameterGroupName :: Prelude.Maybe Prelude.Text
+    dbClusterParameterGroupName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBClusterParameterGroupNameMessage' with all optional fields omitted.
@@ -66,7 +65,7 @@ newDBClusterParameterGroupNameMessage ::
 newDBClusterParameterGroupNameMessage =
   DBClusterParameterGroupNameMessage'
     { dbClusterParameterGroupName =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The name of the DB cluster parameter group.
@@ -80,21 +79,21 @@ newDBClusterParameterGroupNameMessage =
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens
 --
 -- This value is stored as a lowercase string.
-dbClusterParameterGroupNameMessage_dbClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroupNameMessage (Prelude.Maybe Prelude.Text)
+dbClusterParameterGroupNameMessage_dbClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroupNameMessage (Core.Maybe Core.Text)
 dbClusterParameterGroupNameMessage_dbClusterParameterGroupName = Lens.lens (\DBClusterParameterGroupNameMessage' {dbClusterParameterGroupName} -> dbClusterParameterGroupName) (\s@DBClusterParameterGroupNameMessage' {} a -> s {dbClusterParameterGroupName = a} :: DBClusterParameterGroupNameMessage)
 
 instance
-  Prelude.FromXML
+  Core.FromXML
     DBClusterParameterGroupNameMessage
   where
   parseXML x =
     DBClusterParameterGroupNameMessage'
-      Prelude.<$> (x Prelude..@? "DBClusterParameterGroupName")
+      Core.<$> (x Core..@? "DBClusterParameterGroupName")
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DBClusterParameterGroupNameMessage
 
 instance
-  Prelude.NFData
+  Core.NFData
     DBClusterParameterGroupNameMessage

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.CoverageHours where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | How long a running instance either used a reservation or was On-Demand.
 --
 -- /See:/ 'newCoverageHours' smart constructor.
 data CoverageHours = CoverageHours'
   { -- | The number of instance running hours that reservations covered.
-    reservedHours :: Prelude.Maybe Prelude.Text,
+    reservedHours :: Core.Maybe Core.Text,
     -- | The total instance usage, in hours.
-    totalRunningHours :: Prelude.Maybe Prelude.Text,
+    totalRunningHours :: Core.Maybe Core.Text,
     -- | The number of instance running hours that On-Demand Instances covered.
-    onDemandHours :: Prelude.Maybe Prelude.Text,
+    onDemandHours :: Core.Maybe Core.Text,
     -- | The percentage of instance hours that a reservation covered.
-    coverageHoursPercentage :: Prelude.Maybe Prelude.Text
+    coverageHoursPercentage :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CoverageHours' with all optional fields omitted.
@@ -57,40 +56,40 @@ newCoverageHours ::
   CoverageHours
 newCoverageHours =
   CoverageHours'
-    { reservedHours = Prelude.Nothing,
-      totalRunningHours = Prelude.Nothing,
-      onDemandHours = Prelude.Nothing,
-      coverageHoursPercentage = Prelude.Nothing
+    { reservedHours = Core.Nothing,
+      totalRunningHours = Core.Nothing,
+      onDemandHours = Core.Nothing,
+      coverageHoursPercentage = Core.Nothing
     }
 
 -- | The number of instance running hours that reservations covered.
-coverageHours_reservedHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_reservedHours :: Lens.Lens' CoverageHours (Core.Maybe Core.Text)
 coverageHours_reservedHours = Lens.lens (\CoverageHours' {reservedHours} -> reservedHours) (\s@CoverageHours' {} a -> s {reservedHours = a} :: CoverageHours)
 
 -- | The total instance usage, in hours.
-coverageHours_totalRunningHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_totalRunningHours :: Lens.Lens' CoverageHours (Core.Maybe Core.Text)
 coverageHours_totalRunningHours = Lens.lens (\CoverageHours' {totalRunningHours} -> totalRunningHours) (\s@CoverageHours' {} a -> s {totalRunningHours = a} :: CoverageHours)
 
 -- | The number of instance running hours that On-Demand Instances covered.
-coverageHours_onDemandHours :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_onDemandHours :: Lens.Lens' CoverageHours (Core.Maybe Core.Text)
 coverageHours_onDemandHours = Lens.lens (\CoverageHours' {onDemandHours} -> onDemandHours) (\s@CoverageHours' {} a -> s {onDemandHours = a} :: CoverageHours)
 
 -- | The percentage of instance hours that a reservation covered.
-coverageHours_coverageHoursPercentage :: Lens.Lens' CoverageHours (Prelude.Maybe Prelude.Text)
+coverageHours_coverageHoursPercentage :: Lens.Lens' CoverageHours (Core.Maybe Core.Text)
 coverageHours_coverageHoursPercentage = Lens.lens (\CoverageHours' {coverageHoursPercentage} -> coverageHoursPercentage) (\s@CoverageHours' {} a -> s {coverageHoursPercentage = a} :: CoverageHours)
 
-instance Prelude.FromJSON CoverageHours where
+instance Core.FromJSON CoverageHours where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CoverageHours"
       ( \x ->
           CoverageHours'
-            Prelude.<$> (x Prelude..:? "ReservedHours")
-            Prelude.<*> (x Prelude..:? "TotalRunningHours")
-            Prelude.<*> (x Prelude..:? "OnDemandHours")
-            Prelude.<*> (x Prelude..:? "CoverageHoursPercentage")
+            Core.<$> (x Core..:? "ReservedHours")
+            Core.<*> (x Core..:? "TotalRunningHours")
+            Core.<*> (x Core..:? "OnDemandHours")
+            Core.<*> (x Core..:? "CoverageHoursPercentage")
       )
 
-instance Prelude.Hashable CoverageHours
+instance Core.Hashable CoverageHours
 
-instance Prelude.NFData CoverageHours
+instance Core.NFData CoverageHours

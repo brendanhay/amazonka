@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,9 +52,8 @@ module Network.AWS.CloudHSMv2.ListTags
 where
 
 import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -63,16 +61,16 @@ import qualified Network.AWS.Response as Response
 data ListTags = ListTags'
   { -- | The @NextToken@ value that you received in the previous response. Use
     -- this value to get more tags.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of tags to return in the response. When there are
     -- more tags than the number you specify, the response contains a
     -- @NextToken@ value.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The cluster identifier (ID) for the cluster whose tags you are getting.
     -- To find the cluster ID, use DescribeClusters.
-    resourceId :: Prelude.Text
+    resourceId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTags' with all optional fields omitted.
@@ -93,104 +91,102 @@ data ListTags = ListTags'
 -- To find the cluster ID, use DescribeClusters.
 newListTags ::
   -- | 'resourceId'
-  Prelude.Text ->
+  Core.Text ->
   ListTags
 newListTags pResourceId_ =
   ListTags'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       resourceId = pResourceId_
     }
 
 -- | The @NextToken@ value that you received in the previous response. Use
 -- this value to get more tags.
-listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
+listTags_nextToken :: Lens.Lens' ListTags (Core.Maybe Core.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
 -- | The maximum number of tags to return in the response. When there are
 -- more tags than the number you specify, the response contains a
 -- @NextToken@ value.
-listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
+listTags_maxResults :: Lens.Lens' ListTags (Core.Maybe Core.Natural)
 listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
 -- | The cluster identifier (ID) for the cluster whose tags you are getting.
 -- To find the cluster ID, use DescribeClusters.
-listTags_resourceId :: Lens.Lens' ListTags Prelude.Text
+listTags_resourceId :: Lens.Lens' ListTags Core.Text
 listTags_resourceId = Lens.lens (\ListTags' {resourceId} -> resourceId) (\s@ListTags' {} a -> s {resourceId = a} :: ListTags)
 
-instance Pager.AWSPager ListTags where
+instance Core.AWSPager ListTags where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTagsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop (rs Lens.^. listTagsResponse_tagList) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.stop (rs Lens.^. listTagsResponse_tagList) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listTags_nextToken
           Lens..~ rs
-          Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTagsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListTags where
-  type Rs ListTags = ListTagsResponse
+instance Core.AWSRequest ListTags where
+  type AWSResponse ListTags = ListTagsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "TagList" Prelude..!@ Prelude.mempty)
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "TagList" Core..!@ Core.mempty)
       )
 
-instance Prelude.Hashable ListTags
+instance Core.Hashable ListTags
 
-instance Prelude.NFData ListTags
+instance Core.NFData ListTags
 
-instance Prelude.ToHeaders ListTags where
+instance Core.ToHeaders ListTags where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("BaldrApiService.ListTags" :: Prelude.ByteString),
+              Core.=# ("BaldrApiService.ListTags" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListTags where
+instance Core.ToJSON ListTags where
   toJSON ListTags' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just ("ResourceId" Prelude..= resourceId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("ResourceId" Core..= resourceId)
           ]
       )
 
-instance Prelude.ToPath ListTags where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListTags where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListTags where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListTags where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
   { -- | An opaque string that indicates that the response contains only a subset
     -- of tags. Use this value in a subsequent @ListTags@ request to get more
     -- tags.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of tags.
     tagList :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListTagsResponse' with all optional fields omitted.
@@ -209,27 +205,27 @@ data ListTagsResponse = ListTagsResponse'
 -- 'tagList', 'listTagsResponse_tagList' - A list of tags.
 newListTagsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListTagsResponse
 newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { nextToken = Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      tagList = Prelude.mempty
+      tagList = Core.mempty
     }
 
 -- | An opaque string that indicates that the response contains only a subset
 -- of tags. Use this value in a subsequent @ListTags@ request to get more
 -- tags.
-listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
+listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Core.Maybe Core.Text)
 listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
 -- | The response's http status code.
-listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
+listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Core.Int
 listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
 -- | A list of tags.
 listTagsResponse_tagList :: Lens.Lens' ListTagsResponse [Tag]
-listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Prelude._Coerce
+listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListTagsResponse
+instance Core.NFData ListTagsResponse

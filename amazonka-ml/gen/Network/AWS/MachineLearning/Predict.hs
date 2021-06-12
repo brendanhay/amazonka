@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,20 +47,20 @@ module Network.AWS.MachineLearning.Predict
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPredict' smart constructor.
 data Predict = Predict'
   { -- | A unique identifier of the @MLModel@.
-    mLModelId :: Prelude.Text,
-    record :: Prelude.HashMap Prelude.Text Prelude.Text,
-    predictEndpoint :: Prelude.Text
+    mLModelId :: Core.Text,
+    record :: Core.HashMap Core.Text Core.Text,
+    predictEndpoint :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Predict' with all optional fields omitted.
@@ -78,81 +77,79 @@ data Predict = Predict'
 -- 'predictEndpoint', 'predict_predictEndpoint' - Undocumented member.
 newPredict ::
   -- | 'mLModelId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'predictEndpoint'
-  Prelude.Text ->
+  Core.Text ->
   Predict
 newPredict pMLModelId_ pPredictEndpoint_ =
   Predict'
     { mLModelId = pMLModelId_,
-      record = Prelude.mempty,
+      record = Core.mempty,
       predictEndpoint = pPredictEndpoint_
     }
 
 -- | A unique identifier of the @MLModel@.
-predict_mLModelId :: Lens.Lens' Predict Prelude.Text
+predict_mLModelId :: Lens.Lens' Predict Core.Text
 predict_mLModelId = Lens.lens (\Predict' {mLModelId} -> mLModelId) (\s@Predict' {} a -> s {mLModelId = a} :: Predict)
 
 -- | Undocumented member.
-predict_record :: Lens.Lens' Predict (Prelude.HashMap Prelude.Text Prelude.Text)
-predict_record = Lens.lens (\Predict' {record} -> record) (\s@Predict' {} a -> s {record = a} :: Predict) Prelude.. Prelude._Coerce
+predict_record :: Lens.Lens' Predict (Core.HashMap Core.Text Core.Text)
+predict_record = Lens.lens (\Predict' {record} -> record) (\s@Predict' {} a -> s {record = a} :: Predict) Core.. Lens._Coerce
 
 -- | Undocumented member.
-predict_predictEndpoint :: Lens.Lens' Predict Prelude.Text
+predict_predictEndpoint :: Lens.Lens' Predict Core.Text
 predict_predictEndpoint = Lens.lens (\Predict' {predictEndpoint} -> predictEndpoint) (\s@Predict' {} a -> s {predictEndpoint = a} :: Predict)
 
-instance Prelude.AWSRequest Predict where
-  type Rs Predict = PredictResponse
+instance Core.AWSRequest Predict where
+  type AWSResponse Predict = PredictResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PredictResponse'
-            Prelude.<$> (x Prelude..?> "Prediction")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Prediction")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable Predict
+instance Core.Hashable Predict
 
-instance Prelude.NFData Predict
+instance Core.NFData Predict
 
-instance Prelude.ToHeaders Predict where
+instance Core.ToHeaders Predict where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("AmazonML_20141212.Predict" :: Prelude.ByteString),
+              Core.=# ("AmazonML_20141212.Predict" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON Predict where
+instance Core.ToJSON Predict where
   toJSON Predict' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("MLModelId" Prelude..= mLModelId),
-            Prelude.Just ("Record" Prelude..= record),
-            Prelude.Just
-              ("PredictEndpoint" Prelude..= predictEndpoint)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MLModelId" Core..= mLModelId),
+            Core.Just ("Record" Core..= record),
+            Core.Just
+              ("PredictEndpoint" Core..= predictEndpoint)
           ]
       )
 
-instance Prelude.ToPath Predict where
-  toPath = Prelude.const "/"
+instance Core.ToPath Predict where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery Predict where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery Predict where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPredictResponse' smart constructor.
 data PredictResponse = PredictResponse'
-  { prediction :: Prelude.Maybe Prediction,
+  { prediction :: Core.Maybe Prediction,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PredictResponse' with all optional fields omitted.
@@ -167,20 +164,20 @@ data PredictResponse = PredictResponse'
 -- 'httpStatus', 'predictResponse_httpStatus' - The response's http status code.
 newPredictResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PredictResponse
 newPredictResponse pHttpStatus_ =
   PredictResponse'
-    { prediction = Prelude.Nothing,
+    { prediction = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-predictResponse_prediction :: Lens.Lens' PredictResponse (Prelude.Maybe Prediction)
+predictResponse_prediction :: Lens.Lens' PredictResponse (Core.Maybe Prediction)
 predictResponse_prediction = Lens.lens (\PredictResponse' {prediction} -> prediction) (\s@PredictResponse' {} a -> s {prediction = a} :: PredictResponse)
 
 -- | The response's http status code.
-predictResponse_httpStatus :: Lens.Lens' PredictResponse Prelude.Int
+predictResponse_httpStatus :: Lens.Lens' PredictResponse Core.Int
 predictResponse_httpStatus = Lens.lens (\PredictResponse' {httpStatus} -> httpStatus) (\s@PredictResponse' {} a -> s {httpStatus = a} :: PredictResponse)
 
-instance Prelude.NFData PredictResponse
+instance Core.NFData PredictResponse

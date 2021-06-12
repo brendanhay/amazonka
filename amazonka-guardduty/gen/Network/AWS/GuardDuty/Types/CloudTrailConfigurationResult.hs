@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DataSourceStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information on the status of CloudTrail as a data source for
 -- the detector.
@@ -33,7 +32,7 @@ data CloudTrailConfigurationResult = CloudTrailConfigurationResult'
     -- detector.
     status :: DataSourceStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CloudTrailConfigurationResult' with all optional fields omitted.
@@ -57,20 +56,15 @@ newCloudTrailConfigurationResult pStatus_ =
 cloudTrailConfigurationResult_status :: Lens.Lens' CloudTrailConfigurationResult DataSourceStatus
 cloudTrailConfigurationResult_status = Lens.lens (\CloudTrailConfigurationResult' {status} -> status) (\s@CloudTrailConfigurationResult' {} a -> s {status = a} :: CloudTrailConfigurationResult)
 
-instance
-  Prelude.FromJSON
-    CloudTrailConfigurationResult
-  where
+instance Core.FromJSON CloudTrailConfigurationResult where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "CloudTrailConfigurationResult"
       ( \x ->
           CloudTrailConfigurationResult'
-            Prelude.<$> (x Prelude..: "status")
+            Core.<$> (x Core..: "status")
       )
 
-instance
-  Prelude.Hashable
-    CloudTrailConfigurationResult
+instance Core.Hashable CloudTrailConfigurationResult
 
-instance Prelude.NFData CloudTrailConfigurationResult
+instance Core.NFData CloudTrailConfigurationResult

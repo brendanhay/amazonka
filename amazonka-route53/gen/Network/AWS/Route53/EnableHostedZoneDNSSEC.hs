@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.Route53.EnableHostedZoneDNSSEC
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -51,7 +50,7 @@ data EnableHostedZoneDNSSEC = EnableHostedZoneDNSSEC'
   { -- | A unique string used to identify a hosted zone.
     hostedZoneId :: ResourceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableHostedZoneDNSSEC' with all optional fields omitted.
@@ -76,44 +75,44 @@ newEnableHostedZoneDNSSEC pHostedZoneId_ =
 enableHostedZoneDNSSEC_hostedZoneId :: Lens.Lens' EnableHostedZoneDNSSEC ResourceId
 enableHostedZoneDNSSEC_hostedZoneId = Lens.lens (\EnableHostedZoneDNSSEC' {hostedZoneId} -> hostedZoneId) (\s@EnableHostedZoneDNSSEC' {} a -> s {hostedZoneId = a} :: EnableHostedZoneDNSSEC)
 
-instance Prelude.AWSRequest EnableHostedZoneDNSSEC where
+instance Core.AWSRequest EnableHostedZoneDNSSEC where
   type
-    Rs EnableHostedZoneDNSSEC =
+    AWSResponse EnableHostedZoneDNSSEC =
       EnableHostedZoneDNSSECResponse
   request = Request.post defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           EnableHostedZoneDNSSECResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ChangeInfo")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable EnableHostedZoneDNSSEC
+instance Core.Hashable EnableHostedZoneDNSSEC
 
-instance Prelude.NFData EnableHostedZoneDNSSEC
+instance Core.NFData EnableHostedZoneDNSSEC
 
-instance Prelude.ToHeaders EnableHostedZoneDNSSEC where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders EnableHostedZoneDNSSEC where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath EnableHostedZoneDNSSEC where
+instance Core.ToPath EnableHostedZoneDNSSEC where
   toPath EnableHostedZoneDNSSEC' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/2013-04-01/hostedzone/",
-        Prelude.toBS hostedZoneId,
+        Core.toBS hostedZoneId,
         "/enable-dnssec"
       ]
 
-instance Prelude.ToQuery EnableHostedZoneDNSSEC where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery EnableHostedZoneDNSSEC where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newEnableHostedZoneDNSSECResponse' smart constructor.
 data EnableHostedZoneDNSSECResponse = EnableHostedZoneDNSSECResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     changeInfo :: ChangeInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EnableHostedZoneDNSSECResponse' with all optional fields omitted.
@@ -128,7 +127,7 @@ data EnableHostedZoneDNSSECResponse = EnableHostedZoneDNSSECResponse'
 -- 'changeInfo', 'enableHostedZoneDNSSECResponse_changeInfo' - Undocumented member.
 newEnableHostedZoneDNSSECResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   EnableHostedZoneDNSSECResponse
@@ -142,13 +141,11 @@ newEnableHostedZoneDNSSECResponse
       }
 
 -- | The response's http status code.
-enableHostedZoneDNSSECResponse_httpStatus :: Lens.Lens' EnableHostedZoneDNSSECResponse Prelude.Int
+enableHostedZoneDNSSECResponse_httpStatus :: Lens.Lens' EnableHostedZoneDNSSECResponse Core.Int
 enableHostedZoneDNSSECResponse_httpStatus = Lens.lens (\EnableHostedZoneDNSSECResponse' {httpStatus} -> httpStatus) (\s@EnableHostedZoneDNSSECResponse' {} a -> s {httpStatus = a} :: EnableHostedZoneDNSSECResponse)
 
 -- | Undocumented member.
 enableHostedZoneDNSSECResponse_changeInfo :: Lens.Lens' EnableHostedZoneDNSSECResponse ChangeInfo
 enableHostedZoneDNSSECResponse_changeInfo = Lens.lens (\EnableHostedZoneDNSSECResponse' {changeInfo} -> changeInfo) (\s@EnableHostedZoneDNSSECResponse' {} a -> s {changeInfo = a} :: EnableHostedZoneDNSSECResponse)
 
-instance
-  Prelude.NFData
-    EnableHostedZoneDNSSECResponse
+instance Core.NFData EnableHostedZoneDNSSECResponse

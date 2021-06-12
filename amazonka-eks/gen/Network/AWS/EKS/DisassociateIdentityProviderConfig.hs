@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,9 @@ module Network.AWS.EKS.DisassociateIdentityProviderConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EKS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,13 +54,13 @@ import qualified Network.AWS.Response as Response
 data DisassociateIdentityProviderConfig = DisassociateIdentityProviderConfig'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
-    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    clientRequestToken :: Core.Maybe Core.Text,
     -- | The name of the cluster to disassociate an identity provider from.
-    clusterName :: Prelude.Text,
+    clusterName :: Core.Text,
     -- | An object that represents an identity provider configuration.
     identityProviderConfig :: IdentityProviderConfig
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateIdentityProviderConfig' with all optional fields omitted.
@@ -79,7 +78,7 @@ data DisassociateIdentityProviderConfig = DisassociateIdentityProviderConfig'
 -- 'identityProviderConfig', 'disassociateIdentityProviderConfig_identityProviderConfig' - An object that represents an identity provider configuration.
 newDisassociateIdentityProviderConfig ::
   -- | 'clusterName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'identityProviderConfig'
   IdentityProviderConfig ->
   DisassociateIdentityProviderConfig
@@ -88,7 +87,7 @@ newDisassociateIdentityProviderConfig
   pIdentityProviderConfig_ =
     DisassociateIdentityProviderConfig'
       { clientRequestToken =
-          Prelude.Nothing,
+          Core.Nothing,
         clusterName = pClusterName_,
         identityProviderConfig =
           pIdentityProviderConfig_
@@ -96,11 +95,11 @@ newDisassociateIdentityProviderConfig
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
-disassociateIdentityProviderConfig_clientRequestToken :: Lens.Lens' DisassociateIdentityProviderConfig (Prelude.Maybe Prelude.Text)
+disassociateIdentityProviderConfig_clientRequestToken :: Lens.Lens' DisassociateIdentityProviderConfig (Core.Maybe Core.Text)
 disassociateIdentityProviderConfig_clientRequestToken = Lens.lens (\DisassociateIdentityProviderConfig' {clientRequestToken} -> clientRequestToken) (\s@DisassociateIdentityProviderConfig' {} a -> s {clientRequestToken = a} :: DisassociateIdentityProviderConfig)
 
 -- | The name of the cluster to disassociate an identity provider from.
-disassociateIdentityProviderConfig_clusterName :: Lens.Lens' DisassociateIdentityProviderConfig Prelude.Text
+disassociateIdentityProviderConfig_clusterName :: Lens.Lens' DisassociateIdentityProviderConfig Core.Text
 disassociateIdentityProviderConfig_clusterName = Lens.lens (\DisassociateIdentityProviderConfig' {clusterName} -> clusterName) (\s@DisassociateIdentityProviderConfig' {} a -> s {clusterName = a} :: DisassociateIdentityProviderConfig)
 
 -- | An object that represents an identity provider configuration.
@@ -108,83 +107,81 @@ disassociateIdentityProviderConfig_identityProviderConfig :: Lens.Lens' Disassoc
 disassociateIdentityProviderConfig_identityProviderConfig = Lens.lens (\DisassociateIdentityProviderConfig' {identityProviderConfig} -> identityProviderConfig) (\s@DisassociateIdentityProviderConfig' {} a -> s {identityProviderConfig = a} :: DisassociateIdentityProviderConfig)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DisassociateIdentityProviderConfig
   where
   type
-    Rs DisassociateIdentityProviderConfig =
+    AWSResponse DisassociateIdentityProviderConfig =
       DisassociateIdentityProviderConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DisassociateIdentityProviderConfigResponse'
-            Prelude.<$> (x Prelude..?> "update")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "update")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DisassociateIdentityProviderConfig
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateIdentityProviderConfig
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DisassociateIdentityProviderConfig
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     DisassociateIdentityProviderConfig
   where
   toJSON DisassociateIdentityProviderConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("clientRequestToken" Prelude..=)
-              Prelude.<$> clientRequestToken,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("clientRequestToken" Core..=)
+              Core.<$> clientRequestToken,
+            Core.Just
               ( "identityProviderConfig"
-                  Prelude..= identityProviderConfig
+                  Core..= identityProviderConfig
               )
           ]
       )
 
 instance
-  Prelude.ToPath
+  Core.ToPath
     DisassociateIdentityProviderConfig
   where
   toPath DisassociateIdentityProviderConfig' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/clusters/",
-        Prelude.toBS clusterName,
+        Core.toBS clusterName,
         "/identity-provider-configs/disassociate"
       ]
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DisassociateIdentityProviderConfig
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDisassociateIdentityProviderConfigResponse' smart constructor.
 data DisassociateIdentityProviderConfigResponse = DisassociateIdentityProviderConfigResponse'
-  { update :: Prelude.Maybe Update,
+  { update :: Core.Maybe Update,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DisassociateIdentityProviderConfigResponse' with all optional fields omitted.
@@ -199,24 +196,24 @@ data DisassociateIdentityProviderConfigResponse = DisassociateIdentityProviderCo
 -- 'httpStatus', 'disassociateIdentityProviderConfigResponse_httpStatus' - The response's http status code.
 newDisassociateIdentityProviderConfigResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DisassociateIdentityProviderConfigResponse
 newDisassociateIdentityProviderConfigResponse
   pHttpStatus_ =
     DisassociateIdentityProviderConfigResponse'
       { update =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | Undocumented member.
-disassociateIdentityProviderConfigResponse_update :: Lens.Lens' DisassociateIdentityProviderConfigResponse (Prelude.Maybe Update)
+disassociateIdentityProviderConfigResponse_update :: Lens.Lens' DisassociateIdentityProviderConfigResponse (Core.Maybe Update)
 disassociateIdentityProviderConfigResponse_update = Lens.lens (\DisassociateIdentityProviderConfigResponse' {update} -> update) (\s@DisassociateIdentityProviderConfigResponse' {} a -> s {update = a} :: DisassociateIdentityProviderConfigResponse)
 
 -- | The response's http status code.
-disassociateIdentityProviderConfigResponse_httpStatus :: Lens.Lens' DisassociateIdentityProviderConfigResponse Prelude.Int
+disassociateIdentityProviderConfigResponse_httpStatus :: Lens.Lens' DisassociateIdentityProviderConfigResponse Core.Int
 disassociateIdentityProviderConfigResponse_httpStatus = Lens.lens (\DisassociateIdentityProviderConfigResponse' {httpStatus} -> httpStatus) (\s@DisassociateIdentityProviderConfigResponse' {} a -> s {httpStatus = a} :: DisassociateIdentityProviderConfigResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DisassociateIdentityProviderConfigResponse

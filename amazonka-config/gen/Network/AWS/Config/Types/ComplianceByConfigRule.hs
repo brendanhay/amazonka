@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,8 +20,8 @@
 module Network.AWS.Config.Types.ComplianceByConfigRule where
 
 import Network.AWS.Config.Types.Compliance
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Indicates whether an AWS Config rule is compliant. A rule is compliant
 -- if all of the resources that the rule evaluated comply with it. A rule
@@ -31,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newComplianceByConfigRule' smart constructor.
 data ComplianceByConfigRule = ComplianceByConfigRule'
   { -- | The name of the AWS Config rule.
-    configRuleName :: Prelude.Maybe Prelude.Text,
+    configRuleName :: Core.Maybe Core.Text,
     -- | Indicates whether the AWS Config rule is compliant.
-    compliance :: Prelude.Maybe Compliance
+    compliance :: Core.Maybe Compliance
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ComplianceByConfigRule' with all optional fields omitted.
@@ -53,28 +52,28 @@ newComplianceByConfigRule ::
 newComplianceByConfigRule =
   ComplianceByConfigRule'
     { configRuleName =
-        Prelude.Nothing,
-      compliance = Prelude.Nothing
+        Core.Nothing,
+      compliance = Core.Nothing
     }
 
 -- | The name of the AWS Config rule.
-complianceByConfigRule_configRuleName :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Prelude.Text)
+complianceByConfigRule_configRuleName :: Lens.Lens' ComplianceByConfigRule (Core.Maybe Core.Text)
 complianceByConfigRule_configRuleName = Lens.lens (\ComplianceByConfigRule' {configRuleName} -> configRuleName) (\s@ComplianceByConfigRule' {} a -> s {configRuleName = a} :: ComplianceByConfigRule)
 
 -- | Indicates whether the AWS Config rule is compliant.
-complianceByConfigRule_compliance :: Lens.Lens' ComplianceByConfigRule (Prelude.Maybe Compliance)
+complianceByConfigRule_compliance :: Lens.Lens' ComplianceByConfigRule (Core.Maybe Compliance)
 complianceByConfigRule_compliance = Lens.lens (\ComplianceByConfigRule' {compliance} -> compliance) (\s@ComplianceByConfigRule' {} a -> s {compliance = a} :: ComplianceByConfigRule)
 
-instance Prelude.FromJSON ComplianceByConfigRule where
+instance Core.FromJSON ComplianceByConfigRule where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ComplianceByConfigRule"
       ( \x ->
           ComplianceByConfigRule'
-            Prelude.<$> (x Prelude..:? "ConfigRuleName")
-            Prelude.<*> (x Prelude..:? "Compliance")
+            Core.<$> (x Core..:? "ConfigRuleName")
+            Core.<*> (x Core..:? "Compliance")
       )
 
-instance Prelude.Hashable ComplianceByConfigRule
+instance Core.Hashable ComplianceByConfigRule
 
-instance Prelude.NFData ComplianceByConfigRule
+instance Core.NFData ComplianceByConfigRule

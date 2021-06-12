@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -57,10 +56,9 @@ module Network.AWS.IAM.ListGroupPolicies
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -75,21 +73,21 @@ data ListGroupPolicies = ListGroupPolicies'
     -- results available. In that case, the @IsTruncated@ response element
     -- returns @true@, and @Marker@ contains a value to include in the
     -- subsequent call that tells the service where to continue from.
-    maxItems :: Prelude.Maybe Prelude.Natural,
+    maxItems :: Core.Maybe Core.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
     -- the value of the @Marker@ element in the response that you received to
     -- indicate where the next call should start.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The name of the group to list policies for.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    groupName :: Prelude.Text
+    groupName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGroupPolicies' with all optional fields omitted.
@@ -122,12 +120,12 @@ data ListGroupPolicies = ListGroupPolicies'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newListGroupPolicies ::
   -- | 'groupName'
-  Prelude.Text ->
+  Core.Text ->
   ListGroupPolicies
 newListGroupPolicies pGroupName_ =
   ListGroupPolicies'
-    { maxItems = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { maxItems = Core.Nothing,
+      marker = Core.Nothing,
       groupName = pGroupName_
     }
 
@@ -140,14 +138,14 @@ newListGroupPolicies pGroupName_ =
 -- results available. In that case, the @IsTruncated@ response element
 -- returns @true@, and @Marker@ contains a value to include in the
 -- subsequent call that tells the service where to continue from.
-listGroupPolicies_maxItems :: Lens.Lens' ListGroupPolicies (Prelude.Maybe Prelude.Natural)
+listGroupPolicies_maxItems :: Lens.Lens' ListGroupPolicies (Core.Maybe Core.Natural)
 listGroupPolicies_maxItems = Lens.lens (\ListGroupPolicies' {maxItems} -> maxItems) (\s@ListGroupPolicies' {} a -> s {maxItems = a} :: ListGroupPolicies)
 
 -- | Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
 -- the value of the @Marker@ element in the response that you received to
 -- indicate where the next call should start.
-listGroupPolicies_marker :: Lens.Lens' ListGroupPolicies (Prelude.Maybe Prelude.Text)
+listGroupPolicies_marker :: Lens.Lens' ListGroupPolicies (Core.Maybe Core.Text)
 listGroupPolicies_marker = Lens.lens (\ListGroupPolicies' {marker} -> marker) (\s@ListGroupPolicies' {} a -> s {marker = a} :: ListGroupPolicies)
 
 -- | The name of the group to list policies for.
@@ -156,67 +154,66 @@ listGroupPolicies_marker = Lens.lens (\ListGroupPolicies' {marker} -> marker) (\
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listGroupPolicies_groupName :: Lens.Lens' ListGroupPolicies Prelude.Text
+listGroupPolicies_groupName :: Lens.Lens' ListGroupPolicies Core.Text
 listGroupPolicies_groupName = Lens.lens (\ListGroupPolicies' {groupName} -> groupName) (\s@ListGroupPolicies' {} a -> s {groupName = a} :: ListGroupPolicies)
 
-instance Pager.AWSPager ListGroupPolicies where
+instance Core.AWSPager ListGroupPolicies where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? listGroupPoliciesResponse_isTruncated
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listGroupPoliciesResponse_marker
-              Prelude.. Lens._Just
+            Lens.^? listGroupPoliciesResponse_marker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listGroupPolicies_marker
           Lens..~ rs
-          Lens.^? listGroupPoliciesResponse_marker Prelude.. Lens._Just
+          Lens.^? listGroupPoliciesResponse_marker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListGroupPolicies where
-  type Rs ListGroupPolicies = ListGroupPoliciesResponse
+instance Core.AWSRequest ListGroupPolicies where
+  type
+    AWSResponse ListGroupPolicies =
+      ListGroupPoliciesResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ListGroupPoliciesResult"
       ( \s h x ->
           ListGroupPoliciesResponse'
-            Prelude.<$> (x Prelude..@? "IsTruncated")
-            Prelude.<*> (x Prelude..@? "Marker")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..@? "PolicyNames"
-                            Prelude..!@ Prelude.mempty
-                            Prelude.>>= Prelude.parseXMLList "member"
-                        )
+            Core.<$> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..@? "PolicyNames" Core..!@ Core.mempty
+                         Core.>>= Core.parseXMLList "member"
+                     )
       )
 
-instance Prelude.Hashable ListGroupPolicies
+instance Core.Hashable ListGroupPolicies
 
-instance Prelude.NFData ListGroupPolicies
+instance Core.NFData ListGroupPolicies
 
-instance Prelude.ToHeaders ListGroupPolicies where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ListGroupPolicies where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ListGroupPolicies where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListGroupPolicies where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListGroupPolicies where
+instance Core.ToQuery ListGroupPolicies where
   toQuery ListGroupPolicies' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ListGroupPolicies" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxItems" Prelude.=: maxItems,
-        "Marker" Prelude.=: marker,
-        "GroupName" Prelude.=: groupName
+          Core.=: ("ListGroupPolicies" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "MaxItems" Core.=: maxItems,
+        "Marker" Core.=: marker,
+        "GroupName" Core.=: groupName
       ]
 
 -- | Contains the response to a successful ListGroupPolicies request.
@@ -230,22 +227,22 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
     -- there are more results available. We recommend that you check
     -- @IsTruncated@ after every call to ensure that you receive all your
     -- results.
-    isTruncated :: Prelude.Maybe Prelude.Bool,
+    isTruncated :: Core.Maybe Core.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
     -- request.
-    marker :: Prelude.Maybe Prelude.Text,
+    marker :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A list of policy names.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
-    policyNames :: [Prelude.Text]
+    policyNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGroupPoliciesResponse' with all optional fields omitted.
@@ -277,15 +274,15 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
 -- spaces. You can also include any of the following characters: _+=,.\@-
 newListGroupPoliciesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListGroupPoliciesResponse
 newListGroupPoliciesResponse pHttpStatus_ =
   ListGroupPoliciesResponse'
     { isTruncated =
-        Prelude.Nothing,
-      marker = Prelude.Nothing,
+        Core.Nothing,
+      marker = Core.Nothing,
       httpStatus = pHttpStatus_,
-      policyNames = Prelude.mempty
+      policyNames = Core.mempty
     }
 
 -- | A flag that indicates whether there are more items to return. If your
@@ -295,17 +292,17 @@ newListGroupPoliciesResponse pHttpStatus_ =
 -- there are more results available. We recommend that you check
 -- @IsTruncated@ after every call to ensure that you receive all your
 -- results.
-listGroupPoliciesResponse_isTruncated :: Lens.Lens' ListGroupPoliciesResponse (Prelude.Maybe Prelude.Bool)
+listGroupPoliciesResponse_isTruncated :: Lens.Lens' ListGroupPoliciesResponse (Core.Maybe Core.Bool)
 listGroupPoliciesResponse_isTruncated = Lens.lens (\ListGroupPoliciesResponse' {isTruncated} -> isTruncated) (\s@ListGroupPoliciesResponse' {} a -> s {isTruncated = a} :: ListGroupPoliciesResponse)
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-listGroupPoliciesResponse_marker :: Lens.Lens' ListGroupPoliciesResponse (Prelude.Maybe Prelude.Text)
+listGroupPoliciesResponse_marker :: Lens.Lens' ListGroupPoliciesResponse (Core.Maybe Core.Text)
 listGroupPoliciesResponse_marker = Lens.lens (\ListGroupPoliciesResponse' {marker} -> marker) (\s@ListGroupPoliciesResponse' {} a -> s {marker = a} :: ListGroupPoliciesResponse)
 
 -- | The response's http status code.
-listGroupPoliciesResponse_httpStatus :: Lens.Lens' ListGroupPoliciesResponse Prelude.Int
+listGroupPoliciesResponse_httpStatus :: Lens.Lens' ListGroupPoliciesResponse Core.Int
 listGroupPoliciesResponse_httpStatus = Lens.lens (\ListGroupPoliciesResponse' {httpStatus} -> httpStatus) (\s@ListGroupPoliciesResponse' {} a -> s {httpStatus = a} :: ListGroupPoliciesResponse)
 
 -- | A list of policy names.
@@ -314,7 +311,7 @@ listGroupPoliciesResponse_httpStatus = Lens.lens (\ListGroupPoliciesResponse' {h
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
-listGroupPoliciesResponse_policyNames :: Lens.Lens' ListGroupPoliciesResponse [Prelude.Text]
-listGroupPoliciesResponse_policyNames = Lens.lens (\ListGroupPoliciesResponse' {policyNames} -> policyNames) (\s@ListGroupPoliciesResponse' {} a -> s {policyNames = a} :: ListGroupPoliciesResponse) Prelude.. Prelude._Coerce
+listGroupPoliciesResponse_policyNames :: Lens.Lens' ListGroupPoliciesResponse [Core.Text]
+listGroupPoliciesResponse_policyNames = Lens.lens (\ListGroupPoliciesResponse' {policyNames} -> policyNames) (\s@ListGroupPoliciesResponse' {} a -> s {policyNames = a} :: ListGroupPoliciesResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListGroupPoliciesResponse
+instance Core.NFData ListGroupPoliciesResponse

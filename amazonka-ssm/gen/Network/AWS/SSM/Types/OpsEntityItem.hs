@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.OpsEntityItem where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The OpsItem summaries result item.
 --
 -- /See:/ 'newOpsEntityItem' smart constructor.
 data OpsEntityItem = OpsEntityItem'
   { -- | The time OpsItem data was captured.
-    captureTime :: Prelude.Maybe Prelude.Text,
+    captureTime :: Core.Maybe Core.Text,
     -- | The detailed data content for an OpsItem summaries result item.
-    content :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text]
+    content :: Core.Maybe [Core.HashMap Core.Text Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OpsEntityItem' with all optional fields omitted.
@@ -49,28 +48,28 @@ newOpsEntityItem ::
   OpsEntityItem
 newOpsEntityItem =
   OpsEntityItem'
-    { captureTime = Prelude.Nothing,
-      content = Prelude.Nothing
+    { captureTime = Core.Nothing,
+      content = Core.Nothing
     }
 
 -- | The time OpsItem data was captured.
-opsEntityItem_captureTime :: Lens.Lens' OpsEntityItem (Prelude.Maybe Prelude.Text)
+opsEntityItem_captureTime :: Lens.Lens' OpsEntityItem (Core.Maybe Core.Text)
 opsEntityItem_captureTime = Lens.lens (\OpsEntityItem' {captureTime} -> captureTime) (\s@OpsEntityItem' {} a -> s {captureTime = a} :: OpsEntityItem)
 
 -- | The detailed data content for an OpsItem summaries result item.
-opsEntityItem_content :: Lens.Lens' OpsEntityItem (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
-opsEntityItem_content = Lens.lens (\OpsEntityItem' {content} -> content) (\s@OpsEntityItem' {} a -> s {content = a} :: OpsEntityItem) Prelude.. Lens.mapping Prelude._Coerce
+opsEntityItem_content :: Lens.Lens' OpsEntityItem (Core.Maybe [Core.HashMap Core.Text Core.Text])
+opsEntityItem_content = Lens.lens (\OpsEntityItem' {content} -> content) (\s@OpsEntityItem' {} a -> s {content = a} :: OpsEntityItem) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON OpsEntityItem where
+instance Core.FromJSON OpsEntityItem where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "OpsEntityItem"
       ( \x ->
           OpsEntityItem'
-            Prelude.<$> (x Prelude..:? "CaptureTime")
-            Prelude.<*> (x Prelude..:? "Content" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "CaptureTime")
+            Core.<*> (x Core..:? "Content" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable OpsEntityItem
+instance Core.Hashable OpsEntityItem
 
-instance Prelude.NFData OpsEntityItem
+instance Core.NFData OpsEntityItem

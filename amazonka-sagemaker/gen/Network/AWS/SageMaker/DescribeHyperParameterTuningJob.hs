@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -54,8 +53,8 @@ module Network.AWS.SageMaker.DescribeHyperParameterTuningJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -63,9 +62,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDescribeHyperParameterTuningJob' smart constructor.
 data DescribeHyperParameterTuningJob = DescribeHyperParameterTuningJob'
   { -- | The name of the tuning job.
-    hyperParameterTuningJobName :: Prelude.Text
+    hyperParameterTuningJobName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHyperParameterTuningJob' with all optional fields omitted.
@@ -78,7 +77,7 @@ data DescribeHyperParameterTuningJob = DescribeHyperParameterTuningJob'
 -- 'hyperParameterTuningJobName', 'describeHyperParameterTuningJob_hyperParameterTuningJobName' - The name of the tuning job.
 newDescribeHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
-  Prelude.Text ->
+  Core.Text ->
   DescribeHyperParameterTuningJob
 newDescribeHyperParameterTuningJob
   pHyperParameterTuningJobName_ =
@@ -88,125 +87,112 @@ newDescribeHyperParameterTuningJob
       }
 
 -- | The name of the tuning job.
-describeHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' DescribeHyperParameterTuningJob Prelude.Text
+describeHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' DescribeHyperParameterTuningJob Core.Text
 describeHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\DescribeHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@DescribeHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: DescribeHyperParameterTuningJob)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeHyperParameterTuningJob
   where
   type
-    Rs DescribeHyperParameterTuningJob =
+    AWSResponse DescribeHyperParameterTuningJob =
       DescribeHyperParameterTuningJobResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeHyperParameterTuningJobResponse'
-            Prelude.<$> (x Prelude..?> "BestTrainingJob")
-            Prelude.<*> (x Prelude..?> "WarmStartConfig")
-            Prelude.<*> (x Prelude..?> "HyperParameterTuningEndTime")
-            Prelude.<*> (x Prelude..?> "FailureReason")
-            Prelude.<*> (x Prelude..?> "TrainingJobDefinitions")
-            Prelude.<*> (x Prelude..?> "LastModifiedTime")
-            Prelude.<*> (x Prelude..?> "OverallBestTrainingJob")
-            Prelude.<*> (x Prelude..?> "TrainingJobDefinition")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "HyperParameterTuningJobName")
-            Prelude.<*> (x Prelude..:> "HyperParameterTuningJobArn")
-            Prelude.<*> (x Prelude..:> "HyperParameterTuningJobConfig")
-            Prelude.<*> (x Prelude..:> "HyperParameterTuningJobStatus")
-            Prelude.<*> (x Prelude..:> "CreationTime")
-            Prelude.<*> (x Prelude..:> "TrainingJobStatusCounters")
-            Prelude.<*> (x Prelude..:> "ObjectiveStatusCounters")
+            Core.<$> (x Core..?> "BestTrainingJob")
+            Core.<*> (x Core..?> "WarmStartConfig")
+            Core.<*> (x Core..?> "HyperParameterTuningEndTime")
+            Core.<*> (x Core..?> "FailureReason")
+            Core.<*> (x Core..?> "TrainingJobDefinitions")
+            Core.<*> (x Core..?> "LastModifiedTime")
+            Core.<*> (x Core..?> "OverallBestTrainingJob")
+            Core.<*> (x Core..?> "TrainingJobDefinition")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "HyperParameterTuningJobName")
+            Core.<*> (x Core..:> "HyperParameterTuningJobArn")
+            Core.<*> (x Core..:> "HyperParameterTuningJobConfig")
+            Core.<*> (x Core..:> "HyperParameterTuningJobStatus")
+            Core.<*> (x Core..:> "CreationTime")
+            Core.<*> (x Core..:> "TrainingJobStatusCounters")
+            Core.<*> (x Core..:> "ObjectiveStatusCounters")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeHyperParameterTuningJob
 
-instance
-  Prelude.NFData
-    DescribeHyperParameterTuningJob
+instance Core.NFData DescribeHyperParameterTuningJob
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeHyperParameterTuningJob
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DescribeHyperParameterTuningJob" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DescribeHyperParameterTuningJob" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeHyperParameterTuningJob
-  where
+instance Core.ToJSON DescribeHyperParameterTuningJob where
   toJSON DescribeHyperParameterTuningJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "HyperParameterTuningJobName"
-                  Prelude..= hyperParameterTuningJobName
+                  Core..= hyperParameterTuningJobName
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    DescribeHyperParameterTuningJob
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeHyperParameterTuningJob where
+  toPath = Core.const "/"
 
-instance
-  Prelude.ToQuery
-    DescribeHyperParameterTuningJob
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeHyperParameterTuningJob where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeHyperParameterTuningJobResponse' smart constructor.
 data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobResponse'
   { -- | A TrainingJobSummary object that describes the training job that
     -- completed with the best current HyperParameterTuningJobObjective.
-    bestTrainingJob :: Prelude.Maybe HyperParameterTrainingJobSummary,
+    bestTrainingJob :: Core.Maybe HyperParameterTrainingJobSummary,
     -- | The configuration for starting the hyperparameter parameter tuning job
     -- using one or more previous tuning jobs as a starting point. The results
     -- of previous tuning jobs are used to inform which combinations of
     -- hyperparameters to search over in the new tuning job.
-    warmStartConfig :: Prelude.Maybe HyperParameterTuningJobWarmStartConfig,
+    warmStartConfig :: Core.Maybe HyperParameterTuningJobWarmStartConfig,
     -- | The date and time that the tuning job ended.
-    hyperParameterTuningEndTime :: Prelude.Maybe Prelude.POSIX,
+    hyperParameterTuningEndTime :: Core.Maybe Core.POSIX,
     -- | If the tuning job failed, the reason it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
+    failureReason :: Core.Maybe Core.Text,
     -- | A list of the HyperParameterTrainingJobDefinition objects launched for
     -- this tuning job.
-    trainingJobDefinitions :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition),
+    trainingJobDefinitions :: Core.Maybe (Core.NonEmpty HyperParameterTrainingJobDefinition),
     -- | The date and time that the status of the tuning job was modified.
-    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    lastModifiedTime :: Core.Maybe Core.POSIX,
     -- | If the hyperparameter tuning job is an warm start tuning job with a
     -- @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@, this is the
     -- TrainingJobSummary for the training job with the best objective metric
     -- value of all training jobs launched by this tuning job and all parent
     -- jobs specified for the warm start tuning job.
-    overallBestTrainingJob :: Prelude.Maybe HyperParameterTrainingJobSummary,
+    overallBestTrainingJob :: Core.Maybe HyperParameterTrainingJobSummary,
     -- | The HyperParameterTrainingJobDefinition object that specifies the
     -- definition of the training jobs that this tuning job launches.
-    trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
+    trainingJobDefinition :: Core.Maybe HyperParameterTrainingJobDefinition,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The name of the tuning job.
-    hyperParameterTuningJobName :: Prelude.Text,
+    hyperParameterTuningJobName :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the tuning job.
-    hyperParameterTuningJobArn :: Prelude.Text,
+    hyperParameterTuningJobArn :: Core.Text,
     -- | The HyperParameterTuningJobConfig object that specifies the
     -- configuration of the tuning job.
     hyperParameterTuningJobConfig :: HyperParameterTuningJobConfig,
@@ -214,7 +200,7 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
     -- or Stopped.
     hyperParameterTuningJobStatus :: HyperParameterTuningJobStatus,
     -- | The date and time that the tuning job started.
-    creationTime :: Prelude.POSIX,
+    creationTime :: Core.POSIX,
     -- | The TrainingJobStatusCounters object that specifies the number of
     -- training jobs, categorized by status, that this tuning job launched.
     trainingJobStatusCounters :: TrainingJobStatusCounters,
@@ -223,7 +209,7 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
     -- this tuning job launched.
     objectiveStatusCounters :: ObjectiveStatusCounters
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeHyperParameterTuningJobResponse' with all optional fields omitted.
@@ -281,17 +267,17 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
 -- this tuning job launched.
 newDescribeHyperParameterTuningJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'hyperParameterTuningJobName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hyperParameterTuningJobArn'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'hyperParameterTuningJobConfig'
   HyperParameterTuningJobConfig ->
   -- | 'hyperParameterTuningJobStatus'
   HyperParameterTuningJobStatus ->
   -- | 'creationTime'
-  Prelude.UTCTime ->
+  Core.UTCTime ->
   -- | 'trainingJobStatusCounters'
   TrainingJobStatusCounters ->
   -- | 'objectiveStatusCounters'
@@ -308,18 +294,18 @@ newDescribeHyperParameterTuningJobResponse
   pObjectiveStatusCounters_ =
     DescribeHyperParameterTuningJobResponse'
       { bestTrainingJob =
-          Prelude.Nothing,
-        warmStartConfig = Prelude.Nothing,
+          Core.Nothing,
+        warmStartConfig = Core.Nothing,
         hyperParameterTuningEndTime =
-          Prelude.Nothing,
-        failureReason = Prelude.Nothing,
+          Core.Nothing,
+        failureReason = Core.Nothing,
         trainingJobDefinitions =
-          Prelude.Nothing,
-        lastModifiedTime = Prelude.Nothing,
+          Core.Nothing,
+        lastModifiedTime = Core.Nothing,
         overallBestTrainingJob =
-          Prelude.Nothing,
+          Core.Nothing,
         trainingJobDefinition =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_,
         hyperParameterTuningJobName =
           pHyperParameterTuningJobName_,
@@ -330,8 +316,7 @@ newDescribeHyperParameterTuningJobResponse
         hyperParameterTuningJobStatus =
           pHyperParameterTuningJobStatus_,
         creationTime =
-          Prelude._Time
-            Lens.# pCreationTime_,
+          Core._Time Lens.# pCreationTime_,
         trainingJobStatusCounters =
           pTrainingJobStatusCounters_,
         objectiveStatusCounters =
@@ -340,56 +325,56 @@ newDescribeHyperParameterTuningJobResponse
 
 -- | A TrainingJobSummary object that describes the training job that
 -- completed with the best current HyperParameterTuningJobObjective.
-describeHyperParameterTuningJobResponse_bestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTrainingJobSummary)
+describeHyperParameterTuningJobResponse_bestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe HyperParameterTrainingJobSummary)
 describeHyperParameterTuningJobResponse_bestTrainingJob = Lens.lens (\DescribeHyperParameterTuningJobResponse' {bestTrainingJob} -> bestTrainingJob) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {bestTrainingJob = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The configuration for starting the hyperparameter parameter tuning job
 -- using one or more previous tuning jobs as a starting point. The results
 -- of previous tuning jobs are used to inform which combinations of
 -- hyperparameters to search over in the new tuning job.
-describeHyperParameterTuningJobResponse_warmStartConfig :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTuningJobWarmStartConfig)
+describeHyperParameterTuningJobResponse_warmStartConfig :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe HyperParameterTuningJobWarmStartConfig)
 describeHyperParameterTuningJobResponse_warmStartConfig = Lens.lens (\DescribeHyperParameterTuningJobResponse' {warmStartConfig} -> warmStartConfig) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {warmStartConfig = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The date and time that the tuning job ended.
-describeHyperParameterTuningJobResponse_hyperParameterTuningEndTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeHyperParameterTuningJobResponse_hyperParameterTuningEndTime = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningEndTime} -> hyperParameterTuningEndTime) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningEndTime = a} :: DescribeHyperParameterTuningJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeHyperParameterTuningJobResponse_hyperParameterTuningEndTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe Core.UTCTime)
+describeHyperParameterTuningJobResponse_hyperParameterTuningEndTime = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningEndTime} -> hyperParameterTuningEndTime) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningEndTime = a} :: DescribeHyperParameterTuningJobResponse) Core.. Lens.mapping Core._Time
 
 -- | If the tuning job failed, the reason it failed.
-describeHyperParameterTuningJobResponse_failureReason :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe Prelude.Text)
+describeHyperParameterTuningJobResponse_failureReason :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe Core.Text)
 describeHyperParameterTuningJobResponse_failureReason = Lens.lens (\DescribeHyperParameterTuningJobResponse' {failureReason} -> failureReason) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {failureReason = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | A list of the HyperParameterTrainingJobDefinition objects launched for
 -- this tuning job.
-describeHyperParameterTuningJobResponse_trainingJobDefinitions :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition))
-describeHyperParameterTuningJobResponse_trainingJobDefinitions = Lens.lens (\DescribeHyperParameterTuningJobResponse' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {trainingJobDefinitions = a} :: DescribeHyperParameterTuningJobResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeHyperParameterTuningJobResponse_trainingJobDefinitions :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe (Core.NonEmpty HyperParameterTrainingJobDefinition))
+describeHyperParameterTuningJobResponse_trainingJobDefinitions = Lens.lens (\DescribeHyperParameterTuningJobResponse' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {trainingJobDefinitions = a} :: DescribeHyperParameterTuningJobResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The date and time that the status of the tuning job was modified.
-describeHyperParameterTuningJobResponse_lastModifiedTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe Prelude.UTCTime)
-describeHyperParameterTuningJobResponse_lastModifiedTime = Lens.lens (\DescribeHyperParameterTuningJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeHyperParameterTuningJobResponse) Prelude.. Lens.mapping Prelude._Time
+describeHyperParameterTuningJobResponse_lastModifiedTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe Core.UTCTime)
+describeHyperParameterTuningJobResponse_lastModifiedTime = Lens.lens (\DescribeHyperParameterTuningJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeHyperParameterTuningJobResponse) Core.. Lens.mapping Core._Time
 
 -- | If the hyperparameter tuning job is an warm start tuning job with a
 -- @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@, this is the
 -- TrainingJobSummary for the training job with the best objective metric
 -- value of all training jobs launched by this tuning job and all parent
 -- jobs specified for the warm start tuning job.
-describeHyperParameterTuningJobResponse_overallBestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTrainingJobSummary)
+describeHyperParameterTuningJobResponse_overallBestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe HyperParameterTrainingJobSummary)
 describeHyperParameterTuningJobResponse_overallBestTrainingJob = Lens.lens (\DescribeHyperParameterTuningJobResponse' {overallBestTrainingJob} -> overallBestTrainingJob) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {overallBestTrainingJob = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The HyperParameterTrainingJobDefinition object that specifies the
 -- definition of the training jobs that this tuning job launches.
-describeHyperParameterTuningJobResponse_trainingJobDefinition :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTrainingJobDefinition)
+describeHyperParameterTuningJobResponse_trainingJobDefinition :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Core.Maybe HyperParameterTrainingJobDefinition)
 describeHyperParameterTuningJobResponse_trainingJobDefinition = Lens.lens (\DescribeHyperParameterTuningJobResponse' {trainingJobDefinition} -> trainingJobDefinition) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {trainingJobDefinition = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The response's http status code.
-describeHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.Int
+describeHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' DescribeHyperParameterTuningJobResponse Core.Int
 describeHyperParameterTuningJobResponse_httpStatus = Lens.lens (\DescribeHyperParameterTuningJobResponse' {httpStatus} -> httpStatus) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {httpStatus = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The name of the tuning job.
-describeHyperParameterTuningJobResponse_hyperParameterTuningJobName :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.Text
+describeHyperParameterTuningJobResponse_hyperParameterTuningJobName :: Lens.Lens' DescribeHyperParameterTuningJobResponse Core.Text
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobName = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobName = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The Amazon Resource Name (ARN) of the tuning job.
-describeHyperParameterTuningJobResponse_hyperParameterTuningJobArn :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.Text
+describeHyperParameterTuningJobResponse_hyperParameterTuningJobArn :: Lens.Lens' DescribeHyperParameterTuningJobResponse Core.Text
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobArn = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningJobArn} -> hyperParameterTuningJobArn) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobArn = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The HyperParameterTuningJobConfig object that specifies the
@@ -403,8 +388,8 @@ describeHyperParameterTuningJobResponse_hyperParameterTuningJobStatus :: Lens.Le
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobStatus = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningJobStatus} -> hyperParameterTuningJobStatus) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobStatus = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The date and time that the tuning job started.
-describeHyperParameterTuningJobResponse_creationTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.UTCTime
-describeHyperParameterTuningJobResponse_creationTime = Lens.lens (\DescribeHyperParameterTuningJobResponse' {creationTime} -> creationTime) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {creationTime = a} :: DescribeHyperParameterTuningJobResponse) Prelude.. Prelude._Time
+describeHyperParameterTuningJobResponse_creationTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse Core.UTCTime
+describeHyperParameterTuningJobResponse_creationTime = Lens.lens (\DescribeHyperParameterTuningJobResponse' {creationTime} -> creationTime) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {creationTime = a} :: DescribeHyperParameterTuningJobResponse) Core.. Core._Time
 
 -- | The TrainingJobStatusCounters object that specifies the number of
 -- training jobs, categorized by status, that this tuning job launched.
@@ -418,5 +403,5 @@ describeHyperParameterTuningJobResponse_objectiveStatusCounters :: Lens.Lens' De
 describeHyperParameterTuningJobResponse_objectiveStatusCounters = Lens.lens (\DescribeHyperParameterTuningJobResponse' {objectiveStatusCounters} -> objectiveStatusCounters) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {objectiveStatusCounters = a} :: DescribeHyperParameterTuningJobResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeHyperParameterTuningJobResponse

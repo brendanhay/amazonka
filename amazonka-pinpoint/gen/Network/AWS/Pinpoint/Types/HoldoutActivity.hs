@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.HoldoutActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the settings for a holdout activity in a journey. This type of
 -- activity stops a journey for a specified percentage of participants.
@@ -30,16 +29,16 @@ import qualified Network.AWS.Prelude as Prelude
 data HoldoutActivity = HoldoutActivity'
   { -- | The unique identifier for the next activity to perform, after performing
     -- the holdout activity.
-    nextActivity :: Prelude.Maybe Prelude.Text,
+    nextActivity :: Core.Maybe Core.Text,
     -- | The percentage of participants who shouldn\'t continue the journey.
     --
     -- To determine which participants are held out, Amazon Pinpoint applies a
     -- probability-based algorithm to the percentage that you specify.
     -- Therefore, the actual percentage of participants who are held out may
     -- not be equal to the percentage that you specify.
-    percentage :: Prelude.Int
+    percentage :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'HoldoutActivity' with all optional fields omitted.
@@ -60,17 +59,17 @@ data HoldoutActivity = HoldoutActivity'
 -- not be equal to the percentage that you specify.
 newHoldoutActivity ::
   -- | 'percentage'
-  Prelude.Int ->
+  Core.Int ->
   HoldoutActivity
 newHoldoutActivity pPercentage_ =
   HoldoutActivity'
-    { nextActivity = Prelude.Nothing,
+    { nextActivity = Core.Nothing,
       percentage = pPercentage_
     }
 
 -- | The unique identifier for the next activity to perform, after performing
 -- the holdout activity.
-holdoutActivity_nextActivity :: Lens.Lens' HoldoutActivity (Prelude.Maybe Prelude.Text)
+holdoutActivity_nextActivity :: Lens.Lens' HoldoutActivity (Core.Maybe Core.Text)
 holdoutActivity_nextActivity = Lens.lens (\HoldoutActivity' {nextActivity} -> nextActivity) (\s@HoldoutActivity' {} a -> s {nextActivity = a} :: HoldoutActivity)
 
 -- | The percentage of participants who shouldn\'t continue the journey.
@@ -79,29 +78,28 @@ holdoutActivity_nextActivity = Lens.lens (\HoldoutActivity' {nextActivity} -> ne
 -- probability-based algorithm to the percentage that you specify.
 -- Therefore, the actual percentage of participants who are held out may
 -- not be equal to the percentage that you specify.
-holdoutActivity_percentage :: Lens.Lens' HoldoutActivity Prelude.Int
+holdoutActivity_percentage :: Lens.Lens' HoldoutActivity Core.Int
 holdoutActivity_percentage = Lens.lens (\HoldoutActivity' {percentage} -> percentage) (\s@HoldoutActivity' {} a -> s {percentage = a} :: HoldoutActivity)
 
-instance Prelude.FromJSON HoldoutActivity where
+instance Core.FromJSON HoldoutActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "HoldoutActivity"
       ( \x ->
           HoldoutActivity'
-            Prelude.<$> (x Prelude..:? "NextActivity")
-            Prelude.<*> (x Prelude..: "Percentage")
+            Core.<$> (x Core..:? "NextActivity")
+            Core.<*> (x Core..: "Percentage")
       )
 
-instance Prelude.Hashable HoldoutActivity
+instance Core.Hashable HoldoutActivity
 
-instance Prelude.NFData HoldoutActivity
+instance Core.NFData HoldoutActivity
 
-instance Prelude.ToJSON HoldoutActivity where
+instance Core.ToJSON HoldoutActivity where
   toJSON HoldoutActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextActivity" Prelude..=)
-              Prelude.<$> nextActivity,
-            Prelude.Just ("Percentage" Prelude..= percentage)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextActivity" Core..=) Core.<$> nextActivity,
+            Core.Just ("Percentage" Core..= percentage)
           ]
       )

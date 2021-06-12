@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -55,9 +54,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDescribeElasticsearchDomains' smart constructor.
 data DescribeElasticsearchDomains = DescribeElasticsearchDomains'
   { -- | The Elasticsearch domains for which you want information.
-    domainNames :: [Prelude.Text]
+    domainNames :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticsearchDomains' with all optional fields omitted.
@@ -73,57 +72,45 @@ newDescribeElasticsearchDomains ::
 newDescribeElasticsearchDomains =
   DescribeElasticsearchDomains'
     { domainNames =
-        Prelude.mempty
+        Core.mempty
     }
 
 -- | The Elasticsearch domains for which you want information.
-describeElasticsearchDomains_domainNames :: Lens.Lens' DescribeElasticsearchDomains [Prelude.Text]
-describeElasticsearchDomains_domainNames = Lens.lens (\DescribeElasticsearchDomains' {domainNames} -> domainNames) (\s@DescribeElasticsearchDomains' {} a -> s {domainNames = a} :: DescribeElasticsearchDomains) Prelude.. Prelude._Coerce
+describeElasticsearchDomains_domainNames :: Lens.Lens' DescribeElasticsearchDomains [Core.Text]
+describeElasticsearchDomains_domainNames = Lens.lens (\DescribeElasticsearchDomains' {domainNames} -> domainNames) (\s@DescribeElasticsearchDomains' {} a -> s {domainNames = a} :: DescribeElasticsearchDomains) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    DescribeElasticsearchDomains
-  where
+instance Core.AWSRequest DescribeElasticsearchDomains where
   type
-    Rs DescribeElasticsearchDomains =
+    AWSResponse DescribeElasticsearchDomains =
       DescribeElasticsearchDomainsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeElasticsearchDomainsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "DomainStatusList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..?> "DomainStatusList" Core..!@ Core.mempty)
       )
 
-instance
-  Prelude.Hashable
-    DescribeElasticsearchDomains
+instance Core.Hashable DescribeElasticsearchDomains
 
-instance Prelude.NFData DescribeElasticsearchDomains
+instance Core.NFData DescribeElasticsearchDomains
 
-instance
-  Prelude.ToHeaders
-    DescribeElasticsearchDomains
-  where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DescribeElasticsearchDomains where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON DescribeElasticsearchDomains where
+instance Core.ToJSON DescribeElasticsearchDomains where
   toJSON DescribeElasticsearchDomains' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("DomainNames" Prelude..= domainNames)
-          ]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DomainNames" Core..= domainNames)]
       )
 
-instance Prelude.ToPath DescribeElasticsearchDomains where
-  toPath = Prelude.const "/2015-01-01/es/domain-info"
+instance Core.ToPath DescribeElasticsearchDomains where
+  toPath = Core.const "/2015-01-01/es/domain-info"
 
-instance Prelude.ToQuery DescribeElasticsearchDomains where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeElasticsearchDomains where
+  toQuery = Core.const Core.mempty
 
 -- | The result of a @DescribeElasticsearchDomains@ request. Contains the
 -- status of the specified domains or all domains owned by the account.
@@ -131,12 +118,12 @@ instance Prelude.ToQuery DescribeElasticsearchDomains where
 -- /See:/ 'newDescribeElasticsearchDomainsResponse' smart constructor.
 data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The status of the domains requested in the
     -- @DescribeElasticsearchDomains@ request.
     domainStatusList :: [ElasticsearchDomainStatus]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeElasticsearchDomainsResponse' with all optional fields omitted.
@@ -152,24 +139,24 @@ data DescribeElasticsearchDomainsResponse = DescribeElasticsearchDomainsResponse
 -- @DescribeElasticsearchDomains@ request.
 newDescribeElasticsearchDomainsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeElasticsearchDomainsResponse
 newDescribeElasticsearchDomainsResponse pHttpStatus_ =
   DescribeElasticsearchDomainsResponse'
     { httpStatus =
         pHttpStatus_,
-      domainStatusList = Prelude.mempty
+      domainStatusList = Core.mempty
     }
 
 -- | The response's http status code.
-describeElasticsearchDomainsResponse_httpStatus :: Lens.Lens' DescribeElasticsearchDomainsResponse Prelude.Int
+describeElasticsearchDomainsResponse_httpStatus :: Lens.Lens' DescribeElasticsearchDomainsResponse Core.Int
 describeElasticsearchDomainsResponse_httpStatus = Lens.lens (\DescribeElasticsearchDomainsResponse' {httpStatus} -> httpStatus) (\s@DescribeElasticsearchDomainsResponse' {} a -> s {httpStatus = a} :: DescribeElasticsearchDomainsResponse)
 
 -- | The status of the domains requested in the
 -- @DescribeElasticsearchDomains@ request.
 describeElasticsearchDomainsResponse_domainStatusList :: Lens.Lens' DescribeElasticsearchDomainsResponse [ElasticsearchDomainStatus]
-describeElasticsearchDomainsResponse_domainStatusList = Lens.lens (\DescribeElasticsearchDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeElasticsearchDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeElasticsearchDomainsResponse) Prelude.. Prelude._Coerce
+describeElasticsearchDomainsResponse_domainStatusList = Lens.lens (\DescribeElasticsearchDomainsResponse' {domainStatusList} -> domainStatusList) (\s@DescribeElasticsearchDomainsResponse' {} a -> s {domainStatusList = a} :: DescribeElasticsearchDomainsResponse) Core.. Lens._Coerce
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeElasticsearchDomainsResponse

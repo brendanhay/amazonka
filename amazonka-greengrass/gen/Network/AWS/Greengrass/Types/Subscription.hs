@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Greengrass.Types.Subscription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a subscription.
 --
@@ -30,19 +29,19 @@ data Subscription = Subscription'
   { -- | Where the message is sent to. Can be a thing ARN, a Lambda function ARN,
     -- a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or
     -- \'GGShadowService\'.
-    target :: Prelude.Text,
+    target :: Core.Text,
     -- | A descriptive or arbitrary ID for the subscription. This value must be
     -- unique within the subscription definition version. Max length is 128
     -- characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-    id :: Prelude.Text,
+    id :: Core.Text,
     -- | The MQTT topic used to route the message.
-    subject :: Prelude.Text,
+    subject :: Core.Text,
     -- | The source of the subscription. Can be a thing ARN, a Lambda function
     -- ARN, a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or
     -- \'GGShadowService\'.
-    source :: Prelude.Text
+    source :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Subscription' with all optional fields omitted.
@@ -67,13 +66,13 @@ data Subscription = Subscription'
 -- \'GGShadowService\'.
 newSubscription ::
   -- | 'target'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'id'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'subject'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'source'
-  Prelude.Text ->
+  Core.Text ->
   Subscription
 newSubscription pTarget_ pId_ pSubject_ pSource_ =
   Subscription'
@@ -86,48 +85,48 @@ newSubscription pTarget_ pId_ pSubject_ pSource_ =
 -- | Where the message is sent to. Can be a thing ARN, a Lambda function ARN,
 -- a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or
 -- \'GGShadowService\'.
-subscription_target :: Lens.Lens' Subscription Prelude.Text
+subscription_target :: Lens.Lens' Subscription Core.Text
 subscription_target = Lens.lens (\Subscription' {target} -> target) (\s@Subscription' {} a -> s {target = a} :: Subscription)
 
 -- | A descriptive or arbitrary ID for the subscription. This value must be
 -- unique within the subscription definition version. Max length is 128
 -- characters with pattern \'\'[a-zA-Z0-9:_-]+\'\'.
-subscription_id :: Lens.Lens' Subscription Prelude.Text
+subscription_id :: Lens.Lens' Subscription Core.Text
 subscription_id = Lens.lens (\Subscription' {id} -> id) (\s@Subscription' {} a -> s {id = a} :: Subscription)
 
 -- | The MQTT topic used to route the message.
-subscription_subject :: Lens.Lens' Subscription Prelude.Text
+subscription_subject :: Lens.Lens' Subscription Core.Text
 subscription_subject = Lens.lens (\Subscription' {subject} -> subject) (\s@Subscription' {} a -> s {subject = a} :: Subscription)
 
 -- | The source of the subscription. Can be a thing ARN, a Lambda function
 -- ARN, a connector ARN, \'cloud\' (which represents the AWS IoT cloud), or
 -- \'GGShadowService\'.
-subscription_source :: Lens.Lens' Subscription Prelude.Text
+subscription_source :: Lens.Lens' Subscription Core.Text
 subscription_source = Lens.lens (\Subscription' {source} -> source) (\s@Subscription' {} a -> s {source = a} :: Subscription)
 
-instance Prelude.FromJSON Subscription where
+instance Core.FromJSON Subscription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Subscription"
       ( \x ->
           Subscription'
-            Prelude.<$> (x Prelude..: "Target")
-            Prelude.<*> (x Prelude..: "Id")
-            Prelude.<*> (x Prelude..: "Subject")
-            Prelude.<*> (x Prelude..: "Source")
+            Core.<$> (x Core..: "Target")
+            Core.<*> (x Core..: "Id")
+            Core.<*> (x Core..: "Subject")
+            Core.<*> (x Core..: "Source")
       )
 
-instance Prelude.Hashable Subscription
+instance Core.Hashable Subscription
 
-instance Prelude.NFData Subscription
+instance Core.NFData Subscription
 
-instance Prelude.ToJSON Subscription where
+instance Core.ToJSON Subscription where
   toJSON Subscription' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Target" Prelude..= target),
-            Prelude.Just ("Id" Prelude..= id),
-            Prelude.Just ("Subject" Prelude..= subject),
-            Prelude.Just ("Source" Prelude..= source)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Target" Core..= target),
+            Core.Just ("Id" Core..= id),
+            Core.Just ("Subject" Core..= subject),
+            Core.Just ("Source" Core..= source)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,9 +54,9 @@ module Network.AWS.ECS.StopTask
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -68,15 +67,15 @@ data StopTask = StopTask'
     -- the reason for stopping the task here, and the message appears in
     -- subsequent DescribeTasks API operations on this task. Up to 255
     -- characters are allowed in this message.
-    reason :: Prelude.Maybe Prelude.Text,
+    reason :: Core.Maybe Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the task to stop. If you do not specify a cluster, the default
     -- cluster is assumed.
-    cluster :: Prelude.Maybe Prelude.Text,
+    cluster :: Core.Maybe Core.Text,
     -- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
-    task :: Prelude.Text
+    task :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTask' with all optional fields omitted.
@@ -99,12 +98,12 @@ data StopTask = StopTask'
 -- 'task', 'stopTask_task' - The task ID or full Amazon Resource Name (ARN) of the task to stop.
 newStopTask ::
   -- | 'task'
-  Prelude.Text ->
+  Core.Text ->
   StopTask
 newStopTask pTask_ =
   StopTask'
-    { reason = Prelude.Nothing,
-      cluster = Prelude.Nothing,
+    { reason = Core.Nothing,
+      cluster = Core.Nothing,
       task = pTask_
     }
 
@@ -113,73 +112,71 @@ newStopTask pTask_ =
 -- the reason for stopping the task here, and the message appears in
 -- subsequent DescribeTasks API operations on this task. Up to 255
 -- characters are allowed in this message.
-stopTask_reason :: Lens.Lens' StopTask (Prelude.Maybe Prelude.Text)
+stopTask_reason :: Lens.Lens' StopTask (Core.Maybe Core.Text)
 stopTask_reason = Lens.lens (\StopTask' {reason} -> reason) (\s@StopTask' {} a -> s {reason = a} :: StopTask)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task to stop. If you do not specify a cluster, the default
 -- cluster is assumed.
-stopTask_cluster :: Lens.Lens' StopTask (Prelude.Maybe Prelude.Text)
+stopTask_cluster :: Lens.Lens' StopTask (Core.Maybe Core.Text)
 stopTask_cluster = Lens.lens (\StopTask' {cluster} -> cluster) (\s@StopTask' {} a -> s {cluster = a} :: StopTask)
 
 -- | The task ID or full Amazon Resource Name (ARN) of the task to stop.
-stopTask_task :: Lens.Lens' StopTask Prelude.Text
+stopTask_task :: Lens.Lens' StopTask Core.Text
 stopTask_task = Lens.lens (\StopTask' {task} -> task) (\s@StopTask' {} a -> s {task = a} :: StopTask)
 
-instance Prelude.AWSRequest StopTask where
-  type Rs StopTask = StopTaskResponse
+instance Core.AWSRequest StopTask where
+  type AWSResponse StopTask = StopTaskResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           StopTaskResponse'
-            Prelude.<$> (x Prelude..?> "task")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "task")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable StopTask
+instance Core.Hashable StopTask
 
-instance Prelude.NFData StopTask
+instance Core.NFData StopTask
 
-instance Prelude.ToHeaders StopTask where
+instance Core.ToHeaders StopTask where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.StopTask" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.StopTask" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON StopTask where
+instance Core.ToJSON StopTask where
   toJSON StopTask' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("reason" Prelude..=) Prelude.<$> reason,
-            ("cluster" Prelude..=) Prelude.<$> cluster,
-            Prelude.Just ("task" Prelude..= task)
+    Core.object
+      ( Core.catMaybes
+          [ ("reason" Core..=) Core.<$> reason,
+            ("cluster" Core..=) Core.<$> cluster,
+            Core.Just ("task" Core..= task)
           ]
       )
 
-instance Prelude.ToPath StopTask where
-  toPath = Prelude.const "/"
+instance Core.ToPath StopTask where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery StopTask where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery StopTask where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newStopTaskResponse' smart constructor.
 data StopTaskResponse = StopTaskResponse'
   { -- | The task that was stopped.
-    task :: Prelude.Maybe Task,
+    task :: Core.Maybe Task,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'StopTaskResponse' with all optional fields omitted.
@@ -194,20 +191,20 @@ data StopTaskResponse = StopTaskResponse'
 -- 'httpStatus', 'stopTaskResponse_httpStatus' - The response's http status code.
 newStopTaskResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   StopTaskResponse
 newStopTaskResponse pHttpStatus_ =
   StopTaskResponse'
-    { task = Prelude.Nothing,
+    { task = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The task that was stopped.
-stopTaskResponse_task :: Lens.Lens' StopTaskResponse (Prelude.Maybe Task)
+stopTaskResponse_task :: Lens.Lens' StopTaskResponse (Core.Maybe Task)
 stopTaskResponse_task = Lens.lens (\StopTaskResponse' {task} -> task) (\s@StopTaskResponse' {} a -> s {task = a} :: StopTaskResponse)
 
 -- | The response's http status code.
-stopTaskResponse_httpStatus :: Lens.Lens' StopTaskResponse Prelude.Int
+stopTaskResponse_httpStatus :: Lens.Lens' StopTaskResponse Core.Int
 stopTaskResponse_httpStatus = Lens.lens (\StopTaskResponse' {httpStatus} -> httpStatus) (\s@StopTaskResponse' {} a -> s {httpStatus = a} :: StopTaskResponse)
 
-instance Prelude.NFData StopTaskResponse
+instance Core.NFData StopTaskResponse

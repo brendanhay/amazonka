@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.AppSync.DeleteApiCache
 where
 
 import Network.AWS.AppSync.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -50,9 +49,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteApiCache' smart constructor.
 data DeleteApiCache = DeleteApiCache'
   { -- | The API ID.
-    apiId :: Prelude.Text
+    apiId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiCache' with all optional fields omitted.
@@ -65,56 +64,56 @@ data DeleteApiCache = DeleteApiCache'
 -- 'apiId', 'deleteApiCache_apiId' - The API ID.
 newDeleteApiCache ::
   -- | 'apiId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteApiCache
 newDeleteApiCache pApiId_ =
   DeleteApiCache' {apiId = pApiId_}
 
 -- | The API ID.
-deleteApiCache_apiId :: Lens.Lens' DeleteApiCache Prelude.Text
+deleteApiCache_apiId :: Lens.Lens' DeleteApiCache Core.Text
 deleteApiCache_apiId = Lens.lens (\DeleteApiCache' {apiId} -> apiId) (\s@DeleteApiCache' {} a -> s {apiId = a} :: DeleteApiCache)
 
-instance Prelude.AWSRequest DeleteApiCache where
-  type Rs DeleteApiCache = DeleteApiCacheResponse
+instance Core.AWSRequest DeleteApiCache where
+  type
+    AWSResponse DeleteApiCache =
+      DeleteApiCacheResponse
   request = Request.delete defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApiCacheResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteApiCache
+instance Core.Hashable DeleteApiCache
 
-instance Prelude.NFData DeleteApiCache
+instance Core.NFData DeleteApiCache
 
-instance Prelude.ToHeaders DeleteApiCache where
+instance Core.ToHeaders DeleteApiCache where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath DeleteApiCache where
+instance Core.ToPath DeleteApiCache where
   toPath DeleteApiCache' {..} =
-    Prelude.mconcat
-      ["/v1/apis/", Prelude.toBS apiId, "/ApiCaches"]
+    Core.mconcat
+      ["/v1/apis/", Core.toBS apiId, "/ApiCaches"]
 
-instance Prelude.ToQuery DeleteApiCache where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteApiCache where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the output of a @DeleteApiCache@ operation.
 --
 -- /See:/ 'newDeleteApiCacheResponse' smart constructor.
 data DeleteApiCacheResponse = DeleteApiCacheResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteApiCacheResponse' with all optional fields omitted.
@@ -127,13 +126,13 @@ data DeleteApiCacheResponse = DeleteApiCacheResponse'
 -- 'httpStatus', 'deleteApiCacheResponse_httpStatus' - The response's http status code.
 newDeleteApiCacheResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteApiCacheResponse
 newDeleteApiCacheResponse pHttpStatus_ =
   DeleteApiCacheResponse' {httpStatus = pHttpStatus_}
 
 -- | The response's http status code.
-deleteApiCacheResponse_httpStatus :: Lens.Lens' DeleteApiCacheResponse Prelude.Int
+deleteApiCacheResponse_httpStatus :: Lens.Lens' DeleteApiCacheResponse Core.Int
 deleteApiCacheResponse_httpStatus = Lens.lens (\DeleteApiCacheResponse' {httpStatus} -> httpStatus) (\s@DeleteApiCacheResponse' {} a -> s {httpStatus = a} :: DeleteApiCacheResponse)
 
-instance Prelude.NFData DeleteApiCacheResponse
+instance Core.NFData DeleteApiCacheResponse

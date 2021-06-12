@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SSM.Types.InstanceInformationFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.InstanceInformationFilterKey
 
 -- | Describes a filter for a specific list of instances. You can filter
@@ -38,9 +37,9 @@ data InstanceInformationFilter = InstanceInformationFilter'
   { -- | The name of the filter.
     key :: InstanceInformationFilterKey,
     -- | The filter values.
-    valueSet :: Prelude.NonEmpty Prelude.Text
+    valueSet :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InstanceInformationFilter' with all optional fields omitted.
@@ -57,12 +56,12 @@ newInstanceInformationFilter ::
   -- | 'key'
   InstanceInformationFilterKey ->
   -- | 'valueSet'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   InstanceInformationFilter
 newInstanceInformationFilter pKey_ pValueSet_ =
   InstanceInformationFilter'
     { key = pKey_,
-      valueSet = Prelude._Coerce Lens.# pValueSet_
+      valueSet = Lens._Coerce Lens.# pValueSet_
     }
 
 -- | The name of the filter.
@@ -70,18 +69,18 @@ instanceInformationFilter_key :: Lens.Lens' InstanceInformationFilter InstanceIn
 instanceInformationFilter_key = Lens.lens (\InstanceInformationFilter' {key} -> key) (\s@InstanceInformationFilter' {} a -> s {key = a} :: InstanceInformationFilter)
 
 -- | The filter values.
-instanceInformationFilter_valueSet :: Lens.Lens' InstanceInformationFilter (Prelude.NonEmpty Prelude.Text)
-instanceInformationFilter_valueSet = Lens.lens (\InstanceInformationFilter' {valueSet} -> valueSet) (\s@InstanceInformationFilter' {} a -> s {valueSet = a} :: InstanceInformationFilter) Prelude.. Prelude._Coerce
+instanceInformationFilter_valueSet :: Lens.Lens' InstanceInformationFilter (Core.NonEmpty Core.Text)
+instanceInformationFilter_valueSet = Lens.lens (\InstanceInformationFilter' {valueSet} -> valueSet) (\s@InstanceInformationFilter' {} a -> s {valueSet = a} :: InstanceInformationFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable InstanceInformationFilter
+instance Core.Hashable InstanceInformationFilter
 
-instance Prelude.NFData InstanceInformationFilter
+instance Core.NFData InstanceInformationFilter
 
-instance Prelude.ToJSON InstanceInformationFilter where
+instance Core.ToJSON InstanceInformationFilter where
   toJSON InstanceInformationFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("key" Prelude..= key),
-            Prelude.Just ("valueSet" Prelude..= valueSet)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("key" Core..= key),
+            Core.Just ("valueSet" Core..= valueSet)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoTAnalytics.Types.SelectAttributesActivity where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Creates a new message using only the specified attributes from the
 -- original message.
@@ -29,13 +28,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newSelectAttributesActivity' smart constructor.
 data SelectAttributesActivity = SelectAttributesActivity'
   { -- | The next activity in the pipeline.
-    next :: Prelude.Maybe Prelude.Text,
+    next :: Core.Maybe Core.Text,
     -- | The name of the @selectAttributes@ activity.
-    name :: Prelude.Text,
+    name :: Core.Text,
     -- | A list of the attributes to select from the message.
-    attributes :: Prelude.NonEmpty Prelude.Text
+    attributes :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SelectAttributesActivity' with all optional fields omitted.
@@ -52,50 +51,50 @@ data SelectAttributesActivity = SelectAttributesActivity'
 -- 'attributes', 'selectAttributesActivity_attributes' - A list of the attributes to select from the message.
 newSelectAttributesActivity ::
   -- | 'name'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'attributes'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   SelectAttributesActivity
 newSelectAttributesActivity pName_ pAttributes_ =
   SelectAttributesActivity'
-    { next = Prelude.Nothing,
+    { next = Core.Nothing,
       name = pName_,
-      attributes = Prelude._Coerce Lens.# pAttributes_
+      attributes = Lens._Coerce Lens.# pAttributes_
     }
 
 -- | The next activity in the pipeline.
-selectAttributesActivity_next :: Lens.Lens' SelectAttributesActivity (Prelude.Maybe Prelude.Text)
+selectAttributesActivity_next :: Lens.Lens' SelectAttributesActivity (Core.Maybe Core.Text)
 selectAttributesActivity_next = Lens.lens (\SelectAttributesActivity' {next} -> next) (\s@SelectAttributesActivity' {} a -> s {next = a} :: SelectAttributesActivity)
 
 -- | The name of the @selectAttributes@ activity.
-selectAttributesActivity_name :: Lens.Lens' SelectAttributesActivity Prelude.Text
+selectAttributesActivity_name :: Lens.Lens' SelectAttributesActivity Core.Text
 selectAttributesActivity_name = Lens.lens (\SelectAttributesActivity' {name} -> name) (\s@SelectAttributesActivity' {} a -> s {name = a} :: SelectAttributesActivity)
 
 -- | A list of the attributes to select from the message.
-selectAttributesActivity_attributes :: Lens.Lens' SelectAttributesActivity (Prelude.NonEmpty Prelude.Text)
-selectAttributesActivity_attributes = Lens.lens (\SelectAttributesActivity' {attributes} -> attributes) (\s@SelectAttributesActivity' {} a -> s {attributes = a} :: SelectAttributesActivity) Prelude.. Prelude._Coerce
+selectAttributesActivity_attributes :: Lens.Lens' SelectAttributesActivity (Core.NonEmpty Core.Text)
+selectAttributesActivity_attributes = Lens.lens (\SelectAttributesActivity' {attributes} -> attributes) (\s@SelectAttributesActivity' {} a -> s {attributes = a} :: SelectAttributesActivity) Core.. Lens._Coerce
 
-instance Prelude.FromJSON SelectAttributesActivity where
+instance Core.FromJSON SelectAttributesActivity where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SelectAttributesActivity"
       ( \x ->
           SelectAttributesActivity'
-            Prelude.<$> (x Prelude..:? "next")
-            Prelude.<*> (x Prelude..: "name")
-            Prelude.<*> (x Prelude..: "attributes")
+            Core.<$> (x Core..:? "next")
+            Core.<*> (x Core..: "name")
+            Core.<*> (x Core..: "attributes")
       )
 
-instance Prelude.Hashable SelectAttributesActivity
+instance Core.Hashable SelectAttributesActivity
 
-instance Prelude.NFData SelectAttributesActivity
+instance Core.NFData SelectAttributesActivity
 
-instance Prelude.ToJSON SelectAttributesActivity where
+instance Core.ToJSON SelectAttributesActivity where
   toJSON SelectAttributesActivity' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("next" Prelude..=) Prelude.<$> next,
-            Prelude.Just ("name" Prelude..= name),
-            Prelude.Just ("attributes" Prelude..= attributes)
+    Core.object
+      ( Core.catMaybes
+          [ ("next" Core..=) Core.<$> next,
+            Core.Just ("name" Core..= name),
+            Core.Just ("attributes" Core..= attributes)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.ClientConnectResponseOptions where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The options for managing connection authorization for new client
 -- connections.
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newClientConnectResponseOptions' smart constructor.
 data ClientConnectResponseOptions = ClientConnectResponseOptions'
   { -- | The status of any updates to the client connect options.
-    status :: Prelude.Maybe ClientVpnEndpointAttributeStatus,
+    status :: Core.Maybe ClientVpnEndpointAttributeStatus,
     -- | Indicates whether client connect options are enabled.
-    enabled :: Prelude.Maybe Prelude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
     -- connection authorization.
-    lambdaFunctionArn :: Prelude.Maybe Prelude.Text
+    lambdaFunctionArn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ClientConnectResponseOptions' with all optional fields omitted.
@@ -59,33 +58,31 @@ newClientConnectResponseOptions ::
 newClientConnectResponseOptions =
   ClientConnectResponseOptions'
     { status =
-        Prelude.Nothing,
-      enabled = Prelude.Nothing,
-      lambdaFunctionArn = Prelude.Nothing
+        Core.Nothing,
+      enabled = Core.Nothing,
+      lambdaFunctionArn = Core.Nothing
     }
 
 -- | The status of any updates to the client connect options.
-clientConnectResponseOptions_status :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe ClientVpnEndpointAttributeStatus)
+clientConnectResponseOptions_status :: Lens.Lens' ClientConnectResponseOptions (Core.Maybe ClientVpnEndpointAttributeStatus)
 clientConnectResponseOptions_status = Lens.lens (\ClientConnectResponseOptions' {status} -> status) (\s@ClientConnectResponseOptions' {} a -> s {status = a} :: ClientConnectResponseOptions)
 
 -- | Indicates whether client connect options are enabled.
-clientConnectResponseOptions_enabled :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe Prelude.Bool)
+clientConnectResponseOptions_enabled :: Lens.Lens' ClientConnectResponseOptions (Core.Maybe Core.Bool)
 clientConnectResponseOptions_enabled = Lens.lens (\ClientConnectResponseOptions' {enabled} -> enabled) (\s@ClientConnectResponseOptions' {} a -> s {enabled = a} :: ClientConnectResponseOptions)
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for
 -- connection authorization.
-clientConnectResponseOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectResponseOptions (Prelude.Maybe Prelude.Text)
+clientConnectResponseOptions_lambdaFunctionArn :: Lens.Lens' ClientConnectResponseOptions (Core.Maybe Core.Text)
 clientConnectResponseOptions_lambdaFunctionArn = Lens.lens (\ClientConnectResponseOptions' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@ClientConnectResponseOptions' {} a -> s {lambdaFunctionArn = a} :: ClientConnectResponseOptions)
 
-instance Prelude.FromXML ClientConnectResponseOptions where
+instance Core.FromXML ClientConnectResponseOptions where
   parseXML x =
     ClientConnectResponseOptions'
-      Prelude.<$> (x Prelude..@? "status")
-      Prelude.<*> (x Prelude..@? "enabled")
-      Prelude.<*> (x Prelude..@? "lambdaFunctionArn")
+      Core.<$> (x Core..@? "status")
+      Core.<*> (x Core..@? "enabled")
+      Core.<*> (x Core..@? "lambdaFunctionArn")
 
-instance
-  Prelude.Hashable
-    ClientConnectResponseOptions
+instance Core.Hashable ClientConnectResponseOptions
 
-instance Prelude.NFData ClientConnectResponseOptions
+instance Core.NFData ClientConnectResponseOptions

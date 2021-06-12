@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Route53.Types.AliasTarget where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53.Internal
 
 -- | /Alias resource record sets only:/ Information about the AWS resource,
@@ -273,7 +272,7 @@ data AliasTarget = AliasTarget'
     --     because the alias record must have the same type as the record that
     --     you\'re routing traffic to, and creating a CNAME record for the zone
     --     apex isn\'t supported even for an alias record.
-    dNSName :: Prelude.Text,
+    dNSName :: Core.Text,
     -- | /Applies only to alias, failover alias, geolocation alias, latency
     -- alias, and weighted alias resource record sets:/ When
     -- @EvaluateTargetHealth@ is @true@, an alias resource record set inherits
@@ -349,9 +348,9 @@ data AliasTarget = AliasTarget'
     -- For more information and examples, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover>
     -- in the /Amazon Route 53 Developer Guide/.
-    evaluateTargetHealth :: Prelude.Bool
+    evaluateTargetHealth :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AliasTarget' with all optional fields omitted.
@@ -674,9 +673,9 @@ newAliasTarget ::
   -- | 'hostedZoneId'
   ResourceId ->
   -- | 'dNSName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'evaluateTargetHealth'
-  Prelude.Bool ->
+  Core.Bool ->
   AliasTarget
 newAliasTarget
   pHostedZoneId_
@@ -923,7 +922,7 @@ aliasTarget_hostedZoneId = Lens.lens (\AliasTarget' {hostedZoneId} -> hostedZone
 --     because the alias record must have the same type as the record that
 --     you\'re routing traffic to, and creating a CNAME record for the zone
 --     apex isn\'t supported even for an alias record.
-aliasTarget_dNSName :: Lens.Lens' AliasTarget Prelude.Text
+aliasTarget_dNSName :: Lens.Lens' AliasTarget Core.Text
 aliasTarget_dNSName = Lens.lens (\AliasTarget' {dNSName} -> dNSName) (\s@AliasTarget' {} a -> s {dNSName = a} :: AliasTarget)
 
 -- | /Applies only to alias, failover alias, geolocation alias, latency
@@ -1001,25 +1000,24 @@ aliasTarget_dNSName = Lens.lens (\AliasTarget' {dNSName} -> dNSName) (\s@AliasTa
 -- For more information and examples, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html Amazon Route 53 Health Checks and DNS Failover>
 -- in the /Amazon Route 53 Developer Guide/.
-aliasTarget_evaluateTargetHealth :: Lens.Lens' AliasTarget Prelude.Bool
+aliasTarget_evaluateTargetHealth :: Lens.Lens' AliasTarget Core.Bool
 aliasTarget_evaluateTargetHealth = Lens.lens (\AliasTarget' {evaluateTargetHealth} -> evaluateTargetHealth) (\s@AliasTarget' {} a -> s {evaluateTargetHealth = a} :: AliasTarget)
 
-instance Prelude.FromXML AliasTarget where
+instance Core.FromXML AliasTarget where
   parseXML x =
     AliasTarget'
-      Prelude.<$> (x Prelude..@ "HostedZoneId")
-      Prelude.<*> (x Prelude..@ "DNSName")
-      Prelude.<*> (x Prelude..@ "EvaluateTargetHealth")
+      Core.<$> (x Core..@ "HostedZoneId")
+      Core.<*> (x Core..@ "DNSName")
+      Core.<*> (x Core..@ "EvaluateTargetHealth")
 
-instance Prelude.Hashable AliasTarget
+instance Core.Hashable AliasTarget
 
-instance Prelude.NFData AliasTarget
+instance Core.NFData AliasTarget
 
-instance Prelude.ToXML AliasTarget where
+instance Core.ToXML AliasTarget where
   toXML AliasTarget' {..} =
-    Prelude.mconcat
-      [ "HostedZoneId" Prelude.@= hostedZoneId,
-        "DNSName" Prelude.@= dNSName,
-        "EvaluateTargetHealth"
-          Prelude.@= evaluateTargetHealth
+    Core.mconcat
+      [ "HostedZoneId" Core.@= hostedZoneId,
+        "DNSName" Core.@= dNSName,
+        "EvaluateTargetHealth" Core.@= evaluateTargetHealth
       ]

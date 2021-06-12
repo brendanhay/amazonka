@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.InputConfig where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.Framework
 
 -- | Contains information about the location of input model artifacts, the
@@ -35,11 +34,11 @@ data InputConfig = InputConfig'
     -- This API field is only supported for PyTorch framework versions @1.4@,
     -- @1.5@, and @1.6@ for cloud instance target devices: @ml_c4@, @ml_c5@,
     -- @ml_m4@, @ml_m5@, @ml_p2@, @ml_p3@, and @ml_g4dn@.
-    frameworkVersion :: Prelude.Maybe Prelude.Text,
+    frameworkVersion :: Core.Maybe Core.Text,
     -- | The S3 path where the model artifacts, which result from model training,
     -- are stored. This path must point to a single gzip compressed tar archive
     -- (.tar.gz suffix).
-    s3Uri :: Prelude.Text,
+    s3Uri :: Core.Text,
     -- | Specifies the name and shape of the expected data inputs for your
     -- trained model with a JSON dictionary form. The data inputs are
     -- InputConfig$Framework specific.
@@ -187,12 +186,12 @@ data InputConfig = InputConfig'
     --     -   @\"DataInputConfig\": [{\"shape\": [[1,3,224,224], [1,3,160,160]], \"default_shape\": [1,3,224,224], \"type\": \"Image\", \"bias\": [-1,-1,-1], \"scale\": 0.007843137255}]@
     --
     --     -   @\"CompilerOptions\": {\"class_labels\": \"imagenet_labels_1000.txt\"}@
-    dataInputConfig :: Prelude.Text,
+    dataInputConfig :: Core.Text,
     -- | Identifies the framework in which the model was trained. For example:
     -- TENSORFLOW.
     framework :: Framework
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InputConfig' with all optional fields omitted.
@@ -364,15 +363,15 @@ data InputConfig = InputConfig'
 -- TENSORFLOW.
 newInputConfig ::
   -- | 's3Uri'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'dataInputConfig'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'framework'
   Framework ->
   InputConfig
 newInputConfig pS3Uri_ pDataInputConfig_ pFramework_ =
   InputConfig'
-    { frameworkVersion = Prelude.Nothing,
+    { frameworkVersion = Core.Nothing,
       s3Uri = pS3Uri_,
       dataInputConfig = pDataInputConfig_,
       framework = pFramework_
@@ -383,13 +382,13 @@ newInputConfig pS3Uri_ pDataInputConfig_ pFramework_ =
 -- This API field is only supported for PyTorch framework versions @1.4@,
 -- @1.5@, and @1.6@ for cloud instance target devices: @ml_c4@, @ml_c5@,
 -- @ml_m4@, @ml_m5@, @ml_p2@, @ml_p3@, and @ml_g4dn@.
-inputConfig_frameworkVersion :: Lens.Lens' InputConfig (Prelude.Maybe Prelude.Text)
+inputConfig_frameworkVersion :: Lens.Lens' InputConfig (Core.Maybe Core.Text)
 inputConfig_frameworkVersion = Lens.lens (\InputConfig' {frameworkVersion} -> frameworkVersion) (\s@InputConfig' {} a -> s {frameworkVersion = a} :: InputConfig)
 
 -- | The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
 -- (.tar.gz suffix).
-inputConfig_s3Uri :: Lens.Lens' InputConfig Prelude.Text
+inputConfig_s3Uri :: Lens.Lens' InputConfig Core.Text
 inputConfig_s3Uri = Lens.lens (\InputConfig' {s3Uri} -> s3Uri) (\s@InputConfig' {} a -> s {s3Uri = a} :: InputConfig)
 
 -- | Specifies the name and shape of the expected data inputs for your
@@ -539,7 +538,7 @@ inputConfig_s3Uri = Lens.lens (\InputConfig' {s3Uri} -> s3Uri) (\s@InputConfig' 
 --     -   @\"DataInputConfig\": [{\"shape\": [[1,3,224,224], [1,3,160,160]], \"default_shape\": [1,3,224,224], \"type\": \"Image\", \"bias\": [-1,-1,-1], \"scale\": 0.007843137255}]@
 --
 --     -   @\"CompilerOptions\": {\"class_labels\": \"imagenet_labels_1000.txt\"}@
-inputConfig_dataInputConfig :: Lens.Lens' InputConfig Prelude.Text
+inputConfig_dataInputConfig :: Lens.Lens' InputConfig Core.Text
 inputConfig_dataInputConfig = Lens.lens (\InputConfig' {dataInputConfig} -> dataInputConfig) (\s@InputConfig' {} a -> s {dataInputConfig = a} :: InputConfig)
 
 -- | Identifies the framework in which the model was trained. For example:
@@ -547,31 +546,31 @@ inputConfig_dataInputConfig = Lens.lens (\InputConfig' {dataInputConfig} -> data
 inputConfig_framework :: Lens.Lens' InputConfig Framework
 inputConfig_framework = Lens.lens (\InputConfig' {framework} -> framework) (\s@InputConfig' {} a -> s {framework = a} :: InputConfig)
 
-instance Prelude.FromJSON InputConfig where
+instance Core.FromJSON InputConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InputConfig"
       ( \x ->
           InputConfig'
-            Prelude.<$> (x Prelude..:? "FrameworkVersion")
-            Prelude.<*> (x Prelude..: "S3Uri")
-            Prelude.<*> (x Prelude..: "DataInputConfig")
-            Prelude.<*> (x Prelude..: "Framework")
+            Core.<$> (x Core..:? "FrameworkVersion")
+            Core.<*> (x Core..: "S3Uri")
+            Core.<*> (x Core..: "DataInputConfig")
+            Core.<*> (x Core..: "Framework")
       )
 
-instance Prelude.Hashable InputConfig
+instance Core.Hashable InputConfig
 
-instance Prelude.NFData InputConfig
+instance Core.NFData InputConfig
 
-instance Prelude.ToJSON InputConfig where
+instance Core.ToJSON InputConfig where
   toJSON InputConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("FrameworkVersion" Prelude..=)
-              Prelude.<$> frameworkVersion,
-            Prelude.Just ("S3Uri" Prelude..= s3Uri),
-            Prelude.Just
-              ("DataInputConfig" Prelude..= dataInputConfig),
-            Prelude.Just ("Framework" Prelude..= framework)
+    Core.object
+      ( Core.catMaybes
+          [ ("FrameworkVersion" Core..=)
+              Core.<$> frameworkVersion,
+            Core.Just ("S3Uri" Core..= s3Uri),
+            Core.Just
+              ("DataInputConfig" Core..= dataInputConfig),
+            Core.Just ("Framework" Core..= framework)
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EFS.Types.FileSystemPolicyDescription where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newFileSystemPolicyDescription' smart constructor.
 data FileSystemPolicyDescription = FileSystemPolicyDescription'
   { -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
-    fileSystemId :: Prelude.Maybe Prelude.Text,
+    fileSystemId :: Core.Maybe Core.Text,
     -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
-    policy :: Prelude.Maybe Prelude.Text
+    policy :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FileSystemPolicyDescription' with all optional fields omitted.
@@ -48,28 +47,28 @@ newFileSystemPolicyDescription ::
 newFileSystemPolicyDescription =
   FileSystemPolicyDescription'
     { fileSystemId =
-        Prelude.Nothing,
-      policy = Prelude.Nothing
+        Core.Nothing,
+      policy = Core.Nothing
     }
 
 -- | Specifies the EFS file system to which the @FileSystemPolicy@ applies.
-fileSystemPolicyDescription_fileSystemId :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
+fileSystemPolicyDescription_fileSystemId :: Lens.Lens' FileSystemPolicyDescription (Core.Maybe Core.Text)
 fileSystemPolicyDescription_fileSystemId = Lens.lens (\FileSystemPolicyDescription' {fileSystemId} -> fileSystemId) (\s@FileSystemPolicyDescription' {} a -> s {fileSystemId = a} :: FileSystemPolicyDescription)
 
 -- | The JSON formatted @FileSystemPolicy@ for the EFS file system.
-fileSystemPolicyDescription_policy :: Lens.Lens' FileSystemPolicyDescription (Prelude.Maybe Prelude.Text)
+fileSystemPolicyDescription_policy :: Lens.Lens' FileSystemPolicyDescription (Core.Maybe Core.Text)
 fileSystemPolicyDescription_policy = Lens.lens (\FileSystemPolicyDescription' {policy} -> policy) (\s@FileSystemPolicyDescription' {} a -> s {policy = a} :: FileSystemPolicyDescription)
 
-instance Prelude.FromJSON FileSystemPolicyDescription where
+instance Core.FromJSON FileSystemPolicyDescription where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FileSystemPolicyDescription"
       ( \x ->
           FileSystemPolicyDescription'
-            Prelude.<$> (x Prelude..:? "FileSystemId")
-            Prelude.<*> (x Prelude..:? "Policy")
+            Core.<$> (x Core..:? "FileSystemId")
+            Core.<*> (x Core..:? "Policy")
       )
 
-instance Prelude.Hashable FileSystemPolicyDescription
+instance Core.Hashable FileSystemPolicyDescription
 
-instance Prelude.NFData FileSystemPolicyDescription
+instance Core.NFData FileSystemPolicyDescription

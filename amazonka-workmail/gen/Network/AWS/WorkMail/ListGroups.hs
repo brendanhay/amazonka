@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -45,9 +44,8 @@ module Network.AWS.WorkMail.ListGroups
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
@@ -56,13 +54,13 @@ import Network.AWS.WorkMail.Types
 data ListGroups = ListGroups'
   { -- | The token to use to retrieve the next page of results. The first call
     -- does not contain any tokens.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of results to return in a single call.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | The identifier for the organization under which the groups exist.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGroups' with all optional fields omitted.
@@ -80,104 +78,101 @@ data ListGroups = ListGroups'
 -- 'organizationId', 'listGroups_organizationId' - The identifier for the organization under which the groups exist.
 newListGroups ::
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   ListGroups
 newListGroups pOrganizationId_ =
   ListGroups'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
       organizationId = pOrganizationId_
     }
 
 -- | The token to use to retrieve the next page of results. The first call
 -- does not contain any tokens.
-listGroups_nextToken :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
+listGroups_nextToken :: Lens.Lens' ListGroups (Core.Maybe Core.Text)
 listGroups_nextToken = Lens.lens (\ListGroups' {nextToken} -> nextToken) (\s@ListGroups' {} a -> s {nextToken = a} :: ListGroups)
 
 -- | The maximum number of results to return in a single call.
-listGroups_maxResults :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
+listGroups_maxResults :: Lens.Lens' ListGroups (Core.Maybe Core.Natural)
 listGroups_maxResults = Lens.lens (\ListGroups' {maxResults} -> maxResults) (\s@ListGroups' {} a -> s {maxResults = a} :: ListGroups)
 
 -- | The identifier for the organization under which the groups exist.
-listGroups_organizationId :: Lens.Lens' ListGroups Prelude.Text
+listGroups_organizationId :: Lens.Lens' ListGroups Core.Text
 listGroups_organizationId = Lens.lens (\ListGroups' {organizationId} -> organizationId) (\s@ListGroups' {} a -> s {organizationId = a} :: ListGroups)
 
-instance Pager.AWSPager ListGroups where
+instance Core.AWSPager ListGroups where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
-            Lens.^? listGroupsResponse_groups Prelude.. Lens._Just
+            Lens.^? listGroupsResponse_groups Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listGroups_nextToken
           Lens..~ rs
-          Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listGroupsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListGroups where
-  type Rs ListGroups = ListGroupsResponse
+instance Core.AWSRequest ListGroups where
+  type AWSResponse ListGroups = ListGroupsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListGroupsResponse'
-            Prelude.<$> (x Prelude..?> "Groups" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Groups" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListGroups
+instance Core.Hashable ListGroups
 
-instance Prelude.NFData ListGroups
+instance Core.NFData ListGroups
 
-instance Prelude.ToHeaders ListGroups where
+instance Core.ToHeaders ListGroups where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("WorkMailService.ListGroups" :: Prelude.ByteString),
+              Core.=# ("WorkMailService.ListGroups" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListGroups where
+instance Core.ToJSON ListGroups where
   toJSON ListGroups' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            Prelude.Just
-              ("OrganizationId" Prelude..= organizationId)
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            Core.Just ("OrganizationId" Core..= organizationId)
           ]
       )
 
-instance Prelude.ToPath ListGroups where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListGroups where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListGroups where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListGroups where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
   { -- | The overview of groups for an organization.
-    groups :: Prelude.Maybe [Group],
+    groups :: Core.Maybe [Group],
     -- | The token to use to retrieve the next page of results. The value is
     -- \"null\" when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListGroupsResponse' with all optional fields omitted.
@@ -195,26 +190,26 @@ data ListGroupsResponse = ListGroupsResponse'
 -- 'httpStatus', 'listGroupsResponse_httpStatus' - The response's http status code.
 newListGroupsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListGroupsResponse
 newListGroupsResponse pHttpStatus_ =
   ListGroupsResponse'
-    { groups = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { groups = Core.Nothing,
+      nextToken = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The overview of groups for an organization.
-listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [Group])
-listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Core.Maybe [Group])
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The token to use to retrieve the next page of results. The value is
 -- \"null\" when there are no more results to return.
-listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
+listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Core.Maybe Core.Text)
 listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> nextToken) (\s@ListGroupsResponse' {} a -> s {nextToken = a} :: ListGroupsResponse)
 
 -- | The response's http status code.
-listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int
+listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Core.Int
 listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> httpStatus) (\s@ListGroupsResponse' {} a -> s {httpStatus = a} :: ListGroupsResponse)
 
-instance Prelude.NFData ListGroupsResponse
+instance Core.NFData ListGroupsResponse

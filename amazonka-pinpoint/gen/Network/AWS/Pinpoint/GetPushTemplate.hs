@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -42,9 +41,9 @@ module Network.AWS.Pinpoint.GetPushTemplate
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -72,14 +71,14 @@ data GetPushTemplate = GetPushTemplate'
     --
     -- -   For a delete operation, deletes the template, including all versions
     --     of the template.
-    version :: Prelude.Maybe Prelude.Text,
+    version :: Core.Maybe Core.Text,
     -- | The name of the message template. A template name must start with an
     -- alphanumeric character and can contain a maximum of 128 characters. The
     -- characters can be alphanumeric characters, underscores (_), or hyphens
     -- (-). Template names are case sensitive.
-    templateName :: Prelude.Text
+    templateName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPushTemplate' with all optional fields omitted.
@@ -118,11 +117,11 @@ data GetPushTemplate = GetPushTemplate'
 -- (-). Template names are case sensitive.
 newGetPushTemplate ::
   -- | 'templateName'
-  Prelude.Text ->
+  Core.Text ->
   GetPushTemplate
 newGetPushTemplate pTemplateName_ =
   GetPushTemplate'
-    { version = Prelude.Nothing,
+    { version = Core.Nothing,
       templateName = pTemplateName_
     }
 
@@ -148,61 +147,58 @@ newGetPushTemplate pTemplateName_ =
 --
 -- -   For a delete operation, deletes the template, including all versions
 --     of the template.
-getPushTemplate_version :: Lens.Lens' GetPushTemplate (Prelude.Maybe Prelude.Text)
+getPushTemplate_version :: Lens.Lens' GetPushTemplate (Core.Maybe Core.Text)
 getPushTemplate_version = Lens.lens (\GetPushTemplate' {version} -> version) (\s@GetPushTemplate' {} a -> s {version = a} :: GetPushTemplate)
 
 -- | The name of the message template. A template name must start with an
 -- alphanumeric character and can contain a maximum of 128 characters. The
 -- characters can be alphanumeric characters, underscores (_), or hyphens
 -- (-). Template names are case sensitive.
-getPushTemplate_templateName :: Lens.Lens' GetPushTemplate Prelude.Text
+getPushTemplate_templateName :: Lens.Lens' GetPushTemplate Core.Text
 getPushTemplate_templateName = Lens.lens (\GetPushTemplate' {templateName} -> templateName) (\s@GetPushTemplate' {} a -> s {templateName = a} :: GetPushTemplate)
 
-instance Prelude.AWSRequest GetPushTemplate where
-  type Rs GetPushTemplate = GetPushTemplateResponse
+instance Core.AWSRequest GetPushTemplate where
+  type
+    AWSResponse GetPushTemplate =
+      GetPushTemplateResponse
   request = Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetPushTemplateResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (Prelude.eitherParseJSON x)
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (Core.eitherParseJSON x)
       )
 
-instance Prelude.Hashable GetPushTemplate
+instance Core.Hashable GetPushTemplate
 
-instance Prelude.NFData GetPushTemplate
+instance Core.NFData GetPushTemplate
 
-instance Prelude.ToHeaders GetPushTemplate where
+instance Core.ToHeaders GetPushTemplate where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToPath GetPushTemplate where
+instance Core.ToPath GetPushTemplate where
   toPath GetPushTemplate' {..} =
-    Prelude.mconcat
-      [ "/v1/templates/",
-        Prelude.toBS templateName,
-        "/push"
-      ]
+    Core.mconcat
+      ["/v1/templates/", Core.toBS templateName, "/push"]
 
-instance Prelude.ToQuery GetPushTemplate where
+instance Core.ToQuery GetPushTemplate where
   toQuery GetPushTemplate' {..} =
-    Prelude.mconcat ["version" Prelude.=: version]
+    Core.mconcat ["version" Core.=: version]
 
 -- | /See:/ 'newGetPushTemplateResponse' smart constructor.
 data GetPushTemplateResponse = GetPushTemplateResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     pushNotificationTemplateResponse :: PushNotificationTemplateResponse
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetPushTemplateResponse' with all optional fields omitted.
@@ -217,7 +213,7 @@ data GetPushTemplateResponse = GetPushTemplateResponse'
 -- 'pushNotificationTemplateResponse', 'getPushTemplateResponse_pushNotificationTemplateResponse' - Undocumented member.
 newGetPushTemplateResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'pushNotificationTemplateResponse'
   PushNotificationTemplateResponse ->
   GetPushTemplateResponse
@@ -231,11 +227,11 @@ newGetPushTemplateResponse
       }
 
 -- | The response's http status code.
-getPushTemplateResponse_httpStatus :: Lens.Lens' GetPushTemplateResponse Prelude.Int
+getPushTemplateResponse_httpStatus :: Lens.Lens' GetPushTemplateResponse Core.Int
 getPushTemplateResponse_httpStatus = Lens.lens (\GetPushTemplateResponse' {httpStatus} -> httpStatus) (\s@GetPushTemplateResponse' {} a -> s {httpStatus = a} :: GetPushTemplateResponse)
 
 -- | Undocumented member.
 getPushTemplateResponse_pushNotificationTemplateResponse :: Lens.Lens' GetPushTemplateResponse PushNotificationTemplateResponse
 getPushTemplateResponse_pushNotificationTemplateResponse = Lens.lens (\GetPushTemplateResponse' {pushNotificationTemplateResponse} -> pushNotificationTemplateResponse) (\s@GetPushTemplateResponse' {} a -> s {pushNotificationTemplateResponse = a} :: GetPushTemplateResponse)
 
-instance Prelude.NFData GetPushTemplateResponse
+instance Core.NFData GetPushTemplateResponse

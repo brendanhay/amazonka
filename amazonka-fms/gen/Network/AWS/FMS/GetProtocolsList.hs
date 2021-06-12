@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.FMS.GetProtocolsList
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -53,12 +52,12 @@ import qualified Network.AWS.Response as Response
 data GetProtocolsList = GetProtocolsList'
   { -- | Specifies whether the list to retrieve is a default list owned by AWS
     -- Firewall Manager.
-    defaultList :: Prelude.Maybe Prelude.Bool,
+    defaultList :: Core.Maybe Core.Bool,
     -- | The ID of the AWS Firewall Manager protocols list that you want the
     -- details for.
-    listId :: Prelude.Text
+    listId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetProtocolsList' with all optional fields omitted.
@@ -75,80 +74,80 @@ data GetProtocolsList = GetProtocolsList'
 -- details for.
 newGetProtocolsList ::
   -- | 'listId'
-  Prelude.Text ->
+  Core.Text ->
   GetProtocolsList
 newGetProtocolsList pListId_ =
   GetProtocolsList'
-    { defaultList = Prelude.Nothing,
+    { defaultList = Core.Nothing,
       listId = pListId_
     }
 
 -- | Specifies whether the list to retrieve is a default list owned by AWS
 -- Firewall Manager.
-getProtocolsList_defaultList :: Lens.Lens' GetProtocolsList (Prelude.Maybe Prelude.Bool)
+getProtocolsList_defaultList :: Lens.Lens' GetProtocolsList (Core.Maybe Core.Bool)
 getProtocolsList_defaultList = Lens.lens (\GetProtocolsList' {defaultList} -> defaultList) (\s@GetProtocolsList' {} a -> s {defaultList = a} :: GetProtocolsList)
 
 -- | The ID of the AWS Firewall Manager protocols list that you want the
 -- details for.
-getProtocolsList_listId :: Lens.Lens' GetProtocolsList Prelude.Text
+getProtocolsList_listId :: Lens.Lens' GetProtocolsList Core.Text
 getProtocolsList_listId = Lens.lens (\GetProtocolsList' {listId} -> listId) (\s@GetProtocolsList' {} a -> s {listId = a} :: GetProtocolsList)
 
-instance Prelude.AWSRequest GetProtocolsList where
-  type Rs GetProtocolsList = GetProtocolsListResponse
+instance Core.AWSRequest GetProtocolsList where
+  type
+    AWSResponse GetProtocolsList =
+      GetProtocolsListResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetProtocolsListResponse'
-            Prelude.<$> (x Prelude..?> "ProtocolsList")
-            Prelude.<*> (x Prelude..?> "ProtocolsListArn")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ProtocolsList")
+            Core.<*> (x Core..?> "ProtocolsListArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetProtocolsList
+instance Core.Hashable GetProtocolsList
 
-instance Prelude.NFData GetProtocolsList
+instance Core.NFData GetProtocolsList
 
-instance Prelude.ToHeaders GetProtocolsList where
+instance Core.ToHeaders GetProtocolsList where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.GetProtocolsList" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.GetProtocolsList" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetProtocolsList where
+instance Core.ToJSON GetProtocolsList where
   toJSON GetProtocolsList' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("DefaultList" Prelude..=) Prelude.<$> defaultList,
-            Prelude.Just ("ListId" Prelude..= listId)
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultList" Core..=) Core.<$> defaultList,
+            Core.Just ("ListId" Core..= listId)
           ]
       )
 
-instance Prelude.ToPath GetProtocolsList where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetProtocolsList where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetProtocolsList where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetProtocolsList where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetProtocolsListResponse' smart constructor.
 data GetProtocolsListResponse = GetProtocolsListResponse'
   { -- | Information about the specified AWS Firewall Manager protocols list.
-    protocolsList :: Prelude.Maybe ProtocolsListData,
+    protocolsList :: Core.Maybe ProtocolsListData,
     -- | The Amazon Resource Name (ARN) of the specified protocols list.
-    protocolsListArn :: Prelude.Maybe Prelude.Text,
+    protocolsListArn :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetProtocolsListResponse' with all optional fields omitted.
@@ -165,26 +164,26 @@ data GetProtocolsListResponse = GetProtocolsListResponse'
 -- 'httpStatus', 'getProtocolsListResponse_httpStatus' - The response's http status code.
 newGetProtocolsListResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetProtocolsListResponse
 newGetProtocolsListResponse pHttpStatus_ =
   GetProtocolsListResponse'
     { protocolsList =
-        Prelude.Nothing,
-      protocolsListArn = Prelude.Nothing,
+        Core.Nothing,
+      protocolsListArn = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Information about the specified AWS Firewall Manager protocols list.
-getProtocolsListResponse_protocolsList :: Lens.Lens' GetProtocolsListResponse (Prelude.Maybe ProtocolsListData)
+getProtocolsListResponse_protocolsList :: Lens.Lens' GetProtocolsListResponse (Core.Maybe ProtocolsListData)
 getProtocolsListResponse_protocolsList = Lens.lens (\GetProtocolsListResponse' {protocolsList} -> protocolsList) (\s@GetProtocolsListResponse' {} a -> s {protocolsList = a} :: GetProtocolsListResponse)
 
 -- | The Amazon Resource Name (ARN) of the specified protocols list.
-getProtocolsListResponse_protocolsListArn :: Lens.Lens' GetProtocolsListResponse (Prelude.Maybe Prelude.Text)
+getProtocolsListResponse_protocolsListArn :: Lens.Lens' GetProtocolsListResponse (Core.Maybe Core.Text)
 getProtocolsListResponse_protocolsListArn = Lens.lens (\GetProtocolsListResponse' {protocolsListArn} -> protocolsListArn) (\s@GetProtocolsListResponse' {} a -> s {protocolsListArn = a} :: GetProtocolsListResponse)
 
 -- | The response's http status code.
-getProtocolsListResponse_httpStatus :: Lens.Lens' GetProtocolsListResponse Prelude.Int
+getProtocolsListResponse_httpStatus :: Lens.Lens' GetProtocolsListResponse Core.Int
 getProtocolsListResponse_httpStatus = Lens.lens (\GetProtocolsListResponse' {httpStatus} -> httpStatus) (\s@GetProtocolsListResponse' {} a -> s {httpStatus = a} :: GetProtocolsListResponse)
 
-instance Prelude.NFData GetProtocolsListResponse
+instance Core.NFData GetProtocolsListResponse

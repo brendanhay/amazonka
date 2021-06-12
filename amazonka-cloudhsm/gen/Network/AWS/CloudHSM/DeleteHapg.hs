@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -55,8 +54,8 @@ module Network.AWS.CloudHSM.DeleteHapg
 where
 
 import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -65,9 +64,9 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteHapg' smart constructor.
 data DeleteHapg = DeleteHapg'
   { -- | The ARN of the high-availability partition group to delete.
-    hapgArn :: Prelude.Text
+    hapgArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHapg' with all optional fields omitted.
@@ -80,68 +79,66 @@ data DeleteHapg = DeleteHapg'
 -- 'hapgArn', 'deleteHapg_hapgArn' - The ARN of the high-availability partition group to delete.
 newDeleteHapg ::
   -- | 'hapgArn'
-  Prelude.Text ->
+  Core.Text ->
   DeleteHapg
 newDeleteHapg pHapgArn_ =
   DeleteHapg' {hapgArn = pHapgArn_}
 
 -- | The ARN of the high-availability partition group to delete.
-deleteHapg_hapgArn :: Lens.Lens' DeleteHapg Prelude.Text
+deleteHapg_hapgArn :: Lens.Lens' DeleteHapg Core.Text
 deleteHapg_hapgArn = Lens.lens (\DeleteHapg' {hapgArn} -> hapgArn) (\s@DeleteHapg' {} a -> s {hapgArn = a} :: DeleteHapg)
 
-instance Prelude.AWSRequest DeleteHapg where
-  type Rs DeleteHapg = DeleteHapgResponse
+instance Core.AWSRequest DeleteHapg where
+  type AWSResponse DeleteHapg = DeleteHapgResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteHapgResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "Status")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..:> "Status")
       )
 
-instance Prelude.Hashable DeleteHapg
+instance Core.Hashable DeleteHapg
 
-instance Prelude.NFData DeleteHapg
+instance Core.NFData DeleteHapg
 
-instance Prelude.ToHeaders DeleteHapg where
+instance Core.ToHeaders DeleteHapg where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.DeleteHapg" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CloudHsmFrontendService.DeleteHapg" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteHapg where
+instance Core.ToJSON DeleteHapg where
   toJSON DeleteHapg' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("HapgArn" Prelude..= hapgArn)]
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("HapgArn" Core..= hapgArn)]
       )
 
-instance Prelude.ToPath DeleteHapg where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteHapg where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteHapg where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteHapg where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the output of the DeleteHapg action.
 --
 -- /See:/ 'newDeleteHapgResponse' smart constructor.
 data DeleteHapgResponse = DeleteHapgResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | The status of the action.
-    status :: Prelude.Text
+    status :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHapgResponse' with all optional fields omitted.
@@ -156,9 +153,9 @@ data DeleteHapgResponse = DeleteHapgResponse'
 -- 'status', 'deleteHapgResponse_status' - The status of the action.
 newDeleteHapgResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'status'
-  Prelude.Text ->
+  Core.Text ->
   DeleteHapgResponse
 newDeleteHapgResponse pHttpStatus_ pStatus_ =
   DeleteHapgResponse'
@@ -167,11 +164,11 @@ newDeleteHapgResponse pHttpStatus_ pStatus_ =
     }
 
 -- | The response's http status code.
-deleteHapgResponse_httpStatus :: Lens.Lens' DeleteHapgResponse Prelude.Int
+deleteHapgResponse_httpStatus :: Lens.Lens' DeleteHapgResponse Core.Int
 deleteHapgResponse_httpStatus = Lens.lens (\DeleteHapgResponse' {httpStatus} -> httpStatus) (\s@DeleteHapgResponse' {} a -> s {httpStatus = a} :: DeleteHapgResponse)
 
 -- | The status of the action.
-deleteHapgResponse_status :: Lens.Lens' DeleteHapgResponse Prelude.Text
+deleteHapgResponse_status :: Lens.Lens' DeleteHapgResponse Core.Text
 deleteHapgResponse_status = Lens.lens (\DeleteHapgResponse' {status} -> status) (\s@DeleteHapgResponse' {} a -> s {status = a} :: DeleteHapgResponse)
 
-instance Prelude.NFData DeleteHapgResponse
+instance Core.NFData DeleteHapgResponse

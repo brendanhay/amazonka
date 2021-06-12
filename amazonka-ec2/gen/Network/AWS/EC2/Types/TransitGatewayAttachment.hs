@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,42 +19,42 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.TransitGatewayAttachment where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.Tag
 import Network.AWS.EC2.Types.TransitGatewayAttachmentAssociation
 import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
 import Network.AWS.EC2.Types.TransitGatewayAttachmentState
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes an attachment between a resource and a transit gateway.
 --
 -- /See:/ 'newTransitGatewayAttachment' smart constructor.
 data TransitGatewayAttachment = TransitGatewayAttachment'
   { -- | The ID of the resource.
-    resourceId :: Prelude.Maybe Prelude.Text,
+    resourceId :: Core.Maybe Core.Text,
     -- | The creation time.
-    creationTime :: Prelude.Maybe Prelude.ISO8601,
+    creationTime :: Core.Maybe Core.ISO8601,
     -- | The association.
-    association :: Prelude.Maybe TransitGatewayAttachmentAssociation,
+    association :: Core.Maybe TransitGatewayAttachmentAssociation,
     -- | The resource type. Note that the @tgw-peering@ resource type has been
     -- deprecated.
-    resourceType :: Prelude.Maybe TransitGatewayAttachmentResourceType,
+    resourceType :: Core.Maybe TransitGatewayAttachmentResourceType,
     -- | The attachment state. Note that the @initiating@ state has been
     -- deprecated.
-    state :: Prelude.Maybe TransitGatewayAttachmentState,
+    state :: Core.Maybe TransitGatewayAttachmentState,
     -- | The tags for the attachment.
-    tags :: Prelude.Maybe [Tag],
+    tags :: Core.Maybe [Tag],
     -- | The ID of the AWS account that owns the resource.
-    resourceOwnerId :: Prelude.Maybe Prelude.Text,
+    resourceOwnerId :: Core.Maybe Core.Text,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    transitGatewayAttachmentId :: Core.Maybe Core.Text,
     -- | The ID of the AWS account that owns the transit gateway.
-    transitGatewayOwnerId :: Prelude.Maybe Prelude.Text,
+    transitGatewayOwnerId :: Core.Maybe Core.Text,
     -- | The ID of the transit gateway.
-    transitGatewayId :: Prelude.Maybe Prelude.Text
+    transitGatewayId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TransitGatewayAttachment' with all optional fields omitted.
@@ -91,76 +90,76 @@ newTransitGatewayAttachment ::
 newTransitGatewayAttachment =
   TransitGatewayAttachment'
     { resourceId =
-        Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      association = Prelude.Nothing,
-      resourceType = Prelude.Nothing,
-      state = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      resourceOwnerId = Prelude.Nothing,
-      transitGatewayAttachmentId = Prelude.Nothing,
-      transitGatewayOwnerId = Prelude.Nothing,
-      transitGatewayId = Prelude.Nothing
+        Core.Nothing,
+      creationTime = Core.Nothing,
+      association = Core.Nothing,
+      resourceType = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      resourceOwnerId = Core.Nothing,
+      transitGatewayAttachmentId = Core.Nothing,
+      transitGatewayOwnerId = Core.Nothing,
+      transitGatewayId = Core.Nothing
     }
 
 -- | The ID of the resource.
-transitGatewayAttachment_resourceId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayAttachment_resourceId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Core.Text)
 transitGatewayAttachment_resourceId = Lens.lens (\TransitGatewayAttachment' {resourceId} -> resourceId) (\s@TransitGatewayAttachment' {} a -> s {resourceId = a} :: TransitGatewayAttachment)
 
 -- | The creation time.
-transitGatewayAttachment_creationTime :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.UTCTime)
-transitGatewayAttachment_creationTime = Lens.lens (\TransitGatewayAttachment' {creationTime} -> creationTime) (\s@TransitGatewayAttachment' {} a -> s {creationTime = a} :: TransitGatewayAttachment) Prelude.. Lens.mapping Prelude._Time
+transitGatewayAttachment_creationTime :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Core.UTCTime)
+transitGatewayAttachment_creationTime = Lens.lens (\TransitGatewayAttachment' {creationTime} -> creationTime) (\s@TransitGatewayAttachment' {} a -> s {creationTime = a} :: TransitGatewayAttachment) Core.. Lens.mapping Core._Time
 
 -- | The association.
-transitGatewayAttachment_association :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe TransitGatewayAttachmentAssociation)
+transitGatewayAttachment_association :: Lens.Lens' TransitGatewayAttachment (Core.Maybe TransitGatewayAttachmentAssociation)
 transitGatewayAttachment_association = Lens.lens (\TransitGatewayAttachment' {association} -> association) (\s@TransitGatewayAttachment' {} a -> s {association = a} :: TransitGatewayAttachment)
 
 -- | The resource type. Note that the @tgw-peering@ resource type has been
 -- deprecated.
-transitGatewayAttachment_resourceType :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe TransitGatewayAttachmentResourceType)
+transitGatewayAttachment_resourceType :: Lens.Lens' TransitGatewayAttachment (Core.Maybe TransitGatewayAttachmentResourceType)
 transitGatewayAttachment_resourceType = Lens.lens (\TransitGatewayAttachment' {resourceType} -> resourceType) (\s@TransitGatewayAttachment' {} a -> s {resourceType = a} :: TransitGatewayAttachment)
 
 -- | The attachment state. Note that the @initiating@ state has been
 -- deprecated.
-transitGatewayAttachment_state :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe TransitGatewayAttachmentState)
+transitGatewayAttachment_state :: Lens.Lens' TransitGatewayAttachment (Core.Maybe TransitGatewayAttachmentState)
 transitGatewayAttachment_state = Lens.lens (\TransitGatewayAttachment' {state} -> state) (\s@TransitGatewayAttachment' {} a -> s {state = a} :: TransitGatewayAttachment)
 
 -- | The tags for the attachment.
-transitGatewayAttachment_tags :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe [Tag])
-transitGatewayAttachment_tags = Lens.lens (\TransitGatewayAttachment' {tags} -> tags) (\s@TransitGatewayAttachment' {} a -> s {tags = a} :: TransitGatewayAttachment) Prelude.. Lens.mapping Prelude._Coerce
+transitGatewayAttachment_tags :: Lens.Lens' TransitGatewayAttachment (Core.Maybe [Tag])
+transitGatewayAttachment_tags = Lens.lens (\TransitGatewayAttachment' {tags} -> tags) (\s@TransitGatewayAttachment' {} a -> s {tags = a} :: TransitGatewayAttachment) Core.. Lens.mapping Lens._Coerce
 
 -- | The ID of the AWS account that owns the resource.
-transitGatewayAttachment_resourceOwnerId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayAttachment_resourceOwnerId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Core.Text)
 transitGatewayAttachment_resourceOwnerId = Lens.lens (\TransitGatewayAttachment' {resourceOwnerId} -> resourceOwnerId) (\s@TransitGatewayAttachment' {} a -> s {resourceOwnerId = a} :: TransitGatewayAttachment)
 
 -- | The ID of the attachment.
-transitGatewayAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayAttachment_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Core.Text)
 transitGatewayAttachment_transitGatewayAttachmentId = Lens.lens (\TransitGatewayAttachment' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayAttachment' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayAttachment)
 
 -- | The ID of the AWS account that owns the transit gateway.
-transitGatewayAttachment_transitGatewayOwnerId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayAttachment_transitGatewayOwnerId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Core.Text)
 transitGatewayAttachment_transitGatewayOwnerId = Lens.lens (\TransitGatewayAttachment' {transitGatewayOwnerId} -> transitGatewayOwnerId) (\s@TransitGatewayAttachment' {} a -> s {transitGatewayOwnerId = a} :: TransitGatewayAttachment)
 
 -- | The ID of the transit gateway.
-transitGatewayAttachment_transitGatewayId :: Lens.Lens' TransitGatewayAttachment (Prelude.Maybe Prelude.Text)
+transitGatewayAttachment_transitGatewayId :: Lens.Lens' TransitGatewayAttachment (Core.Maybe Core.Text)
 transitGatewayAttachment_transitGatewayId = Lens.lens (\TransitGatewayAttachment' {transitGatewayId} -> transitGatewayId) (\s@TransitGatewayAttachment' {} a -> s {transitGatewayId = a} :: TransitGatewayAttachment)
 
-instance Prelude.FromXML TransitGatewayAttachment where
+instance Core.FromXML TransitGatewayAttachment where
   parseXML x =
     TransitGatewayAttachment'
-      Prelude.<$> (x Prelude..@? "resourceId")
-      Prelude.<*> (x Prelude..@? "creationTime")
-      Prelude.<*> (x Prelude..@? "association")
-      Prelude.<*> (x Prelude..@? "resourceType")
-      Prelude.<*> (x Prelude..@? "state")
-      Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "resourceOwnerId")
-      Prelude.<*> (x Prelude..@? "transitGatewayAttachmentId")
-      Prelude.<*> (x Prelude..@? "transitGatewayOwnerId")
-      Prelude.<*> (x Prelude..@? "transitGatewayId")
+      Core.<$> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "creationTime")
+      Core.<*> (x Core..@? "association")
+      Core.<*> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "state")
+      Core.<*> ( x Core..@? "tagSet" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "resourceOwnerId")
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")
+      Core.<*> (x Core..@? "transitGatewayOwnerId")
+      Core.<*> (x Core..@? "transitGatewayId")
 
-instance Prelude.Hashable TransitGatewayAttachment
+instance Core.Hashable TransitGatewayAttachment
 
-instance Prelude.NFData TransitGatewayAttachment
+instance Core.NFData TransitGatewayAttachment

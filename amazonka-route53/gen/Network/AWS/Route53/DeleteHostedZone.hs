@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -90,8 +89,8 @@ module Network.AWS.Route53.DeleteHostedZone
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
@@ -103,7 +102,7 @@ data DeleteHostedZone = DeleteHostedZone'
   { -- | The ID of the hosted zone you want to delete.
     id :: ResourceId
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHostedZone' with all optional fields omitted.
@@ -125,31 +124,33 @@ newDeleteHostedZone pId_ =
 deleteHostedZone_id :: Lens.Lens' DeleteHostedZone ResourceId
 deleteHostedZone_id = Lens.lens (\DeleteHostedZone' {id} -> id) (\s@DeleteHostedZone' {} a -> s {id = a} :: DeleteHostedZone)
 
-instance Prelude.AWSRequest DeleteHostedZone where
-  type Rs DeleteHostedZone = DeleteHostedZoneResponse
+instance Core.AWSRequest DeleteHostedZone where
+  type
+    AWSResponse DeleteHostedZone =
+      DeleteHostedZoneResponse
   request = Request.delete defaultService
   response =
     Response.receiveXML
       ( \s h x ->
           DeleteHostedZoneResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..@ "ChangeInfo")
+            Core.<$> (Core.pure (Core.fromEnum s))
+            Core.<*> (x Core..@ "ChangeInfo")
       )
 
-instance Prelude.Hashable DeleteHostedZone
+instance Core.Hashable DeleteHostedZone
 
-instance Prelude.NFData DeleteHostedZone
+instance Core.NFData DeleteHostedZone
 
-instance Prelude.ToHeaders DeleteHostedZone where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteHostedZone where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteHostedZone where
+instance Core.ToPath DeleteHostedZone where
   toPath DeleteHostedZone' {..} =
-    Prelude.mconcat
-      ["/2013-04-01/hostedzone/", Prelude.toBS id]
+    Core.mconcat
+      ["/2013-04-01/hostedzone/", Core.toBS id]
 
-instance Prelude.ToQuery DeleteHostedZone where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteHostedZone where
+  toQuery = Core.const Core.mempty
 
 -- | A complex type that contains the response to a @DeleteHostedZone@
 -- request.
@@ -157,12 +158,12 @@ instance Prelude.ToQuery DeleteHostedZone where
 -- /See:/ 'newDeleteHostedZoneResponse' smart constructor.
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | A complex type that contains the ID, the status, and the date and time
     -- of a request to delete a hosted zone.
     changeInfo :: ChangeInfo
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteHostedZoneResponse' with all optional fields omitted.
@@ -178,7 +179,7 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
 -- of a request to delete a hosted zone.
 newDeleteHostedZoneResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   -- | 'changeInfo'
   ChangeInfo ->
   DeleteHostedZoneResponse
@@ -190,7 +191,7 @@ newDeleteHostedZoneResponse pHttpStatus_ pChangeInfo_ =
     }
 
 -- | The response's http status code.
-deleteHostedZoneResponse_httpStatus :: Lens.Lens' DeleteHostedZoneResponse Prelude.Int
+deleteHostedZoneResponse_httpStatus :: Lens.Lens' DeleteHostedZoneResponse Core.Int
 deleteHostedZoneResponse_httpStatus = Lens.lens (\DeleteHostedZoneResponse' {httpStatus} -> httpStatus) (\s@DeleteHostedZoneResponse' {} a -> s {httpStatus = a} :: DeleteHostedZoneResponse)
 
 -- | A complex type that contains the ID, the status, and the date and time
@@ -198,4 +199,4 @@ deleteHostedZoneResponse_httpStatus = Lens.lens (\DeleteHostedZoneResponse' {htt
 deleteHostedZoneResponse_changeInfo :: Lens.Lens' DeleteHostedZoneResponse ChangeInfo
 deleteHostedZoneResponse_changeInfo = Lens.lens (\DeleteHostedZoneResponse' {changeInfo} -> changeInfo) (\s@DeleteHostedZoneResponse' {} a -> s {changeInfo = a} :: DeleteHostedZoneResponse)
 
-instance Prelude.NFData DeleteHostedZoneResponse
+instance Core.NFData DeleteHostedZoneResponse

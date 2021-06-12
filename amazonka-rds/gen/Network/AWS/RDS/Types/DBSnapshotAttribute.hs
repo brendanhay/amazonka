@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.RDS.Types.DBSnapshotAttribute where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the name and values of a manual DB snapshot attribute
 --
@@ -36,7 +35,7 @@ data DBSnapshotAttribute = DBSnapshotAttribute'
     -- The attribute named @restore@ refers to the list of AWS accounts that
     -- have permission to copy or restore the manual DB cluster snapshot. For
     -- more information, see the @ModifyDBSnapshotAttribute@ API action.
-    attributeName :: Prelude.Maybe Prelude.Text,
+    attributeName :: Core.Maybe Core.Text,
     -- | The value or values for the manual DB snapshot attribute.
     --
     -- If the @AttributeName@ field is set to @restore@, then this element
@@ -44,9 +43,9 @@ data DBSnapshotAttribute = DBSnapshotAttribute'
     -- restore the manual DB snapshot. If a value of @all@ is in the list, then
     -- the manual DB snapshot is public and available for any AWS account to
     -- copy or restore.
-    attributeValues :: Prelude.Maybe [Prelude.Text]
+    attributeValues :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DBSnapshotAttribute' with all optional fields omitted.
@@ -73,9 +72,8 @@ newDBSnapshotAttribute ::
   DBSnapshotAttribute
 newDBSnapshotAttribute =
   DBSnapshotAttribute'
-    { attributeName =
-        Prelude.Nothing,
-      attributeValues = Prelude.Nothing
+    { attributeName = Core.Nothing,
+      attributeValues = Core.Nothing
     }
 
 -- | The name of the manual DB snapshot attribute.
@@ -83,7 +81,7 @@ newDBSnapshotAttribute =
 -- The attribute named @restore@ refers to the list of AWS accounts that
 -- have permission to copy or restore the manual DB cluster snapshot. For
 -- more information, see the @ModifyDBSnapshotAttribute@ API action.
-dbSnapshotAttribute_attributeName :: Lens.Lens' DBSnapshotAttribute (Prelude.Maybe Prelude.Text)
+dbSnapshotAttribute_attributeName :: Lens.Lens' DBSnapshotAttribute (Core.Maybe Core.Text)
 dbSnapshotAttribute_attributeName = Lens.lens (\DBSnapshotAttribute' {attributeName} -> attributeName) (\s@DBSnapshotAttribute' {} a -> s {attributeName = a} :: DBSnapshotAttribute)
 
 -- | The value or values for the manual DB snapshot attribute.
@@ -93,18 +91,17 @@ dbSnapshotAttribute_attributeName = Lens.lens (\DBSnapshotAttribute' {attributeN
 -- restore the manual DB snapshot. If a value of @all@ is in the list, then
 -- the manual DB snapshot is public and available for any AWS account to
 -- copy or restore.
-dbSnapshotAttribute_attributeValues :: Lens.Lens' DBSnapshotAttribute (Prelude.Maybe [Prelude.Text])
-dbSnapshotAttribute_attributeValues = Lens.lens (\DBSnapshotAttribute' {attributeValues} -> attributeValues) (\s@DBSnapshotAttribute' {} a -> s {attributeValues = a} :: DBSnapshotAttribute) Prelude.. Lens.mapping Prelude._Coerce
+dbSnapshotAttribute_attributeValues :: Lens.Lens' DBSnapshotAttribute (Core.Maybe [Core.Text])
+dbSnapshotAttribute_attributeValues = Lens.lens (\DBSnapshotAttribute' {attributeValues} -> attributeValues) (\s@DBSnapshotAttribute' {} a -> s {attributeValues = a} :: DBSnapshotAttribute) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromXML DBSnapshotAttribute where
+instance Core.FromXML DBSnapshotAttribute where
   parseXML x =
     DBSnapshotAttribute'
-      Prelude.<$> (x Prelude..@? "AttributeName")
-      Prelude.<*> ( x Prelude..@? "AttributeValues"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "AttributeValue")
-                  )
+      Core.<$> (x Core..@? "AttributeName")
+      Core.<*> ( x Core..@? "AttributeValues" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "AttributeValue")
+               )
 
-instance Prelude.Hashable DBSnapshotAttribute
+instance Core.Hashable DBSnapshotAttribute
 
-instance Prelude.NFData DBSnapshotAttribute
+instance Core.NFData DBSnapshotAttribute

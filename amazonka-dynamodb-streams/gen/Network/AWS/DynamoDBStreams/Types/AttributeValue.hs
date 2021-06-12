@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDBStreams.Types.AttributeValue where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents the data for an attribute.
 --
@@ -37,11 +36,11 @@ data AttributeValue = AttributeValue'
   { -- | An attribute of type Binary Set. For example:
     --
     -- @\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]@
-    bs :: Prelude.Maybe [Prelude.Base64],
+    bs :: Core.Maybe [Core.Base64],
     -- | An attribute of type Boolean. For example:
     --
     -- @\"BOOL\": true@
-    bool :: Prelude.Maybe Prelude.Bool,
+    bool :: Core.Maybe Core.Bool,
     -- | An attribute of type Number. For example:
     --
     -- @\"N\": \"123.45\"@
@@ -49,31 +48,31 @@ data AttributeValue = AttributeValue'
     -- Numbers are sent across the network to DynamoDB as strings, to maximize
     -- compatibility across languages and libraries. However, DynamoDB treats
     -- them as number type attributes for mathematical operations.
-    n :: Prelude.Maybe Prelude.Text,
+    n :: Core.Maybe Core.Text,
     -- | An attribute of type String. For example:
     --
     -- @\"S\": \"Hello\"@
-    s :: Prelude.Maybe Prelude.Text,
+    s :: Core.Maybe Core.Text,
     -- | An attribute of type Null. For example:
     --
     -- @\"NULL\": true@
-    null :: Prelude.Maybe Prelude.Bool,
+    null :: Core.Maybe Core.Bool,
     -- | An attribute of type Map. For example:
     --
     -- @\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}@
-    m :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    m :: Core.Maybe (Core.HashMap Core.Text AttributeValue),
     -- | An attribute of type Binary. For example:
     --
     -- @\"B\": \"dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\"@
-    b :: Prelude.Maybe Prelude.Base64,
+    b :: Core.Maybe Core.Base64,
     -- | An attribute of type List. For example:
     --
     -- @\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]@
-    l :: Prelude.Maybe [AttributeValue],
+    l :: Core.Maybe [AttributeValue],
     -- | An attribute of type String Set. For example:
     --
     -- @\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]@
-    ss :: Prelude.Maybe [Prelude.Text],
+    ss :: Core.Maybe [Core.Text],
     -- | An attribute of type Number Set. For example:
     --
     -- @\"NS\": [\"42.2\", \"-19\", \"7.5\", \"3.14\"]@
@@ -81,9 +80,9 @@ data AttributeValue = AttributeValue'
     -- Numbers are sent across the network to DynamoDB as strings, to maximize
     -- compatibility across languages and libraries. However, DynamoDB treats
     -- them as number type attributes for mathematical operations.
-    ns :: Prelude.Maybe [Prelude.Text]
+    ns :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeValue' with all optional fields omitted.
@@ -148,28 +147,28 @@ newAttributeValue ::
   AttributeValue
 newAttributeValue =
   AttributeValue'
-    { bs = Prelude.Nothing,
-      bool = Prelude.Nothing,
-      n = Prelude.Nothing,
-      s = Prelude.Nothing,
-      null = Prelude.Nothing,
-      m = Prelude.Nothing,
-      b = Prelude.Nothing,
-      l = Prelude.Nothing,
-      ss = Prelude.Nothing,
-      ns = Prelude.Nothing
+    { bs = Core.Nothing,
+      bool = Core.Nothing,
+      n = Core.Nothing,
+      s = Core.Nothing,
+      null = Core.Nothing,
+      m = Core.Nothing,
+      b = Core.Nothing,
+      l = Core.Nothing,
+      ss = Core.Nothing,
+      ns = Core.Nothing
     }
 
 -- | An attribute of type Binary Set. For example:
 --
 -- @\"BS\": [\"U3Vubnk=\", \"UmFpbnk=\", \"U25vd3k=\"]@
-attributeValue_bs :: Lens.Lens' AttributeValue (Prelude.Maybe [Prelude.ByteString])
-attributeValue_bs = Lens.lens (\AttributeValue' {bs} -> bs) (\s@AttributeValue' {} a -> s {bs = a} :: AttributeValue) Prelude.. Lens.mapping Prelude._Coerce
+attributeValue_bs :: Lens.Lens' AttributeValue (Core.Maybe [Core.ByteString])
+attributeValue_bs = Lens.lens (\AttributeValue' {bs} -> bs) (\s@AttributeValue' {} a -> s {bs = a} :: AttributeValue) Core.. Lens.mapping Lens._Coerce
 
 -- | An attribute of type Boolean. For example:
 --
 -- @\"BOOL\": true@
-attributeValue_bool :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Bool)
+attributeValue_bool :: Lens.Lens' AttributeValue (Core.Maybe Core.Bool)
 attributeValue_bool = Lens.lens (\AttributeValue' {bool} -> bool) (\s@AttributeValue' {} a -> s {bool = a} :: AttributeValue)
 
 -- | An attribute of type Number. For example:
@@ -179,26 +178,26 @@ attributeValue_bool = Lens.lens (\AttributeValue' {bool} -> bool) (\s@AttributeV
 -- Numbers are sent across the network to DynamoDB as strings, to maximize
 -- compatibility across languages and libraries. However, DynamoDB treats
 -- them as number type attributes for mathematical operations.
-attributeValue_n :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
+attributeValue_n :: Lens.Lens' AttributeValue (Core.Maybe Core.Text)
 attributeValue_n = Lens.lens (\AttributeValue' {n} -> n) (\s@AttributeValue' {} a -> s {n = a} :: AttributeValue)
 
 -- | An attribute of type String. For example:
 --
 -- @\"S\": \"Hello\"@
-attributeValue_s :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Text)
+attributeValue_s :: Lens.Lens' AttributeValue (Core.Maybe Core.Text)
 attributeValue_s = Lens.lens (\AttributeValue' {s} -> s) (\s@AttributeValue' {} a -> s {s = a} :: AttributeValue)
 
 -- | An attribute of type Null. For example:
 --
 -- @\"NULL\": true@
-attributeValue_null :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.Bool)
+attributeValue_null :: Lens.Lens' AttributeValue (Core.Maybe Core.Bool)
 attributeValue_null = Lens.lens (\AttributeValue' {null} -> null) (\s@AttributeValue' {} a -> s {null = a} :: AttributeValue)
 
 -- | An attribute of type Map. For example:
 --
 -- @\"M\": {\"Name\": {\"S\": \"Joe\"}, \"Age\": {\"N\": \"35\"}}@
-attributeValue_m :: Lens.Lens' AttributeValue (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-attributeValue_m = Lens.lens (\AttributeValue' {m} -> m) (\s@AttributeValue' {} a -> s {m = a} :: AttributeValue) Prelude.. Lens.mapping Prelude._Coerce
+attributeValue_m :: Lens.Lens' AttributeValue (Core.Maybe (Core.HashMap Core.Text AttributeValue))
+attributeValue_m = Lens.lens (\AttributeValue' {m} -> m) (\s@AttributeValue' {} a -> s {m = a} :: AttributeValue) Core.. Lens.mapping Lens._Coerce
 
 -- | An attribute of type Binary. For example:
 --
@@ -207,20 +206,20 @@ attributeValue_m = Lens.lens (\AttributeValue' {m} -> m) (\s@AttributeValue' {} 
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
-attributeValue_b :: Lens.Lens' AttributeValue (Prelude.Maybe Prelude.ByteString)
-attributeValue_b = Lens.lens (\AttributeValue' {b} -> b) (\s@AttributeValue' {} a -> s {b = a} :: AttributeValue) Prelude.. Lens.mapping Prelude._Base64
+attributeValue_b :: Lens.Lens' AttributeValue (Core.Maybe Core.ByteString)
+attributeValue_b = Lens.lens (\AttributeValue' {b} -> b) (\s@AttributeValue' {} a -> s {b = a} :: AttributeValue) Core.. Lens.mapping Core._Base64
 
 -- | An attribute of type List. For example:
 --
 -- @\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]@
-attributeValue_l :: Lens.Lens' AttributeValue (Prelude.Maybe [AttributeValue])
-attributeValue_l = Lens.lens (\AttributeValue' {l} -> l) (\s@AttributeValue' {} a -> s {l = a} :: AttributeValue) Prelude.. Lens.mapping Prelude._Coerce
+attributeValue_l :: Lens.Lens' AttributeValue (Core.Maybe [AttributeValue])
+attributeValue_l = Lens.lens (\AttributeValue' {l} -> l) (\s@AttributeValue' {} a -> s {l = a} :: AttributeValue) Core.. Lens.mapping Lens._Coerce
 
 -- | An attribute of type String Set. For example:
 --
 -- @\"SS\": [\"Giraffe\", \"Hippo\" ,\"Zebra\"]@
-attributeValue_ss :: Lens.Lens' AttributeValue (Prelude.Maybe [Prelude.Text])
-attributeValue_ss = Lens.lens (\AttributeValue' {ss} -> ss) (\s@AttributeValue' {} a -> s {ss = a} :: AttributeValue) Prelude.. Lens.mapping Prelude._Coerce
+attributeValue_ss :: Lens.Lens' AttributeValue (Core.Maybe [Core.Text])
+attributeValue_ss = Lens.lens (\AttributeValue' {ss} -> ss) (\s@AttributeValue' {} a -> s {ss = a} :: AttributeValue) Core.. Lens.mapping Lens._Coerce
 
 -- | An attribute of type Number Set. For example:
 --
@@ -229,27 +228,27 @@ attributeValue_ss = Lens.lens (\AttributeValue' {ss} -> ss) (\s@AttributeValue' 
 -- Numbers are sent across the network to DynamoDB as strings, to maximize
 -- compatibility across languages and libraries. However, DynamoDB treats
 -- them as number type attributes for mathematical operations.
-attributeValue_ns :: Lens.Lens' AttributeValue (Prelude.Maybe [Prelude.Text])
-attributeValue_ns = Lens.lens (\AttributeValue' {ns} -> ns) (\s@AttributeValue' {} a -> s {ns = a} :: AttributeValue) Prelude.. Lens.mapping Prelude._Coerce
+attributeValue_ns :: Lens.Lens' AttributeValue (Core.Maybe [Core.Text])
+attributeValue_ns = Lens.lens (\AttributeValue' {ns} -> ns) (\s@AttributeValue' {} a -> s {ns = a} :: AttributeValue) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON AttributeValue where
+instance Core.FromJSON AttributeValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributeValue"
       ( \x ->
           AttributeValue'
-            Prelude.<$> (x Prelude..:? "BS" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "BOOL")
-            Prelude.<*> (x Prelude..:? "N")
-            Prelude.<*> (x Prelude..:? "S")
-            Prelude.<*> (x Prelude..:? "NULL")
-            Prelude.<*> (x Prelude..:? "M" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "B")
-            Prelude.<*> (x Prelude..:? "L" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "SS" Prelude..!= Prelude.mempty)
-            Prelude.<*> (x Prelude..:? "NS" Prelude..!= Prelude.mempty)
+            Core.<$> (x Core..:? "BS" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "BOOL")
+            Core.<*> (x Core..:? "N")
+            Core.<*> (x Core..:? "S")
+            Core.<*> (x Core..:? "NULL")
+            Core.<*> (x Core..:? "M" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "B")
+            Core.<*> (x Core..:? "L" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "SS" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NS" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AttributeValue
+instance Core.Hashable AttributeValue
 
-instance Prelude.NFData AttributeValue
+instance Core.NFData AttributeValue

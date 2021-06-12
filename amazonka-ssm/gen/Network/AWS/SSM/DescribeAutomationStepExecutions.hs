@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,8 @@ module Network.AWS.SSM.DescribeAutomationStepExecutions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
@@ -59,22 +57,22 @@ import Network.AWS.SSM.Types
 data DescribeAutomationStepExecutions = DescribeAutomationStepExecutions'
   { -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A boolean that indicates whether to list step executions in reverse
     -- order by start time. The default value is false.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
+    reverseOrder :: Core.Maybe Core.Bool,
     -- | One or more filters to limit the number of step executions returned by
     -- the request.
-    filters :: Prelude.Maybe (Prelude.NonEmpty StepExecutionFilter),
+    filters :: Core.Maybe (Core.NonEmpty StepExecutionFilter),
     -- | The Automation execution ID for which you want step execution
     -- descriptions.
-    automationExecutionId :: Prelude.Text
+    automationExecutionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutomationStepExecutions' with all optional fields omitted.
@@ -101,158 +99,146 @@ data DescribeAutomationStepExecutions = DescribeAutomationStepExecutions'
 -- descriptions.
 newDescribeAutomationStepExecutions ::
   -- | 'automationExecutionId'
-  Prelude.Text ->
+  Core.Text ->
   DescribeAutomationStepExecutions
 newDescribeAutomationStepExecutions
   pAutomationExecutionId_ =
     DescribeAutomationStepExecutions'
       { nextToken =
-          Prelude.Nothing,
-        maxResults = Prelude.Nothing,
-        reverseOrder = Prelude.Nothing,
-        filters = Prelude.Nothing,
+          Core.Nothing,
+        maxResults = Core.Nothing,
+        reverseOrder = Core.Nothing,
+        filters = Core.Nothing,
         automationExecutionId =
           pAutomationExecutionId_
       }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-describeAutomationStepExecutions_nextToken :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Text)
+describeAutomationStepExecutions_nextToken :: Lens.Lens' DescribeAutomationStepExecutions (Core.Maybe Core.Text)
 describeAutomationStepExecutions_nextToken = Lens.lens (\DescribeAutomationStepExecutions' {nextToken} -> nextToken) (\s@DescribeAutomationStepExecutions' {} a -> s {nextToken = a} :: DescribeAutomationStepExecutions)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-describeAutomationStepExecutions_maxResults :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Natural)
+describeAutomationStepExecutions_maxResults :: Lens.Lens' DescribeAutomationStepExecutions (Core.Maybe Core.Natural)
 describeAutomationStepExecutions_maxResults = Lens.lens (\DescribeAutomationStepExecutions' {maxResults} -> maxResults) (\s@DescribeAutomationStepExecutions' {} a -> s {maxResults = a} :: DescribeAutomationStepExecutions)
 
 -- | A boolean that indicates whether to list step executions in reverse
 -- order by start time. The default value is false.
-describeAutomationStepExecutions_reverseOrder :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Bool)
+describeAutomationStepExecutions_reverseOrder :: Lens.Lens' DescribeAutomationStepExecutions (Core.Maybe Core.Bool)
 describeAutomationStepExecutions_reverseOrder = Lens.lens (\DescribeAutomationStepExecutions' {reverseOrder} -> reverseOrder) (\s@DescribeAutomationStepExecutions' {} a -> s {reverseOrder = a} :: DescribeAutomationStepExecutions)
 
 -- | One or more filters to limit the number of step executions returned by
 -- the request.
-describeAutomationStepExecutions_filters :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe (Prelude.NonEmpty StepExecutionFilter))
-describeAutomationStepExecutions_filters = Lens.lens (\DescribeAutomationStepExecutions' {filters} -> filters) (\s@DescribeAutomationStepExecutions' {} a -> s {filters = a} :: DescribeAutomationStepExecutions) Prelude.. Lens.mapping Prelude._Coerce
+describeAutomationStepExecutions_filters :: Lens.Lens' DescribeAutomationStepExecutions (Core.Maybe (Core.NonEmpty StepExecutionFilter))
+describeAutomationStepExecutions_filters = Lens.lens (\DescribeAutomationStepExecutions' {filters} -> filters) (\s@DescribeAutomationStepExecutions' {} a -> s {filters = a} :: DescribeAutomationStepExecutions) Core.. Lens.mapping Lens._Coerce
 
 -- | The Automation execution ID for which you want step execution
 -- descriptions.
-describeAutomationStepExecutions_automationExecutionId :: Lens.Lens' DescribeAutomationStepExecutions Prelude.Text
+describeAutomationStepExecutions_automationExecutionId :: Lens.Lens' DescribeAutomationStepExecutions Core.Text
 describeAutomationStepExecutions_automationExecutionId = Lens.lens (\DescribeAutomationStepExecutions' {automationExecutionId} -> automationExecutionId) (\s@DescribeAutomationStepExecutions' {} a -> s {automationExecutionId = a} :: DescribeAutomationStepExecutions)
 
 instance
-  Pager.AWSPager
+  Core.AWSPager
     DescribeAutomationStepExecutions
   where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeAutomationStepExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeAutomationStepExecutionsResponse_stepExecutions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeAutomationStepExecutions_nextToken
           Lens..~ rs
           Lens.^? describeAutomationStepExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     DescribeAutomationStepExecutions
   where
   type
-    Rs DescribeAutomationStepExecutions =
+    AWSResponse DescribeAutomationStepExecutions =
       DescribeAutomationStepExecutionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeAutomationStepExecutionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "StepExecutions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "StepExecutions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     DescribeAutomationStepExecutions
 
-instance
-  Prelude.NFData
-    DescribeAutomationStepExecutions
+instance Core.NFData DescribeAutomationStepExecutions
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     DescribeAutomationStepExecutions
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonSSM.DescribeAutomationStepExecutions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonSSM.DescribeAutomationStepExecutions" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    DescribeAutomationStepExecutions
-  where
+instance Core.ToJSON DescribeAutomationStepExecutions where
   toJSON DescribeAutomationStepExecutions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("ReverseOrder" Prelude..=) Prelude.<$> reverseOrder,
-            ("Filters" Prelude..=) Prelude.<$> filters,
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("ReverseOrder" Core..=) Core.<$> reverseOrder,
+            ("Filters" Core..=) Core.<$> filters,
+            Core.Just
               ( "AutomationExecutionId"
-                  Prelude..= automationExecutionId
+                  Core..= automationExecutionId
               )
           ]
       )
 
-instance
-  Prelude.ToPath
-    DescribeAutomationStepExecutions
-  where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeAutomationStepExecutions where
+  toPath = Core.const "/"
 
 instance
-  Prelude.ToQuery
+  Core.ToQuery
     DescribeAutomationStepExecutions
   where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeAutomationStepExecutionsResponse' smart constructor.
 data DescribeAutomationStepExecutionsResponse = DescribeAutomationStepExecutionsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A list of details about the current state of all steps that make up an
     -- execution.
-    stepExecutions :: Prelude.Maybe [StepExecution],
+    stepExecutions :: Core.Maybe [StepExecution],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeAutomationStepExecutionsResponse' with all optional fields omitted.
@@ -271,31 +257,31 @@ data DescribeAutomationStepExecutionsResponse = DescribeAutomationStepExecutions
 -- 'httpStatus', 'describeAutomationStepExecutionsResponse_httpStatus' - The response's http status code.
 newDescribeAutomationStepExecutionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeAutomationStepExecutionsResponse
 newDescribeAutomationStepExecutionsResponse
   pHttpStatus_ =
     DescribeAutomationStepExecutionsResponse'
       { nextToken =
-          Prelude.Nothing,
-        stepExecutions = Prelude.Nothing,
+          Core.Nothing,
+        stepExecutions = Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-describeAutomationStepExecutionsResponse_nextToken :: Lens.Lens' DescribeAutomationStepExecutionsResponse (Prelude.Maybe Prelude.Text)
+describeAutomationStepExecutionsResponse_nextToken :: Lens.Lens' DescribeAutomationStepExecutionsResponse (Core.Maybe Core.Text)
 describeAutomationStepExecutionsResponse_nextToken = Lens.lens (\DescribeAutomationStepExecutionsResponse' {nextToken} -> nextToken) (\s@DescribeAutomationStepExecutionsResponse' {} a -> s {nextToken = a} :: DescribeAutomationStepExecutionsResponse)
 
 -- | A list of details about the current state of all steps that make up an
 -- execution.
-describeAutomationStepExecutionsResponse_stepExecutions :: Lens.Lens' DescribeAutomationStepExecutionsResponse (Prelude.Maybe [StepExecution])
-describeAutomationStepExecutionsResponse_stepExecutions = Lens.lens (\DescribeAutomationStepExecutionsResponse' {stepExecutions} -> stepExecutions) (\s@DescribeAutomationStepExecutionsResponse' {} a -> s {stepExecutions = a} :: DescribeAutomationStepExecutionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeAutomationStepExecutionsResponse_stepExecutions :: Lens.Lens' DescribeAutomationStepExecutionsResponse (Core.Maybe [StepExecution])
+describeAutomationStepExecutionsResponse_stepExecutions = Lens.lens (\DescribeAutomationStepExecutionsResponse' {stepExecutions} -> stepExecutions) (\s@DescribeAutomationStepExecutionsResponse' {} a -> s {stepExecutions = a} :: DescribeAutomationStepExecutionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeAutomationStepExecutionsResponse_httpStatus :: Lens.Lens' DescribeAutomationStepExecutionsResponse Prelude.Int
+describeAutomationStepExecutionsResponse_httpStatus :: Lens.Lens' DescribeAutomationStepExecutionsResponse Core.Int
 describeAutomationStepExecutionsResponse_httpStatus = Lens.lens (\DescribeAutomationStepExecutionsResponse' {httpStatus} -> httpStatus) (\s@DescribeAutomationStepExecutionsResponse' {} a -> s {httpStatus = a} :: DescribeAutomationStepExecutionsResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     DescribeAutomationStepExecutionsResponse

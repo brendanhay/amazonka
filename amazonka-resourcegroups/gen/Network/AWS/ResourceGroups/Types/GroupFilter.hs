@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ResourceGroups.Types.GroupFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.ResourceGroups.Types.GroupFilterName
 
 -- | A filter collection that you can use to restrict the results from a
@@ -33,9 +32,9 @@ data GroupFilter = GroupFilter'
     name :: GroupFilterName,
     -- | One or more filter values. Allowed filter values vary by group filter
     -- name, and are case-sensitive.
-    values :: Prelude.NonEmpty Prelude.Text
+    values :: Core.NonEmpty Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GroupFilter' with all optional fields omitted.
@@ -53,12 +52,12 @@ newGroupFilter ::
   -- | 'name'
   GroupFilterName ->
   -- | 'values'
-  Prelude.NonEmpty Prelude.Text ->
+  Core.NonEmpty Core.Text ->
   GroupFilter
 newGroupFilter pName_ pValues_ =
   GroupFilter'
     { name = pName_,
-      values = Prelude._Coerce Lens.# pValues_
+      values = Lens._Coerce Lens.# pValues_
     }
 
 -- | The name of the filter. Filter names are case-sensitive.
@@ -67,18 +66,18 @@ groupFilter_name = Lens.lens (\GroupFilter' {name} -> name) (\s@GroupFilter' {} 
 
 -- | One or more filter values. Allowed filter values vary by group filter
 -- name, and are case-sensitive.
-groupFilter_values :: Lens.Lens' GroupFilter (Prelude.NonEmpty Prelude.Text)
-groupFilter_values = Lens.lens (\GroupFilter' {values} -> values) (\s@GroupFilter' {} a -> s {values = a} :: GroupFilter) Prelude.. Prelude._Coerce
+groupFilter_values :: Lens.Lens' GroupFilter (Core.NonEmpty Core.Text)
+groupFilter_values = Lens.lens (\GroupFilter' {values} -> values) (\s@GroupFilter' {} a -> s {values = a} :: GroupFilter) Core.. Lens._Coerce
 
-instance Prelude.Hashable GroupFilter
+instance Core.Hashable GroupFilter
 
-instance Prelude.NFData GroupFilter
+instance Core.NFData GroupFilter
 
-instance Prelude.ToJSON GroupFilter where
+instance Core.ToJSON GroupFilter where
   toJSON GroupFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Prelude..= name),
-            Prelude.Just ("Values" Prelude..= values)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Values" Core..= values)
           ]
       )

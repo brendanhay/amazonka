@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types.Condition where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types.Operator
 import Network.AWS.Pinpoint.Types.SimpleCondition
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies the conditions to evaluate for an activity in a journey, and
 -- how to evaluate those conditions.
@@ -33,11 +32,11 @@ data Condition = Condition'
   { -- | Specifies how to handle multiple conditions for the activity. For
     -- example, if you specify two conditions for an activity, whether both or
     -- only one of the conditions must be met for the activity to be performed.
-    operator :: Prelude.Maybe Operator,
+    operator :: Core.Maybe Operator,
     -- | The conditions to evaluate for the activity.
-    conditions :: Prelude.Maybe [SimpleCondition]
+    conditions :: Core.Maybe [SimpleCondition]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Condition' with all optional fields omitted.
@@ -56,41 +55,39 @@ newCondition ::
   Condition
 newCondition =
   Condition'
-    { operator = Prelude.Nothing,
-      conditions = Prelude.Nothing
+    { operator = Core.Nothing,
+      conditions = Core.Nothing
     }
 
 -- | Specifies how to handle multiple conditions for the activity. For
 -- example, if you specify two conditions for an activity, whether both or
 -- only one of the conditions must be met for the activity to be performed.
-condition_operator :: Lens.Lens' Condition (Prelude.Maybe Operator)
+condition_operator :: Lens.Lens' Condition (Core.Maybe Operator)
 condition_operator = Lens.lens (\Condition' {operator} -> operator) (\s@Condition' {} a -> s {operator = a} :: Condition)
 
 -- | The conditions to evaluate for the activity.
-condition_conditions :: Lens.Lens' Condition (Prelude.Maybe [SimpleCondition])
-condition_conditions = Lens.lens (\Condition' {conditions} -> conditions) (\s@Condition' {} a -> s {conditions = a} :: Condition) Prelude.. Lens.mapping Prelude._Coerce
+condition_conditions :: Lens.Lens' Condition (Core.Maybe [SimpleCondition])
+condition_conditions = Lens.lens (\Condition' {conditions} -> conditions) (\s@Condition' {} a -> s {conditions = a} :: Condition) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON Condition where
+instance Core.FromJSON Condition where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Condition"
       ( \x ->
           Condition'
-            Prelude.<$> (x Prelude..:? "Operator")
-            Prelude.<*> ( x Prelude..:? "Conditions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Operator")
+            Core.<*> (x Core..:? "Conditions" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable Condition
+instance Core.Hashable Condition
 
-instance Prelude.NFData Condition
+instance Core.NFData Condition
 
-instance Prelude.ToJSON Condition where
+instance Core.ToJSON Condition where
   toJSON Condition' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Operator" Prelude..=) Prelude.<$> operator,
-            ("Conditions" Prelude..=) Prelude.<$> conditions
+    Core.object
+      ( Core.catMaybes
+          [ ("Operator" Core..=) Core.<$> operator,
+            ("Conditions" Core..=) Core.<$> conditions
           ]
       )

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Types.ReplicationConfiguration where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.ReplicationRule
 
@@ -35,13 +34,13 @@ data ReplicationConfiguration = ReplicationConfiguration'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication>
     -- in the /Amazon Simple Storage Service Developer Guide/.
-    role' :: Prelude.Text,
+    role' :: Core.Text,
     -- | A container for one or more replication rules. A replication
     -- configuration must have at least one rule and can contain a maximum of
     -- 1,000 rules.
     rules :: [ReplicationRule]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReplicationConfiguration' with all optional fields omitted.
@@ -62,12 +61,12 @@ data ReplicationConfiguration = ReplicationConfiguration'
 -- 1,000 rules.
 newReplicationConfiguration ::
   -- | 'role''
-  Prelude.Text ->
+  Core.Text ->
   ReplicationConfiguration
 newReplicationConfiguration pRole_ =
   ReplicationConfiguration'
     { role' = pRole_,
-      rules = Prelude.mempty
+      rules = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
@@ -75,28 +74,26 @@ newReplicationConfiguration pRole_ =
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html How to Set Up Replication>
 -- in the /Amazon Simple Storage Service Developer Guide/.
-replicationConfiguration_role :: Lens.Lens' ReplicationConfiguration Prelude.Text
+replicationConfiguration_role :: Lens.Lens' ReplicationConfiguration Core.Text
 replicationConfiguration_role = Lens.lens (\ReplicationConfiguration' {role'} -> role') (\s@ReplicationConfiguration' {} a -> s {role' = a} :: ReplicationConfiguration)
 
 -- | A container for one or more replication rules. A replication
 -- configuration must have at least one rule and can contain a maximum of
 -- 1,000 rules.
 replicationConfiguration_rules :: Lens.Lens' ReplicationConfiguration [ReplicationRule]
-replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Prelude.. Prelude._Coerce
+replicationConfiguration_rules = Lens.lens (\ReplicationConfiguration' {rules} -> rules) (\s@ReplicationConfiguration' {} a -> s {rules = a} :: ReplicationConfiguration) Core.. Lens._Coerce
 
-instance Prelude.FromXML ReplicationConfiguration where
+instance Core.FromXML ReplicationConfiguration where
   parseXML x =
     ReplicationConfiguration'
-      Prelude.<$> (x Prelude..@ "Role")
-      Prelude.<*> (Prelude.parseXMLList "Rule" x)
+      Core.<$> (x Core..@ "Role")
+      Core.<*> (Core.parseXMLList "Rule" x)
 
-instance Prelude.Hashable ReplicationConfiguration
+instance Core.Hashable ReplicationConfiguration
 
-instance Prelude.NFData ReplicationConfiguration
+instance Core.NFData ReplicationConfiguration
 
-instance Prelude.ToXML ReplicationConfiguration where
+instance Core.ToXML ReplicationConfiguration where
   toXML ReplicationConfiguration' {..} =
-    Prelude.mconcat
-      [ "Role" Prelude.@= role',
-        Prelude.toXMLList "Rule" rules
-      ]
+    Core.mconcat
+      ["Role" Core.@= role', Core.toXMLList "Rule" rules]

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,9 +38,9 @@ module Network.AWS.IoT.SetLoggingOptions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -52,7 +51,7 @@ data SetLoggingOptions = SetLoggingOptions'
   { -- | The logging options payload.
     loggingOptionsPayload :: LoggingOptionsPayload
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetLoggingOptions' with all optional fields omitted.
@@ -77,41 +76,43 @@ newSetLoggingOptions pLoggingOptionsPayload_ =
 setLoggingOptions_loggingOptionsPayload :: Lens.Lens' SetLoggingOptions LoggingOptionsPayload
 setLoggingOptions_loggingOptionsPayload = Lens.lens (\SetLoggingOptions' {loggingOptionsPayload} -> loggingOptionsPayload) (\s@SetLoggingOptions' {} a -> s {loggingOptionsPayload = a} :: SetLoggingOptions)
 
-instance Prelude.AWSRequest SetLoggingOptions where
-  type Rs SetLoggingOptions = SetLoggingOptionsResponse
+instance Core.AWSRequest SetLoggingOptions where
+  type
+    AWSResponse SetLoggingOptions =
+      SetLoggingOptionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull SetLoggingOptionsResponse'
 
-instance Prelude.Hashable SetLoggingOptions
+instance Core.Hashable SetLoggingOptions
 
-instance Prelude.NFData SetLoggingOptions
+instance Core.NFData SetLoggingOptions
 
-instance Prelude.ToHeaders SetLoggingOptions where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders SetLoggingOptions where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON SetLoggingOptions where
+instance Core.ToJSON SetLoggingOptions where
   toJSON SetLoggingOptions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "loggingOptionsPayload"
-                  Prelude..= loggingOptionsPayload
+                  Core..= loggingOptionsPayload
               )
           ]
       )
 
-instance Prelude.ToPath SetLoggingOptions where
-  toPath = Prelude.const "/loggingOptions"
+instance Core.ToPath SetLoggingOptions where
+  toPath = Core.const "/loggingOptions"
 
-instance Prelude.ToQuery SetLoggingOptions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SetLoggingOptions where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newSetLoggingOptionsResponse' smart constructor.
 data SetLoggingOptionsResponse = SetLoggingOptionsResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SetLoggingOptionsResponse' with all optional fields omitted.
@@ -122,4 +123,4 @@ newSetLoggingOptionsResponse ::
 newSetLoggingOptionsResponse =
   SetLoggingOptionsResponse'
 
-instance Prelude.NFData SetLoggingOptionsResponse
+instance Core.NFData SetLoggingOptionsResponse

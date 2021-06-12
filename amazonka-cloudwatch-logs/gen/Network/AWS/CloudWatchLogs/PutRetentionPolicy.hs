@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,18 +39,18 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
 where
 
 import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutRetentionPolicy' smart constructor.
 data PutRetentionPolicy = PutRetentionPolicy'
   { -- | The name of the log group.
-    logGroupName :: Prelude.Text,
-    retentionInDays :: Prelude.Int
+    logGroupName :: Core.Text,
+    retentionInDays :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRetentionPolicy' with all optional fields omitted.
@@ -66,9 +65,9 @@ data PutRetentionPolicy = PutRetentionPolicy'
 -- 'retentionInDays', 'putRetentionPolicy_retentionInDays' - Undocumented member.
 newPutRetentionPolicy ::
   -- | 'logGroupName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'retentionInDays'
-  Prelude.Int ->
+  Core.Int ->
   PutRetentionPolicy
 newPutRetentionPolicy
   pLogGroupName_
@@ -79,62 +78,59 @@ newPutRetentionPolicy
       }
 
 -- | The name of the log group.
-putRetentionPolicy_logGroupName :: Lens.Lens' PutRetentionPolicy Prelude.Text
+putRetentionPolicy_logGroupName :: Lens.Lens' PutRetentionPolicy Core.Text
 putRetentionPolicy_logGroupName = Lens.lens (\PutRetentionPolicy' {logGroupName} -> logGroupName) (\s@PutRetentionPolicy' {} a -> s {logGroupName = a} :: PutRetentionPolicy)
 
 -- | Undocumented member.
-putRetentionPolicy_retentionInDays :: Lens.Lens' PutRetentionPolicy Prelude.Int
+putRetentionPolicy_retentionInDays :: Lens.Lens' PutRetentionPolicy Core.Int
 putRetentionPolicy_retentionInDays = Lens.lens (\PutRetentionPolicy' {retentionInDays} -> retentionInDays) (\s@PutRetentionPolicy' {} a -> s {retentionInDays = a} :: PutRetentionPolicy)
 
-instance Prelude.AWSRequest PutRetentionPolicy where
+instance Core.AWSRequest PutRetentionPolicy where
   type
-    Rs PutRetentionPolicy =
+    AWSResponse PutRetentionPolicy =
       PutRetentionPolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull PutRetentionPolicyResponse'
 
-instance Prelude.Hashable PutRetentionPolicy
+instance Core.Hashable PutRetentionPolicy
 
-instance Prelude.NFData PutRetentionPolicy
+instance Core.NFData PutRetentionPolicy
 
-instance Prelude.ToHeaders PutRetentionPolicy where
+instance Core.ToHeaders PutRetentionPolicy where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Logs_20140328.PutRetentionPolicy" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Logs_20140328.PutRetentionPolicy" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutRetentionPolicy where
+instance Core.ToJSON PutRetentionPolicy where
   toJSON PutRetentionPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("logGroupName" Prelude..= logGroupName),
-            Prelude.Just
-              ("retentionInDays" Prelude..= retentionInDays)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            Core.Just
+              ("retentionInDays" Core..= retentionInDays)
           ]
       )
 
-instance Prelude.ToPath PutRetentionPolicy where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutRetentionPolicy where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutRetentionPolicy where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutRetentionPolicy where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutRetentionPolicyResponse' smart constructor.
 data PutRetentionPolicyResponse = PutRetentionPolicyResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutRetentionPolicyResponse' with all optional fields omitted.
@@ -145,4 +141,4 @@ newPutRetentionPolicyResponse ::
 newPutRetentionPolicyResponse =
   PutRetentionPolicyResponse'
 
-instance Prelude.NFData PutRetentionPolicyResponse
+instance Core.NFData PutRetentionPolicyResponse

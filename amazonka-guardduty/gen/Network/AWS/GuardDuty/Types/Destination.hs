@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.GuardDuty.Types.Destination where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GuardDuty.Types.DestinationType
 import Network.AWS.GuardDuty.Types.PublishingStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains information about the publishing destination, including the ID,
 -- type, and status.
@@ -31,14 +30,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDestination' smart constructor.
 data Destination = Destination'
   { -- | The unique ID of the publishing destination.
-    destinationId :: Prelude.Text,
+    destinationId :: Core.Text,
     -- | The type of resource used for the publishing destination. Currently,
     -- only Amazon S3 buckets are supported.
     destinationType :: DestinationType,
     -- | The status of the publishing destination.
     status :: PublishingStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Destination' with all optional fields omitted.
@@ -56,7 +55,7 @@ data Destination = Destination'
 -- 'status', 'destination_status' - The status of the publishing destination.
 newDestination ::
   -- | 'destinationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'destinationType'
   DestinationType ->
   -- | 'status'
@@ -73,7 +72,7 @@ newDestination
       }
 
 -- | The unique ID of the publishing destination.
-destination_destinationId :: Lens.Lens' Destination Prelude.Text
+destination_destinationId :: Lens.Lens' Destination Core.Text
 destination_destinationId = Lens.lens (\Destination' {destinationId} -> destinationId) (\s@Destination' {} a -> s {destinationId = a} :: Destination)
 
 -- | The type of resource used for the publishing destination. Currently,
@@ -85,17 +84,17 @@ destination_destinationType = Lens.lens (\Destination' {destinationType} -> dest
 destination_status :: Lens.Lens' Destination PublishingStatus
 destination_status = Lens.lens (\Destination' {status} -> status) (\s@Destination' {} a -> s {status = a} :: Destination)
 
-instance Prelude.FromJSON Destination where
+instance Core.FromJSON Destination where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Destination"
       ( \x ->
           Destination'
-            Prelude.<$> (x Prelude..: "destinationId")
-            Prelude.<*> (x Prelude..: "destinationType")
-            Prelude.<*> (x Prelude..: "status")
+            Core.<$> (x Core..: "destinationId")
+            Core.<*> (x Core..: "destinationType")
+            Core.<*> (x Core..: "status")
       )
 
-instance Prelude.Hashable Destination
+instance Core.Hashable Destination
 
-instance Prelude.NFData Destination
+instance Core.NFData Destination

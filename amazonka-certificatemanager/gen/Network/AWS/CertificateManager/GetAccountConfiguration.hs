@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -39,8 +38,8 @@ module Network.AWS.CertificateManager.GetAccountConfiguration
 where
 
 import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -48,7 +47,7 @@ import qualified Network.AWS.Response as Response
 data GetAccountConfiguration = GetAccountConfiguration'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountConfiguration' with all optional fields omitted.
@@ -58,56 +57,53 @@ newGetAccountConfiguration ::
   GetAccountConfiguration
 newGetAccountConfiguration = GetAccountConfiguration'
 
-instance Prelude.AWSRequest GetAccountConfiguration where
+instance Core.AWSRequest GetAccountConfiguration where
   type
-    Rs GetAccountConfiguration =
+    AWSResponse GetAccountConfiguration =
       GetAccountConfigurationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetAccountConfigurationResponse'
-            Prelude.<$> (x Prelude..?> "ExpiryEvents")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ExpiryEvents")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetAccountConfiguration
+instance Core.Hashable GetAccountConfiguration
 
-instance Prelude.NFData GetAccountConfiguration
+instance Core.NFData GetAccountConfiguration
 
-instance Prelude.ToHeaders GetAccountConfiguration where
+instance Core.ToHeaders GetAccountConfiguration where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.GetAccountConfiguration" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "CertificateManager.GetAccountConfiguration" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetAccountConfiguration where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON GetAccountConfiguration where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath GetAccountConfiguration where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetAccountConfiguration where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetAccountConfiguration where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetAccountConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetAccountConfigurationResponse' smart constructor.
 data GetAccountConfigurationResponse = GetAccountConfigurationResponse'
   { -- | Expiration events configuration options associated with the AWS account.
-    expiryEvents :: Prelude.Maybe ExpiryEventsConfiguration,
+    expiryEvents :: Core.Maybe ExpiryEventsConfiguration,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetAccountConfigurationResponse' with all optional fields omitted.
@@ -122,23 +118,21 @@ data GetAccountConfigurationResponse = GetAccountConfigurationResponse'
 -- 'httpStatus', 'getAccountConfigurationResponse_httpStatus' - The response's http status code.
 newGetAccountConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetAccountConfigurationResponse
 newGetAccountConfigurationResponse pHttpStatus_ =
   GetAccountConfigurationResponse'
     { expiryEvents =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Expiration events configuration options associated with the AWS account.
-getAccountConfigurationResponse_expiryEvents :: Lens.Lens' GetAccountConfigurationResponse (Prelude.Maybe ExpiryEventsConfiguration)
+getAccountConfigurationResponse_expiryEvents :: Lens.Lens' GetAccountConfigurationResponse (Core.Maybe ExpiryEventsConfiguration)
 getAccountConfigurationResponse_expiryEvents = Lens.lens (\GetAccountConfigurationResponse' {expiryEvents} -> expiryEvents) (\s@GetAccountConfigurationResponse' {} a -> s {expiryEvents = a} :: GetAccountConfigurationResponse)
 
 -- | The response's http status code.
-getAccountConfigurationResponse_httpStatus :: Lens.Lens' GetAccountConfigurationResponse Prelude.Int
+getAccountConfigurationResponse_httpStatus :: Lens.Lens' GetAccountConfigurationResponse Core.Int
 getAccountConfigurationResponse_httpStatus = Lens.lens (\GetAccountConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetAccountConfigurationResponse' {} a -> s {httpStatus = a} :: GetAccountConfigurationResponse)
 
-instance
-  Prelude.NFData
-    GetAccountConfigurationResponse
+instance Core.NFData GetAccountConfigurationResponse

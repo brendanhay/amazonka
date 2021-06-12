@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -82,10 +81,9 @@ module Network.AWS.KMS.ListAliases
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -97,7 +95,7 @@ data ListAliases = ListAliases'
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 100, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Prelude.Maybe Prelude.Natural,
+    limit :: Core.Maybe Core.Natural,
     -- | Lists only aliases that are associated with the specified CMK. Enter a
     -- CMK in your AWS account.
     --
@@ -114,13 +112,13 @@ data ListAliases = ListAliases'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | Use this parameter in a subsequent request after you receive a response
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAliases' with all optional fields omitted.
@@ -161,9 +159,9 @@ newListAliases ::
   ListAliases
 newListAliases =
   ListAliases'
-    { limit = Prelude.Nothing,
-      keyId = Prelude.Nothing,
-      marker = Prelude.Nothing
+    { limit = Core.Nothing,
+      keyId = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | Use this parameter to specify the maximum number of items to return.
@@ -172,7 +170,7 @@ newListAliases =
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
-listAliases_limit :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_limit :: Lens.Lens' ListAliases (Core.Maybe Core.Natural)
 listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' {} a -> s {limit = a} :: ListAliases)
 
 -- | Lists only aliases that are associated with the specified CMK. Enter a
@@ -191,96 +189,94 @@ listAliases_limit = Lens.lens (\ListAliases' {limit} -> limit) (\s@ListAliases' 
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-listAliases_keyId :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_keyId :: Lens.Lens' ListAliases (Core.Maybe Core.Text)
 listAliases_keyId = Lens.lens (\ListAliases' {keyId} -> keyId) (\s@ListAliases' {} a -> s {keyId = a} :: ListAliases)
 
 -- | Use this parameter in a subsequent request after you receive a response
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
-listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_marker :: Lens.Lens' ListAliases (Core.Maybe Core.Text)
 listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
 
-instance Pager.AWSPager ListAliases where
+instance Core.AWSPager ListAliases where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listAliasesResponse_truncated Prelude.. Lens._Just
+            Lens.^? listAliasesResponse_truncated Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.isNothing
+      Core.Nothing
+    | Core.isNothing
         ( rs
-            Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
+            Lens.^? listAliasesResponse_nextMarker Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAliases_marker
           Lens..~ rs
-          Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
+          Lens.^? listAliasesResponse_nextMarker Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAliases where
-  type Rs ListAliases = ListAliasesResponse
+instance Core.AWSRequest ListAliases where
+  type AWSResponse ListAliases = ListAliasesResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAliasesResponse'
-            Prelude.<$> (x Prelude..?> "NextMarker")
-            Prelude.<*> (x Prelude..?> "Aliases" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (x Prelude..?> "Truncated")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextMarker")
+            Core.<*> (x Core..?> "Aliases" Core..!@ Core.mempty)
+            Core.<*> (x Core..?> "Truncated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ListAliases
+instance Core.Hashable ListAliases
 
-instance Prelude.NFData ListAliases
+instance Core.NFData ListAliases
 
-instance Prelude.ToHeaders ListAliases where
+instance Core.ToHeaders ListAliases where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("TrentService.ListAliases" :: Prelude.ByteString),
+              Core.=# ("TrentService.ListAliases" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAliases where
+instance Core.ToJSON ListAliases where
   toJSON ListAliases' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Limit" Prelude..=) Prelude.<$> limit,
-            ("KeyId" Prelude..=) Prelude.<$> keyId,
-            ("Marker" Prelude..=) Prelude.<$> marker
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("KeyId" Core..=) Core.<$> keyId,
+            ("Marker" Core..=) Core.<$> marker
           ]
       )
 
-instance Prelude.ToPath ListAliases where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAliases where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAliases where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAliases where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
   { -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Prelude.Maybe Prelude.Text,
+    nextMarker :: Core.Maybe Core.Text,
     -- | A list of aliases.
-    aliases :: Prelude.Maybe [AliasListEntry],
+    aliases :: Core.Maybe [AliasListEntry],
     -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
     -- items, pass the value of the @NextMarker@ element in thisresponse to the
     -- @Marker@ parameter in a subsequent request.
-    truncated :: Prelude.Maybe Prelude.Bool,
+    truncated :: Core.Maybe Core.Bool,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAliasesResponse' with all optional fields omitted.
@@ -303,34 +299,34 @@ data ListAliasesResponse = ListAliasesResponse'
 -- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
 newListAliasesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAliasesResponse
 newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { nextMarker = Prelude.Nothing,
-      aliases = Prelude.Nothing,
-      truncated = Prelude.Nothing,
+    { nextMarker = Core.Nothing,
+      aliases = Core.Nothing,
+      truncated = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
-listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
+listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Core.Maybe Core.Text)
 listAliasesResponse_nextMarker = Lens.lens (\ListAliasesResponse' {nextMarker} -> nextMarker) (\s@ListAliasesResponse' {} a -> s {nextMarker = a} :: ListAliasesResponse)
 
 -- | A list of aliases.
-listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [AliasListEntry])
-listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Prelude._Coerce
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Core.Maybe [AliasListEntry])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
 -- items, pass the value of the @NextMarker@ element in thisresponse to the
 -- @Marker@ parameter in a subsequent request.
-listAliasesResponse_truncated :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Bool)
+listAliasesResponse_truncated :: Lens.Lens' ListAliasesResponse (Core.Maybe Core.Bool)
 listAliasesResponse_truncated = Lens.lens (\ListAliasesResponse' {truncated} -> truncated) (\s@ListAliasesResponse' {} a -> s {truncated = a} :: ListAliasesResponse)
 
 -- | The response's http status code.
-listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
+listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Core.Int
 listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAliasesResponse' {} a -> s {httpStatus = a} :: ListAliasesResponse)
 
-instance Prelude.NFData ListAliasesResponse
+instance Core.NFData ListAliasesResponse

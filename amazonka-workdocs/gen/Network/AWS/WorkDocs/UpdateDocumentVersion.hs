@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,8 +42,8 @@ module Network.AWS.WorkDocs.UpdateDocumentVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
@@ -52,16 +51,16 @@ import Network.AWS.WorkDocs.Types
 -- | /See:/ 'newUpdateDocumentVersion' smart constructor.
 data UpdateDocumentVersion = UpdateDocumentVersion'
   { -- | The status of the version.
-    versionStatus :: Prelude.Maybe DocumentVersionStatus,
+    versionStatus :: Core.Maybe DocumentVersionStatus,
     -- | Amazon WorkDocs authentication token. Not required when using AWS
     -- administrator credentials to access the API.
-    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    authenticationToken :: Core.Maybe (Core.Sensitive Core.Text),
     -- | The ID of the document.
-    documentId :: Prelude.Text,
+    documentId :: Core.Text,
     -- | The version ID of the document.
-    versionId :: Prelude.Text
+    versionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentVersion' with all optional fields omitted.
@@ -81,82 +80,80 @@ data UpdateDocumentVersion = UpdateDocumentVersion'
 -- 'versionId', 'updateDocumentVersion_versionId' - The version ID of the document.
 newUpdateDocumentVersion ::
   -- | 'documentId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'versionId'
-  Prelude.Text ->
+  Core.Text ->
   UpdateDocumentVersion
 newUpdateDocumentVersion pDocumentId_ pVersionId_ =
   UpdateDocumentVersion'
     { versionStatus =
-        Prelude.Nothing,
-      authenticationToken = Prelude.Nothing,
+        Core.Nothing,
+      authenticationToken = Core.Nothing,
       documentId = pDocumentId_,
       versionId = pVersionId_
     }
 
 -- | The status of the version.
-updateDocumentVersion_versionStatus :: Lens.Lens' UpdateDocumentVersion (Prelude.Maybe DocumentVersionStatus)
+updateDocumentVersion_versionStatus :: Lens.Lens' UpdateDocumentVersion (Core.Maybe DocumentVersionStatus)
 updateDocumentVersion_versionStatus = Lens.lens (\UpdateDocumentVersion' {versionStatus} -> versionStatus) (\s@UpdateDocumentVersion' {} a -> s {versionStatus = a} :: UpdateDocumentVersion)
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS
 -- administrator credentials to access the API.
-updateDocumentVersion_authenticationToken :: Lens.Lens' UpdateDocumentVersion (Prelude.Maybe Prelude.Text)
-updateDocumentVersion_authenticationToken = Lens.lens (\UpdateDocumentVersion' {authenticationToken} -> authenticationToken) (\s@UpdateDocumentVersion' {} a -> s {authenticationToken = a} :: UpdateDocumentVersion) Prelude.. Lens.mapping Prelude._Sensitive
+updateDocumentVersion_authenticationToken :: Lens.Lens' UpdateDocumentVersion (Core.Maybe Core.Text)
+updateDocumentVersion_authenticationToken = Lens.lens (\UpdateDocumentVersion' {authenticationToken} -> authenticationToken) (\s@UpdateDocumentVersion' {} a -> s {authenticationToken = a} :: UpdateDocumentVersion) Core.. Lens.mapping Core._Sensitive
 
 -- | The ID of the document.
-updateDocumentVersion_documentId :: Lens.Lens' UpdateDocumentVersion Prelude.Text
+updateDocumentVersion_documentId :: Lens.Lens' UpdateDocumentVersion Core.Text
 updateDocumentVersion_documentId = Lens.lens (\UpdateDocumentVersion' {documentId} -> documentId) (\s@UpdateDocumentVersion' {} a -> s {documentId = a} :: UpdateDocumentVersion)
 
 -- | The version ID of the document.
-updateDocumentVersion_versionId :: Lens.Lens' UpdateDocumentVersion Prelude.Text
+updateDocumentVersion_versionId :: Lens.Lens' UpdateDocumentVersion Core.Text
 updateDocumentVersion_versionId = Lens.lens (\UpdateDocumentVersion' {versionId} -> versionId) (\s@UpdateDocumentVersion' {} a -> s {versionId = a} :: UpdateDocumentVersion)
 
-instance Prelude.AWSRequest UpdateDocumentVersion where
+instance Core.AWSRequest UpdateDocumentVersion where
   type
-    Rs UpdateDocumentVersion =
+    AWSResponse UpdateDocumentVersion =
       UpdateDocumentVersionResponse
   request = Request.patchJSON defaultService
   response =
     Response.receiveNull UpdateDocumentVersionResponse'
 
-instance Prelude.Hashable UpdateDocumentVersion
+instance Core.Hashable UpdateDocumentVersion
 
-instance Prelude.NFData UpdateDocumentVersion
+instance Core.NFData UpdateDocumentVersion
 
-instance Prelude.ToHeaders UpdateDocumentVersion where
+instance Core.ToHeaders UpdateDocumentVersion where
   toHeaders UpdateDocumentVersion' {..} =
-    Prelude.mconcat
-      [ "Authentication" Prelude.=# authenticationToken,
+    Core.mconcat
+      [ "Authentication" Core.=# authenticationToken,
         "Content-Type"
-          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+          Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
       ]
 
-instance Prelude.ToJSON UpdateDocumentVersion where
+instance Core.ToJSON UpdateDocumentVersion where
   toJSON UpdateDocumentVersion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("VersionStatus" Prelude..=)
-              Prelude.<$> versionStatus
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("VersionStatus" Core..=) Core.<$> versionStatus]
       )
 
-instance Prelude.ToPath UpdateDocumentVersion where
+instance Core.ToPath UpdateDocumentVersion where
   toPath UpdateDocumentVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/api/v1/documents/",
-        Prelude.toBS documentId,
+        Core.toBS documentId,
         "/versions/",
-        Prelude.toBS versionId
+        Core.toBS versionId
       ]
 
-instance Prelude.ToQuery UpdateDocumentVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateDocumentVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateDocumentVersionResponse' smart constructor.
 data UpdateDocumentVersionResponse = UpdateDocumentVersionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateDocumentVersionResponse' with all optional fields omitted.
@@ -167,4 +164,4 @@ newUpdateDocumentVersionResponse ::
 newUpdateDocumentVersionResponse =
   UpdateDocumentVersionResponse'
 
-instance Prelude.NFData UpdateDocumentVersionResponse
+instance Core.NFData UpdateDocumentVersionResponse

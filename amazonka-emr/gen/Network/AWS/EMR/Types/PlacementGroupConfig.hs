@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.PlacementGroupConfig where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EMR.Types.InstanceRoleType
 import Network.AWS.EMR.Types.PlacementGroupStrategy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Placement group configuration for an Amazon EMR cluster. The
 -- configuration specifies the placement strategy that can be applied to
@@ -38,14 +37,14 @@ data PlacementGroupConfig = PlacementGroupConfig'
     --
     -- Starting with Amazon EMR version 5.23.0, the only supported placement
     -- strategy is @SPREAD@ for the @MASTER@ instance role.
-    placementStrategy :: Prelude.Maybe PlacementGroupStrategy,
+    placementStrategy :: Core.Maybe PlacementGroupStrategy,
     -- | Role of the instance in the cluster.
     --
     -- Starting with Amazon EMR version 5.23.0, the only supported instance
     -- role is @MASTER@.
     instanceRole :: InstanceRoleType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PlacementGroupConfig' with all optional fields omitted.
@@ -71,7 +70,7 @@ newPlacementGroupConfig ::
 newPlacementGroupConfig pInstanceRole_ =
   PlacementGroupConfig'
     { placementStrategy =
-        Prelude.Nothing,
+        Core.Nothing,
       instanceRole = pInstanceRole_
     }
 
@@ -79,7 +78,7 @@ newPlacementGroupConfig pInstanceRole_ =
 --
 -- Starting with Amazon EMR version 5.23.0, the only supported placement
 -- strategy is @SPREAD@ for the @MASTER@ instance role.
-placementGroupConfig_placementStrategy :: Lens.Lens' PlacementGroupConfig (Prelude.Maybe PlacementGroupStrategy)
+placementGroupConfig_placementStrategy :: Lens.Lens' PlacementGroupConfig (Core.Maybe PlacementGroupStrategy)
 placementGroupConfig_placementStrategy = Lens.lens (\PlacementGroupConfig' {placementStrategy} -> placementStrategy) (\s@PlacementGroupConfig' {} a -> s {placementStrategy = a} :: PlacementGroupConfig)
 
 -- | Role of the instance in the cluster.
@@ -89,27 +88,26 @@ placementGroupConfig_placementStrategy = Lens.lens (\PlacementGroupConfig' {plac
 placementGroupConfig_instanceRole :: Lens.Lens' PlacementGroupConfig InstanceRoleType
 placementGroupConfig_instanceRole = Lens.lens (\PlacementGroupConfig' {instanceRole} -> instanceRole) (\s@PlacementGroupConfig' {} a -> s {instanceRole = a} :: PlacementGroupConfig)
 
-instance Prelude.FromJSON PlacementGroupConfig where
+instance Core.FromJSON PlacementGroupConfig where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PlacementGroupConfig"
       ( \x ->
           PlacementGroupConfig'
-            Prelude.<$> (x Prelude..:? "PlacementStrategy")
-            Prelude.<*> (x Prelude..: "InstanceRole")
+            Core.<$> (x Core..:? "PlacementStrategy")
+            Core.<*> (x Core..: "InstanceRole")
       )
 
-instance Prelude.Hashable PlacementGroupConfig
+instance Core.Hashable PlacementGroupConfig
 
-instance Prelude.NFData PlacementGroupConfig
+instance Core.NFData PlacementGroupConfig
 
-instance Prelude.ToJSON PlacementGroupConfig where
+instance Core.ToJSON PlacementGroupConfig where
   toJSON PlacementGroupConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("PlacementStrategy" Prelude..=)
-              Prelude.<$> placementStrategy,
-            Prelude.Just
-              ("InstanceRole" Prelude..= instanceRole)
+    Core.object
+      ( Core.catMaybes
+          [ ("PlacementStrategy" Core..=)
+              Core.<$> placementStrategy,
+            Core.Just ("InstanceRole" Core..= instanceRole)
           ]
       )

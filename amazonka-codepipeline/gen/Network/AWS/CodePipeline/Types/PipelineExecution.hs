@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -22,8 +21,8 @@ module Network.AWS.CodePipeline.Types.PipelineExecution where
 
 import Network.AWS.CodePipeline.Types.ArtifactRevision
 import Network.AWS.CodePipeline.Types.PipelineExecutionStatus
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents information about an execution of a pipeline.
 --
@@ -54,20 +53,20 @@ data PipelineExecution = PipelineExecution'
     --     <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions>.
     --
     -- -   Failed: The pipeline execution was not completed successfully.
-    status :: Prelude.Maybe PipelineExecutionStatus,
+    status :: Core.Maybe PipelineExecutionStatus,
     -- | A list of @ArtifactRevision@ objects included in a pipeline execution.
-    artifactRevisions :: Prelude.Maybe [ArtifactRevision],
+    artifactRevisions :: Core.Maybe [ArtifactRevision],
     -- | The version number of the pipeline with the specified pipeline
     -- execution.
-    pipelineVersion :: Prelude.Maybe Prelude.Natural,
+    pipelineVersion :: Core.Maybe Core.Natural,
     -- | A summary that contains a description of the pipeline execution status.
-    statusSummary :: Prelude.Maybe Prelude.Text,
+    statusSummary :: Core.Maybe Core.Text,
     -- | The name of the pipeline with the specified pipeline execution.
-    pipelineName :: Prelude.Maybe Prelude.Text,
+    pipelineName :: Core.Maybe Core.Text,
     -- | The ID of the pipeline execution.
-    pipelineExecutionId :: Prelude.Maybe Prelude.Text
+    pipelineExecutionId :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PipelineExecution' with all optional fields omitted.
@@ -117,12 +116,12 @@ newPipelineExecution ::
   PipelineExecution
 newPipelineExecution =
   PipelineExecution'
-    { status = Prelude.Nothing,
-      artifactRevisions = Prelude.Nothing,
-      pipelineVersion = Prelude.Nothing,
-      statusSummary = Prelude.Nothing,
-      pipelineName = Prelude.Nothing,
-      pipelineExecutionId = Prelude.Nothing
+    { status = Core.Nothing,
+      artifactRevisions = Core.Nothing,
+      pipelineVersion = Core.Nothing,
+      statusSummary = Core.Nothing,
+      pipelineName = Core.Nothing,
+      pipelineExecutionId = Core.Nothing
     }
 
 -- | The status of the pipeline execution.
@@ -150,46 +149,44 @@ newPipelineExecution =
 --     <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions>.
 --
 -- -   Failed: The pipeline execution was not completed successfully.
-pipelineExecution_status :: Lens.Lens' PipelineExecution (Prelude.Maybe PipelineExecutionStatus)
+pipelineExecution_status :: Lens.Lens' PipelineExecution (Core.Maybe PipelineExecutionStatus)
 pipelineExecution_status = Lens.lens (\PipelineExecution' {status} -> status) (\s@PipelineExecution' {} a -> s {status = a} :: PipelineExecution)
 
 -- | A list of @ArtifactRevision@ objects included in a pipeline execution.
-pipelineExecution_artifactRevisions :: Lens.Lens' PipelineExecution (Prelude.Maybe [ArtifactRevision])
-pipelineExecution_artifactRevisions = Lens.lens (\PipelineExecution' {artifactRevisions} -> artifactRevisions) (\s@PipelineExecution' {} a -> s {artifactRevisions = a} :: PipelineExecution) Prelude.. Lens.mapping Prelude._Coerce
+pipelineExecution_artifactRevisions :: Lens.Lens' PipelineExecution (Core.Maybe [ArtifactRevision])
+pipelineExecution_artifactRevisions = Lens.lens (\PipelineExecution' {artifactRevisions} -> artifactRevisions) (\s@PipelineExecution' {} a -> s {artifactRevisions = a} :: PipelineExecution) Core.. Lens.mapping Lens._Coerce
 
 -- | The version number of the pipeline with the specified pipeline
 -- execution.
-pipelineExecution_pipelineVersion :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Natural)
+pipelineExecution_pipelineVersion :: Lens.Lens' PipelineExecution (Core.Maybe Core.Natural)
 pipelineExecution_pipelineVersion = Lens.lens (\PipelineExecution' {pipelineVersion} -> pipelineVersion) (\s@PipelineExecution' {} a -> s {pipelineVersion = a} :: PipelineExecution)
 
 -- | A summary that contains a description of the pipeline execution status.
-pipelineExecution_statusSummary :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
+pipelineExecution_statusSummary :: Lens.Lens' PipelineExecution (Core.Maybe Core.Text)
 pipelineExecution_statusSummary = Lens.lens (\PipelineExecution' {statusSummary} -> statusSummary) (\s@PipelineExecution' {} a -> s {statusSummary = a} :: PipelineExecution)
 
 -- | The name of the pipeline with the specified pipeline execution.
-pipelineExecution_pipelineName :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
+pipelineExecution_pipelineName :: Lens.Lens' PipelineExecution (Core.Maybe Core.Text)
 pipelineExecution_pipelineName = Lens.lens (\PipelineExecution' {pipelineName} -> pipelineName) (\s@PipelineExecution' {} a -> s {pipelineName = a} :: PipelineExecution)
 
 -- | The ID of the pipeline execution.
-pipelineExecution_pipelineExecutionId :: Lens.Lens' PipelineExecution (Prelude.Maybe Prelude.Text)
+pipelineExecution_pipelineExecutionId :: Lens.Lens' PipelineExecution (Core.Maybe Core.Text)
 pipelineExecution_pipelineExecutionId = Lens.lens (\PipelineExecution' {pipelineExecutionId} -> pipelineExecutionId) (\s@PipelineExecution' {} a -> s {pipelineExecutionId = a} :: PipelineExecution)
 
-instance Prelude.FromJSON PipelineExecution where
+instance Core.FromJSON PipelineExecution where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PipelineExecution"
       ( \x ->
           PipelineExecution'
-            Prelude.<$> (x Prelude..:? "status")
-            Prelude.<*> ( x Prelude..:? "artifactRevisions"
-                            Prelude..!= Prelude.mempty
-                        )
-            Prelude.<*> (x Prelude..:? "pipelineVersion")
-            Prelude.<*> (x Prelude..:? "statusSummary")
-            Prelude.<*> (x Prelude..:? "pipelineName")
-            Prelude.<*> (x Prelude..:? "pipelineExecutionId")
+            Core.<$> (x Core..:? "status")
+            Core.<*> (x Core..:? "artifactRevisions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "pipelineVersion")
+            Core.<*> (x Core..:? "statusSummary")
+            Core.<*> (x Core..:? "pipelineName")
+            Core.<*> (x Core..:? "pipelineExecutionId")
       )
 
-instance Prelude.Hashable PipelineExecution
+instance Core.Hashable PipelineExecution
 
-instance Prelude.NFData PipelineExecution
+instance Core.NFData PipelineExecution

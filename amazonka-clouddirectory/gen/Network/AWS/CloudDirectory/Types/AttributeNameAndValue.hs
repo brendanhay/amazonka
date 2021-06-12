@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -21,19 +20,19 @@
 module Network.AWS.CloudDirectory.Types.AttributeNameAndValue where
 
 import Network.AWS.CloudDirectory.Types.TypedAttributeValue
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the attribute name and value for a typed link.
 --
 -- /See:/ 'newAttributeNameAndValue' smart constructor.
 data AttributeNameAndValue = AttributeNameAndValue'
   { -- | The attribute name of the typed link.
-    attributeName :: Prelude.Text,
+    attributeName :: Core.Text,
     -- | The value for the typed link.
     value :: TypedAttributeValue
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AttributeNameAndValue' with all optional fields omitted.
@@ -48,7 +47,7 @@ data AttributeNameAndValue = AttributeNameAndValue'
 -- 'value', 'attributeNameAndValue_value' - The value for the typed link.
 newAttributeNameAndValue ::
   -- | 'attributeName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'value'
   TypedAttributeValue ->
   AttributeNameAndValue
@@ -60,33 +59,32 @@ newAttributeNameAndValue pAttributeName_ pValue_ =
     }
 
 -- | The attribute name of the typed link.
-attributeNameAndValue_attributeName :: Lens.Lens' AttributeNameAndValue Prelude.Text
+attributeNameAndValue_attributeName :: Lens.Lens' AttributeNameAndValue Core.Text
 attributeNameAndValue_attributeName = Lens.lens (\AttributeNameAndValue' {attributeName} -> attributeName) (\s@AttributeNameAndValue' {} a -> s {attributeName = a} :: AttributeNameAndValue)
 
 -- | The value for the typed link.
 attributeNameAndValue_value :: Lens.Lens' AttributeNameAndValue TypedAttributeValue
 attributeNameAndValue_value = Lens.lens (\AttributeNameAndValue' {value} -> value) (\s@AttributeNameAndValue' {} a -> s {value = a} :: AttributeNameAndValue)
 
-instance Prelude.FromJSON AttributeNameAndValue where
+instance Core.FromJSON AttributeNameAndValue where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AttributeNameAndValue"
       ( \x ->
           AttributeNameAndValue'
-            Prelude.<$> (x Prelude..: "AttributeName")
-            Prelude.<*> (x Prelude..: "Value")
+            Core.<$> (x Core..: "AttributeName")
+            Core.<*> (x Core..: "Value")
       )
 
-instance Prelude.Hashable AttributeNameAndValue
+instance Core.Hashable AttributeNameAndValue
 
-instance Prelude.NFData AttributeNameAndValue
+instance Core.NFData AttributeNameAndValue
 
-instance Prelude.ToJSON AttributeNameAndValue where
+instance Core.ToJSON AttributeNameAndValue where
   toJSON AttributeNameAndValue' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("AttributeName" Prelude..= attributeName),
-            Prelude.Just ("Value" Prelude..= value)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AttributeName" Core..= attributeName),
+            Core.Just ("Value" Core..= value)
           ]
       )

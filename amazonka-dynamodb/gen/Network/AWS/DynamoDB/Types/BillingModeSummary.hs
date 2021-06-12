@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.BillingModeSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.BillingMode
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the details for the read\/write capacity mode.
 --
@@ -37,12 +36,12 @@ data BillingModeSummary = BillingModeSummary'
     -- -   @PAY_PER_REQUEST@ - Sets the read\/write capacity mode to
     --     @PAY_PER_REQUEST@. We recommend using @PAY_PER_REQUEST@ for
     --     unpredictable workloads.
-    billingMode :: Prelude.Maybe BillingMode,
+    billingMode :: Core.Maybe BillingMode,
     -- | Represents the time when @PAY_PER_REQUEST@ was last set as the
     -- read\/write capacity mode.
-    lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Prelude.POSIX
+    lastUpdateToPayPerRequestDateTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'BillingModeSummary' with all optional fields omitted.
@@ -68,8 +67,8 @@ newBillingModeSummary ::
   BillingModeSummary
 newBillingModeSummary =
   BillingModeSummary'
-    { billingMode = Prelude.Nothing,
-      lastUpdateToPayPerRequestDateTime = Prelude.Nothing
+    { billingMode = Core.Nothing,
+      lastUpdateToPayPerRequestDateTime = Core.Nothing
     }
 
 -- | Controls how you are charged for read and write throughput and how you
@@ -81,24 +80,24 @@ newBillingModeSummary =
 -- -   @PAY_PER_REQUEST@ - Sets the read\/write capacity mode to
 --     @PAY_PER_REQUEST@. We recommend using @PAY_PER_REQUEST@ for
 --     unpredictable workloads.
-billingModeSummary_billingMode :: Lens.Lens' BillingModeSummary (Prelude.Maybe BillingMode)
+billingModeSummary_billingMode :: Lens.Lens' BillingModeSummary (Core.Maybe BillingMode)
 billingModeSummary_billingMode = Lens.lens (\BillingModeSummary' {billingMode} -> billingMode) (\s@BillingModeSummary' {} a -> s {billingMode = a} :: BillingModeSummary)
 
 -- | Represents the time when @PAY_PER_REQUEST@ was last set as the
 -- read\/write capacity mode.
-billingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Lens' BillingModeSummary (Prelude.Maybe Prelude.UTCTime)
-billingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\BillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@BillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: BillingModeSummary) Prelude.. Lens.mapping Prelude._Time
+billingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Lens' BillingModeSummary (Core.Maybe Core.UTCTime)
+billingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\BillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@BillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: BillingModeSummary) Core.. Lens.mapping Core._Time
 
-instance Prelude.FromJSON BillingModeSummary where
+instance Core.FromJSON BillingModeSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "BillingModeSummary"
       ( \x ->
           BillingModeSummary'
-            Prelude.<$> (x Prelude..:? "BillingMode")
-            Prelude.<*> (x Prelude..:? "LastUpdateToPayPerRequestDateTime")
+            Core.<$> (x Core..:? "BillingMode")
+            Core.<*> (x Core..:? "LastUpdateToPayPerRequestDateTime")
       )
 
-instance Prelude.Hashable BillingModeSummary
+instance Core.Hashable BillingModeSummary
 
-instance Prelude.NFData BillingModeSummary
+instance Core.NFData BillingModeSummary

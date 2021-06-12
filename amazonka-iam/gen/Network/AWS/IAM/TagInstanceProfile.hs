@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,9 +65,9 @@ module Network.AWS.IAM.TagInstanceProfile
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IAM.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -80,12 +79,12 @@ data TagInstanceProfile = TagInstanceProfile'
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
     -- that consist of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: =,.\@-
-    instanceProfileName :: Prelude.Text,
+    instanceProfileName :: Core.Text,
     -- | The list of tags that you want to attach to the IAM instance profile.
     -- Each tag consists of a key name and an associated value.
     tags :: [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagInstanceProfile' with all optional fields omitted.
@@ -106,13 +105,13 @@ data TagInstanceProfile = TagInstanceProfile'
 -- Each tag consists of a key name and an associated value.
 newTagInstanceProfile ::
   -- | 'instanceProfileName'
-  Prelude.Text ->
+  Core.Text ->
   TagInstanceProfile
 newTagInstanceProfile pInstanceProfileName_ =
   TagInstanceProfile'
     { instanceProfileName =
         pInstanceProfileName_,
-      tags = Prelude.mempty
+      tags = Core.mempty
     }
 
 -- | The name of the IAM instance profile to which you want to add tags.
@@ -121,48 +120,47 @@ newTagInstanceProfile pInstanceProfileName_ =
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
 -- that consist of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: =,.\@-
-tagInstanceProfile_instanceProfileName :: Lens.Lens' TagInstanceProfile Prelude.Text
+tagInstanceProfile_instanceProfileName :: Lens.Lens' TagInstanceProfile Core.Text
 tagInstanceProfile_instanceProfileName = Lens.lens (\TagInstanceProfile' {instanceProfileName} -> instanceProfileName) (\s@TagInstanceProfile' {} a -> s {instanceProfileName = a} :: TagInstanceProfile)
 
 -- | The list of tags that you want to attach to the IAM instance profile.
 -- Each tag consists of a key name and an associated value.
 tagInstanceProfile_tags :: Lens.Lens' TagInstanceProfile [Tag]
-tagInstanceProfile_tags = Lens.lens (\TagInstanceProfile' {tags} -> tags) (\s@TagInstanceProfile' {} a -> s {tags = a} :: TagInstanceProfile) Prelude.. Prelude._Coerce
+tagInstanceProfile_tags = Lens.lens (\TagInstanceProfile' {tags} -> tags) (\s@TagInstanceProfile' {} a -> s {tags = a} :: TagInstanceProfile) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest TagInstanceProfile where
+instance Core.AWSRequest TagInstanceProfile where
   type
-    Rs TagInstanceProfile =
+    AWSResponse TagInstanceProfile =
       TagInstanceProfileResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveNull TagInstanceProfileResponse'
 
-instance Prelude.Hashable TagInstanceProfile
+instance Core.Hashable TagInstanceProfile
 
-instance Prelude.NFData TagInstanceProfile
+instance Core.NFData TagInstanceProfile
 
-instance Prelude.ToHeaders TagInstanceProfile where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders TagInstanceProfile where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath TagInstanceProfile where
-  toPath = Prelude.const "/"
+instance Core.ToPath TagInstanceProfile where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery TagInstanceProfile where
+instance Core.ToQuery TagInstanceProfile where
   toQuery TagInstanceProfile' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("TagInstanceProfile" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
-        "InstanceProfileName" Prelude.=: instanceProfileName,
-        "Tags" Prelude.=: Prelude.toQueryList "member" tags
+          Core.=: ("TagInstanceProfile" :: Core.ByteString),
+        "Version" Core.=: ("2010-05-08" :: Core.ByteString),
+        "InstanceProfileName" Core.=: instanceProfileName,
+        "Tags" Core.=: Core.toQueryList "member" tags
       ]
 
 -- | /See:/ 'newTagInstanceProfileResponse' smart constructor.
 data TagInstanceProfileResponse = TagInstanceProfileResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TagInstanceProfileResponse' with all optional fields omitted.
@@ -173,4 +171,4 @@ newTagInstanceProfileResponse ::
 newTagInstanceProfileResponse =
   TagInstanceProfileResponse'
 
-instance Prelude.NFData TagInstanceProfileResponse
+instance Core.NFData TagInstanceProfileResponse

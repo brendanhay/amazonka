@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,17 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SageMaker.Types.ModelStepMetadata where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Metadata for Model steps.
 --
 -- /See:/ 'newModelStepMetadata' smart constructor.
 data ModelStepMetadata = ModelStepMetadata'
   { -- | The Amazon Resource Name (ARN) of the created model.
-    arn :: Prelude.Maybe Prelude.Text
+    arn :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModelStepMetadata' with all optional fields omitted.
@@ -44,20 +43,20 @@ data ModelStepMetadata = ModelStepMetadata'
 newModelStepMetadata ::
   ModelStepMetadata
 newModelStepMetadata =
-  ModelStepMetadata' {arn = Prelude.Nothing}
+  ModelStepMetadata' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the created model.
-modelStepMetadata_arn :: Lens.Lens' ModelStepMetadata (Prelude.Maybe Prelude.Text)
+modelStepMetadata_arn :: Lens.Lens' ModelStepMetadata (Core.Maybe Core.Text)
 modelStepMetadata_arn = Lens.lens (\ModelStepMetadata' {arn} -> arn) (\s@ModelStepMetadata' {} a -> s {arn = a} :: ModelStepMetadata)
 
-instance Prelude.FromJSON ModelStepMetadata where
+instance Core.FromJSON ModelStepMetadata where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ModelStepMetadata"
       ( \x ->
-          ModelStepMetadata' Prelude.<$> (x Prelude..:? "Arn")
+          ModelStepMetadata' Core.<$> (x Core..:? "Arn")
       )
 
-instance Prelude.Hashable ModelStepMetadata
+instance Core.Hashable ModelStepMetadata
 
-instance Prelude.NFData ModelStepMetadata
+instance Core.NFData ModelStepMetadata

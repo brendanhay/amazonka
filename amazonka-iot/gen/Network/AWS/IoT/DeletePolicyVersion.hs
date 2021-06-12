@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,9 +39,9 @@ module Network.AWS.IoT.DeletePolicyVersion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
   { -- | The name of the policy.
-    policyName :: Prelude.Text,
+    policyName :: Core.Text,
     -- | The policy version ID.
-    policyVersionId :: Prelude.Text
+    policyVersionId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyVersion' with all optional fields omitted.
@@ -70,9 +69,9 @@ data DeletePolicyVersion = DeletePolicyVersion'
 -- 'policyVersionId', 'deletePolicyVersion_policyVersionId' - The policy version ID.
 newDeletePolicyVersion ::
   -- | 'policyName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'policyVersionId'
-  Prelude.Text ->
+  Core.Text ->
   DeletePolicyVersion
 newDeletePolicyVersion pPolicyName_ pPolicyVersionId_ =
   DeletePolicyVersion'
@@ -81,45 +80,45 @@ newDeletePolicyVersion pPolicyName_ pPolicyVersionId_ =
     }
 
 -- | The name of the policy.
-deletePolicyVersion_policyName :: Lens.Lens' DeletePolicyVersion Prelude.Text
+deletePolicyVersion_policyName :: Lens.Lens' DeletePolicyVersion Core.Text
 deletePolicyVersion_policyName = Lens.lens (\DeletePolicyVersion' {policyName} -> policyName) (\s@DeletePolicyVersion' {} a -> s {policyName = a} :: DeletePolicyVersion)
 
 -- | The policy version ID.
-deletePolicyVersion_policyVersionId :: Lens.Lens' DeletePolicyVersion Prelude.Text
+deletePolicyVersion_policyVersionId :: Lens.Lens' DeletePolicyVersion Core.Text
 deletePolicyVersion_policyVersionId = Lens.lens (\DeletePolicyVersion' {policyVersionId} -> policyVersionId) (\s@DeletePolicyVersion' {} a -> s {policyVersionId = a} :: DeletePolicyVersion)
 
-instance Prelude.AWSRequest DeletePolicyVersion where
+instance Core.AWSRequest DeletePolicyVersion where
   type
-    Rs DeletePolicyVersion =
+    AWSResponse DeletePolicyVersion =
       DeletePolicyVersionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeletePolicyVersionResponse'
 
-instance Prelude.Hashable DeletePolicyVersion
+instance Core.Hashable DeletePolicyVersion
 
-instance Prelude.NFData DeletePolicyVersion
+instance Core.NFData DeletePolicyVersion
 
-instance Prelude.ToHeaders DeletePolicyVersion where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeletePolicyVersion where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeletePolicyVersion where
+instance Core.ToPath DeletePolicyVersion where
   toPath DeletePolicyVersion' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/policies/",
-        Prelude.toBS policyName,
+        Core.toBS policyName,
         "/version/",
-        Prelude.toBS policyVersionId
+        Core.toBS policyVersionId
       ]
 
-instance Prelude.ToQuery DeletePolicyVersion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeletePolicyVersion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse = DeletePolicyVersionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeletePolicyVersionResponse' with all optional fields omitted.
@@ -130,4 +129,4 @@ newDeletePolicyVersionResponse ::
 newDeletePolicyVersionResponse =
   DeletePolicyVersionResponse'
 
-instance Prelude.NFData DeletePolicyVersionResponse
+instance Core.NFData DeletePolicyVersionResponse

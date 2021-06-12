@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.FleetSpotCapacityRebalance
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The strategies for managing your Spot Instances that are at an elevated
 -- risk of being interrupted.
@@ -32,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 data FleetSpotMaintenanceStrategies = FleetSpotMaintenanceStrategies'
   { -- | The strategy to use when Amazon EC2 emits a signal that your Spot
     -- Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Prelude.Maybe FleetSpotCapacityRebalance
+    capacityRebalance :: Core.Maybe FleetSpotCapacityRebalance
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FleetSpotMaintenanceStrategies' with all optional fields omitted.
@@ -51,26 +50,19 @@ newFleetSpotMaintenanceStrategies ::
 newFleetSpotMaintenanceStrategies =
   FleetSpotMaintenanceStrategies'
     { capacityRebalance =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot
 -- Instance is at an elevated risk of being interrupted.
-fleetSpotMaintenanceStrategies_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategies (Prelude.Maybe FleetSpotCapacityRebalance)
+fleetSpotMaintenanceStrategies_capacityRebalance :: Lens.Lens' FleetSpotMaintenanceStrategies (Core.Maybe FleetSpotCapacityRebalance)
 fleetSpotMaintenanceStrategies_capacityRebalance = Lens.lens (\FleetSpotMaintenanceStrategies' {capacityRebalance} -> capacityRebalance) (\s@FleetSpotMaintenanceStrategies' {} a -> s {capacityRebalance = a} :: FleetSpotMaintenanceStrategies)
 
-instance
-  Prelude.FromXML
-    FleetSpotMaintenanceStrategies
-  where
+instance Core.FromXML FleetSpotMaintenanceStrategies where
   parseXML x =
     FleetSpotMaintenanceStrategies'
-      Prelude.<$> (x Prelude..@? "capacityRebalance")
+      Core.<$> (x Core..@? "capacityRebalance")
 
-instance
-  Prelude.Hashable
-    FleetSpotMaintenanceStrategies
+instance Core.Hashable FleetSpotMaintenanceStrategies
 
-instance
-  Prelude.NFData
-    FleetSpotMaintenanceStrategies
+instance Core.NFData FleetSpotMaintenanceStrategies

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CostExplorer.Types.DimensionValues where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.CostExplorer.Types.Dimension
 import Network.AWS.CostExplorer.Types.MatchOption
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The metadata that you can use to filter and group your results. You can
 -- use @GetDimensionValues@ to find specific values.
@@ -32,16 +31,16 @@ import qualified Network.AWS.Prelude as Prelude
 data DimensionValues = DimensionValues'
   { -- | The names of the metadata types that you can use to filter and group
     -- your results. For example, @AZ@ returns a list of Availability Zones.
-    key :: Prelude.Maybe Dimension,
+    key :: Core.Maybe Dimension,
     -- | The metadata values that you can use to filter and group your results.
     -- You can use @GetDimensionValues@ to find specific values.
-    values :: Prelude.Maybe [Prelude.Text],
+    values :: Core.Maybe [Core.Text],
     -- | The match options that you can use to filter your results.
     -- @MatchOptions@ is only applicable for actions related to Cost Category.
     -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
-    matchOptions :: Prelude.Maybe [MatchOption]
+    matchOptions :: Core.Maybe [MatchOption]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DimensionValues' with all optional fields omitted.
@@ -64,51 +63,48 @@ newDimensionValues ::
   DimensionValues
 newDimensionValues =
   DimensionValues'
-    { key = Prelude.Nothing,
-      values = Prelude.Nothing,
-      matchOptions = Prelude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing,
+      matchOptions = Core.Nothing
     }
 
 -- | The names of the metadata types that you can use to filter and group
 -- your results. For example, @AZ@ returns a list of Availability Zones.
-dimensionValues_key :: Lens.Lens' DimensionValues (Prelude.Maybe Dimension)
+dimensionValues_key :: Lens.Lens' DimensionValues (Core.Maybe Dimension)
 dimensionValues_key = Lens.lens (\DimensionValues' {key} -> key) (\s@DimensionValues' {} a -> s {key = a} :: DimensionValues)
 
 -- | The metadata values that you can use to filter and group your results.
 -- You can use @GetDimensionValues@ to find specific values.
-dimensionValues_values :: Lens.Lens' DimensionValues (Prelude.Maybe [Prelude.Text])
-dimensionValues_values = Lens.lens (\DimensionValues' {values} -> values) (\s@DimensionValues' {} a -> s {values = a} :: DimensionValues) Prelude.. Lens.mapping Prelude._Coerce
+dimensionValues_values :: Lens.Lens' DimensionValues (Core.Maybe [Core.Text])
+dimensionValues_values = Lens.lens (\DimensionValues' {values} -> values) (\s@DimensionValues' {} a -> s {values = a} :: DimensionValues) Core.. Lens.mapping Lens._Coerce
 
 -- | The match options that you can use to filter your results.
 -- @MatchOptions@ is only applicable for actions related to Cost Category.
 -- The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@.
-dimensionValues_matchOptions :: Lens.Lens' DimensionValues (Prelude.Maybe [MatchOption])
-dimensionValues_matchOptions = Lens.lens (\DimensionValues' {matchOptions} -> matchOptions) (\s@DimensionValues' {} a -> s {matchOptions = a} :: DimensionValues) Prelude.. Lens.mapping Prelude._Coerce
+dimensionValues_matchOptions :: Lens.Lens' DimensionValues (Core.Maybe [MatchOption])
+dimensionValues_matchOptions = Lens.lens (\DimensionValues' {matchOptions} -> matchOptions) (\s@DimensionValues' {} a -> s {matchOptions = a} :: DimensionValues) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON DimensionValues where
+instance Core.FromJSON DimensionValues where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DimensionValues"
       ( \x ->
           DimensionValues'
-            Prelude.<$> (x Prelude..:? "Key")
-            Prelude.<*> (x Prelude..:? "Values" Prelude..!= Prelude.mempty)
-            Prelude.<*> ( x Prelude..:? "MatchOptions"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "Key")
+            Core.<*> (x Core..:? "Values" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "MatchOptions" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable DimensionValues
+instance Core.Hashable DimensionValues
 
-instance Prelude.NFData DimensionValues
+instance Core.NFData DimensionValues
 
-instance Prelude.ToJSON DimensionValues where
+instance Core.ToJSON DimensionValues where
   toJSON DimensionValues' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("Key" Prelude..=) Prelude.<$> key,
-            ("Values" Prelude..=) Prelude.<$> values,
-            ("MatchOptions" Prelude..=)
-              Prelude.<$> matchOptions
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("Values" Core..=) Core.<$> values,
+            ("MatchOptions" Core..=) Core.<$> matchOptions
           ]
       )

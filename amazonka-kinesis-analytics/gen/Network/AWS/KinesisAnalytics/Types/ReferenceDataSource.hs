@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisAnalytics.Types.ReferenceDataSource where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSource
 import Network.AWS.KinesisAnalytics.Types.SourceSchema
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the reference data source by providing the source information
 -- (S3 bucket name and object key name), the resulting in-application table
@@ -38,15 +37,15 @@ data ReferenceDataSource = ReferenceDataSource'
     -- loads reference data only once. If the data changes, you call the
     -- @UpdateApplication@ operation to trigger reloading of data into your
     -- application.
-    s3ReferenceDataSource :: Prelude.Maybe S3ReferenceDataSource,
+    s3ReferenceDataSource :: Core.Maybe S3ReferenceDataSource,
     -- | Name of the in-application table to create.
-    tableName :: Prelude.Text,
+    tableName :: Core.Text,
     -- | Describes the format of the data in the streaming source, and how each
     -- data element maps to corresponding columns created in the in-application
     -- stream.
     referenceSchema :: SourceSchema
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ReferenceDataSource' with all optional fields omitted.
@@ -70,14 +69,14 @@ data ReferenceDataSource = ReferenceDataSource'
 -- stream.
 newReferenceDataSource ::
   -- | 'tableName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'referenceSchema'
   SourceSchema ->
   ReferenceDataSource
 newReferenceDataSource pTableName_ pReferenceSchema_ =
   ReferenceDataSource'
     { s3ReferenceDataSource =
-        Prelude.Nothing,
+        Core.Nothing,
       tableName = pTableName_,
       referenceSchema = pReferenceSchema_
     }
@@ -88,11 +87,11 @@ newReferenceDataSource pTableName_ pReferenceSchema_ =
 -- loads reference data only once. If the data changes, you call the
 -- @UpdateApplication@ operation to trigger reloading of data into your
 -- application.
-referenceDataSource_s3ReferenceDataSource :: Lens.Lens' ReferenceDataSource (Prelude.Maybe S3ReferenceDataSource)
+referenceDataSource_s3ReferenceDataSource :: Lens.Lens' ReferenceDataSource (Core.Maybe S3ReferenceDataSource)
 referenceDataSource_s3ReferenceDataSource = Lens.lens (\ReferenceDataSource' {s3ReferenceDataSource} -> s3ReferenceDataSource) (\s@ReferenceDataSource' {} a -> s {s3ReferenceDataSource = a} :: ReferenceDataSource)
 
 -- | Name of the in-application table to create.
-referenceDataSource_tableName :: Lens.Lens' ReferenceDataSource Prelude.Text
+referenceDataSource_tableName :: Lens.Lens' ReferenceDataSource Core.Text
 referenceDataSource_tableName = Lens.lens (\ReferenceDataSource' {tableName} -> tableName) (\s@ReferenceDataSource' {} a -> s {tableName = a} :: ReferenceDataSource)
 
 -- | Describes the format of the data in the streaming source, and how each
@@ -101,18 +100,18 @@ referenceDataSource_tableName = Lens.lens (\ReferenceDataSource' {tableName} -> 
 referenceDataSource_referenceSchema :: Lens.Lens' ReferenceDataSource SourceSchema
 referenceDataSource_referenceSchema = Lens.lens (\ReferenceDataSource' {referenceSchema} -> referenceSchema) (\s@ReferenceDataSource' {} a -> s {referenceSchema = a} :: ReferenceDataSource)
 
-instance Prelude.Hashable ReferenceDataSource
+instance Core.Hashable ReferenceDataSource
 
-instance Prelude.NFData ReferenceDataSource
+instance Core.NFData ReferenceDataSource
 
-instance Prelude.ToJSON ReferenceDataSource where
+instance Core.ToJSON ReferenceDataSource where
   toJSON ReferenceDataSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("S3ReferenceDataSource" Prelude..=)
-              Prelude.<$> s3ReferenceDataSource,
-            Prelude.Just ("TableName" Prelude..= tableName),
-            Prelude.Just
-              ("ReferenceSchema" Prelude..= referenceSchema)
+    Core.object
+      ( Core.catMaybes
+          [ ("S3ReferenceDataSource" Core..=)
+              Core.<$> s3ReferenceDataSource,
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("ReferenceSchema" Core..= referenceSchema)
           ]
       )

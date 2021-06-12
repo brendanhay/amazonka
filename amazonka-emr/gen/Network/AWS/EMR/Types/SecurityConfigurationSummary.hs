@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,19 +19,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EMR.Types.SecurityConfigurationSummary where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The creation date and time, and name, of a security configuration.
 --
 -- /See:/ 'newSecurityConfigurationSummary' smart constructor.
 data SecurityConfigurationSummary = SecurityConfigurationSummary'
   { -- | The name of the security configuration.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time the security configuration was created.
-    creationDateTime :: Prelude.Maybe Prelude.POSIX
+    creationDateTime :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SecurityConfigurationSummary' with all optional fields omitted.
@@ -49,34 +48,28 @@ newSecurityConfigurationSummary ::
   SecurityConfigurationSummary
 newSecurityConfigurationSummary =
   SecurityConfigurationSummary'
-    { name =
-        Prelude.Nothing,
-      creationDateTime = Prelude.Nothing
+    { name = Core.Nothing,
+      creationDateTime = Core.Nothing
     }
 
 -- | The name of the security configuration.
-securityConfigurationSummary_name :: Lens.Lens' SecurityConfigurationSummary (Prelude.Maybe Prelude.Text)
+securityConfigurationSummary_name :: Lens.Lens' SecurityConfigurationSummary (Core.Maybe Core.Text)
 securityConfigurationSummary_name = Lens.lens (\SecurityConfigurationSummary' {name} -> name) (\s@SecurityConfigurationSummary' {} a -> s {name = a} :: SecurityConfigurationSummary)
 
 -- | The date and time the security configuration was created.
-securityConfigurationSummary_creationDateTime :: Lens.Lens' SecurityConfigurationSummary (Prelude.Maybe Prelude.UTCTime)
-securityConfigurationSummary_creationDateTime = Lens.lens (\SecurityConfigurationSummary' {creationDateTime} -> creationDateTime) (\s@SecurityConfigurationSummary' {} a -> s {creationDateTime = a} :: SecurityConfigurationSummary) Prelude.. Lens.mapping Prelude._Time
+securityConfigurationSummary_creationDateTime :: Lens.Lens' SecurityConfigurationSummary (Core.Maybe Core.UTCTime)
+securityConfigurationSummary_creationDateTime = Lens.lens (\SecurityConfigurationSummary' {creationDateTime} -> creationDateTime) (\s@SecurityConfigurationSummary' {} a -> s {creationDateTime = a} :: SecurityConfigurationSummary) Core.. Lens.mapping Core._Time
 
-instance
-  Prelude.FromJSON
-    SecurityConfigurationSummary
-  where
+instance Core.FromJSON SecurityConfigurationSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "SecurityConfigurationSummary"
       ( \x ->
           SecurityConfigurationSummary'
-            Prelude.<$> (x Prelude..:? "Name")
-            Prelude.<*> (x Prelude..:? "CreationDateTime")
+            Core.<$> (x Core..:? "Name")
+            Core.<*> (x Core..:? "CreationDateTime")
       )
 
-instance
-  Prelude.Hashable
-    SecurityConfigurationSummary
+instance Core.Hashable SecurityConfigurationSummary
 
-instance Prelude.NFData SecurityConfigurationSummary
+instance Core.NFData SecurityConfigurationSummary

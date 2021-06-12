@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the details for each additional Microsoft Smooth Streaming
 -- manifest that you want the service to generate for this output group.
@@ -35,12 +34,12 @@ data MsSmoothAdditionalManifest = MsSmoothAdditionalManifest'
     -- manifest for your Microsoft Smooth group is film-name.ismv. If you enter
     -- \"-no-premium\" for this setting, then the file name the service
     -- generates for this top-level manifest is film-name-no-premium.ismv.
-    manifestNameModifier :: Prelude.Maybe Prelude.Text,
+    manifestNameModifier :: Core.Maybe Core.Text,
     -- | Specify the outputs that you want this additional top-level manifest to
     -- reference.
-    selectedOutputs :: Prelude.Maybe [Prelude.Text]
+    selectedOutputs :: Core.Maybe [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'MsSmoothAdditionalManifest' with all optional fields omitted.
@@ -64,8 +63,8 @@ newMsSmoothAdditionalManifest ::
 newMsSmoothAdditionalManifest =
   MsSmoothAdditionalManifest'
     { manifestNameModifier =
-        Prelude.Nothing,
-      selectedOutputs = Prelude.Nothing
+        Core.Nothing,
+      selectedOutputs = Core.Nothing
     }
 
 -- | Specify a name modifier that the service adds to the name of this
@@ -74,37 +73,35 @@ newMsSmoothAdditionalManifest =
 -- manifest for your Microsoft Smooth group is film-name.ismv. If you enter
 -- \"-no-premium\" for this setting, then the file name the service
 -- generates for this top-level manifest is film-name-no-premium.ismv.
-msSmoothAdditionalManifest_manifestNameModifier :: Lens.Lens' MsSmoothAdditionalManifest (Prelude.Maybe Prelude.Text)
+msSmoothAdditionalManifest_manifestNameModifier :: Lens.Lens' MsSmoothAdditionalManifest (Core.Maybe Core.Text)
 msSmoothAdditionalManifest_manifestNameModifier = Lens.lens (\MsSmoothAdditionalManifest' {manifestNameModifier} -> manifestNameModifier) (\s@MsSmoothAdditionalManifest' {} a -> s {manifestNameModifier = a} :: MsSmoothAdditionalManifest)
 
 -- | Specify the outputs that you want this additional top-level manifest to
 -- reference.
-msSmoothAdditionalManifest_selectedOutputs :: Lens.Lens' MsSmoothAdditionalManifest (Prelude.Maybe [Prelude.Text])
-msSmoothAdditionalManifest_selectedOutputs = Lens.lens (\MsSmoothAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@MsSmoothAdditionalManifest' {} a -> s {selectedOutputs = a} :: MsSmoothAdditionalManifest) Prelude.. Lens.mapping Prelude._Coerce
+msSmoothAdditionalManifest_selectedOutputs :: Lens.Lens' MsSmoothAdditionalManifest (Core.Maybe [Core.Text])
+msSmoothAdditionalManifest_selectedOutputs = Lens.lens (\MsSmoothAdditionalManifest' {selectedOutputs} -> selectedOutputs) (\s@MsSmoothAdditionalManifest' {} a -> s {selectedOutputs = a} :: MsSmoothAdditionalManifest) Core.. Lens.mapping Lens._Coerce
 
-instance Prelude.FromJSON MsSmoothAdditionalManifest where
+instance Core.FromJSON MsSmoothAdditionalManifest where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "MsSmoothAdditionalManifest"
       ( \x ->
           MsSmoothAdditionalManifest'
-            Prelude.<$> (x Prelude..:? "manifestNameModifier")
-            Prelude.<*> ( x Prelude..:? "selectedOutputs"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "manifestNameModifier")
+            Core.<*> (x Core..:? "selectedOutputs" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable MsSmoothAdditionalManifest
+instance Core.Hashable MsSmoothAdditionalManifest
 
-instance Prelude.NFData MsSmoothAdditionalManifest
+instance Core.NFData MsSmoothAdditionalManifest
 
-instance Prelude.ToJSON MsSmoothAdditionalManifest where
+instance Core.ToJSON MsSmoothAdditionalManifest where
   toJSON MsSmoothAdditionalManifest' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("manifestNameModifier" Prelude..=)
-              Prelude.<$> manifestNameModifier,
-            ("selectedOutputs" Prelude..=)
-              Prelude.<$> selectedOutputs
+    Core.object
+      ( Core.catMaybes
+          [ ("manifestNameModifier" Core..=)
+              Core.<$> manifestNameModifier,
+            ("selectedOutputs" Core..=)
+              Core.<$> selectedOutputs
           ]
       )

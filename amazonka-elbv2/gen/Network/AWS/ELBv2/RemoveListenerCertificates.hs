@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -41,21 +40,21 @@ module Network.AWS.ELBv2.RemoveListenerCertificates
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ELBv2.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveListenerCertificates' smart constructor.
 data RemoveListenerCertificates = RemoveListenerCertificates'
   { -- | The Amazon Resource Name (ARN) of the listener.
-    listenerArn :: Prelude.Text,
+    listenerArn :: Core.Text,
     -- | The certificate to remove. You can specify one certificate per call. Set
     -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
     certificates :: [Certificate]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveListenerCertificates' with all optional fields omitted.
@@ -71,30 +70,27 @@ data RemoveListenerCertificates = RemoveListenerCertificates'
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 newRemoveListenerCertificates ::
   -- | 'listenerArn'
-  Prelude.Text ->
+  Core.Text ->
   RemoveListenerCertificates
 newRemoveListenerCertificates pListenerArn_ =
   RemoveListenerCertificates'
     { listenerArn =
         pListenerArn_,
-      certificates = Prelude.mempty
+      certificates = Core.mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the listener.
-removeListenerCertificates_listenerArn :: Lens.Lens' RemoveListenerCertificates Prelude.Text
+removeListenerCertificates_listenerArn :: Lens.Lens' RemoveListenerCertificates Core.Text
 removeListenerCertificates_listenerArn = Lens.lens (\RemoveListenerCertificates' {listenerArn} -> listenerArn) (\s@RemoveListenerCertificates' {} a -> s {listenerArn = a} :: RemoveListenerCertificates)
 
 -- | The certificate to remove. You can specify one certificate per call. Set
 -- @CertificateArn@ to the certificate ARN but do not set @IsDefault@.
 removeListenerCertificates_certificates :: Lens.Lens' RemoveListenerCertificates [Certificate]
-removeListenerCertificates_certificates = Lens.lens (\RemoveListenerCertificates' {certificates} -> certificates) (\s@RemoveListenerCertificates' {} a -> s {certificates = a} :: RemoveListenerCertificates) Prelude.. Prelude._Coerce
+removeListenerCertificates_certificates = Lens.lens (\RemoveListenerCertificates' {certificates} -> certificates) (\s@RemoveListenerCertificates' {} a -> s {certificates = a} :: RemoveListenerCertificates) Core.. Lens._Coerce
 
-instance
-  Prelude.AWSRequest
-    RemoveListenerCertificates
-  where
+instance Core.AWSRequest RemoveListenerCertificates where
   type
-    Rs RemoveListenerCertificates =
+    AWSResponse RemoveListenerCertificates =
       RemoveListenerCertificatesResponse
   request = Request.postQuery defaultService
   response =
@@ -102,37 +98,36 @@ instance
       "RemoveListenerCertificatesResult"
       ( \s h x ->
           RemoveListenerCertificatesResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RemoveListenerCertificates
+instance Core.Hashable RemoveListenerCertificates
 
-instance Prelude.NFData RemoveListenerCertificates
+instance Core.NFData RemoveListenerCertificates
 
-instance Prelude.ToHeaders RemoveListenerCertificates where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders RemoveListenerCertificates where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath RemoveListenerCertificates where
-  toPath = Prelude.const "/"
+instance Core.ToPath RemoveListenerCertificates where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RemoveListenerCertificates where
+instance Core.ToQuery RemoveListenerCertificates where
   toQuery RemoveListenerCertificates' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("RemoveListenerCertificates" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
-        "ListenerArn" Prelude.=: listenerArn,
+          Core.=: ("RemoveListenerCertificates" :: Core.ByteString),
+        "Version" Core.=: ("2015-12-01" :: Core.ByteString),
+        "ListenerArn" Core.=: listenerArn,
         "Certificates"
-          Prelude.=: Prelude.toQueryList "member" certificates
+          Core.=: Core.toQueryList "member" certificates
       ]
 
 -- | /See:/ 'newRemoveListenerCertificatesResponse' smart constructor.
 data RemoveListenerCertificatesResponse = RemoveListenerCertificatesResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RemoveListenerCertificatesResponse' with all optional fields omitted.
@@ -145,7 +140,7 @@ data RemoveListenerCertificatesResponse = RemoveListenerCertificatesResponse'
 -- 'httpStatus', 'removeListenerCertificatesResponse_httpStatus' - The response's http status code.
 newRemoveListenerCertificatesResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RemoveListenerCertificatesResponse
 newRemoveListenerCertificatesResponse pHttpStatus_ =
   RemoveListenerCertificatesResponse'
@@ -154,9 +149,9 @@ newRemoveListenerCertificatesResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-removeListenerCertificatesResponse_httpStatus :: Lens.Lens' RemoveListenerCertificatesResponse Prelude.Int
+removeListenerCertificatesResponse_httpStatus :: Lens.Lens' RemoveListenerCertificatesResponse Core.Int
 removeListenerCertificatesResponse_httpStatus = Lens.lens (\RemoveListenerCertificatesResponse' {httpStatus} -> httpStatus) (\s@RemoveListenerCertificatesResponse' {} a -> s {httpStatus = a} :: RemoveListenerCertificatesResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     RemoveListenerCertificatesResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,20 +39,20 @@ module Network.AWS.Greengrass.UpdateThingRuntimeConfiguration
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Greengrass.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateThingRuntimeConfiguration' smart constructor.
 data UpdateThingRuntimeConfiguration = UpdateThingRuntimeConfiguration'
   { -- | Configuration for telemetry service.
-    telemetryConfiguration :: Prelude.Maybe TelemetryConfigurationUpdate,
+    telemetryConfiguration :: Core.Maybe TelemetryConfigurationUpdate,
     -- | The thing name.
-    thingName :: Prelude.Text
+    thingName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateThingRuntimeConfiguration' with all optional fields omitted.
@@ -68,95 +67,82 @@ data UpdateThingRuntimeConfiguration = UpdateThingRuntimeConfiguration'
 -- 'thingName', 'updateThingRuntimeConfiguration_thingName' - The thing name.
 newUpdateThingRuntimeConfiguration ::
   -- | 'thingName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateThingRuntimeConfiguration
 newUpdateThingRuntimeConfiguration pThingName_ =
   UpdateThingRuntimeConfiguration'
     { telemetryConfiguration =
-        Prelude.Nothing,
+        Core.Nothing,
       thingName = pThingName_
     }
 
 -- | Configuration for telemetry service.
-updateThingRuntimeConfiguration_telemetryConfiguration :: Lens.Lens' UpdateThingRuntimeConfiguration (Prelude.Maybe TelemetryConfigurationUpdate)
+updateThingRuntimeConfiguration_telemetryConfiguration :: Lens.Lens' UpdateThingRuntimeConfiguration (Core.Maybe TelemetryConfigurationUpdate)
 updateThingRuntimeConfiguration_telemetryConfiguration = Lens.lens (\UpdateThingRuntimeConfiguration' {telemetryConfiguration} -> telemetryConfiguration) (\s@UpdateThingRuntimeConfiguration' {} a -> s {telemetryConfiguration = a} :: UpdateThingRuntimeConfiguration)
 
 -- | The thing name.
-updateThingRuntimeConfiguration_thingName :: Lens.Lens' UpdateThingRuntimeConfiguration Prelude.Text
+updateThingRuntimeConfiguration_thingName :: Lens.Lens' UpdateThingRuntimeConfiguration Core.Text
 updateThingRuntimeConfiguration_thingName = Lens.lens (\UpdateThingRuntimeConfiguration' {thingName} -> thingName) (\s@UpdateThingRuntimeConfiguration' {} a -> s {thingName = a} :: UpdateThingRuntimeConfiguration)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     UpdateThingRuntimeConfiguration
   where
   type
-    Rs UpdateThingRuntimeConfiguration =
+    AWSResponse UpdateThingRuntimeConfiguration =
       UpdateThingRuntimeConfigurationResponse
   request = Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateThingRuntimeConfigurationResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     UpdateThingRuntimeConfiguration
 
-instance
-  Prelude.NFData
-    UpdateThingRuntimeConfiguration
+instance Core.NFData UpdateThingRuntimeConfiguration
 
 instance
-  Prelude.ToHeaders
+  Core.ToHeaders
     UpdateThingRuntimeConfiguration
   where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance
-  Prelude.ToJSON
-    UpdateThingRuntimeConfiguration
-  where
+instance Core.ToJSON UpdateThingRuntimeConfiguration where
   toJSON UpdateThingRuntimeConfiguration' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("TelemetryConfiguration" Prelude..=)
-              Prelude.<$> telemetryConfiguration
+    Core.object
+      ( Core.catMaybes
+          [ ("TelemetryConfiguration" Core..=)
+              Core.<$> telemetryConfiguration
           ]
       )
 
-instance
-  Prelude.ToPath
-    UpdateThingRuntimeConfiguration
-  where
+instance Core.ToPath UpdateThingRuntimeConfiguration where
   toPath UpdateThingRuntimeConfiguration' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/greengrass/things/",
-        Prelude.toBS thingName,
+        Core.toBS thingName,
         "/runtimeconfig"
       ]
 
-instance
-  Prelude.ToQuery
-    UpdateThingRuntimeConfiguration
-  where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateThingRuntimeConfiguration where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateThingRuntimeConfigurationResponse' smart constructor.
 data UpdateThingRuntimeConfigurationResponse = UpdateThingRuntimeConfigurationResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateThingRuntimeConfigurationResponse' with all optional fields omitted.
@@ -169,7 +155,7 @@ data UpdateThingRuntimeConfigurationResponse = UpdateThingRuntimeConfigurationRe
 -- 'httpStatus', 'updateThingRuntimeConfigurationResponse_httpStatus' - The response's http status code.
 newUpdateThingRuntimeConfigurationResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateThingRuntimeConfigurationResponse
 newUpdateThingRuntimeConfigurationResponse
   pHttpStatus_ =
@@ -179,9 +165,9 @@ newUpdateThingRuntimeConfigurationResponse
       }
 
 -- | The response's http status code.
-updateThingRuntimeConfigurationResponse_httpStatus :: Lens.Lens' UpdateThingRuntimeConfigurationResponse Prelude.Int
+updateThingRuntimeConfigurationResponse_httpStatus :: Lens.Lens' UpdateThingRuntimeConfigurationResponse Core.Int
 updateThingRuntimeConfigurationResponse_httpStatus = Lens.lens (\UpdateThingRuntimeConfigurationResponse' {httpStatus} -> httpStatus) (\s@UpdateThingRuntimeConfigurationResponse' {} a -> s {httpStatus = a} :: UpdateThingRuntimeConfigurationResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     UpdateThingRuntimeConfigurationResponse

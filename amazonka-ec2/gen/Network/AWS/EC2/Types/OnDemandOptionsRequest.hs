@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.OnDemandOptionsRequest where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import Network.AWS.EC2.Types.CapacityReservationOptionsRequest
 import Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
 --
@@ -32,29 +31,29 @@ import qualified Network.AWS.Prelude as Prelude
 data OnDemandOptionsRequest = OnDemandOptionsRequest'
   { -- | The minimum target capacity for On-Demand Instances in the fleet. If the
     -- minimum target capacity is not reached, the fleet launches no instances.
-    minTargetCapacity :: Prelude.Maybe Prelude.Int,
+    minTargetCapacity :: Core.Maybe Core.Int,
     -- | The strategy for using unused Capacity Reservations for fulfilling
     -- On-Demand capacity. Supported only for fleets of type @instant@.
-    capacityReservationOptions :: Prelude.Maybe CapacityReservationOptionsRequest,
+    capacityReservationOptions :: Core.Maybe CapacityReservationOptionsRequest,
     -- | Indicates that the fleet uses a single instance type to launch all
     -- On-Demand Instances in the fleet. Supported only for fleets of type
     -- @instant@.
-    singleInstanceType :: Prelude.Maybe Prelude.Bool,
+    singleInstanceType :: Core.Maybe Core.Bool,
     -- | The order of the launch template overrides to use in fulfilling
     -- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price
     -- to determine the order, launching the lowest price first. If you specify
     -- @prioritized@, EC2 Fleet uses the priority that you assigned to each
     -- launch template override, launching the highest priority first. If you
     -- do not specify a value, EC2 Fleet defaults to @lowest-price@.
-    allocationStrategy :: Prelude.Maybe FleetOnDemandAllocationStrategy,
+    allocationStrategy :: Core.Maybe FleetOnDemandAllocationStrategy,
     -- | The maximum amount per hour for On-Demand Instances that you\'re willing
     -- to pay.
-    maxTotalPrice :: Prelude.Maybe Prelude.Text,
+    maxTotalPrice :: Core.Maybe Core.Text,
     -- | Indicates that the fleet launches all On-Demand Instances into a single
     -- Availability Zone. Supported only for fleets of type @instant@.
-    singleAvailabilityZone :: Prelude.Maybe Prelude.Bool
+    singleAvailabilityZone :: Core.Maybe Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'OnDemandOptionsRequest' with all optional fields omitted.
@@ -91,28 +90,28 @@ newOnDemandOptionsRequest ::
 newOnDemandOptionsRequest =
   OnDemandOptionsRequest'
     { minTargetCapacity =
-        Prelude.Nothing,
-      capacityReservationOptions = Prelude.Nothing,
-      singleInstanceType = Prelude.Nothing,
-      allocationStrategy = Prelude.Nothing,
-      maxTotalPrice = Prelude.Nothing,
-      singleAvailabilityZone = Prelude.Nothing
+        Core.Nothing,
+      capacityReservationOptions = Core.Nothing,
+      singleInstanceType = Core.Nothing,
+      allocationStrategy = Core.Nothing,
+      maxTotalPrice = Core.Nothing,
+      singleAvailabilityZone = Core.Nothing
     }
 
 -- | The minimum target capacity for On-Demand Instances in the fleet. If the
 -- minimum target capacity is not reached, the fleet launches no instances.
-onDemandOptionsRequest_minTargetCapacity :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe Prelude.Int)
+onDemandOptionsRequest_minTargetCapacity :: Lens.Lens' OnDemandOptionsRequest (Core.Maybe Core.Int)
 onDemandOptionsRequest_minTargetCapacity = Lens.lens (\OnDemandOptionsRequest' {minTargetCapacity} -> minTargetCapacity) (\s@OnDemandOptionsRequest' {} a -> s {minTargetCapacity = a} :: OnDemandOptionsRequest)
 
 -- | The strategy for using unused Capacity Reservations for fulfilling
 -- On-Demand capacity. Supported only for fleets of type @instant@.
-onDemandOptionsRequest_capacityReservationOptions :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe CapacityReservationOptionsRequest)
+onDemandOptionsRequest_capacityReservationOptions :: Lens.Lens' OnDemandOptionsRequest (Core.Maybe CapacityReservationOptionsRequest)
 onDemandOptionsRequest_capacityReservationOptions = Lens.lens (\OnDemandOptionsRequest' {capacityReservationOptions} -> capacityReservationOptions) (\s@OnDemandOptionsRequest' {} a -> s {capacityReservationOptions = a} :: OnDemandOptionsRequest)
 
 -- | Indicates that the fleet uses a single instance type to launch all
 -- On-Demand Instances in the fleet. Supported only for fleets of type
 -- @instant@.
-onDemandOptionsRequest_singleInstanceType :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe Prelude.Bool)
+onDemandOptionsRequest_singleInstanceType :: Lens.Lens' OnDemandOptionsRequest (Core.Maybe Core.Bool)
 onDemandOptionsRequest_singleInstanceType = Lens.lens (\OnDemandOptionsRequest' {singleInstanceType} -> singleInstanceType) (\s@OnDemandOptionsRequest' {} a -> s {singleInstanceType = a} :: OnDemandOptionsRequest)
 
 -- | The order of the launch template overrides to use in fulfilling
@@ -121,32 +120,32 @@ onDemandOptionsRequest_singleInstanceType = Lens.lens (\OnDemandOptionsRequest' 
 -- @prioritized@, EC2 Fleet uses the priority that you assigned to each
 -- launch template override, launching the highest priority first. If you
 -- do not specify a value, EC2 Fleet defaults to @lowest-price@.
-onDemandOptionsRequest_allocationStrategy :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe FleetOnDemandAllocationStrategy)
+onDemandOptionsRequest_allocationStrategy :: Lens.Lens' OnDemandOptionsRequest (Core.Maybe FleetOnDemandAllocationStrategy)
 onDemandOptionsRequest_allocationStrategy = Lens.lens (\OnDemandOptionsRequest' {allocationStrategy} -> allocationStrategy) (\s@OnDemandOptionsRequest' {} a -> s {allocationStrategy = a} :: OnDemandOptionsRequest)
 
 -- | The maximum amount per hour for On-Demand Instances that you\'re willing
 -- to pay.
-onDemandOptionsRequest_maxTotalPrice :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe Prelude.Text)
+onDemandOptionsRequest_maxTotalPrice :: Lens.Lens' OnDemandOptionsRequest (Core.Maybe Core.Text)
 onDemandOptionsRequest_maxTotalPrice = Lens.lens (\OnDemandOptionsRequest' {maxTotalPrice} -> maxTotalPrice) (\s@OnDemandOptionsRequest' {} a -> s {maxTotalPrice = a} :: OnDemandOptionsRequest)
 
 -- | Indicates that the fleet launches all On-Demand Instances into a single
 -- Availability Zone. Supported only for fleets of type @instant@.
-onDemandOptionsRequest_singleAvailabilityZone :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe Prelude.Bool)
+onDemandOptionsRequest_singleAvailabilityZone :: Lens.Lens' OnDemandOptionsRequest (Core.Maybe Core.Bool)
 onDemandOptionsRequest_singleAvailabilityZone = Lens.lens (\OnDemandOptionsRequest' {singleAvailabilityZone} -> singleAvailabilityZone) (\s@OnDemandOptionsRequest' {} a -> s {singleAvailabilityZone = a} :: OnDemandOptionsRequest)
 
-instance Prelude.Hashable OnDemandOptionsRequest
+instance Core.Hashable OnDemandOptionsRequest
 
-instance Prelude.NFData OnDemandOptionsRequest
+instance Core.NFData OnDemandOptionsRequest
 
-instance Prelude.ToQuery OnDemandOptionsRequest where
+instance Core.ToQuery OnDemandOptionsRequest where
   toQuery OnDemandOptionsRequest' {..} =
-    Prelude.mconcat
-      [ "MinTargetCapacity" Prelude.=: minTargetCapacity,
+    Core.mconcat
+      [ "MinTargetCapacity" Core.=: minTargetCapacity,
         "CapacityReservationOptions"
-          Prelude.=: capacityReservationOptions,
-        "SingleInstanceType" Prelude.=: singleInstanceType,
-        "AllocationStrategy" Prelude.=: allocationStrategy,
-        "MaxTotalPrice" Prelude.=: maxTotalPrice,
+          Core.=: capacityReservationOptions,
+        "SingleInstanceType" Core.=: singleInstanceType,
+        "AllocationStrategy" Core.=: allocationStrategy,
+        "MaxTotalPrice" Core.=: maxTotalPrice,
         "SingleAvailabilityZone"
-          Prelude.=: singleAvailabilityZone
+          Core.=: singleAvailabilityZone
       ]

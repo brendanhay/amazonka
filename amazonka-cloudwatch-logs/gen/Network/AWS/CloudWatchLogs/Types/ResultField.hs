@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.ResultField where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains one field from one log event returned by a CloudWatch Logs
 -- Insights query, along with the value of that field.
@@ -33,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newResultField' smart constructor.
 data ResultField = ResultField'
   { -- | The value of this field.
-    value :: Prelude.Maybe Prelude.Text,
+    value :: Core.Maybe Core.Text,
     -- | The log event field.
-    field :: Prelude.Maybe Prelude.Text
+    field :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ResultField' with all optional fields omitted.
@@ -54,28 +53,27 @@ newResultField ::
   ResultField
 newResultField =
   ResultField'
-    { value = Prelude.Nothing,
-      field = Prelude.Nothing
+    { value = Core.Nothing,
+      field = Core.Nothing
     }
 
 -- | The value of this field.
-resultField_value :: Lens.Lens' ResultField (Prelude.Maybe Prelude.Text)
+resultField_value :: Lens.Lens' ResultField (Core.Maybe Core.Text)
 resultField_value = Lens.lens (\ResultField' {value} -> value) (\s@ResultField' {} a -> s {value = a} :: ResultField)
 
 -- | The log event field.
-resultField_field :: Lens.Lens' ResultField (Prelude.Maybe Prelude.Text)
+resultField_field :: Lens.Lens' ResultField (Core.Maybe Core.Text)
 resultField_field = Lens.lens (\ResultField' {field} -> field) (\s@ResultField' {} a -> s {field = a} :: ResultField)
 
-instance Prelude.FromJSON ResultField where
+instance Core.FromJSON ResultField where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ResultField"
       ( \x ->
           ResultField'
-            Prelude.<$> (x Prelude..:? "value")
-            Prelude.<*> (x Prelude..:? "field")
+            Core.<$> (x Core..:? "value") Core.<*> (x Core..:? "field")
       )
 
-instance Prelude.Hashable ResultField
+instance Core.Hashable ResultField
 
-instance Prelude.NFData ResultField
+instance Core.NFData ResultField

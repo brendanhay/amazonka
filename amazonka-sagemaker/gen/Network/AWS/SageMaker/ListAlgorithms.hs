@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -49,9 +48,8 @@ module Network.AWS.SageMaker.ListAlgorithms
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -59,27 +57,27 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newListAlgorithms' smart constructor.
 data ListAlgorithms = ListAlgorithms'
   { -- | The sort order for the results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+    sortOrder :: Core.Maybe SortOrder,
     -- | If the response to a previous @ListAlgorithms@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- algorithms, use the token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A string in the algorithm name. This filter returns only algorithms
     -- whose name contains the specified string.
-    nameContains :: Prelude.Maybe Prelude.Text,
+    nameContains :: Core.Maybe Core.Text,
     -- | The maximum number of algorithms to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
     -- | A filter that returns only algorithms created before the specified time
     -- (timestamp).
-    creationTimeBefore :: Prelude.Maybe Prelude.POSIX,
+    creationTimeBefore :: Core.Maybe Core.POSIX,
     -- | The parameter by which to sort the results. The default is
     -- @CreationTime@.
-    sortBy :: Prelude.Maybe AlgorithmSortBy,
+    sortBy :: Core.Maybe AlgorithmSortBy,
     -- | A filter that returns only algorithms created after the specified time
     -- (timestamp).
-    creationTimeAfter :: Prelude.Maybe Prelude.POSIX
+    creationTimeAfter :: Core.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAlgorithms' with all optional fields omitted.
@@ -112,134 +110,133 @@ newListAlgorithms ::
   ListAlgorithms
 newListAlgorithms =
   ListAlgorithms'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      creationTimeBefore = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
-      creationTimeAfter = Prelude.Nothing
+    { sortOrder = Core.Nothing,
+      nextToken = Core.Nothing,
+      nameContains = Core.Nothing,
+      maxResults = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      sortBy = Core.Nothing,
+      creationTimeAfter = Core.Nothing
     }
 
 -- | The sort order for the results. The default is @Ascending@.
-listAlgorithms_sortOrder :: Lens.Lens' ListAlgorithms (Prelude.Maybe SortOrder)
+listAlgorithms_sortOrder :: Lens.Lens' ListAlgorithms (Core.Maybe SortOrder)
 listAlgorithms_sortOrder = Lens.lens (\ListAlgorithms' {sortOrder} -> sortOrder) (\s@ListAlgorithms' {} a -> s {sortOrder = a} :: ListAlgorithms)
 
 -- | If the response to a previous @ListAlgorithms@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- algorithms, use the token in the next request.
-listAlgorithms_nextToken :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Text)
+listAlgorithms_nextToken :: Lens.Lens' ListAlgorithms (Core.Maybe Core.Text)
 listAlgorithms_nextToken = Lens.lens (\ListAlgorithms' {nextToken} -> nextToken) (\s@ListAlgorithms' {} a -> s {nextToken = a} :: ListAlgorithms)
 
 -- | A string in the algorithm name. This filter returns only algorithms
 -- whose name contains the specified string.
-listAlgorithms_nameContains :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Text)
+listAlgorithms_nameContains :: Lens.Lens' ListAlgorithms (Core.Maybe Core.Text)
 listAlgorithms_nameContains = Lens.lens (\ListAlgorithms' {nameContains} -> nameContains) (\s@ListAlgorithms' {} a -> s {nameContains = a} :: ListAlgorithms)
 
 -- | The maximum number of algorithms to return in the response.
-listAlgorithms_maxResults :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.Natural)
+listAlgorithms_maxResults :: Lens.Lens' ListAlgorithms (Core.Maybe Core.Natural)
 listAlgorithms_maxResults = Lens.lens (\ListAlgorithms' {maxResults} -> maxResults) (\s@ListAlgorithms' {} a -> s {maxResults = a} :: ListAlgorithms)
 
 -- | A filter that returns only algorithms created before the specified time
 -- (timestamp).
-listAlgorithms_creationTimeBefore :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.UTCTime)
-listAlgorithms_creationTimeBefore = Lens.lens (\ListAlgorithms' {creationTimeBefore} -> creationTimeBefore) (\s@ListAlgorithms' {} a -> s {creationTimeBefore = a} :: ListAlgorithms) Prelude.. Lens.mapping Prelude._Time
+listAlgorithms_creationTimeBefore :: Lens.Lens' ListAlgorithms (Core.Maybe Core.UTCTime)
+listAlgorithms_creationTimeBefore = Lens.lens (\ListAlgorithms' {creationTimeBefore} -> creationTimeBefore) (\s@ListAlgorithms' {} a -> s {creationTimeBefore = a} :: ListAlgorithms) Core.. Lens.mapping Core._Time
 
 -- | The parameter by which to sort the results. The default is
 -- @CreationTime@.
-listAlgorithms_sortBy :: Lens.Lens' ListAlgorithms (Prelude.Maybe AlgorithmSortBy)
+listAlgorithms_sortBy :: Lens.Lens' ListAlgorithms (Core.Maybe AlgorithmSortBy)
 listAlgorithms_sortBy = Lens.lens (\ListAlgorithms' {sortBy} -> sortBy) (\s@ListAlgorithms' {} a -> s {sortBy = a} :: ListAlgorithms)
 
 -- | A filter that returns only algorithms created after the specified time
 -- (timestamp).
-listAlgorithms_creationTimeAfter :: Lens.Lens' ListAlgorithms (Prelude.Maybe Prelude.UTCTime)
-listAlgorithms_creationTimeAfter = Lens.lens (\ListAlgorithms' {creationTimeAfter} -> creationTimeAfter) (\s@ListAlgorithms' {} a -> s {creationTimeAfter = a} :: ListAlgorithms) Prelude.. Lens.mapping Prelude._Time
+listAlgorithms_creationTimeAfter :: Lens.Lens' ListAlgorithms (Core.Maybe Core.UTCTime)
+listAlgorithms_creationTimeAfter = Lens.lens (\ListAlgorithms' {creationTimeAfter} -> creationTimeAfter) (\s@ListAlgorithms' {} a -> s {creationTimeAfter = a} :: ListAlgorithms) Core.. Lens.mapping Core._Time
 
-instance Pager.AWSPager ListAlgorithms where
+instance Core.AWSPager ListAlgorithms where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
-            Lens.^? listAlgorithmsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listAlgorithmsResponse_nextToken Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^. listAlgorithmsResponse_algorithmSummaryList
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& listAlgorithms_nextToken
           Lens..~ rs
-          Lens.^? listAlgorithmsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAlgorithmsResponse_nextToken Core.. Lens._Just
 
-instance Prelude.AWSRequest ListAlgorithms where
-  type Rs ListAlgorithms = ListAlgorithmsResponse
+instance Core.AWSRequest ListAlgorithms where
+  type
+    AWSResponse ListAlgorithms =
+      ListAlgorithmsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           ListAlgorithmsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "AlgorithmSummaryList"
-                            Prelude..!@ Prelude.mempty
-                        )
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+            Core.<*> ( x Core..?> "AlgorithmSummaryList"
+                         Core..!@ Core.mempty
+                     )
       )
 
-instance Prelude.Hashable ListAlgorithms
+instance Core.Hashable ListAlgorithms
 
-instance Prelude.NFData ListAlgorithms
+instance Core.NFData ListAlgorithms
 
-instance Prelude.ToHeaders ListAlgorithms where
+instance Core.ToHeaders ListAlgorithms where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("SageMaker.ListAlgorithms" :: Prelude.ByteString),
+              Core.=# ("SageMaker.ListAlgorithms" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON ListAlgorithms where
+instance Core.ToJSON ListAlgorithms where
   toJSON ListAlgorithms' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SortOrder" Prelude..=) Prelude.<$> sortOrder,
-            ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("NameContains" Prelude..=) Prelude.<$> nameContains,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("CreationTimeBefore" Prelude..=)
-              Prelude.<$> creationTimeBefore,
-            ("SortBy" Prelude..=) Prelude.<$> sortBy,
-            ("CreationTimeAfter" Prelude..=)
-              Prelude.<$> creationTimeAfter
+    Core.object
+      ( Core.catMaybes
+          [ ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("CreationTimeBefore" Core..=)
+              Core.<$> creationTimeBefore,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("CreationTimeAfter" Core..=)
+              Core.<$> creationTimeAfter
           ]
       )
 
-instance Prelude.ToPath ListAlgorithms where
-  toPath = Prelude.const "/"
+instance Core.ToPath ListAlgorithms where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ListAlgorithms where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery ListAlgorithms where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newListAlgorithmsResponse' smart constructor.
 data ListAlgorithmsResponse = ListAlgorithmsResponse'
   { -- | If the response is truncated, Amazon SageMaker returns this token. To
     -- retrieve the next set of algorithms, use it in the subsequent request.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int,
+    httpStatus :: Core.Int,
     -- | >An array of @AlgorithmSummary@ objects, each of which lists an
     -- algorithm.
     algorithmSummaryList :: [AlgorithmSummary]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ListAlgorithmsResponse' with all optional fields omitted.
@@ -258,28 +255,27 @@ data ListAlgorithmsResponse = ListAlgorithmsResponse'
 -- algorithm.
 newListAlgorithmsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ListAlgorithmsResponse
 newListAlgorithmsResponse pHttpStatus_ =
   ListAlgorithmsResponse'
-    { nextToken =
-        Prelude.Nothing,
+    { nextToken = Core.Nothing,
       httpStatus = pHttpStatus_,
-      algorithmSummaryList = Prelude.mempty
+      algorithmSummaryList = Core.mempty
     }
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To
 -- retrieve the next set of algorithms, use it in the subsequent request.
-listAlgorithmsResponse_nextToken :: Lens.Lens' ListAlgorithmsResponse (Prelude.Maybe Prelude.Text)
+listAlgorithmsResponse_nextToken :: Lens.Lens' ListAlgorithmsResponse (Core.Maybe Core.Text)
 listAlgorithmsResponse_nextToken = Lens.lens (\ListAlgorithmsResponse' {nextToken} -> nextToken) (\s@ListAlgorithmsResponse' {} a -> s {nextToken = a} :: ListAlgorithmsResponse)
 
 -- | The response's http status code.
-listAlgorithmsResponse_httpStatus :: Lens.Lens' ListAlgorithmsResponse Prelude.Int
+listAlgorithmsResponse_httpStatus :: Lens.Lens' ListAlgorithmsResponse Core.Int
 listAlgorithmsResponse_httpStatus = Lens.lens (\ListAlgorithmsResponse' {httpStatus} -> httpStatus) (\s@ListAlgorithmsResponse' {} a -> s {httpStatus = a} :: ListAlgorithmsResponse)
 
 -- | >An array of @AlgorithmSummary@ objects, each of which lists an
 -- algorithm.
 listAlgorithmsResponse_algorithmSummaryList :: Lens.Lens' ListAlgorithmsResponse [AlgorithmSummary]
-listAlgorithmsResponse_algorithmSummaryList = Lens.lens (\ListAlgorithmsResponse' {algorithmSummaryList} -> algorithmSummaryList) (\s@ListAlgorithmsResponse' {} a -> s {algorithmSummaryList = a} :: ListAlgorithmsResponse) Prelude.. Prelude._Coerce
+listAlgorithmsResponse_algorithmSummaryList = Lens.lens (\ListAlgorithmsResponse' {algorithmSummaryList} -> algorithmSummaryList) (\s@ListAlgorithmsResponse' {} a -> s {algorithmSummaryList = a} :: ListAlgorithmsResponse) Core.. Lens._Coerce
 
-instance Prelude.NFData ListAlgorithmsResponse
+instance Core.NFData ListAlgorithmsResponse

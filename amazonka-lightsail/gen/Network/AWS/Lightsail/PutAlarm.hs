@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -66,9 +65,9 @@ module Network.AWS.Lightsail.PutAlarm
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -77,7 +76,7 @@ data PutAlarm = PutAlarm'
   { -- | The number of data points that must be not within the specified
     -- threshold to trigger the alarm. If you are setting an \"M out of N\"
     -- alarm, this value (@datapointsToAlarm@) is the M.
-    datapointsToAlarm :: Prelude.Maybe Prelude.Int,
+    datapointsToAlarm :: Core.Maybe Core.Int,
     -- | The alarm states that trigger a notification.
     --
     -- An alarm has the following possible states:
@@ -105,12 +104,12 @@ data PutAlarm = PutAlarm'
     --
     -- The notification trigger defaults to @ALARM@ if you don\'t specify this
     -- parameter.
-    notificationTriggers :: Prelude.Maybe [AlarmState],
+    notificationTriggers :: Core.Maybe [AlarmState],
     -- | Indicates whether the alarm is enabled.
     --
     -- Notifications are enabled by default if you don\'t specify this
     -- parameter.
-    notificationEnabled :: Prelude.Maybe Prelude.Bool,
+    notificationEnabled :: Core.Maybe Core.Bool,
     -- | Sets how this alarm will handle missing data points.
     --
     -- An alarm can treat missing data in the following ways:
@@ -130,7 +129,7 @@ data PutAlarm = PutAlarm'
     --
     -- If @treatMissingData@ is not specified, the default behavior of
     -- @missing@ is used.
-    treatMissingData :: Prelude.Maybe TreatMissingData,
+    treatMissingData :: Core.Maybe TreatMissingData,
     -- | The contact protocols to use for the alarm, such as @Email@, @SMS@ (text
     -- messaging), or both.
     --
@@ -145,10 +144,10 @@ data PutAlarm = PutAlarm'
     --
     -- Use the @CreateContactMethod@ action to configure a contact protocol in
     -- an AWS Region.
-    contactProtocols :: Prelude.Maybe [ContactProtocol],
+    contactProtocols :: Core.Maybe [ContactProtocol],
     -- | The name for the alarm. Specify the name of an existing alarm to update,
     -- and overwrite the previous configuration of the alarm.
-    alarmName :: Prelude.Text,
+    alarmName :: Core.Text,
     -- | The name of the metric to associate with the alarm.
     --
     -- You can configure up to two alarms per metric.
@@ -177,13 +176,13 @@ data PutAlarm = PutAlarm'
     --
     -- Instances, load balancers, and relational databases are the only
     -- Lightsail resources that can currently be monitored by alarms.
-    monitoredResourceName :: Prelude.Text,
+    monitoredResourceName :: Core.Text,
     -- | The arithmetic operation to use when comparing the specified statistic
     -- to the threshold. The specified statistic value is used as the first
     -- operand.
     comparisonOperator :: ComparisonOperator,
     -- | The value against which the specified statistic is compared.
-    threshold :: Prelude.Double,
+    threshold :: Core.Double,
     -- | The number of most recent periods over which data is compared to the
     -- specified threshold. If you are setting an \"M out of N\" alarm, this
     -- value (@evaluationPeriods@) is the N.
@@ -198,9 +197,9 @@ data PutAlarm = PutAlarm'
     --
     -- You can specify a minimum valuation period of 1 (5 minutes), and a
     -- maximum evaluation period of 288 (24 hours).
-    evaluationPeriods :: Prelude.Int
+    evaluationPeriods :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAlarm' with all optional fields omitted.
@@ -336,17 +335,17 @@ data PutAlarm = PutAlarm'
 -- maximum evaluation period of 288 (24 hours).
 newPutAlarm ::
   -- | 'alarmName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'metricName'
   MetricName ->
   -- | 'monitoredResourceName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'comparisonOperator'
   ComparisonOperator ->
   -- | 'threshold'
-  Prelude.Double ->
+  Core.Double ->
   -- | 'evaluationPeriods'
-  Prelude.Int ->
+  Core.Int ->
   PutAlarm
 newPutAlarm
   pAlarmName_
@@ -356,11 +355,11 @@ newPutAlarm
   pThreshold_
   pEvaluationPeriods_ =
     PutAlarm'
-      { datapointsToAlarm = Prelude.Nothing,
-        notificationTriggers = Prelude.Nothing,
-        notificationEnabled = Prelude.Nothing,
-        treatMissingData = Prelude.Nothing,
-        contactProtocols = Prelude.Nothing,
+      { datapointsToAlarm = Core.Nothing,
+        notificationTriggers = Core.Nothing,
+        notificationEnabled = Core.Nothing,
+        treatMissingData = Core.Nothing,
+        contactProtocols = Core.Nothing,
         alarmName = pAlarmName_,
         metricName = pMetricName_,
         monitoredResourceName = pMonitoredResourceName_,
@@ -372,7 +371,7 @@ newPutAlarm
 -- | The number of data points that must be not within the specified
 -- threshold to trigger the alarm. If you are setting an \"M out of N\"
 -- alarm, this value (@datapointsToAlarm@) is the M.
-putAlarm_datapointsToAlarm :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Int)
+putAlarm_datapointsToAlarm :: Lens.Lens' PutAlarm (Core.Maybe Core.Int)
 putAlarm_datapointsToAlarm = Lens.lens (\PutAlarm' {datapointsToAlarm} -> datapointsToAlarm) (\s@PutAlarm' {} a -> s {datapointsToAlarm = a} :: PutAlarm)
 
 -- | The alarm states that trigger a notification.
@@ -402,14 +401,14 @@ putAlarm_datapointsToAlarm = Lens.lens (\PutAlarm' {datapointsToAlarm} -> datapo
 --
 -- The notification trigger defaults to @ALARM@ if you don\'t specify this
 -- parameter.
-putAlarm_notificationTriggers :: Lens.Lens' PutAlarm (Prelude.Maybe [AlarmState])
-putAlarm_notificationTriggers = Lens.lens (\PutAlarm' {notificationTriggers} -> notificationTriggers) (\s@PutAlarm' {} a -> s {notificationTriggers = a} :: PutAlarm) Prelude.. Lens.mapping Prelude._Coerce
+putAlarm_notificationTriggers :: Lens.Lens' PutAlarm (Core.Maybe [AlarmState])
+putAlarm_notificationTriggers = Lens.lens (\PutAlarm' {notificationTriggers} -> notificationTriggers) (\s@PutAlarm' {} a -> s {notificationTriggers = a} :: PutAlarm) Core.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether the alarm is enabled.
 --
 -- Notifications are enabled by default if you don\'t specify this
 -- parameter.
-putAlarm_notificationEnabled :: Lens.Lens' PutAlarm (Prelude.Maybe Prelude.Bool)
+putAlarm_notificationEnabled :: Lens.Lens' PutAlarm (Core.Maybe Core.Bool)
 putAlarm_notificationEnabled = Lens.lens (\PutAlarm' {notificationEnabled} -> notificationEnabled) (\s@PutAlarm' {} a -> s {notificationEnabled = a} :: PutAlarm)
 
 -- | Sets how this alarm will handle missing data points.
@@ -431,7 +430,7 @@ putAlarm_notificationEnabled = Lens.lens (\PutAlarm' {notificationEnabled} -> no
 --
 -- If @treatMissingData@ is not specified, the default behavior of
 -- @missing@ is used.
-putAlarm_treatMissingData :: Lens.Lens' PutAlarm (Prelude.Maybe TreatMissingData)
+putAlarm_treatMissingData :: Lens.Lens' PutAlarm (Core.Maybe TreatMissingData)
 putAlarm_treatMissingData = Lens.lens (\PutAlarm' {treatMissingData} -> treatMissingData) (\s@PutAlarm' {} a -> s {treatMissingData = a} :: PutAlarm)
 
 -- | The contact protocols to use for the alarm, such as @Email@, @SMS@ (text
@@ -448,12 +447,12 @@ putAlarm_treatMissingData = Lens.lens (\PutAlarm' {treatMissingData} -> treatMis
 --
 -- Use the @CreateContactMethod@ action to configure a contact protocol in
 -- an AWS Region.
-putAlarm_contactProtocols :: Lens.Lens' PutAlarm (Prelude.Maybe [ContactProtocol])
-putAlarm_contactProtocols = Lens.lens (\PutAlarm' {contactProtocols} -> contactProtocols) (\s@PutAlarm' {} a -> s {contactProtocols = a} :: PutAlarm) Prelude.. Lens.mapping Prelude._Coerce
+putAlarm_contactProtocols :: Lens.Lens' PutAlarm (Core.Maybe [ContactProtocol])
+putAlarm_contactProtocols = Lens.lens (\PutAlarm' {contactProtocols} -> contactProtocols) (\s@PutAlarm' {} a -> s {contactProtocols = a} :: PutAlarm) Core.. Lens.mapping Lens._Coerce
 
 -- | The name for the alarm. Specify the name of an existing alarm to update,
 -- and overwrite the previous configuration of the alarm.
-putAlarm_alarmName :: Lens.Lens' PutAlarm Prelude.Text
+putAlarm_alarmName :: Lens.Lens' PutAlarm Core.Text
 putAlarm_alarmName = Lens.lens (\PutAlarm' {alarmName} -> alarmName) (\s@PutAlarm' {} a -> s {alarmName = a} :: PutAlarm)
 
 -- | The name of the metric to associate with the alarm.
@@ -486,7 +485,7 @@ putAlarm_metricName = Lens.lens (\PutAlarm' {metricName} -> metricName) (\s@PutA
 --
 -- Instances, load balancers, and relational databases are the only
 -- Lightsail resources that can currently be monitored by alarms.
-putAlarm_monitoredResourceName :: Lens.Lens' PutAlarm Prelude.Text
+putAlarm_monitoredResourceName :: Lens.Lens' PutAlarm Core.Text
 putAlarm_monitoredResourceName = Lens.lens (\PutAlarm' {monitoredResourceName} -> monitoredResourceName) (\s@PutAlarm' {} a -> s {monitoredResourceName = a} :: PutAlarm)
 
 -- | The arithmetic operation to use when comparing the specified statistic
@@ -496,7 +495,7 @@ putAlarm_comparisonOperator :: Lens.Lens' PutAlarm ComparisonOperator
 putAlarm_comparisonOperator = Lens.lens (\PutAlarm' {comparisonOperator} -> comparisonOperator) (\s@PutAlarm' {} a -> s {comparisonOperator = a} :: PutAlarm)
 
 -- | The value against which the specified statistic is compared.
-putAlarm_threshold :: Lens.Lens' PutAlarm Prelude.Double
+putAlarm_threshold :: Lens.Lens' PutAlarm Core.Double
 putAlarm_threshold = Lens.lens (\PutAlarm' {threshold} -> threshold) (\s@PutAlarm' {} a -> s {threshold = a} :: PutAlarm)
 
 -- | The number of most recent periods over which data is compared to the
@@ -513,85 +512,79 @@ putAlarm_threshold = Lens.lens (\PutAlarm' {threshold} -> threshold) (\s@PutAlar
 --
 -- You can specify a minimum valuation period of 1 (5 minutes), and a
 -- maximum evaluation period of 288 (24 hours).
-putAlarm_evaluationPeriods :: Lens.Lens' PutAlarm Prelude.Int
+putAlarm_evaluationPeriods :: Lens.Lens' PutAlarm Core.Int
 putAlarm_evaluationPeriods = Lens.lens (\PutAlarm' {evaluationPeriods} -> evaluationPeriods) (\s@PutAlarm' {} a -> s {evaluationPeriods = a} :: PutAlarm)
 
-instance Prelude.AWSRequest PutAlarm where
-  type Rs PutAlarm = PutAlarmResponse
+instance Core.AWSRequest PutAlarm where
+  type AWSResponse PutAlarm = PutAlarmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           PutAlarmResponse'
-            Prelude.<$> ( x Prelude..?> "operations"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "operations" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable PutAlarm
+instance Core.Hashable PutAlarm
 
-instance Prelude.NFData PutAlarm
+instance Core.NFData PutAlarm
 
-instance Prelude.ToHeaders PutAlarm where
+instance Core.ToHeaders PutAlarm where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Lightsail_20161128.PutAlarm" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("Lightsail_20161128.PutAlarm" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON PutAlarm where
+instance Core.ToJSON PutAlarm where
   toJSON PutAlarm' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("datapointsToAlarm" Prelude..=)
-              Prelude.<$> datapointsToAlarm,
-            ("notificationTriggers" Prelude..=)
-              Prelude.<$> notificationTriggers,
-            ("notificationEnabled" Prelude..=)
-              Prelude.<$> notificationEnabled,
-            ("treatMissingData" Prelude..=)
-              Prelude.<$> treatMissingData,
-            ("contactProtocols" Prelude..=)
-              Prelude.<$> contactProtocols,
-            Prelude.Just ("alarmName" Prelude..= alarmName),
-            Prelude.Just ("metricName" Prelude..= metricName),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ ("datapointsToAlarm" Core..=)
+              Core.<$> datapointsToAlarm,
+            ("notificationTriggers" Core..=)
+              Core.<$> notificationTriggers,
+            ("notificationEnabled" Core..=)
+              Core.<$> notificationEnabled,
+            ("treatMissingData" Core..=)
+              Core.<$> treatMissingData,
+            ("contactProtocols" Core..=)
+              Core.<$> contactProtocols,
+            Core.Just ("alarmName" Core..= alarmName),
+            Core.Just ("metricName" Core..= metricName),
+            Core.Just
               ( "monitoredResourceName"
-                  Prelude..= monitoredResourceName
+                  Core..= monitoredResourceName
               ),
-            Prelude.Just
-              ("comparisonOperator" Prelude..= comparisonOperator),
-            Prelude.Just ("threshold" Prelude..= threshold),
-            Prelude.Just
-              ("evaluationPeriods" Prelude..= evaluationPeriods)
+            Core.Just
+              ("comparisonOperator" Core..= comparisonOperator),
+            Core.Just ("threshold" Core..= threshold),
+            Core.Just
+              ("evaluationPeriods" Core..= evaluationPeriods)
           ]
       )
 
-instance Prelude.ToPath PutAlarm where
-  toPath = Prelude.const "/"
+instance Core.ToPath PutAlarm where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery PutAlarm where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery PutAlarm where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newPutAlarmResponse' smart constructor.
 data PutAlarmResponse = PutAlarmResponse'
   { -- | An array of objects that describe the result of the action, such as the
     -- status of the request, the timestamp of the request, and the resources
     -- affected by the request.
-    operations :: Prelude.Maybe [Operation],
+    operations :: Core.Maybe [Operation],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PutAlarmResponse' with all optional fields omitted.
@@ -608,22 +601,22 @@ data PutAlarmResponse = PutAlarmResponse'
 -- 'httpStatus', 'putAlarmResponse_httpStatus' - The response's http status code.
 newPutAlarmResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   PutAlarmResponse
 newPutAlarmResponse pHttpStatus_ =
   PutAlarmResponse'
-    { operations = Prelude.Nothing,
+    { operations = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An array of objects that describe the result of the action, such as the
 -- status of the request, the timestamp of the request, and the resources
 -- affected by the request.
-putAlarmResponse_operations :: Lens.Lens' PutAlarmResponse (Prelude.Maybe [Operation])
-putAlarmResponse_operations = Lens.lens (\PutAlarmResponse' {operations} -> operations) (\s@PutAlarmResponse' {} a -> s {operations = a} :: PutAlarmResponse) Prelude.. Lens.mapping Prelude._Coerce
+putAlarmResponse_operations :: Lens.Lens' PutAlarmResponse (Core.Maybe [Operation])
+putAlarmResponse_operations = Lens.lens (\PutAlarmResponse' {operations} -> operations) (\s@PutAlarmResponse' {} a -> s {operations = a} :: PutAlarmResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-putAlarmResponse_httpStatus :: Lens.Lens' PutAlarmResponse Prelude.Int
+putAlarmResponse_httpStatus :: Lens.Lens' PutAlarmResponse Core.Int
 putAlarmResponse_httpStatus = Lens.lens (\PutAlarmResponse' {httpStatus} -> httpStatus) (\s@PutAlarmResponse' {} a -> s {httpStatus = a} :: PutAlarmResponse)
 
-instance Prelude.NFData PutAlarmResponse
+instance Core.NFData PutAlarmResponse

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -61,9 +60,9 @@ module Network.AWS.KMS.CancelKeyDeletion
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.KMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -82,9 +81,9 @@ data CancelKeyDeletion = CancelKeyDeletion'
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
     -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-    keyId :: Prelude.Text
+    keyId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelKeyDeletion' with all optional fields omitted.
@@ -109,7 +108,7 @@ data CancelKeyDeletion = CancelKeyDeletion'
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
 newCancelKeyDeletion ::
   -- | 'keyId'
-  Prelude.Text ->
+  Core.Text ->
   CancelKeyDeletion
 newCancelKeyDeletion pKeyId_ =
   CancelKeyDeletion' {keyId = pKeyId_}
@@ -127,62 +126,60 @@ newCancelKeyDeletion pKeyId_ =
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
 -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
-cancelKeyDeletion_keyId :: Lens.Lens' CancelKeyDeletion Prelude.Text
+cancelKeyDeletion_keyId :: Lens.Lens' CancelKeyDeletion Core.Text
 cancelKeyDeletion_keyId = Lens.lens (\CancelKeyDeletion' {keyId} -> keyId) (\s@CancelKeyDeletion' {} a -> s {keyId = a} :: CancelKeyDeletion)
 
-instance Prelude.AWSRequest CancelKeyDeletion where
-  type Rs CancelKeyDeletion = CancelKeyDeletionResponse
+instance Core.AWSRequest CancelKeyDeletion where
+  type
+    AWSResponse CancelKeyDeletion =
+      CancelKeyDeletionResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CancelKeyDeletionResponse'
-            Prelude.<$> (x Prelude..?> "KeyId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "KeyId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CancelKeyDeletion
+instance Core.Hashable CancelKeyDeletion
 
-instance Prelude.NFData CancelKeyDeletion
+instance Core.NFData CancelKeyDeletion
 
-instance Prelude.ToHeaders CancelKeyDeletion where
+instance Core.ToHeaders CancelKeyDeletion where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "TrentService.CancelKeyDeletion" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "TrentService.CancelKeyDeletion" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CancelKeyDeletion where
+instance Core.ToJSON CancelKeyDeletion where
   toJSON CancelKeyDeletion' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [Prelude.Just ("KeyId" Prelude..= keyId)]
-      )
+    Core.object
+      (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
 
-instance Prelude.ToPath CancelKeyDeletion where
-  toPath = Prelude.const "/"
+instance Core.ToPath CancelKeyDeletion where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CancelKeyDeletion where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CancelKeyDeletion where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCancelKeyDeletionResponse' smart constructor.
 data CancelKeyDeletionResponse = CancelKeyDeletionResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
     -- of the CMK whose deletion is canceled.
-    keyId :: Prelude.Maybe Prelude.Text,
+    keyId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CancelKeyDeletionResponse' with all optional fields omitted.
@@ -199,22 +196,22 @@ data CancelKeyDeletionResponse = CancelKeyDeletionResponse'
 -- 'httpStatus', 'cancelKeyDeletionResponse_httpStatus' - The response's http status code.
 newCancelKeyDeletionResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CancelKeyDeletionResponse
 newCancelKeyDeletionResponse pHttpStatus_ =
   CancelKeyDeletionResponse'
-    { keyId = Prelude.Nothing,
+    { keyId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
 -- of the CMK whose deletion is canceled.
-cancelKeyDeletionResponse_keyId :: Lens.Lens' CancelKeyDeletionResponse (Prelude.Maybe Prelude.Text)
+cancelKeyDeletionResponse_keyId :: Lens.Lens' CancelKeyDeletionResponse (Core.Maybe Core.Text)
 cancelKeyDeletionResponse_keyId = Lens.lens (\CancelKeyDeletionResponse' {keyId} -> keyId) (\s@CancelKeyDeletionResponse' {} a -> s {keyId = a} :: CancelKeyDeletionResponse)
 
 -- | The response's http status code.
-cancelKeyDeletionResponse_httpStatus :: Lens.Lens' CancelKeyDeletionResponse Prelude.Int
+cancelKeyDeletionResponse_httpStatus :: Lens.Lens' CancelKeyDeletionResponse Core.Int
 cancelKeyDeletionResponse_httpStatus = Lens.lens (\CancelKeyDeletionResponse' {httpStatus} -> httpStatus) (\s@CancelKeyDeletionResponse' {} a -> s {httpStatus = a} :: CancelKeyDeletionResponse)
 
-instance Prelude.NFData CancelKeyDeletionResponse
+instance Core.NFData CancelKeyDeletionResponse

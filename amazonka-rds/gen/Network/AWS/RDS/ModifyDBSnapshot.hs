@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.RDS.ModifyDBSnapshot
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
@@ -61,7 +60,7 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
     -- as when upgrading a DB instance. For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
     -- in the /Amazon RDS User Guide./
-    optionGroupName :: Prelude.Maybe Prelude.Text,
+    optionGroupName :: Core.Maybe Core.Text,
     -- | The engine version to upgrade the DB snapshot to.
     --
     -- The following are the database engines and engine versions that are
@@ -84,11 +83,11 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
     -- For the list of engine versions that are available for upgrading a DB
     -- snapshot, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS>.
-    engineVersion :: Prelude.Maybe Prelude.Text,
+    engineVersion :: Core.Maybe Core.Text,
     -- | The identifier of the DB snapshot to modify.
-    dbSnapshotIdentifier :: Prelude.Text
+    dbSnapshotIdentifier :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyDBSnapshot' with all optional fields omitted.
@@ -132,13 +131,12 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
 -- 'dbSnapshotIdentifier', 'modifyDBSnapshot_dbSnapshotIdentifier' - The identifier of the DB snapshot to modify.
 newModifyDBSnapshot ::
   -- | 'dbSnapshotIdentifier'
-  Prelude.Text ->
+  Core.Text ->
   ModifyDBSnapshot
 newModifyDBSnapshot pDBSnapshotIdentifier_ =
   ModifyDBSnapshot'
-    { optionGroupName =
-        Prelude.Nothing,
-      engineVersion = Prelude.Nothing,
+    { optionGroupName = Core.Nothing,
+      engineVersion = Core.Nothing,
       dbSnapshotIdentifier = pDBSnapshotIdentifier_
     }
 
@@ -149,7 +147,7 @@ newModifyDBSnapshot pDBSnapshotIdentifier_ =
 -- as when upgrading a DB instance. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations>
 -- in the /Amazon RDS User Guide./
-modifyDBSnapshot_optionGroupName :: Lens.Lens' ModifyDBSnapshot (Prelude.Maybe Prelude.Text)
+modifyDBSnapshot_optionGroupName :: Lens.Lens' ModifyDBSnapshot (Core.Maybe Core.Text)
 modifyDBSnapshot_optionGroupName = Lens.lens (\ModifyDBSnapshot' {optionGroupName} -> optionGroupName) (\s@ModifyDBSnapshot' {} a -> s {optionGroupName = a} :: ModifyDBSnapshot)
 
 -- | The engine version to upgrade the DB snapshot to.
@@ -174,55 +172,55 @@ modifyDBSnapshot_optionGroupName = Lens.lens (\ModifyDBSnapshot' {optionGroupNam
 -- For the list of engine versions that are available for upgrading a DB
 -- snapshot, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS>.
-modifyDBSnapshot_engineVersion :: Lens.Lens' ModifyDBSnapshot (Prelude.Maybe Prelude.Text)
+modifyDBSnapshot_engineVersion :: Lens.Lens' ModifyDBSnapshot (Core.Maybe Core.Text)
 modifyDBSnapshot_engineVersion = Lens.lens (\ModifyDBSnapshot' {engineVersion} -> engineVersion) (\s@ModifyDBSnapshot' {} a -> s {engineVersion = a} :: ModifyDBSnapshot)
 
 -- | The identifier of the DB snapshot to modify.
-modifyDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshot Prelude.Text
+modifyDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshot Core.Text
 modifyDBSnapshot_dbSnapshotIdentifier = Lens.lens (\ModifyDBSnapshot' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@ModifyDBSnapshot' {} a -> s {dbSnapshotIdentifier = a} :: ModifyDBSnapshot)
 
-instance Prelude.AWSRequest ModifyDBSnapshot where
-  type Rs ModifyDBSnapshot = ModifyDBSnapshotResponse
+instance Core.AWSRequest ModifyDBSnapshot where
+  type
+    AWSResponse ModifyDBSnapshot =
+      ModifyDBSnapshotResponse
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "ModifyDBSnapshotResult"
       ( \s h x ->
           ModifyDBSnapshotResponse'
-            Prelude.<$> (x Prelude..@? "DBSnapshot")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "DBSnapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable ModifyDBSnapshot
+instance Core.Hashable ModifyDBSnapshot
 
-instance Prelude.NFData ModifyDBSnapshot
+instance Core.NFData ModifyDBSnapshot
 
-instance Prelude.ToHeaders ModifyDBSnapshot where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders ModifyDBSnapshot where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath ModifyDBSnapshot where
-  toPath = Prelude.const "/"
+instance Core.ToPath ModifyDBSnapshot where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery ModifyDBSnapshot where
+instance Core.ToQuery ModifyDBSnapshot where
   toQuery ModifyDBSnapshot' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("ModifyDBSnapshot" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
-        "OptionGroupName" Prelude.=: optionGroupName,
-        "EngineVersion" Prelude.=: engineVersion,
-        "DBSnapshotIdentifier"
-          Prelude.=: dbSnapshotIdentifier
+          Core.=: ("ModifyDBSnapshot" :: Core.ByteString),
+        "Version" Core.=: ("2014-10-31" :: Core.ByteString),
+        "OptionGroupName" Core.=: optionGroupName,
+        "EngineVersion" Core.=: engineVersion,
+        "DBSnapshotIdentifier" Core.=: dbSnapshotIdentifier
       ]
 
 -- | /See:/ 'newModifyDBSnapshotResponse' smart constructor.
 data ModifyDBSnapshotResponse = ModifyDBSnapshotResponse'
-  { dbSnapshot :: Prelude.Maybe DBSnapshot,
+  { dbSnapshot :: Core.Maybe DBSnapshot,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ModifyDBSnapshotResponse' with all optional fields omitted.
@@ -237,21 +235,21 @@ data ModifyDBSnapshotResponse = ModifyDBSnapshotResponse'
 -- 'httpStatus', 'modifyDBSnapshotResponse_httpStatus' - The response's http status code.
 newModifyDBSnapshotResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   ModifyDBSnapshotResponse
 newModifyDBSnapshotResponse pHttpStatus_ =
   ModifyDBSnapshotResponse'
     { dbSnapshot =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-modifyDBSnapshotResponse_dbSnapshot :: Lens.Lens' ModifyDBSnapshotResponse (Prelude.Maybe DBSnapshot)
+modifyDBSnapshotResponse_dbSnapshot :: Lens.Lens' ModifyDBSnapshotResponse (Core.Maybe DBSnapshot)
 modifyDBSnapshotResponse_dbSnapshot = Lens.lens (\ModifyDBSnapshotResponse' {dbSnapshot} -> dbSnapshot) (\s@ModifyDBSnapshotResponse' {} a -> s {dbSnapshot = a} :: ModifyDBSnapshotResponse)
 
 -- | The response's http status code.
-modifyDBSnapshotResponse_httpStatus :: Lens.Lens' ModifyDBSnapshotResponse Prelude.Int
+modifyDBSnapshotResponse_httpStatus :: Lens.Lens' ModifyDBSnapshotResponse Core.Int
 modifyDBSnapshotResponse_httpStatus = Lens.lens (\ModifyDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@ModifyDBSnapshotResponse' {} a -> s {httpStatus = a} :: ModifyDBSnapshotResponse)
 
-instance Prelude.NFData ModifyDBSnapshotResponse
+instance Core.NFData ModifyDBSnapshotResponse

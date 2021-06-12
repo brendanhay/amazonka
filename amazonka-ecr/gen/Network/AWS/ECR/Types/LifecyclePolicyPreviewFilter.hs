@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types.LifecyclePolicyPreviewFilter where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECR.Types.TagStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The filter for the lifecycle policy preview.
 --
 -- /See:/ 'newLifecyclePolicyPreviewFilter' smart constructor.
 data LifecyclePolicyPreviewFilter = LifecyclePolicyPreviewFilter'
   { -- | The tag status of the image.
-    tagStatus :: Prelude.Maybe TagStatus
+    tagStatus :: Core.Maybe TagStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'LifecyclePolicyPreviewFilter' with all optional fields omitted.
@@ -47,22 +46,20 @@ newLifecyclePolicyPreviewFilter ::
 newLifecyclePolicyPreviewFilter =
   LifecyclePolicyPreviewFilter'
     { tagStatus =
-        Prelude.Nothing
+        Core.Nothing
     }
 
 -- | The tag status of the image.
-lifecyclePolicyPreviewFilter_tagStatus :: Lens.Lens' LifecyclePolicyPreviewFilter (Prelude.Maybe TagStatus)
+lifecyclePolicyPreviewFilter_tagStatus :: Lens.Lens' LifecyclePolicyPreviewFilter (Core.Maybe TagStatus)
 lifecyclePolicyPreviewFilter_tagStatus = Lens.lens (\LifecyclePolicyPreviewFilter' {tagStatus} -> tagStatus) (\s@LifecyclePolicyPreviewFilter' {} a -> s {tagStatus = a} :: LifecyclePolicyPreviewFilter)
 
-instance
-  Prelude.Hashable
-    LifecyclePolicyPreviewFilter
+instance Core.Hashable LifecyclePolicyPreviewFilter
 
-instance Prelude.NFData LifecyclePolicyPreviewFilter
+instance Core.NFData LifecyclePolicyPreviewFilter
 
-instance Prelude.ToJSON LifecyclePolicyPreviewFilter where
+instance Core.ToJSON LifecyclePolicyPreviewFilter where
   toJSON LifecyclePolicyPreviewFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [("tagStatus" Prelude..=) Prelude.<$> tagStatus]
+    Core.object
+      ( Core.catMaybes
+          [("tagStatus" Core..=) Core.<$> tagStatus]
       )

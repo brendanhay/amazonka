@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,8 +45,8 @@ module Network.AWS.AutoScalingPlans.UpdateScalingPlan
 where
 
 import Network.AWS.AutoScalingPlans.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -58,20 +57,20 @@ data UpdateScalingPlan = UpdateScalingPlan'
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
     -- in the /AWS Auto Scaling API Reference/.
-    applicationSource :: Prelude.Maybe ApplicationSource,
+    applicationSource :: Core.Maybe ApplicationSource,
     -- | The scaling instructions.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
     -- in the /AWS Auto Scaling API Reference/.
-    scalingInstructions :: Prelude.Maybe [ScalingInstruction],
+    scalingInstructions :: Core.Maybe [ScalingInstruction],
     -- | The name of the scaling plan.
-    scalingPlanName :: Prelude.Text,
+    scalingPlanName :: Core.Text,
     -- | The version number of the scaling plan. The only valid value is @1@.
     -- Currently, you cannot have multiple scaling plan versions.
-    scalingPlanVersion :: Prelude.Integer
+    scalingPlanVersion :: Core.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingPlan' with all optional fields omitted.
@@ -99,17 +98,17 @@ data UpdateScalingPlan = UpdateScalingPlan'
 -- Currently, you cannot have multiple scaling plan versions.
 newUpdateScalingPlan ::
   -- | 'scalingPlanName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scalingPlanVersion'
-  Prelude.Integer ->
+  Core.Integer ->
   UpdateScalingPlan
 newUpdateScalingPlan
   pScalingPlanName_
   pScalingPlanVersion_ =
     UpdateScalingPlan'
       { applicationSource =
-          Prelude.Nothing,
-        scalingInstructions = Prelude.Nothing,
+          Core.Nothing,
+        scalingInstructions = Core.Nothing,
         scalingPlanName = pScalingPlanName_,
         scalingPlanVersion = pScalingPlanVersion_
       }
@@ -119,7 +118,7 @@ newUpdateScalingPlan
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ApplicationSource.html ApplicationSource>
 -- in the /AWS Auto Scaling API Reference/.
-updateScalingPlan_applicationSource :: Lens.Lens' UpdateScalingPlan (Prelude.Maybe ApplicationSource)
+updateScalingPlan_applicationSource :: Lens.Lens' UpdateScalingPlan (Core.Maybe ApplicationSource)
 updateScalingPlan_applicationSource = Lens.lens (\UpdateScalingPlan' {applicationSource} -> applicationSource) (\s@UpdateScalingPlan' {} a -> s {applicationSource = a} :: UpdateScalingPlan)
 
 -- | The scaling instructions.
@@ -127,76 +126,74 @@ updateScalingPlan_applicationSource = Lens.lens (\UpdateScalingPlan' {applicatio
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html ScalingInstruction>
 -- in the /AWS Auto Scaling API Reference/.
-updateScalingPlan_scalingInstructions :: Lens.Lens' UpdateScalingPlan (Prelude.Maybe [ScalingInstruction])
-updateScalingPlan_scalingInstructions = Lens.lens (\UpdateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@UpdateScalingPlan' {} a -> s {scalingInstructions = a} :: UpdateScalingPlan) Prelude.. Lens.mapping Prelude._Coerce
+updateScalingPlan_scalingInstructions :: Lens.Lens' UpdateScalingPlan (Core.Maybe [ScalingInstruction])
+updateScalingPlan_scalingInstructions = Lens.lens (\UpdateScalingPlan' {scalingInstructions} -> scalingInstructions) (\s@UpdateScalingPlan' {} a -> s {scalingInstructions = a} :: UpdateScalingPlan) Core.. Lens.mapping Lens._Coerce
 
 -- | The name of the scaling plan.
-updateScalingPlan_scalingPlanName :: Lens.Lens' UpdateScalingPlan Prelude.Text
+updateScalingPlan_scalingPlanName :: Lens.Lens' UpdateScalingPlan Core.Text
 updateScalingPlan_scalingPlanName = Lens.lens (\UpdateScalingPlan' {scalingPlanName} -> scalingPlanName) (\s@UpdateScalingPlan' {} a -> s {scalingPlanName = a} :: UpdateScalingPlan)
 
 -- | The version number of the scaling plan. The only valid value is @1@.
 -- Currently, you cannot have multiple scaling plan versions.
-updateScalingPlan_scalingPlanVersion :: Lens.Lens' UpdateScalingPlan Prelude.Integer
+updateScalingPlan_scalingPlanVersion :: Lens.Lens' UpdateScalingPlan Core.Integer
 updateScalingPlan_scalingPlanVersion = Lens.lens (\UpdateScalingPlan' {scalingPlanVersion} -> scalingPlanVersion) (\s@UpdateScalingPlan' {} a -> s {scalingPlanVersion = a} :: UpdateScalingPlan)
 
-instance Prelude.AWSRequest UpdateScalingPlan where
-  type Rs UpdateScalingPlan = UpdateScalingPlanResponse
+instance Core.AWSRequest UpdateScalingPlan where
+  type
+    AWSResponse UpdateScalingPlan =
+      UpdateScalingPlanResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateScalingPlanResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateScalingPlan
+instance Core.Hashable UpdateScalingPlan
 
-instance Prelude.NFData UpdateScalingPlan
+instance Core.NFData UpdateScalingPlan
 
-instance Prelude.ToHeaders UpdateScalingPlan where
+instance Core.ToHeaders UpdateScalingPlan where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateScalingPlan where
+instance Core.ToJSON UpdateScalingPlan where
   toJSON UpdateScalingPlan' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("ApplicationSource" Prelude..=)
-              Prelude.<$> applicationSource,
-            ("ScalingInstructions" Prelude..=)
-              Prelude.<$> scalingInstructions,
-            Prelude.Just
-              ("ScalingPlanName" Prelude..= scalingPlanName),
-            Prelude.Just
-              ( "ScalingPlanVersion"
-                  Prelude..= scalingPlanVersion
-              )
+    Core.object
+      ( Core.catMaybes
+          [ ("ApplicationSource" Core..=)
+              Core.<$> applicationSource,
+            ("ScalingInstructions" Core..=)
+              Core.<$> scalingInstructions,
+            Core.Just
+              ("ScalingPlanName" Core..= scalingPlanName),
+            Core.Just
+              ("ScalingPlanVersion" Core..= scalingPlanVersion)
           ]
       )
 
-instance Prelude.ToPath UpdateScalingPlan where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateScalingPlan where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateScalingPlan where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateScalingPlan where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateScalingPlanResponse' smart constructor.
 data UpdateScalingPlanResponse = UpdateScalingPlanResponse'
   { -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateScalingPlanResponse' with all optional fields omitted.
@@ -209,7 +206,7 @@ data UpdateScalingPlanResponse = UpdateScalingPlanResponse'
 -- 'httpStatus', 'updateScalingPlanResponse_httpStatus' - The response's http status code.
 newUpdateScalingPlanResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateScalingPlanResponse
 newUpdateScalingPlanResponse pHttpStatus_ =
   UpdateScalingPlanResponse'
@@ -218,7 +215,7 @@ newUpdateScalingPlanResponse pHttpStatus_ =
     }
 
 -- | The response's http status code.
-updateScalingPlanResponse_httpStatus :: Lens.Lens' UpdateScalingPlanResponse Prelude.Int
+updateScalingPlanResponse_httpStatus :: Lens.Lens' UpdateScalingPlanResponse Core.Int
 updateScalingPlanResponse_httpStatus = Lens.lens (\UpdateScalingPlanResponse' {httpStatus} -> httpStatus) (\s@UpdateScalingPlanResponse' {} a -> s {httpStatus = a} :: UpdateScalingPlanResponse)
 
-instance Prelude.NFData UpdateScalingPlanResponse
+instance Core.NFData UpdateScalingPlanResponse

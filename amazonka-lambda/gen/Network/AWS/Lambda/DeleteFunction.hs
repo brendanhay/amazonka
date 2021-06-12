@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -44,9 +43,9 @@ module Network.AWS.Lambda.DeleteFunction
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Lambda.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -54,7 +53,7 @@ import qualified Network.AWS.Response as Response
 data DeleteFunction = DeleteFunction'
   { -- | Specify a version to delete. You can\'t delete a version that\'s
     -- referenced by an alias.
-    qualifier :: Prelude.Maybe Prelude.Text,
+    qualifier :: Core.Maybe Core.Text,
     -- | The name of the Lambda function or version.
     --
     -- __Name formats__
@@ -70,9 +69,9 @@ data DeleteFunction = DeleteFunction'
     -- You can append a version number or alias to any of the formats. The
     -- length constraint applies only to the full ARN. If you specify only the
     -- function name, it is limited to 64 characters in length.
-    functionName :: Prelude.Text
+    functionName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFunction' with all optional fields omitted.
@@ -102,17 +101,17 @@ data DeleteFunction = DeleteFunction'
 -- function name, it is limited to 64 characters in length.
 newDeleteFunction ::
   -- | 'functionName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteFunction
 newDeleteFunction pFunctionName_ =
   DeleteFunction'
-    { qualifier = Prelude.Nothing,
+    { qualifier = Core.Nothing,
       functionName = pFunctionName_
     }
 
 -- | Specify a version to delete. You can\'t delete a version that\'s
 -- referenced by an alias.
-deleteFunction_qualifier :: Lens.Lens' DeleteFunction (Prelude.Maybe Prelude.Text)
+deleteFunction_qualifier :: Lens.Lens' DeleteFunction (Core.Maybe Core.Text)
 deleteFunction_qualifier = Lens.lens (\DeleteFunction' {qualifier} -> qualifier) (\s@DeleteFunction' {} a -> s {qualifier = a} :: DeleteFunction)
 
 -- | The name of the Lambda function or version.
@@ -130,36 +129,38 @@ deleteFunction_qualifier = Lens.lens (\DeleteFunction' {qualifier} -> qualifier)
 -- You can append a version number or alias to any of the formats. The
 -- length constraint applies only to the full ARN. If you specify only the
 -- function name, it is limited to 64 characters in length.
-deleteFunction_functionName :: Lens.Lens' DeleteFunction Prelude.Text
+deleteFunction_functionName :: Lens.Lens' DeleteFunction Core.Text
 deleteFunction_functionName = Lens.lens (\DeleteFunction' {functionName} -> functionName) (\s@DeleteFunction' {} a -> s {functionName = a} :: DeleteFunction)
 
-instance Prelude.AWSRequest DeleteFunction where
-  type Rs DeleteFunction = DeleteFunctionResponse
+instance Core.AWSRequest DeleteFunction where
+  type
+    AWSResponse DeleteFunction =
+      DeleteFunctionResponse
   request = Request.delete defaultService
   response =
     Response.receiveNull DeleteFunctionResponse'
 
-instance Prelude.Hashable DeleteFunction
+instance Core.Hashable DeleteFunction
 
-instance Prelude.NFData DeleteFunction
+instance Core.NFData DeleteFunction
 
-instance Prelude.ToHeaders DeleteFunction where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders DeleteFunction where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath DeleteFunction where
+instance Core.ToPath DeleteFunction where
   toPath DeleteFunction' {..} =
-    Prelude.mconcat
-      ["/2015-03-31/functions/", Prelude.toBS functionName]
+    Core.mconcat
+      ["/2015-03-31/functions/", Core.toBS functionName]
 
-instance Prelude.ToQuery DeleteFunction where
+instance Core.ToQuery DeleteFunction where
   toQuery DeleteFunction' {..} =
-    Prelude.mconcat ["Qualifier" Prelude.=: qualifier]
+    Core.mconcat ["Qualifier" Core.=: qualifier]
 
 -- | /See:/ 'newDeleteFunctionResponse' smart constructor.
 data DeleteFunctionResponse = DeleteFunctionResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteFunctionResponse' with all optional fields omitted.
@@ -169,4 +170,4 @@ newDeleteFunctionResponse ::
   DeleteFunctionResponse
 newDeleteFunctionResponse = DeleteFunctionResponse'
 
-instance Prelude.NFData DeleteFunctionResponse
+instance Core.NFData DeleteFunctionResponse

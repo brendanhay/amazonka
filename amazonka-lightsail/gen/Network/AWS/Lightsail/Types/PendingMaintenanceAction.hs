@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Lightsail.Types.PendingMaintenanceAction where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes a pending database maintenance action.
 --
 -- /See:/ 'newPendingMaintenanceAction' smart constructor.
 data PendingMaintenanceAction = PendingMaintenanceAction'
   { -- | The effective date of the pending database maintenance action.
-    currentApplyDate :: Prelude.Maybe Prelude.POSIX,
+    currentApplyDate :: Core.Maybe Core.POSIX,
     -- | The type of pending database maintenance action.
-    action :: Prelude.Maybe Prelude.Text,
+    action :: Core.Maybe Core.Text,
     -- | Additional detail about the pending database maintenance action.
-    description :: Prelude.Maybe Prelude.Text
+    description :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PendingMaintenanceAction' with all optional fields omitted.
@@ -54,34 +53,34 @@ newPendingMaintenanceAction ::
 newPendingMaintenanceAction =
   PendingMaintenanceAction'
     { currentApplyDate =
-        Prelude.Nothing,
-      action = Prelude.Nothing,
-      description = Prelude.Nothing
+        Core.Nothing,
+      action = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The effective date of the pending database maintenance action.
-pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.UTCTime)
-pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Prelude.. Lens.mapping Prelude._Time
+pendingMaintenanceAction_currentApplyDate :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.UTCTime)
+pendingMaintenanceAction_currentApplyDate = Lens.lens (\PendingMaintenanceAction' {currentApplyDate} -> currentApplyDate) (\s@PendingMaintenanceAction' {} a -> s {currentApplyDate = a} :: PendingMaintenanceAction) Core.. Lens.mapping Core._Time
 
 -- | The type of pending database maintenance action.
-pendingMaintenanceAction_action :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
+pendingMaintenanceAction_action :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.Text)
 pendingMaintenanceAction_action = Lens.lens (\PendingMaintenanceAction' {action} -> action) (\s@PendingMaintenanceAction' {} a -> s {action = a} :: PendingMaintenanceAction)
 
 -- | Additional detail about the pending database maintenance action.
-pendingMaintenanceAction_description :: Lens.Lens' PendingMaintenanceAction (Prelude.Maybe Prelude.Text)
+pendingMaintenanceAction_description :: Lens.Lens' PendingMaintenanceAction (Core.Maybe Core.Text)
 pendingMaintenanceAction_description = Lens.lens (\PendingMaintenanceAction' {description} -> description) (\s@PendingMaintenanceAction' {} a -> s {description = a} :: PendingMaintenanceAction)
 
-instance Prelude.FromJSON PendingMaintenanceAction where
+instance Core.FromJSON PendingMaintenanceAction where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "PendingMaintenanceAction"
       ( \x ->
           PendingMaintenanceAction'
-            Prelude.<$> (x Prelude..:? "currentApplyDate")
-            Prelude.<*> (x Prelude..:? "action")
-            Prelude.<*> (x Prelude..:? "description")
+            Core.<$> (x Core..:? "currentApplyDate")
+            Core.<*> (x Core..:? "action")
+            Core.<*> (x Core..:? "description")
       )
 
-instance Prelude.Hashable PendingMaintenanceAction
+instance Core.Hashable PendingMaintenanceAction
 
-instance Prelude.NFData PendingMaintenanceAction
+instance Core.NFData PendingMaintenanceAction

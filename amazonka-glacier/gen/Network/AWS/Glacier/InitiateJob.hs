@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -48,9 +47,9 @@ module Network.AWS.Glacier.InitiateJob
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glacier.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -59,17 +58,17 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newInitiateJob' smart constructor.
 data InitiateJob = InitiateJob'
   { -- | Provides options for specifying job information.
-    jobParameters :: Prelude.Maybe JobParameters,
+    jobParameters :: Core.Maybe JobParameters,
     -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
     -- an account ID, do not include any hyphens (\'-\') in the ID.
-    accountId :: Prelude.Text,
+    accountId :: Core.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InitiateJob' with all optional fields omitted.
@@ -90,19 +89,19 @@ data InitiateJob = InitiateJob'
 -- 'vaultName', 'initiateJob_vaultName' - The name of the vault.
 newInitiateJob ::
   -- | 'accountId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'vaultName'
-  Prelude.Text ->
+  Core.Text ->
   InitiateJob
 newInitiateJob pAccountId_ pVaultName_ =
   InitiateJob'
-    { jobParameters = Prelude.Nothing,
+    { jobParameters = Core.Nothing,
       accountId = pAccountId_,
       vaultName = pVaultName_
     }
 
 -- | Provides options for specifying job information.
-initiateJob_jobParameters :: Lens.Lens' InitiateJob (Prelude.Maybe JobParameters)
+initiateJob_jobParameters :: Lens.Lens' InitiateJob (Core.Maybe JobParameters)
 initiateJob_jobParameters = Lens.lens (\InitiateJob' {jobParameters} -> jobParameters) (\s@InitiateJob' {} a -> s {jobParameters = a} :: InitiateJob)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -110,71 +109,69 @@ initiateJob_jobParameters = Lens.lens (\InitiateJob' {jobParameters} -> jobParam
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (\'-\') in the ID.
-initiateJob_accountId :: Lens.Lens' InitiateJob Prelude.Text
+initiateJob_accountId :: Lens.Lens' InitiateJob Core.Text
 initiateJob_accountId = Lens.lens (\InitiateJob' {accountId} -> accountId) (\s@InitiateJob' {} a -> s {accountId = a} :: InitiateJob)
 
 -- | The name of the vault.
-initiateJob_vaultName :: Lens.Lens' InitiateJob Prelude.Text
+initiateJob_vaultName :: Lens.Lens' InitiateJob Core.Text
 initiateJob_vaultName = Lens.lens (\InitiateJob' {vaultName} -> vaultName) (\s@InitiateJob' {} a -> s {vaultName = a} :: InitiateJob)
 
-instance Prelude.AWSRequest InitiateJob where
-  type Rs InitiateJob = InitiateJobResponse
+instance Core.AWSRequest InitiateJob where
+  type AWSResponse InitiateJob = InitiateJobResponse
   request =
-    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+    Request.glacierVersionHeader (Core._serviceVersion defaultService)
+      Core.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
           InitiateJobResponse'
-            Prelude.<$> (h Prelude..#? "x-amz-job-output-path")
-            Prelude.<*> (h Prelude..#? "Location")
-            Prelude.<*> (h Prelude..#? "x-amz-job-id")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (h Core..#? "x-amz-job-output-path")
+            Core.<*> (h Core..#? "Location")
+            Core.<*> (h Core..#? "x-amz-job-id")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable InitiateJob
+instance Core.Hashable InitiateJob
 
-instance Prelude.NFData InitiateJob
+instance Core.NFData InitiateJob
 
-instance Prelude.ToHeaders InitiateJob where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders InitiateJob where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToJSON InitiateJob where
+instance Core.ToJSON InitiateJob where
   toJSON InitiateJob' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("jobParameters" Prelude..=)
-              Prelude.<$> jobParameters
-          ]
+    Core.object
+      ( Core.catMaybes
+          [("jobParameters" Core..=) Core.<$> jobParameters]
       )
 
-instance Prelude.ToPath InitiateJob where
+instance Core.ToPath InitiateJob where
   toPath InitiateJob' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/",
-        Prelude.toBS accountId,
+        Core.toBS accountId,
         "/vaults/",
-        Prelude.toBS vaultName,
+        Core.toBS vaultName,
         "/jobs"
       ]
 
-instance Prelude.ToQuery InitiateJob where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery InitiateJob where
+  toQuery = Core.const Core.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'newInitiateJobResponse' smart constructor.
 data InitiateJobResponse = InitiateJobResponse'
   { -- | The path to the location of where the select results are stored.
-    jobOutputPath :: Prelude.Maybe Prelude.Text,
+    jobOutputPath :: Core.Maybe Core.Text,
     -- | The relative URI path of the job.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The ID of the job.
-    jobId :: Prelude.Maybe Prelude.Text,
+    jobId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InitiateJobResponse' with all optional fields omitted.
@@ -193,31 +190,30 @@ data InitiateJobResponse = InitiateJobResponse'
 -- 'httpStatus', 'initiateJobResponse_httpStatus' - The response's http status code.
 newInitiateJobResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   InitiateJobResponse
 newInitiateJobResponse pHttpStatus_ =
   InitiateJobResponse'
-    { jobOutputPath =
-        Prelude.Nothing,
-      location = Prelude.Nothing,
-      jobId = Prelude.Nothing,
+    { jobOutputPath = Core.Nothing,
+      location = Core.Nothing,
+      jobId = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The path to the location of where the select results are stored.
-initiateJobResponse_jobOutputPath :: Lens.Lens' InitiateJobResponse (Prelude.Maybe Prelude.Text)
+initiateJobResponse_jobOutputPath :: Lens.Lens' InitiateJobResponse (Core.Maybe Core.Text)
 initiateJobResponse_jobOutputPath = Lens.lens (\InitiateJobResponse' {jobOutputPath} -> jobOutputPath) (\s@InitiateJobResponse' {} a -> s {jobOutputPath = a} :: InitiateJobResponse)
 
 -- | The relative URI path of the job.
-initiateJobResponse_location :: Lens.Lens' InitiateJobResponse (Prelude.Maybe Prelude.Text)
+initiateJobResponse_location :: Lens.Lens' InitiateJobResponse (Core.Maybe Core.Text)
 initiateJobResponse_location = Lens.lens (\InitiateJobResponse' {location} -> location) (\s@InitiateJobResponse' {} a -> s {location = a} :: InitiateJobResponse)
 
 -- | The ID of the job.
-initiateJobResponse_jobId :: Lens.Lens' InitiateJobResponse (Prelude.Maybe Prelude.Text)
+initiateJobResponse_jobId :: Lens.Lens' InitiateJobResponse (Core.Maybe Core.Text)
 initiateJobResponse_jobId = Lens.lens (\InitiateJobResponse' {jobId} -> jobId) (\s@InitiateJobResponse' {} a -> s {jobId = a} :: InitiateJobResponse)
 
 -- | The response's http status code.
-initiateJobResponse_httpStatus :: Lens.Lens' InitiateJobResponse Prelude.Int
+initiateJobResponse_httpStatus :: Lens.Lens' InitiateJobResponse Core.Int
 initiateJobResponse_httpStatus = Lens.lens (\InitiateJobResponse' {httpStatus} -> httpStatus) (\s@InitiateJobResponse' {} a -> s {httpStatus = a} :: InitiateJobResponse)
 
-instance Prelude.NFData InitiateJobResponse
+instance Core.NFData InitiateJobResponse

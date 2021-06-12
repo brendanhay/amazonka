@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AWSHealth.Types.EventAccountFilter where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The values used to filter results from the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetailsForOrganization.html DescribeEventDetailsForOrganization>
@@ -32,14 +31,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newEventAccountFilter' smart constructor.
 data EventAccountFilter = EventAccountFilter'
   { -- | The 12-digit AWS account numbers that contains the affected entities.
-    awsAccountId :: Prelude.Maybe Prelude.Text,
+    awsAccountId :: Core.Maybe Core.Text,
     -- | The unique identifier for the event. Format:
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
     -- Example:
     -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-    eventArn :: Prelude.Text
+    eventArn :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'EventAccountFilter' with all optional fields omitted.
@@ -57,35 +56,34 @@ data EventAccountFilter = EventAccountFilter'
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
 newEventAccountFilter ::
   -- | 'eventArn'
-  Prelude.Text ->
+  Core.Text ->
   EventAccountFilter
 newEventAccountFilter pEventArn_ =
   EventAccountFilter'
-    { awsAccountId = Prelude.Nothing,
+    { awsAccountId = Core.Nothing,
       eventArn = pEventArn_
     }
 
 -- | The 12-digit AWS account numbers that contains the affected entities.
-eventAccountFilter_awsAccountId :: Lens.Lens' EventAccountFilter (Prelude.Maybe Prelude.Text)
+eventAccountFilter_awsAccountId :: Lens.Lens' EventAccountFilter (Core.Maybe Core.Text)
 eventAccountFilter_awsAccountId = Lens.lens (\EventAccountFilter' {awsAccountId} -> awsAccountId) (\s@EventAccountFilter' {} a -> s {awsAccountId = a} :: EventAccountFilter)
 
 -- | The unique identifier for the event. Format:
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @.
 -- Example:
 -- @Example: arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456@
-eventAccountFilter_eventArn :: Lens.Lens' EventAccountFilter Prelude.Text
+eventAccountFilter_eventArn :: Lens.Lens' EventAccountFilter Core.Text
 eventAccountFilter_eventArn = Lens.lens (\EventAccountFilter' {eventArn} -> eventArn) (\s@EventAccountFilter' {} a -> s {eventArn = a} :: EventAccountFilter)
 
-instance Prelude.Hashable EventAccountFilter
+instance Core.Hashable EventAccountFilter
 
-instance Prelude.NFData EventAccountFilter
+instance Core.NFData EventAccountFilter
 
-instance Prelude.ToJSON EventAccountFilter where
+instance Core.ToJSON EventAccountFilter where
   toJSON EventAccountFilter' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("awsAccountId" Prelude..=)
-              Prelude.<$> awsAccountId,
-            Prelude.Just ("eventArn" Prelude..= eventArn)
+    Core.object
+      ( Core.catMaybes
+          [ ("awsAccountId" Core..=) Core.<$> awsAccountId,
+            Core.Just ("eventArn" Core..= eventArn)
           ]
       )

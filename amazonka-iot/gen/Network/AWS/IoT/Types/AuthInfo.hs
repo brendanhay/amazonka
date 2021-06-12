@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.IoT.Types.AuthInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.IoT.Types.ActionType
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | A collection of authorization information.
 --
 -- /See:/ 'newAuthInfo' smart constructor.
 data AuthInfo = AuthInfo'
   { -- | The type of action for which the principal is being authorized.
-    actionType :: Prelude.Maybe ActionType,
+    actionType :: Core.Maybe ActionType,
     -- | The resources for which the principal is being authorized to perform the
     -- specified action.
-    resources :: [Prelude.Text]
+    resources :: [Core.Text]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'AuthInfo' with all optional fields omitted.
@@ -52,40 +51,38 @@ newAuthInfo ::
   AuthInfo
 newAuthInfo =
   AuthInfo'
-    { actionType = Prelude.Nothing,
-      resources = Prelude.mempty
+    { actionType = Core.Nothing,
+      resources = Core.mempty
     }
 
 -- | The type of action for which the principal is being authorized.
-authInfo_actionType :: Lens.Lens' AuthInfo (Prelude.Maybe ActionType)
+authInfo_actionType :: Lens.Lens' AuthInfo (Core.Maybe ActionType)
 authInfo_actionType = Lens.lens (\AuthInfo' {actionType} -> actionType) (\s@AuthInfo' {} a -> s {actionType = a} :: AuthInfo)
 
 -- | The resources for which the principal is being authorized to perform the
 -- specified action.
-authInfo_resources :: Lens.Lens' AuthInfo [Prelude.Text]
-authInfo_resources = Lens.lens (\AuthInfo' {resources} -> resources) (\s@AuthInfo' {} a -> s {resources = a} :: AuthInfo) Prelude.. Prelude._Coerce
+authInfo_resources :: Lens.Lens' AuthInfo [Core.Text]
+authInfo_resources = Lens.lens (\AuthInfo' {resources} -> resources) (\s@AuthInfo' {} a -> s {resources = a} :: AuthInfo) Core.. Lens._Coerce
 
-instance Prelude.FromJSON AuthInfo where
+instance Core.FromJSON AuthInfo where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "AuthInfo"
       ( \x ->
           AuthInfo'
-            Prelude.<$> (x Prelude..:? "actionType")
-            Prelude.<*> ( x Prelude..:? "resources"
-                            Prelude..!= Prelude.mempty
-                        )
+            Core.<$> (x Core..:? "actionType")
+            Core.<*> (x Core..:? "resources" Core..!= Core.mempty)
       )
 
-instance Prelude.Hashable AuthInfo
+instance Core.Hashable AuthInfo
 
-instance Prelude.NFData AuthInfo
+instance Core.NFData AuthInfo
 
-instance Prelude.ToJSON AuthInfo where
+instance Core.ToJSON AuthInfo where
   toJSON AuthInfo' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("actionType" Prelude..=) Prelude.<$> actionType,
-            Prelude.Just ("resources" Prelude..= resources)
+    Core.object
+      ( Core.catMaybes
+          [ ("actionType" Core..=) Core.<$> actionType,
+            Core.Just ("resources" Core..= resources)
           ]
       )

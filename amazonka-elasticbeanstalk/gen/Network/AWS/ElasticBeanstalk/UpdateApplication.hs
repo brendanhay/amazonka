@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -43,9 +42,9 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticBeanstalk.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -57,12 +56,12 @@ data UpdateApplication = UpdateApplication'
     --
     -- Default: If not specified, AWS Elastic Beanstalk does not update the
     -- description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The name of the application to update. If no such application is found,
     -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
-    applicationName :: Prelude.Text
+    applicationName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateApplication' with all optional fields omitted.
@@ -81,11 +80,11 @@ data UpdateApplication = UpdateApplication'
 -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
 newUpdateApplication ::
   -- | 'applicationName'
-  Prelude.Text ->
+  Core.Text ->
   UpdateApplication
 newUpdateApplication pApplicationName_ =
   UpdateApplication'
-    { description = Prelude.Nothing,
+    { description = Core.Nothing,
       applicationName = pApplicationName_
     }
 
@@ -93,41 +92,40 @@ newUpdateApplication pApplicationName_ =
 --
 -- Default: If not specified, AWS Elastic Beanstalk does not update the
 -- description.
-updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_description :: Lens.Lens' UpdateApplication (Core.Maybe Core.Text)
 updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
 
 -- | The name of the application to update. If no such application is found,
 -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
-updateApplication_applicationName :: Lens.Lens' UpdateApplication Prelude.Text
+updateApplication_applicationName :: Lens.Lens' UpdateApplication Core.Text
 updateApplication_applicationName = Lens.lens (\UpdateApplication' {applicationName} -> applicationName) (\s@UpdateApplication' {} a -> s {applicationName = a} :: UpdateApplication)
 
-instance Prelude.AWSRequest UpdateApplication where
+instance Core.AWSRequest UpdateApplication where
   type
-    Rs UpdateApplication =
+    AWSResponse UpdateApplication =
       ApplicationDescriptionMessage
   request = Request.postQuery defaultService
   response =
     Response.receiveXMLWrapper
       "UpdateApplicationResult"
-      (\s h x -> Prelude.parseXML x)
+      (\s h x -> Core.parseXML x)
 
-instance Prelude.Hashable UpdateApplication
+instance Core.Hashable UpdateApplication
 
-instance Prelude.NFData UpdateApplication
+instance Core.NFData UpdateApplication
 
-instance Prelude.ToHeaders UpdateApplication where
-  toHeaders = Prelude.const Prelude.mempty
+instance Core.ToHeaders UpdateApplication where
+  toHeaders = Core.const Core.mempty
 
-instance Prelude.ToPath UpdateApplication where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateApplication where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateApplication where
+instance Core.ToQuery UpdateApplication where
   toQuery UpdateApplication' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ("UpdateApplication" :: Prelude.ByteString),
-        "Version"
-          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
-        "Description" Prelude.=: description,
-        "ApplicationName" Prelude.=: applicationName
+          Core.=: ("UpdateApplication" :: Core.ByteString),
+        "Version" Core.=: ("2010-12-01" :: Core.ByteString),
+        "Description" Core.=: description,
+        "ApplicationName" Core.=: applicationName
       ]

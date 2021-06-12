@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,18 +19,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DirectConnect.Types.Connection where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DirectConnect.Types.ConnectionState
 import Network.AWS.DirectConnect.Types.HasLogicalRedundancy
 import Network.AWS.DirectConnect.Types.Tag
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about an AWS Direct Connect connection.
 --
 -- /See:/ 'newConnection' smart constructor.
 data Connection = Connection'
   { -- | The bandwidth of the connection.
-    bandwidth :: Prelude.Maybe Prelude.Text,
+    bandwidth :: Core.Maybe Core.Text,
     -- | The state of the connection. The following are the possible values:
     --
     -- -   @ordering@: The initial state of a hosted connection provisioned on
@@ -59,41 +58,41 @@ data Connection = Connection'
     --     @rejected@ state if it is deleted by the customer.
     --
     -- -   @unknown@: The state of the connection is not available.
-    connectionState :: Prelude.Maybe ConnectionState,
+    connectionState :: Core.Maybe ConnectionState,
     -- | The Direct Connect endpoint on which the physical connection terminates.
-    awsDeviceV2 :: Prelude.Maybe Prelude.Text,
+    awsDeviceV2 :: Core.Maybe Core.Text,
     -- | The name of the connection.
-    connectionName :: Prelude.Maybe Prelude.Text,
+    connectionName :: Core.Maybe Core.Text,
     -- | The name of the service provider associated with the connection.
-    providerName :: Prelude.Maybe Prelude.Text,
+    providerName :: Core.Maybe Core.Text,
     -- | The ID of the connection.
-    connectionId :: Prelude.Maybe Prelude.Text,
+    connectionId :: Core.Maybe Core.Text,
     -- | Indicates whether the connection supports a secondary BGP peer in the
     -- same address family (IPv4\/IPv6).
-    hasLogicalRedundancy :: Prelude.Maybe HasLogicalRedundancy,
+    hasLogicalRedundancy :: Core.Maybe HasLogicalRedundancy,
     -- | The Direct Connect endpoint on which the physical connection terminates.
-    awsDevice :: Prelude.Maybe Prelude.Text,
+    awsDevice :: Core.Maybe Core.Text,
     -- | Indicates whether jumbo frames (9001 MTU) are supported.
-    jumboFrameCapable :: Prelude.Maybe Prelude.Bool,
+    jumboFrameCapable :: Core.Maybe Core.Bool,
     -- | The ID of the LAG.
-    lagId :: Prelude.Maybe Prelude.Text,
+    lagId :: Core.Maybe Core.Text,
     -- | The name of the AWS Direct Connect service provider associated with the
     -- connection.
-    partnerName :: Prelude.Maybe Prelude.Text,
+    partnerName :: Core.Maybe Core.Text,
     -- | The tags associated with the connection.
-    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Tag),
     -- | The time of the most recent call to DescribeLoa for this connection.
-    loaIssueTime :: Prelude.Maybe Prelude.POSIX,
+    loaIssueTime :: Core.Maybe Core.POSIX,
     -- | The ID of the AWS account that owns the connection.
-    ownerAccount :: Prelude.Maybe Prelude.Text,
+    ownerAccount :: Core.Maybe Core.Text,
     -- | The AWS Region where the connection is located.
-    region :: Prelude.Maybe Prelude.Text,
+    region :: Core.Maybe Core.Text,
     -- | The location of the connection.
-    location :: Prelude.Maybe Prelude.Text,
+    location :: Core.Maybe Core.Text,
     -- | The ID of the VLAN.
-    vlan :: Prelude.Maybe Prelude.Int
+    vlan :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'Connection' with all optional fields omitted.
@@ -168,27 +167,27 @@ newConnection ::
   Connection
 newConnection =
   Connection'
-    { bandwidth = Prelude.Nothing,
-      connectionState = Prelude.Nothing,
-      awsDeviceV2 = Prelude.Nothing,
-      connectionName = Prelude.Nothing,
-      providerName = Prelude.Nothing,
-      connectionId = Prelude.Nothing,
-      hasLogicalRedundancy = Prelude.Nothing,
-      awsDevice = Prelude.Nothing,
-      jumboFrameCapable = Prelude.Nothing,
-      lagId = Prelude.Nothing,
-      partnerName = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      loaIssueTime = Prelude.Nothing,
-      ownerAccount = Prelude.Nothing,
-      region = Prelude.Nothing,
-      location = Prelude.Nothing,
-      vlan = Prelude.Nothing
+    { bandwidth = Core.Nothing,
+      connectionState = Core.Nothing,
+      awsDeviceV2 = Core.Nothing,
+      connectionName = Core.Nothing,
+      providerName = Core.Nothing,
+      connectionId = Core.Nothing,
+      hasLogicalRedundancy = Core.Nothing,
+      awsDevice = Core.Nothing,
+      jumboFrameCapable = Core.Nothing,
+      lagId = Core.Nothing,
+      partnerName = Core.Nothing,
+      tags = Core.Nothing,
+      loaIssueTime = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      region = Core.Nothing,
+      location = Core.Nothing,
+      vlan = Core.Nothing
     }
 
 -- | The bandwidth of the connection.
-connection_bandwidth :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_bandwidth :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_bandwidth = Lens.lens (\Connection' {bandwidth} -> bandwidth) (\s@Connection' {} a -> s {bandwidth = a} :: Connection)
 
 -- | The state of the connection. The following are the possible values:
@@ -218,96 +217,96 @@ connection_bandwidth = Lens.lens (\Connection' {bandwidth} -> bandwidth) (\s@Con
 --     @rejected@ state if it is deleted by the customer.
 --
 -- -   @unknown@: The state of the connection is not available.
-connection_connectionState :: Lens.Lens' Connection (Prelude.Maybe ConnectionState)
+connection_connectionState :: Lens.Lens' Connection (Core.Maybe ConnectionState)
 connection_connectionState = Lens.lens (\Connection' {connectionState} -> connectionState) (\s@Connection' {} a -> s {connectionState = a} :: Connection)
 
 -- | The Direct Connect endpoint on which the physical connection terminates.
-connection_awsDeviceV2 :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_awsDeviceV2 :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_awsDeviceV2 = Lens.lens (\Connection' {awsDeviceV2} -> awsDeviceV2) (\s@Connection' {} a -> s {awsDeviceV2 = a} :: Connection)
 
 -- | The name of the connection.
-connection_connectionName :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_connectionName :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_connectionName = Lens.lens (\Connection' {connectionName} -> connectionName) (\s@Connection' {} a -> s {connectionName = a} :: Connection)
 
 -- | The name of the service provider associated with the connection.
-connection_providerName :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_providerName :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_providerName = Lens.lens (\Connection' {providerName} -> providerName) (\s@Connection' {} a -> s {providerName = a} :: Connection)
 
 -- | The ID of the connection.
-connection_connectionId :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_connectionId :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_connectionId = Lens.lens (\Connection' {connectionId} -> connectionId) (\s@Connection' {} a -> s {connectionId = a} :: Connection)
 
 -- | Indicates whether the connection supports a secondary BGP peer in the
 -- same address family (IPv4\/IPv6).
-connection_hasLogicalRedundancy :: Lens.Lens' Connection (Prelude.Maybe HasLogicalRedundancy)
+connection_hasLogicalRedundancy :: Lens.Lens' Connection (Core.Maybe HasLogicalRedundancy)
 connection_hasLogicalRedundancy = Lens.lens (\Connection' {hasLogicalRedundancy} -> hasLogicalRedundancy) (\s@Connection' {} a -> s {hasLogicalRedundancy = a} :: Connection)
 
 -- | The Direct Connect endpoint on which the physical connection terminates.
-connection_awsDevice :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_awsDevice :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_awsDevice = Lens.lens (\Connection' {awsDevice} -> awsDevice) (\s@Connection' {} a -> s {awsDevice = a} :: Connection)
 
 -- | Indicates whether jumbo frames (9001 MTU) are supported.
-connection_jumboFrameCapable :: Lens.Lens' Connection (Prelude.Maybe Prelude.Bool)
+connection_jumboFrameCapable :: Lens.Lens' Connection (Core.Maybe Core.Bool)
 connection_jumboFrameCapable = Lens.lens (\Connection' {jumboFrameCapable} -> jumboFrameCapable) (\s@Connection' {} a -> s {jumboFrameCapable = a} :: Connection)
 
 -- | The ID of the LAG.
-connection_lagId :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_lagId :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_lagId = Lens.lens (\Connection' {lagId} -> lagId) (\s@Connection' {} a -> s {lagId = a} :: Connection)
 
 -- | The name of the AWS Direct Connect service provider associated with the
 -- connection.
-connection_partnerName :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_partnerName :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_partnerName = Lens.lens (\Connection' {partnerName} -> partnerName) (\s@Connection' {} a -> s {partnerName = a} :: Connection)
 
 -- | The tags associated with the connection.
-connection_tags :: Lens.Lens' Connection (Prelude.Maybe (Prelude.NonEmpty Tag))
-connection_tags = Lens.lens (\Connection' {tags} -> tags) (\s@Connection' {} a -> s {tags = a} :: Connection) Prelude.. Lens.mapping Prelude._Coerce
+connection_tags :: Lens.Lens' Connection (Core.Maybe (Core.NonEmpty Tag))
+connection_tags = Lens.lens (\Connection' {tags} -> tags) (\s@Connection' {} a -> s {tags = a} :: Connection) Core.. Lens.mapping Lens._Coerce
 
 -- | The time of the most recent call to DescribeLoa for this connection.
-connection_loaIssueTime :: Lens.Lens' Connection (Prelude.Maybe Prelude.UTCTime)
-connection_loaIssueTime = Lens.lens (\Connection' {loaIssueTime} -> loaIssueTime) (\s@Connection' {} a -> s {loaIssueTime = a} :: Connection) Prelude.. Lens.mapping Prelude._Time
+connection_loaIssueTime :: Lens.Lens' Connection (Core.Maybe Core.UTCTime)
+connection_loaIssueTime = Lens.lens (\Connection' {loaIssueTime} -> loaIssueTime) (\s@Connection' {} a -> s {loaIssueTime = a} :: Connection) Core.. Lens.mapping Core._Time
 
 -- | The ID of the AWS account that owns the connection.
-connection_ownerAccount :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_ownerAccount :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_ownerAccount = Lens.lens (\Connection' {ownerAccount} -> ownerAccount) (\s@Connection' {} a -> s {ownerAccount = a} :: Connection)
 
 -- | The AWS Region where the connection is located.
-connection_region :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_region :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_region = Lens.lens (\Connection' {region} -> region) (\s@Connection' {} a -> s {region = a} :: Connection)
 
 -- | The location of the connection.
-connection_location :: Lens.Lens' Connection (Prelude.Maybe Prelude.Text)
+connection_location :: Lens.Lens' Connection (Core.Maybe Core.Text)
 connection_location = Lens.lens (\Connection' {location} -> location) (\s@Connection' {} a -> s {location = a} :: Connection)
 
 -- | The ID of the VLAN.
-connection_vlan :: Lens.Lens' Connection (Prelude.Maybe Prelude.Int)
+connection_vlan :: Lens.Lens' Connection (Core.Maybe Core.Int)
 connection_vlan = Lens.lens (\Connection' {vlan} -> vlan) (\s@Connection' {} a -> s {vlan = a} :: Connection)
 
-instance Prelude.FromJSON Connection where
+instance Core.FromJSON Connection where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Prelude..:? "bandwidth")
-            Prelude.<*> (x Prelude..:? "connectionState")
-            Prelude.<*> (x Prelude..:? "awsDeviceV2")
-            Prelude.<*> (x Prelude..:? "connectionName")
-            Prelude.<*> (x Prelude..:? "providerName")
-            Prelude.<*> (x Prelude..:? "connectionId")
-            Prelude.<*> (x Prelude..:? "hasLogicalRedundancy")
-            Prelude.<*> (x Prelude..:? "awsDevice")
-            Prelude.<*> (x Prelude..:? "jumboFrameCapable")
-            Prelude.<*> (x Prelude..:? "lagId")
-            Prelude.<*> (x Prelude..:? "partnerName")
-            Prelude.<*> (x Prelude..:? "tags")
-            Prelude.<*> (x Prelude..:? "loaIssueTime")
-            Prelude.<*> (x Prelude..:? "ownerAccount")
-            Prelude.<*> (x Prelude..:? "region")
-            Prelude.<*> (x Prelude..:? "location")
-            Prelude.<*> (x Prelude..:? "vlan")
+            Core.<$> (x Core..:? "bandwidth")
+            Core.<*> (x Core..:? "connectionState")
+            Core.<*> (x Core..:? "awsDeviceV2")
+            Core.<*> (x Core..:? "connectionName")
+            Core.<*> (x Core..:? "providerName")
+            Core.<*> (x Core..:? "connectionId")
+            Core.<*> (x Core..:? "hasLogicalRedundancy")
+            Core.<*> (x Core..:? "awsDevice")
+            Core.<*> (x Core..:? "jumboFrameCapable")
+            Core.<*> (x Core..:? "lagId")
+            Core.<*> (x Core..:? "partnerName")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (x Core..:? "loaIssueTime")
+            Core.<*> (x Core..:? "ownerAccount")
+            Core.<*> (x Core..:? "region")
+            Core.<*> (x Core..:? "location")
+            Core.<*> (x Core..:? "vlan")
       )
 
-instance Prelude.Hashable Connection
+instance Core.Hashable Connection
 
-instance Prelude.NFData Connection
+instance Core.NFData Connection

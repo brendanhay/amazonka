@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -36,8 +35,8 @@ module Network.AWS.SageMaker.DeleteAppImageConfig
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -45,9 +44,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteAppImageConfig' smart constructor.
 data DeleteAppImageConfig = DeleteAppImageConfig'
   { -- | The name of the AppImageConfig to delete.
-    appImageConfigName :: Prelude.Text
+    appImageConfigName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAppImageConfig' with all optional fields omitted.
@@ -60,7 +59,7 @@ data DeleteAppImageConfig = DeleteAppImageConfig'
 -- 'appImageConfigName', 'deleteAppImageConfig_appImageConfigName' - The name of the AppImageConfig to delete.
 newDeleteAppImageConfig ::
   -- | 'appImageConfigName'
-  Prelude.Text ->
+  Core.Text ->
   DeleteAppImageConfig
 newDeleteAppImageConfig pAppImageConfigName_ =
   DeleteAppImageConfig'
@@ -69,58 +68,54 @@ newDeleteAppImageConfig pAppImageConfigName_ =
     }
 
 -- | The name of the AppImageConfig to delete.
-deleteAppImageConfig_appImageConfigName :: Lens.Lens' DeleteAppImageConfig Prelude.Text
+deleteAppImageConfig_appImageConfigName :: Lens.Lens' DeleteAppImageConfig Core.Text
 deleteAppImageConfig_appImageConfigName = Lens.lens (\DeleteAppImageConfig' {appImageConfigName} -> appImageConfigName) (\s@DeleteAppImageConfig' {} a -> s {appImageConfigName = a} :: DeleteAppImageConfig)
 
-instance Prelude.AWSRequest DeleteAppImageConfig where
+instance Core.AWSRequest DeleteAppImageConfig where
   type
-    Rs DeleteAppImageConfig =
+    AWSResponse DeleteAppImageConfig =
       DeleteAppImageConfigResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull DeleteAppImageConfigResponse'
 
-instance Prelude.Hashable DeleteAppImageConfig
+instance Core.Hashable DeleteAppImageConfig
 
-instance Prelude.NFData DeleteAppImageConfig
+instance Core.NFData DeleteAppImageConfig
 
-instance Prelude.ToHeaders DeleteAppImageConfig where
+instance Core.ToHeaders DeleteAppImageConfig where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.DeleteAppImageConfig" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.DeleteAppImageConfig" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteAppImageConfig where
+instance Core.ToJSON DeleteAppImageConfig where
   toJSON DeleteAppImageConfig' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "AppImageConfigName"
-                  Prelude..= appImageConfigName
-              )
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("AppImageConfigName" Core..= appImageConfigName)
           ]
       )
 
-instance Prelude.ToPath DeleteAppImageConfig where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteAppImageConfig where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteAppImageConfig where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteAppImageConfig where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteAppImageConfigResponse' smart constructor.
 data DeleteAppImageConfigResponse = DeleteAppImageConfigResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteAppImageConfigResponse' with all optional fields omitted.
@@ -131,4 +126,4 @@ newDeleteAppImageConfigResponse ::
 newDeleteAppImageConfigResponse =
   DeleteAppImageConfigResponse'
 
-instance Prelude.NFData DeleteAppImageConfigResponse
+instance Core.NFData DeleteAppImageConfigResponse

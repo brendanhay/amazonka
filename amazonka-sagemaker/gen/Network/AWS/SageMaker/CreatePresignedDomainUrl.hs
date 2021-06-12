@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -53,8 +52,8 @@ module Network.AWS.SageMaker.CreatePresignedDomainUrl
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
@@ -63,16 +62,16 @@ import Network.AWS.SageMaker.Types
 data CreatePresignedDomainUrl = CreatePresignedDomainUrl'
   { -- | The session expiration duration in seconds. This value defaults to
     -- 43200.
-    sessionExpirationDurationInSeconds :: Prelude.Maybe Prelude.Natural,
+    sessionExpirationDurationInSeconds :: Core.Maybe Core.Natural,
     -- | The number of seconds until the pre-signed URL expires. This value
     -- defaults to 300.
-    expiresInSeconds :: Prelude.Maybe Prelude.Natural,
+    expiresInSeconds :: Core.Maybe Core.Natural,
     -- | The domain ID.
-    domainId :: Prelude.Text,
+    domainId :: Core.Text,
     -- | The name of the UserProfile to sign-in as.
-    userProfileName :: Prelude.Text
+    userProfileName :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePresignedDomainUrl' with all optional fields omitted.
@@ -93,99 +92,97 @@ data CreatePresignedDomainUrl = CreatePresignedDomainUrl'
 -- 'userProfileName', 'createPresignedDomainUrl_userProfileName' - The name of the UserProfile to sign-in as.
 newCreatePresignedDomainUrl ::
   -- | 'domainId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'userProfileName'
-  Prelude.Text ->
+  Core.Text ->
   CreatePresignedDomainUrl
 newCreatePresignedDomainUrl
   pDomainId_
   pUserProfileName_ =
     CreatePresignedDomainUrl'
       { sessionExpirationDurationInSeconds =
-          Prelude.Nothing,
-        expiresInSeconds = Prelude.Nothing,
+          Core.Nothing,
+        expiresInSeconds = Core.Nothing,
         domainId = pDomainId_,
         userProfileName = pUserProfileName_
       }
 
 -- | The session expiration duration in seconds. This value defaults to
 -- 43200.
-createPresignedDomainUrl_sessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedDomainUrl (Prelude.Maybe Prelude.Natural)
+createPresignedDomainUrl_sessionExpirationDurationInSeconds :: Lens.Lens' CreatePresignedDomainUrl (Core.Maybe Core.Natural)
 createPresignedDomainUrl_sessionExpirationDurationInSeconds = Lens.lens (\CreatePresignedDomainUrl' {sessionExpirationDurationInSeconds} -> sessionExpirationDurationInSeconds) (\s@CreatePresignedDomainUrl' {} a -> s {sessionExpirationDurationInSeconds = a} :: CreatePresignedDomainUrl)
 
 -- | The number of seconds until the pre-signed URL expires. This value
 -- defaults to 300.
-createPresignedDomainUrl_expiresInSeconds :: Lens.Lens' CreatePresignedDomainUrl (Prelude.Maybe Prelude.Natural)
+createPresignedDomainUrl_expiresInSeconds :: Lens.Lens' CreatePresignedDomainUrl (Core.Maybe Core.Natural)
 createPresignedDomainUrl_expiresInSeconds = Lens.lens (\CreatePresignedDomainUrl' {expiresInSeconds} -> expiresInSeconds) (\s@CreatePresignedDomainUrl' {} a -> s {expiresInSeconds = a} :: CreatePresignedDomainUrl)
 
 -- | The domain ID.
-createPresignedDomainUrl_domainId :: Lens.Lens' CreatePresignedDomainUrl Prelude.Text
+createPresignedDomainUrl_domainId :: Lens.Lens' CreatePresignedDomainUrl Core.Text
 createPresignedDomainUrl_domainId = Lens.lens (\CreatePresignedDomainUrl' {domainId} -> domainId) (\s@CreatePresignedDomainUrl' {} a -> s {domainId = a} :: CreatePresignedDomainUrl)
 
 -- | The name of the UserProfile to sign-in as.
-createPresignedDomainUrl_userProfileName :: Lens.Lens' CreatePresignedDomainUrl Prelude.Text
+createPresignedDomainUrl_userProfileName :: Lens.Lens' CreatePresignedDomainUrl Core.Text
 createPresignedDomainUrl_userProfileName = Lens.lens (\CreatePresignedDomainUrl' {userProfileName} -> userProfileName) (\s@CreatePresignedDomainUrl' {} a -> s {userProfileName = a} :: CreatePresignedDomainUrl)
 
-instance Prelude.AWSRequest CreatePresignedDomainUrl where
+instance Core.AWSRequest CreatePresignedDomainUrl where
   type
-    Rs CreatePresignedDomainUrl =
+    AWSResponse CreatePresignedDomainUrl =
       CreatePresignedDomainUrlResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           CreatePresignedDomainUrlResponse'
-            Prelude.<$> (x Prelude..?> "AuthorizedUrl")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "AuthorizedUrl")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable CreatePresignedDomainUrl
+instance Core.Hashable CreatePresignedDomainUrl
 
-instance Prelude.NFData CreatePresignedDomainUrl
+instance Core.NFData CreatePresignedDomainUrl
 
-instance Prelude.ToHeaders CreatePresignedDomainUrl where
+instance Core.ToHeaders CreatePresignedDomainUrl where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "SageMaker.CreatePresignedDomainUrl" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "SageMaker.CreatePresignedDomainUrl" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON CreatePresignedDomainUrl where
+instance Core.ToJSON CreatePresignedDomainUrl where
   toJSON CreatePresignedDomainUrl' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("SessionExpirationDurationInSeconds" Prelude..=)
-              Prelude.<$> sessionExpirationDurationInSeconds,
-            ("ExpiresInSeconds" Prelude..=)
-              Prelude.<$> expiresInSeconds,
-            Prelude.Just ("DomainId" Prelude..= domainId),
-            Prelude.Just
-              ("UserProfileName" Prelude..= userProfileName)
+    Core.object
+      ( Core.catMaybes
+          [ ("SessionExpirationDurationInSeconds" Core..=)
+              Core.<$> sessionExpirationDurationInSeconds,
+            ("ExpiresInSeconds" Core..=)
+              Core.<$> expiresInSeconds,
+            Core.Just ("DomainId" Core..= domainId),
+            Core.Just
+              ("UserProfileName" Core..= userProfileName)
           ]
       )
 
-instance Prelude.ToPath CreatePresignedDomainUrl where
-  toPath = Prelude.const "/"
+instance Core.ToPath CreatePresignedDomainUrl where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery CreatePresignedDomainUrl where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery CreatePresignedDomainUrl where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newCreatePresignedDomainUrlResponse' smart constructor.
 data CreatePresignedDomainUrlResponse = CreatePresignedDomainUrlResponse'
   { -- | The presigned URL.
-    authorizedUrl :: Prelude.Maybe Prelude.Text,
+    authorizedUrl :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'CreatePresignedDomainUrlResponse' with all optional fields omitted.
@@ -200,23 +197,21 @@ data CreatePresignedDomainUrlResponse = CreatePresignedDomainUrlResponse'
 -- 'httpStatus', 'createPresignedDomainUrlResponse_httpStatus' - The response's http status code.
 newCreatePresignedDomainUrlResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   CreatePresignedDomainUrlResponse
 newCreatePresignedDomainUrlResponse pHttpStatus_ =
   CreatePresignedDomainUrlResponse'
     { authorizedUrl =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The presigned URL.
-createPresignedDomainUrlResponse_authorizedUrl :: Lens.Lens' CreatePresignedDomainUrlResponse (Prelude.Maybe Prelude.Text)
+createPresignedDomainUrlResponse_authorizedUrl :: Lens.Lens' CreatePresignedDomainUrlResponse (Core.Maybe Core.Text)
 createPresignedDomainUrlResponse_authorizedUrl = Lens.lens (\CreatePresignedDomainUrlResponse' {authorizedUrl} -> authorizedUrl) (\s@CreatePresignedDomainUrlResponse' {} a -> s {authorizedUrl = a} :: CreatePresignedDomainUrlResponse)
 
 -- | The response's http status code.
-createPresignedDomainUrlResponse_httpStatus :: Lens.Lens' CreatePresignedDomainUrlResponse Prelude.Int
+createPresignedDomainUrlResponse_httpStatus :: Lens.Lens' CreatePresignedDomainUrlResponse Core.Int
 createPresignedDomainUrlResponse_httpStatus = Lens.lens (\CreatePresignedDomainUrlResponse' {httpStatus} -> httpStatus) (\s@CreatePresignedDomainUrlResponse' {} a -> s {httpStatus = a} :: CreatePresignedDomainUrlResponse)
 
-instance
-  Prelude.NFData
-    CreatePresignedDomainUrlResponse
+instance Core.NFData CreatePresignedDomainUrlResponse

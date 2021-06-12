@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -60,20 +59,20 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 where
 
 import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTerminateInstanceInAutoScalingGroup' smart constructor.
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
   { -- | The ID of the instance.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | Indicates whether terminating the instance also decrements the size of
     -- the Auto Scaling group.
-    shouldDecrementDesiredCapacity :: Prelude.Bool
+    shouldDecrementDesiredCapacity :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateInstanceInAutoScalingGroup' with all optional fields omitted.
@@ -89,9 +88,9 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
 -- the Auto Scaling group.
 newTerminateInstanceInAutoScalingGroup ::
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'shouldDecrementDesiredCapacity'
-  Prelude.Bool ->
+  Core.Bool ->
   TerminateInstanceInAutoScalingGroup
 newTerminateInstanceInAutoScalingGroup
   pInstanceId_
@@ -104,20 +103,20 @@ newTerminateInstanceInAutoScalingGroup
       }
 
 -- | The ID of the instance.
-terminateInstanceInAutoScalingGroup_instanceId :: Lens.Lens' TerminateInstanceInAutoScalingGroup Prelude.Text
+terminateInstanceInAutoScalingGroup_instanceId :: Lens.Lens' TerminateInstanceInAutoScalingGroup Core.Text
 terminateInstanceInAutoScalingGroup_instanceId = Lens.lens (\TerminateInstanceInAutoScalingGroup' {instanceId} -> instanceId) (\s@TerminateInstanceInAutoScalingGroup' {} a -> s {instanceId = a} :: TerminateInstanceInAutoScalingGroup)
 
 -- | Indicates whether terminating the instance also decrements the size of
 -- the Auto Scaling group.
-terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity :: Lens.Lens' TerminateInstanceInAutoScalingGroup Prelude.Bool
+terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity :: Lens.Lens' TerminateInstanceInAutoScalingGroup Core.Bool
 terminateInstanceInAutoScalingGroup_shouldDecrementDesiredCapacity = Lens.lens (\TerminateInstanceInAutoScalingGroup' {shouldDecrementDesiredCapacity} -> shouldDecrementDesiredCapacity) (\s@TerminateInstanceInAutoScalingGroup' {} a -> s {shouldDecrementDesiredCapacity = a} :: TerminateInstanceInAutoScalingGroup)
 
 instance
-  Prelude.AWSRequest
+  Core.AWSRequest
     TerminateInstanceInAutoScalingGroup
   where
   type
-    Rs TerminateInstanceInAutoScalingGroup =
+    AWSResponse TerminateInstanceInAutoScalingGroup =
       TerminateInstanceInAutoScalingGroupResponse
   request = Request.postQuery defaultService
   response =
@@ -125,55 +124,54 @@ instance
       "TerminateInstanceInAutoScalingGroupResult"
       ( \s h x ->
           TerminateInstanceInAutoScalingGroupResponse'
-            Prelude.<$> (x Prelude..@? "Activity")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..@? "Activity")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     TerminateInstanceInAutoScalingGroup
 
 instance
-  Prelude.NFData
+  Core.NFData
     TerminateInstanceInAutoScalingGroup
 
 instance
-  Prelude.ToHeaders
-    TerminateInstanceInAutoScalingGroup
-  where
-  toHeaders = Prelude.const Prelude.mempty
-
-instance
-  Prelude.ToPath
+  Core.ToHeaders
     TerminateInstanceInAutoScalingGroup
   where
-  toPath = Prelude.const "/"
+  toHeaders = Core.const Core.mempty
 
 instance
-  Prelude.ToQuery
+  Core.ToPath
+    TerminateInstanceInAutoScalingGroup
+  where
+  toPath = Core.const "/"
+
+instance
+  Core.ToQuery
     TerminateInstanceInAutoScalingGroup
   where
   toQuery TerminateInstanceInAutoScalingGroup' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "Action"
-          Prelude.=: ( "TerminateInstanceInAutoScalingGroup" ::
-                         Prelude.ByteString
-                     ),
-        "Version"
-          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
-        "InstanceId" Prelude.=: instanceId,
+          Core.=: ( "TerminateInstanceInAutoScalingGroup" ::
+                      Core.ByteString
+                  ),
+        "Version" Core.=: ("2011-01-01" :: Core.ByteString),
+        "InstanceId" Core.=: instanceId,
         "ShouldDecrementDesiredCapacity"
-          Prelude.=: shouldDecrementDesiredCapacity
+          Core.=: shouldDecrementDesiredCapacity
       ]
 
 -- | /See:/ 'newTerminateInstanceInAutoScalingGroupResponse' smart constructor.
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
   { -- | A scaling activity.
-    activity :: Prelude.Maybe Activity,
+    activity :: Core.Maybe Activity,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'TerminateInstanceInAutoScalingGroupResponse' with all optional fields omitted.
@@ -188,24 +186,24 @@ data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalin
 -- 'httpStatus', 'terminateInstanceInAutoScalingGroupResponse_httpStatus' - The response's http status code.
 newTerminateInstanceInAutoScalingGroupResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   TerminateInstanceInAutoScalingGroupResponse
 newTerminateInstanceInAutoScalingGroupResponse
   pHttpStatus_ =
     TerminateInstanceInAutoScalingGroupResponse'
       { activity =
-          Prelude.Nothing,
+          Core.Nothing,
         httpStatus = pHttpStatus_
       }
 
 -- | A scaling activity.
-terminateInstanceInAutoScalingGroupResponse_activity :: Lens.Lens' TerminateInstanceInAutoScalingGroupResponse (Prelude.Maybe Activity)
+terminateInstanceInAutoScalingGroupResponse_activity :: Lens.Lens' TerminateInstanceInAutoScalingGroupResponse (Core.Maybe Activity)
 terminateInstanceInAutoScalingGroupResponse_activity = Lens.lens (\TerminateInstanceInAutoScalingGroupResponse' {activity} -> activity) (\s@TerminateInstanceInAutoScalingGroupResponse' {} a -> s {activity = a} :: TerminateInstanceInAutoScalingGroupResponse)
 
 -- | The response's http status code.
-terminateInstanceInAutoScalingGroupResponse_httpStatus :: Lens.Lens' TerminateInstanceInAutoScalingGroupResponse Prelude.Int
+terminateInstanceInAutoScalingGroupResponse_httpStatus :: Lens.Lens' TerminateInstanceInAutoScalingGroupResponse Core.Int
 terminateInstanceInAutoScalingGroupResponse_httpStatus = Lens.lens (\TerminateInstanceInAutoScalingGroupResponse' {httpStatus} -> httpStatus) (\s@TerminateInstanceInAutoScalingGroupResponse' {} a -> s {httpStatus = a} :: TerminateInstanceInAutoScalingGroupResponse)
 
 instance
-  Prelude.NFData
+  Core.NFData
     TerminateInstanceInAutoScalingGroupResponse

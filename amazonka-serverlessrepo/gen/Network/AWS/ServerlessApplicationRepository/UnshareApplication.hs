@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -40,8 +39,8 @@ module Network.AWS.ServerlessApplicationRepository.UnshareApplication
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.ServerlessApplicationRepository.Types
@@ -49,11 +48,11 @@ import Network.AWS.ServerlessApplicationRepository.Types
 -- | /See:/ 'newUnshareApplication' smart constructor.
 data UnshareApplication = UnshareApplication'
   { -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Prelude.Text,
+    applicationId :: Core.Text,
     -- | The AWS Organization ID to unshare the application from.
-    organizationId :: Prelude.Text
+    organizationId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnshareApplication' with all optional fields omitted.
@@ -68,9 +67,9 @@ data UnshareApplication = UnshareApplication'
 -- 'organizationId', 'unshareApplication_organizationId' - The AWS Organization ID to unshare the application from.
 newUnshareApplication ::
   -- | 'applicationId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'organizationId'
-  Prelude.Text ->
+  Core.Text ->
   UnshareApplication
 newUnshareApplication
   pApplicationId_
@@ -82,61 +81,59 @@ newUnshareApplication
       }
 
 -- | The Amazon Resource Name (ARN) of the application.
-unshareApplication_applicationId :: Lens.Lens' UnshareApplication Prelude.Text
+unshareApplication_applicationId :: Lens.Lens' UnshareApplication Core.Text
 unshareApplication_applicationId = Lens.lens (\UnshareApplication' {applicationId} -> applicationId) (\s@UnshareApplication' {} a -> s {applicationId = a} :: UnshareApplication)
 
 -- | The AWS Organization ID to unshare the application from.
-unshareApplication_organizationId :: Lens.Lens' UnshareApplication Prelude.Text
+unshareApplication_organizationId :: Lens.Lens' UnshareApplication Core.Text
 unshareApplication_organizationId = Lens.lens (\UnshareApplication' {organizationId} -> organizationId) (\s@UnshareApplication' {} a -> s {organizationId = a} :: UnshareApplication)
 
-instance Prelude.AWSRequest UnshareApplication where
+instance Core.AWSRequest UnshareApplication where
   type
-    Rs UnshareApplication =
+    AWSResponse UnshareApplication =
       UnshareApplicationResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull UnshareApplicationResponse'
 
-instance Prelude.Hashable UnshareApplication
+instance Core.Hashable UnshareApplication
 
-instance Prelude.NFData UnshareApplication
+instance Core.NFData UnshareApplication
 
-instance Prelude.ToHeaders UnshareApplication where
+instance Core.ToHeaders UnshareApplication where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UnshareApplication where
+instance Core.ToJSON UnshareApplication where
   toJSON UnshareApplication' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ("organizationId" Prelude..= organizationId)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("organizationId" Core..= organizationId)
           ]
       )
 
-instance Prelude.ToPath UnshareApplication where
+instance Core.ToPath UnshareApplication where
   toPath UnshareApplication' {..} =
-    Prelude.mconcat
+    Core.mconcat
       [ "/applications/",
-        Prelude.toBS applicationId,
+        Core.toBS applicationId,
         "/unshare"
       ]
 
-instance Prelude.ToQuery UnshareApplication where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UnshareApplication where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUnshareApplicationResponse' smart constructor.
 data UnshareApplicationResponse = UnshareApplicationResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UnshareApplicationResponse' with all optional fields omitted.
@@ -147,4 +144,4 @@ newUnshareApplicationResponse ::
 newUnshareApplicationResponse =
   UnshareApplicationResponse'
 
-instance Prelude.NFData UnshareApplicationResponse
+instance Core.NFData UnshareApplicationResponse

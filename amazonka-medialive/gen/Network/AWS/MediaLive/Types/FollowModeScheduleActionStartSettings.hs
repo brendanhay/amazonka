@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types.FollowPoint
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings to specify if an action follows another.
 --
 -- /See:/ 'newFollowModeScheduleActionStartSettings' smart constructor.
 data FollowModeScheduleActionStartSettings = FollowModeScheduleActionStartSettings'
   { -- | The action name of another action that this one refers to.
-    referenceActionName :: Prelude.Text,
+    referenceActionName :: Core.Text,
     -- | Identifies whether this action starts relative to the start or relative
     -- to the end of the reference action.
     followPoint :: FollowPoint
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'FollowModeScheduleActionStartSettings' with all optional fields omitted.
@@ -50,7 +49,7 @@ data FollowModeScheduleActionStartSettings = FollowModeScheduleActionStartSettin
 -- to the end of the reference action.
 newFollowModeScheduleActionStartSettings ::
   -- | 'referenceActionName'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'followPoint'
   FollowPoint ->
   FollowModeScheduleActionStartSettings
@@ -64,7 +63,7 @@ newFollowModeScheduleActionStartSettings
       }
 
 -- | The action name of another action that this one refers to.
-followModeScheduleActionStartSettings_referenceActionName :: Lens.Lens' FollowModeScheduleActionStartSettings Prelude.Text
+followModeScheduleActionStartSettings_referenceActionName :: Lens.Lens' FollowModeScheduleActionStartSettings Core.Text
 followModeScheduleActionStartSettings_referenceActionName = Lens.lens (\FollowModeScheduleActionStartSettings' {referenceActionName} -> referenceActionName) (\s@FollowModeScheduleActionStartSettings' {} a -> s {referenceActionName = a} :: FollowModeScheduleActionStartSettings)
 
 -- | Identifies whether this action starts relative to the start or relative
@@ -73,37 +72,35 @@ followModeScheduleActionStartSettings_followPoint :: Lens.Lens' FollowModeSchedu
 followModeScheduleActionStartSettings_followPoint = Lens.lens (\FollowModeScheduleActionStartSettings' {followPoint} -> followPoint) (\s@FollowModeScheduleActionStartSettings' {} a -> s {followPoint = a} :: FollowModeScheduleActionStartSettings)
 
 instance
-  Prelude.FromJSON
+  Core.FromJSON
     FollowModeScheduleActionStartSettings
   where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "FollowModeScheduleActionStartSettings"
       ( \x ->
           FollowModeScheduleActionStartSettings'
-            Prelude.<$> (x Prelude..: "referenceActionName")
-            Prelude.<*> (x Prelude..: "followPoint")
+            Core.<$> (x Core..: "referenceActionName")
+            Core.<*> (x Core..: "followPoint")
       )
 
 instance
-  Prelude.Hashable
+  Core.Hashable
     FollowModeScheduleActionStartSettings
 
 instance
-  Prelude.NFData
+  Core.NFData
     FollowModeScheduleActionStartSettings
 
 instance
-  Prelude.ToJSON
+  Core.ToJSON
     FollowModeScheduleActionStartSettings
   where
   toJSON FollowModeScheduleActionStartSettings' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just
-              ( "referenceActionName"
-                  Prelude..= referenceActionName
-              ),
-            Prelude.Just ("followPoint" Prelude..= followPoint)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("referenceActionName" Core..= referenceActionName),
+            Core.Just ("followPoint" Core..= followPoint)
           ]
       )

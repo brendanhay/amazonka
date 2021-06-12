@@ -15,7 +15,7 @@ module Network.AWS.Redshift.Internal
     ( getAccountId
     ) where
 
-import Network.AWS.Prelude
+import Network.AWS.Core
 
 -- | This account identifier is used when attaching a policy to your S3 bucket
 -- allowing Redshift to upload and write database audit logs.

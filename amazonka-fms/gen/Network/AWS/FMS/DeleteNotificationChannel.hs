@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -35,9 +34,9 @@ module Network.AWS.FMS.DeleteNotificationChannel
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.FMS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -45,7 +44,7 @@ import qualified Network.AWS.Response as Response
 data DeleteNotificationChannel = DeleteNotificationChannel'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationChannel' with all optional fields omitted.
@@ -56,49 +55,46 @@ newDeleteNotificationChannel ::
 newDeleteNotificationChannel =
   DeleteNotificationChannel'
 
-instance Prelude.AWSRequest DeleteNotificationChannel where
+instance Core.AWSRequest DeleteNotificationChannel where
   type
-    Rs DeleteNotificationChannel =
+    AWSResponse DeleteNotificationChannel =
       DeleteNotificationChannelResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveNull
       DeleteNotificationChannelResponse'
 
-instance Prelude.Hashable DeleteNotificationChannel
+instance Core.Hashable DeleteNotificationChannel
 
-instance Prelude.NFData DeleteNotificationChannel
+instance Core.NFData DeleteNotificationChannel
 
-instance Prelude.ToHeaders DeleteNotificationChannel where
+instance Core.ToHeaders DeleteNotificationChannel where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSFMS_20180101.DeleteNotificationChannel" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSFMS_20180101.DeleteNotificationChannel" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteNotificationChannel where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Core.ToJSON DeleteNotificationChannel where
+  toJSON = Core.const (Core.Object Core.mempty)
 
-instance Prelude.ToPath DeleteNotificationChannel where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteNotificationChannel where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteNotificationChannel where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteNotificationChannel where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteNotificationChannelResponse' smart constructor.
 data DeleteNotificationChannelResponse = DeleteNotificationChannelResponse'
   {
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteNotificationChannelResponse' with all optional fields omitted.
@@ -110,5 +106,5 @@ newDeleteNotificationChannelResponse =
   DeleteNotificationChannelResponse'
 
 instance
-  Prelude.NFData
+  Core.NFData
     DeleteNotificationChannelResponse

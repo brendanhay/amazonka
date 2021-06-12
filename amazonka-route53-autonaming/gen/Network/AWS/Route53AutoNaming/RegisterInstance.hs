@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -77,8 +76,8 @@ module Network.AWS.Route53AutoNaming.RegisterInstance
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.Route53AutoNaming.Types
@@ -92,10 +91,10 @@ data RegisterInstance = RegisterInstance'
     -- registering additional instances for the same namespace and service.
     -- @CreatorRequestId@ can be any unique string, for example, a date\/time
     -- stamp.
-    creatorRequestId :: Prelude.Maybe Prelude.Text,
+    creatorRequestId :: Core.Maybe Core.Text,
     -- | The ID of the service that you want to use for settings for the
     -- instance.
-    serviceId :: Prelude.Text,
+    serviceId :: Core.Text,
     -- | An identifier that you want to associate with the instance. Note the
     -- following:
     --
@@ -117,7 +116,7 @@ data RegisterInstance = RegisterInstance'
     --
     --     The health check isn\'t deleted immediately, so it will still appear
     --     for a while if you submit a @ListHealthChecks@ request, for example.
-    instanceId :: Prelude.Text,
+    instanceId :: Core.Text,
     -- | A string map that contains the following information for the service
     -- that you specify in @ServiceId@:
     --
@@ -222,9 +221,9 @@ data RegisterInstance = RegisterInstance'
     -- length of the attribute value is 1,024 characters. The total size of all
     -- provided attributes (sum of all keys and values) must not exceed 5,000
     -- characters.
-    attributes :: Prelude.HashMap Prelude.Text Prelude.Text
+    attributes :: Core.HashMap Core.Text Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterInstance' with all optional fields omitted.
@@ -373,17 +372,16 @@ data RegisterInstance = RegisterInstance'
 -- characters.
 newRegisterInstance ::
   -- | 'serviceId'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'instanceId'
-  Prelude.Text ->
+  Core.Text ->
   RegisterInstance
 newRegisterInstance pServiceId_ pInstanceId_ =
   RegisterInstance'
-    { creatorRequestId =
-        Prelude.Nothing,
+    { creatorRequestId = Core.Nothing,
       serviceId = pServiceId_,
       instanceId = pInstanceId_,
-      attributes = Prelude.mempty
+      attributes = Core.mempty
     }
 
 -- | A unique string that identifies the request and that allows failed
@@ -393,12 +391,12 @@ newRegisterInstance pServiceId_ pInstanceId_ =
 -- registering additional instances for the same namespace and service.
 -- @CreatorRequestId@ can be any unique string, for example, a date\/time
 -- stamp.
-registerInstance_creatorRequestId :: Lens.Lens' RegisterInstance (Prelude.Maybe Prelude.Text)
+registerInstance_creatorRequestId :: Lens.Lens' RegisterInstance (Core.Maybe Core.Text)
 registerInstance_creatorRequestId = Lens.lens (\RegisterInstance' {creatorRequestId} -> creatorRequestId) (\s@RegisterInstance' {} a -> s {creatorRequestId = a} :: RegisterInstance)
 
 -- | The ID of the service that you want to use for settings for the
 -- instance.
-registerInstance_serviceId :: Lens.Lens' RegisterInstance Prelude.Text
+registerInstance_serviceId :: Lens.Lens' RegisterInstance Core.Text
 registerInstance_serviceId = Lens.lens (\RegisterInstance' {serviceId} -> serviceId) (\s@RegisterInstance' {} a -> s {serviceId = a} :: RegisterInstance)
 
 -- | An identifier that you want to associate with the instance. Note the
@@ -422,7 +420,7 @@ registerInstance_serviceId = Lens.lens (\RegisterInstance' {serviceId} -> servic
 --
 --     The health check isn\'t deleted immediately, so it will still appear
 --     for a while if you submit a @ListHealthChecks@ request, for example.
-registerInstance_instanceId :: Lens.Lens' RegisterInstance Prelude.Text
+registerInstance_instanceId :: Lens.Lens' RegisterInstance Core.Text
 registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> instanceId) (\s@RegisterInstance' {} a -> s {instanceId = a} :: RegisterInstance)
 
 -- | A string map that contains the following information for the service
@@ -529,67 +527,67 @@ registerInstance_instanceId = Lens.lens (\RegisterInstance' {instanceId} -> inst
 -- length of the attribute value is 1,024 characters. The total size of all
 -- provided attributes (sum of all keys and values) must not exceed 5,000
 -- characters.
-registerInstance_attributes :: Lens.Lens' RegisterInstance (Prelude.HashMap Prelude.Text Prelude.Text)
-registerInstance_attributes = Lens.lens (\RegisterInstance' {attributes} -> attributes) (\s@RegisterInstance' {} a -> s {attributes = a} :: RegisterInstance) Prelude.. Prelude._Coerce
+registerInstance_attributes :: Lens.Lens' RegisterInstance (Core.HashMap Core.Text Core.Text)
+registerInstance_attributes = Lens.lens (\RegisterInstance' {attributes} -> attributes) (\s@RegisterInstance' {} a -> s {attributes = a} :: RegisterInstance) Core.. Lens._Coerce
 
-instance Prelude.AWSRequest RegisterInstance where
-  type Rs RegisterInstance = RegisterInstanceResponse
+instance Core.AWSRequest RegisterInstance where
+  type
+    AWSResponse RegisterInstance =
+      RegisterInstanceResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           RegisterInstanceResponse'
-            Prelude.<$> (x Prelude..?> "OperationId")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "OperationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable RegisterInstance
+instance Core.Hashable RegisterInstance
 
-instance Prelude.NFData RegisterInstance
+instance Core.NFData RegisterInstance
 
-instance Prelude.ToHeaders RegisterInstance where
+instance Core.ToHeaders RegisterInstance where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "Route53AutoNaming_v20170314.RegisterInstance" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "Route53AutoNaming_v20170314.RegisterInstance" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON RegisterInstance where
+instance Core.ToJSON RegisterInstance where
   toJSON RegisterInstance' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("CreatorRequestId" Prelude..=)
-              Prelude.<$> creatorRequestId,
-            Prelude.Just ("ServiceId" Prelude..= serviceId),
-            Prelude.Just ("InstanceId" Prelude..= instanceId),
-            Prelude.Just ("Attributes" Prelude..= attributes)
+    Core.object
+      ( Core.catMaybes
+          [ ("CreatorRequestId" Core..=)
+              Core.<$> creatorRequestId,
+            Core.Just ("ServiceId" Core..= serviceId),
+            Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("Attributes" Core..= attributes)
           ]
       )
 
-instance Prelude.ToPath RegisterInstance where
-  toPath = Prelude.const "/"
+instance Core.ToPath RegisterInstance where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery RegisterInstance where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery RegisterInstance where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newRegisterInstanceResponse' smart constructor.
 data RegisterInstanceResponse = RegisterInstanceResponse'
   { -- | A value that you can use to determine whether the request completed
     -- successfully. To get the status of the operation, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-    operationId :: Prelude.Maybe Prelude.Text,
+    operationId :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'RegisterInstanceResponse' with all optional fields omitted.
@@ -606,23 +604,23 @@ data RegisterInstanceResponse = RegisterInstanceResponse'
 -- 'httpStatus', 'registerInstanceResponse_httpStatus' - The response's http status code.
 newRegisterInstanceResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   RegisterInstanceResponse
 newRegisterInstanceResponse pHttpStatus_ =
   RegisterInstanceResponse'
     { operationId =
-        Prelude.Nothing,
+        Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | A value that you can use to determine whether the request completed
 -- successfully. To get the status of the operation, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_GetOperation.html GetOperation>.
-registerInstanceResponse_operationId :: Lens.Lens' RegisterInstanceResponse (Prelude.Maybe Prelude.Text)
+registerInstanceResponse_operationId :: Lens.Lens' RegisterInstanceResponse (Core.Maybe Core.Text)
 registerInstanceResponse_operationId = Lens.lens (\RegisterInstanceResponse' {operationId} -> operationId) (\s@RegisterInstanceResponse' {} a -> s {operationId = a} :: RegisterInstanceResponse)
 
 -- | The response's http status code.
-registerInstanceResponse_httpStatus :: Lens.Lens' RegisterInstanceResponse Prelude.Int
+registerInstanceResponse_httpStatus :: Lens.Lens' RegisterInstanceResponse Core.Int
 registerInstanceResponse_httpStatus = Lens.lens (\RegisterInstanceResponse' {httpStatus} -> httpStatus) (\s@RegisterInstanceResponse' {} a -> s {httpStatus = a} :: RegisterInstanceResponse)
 
-instance Prelude.NFData RegisterInstanceResponse
+instance Core.NFData RegisterInstanceResponse

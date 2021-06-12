@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.PackageSource where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The S3 location for importing the package specified as @S3BucketName@
 -- and @S3Key@
@@ -29,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newPackageSource' smart constructor.
 data PackageSource = PackageSource'
   { -- | Key (file name) of the package.
-    s3Key :: Prelude.Maybe Prelude.Text,
+    s3Key :: Core.Maybe Core.Text,
     -- | Name of the bucket containing the package.
-    s3BucketName :: Prelude.Maybe Prelude.Text
+    s3BucketName :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'PackageSource' with all optional fields omitted.
@@ -50,28 +49,27 @@ newPackageSource ::
   PackageSource
 newPackageSource =
   PackageSource'
-    { s3Key = Prelude.Nothing,
-      s3BucketName = Prelude.Nothing
+    { s3Key = Core.Nothing,
+      s3BucketName = Core.Nothing
     }
 
 -- | Key (file name) of the package.
-packageSource_s3Key :: Lens.Lens' PackageSource (Prelude.Maybe Prelude.Text)
+packageSource_s3Key :: Lens.Lens' PackageSource (Core.Maybe Core.Text)
 packageSource_s3Key = Lens.lens (\PackageSource' {s3Key} -> s3Key) (\s@PackageSource' {} a -> s {s3Key = a} :: PackageSource)
 
 -- | Name of the bucket containing the package.
-packageSource_s3BucketName :: Lens.Lens' PackageSource (Prelude.Maybe Prelude.Text)
+packageSource_s3BucketName :: Lens.Lens' PackageSource (Core.Maybe Core.Text)
 packageSource_s3BucketName = Lens.lens (\PackageSource' {s3BucketName} -> s3BucketName) (\s@PackageSource' {} a -> s {s3BucketName = a} :: PackageSource)
 
-instance Prelude.Hashable PackageSource
+instance Core.Hashable PackageSource
 
-instance Prelude.NFData PackageSource
+instance Core.NFData PackageSource
 
-instance Prelude.ToJSON PackageSource where
+instance Core.ToJSON PackageSource where
   toJSON PackageSource' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("S3Key" Prelude..=) Prelude.<$> s3Key,
-            ("S3BucketName" Prelude..=)
-              Prelude.<$> s3BucketName
+    Core.object
+      ( Core.catMaybes
+          [ ("S3Key" Core..=) Core.<$> s3Key,
+            ("S3BucketName" Core..=) Core.<$> s3BucketName
           ]
       )

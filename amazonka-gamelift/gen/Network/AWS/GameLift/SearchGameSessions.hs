@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -122,10 +121,9 @@ module Network.AWS.GameLift.SearchGameSessions
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.GameLift.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -136,11 +134,11 @@ data SearchGameSessions = SearchGameSessions'
   { -- | Token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A unique identifier for a fleet to search for active game sessions. You
     -- can use either the fleet ID or ARN value. Each request must reference
     -- either a fleet ID or alias ID, but not both.
-    fleetId :: Prelude.Maybe Prelude.Text,
+    fleetId :: Core.Maybe Core.Text,
     -- | Instructions on how to sort the search results. If no sort expression is
     -- included, the request returns results in random order. A sort expression
     -- consists of the following elements:
@@ -156,7 +154,7 @@ data SearchGameSessions = SearchGameSessions'
     -- For example, this sort expression returns the oldest active sessions
     -- first: @\"SortExpression\": \"creationTimeMillis ASC\"@. Results with a
     -- null value for the sort operand are returned at the end of the list.
-    sortExpression :: Prelude.Maybe Prelude.Text,
+    sortExpression :: Core.Maybe Core.Text,
     -- | String containing the search criteria for the session search. If no
     -- filter expression is included, the request returns results for all game
     -- sessions in the fleet that are in @ACTIVE@ status.
@@ -201,18 +199,18 @@ data SearchGameSessions = SearchGameSessions'
     -- For example, this filter expression retrieves game sessions hosting at
     -- least ten players that have an open player slot:
     -- @\"maximumSessions>=10 AND hasAvailablePlayerSessions=true\"@.
-    filterExpression :: Prelude.Maybe Prelude.Text,
+    filterExpression :: Core.Maybe Core.Text,
     -- | A unique identifier for an alias associated with the fleet to search for
     -- active game sessions. You can use either the alias ID or ARN value. Each
     -- request must reference either a fleet ID or alias ID, but not both.
-    aliasId :: Prelude.Maybe Prelude.Text,
+    aliasId :: Core.Maybe Core.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. The maximum
     -- number of results returned is 20, even if this value is not set or is
     -- set higher than 20.
-    limit :: Prelude.Maybe Prelude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchGameSessions' with all optional fields omitted.
@@ -303,24 +301,24 @@ newSearchGameSessions ::
   SearchGameSessions
 newSearchGameSessions =
   SearchGameSessions'
-    { nextToken = Prelude.Nothing,
-      fleetId = Prelude.Nothing,
-      sortExpression = Prelude.Nothing,
-      filterExpression = Prelude.Nothing,
-      aliasId = Prelude.Nothing,
-      limit = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      fleetId = Core.Nothing,
+      sortExpression = Core.Nothing,
+      filterExpression = Core.Nothing,
+      aliasId = Core.Nothing,
+      limit = Core.Nothing
     }
 
 -- | Token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
-searchGameSessions_nextToken :: Lens.Lens' SearchGameSessions (Prelude.Maybe Prelude.Text)
+searchGameSessions_nextToken :: Lens.Lens' SearchGameSessions (Core.Maybe Core.Text)
 searchGameSessions_nextToken = Lens.lens (\SearchGameSessions' {nextToken} -> nextToken) (\s@SearchGameSessions' {} a -> s {nextToken = a} :: SearchGameSessions)
 
 -- | A unique identifier for a fleet to search for active game sessions. You
 -- can use either the fleet ID or ARN value. Each request must reference
 -- either a fleet ID or alias ID, but not both.
-searchGameSessions_fleetId :: Lens.Lens' SearchGameSessions (Prelude.Maybe Prelude.Text)
+searchGameSessions_fleetId :: Lens.Lens' SearchGameSessions (Core.Maybe Core.Text)
 searchGameSessions_fleetId = Lens.lens (\SearchGameSessions' {fleetId} -> fleetId) (\s@SearchGameSessions' {} a -> s {fleetId = a} :: SearchGameSessions)
 
 -- | Instructions on how to sort the search results. If no sort expression is
@@ -338,7 +336,7 @@ searchGameSessions_fleetId = Lens.lens (\SearchGameSessions' {fleetId} -> fleetI
 -- For example, this sort expression returns the oldest active sessions
 -- first: @\"SortExpression\": \"creationTimeMillis ASC\"@. Results with a
 -- null value for the sort operand are returned at the end of the list.
-searchGameSessions_sortExpression :: Lens.Lens' SearchGameSessions (Prelude.Maybe Prelude.Text)
+searchGameSessions_sortExpression :: Lens.Lens' SearchGameSessions (Core.Maybe Core.Text)
 searchGameSessions_sortExpression = Lens.lens (\SearchGameSessions' {sortExpression} -> sortExpression) (\s@SearchGameSessions' {} a -> s {sortExpression = a} :: SearchGameSessions)
 
 -- | String containing the search criteria for the session search. If no
@@ -385,99 +383,92 @@ searchGameSessions_sortExpression = Lens.lens (\SearchGameSessions' {sortExpress
 -- For example, this filter expression retrieves game sessions hosting at
 -- least ten players that have an open player slot:
 -- @\"maximumSessions>=10 AND hasAvailablePlayerSessions=true\"@.
-searchGameSessions_filterExpression :: Lens.Lens' SearchGameSessions (Prelude.Maybe Prelude.Text)
+searchGameSessions_filterExpression :: Lens.Lens' SearchGameSessions (Core.Maybe Core.Text)
 searchGameSessions_filterExpression = Lens.lens (\SearchGameSessions' {filterExpression} -> filterExpression) (\s@SearchGameSessions' {} a -> s {filterExpression = a} :: SearchGameSessions)
 
 -- | A unique identifier for an alias associated with the fleet to search for
 -- active game sessions. You can use either the alias ID or ARN value. Each
 -- request must reference either a fleet ID or alias ID, but not both.
-searchGameSessions_aliasId :: Lens.Lens' SearchGameSessions (Prelude.Maybe Prelude.Text)
+searchGameSessions_aliasId :: Lens.Lens' SearchGameSessions (Core.Maybe Core.Text)
 searchGameSessions_aliasId = Lens.lens (\SearchGameSessions' {aliasId} -> aliasId) (\s@SearchGameSessions' {} a -> s {aliasId = a} :: SearchGameSessions)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. The maximum
 -- number of results returned is 20, even if this value is not set or is
 -- set higher than 20.
-searchGameSessions_limit :: Lens.Lens' SearchGameSessions (Prelude.Maybe Prelude.Natural)
+searchGameSessions_limit :: Lens.Lens' SearchGameSessions (Core.Maybe Core.Natural)
 searchGameSessions_limit = Lens.lens (\SearchGameSessions' {limit} -> limit) (\s@SearchGameSessions' {} a -> s {limit = a} :: SearchGameSessions)
 
-instance Pager.AWSPager SearchGameSessions where
+instance Core.AWSPager SearchGameSessions where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? searchGameSessionsResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? searchGameSessionsResponse_gameSessions
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& searchGameSessions_nextToken
           Lens..~ rs
           Lens.^? searchGameSessionsResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest SearchGameSessions where
+instance Core.AWSRequest SearchGameSessions where
   type
-    Rs SearchGameSessions =
+    AWSResponse SearchGameSessions =
       SearchGameSessionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           SearchGameSessionsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "GameSessions"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "NextToken")
+            Core.<*> (x Core..?> "GameSessions" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable SearchGameSessions
+instance Core.Hashable SearchGameSessions
 
-instance Prelude.NFData SearchGameSessions
+instance Core.NFData SearchGameSessions
 
-instance Prelude.ToHeaders SearchGameSessions where
+instance Core.ToHeaders SearchGameSessions where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "GameLift.SearchGameSessions" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("GameLift.SearchGameSessions" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON SearchGameSessions where
+instance Core.ToJSON SearchGameSessions where
   toJSON SearchGameSessions' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("FleetId" Prelude..=) Prelude.<$> fleetId,
-            ("SortExpression" Prelude..=)
-              Prelude.<$> sortExpression,
-            ("FilterExpression" Prelude..=)
-              Prelude.<$> filterExpression,
-            ("AliasId" Prelude..=) Prelude.<$> aliasId,
-            ("Limit" Prelude..=) Prelude.<$> limit
+    Core.object
+      ( Core.catMaybes
+          [ ("NextToken" Core..=) Core.<$> nextToken,
+            ("FleetId" Core..=) Core.<$> fleetId,
+            ("SortExpression" Core..=) Core.<$> sortExpression,
+            ("FilterExpression" Core..=)
+              Core.<$> filterExpression,
+            ("AliasId" Core..=) Core.<$> aliasId,
+            ("Limit" Core..=) Core.<$> limit
           ]
       )
 
-instance Prelude.ToPath SearchGameSessions where
-  toPath = Prelude.const "/"
+instance Core.ToPath SearchGameSessions where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery SearchGameSessions where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery SearchGameSessions where
+  toQuery = Core.const Core.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
@@ -486,14 +477,14 @@ data SearchGameSessionsResponse = SearchGameSessionsResponse'
   { -- | Token that indicates where to resume retrieving results on the next call
     -- to this operation. If no token is returned, these results represent the
     -- end of the list.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | A collection of objects containing game session properties for each
     -- session matching the request.
-    gameSessions :: Prelude.Maybe [GameSession],
+    gameSessions :: Core.Maybe [GameSession],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'SearchGameSessionsResponse' with all optional fields omitted.
@@ -513,29 +504,29 @@ data SearchGameSessionsResponse = SearchGameSessionsResponse'
 -- 'httpStatus', 'searchGameSessionsResponse_httpStatus' - The response's http status code.
 newSearchGameSessionsResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   SearchGameSessionsResponse
 newSearchGameSessionsResponse pHttpStatus_ =
   SearchGameSessionsResponse'
     { nextToken =
-        Prelude.Nothing,
-      gameSessions = Prelude.Nothing,
+        Core.Nothing,
+      gameSessions = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Token that indicates where to resume retrieving results on the next call
 -- to this operation. If no token is returned, these results represent the
 -- end of the list.
-searchGameSessionsResponse_nextToken :: Lens.Lens' SearchGameSessionsResponse (Prelude.Maybe Prelude.Text)
+searchGameSessionsResponse_nextToken :: Lens.Lens' SearchGameSessionsResponse (Core.Maybe Core.Text)
 searchGameSessionsResponse_nextToken = Lens.lens (\SearchGameSessionsResponse' {nextToken} -> nextToken) (\s@SearchGameSessionsResponse' {} a -> s {nextToken = a} :: SearchGameSessionsResponse)
 
 -- | A collection of objects containing game session properties for each
 -- session matching the request.
-searchGameSessionsResponse_gameSessions :: Lens.Lens' SearchGameSessionsResponse (Prelude.Maybe [GameSession])
-searchGameSessionsResponse_gameSessions = Lens.lens (\SearchGameSessionsResponse' {gameSessions} -> gameSessions) (\s@SearchGameSessionsResponse' {} a -> s {gameSessions = a} :: SearchGameSessionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+searchGameSessionsResponse_gameSessions :: Lens.Lens' SearchGameSessionsResponse (Core.Maybe [GameSession])
+searchGameSessionsResponse_gameSessions = Lens.lens (\SearchGameSessionsResponse' {gameSessions} -> gameSessions) (\s@SearchGameSessionsResponse' {} a -> s {gameSessions = a} :: SearchGameSessionsResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-searchGameSessionsResponse_httpStatus :: Lens.Lens' SearchGameSessionsResponse Prelude.Int
+searchGameSessionsResponse_httpStatus :: Lens.Lens' SearchGameSessionsResponse Core.Int
 searchGameSessionsResponse_httpStatus = Lens.lens (\SearchGameSessionsResponse' {httpStatus} -> httpStatus) (\s@SearchGameSessionsResponse' {} a -> s {httpStatus = a} :: SearchGameSessionsResponse)
 
-instance Prelude.NFData SearchGameSessionsResponse
+instance Core.NFData SearchGameSessionsResponse

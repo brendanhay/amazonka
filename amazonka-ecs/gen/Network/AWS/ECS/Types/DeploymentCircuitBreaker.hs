@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.DeploymentCircuitBreaker where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | The deployment circuit breaker can only be used for services using the
 -- rolling update (@ECS@) deployment type that are not behind a Classic
@@ -39,14 +38,14 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDeploymentCircuitBreaker' smart constructor.
 data DeploymentCircuitBreaker = DeploymentCircuitBreaker'
   { -- | Whether to enable the deployment circuit breaker logic for the service.
-    enable :: Prelude.Bool,
+    enable :: Core.Bool,
     -- | Whether to enable Amazon ECS to roll back the service if a service
     -- deployment fails. If rollback is enabled, when a service deployment
     -- fails, the service is rolled back to the last deployment that completed
     -- successfully.
-    rollback :: Prelude.Bool
+    rollback :: Core.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeploymentCircuitBreaker' with all optional fields omitted.
@@ -64,9 +63,9 @@ data DeploymentCircuitBreaker = DeploymentCircuitBreaker'
 -- successfully.
 newDeploymentCircuitBreaker ::
   -- | 'enable'
-  Prelude.Bool ->
+  Core.Bool ->
   -- | 'rollback'
-  Prelude.Bool ->
+  Core.Bool ->
   DeploymentCircuitBreaker
 newDeploymentCircuitBreaker pEnable_ pRollback_ =
   DeploymentCircuitBreaker'
@@ -75,35 +74,34 @@ newDeploymentCircuitBreaker pEnable_ pRollback_ =
     }
 
 -- | Whether to enable the deployment circuit breaker logic for the service.
-deploymentCircuitBreaker_enable :: Lens.Lens' DeploymentCircuitBreaker Prelude.Bool
+deploymentCircuitBreaker_enable :: Lens.Lens' DeploymentCircuitBreaker Core.Bool
 deploymentCircuitBreaker_enable = Lens.lens (\DeploymentCircuitBreaker' {enable} -> enable) (\s@DeploymentCircuitBreaker' {} a -> s {enable = a} :: DeploymentCircuitBreaker)
 
 -- | Whether to enable Amazon ECS to roll back the service if a service
 -- deployment fails. If rollback is enabled, when a service deployment
 -- fails, the service is rolled back to the last deployment that completed
 -- successfully.
-deploymentCircuitBreaker_rollback :: Lens.Lens' DeploymentCircuitBreaker Prelude.Bool
+deploymentCircuitBreaker_rollback :: Lens.Lens' DeploymentCircuitBreaker Core.Bool
 deploymentCircuitBreaker_rollback = Lens.lens (\DeploymentCircuitBreaker' {rollback} -> rollback) (\s@DeploymentCircuitBreaker' {} a -> s {rollback = a} :: DeploymentCircuitBreaker)
 
-instance Prelude.FromJSON DeploymentCircuitBreaker where
+instance Core.FromJSON DeploymentCircuitBreaker where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "DeploymentCircuitBreaker"
       ( \x ->
           DeploymentCircuitBreaker'
-            Prelude.<$> (x Prelude..: "enable")
-            Prelude.<*> (x Prelude..: "rollback")
+            Core.<$> (x Core..: "enable") Core.<*> (x Core..: "rollback")
       )
 
-instance Prelude.Hashable DeploymentCircuitBreaker
+instance Core.Hashable DeploymentCircuitBreaker
 
-instance Prelude.NFData DeploymentCircuitBreaker
+instance Core.NFData DeploymentCircuitBreaker
 
-instance Prelude.ToJSON DeploymentCircuitBreaker where
+instance Core.ToJSON DeploymentCircuitBreaker where
   toJSON DeploymentCircuitBreaker' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("enable" Prelude..= enable),
-            Prelude.Just ("rollback" Prelude..= rollback)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("enable" Core..= enable),
+            Core.Just ("rollback" Core..= rollback)
           ]
       )

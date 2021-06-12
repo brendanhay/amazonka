@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ElasticSearch.Types.OptionStatus
 import Network.AWS.ElasticSearch.Types.VPCDerivedInfo
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Status of the VPC options for the specified Elasticsearch domain.
 --
@@ -35,7 +34,7 @@ data VPCDerivedInfoStatus = VPCDerivedInfoStatus'
     -- domain.
     status :: OptionStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VPCDerivedInfoStatus' with all optional fields omitted.
@@ -70,16 +69,15 @@ vPCDerivedInfoStatus_options = Lens.lens (\VPCDerivedInfoStatus' {options} -> op
 vPCDerivedInfoStatus_status :: Lens.Lens' VPCDerivedInfoStatus OptionStatus
 vPCDerivedInfoStatus_status = Lens.lens (\VPCDerivedInfoStatus' {status} -> status) (\s@VPCDerivedInfoStatus' {} a -> s {status = a} :: VPCDerivedInfoStatus)
 
-instance Prelude.FromJSON VPCDerivedInfoStatus where
+instance Core.FromJSON VPCDerivedInfoStatus where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "VPCDerivedInfoStatus"
       ( \x ->
           VPCDerivedInfoStatus'
-            Prelude.<$> (x Prelude..: "Options")
-            Prelude.<*> (x Prelude..: "Status")
+            Core.<$> (x Core..: "Options") Core.<*> (x Core..: "Status")
       )
 
-instance Prelude.Hashable VPCDerivedInfoStatus
+instance Core.Hashable VPCDerivedInfoStatus
 
-instance Prelude.NFData VPCDerivedInfoStatus
+instance Core.NFData VPCDerivedInfoStatus

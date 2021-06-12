@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,9 +46,9 @@ module Network.AWS.Glue.GetSchemaVersionsDiff
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Glue.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -71,7 +70,7 @@ data GetSchemaVersionsDiff = GetSchemaVersionsDiff'
     -- | Refers to @SYNTAX_DIFF@, which is the currently supported diff type.
     schemaDiffType :: SchemaDiffType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSchemaVersionsDiff' with all optional fields omitted.
@@ -142,70 +141,65 @@ getSchemaVersionsDiff_secondSchemaVersionNumber = Lens.lens (\GetSchemaVersionsD
 getSchemaVersionsDiff_schemaDiffType :: Lens.Lens' GetSchemaVersionsDiff SchemaDiffType
 getSchemaVersionsDiff_schemaDiffType = Lens.lens (\GetSchemaVersionsDiff' {schemaDiffType} -> schemaDiffType) (\s@GetSchemaVersionsDiff' {} a -> s {schemaDiffType = a} :: GetSchemaVersionsDiff)
 
-instance Prelude.AWSRequest GetSchemaVersionsDiff where
+instance Core.AWSRequest GetSchemaVersionsDiff where
   type
-    Rs GetSchemaVersionsDiff =
+    AWSResponse GetSchemaVersionsDiff =
       GetSchemaVersionsDiffResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           GetSchemaVersionsDiffResponse'
-            Prelude.<$> (x Prelude..?> "Diff")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "Diff")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable GetSchemaVersionsDiff
+instance Core.Hashable GetSchemaVersionsDiff
 
-instance Prelude.NFData GetSchemaVersionsDiff
+instance Core.NFData GetSchemaVersionsDiff
 
-instance Prelude.ToHeaders GetSchemaVersionsDiff where
+instance Core.ToHeaders GetSchemaVersionsDiff where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSGlue.GetSchemaVersionsDiff" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("AWSGlue.GetSchemaVersionsDiff" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON GetSchemaVersionsDiff where
+instance Core.ToJSON GetSchemaVersionsDiff where
   toJSON GetSchemaVersionsDiff' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("SchemaId" Prelude..= schemaId),
-            Prelude.Just
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaId" Core..= schemaId),
+            Core.Just
               ( "FirstSchemaVersionNumber"
-                  Prelude..= firstSchemaVersionNumber
+                  Core..= firstSchemaVersionNumber
               ),
-            Prelude.Just
+            Core.Just
               ( "SecondSchemaVersionNumber"
-                  Prelude..= secondSchemaVersionNumber
+                  Core..= secondSchemaVersionNumber
               ),
-            Prelude.Just
-              ("SchemaDiffType" Prelude..= schemaDiffType)
+            Core.Just ("SchemaDiffType" Core..= schemaDiffType)
           ]
       )
 
-instance Prelude.ToPath GetSchemaVersionsDiff where
-  toPath = Prelude.const "/"
+instance Core.ToPath GetSchemaVersionsDiff where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery GetSchemaVersionsDiff where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery GetSchemaVersionsDiff where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newGetSchemaVersionsDiffResponse' smart constructor.
 data GetSchemaVersionsDiffResponse = GetSchemaVersionsDiffResponse'
   { -- | The difference between schemas as a string in JsonPatch format.
-    diff :: Prelude.Maybe Prelude.Text,
+    diff :: Core.Maybe Core.Text,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'GetSchemaVersionsDiffResponse' with all optional fields omitted.
@@ -220,21 +214,20 @@ data GetSchemaVersionsDiffResponse = GetSchemaVersionsDiffResponse'
 -- 'httpStatus', 'getSchemaVersionsDiffResponse_httpStatus' - The response's http status code.
 newGetSchemaVersionsDiffResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   GetSchemaVersionsDiffResponse
 newGetSchemaVersionsDiffResponse pHttpStatus_ =
   GetSchemaVersionsDiffResponse'
-    { diff =
-        Prelude.Nothing,
+    { diff = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The difference between schemas as a string in JsonPatch format.
-getSchemaVersionsDiffResponse_diff :: Lens.Lens' GetSchemaVersionsDiffResponse (Prelude.Maybe Prelude.Text)
+getSchemaVersionsDiffResponse_diff :: Lens.Lens' GetSchemaVersionsDiffResponse (Core.Maybe Core.Text)
 getSchemaVersionsDiffResponse_diff = Lens.lens (\GetSchemaVersionsDiffResponse' {diff} -> diff) (\s@GetSchemaVersionsDiffResponse' {} a -> s {diff = a} :: GetSchemaVersionsDiffResponse)
 
 -- | The response's http status code.
-getSchemaVersionsDiffResponse_httpStatus :: Lens.Lens' GetSchemaVersionsDiffResponse Prelude.Int
+getSchemaVersionsDiffResponse_httpStatus :: Lens.Lens' GetSchemaVersionsDiffResponse Core.Int
 getSchemaVersionsDiffResponse_httpStatus = Lens.lens (\GetSchemaVersionsDiffResponse' {httpStatus} -> httpStatus) (\s@GetSchemaVersionsDiffResponse' {} a -> s {httpStatus = a} :: GetSchemaVersionsDiffResponse)
 
-instance Prelude.NFData GetSchemaVersionsDiffResponse
+instance Core.NFData GetSchemaVersionsDiffResponse

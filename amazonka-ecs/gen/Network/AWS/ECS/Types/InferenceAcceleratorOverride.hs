@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECS.Types.InferenceAcceleratorOverride where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Details on an Elastic Inference accelerator task override. This
 -- parameter is used to override the Elastic Inference accelerator
@@ -34,11 +33,11 @@ data InferenceAcceleratorOverride = InferenceAcceleratorOverride'
   { -- | The Elastic Inference accelerator device name to override for the task.
     -- This parameter must match a @deviceName@ specified in the task
     -- definition.
-    deviceName :: Prelude.Maybe Prelude.Text,
+    deviceName :: Core.Maybe Core.Text,
     -- | The Elastic Inference accelerator type to use.
-    deviceType :: Prelude.Maybe Prelude.Text
+    deviceType :: Core.Maybe Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'InferenceAcceleratorOverride' with all optional fields omitted.
@@ -58,44 +57,39 @@ newInferenceAcceleratorOverride ::
 newInferenceAcceleratorOverride =
   InferenceAcceleratorOverride'
     { deviceName =
-        Prelude.Nothing,
-      deviceType = Prelude.Nothing
+        Core.Nothing,
+      deviceType = Core.Nothing
     }
 
 -- | The Elastic Inference accelerator device name to override for the task.
 -- This parameter must match a @deviceName@ specified in the task
 -- definition.
-inferenceAcceleratorOverride_deviceName :: Lens.Lens' InferenceAcceleratorOverride (Prelude.Maybe Prelude.Text)
+inferenceAcceleratorOverride_deviceName :: Lens.Lens' InferenceAcceleratorOverride (Core.Maybe Core.Text)
 inferenceAcceleratorOverride_deviceName = Lens.lens (\InferenceAcceleratorOverride' {deviceName} -> deviceName) (\s@InferenceAcceleratorOverride' {} a -> s {deviceName = a} :: InferenceAcceleratorOverride)
 
 -- | The Elastic Inference accelerator type to use.
-inferenceAcceleratorOverride_deviceType :: Lens.Lens' InferenceAcceleratorOverride (Prelude.Maybe Prelude.Text)
+inferenceAcceleratorOverride_deviceType :: Lens.Lens' InferenceAcceleratorOverride (Core.Maybe Core.Text)
 inferenceAcceleratorOverride_deviceType = Lens.lens (\InferenceAcceleratorOverride' {deviceType} -> deviceType) (\s@InferenceAcceleratorOverride' {} a -> s {deviceType = a} :: InferenceAcceleratorOverride)
 
-instance
-  Prelude.FromJSON
-    InferenceAcceleratorOverride
-  where
+instance Core.FromJSON InferenceAcceleratorOverride where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "InferenceAcceleratorOverride"
       ( \x ->
           InferenceAcceleratorOverride'
-            Prelude.<$> (x Prelude..:? "deviceName")
-            Prelude.<*> (x Prelude..:? "deviceType")
+            Core.<$> (x Core..:? "deviceName")
+            Core.<*> (x Core..:? "deviceType")
       )
 
-instance
-  Prelude.Hashable
-    InferenceAcceleratorOverride
+instance Core.Hashable InferenceAcceleratorOverride
 
-instance Prelude.NFData InferenceAcceleratorOverride
+instance Core.NFData InferenceAcceleratorOverride
 
-instance Prelude.ToJSON InferenceAcceleratorOverride where
+instance Core.ToJSON InferenceAcceleratorOverride where
   toJSON InferenceAcceleratorOverride' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("deviceName" Prelude..=) Prelude.<$> deviceName,
-            ("deviceType" Prelude..=) Prelude.<$> deviceType
+    Core.object
+      ( Core.catMaybes
+          [ ("deviceName" Core..=) Core.<$> deviceName,
+            ("deviceType" Core..=) Core.<$> deviceType
           ]
       )

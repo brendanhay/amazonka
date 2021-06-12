@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -47,10 +46,9 @@ module Network.AWS.Discovery.DescribeExportTasks
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.Discovery.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -61,21 +59,21 @@ data DescribeExportTasks = DescribeExportTasks'
     -- results exceeded the value of that parameter. Pagination continues from
     -- the end of the previous results that returned the @nextToken@ value.
     -- This value is null when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of volume results returned by @DescribeExportTasks@
     -- in paginated output. When this parameter is used, @DescribeExportTasks@
     -- only returns @maxResults@ results in a single page along with a
     -- @nextToken@ response element.
-    maxResults :: Prelude.Maybe Prelude.Int,
+    maxResults :: Core.Maybe Core.Int,
     -- | One or more unique identifiers used to query the status of an export
     -- request.
-    exportIds :: Prelude.Maybe [Prelude.Text],
+    exportIds :: Core.Maybe [Core.Text],
     -- | One or more filters.
     --
     -- -   @AgentId@ - ID of the agent whose collected data will be exported
-    filters :: Prelude.Maybe [ExportFilter]
+    filters :: Core.Maybe [ExportFilter]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeExportTasks' with all optional fields omitted.
@@ -106,10 +104,10 @@ newDescribeExportTasks ::
   DescribeExportTasks
 newDescribeExportTasks =
   DescribeExportTasks'
-    { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      exportIds = Prelude.Nothing,
-      filters = Prelude.Nothing
+    { nextToken = Core.Nothing,
+      maxResults = Core.Nothing,
+      exportIds = Core.Nothing,
+      filters = Core.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated
@@ -117,100 +115,96 @@ newDescribeExportTasks =
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is null when there are no more results to return.
-describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Core.Maybe Core.Text)
 describeExportTasks_nextToken = Lens.lens (\DescribeExportTasks' {nextToken} -> nextToken) (\s@DescribeExportTasks' {} a -> s {nextToken = a} :: DescribeExportTasks)
 
 -- | The maximum number of volume results returned by @DescribeExportTasks@
 -- in paginated output. When this parameter is used, @DescribeExportTasks@
 -- only returns @maxResults@ results in a single page along with a
 -- @nextToken@ response element.
-describeExportTasks_maxResults :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Int)
+describeExportTasks_maxResults :: Lens.Lens' DescribeExportTasks (Core.Maybe Core.Int)
 describeExportTasks_maxResults = Lens.lens (\DescribeExportTasks' {maxResults} -> maxResults) (\s@DescribeExportTasks' {} a -> s {maxResults = a} :: DescribeExportTasks)
 
 -- | One or more unique identifiers used to query the status of an export
 -- request.
-describeExportTasks_exportIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
-describeExportTasks_exportIds = Lens.lens (\DescribeExportTasks' {exportIds} -> exportIds) (\s@DescribeExportTasks' {} a -> s {exportIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeExportTasks_exportIds :: Lens.Lens' DescribeExportTasks (Core.Maybe [Core.Text])
+describeExportTasks_exportIds = Lens.lens (\DescribeExportTasks' {exportIds} -> exportIds) (\s@DescribeExportTasks' {} a -> s {exportIds = a} :: DescribeExportTasks) Core.. Lens.mapping Lens._Coerce
 
 -- | One or more filters.
 --
 -- -   @AgentId@ - ID of the agent whose collected data will be exported
-describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [ExportFilter])
-describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Prelude._Coerce
+describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Core.Maybe [ExportFilter])
+describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Core.. Lens.mapping Lens._Coerce
 
-instance Pager.AWSPager DescribeExportTasks where
+instance Core.AWSPager DescribeExportTasks where
   page rq rs
-    | Pager.stop
+    | Core.stop
         ( rs
             Lens.^? describeExportTasksResponse_nextToken
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Pager.stop
+      Core.Nothing
+    | Core.stop
         ( rs
             Lens.^? describeExportTasksResponse_exportsInfo
-              Prelude.. Lens._Just
+              Core.. Lens._Just
         ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just Core.$
         rq
           Lens.& describeExportTasks_nextToken
           Lens..~ rs
           Lens.^? describeExportTasksResponse_nextToken
-            Prelude.. Lens._Just
+            Core.. Lens._Just
 
-instance Prelude.AWSRequest DescribeExportTasks where
+instance Core.AWSRequest DescribeExportTasks where
   type
-    Rs DescribeExportTasks =
+    AWSResponse DescribeExportTasks =
       DescribeExportTasksResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DescribeExportTasksResponse'
-            Prelude.<$> (x Prelude..?> "nextToken")
-            Prelude.<*> ( x Prelude..?> "exportsInfo"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "nextToken")
+            Core.<*> (x Core..?> "exportsInfo" Core..!@ Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DescribeExportTasks
+instance Core.Hashable DescribeExportTasks
 
-instance Prelude.NFData DescribeExportTasks
+instance Core.NFData DescribeExportTasks
 
-instance Prelude.ToHeaders DescribeExportTasks where
+instance Core.ToHeaders DescribeExportTasks where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AWSPoseidonService_V2015_11_01.DescribeExportTasks" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AWSPoseidonService_V2015_11_01.DescribeExportTasks" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DescribeExportTasks where
+instance Core.ToJSON DescribeExportTasks where
   toJSON DescribeExportTasks' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
-            ("maxResults" Prelude..=) Prelude.<$> maxResults,
-            ("exportIds" Prelude..=) Prelude.<$> exportIds,
-            ("filters" Prelude..=) Prelude.<$> filters
+    Core.object
+      ( Core.catMaybes
+          [ ("nextToken" Core..=) Core.<$> nextToken,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("exportIds" Core..=) Core.<$> exportIds,
+            ("filters" Core..=) Core.<$> filters
           ]
       )
 
-instance Prelude.ToPath DescribeExportTasks where
-  toPath = Prelude.const "/"
+instance Core.ToPath DescribeExportTasks where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DescribeExportTasks where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DescribeExportTasks where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
@@ -218,15 +212,15 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
     -- request. When the results of a @DescribeExportTasks@ request exceed
     -- @maxResults@, this value can be used to retrieve the next page of
     -- results. This value is null when there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Contains one or more sets of export request details. When the status of
     -- a request is @SUCCEEDED@, the response includes a URL for an Amazon S3
     -- bucket where you can view the data in a CSV file.
-    exportsInfo :: Prelude.Maybe [ExportInfo],
+    exportsInfo :: Core.Maybe [ExportInfo],
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DescribeExportTasksResponse' with all optional fields omitted.
@@ -248,13 +242,13 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 -- 'httpStatus', 'describeExportTasksResponse_httpStatus' - The response's http status code.
 newDescribeExportTasksResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DescribeExportTasksResponse
 newDescribeExportTasksResponse pHttpStatus_ =
   DescribeExportTasksResponse'
     { nextToken =
-        Prelude.Nothing,
-      exportsInfo = Prelude.Nothing,
+        Core.Nothing,
+      exportsInfo = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -262,17 +256,17 @@ newDescribeExportTasksResponse pHttpStatus_ =
 -- request. When the results of a @DescribeExportTasks@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is null when there are no more results to return.
-describeExportTasksResponse_nextToken :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe Prelude.Text)
+describeExportTasksResponse_nextToken :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe Core.Text)
 describeExportTasksResponse_nextToken = Lens.lens (\DescribeExportTasksResponse' {nextToken} -> nextToken) (\s@DescribeExportTasksResponse' {} a -> s {nextToken = a} :: DescribeExportTasksResponse)
 
 -- | Contains one or more sets of export request details. When the status of
 -- a request is @SUCCEEDED@, the response includes a URL for an Amazon S3
 -- bucket where you can view the data in a CSV file.
-describeExportTasksResponse_exportsInfo :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportInfo])
-describeExportTasksResponse_exportsInfo = Lens.lens (\DescribeExportTasksResponse' {exportsInfo} -> exportsInfo) (\s@DescribeExportTasksResponse' {} a -> s {exportsInfo = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
+describeExportTasksResponse_exportsInfo :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe [ExportInfo])
+describeExportTasksResponse_exportsInfo = Lens.lens (\DescribeExportTasksResponse' {exportsInfo} -> exportsInfo) (\s@DescribeExportTasksResponse' {} a -> s {exportsInfo = a} :: DescribeExportTasksResponse) Core.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
-describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int
+describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Core.Int
 describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeExportTasksResponse' {} a -> s {httpStatus = a} :: DescribeExportTasksResponse)
 
-instance Prelude.NFData DescribeExportTasksResponse
+instance Core.NFData DescribeExportTasksResponse

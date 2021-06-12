@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -46,9 +45,9 @@ module Network.AWS.ECS.UpdateTaskSet
   )
 where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
@@ -56,16 +55,16 @@ import qualified Network.AWS.Response as Response
 data UpdateTaskSet = UpdateTaskSet'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service that the task set exists in.
-    cluster :: Prelude.Text,
+    cluster :: Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service that
     -- the task set exists in.
-    service :: Prelude.Text,
+    service :: Core.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the task set to
     -- update.
-    taskSet :: Prelude.Text,
+    taskSet :: Core.Text,
     scale :: Scale
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTaskSet' with all optional fields omitted.
@@ -87,11 +86,11 @@ data UpdateTaskSet = UpdateTaskSet'
 -- 'scale', 'updateTaskSet_scale' - Undocumented member.
 newUpdateTaskSet ::
   -- | 'cluster'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'service'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'taskSet'
-  Prelude.Text ->
+  Core.Text ->
   -- | 'scale'
   Scale ->
   UpdateTaskSet
@@ -109,77 +108,77 @@ newUpdateTaskSet
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task set exists in.
-updateTaskSet_cluster :: Lens.Lens' UpdateTaskSet Prelude.Text
+updateTaskSet_cluster :: Lens.Lens' UpdateTaskSet Core.Text
 updateTaskSet_cluster = Lens.lens (\UpdateTaskSet' {cluster} -> cluster) (\s@UpdateTaskSet' {} a -> s {cluster = a} :: UpdateTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that
 -- the task set exists in.
-updateTaskSet_service :: Lens.Lens' UpdateTaskSet Prelude.Text
+updateTaskSet_service :: Lens.Lens' UpdateTaskSet Core.Text
 updateTaskSet_service = Lens.lens (\UpdateTaskSet' {service} -> service) (\s@UpdateTaskSet' {} a -> s {service = a} :: UpdateTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the task set to
 -- update.
-updateTaskSet_taskSet :: Lens.Lens' UpdateTaskSet Prelude.Text
+updateTaskSet_taskSet :: Lens.Lens' UpdateTaskSet Core.Text
 updateTaskSet_taskSet = Lens.lens (\UpdateTaskSet' {taskSet} -> taskSet) (\s@UpdateTaskSet' {} a -> s {taskSet = a} :: UpdateTaskSet)
 
 -- | Undocumented member.
 updateTaskSet_scale :: Lens.Lens' UpdateTaskSet Scale
 updateTaskSet_scale = Lens.lens (\UpdateTaskSet' {scale} -> scale) (\s@UpdateTaskSet' {} a -> s {scale = a} :: UpdateTaskSet)
 
-instance Prelude.AWSRequest UpdateTaskSet where
-  type Rs UpdateTaskSet = UpdateTaskSetResponse
+instance Core.AWSRequest UpdateTaskSet where
+  type
+    AWSResponse UpdateTaskSet =
+      UpdateTaskSetResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           UpdateTaskSetResponse'
-            Prelude.<$> (x Prelude..?> "taskSet")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "taskSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable UpdateTaskSet
+instance Core.Hashable UpdateTaskSet
 
-instance Prelude.NFData UpdateTaskSet
+instance Core.NFData UpdateTaskSet
 
-instance Prelude.ToHeaders UpdateTaskSet where
+instance Core.ToHeaders UpdateTaskSet where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" ::
+                          Core.ByteString
+                      ),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON UpdateTaskSet where
+instance Core.ToJSON UpdateTaskSet where
   toJSON UpdateTaskSet' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ Prelude.Just ("cluster" Prelude..= cluster),
-            Prelude.Just ("service" Prelude..= service),
-            Prelude.Just ("taskSet" Prelude..= taskSet),
-            Prelude.Just ("scale" Prelude..= scale)
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("cluster" Core..= cluster),
+            Core.Just ("service" Core..= service),
+            Core.Just ("taskSet" Core..= taskSet),
+            Core.Just ("scale" Core..= scale)
           ]
       )
 
-instance Prelude.ToPath UpdateTaskSet where
-  toPath = Prelude.const "/"
+instance Core.ToPath UpdateTaskSet where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery UpdateTaskSet where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery UpdateTaskSet where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newUpdateTaskSetResponse' smart constructor.
 data UpdateTaskSetResponse = UpdateTaskSetResponse'
-  { taskSet :: Prelude.Maybe TaskSet,
+  { taskSet :: Core.Maybe TaskSet,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'UpdateTaskSetResponse' with all optional fields omitted.
@@ -194,20 +193,20 @@ data UpdateTaskSetResponse = UpdateTaskSetResponse'
 -- 'httpStatus', 'updateTaskSetResponse_httpStatus' - The response's http status code.
 newUpdateTaskSetResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   UpdateTaskSetResponse
 newUpdateTaskSetResponse pHttpStatus_ =
   UpdateTaskSetResponse'
-    { taskSet = Prelude.Nothing,
+    { taskSet = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | Undocumented member.
-updateTaskSetResponse_taskSet :: Lens.Lens' UpdateTaskSetResponse (Prelude.Maybe TaskSet)
+updateTaskSetResponse_taskSet :: Lens.Lens' UpdateTaskSetResponse (Core.Maybe TaskSet)
 updateTaskSetResponse_taskSet = Lens.lens (\UpdateTaskSetResponse' {taskSet} -> taskSet) (\s@UpdateTaskSetResponse' {} a -> s {taskSet = a} :: UpdateTaskSetResponse)
 
 -- | The response's http status code.
-updateTaskSetResponse_httpStatus :: Lens.Lens' UpdateTaskSetResponse Prelude.Int
+updateTaskSetResponse_httpStatus :: Lens.Lens' UpdateTaskSetResponse Core.Int
 updateTaskSetResponse_httpStatus = Lens.lens (\UpdateTaskSetResponse' {httpStatus} -> httpStatus) (\s@UpdateTaskSetResponse' {} a -> s {httpStatus = a} :: UpdateTaskSetResponse)
 
-instance Prelude.NFData UpdateTaskSetResponse
+instance Core.NFData UpdateTaskSetResponse

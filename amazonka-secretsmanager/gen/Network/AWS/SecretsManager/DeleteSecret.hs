@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -82,8 +81,8 @@ module Network.AWS.SecretsManager.DeleteSecret
   )
 where
 
+import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
@@ -96,7 +95,7 @@ data DeleteSecret = DeleteSecret'
     -- call.
     --
     -- This value can range from 7 to 30 days with a default value of 30.
-    recoveryWindowInDays :: Prelude.Maybe Prelude.Integer,
+    recoveryWindowInDays :: Core.Maybe Core.Integer,
     -- | (Optional) Specifies that the secret is to be deleted without any
     -- recovery window. You can\'t use both this parameter and the
     -- @RecoveryWindowInDays@ parameter in the same API call.
@@ -117,7 +116,7 @@ data DeleteSecret = DeleteSecret'
     -- If you use this parameter and include a previously deleted or
     -- nonexistent secret, the operation does not return the error
     -- @ResourceNotFoundException@ in order to correctly handle retries.
-    forceDeleteWithoutRecovery :: Prelude.Maybe Prelude.Bool,
+    forceDeleteWithoutRecovery :: Core.Maybe Core.Bool,
     -- | Specifies the secret to delete. You can specify either the Amazon
     -- Resource Name (ARN) or the friendly name of the secret.
     --
@@ -139,9 +138,9 @@ data DeleteSecret = DeleteSecret'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text
+    secretId :: Core.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSecret' with all optional fields omitted.
@@ -202,13 +201,12 @@ data DeleteSecret = DeleteSecret'
 -- /AccessDeniedException/ error, depending on your permissions.
 newDeleteSecret ::
   -- | 'secretId'
-  Prelude.Text ->
+  Core.Text ->
   DeleteSecret
 newDeleteSecret pSecretId_ =
   DeleteSecret'
-    { recoveryWindowInDays =
-        Prelude.Nothing,
-      forceDeleteWithoutRecovery = Prelude.Nothing,
+    { recoveryWindowInDays = Core.Nothing,
+      forceDeleteWithoutRecovery = Core.Nothing,
       secretId = pSecretId_
     }
 
@@ -218,7 +216,7 @@ newDeleteSecret pSecretId_ =
 -- call.
 --
 -- This value can range from 7 to 30 days with a default value of 30.
-deleteSecret_recoveryWindowInDays :: Lens.Lens' DeleteSecret (Prelude.Maybe Prelude.Integer)
+deleteSecret_recoveryWindowInDays :: Lens.Lens' DeleteSecret (Core.Maybe Core.Integer)
 deleteSecret_recoveryWindowInDays = Lens.lens (\DeleteSecret' {recoveryWindowInDays} -> recoveryWindowInDays) (\s@DeleteSecret' {} a -> s {recoveryWindowInDays = a} :: DeleteSecret)
 
 -- | (Optional) Specifies that the secret is to be deleted without any
@@ -241,7 +239,7 @@ deleteSecret_recoveryWindowInDays = Lens.lens (\DeleteSecret' {recoveryWindowInD
 -- If you use this parameter and include a previously deleted or
 -- nonexistent secret, the operation does not return the error
 -- @ResourceNotFoundException@ in order to correctly handle retries.
-deleteSecret_forceDeleteWithoutRecovery :: Lens.Lens' DeleteSecret (Prelude.Maybe Prelude.Bool)
+deleteSecret_forceDeleteWithoutRecovery :: Lens.Lens' DeleteSecret (Core.Maybe Core.Bool)
 deleteSecret_forceDeleteWithoutRecovery = Lens.lens (\DeleteSecret' {forceDeleteWithoutRecovery} -> forceDeleteWithoutRecovery) (\s@DeleteSecret' {} a -> s {forceDeleteWithoutRecovery = a} :: DeleteSecret)
 
 -- | Specifies the secret to delete. You can specify either the Amazon
@@ -265,74 +263,70 @@ deleteSecret_forceDeleteWithoutRecovery = Lens.lens (\DeleteSecret' {forceDelete
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-deleteSecret_secretId :: Lens.Lens' DeleteSecret Prelude.Text
+deleteSecret_secretId :: Lens.Lens' DeleteSecret Core.Text
 deleteSecret_secretId = Lens.lens (\DeleteSecret' {secretId} -> secretId) (\s@DeleteSecret' {} a -> s {secretId = a} :: DeleteSecret)
 
-instance Prelude.AWSRequest DeleteSecret where
-  type Rs DeleteSecret = DeleteSecretResponse
+instance Core.AWSRequest DeleteSecret where
+  type AWSResponse DeleteSecret = DeleteSecretResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
           DeleteSecretResponse'
-            Prelude.<$> (x Prelude..?> "ARN")
-            Prelude.<*> (x Prelude..?> "Name")
-            Prelude.<*> (x Prelude..?> "DeletionDate")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Core.<$> (x Core..?> "ARN")
+            Core.<*> (x Core..?> "Name")
+            Core.<*> (x Core..?> "DeletionDate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteSecret
+instance Core.Hashable DeleteSecret
 
-instance Prelude.NFData DeleteSecret
+instance Core.NFData DeleteSecret
 
-instance Prelude.ToHeaders DeleteSecret where
+instance Core.ToHeaders DeleteSecret where
   toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
+    Core.const
+      ( Core.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.DeleteSecret" ::
-                             Prelude.ByteString
-                         ),
+              Core.=# ("secretsmanager.DeleteSecret" :: Core.ByteString),
             "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
+              Core.=# ("application/x-amz-json-1.1" :: Core.ByteString)
           ]
       )
 
-instance Prelude.ToJSON DeleteSecret where
+instance Core.ToJSON DeleteSecret where
   toJSON DeleteSecret' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("RecoveryWindowInDays" Prelude..=)
-              Prelude.<$> recoveryWindowInDays,
-            ("ForceDeleteWithoutRecovery" Prelude..=)
-              Prelude.<$> forceDeleteWithoutRecovery,
-            Prelude.Just ("SecretId" Prelude..= secretId)
+    Core.object
+      ( Core.catMaybes
+          [ ("RecoveryWindowInDays" Core..=)
+              Core.<$> recoveryWindowInDays,
+            ("ForceDeleteWithoutRecovery" Core..=)
+              Core.<$> forceDeleteWithoutRecovery,
+            Core.Just ("SecretId" Core..= secretId)
           ]
       )
 
-instance Prelude.ToPath DeleteSecret where
-  toPath = Prelude.const "/"
+instance Core.ToPath DeleteSecret where
+  toPath = Core.const "/"
 
-instance Prelude.ToQuery DeleteSecret where
-  toQuery = Prelude.const Prelude.mempty
+instance Core.ToQuery DeleteSecret where
+  toQuery = Core.const Core.mempty
 
 -- | /See:/ 'newDeleteSecretResponse' smart constructor.
 data DeleteSecretResponse = DeleteSecretResponse'
   { -- | The ARN of the secret that is now scheduled for deletion.
-    arn :: Prelude.Maybe Prelude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The friendly name of the secret currently scheduled for deletion.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Core.Maybe Core.Text,
     -- | The date and time after which this secret can be deleted by Secrets
     -- Manager and can no longer be restored. This value is the date and time
     -- of the delete request plus the number of days specified in
     -- @RecoveryWindowInDays@.
-    deletionDate :: Prelude.Maybe Prelude.POSIX,
+    deletionDate :: Core.Maybe Core.POSIX,
     -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    httpStatus :: Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'DeleteSecretResponse' with all optional fields omitted.
@@ -354,33 +348,33 @@ data DeleteSecretResponse = DeleteSecretResponse'
 -- 'httpStatus', 'deleteSecretResponse_httpStatus' - The response's http status code.
 newDeleteSecretResponse ::
   -- | 'httpStatus'
-  Prelude.Int ->
+  Core.Int ->
   DeleteSecretResponse
 newDeleteSecretResponse pHttpStatus_ =
   DeleteSecretResponse'
-    { arn = Prelude.Nothing,
-      name = Prelude.Nothing,
-      deletionDate = Prelude.Nothing,
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      deletionDate = Core.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the secret that is now scheduled for deletion.
-deleteSecretResponse_arn :: Lens.Lens' DeleteSecretResponse (Prelude.Maybe Prelude.Text)
+deleteSecretResponse_arn :: Lens.Lens' DeleteSecretResponse (Core.Maybe Core.Text)
 deleteSecretResponse_arn = Lens.lens (\DeleteSecretResponse' {arn} -> arn) (\s@DeleteSecretResponse' {} a -> s {arn = a} :: DeleteSecretResponse)
 
 -- | The friendly name of the secret currently scheduled for deletion.
-deleteSecretResponse_name :: Lens.Lens' DeleteSecretResponse (Prelude.Maybe Prelude.Text)
+deleteSecretResponse_name :: Lens.Lens' DeleteSecretResponse (Core.Maybe Core.Text)
 deleteSecretResponse_name = Lens.lens (\DeleteSecretResponse' {name} -> name) (\s@DeleteSecretResponse' {} a -> s {name = a} :: DeleteSecretResponse)
 
 -- | The date and time after which this secret can be deleted by Secrets
 -- Manager and can no longer be restored. This value is the date and time
 -- of the delete request plus the number of days specified in
 -- @RecoveryWindowInDays@.
-deleteSecretResponse_deletionDate :: Lens.Lens' DeleteSecretResponse (Prelude.Maybe Prelude.UTCTime)
-deleteSecretResponse_deletionDate = Lens.lens (\DeleteSecretResponse' {deletionDate} -> deletionDate) (\s@DeleteSecretResponse' {} a -> s {deletionDate = a} :: DeleteSecretResponse) Prelude.. Lens.mapping Prelude._Time
+deleteSecretResponse_deletionDate :: Lens.Lens' DeleteSecretResponse (Core.Maybe Core.UTCTime)
+deleteSecretResponse_deletionDate = Lens.lens (\DeleteSecretResponse' {deletionDate} -> deletionDate) (\s@DeleteSecretResponse' {} a -> s {deletionDate = a} :: DeleteSecretResponse) Core.. Lens.mapping Core._Time
 
 -- | The response's http status code.
-deleteSecretResponse_httpStatus :: Lens.Lens' DeleteSecretResponse Prelude.Int
+deleteSecretResponse_httpStatus :: Lens.Lens' DeleteSecretResponse Core.Int
 deleteSecretResponse_httpStatus = Lens.lens (\DeleteSecretResponse' {httpStatus} -> httpStatus) (\s@DeleteSecretResponse' {} a -> s {httpStatus = a} :: DeleteSecretResponse)
 
-instance Prelude.NFData DeleteSecretResponse
+instance Core.NFData DeleteSecretResponse

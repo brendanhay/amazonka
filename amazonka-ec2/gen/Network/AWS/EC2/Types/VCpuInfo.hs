@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.EC2.Types.VCpuInfo where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.EC2.Internal
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the vCPU configurations for the instance type.
 --
 -- /See:/ 'newVCpuInfo' smart constructor.
 data VCpuInfo = VCpuInfo'
   { -- | The default number of cores for the instance type.
-    defaultCores :: Prelude.Maybe Prelude.Int,
+    defaultCores :: Core.Maybe Core.Int,
     -- | The default number of vCPUs for the instance type.
-    defaultVCpus :: Prelude.Maybe Prelude.Int,
+    defaultVCpus :: Core.Maybe Core.Int,
     -- | The valid number of threads per core that can be configured for the
     -- instance type.
-    validThreadsPerCore :: Prelude.Maybe [Prelude.Int],
+    validThreadsPerCore :: Core.Maybe [Core.Int],
     -- | The valid number of cores that can be configured for the instance type.
-    validCores :: Prelude.Maybe [Prelude.Int],
+    validCores :: Core.Maybe [Core.Int],
     -- | The default number of threads per core for the instance type.
-    defaultThreadsPerCore :: Prelude.Maybe Prelude.Int
+    defaultThreadsPerCore :: Core.Maybe Core.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'VCpuInfo' with all optional fields omitted.
@@ -64,49 +63,48 @@ newVCpuInfo ::
   VCpuInfo
 newVCpuInfo =
   VCpuInfo'
-    { defaultCores = Prelude.Nothing,
-      defaultVCpus = Prelude.Nothing,
-      validThreadsPerCore = Prelude.Nothing,
-      validCores = Prelude.Nothing,
-      defaultThreadsPerCore = Prelude.Nothing
+    { defaultCores = Core.Nothing,
+      defaultVCpus = Core.Nothing,
+      validThreadsPerCore = Core.Nothing,
+      validCores = Core.Nothing,
+      defaultThreadsPerCore = Core.Nothing
     }
 
 -- | The default number of cores for the instance type.
-vCpuInfo_defaultCores :: Lens.Lens' VCpuInfo (Prelude.Maybe Prelude.Int)
+vCpuInfo_defaultCores :: Lens.Lens' VCpuInfo (Core.Maybe Core.Int)
 vCpuInfo_defaultCores = Lens.lens (\VCpuInfo' {defaultCores} -> defaultCores) (\s@VCpuInfo' {} a -> s {defaultCores = a} :: VCpuInfo)
 
 -- | The default number of vCPUs for the instance type.
-vCpuInfo_defaultVCpus :: Lens.Lens' VCpuInfo (Prelude.Maybe Prelude.Int)
+vCpuInfo_defaultVCpus :: Lens.Lens' VCpuInfo (Core.Maybe Core.Int)
 vCpuInfo_defaultVCpus = Lens.lens (\VCpuInfo' {defaultVCpus} -> defaultVCpus) (\s@VCpuInfo' {} a -> s {defaultVCpus = a} :: VCpuInfo)
 
 -- | The valid number of threads per core that can be configured for the
 -- instance type.
-vCpuInfo_validThreadsPerCore :: Lens.Lens' VCpuInfo (Prelude.Maybe [Prelude.Int])
-vCpuInfo_validThreadsPerCore = Lens.lens (\VCpuInfo' {validThreadsPerCore} -> validThreadsPerCore) (\s@VCpuInfo' {} a -> s {validThreadsPerCore = a} :: VCpuInfo) Prelude.. Lens.mapping Prelude._Coerce
+vCpuInfo_validThreadsPerCore :: Lens.Lens' VCpuInfo (Core.Maybe [Core.Int])
+vCpuInfo_validThreadsPerCore = Lens.lens (\VCpuInfo' {validThreadsPerCore} -> validThreadsPerCore) (\s@VCpuInfo' {} a -> s {validThreadsPerCore = a} :: VCpuInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The valid number of cores that can be configured for the instance type.
-vCpuInfo_validCores :: Lens.Lens' VCpuInfo (Prelude.Maybe [Prelude.Int])
-vCpuInfo_validCores = Lens.lens (\VCpuInfo' {validCores} -> validCores) (\s@VCpuInfo' {} a -> s {validCores = a} :: VCpuInfo) Prelude.. Lens.mapping Prelude._Coerce
+vCpuInfo_validCores :: Lens.Lens' VCpuInfo (Core.Maybe [Core.Int])
+vCpuInfo_validCores = Lens.lens (\VCpuInfo' {validCores} -> validCores) (\s@VCpuInfo' {} a -> s {validCores = a} :: VCpuInfo) Core.. Lens.mapping Lens._Coerce
 
 -- | The default number of threads per core for the instance type.
-vCpuInfo_defaultThreadsPerCore :: Lens.Lens' VCpuInfo (Prelude.Maybe Prelude.Int)
+vCpuInfo_defaultThreadsPerCore :: Lens.Lens' VCpuInfo (Core.Maybe Core.Int)
 vCpuInfo_defaultThreadsPerCore = Lens.lens (\VCpuInfo' {defaultThreadsPerCore} -> defaultThreadsPerCore) (\s@VCpuInfo' {} a -> s {defaultThreadsPerCore = a} :: VCpuInfo)
 
-instance Prelude.FromXML VCpuInfo where
+instance Core.FromXML VCpuInfo where
   parseXML x =
     VCpuInfo'
-      Prelude.<$> (x Prelude..@? "defaultCores")
-      Prelude.<*> (x Prelude..@? "defaultVCpus")
-      Prelude.<*> ( x Prelude..@? "validThreadsPerCore"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Prelude..@? "validCores"
-                      Prelude..!@ Prelude.mempty
-                      Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
-                  )
-      Prelude.<*> (x Prelude..@? "defaultThreadsPerCore")
+      Core.<$> (x Core..@? "defaultCores")
+      Core.<*> (x Core..@? "defaultVCpus")
+      Core.<*> ( x Core..@? "validThreadsPerCore"
+                   Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> ( x Core..@? "validCores" Core..!@ Core.mempty
+                   Core.>>= Core.may (Core.parseXMLList "item")
+               )
+      Core.<*> (x Core..@? "defaultThreadsPerCore")
 
-instance Prelude.Hashable VCpuInfo
+instance Core.Hashable VCpuInfo
 
-instance Prelude.NFData VCpuInfo
+instance Core.NFData VCpuInfo

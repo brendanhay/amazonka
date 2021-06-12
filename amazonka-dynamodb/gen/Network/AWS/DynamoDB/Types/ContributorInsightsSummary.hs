@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE DuplicateRecordFields #-}
 {-# LANGUAGE NamedFieldPuns #-}
@@ -20,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.DynamoDB.Types.ContributorInsightsSummary where
 
+import qualified Network.AWS.Core as Core
 import Network.AWS.DynamoDB.Types.ContributorInsightsStatus
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Prelude
 
 -- | Represents a Contributor Insights summary entry.
 --
 -- /See:/ 'newContributorInsightsSummary' smart constructor.
 data ContributorInsightsSummary = ContributorInsightsSummary'
   { -- | Name of the table associated with the summary.
-    tableName :: Prelude.Maybe Prelude.Text,
+    tableName :: Core.Maybe Core.Text,
     -- | Name of the index associated with the summary, if any.
-    indexName :: Prelude.Maybe Prelude.Text,
+    indexName :: Core.Maybe Core.Text,
     -- | Describes the current status for contributor insights for the given
     -- table and index, if applicable.
-    contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus
+    contributorInsightsStatus :: Core.Maybe ContributorInsightsStatus
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+  deriving (Core.Eq, Core.Read, Core.Show, Core.Generic)
 
 -- |
 -- Create a value of 'ContributorInsightsSummary' with all optional fields omitted.
@@ -57,35 +56,35 @@ newContributorInsightsSummary ::
 newContributorInsightsSummary =
   ContributorInsightsSummary'
     { tableName =
-        Prelude.Nothing,
-      indexName = Prelude.Nothing,
-      contributorInsightsStatus = Prelude.Nothing
+        Core.Nothing,
+      indexName = Core.Nothing,
+      contributorInsightsStatus = Core.Nothing
     }
 
 -- | Name of the table associated with the summary.
-contributorInsightsSummary_tableName :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe Prelude.Text)
+contributorInsightsSummary_tableName :: Lens.Lens' ContributorInsightsSummary (Core.Maybe Core.Text)
 contributorInsightsSummary_tableName = Lens.lens (\ContributorInsightsSummary' {tableName} -> tableName) (\s@ContributorInsightsSummary' {} a -> s {tableName = a} :: ContributorInsightsSummary)
 
 -- | Name of the index associated with the summary, if any.
-contributorInsightsSummary_indexName :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe Prelude.Text)
+contributorInsightsSummary_indexName :: Lens.Lens' ContributorInsightsSummary (Core.Maybe Core.Text)
 contributorInsightsSummary_indexName = Lens.lens (\ContributorInsightsSummary' {indexName} -> indexName) (\s@ContributorInsightsSummary' {} a -> s {indexName = a} :: ContributorInsightsSummary)
 
 -- | Describes the current status for contributor insights for the given
 -- table and index, if applicable.
-contributorInsightsSummary_contributorInsightsStatus :: Lens.Lens' ContributorInsightsSummary (Prelude.Maybe ContributorInsightsStatus)
+contributorInsightsSummary_contributorInsightsStatus :: Lens.Lens' ContributorInsightsSummary (Core.Maybe ContributorInsightsStatus)
 contributorInsightsSummary_contributorInsightsStatus = Lens.lens (\ContributorInsightsSummary' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@ContributorInsightsSummary' {} a -> s {contributorInsightsStatus = a} :: ContributorInsightsSummary)
 
-instance Prelude.FromJSON ContributorInsightsSummary where
+instance Core.FromJSON ContributorInsightsSummary where
   parseJSON =
-    Prelude.withObject
+    Core.withObject
       "ContributorInsightsSummary"
       ( \x ->
           ContributorInsightsSummary'
-            Prelude.<$> (x Prelude..:? "TableName")
-            Prelude.<*> (x Prelude..:? "IndexName")
-            Prelude.<*> (x Prelude..:? "ContributorInsightsStatus")
+            Core.<$> (x Core..:? "TableName")
+            Core.<*> (x Core..:? "IndexName")
+            Core.<*> (x Core..:? "ContributorInsightsStatus")
       )
 
-instance Prelude.Hashable ContributorInsightsSummary
+instance Core.Hashable ContributorInsightsSummary
 
-instance Prelude.NFData ContributorInsightsSummary
+instance Core.NFData ContributorInsightsSummary
